@@ -344,19 +344,19 @@ export interface WidgetContextHandler {
     (widget: Gtk.Widget, context: Context): void
 }
 export class ApplicationAddin {
-    /* Methods of Ide.ApplicationAddin */
+    /* Methods of Ide-1.0.Ide.ApplicationAddin */
     load(application: Application): void
     unload(application: Application): void
-    /* Virtual methods of Ide.ApplicationAddin */
+    /* Virtual methods of Ide-1.0.Ide.ApplicationAddin */
     vfunc_load(application: Application): void
     vfunc_unload(application: Application): void
     static name: string
 }
 export class ApplicationTool {
-    /* Methods of Ide.ApplicationTool */
+    /* Methods of Ide-1.0.Ide.ApplicationTool */
     run_async(arguments_: string[], cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     run_finish(result: Gio.AsyncResult): number
-    /* Virtual methods of Ide.ApplicationTool */
+    /* Virtual methods of Ide-1.0.Ide.ApplicationTool */
     vfunc_run_async(arguments_: string[], cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     vfunc_run_finish(result: Gio.AsyncResult): number
     static name: string
@@ -364,20 +364,20 @@ export class ApplicationTool {
 export interface BuildPipelineAddin_ConstructProps extends Object_ConstructProps {
 }
 export class BuildPipelineAddin {
-    /* Fields of Ide.Object */
+    /* Fields of Ide-1.0.Ide.Object */
     parent_instance: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Ide.BuildPipelineAddin */
+    /* Methods of Ide-1.0.Ide.BuildPipelineAddin */
     load(pipeline: BuildPipeline): void
     track(stage_id: number): void
     unload(pipeline: BuildPipeline): void
-    /* Methods of Ide.Object */
+    /* Methods of Ide-1.0.Ide.Object */
     get_context(): Context
     hold(): boolean
     release(): void
     set_context(context: Context): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -399,14 +399,14 @@ export class BuildPipelineAddin {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Ide.BuildPipelineAddin */
+    /* Virtual methods of Ide-1.0.Ide.BuildPipelineAddin */
     vfunc_load(pipeline: BuildPipeline): void
     vfunc_unload(pipeline: BuildPipeline): void
-    /* Virtual methods of Ide.Object */
+    /* Virtual methods of Ide-1.0.Ide.Object */
     vfunc_destroy(): void
     vfunc_get_context(): Context
     vfunc_set_context(context: Context): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -414,11 +414,11 @@ export class BuildPipelineAddin {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Ide.Object */
+    /* Signals of Ide-1.0.Ide.Object */
     connect(sigName: "destroy", callback: (($obj: BuildPipelineAddin) => void)): number
     connect_after(sigName: "destroy", callback: (($obj: BuildPipelineAddin) => void)): number
     emit(sigName: "destroy"): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: BuildPipelineAddin, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: BuildPipelineAddin, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -436,11 +436,11 @@ export interface BuildSystem_ConstructProps extends Object_ConstructProps {
     project_file?: Gio.File
 }
 export class BuildSystem {
-    /* Fields of Ide.Object */
+    /* Fields of Ide-1.0.Ide.Object */
     parent_instance: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Ide.BuildSystem */
+    /* Methods of Ide-1.0.Ide.BuildSystem */
     get_build_flags_async(file: File, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     get_build_flags_finish(result: Gio.AsyncResult): string[]
     get_build_targets_async(cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
@@ -449,12 +449,12 @@ export class BuildSystem {
     get_display_name(): string
     get_id(): string
     get_priority(): number
-    /* Methods of Ide.Object */
+    /* Methods of Ide-1.0.Ide.Object */
     get_context(): Context
     hold(): boolean
     release(): void
     set_context(context: Context): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -476,7 +476,7 @@ export class BuildSystem {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Ide.BuildSystem */
+    /* Virtual methods of Ide-1.0.Ide.BuildSystem */
     vfunc_get_build_flags_async(file: File, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     vfunc_get_build_flags_finish(result: Gio.AsyncResult): string[]
     vfunc_get_build_targets_async(cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
@@ -485,11 +485,11 @@ export class BuildSystem {
     vfunc_get_display_name(): string
     vfunc_get_id(): string
     vfunc_get_priority(): number
-    /* Virtual methods of Ide.Object */
+    /* Virtual methods of Ide-1.0.Ide.Object */
     vfunc_destroy(): void
     vfunc_get_context(): Context
     vfunc_set_context(context: Context): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -497,11 +497,11 @@ export class BuildSystem {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Ide.Object */
+    /* Signals of Ide-1.0.Ide.Object */
     connect(sigName: "destroy", callback: (($obj: BuildSystem) => void)): number
     connect_after(sigName: "destroy", callback: (($obj: BuildSystem) => void)): number
     emit(sigName: "destroy"): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: BuildSystem, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: BuildSystem, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -518,28 +518,28 @@ export class BuildSystem {
     static $gtype: GObject.Type
 }
 export class BuildSystemDiscovery {
-    /* Methods of Ide.BuildSystemDiscovery */
+    /* Methods of Ide-1.0.Ide.BuildSystemDiscovery */
     discover(project_file: Gio.File, cancellable?: Gio.Cancellable | null): [ /* returnType */ string, /* priority */ number ]
-    /* Virtual methods of Ide.BuildSystemDiscovery */
+    /* Virtual methods of Ide-1.0.Ide.BuildSystemDiscovery */
     vfunc_discover(project_file: Gio.File, cancellable?: Gio.Cancellable | null): [ /* returnType */ string, /* priority */ number ]
     static name: string
 }
 export interface BuildTarget_ConstructProps extends Object_ConstructProps {
 }
 export class BuildTarget {
-    /* Fields of Ide.Object */
+    /* Fields of Ide-1.0.Ide.Object */
     parent_instance: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Ide.BuildTarget */
+    /* Methods of Ide-1.0.Ide.BuildTarget */
     get_install_directory(): Gio.File | null
     get_name(): string | null
-    /* Methods of Ide.Object */
+    /* Methods of Ide-1.0.Ide.Object */
     get_context(): Context
     hold(): boolean
     release(): void
     set_context(context: Context): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -561,14 +561,14 @@ export class BuildTarget {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Ide.BuildTarget */
+    /* Virtual methods of Ide-1.0.Ide.BuildTarget */
     vfunc_get_install_directory(): Gio.File | null
     vfunc_get_name(): string | null
-    /* Virtual methods of Ide.Object */
+    /* Virtual methods of Ide-1.0.Ide.Object */
     vfunc_destroy(): void
     vfunc_get_context(): Context
     vfunc_set_context(context: Context): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -576,11 +576,11 @@ export class BuildTarget {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Ide.Object */
+    /* Signals of Ide-1.0.Ide.Object */
     connect(sigName: "destroy", callback: (($obj: BuildTarget) => void)): number
     connect_after(sigName: "destroy", callback: (($obj: BuildTarget) => void)): number
     emit(sigName: "destroy"): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: BuildTarget, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: BuildTarget, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -594,9 +594,9 @@ export class BuildTarget {
     static $gtype: GObject.Type
 }
 export class CompletionProvider {
-    /* Methods of Ide.CompletionProvider */
+    /* Methods of Ide-1.0.Ide.CompletionProvider */
     load(context: Context): void
-    /* Methods of GtkSource.CompletionProvider */
+    /* Methods of GtkSource-3.0.GtkSource.CompletionProvider */
     activate_proposal(proposal: GtkSource.CompletionProposal, iter: Gtk.TextIter): boolean
     get_activation(): GtkSource.CompletionActivation
     get_gicon(): Gio.Icon | null
@@ -610,9 +610,9 @@ export class CompletionProvider {
     match(context: GtkSource.CompletionContext): boolean
     populate(context: GtkSource.CompletionContext): void
     update_info(proposal: GtkSource.CompletionProposal, info: GtkSource.CompletionInfo): void
-    /* Virtual methods of Ide.CompletionProvider */
+    /* Virtual methods of Ide-1.0.Ide.CompletionProvider */
     vfunc_load(context: Context): void
-    /* Virtual methods of GtkSource.CompletionProvider */
+    /* Virtual methods of GtkSource-3.0.GtkSource.CompletionProvider */
     vfunc_activate_proposal(proposal: GtkSource.CompletionProposal, iter: Gtk.TextIter): boolean
     vfunc_get_activation(): GtkSource.CompletionActivation
     vfunc_get_gicon(): Gio.Icon | null
@@ -633,13 +633,13 @@ export class CompletionProvider {
     static context_in_comment_or_string(context: GtkSource.CompletionContext): boolean
 }
 export class ConfigurationProvider {
-    /* Methods of Ide.ConfigurationProvider */
+    /* Methods of Ide-1.0.Ide.ConfigurationProvider */
     load_async(manager: ConfigurationManager, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     load_finish(result: Gio.AsyncResult): boolean
     save_async(cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     save_finish(result: Gio.AsyncResult): boolean
     unload(manager: ConfigurationManager): void
-    /* Virtual methods of Ide.ConfigurationProvider */
+    /* Virtual methods of Ide-1.0.Ide.ConfigurationProvider */
     vfunc_load_async(manager: ConfigurationManager, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     vfunc_load_finish(result: Gio.AsyncResult): boolean
     vfunc_save_async(cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
@@ -651,23 +651,23 @@ export interface DeviceProvider_ConstructProps extends Object_ConstructProps {
     context?: Context
 }
 export class DeviceProvider {
-    /* Properties of Ide.DeviceProvider */
+    /* Properties of Ide-1.0.Ide.DeviceProvider */
     readonly settled: boolean
-    /* Fields of Ide.Object */
+    /* Fields of Ide-1.0.Ide.Object */
     parent_instance: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Ide.DeviceProvider */
+    /* Methods of Ide-1.0.Ide.DeviceProvider */
     emit_device_added(device: Device): void
     emit_device_removed(device: Device): void
     get_devices(): Device[]
     get_settled(): boolean
-    /* Methods of Ide.Object */
+    /* Methods of Ide-1.0.Ide.Object */
     get_context(): Context
     hold(): boolean
     release(): void
     set_context(context: Context): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -689,14 +689,14 @@ export class DeviceProvider {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Ide.DeviceProvider */
+    /* Virtual methods of Ide-1.0.Ide.DeviceProvider */
     vfunc_get_devices(): Device[]
     vfunc_get_settled(): boolean
-    /* Virtual methods of Ide.Object */
+    /* Virtual methods of Ide-1.0.Ide.Object */
     vfunc_destroy(): void
     vfunc_get_context(): Context
     vfunc_set_context(context: Context): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -704,18 +704,18 @@ export class DeviceProvider {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Ide.DeviceProvider */
+    /* Signals of Ide-1.0.Ide.DeviceProvider */
     connect(sigName: "device-added", callback: (($obj: DeviceProvider, object: Device) => void)): number
     connect_after(sigName: "device-added", callback: (($obj: DeviceProvider, object: Device) => void)): number
     emit(sigName: "device-added", object: Device): void
     connect(sigName: "device-removed", callback: (($obj: DeviceProvider, object: Device) => void)): number
     connect_after(sigName: "device-removed", callback: (($obj: DeviceProvider, object: Device) => void)): number
     emit(sigName: "device-removed", object: Device): void
-    /* Signals of Ide.Object */
+    /* Signals of Ide-1.0.Ide.Object */
     connect(sigName: "destroy", callback: (($obj: DeviceProvider) => void)): number
     connect_after(sigName: "destroy", callback: (($obj: DeviceProvider) => void)): number
     emit(sigName: "destroy"): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: DeviceProvider, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: DeviceProvider, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -733,21 +733,21 @@ export class DeviceProvider {
 export interface DiagnosticProvider_ConstructProps extends Object_ConstructProps {
 }
 export class DiagnosticProvider {
-    /* Fields of Ide.Object */
+    /* Fields of Ide-1.0.Ide.Object */
     parent_instance: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Ide.DiagnosticProvider */
+    /* Methods of Ide-1.0.Ide.DiagnosticProvider */
     diagnose_async(file: File, buffer: Buffer, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     diagnose_finish(result: Gio.AsyncResult): Diagnostics | null
     emit_invalidated(): void
     load(): void
-    /* Methods of Ide.Object */
+    /* Methods of Ide-1.0.Ide.Object */
     get_context(): Context
     hold(): boolean
     release(): void
     set_context(context: Context): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -769,15 +769,15 @@ export class DiagnosticProvider {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Ide.DiagnosticProvider */
+    /* Virtual methods of Ide-1.0.Ide.DiagnosticProvider */
     vfunc_diagnose_async(file: File, buffer: Buffer, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     vfunc_diagnose_finish(result: Gio.AsyncResult): Diagnostics | null
     vfunc_load(): void
-    /* Virtual methods of Ide.Object */
+    /* Virtual methods of Ide-1.0.Ide.Object */
     vfunc_destroy(): void
     vfunc_get_context(): Context
     vfunc_set_context(context: Context): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -785,15 +785,15 @@ export class DiagnosticProvider {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Ide.DiagnosticProvider */
+    /* Signals of Ide-1.0.Ide.DiagnosticProvider */
     connect(sigName: "invalidated", callback: (($obj: DiagnosticProvider) => void)): number
     connect_after(sigName: "invalidated", callback: (($obj: DiagnosticProvider) => void)): number
     emit(sigName: "invalidated"): void
-    /* Signals of Ide.Object */
+    /* Signals of Ide-1.0.Ide.Object */
     connect(sigName: "destroy", callback: (($obj: DiagnosticProvider) => void)): number
     connect_after(sigName: "destroy", callback: (($obj: DiagnosticProvider) => void)): number
     emit(sigName: "destroy"): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: DiagnosticProvider, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: DiagnosticProvider, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -807,7 +807,7 @@ export class DiagnosticProvider {
     static $gtype: GObject.Type
 }
 export class EditorViewAddin {
-    /* Virtual methods of Ide.EditorViewAddin */
+    /* Virtual methods of Ide-1.0.Ide.EditorViewAddin */
     vfunc_language_changed(language_id: string): void
     vfunc_load(view: EditorView): void
     vfunc_load_source_view(source_view: SourceView): void
@@ -816,13 +816,13 @@ export class EditorViewAddin {
     static name: string
 }
 export class Formatter {
-    /* Methods of Ide.Formatter */
+    /* Methods of Ide-1.0.Ide.Formatter */
     format_async(buffer: Buffer, options: FormatterOptions, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     format_finish(result: Gio.AsyncResult): boolean
     format_range_async(buffer: Buffer, options: FormatterOptions, begin: Gtk.TextIter, end: Gtk.TextIter, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     format_range_finish(result: Gio.AsyncResult): boolean
     load(): void
-    /* Virtual methods of Ide.Formatter */
+    /* Virtual methods of Ide-1.0.Ide.Formatter */
     vfunc_format_async(buffer: Buffer, options: FormatterOptions, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     vfunc_format_finish(result: Gio.AsyncResult): boolean
     vfunc_format_range_async(buffer: Buffer, options: FormatterOptions, begin: Gtk.TextIter, end: Gtk.TextIter, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
@@ -831,9 +831,9 @@ export class Formatter {
     static name: string
 }
 export class GenesisAddin {
-    /* Properties of Ide.GenesisAddin */
+    /* Properties of Ide-1.0.Ide.GenesisAddin */
     readonly is_ready: boolean
-    /* Methods of Ide.GenesisAddin */
+    /* Methods of Ide-1.0.Ide.GenesisAddin */
     get_icon_name(): string
     get_label(): string
     get_next_label(): string
@@ -842,7 +842,7 @@ export class GenesisAddin {
     get_widget(): Gtk.Widget
     run_async(cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     run_finish(result: Gio.AsyncResult): boolean
-    /* Virtual methods of Ide.GenesisAddin */
+    /* Virtual methods of Ide-1.0.Ide.GenesisAddin */
     vfunc_get_icon_name(): string
     vfunc_get_label(): string
     vfunc_get_next_label(): string
@@ -857,19 +857,19 @@ export interface Highlighter_ConstructProps extends Object_ConstructProps {
     context?: Context
 }
 export class Highlighter {
-    /* Fields of Ide.Object */
+    /* Fields of Ide-1.0.Ide.Object */
     parent_instance: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Ide.Highlighter */
+    /* Methods of Ide-1.0.Ide.Highlighter */
     load(): void
     update(callback: HighlightCallback, range_begin: Gtk.TextIter, range_end: Gtk.TextIter): /* location */ Gtk.TextIter
-    /* Methods of Ide.Object */
+    /* Methods of Ide-1.0.Ide.Object */
     get_context(): Context
     hold(): boolean
     release(): void
     set_context(context: Context): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -891,15 +891,15 @@ export class Highlighter {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Ide.Highlighter */
+    /* Virtual methods of Ide-1.0.Ide.Highlighter */
     vfunc_load(): void
     vfunc_set_engine(engine: HighlightEngine): void
     vfunc_update(callback: HighlightCallback, range_begin: Gtk.TextIter, range_end: Gtk.TextIter): /* location */ Gtk.TextIter
-    /* Virtual methods of Ide.Object */
+    /* Virtual methods of Ide-1.0.Ide.Object */
     vfunc_destroy(): void
     vfunc_get_context(): Context
     vfunc_set_context(context: Context): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -907,11 +907,11 @@ export class Highlighter {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Ide.Object */
+    /* Signals of Ide-1.0.Ide.Object */
     connect(sigName: "destroy", callback: (($obj: Highlighter) => void)): number
     connect_after(sigName: "destroy", callback: (($obj: Highlighter) => void)): number
     emit(sigName: "destroy"): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Highlighter, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Highlighter, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -927,19 +927,19 @@ export class Highlighter {
 export interface Indenter_ConstructProps extends Object_ConstructProps {
 }
 export class Indenter {
-    /* Fields of Ide.Object */
+    /* Fields of Ide-1.0.Ide.Object */
     parent_instance: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Ide.Indenter */
+    /* Methods of Ide-1.0.Ide.Indenter */
     format(text_view: Gtk.TextView, begin: Gtk.TextIter, end: Gtk.TextIter, event: Gdk.EventKey): [ /* returnType */ string | null, /* cursor_offset */ number ]
     is_trigger(event: Gdk.EventKey): boolean
-    /* Methods of Ide.Object */
+    /* Methods of Ide-1.0.Ide.Object */
     get_context(): Context
     hold(): boolean
     release(): void
     set_context(context: Context): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -961,14 +961,14 @@ export class Indenter {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Ide.Indenter */
+    /* Virtual methods of Ide-1.0.Ide.Indenter */
     vfunc_format(text_view: Gtk.TextView, begin: Gtk.TextIter, end: Gtk.TextIter, event: Gdk.EventKey): [ /* returnType */ string | null, /* cursor_offset */ number ]
     vfunc_is_trigger(event: Gdk.EventKey): boolean
-    /* Virtual methods of Ide.Object */
+    /* Virtual methods of Ide-1.0.Ide.Object */
     vfunc_destroy(): void
     vfunc_get_context(): Context
     vfunc_set_context(context: Context): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -976,11 +976,11 @@ export class Indenter {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Ide.Object */
+    /* Signals of Ide-1.0.Ide.Object */
     connect(sigName: "destroy", callback: (($obj: Indenter) => void)): number
     connect_after(sigName: "destroy", callback: (($obj: Indenter) => void)): number
     emit(sigName: "destroy"): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Indenter, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Indenter, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -994,18 +994,18 @@ export class Indenter {
     static $gtype: GObject.Type
 }
 export class LayoutStackAddin {
-    /* Methods of Ide.LayoutStackAddin */
+    /* Methods of Ide-1.0.Ide.LayoutStackAddin */
     load(stack: LayoutStack): void
     set_view(view?: LayoutView | null): void
     unload(stack: LayoutStack): void
-    /* Virtual methods of Ide.LayoutStackAddin */
+    /* Virtual methods of Ide-1.0.Ide.LayoutStackAddin */
     vfunc_load(stack: LayoutStack): void
     vfunc_set_view(view?: LayoutView | null): void
     vfunc_unload(stack: LayoutStack): void
     static name: string
 }
 export class Perspective {
-    /* Methods of Ide.Perspective */
+    /* Methods of Ide-1.0.Ide.Perspective */
     agree_to_shutdown(): boolean
     get_accelerator(): string | null
     get_actions(): Gio.ActionGroup | null
@@ -1018,7 +1018,7 @@ export class Perspective {
     is_early(): boolean
     set_fullscreen(fullscreen: boolean): void
     views_foreach(callback: Gtk.Callback): void
-    /* Virtual methods of Ide.Perspective */
+    /* Virtual methods of Ide-1.0.Ide.Perspective */
     vfunc_agree_to_shutdown(): boolean
     vfunc_get_accelerator(): string | null
     vfunc_get_actions(): Gio.ActionGroup | null
@@ -1034,31 +1034,31 @@ export class Perspective {
     static name: string
 }
 export class PreferencesAddin {
-    /* Methods of Ide.PreferencesAddin */
+    /* Methods of Ide-1.0.Ide.PreferencesAddin */
     load(preferences: Dazzle.Preferences): void
     unload(preferences: Dazzle.Preferences): void
-    /* Virtual methods of Ide.PreferencesAddin */
+    /* Virtual methods of Ide-1.0.Ide.PreferencesAddin */
     vfunc_load(preferences: Dazzle.Preferences): void
     vfunc_unload(preferences: Dazzle.Preferences): void
     static name: string
 }
 export class ProjectMiner {
-    /* Methods of Ide.ProjectMiner */
+    /* Methods of Ide-1.0.Ide.ProjectMiner */
     emit_discovered(project_info: ProjectInfo): void
     mine_async(cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     mine_finish(result: Gio.AsyncResult): boolean
-    /* Virtual methods of Ide.ProjectMiner */
+    /* Virtual methods of Ide-1.0.Ide.ProjectMiner */
     vfunc_discovered(project_info: ProjectInfo): void
     vfunc_mine_async(cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     vfunc_mine_finish(result: Gio.AsyncResult): boolean
-    /* Signals of Ide.ProjectMiner */
+    /* Signals of Ide-1.0.Ide.ProjectMiner */
     connect(sigName: "discovered", callback: (($obj: ProjectMiner, project_info: ProjectInfo) => void)): number
     connect_after(sigName: "discovered", callback: (($obj: ProjectMiner, project_info: ProjectInfo) => void)): number
     emit(sigName: "discovered", project_info: ProjectInfo): void
     static name: string
 }
 export class ProjectTemplate {
-    /* Methods of Ide.ProjectTemplate */
+    /* Methods of Ide-1.0.Ide.ProjectTemplate */
     expand_async(params: GLib.HashTable, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     expand_finish(result: Gio.AsyncResult): boolean
     get_description(): string
@@ -1067,7 +1067,7 @@ export class ProjectTemplate {
     get_languages(): string[]
     get_name(): string
     get_widget(): Gtk.Widget
-    /* Virtual methods of Ide.ProjectTemplate */
+    /* Virtual methods of Ide-1.0.Ide.ProjectTemplate */
     vfunc_expand_async(params: GLib.HashTable, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     vfunc_expand_finish(result: Gio.AsyncResult): boolean
     vfunc_get_description(): string
@@ -1082,22 +1082,22 @@ export interface RenameProvider_ConstructProps extends Object_ConstructProps {
     buffer?: Buffer
 }
 export class RenameProvider {
-    /* Properties of Ide.RenameProvider */
+    /* Properties of Ide-1.0.Ide.RenameProvider */
     buffer: Buffer
-    /* Fields of Ide.Object */
+    /* Fields of Ide-1.0.Ide.Object */
     parent_instance: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Ide.RenameProvider */
+    /* Methods of Ide-1.0.Ide.RenameProvider */
     load(): void
     rename_async(location: SourceLocation, new_name: string, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     rename_finish(result: Gio.AsyncResult): [ /* returnType */ boolean, /* edits */ ProjectEdit[] | null ]
-    /* Methods of Ide.Object */
+    /* Methods of Ide-1.0.Ide.Object */
     get_context(): Context
     hold(): boolean
     release(): void
     set_context(context: Context): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -1119,15 +1119,15 @@ export class RenameProvider {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Ide.RenameProvider */
+    /* Virtual methods of Ide-1.0.Ide.RenameProvider */
     vfunc_load(): void
     vfunc_rename_async(location: SourceLocation, new_name: string, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     vfunc_rename_finish(result: Gio.AsyncResult): [ /* returnType */ boolean, /* edits */ ProjectEdit[] | null ]
-    /* Virtual methods of Ide.Object */
+    /* Virtual methods of Ide-1.0.Ide.Object */
     vfunc_destroy(): void
     vfunc_get_context(): Context
     vfunc_set_context(context: Context): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -1135,11 +1135,11 @@ export class RenameProvider {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Ide.Object */
+    /* Signals of Ide-1.0.Ide.Object */
     connect(sigName: "destroy", callback: (($obj: RenameProvider) => void)): number
     connect_after(sigName: "destroy", callback: (($obj: RenameProvider) => void)): number
     emit(sigName: "destroy"): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: RenameProvider, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: RenameProvider, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -1155,14 +1155,14 @@ export class RenameProvider {
     static $gtype: GObject.Type
 }
 export class RunnerAddin {
-    /* Methods of Ide.RunnerAddin */
+    /* Methods of Ide-1.0.Ide.RunnerAddin */
     load(runner: Runner): void
     posthook_async(cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     posthook_finish(result: Gio.AsyncResult): boolean
     prehook_async(cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     prehook_finish(result: Gio.AsyncResult): boolean
     unload(runner: Runner): void
-    /* Virtual methods of Ide.RunnerAddin */
+    /* Virtual methods of Ide-1.0.Ide.RunnerAddin */
     vfunc_load(runner: Runner): void
     vfunc_posthook_async(cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     vfunc_posthook_finish(result: Gio.AsyncResult): boolean
@@ -1172,13 +1172,13 @@ export class RunnerAddin {
     static name: string
 }
 export class RuntimeProvider {
-    /* Methods of Ide.RuntimeProvider */
+    /* Methods of Ide-1.0.Ide.RuntimeProvider */
     can_install(runtime_id: string): boolean
     install_async(runtime_id: string, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     install_finish(result: Gio.AsyncResult): boolean
     load(manager: RuntimeManager): void
     unload(manager: RuntimeManager): void
-    /* Virtual methods of Ide.RuntimeProvider */
+    /* Virtual methods of Ide-1.0.Ide.RuntimeProvider */
     vfunc_can_install(runtime_id: string): boolean
     vfunc_install_async(runtime_id: string, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     vfunc_install_finish(result: Gio.AsyncResult): boolean
@@ -1189,23 +1189,23 @@ export class RuntimeProvider {
 export interface SearchProvider_ConstructProps extends Object_ConstructProps {
 }
 export class SearchProvider {
-    /* Fields of Ide.Object */
+    /* Fields of Ide-1.0.Ide.Object */
     parent_instance: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Ide.SearchProvider */
+    /* Methods of Ide-1.0.Ide.SearchProvider */
     activate(row: Gtk.Widget, result: SearchResult): void
     create_row(result: SearchResult): Gtk.Widget
     get_prefix(): number
     get_priority(): number
     get_verb(): string
     populate(context: SearchContext, search_terms: string, max_results: number, cancellable?: Gio.Cancellable | null): void
-    /* Methods of Ide.Object */
+    /* Methods of Ide-1.0.Ide.Object */
     get_context(): Context
     hold(): boolean
     release(): void
     set_context(context: Context): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -1227,18 +1227,18 @@ export class SearchProvider {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Ide.SearchProvider */
+    /* Virtual methods of Ide-1.0.Ide.SearchProvider */
     vfunc_activate(row: Gtk.Widget, result: SearchResult): void
     vfunc_create_row(result: SearchResult): Gtk.Widget
     vfunc_get_prefix(): number
     vfunc_get_priority(): number
     vfunc_get_verb(): string
     vfunc_populate(context: SearchContext, search_terms: string, max_results: number, cancellable?: Gio.Cancellable | null): void
-    /* Virtual methods of Ide.Object */
+    /* Virtual methods of Ide-1.0.Ide.Object */
     vfunc_destroy(): void
     vfunc_get_context(): Context
     vfunc_set_context(context: Context): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -1246,11 +1246,11 @@ export class SearchProvider {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Ide.Object */
+    /* Signals of Ide-1.0.Ide.Object */
     connect(sigName: "destroy", callback: (($obj: SearchProvider) => void)): number
     connect_after(sigName: "destroy", callback: (($obj: SearchProvider) => void)): number
     emit(sigName: "destroy"): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: SearchProvider, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: SearchProvider, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -1266,20 +1266,20 @@ export class SearchProvider {
 export interface Service_ConstructProps extends Object_ConstructProps {
 }
 export class Service {
-    /* Fields of Ide.Object */
+    /* Fields of Ide-1.0.Ide.Object */
     parent_instance: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Ide.Service */
+    /* Methods of Ide-1.0.Ide.Service */
     get_name(): string
     start(): void
     stop(): void
-    /* Methods of Ide.Object */
+    /* Methods of Ide-1.0.Ide.Object */
     get_context(): Context
     hold(): boolean
     release(): void
     set_context(context: Context): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -1301,16 +1301,16 @@ export class Service {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Ide.Service */
+    /* Virtual methods of Ide-1.0.Ide.Service */
     vfunc_context_loaded(): void
     vfunc_get_name(): string
     vfunc_start(): void
     vfunc_stop(): void
-    /* Virtual methods of Ide.Object */
+    /* Virtual methods of Ide-1.0.Ide.Object */
     vfunc_destroy(): void
     vfunc_get_context(): Context
     vfunc_set_context(context: Context): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -1318,15 +1318,15 @@ export class Service {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Ide.Service */
+    /* Signals of Ide-1.0.Ide.Service */
     connect(sigName: "context-loaded", callback: (($obj: Service) => void)): number
     connect_after(sigName: "context-loaded", callback: (($obj: Service) => void)): number
     emit(sigName: "context-loaded"): void
-    /* Signals of Ide.Object */
+    /* Signals of Ide-1.0.Ide.Object */
     connect(sigName: "destroy", callback: (($obj: Service) => void)): number
     connect_after(sigName: "destroy", callback: (($obj: Service) => void)): number
     emit(sigName: "destroy"): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Service, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Service, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -1340,7 +1340,7 @@ export class Service {
     static $gtype: GObject.Type
 }
 export class Subprocess {
-    /* Methods of Ide.Subprocess */
+    /* Methods of Ide-1.0.Ide.Subprocess */
     check_exit_status(): boolean
     communicate(stdin_buf: GLib.Bytes, cancellable: Gio.Cancellable | null, stdout_buf: GLib.Bytes, stderr_buf: GLib.Bytes): boolean
     communicate_async(stdin_buf?: GLib.Bytes | null, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
@@ -1366,7 +1366,7 @@ export class Subprocess {
     wait_check_async(cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     wait_check_finish(result: Gio.AsyncResult): boolean
     wait_finish(result: Gio.AsyncResult): boolean
-    /* Virtual methods of Ide.Subprocess */
+    /* Virtual methods of Ide-1.0.Ide.Subprocess */
     vfunc_communicate(stdin_buf: GLib.Bytes, cancellable: Gio.Cancellable | null, stdout_buf: GLib.Bytes, stderr_buf: GLib.Bytes): boolean
     vfunc_communicate_async(stdin_buf?: GLib.Bytes | null, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     vfunc_communicate_finish(result: Gio.AsyncResult): [ /* returnType */ boolean, /* stdout_buf */ GLib.Bytes | null, /* stderr_buf */ GLib.Bytes | null ]
@@ -1393,11 +1393,11 @@ export class Subprocess {
 export interface SymbolResolver_ConstructProps extends Object_ConstructProps {
 }
 export class SymbolResolver {
-    /* Fields of Ide.Object */
+    /* Fields of Ide-1.0.Ide.Object */
     parent_instance: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Ide.SymbolResolver */
+    /* Methods of Ide-1.0.Ide.SymbolResolver */
     find_references_async(location: SourceLocation, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     find_references_finish(result: Gio.AsyncResult): SourceRange[]
     get_symbol_tree_async(file: Gio.File, buffer: Buffer, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
@@ -1405,12 +1405,12 @@ export class SymbolResolver {
     load(): void
     lookup_symbol_async(location: SourceLocation, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     lookup_symbol_finish(result: Gio.AsyncResult): Symbol | null
-    /* Methods of Ide.Object */
+    /* Methods of Ide-1.0.Ide.Object */
     get_context(): Context
     hold(): boolean
     release(): void
     set_context(context: Context): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -1432,7 +1432,7 @@ export class SymbolResolver {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Ide.SymbolResolver */
+    /* Virtual methods of Ide-1.0.Ide.SymbolResolver */
     vfunc_find_references_async(location: SourceLocation, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     vfunc_find_references_finish(result: Gio.AsyncResult): SourceRange[]
     vfunc_get_symbol_tree_async(file: Gio.File, buffer: Buffer, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
@@ -1440,11 +1440,11 @@ export class SymbolResolver {
     vfunc_load(): void
     vfunc_lookup_symbol_async(location: SourceLocation, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     vfunc_lookup_symbol_finish(result: Gio.AsyncResult): Symbol | null
-    /* Virtual methods of Ide.Object */
+    /* Virtual methods of Ide-1.0.Ide.Object */
     vfunc_destroy(): void
     vfunc_get_context(): Context
     vfunc_set_context(context: Context): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -1452,11 +1452,11 @@ export class SymbolResolver {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Ide.Object */
+    /* Signals of Ide-1.0.Ide.Object */
     connect(sigName: "destroy", callback: (($obj: SymbolResolver) => void)): number
     connect_after(sigName: "destroy", callback: (($obj: SymbolResolver) => void)): number
     emit(sigName: "destroy"): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: SymbolResolver, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: SymbolResolver, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -1470,27 +1470,27 @@ export class SymbolResolver {
     static $gtype: GObject.Type
 }
 export class SymbolTree {
-    /* Methods of Ide.SymbolTree */
+    /* Methods of Ide-1.0.Ide.SymbolTree */
     get_n_children(node?: SymbolNode | null): number
     get_nth_child(node: SymbolNode | null, nth: number): SymbolNode | null
-    /* Virtual methods of Ide.SymbolTree */
+    /* Virtual methods of Ide-1.0.Ide.SymbolTree */
     vfunc_get_n_children(node?: SymbolNode | null): number
     vfunc_get_nth_child(node: SymbolNode | null, nth: number): SymbolNode | null
     static name: string
 }
 export class TagsBuilder {
-    /* Methods of Ide.TagsBuilder */
+    /* Methods of Ide-1.0.Ide.TagsBuilder */
     build_async(directory_or_file: Gio.File, recursive: boolean, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     build_finish(result: Gio.AsyncResult): boolean
-    /* Virtual methods of Ide.TagsBuilder */
+    /* Virtual methods of Ide-1.0.Ide.TagsBuilder */
     vfunc_build_async(directory_or_file: Gio.File, recursive: boolean, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     vfunc_build_finish(result: Gio.AsyncResult): boolean
     static name: string
 }
 export class TemplateProvider {
-    /* Methods of Ide.TemplateProvider */
+    /* Methods of Ide-1.0.Ide.TemplateProvider */
     get_project_templates(): ProjectTemplate[]
-    /* Virtual methods of Ide.TemplateProvider */
+    /* Virtual methods of Ide-1.0.Ide.TemplateProvider */
     vfunc_get_project_templates(): ProjectTemplate[]
     static name: string
 }
@@ -1498,14 +1498,14 @@ export interface Vcs_ConstructProps extends Object_ConstructProps {
     context?: Context
 }
 export class Vcs {
-    /* Properties of Ide.Vcs */
+    /* Properties of Ide-1.0.Ide.Vcs */
     readonly branch_name: string
     readonly working_directory: Gio.File
-    /* Fields of Ide.Object */
+    /* Fields of Ide-1.0.Ide.Object */
     parent_instance: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Ide.Vcs */
+    /* Methods of Ide-1.0.Ide.Vcs */
     emit_changed(): void
     get_branch_name(): string
     get_buffer_change_monitor(buffer: Buffer): BufferChangeMonitor | null
@@ -1513,12 +1513,12 @@ export class Vcs {
     get_priority(): number
     get_working_directory(): Gio.File
     is_ignored(file: Gio.File): boolean
-    /* Methods of Ide.Object */
+    /* Methods of Ide-1.0.Ide.Object */
     get_context(): Context
     hold(): boolean
     release(): void
     set_context(context: Context): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -1540,7 +1540,7 @@ export class Vcs {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Ide.Vcs */
+    /* Virtual methods of Ide-1.0.Ide.Vcs */
     vfunc_changed(): void
     vfunc_get_branch_name(): string
     vfunc_get_buffer_change_monitor(buffer: Buffer): BufferChangeMonitor | null
@@ -1548,11 +1548,11 @@ export class Vcs {
     vfunc_get_priority(): number
     vfunc_get_working_directory(): Gio.File
     vfunc_is_ignored(file: Gio.File): boolean
-    /* Virtual methods of Ide.Object */
+    /* Virtual methods of Ide-1.0.Ide.Object */
     vfunc_destroy(): void
     vfunc_get_context(): Context
     vfunc_set_context(context: Context): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -1560,15 +1560,15 @@ export class Vcs {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Ide.Vcs */
+    /* Signals of Ide-1.0.Ide.Vcs */
     connect(sigName: "changed", callback: (($obj: Vcs) => void)): number
     connect_after(sigName: "changed", callback: (($obj: Vcs) => void)): number
     emit(sigName: "changed"): void
-    /* Signals of Ide.Object */
+    /* Signals of Ide-1.0.Ide.Object */
     connect(sigName: "destroy", callback: (($obj: Vcs) => void)): number
     connect_after(sigName: "destroy", callback: (($obj: Vcs) => void)): number
     emit(sigName: "destroy"): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Vcs, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Vcs, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -1590,27 +1590,27 @@ export class Vcs {
     static $gtype: GObject.Type
 }
 export class VcsConfig {
-    /* Methods of Ide.VcsConfig */
+    /* Methods of Ide-1.0.Ide.VcsConfig */
     get_config(type: VcsConfigType, value: any): void
     set_config(type: VcsConfigType, value: any): void
-    /* Virtual methods of Ide.VcsConfig */
+    /* Virtual methods of Ide-1.0.Ide.VcsConfig */
     vfunc_get_config(type: VcsConfigType, value: any): void
     vfunc_set_config(type: VcsConfigType, value: any): void
     static name: string
 }
 export class VcsInitializer {
-    /* Methods of Ide.VcsInitializer */
+    /* Methods of Ide-1.0.Ide.VcsInitializer */
     get_title(): string
     initialize_async(file: Gio.File, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     initialize_finish(result: Gio.AsyncResult): boolean
-    /* Virtual methods of Ide.VcsInitializer */
+    /* Virtual methods of Ide-1.0.Ide.VcsInitializer */
     vfunc_get_title(): string
     vfunc_initialize_async(file: Gio.File, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     vfunc_initialize_finish(result: Gio.AsyncResult): boolean
     static name: string
 }
 export class WorkbenchAddin {
-    /* Methods of Ide.WorkbenchAddin */
+    /* Methods of Ide-1.0.Ide.WorkbenchAddin */
     can_open(uri: Uri, content_type?: string | null): [ /* returnType */ boolean, /* priority */ number ]
     get_id(): string
     load(workbench: Workbench): void
@@ -1618,7 +1618,7 @@ export class WorkbenchAddin {
     open_finish(result: Gio.AsyncResult): boolean
     perspective_set(perspective: Perspective): void
     unload(workbench: Workbench): void
-    /* Virtual methods of Ide.WorkbenchAddin */
+    /* Virtual methods of Ide-1.0.Ide.WorkbenchAddin */
     vfunc_can_open(uri: Uri, content_type?: string | null): [ /* returnType */ boolean, /* priority */ number ]
     vfunc_get_id(): string
     vfunc_load(workbench: Workbench): void
@@ -1629,10 +1629,10 @@ export class WorkbenchAddin {
     static name: string
 }
 export class Worker {
-    /* Methods of Ide.Worker */
+    /* Methods of Ide-1.0.Ide.Worker */
     create_proxy(connection: Gio.DBusConnection): Gio.DBusProxy
     register_service(connection: Gio.DBusConnection): void
-    /* Virtual methods of Ide.Worker */
+    /* Virtual methods of Ide-1.0.Ide.Worker */
     vfunc_create_proxy(connection: Gio.DBusConnection): Gio.DBusProxy
     vfunc_register_service(connection: Gio.DBusConnection): void
     static name: string
@@ -1640,17 +1640,17 @@ export class Worker {
 export interface Application_ConstructProps extends Dazzle.Application_ConstructProps {
 }
 export class Application {
-    /* Properties of Dazzle.Application */
+    /* Properties of Dazzle-1.0.Dazzle.Application */
     readonly menu_manager: Dazzle.MenuManager
     readonly shortcut_manager: Dazzle.ShortcutManager
     readonly theme_manager: Dazzle.ThemeManager
-    /* Properties of Gtk.Application */
+    /* Properties of Gtk-3.0.Gtk.Application */
     readonly active_window: Gtk.Window
     app_menu: Gio.MenuModel
     menubar: Gio.MenuModel
     register_session: boolean
     readonly screensaver_active: boolean
-    /* Properties of Gio.Application */
+    /* Properties of Gio-2.0.Gio.Application */
     action_group: Gio.ActionGroup
     application_id: string
     flags: Gio.ApplicationFlags
@@ -1659,13 +1659,13 @@ export class Application {
     readonly is_registered: boolean
     readonly is_remote: boolean
     resource_base_path: string
-    /* Fields of Dazzle.Application */
+    /* Fields of Dazzle-1.0.Dazzle.Application */
     parent_instance: Gtk.Application
-    /* Fields of Gtk.Application */
+    /* Fields of Gtk-3.0.Gtk.Application */
     parent: Gio.Application
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Ide.Application */
+    /* Methods of Ide-1.0.Ide.Application */
     add_reaper(reaper: Dazzle.DirectoryReaper): void
     get_keybindings_mode(): string
     get_mode(): ApplicationMode
@@ -1675,14 +1675,14 @@ export class Application {
     get_worker_finish(result: Gio.AsyncResult): Gio.DBusProxy
     open_project(file: Gio.File): boolean
     show_projects_window(): void
-    /* Methods of Dazzle.Application */
+    /* Methods of Dazzle-1.0.Dazzle.Application */
     add_resources(resource_path: string): void
     get_menu_by_id(menu_id: string): Gio.Menu
     get_menu_manager(): Dazzle.MenuManager
     get_shortcut_manager(): Dazzle.ShortcutManager
     get_theme_manager(): Dazzle.ThemeManager
     remove_resources(resource_path: string): void
-    /* Methods of Gtk.Application */
+    /* Methods of Gtk-3.0.Gtk.Application */
     add_accelerator(accelerator: string, action_name: string, parameter?: GLib.Variant | null): void
     add_window(window: Gtk.Window): void
     get_accels_for_action(detailed_action_name: string): string[]
@@ -1703,7 +1703,7 @@ export class Application {
     set_app_menu(app_menu?: Gio.MenuModel | null): void
     set_menubar(menubar?: Gio.MenuModel | null): void
     uninhibit(cookie: number): void
-    /* Methods of Gio.Application */
+    /* Methods of Gio-2.0.Gio.Application */
     activate(): void
     add_main_option(long_name: string, short_name: number, flags: GLib.OptionFlags, arg: GLib.OptionArg, description: string, arg_description?: string | null): void
     add_main_option_entries(entries: GLib.OptionEntry[]): void
@@ -1738,7 +1738,7 @@ export class Application {
     unbind_busy_property(object: GObject.Object, property: string): void
     unmark_busy(): void
     withdraw_notification(id: string): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -1760,7 +1760,7 @@ export class Application {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of Gio.ActionGroup */
+    /* Methods of Gio-2.0.Gio.ActionGroup */
     action_added(action_name: string): void
     action_enabled_changed(action_name: string, enabled: boolean): void
     action_removed(action_name: string): void
@@ -1775,15 +1775,15 @@ export class Application {
     has_action(action_name: string): boolean
     list_actions(): string[]
     query_action(action_name: string): [ /* returnType */ boolean, /* enabled */ boolean, /* parameter_type */ GLib.VariantType | null, /* state_type */ GLib.VariantType | null, /* state_hint */ GLib.Variant | null, /* state */ GLib.Variant | null ]
-    /* Methods of Gio.ActionMap */
+    /* Methods of Gio-2.0.Gio.ActionMap */
     add_action(action: Gio.Action): void
     add_action_entries(entries: Gio.ActionEntry[], user_data?: object | null): void
     lookup_action(action_name: string): Gio.Action | null
     remove_action(action_name: string): void
-    /* Virtual methods of Dazzle.Application */
+    /* Virtual methods of Dazzle-1.0.Dazzle.Application */
     vfunc_add_resources(resource_path: string): void
     vfunc_remove_resources(resource_path: string): void
-    /* Virtual methods of Gtk.Application */
+    /* Virtual methods of Gtk-3.0.Gtk.Application */
     vfunc_window_added(window: Gtk.Window): void
     vfunc_window_removed(window: Gtk.Window): void
     vfunc_action_added(action_name: string): void
@@ -1803,7 +1803,7 @@ export class Application {
     vfunc_add_action(action: Gio.Action): void
     vfunc_lookup_action(action_name: string): Gio.Action | null
     vfunc_remove_action(action_name: string): void
-    /* Virtual methods of Gio.Application */
+    /* Virtual methods of Gio-2.0.Gio.Application */
     vfunc_activate(): void
     vfunc_add_platform_data(builder: GLib.VariantBuilder): void
     vfunc_after_emit(platform_data: GLib.Variant): void
@@ -1819,7 +1819,7 @@ export class Application {
     vfunc_run_mainloop(): void
     vfunc_shutdown(): void
     vfunc_startup(): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -1827,7 +1827,7 @@ export class Application {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gtk.Application */
+    /* Signals of Gtk-3.0.Gtk.Application */
     connect(sigName: "query-end", callback: (($obj: Application) => void)): number
     connect_after(sigName: "query-end", callback: (($obj: Application) => void)): number
     emit(sigName: "query-end"): void
@@ -1837,7 +1837,7 @@ export class Application {
     connect(sigName: "window-removed", callback: (($obj: Application, window: Gtk.Window) => void)): number
     connect_after(sigName: "window-removed", callback: (($obj: Application, window: Gtk.Window) => void)): number
     emit(sigName: "window-removed", window: Gtk.Window): void
-    /* Signals of Gio.Application */
+    /* Signals of Gio-2.0.Gio.Application */
     connect(sigName: "activate", callback: (($obj: Application) => void)): number
     connect_after(sigName: "activate", callback: (($obj: Application) => void)): number
     emit(sigName: "activate"): void
@@ -1859,11 +1859,11 @@ export class Application {
     connect(sigName: "startup", callback: (($obj: Application) => void)): number
     connect_after(sigName: "startup", callback: (($obj: Application) => void)): number
     emit(sigName: "startup"): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Application, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Application, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    /* Signals of Gio.ActionGroup */
+    /* Signals of Gio-2.0.Gio.ActionGroup */
     connect(sigName: "action-added", callback: (($obj: Application, action_name: string) => void)): number
     connect_after(sigName: "action-added", callback: (($obj: Application, action_name: string) => void)): number
     emit(sigName: "action-added", action_name: string): void
@@ -1927,22 +1927,22 @@ export interface BackForwardItem_ConstructProps extends Object_ConstructProps {
     uri?: Uri
 }
 export class BackForwardItem {
-    /* Properties of Ide.BackForwardItem */
+    /* Properties of Ide-1.0.Ide.BackForwardItem */
     mark: Gtk.TextMark
-    /* Fields of Ide.Object */
+    /* Fields of Ide-1.0.Ide.Object */
     parent_instance: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Ide.BackForwardItem */
+    /* Methods of Ide-1.0.Ide.BackForwardItem */
     chain(other: BackForwardItem): boolean
     get_mark(): Gtk.TextMark
     get_uri(): Uri | null
-    /* Methods of Ide.Object */
+    /* Methods of Ide-1.0.Ide.Object */
     get_context(): Context
     hold(): boolean
     release(): void
     set_context(context: Context): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -1964,11 +1964,11 @@ export class BackForwardItem {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Ide.Object */
+    /* Virtual methods of Ide-1.0.Ide.Object */
     vfunc_destroy(): void
     vfunc_get_context(): Context
     vfunc_set_context(context: Context): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -1976,11 +1976,11 @@ export class BackForwardItem {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Ide.Object */
+    /* Signals of Ide-1.0.Ide.Object */
     connect(sigName: "destroy", callback: (($obj: BackForwardItem) => void)): number
     connect_after(sigName: "destroy", callback: (($obj: BackForwardItem) => void)): number
     emit(sigName: "destroy"): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: BackForwardItem, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: BackForwardItem, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -2000,15 +2000,15 @@ export class BackForwardItem {
 export interface BackForwardList_ConstructProps extends Object_ConstructProps {
 }
 export class BackForwardList {
-    /* Properties of Ide.BackForwardList */
+    /* Properties of Ide-1.0.Ide.BackForwardList */
     readonly can_go_backward: boolean
     readonly can_go_forward: boolean
     readonly current_item: BackForwardItem
-    /* Fields of Ide.Object */
+    /* Fields of Ide-1.0.Ide.Object */
     parent_instance: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Ide.BackForwardList */
+    /* Methods of Ide-1.0.Ide.BackForwardList */
     branch(): BackForwardList
     get_can_go_backward(): boolean
     get_can_go_forward(): boolean
@@ -2017,12 +2017,12 @@ export class BackForwardList {
     go_forward(): void
     merge(branch: BackForwardList): void
     push(item: BackForwardItem): void
-    /* Methods of Ide.Object */
+    /* Methods of Ide-1.0.Ide.Object */
     get_context(): Context
     hold(): boolean
     release(): void
     set_context(context: Context): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -2044,11 +2044,11 @@ export class BackForwardList {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Ide.Object */
+    /* Virtual methods of Ide-1.0.Ide.Object */
     vfunc_destroy(): void
     vfunc_get_context(): Context
     vfunc_set_context(context: Context): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -2056,15 +2056,15 @@ export class BackForwardList {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Ide.BackForwardList */
+    /* Signals of Ide-1.0.Ide.BackForwardList */
     connect(sigName: "navigate-to", callback: (($obj: BackForwardList, object: BackForwardItem) => void)): number
     connect_after(sigName: "navigate-to", callback: (($obj: BackForwardList, object: BackForwardItem) => void)): number
     emit(sigName: "navigate-to", object: BackForwardItem): void
-    /* Signals of Ide.Object */
+    /* Signals of Ide-1.0.Ide.Object */
     connect(sigName: "destroy", callback: (($obj: BackForwardList) => void)): number
     connect_after(sigName: "destroy", callback: (($obj: BackForwardList) => void)): number
     emit(sigName: "destroy"): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: BackForwardList, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: BackForwardList, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -2091,7 +2091,7 @@ export interface Buffer_ConstructProps extends GtkSource.Buffer_ConstructProps {
     title?: string
 }
 export class Buffer {
-    /* Properties of Ide.Buffer */
+    /* Properties of Ide-1.0.Ide.Buffer */
     readonly busy: boolean
     readonly changed_on_volume: boolean
     file: File
@@ -2100,7 +2100,7 @@ export class Buffer {
     readonly read_only: boolean
     style_scheme_name: string
     title: string
-    /* Properties of GtkSource.Buffer */
+    /* Properties of GtkSource-3.0.GtkSource.Buffer */
     readonly can_redo: boolean
     readonly can_undo: boolean
     highlight_matching_brackets: boolean
@@ -2110,19 +2110,19 @@ export class Buffer {
     max_undo_levels: number
     style_scheme: GtkSource.StyleScheme
     undo_manager: GtkSource.UndoManager
-    /* Properties of Gtk.TextBuffer */
+    /* Properties of Gtk-3.0.Gtk.TextBuffer */
     readonly copy_target_list: Gtk.TargetList
     readonly cursor_position: number
     readonly has_selection: boolean
     readonly paste_target_list: Gtk.TargetList
     text: string
-    /* Fields of Ide.Buffer */
+    /* Fields of Ide-1.0.Ide.Buffer */
     parent_instance: GtkSource.Buffer
-    /* Fields of GtkSource.Buffer */
+    /* Fields of GtkSource-3.0.GtkSource.Buffer */
     priv: GtkSource.BufferPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Ide.Buffer */
+    /* Methods of Ide-1.0.Ide.Buffer */
     check_for_volume_change(): void
     format_selection_async(options: FormatterOptions, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     format_selection_finish(result: Gio.AsyncResult): boolean
@@ -2158,7 +2158,7 @@ export class Buffer {
     set_style_scheme_name(style_scheme_name: string): void
     sync_to_unsaved_files(): void
     trim_trailing_whitespace(): void
-    /* Methods of GtkSource.Buffer */
+    /* Methods of GtkSource-3.0.GtkSource.Buffer */
     backward_iter_to_source_mark(iter: Gtk.TextIter, category?: string | null): [ /* returnType */ boolean, /* iter */ Gtk.TextIter ]
     begin_not_undoable_action(): void
     change_case(case_type: GtkSource.ChangeCaseType, start: Gtk.TextIter, end: Gtk.TextIter): void
@@ -2191,7 +2191,7 @@ export class Buffer {
     set_undo_manager(manager?: GtkSource.UndoManager | null): void
     sort_lines(start: Gtk.TextIter, end: Gtk.TextIter, flags: GtkSource.SortFlags, column: number): void
     undo(): void
-    /* Methods of Gtk.TextBuffer */
+    /* Methods of Gtk-3.0.Gtk.TextBuffer */
     add_mark(mark: Gtk.TextMark, where: Gtk.TextIter): void
     add_selection_clipboard(clipboard: Gtk.Clipboard): void
     apply_tag(tag: Gtk.TextTag, start: Gtk.TextIter, end: Gtk.TextIter): void
@@ -2262,7 +2262,7 @@ export class Buffer {
     set_text(text: string, len: number): void
     unregister_deserialize_format(format: Gdk.Atom): void
     unregister_serialize_format(format: Gdk.Atom): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -2284,13 +2284,13 @@ export class Buffer {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Ide.Buffer */
+    /* Virtual methods of Ide-1.0.Ide.Buffer */
     vfunc_cursor_moved(location: Gtk.TextIter): void
-    /* Virtual methods of GtkSource.Buffer */
+    /* Virtual methods of GtkSource-3.0.GtkSource.Buffer */
     vfunc_bracket_matched(iter: Gtk.TextIter, state: GtkSource.BracketMatchType): void
     vfunc_redo(): void
     vfunc_undo(): void
-    /* Virtual methods of Gtk.TextBuffer */
+    /* Virtual methods of Gtk-3.0.Gtk.TextBuffer */
     vfunc_apply_tag(tag: Gtk.TextTag, start: Gtk.TextIter, end: Gtk.TextIter): void
     vfunc_begin_user_action(): void
     vfunc_changed(): void
@@ -2304,7 +2304,7 @@ export class Buffer {
     vfunc_modified_changed(): void
     vfunc_paste_done(clipboard: Gtk.Clipboard): void
     vfunc_remove_tag(tag: Gtk.TextTag, start: Gtk.TextIter, end: Gtk.TextIter): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -2312,7 +2312,7 @@ export class Buffer {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Ide.Buffer */
+    /* Signals of Ide-1.0.Ide.Buffer */
     connect(sigName: "cursor-moved", callback: (($obj: Buffer, location: Gtk.TextIter) => void)): number
     connect_after(sigName: "cursor-moved", callback: (($obj: Buffer, location: Gtk.TextIter) => void)): number
     emit(sigName: "cursor-moved", location: Gtk.TextIter): void
@@ -2331,7 +2331,7 @@ export class Buffer {
     connect(sigName: "symbol-resolver-loaded", callback: (($obj: Buffer) => void)): number
     connect_after(sigName: "symbol-resolver-loaded", callback: (($obj: Buffer) => void)): number
     emit(sigName: "symbol-resolver-loaded"): void
-    /* Signals of GtkSource.Buffer */
+    /* Signals of GtkSource-3.0.GtkSource.Buffer */
     connect(sigName: "bracket-matched", callback: (($obj: Buffer, iter: Gtk.TextIter | null, state: GtkSource.BracketMatchType) => void)): number
     connect_after(sigName: "bracket-matched", callback: (($obj: Buffer, iter: Gtk.TextIter | null, state: GtkSource.BracketMatchType) => void)): number
     emit(sigName: "bracket-matched", iter: Gtk.TextIter | null, state: GtkSource.BracketMatchType): void
@@ -2347,7 +2347,7 @@ export class Buffer {
     connect(sigName: "undo", callback: (($obj: Buffer) => void)): number
     connect_after(sigName: "undo", callback: (($obj: Buffer) => void)): number
     emit(sigName: "undo"): void
-    /* Signals of Gtk.TextBuffer */
+    /* Signals of Gtk-3.0.Gtk.TextBuffer */
     connect(sigName: "apply-tag", callback: (($obj: Buffer, tag: Gtk.TextTag, start: Gtk.TextIter, end: Gtk.TextIter) => void)): number
     connect_after(sigName: "apply-tag", callback: (($obj: Buffer, tag: Gtk.TextTag, start: Gtk.TextIter, end: Gtk.TextIter) => void)): number
     emit(sigName: "apply-tag", tag: Gtk.TextTag, start: Gtk.TextIter, end: Gtk.TextIter): void
@@ -2387,7 +2387,7 @@ export class Buffer {
     connect(sigName: "remove-tag", callback: (($obj: Buffer, tag: Gtk.TextTag, start: Gtk.TextIter, end: Gtk.TextIter) => void)): number
     connect_after(sigName: "remove-tag", callback: (($obj: Buffer, tag: Gtk.TextTag, start: Gtk.TextIter, end: Gtk.TextIter) => void)): number
     emit(sigName: "remove-tag", tag: Gtk.TextTag, start: Gtk.TextIter, end: Gtk.TextIter): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Buffer, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Buffer, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -2448,20 +2448,20 @@ export interface BufferChangeMonitor_ConstructProps extends Object_ConstructProp
     buffer?: Buffer
 }
 export class BufferChangeMonitor {
-    /* Fields of Ide.BufferChangeMonitor */
+    /* Fields of Ide-1.0.Ide.BufferChangeMonitor */
     parent_instance: Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Ide.BufferChangeMonitor */
+    /* Methods of Ide-1.0.Ide.BufferChangeMonitor */
     emit_changed(): void
     get_change(iter: Gtk.TextIter): BufferLineChange
     reload(): void
-    /* Methods of Ide.Object */
+    /* Methods of Ide-1.0.Ide.Object */
     get_context(): Context
     hold(): boolean
     release(): void
     set_context(context: Context): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -2483,15 +2483,15 @@ export class BufferChangeMonitor {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Ide.BufferChangeMonitor */
+    /* Virtual methods of Ide-1.0.Ide.BufferChangeMonitor */
     vfunc_get_change(iter: Gtk.TextIter): BufferLineChange
     vfunc_reload(): void
     vfunc_set_buffer(buffer: Buffer): void
-    /* Virtual methods of Ide.Object */
+    /* Virtual methods of Ide-1.0.Ide.Object */
     vfunc_destroy(): void
     vfunc_get_context(): Context
     vfunc_set_context(context: Context): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -2499,15 +2499,15 @@ export class BufferChangeMonitor {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Ide.BufferChangeMonitor */
+    /* Signals of Ide-1.0.Ide.BufferChangeMonitor */
     connect(sigName: "changed", callback: (($obj: BufferChangeMonitor) => void)): number
     connect_after(sigName: "changed", callback: (($obj: BufferChangeMonitor) => void)): number
     emit(sigName: "changed"): void
-    /* Signals of Ide.Object */
+    /* Signals of Ide-1.0.Ide.Object */
     connect(sigName: "destroy", callback: (($obj: BufferChangeMonitor) => void)): number
     connect_after(sigName: "destroy", callback: (($obj: BufferChangeMonitor) => void)): number
     emit(sigName: "destroy"): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: BufferChangeMonitor, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: BufferChangeMonitor, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -2527,16 +2527,16 @@ export interface BufferManager_ConstructProps extends Object_ConstructProps {
     minimum_word_size?: number
 }
 export class BufferManager {
-    /* Properties of Ide.BufferManager */
+    /* Properties of Ide-1.0.Ide.BufferManager */
     auto_save: boolean
     auto_save_timeout: number
     focus_buffer: Buffer
     minimum_word_size: number
-    /* Fields of Ide.Object */
+    /* Fields of Ide-1.0.Ide.Object */
     parent_instance: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Ide.BufferManager */
+    /* Methods of Ide-1.0.Ide.BufferManager */
     apply_edits_async(edits: ProjectEdit[], cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     apply_edits_finish(result: Gio.AsyncResult): boolean
     create_temporary_buffer(): Buffer
@@ -2555,12 +2555,12 @@ export class BufferManager {
     save_file_finish(result: Gio.AsyncResult): boolean
     set_focus_buffer(buffer: Buffer): void
     set_max_file_size(max_file_size: number): void
-    /* Methods of Ide.Object */
+    /* Methods of Ide-1.0.Ide.Object */
     get_context(): Context
     hold(): boolean
     release(): void
     set_context(context: Context): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -2582,20 +2582,20 @@ export class BufferManager {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of Gio.ListModel */
+    /* Methods of Gio-2.0.Gio.ListModel */
     get_item_type(): GObject.Type
     get_n_items(): number
     get_item(position: number): GObject.Object | null
     items_changed(position: number, removed: number, added: number): void
-    /* Virtual methods of Ide.BufferManager */
+    /* Virtual methods of Ide-1.0.Ide.BufferManager */
     vfunc_get_item(position: number): GObject.Object | null
     vfunc_get_item_type(): GObject.Type
     vfunc_get_n_items(): number
-    /* Virtual methods of Ide.Object */
+    /* Virtual methods of Ide-1.0.Ide.Object */
     vfunc_destroy(): void
     vfunc_get_context(): Context
     vfunc_set_context(context: Context): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -2603,7 +2603,7 @@ export class BufferManager {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Ide.BufferManager */
+    /* Signals of Ide-1.0.Ide.BufferManager */
     connect(sigName: "buffer-focus-enter", callback: (($obj: BufferManager, buffer: Buffer) => void)): number
     connect_after(sigName: "buffer-focus-enter", callback: (($obj: BufferManager, buffer: Buffer) => void)): number
     emit(sigName: "buffer-focus-enter", buffer: Buffer): void
@@ -2628,15 +2628,15 @@ export class BufferManager {
     connect(sigName: "save-buffer", callback: (($obj: BufferManager, buffer: Buffer) => void)): number
     connect_after(sigName: "save-buffer", callback: (($obj: BufferManager, buffer: Buffer) => void)): number
     emit(sigName: "save-buffer", buffer: Buffer): void
-    /* Signals of Ide.Object */
+    /* Signals of Ide-1.0.Ide.Object */
     connect(sigName: "destroy", callback: (($obj: BufferManager) => void)): number
     connect_after(sigName: "destroy", callback: (($obj: BufferManager) => void)): number
     emit(sigName: "destroy"): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: BufferManager, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: BufferManager, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    /* Signals of Gio.ListModel */
+    /* Signals of Gio-2.0.Gio.ListModel */
     connect(sigName: "items-changed", callback: (($obj: BufferManager, position: number, removed: number, added: number) => void)): number
     connect_after(sigName: "items-changed", callback: (($obj: BufferManager, position: number, removed: number, added: number) => void)): number
     emit(sigName: "items-changed", position: number, removed: number, added: number): void
@@ -2660,7 +2660,7 @@ export class BufferManager {
 export interface BuildManager_ConstructProps extends Object_ConstructProps {
 }
 export class BuildManager {
-    /* Properties of Ide.BuildManager */
+    /* Properties of Ide-1.0.Ide.BuildManager */
     readonly busy: boolean
     readonly can_build: boolean
     readonly has_diagnostics: boolean
@@ -2668,11 +2668,11 @@ export class BuildManager {
     readonly message: string
     readonly pipeline: BuildPipeline
     readonly running_time: number
-    /* Fields of Ide.Object */
+    /* Fields of Ide-1.0.Ide.Object */
     parent_instance: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Ide.BuildManager */
+    /* Methods of Ide-1.0.Ide.BuildManager */
     cancel(): void
     clean_async(phase: BuildPhase, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     clean_finish(result: Gio.AsyncResult): boolean
@@ -2686,12 +2686,12 @@ export class BuildManager {
     get_running_time(): GLib.TimeSpan
     rebuild_async(phase: BuildPhase, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     rebuild_finish(result: Gio.AsyncResult): boolean
-    /* Methods of Ide.Object */
+    /* Methods of Ide-1.0.Ide.Object */
     get_context(): Context
     hold(): boolean
     release(): void
     set_context(context: Context): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -2713,7 +2713,7 @@ export class BuildManager {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of Gio.ActionGroup */
+    /* Methods of Gio-2.0.Gio.ActionGroup */
     action_added(action_name: string): void
     action_enabled_changed(action_name: string, enabled: boolean): void
     action_removed(action_name: string): void
@@ -2728,9 +2728,9 @@ export class BuildManager {
     has_action(action_name: string): boolean
     list_actions(): string[]
     query_action(action_name: string): [ /* returnType */ boolean, /* enabled */ boolean, /* parameter_type */ GLib.VariantType | null, /* state_type */ GLib.VariantType | null, /* state_hint */ GLib.Variant | null, /* state */ GLib.Variant | null ]
-    /* Methods of Gio.Initable */
+    /* Methods of Gio-2.0.Gio.Initable */
     init(cancellable?: Gio.Cancellable | null): boolean
-    /* Virtual methods of Ide.BuildManager */
+    /* Virtual methods of Ide-1.0.Ide.BuildManager */
     vfunc_action_added(action_name: string): void
     vfunc_action_enabled_changed(action_name: string, enabled: boolean): void
     vfunc_action_removed(action_name: string): void
@@ -2746,11 +2746,11 @@ export class BuildManager {
     vfunc_list_actions(): string[]
     vfunc_query_action(action_name: string): [ /* returnType */ boolean, /* enabled */ boolean, /* parameter_type */ GLib.VariantType | null, /* state_type */ GLib.VariantType | null, /* state_hint */ GLib.Variant | null, /* state */ GLib.Variant | null ]
     vfunc_init(cancellable?: Gio.Cancellable | null): boolean
-    /* Virtual methods of Ide.Object */
+    /* Virtual methods of Ide-1.0.Ide.Object */
     vfunc_destroy(): void
     vfunc_get_context(): Context
     vfunc_set_context(context: Context): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -2758,7 +2758,7 @@ export class BuildManager {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Ide.BuildManager */
+    /* Signals of Ide-1.0.Ide.BuildManager */
     connect(sigName: "build-failed", callback: (($obj: BuildManager, pipeline: BuildPipeline) => void)): number
     connect_after(sigName: "build-failed", callback: (($obj: BuildManager, pipeline: BuildPipeline) => void)): number
     emit(sigName: "build-failed", pipeline: BuildPipeline): void
@@ -2768,15 +2768,15 @@ export class BuildManager {
     connect(sigName: "build-started", callback: (($obj: BuildManager, pipeline: BuildPipeline) => void)): number
     connect_after(sigName: "build-started", callback: (($obj: BuildManager, pipeline: BuildPipeline) => void)): number
     emit(sigName: "build-started", pipeline: BuildPipeline): void
-    /* Signals of Ide.Object */
+    /* Signals of Ide-1.0.Ide.Object */
     connect(sigName: "destroy", callback: (($obj: BuildManager) => void)): number
     connect_after(sigName: "destroy", callback: (($obj: BuildManager) => void)): number
     emit(sigName: "destroy"): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: BuildManager, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: BuildManager, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    /* Signals of Gio.ActionGroup */
+    /* Signals of Gio-2.0.Gio.ActionGroup */
     connect(sigName: "action-added", callback: (($obj: BuildManager, action_name: string) => void)): number
     connect_after(sigName: "action-added", callback: (($obj: BuildManager, action_name: string) => void)): number
     emit(sigName: "action-added", action_name: string): void
@@ -2819,15 +2819,15 @@ export interface BuildPipeline_ConstructProps extends Object_ConstructProps {
     configuration?: Configuration
 }
 export class BuildPipeline {
-    /* Properties of Ide.BuildPipeline */
+    /* Properties of Ide-1.0.Ide.BuildPipeline */
     busy: boolean
     readonly message: string
     readonly phase: BuildPhase
-    /* Fields of Ide.Object */
+    /* Fields of Ide-1.0.Ide.Object */
     parent_instance: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Ide.BuildPipeline */
+    /* Methods of Ide-1.0.Ide.BuildPipeline */
     add_error_format(regex: string, flags: GLib.RegexCompileFlags): number
     add_log_observer(observer: BuildLogObserver): number
     clean_async(phase: BuildPhase, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
@@ -2852,12 +2852,12 @@ export class BuildPipeline {
     remove_error_format(error_format_id: number): boolean
     remove_log_observer(observer_id: number): boolean
     request_phase(phase: BuildPhase): boolean
-    /* Methods of Ide.Object */
+    /* Methods of Ide-1.0.Ide.Object */
     get_context(): Context
     hold(): boolean
     release(): void
     set_context(context: Context): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -2879,15 +2879,15 @@ export class BuildPipeline {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of Gio.Initable */
+    /* Methods of Gio-2.0.Gio.Initable */
     init(cancellable?: Gio.Cancellable | null): boolean
-    /* Virtual methods of Ide.BuildPipeline */
+    /* Virtual methods of Ide-1.0.Ide.BuildPipeline */
     vfunc_init(cancellable?: Gio.Cancellable | null): boolean
-    /* Virtual methods of Ide.Object */
+    /* Virtual methods of Ide-1.0.Ide.Object */
     vfunc_destroy(): void
     vfunc_get_context(): Context
     vfunc_set_context(context: Context): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -2895,7 +2895,7 @@ export class BuildPipeline {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Ide.BuildPipeline */
+    /* Signals of Ide-1.0.Ide.BuildPipeline */
     connect(sigName: "diagnostic", callback: (($obj: BuildPipeline, diagnostic: Diagnostic) => void)): number
     connect_after(sigName: "diagnostic", callback: (($obj: BuildPipeline, diagnostic: Diagnostic) => void)): number
     emit(sigName: "diagnostic", diagnostic: Diagnostic): void
@@ -2905,11 +2905,11 @@ export class BuildPipeline {
     connect(sigName: "started", callback: (($obj: BuildPipeline, phase: BuildPhase) => void)): number
     connect_after(sigName: "started", callback: (($obj: BuildPipeline, phase: BuildPhase) => void)): number
     emit(sigName: "started", phase: BuildPhase): void
-    /* Signals of Ide.Object */
+    /* Signals of Ide-1.0.Ide.Object */
     connect(sigName: "destroy", callback: (($obj: BuildPipeline) => void)): number
     connect_after(sigName: "destroy", callback: (($obj: BuildPipeline) => void)): number
     emit(sigName: "destroy"): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: BuildPipeline, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: BuildPipeline, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -2939,18 +2939,18 @@ export interface BuildStage_ConstructProps extends Object_ConstructProps {
     transient?: boolean
 }
 export class BuildStage {
-    /* Properties of Ide.BuildStage */
+    /* Properties of Ide-1.0.Ide.BuildStage */
     check_stdout: boolean
     completed: boolean
     disabled: boolean
     name: string
     stdout_path: string
     transient: boolean
-    /* Fields of Ide.BuildStage */
+    /* Fields of Ide-1.0.Ide.BuildStage */
     parent_instance: Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Ide.BuildStage */
+    /* Methods of Ide-1.0.Ide.BuildStage */
     chain(next: BuildStage): boolean
     clean_async(pipeline: BuildPipeline, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     clean_finish(result: Gio.AsyncResult): boolean
@@ -2974,12 +2974,12 @@ export class BuildStage {
     set_stdout_path(path: string): void
     set_transient(transient: boolean): void
     unpause(): void
-    /* Methods of Ide.Object */
+    /* Methods of Ide-1.0.Ide.Object */
     get_context(): Context
     hold(): boolean
     release(): void
     set_context(context: Context): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -3001,7 +3001,7 @@ export class BuildStage {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Ide.BuildStage */
+    /* Virtual methods of Ide-1.0.Ide.BuildStage */
     vfunc_chain(next: BuildStage): boolean
     vfunc_clean_async(pipeline: BuildPipeline, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     vfunc_clean_finish(result: Gio.AsyncResult): boolean
@@ -3010,11 +3010,11 @@ export class BuildStage {
     vfunc_execute_finish(result: Gio.AsyncResult): boolean
     vfunc_query(pipeline: BuildPipeline, cancellable?: Gio.Cancellable | null): void
     vfunc_reap(reaper: Dazzle.DirectoryReaper): void
-    /* Virtual methods of Ide.Object */
+    /* Virtual methods of Ide-1.0.Ide.Object */
     vfunc_destroy(): void
     vfunc_get_context(): Context
     vfunc_set_context(context: Context): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -3022,7 +3022,7 @@ export class BuildStage {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Ide.BuildStage */
+    /* Signals of Ide-1.0.Ide.BuildStage */
     connect(sigName: "chain", callback: (($obj: BuildStage, object: BuildStage) => boolean)): number
     connect_after(sigName: "chain", callback: (($obj: BuildStage, object: BuildStage) => boolean)): number
     emit(sigName: "chain", object: BuildStage): void
@@ -3032,11 +3032,11 @@ export class BuildStage {
     connect(sigName: "reap", callback: (($obj: BuildStage, reaper: Dazzle.DirectoryReaper) => void)): number
     connect_after(sigName: "reap", callback: (($obj: BuildStage, reaper: Dazzle.DirectoryReaper) => void)): number
     emit(sigName: "reap", reaper: Dazzle.DirectoryReaper): void
-    /* Signals of Ide.Object */
+    /* Signals of Ide-1.0.Ide.Object */
     connect(sigName: "destroy", callback: (($obj: BuildStage) => void)): number
     connect_after(sigName: "destroy", callback: (($obj: BuildStage) => void)): number
     emit(sigName: "destroy"): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: BuildStage, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: BuildStage, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -3067,29 +3067,29 @@ export interface BuildStageLauncher_ConstructProps extends BuildStage_ConstructP
     launcher?: SubprocessLauncher
 }
 export class BuildStageLauncher {
-    /* Properties of Ide.BuildStageLauncher */
+    /* Properties of Ide-1.0.Ide.BuildStageLauncher */
     clean_launcher: SubprocessLauncher
     ignore_exit_status: boolean
     launcher: SubprocessLauncher
-    /* Properties of Ide.BuildStage */
+    /* Properties of Ide-1.0.Ide.BuildStage */
     check_stdout: boolean
     completed: boolean
     disabled: boolean
     name: string
     stdout_path: string
     transient: boolean
-    /* Fields of Ide.BuildStageLauncher */
+    /* Fields of Ide-1.0.Ide.BuildStageLauncher */
     parent_instance: BuildStage
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Ide.BuildStageLauncher */
+    /* Methods of Ide-1.0.Ide.BuildStageLauncher */
     get_clean_launcher(): SubprocessLauncher | null
     get_ignore_exit_status(): boolean
     get_launcher(): SubprocessLauncher
     set_clean_launcher(clean_launcher: SubprocessLauncher): void
     set_ignore_exit_status(ignore_exit_status: boolean): void
     set_launcher(launcher: SubprocessLauncher): void
-    /* Methods of Ide.BuildStage */
+    /* Methods of Ide-1.0.Ide.BuildStage */
     chain(next: BuildStage): boolean
     clean_async(pipeline: BuildPipeline, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     clean_finish(result: Gio.AsyncResult): boolean
@@ -3113,12 +3113,12 @@ export class BuildStageLauncher {
     set_stdout_path(path: string): void
     set_transient(transient: boolean): void
     unpause(): void
-    /* Methods of Ide.Object */
+    /* Methods of Ide-1.0.Ide.Object */
     get_context(): Context
     hold(): boolean
     release(): void
     set_context(context: Context): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -3140,7 +3140,7 @@ export class BuildStageLauncher {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Ide.BuildStage */
+    /* Virtual methods of Ide-1.0.Ide.BuildStage */
     vfunc_chain(next: BuildStage): boolean
     vfunc_clean_async(pipeline: BuildPipeline, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     vfunc_clean_finish(result: Gio.AsyncResult): boolean
@@ -3149,11 +3149,11 @@ export class BuildStageLauncher {
     vfunc_execute_finish(result: Gio.AsyncResult): boolean
     vfunc_query(pipeline: BuildPipeline, cancellable?: Gio.Cancellable | null): void
     vfunc_reap(reaper: Dazzle.DirectoryReaper): void
-    /* Virtual methods of Ide.Object */
+    /* Virtual methods of Ide-1.0.Ide.Object */
     vfunc_destroy(): void
     vfunc_get_context(): Context
     vfunc_set_context(context: Context): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -3161,7 +3161,7 @@ export class BuildStageLauncher {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Ide.BuildStage */
+    /* Signals of Ide-1.0.Ide.BuildStage */
     connect(sigName: "chain", callback: (($obj: BuildStageLauncher, object: BuildStage) => boolean)): number
     connect_after(sigName: "chain", callback: (($obj: BuildStageLauncher, object: BuildStage) => boolean)): number
     emit(sigName: "chain", object: BuildStage): void
@@ -3171,11 +3171,11 @@ export class BuildStageLauncher {
     connect(sigName: "reap", callback: (($obj: BuildStageLauncher, reaper: Dazzle.DirectoryReaper) => void)): number
     connect_after(sigName: "reap", callback: (($obj: BuildStageLauncher, reaper: Dazzle.DirectoryReaper) => void)): number
     emit(sigName: "reap", reaper: Dazzle.DirectoryReaper): void
-    /* Signals of Ide.Object */
+    /* Signals of Ide-1.0.Ide.Object */
     connect(sigName: "destroy", callback: (($obj: BuildStageLauncher) => void)): number
     connect_after(sigName: "destroy", callback: (($obj: BuildStageLauncher) => void)): number
     emit(sigName: "destroy"): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: BuildStageLauncher, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: BuildStageLauncher, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -3211,20 +3211,20 @@ export class BuildStageLauncher {
 export interface BuildStageMkdirs_ConstructProps extends BuildStage_ConstructProps {
 }
 export class BuildStageMkdirs {
-    /* Properties of Ide.BuildStage */
+    /* Properties of Ide-1.0.Ide.BuildStage */
     check_stdout: boolean
     completed: boolean
     disabled: boolean
     name: string
     stdout_path: string
     transient: boolean
-    /* Fields of Ide.BuildStageMkdirs */
+    /* Fields of Ide-1.0.Ide.BuildStageMkdirs */
     parent_instance: BuildStage
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Ide.BuildStageMkdirs */
+    /* Methods of Ide-1.0.Ide.BuildStageMkdirs */
     add_path(path: string, with_parents: boolean, mode: number): void
-    /* Methods of Ide.BuildStage */
+    /* Methods of Ide-1.0.Ide.BuildStage */
     chain(next: BuildStage): boolean
     clean_async(pipeline: BuildPipeline, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     clean_finish(result: Gio.AsyncResult): boolean
@@ -3248,12 +3248,12 @@ export class BuildStageMkdirs {
     set_stdout_path(path: string): void
     set_transient(transient: boolean): void
     unpause(): void
-    /* Methods of Ide.Object */
+    /* Methods of Ide-1.0.Ide.Object */
     get_context(): Context
     hold(): boolean
     release(): void
     set_context(context: Context): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -3275,7 +3275,7 @@ export class BuildStageMkdirs {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Ide.BuildStage */
+    /* Virtual methods of Ide-1.0.Ide.BuildStage */
     vfunc_chain(next: BuildStage): boolean
     vfunc_clean_async(pipeline: BuildPipeline, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     vfunc_clean_finish(result: Gio.AsyncResult): boolean
@@ -3284,11 +3284,11 @@ export class BuildStageMkdirs {
     vfunc_execute_finish(result: Gio.AsyncResult): boolean
     vfunc_query(pipeline: BuildPipeline, cancellable?: Gio.Cancellable | null): void
     vfunc_reap(reaper: Dazzle.DirectoryReaper): void
-    /* Virtual methods of Ide.Object */
+    /* Virtual methods of Ide-1.0.Ide.Object */
     vfunc_destroy(): void
     vfunc_get_context(): Context
     vfunc_set_context(context: Context): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -3296,7 +3296,7 @@ export class BuildStageMkdirs {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Ide.BuildStage */
+    /* Signals of Ide-1.0.Ide.BuildStage */
     connect(sigName: "chain", callback: (($obj: BuildStageMkdirs, object: BuildStage) => boolean)): number
     connect_after(sigName: "chain", callback: (($obj: BuildStageMkdirs, object: BuildStage) => boolean)): number
     emit(sigName: "chain", object: BuildStage): void
@@ -3306,11 +3306,11 @@ export class BuildStageMkdirs {
     connect(sigName: "reap", callback: (($obj: BuildStageMkdirs, reaper: Dazzle.DirectoryReaper) => void)): number
     connect_after(sigName: "reap", callback: (($obj: BuildStageMkdirs, reaper: Dazzle.DirectoryReaper) => void)): number
     emit(sigName: "reap", reaper: Dazzle.DirectoryReaper): void
-    /* Signals of Ide.Object */
+    /* Signals of Ide-1.0.Ide.Object */
     connect(sigName: "destroy", callback: (($obj: BuildStageMkdirs) => void)): number
     connect_after(sigName: "destroy", callback: (($obj: BuildStageMkdirs) => void)): number
     emit(sigName: "destroy"): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: BuildStageMkdirs, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: BuildStageMkdirs, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -3342,20 +3342,20 @@ export interface BuildStageTransfer_ConstructProps extends BuildStage_ConstructP
     transfer?: Transfer
 }
 export class BuildStageTransfer {
-    /* Properties of Ide.BuildStageTransfer */
+    /* Properties of Ide-1.0.Ide.BuildStageTransfer */
     disable_when_metered: boolean
-    /* Properties of Ide.BuildStage */
+    /* Properties of Ide-1.0.Ide.BuildStage */
     check_stdout: boolean
     completed: boolean
     disabled: boolean
     name: string
     stdout_path: string
     transient: boolean
-    /* Fields of Ide.BuildStage */
+    /* Fields of Ide-1.0.Ide.BuildStage */
     parent_instance: Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Ide.BuildStage */
+    /* Methods of Ide-1.0.Ide.BuildStage */
     chain(next: BuildStage): boolean
     clean_async(pipeline: BuildPipeline, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     clean_finish(result: Gio.AsyncResult): boolean
@@ -3379,12 +3379,12 @@ export class BuildStageTransfer {
     set_stdout_path(path: string): void
     set_transient(transient: boolean): void
     unpause(): void
-    /* Methods of Ide.Object */
+    /* Methods of Ide-1.0.Ide.Object */
     get_context(): Context
     hold(): boolean
     release(): void
     set_context(context: Context): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -3406,7 +3406,7 @@ export class BuildStageTransfer {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Ide.BuildStage */
+    /* Virtual methods of Ide-1.0.Ide.BuildStage */
     vfunc_chain(next: BuildStage): boolean
     vfunc_clean_async(pipeline: BuildPipeline, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     vfunc_clean_finish(result: Gio.AsyncResult): boolean
@@ -3415,11 +3415,11 @@ export class BuildStageTransfer {
     vfunc_execute_finish(result: Gio.AsyncResult): boolean
     vfunc_query(pipeline: BuildPipeline, cancellable?: Gio.Cancellable | null): void
     vfunc_reap(reaper: Dazzle.DirectoryReaper): void
-    /* Virtual methods of Ide.Object */
+    /* Virtual methods of Ide-1.0.Ide.Object */
     vfunc_destroy(): void
     vfunc_get_context(): Context
     vfunc_set_context(context: Context): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -3427,7 +3427,7 @@ export class BuildStageTransfer {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Ide.BuildStage */
+    /* Signals of Ide-1.0.Ide.BuildStage */
     connect(sigName: "chain", callback: (($obj: BuildStageTransfer, object: BuildStage) => boolean)): number
     connect_after(sigName: "chain", callback: (($obj: BuildStageTransfer, object: BuildStage) => boolean)): number
     emit(sigName: "chain", object: BuildStage): void
@@ -3437,11 +3437,11 @@ export class BuildStageTransfer {
     connect(sigName: "reap", callback: (($obj: BuildStageTransfer, reaper: Dazzle.DirectoryReaper) => void)): number
     connect_after(sigName: "reap", callback: (($obj: BuildStageTransfer, reaper: Dazzle.DirectoryReaper) => void)): number
     emit(sigName: "reap", reaper: Dazzle.DirectoryReaper): void
-    /* Signals of Ide.Object */
+    /* Signals of Ide-1.0.Ide.Object */
     connect(sigName: "destroy", callback: (($obj: BuildStageTransfer) => void)): number
     connect_after(sigName: "destroy", callback: (($obj: BuildStageTransfer) => void)): number
     emit(sigName: "destroy"): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: BuildStageTransfer, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: BuildStageTransfer, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -3475,10 +3475,10 @@ export interface BuildconfigConfiguration_ConstructProps extends Configuration_C
     prebuild?: string[]
 }
 export class BuildconfigConfiguration {
-    /* Properties of Ide.BuildconfigConfiguration */
+    /* Properties of Ide-1.0.Ide.BuildconfigConfiguration */
     postbuild: string[]
     prebuild: string[]
-    /* Properties of Ide.Configuration */
+    /* Properties of Ide-1.0.Ide.Configuration */
     app_id: string
     build_commands: string[]
     config_opts: string
@@ -3494,16 +3494,16 @@ export class BuildconfigConfiguration {
     readonly ready: boolean
     runtime: Runtime
     runtime_id: string
-    /* Fields of Ide.Configuration */
+    /* Fields of Ide-1.0.Ide.Configuration */
     parent_instance: Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Ide.BuildconfigConfiguration */
+    /* Methods of Ide-1.0.Ide.BuildconfigConfiguration */
     get_postbuild(): string[]
     get_prebuild(): string[]
     set_postbuild(postbuild: string): void
     set_prebuild(prebuild: string): void
-    /* Methods of Ide.Configuration */
+    /* Methods of Ide-1.0.Ide.Configuration */
     duplicate(): Configuration
     get_app_id(): string | null
     get_build_commands(): string[]
@@ -3554,12 +3554,12 @@ export class BuildconfigConfiguration {
     snapshot(): Configuration
     supports_device(device: Device): boolean
     supports_runtime(runtime: Runtime): boolean
-    /* Methods of Ide.Object */
+    /* Methods of Ide-1.0.Ide.Object */
     get_context(): Context
     hold(): boolean
     release(): void
     set_context(context: Context): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -3581,18 +3581,18 @@ export class BuildconfigConfiguration {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Ide.Configuration */
+    /* Virtual methods of Ide-1.0.Ide.Configuration */
     vfunc_get_device(): Device | null
     vfunc_get_runtime(): Runtime | null
     vfunc_set_device(device: Device): void
     vfunc_set_runtime(runtime: Runtime): void
     vfunc_supports_device(device: Device): boolean
     vfunc_supports_runtime(runtime: Runtime): boolean
-    /* Virtual methods of Ide.Object */
+    /* Virtual methods of Ide-1.0.Ide.Object */
     vfunc_destroy(): void
     vfunc_get_context(): Context
     vfunc_set_context(context: Context): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -3600,15 +3600,15 @@ export class BuildconfigConfiguration {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Ide.Configuration */
+    /* Signals of Ide-1.0.Ide.Configuration */
     connect(sigName: "changed", callback: (($obj: BuildconfigConfiguration) => void)): number
     connect_after(sigName: "changed", callback: (($obj: BuildconfigConfiguration) => void)): number
     emit(sigName: "changed"): void
-    /* Signals of Ide.Object */
+    /* Signals of Ide-1.0.Ide.Object */
     connect(sigName: "destroy", callback: (($obj: BuildconfigConfiguration) => void)): number
     connect_after(sigName: "destroy", callback: (($obj: BuildconfigConfiguration) => void)): number
     emit(sigName: "destroy"): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: BuildconfigConfiguration, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: BuildconfigConfiguration, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -3658,11 +3658,11 @@ export class BuildconfigConfiguration {
 export interface BuildconfigConfigurationProvider_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class BuildconfigConfigurationProvider {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Ide.BuildconfigConfigurationProvider */
+    /* Methods of Ide-1.0.Ide.BuildconfigConfigurationProvider */
     track_config(config: BuildconfigConfiguration): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -3684,19 +3684,19 @@ export class BuildconfigConfigurationProvider {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of Ide.ConfigurationProvider */
+    /* Methods of Ide-1.0.Ide.ConfigurationProvider */
     load_async(manager: ConfigurationManager, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     load_finish(result: Gio.AsyncResult): boolean
     save_async(cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     save_finish(result: Gio.AsyncResult): boolean
     unload(manager: ConfigurationManager): void
-    /* Virtual methods of Ide.BuildconfigConfigurationProvider */
+    /* Virtual methods of Ide-1.0.Ide.BuildconfigConfigurationProvider */
     vfunc_load_async(manager: ConfigurationManager, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     vfunc_load_finish(result: Gio.AsyncResult): boolean
     vfunc_save_async(cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     vfunc_save_finish(result: Gio.AsyncResult): boolean
     vfunc_unload(manager: ConfigurationManager): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -3704,7 +3704,7 @@ export class BuildconfigConfigurationProvider {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: BuildconfigConfigurationProvider, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: BuildconfigConfigurationProvider, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -3720,14 +3720,14 @@ export class BuildconfigConfigurationProvider {
 export interface CompletionItem_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class CompletionItem {
-    /* Fields of Ide.CompletionItem */
+    /* Fields of Ide-1.0.Ide.CompletionItem */
     parent_instance: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Ide.CompletionItem */
+    /* Methods of Ide-1.0.Ide.CompletionItem */
     match(query: string, casefold: string): boolean
     set_priority(priority: number): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -3749,9 +3749,9 @@ export class CompletionItem {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Ide.CompletionItem */
+    /* Virtual methods of Ide-1.0.Ide.CompletionItem */
     vfunc_match(query: string, casefold: string): boolean
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -3759,7 +3759,7 @@ export class CompletionItem {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: CompletionItem, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: CompletionItem, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -3780,18 +3780,18 @@ export interface CompletionResults_ConstructProps extends GObject.Object_Constru
     query?: string
 }
 export class CompletionResults {
-    /* Fields of Ide.CompletionResults */
+    /* Fields of Ide-1.0.Ide.CompletionResults */
     parent_instance: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Ide.CompletionResults */
+    /* Methods of Ide-1.0.Ide.CompletionResults */
     get_query(): string
     get_size(): number
     invalidate_sort(): void
     present(provider: GtkSource.CompletionProvider, context: GtkSource.CompletionContext): void
     replay(query: string): boolean
     take_proposal(proposal: CompletionItem): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -3813,9 +3813,9 @@ export class CompletionResults {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Ide.CompletionResults */
+    /* Virtual methods of Ide-1.0.Ide.CompletionResults */
     vfunc_compare(left: CompletionItem, right: CompletionItem): number
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -3823,7 +3823,7 @@ export class CompletionResults {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: CompletionResults, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: CompletionResults, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -3841,7 +3841,7 @@ export class CompletionResults {
 export interface CompletionWords_ConstructProps extends GtkSource.CompletionWords_ConstructProps {
 }
 export class CompletionWords {
-    /* Properties of GtkSource.CompletionWords */
+    /* Properties of GtkSource-3.0.GtkSource.CompletionWords */
     activation: GtkSource.CompletionActivation
     icon: GdkPixbuf.Pixbuf
     interactive_delay: number
@@ -3850,15 +3850,15 @@ export class CompletionWords {
     priority: number
     proposals_batch_size: number
     scan_batch_size: number
-    /* Fields of GtkSource.CompletionWords */
+    /* Fields of GtkSource-3.0.GtkSource.CompletionWords */
     parent: GObject.Object
     priv: GtkSource.CompletionWordsPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GtkSource.CompletionWords */
+    /* Methods of GtkSource-3.0.GtkSource.CompletionWords */
     register(buffer: Gtk.TextBuffer): void
     unregister(buffer: Gtk.TextBuffer): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -3880,7 +3880,7 @@ export class CompletionWords {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of GtkSource.CompletionProvider */
+    /* Methods of GtkSource-3.0.GtkSource.CompletionProvider */
     activate_proposal(proposal: GtkSource.CompletionProposal, iter: Gtk.TextIter): boolean
     get_activation(): GtkSource.CompletionActivation
     get_gicon(): Gio.Icon | null
@@ -3894,9 +3894,9 @@ export class CompletionWords {
     match(context: GtkSource.CompletionContext): boolean
     populate(context: GtkSource.CompletionContext): void
     update_info(proposal: GtkSource.CompletionProposal, info: GtkSource.CompletionInfo): void
-    /* Virtual methods of GtkSource.CompletionWords */
+    /* Virtual methods of GtkSource-3.0.GtkSource.CompletionWords */
     vfunc_load(context: Context): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -3904,7 +3904,7 @@ export class CompletionWords {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: CompletionWords, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: CompletionWords, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -3950,7 +3950,7 @@ export interface Configuration_ConstructProps extends Object_ConstructProps {
     runtime_id?: string
 }
 export class Configuration {
-    /* Properties of Ide.Configuration */
+    /* Properties of Ide-1.0.Ide.Configuration */
     app_id: string
     build_commands: string[]
     config_opts: string
@@ -3966,11 +3966,11 @@ export class Configuration {
     readonly ready: boolean
     runtime: Runtime
     runtime_id: string
-    /* Fields of Ide.Configuration */
+    /* Fields of Ide-1.0.Ide.Configuration */
     parent_instance: Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Ide.Configuration */
+    /* Methods of Ide-1.0.Ide.Configuration */
     duplicate(): Configuration
     get_app_id(): string | null
     get_build_commands(): string[]
@@ -4021,12 +4021,12 @@ export class Configuration {
     snapshot(): Configuration
     supports_device(device: Device): boolean
     supports_runtime(runtime: Runtime): boolean
-    /* Methods of Ide.Object */
+    /* Methods of Ide-1.0.Ide.Object */
     get_context(): Context
     hold(): boolean
     release(): void
     set_context(context: Context): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -4048,18 +4048,18 @@ export class Configuration {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Ide.Configuration */
+    /* Virtual methods of Ide-1.0.Ide.Configuration */
     vfunc_get_device(): Device | null
     vfunc_get_runtime(): Runtime | null
     vfunc_set_device(device: Device): void
     vfunc_set_runtime(runtime: Runtime): void
     vfunc_supports_device(device: Device): boolean
     vfunc_supports_runtime(runtime: Runtime): boolean
-    /* Virtual methods of Ide.Object */
+    /* Virtual methods of Ide-1.0.Ide.Object */
     vfunc_destroy(): void
     vfunc_get_context(): Context
     vfunc_set_context(context: Context): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -4067,15 +4067,15 @@ export class Configuration {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Ide.Configuration */
+    /* Signals of Ide-1.0.Ide.Configuration */
     connect(sigName: "changed", callback: (($obj: Configuration) => void)): number
     connect_after(sigName: "changed", callback: (($obj: Configuration) => void)): number
     emit(sigName: "changed"): void
-    /* Signals of Ide.Object */
+    /* Signals of Ide-1.0.Ide.Object */
     connect(sigName: "destroy", callback: (($obj: Configuration) => void)): number
     connect_after(sigName: "destroy", callback: (($obj: Configuration) => void)): number
     emit(sigName: "destroy"): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Configuration, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Configuration, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -4124,14 +4124,14 @@ export interface ConfigurationManager_ConstructProps extends Object_ConstructPro
     current?: Configuration
 }
 export class ConfigurationManager {
-    /* Properties of Ide.ConfigurationManager */
+    /* Properties of Ide-1.0.Ide.ConfigurationManager */
     current: Configuration
     readonly current_display_name: string
-    /* Fields of Ide.Object */
+    /* Fields of Ide-1.0.Ide.Object */
     parent_instance: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Ide.ConfigurationManager */
+    /* Methods of Ide-1.0.Ide.ConfigurationManager */
     add(configuration: Configuration): void
     get_configuration(id: string): Configuration | null
     get_current(): Configuration
@@ -4139,12 +4139,12 @@ export class ConfigurationManager {
     save_async(cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     save_finish(result: Gio.AsyncResult): boolean
     set_current(configuration: Configuration): void
-    /* Methods of Ide.Object */
+    /* Methods of Ide-1.0.Ide.Object */
     get_context(): Context
     hold(): boolean
     release(): void
     set_context(context: Context): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -4166,26 +4166,26 @@ export class ConfigurationManager {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of Gio.AsyncInitable */
+    /* Methods of Gio-2.0.Gio.AsyncInitable */
     init_async(io_priority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     init_finish(res: Gio.AsyncResult): boolean
     new_finish(res: Gio.AsyncResult): GObject.Object
-    /* Methods of Gio.ListModel */
+    /* Methods of Gio-2.0.Gio.ListModel */
     get_item_type(): GObject.Type
     get_n_items(): number
     get_item(position: number): GObject.Object | null
     items_changed(position: number, removed: number, added: number): void
-    /* Virtual methods of Ide.ConfigurationManager */
+    /* Virtual methods of Ide-1.0.Ide.ConfigurationManager */
     vfunc_init_async(io_priority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     vfunc_init_finish(res: Gio.AsyncResult): boolean
     vfunc_get_item(position: number): GObject.Object | null
     vfunc_get_item_type(): GObject.Type
     vfunc_get_n_items(): number
-    /* Virtual methods of Ide.Object */
+    /* Virtual methods of Ide-1.0.Ide.Object */
     vfunc_destroy(): void
     vfunc_get_context(): Context
     vfunc_set_context(context: Context): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -4193,19 +4193,19 @@ export class ConfigurationManager {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Ide.ConfigurationManager */
+    /* Signals of Ide-1.0.Ide.ConfigurationManager */
     connect(sigName: "invalidate", callback: (($obj: ConfigurationManager) => void)): number
     connect_after(sigName: "invalidate", callback: (($obj: ConfigurationManager) => void)): number
     emit(sigName: "invalidate"): void
-    /* Signals of Ide.Object */
+    /* Signals of Ide-1.0.Ide.Object */
     connect(sigName: "destroy", callback: (($obj: ConfigurationManager) => void)): number
     connect_after(sigName: "destroy", callback: (($obj: ConfigurationManager) => void)): number
     emit(sigName: "destroy"): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: ConfigurationManager, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: ConfigurationManager, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    /* Signals of Gio.ListModel */
+    /* Signals of Gio-2.0.Gio.ListModel */
     connect(sigName: "items-changed", callback: (($obj: ConfigurationManager, position: number, removed: number, added: number) => void)): number
     connect_after(sigName: "items-changed", callback: (($obj: ConfigurationManager, position: number, removed: number, added: number) => void)): number
     emit(sigName: "items-changed", position: number, removed: number, added: number): void
@@ -4230,7 +4230,7 @@ export interface Context_ConstructProps extends GObject.Object_ConstructProps {
     snippets_manager?: SourceSnippetsManager
 }
 export class Context {
-    /* Properties of Ide.Context */
+    /* Properties of Ide-1.0.Ide.Context */
     readonly back_forward_list: BackForwardList
     readonly buffer_manager: BufferManager
     readonly build_system: BuildSystem
@@ -4243,9 +4243,9 @@ export class Context {
     snippets_manager: SourceSnippetsManager
     readonly unsaved_files: UnsavedFiles
     readonly vcs: Vcs
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Ide.Context */
+    /* Methods of Ide-1.0.Ide.Context */
     get_back_forward_list(): BackForwardList
     get_buffer_manager(): BufferManager
     get_build_manager(): BuildManager
@@ -4274,7 +4274,7 @@ export class Context {
     set_root_build_dir(root_build_dir: string): void
     unload_async(cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     unload_finish(result: Gio.AsyncResult): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -4296,14 +4296,14 @@ export class Context {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of Gio.AsyncInitable */
+    /* Methods of Gio-2.0.Gio.AsyncInitable */
     init_async(io_priority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     init_finish(res: Gio.AsyncResult): boolean
     new_finish(res: Gio.AsyncResult): GObject.Object
-    /* Virtual methods of Ide.Context */
+    /* Virtual methods of Ide-1.0.Ide.Context */
     vfunc_init_async(io_priority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     vfunc_init_finish(res: Gio.AsyncResult): boolean
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -4311,11 +4311,11 @@ export class Context {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Ide.Context */
+    /* Signals of Ide-1.0.Ide.Context */
     connect(sigName: "loaded", callback: (($obj: Context) => void)): number
     connect_after(sigName: "loaded", callback: (($obj: Context) => void)): number
     emit(sigName: "loaded"): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Context, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Context, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -4360,16 +4360,16 @@ export interface Cursor_ConstructProps extends GObject.Object_ConstructProps {
     ide_source_view?: SourceView
 }
 export class Cursor {
-    /* Properties of Ide.Cursor */
+    /* Properties of Ide-1.0.Ide.Cursor */
     ide_source_view: SourceView
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Ide.Cursor */
+    /* Methods of Ide-1.0.Ide.Cursor */
     add_cursor(type: number): void
     insert_text(text: string, len: number): void
     is_enabled(): boolean
     remove_cursors(): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -4391,7 +4391,7 @@ export class Cursor {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -4399,7 +4399,7 @@ export class Cursor {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Cursor, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Cursor, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -4419,27 +4419,27 @@ export interface Device_ConstructProps extends Object_ConstructProps {
     id?: string
 }
 export class Device {
-    /* Properties of Ide.Device */
+    /* Properties of Ide-1.0.Ide.Device */
     display_name: string
     id: string
     readonly system_type: string
-    /* Fields of Ide.Device */
+    /* Fields of Ide-1.0.Ide.Device */
     parent_instance: Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Ide.Device */
+    /* Methods of Ide-1.0.Ide.Device */
     get_display_name(): string | null
     get_id(): string
     get_system_type(): string
     prepare_configuration(configuration: Configuration): void
     set_display_name(display_name: string): void
     set_id(id: string): void
-    /* Methods of Ide.Object */
+    /* Methods of Ide-1.0.Ide.Object */
     get_context(): Context
     hold(): boolean
     release(): void
     set_context(context: Context): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -4461,14 +4461,14 @@ export class Device {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Ide.Device */
+    /* Virtual methods of Ide-1.0.Ide.Device */
     vfunc_get_system_type(): string
     vfunc_prepare_configuration(configuration: Configuration): void
-    /* Virtual methods of Ide.Object */
+    /* Virtual methods of Ide-1.0.Ide.Object */
     vfunc_destroy(): void
     vfunc_get_context(): Context
     vfunc_set_context(context: Context): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -4476,11 +4476,11 @@ export class Device {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Ide.Object */
+    /* Signals of Ide-1.0.Ide.Object */
     connect(sigName: "destroy", callback: (($obj: Device) => void)): number
     connect_after(sigName: "destroy", callback: (($obj: Device) => void)): number
     emit(sigName: "destroy"): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Device, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Device, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -4502,24 +4502,24 @@ export class Device {
 export interface DeviceManager_ConstructProps extends Object_ConstructProps {
 }
 export class DeviceManager {
-    /* Properties of Ide.DeviceManager */
+    /* Properties of Ide-1.0.Ide.DeviceManager */
     readonly settled: boolean
-    /* Fields of Ide.Object */
+    /* Fields of Ide-1.0.Ide.Object */
     parent_instance: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Ide.DeviceManager */
+    /* Methods of Ide-1.0.Ide.DeviceManager */
     add_provider(provider: DeviceProvider): void
     get_device(device_id: string): Device
     get_devices(): Device[]
     get_settled(): boolean
     remove_provider(provider: DeviceProvider): void
-    /* Methods of Ide.Object */
+    /* Methods of Ide-1.0.Ide.Object */
     get_context(): Context
     hold(): boolean
     release(): void
     set_context(context: Context): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -4541,20 +4541,20 @@ export class DeviceManager {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of Gio.ListModel */
+    /* Methods of Gio-2.0.Gio.ListModel */
     get_item_type(): GObject.Type
     get_n_items(): number
     get_item(position: number): GObject.Object | null
     items_changed(position: number, removed: number, added: number): void
-    /* Virtual methods of Ide.DeviceManager */
+    /* Virtual methods of Ide-1.0.Ide.DeviceManager */
     vfunc_get_item(position: number): GObject.Object | null
     vfunc_get_item_type(): GObject.Type
     vfunc_get_n_items(): number
-    /* Virtual methods of Ide.Object */
+    /* Virtual methods of Ide-1.0.Ide.Object */
     vfunc_destroy(): void
     vfunc_get_context(): Context
     vfunc_set_context(context: Context): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -4562,22 +4562,22 @@ export class DeviceManager {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Ide.DeviceManager */
+    /* Signals of Ide-1.0.Ide.DeviceManager */
     connect(sigName: "device-added", callback: (($obj: DeviceManager, object: DeviceProvider, p0: Device) => void)): number
     connect_after(sigName: "device-added", callback: (($obj: DeviceManager, object: DeviceProvider, p0: Device) => void)): number
     emit(sigName: "device-added", object: DeviceProvider, p0: Device): void
     connect(sigName: "device-removed", callback: (($obj: DeviceManager, object: DeviceProvider, p0: Device) => void)): number
     connect_after(sigName: "device-removed", callback: (($obj: DeviceManager, object: DeviceProvider, p0: Device) => void)): number
     emit(sigName: "device-removed", object: DeviceProvider, p0: Device): void
-    /* Signals of Ide.Object */
+    /* Signals of Ide-1.0.Ide.Object */
     connect(sigName: "destroy", callback: (($obj: DeviceManager) => void)): number
     connect_after(sigName: "destroy", callback: (($obj: DeviceManager) => void)): number
     emit(sigName: "destroy"): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: DeviceManager, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: DeviceManager, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    /* Signals of Gio.ListModel */
+    /* Signals of Gio-2.0.Gio.ListModel */
     connect(sigName: "items-changed", callback: (($obj: DeviceManager, position: number, removed: number, added: number) => void)): number
     connect_after(sigName: "items-changed", callback: (($obj: DeviceManager, position: number, removed: number, added: number) => void)): number
     emit(sigName: "items-changed", position: number, removed: number, added: number): void
@@ -4595,23 +4595,23 @@ export class DeviceManager {
 export interface DiagnosticsManager_ConstructProps extends Object_ConstructProps {
 }
 export class DiagnosticsManager {
-    /* Properties of Ide.DiagnosticsManager */
+    /* Properties of Ide-1.0.Ide.DiagnosticsManager */
     readonly busy: boolean
-    /* Fields of Ide.Object */
+    /* Fields of Ide-1.0.Ide.Object */
     parent_instance: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Ide.DiagnosticsManager */
+    /* Methods of Ide-1.0.Ide.DiagnosticsManager */
     get_busy(): boolean
     get_diagnostics_for_file(file: Gio.File): Diagnostics
     get_sequence_for_file(file: Gio.File): number
     update_group_by_file(buffer: Buffer, new_file: Gio.File): void
-    /* Methods of Ide.Object */
+    /* Methods of Ide-1.0.Ide.Object */
     get_context(): Context
     hold(): boolean
     release(): void
     set_context(context: Context): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -4633,15 +4633,15 @@ export class DiagnosticsManager {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of Gio.Initable */
+    /* Methods of Gio-2.0.Gio.Initable */
     init(cancellable?: Gio.Cancellable | null): boolean
-    /* Virtual methods of Ide.DiagnosticsManager */
+    /* Virtual methods of Ide-1.0.Ide.DiagnosticsManager */
     vfunc_init(cancellable?: Gio.Cancellable | null): boolean
-    /* Virtual methods of Ide.Object */
+    /* Virtual methods of Ide-1.0.Ide.Object */
     vfunc_destroy(): void
     vfunc_get_context(): Context
     vfunc_set_context(context: Context): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -4649,15 +4649,15 @@ export class DiagnosticsManager {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Ide.DiagnosticsManager */
+    /* Signals of Ide-1.0.Ide.DiagnosticsManager */
     connect(sigName: "changed", callback: (($obj: DiagnosticsManager) => void)): number
     connect_after(sigName: "changed", callback: (($obj: DiagnosticsManager) => void)): number
     emit(sigName: "changed"): void
-    /* Signals of Ide.Object */
+    /* Signals of Ide-1.0.Ide.Object */
     connect(sigName: "destroy", callback: (($obj: DiagnosticsManager) => void)): number
     connect_after(sigName: "destroy", callback: (($obj: DiagnosticsManager) => void)): number
     emit(sigName: "destroy"): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: DiagnosticsManager, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: DiagnosticsManager, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -4679,16 +4679,16 @@ export interface DirectoryBuildSystem_ConstructProps extends Object_ConstructPro
     context?: Context
 }
 export class DirectoryBuildSystem {
-    /* Fields of Ide.Object */
+    /* Fields of Ide-1.0.Ide.Object */
     parent_instance: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Ide.Object */
+    /* Methods of Ide-1.0.Ide.Object */
     get_context(): Context
     hold(): boolean
     release(): void
     set_context(context: Context): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -4710,11 +4710,11 @@ export class DirectoryBuildSystem {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of Gio.AsyncInitable */
+    /* Methods of Gio-2.0.Gio.AsyncInitable */
     init_async(io_priority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     init_finish(res: Gio.AsyncResult): boolean
     new_finish(res: Gio.AsyncResult): GObject.Object
-    /* Methods of Ide.BuildSystem */
+    /* Methods of Ide-1.0.Ide.BuildSystem */
     get_build_flags_async(file: File, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     get_build_flags_finish(result: Gio.AsyncResult): string[]
     get_build_targets_async(cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
@@ -4723,7 +4723,7 @@ export class DirectoryBuildSystem {
     get_display_name(): string
     get_id(): string
     get_priority(): number
-    /* Virtual methods of Ide.DirectoryBuildSystem */
+    /* Virtual methods of Ide-1.0.Ide.DirectoryBuildSystem */
     vfunc_init_async(io_priority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     vfunc_init_finish(res: Gio.AsyncResult): boolean
     vfunc_get_build_flags_async(file: File, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
@@ -4734,11 +4734,11 @@ export class DirectoryBuildSystem {
     vfunc_get_display_name(): string
     vfunc_get_id(): string
     vfunc_get_priority(): number
-    /* Virtual methods of Ide.Object */
+    /* Virtual methods of Ide-1.0.Ide.Object */
     vfunc_destroy(): void
     vfunc_get_context(): Context
     vfunc_set_context(context: Context): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -4746,11 +4746,11 @@ export class DirectoryBuildSystem {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Ide.Object */
+    /* Signals of Ide-1.0.Ide.Object */
     connect(sigName: "destroy", callback: (($obj: DirectoryBuildSystem) => void)): number
     connect_after(sigName: "destroy", callback: (($obj: DirectoryBuildSystem) => void)): number
     emit(sigName: "destroy"): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: DirectoryBuildSystem, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: DirectoryBuildSystem, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -4771,19 +4771,19 @@ export interface DirectoryVcs_ConstructProps extends Object_ConstructProps {
     context?: Context
 }
 export class DirectoryVcs {
-    /* Properties of Ide.Vcs */
+    /* Properties of Ide-1.0.Ide.Vcs */
     readonly branch_name: string
     readonly working_directory: Gio.File
-    /* Fields of Ide.Object */
+    /* Fields of Ide-1.0.Ide.Object */
     parent_instance: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Ide.Object */
+    /* Methods of Ide-1.0.Ide.Object */
     get_context(): Context
     hold(): boolean
     release(): void
     set_context(context: Context): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -4805,11 +4805,11 @@ export class DirectoryVcs {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of Gio.AsyncInitable */
+    /* Methods of Gio-2.0.Gio.AsyncInitable */
     init_async(io_priority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     init_finish(res: Gio.AsyncResult): boolean
     new_finish(res: Gio.AsyncResult): GObject.Object
-    /* Methods of Ide.Vcs */
+    /* Methods of Ide-1.0.Ide.Vcs */
     emit_changed(): void
     get_branch_name(): string
     get_buffer_change_monitor(buffer: Buffer): BufferChangeMonitor | null
@@ -4817,7 +4817,7 @@ export class DirectoryVcs {
     get_priority(): number
     get_working_directory(): Gio.File
     is_ignored(file: Gio.File): boolean
-    /* Virtual methods of Ide.DirectoryVcs */
+    /* Virtual methods of Ide-1.0.Ide.DirectoryVcs */
     vfunc_init_async(io_priority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     vfunc_init_finish(res: Gio.AsyncResult): boolean
     vfunc_changed(): void
@@ -4827,11 +4827,11 @@ export class DirectoryVcs {
     vfunc_get_priority(): number
     vfunc_get_working_directory(): Gio.File
     vfunc_is_ignored(file: Gio.File): boolean
-    /* Virtual methods of Ide.Object */
+    /* Virtual methods of Ide-1.0.Ide.Object */
     vfunc_destroy(): void
     vfunc_get_context(): Context
     vfunc_set_context(context: Context): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -4839,15 +4839,15 @@ export class DirectoryVcs {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Ide.Object */
+    /* Signals of Ide-1.0.Ide.Object */
     connect(sigName: "destroy", callback: (($obj: DirectoryVcs) => void)): number
     connect_after(sigName: "destroy", callback: (($obj: DirectoryVcs) => void)): number
     emit(sigName: "destroy"): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: DirectoryVcs, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: DirectoryVcs, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    /* Signals of Ide.Vcs */
+    /* Signals of Ide-1.0.Ide.Vcs */
     connect(sigName: "changed", callback: (($obj: DirectoryVcs) => void)): number
     connect_after(sigName: "changed", callback: (($obj: DirectoryVcs) => void)): number
     emit(sigName: "changed"): void
@@ -4880,7 +4880,7 @@ export interface Doap_ConstructProps extends GObject.Object_ConstructProps {
     shortdesc?: string
 }
 export class Doap {
-    /* Properties of Ide.Doap */
+    /* Properties of Ide-1.0.Ide.Doap */
     bug_database: string
     category: string
     description: string
@@ -4889,9 +4889,9 @@ export class Doap {
     languages: string
     name: string
     shortdesc: string
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Ide.Doap */
+    /* Methods of Ide-1.0.Ide.Doap */
     get_bug_database(): string
     get_category(): string
     get_description(): string
@@ -4903,7 +4903,7 @@ export class Doap {
     get_shortdesc(): string
     load_from_data(data: string, length: number): boolean
     load_from_file(file: Gio.File, cancellable?: Gio.Cancellable | null): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -4925,7 +4925,7 @@ export class Doap {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -4933,7 +4933,7 @@ export class Doap {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Doap, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Doap, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -4969,17 +4969,17 @@ export interface DoapPerson_ConstructProps extends GObject.Object_ConstructProps
     name?: string
 }
 export class DoapPerson {
-    /* Properties of Ide.DoapPerson */
+    /* Properties of Ide-1.0.Ide.DoapPerson */
     email: string
     name: string
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Ide.DoapPerson */
+    /* Methods of Ide-1.0.Ide.DoapPerson */
     get_email(): string
     get_name(): string
     set_email(email: string): void
     set_name(name: string): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -5001,7 +5001,7 @@ export class DoapPerson {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -5009,7 +5009,7 @@ export class DoapPerson {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: DoapPerson, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: DoapPerson, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -5032,16 +5032,16 @@ export interface EditorPerspective_ConstructProps extends Dazzle.DockOverlay_Con
     manager?: Dazzle.DockManager
 }
 export class EditorPerspective {
-    /* Properties of Ide.EditorPerspective */
+    /* Properties of Ide-1.0.Ide.EditorPerspective */
     readonly active_view: Gtk.Widget
-    /* Properties of Gtk.EventBox */
+    /* Properties of Gtk-3.0.Gtk.EventBox */
     above_child: boolean
     visible_window: boolean
-    /* Properties of Gtk.Container */
+    /* Properties of Gtk-3.0.Gtk.Container */
     border_width: number
     child: Gtk.Widget
     resize_mode: Gtk.ResizeMode
-    /* Properties of Gtk.Widget */
+    /* Properties of Gtk-3.0.Gtk.Widget */
     app_paintable: boolean
     can_default: boolean
     can_focus: boolean
@@ -5081,19 +5081,19 @@ export class EditorPerspective {
     visible: boolean
     width_request: number
     readonly window: Gdk.Window
-    /* Properties of Dazzle.Dock */
+    /* Properties of Dazzle-1.0.Dazzle.Dock */
     manager: Dazzle.DockManager
-    /* Fields of Dazzle.DockOverlay */
+    /* Fields of Dazzle-1.0.Dazzle.DockOverlay */
     parent_instance: Gtk.EventBox
-    /* Fields of Gtk.EventBox */
+    /* Fields of Gtk-3.0.Gtk.EventBox */
     bin: Gtk.Bin
-    /* Fields of Gtk.Bin */
+    /* Fields of Gtk-3.0.Gtk.Bin */
     container: Gtk.Container
-    /* Fields of Gtk.Container */
+    /* Fields of Gtk-3.0.Gtk.Container */
     widget: Gtk.Widget
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Ide.EditorPerspective */
+    /* Methods of Ide-1.0.Ide.EditorPerspective */
     focus_buffer_in_current_stack(buffer: Buffer): void
     focus_location(location: SourceLocation): void
     get_active_view(): Gtk.Widget | null
@@ -5105,17 +5105,17 @@ export class EditorPerspective {
     get_right_edge(): Gtk.Widget
     get_top_edge(): Gtk.Widget
     show_spellchecker(source_view: SourceView): void
-    /* Methods of Dazzle.DockOverlay */
+    /* Methods of Dazzle-1.0.Dazzle.DockOverlay */
     get_edge(position: Gtk.PositionType): Dazzle.DockOverlayEdge
     get_edge_adjustment(position: Gtk.PositionType): Gtk.Adjustment
-    /* Methods of Gtk.EventBox */
+    /* Methods of Gtk-3.0.Gtk.EventBox */
     get_above_child(): boolean
     get_visible_window(): boolean
     set_above_child(above_child: boolean): void
     set_visible_window(visible_window: boolean): void
-    /* Methods of Gtk.Bin */
+    /* Methods of Gtk-3.0.Gtk.Bin */
     get_child(): Gtk.Widget | null
-    /* Methods of Gtk.Container */
+    /* Methods of Gtk-3.0.Gtk.Container */
     add(widget: Gtk.Widget): void
     check_resize(): void
     child_get_property(child: Gtk.Widget, property_name: string, value: any): void
@@ -5143,7 +5143,7 @@ export class EditorPerspective {
     set_reallocate_redraws(needs_redraws: boolean): void
     set_resize_mode(resize_mode: Gtk.ResizeMode): void
     unset_focus_chain(): void
-    /* Methods of Gtk.Widget */
+    /* Methods of Gtk-3.0.Gtk.Widget */
     activate(): boolean
     add_accelerator(accel_signal: string, accel_group: Gtk.AccelGroup, accel_key: number, accel_mods: Gdk.ModifierType, accel_flags: Gtk.AccelFlags): void
     add_device_events(device: Gdk.Device, events: Gdk.EventMask): void
@@ -5402,7 +5402,7 @@ export class EditorPerspective {
     unrealize(): void
     unregister_window(window: Gdk.Window): void
     unset_state_flags(flags: Gtk.StateFlags): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -5424,7 +5424,7 @@ export class EditorPerspective {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of Dazzle.DockItem */
+    /* Methods of Dazzle-1.0.Dazzle.DockItem */
     adopt(child: Dazzle.DockItem): boolean
     close(): boolean
     emit_presented(): void
@@ -5445,7 +5445,7 @@ export class EditorPerspective {
     set_child_visible(child: Dazzle.DockItem, child_visible: boolean): void
     set_manager(manager?: Dazzle.DockManager | null): void
     update_visibility(): void
-    /* Methods of Gtk.Buildable */
+    /* Methods of Gtk-3.0.Gtk.Buildable */
     add_child(builder: Gtk.Builder, child: GObject.Object, type?: string | null): void
     construct_child(builder: Gtk.Builder, name: string): GObject.Object
     custom_finished(builder: Gtk.Builder, child: GObject.Object | null, tagname: string, data?: object | null): void
@@ -5454,7 +5454,7 @@ export class EditorPerspective {
     get_internal_child(builder: Gtk.Builder, childname: string): GObject.Object
     parser_finished(builder: Gtk.Builder): void
     set_buildable_property(builder: Gtk.Builder, name: string, value: any): void
-    /* Methods of Ide.Perspective */
+    /* Methods of Ide-1.0.Ide.Perspective */
     agree_to_shutdown(): boolean
     get_accelerator(): string | null
     get_actions(): Gio.ActionGroup | null
@@ -5466,7 +5466,7 @@ export class EditorPerspective {
     is_early(): boolean
     set_fullscreen(fullscreen: boolean): void
     views_foreach(callback: Gtk.Callback): void
-    /* Virtual methods of Ide.EditorPerspective */
+    /* Virtual methods of Ide-1.0.Ide.EditorPerspective */
     vfunc_can_minimize(descendant: Dazzle.DockItem): boolean
     vfunc_close(): boolean
     vfunc_get_can_close(): boolean
@@ -5495,7 +5495,7 @@ export class EditorPerspective {
     vfunc_is_early(): boolean
     vfunc_set_fullscreen(fullscreen: boolean): void
     vfunc_views_foreach(callback: Gtk.Callback): void
-    /* Virtual methods of Dazzle.DockOverlay */
+    /* Virtual methods of Dazzle-1.0.Dazzle.DockOverlay */
     vfunc_hide_edges(): void
     vfunc_add_child(builder: Gtk.Builder, child: GObject.Object, type?: string | null): void
     vfunc_construct_child(builder: Gtk.Builder, name: string): GObject.Object
@@ -5507,7 +5507,7 @@ export class EditorPerspective {
     vfunc_parser_finished(builder: Gtk.Builder): void
     vfunc_set_buildable_property(builder: Gtk.Builder, name: string, value: any): void
     vfunc_set_name(name: string): void
-    /* Virtual methods of Gtk.Container */
+    /* Virtual methods of Gtk-3.0.Gtk.Container */
     vfunc_add(widget: Gtk.Widget): void
     vfunc_check_resize(): void
     vfunc_child_type(): GObject.Type
@@ -5518,7 +5518,7 @@ export class EditorPerspective {
     vfunc_remove(widget: Gtk.Widget): void
     vfunc_set_child_property(child: Gtk.Widget, property_id: number, value: any, pspec: GObject.ParamSpec): void
     vfunc_set_focus_child(child?: Gtk.Widget | null): void
-    /* Virtual methods of Gtk.Widget */
+    /* Virtual methods of Gtk-3.0.Gtk.Widget */
     vfunc_adjust_baseline_allocation(baseline: number): void
     vfunc_adjust_baseline_request(minimum_baseline: number, natural_baseline: number): void
     vfunc_adjust_size_allocation(orientation: Gtk.Orientation, minimum_size: number, natural_size: number, allocated_pos: number, allocated_size: number): void
@@ -5601,7 +5601,7 @@ export class EditorPerspective {
     vfunc_unrealize(): void
     vfunc_visibility_notify_event(event: Gdk.EventVisibility): boolean
     vfunc_window_state_event(event: Gdk.EventWindowState): boolean
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -5609,18 +5609,18 @@ export class EditorPerspective {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Ide.EditorPerspective */
+    /* Signals of Ide-1.0.Ide.EditorPerspective */
     connect(sigName: "view-added", callback: (($obj: EditorPerspective, object: Gtk.Widget) => void)): number
     connect_after(sigName: "view-added", callback: (($obj: EditorPerspective, object: Gtk.Widget) => void)): number
     emit(sigName: "view-added", object: Gtk.Widget): void
     connect(sigName: "view-removed", callback: (($obj: EditorPerspective, object: Gtk.Widget) => void)): number
     connect_after(sigName: "view-removed", callback: (($obj: EditorPerspective, object: Gtk.Widget) => void)): number
     emit(sigName: "view-removed", object: Gtk.Widget): void
-    /* Signals of Dazzle.DockOverlay */
+    /* Signals of Dazzle-1.0.Dazzle.DockOverlay */
     connect(sigName: "hide-edges", callback: (($obj: EditorPerspective) => void)): number
     connect_after(sigName: "hide-edges", callback: (($obj: EditorPerspective) => void)): number
     emit(sigName: "hide-edges"): void
-    /* Signals of Gtk.Container */
+    /* Signals of Gtk-3.0.Gtk.Container */
     connect(sigName: "add", callback: (($obj: EditorPerspective, object: Gtk.Widget) => void)): number
     connect_after(sigName: "add", callback: (($obj: EditorPerspective, object: Gtk.Widget) => void)): number
     emit(sigName: "add", object: Gtk.Widget): void
@@ -5633,7 +5633,7 @@ export class EditorPerspective {
     connect(sigName: "set-focus-child", callback: (($obj: EditorPerspective, object: Gtk.Widget) => void)): number
     connect_after(sigName: "set-focus-child", callback: (($obj: EditorPerspective, object: Gtk.Widget) => void)): number
     emit(sigName: "set-focus-child", object: Gtk.Widget): void
-    /* Signals of Gtk.Widget */
+    /* Signals of Gtk-3.0.Gtk.Widget */
     connect(sigName: "accel-closures-changed", callback: (($obj: EditorPerspective) => void)): number
     connect_after(sigName: "accel-closures-changed", callback: (($obj: EditorPerspective) => void)): number
     emit(sigName: "accel-closures-changed"): void
@@ -5841,11 +5841,11 @@ export class EditorPerspective {
     connect(sigName: "window-state-event", callback: (($obj: EditorPerspective, event: Gdk.EventWindowState) => boolean)): number
     connect_after(sigName: "window-state-event", callback: (($obj: EditorPerspective, event: Gdk.EventWindowState) => boolean)): number
     emit(sigName: "window-state-event", event: Gdk.EventWindowState): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: EditorPerspective, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: EditorPerspective, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    /* Signals of Dazzle.DockItem */
+    /* Signals of Dazzle-1.0.Dazzle.DockItem */
     connect(sigName: "manager-set", callback: (($obj: EditorPerspective, object: Dazzle.DockManager) => void)): number
     connect_after(sigName: "manager-set", callback: (($obj: EditorPerspective, object: Dazzle.DockManager) => void)): number
     emit(sigName: "manager-set", object: Dazzle.DockManager): void
@@ -5961,20 +5961,20 @@ export interface EditorView_ConstructProps extends LayoutView_ConstructProps {
     orientation?: Gtk.Orientation
 }
 export class EditorView {
-    /* Properties of Ide.LayoutView */
+    /* Properties of Ide-1.0.Ide.LayoutView */
     readonly can_split: boolean
     readonly modified: boolean
     readonly special_title: string
     readonly title: string
-    /* Properties of Gtk.Box */
+    /* Properties of Gtk-3.0.Gtk.Box */
     baseline_position: Gtk.BaselinePosition
     homogeneous: boolean
     spacing: number
-    /* Properties of Gtk.Container */
+    /* Properties of Gtk-3.0.Gtk.Container */
     border_width: number
     child: Gtk.Widget
     resize_mode: Gtk.ResizeMode
-    /* Properties of Gtk.Widget */
+    /* Properties of Gtk-3.0.Gtk.Widget */
     app_paintable: boolean
     can_default: boolean
     can_focus: boolean
@@ -6014,20 +6014,20 @@ export class EditorView {
     visible: boolean
     width_request: number
     readonly window: Gdk.Window
-    /* Properties of Gtk.Orientable */
+    /* Properties of Gtk-3.0.Gtk.Orientable */
     orientation: Gtk.Orientation
-    /* Fields of Ide.LayoutView */
+    /* Fields of Ide-1.0.Ide.LayoutView */
     parent_instance: Gtk.Box
-    /* Fields of Gtk.Box */
+    /* Fields of Gtk-3.0.Gtk.Box */
     container: Gtk.Container
-    /* Fields of Gtk.Container */
+    /* Fields of Gtk-3.0.Gtk.Container */
     widget: Gtk.Widget
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Ide.EditorView */
+    /* Methods of Ide-1.0.Ide.EditorView */
     get_active_source_view(): SourceView
     get_document(): Buffer
-    /* Methods of Ide.LayoutView */
+    /* Methods of Ide-1.0.Ide.LayoutView */
     agree_to_close(): boolean
     create_split(file: Gio.File): LayoutView
     get_can_preview(): boolean
@@ -6039,7 +6039,7 @@ export class EditorView {
     navigate_to(location: SourceLocation): void
     set_back_forward_list(back_forward_list: BackForwardList): void
     set_split_view(split_view: boolean): void
-    /* Methods of Gtk.Box */
+    /* Methods of Gtk-3.0.Gtk.Box */
     get_baseline_position(): Gtk.BaselinePosition
     get_center_widget(): Gtk.Widget | null
     get_homogeneous(): boolean
@@ -6053,7 +6053,7 @@ export class EditorView {
     set_child_packing(child: Gtk.Widget, expand: boolean, fill: boolean, padding: number, pack_type: Gtk.PackType): void
     set_homogeneous(homogeneous: boolean): void
     set_spacing(spacing: number): void
-    /* Methods of Gtk.Container */
+    /* Methods of Gtk-3.0.Gtk.Container */
     add(widget: Gtk.Widget): void
     check_resize(): void
     child_get_property(child: Gtk.Widget, property_name: string, value: any): void
@@ -6081,7 +6081,7 @@ export class EditorView {
     set_reallocate_redraws(needs_redraws: boolean): void
     set_resize_mode(resize_mode: Gtk.ResizeMode): void
     unset_focus_chain(): void
-    /* Methods of Gtk.Widget */
+    /* Methods of Gtk-3.0.Gtk.Widget */
     activate(): boolean
     add_accelerator(accel_signal: string, accel_group: Gtk.AccelGroup, accel_key: number, accel_mods: Gdk.ModifierType, accel_flags: Gtk.AccelFlags): void
     add_device_events(device: Gdk.Device, events: Gdk.EventMask): void
@@ -6340,7 +6340,7 @@ export class EditorView {
     unrealize(): void
     unregister_window(window: Gdk.Window): void
     unset_state_flags(flags: Gtk.StateFlags): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -6362,7 +6362,7 @@ export class EditorView {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of Gtk.Buildable */
+    /* Methods of Gtk-3.0.Gtk.Buildable */
     add_child(builder: Gtk.Builder, child: GObject.Object, type?: string | null): void
     construct_child(builder: Gtk.Builder, name: string): GObject.Object
     custom_finished(builder: Gtk.Builder, child: GObject.Object | null, tagname: string, data?: object | null): void
@@ -6371,10 +6371,10 @@ export class EditorView {
     get_internal_child(builder: Gtk.Builder, childname: string): GObject.Object
     parser_finished(builder: Gtk.Builder): void
     set_buildable_property(builder: Gtk.Builder, name: string, value: any): void
-    /* Methods of Gtk.Orientable */
+    /* Methods of Gtk-3.0.Gtk.Orientable */
     get_orientation(): Gtk.Orientation
     set_orientation(orientation: Gtk.Orientation): void
-    /* Virtual methods of Ide.LayoutView */
+    /* Virtual methods of Ide-1.0.Ide.LayoutView */
     vfunc_agree_to_close(): boolean
     vfunc_create_split(file: Gio.File): LayoutView
     vfunc_get_can_preview(): boolean
@@ -6396,7 +6396,7 @@ export class EditorView {
     vfunc_parser_finished(builder: Gtk.Builder): void
     vfunc_set_buildable_property(builder: Gtk.Builder, name: string, value: any): void
     vfunc_set_name(name: string): void
-    /* Virtual methods of Gtk.Container */
+    /* Virtual methods of Gtk-3.0.Gtk.Container */
     vfunc_add(widget: Gtk.Widget): void
     vfunc_check_resize(): void
     vfunc_child_type(): GObject.Type
@@ -6407,7 +6407,7 @@ export class EditorView {
     vfunc_remove(widget: Gtk.Widget): void
     vfunc_set_child_property(child: Gtk.Widget, property_id: number, value: any, pspec: GObject.ParamSpec): void
     vfunc_set_focus_child(child?: Gtk.Widget | null): void
-    /* Virtual methods of Gtk.Widget */
+    /* Virtual methods of Gtk-3.0.Gtk.Widget */
     vfunc_adjust_baseline_allocation(baseline: number): void
     vfunc_adjust_baseline_request(minimum_baseline: number, natural_baseline: number): void
     vfunc_adjust_size_allocation(orientation: Gtk.Orientation, minimum_size: number, natural_size: number, allocated_pos: number, allocated_size: number): void
@@ -6490,7 +6490,7 @@ export class EditorView {
     vfunc_unrealize(): void
     vfunc_visibility_notify_event(event: Gdk.EventVisibility): boolean
     vfunc_window_state_event(event: Gdk.EventWindowState): boolean
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -6498,11 +6498,11 @@ export class EditorView {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Ide.EditorView */
+    /* Signals of Ide-1.0.Ide.EditorView */
     connect(sigName: "request-documentation", callback: (($obj: EditorView, object: string) => void)): number
     connect_after(sigName: "request-documentation", callback: (($obj: EditorView, object: string) => void)): number
     emit(sigName: "request-documentation", object: string): void
-    /* Signals of Gtk.Container */
+    /* Signals of Gtk-3.0.Gtk.Container */
     connect(sigName: "add", callback: (($obj: EditorView, object: Gtk.Widget) => void)): number
     connect_after(sigName: "add", callback: (($obj: EditorView, object: Gtk.Widget) => void)): number
     emit(sigName: "add", object: Gtk.Widget): void
@@ -6515,7 +6515,7 @@ export class EditorView {
     connect(sigName: "set-focus-child", callback: (($obj: EditorView, object: Gtk.Widget) => void)): number
     connect_after(sigName: "set-focus-child", callback: (($obj: EditorView, object: Gtk.Widget) => void)): number
     emit(sigName: "set-focus-child", object: Gtk.Widget): void
-    /* Signals of Gtk.Widget */
+    /* Signals of Gtk-3.0.Gtk.Widget */
     connect(sigName: "accel-closures-changed", callback: (($obj: EditorView) => void)): number
     connect_after(sigName: "accel-closures-changed", callback: (($obj: EditorView) => void)): number
     emit(sigName: "accel-closures-changed"): void
@@ -6723,7 +6723,7 @@ export class EditorView {
     connect(sigName: "window-state-event", callback: (($obj: EditorView, event: Gdk.EventWindowState) => boolean)): number
     connect_after(sigName: "window-state-event", callback: (($obj: EditorView, event: Gdk.EventWindowState) => boolean)): number
     emit(sigName: "window-state-event", event: Gdk.EventWindowState): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: EditorView, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: EditorView, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -6839,16 +6839,16 @@ export class EditorView {
 export interface Environment_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class Environment {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Ide.Environment */
+    /* Methods of Ide-1.0.Ide.Environment */
     append(variable: EnvironmentVariable): void
     copy(): Environment
     get_environ(): string[]
     getenv(key: string): string
     remove(variable: EnvironmentVariable): void
     setenv(key: string, value: string): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -6870,16 +6870,16 @@ export class Environment {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of Gio.ListModel */
+    /* Methods of Gio-2.0.Gio.ListModel */
     get_item_type(): GObject.Type
     get_n_items(): number
     get_item(position: number): GObject.Object | null
     items_changed(position: number, removed: number, added: number): void
-    /* Virtual methods of Ide.Environment */
+    /* Virtual methods of Ide-1.0.Ide.Environment */
     vfunc_get_item(position: number): GObject.Object | null
     vfunc_get_item_type(): GObject.Type
     vfunc_get_n_items(): number
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -6887,15 +6887,15 @@ export class Environment {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Ide.Environment */
+    /* Signals of Ide-1.0.Ide.Environment */
     connect(sigName: "changed", callback: (($obj: Environment) => void)): number
     connect_after(sigName: "changed", callback: (($obj: Environment) => void)): number
     emit(sigName: "changed"): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Environment, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Environment, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    /* Signals of Gio.ListModel */
+    /* Signals of Gio-2.0.Gio.ListModel */
     connect(sigName: "items-changed", callback: (($obj: Environment, position: number, removed: number, added: number) => void)): number
     connect_after(sigName: "items-changed", callback: (($obj: Environment, position: number, removed: number, added: number) => void)): number
     emit(sigName: "items-changed", position: number, removed: number, added: number): void
@@ -6915,17 +6915,17 @@ export interface EnvironmentVariable_ConstructProps extends GObject.Object_Const
     value?: string
 }
 export class EnvironmentVariable {
-    /* Properties of Ide.EnvironmentVariable */
+    /* Properties of Ide-1.0.Ide.EnvironmentVariable */
     key: string
     value: string
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Ide.EnvironmentVariable */
+    /* Methods of Ide-1.0.Ide.EnvironmentVariable */
     get_key(): string
     get_value(): string
     set_key(key: string): void
     set_value(value: string): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -6947,7 +6947,7 @@ export class EnvironmentVariable {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -6955,7 +6955,7 @@ export class EnvironmentVariable {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: EnvironmentVariable, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: EnvironmentVariable, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -6981,15 +6981,15 @@ export interface ExtensionAdapter_ConstructProps extends Object_ConstructProps {
     value?: string
 }
 export class ExtensionAdapter {
-    /* Properties of Ide.ExtensionAdapter */
+    /* Properties of Ide-1.0.Ide.ExtensionAdapter */
     readonly extension: GObject.Object
     key: string
     value: string
-    /* Fields of Ide.Object */
+    /* Fields of Ide-1.0.Ide.Object */
     parent_instance: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Ide.ExtensionAdapter */
+    /* Methods of Ide-1.0.Ide.ExtensionAdapter */
     get_engine(): Peas.Engine
     get_extension(): GObject.Object
     get_interface_type(): GObject.Type
@@ -6997,12 +6997,12 @@ export class ExtensionAdapter {
     get_value(): string
     set_key(key: string): void
     set_value(value: string): void
-    /* Methods of Ide.Object */
+    /* Methods of Ide-1.0.Ide.Object */
     get_context(): Context
     hold(): boolean
     release(): void
     set_context(context: Context): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -7024,11 +7024,11 @@ export class ExtensionAdapter {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Ide.Object */
+    /* Virtual methods of Ide-1.0.Ide.Object */
     vfunc_destroy(): void
     vfunc_get_context(): Context
     vfunc_set_context(context: Context): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -7036,11 +7036,11 @@ export class ExtensionAdapter {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Ide.Object */
+    /* Signals of Ide-1.0.Ide.Object */
     connect(sigName: "destroy", callback: (($obj: ExtensionAdapter) => void)): number
     connect_after(sigName: "destroy", callback: (($obj: ExtensionAdapter) => void)): number
     emit(sigName: "destroy"): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: ExtensionAdapter, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: ExtensionAdapter, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -7068,14 +7068,14 @@ export interface ExtensionSetAdapter_ConstructProps extends Object_ConstructProp
     value?: string
 }
 export class ExtensionSetAdapter {
-    /* Properties of Ide.ExtensionSetAdapter */
+    /* Properties of Ide-1.0.Ide.ExtensionSetAdapter */
     key: string
     value: string
-    /* Fields of Ide.Object */
+    /* Fields of Ide-1.0.Ide.Object */
     parent_instance: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Ide.ExtensionSetAdapter */
+    /* Methods of Ide-1.0.Ide.ExtensionSetAdapter */
     foreach(foreach_func: ExtensionSetAdapterForeachFunc): void
     get_engine(): Peas.Engine
     get_interface_type(): GObject.Type
@@ -7084,12 +7084,12 @@ export class ExtensionSetAdapter {
     get_value(): string
     set_key(key: string): void
     set_value(value: string): void
-    /* Methods of Ide.Object */
+    /* Methods of Ide-1.0.Ide.Object */
     get_context(): Context
     hold(): boolean
     release(): void
     set_context(context: Context): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -7111,11 +7111,11 @@ export class ExtensionSetAdapter {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Ide.Object */
+    /* Virtual methods of Ide-1.0.Ide.Object */
     vfunc_destroy(): void
     vfunc_get_context(): Context
     vfunc_set_context(context: Context): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -7123,18 +7123,18 @@ export class ExtensionSetAdapter {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Ide.ExtensionSetAdapter */
+    /* Signals of Ide-1.0.Ide.ExtensionSetAdapter */
     connect(sigName: "extension-added", callback: (($obj: ExtensionSetAdapter, object: Peas.PluginInfo, p0: GObject.Object) => void)): number
     connect_after(sigName: "extension-added", callback: (($obj: ExtensionSetAdapter, object: Peas.PluginInfo, p0: GObject.Object) => void)): number
     emit(sigName: "extension-added", object: Peas.PluginInfo, p0: GObject.Object): void
     connect(sigName: "extension-removed", callback: (($obj: ExtensionSetAdapter, object: Peas.PluginInfo, p0: GObject.Object) => void)): number
     connect_after(sigName: "extension-removed", callback: (($obj: ExtensionSetAdapter, object: Peas.PluginInfo, p0: GObject.Object) => void)): number
     emit(sigName: "extension-removed", object: Peas.PluginInfo, p0: GObject.Object): void
-    /* Signals of Ide.Object */
+    /* Signals of Ide-1.0.Ide.Object */
     connect(sigName: "destroy", callback: (($obj: ExtensionSetAdapter) => void)): number
     connect_after(sigName: "destroy", callback: (($obj: ExtensionSetAdapter) => void)): number
     emit(sigName: "destroy"): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: ExtensionSetAdapter, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: ExtensionSetAdapter, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -7159,14 +7159,14 @@ export interface File_ConstructProps extends Object_ConstructProps {
     temporary_id?: number
 }
 export class File {
-    /* Properties of Ide.File */
+    /* Properties of Ide-1.0.Ide.File */
     readonly is_temporary: boolean
     readonly language: GtkSource.Language
-    /* Fields of Ide.Object */
+    /* Fields of Ide-1.0.Ide.Object */
     parent_instance: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Ide.File */
+    /* Methods of Ide-1.0.Ide.File */
     compare(b: File): number
     equal(other: File): boolean
     find_other_async(cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
@@ -7180,12 +7180,12 @@ export class File {
     hash(): number
     load_settings_async(cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     load_settings_finish(result: Gio.AsyncResult): FileSettings
-    /* Methods of Ide.Object */
+    /* Methods of Ide-1.0.Ide.Object */
     get_context(): Context
     hold(): boolean
     release(): void
     set_context(context: Context): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -7207,11 +7207,11 @@ export class File {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Ide.Object */
+    /* Virtual methods of Ide-1.0.Ide.Object */
     vfunc_destroy(): void
     vfunc_get_context(): Context
     vfunc_set_context(context: Context): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -7219,11 +7219,11 @@ export class File {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Ide.Object */
+    /* Signals of Ide-1.0.Ide.Object */
     connect(sigName: "destroy", callback: (($obj: File) => void)): number
     connect_after(sigName: "destroy", callback: (($obj: File) => void)): number
     emit(sigName: "destroy"): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: File, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: File, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -7268,7 +7268,7 @@ export interface FileSettings_ConstructProps extends Object_ConstructProps {
     trim_trailing_whitespace_set?: boolean
 }
 export class FileSettings {
-    /* Properties of Ide.FileSettings */
+    /* Properties of Ide-1.0.Ide.FileSettings */
     encoding: string
     encoding_set: boolean
     indent_style: IndentStyle
@@ -7290,19 +7290,19 @@ export class FileSettings {
     tab_width_set: boolean
     trim_trailing_whitespace: boolean
     trim_trailing_whitespace_set: boolean
-    /* Fields of Ide.FileSettings */
+    /* Fields of Ide-1.0.Ide.FileSettings */
     parent_instance: Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Ide.FileSettings */
+    /* Methods of Ide-1.0.Ide.FileSettings */
     get_file(): File
     get_settled(): boolean
-    /* Methods of Ide.Object */
+    /* Methods of Ide-1.0.Ide.Object */
     get_context(): Context
     hold(): boolean
     release(): void
     set_context(context: Context): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -7324,11 +7324,11 @@ export class FileSettings {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Ide.Object */
+    /* Virtual methods of Ide-1.0.Ide.Object */
     vfunc_destroy(): void
     vfunc_get_context(): Context
     vfunc_set_context(context: Context): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -7336,11 +7336,11 @@ export class FileSettings {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Ide.Object */
+    /* Signals of Ide-1.0.Ide.Object */
     connect(sigName: "destroy", callback: (($obj: FileSettings) => void)): number
     connect_after(sigName: "destroy", callback: (($obj: FileSettings) => void)): number
     emit(sigName: "destroy"): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: FileSettings, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: FileSettings, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -7402,17 +7402,17 @@ export interface FormatterOptions_ConstructProps extends GObject.Object_Construc
     tab_width?: number
 }
 export class FormatterOptions {
-    /* Properties of Ide.FormatterOptions */
+    /* Properties of Ide-1.0.Ide.FormatterOptions */
     insert_spaces: boolean
     tab_width: number
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Ide.FormatterOptions */
+    /* Methods of Ide-1.0.Ide.FormatterOptions */
     get_insert_spaces(): boolean
     get_tab_width(): number
     set_insert_spaces(insert_spaces: boolean): void
     set_tab_width(tab_width: number): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -7434,7 +7434,7 @@ export class FormatterOptions {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -7442,7 +7442,7 @@ export class FormatterOptions {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: FormatterOptions, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: FormatterOptions, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -7465,25 +7465,25 @@ export interface HighlightEngine_ConstructProps extends Object_ConstructProps {
     buffer?: Buffer
 }
 export class HighlightEngine {
-    /* Properties of Ide.HighlightEngine */
+    /* Properties of Ide-1.0.Ide.HighlightEngine */
     readonly highlighter: Highlighter
-    /* Fields of Ide.Object */
+    /* Fields of Ide-1.0.Ide.Object */
     parent_instance: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Ide.HighlightEngine */
+    /* Methods of Ide-1.0.Ide.HighlightEngine */
     clear(): void
     get_buffer(): Buffer
     get_highlighter(): Highlighter
     get_style(style_name: string): Gtk.TextTag
     invalidate(begin: Gtk.TextIter, end: Gtk.TextIter): void
     rebuild(): void
-    /* Methods of Ide.Object */
+    /* Methods of Ide-1.0.Ide.Object */
     get_context(): Context
     hold(): boolean
     release(): void
     set_context(context: Context): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -7505,11 +7505,11 @@ export class HighlightEngine {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Ide.Object */
+    /* Virtual methods of Ide-1.0.Ide.Object */
     vfunc_destroy(): void
     vfunc_get_context(): Context
     vfunc_set_context(context: Context): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -7517,11 +7517,11 @@ export class HighlightEngine {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Ide.Object */
+    /* Signals of Ide-1.0.Ide.Object */
     connect(sigName: "destroy", callback: (($obj: HighlightEngine) => void)): number
     connect_after(sigName: "destroy", callback: (($obj: HighlightEngine) => void)): number
     emit(sigName: "destroy"): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: HighlightEngine, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: HighlightEngine, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -7542,11 +7542,11 @@ export interface LangservClient_ConstructProps extends Object_ConstructProps {
     io_stream?: Gio.IOStream
 }
 export class LangservClient {
-    /* Fields of Ide.LangservClient */
+    /* Fields of Ide-1.0.Ide.LangservClient */
     parent_instance: Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Ide.LangservClient */
+    /* Methods of Ide-1.0.Ide.LangservClient */
     add_language(language_id: string): void
     call_async(method: string, params?: GLib.Variant | null, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     call_finish(result: Gio.AsyncResult, return_value: GLib.Variant): boolean
@@ -7556,12 +7556,12 @@ export class LangservClient {
     send_notification_finish(result: Gio.AsyncResult): boolean
     start(): void
     stop(): void
-    /* Methods of Ide.Object */
+    /* Methods of Ide-1.0.Ide.Object */
     get_context(): Context
     hold(): boolean
     release(): void
     set_context(context: Context): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -7583,15 +7583,15 @@ export class LangservClient {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Ide.LangservClient */
+    /* Virtual methods of Ide-1.0.Ide.LangservClient */
     vfunc_notification(method: string, params: GLib.Variant): void
     vfunc_published_diagnostics(file: Gio.File, diagnostics: Diagnostics): void
     vfunc_supports_language(language_id: string): boolean
-    /* Virtual methods of Ide.Object */
+    /* Virtual methods of Ide-1.0.Ide.Object */
     vfunc_destroy(): void
     vfunc_get_context(): Context
     vfunc_set_context(context: Context): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -7599,7 +7599,7 @@ export class LangservClient {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Ide.LangservClient */
+    /* Signals of Ide-1.0.Ide.LangservClient */
     connect(sigName: "notification", callback: (($obj: LangservClient, object: string, p0: GLib.Variant) => void)): number
     connect_after(sigName: "notification", callback: (($obj: LangservClient, object: string, p0: GLib.Variant) => void)): number
     emit(sigName: "notification", object: string, p0: GLib.Variant): void
@@ -7609,11 +7609,11 @@ export class LangservClient {
     connect(sigName: "supports-language", callback: (($obj: LangservClient, object: string) => boolean)): number
     connect_after(sigName: "supports-language", callback: (($obj: LangservClient, object: string) => boolean)): number
     emit(sigName: "supports-language", object: string): void
-    /* Signals of Ide.Object */
+    /* Signals of Ide-1.0.Ide.Object */
     connect(sigName: "destroy", callback: (($obj: LangservClient) => void)): number
     connect_after(sigName: "destroy", callback: (($obj: LangservClient) => void)): number
     emit(sigName: "destroy"): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: LangservClient, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: LangservClient, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -7632,21 +7632,21 @@ export interface LangservCompletionProvider_ConstructProps extends Object_Constr
     client?: LangservClient
 }
 export class LangservCompletionProvider {
-    /* Properties of Ide.LangservCompletionProvider */
+    /* Properties of Ide-1.0.Ide.LangservCompletionProvider */
     client: LangservClient
-    /* Fields of Ide.LangservCompletionProvider */
+    /* Fields of Ide-1.0.Ide.LangservCompletionProvider */
     parent_instance: Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Ide.LangservCompletionProvider */
+    /* Methods of Ide-1.0.Ide.LangservCompletionProvider */
     get_client(): LangservClient | null
     set_client(client: LangservClient): void
-    /* Methods of Ide.Object */
+    /* Methods of Ide-1.0.Ide.Object */
     get_context(): Context
     hold(): boolean
     release(): void
     set_context(context: Context): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -7668,7 +7668,7 @@ export class LangservCompletionProvider {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of GtkSource.CompletionProvider */
+    /* Methods of GtkSource-3.0.GtkSource.CompletionProvider */
     activate_proposal(proposal: GtkSource.CompletionProposal, iter: Gtk.TextIter): boolean
     get_activation(): GtkSource.CompletionActivation
     get_gicon(): Gio.Icon | null
@@ -7682,9 +7682,9 @@ export class LangservCompletionProvider {
     match(context: GtkSource.CompletionContext): boolean
     populate(context: GtkSource.CompletionContext): void
     update_info(proposal: GtkSource.CompletionProposal, info: GtkSource.CompletionInfo): void
-    /* Methods of Ide.CompletionProvider */
+    /* Methods of Ide-1.0.Ide.CompletionProvider */
     load(context: Context): void
-    /* Virtual methods of Ide.LangservCompletionProvider */
+    /* Virtual methods of Ide-1.0.Ide.LangservCompletionProvider */
     vfunc_activate_proposal(proposal: GtkSource.CompletionProposal, iter: Gtk.TextIter): boolean
     vfunc_get_activation(): GtkSource.CompletionActivation
     vfunc_get_gicon(): Gio.Icon | null
@@ -7699,11 +7699,11 @@ export class LangservCompletionProvider {
     vfunc_populate(context: GtkSource.CompletionContext): void
     vfunc_update_info(proposal: GtkSource.CompletionProposal, info: GtkSource.CompletionInfo): void
     vfunc_load(context: Context): void
-    /* Virtual methods of Ide.Object */
+    /* Virtual methods of Ide-1.0.Ide.Object */
     vfunc_destroy(): void
     vfunc_get_context(): Context
     vfunc_set_context(context: Context): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -7711,11 +7711,11 @@ export class LangservCompletionProvider {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Ide.Object */
+    /* Signals of Ide-1.0.Ide.Object */
     connect(sigName: "destroy", callback: (($obj: LangservCompletionProvider) => void)): number
     connect_after(sigName: "destroy", callback: (($obj: LangservCompletionProvider) => void)): number
     emit(sigName: "destroy"): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: LangservCompletionProvider, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: LangservCompletionProvider, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -7738,21 +7738,21 @@ export interface LangservDiagnosticProvider_ConstructProps extends Object_Constr
     client?: LangservClient
 }
 export class LangservDiagnosticProvider {
-    /* Properties of Ide.LangservDiagnosticProvider */
+    /* Properties of Ide-1.0.Ide.LangservDiagnosticProvider */
     client: LangservClient
-    /* Fields of Ide.LangservDiagnosticProvider */
+    /* Fields of Ide-1.0.Ide.LangservDiagnosticProvider */
     parent_instance: Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Ide.LangservDiagnosticProvider */
+    /* Methods of Ide-1.0.Ide.LangservDiagnosticProvider */
     get_client(): LangservClient | null
     set_client(client: LangservClient): void
-    /* Methods of Ide.Object */
+    /* Methods of Ide-1.0.Ide.Object */
     get_context(): Context
     hold(): boolean
     release(): void
     set_context(context: Context): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -7774,20 +7774,20 @@ export class LangservDiagnosticProvider {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of Ide.DiagnosticProvider */
+    /* Methods of Ide-1.0.Ide.DiagnosticProvider */
     diagnose_async(file: File, buffer: Buffer, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     diagnose_finish(result: Gio.AsyncResult): Diagnostics | null
     emit_invalidated(): void
     load(): void
-    /* Virtual methods of Ide.LangservDiagnosticProvider */
+    /* Virtual methods of Ide-1.0.Ide.LangservDiagnosticProvider */
     vfunc_diagnose_async(file: File, buffer: Buffer, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     vfunc_diagnose_finish(result: Gio.AsyncResult): Diagnostics | null
     vfunc_load(): void
-    /* Virtual methods of Ide.Object */
+    /* Virtual methods of Ide-1.0.Ide.Object */
     vfunc_destroy(): void
     vfunc_get_context(): Context
     vfunc_set_context(context: Context): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -7795,15 +7795,15 @@ export class LangservDiagnosticProvider {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Ide.Object */
+    /* Signals of Ide-1.0.Ide.Object */
     connect(sigName: "destroy", callback: (($obj: LangservDiagnosticProvider) => void)): number
     connect_after(sigName: "destroy", callback: (($obj: LangservDiagnosticProvider) => void)): number
     emit(sigName: "destroy"): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: LangservDiagnosticProvider, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: LangservDiagnosticProvider, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    /* Signals of Ide.DiagnosticProvider */
+    /* Signals of Ide-1.0.Ide.DiagnosticProvider */
     connect(sigName: "invalidated", callback: (($obj: LangservDiagnosticProvider) => void)): number
     connect_after(sigName: "invalidated", callback: (($obj: LangservDiagnosticProvider) => void)): number
     emit(sigName: "invalidated"): void
@@ -7822,27 +7822,27 @@ export interface LangservFormatter_ConstructProps extends Object_ConstructProps 
     client?: LangservClient
 }
 export class LangservFormatter {
-    /* Properties of Ide.LangservFormatter */
+    /* Properties of Ide-1.0.Ide.LangservFormatter */
     client: LangservClient
-    /* Fields of Ide.LangservFormatter */
+    /* Fields of Ide-1.0.Ide.LangservFormatter */
     parent_class: Object
     _reserved1: object
     _reserved2: object
     _reserved3: object
     _reserved4: object
-    /* Fields of Ide.Object */
+    /* Fields of Ide-1.0.Ide.Object */
     parent_instance: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Ide.LangservFormatter */
+    /* Methods of Ide-1.0.Ide.LangservFormatter */
     get_client(): LangservClient
     set_client(client: LangservClient): void
-    /* Methods of Ide.Object */
+    /* Methods of Ide-1.0.Ide.Object */
     get_context(): Context
     hold(): boolean
     release(): void
     set_context(context: Context): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -7864,23 +7864,23 @@ export class LangservFormatter {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of Ide.Formatter */
+    /* Methods of Ide-1.0.Ide.Formatter */
     format_async(buffer: Buffer, options: FormatterOptions, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     format_finish(result: Gio.AsyncResult): boolean
     format_range_async(buffer: Buffer, options: FormatterOptions, begin: Gtk.TextIter, end: Gtk.TextIter, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     format_range_finish(result: Gio.AsyncResult): boolean
     load(): void
-    /* Virtual methods of Ide.LangservFormatter */
+    /* Virtual methods of Ide-1.0.Ide.LangservFormatter */
     vfunc_format_async(buffer: Buffer, options: FormatterOptions, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     vfunc_format_finish(result: Gio.AsyncResult): boolean
     vfunc_format_range_async(buffer: Buffer, options: FormatterOptions, begin: Gtk.TextIter, end: Gtk.TextIter, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     vfunc_format_range_finish(result: Gio.AsyncResult): boolean
     vfunc_load(): void
-    /* Virtual methods of Ide.Object */
+    /* Virtual methods of Ide-1.0.Ide.Object */
     vfunc_destroy(): void
     vfunc_get_context(): Context
     vfunc_set_context(context: Context): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -7888,11 +7888,11 @@ export class LangservFormatter {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Ide.Object */
+    /* Signals of Ide-1.0.Ide.Object */
     connect(sigName: "destroy", callback: (($obj: LangservFormatter) => void)): number
     connect_after(sigName: "destroy", callback: (($obj: LangservFormatter) => void)): number
     emit(sigName: "destroy"): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: LangservFormatter, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: LangservFormatter, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -7912,21 +7912,21 @@ export interface LangservHighlighter_ConstructProps extends Object_ConstructProp
     context?: Context
 }
 export class LangservHighlighter {
-    /* Properties of Ide.LangservHighlighter */
+    /* Properties of Ide-1.0.Ide.LangservHighlighter */
     client: LangservClient
-    /* Fields of Ide.LangservHighlighter */
+    /* Fields of Ide-1.0.Ide.LangservHighlighter */
     parent_instance: Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Ide.LangservHighlighter */
+    /* Methods of Ide-1.0.Ide.LangservHighlighter */
     get_client(): LangservClient | null
     set_client(client: LangservClient): void
-    /* Methods of Ide.Object */
+    /* Methods of Ide-1.0.Ide.Object */
     get_context(): Context
     hold(): boolean
     release(): void
     set_context(context: Context): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -7948,18 +7948,18 @@ export class LangservHighlighter {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of Ide.Highlighter */
+    /* Methods of Ide-1.0.Ide.Highlighter */
     load(): void
     update(callback: HighlightCallback, range_begin: Gtk.TextIter, range_end: Gtk.TextIter): /* location */ Gtk.TextIter
-    /* Virtual methods of Ide.LangservHighlighter */
+    /* Virtual methods of Ide-1.0.Ide.LangservHighlighter */
     vfunc_load(): void
     vfunc_set_engine(engine: HighlightEngine): void
     vfunc_update(callback: HighlightCallback, range_begin: Gtk.TextIter, range_end: Gtk.TextIter): /* location */ Gtk.TextIter
-    /* Virtual methods of Ide.Object */
+    /* Virtual methods of Ide-1.0.Ide.Object */
     vfunc_destroy(): void
     vfunc_get_context(): Context
     vfunc_set_context(context: Context): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -7967,11 +7967,11 @@ export class LangservHighlighter {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Ide.Object */
+    /* Signals of Ide-1.0.Ide.Object */
     connect(sigName: "destroy", callback: (($obj: LangservHighlighter) => void)): number
     connect_after(sigName: "destroy", callback: (($obj: LangservHighlighter) => void)): number
     emit(sigName: "destroy"): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: LangservHighlighter, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: LangservHighlighter, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -7991,22 +7991,22 @@ export interface LangservRenameProvider_ConstructProps extends Object_ConstructP
     client?: LangservClient
 }
 export class LangservRenameProvider {
-    /* Properties of Ide.LangservRenameProvider */
+    /* Properties of Ide-1.0.Ide.LangservRenameProvider */
     buffer: Buffer
     client: LangservClient
-    /* Fields of Ide.LangservRenameProvider */
+    /* Fields of Ide-1.0.Ide.LangservRenameProvider */
     parent_instance: Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Ide.LangservRenameProvider */
+    /* Methods of Ide-1.0.Ide.LangservRenameProvider */
     get_client(): LangservClient | null
     set_client(client: LangservClient): void
-    /* Methods of Ide.Object */
+    /* Methods of Ide-1.0.Ide.Object */
     get_context(): Context
     hold(): boolean
     release(): void
     set_context(context: Context): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -8028,19 +8028,19 @@ export class LangservRenameProvider {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of Ide.RenameProvider */
+    /* Methods of Ide-1.0.Ide.RenameProvider */
     load(): void
     rename_async(location: SourceLocation, new_name: string, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     rename_finish(result: Gio.AsyncResult): [ /* returnType */ boolean, /* edits */ ProjectEdit[] | null ]
-    /* Virtual methods of Ide.LangservRenameProvider */
+    /* Virtual methods of Ide-1.0.Ide.LangservRenameProvider */
     vfunc_load(): void
     vfunc_rename_async(location: SourceLocation, new_name: string, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     vfunc_rename_finish(result: Gio.AsyncResult): [ /* returnType */ boolean, /* edits */ ProjectEdit[] | null ]
-    /* Virtual methods of Ide.Object */
+    /* Virtual methods of Ide-1.0.Ide.Object */
     vfunc_destroy(): void
     vfunc_get_context(): Context
     vfunc_set_context(context: Context): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -8048,11 +8048,11 @@ export class LangservRenameProvider {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Ide.Object */
+    /* Signals of Ide-1.0.Ide.Object */
     connect(sigName: "destroy", callback: (($obj: LangservRenameProvider) => void)): number
     connect_after(sigName: "destroy", callback: (($obj: LangservRenameProvider) => void)): number
     emit(sigName: "destroy"): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: LangservRenameProvider, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: LangservRenameProvider, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -8072,32 +8072,32 @@ export class LangservRenameProvider {
 export interface LangservSymbolNode_ConstructProps extends SymbolNode_ConstructProps {
 }
 export class LangservSymbolNode {
-    /* Properties of Ide.SymbolNode */
+    /* Properties of Ide-1.0.Ide.SymbolNode */
     flags: SymbolFlags
     kind: SymbolKind
     name: string
     use_markup: boolean
-    /* Fields of Ide.LangservSymbolNode */
+    /* Fields of Ide-1.0.Ide.LangservSymbolNode */
     parent_instance: SymbolNode
     gnode: GLib.Node
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Ide.LangservSymbolNode */
+    /* Methods of Ide-1.0.Ide.LangservSymbolNode */
     get_parent_name(): string
     is_parent_of(other: LangservSymbolNode): boolean
-    /* Methods of Ide.SymbolNode */
+    /* Methods of Ide-1.0.Ide.SymbolNode */
     get_flags(): SymbolFlags
     get_kind(): SymbolKind
     get_location_async(cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     get_location_finish(result: Gio.AsyncResult): SourceLocation | null
     get_name(): string
     get_use_markup(): boolean
-    /* Methods of Ide.Object */
+    /* Methods of Ide-1.0.Ide.Object */
     get_context(): Context
     hold(): boolean
     release(): void
     set_context(context: Context): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -8119,14 +8119,14 @@ export class LangservSymbolNode {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Ide.SymbolNode */
+    /* Virtual methods of Ide-1.0.Ide.SymbolNode */
     vfunc_get_location_async(cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     vfunc_get_location_finish(result: Gio.AsyncResult): SourceLocation | null
-    /* Virtual methods of Ide.Object */
+    /* Virtual methods of Ide-1.0.Ide.Object */
     vfunc_destroy(): void
     vfunc_get_context(): Context
     vfunc_set_context(context: Context): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -8134,11 +8134,11 @@ export class LangservSymbolNode {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Ide.Object */
+    /* Signals of Ide-1.0.Ide.Object */
     connect(sigName: "destroy", callback: (($obj: LangservSymbolNode) => void)): number
     connect_after(sigName: "destroy", callback: (($obj: LangservSymbolNode) => void)): number
     emit(sigName: "destroy"): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: LangservSymbolNode, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: LangservSymbolNode, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -8165,21 +8165,21 @@ export interface LangservSymbolResolver_ConstructProps extends Object_ConstructP
     client?: LangservClient
 }
 export class LangservSymbolResolver {
-    /* Properties of Ide.LangservSymbolResolver */
+    /* Properties of Ide-1.0.Ide.LangservSymbolResolver */
     client: LangservClient
-    /* Fields of Ide.LangservSymbolResolver */
+    /* Fields of Ide-1.0.Ide.LangservSymbolResolver */
     parent_instance: Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Ide.LangservSymbolResolver */
+    /* Methods of Ide-1.0.Ide.LangservSymbolResolver */
     get_client(): LangservClient | null
     set_client(client: LangservClient): void
-    /* Methods of Ide.Object */
+    /* Methods of Ide-1.0.Ide.Object */
     get_context(): Context
     hold(): boolean
     release(): void
     set_context(context: Context): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -8201,7 +8201,7 @@ export class LangservSymbolResolver {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of Ide.SymbolResolver */
+    /* Methods of Ide-1.0.Ide.SymbolResolver */
     find_references_async(location: SourceLocation, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     find_references_finish(result: Gio.AsyncResult): SourceRange[]
     get_symbol_tree_async(file: Gio.File, buffer: Buffer, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
@@ -8209,7 +8209,7 @@ export class LangservSymbolResolver {
     load(): void
     lookup_symbol_async(location: SourceLocation, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     lookup_symbol_finish(result: Gio.AsyncResult): Symbol | null
-    /* Virtual methods of Ide.LangservSymbolResolver */
+    /* Virtual methods of Ide-1.0.Ide.LangservSymbolResolver */
     vfunc_find_references_async(location: SourceLocation, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     vfunc_find_references_finish(result: Gio.AsyncResult): SourceRange[]
     vfunc_get_symbol_tree_async(file: Gio.File, buffer: Buffer, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
@@ -8217,11 +8217,11 @@ export class LangservSymbolResolver {
     vfunc_load(): void
     vfunc_lookup_symbol_async(location: SourceLocation, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     vfunc_lookup_symbol_finish(result: Gio.AsyncResult): Symbol | null
-    /* Virtual methods of Ide.Object */
+    /* Virtual methods of Ide-1.0.Ide.Object */
     vfunc_destroy(): void
     vfunc_get_context(): Context
     vfunc_set_context(context: Context): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -8229,11 +8229,11 @@ export class LangservSymbolResolver {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Ide.Object */
+    /* Signals of Ide-1.0.Ide.Object */
     connect(sigName: "destroy", callback: (($obj: LangservSymbolResolver) => void)): number
     connect_after(sigName: "destroy", callback: (($obj: LangservSymbolResolver) => void)): number
     emit(sigName: "destroy"): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: LangservSymbolResolver, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: LangservSymbolResolver, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -8251,9 +8251,9 @@ export class LangservSymbolResolver {
 export interface LangservSymbolTree_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class LangservSymbolTree {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -8275,13 +8275,13 @@ export class LangservSymbolTree {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of Ide.SymbolTree */
+    /* Methods of Ide-1.0.Ide.SymbolTree */
     get_n_children(node?: SymbolNode | null): number
     get_nth_child(node: SymbolNode | null, nth: number): SymbolNode | null
-    /* Virtual methods of Ide.LangservSymbolTree */
+    /* Virtual methods of Ide-1.0.Ide.LangservSymbolTree */
     vfunc_get_n_children(node?: SymbolNode | null): number
     vfunc_get_nth_child(node: SymbolNode | null, nth: number): SymbolNode | null
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -8289,7 +8289,7 @@ export class LangservSymbolTree {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: LangservSymbolTree, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: LangservSymbolTree, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -8308,18 +8308,18 @@ export interface Layout_ConstructProps extends Dazzle.DockBin_ConstructProps {
     manager?: Dazzle.DockManager
 }
 export class Layout {
-    /* Properties of Ide.Layout */
+    /* Properties of Ide-1.0.Ide.Layout */
     readonly active_view: Gtk.Widget
-    /* Properties of Dazzle.DockBin */
+    /* Properties of Dazzle-1.0.Dazzle.DockBin */
     bottom_visible: boolean
     left_visible: boolean
     right_visible: boolean
     top_visible: boolean
-    /* Properties of Gtk.Container */
+    /* Properties of Gtk-3.0.Gtk.Container */
     border_width: number
     child: Gtk.Widget
     resize_mode: Gtk.ResizeMode
-    /* Properties of Gtk.Widget */
+    /* Properties of Gtk-3.0.Gtk.Widget */
     app_paintable: boolean
     can_default: boolean
     can_focus: boolean
@@ -8359,23 +8359,23 @@ export class Layout {
     visible: boolean
     width_request: number
     readonly window: Gdk.Window
-    /* Properties of Dazzle.Dock */
+    /* Properties of Dazzle-1.0.Dazzle.Dock */
     manager: Dazzle.DockManager
-    /* Fields of Ide.Layout */
+    /* Fields of Ide-1.0.Ide.Layout */
     parent_instance: Dazzle.DockBin
-    /* Fields of Gtk.Container */
+    /* Fields of Gtk-3.0.Gtk.Container */
     widget: Gtk.Widget
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Ide.Layout */
+    /* Methods of Ide-1.0.Ide.Layout */
     get_active_view(): Gtk.Widget | null
-    /* Methods of Dazzle.DockBin */
+    /* Methods of Dazzle-1.0.Dazzle.DockBin */
     get_bottom_edge(): Gtk.Widget
     get_center_widget(): Gtk.Widget | null
     get_left_edge(): Gtk.Widget
     get_right_edge(): Gtk.Widget
     get_top_edge(): Gtk.Widget
-    /* Methods of Gtk.Container */
+    /* Methods of Gtk-3.0.Gtk.Container */
     add(widget: Gtk.Widget): void
     check_resize(): void
     child_get_property(child: Gtk.Widget, property_name: string, value: any): void
@@ -8403,7 +8403,7 @@ export class Layout {
     set_reallocate_redraws(needs_redraws: boolean): void
     set_resize_mode(resize_mode: Gtk.ResizeMode): void
     unset_focus_chain(): void
-    /* Methods of Gtk.Widget */
+    /* Methods of Gtk-3.0.Gtk.Widget */
     activate(): boolean
     add_accelerator(accel_signal: string, accel_group: Gtk.AccelGroup, accel_key: number, accel_mods: Gdk.ModifierType, accel_flags: Gtk.AccelFlags): void
     add_device_events(device: Gdk.Device, events: Gdk.EventMask): void
@@ -8662,7 +8662,7 @@ export class Layout {
     unrealize(): void
     unregister_window(window: Gdk.Window): void
     unset_state_flags(flags: Gtk.StateFlags): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -8684,7 +8684,7 @@ export class Layout {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of Dazzle.DockItem */
+    /* Methods of Dazzle-1.0.Dazzle.DockItem */
     adopt(child: Dazzle.DockItem): boolean
     close(): boolean
     emit_presented(): void
@@ -8705,7 +8705,7 @@ export class Layout {
     set_child_visible(child: Dazzle.DockItem, child_visible: boolean): void
     set_manager(manager?: Dazzle.DockManager | null): void
     update_visibility(): void
-    /* Methods of Gtk.Buildable */
+    /* Methods of Gtk-3.0.Gtk.Buildable */
     add_child(builder: Gtk.Builder, child: GObject.Object, type?: string | null): void
     construct_child(builder: Gtk.Builder, name: string): GObject.Object
     custom_finished(builder: Gtk.Builder, child: GObject.Object | null, tagname: string, data?: object | null): void
@@ -8714,7 +8714,7 @@ export class Layout {
     get_internal_child(builder: Gtk.Builder, childname: string): GObject.Object
     parser_finished(builder: Gtk.Builder): void
     set_buildable_property(builder: Gtk.Builder, name: string, value: any): void
-    /* Virtual methods of Ide.Layout */
+    /* Virtual methods of Ide-1.0.Ide.Layout */
     vfunc_can_minimize(descendant: Dazzle.DockItem): boolean
     vfunc_close(): boolean
     vfunc_get_can_close(): boolean
@@ -8732,7 +8732,7 @@ export class Layout {
     vfunc_set_child_visible(child: Dazzle.DockItem, child_visible: boolean): void
     vfunc_set_manager(manager?: Dazzle.DockManager | null): void
     vfunc_update_visibility(): void
-    /* Virtual methods of Dazzle.DockBin */
+    /* Virtual methods of Dazzle-1.0.Dazzle.DockBin */
     vfunc_add_child(builder: Gtk.Builder, child: GObject.Object, type?: string | null): void
     vfunc_construct_child(builder: Gtk.Builder, name: string): GObject.Object
     vfunc_custom_finished(builder: Gtk.Builder, child: GObject.Object | null, tagname: string, data?: object | null): void
@@ -8743,7 +8743,7 @@ export class Layout {
     vfunc_parser_finished(builder: Gtk.Builder): void
     vfunc_set_buildable_property(builder: Gtk.Builder, name: string, value: any): void
     vfunc_set_name(name: string): void
-    /* Virtual methods of Gtk.Container */
+    /* Virtual methods of Gtk-3.0.Gtk.Container */
     vfunc_add(widget: Gtk.Widget): void
     vfunc_check_resize(): void
     vfunc_child_type(): GObject.Type
@@ -8754,7 +8754,7 @@ export class Layout {
     vfunc_remove(widget: Gtk.Widget): void
     vfunc_set_child_property(child: Gtk.Widget, property_id: number, value: any, pspec: GObject.ParamSpec): void
     vfunc_set_focus_child(child?: Gtk.Widget | null): void
-    /* Virtual methods of Gtk.Widget */
+    /* Virtual methods of Gtk-3.0.Gtk.Widget */
     vfunc_adjust_baseline_allocation(baseline: number): void
     vfunc_adjust_baseline_request(minimum_baseline: number, natural_baseline: number): void
     vfunc_adjust_size_allocation(orientation: Gtk.Orientation, minimum_size: number, natural_size: number, allocated_pos: number, allocated_size: number): void
@@ -8837,7 +8837,7 @@ export class Layout {
     vfunc_unrealize(): void
     vfunc_visibility_notify_event(event: Gdk.EventVisibility): boolean
     vfunc_window_state_event(event: Gdk.EventWindowState): boolean
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -8845,7 +8845,7 @@ export class Layout {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gtk.Container */
+    /* Signals of Gtk-3.0.Gtk.Container */
     connect(sigName: "add", callback: (($obj: Layout, object: Gtk.Widget) => void)): number
     connect_after(sigName: "add", callback: (($obj: Layout, object: Gtk.Widget) => void)): number
     emit(sigName: "add", object: Gtk.Widget): void
@@ -8858,7 +8858,7 @@ export class Layout {
     connect(sigName: "set-focus-child", callback: (($obj: Layout, object: Gtk.Widget) => void)): number
     connect_after(sigName: "set-focus-child", callback: (($obj: Layout, object: Gtk.Widget) => void)): number
     emit(sigName: "set-focus-child", object: Gtk.Widget): void
-    /* Signals of Gtk.Widget */
+    /* Signals of Gtk-3.0.Gtk.Widget */
     connect(sigName: "accel-closures-changed", callback: (($obj: Layout) => void)): number
     connect_after(sigName: "accel-closures-changed", callback: (($obj: Layout) => void)): number
     emit(sigName: "accel-closures-changed"): void
@@ -9066,11 +9066,11 @@ export class Layout {
     connect(sigName: "window-state-event", callback: (($obj: Layout, event: Gdk.EventWindowState) => boolean)): number
     connect_after(sigName: "window-state-event", callback: (($obj: Layout, event: Gdk.EventWindowState) => boolean)): number
     emit(sigName: "window-state-event", event: Gdk.EventWindowState): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Layout, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Layout, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    /* Signals of Dazzle.DockItem */
+    /* Signals of Dazzle-1.0.Dazzle.DockItem */
     connect(sigName: "manager-set", callback: (($obj: Layout, object: Dazzle.DockManager) => void)): number
     connect_after(sigName: "manager-set", callback: (($obj: Layout, object: Dazzle.DockManager) => void)): number
     emit(sigName: "manager-set", object: Dazzle.DockManager): void
@@ -9188,11 +9188,11 @@ export class Layout {
 export interface LayoutGrid_ConstructProps extends Gtk.Bin_ConstructProps {
 }
 export class LayoutGrid {
-    /* Properties of Gtk.Container */
+    /* Properties of Gtk-3.0.Gtk.Container */
     border_width: number
     child: Gtk.Widget
     resize_mode: Gtk.ResizeMode
-    /* Properties of Gtk.Widget */
+    /* Properties of Gtk-3.0.Gtk.Widget */
     app_paintable: boolean
     can_default: boolean
     can_focus: boolean
@@ -9232,15 +9232,15 @@ export class LayoutGrid {
     visible: boolean
     width_request: number
     readonly window: Gdk.Window
-    /* Fields of Gtk.Bin */
+    /* Fields of Gtk-3.0.Gtk.Bin */
     container: Gtk.Container
-    /* Fields of Gtk.Container */
+    /* Fields of Gtk-3.0.Gtk.Container */
     widget: Gtk.Widget
-    /* Fields of Gtk.Widget */
+    /* Fields of Gtk-3.0.Gtk.Widget */
     parent_instance: GObject.InitiallyUnowned
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Ide.LayoutGrid */
+    /* Methods of Ide-1.0.Ide.LayoutGrid */
     add_stack_after(stack: LayoutStack): LayoutStack
     add_stack_before(stack: LayoutStack): LayoutStack
     foreach_view(callback: Gtk.Callback): void
@@ -9248,9 +9248,9 @@ export class LayoutGrid {
     get_stack_after(stack: LayoutStack): LayoutStack | null
     get_stack_before(stack: LayoutStack): LayoutStack | null
     get_stacks(): LayoutStack[]
-    /* Methods of Gtk.Bin */
+    /* Methods of Gtk-3.0.Gtk.Bin */
     get_child(): Gtk.Widget | null
-    /* Methods of Gtk.Container */
+    /* Methods of Gtk-3.0.Gtk.Container */
     add(widget: Gtk.Widget): void
     check_resize(): void
     child_get_property(child: Gtk.Widget, property_name: string, value: any): void
@@ -9278,7 +9278,7 @@ export class LayoutGrid {
     set_reallocate_redraws(needs_redraws: boolean): void
     set_resize_mode(resize_mode: Gtk.ResizeMode): void
     unset_focus_chain(): void
-    /* Methods of Gtk.Widget */
+    /* Methods of Gtk-3.0.Gtk.Widget */
     activate(): boolean
     add_accelerator(accel_signal: string, accel_group: Gtk.AccelGroup, accel_key: number, accel_mods: Gdk.ModifierType, accel_flags: Gtk.AccelFlags): void
     add_device_events(device: Gdk.Device, events: Gdk.EventMask): void
@@ -9537,7 +9537,7 @@ export class LayoutGrid {
     unrealize(): void
     unregister_window(window: Gdk.Window): void
     unset_state_flags(flags: Gtk.StateFlags): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -9559,7 +9559,7 @@ export class LayoutGrid {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of Gtk.Buildable */
+    /* Methods of Gtk-3.0.Gtk.Buildable */
     add_child(builder: Gtk.Builder, child: GObject.Object, type?: string | null): void
     construct_child(builder: Gtk.Builder, name: string): GObject.Object
     custom_finished(builder: Gtk.Builder, child: GObject.Object | null, tagname: string, data?: object | null): void
@@ -9568,7 +9568,7 @@ export class LayoutGrid {
     get_internal_child(builder: Gtk.Builder, childname: string): GObject.Object
     parser_finished(builder: Gtk.Builder): void
     set_buildable_property(builder: Gtk.Builder, name: string, value: any): void
-    /* Virtual methods of Ide.LayoutGrid */
+    /* Virtual methods of Ide-1.0.Ide.LayoutGrid */
     vfunc_add_child(builder: Gtk.Builder, child: GObject.Object, type?: string | null): void
     vfunc_construct_child(builder: Gtk.Builder, name: string): GObject.Object
     vfunc_custom_finished(builder: Gtk.Builder, child: GObject.Object | null, tagname: string, data?: object | null): void
@@ -9579,7 +9579,7 @@ export class LayoutGrid {
     vfunc_parser_finished(builder: Gtk.Builder): void
     vfunc_set_buildable_property(builder: Gtk.Builder, name: string, value: any): void
     vfunc_set_name(name: string): void
-    /* Virtual methods of Gtk.Container */
+    /* Virtual methods of Gtk-3.0.Gtk.Container */
     vfunc_add(widget: Gtk.Widget): void
     vfunc_check_resize(): void
     vfunc_child_type(): GObject.Type
@@ -9590,7 +9590,7 @@ export class LayoutGrid {
     vfunc_remove(widget: Gtk.Widget): void
     vfunc_set_child_property(child: Gtk.Widget, property_id: number, value: any, pspec: GObject.ParamSpec): void
     vfunc_set_focus_child(child?: Gtk.Widget | null): void
-    /* Virtual methods of Gtk.Widget */
+    /* Virtual methods of Gtk-3.0.Gtk.Widget */
     vfunc_adjust_baseline_allocation(baseline: number): void
     vfunc_adjust_baseline_request(minimum_baseline: number, natural_baseline: number): void
     vfunc_adjust_size_allocation(orientation: Gtk.Orientation, minimum_size: number, natural_size: number, allocated_pos: number, allocated_size: number): void
@@ -9673,7 +9673,7 @@ export class LayoutGrid {
     vfunc_unrealize(): void
     vfunc_visibility_notify_event(event: Gdk.EventVisibility): boolean
     vfunc_window_state_event(event: Gdk.EventWindowState): boolean
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -9681,11 +9681,11 @@ export class LayoutGrid {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Ide.LayoutGrid */
+    /* Signals of Ide-1.0.Ide.LayoutGrid */
     connect(sigName: "empty", callback: (($obj: LayoutGrid) => void)): number
     connect_after(sigName: "empty", callback: (($obj: LayoutGrid) => void)): number
     emit(sigName: "empty"): void
-    /* Signals of Gtk.Container */
+    /* Signals of Gtk-3.0.Gtk.Container */
     connect(sigName: "add", callback: (($obj: LayoutGrid, object: Gtk.Widget) => void)): number
     connect_after(sigName: "add", callback: (($obj: LayoutGrid, object: Gtk.Widget) => void)): number
     emit(sigName: "add", object: Gtk.Widget): void
@@ -9698,7 +9698,7 @@ export class LayoutGrid {
     connect(sigName: "set-focus-child", callback: (($obj: LayoutGrid, object: Gtk.Widget) => void)): number
     connect_after(sigName: "set-focus-child", callback: (($obj: LayoutGrid, object: Gtk.Widget) => void)): number
     emit(sigName: "set-focus-child", object: Gtk.Widget): void
-    /* Signals of Gtk.Widget */
+    /* Signals of Gtk-3.0.Gtk.Widget */
     connect(sigName: "accel-closures-changed", callback: (($obj: LayoutGrid) => void)): number
     connect_after(sigName: "accel-closures-changed", callback: (($obj: LayoutGrid) => void)): number
     emit(sigName: "accel-closures-changed"): void
@@ -9906,7 +9906,7 @@ export class LayoutGrid {
     connect(sigName: "window-state-event", callback: (($obj: LayoutGrid, event: Gdk.EventWindowState) => boolean)): number
     connect_after(sigName: "window-state-event", callback: (($obj: LayoutGrid, event: Gdk.EventWindowState) => boolean)): number
     emit(sigName: "window-state-event", event: Gdk.EventWindowState): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: LayoutGrid, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: LayoutGrid, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -10008,20 +10008,20 @@ export class LayoutGrid {
 export interface LayoutPane_ConstructProps extends Dazzle.DockBinEdge_ConstructProps {
 }
 export class LayoutPane {
-    /* Properties of Dazzle.DockBinEdge */
+    /* Properties of Dazzle-1.0.Dazzle.DockBinEdge */
     edge: Gtk.PositionType
-    /* Properties of Dazzle.DockRevealer */
+    /* Properties of Dazzle-1.0.Dazzle.DockRevealer */
     readonly child_revealed: boolean
     position: number
     position_set: boolean
     reveal_child: boolean
     transition_duration: number
     transition_type: Dazzle.DockRevealerTransitionType
-    /* Properties of Gtk.Container */
+    /* Properties of Gtk-3.0.Gtk.Container */
     border_width: number
     child: Gtk.Widget
     resize_mode: Gtk.ResizeMode
-    /* Properties of Gtk.Widget */
+    /* Properties of Gtk-3.0.Gtk.Widget */
     app_paintable: boolean
     can_default: boolean
     can_focus: boolean
@@ -10061,17 +10061,17 @@ export class LayoutPane {
     visible: boolean
     width_request: number
     readonly window: Gdk.Window
-    /* Fields of Dazzle.DockBinEdge */
+    /* Fields of Dazzle-1.0.Dazzle.DockBinEdge */
     parent_instance: Dazzle.DockRevealer
-    /* Fields of Gtk.Bin */
+    /* Fields of Gtk-3.0.Gtk.Bin */
     container: Gtk.Container
-    /* Fields of Gtk.Container */
+    /* Fields of Gtk-3.0.Gtk.Container */
     widget: Gtk.Widget
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Dazzle.DockBinEdge */
+    /* Methods of Dazzle-1.0.Dazzle.DockBinEdge */
     get_edge(): Gtk.PositionType
-    /* Methods of Dazzle.DockRevealer */
+    /* Methods of Dazzle-1.0.Dazzle.DockRevealer */
     animate_to_position(position: number, transition_duration: number): void
     get_child_revealed(): boolean
     get_position(): number
@@ -10085,9 +10085,9 @@ export class LayoutPane {
     set_reveal_child(reveal_child: boolean): void
     set_transition_duration(transition_duration: number): void
     set_transition_type(transition_type: Dazzle.DockRevealerTransitionType): void
-    /* Methods of Gtk.Bin */
+    /* Methods of Gtk-3.0.Gtk.Bin */
     get_child(): Gtk.Widget | null
-    /* Methods of Gtk.Container */
+    /* Methods of Gtk-3.0.Gtk.Container */
     add(widget: Gtk.Widget): void
     check_resize(): void
     child_get_property(child: Gtk.Widget, property_name: string, value: any): void
@@ -10115,7 +10115,7 @@ export class LayoutPane {
     set_reallocate_redraws(needs_redraws: boolean): void
     set_resize_mode(resize_mode: Gtk.ResizeMode): void
     unset_focus_chain(): void
-    /* Methods of Gtk.Widget */
+    /* Methods of Gtk-3.0.Gtk.Widget */
     activate(): boolean
     add_accelerator(accel_signal: string, accel_group: Gtk.AccelGroup, accel_key: number, accel_mods: Gdk.ModifierType, accel_flags: Gtk.AccelFlags): void
     add_device_events(device: Gdk.Device, events: Gdk.EventMask): void
@@ -10374,7 +10374,7 @@ export class LayoutPane {
     unrealize(): void
     unregister_window(window: Gdk.Window): void
     unset_state_flags(flags: Gtk.StateFlags): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -10396,7 +10396,7 @@ export class LayoutPane {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of Dazzle.DockItem */
+    /* Methods of Dazzle-1.0.Dazzle.DockItem */
     adopt(child: Dazzle.DockItem): boolean
     close(): boolean
     emit_presented(): void
@@ -10417,7 +10417,7 @@ export class LayoutPane {
     set_child_visible(child: Dazzle.DockItem, child_visible: boolean): void
     set_manager(manager?: Dazzle.DockManager | null): void
     update_visibility(): void
-    /* Methods of Gtk.Buildable */
+    /* Methods of Gtk-3.0.Gtk.Buildable */
     add_child(builder: Gtk.Builder, child: GObject.Object, type?: string | null): void
     construct_child(builder: Gtk.Builder, name: string): GObject.Object
     custom_finished(builder: Gtk.Builder, child: GObject.Object | null, tagname: string, data?: object | null): void
@@ -10426,7 +10426,7 @@ export class LayoutPane {
     get_internal_child(builder: Gtk.Builder, childname: string): GObject.Object
     parser_finished(builder: Gtk.Builder): void
     set_buildable_property(builder: Gtk.Builder, name: string, value: any): void
-    /* Virtual methods of Ide.LayoutPane */
+    /* Virtual methods of Ide-1.0.Ide.LayoutPane */
     vfunc_can_minimize(descendant: Dazzle.DockItem): boolean
     vfunc_close(): boolean
     vfunc_get_can_close(): boolean
@@ -10444,9 +10444,9 @@ export class LayoutPane {
     vfunc_set_child_visible(child: Dazzle.DockItem, child_visible: boolean): void
     vfunc_set_manager(manager?: Dazzle.DockManager | null): void
     vfunc_update_visibility(): void
-    /* Virtual methods of Dazzle.DockBinEdge */
+    /* Virtual methods of Dazzle-1.0.Dazzle.DockBinEdge */
     vfunc_move_to_bin_child(): void
-    /* Virtual methods of Dazzle.Bin */
+    /* Virtual methods of Dazzle-1.0.Dazzle.Bin */
     vfunc_add_child(builder: Gtk.Builder, child: GObject.Object, type?: string | null): void
     vfunc_construct_child(builder: Gtk.Builder, name: string): GObject.Object
     vfunc_custom_finished(builder: Gtk.Builder, child: GObject.Object | null, tagname: string, data?: object | null): void
@@ -10457,7 +10457,7 @@ export class LayoutPane {
     vfunc_parser_finished(builder: Gtk.Builder): void
     vfunc_set_buildable_property(builder: Gtk.Builder, name: string, value: any): void
     vfunc_set_name(name: string): void
-    /* Virtual methods of Gtk.Container */
+    /* Virtual methods of Gtk-3.0.Gtk.Container */
     vfunc_add(widget: Gtk.Widget): void
     vfunc_check_resize(): void
     vfunc_child_type(): GObject.Type
@@ -10468,7 +10468,7 @@ export class LayoutPane {
     vfunc_remove(widget: Gtk.Widget): void
     vfunc_set_child_property(child: Gtk.Widget, property_id: number, value: any, pspec: GObject.ParamSpec): void
     vfunc_set_focus_child(child?: Gtk.Widget | null): void
-    /* Virtual methods of Gtk.Widget */
+    /* Virtual methods of Gtk-3.0.Gtk.Widget */
     vfunc_adjust_baseline_allocation(baseline: number): void
     vfunc_adjust_baseline_request(minimum_baseline: number, natural_baseline: number): void
     vfunc_adjust_size_allocation(orientation: Gtk.Orientation, minimum_size: number, natural_size: number, allocated_pos: number, allocated_size: number): void
@@ -10551,7 +10551,7 @@ export class LayoutPane {
     vfunc_unrealize(): void
     vfunc_visibility_notify_event(event: Gdk.EventVisibility): boolean
     vfunc_window_state_event(event: Gdk.EventWindowState): boolean
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -10559,11 +10559,11 @@ export class LayoutPane {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Dazzle.DockBinEdge */
+    /* Signals of Dazzle-1.0.Dazzle.DockBinEdge */
     connect(sigName: "move-to-bin-child", callback: (($obj: LayoutPane) => void)): number
     connect_after(sigName: "move-to-bin-child", callback: (($obj: LayoutPane) => void)): number
     emit(sigName: "move-to-bin-child"): void
-    /* Signals of Gtk.Container */
+    /* Signals of Gtk-3.0.Gtk.Container */
     connect(sigName: "add", callback: (($obj: LayoutPane, object: Gtk.Widget) => void)): number
     connect_after(sigName: "add", callback: (($obj: LayoutPane, object: Gtk.Widget) => void)): number
     emit(sigName: "add", object: Gtk.Widget): void
@@ -10576,7 +10576,7 @@ export class LayoutPane {
     connect(sigName: "set-focus-child", callback: (($obj: LayoutPane, object: Gtk.Widget) => void)): number
     connect_after(sigName: "set-focus-child", callback: (($obj: LayoutPane, object: Gtk.Widget) => void)): number
     emit(sigName: "set-focus-child", object: Gtk.Widget): void
-    /* Signals of Gtk.Widget */
+    /* Signals of Gtk-3.0.Gtk.Widget */
     connect(sigName: "accel-closures-changed", callback: (($obj: LayoutPane) => void)): number
     connect_after(sigName: "accel-closures-changed", callback: (($obj: LayoutPane) => void)): number
     emit(sigName: "accel-closures-changed"): void
@@ -10784,11 +10784,11 @@ export class LayoutPane {
     connect(sigName: "window-state-event", callback: (($obj: LayoutPane, event: Gdk.EventWindowState) => boolean)): number
     connect_after(sigName: "window-state-event", callback: (($obj: LayoutPane, event: Gdk.EventWindowState) => boolean)): number
     emit(sigName: "window-state-event", event: Gdk.EventWindowState): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: LayoutPane, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: LayoutPane, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    /* Signals of Dazzle.DockItem */
+    /* Signals of Dazzle-1.0.Dazzle.DockItem */
     connect(sigName: "manager-set", callback: (($obj: LayoutPane, object: Dazzle.DockManager) => void)): number
     connect_after(sigName: "manager-set", callback: (($obj: LayoutPane, object: Dazzle.DockManager) => void)): number
     emit(sigName: "manager-set", object: Dazzle.DockManager): void
@@ -10909,13 +10909,13 @@ export interface LayoutStack_ConstructProps extends Gtk.Bin_ConstructProps {
     active_view?: LayoutView
 }
 export class LayoutStack {
-    /* Properties of Ide.LayoutStack */
+    /* Properties of Ide-1.0.Ide.LayoutStack */
     active_view: LayoutView
-    /* Properties of Gtk.Container */
+    /* Properties of Gtk-3.0.Gtk.Container */
     border_width: number
     child: Gtk.Widget
     resize_mode: Gtk.ResizeMode
-    /* Properties of Gtk.Widget */
+    /* Properties of Gtk-3.0.Gtk.Widget */
     app_paintable: boolean
     can_default: boolean
     can_focus: boolean
@@ -10955,23 +10955,23 @@ export class LayoutStack {
     visible: boolean
     width_request: number
     readonly window: Gdk.Window
-    /* Fields of Gtk.Bin */
+    /* Fields of Gtk-3.0.Gtk.Bin */
     container: Gtk.Container
-    /* Fields of Gtk.Container */
+    /* Fields of Gtk-3.0.Gtk.Container */
     widget: Gtk.Widget
-    /* Fields of Gtk.Widget */
+    /* Fields of Gtk-3.0.Gtk.Widget */
     parent_instance: GObject.InitiallyUnowned
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Ide.LayoutStack */
+    /* Methods of Ide-1.0.Ide.LayoutStack */
     add_control(control: Gtk.Widget, priority: number): void
     foreach_view(callback: Gtk.Callback): void
     get_active_view(): Gtk.Widget | null
     remove(view: Gtk.Widget): void
     set_active_view(active_view: Gtk.Widget): void
-    /* Methods of Gtk.Bin */
+    /* Methods of Gtk-3.0.Gtk.Bin */
     get_child(): Gtk.Widget | null
-    /* Methods of Gtk.Container */
+    /* Methods of Gtk-3.0.Gtk.Container */
     add(widget: Gtk.Widget): void
     check_resize(): void
     child_get_property(child: Gtk.Widget, property_name: string, value: any): void
@@ -10999,7 +10999,7 @@ export class LayoutStack {
     set_reallocate_redraws(needs_redraws: boolean): void
     set_resize_mode(resize_mode: Gtk.ResizeMode): void
     unset_focus_chain(): void
-    /* Methods of Gtk.Widget */
+    /* Methods of Gtk-3.0.Gtk.Widget */
     activate(): boolean
     add_accelerator(accel_signal: string, accel_group: Gtk.AccelGroup, accel_key: number, accel_mods: Gdk.ModifierType, accel_flags: Gtk.AccelFlags): void
     add_device_events(device: Gdk.Device, events: Gdk.EventMask): void
@@ -11258,7 +11258,7 @@ export class LayoutStack {
     unrealize(): void
     unregister_window(window: Gdk.Window): void
     unset_state_flags(flags: Gtk.StateFlags): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -11280,7 +11280,7 @@ export class LayoutStack {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of Gtk.Buildable */
+    /* Methods of Gtk-3.0.Gtk.Buildable */
     add_child(builder: Gtk.Builder, child: GObject.Object, type?: string | null): void
     construct_child(builder: Gtk.Builder, name: string): GObject.Object
     custom_finished(builder: Gtk.Builder, child: GObject.Object | null, tagname: string, data?: object | null): void
@@ -11289,7 +11289,7 @@ export class LayoutStack {
     get_internal_child(builder: Gtk.Builder, childname: string): GObject.Object
     parser_finished(builder: Gtk.Builder): void
     set_buildable_property(builder: Gtk.Builder, name: string, value: any): void
-    /* Virtual methods of Ide.LayoutStack */
+    /* Virtual methods of Ide-1.0.Ide.LayoutStack */
     vfunc_add_child(builder: Gtk.Builder, child: GObject.Object, type?: string | null): void
     vfunc_construct_child(builder: Gtk.Builder, name: string): GObject.Object
     vfunc_custom_finished(builder: Gtk.Builder, child: GObject.Object | null, tagname: string, data?: object | null): void
@@ -11300,7 +11300,7 @@ export class LayoutStack {
     vfunc_parser_finished(builder: Gtk.Builder): void
     vfunc_set_buildable_property(builder: Gtk.Builder, name: string, value: any): void
     vfunc_set_name(name: string): void
-    /* Virtual methods of Gtk.Container */
+    /* Virtual methods of Gtk-3.0.Gtk.Container */
     vfunc_add(widget: Gtk.Widget): void
     vfunc_check_resize(): void
     vfunc_child_type(): GObject.Type
@@ -11311,7 +11311,7 @@ export class LayoutStack {
     vfunc_remove(widget: Gtk.Widget): void
     vfunc_set_child_property(child: Gtk.Widget, property_id: number, value: any, pspec: GObject.ParamSpec): void
     vfunc_set_focus_child(child?: Gtk.Widget | null): void
-    /* Virtual methods of Gtk.Widget */
+    /* Virtual methods of Gtk-3.0.Gtk.Widget */
     vfunc_adjust_baseline_allocation(baseline: number): void
     vfunc_adjust_baseline_request(minimum_baseline: number, natural_baseline: number): void
     vfunc_adjust_size_allocation(orientation: Gtk.Orientation, minimum_size: number, natural_size: number, allocated_pos: number, allocated_size: number): void
@@ -11394,7 +11394,7 @@ export class LayoutStack {
     vfunc_unrealize(): void
     vfunc_visibility_notify_event(event: Gdk.EventVisibility): boolean
     vfunc_window_state_event(event: Gdk.EventWindowState): boolean
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -11402,14 +11402,14 @@ export class LayoutStack {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Ide.LayoutStack */
+    /* Signals of Ide-1.0.Ide.LayoutStack */
     connect(sigName: "empty", callback: (($obj: LayoutStack) => void)): number
     connect_after(sigName: "empty", callback: (($obj: LayoutStack) => void)): number
     emit(sigName: "empty"): void
     connect(sigName: "split", callback: (($obj: LayoutStack, view: LayoutView, split_type: number, file: Gio.File) => void)): number
     connect_after(sigName: "split", callback: (($obj: LayoutStack, view: LayoutView, split_type: number, file: Gio.File) => void)): number
     emit(sigName: "split", view: LayoutView, split_type: number, file: Gio.File): void
-    /* Signals of Gtk.Container */
+    /* Signals of Gtk-3.0.Gtk.Container */
     connect(sigName: "add", callback: (($obj: LayoutStack, object: Gtk.Widget) => void)): number
     connect_after(sigName: "add", callback: (($obj: LayoutStack, object: Gtk.Widget) => void)): number
     emit(sigName: "add", object: Gtk.Widget): void
@@ -11422,7 +11422,7 @@ export class LayoutStack {
     connect(sigName: "set-focus-child", callback: (($obj: LayoutStack, object: Gtk.Widget) => void)): number
     connect_after(sigName: "set-focus-child", callback: (($obj: LayoutStack, object: Gtk.Widget) => void)): number
     emit(sigName: "set-focus-child", object: Gtk.Widget): void
-    /* Signals of Gtk.Widget */
+    /* Signals of Gtk-3.0.Gtk.Widget */
     connect(sigName: "accel-closures-changed", callback: (($obj: LayoutStack) => void)): number
     connect_after(sigName: "accel-closures-changed", callback: (($obj: LayoutStack) => void)): number
     emit(sigName: "accel-closures-changed"): void
@@ -11630,7 +11630,7 @@ export class LayoutStack {
     connect(sigName: "window-state-event", callback: (($obj: LayoutStack, event: Gdk.EventWindowState) => boolean)): number
     connect_after(sigName: "window-state-event", callback: (($obj: LayoutStack, event: Gdk.EventWindowState) => boolean)): number
     emit(sigName: "window-state-event", event: Gdk.EventWindowState): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: LayoutStack, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: LayoutStack, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -11735,20 +11735,20 @@ export interface LayoutView_ConstructProps extends Gtk.Box_ConstructProps {
     orientation?: Gtk.Orientation
 }
 export class LayoutView {
-    /* Properties of Ide.LayoutView */
+    /* Properties of Ide-1.0.Ide.LayoutView */
     readonly can_split: boolean
     readonly modified: boolean
     readonly special_title: string
     readonly title: string
-    /* Properties of Gtk.Box */
+    /* Properties of Gtk-3.0.Gtk.Box */
     baseline_position: Gtk.BaselinePosition
     homogeneous: boolean
     spacing: number
-    /* Properties of Gtk.Container */
+    /* Properties of Gtk-3.0.Gtk.Container */
     border_width: number
     child: Gtk.Widget
     resize_mode: Gtk.ResizeMode
-    /* Properties of Gtk.Widget */
+    /* Properties of Gtk-3.0.Gtk.Widget */
     app_paintable: boolean
     can_default: boolean
     can_focus: boolean
@@ -11788,17 +11788,17 @@ export class LayoutView {
     visible: boolean
     width_request: number
     readonly window: Gdk.Window
-    /* Properties of Gtk.Orientable */
+    /* Properties of Gtk-3.0.Gtk.Orientable */
     orientation: Gtk.Orientation
-    /* Fields of Ide.LayoutView */
+    /* Fields of Ide-1.0.Ide.LayoutView */
     parent_instance: Gtk.Box
-    /* Fields of Gtk.Box */
+    /* Fields of Gtk-3.0.Gtk.Box */
     container: Gtk.Container
-    /* Fields of Gtk.Container */
+    /* Fields of Gtk-3.0.Gtk.Container */
     widget: Gtk.Widget
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Ide.LayoutView */
+    /* Methods of Ide-1.0.Ide.LayoutView */
     agree_to_close(): boolean
     create_split(file: Gio.File): LayoutView
     get_can_preview(): boolean
@@ -11810,7 +11810,7 @@ export class LayoutView {
     navigate_to(location: SourceLocation): void
     set_back_forward_list(back_forward_list: BackForwardList): void
     set_split_view(split_view: boolean): void
-    /* Methods of Gtk.Box */
+    /* Methods of Gtk-3.0.Gtk.Box */
     get_baseline_position(): Gtk.BaselinePosition
     get_center_widget(): Gtk.Widget | null
     get_homogeneous(): boolean
@@ -11824,7 +11824,7 @@ export class LayoutView {
     set_child_packing(child: Gtk.Widget, expand: boolean, fill: boolean, padding: number, pack_type: Gtk.PackType): void
     set_homogeneous(homogeneous: boolean): void
     set_spacing(spacing: number): void
-    /* Methods of Gtk.Container */
+    /* Methods of Gtk-3.0.Gtk.Container */
     add(widget: Gtk.Widget): void
     check_resize(): void
     child_get_property(child: Gtk.Widget, property_name: string, value: any): void
@@ -11852,7 +11852,7 @@ export class LayoutView {
     set_reallocate_redraws(needs_redraws: boolean): void
     set_resize_mode(resize_mode: Gtk.ResizeMode): void
     unset_focus_chain(): void
-    /* Methods of Gtk.Widget */
+    /* Methods of Gtk-3.0.Gtk.Widget */
     activate(): boolean
     add_accelerator(accel_signal: string, accel_group: Gtk.AccelGroup, accel_key: number, accel_mods: Gdk.ModifierType, accel_flags: Gtk.AccelFlags): void
     add_device_events(device: Gdk.Device, events: Gdk.EventMask): void
@@ -12111,7 +12111,7 @@ export class LayoutView {
     unrealize(): void
     unregister_window(window: Gdk.Window): void
     unset_state_flags(flags: Gtk.StateFlags): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -12133,7 +12133,7 @@ export class LayoutView {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of Gtk.Buildable */
+    /* Methods of Gtk-3.0.Gtk.Buildable */
     add_child(builder: Gtk.Builder, child: GObject.Object, type?: string | null): void
     construct_child(builder: Gtk.Builder, name: string): GObject.Object
     custom_finished(builder: Gtk.Builder, child: GObject.Object | null, tagname: string, data?: object | null): void
@@ -12142,10 +12142,10 @@ export class LayoutView {
     get_internal_child(builder: Gtk.Builder, childname: string): GObject.Object
     parser_finished(builder: Gtk.Builder): void
     set_buildable_property(builder: Gtk.Builder, name: string, value: any): void
-    /* Methods of Gtk.Orientable */
+    /* Methods of Gtk-3.0.Gtk.Orientable */
     get_orientation(): Gtk.Orientation
     set_orientation(orientation: Gtk.Orientation): void
-    /* Virtual methods of Ide.LayoutView */
+    /* Virtual methods of Ide-1.0.Ide.LayoutView */
     vfunc_agree_to_close(): boolean
     vfunc_create_split(file: Gio.File): LayoutView
     vfunc_get_can_preview(): boolean
@@ -12167,7 +12167,7 @@ export class LayoutView {
     vfunc_parser_finished(builder: Gtk.Builder): void
     vfunc_set_buildable_property(builder: Gtk.Builder, name: string, value: any): void
     vfunc_set_name(name: string): void
-    /* Virtual methods of Gtk.Container */
+    /* Virtual methods of Gtk-3.0.Gtk.Container */
     vfunc_add(widget: Gtk.Widget): void
     vfunc_check_resize(): void
     vfunc_child_type(): GObject.Type
@@ -12178,7 +12178,7 @@ export class LayoutView {
     vfunc_remove(widget: Gtk.Widget): void
     vfunc_set_child_property(child: Gtk.Widget, property_id: number, value: any, pspec: GObject.ParamSpec): void
     vfunc_set_focus_child(child?: Gtk.Widget | null): void
-    /* Virtual methods of Gtk.Widget */
+    /* Virtual methods of Gtk-3.0.Gtk.Widget */
     vfunc_adjust_baseline_allocation(baseline: number): void
     vfunc_adjust_baseline_request(minimum_baseline: number, natural_baseline: number): void
     vfunc_adjust_size_allocation(orientation: Gtk.Orientation, minimum_size: number, natural_size: number, allocated_pos: number, allocated_size: number): void
@@ -12261,7 +12261,7 @@ export class LayoutView {
     vfunc_unrealize(): void
     vfunc_visibility_notify_event(event: Gdk.EventVisibility): boolean
     vfunc_window_state_event(event: Gdk.EventWindowState): boolean
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -12269,7 +12269,7 @@ export class LayoutView {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gtk.Container */
+    /* Signals of Gtk-3.0.Gtk.Container */
     connect(sigName: "add", callback: (($obj: LayoutView, object: Gtk.Widget) => void)): number
     connect_after(sigName: "add", callback: (($obj: LayoutView, object: Gtk.Widget) => void)): number
     emit(sigName: "add", object: Gtk.Widget): void
@@ -12282,7 +12282,7 @@ export class LayoutView {
     connect(sigName: "set-focus-child", callback: (($obj: LayoutView, object: Gtk.Widget) => void)): number
     connect_after(sigName: "set-focus-child", callback: (($obj: LayoutView, object: Gtk.Widget) => void)): number
     emit(sigName: "set-focus-child", object: Gtk.Widget): void
-    /* Signals of Gtk.Widget */
+    /* Signals of Gtk-3.0.Gtk.Widget */
     connect(sigName: "accel-closures-changed", callback: (($obj: LayoutView) => void)): number
     connect_after(sigName: "accel-closures-changed", callback: (($obj: LayoutView) => void)): number
     emit(sigName: "accel-closures-changed"): void
@@ -12490,7 +12490,7 @@ export class LayoutView {
     connect(sigName: "window-state-event", callback: (($obj: LayoutView, event: Gdk.EventWindowState) => boolean)): number
     connect_after(sigName: "window-state-event", callback: (($obj: LayoutView, event: Gdk.EventWindowState) => boolean)): number
     emit(sigName: "window-state-event", event: Gdk.EventWindowState): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: LayoutView, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: LayoutView, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -12606,27 +12606,27 @@ export class LayoutView {
 export interface LocalDevice_ConstructProps extends Device_ConstructProps {
 }
 export class LocalDevice {
-    /* Properties of Ide.Device */
+    /* Properties of Ide-1.0.Ide.Device */
     display_name: string
     id: string
     readonly system_type: string
-    /* Fields of Ide.LocalDevice */
+    /* Fields of Ide-1.0.Ide.LocalDevice */
     parent_instance: Device
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Ide.Device */
+    /* Methods of Ide-1.0.Ide.Device */
     get_display_name(): string | null
     get_id(): string
     get_system_type(): string
     prepare_configuration(configuration: Configuration): void
     set_display_name(display_name: string): void
     set_id(id: string): void
-    /* Methods of Ide.Object */
+    /* Methods of Ide-1.0.Ide.Object */
     get_context(): Context
     hold(): boolean
     release(): void
     set_context(context: Context): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -12648,14 +12648,14 @@ export class LocalDevice {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Ide.Device */
+    /* Virtual methods of Ide-1.0.Ide.Device */
     vfunc_get_system_type(): string
     vfunc_prepare_configuration(configuration: Configuration): void
-    /* Virtual methods of Ide.Object */
+    /* Virtual methods of Ide-1.0.Ide.Object */
     vfunc_destroy(): void
     vfunc_get_context(): Context
     vfunc_set_context(context: Context): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -12663,11 +12663,11 @@ export class LocalDevice {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Ide.Object */
+    /* Signals of Ide-1.0.Ide.Object */
     connect(sigName: "destroy", callback: (($obj: LocalDevice) => void)): number
     connect_after(sigName: "destroy", callback: (($obj: LocalDevice) => void)): number
     emit(sigName: "destroy"): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: LocalDevice, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: LocalDevice, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -12690,16 +12690,16 @@ export interface Object_ConstructProps extends GObject.Object_ConstructProps {
     context?: Context
 }
 export class Object {
-    /* Fields of Ide.Object */
+    /* Fields of Ide-1.0.Ide.Object */
     parent_instance: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Ide.Object */
+    /* Methods of Ide-1.0.Ide.Object */
     get_context(): Context
     hold(): boolean
     release(): void
     set_context(context: Context): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -12721,11 +12721,11 @@ export class Object {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Ide.Object */
+    /* Virtual methods of Ide-1.0.Ide.Object */
     vfunc_destroy(): void
     vfunc_get_context(): Context
     vfunc_set_context(context: Context): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -12733,11 +12733,11 @@ export class Object {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Ide.Object */
+    /* Signals of Ide-1.0.Ide.Object */
     connect(sigName: "destroy", callback: (($obj: Object) => void)): number
     connect_after(sigName: "destroy", callback: (($obj: Object) => void)): number
     emit(sigName: "destroy"): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Object, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Object, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -12757,15 +12757,15 @@ export interface OmniBar_ConstructProps extends Gtk.Box_ConstructProps {
     orientation?: Gtk.Orientation
 }
 export class OmniBar {
-    /* Properties of Gtk.Box */
+    /* Properties of Gtk-3.0.Gtk.Box */
     baseline_position: Gtk.BaselinePosition
     homogeneous: boolean
     spacing: number
-    /* Properties of Gtk.Container */
+    /* Properties of Gtk-3.0.Gtk.Container */
     border_width: number
     child: Gtk.Widget
     resize_mode: Gtk.ResizeMode
-    /* Properties of Gtk.Widget */
+    /* Properties of Gtk-3.0.Gtk.Widget */
     app_paintable: boolean
     can_default: boolean
     can_focus: boolean
@@ -12805,17 +12805,17 @@ export class OmniBar {
     visible: boolean
     width_request: number
     readonly window: Gdk.Window
-    /* Properties of Gtk.Orientable */
+    /* Properties of Gtk-3.0.Gtk.Orientable */
     orientation: Gtk.Orientation
-    /* Fields of Gtk.Box */
+    /* Fields of Gtk-3.0.Gtk.Box */
     container: Gtk.Container
-    /* Fields of Gtk.Container */
+    /* Fields of Gtk-3.0.Gtk.Container */
     widget: Gtk.Widget
-    /* Fields of Gtk.Widget */
+    /* Fields of Gtk-3.0.Gtk.Widget */
     parent_instance: GObject.InitiallyUnowned
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Gtk.Box */
+    /* Methods of Gtk-3.0.Gtk.Box */
     get_baseline_position(): Gtk.BaselinePosition
     get_center_widget(): Gtk.Widget | null
     get_homogeneous(): boolean
@@ -12829,7 +12829,7 @@ export class OmniBar {
     set_child_packing(child: Gtk.Widget, expand: boolean, fill: boolean, padding: number, pack_type: Gtk.PackType): void
     set_homogeneous(homogeneous: boolean): void
     set_spacing(spacing: number): void
-    /* Methods of Gtk.Container */
+    /* Methods of Gtk-3.0.Gtk.Container */
     add(widget: Gtk.Widget): void
     check_resize(): void
     child_get_property(child: Gtk.Widget, property_name: string, value: any): void
@@ -12857,7 +12857,7 @@ export class OmniBar {
     set_reallocate_redraws(needs_redraws: boolean): void
     set_resize_mode(resize_mode: Gtk.ResizeMode): void
     unset_focus_chain(): void
-    /* Methods of Gtk.Widget */
+    /* Methods of Gtk-3.0.Gtk.Widget */
     activate(): boolean
     add_accelerator(accel_signal: string, accel_group: Gtk.AccelGroup, accel_key: number, accel_mods: Gdk.ModifierType, accel_flags: Gtk.AccelFlags): void
     add_device_events(device: Gdk.Device, events: Gdk.EventMask): void
@@ -13116,7 +13116,7 @@ export class OmniBar {
     unrealize(): void
     unregister_window(window: Gdk.Window): void
     unset_state_flags(flags: Gtk.StateFlags): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -13138,7 +13138,7 @@ export class OmniBar {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of Gtk.Buildable */
+    /* Methods of Gtk-3.0.Gtk.Buildable */
     add_child(builder: Gtk.Builder, child: GObject.Object, type?: string | null): void
     construct_child(builder: Gtk.Builder, name: string): GObject.Object
     custom_finished(builder: Gtk.Builder, child: GObject.Object | null, tagname: string, data?: object | null): void
@@ -13147,10 +13147,10 @@ export class OmniBar {
     get_internal_child(builder: Gtk.Builder, childname: string): GObject.Object
     parser_finished(builder: Gtk.Builder): void
     set_buildable_property(builder: Gtk.Builder, name: string, value: any): void
-    /* Methods of Gtk.Orientable */
+    /* Methods of Gtk-3.0.Gtk.Orientable */
     get_orientation(): Gtk.Orientation
     set_orientation(orientation: Gtk.Orientation): void
-    /* Virtual methods of Ide.OmniBar */
+    /* Virtual methods of Ide-1.0.Ide.OmniBar */
     vfunc_add_child(builder: Gtk.Builder, child: GObject.Object, type?: string | null): void
     vfunc_construct_child(builder: Gtk.Builder, name: string): GObject.Object
     vfunc_custom_finished(builder: Gtk.Builder, child: GObject.Object | null, tagname: string, data?: object | null): void
@@ -13161,7 +13161,7 @@ export class OmniBar {
     vfunc_parser_finished(builder: Gtk.Builder): void
     vfunc_set_buildable_property(builder: Gtk.Builder, name: string, value: any): void
     vfunc_set_name(name: string): void
-    /* Virtual methods of Gtk.Container */
+    /* Virtual methods of Gtk-3.0.Gtk.Container */
     vfunc_add(widget: Gtk.Widget): void
     vfunc_check_resize(): void
     vfunc_child_type(): GObject.Type
@@ -13172,7 +13172,7 @@ export class OmniBar {
     vfunc_remove(widget: Gtk.Widget): void
     vfunc_set_child_property(child: Gtk.Widget, property_id: number, value: any, pspec: GObject.ParamSpec): void
     vfunc_set_focus_child(child?: Gtk.Widget | null): void
-    /* Virtual methods of Gtk.Widget */
+    /* Virtual methods of Gtk-3.0.Gtk.Widget */
     vfunc_adjust_baseline_allocation(baseline: number): void
     vfunc_adjust_baseline_request(minimum_baseline: number, natural_baseline: number): void
     vfunc_adjust_size_allocation(orientation: Gtk.Orientation, minimum_size: number, natural_size: number, allocated_pos: number, allocated_size: number): void
@@ -13255,7 +13255,7 @@ export class OmniBar {
     vfunc_unrealize(): void
     vfunc_visibility_notify_event(event: Gdk.EventVisibility): boolean
     vfunc_window_state_event(event: Gdk.EventWindowState): boolean
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -13263,7 +13263,7 @@ export class OmniBar {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gtk.Container */
+    /* Signals of Gtk-3.0.Gtk.Container */
     connect(sigName: "add", callback: (($obj: OmniBar, object: Gtk.Widget) => void)): number
     connect_after(sigName: "add", callback: (($obj: OmniBar, object: Gtk.Widget) => void)): number
     emit(sigName: "add", object: Gtk.Widget): void
@@ -13276,7 +13276,7 @@ export class OmniBar {
     connect(sigName: "set-focus-child", callback: (($obj: OmniBar, object: Gtk.Widget) => void)): number
     connect_after(sigName: "set-focus-child", callback: (($obj: OmniBar, object: Gtk.Widget) => void)): number
     emit(sigName: "set-focus-child", object: Gtk.Widget): void
-    /* Signals of Gtk.Widget */
+    /* Signals of Gtk-3.0.Gtk.Widget */
     connect(sigName: "accel-closures-changed", callback: (($obj: OmniBar) => void)): number
     connect_after(sigName: "accel-closures-changed", callback: (($obj: OmniBar) => void)): number
     emit(sigName: "accel-closures-changed"): void
@@ -13484,7 +13484,7 @@ export class OmniBar {
     connect(sigName: "window-state-event", callback: (($obj: OmniBar, event: Gdk.EventWindowState) => boolean)): number
     connect_after(sigName: "window-state-event", callback: (($obj: OmniBar, event: Gdk.EventWindowState) => boolean)): number
     emit(sigName: "window-state-event", event: Gdk.EventWindowState): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: OmniBar, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: OmniBar, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -13597,17 +13597,17 @@ export interface OmniSearchDisplay_ConstructProps extends Gtk.Box_ConstructProps
     orientation?: Gtk.Orientation
 }
 export class OmniSearchDisplay {
-    /* Properties of Ide.OmniSearchDisplay */
+    /* Properties of Ide-1.0.Ide.OmniSearchDisplay */
     context: SearchContext
-    /* Properties of Gtk.Box */
+    /* Properties of Gtk-3.0.Gtk.Box */
     baseline_position: Gtk.BaselinePosition
     homogeneous: boolean
     spacing: number
-    /* Properties of Gtk.Container */
+    /* Properties of Gtk-3.0.Gtk.Container */
     border_width: number
     child: Gtk.Widget
     resize_mode: Gtk.ResizeMode
-    /* Properties of Gtk.Widget */
+    /* Properties of Gtk-3.0.Gtk.Widget */
     app_paintable: boolean
     can_default: boolean
     can_focus: boolean
@@ -13647,23 +13647,23 @@ export class OmniSearchDisplay {
     visible: boolean
     width_request: number
     readonly window: Gdk.Window
-    /* Properties of Gtk.Orientable */
+    /* Properties of Gtk-3.0.Gtk.Orientable */
     orientation: Gtk.Orientation
-    /* Fields of Gtk.Box */
+    /* Fields of Gtk-3.0.Gtk.Box */
     container: Gtk.Container
-    /* Fields of Gtk.Container */
+    /* Fields of Gtk-3.0.Gtk.Container */
     widget: Gtk.Widget
-    /* Fields of Gtk.Widget */
+    /* Fields of Gtk-3.0.Gtk.Widget */
     parent_instance: GObject.InitiallyUnowned
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Ide.OmniSearchDisplay */
+    /* Methods of Ide-1.0.Ide.OmniSearchDisplay */
     get_context(): SearchContext
     get_count(): number
     move_next_result(): void
     move_previous_result(): void
     set_context(context: SearchContext): void
-    /* Methods of Gtk.Box */
+    /* Methods of Gtk-3.0.Gtk.Box */
     get_baseline_position(): Gtk.BaselinePosition
     get_center_widget(): Gtk.Widget | null
     get_homogeneous(): boolean
@@ -13677,7 +13677,7 @@ export class OmniSearchDisplay {
     set_child_packing(child: Gtk.Widget, expand: boolean, fill: boolean, padding: number, pack_type: Gtk.PackType): void
     set_homogeneous(homogeneous: boolean): void
     set_spacing(spacing: number): void
-    /* Methods of Gtk.Container */
+    /* Methods of Gtk-3.0.Gtk.Container */
     add(widget: Gtk.Widget): void
     check_resize(): void
     child_get_property(child: Gtk.Widget, property_name: string, value: any): void
@@ -13705,7 +13705,7 @@ export class OmniSearchDisplay {
     set_reallocate_redraws(needs_redraws: boolean): void
     set_resize_mode(resize_mode: Gtk.ResizeMode): void
     unset_focus_chain(): void
-    /* Methods of Gtk.Widget */
+    /* Methods of Gtk-3.0.Gtk.Widget */
     activate(): boolean
     add_accelerator(accel_signal: string, accel_group: Gtk.AccelGroup, accel_key: number, accel_mods: Gdk.ModifierType, accel_flags: Gtk.AccelFlags): void
     add_device_events(device: Gdk.Device, events: Gdk.EventMask): void
@@ -13964,7 +13964,7 @@ export class OmniSearchDisplay {
     unrealize(): void
     unregister_window(window: Gdk.Window): void
     unset_state_flags(flags: Gtk.StateFlags): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -13986,7 +13986,7 @@ export class OmniSearchDisplay {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of Gtk.Buildable */
+    /* Methods of Gtk-3.0.Gtk.Buildable */
     add_child(builder: Gtk.Builder, child: GObject.Object, type?: string | null): void
     construct_child(builder: Gtk.Builder, name: string): GObject.Object
     custom_finished(builder: Gtk.Builder, child: GObject.Object | null, tagname: string, data?: object | null): void
@@ -13995,10 +13995,10 @@ export class OmniSearchDisplay {
     get_internal_child(builder: Gtk.Builder, childname: string): GObject.Object
     parser_finished(builder: Gtk.Builder): void
     set_buildable_property(builder: Gtk.Builder, name: string, value: any): void
-    /* Methods of Gtk.Orientable */
+    /* Methods of Gtk-3.0.Gtk.Orientable */
     get_orientation(): Gtk.Orientation
     set_orientation(orientation: Gtk.Orientation): void
-    /* Virtual methods of Ide.OmniSearchDisplay */
+    /* Virtual methods of Ide-1.0.Ide.OmniSearchDisplay */
     vfunc_add_child(builder: Gtk.Builder, child: GObject.Object, type?: string | null): void
     vfunc_construct_child(builder: Gtk.Builder, name: string): GObject.Object
     vfunc_custom_finished(builder: Gtk.Builder, child: GObject.Object | null, tagname: string, data?: object | null): void
@@ -14009,7 +14009,7 @@ export class OmniSearchDisplay {
     vfunc_parser_finished(builder: Gtk.Builder): void
     vfunc_set_buildable_property(builder: Gtk.Builder, name: string, value: any): void
     vfunc_set_name(name: string): void
-    /* Virtual methods of Gtk.Container */
+    /* Virtual methods of Gtk-3.0.Gtk.Container */
     vfunc_add(widget: Gtk.Widget): void
     vfunc_check_resize(): void
     vfunc_child_type(): GObject.Type
@@ -14020,7 +14020,7 @@ export class OmniSearchDisplay {
     vfunc_remove(widget: Gtk.Widget): void
     vfunc_set_child_property(child: Gtk.Widget, property_id: number, value: any, pspec: GObject.ParamSpec): void
     vfunc_set_focus_child(child?: Gtk.Widget | null): void
-    /* Virtual methods of Gtk.Widget */
+    /* Virtual methods of Gtk-3.0.Gtk.Widget */
     vfunc_adjust_baseline_allocation(baseline: number): void
     vfunc_adjust_baseline_request(minimum_baseline: number, natural_baseline: number): void
     vfunc_adjust_size_allocation(orientation: Gtk.Orientation, minimum_size: number, natural_size: number, allocated_pos: number, allocated_size: number): void
@@ -14103,7 +14103,7 @@ export class OmniSearchDisplay {
     vfunc_unrealize(): void
     vfunc_visibility_notify_event(event: Gdk.EventVisibility): boolean
     vfunc_window_state_event(event: Gdk.EventWindowState): boolean
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -14111,14 +14111,14 @@ export class OmniSearchDisplay {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Ide.OmniSearchDisplay */
+    /* Signals of Ide-1.0.Ide.OmniSearchDisplay */
     connect(sigName: "activate", callback: (($obj: OmniSearchDisplay) => void)): number
     connect_after(sigName: "activate", callback: (($obj: OmniSearchDisplay) => void)): number
     emit(sigName: "activate"): void
     connect(sigName: "result-activated", callback: (($obj: OmniSearchDisplay, object: SearchResult) => void)): number
     connect_after(sigName: "result-activated", callback: (($obj: OmniSearchDisplay, object: SearchResult) => void)): number
     emit(sigName: "result-activated", object: SearchResult): void
-    /* Signals of Gtk.Container */
+    /* Signals of Gtk-3.0.Gtk.Container */
     connect(sigName: "add", callback: (($obj: OmniSearchDisplay, object: Gtk.Widget) => void)): number
     connect_after(sigName: "add", callback: (($obj: OmniSearchDisplay, object: Gtk.Widget) => void)): number
     emit(sigName: "add", object: Gtk.Widget): void
@@ -14131,7 +14131,7 @@ export class OmniSearchDisplay {
     connect(sigName: "set-focus-child", callback: (($obj: OmniSearchDisplay, object: Gtk.Widget) => void)): number
     connect_after(sigName: "set-focus-child", callback: (($obj: OmniSearchDisplay, object: Gtk.Widget) => void)): number
     emit(sigName: "set-focus-child", object: Gtk.Widget): void
-    /* Signals of Gtk.Widget */
+    /* Signals of Gtk-3.0.Gtk.Widget */
     connect(sigName: "accel-closures-changed", callback: (($obj: OmniSearchDisplay) => void)): number
     connect_after(sigName: "accel-closures-changed", callback: (($obj: OmniSearchDisplay) => void)): number
     emit(sigName: "accel-closures-changed"): void
@@ -14339,7 +14339,7 @@ export class OmniSearchDisplay {
     connect(sigName: "window-state-event", callback: (($obj: OmniSearchDisplay, event: Gdk.EventWindowState) => boolean)): number
     connect_after(sigName: "window-state-event", callback: (($obj: OmniSearchDisplay, event: Gdk.EventWindowState) => boolean)): number
     emit(sigName: "window-state-event", event: Gdk.EventWindowState): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: OmniSearchDisplay, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: OmniSearchDisplay, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -14450,7 +14450,7 @@ export interface OmniSearchEntry_ConstructProps extends Gtk.Entry_ConstructProps
     editing_canceled?: boolean
 }
 export class OmniSearchEntry {
-    /* Properties of Gtk.Entry */
+    /* Properties of Gtk-3.0.Gtk.Entry */
     activates_default: boolean
     attributes: Pango.AttrList
     buffer: Gtk.EntryBuffer
@@ -14502,7 +14502,7 @@ export class OmniSearchEntry {
     visibility: boolean
     width_chars: number
     xalign: number
-    /* Properties of Gtk.Widget */
+    /* Properties of Gtk-3.0.Gtk.Widget */
     app_paintable: boolean
     can_default: boolean
     can_focus: boolean
@@ -14542,16 +14542,16 @@ export class OmniSearchEntry {
     visible: boolean
     width_request: number
     readonly window: Gdk.Window
-    /* Properties of Gtk.CellEditable */
+    /* Properties of Gtk-3.0.Gtk.CellEditable */
     editing_canceled: boolean
-    /* Fields of Gtk.Widget */
+    /* Fields of Gtk-3.0.Gtk.Widget */
     parent_instance: GObject.InitiallyUnowned
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Ide.OmniSearchEntry */
+    /* Methods of Ide-1.0.Ide.OmniSearchEntry */
     get_search_engine(): SearchEngine
     set_search_engine(search_engine: SearchEngine): void
-    /* Methods of Gtk.Entry */
+    /* Methods of Gtk-3.0.Gtk.Entry */
     get_activates_default(): boolean
     get_alignment(): number
     get_attributes(): Pango.AttrList | null
@@ -14626,7 +14626,7 @@ export class OmniSearchEntry {
     set_width_chars(n_chars: number): void
     text_index_to_layout_index(text_index: number): number
     unset_invisible_char(): void
-    /* Methods of Gtk.Widget */
+    /* Methods of Gtk-3.0.Gtk.Widget */
     activate(): boolean
     add_accelerator(accel_signal: string, accel_group: Gtk.AccelGroup, accel_key: number, accel_mods: Gdk.ModifierType, accel_flags: Gtk.AccelFlags): void
     add_device_events(device: Gdk.Device, events: Gdk.EventMask): void
@@ -14885,7 +14885,7 @@ export class OmniSearchEntry {
     unrealize(): void
     unregister_window(window: Gdk.Window): void
     unset_state_flags(flags: Gtk.StateFlags): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -14907,7 +14907,7 @@ export class OmniSearchEntry {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of Gtk.Buildable */
+    /* Methods of Gtk-3.0.Gtk.Buildable */
     add_child(builder: Gtk.Builder, child: GObject.Object, type?: string | null): void
     construct_child(builder: Gtk.Builder, name: string): GObject.Object
     custom_finished(builder: Gtk.Builder, child: GObject.Object | null, tagname: string, data?: object | null): void
@@ -14916,11 +14916,11 @@ export class OmniSearchEntry {
     get_internal_child(builder: Gtk.Builder, childname: string): GObject.Object
     parser_finished(builder: Gtk.Builder): void
     set_buildable_property(builder: Gtk.Builder, name: string, value: any): void
-    /* Methods of Gtk.CellEditable */
+    /* Methods of Gtk-3.0.Gtk.CellEditable */
     editing_done(): void
     remove_widget(): void
     start_editing(event?: Gdk.Event | null): void
-    /* Methods of Gtk.Editable */
+    /* Methods of Gtk-3.0.Gtk.Editable */
     copy_clipboard(): void
     cut_clipboard(): void
     delete_selection(): void
@@ -14934,7 +14934,7 @@ export class OmniSearchEntry {
     select_region(start_pos: number, end_pos: number): void
     set_editable(is_editable: boolean): void
     set_position(position: number): void
-    /* Virtual methods of Ide.OmniSearchEntry */
+    /* Virtual methods of Ide-1.0.Ide.OmniSearchEntry */
     vfunc_add_child(builder: Gtk.Builder, child: GObject.Object, type?: string | null): void
     vfunc_construct_child(builder: Gtk.Builder, name: string): GObject.Object
     vfunc_custom_finished(builder: Gtk.Builder, child: GObject.Object | null, tagname: string, data?: object | null): void
@@ -14958,7 +14958,7 @@ export class OmniSearchEntry {
     vfunc_insert_text(new_text: string, new_text_length: number, position: number): /* position */ number
     vfunc_set_position(position: number): void
     vfunc_set_selection_bounds(start_pos: number, end_pos: number): void
-    /* Virtual methods of Gtk.Entry */
+    /* Virtual methods of Gtk-3.0.Gtk.Entry */
     vfunc_activate(): void
     vfunc_backspace(): void
     vfunc_copy_clipboard(): void
@@ -14972,7 +14972,7 @@ export class OmniSearchEntry {
     vfunc_paste_clipboard(): void
     vfunc_populate_popup(popup: Gtk.Widget): void
     vfunc_toggle_overwrite(): void
-    /* Virtual methods of Gtk.Widget */
+    /* Virtual methods of Gtk-3.0.Gtk.Widget */
     vfunc_adjust_baseline_allocation(baseline: number): void
     vfunc_adjust_baseline_request(minimum_baseline: number, natural_baseline: number): void
     vfunc_adjust_size_allocation(orientation: Gtk.Orientation, minimum_size: number, natural_size: number, allocated_pos: number, allocated_size: number): void
@@ -15055,7 +15055,7 @@ export class OmniSearchEntry {
     vfunc_unrealize(): void
     vfunc_visibility_notify_event(event: Gdk.EventVisibility): boolean
     vfunc_window_state_event(event: Gdk.EventWindowState): boolean
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -15063,7 +15063,7 @@ export class OmniSearchEntry {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Ide.OmniSearchEntry */
+    /* Signals of Ide-1.0.Ide.OmniSearchEntry */
     connect(sigName: "clear-search", callback: (($obj: OmniSearchEntry) => void)): number
     connect_after(sigName: "clear-search", callback: (($obj: OmniSearchEntry) => void)): number
     emit(sigName: "clear-search"): void
@@ -15073,7 +15073,7 @@ export class OmniSearchEntry {
     connect(sigName: "move-previous-result", callback: (($obj: OmniSearchEntry) => void)): number
     connect_after(sigName: "move-previous-result", callback: (($obj: OmniSearchEntry) => void)): number
     emit(sigName: "move-previous-result"): void
-    /* Signals of Gtk.Entry */
+    /* Signals of Gtk-3.0.Gtk.Entry */
     connect(sigName: "activate", callback: (($obj: OmniSearchEntry) => void)): number
     connect_after(sigName: "activate", callback: (($obj: OmniSearchEntry) => void)): number
     emit(sigName: "activate"): void
@@ -15116,7 +15116,7 @@ export class OmniSearchEntry {
     connect(sigName: "toggle-overwrite", callback: (($obj: OmniSearchEntry) => void)): number
     connect_after(sigName: "toggle-overwrite", callback: (($obj: OmniSearchEntry) => void)): number
     emit(sigName: "toggle-overwrite"): void
-    /* Signals of Gtk.Widget */
+    /* Signals of Gtk-3.0.Gtk.Widget */
     connect(sigName: "accel-closures-changed", callback: (($obj: OmniSearchEntry) => void)): number
     connect_after(sigName: "accel-closures-changed", callback: (($obj: OmniSearchEntry) => void)): number
     emit(sigName: "accel-closures-changed"): void
@@ -15324,18 +15324,18 @@ export class OmniSearchEntry {
     connect(sigName: "window-state-event", callback: (($obj: OmniSearchEntry, event: Gdk.EventWindowState) => boolean)): number
     connect_after(sigName: "window-state-event", callback: (($obj: OmniSearchEntry, event: Gdk.EventWindowState) => boolean)): number
     emit(sigName: "window-state-event", event: Gdk.EventWindowState): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: OmniSearchEntry, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: OmniSearchEntry, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    /* Signals of Gtk.CellEditable */
+    /* Signals of Gtk-3.0.Gtk.CellEditable */
     connect(sigName: "editing-done", callback: (($obj: OmniSearchEntry) => void)): number
     connect_after(sigName: "editing-done", callback: (($obj: OmniSearchEntry) => void)): number
     emit(sigName: "editing-done"): void
     connect(sigName: "remove-widget", callback: (($obj: OmniSearchEntry) => void)): number
     connect_after(sigName: "remove-widget", callback: (($obj: OmniSearchEntry) => void)): number
     emit(sigName: "remove-widget"): void
-    /* Signals of Gtk.Editable */
+    /* Signals of Gtk-3.0.Gtk.Editable */
     connect(sigName: "changed", callback: (($obj: OmniSearchEntry) => void)): number
     connect_after(sigName: "changed", callback: (($obj: OmniSearchEntry) => void)): number
     emit(sigName: "changed"): void
@@ -15543,15 +15543,15 @@ export interface OmniSearchGroup_ConstructProps extends Gtk.Box_ConstructProps {
     orientation?: Gtk.Orientation
 }
 export class OmniSearchGroup {
-    /* Properties of Gtk.Box */
+    /* Properties of Gtk-3.0.Gtk.Box */
     baseline_position: Gtk.BaselinePosition
     homogeneous: boolean
     spacing: number
-    /* Properties of Gtk.Container */
+    /* Properties of Gtk-3.0.Gtk.Container */
     border_width: number
     child: Gtk.Widget
     resize_mode: Gtk.ResizeMode
-    /* Properties of Gtk.Widget */
+    /* Properties of Gtk-3.0.Gtk.Widget */
     app_paintable: boolean
     can_default: boolean
     can_focus: boolean
@@ -15591,17 +15591,17 @@ export class OmniSearchGroup {
     visible: boolean
     width_request: number
     readonly window: Gdk.Window
-    /* Properties of Gtk.Orientable */
+    /* Properties of Gtk-3.0.Gtk.Orientable */
     orientation: Gtk.Orientation
-    /* Fields of Gtk.Box */
+    /* Fields of Gtk-3.0.Gtk.Box */
     container: Gtk.Container
-    /* Fields of Gtk.Container */
+    /* Fields of Gtk-3.0.Gtk.Container */
     widget: Gtk.Widget
-    /* Fields of Gtk.Widget */
+    /* Fields of Gtk-3.0.Gtk.Widget */
     parent_instance: GObject.InitiallyUnowned
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Ide.OmniSearchGroup */
+    /* Methods of Ide-1.0.Ide.OmniSearchGroup */
     activate(): boolean
     add_result(result: SearchResult): void
     clear(): void
@@ -15615,7 +15615,7 @@ export class OmniSearchGroup {
     select_first(): void
     select_last(): void
     unselect(): void
-    /* Methods of Gtk.Box */
+    /* Methods of Gtk-3.0.Gtk.Box */
     get_baseline_position(): Gtk.BaselinePosition
     get_center_widget(): Gtk.Widget | null
     get_homogeneous(): boolean
@@ -15629,7 +15629,7 @@ export class OmniSearchGroup {
     set_child_packing(child: Gtk.Widget, expand: boolean, fill: boolean, padding: number, pack_type: Gtk.PackType): void
     set_homogeneous(homogeneous: boolean): void
     set_spacing(spacing: number): void
-    /* Methods of Gtk.Container */
+    /* Methods of Gtk-3.0.Gtk.Container */
     add(widget: Gtk.Widget): void
     check_resize(): void
     child_get_property(child: Gtk.Widget, property_name: string, value: any): void
@@ -15657,7 +15657,7 @@ export class OmniSearchGroup {
     set_reallocate_redraws(needs_redraws: boolean): void
     set_resize_mode(resize_mode: Gtk.ResizeMode): void
     unset_focus_chain(): void
-    /* Methods of Gtk.Widget */
+    /* Methods of Gtk-3.0.Gtk.Widget */
     add_accelerator(accel_signal: string, accel_group: Gtk.AccelGroup, accel_key: number, accel_mods: Gdk.ModifierType, accel_flags: Gtk.AccelFlags): void
     add_device_events(device: Gdk.Device, events: Gdk.EventMask): void
     add_events(events: number): void
@@ -15915,7 +15915,7 @@ export class OmniSearchGroup {
     unrealize(): void
     unregister_window(window: Gdk.Window): void
     unset_state_flags(flags: Gtk.StateFlags): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -15937,7 +15937,7 @@ export class OmniSearchGroup {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of Gtk.Buildable */
+    /* Methods of Gtk-3.0.Gtk.Buildable */
     add_child(builder: Gtk.Builder, child: GObject.Object, type?: string | null): void
     construct_child(builder: Gtk.Builder, name: string): GObject.Object
     custom_finished(builder: Gtk.Builder, child: GObject.Object | null, tagname: string, data?: object | null): void
@@ -15946,10 +15946,10 @@ export class OmniSearchGroup {
     get_internal_child(builder: Gtk.Builder, childname: string): GObject.Object
     parser_finished(builder: Gtk.Builder): void
     set_buildable_property(builder: Gtk.Builder, name: string, value: any): void
-    /* Methods of Gtk.Orientable */
+    /* Methods of Gtk-3.0.Gtk.Orientable */
     get_orientation(): Gtk.Orientation
     set_orientation(orientation: Gtk.Orientation): void
-    /* Virtual methods of Ide.OmniSearchGroup */
+    /* Virtual methods of Ide-1.0.Ide.OmniSearchGroup */
     vfunc_add_child(builder: Gtk.Builder, child: GObject.Object, type?: string | null): void
     vfunc_construct_child(builder: Gtk.Builder, name: string): GObject.Object
     vfunc_custom_finished(builder: Gtk.Builder, child: GObject.Object | null, tagname: string, data?: object | null): void
@@ -15960,7 +15960,7 @@ export class OmniSearchGroup {
     vfunc_parser_finished(builder: Gtk.Builder): void
     vfunc_set_buildable_property(builder: Gtk.Builder, name: string, value: any): void
     vfunc_set_name(name: string): void
-    /* Virtual methods of Gtk.Container */
+    /* Virtual methods of Gtk-3.0.Gtk.Container */
     vfunc_add(widget: Gtk.Widget): void
     vfunc_check_resize(): void
     vfunc_child_type(): GObject.Type
@@ -15971,7 +15971,7 @@ export class OmniSearchGroup {
     vfunc_remove(widget: Gtk.Widget): void
     vfunc_set_child_property(child: Gtk.Widget, property_id: number, value: any, pspec: GObject.ParamSpec): void
     vfunc_set_focus_child(child?: Gtk.Widget | null): void
-    /* Virtual methods of Gtk.Widget */
+    /* Virtual methods of Gtk-3.0.Gtk.Widget */
     vfunc_adjust_baseline_allocation(baseline: number): void
     vfunc_adjust_baseline_request(minimum_baseline: number, natural_baseline: number): void
     vfunc_adjust_size_allocation(orientation: Gtk.Orientation, minimum_size: number, natural_size: number, allocated_pos: number, allocated_size: number): void
@@ -16054,7 +16054,7 @@ export class OmniSearchGroup {
     vfunc_unrealize(): void
     vfunc_visibility_notify_event(event: Gdk.EventVisibility): boolean
     vfunc_window_state_event(event: Gdk.EventWindowState): boolean
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -16062,14 +16062,14 @@ export class OmniSearchGroup {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Ide.OmniSearchGroup */
+    /* Signals of Ide-1.0.Ide.OmniSearchGroup */
     connect(sigName: "result-activated", callback: (($obj: OmniSearchGroup, object: Gtk.Widget, p0: SearchResult) => void)): number
     connect_after(sigName: "result-activated", callback: (($obj: OmniSearchGroup, object: Gtk.Widget, p0: SearchResult) => void)): number
     emit(sigName: "result-activated", object: Gtk.Widget, p0: SearchResult): void
     connect(sigName: "result-selected", callback: (($obj: OmniSearchGroup, object: SearchResult) => void)): number
     connect_after(sigName: "result-selected", callback: (($obj: OmniSearchGroup, object: SearchResult) => void)): number
     emit(sigName: "result-selected", object: SearchResult): void
-    /* Signals of Gtk.Container */
+    /* Signals of Gtk-3.0.Gtk.Container */
     connect(sigName: "add", callback: (($obj: OmniSearchGroup, object: Gtk.Widget) => void)): number
     connect_after(sigName: "add", callback: (($obj: OmniSearchGroup, object: Gtk.Widget) => void)): number
     emit(sigName: "add", object: Gtk.Widget): void
@@ -16082,7 +16082,7 @@ export class OmniSearchGroup {
     connect(sigName: "set-focus-child", callback: (($obj: OmniSearchGroup, object: Gtk.Widget) => void)): number
     connect_after(sigName: "set-focus-child", callback: (($obj: OmniSearchGroup, object: Gtk.Widget) => void)): number
     emit(sigName: "set-focus-child", object: Gtk.Widget): void
-    /* Signals of Gtk.Widget */
+    /* Signals of Gtk-3.0.Gtk.Widget */
     connect(sigName: "accel-closures-changed", callback: (($obj: OmniSearchGroup) => void)): number
     connect_after(sigName: "accel-closures-changed", callback: (($obj: OmniSearchGroup) => void)): number
     emit(sigName: "accel-closures-changed"): void
@@ -16290,7 +16290,7 @@ export class OmniSearchGroup {
     connect(sigName: "window-state-event", callback: (($obj: OmniSearchGroup, event: Gdk.EventWindowState) => boolean)): number
     connect_after(sigName: "window-state-event", callback: (($obj: OmniSearchGroup, event: Gdk.EventWindowState) => boolean)): number
     emit(sigName: "window-state-event", event: Gdk.EventWindowState): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: OmniSearchGroup, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: OmniSearchGroup, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -16400,17 +16400,17 @@ export interface OmniSearchRow_ConstructProps extends Gtk.ListBoxRow_ConstructPr
     result?: SearchResult
 }
 export class OmniSearchRow {
-    /* Properties of Ide.OmniSearchRow */
+    /* Properties of Ide-1.0.Ide.OmniSearchRow */
     icon_name: string
     result: SearchResult
-    /* Properties of Gtk.ListBoxRow */
+    /* Properties of Gtk-3.0.Gtk.ListBoxRow */
     activatable: boolean
     selectable: boolean
-    /* Properties of Gtk.Container */
+    /* Properties of Gtk-3.0.Gtk.Container */
     border_width: number
     child: Gtk.Widget
     resize_mode: Gtk.ResizeMode
-    /* Properties of Gtk.Widget */
+    /* Properties of Gtk-3.0.Gtk.Widget */
     app_paintable: boolean
     can_default: boolean
     can_focus: boolean
@@ -16450,18 +16450,18 @@ export class OmniSearchRow {
     visible: boolean
     width_request: number
     readonly window: Gdk.Window
-    /* Fields of Gtk.ListBoxRow */
+    /* Fields of Gtk-3.0.Gtk.ListBoxRow */
     parent_instance: Gtk.Bin
-    /* Fields of Gtk.Bin */
+    /* Fields of Gtk-3.0.Gtk.Bin */
     container: Gtk.Container
-    /* Fields of Gtk.Container */
+    /* Fields of Gtk-3.0.Gtk.Container */
     widget: Gtk.Widget
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Ide.OmniSearchRow */
+    /* Methods of Ide-1.0.Ide.OmniSearchRow */
     get_result(): SearchResult
     set_result(result: SearchResult): void
-    /* Methods of Gtk.ListBoxRow */
+    /* Methods of Gtk-3.0.Gtk.ListBoxRow */
     changed(): void
     get_activatable(): boolean
     get_header(): Gtk.Widget | null
@@ -16471,9 +16471,9 @@ export class OmniSearchRow {
     set_activatable(activatable: boolean): void
     set_header(header?: Gtk.Widget | null): void
     set_selectable(selectable: boolean): void
-    /* Methods of Gtk.Bin */
+    /* Methods of Gtk-3.0.Gtk.Bin */
     get_child(): Gtk.Widget | null
-    /* Methods of Gtk.Container */
+    /* Methods of Gtk-3.0.Gtk.Container */
     add(widget: Gtk.Widget): void
     check_resize(): void
     child_get_property(child: Gtk.Widget, property_name: string, value: any): void
@@ -16501,7 +16501,7 @@ export class OmniSearchRow {
     set_reallocate_redraws(needs_redraws: boolean): void
     set_resize_mode(resize_mode: Gtk.ResizeMode): void
     unset_focus_chain(): void
-    /* Methods of Gtk.Widget */
+    /* Methods of Gtk-3.0.Gtk.Widget */
     activate(): boolean
     add_accelerator(accel_signal: string, accel_group: Gtk.AccelGroup, accel_key: number, accel_mods: Gdk.ModifierType, accel_flags: Gtk.AccelFlags): void
     add_device_events(device: Gdk.Device, events: Gdk.EventMask): void
@@ -16760,7 +16760,7 @@ export class OmniSearchRow {
     unrealize(): void
     unregister_window(window: Gdk.Window): void
     unset_state_flags(flags: Gtk.StateFlags): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -16782,7 +16782,7 @@ export class OmniSearchRow {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of Gtk.Buildable */
+    /* Methods of Gtk-3.0.Gtk.Buildable */
     add_child(builder: Gtk.Builder, child: GObject.Object, type?: string | null): void
     construct_child(builder: Gtk.Builder, name: string): GObject.Object
     custom_finished(builder: Gtk.Builder, child: GObject.Object | null, tagname: string, data?: object | null): void
@@ -16791,7 +16791,7 @@ export class OmniSearchRow {
     get_internal_child(builder: Gtk.Builder, childname: string): GObject.Object
     parser_finished(builder: Gtk.Builder): void
     set_buildable_property(builder: Gtk.Builder, name: string, value: any): void
-    /* Virtual methods of Ide.OmniSearchRow */
+    /* Virtual methods of Ide-1.0.Ide.OmniSearchRow */
     vfunc_add_child(builder: Gtk.Builder, child: GObject.Object, type?: string | null): void
     vfunc_construct_child(builder: Gtk.Builder, name: string): GObject.Object
     vfunc_custom_finished(builder: Gtk.Builder, child: GObject.Object | null, tagname: string, data?: object | null): void
@@ -16802,9 +16802,9 @@ export class OmniSearchRow {
     vfunc_parser_finished(builder: Gtk.Builder): void
     vfunc_set_buildable_property(builder: Gtk.Builder, name: string, value: any): void
     vfunc_set_name(name: string): void
-    /* Virtual methods of Gtk.ListBoxRow */
+    /* Virtual methods of Gtk-3.0.Gtk.ListBoxRow */
     vfunc_activate(): void
-    /* Virtual methods of Gtk.Container */
+    /* Virtual methods of Gtk-3.0.Gtk.Container */
     vfunc_add(widget: Gtk.Widget): void
     vfunc_check_resize(): void
     vfunc_child_type(): GObject.Type
@@ -16815,7 +16815,7 @@ export class OmniSearchRow {
     vfunc_remove(widget: Gtk.Widget): void
     vfunc_set_child_property(child: Gtk.Widget, property_id: number, value: any, pspec: GObject.ParamSpec): void
     vfunc_set_focus_child(child?: Gtk.Widget | null): void
-    /* Virtual methods of Gtk.Widget */
+    /* Virtual methods of Gtk-3.0.Gtk.Widget */
     vfunc_adjust_baseline_allocation(baseline: number): void
     vfunc_adjust_baseline_request(minimum_baseline: number, natural_baseline: number): void
     vfunc_adjust_size_allocation(orientation: Gtk.Orientation, minimum_size: number, natural_size: number, allocated_pos: number, allocated_size: number): void
@@ -16898,7 +16898,7 @@ export class OmniSearchRow {
     vfunc_unrealize(): void
     vfunc_visibility_notify_event(event: Gdk.EventVisibility): boolean
     vfunc_window_state_event(event: Gdk.EventWindowState): boolean
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -16906,11 +16906,11 @@ export class OmniSearchRow {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gtk.ListBoxRow */
+    /* Signals of Gtk-3.0.Gtk.ListBoxRow */
     connect(sigName: "activate", callback: (($obj: OmniSearchRow) => void)): number
     connect_after(sigName: "activate", callback: (($obj: OmniSearchRow) => void)): number
     emit(sigName: "activate"): void
-    /* Signals of Gtk.Container */
+    /* Signals of Gtk-3.0.Gtk.Container */
     connect(sigName: "add", callback: (($obj: OmniSearchRow, object: Gtk.Widget) => void)): number
     connect_after(sigName: "add", callback: (($obj: OmniSearchRow, object: Gtk.Widget) => void)): number
     emit(sigName: "add", object: Gtk.Widget): void
@@ -16923,7 +16923,7 @@ export class OmniSearchRow {
     connect(sigName: "set-focus-child", callback: (($obj: OmniSearchRow, object: Gtk.Widget) => void)): number
     connect_after(sigName: "set-focus-child", callback: (($obj: OmniSearchRow, object: Gtk.Widget) => void)): number
     emit(sigName: "set-focus-child", object: Gtk.Widget): void
-    /* Signals of Gtk.Widget */
+    /* Signals of Gtk-3.0.Gtk.Widget */
     connect(sigName: "accel-closures-changed", callback: (($obj: OmniSearchRow) => void)): number
     connect_after(sigName: "accel-closures-changed", callback: (($obj: OmniSearchRow) => void)): number
     emit(sigName: "accel-closures-changed"): void
@@ -17131,7 +17131,7 @@ export class OmniSearchRow {
     connect(sigName: "window-state-event", callback: (($obj: OmniSearchRow, event: Gdk.EventWindowState) => boolean)): number
     connect_after(sigName: "window-state-event", callback: (($obj: OmniSearchRow, event: Gdk.EventWindowState) => boolean)): number
     emit(sigName: "window-state-event", event: Gdk.EventWindowState): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: OmniSearchRow, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: OmniSearchRow, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -17240,18 +17240,18 @@ export interface PkconTransfer_ConstructProps extends Transfer_ConstructProps {
     packages?: string[]
 }
 export class PkconTransfer {
-    /* Properties of Ide.Transfer */
+    /* Properties of Ide-1.0.Ide.Transfer */
     readonly active: boolean
     readonly completed: boolean
     icon_name: string
     progress: number
     status: string
     title: string
-    /* Fields of Ide.Transfer */
+    /* Fields of Ide-1.0.Ide.Transfer */
     parent_instance: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Ide.Transfer */
+    /* Methods of Ide-1.0.Ide.Transfer */
     cancel(): void
     execute_async(cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     execute_finish(result: Gio.AsyncResult): boolean
@@ -17265,7 +17265,7 @@ export class PkconTransfer {
     set_progress(progress: number): void
     set_status(status: string): void
     set_title(title: string): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -17287,10 +17287,10 @@ export class PkconTransfer {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Ide.Transfer */
+    /* Virtual methods of Ide-1.0.Ide.Transfer */
     vfunc_execute_async(cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     vfunc_execute_finish(result: Gio.AsyncResult): boolean
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -17298,7 +17298,7 @@ export class PkconTransfer {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: PkconTransfer, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: PkconTransfer, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -17328,14 +17328,14 @@ export class PkconTransfer {
 export interface PreferencesPerspective_ConstructProps extends Dazzle.PreferencesView_ConstructProps {
 }
 export class PreferencesPerspective {
-    /* Properties of Dazzle.PreferencesView */
+    /* Properties of Dazzle-1.0.Dazzle.PreferencesView */
     show_search_entry: boolean
     use_sidebar: boolean
-    /* Properties of Gtk.Container */
+    /* Properties of Gtk-3.0.Gtk.Container */
     border_width: number
     child: Gtk.Widget
     resize_mode: Gtk.ResizeMode
-    /* Properties of Gtk.Widget */
+    /* Properties of Gtk-3.0.Gtk.Widget */
     app_paintable: boolean
     can_default: boolean
     can_focus: boolean
@@ -17375,23 +17375,23 @@ export class PreferencesPerspective {
     visible: boolean
     width_request: number
     readonly window: Gdk.Window
-    /* Fields of Dazzle.PreferencesView */
+    /* Fields of Dazzle-1.0.Dazzle.PreferencesView */
     parent_instance: Gtk.Bin
-    /* Fields of Gtk.Bin */
+    /* Fields of Gtk-3.0.Gtk.Bin */
     container: Gtk.Container
-    /* Fields of Gtk.Container */
+    /* Fields of Gtk-3.0.Gtk.Container */
     widget: Gtk.Widget
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Dazzle.PreferencesView */
+    /* Methods of Dazzle-1.0.Dazzle.PreferencesView */
     get_show_search_entry(): boolean
     get_use_sidebar(): boolean
     reapply_filter(): void
     set_show_search_entry(show_search_entry: boolean): void
     set_use_sidebar(use_sidebar: boolean): void
-    /* Methods of Gtk.Bin */
+    /* Methods of Gtk-3.0.Gtk.Bin */
     get_child(): Gtk.Widget | null
-    /* Methods of Gtk.Container */
+    /* Methods of Gtk-3.0.Gtk.Container */
     add(widget: Gtk.Widget): void
     check_resize(): void
     child_get_property(child: Gtk.Widget, property_name: string, value: any): void
@@ -17419,7 +17419,7 @@ export class PreferencesPerspective {
     set_reallocate_redraws(needs_redraws: boolean): void
     set_resize_mode(resize_mode: Gtk.ResizeMode): void
     unset_focus_chain(): void
-    /* Methods of Gtk.Widget */
+    /* Methods of Gtk-3.0.Gtk.Widget */
     activate(): boolean
     add_accelerator(accel_signal: string, accel_group: Gtk.AccelGroup, accel_key: number, accel_mods: Gdk.ModifierType, accel_flags: Gtk.AccelFlags): void
     add_device_events(device: Gdk.Device, events: Gdk.EventMask): void
@@ -17678,7 +17678,7 @@ export class PreferencesPerspective {
     unrealize(): void
     unregister_window(window: Gdk.Window): void
     unset_state_flags(flags: Gtk.StateFlags): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -17700,7 +17700,7 @@ export class PreferencesPerspective {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of Dazzle.Preferences */
+    /* Methods of Dazzle-1.0.Dazzle.Preferences */
     add_custom(page_name: string, group_name: string, widget: Gtk.Widget, keywords: string | null, priority: number): number
     add_file_chooser(page_name: string, group_name: string, schema_id: string, key: string, path: string, title: string, subtitle: string, action: Gtk.FileChooserAction, keywords: string, priority: number): number
     add_font_button(page_name: string, group_name: string, schema_id: string, key: string, title: string, keywords: string, priority: number): number
@@ -17713,7 +17713,7 @@ export class PreferencesPerspective {
     get_widget(widget_id: number): Gtk.Widget | null
     remove_id(widget_id: number): boolean
     set_page(page_name: string, map: GLib.HashTable): void
-    /* Methods of Gtk.Buildable */
+    /* Methods of Gtk-3.0.Gtk.Buildable */
     add_child(builder: Gtk.Builder, child: GObject.Object, type?: string | null): void
     construct_child(builder: Gtk.Builder, name: string): GObject.Object
     custom_finished(builder: Gtk.Builder, child: GObject.Object | null, tagname: string, data?: object | null): void
@@ -17722,7 +17722,7 @@ export class PreferencesPerspective {
     get_internal_child(builder: Gtk.Builder, childname: string): GObject.Object
     parser_finished(builder: Gtk.Builder): void
     set_buildable_property(builder: Gtk.Builder, name: string, value: any): void
-    /* Methods of Ide.Perspective */
+    /* Methods of Ide-1.0.Ide.Perspective */
     agree_to_shutdown(): boolean
     get_accelerator(): string | null
     get_actions(): Gio.ActionGroup | null
@@ -17735,7 +17735,7 @@ export class PreferencesPerspective {
     is_early(): boolean
     set_fullscreen(fullscreen: boolean): void
     views_foreach(callback: Gtk.Callback): void
-    /* Virtual methods of Ide.PreferencesPerspective */
+    /* Virtual methods of Ide-1.0.Ide.PreferencesPerspective */
     vfunc_add_custom(page_name: string, group_name: string, widget: Gtk.Widget, keywords: string | null, priority: number): number
     vfunc_add_file_chooser(page_name: string, group_name: string, schema_id: string, key: string, path: string, title: string, subtitle: string, action: Gtk.FileChooserAction, keywords: string, priority: number): number
     vfunc_add_font_button(page_name: string, group_name: string, schema_id: string, key: string, title: string, keywords: string, priority: number): number
@@ -17760,7 +17760,7 @@ export class PreferencesPerspective {
     vfunc_is_early(): boolean
     vfunc_set_fullscreen(fullscreen: boolean): void
     vfunc_views_foreach(callback: Gtk.Callback): void
-    /* Virtual methods of Dazzle.PreferencesView */
+    /* Virtual methods of Dazzle-1.0.Dazzle.PreferencesView */
     vfunc_add_child(builder: Gtk.Builder, child: GObject.Object, type?: string | null): void
     vfunc_construct_child(builder: Gtk.Builder, name: string): GObject.Object
     vfunc_custom_finished(builder: Gtk.Builder, child: GObject.Object | null, tagname: string, data?: object | null): void
@@ -17771,7 +17771,7 @@ export class PreferencesPerspective {
     vfunc_parser_finished(builder: Gtk.Builder): void
     vfunc_set_buildable_property(builder: Gtk.Builder, name: string, value: any): void
     vfunc_set_name(name: string): void
-    /* Virtual methods of Gtk.Container */
+    /* Virtual methods of Gtk-3.0.Gtk.Container */
     vfunc_add(widget: Gtk.Widget): void
     vfunc_check_resize(): void
     vfunc_child_type(): GObject.Type
@@ -17782,7 +17782,7 @@ export class PreferencesPerspective {
     vfunc_remove(widget: Gtk.Widget): void
     vfunc_set_child_property(child: Gtk.Widget, property_id: number, value: any, pspec: GObject.ParamSpec): void
     vfunc_set_focus_child(child?: Gtk.Widget | null): void
-    /* Virtual methods of Gtk.Widget */
+    /* Virtual methods of Gtk-3.0.Gtk.Widget */
     vfunc_adjust_baseline_allocation(baseline: number): void
     vfunc_adjust_baseline_request(minimum_baseline: number, natural_baseline: number): void
     vfunc_adjust_size_allocation(orientation: Gtk.Orientation, minimum_size: number, natural_size: number, allocated_pos: number, allocated_size: number): void
@@ -17865,7 +17865,7 @@ export class PreferencesPerspective {
     vfunc_unrealize(): void
     vfunc_visibility_notify_event(event: Gdk.EventVisibility): boolean
     vfunc_window_state_event(event: Gdk.EventWindowState): boolean
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -17873,7 +17873,7 @@ export class PreferencesPerspective {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gtk.Container */
+    /* Signals of Gtk-3.0.Gtk.Container */
     connect(sigName: "add", callback: (($obj: PreferencesPerspective, object: Gtk.Widget) => void)): number
     connect_after(sigName: "add", callback: (($obj: PreferencesPerspective, object: Gtk.Widget) => void)): number
     emit(sigName: "add", object: Gtk.Widget): void
@@ -17886,7 +17886,7 @@ export class PreferencesPerspective {
     connect(sigName: "set-focus-child", callback: (($obj: PreferencesPerspective, object: Gtk.Widget) => void)): number
     connect_after(sigName: "set-focus-child", callback: (($obj: PreferencesPerspective, object: Gtk.Widget) => void)): number
     emit(sigName: "set-focus-child", object: Gtk.Widget): void
-    /* Signals of Gtk.Widget */
+    /* Signals of Gtk-3.0.Gtk.Widget */
     connect(sigName: "accel-closures-changed", callback: (($obj: PreferencesPerspective) => void)): number
     connect_after(sigName: "accel-closures-changed", callback: (($obj: PreferencesPerspective) => void)): number
     emit(sigName: "accel-closures-changed"): void
@@ -18094,7 +18094,7 @@ export class PreferencesPerspective {
     connect(sigName: "window-state-event", callback: (($obj: PreferencesPerspective, event: Gdk.EventWindowState) => boolean)): number
     connect_after(sigName: "window-state-event", callback: (($obj: PreferencesPerspective, event: Gdk.EventWindowState) => boolean)): number
     emit(sigName: "window-state-event", event: Gdk.EventWindowState): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: PreferencesPerspective, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: PreferencesPerspective, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -18200,18 +18200,18 @@ export interface Progress_ConstructProps extends GObject.Object_ConstructProps {
     message?: string
 }
 export class Progress {
-    /* Properties of Ide.Progress */
+    /* Properties of Ide-1.0.Ide.Progress */
     readonly completed: boolean
     fraction: number
     message: string
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Ide.Progress */
+    /* Methods of Ide-1.0.Ide.Progress */
     get_fraction(): number
     get_message(): string
     set_fraction(fraction: number): void
     set_message(message: string): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -18233,7 +18233,7 @@ export class Progress {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -18241,7 +18241,7 @@ export class Progress {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Progress, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Progress, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -18268,14 +18268,14 @@ export interface Project_ConstructProps extends Object_ConstructProps {
     root?: ProjectItem
 }
 export class Project {
-    /* Properties of Ide.Project */
+    /* Properties of Ide-1.0.Ide.Project */
     readonly id: string
     readonly name: string
-    /* Fields of Ide.Object */
+    /* Fields of Ide-1.0.Ide.Object */
     parent_instance: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Ide.Project */
+    /* Methods of Ide-1.0.Ide.Project */
     add_file(file: ProjectFile): void
     get_file_for_path(path: string): File | null
     get_files(): ProjectFiles | null
@@ -18291,12 +18291,12 @@ export class Project {
     trash_file_finish(result: Gio.AsyncResult): boolean
     writer_lock(): void
     writer_unlock(): void
-    /* Methods of Ide.Object */
+    /* Methods of Ide-1.0.Ide.Object */
     get_context(): Context
     hold(): boolean
     release(): void
     set_context(context: Context): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -18318,11 +18318,11 @@ export class Project {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Ide.Object */
+    /* Virtual methods of Ide-1.0.Ide.Object */
     vfunc_destroy(): void
     vfunc_get_context(): Context
     vfunc_set_context(context: Context): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -18330,18 +18330,18 @@ export class Project {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Ide.Project */
+    /* Signals of Ide-1.0.Ide.Project */
     connect(sigName: "file-renamed", callback: (($obj: Project, object: Gio.File, p0: Gio.File) => void)): number
     connect_after(sigName: "file-renamed", callback: (($obj: Project, object: Gio.File, p0: Gio.File) => void)): number
     emit(sigName: "file-renamed", object: Gio.File, p0: Gio.File): void
     connect(sigName: "file-trashed", callback: (($obj: Project, object: Gio.File) => void)): number
     connect_after(sigName: "file-trashed", callback: (($obj: Project, object: Gio.File) => void)): number
     emit(sigName: "file-trashed", object: Gio.File): void
-    /* Signals of Ide.Object */
+    /* Signals of Ide-1.0.Ide.Object */
     connect(sigName: "destroy", callback: (($obj: Project) => void)): number
     connect_after(sigName: "destroy", callback: (($obj: Project) => void)): number
     emit(sigName: "destroy"): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Project, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Project, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -18363,19 +18363,19 @@ export interface ProjectEdit_ConstructProps extends GObject.Object_ConstructProp
     replacement?: string
 }
 export class ProjectEdit {
-    /* Properties of Ide.ProjectEdit */
+    /* Properties of Ide-1.0.Ide.ProjectEdit */
     range: SourceRange
     replacement: string
-    /* Fields of Ide.ProjectEdit */
+    /* Fields of Ide-1.0.Ide.ProjectEdit */
     parent_instance: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Ide.ProjectEdit */
+    /* Methods of Ide-1.0.Ide.ProjectEdit */
     get_range(): SourceRange | null
     get_replacement(): string
     set_range(range: SourceRange): void
     set_replacement(replacement: string): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -18397,7 +18397,7 @@ export class ProjectEdit {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -18405,7 +18405,7 @@ export class ProjectEdit {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: ProjectEdit, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: ProjectEdit, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -18430,35 +18430,35 @@ export interface ProjectFile_ConstructProps extends ProjectItem_ConstructProps {
     path?: string
 }
 export class ProjectFile {
-    /* Properties of Ide.ProjectFile */
+    /* Properties of Ide-1.0.Ide.ProjectFile */
     file: Gio.File
     file_info: Gio.FileInfo
     readonly is_directory: boolean
     readonly name: string
     path: string
-    /* Properties of Ide.ProjectItem */
+    /* Properties of Ide-1.0.Ide.ProjectItem */
     parent: ProjectItem
-    /* Fields of Ide.ProjectFile */
+    /* Fields of Ide-1.0.Ide.ProjectFile */
     parent_instance: ProjectItem
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Ide.ProjectFile */
+    /* Methods of Ide-1.0.Ide.ProjectFile */
     get_file(): Gio.File
     get_file_info(): Gio.FileInfo
     get_is_directory(): boolean
     get_name(): string
     get_path(): string
-    /* Methods of Ide.ProjectItem */
+    /* Methods of Ide-1.0.Ide.ProjectItem */
     append(child: ProjectItem): void
     get_children(): GLib.Sequence
     get_parent(): ProjectItem | null
     remove(child: ProjectItem): void
-    /* Methods of Ide.Object */
+    /* Methods of Ide-1.0.Ide.Object */
     get_context(): Context
     hold(): boolean
     release(): void
     set_context(context: Context): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -18480,11 +18480,11 @@ export class ProjectFile {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Ide.Object */
+    /* Virtual methods of Ide-1.0.Ide.Object */
     vfunc_destroy(): void
     vfunc_get_context(): Context
     vfunc_set_context(context: Context): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -18492,11 +18492,11 @@ export class ProjectFile {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Ide.Object */
+    /* Signals of Ide-1.0.Ide.Object */
     connect(sigName: "destroy", callback: (($obj: ProjectFile) => void)): number
     connect_after(sigName: "destroy", callback: (($obj: ProjectFile) => void)): number
     emit(sigName: "destroy"): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: ProjectFile, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: ProjectFile, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -18524,27 +18524,27 @@ export class ProjectFile {
 export interface ProjectFiles_ConstructProps extends ProjectItem_ConstructProps {
 }
 export class ProjectFiles {
-    /* Properties of Ide.ProjectItem */
+    /* Properties of Ide-1.0.Ide.ProjectItem */
     parent: ProjectItem
-    /* Fields of Ide.ProjectFiles */
+    /* Fields of Ide-1.0.Ide.ProjectFiles */
     parent_instance: ProjectItem
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Ide.ProjectFiles */
+    /* Methods of Ide-1.0.Ide.ProjectFiles */
     add_file(file: ProjectFile): void
     find_file(file: Gio.File): ProjectItem | null
     get_file_for_path(path: string): File | null
-    /* Methods of Ide.ProjectItem */
+    /* Methods of Ide-1.0.Ide.ProjectItem */
     append(child: ProjectItem): void
     get_children(): GLib.Sequence
     get_parent(): ProjectItem | null
     remove(child: ProjectItem): void
-    /* Methods of Ide.Object */
+    /* Methods of Ide-1.0.Ide.Object */
     get_context(): Context
     hold(): boolean
     release(): void
     set_context(context: Context): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -18566,11 +18566,11 @@ export class ProjectFiles {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Ide.Object */
+    /* Virtual methods of Ide-1.0.Ide.Object */
     vfunc_destroy(): void
     vfunc_get_context(): Context
     vfunc_set_context(context: Context): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -18578,11 +18578,11 @@ export class ProjectFiles {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Ide.Object */
+    /* Signals of Ide-1.0.Ide.Object */
     connect(sigName: "destroy", callback: (($obj: ProjectFiles) => void)): number
     connect_after(sigName: "destroy", callback: (($obj: ProjectFiles) => void)): number
     emit(sigName: "destroy"): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: ProjectFiles, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: ProjectFiles, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -18610,7 +18610,7 @@ export interface ProjectInfo_ConstructProps extends GObject.Object_ConstructProp
     priority?: number
 }
 export class ProjectInfo {
-    /* Properties of Ide.ProjectInfo */
+    /* Properties of Ide-1.0.Ide.ProjectInfo */
     build_system_name: string
     description: string
     directory: Gio.File
@@ -18621,9 +18621,9 @@ export class ProjectInfo {
     last_modified_at: GLib.DateTime
     name: string
     priority: number
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Ide.ProjectInfo */
+    /* Methods of Ide-1.0.Ide.ProjectInfo */
     compare(info2: ProjectInfo): number
     get_build_system_name(): string
     get_description(): string
@@ -18643,7 +18643,7 @@ export class ProjectInfo {
     set_languages(languages: string): void
     set_name(name: string): void
     set_priority(priority: number): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -18665,7 +18665,7 @@ export class ProjectInfo {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -18673,7 +18673,7 @@ export class ProjectInfo {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: ProjectInfo, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: ProjectInfo, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -18710,23 +18710,23 @@ export interface ProjectItem_ConstructProps extends Object_ConstructProps {
     parent?: ProjectItem
 }
 export class ProjectItem {
-    /* Properties of Ide.ProjectItem */
+    /* Properties of Ide-1.0.Ide.ProjectItem */
     parent: ProjectItem
-    /* Fields of Ide.ProjectItem */
+    /* Fields of Ide-1.0.Ide.ProjectItem */
     parent_instance: Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Ide.ProjectItem */
+    /* Methods of Ide-1.0.Ide.ProjectItem */
     append(child: ProjectItem): void
     get_children(): GLib.Sequence
     get_parent(): ProjectItem | null
     remove(child: ProjectItem): void
-    /* Methods of Ide.Object */
+    /* Methods of Ide-1.0.Ide.Object */
     get_context(): Context
     hold(): boolean
     release(): void
     set_context(context: Context): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -18748,11 +18748,11 @@ export class ProjectItem {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Ide.Object */
+    /* Virtual methods of Ide-1.0.Ide.Object */
     vfunc_destroy(): void
     vfunc_get_context(): Context
     vfunc_set_context(context: Context): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -18760,11 +18760,11 @@ export class ProjectItem {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Ide.Object */
+    /* Signals of Ide-1.0.Ide.Object */
     connect(sigName: "destroy", callback: (($obj: ProjectItem) => void)): number
     connect_after(sigName: "destroy", callback: (($obj: ProjectItem) => void)): number
     emit(sigName: "destroy"): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: ProjectItem, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: ProjectItem, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -18782,15 +18782,15 @@ export class ProjectItem {
 export interface RecentProjects_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class RecentProjects {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Ide.RecentProjects */
+    /* Methods of Ide-1.0.Ide.RecentProjects */
     discover_async(recent_only: boolean, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     discover_finish(result: Gio.AsyncResult): boolean
     get_busy(): boolean
     get_projects(): ProjectInfo[]
     remove(project_infos: ProjectInfo[]): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -18812,16 +18812,16 @@ export class RecentProjects {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of Gio.ListModel */
+    /* Methods of Gio-2.0.Gio.ListModel */
     get_item_type(): GObject.Type
     get_n_items(): number
     get_item(position: number): GObject.Object | null
     items_changed(position: number, removed: number, added: number): void
-    /* Virtual methods of Ide.RecentProjects */
+    /* Virtual methods of Ide-1.0.Ide.RecentProjects */
     vfunc_get_item(position: number): GObject.Object | null
     vfunc_get_item_type(): GObject.Type
     vfunc_get_n_items(): number
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -18829,11 +18829,11 @@ export class RecentProjects {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: RecentProjects, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: RecentProjects, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    /* Signals of Gio.ListModel */
+    /* Signals of Gio-2.0.Gio.ListModel */
     connect(sigName: "items-changed", callback: (($obj: RecentProjects, position: number, removed: number, added: number) => void)): number
     connect_after(sigName: "items-changed", callback: (($obj: RecentProjects, position: number, removed: number, added: number) => void)): number
     emit(sigName: "items-changed", position: number, removed: number, added: number): void
@@ -18852,15 +18852,15 @@ export interface RunButton_ConstructProps extends Gtk.Box_ConstructProps {
     orientation?: Gtk.Orientation
 }
 export class RunButton {
-    /* Properties of Gtk.Box */
+    /* Properties of Gtk-3.0.Gtk.Box */
     baseline_position: Gtk.BaselinePosition
     homogeneous: boolean
     spacing: number
-    /* Properties of Gtk.Container */
+    /* Properties of Gtk-3.0.Gtk.Container */
     border_width: number
     child: Gtk.Widget
     resize_mode: Gtk.ResizeMode
-    /* Properties of Gtk.Widget */
+    /* Properties of Gtk-3.0.Gtk.Widget */
     app_paintable: boolean
     can_default: boolean
     can_focus: boolean
@@ -18900,17 +18900,17 @@ export class RunButton {
     visible: boolean
     width_request: number
     readonly window: Gdk.Window
-    /* Properties of Gtk.Orientable */
+    /* Properties of Gtk-3.0.Gtk.Orientable */
     orientation: Gtk.Orientation
-    /* Fields of Gtk.Box */
+    /* Fields of Gtk-3.0.Gtk.Box */
     container: Gtk.Container
-    /* Fields of Gtk.Container */
+    /* Fields of Gtk-3.0.Gtk.Container */
     widget: Gtk.Widget
-    /* Fields of Gtk.Widget */
+    /* Fields of Gtk-3.0.Gtk.Widget */
     parent_instance: GObject.InitiallyUnowned
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Gtk.Box */
+    /* Methods of Gtk-3.0.Gtk.Box */
     get_baseline_position(): Gtk.BaselinePosition
     get_center_widget(): Gtk.Widget | null
     get_homogeneous(): boolean
@@ -18924,7 +18924,7 @@ export class RunButton {
     set_child_packing(child: Gtk.Widget, expand: boolean, fill: boolean, padding: number, pack_type: Gtk.PackType): void
     set_homogeneous(homogeneous: boolean): void
     set_spacing(spacing: number): void
-    /* Methods of Gtk.Container */
+    /* Methods of Gtk-3.0.Gtk.Container */
     add(widget: Gtk.Widget): void
     check_resize(): void
     child_get_property(child: Gtk.Widget, property_name: string, value: any): void
@@ -18952,7 +18952,7 @@ export class RunButton {
     set_reallocate_redraws(needs_redraws: boolean): void
     set_resize_mode(resize_mode: Gtk.ResizeMode): void
     unset_focus_chain(): void
-    /* Methods of Gtk.Widget */
+    /* Methods of Gtk-3.0.Gtk.Widget */
     activate(): boolean
     add_accelerator(accel_signal: string, accel_group: Gtk.AccelGroup, accel_key: number, accel_mods: Gdk.ModifierType, accel_flags: Gtk.AccelFlags): void
     add_device_events(device: Gdk.Device, events: Gdk.EventMask): void
@@ -19211,7 +19211,7 @@ export class RunButton {
     unrealize(): void
     unregister_window(window: Gdk.Window): void
     unset_state_flags(flags: Gtk.StateFlags): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -19233,7 +19233,7 @@ export class RunButton {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of Gtk.Buildable */
+    /* Methods of Gtk-3.0.Gtk.Buildable */
     add_child(builder: Gtk.Builder, child: GObject.Object, type?: string | null): void
     construct_child(builder: Gtk.Builder, name: string): GObject.Object
     custom_finished(builder: Gtk.Builder, child: GObject.Object | null, tagname: string, data?: object | null): void
@@ -19242,10 +19242,10 @@ export class RunButton {
     get_internal_child(builder: Gtk.Builder, childname: string): GObject.Object
     parser_finished(builder: Gtk.Builder): void
     set_buildable_property(builder: Gtk.Builder, name: string, value: any): void
-    /* Methods of Gtk.Orientable */
+    /* Methods of Gtk-3.0.Gtk.Orientable */
     get_orientation(): Gtk.Orientation
     set_orientation(orientation: Gtk.Orientation): void
-    /* Virtual methods of Ide.RunButton */
+    /* Virtual methods of Ide-1.0.Ide.RunButton */
     vfunc_add_child(builder: Gtk.Builder, child: GObject.Object, type?: string | null): void
     vfunc_construct_child(builder: Gtk.Builder, name: string): GObject.Object
     vfunc_custom_finished(builder: Gtk.Builder, child: GObject.Object | null, tagname: string, data?: object | null): void
@@ -19256,7 +19256,7 @@ export class RunButton {
     vfunc_parser_finished(builder: Gtk.Builder): void
     vfunc_set_buildable_property(builder: Gtk.Builder, name: string, value: any): void
     vfunc_set_name(name: string): void
-    /* Virtual methods of Gtk.Container */
+    /* Virtual methods of Gtk-3.0.Gtk.Container */
     vfunc_add(widget: Gtk.Widget): void
     vfunc_check_resize(): void
     vfunc_child_type(): GObject.Type
@@ -19267,7 +19267,7 @@ export class RunButton {
     vfunc_remove(widget: Gtk.Widget): void
     vfunc_set_child_property(child: Gtk.Widget, property_id: number, value: any, pspec: GObject.ParamSpec): void
     vfunc_set_focus_child(child?: Gtk.Widget | null): void
-    /* Virtual methods of Gtk.Widget */
+    /* Virtual methods of Gtk-3.0.Gtk.Widget */
     vfunc_adjust_baseline_allocation(baseline: number): void
     vfunc_adjust_baseline_request(minimum_baseline: number, natural_baseline: number): void
     vfunc_adjust_size_allocation(orientation: Gtk.Orientation, minimum_size: number, natural_size: number, allocated_pos: number, allocated_size: number): void
@@ -19350,7 +19350,7 @@ export class RunButton {
     vfunc_unrealize(): void
     vfunc_visibility_notify_event(event: Gdk.EventVisibility): boolean
     vfunc_window_state_event(event: Gdk.EventWindowState): boolean
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -19358,7 +19358,7 @@ export class RunButton {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gtk.Container */
+    /* Signals of Gtk-3.0.Gtk.Container */
     connect(sigName: "add", callback: (($obj: RunButton, object: Gtk.Widget) => void)): number
     connect_after(sigName: "add", callback: (($obj: RunButton, object: Gtk.Widget) => void)): number
     emit(sigName: "add", object: Gtk.Widget): void
@@ -19371,7 +19371,7 @@ export class RunButton {
     connect(sigName: "set-focus-child", callback: (($obj: RunButton, object: Gtk.Widget) => void)): number
     connect_after(sigName: "set-focus-child", callback: (($obj: RunButton, object: Gtk.Widget) => void)): number
     emit(sigName: "set-focus-child", object: Gtk.Widget): void
-    /* Signals of Gtk.Widget */
+    /* Signals of Gtk-3.0.Gtk.Widget */
     connect(sigName: "accel-closures-changed", callback: (($obj: RunButton) => void)): number
     connect_after(sigName: "accel-closures-changed", callback: (($obj: RunButton) => void)): number
     emit(sigName: "accel-closures-changed"): void
@@ -19579,7 +19579,7 @@ export class RunButton {
     connect(sigName: "window-state-event", callback: (($obj: RunButton, event: Gdk.EventWindowState) => boolean)): number
     connect_after(sigName: "window-state-event", callback: (($obj: RunButton, event: Gdk.EventWindowState) => boolean)): number
     emit(sigName: "window-state-event", event: Gdk.EventWindowState): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: RunButton, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: RunButton, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -19691,15 +19691,15 @@ export interface RunManager_ConstructProps extends Object_ConstructProps {
     build_target?: BuildTarget
 }
 export class RunManager {
-    /* Properties of Ide.RunManager */
+    /* Properties of Ide-1.0.Ide.RunManager */
     build_target: BuildTarget
     readonly busy: boolean
     readonly handler: string
-    /* Fields of Ide.Object */
+    /* Fields of Ide-1.0.Ide.Object */
     parent_instance: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Ide.RunManager */
+    /* Methods of Ide-1.0.Ide.RunManager */
     add_handler(id: string, title: string, icon_name: string, accel: string, run_handler: RunHandler): void
     cancel(): void
     discover_default_target_async(cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
@@ -19712,12 +19712,12 @@ export class RunManager {
     run_finish(result: Gio.AsyncResult): boolean
     set_build_target(build_target: BuildTarget): void
     set_handler(id: string): void
-    /* Methods of Ide.Object */
+    /* Methods of Ide-1.0.Ide.Object */
     get_context(): Context
     hold(): boolean
     release(): void
     set_context(context: Context): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -19739,7 +19739,7 @@ export class RunManager {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of Gio.ActionGroup */
+    /* Methods of Gio-2.0.Gio.ActionGroup */
     action_added(action_name: string): void
     action_enabled_changed(action_name: string, enabled: boolean): void
     action_removed(action_name: string): void
@@ -19754,9 +19754,9 @@ export class RunManager {
     has_action(action_name: string): boolean
     list_actions(): string[]
     query_action(action_name: string): [ /* returnType */ boolean, /* enabled */ boolean, /* parameter_type */ GLib.VariantType | null, /* state_type */ GLib.VariantType | null, /* state_hint */ GLib.Variant | null, /* state */ GLib.Variant | null ]
-    /* Methods of Gio.Initable */
+    /* Methods of Gio-2.0.Gio.Initable */
     init(cancellable?: Gio.Cancellable | null): boolean
-    /* Virtual methods of Ide.RunManager */
+    /* Virtual methods of Ide-1.0.Ide.RunManager */
     vfunc_action_added(action_name: string): void
     vfunc_action_enabled_changed(action_name: string, enabled: boolean): void
     vfunc_action_removed(action_name: string): void
@@ -19772,11 +19772,11 @@ export class RunManager {
     vfunc_list_actions(): string[]
     vfunc_query_action(action_name: string): [ /* returnType */ boolean, /* enabled */ boolean, /* parameter_type */ GLib.VariantType | null, /* state_type */ GLib.VariantType | null, /* state_hint */ GLib.Variant | null, /* state */ GLib.Variant | null ]
     vfunc_init(cancellable?: Gio.Cancellable | null): boolean
-    /* Virtual methods of Ide.Object */
+    /* Virtual methods of Ide-1.0.Ide.Object */
     vfunc_destroy(): void
     vfunc_get_context(): Context
     vfunc_set_context(context: Context): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -19784,22 +19784,22 @@ export class RunManager {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Ide.RunManager */
+    /* Signals of Ide-1.0.Ide.RunManager */
     connect(sigName: "run", callback: (($obj: RunManager, runner: Runner) => void)): number
     connect_after(sigName: "run", callback: (($obj: RunManager, runner: Runner) => void)): number
     emit(sigName: "run", runner: Runner): void
     connect(sigName: "stopped", callback: (($obj: RunManager) => void)): number
     connect_after(sigName: "stopped", callback: (($obj: RunManager) => void)): number
     emit(sigName: "stopped"): void
-    /* Signals of Ide.Object */
+    /* Signals of Ide-1.0.Ide.Object */
     connect(sigName: "destroy", callback: (($obj: RunManager) => void)): number
     connect_after(sigName: "destroy", callback: (($obj: RunManager) => void)): number
     emit(sigName: "destroy"): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: RunManager, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: RunManager, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    /* Signals of Gio.ActionGroup */
+    /* Signals of Gio-2.0.Gio.ActionGroup */
     connect(sigName: "action-added", callback: (($obj: RunManager, action_name: string) => void)): number
     connect_after(sigName: "action-added", callback: (($obj: RunManager, action_name: string) => void)): number
     emit(sigName: "action-added", action_name: string): void
@@ -19836,17 +19836,17 @@ export interface Runner_ConstructProps extends Object_ConstructProps {
     run_on_host?: boolean
 }
 export class Runner {
-    /* Properties of Ide.Runner */
+    /* Properties of Ide-1.0.Ide.Runner */
     argv: string[]
     clear_env: boolean
     readonly environment: Environment
     failed: boolean
     run_on_host: boolean
-    /* Fields of Ide.Runner */
+    /* Fields of Ide-1.0.Ide.Runner */
     parent_instance: Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Ide.Runner */
+    /* Methods of Ide-1.0.Ide.Runner */
     append_argv(param: string): void
     force_quit(): void
     get_argv(): string[]
@@ -19869,12 +19869,12 @@ export class Runner {
     set_run_on_host(run_on_host: boolean): void
     set_tty(tty_fd: number): void
     take_fd(source_fd: number, dest_fd: number): number
-    /* Methods of Ide.Object */
+    /* Methods of Ide-1.0.Ide.Object */
     get_context(): Context
     hold(): boolean
     release(): void
     set_context(context: Context): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -19896,7 +19896,7 @@ export class Runner {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Ide.Runner */
+    /* Virtual methods of Ide-1.0.Ide.Runner */
     vfunc_fixup_launcher(launcher: SubprocessLauncher): void
     vfunc_force_quit(): void
     vfunc_get_runtime(): Runtime | null
@@ -19906,11 +19906,11 @@ export class Runner {
     vfunc_run_async(cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     vfunc_run_finish(result: Gio.AsyncResult): boolean
     vfunc_set_tty(tty_fd: number): void
-    /* Virtual methods of Ide.Object */
+    /* Virtual methods of Ide-1.0.Ide.Object */
     vfunc_destroy(): void
     vfunc_get_context(): Context
     vfunc_set_context(context: Context): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -19918,18 +19918,18 @@ export class Runner {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Ide.Runner */
+    /* Signals of Ide-1.0.Ide.Runner */
     connect(sigName: "exited", callback: (($obj: Runner) => void)): number
     connect_after(sigName: "exited", callback: (($obj: Runner) => void)): number
     emit(sigName: "exited"): void
     connect(sigName: "spawned", callback: (($obj: Runner, object: string) => void)): number
     connect_after(sigName: "spawned", callback: (($obj: Runner, object: string) => void)): number
     emit(sigName: "spawned", object: string): void
-    /* Signals of Ide.Object */
+    /* Signals of Ide-1.0.Ide.Object */
     connect(sigName: "destroy", callback: (($obj: Runner) => void)): number
     connect_after(sigName: "destroy", callback: (($obj: Runner) => void)): number
     emit(sigName: "destroy"): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Runner, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Runner, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -19959,14 +19959,14 @@ export interface Runtime_ConstructProps extends Object_ConstructProps {
     id?: string
 }
 export class Runtime {
-    /* Properties of Ide.Runtime */
+    /* Properties of Ide-1.0.Ide.Runtime */
     display_name: string
     id: string
-    /* Fields of Ide.Runtime */
+    /* Fields of Ide-1.0.Ide.Runtime */
     parent_instance: Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Ide.Runtime */
+    /* Methods of Ide-1.0.Ide.Runtime */
     contains_program_in_path(program: string, cancellable?: Gio.Cancellable | null): boolean
     create_launcher(): SubprocessLauncher
     create_runner(build_target: BuildTarget): Runner | null
@@ -19976,12 +19976,12 @@ export class Runtime {
     set_display_name(display_name: string): void
     set_id(id: string): void
     translate_file(file: Gio.File): Gio.File
-    /* Methods of Ide.Object */
+    /* Methods of Ide-1.0.Ide.Object */
     get_context(): Context
     hold(): boolean
     release(): void
     set_context(context: Context): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -20003,17 +20003,17 @@ export class Runtime {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Ide.Runtime */
+    /* Virtual methods of Ide-1.0.Ide.Runtime */
     vfunc_contains_program_in_path(program: string, cancellable?: Gio.Cancellable | null): boolean
     vfunc_create_launcher(): SubprocessLauncher
     vfunc_create_runner(build_target: BuildTarget): Runner | null
     vfunc_prepare_configuration(configuration: Configuration): void
     vfunc_translate_file(file: Gio.File): Gio.File
-    /* Virtual methods of Ide.Object */
+    /* Virtual methods of Ide-1.0.Ide.Object */
     vfunc_destroy(): void
     vfunc_get_context(): Context
     vfunc_set_context(context: Context): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -20021,11 +20021,11 @@ export class Runtime {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Ide.Object */
+    /* Signals of Ide-1.0.Ide.Object */
     connect(sigName: "destroy", callback: (($obj: Runtime) => void)): number
     connect_after(sigName: "destroy", callback: (($obj: Runtime) => void)): number
     emit(sigName: "destroy"): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Runtime, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Runtime, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -20047,22 +20047,22 @@ export class Runtime {
 export interface RuntimeManager_ConstructProps extends Object_ConstructProps {
 }
 export class RuntimeManager {
-    /* Fields of Ide.Object */
+    /* Fields of Ide-1.0.Ide.Object */
     parent_instance: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Ide.RuntimeManager */
+    /* Methods of Ide-1.0.Ide.RuntimeManager */
     add(runtime: Runtime): void
     ensure_async(runtime_id: string, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     ensure_finish(result: Gio.AsyncResult): Runtime
     get_runtime(id: string): Runtime
     remove(runtime: Runtime): void
-    /* Methods of Ide.Object */
+    /* Methods of Ide-1.0.Ide.Object */
     get_context(): Context
     hold(): boolean
     release(): void
     set_context(context: Context): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -20084,23 +20084,23 @@ export class RuntimeManager {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of Gio.Initable */
+    /* Methods of Gio-2.0.Gio.Initable */
     init(cancellable?: Gio.Cancellable | null): boolean
-    /* Methods of Gio.ListModel */
+    /* Methods of Gio-2.0.Gio.ListModel */
     get_item_type(): GObject.Type
     get_n_items(): number
     get_item(position: number): GObject.Object | null
     items_changed(position: number, removed: number, added: number): void
-    /* Virtual methods of Ide.RuntimeManager */
+    /* Virtual methods of Ide-1.0.Ide.RuntimeManager */
     vfunc_init(cancellable?: Gio.Cancellable | null): boolean
     vfunc_get_item(position: number): GObject.Object | null
     vfunc_get_item_type(): GObject.Type
     vfunc_get_n_items(): number
-    /* Virtual methods of Ide.Object */
+    /* Virtual methods of Ide-1.0.Ide.Object */
     vfunc_destroy(): void
     vfunc_get_context(): Context
     vfunc_set_context(context: Context): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -20108,15 +20108,15 @@ export class RuntimeManager {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Ide.Object */
+    /* Signals of Ide-1.0.Ide.Object */
     connect(sigName: "destroy", callback: (($obj: RuntimeManager) => void)): number
     connect_after(sigName: "destroy", callback: (($obj: RuntimeManager) => void)): number
     emit(sigName: "destroy"): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: RuntimeManager, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: RuntimeManager, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    /* Signals of Gio.ListModel */
+    /* Signals of Gio-2.0.Gio.ListModel */
     connect(sigName: "items-changed", callback: (($obj: RuntimeManager, position: number, removed: number, added: number) => void)): number
     connect_after(sigName: "items-changed", callback: (($obj: RuntimeManager, position: number, removed: number, added: number) => void)): number
     emit(sigName: "items-changed", position: number, removed: number, added: number): void
@@ -20134,11 +20134,11 @@ export class RuntimeManager {
 export interface SearchContext_ConstructProps extends Object_ConstructProps {
 }
 export class SearchContext {
-    /* Fields of Ide.Object */
+    /* Fields of Ide-1.0.Ide.Object */
     parent_instance: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Ide.SearchContext */
+    /* Methods of Ide-1.0.Ide.SearchContext */
     add_result(provider: SearchProvider, result: SearchResult): void
     cancel(): void
     execute(search_terms: string, max_results: number): void
@@ -20147,12 +20147,12 @@ export class SearchContext {
     provider_completed(provider: SearchProvider): void
     remove_result(provider: SearchProvider, result: SearchResult): void
     set_provider_count(provider: SearchProvider, count: number): void
-    /* Methods of Ide.Object */
+    /* Methods of Ide-1.0.Ide.Object */
     get_context(): Context
     hold(): boolean
     release(): void
     set_context(context: Context): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -20174,11 +20174,11 @@ export class SearchContext {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Ide.Object */
+    /* Virtual methods of Ide-1.0.Ide.Object */
     vfunc_destroy(): void
     vfunc_get_context(): Context
     vfunc_set_context(context: Context): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -20186,7 +20186,7 @@ export class SearchContext {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Ide.SearchContext */
+    /* Signals of Ide-1.0.Ide.SearchContext */
     connect(sigName: "completed", callback: (($obj: SearchContext) => void)): number
     connect_after(sigName: "completed", callback: (($obj: SearchContext) => void)): number
     emit(sigName: "completed"): void
@@ -20199,11 +20199,11 @@ export class SearchContext {
     connect(sigName: "result-removed", callback: (($obj: SearchContext, object: SearchProvider, p0: SearchResult) => void)): number
     connect_after(sigName: "result-removed", callback: (($obj: SearchContext, object: SearchProvider, p0: SearchResult) => void)): number
     emit(sigName: "result-removed", object: SearchProvider, p0: SearchResult): void
-    /* Signals of Ide.Object */
+    /* Signals of Ide-1.0.Ide.Object */
     connect(sigName: "destroy", callback: (($obj: SearchContext) => void)): number
     connect_after(sigName: "destroy", callback: (($obj: SearchContext) => void)): number
     emit(sigName: "destroy"): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: SearchContext, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: SearchContext, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -20219,18 +20219,18 @@ export class SearchContext {
 export interface SearchEngine_ConstructProps extends Object_ConstructProps {
 }
 export class SearchEngine {
-    /* Fields of Ide.Object */
+    /* Fields of Ide-1.0.Ide.Object */
     parent_instance: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Ide.SearchEngine */
+    /* Methods of Ide-1.0.Ide.SearchEngine */
     search(search_terms: string): SearchContext | null
-    /* Methods of Ide.Object */
+    /* Methods of Ide-1.0.Ide.Object */
     get_context(): Context
     hold(): boolean
     release(): void
     set_context(context: Context): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -20252,11 +20252,11 @@ export class SearchEngine {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Ide.Object */
+    /* Virtual methods of Ide-1.0.Ide.Object */
     vfunc_destroy(): void
     vfunc_get_context(): Context
     vfunc_set_context(context: Context): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -20264,11 +20264,11 @@ export class SearchEngine {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Ide.Object */
+    /* Signals of Ide-1.0.Ide.Object */
     connect(sigName: "destroy", callback: (($obj: SearchEngine) => void)): number
     connect_after(sigName: "destroy", callback: (($obj: SearchEngine) => void)): number
     emit(sigName: "destroy"): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: SearchEngine, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: SearchEngine, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -20288,25 +20288,25 @@ export interface SearchResult_ConstructProps extends Object_ConstructProps {
     title?: string
 }
 export class SearchResult {
-    /* Properties of Ide.SearchResult */
+    /* Properties of Ide-1.0.Ide.SearchResult */
     provider: SearchProvider
-    /* Fields of Ide.SearchResult */
+    /* Fields of Ide-1.0.Ide.SearchResult */
     parent_instance: Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Ide.SearchResult */
+    /* Methods of Ide-1.0.Ide.SearchResult */
     activate(): void
     compare(b: SearchResult): number
     get_provider(): SearchProvider
     get_score(): number
     get_subtitle(): string
     get_title(): string
-    /* Methods of Ide.Object */
+    /* Methods of Ide-1.0.Ide.Object */
     get_context(): Context
     hold(): boolean
     release(): void
     set_context(context: Context): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -20328,13 +20328,13 @@ export class SearchResult {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Ide.SearchResult */
+    /* Virtual methods of Ide-1.0.Ide.SearchResult */
     vfunc_activate(): void
-    /* Virtual methods of Ide.Object */
+    /* Virtual methods of Ide-1.0.Ide.Object */
     vfunc_destroy(): void
     vfunc_get_context(): Context
     vfunc_set_context(context: Context): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -20342,11 +20342,11 @@ export class SearchResult {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Ide.Object */
+    /* Signals of Ide-1.0.Ide.Object */
     connect(sigName: "destroy", callback: (($obj: SearchResult) => void)): number
     connect_after(sigName: "destroy", callback: (($obj: SearchResult) => void)): number
     emit(sigName: "destroy"): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: SearchResult, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: SearchResult, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -20369,11 +20369,11 @@ export interface Settings_ConstructProps extends Object_ConstructProps {
     schema_id?: string
 }
 export class Settings {
-    /* Fields of Ide.Object */
+    /* Fields of Ide-1.0.Ide.Object */
     parent_instance: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Ide.Settings */
+    /* Methods of Ide-1.0.Ide.Settings */
     bind(key: string, object: object | null, property: string, flags: Gio.SettingsBindFlags): void
     bind_with_mapping(key: string, object: object | null, property: string, flags: Gio.SettingsBindFlags, get_mapping: Gio.SettingsBindGetMapping | null, set_mapping: Gio.SettingsBindSetMapping | null): void
     get_boolean(key: string): boolean
@@ -20394,12 +20394,12 @@ export class Settings {
     set_uint(key: string, val: number): void
     set_value(key: string, value: GLib.Variant): void
     unbind(property: string): void
-    /* Methods of Ide.Object */
+    /* Methods of Ide-1.0.Ide.Object */
     get_context(): Context
     hold(): boolean
     release(): void
     set_context(context: Context): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -20421,11 +20421,11 @@ export class Settings {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Ide.Object */
+    /* Virtual methods of Ide-1.0.Ide.Object */
     vfunc_destroy(): void
     vfunc_get_context(): Context
     vfunc_set_context(context: Context): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -20433,15 +20433,15 @@ export class Settings {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Ide.Settings */
+    /* Signals of Ide-1.0.Ide.Settings */
     connect(sigName: "changed", callback: (($obj: Settings, object: string) => void)): number
     connect_after(sigName: "changed", callback: (($obj: Settings, object: string) => void)): number
     emit(sigName: "changed", object: string): void
-    /* Signals of Ide.Object */
+    /* Signals of Ide-1.0.Ide.Object */
     connect(sigName: "destroy", callback: (($obj: Settings) => void)): number
     connect_after(sigName: "destroy", callback: (($obj: Settings) => void)): number
     emit(sigName: "destroy"): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Settings, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Settings, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -20461,10 +20461,10 @@ export interface SourceMap_ConstructProps extends GtkSource.Map_ConstructProps {
     vscroll_policy?: Gtk.ScrollablePolicy
 }
 export class SourceMap {
-    /* Properties of GtkSource.Map */
+    /* Properties of GtkSource-3.0.GtkSource.Map */
     font_desc: Pango.FontDescription
     view: GtkSource.View
-    /* Properties of GtkSource.View */
+    /* Properties of GtkSource-3.0.GtkSource.View */
     auto_indent: boolean
     background_pattern: GtkSource.BackgroundPatternType
     readonly completion: GtkSource.Completion
@@ -20481,7 +20481,7 @@ export class SourceMap {
     smart_home_end: GtkSource.SmartHomeEndType
     readonly space_drawer: GtkSource.SpaceDrawer
     tab_width: number
-    /* Properties of Gtk.TextView */
+    /* Properties of Gtk-3.0.Gtk.TextView */
     accepts_tab: boolean
     bottom_margin: number
     buffer: Gtk.TextBuffer
@@ -20503,11 +20503,11 @@ export class SourceMap {
     tabs: Pango.TabArray
     top_margin: number
     wrap_mode: Gtk.WrapMode
-    /* Properties of Gtk.Container */
+    /* Properties of Gtk-3.0.Gtk.Container */
     border_width: number
     child: Gtk.Widget
     resize_mode: Gtk.ResizeMode
-    /* Properties of Gtk.Widget */
+    /* Properties of Gtk-3.0.Gtk.Widget */
     app_paintable: boolean
     can_default: boolean
     can_focus: boolean
@@ -20547,23 +20547,23 @@ export class SourceMap {
     visible: boolean
     width_request: number
     readonly window: Gdk.Window
-    /* Properties of Gtk.Scrollable */
+    /* Properties of Gtk-3.0.Gtk.Scrollable */
     hadjustment: Gtk.Adjustment
     hscroll_policy: Gtk.ScrollablePolicy
     vadjustment: Gtk.Adjustment
     vscroll_policy: Gtk.ScrollablePolicy
-    /* Fields of GtkSource.Map */
+    /* Fields of GtkSource-3.0.GtkSource.Map */
     parent_instance: GtkSource.View
-    /* Fields of GtkSource.View */
+    /* Fields of GtkSource-3.0.GtkSource.View */
     priv: GtkSource.ViewPrivate
-    /* Fields of Gtk.Container */
+    /* Fields of Gtk-3.0.Gtk.Container */
     widget: Gtk.Widget
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GtkSource.Map */
+    /* Methods of GtkSource-3.0.GtkSource.Map */
     get_view(): GtkSource.View | null
     set_view(view: GtkSource.View): void
-    /* Methods of GtkSource.View */
+    /* Methods of GtkSource-3.0.GtkSource.View */
     get_auto_indent(): boolean
     get_background_pattern(): GtkSource.BackgroundPatternType
     get_completion(): GtkSource.Completion
@@ -20600,7 +20600,7 @@ export class SourceMap {
     set_smart_home_end(smart_home_end: GtkSource.SmartHomeEndType): void
     set_tab_width(width: number): void
     unindent_lines(start: Gtk.TextIter, end: Gtk.TextIter): void
-    /* Methods of Gtk.TextView */
+    /* Methods of Gtk-3.0.Gtk.TextView */
     add_child_at_anchor(child: Gtk.Widget, anchor: Gtk.TextChildAnchor): void
     add_child_in_window(child: Gtk.Widget, which_window: Gtk.TextWindowType, xpos: number, ypos: number): void
     backward_display_line(iter: Gtk.TextIter): boolean
@@ -20671,7 +20671,7 @@ export class SourceMap {
     set_wrap_mode(wrap_mode: Gtk.WrapMode): void
     starts_display_line(iter: Gtk.TextIter): boolean
     window_to_buffer_coords(win: Gtk.TextWindowType, window_x: number, window_y: number): [ /* buffer_x */ number | null, /* buffer_y */ number | null ]
-    /* Methods of Gtk.Container */
+    /* Methods of Gtk-3.0.Gtk.Container */
     add(widget: Gtk.Widget): void
     check_resize(): void
     child_get_property(child: Gtk.Widget, property_name: string, value: any): void
@@ -20699,7 +20699,7 @@ export class SourceMap {
     set_reallocate_redraws(needs_redraws: boolean): void
     set_resize_mode(resize_mode: Gtk.ResizeMode): void
     unset_focus_chain(): void
-    /* Methods of Gtk.Widget */
+    /* Methods of Gtk-3.0.Gtk.Widget */
     activate(): boolean
     add_accelerator(accel_signal: string, accel_group: Gtk.AccelGroup, accel_key: number, accel_mods: Gdk.ModifierType, accel_flags: Gtk.AccelFlags): void
     add_device_events(device: Gdk.Device, events: Gdk.EventMask): void
@@ -20958,7 +20958,7 @@ export class SourceMap {
     unrealize(): void
     unregister_window(window: Gdk.Window): void
     unset_state_flags(flags: Gtk.StateFlags): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -20980,7 +20980,7 @@ export class SourceMap {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of Gtk.Buildable */
+    /* Methods of Gtk-3.0.Gtk.Buildable */
     add_child(builder: Gtk.Builder, child: GObject.Object, type?: string | null): void
     construct_child(builder: Gtk.Builder, name: string): GObject.Object
     custom_finished(builder: Gtk.Builder, child: GObject.Object | null, tagname: string, data?: object | null): void
@@ -20989,7 +20989,7 @@ export class SourceMap {
     get_internal_child(builder: Gtk.Builder, childname: string): GObject.Object
     parser_finished(builder: Gtk.Builder): void
     set_buildable_property(builder: Gtk.Builder, name: string, value: any): void
-    /* Methods of Gtk.Scrollable */
+    /* Methods of Gtk-3.0.Gtk.Scrollable */
     get_border(): [ /* returnType */ boolean, /* border */ Gtk.Border ]
     get_hscroll_policy(): Gtk.ScrollablePolicy
     get_vscroll_policy(): Gtk.ScrollablePolicy
@@ -20997,7 +20997,7 @@ export class SourceMap {
     set_hscroll_policy(policy: Gtk.ScrollablePolicy): void
     set_vadjustment(vadjustment?: Gtk.Adjustment | null): void
     set_vscroll_policy(policy: Gtk.ScrollablePolicy): void
-    /* Virtual methods of GtkSource.View */
+    /* Virtual methods of GtkSource-3.0.GtkSource.View */
     vfunc_line_mark_activated(iter: Gtk.TextIter, event: Gdk.Event): void
     vfunc_move_lines(copy: boolean, step: number): void
     vfunc_move_words(step: number): void
@@ -21015,7 +21015,7 @@ export class SourceMap {
     vfunc_set_buildable_property(builder: Gtk.Builder, name: string, value: any): void
     vfunc_set_name(name: string): void
     vfunc_get_border(): [ /* returnType */ boolean, /* border */ Gtk.Border ]
-    /* Virtual methods of Gtk.TextView */
+    /* Virtual methods of Gtk-3.0.Gtk.TextView */
     vfunc_backspace(): void
     vfunc_copy_clipboard(): void
     vfunc_cut_clipboard(): void
@@ -21029,7 +21029,7 @@ export class SourceMap {
     vfunc_populate_popup(popup: Gtk.Widget): void
     vfunc_set_anchor(): void
     vfunc_toggle_overwrite(): void
-    /* Virtual methods of Gtk.Container */
+    /* Virtual methods of Gtk-3.0.Gtk.Container */
     vfunc_add(widget: Gtk.Widget): void
     vfunc_check_resize(): void
     vfunc_child_type(): GObject.Type
@@ -21040,7 +21040,7 @@ export class SourceMap {
     vfunc_remove(widget: Gtk.Widget): void
     vfunc_set_child_property(child: Gtk.Widget, property_id: number, value: any, pspec: GObject.ParamSpec): void
     vfunc_set_focus_child(child?: Gtk.Widget | null): void
-    /* Virtual methods of Gtk.Widget */
+    /* Virtual methods of Gtk-3.0.Gtk.Widget */
     vfunc_adjust_baseline_allocation(baseline: number): void
     vfunc_adjust_baseline_request(minimum_baseline: number, natural_baseline: number): void
     vfunc_adjust_size_allocation(orientation: Gtk.Orientation, minimum_size: number, natural_size: number, allocated_pos: number, allocated_size: number): void
@@ -21123,7 +21123,7 @@ export class SourceMap {
     vfunc_unrealize(): void
     vfunc_visibility_notify_event(event: Gdk.EventVisibility): boolean
     vfunc_window_state_event(event: Gdk.EventWindowState): boolean
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -21131,14 +21131,14 @@ export class SourceMap {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Ide.SourceMap */
+    /* Signals of Ide-1.0.Ide.SourceMap */
     connect(sigName: "hide-map", callback: (($obj: SourceMap) => void)): number
     connect_after(sigName: "hide-map", callback: (($obj: SourceMap) => void)): number
     emit(sigName: "hide-map"): void
     connect(sigName: "show-map", callback: (($obj: SourceMap) => void)): number
     connect_after(sigName: "show-map", callback: (($obj: SourceMap) => void)): number
     emit(sigName: "show-map"): void
-    /* Signals of GtkSource.View */
+    /* Signals of GtkSource-3.0.GtkSource.View */
     connect(sigName: "change-case", callback: (($obj: SourceMap, case_type: GtkSource.ChangeCaseType) => void)): number
     connect_after(sigName: "change-case", callback: (($obj: SourceMap, case_type: GtkSource.ChangeCaseType) => void)): number
     emit(sigName: "change-case", case_type: GtkSource.ChangeCaseType): void
@@ -21172,7 +21172,7 @@ export class SourceMap {
     connect(sigName: "undo", callback: (($obj: SourceMap) => void)): number
     connect_after(sigName: "undo", callback: (($obj: SourceMap) => void)): number
     emit(sigName: "undo"): void
-    /* Signals of Gtk.TextView */
+    /* Signals of Gtk-3.0.Gtk.TextView */
     connect(sigName: "backspace", callback: (($obj: SourceMap) => void)): number
     connect_after(sigName: "backspace", callback: (($obj: SourceMap) => void)): number
     emit(sigName: "backspace"): void
@@ -21221,7 +21221,7 @@ export class SourceMap {
     connect(sigName: "toggle-overwrite", callback: (($obj: SourceMap) => void)): number
     connect_after(sigName: "toggle-overwrite", callback: (($obj: SourceMap) => void)): number
     emit(sigName: "toggle-overwrite"): void
-    /* Signals of Gtk.Container */
+    /* Signals of Gtk-3.0.Gtk.Container */
     connect(sigName: "add", callback: (($obj: SourceMap, object: Gtk.Widget) => void)): number
     connect_after(sigName: "add", callback: (($obj: SourceMap, object: Gtk.Widget) => void)): number
     emit(sigName: "add", object: Gtk.Widget): void
@@ -21234,7 +21234,7 @@ export class SourceMap {
     connect(sigName: "set-focus-child", callback: (($obj: SourceMap, object: Gtk.Widget) => void)): number
     connect_after(sigName: "set-focus-child", callback: (($obj: SourceMap, object: Gtk.Widget) => void)): number
     emit(sigName: "set-focus-child", object: Gtk.Widget): void
-    /* Signals of Gtk.Widget */
+    /* Signals of Gtk-3.0.Gtk.Widget */
     connect(sigName: "accel-closures-changed", callback: (($obj: SourceMap) => void)): number
     connect_after(sigName: "accel-closures-changed", callback: (($obj: SourceMap) => void)): number
     emit(sigName: "accel-closures-changed"): void
@@ -21442,7 +21442,7 @@ export class SourceMap {
     connect(sigName: "window-state-event", callback: (($obj: SourceMap, event: Gdk.EventWindowState) => boolean)): number
     connect_after(sigName: "window-state-event", callback: (($obj: SourceMap, event: Gdk.EventWindowState) => boolean)): number
     emit(sigName: "window-state-event", event: Gdk.EventWindowState): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: SourceMap, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: SourceMap, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -21635,7 +21635,7 @@ export interface SourceSnippet_ConstructProps extends GObject.Object_ConstructPr
     trigger?: string
 }
 export class SourceSnippet {
-    /* Properties of Ide.SourceSnippet */
+    /* Properties of Ide-1.0.Ide.SourceSnippet */
     readonly buffer: Gtk.TextBuffer
     description: string
     language: string
@@ -21644,9 +21644,9 @@ export class SourceSnippet {
     snippet_text: string
     readonly tab_stop: number
     trigger: string
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Ide.SourceSnippet */
+    /* Methods of Ide-1.0.Ide.SourceSnippet */
     add_chunk(chunk: SourceSnippetChunk): void
     copy(): SourceSnippet
     get_chunk_range(chunk: SourceSnippetChunk, begin: Gtk.TextIter, end: Gtk.TextIter): void
@@ -21664,7 +21664,7 @@ export class SourceSnippet {
     set_language(language: string): void
     set_snippet_text(snippet_text: string): void
     set_trigger(trigger: string): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -21686,7 +21686,7 @@ export class SourceSnippet {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -21694,7 +21694,7 @@ export class SourceSnippet {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: SourceSnippet, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: SourceSnippet, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -21733,15 +21733,15 @@ export interface SourceSnippetChunk_ConstructProps extends GObject.Object_Constr
     text_set?: boolean
 }
 export class SourceSnippetChunk {
-    /* Properties of Ide.SourceSnippetChunk */
+    /* Properties of Ide-1.0.Ide.SourceSnippetChunk */
     context: SourceSnippetContext
     spec: string
     tab_stop: number
     text: string
     text_set: boolean
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Ide.SourceSnippetChunk */
+    /* Methods of Ide-1.0.Ide.SourceSnippetChunk */
     copy(): SourceSnippetChunk
     get_context(): SourceSnippetContext
     get_spec(): string
@@ -21753,7 +21753,7 @@ export class SourceSnippetChunk {
     set_tab_stop(tab_stop: number): void
     set_text(text: string): void
     set_text_set(text_set: boolean): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -21775,7 +21775,7 @@ export class SourceSnippetChunk {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -21783,7 +21783,7 @@ export class SourceSnippetChunk {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: SourceSnippetChunk, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: SourceSnippetChunk, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -21811,9 +21811,9 @@ export class SourceSnippetChunk {
 export interface SourceSnippetContext_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class SourceSnippetContext {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Ide.SourceSnippetContext */
+    /* Methods of Ide-1.0.Ide.SourceSnippetContext */
     add_shared_variable(key: string, value: string): void
     add_variable(key: string, value: string): void
     clear_variables(): void
@@ -21824,7 +21824,7 @@ export class SourceSnippetContext {
     set_line_prefix(line_prefix: string): void
     set_tab_width(tab_size: number): void
     set_use_spaces(use_spaces: boolean): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -21846,7 +21846,7 @@ export class SourceSnippetContext {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -21854,11 +21854,11 @@ export class SourceSnippetContext {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Ide.SourceSnippetContext */
+    /* Signals of Ide-1.0.Ide.SourceSnippetContext */
     connect(sigName: "changed", callback: (($obj: SourceSnippetContext) => void)): number
     connect_after(sigName: "changed", callback: (($obj: SourceSnippetContext) => void)): number
     emit(sigName: "changed"): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: SourceSnippetContext, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: SourceSnippetContext, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -21876,15 +21876,15 @@ export class SourceSnippetContext {
 export interface SourceSnippets_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class SourceSnippets {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Ide.SourceSnippets */
+    /* Methods of Ide-1.0.Ide.SourceSnippets */
     add(snippet: SourceSnippet): void
     clear(): void
     count(): number
     foreach(prefix: string, foreach_func: GLib.Func): void
     merge(other: SourceSnippets): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -21906,7 +21906,7 @@ export class SourceSnippets {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -21914,7 +21914,7 @@ export class SourceSnippets {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: SourceSnippets, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: SourceSnippets, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -21932,14 +21932,14 @@ export class SourceSnippets {
 export interface SourceSnippetsManager_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class SourceSnippetsManager {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Ide.SourceSnippetsManager */
+    /* Methods of Ide-1.0.Ide.SourceSnippetsManager */
     get_for_language(language: GtkSource.Language): SourceSnippets | null
     get_for_language_id(language_id: string): SourceSnippets | null
     load_async(cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     load_finish(result: Gio.AsyncResult): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -21961,7 +21961,7 @@ export class SourceSnippetsManager {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -21969,7 +21969,7 @@ export class SourceSnippetsManager {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: SourceSnippetsManager, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: SourceSnippetsManager, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -22008,7 +22008,7 @@ export interface SourceView_ConstructProps extends GtkSource.View_ConstructProps
     vscroll_policy?: Gtk.ScrollablePolicy
 }
 export class SourceView {
-    /* Properties of Ide.SourceView */
+    /* Properties of Ide-1.0.Ide.SourceView */
     back_forward_list: BackForwardList
     count: number
     enable_word_completion: boolean
@@ -22032,7 +22032,7 @@ export class SourceView {
     show_search_shadow: boolean
     snippet_completion: boolean
     spell_checking: boolean
-    /* Properties of GtkSource.View */
+    /* Properties of GtkSource-3.0.GtkSource.View */
     auto_indent: boolean
     background_pattern: GtkSource.BackgroundPatternType
     readonly completion: GtkSource.Completion
@@ -22049,7 +22049,7 @@ export class SourceView {
     smart_home_end: GtkSource.SmartHomeEndType
     readonly space_drawer: GtkSource.SpaceDrawer
     tab_width: number
-    /* Properties of Gtk.TextView */
+    /* Properties of Gtk-3.0.Gtk.TextView */
     accepts_tab: boolean
     bottom_margin: number
     buffer: Gtk.TextBuffer
@@ -22071,11 +22071,11 @@ export class SourceView {
     tabs: Pango.TabArray
     top_margin: number
     wrap_mode: Gtk.WrapMode
-    /* Properties of Gtk.Container */
+    /* Properties of Gtk-3.0.Gtk.Container */
     border_width: number
     child: Gtk.Widget
     resize_mode: Gtk.ResizeMode
-    /* Properties of Gtk.Widget */
+    /* Properties of Gtk-3.0.Gtk.Widget */
     app_paintable: boolean
     can_default: boolean
     can_focus: boolean
@@ -22115,20 +22115,20 @@ export class SourceView {
     visible: boolean
     width_request: number
     readonly window: Gdk.Window
-    /* Properties of Gtk.Scrollable */
+    /* Properties of Gtk-3.0.Gtk.Scrollable */
     hadjustment: Gtk.Adjustment
     hscroll_policy: Gtk.ScrollablePolicy
     vadjustment: Gtk.Adjustment
     vscroll_policy: Gtk.ScrollablePolicy
-    /* Fields of Ide.SourceView */
+    /* Fields of Ide-1.0.Ide.SourceView */
     parent_instance: GtkSource.View
-    /* Fields of GtkSource.View */
+    /* Fields of GtkSource-3.0.GtkSource.View */
     priv: GtkSource.ViewPrivate
-    /* Fields of Gtk.Container */
+    /* Fields of Gtk-3.0.Gtk.Container */
     widget: Gtk.Widget
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Ide.SourceView */
+    /* Methods of Ide-1.0.Ide.SourceView */
     clear_search(): void
     clear_snippets(): void
     get_back_forward_list(): BackForwardList | null
@@ -22186,7 +22186,7 @@ export class SourceView {
     set_show_search_shadow(show_search_bubbles: boolean): void
     set_snippet_completion(snippet_completion: boolean): void
     set_spell_checking(enable: boolean): void
-    /* Methods of GtkSource.View */
+    /* Methods of GtkSource-3.0.GtkSource.View */
     get_auto_indent(): boolean
     get_background_pattern(): GtkSource.BackgroundPatternType
     get_completion(): GtkSource.Completion
@@ -22222,7 +22222,7 @@ export class SourceView {
     set_smart_home_end(smart_home_end: GtkSource.SmartHomeEndType): void
     set_tab_width(width: number): void
     unindent_lines(start: Gtk.TextIter, end: Gtk.TextIter): void
-    /* Methods of Gtk.TextView */
+    /* Methods of Gtk-3.0.Gtk.TextView */
     add_child_at_anchor(child: Gtk.Widget, anchor: Gtk.TextChildAnchor): void
     add_child_in_window(child: Gtk.Widget, which_window: Gtk.TextWindowType, xpos: number, ypos: number): void
     backward_display_line(iter: Gtk.TextIter): boolean
@@ -22289,7 +22289,7 @@ export class SourceView {
     set_wrap_mode(wrap_mode: Gtk.WrapMode): void
     starts_display_line(iter: Gtk.TextIter): boolean
     window_to_buffer_coords(win: Gtk.TextWindowType, window_x: number, window_y: number): [ /* buffer_x */ number | null, /* buffer_y */ number | null ]
-    /* Methods of Gtk.Container */
+    /* Methods of Gtk-3.0.Gtk.Container */
     add(widget: Gtk.Widget): void
     check_resize(): void
     child_get_property(child: Gtk.Widget, property_name: string, value: any): void
@@ -22317,7 +22317,7 @@ export class SourceView {
     set_reallocate_redraws(needs_redraws: boolean): void
     set_resize_mode(resize_mode: Gtk.ResizeMode): void
     unset_focus_chain(): void
-    /* Methods of Gtk.Widget */
+    /* Methods of Gtk-3.0.Gtk.Widget */
     activate(): boolean
     add_accelerator(accel_signal: string, accel_group: Gtk.AccelGroup, accel_key: number, accel_mods: Gdk.ModifierType, accel_flags: Gtk.AccelFlags): void
     add_device_events(device: Gdk.Device, events: Gdk.EventMask): void
@@ -22576,7 +22576,7 @@ export class SourceView {
     unrealize(): void
     unregister_window(window: Gdk.Window): void
     unset_state_flags(flags: Gtk.StateFlags): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -22598,7 +22598,7 @@ export class SourceView {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of Gtk.Buildable */
+    /* Methods of Gtk-3.0.Gtk.Buildable */
     add_child(builder: Gtk.Builder, child: GObject.Object, type?: string | null): void
     construct_child(builder: Gtk.Builder, name: string): GObject.Object
     custom_finished(builder: Gtk.Builder, child: GObject.Object | null, tagname: string, data?: object | null): void
@@ -22607,7 +22607,7 @@ export class SourceView {
     get_internal_child(builder: Gtk.Builder, childname: string): GObject.Object
     parser_finished(builder: Gtk.Builder): void
     set_buildable_property(builder: Gtk.Builder, name: string, value: any): void
-    /* Methods of Gtk.Scrollable */
+    /* Methods of Gtk-3.0.Gtk.Scrollable */
     get_border(): [ /* returnType */ boolean, /* border */ Gtk.Border ]
     get_hscroll_policy(): Gtk.ScrollablePolicy
     get_vscroll_policy(): Gtk.ScrollablePolicy
@@ -22615,7 +22615,7 @@ export class SourceView {
     set_hscroll_policy(policy: Gtk.ScrollablePolicy): void
     set_vadjustment(vadjustment?: Gtk.Adjustment | null): void
     set_vscroll_policy(policy: Gtk.ScrollablePolicy): void
-    /* Virtual methods of Ide.SourceView */
+    /* Virtual methods of Ide-1.0.Ide.SourceView */
     vfunc_add_cursor(type: number): void
     vfunc_append_to_count(digit: number): void
     vfunc_auto_indent(): void
@@ -22662,7 +22662,7 @@ export class SourceView {
     vfunc_set_search_text(search_text: string, from_selection: boolean): void
     vfunc_sort(ignore_case: boolean, reverse: boolean): void
     vfunc_swap_selection_bounds(): void
-    /* Virtual methods of GtkSource.View */
+    /* Virtual methods of GtkSource-3.0.GtkSource.View */
     vfunc_line_mark_activated(iter: Gtk.TextIter, event: Gdk.Event): void
     vfunc_move_lines(copy: boolean, step: number): void
     vfunc_move_words(step: number): void
@@ -22680,7 +22680,7 @@ export class SourceView {
     vfunc_set_buildable_property(builder: Gtk.Builder, name: string, value: any): void
     vfunc_set_name(name: string): void
     vfunc_get_border(): [ /* returnType */ boolean, /* border */ Gtk.Border ]
-    /* Virtual methods of Gtk.TextView */
+    /* Virtual methods of Gtk-3.0.Gtk.TextView */
     vfunc_backspace(): void
     vfunc_copy_clipboard(): void
     vfunc_cut_clipboard(): void
@@ -22694,7 +22694,7 @@ export class SourceView {
     vfunc_populate_popup(popup: Gtk.Widget): void
     vfunc_set_anchor(): void
     vfunc_toggle_overwrite(): void
-    /* Virtual methods of Gtk.Container */
+    /* Virtual methods of Gtk-3.0.Gtk.Container */
     vfunc_add(widget: Gtk.Widget): void
     vfunc_check_resize(): void
     vfunc_child_type(): GObject.Type
@@ -22705,7 +22705,7 @@ export class SourceView {
     vfunc_remove(widget: Gtk.Widget): void
     vfunc_set_child_property(child: Gtk.Widget, property_id: number, value: any, pspec: GObject.ParamSpec): void
     vfunc_set_focus_child(child?: Gtk.Widget | null): void
-    /* Virtual methods of Gtk.Widget */
+    /* Virtual methods of Gtk-3.0.Gtk.Widget */
     vfunc_adjust_baseline_allocation(baseline: number): void
     vfunc_adjust_baseline_request(minimum_baseline: number, natural_baseline: number): void
     vfunc_adjust_size_allocation(orientation: Gtk.Orientation, minimum_size: number, natural_size: number, allocated_pos: number, allocated_size: number): void
@@ -22788,7 +22788,7 @@ export class SourceView {
     vfunc_unrealize(): void
     vfunc_visibility_notify_event(event: Gdk.EventVisibility): boolean
     vfunc_window_state_event(event: Gdk.EventWindowState): boolean
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -22796,7 +22796,7 @@ export class SourceView {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Ide.SourceView */
+    /* Signals of Ide-1.0.Ide.SourceView */
     connect(sigName: "action", callback: (($obj: SourceView, object: string, p0: string, p1: string) => void)): number
     connect_after(sigName: "action", callback: (($obj: SourceView, object: string, p0: string, p1: string) => void)): number
     emit(sigName: "action", object: string, p0: string, p1: string): void
@@ -22956,7 +22956,7 @@ export class SourceView {
     connect(sigName: "swap-selection-bounds", callback: (($obj: SourceView) => void)): number
     connect_after(sigName: "swap-selection-bounds", callback: (($obj: SourceView) => void)): number
     emit(sigName: "swap-selection-bounds"): void
-    /* Signals of GtkSource.View */
+    /* Signals of GtkSource-3.0.GtkSource.View */
     connect(sigName: "change-case", callback: (($obj: SourceView, case_type: GtkSource.ChangeCaseType) => void)): number
     connect_after(sigName: "change-case", callback: (($obj: SourceView, case_type: GtkSource.ChangeCaseType) => void)): number
     emit(sigName: "change-case", case_type: GtkSource.ChangeCaseType): void
@@ -22990,7 +22990,7 @@ export class SourceView {
     connect(sigName: "undo", callback: (($obj: SourceView) => void)): number
     connect_after(sigName: "undo", callback: (($obj: SourceView) => void)): number
     emit(sigName: "undo"): void
-    /* Signals of Gtk.TextView */
+    /* Signals of Gtk-3.0.Gtk.TextView */
     connect(sigName: "backspace", callback: (($obj: SourceView) => void)): number
     connect_after(sigName: "backspace", callback: (($obj: SourceView) => void)): number
     emit(sigName: "backspace"): void
@@ -23039,7 +23039,7 @@ export class SourceView {
     connect(sigName: "toggle-overwrite", callback: (($obj: SourceView) => void)): number
     connect_after(sigName: "toggle-overwrite", callback: (($obj: SourceView) => void)): number
     emit(sigName: "toggle-overwrite"): void
-    /* Signals of Gtk.Container */
+    /* Signals of Gtk-3.0.Gtk.Container */
     connect(sigName: "add", callback: (($obj: SourceView, object: Gtk.Widget) => void)): number
     connect_after(sigName: "add", callback: (($obj: SourceView, object: Gtk.Widget) => void)): number
     emit(sigName: "add", object: Gtk.Widget): void
@@ -23052,7 +23052,7 @@ export class SourceView {
     connect(sigName: "set-focus-child", callback: (($obj: SourceView, object: Gtk.Widget) => void)): number
     connect_after(sigName: "set-focus-child", callback: (($obj: SourceView, object: Gtk.Widget) => void)): number
     emit(sigName: "set-focus-child", object: Gtk.Widget): void
-    /* Signals of Gtk.Widget */
+    /* Signals of Gtk-3.0.Gtk.Widget */
     connect(sigName: "accel-closures-changed", callback: (($obj: SourceView) => void)): number
     connect_after(sigName: "accel-closures-changed", callback: (($obj: SourceView) => void)): number
     emit(sigName: "accel-closures-changed"): void
@@ -23260,7 +23260,7 @@ export class SourceView {
     connect(sigName: "window-state-event", callback: (($obj: SourceView, event: Gdk.EventWindowState) => boolean)): number
     connect_after(sigName: "window-state-event", callback: (($obj: SourceView, event: Gdk.EventWindowState) => boolean)): number
     emit(sigName: "window-state-event", event: Gdk.EventWindowState): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: SourceView, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: SourceView, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -23491,9 +23491,9 @@ export class SourceView {
 export interface SourceViewMode_ConstructProps extends Gtk.Widget_ConstructProps {
 }
 export class SourceViewMode {
-    /* Properties of Ide.SourceViewMode */
+    /* Properties of Ide-1.0.Ide.SourceViewMode */
     readonly name: string
-    /* Properties of Gtk.Widget */
+    /* Properties of Gtk-3.0.Gtk.Widget */
     app_paintable: boolean
     can_default: boolean
     can_focus: boolean
@@ -23532,11 +23532,11 @@ export class SourceViewMode {
     visible: boolean
     width_request: number
     readonly window: Gdk.Window
-    /* Fields of Gtk.Widget */
+    /* Fields of Gtk-3.0.Gtk.Widget */
     parent_instance: GObject.InitiallyUnowned
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Ide.SourceViewMode */
+    /* Methods of Ide-1.0.Ide.SourceViewMode */
     get_block_cursor(): boolean
     get_default_mode(): string
     get_display_name(): string
@@ -23546,7 +23546,7 @@ export class SourceViewMode {
     get_repeat_insert_with_count(): boolean
     get_suppress_unbound(): boolean
     set_has_indenter(has_indenter: boolean): void
-    /* Methods of Gtk.Widget */
+    /* Methods of Gtk-3.0.Gtk.Widget */
     activate(): boolean
     add_accelerator(accel_signal: string, accel_group: Gtk.AccelGroup, accel_key: number, accel_mods: Gdk.ModifierType, accel_flags: Gtk.AccelFlags): void
     add_device_events(device: Gdk.Device, events: Gdk.EventMask): void
@@ -23804,7 +23804,7 @@ export class SourceViewMode {
     unrealize(): void
     unregister_window(window: Gdk.Window): void
     unset_state_flags(flags: Gtk.StateFlags): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -23826,7 +23826,7 @@ export class SourceViewMode {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of Gtk.Buildable */
+    /* Methods of Gtk-3.0.Gtk.Buildable */
     add_child(builder: Gtk.Builder, child: GObject.Object, type?: string | null): void
     construct_child(builder: Gtk.Builder, name: string): GObject.Object
     custom_finished(builder: Gtk.Builder, child: GObject.Object | null, tagname: string, data?: object | null): void
@@ -23835,7 +23835,7 @@ export class SourceViewMode {
     get_internal_child(builder: Gtk.Builder, childname: string): GObject.Object
     parser_finished(builder: Gtk.Builder): void
     set_buildable_property(builder: Gtk.Builder, name: string, value: any): void
-    /* Virtual methods of Ide.SourceViewMode */
+    /* Virtual methods of Ide-1.0.Ide.SourceViewMode */
     vfunc_add_child(builder: Gtk.Builder, child: GObject.Object, type?: string | null): void
     vfunc_construct_child(builder: Gtk.Builder, name: string): GObject.Object
     vfunc_custom_finished(builder: Gtk.Builder, child: GObject.Object | null, tagname: string, data?: object | null): void
@@ -23846,7 +23846,7 @@ export class SourceViewMode {
     vfunc_parser_finished(builder: Gtk.Builder): void
     vfunc_set_buildable_property(builder: Gtk.Builder, name: string, value: any): void
     vfunc_set_name(name: string): void
-    /* Virtual methods of Gtk.Widget */
+    /* Virtual methods of Gtk-3.0.Gtk.Widget */
     vfunc_adjust_baseline_allocation(baseline: number): void
     vfunc_adjust_baseline_request(minimum_baseline: number, natural_baseline: number): void
     vfunc_adjust_size_allocation(orientation: Gtk.Orientation, minimum_size: number, natural_size: number, allocated_pos: number, allocated_size: number): void
@@ -23929,7 +23929,7 @@ export class SourceViewMode {
     vfunc_unrealize(): void
     vfunc_visibility_notify_event(event: Gdk.EventVisibility): boolean
     vfunc_window_state_event(event: Gdk.EventWindowState): boolean
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -23937,7 +23937,7 @@ export class SourceViewMode {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Ide.SourceViewMode */
+    /* Signals of Ide-1.0.Ide.SourceViewMode */
     connect(sigName: "action", callback: (($obj: SourceViewMode, object: string, p0: string, p1: string) => void)): number
     connect_after(sigName: "action", callback: (($obj: SourceViewMode, object: string, p0: string, p1: string) => void)): number
     emit(sigName: "action", object: string, p0: string, p1: string): void
@@ -24151,7 +24151,7 @@ export class SourceViewMode {
     connect(sigName: "undo", callback: (($obj: SourceViewMode) => void)): number
     connect_after(sigName: "undo", callback: (($obj: SourceViewMode) => void)): number
     emit(sigName: "undo"): void
-    /* Signals of Gtk.Widget */
+    /* Signals of Gtk-3.0.Gtk.Widget */
     connect(sigName: "accel-closures-changed", callback: (($obj: SourceViewMode) => void)): number
     connect_after(sigName: "accel-closures-changed", callback: (($obj: SourceViewMode) => void)): number
     emit(sigName: "accel-closures-changed"): void
@@ -24359,7 +24359,7 @@ export class SourceViewMode {
     connect(sigName: "window-state-event", callback: (($obj: SourceViewMode, event: Gdk.EventWindowState) => boolean)): number
     connect_after(sigName: "window-state-event", callback: (($obj: SourceViewMode, event: Gdk.EventWindowState) => boolean)): number
     emit(sigName: "window-state-event", event: Gdk.EventWindowState): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: SourceViewMode, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: SourceViewMode, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -24458,17 +24458,17 @@ export interface SubprocessLauncher_ConstructProps extends GObject.Object_Constr
     run_on_host?: boolean
 }
 export class SubprocessLauncher {
-    /* Properties of Ide.SubprocessLauncher */
+    /* Properties of Ide-1.0.Ide.SubprocessLauncher */
     clean_env: boolean
     cwd: string
     environ: string[]
     flags: Gio.SubprocessFlags
     run_on_host: boolean
-    /* Fields of Ide.SubprocessLauncher */
+    /* Fields of Ide-1.0.Ide.SubprocessLauncher */
     parent_instance: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Ide.SubprocessLauncher */
+    /* Methods of Ide-1.0.Ide.SubprocessLauncher */
     get_argv(): string[]
     get_clear_env(): boolean
     get_cwd(): string
@@ -24494,7 +24494,7 @@ export class SubprocessLauncher {
     take_stderr_fd(stderr_fd: number): void
     take_stdin_fd(stdin_fd: number): void
     take_stdout_fd(stdout_fd: number): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -24516,9 +24516,9 @@ export class SubprocessLauncher {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Ide.SubprocessLauncher */
+    /* Virtual methods of Ide-1.0.Ide.SubprocessLauncher */
     vfunc_spawn(cancellable?: Gio.Cancellable | null): Subprocess
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -24526,7 +24526,7 @@ export class SubprocessLauncher {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: SubprocessLauncher, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: SubprocessLauncher, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -24554,18 +24554,18 @@ export class SubprocessLauncher {
 export interface SubprocessSupervisor_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class SubprocessSupervisor {
-    /* Fields of Ide.SubprocessSupervisor */
+    /* Fields of Ide-1.0.Ide.SubprocessSupervisor */
     parent_instance: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Ide.SubprocessSupervisor */
+    /* Methods of Ide-1.0.Ide.SubprocessSupervisor */
     get_launcher(): SubprocessLauncher | null
     get_subprocess(): Subprocess | null
     set_launcher(launcher: SubprocessLauncher): void
     set_subprocess(subprocess: Subprocess): void
     start(): void
     stop(): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -24587,9 +24587,9 @@ export class SubprocessSupervisor {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Ide.SubprocessSupervisor */
+    /* Virtual methods of Ide-1.0.Ide.SubprocessSupervisor */
     vfunc_spawned(subprocess: Subprocess): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -24597,7 +24597,7 @@ export class SubprocessSupervisor {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Ide.SubprocessSupervisor */
+    /* Signals of Ide-1.0.Ide.SubprocessSupervisor */
     connect(sigName: "spawned", callback: (($obj: SubprocessSupervisor, object: Subprocess) => void)): number
     connect_after(sigName: "spawned", callback: (($obj: SubprocessSupervisor, object: Subprocess) => void)): number
     emit(sigName: "spawned", object: Subprocess): void
@@ -24607,7 +24607,7 @@ export class SubprocessSupervisor {
     connect(sigName: "unsupervise", callback: (($obj: SubprocessSupervisor, object: SubprocessLauncher) => boolean)): number
     connect_after(sigName: "unsupervise", callback: (($obj: SubprocessSupervisor, object: SubprocessLauncher) => boolean)): number
     emit(sigName: "unsupervise", object: SubprocessLauncher): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: SubprocessSupervisor, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: SubprocessSupervisor, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -24629,28 +24629,28 @@ export interface SymbolNode_ConstructProps extends Object_ConstructProps {
     use_markup?: boolean
 }
 export class SymbolNode {
-    /* Properties of Ide.SymbolNode */
+    /* Properties of Ide-1.0.Ide.SymbolNode */
     flags: SymbolFlags
     kind: SymbolKind
     name: string
     use_markup: boolean
-    /* Fields of Ide.SymbolNode */
+    /* Fields of Ide-1.0.Ide.SymbolNode */
     parent_instance: Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Ide.SymbolNode */
+    /* Methods of Ide-1.0.Ide.SymbolNode */
     get_flags(): SymbolFlags
     get_kind(): SymbolKind
     get_location_async(cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     get_location_finish(result: Gio.AsyncResult): SourceLocation | null
     get_name(): string
     get_use_markup(): boolean
-    /* Methods of Ide.Object */
+    /* Methods of Ide-1.0.Ide.Object */
     get_context(): Context
     hold(): boolean
     release(): void
     set_context(context: Context): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -24672,14 +24672,14 @@ export class SymbolNode {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Ide.SymbolNode */
+    /* Virtual methods of Ide-1.0.Ide.SymbolNode */
     vfunc_get_location_async(cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     vfunc_get_location_finish(result: Gio.AsyncResult): SourceLocation | null
-    /* Virtual methods of Ide.Object */
+    /* Virtual methods of Ide-1.0.Ide.Object */
     vfunc_destroy(): void
     vfunc_get_context(): Context
     vfunc_set_context(context: Context): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -24687,11 +24687,11 @@ export class SymbolNode {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Ide.Object */
+    /* Signals of Ide-1.0.Ide.Object */
     connect(sigName: "destroy", callback: (($obj: SymbolNode) => void)): number
     connect_after(sigName: "destroy", callback: (($obj: SymbolNode) => void)): number
     emit(sigName: "destroy"): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: SymbolNode, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: SymbolNode, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -24716,13 +24716,13 @@ export interface TemplateBase_ConstructProps extends GObject.Object_ConstructPro
     locator?: Template.TemplateLocator
 }
 export class TemplateBase {
-    /* Properties of Ide.TemplateBase */
+    /* Properties of Ide-1.0.Ide.TemplateBase */
     locator: Template.TemplateLocator
-    /* Fields of Ide.TemplateBase */
+    /* Fields of Ide-1.0.Ide.TemplateBase */
     parent_instance: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Ide.TemplateBase */
+    /* Methods of Ide-1.0.Ide.TemplateBase */
     add_path(path: string, destination: Gio.File, scope: Template.Scope, mode: number): void
     add_resource(resource_path: string, destination: Gio.File, scope: Template.Scope, mode: number): void
     expand_all_async(cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
@@ -24730,7 +24730,7 @@ export class TemplateBase {
     get_locator(): Template.TemplateLocator | null
     reset(): void
     set_locator(locator: Template.TemplateLocator): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -24752,7 +24752,7 @@ export class TemplateBase {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -24760,7 +24760,7 @@ export class TemplateBase {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: TemplateBase, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: TemplateBase, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -24782,18 +24782,18 @@ export interface Transfer_ConstructProps extends GObject.Object_ConstructProps {
     title?: string
 }
 export class Transfer {
-    /* Properties of Ide.Transfer */
+    /* Properties of Ide-1.0.Ide.Transfer */
     readonly active: boolean
     readonly completed: boolean
     icon_name: string
     progress: number
     status: string
     title: string
-    /* Fields of Ide.Transfer */
+    /* Fields of Ide-1.0.Ide.Transfer */
     parent_instance: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Ide.Transfer */
+    /* Methods of Ide-1.0.Ide.Transfer */
     cancel(): void
     execute_async(cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     execute_finish(result: Gio.AsyncResult): boolean
@@ -24807,7 +24807,7 @@ export class Transfer {
     set_progress(progress: number): void
     set_status(status: string): void
     set_title(title: string): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -24829,10 +24829,10 @@ export class Transfer {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Ide.Transfer */
+    /* Virtual methods of Ide-1.0.Ide.Transfer */
     vfunc_execute_async(cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     vfunc_execute_finish(result: Gio.AsyncResult): boolean
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -24840,7 +24840,7 @@ export class Transfer {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Transfer, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Transfer, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -24875,10 +24875,10 @@ export interface TransferButton_ConstructProps extends Dazzle.ProgressButton_Con
     use_action_appearance?: boolean
 }
 export class TransferButton {
-    /* Properties of Dazzle.ProgressButton */
+    /* Properties of Dazzle-1.0.Dazzle.ProgressButton */
     progress: number
     show_progress: boolean
-    /* Properties of Gtk.Button */
+    /* Properties of Gtk-3.0.Gtk.Button */
     always_show_image: boolean
     image: Gtk.Widget
     image_position: Gtk.PositionType
@@ -24888,11 +24888,11 @@ export class TransferButton {
     use_underline: boolean
     xalign: number
     yalign: number
-    /* Properties of Gtk.Container */
+    /* Properties of Gtk-3.0.Gtk.Container */
     border_width: number
     child: Gtk.Widget
     resize_mode: Gtk.ResizeMode
-    /* Properties of Gtk.Widget */
+    /* Properties of Gtk-3.0.Gtk.Widget */
     app_paintable: boolean
     can_default: boolean
     can_focus: boolean
@@ -24932,26 +24932,26 @@ export class TransferButton {
     visible: boolean
     width_request: number
     readonly window: Gdk.Window
-    /* Properties of Gtk.Actionable */
+    /* Properties of Gtk-3.0.Gtk.Actionable */
     action_name: string
     action_target: GLib.Variant
-    /* Properties of Gtk.Activatable */
+    /* Properties of Gtk-3.0.Gtk.Activatable */
     related_action: Gtk.Action
     use_action_appearance: boolean
-    /* Fields of Ide.TransferButton */
+    /* Fields of Ide-1.0.Ide.TransferButton */
     parent_instance: Dazzle.ProgressButton
-    /* Fields of Gtk.Bin */
+    /* Fields of Gtk-3.0.Gtk.Bin */
     container: Gtk.Container
-    /* Fields of Gtk.Container */
+    /* Fields of Gtk-3.0.Gtk.Container */
     widget: Gtk.Widget
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Dazzle.ProgressButton */
+    /* Methods of Dazzle-1.0.Dazzle.ProgressButton */
     get_progress(): number
     get_show_progress(): boolean
     set_progress(percentage: number): void
     set_show_progress(show_progress: boolean): void
-    /* Methods of Gtk.Button */
+    /* Methods of Gtk-3.0.Gtk.Button */
     clicked(): void
     enter(): void
     get_alignment(): [ /* xalign */ number, /* yalign */ number ]
@@ -24976,9 +24976,9 @@ export class TransferButton {
     set_relief(relief: Gtk.ReliefStyle): void
     set_use_stock(use_stock: boolean): void
     set_use_underline(use_underline: boolean): void
-    /* Methods of Gtk.Bin */
+    /* Methods of Gtk-3.0.Gtk.Bin */
     get_child(): Gtk.Widget | null
-    /* Methods of Gtk.Container */
+    /* Methods of Gtk-3.0.Gtk.Container */
     add(widget: Gtk.Widget): void
     check_resize(): void
     child_get_property(child: Gtk.Widget, property_name: string, value: any): void
@@ -25006,7 +25006,7 @@ export class TransferButton {
     set_reallocate_redraws(needs_redraws: boolean): void
     set_resize_mode(resize_mode: Gtk.ResizeMode): void
     unset_focus_chain(): void
-    /* Methods of Gtk.Widget */
+    /* Methods of Gtk-3.0.Gtk.Widget */
     activate(): boolean
     add_accelerator(accel_signal: string, accel_group: Gtk.AccelGroup, accel_key: number, accel_mods: Gdk.ModifierType, accel_flags: Gtk.AccelFlags): void
     add_device_events(device: Gdk.Device, events: Gdk.EventMask): void
@@ -25263,7 +25263,7 @@ export class TransferButton {
     unrealize(): void
     unregister_window(window: Gdk.Window): void
     unset_state_flags(flags: Gtk.StateFlags): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -25285,20 +25285,20 @@ export class TransferButton {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of Gtk.Actionable */
+    /* Methods of Gtk-3.0.Gtk.Actionable */
     get_action_name(): string | null
     get_action_target_value(): GLib.Variant
     set_action_name(action_name?: string | null): void
     set_action_target_value(target_value?: GLib.Variant | null): void
     set_detailed_action_name(detailed_action_name: string): void
-    /* Methods of Gtk.Activatable */
+    /* Methods of Gtk-3.0.Gtk.Activatable */
     do_set_related_action(action: Gtk.Action): void
     get_related_action(): Gtk.Action
     get_use_action_appearance(): boolean
     set_related_action(action: Gtk.Action): void
     set_use_action_appearance(use_appearance: boolean): void
     sync_action_properties(action?: Gtk.Action | null): void
-    /* Methods of Gtk.Buildable */
+    /* Methods of Gtk-3.0.Gtk.Buildable */
     add_child(builder: Gtk.Builder, child: GObject.Object, type?: string | null): void
     construct_child(builder: Gtk.Builder, name: string): GObject.Object
     custom_finished(builder: Gtk.Builder, child: GObject.Object | null, tagname: string, data?: object | null): void
@@ -25307,7 +25307,7 @@ export class TransferButton {
     get_internal_child(builder: Gtk.Builder, childname: string): GObject.Object
     parser_finished(builder: Gtk.Builder): void
     set_buildable_property(builder: Gtk.Builder, name: string, value: any): void
-    /* Virtual methods of Dazzle.ProgressButton */
+    /* Virtual methods of Dazzle-1.0.Dazzle.ProgressButton */
     vfunc_get_action_name(): string | null
     vfunc_get_action_target_value(): GLib.Variant
     vfunc_set_action_name(action_name?: string | null): void
@@ -25324,14 +25324,14 @@ export class TransferButton {
     vfunc_parser_finished(builder: Gtk.Builder): void
     vfunc_set_buildable_property(builder: Gtk.Builder, name: string, value: any): void
     vfunc_set_name(name: string): void
-    /* Virtual methods of Gtk.Button */
+    /* Virtual methods of Gtk-3.0.Gtk.Button */
     vfunc_activate(): void
     vfunc_clicked(): void
     vfunc_enter(): void
     vfunc_leave(): void
     vfunc_pressed(): void
     vfunc_released(): void
-    /* Virtual methods of Gtk.Container */
+    /* Virtual methods of Gtk-3.0.Gtk.Container */
     vfunc_add(widget: Gtk.Widget): void
     vfunc_check_resize(): void
     vfunc_child_type(): GObject.Type
@@ -25342,7 +25342,7 @@ export class TransferButton {
     vfunc_remove(widget: Gtk.Widget): void
     vfunc_set_child_property(child: Gtk.Widget, property_id: number, value: any, pspec: GObject.ParamSpec): void
     vfunc_set_focus_child(child?: Gtk.Widget | null): void
-    /* Virtual methods of Gtk.Widget */
+    /* Virtual methods of Gtk-3.0.Gtk.Widget */
     vfunc_adjust_baseline_allocation(baseline: number): void
     vfunc_adjust_baseline_request(minimum_baseline: number, natural_baseline: number): void
     vfunc_adjust_size_allocation(orientation: Gtk.Orientation, minimum_size: number, natural_size: number, allocated_pos: number, allocated_size: number): void
@@ -25425,7 +25425,7 @@ export class TransferButton {
     vfunc_unrealize(): void
     vfunc_visibility_notify_event(event: Gdk.EventVisibility): boolean
     vfunc_window_state_event(event: Gdk.EventWindowState): boolean
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -25433,7 +25433,7 @@ export class TransferButton {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gtk.Button */
+    /* Signals of Gtk-3.0.Gtk.Button */
     connect(sigName: "activate", callback: (($obj: TransferButton) => void)): number
     connect_after(sigName: "activate", callback: (($obj: TransferButton) => void)): number
     emit(sigName: "activate"): void
@@ -25452,7 +25452,7 @@ export class TransferButton {
     connect(sigName: "released", callback: (($obj: TransferButton) => void)): number
     connect_after(sigName: "released", callback: (($obj: TransferButton) => void)): number
     emit(sigName: "released"): void
-    /* Signals of Gtk.Container */
+    /* Signals of Gtk-3.0.Gtk.Container */
     connect(sigName: "add", callback: (($obj: TransferButton, object: Gtk.Widget) => void)): number
     connect_after(sigName: "add", callback: (($obj: TransferButton, object: Gtk.Widget) => void)): number
     emit(sigName: "add", object: Gtk.Widget): void
@@ -25465,7 +25465,7 @@ export class TransferButton {
     connect(sigName: "set-focus-child", callback: (($obj: TransferButton, object: Gtk.Widget) => void)): number
     connect_after(sigName: "set-focus-child", callback: (($obj: TransferButton, object: Gtk.Widget) => void)): number
     emit(sigName: "set-focus-child", object: Gtk.Widget): void
-    /* Signals of Gtk.Widget */
+    /* Signals of Gtk-3.0.Gtk.Widget */
     connect(sigName: "accel-closures-changed", callback: (($obj: TransferButton) => void)): number
     connect_after(sigName: "accel-closures-changed", callback: (($obj: TransferButton) => void)): number
     emit(sigName: "accel-closures-changed"): void
@@ -25673,7 +25673,7 @@ export class TransferButton {
     connect(sigName: "window-state-event", callback: (($obj: TransferButton, event: Gdk.EventWindowState) => boolean)): number
     connect_after(sigName: "window-state-event", callback: (($obj: TransferButton, event: Gdk.EventWindowState) => boolean)): number
     emit(sigName: "window-state-event", event: Gdk.EventWindowState): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: TransferButton, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: TransferButton, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -25806,26 +25806,26 @@ export class TransferButton {
 export interface TransferManager_ConstructProps extends Object_ConstructProps {
 }
 export class TransferManager {
-    /* Properties of Ide.TransferManager */
+    /* Properties of Ide-1.0.Ide.TransferManager */
     readonly has_active: boolean
     readonly progress: number
-    /* Fields of Ide.Object */
+    /* Fields of Ide-1.0.Ide.Object */
     parent_instance: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Ide.TransferManager */
+    /* Methods of Ide-1.0.Ide.TransferManager */
     cancel_all(): void
     clear(): void
     execute_async(transfer: Transfer, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     execute_finish(result: Gio.AsyncResult): boolean
     get_has_active(): boolean
     get_progress(): number
-    /* Methods of Ide.Object */
+    /* Methods of Ide-1.0.Ide.Object */
     get_context(): Context
     hold(): boolean
     release(): void
     set_context(context: Context): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -25847,20 +25847,20 @@ export class TransferManager {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of Gio.ListModel */
+    /* Methods of Gio-2.0.Gio.ListModel */
     get_item_type(): GObject.Type
     get_n_items(): number
     get_item(position: number): GObject.Object | null
     items_changed(position: number, removed: number, added: number): void
-    /* Virtual methods of Ide.TransferManager */
+    /* Virtual methods of Ide-1.0.Ide.TransferManager */
     vfunc_get_item(position: number): GObject.Object | null
     vfunc_get_item_type(): GObject.Type
     vfunc_get_n_items(): number
-    /* Virtual methods of Ide.Object */
+    /* Virtual methods of Ide-1.0.Ide.Object */
     vfunc_destroy(): void
     vfunc_get_context(): Context
     vfunc_set_context(context: Context): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -25868,7 +25868,7 @@ export class TransferManager {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Ide.TransferManager */
+    /* Signals of Ide-1.0.Ide.TransferManager */
     connect(sigName: "all-transfers-completed", callback: (($obj: TransferManager) => void)): number
     connect_after(sigName: "all-transfers-completed", callback: (($obj: TransferManager) => void)): number
     emit(sigName: "all-transfers-completed"): void
@@ -25878,15 +25878,15 @@ export class TransferManager {
     connect(sigName: "transfer-failed", callback: (($obj: TransferManager, transfer: Transfer, reason: GLib.Error) => void)): number
     connect_after(sigName: "transfer-failed", callback: (($obj: TransferManager, transfer: Transfer, reason: GLib.Error) => void)): number
     emit(sigName: "transfer-failed", transfer: Transfer, reason: GLib.Error): void
-    /* Signals of Ide.Object */
+    /* Signals of Ide-1.0.Ide.Object */
     connect(sigName: "destroy", callback: (($obj: TransferManager) => void)): number
     connect_after(sigName: "destroy", callback: (($obj: TransferManager) => void)): number
     emit(sigName: "destroy"): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: TransferManager, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: TransferManager, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    /* Signals of Gio.ListModel */
+    /* Signals of Gio-2.0.Gio.ListModel */
     connect(sigName: "items-changed", callback: (($obj: TransferManager, position: number, removed: number, added: number) => void)): number
     connect_after(sigName: "items-changed", callback: (($obj: TransferManager, position: number, removed: number, added: number) => void)): number
     emit(sigName: "items-changed", position: number, removed: number, added: number): void
@@ -25907,16 +25907,16 @@ export interface TransferRow_ConstructProps extends Gtk.ListBoxRow_ConstructProp
     transfer?: Transfer
 }
 export class TransferRow {
-    /* Properties of Ide.TransferRow */
+    /* Properties of Ide-1.0.Ide.TransferRow */
     transfer: Transfer
-    /* Properties of Gtk.ListBoxRow */
+    /* Properties of Gtk-3.0.Gtk.ListBoxRow */
     activatable: boolean
     selectable: boolean
-    /* Properties of Gtk.Container */
+    /* Properties of Gtk-3.0.Gtk.Container */
     border_width: number
     child: Gtk.Widget
     resize_mode: Gtk.ResizeMode
-    /* Properties of Gtk.Widget */
+    /* Properties of Gtk-3.0.Gtk.Widget */
     app_paintable: boolean
     can_default: boolean
     can_focus: boolean
@@ -25956,18 +25956,18 @@ export class TransferRow {
     visible: boolean
     width_request: number
     readonly window: Gdk.Window
-    /* Fields of Gtk.ListBoxRow */
+    /* Fields of Gtk-3.0.Gtk.ListBoxRow */
     parent_instance: Gtk.Bin
-    /* Fields of Gtk.Bin */
+    /* Fields of Gtk-3.0.Gtk.Bin */
     container: Gtk.Container
-    /* Fields of Gtk.Container */
+    /* Fields of Gtk-3.0.Gtk.Container */
     widget: Gtk.Widget
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Ide.TransferRow */
+    /* Methods of Ide-1.0.Ide.TransferRow */
     get_transfer(): Transfer | null
     set_transfer(transfer: Transfer): void
-    /* Methods of Gtk.ListBoxRow */
+    /* Methods of Gtk-3.0.Gtk.ListBoxRow */
     changed(): void
     get_activatable(): boolean
     get_header(): Gtk.Widget | null
@@ -25977,9 +25977,9 @@ export class TransferRow {
     set_activatable(activatable: boolean): void
     set_header(header?: Gtk.Widget | null): void
     set_selectable(selectable: boolean): void
-    /* Methods of Gtk.Bin */
+    /* Methods of Gtk-3.0.Gtk.Bin */
     get_child(): Gtk.Widget | null
-    /* Methods of Gtk.Container */
+    /* Methods of Gtk-3.0.Gtk.Container */
     add(widget: Gtk.Widget): void
     check_resize(): void
     child_get_property(child: Gtk.Widget, property_name: string, value: any): void
@@ -26007,7 +26007,7 @@ export class TransferRow {
     set_reallocate_redraws(needs_redraws: boolean): void
     set_resize_mode(resize_mode: Gtk.ResizeMode): void
     unset_focus_chain(): void
-    /* Methods of Gtk.Widget */
+    /* Methods of Gtk-3.0.Gtk.Widget */
     activate(): boolean
     add_accelerator(accel_signal: string, accel_group: Gtk.AccelGroup, accel_key: number, accel_mods: Gdk.ModifierType, accel_flags: Gtk.AccelFlags): void
     add_device_events(device: Gdk.Device, events: Gdk.EventMask): void
@@ -26266,7 +26266,7 @@ export class TransferRow {
     unrealize(): void
     unregister_window(window: Gdk.Window): void
     unset_state_flags(flags: Gtk.StateFlags): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -26288,7 +26288,7 @@ export class TransferRow {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of Gtk.Buildable */
+    /* Methods of Gtk-3.0.Gtk.Buildable */
     add_child(builder: Gtk.Builder, child: GObject.Object, type?: string | null): void
     construct_child(builder: Gtk.Builder, name: string): GObject.Object
     custom_finished(builder: Gtk.Builder, child: GObject.Object | null, tagname: string, data?: object | null): void
@@ -26297,7 +26297,7 @@ export class TransferRow {
     get_internal_child(builder: Gtk.Builder, childname: string): GObject.Object
     parser_finished(builder: Gtk.Builder): void
     set_buildable_property(builder: Gtk.Builder, name: string, value: any): void
-    /* Virtual methods of Ide.TransferRow */
+    /* Virtual methods of Ide-1.0.Ide.TransferRow */
     vfunc_add_child(builder: Gtk.Builder, child: GObject.Object, type?: string | null): void
     vfunc_construct_child(builder: Gtk.Builder, name: string): GObject.Object
     vfunc_custom_finished(builder: Gtk.Builder, child: GObject.Object | null, tagname: string, data?: object | null): void
@@ -26308,9 +26308,9 @@ export class TransferRow {
     vfunc_parser_finished(builder: Gtk.Builder): void
     vfunc_set_buildable_property(builder: Gtk.Builder, name: string, value: any): void
     vfunc_set_name(name: string): void
-    /* Virtual methods of Gtk.ListBoxRow */
+    /* Virtual methods of Gtk-3.0.Gtk.ListBoxRow */
     vfunc_activate(): void
-    /* Virtual methods of Gtk.Container */
+    /* Virtual methods of Gtk-3.0.Gtk.Container */
     vfunc_add(widget: Gtk.Widget): void
     vfunc_check_resize(): void
     vfunc_child_type(): GObject.Type
@@ -26321,7 +26321,7 @@ export class TransferRow {
     vfunc_remove(widget: Gtk.Widget): void
     vfunc_set_child_property(child: Gtk.Widget, property_id: number, value: any, pspec: GObject.ParamSpec): void
     vfunc_set_focus_child(child?: Gtk.Widget | null): void
-    /* Virtual methods of Gtk.Widget */
+    /* Virtual methods of Gtk-3.0.Gtk.Widget */
     vfunc_adjust_baseline_allocation(baseline: number): void
     vfunc_adjust_baseline_request(minimum_baseline: number, natural_baseline: number): void
     vfunc_adjust_size_allocation(orientation: Gtk.Orientation, minimum_size: number, natural_size: number, allocated_pos: number, allocated_size: number): void
@@ -26404,7 +26404,7 @@ export class TransferRow {
     vfunc_unrealize(): void
     vfunc_visibility_notify_event(event: Gdk.EventVisibility): boolean
     vfunc_window_state_event(event: Gdk.EventWindowState): boolean
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -26412,15 +26412,15 @@ export class TransferRow {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Ide.TransferRow */
+    /* Signals of Ide-1.0.Ide.TransferRow */
     connect(sigName: "cancelled", callback: (($obj: TransferRow) => void)): number
     connect_after(sigName: "cancelled", callback: (($obj: TransferRow) => void)): number
     emit(sigName: "cancelled"): void
-    /* Signals of Gtk.ListBoxRow */
+    /* Signals of Gtk-3.0.Gtk.ListBoxRow */
     connect(sigName: "activate", callback: (($obj: TransferRow) => void)): number
     connect_after(sigName: "activate", callback: (($obj: TransferRow) => void)): number
     emit(sigName: "activate"): void
-    /* Signals of Gtk.Container */
+    /* Signals of Gtk-3.0.Gtk.Container */
     connect(sigName: "add", callback: (($obj: TransferRow, object: Gtk.Widget) => void)): number
     connect_after(sigName: "add", callback: (($obj: TransferRow, object: Gtk.Widget) => void)): number
     emit(sigName: "add", object: Gtk.Widget): void
@@ -26433,7 +26433,7 @@ export class TransferRow {
     connect(sigName: "set-focus-child", callback: (($obj: TransferRow, object: Gtk.Widget) => void)): number
     connect_after(sigName: "set-focus-child", callback: (($obj: TransferRow, object: Gtk.Widget) => void)): number
     emit(sigName: "set-focus-child", object: Gtk.Widget): void
-    /* Signals of Gtk.Widget */
+    /* Signals of Gtk-3.0.Gtk.Widget */
     connect(sigName: "accel-closures-changed", callback: (($obj: TransferRow) => void)): number
     connect_after(sigName: "accel-closures-changed", callback: (($obj: TransferRow) => void)): number
     emit(sigName: "accel-closures-changed"): void
@@ -26641,7 +26641,7 @@ export class TransferRow {
     connect(sigName: "window-state-event", callback: (($obj: TransferRow, event: Gdk.EventWindowState) => boolean)): number
     connect_after(sigName: "window-state-event", callback: (($obj: TransferRow, event: Gdk.EventWindowState) => boolean)): number
     emit(sigName: "window-state-event", event: Gdk.EventWindowState): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: TransferRow, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: TransferRow, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -26751,18 +26751,18 @@ export interface TransfersButton_ConstructProps extends Gtk.MenuButton_Construct
     use_action_appearance?: boolean
 }
 export class TransfersButton {
-    /* Properties of Gtk.MenuButton */
+    /* Properties of Gtk-3.0.Gtk.MenuButton */
     align_widget: Gtk.Container
     direction: Gtk.ArrowType
     menu_model: Gio.MenuModel
     popover: Gtk.Popover
     popup: Gtk.Menu
     use_popover: boolean
-    /* Properties of Gtk.ToggleButton */
+    /* Properties of Gtk-3.0.Gtk.ToggleButton */
     active: boolean
     draw_indicator: boolean
     inconsistent: boolean
-    /* Properties of Gtk.Button */
+    /* Properties of Gtk-3.0.Gtk.Button */
     always_show_image: boolean
     image: Gtk.Widget
     image_position: Gtk.PositionType
@@ -26772,11 +26772,11 @@ export class TransfersButton {
     use_underline: boolean
     xalign: number
     yalign: number
-    /* Properties of Gtk.Container */
+    /* Properties of Gtk-3.0.Gtk.Container */
     border_width: number
     child: Gtk.Widget
     resize_mode: Gtk.ResizeMode
-    /* Properties of Gtk.Widget */
+    /* Properties of Gtk-3.0.Gtk.Widget */
     app_paintable: boolean
     can_default: boolean
     can_focus: boolean
@@ -26816,21 +26816,21 @@ export class TransfersButton {
     visible: boolean
     width_request: number
     readonly window: Gdk.Window
-    /* Properties of Gtk.Actionable */
+    /* Properties of Gtk-3.0.Gtk.Actionable */
     action_name: string
     action_target: GLib.Variant
-    /* Properties of Gtk.Activatable */
+    /* Properties of Gtk-3.0.Gtk.Activatable */
     related_action: Gtk.Action
     use_action_appearance: boolean
-    /* Fields of Gtk.Bin */
+    /* Fields of Gtk-3.0.Gtk.Bin */
     container: Gtk.Container
-    /* Fields of Gtk.Container */
+    /* Fields of Gtk-3.0.Gtk.Container */
     widget: Gtk.Widget
-    /* Fields of Gtk.Widget */
+    /* Fields of Gtk-3.0.Gtk.Widget */
     parent_instance: GObject.InitiallyUnowned
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Gtk.MenuButton */
+    /* Methods of Gtk-3.0.Gtk.MenuButton */
     get_align_widget(): Gtk.Widget | null
     get_direction(): Gtk.ArrowType
     get_menu_model(): Gio.MenuModel | null
@@ -26843,7 +26843,7 @@ export class TransfersButton {
     set_popover(popover?: Gtk.Widget | null): void
     set_popup(menu?: Gtk.Widget | null): void
     set_use_popover(use_popover: boolean): void
-    /* Methods of Gtk.ToggleButton */
+    /* Methods of Gtk-3.0.Gtk.ToggleButton */
     get_active(): boolean
     get_inconsistent(): boolean
     get_mode(): boolean
@@ -26851,7 +26851,7 @@ export class TransfersButton {
     set_inconsistent(setting: boolean): void
     set_mode(draw_indicator: boolean): void
     toggled(): void
-    /* Methods of Gtk.Button */
+    /* Methods of Gtk-3.0.Gtk.Button */
     clicked(): void
     enter(): void
     get_alignment(): [ /* xalign */ number, /* yalign */ number ]
@@ -26876,9 +26876,9 @@ export class TransfersButton {
     set_relief(relief: Gtk.ReliefStyle): void
     set_use_stock(use_stock: boolean): void
     set_use_underline(use_underline: boolean): void
-    /* Methods of Gtk.Bin */
+    /* Methods of Gtk-3.0.Gtk.Bin */
     get_child(): Gtk.Widget | null
-    /* Methods of Gtk.Container */
+    /* Methods of Gtk-3.0.Gtk.Container */
     add(widget: Gtk.Widget): void
     check_resize(): void
     child_get_property(child: Gtk.Widget, property_name: string, value: any): void
@@ -26906,7 +26906,7 @@ export class TransfersButton {
     set_reallocate_redraws(needs_redraws: boolean): void
     set_resize_mode(resize_mode: Gtk.ResizeMode): void
     unset_focus_chain(): void
-    /* Methods of Gtk.Widget */
+    /* Methods of Gtk-3.0.Gtk.Widget */
     activate(): boolean
     add_accelerator(accel_signal: string, accel_group: Gtk.AccelGroup, accel_key: number, accel_mods: Gdk.ModifierType, accel_flags: Gtk.AccelFlags): void
     add_device_events(device: Gdk.Device, events: Gdk.EventMask): void
@@ -27163,7 +27163,7 @@ export class TransfersButton {
     unrealize(): void
     unregister_window(window: Gdk.Window): void
     unset_state_flags(flags: Gtk.StateFlags): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -27185,20 +27185,20 @@ export class TransfersButton {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of Gtk.Actionable */
+    /* Methods of Gtk-3.0.Gtk.Actionable */
     get_action_name(): string | null
     get_action_target_value(): GLib.Variant
     set_action_name(action_name?: string | null): void
     set_action_target_value(target_value?: GLib.Variant | null): void
     set_detailed_action_name(detailed_action_name: string): void
-    /* Methods of Gtk.Activatable */
+    /* Methods of Gtk-3.0.Gtk.Activatable */
     do_set_related_action(action: Gtk.Action): void
     get_related_action(): Gtk.Action
     get_use_action_appearance(): boolean
     set_related_action(action: Gtk.Action): void
     set_use_action_appearance(use_appearance: boolean): void
     sync_action_properties(action?: Gtk.Action | null): void
-    /* Methods of Gtk.Buildable */
+    /* Methods of Gtk-3.0.Gtk.Buildable */
     add_child(builder: Gtk.Builder, child: GObject.Object, type?: string | null): void
     construct_child(builder: Gtk.Builder, name: string): GObject.Object
     custom_finished(builder: Gtk.Builder, child: GObject.Object | null, tagname: string, data?: object | null): void
@@ -27207,7 +27207,7 @@ export class TransfersButton {
     get_internal_child(builder: Gtk.Builder, childname: string): GObject.Object
     parser_finished(builder: Gtk.Builder): void
     set_buildable_property(builder: Gtk.Builder, name: string, value: any): void
-    /* Virtual methods of Ide.TransfersButton */
+    /* Virtual methods of Ide-1.0.Ide.TransfersButton */
     vfunc_get_action_name(): string | null
     vfunc_get_action_target_value(): GLib.Variant
     vfunc_set_action_name(action_name?: string | null): void
@@ -27224,16 +27224,16 @@ export class TransfersButton {
     vfunc_parser_finished(builder: Gtk.Builder): void
     vfunc_set_buildable_property(builder: Gtk.Builder, name: string, value: any): void
     vfunc_set_name(name: string): void
-    /* Virtual methods of Gtk.ToggleButton */
+    /* Virtual methods of Gtk-3.0.Gtk.ToggleButton */
     vfunc_toggled(): void
-    /* Virtual methods of Gtk.Button */
+    /* Virtual methods of Gtk-3.0.Gtk.Button */
     vfunc_activate(): void
     vfunc_clicked(): void
     vfunc_enter(): void
     vfunc_leave(): void
     vfunc_pressed(): void
     vfunc_released(): void
-    /* Virtual methods of Gtk.Container */
+    /* Virtual methods of Gtk-3.0.Gtk.Container */
     vfunc_add(widget: Gtk.Widget): void
     vfunc_check_resize(): void
     vfunc_child_type(): GObject.Type
@@ -27244,7 +27244,7 @@ export class TransfersButton {
     vfunc_remove(widget: Gtk.Widget): void
     vfunc_set_child_property(child: Gtk.Widget, property_id: number, value: any, pspec: GObject.ParamSpec): void
     vfunc_set_focus_child(child?: Gtk.Widget | null): void
-    /* Virtual methods of Gtk.Widget */
+    /* Virtual methods of Gtk-3.0.Gtk.Widget */
     vfunc_adjust_baseline_allocation(baseline: number): void
     vfunc_adjust_baseline_request(minimum_baseline: number, natural_baseline: number): void
     vfunc_adjust_size_allocation(orientation: Gtk.Orientation, minimum_size: number, natural_size: number, allocated_pos: number, allocated_size: number): void
@@ -27327,7 +27327,7 @@ export class TransfersButton {
     vfunc_unrealize(): void
     vfunc_visibility_notify_event(event: Gdk.EventVisibility): boolean
     vfunc_window_state_event(event: Gdk.EventWindowState): boolean
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -27335,11 +27335,11 @@ export class TransfersButton {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gtk.ToggleButton */
+    /* Signals of Gtk-3.0.Gtk.ToggleButton */
     connect(sigName: "toggled", callback: (($obj: TransfersButton) => void)): number
     connect_after(sigName: "toggled", callback: (($obj: TransfersButton) => void)): number
     emit(sigName: "toggled"): void
-    /* Signals of Gtk.Button */
+    /* Signals of Gtk-3.0.Gtk.Button */
     connect(sigName: "activate", callback: (($obj: TransfersButton) => void)): number
     connect_after(sigName: "activate", callback: (($obj: TransfersButton) => void)): number
     emit(sigName: "activate"): void
@@ -27358,7 +27358,7 @@ export class TransfersButton {
     connect(sigName: "released", callback: (($obj: TransfersButton) => void)): number
     connect_after(sigName: "released", callback: (($obj: TransfersButton) => void)): number
     emit(sigName: "released"): void
-    /* Signals of Gtk.Container */
+    /* Signals of Gtk-3.0.Gtk.Container */
     connect(sigName: "add", callback: (($obj: TransfersButton, object: Gtk.Widget) => void)): number
     connect_after(sigName: "add", callback: (($obj: TransfersButton, object: Gtk.Widget) => void)): number
     emit(sigName: "add", object: Gtk.Widget): void
@@ -27371,7 +27371,7 @@ export class TransfersButton {
     connect(sigName: "set-focus-child", callback: (($obj: TransfersButton, object: Gtk.Widget) => void)): number
     connect_after(sigName: "set-focus-child", callback: (($obj: TransfersButton, object: Gtk.Widget) => void)): number
     emit(sigName: "set-focus-child", object: Gtk.Widget): void
-    /* Signals of Gtk.Widget */
+    /* Signals of Gtk-3.0.Gtk.Widget */
     connect(sigName: "accel-closures-changed", callback: (($obj: TransfersButton) => void)): number
     connect_after(sigName: "accel-closures-changed", callback: (($obj: TransfersButton) => void)): number
     emit(sigName: "accel-closures-changed"): void
@@ -27579,7 +27579,7 @@ export class TransfersButton {
     connect(sigName: "window-state-event", callback: (($obj: TransfersButton, event: Gdk.EventWindowState) => boolean)): number
     connect_after(sigName: "window-state-event", callback: (($obj: TransfersButton, event: Gdk.EventWindowState) => boolean)): number
     emit(sigName: "window-state-event", event: Gdk.EventWindowState): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: TransfersButton, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: TransfersButton, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -27726,9 +27726,9 @@ export interface TransfersProgressIcon_ConstructProps extends Gtk.DrawingArea_Co
     progress?: number
 }
 export class TransfersProgressIcon {
-    /* Properties of Ide.TransfersProgressIcon */
+    /* Properties of Ide-1.0.Ide.TransfersProgressIcon */
     progress: number
-    /* Properties of Gtk.Widget */
+    /* Properties of Gtk-3.0.Gtk.Widget */
     app_paintable: boolean
     can_default: boolean
     can_focus: boolean
@@ -27768,16 +27768,16 @@ export class TransfersProgressIcon {
     visible: boolean
     width_request: number
     readonly window: Gdk.Window
-    /* Fields of Gtk.DrawingArea */
+    /* Fields of Gtk-3.0.Gtk.DrawingArea */
     widget: Gtk.Widget
-    /* Fields of Gtk.Widget */
+    /* Fields of Gtk-3.0.Gtk.Widget */
     parent_instance: GObject.InitiallyUnowned
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Ide.TransfersProgressIcon */
+    /* Methods of Ide-1.0.Ide.TransfersProgressIcon */
     get_progress(): number
     set_progress(progress: number): void
-    /* Methods of Gtk.Widget */
+    /* Methods of Gtk-3.0.Gtk.Widget */
     activate(): boolean
     add_accelerator(accel_signal: string, accel_group: Gtk.AccelGroup, accel_key: number, accel_mods: Gdk.ModifierType, accel_flags: Gtk.AccelFlags): void
     add_device_events(device: Gdk.Device, events: Gdk.EventMask): void
@@ -28036,7 +28036,7 @@ export class TransfersProgressIcon {
     unrealize(): void
     unregister_window(window: Gdk.Window): void
     unset_state_flags(flags: Gtk.StateFlags): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -28058,7 +28058,7 @@ export class TransfersProgressIcon {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of Gtk.Buildable */
+    /* Methods of Gtk-3.0.Gtk.Buildable */
     add_child(builder: Gtk.Builder, child: GObject.Object, type?: string | null): void
     construct_child(builder: Gtk.Builder, name: string): GObject.Object
     custom_finished(builder: Gtk.Builder, child: GObject.Object | null, tagname: string, data?: object | null): void
@@ -28067,7 +28067,7 @@ export class TransfersProgressIcon {
     get_internal_child(builder: Gtk.Builder, childname: string): GObject.Object
     parser_finished(builder: Gtk.Builder): void
     set_buildable_property(builder: Gtk.Builder, name: string, value: any): void
-    /* Virtual methods of Ide.TransfersProgressIcon */
+    /* Virtual methods of Ide-1.0.Ide.TransfersProgressIcon */
     vfunc_add_child(builder: Gtk.Builder, child: GObject.Object, type?: string | null): void
     vfunc_construct_child(builder: Gtk.Builder, name: string): GObject.Object
     vfunc_custom_finished(builder: Gtk.Builder, child: GObject.Object | null, tagname: string, data?: object | null): void
@@ -28078,7 +28078,7 @@ export class TransfersProgressIcon {
     vfunc_parser_finished(builder: Gtk.Builder): void
     vfunc_set_buildable_property(builder: Gtk.Builder, name: string, value: any): void
     vfunc_set_name(name: string): void
-    /* Virtual methods of Gtk.Widget */
+    /* Virtual methods of Gtk-3.0.Gtk.Widget */
     vfunc_adjust_baseline_allocation(baseline: number): void
     vfunc_adjust_baseline_request(minimum_baseline: number, natural_baseline: number): void
     vfunc_adjust_size_allocation(orientation: Gtk.Orientation, minimum_size: number, natural_size: number, allocated_pos: number, allocated_size: number): void
@@ -28161,7 +28161,7 @@ export class TransfersProgressIcon {
     vfunc_unrealize(): void
     vfunc_visibility_notify_event(event: Gdk.EventVisibility): boolean
     vfunc_window_state_event(event: Gdk.EventWindowState): boolean
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -28169,7 +28169,7 @@ export class TransfersProgressIcon {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gtk.Widget */
+    /* Signals of Gtk-3.0.Gtk.Widget */
     connect(sigName: "accel-closures-changed", callback: (($obj: TransfersProgressIcon) => void)): number
     connect_after(sigName: "accel-closures-changed", callback: (($obj: TransfersProgressIcon) => void)): number
     emit(sigName: "accel-closures-changed"): void
@@ -28377,7 +28377,7 @@ export class TransfersProgressIcon {
     connect(sigName: "window-state-event", callback: (($obj: TransfersProgressIcon, event: Gdk.EventWindowState) => boolean)): number
     connect_after(sigName: "window-state-event", callback: (($obj: TransfersProgressIcon, event: Gdk.EventWindowState) => boolean)): number
     emit(sigName: "window-state-event", event: Gdk.EventWindowState): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: TransfersProgressIcon, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: TransfersProgressIcon, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -28475,11 +28475,11 @@ export class TransfersProgressIcon {
 export interface UnsavedFiles_ConstructProps extends Object_ConstructProps {
 }
 export class UnsavedFiles {
-    /* Fields of Ide.UnsavedFiles */
+    /* Fields of Ide-1.0.Ide.UnsavedFiles */
     parent_instance: Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Ide.UnsavedFiles */
+    /* Methods of Ide-1.0.Ide.UnsavedFiles */
     clear(): void
     contains(file: Gio.File): boolean
     get_sequence(): number
@@ -28491,12 +28491,12 @@ export class UnsavedFiles {
     save_finish(result: Gio.AsyncResult): boolean
     to_array(): UnsavedFile[]
     update(file: Gio.File, content: GLib.Bytes): void
-    /* Methods of Ide.Object */
+    /* Methods of Ide-1.0.Ide.Object */
     get_context(): Context
     hold(): boolean
     release(): void
     set_context(context: Context): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -28518,11 +28518,11 @@ export class UnsavedFiles {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Ide.Object */
+    /* Virtual methods of Ide-1.0.Ide.Object */
     vfunc_destroy(): void
     vfunc_get_context(): Context
     vfunc_set_context(context: Context): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -28530,11 +28530,11 @@ export class UnsavedFiles {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Ide.Object */
+    /* Signals of Ide-1.0.Ide.Object */
     connect(sigName: "destroy", callback: (($obj: UnsavedFiles) => void)): number
     connect_after(sigName: "destroy", callback: (($obj: UnsavedFiles) => void)): number
     emit(sigName: "destroy"): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: UnsavedFiles, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: UnsavedFiles, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -28553,13 +28553,13 @@ export interface Workbench_ConstructProps extends Gtk.ApplicationWindow_Construc
     visible_perspective_name?: string
 }
 export class Workbench {
-    /* Properties of Ide.Workbench */
+    /* Properties of Ide-1.0.Ide.Workbench */
     readonly context: Context
     visible_perspective: Perspective
     visible_perspective_name: string
-    /* Properties of Gtk.ApplicationWindow */
+    /* Properties of Gtk-3.0.Gtk.ApplicationWindow */
     show_menubar: boolean
-    /* Properties of Gtk.Window */
+    /* Properties of Gtk-3.0.Gtk.Window */
     accept_focus: boolean
     application: Gtk.Application
     attached_to: Gtk.Widget
@@ -28592,11 +28592,11 @@ export class Workbench {
     type_hint: Gdk.WindowTypeHint
     urgency_hint: boolean
     window_position: Gtk.WindowPosition
-    /* Properties of Gtk.Container */
+    /* Properties of Gtk-3.0.Gtk.Container */
     border_width: number
     child: Gtk.Widget
     resize_mode: Gtk.ResizeMode
-    /* Properties of Gtk.Widget */
+    /* Properties of Gtk-3.0.Gtk.Widget */
     app_paintable: boolean
     can_default: boolean
     can_focus: boolean
@@ -28636,18 +28636,18 @@ export class Workbench {
     visible: boolean
     width_request: number
     readonly window: Gdk.Window
-    /* Fields of Gtk.ApplicationWindow */
+    /* Fields of Gtk-3.0.Gtk.ApplicationWindow */
     parent_instance: Gtk.Window
-    /* Fields of Gtk.Window */
+    /* Fields of Gtk-3.0.Gtk.Window */
     bin: Gtk.Bin
     priv: Gtk.WindowPrivate
-    /* Fields of Gtk.Bin */
+    /* Fields of Gtk-3.0.Gtk.Bin */
     container: Gtk.Container
-    /* Fields of Gtk.Container */
+    /* Fields of Gtk-3.0.Gtk.Container */
     widget: Gtk.Widget
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Ide.Workbench */
+    /* Methods of Ide-1.0.Ide.Workbench */
     add_perspective(perspective: Perspective): void
     close(): void
     focus(widget: Gtk.Widget): void
@@ -28672,13 +28672,13 @@ export class Workbench {
     set_visible_perspective(perspective: Perspective): void
     set_visible_perspective_name(name: string): void
     views_foreach(callback: Gtk.Callback): void
-    /* Methods of Gtk.ApplicationWindow */
+    /* Methods of Gtk-3.0.Gtk.ApplicationWindow */
     get_help_overlay(): Gtk.ShortcutsWindow | null
     get_id(): number
     get_show_menubar(): boolean
     set_help_overlay(help_overlay?: Gtk.ShortcutsWindow | null): void
     set_show_menubar(show_menubar: boolean): void
-    /* Methods of Gtk.Window */
+    /* Methods of Gtk-3.0.Gtk.Window */
     activate_default(): boolean
     activate_focus(): boolean
     activate_key(event: Gdk.EventKey): boolean
@@ -28784,9 +28784,9 @@ export class Workbench {
     unfullscreen(): void
     unmaximize(): void
     unstick(): void
-    /* Methods of Gtk.Bin */
+    /* Methods of Gtk-3.0.Gtk.Bin */
     get_child(): Gtk.Widget | null
-    /* Methods of Gtk.Container */
+    /* Methods of Gtk-3.0.Gtk.Container */
     add(widget: Gtk.Widget): void
     check_resize(): void
     child_get_property(child: Gtk.Widget, property_name: string, value: any): void
@@ -28814,7 +28814,7 @@ export class Workbench {
     set_reallocate_redraws(needs_redraws: boolean): void
     set_resize_mode(resize_mode: Gtk.ResizeMode): void
     unset_focus_chain(): void
-    /* Methods of Gtk.Widget */
+    /* Methods of Gtk-3.0.Gtk.Widget */
     activate(): boolean
     add_accelerator(accel_signal: string, accel_group: Gtk.AccelGroup, accel_key: number, accel_mods: Gdk.ModifierType, accel_flags: Gtk.AccelFlags): void
     add_device_events(device: Gdk.Device, events: Gdk.EventMask): void
@@ -29070,7 +29070,7 @@ export class Workbench {
     unrealize(): void
     unregister_window(window: Gdk.Window): void
     unset_state_flags(flags: Gtk.StateFlags): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -29092,7 +29092,7 @@ export class Workbench {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of Gio.ActionGroup */
+    /* Methods of Gio-2.0.Gio.ActionGroup */
     action_added(action_name: string): void
     action_enabled_changed(action_name: string, enabled: boolean): void
     action_removed(action_name: string): void
@@ -29107,12 +29107,12 @@ export class Workbench {
     has_action(action_name: string): boolean
     list_actions(): string[]
     query_action(action_name: string): [ /* returnType */ boolean, /* enabled */ boolean, /* parameter_type */ GLib.VariantType | null, /* state_type */ GLib.VariantType | null, /* state_hint */ GLib.Variant | null, /* state */ GLib.Variant | null ]
-    /* Methods of Gio.ActionMap */
+    /* Methods of Gio-2.0.Gio.ActionMap */
     add_action(action: Gio.Action): void
     add_action_entries(entries: Gio.ActionEntry[], user_data?: object | null): void
     lookup_action(action_name: string): Gio.Action | null
     remove_action(action_name: string): void
-    /* Methods of Gtk.Buildable */
+    /* Methods of Gtk-3.0.Gtk.Buildable */
     add_child(builder: Gtk.Builder, child: GObject.Object, type?: string | null): void
     construct_child(builder: Gtk.Builder, name: string): GObject.Object
     custom_finished(builder: Gtk.Builder, child: GObject.Object | null, tagname: string, data?: object | null): void
@@ -29121,7 +29121,7 @@ export class Workbench {
     get_internal_child(builder: Gtk.Builder, childname: string): GObject.Object
     parser_finished(builder: Gtk.Builder): void
     set_buildable_property(builder: Gtk.Builder, name: string, value: any): void
-    /* Virtual methods of Ide.Workbench */
+    /* Virtual methods of Ide-1.0.Ide.Workbench */
     vfunc_add_child(builder: Gtk.Builder, child: GObject.Object, type?: string | null): void
     vfunc_construct_child(builder: Gtk.Builder, name: string): GObject.Object
     vfunc_custom_finished(builder: Gtk.Builder, child: GObject.Object | null, tagname: string, data?: object | null): void
@@ -29132,7 +29132,7 @@ export class Workbench {
     vfunc_parser_finished(builder: Gtk.Builder): void
     vfunc_set_buildable_property(builder: Gtk.Builder, name: string, value: any): void
     vfunc_set_name(name: string): void
-    /* Virtual methods of Gtk.ApplicationWindow */
+    /* Virtual methods of Gtk-3.0.Gtk.ApplicationWindow */
     vfunc_action_added(action_name: string): void
     vfunc_action_enabled_changed(action_name: string, enabled: boolean): void
     vfunc_action_removed(action_name: string): void
@@ -29150,13 +29150,13 @@ export class Workbench {
     vfunc_add_action(action: Gio.Action): void
     vfunc_lookup_action(action_name: string): Gio.Action | null
     vfunc_remove_action(action_name: string): void
-    /* Virtual methods of Gtk.Window */
+    /* Virtual methods of Gtk-3.0.Gtk.Window */
     vfunc_activate_default(): void
     vfunc_activate_focus(): void
     vfunc_enable_debugging(toggle: boolean): boolean
     vfunc_keys_changed(): void
     vfunc_set_focus(focus?: Gtk.Widget | null): void
-    /* Virtual methods of Gtk.Container */
+    /* Virtual methods of Gtk-3.0.Gtk.Container */
     vfunc_add(widget: Gtk.Widget): void
     vfunc_check_resize(): void
     vfunc_child_type(): GObject.Type
@@ -29167,7 +29167,7 @@ export class Workbench {
     vfunc_remove(widget: Gtk.Widget): void
     vfunc_set_child_property(child: Gtk.Widget, property_id: number, value: any, pspec: GObject.ParamSpec): void
     vfunc_set_focus_child(child?: Gtk.Widget | null): void
-    /* Virtual methods of Gtk.Widget */
+    /* Virtual methods of Gtk-3.0.Gtk.Widget */
     vfunc_adjust_baseline_allocation(baseline: number): void
     vfunc_adjust_baseline_request(minimum_baseline: number, natural_baseline: number): void
     vfunc_adjust_size_allocation(orientation: Gtk.Orientation, minimum_size: number, natural_size: number, allocated_pos: number, allocated_size: number): void
@@ -29250,7 +29250,7 @@ export class Workbench {
     vfunc_unrealize(): void
     vfunc_visibility_notify_event(event: Gdk.EventVisibility): boolean
     vfunc_window_state_event(event: Gdk.EventWindowState): boolean
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -29258,7 +29258,7 @@ export class Workbench {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Ide.Workbench */
+    /* Signals of Ide-1.0.Ide.Workbench */
     connect(sigName: "action", callback: (($obj: Workbench, object: string, p0: string, p1: string) => void)): number
     connect_after(sigName: "action", callback: (($obj: Workbench, object: string, p0: string, p1: string) => void)): number
     emit(sigName: "action", object: string, p0: string, p1: string): void
@@ -29268,7 +29268,7 @@ export class Workbench {
     connect(sigName: "unload", callback: (($obj: Workbench, object: Context) => void)): number
     connect_after(sigName: "unload", callback: (($obj: Workbench, object: Context) => void)): number
     emit(sigName: "unload", object: Context): void
-    /* Signals of Gtk.Window */
+    /* Signals of Gtk-3.0.Gtk.Window */
     connect(sigName: "activate-default", callback: (($obj: Workbench) => void)): number
     connect_after(sigName: "activate-default", callback: (($obj: Workbench) => void)): number
     emit(sigName: "activate-default"): void
@@ -29284,7 +29284,7 @@ export class Workbench {
     connect(sigName: "set-focus", callback: (($obj: Workbench, widget?: Gtk.Widget | null) => void)): number
     connect_after(sigName: "set-focus", callback: (($obj: Workbench, widget?: Gtk.Widget | null) => void)): number
     emit(sigName: "set-focus", widget?: Gtk.Widget | null): void
-    /* Signals of Gtk.Container */
+    /* Signals of Gtk-3.0.Gtk.Container */
     connect(sigName: "add", callback: (($obj: Workbench, object: Gtk.Widget) => void)): number
     connect_after(sigName: "add", callback: (($obj: Workbench, object: Gtk.Widget) => void)): number
     emit(sigName: "add", object: Gtk.Widget): void
@@ -29297,7 +29297,7 @@ export class Workbench {
     connect(sigName: "set-focus-child", callback: (($obj: Workbench, object: Gtk.Widget) => void)): number
     connect_after(sigName: "set-focus-child", callback: (($obj: Workbench, object: Gtk.Widget) => void)): number
     emit(sigName: "set-focus-child", object: Gtk.Widget): void
-    /* Signals of Gtk.Widget */
+    /* Signals of Gtk-3.0.Gtk.Widget */
     connect(sigName: "accel-closures-changed", callback: (($obj: Workbench) => void)): number
     connect_after(sigName: "accel-closures-changed", callback: (($obj: Workbench) => void)): number
     emit(sigName: "accel-closures-changed"): void
@@ -29505,11 +29505,11 @@ export class Workbench {
     connect(sigName: "window-state-event", callback: (($obj: Workbench, event: Gdk.EventWindowState) => boolean)): number
     connect_after(sigName: "window-state-event", callback: (($obj: Workbench, event: Gdk.EventWindowState) => boolean)): number
     emit(sigName: "window-state-event", event: Gdk.EventWindowState): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Workbench, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Workbench, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    /* Signals of Gio.ActionGroup */
+    /* Signals of Gio-2.0.Gio.ActionGroup */
     connect(sigName: "action-added", callback: (($obj: Workbench, action_name: string) => void)): number
     connect_after(sigName: "action-added", callback: (($obj: Workbench, action_name: string) => void)): number
     emit(sigName: "action-added", action_name: string): void
@@ -29693,7 +29693,7 @@ export class Workbench {
 export interface WorkbenchHeaderBar_ConstructProps extends Gtk.HeaderBar_ConstructProps {
 }
 export class WorkbenchHeaderBar {
-    /* Properties of Gtk.HeaderBar */
+    /* Properties of Gtk-3.0.Gtk.HeaderBar */
     custom_title: Gtk.Widget
     decoration_layout: string
     decoration_layout_set: boolean
@@ -29702,11 +29702,11 @@ export class WorkbenchHeaderBar {
     spacing: number
     subtitle: string
     title: string
-    /* Properties of Gtk.Container */
+    /* Properties of Gtk-3.0.Gtk.Container */
     border_width: number
     child: Gtk.Widget
     resize_mode: Gtk.ResizeMode
-    /* Properties of Gtk.Widget */
+    /* Properties of Gtk-3.0.Gtk.Widget */
     app_paintable: boolean
     can_default: boolean
     can_focus: boolean
@@ -29746,20 +29746,20 @@ export class WorkbenchHeaderBar {
     visible: boolean
     width_request: number
     readonly window: Gdk.Window
-    /* Fields of Ide.WorkbenchHeaderBar */
+    /* Fields of Ide-1.0.Ide.WorkbenchHeaderBar */
     parent_instance: Gtk.HeaderBar
-    /* Fields of Gtk.HeaderBar */
+    /* Fields of Gtk-3.0.Gtk.HeaderBar */
     container: Gtk.Container
-    /* Fields of Gtk.Container */
+    /* Fields of Gtk-3.0.Gtk.Container */
     widget: Gtk.Widget
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Ide.WorkbenchHeaderBar */
+    /* Methods of Ide-1.0.Ide.WorkbenchHeaderBar */
     focus_search(): void
     get_omni_bar(): OmniBar
     insert_left(widget: Gtk.Widget, pack_type: Gtk.PackType, priority: number): void
     insert_right(widget: Gtk.Widget, pack_type: Gtk.PackType, priority: number): void
-    /* Methods of Gtk.HeaderBar */
+    /* Methods of Gtk-3.0.Gtk.HeaderBar */
     get_custom_title(): Gtk.Widget | null
     get_decoration_layout(): string
     get_has_subtitle(): boolean
@@ -29774,7 +29774,7 @@ export class WorkbenchHeaderBar {
     set_show_close_button(setting: boolean): void
     set_subtitle(subtitle?: string | null): void
     set_title(title?: string | null): void
-    /* Methods of Gtk.Container */
+    /* Methods of Gtk-3.0.Gtk.Container */
     add(widget: Gtk.Widget): void
     check_resize(): void
     child_get_property(child: Gtk.Widget, property_name: string, value: any): void
@@ -29802,7 +29802,7 @@ export class WorkbenchHeaderBar {
     set_reallocate_redraws(needs_redraws: boolean): void
     set_resize_mode(resize_mode: Gtk.ResizeMode): void
     unset_focus_chain(): void
-    /* Methods of Gtk.Widget */
+    /* Methods of Gtk-3.0.Gtk.Widget */
     activate(): boolean
     add_accelerator(accel_signal: string, accel_group: Gtk.AccelGroup, accel_key: number, accel_mods: Gdk.ModifierType, accel_flags: Gtk.AccelFlags): void
     add_device_events(device: Gdk.Device, events: Gdk.EventMask): void
@@ -30061,7 +30061,7 @@ export class WorkbenchHeaderBar {
     unrealize(): void
     unregister_window(window: Gdk.Window): void
     unset_state_flags(flags: Gtk.StateFlags): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -30083,7 +30083,7 @@ export class WorkbenchHeaderBar {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of Gtk.Buildable */
+    /* Methods of Gtk-3.0.Gtk.Buildable */
     add_child(builder: Gtk.Builder, child: GObject.Object, type?: string | null): void
     construct_child(builder: Gtk.Builder, name: string): GObject.Object
     custom_finished(builder: Gtk.Builder, child: GObject.Object | null, tagname: string, data?: object | null): void
@@ -30092,7 +30092,7 @@ export class WorkbenchHeaderBar {
     get_internal_child(builder: Gtk.Builder, childname: string): GObject.Object
     parser_finished(builder: Gtk.Builder): void
     set_buildable_property(builder: Gtk.Builder, name: string, value: any): void
-    /* Virtual methods of Ide.WorkbenchHeaderBar */
+    /* Virtual methods of Ide-1.0.Ide.WorkbenchHeaderBar */
     vfunc_add_child(builder: Gtk.Builder, child: GObject.Object, type?: string | null): void
     vfunc_construct_child(builder: Gtk.Builder, name: string): GObject.Object
     vfunc_custom_finished(builder: Gtk.Builder, child: GObject.Object | null, tagname: string, data?: object | null): void
@@ -30103,7 +30103,7 @@ export class WorkbenchHeaderBar {
     vfunc_parser_finished(builder: Gtk.Builder): void
     vfunc_set_buildable_property(builder: Gtk.Builder, name: string, value: any): void
     vfunc_set_name(name: string): void
-    /* Virtual methods of Gtk.Container */
+    /* Virtual methods of Gtk-3.0.Gtk.Container */
     vfunc_add(widget: Gtk.Widget): void
     vfunc_check_resize(): void
     vfunc_child_type(): GObject.Type
@@ -30114,7 +30114,7 @@ export class WorkbenchHeaderBar {
     vfunc_remove(widget: Gtk.Widget): void
     vfunc_set_child_property(child: Gtk.Widget, property_id: number, value: any, pspec: GObject.ParamSpec): void
     vfunc_set_focus_child(child?: Gtk.Widget | null): void
-    /* Virtual methods of Gtk.Widget */
+    /* Virtual methods of Gtk-3.0.Gtk.Widget */
     vfunc_adjust_baseline_allocation(baseline: number): void
     vfunc_adjust_baseline_request(minimum_baseline: number, natural_baseline: number): void
     vfunc_adjust_size_allocation(orientation: Gtk.Orientation, minimum_size: number, natural_size: number, allocated_pos: number, allocated_size: number): void
@@ -30197,7 +30197,7 @@ export class WorkbenchHeaderBar {
     vfunc_unrealize(): void
     vfunc_visibility_notify_event(event: Gdk.EventVisibility): boolean
     vfunc_window_state_event(event: Gdk.EventWindowState): boolean
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -30205,7 +30205,7 @@ export class WorkbenchHeaderBar {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gtk.Container */
+    /* Signals of Gtk-3.0.Gtk.Container */
     connect(sigName: "add", callback: (($obj: WorkbenchHeaderBar, object: Gtk.Widget) => void)): number
     connect_after(sigName: "add", callback: (($obj: WorkbenchHeaderBar, object: Gtk.Widget) => void)): number
     emit(sigName: "add", object: Gtk.Widget): void
@@ -30218,7 +30218,7 @@ export class WorkbenchHeaderBar {
     connect(sigName: "set-focus-child", callback: (($obj: WorkbenchHeaderBar, object: Gtk.Widget) => void)): number
     connect_after(sigName: "set-focus-child", callback: (($obj: WorkbenchHeaderBar, object: Gtk.Widget) => void)): number
     emit(sigName: "set-focus-child", object: Gtk.Widget): void
-    /* Signals of Gtk.Widget */
+    /* Signals of Gtk-3.0.Gtk.Widget */
     connect(sigName: "accel-closures-changed", callback: (($obj: WorkbenchHeaderBar) => void)): number
     connect_after(sigName: "accel-closures-changed", callback: (($obj: WorkbenchHeaderBar) => void)): number
     emit(sigName: "accel-closures-changed"): void
@@ -30426,7 +30426,7 @@ export class WorkbenchHeaderBar {
     connect(sigName: "window-state-event", callback: (($obj: WorkbenchHeaderBar, event: Gdk.EventWindowState) => boolean)): number
     connect_after(sigName: "window-state-event", callback: (($obj: WorkbenchHeaderBar, event: Gdk.EventWindowState) => boolean)): number
     emit(sigName: "window-state-event", event: Gdk.EventWindowState): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: WorkbenchHeaderBar, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: WorkbenchHeaderBar, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -30548,23 +30548,23 @@ export interface WorkbenchMessage_ConstructProps extends Gtk.InfoBar_ConstructPr
     orientation?: Gtk.Orientation
 }
 export class WorkbenchMessage {
-    /* Properties of Ide.WorkbenchMessage */
+    /* Properties of Ide-1.0.Ide.WorkbenchMessage */
     id: string
     subtitle: string
     title: string
-    /* Properties of Gtk.InfoBar */
+    /* Properties of Gtk-3.0.Gtk.InfoBar */
     message_type: Gtk.MessageType
     revealed: boolean
     show_close_button: boolean
-    /* Properties of Gtk.Box */
+    /* Properties of Gtk-3.0.Gtk.Box */
     baseline_position: Gtk.BaselinePosition
     homogeneous: boolean
     spacing: number
-    /* Properties of Gtk.Container */
+    /* Properties of Gtk-3.0.Gtk.Container */
     border_width: number
     child: Gtk.Widget
     resize_mode: Gtk.ResizeMode
-    /* Properties of Gtk.Widget */
+    /* Properties of Gtk-3.0.Gtk.Widget */
     app_paintable: boolean
     can_default: boolean
     can_focus: boolean
@@ -30604,17 +30604,17 @@ export class WorkbenchMessage {
     visible: boolean
     width_request: number
     readonly window: Gdk.Window
-    /* Properties of Gtk.Orientable */
+    /* Properties of Gtk-3.0.Gtk.Orientable */
     orientation: Gtk.Orientation
-    /* Fields of Gtk.Box */
+    /* Fields of Gtk-3.0.Gtk.Box */
     container: Gtk.Container
-    /* Fields of Gtk.Container */
+    /* Fields of Gtk-3.0.Gtk.Container */
     widget: Gtk.Widget
-    /* Fields of Gtk.Widget */
+    /* Fields of Gtk-3.0.Gtk.Widget */
     parent_instance: GObject.InitiallyUnowned
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Ide.WorkbenchMessage */
+    /* Methods of Ide-1.0.Ide.WorkbenchMessage */
     add_action(label: string, action_name: string): void
     get_id(): string
     get_subtitle(): string
@@ -30622,7 +30622,7 @@ export class WorkbenchMessage {
     set_id(id: string): void
     set_subtitle(subtitle: string): void
     set_title(title: string): void
-    /* Methods of Gtk.InfoBar */
+    /* Methods of Gtk-3.0.Gtk.InfoBar */
     add_action_widget(child: Gtk.Widget, response_id: number): void
     add_button(button_text: string, response_id: number): Gtk.Button
     get_action_area(): Gtk.Box
@@ -30636,7 +30636,7 @@ export class WorkbenchMessage {
     set_response_sensitive(response_id: number, setting: boolean): void
     set_revealed(revealed: boolean): void
     set_show_close_button(setting: boolean): void
-    /* Methods of Gtk.Box */
+    /* Methods of Gtk-3.0.Gtk.Box */
     get_baseline_position(): Gtk.BaselinePosition
     get_center_widget(): Gtk.Widget | null
     get_homogeneous(): boolean
@@ -30650,7 +30650,7 @@ export class WorkbenchMessage {
     set_child_packing(child: Gtk.Widget, expand: boolean, fill: boolean, padding: number, pack_type: Gtk.PackType): void
     set_homogeneous(homogeneous: boolean): void
     set_spacing(spacing: number): void
-    /* Methods of Gtk.Container */
+    /* Methods of Gtk-3.0.Gtk.Container */
     add(widget: Gtk.Widget): void
     check_resize(): void
     child_get_property(child: Gtk.Widget, property_name: string, value: any): void
@@ -30678,7 +30678,7 @@ export class WorkbenchMessage {
     set_reallocate_redraws(needs_redraws: boolean): void
     set_resize_mode(resize_mode: Gtk.ResizeMode): void
     unset_focus_chain(): void
-    /* Methods of Gtk.Widget */
+    /* Methods of Gtk-3.0.Gtk.Widget */
     activate(): boolean
     add_accelerator(accel_signal: string, accel_group: Gtk.AccelGroup, accel_key: number, accel_mods: Gdk.ModifierType, accel_flags: Gtk.AccelFlags): void
     add_device_events(device: Gdk.Device, events: Gdk.EventMask): void
@@ -30937,7 +30937,7 @@ export class WorkbenchMessage {
     unrealize(): void
     unregister_window(window: Gdk.Window): void
     unset_state_flags(flags: Gtk.StateFlags): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -30959,7 +30959,7 @@ export class WorkbenchMessage {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of Gtk.Buildable */
+    /* Methods of Gtk-3.0.Gtk.Buildable */
     add_child(builder: Gtk.Builder, child: GObject.Object, type?: string | null): void
     construct_child(builder: Gtk.Builder, name: string): GObject.Object
     custom_finished(builder: Gtk.Builder, child: GObject.Object | null, tagname: string, data?: object | null): void
@@ -30968,10 +30968,10 @@ export class WorkbenchMessage {
     get_internal_child(builder: Gtk.Builder, childname: string): GObject.Object
     parser_finished(builder: Gtk.Builder): void
     set_buildable_property(builder: Gtk.Builder, name: string, value: any): void
-    /* Methods of Gtk.Orientable */
+    /* Methods of Gtk-3.0.Gtk.Orientable */
     get_orientation(): Gtk.Orientation
     set_orientation(orientation: Gtk.Orientation): void
-    /* Virtual methods of Ide.WorkbenchMessage */
+    /* Virtual methods of Ide-1.0.Ide.WorkbenchMessage */
     vfunc_add_child(builder: Gtk.Builder, child: GObject.Object, type?: string | null): void
     vfunc_construct_child(builder: Gtk.Builder, name: string): GObject.Object
     vfunc_custom_finished(builder: Gtk.Builder, child: GObject.Object | null, tagname: string, data?: object | null): void
@@ -30982,10 +30982,10 @@ export class WorkbenchMessage {
     vfunc_parser_finished(builder: Gtk.Builder): void
     vfunc_set_buildable_property(builder: Gtk.Builder, name: string, value: any): void
     vfunc_set_name(name: string): void
-    /* Virtual methods of Gtk.InfoBar */
+    /* Virtual methods of Gtk-3.0.Gtk.InfoBar */
     vfunc_close(): void
     vfunc_response(response_id: number): void
-    /* Virtual methods of Gtk.Container */
+    /* Virtual methods of Gtk-3.0.Gtk.Container */
     vfunc_add(widget: Gtk.Widget): void
     vfunc_check_resize(): void
     vfunc_child_type(): GObject.Type
@@ -30996,7 +30996,7 @@ export class WorkbenchMessage {
     vfunc_remove(widget: Gtk.Widget): void
     vfunc_set_child_property(child: Gtk.Widget, property_id: number, value: any, pspec: GObject.ParamSpec): void
     vfunc_set_focus_child(child?: Gtk.Widget | null): void
-    /* Virtual methods of Gtk.Widget */
+    /* Virtual methods of Gtk-3.0.Gtk.Widget */
     vfunc_adjust_baseline_allocation(baseline: number): void
     vfunc_adjust_baseline_request(minimum_baseline: number, natural_baseline: number): void
     vfunc_adjust_size_allocation(orientation: Gtk.Orientation, minimum_size: number, natural_size: number, allocated_pos: number, allocated_size: number): void
@@ -31079,7 +31079,7 @@ export class WorkbenchMessage {
     vfunc_unrealize(): void
     vfunc_visibility_notify_event(event: Gdk.EventVisibility): boolean
     vfunc_window_state_event(event: Gdk.EventWindowState): boolean
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -31087,14 +31087,14 @@ export class WorkbenchMessage {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gtk.InfoBar */
+    /* Signals of Gtk-3.0.Gtk.InfoBar */
     connect(sigName: "close", callback: (($obj: WorkbenchMessage) => void)): number
     connect_after(sigName: "close", callback: (($obj: WorkbenchMessage) => void)): number
     emit(sigName: "close"): void
     connect(sigName: "response", callback: (($obj: WorkbenchMessage, response_id: number) => void)): number
     connect_after(sigName: "response", callback: (($obj: WorkbenchMessage, response_id: number) => void)): number
     emit(sigName: "response", response_id: number): void
-    /* Signals of Gtk.Container */
+    /* Signals of Gtk-3.0.Gtk.Container */
     connect(sigName: "add", callback: (($obj: WorkbenchMessage, object: Gtk.Widget) => void)): number
     connect_after(sigName: "add", callback: (($obj: WorkbenchMessage, object: Gtk.Widget) => void)): number
     emit(sigName: "add", object: Gtk.Widget): void
@@ -31107,7 +31107,7 @@ export class WorkbenchMessage {
     connect(sigName: "set-focus-child", callback: (($obj: WorkbenchMessage, object: Gtk.Widget) => void)): number
     connect_after(sigName: "set-focus-child", callback: (($obj: WorkbenchMessage, object: Gtk.Widget) => void)): number
     emit(sigName: "set-focus-child", object: Gtk.Widget): void
-    /* Signals of Gtk.Widget */
+    /* Signals of Gtk-3.0.Gtk.Widget */
     connect(sigName: "accel-closures-changed", callback: (($obj: WorkbenchMessage) => void)): number
     connect_after(sigName: "accel-closures-changed", callback: (($obj: WorkbenchMessage) => void)): number
     emit(sigName: "accel-closures-changed"): void
@@ -31315,7 +31315,7 @@ export class WorkbenchMessage {
     connect(sigName: "window-state-event", callback: (($obj: WorkbenchMessage, event: Gdk.EventWindowState) => boolean)): number
     connect_after(sigName: "window-state-event", callback: (($obj: WorkbenchMessage, event: Gdk.EventWindowState) => boolean)): number
     emit(sigName: "window-state-event", event: Gdk.EventWindowState): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: WorkbenchMessage, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: WorkbenchMessage, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -31436,36 +31436,36 @@ export class WorkbenchMessage {
     static $gtype: GObject.Type
 }
 export abstract class ApplicationAddinInterface {
-    /* Fields of Ide.ApplicationAddinInterface */
+    /* Fields of Ide-1.0.Ide.ApplicationAddinInterface */
     parent_interface: GObject.TypeInterface
     load: (self: ApplicationAddin, application: Application) => void
     unload: (self: ApplicationAddin, application: Application) => void
     static name: string
 }
 export abstract class ApplicationClass {
-    /* Fields of Ide.ApplicationClass */
+    /* Fields of Ide-1.0.Ide.ApplicationClass */
     parent_class: Dazzle.ApplicationClass
     static name: string
 }
 export abstract class ApplicationToolInterface {
-    /* Fields of Ide.ApplicationToolInterface */
+    /* Fields of Ide-1.0.Ide.ApplicationToolInterface */
     parent_interface: GObject.TypeInterface
     run_async: (self: ApplicationTool, arguments_: string[], cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null) => void
     run_finish: (self: ApplicationTool, result: Gio.AsyncResult) => number
     static name: string
 }
 export abstract class BackForwardItemClass {
-    /* Fields of Ide.BackForwardItemClass */
+    /* Fields of Ide-1.0.Ide.BackForwardItemClass */
     parent_class: ObjectClass
     static name: string
 }
 export abstract class BackForwardListClass {
-    /* Fields of Ide.BackForwardListClass */
+    /* Fields of Ide-1.0.Ide.BackForwardListClass */
     parent_class: ObjectClass
     static name: string
 }
 export abstract class BufferChangeMonitorClass {
-    /* Fields of Ide.BufferChangeMonitorClass */
+    /* Fields of Ide-1.0.Ide.BufferChangeMonitorClass */
     parent: ObjectClass
     set_buffer: (self: BufferChangeMonitor, buffer: Buffer) => void
     get_change: (self: BufferChangeMonitor, iter: Gtk.TextIter) => BufferLineChange
@@ -31481,7 +31481,7 @@ export abstract class BufferChangeMonitorClass {
     static name: string
 }
 export abstract class BufferClass {
-    /* Fields of Ide.BufferClass */
+    /* Fields of Ide-1.0.Ide.BufferClass */
     parent_class: GtkSource.BufferClass
     cursor_moved: (self: Buffer, location: Gtk.TextIter) => void
     _reserved1: object
@@ -31495,7 +31495,7 @@ export abstract class BufferClass {
     static name: string
 }
 export abstract class BufferManagerClass {
-    /* Fields of Ide.BufferManagerClass */
+    /* Fields of Ide-1.0.Ide.BufferManagerClass */
     parent_class: ObjectClass
     static name: string
 }
@@ -31506,19 +31506,19 @@ export class BuildCommandQueue {
     static name: string
 }
 export abstract class BuildManagerClass {
-    /* Fields of Ide.BuildManagerClass */
+    /* Fields of Ide-1.0.Ide.BuildManagerClass */
     parent_class: ObjectClass
     static name: string
 }
 export abstract class BuildPipelineAddinInterface {
-    /* Fields of Ide.BuildPipelineAddinInterface */
+    /* Fields of Ide-1.0.Ide.BuildPipelineAddinInterface */
     type_interface: GObject.TypeInterface
     load: (self: BuildPipelineAddin, pipeline: BuildPipeline) => void
     unload: (self: BuildPipelineAddin, pipeline: BuildPipeline) => void
     static name: string
 }
 export abstract class BuildPipelineClass {
-    /* Fields of Ide.BuildPipelineClass */
+    /* Fields of Ide-1.0.Ide.BuildPipelineClass */
     parent_class: ObjectClass
     static name: string
 }
@@ -31526,7 +31526,7 @@ export class BuildResult {
     static name: string
 }
 export abstract class BuildStageClass {
-    /* Fields of Ide.BuildStageClass */
+    /* Fields of Ide-1.0.Ide.BuildStageClass */
     parent_class: ObjectClass
     execute: (self: BuildStage, pipeline: BuildPipeline, cancellable?: Gio.Cancellable | null) => boolean
     execute_async: (self: BuildStage, pipeline: BuildPipeline, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null) => void
@@ -31551,7 +31551,7 @@ export abstract class BuildStageClass {
     static name: string
 }
 export abstract class BuildStageLauncherClass {
-    /* Fields of Ide.BuildStageLauncherClass */
+    /* Fields of Ide-1.0.Ide.BuildStageLauncherClass */
     parent_class: BuildStageClass
     _reserved1: object
     _reserved2: object
@@ -31560,7 +31560,7 @@ export abstract class BuildStageLauncherClass {
     static name: string
 }
 export abstract class BuildStageMkdirsClass {
-    /* Fields of Ide.BuildStageMkdirsClass */
+    /* Fields of Ide-1.0.Ide.BuildStageMkdirsClass */
     parent_class: BuildStageClass
     _reserved1: object
     _reserved2: object
@@ -31569,18 +31569,18 @@ export abstract class BuildStageMkdirsClass {
     static name: string
 }
 export abstract class BuildStageTransferClass {
-    /* Fields of Ide.BuildStageTransferClass */
+    /* Fields of Ide-1.0.Ide.BuildStageTransferClass */
     parent_class: BuildStageClass
     static name: string
 }
 export abstract class BuildSystemDiscoveryInterface {
-    /* Fields of Ide.BuildSystemDiscoveryInterface */
+    /* Fields of Ide-1.0.Ide.BuildSystemDiscoveryInterface */
     parent_iface: GObject.TypeInterface
     discover: (self: BuildSystemDiscovery, project_file: Gio.File, cancellable?: Gio.Cancellable | null) => [ /* returnType */ string, /* priority */ number ]
     static name: string
 }
 export abstract class BuildSystemInterface {
-    /* Fields of Ide.BuildSystemInterface */
+    /* Fields of Ide-1.0.Ide.BuildSystemInterface */
     parent_iface: GObject.TypeInterface
     get_priority: (self: BuildSystem) => number
     get_build_flags_async: (self: BuildSystem, file: File, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null) => void
@@ -31593,7 +31593,7 @@ export abstract class BuildSystemInterface {
     static name: string
 }
 export abstract class BuildTargetInterface {
-    /* Fields of Ide.BuildTargetInterface */
+    /* Fields of Ide-1.0.Ide.BuildTargetInterface */
     parent_iface: GObject.TypeInterface
     get_install_directory: (self: BuildTarget) => Gio.File | null
     get_name: (self: BuildTarget) => string | null
@@ -31607,12 +31607,12 @@ export abstract class BuildTargetInterface {
     static name: string
 }
 export abstract class BuildconfigConfigurationClass {
-    /* Fields of Ide.BuildconfigConfigurationClass */
+    /* Fields of Ide-1.0.Ide.BuildconfigConfigurationClass */
     parent_class: ConfigurationClass
     static name: string
 }
 export abstract class BuildconfigConfigurationProviderClass {
-    /* Fields of Ide.BuildconfigConfigurationProviderClass */
+    /* Fields of Ide-1.0.Ide.BuildconfigConfigurationProviderClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
@@ -31620,25 +31620,25 @@ export class Builder {
     static name: string
 }
 export abstract class CompletionItemClass {
-    /* Fields of Ide.CompletionItemClass */
+    /* Fields of Ide-1.0.Ide.CompletionItemClass */
     parent_class: GObject.ObjectClass
     match: (self: CompletionItem, query: string, casefold: string) => boolean
     static name: string
 }
 export abstract class CompletionProviderInterface {
-    /* Fields of Ide.CompletionProviderInterface */
+    /* Fields of Ide-1.0.Ide.CompletionProviderInterface */
     parent_interface: GtkSource.CompletionProviderIface
     load: (self: CompletionProvider, context: Context) => void
     static name: string
 }
 export abstract class CompletionResultsClass {
-    /* Fields of Ide.CompletionResultsClass */
+    /* Fields of Ide-1.0.Ide.CompletionResultsClass */
     parent_class: GObject.ObjectClass
     compare: (self: CompletionResults, left: CompletionItem, right: CompletionItem) => number
     static name: string
 }
 export abstract class CompletionWordsClass {
-    /* Fields of Ide.CompletionWordsClass */
+    /* Fields of Ide-1.0.Ide.CompletionWordsClass */
     parent_class: GtkSource.CompletionWordsClass
     _reserved1: object
     _reserved2: object
@@ -31647,7 +31647,7 @@ export abstract class CompletionWordsClass {
     static name: string
 }
 export abstract class ConfigurationClass {
-    /* Fields of Ide.ConfigurationClass */
+    /* Fields of Ide-1.0.Ide.ConfigurationClass */
     parent: ObjectClass
     get_device: (self: Configuration) => Device | null
     set_device: (self: Configuration, device: Device) => void
@@ -31674,12 +31674,12 @@ export abstract class ConfigurationClass {
     static name: string
 }
 export abstract class ConfigurationManagerClass {
-    /* Fields of Ide.ConfigurationManagerClass */
+    /* Fields of Ide-1.0.Ide.ConfigurationManagerClass */
     parent_class: ObjectClass
     static name: string
 }
 export abstract class ConfigurationProviderInterface {
-    /* Fields of Ide.ConfigurationProviderInterface */
+    /* Fields of Ide-1.0.Ide.ConfigurationProviderInterface */
     parent: GObject.TypeInterface
     load_async: (self: ConfigurationProvider, manager: ConfigurationManager, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null) => void
     load_finish: (self: ConfigurationProvider, result: Gio.AsyncResult) => boolean
@@ -31689,36 +31689,36 @@ export abstract class ConfigurationProviderInterface {
     static name: string
 }
 export abstract class ContextClass {
-    /* Fields of Ide.ContextClass */
+    /* Fields of Ide-1.0.Ide.ContextClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
 export abstract class CursorClass {
-    /* Fields of Ide.CursorClass */
+    /* Fields of Ide-1.0.Ide.CursorClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
 export abstract class DeviceClass {
-    /* Fields of Ide.DeviceClass */
+    /* Fields of Ide-1.0.Ide.DeviceClass */
     parent: ObjectClass
     get_system_type: (self: Device) => string
     prepare_configuration: (self: Device, configuration: Configuration) => void
     static name: string
 }
 export abstract class DeviceManagerClass {
-    /* Fields of Ide.DeviceManagerClass */
+    /* Fields of Ide-1.0.Ide.DeviceManagerClass */
     parent_class: ObjectClass
     static name: string
 }
 export abstract class DeviceProviderInterface {
-    /* Fields of Ide.DeviceProviderInterface */
+    /* Fields of Ide-1.0.Ide.DeviceProviderInterface */
     parent_interface: GObject.TypeInterface
     get_settled: (provider: DeviceProvider) => boolean
     get_devices: (provider: DeviceProvider) => Device[]
     static name: string
 }
 export class Diagnostic {
-    /* Methods of Ide.Diagnostic */
+    /* Methods of Ide-1.0.Ide.Diagnostic */
     add_range(range: SourceRange): void
     compare(b: Diagnostic): number
     get_file(): Gio.File | null
@@ -31742,7 +31742,7 @@ export class Diagnostic {
     static new(severity: DiagnosticSeverity, text: string, location: SourceLocation): Diagnostic
 }
 export abstract class DiagnosticProviderInterface {
-    /* Fields of Ide.DiagnosticProviderInterface */
+    /* Fields of Ide-1.0.Ide.DiagnosticProviderInterface */
     parent_interface: GObject.TypeInterface
     load: (self: DiagnosticProvider) => void
     diagnose_async: (self: DiagnosticProvider, file: File, buffer: Buffer, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null) => void
@@ -31750,7 +31750,7 @@ export abstract class DiagnosticProviderInterface {
     static name: string
 }
 export class Diagnostics {
-    /* Methods of Ide.Diagnostics */
+    /* Methods of Ide-1.0.Ide.Diagnostics */
     add(diagnostic: Diagnostic): void
     get_size(): number
     index(index: number): Diagnostic
@@ -31764,27 +31764,27 @@ export class Diagnostics {
     static new(ar?: Diagnostic[] | null): Diagnostics
 }
 export abstract class DiagnosticsManagerClass {
-    /* Fields of Ide.DiagnosticsManagerClass */
+    /* Fields of Ide-1.0.Ide.DiagnosticsManagerClass */
     parent_class: ObjectClass
     static name: string
 }
 export abstract class DirectoryBuildSystemClass {
-    /* Fields of Ide.DirectoryBuildSystemClass */
+    /* Fields of Ide-1.0.Ide.DirectoryBuildSystemClass */
     parent_class: ObjectClass
     static name: string
 }
 export abstract class DirectoryVcsClass {
-    /* Fields of Ide.DirectoryVcsClass */
+    /* Fields of Ide-1.0.Ide.DirectoryVcsClass */
     parent_class: ObjectClass
     static name: string
 }
 export abstract class DoapClass {
-    /* Fields of Ide.DoapClass */
+    /* Fields of Ide-1.0.Ide.DoapClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
 export abstract class DoapPersonClass {
-    /* Fields of Ide.DoapPersonClass */
+    /* Fields of Ide-1.0.Ide.DoapPersonClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
@@ -31792,12 +31792,12 @@ export class EditorFrame {
     static name: string
 }
 export abstract class EditorPerspectiveClass {
-    /* Fields of Ide.EditorPerspectiveClass */
+    /* Fields of Ide-1.0.Ide.EditorPerspectiveClass */
     parent_class: Dazzle.DockOverlayClass
     static name: string
 }
 export abstract class EditorViewAddinInterface {
-    /* Fields of Ide.EditorViewAddinInterface */
+    /* Fields of Ide-1.0.Ide.EditorViewAddinInterface */
     parent: GObject.TypeInterface
     load: (self: EditorViewAddin, view: EditorView) => void
     unload: (self: EditorViewAddin, view: EditorView) => void
@@ -31807,42 +31807,42 @@ export abstract class EditorViewAddinInterface {
     static name: string
 }
 export abstract class EditorViewClass {
-    /* Fields of Ide.EditorViewClass */
+    /* Fields of Ide-1.0.Ide.EditorViewClass */
     parent_class: LayoutViewClass
     static name: string
 }
 export abstract class EnvironmentClass {
-    /* Fields of Ide.EnvironmentClass */
+    /* Fields of Ide-1.0.Ide.EnvironmentClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
 export abstract class EnvironmentVariableClass {
-    /* Fields of Ide.EnvironmentVariableClass */
+    /* Fields of Ide-1.0.Ide.EnvironmentVariableClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
 export abstract class ExtensionAdapterClass {
-    /* Fields of Ide.ExtensionAdapterClass */
+    /* Fields of Ide-1.0.Ide.ExtensionAdapterClass */
     parent_class: ObjectClass
     static name: string
 }
 export abstract class ExtensionSetAdapterClass {
-    /* Fields of Ide.ExtensionSetAdapterClass */
+    /* Fields of Ide-1.0.Ide.ExtensionSetAdapterClass */
     parent_class: ObjectClass
     static name: string
 }
 export abstract class FileClass {
-    /* Fields of Ide.FileClass */
+    /* Fields of Ide-1.0.Ide.FileClass */
     parent_class: ObjectClass
     static name: string
 }
 export abstract class FileSettingsClass {
-    /* Fields of Ide.FileSettingsClass */
+    /* Fields of Ide-1.0.Ide.FileSettingsClass */
     parent: ObjectClass
     static name: string
 }
 export class Fixit {
-    /* Methods of Ide.Fixit */
+    /* Methods of Ide-1.0.Ide.Fixit */
     apply(): void
     get_range(): SourceRange
     get_text(): string
@@ -31851,7 +31851,7 @@ export class Fixit {
     static name: string
 }
 export abstract class FormatterInterface {
-    /* Fields of Ide.FormatterInterface */
+    /* Fields of Ide-1.0.Ide.FormatterInterface */
     parent: GObject.TypeInterface
     load: (self: Formatter) => void
     format_async: (self: Formatter, buffer: Buffer, options: FormatterOptions, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null) => void
@@ -31861,12 +31861,12 @@ export abstract class FormatterInterface {
     static name: string
 }
 export abstract class FormatterOptionsClass {
-    /* Fields of Ide.FormatterOptionsClass */
+    /* Fields of Ide-1.0.Ide.FormatterOptionsClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
 export abstract class GenesisAddinInterface {
-    /* Fields of Ide.GenesisAddinInterface */
+    /* Fields of Ide-1.0.Ide.GenesisAddinInterface */
     parent_interface: GObject.TypeInterface
     get_title: (self: GenesisAddin) => string
     get_icon_name: (self: GenesisAddin) => string
@@ -31879,12 +31879,12 @@ export abstract class GenesisAddinInterface {
     static name: string
 }
 export abstract class HighlightEngineClass {
-    /* Fields of Ide.HighlightEngineClass */
+    /* Fields of Ide-1.0.Ide.HighlightEngineClass */
     parent_class: ObjectClass
     static name: string
 }
 export class HighlightIndex {
-    /* Methods of Ide.HighlightIndex */
+    /* Methods of Ide-1.0.Ide.HighlightIndex */
     dump(): void
     insert(word: string, tag?: object | null): void
     lookup(word: string): object | null
@@ -31897,7 +31897,7 @@ export class HighlightIndex {
     static new(): HighlightIndex
 }
 export abstract class HighlighterInterface {
-    /* Fields of Ide.HighlighterInterface */
+    /* Fields of Ide-1.0.Ide.HighlighterInterface */
     parent_interface: GObject.TypeInterface
     update: (self: Highlighter, callback: HighlightCallback, range_begin: Gtk.TextIter, range_end: Gtk.TextIter) => /* location */ Gtk.TextIter
     set_engine: (self: Highlighter, engine: HighlightEngine) => void
@@ -31905,14 +31905,14 @@ export abstract class HighlighterInterface {
     static name: string
 }
 export abstract class IndenterInterface {
-    /* Fields of Ide.IndenterInterface */
+    /* Fields of Ide-1.0.Ide.IndenterInterface */
     parent: GObject.TypeInterface
     format: (self: Indenter, text_view: Gtk.TextView, begin: Gtk.TextIter, end: Gtk.TextIter, event: Gdk.EventKey) => [ /* returnType */ string | null, /* cursor_offset */ number ]
     is_trigger: (self: Indenter, event: Gdk.EventKey) => boolean
     static name: string
 }
 export abstract class LangservClientClass {
-    /* Fields of Ide.LangservClientClass */
+    /* Fields of Ide-1.0.Ide.LangservClientClass */
     parent_class: ObjectClass
     notification: (self: LangservClient, method: string, params: GLib.Variant) => void
     supports_language: (self: LangservClient, language_id: string) => boolean
@@ -31928,7 +31928,7 @@ export abstract class LangservClientClass {
     static name: string
 }
 export abstract class LangservCompletionProviderClass {
-    /* Fields of Ide.LangservCompletionProviderClass */
+    /* Fields of Ide-1.0.Ide.LangservCompletionProviderClass */
     parent_class: ObjectClass
     _reserved1: object
     _reserved2: object
@@ -31941,7 +31941,7 @@ export abstract class LangservCompletionProviderClass {
     static name: string
 }
 export abstract class LangservDiagnosticProviderClass {
-    /* Fields of Ide.LangservDiagnosticProviderClass */
+    /* Fields of Ide-1.0.Ide.LangservDiagnosticProviderClass */
     parent_class: ObjectClass
     _reserved1: object
     _reserved2: object
@@ -31950,12 +31950,12 @@ export abstract class LangservDiagnosticProviderClass {
     static name: string
 }
 export abstract class LangservFormatterClass {
-    /* Fields of Ide.LangservFormatterClass */
+    /* Fields of Ide-1.0.Ide.LangservFormatterClass */
     parent_class: ObjectClass
     static name: string
 }
 export abstract class LangservHighlighterClass {
-    /* Fields of Ide.LangservHighlighterClass */
+    /* Fields of Ide-1.0.Ide.LangservHighlighterClass */
     parent_class: ObjectClass
     _reserved1: object
     _reserved2: object
@@ -31964,7 +31964,7 @@ export abstract class LangservHighlighterClass {
     static name: string
 }
 export abstract class LangservRenameProviderClass {
-    /* Fields of Ide.LangservRenameProviderClass */
+    /* Fields of Ide-1.0.Ide.LangservRenameProviderClass */
     parent_instance: ObjectClass
     _reserved1: object
     _reserved2: object
@@ -31977,12 +31977,12 @@ export abstract class LangservRenameProviderClass {
     static name: string
 }
 export abstract class LangservSymbolNodeClass {
-    /* Fields of Ide.LangservSymbolNodeClass */
+    /* Fields of Ide-1.0.Ide.LangservSymbolNodeClass */
     parent_class: SymbolNodeClass
     static name: string
 }
 export abstract class LangservSymbolResolverClass {
-    /* Fields of Ide.LangservSymbolResolverClass */
+    /* Fields of Ide-1.0.Ide.LangservSymbolResolverClass */
     parent_class: ObjectClass
     _reserved1: object
     _reserved2: object
@@ -31995,27 +31995,27 @@ export abstract class LangservSymbolResolverClass {
     static name: string
 }
 export abstract class LangservSymbolTreeClass {
-    /* Fields of Ide.LangservSymbolTreeClass */
+    /* Fields of Ide-1.0.Ide.LangservSymbolTreeClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
 export abstract class LayoutClass {
-    /* Fields of Ide.LayoutClass */
+    /* Fields of Ide-1.0.Ide.LayoutClass */
     parent_class: Dazzle.DockBinClass
     static name: string
 }
 export abstract class LayoutGridClass {
-    /* Fields of Ide.LayoutGridClass */
+    /* Fields of Ide-1.0.Ide.LayoutGridClass */
     parent_class: Gtk.BinClass
     static name: string
 }
 export abstract class LayoutPaneClass {
-    /* Fields of Ide.LayoutPaneClass */
+    /* Fields of Ide-1.0.Ide.LayoutPaneClass */
     parent_class: Dazzle.DockBinEdgeClass
     static name: string
 }
 export abstract class LayoutStackAddinInterface {
-    /* Fields of Ide.LayoutStackAddinInterface */
+    /* Fields of Ide-1.0.Ide.LayoutStackAddinInterface */
     parent_iface: GObject.TypeInterface
     load: (self: LayoutStackAddin, stack: LayoutStack) => void
     unload: (self: LayoutStackAddin, stack: LayoutStack) => void
@@ -32023,12 +32023,12 @@ export abstract class LayoutStackAddinInterface {
     static name: string
 }
 export abstract class LayoutStackClass {
-    /* Fields of Ide.LayoutStackClass */
+    /* Fields of Ide-1.0.Ide.LayoutStackClass */
     parent_class: Gtk.BinClass
     static name: string
 }
 export abstract class LayoutViewClass {
-    /* Fields of Ide.LayoutViewClass */
+    /* Fields of Ide-1.0.Ide.LayoutViewClass */
     parent: Gtk.BinClass
     get_can_preview: (self: LayoutView) => boolean
     get_can_split: (self: LayoutView) => boolean
@@ -32052,22 +32052,22 @@ export abstract class LayoutViewClass {
     static name: string
 }
 export class LineReader {
-    /* Fields of Ide.LineReader */
+    /* Fields of Ide-1.0.Ide.LineReader */
     contents: string
     length: number
     pos: number
-    /* Methods of Ide.LineReader */
+    /* Methods of Ide-1.0.Ide.LineReader */
     init(contents: string, length: number): void
     next(length: number): string
     static name: string
 }
 export abstract class LocalDeviceClass {
-    /* Fields of Ide.LocalDeviceClass */
+    /* Fields of Ide-1.0.Ide.LocalDeviceClass */
     parent: DeviceClass
     static name: string
 }
 export abstract class ObjectClass {
-    /* Fields of Ide.ObjectClass */
+    /* Fields of Ide-1.0.Ide.ObjectClass */
     parent: GObject.ObjectClass
     destroy: (self: Object) => void
     get_context: (self: Object) => Context
@@ -32075,32 +32075,32 @@ export abstract class ObjectClass {
     static name: string
 }
 export abstract class OmniBarClass {
-    /* Fields of Ide.OmniBarClass */
+    /* Fields of Ide-1.0.Ide.OmniBarClass */
     parent_class: Gtk.BoxClass
     static name: string
 }
 export abstract class OmniSearchDisplayClass {
-    /* Fields of Ide.OmniSearchDisplayClass */
+    /* Fields of Ide-1.0.Ide.OmniSearchDisplayClass */
     parent_class: Gtk.BinClass
     static name: string
 }
 export abstract class OmniSearchEntryClass {
-    /* Fields of Ide.OmniSearchEntryClass */
+    /* Fields of Ide-1.0.Ide.OmniSearchEntryClass */
     parent_class: Gtk.EntryClass
     static name: string
 }
 export abstract class OmniSearchGroupClass {
-    /* Fields of Ide.OmniSearchGroupClass */
+    /* Fields of Ide-1.0.Ide.OmniSearchGroupClass */
     parent_class: Gtk.BoxClass
     static name: string
 }
 export abstract class OmniSearchRowClass {
-    /* Fields of Ide.OmniSearchRowClass */
+    /* Fields of Ide-1.0.Ide.OmniSearchRowClass */
     parent_class: Gtk.ListBoxRowClass
     static name: string
 }
 export class PatternSpec {
-    /* Methods of Ide.PatternSpec */
+    /* Methods of Ide-1.0.Ide.PatternSpec */
     get_text(): string
     match(haystack: string): boolean
     ref(): PatternSpec
@@ -32112,7 +32112,7 @@ export class PatternSpec {
     static new(keywords: string): PatternSpec
 }
 export abstract class PerspectiveInterface {
-    /* Fields of Ide.PerspectiveInterface */
+    /* Fields of Ide-1.0.Ide.PerspectiveInterface */
     parent: GObject.TypeInterface
     agree_to_shutdown: (self: Perspective) => boolean
     get_actions: (self: Perspective) => Gio.ActionGroup | null
@@ -32129,34 +32129,34 @@ export abstract class PerspectiveInterface {
     static name: string
 }
 export abstract class PkconTransferClass {
-    /* Fields of Ide.PkconTransferClass */
+    /* Fields of Ide-1.0.Ide.PkconTransferClass */
     parent_class: TransferClass
     static name: string
 }
 export abstract class PreferencesAddinInterface {
-    /* Fields of Ide.PreferencesAddinInterface */
+    /* Fields of Ide-1.0.Ide.PreferencesAddinInterface */
     parent_interface: GObject.TypeInterface
     load: (self: PreferencesAddin, preferences: Dazzle.Preferences) => void
     unload: (self: PreferencesAddin, preferences: Dazzle.Preferences) => void
     static name: string
 }
 export abstract class PreferencesPerspectiveClass {
-    /* Fields of Ide.PreferencesPerspectiveClass */
+    /* Fields of Ide-1.0.Ide.PreferencesPerspectiveClass */
     parent_class: Dazzle.PreferencesViewClass
     static name: string
 }
 export abstract class ProgressClass {
-    /* Fields of Ide.ProgressClass */
+    /* Fields of Ide-1.0.Ide.ProgressClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
 export abstract class ProjectClass {
-    /* Fields of Ide.ProjectClass */
+    /* Fields of Ide-1.0.Ide.ProjectClass */
     parent_class: ObjectClass
     static name: string
 }
 export abstract class ProjectEditClass {
-    /* Fields of Ide.ProjectEditClass */
+    /* Fields of Ide-1.0.Ide.ProjectEditClass */
     parent_instance: GObject.ObjectClass
     _reserved1: object
     _reserved2: object
@@ -32165,27 +32165,27 @@ export abstract class ProjectEditClass {
     static name: string
 }
 export abstract class ProjectFileClass {
-    /* Fields of Ide.ProjectFileClass */
+    /* Fields of Ide-1.0.Ide.ProjectFileClass */
     parent: ProjectItemClass
     static name: string
 }
 export abstract class ProjectFilesClass {
-    /* Fields of Ide.ProjectFilesClass */
+    /* Fields of Ide-1.0.Ide.ProjectFilesClass */
     parent_class: ProjectItemClass
     static name: string
 }
 export abstract class ProjectInfoClass {
-    /* Fields of Ide.ProjectInfoClass */
+    /* Fields of Ide-1.0.Ide.ProjectInfoClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
 export abstract class ProjectItemClass {
-    /* Fields of Ide.ProjectItemClass */
+    /* Fields of Ide-1.0.Ide.ProjectItemClass */
     parent_class: ObjectClass
     static name: string
 }
 export abstract class ProjectMinerInterface {
-    /* Fields of Ide.ProjectMinerInterface */
+    /* Fields of Ide-1.0.Ide.ProjectMinerInterface */
     parent_iface: GObject.TypeInterface
     discovered: (self: ProjectMiner, project_info: ProjectInfo) => void
     mine_async: (self: ProjectMiner, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null) => void
@@ -32193,7 +32193,7 @@ export abstract class ProjectMinerInterface {
     static name: string
 }
 export abstract class ProjectTemplateInterface {
-    /* Fields of Ide.ProjectTemplateInterface */
+    /* Fields of Ide-1.0.Ide.ProjectTemplateInterface */
     parent: GObject.TypeInterface
     get_id: (self: ProjectTemplate) => string
     get_name: (self: ProjectTemplate) => string
@@ -32206,12 +32206,12 @@ export abstract class ProjectTemplateInterface {
     static name: string
 }
 export abstract class RecentProjectsClass {
-    /* Fields of Ide.RecentProjectsClass */
+    /* Fields of Ide-1.0.Ide.RecentProjectsClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
 export abstract class RenameProviderInterface {
-    /* Fields of Ide.RenameProviderInterface */
+    /* Fields of Ide-1.0.Ide.RenameProviderInterface */
     parent_iface: GObject.TypeInterface
     rename_async: (self: RenameProvider, location: SourceLocation, new_name: string, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null) => void
     rename_finish: (self: RenameProvider, result: Gio.AsyncResult) => [ /* returnType */ boolean, /* edits */ ProjectEdit[] | null ]
@@ -32219,17 +32219,17 @@ export abstract class RenameProviderInterface {
     static name: string
 }
 export abstract class RunButtonClass {
-    /* Fields of Ide.RunButtonClass */
+    /* Fields of Ide-1.0.Ide.RunButtonClass */
     parent_class: Gtk.BoxClass
     static name: string
 }
 export abstract class RunManagerClass {
-    /* Fields of Ide.RunManagerClass */
+    /* Fields of Ide-1.0.Ide.RunManagerClass */
     parent_class: ObjectClass
     static name: string
 }
 export abstract class RunnerAddinInterface {
-    /* Fields of Ide.RunnerAddinInterface */
+    /* Fields of Ide-1.0.Ide.RunnerAddinInterface */
     parent_interface: GObject.TypeInterface
     load: (self: RunnerAddin, runner: Runner) => void
     unload: (self: RunnerAddin, runner: Runner) => void
@@ -32240,7 +32240,7 @@ export abstract class RunnerAddinInterface {
     static name: string
 }
 export abstract class RunnerClass {
-    /* Fields of Ide.RunnerClass */
+    /* Fields of Ide-1.0.Ide.RunnerClass */
     parent: ObjectClass
     force_quit: (self: Runner) => void
     get_stdin: (self: Runner) => Gio.OutputStream | null
@@ -32261,7 +32261,7 @@ export abstract class RunnerClass {
     static name: string
 }
 export abstract class RuntimeClass {
-    /* Fields of Ide.RuntimeClass */
+    /* Fields of Ide-1.0.Ide.RuntimeClass */
     parent: ObjectClass
     contains_program_in_path: (self: Runtime, program: string, cancellable?: Gio.Cancellable | null) => boolean
     create_launcher: (self: Runtime) => SubprocessLauncher
@@ -32284,12 +32284,12 @@ export abstract class RuntimeClass {
     static name: string
 }
 export abstract class RuntimeManagerClass {
-    /* Fields of Ide.RuntimeManagerClass */
+    /* Fields of Ide-1.0.Ide.RuntimeManagerClass */
     parent_class: ObjectClass
     static name: string
 }
 export abstract class RuntimeProviderInterface {
-    /* Fields of Ide.RuntimeProviderInterface */
+    /* Fields of Ide-1.0.Ide.RuntimeProviderInterface */
     parent: GObject.TypeInterface
     load: (self: RuntimeProvider, manager: RuntimeManager) => void
     unload: (self: RuntimeProvider, manager: RuntimeManager) => void
@@ -32305,17 +32305,17 @@ export class ScriptManager {
     static name: string
 }
 export abstract class SearchContextClass {
-    /* Fields of Ide.SearchContextClass */
+    /* Fields of Ide-1.0.Ide.SearchContextClass */
     parent_class: ObjectClass
     static name: string
 }
 export abstract class SearchEngineClass {
-    /* Fields of Ide.SearchEngineClass */
+    /* Fields of Ide-1.0.Ide.SearchEngineClass */
     parent_class: ObjectClass
     static name: string
 }
 export abstract class SearchProviderInterface {
-    /* Fields of Ide.SearchProviderInterface */
+    /* Fields of Ide-1.0.Ide.SearchProviderInterface */
     parent_iface: GObject.TypeInterface
     get_prefix: (provider: SearchProvider) => number
     get_priority: (provider: SearchProvider) => number
@@ -32326,13 +32326,13 @@ export abstract class SearchProviderInterface {
     static name: string
 }
 export class SearchReducer {
-    /* Fields of Ide.SearchReducer */
+    /* Fields of Ide-1.0.Ide.SearchReducer */
     context: SearchContext
     provider: SearchProvider
     sequence: GLib.Sequence
     max_results: number
     count: number
-    /* Methods of Ide.SearchReducer */
+    /* Methods of Ide-1.0.Ide.SearchReducer */
     accepts(score: number): boolean
     destroy(): void
     init(context: SearchContext, provider: SearchProvider, max_results: number): void
@@ -32340,13 +32340,13 @@ export class SearchReducer {
     static name: string
 }
 export abstract class SearchResultClass {
-    /* Fields of Ide.SearchResultClass */
+    /* Fields of Ide-1.0.Ide.SearchResultClass */
     parent: ObjectClass
     activate: (result: SearchResult) => void
     static name: string
 }
 export abstract class ServiceInterface {
-    /* Fields of Ide.ServiceInterface */
+    /* Fields of Ide-1.0.Ide.ServiceInterface */
     parent_interface: GObject.TypeInterface
     context_loaded: (service: Service) => void
     get_name: (service: Service) => string
@@ -32355,12 +32355,12 @@ export abstract class ServiceInterface {
     static name: string
 }
 export abstract class SettingsClass {
-    /* Fields of Ide.SettingsClass */
+    /* Fields of Ide-1.0.Ide.SettingsClass */
     parent_class: ObjectClass
     static name: string
 }
 export class SourceLocation {
-    /* Methods of Ide.SourceLocation */
+    /* Methods of Ide-1.0.Ide.SourceLocation */
     compare(b: SourceLocation): number
     get_file(): File
     get_line(): number
@@ -32377,12 +32377,12 @@ export class SourceLocation {
     static new(file: File, line: number, line_offset: number, offset: number): SourceLocation
 }
 export abstract class SourceMapClass {
-    /* Fields of Ide.SourceMapClass */
+    /* Fields of Ide-1.0.Ide.SourceMapClass */
     parent_class: GtkSource.MapClass
     static name: string
 }
 export class SourceRange {
-    /* Methods of Ide.SourceRange */
+    /* Methods of Ide-1.0.Ide.SourceRange */
     get_begin(): SourceLocation
     get_end(): SourceLocation
     ref(): SourceRange
@@ -32394,32 +32394,32 @@ export class SourceRange {
     static new(begin: SourceLocation, end: SourceLocation): SourceRange
 }
 export abstract class SourceSnippetChunkClass {
-    /* Fields of Ide.SourceSnippetChunkClass */
+    /* Fields of Ide-1.0.Ide.SourceSnippetChunkClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
 export abstract class SourceSnippetClass {
-    /* Fields of Ide.SourceSnippetClass */
+    /* Fields of Ide-1.0.Ide.SourceSnippetClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
 export abstract class SourceSnippetContextClass {
-    /* Fields of Ide.SourceSnippetContextClass */
+    /* Fields of Ide-1.0.Ide.SourceSnippetContextClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
 export abstract class SourceSnippetsClass {
-    /* Fields of Ide.SourceSnippetsClass */
+    /* Fields of Ide-1.0.Ide.SourceSnippetsClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
 export abstract class SourceSnippetsManagerClass {
-    /* Fields of Ide.SourceSnippetsManagerClass */
+    /* Fields of Ide-1.0.Ide.SourceSnippetsManagerClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
 export abstract class SourceViewClass {
-    /* Fields of Ide.SourceViewClass */
+    /* Fields of Ide-1.0.Ide.SourceViewClass */
     parent_class: GtkSource.ViewClass
     append_to_count: (self: SourceView, digit: number) => void
     auto_indent: (self: SourceView) => void
@@ -32494,12 +32494,12 @@ export abstract class SourceViewClass {
     static name: string
 }
 export abstract class SourceViewModeClass {
-    /* Fields of Ide.SourceViewModeClass */
+    /* Fields of Ide-1.0.Ide.SourceViewModeClass */
     parent_class: Gtk.WidgetClass
     static name: string
 }
 export abstract class SubprocessInterface {
-    /* Fields of Ide.SubprocessInterface */
+    /* Fields of Ide-1.0.Ide.SubprocessInterface */
     parent_interface: GObject.TypeInterface
     get_identifier: (self: Subprocess) => string
     get_stdout_pipe: (self: Subprocess) => Gio.InputStream
@@ -32525,7 +32525,7 @@ export abstract class SubprocessInterface {
     static name: string
 }
 export abstract class SubprocessLauncherClass {
-    /* Fields of Ide.SubprocessLauncherClass */
+    /* Fields of Ide-1.0.Ide.SubprocessLauncherClass */
     parent_class: GObject.ObjectClass
     spawn: (self: SubprocessLauncher, cancellable?: Gio.Cancellable | null) => Subprocess
     _reserved1: object
@@ -32539,7 +32539,7 @@ export abstract class SubprocessLauncherClass {
     static name: string
 }
 export abstract class SubprocessSupervisorClass {
-    /* Fields of Ide.SubprocessSupervisorClass */
+    /* Fields of Ide-1.0.Ide.SubprocessSupervisorClass */
     parent_class: GObject.ObjectClass
     spawned: (self: SubprocessSupervisor, subprocess: Subprocess) => void
     _reserved1: object
@@ -32553,7 +32553,7 @@ export abstract class SubprocessSupervisorClass {
     static name: string
 }
 export class Symbol {
-    /* Methods of Ide.Symbol */
+    /* Methods of Ide-1.0.Ide.Symbol */
     get_canonical_location(): SourceLocation | null
     get_declaration_location(): SourceLocation | null
     get_definition_location(): SourceLocation | null
@@ -32569,7 +32569,7 @@ export class Symbol {
     static new(name: string, kind: SymbolKind, flags: SymbolFlags, declaration_location?: SourceLocation | null, definition_location?: SourceLocation | null, canonical_location?: SourceLocation | null): Symbol
 }
 export abstract class SymbolNodeClass {
-    /* Fields of Ide.SymbolNodeClass */
+    /* Fields of Ide-1.0.Ide.SymbolNodeClass */
     parent: ObjectClass
     get_location_async: (self: SymbolNode, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null) => void
     get_location_finish: (self: SymbolNode, result: Gio.AsyncResult) => SourceLocation | null
@@ -32584,7 +32584,7 @@ export abstract class SymbolNodeClass {
     static name: string
 }
 export abstract class SymbolResolverInterface {
-    /* Fields of Ide.SymbolResolverInterface */
+    /* Fields of Ide-1.0.Ide.SymbolResolverInterface */
     parent_interface: GObject.TypeInterface
     lookup_symbol_async: (self: SymbolResolver, location: SourceLocation, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null) => void
     lookup_symbol_finish: (self: SymbolResolver, result: Gio.AsyncResult) => Symbol | null
@@ -32596,26 +32596,26 @@ export abstract class SymbolResolverInterface {
     static name: string
 }
 export abstract class SymbolTreeInterface {
-    /* Fields of Ide.SymbolTreeInterface */
+    /* Fields of Ide-1.0.Ide.SymbolTreeInterface */
     parent: GObject.TypeInterface
     get_n_children: (self: SymbolTree, node?: SymbolNode | null) => number
     get_nth_child: (self: SymbolTree, node: SymbolNode | null, nth: number) => SymbolNode | null
     static name: string
 }
 export abstract class TagsBuilderInterface {
-    /* Fields of Ide.TagsBuilderInterface */
+    /* Fields of Ide-1.0.Ide.TagsBuilderInterface */
     parent: GObject.TypeInterface
     build_async: (self: TagsBuilder, directory_or_file: Gio.File, recursive: boolean, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null) => void
     build_finish: (self: TagsBuilder, result: Gio.AsyncResult) => boolean
     static name: string
 }
 export abstract class TemplateBaseClass {
-    /* Fields of Ide.TemplateBaseClass */
+    /* Fields of Ide-1.0.Ide.TemplateBaseClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
 export abstract class TemplateProviderInterface {
-    /* Fields of Ide.TemplateProviderInterface */
+    /* Fields of Ide-1.0.Ide.TemplateProviderInterface */
     parent_iface: GObject.TypeInterface
     get_project_templates: (self: TemplateProvider) => ProjectTemplate[]
     static name: string
@@ -32627,7 +32627,7 @@ export class ThreadPool {
     static push_task(kind: ThreadPoolKind, task: Gio.Task, func: Gio.TaskThreadFunc): void
 }
 export abstract class TransferButtonClass {
-    /* Fields of Ide.TransferButtonClass */
+    /* Fields of Ide-1.0.Ide.TransferButtonClass */
     parent_class: Dazzle.ProgressButtonClass
     _reserved1: object
     _reserved2: object
@@ -32636,7 +32636,7 @@ export abstract class TransferButtonClass {
     static name: string
 }
 export abstract class TransferClass {
-    /* Fields of Ide.TransferClass */
+    /* Fields of Ide-1.0.Ide.TransferClass */
     parent_class: GObject.ObjectClass
     execute_async: (self: Transfer, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null) => void
     execute_finish: (self: Transfer, result: Gio.AsyncResult) => boolean
@@ -32651,27 +32651,27 @@ export abstract class TransferClass {
     static name: string
 }
 export abstract class TransferManagerClass {
-    /* Fields of Ide.TransferManagerClass */
+    /* Fields of Ide-1.0.Ide.TransferManagerClass */
     parent_class: ObjectClass
     static name: string
 }
 export abstract class TransferRowClass {
-    /* Fields of Ide.TransferRowClass */
+    /* Fields of Ide-1.0.Ide.TransferRowClass */
     parent_class: Gtk.ListBoxRowClass
     static name: string
 }
 export abstract class TransfersButtonClass {
-    /* Fields of Ide.TransfersButtonClass */
+    /* Fields of Ide-1.0.Ide.TransfersButtonClass */
     parent_class: Gtk.MenuButtonClass
     static name: string
 }
 export abstract class TransfersProgressIconClass {
-    /* Fields of Ide.TransfersProgressIconClass */
+    /* Fields of Ide-1.0.Ide.TransfersProgressIconClass */
     parent_class: Gtk.DrawingAreaClass
     static name: string
 }
 export class UnsavedFile {
-    /* Methods of Ide.UnsavedFile */
+    /* Methods of Ide-1.0.Ide.UnsavedFile */
     get_content(): GLib.Bytes
     get_file(): Gio.File
     get_sequence(): number
@@ -32682,12 +32682,12 @@ export class UnsavedFile {
     static name: string
 }
 export abstract class UnsavedFilesClass {
-    /* Fields of Ide.UnsavedFilesClass */
+    /* Fields of Ide-1.0.Ide.UnsavedFilesClass */
     parent_class: ObjectClass
     static name: string
 }
 export class Uri {
-    /* Methods of Ide.Uri */
+    /* Methods of Ide-1.0.Ide.Uri */
     copy(): Uri
     get_auth_params(): string
     get_fragment(): string
@@ -32726,14 +32726,14 @@ export class Uri {
     static split(uri_string: string, strict: boolean): [ /* scheme */ string | null, /* userinfo */ string | null, /* host */ string | null, /* port */ string | null, /* path */ string | null, /* query */ string | null, /* fragment */ string | null ]
 }
 export abstract class VcsConfigInterface {
-    /* Fields of Ide.VcsConfigInterface */
+    /* Fields of Ide-1.0.Ide.VcsConfigInterface */
     parent: GObject.TypeInterface
     get_config: (self: VcsConfig, type: VcsConfigType, value: any) => void
     set_config: (self: VcsConfig, type: VcsConfigType, value: any) => void
     static name: string
 }
 export abstract class VcsInitializerInterface {
-    /* Fields of Ide.VcsInitializerInterface */
+    /* Fields of Ide-1.0.Ide.VcsInitializerInterface */
     parent: GObject.TypeInterface
     get_title: (self: VcsInitializer) => string
     initialize_async: (self: VcsInitializer, file: Gio.File, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null) => void
@@ -32741,7 +32741,7 @@ export abstract class VcsInitializerInterface {
     static name: string
 }
 export abstract class VcsInterface {
-    /* Fields of Ide.VcsInterface */
+    /* Fields of Ide-1.0.Ide.VcsInterface */
     parent_interface: GObject.TypeInterface
     get_working_directory: (self: Vcs) => Gio.File
     get_buffer_change_monitor: (self: Vcs, buffer: Buffer) => BufferChangeMonitor | null
@@ -32753,7 +32753,7 @@ export abstract class VcsInterface {
     static name: string
 }
 export class VcsUri {
-    /* Methods of Ide.VcsUri */
+    /* Methods of Ide-1.0.Ide.VcsUri */
     get_host(): string
     get_path(): string
     get_port(): number
@@ -32775,7 +32775,7 @@ export class VcsUri {
     static is_valid(uri_string: string): boolean
 }
 export abstract class WorkbenchAddinInterface {
-    /* Fields of Ide.WorkbenchAddinInterface */
+    /* Fields of Ide-1.0.Ide.WorkbenchAddinInterface */
     parent: GObject.TypeInterface
     get_id: (self: WorkbenchAddin) => string
     load: (self: WorkbenchAddin, workbench: Workbench) => void
@@ -32787,12 +32787,12 @@ export abstract class WorkbenchAddinInterface {
     static name: string
 }
 export abstract class WorkbenchClass {
-    /* Fields of Ide.WorkbenchClass */
+    /* Fields of Ide-1.0.Ide.WorkbenchClass */
     parent_class: Gtk.ApplicationWindowClass
     static name: string
 }
 export abstract class WorkbenchHeaderBarClass {
-    /* Fields of Ide.WorkbenchHeaderBarClass */
+    /* Fields of Ide-1.0.Ide.WorkbenchHeaderBarClass */
     parent: Gtk.HeaderBarClass
     _reserved1: object
     _reserved2: object
@@ -32805,12 +32805,12 @@ export abstract class WorkbenchHeaderBarClass {
     static name: string
 }
 export abstract class WorkbenchMessageClass {
-    /* Fields of Ide.WorkbenchMessageClass */
+    /* Fields of Ide-1.0.Ide.WorkbenchMessageClass */
     parent_class: Gtk.InfoBarClass
     static name: string
 }
 export abstract class WorkerInterface {
-    /* Fields of Ide.WorkerInterface */
+    /* Fields of Ide-1.0.Ide.WorkerInterface */
     parent: GObject.TypeInterface
     create_proxy: (self: Worker, connection: Gio.DBusConnection) => Gio.DBusProxy
     register_service: (self: Worker, connection: Gio.DBusConnection) => void

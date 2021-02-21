@@ -214,11 +214,11 @@ export interface CalRecurInstanceFn {
 export interface Cal_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class Cal {
-    /* Fields of ECalendar.Cal */
+    /* Fields of ECalendar-1.2.ECalendar.Cal */
     object: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of ECalendar.Cal */
+    /* Methods of ECalendar-1.2.ECalendar.Cal */
     discard_alarm(comp: CalComponent, auid: string): boolean
     get_alarm_email_address(alarm_address: string): boolean
     get_alarms_for_object(id: CalComponentId, start: number, end: number, alarms: CalComponentAlarms): boolean
@@ -242,7 +242,7 @@ export class Cal {
     refresh(): boolean
     remove(): boolean
     remove_object(uid: string): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -264,12 +264,12 @@ export class Cal {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of ECalendar.Cal */
+    /* Virtual methods of ECalendar-1.2.ECalendar.Cal */
     vfunc_backend_died(): void
     vfunc_backend_error(message: string): void
     vfunc_cal_opened(status: CalendarStatus): void
     vfunc_cal_opened_ex(error: GLib.Error): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -277,7 +277,7 @@ export class Cal {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of ECalendar.Cal */
+    /* Signals of ECalendar-1.2.ECalendar.Cal */
     connect(sigName: "backend-died", callback: (($obj: Cal) => void)): number
     connect_after(sigName: "backend-died", callback: (($obj: Cal) => void)): number
     emit(sigName: "backend-died"): void
@@ -293,7 +293,7 @@ export class Cal {
     connect(sigName: "cal-set-mode", callback: (($obj: Cal, object: CalSetModeStatusEnum, p0: any) => void)): number
     connect_after(sigName: "cal-set-mode", callback: (($obj: Cal, object: CalSetModeStatusEnum, p0: any) => void)): number
     emit(sigName: "cal-set-mode", object: CalSetModeStatusEnum, p0: any): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Cal, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Cal, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -320,17 +320,17 @@ export class Cal {
 export interface CalClient_ConstructProps extends EDataServer.Client_ConstructProps {
 }
 export class CalClient {
-    /* Properties of EDataServer.Client */
+    /* Properties of EDataServer-1.2.EDataServer.Client */
     readonly capabilities: object
     readonly main_context: GLib.MainContext
     online: boolean
     readonly opened: boolean
     readonly readonly: boolean
-    /* Fields of ECalendar.CalClient */
+    /* Fields of ECalendar-1.2.ECalendar.CalClient */
     parent: EDataServer.Client
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of ECalendar.CalClient */
+    /* Methods of ECalendar-1.2.ECalendar.CalClient */
     add_timezone_finish(result: Gio.AsyncResult): boolean
     check_one_alarm_only(): boolean
     check_organizer_must_accept(): boolean
@@ -370,7 +370,7 @@ export class CalClient {
     receive_objects_finish(result: Gio.AsyncResult): boolean
     remove_object_finish(result: Gio.AsyncResult): boolean
     remove_objects_finish(result: Gio.AsyncResult): boolean
-    /* Methods of EDataServer.Client */
+    /* Methods of EDataServer-1.2.EDataServer.Client */
     cancel_all(): void
     check_capability(capability: string): boolean
     check_refresh_supported(): boolean
@@ -407,7 +407,7 @@ export class CalClient {
     wait_for_connected(timeout_seconds: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     wait_for_connected_finish(result: Gio.AsyncResult): boolean
     wait_for_connected_sync(timeout_seconds: number, cancellable?: Gio.Cancellable | null): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -429,7 +429,7 @@ export class CalClient {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of EDataServer.Client */
+    /* Virtual methods of EDataServer-1.2.EDataServer.Client */
     vfunc_backend_died(): void
     vfunc_backend_error(error_msg: string): void
     vfunc_backend_property_changed(prop_name: string, prop_value: string): void
@@ -454,7 +454,7 @@ export class CalClient {
     vfunc_set_backend_property_finish(result: Gio.AsyncResult): boolean
     vfunc_set_backend_property_sync(prop_name: string, prop_value: string, cancellable?: Gio.Cancellable | null): boolean
     vfunc_unwrap_dbus_error(dbus_error: GLib.Error): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -462,11 +462,11 @@ export class CalClient {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of ECalendar.CalClient */
+    /* Signals of ECalendar-1.2.ECalendar.CalClient */
     connect(sigName: "free-busy-data", callback: (($obj: CalClient, object: object) => void)): number
     connect_after(sigName: "free-busy-data", callback: (($obj: CalClient, object: object) => void)): number
     emit(sigName: "free-busy-data", object: object): void
-    /* Signals of EDataServer.Client */
+    /* Signals of EDataServer-1.2.EDataServer.Client */
     connect(sigName: "backend-died", callback: (($obj: CalClient) => void)): number
     connect_after(sigName: "backend-died", callback: (($obj: CalClient) => void)): number
     emit(sigName: "backend-died"): void
@@ -479,7 +479,7 @@ export class CalClient {
     connect(sigName: "opened", callback: (($obj: CalClient, object: GLib.Error) => void)): number
     connect_after(sigName: "opened", callback: (($obj: CalClient, object: GLib.Error) => void)): number
     emit(sigName: "opened", object: GLib.Error): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: CalClient, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: CalClient, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -515,18 +515,18 @@ export interface CalClientView_ConstructProps extends GObject.Object_ConstructPr
     view?: object
 }
 export class CalClientView {
-    /* Fields of ECalendar.CalClientView */
+    /* Fields of ECalendar-1.2.ECalendar.CalClientView */
     object: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of ECalendar.CalClientView */
+    /* Methods of ECalendar-1.2.ECalendar.CalClientView */
     get_client(): object
     is_running(): boolean
     set_fields_of_interest(fields_of_interest?: string[] | null): void
     set_flags(flags: CalClientViewFlags): void
     start(): void
     stop(): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -548,10 +548,10 @@ export class CalClientView {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of ECalendar.CalClientView */
+    /* Virtual methods of ECalendar-1.2.ECalendar.CalClientView */
     vfunc_complete(error: GLib.Error): void
     vfunc_progress(percent: number, message: string): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -559,7 +559,7 @@ export class CalClientView {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of ECalendar.CalClientView */
+    /* Signals of ECalendar-1.2.ECalendar.CalClientView */
     connect(sigName: "complete", callback: (($obj: CalClientView, object: GLib.Error) => void)): number
     connect_after(sigName: "complete", callback: (($obj: CalClientView, object: GLib.Error) => void)): number
     emit(sigName: "complete", object: GLib.Error): void
@@ -575,7 +575,7 @@ export class CalClientView {
     connect(sigName: "progress", callback: (($obj: CalClientView, object: number, p0: string) => void)): number
     connect_after(sigName: "progress", callback: (($obj: CalClientView, object: number, p0: string) => void)): number
     emit(sigName: "progress", object: number, p0: string): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: CalClientView, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: CalClientView, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -591,11 +591,11 @@ export class CalClientView {
 export interface CalComponent_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class CalComponent {
-    /* Fields of ECalendar.CalComponent */
+    /* Fields of ECalendar-1.2.ECalendar.CalComponent */
     object: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of ECalendar.CalComponent */
+    /* Methods of ECalendar-1.2.ECalendar.CalComponent */
     abort_sequence(): void
     add_alarm(alarm: CalComponentAlarm): void
     clone(): CalComponent
@@ -681,7 +681,7 @@ export class CalComponent {
     set_uid(uid: string): void
     set_url(url: string): void
     strip_errors(): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -703,7 +703,7 @@ export class CalComponent {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -711,7 +711,7 @@ export class CalComponent {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: CalComponent, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: CalComponent, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -746,14 +746,14 @@ export interface CalView_ConstructProps extends GObject.Object_ConstructProps {
     view?: object
 }
 export class CalView {
-    /* Fields of ECalendar.CalView */
+    /* Fields of ECalendar-1.2.ECalendar.CalView */
     object: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of ECalendar.CalView */
+    /* Methods of ECalendar-1.2.ECalendar.CalView */
     start(): void
     stop(): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -775,11 +775,11 @@ export class CalView {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of ECalendar.CalView */
+    /* Virtual methods of ECalendar-1.2.ECalendar.CalView */
     vfunc_view_complete(status: CalendarStatus, error_msg: string): void
     vfunc_view_done(status: CalendarStatus): void
     vfunc_view_progress(message: string, percent: number): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -787,7 +787,7 @@ export class CalView {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of ECalendar.CalView */
+    /* Signals of ECalendar-1.2.ECalendar.CalView */
     connect(sigName: "objects-added", callback: (($obj: CalView, objects: number[]) => void)): number
     connect_after(sigName: "objects-added", callback: (($obj: CalView, objects: number[]) => void)): number
     emit(sigName: "objects-added", objects: number[]): void
@@ -806,7 +806,7 @@ export class CalView {
     connect(sigName: "view-progress", callback: (($obj: CalView, object: string, p0: number) => void)): number
     connect_after(sigName: "view-progress", callback: (($obj: CalView, object: string, p0: number) => void)): number
     emit(sigName: "view-progress", object: string, p0: number): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: CalView, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: CalView, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -820,13 +820,13 @@ export class CalView {
     static $gtype: GObject.Type
 }
 export class CalChange {
-    /* Fields of ECalendar.CalChange */
+    /* Fields of ECalendar-1.2.ECalendar.CalChange */
     comp: CalComponent
     type: CalChangeType
     static name: string
 }
 export abstract class CalClass {
-    /* Fields of ECalendar.CalClass */
+    /* Fields of ECalendar-1.2.ECalendar.CalClass */
     parent_class: GObject.ObjectClass
     cal_opened: (ecal: Cal, status: CalendarStatus) => void
     cal_opened_ex: (ecal: Cal, error: GLib.Error) => void
@@ -835,7 +835,7 @@ export abstract class CalClass {
     static name: string
 }
 export abstract class CalClientClass {
-    /* Fields of ECalendar.CalClientClass */
+    /* Fields of ECalendar-1.2.ECalendar.CalClientClass */
     parent: EDataServer.ClientClass
     static name: string
 }
@@ -843,7 +843,7 @@ export class CalClientPrivate {
     static name: string
 }
 export abstract class CalClientViewClass {
-    /* Fields of ECalendar.CalClientViewClass */
+    /* Fields of ECalendar-1.2.ECalendar.CalClientViewClass */
     parent_class: GObject.ObjectClass
     progress: (view: CalClientView, percent: number, message: string) => void
     complete: (view: CalClientView, error: GLib.Error) => void
@@ -853,7 +853,7 @@ export class CalClientViewPrivate {
     static name: string
 }
 export class CalComponentAlarm {
-    /* Methods of ECalendar.CalComponentAlarm */
+    /* Methods of ECalendar-1.2.ECalendar.CalComponentAlarm */
     free(): void
     get_action(action: CalComponentAlarmAction): void
     get_attendee_list(): /* attendee_list */ CalComponentAttendee[]
@@ -870,7 +870,7 @@ export class CalComponentAlarm {
     static name: string
 }
 export class CalComponentAlarmInstance {
-    /* Fields of ECalendar.CalComponentAlarmInstance */
+    /* Fields of ECalendar-1.2.ECalendar.CalComponentAlarmInstance */
     auid: string
     trigger: number
     occur_start: number
@@ -878,26 +878,26 @@ export class CalComponentAlarmInstance {
     static name: string
 }
 export class CalComponentAlarmRepeat {
-    /* Fields of ECalendar.CalComponentAlarmRepeat */
+    /* Fields of ECalendar-1.2.ECalendar.CalComponentAlarmRepeat */
     repetitions: number
     duration: object
     static name: string
 }
 export class CalComponentAlarmTrigger {
-    /* Fields of ECalendar.CalComponentAlarmTrigger */
+    /* Fields of ECalendar-1.2.ECalendar.CalComponentAlarmTrigger */
     type: CalComponentAlarmTriggerType
     static name: string
 }
 export class CalComponentAlarms {
-    /* Fields of ECalendar.CalComponentAlarms */
+    /* Fields of ECalendar-1.2.ECalendar.CalComponentAlarms */
     comp: CalComponent
     alarms: object[]
-    /* Methods of ECalendar.CalComponentAlarms */
+    /* Methods of ECalendar-1.2.ECalendar.CalComponentAlarms */
     free(): void
     static name: string
 }
 export class CalComponentAttendee {
-    /* Fields of ECalendar.CalComponentAttendee */
+    /* Fields of ECalendar-1.2.ECalendar.CalComponentAttendee */
     value: string
     member: string
     rsvp: boolean
@@ -909,24 +909,24 @@ export class CalComponentAttendee {
     static name: string
 }
 export abstract class CalComponentClass {
-    /* Fields of ECalendar.CalComponentClass */
+    /* Fields of ECalendar-1.2.ECalendar.CalComponentClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
 export class CalComponentDateTime {
-    /* Fields of ECalendar.CalComponentDateTime */
+    /* Fields of ECalendar-1.2.ECalendar.CalComponentDateTime */
     value: object
     tzid: string
     static name: string
 }
 export class CalComponentId {
-    /* Fields of ECalendar.CalComponentId */
+    /* Fields of ECalendar-1.2.ECalendar.CalComponentId */
     uid: string
     rid: string
     static name: string
 }
 export class CalComponentOrganizer {
-    /* Fields of ECalendar.CalComponentOrganizer */
+    /* Fields of ECalendar-1.2.ECalendar.CalComponentOrganizer */
     value: string
     sentby: string
     cn: string
@@ -934,7 +934,7 @@ export class CalComponentOrganizer {
     static name: string
 }
 export class CalComponentPeriod {
-    /* Fields of ECalendar.CalComponentPeriod */
+    /* Fields of ECalendar-1.2.ECalendar.CalComponentPeriod */
     type: CalComponentPeriodType
     start: object
     static name: string
@@ -943,13 +943,13 @@ export class CalComponentPrivate {
     static name: string
 }
 export class CalComponentRange {
-    /* Fields of ECalendar.CalComponentRange */
+    /* Fields of ECalendar-1.2.ECalendar.CalComponentRange */
     type: CalComponentRangeType
     datetime: CalComponentDateTime
     static name: string
 }
 export class CalComponentText {
-    /* Fields of ECalendar.CalComponentText */
+    /* Fields of ECalendar-1.2.ECalendar.CalComponentText */
     value: string
     altrep: string
     static name: string
@@ -958,7 +958,7 @@ export class CalPrivate {
     static name: string
 }
 export abstract class CalViewClass {
-    /* Fields of ECalendar.CalViewClass */
+    /* Fields of ECalendar-1.2.ECalendar.CalViewClass */
     parent_class: GObject.ObjectClass
     view_progress: (view: CalView, message: string, percent: number) => void
     view_done: (view: CalView, status: CalendarStatus) => void

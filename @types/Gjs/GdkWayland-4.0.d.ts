@@ -19,7 +19,7 @@ export interface WaylandToplevelExported {
 export interface WaylandDevice_ConstructProps extends Gdk.Device_ConstructProps {
 }
 export class WaylandDevice {
-    /* Properties of Gdk.Device */
+    /* Properties of Gdk-4.0.Gdk.Device */
     readonly caps_lock_state: boolean
     readonly direction: Pango.Direction
     readonly has_bidi_layouts: boolean
@@ -29,11 +29,11 @@ export class WaylandDevice {
     readonly scroll_lock_state: boolean
     seat: Gdk.Seat
     readonly tool: Gdk.DeviceTool
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GdkWayland.WaylandDevice */
+    /* Methods of GdkWayland-4.0.GdkWayland.WaylandDevice */
     get_node_path(): string | null
-    /* Methods of Gdk.Device */
+    /* Methods of Gdk-4.0.Gdk.Device */
     get_caps_lock_state(): boolean
     get_device_tool(): Gdk.DeviceTool
     get_direction(): Pango.Direction
@@ -49,7 +49,7 @@ export class WaylandDevice {
     get_source(): Gdk.InputSource
     get_surface_at_position(): [ /* returnType */ Gdk.Surface | null, /* win_x */ number | null, /* win_y */ number | null ]
     get_vendor_id(): string | null
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -71,7 +71,7 @@ export class WaylandDevice {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -79,14 +79,14 @@ export class WaylandDevice {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gdk.Device */
+    /* Signals of Gdk-4.0.Gdk.Device */
     connect(sigName: "changed", callback: (($obj: WaylandDevice) => void)): number
     connect_after(sigName: "changed", callback: (($obj: WaylandDevice) => void)): number
     emit(sigName: "changed"): void
     connect(sigName: "tool-changed", callback: (($obj: WaylandDevice, tool: Gdk.DeviceTool) => void)): number
     connect_after(sigName: "tool-changed", callback: (($obj: WaylandDevice, tool: Gdk.DeviceTool) => void)): number
     emit(sigName: "tool-changed", tool: Gdk.DeviceTool): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: WaylandDevice, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: WaylandDevice, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -120,18 +120,18 @@ export class WaylandDevice {
 export interface WaylandDisplay_ConstructProps extends Gdk.Display_ConstructProps {
 }
 export class WaylandDisplay {
-    /* Properties of Gdk.Display */
+    /* Properties of Gdk-4.0.Gdk.Display */
     readonly composited: boolean
     readonly input_shapes: boolean
     readonly rgba: boolean
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GdkWayland.WaylandDisplay */
+    /* Methods of GdkWayland-4.0.GdkWayland.WaylandDisplay */
     get_startup_notification_id(): string | null
     query_registry(global: string): boolean
     set_cursor_theme(name: string, size: number): void
     set_startup_notification_id(startup_id: string): void
-    /* Methods of Gdk.Display */
+    /* Methods of Gdk-4.0.Gdk.Display */
     beep(): void
     close(): void
     device_is_grabbed(device: Gdk.Device): boolean
@@ -155,7 +155,7 @@ export class WaylandDisplay {
     supports_input_shapes(): boolean
     sync(): void
     translate_key(keycode: number, state: Gdk.ModifierType, group: number): [ /* returnType */ boolean, /* keyval */ number | null, /* effective_group */ number | null, /* level */ number | null, /* consumed */ Gdk.ModifierType | null ]
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -177,7 +177,7 @@ export class WaylandDisplay {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -185,7 +185,7 @@ export class WaylandDisplay {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gdk.Display */
+    /* Signals of Gdk-4.0.Gdk.Display */
     connect(sigName: "closed", callback: (($obj: WaylandDisplay, is_error: boolean) => void)): number
     connect_after(sigName: "closed", callback: (($obj: WaylandDisplay, is_error: boolean) => void)): number
     emit(sigName: "closed", is_error: boolean): void
@@ -201,7 +201,7 @@ export class WaylandDisplay {
     connect(sigName: "setting-changed", callback: (($obj: WaylandDisplay, setting: string) => void)): number
     connect_after(sigName: "setting-changed", callback: (($obj: WaylandDisplay, setting: string) => void)): number
     emit(sigName: "setting-changed", setting: string): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: WaylandDisplay, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: WaylandDisplay, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -223,11 +223,11 @@ export class WaylandDisplay {
 export interface WaylandGLContext_ConstructProps extends Gdk.GLContext_ConstructProps {
 }
 export class WaylandGLContext {
-    /* Properties of Gdk.DrawContext */
+    /* Properties of Gdk-4.0.Gdk.DrawContext */
     readonly display: Gdk.Display
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Gdk.GLContext */
+    /* Methods of Gdk-4.0.Gdk.GLContext */
     get_debug_enabled(): boolean
     get_display(): Gdk.Display | null
     get_forward_compatible(): boolean
@@ -243,12 +243,12 @@ export class WaylandGLContext {
     set_forward_compatible(compatible: boolean): void
     set_required_version(major: number, minor: number): void
     set_use_es(use_es: number): void
-    /* Methods of Gdk.DrawContext */
+    /* Methods of Gdk-4.0.Gdk.DrawContext */
     begin_frame(region: cairo.Region): void
     end_frame(): void
     get_frame_region(): cairo.Region | null
     is_in_frame(): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -270,7 +270,7 @@ export class WaylandGLContext {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -278,7 +278,7 @@ export class WaylandGLContext {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: WaylandGLContext, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: WaylandGLContext, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -296,7 +296,7 @@ export class WaylandGLContext {
 export interface WaylandMonitor_ConstructProps extends Gdk.Monitor_ConstructProps {
 }
 export class WaylandMonitor {
-    /* Properties of Gdk.Monitor */
+    /* Properties of Gdk-4.0.Gdk.Monitor */
     readonly connector: string
     readonly geometry: Gdk.Rectangle
     readonly height_mm: number
@@ -307,9 +307,9 @@ export class WaylandMonitor {
     readonly subpixel_layout: Gdk.SubpixelLayout
     readonly valid: boolean
     readonly width_mm: number
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Gdk.Monitor */
+    /* Methods of Gdk-4.0.Gdk.Monitor */
     get_connector(): string | null
     get_display(): Gdk.Display
     get_geometry(): /* geometry */ Gdk.Rectangle
@@ -321,7 +321,7 @@ export class WaylandMonitor {
     get_subpixel_layout(): Gdk.SubpixelLayout
     get_width_mm(): number
     is_valid(): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -343,7 +343,7 @@ export class WaylandMonitor {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -351,11 +351,11 @@ export class WaylandMonitor {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gdk.Monitor */
+    /* Signals of Gdk-4.0.Gdk.Monitor */
     connect(sigName: "invalidate", callback: (($obj: WaylandMonitor) => void)): number
     connect_after(sigName: "invalidate", callback: (($obj: WaylandMonitor) => void)): number
     emit(sigName: "invalidate"): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: WaylandMonitor, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: WaylandMonitor, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -393,15 +393,15 @@ export interface WaylandPopup_ConstructProps extends WaylandSurface_ConstructPro
     parent?: Gdk.Surface
 }
 export class WaylandPopup {
-    /* Properties of Gdk.Surface */
+    /* Properties of Gdk-4.0.Gdk.Surface */
     cursor: Gdk.Cursor
     readonly height: number
     readonly mapped: boolean
     readonly scale_factor: number
     readonly width: number
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Gdk.Surface */
+    /* Methods of Gdk-4.0.Gdk.Surface */
     beep(): void
     create_cairo_context(): Gdk.CairoContext
     create_gl_context(): Gdk.GLContext
@@ -426,7 +426,7 @@ export class WaylandPopup {
     set_input_region(region: cairo.Region): void
     set_opaque_region(region?: cairo.Region | null): void
     translate_coordinates(to: Gdk.Surface, x: number, y: number): [ /* returnType */ boolean, /* x */ number, /* y */ number ]
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -448,7 +448,7 @@ export class WaylandPopup {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of Gdk.Popup */
+    /* Methods of Gdk-4.0.Gdk.Popup */
     get_autohide(): boolean
     get_parent(): Gdk.Surface
     get_position_x(): number
@@ -456,7 +456,7 @@ export class WaylandPopup {
     get_rect_anchor(): Gdk.Gravity
     get_surface_anchor(): Gdk.Gravity
     present(width: number, height: number, layout: Gdk.PopupLayout): boolean
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -464,7 +464,7 @@ export class WaylandPopup {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gdk.Surface */
+    /* Signals of Gdk-4.0.Gdk.Surface */
     connect(sigName: "enter-monitor", callback: (($obj: WaylandPopup, monitor: Gdk.Monitor) => void)): number
     connect_after(sigName: "enter-monitor", callback: (($obj: WaylandPopup, monitor: Gdk.Monitor) => void)): number
     emit(sigName: "enter-monitor", monitor: Gdk.Monitor): void
@@ -480,7 +480,7 @@ export class WaylandPopup {
     connect(sigName: "render", callback: (($obj: WaylandPopup, region: cairo.Region) => boolean)): number
     connect_after(sigName: "render", callback: (($obj: WaylandPopup, region: cairo.Region) => boolean)): number
     emit(sigName: "render", region: cairo.Region): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: WaylandPopup, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: WaylandPopup, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -506,18 +506,18 @@ export class WaylandPopup {
 export interface WaylandSeat_ConstructProps extends Gdk.Seat_ConstructProps {
 }
 export class WaylandSeat {
-    /* Fields of Gdk.Seat */
+    /* Fields of Gdk-4.0.Gdk.Seat */
     parent_instance: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Gdk.Seat */
+    /* Methods of Gdk-4.0.Gdk.Seat */
     get_capabilities(): Gdk.SeatCapabilities
     get_devices(capabilities: Gdk.SeatCapabilities): Gdk.Device[]
     get_display(): Gdk.Display
     get_keyboard(): Gdk.Device | null
     get_pointer(): Gdk.Device | null
     get_tools(): Gdk.DeviceTool[]
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -539,7 +539,7 @@ export class WaylandSeat {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -547,7 +547,7 @@ export class WaylandSeat {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gdk.Seat */
+    /* Signals of Gdk-4.0.Gdk.Seat */
     connect(sigName: "device-added", callback: (($obj: WaylandSeat, device: Gdk.Device) => void)): number
     connect_after(sigName: "device-added", callback: (($obj: WaylandSeat, device: Gdk.Device) => void)): number
     emit(sigName: "device-added", device: Gdk.Device): void
@@ -560,7 +560,7 @@ export class WaylandSeat {
     connect(sigName: "tool-removed", callback: (($obj: WaylandSeat, tool: Gdk.DeviceTool) => void)): number
     connect_after(sigName: "tool-removed", callback: (($obj: WaylandSeat, tool: Gdk.DeviceTool) => void)): number
     emit(sigName: "tool-removed", tool: Gdk.DeviceTool): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: WaylandSeat, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: WaylandSeat, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -576,15 +576,15 @@ export class WaylandSeat {
 export interface WaylandSurface_ConstructProps extends Gdk.Surface_ConstructProps {
 }
 export class WaylandSurface {
-    /* Properties of Gdk.Surface */
+    /* Properties of Gdk-4.0.Gdk.Surface */
     cursor: Gdk.Cursor
     readonly height: number
     readonly mapped: boolean
     readonly scale_factor: number
     readonly width: number
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Gdk.Surface */
+    /* Methods of Gdk-4.0.Gdk.Surface */
     beep(): void
     create_cairo_context(): Gdk.CairoContext
     create_gl_context(): Gdk.GLContext
@@ -609,7 +609,7 @@ export class WaylandSurface {
     set_input_region(region: cairo.Region): void
     set_opaque_region(region?: cairo.Region | null): void
     translate_coordinates(to: Gdk.Surface, x: number, y: number): [ /* returnType */ boolean, /* x */ number, /* y */ number ]
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -631,7 +631,7 @@ export class WaylandSurface {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -639,7 +639,7 @@ export class WaylandSurface {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gdk.Surface */
+    /* Signals of Gdk-4.0.Gdk.Surface */
     connect(sigName: "enter-monitor", callback: (($obj: WaylandSurface, monitor: Gdk.Monitor) => void)): number
     connect_after(sigName: "enter-monitor", callback: (($obj: WaylandSurface, monitor: Gdk.Monitor) => void)): number
     emit(sigName: "enter-monitor", monitor: Gdk.Monitor): void
@@ -655,7 +655,7 @@ export class WaylandSurface {
     connect(sigName: "render", callback: (($obj: WaylandSurface, region: cairo.Region) => boolean)): number
     connect_after(sigName: "render", callback: (($obj: WaylandSurface, region: cairo.Region) => boolean)): number
     emit(sigName: "render", region: cairo.Region): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: WaylandSurface, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: WaylandSurface, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -689,13 +689,13 @@ export interface WaylandToplevel_ConstructProps extends WaylandSurface_Construct
     transient_for?: Gdk.Surface
 }
 export class WaylandToplevel {
-    /* Properties of Gdk.Surface */
+    /* Properties of Gdk-4.0.Gdk.Surface */
     cursor: Gdk.Cursor
     readonly height: number
     readonly mapped: boolean
     readonly scale_factor: number
     readonly width: number
-    /* Properties of Gdk.Toplevel */
+    /* Properties of Gdk-4.0.Gdk.Toplevel */
     decorated: boolean
     deletable: boolean
     fullscreen_mode: Gdk.FullscreenMode
@@ -706,14 +706,14 @@ export class WaylandToplevel {
     readonly state: Gdk.ToplevelState
     title: string
     transient_for: Gdk.Surface
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GdkWayland.WaylandToplevel */
+    /* Methods of GdkWayland-4.0.GdkWayland.WaylandToplevel */
     export_handle(callback: WaylandToplevelExported): boolean
     set_application_id(application_id: string): void
     set_transient_for_exported(parent_handle_str: string): boolean
     unexport_handle(): void
-    /* Methods of Gdk.Surface */
+    /* Methods of Gdk-4.0.Gdk.Surface */
     beep(): void
     create_cairo_context(): Gdk.CairoContext
     create_gl_context(): Gdk.GLContext
@@ -738,7 +738,7 @@ export class WaylandToplevel {
     set_input_region(region: cairo.Region): void
     set_opaque_region(region?: cairo.Region | null): void
     translate_coordinates(to: Gdk.Surface, x: number, y: number): [ /* returnType */ boolean, /* x */ number, /* y */ number ]
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -760,7 +760,7 @@ export class WaylandToplevel {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of Gdk.Toplevel */
+    /* Methods of Gdk-4.0.Gdk.Toplevel */
     begin_move(device: Gdk.Device, button: number, x: number, y: number, timestamp: number): void
     begin_resize(edge: Gdk.SurfaceEdge, device: Gdk.Device | null, button: number, x: number, y: number, timestamp: number): void
     focus(timestamp: number): void
@@ -779,7 +779,7 @@ export class WaylandToplevel {
     set_transient_for(parent: Gdk.Surface): void
     show_window_menu(event: Gdk.Event): boolean
     supports_edge_constraints(): boolean
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -787,7 +787,7 @@ export class WaylandToplevel {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gdk.Surface */
+    /* Signals of Gdk-4.0.Gdk.Surface */
     connect(sigName: "enter-monitor", callback: (($obj: WaylandToplevel, monitor: Gdk.Monitor) => void)): number
     connect_after(sigName: "enter-monitor", callback: (($obj: WaylandToplevel, monitor: Gdk.Monitor) => void)): number
     emit(sigName: "enter-monitor", monitor: Gdk.Monitor): void
@@ -803,11 +803,11 @@ export class WaylandToplevel {
     connect(sigName: "render", callback: (($obj: WaylandToplevel, region: cairo.Region) => boolean)): number
     connect_after(sigName: "render", callback: (($obj: WaylandToplevel, region: cairo.Region) => boolean)): number
     emit(sigName: "render", region: cairo.Region): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: WaylandToplevel, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: WaylandToplevel, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    /* Signals of Gdk.Toplevel */
+    /* Signals of Gdk-4.0.Gdk.Toplevel */
     connect(sigName: "compute-size", callback: (($obj: WaylandToplevel) => void)): number
     connect_after(sigName: "compute-size", callback: (($obj: WaylandToplevel) => void)): number
     emit(sigName: "compute-size"): void

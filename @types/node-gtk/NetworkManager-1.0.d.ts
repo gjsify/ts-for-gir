@@ -917,8 +917,8 @@ export function utilsIp6RoutesFromGvalue(value: any): IP6Route[]
 export function utilsIp6RoutesToGvalue(list: IP6Route[], value: any): void
 export function utilsIsEmptySsid(ssid: number, len: number): boolean
 export function utilsIsUuid(str: string): boolean
-export function utilsRsaKeyEncrypt(data: any[], inPassword?: string | null): [ /* returnType */ any[], /* outPassword */ string | null ]
-export function utilsRsaKeyEncryptAes(data: any[], inPassword?: string | null): [ /* returnType */ any[], /* outPassword */ string | null ]
+export function utilsRsaKeyEncrypt(data: any[], inPassword?: string | null): { returnType: any[], outPassword: string | null }
+export function utilsRsaKeyEncryptAes(data: any[], inPassword?: string | null): { returnType: any[], outPassword: string | null }
 export function utilsSameSsid(ssid1: any[], ssid2: any[], ignoreTrailingNull: boolean): boolean
 export function utilsSecurityValid(type: UtilsSecurityType, wifiCaps: DeviceWifiCapabilities, haveAp: boolean, adhoc: boolean, apFlags: TODO_80211ApFlags, apWpa: TODO_80211ApSecurityFlags, apRsn: TODO_80211ApSecurityFlags): boolean
 export function utilsSsidToUtf8(ssid: any[]): string
@@ -946,13 +946,13 @@ export interface Connection_ConstructProps extends GObject.Object_ConstructProps
     path?: string
 }
 export class Connection {
-    /* Properties of NetworkManager.Connection */
+    /* Properties of NetworkManager-1.0.NetworkManager.Connection */
     path: string
-    /* Fields of NetworkManager.Connection */
+    /* Fields of NetworkManager-1.0.NetworkManager.Connection */
     parent: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of NetworkManager.Connection */
+    /* Methods of NetworkManager-1.0.NetworkManager.Connection */
     addSetting(setting: Setting): void
     clearSecrets(): void
     clearSecretsWithFlags(func: SettingClearSecretsWithFlagsFn): void
@@ -997,8 +997,8 @@ export class Connection {
     getVirtualDeviceDescription(): string
     getVirtualIfaceName(): string
     isType(type: string): boolean
-    needSecrets(): [ /* returnType */ string, /* hints */ string[] | null ]
-    normalize(parameters?: GLib.HashTable | null): [ /* returnType */ boolean, /* modified */ boolean | null ]
+    needSecrets(): { returnType: string, hints: string[] | null }
+    normalize(parameters?: GLib.HashTable | null): { returnType: boolean, modified: boolean | null }
     removeSetting(settingType: GObject.Type): void
     replaceSettings(newSettings: GLib.HashTable): boolean
     replaceSettingsFromConnection(newConnection: Connection): boolean
@@ -1006,7 +1006,7 @@ export class Connection {
     toHash(flags: SettingHashFlags): GLib.HashTable
     updateSecrets(settingName: string, secrets: GLib.HashTable): boolean
     verify(): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -1028,42 +1028,28 @@ export class Connection {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of NetworkManager.Connection */
-    vfuncSecretsUpdated(setting: string): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of NetworkManager.Connection */
+    /* Signals of NetworkManager-1.0.NetworkManager.Connection */
     connect(sigName: "changed", callback: (($obj: Connection) => void)): number
-    connect_after(sigName: "changed", callback: (($obj: Connection) => void)): number
+    on(sigName: "changed", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "changed", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "changed", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "changed"): void
-    on(sigName: "changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "secrets-cleared", callback: (($obj: Connection) => void)): number
-    connect_after(sigName: "secrets-cleared", callback: (($obj: Connection) => void)): number
+    on(sigName: "secrets-cleared", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "secrets-cleared", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "secrets-cleared", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "secrets-cleared"): void
-    on(sigName: "secrets-cleared", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "secrets-cleared", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "secrets-cleared", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "secrets-updated", callback: (($obj: Connection, settingName: string) => void)): number
-    connect_after(sigName: "secrets-updated", callback: (($obj: Connection, settingName: string) => void)): number
+    on(sigName: "secrets-updated", callback: (settingName: string) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "secrets-updated", callback: (settingName: string) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "secrets-updated", callback: (settingName: string) => void): NodeJS.EventEmitter
     emit(sigName: "secrets-updated", settingName: string): void
-    on(sigName: "secrets-updated", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "secrets-updated", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "secrets-updated", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Connection, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Connection, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::path", callback: (($obj: Connection, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::path", callback: (($obj: Connection, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::path", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -1091,17 +1077,17 @@ export interface Setting_ConstructProps extends GObject.Object_ConstructProps {
     name?: string
 }
 export class Setting {
-    /* Properties of NetworkManager.Setting */
+    /* Properties of NetworkManager-1.0.NetworkManager.Setting */
     name: string
-    /* Fields of NetworkManager.Setting */
+    /* Fields of NetworkManager-1.0.NetworkManager.Setting */
     parent: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of NetworkManager.Setting */
+    /* Methods of NetworkManager-1.0.NetworkManager.Setting */
     clearSecrets(): void
     clearSecretsWithFlags(func: SettingClearSecretsWithFlagsFn): void
     compare(b: Setting, flags: SettingCompareFlags): boolean
-    diff(b: Setting, flags: SettingCompareFlags, invertResults: boolean, results: GLib.HashTable): [ /* returnType */ boolean, /* results */ GLib.HashTable ]
+    diff(b: Setting, flags: SettingCompareFlags, invertResults: boolean, results: GLib.HashTable): { returnType: boolean, results: GLib.HashTable }
     duplicate(): Setting
     enumerateValues(func: SettingValueIterFn): void
     getName(): string
@@ -1113,7 +1099,7 @@ export class Setting {
     toString(): string
     updateSecrets(secrets: GLib.HashTable): boolean
     verify(allSettings: Setting[]): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -1135,28 +1121,12 @@ export class Setting {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of NetworkManager.Setting */
-    vfuncCompareProperty(other: Setting, propSpec: GObject.ParamSpec, flags: SettingCompareFlags): boolean
-    vfuncGetSecretFlags(secretName: string, verifySecret: boolean, outFlags: SettingSecretFlags): boolean
-    vfuncGetVirtualIfaceName(): string
-    vfuncNeedSecrets(): string[]
-    vfuncSetSecretFlags(secretName: string, verifySecret: boolean, flags: SettingSecretFlags): boolean
-    vfuncUpdateOneSecret(key: string, value: any): number
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Setting, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Setting, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::name", callback: (($obj: Setting, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::name", callback: (($obj: Setting, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::name", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -1201,7 +1171,7 @@ export interface Setting8021x_ConstructProps extends Setting_ConstructProps {
     systemCaCerts?: boolean
 }
 export class Setting8021x {
-    /* Properties of NetworkManager.Setting8021x */
+    /* Properties of NetworkManager-1.0.NetworkManager.Setting8021x */
     anonymousIdentity: string
     caPath: string
     identity: string
@@ -1224,13 +1194,13 @@ export class Setting8021x {
     privateKeyPasswordFlags: number
     subjectMatch: string
     systemCaCerts: boolean
-    /* Properties of NetworkManager.Setting */
+    /* Properties of NetworkManager-1.0.NetworkManager.Setting */
     name: string
-    /* Fields of NetworkManager.Setting8021x */
+    /* Fields of NetworkManager-1.0.NetworkManager.Setting8021x */
     parent: Setting
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of NetworkManager.Setting8021x */
+    /* Methods of NetworkManager-1.0.NetworkManager.Setting8021x */
     addAltsubjectMatch(altsubjectMatch: string): boolean
     addEapMethod(eap: string): boolean
     addPhase2AltsubjectMatch(phase2AltsubjectMatch: string): boolean
@@ -1298,11 +1268,11 @@ export class Setting8021x {
     setPhase2ClientCert(certPath: string, scheme: Setting8021xCKScheme, outFormat: Setting8021xCKFormat): boolean
     setPhase2PrivateKey(keyPath: string, password: string, scheme: Setting8021xCKScheme, outFormat: Setting8021xCKFormat): boolean
     setPrivateKey(keyPath: string, password: string, scheme: Setting8021xCKScheme, outFormat: Setting8021xCKFormat): boolean
-    /* Methods of NetworkManager.Setting */
+    /* Methods of NetworkManager-1.0.NetworkManager.Setting */
     clearSecrets(): void
     clearSecretsWithFlags(func: SettingClearSecretsWithFlagsFn): void
     compare(b: Setting, flags: SettingCompareFlags): boolean
-    diff(b: Setting, flags: SettingCompareFlags, invertResults: boolean, results: GLib.HashTable): [ /* returnType */ boolean, /* results */ GLib.HashTable ]
+    diff(b: Setting, flags: SettingCompareFlags, invertResults: boolean, results: GLib.HashTable): { returnType: boolean, results: GLib.HashTable }
     duplicate(): Setting
     enumerateValues(func: SettingValueIterFn): void
     getName(): string
@@ -1314,7 +1284,7 @@ export class Setting8021x {
     toString(): string
     updateSecrets(secrets: GLib.HashTable): boolean
     verify(allSettings: Setting[]): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -1336,28 +1306,12 @@ export class Setting8021x {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of NetworkManager.Setting */
-    vfuncCompareProperty(other: Setting, propSpec: GObject.ParamSpec, flags: SettingCompareFlags): boolean
-    vfuncGetSecretFlags(secretName: string, verifySecret: boolean, outFlags: SettingSecretFlags): boolean
-    vfuncGetVirtualIfaceName(): string
-    vfuncNeedSecrets(): string[]
-    vfuncSetSecretFlags(secretName: string, verifySecret: boolean, flags: SettingSecretFlags): boolean
-    vfuncUpdateOneSecret(key: string, value: any): number
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Setting8021x, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Setting8021x, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::anonymous-identity", callback: (($obj: Setting8021x, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::anonymous-identity", callback: (($obj: Setting8021x, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::anonymous-identity", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -1497,7 +1451,7 @@ export interface SettingAdsl_ConstructProps extends Setting_ConstructProps {
     vpi?: number
 }
 export class SettingAdsl {
-    /* Properties of NetworkManager.SettingAdsl */
+    /* Properties of NetworkManager-1.0.NetworkManager.SettingAdsl */
     encapsulation: string
     password: string
     passwordFlags: number
@@ -1505,13 +1459,13 @@ export class SettingAdsl {
     username: string
     vci: number
     vpi: number
-    /* Properties of NetworkManager.Setting */
+    /* Properties of NetworkManager-1.0.NetworkManager.Setting */
     name: string
-    /* Fields of NetworkManager.SettingAdsl */
+    /* Fields of NetworkManager-1.0.NetworkManager.SettingAdsl */
     parent: Setting
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of NetworkManager.SettingAdsl */
+    /* Methods of NetworkManager-1.0.NetworkManager.SettingAdsl */
     getEncapsulation(): string
     getPassword(): string
     getPasswordFlags(): SettingSecretFlags
@@ -1519,11 +1473,11 @@ export class SettingAdsl {
     getUsername(): string
     getVci(): number
     getVpi(): number
-    /* Methods of NetworkManager.Setting */
+    /* Methods of NetworkManager-1.0.NetworkManager.Setting */
     clearSecrets(): void
     clearSecretsWithFlags(func: SettingClearSecretsWithFlagsFn): void
     compare(b: Setting, flags: SettingCompareFlags): boolean
-    diff(b: Setting, flags: SettingCompareFlags, invertResults: boolean, results: GLib.HashTable): [ /* returnType */ boolean, /* results */ GLib.HashTable ]
+    diff(b: Setting, flags: SettingCompareFlags, invertResults: boolean, results: GLib.HashTable): { returnType: boolean, results: GLib.HashTable }
     duplicate(): Setting
     enumerateValues(func: SettingValueIterFn): void
     getName(): string
@@ -1535,7 +1489,7 @@ export class SettingAdsl {
     toString(): string
     updateSecrets(secrets: GLib.HashTable): boolean
     verify(allSettings: Setting[]): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -1557,28 +1511,12 @@ export class SettingAdsl {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of NetworkManager.Setting */
-    vfuncCompareProperty(other: Setting, propSpec: GObject.ParamSpec, flags: SettingCompareFlags): boolean
-    vfuncGetSecretFlags(secretName: string, verifySecret: boolean, outFlags: SettingSecretFlags): boolean
-    vfuncGetVirtualIfaceName(): string
-    vfuncNeedSecrets(): string[]
-    vfuncSetSecretFlags(secretName: string, verifySecret: boolean, flags: SettingSecretFlags): boolean
-    vfuncUpdateOneSecret(key: string, value: any): number
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: SettingAdsl, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: SettingAdsl, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::encapsulation", callback: (($obj: SettingAdsl, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::encapsulation", callback: (($obj: SettingAdsl, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::encapsulation", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -1637,22 +1575,22 @@ export interface SettingBluetooth_ConstructProps extends Setting_ConstructProps 
     type?: string
 }
 export class SettingBluetooth {
-    /* Properties of NetworkManager.SettingBluetooth */
+    /* Properties of NetworkManager-1.0.NetworkManager.SettingBluetooth */
     type: string
-    /* Properties of NetworkManager.Setting */
+    /* Properties of NetworkManager-1.0.NetworkManager.Setting */
     name: string
-    /* Fields of NetworkManager.SettingBluetooth */
+    /* Fields of NetworkManager-1.0.NetworkManager.SettingBluetooth */
     parent: Setting
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of NetworkManager.SettingBluetooth */
+    /* Methods of NetworkManager-1.0.NetworkManager.SettingBluetooth */
     getBdaddr(): any[]
     getConnectionType(): string
-    /* Methods of NetworkManager.Setting */
+    /* Methods of NetworkManager-1.0.NetworkManager.Setting */
     clearSecrets(): void
     clearSecretsWithFlags(func: SettingClearSecretsWithFlagsFn): void
     compare(b: Setting, flags: SettingCompareFlags): boolean
-    diff(b: Setting, flags: SettingCompareFlags, invertResults: boolean, results: GLib.HashTable): [ /* returnType */ boolean, /* results */ GLib.HashTable ]
+    diff(b: Setting, flags: SettingCompareFlags, invertResults: boolean, results: GLib.HashTable): { returnType: boolean, results: GLib.HashTable }
     duplicate(): Setting
     enumerateValues(func: SettingValueIterFn): void
     getName(): string
@@ -1664,7 +1602,7 @@ export class SettingBluetooth {
     toString(): string
     updateSecrets(secrets: GLib.HashTable): boolean
     verify(allSettings: Setting[]): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -1686,28 +1624,12 @@ export class SettingBluetooth {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of NetworkManager.Setting */
-    vfuncCompareProperty(other: Setting, propSpec: GObject.ParamSpec, flags: SettingCompareFlags): boolean
-    vfuncGetSecretFlags(secretName: string, verifySecret: boolean, outFlags: SettingSecretFlags): boolean
-    vfuncGetVirtualIfaceName(): string
-    vfuncNeedSecrets(): string[]
-    vfuncSetSecretFlags(secretName: string, verifySecret: boolean, flags: SettingSecretFlags): boolean
-    vfuncUpdateOneSecret(key: string, value: any): number
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: SettingBluetooth, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: SettingBluetooth, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::type", callback: (($obj: SettingBluetooth, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::type", callback: (($obj: SettingBluetooth, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::type", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -1736,28 +1658,28 @@ export interface SettingBond_ConstructProps extends Setting_ConstructProps {
     interfaceName?: string
 }
 export class SettingBond {
-    /* Properties of NetworkManager.SettingBond */
+    /* Properties of NetworkManager-1.0.NetworkManager.SettingBond */
     interfaceName: string
-    /* Properties of NetworkManager.Setting */
+    /* Properties of NetworkManager-1.0.NetworkManager.Setting */
     name: string
-    /* Fields of NetworkManager.SettingBond */
+    /* Fields of NetworkManager-1.0.NetworkManager.SettingBond */
     parent: Setting
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of NetworkManager.SettingBond */
+    /* Methods of NetworkManager-1.0.NetworkManager.SettingBond */
     addOption(name: string, value: string): boolean
     getInterfaceName(): string
     getNumOptions(): number
-    getOption(idx: number): [ /* returnType */ boolean, /* outName */ string, /* outValue */ string ]
+    getOption(idx: number): { returnType: boolean, outName: string, outValue: string }
     getOptionByName(name: string): string
     getOptionDefault(name: string): string
     getValidOptions(): string[]
     removeOption(name: string): boolean
-    /* Methods of NetworkManager.Setting */
+    /* Methods of NetworkManager-1.0.NetworkManager.Setting */
     clearSecrets(): void
     clearSecretsWithFlags(func: SettingClearSecretsWithFlagsFn): void
     compare(b: Setting, flags: SettingCompareFlags): boolean
-    diff(b: Setting, flags: SettingCompareFlags, invertResults: boolean, results: GLib.HashTable): [ /* returnType */ boolean, /* results */ GLib.HashTable ]
+    diff(b: Setting, flags: SettingCompareFlags, invertResults: boolean, results: GLib.HashTable): { returnType: boolean, results: GLib.HashTable }
     duplicate(): Setting
     enumerateValues(func: SettingValueIterFn): void
     getName(): string
@@ -1769,7 +1691,7 @@ export class SettingBond {
     toString(): string
     updateSecrets(secrets: GLib.HashTable): boolean
     verify(allSettings: Setting[]): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -1791,28 +1713,12 @@ export class SettingBond {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of NetworkManager.Setting */
-    vfuncCompareProperty(other: Setting, propSpec: GObject.ParamSpec, flags: SettingCompareFlags): boolean
-    vfuncGetSecretFlags(secretName: string, verifySecret: boolean, outFlags: SettingSecretFlags): boolean
-    vfuncGetVirtualIfaceName(): string
-    vfuncNeedSecrets(): string[]
-    vfuncSetSecretFlags(secretName: string, verifySecret: boolean, flags: SettingSecretFlags): boolean
-    vfuncUpdateOneSecret(key: string, value: any): number
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: SettingBond, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: SettingBond, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::interface-name", callback: (($obj: SettingBond, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::interface-name", callback: (($obj: SettingBond, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::interface-name", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -1848,7 +1754,7 @@ export interface SettingBridge_ConstructProps extends Setting_ConstructProps {
     stp?: boolean
 }
 export class SettingBridge {
-    /* Properties of NetworkManager.SettingBridge */
+    /* Properties of NetworkManager-1.0.NetworkManager.SettingBridge */
     ageingTime: number
     forwardDelay: number
     helloTime: number
@@ -1856,13 +1762,13 @@ export class SettingBridge {
     maxAge: number
     priority: number
     stp: boolean
-    /* Properties of NetworkManager.Setting */
+    /* Properties of NetworkManager-1.0.NetworkManager.Setting */
     name: string
-    /* Fields of NetworkManager.SettingBridge */
+    /* Fields of NetworkManager-1.0.NetworkManager.SettingBridge */
     parent: Setting
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of NetworkManager.SettingBridge */
+    /* Methods of NetworkManager-1.0.NetworkManager.SettingBridge */
     getAgeingTime(): number
     getForwardDelay(): number
     getHelloTime(): number
@@ -1871,11 +1777,11 @@ export class SettingBridge {
     getMaxAge(): number
     getPriority(): number
     getStp(): boolean
-    /* Methods of NetworkManager.Setting */
+    /* Methods of NetworkManager-1.0.NetworkManager.Setting */
     clearSecrets(): void
     clearSecretsWithFlags(func: SettingClearSecretsWithFlagsFn): void
     compare(b: Setting, flags: SettingCompareFlags): boolean
-    diff(b: Setting, flags: SettingCompareFlags, invertResults: boolean, results: GLib.HashTable): [ /* returnType */ boolean, /* results */ GLib.HashTable ]
+    diff(b: Setting, flags: SettingCompareFlags, invertResults: boolean, results: GLib.HashTable): { returnType: boolean, results: GLib.HashTable }
     duplicate(): Setting
     enumerateValues(func: SettingValueIterFn): void
     getName(): string
@@ -1887,7 +1793,7 @@ export class SettingBridge {
     toString(): string
     updateSecrets(secrets: GLib.HashTable): boolean
     verify(allSettings: Setting[]): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -1909,28 +1815,12 @@ export class SettingBridge {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of NetworkManager.Setting */
-    vfuncCompareProperty(other: Setting, propSpec: GObject.ParamSpec, flags: SettingCompareFlags): boolean
-    vfuncGetSecretFlags(secretName: string, verifySecret: boolean, outFlags: SettingSecretFlags): boolean
-    vfuncGetVirtualIfaceName(): string
-    vfuncNeedSecrets(): string[]
-    vfuncSetSecretFlags(secretName: string, verifySecret: boolean, flags: SettingSecretFlags): boolean
-    vfuncUpdateOneSecret(key: string, value: any): number
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: SettingBridge, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: SettingBridge, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::ageing-time", callback: (($obj: SettingBridge, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::ageing-time", callback: (($obj: SettingBridge, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::ageing-time", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -1991,25 +1881,25 @@ export interface SettingBridgePort_ConstructProps extends Setting_ConstructProps
     priority?: number
 }
 export class SettingBridgePort {
-    /* Properties of NetworkManager.SettingBridgePort */
+    /* Properties of NetworkManager-1.0.NetworkManager.SettingBridgePort */
     hairpinMode: boolean
     pathCost: number
     priority: number
-    /* Properties of NetworkManager.Setting */
+    /* Properties of NetworkManager-1.0.NetworkManager.Setting */
     name: string
-    /* Fields of NetworkManager.SettingBridgePort */
+    /* Fields of NetworkManager-1.0.NetworkManager.SettingBridgePort */
     parent: Setting
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of NetworkManager.SettingBridgePort */
+    /* Methods of NetworkManager-1.0.NetworkManager.SettingBridgePort */
     getHairpinMode(): boolean
     getPathCost(): number
     getPriority(): number
-    /* Methods of NetworkManager.Setting */
+    /* Methods of NetworkManager-1.0.NetworkManager.Setting */
     clearSecrets(): void
     clearSecretsWithFlags(func: SettingClearSecretsWithFlagsFn): void
     compare(b: Setting, flags: SettingCompareFlags): boolean
-    diff(b: Setting, flags: SettingCompareFlags, invertResults: boolean, results: GLib.HashTable): [ /* returnType */ boolean, /* results */ GLib.HashTable ]
+    diff(b: Setting, flags: SettingCompareFlags, invertResults: boolean, results: GLib.HashTable): { returnType: boolean, results: GLib.HashTable }
     duplicate(): Setting
     enumerateValues(func: SettingValueIterFn): void
     getName(): string
@@ -2021,7 +1911,7 @@ export class SettingBridgePort {
     toString(): string
     updateSecrets(secrets: GLib.HashTable): boolean
     verify(allSettings: Setting[]): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -2043,28 +1933,12 @@ export class SettingBridgePort {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of NetworkManager.Setting */
-    vfuncCompareProperty(other: Setting, propSpec: GObject.ParamSpec, flags: SettingCompareFlags): boolean
-    vfuncGetSecretFlags(secretName: string, verifySecret: boolean, outFlags: SettingSecretFlags): boolean
-    vfuncGetVirtualIfaceName(): string
-    vfuncNeedSecrets(): string[]
-    vfuncSetSecretFlags(secretName: string, verifySecret: boolean, flags: SettingSecretFlags): boolean
-    vfuncUpdateOneSecret(key: string, value: any): number
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: SettingBridgePort, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: SettingBridgePort, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::hairpin-mode", callback: (($obj: SettingBridgePort, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::hairpin-mode", callback: (($obj: SettingBridgePort, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::hairpin-mode", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -2106,27 +1980,27 @@ export interface SettingCdma_ConstructProps extends Setting_ConstructProps {
     username?: string
 }
 export class SettingCdma {
-    /* Properties of NetworkManager.SettingCdma */
+    /* Properties of NetworkManager-1.0.NetworkManager.SettingCdma */
     number: string
     password: string
     passwordFlags: number
     username: string
-    /* Properties of NetworkManager.Setting */
+    /* Properties of NetworkManager-1.0.NetworkManager.Setting */
     name: string
-    /* Fields of NetworkManager.SettingCdma */
+    /* Fields of NetworkManager-1.0.NetworkManager.SettingCdma */
     parent: Setting
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of NetworkManager.SettingCdma */
+    /* Methods of NetworkManager-1.0.NetworkManager.SettingCdma */
     getNumber(): string
     getPassword(): string
     getPasswordFlags(): SettingSecretFlags
     getUsername(): string
-    /* Methods of NetworkManager.Setting */
+    /* Methods of NetworkManager-1.0.NetworkManager.Setting */
     clearSecrets(): void
     clearSecretsWithFlags(func: SettingClearSecretsWithFlagsFn): void
     compare(b: Setting, flags: SettingCompareFlags): boolean
-    diff(b: Setting, flags: SettingCompareFlags, invertResults: boolean, results: GLib.HashTable): [ /* returnType */ boolean, /* results */ GLib.HashTable ]
+    diff(b: Setting, flags: SettingCompareFlags, invertResults: boolean, results: GLib.HashTable): { returnType: boolean, results: GLib.HashTable }
     duplicate(): Setting
     enumerateValues(func: SettingValueIterFn): void
     getName(): string
@@ -2138,7 +2012,7 @@ export class SettingCdma {
     toString(): string
     updateSecrets(secrets: GLib.HashTable): boolean
     verify(allSettings: Setting[]): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -2160,28 +2034,12 @@ export class SettingCdma {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of NetworkManager.Setting */
-    vfuncCompareProperty(other: Setting, propSpec: GObject.ParamSpec, flags: SettingCompareFlags): boolean
-    vfuncGetSecretFlags(secretName: string, verifySecret: boolean, outFlags: SettingSecretFlags): boolean
-    vfuncGetVirtualIfaceName(): string
-    vfuncNeedSecrets(): string[]
-    vfuncSetSecretFlags(secretName: string, verifySecret: boolean, flags: SettingSecretFlags): boolean
-    vfuncUpdateOneSecret(key: string, value: any): number
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: SettingCdma, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: SettingCdma, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::number", callback: (($obj: SettingCdma, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::number", callback: (($obj: SettingCdma, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::number", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -2235,7 +2093,7 @@ export interface SettingConnection_ConstructProps extends Setting_ConstructProps
     zone?: string
 }
 export class SettingConnection {
-    /* Properties of NetworkManager.SettingConnection */
+    /* Properties of NetworkManager-1.0.NetworkManager.SettingConnection */
     autoconnect: boolean
     gatewayPingTimeout: number
     id: string
@@ -2247,13 +2105,13 @@ export class SettingConnection {
     type: string
     uuid: string
     zone: string
-    /* Properties of NetworkManager.Setting */
+    /* Properties of NetworkManager-1.0.NetworkManager.Setting */
     name: string
-    /* Fields of NetworkManager.SettingConnection */
+    /* Fields of NetworkManager-1.0.NetworkManager.SettingConnection */
     parent: Setting
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of NetworkManager.SettingConnection */
+    /* Methods of NetworkManager-1.0.NetworkManager.SettingConnection */
     addPermission(ptype: string, pitem: string, detail?: string | null): boolean
     addSecondary(secUuid: string): boolean
     getAutoconnect(): boolean
@@ -2277,11 +2135,11 @@ export class SettingConnection {
     removePermissionByValue(ptype: string, pitem: string, detail?: string | null): boolean
     removeSecondary(idx: number): void
     removeSecondaryByValue(secUuid: string): boolean
-    /* Methods of NetworkManager.Setting */
+    /* Methods of NetworkManager-1.0.NetworkManager.Setting */
     clearSecrets(): void
     clearSecretsWithFlags(func: SettingClearSecretsWithFlagsFn): void
     compare(b: Setting, flags: SettingCompareFlags): boolean
-    diff(b: Setting, flags: SettingCompareFlags, invertResults: boolean, results: GLib.HashTable): [ /* returnType */ boolean, /* results */ GLib.HashTable ]
+    diff(b: Setting, flags: SettingCompareFlags, invertResults: boolean, results: GLib.HashTable): { returnType: boolean, results: GLib.HashTable }
     duplicate(): Setting
     enumerateValues(func: SettingValueIterFn): void
     getName(): string
@@ -2293,7 +2151,7 @@ export class SettingConnection {
     toString(): string
     updateSecrets(secrets: GLib.HashTable): boolean
     verify(allSettings: Setting[]): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -2315,28 +2173,12 @@ export class SettingConnection {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of NetworkManager.Setting */
-    vfuncCompareProperty(other: Setting, propSpec: GObject.ParamSpec, flags: SettingCompareFlags): boolean
-    vfuncGetSecretFlags(secretName: string, verifySecret: boolean, outFlags: SettingSecretFlags): boolean
-    vfuncGetVirtualIfaceName(): string
-    vfuncNeedSecrets(): string[]
-    vfuncSetSecretFlags(secretName: string, verifySecret: boolean, flags: SettingSecretFlags): boolean
-    vfuncUpdateOneSecret(key: string, value: any): number
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: SettingConnection, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: SettingConnection, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::autoconnect", callback: (($obj: SettingConnection, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::autoconnect", callback: (($obj: SettingConnection, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::autoconnect", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -2423,7 +2265,7 @@ export interface SettingDcb_ConstructProps extends Setting_ConstructProps {
     priorityGroupFlags?: number
 }
 export class SettingDcb {
-    /* Properties of NetworkManager.SettingDcb */
+    /* Properties of NetworkManager-1.0.NetworkManager.SettingDcb */
     appFcoeFlags: number
     appFcoeMode: string
     appFcoePriority: number
@@ -2433,13 +2275,13 @@ export class SettingDcb {
     appIscsiPriority: number
     priorityFlowControlFlags: number
     priorityGroupFlags: number
-    /* Properties of NetworkManager.Setting */
+    /* Properties of NetworkManager-1.0.NetworkManager.Setting */
     name: string
-    /* Fields of NetworkManager.SettingDcb */
+    /* Fields of NetworkManager-1.0.NetworkManager.SettingDcb */
     parent: Setting
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of NetworkManager.SettingDcb */
+    /* Methods of NetworkManager-1.0.NetworkManager.SettingDcb */
     getAppFcoeFlags(): SettingDcbFlags
     getAppFcoeMode(): string
     getAppFcoePriority(): number
@@ -2461,11 +2303,11 @@ export class SettingDcb {
     setPriorityGroupId(userPriority: number, groupId: number): void
     setPriorityStrictBandwidth(userPriority: number, strict: boolean): void
     setPriorityTrafficClass(userPriority: number, trafficClass: number): void
-    /* Methods of NetworkManager.Setting */
+    /* Methods of NetworkManager-1.0.NetworkManager.Setting */
     clearSecrets(): void
     clearSecretsWithFlags(func: SettingClearSecretsWithFlagsFn): void
     compare(b: Setting, flags: SettingCompareFlags): boolean
-    diff(b: Setting, flags: SettingCompareFlags, invertResults: boolean, results: GLib.HashTable): [ /* returnType */ boolean, /* results */ GLib.HashTable ]
+    diff(b: Setting, flags: SettingCompareFlags, invertResults: boolean, results: GLib.HashTable): { returnType: boolean, results: GLib.HashTable }
     duplicate(): Setting
     enumerateValues(func: SettingValueIterFn): void
     getName(): string
@@ -2477,7 +2319,7 @@ export class SettingDcb {
     toString(): string
     updateSecrets(secrets: GLib.HashTable): boolean
     verify(allSettings: Setting[]): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -2499,28 +2341,12 @@ export class SettingDcb {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of NetworkManager.Setting */
-    vfuncCompareProperty(other: Setting, propSpec: GObject.ParamSpec, flags: SettingCompareFlags): boolean
-    vfuncGetSecretFlags(secretName: string, verifySecret: boolean, outFlags: SettingSecretFlags): boolean
-    vfuncGetVirtualIfaceName(): string
-    vfuncNeedSecrets(): string[]
-    vfuncSetSecretFlags(secretName: string, verifySecret: boolean, flags: SettingSecretFlags): boolean
-    vfuncUpdateOneSecret(key: string, value: any): number
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: SettingDcb, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: SettingDcb, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::app-fcoe-flags", callback: (($obj: SettingDcb, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::app-fcoe-flags", callback: (($obj: SettingDcb, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::app-fcoe-flags", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -2588,17 +2414,17 @@ export class SettingDcb {
 export interface SettingGeneric_ConstructProps extends Setting_ConstructProps {
 }
 export class SettingGeneric {
-    /* Properties of NetworkManager.Setting */
+    /* Properties of NetworkManager-1.0.NetworkManager.Setting */
     name: string
-    /* Fields of NetworkManager.SettingGeneric */
+    /* Fields of NetworkManager-1.0.NetworkManager.SettingGeneric */
     parent: Setting
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of NetworkManager.Setting */
+    /* Methods of NetworkManager-1.0.NetworkManager.Setting */
     clearSecrets(): void
     clearSecretsWithFlags(func: SettingClearSecretsWithFlagsFn): void
     compare(b: Setting, flags: SettingCompareFlags): boolean
-    diff(b: Setting, flags: SettingCompareFlags, invertResults: boolean, results: GLib.HashTable): [ /* returnType */ boolean, /* results */ GLib.HashTable ]
+    diff(b: Setting, flags: SettingCompareFlags, invertResults: boolean, results: GLib.HashTable): { returnType: boolean, results: GLib.HashTable }
     duplicate(): Setting
     enumerateValues(func: SettingValueIterFn): void
     getName(): string
@@ -2610,7 +2436,7 @@ export class SettingGeneric {
     toString(): string
     updateSecrets(secrets: GLib.HashTable): boolean
     verify(allSettings: Setting[]): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -2632,28 +2458,12 @@ export class SettingGeneric {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of NetworkManager.Setting */
-    vfuncCompareProperty(other: Setting, propSpec: GObject.ParamSpec, flags: SettingCompareFlags): boolean
-    vfuncGetSecretFlags(secretName: string, verifySecret: boolean, outFlags: SettingSecretFlags): boolean
-    vfuncGetVirtualIfaceName(): string
-    vfuncNeedSecrets(): string[]
-    vfuncSetSecretFlags(secretName: string, verifySecret: boolean, flags: SettingSecretFlags): boolean
-    vfuncUpdateOneSecret(key: string, value: any): number
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: SettingGeneric, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: SettingGeneric, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::name", callback: (($obj: SettingGeneric, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::name", callback: (($obj: SettingGeneric, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::name", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -2687,7 +2497,7 @@ export interface SettingGsm_ConstructProps extends Setting_ConstructProps {
     username?: string
 }
 export class SettingGsm {
-    /* Properties of NetworkManager.SettingGsm */
+    /* Properties of NetworkManager-1.0.NetworkManager.SettingGsm */
     allowedBands: number
     apn: string
     homeOnly: boolean
@@ -2699,13 +2509,13 @@ export class SettingGsm {
     pin: string
     pinFlags: number
     username: string
-    /* Properties of NetworkManager.Setting */
+    /* Properties of NetworkManager-1.0.NetworkManager.Setting */
     name: string
-    /* Fields of NetworkManager.SettingGsm */
+    /* Fields of NetworkManager-1.0.NetworkManager.SettingGsm */
     parent: Setting
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of NetworkManager.SettingGsm */
+    /* Methods of NetworkManager-1.0.NetworkManager.SettingGsm */
     getAllowedBands(): number
     getApn(): string
     getHomeOnly(): boolean
@@ -2717,11 +2527,11 @@ export class SettingGsm {
     getPin(): string
     getPinFlags(): SettingSecretFlags
     getUsername(): string
-    /* Methods of NetworkManager.Setting */
+    /* Methods of NetworkManager-1.0.NetworkManager.Setting */
     clearSecrets(): void
     clearSecretsWithFlags(func: SettingClearSecretsWithFlagsFn): void
     compare(b: Setting, flags: SettingCompareFlags): boolean
-    diff(b: Setting, flags: SettingCompareFlags, invertResults: boolean, results: GLib.HashTable): [ /* returnType */ boolean, /* results */ GLib.HashTable ]
+    diff(b: Setting, flags: SettingCompareFlags, invertResults: boolean, results: GLib.HashTable): { returnType: boolean, results: GLib.HashTable }
     duplicate(): Setting
     enumerateValues(func: SettingValueIterFn): void
     getName(): string
@@ -2733,7 +2543,7 @@ export class SettingGsm {
     toString(): string
     updateSecrets(secrets: GLib.HashTable): boolean
     verify(allSettings: Setting[]): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -2755,28 +2565,12 @@ export class SettingGsm {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of NetworkManager.Setting */
-    vfuncCompareProperty(other: Setting, propSpec: GObject.ParamSpec, flags: SettingCompareFlags): boolean
-    vfuncGetSecretFlags(secretName: string, verifySecret: boolean, outFlags: SettingSecretFlags): boolean
-    vfuncGetVirtualIfaceName(): string
-    vfuncNeedSecrets(): string[]
-    vfuncSetSecretFlags(secretName: string, verifySecret: boolean, flags: SettingSecretFlags): boolean
-    vfuncUpdateOneSecret(key: string, value: any): number
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: SettingGsm, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: SettingGsm, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::allowed-bands", callback: (($obj: SettingGsm, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::allowed-bands", callback: (($obj: SettingGsm, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::allowed-bands", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -2864,7 +2658,7 @@ export interface SettingIP4Config_ConstructProps extends Setting_ConstructProps 
     routeMetric?: number
 }
 export class SettingIP4Config {
-    /* Properties of NetworkManager.SettingIP4Config */
+    /* Properties of NetworkManager-1.0.NetworkManager.SettingIP4Config */
     dhcpClientId: string
     dhcpHostname: string
     dhcpSendHostname: boolean
@@ -2875,13 +2669,13 @@ export class SettingIP4Config {
     method: string
     neverDefault: boolean
     routeMetric: number
-    /* Properties of NetworkManager.Setting */
+    /* Properties of NetworkManager-1.0.NetworkManager.Setting */
     name: string
-    /* Fields of NetworkManager.SettingIP4Config */
+    /* Fields of NetworkManager-1.0.NetworkManager.SettingIP4Config */
     parent: Setting
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of NetworkManager.SettingIP4Config */
+    /* Methods of NetworkManager-1.0.NetworkManager.SettingIP4Config */
     addAddress(address: IP4Address): boolean
     addDns(dns: number): boolean
     addDnsSearch(dnsSearch: string): boolean
@@ -2916,11 +2710,11 @@ export class SettingIP4Config {
     removeDnsSearchByValue(dnsSearch: string): boolean
     removeRoute(i: number): void
     removeRouteByValue(route: IP4Route): boolean
-    /* Methods of NetworkManager.Setting */
+    /* Methods of NetworkManager-1.0.NetworkManager.Setting */
     clearSecrets(): void
     clearSecretsWithFlags(func: SettingClearSecretsWithFlagsFn): void
     compare(b: Setting, flags: SettingCompareFlags): boolean
-    diff(b: Setting, flags: SettingCompareFlags, invertResults: boolean, results: GLib.HashTable): [ /* returnType */ boolean, /* results */ GLib.HashTable ]
+    diff(b: Setting, flags: SettingCompareFlags, invertResults: boolean, results: GLib.HashTable): { returnType: boolean, results: GLib.HashTable }
     duplicate(): Setting
     enumerateValues(func: SettingValueIterFn): void
     getName(): string
@@ -2932,7 +2726,7 @@ export class SettingIP4Config {
     toString(): string
     updateSecrets(secrets: GLib.HashTable): boolean
     verify(allSettings: Setting[]): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -2954,28 +2748,12 @@ export class SettingIP4Config {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of NetworkManager.Setting */
-    vfuncCompareProperty(other: Setting, propSpec: GObject.ParamSpec, flags: SettingCompareFlags): boolean
-    vfuncGetSecretFlags(secretName: string, verifySecret: boolean, outFlags: SettingSecretFlags): boolean
-    vfuncGetVirtualIfaceName(): string
-    vfuncNeedSecrets(): string[]
-    vfuncSetSecretFlags(secretName: string, verifySecret: boolean, flags: SettingSecretFlags): boolean
-    vfuncUpdateOneSecret(key: string, value: any): number
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: SettingIP4Config, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: SettingIP4Config, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::dhcp-client-id", callback: (($obj: SettingIP4Config, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::dhcp-client-id", callback: (($obj: SettingIP4Config, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::dhcp-client-id", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -3056,7 +2834,7 @@ export interface SettingIP6Config_ConstructProps extends Setting_ConstructProps 
     routeMetric?: number
 }
 export class SettingIP6Config {
-    /* Properties of NetworkManager.SettingIP6Config */
+    /* Properties of NetworkManager-1.0.NetworkManager.SettingIP6Config */
     dhcpHostname: string
     ignoreAutoDns: boolean
     ignoreAutoRoutes: boolean
@@ -3065,13 +2843,13 @@ export class SettingIP6Config {
     method: string
     neverDefault: boolean
     routeMetric: number
-    /* Properties of NetworkManager.Setting */
+    /* Properties of NetworkManager-1.0.NetworkManager.Setting */
     name: string
-    /* Fields of NetworkManager.SettingIP6Config */
+    /* Fields of NetworkManager-1.0.NetworkManager.SettingIP6Config */
     parent: Setting
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of NetworkManager.SettingIP6Config */
+    /* Methods of NetworkManager-1.0.NetworkManager.SettingIP6Config */
     addAddress(address: IP6Address): boolean
     addDns(dns?: object | null): boolean
     addDnsSearch(dnsSearch: string): boolean
@@ -3104,11 +2882,11 @@ export class SettingIP6Config {
     removeDnsSearchByValue(dnsSearch: string): boolean
     removeRoute(i: number): void
     removeRouteByValue(route: IP6Route): boolean
-    /* Methods of NetworkManager.Setting */
+    /* Methods of NetworkManager-1.0.NetworkManager.Setting */
     clearSecrets(): void
     clearSecretsWithFlags(func: SettingClearSecretsWithFlagsFn): void
     compare(b: Setting, flags: SettingCompareFlags): boolean
-    diff(b: Setting, flags: SettingCompareFlags, invertResults: boolean, results: GLib.HashTable): [ /* returnType */ boolean, /* results */ GLib.HashTable ]
+    diff(b: Setting, flags: SettingCompareFlags, invertResults: boolean, results: GLib.HashTable): { returnType: boolean, results: GLib.HashTable }
     duplicate(): Setting
     enumerateValues(func: SettingValueIterFn): void
     getName(): string
@@ -3120,7 +2898,7 @@ export class SettingIP6Config {
     toString(): string
     updateSecrets(secrets: GLib.HashTable): boolean
     verify(allSettings: Setting[]): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -3142,28 +2920,12 @@ export class SettingIP6Config {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of NetworkManager.Setting */
-    vfuncCompareProperty(other: Setting, propSpec: GObject.ParamSpec, flags: SettingCompareFlags): boolean
-    vfuncGetSecretFlags(secretName: string, verifySecret: boolean, outFlags: SettingSecretFlags): boolean
-    vfuncGetVirtualIfaceName(): string
-    vfuncNeedSecrets(): string[]
-    vfuncSetSecretFlags(secretName: string, verifySecret: boolean, flags: SettingSecretFlags): boolean
-    vfuncUpdateOneSecret(key: string, value: any): number
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: SettingIP6Config, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: SettingIP6Config, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::dhcp-hostname", callback: (($obj: SettingIP6Config, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::dhcp-hostname", callback: (($obj: SettingIP6Config, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::dhcp-hostname", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -3230,26 +2992,26 @@ export interface SettingInfiniband_ConstructProps extends Setting_ConstructProps
     transportMode?: string
 }
 export class SettingInfiniband {
-    /* Properties of NetworkManager.SettingInfiniband */
+    /* Properties of NetworkManager-1.0.NetworkManager.SettingInfiniband */
     mtu: number
     pKey: number
     parent: string
     transportMode: string
-    /* Properties of NetworkManager.Setting */
+    /* Properties of NetworkManager-1.0.NetworkManager.Setting */
     name: string
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of NetworkManager.SettingInfiniband */
+    /* Methods of NetworkManager-1.0.NetworkManager.SettingInfiniband */
     getMacAddress(): any[]
     getMtu(): number
     getPKey(): number
     getParent(): string
     getTransportMode(): string
-    /* Methods of NetworkManager.Setting */
+    /* Methods of NetworkManager-1.0.NetworkManager.Setting */
     clearSecrets(): void
     clearSecretsWithFlags(func: SettingClearSecretsWithFlagsFn): void
     compare(b: Setting, flags: SettingCompareFlags): boolean
-    diff(b: Setting, flags: SettingCompareFlags, invertResults: boolean, results: GLib.HashTable): [ /* returnType */ boolean, /* results */ GLib.HashTable ]
+    diff(b: Setting, flags: SettingCompareFlags, invertResults: boolean, results: GLib.HashTable): { returnType: boolean, results: GLib.HashTable }
     duplicate(): Setting
     enumerateValues(func: SettingValueIterFn): void
     getName(): string
@@ -3261,7 +3023,7 @@ export class SettingInfiniband {
     toString(): string
     updateSecrets(secrets: GLib.HashTable): boolean
     verify(allSettings: Setting[]): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -3283,28 +3045,12 @@ export class SettingInfiniband {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of NetworkManager.Setting */
-    vfuncCompareProperty(other: Setting, propSpec: GObject.ParamSpec, flags: SettingCompareFlags): boolean
-    vfuncGetSecretFlags(secretName: string, verifySecret: boolean, outFlags: SettingSecretFlags): boolean
-    vfuncGetVirtualIfaceName(): string
-    vfuncNeedSecrets(): string[]
-    vfuncSetSecretFlags(secretName: string, verifySecret: boolean, flags: SettingSecretFlags): boolean
-    vfuncUpdateOneSecret(key: string, value: any): number
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: SettingInfiniband, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: SettingInfiniband, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::mtu", callback: (($obj: SettingInfiniband, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::mtu", callback: (($obj: SettingInfiniband, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::mtu", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -3348,23 +3094,23 @@ export interface SettingOlpcMesh_ConstructProps extends Setting_ConstructProps {
     channel?: number
 }
 export class SettingOlpcMesh {
-    /* Properties of NetworkManager.SettingOlpcMesh */
+    /* Properties of NetworkManager-1.0.NetworkManager.SettingOlpcMesh */
     channel: number
-    /* Properties of NetworkManager.Setting */
+    /* Properties of NetworkManager-1.0.NetworkManager.Setting */
     name: string
-    /* Fields of NetworkManager.SettingOlpcMesh */
+    /* Fields of NetworkManager-1.0.NetworkManager.SettingOlpcMesh */
     parent: Setting
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of NetworkManager.SettingOlpcMesh */
+    /* Methods of NetworkManager-1.0.NetworkManager.SettingOlpcMesh */
     getChannel(): number
     getDhcpAnycastAddress(): any[]
     getSsid(): any[]
-    /* Methods of NetworkManager.Setting */
+    /* Methods of NetworkManager-1.0.NetworkManager.Setting */
     clearSecrets(): void
     clearSecretsWithFlags(func: SettingClearSecretsWithFlagsFn): void
     compare(b: Setting, flags: SettingCompareFlags): boolean
-    diff(b: Setting, flags: SettingCompareFlags, invertResults: boolean, results: GLib.HashTable): [ /* returnType */ boolean, /* results */ GLib.HashTable ]
+    diff(b: Setting, flags: SettingCompareFlags, invertResults: boolean, results: GLib.HashTable): { returnType: boolean, results: GLib.HashTable }
     duplicate(): Setting
     enumerateValues(func: SettingValueIterFn): void
     getName(): string
@@ -3376,7 +3122,7 @@ export class SettingOlpcMesh {
     toString(): string
     updateSecrets(secrets: GLib.HashTable): boolean
     verify(allSettings: Setting[]): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -3398,28 +3144,12 @@ export class SettingOlpcMesh {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of NetworkManager.Setting */
-    vfuncCompareProperty(other: Setting, propSpec: GObject.ParamSpec, flags: SettingCompareFlags): boolean
-    vfuncGetSecretFlags(secretName: string, verifySecret: boolean, outFlags: SettingSecretFlags): boolean
-    vfuncGetVirtualIfaceName(): string
-    vfuncNeedSecrets(): string[]
-    vfuncSetSecretFlags(secretName: string, verifySecret: boolean, flags: SettingSecretFlags): boolean
-    vfuncUpdateOneSecret(key: string, value: any): number
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: SettingOlpcMesh, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: SettingOlpcMesh, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::channel", callback: (($obj: SettingOlpcMesh, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::channel", callback: (($obj: SettingOlpcMesh, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::channel", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -3465,7 +3195,7 @@ export interface SettingPPP_ConstructProps extends Setting_ConstructProps {
     requireMppe128?: boolean
 }
 export class SettingPPP {
-    /* Properties of NetworkManager.SettingPPP */
+    /* Properties of NetworkManager-1.0.NetworkManager.SettingPPP */
     baud: number
     crtscts: boolean
     lcpEchoFailure: number
@@ -3484,13 +3214,13 @@ export class SettingPPP {
     refusePap: boolean
     requireMppe: boolean
     requireMppe128: boolean
-    /* Properties of NetworkManager.Setting */
+    /* Properties of NetworkManager-1.0.NetworkManager.Setting */
     name: string
-    /* Fields of NetworkManager.SettingPPP */
+    /* Fields of NetworkManager-1.0.NetworkManager.SettingPPP */
     parent: Setting
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of NetworkManager.SettingPPP */
+    /* Methods of NetworkManager-1.0.NetworkManager.SettingPPP */
     getBaud(): number
     getCrtscts(): boolean
     getLcpEchoFailure(): number
@@ -3509,11 +3239,11 @@ export class SettingPPP {
     getRefusePap(): boolean
     getRequireMppe(): boolean
     getRequireMppe128(): boolean
-    /* Methods of NetworkManager.Setting */
+    /* Methods of NetworkManager-1.0.NetworkManager.Setting */
     clearSecrets(): void
     clearSecretsWithFlags(func: SettingClearSecretsWithFlagsFn): void
     compare(b: Setting, flags: SettingCompareFlags): boolean
-    diff(b: Setting, flags: SettingCompareFlags, invertResults: boolean, results: GLib.HashTable): [ /* returnType */ boolean, /* results */ GLib.HashTable ]
+    diff(b: Setting, flags: SettingCompareFlags, invertResults: boolean, results: GLib.HashTable): { returnType: boolean, results: GLib.HashTable }
     duplicate(): Setting
     enumerateValues(func: SettingValueIterFn): void
     getName(): string
@@ -3525,7 +3255,7 @@ export class SettingPPP {
     toString(): string
     updateSecrets(secrets: GLib.HashTable): boolean
     verify(allSettings: Setting[]): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -3547,28 +3277,12 @@ export class SettingPPP {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of NetworkManager.Setting */
-    vfuncCompareProperty(other: Setting, propSpec: GObject.ParamSpec, flags: SettingCompareFlags): boolean
-    vfuncGetSecretFlags(secretName: string, verifySecret: boolean, outFlags: SettingSecretFlags): boolean
-    vfuncGetVirtualIfaceName(): string
-    vfuncNeedSecrets(): string[]
-    vfuncSetSecretFlags(secretName: string, verifySecret: boolean, flags: SettingSecretFlags): boolean
-    vfuncUpdateOneSecret(key: string, value: any): number
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: SettingPPP, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: SettingPPP, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::baud", callback: (($obj: SettingPPP, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::baud", callback: (($obj: SettingPPP, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::baud", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -3685,27 +3399,27 @@ export interface SettingPPPOE_ConstructProps extends Setting_ConstructProps {
     username?: string
 }
 export class SettingPPPOE {
-    /* Properties of NetworkManager.SettingPPPOE */
+    /* Properties of NetworkManager-1.0.NetworkManager.SettingPPPOE */
     password: string
     passwordFlags: number
     service: string
     username: string
-    /* Properties of NetworkManager.Setting */
+    /* Properties of NetworkManager-1.0.NetworkManager.Setting */
     name: string
-    /* Fields of NetworkManager.SettingPPPOE */
+    /* Fields of NetworkManager-1.0.NetworkManager.SettingPPPOE */
     parent: Setting
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of NetworkManager.SettingPPPOE */
+    /* Methods of NetworkManager-1.0.NetworkManager.SettingPPPOE */
     getPassword(): string
     getPasswordFlags(): SettingSecretFlags
     getService(): string
     getUsername(): string
-    /* Methods of NetworkManager.Setting */
+    /* Methods of NetworkManager-1.0.NetworkManager.Setting */
     clearSecrets(): void
     clearSecretsWithFlags(func: SettingClearSecretsWithFlagsFn): void
     compare(b: Setting, flags: SettingCompareFlags): boolean
-    diff(b: Setting, flags: SettingCompareFlags, invertResults: boolean, results: GLib.HashTable): [ /* returnType */ boolean, /* results */ GLib.HashTable ]
+    diff(b: Setting, flags: SettingCompareFlags, invertResults: boolean, results: GLib.HashTable): { returnType: boolean, results: GLib.HashTable }
     duplicate(): Setting
     enumerateValues(func: SettingValueIterFn): void
     getName(): string
@@ -3717,7 +3431,7 @@ export class SettingPPPOE {
     toString(): string
     updateSecrets(secrets: GLib.HashTable): boolean
     verify(allSettings: Setting[]): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -3739,28 +3453,12 @@ export class SettingPPPOE {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of NetworkManager.Setting */
-    vfuncCompareProperty(other: Setting, propSpec: GObject.ParamSpec, flags: SettingCompareFlags): boolean
-    vfuncGetSecretFlags(secretName: string, verifySecret: boolean, outFlags: SettingSecretFlags): boolean
-    vfuncGetVirtualIfaceName(): string
-    vfuncNeedSecrets(): string[]
-    vfuncSetSecretFlags(secretName: string, verifySecret: boolean, flags: SettingSecretFlags): boolean
-    vfuncUpdateOneSecret(key: string, value: any): number
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: SettingPPPOE, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: SettingPPPOE, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::password", callback: (($obj: SettingPPPOE, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::password", callback: (($obj: SettingPPPOE, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::password", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -3808,29 +3506,29 @@ export interface SettingSerial_ConstructProps extends Setting_ConstructProps {
     stopbits?: number
 }
 export class SettingSerial {
-    /* Properties of NetworkManager.SettingSerial */
+    /* Properties of NetworkManager-1.0.NetworkManager.SettingSerial */
     baud: number
     bits: number
     parity: number
     sendDelay: number
     stopbits: number
-    /* Properties of NetworkManager.Setting */
+    /* Properties of NetworkManager-1.0.NetworkManager.Setting */
     name: string
-    /* Fields of NetworkManager.SettingSerial */
+    /* Fields of NetworkManager-1.0.NetworkManager.SettingSerial */
     parent: Setting
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of NetworkManager.SettingSerial */
+    /* Methods of NetworkManager-1.0.NetworkManager.SettingSerial */
     getBaud(): number
     getBits(): number
     getParity(): number
     getSendDelay(): number
     getStopbits(): number
-    /* Methods of NetworkManager.Setting */
+    /* Methods of NetworkManager-1.0.NetworkManager.Setting */
     clearSecrets(): void
     clearSecretsWithFlags(func: SettingClearSecretsWithFlagsFn): void
     compare(b: Setting, flags: SettingCompareFlags): boolean
-    diff(b: Setting, flags: SettingCompareFlags, invertResults: boolean, results: GLib.HashTable): [ /* returnType */ boolean, /* results */ GLib.HashTable ]
+    diff(b: Setting, flags: SettingCompareFlags, invertResults: boolean, results: GLib.HashTable): { returnType: boolean, results: GLib.HashTable }
     duplicate(): Setting
     enumerateValues(func: SettingValueIterFn): void
     getName(): string
@@ -3842,7 +3540,7 @@ export class SettingSerial {
     toString(): string
     updateSecrets(secrets: GLib.HashTable): boolean
     verify(allSettings: Setting[]): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -3864,28 +3562,12 @@ export class SettingSerial {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of NetworkManager.Setting */
-    vfuncCompareProperty(other: Setting, propSpec: GObject.ParamSpec, flags: SettingCompareFlags): boolean
-    vfuncGetSecretFlags(secretName: string, verifySecret: boolean, outFlags: SettingSecretFlags): boolean
-    vfuncGetVirtualIfaceName(): string
-    vfuncNeedSecrets(): string[]
-    vfuncSetSecretFlags(secretName: string, verifySecret: boolean, flags: SettingSecretFlags): boolean
-    vfuncUpdateOneSecret(key: string, value: any): number
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: SettingSerial, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: SettingSerial, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::baud", callback: (($obj: SettingSerial, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::baud", callback: (($obj: SettingSerial, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::baud", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -3935,23 +3617,23 @@ export interface SettingTeam_ConstructProps extends Setting_ConstructProps {
     interfaceName?: string
 }
 export class SettingTeam {
-    /* Properties of NetworkManager.SettingTeam */
+    /* Properties of NetworkManager-1.0.NetworkManager.SettingTeam */
     config: string
     interfaceName: string
-    /* Properties of NetworkManager.Setting */
+    /* Properties of NetworkManager-1.0.NetworkManager.Setting */
     name: string
-    /* Fields of NetworkManager.SettingTeam */
+    /* Fields of NetworkManager-1.0.NetworkManager.SettingTeam */
     parent: Setting
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of NetworkManager.SettingTeam */
+    /* Methods of NetworkManager-1.0.NetworkManager.SettingTeam */
     getConfig(): string
     getInterfaceName(): string
-    /* Methods of NetworkManager.Setting */
+    /* Methods of NetworkManager-1.0.NetworkManager.Setting */
     clearSecrets(): void
     clearSecretsWithFlags(func: SettingClearSecretsWithFlagsFn): void
     compare(b: Setting, flags: SettingCompareFlags): boolean
-    diff(b: Setting, flags: SettingCompareFlags, invertResults: boolean, results: GLib.HashTable): [ /* returnType */ boolean, /* results */ GLib.HashTable ]
+    diff(b: Setting, flags: SettingCompareFlags, invertResults: boolean, results: GLib.HashTable): { returnType: boolean, results: GLib.HashTable }
     duplicate(): Setting
     enumerateValues(func: SettingValueIterFn): void
     getName(): string
@@ -3963,7 +3645,7 @@ export class SettingTeam {
     toString(): string
     updateSecrets(secrets: GLib.HashTable): boolean
     verify(allSettings: Setting[]): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -3985,28 +3667,12 @@ export class SettingTeam {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of NetworkManager.Setting */
-    vfuncCompareProperty(other: Setting, propSpec: GObject.ParamSpec, flags: SettingCompareFlags): boolean
-    vfuncGetSecretFlags(secretName: string, verifySecret: boolean, outFlags: SettingSecretFlags): boolean
-    vfuncGetVirtualIfaceName(): string
-    vfuncNeedSecrets(): string[]
-    vfuncSetSecretFlags(secretName: string, verifySecret: boolean, flags: SettingSecretFlags): boolean
-    vfuncUpdateOneSecret(key: string, value: any): number
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: SettingTeam, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: SettingTeam, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::config", callback: (($obj: SettingTeam, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::config", callback: (($obj: SettingTeam, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::config", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -4040,21 +3706,21 @@ export interface SettingTeamPort_ConstructProps extends Setting_ConstructProps {
     config?: string
 }
 export class SettingTeamPort {
-    /* Properties of NetworkManager.SettingTeamPort */
+    /* Properties of NetworkManager-1.0.NetworkManager.SettingTeamPort */
     config: string
-    /* Properties of NetworkManager.Setting */
+    /* Properties of NetworkManager-1.0.NetworkManager.Setting */
     name: string
-    /* Fields of NetworkManager.SettingTeamPort */
+    /* Fields of NetworkManager-1.0.NetworkManager.SettingTeamPort */
     parent: Setting
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of NetworkManager.SettingTeamPort */
+    /* Methods of NetworkManager-1.0.NetworkManager.SettingTeamPort */
     getConfig(): string
-    /* Methods of NetworkManager.Setting */
+    /* Methods of NetworkManager-1.0.NetworkManager.Setting */
     clearSecrets(): void
     clearSecretsWithFlags(func: SettingClearSecretsWithFlagsFn): void
     compare(b: Setting, flags: SettingCompareFlags): boolean
-    diff(b: Setting, flags: SettingCompareFlags, invertResults: boolean, results: GLib.HashTable): [ /* returnType */ boolean, /* results */ GLib.HashTable ]
+    diff(b: Setting, flags: SettingCompareFlags, invertResults: boolean, results: GLib.HashTable): { returnType: boolean, results: GLib.HashTable }
     duplicate(): Setting
     enumerateValues(func: SettingValueIterFn): void
     getName(): string
@@ -4066,7 +3732,7 @@ export class SettingTeamPort {
     toString(): string
     updateSecrets(secrets: GLib.HashTable): boolean
     verify(allSettings: Setting[]): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -4088,28 +3754,12 @@ export class SettingTeamPort {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of NetworkManager.Setting */
-    vfuncCompareProperty(other: Setting, propSpec: GObject.ParamSpec, flags: SettingCompareFlags): boolean
-    vfuncGetSecretFlags(secretName: string, verifySecret: boolean, outFlags: SettingSecretFlags): boolean
-    vfuncGetVirtualIfaceName(): string
-    vfuncNeedSecrets(): string[]
-    vfuncSetSecretFlags(secretName: string, verifySecret: boolean, flags: SettingSecretFlags): boolean
-    vfuncUpdateOneSecret(key: string, value: any): number
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: SettingTeamPort, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: SettingTeamPort, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::config", callback: (($obj: SettingTeamPort, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::config", callback: (($obj: SettingTeamPort, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::config", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -4140,17 +3790,17 @@ export interface SettingVPN_ConstructProps extends Setting_ConstructProps {
     userName?: string
 }
 export class SettingVPN {
-    /* Properties of NetworkManager.SettingVPN */
+    /* Properties of NetworkManager-1.0.NetworkManager.SettingVPN */
     persistent: boolean
     serviceType: string
     userName: string
-    /* Properties of NetworkManager.Setting */
+    /* Properties of NetworkManager-1.0.NetworkManager.Setting */
     name: string
-    /* Fields of NetworkManager.SettingVPN */
+    /* Fields of NetworkManager-1.0.NetworkManager.SettingVPN */
     parent: Setting
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of NetworkManager.SettingVPN */
+    /* Methods of NetworkManager-1.0.NetworkManager.SettingVPN */
     addDataItem(key: string, item: string): void
     addSecret(key: string, secret: string): void
     foreachDataItem(func: VPNIterFunc): void
@@ -4164,11 +3814,11 @@ export class SettingVPN {
     getUserName(): string
     removeDataItem(key: string): boolean
     removeSecret(key: string): boolean
-    /* Methods of NetworkManager.Setting */
+    /* Methods of NetworkManager-1.0.NetworkManager.Setting */
     clearSecrets(): void
     clearSecretsWithFlags(func: SettingClearSecretsWithFlagsFn): void
     compare(b: Setting, flags: SettingCompareFlags): boolean
-    diff(b: Setting, flags: SettingCompareFlags, invertResults: boolean, results: GLib.HashTable): [ /* returnType */ boolean, /* results */ GLib.HashTable ]
+    diff(b: Setting, flags: SettingCompareFlags, invertResults: boolean, results: GLib.HashTable): { returnType: boolean, results: GLib.HashTable }
     duplicate(): Setting
     enumerateValues(func: SettingValueIterFn): void
     getName(): string
@@ -4180,7 +3830,7 @@ export class SettingVPN {
     toString(): string
     updateSecrets(secrets: GLib.HashTable): boolean
     verify(allSettings: Setting[]): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -4202,28 +3852,12 @@ export class SettingVPN {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of NetworkManager.Setting */
-    vfuncCompareProperty(other: Setting, propSpec: GObject.ParamSpec, flags: SettingCompareFlags): boolean
-    vfuncGetSecretFlags(secretName: string, verifySecret: boolean, outFlags: SettingSecretFlags): boolean
-    vfuncGetVirtualIfaceName(): string
-    vfuncNeedSecrets(): string[]
-    vfuncSetSecretFlags(secretName: string, verifySecret: boolean, flags: SettingSecretFlags): boolean
-    vfuncUpdateOneSecret(key: string, value: any): number
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: SettingVPN, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: SettingVPN, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::persistent", callback: (($obj: SettingVPN, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::persistent", callback: (($obj: SettingVPN, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::persistent", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -4265,16 +3899,16 @@ export interface SettingVlan_ConstructProps extends Setting_ConstructProps {
     parent?: string
 }
 export class SettingVlan {
-    /* Properties of NetworkManager.SettingVlan */
+    /* Properties of NetworkManager-1.0.NetworkManager.SettingVlan */
     flags: number
     id: number
     interfaceName: string
     parent: string
-    /* Properties of NetworkManager.Setting */
+    /* Properties of NetworkManager-1.0.NetworkManager.Setting */
     name: string
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of NetworkManager.SettingVlan */
+    /* Methods of NetworkManager-1.0.NetworkManager.SettingVlan */
     addPriority(map: VlanPriorityMap, from: number, to: number): boolean
     addPriorityStr(map: VlanPriorityMap, str: string): boolean
     clearPriorities(map: VlanPriorityMap): void
@@ -4283,15 +3917,15 @@ export class SettingVlan {
     getInterfaceName(): string
     getNumPriorities(map: VlanPriorityMap): number
     getParent(): string
-    getPriority(map: VlanPriorityMap, idx: number): [ /* returnType */ boolean, /* outFrom */ number, /* outTo */ number ]
+    getPriority(map: VlanPriorityMap, idx: number): { returnType: boolean, outFrom: number, outTo: number }
     removePriority(map: VlanPriorityMap, idx: number): void
     removePriorityByValue(map: VlanPriorityMap, from: number, to: number): boolean
     removePriorityStrByValue(map: VlanPriorityMap, str: string): boolean
-    /* Methods of NetworkManager.Setting */
+    /* Methods of NetworkManager-1.0.NetworkManager.Setting */
     clearSecrets(): void
     clearSecretsWithFlags(func: SettingClearSecretsWithFlagsFn): void
     compare(b: Setting, flags: SettingCompareFlags): boolean
-    diff(b: Setting, flags: SettingCompareFlags, invertResults: boolean, results: GLib.HashTable): [ /* returnType */ boolean, /* results */ GLib.HashTable ]
+    diff(b: Setting, flags: SettingCompareFlags, invertResults: boolean, results: GLib.HashTable): { returnType: boolean, results: GLib.HashTable }
     duplicate(): Setting
     enumerateValues(func: SettingValueIterFn): void
     getName(): string
@@ -4303,7 +3937,7 @@ export class SettingVlan {
     toString(): string
     updateSecrets(secrets: GLib.HashTable): boolean
     verify(allSettings: Setting[]): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -4325,28 +3959,12 @@ export class SettingVlan {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of NetworkManager.Setting */
-    vfuncCompareProperty(other: Setting, propSpec: GObject.ParamSpec, flags: SettingCompareFlags): boolean
-    vfuncGetSecretFlags(secretName: string, verifySecret: boolean, outFlags: SettingSecretFlags): boolean
-    vfuncGetVirtualIfaceName(): string
-    vfuncNeedSecrets(): string[]
-    vfuncSetSecretFlags(secretName: string, verifySecret: boolean, flags: SettingSecretFlags): boolean
-    vfuncUpdateOneSecret(key: string, value: any): number
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: SettingVlan, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: SettingVlan, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::flags", callback: (($obj: SettingVlan, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::flags", callback: (($obj: SettingVlan, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::flags", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -4390,22 +4008,22 @@ export interface SettingWimax_ConstructProps extends Setting_ConstructProps {
     networkName?: string
 }
 export class SettingWimax {
-    /* Properties of NetworkManager.SettingWimax */
+    /* Properties of NetworkManager-1.0.NetworkManager.SettingWimax */
     networkName: string
-    /* Properties of NetworkManager.Setting */
+    /* Properties of NetworkManager-1.0.NetworkManager.Setting */
     name: string
-    /* Fields of NetworkManager.SettingWimax */
+    /* Fields of NetworkManager-1.0.NetworkManager.SettingWimax */
     parent: Setting
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of NetworkManager.SettingWimax */
+    /* Methods of NetworkManager-1.0.NetworkManager.SettingWimax */
     getMacAddress(): any[]
     getNetworkName(): string
-    /* Methods of NetworkManager.Setting */
+    /* Methods of NetworkManager-1.0.NetworkManager.Setting */
     clearSecrets(): void
     clearSecretsWithFlags(func: SettingClearSecretsWithFlagsFn): void
     compare(b: Setting, flags: SettingCompareFlags): boolean
-    diff(b: Setting, flags: SettingCompareFlags, invertResults: boolean, results: GLib.HashTable): [ /* returnType */ boolean, /* results */ GLib.HashTable ]
+    diff(b: Setting, flags: SettingCompareFlags, invertResults: boolean, results: GLib.HashTable): { returnType: boolean, results: GLib.HashTable }
     duplicate(): Setting
     enumerateValues(func: SettingValueIterFn): void
     getName(): string
@@ -4417,7 +4035,7 @@ export class SettingWimax {
     toString(): string
     updateSecrets(secrets: GLib.HashTable): boolean
     verify(allSettings: Setting[]): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -4439,28 +4057,12 @@ export class SettingWimax {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of NetworkManager.Setting */
-    vfuncCompareProperty(other: Setting, propSpec: GObject.ParamSpec, flags: SettingCompareFlags): boolean
-    vfuncGetSecretFlags(secretName: string, verifySecret: boolean, outFlags: SettingSecretFlags): boolean
-    vfuncGetVirtualIfaceName(): string
-    vfuncNeedSecrets(): string[]
-    vfuncSetSecretFlags(secretName: string, verifySecret: boolean, flags: SettingSecretFlags): boolean
-    vfuncUpdateOneSecret(key: string, value: any): number
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: SettingWimax, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: SettingWimax, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::network-name", callback: (($obj: SettingWimax, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::network-name", callback: (($obj: SettingWimax, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::network-name", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -4494,20 +4096,20 @@ export interface SettingWired_ConstructProps extends Setting_ConstructProps {
     speed?: number
 }
 export class SettingWired {
-    /* Properties of NetworkManager.SettingWired */
+    /* Properties of NetworkManager-1.0.NetworkManager.SettingWired */
     autoNegotiate: boolean
     duplex: string
     mtu: number
     port: string
     s390Nettype: string
     speed: number
-    /* Properties of NetworkManager.Setting */
+    /* Properties of NetworkManager-1.0.NetworkManager.Setting */
     name: string
-    /* Fields of NetworkManager.SettingWired */
+    /* Fields of NetworkManager-1.0.NetworkManager.SettingWired */
     parent: Setting
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of NetworkManager.SettingWired */
+    /* Methods of NetworkManager-1.0.NetworkManager.SettingWired */
     addMacBlacklistItem(mac: string): boolean
     addS390Option(key: string, value: string): boolean
     clearMacBlacklistItems(): void
@@ -4522,7 +4124,7 @@ export class SettingWired {
     getNumS390Options(): number
     getPort(): string
     getS390Nettype(): string
-    getS390Option(idx: number): [ /* returnType */ boolean, /* outKey */ string, /* outValue */ string ]
+    getS390Option(idx: number): { returnType: boolean, outKey: string, outValue: string }
     getS390OptionByKey(key: string): string
     getS390Subchannels(): string[]
     getSpeed(): number
@@ -4530,11 +4132,11 @@ export class SettingWired {
     removeMacBlacklistItem(idx: number): void
     removeMacBlacklistItemByValue(mac: string): boolean
     removeS390Option(key: string): boolean
-    /* Methods of NetworkManager.Setting */
+    /* Methods of NetworkManager-1.0.NetworkManager.Setting */
     clearSecrets(): void
     clearSecretsWithFlags(func: SettingClearSecretsWithFlagsFn): void
     compare(b: Setting, flags: SettingCompareFlags): boolean
-    diff(b: Setting, flags: SettingCompareFlags, invertResults: boolean, results: GLib.HashTable): [ /* returnType */ boolean, /* results */ GLib.HashTable ]
+    diff(b: Setting, flags: SettingCompareFlags, invertResults: boolean, results: GLib.HashTable): { returnType: boolean, results: GLib.HashTable }
     duplicate(): Setting
     enumerateValues(func: SettingValueIterFn): void
     getName(): string
@@ -4546,7 +4148,7 @@ export class SettingWired {
     toString(): string
     updateSecrets(secrets: GLib.HashTable): boolean
     verify(allSettings: Setting[]): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -4568,28 +4170,12 @@ export class SettingWired {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of NetworkManager.Setting */
-    vfuncCompareProperty(other: Setting, propSpec: GObject.ParamSpec, flags: SettingCompareFlags): boolean
-    vfuncGetSecretFlags(secretName: string, verifySecret: boolean, outFlags: SettingSecretFlags): boolean
-    vfuncGetVirtualIfaceName(): string
-    vfuncNeedSecrets(): string[]
-    vfuncSetSecretFlags(secretName: string, verifySecret: boolean, flags: SettingSecretFlags): boolean
-    vfuncUpdateOneSecret(key: string, value: any): number
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: SettingWired, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: SettingWired, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::auto-negotiate", callback: (($obj: SettingWired, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::auto-negotiate", callback: (($obj: SettingWired, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::auto-negotiate", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -4651,7 +4237,7 @@ export interface SettingWireless_ConstructProps extends Setting_ConstructProps {
     txPower?: number
 }
 export class SettingWireless {
-    /* Properties of NetworkManager.SettingWireless */
+    /* Properties of NetworkManager-1.0.NetworkManager.SettingWireless */
     band: string
     channel: number
     hidden: boolean
@@ -4661,13 +4247,13 @@ export class SettingWireless {
     rate: number
     security: string
     txPower: number
-    /* Properties of NetworkManager.Setting */
+    /* Properties of NetworkManager-1.0.NetworkManager.Setting */
     name: string
-    /* Fields of NetworkManager.SettingWireless */
+    /* Fields of NetworkManager-1.0.NetworkManager.SettingWireless */
     parent: Setting
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of NetworkManager.SettingWireless */
+    /* Methods of NetworkManager-1.0.NetworkManager.SettingWireless */
     addMacBlacklistItem(mac: string): boolean
     addSeenBssid(bssid: string): boolean
     apSecurityCompatible(sWirelessSec: SettingWirelessSecurity, apFlags: TODO_80211ApFlags, apWpa: TODO_80211ApSecurityFlags, apRsn: TODO_80211ApSecurityFlags, apMode: TODO_80211Mode): boolean
@@ -4692,11 +4278,11 @@ export class SettingWireless {
     getTxPower(): number
     removeMacBlacklistItem(idx: number): void
     removeMacBlacklistItemByValue(mac: string): boolean
-    /* Methods of NetworkManager.Setting */
+    /* Methods of NetworkManager-1.0.NetworkManager.Setting */
     clearSecrets(): void
     clearSecretsWithFlags(func: SettingClearSecretsWithFlagsFn): void
     compare(b: Setting, flags: SettingCompareFlags): boolean
-    diff(b: Setting, flags: SettingCompareFlags, invertResults: boolean, results: GLib.HashTable): [ /* returnType */ boolean, /* results */ GLib.HashTable ]
+    diff(b: Setting, flags: SettingCompareFlags, invertResults: boolean, results: GLib.HashTable): { returnType: boolean, results: GLib.HashTable }
     duplicate(): Setting
     enumerateValues(func: SettingValueIterFn): void
     getName(): string
@@ -4708,7 +4294,7 @@ export class SettingWireless {
     toString(): string
     updateSecrets(secrets: GLib.HashTable): boolean
     verify(allSettings: Setting[]): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -4730,28 +4316,12 @@ export class SettingWireless {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of NetworkManager.Setting */
-    vfuncCompareProperty(other: Setting, propSpec: GObject.ParamSpec, flags: SettingCompareFlags): boolean
-    vfuncGetSecretFlags(secretName: string, verifySecret: boolean, outFlags: SettingSecretFlags): boolean
-    vfuncGetVirtualIfaceName(): string
-    vfuncNeedSecrets(): string[]
-    vfuncSetSecretFlags(secretName: string, verifySecret: boolean, flags: SettingSecretFlags): boolean
-    vfuncUpdateOneSecret(key: string, value: any): number
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: SettingWireless, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: SettingWireless, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::band", callback: (($obj: SettingWireless, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::band", callback: (($obj: SettingWireless, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::band", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -4833,7 +4403,7 @@ export interface SettingWirelessSecurity_ConstructProps extends Setting_Construc
     wepTxKeyidx?: number
 }
 export class SettingWirelessSecurity {
-    /* Properties of NetworkManager.SettingWirelessSecurity */
+    /* Properties of NetworkManager-1.0.NetworkManager.SettingWirelessSecurity */
     authAlg: string
     keyMgmt: string
     leapPassword: string
@@ -4848,13 +4418,13 @@ export class SettingWirelessSecurity {
     wepKey2: string
     wepKey3: string
     wepTxKeyidx: number
-    /* Properties of NetworkManager.Setting */
+    /* Properties of NetworkManager-1.0.NetworkManager.Setting */
     name: string
-    /* Fields of NetworkManager.SettingWirelessSecurity */
+    /* Fields of NetworkManager-1.0.NetworkManager.SettingWirelessSecurity */
     parent: Setting
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of NetworkManager.SettingWirelessSecurity */
+    /* Methods of NetworkManager-1.0.NetworkManager.SettingWirelessSecurity */
     addGroup(group: string): boolean
     addPairwise(pairwise: string): boolean
     addProto(proto: string): boolean
@@ -4885,11 +4455,11 @@ export class SettingWirelessSecurity {
     removeProto(i: number): void
     removeProtoByValue(proto: string): boolean
     setWepKey(idx: number, key: string): void
-    /* Methods of NetworkManager.Setting */
+    /* Methods of NetworkManager-1.0.NetworkManager.Setting */
     clearSecrets(): void
     clearSecretsWithFlags(func: SettingClearSecretsWithFlagsFn): void
     compare(b: Setting, flags: SettingCompareFlags): boolean
-    diff(b: Setting, flags: SettingCompareFlags, invertResults: boolean, results: GLib.HashTable): [ /* returnType */ boolean, /* results */ GLib.HashTable ]
+    diff(b: Setting, flags: SettingCompareFlags, invertResults: boolean, results: GLib.HashTable): { returnType: boolean, results: GLib.HashTable }
     duplicate(): Setting
     enumerateValues(func: SettingValueIterFn): void
     getName(): string
@@ -4901,7 +4471,7 @@ export class SettingWirelessSecurity {
     toString(): string
     updateSecrets(secrets: GLib.HashTable): boolean
     verify(allSettings: Setting[]): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -4923,28 +4493,12 @@ export class SettingWirelessSecurity {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of NetworkManager.Setting */
-    vfuncCompareProperty(other: Setting, propSpec: GObject.ParamSpec, flags: SettingCompareFlags): boolean
-    vfuncGetSecretFlags(secretName: string, verifySecret: boolean, outFlags: SettingSecretFlags): boolean
-    vfuncGetVirtualIfaceName(): string
-    vfuncNeedSecrets(): string[]
-    vfuncSetSecretFlags(secretName: string, verifySecret: boolean, flags: SettingSecretFlags): boolean
-    vfuncUpdateOneSecret(key: string, value: any): number
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: SettingWirelessSecurity, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: SettingWirelessSecurity, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::auth-alg", callback: (($obj: SettingWirelessSecurity, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::auth-alg", callback: (($obj: SettingWirelessSecurity, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::auth-alg", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -5035,13 +4589,13 @@ export class SettingWirelessSecurity {
     static $gtype: GObject.Type
 }
 export abstract class ConnectionClass {
-    /* Fields of NetworkManager.ConnectionClass */
+    /* Fields of NetworkManager-1.0.NetworkManager.ConnectionClass */
     parent: GObject.ObjectClass
     secretsUpdated: (connection: Connection, setting: string) => void
     static name: string
 }
 export class IP4Address {
-    /* Methods of NetworkManager.IP4Address */
+    /* Methods of NetworkManager-1.0.NetworkManager.IP4Address */
     compare(other: IP4Address): boolean
     dup(): IP4Address
     getAddress(): number
@@ -5059,7 +4613,7 @@ export class IP4Address {
     static new(): IP4Address
 }
 export class IP4Route {
-    /* Methods of NetworkManager.IP4Route */
+    /* Methods of NetworkManager-1.0.NetworkManager.IP4Route */
     compare(other: IP4Route): boolean
     dup(): IP4Route
     getDest(): number
@@ -5079,7 +4633,7 @@ export class IP4Route {
     static new(): IP4Route
 }
 export class IP6Address {
-    /* Methods of NetworkManager.IP6Address */
+    /* Methods of NetworkManager-1.0.NetworkManager.IP6Address */
     compare(other: IP6Address): boolean
     dup(): IP6Address
     getAddress(): any[]
@@ -5097,7 +4651,7 @@ export class IP6Address {
     static new(): IP6Address
 }
 export class IP6Route {
-    /* Methods of NetworkManager.IP6Route */
+    /* Methods of NetworkManager-1.0.NetworkManager.IP6Route */
     compare(other: IP6Route): boolean
     dup(): IP6Route
     getDest(): any[]
@@ -5117,42 +4671,42 @@ export class IP6Route {
     static new(): IP6Route
 }
 export abstract class Setting8021xClass {
-    /* Fields of NetworkManager.Setting8021xClass */
+    /* Fields of NetworkManager-1.0.NetworkManager.Setting8021xClass */
     parent: SettingClass
     static name: string
 }
 export abstract class SettingAdslClass {
-    /* Fields of NetworkManager.SettingAdslClass */
+    /* Fields of NetworkManager-1.0.NetworkManager.SettingAdslClass */
     parent: SettingClass
     static name: string
 }
 export abstract class SettingBluetoothClass {
-    /* Fields of NetworkManager.SettingBluetoothClass */
+    /* Fields of NetworkManager-1.0.NetworkManager.SettingBluetoothClass */
     parent: SettingClass
     static name: string
 }
 export abstract class SettingBondClass {
-    /* Fields of NetworkManager.SettingBondClass */
+    /* Fields of NetworkManager-1.0.NetworkManager.SettingBondClass */
     parent: SettingClass
     static name: string
 }
 export abstract class SettingBridgeClass {
-    /* Fields of NetworkManager.SettingBridgeClass */
+    /* Fields of NetworkManager-1.0.NetworkManager.SettingBridgeClass */
     parent: SettingClass
     static name: string
 }
 export abstract class SettingBridgePortClass {
-    /* Fields of NetworkManager.SettingBridgePortClass */
+    /* Fields of NetworkManager-1.0.NetworkManager.SettingBridgePortClass */
     parent: SettingClass
     static name: string
 }
 export abstract class SettingCdmaClass {
-    /* Fields of NetworkManager.SettingCdmaClass */
+    /* Fields of NetworkManager-1.0.NetworkManager.SettingCdmaClass */
     parent: SettingClass
     static name: string
 }
 export abstract class SettingClass {
-    /* Fields of NetworkManager.SettingClass */
+    /* Fields of NetworkManager-1.0.NetworkManager.SettingClass */
     parent: GObject.ObjectClass
     needSecrets: (setting: Setting) => string[]
     updateOneSecret: (setting: Setting, key: string, value: any) => number
@@ -5163,97 +4717,97 @@ export abstract class SettingClass {
     static name: string
 }
 export abstract class SettingConnectionClass {
-    /* Fields of NetworkManager.SettingConnectionClass */
+    /* Fields of NetworkManager-1.0.NetworkManager.SettingConnectionClass */
     parent: SettingClass
     static name: string
 }
 export abstract class SettingDcbClass {
-    /* Fields of NetworkManager.SettingDcbClass */
+    /* Fields of NetworkManager-1.0.NetworkManager.SettingDcbClass */
     parent: SettingClass
     static name: string
 }
 export abstract class SettingGenericClass {
-    /* Fields of NetworkManager.SettingGenericClass */
+    /* Fields of NetworkManager-1.0.NetworkManager.SettingGenericClass */
     parent: SettingClass
     static name: string
 }
 export abstract class SettingGsmClass {
-    /* Fields of NetworkManager.SettingGsmClass */
+    /* Fields of NetworkManager-1.0.NetworkManager.SettingGsmClass */
     parent: SettingClass
     static name: string
 }
 export abstract class SettingIP4ConfigClass {
-    /* Fields of NetworkManager.SettingIP4ConfigClass */
+    /* Fields of NetworkManager-1.0.NetworkManager.SettingIP4ConfigClass */
     parent: SettingClass
     static name: string
 }
 export abstract class SettingIP6ConfigClass {
-    /* Fields of NetworkManager.SettingIP6ConfigClass */
+    /* Fields of NetworkManager-1.0.NetworkManager.SettingIP6ConfigClass */
     parent: SettingClass
     static name: string
 }
 export abstract class SettingInfinibandClass {
-    /* Fields of NetworkManager.SettingInfinibandClass */
+    /* Fields of NetworkManager-1.0.NetworkManager.SettingInfinibandClass */
     parent: SettingClass
     static name: string
 }
 export abstract class SettingOlpcMeshClass {
-    /* Fields of NetworkManager.SettingOlpcMeshClass */
+    /* Fields of NetworkManager-1.0.NetworkManager.SettingOlpcMeshClass */
     parent: SettingClass
     static name: string
 }
 export abstract class SettingPPPClass {
-    /* Fields of NetworkManager.SettingPPPClass */
+    /* Fields of NetworkManager-1.0.NetworkManager.SettingPPPClass */
     parent: SettingClass
     static name: string
 }
 export abstract class SettingPPPOEClass {
-    /* Fields of NetworkManager.SettingPPPOEClass */
+    /* Fields of NetworkManager-1.0.NetworkManager.SettingPPPOEClass */
     parent: SettingClass
     static name: string
 }
 export abstract class SettingSerialClass {
-    /* Fields of NetworkManager.SettingSerialClass */
+    /* Fields of NetworkManager-1.0.NetworkManager.SettingSerialClass */
     parent: SettingClass
     static name: string
 }
 export abstract class SettingTeamClass {
-    /* Fields of NetworkManager.SettingTeamClass */
+    /* Fields of NetworkManager-1.0.NetworkManager.SettingTeamClass */
     parent: SettingClass
     static name: string
 }
 export abstract class SettingTeamPortClass {
-    /* Fields of NetworkManager.SettingTeamPortClass */
+    /* Fields of NetworkManager-1.0.NetworkManager.SettingTeamPortClass */
     parent: SettingClass
     static name: string
 }
 export abstract class SettingVPNClass {
-    /* Fields of NetworkManager.SettingVPNClass */
+    /* Fields of NetworkManager-1.0.NetworkManager.SettingVPNClass */
     parent: SettingClass
     static name: string
 }
 export abstract class SettingVlanClass {
-    /* Fields of NetworkManager.SettingVlanClass */
+    /* Fields of NetworkManager-1.0.NetworkManager.SettingVlanClass */
     parent: SettingClass
     static name: string
 }
 export abstract class SettingWimaxClass {
-    /* Fields of NetworkManager.SettingWimaxClass */
+    /* Fields of NetworkManager-1.0.NetworkManager.SettingWimaxClass */
     parent: SettingClass
     static name: string
 }
 export abstract class SettingWiredClass {
-    /* Fields of NetworkManager.SettingWiredClass */
+    /* Fields of NetworkManager-1.0.NetworkManager.SettingWiredClass */
     parent: SettingClass
     static name: string
 }
 export abstract class SettingWirelessClass {
-    /* Fields of NetworkManager.SettingWirelessClass */
+    /* Fields of NetworkManager-1.0.NetworkManager.SettingWirelessClass */
     parent: SettingClass
     static name: string
 }
 export abstract class SettingWirelessSecurityClass {
-    /* Fields of NetworkManager.SettingWirelessSecurityClass */
+    /* Fields of NetworkManager-1.0.NetworkManager.SettingWirelessSecurityClass */
     parent: SettingClass
     static name: string
 }

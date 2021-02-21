@@ -45,8 +45,6 @@ export interface PlayerSignalDispatcherFunc {
     (data?: object | null): void
 }
 export class PlayerSignalDispatcher {
-    /* Virtual methods of GstPlayer.PlayerSignalDispatcher */
-    vfuncDispatch(player: Player, emitter: PlayerSignalDispatcherFunc): void
     static name: string
 }
 export class PlayerVideoRenderer {
@@ -66,7 +64,7 @@ export interface Player_ConstructProps extends Gst.Object_ConstructProps {
     volume?: number
 }
 export class Player {
-    /* Properties of GstPlayer.Player */
+    /* Properties of GstPlayer-1.0.GstPlayer.Player */
     audioVideoOffset: number
     readonly currentAudioTrack: PlayerAudioInfo
     readonly currentSubtitleTrack: PlayerSubtitleInfo
@@ -83,16 +81,16 @@ export class Player {
     videoMultiviewFlags: GstVideo.VideoMultiviewFlags
     videoMultiviewMode: GstVideo.VideoMultiviewFramePacking
     volume: number
-    /* Properties of Gst.Object */
+    /* Properties of Gst-1.0.Gst.Object */
     name: string
     parent: Gst.Object
-    /* Fields of Gst.Object */
+    /* Fields of Gst-1.0.Gst.Object */
     object: GObject.InitiallyUnowned
     lock: GLib.Mutex
     flags: number
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GstPlayer.Player */
+    /* Methods of GstPlayer-1.0.GstPlayer.Player */
     getAudioVideoOffset(): number
     getColorBalance(type: PlayerColorBalanceType): number
     getConfig(): Gst.Structure
@@ -137,7 +135,7 @@ export class Player {
     setVisualizationEnabled(enabled: boolean): void
     setVolume(val: number): void
     stop(): void
-    /* Methods of Gst.Object */
+    /* Methods of Gst-1.0.Gst.Object */
     addControlBinding(binding: Gst.ControlBinding): boolean
     defaultError(error: GLib.Error, debug?: string | null): void
     getControlBinding(propertyName: string): Gst.ControlBinding | null
@@ -162,7 +160,7 @@ export class Player {
     syncValues(timestamp: Gst.ClockTime): boolean
     unparent(): void
     unref(): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -183,109 +181,84 @@ export class Player {
     stealQdata(quark: GLib.Quark): object | null
     thawNotify(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of Gst.Object */
-    vfuncDeepNotify(orig: Gst.Object, pspec: GObject.ParamSpec): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GstPlayer.Player */
+    /* Signals of GstPlayer-1.0.GstPlayer.Player */
     connect(sigName: "buffering", callback: (($obj: Player, object: number) => void)): number
-    connect_after(sigName: "buffering", callback: (($obj: Player, object: number) => void)): number
+    on(sigName: "buffering", callback: (object: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "buffering", callback: (object: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "buffering", callback: (object: number) => void): NodeJS.EventEmitter
     emit(sigName: "buffering", object: number): void
-    on(sigName: "buffering", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "buffering", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "buffering", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "duration-changed", callback: (($obj: Player, object: number) => void)): number
-    connect_after(sigName: "duration-changed", callback: (($obj: Player, object: number) => void)): number
+    on(sigName: "duration-changed", callback: (object: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "duration-changed", callback: (object: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "duration-changed", callback: (object: number) => void): NodeJS.EventEmitter
     emit(sigName: "duration-changed", object: number): void
-    on(sigName: "duration-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "duration-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "duration-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "end-of-stream", callback: (($obj: Player) => void)): number
-    connect_after(sigName: "end-of-stream", callback: (($obj: Player) => void)): number
+    on(sigName: "end-of-stream", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "end-of-stream", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "end-of-stream", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "end-of-stream"): void
-    on(sigName: "end-of-stream", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "end-of-stream", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "end-of-stream", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "error", callback: (($obj: Player, object: GLib.Error) => void)): number
-    connect_after(sigName: "error", callback: (($obj: Player, object: GLib.Error) => void)): number
+    on(sigName: "error", callback: (object: GLib.Error) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "error", callback: (object: GLib.Error) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "error", callback: (object: GLib.Error) => void): NodeJS.EventEmitter
     emit(sigName: "error", object: GLib.Error): void
-    on(sigName: "error", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "error", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "error", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "media-info-updated", callback: (($obj: Player, object: PlayerMediaInfo) => void)): number
-    connect_after(sigName: "media-info-updated", callback: (($obj: Player, object: PlayerMediaInfo) => void)): number
+    on(sigName: "media-info-updated", callback: (object: PlayerMediaInfo) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "media-info-updated", callback: (object: PlayerMediaInfo) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "media-info-updated", callback: (object: PlayerMediaInfo) => void): NodeJS.EventEmitter
     emit(sigName: "media-info-updated", object: PlayerMediaInfo): void
-    on(sigName: "media-info-updated", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "media-info-updated", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "media-info-updated", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "mute-changed", callback: (($obj: Player) => void)): number
-    connect_after(sigName: "mute-changed", callback: (($obj: Player) => void)): number
+    on(sigName: "mute-changed", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "mute-changed", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "mute-changed", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "mute-changed"): void
-    on(sigName: "mute-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "mute-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "mute-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "position-updated", callback: (($obj: Player, object: number) => void)): number
-    connect_after(sigName: "position-updated", callback: (($obj: Player, object: number) => void)): number
+    on(sigName: "position-updated", callback: (object: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "position-updated", callback: (object: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "position-updated", callback: (object: number) => void): NodeJS.EventEmitter
     emit(sigName: "position-updated", object: number): void
-    on(sigName: "position-updated", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "position-updated", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "position-updated", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "seek-done", callback: (($obj: Player, object: number) => void)): number
-    connect_after(sigName: "seek-done", callback: (($obj: Player, object: number) => void)): number
+    on(sigName: "seek-done", callback: (object: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "seek-done", callback: (object: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "seek-done", callback: (object: number) => void): NodeJS.EventEmitter
     emit(sigName: "seek-done", object: number): void
-    on(sigName: "seek-done", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "seek-done", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "seek-done", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "state-changed", callback: (($obj: Player, object: PlayerState) => void)): number
-    connect_after(sigName: "state-changed", callback: (($obj: Player, object: PlayerState) => void)): number
+    on(sigName: "state-changed", callback: (object: PlayerState) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "state-changed", callback: (object: PlayerState) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "state-changed", callback: (object: PlayerState) => void): NodeJS.EventEmitter
     emit(sigName: "state-changed", object: PlayerState): void
-    on(sigName: "state-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "state-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "state-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "uri-loaded", callback: (($obj: Player, object: string) => void)): number
-    connect_after(sigName: "uri-loaded", callback: (($obj: Player, object: string) => void)): number
+    on(sigName: "uri-loaded", callback: (object: string) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "uri-loaded", callback: (object: string) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "uri-loaded", callback: (object: string) => void): NodeJS.EventEmitter
     emit(sigName: "uri-loaded", object: string): void
-    on(sigName: "uri-loaded", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "uri-loaded", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "uri-loaded", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "video-dimensions-changed", callback: (($obj: Player, object: number, p0: number) => void)): number
-    connect_after(sigName: "video-dimensions-changed", callback: (($obj: Player, object: number, p0: number) => void)): number
+    on(sigName: "video-dimensions-changed", callback: (object: number, p0: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "video-dimensions-changed", callback: (object: number, p0: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "video-dimensions-changed", callback: (object: number, p0: number) => void): NodeJS.EventEmitter
     emit(sigName: "video-dimensions-changed", object: number, p0: number): void
-    on(sigName: "video-dimensions-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "video-dimensions-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "video-dimensions-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "volume-changed", callback: (($obj: Player) => void)): number
-    connect_after(sigName: "volume-changed", callback: (($obj: Player) => void)): number
+    on(sigName: "volume-changed", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "volume-changed", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "volume-changed", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "volume-changed"): void
-    on(sigName: "volume-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "volume-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "volume-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "warning", callback: (($obj: Player, object: GLib.Error) => void)): number
-    connect_after(sigName: "warning", callback: (($obj: Player, object: GLib.Error) => void)): number
+    on(sigName: "warning", callback: (object: GLib.Error) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "warning", callback: (object: GLib.Error) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "warning", callback: (object: GLib.Error) => void): NodeJS.EventEmitter
     emit(sigName: "warning", object: GLib.Error): void
-    on(sigName: "warning", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "warning", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "warning", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of Gst.Object */
+    /* Signals of Gst-1.0.Gst.Object */
     connect(sigName: "deep-notify", callback: (($obj: Player, propObject: Gst.Object, prop: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "deep-notify", callback: (($obj: Player, propObject: Gst.Object, prop: GObject.ParamSpec) => void)): number
+    on(sigName: "deep-notify", callback: (propObject: Gst.Object, prop: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "deep-notify", callback: (propObject: Gst.Object, prop: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "deep-notify", callback: (propObject: Gst.Object, prop: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "deep-notify", propObject: Gst.Object, prop: GObject.ParamSpec): void
-    on(sigName: "deep-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "deep-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "deep-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Player, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Player, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::audio-video-offset", callback: (($obj: Player, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::audio-video-offset", callback: (($obj: Player, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::audio-video-offset", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -404,21 +377,21 @@ export class Player {
 export interface PlayerAudioInfo_ConstructProps extends PlayerStreamInfo_ConstructProps {
 }
 export class PlayerAudioInfo {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GstPlayer.PlayerAudioInfo */
+    /* Methods of GstPlayer-1.0.GstPlayer.PlayerAudioInfo */
     getBitrate(): number
     getChannels(): number
     getLanguage(): string
     getMaxBitrate(): number
     getSampleRate(): number
-    /* Methods of GstPlayer.PlayerStreamInfo */
+    /* Methods of GstPlayer-1.0.GstPlayer.PlayerStreamInfo */
     getCaps(): Gst.Caps
     getCodec(): string
     getIndex(): number
     getStreamType(): string
     getTags(): Gst.TagList
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -440,21 +413,12 @@ export class PlayerAudioInfo {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: PlayerAudioInfo, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: PlayerAudioInfo, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -471,9 +435,9 @@ export interface PlayerGMainContextSignalDispatcher_ConstructProps extends GObje
     applicationContext?: GLib.MainContext
 }
 export class PlayerGMainContextSignalDispatcher {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -495,23 +459,12 @@ export class PlayerGMainContextSignalDispatcher {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GstPlayer.PlayerGMainContextSignalDispatcher */
-    vfuncDispatch(player: Player, emitter: PlayerSignalDispatcherFunc): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: PlayerGMainContextSignalDispatcher, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: PlayerGMainContextSignalDispatcher, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -527,9 +480,9 @@ export class PlayerGMainContextSignalDispatcher {
 export interface PlayerMediaInfo_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class PlayerMediaInfo {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GstPlayer.PlayerMediaInfo */
+    /* Methods of GstPlayer-1.0.GstPlayer.PlayerMediaInfo */
     getAudioStreams(): PlayerAudioInfo[]
     getContainerFormat(): string
     getDuration(): Gst.ClockTime
@@ -546,7 +499,7 @@ export class PlayerMediaInfo {
     getVideoStreams(): PlayerVideoInfo[]
     isLive(): boolean
     isSeekable(): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -568,21 +521,12 @@ export class PlayerMediaInfo {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: PlayerMediaInfo, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: PlayerMediaInfo, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -598,15 +542,15 @@ export class PlayerMediaInfo {
 export interface PlayerStreamInfo_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class PlayerStreamInfo {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GstPlayer.PlayerStreamInfo */
+    /* Methods of GstPlayer-1.0.GstPlayer.PlayerStreamInfo */
     getCaps(): Gst.Caps
     getCodec(): string
     getIndex(): number
     getStreamType(): string
     getTags(): Gst.TagList
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -628,21 +572,12 @@ export class PlayerStreamInfo {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: PlayerStreamInfo, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: PlayerStreamInfo, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -658,17 +593,17 @@ export class PlayerStreamInfo {
 export interface PlayerSubtitleInfo_ConstructProps extends PlayerStreamInfo_ConstructProps {
 }
 export class PlayerSubtitleInfo {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GstPlayer.PlayerSubtitleInfo */
+    /* Methods of GstPlayer-1.0.GstPlayer.PlayerSubtitleInfo */
     getLanguage(): string
-    /* Methods of GstPlayer.PlayerStreamInfo */
+    /* Methods of GstPlayer-1.0.GstPlayer.PlayerStreamInfo */
     getCaps(): Gst.Caps
     getCodec(): string
     getIndex(): number
     getStreamType(): string
     getTags(): Gst.TagList
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -690,21 +625,12 @@ export class PlayerSubtitleInfo {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: PlayerSubtitleInfo, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: PlayerSubtitleInfo, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -720,22 +646,22 @@ export class PlayerSubtitleInfo {
 export interface PlayerVideoInfo_ConstructProps extends PlayerStreamInfo_ConstructProps {
 }
 export class PlayerVideoInfo {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GstPlayer.PlayerVideoInfo */
+    /* Methods of GstPlayer-1.0.GstPlayer.PlayerVideoInfo */
     getBitrate(): number
-    getFramerate(): [ /* fpsN */ number, /* fpsD */ number ]
+    getFramerate(): { fpsN: number, fpsD: number }
     getHeight(): number
     getMaxBitrate(): number
-    getPixelAspectRatio(): [ /* parN */ number, /* parD */ number ]
+    getPixelAspectRatio(): { parN: number, parD: number }
     getWidth(): number
-    /* Methods of GstPlayer.PlayerStreamInfo */
+    /* Methods of GstPlayer-1.0.GstPlayer.PlayerStreamInfo */
     getCaps(): Gst.Caps
     getCodec(): string
     getIndex(): number
     getStreamType(): string
     getTags(): Gst.TagList
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -757,21 +683,12 @@ export class PlayerVideoInfo {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: PlayerVideoInfo, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: PlayerVideoInfo, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -789,18 +706,18 @@ export interface PlayerVideoOverlayVideoRenderer_ConstructProps extends GObject.
     windowHandle?: object
 }
 export class PlayerVideoOverlayVideoRenderer {
-    /* Properties of GstPlayer.PlayerVideoOverlayVideoRenderer */
+    /* Properties of GstPlayer-1.0.GstPlayer.PlayerVideoOverlayVideoRenderer */
     videoSink: Gst.Element
     windowHandle: object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GstPlayer.PlayerVideoOverlayVideoRenderer */
+    /* Methods of GstPlayer-1.0.GstPlayer.PlayerVideoOverlayVideoRenderer */
     expose(): void
-    getRenderRectangle(): [ /* x */ number | null, /* y */ number | null, /* width */ number | null, /* height */ number | null ]
+    getRenderRectangle(): { x: number | null, y: number | null, width: number | null, height: number | null }
     getWindowHandle(): object | null
     setRenderRectangle(x: number, y: number, width: number, height: number): void
     setWindowHandle(windowHandle?: object | null): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -822,21 +739,12 @@ export class PlayerVideoOverlayVideoRenderer {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: PlayerVideoOverlayVideoRenderer, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: PlayerVideoOverlayVideoRenderer, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::video-sink", callback: (($obj: PlayerVideoOverlayVideoRenderer, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::video-sink", callback: (($obj: PlayerVideoOverlayVideoRenderer, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::video-sink", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -874,7 +782,7 @@ export abstract class PlayerMediaInfoClass {
     static name: string
 }
 export abstract class PlayerSignalDispatcherInterface {
-    /* Fields of GstPlayer.PlayerSignalDispatcherInterface */
+    /* Fields of GstPlayer-1.0.GstPlayer.PlayerSignalDispatcherInterface */
     parentIface: GObject.TypeInterface
     dispatch: (self: PlayerSignalDispatcher, player: Player, emitter: PlayerSignalDispatcherFunc) => void
     static name: string
@@ -892,15 +800,15 @@ export abstract class PlayerVideoOverlayVideoRendererClass {
     static name: string
 }
 export abstract class PlayerVideoRendererInterface {
-    /* Fields of GstPlayer.PlayerVideoRendererInterface */
+    /* Fields of GstPlayer-1.0.GstPlayer.PlayerVideoRendererInterface */
     parentIface: GObject.TypeInterface
     static name: string
 }
 export class PlayerVisualization {
-    /* Fields of GstPlayer.PlayerVisualization */
+    /* Fields of GstPlayer-1.0.GstPlayer.PlayerVisualization */
     name: string
     description: string
-    /* Methods of GstPlayer.PlayerVisualization */
+    /* Methods of GstPlayer-1.0.GstPlayer.PlayerVisualization */
     copy(): PlayerVisualization
     free(): void
     static name: string

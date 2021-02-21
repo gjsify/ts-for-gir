@@ -66,12 +66,12 @@ export function createSync(keyringName: string, password?: string | null): Resul
 export function daemonPrepareEnvironmentSync(): Result
 export function daemonSetDisplaySync(display: string): Result
 export function deleteSync(keyring: string): Result
-export function findItemsSync(type: ItemType, attributes: AttributeList): [ /* returnType */ Result, /* found */ Found[] ]
-export function findNetworkPasswordSync(user: string | null, domain: string | null, server: string | null, object: string | null, protocol: string | null, authtype: string | null, port: number): [ /* returnType */ Result, /* results */ NetworkPasswordData[] ]
+export function findItemsSync(type: ItemType, attributes: AttributeList): { returnType: Result, found: Found[] }
+export function findNetworkPasswordSync(user: string | null, domain: string | null, server: string | null, object: string | null, protocol: string | null, authtype: string | null, port: number): { returnType: Result, results: NetworkPasswordData[] }
 export function foundListFree(foundList: Found[]): void
 export function freePassword(password: string): void
-export function getDefaultKeyringSync(): [ /* returnType */ Result, /* keyring */ string ]
-export function getInfoSync(keyring?: string | null): [ /* returnType */ Result, /* info */ Info ]
+export function getDefaultKeyringSync(): { returnType: Result, keyring: string }
+export function getInfoSync(keyring?: string | null): { returnType: Result, info: Info }
 export function isAvailable(): boolean
 export function itemAcGetAccessType(ac: AccessControl): AccessType
 export function itemAcGetDisplayName(ac: AccessControl): string
@@ -79,18 +79,18 @@ export function itemAcGetPathName(ac: AccessControl): string
 export function itemAcSetAccessType(ac: AccessControl, value: AccessType): void
 export function itemAcSetDisplayName(ac: AccessControl, value: string): void
 export function itemAcSetPathName(ac: AccessControl, value: string): void
-export function itemCreateSync(keyring: string | null, type: ItemType, displayName: string, attributes: AttributeList, secret: string, updateIfExists: boolean): [ /* returnType */ Result, /* itemId */ number ]
+export function itemCreateSync(keyring: string | null, type: ItemType, displayName: string, attributes: AttributeList, secret: string, updateIfExists: boolean): { returnType: Result, itemId: number }
 export function itemDeleteSync(keyring: string | null, id: number): Result
-export function itemGetAclSync(keyring: string | null, id: number): [ /* returnType */ Result, /* acl */ AccessControl[] ]
+export function itemGetAclSync(keyring: string | null, id: number): { returnType: Result, acl: AccessControl[] }
 export function itemGetAttributesSync(keyring: string | null, id: number, attributes: AttributeList): Result
-export function itemGetInfoFullSync(keyring: string | null, id: number, flags: number): [ /* returnType */ Result, /* info */ ItemInfo ]
-export function itemGetInfoSync(keyring: string | null, id: number): [ /* returnType */ Result, /* info */ ItemInfo ]
+export function itemGetInfoFullSync(keyring: string | null, id: number, flags: number): { returnType: Result, info: ItemInfo }
+export function itemGetInfoSync(keyring: string | null, id: number): { returnType: Result, info: ItemInfo }
 export function itemGrantAccessRightsSync(keyring: string | null, displayName: string, fullPath: string, id: number, rights: AccessType): Result
 export function itemSetAclSync(keyring: string | null, id: number, acl: AccessControl[]): Result
 export function itemSetAttributesSync(keyring: string | null, id: number, attributes: AttributeList): Result
 export function itemSetInfoSync(keyring: string | null, id: number, info: ItemInfo): Result
-export function listItemIdsSync(keyring?: string | null): [ /* returnType */ Result, /* ids */ number[] ]
-export function listKeyringNamesSync(): [ /* returnType */ Result, /* keyrings */ string[] ]
+export function listItemIdsSync(keyring?: string | null): { returnType: Result, ids: number[] }
+export function listKeyringNamesSync(): { returnType: Result, keyrings: string[] }
 export function lockAllSync(): Result
 export function lockSync(keyring?: string | null): Result
 export function networkPasswordFree(data?: NetworkPasswordData | null): void
@@ -98,7 +98,7 @@ export function networkPasswordListFree(list: NetworkPasswordData[]): void
 export function resultToMessage(res: Result): string
 export function setDefaultKeyringSync(keyring: string): Result
 export function setInfoSync(keyring: string | null, info: Info): Result
-export function setNetworkPasswordSync(keyring: string | null, user: string | null, domain: string | null, server: string | null, object: string | null, protocol: string | null, authtype: string | null, port: number, password: string): [ /* returnType */ Result, /* itemId */ number ]
+export function setNetworkPasswordSync(keyring: string | null, user: string | null, domain: string | null, server: string | null, object: string | null, protocol: string | null, authtype: string | null, port: number, password: string): { returnType: Result, itemId: number }
 export function stringListFree(strings: string[]): void
 export function unlockSync(keyring?: string | null, password?: string | null): Result
 export interface OperationDoneCallback {
@@ -120,7 +120,7 @@ export interface OperationGetStringCallback {
     (result: Result, string: string | null): void
 }
 export class AccessControl {
-    /* Methods of GnomeKeyring.AccessControl */
+    /* Methods of GnomeKeyring-1.0.GnomeKeyring.AccessControl */
     copy(): AccessControl
     free(): void
     static name: string
@@ -130,7 +130,7 @@ export class AccessControl {
     static new(application: ApplicationRef, typesAllowed: AccessType): AccessControl
 }
 export class ApplicationRef {
-    /* Methods of GnomeKeyring.ApplicationRef */
+    /* Methods of GnomeKeyring-1.0.GnomeKeyring.ApplicationRef */
     copy(): ApplicationRef
     free(): void
     static name: string
@@ -140,10 +140,10 @@ export class ApplicationRef {
     static new(): ApplicationRef
 }
 export class Attribute {
-    /* Fields of GnomeKeyring.Attribute */
+    /* Fields of GnomeKeyring-1.0.GnomeKeyring.Attribute */
     name: string
     type: AttributeType
-    /* Methods of GnomeKeyring.Attribute */
+    /* Methods of GnomeKeyring-1.0.GnomeKeyring.Attribute */
     getString(): string
     getUint32(): number
     static name: string
@@ -156,12 +156,12 @@ export class Attribute {
     static listToGlist(attributes: AttributeList): Attribute[]
 }
 export class Found {
-    /* Fields of GnomeKeyring.Found */
+    /* Fields of GnomeKeyring-1.0.GnomeKeyring.Found */
     keyring: string
     itemId: number
     attributes: AttributeList
     secret: string
-    /* Methods of GnomeKeyring.Found */
+    /* Methods of GnomeKeyring-1.0.GnomeKeyring.Found */
     copy(): Found
     free(): void
     static name: string
@@ -169,7 +169,7 @@ export class Found {
     static listFree(foundList: Found[]): void
 }
 export class Info {
-    /* Methods of GnomeKeyring.Info */
+    /* Methods of GnomeKeyring-1.0.GnomeKeyring.Info */
     copy(): Info
     free(): void
     getCtime(): number
@@ -182,7 +182,7 @@ export class Info {
     static name: string
 }
 export class ItemInfo {
-    /* Methods of GnomeKeyring.ItemInfo */
+    /* Methods of GnomeKeyring-1.0.GnomeKeyring.ItemInfo */
     copy(): ItemInfo
     free(): void
     getCtime(): number
@@ -200,7 +200,7 @@ export class ItemInfo {
     static new(): ItemInfo
 }
 export class NetworkPasswordData {
-    /* Fields of GnomeKeyring.NetworkPasswordData */
+    /* Fields of GnomeKeyring-1.0.GnomeKeyring.NetworkPasswordData */
     keyring: string
     itemId: number
     protocol: string
@@ -214,13 +214,13 @@ export class NetworkPasswordData {
     static name: string
 }
 export class PasswordSchema {
-    /* Fields of GnomeKeyring.PasswordSchema */
+    /* Fields of GnomeKeyring-1.0.GnomeKeyring.PasswordSchema */
     itemType: ItemType
     attributes: PasswordSchemaAttribute[]
     static name: string
 }
 export class PasswordSchemaAttribute {
-    /* Fields of GnomeKeyring.PasswordSchemaAttribute */
+    /* Fields of GnomeKeyring-1.0.GnomeKeyring.PasswordSchemaAttribute */
     name: string
     type: AttributeType
     static name: string

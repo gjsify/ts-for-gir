@@ -254,9 +254,9 @@ export function vfunc_info_get_signal(info: VFuncInfo): SignalInfo
 export interface Repository_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class Repository {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GIRepository.Repository */
+    /* Methods of GIRepository-2.0.GIRepository.Repository */
     enumerate_versions(namespace_: string): string[]
     find_by_error_domain(domain: GLib.Quark): EnumInfo
     find_by_gtype(gtype: GObject.Type): BaseInfo
@@ -275,7 +275,7 @@ export class Repository {
     load_typelib(typelib: Typelib, flags: RepositoryLoadFlags): string
     require(namespace_: string, version: string | null, flags: RepositoryLoadFlags): Typelib
     require_private(typelib_dir: string, namespace_: string, version: string | null, flags: RepositoryLoadFlags): Typelib
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -297,7 +297,7 @@ export class Repository {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -305,7 +305,7 @@ export class Repository {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Repository, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Repository, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -330,7 +330,7 @@ export class AttributeIter {
     static name: string
 }
 export class BaseInfo {
-    /* Methods of GIRepository.BaseInfo */
+    /* Methods of GIRepository-2.0.GIRepository.BaseInfo */
     equal(info2: BaseInfo): boolean
     get_attribute(name: string): string
     get_container(): BaseInfo
@@ -349,7 +349,7 @@ export class RepositoryPrivate {
     static name: string
 }
 export class Typelib {
-    /* Methods of GIRepository.Typelib */
+    /* Methods of GIRepository-2.0.GIRepository.Typelib */
     free(): void
     get_namespace(): string
     symbol(symbol_name: string, symbol?: object | null): boolean
@@ -359,7 +359,7 @@ export class UnresolvedInfo {
     static name: string
 }
 export class Argument {
-    /* Fields of GIRepository.Argument */
+    /* Fields of GIRepository-2.0.GIRepository.Argument */
     v_boolean: boolean
     v_int8: number
     v_uint8: number

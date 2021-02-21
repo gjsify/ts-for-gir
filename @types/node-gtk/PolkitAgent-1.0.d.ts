@@ -18,16 +18,16 @@ export function registerListener(listener: Listener, subject: Polkit.Subject, ob
 export interface Listener_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class Listener {
-    /* Fields of PolkitAgent.Listener */
+    /* Fields of PolkitAgent-1.0.PolkitAgent.Listener */
     parentInstance: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of PolkitAgent.Listener */
+    /* Methods of PolkitAgent-1.0.PolkitAgent.Listener */
     initiateAuthentication(actionId: string, message: string, iconName: string, details: Polkit.Details, cookie: string, identities: Polkit.Identity[], cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     initiateAuthenticationFinish(res: Gio.AsyncResult): boolean
     register(flags: RegisterFlags, subject: Polkit.Subject, objectPath: string, cancellable?: Gio.Cancellable | null): object | null
     registerWithOptions(flags: RegisterFlags, subject: Polkit.Subject, objectPath: string, options?: GLib.Variant | null, cancellable?: Gio.Cancellable | null): object | null
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -49,24 +49,12 @@ export class Listener {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of PolkitAgent.Listener */
-    vfuncInitiateAuthentication(actionId: string, message: string, iconName: string, details: Polkit.Details, cookie: string, identities: Polkit.Identity[], cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    vfuncInitiateAuthenticationFinish(res: Gio.AsyncResult): boolean
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Listener, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Listener, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -86,13 +74,13 @@ export interface Session_ConstructProps extends GObject.Object_ConstructProps {
     identity?: Polkit.Identity
 }
 export class Session {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of PolkitAgent.Session */
+    /* Methods of PolkitAgent-1.0.PolkitAgent.Session */
     cancel(): void
     initiate(): void
     response(response: string): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -114,46 +102,33 @@ export class Session {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of PolkitAgent.Session */
+    /* Signals of PolkitAgent-1.0.PolkitAgent.Session */
     connect(sigName: "completed", callback: (($obj: Session, gainedAuthorization: boolean) => void)): number
-    connect_after(sigName: "completed", callback: (($obj: Session, gainedAuthorization: boolean) => void)): number
+    on(sigName: "completed", callback: (gainedAuthorization: boolean) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "completed", callback: (gainedAuthorization: boolean) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "completed", callback: (gainedAuthorization: boolean) => void): NodeJS.EventEmitter
     emit(sigName: "completed", gainedAuthorization: boolean): void
-    on(sigName: "completed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "completed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "completed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "request", callback: (($obj: Session, request: string, echoOn: boolean) => void)): number
-    connect_after(sigName: "request", callback: (($obj: Session, request: string, echoOn: boolean) => void)): number
+    on(sigName: "request", callback: (request: string, echoOn: boolean) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "request", callback: (request: string, echoOn: boolean) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "request", callback: (request: string, echoOn: boolean) => void): NodeJS.EventEmitter
     emit(sigName: "request", request: string, echoOn: boolean): void
-    on(sigName: "request", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "request", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "request", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "show-error", callback: (($obj: Session, text: string) => void)): number
-    connect_after(sigName: "show-error", callback: (($obj: Session, text: string) => void)): number
+    on(sigName: "show-error", callback: (text: string) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "show-error", callback: (text: string) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "show-error", callback: (text: string) => void): NodeJS.EventEmitter
     emit(sigName: "show-error", text: string): void
-    on(sigName: "show-error", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "show-error", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "show-error", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "show-info", callback: (($obj: Session, text: string) => void)): number
-    connect_after(sigName: "show-info", callback: (($obj: Session, text: string) => void)): number
+    on(sigName: "show-info", callback: (text: string) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "show-info", callback: (text: string) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "show-info", callback: (text: string) => void): NodeJS.EventEmitter
     emit(sigName: "show-info", text: string): void
-    on(sigName: "show-info", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "show-info", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "show-info", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Session, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Session, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -171,16 +146,16 @@ export class Session {
 export interface TextListener_ConstructProps extends Listener_ConstructProps {
 }
 export class TextListener {
-    /* Fields of PolkitAgent.Listener */
+    /* Fields of PolkitAgent-1.0.PolkitAgent.Listener */
     parentInstance: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of PolkitAgent.Listener */
+    /* Methods of PolkitAgent-1.0.PolkitAgent.Listener */
     initiateAuthentication(actionId: string, message: string, iconName: string, details: Polkit.Details, cookie: string, identities: Polkit.Identity[], cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     initiateAuthenticationFinish(res: Gio.AsyncResult): boolean
     register(flags: RegisterFlags, subject: Polkit.Subject, objectPath: string, cancellable?: Gio.Cancellable | null): object | null
     registerWithOptions(flags: RegisterFlags, subject: Polkit.Subject, objectPath: string, options?: GLib.Variant | null, cancellable?: Gio.Cancellable | null): object | null
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -202,28 +177,14 @@ export class TextListener {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of Gio.Initable */
+    /* Methods of Gio-2.0.Gio.Initable */
     init(cancellable?: Gio.Cancellable | null): boolean
-    /* Virtual methods of PolkitAgent.TextListener */
-    vfuncInit(cancellable?: Gio.Cancellable | null): boolean
-    /* Virtual methods of PolkitAgent.Listener */
-    vfuncInitiateAuthentication(actionId: string, message: string, iconName: string, details: Polkit.Details, cookie: string, identities: Polkit.Identity[], cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    vfuncInitiateAuthenticationFinish(res: Gio.AsyncResult): boolean
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: TextListener, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: TextListener, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -240,7 +201,7 @@ export class TextListener {
     static $gtype: GObject.Type
 }
 export abstract class ListenerClass {
-    /* Fields of PolkitAgent.ListenerClass */
+    /* Fields of PolkitAgent-1.0.PolkitAgent.ListenerClass */
     parentClass: GObject.ObjectClass
     initiateAuthentication: (listener: Listener, actionId: string, message: string, iconName: string, details: Polkit.Details, cookie: string, identities: Polkit.Identity[], cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null) => void
     initiateAuthenticationFinish: (listener: Listener, res: Gio.AsyncResult) => boolean

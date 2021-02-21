@@ -26,14 +26,10 @@ export interface FactoryFunc {
     (parameters: GObject.Parameter[]): GObject.Object
 }
 export class Activatable {
-    /* Methods of Peas.Activatable */
+    /* Methods of Peas-1.0.Peas.Activatable */
     activate(): void
     deactivate(): void
     updateState(): void
-    /* Virtual methods of Peas.Activatable */
-    vfuncActivate(): void
-    vfuncDeactivate(): void
-    vfuncUpdateState(): void
     static name: string
 }
 export interface Engine_ConstructProps extends GObject.Object_ConstructProps {
@@ -41,14 +37,14 @@ export interface Engine_ConstructProps extends GObject.Object_ConstructProps {
     nonglobalLoaders?: boolean
 }
 export class Engine {
-    /* Properties of Peas.Engine */
+    /* Properties of Peas-1.0.Peas.Engine */
     loadedPlugins: string[]
     readonly pluginList: object
-    /* Fields of Peas.Engine */
+    /* Fields of Peas-1.0.Peas.Engine */
     parent: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Peas.Engine */
+    /* Methods of Peas-1.0.Peas.Engine */
     addSearchPath(moduleDir: string, dataDir?: string | null): void
     createExtension(info: PluginInfo, extensionType: GObject.Type, propNames: string[], propValues: any[]): Extension
     enableLoader(loaderName: string): void
@@ -62,7 +58,7 @@ export class Engine {
     rescanPlugins(): void
     setLoadedPlugins(pluginNames?: string[] | null): void
     unloadPlugin(info: PluginInfo): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -84,37 +80,23 @@ export class Engine {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of Peas.Engine */
-    vfuncLoadPlugin(info: PluginInfo): void
-    vfuncUnloadPlugin(info: PluginInfo): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Peas.Engine */
+    /* Signals of Peas-1.0.Peas.Engine */
     connect(sigName: "load-plugin", callback: (($obj: Engine, info: PluginInfo) => void)): number
-    connect_after(sigName: "load-plugin", callback: (($obj: Engine, info: PluginInfo) => void)): number
+    on(sigName: "load-plugin", callback: (info: PluginInfo) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "load-plugin", callback: (info: PluginInfo) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "load-plugin", callback: (info: PluginInfo) => void): NodeJS.EventEmitter
     emit(sigName: "load-plugin", info: PluginInfo): void
-    on(sigName: "load-plugin", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "load-plugin", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "load-plugin", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "unload-plugin", callback: (($obj: Engine, info: PluginInfo) => void)): number
-    connect_after(sigName: "unload-plugin", callback: (($obj: Engine, info: PluginInfo) => void)): number
+    on(sigName: "unload-plugin", callback: (info: PluginInfo) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "unload-plugin", callback: (info: PluginInfo) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "unload-plugin", callback: (info: PluginInfo) => void): NodeJS.EventEmitter
     emit(sigName: "unload-plugin", info: PluginInfo): void
-    on(sigName: "unload-plugin", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "unload-plugin", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "unload-plugin", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Engine, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Engine, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::loaded-plugins", callback: (($obj: Engine, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::loaded-plugins", callback: (($obj: Engine, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::loaded-plugins", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -145,17 +127,17 @@ export interface ExtensionBase_ConstructProps extends GObject.Object_ConstructPr
     pluginInfo?: PluginInfo
 }
 export class ExtensionBase {
-    /* Properties of Peas.ExtensionBase */
+    /* Properties of Peas-1.0.Peas.ExtensionBase */
     readonly dataDir: string
-    /* Fields of Peas.ExtensionBase */
+    /* Fields of Peas-1.0.Peas.ExtensionBase */
     parent: GObject.Object
     priv: ExtensionBasePrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Peas.ExtensionBase */
+    /* Methods of Peas-1.0.Peas.ExtensionBase */
     getDataDir(): string
     getPluginInfo(): PluginInfo
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -177,21 +159,12 @@ export class ExtensionBase {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: ExtensionBase, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: ExtensionBase, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::data-dir", callback: (($obj: ExtensionBase, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::data-dir", callback: (($obj: ExtensionBase, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::data-dir", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -215,15 +188,15 @@ export interface ExtensionSet_ConstructProps extends GObject.Object_ConstructPro
     extensionType?: GObject.Type
 }
 export class ExtensionSet {
-    /* Fields of Peas.ExtensionSet */
+    /* Fields of Peas-1.0.Peas.ExtensionSet */
     parent: GObject.Object
     priv: ExtensionSetPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Peas.ExtensionSet */
+    /* Methods of Peas-1.0.Peas.ExtensionSet */
     foreach(func: ExtensionSetForeachFunc): void
     getExtension(info: PluginInfo): Extension
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -245,38 +218,23 @@ export class ExtensionSet {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of Peas.ExtensionSet */
-    vfuncCall(methodName: string, args: GIRepository.Argument): boolean
-    vfuncExtensionAdded(info: PluginInfo, exten: Extension): void
-    vfuncExtensionRemoved(info: PluginInfo, exten: Extension): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Peas.ExtensionSet */
+    /* Signals of Peas-1.0.Peas.ExtensionSet */
     connect(sigName: "extension-added", callback: (($obj: ExtensionSet, info: PluginInfo, exten: GObject.Object) => void)): number
-    connect_after(sigName: "extension-added", callback: (($obj: ExtensionSet, info: PluginInfo, exten: GObject.Object) => void)): number
+    on(sigName: "extension-added", callback: (info: PluginInfo, exten: GObject.Object) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "extension-added", callback: (info: PluginInfo, exten: GObject.Object) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "extension-added", callback: (info: PluginInfo, exten: GObject.Object) => void): NodeJS.EventEmitter
     emit(sigName: "extension-added", info: PluginInfo, exten: GObject.Object): void
-    on(sigName: "extension-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "extension-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "extension-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "extension-removed", callback: (($obj: ExtensionSet, info: PluginInfo, exten: GObject.Object) => void)): number
-    connect_after(sigName: "extension-removed", callback: (($obj: ExtensionSet, info: PluginInfo, exten: GObject.Object) => void)): number
+    on(sigName: "extension-removed", callback: (info: PluginInfo, exten: GObject.Object) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "extension-removed", callback: (info: PluginInfo, exten: GObject.Object) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "extension-removed", callback: (info: PluginInfo, exten: GObject.Object) => void): NodeJS.EventEmitter
     emit(sigName: "extension-removed", info: PluginInfo, exten: GObject.Object): void
-    on(sigName: "extension-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "extension-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "extension-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: ExtensionSet, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: ExtensionSet, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -299,21 +257,21 @@ export interface ObjectModule_ConstructProps extends GObject.TypeModule_Construc
     symbol?: string
 }
 export class ObjectModule {
-    /* Fields of Peas.ObjectModule */
+    /* Fields of Peas-1.0.Peas.ObjectModule */
     parent: GObject.TypeModule
     priv: ObjectModulePrivate
-    /* Fields of GObject.TypeModule */
+    /* Fields of GObject-2.0.GObject.TypeModule */
     parentInstance: GObject.Object
     useCount: number
     typeInfos: object[]
     interfaceInfos: object[]
     name: string
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Peas.ObjectModule */
+    /* Methods of Peas-1.0.Peas.ObjectModule */
     registerExtensionFactory(extenType: GObject.Type, factoryFunc: FactoryFunc): void
     registerExtensionType(extenType: GObject.Type, implType: GObject.Type): void
-    /* Methods of GObject.TypeModule */
+    /* Methods of GObject-2.0.GObject.TypeModule */
     addInterface(instanceType: GObject.Type, interfaceType: GObject.Type, interfaceInfo: GObject.InterfaceInfo): void
     registerEnum(name: string, constStaticValues: GObject.EnumValue): GObject.Type
     registerFlags(name: string, constStaticValues: GObject.FlagsValue): GObject.Type
@@ -321,7 +279,7 @@ export class ObjectModule {
     setName(name: string): void
     unuse(): void
     use(): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -343,28 +301,16 @@ export class ObjectModule {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of GObject.TypePlugin */
+    /* Methods of GObject-2.0.GObject.TypePlugin */
     completeInterfaceInfo(instanceType: GObject.Type, interfaceType: GObject.Type, info: GObject.InterfaceInfo): void
     completeTypeInfo(gType: GObject.Type, info: GObject.TypeInfo, valueTable: GObject.TypeValueTable): void
     use(): void
-    /* Virtual methods of GObject.TypeModule */
-    vfuncLoad(): boolean
-    vfuncUnload(): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: ObjectModule, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: ObjectModule, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -378,7 +324,7 @@ export class ObjectModule {
     static $gtype: GObject.Type
 }
 export abstract class ActivatableInterface {
-    /* Fields of Peas.ActivatableInterface */
+    /* Fields of Peas-1.0.Peas.ActivatableInterface */
     gIface: GObject.TypeInterface
     activate: (activatable: Activatable) => void
     deactivate: (activatable: Activatable) => void
@@ -386,7 +332,7 @@ export abstract class ActivatableInterface {
     static name: string
 }
 export abstract class EngineClass {
-    /* Fields of Peas.EngineClass */
+    /* Fields of Peas-1.0.Peas.EngineClass */
     parentClass: GObject.ObjectClass
     loadPlugin: (engine: Engine, info: PluginInfo) => void
     unloadPlugin: (engine: Engine, info: PluginInfo) => void
@@ -396,7 +342,7 @@ export class EnginePrivate {
     static name: string
 }
 export abstract class ExtensionBaseClass {
-    /* Fields of Peas.ExtensionBaseClass */
+    /* Fields of Peas-1.0.Peas.ExtensionBaseClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
@@ -404,7 +350,7 @@ export class ExtensionBasePrivate {
     static name: string
 }
 export abstract class ExtensionSetClass {
-    /* Fields of Peas.ExtensionSetClass */
+    /* Fields of Peas-1.0.Peas.ExtensionSetClass */
     parentClass: GObject.ObjectClass
     call: (set: ExtensionSet, methodName: string, args: GIRepository.Argument) => boolean
     extensionAdded: (set: ExtensionSet, info: PluginInfo, exten: Extension) => void
@@ -415,7 +361,7 @@ export class ExtensionSetPrivate {
     static name: string
 }
 export abstract class ObjectModuleClass {
-    /* Fields of Peas.ObjectModuleClass */
+    /* Fields of Peas-1.0.Peas.ObjectModuleClass */
     parentClass: GObject.TypeModuleClass
     static name: string
 }
@@ -423,7 +369,7 @@ export class ObjectModulePrivate {
     static name: string
 }
 export class PluginInfo {
-    /* Methods of Peas.PluginInfo */
+    /* Methods of Peas-1.0.Peas.PluginInfo */
     getAuthors(): string[]
     getCopyright(): string
     getDataDir(): string

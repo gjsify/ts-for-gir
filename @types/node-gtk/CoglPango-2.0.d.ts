@@ -31,11 +31,11 @@ export interface Renderer_ConstructProps extends Pango.Renderer_ConstructProps {
     context?: object
 }
 export class Renderer {
-    /* Fields of Pango.Renderer */
+    /* Fields of Pango-1.0.Pango.Renderer */
     matrix: Pango.Matrix
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Pango.Renderer */
+    /* Methods of Pango-1.0.Pango.Renderer */
     activate(): void
     deactivate(): void
     drawErrorUnderline(x: number, y: number, width: number, height: number): void
@@ -55,7 +55,7 @@ export class Renderer {
     setAlpha(part: Pango.RenderPart, alpha: number): void
     setColor(part: Pango.RenderPart, color?: Pango.Color | null): void
     setMatrix(matrix?: Pango.Matrix | null): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -77,33 +77,12 @@ export class Renderer {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of Pango.Renderer */
-    vfuncBegin(): void
-    vfuncDrawErrorUnderline(x: number, y: number, width: number, height: number): void
-    vfuncDrawGlyph(font: Pango.Font, glyph: Pango.Glyph, x: number, y: number): void
-    vfuncDrawGlyphItem(text: string | null, glyphItem: Pango.GlyphItem, x: number, y: number): void
-    vfuncDrawGlyphs(font: Pango.Font, glyphs: Pango.GlyphString, x: number, y: number): void
-    vfuncDrawRectangle(part: Pango.RenderPart, x: number, y: number, width: number, height: number): void
-    vfuncDrawShape(attr: Pango.AttrShape, x: number, y: number): void
-    vfuncDrawTrapezoid(part: Pango.RenderPart, y1: number, x11: number, x21: number, y2: number, x12: number, x22: number): void
-    vfuncEnd(): void
-    vfuncPartChanged(part: Pango.RenderPart): void
-    vfuncPrepareRun(run: Pango.LayoutRun): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Renderer, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Renderer, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void

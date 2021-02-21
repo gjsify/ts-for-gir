@@ -497,7 +497,7 @@ export interface Contact_ConstructProps extends VCard_ConstructProps {
     x509Cert?: ContactCert
 }
 export class Contact {
-    /* Properties of EBookContacts.Contact */
+    /* Properties of EBookContacts-1.2.EBookContacts.Contact */
     Rev: string
     address: any
     address_home: ContactAddress
@@ -633,11 +633,11 @@ export class Contact {
     video_url: string
     wants_html: boolean
     x509Cert: ContactCert
-    /* Fields of EBookContacts.Contact */
+    /* Fields of EBookContacts-1.2.EBookContacts.Contact */
     parent: VCard
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of EBookContacts.Contact */
+    /* Methods of EBookContacts-1.2.EBookContacts.Contact */
     duplicate(): Contact
     get(field_id: ContactField): object | null
     get_attributes(field_id: ContactField): VCardAttribute[]
@@ -646,7 +646,7 @@ export class Contact {
     inline_local_photos(): boolean
     set(field_id: ContactField, value?: object | null): void
     set_attributes(field_id: ContactField, attributes: VCardAttribute[]): void
-    /* Methods of EBookContacts.VCard */
+    /* Methods of EBookContacts-1.2.EBookContacts.VCard */
     add_attribute(attr: VCardAttribute): void
     add_attribute_with_value(attr: VCardAttribute, value: string): void
     append_attribute(attr: VCardAttribute): void
@@ -664,7 +664,7 @@ export class Contact {
     to_string(format: VCardFormat): string
     util_dup_x_attribute(x_name: string): string | null
     util_set_x_attribute(x_name: string, value?: string | null): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -686,7 +686,7 @@ export class Contact {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -694,7 +694,7 @@ export class Contact {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Contact, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Contact, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -993,22 +993,22 @@ export interface SourceBackendSummarySetup_ConstructProps extends EDataServer.So
     summary_fields?: string
 }
 export class SourceBackendSummarySetup {
-    /* Properties of EBookContacts.SourceBackendSummarySetup */
+    /* Properties of EBookContacts-1.2.EBookContacts.SourceBackendSummarySetup */
     indexed_fields: string
     summary_fields: string
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of EBookContacts.SourceBackendSummarySetup */
+    /* Methods of EBookContacts-1.2.EBookContacts.SourceBackendSummarySetup */
     get_indexed_fields(): [ /* returnType */ ContactField, /* types */ BookIndexType, /* n_fields */ number ]
     get_summary_fields(): [ /* returnType */ ContactField, /* n_fields */ number ]
     set_indexed_fieldsv(fields: ContactField, types: BookIndexType, n_fields: number): void
     set_summary_fieldsv(fields: ContactField, n_fields: number): void
-    /* Methods of EDataServer.SourceExtension */
+    /* Methods of EDataServer-1.2.EDataServer.SourceExtension */
     get_source(): EDataServer.Source
     property_lock(): void
     property_unlock(): void
     ref_source(): EDataServer.Source
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -1030,7 +1030,7 @@ export class SourceBackendSummarySetup {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -1038,7 +1038,7 @@ export class SourceBackendSummarySetup {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: SourceBackendSummarySetup, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: SourceBackendSummarySetup, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -1058,11 +1058,11 @@ export class SourceBackendSummarySetup {
 export interface VCard_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class VCard {
-    /* Fields of EBookContacts.VCard */
+    /* Fields of EBookContacts-1.2.EBookContacts.VCard */
     parent: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of EBookContacts.VCard */
+    /* Methods of EBookContacts-1.2.EBookContacts.VCard */
     add_attribute(attr: VCardAttribute): void
     add_attribute_with_value(attr: VCardAttribute, value: string): void
     append_attribute(attr: VCardAttribute): void
@@ -1080,7 +1080,7 @@ export class VCard {
     to_string(format: VCardFormat): string
     util_dup_x_attribute(x_name: string): string | null
     util_set_x_attribute(x_name: string, value?: string | null): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -1102,7 +1102,7 @@ export class VCard {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -1110,7 +1110,7 @@ export class VCard {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: VCard, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: VCard, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -1129,7 +1129,7 @@ export class VCard {
     static $gtype: GObject.Type
 }
 export class AddressWestern {
-    /* Fields of EBookContacts.AddressWestern */
+    /* Fields of EBookContacts-1.2.EBookContacts.AddressWestern */
     po_box: string
     extended: string
     street: string
@@ -1137,7 +1137,7 @@ export class AddressWestern {
     region: string
     postal_code: string
     country: string
-    /* Methods of EBookContacts.AddressWestern */
+    /* Methods of EBookContacts-1.2.EBookContacts.AddressWestern */
     copy(): AddressWestern
     free(): void
     static name: string
@@ -1145,13 +1145,13 @@ export class AddressWestern {
     static parse(in_address: string): AddressWestern
 }
 export class BookChange {
-    /* Fields of EBookContacts.BookChange */
+    /* Fields of EBookContacts-1.2.EBookContacts.BookChange */
     change_type: BookChangeType
     contact: Contact
     static name: string
 }
 export class BookQuery {
-    /* Methods of EBookContacts.BookQuery */
+    /* Methods of EBookContacts-1.2.EBookContacts.BookQuery */
     copy(): BookQuery
     not(unref: boolean): BookQuery
     ref(): BookQuery
@@ -1169,7 +1169,7 @@ export class BookQuery {
     static vcard_field_test(field: string, test: BookQueryTest, value: string): BookQuery
 }
 export class ContactAddress {
-    /* Fields of EBookContacts.ContactAddress */
+    /* Fields of EBookContacts-1.2.EBookContacts.ContactAddress */
     address_format: string
     po: string
     ext: string
@@ -1178,7 +1178,7 @@ export class ContactAddress {
     region: string
     code: string
     country: string
-    /* Methods of EBookContacts.ContactAddress */
+    /* Methods of EBookContacts-1.2.EBookContacts.ContactAddress */
     free(): void
     static name: string
     static new(): ContactAddress
@@ -1187,10 +1187,10 @@ export class ContactAddress {
     static new(): ContactAddress
 }
 export class ContactCert {
-    /* Fields of EBookContacts.ContactCert */
+    /* Fields of EBookContacts-1.2.EBookContacts.ContactCert */
     length: number
     data: string
-    /* Methods of EBookContacts.ContactCert */
+    /* Methods of EBookContacts-1.2.EBookContacts.ContactCert */
     free(): void
     static name: string
     static new(): ContactCert
@@ -1199,16 +1199,16 @@ export class ContactCert {
     static new(): ContactCert
 }
 export abstract class ContactClass {
-    /* Fields of EBookContacts.ContactClass */
+    /* Fields of EBookContacts-1.2.EBookContacts.ContactClass */
     parent_class: VCardClass
     static name: string
 }
 export class ContactDate {
-    /* Fields of EBookContacts.ContactDate */
+    /* Fields of EBookContacts-1.2.EBookContacts.ContactDate */
     year: number
     month: number
     day: number
-    /* Methods of EBookContacts.ContactDate */
+    /* Methods of EBookContacts-1.2.EBookContacts.ContactDate */
     equal(dt2: ContactDate): boolean
     free(): void
     to_string(): string
@@ -1220,10 +1220,10 @@ export class ContactDate {
     static from_string(str: string): ContactDate
 }
 export class ContactGeo {
-    /* Fields of EBookContacts.ContactGeo */
+    /* Fields of EBookContacts-1.2.EBookContacts.ContactGeo */
     latitude: number
     longitude: number
-    /* Methods of EBookContacts.ContactGeo */
+    /* Methods of EBookContacts-1.2.EBookContacts.ContactGeo */
     free(): void
     static name: string
     static new(): ContactGeo
@@ -1232,13 +1232,13 @@ export class ContactGeo {
     static new(): ContactGeo
 }
 export class ContactName {
-    /* Fields of EBookContacts.ContactName */
+    /* Fields of EBookContacts-1.2.EBookContacts.ContactName */
     family: string
     given: string
     additional: string
     prefixes: string
     suffixes: string
-    /* Methods of EBookContacts.ContactName */
+    /* Methods of EBookContacts-1.2.EBookContacts.ContactName */
     copy(): ContactName
     free(): void
     to_string(): string
@@ -1250,9 +1250,9 @@ export class ContactName {
     static from_string(name_str: string): ContactName
 }
 export class ContactPhoto {
-    /* Fields of EBookContacts.ContactPhoto */
+    /* Fields of EBookContacts-1.2.EBookContacts.ContactPhoto */
     type: ContactPhotoType
-    /* Methods of EBookContacts.ContactPhoto */
+    /* Methods of EBookContacts-1.2.EBookContacts.ContactPhoto */
     copy(): ContactPhoto
     free(): void
     get_inlined(): Uint8Array[] | null
@@ -1271,7 +1271,7 @@ export class ContactPrivate {
     static name: string
 }
 export class NameWestern {
-    /* Fields of EBookContacts.NameWestern */
+    /* Fields of EBookContacts-1.2.EBookContacts.NameWestern */
     prefix: string
     first: string
     middle: string
@@ -1279,7 +1279,7 @@ export class NameWestern {
     last: string
     suffix: string
     full: string
-    /* Methods of EBookContacts.NameWestern */
+    /* Methods of EBookContacts-1.2.EBookContacts.NameWestern */
     copy(): NameWestern
     free(): void
     static name: string
@@ -1287,7 +1287,7 @@ export class NameWestern {
     static parse(full_name: string): NameWestern
 }
 export class PhoneNumber {
-    /* Methods of EBookContacts.PhoneNumber */
+    /* Methods of EBookContacts-1.2.EBookContacts.PhoneNumber */
     compare(second_number: PhoneNumber): PhoneNumberMatch
     copy(): PhoneNumber
     free(): void
@@ -1305,7 +1305,7 @@ export class PhoneNumber {
     static is_supported(): boolean
 }
 export abstract class SourceBackendSummarySetupClass {
-    /* Fields of EBookContacts.SourceBackendSummarySetupClass */
+    /* Fields of EBookContacts-1.2.EBookContacts.SourceBackendSummarySetupClass */
     parent_class: EDataServer.SourceBackendClass
     static name: string
 }
@@ -1313,7 +1313,7 @@ export class SourceBackendSummarySetupPrivate {
     static name: string
 }
 export class VCardAttribute {
-    /* Methods of EBookContacts.VCardAttribute */
+    /* Methods of EBookContacts-1.2.EBookContacts.VCardAttribute */
     add_param(param: VCardAttributeParam): void
     add_param_with_value(param: VCardAttributeParam, value: string): void
     add_value(value: string): void
@@ -1342,7 +1342,7 @@ export class VCardAttribute {
     static new(attr_group: string | null, attr_name: string): VCardAttribute
 }
 export class VCardAttributeParam {
-    /* Methods of EBookContacts.VCardAttributeParam */
+    /* Methods of EBookContacts-1.2.EBookContacts.VCardAttributeParam */
     add_value(value: string): void
     copy(): VCardAttributeParam
     free(): void
@@ -1356,7 +1356,7 @@ export class VCardAttributeParam {
     static new(name: string): VCardAttributeParam
 }
 export abstract class VCardClass {
-    /* Fields of EBookContacts.VCardClass */
+    /* Fields of EBookContacts-1.2.EBookContacts.VCardClass */
     parent_class: GObject.ObjectClass
     static name: string
 }

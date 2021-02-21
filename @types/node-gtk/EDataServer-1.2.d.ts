@@ -373,7 +373,7 @@ export function oauth2ServiceUtilSetToForm(form: GLib.HashTable, name: string, v
 export function oauth2ServiceUtilTakeToForm(form: GLib.HashTable, name: string, value?: string | null): void
 export function queueTransfer(srcQueue: GLib.Queue, dstQueue: GLib.Queue): void
 export function secretStoreDeleteSync(uid: string, cancellable?: Gio.Cancellable | null): boolean
-export function secretStoreLookupSync(uid: string, cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* outSecret */ string ]
+export function secretStoreLookupSync(uid: string, cancellable?: Gio.Cancellable | null): { returnType: boolean, outSecret: string }
 export function secretStoreStoreSync(uid: string, secret: string, label: string, permanently: boolean, cancellable?: Gio.Cancellable | null): boolean
 export function soupLoggerAttach(message: Soup.Message, inputStream: Gio.InputStream): Gio.InputStream
 export function soupSslTrustConnect(soupMessage: Soup.Message, source: Source): void
@@ -423,10 +423,10 @@ export function utilUtf8Strstrcasedecomp(haystack: string, needle: string): stri
 export function webdavAccessControlEntryFree(ptr?: object | null): void
 export function webdavDiscoverFreeDiscoveredSources(discoveredSources: WebDAVDiscoveredSource[]): void
 export function webdavDiscoverSources(source: Source, urlUsePath: string | null, onlySupports: number, credentials?: NamedParameters | null, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-export function webdavDiscoverSourcesFinish(source: Source, result: Gio.AsyncResult): [ /* returnType */ boolean, /* outCertificatePem */ string | null, /* outCertificateErrors */ Gio.TlsCertificateFlags | null, /* outDiscoveredSources */ WebDAVDiscoveredSource[], /* outCalendarUserAddresses */ string[] | null ]
+export function webdavDiscoverSourcesFinish(source: Source, result: Gio.AsyncResult): { returnType: boolean, outCertificatePem: string | null, outCertificateErrors: Gio.TlsCertificateFlags | null, outDiscoveredSources: WebDAVDiscoveredSource[], outCalendarUserAddresses: string[] | null }
 export function webdavDiscoverSourcesFull(source: Source, urlUsePath: string | null, onlySupports: number, credentials?: NamedParameters | null, refSourceFunc?: WebDAVDiscoverRefSourceFunc | null, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-export function webdavDiscoverSourcesFullSync(source: Source, urlUsePath: string | null, onlySupports: number, credentials?: NamedParameters | null, refSourceFunc?: WebDAVDiscoverRefSourceFunc | null, cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* outCertificatePem */ string | null, /* outCertificateErrors */ Gio.TlsCertificateFlags | null, /* outDiscoveredSources */ WebDAVDiscoveredSource[], /* outCalendarUserAddresses */ string[] | null ]
-export function webdavDiscoverSourcesSync(source: Source, urlUsePath: string | null, onlySupports: number, credentials?: NamedParameters | null, cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* outCertificatePem */ string | null, /* outCertificateErrors */ Gio.TlsCertificateFlags | null, /* outDiscoveredSources */ WebDAVDiscoveredSource[], /* outCalendarUserAddresses */ string[] | null ]
+export function webdavDiscoverSourcesFullSync(source: Source, urlUsePath: string | null, onlySupports: number, credentials?: NamedParameters | null, refSourceFunc?: WebDAVDiscoverRefSourceFunc | null, cancellable?: Gio.Cancellable | null): { returnType: boolean, outCertificatePem: string | null, outCertificateErrors: Gio.TlsCertificateFlags | null, outDiscoveredSources: WebDAVDiscoveredSource[], outCalendarUserAddresses: string[] | null }
+export function webdavDiscoverSourcesSync(source: Source, urlUsePath: string | null, onlySupports: number, credentials?: NamedParameters | null, cancellable?: Gio.Cancellable | null): { returnType: boolean, outCertificatePem: string | null, outCertificateErrors: Gio.TlsCertificateFlags | null, outDiscoveredSources: WebDAVDiscoveredSource[], outCalendarUserAddresses: string[] | null }
 export function webdavPrivilegeFree(ptr?: object | null): void
 export function webdavPropertyChangeFree(ptr?: object | null): void
 export function webdavResourceFree(ptr?: object | null): void
@@ -465,17 +465,17 @@ export interface XmlHashRemoveFunc {
     (key: string, value: string): boolean
 }
 export class Extensible {
-    /* Methods of EDataServer.Extensible */
+    /* Methods of EDataServer-1.2.EDataServer.Extensible */
     listExtensions(extensionType: GObject.Type): Extension[]
     loadExtensions(): void
     static name: string
 }
 export class OAuth2Service {
-    /* Methods of EDataServer.OAuth2Service */
+    /* Methods of EDataServer-1.2.EDataServer.OAuth2Service */
     canProcess(source: Source): boolean
     deleteTokenSync(source: Source, cancellable?: Gio.Cancellable | null): boolean
-    extractAuthorizationCode(source: Source, pageTitle: string, pageUri: string, pageContent?: string | null): [ /* returnType */ boolean, /* outAuthorizationCode */ string ]
-    getAccessTokenSync(source: Source, refSource: OAuth2ServiceRefSourceFunc, cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* outAccessToken */ string, /* outExpiresIn */ number ]
+    extractAuthorizationCode(source: Source, pageTitle: string, pageUri: string, pageContent?: string | null): { returnType: boolean, outAuthorizationCode: string }
+    getAccessTokenSync(source: Source, refSource: OAuth2ServiceRefSourceFunc, cancellable?: Gio.Cancellable | null): { returnType: boolean, outAccessToken: string, outExpiresIn: number }
     getAuthenticationPolicy(source: Source, uri: string): OAuth2ServiceNavigationPolicy
     getAuthenticationUri(source: Source): string
     getClientId(source: Source): string
@@ -493,24 +493,6 @@ export class OAuth2Service {
     prepareRefreshTokenMessage(source: Source, message: Soup.Message): void
     receiveAndStoreTokenSync(source: Source, authorizationCode: string, refSource: OAuth2ServiceRefSourceFunc, cancellable?: Gio.Cancellable | null): boolean
     refreshAndStoreTokenSync(source: Source, refreshToken: string, refSource: OAuth2ServiceRefSourceFunc, cancellable?: Gio.Cancellable | null): boolean
-    /* Virtual methods of EDataServer.OAuth2Service */
-    vfuncCanProcess(source: Source): boolean
-    vfuncExtractAuthorizationCode(source: Source, pageTitle: string, pageUri: string, pageContent?: string | null): [ /* returnType */ boolean, /* outAuthorizationCode */ string ]
-    vfuncGetAuthenticationPolicy(source: Source, uri: string): OAuth2ServiceNavigationPolicy
-    vfuncGetAuthenticationUri(source: Source): string
-    vfuncGetClientId(source: Source): string
-    vfuncGetClientSecret(source: Source): string | null
-    vfuncGetDisplayName(): string
-    vfuncGetFlags(): number
-    vfuncGetName(): string
-    vfuncGetRedirectUri(source: Source): string | null
-    vfuncGetRefreshUri(source: Source): string
-    vfuncGuessCanProcess(protocol?: string | null, hostname?: string | null): boolean
-    vfuncPrepareAuthenticationUriQuery(source: Source, uriQuery: GLib.HashTable): void
-    vfuncPrepareGetTokenForm(source: Source, authorizationCode: string, form: GLib.HashTable): void
-    vfuncPrepareGetTokenMessage(source: Source, message: Soup.Message): void
-    vfuncPrepareRefreshTokenForm(source: Source, refreshToken: string, form: GLib.HashTable): void
-    vfuncPrepareRefreshTokenMessage(source: Source, message: Soup.Message): void
     static name: string
     /* Static methods and pseudo-constructors */
     static utilSetToForm(form: GLib.HashTable, name: string, value?: string | null): void
@@ -521,22 +503,22 @@ export interface Client_ConstructProps extends GObject.Object_ConstructProps {
     source?: Source
 }
 export class Client {
-    /* Properties of EDataServer.Client */
+    /* Properties of EDataServer-1.2.EDataServer.Client */
     readonly capabilities: object
     readonly mainContext: GLib.MainContext
     online: boolean
     readonly opened: boolean
     readonly readonly: boolean
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of EDataServer.Client */
+    /* Methods of EDataServer-1.2.EDataServer.Client */
     cancelAll(): void
     checkCapability(capability: string): boolean
     checkRefreshSupported(): boolean
     dupBusName(): string
     getBackendProperty(propName: string, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    getBackendPropertyFinish(result: Gio.AsyncResult): [ /* returnType */ boolean, /* propValue */ string ]
-    getBackendPropertySync(propName: string, cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* propValue */ string ]
+    getBackendPropertyFinish(result: Gio.AsyncResult): { returnType: boolean, propValue: string }
+    getBackendPropertySync(propName: string, cancellable?: Gio.Cancellable | null): { returnType: boolean, propValue: string }
     getCapabilities(): string[]
     getSource(): Source
     isOnline(): boolean
@@ -553,8 +535,8 @@ export class Client {
     removeFinish(result: Gio.AsyncResult): boolean
     removeSync(cancellable?: Gio.Cancellable | null): boolean
     retrieveCapabilities(cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    retrieveCapabilitiesFinish(result: Gio.AsyncResult): [ /* returnType */ boolean, /* capabilities */ string ]
-    retrieveCapabilitiesSync(cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* capabilities */ string ]
+    retrieveCapabilitiesFinish(result: Gio.AsyncResult): { returnType: boolean, capabilities: string }
+    retrieveCapabilitiesSync(cancellable?: Gio.Cancellable | null): { returnType: boolean, capabilities: string }
     retrieveProperties(cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     retrievePropertiesFinish(result: Gio.AsyncResult): boolean
     retrievePropertiesSync(cancellable?: Gio.Cancellable | null): boolean
@@ -566,7 +548,7 @@ export class Client {
     waitForConnected(timeoutSeconds: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     waitForConnectedFinish(result: Gio.AsyncResult): boolean
     waitForConnectedSync(timeoutSeconds: number, cancellable?: Gio.Cancellable | null): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -588,71 +570,33 @@ export class Client {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of EDataServer.Client */
-    vfuncBackendDied(): void
-    vfuncBackendError(errorMsg: string): void
-    vfuncBackendPropertyChanged(propName: string, propValue: string): void
-    vfuncGetBackendProperty(propName: string, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    vfuncGetBackendPropertyFinish(result: Gio.AsyncResult): [ /* returnType */ boolean, /* propValue */ string ]
-    vfuncGetBackendPropertySync(propName: string, cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* propValue */ string ]
-    vfuncOpen(onlyIfExists: boolean, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    vfuncOpenFinish(result: Gio.AsyncResult): boolean
-    vfuncOpenSync(onlyIfExists: boolean, cancellable?: Gio.Cancellable | null): boolean
-    vfuncOpened(error: GLib.Error): void
-    vfuncRefresh(cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    vfuncRefreshFinish(result: Gio.AsyncResult): boolean
-    vfuncRefreshSync(cancellable?: Gio.Cancellable | null): boolean
-    vfuncRemove(cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    vfuncRemoveFinish(result: Gio.AsyncResult): boolean
-    vfuncRemoveSync(cancellable?: Gio.Cancellable | null): boolean
-    vfuncRetrieveCapabilities(cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    vfuncRetrieveCapabilitiesFinish(result: Gio.AsyncResult): [ /* returnType */ boolean, /* capabilities */ string ]
-    vfuncRetrieveCapabilitiesSync(cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* capabilities */ string ]
-    vfuncRetrievePropertiesSync(cancellable?: Gio.Cancellable | null): boolean
-    vfuncSetBackendProperty(propName: string, propValue: string, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    vfuncSetBackendPropertyFinish(result: Gio.AsyncResult): boolean
-    vfuncSetBackendPropertySync(propName: string, propValue: string, cancellable?: Gio.Cancellable | null): boolean
-    vfuncUnwrapDbusError(dbusError: GLib.Error): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of EDataServer.Client */
+    /* Signals of EDataServer-1.2.EDataServer.Client */
     connect(sigName: "backend-died", callback: (($obj: Client) => void)): number
-    connect_after(sigName: "backend-died", callback: (($obj: Client) => void)): number
+    on(sigName: "backend-died", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "backend-died", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "backend-died", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "backend-died"): void
-    on(sigName: "backend-died", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "backend-died", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "backend-died", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "backend-error", callback: (($obj: Client, object: string) => void)): number
-    connect_after(sigName: "backend-error", callback: (($obj: Client, object: string) => void)): number
+    on(sigName: "backend-error", callback: (object: string) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "backend-error", callback: (object: string) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "backend-error", callback: (object: string) => void): NodeJS.EventEmitter
     emit(sigName: "backend-error", object: string): void
-    on(sigName: "backend-error", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "backend-error", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "backend-error", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "backend-property-changed", callback: (($obj: Client, object: string, p0: string) => void)): number
-    connect_after(sigName: "backend-property-changed", callback: (($obj: Client, object: string, p0: string) => void)): number
+    on(sigName: "backend-property-changed", callback: (object: string, p0: string) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "backend-property-changed", callback: (object: string, p0: string) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "backend-property-changed", callback: (object: string, p0: string) => void): NodeJS.EventEmitter
     emit(sigName: "backend-property-changed", object: string, p0: string): void
-    on(sigName: "backend-property-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "backend-property-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "backend-property-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "opened", callback: (($obj: Client, object: GLib.Error) => void)): number
-    connect_after(sigName: "opened", callback: (($obj: Client, object: GLib.Error) => void)): number
+    on(sigName: "opened", callback: (object: GLib.Error) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "opened", callback: (object: GLib.Error) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "opened", callback: (object: GLib.Error) => void): NodeJS.EventEmitter
     emit(sigName: "opened", object: GLib.Error): void
-    on(sigName: "opened", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "opened", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "opened", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Client, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Client, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::capabilities", callback: (($obj: Client, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::capabilities", callback: (($obj: Client, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::capabilities", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -699,18 +643,18 @@ export class Client {
     static utilParseCommaStrings(strings: string): string[]
     static utilSlistToStrv(strings: string[]): string[]
     static utilStrvToSlist(strv: string): string[]
-    static utilUnwrapDbusError(dbusError: GLib.Error, knownErrors: ClientErrorsList, knownErrorsCount: number, knownErrorsDomain: GLib.Quark, failWhenNoneMatched: boolean): [ /* returnType */ boolean, /* clientError */ GLib.Error ]
+    static utilUnwrapDbusError(dbusError: GLib.Error, knownErrors: ClientErrorsList, knownErrorsCount: number, knownErrorsDomain: GLib.Quark, failWhenNoneMatched: boolean): { returnType: boolean, clientError: GLib.Error }
     static $gtype: GObject.Type
 }
 export interface Extension_ConstructProps extends GObject.Object_ConstructProps {
     extensible?: Extensible
 }
 export class Extension {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of EDataServer.Extension */
+    /* Methods of EDataServer-1.2.EDataServer.Extension */
     getExtensible(): Extensible
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -732,21 +676,12 @@ export class Extension {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Extension, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Extension, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -764,18 +699,18 @@ export interface GDataOAuth2Authorizer_ConstructProps extends GObject.Object_Con
     source?: Source
 }
 export class GDataOAuth2Authorizer {
-    /* Fields of EDataServer.GDataOAuth2Authorizer */
+    /* Fields of EDataServer-1.2.EDataServer.GDataOAuth2Authorizer */
     parent: GObject.Object
     priv: GDataOAuth2AuthorizerPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of EDataServer.GDataOAuth2Authorizer */
+    /* Methods of EDataServer-1.2.EDataServer.GDataOAuth2Authorizer */
     cloneCredentials(): NamedParameters | null
     getServiceType(): GObject.Type
     isExpired(): boolean
     refSource(): Source
     setCredentials(credentials?: NamedParameters | null): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -797,33 +732,18 @@ export class GDataOAuth2Authorizer {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of GData.Authorizer */
+    /* Methods of GData-0.0.GData.Authorizer */
     isAuthorizedForDomain(domain: GData.AuthorizationDomain): boolean
     processRequest(domain: GData.AuthorizationDomain | null, message: Soup.Message): void
     refreshAuthorization(cancellable?: Gio.Cancellable | null): boolean
     refreshAuthorizationAsync(cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     refreshAuthorizationFinish(asyncResult: Gio.AsyncResult): boolean
-    /* Virtual methods of EDataServer.GDataOAuth2Authorizer */
-    vfuncIsAuthorizedForDomain(domain: GData.AuthorizationDomain): boolean
-    vfuncProcessRequest(domain: GData.AuthorizationDomain | null, message: Soup.Message): void
-    vfuncRefreshAuthorization(cancellable?: Gio.Cancellable | null): boolean
-    vfuncRefreshAuthorizationAsync(cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    vfuncRefreshAuthorizationFinish(asyncResult: Gio.AsyncResult): boolean
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: GDataOAuth2Authorizer, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: GDataOAuth2Authorizer, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -843,17 +763,17 @@ export interface Module_ConstructProps extends GObject.TypeModule_ConstructProps
     filename?: string
 }
 export class Module {
-    /* Fields of GObject.TypeModule */
+    /* Fields of GObject-2.0.GObject.TypeModule */
     parentInstance: GObject.Object
     useCount: number
     typeInfos: object[]
     interfaceInfos: object[]
     name: string
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of EDataServer.Module */
+    /* Methods of EDataServer-1.2.EDataServer.Module */
     getFilename(): string
-    /* Methods of GObject.TypeModule */
+    /* Methods of GObject-2.0.GObject.TypeModule */
     addInterface(instanceType: GObject.Type, interfaceType: GObject.Type, interfaceInfo: GObject.InterfaceInfo): void
     registerEnum(name: string, constStaticValues: GObject.EnumValue): GObject.Type
     registerFlags(name: string, constStaticValues: GObject.FlagsValue): GObject.Type
@@ -861,7 +781,7 @@ export class Module {
     setName(name: string): void
     unuse(): void
     use(): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -883,28 +803,16 @@ export class Module {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of GObject.TypePlugin */
+    /* Methods of GObject-2.0.GObject.TypePlugin */
     completeInterfaceInfo(instanceType: GObject.Type, interfaceType: GObject.Type, info: GObject.InterfaceInfo): void
     completeTypeInfo(gType: GObject.Type, info: GObject.TypeInfo, valueTable: GObject.TypeValueTable): void
     use(): void
-    /* Virtual methods of GObject.TypeModule */
-    vfuncLoad(): boolean
-    vfuncUnload(): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Module, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Module, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -925,19 +833,19 @@ export interface NetworkMonitor_ConstructProps extends GObject.Object_ConstructP
     gioName?: string
 }
 export class NetworkMonitor {
-    /* Properties of EDataServer.NetworkMonitor */
+    /* Properties of EDataServer-1.2.EDataServer.NetworkMonitor */
     gioName: string
-    /* Properties of Gio.NetworkMonitor */
+    /* Properties of Gio-2.0.Gio.NetworkMonitor */
     readonly connectivity: Gio.NetworkConnectivity
     readonly networkAvailable: boolean
     readonly networkMetered: boolean
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of EDataServer.NetworkMonitor */
+    /* Methods of EDataServer-1.2.EDataServer.NetworkMonitor */
     dupGioName(): string
     listGioNames(): string[]
     setGioName(gioName?: string | null): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -959,43 +867,27 @@ export class NetworkMonitor {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of Gio.Initable */
+    /* Methods of Gio-2.0.Gio.Initable */
     init(cancellable?: Gio.Cancellable | null): boolean
-    /* Methods of Gio.NetworkMonitor */
+    /* Methods of Gio-2.0.Gio.NetworkMonitor */
     canReach(connectable: Gio.SocketConnectable, cancellable?: Gio.Cancellable | null): boolean
     canReachAsync(connectable: Gio.SocketConnectable, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     canReachFinish(result: Gio.AsyncResult): boolean
     getConnectivity(): Gio.NetworkConnectivity
     getNetworkAvailable(): boolean
     getNetworkMetered(): boolean
-    /* Virtual methods of EDataServer.NetworkMonitor */
-    vfuncInit(cancellable?: Gio.Cancellable | null): boolean
-    vfuncCanReach(connectable: Gio.SocketConnectable, cancellable?: Gio.Cancellable | null): boolean
-    vfuncCanReachAsync(connectable: Gio.SocketConnectable, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    vfuncCanReachFinish(result: Gio.AsyncResult): boolean
-    vfuncNetworkChanged(networkAvailable: boolean): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: NetworkMonitor, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: NetworkMonitor, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of Gio.NetworkMonitor */
+    /* Signals of Gio-2.0.Gio.NetworkMonitor */
     connect(sigName: "network-changed", callback: (($obj: NetworkMonitor, networkAvailable: boolean) => void)): number
-    connect_after(sigName: "network-changed", callback: (($obj: NetworkMonitor, networkAvailable: boolean) => void)): number
+    on(sigName: "network-changed", callback: (networkAvailable: boolean) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "network-changed", callback: (networkAvailable: boolean) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "network-changed", callback: (networkAvailable: boolean) => void): NodeJS.EventEmitter
     emit(sigName: "network-changed", networkAvailable: boolean): void
-    on(sigName: "network-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "network-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "network-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::gio-name", callback: (($obj: NetworkMonitor, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::gio-name", callback: (($obj: NetworkMonitor, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::gio-name", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -1034,13 +926,13 @@ export class NetworkMonitor {
 export interface OAuth2ServiceBase_ConstructProps extends Extension_ConstructProps {
 }
 export class OAuth2ServiceBase {
-    /* Fields of EDataServer.OAuth2ServiceBase */
+    /* Fields of EDataServer-1.2.EDataServer.OAuth2ServiceBase */
     parent: Extension
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of EDataServer.Extension */
+    /* Methods of EDataServer-1.2.EDataServer.Extension */
     getExtensible(): Extensible
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -1062,21 +954,12 @@ export class OAuth2ServiceBase {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: OAuth2ServiceBase, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: OAuth2ServiceBase, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -1092,13 +975,13 @@ export class OAuth2ServiceBase {
 export interface OAuth2ServiceGoogle_ConstructProps extends OAuth2ServiceBase_ConstructProps {
 }
 export class OAuth2ServiceGoogle {
-    /* Fields of EDataServer.OAuth2ServiceGoogle */
+    /* Fields of EDataServer-1.2.EDataServer.OAuth2ServiceGoogle */
     parent: OAuth2ServiceBase
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of EDataServer.Extension */
+    /* Methods of EDataServer-1.2.EDataServer.Extension */
     getExtensible(): Extensible
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -1120,11 +1003,11 @@ export class OAuth2ServiceGoogle {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of EDataServer.OAuth2Service */
+    /* Methods of EDataServer-1.2.EDataServer.OAuth2Service */
     canProcess(source: Source): boolean
     deleteTokenSync(source: Source, cancellable?: Gio.Cancellable | null): boolean
-    extractAuthorizationCode(source: Source, pageTitle: string, pageUri: string, pageContent?: string | null): [ /* returnType */ boolean, /* outAuthorizationCode */ string ]
-    getAccessTokenSync(source: Source, refSource: OAuth2ServiceRefSourceFunc, cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* outAccessToken */ string, /* outExpiresIn */ number ]
+    extractAuthorizationCode(source: Source, pageTitle: string, pageUri: string, pageContent?: string | null): { returnType: boolean, outAuthorizationCode: string }
+    getAccessTokenSync(source: Source, refSource: OAuth2ServiceRefSourceFunc, cancellable?: Gio.Cancellable | null): { returnType: boolean, outAccessToken: string, outExpiresIn: number }
     getAuthenticationPolicy(source: Source, uri: string): OAuth2ServiceNavigationPolicy
     getAuthenticationUri(source: Source): string
     getClientId(source: Source): string
@@ -1142,39 +1025,12 @@ export class OAuth2ServiceGoogle {
     prepareRefreshTokenMessage(source: Source, message: Soup.Message): void
     receiveAndStoreTokenSync(source: Source, authorizationCode: string, refSource: OAuth2ServiceRefSourceFunc, cancellable?: Gio.Cancellable | null): boolean
     refreshAndStoreTokenSync(source: Source, refreshToken: string, refSource: OAuth2ServiceRefSourceFunc, cancellable?: Gio.Cancellable | null): boolean
-    /* Virtual methods of EDataServer.OAuth2ServiceGoogle */
-    vfuncCanProcess(source: Source): boolean
-    vfuncExtractAuthorizationCode(source: Source, pageTitle: string, pageUri: string, pageContent?: string | null): [ /* returnType */ boolean, /* outAuthorizationCode */ string ]
-    vfuncGetAuthenticationPolicy(source: Source, uri: string): OAuth2ServiceNavigationPolicy
-    vfuncGetAuthenticationUri(source: Source): string
-    vfuncGetClientId(source: Source): string
-    vfuncGetClientSecret(source: Source): string | null
-    vfuncGetDisplayName(): string
-    vfuncGetFlags(): number
-    vfuncGetName(): string
-    vfuncGetRedirectUri(source: Source): string | null
-    vfuncGetRefreshUri(source: Source): string
-    vfuncGuessCanProcess(protocol?: string | null, hostname?: string | null): boolean
-    vfuncPrepareAuthenticationUriQuery(source: Source, uriQuery: GLib.HashTable): void
-    vfuncPrepareGetTokenForm(source: Source, authorizationCode: string, form: GLib.HashTable): void
-    vfuncPrepareGetTokenMessage(source: Source, message: Soup.Message): void
-    vfuncPrepareRefreshTokenForm(source: Source, refreshToken: string, form: GLib.HashTable): void
-    vfuncPrepareRefreshTokenMessage(source: Source, message: Soup.Message): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: OAuth2ServiceGoogle, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: OAuth2ServiceGoogle, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -1193,13 +1049,13 @@ export class OAuth2ServiceGoogle {
 export interface OAuth2ServiceOutlook_ConstructProps extends OAuth2ServiceBase_ConstructProps {
 }
 export class OAuth2ServiceOutlook {
-    /* Fields of EDataServer.OAuth2ServiceOutlook */
+    /* Fields of EDataServer-1.2.EDataServer.OAuth2ServiceOutlook */
     parent: OAuth2ServiceBase
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of EDataServer.Extension */
+    /* Methods of EDataServer-1.2.EDataServer.Extension */
     getExtensible(): Extensible
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -1221,11 +1077,11 @@ export class OAuth2ServiceOutlook {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of EDataServer.OAuth2Service */
+    /* Methods of EDataServer-1.2.EDataServer.OAuth2Service */
     canProcess(source: Source): boolean
     deleteTokenSync(source: Source, cancellable?: Gio.Cancellable | null): boolean
-    extractAuthorizationCode(source: Source, pageTitle: string, pageUri: string, pageContent?: string | null): [ /* returnType */ boolean, /* outAuthorizationCode */ string ]
-    getAccessTokenSync(source: Source, refSource: OAuth2ServiceRefSourceFunc, cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* outAccessToken */ string, /* outExpiresIn */ number ]
+    extractAuthorizationCode(source: Source, pageTitle: string, pageUri: string, pageContent?: string | null): { returnType: boolean, outAuthorizationCode: string }
+    getAccessTokenSync(source: Source, refSource: OAuth2ServiceRefSourceFunc, cancellable?: Gio.Cancellable | null): { returnType: boolean, outAccessToken: string, outExpiresIn: number }
     getAuthenticationPolicy(source: Source, uri: string): OAuth2ServiceNavigationPolicy
     getAuthenticationUri(source: Source): string
     getClientId(source: Source): string
@@ -1243,39 +1099,12 @@ export class OAuth2ServiceOutlook {
     prepareRefreshTokenMessage(source: Source, message: Soup.Message): void
     receiveAndStoreTokenSync(source: Source, authorizationCode: string, refSource: OAuth2ServiceRefSourceFunc, cancellable?: Gio.Cancellable | null): boolean
     refreshAndStoreTokenSync(source: Source, refreshToken: string, refSource: OAuth2ServiceRefSourceFunc, cancellable?: Gio.Cancellable | null): boolean
-    /* Virtual methods of EDataServer.OAuth2ServiceOutlook */
-    vfuncCanProcess(source: Source): boolean
-    vfuncExtractAuthorizationCode(source: Source, pageTitle: string, pageUri: string, pageContent?: string | null): [ /* returnType */ boolean, /* outAuthorizationCode */ string ]
-    vfuncGetAuthenticationPolicy(source: Source, uri: string): OAuth2ServiceNavigationPolicy
-    vfuncGetAuthenticationUri(source: Source): string
-    vfuncGetClientId(source: Source): string
-    vfuncGetClientSecret(source: Source): string | null
-    vfuncGetDisplayName(): string
-    vfuncGetFlags(): number
-    vfuncGetName(): string
-    vfuncGetRedirectUri(source: Source): string | null
-    vfuncGetRefreshUri(source: Source): string
-    vfuncGuessCanProcess(protocol?: string | null, hostname?: string | null): boolean
-    vfuncPrepareAuthenticationUriQuery(source: Source, uriQuery: GLib.HashTable): void
-    vfuncPrepareGetTokenForm(source: Source, authorizationCode: string, form: GLib.HashTable): void
-    vfuncPrepareGetTokenMessage(source: Source, message: Soup.Message): void
-    vfuncPrepareRefreshTokenForm(source: Source, refreshToken: string, form: GLib.HashTable): void
-    vfuncPrepareRefreshTokenMessage(source: Source, message: Soup.Message): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: OAuth2ServiceOutlook, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: OAuth2ServiceOutlook, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -1294,16 +1123,16 @@ export class OAuth2ServiceOutlook {
 export interface OAuth2Services_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class OAuth2Services {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of EDataServer.OAuth2Services */
+    /* Methods of EDataServer-1.2.EDataServer.OAuth2Services */
     add(service: OAuth2Service): void
     find(source: Source): OAuth2Service | null
     guess(protocol?: string | null, hostname?: string | null): OAuth2Service | null
     isOauth2Alias(authMethod?: string | null): boolean
     list(): OAuth2Service[]
     remove(service: OAuth2Service): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -1325,24 +1154,15 @@ export class OAuth2Services {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of EDataServer.Extensible */
+    /* Methods of EDataServer-1.2.EDataServer.Extensible */
     listExtensions(extensionType: GObject.Type): Extension[]
     loadExtensions(): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: OAuth2Services, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: OAuth2Services, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -1362,20 +1182,20 @@ export class OAuth2Services {
 export interface SoupAuthBearer_ConstructProps extends Soup.Auth_ConstructProps {
 }
 export class SoupAuthBearer {
-    /* Properties of Soup.Auth */
+    /* Properties of Soup-2.4.Soup.Auth */
     host: string
     readonly isAuthenticated: boolean
     isForProxy: boolean
     realm: string
     readonly schemeName: string
-    /* Fields of Soup.Auth */
+    /* Fields of Soup-2.4.Soup.Auth */
     parent: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of EDataServer.SoupAuthBearer */
+    /* Methods of EDataServer-1.2.EDataServer.SoupAuthBearer */
     isExpired(): boolean
     setAccessToken(accessToken: string, expiresInSeconds: number): void
-    /* Methods of Soup.Auth */
+    /* Methods of Soup-2.4.Soup.Auth */
     authenticate(username: string, password: string): void
     canAuthenticate(): boolean
     getAuthorization(msg: Soup.Message): string
@@ -1390,7 +1210,7 @@ export class SoupAuthBearer {
     isReady(msg: Soup.Message): boolean
     savePassword(username: string, password: string): void
     update(msg: Soup.Message, authHeader: string): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -1412,29 +1232,12 @@ export class SoupAuthBearer {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of Soup.Auth */
-    vfuncAuthenticate(username: string, password: string): void
-    vfuncCanAuthenticate(): boolean
-    vfuncGetAuthorization(msg: Soup.Message): string
-    vfuncGetProtectionSpace(sourceUri: Soup.URI): string[]
-    vfuncIsAuthenticated(): boolean
-    vfuncIsReady(msg: Soup.Message): boolean
-    vfuncUpdate(msg: Soup.Message, authHeader: GLib.HashTable): boolean
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: SoupAuthBearer, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: SoupAuthBearer, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::host", callback: (($obj: SoupAuthBearer, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::host", callback: (($obj: SoupAuthBearer, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::host", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -1477,9 +1280,9 @@ export interface SoupSession_ConstructProps extends Soup.Session_ConstructProps 
     source?: Source
 }
 export class SoupSession {
-    /* Properties of EDataServer.SoupSession */
+    /* Properties of EDataServer-1.2.EDataServer.SoupSession */
     credentials: NamedParameters
-    /* Properties of Soup.Session */
+    /* Properties of Soup-2.4.Soup.Session */
     acceptLanguage: string
     acceptLanguageAuto: boolean
     httpAliases: string[]
@@ -1498,24 +1301,24 @@ export class SoupSession {
     useNtlm: boolean
     useThreadContext: boolean
     userAgent: string
-    /* Fields of Soup.Session */
+    /* Fields of Soup-2.4.Soup.Session */
     parent: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of EDataServer.SoupSession */
+    /* Methods of EDataServer-1.2.EDataServer.SoupSession */
     checkResult(request: Soup.RequestHTTP, readBytes: object | null, bytesLength: number): boolean
     dupCredentials(): NamedParameters | null
     getAuthenticationRequiresCredentials(): boolean
     getLogLevel(): Soup.LoggerLogLevel
     getSource(): Source
-    getSslErrorDetails(): [ /* returnType */ boolean, /* outCertificatePem */ string, /* outCertificateErrors */ Gio.TlsCertificateFlags ]
+    getSslErrorDetails(): { returnType: boolean, outCertificatePem: string, outCertificateErrors: Gio.TlsCertificateFlags }
     newRequest(method: string, uriString: string): Soup.RequestHTTP
     newRequestUri(method: string, uri: Soup.URI): Soup.RequestHTTP
     sendRequestSimpleSync(request: Soup.RequestHTTP, cancellable?: Gio.Cancellable | null): any[]
     sendRequestSync(request: Soup.RequestHTTP, cancellable?: Gio.Cancellable | null): Gio.InputStream
     setCredentials(credentials?: NamedParameters | null): void
     setupLogging(loggingLevel?: string | null): void
-    /* Methods of Soup.Session */
+    /* Methods of Soup-2.4.Soup.Session */
     abort(): void
     addFeature(feature: Soup.SessionFeature): void
     addFeatureByType(featureType: GObject.Type): void
@@ -1548,7 +1351,7 @@ export class SoupSession {
     websocketConnectAsync(msg: Soup.Message, origin?: string | null, protocols?: string[] | null, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     websocketConnectFinish(result: Gio.AsyncResult): Soup.WebsocketConnection
     wouldRedirect(msg: Soup.Message): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -1570,68 +1373,43 @@ export class SoupSession {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of Soup.Session */
-    vfuncAuthRequired(msg: Soup.Message, auth: Soup.Auth, retrying: boolean): void
-    vfuncAuthenticate(msg: Soup.Message, auth: Soup.Auth, retrying: boolean): void
-    vfuncCancelMessage(msg: Soup.Message, statusCode: number): void
-    vfuncFlushQueue(): void
-    vfuncKick(): void
-    vfuncQueueMessage(msg: Soup.Message, callback?: Soup.SessionCallback | null): void
-    vfuncRequestStarted(msg: Soup.Message, socket: Soup.Socket): void
-    vfuncRequeueMessage(msg: Soup.Message): void
-    vfuncSendMessage(msg: Soup.Message): number
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Soup.Session */
+    /* Signals of Soup-2.4.Soup.Session */
     connect(sigName: "authenticate", callback: (($obj: SoupSession, msg: Soup.Message, auth: Soup.Auth, retrying: boolean) => void)): number
-    connect_after(sigName: "authenticate", callback: (($obj: SoupSession, msg: Soup.Message, auth: Soup.Auth, retrying: boolean) => void)): number
+    on(sigName: "authenticate", callback: (msg: Soup.Message, auth: Soup.Auth, retrying: boolean) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "authenticate", callback: (msg: Soup.Message, auth: Soup.Auth, retrying: boolean) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "authenticate", callback: (msg: Soup.Message, auth: Soup.Auth, retrying: boolean) => void): NodeJS.EventEmitter
     emit(sigName: "authenticate", msg: Soup.Message, auth: Soup.Auth, retrying: boolean): void
-    on(sigName: "authenticate", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "authenticate", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "authenticate", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "connection-created", callback: (($obj: SoupSession, connection: GObject.Object) => void)): number
-    connect_after(sigName: "connection-created", callback: (($obj: SoupSession, connection: GObject.Object) => void)): number
+    on(sigName: "connection-created", callback: (connection: GObject.Object) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "connection-created", callback: (connection: GObject.Object) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "connection-created", callback: (connection: GObject.Object) => void): NodeJS.EventEmitter
     emit(sigName: "connection-created", connection: GObject.Object): void
-    on(sigName: "connection-created", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "connection-created", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "connection-created", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "request-queued", callback: (($obj: SoupSession, msg: Soup.Message) => void)): number
-    connect_after(sigName: "request-queued", callback: (($obj: SoupSession, msg: Soup.Message) => void)): number
+    on(sigName: "request-queued", callback: (msg: Soup.Message) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "request-queued", callback: (msg: Soup.Message) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "request-queued", callback: (msg: Soup.Message) => void): NodeJS.EventEmitter
     emit(sigName: "request-queued", msg: Soup.Message): void
-    on(sigName: "request-queued", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "request-queued", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "request-queued", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "request-started", callback: (($obj: SoupSession, msg: Soup.Message, socket: Soup.Socket) => void)): number
-    connect_after(sigName: "request-started", callback: (($obj: SoupSession, msg: Soup.Message, socket: Soup.Socket) => void)): number
+    on(sigName: "request-started", callback: (msg: Soup.Message, socket: Soup.Socket) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "request-started", callback: (msg: Soup.Message, socket: Soup.Socket) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "request-started", callback: (msg: Soup.Message, socket: Soup.Socket) => void): NodeJS.EventEmitter
     emit(sigName: "request-started", msg: Soup.Message, socket: Soup.Socket): void
-    on(sigName: "request-started", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "request-started", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "request-started", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "request-unqueued", callback: (($obj: SoupSession, msg: Soup.Message) => void)): number
-    connect_after(sigName: "request-unqueued", callback: (($obj: SoupSession, msg: Soup.Message) => void)): number
+    on(sigName: "request-unqueued", callback: (msg: Soup.Message) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "request-unqueued", callback: (msg: Soup.Message) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "request-unqueued", callback: (msg: Soup.Message) => void): NodeJS.EventEmitter
     emit(sigName: "request-unqueued", msg: Soup.Message): void
-    on(sigName: "request-unqueued", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "request-unqueued", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "request-unqueued", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "tunneling", callback: (($obj: SoupSession, connection: GObject.Object) => void)): number
-    connect_after(sigName: "tunneling", callback: (($obj: SoupSession, connection: GObject.Object) => void)): number
+    on(sigName: "tunneling", callback: (connection: GObject.Object) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "tunneling", callback: (connection: GObject.Object) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "tunneling", callback: (connection: GObject.Object) => void): NodeJS.EventEmitter
     emit(sigName: "tunneling", connection: GObject.Object): void
-    on(sigName: "tunneling", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "tunneling", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "tunneling", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: SoupSession, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: SoupSession, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::credentials", callback: (($obj: SoupSession, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::credentials", callback: (($obj: SoupSession, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::credentials", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -1752,7 +1530,7 @@ export interface Source_ConstructProps extends GObject.Object_ConstructProps {
     uid?: string
 }
 export class Source {
-    /* Properties of EDataServer.Source */
+    /* Properties of EDataServer-1.2.EDataServer.Source */
     readonly connectionStatus: SourceConnectionStatus
     displayName: string
     enabled: boolean
@@ -1761,9 +1539,9 @@ export class Source {
     readonly remoteDeletable: boolean
     readonly removable: boolean
     readonly writable: boolean
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of EDataServer.Source */
+    /* Methods of EDataServer-1.2.EDataServer.Source */
     camelConfigureService(service: Camel.Service): void
     changed(): void
     compareByDisplayName(source2: Source): number
@@ -1781,11 +1559,11 @@ export class Source {
     getEnabled(): boolean
     getExtension(extensionName: string): SourceExtension
     getLastCredentialsRequiredArguments(cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    getLastCredentialsRequiredArgumentsFinish(result: Gio.AsyncResult): [ /* returnType */ boolean, /* outReason */ SourceCredentialsReason, /* outCertificatePem */ string, /* outCertificateErrors */ Gio.TlsCertificateFlags, /* outOpError */ GLib.Error ]
-    getLastCredentialsRequiredArgumentsSync(cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* outReason */ SourceCredentialsReason, /* outCertificatePem */ string, /* outCertificateErrors */ Gio.TlsCertificateFlags, /* outOpError */ GLib.Error ]
+    getLastCredentialsRequiredArgumentsFinish(result: Gio.AsyncResult): { returnType: boolean, outReason: SourceCredentialsReason, outCertificatePem: string, outCertificateErrors: Gio.TlsCertificateFlags, outOpError: GLib.Error }
+    getLastCredentialsRequiredArgumentsSync(cancellable?: Gio.Cancellable | null): { returnType: boolean, outReason: SourceCredentialsReason, outCertificatePem: string, outCertificateErrors: Gio.TlsCertificateFlags, outOpError: GLib.Error }
     getOauth2AccessToken(cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    getOauth2AccessTokenFinish(result: Gio.AsyncResult): [ /* returnType */ boolean, /* outAccessToken */ string | null, /* outExpiresIn */ number | null ]
-    getOauth2AccessTokenSync(cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* outAccessToken */ string | null, /* outExpiresIn */ number | null ]
+    getOauth2AccessTokenFinish(result: Gio.AsyncResult): { returnType: boolean, outAccessToken: string | null, outExpiresIn: number | null }
+    getOauth2AccessTokenSync(cancellable?: Gio.Cancellable | null): { returnType: boolean, outAccessToken: string | null, outExpiresIn: number | null }
     getParent(): string
     getRemoteCreatable(): boolean
     getRemoteDeletable(): boolean
@@ -1801,11 +1579,11 @@ export class Source {
     invokeCredentialsRequiredFinish(result: Gio.AsyncResult): boolean
     invokeCredentialsRequiredSync(reason: SourceCredentialsReason, certificatePem: string, certificateErrors: Gio.TlsCertificateFlags, opError?: GLib.Error | null, cancellable?: Gio.Cancellable | null): boolean
     lookupPassword(cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    lookupPasswordFinish(result: Gio.AsyncResult): [ /* returnType */ boolean, /* outPassword */ string ]
-    lookupPasswordSync(cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* outPassword */ string ]
+    lookupPasswordFinish(result: Gio.AsyncResult): { returnType: boolean, outPassword: string }
+    lookupPasswordSync(cancellable?: Gio.Cancellable | null): { returnType: boolean, outPassword: string }
     mailSignatureLoad(ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    mailSignatureLoadFinish(result: Gio.AsyncResult): [ /* returnType */ boolean, /* contents */ string, /* length */ number | null ]
-    mailSignatureLoadSync(cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* contents */ string, /* length */ number | null ]
+    mailSignatureLoadFinish(result: Gio.AsyncResult): { returnType: boolean, contents: string, length: number | null }
+    mailSignatureLoadSync(cancellable?: Gio.Cancellable | null): { returnType: boolean, contents: string, length: number | null }
     mailSignatureReplace(contents: string, length: number, ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     mailSignatureReplaceFinish(result: Gio.AsyncResult): boolean
     mailSignatureReplaceSync(contents: string, length: number, cancellable?: Gio.Cancellable | null): boolean
@@ -1844,7 +1622,7 @@ export class Source {
     write(cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     writeFinish(result: Gio.AsyncResult): boolean
     writeSync(cancellable?: Gio.Cancellable | null): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -1866,74 +1644,35 @@ export class Source {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of Gio.Initable */
+    /* Methods of Gio-2.0.Gio.Initable */
     init(cancellable?: Gio.Cancellable | null): boolean
-    /* Methods of Gio.ProxyResolver */
+    /* Methods of Gio-2.0.Gio.ProxyResolver */
     isSupported(): boolean
     lookup(uri: string, cancellable?: Gio.Cancellable | null): string[]
     lookupAsync(uri: string, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     lookupFinish(result: Gio.AsyncResult): string[]
-    /* Virtual methods of EDataServer.Source */
-    vfuncAuthenticate(credentials: NamedParameters): void
-    vfuncChanged(): void
-    vfuncCredentialsRequired(reason: SourceCredentialsReason, certificatePem: string, certificateErrors: Gio.TlsCertificateFlags, opError: GLib.Error): void
-    vfuncGetOauth2AccessToken(cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    vfuncGetOauth2AccessTokenFinish(result: Gio.AsyncResult): [ /* returnType */ boolean, /* outAccessToken */ string | null, /* outExpiresIn */ number | null ]
-    vfuncGetOauth2AccessTokenSync(cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* outAccessToken */ string | null, /* outExpiresIn */ number | null ]
-    vfuncInvokeAuthenticateImpl(dbusSource: object | null, argCredentials: string, cancellable?: Gio.Cancellable | null): boolean
-    vfuncInvokeCredentialsRequiredImpl(dbusSource: object | null, argReason: string, argCertificatePem: string, argCertificateErrors: string, argDbusErrorName: string, argDbusErrorMessage: string, cancellable?: Gio.Cancellable | null): boolean
-    vfuncRemoteCreate(scratchSource: Source, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    vfuncRemoteCreateFinish(result: Gio.AsyncResult): boolean
-    vfuncRemoteCreateSync(scratchSource: Source, cancellable?: Gio.Cancellable | null): boolean
-    vfuncRemoteDelete(cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    vfuncRemoteDeleteFinish(result: Gio.AsyncResult): boolean
-    vfuncRemoteDeleteSync(cancellable?: Gio.Cancellable | null): boolean
-    vfuncRemove(cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    vfuncRemoveFinish(result: Gio.AsyncResult): boolean
-    vfuncRemoveSync(cancellable?: Gio.Cancellable | null): boolean
-    vfuncUnsetLastCredentialsRequiredArgumentsImpl(cancellable?: Gio.Cancellable | null): boolean
-    vfuncWrite(cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    vfuncWriteFinish(result: Gio.AsyncResult): boolean
-    vfuncWriteSync(cancellable?: Gio.Cancellable | null): boolean
-    vfuncInit(cancellable?: Gio.Cancellable | null): boolean
-    vfuncIsSupported(): boolean
-    vfuncLookup(uri: string, cancellable?: Gio.Cancellable | null): string[]
-    vfuncLookupAsync(uri: string, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    vfuncLookupFinish(result: Gio.AsyncResult): string[]
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of EDataServer.Source */
+    /* Signals of EDataServer-1.2.EDataServer.Source */
     connect(sigName: "authenticate", callback: (($obj: Source, credentials: NamedParameters) => void)): number
-    connect_after(sigName: "authenticate", callback: (($obj: Source, credentials: NamedParameters) => void)): number
+    on(sigName: "authenticate", callback: (credentials: NamedParameters) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "authenticate", callback: (credentials: NamedParameters) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "authenticate", callback: (credentials: NamedParameters) => void): NodeJS.EventEmitter
     emit(sigName: "authenticate", credentials: NamedParameters): void
-    on(sigName: "authenticate", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "authenticate", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "authenticate", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "changed", callback: (($obj: Source) => void)): number
-    connect_after(sigName: "changed", callback: (($obj: Source) => void)): number
+    on(sigName: "changed", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "changed", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "changed", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "changed"): void
-    on(sigName: "changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "credentials-required", callback: (($obj: Source, reason: SourceCredentialsReason, certificatePem: string, certificateErrors: Gio.TlsCertificateFlags, error: GLib.Error) => void)): number
-    connect_after(sigName: "credentials-required", callback: (($obj: Source, reason: SourceCredentialsReason, certificatePem: string, certificateErrors: Gio.TlsCertificateFlags, error: GLib.Error) => void)): number
+    on(sigName: "credentials-required", callback: (reason: SourceCredentialsReason, certificatePem: string, certificateErrors: Gio.TlsCertificateFlags, error: GLib.Error) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "credentials-required", callback: (reason: SourceCredentialsReason, certificatePem: string, certificateErrors: Gio.TlsCertificateFlags, error: GLib.Error) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "credentials-required", callback: (reason: SourceCredentialsReason, certificatePem: string, certificateErrors: Gio.TlsCertificateFlags, error: GLib.Error) => void): NodeJS.EventEmitter
     emit(sigName: "credentials-required", reason: SourceCredentialsReason, certificatePem: string, certificateErrors: Gio.TlsCertificateFlags, error: GLib.Error): void
-    on(sigName: "credentials-required", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "credentials-required", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "credentials-required", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Source, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Source, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::connection-status", callback: (($obj: Source, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::connection-status", callback: (($obj: Source, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::connection-status", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -1996,25 +1735,25 @@ export interface SourceAddressBook_ConstructProps extends SourceBackend_Construc
     order?: number
 }
 export class SourceAddressBook {
-    /* Properties of EDataServer.SourceAddressBook */
+    /* Properties of EDataServer-1.2.EDataServer.SourceAddressBook */
     order: number
-    /* Properties of EDataServer.SourceBackend */
+    /* Properties of EDataServer-1.2.EDataServer.SourceBackend */
     backendName: string
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of EDataServer.SourceAddressBook */
+    /* Methods of EDataServer-1.2.EDataServer.SourceAddressBook */
     getOrder(): number
     setOrder(order: number): void
-    /* Methods of EDataServer.SourceBackend */
+    /* Methods of EDataServer-1.2.EDataServer.SourceBackend */
     dupBackendName(): string
     getBackendName(): string
     setBackendName(backendName?: string | null): void
-    /* Methods of EDataServer.SourceExtension */
+    /* Methods of EDataServer-1.2.EDataServer.SourceExtension */
     getSource(): Source
     propertyLock(): void
     propertyUnlock(): void
     refSource(): Source
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -2036,21 +1775,12 @@ export class SourceAddressBook {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: SourceAddressBook, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: SourceAddressBook, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::order", callback: (($obj: SourceAddressBook, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::order", callback: (($obj: SourceAddressBook, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::order", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -2078,23 +1808,23 @@ export interface SourceAlarms_ConstructProps extends SourceExtension_ConstructPr
     lastNotified?: string
 }
 export class SourceAlarms {
-    /* Properties of EDataServer.SourceAlarms */
+    /* Properties of EDataServer-1.2.EDataServer.SourceAlarms */
     includeMe: boolean
     lastNotified: string
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of EDataServer.SourceAlarms */
+    /* Methods of EDataServer-1.2.EDataServer.SourceAlarms */
     dupLastNotified(): string | null
     getIncludeMe(): boolean
     getLastNotified(): string | null
     setIncludeMe(includeMe: boolean): void
     setLastNotified(lastNotified?: string | null): void
-    /* Methods of EDataServer.SourceExtension */
+    /* Methods of EDataServer-1.2.EDataServer.SourceExtension */
     getSource(): Source
     propertyLock(): void
     propertyUnlock(): void
     refSource(): Source
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -2116,21 +1846,12 @@ export class SourceAlarms {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: SourceAlarms, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: SourceAlarms, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::include-me", callback: (($obj: SourceAlarms, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::include-me", callback: (($obj: SourceAlarms, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::include-me", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -2164,7 +1885,7 @@ export interface SourceAuthentication_ConstructProps extends SourceExtension_Con
     user?: string
 }
 export class SourceAuthentication {
-    /* Properties of EDataServer.SourceAuthentication */
+    /* Properties of EDataServer-1.2.EDataServer.SourceAuthentication */
     readonly connectable: Gio.SocketConnectable
     credentialName: string
     host: string
@@ -2174,9 +1895,9 @@ export class SourceAuthentication {
     proxyUid: string
     rememberPassword: boolean
     user: string
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of EDataServer.SourceAuthentication */
+    /* Methods of EDataServer-1.2.EDataServer.SourceAuthentication */
     dupCredentialName(): string
     dupHost(): string
     dupMethod(): string
@@ -2200,12 +1921,12 @@ export class SourceAuthentication {
     setProxyUid(proxyUid: string): void
     setRememberPassword(rememberPassword: boolean): void
     setUser(user?: string | null): void
-    /* Methods of EDataServer.SourceExtension */
+    /* Methods of EDataServer-1.2.EDataServer.SourceExtension */
     getSource(): Source
     propertyLock(): void
     propertyUnlock(): void
     refSource(): Source
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -2227,21 +1948,12 @@ export class SourceAuthentication {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: SourceAuthentication, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: SourceAuthentication, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::connectable", callback: (($obj: SourceAuthentication, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::connectable", callback: (($obj: SourceAuthentication, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::connectable", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -2303,19 +2015,19 @@ export interface SourceAutocomplete_ConstructProps extends SourceExtension_Const
     includeMe?: boolean
 }
 export class SourceAutocomplete {
-    /* Properties of EDataServer.SourceAutocomplete */
+    /* Properties of EDataServer-1.2.EDataServer.SourceAutocomplete */
     includeMe: boolean
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of EDataServer.SourceAutocomplete */
+    /* Methods of EDataServer-1.2.EDataServer.SourceAutocomplete */
     getIncludeMe(): boolean
     setIncludeMe(includeMe: boolean): void
-    /* Methods of EDataServer.SourceExtension */
+    /* Methods of EDataServer-1.2.EDataServer.SourceExtension */
     getSource(): Source
     propertyLock(): void
     propertyUnlock(): void
     refSource(): Source
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -2337,21 +2049,12 @@ export class SourceAutocomplete {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: SourceAutocomplete, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: SourceAutocomplete, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::include-me", callback: (($obj: SourceAutocomplete, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::include-me", callback: (($obj: SourceAutocomplete, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::include-me", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -2373,20 +2076,20 @@ export interface SourceAutoconfig_ConstructProps extends SourceExtension_Constru
     revision?: string
 }
 export class SourceAutoconfig {
-    /* Properties of EDataServer.SourceAutoconfig */
+    /* Properties of EDataServer-1.2.EDataServer.SourceAutoconfig */
     revision: string
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of EDataServer.SourceAutoconfig */
+    /* Methods of EDataServer-1.2.EDataServer.SourceAutoconfig */
     dupRevision(): string
     getRevision(): string
     setRevision(revision: string): void
-    /* Methods of EDataServer.SourceExtension */
+    /* Methods of EDataServer-1.2.EDataServer.SourceExtension */
     getSource(): Source
     propertyLock(): void
     propertyUnlock(): void
     refSource(): Source
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -2408,21 +2111,12 @@ export class SourceAutoconfig {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: SourceAutoconfig, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: SourceAutoconfig, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::revision", callback: (($obj: SourceAutoconfig, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::revision", callback: (($obj: SourceAutoconfig, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::revision", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -2444,20 +2138,20 @@ export interface SourceBackend_ConstructProps extends SourceExtension_ConstructP
     backendName?: string
 }
 export class SourceBackend {
-    /* Properties of EDataServer.SourceBackend */
+    /* Properties of EDataServer-1.2.EDataServer.SourceBackend */
     backendName: string
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of EDataServer.SourceBackend */
+    /* Methods of EDataServer-1.2.EDataServer.SourceBackend */
     dupBackendName(): string
     getBackendName(): string
     setBackendName(backendName?: string | null): void
-    /* Methods of EDataServer.SourceExtension */
+    /* Methods of EDataServer-1.2.EDataServer.SourceExtension */
     getSource(): Source
     propertyLock(): void
     propertyUnlock(): void
     refSource(): Source
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -2479,21 +2173,12 @@ export class SourceBackend {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: SourceBackend, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: SourceBackend, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::backend-name", callback: (($obj: SourceBackend, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::backend-name", callback: (($obj: SourceBackend, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::backend-name", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -2514,15 +2199,15 @@ export class SourceBackend {
 export interface SourceCalendar_ConstructProps extends SourceSelectable_ConstructProps {
 }
 export class SourceCalendar {
-    /* Properties of EDataServer.SourceSelectable */
+    /* Properties of EDataServer-1.2.EDataServer.SourceSelectable */
     color: string
     order: number
     selected: boolean
-    /* Properties of EDataServer.SourceBackend */
+    /* Properties of EDataServer-1.2.EDataServer.SourceBackend */
     backendName: string
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of EDataServer.SourceSelectable */
+    /* Methods of EDataServer-1.2.EDataServer.SourceSelectable */
     dupColor(): string | null
     getColor(): string | null
     getOrder(): number
@@ -2530,16 +2215,16 @@ export class SourceCalendar {
     setColor(color?: string | null): void
     setOrder(order: number): void
     setSelected(selected: boolean): void
-    /* Methods of EDataServer.SourceBackend */
+    /* Methods of EDataServer-1.2.EDataServer.SourceBackend */
     dupBackendName(): string
     getBackendName(): string
     setBackendName(backendName?: string | null): void
-    /* Methods of EDataServer.SourceExtension */
+    /* Methods of EDataServer-1.2.EDataServer.SourceExtension */
     getSource(): Source
     propertyLock(): void
     propertyUnlock(): void
     refSource(): Source
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -2561,21 +2246,12 @@ export class SourceCalendar {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: SourceCalendar, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: SourceCalendar, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::color", callback: (($obj: SourceCalendar, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::color", callback: (($obj: SourceCalendar, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::color", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -2611,18 +2287,18 @@ export class SourceCalendar {
 export interface SourceCamel_ConstructProps extends SourceExtension_ConstructProps {
 }
 export class SourceCamel {
-    /* Properties of EDataServer.SourceCamel */
+    /* Properties of EDataServer-1.2.EDataServer.SourceCamel */
     readonly settings: Camel.Settings
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of EDataServer.SourceCamel */
+    /* Methods of EDataServer-1.2.EDataServer.SourceCamel */
     getSettings(): Camel.Settings
-    /* Methods of EDataServer.SourceExtension */
+    /* Methods of EDataServer-1.2.EDataServer.SourceExtension */
     getSource(): Source
     propertyLock(): void
     propertyUnlock(): void
     refSource(): Source
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -2644,21 +2320,12 @@ export class SourceCamel {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: SourceCamel, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: SourceCamel, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::settings", callback: (($obj: SourceCamel, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::settings", callback: (($obj: SourceCamel, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::settings", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -2691,7 +2358,7 @@ export interface SourceCollection_ConstructProps extends SourceBackend_Construct
     mailEnabled?: boolean
 }
 export class SourceCollection {
-    /* Properties of EDataServer.SourceCollection */
+    /* Properties of EDataServer-1.2.EDataServer.SourceCollection */
     allowSourcesRename: boolean
     calendarEnabled: boolean
     calendarUrl: string
@@ -2699,11 +2366,11 @@ export class SourceCollection {
     contactsUrl: string
     identity: string
     mailEnabled: boolean
-    /* Properties of EDataServer.SourceBackend */
+    /* Properties of EDataServer-1.2.EDataServer.SourceBackend */
     backendName: string
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of EDataServer.SourceCollection */
+    /* Methods of EDataServer-1.2.EDataServer.SourceCollection */
     dupCalendarUrl(): string
     dupContactsUrl(): string
     dupIdentity(): string
@@ -2721,16 +2388,16 @@ export class SourceCollection {
     setContactsUrl(contactsUrl?: string | null): void
     setIdentity(identity?: string | null): void
     setMailEnabled(mailEnabled: boolean): void
-    /* Methods of EDataServer.SourceBackend */
+    /* Methods of EDataServer-1.2.EDataServer.SourceBackend */
     dupBackendName(): string
     getBackendName(): string
     setBackendName(backendName?: string | null): void
-    /* Methods of EDataServer.SourceExtension */
+    /* Methods of EDataServer-1.2.EDataServer.SourceExtension */
     getSource(): Source
     propertyLock(): void
     propertyUnlock(): void
     refSource(): Source
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -2752,21 +2419,12 @@ export class SourceCollection {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: SourceCollection, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: SourceCollection, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::allow-sources-rename", callback: (($obj: SourceCollection, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::allow-sources-rename", callback: (($obj: SourceCollection, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::allow-sources-rename", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -2823,19 +2481,19 @@ export interface SourceContacts_ConstructProps extends SourceExtension_Construct
     includeMe?: boolean
 }
 export class SourceContacts {
-    /* Properties of EDataServer.SourceContacts */
+    /* Properties of EDataServer-1.2.EDataServer.SourceContacts */
     includeMe: boolean
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of EDataServer.SourceContacts */
+    /* Methods of EDataServer-1.2.EDataServer.SourceContacts */
     getIncludeMe(): boolean
     setIncludeMe(includeMe: boolean): void
-    /* Methods of EDataServer.SourceExtension */
+    /* Methods of EDataServer-1.2.EDataServer.SourceExtension */
     getSource(): Source
     propertyLock(): void
     propertyUnlock(): void
     refSource(): Source
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -2857,21 +2515,12 @@ export class SourceContacts {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: SourceContacts, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: SourceContacts, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::include-me", callback: (($obj: SourceContacts, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::include-me", callback: (($obj: SourceContacts, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::include-me", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -2893,17 +2542,17 @@ export interface SourceCredentialsProvider_ConstructProps extends GObject.Object
     registry?: GObject.Object
 }
 export class SourceCredentialsProvider {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of EDataServer.SourceCredentialsProvider */
+    /* Methods of EDataServer-1.2.EDataServer.SourceCredentialsProvider */
     canPrompt(source: Source): boolean
     canStore(source: Source): boolean
     delete(source: Source, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     deleteFinish(result: Gio.AsyncResult): boolean
     deleteSync(source: Source, cancellable?: Gio.Cancellable | null): boolean
     lookup(source: Source, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    lookupFinish(result: Gio.AsyncResult): [ /* returnType */ boolean, /* outCredentials */ NamedParameters ]
-    lookupSync(source: Source, cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* outCredentials */ NamedParameters ]
+    lookupFinish(result: Gio.AsyncResult): { returnType: boolean, outCredentials: NamedParameters }
+    lookupSync(source: Source, cancellable?: Gio.Cancellable | null): { returnType: boolean, outCredentials: NamedParameters }
     refCredentialsSource(source: Source): Source
     refRegistry(): GObject.Object
     refSource(uid: string): Source
@@ -2912,7 +2561,7 @@ export class SourceCredentialsProvider {
     storeFinish(result: Gio.AsyncResult): boolean
     storeSync(source: Source, credentials: NamedParameters, permanently: boolean, cancellable?: Gio.Cancellable | null): boolean
     unregisterImpl(providerImpl: SourceCredentialsProviderImpl): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -2934,26 +2583,15 @@ export class SourceCredentialsProvider {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of EDataServer.Extensible */
+    /* Methods of EDataServer-1.2.EDataServer.Extensible */
     listExtensions(extensionType: GObject.Type): Extension[]
     loadExtensions(): void
-    /* Virtual methods of EDataServer.SourceCredentialsProvider */
-    vfuncRefSource(uid: string): Source
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: SourceCredentialsProvider, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: SourceCredentialsProvider, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -2971,19 +2609,19 @@ export class SourceCredentialsProvider {
 export interface SourceCredentialsProviderImpl_ConstructProps extends Extension_ConstructProps {
 }
 export class SourceCredentialsProviderImpl {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of EDataServer.SourceCredentialsProviderImpl */
+    /* Methods of EDataServer-1.2.EDataServer.SourceCredentialsProviderImpl */
     canProcess(source: Source): boolean
     canPrompt(): boolean
     canStore(): boolean
     deleteSync(source: Source, cancellable?: Gio.Cancellable | null): boolean
     getProvider(): object | null
-    lookupSync(source: Source, cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* outCredentials */ NamedParameters ]
+    lookupSync(source: Source, cancellable?: Gio.Cancellable | null): { returnType: boolean, outCredentials: NamedParameters }
     storeSync(source: Source, credentials: NamedParameters, permanently: boolean, cancellable?: Gio.Cancellable | null): boolean
-    /* Methods of EDataServer.Extension */
+    /* Methods of EDataServer-1.2.EDataServer.Extension */
     getExtensible(): Extensible
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -3005,28 +2643,12 @@ export class SourceCredentialsProviderImpl {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of EDataServer.SourceCredentialsProviderImpl */
-    vfuncCanProcess(source: Source): boolean
-    vfuncCanPrompt(): boolean
-    vfuncCanStore(): boolean
-    vfuncDeleteSync(source: Source, cancellable?: Gio.Cancellable | null): boolean
-    vfuncLookupSync(source: Source, cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* outCredentials */ NamedParameters ]
-    vfuncStoreSync(source: Source, credentials: NamedParameters, permanently: boolean, cancellable?: Gio.Cancellable | null): boolean
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: SourceCredentialsProviderImpl, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: SourceCredentialsProviderImpl, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -3042,19 +2664,19 @@ export class SourceCredentialsProviderImpl {
 export interface SourceCredentialsProviderImplOAuth2_ConstructProps extends SourceCredentialsProviderImpl_ConstructProps {
 }
 export class SourceCredentialsProviderImplOAuth2 {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of EDataServer.SourceCredentialsProviderImpl */
+    /* Methods of EDataServer-1.2.EDataServer.SourceCredentialsProviderImpl */
     canProcess(source: Source): boolean
     canPrompt(): boolean
     canStore(): boolean
     deleteSync(source: Source, cancellable?: Gio.Cancellable | null): boolean
     getProvider(): object | null
-    lookupSync(source: Source, cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* outCredentials */ NamedParameters ]
+    lookupSync(source: Source, cancellable?: Gio.Cancellable | null): { returnType: boolean, outCredentials: NamedParameters }
     storeSync(source: Source, credentials: NamedParameters, permanently: boolean, cancellable?: Gio.Cancellable | null): boolean
-    /* Methods of EDataServer.Extension */
+    /* Methods of EDataServer-1.2.EDataServer.Extension */
     getExtensible(): Extensible
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -3076,28 +2698,12 @@ export class SourceCredentialsProviderImplOAuth2 {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of EDataServer.SourceCredentialsProviderImpl */
-    vfuncCanProcess(source: Source): boolean
-    vfuncCanPrompt(): boolean
-    vfuncCanStore(): boolean
-    vfuncDeleteSync(source: Source, cancellable?: Gio.Cancellable | null): boolean
-    vfuncLookupSync(source: Source, cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* outCredentials */ NamedParameters ]
-    vfuncStoreSync(source: Source, credentials: NamedParameters, permanently: boolean, cancellable?: Gio.Cancellable | null): boolean
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: SourceCredentialsProviderImplOAuth2, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: SourceCredentialsProviderImplOAuth2, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -3113,19 +2719,19 @@ export class SourceCredentialsProviderImplOAuth2 {
 export interface SourceCredentialsProviderImplPassword_ConstructProps extends SourceCredentialsProviderImpl_ConstructProps {
 }
 export class SourceCredentialsProviderImplPassword {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of EDataServer.SourceCredentialsProviderImpl */
+    /* Methods of EDataServer-1.2.EDataServer.SourceCredentialsProviderImpl */
     canProcess(source: Source): boolean
     canPrompt(): boolean
     canStore(): boolean
     deleteSync(source: Source, cancellable?: Gio.Cancellable | null): boolean
     getProvider(): object | null
-    lookupSync(source: Source, cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* outCredentials */ NamedParameters ]
+    lookupSync(source: Source, cancellable?: Gio.Cancellable | null): { returnType: boolean, outCredentials: NamedParameters }
     storeSync(source: Source, credentials: NamedParameters, permanently: boolean, cancellable?: Gio.Cancellable | null): boolean
-    /* Methods of EDataServer.Extension */
+    /* Methods of EDataServer-1.2.EDataServer.Extension */
     getExtensible(): Extensible
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -3147,28 +2753,12 @@ export class SourceCredentialsProviderImplPassword {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of EDataServer.SourceCredentialsProviderImpl */
-    vfuncCanProcess(source: Source): boolean
-    vfuncCanPrompt(): boolean
-    vfuncCanStore(): boolean
-    vfuncDeleteSync(source: Source, cancellable?: Gio.Cancellable | null): boolean
-    vfuncLookupSync(source: Source, cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* outCredentials */ NamedParameters ]
-    vfuncStoreSync(source: Source, credentials: NamedParameters, permanently: boolean, cancellable?: Gio.Cancellable | null): boolean
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: SourceCredentialsProviderImplPassword, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: SourceCredentialsProviderImplPassword, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -3185,14 +2775,14 @@ export interface SourceExtension_ConstructProps extends GObject.Object_Construct
     source?: Source
 }
 export class SourceExtension {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of EDataServer.SourceExtension */
+    /* Methods of EDataServer-1.2.EDataServer.SourceExtension */
     getSource(): Source
     propertyLock(): void
     propertyUnlock(): void
     refSource(): Source
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -3214,21 +2804,12 @@ export class SourceExtension {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: SourceExtension, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: SourceExtension, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -3249,15 +2830,15 @@ export interface SourceGoa_ConstructProps extends SourceExtension_ConstructProps
     name?: string
 }
 export class SourceGoa {
-    /* Properties of EDataServer.SourceGoa */
+    /* Properties of EDataServer-1.2.EDataServer.SourceGoa */
     accountId: string
     address: string
     calendarUrl: string
     contactsUrl: string
     name: string
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of EDataServer.SourceGoa */
+    /* Methods of EDataServer-1.2.EDataServer.SourceGoa */
     dupAccountId(): string
     dupAddress(): string
     dupCalendarUrl(): string
@@ -3273,12 +2854,12 @@ export class SourceGoa {
     setCalendarUrl(calendarUrl?: string | null): void
     setContactsUrl(contactsUrl?: string | null): void
     setName(name?: string | null): void
-    /* Methods of EDataServer.SourceExtension */
+    /* Methods of EDataServer-1.2.EDataServer.SourceExtension */
     getSource(): Source
     propertyLock(): void
     propertyUnlock(): void
     refSource(): Source
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -3300,21 +2881,12 @@ export class SourceGoa {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: SourceGoa, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: SourceGoa, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::account-id", callback: (($obj: SourceGoa, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::account-id", callback: (($obj: SourceGoa, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::account-id", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -3362,7 +2934,7 @@ export interface SourceLDAP_ConstructProps extends SourceExtension_ConstructProp
     security?: SourceLDAPSecurity
 }
 export class SourceLDAP {
-    /* Properties of EDataServer.SourceLDAP */
+    /* Properties of EDataServer-1.2.EDataServer.SourceLDAP */
     authentication: SourceLDAPAuthentication
     canBrowse: boolean
     filter: string
@@ -3370,9 +2942,9 @@ export class SourceLDAP {
     rootDn: string
     scope: SourceLDAPScope
     security: SourceLDAPSecurity
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of EDataServer.SourceLDAP */
+    /* Methods of EDataServer-1.2.EDataServer.SourceLDAP */
     dupFilter(): string
     dupRootDn(): string
     getAuthentication(): SourceLDAPAuthentication
@@ -3389,12 +2961,12 @@ export class SourceLDAP {
     setRootDn(rootDn: string): void
     setScope(scope: SourceLDAPScope): void
     setSecurity(security: SourceLDAPSecurity): void
-    /* Methods of EDataServer.SourceExtension */
+    /* Methods of EDataServer-1.2.EDataServer.SourceExtension */
     getSource(): Source
     propertyLock(): void
     propertyUnlock(): void
     refSource(): Source
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -3416,21 +2988,12 @@ export class SourceLDAP {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: SourceLDAP, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: SourceLDAP, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::authentication", callback: (($obj: SourceLDAP, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::authentication", callback: (($obj: SourceLDAP, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::authentication", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -3484,13 +3047,13 @@ export interface SourceLocal_ConstructProps extends SourceExtension_ConstructPro
     writable?: boolean
 }
 export class SourceLocal {
-    /* Properties of EDataServer.SourceLocal */
+    /* Properties of EDataServer-1.2.EDataServer.SourceLocal */
     customFile: Gio.File
     emailAddress: string
     writable: boolean
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of EDataServer.SourceLocal */
+    /* Methods of EDataServer-1.2.EDataServer.SourceLocal */
     dupCustomFile(): Gio.File | null
     dupEmailAddress(): string
     getCustomFile(): Gio.File | null
@@ -3499,12 +3062,12 @@ export class SourceLocal {
     setCustomFile(customFile?: Gio.File | null): void
     setEmailAddress(emailAddress?: string | null): void
     setWritable(writable: boolean): void
-    /* Methods of EDataServer.SourceExtension */
+    /* Methods of EDataServer-1.2.EDataServer.SourceExtension */
     getSource(): Source
     propertyLock(): void
     propertyUnlock(): void
     refSource(): Source
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -3526,21 +3089,12 @@ export class SourceLocal {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: SourceLocal, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: SourceLocal, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::custom-file", callback: (($obj: SourceLocal, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::custom-file", callback: (($obj: SourceLocal, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::custom-file", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -3572,19 +3126,19 @@ export interface SourceMDN_ConstructProps extends SourceExtension_ConstructProps
     responsePolicy?: MdnResponsePolicy
 }
 export class SourceMDN {
-    /* Properties of EDataServer.SourceMDN */
+    /* Properties of EDataServer-1.2.EDataServer.SourceMDN */
     responsePolicy: MdnResponsePolicy
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of EDataServer.SourceMDN */
+    /* Methods of EDataServer-1.2.EDataServer.SourceMDN */
     getResponsePolicy(): MdnResponsePolicy
     setResponsePolicy(responsePolicy: MdnResponsePolicy): void
-    /* Methods of EDataServer.SourceExtension */
+    /* Methods of EDataServer-1.2.EDataServer.SourceExtension */
     getSource(): Source
     propertyLock(): void
     propertyUnlock(): void
     refSource(): Source
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -3606,21 +3160,12 @@ export class SourceMDN {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: SourceMDN, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: SourceMDN, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::response-policy", callback: (($obj: SourceMDN, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::response-policy", callback: (($obj: SourceMDN, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::response-policy", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -3646,17 +3191,17 @@ export interface SourceMailAccount_ConstructProps extends SourceBackend_Construc
     needsInitialSetup?: boolean
 }
 export class SourceMailAccount {
-    /* Properties of EDataServer.SourceMailAccount */
+    /* Properties of EDataServer-1.2.EDataServer.SourceMailAccount */
     archiveFolder: string
     identityUid: string
     markSeen: ThreeState
     markSeenTimeout: number
     needsInitialSetup: boolean
-    /* Properties of EDataServer.SourceBackend */
+    /* Properties of EDataServer-1.2.EDataServer.SourceBackend */
     backendName: string
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of EDataServer.SourceMailAccount */
+    /* Methods of EDataServer-1.2.EDataServer.SourceMailAccount */
     dupArchiveFolder(): string
     dupIdentityUid(): string
     getArchiveFolder(): string
@@ -3669,16 +3214,16 @@ export class SourceMailAccount {
     setMarkSeen(markSeen: ThreeState): void
     setMarkSeenTimeout(timeout: number): void
     setNeedsInitialSetup(needsInitialSetup: boolean): void
-    /* Methods of EDataServer.SourceBackend */
+    /* Methods of EDataServer-1.2.EDataServer.SourceBackend */
     dupBackendName(): string
     getBackendName(): string
     setBackendName(backendName?: string | null): void
-    /* Methods of EDataServer.SourceExtension */
+    /* Methods of EDataServer-1.2.EDataServer.SourceExtension */
     getSource(): Source
     propertyLock(): void
     propertyUnlock(): void
     refSource(): Source
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -3700,21 +3245,12 @@ export class SourceMailAccount {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: SourceMailAccount, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: SourceMailAccount, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::archive-folder", callback: (($obj: SourceMailAccount, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::archive-folder", callback: (($obj: SourceMailAccount, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::archive-folder", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -3769,7 +3305,7 @@ export interface SourceMailComposition_ConstructProps extends SourceExtension_Co
     topSignature?: ThreeState
 }
 export class SourceMailComposition {
-    /* Properties of EDataServer.SourceMailComposition */
+    /* Properties of EDataServer-1.2.EDataServer.SourceMailComposition */
     bcc: string[]
     cc: string[]
     draftsFolder: string
@@ -3779,9 +3315,9 @@ export class SourceMailComposition {
     startBottom: ThreeState
     templatesFolder: string
     topSignature: ThreeState
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of EDataServer.SourceMailComposition */
+    /* Methods of EDataServer-1.2.EDataServer.SourceMailComposition */
     dupBcc(): string[]
     dupCc(): string[]
     dupDraftsFolder(): string
@@ -3805,12 +3341,12 @@ export class SourceMailComposition {
     setStartBottom(startBottom: ThreeState): void
     setTemplatesFolder(templatesFolder?: string | null): void
     setTopSignature(topSignature: ThreeState): void
-    /* Methods of EDataServer.SourceExtension */
+    /* Methods of EDataServer-1.2.EDataServer.SourceExtension */
     getSource(): Source
     propertyLock(): void
     propertyUnlock(): void
     refSource(): Source
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -3832,21 +3368,12 @@ export class SourceMailComposition {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: SourceMailComposition, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: SourceMailComposition, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::bcc", callback: (($obj: SourceMailComposition, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::bcc", callback: (($obj: SourceMailComposition, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::bcc", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -3913,16 +3440,16 @@ export interface SourceMailIdentity_ConstructProps extends SourceExtension_Const
     signatureUid?: string
 }
 export class SourceMailIdentity {
-    /* Properties of EDataServer.SourceMailIdentity */
+    /* Properties of EDataServer-1.2.EDataServer.SourceMailIdentity */
     address: string
     aliases: string
     name: string
     organization: string
     replyTo: string
     signatureUid: string
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of EDataServer.SourceMailIdentity */
+    /* Methods of EDataServer-1.2.EDataServer.SourceMailIdentity */
     dupAddress(): string
     dupAliases(): string
     dupName(): string
@@ -3942,12 +3469,12 @@ export class SourceMailIdentity {
     setOrganization(organization?: string | null): void
     setReplyTo(replyTo?: string | null): void
     setSignatureUid(signatureUid?: string | null): void
-    /* Methods of EDataServer.SourceExtension */
+    /* Methods of EDataServer-1.2.EDataServer.SourceExtension */
     getSource(): Source
     propertyLock(): void
     propertyUnlock(): void
     refSource(): Source
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -3969,21 +3496,12 @@ export class SourceMailIdentity {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: SourceMailIdentity, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: SourceMailIdentity, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::address", callback: (($obj: SourceMailIdentity, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::address", callback: (($obj: SourceMailIdentity, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::address", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -4030,22 +3548,22 @@ export interface SourceMailSignature_ConstructProps extends SourceExtension_Cons
     mimeType?: string
 }
 export class SourceMailSignature {
-    /* Properties of EDataServer.SourceMailSignature */
+    /* Properties of EDataServer-1.2.EDataServer.SourceMailSignature */
     readonly file: Gio.File
     mimeType: string
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of EDataServer.SourceMailSignature */
+    /* Methods of EDataServer-1.2.EDataServer.SourceMailSignature */
     dupMimeType(): string | null
     getFile(): Gio.File
     getMimeType(): string | null
     setMimeType(mimeType?: string | null): void
-    /* Methods of EDataServer.SourceExtension */
+    /* Methods of EDataServer-1.2.EDataServer.SourceExtension */
     getSource(): Source
     propertyLock(): void
     propertyUnlock(): void
     refSource(): Source
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -4067,21 +3585,12 @@ export class SourceMailSignature {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: SourceMailSignature, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: SourceMailSignature, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::file", callback: (($obj: SourceMailSignature, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::file", callback: (($obj: SourceMailSignature, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::file", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -4111,14 +3620,14 @@ export interface SourceMailSubmission_ConstructProps extends SourceExtension_Con
     useSentFolder?: boolean
 }
 export class SourceMailSubmission {
-    /* Properties of EDataServer.SourceMailSubmission */
+    /* Properties of EDataServer-1.2.EDataServer.SourceMailSubmission */
     repliesToOriginFolder: boolean
     sentFolder: string
     transportUid: string
     useSentFolder: boolean
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of EDataServer.SourceMailSubmission */
+    /* Methods of EDataServer-1.2.EDataServer.SourceMailSubmission */
     dupSentFolder(): string
     dupTransportUid(): string
     getRepliesToOriginFolder(): boolean
@@ -4129,12 +3638,12 @@ export class SourceMailSubmission {
     setSentFolder(sentFolder?: string | null): void
     setTransportUid(transportUid?: string | null): void
     setUseSentFolder(useSentFolder: boolean): void
-    /* Methods of EDataServer.SourceExtension */
+    /* Methods of EDataServer-1.2.EDataServer.SourceExtension */
     getSource(): Source
     propertyLock(): void
     propertyUnlock(): void
     refSource(): Source
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -4156,21 +3665,12 @@ export class SourceMailSubmission {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: SourceMailSubmission, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: SourceMailSubmission, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::replies-to-origin-folder", callback: (($obj: SourceMailSubmission, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::replies-to-origin-folder", callback: (($obj: SourceMailSubmission, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::replies-to-origin-folder", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -4206,20 +3706,20 @@ export class SourceMailSubmission {
 export interface SourceMailTransport_ConstructProps extends SourceBackend_ConstructProps {
 }
 export class SourceMailTransport {
-    /* Properties of EDataServer.SourceBackend */
+    /* Properties of EDataServer-1.2.EDataServer.SourceBackend */
     backendName: string
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of EDataServer.SourceBackend */
+    /* Methods of EDataServer-1.2.EDataServer.SourceBackend */
     dupBackendName(): string
     getBackendName(): string
     setBackendName(backendName?: string | null): void
-    /* Methods of EDataServer.SourceExtension */
+    /* Methods of EDataServer-1.2.EDataServer.SourceExtension */
     getSource(): Source
     propertyLock(): void
     propertyUnlock(): void
     refSource(): Source
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -4241,21 +3741,12 @@ export class SourceMailTransport {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: SourceMailTransport, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: SourceMailTransport, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::backend-name", callback: (($obj: SourceMailTransport, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::backend-name", callback: (($obj: SourceMailTransport, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::backend-name", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -4276,15 +3767,15 @@ export class SourceMailTransport {
 export interface SourceMemoList_ConstructProps extends SourceSelectable_ConstructProps {
 }
 export class SourceMemoList {
-    /* Properties of EDataServer.SourceSelectable */
+    /* Properties of EDataServer-1.2.EDataServer.SourceSelectable */
     color: string
     order: number
     selected: boolean
-    /* Properties of EDataServer.SourceBackend */
+    /* Properties of EDataServer-1.2.EDataServer.SourceBackend */
     backendName: string
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of EDataServer.SourceSelectable */
+    /* Methods of EDataServer-1.2.EDataServer.SourceSelectable */
     dupColor(): string | null
     getColor(): string | null
     getOrder(): number
@@ -4292,16 +3783,16 @@ export class SourceMemoList {
     setColor(color?: string | null): void
     setOrder(order: number): void
     setSelected(selected: boolean): void
-    /* Methods of EDataServer.SourceBackend */
+    /* Methods of EDataServer-1.2.EDataServer.SourceBackend */
     dupBackendName(): string
     getBackendName(): string
     setBackendName(backendName?: string | null): void
-    /* Methods of EDataServer.SourceExtension */
+    /* Methods of EDataServer-1.2.EDataServer.SourceExtension */
     getSource(): Source
     propertyLock(): void
     propertyUnlock(): void
     refSource(): Source
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -4323,21 +3814,12 @@ export class SourceMemoList {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: SourceMemoList, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: SourceMemoList, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::color", callback: (($obj: SourceMemoList, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::color", callback: (($obj: SourceMemoList, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::color", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -4374,19 +3856,19 @@ export interface SourceOffline_ConstructProps extends SourceExtension_ConstructP
     staySynchronized?: boolean
 }
 export class SourceOffline {
-    /* Properties of EDataServer.SourceOffline */
+    /* Properties of EDataServer-1.2.EDataServer.SourceOffline */
     staySynchronized: boolean
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of EDataServer.SourceOffline */
+    /* Methods of EDataServer-1.2.EDataServer.SourceOffline */
     getStaySynchronized(): boolean
     setStaySynchronized(staySynchronized: boolean): void
-    /* Methods of EDataServer.SourceExtension */
+    /* Methods of EDataServer-1.2.EDataServer.SourceExtension */
     getSource(): Source
     propertyLock(): void
     propertyUnlock(): void
     refSource(): Source
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -4408,21 +3890,12 @@ export class SourceOffline {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: SourceOffline, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: SourceOffline, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::stay-synchronized", callback: (($obj: SourceOffline, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::stay-synchronized", callback: (($obj: SourceOffline, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::stay-synchronized", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -4450,7 +3923,7 @@ export interface SourceOpenPGP_ConstructProps extends SourceExtension_ConstructP
     signingAlgorithm?: string
 }
 export class SourceOpenPGP {
-    /* Properties of EDataServer.SourceOpenPGP */
+    /* Properties of EDataServer-1.2.EDataServer.SourceOpenPGP */
     alwaysTrust: boolean
     encryptByDefault: boolean
     encryptToSelf: boolean
@@ -4458,9 +3931,9 @@ export class SourceOpenPGP {
     preferInline: boolean
     signByDefault: boolean
     signingAlgorithm: string
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of EDataServer.SourceOpenPGP */
+    /* Methods of EDataServer-1.2.EDataServer.SourceOpenPGP */
     dupKeyId(): string
     dupSigningAlgorithm(): string
     getAlwaysTrust(): boolean
@@ -4477,12 +3950,12 @@ export class SourceOpenPGP {
     setPreferInline(preferInline: boolean): void
     setSignByDefault(signByDefault: boolean): void
     setSigningAlgorithm(signingAlgorithm: string): void
-    /* Methods of EDataServer.SourceExtension */
+    /* Methods of EDataServer-1.2.EDataServer.SourceExtension */
     getSource(): Source
     propertyLock(): void
     propertyUnlock(): void
     refSource(): Source
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -4504,21 +3977,12 @@ export class SourceOpenPGP {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: SourceOpenPGP, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: SourceOpenPGP, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::always-trust", callback: (($obj: SourceOpenPGP, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::always-trust", callback: (($obj: SourceOpenPGP, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::always-trust", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -4583,7 +4047,7 @@ export interface SourceProxy_ConstructProps extends SourceExtension_ConstructPro
     socksPort?: number
 }
 export class SourceProxy {
-    /* Properties of EDataServer.SourceProxy */
+    /* Properties of EDataServer-1.2.EDataServer.SourceProxy */
     autoconfigUrl: string
     ftpHost: string
     ftpPort: number
@@ -4598,9 +4062,9 @@ export class SourceProxy {
     method: ProxyMethod
     socksHost: string
     socksPort: number
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of EDataServer.SourceProxy */
+    /* Methods of EDataServer-1.2.EDataServer.SourceProxy */
     dupAutoconfigUrl(): string
     dupFtpHost(): string
     dupHttpAuthPassword(): string
@@ -4637,12 +4101,12 @@ export class SourceProxy {
     setMethod(method: ProxyMethod): void
     setSocksHost(socksHost: string): void
     setSocksPort(socksPort: number): void
-    /* Methods of EDataServer.SourceExtension */
+    /* Methods of EDataServer-1.2.EDataServer.SourceExtension */
     getSource(): Source
     propertyLock(): void
     propertyUnlock(): void
     refSource(): Source
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -4664,21 +4128,12 @@ export class SourceProxy {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: SourceProxy, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: SourceProxy, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::autoconfig-url", callback: (($obj: SourceProxy, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::autoconfig-url", callback: (($obj: SourceProxy, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::autoconfig-url", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -4766,22 +4221,22 @@ export interface SourceRefresh_ConstructProps extends SourceExtension_ConstructP
     intervalMinutes?: number
 }
 export class SourceRefresh {
-    /* Properties of EDataServer.SourceRefresh */
+    /* Properties of EDataServer-1.2.EDataServer.SourceRefresh */
     enabled: boolean
     intervalMinutes: number
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of EDataServer.SourceRefresh */
+    /* Methods of EDataServer-1.2.EDataServer.SourceRefresh */
     getEnabled(): boolean
     getIntervalMinutes(): number
     setEnabled(enabled: boolean): void
     setIntervalMinutes(intervalMinutes: number): void
-    /* Methods of EDataServer.SourceExtension */
+    /* Methods of EDataServer-1.2.EDataServer.SourceExtension */
     getSource(): Source
     propertyLock(): void
     propertyUnlock(): void
     refSource(): Source
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -4803,21 +4258,12 @@ export class SourceRefresh {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: SourceRefresh, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: SourceRefresh, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::enabled", callback: (($obj: SourceRefresh, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::enabled", callback: (($obj: SourceRefresh, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::enabled", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -4849,16 +4295,16 @@ export interface SourceRegistry_ConstructProps extends GObject.Object_ConstructP
     defaultTaskList?: Source
 }
 export class SourceRegistry {
-    /* Properties of EDataServer.SourceRegistry */
+    /* Properties of EDataServer-1.2.EDataServer.SourceRegistry */
     defaultAddressBook: Source
     defaultCalendar: Source
     defaultMailAccount: Source
     defaultMailIdentity: Source
     defaultMemoList: Source
     defaultTaskList: Source
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of EDataServer.SourceRegistry */
+    /* Methods of EDataServer-1.2.EDataServer.SourceRegistry */
     checkEnabled(source: Source): boolean
     commitSource(source: Source, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     commitSourceFinish(result: Gio.AsyncResult): boolean
@@ -4896,7 +4342,7 @@ export class SourceRegistry {
     setDefaultMailIdentity(defaultSource?: Source | null): void
     setDefaultMemoList(defaultSource?: Source | null): void
     setDefaultTaskList(defaultSource?: Source | null): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -4918,74 +4364,49 @@ export class SourceRegistry {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of Gio.AsyncInitable */
+    /* Methods of Gio-2.0.Gio.AsyncInitable */
     initAsync(ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     initFinish(res: Gio.AsyncResult): boolean
     newFinish(res: Gio.AsyncResult): GObject.Object
-    /* Methods of Gio.Initable */
+    /* Methods of Gio-2.0.Gio.Initable */
     init(cancellable?: Gio.Cancellable | null): boolean
-    /* Virtual methods of EDataServer.SourceRegistry */
-    vfuncCredentialsRequired(source: Source, reason: SourceCredentialsReason, certificatePem: string, certificateErrors: Gio.TlsCertificateFlags, opError: GLib.Error): void
-    vfuncSourceAdded(source: Source): void
-    vfuncSourceChanged(source: Source): void
-    vfuncSourceDisabled(source: Source): void
-    vfuncSourceEnabled(source: Source): void
-    vfuncSourceRemoved(source: Source): void
-    vfuncInitAsync(ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    vfuncInitFinish(res: Gio.AsyncResult): boolean
-    vfuncInit(cancellable?: Gio.Cancellable | null): boolean
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of EDataServer.SourceRegistry */
+    /* Signals of EDataServer-1.2.EDataServer.SourceRegistry */
     connect(sigName: "credentials-required", callback: (($obj: SourceRegistry, source: Source, reason: SourceCredentialsReason, certificatePem: string, certificateErrors: Gio.TlsCertificateFlags, opError: GLib.Error) => void)): number
-    connect_after(sigName: "credentials-required", callback: (($obj: SourceRegistry, source: Source, reason: SourceCredentialsReason, certificatePem: string, certificateErrors: Gio.TlsCertificateFlags, opError: GLib.Error) => void)): number
+    on(sigName: "credentials-required", callback: (source: Source, reason: SourceCredentialsReason, certificatePem: string, certificateErrors: Gio.TlsCertificateFlags, opError: GLib.Error) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "credentials-required", callback: (source: Source, reason: SourceCredentialsReason, certificatePem: string, certificateErrors: Gio.TlsCertificateFlags, opError: GLib.Error) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "credentials-required", callback: (source: Source, reason: SourceCredentialsReason, certificatePem: string, certificateErrors: Gio.TlsCertificateFlags, opError: GLib.Error) => void): NodeJS.EventEmitter
     emit(sigName: "credentials-required", source: Source, reason: SourceCredentialsReason, certificatePem: string, certificateErrors: Gio.TlsCertificateFlags, opError: GLib.Error): void
-    on(sigName: "credentials-required", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "credentials-required", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "credentials-required", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "source-added", callback: (($obj: SourceRegistry, source: Source) => void)): number
-    connect_after(sigName: "source-added", callback: (($obj: SourceRegistry, source: Source) => void)): number
+    on(sigName: "source-added", callback: (source: Source) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "source-added", callback: (source: Source) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "source-added", callback: (source: Source) => void): NodeJS.EventEmitter
     emit(sigName: "source-added", source: Source): void
-    on(sigName: "source-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "source-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "source-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "source-changed", callback: (($obj: SourceRegistry, source: Source) => void)): number
-    connect_after(sigName: "source-changed", callback: (($obj: SourceRegistry, source: Source) => void)): number
+    on(sigName: "source-changed", callback: (source: Source) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "source-changed", callback: (source: Source) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "source-changed", callback: (source: Source) => void): NodeJS.EventEmitter
     emit(sigName: "source-changed", source: Source): void
-    on(sigName: "source-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "source-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "source-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "source-disabled", callback: (($obj: SourceRegistry, source: Source) => void)): number
-    connect_after(sigName: "source-disabled", callback: (($obj: SourceRegistry, source: Source) => void)): number
+    on(sigName: "source-disabled", callback: (source: Source) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "source-disabled", callback: (source: Source) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "source-disabled", callback: (source: Source) => void): NodeJS.EventEmitter
     emit(sigName: "source-disabled", source: Source): void
-    on(sigName: "source-disabled", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "source-disabled", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "source-disabled", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "source-enabled", callback: (($obj: SourceRegistry, source: Source) => void)): number
-    connect_after(sigName: "source-enabled", callback: (($obj: SourceRegistry, source: Source) => void)): number
+    on(sigName: "source-enabled", callback: (source: Source) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "source-enabled", callback: (source: Source) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "source-enabled", callback: (source: Source) => void): NodeJS.EventEmitter
     emit(sigName: "source-enabled", source: Source): void
-    on(sigName: "source-enabled", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "source-enabled", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "source-enabled", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "source-removed", callback: (($obj: SourceRegistry, source: Source) => void)): number
-    connect_after(sigName: "source-removed", callback: (($obj: SourceRegistry, source: Source) => void)): number
+    on(sigName: "source-removed", callback: (source: Source) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "source-removed", callback: (source: Source) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "source-removed", callback: (source: Source) => void): NodeJS.EventEmitter
     emit(sigName: "source-removed", source: Source): void
-    on(sigName: "source-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "source-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "source-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: SourceRegistry, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: SourceRegistry, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::default-address-book", callback: (($obj: SourceRegistry, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::default-address-book", callback: (($obj: SourceRegistry, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::default-address-book", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -5040,13 +4461,13 @@ export interface SourceRegistryWatcher_ConstructProps extends GObject.Object_Con
     registry?: SourceRegistry
 }
 export class SourceRegistryWatcher {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of EDataServer.SourceRegistryWatcher */
+    /* Methods of EDataServer-1.2.EDataServer.SourceRegistryWatcher */
     getExtensionName(): string | null
     getRegistry(): SourceRegistry
     reclaim(): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -5068,44 +4489,28 @@ export class SourceRegistryWatcher {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of EDataServer.SourceRegistryWatcher */
-    vfuncAppeared(source: Source): void
-    vfuncDisappeared(source: Source): void
-    vfuncFilter(source: Source): boolean
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of EDataServer.SourceRegistryWatcher */
+    /* Signals of EDataServer-1.2.EDataServer.SourceRegistryWatcher */
     connect(sigName: "appeared", callback: (($obj: SourceRegistryWatcher, source: Source) => void)): number
-    connect_after(sigName: "appeared", callback: (($obj: SourceRegistryWatcher, source: Source) => void)): number
+    on(sigName: "appeared", callback: (source: Source) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "appeared", callback: (source: Source) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "appeared", callback: (source: Source) => void): NodeJS.EventEmitter
     emit(sigName: "appeared", source: Source): void
-    on(sigName: "appeared", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "appeared", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "appeared", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "disappeared", callback: (($obj: SourceRegistryWatcher, source: Source) => void)): number
-    connect_after(sigName: "disappeared", callback: (($obj: SourceRegistryWatcher, source: Source) => void)): number
+    on(sigName: "disappeared", callback: (source: Source) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "disappeared", callback: (source: Source) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "disappeared", callback: (source: Source) => void): NodeJS.EventEmitter
     emit(sigName: "disappeared", source: Source): void
-    on(sigName: "disappeared", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "disappeared", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "disappeared", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "filter", callback: (($obj: SourceRegistryWatcher, source: Source) => boolean)): number
-    connect_after(sigName: "filter", callback: (($obj: SourceRegistryWatcher, source: Source) => boolean)): number
+    on(sigName: "filter", callback: (source: Source) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "filter", callback: (source: Source) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "filter", callback: (source: Source) => void): NodeJS.EventEmitter
     emit(sigName: "filter", source: Source): void
-    on(sigName: "filter", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "filter", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "filter", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: SourceRegistryWatcher, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: SourceRegistryWatcher, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -5124,20 +4529,20 @@ export interface SourceResource_ConstructProps extends SourceExtension_Construct
     identity?: string
 }
 export class SourceResource {
-    /* Properties of EDataServer.SourceResource */
+    /* Properties of EDataServer-1.2.EDataServer.SourceResource */
     identity: string
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of EDataServer.SourceResource */
+    /* Methods of EDataServer-1.2.EDataServer.SourceResource */
     dupIdentity(): string
     getIdentity(): string
     setIdentity(identity?: string | null): void
-    /* Methods of EDataServer.SourceExtension */
+    /* Methods of EDataServer-1.2.EDataServer.SourceExtension */
     getSource(): Source
     propertyLock(): void
     propertyUnlock(): void
     refSource(): Source
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -5159,21 +4564,12 @@ export class SourceResource {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: SourceResource, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: SourceResource, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::identity", callback: (($obj: SourceResource, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::identity", callback: (($obj: SourceResource, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::identity", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -5195,19 +4591,19 @@ export interface SourceRevisionGuards_ConstructProps extends SourceExtension_Con
     enabled?: boolean
 }
 export class SourceRevisionGuards {
-    /* Properties of EDataServer.SourceRevisionGuards */
+    /* Properties of EDataServer-1.2.EDataServer.SourceRevisionGuards */
     enabled: boolean
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of EDataServer.SourceRevisionGuards */
+    /* Methods of EDataServer-1.2.EDataServer.SourceRevisionGuards */
     getEnabled(): boolean
     setEnabled(enabled: boolean): void
-    /* Methods of EDataServer.SourceExtension */
+    /* Methods of EDataServer-1.2.EDataServer.SourceExtension */
     getSource(): Source
     propertyLock(): void
     propertyUnlock(): void
     refSource(): Source
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -5229,21 +4625,12 @@ export class SourceRevisionGuards {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: SourceRevisionGuards, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: SourceRevisionGuards, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::enabled", callback: (($obj: SourceRevisionGuards, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::enabled", callback: (($obj: SourceRevisionGuards, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::enabled", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -5270,16 +4657,16 @@ export interface SourceSMIME_ConstructProps extends SourceExtension_ConstructPro
     signingCertificate?: string
 }
 export class SourceSMIME {
-    /* Properties of EDataServer.SourceSMIME */
+    /* Properties of EDataServer-1.2.EDataServer.SourceSMIME */
     encryptByDefault: boolean
     encryptToSelf: boolean
     encryptionCertificate: string
     signByDefault: boolean
     signingAlgorithm: string
     signingCertificate: string
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of EDataServer.SourceSMIME */
+    /* Methods of EDataServer-1.2.EDataServer.SourceSMIME */
     dupEncryptionCertificate(): string
     dupSigningAlgorithm(): string
     dupSigningCertificate(): string
@@ -5295,12 +4682,12 @@ export class SourceSMIME {
     setSignByDefault(signByDefault: boolean): void
     setSigningAlgorithm(signingAlgorithm?: string | null): void
     setSigningCertificate(signingCertificate?: string | null): void
-    /* Methods of EDataServer.SourceExtension */
+    /* Methods of EDataServer-1.2.EDataServer.SourceExtension */
     getSource(): Source
     propertyLock(): void
     propertyUnlock(): void
     refSource(): Source
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -5322,21 +4709,12 @@ export class SourceSMIME {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: SourceSMIME, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: SourceSMIME, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::encrypt-by-default", callback: (($obj: SourceSMIME, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::encrypt-by-default", callback: (($obj: SourceSMIME, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::encrypt-by-default", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -5384,23 +4762,23 @@ export interface SourceSecurity_ConstructProps extends SourceExtension_Construct
     secure?: boolean
 }
 export class SourceSecurity {
-    /* Properties of EDataServer.SourceSecurity */
+    /* Properties of EDataServer-1.2.EDataServer.SourceSecurity */
     method: string
     secure: boolean
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of EDataServer.SourceSecurity */
+    /* Methods of EDataServer-1.2.EDataServer.SourceSecurity */
     dupMethod(): string
     getMethod(): string
     getSecure(): boolean
     setMethod(method?: string | null): void
     setSecure(secure: boolean): void
-    /* Methods of EDataServer.SourceExtension */
+    /* Methods of EDataServer-1.2.EDataServer.SourceExtension */
     getSource(): Source
     propertyLock(): void
     propertyUnlock(): void
     refSource(): Source
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -5422,21 +4800,12 @@ export class SourceSecurity {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: SourceSecurity, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: SourceSecurity, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::method", callback: (($obj: SourceSecurity, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::method", callback: (($obj: SourceSecurity, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::method", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -5465,15 +4834,15 @@ export interface SourceSelectable_ConstructProps extends SourceBackend_Construct
     selected?: boolean
 }
 export class SourceSelectable {
-    /* Properties of EDataServer.SourceSelectable */
+    /* Properties of EDataServer-1.2.EDataServer.SourceSelectable */
     color: string
     order: number
     selected: boolean
-    /* Properties of EDataServer.SourceBackend */
+    /* Properties of EDataServer-1.2.EDataServer.SourceBackend */
     backendName: string
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of EDataServer.SourceSelectable */
+    /* Methods of EDataServer-1.2.EDataServer.SourceSelectable */
     dupColor(): string | null
     getColor(): string | null
     getOrder(): number
@@ -5481,16 +4850,16 @@ export class SourceSelectable {
     setColor(color?: string | null): void
     setOrder(order: number): void
     setSelected(selected: boolean): void
-    /* Methods of EDataServer.SourceBackend */
+    /* Methods of EDataServer-1.2.EDataServer.SourceBackend */
     dupBackendName(): string
     getBackendName(): string
     setBackendName(backendName?: string | null): void
-    /* Methods of EDataServer.SourceExtension */
+    /* Methods of EDataServer-1.2.EDataServer.SourceExtension */
     getSource(): Source
     propertyLock(): void
     propertyUnlock(): void
     refSource(): Source
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -5512,21 +4881,12 @@ export class SourceSelectable {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: SourceSelectable, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: SourceSelectable, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::color", callback: (($obj: SourceSelectable, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::color", callback: (($obj: SourceSelectable, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::color", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -5562,15 +4922,15 @@ export class SourceSelectable {
 export interface SourceTaskList_ConstructProps extends SourceSelectable_ConstructProps {
 }
 export class SourceTaskList {
-    /* Properties of EDataServer.SourceSelectable */
+    /* Properties of EDataServer-1.2.EDataServer.SourceSelectable */
     color: string
     order: number
     selected: boolean
-    /* Properties of EDataServer.SourceBackend */
+    /* Properties of EDataServer-1.2.EDataServer.SourceBackend */
     backendName: string
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of EDataServer.SourceSelectable */
+    /* Methods of EDataServer-1.2.EDataServer.SourceSelectable */
     dupColor(): string | null
     getColor(): string | null
     getOrder(): number
@@ -5578,16 +4938,16 @@ export class SourceTaskList {
     setColor(color?: string | null): void
     setOrder(order: number): void
     setSelected(selected: boolean): void
-    /* Methods of EDataServer.SourceBackend */
+    /* Methods of EDataServer-1.2.EDataServer.SourceBackend */
     dupBackendName(): string
     getBackendName(): string
     setBackendName(backendName?: string | null): void
-    /* Methods of EDataServer.SourceExtension */
+    /* Methods of EDataServer-1.2.EDataServer.SourceExtension */
     getSource(): Source
     propertyLock(): void
     propertyUnlock(): void
     refSource(): Source
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -5609,21 +4969,12 @@ export class SourceTaskList {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: SourceTaskList, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: SourceTaskList, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::color", callback: (($obj: SourceTaskList, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::color", callback: (($obj: SourceTaskList, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::color", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -5660,19 +5011,19 @@ export interface SourceUoa_ConstructProps extends SourceExtension_ConstructProps
     accountId?: number
 }
 export class SourceUoa {
-    /* Properties of EDataServer.SourceUoa */
+    /* Properties of EDataServer-1.2.EDataServer.SourceUoa */
     accountId: number
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of EDataServer.SourceUoa */
+    /* Methods of EDataServer-1.2.EDataServer.SourceUoa */
     getAccountId(): number
     setAccountId(accountId: number): void
-    /* Methods of EDataServer.SourceExtension */
+    /* Methods of EDataServer-1.2.EDataServer.SourceExtension */
     getSource(): Source
     propertyLock(): void
     propertyUnlock(): void
     refSource(): Source
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -5694,21 +5045,12 @@ export class SourceUoa {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: SourceUoa, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: SourceUoa, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::account-id", callback: (($obj: SourceUoa, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::account-id", callback: (($obj: SourceUoa, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::account-id", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -5731,23 +5073,23 @@ export interface SourceWeather_ConstructProps extends SourceExtension_ConstructP
     units?: SourceWeatherUnits
 }
 export class SourceWeather {
-    /* Properties of EDataServer.SourceWeather */
+    /* Properties of EDataServer-1.2.EDataServer.SourceWeather */
     location: string
     units: SourceWeatherUnits
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of EDataServer.SourceWeather */
+    /* Methods of EDataServer-1.2.EDataServer.SourceWeather */
     dupLocation(): string
     getLocation(): string
     getUnits(): SourceWeatherUnits
     setLocation(location: string): void
     setUnits(units: SourceWeatherUnits): void
-    /* Methods of EDataServer.SourceExtension */
+    /* Methods of EDataServer-1.2.EDataServer.SourceExtension */
     getSource(): Source
     propertyLock(): void
     propertyUnlock(): void
     refSource(): Source
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -5769,21 +5111,12 @@ export class SourceWeather {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: SourceWeather, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: SourceWeather, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::location", callback: (($obj: SourceWeather, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::location", callback: (($obj: SourceWeather, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::location", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -5819,7 +5152,7 @@ export interface SourceWebdav_ConstructProps extends SourceExtension_ConstructPr
     sslTrust?: string
 }
 export class SourceWebdav {
-    /* Properties of EDataServer.SourceWebdav */
+    /* Properties of EDataServer-1.2.EDataServer.SourceWebdav */
     avoidIfmatch: boolean
     calendarAutoSchedule: boolean
     color: string
@@ -5830,9 +5163,9 @@ export class SourceWebdav {
     resourceQuery: string
     soupUri: Soup.URI
     sslTrust: string
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of EDataServer.SourceWebdav */
+    /* Methods of EDataServer-1.2.EDataServer.SourceWebdav */
     dupColor(): string
     dupDisplayName(): string
     dupEmailAddress(): string
@@ -5864,12 +5197,12 @@ export class SourceWebdav {
     unsetTemporarySslTrust(): void
     updateSslTrust(host: string, cert: Gio.TlsCertificate, response: TrustPromptResponse): void
     verifySslTrust(host: string, cert: Gio.TlsCertificate, certErrors: Gio.TlsCertificateFlags): TrustPromptResponse
-    /* Methods of EDataServer.SourceExtension */
+    /* Methods of EDataServer-1.2.EDataServer.SourceExtension */
     getSource(): Source
     propertyLock(): void
     propertyUnlock(): void
     refSource(): Source
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -5891,21 +5224,12 @@ export class SourceWebdav {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: SourceWebdav, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: SourceWebdav, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::avoid-ifmatch", callback: (($obj: SourceWebdav, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::avoid-ifmatch", callback: (($obj: SourceWebdav, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::avoid-ifmatch", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -5971,9 +5295,9 @@ export class SourceWebdav {
 export interface WebDAVSession_ConstructProps extends SoupSession_ConstructProps {
 }
 export class WebDAVSession {
-    /* Properties of EDataServer.SoupSession */
+    /* Properties of EDataServer-1.2.EDataServer.SoupSession */
     credentials: NamedParameters
-    /* Properties of Soup.Session */
+    /* Properties of Soup-2.4.Soup.Session */
     acceptLanguage: string
     acceptLanguageAuto: boolean
     httpAliases: string[]
@@ -5992,41 +5316,41 @@ export class WebDAVSession {
     useNtlm: boolean
     useThreadContext: boolean
     userAgent: string
-    /* Fields of Soup.Session */
+    /* Fields of Soup-2.4.Soup.Session */
     parent: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of EDataServer.WebDAVSession */
+    /* Methods of EDataServer-1.2.EDataServer.WebDAVSession */
     aclSync(uri: string | null, xml: XmlDocument, cancellable?: Gio.Cancellable | null): boolean
     copySync(sourceUri: string, destinationUri: string, depth: string, canOverwrite: boolean, cancellable?: Gio.Cancellable | null): boolean
     deleteSync(uri: string, depth?: string | null, etag?: string | null, cancellable?: Gio.Cancellable | null): boolean
     ensureFullUri(requestUri: Soup.URI | null, href: string): string
-    getAclRestrictionsSync(uri?: string | null, cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* outRestrictions */ number, /* outPrincipalKind */ WebDAVACEPrincipalKind, /* outPrincipalHrefs */ string[] ]
-    getAclSync(uri?: string | null, cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* outEntries */ WebDAVAccessControlEntry[] ]
-    getCurrentUserPrivilegeSetSync(uri?: string | null, cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* outPrivileges */ WebDAVPrivilege[] ]
-    getDataSync(uri: string, cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* outHref */ string | null, /* outEtag */ string | null, /* outBytes */ string, /* outLength */ number | null ]
+    getAclRestrictionsSync(uri?: string | null, cancellable?: Gio.Cancellable | null): { returnType: boolean, outRestrictions: number, outPrincipalKind: WebDAVACEPrincipalKind, outPrincipalHrefs: string[] }
+    getAclSync(uri?: string | null, cancellable?: Gio.Cancellable | null): { returnType: boolean, outEntries: WebDAVAccessControlEntry[] }
+    getCurrentUserPrivilegeSetSync(uri?: string | null, cancellable?: Gio.Cancellable | null): { returnType: boolean, outPrivileges: WebDAVPrivilege[] }
+    getDataSync(uri: string, cancellable?: Gio.Cancellable | null): { returnType: boolean, outHref: string | null, outEtag: string | null, outBytes: string, outLength: number | null }
     getLastDavErrorCode(): string
     getLastDavErrorIsPermission(): boolean
-    getPrincipalCollectionSetSync(uri?: string | null, cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* outPrincipalHrefs */ string[] ]
-    getSupportedPrivilegeSetSync(uri?: string | null, cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* outPrivileges */ GLib.Node ]
-    getSync(uri: string, cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* outHref */ string | null, /* outEtag */ string | null, /* outStream */ Gio.OutputStream ]
-    getctagSync(uri?: string | null, cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* outCtag */ string ]
-    listSync(uri: string | null, depth: string, flags: number, cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* outResources */ WebDAVResource[] ]
-    lockResourceSync(uri: string | null, lockScope: WebDAVLockScope, lockTimeout: number, owner?: string | null, cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* outLockToken */ string ]
-    lockSync(uri: string | null, depth: string, lockTimeout: number, xml: XmlDocument, cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* outLockToken */ string, /* outXmlResponse */ libxml2.Doc | null ]
+    getPrincipalCollectionSetSync(uri?: string | null, cancellable?: Gio.Cancellable | null): { returnType: boolean, outPrincipalHrefs: string[] }
+    getSupportedPrivilegeSetSync(uri?: string | null, cancellable?: Gio.Cancellable | null): { returnType: boolean, outPrivileges: GLib.Node }
+    getSync(uri: string, cancellable?: Gio.Cancellable | null): { returnType: boolean, outHref: string | null, outEtag: string | null, outStream: Gio.OutputStream }
+    getctagSync(uri?: string | null, cancellable?: Gio.Cancellable | null): { returnType: boolean, outCtag: string }
+    listSync(uri: string | null, depth: string, flags: number, cancellable?: Gio.Cancellable | null): { returnType: boolean, outResources: WebDAVResource[] }
+    lockResourceSync(uri: string | null, lockScope: WebDAVLockScope, lockTimeout: number, owner?: string | null, cancellable?: Gio.Cancellable | null): { returnType: boolean, outLockToken: string }
+    lockSync(uri: string | null, depth: string, lockTimeout: number, xml: XmlDocument, cancellable?: Gio.Cancellable | null): { returnType: boolean, outLockToken: string, outXmlResponse: libxml2.Doc | null }
     mkcalendarSync(uri: string, displayName: string | null, description: string | null, color: string | null, supports: number, cancellable?: Gio.Cancellable | null): boolean
     mkcolAddressbookSync(uri: string, displayName?: string | null, description?: string | null, cancellable?: Gio.Cancellable | null): boolean
     mkcolSync(uri: string, cancellable?: Gio.Cancellable | null): boolean
     moveSync(sourceUri: string, destinationUri: string, canOverwrite: boolean, cancellable?: Gio.Cancellable | null): boolean
     newRequest(method: string, uri?: string | null): Soup.RequestHTTP
-    optionsSync(uri?: string | null, cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* outCapabilities */ GLib.HashTable, /* outAllows */ GLib.HashTable ]
+    optionsSync(uri?: string | null, cancellable?: Gio.Cancellable | null): { returnType: boolean, outCapabilities: GLib.HashTable, outAllows: GLib.HashTable }
     postSync(uri: string | null, data: string, dataLength: number, outContentType?: string | null, outContent?: any[] | null, cancellable?: Gio.Cancellable | null): boolean
     postWithContentTypeSync(uri: string | null, data: string, dataLength: number, inContentType?: string | null, outContentType?: string | null, outContent?: any[] | null, cancellable?: Gio.Cancellable | null): boolean
-    principalPropertySearchSync(uri: string | null, applyToPrincipalCollectionSet: boolean, matchNsUri: string | null, matchProperty: string, matchValue: string, cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* outPrincipals */ WebDAVResource[] ]
+    principalPropertySearchSync(uri: string | null, applyToPrincipalCollectionSet: boolean, matchNsUri: string | null, matchProperty: string, matchValue: string, cancellable?: Gio.Cancellable | null): { returnType: boolean, outPrincipals: WebDAVResource[] }
     propfindSync(uri: string | null, depth: string, xml?: XmlDocument | null, cancellable?: Gio.Cancellable | null): boolean
     proppatchSync(uri: string | null, xml: XmlDocument, cancellable?: Gio.Cancellable | null): boolean
-    putDataSync(uri: string, etag: string | null, contentType: string, bytes: string, length: number, cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* outHref */ string | null, /* outEtag */ string | null ]
-    putSync(uri: string, etag: string | null, contentType: string, stream: Gio.InputStream, cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* outHref */ string | null, /* outEtag */ string | null ]
+    putDataSync(uri: string, etag: string | null, contentType: string, bytes: string, length: number, cancellable?: Gio.Cancellable | null): { returnType: boolean, outHref: string | null, outEtag: string | null }
+    putSync(uri: string, etag: string | null, contentType: string, stream: Gio.InputStream, cancellable?: Gio.Cancellable | null): { returnType: boolean, outHref: string | null, outEtag: string | null }
     refreshLockSync(uri: string | null, lockToken: string, lockTimeout: number, cancellable?: Gio.Cancellable | null): boolean
     replaceWithDetailedError(request: Soup.RequestHTTP, responseData: any[] | null, ignoreMultistatus: boolean, prefix?: string | null): boolean
     reportSync(uri: string | null, depth: string | null, xml: XmlDocument, outContentType?: string | null, outContent?: any[] | null, cancellable?: Gio.Cancellable | null): boolean
@@ -6036,20 +5360,20 @@ export class WebDAVSession {
     traverseMultistatusResponse(message: Soup.Message | null, xmlData: any[]): boolean
     unlockSync(uri: string | null, lockToken: string, cancellable?: Gio.Cancellable | null): boolean
     updatePropertiesSync(uri: string | null, changes: WebDAVPropertyChange[], cancellable?: Gio.Cancellable | null): boolean
-    /* Methods of EDataServer.SoupSession */
+    /* Methods of EDataServer-1.2.EDataServer.SoupSession */
     checkResult(request: Soup.RequestHTTP, readBytes: object | null, bytesLength: number): boolean
     dupCredentials(): NamedParameters | null
     getAuthenticationRequiresCredentials(): boolean
     getLogLevel(): Soup.LoggerLogLevel
     getSource(): Source
-    getSslErrorDetails(): [ /* returnType */ boolean, /* outCertificatePem */ string, /* outCertificateErrors */ Gio.TlsCertificateFlags ]
+    getSslErrorDetails(): { returnType: boolean, outCertificatePem: string, outCertificateErrors: Gio.TlsCertificateFlags }
     newRequest(method: string, uriString: string): Soup.RequestHTTP
     newRequestUri(method: string, uri: Soup.URI): Soup.RequestHTTP
     sendRequestSimpleSync(request: Soup.RequestHTTP, cancellable?: Gio.Cancellable | null): any[]
     sendRequestSync(request: Soup.RequestHTTP, cancellable?: Gio.Cancellable | null): Gio.InputStream
     setCredentials(credentials?: NamedParameters | null): void
     setupLogging(loggingLevel?: string | null): void
-    /* Methods of Soup.Session */
+    /* Methods of Soup-2.4.Soup.Session */
     abort(): void
     addFeature(feature: Soup.SessionFeature): void
     addFeatureByType(featureType: GObject.Type): void
@@ -6082,7 +5406,7 @@ export class WebDAVSession {
     websocketConnectAsync(msg: Soup.Message, origin?: string | null, protocols?: string[] | null, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     websocketConnectFinish(result: Gio.AsyncResult): Soup.WebsocketConnection
     wouldRedirect(msg: Soup.Message): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -6104,68 +5428,43 @@ export class WebDAVSession {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of Soup.Session */
-    vfuncAuthRequired(msg: Soup.Message, auth: Soup.Auth, retrying: boolean): void
-    vfuncAuthenticate(msg: Soup.Message, auth: Soup.Auth, retrying: boolean): void
-    vfuncCancelMessage(msg: Soup.Message, statusCode: number): void
-    vfuncFlushQueue(): void
-    vfuncKick(): void
-    vfuncQueueMessage(msg: Soup.Message, callback?: Soup.SessionCallback | null): void
-    vfuncRequestStarted(msg: Soup.Message, socket: Soup.Socket): void
-    vfuncRequeueMessage(msg: Soup.Message): void
-    vfuncSendMessage(msg: Soup.Message): number
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Soup.Session */
+    /* Signals of Soup-2.4.Soup.Session */
     connect(sigName: "authenticate", callback: (($obj: WebDAVSession, msg: Soup.Message, auth: Soup.Auth, retrying: boolean) => void)): number
-    connect_after(sigName: "authenticate", callback: (($obj: WebDAVSession, msg: Soup.Message, auth: Soup.Auth, retrying: boolean) => void)): number
+    on(sigName: "authenticate", callback: (msg: Soup.Message, auth: Soup.Auth, retrying: boolean) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "authenticate", callback: (msg: Soup.Message, auth: Soup.Auth, retrying: boolean) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "authenticate", callback: (msg: Soup.Message, auth: Soup.Auth, retrying: boolean) => void): NodeJS.EventEmitter
     emit(sigName: "authenticate", msg: Soup.Message, auth: Soup.Auth, retrying: boolean): void
-    on(sigName: "authenticate", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "authenticate", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "authenticate", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "connection-created", callback: (($obj: WebDAVSession, connection: GObject.Object) => void)): number
-    connect_after(sigName: "connection-created", callback: (($obj: WebDAVSession, connection: GObject.Object) => void)): number
+    on(sigName: "connection-created", callback: (connection: GObject.Object) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "connection-created", callback: (connection: GObject.Object) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "connection-created", callback: (connection: GObject.Object) => void): NodeJS.EventEmitter
     emit(sigName: "connection-created", connection: GObject.Object): void
-    on(sigName: "connection-created", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "connection-created", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "connection-created", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "request-queued", callback: (($obj: WebDAVSession, msg: Soup.Message) => void)): number
-    connect_after(sigName: "request-queued", callback: (($obj: WebDAVSession, msg: Soup.Message) => void)): number
+    on(sigName: "request-queued", callback: (msg: Soup.Message) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "request-queued", callback: (msg: Soup.Message) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "request-queued", callback: (msg: Soup.Message) => void): NodeJS.EventEmitter
     emit(sigName: "request-queued", msg: Soup.Message): void
-    on(sigName: "request-queued", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "request-queued", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "request-queued", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "request-started", callback: (($obj: WebDAVSession, msg: Soup.Message, socket: Soup.Socket) => void)): number
-    connect_after(sigName: "request-started", callback: (($obj: WebDAVSession, msg: Soup.Message, socket: Soup.Socket) => void)): number
+    on(sigName: "request-started", callback: (msg: Soup.Message, socket: Soup.Socket) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "request-started", callback: (msg: Soup.Message, socket: Soup.Socket) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "request-started", callback: (msg: Soup.Message, socket: Soup.Socket) => void): NodeJS.EventEmitter
     emit(sigName: "request-started", msg: Soup.Message, socket: Soup.Socket): void
-    on(sigName: "request-started", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "request-started", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "request-started", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "request-unqueued", callback: (($obj: WebDAVSession, msg: Soup.Message) => void)): number
-    connect_after(sigName: "request-unqueued", callback: (($obj: WebDAVSession, msg: Soup.Message) => void)): number
+    on(sigName: "request-unqueued", callback: (msg: Soup.Message) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "request-unqueued", callback: (msg: Soup.Message) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "request-unqueued", callback: (msg: Soup.Message) => void): NodeJS.EventEmitter
     emit(sigName: "request-unqueued", msg: Soup.Message): void
-    on(sigName: "request-unqueued", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "request-unqueued", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "request-unqueued", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "tunneling", callback: (($obj: WebDAVSession, connection: GObject.Object) => void)): number
-    connect_after(sigName: "tunneling", callback: (($obj: WebDAVSession, connection: GObject.Object) => void)): number
+    on(sigName: "tunneling", callback: (connection: GObject.Object) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "tunneling", callback: (connection: GObject.Object) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "tunneling", callback: (connection: GObject.Object) => void): NodeJS.EventEmitter
     emit(sigName: "tunneling", connection: GObject.Object): void
-    on(sigName: "tunneling", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "tunneling", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "tunneling", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: WebDAVSession, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: WebDAVSession, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::credentials", callback: (($obj: WebDAVSession, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::credentials", callback: (($obj: WebDAVSession, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::credentials", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -6276,15 +5575,15 @@ export class WebDAVSession {
     static new(): WebDAVSession
     static utilFreePrivileges(privileges?: GLib.Node | null): void
     static utilItemHrefEqual(href1: string, href2: string): boolean
-    static utilMaybeDequote(text?: string | null): [ /* returnType */ string, /* text */ string | null ]
+    static utilMaybeDequote(text?: string | null): { returnType: string, text: string | null }
     static $gtype: GObject.Type
 }
 export interface XmlDocument_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class XmlDocument {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of EDataServer.XmlDocument */
+    /* Methods of EDataServer-1.2.EDataServer.XmlDocument */
     addAttribute(nsHref: string | null, name: string, value: string): void
     addAttributeDouble(nsHref: string | null, name: string, value: number): void
     addAttributeInt(nsHref: string | null, name: string, value: number): void
@@ -6292,7 +5591,7 @@ export class XmlDocument {
     addAttributeTimeIcal(nsHref: string | null, name: string, value: number): void
     addEmptyElement(nsHref: string | null, name: string): void
     endElement(): void
-    getContent(): [ /* returnType */ string, /* outLength */ number | null ]
+    getContent(): { returnType: string, outLength: number | null }
     getXmldoc(): libxml2.Doc
     startElement(nsHref: string | null, name: string): void
     startTextElement(nsHref: string | null, name: string): void
@@ -6302,7 +5601,7 @@ export class XmlDocument {
     writeInt(value: number): void
     writeString(value: string): void
     writeTime(value: number): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -6324,21 +5623,12 @@ export class XmlDocument {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: XmlDocument, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: XmlDocument, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -6357,14 +5647,14 @@ export class AsyncClosure {
     static name: string
 }
 export abstract class ClientClass {
-    /* Fields of EDataServer.ClientClass */
+    /* Fields of EDataServer-1.2.EDataServer.ClientClass */
     unwrapDbusError: (client: Client, dbusError: GLib.Error) => void
     retrieveCapabilities: (client: Client, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null) => void
-    retrieveCapabilitiesFinish: (client: Client, result: Gio.AsyncResult) => [ /* returnType */ boolean, /* capabilities */ string ]
-    retrieveCapabilitiesSync: (client: Client, cancellable?: Gio.Cancellable | null) => [ /* returnType */ boolean, /* capabilities */ string ]
+    retrieveCapabilitiesFinish: (client: Client, result: Gio.AsyncResult) => { returnType: boolean, capabilities: string }
+    retrieveCapabilitiesSync: (client: Client, cancellable?: Gio.Cancellable | null) => { returnType: boolean, capabilities: string }
     getBackendProperty: (client: Client, propName: string, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null) => void
-    getBackendPropertyFinish: (client: Client, result: Gio.AsyncResult) => [ /* returnType */ boolean, /* propValue */ string ]
-    getBackendPropertySync: (client: Client, propName: string, cancellable?: Gio.Cancellable | null) => [ /* returnType */ boolean, /* propValue */ string ]
+    getBackendPropertyFinish: (client: Client, result: Gio.AsyncResult) => { returnType: boolean, propValue: string }
+    getBackendPropertySync: (client: Client, propName: string, cancellable?: Gio.Cancellable | null) => { returnType: boolean, propValue: string }
     setBackendProperty: (client: Client, propName: string, propValue: string, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null) => void
     setBackendPropertyFinish: (client: Client, result: Gio.AsyncResult) => boolean
     setBackendPropertySync: (client: Client, propName: string, propValue: string, cancellable?: Gio.Cancellable | null) => boolean
@@ -6391,12 +5681,12 @@ export class ClientPrivate {
     static name: string
 }
 export class Collator {
-    /* Methods of EDataServer.Collator */
-    collate(strA?: string | null, strB?: string | null): [ /* returnType */ boolean, /* result */ number ]
+    /* Methods of EDataServer-1.2.EDataServer.Collator */
+    collate(strA?: string | null, strB?: string | null): { returnType: boolean, result: number }
     generateKey(str: string): string
     generateKeyForIndex(index: number): string
     getIndex(str: string): number
-    getIndexLabels(): [ /* returnType */ string[], /* nLabels */ number, /* underflow */ number | null, /* inflow */ number | null, /* overflow */ number | null ]
+    getIndexLabels(): { returnType: string[], nLabels: number, underflow: number | null, inflow: number | null, overflow: number | null }
     ref(): Collator
     unref(): void
     static name: string
@@ -6408,12 +5698,12 @@ export class Collator {
     static errorQuark(): GLib.Quark
 }
 export abstract class ExtensibleInterface {
-    /* Fields of EDataServer.ExtensibleInterface */
+    /* Fields of EDataServer-1.2.EDataServer.ExtensibleInterface */
     parentInterface: GObject.TypeInterface
     static name: string
 }
 export abstract class ExtensionClass {
-    /* Fields of EDataServer.ExtensionClass */
+    /* Fields of EDataServer-1.2.EDataServer.ExtensionClass */
     parentClass: GObject.ObjectClass
     extensibleType: GObject.Type
     static name: string
@@ -6425,14 +5715,14 @@ export class Flag {
     static name: string
 }
 export class FreeFormExpSymbol {
-    /* Fields of EDataServer.FreeFormExpSymbol */
+    /* Fields of EDataServer-1.2.EDataServer.FreeFormExpSymbol */
     names: string
     hint: string
     buildSexp: FreeFormExpBuildSexpFunc
     static name: string
 }
 export abstract class GDataOAuth2AuthorizerClass {
-    /* Fields of EDataServer.GDataOAuth2AuthorizerClass */
+    /* Fields of EDataServer-1.2.EDataServer.GDataOAuth2AuthorizerClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
@@ -6443,7 +5733,7 @@ export class MemChunk {
     static name: string
 }
 export abstract class ModuleClass {
-    /* Fields of EDataServer.ModuleClass */
+    /* Fields of EDataServer-1.2.EDataServer.ModuleClass */
     parentClass: GObject.TypeModuleClass
     static name: string
 }
@@ -6451,7 +5741,7 @@ export class ModulePrivate {
     static name: string
 }
 export class NamedParameters {
-    /* Methods of EDataServer.NamedParameters */
+    /* Methods of EDataServer-1.2.EDataServer.NamedParameters */
     assign(from?: NamedParameters | null): void
     clear(): void
     count(): number
@@ -6473,7 +5763,7 @@ export class NamedParameters {
     static newStrv(strv: string): NamedParameters
 }
 export abstract class NetworkMonitorClass {
-    /* Fields of EDataServer.NetworkMonitorClass */
+    /* Fields of EDataServer-1.2.EDataServer.NetworkMonitorClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
@@ -6481,17 +5771,17 @@ export class NetworkMonitorPrivate {
     static name: string
 }
 export abstract class OAuth2ServiceBaseClass {
-    /* Fields of EDataServer.OAuth2ServiceBaseClass */
+    /* Fields of EDataServer-1.2.EDataServer.OAuth2ServiceBaseClass */
     parentClass: ExtensionClass
     static name: string
 }
 export abstract class OAuth2ServiceGoogleClass {
-    /* Fields of EDataServer.OAuth2ServiceGoogleClass */
+    /* Fields of EDataServer-1.2.EDataServer.OAuth2ServiceGoogleClass */
     parentClass: OAuth2ServiceBaseClass
     static name: string
 }
 export abstract class OAuth2ServiceInterface {
-    /* Fields of EDataServer.OAuth2ServiceInterface */
+    /* Fields of EDataServer-1.2.EDataServer.OAuth2ServiceInterface */
     parentInterface: GObject.TypeInterface
     canProcess: (service: OAuth2Service, source: Source) => boolean
     guessCanProcess: (service: OAuth2Service, protocol?: string | null, hostname?: string | null) => boolean
@@ -6505,7 +5795,7 @@ export abstract class OAuth2ServiceInterface {
     getRedirectUri: (service: OAuth2Service, source: Source) => string | null
     prepareAuthenticationUriQuery: (service: OAuth2Service, source: Source, uriQuery: GLib.HashTable) => void
     getAuthenticationPolicy: (service: OAuth2Service, source: Source, uri: string) => OAuth2ServiceNavigationPolicy
-    extractAuthorizationCode: (service: OAuth2Service, source: Source, pageTitle: string, pageUri: string, pageContent?: string | null) => [ /* returnType */ boolean, /* outAuthorizationCode */ string ]
+    extractAuthorizationCode: (service: OAuth2Service, source: Source, pageTitle: string, pageUri: string, pageContent?: string | null) => { returnType: boolean, outAuthorizationCode: string }
     prepareGetTokenForm: (service: OAuth2Service, source: Source, authorizationCode: string, form: GLib.HashTable) => void
     prepareGetTokenMessage: (service: OAuth2Service, source: Source, message: Soup.Message) => void
     prepareRefreshTokenForm: (service: OAuth2Service, source: Source, refreshToken: string, form: GLib.HashTable) => void
@@ -6514,12 +5804,12 @@ export abstract class OAuth2ServiceInterface {
     static name: string
 }
 export abstract class OAuth2ServiceOutlookClass {
-    /* Fields of EDataServer.OAuth2ServiceOutlookClass */
+    /* Fields of EDataServer-1.2.EDataServer.OAuth2ServiceOutlookClass */
     parentClass: OAuth2ServiceBaseClass
     static name: string
 }
 export abstract class OAuth2ServicesClass {
-    /* Fields of EDataServer.OAuth2ServicesClass */
+    /* Fields of EDataServer-1.2.EDataServer.OAuth2ServicesClass */
     parentClass: GObject.ObjectClass
     reserved: object[]
     static name: string
@@ -6528,7 +5818,7 @@ export class OAuth2ServicesPrivate {
     static name: string
 }
 export class OperationPool {
-    /* Methods of EDataServer.OperationPool */
+    /* Methods of EDataServer-1.2.EDataServer.OperationPool */
     free(): void
     push(opdata?: object | null): void
     releaseOpid(opid: number): void
@@ -6536,7 +5826,7 @@ export class OperationPool {
     static name: string
 }
 export abstract class SoupAuthBearerClass {
-    /* Fields of EDataServer.SoupAuthBearerClass */
+    /* Fields of EDataServer-1.2.EDataServer.SoupAuthBearerClass */
     parentClass: Soup.AuthClass
     static name: string
 }
@@ -6544,7 +5834,7 @@ export class SoupAuthBearerPrivate {
     static name: string
 }
 export abstract class SoupSessionClass {
-    /* Fields of EDataServer.SoupSessionClass */
+    /* Fields of EDataServer-1.2.EDataServer.SoupSessionClass */
     parentClass: Soup.SessionClass
     reserved: object[]
     static name: string
@@ -6553,7 +5843,7 @@ export class SoupSessionPrivate {
     static name: string
 }
 export abstract class SourceAddressBookClass {
-    /* Fields of EDataServer.SourceAddressBookClass */
+    /* Fields of EDataServer-1.2.EDataServer.SourceAddressBookClass */
     parentClass: SourceBackendClass
     static name: string
 }
@@ -6561,7 +5851,7 @@ export class SourceAddressBookPrivate {
     static name: string
 }
 export abstract class SourceAlarmsClass {
-    /* Fields of EDataServer.SourceAlarmsClass */
+    /* Fields of EDataServer-1.2.EDataServer.SourceAlarmsClass */
     parentClass: SourceExtensionClass
     static name: string
 }
@@ -6569,7 +5859,7 @@ export class SourceAlarmsPrivate {
     static name: string
 }
 export abstract class SourceAuthenticationClass {
-    /* Fields of EDataServer.SourceAuthenticationClass */
+    /* Fields of EDataServer-1.2.EDataServer.SourceAuthenticationClass */
     parentClass: SourceExtensionClass
     static name: string
 }
@@ -6577,7 +5867,7 @@ export class SourceAuthenticationPrivate {
     static name: string
 }
 export abstract class SourceAutocompleteClass {
-    /* Fields of EDataServer.SourceAutocompleteClass */
+    /* Fields of EDataServer-1.2.EDataServer.SourceAutocompleteClass */
     parentClass: SourceExtensionClass
     static name: string
 }
@@ -6585,7 +5875,7 @@ export class SourceAutocompletePrivate {
     static name: string
 }
 export abstract class SourceAutoconfigClass {
-    /* Fields of EDataServer.SourceAutoconfigClass */
+    /* Fields of EDataServer-1.2.EDataServer.SourceAutoconfigClass */
     parentClass: SourceExtensionClass
     static name: string
 }
@@ -6593,7 +5883,7 @@ export class SourceAutoconfigPrivate {
     static name: string
 }
 export abstract class SourceBackendClass {
-    /* Fields of EDataServer.SourceBackendClass */
+    /* Fields of EDataServer-1.2.EDataServer.SourceBackendClass */
     parentClass: SourceExtensionClass
     static name: string
 }
@@ -6601,7 +5891,7 @@ export class SourceBackendPrivate {
     static name: string
 }
 export abstract class SourceCalendarClass {
-    /* Fields of EDataServer.SourceCalendarClass */
+    /* Fields of EDataServer-1.2.EDataServer.SourceCalendarClass */
     parentClass: SourceSelectableClass
     static name: string
 }
@@ -6609,7 +5899,7 @@ export class SourceCalendarPrivate {
     static name: string
 }
 export abstract class SourceCamelClass {
-    /* Fields of EDataServer.SourceCamelClass */
+    /* Fields of EDataServer-1.2.EDataServer.SourceCamelClass */
     parentClass: SourceExtensionClass
     settingsType: GObject.Type
     static name: string
@@ -6618,7 +5908,7 @@ export class SourceCamelPrivate {
     static name: string
 }
 export abstract class SourceClass {
-    /* Fields of EDataServer.SourceClass */
+    /* Fields of EDataServer-1.2.EDataServer.SourceClass */
     parentClass: GObject.ObjectClass
     changed: (source: Source) => void
     credentialsRequired: (source: Source, reason: SourceCredentialsReason, certificatePem: string, certificateErrors: Gio.TlsCertificateFlags, opError: GLib.Error) => void
@@ -6635,9 +5925,9 @@ export abstract class SourceClass {
     remoteDeleteSync: (source: Source, cancellable?: Gio.Cancellable | null) => boolean
     remoteDelete: (source: Source, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null) => void
     remoteDeleteFinish: (source: Source, result: Gio.AsyncResult) => boolean
-    getOauth2AccessTokenSync: (source: Source, cancellable?: Gio.Cancellable | null) => [ /* returnType */ boolean, /* outAccessToken */ string | null, /* outExpiresIn */ number | null ]
+    getOauth2AccessTokenSync: (source: Source, cancellable?: Gio.Cancellable | null) => { returnType: boolean, outAccessToken: string | null, outExpiresIn: number | null }
     getOauth2AccessToken: (source: Source, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null) => void
-    getOauth2AccessTokenFinish: (source: Source, result: Gio.AsyncResult) => [ /* returnType */ boolean, /* outAccessToken */ string | null, /* outExpiresIn */ number | null ]
+    getOauth2AccessTokenFinish: (source: Source, result: Gio.AsyncResult) => { returnType: boolean, outAccessToken: string | null, outExpiresIn: number | null }
     invokeCredentialsRequiredImpl: (source: Source, dbusSource: object | null, argReason: string, argCertificatePem: string, argCertificateErrors: string, argDbusErrorName: string, argDbusErrorMessage: string, cancellable?: Gio.Cancellable | null) => boolean
     invokeAuthenticateImpl: (source: Source, dbusSource: object | null, argCredentials: string, cancellable?: Gio.Cancellable | null) => boolean
     unsetLastCredentialsRequiredArgumentsImpl: (source: Source, cancellable?: Gio.Cancellable | null) => boolean
@@ -6645,7 +5935,7 @@ export abstract class SourceClass {
     static name: string
 }
 export abstract class SourceCollectionClass {
-    /* Fields of EDataServer.SourceCollectionClass */
+    /* Fields of EDataServer-1.2.EDataServer.SourceCollectionClass */
     parentClass: SourceBackendClass
     static name: string
 }
@@ -6653,7 +5943,7 @@ export class SourceCollectionPrivate {
     static name: string
 }
 export abstract class SourceContactsClass {
-    /* Fields of EDataServer.SourceContactsClass */
+    /* Fields of EDataServer-1.2.EDataServer.SourceContactsClass */
     parentClass: SourceExtensionClass
     static name: string
 }
@@ -6661,24 +5951,24 @@ export class SourceContactsPrivate {
     static name: string
 }
 export abstract class SourceCredentialsProviderClass {
-    /* Fields of EDataServer.SourceCredentialsProviderClass */
+    /* Fields of EDataServer-1.2.EDataServer.SourceCredentialsProviderClass */
     parentClass: GObject.ObjectClass
     refSource: (provider: SourceCredentialsProvider, uid: string) => Source
     static name: string
 }
 export abstract class SourceCredentialsProviderImplClass {
-    /* Fields of EDataServer.SourceCredentialsProviderImplClass */
+    /* Fields of EDataServer-1.2.EDataServer.SourceCredentialsProviderImplClass */
     parentClass: ExtensionClass
     canProcess: (providerImpl: SourceCredentialsProviderImpl, source: Source) => boolean
     canStore: (providerImpl: SourceCredentialsProviderImpl) => boolean
     canPrompt: (providerImpl: SourceCredentialsProviderImpl) => boolean
-    lookupSync: (providerImpl: SourceCredentialsProviderImpl, source: Source, cancellable?: Gio.Cancellable | null) => [ /* returnType */ boolean, /* outCredentials */ NamedParameters ]
+    lookupSync: (providerImpl: SourceCredentialsProviderImpl, source: Source, cancellable?: Gio.Cancellable | null) => { returnType: boolean, outCredentials: NamedParameters }
     storeSync: (providerImpl: SourceCredentialsProviderImpl, source: Source, credentials: NamedParameters, permanently: boolean, cancellable?: Gio.Cancellable | null) => boolean
     deleteSync: (providerImpl: SourceCredentialsProviderImpl, source: Source, cancellable?: Gio.Cancellable | null) => boolean
     static name: string
 }
 export abstract class SourceCredentialsProviderImplOAuth2Class {
-    /* Fields of EDataServer.SourceCredentialsProviderImplOAuth2Class */
+    /* Fields of EDataServer-1.2.EDataServer.SourceCredentialsProviderImplOAuth2Class */
     parentClass: SourceCredentialsProviderImplClass
     static name: string
 }
@@ -6686,7 +5976,7 @@ export class SourceCredentialsProviderImplOAuth2Private {
     static name: string
 }
 export abstract class SourceCredentialsProviderImplPasswordClass {
-    /* Fields of EDataServer.SourceCredentialsProviderImplPasswordClass */
+    /* Fields of EDataServer-1.2.EDataServer.SourceCredentialsProviderImplPasswordClass */
     parentClass: SourceCredentialsProviderImplClass
     static name: string
 }
@@ -6700,7 +5990,7 @@ export class SourceCredentialsProviderPrivate {
     static name: string
 }
 export abstract class SourceExtensionClass {
-    /* Fields of EDataServer.SourceExtensionClass */
+    /* Fields of EDataServer-1.2.EDataServer.SourceExtensionClass */
     parentClass: GObject.ObjectClass
     name: string
     static name: string
@@ -6709,7 +5999,7 @@ export class SourceExtensionPrivate {
     static name: string
 }
 export abstract class SourceGoaClass {
-    /* Fields of EDataServer.SourceGoaClass */
+    /* Fields of EDataServer-1.2.EDataServer.SourceGoaClass */
     parentClass: SourceExtensionClass
     static name: string
 }
@@ -6717,7 +6007,7 @@ export class SourceGoaPrivate {
     static name: string
 }
 export abstract class SourceLDAPClass {
-    /* Fields of EDataServer.SourceLDAPClass */
+    /* Fields of EDataServer-1.2.EDataServer.SourceLDAPClass */
     parentClass: SourceExtensionClass
     static name: string
 }
@@ -6725,7 +6015,7 @@ export class SourceLDAPPrivate {
     static name: string
 }
 export abstract class SourceLocalClass {
-    /* Fields of EDataServer.SourceLocalClass */
+    /* Fields of EDataServer-1.2.EDataServer.SourceLocalClass */
     parentClass: SourceExtensionClass
     static name: string
 }
@@ -6733,7 +6023,7 @@ export class SourceLocalPrivate {
     static name: string
 }
 export abstract class SourceMDNClass {
-    /* Fields of EDataServer.SourceMDNClass */
+    /* Fields of EDataServer-1.2.EDataServer.SourceMDNClass */
     parentClass: SourceExtensionClass
     static name: string
 }
@@ -6741,7 +6031,7 @@ export class SourceMDNPrivate {
     static name: string
 }
 export abstract class SourceMailAccountClass {
-    /* Fields of EDataServer.SourceMailAccountClass */
+    /* Fields of EDataServer-1.2.EDataServer.SourceMailAccountClass */
     parentClass: SourceBackendClass
     static name: string
 }
@@ -6749,7 +6039,7 @@ export class SourceMailAccountPrivate {
     static name: string
 }
 export abstract class SourceMailCompositionClass {
-    /* Fields of EDataServer.SourceMailCompositionClass */
+    /* Fields of EDataServer-1.2.EDataServer.SourceMailCompositionClass */
     parentClass: SourceExtensionClass
     static name: string
 }
@@ -6757,7 +6047,7 @@ export class SourceMailCompositionPrivate {
     static name: string
 }
 export abstract class SourceMailIdentityClass {
-    /* Fields of EDataServer.SourceMailIdentityClass */
+    /* Fields of EDataServer-1.2.EDataServer.SourceMailIdentityClass */
     parentClass: SourceExtensionClass
     static name: string
 }
@@ -6765,7 +6055,7 @@ export class SourceMailIdentityPrivate {
     static name: string
 }
 export abstract class SourceMailSignatureClass {
-    /* Fields of EDataServer.SourceMailSignatureClass */
+    /* Fields of EDataServer-1.2.EDataServer.SourceMailSignatureClass */
     parentClass: SourceExtensionClass
     static name: string
 }
@@ -6773,7 +6063,7 @@ export class SourceMailSignaturePrivate {
     static name: string
 }
 export abstract class SourceMailSubmissionClass {
-    /* Fields of EDataServer.SourceMailSubmissionClass */
+    /* Fields of EDataServer-1.2.EDataServer.SourceMailSubmissionClass */
     parentClass: SourceExtensionClass
     static name: string
 }
@@ -6781,7 +6071,7 @@ export class SourceMailSubmissionPrivate {
     static name: string
 }
 export abstract class SourceMailTransportClass {
-    /* Fields of EDataServer.SourceMailTransportClass */
+    /* Fields of EDataServer-1.2.EDataServer.SourceMailTransportClass */
     parentClass: SourceBackendClass
     static name: string
 }
@@ -6789,7 +6079,7 @@ export class SourceMailTransportPrivate {
     static name: string
 }
 export abstract class SourceMemoListClass {
-    /* Fields of EDataServer.SourceMemoListClass */
+    /* Fields of EDataServer-1.2.EDataServer.SourceMemoListClass */
     parentClass: SourceSelectableClass
     static name: string
 }
@@ -6797,7 +6087,7 @@ export class SourceMemoListPrivate {
     static name: string
 }
 export abstract class SourceOfflineClass {
-    /* Fields of EDataServer.SourceOfflineClass */
+    /* Fields of EDataServer-1.2.EDataServer.SourceOfflineClass */
     parentClass: SourceExtensionClass
     static name: string
 }
@@ -6805,7 +6095,7 @@ export class SourceOfflinePrivate {
     static name: string
 }
 export abstract class SourceOpenPGPClass {
-    /* Fields of EDataServer.SourceOpenPGPClass */
+    /* Fields of EDataServer-1.2.EDataServer.SourceOpenPGPClass */
     parentClass: SourceExtensionClass
     static name: string
 }
@@ -6816,7 +6106,7 @@ export class SourcePrivate {
     static name: string
 }
 export abstract class SourceProxyClass {
-    /* Fields of EDataServer.SourceProxyClass */
+    /* Fields of EDataServer-1.2.EDataServer.SourceProxyClass */
     parentClass: SourceExtensionClass
     static name: string
 }
@@ -6824,7 +6114,7 @@ export class SourceProxyPrivate {
     static name: string
 }
 export abstract class SourceRefreshClass {
-    /* Fields of EDataServer.SourceRefreshClass */
+    /* Fields of EDataServer-1.2.EDataServer.SourceRefreshClass */
     parentClass: SourceExtensionClass
     static name: string
 }
@@ -6832,7 +6122,7 @@ export class SourceRefreshPrivate {
     static name: string
 }
 export abstract class SourceRegistryClass {
-    /* Fields of EDataServer.SourceRegistryClass */
+    /* Fields of EDataServer-1.2.EDataServer.SourceRegistryClass */
     parentClass: GObject.ObjectClass
     sourceAdded: (registry: SourceRegistry, source: Source) => void
     sourceChanged: (registry: SourceRegistry, source: Source) => void
@@ -6846,7 +6136,7 @@ export class SourceRegistryPrivate {
     static name: string
 }
 export abstract class SourceRegistryWatcherClass {
-    /* Fields of EDataServer.SourceRegistryWatcherClass */
+    /* Fields of EDataServer-1.2.EDataServer.SourceRegistryWatcherClass */
     parentClass: GObject.ObjectClass
     filter: (watcher: SourceRegistryWatcher, source: Source) => boolean
     appeared: (watcher: SourceRegistryWatcher, source: Source) => void
@@ -6857,7 +6147,7 @@ export class SourceRegistryWatcherPrivate {
     static name: string
 }
 export abstract class SourceResourceClass {
-    /* Fields of EDataServer.SourceResourceClass */
+    /* Fields of EDataServer-1.2.EDataServer.SourceResourceClass */
     parentClass: SourceExtensionClass
     static name: string
 }
@@ -6865,7 +6155,7 @@ export class SourceResourcePrivate {
     static name: string
 }
 export abstract class SourceRevisionGuardsClass {
-    /* Fields of EDataServer.SourceRevisionGuardsClass */
+    /* Fields of EDataServer-1.2.EDataServer.SourceRevisionGuardsClass */
     parentClass: SourceExtensionClass
     static name: string
 }
@@ -6873,7 +6163,7 @@ export class SourceRevisionGuardsPrivate {
     static name: string
 }
 export abstract class SourceSMIMEClass {
-    /* Fields of EDataServer.SourceSMIMEClass */
+    /* Fields of EDataServer-1.2.EDataServer.SourceSMIMEClass */
     parentClass: SourceExtensionClass
     static name: string
 }
@@ -6881,7 +6171,7 @@ export class SourceSMIMEPrivate {
     static name: string
 }
 export abstract class SourceSecurityClass {
-    /* Fields of EDataServer.SourceSecurityClass */
+    /* Fields of EDataServer-1.2.EDataServer.SourceSecurityClass */
     parentClass: SourceExtensionClass
     static name: string
 }
@@ -6889,7 +6179,7 @@ export class SourceSecurityPrivate {
     static name: string
 }
 export abstract class SourceSelectableClass {
-    /* Fields of EDataServer.SourceSelectableClass */
+    /* Fields of EDataServer-1.2.EDataServer.SourceSelectableClass */
     parentClass: SourceBackendClass
     static name: string
 }
@@ -6897,7 +6187,7 @@ export class SourceSelectablePrivate {
     static name: string
 }
 export abstract class SourceTaskListClass {
-    /* Fields of EDataServer.SourceTaskListClass */
+    /* Fields of EDataServer-1.2.EDataServer.SourceTaskListClass */
     parentClass: SourceSelectableClass
     static name: string
 }
@@ -6905,7 +6195,7 @@ export class SourceTaskListPrivate {
     static name: string
 }
 export abstract class SourceUoaClass {
-    /* Fields of EDataServer.SourceUoaClass */
+    /* Fields of EDataServer-1.2.EDataServer.SourceUoaClass */
     parentClass: SourceExtensionClass
     static name: string
 }
@@ -6913,7 +6203,7 @@ export class SourceUoaPrivate {
     static name: string
 }
 export abstract class SourceWeatherClass {
-    /* Fields of EDataServer.SourceWeatherClass */
+    /* Fields of EDataServer-1.2.EDataServer.SourceWeatherClass */
     parentClass: SourceExtensionClass
     static name: string
 }
@@ -6921,7 +6211,7 @@ export class SourceWeatherPrivate {
     static name: string
 }
 export abstract class SourceWebdavClass {
-    /* Fields of EDataServer.SourceWebdavClass */
+    /* Fields of EDataServer-1.2.EDataServer.SourceWebdavClass */
     parentClass: SourceExtensionClass
     static name: string
 }
@@ -6929,13 +6219,13 @@ export class SourceWebdavPrivate {
     static name: string
 }
 export class WebDAVAccessControlEntry {
-    /* Fields of EDataServer.WebDAVAccessControlEntry */
+    /* Fields of EDataServer-1.2.EDataServer.WebDAVAccessControlEntry */
     principalKind: WebDAVACEPrincipalKind
     principalHref: string
     flags: number
     inheritedHref: string
     privileges: object[]
-    /* Methods of EDataServer.WebDAVAccessControlEntry */
+    /* Methods of EDataServer-1.2.EDataServer.WebDAVAccessControlEntry */
     appendPrivilege(privilege: WebDAVPrivilege): void
     copy(): WebDAVAccessControlEntry
     getPrivileges(): WebDAVPrivilege[]
@@ -6947,26 +6237,26 @@ export class WebDAVAccessControlEntry {
     static free(ptr?: object | null): void
 }
 export class WebDAVDiscoveredSource {
-    /* Fields of EDataServer.WebDAVDiscoveredSource */
+    /* Fields of EDataServer-1.2.EDataServer.WebDAVDiscoveredSource */
     href: string
     supports: number
     displayName: string
     description: string
     color: string
     order: number
-    /* Methods of EDataServer.WebDAVDiscoveredSource */
+    /* Methods of EDataServer-1.2.EDataServer.WebDAVDiscoveredSource */
     copy(): WebDAVDiscoveredSource
     free(): void
     static name: string
 }
 export class WebDAVPrivilege {
-    /* Fields of EDataServer.WebDAVPrivilege */
+    /* Fields of EDataServer-1.2.EDataServer.WebDAVPrivilege */
     nsUri: string
     name: string
     description: string
     kind: WebDAVPrivilegeKind
     hint: WebDAVPrivilegeHint
-    /* Methods of EDataServer.WebDAVPrivilege */
+    /* Methods of EDataServer-1.2.EDataServer.WebDAVPrivilege */
     copy(): WebDAVPrivilege
     static name: string
     static new(nsUri: string | null, name: string | null, description: string | null, kind: WebDAVPrivilegeKind, hint: WebDAVPrivilegeHint): WebDAVPrivilege
@@ -6976,12 +6266,12 @@ export class WebDAVPrivilege {
     static free(ptr?: object | null): void
 }
 export class WebDAVPropertyChange {
-    /* Fields of EDataServer.WebDAVPropertyChange */
+    /* Fields of EDataServer-1.2.EDataServer.WebDAVPropertyChange */
     kind: WebDAVPropertyChangeKind
     nsUri: string
     name: string
     value: string
-    /* Methods of EDataServer.WebDAVPropertyChange */
+    /* Methods of EDataServer-1.2.EDataServer.WebDAVPropertyChange */
     copy(): WebDAVPropertyChange
     static name: string
     /* Static methods and pseudo-constructors */
@@ -6990,7 +6280,7 @@ export class WebDAVPropertyChange {
     static free(ptr?: object | null): void
 }
 export class WebDAVResource {
-    /* Fields of EDataServer.WebDAVResource */
+    /* Fields of EDataServer-1.2.EDataServer.WebDAVResource */
     kind: WebDAVResourceKind
     supports: number
     href: string
@@ -7003,7 +6293,7 @@ export class WebDAVResource {
     description: string
     color: string
     order: number
-    /* Methods of EDataServer.WebDAVResource */
+    /* Methods of EDataServer-1.2.EDataServer.WebDAVResource */
     copy(): WebDAVResource
     static name: string
     static new(kind: WebDAVResourceKind, supports: number, href: string, etag: string | null, displayName: string | null, contentType: string | null, contentLength: number, creationDate: number, lastModified: number, description: string | null, color: string | null, order: number): WebDAVResource
@@ -7013,7 +6303,7 @@ export class WebDAVResource {
     static free(ptr?: object | null): void
 }
 export abstract class WebDAVSessionClass {
-    /* Fields of EDataServer.WebDAVSessionClass */
+    /* Fields of EDataServer-1.2.EDataServer.WebDAVSessionClass */
     parentClass: SoupSessionClass
     reserved: object[]
     static name: string
@@ -7022,7 +6312,7 @@ export class WebDAVSessionPrivate {
     static name: string
 }
 export abstract class XmlDocumentClass {
-    /* Fields of EDataServer.XmlDocumentClass */
+    /* Fields of EDataServer-1.2.EDataServer.XmlDocumentClass */
     parentClass: GObject.ObjectClass
     reserved: object[]
     static name: string

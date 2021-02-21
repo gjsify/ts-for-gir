@@ -23,7 +23,7 @@ export const VERSION_MICRO: number
 export const VERSION_MINOR: number
 export function getAppName(): string
 export function getServerCaps(): string[]
-export function getServerInfo(): [ /* returnType */ boolean, /* retName */ string | null, /* retVendor */ string | null, /* retVersion */ string | null, /* retSpecVersion */ string | null ]
+export function getServerInfo(): { returnType: boolean, retName: string | null, retVendor: string | null, retVersion: string | null, retSpecVersion: string | null }
 export function init(appName: string): boolean
 export function isInitted(): boolean
 export function setAppName(appName: string): void
@@ -39,16 +39,16 @@ export interface Notification_ConstructProps extends GObject.Object_ConstructPro
     summary?: string
 }
 export class Notification {
-    /* Properties of Notify.Notification */
+    /* Properties of Notify-0.7.Notify.Notification */
     appName: string
     body: string
     readonly closedReason: number
     iconName: string
     id: number
     summary: string
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Notify.Notification */
+    /* Methods of Notify-0.7.Notify.Notification */
     addAction(action: string, label: string, callback: ActionCallback): void
     clearActions(): void
     clearHints(): void
@@ -69,7 +69,7 @@ export class Notification {
     setUrgency(urgency: Urgency): void
     show(): boolean
     update(summary: string, body?: string | null, icon?: string | null): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -91,30 +91,18 @@ export class Notification {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of Notify.Notification */
-    vfuncClosed(): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Notify.Notification */
+    /* Signals of Notify-0.7.Notify.Notification */
     connect(sigName: "closed", callback: (($obj: Notification) => void)): number
-    connect_after(sigName: "closed", callback: (($obj: Notification) => void)): number
+    on(sigName: "closed", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "closed", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "closed", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "closed"): void
-    on(sigName: "closed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "closed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "closed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Notification, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Notification, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::app-name", callback: (($obj: Notification, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::app-name", callback: (($obj: Notification, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::app-name", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -160,7 +148,7 @@ export class Notification {
     static $gtype: GObject.Type
 }
 export abstract class NotificationClass {
-    /* Fields of Notify.NotificationClass */
+    /* Fields of Notify-0.7.Notify.NotificationClass */
     parentClass: GObject.ObjectClass
     closed: (notification: Notification) => void
     static name: string

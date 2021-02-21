@@ -42,16 +42,16 @@ export interface RefNameEditingDone {
 export interface Action_ConstructProps extends UIElement_ConstructProps {
 }
 export class Action {
-    /* Properties of GitgExt.UIElement */
+    /* Properties of GitgExt-1.0.GitgExt.UIElement */
     application: Application
     readonly id: string
     readonly displayName: string
     readonly description: string
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GitgExt.Action */
+    /* Methods of GitgExt-1.0.GitgExt.Action */
     populateMenu(menu: Gtk.Menu): void
-    /* Methods of GitgExt.UIElement */
+    /* Methods of GitgExt-1.0.GitgExt.UIElement */
     negotiateOrder(other: UIElement): number
     getApplication(): Application | null
     setApplication(value?: Application | null): void
@@ -63,7 +63,7 @@ export class Action {
     getShortcut(): number | null
     getAvailable(): boolean
     getEnabled(): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -85,60 +85,24 @@ export class Action {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GitgExt.Action */
-    vfuncPopulateMenu(menu: Gtk.Menu): void
-    vfuncNegotiateOrder(other: UIElement): number
-    vfuncGetApplication(): Application | null
-    vfuncSetApplication(value?: Application | null): void
-    vfuncGetId(): string
-    vfuncGetDisplayName(): string
-    vfuncGetDescription(): string
-    vfuncGetIcon(): string | null
-    vfuncGetWidget(): Gtk.Widget | null
-    vfuncGetShortcut(): number | null
-    vfuncGetAvailable(): boolean
-    vfuncGetEnabled(): boolean
-    /* Virtual methods of GitgExt.UIElement */
-    vfuncNegotiateOrder(other: UIElement): number
-    vfuncGetApplication(): Application | null
-    vfuncSetApplication(value?: Application | null): void
-    vfuncGetId(): string
-    vfuncGetDisplayName(): string
-    vfuncGetDescription(): string
-    vfuncGetIcon(): string | null
-    vfuncGetWidget(): Gtk.Widget | null
-    vfuncGetShortcut(): number | null
-    vfuncGetAvailable(): boolean
-    vfuncGetEnabled(): boolean
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GitgExt.UIElement */
+    /* Signals of GitgExt-1.0.GitgExt.UIElement */
     connect(sigName: "activate", callback: (($obj: Action) => void)): number
-    connect_after(sigName: "activate", callback: (($obj: Action) => void)): number
+    on(sigName: "activate", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "activate", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "activate", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "activate"): void
-    on(sigName: "activate", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "activate", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "activate", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Action, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Action, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GitgExt.UIElement */
+    /* Signals of GitgExt-1.0.GitgExt.UIElement */
     connect(sigName: "activate", callback: (($obj: Action) => void)): number
-    connect_after(sigName: "activate", callback: (($obj: Action) => void)): number
+    on(sigName: "activate", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "activate", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "activate", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "activate"): void
-    on(sigName: "activate", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "activate", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "activate", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::application", callback: (($obj: Action, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::application", callback: (($obj: Action, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::application", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -174,12 +138,12 @@ export class Action {
 export interface Activity_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class Activity {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GitgExt.Activity */
+    /* Methods of GitgExt-1.0.GitgExt.Activity */
     isDefaultFor(action: string): boolean
     onKeyPressed(event: Gdk.EventKey): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -201,24 +165,12 @@ export class Activity {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GitgExt.Activity */
-    vfuncIsDefaultFor(action: string): boolean
-    vfuncOnKeyPressed(event: Gdk.EventKey): boolean
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Activity, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Activity, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -236,7 +188,7 @@ export interface Application_ConstructProps extends GObject.Object_ConstructProp
     busy?: boolean
 }
 export class Application {
-    /* Properties of GitgExt.Application */
+    /* Properties of GitgExt-1.0.GitgExt.Application */
     repository: Gitg.Repository
     readonly messageBus: MessageBus
     readonly currentActivity: Activity
@@ -244,9 +196,9 @@ export class Application {
     readonly notifications: Notifications
     busy: boolean
     readonly remoteLookup: RemoteLookup
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GitgExt.Application */
+    /* Methods of GitgExt-1.0.GitgExt.Application */
     getVerifiedCommitter(): Ggit.Signature | null
     getActivityById(id: string): Activity | null
     setActivityById(id: string): Activity | null
@@ -265,7 +217,7 @@ export class Application {
     getBusy(): boolean
     setBusy(value: boolean): void
     getRemoteLookup(): RemoteLookup
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -287,53 +239,23 @@ export class Application {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GitgExt.Application */
-    vfuncGetVerifiedCommitter(): Ggit.Signature | null
-    vfuncGetActivityById(id: string): Activity | null
-    vfuncSetActivityById(id: string): Activity | null
-    vfuncUserQuery(query: UserQuery): void
-    vfuncUserQueryAsync(query: UserQuery, callback?: Gio.AsyncReadyCallback | null): void
-    vfuncUserQueryFinish(res: Gio.AsyncResult): Gtk.ResponseType
-    vfuncShowInfobar(primaryMsg: string, secondaryMsg: string, type: Gtk.MessageType): void
-    vfuncOpenNew(repository: Ggit.Repository, hint?: string | null): Application
-    vfuncOpenRepository(path: Gio.File): void
-    vfuncGetRepository(): Gitg.Repository | null
-    vfuncSetRepository(value?: Gitg.Repository | null): void
-    vfuncGetMessageBus(): MessageBus
-    vfuncGetCurrentActivity(): Activity | null
-    vfuncGetEnvironment(): Gee.Map
-    vfuncGetNotifications(): Notifications
-    vfuncGetBusy(): boolean
-    vfuncSetBusy(value: boolean): void
-    vfuncGetRemoteLookup(): RemoteLookup
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GitgExt.Application */
+    /* Signals of GitgExt-1.0.GitgExt.Application */
     connect(sigName: "repository-changed-externally", callback: (($obj: Application, hint: ExternalChangeHint) => void)): number
-    connect_after(sigName: "repository-changed-externally", callback: (($obj: Application, hint: ExternalChangeHint) => void)): number
+    on(sigName: "repository-changed-externally", callback: (hint: ExternalChangeHint) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "repository-changed-externally", callback: (hint: ExternalChangeHint) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "repository-changed-externally", callback: (hint: ExternalChangeHint) => void): NodeJS.EventEmitter
     emit(sigName: "repository-changed-externally", hint: ExternalChangeHint): void
-    on(sigName: "repository-changed-externally", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "repository-changed-externally", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "repository-changed-externally", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "repository-commits-changed", callback: (($obj: Application) => void)): number
-    connect_after(sigName: "repository-commits-changed", callback: (($obj: Application) => void)): number
+    on(sigName: "repository-commits-changed", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "repository-commits-changed", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "repository-commits-changed", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "repository-commits-changed"): void
-    on(sigName: "repository-commits-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "repository-commits-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "repository-commits-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Application, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Application, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::repository", callback: (($obj: Application, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::repository", callback: (($obj: Application, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::repository", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -384,13 +306,13 @@ export class Application {
 export interface CommandLine_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class CommandLine {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GitgExt.CommandLine */
+    /* Methods of GitgExt-1.0.GitgExt.CommandLine */
     getOptionGroup(): GLib.OptionGroup
     parseFinished(): void
     apply(application: Application): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -412,25 +334,12 @@ export class CommandLine {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GitgExt.CommandLine */
-    vfuncGetOptionGroup(): GLib.OptionGroup
-    vfuncParseFinished(): void
-    vfuncApply(application: Application): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: CommandLine, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: CommandLine, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -448,24 +357,24 @@ export interface CommitAction_ConstructProps extends Action_ConstructProps {
     commit?: Gitg.Commit
 }
 export class CommitAction {
-    /* Properties of GitgExt.CommitAction */
+    /* Properties of GitgExt-1.0.GitgExt.CommitAction */
     actionInterface: RefActionInterface
     commit: Gitg.Commit
-    /* Properties of GitgExt.UIElement */
+    /* Properties of GitgExt-1.0.GitgExt.UIElement */
     application: Application
     readonly id: string
     readonly displayName: string
     readonly description: string
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GitgExt.CommitAction */
+    /* Methods of GitgExt-1.0.GitgExt.CommitAction */
     getActionInterface(): RefActionInterface
     setActionInterface(value: RefActionInterface): void
     getCommit(): Gitg.Commit
     setCommit(value: Gitg.Commit): void
-    /* Methods of GitgExt.Action */
+    /* Methods of GitgExt-1.0.GitgExt.Action */
     populateMenu(menu: Gtk.Menu): void
-    /* Methods of GitgExt.UIElement */
+    /* Methods of GitgExt-1.0.GitgExt.UIElement */
     negotiateOrder(other: UIElement): number
     getApplication(): Application | null
     setApplication(value?: Application | null): void
@@ -477,7 +386,7 @@ export class CommitAction {
     getShortcut(): number | null
     getAvailable(): boolean
     getEnabled(): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -499,73 +408,30 @@ export class CommitAction {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GitgExt.CommitAction */
-    vfuncGetActionInterface(): RefActionInterface
-    vfuncSetActionInterface(value: RefActionInterface): void
-    vfuncGetCommit(): Gitg.Commit
-    vfuncSetCommit(value: Gitg.Commit): void
-    vfuncPopulateMenu(menu: Gtk.Menu): void
-    /* Virtual methods of GitgExt.Action */
-    vfuncPopulateMenu(menu: Gtk.Menu): void
-    vfuncNegotiateOrder(other: UIElement): number
-    vfuncGetApplication(): Application | null
-    vfuncSetApplication(value?: Application | null): void
-    vfuncGetId(): string
-    vfuncGetDisplayName(): string
-    vfuncGetDescription(): string
-    vfuncGetIcon(): string | null
-    vfuncGetWidget(): Gtk.Widget | null
-    vfuncGetShortcut(): number | null
-    vfuncGetAvailable(): boolean
-    vfuncGetEnabled(): boolean
-    /* Virtual methods of GitgExt.UIElement */
-    vfuncNegotiateOrder(other: UIElement): number
-    vfuncGetApplication(): Application | null
-    vfuncSetApplication(value?: Application | null): void
-    vfuncGetId(): string
-    vfuncGetDisplayName(): string
-    vfuncGetDescription(): string
-    vfuncGetIcon(): string | null
-    vfuncGetWidget(): Gtk.Widget | null
-    vfuncGetShortcut(): number | null
-    vfuncGetAvailable(): boolean
-    vfuncGetEnabled(): boolean
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GitgExt.CommitAction */
+    /* Signals of GitgExt-1.0.GitgExt.CommitAction */
     connect(sigName: "finished", callback: (($obj: CommitAction) => void)): number
-    connect_after(sigName: "finished", callback: (($obj: CommitAction) => void)): number
+    on(sigName: "finished", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "finished", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "finished", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "finished"): void
-    on(sigName: "finished", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "finished", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "finished", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GitgExt.UIElement */
+    /* Signals of GitgExt-1.0.GitgExt.UIElement */
     connect(sigName: "activate", callback: (($obj: CommitAction) => void)): number
-    connect_after(sigName: "activate", callback: (($obj: CommitAction) => void)): number
+    on(sigName: "activate", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "activate", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "activate", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "activate"): void
-    on(sigName: "activate", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "activate", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "activate", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: CommitAction, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: CommitAction, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GitgExt.UIElement */
+    /* Signals of GitgExt-1.0.GitgExt.UIElement */
     connect(sigName: "activate", callback: (($obj: CommitAction) => void)): number
-    connect_after(sigName: "activate", callback: (($obj: CommitAction) => void)): number
+    on(sigName: "activate", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "activate", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "activate", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "activate"): void
-    on(sigName: "activate", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "activate", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "activate", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::action-interface", callback: (($obj: CommitAction, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::action-interface", callback: (($obj: CommitAction, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::action-interface", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -612,14 +478,14 @@ export interface HistoryPanel_ConstructProps extends GObject.Object_ConstructPro
     history?: History
 }
 export class HistoryPanel {
-    /* Properties of GitgExt.HistoryPanel */
+    /* Properties of GitgExt-1.0.GitgExt.HistoryPanel */
     history: History
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GitgExt.HistoryPanel */
+    /* Methods of GitgExt-1.0.GitgExt.HistoryPanel */
     getHistory(): History | null
     setHistory(value?: History | null): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -641,24 +507,12 @@ export class HistoryPanel {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GitgExt.HistoryPanel */
-    vfuncGetHistory(): History | null
-    vfuncSetHistory(value?: History | null): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: HistoryPanel, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: HistoryPanel, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::history", callback: (($obj: HistoryPanel, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::history", callback: (($obj: HistoryPanel, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::history", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -679,12 +533,12 @@ export class HistoryPanel {
 export interface History_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class History {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GitgExt.History */
+    /* Methods of GitgExt-1.0.GitgExt.History */
     foreachSelected(func: ForeachCommitSelectionFunc): void
     select(commit: Gitg.Commit): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -706,31 +560,18 @@ export class History {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GitgExt.History */
-    vfuncForeachSelected(func: ForeachCommitSelectionFunc): void
-    vfuncSelect(commit: Gitg.Commit): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GitgExt.History */
+    /* Signals of GitgExt-1.0.GitgExt.History */
     connect(sigName: "selection-changed", callback: (($obj: History) => void)): number
-    connect_after(sigName: "selection-changed", callback: (($obj: History) => void)): number
+    on(sigName: "selection-changed", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "selection-changed", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "selection-changed", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "selection-changed"): void
-    on(sigName: "selection-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "selection-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "selection-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: History, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: History, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -746,13 +587,13 @@ export class History {
 export interface Notification_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class Notification {
-    /* Properties of GitgExt.Notification */
+    /* Properties of GitgExt-1.0.GitgExt.Notification */
     readonly widget: Gtk.Widget
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GitgExt.Notification */
+    /* Methods of GitgExt-1.0.GitgExt.Notification */
     getWidget(): Gtk.Widget | null
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -774,30 +615,18 @@ export class Notification {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GitgExt.Notification */
-    vfuncGetWidget(): Gtk.Widget | null
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GitgExt.Notification */
+    /* Signals of GitgExt-1.0.GitgExt.Notification */
     connect(sigName: "close", callback: (($obj: Notification, delay: number) => void)): number
-    connect_after(sigName: "close", callback: (($obj: Notification, delay: number) => void)): number
+    on(sigName: "close", callback: (delay: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "close", callback: (delay: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "close", callback: (delay: number) => void): NodeJS.EventEmitter
     emit(sigName: "close", delay: number): void
-    on(sigName: "close", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "close", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "close", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Notification, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Notification, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::widget", callback: (($obj: Notification, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::widget", callback: (($obj: Notification, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::widget", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -818,12 +647,12 @@ export class Notification {
 export interface Notifications_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class Notifications {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GitgExt.Notifications */
+    /* Methods of GitgExt-1.0.GitgExt.Notifications */
     add(notification: Notification): void
     remove(notification: Notification, delay: number): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -845,24 +674,12 @@ export class Notifications {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GitgExt.Notifications */
-    vfuncAdd(notification: Notification): void
-    vfuncRemove(notification: Notification, delay: number): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Notifications, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Notifications, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -878,17 +695,17 @@ export class Notifications {
 export interface Preferences_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class Preferences {
-    /* Properties of GitgExt.Preferences */
+    /* Properties of GitgExt-1.0.GitgExt.Preferences */
     readonly id: string
     readonly displayName: string
     readonly widget: Gtk.Widget
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GitgExt.Preferences */
+    /* Methods of GitgExt-1.0.GitgExt.Preferences */
     getId(): string
     getDisplayName(): string
     getWidget(): Gtk.Widget
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -910,25 +727,12 @@ export class Preferences {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GitgExt.Preferences */
-    vfuncGetId(): string
-    vfuncGetDisplayName(): string
-    vfuncGetWidget(): Gtk.Widget
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Preferences, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Preferences, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::id", callback: (($obj: Preferences, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::id", callback: (($obj: Preferences, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::id", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -960,12 +764,12 @@ export interface RefActionInterface_ConstructProps extends GObject.Object_Constr
     application?: Application
 }
 export class RefActionInterface {
-    /* Properties of GitgExt.RefActionInterface */
+    /* Properties of GitgExt-1.0.GitgExt.RefActionInterface */
     application: Application
     readonly references: Gee.List
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GitgExt.RefActionInterface */
+    /* Methods of GitgExt-1.0.GitgExt.RefActionInterface */
     addRef(reference: Gitg.Ref): void
     removeRef(reference: Gitg.Ref): void
     replaceRef(oldRef: Gitg.Ref, newRef: Gitg.Ref): void
@@ -975,7 +779,7 @@ export class RefActionInterface {
     getApplication(): Application
     setApplication(value: Application): void
     getReferences(): Gee.List
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -997,31 +801,12 @@ export class RefActionInterface {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GitgExt.RefActionInterface */
-    vfuncAddRef(reference: Gitg.Ref): void
-    vfuncRemoveRef(reference: Gitg.Ref): void
-    vfuncReplaceRef(oldRef: Gitg.Ref, newRef: Gitg.Ref): void
-    vfuncSetBusy(reference: Gitg.Ref, busy: boolean): void
-    vfuncEditRefName(reference: Gitg.Ref, callback: RefNameEditingDone): void
-    vfuncRefresh(): void
-    vfuncGetApplication(): Application
-    vfuncSetApplication(value: Application): void
-    vfuncGetReferences(): Gee.List
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: RefActionInterface, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: RefActionInterface, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::application", callback: (($obj: RefActionInterface, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::application", callback: (($obj: RefActionInterface, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::application", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -1049,24 +834,24 @@ export interface RefAction_ConstructProps extends Action_ConstructProps {
     reference?: Gitg.Ref
 }
 export class RefAction {
-    /* Properties of GitgExt.RefAction */
+    /* Properties of GitgExt-1.0.GitgExt.RefAction */
     actionInterface: RefActionInterface
     reference: Gitg.Ref
-    /* Properties of GitgExt.UIElement */
+    /* Properties of GitgExt-1.0.GitgExt.UIElement */
     application: Application
     readonly id: string
     readonly displayName: string
     readonly description: string
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GitgExt.RefAction */
+    /* Methods of GitgExt-1.0.GitgExt.RefAction */
     getActionInterface(): RefActionInterface
     setActionInterface(value: RefActionInterface): void
     getReference(): Gitg.Ref
     setReference(value: Gitg.Ref): void
-    /* Methods of GitgExt.Action */
+    /* Methods of GitgExt-1.0.GitgExt.Action */
     populateMenu(menu: Gtk.Menu): void
-    /* Methods of GitgExt.UIElement */
+    /* Methods of GitgExt-1.0.GitgExt.UIElement */
     negotiateOrder(other: UIElement): number
     getApplication(): Application | null
     setApplication(value?: Application | null): void
@@ -1078,7 +863,7 @@ export class RefAction {
     getShortcut(): number | null
     getAvailable(): boolean
     getEnabled(): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -1100,66 +885,24 @@ export class RefAction {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GitgExt.RefAction */
-    vfuncGetActionInterface(): RefActionInterface
-    vfuncSetActionInterface(value: RefActionInterface): void
-    vfuncGetReference(): Gitg.Ref
-    vfuncSetReference(value: Gitg.Ref): void
-    vfuncPopulateMenu(menu: Gtk.Menu): void
-    /* Virtual methods of GitgExt.Action */
-    vfuncPopulateMenu(menu: Gtk.Menu): void
-    vfuncNegotiateOrder(other: UIElement): number
-    vfuncGetApplication(): Application | null
-    vfuncSetApplication(value?: Application | null): void
-    vfuncGetId(): string
-    vfuncGetDisplayName(): string
-    vfuncGetDescription(): string
-    vfuncGetIcon(): string | null
-    vfuncGetWidget(): Gtk.Widget | null
-    vfuncGetShortcut(): number | null
-    vfuncGetAvailable(): boolean
-    vfuncGetEnabled(): boolean
-    /* Virtual methods of GitgExt.UIElement */
-    vfuncNegotiateOrder(other: UIElement): number
-    vfuncGetApplication(): Application | null
-    vfuncSetApplication(value?: Application | null): void
-    vfuncGetId(): string
-    vfuncGetDisplayName(): string
-    vfuncGetDescription(): string
-    vfuncGetIcon(): string | null
-    vfuncGetWidget(): Gtk.Widget | null
-    vfuncGetShortcut(): number | null
-    vfuncGetAvailable(): boolean
-    vfuncGetEnabled(): boolean
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GitgExt.UIElement */
+    /* Signals of GitgExt-1.0.GitgExt.UIElement */
     connect(sigName: "activate", callback: (($obj: RefAction) => void)): number
-    connect_after(sigName: "activate", callback: (($obj: RefAction) => void)): number
+    on(sigName: "activate", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "activate", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "activate", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "activate"): void
-    on(sigName: "activate", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "activate", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "activate", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: RefAction, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: RefAction, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GitgExt.UIElement */
+    /* Signals of GitgExt-1.0.GitgExt.UIElement */
     connect(sigName: "activate", callback: (($obj: RefAction) => void)): number
-    connect_after(sigName: "activate", callback: (($obj: RefAction) => void)): number
+    on(sigName: "activate", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "activate", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "activate", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "activate"): void
-    on(sigName: "activate", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "activate", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "activate", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::action-interface", callback: (($obj: RefAction, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::action-interface", callback: (($obj: RefAction, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::action-interface", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -1205,11 +948,11 @@ export class RefAction {
 export interface RemoteLookup_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class RemoteLookup {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GitgExt.RemoteLookup */
+    /* Methods of GitgExt-1.0.GitgExt.RemoteLookup */
     lookup(name: string): Gitg.Remote | null
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -1231,23 +974,12 @@ export class RemoteLookup {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GitgExt.RemoteLookup */
-    vfuncLookup(name: string): Gitg.Remote | null
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: RemoteLookup, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: RemoteLookup, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -1266,21 +998,21 @@ export interface Searchable_ConstructProps extends GObject.Object_ConstructProps
     searchEntry?: Gtk.Entry
 }
 export class Searchable {
-    /* Properties of GitgExt.Searchable */
+    /* Properties of GitgExt-1.0.GitgExt.Searchable */
     searchText: string
     searchVisible: boolean
     readonly searchAvailable: boolean
     searchEntry: Gtk.Entry
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GitgExt.Searchable */
+    /* Methods of GitgExt-1.0.GitgExt.Searchable */
     getSearchText(): string
     setSearchText(value: string): void
     getSearchVisible(): boolean
     setSearchVisible(value: boolean): void
     getSearchAvailable(): boolean
     setSearchEntry(value?: Gtk.Entry | null): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -1302,28 +1034,12 @@ export class Searchable {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GitgExt.Searchable */
-    vfuncGetSearchText(): string
-    vfuncSetSearchText(value: string): void
-    vfuncGetSearchVisible(): boolean
-    vfuncSetSearchVisible(value: boolean): void
-    vfuncGetSearchAvailable(): boolean
-    vfuncSetSearchEntry(value?: Gtk.Entry | null): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Searchable, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Searchable, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::search-text", callback: (($obj: Searchable, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::search-text", callback: (($obj: Searchable, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::search-text", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -1360,20 +1076,20 @@ export interface Selectable_ConstructProps extends GObject.Object_ConstructProps
     selectableMode?: SelectionMode
 }
 export class Selectable {
-    /* Properties of GitgExt.Selectable */
+    /* Properties of GitgExt-1.0.GitgExt.Selectable */
     selectableMode: SelectionMode
     readonly selectableAvailable: boolean
     readonly selectableModeTooltip: string
     readonly actionWidget: Gtk.Widget
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GitgExt.Selectable */
+    /* Methods of GitgExt-1.0.GitgExt.Selectable */
     getSelectableMode(): SelectionMode
     setSelectableMode(value: SelectionMode): void
     getSelectableAvailable(): boolean
     getSelectableModeTooltip(): string
     getActionWidget(): Gtk.Widget | null
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -1395,27 +1111,12 @@ export class Selectable {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GitgExt.Selectable */
-    vfuncGetSelectableMode(): SelectionMode
-    vfuncSetSelectableMode(value: SelectionMode): void
-    vfuncGetSelectableAvailable(): boolean
-    vfuncGetSelectableModeTooltip(): string
-    vfuncGetActionWidget(): Gtk.Widget | null
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Selectable, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Selectable, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::selectable-mode", callback: (($obj: Selectable, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::selectable-mode", callback: (($obj: Selectable, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::selectable-mode", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -1452,14 +1153,14 @@ export interface UIElement_ConstructProps extends GObject.Object_ConstructProps 
     application?: Application
 }
 export class UIElement {
-    /* Properties of GitgExt.UIElement */
+    /* Properties of GitgExt-1.0.GitgExt.UIElement */
     application: Application
     readonly id: string
     readonly displayName: string
     readonly description: string
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GitgExt.UIElement */
+    /* Methods of GitgExt-1.0.GitgExt.UIElement */
     negotiateOrder(other: UIElement): number
     getApplication(): Application | null
     setApplication(value?: Application | null): void
@@ -1471,7 +1172,7 @@ export class UIElement {
     getShortcut(): number | null
     getAvailable(): boolean
     getEnabled(): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -1493,40 +1194,18 @@ export class UIElement {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GitgExt.UIElement */
-    vfuncNegotiateOrder(other: UIElement): number
-    vfuncGetApplication(): Application | null
-    vfuncSetApplication(value?: Application | null): void
-    vfuncGetId(): string
-    vfuncGetDisplayName(): string
-    vfuncGetDescription(): string
-    vfuncGetIcon(): string | null
-    vfuncGetWidget(): Gtk.Widget | null
-    vfuncGetShortcut(): number | null
-    vfuncGetAvailable(): boolean
-    vfuncGetEnabled(): boolean
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GitgExt.UIElement */
+    /* Signals of GitgExt-1.0.GitgExt.UIElement */
     connect(sigName: "activate", callback: (($obj: UIElement) => void)): number
-    connect_after(sigName: "activate", callback: (($obj: UIElement) => void)): number
+    on(sigName: "activate", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "activate", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "activate", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "activate"): void
-    on(sigName: "activate", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "activate", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "activate", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: UIElement, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: UIElement, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::application", callback: (($obj: UIElement, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::application", callback: (($obj: UIElement, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::application", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -1562,13 +1241,13 @@ export class UIElement {
 export interface CommandLines_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class CommandLines {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GitgExt.CommandLines */
+    /* Methods of GitgExt-1.0.GitgExt.CommandLines */
     getFor(tType: GObject.Type, tDupFunc: GObject.BoxedCopyFunc, tDestroyFunc: GLib.DestroyNotify): object | null
     parseFinished(): void
     apply(application: Application): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -1590,21 +1269,12 @@ export class CommandLines {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: CommandLines, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: CommandLines, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -1622,9 +1292,9 @@ export class CommandLines {
 export interface MessageBus_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class MessageBus {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GitgExt.MessageBus */
+    /* Methods of GitgExt-1.0.GitgExt.MessageBus */
     lookup(id: MessageId): GObject.Type
     register(messageType: GObject.Type, id: MessageId): void
     unregister(id: MessageId): void
@@ -1635,7 +1305,7 @@ export class MessageBus {
     block(id: number): void
     unblock(id: number): void
     sendMessage(message: Message): Message
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -1657,40 +1327,28 @@ export class MessageBus {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GitgExt.MessageBus */
+    /* Signals of GitgExt-1.0.GitgExt.MessageBus */
     connect(sigName: "registered", callback: (($obj: MessageBus, id: MessageId) => void)): number
-    connect_after(sigName: "registered", callback: (($obj: MessageBus, id: MessageId) => void)): number
+    on(sigName: "registered", callback: (id: MessageId) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "registered", callback: (id: MessageId) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "registered", callback: (id: MessageId) => void): NodeJS.EventEmitter
     emit(sigName: "registered", id: MessageId): void
-    on(sigName: "registered", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "registered", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "registered", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "unregistered", callback: (($obj: MessageBus, id: MessageId) => void)): number
-    connect_after(sigName: "unregistered", callback: (($obj: MessageBus, id: MessageId) => void)): number
+    on(sigName: "unregistered", callback: (id: MessageId) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "unregistered", callback: (id: MessageId) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "unregistered", callback: (id: MessageId) => void): NodeJS.EventEmitter
     emit(sigName: "unregistered", id: MessageId): void
-    on(sigName: "unregistered", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "unregistered", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "unregistered", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "dispatch", callback: (($obj: MessageBus, message: Message) => void)): number
-    connect_after(sigName: "dispatch", callback: (($obj: MessageBus, message: Message) => void)): number
+    on(sigName: "dispatch", callback: (message: Message) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "dispatch", callback: (message: Message) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "dispatch", callback: (message: Message) => void): NodeJS.EventEmitter
     emit(sigName: "dispatch", message: Message): void
-    on(sigName: "dispatch", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "dispatch", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "dispatch", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: MessageBus, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: MessageBus, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -1711,13 +1369,13 @@ export interface MessageId_ConstructProps extends GObject.Object_ConstructProps 
     method?: string
 }
 export class MessageId {
-    /* Properties of GitgExt.MessageId */
+    /* Properties of GitgExt-1.0.GitgExt.MessageId */
     objectPath: string
     method: string
     readonly id: string
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GitgExt.MessageId */
+    /* Methods of GitgExt-1.0.GitgExt.MessageId */
     hash(): number
     equal(other: MessageId): boolean
     copy(): MessageId
@@ -1726,7 +1384,7 @@ export class MessageId {
     getMethod(): string
     setMethod(value: string): void
     getId(): string
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -1748,21 +1406,12 @@ export class MessageId {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: MessageId, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: MessageId, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::object-path", callback: (($obj: MessageId, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::object-path", callback: (($obj: MessageId, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::object-path", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -1797,15 +1446,15 @@ export interface Message_ConstructProps extends GObject.Object_ConstructProps {
     id?: MessageId
 }
 export class Message {
-    /* Properties of GitgExt.Message */
+    /* Properties of GitgExt-1.0.GitgExt.Message */
     id: MessageId
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GitgExt.Message */
+    /* Methods of GitgExt-1.0.GitgExt.Message */
     has(propname: string): boolean
     getId(): MessageId
     setId(value: MessageId): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -1827,21 +1476,12 @@ export class Message {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Message, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Message, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::id", callback: (($obj: Message, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::id", callback: (($obj: Message, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::id", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -1863,7 +1503,7 @@ export class Message {
     static $gtype: GObject.Type
 }
 export class UI {
-    /* Fields of GitgExt.UI */
+    /* Fields of GitgExt-1.0.GitgExt.UI */
     refCount: number
     static name: string
     static new(): UI
@@ -1874,12 +1514,12 @@ export class UI {
 export interface UserQueryResponse_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class UserQueryResponse {
-    /* Fields of GitgExt.UserQueryResponse */
+    /* Fields of GitgExt-1.0.GitgExt.UserQueryResponse */
     text: string
     responseType: Gtk.ResponseType
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -1901,21 +1541,12 @@ export class UserQueryResponse {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: UserQueryResponse, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: UserQueryResponse, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -1939,19 +1570,19 @@ export interface UserQuery_ConstructProps extends GObject.Object_ConstructProps 
     messageUseMarkup?: boolean
 }
 export class UserQuery {
-    /* Properties of GitgExt.UserQuery */
+    /* Properties of GitgExt-1.0.GitgExt.UserQuery */
     title: string
     message: string
     messageType: Gtk.MessageType
     defaultResponse: Gtk.ResponseType
     defaultIsDestructive: boolean
     messageUseMarkup: boolean
-    /* Fields of GitgExt.UserQuery */
+    /* Fields of GitgExt-1.0.GitgExt.UserQuery */
     responses: UserQueryResponse[]
     responsesLength1: number
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GitgExt.UserQuery */
+    /* Methods of GitgExt-1.0.GitgExt.UserQuery */
     getResponses(): UserQueryResponse[]
     setResponses(value: UserQueryResponse[]): void
     getTitle(): string
@@ -1966,7 +1597,7 @@ export class UserQuery {
     setDefaultIsDestructive(value: boolean): void
     getMessageUseMarkup(): boolean
     setMessageUseMarkup(value: boolean): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -1988,34 +1619,23 @@ export class UserQuery {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GitgExt.UserQuery */
+    /* Signals of GitgExt-1.0.GitgExt.UserQuery */
     connect(sigName: "quit", callback: (($obj: UserQuery) => void)): number
-    connect_after(sigName: "quit", callback: (($obj: UserQuery) => void)): number
+    on(sigName: "quit", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "quit", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "quit", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "quit"): void
-    on(sigName: "quit", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "quit", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "quit", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "response", callback: (($obj: UserQuery, responseType: Gtk.ResponseType) => boolean)): number
-    connect_after(sigName: "response", callback: (($obj: UserQuery, responseType: Gtk.ResponseType) => boolean)): number
+    on(sigName: "response", callback: (responseType: Gtk.ResponseType) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "response", callback: (responseType: Gtk.ResponseType) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "response", callback: (responseType: Gtk.ResponseType) => void): NodeJS.EventEmitter
     emit(sigName: "response", responseType: Gtk.ResponseType): void
-    on(sigName: "response", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "response", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "response", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: UserQuery, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: UserQuery, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::title", callback: (($obj: UserQuery, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::title", callback: (($obj: UserQuery, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::title", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -2067,7 +1687,7 @@ export class CommandLinesPrivate {
     static name: string
 }
 export abstract class MessageBusClass {
-    /* Fields of GitgExt.MessageBusClass */
+    /* Fields of GitgExt-1.0.GitgExt.MessageBusClass */
     dispatch: (message: Message) => void
     static name: string
 }
@@ -2105,18 +1725,18 @@ export class UserQueryPrivate {
     static name: string
 }
 export abstract class ActionIface {
-    /* Fields of GitgExt.ActionIface */
+    /* Fields of GitgExt-1.0.GitgExt.ActionIface */
     populateMenu: (menu: Gtk.Menu) => void
     static name: string
 }
 export abstract class ActivityIface {
-    /* Fields of GitgExt.ActivityIface */
+    /* Fields of GitgExt-1.0.GitgExt.ActivityIface */
     isDefaultFor: (action: string) => boolean
     onKeyPressed: (event: Gdk.EventKey) => boolean
     static name: string
 }
 export abstract class ApplicationIface {
-    /* Fields of GitgExt.ApplicationIface */
+    /* Fields of GitgExt-1.0.GitgExt.ApplicationIface */
     getVerifiedCommitter: () => Ggit.Signature | null
     getActivityById: (id: string) => Activity | null
     setActivityById: (id: string) => Activity | null
@@ -2138,14 +1758,14 @@ export abstract class ApplicationIface {
     static name: string
 }
 export abstract class CommandLineIface {
-    /* Fields of GitgExt.CommandLineIface */
+    /* Fields of GitgExt-1.0.GitgExt.CommandLineIface */
     getOptionGroup: () => GLib.OptionGroup
     parseFinished: () => void
     apply: (application: Application) => void
     static name: string
 }
 export abstract class CommitActionIface {
-    /* Fields of GitgExt.CommitActionIface */
+    /* Fields of GitgExt-1.0.GitgExt.CommitActionIface */
     getActionInterface: () => RefActionInterface
     setActionInterface: (value: RefActionInterface) => void
     getCommit: () => Gitg.Commit
@@ -2153,37 +1773,37 @@ export abstract class CommitActionIface {
     static name: string
 }
 export abstract class HistoryPanelIface {
-    /* Fields of GitgExt.HistoryPanelIface */
+    /* Fields of GitgExt-1.0.GitgExt.HistoryPanelIface */
     getHistory: () => History | null
     setHistory: (value?: History | null) => void
     static name: string
 }
 export abstract class HistoryIface {
-    /* Fields of GitgExt.HistoryIface */
+    /* Fields of GitgExt-1.0.GitgExt.HistoryIface */
     foreachSelected: (func: ForeachCommitSelectionFunc) => void
     select: (commit: Gitg.Commit) => void
     static name: string
 }
 export abstract class NotificationIface {
-    /* Fields of GitgExt.NotificationIface */
+    /* Fields of GitgExt-1.0.GitgExt.NotificationIface */
     getWidget: () => Gtk.Widget | null
     static name: string
 }
 export abstract class NotificationsIface {
-    /* Fields of GitgExt.NotificationsIface */
+    /* Fields of GitgExt-1.0.GitgExt.NotificationsIface */
     add: (notification: Notification) => void
     remove: (notification: Notification, delay: number) => void
     static name: string
 }
 export abstract class PreferencesIface {
-    /* Fields of GitgExt.PreferencesIface */
+    /* Fields of GitgExt-1.0.GitgExt.PreferencesIface */
     getId: () => string
     getDisplayName: () => string
     getWidget: () => Gtk.Widget
     static name: string
 }
 export abstract class RefActionInterfaceIface {
-    /* Fields of GitgExt.RefActionInterfaceIface */
+    /* Fields of GitgExt-1.0.GitgExt.RefActionInterfaceIface */
     addRef: (reference: Gitg.Ref) => void
     removeRef: (reference: Gitg.Ref) => void
     replaceRef: (oldRef: Gitg.Ref, newRef: Gitg.Ref) => void
@@ -2196,7 +1816,7 @@ export abstract class RefActionInterfaceIface {
     static name: string
 }
 export abstract class RefActionIface {
-    /* Fields of GitgExt.RefActionIface */
+    /* Fields of GitgExt-1.0.GitgExt.RefActionIface */
     getActionInterface: () => RefActionInterface
     setActionInterface: (value: RefActionInterface) => void
     getReference: () => Gitg.Ref
@@ -2204,12 +1824,12 @@ export abstract class RefActionIface {
     static name: string
 }
 export abstract class RemoteLookupIface {
-    /* Fields of GitgExt.RemoteLookupIface */
+    /* Fields of GitgExt-1.0.GitgExt.RemoteLookupIface */
     lookup: (name: string) => Gitg.Remote | null
     static name: string
 }
 export abstract class SearchableIface {
-    /* Fields of GitgExt.SearchableIface */
+    /* Fields of GitgExt-1.0.GitgExt.SearchableIface */
     getSearchText: () => string
     setSearchText: (value: string) => void
     getSearchVisible: () => boolean
@@ -2219,7 +1839,7 @@ export abstract class SearchableIface {
     static name: string
 }
 export abstract class SelectableIface {
-    /* Fields of GitgExt.SelectableIface */
+    /* Fields of GitgExt-1.0.GitgExt.SelectableIface */
     getSelectableMode: () => SelectionMode
     setSelectableMode: (value: SelectionMode) => void
     getSelectableAvailable: () => boolean
@@ -2228,7 +1848,7 @@ export abstract class SelectableIface {
     static name: string
 }
 export abstract class UIElementIface {
-    /* Fields of GitgExt.UIElementIface */
+    /* Fields of GitgExt-1.0.GitgExt.UIElementIface */
     negotiateOrder: (other: UIElement) => number
     getApplication: () => Application | null
     setApplication: (value?: Application | null) => void

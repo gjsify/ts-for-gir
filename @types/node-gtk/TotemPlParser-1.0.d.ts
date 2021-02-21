@@ -70,17 +70,17 @@ export interface Parser_ConstructProps extends GObject.Object_ConstructProps {
     recurse?: boolean
 }
 export class Parser {
-    /* Properties of TotemPlParser.Parser */
+    /* Properties of TotemPlParser-1.0.TotemPlParser.Parser */
     debug: boolean
     disableUnsafe: boolean
     force: boolean
     recurse: boolean
-    /* Fields of TotemPlParser.Parser */
+    /* Fields of TotemPlParser-1.0.TotemPlParser.Parser */
     parent: GObject.Object
     priv: ParserPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of TotemPlParser.Parser */
+    /* Methods of TotemPlParser-1.0.TotemPlParser.Parser */
     addIgnoredGlob(glob: string): void
     addIgnoredMimetype(mimetype: string): void
     addIgnoredScheme(scheme: string): void
@@ -92,7 +92,7 @@ export class Parser {
     save(playlist: Playlist, dest: Gio.File, title: string, type: ParserType): boolean
     saveAsync(playlist: Playlist, dest: Gio.File, title: string, type: ParserType, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     saveFinish(asyncResult: Gio.AsyncResult): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -114,44 +114,28 @@ export class Parser {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of TotemPlParser.Parser */
-    vfuncEntryParsed(uri: string, metadata: GLib.HashTable): void
-    vfuncPlaylistEnded(uri: string): void
-    vfuncPlaylistStarted(uri: string, metadata: GLib.HashTable): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of TotemPlParser.Parser */
+    /* Signals of TotemPlParser-1.0.TotemPlParser.Parser */
     connect(sigName: "entry-parsed", callback: (($obj: Parser, uri: string, metadata: GLib.HashTable) => void)): number
-    connect_after(sigName: "entry-parsed", callback: (($obj: Parser, uri: string, metadata: GLib.HashTable) => void)): number
+    on(sigName: "entry-parsed", callback: (uri: string, metadata: GLib.HashTable) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "entry-parsed", callback: (uri: string, metadata: GLib.HashTable) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "entry-parsed", callback: (uri: string, metadata: GLib.HashTable) => void): NodeJS.EventEmitter
     emit(sigName: "entry-parsed", uri: string, metadata: GLib.HashTable): void
-    on(sigName: "entry-parsed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "entry-parsed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "entry-parsed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "playlist-ended", callback: (($obj: Parser, uri: string) => void)): number
-    connect_after(sigName: "playlist-ended", callback: (($obj: Parser, uri: string) => void)): number
+    on(sigName: "playlist-ended", callback: (uri: string) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "playlist-ended", callback: (uri: string) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "playlist-ended", callback: (uri: string) => void): NodeJS.EventEmitter
     emit(sigName: "playlist-ended", uri: string): void
-    on(sigName: "playlist-ended", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "playlist-ended", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "playlist-ended", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "playlist-started", callback: (($obj: Parser, uri: string, metadata: GLib.HashTable) => void)): number
-    connect_after(sigName: "playlist-started", callback: (($obj: Parser, uri: string, metadata: GLib.HashTable) => void)): number
+    on(sigName: "playlist-started", callback: (uri: string, metadata: GLib.HashTable) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "playlist-started", callback: (uri: string, metadata: GLib.HashTable) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "playlist-started", callback: (uri: string, metadata: GLib.HashTable) => void): NodeJS.EventEmitter
     emit(sigName: "playlist-started", uri: string, metadata: GLib.HashTable): void
-    on(sigName: "playlist-started", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "playlist-started", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "playlist-started", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Parser, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Parser, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::debug", callback: (($obj: Parser, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::debug", callback: (($obj: Parser, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::debug", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -194,21 +178,21 @@ export class Parser {
 export interface Playlist_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class Playlist {
-    /* Fields of TotemPlParser.Playlist */
+    /* Fields of TotemPlParser-1.0.TotemPlParser.Playlist */
     parentInstance: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of TotemPlParser.Playlist */
-    append(): /* iter */ PlaylistIter
+    /* Methods of TotemPlParser-1.0.TotemPlParser.Playlist */
+    append(): { iter: PlaylistIter }
     getValue(iter: PlaylistIter, key: string, value: any): boolean
-    insert(position: number): /* iter */ PlaylistIter
-    iterFirst(): [ /* returnType */ boolean, /* iter */ PlaylistIter ]
+    insert(position: number): { iter: PlaylistIter }
+    iterFirst(): { returnType: boolean, iter: PlaylistIter }
     iterNext(iter: PlaylistIter): boolean
     iterPrev(iter: PlaylistIter): boolean
-    prepend(): /* iter */ PlaylistIter
+    prepend(): { iter: PlaylistIter }
     setValue(iter: PlaylistIter, key: string, value: any): boolean
     size(): number
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -230,21 +214,12 @@ export class Playlist {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Playlist, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Playlist, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -260,7 +235,7 @@ export class Playlist {
     static $gtype: GObject.Type
 }
 export abstract class ParserClass {
-    /* Fields of TotemPlParser.ParserClass */
+    /* Fields of TotemPlParser-1.0.TotemPlParser.ParserClass */
     parentClass: GObject.ObjectClass
     entryParsed: (parser: Parser, uri: string, metadata: GLib.HashTable) => void
     playlistStarted: (parser: Parser, uri: string, metadata: GLib.HashTable) => void
@@ -271,7 +246,7 @@ export class ParserPrivate {
     static name: string
 }
 export abstract class PlaylistClass {
-    /* Fields of TotemPlParser.PlaylistClass */
+    /* Fields of TotemPlParser-1.0.TotemPlParser.PlaylistClass */
     parentClass: GObject.ObjectClass
     static name: string
 }

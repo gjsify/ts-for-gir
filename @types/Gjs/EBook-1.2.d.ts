@@ -47,17 +47,17 @@ export function book_utils_get_recipient_certificates_sync(registry: EDataServer
 export interface BookClient_ConstructProps extends EDataServer.Client_ConstructProps {
 }
 export class BookClient {
-    /* Properties of EBook.BookClient */
+    /* Properties of EBook-1.2.EBook.BookClient */
     readonly locale: string
-    /* Properties of EDataServer.Client */
+    /* Properties of EDataServer-1.2.EDataServer.Client */
     readonly capabilities: object
     readonly main_context: GLib.MainContext
     online: boolean
     readonly opened: boolean
     readonly readonly: boolean
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of EBook.BookClient */
+    /* Methods of EBook-1.2.EBook.BookClient */
     add_contact(contact: EBookContacts.Contact, opflags: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     add_contact_finish(result: Gio.AsyncResult): [ /* returnType */ boolean, /* out_added_uid */ string ]
     add_contact_sync(contact: EBookContacts.Contact, opflags: number, cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* out_added_uid */ string ]
@@ -96,7 +96,7 @@ export class BookClient {
     remove_contacts_finish(result: Gio.AsyncResult): boolean
     remove_contacts_sync(uids: string[], opflags: number, cancellable?: Gio.Cancellable | null): boolean
     set_self(contact: EBookContacts.Contact): boolean
-    /* Methods of EDataServer.Client */
+    /* Methods of EDataServer-1.2.EDataServer.Client */
     cancel_all(): void
     check_capability(capability: string): boolean
     check_refresh_supported(): boolean
@@ -133,7 +133,7 @@ export class BookClient {
     wait_for_connected(timeout_seconds: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     wait_for_connected_finish(result: Gio.AsyncResult): boolean
     wait_for_connected_sync(timeout_seconds: number, cancellable?: Gio.Cancellable | null): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -155,17 +155,17 @@ export class BookClient {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of Gio.AsyncInitable */
+    /* Methods of Gio-2.0.Gio.AsyncInitable */
     init_async(io_priority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     init_finish(res: Gio.AsyncResult): boolean
     new_finish(res: Gio.AsyncResult): GObject.Object
-    /* Methods of Gio.Initable */
+    /* Methods of Gio-2.0.Gio.Initable */
     init(cancellable?: Gio.Cancellable | null): boolean
-    /* Virtual methods of EBook.BookClient */
+    /* Virtual methods of EBook-1.2.EBook.BookClient */
     vfunc_init_async(io_priority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     vfunc_init_finish(res: Gio.AsyncResult): boolean
     vfunc_init(cancellable?: Gio.Cancellable | null): boolean
-    /* Virtual methods of EDataServer.Client */
+    /* Virtual methods of EDataServer-1.2.EDataServer.Client */
     vfunc_backend_died(): void
     vfunc_backend_error(error_msg: string): void
     vfunc_backend_property_changed(prop_name: string, prop_value: string): void
@@ -190,7 +190,7 @@ export class BookClient {
     vfunc_set_backend_property_finish(result: Gio.AsyncResult): boolean
     vfunc_set_backend_property_sync(prop_name: string, prop_value: string, cancellable?: Gio.Cancellable | null): boolean
     vfunc_unwrap_dbus_error(dbus_error: GLib.Error): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -198,7 +198,7 @@ export class BookClient {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of EDataServer.Client */
+    /* Signals of EDataServer-1.2.EDataServer.Client */
     connect(sigName: "backend-died", callback: (($obj: BookClient) => void)): number
     connect_after(sigName: "backend-died", callback: (($obj: BookClient) => void)): number
     emit(sigName: "backend-died"): void
@@ -211,7 +211,7 @@ export class BookClient {
     connect(sigName: "opened", callback: (($obj: BookClient, object: GLib.Error) => void)): number
     connect_after(sigName: "opened", callback: (($obj: BookClient, object: GLib.Error) => void)): number
     emit(sigName: "opened", object: GLib.Error): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: BookClient, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: BookClient, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -256,13 +256,13 @@ export interface BookClientCursor_ConstructProps extends GObject.Object_Construc
     sort_fields?: string[]
 }
 export class BookClientCursor {
-    /* Properties of EBook.BookClientCursor */
+    /* Properties of EBook-1.2.EBook.BookClientCursor */
     readonly alphabet: string[]
     readonly position: number
     readonly total: number
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of EBook.BookClientCursor */
+    /* Methods of EBook-1.2.EBook.BookClientCursor */
     get_alphabet(): [ /* returnType */ string[], /* n_labels */ number | null, /* underflow */ number | null, /* inflow */ number | null, /* overflow */ number | null ]
     get_contact_alphabetic_index(contact: EBookContacts.Contact): number
     get_position(): number
@@ -277,7 +277,7 @@ export class BookClientCursor {
     step(flags: EBookContacts.BookCursorStepFlags, origin: EBookContacts.BookCursorOrigin, count: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     step_finish(result: Gio.AsyncResult): [ /* returnType */ number, /* out_contacts */ EBookContacts.Contact[] | null ]
     step_sync(flags: EBookContacts.BookCursorStepFlags, origin: EBookContacts.BookCursorOrigin, count: number, cancellable?: Gio.Cancellable | null): [ /* returnType */ number, /* out_contacts */ EBookContacts.Contact[] | null ]
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -299,12 +299,12 @@ export class BookClientCursor {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of Gio.Initable */
+    /* Methods of Gio-2.0.Gio.Initable */
     init(cancellable?: Gio.Cancellable | null): boolean
-    /* Virtual methods of EBook.BookClientCursor */
+    /* Virtual methods of EBook-1.2.EBook.BookClientCursor */
     vfunc_refresh(): void
     vfunc_init(cancellable?: Gio.Cancellable | null): boolean
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -312,11 +312,11 @@ export class BookClientCursor {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of EBook.BookClientCursor */
+    /* Signals of EBook-1.2.EBook.BookClientCursor */
     connect(sigName: "refresh", callback: (($obj: BookClientCursor) => void)): number
     connect_after(sigName: "refresh", callback: (($obj: BookClientCursor) => void)): number
     emit(sigName: "refresh"): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: BookClientCursor, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: BookClientCursor, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -343,9 +343,9 @@ export interface BookClientView_ConstructProps extends GObject.Object_ConstructP
     object_path?: string
 }
 export class BookClientView {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of EBook.BookClientView */
+    /* Methods of EBook-1.2.EBook.BookClientView */
     get_client(): object | null
     get_connection(): Gio.DBusConnection
     get_object_path(): string
@@ -355,7 +355,7 @@ export class BookClientView {
     set_flags(flags: EBookContacts.BookClientViewFlags): void
     start(): void
     stop(): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -377,13 +377,13 @@ export class BookClientView {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of Gio.Initable */
+    /* Methods of Gio-2.0.Gio.Initable */
     init(cancellable?: Gio.Cancellable | null): boolean
-    /* Virtual methods of EBook.BookClientView */
+    /* Virtual methods of EBook-1.2.EBook.BookClientView */
     vfunc_complete(error: GLib.Error): void
     vfunc_progress(percent: number, message: string): void
     vfunc_init(cancellable?: Gio.Cancellable | null): boolean
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -391,7 +391,7 @@ export class BookClientView {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of EBook.BookClientView */
+    /* Signals of EBook-1.2.EBook.BookClientView */
     connect(sigName: "complete", callback: (($obj: BookClientView, object: GLib.Error) => void)): number
     connect_after(sigName: "complete", callback: (($obj: BookClientView, object: GLib.Error) => void)): number
     emit(sigName: "complete", object: GLib.Error): void
@@ -407,7 +407,7 @@ export class BookClientView {
     connect(sigName: "progress", callback: (($obj: BookClientView, object: number, p0: string) => void)): number
     connect_after(sigName: "progress", callback: (($obj: BookClientView, object: number, p0: string) => void)): number
     emit(sigName: "progress", object: number, p0: string): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: BookClientView, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: BookClientView, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -425,12 +425,12 @@ export class BookClientView {
 export interface Destination_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class Destination {
-    /* Fields of EBook.Destination */
+    /* Fields of EBook-1.2.EBook.Destination */
     object: GObject.Object
     priv: DestinationPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of EBook.Destination */
+    /* Methods of EBook-1.2.EBook.Destination */
     copy(): Destination
     empty(): boolean
     equal(b: Destination): boolean
@@ -460,7 +460,7 @@ export class Destination {
     set_ignored(ignored: boolean): void
     set_name(name: string): void
     set_raw(raw: string): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -482,9 +482,9 @@ export class Destination {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of EBook.Destination */
+    /* Virtual methods of EBook-1.2.EBook.Destination */
     vfunc_changed(): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -492,11 +492,11 @@ export class Destination {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of EBook.Destination */
+    /* Signals of EBook-1.2.EBook.Destination */
     connect(sigName: "changed", callback: (($obj: Destination) => void)): number
     connect_after(sigName: "changed", callback: (($obj: Destination) => void)): number
     emit(sigName: "changed"): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Destination, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Destination, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -520,7 +520,7 @@ export abstract class BookClientClass {
     static name: string
 }
 export abstract class BookClientCursorClass {
-    /* Fields of EBook.BookClientCursorClass */
+    /* Fields of EBook-1.2.EBook.BookClientCursorClass */
     refresh: (cursor: BookClientCursor) => void
     static name: string
 }
@@ -531,7 +531,7 @@ export class BookClientPrivate {
     static name: string
 }
 export abstract class BookClientViewClass {
-    /* Fields of EBook.BookClientViewClass */
+    /* Fields of EBook-1.2.EBook.BookClientViewClass */
     progress: (client_view: BookClientView, percent: number, message: string) => void
     complete: (client_view: BookClientView, error: GLib.Error) => void
     static name: string
@@ -540,7 +540,7 @@ export class BookClientViewPrivate {
     static name: string
 }
 export abstract class DestinationClass {
-    /* Fields of EBook.DestinationClass */
+    /* Fields of EBook-1.2.EBook.DestinationClass */
     parent_class: GObject.ObjectClass
     changed: (destination: Destination) => void
     static name: string

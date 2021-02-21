@@ -25,7 +25,7 @@ export interface AppSink_ConstructProps extends GstBase.BaseSink_ConstructProps 
     waitOnEos?: boolean
 }
 export class AppSink {
-    /* Properties of GstApp.AppSink */
+    /* Properties of GstApp-1.0.GstApp.AppSink */
     bufferList: boolean
     caps: Gst.Caps
     drop: boolean
@@ -33,7 +33,7 @@ export class AppSink {
     readonly eos: boolean
     maxBuffers: number
     waitOnEos: boolean
-    /* Properties of GstBase.BaseSink */
+    /* Properties of GstBase-1.0.GstBase.BaseSink */
     async: boolean
     blocksize: number
     enableLastSample: boolean
@@ -47,12 +47,12 @@ export class AppSink {
     sync: boolean
     throttleTime: number
     tsOffset: number
-    /* Properties of Gst.Object */
+    /* Properties of Gst-1.0.Gst.Object */
     name: string
     parent: Gst.Object
-    /* Fields of GstApp.AppSink */
+    /* Fields of GstApp-1.0.GstApp.AppSink */
     basesink: GstBase.BaseSink
-    /* Fields of GstBase.BaseSink */
+    /* Fields of GstBase-1.0.GstBase.BaseSink */
     element: Gst.Element
     sinkpad: Gst.Pad
     padMode: Gst.PadMode
@@ -66,7 +66,7 @@ export class AppSink {
     playingAsync: boolean
     haveNewsegment: boolean
     segment: Gst.Segment
-    /* Fields of Gst.Element */
+    /* Fields of Gst-1.0.Gst.Element */
     object: Gst.Object
     stateLock: GLib.RecMutex
     stateCond: GLib.Cond
@@ -88,12 +88,12 @@ export class AppSink {
     sinkpads: Gst.Pad[]
     padsCookie: number
     contexts: Gst.Context[]
-    /* Fields of Gst.Object */
+    /* Fields of Gst-1.0.Gst.Object */
     lock: GLib.Mutex
     flags: number
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GstApp.AppSink */
+    /* Methods of GstApp-1.0.GstApp.AppSink */
     getBufferListSupport(): boolean
     getCaps(): Gst.Caps
     getDrop(): boolean
@@ -111,7 +111,7 @@ export class AppSink {
     setWaitOnEos(wait: boolean): void
     tryPullPreroll(timeout: Gst.ClockTime): Gst.Sample
     tryPullSample(timeout: Gst.ClockTime): Gst.Sample
-    /* Methods of GstBase.BaseSink */
+    /* Methods of GstBase-1.0.GstBase.BaseSink */
     doPreroll(obj: Gst.MiniObject): Gst.FlowReturn
     getBlocksize(): number
     getDropOutOfSegment(): boolean
@@ -128,7 +128,7 @@ export class AppSink {
     isAsyncEnabled(): boolean
     isLastSampleEnabled(): boolean
     isQosEnabled(): boolean
-    queryLatency(): [ /* returnType */ boolean, /* live */ boolean | null, /* upstreamLive */ boolean | null, /* minLatency */ Gst.ClockTime | null, /* maxLatency */ Gst.ClockTime | null ]
+    queryLatency(): { returnType: boolean, live: boolean | null, upstreamLive: boolean | null, minLatency: Gst.ClockTime | null, maxLatency: Gst.ClockTime | null }
     setAsyncEnabled(enabled: boolean): void
     setBlocksize(blocksize: number): void
     setDropOutOfSegment(dropOutOfSegment: boolean): void
@@ -141,10 +141,10 @@ export class AppSink {
     setSync(sync: boolean): void
     setThrottleTime(throttle: number): void
     setTsOffset(offset: Gst.ClockTimeDiff): void
-    wait(time: Gst.ClockTime): [ /* returnType */ Gst.FlowReturn, /* jitter */ Gst.ClockTimeDiff | null ]
-    waitClock(time: Gst.ClockTime): [ /* returnType */ Gst.ClockReturn, /* jitter */ Gst.ClockTimeDiff | null ]
+    wait(time: Gst.ClockTime): { returnType: Gst.FlowReturn, jitter: Gst.ClockTimeDiff | null }
+    waitClock(time: Gst.ClockTime): { returnType: Gst.ClockReturn, jitter: Gst.ClockTimeDiff | null }
     waitPreroll(): Gst.FlowReturn
-    /* Methods of Gst.Element */
+    /* Methods of Gst-1.0.Gst.Element */
     abortState(): void
     addPad(pad: Gst.Pad): boolean
     addPropertyDeepNotifyWatch(propertyName: string | null, includeValue: boolean): number
@@ -172,7 +172,7 @@ export class AppSink {
     getPadTemplateList(): Gst.PadTemplate[]
     getRequestPad(name: string): Gst.Pad | null
     getStartTime(): Gst.ClockTime
-    getState(timeout: Gst.ClockTime): [ /* returnType */ Gst.StateChangeReturn, /* state */ Gst.State | null, /* pending */ Gst.State | null ]
+    getState(timeout: Gst.ClockTime): { returnType: Gst.StateChangeReturn, state: Gst.State | null, pending: Gst.State | null }
     getStaticPad(name: string): Gst.Pad | null
     isLockedState(): boolean
     iteratePads(): Gst.Iterator
@@ -190,9 +190,9 @@ export class AppSink {
     postMessage(message: Gst.Message): boolean
     provideClock(): Gst.Clock | null
     query(query: Gst.Query): boolean
-    queryConvert(srcFormat: Gst.Format, srcVal: number, destFormat: Gst.Format): [ /* returnType */ boolean, /* destVal */ number ]
-    queryDuration(format: Gst.Format): [ /* returnType */ boolean, /* duration */ number | null ]
-    queryPosition(format: Gst.Format): [ /* returnType */ boolean, /* cur */ number | null ]
+    queryConvert(srcFormat: Gst.Format, srcVal: number, destFormat: Gst.Format): { returnType: boolean, destVal: number }
+    queryDuration(format: Gst.Format): { returnType: boolean, duration: number | null }
+    queryPosition(format: Gst.Format): { returnType: boolean, cur: number | null }
     releaseRequestPad(pad: Gst.Pad): void
     removePad(pad: Gst.Pad): boolean
     removePropertyNotifyWatch(watchId: number): void
@@ -210,7 +210,7 @@ export class AppSink {
     syncStateWithParent(): boolean
     unlink(dest: Gst.Element): void
     unlinkPads(srcpadname: string, dest: Gst.Element, destpadname: string): void
-    /* Methods of Gst.Object */
+    /* Methods of Gst-1.0.Gst.Object */
     addControlBinding(binding: Gst.ControlBinding): boolean
     defaultError(error: GLib.Error, debug?: string | null): void
     getControlBinding(propertyName: string): Gst.ControlBinding | null
@@ -235,7 +235,7 @@ export class AppSink {
     syncValues(timestamp: Gst.ClockTime): boolean
     unparent(): void
     unref(): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -256,143 +256,75 @@ export class AppSink {
     stealQdata(quark: GLib.Quark): object | null
     thawNotify(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of Gst.URIHandler */
+    /* Methods of Gst-1.0.Gst.URIHandler */
     getProtocols(): string[] | null
     getUri(): string | null
     getUriType(): Gst.URIType
     setUri(uri: string): boolean
-    /* Virtual methods of GstApp.AppSink */
-    vfuncEos(): void
-    vfuncNewPreroll(): Gst.FlowReturn
-    vfuncNewSample(): Gst.FlowReturn
-    vfuncPullPreroll(): Gst.Sample
-    vfuncPullSample(): Gst.Sample
-    vfuncTryPullPreroll(timeout: Gst.ClockTime): Gst.Sample
-    vfuncTryPullSample(timeout: Gst.ClockTime): Gst.Sample
-    vfuncGetUri(): string | null
-    vfuncSetUri(uri: string): boolean
-    /* Virtual methods of GstBase.BaseSink */
-    vfuncActivatePull(active: boolean): boolean
-    vfuncEvent(event: Gst.Event): boolean
-    vfuncFixate(caps: Gst.Caps): Gst.Caps
-    vfuncGetCaps(filter: Gst.Caps): Gst.Caps
-    vfuncGetTimes(buffer: Gst.Buffer, start: Gst.ClockTime, end: Gst.ClockTime): void
-    vfuncPrepare(buffer: Gst.Buffer): Gst.FlowReturn
-    vfuncPrepareList(bufferList: Gst.BufferList): Gst.FlowReturn
-    vfuncPreroll(buffer: Gst.Buffer): Gst.FlowReturn
-    vfuncProposeAllocation(query: Gst.Query): boolean
-    vfuncQuery(query: Gst.Query): boolean
-    vfuncRender(buffer: Gst.Buffer): Gst.FlowReturn
-    vfuncRenderList(bufferList: Gst.BufferList): Gst.FlowReturn
-    vfuncSetCaps(caps: Gst.Caps): boolean
-    vfuncStart(): boolean
-    vfuncStop(): boolean
-    vfuncUnlock(): boolean
-    vfuncUnlockStop(): boolean
-    vfuncWaitEvent(event: Gst.Event): Gst.FlowReturn
-    /* Virtual methods of Gst.Element */
-    vfuncChangeState(transition: Gst.StateChange): Gst.StateChangeReturn
-    vfuncGetState(timeout: Gst.ClockTime): [ /* returnType */ Gst.StateChangeReturn, /* state */ Gst.State | null, /* pending */ Gst.State | null ]
-    vfuncNoMorePads(): void
-    vfuncPadAdded(pad: Gst.Pad): void
-    vfuncPadRemoved(pad: Gst.Pad): void
-    vfuncPostMessage(message: Gst.Message): boolean
-    vfuncProvideClock(): Gst.Clock | null
-    vfuncQuery(query: Gst.Query): boolean
-    vfuncReleasePad(pad: Gst.Pad): void
-    vfuncRequestNewPad(templ: Gst.PadTemplate, name?: string | null, caps?: Gst.Caps | null): Gst.Pad | null
-    vfuncSendEvent(event: Gst.Event): boolean
-    vfuncSetBus(bus?: Gst.Bus | null): void
-    vfuncSetClock(clock?: Gst.Clock | null): boolean
-    vfuncSetContext(context: Gst.Context): void
-    vfuncSetState(state: Gst.State): Gst.StateChangeReturn
-    vfuncStateChanged(oldstate: Gst.State, newstate: Gst.State, pending: Gst.State): void
-    /* Virtual methods of Gst.Object */
-    vfuncDeepNotify(orig: Gst.Object, pspec: GObject.ParamSpec): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GstApp.AppSink */
+    /* Signals of GstApp-1.0.GstApp.AppSink */
     connect(sigName: "eos", callback: (($obj: AppSink) => void)): number
-    connect_after(sigName: "eos", callback: (($obj: AppSink) => void)): number
+    on(sigName: "eos", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "eos", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "eos", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "eos"): void
-    on(sigName: "eos", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "eos", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "eos", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "new-preroll", callback: (($obj: AppSink) => Gst.FlowReturn)): number
-    connect_after(sigName: "new-preroll", callback: (($obj: AppSink) => Gst.FlowReturn)): number
+    on(sigName: "new-preroll", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "new-preroll", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "new-preroll", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "new-preroll"): void
-    on(sigName: "new-preroll", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "new-preroll", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "new-preroll", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "new-sample", callback: (($obj: AppSink) => Gst.FlowReturn)): number
-    connect_after(sigName: "new-sample", callback: (($obj: AppSink) => Gst.FlowReturn)): number
+    on(sigName: "new-sample", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "new-sample", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "new-sample", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "new-sample"): void
-    on(sigName: "new-sample", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "new-sample", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "new-sample", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "pull-preroll", callback: (($obj: AppSink) => Gst.Sample)): number
-    connect_after(sigName: "pull-preroll", callback: (($obj: AppSink) => Gst.Sample)): number
+    on(sigName: "pull-preroll", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "pull-preroll", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "pull-preroll", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "pull-preroll"): void
-    on(sigName: "pull-preroll", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "pull-preroll", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "pull-preroll", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "pull-sample", callback: (($obj: AppSink) => Gst.Sample)): number
-    connect_after(sigName: "pull-sample", callback: (($obj: AppSink) => Gst.Sample)): number
+    on(sigName: "pull-sample", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "pull-sample", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "pull-sample", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "pull-sample"): void
-    on(sigName: "pull-sample", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "pull-sample", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "pull-sample", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "try-pull-preroll", callback: (($obj: AppSink, timeout: number) => Gst.Sample)): number
-    connect_after(sigName: "try-pull-preroll", callback: (($obj: AppSink, timeout: number) => Gst.Sample)): number
+    on(sigName: "try-pull-preroll", callback: (timeout: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "try-pull-preroll", callback: (timeout: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "try-pull-preroll", callback: (timeout: number) => void): NodeJS.EventEmitter
     emit(sigName: "try-pull-preroll", timeout: number): void
-    on(sigName: "try-pull-preroll", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "try-pull-preroll", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "try-pull-preroll", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "try-pull-sample", callback: (($obj: AppSink, timeout: number) => Gst.Sample)): number
-    connect_after(sigName: "try-pull-sample", callback: (($obj: AppSink, timeout: number) => Gst.Sample)): number
+    on(sigName: "try-pull-sample", callback: (timeout: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "try-pull-sample", callback: (timeout: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "try-pull-sample", callback: (timeout: number) => void): NodeJS.EventEmitter
     emit(sigName: "try-pull-sample", timeout: number): void
-    on(sigName: "try-pull-sample", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "try-pull-sample", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "try-pull-sample", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of Gst.Element */
+    /* Signals of Gst-1.0.Gst.Element */
     connect(sigName: "no-more-pads", callback: (($obj: AppSink) => void)): number
-    connect_after(sigName: "no-more-pads", callback: (($obj: AppSink) => void)): number
+    on(sigName: "no-more-pads", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "no-more-pads", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "no-more-pads", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "no-more-pads"): void
-    on(sigName: "no-more-pads", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "no-more-pads", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "no-more-pads", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "pad-added", callback: (($obj: AppSink, newPad: Gst.Pad) => void)): number
-    connect_after(sigName: "pad-added", callback: (($obj: AppSink, newPad: Gst.Pad) => void)): number
+    on(sigName: "pad-added", callback: (newPad: Gst.Pad) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "pad-added", callback: (newPad: Gst.Pad) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "pad-added", callback: (newPad: Gst.Pad) => void): NodeJS.EventEmitter
     emit(sigName: "pad-added", newPad: Gst.Pad): void
-    on(sigName: "pad-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "pad-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "pad-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "pad-removed", callback: (($obj: AppSink, oldPad: Gst.Pad) => void)): number
-    connect_after(sigName: "pad-removed", callback: (($obj: AppSink, oldPad: Gst.Pad) => void)): number
+    on(sigName: "pad-removed", callback: (oldPad: Gst.Pad) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "pad-removed", callback: (oldPad: Gst.Pad) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "pad-removed", callback: (oldPad: Gst.Pad) => void): NodeJS.EventEmitter
     emit(sigName: "pad-removed", oldPad: Gst.Pad): void
-    on(sigName: "pad-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "pad-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "pad-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of Gst.Object */
+    /* Signals of Gst-1.0.Gst.Object */
     connect(sigName: "deep-notify", callback: (($obj: AppSink, propObject: Gst.Object, prop: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "deep-notify", callback: (($obj: AppSink, propObject: Gst.Object, prop: GObject.ParamSpec) => void)): number
+    on(sigName: "deep-notify", callback: (propObject: Gst.Object, prop: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "deep-notify", callback: (propObject: Gst.Object, prop: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "deep-notify", callback: (propObject: Gst.Object, prop: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "deep-notify", propObject: Gst.Object, prop: GObject.ParamSpec): void
-    on(sigName: "deep-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "deep-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "deep-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: AppSink, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: AppSink, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::buffer-list", callback: (($obj: AppSink, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::buffer-list", callback: (($obj: AppSink, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::buffer-list", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -531,7 +463,7 @@ export interface AppSrc_ConstructProps extends GstBase.BaseSrc_ConstructProps {
     streamType?: AppStreamType
 }
 export class AppSrc {
-    /* Properties of GstApp.AppSrc */
+    /* Properties of GstApp-1.0.GstApp.AppSrc */
     block: boolean
     caps: Gst.Caps
     readonly currentLevelBytes: number
@@ -546,17 +478,17 @@ export class AppSrc {
     minPercent: number
     size: number
     streamType: AppStreamType
-    /* Properties of GstBase.BaseSrc */
+    /* Properties of GstBase-1.0.GstBase.BaseSrc */
     blocksize: number
     doTimestamp: boolean
     numBuffers: number
     typefind: boolean
-    /* Properties of Gst.Object */
+    /* Properties of Gst-1.0.Gst.Object */
     name: string
     parent: Gst.Object
-    /* Fields of GstApp.AppSrc */
+    /* Fields of GstApp-1.0.GstApp.AppSrc */
     basesrc: GstBase.BaseSrc
-    /* Fields of GstBase.BaseSrc */
+    /* Fields of GstBase-1.0.GstBase.BaseSrc */
     element: Gst.Element
     srcpad: Gst.Pad
     liveLock: GLib.Mutex
@@ -571,7 +503,7 @@ export class AppSrc {
     running: boolean
     pendingSeek: Gst.Event
     priv: GstBase.BaseSrcPrivate
-    /* Fields of Gst.Element */
+    /* Fields of Gst-1.0.Gst.Element */
     object: Gst.Object
     stateLock: GLib.RecMutex
     stateCond: GLib.Cond
@@ -593,18 +525,18 @@ export class AppSrc {
     sinkpads: Gst.Pad[]
     padsCookie: number
     contexts: Gst.Context[]
-    /* Fields of Gst.Object */
+    /* Fields of Gst-1.0.Gst.Object */
     lock: GLib.Mutex
     flags: number
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GstApp.AppSrc */
+    /* Methods of GstApp-1.0.GstApp.AppSrc */
     endOfStream(): Gst.FlowReturn
     getCaps(): Gst.Caps
     getCurrentLevelBytes(): number
     getDuration(): Gst.ClockTime
     getEmitSignals(): boolean
-    getLatency(): [ /* min */ number, /* max */ number ]
+    getLatency(): { min: number, max: number }
     getMaxBytes(): number
     getSize(): number
     getStreamType(): AppStreamType
@@ -618,8 +550,8 @@ export class AppSrc {
     setMaxBytes(max: number): void
     setSize(size: number): void
     setStreamType(type: AppStreamType): void
-    /* Methods of GstBase.BaseSrc */
-    getAllocator(): [ /* allocator */ Gst.Allocator | null, /* params */ Gst.AllocationParams | null ]
+    /* Methods of GstBase-1.0.GstBase.BaseSrc */
+    getAllocator(): { allocator: Gst.Allocator | null, params: Gst.AllocationParams | null }
     getBlocksize(): number
     getBufferPool(): Gst.BufferPool | null
     getDoTimestamp(): boolean
@@ -627,7 +559,7 @@ export class AppSrc {
     negotiate(): boolean
     newSeamlessSegment(start: number, stop: number, time: number): boolean
     newSegment(segment: Gst.Segment): boolean
-    queryLatency(): [ /* returnType */ boolean, /* live */ boolean | null, /* minLatency */ Gst.ClockTime | null, /* maxLatency */ Gst.ClockTime | null ]
+    queryLatency(): { returnType: boolean, live: boolean | null, minLatency: Gst.ClockTime | null, maxLatency: Gst.ClockTime | null }
     setAsync(async: boolean): void
     setAutomaticEos(automaticEos: boolean): void
     setBlocksize(blocksize: number): void
@@ -640,7 +572,7 @@ export class AppSrc {
     startWait(): Gst.FlowReturn
     submitBufferList(bufferList: Gst.BufferList): void
     waitPlaying(): Gst.FlowReturn
-    /* Methods of Gst.Element */
+    /* Methods of Gst-1.0.Gst.Element */
     abortState(): void
     addPad(pad: Gst.Pad): boolean
     addPropertyDeepNotifyWatch(propertyName: string | null, includeValue: boolean): number
@@ -668,7 +600,7 @@ export class AppSrc {
     getPadTemplateList(): Gst.PadTemplate[]
     getRequestPad(name: string): Gst.Pad | null
     getStartTime(): Gst.ClockTime
-    getState(timeout: Gst.ClockTime): [ /* returnType */ Gst.StateChangeReturn, /* state */ Gst.State | null, /* pending */ Gst.State | null ]
+    getState(timeout: Gst.ClockTime): { returnType: Gst.StateChangeReturn, state: Gst.State | null, pending: Gst.State | null }
     getStaticPad(name: string): Gst.Pad | null
     isLockedState(): boolean
     iteratePads(): Gst.Iterator
@@ -686,9 +618,9 @@ export class AppSrc {
     postMessage(message: Gst.Message): boolean
     provideClock(): Gst.Clock | null
     query(query: Gst.Query): boolean
-    queryConvert(srcFormat: Gst.Format, srcVal: number, destFormat: Gst.Format): [ /* returnType */ boolean, /* destVal */ number ]
-    queryDuration(format: Gst.Format): [ /* returnType */ boolean, /* duration */ number | null ]
-    queryPosition(format: Gst.Format): [ /* returnType */ boolean, /* cur */ number | null ]
+    queryConvert(srcFormat: Gst.Format, srcVal: number, destFormat: Gst.Format): { returnType: boolean, destVal: number }
+    queryDuration(format: Gst.Format): { returnType: boolean, duration: number | null }
+    queryPosition(format: Gst.Format): { returnType: boolean, cur: number | null }
     releaseRequestPad(pad: Gst.Pad): void
     removePad(pad: Gst.Pad): boolean
     removePropertyNotifyWatch(watchId: number): void
@@ -706,7 +638,7 @@ export class AppSrc {
     syncStateWithParent(): boolean
     unlink(dest: Gst.Element): void
     unlinkPads(srcpadname: string, dest: Gst.Element, destpadname: string): void
-    /* Methods of Gst.Object */
+    /* Methods of Gst-1.0.Gst.Object */
     addControlBinding(binding: Gst.ControlBinding): boolean
     defaultError(error: GLib.Error, debug?: string | null): void
     getControlBinding(propertyName: string): Gst.ControlBinding | null
@@ -731,7 +663,7 @@ export class AppSrc {
     syncValues(timestamp: Gst.ClockTime): boolean
     unparent(): void
     unref(): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -752,144 +684,75 @@ export class AppSrc {
     stealQdata(quark: GLib.Quark): object | null
     thawNotify(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of Gst.URIHandler */
+    /* Methods of Gst-1.0.Gst.URIHandler */
     getProtocols(): string[] | null
     getUri(): string | null
     getUriType(): Gst.URIType
     setUri(uri: string): boolean
-    /* Virtual methods of GstApp.AppSrc */
-    vfuncEndOfStream(): Gst.FlowReturn
-    vfuncEnoughData(): void
-    vfuncNeedData(length: number): void
-    vfuncPushBuffer(buffer: Gst.Buffer): Gst.FlowReturn
-    vfuncPushBufferList(bufferList: Gst.BufferList): Gst.FlowReturn
-    vfuncPushSample(sample: Gst.Sample): Gst.FlowReturn
-    vfuncSeekData(offset: number): boolean
-    vfuncGetUri(): string | null
-    vfuncSetUri(uri: string): boolean
-    /* Virtual methods of GstBase.BaseSrc */
-    vfuncAlloc(offset: number, size: number, buf: Gst.Buffer): Gst.FlowReturn
-    vfuncCreate(offset: number, size: number): [ /* returnType */ Gst.FlowReturn, /* buf */ Gst.Buffer ]
-    vfuncDecideAllocation(query: Gst.Query): boolean
-    vfuncDoSeek(segment: Gst.Segment): boolean
-    vfuncEvent(event: Gst.Event): boolean
-    vfuncFill(offset: number, size: number, buf: Gst.Buffer): Gst.FlowReturn
-    vfuncFixate(caps: Gst.Caps): Gst.Caps
-    vfuncGetCaps(filter?: Gst.Caps | null): Gst.Caps
-    vfuncGetSize(size: number): boolean
-    vfuncGetTimes(buffer: Gst.Buffer): [ /* start */ Gst.ClockTime, /* end */ Gst.ClockTime ]
-    vfuncIsSeekable(): boolean
-    vfuncNegotiate(): boolean
-    vfuncPrepareSeekSegment(seek: Gst.Event, segment: Gst.Segment): boolean
-    vfuncQuery(query: Gst.Query): boolean
-    vfuncSetCaps(caps: Gst.Caps): boolean
-    vfuncStart(): boolean
-    vfuncStop(): boolean
-    vfuncUnlock(): boolean
-    vfuncUnlockStop(): boolean
-    /* Virtual methods of Gst.Element */
-    vfuncChangeState(transition: Gst.StateChange): Gst.StateChangeReturn
-    vfuncGetState(timeout: Gst.ClockTime): [ /* returnType */ Gst.StateChangeReturn, /* state */ Gst.State | null, /* pending */ Gst.State | null ]
-    vfuncNoMorePads(): void
-    vfuncPadAdded(pad: Gst.Pad): void
-    vfuncPadRemoved(pad: Gst.Pad): void
-    vfuncPostMessage(message: Gst.Message): boolean
-    vfuncProvideClock(): Gst.Clock | null
-    vfuncQuery(query: Gst.Query): boolean
-    vfuncReleasePad(pad: Gst.Pad): void
-    vfuncRequestNewPad(templ: Gst.PadTemplate, name?: string | null, caps?: Gst.Caps | null): Gst.Pad | null
-    vfuncSendEvent(event: Gst.Event): boolean
-    vfuncSetBus(bus?: Gst.Bus | null): void
-    vfuncSetClock(clock?: Gst.Clock | null): boolean
-    vfuncSetContext(context: Gst.Context): void
-    vfuncSetState(state: Gst.State): Gst.StateChangeReturn
-    vfuncStateChanged(oldstate: Gst.State, newstate: Gst.State, pending: Gst.State): void
-    /* Virtual methods of Gst.Object */
-    vfuncDeepNotify(orig: Gst.Object, pspec: GObject.ParamSpec): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GstApp.AppSrc */
+    /* Signals of GstApp-1.0.GstApp.AppSrc */
     connect(sigName: "end-of-stream", callback: (($obj: AppSrc) => Gst.FlowReturn)): number
-    connect_after(sigName: "end-of-stream", callback: (($obj: AppSrc) => Gst.FlowReturn)): number
+    on(sigName: "end-of-stream", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "end-of-stream", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "end-of-stream", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "end-of-stream"): void
-    on(sigName: "end-of-stream", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "end-of-stream", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "end-of-stream", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "enough-data", callback: (($obj: AppSrc) => void)): number
-    connect_after(sigName: "enough-data", callback: (($obj: AppSrc) => void)): number
+    on(sigName: "enough-data", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "enough-data", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "enough-data", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "enough-data"): void
-    on(sigName: "enough-data", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "enough-data", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "enough-data", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "need-data", callback: (($obj: AppSrc, length: number) => void)): number
-    connect_after(sigName: "need-data", callback: (($obj: AppSrc, length: number) => void)): number
+    on(sigName: "need-data", callback: (length: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "need-data", callback: (length: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "need-data", callback: (length: number) => void): NodeJS.EventEmitter
     emit(sigName: "need-data", length: number): void
-    on(sigName: "need-data", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "need-data", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "need-data", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "push-buffer", callback: (($obj: AppSrc, buffer: Gst.Buffer) => Gst.FlowReturn)): number
-    connect_after(sigName: "push-buffer", callback: (($obj: AppSrc, buffer: Gst.Buffer) => Gst.FlowReturn)): number
+    on(sigName: "push-buffer", callback: (buffer: Gst.Buffer) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "push-buffer", callback: (buffer: Gst.Buffer) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "push-buffer", callback: (buffer: Gst.Buffer) => void): NodeJS.EventEmitter
     emit(sigName: "push-buffer", buffer: Gst.Buffer): void
-    on(sigName: "push-buffer", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "push-buffer", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "push-buffer", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "push-buffer-list", callback: (($obj: AppSrc, bufferList: Gst.BufferList) => Gst.FlowReturn)): number
-    connect_after(sigName: "push-buffer-list", callback: (($obj: AppSrc, bufferList: Gst.BufferList) => Gst.FlowReturn)): number
+    on(sigName: "push-buffer-list", callback: (bufferList: Gst.BufferList) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "push-buffer-list", callback: (bufferList: Gst.BufferList) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "push-buffer-list", callback: (bufferList: Gst.BufferList) => void): NodeJS.EventEmitter
     emit(sigName: "push-buffer-list", bufferList: Gst.BufferList): void
-    on(sigName: "push-buffer-list", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "push-buffer-list", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "push-buffer-list", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "push-sample", callback: (($obj: AppSrc, sample: Gst.Sample) => Gst.FlowReturn)): number
-    connect_after(sigName: "push-sample", callback: (($obj: AppSrc, sample: Gst.Sample) => Gst.FlowReturn)): number
+    on(sigName: "push-sample", callback: (sample: Gst.Sample) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "push-sample", callback: (sample: Gst.Sample) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "push-sample", callback: (sample: Gst.Sample) => void): NodeJS.EventEmitter
     emit(sigName: "push-sample", sample: Gst.Sample): void
-    on(sigName: "push-sample", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "push-sample", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "push-sample", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "seek-data", callback: (($obj: AppSrc, offset: number) => boolean)): number
-    connect_after(sigName: "seek-data", callback: (($obj: AppSrc, offset: number) => boolean)): number
+    on(sigName: "seek-data", callback: (offset: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "seek-data", callback: (offset: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "seek-data", callback: (offset: number) => void): NodeJS.EventEmitter
     emit(sigName: "seek-data", offset: number): void
-    on(sigName: "seek-data", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "seek-data", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "seek-data", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of Gst.Element */
+    /* Signals of Gst-1.0.Gst.Element */
     connect(sigName: "no-more-pads", callback: (($obj: AppSrc) => void)): number
-    connect_after(sigName: "no-more-pads", callback: (($obj: AppSrc) => void)): number
+    on(sigName: "no-more-pads", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "no-more-pads", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "no-more-pads", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "no-more-pads"): void
-    on(sigName: "no-more-pads", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "no-more-pads", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "no-more-pads", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "pad-added", callback: (($obj: AppSrc, newPad: Gst.Pad) => void)): number
-    connect_after(sigName: "pad-added", callback: (($obj: AppSrc, newPad: Gst.Pad) => void)): number
+    on(sigName: "pad-added", callback: (newPad: Gst.Pad) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "pad-added", callback: (newPad: Gst.Pad) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "pad-added", callback: (newPad: Gst.Pad) => void): NodeJS.EventEmitter
     emit(sigName: "pad-added", newPad: Gst.Pad): void
-    on(sigName: "pad-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "pad-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "pad-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "pad-removed", callback: (($obj: AppSrc, oldPad: Gst.Pad) => void)): number
-    connect_after(sigName: "pad-removed", callback: (($obj: AppSrc, oldPad: Gst.Pad) => void)): number
+    on(sigName: "pad-removed", callback: (oldPad: Gst.Pad) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "pad-removed", callback: (oldPad: Gst.Pad) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "pad-removed", callback: (oldPad: Gst.Pad) => void): NodeJS.EventEmitter
     emit(sigName: "pad-removed", oldPad: Gst.Pad): void
-    on(sigName: "pad-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "pad-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "pad-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of Gst.Object */
+    /* Signals of Gst-1.0.Gst.Object */
     connect(sigName: "deep-notify", callback: (($obj: AppSrc, propObject: Gst.Object, prop: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "deep-notify", callback: (($obj: AppSrc, propObject: Gst.Object, prop: GObject.ParamSpec) => void)): number
+    on(sigName: "deep-notify", callback: (propObject: Gst.Object, prop: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "deep-notify", callback: (propObject: Gst.Object, prop: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "deep-notify", callback: (propObject: Gst.Object, prop: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "deep-notify", propObject: Gst.Object, prop: GObject.ParamSpec): void
-    on(sigName: "deep-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "deep-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "deep-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: AppSrc, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: AppSrc, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::block", callback: (($obj: AppSrc, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::block", callback: (($obj: AppSrc, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::block", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -1003,14 +866,14 @@ export class AppSrc {
     static $gtype: GObject.Type
 }
 export class AppSinkCallbacks {
-    /* Fields of GstApp.AppSinkCallbacks */
+    /* Fields of GstApp-1.0.GstApp.AppSinkCallbacks */
     eos: (appsink: AppSink) => void
     newPreroll: (appsink: AppSink) => Gst.FlowReturn
     newSample: (appsink: AppSink) => Gst.FlowReturn
     static name: string
 }
 export abstract class AppSinkClass {
-    /* Fields of GstApp.AppSinkClass */
+    /* Fields of GstApp-1.0.GstApp.AppSinkClass */
     basesinkClass: GstBase.BaseSinkClass
     eos: (appsink: AppSink) => void
     newPreroll: (appsink: AppSink) => Gst.FlowReturn
@@ -1025,14 +888,14 @@ export class AppSinkPrivate {
     static name: string
 }
 export class AppSrcCallbacks {
-    /* Fields of GstApp.AppSrcCallbacks */
+    /* Fields of GstApp-1.0.GstApp.AppSrcCallbacks */
     needData: (src: AppSrc, length: number) => void
     enoughData: (src: AppSrc) => void
     seekData: (src: AppSrc, offset: number) => boolean
     static name: string
 }
 export abstract class AppSrcClass {
-    /* Fields of GstApp.AppSrcClass */
+    /* Fields of GstApp-1.0.GstApp.AppSrcClass */
     basesrcClass: GstBase.BaseSrcClass
     needData: (appsrc: AppSrc, length: number) => void
     enoughData: (appsrc: AppSrc) => void

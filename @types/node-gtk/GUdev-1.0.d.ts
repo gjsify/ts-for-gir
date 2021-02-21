@@ -17,17 +17,17 @@ export interface Client_ConstructProps extends GObject.Object_ConstructProps {
     subsystems?: string[]
 }
 export class Client {
-    /* Fields of GUdev.Client */
+    /* Fields of GUdev-1.0.GUdev.Client */
     parent: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GUdev.Client */
+    /* Methods of GUdev-1.0.GUdev.Client */
     queryByDeviceFile(deviceFile: string): Device | null
     queryByDeviceNumber(type: DeviceType, number: DeviceNumber): Device | null
     queryBySubsystem(subsystem?: string | null): Device[] | null
     queryBySubsystemAndName(subsystem: string, name: string): Device | null
     queryBySysfsPath(sysfsPath: string): Device | null
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -49,30 +49,18 @@ export class Client {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GUdev.Client */
-    vfuncUevent(action: string, device: Device): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GUdev.Client */
+    /* Signals of GUdev-1.0.GUdev.Client */
     connect(sigName: "uevent", callback: (($obj: Client, action: string, device: Device) => void)): number
-    connect_after(sigName: "uevent", callback: (($obj: Client, action: string, device: Device) => void)): number
+    on(sigName: "uevent", callback: (action: string, device: Device) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "uevent", callback: (action: string, device: Device) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "uevent", callback: (action: string, device: Device) => void): NodeJS.EventEmitter
     emit(sigName: "uevent", action: string, device: Device): void
-    on(sigName: "uevent", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "uevent", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "uevent", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Client, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Client, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -90,11 +78,11 @@ export class Client {
 export interface Device_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class Device {
-    /* Fields of GUdev.Device */
+    /* Fields of GUdev-1.0.GUdev.Device */
     parent: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GUdev.Device */
+    /* Methods of GUdev-1.0.GUdev.Device */
     getAction(): string
     getDeviceFile(): string | null
     getDeviceFileSymlinks(): string[]
@@ -135,7 +123,7 @@ export class Device {
     hasProperty(key: string): boolean
     hasSysfsAttr(key: string): boolean
     hasSysfsAttrUncached(key: string): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -157,21 +145,12 @@ export class Device {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Device, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Device, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -188,11 +167,11 @@ export interface Enumerator_ConstructProps extends GObject.Object_ConstructProps
     client?: Client
 }
 export class Enumerator {
-    /* Fields of GUdev.Enumerator */
+    /* Fields of GUdev-1.0.GUdev.Enumerator */
     parent: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GUdev.Enumerator */
+    /* Methods of GUdev-1.0.GUdev.Enumerator */
     addMatchIsInitialized(): Enumerator
     addMatchName(name: string): Enumerator
     addMatchProperty(name: string, value: string): Enumerator
@@ -203,7 +182,7 @@ export class Enumerator {
     addNomatchSysfsAttr(name: string, value: string): Enumerator
     addSysfsPath(sysfsPath: string): Enumerator
     execute(): Device[]
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -225,21 +204,12 @@ export class Enumerator {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Enumerator, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Enumerator, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -255,7 +225,7 @@ export class Enumerator {
     static $gtype: GObject.Type
 }
 export abstract class ClientClass {
-    /* Fields of GUdev.ClientClass */
+    /* Fields of GUdev-1.0.GUdev.ClientClass */
     parentClass: GObject.ObjectClass
     uevent: (client: Client, action: string, device: Device) => void
     reserved1: () => void
@@ -272,7 +242,7 @@ export class ClientPrivate {
     static name: string
 }
 export abstract class DeviceClass {
-    /* Fields of GUdev.DeviceClass */
+    /* Fields of GUdev-1.0.GUdev.DeviceClass */
     parentClass: GObject.ObjectClass
     reserved1: () => void
     reserved2: () => void
@@ -288,7 +258,7 @@ export class DevicePrivate {
     static name: string
 }
 export abstract class EnumeratorClass {
-    /* Fields of GUdev.EnumeratorClass */
+    /* Fields of GUdev-1.0.GUdev.EnumeratorClass */
     parentClass: GObject.ObjectClass
     reserved1: () => void
     reserved2: () => void

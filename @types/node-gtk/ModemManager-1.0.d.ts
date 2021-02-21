@@ -1078,7 +1078,7 @@ export interface UnlockRetriesForeachCb {
     (lock: ModemLock, count: number): void
 }
 export class GdbusBearer {
-    /* Properties of ModemManager.GdbusBearer */
+    /* Properties of ModemManager-1.0.ModemManager.GdbusBearer */
     bearerType: number
     connected: boolean
     interface: string
@@ -1088,7 +1088,7 @@ export class GdbusBearer {
     properties: GLib.Variant
     stats: GLib.Variant
     suspended: boolean
-    /* Methods of ModemManager.GdbusBearer */
+    /* Methods of ModemManager-1.0.ModemManager.GdbusBearer */
     callConnect(cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     callConnectFinish(res: Gio.AsyncResult): boolean
     callConnectSync(cancellable?: Gio.Cancellable | null): boolean
@@ -1097,29 +1097,24 @@ export class GdbusBearer {
     callDisconnectSync(cancellable?: Gio.Cancellable | null): boolean
     completeConnect(invocation: Gio.DBusMethodInvocation): void
     completeDisconnect(invocation: Gio.DBusMethodInvocation): void
-    /* Virtual methods of ModemManager.GdbusBearer */
-    vfuncHandleConnect(invocation: Gio.DBusMethodInvocation): boolean
-    vfuncHandleDisconnect(invocation: Gio.DBusMethodInvocation): boolean
-    /* Signals of ModemManager.GdbusBearer */
+    /* Signals of ModemManager-1.0.ModemManager.GdbusBearer */
     connect(sigName: "handle-connect", callback: (($obj: GdbusBearer, invocation: Gio.DBusMethodInvocation) => boolean)): number
-    connect_after(sigName: "handle-connect", callback: (($obj: GdbusBearer, invocation: Gio.DBusMethodInvocation) => boolean)): number
+    on(sigName: "handle-connect", callback: (invocation: Gio.DBusMethodInvocation) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-connect", callback: (invocation: Gio.DBusMethodInvocation) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-connect", callback: (invocation: Gio.DBusMethodInvocation) => void): NodeJS.EventEmitter
     emit(sigName: "handle-connect", invocation: Gio.DBusMethodInvocation): void
-    on(sigName: "handle-connect", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-connect", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-connect", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "handle-disconnect", callback: (($obj: GdbusBearer, invocation: Gio.DBusMethodInvocation) => boolean)): number
-    connect_after(sigName: "handle-disconnect", callback: (($obj: GdbusBearer, invocation: Gio.DBusMethodInvocation) => boolean)): number
+    on(sigName: "handle-disconnect", callback: (invocation: Gio.DBusMethodInvocation) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-disconnect", callback: (invocation: Gio.DBusMethodInvocation) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-disconnect", callback: (invocation: Gio.DBusMethodInvocation) => void): NodeJS.EventEmitter
     emit(sigName: "handle-disconnect", invocation: Gio.DBusMethodInvocation): void
-    on(sigName: "handle-disconnect", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-disconnect", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-disconnect", callback: (...args: any[]) => void): NodeJS.EventEmitter
     static name: string
     /* Static methods and pseudo-constructors */
     static interfaceInfo(): Gio.DBusInterfaceInfo
     static overrideProperties(klass: GObject.ObjectClass, propertyIdBegin: number): number
 }
 export class GdbusModem {
-    /* Properties of ModemManager.GdbusModem */
+    /* Properties of ModemManager-1.0.ModemManager.GdbusModem */
     accessTechnologies: number
     bearers: string[]
     carrierConfiguration: string
@@ -1154,13 +1149,13 @@ export class GdbusModem {
     supportedModes: GLib.Variant
     unlockRequired: number
     unlockRetries: GLib.Variant
-    /* Methods of ModemManager.GdbusModem */
+    /* Methods of ModemManager-1.0.ModemManager.GdbusModem */
     callCommand(argCmd: string, argTimeout: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    callCommandFinish(res: Gio.AsyncResult): [ /* returnType */ boolean, /* outResponse */ string | null ]
-    callCommandSync(argCmd: string, argTimeout: number, cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* outResponse */ string | null ]
+    callCommandFinish(res: Gio.AsyncResult): { returnType: boolean, outResponse: string | null }
+    callCommandSync(argCmd: string, argTimeout: number, cancellable?: Gio.Cancellable | null): { returnType: boolean, outResponse: string | null }
     callCreateBearer(argProperties: GLib.Variant, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    callCreateBearerFinish(res: Gio.AsyncResult): [ /* returnType */ boolean, /* outPath */ string | null ]
-    callCreateBearerSync(argProperties: GLib.Variant, cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* outPath */ string | null ]
+    callCreateBearerFinish(res: Gio.AsyncResult): { returnType: boolean, outPath: string | null }
+    callCreateBearerSync(argProperties: GLib.Variant, cancellable?: Gio.Cancellable | null): { returnType: boolean, outPath: string | null }
     callDeleteBearer(argBearer: string, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     callDeleteBearerFinish(res: Gio.AsyncResult): boolean
     callDeleteBearerSync(argBearer: string, cancellable?: Gio.Cancellable | null): boolean
@@ -1171,8 +1166,8 @@ export class GdbusModem {
     callFactoryResetFinish(res: Gio.AsyncResult): boolean
     callFactoryResetSync(argCode: string, cancellable?: Gio.Cancellable | null): boolean
     callListBearers(cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    callListBearersFinish(res: Gio.AsyncResult): [ /* returnType */ boolean, /* outBearers */ string[] | null ]
-    callListBearersSync(cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* outBearers */ string[] | null ]
+    callListBearersFinish(res: Gio.AsyncResult): { returnType: boolean, outBearers: string[] | null }
+    callListBearersSync(cancellable?: Gio.Cancellable | null): { returnType: boolean, outBearers: string[] | null }
     callReset(cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     callResetFinish(res: Gio.AsyncResult): boolean
     callResetSync(cancellable?: Gio.Cancellable | null): boolean
@@ -1204,106 +1199,79 @@ export class GdbusModem {
     completeSetPowerState(invocation: Gio.DBusMethodInvocation): void
     completeSetPrimarySimSlot(invocation: Gio.DBusMethodInvocation): void
     emitStateChanged(argOld: number, argNew: number, argReason: number): void
-    /* Virtual methods of ModemManager.GdbusModem */
-    vfuncHandleCommand(invocation: Gio.DBusMethodInvocation, argCmd: string, argTimeout: number): boolean
-    vfuncHandleCreateBearer(invocation: Gio.DBusMethodInvocation, argProperties: GLib.Variant): boolean
-    vfuncHandleDeleteBearer(invocation: Gio.DBusMethodInvocation, argBearer: string): boolean
-    vfuncHandleEnable(invocation: Gio.DBusMethodInvocation, argEnable: boolean): boolean
-    vfuncHandleFactoryReset(invocation: Gio.DBusMethodInvocation, argCode: string): boolean
-    vfuncHandleListBearers(invocation: Gio.DBusMethodInvocation): boolean
-    vfuncHandleReset(invocation: Gio.DBusMethodInvocation): boolean
-    vfuncHandleSetCurrentBands(invocation: Gio.DBusMethodInvocation, argBands: GLib.Variant): boolean
-    vfuncHandleSetCurrentCapabilities(invocation: Gio.DBusMethodInvocation, argCapabilities: number): boolean
-    vfuncHandleSetCurrentModes(invocation: Gio.DBusMethodInvocation, argModes: GLib.Variant): boolean
-    vfuncHandleSetPowerState(invocation: Gio.DBusMethodInvocation, argState: number): boolean
-    vfuncHandleSetPrimarySimSlot(invocation: Gio.DBusMethodInvocation, argSimSlot: number): boolean
-    vfuncStateChanged(argOld: number, argNew: number, argReason: number): void
-    /* Signals of ModemManager.GdbusModem */
+    /* Signals of ModemManager-1.0.ModemManager.GdbusModem */
     connect(sigName: "handle-command", callback: (($obj: GdbusModem, invocation: Gio.DBusMethodInvocation, argCmd: string, argTimeout: number) => boolean)): number
-    connect_after(sigName: "handle-command", callback: (($obj: GdbusModem, invocation: Gio.DBusMethodInvocation, argCmd: string, argTimeout: number) => boolean)): number
+    on(sigName: "handle-command", callback: (invocation: Gio.DBusMethodInvocation, argCmd: string, argTimeout: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-command", callback: (invocation: Gio.DBusMethodInvocation, argCmd: string, argTimeout: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-command", callback: (invocation: Gio.DBusMethodInvocation, argCmd: string, argTimeout: number) => void): NodeJS.EventEmitter
     emit(sigName: "handle-command", invocation: Gio.DBusMethodInvocation, argCmd: string, argTimeout: number): void
-    on(sigName: "handle-command", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-command", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-command", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "handle-create-bearer", callback: (($obj: GdbusModem, invocation: Gio.DBusMethodInvocation, argProperties: GLib.Variant) => boolean)): number
-    connect_after(sigName: "handle-create-bearer", callback: (($obj: GdbusModem, invocation: Gio.DBusMethodInvocation, argProperties: GLib.Variant) => boolean)): number
+    on(sigName: "handle-create-bearer", callback: (invocation: Gio.DBusMethodInvocation, argProperties: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-create-bearer", callback: (invocation: Gio.DBusMethodInvocation, argProperties: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-create-bearer", callback: (invocation: Gio.DBusMethodInvocation, argProperties: GLib.Variant) => void): NodeJS.EventEmitter
     emit(sigName: "handle-create-bearer", invocation: Gio.DBusMethodInvocation, argProperties: GLib.Variant): void
-    on(sigName: "handle-create-bearer", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-create-bearer", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-create-bearer", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "handle-delete-bearer", callback: (($obj: GdbusModem, invocation: Gio.DBusMethodInvocation, argBearer: string) => boolean)): number
-    connect_after(sigName: "handle-delete-bearer", callback: (($obj: GdbusModem, invocation: Gio.DBusMethodInvocation, argBearer: string) => boolean)): number
+    on(sigName: "handle-delete-bearer", callback: (invocation: Gio.DBusMethodInvocation, argBearer: string) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-delete-bearer", callback: (invocation: Gio.DBusMethodInvocation, argBearer: string) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-delete-bearer", callback: (invocation: Gio.DBusMethodInvocation, argBearer: string) => void): NodeJS.EventEmitter
     emit(sigName: "handle-delete-bearer", invocation: Gio.DBusMethodInvocation, argBearer: string): void
-    on(sigName: "handle-delete-bearer", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-delete-bearer", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-delete-bearer", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "handle-enable", callback: (($obj: GdbusModem, invocation: Gio.DBusMethodInvocation, argEnable: boolean) => boolean)): number
-    connect_after(sigName: "handle-enable", callback: (($obj: GdbusModem, invocation: Gio.DBusMethodInvocation, argEnable: boolean) => boolean)): number
+    on(sigName: "handle-enable", callback: (invocation: Gio.DBusMethodInvocation, argEnable: boolean) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-enable", callback: (invocation: Gio.DBusMethodInvocation, argEnable: boolean) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-enable", callback: (invocation: Gio.DBusMethodInvocation, argEnable: boolean) => void): NodeJS.EventEmitter
     emit(sigName: "handle-enable", invocation: Gio.DBusMethodInvocation, argEnable: boolean): void
-    on(sigName: "handle-enable", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-enable", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-enable", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "handle-factory-reset", callback: (($obj: GdbusModem, invocation: Gio.DBusMethodInvocation, argCode: string) => boolean)): number
-    connect_after(sigName: "handle-factory-reset", callback: (($obj: GdbusModem, invocation: Gio.DBusMethodInvocation, argCode: string) => boolean)): number
+    on(sigName: "handle-factory-reset", callback: (invocation: Gio.DBusMethodInvocation, argCode: string) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-factory-reset", callback: (invocation: Gio.DBusMethodInvocation, argCode: string) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-factory-reset", callback: (invocation: Gio.DBusMethodInvocation, argCode: string) => void): NodeJS.EventEmitter
     emit(sigName: "handle-factory-reset", invocation: Gio.DBusMethodInvocation, argCode: string): void
-    on(sigName: "handle-factory-reset", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-factory-reset", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-factory-reset", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "handle-list-bearers", callback: (($obj: GdbusModem, invocation: Gio.DBusMethodInvocation) => boolean)): number
-    connect_after(sigName: "handle-list-bearers", callback: (($obj: GdbusModem, invocation: Gio.DBusMethodInvocation) => boolean)): number
+    on(sigName: "handle-list-bearers", callback: (invocation: Gio.DBusMethodInvocation) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-list-bearers", callback: (invocation: Gio.DBusMethodInvocation) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-list-bearers", callback: (invocation: Gio.DBusMethodInvocation) => void): NodeJS.EventEmitter
     emit(sigName: "handle-list-bearers", invocation: Gio.DBusMethodInvocation): void
-    on(sigName: "handle-list-bearers", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-list-bearers", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-list-bearers", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "handle-reset", callback: (($obj: GdbusModem, invocation: Gio.DBusMethodInvocation) => boolean)): number
-    connect_after(sigName: "handle-reset", callback: (($obj: GdbusModem, invocation: Gio.DBusMethodInvocation) => boolean)): number
+    on(sigName: "handle-reset", callback: (invocation: Gio.DBusMethodInvocation) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-reset", callback: (invocation: Gio.DBusMethodInvocation) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-reset", callback: (invocation: Gio.DBusMethodInvocation) => void): NodeJS.EventEmitter
     emit(sigName: "handle-reset", invocation: Gio.DBusMethodInvocation): void
-    on(sigName: "handle-reset", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-reset", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-reset", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "handle-set-current-bands", callback: (($obj: GdbusModem, invocation: Gio.DBusMethodInvocation, argBands: GLib.Variant) => boolean)): number
-    connect_after(sigName: "handle-set-current-bands", callback: (($obj: GdbusModem, invocation: Gio.DBusMethodInvocation, argBands: GLib.Variant) => boolean)): number
+    on(sigName: "handle-set-current-bands", callback: (invocation: Gio.DBusMethodInvocation, argBands: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-set-current-bands", callback: (invocation: Gio.DBusMethodInvocation, argBands: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-set-current-bands", callback: (invocation: Gio.DBusMethodInvocation, argBands: GLib.Variant) => void): NodeJS.EventEmitter
     emit(sigName: "handle-set-current-bands", invocation: Gio.DBusMethodInvocation, argBands: GLib.Variant): void
-    on(sigName: "handle-set-current-bands", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-set-current-bands", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-set-current-bands", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "handle-set-current-capabilities", callback: (($obj: GdbusModem, invocation: Gio.DBusMethodInvocation, argCapabilities: number) => boolean)): number
-    connect_after(sigName: "handle-set-current-capabilities", callback: (($obj: GdbusModem, invocation: Gio.DBusMethodInvocation, argCapabilities: number) => boolean)): number
+    on(sigName: "handle-set-current-capabilities", callback: (invocation: Gio.DBusMethodInvocation, argCapabilities: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-set-current-capabilities", callback: (invocation: Gio.DBusMethodInvocation, argCapabilities: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-set-current-capabilities", callback: (invocation: Gio.DBusMethodInvocation, argCapabilities: number) => void): NodeJS.EventEmitter
     emit(sigName: "handle-set-current-capabilities", invocation: Gio.DBusMethodInvocation, argCapabilities: number): void
-    on(sigName: "handle-set-current-capabilities", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-set-current-capabilities", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-set-current-capabilities", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "handle-set-current-modes", callback: (($obj: GdbusModem, invocation: Gio.DBusMethodInvocation, argModes: GLib.Variant) => boolean)): number
-    connect_after(sigName: "handle-set-current-modes", callback: (($obj: GdbusModem, invocation: Gio.DBusMethodInvocation, argModes: GLib.Variant) => boolean)): number
+    on(sigName: "handle-set-current-modes", callback: (invocation: Gio.DBusMethodInvocation, argModes: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-set-current-modes", callback: (invocation: Gio.DBusMethodInvocation, argModes: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-set-current-modes", callback: (invocation: Gio.DBusMethodInvocation, argModes: GLib.Variant) => void): NodeJS.EventEmitter
     emit(sigName: "handle-set-current-modes", invocation: Gio.DBusMethodInvocation, argModes: GLib.Variant): void
-    on(sigName: "handle-set-current-modes", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-set-current-modes", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-set-current-modes", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "handle-set-power-state", callback: (($obj: GdbusModem, invocation: Gio.DBusMethodInvocation, argState: number) => boolean)): number
-    connect_after(sigName: "handle-set-power-state", callback: (($obj: GdbusModem, invocation: Gio.DBusMethodInvocation, argState: number) => boolean)): number
+    on(sigName: "handle-set-power-state", callback: (invocation: Gio.DBusMethodInvocation, argState: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-set-power-state", callback: (invocation: Gio.DBusMethodInvocation, argState: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-set-power-state", callback: (invocation: Gio.DBusMethodInvocation, argState: number) => void): NodeJS.EventEmitter
     emit(sigName: "handle-set-power-state", invocation: Gio.DBusMethodInvocation, argState: number): void
-    on(sigName: "handle-set-power-state", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-set-power-state", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-set-power-state", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "handle-set-primary-sim-slot", callback: (($obj: GdbusModem, invocation: Gio.DBusMethodInvocation, argSimSlot: number) => boolean)): number
-    connect_after(sigName: "handle-set-primary-sim-slot", callback: (($obj: GdbusModem, invocation: Gio.DBusMethodInvocation, argSimSlot: number) => boolean)): number
+    on(sigName: "handle-set-primary-sim-slot", callback: (invocation: Gio.DBusMethodInvocation, argSimSlot: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-set-primary-sim-slot", callback: (invocation: Gio.DBusMethodInvocation, argSimSlot: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-set-primary-sim-slot", callback: (invocation: Gio.DBusMethodInvocation, argSimSlot: number) => void): NodeJS.EventEmitter
     emit(sigName: "handle-set-primary-sim-slot", invocation: Gio.DBusMethodInvocation, argSimSlot: number): void
-    on(sigName: "handle-set-primary-sim-slot", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-set-primary-sim-slot", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-set-primary-sim-slot", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "state-changed", callback: (($obj: GdbusModem, argOld: number, argNew: number, argReason: number) => void)): number
-    connect_after(sigName: "state-changed", callback: (($obj: GdbusModem, argOld: number, argNew: number, argReason: number) => void)): number
+    on(sigName: "state-changed", callback: (argOld: number, argNew: number, argReason: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "state-changed", callback: (argOld: number, argNew: number, argReason: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "state-changed", callback: (argOld: number, argNew: number, argReason: number) => void): NodeJS.EventEmitter
     emit(sigName: "state-changed", argOld: number, argNew: number, argReason: number): void
-    on(sigName: "state-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "state-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "state-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     static name: string
     /* Static methods and pseudo-constructors */
     static interfaceInfo(): Gio.DBusInterfaceInfo
     static overrideProperties(klass: GObject.ObjectClass, propertyIdBegin: number): number
 }
 export class GdbusModem3gpp {
-    /* Properties of ModemManager.GdbusModem3gpp */
+    /* Properties of ModemManager-1.0.ModemManager.GdbusModem3gpp */
     enabledFacilityLocks: number
     epsUeModeOperation: number
     imei: string
@@ -1314,13 +1282,13 @@ export class GdbusModem3gpp {
     pco: GLib.Variant
     registrationState: number
     subscriptionState: number
-    /* Methods of ModemManager.GdbusModem3gpp */
+    /* Methods of ModemManager-1.0.ModemManager.GdbusModem3gpp */
     callRegister(argOperatorId: string, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     callRegisterFinish(res: Gio.AsyncResult): boolean
     callRegisterSync(argOperatorId: string, cancellable?: Gio.Cancellable | null): boolean
     callScan(cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    callScanFinish(res: Gio.AsyncResult): [ /* returnType */ boolean, /* outResults */ GLib.Variant | null ]
-    callScanSync(cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* outResults */ GLib.Variant | null ]
+    callScanFinish(res: Gio.AsyncResult): { returnType: boolean, outResults: GLib.Variant | null }
+    callScanSync(cancellable?: Gio.Cancellable | null): { returnType: boolean, outResults: GLib.Variant | null }
     callSetEpsUeModeOperation(argMode: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     callSetEpsUeModeOperationFinish(res: Gio.AsyncResult): boolean
     callSetEpsUeModeOperationSync(argMode: number, cancellable?: Gio.Cancellable | null): boolean
@@ -1331,89 +1299,73 @@ export class GdbusModem3gpp {
     completeScan(invocation: Gio.DBusMethodInvocation, results: GLib.Variant): void
     completeSetEpsUeModeOperation(invocation: Gio.DBusMethodInvocation): void
     completeSetInitialEpsBearerSettings(invocation: Gio.DBusMethodInvocation): void
-    /* Virtual methods of ModemManager.GdbusModem3gpp */
-    vfuncHandleRegister(invocation: Gio.DBusMethodInvocation, argOperatorId: string): boolean
-    vfuncHandleScan(invocation: Gio.DBusMethodInvocation): boolean
-    vfuncHandleSetEpsUeModeOperation(invocation: Gio.DBusMethodInvocation, argMode: number): boolean
-    vfuncHandleSetInitialEpsBearerSettings(invocation: Gio.DBusMethodInvocation, argSettings: GLib.Variant): boolean
-    /* Signals of ModemManager.GdbusModem3gpp */
+    /* Signals of ModemManager-1.0.ModemManager.GdbusModem3gpp */
     connect(sigName: "handle-register", callback: (($obj: GdbusModem3gpp, invocation: Gio.DBusMethodInvocation, argOperatorId: string) => boolean)): number
-    connect_after(sigName: "handle-register", callback: (($obj: GdbusModem3gpp, invocation: Gio.DBusMethodInvocation, argOperatorId: string) => boolean)): number
+    on(sigName: "handle-register", callback: (invocation: Gio.DBusMethodInvocation, argOperatorId: string) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-register", callback: (invocation: Gio.DBusMethodInvocation, argOperatorId: string) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-register", callback: (invocation: Gio.DBusMethodInvocation, argOperatorId: string) => void): NodeJS.EventEmitter
     emit(sigName: "handle-register", invocation: Gio.DBusMethodInvocation, argOperatorId: string): void
-    on(sigName: "handle-register", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-register", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-register", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "handle-scan", callback: (($obj: GdbusModem3gpp, invocation: Gio.DBusMethodInvocation) => boolean)): number
-    connect_after(sigName: "handle-scan", callback: (($obj: GdbusModem3gpp, invocation: Gio.DBusMethodInvocation) => boolean)): number
+    on(sigName: "handle-scan", callback: (invocation: Gio.DBusMethodInvocation) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-scan", callback: (invocation: Gio.DBusMethodInvocation) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-scan", callback: (invocation: Gio.DBusMethodInvocation) => void): NodeJS.EventEmitter
     emit(sigName: "handle-scan", invocation: Gio.DBusMethodInvocation): void
-    on(sigName: "handle-scan", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-scan", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-scan", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "handle-set-eps-ue-mode-operation", callback: (($obj: GdbusModem3gpp, invocation: Gio.DBusMethodInvocation, argMode: number) => boolean)): number
-    connect_after(sigName: "handle-set-eps-ue-mode-operation", callback: (($obj: GdbusModem3gpp, invocation: Gio.DBusMethodInvocation, argMode: number) => boolean)): number
+    on(sigName: "handle-set-eps-ue-mode-operation", callback: (invocation: Gio.DBusMethodInvocation, argMode: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-set-eps-ue-mode-operation", callback: (invocation: Gio.DBusMethodInvocation, argMode: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-set-eps-ue-mode-operation", callback: (invocation: Gio.DBusMethodInvocation, argMode: number) => void): NodeJS.EventEmitter
     emit(sigName: "handle-set-eps-ue-mode-operation", invocation: Gio.DBusMethodInvocation, argMode: number): void
-    on(sigName: "handle-set-eps-ue-mode-operation", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-set-eps-ue-mode-operation", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-set-eps-ue-mode-operation", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "handle-set-initial-eps-bearer-settings", callback: (($obj: GdbusModem3gpp, invocation: Gio.DBusMethodInvocation, argSettings: GLib.Variant) => boolean)): number
-    connect_after(sigName: "handle-set-initial-eps-bearer-settings", callback: (($obj: GdbusModem3gpp, invocation: Gio.DBusMethodInvocation, argSettings: GLib.Variant) => boolean)): number
+    on(sigName: "handle-set-initial-eps-bearer-settings", callback: (invocation: Gio.DBusMethodInvocation, argSettings: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-set-initial-eps-bearer-settings", callback: (invocation: Gio.DBusMethodInvocation, argSettings: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-set-initial-eps-bearer-settings", callback: (invocation: Gio.DBusMethodInvocation, argSettings: GLib.Variant) => void): NodeJS.EventEmitter
     emit(sigName: "handle-set-initial-eps-bearer-settings", invocation: Gio.DBusMethodInvocation, argSettings: GLib.Variant): void
-    on(sigName: "handle-set-initial-eps-bearer-settings", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-set-initial-eps-bearer-settings", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-set-initial-eps-bearer-settings", callback: (...args: any[]) => void): NodeJS.EventEmitter
     static name: string
     /* Static methods and pseudo-constructors */
     static interfaceInfo(): Gio.DBusInterfaceInfo
     static overrideProperties(klass: GObject.ObjectClass, propertyIdBegin: number): number
 }
 export class GdbusModem3gppUssd {
-    /* Properties of ModemManager.GdbusModem3gppUssd */
+    /* Properties of ModemManager-1.0.ModemManager.GdbusModem3gppUssd */
     networkNotification: string
     networkRequest: string
     state: number
-    /* Methods of ModemManager.GdbusModem3gppUssd */
+    /* Methods of ModemManager-1.0.ModemManager.GdbusModem3gppUssd */
     callCancel(cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     callCancelFinish(res: Gio.AsyncResult): boolean
     callCancelSync(cancellable?: Gio.Cancellable | null): boolean
     callInitiate(argCommand: string, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    callInitiateFinish(res: Gio.AsyncResult): [ /* returnType */ boolean, /* outReply */ string | null ]
-    callInitiateSync(argCommand: string, cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* outReply */ string | null ]
+    callInitiateFinish(res: Gio.AsyncResult): { returnType: boolean, outReply: string | null }
+    callInitiateSync(argCommand: string, cancellable?: Gio.Cancellable | null): { returnType: boolean, outReply: string | null }
     callRespond(argResponse: string, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    callRespondFinish(res: Gio.AsyncResult): [ /* returnType */ boolean, /* outReply */ string | null ]
-    callRespondSync(argResponse: string, cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* outReply */ string | null ]
+    callRespondFinish(res: Gio.AsyncResult): { returnType: boolean, outReply: string | null }
+    callRespondSync(argResponse: string, cancellable?: Gio.Cancellable | null): { returnType: boolean, outReply: string | null }
     completeCancel(invocation: Gio.DBusMethodInvocation): void
     completeInitiate(invocation: Gio.DBusMethodInvocation, reply: string): void
     completeRespond(invocation: Gio.DBusMethodInvocation, reply: string): void
-    /* Virtual methods of ModemManager.GdbusModem3gppUssd */
-    vfuncHandleCancel(invocation: Gio.DBusMethodInvocation): boolean
-    vfuncHandleInitiate(invocation: Gio.DBusMethodInvocation, argCommand: string): boolean
-    vfuncHandleRespond(invocation: Gio.DBusMethodInvocation, argResponse: string): boolean
-    /* Signals of ModemManager.GdbusModem3gppUssd */
+    /* Signals of ModemManager-1.0.ModemManager.GdbusModem3gppUssd */
     connect(sigName: "handle-cancel", callback: (($obj: GdbusModem3gppUssd, invocation: Gio.DBusMethodInvocation) => boolean)): number
-    connect_after(sigName: "handle-cancel", callback: (($obj: GdbusModem3gppUssd, invocation: Gio.DBusMethodInvocation) => boolean)): number
+    on(sigName: "handle-cancel", callback: (invocation: Gio.DBusMethodInvocation) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-cancel", callback: (invocation: Gio.DBusMethodInvocation) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-cancel", callback: (invocation: Gio.DBusMethodInvocation) => void): NodeJS.EventEmitter
     emit(sigName: "handle-cancel", invocation: Gio.DBusMethodInvocation): void
-    on(sigName: "handle-cancel", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-cancel", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-cancel", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "handle-initiate", callback: (($obj: GdbusModem3gppUssd, invocation: Gio.DBusMethodInvocation, argCommand: string) => boolean)): number
-    connect_after(sigName: "handle-initiate", callback: (($obj: GdbusModem3gppUssd, invocation: Gio.DBusMethodInvocation, argCommand: string) => boolean)): number
+    on(sigName: "handle-initiate", callback: (invocation: Gio.DBusMethodInvocation, argCommand: string) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-initiate", callback: (invocation: Gio.DBusMethodInvocation, argCommand: string) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-initiate", callback: (invocation: Gio.DBusMethodInvocation, argCommand: string) => void): NodeJS.EventEmitter
     emit(sigName: "handle-initiate", invocation: Gio.DBusMethodInvocation, argCommand: string): void
-    on(sigName: "handle-initiate", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-initiate", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-initiate", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "handle-respond", callback: (($obj: GdbusModem3gppUssd, invocation: Gio.DBusMethodInvocation, argResponse: string) => boolean)): number
-    connect_after(sigName: "handle-respond", callback: (($obj: GdbusModem3gppUssd, invocation: Gio.DBusMethodInvocation, argResponse: string) => boolean)): number
+    on(sigName: "handle-respond", callback: (invocation: Gio.DBusMethodInvocation, argResponse: string) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-respond", callback: (invocation: Gio.DBusMethodInvocation, argResponse: string) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-respond", callback: (invocation: Gio.DBusMethodInvocation, argResponse: string) => void): NodeJS.EventEmitter
     emit(sigName: "handle-respond", invocation: Gio.DBusMethodInvocation, argResponse: string): void
-    on(sigName: "handle-respond", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-respond", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-respond", callback: (...args: any[]) => void): NodeJS.EventEmitter
     static name: string
     /* Static methods and pseudo-constructors */
     static interfaceInfo(): Gio.DBusInterfaceInfo
     static overrideProperties(klass: GObject.ObjectClass, propertyIdBegin: number): number
 }
 export class GdbusModemCdma {
-    /* Properties of ModemManager.GdbusModemCdma */
+    /* Properties of ModemManager-1.0.ModemManager.GdbusModemCdma */
     activationState: number
     cdma1xRegistrationState: number
     esn: string
@@ -1421,7 +1373,7 @@ export class GdbusModemCdma {
     meid: string
     nid: number
     sid: number
-    /* Methods of ModemManager.GdbusModemCdma */
+    /* Methods of ModemManager-1.0.ModemManager.GdbusModemCdma */
     callActivate(argCarrierCode: string, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     callActivateFinish(res: Gio.AsyncResult): boolean
     callActivateManual(argProperties: GLib.Variant, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
@@ -1431,69 +1383,57 @@ export class GdbusModemCdma {
     completeActivate(invocation: Gio.DBusMethodInvocation): void
     completeActivateManual(invocation: Gio.DBusMethodInvocation): void
     emitActivationStateChanged(argActivationState: number, argActivationError: number, argStatusChanges: GLib.Variant): void
-    /* Virtual methods of ModemManager.GdbusModemCdma */
-    vfuncActivationStateChanged(argActivationState: number, argActivationError: number, argStatusChanges: GLib.Variant): void
-    vfuncHandleActivate(invocation: Gio.DBusMethodInvocation, argCarrierCode: string): boolean
-    vfuncHandleActivateManual(invocation: Gio.DBusMethodInvocation, argProperties: GLib.Variant): boolean
-    /* Signals of ModemManager.GdbusModemCdma */
+    /* Signals of ModemManager-1.0.ModemManager.GdbusModemCdma */
     connect(sigName: "activation-state-changed", callback: (($obj: GdbusModemCdma, argActivationState: number, argActivationError: number, argStatusChanges: GLib.Variant) => void)): number
-    connect_after(sigName: "activation-state-changed", callback: (($obj: GdbusModemCdma, argActivationState: number, argActivationError: number, argStatusChanges: GLib.Variant) => void)): number
+    on(sigName: "activation-state-changed", callback: (argActivationState: number, argActivationError: number, argStatusChanges: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "activation-state-changed", callback: (argActivationState: number, argActivationError: number, argStatusChanges: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "activation-state-changed", callback: (argActivationState: number, argActivationError: number, argStatusChanges: GLib.Variant) => void): NodeJS.EventEmitter
     emit(sigName: "activation-state-changed", argActivationState: number, argActivationError: number, argStatusChanges: GLib.Variant): void
-    on(sigName: "activation-state-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "activation-state-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "activation-state-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "handle-activate", callback: (($obj: GdbusModemCdma, invocation: Gio.DBusMethodInvocation, argCarrierCode: string) => boolean)): number
-    connect_after(sigName: "handle-activate", callback: (($obj: GdbusModemCdma, invocation: Gio.DBusMethodInvocation, argCarrierCode: string) => boolean)): number
+    on(sigName: "handle-activate", callback: (invocation: Gio.DBusMethodInvocation, argCarrierCode: string) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-activate", callback: (invocation: Gio.DBusMethodInvocation, argCarrierCode: string) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-activate", callback: (invocation: Gio.DBusMethodInvocation, argCarrierCode: string) => void): NodeJS.EventEmitter
     emit(sigName: "handle-activate", invocation: Gio.DBusMethodInvocation, argCarrierCode: string): void
-    on(sigName: "handle-activate", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-activate", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-activate", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "handle-activate-manual", callback: (($obj: GdbusModemCdma, invocation: Gio.DBusMethodInvocation, argProperties: GLib.Variant) => boolean)): number
-    connect_after(sigName: "handle-activate-manual", callback: (($obj: GdbusModemCdma, invocation: Gio.DBusMethodInvocation, argProperties: GLib.Variant) => boolean)): number
+    on(sigName: "handle-activate-manual", callback: (invocation: Gio.DBusMethodInvocation, argProperties: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-activate-manual", callback: (invocation: Gio.DBusMethodInvocation, argProperties: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-activate-manual", callback: (invocation: Gio.DBusMethodInvocation, argProperties: GLib.Variant) => void): NodeJS.EventEmitter
     emit(sigName: "handle-activate-manual", invocation: Gio.DBusMethodInvocation, argProperties: GLib.Variant): void
-    on(sigName: "handle-activate-manual", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-activate-manual", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-activate-manual", callback: (...args: any[]) => void): NodeJS.EventEmitter
     static name: string
     /* Static methods and pseudo-constructors */
     static interfaceInfo(): Gio.DBusInterfaceInfo
     static overrideProperties(klass: GObject.ObjectClass, propertyIdBegin: number): number
 }
 export class GdbusModemFirmware {
-    /* Properties of ModemManager.GdbusModemFirmware */
+    /* Properties of ModemManager-1.0.ModemManager.GdbusModemFirmware */
     updateSettings: GLib.Variant
-    /* Methods of ModemManager.GdbusModemFirmware */
+    /* Methods of ModemManager-1.0.ModemManager.GdbusModemFirmware */
     callList(cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    callListFinish(res: Gio.AsyncResult): [ /* returnType */ boolean, /* outSelected */ string | null, /* outInstalled */ GLib.Variant | null ]
-    callListSync(cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* outSelected */ string | null, /* outInstalled */ GLib.Variant | null ]
+    callListFinish(res: Gio.AsyncResult): { returnType: boolean, outSelected: string | null, outInstalled: GLib.Variant | null }
+    callListSync(cancellable?: Gio.Cancellable | null): { returnType: boolean, outSelected: string | null, outInstalled: GLib.Variant | null }
     callSelect(argUniqueid: string, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     callSelectFinish(res: Gio.AsyncResult): boolean
     callSelectSync(argUniqueid: string, cancellable?: Gio.Cancellable | null): boolean
     completeList(invocation: Gio.DBusMethodInvocation, selected: string, installed: GLib.Variant): void
     completeSelect(invocation: Gio.DBusMethodInvocation): void
-    /* Virtual methods of ModemManager.GdbusModemFirmware */
-    vfuncHandleList(invocation: Gio.DBusMethodInvocation): boolean
-    vfuncHandleSelect(invocation: Gio.DBusMethodInvocation, argUniqueid: string): boolean
-    /* Signals of ModemManager.GdbusModemFirmware */
+    /* Signals of ModemManager-1.0.ModemManager.GdbusModemFirmware */
     connect(sigName: "handle-list", callback: (($obj: GdbusModemFirmware, invocation: Gio.DBusMethodInvocation) => boolean)): number
-    connect_after(sigName: "handle-list", callback: (($obj: GdbusModemFirmware, invocation: Gio.DBusMethodInvocation) => boolean)): number
+    on(sigName: "handle-list", callback: (invocation: Gio.DBusMethodInvocation) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-list", callback: (invocation: Gio.DBusMethodInvocation) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-list", callback: (invocation: Gio.DBusMethodInvocation) => void): NodeJS.EventEmitter
     emit(sigName: "handle-list", invocation: Gio.DBusMethodInvocation): void
-    on(sigName: "handle-list", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-list", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-list", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "handle-select", callback: (($obj: GdbusModemFirmware, invocation: Gio.DBusMethodInvocation, argUniqueid: string) => boolean)): number
-    connect_after(sigName: "handle-select", callback: (($obj: GdbusModemFirmware, invocation: Gio.DBusMethodInvocation, argUniqueid: string) => boolean)): number
+    on(sigName: "handle-select", callback: (invocation: Gio.DBusMethodInvocation, argUniqueid: string) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-select", callback: (invocation: Gio.DBusMethodInvocation, argUniqueid: string) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-select", callback: (invocation: Gio.DBusMethodInvocation, argUniqueid: string) => void): NodeJS.EventEmitter
     emit(sigName: "handle-select", invocation: Gio.DBusMethodInvocation, argUniqueid: string): void
-    on(sigName: "handle-select", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-select", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-select", callback: (...args: any[]) => void): NodeJS.EventEmitter
     static name: string
     /* Static methods and pseudo-constructors */
     static interfaceInfo(): Gio.DBusInterfaceInfo
     static overrideProperties(klass: GObject.ObjectClass, propertyIdBegin: number): number
 }
 export class GdbusModemLocation {
-    /* Properties of ModemManager.GdbusModemLocation */
+    /* Properties of ModemManager-1.0.ModemManager.GdbusModemLocation */
     assistanceDataServers: string[]
     capabilities: number
     enabled: number
@@ -1502,10 +1442,10 @@ export class GdbusModemLocation {
     signalsLocation: boolean
     suplServer: string
     supportedAssistanceData: number
-    /* Methods of ModemManager.GdbusModemLocation */
+    /* Methods of ModemManager-1.0.ModemManager.GdbusModemLocation */
     callGetLocation(cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    callGetLocationFinish(res: Gio.AsyncResult): [ /* returnType */ boolean, /* outLocation */ GLib.Variant | null ]
-    callGetLocationSync(cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* outLocation */ GLib.Variant | null ]
+    callGetLocationFinish(res: Gio.AsyncResult): { returnType: boolean, outLocation: GLib.Variant | null }
+    callGetLocationSync(cancellable?: Gio.Cancellable | null): { returnType: boolean, outLocation: GLib.Variant | null }
     callInjectAssistanceData(argData: GLib.Variant, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     callInjectAssistanceDataFinish(res: Gio.AsyncResult): boolean
     callInjectAssistanceDataSync(argData: GLib.Variant, cancellable?: Gio.Cancellable | null): boolean
@@ -1523,117 +1463,95 @@ export class GdbusModemLocation {
     completeSetGpsRefreshRate(invocation: Gio.DBusMethodInvocation): void
     completeSetSuplServer(invocation: Gio.DBusMethodInvocation): void
     completeSetup(invocation: Gio.DBusMethodInvocation): void
-    /* Virtual methods of ModemManager.GdbusModemLocation */
-    vfuncHandleGetLocation(invocation: Gio.DBusMethodInvocation): boolean
-    vfuncHandleInjectAssistanceData(invocation: Gio.DBusMethodInvocation, argData: GLib.Variant): boolean
-    vfuncHandleSetGpsRefreshRate(invocation: Gio.DBusMethodInvocation, argRate: number): boolean
-    vfuncHandleSetSuplServer(invocation: Gio.DBusMethodInvocation, argSupl: string): boolean
-    vfuncHandleSetup(invocation: Gio.DBusMethodInvocation, argSources: number, argSignalLocation: boolean): boolean
-    /* Signals of ModemManager.GdbusModemLocation */
+    /* Signals of ModemManager-1.0.ModemManager.GdbusModemLocation */
     connect(sigName: "handle-get-location", callback: (($obj: GdbusModemLocation, invocation: Gio.DBusMethodInvocation) => boolean)): number
-    connect_after(sigName: "handle-get-location", callback: (($obj: GdbusModemLocation, invocation: Gio.DBusMethodInvocation) => boolean)): number
+    on(sigName: "handle-get-location", callback: (invocation: Gio.DBusMethodInvocation) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-get-location", callback: (invocation: Gio.DBusMethodInvocation) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-get-location", callback: (invocation: Gio.DBusMethodInvocation) => void): NodeJS.EventEmitter
     emit(sigName: "handle-get-location", invocation: Gio.DBusMethodInvocation): void
-    on(sigName: "handle-get-location", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-get-location", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-get-location", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "handle-inject-assistance-data", callback: (($obj: GdbusModemLocation, invocation: Gio.DBusMethodInvocation, argData: GLib.Variant) => boolean)): number
-    connect_after(sigName: "handle-inject-assistance-data", callback: (($obj: GdbusModemLocation, invocation: Gio.DBusMethodInvocation, argData: GLib.Variant) => boolean)): number
+    on(sigName: "handle-inject-assistance-data", callback: (invocation: Gio.DBusMethodInvocation, argData: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-inject-assistance-data", callback: (invocation: Gio.DBusMethodInvocation, argData: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-inject-assistance-data", callback: (invocation: Gio.DBusMethodInvocation, argData: GLib.Variant) => void): NodeJS.EventEmitter
     emit(sigName: "handle-inject-assistance-data", invocation: Gio.DBusMethodInvocation, argData: GLib.Variant): void
-    on(sigName: "handle-inject-assistance-data", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-inject-assistance-data", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-inject-assistance-data", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "handle-set-gps-refresh-rate", callback: (($obj: GdbusModemLocation, invocation: Gio.DBusMethodInvocation, argRate: number) => boolean)): number
-    connect_after(sigName: "handle-set-gps-refresh-rate", callback: (($obj: GdbusModemLocation, invocation: Gio.DBusMethodInvocation, argRate: number) => boolean)): number
+    on(sigName: "handle-set-gps-refresh-rate", callback: (invocation: Gio.DBusMethodInvocation, argRate: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-set-gps-refresh-rate", callback: (invocation: Gio.DBusMethodInvocation, argRate: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-set-gps-refresh-rate", callback: (invocation: Gio.DBusMethodInvocation, argRate: number) => void): NodeJS.EventEmitter
     emit(sigName: "handle-set-gps-refresh-rate", invocation: Gio.DBusMethodInvocation, argRate: number): void
-    on(sigName: "handle-set-gps-refresh-rate", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-set-gps-refresh-rate", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-set-gps-refresh-rate", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "handle-set-supl-server", callback: (($obj: GdbusModemLocation, invocation: Gio.DBusMethodInvocation, argSupl: string) => boolean)): number
-    connect_after(sigName: "handle-set-supl-server", callback: (($obj: GdbusModemLocation, invocation: Gio.DBusMethodInvocation, argSupl: string) => boolean)): number
+    on(sigName: "handle-set-supl-server", callback: (invocation: Gio.DBusMethodInvocation, argSupl: string) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-set-supl-server", callback: (invocation: Gio.DBusMethodInvocation, argSupl: string) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-set-supl-server", callback: (invocation: Gio.DBusMethodInvocation, argSupl: string) => void): NodeJS.EventEmitter
     emit(sigName: "handle-set-supl-server", invocation: Gio.DBusMethodInvocation, argSupl: string): void
-    on(sigName: "handle-set-supl-server", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-set-supl-server", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-set-supl-server", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "handle-setup", callback: (($obj: GdbusModemLocation, invocation: Gio.DBusMethodInvocation, argSources: number, argSignalLocation: boolean) => boolean)): number
-    connect_after(sigName: "handle-setup", callback: (($obj: GdbusModemLocation, invocation: Gio.DBusMethodInvocation, argSources: number, argSignalLocation: boolean) => boolean)): number
+    on(sigName: "handle-setup", callback: (invocation: Gio.DBusMethodInvocation, argSources: number, argSignalLocation: boolean) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-setup", callback: (invocation: Gio.DBusMethodInvocation, argSources: number, argSignalLocation: boolean) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-setup", callback: (invocation: Gio.DBusMethodInvocation, argSources: number, argSignalLocation: boolean) => void): NodeJS.EventEmitter
     emit(sigName: "handle-setup", invocation: Gio.DBusMethodInvocation, argSources: number, argSignalLocation: boolean): void
-    on(sigName: "handle-setup", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-setup", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-setup", callback: (...args: any[]) => void): NodeJS.EventEmitter
     static name: string
     /* Static methods and pseudo-constructors */
     static interfaceInfo(): Gio.DBusInterfaceInfo
     static overrideProperties(klass: GObject.ObjectClass, propertyIdBegin: number): number
 }
 export class GdbusModemMessaging {
-    /* Properties of ModemManager.GdbusModemMessaging */
+    /* Properties of ModemManager-1.0.ModemManager.GdbusModemMessaging */
     defaultStorage: number
     messages: string[]
     supportedStorages: GLib.Variant
-    /* Methods of ModemManager.GdbusModemMessaging */
+    /* Methods of ModemManager-1.0.ModemManager.GdbusModemMessaging */
     callCreate(argProperties: GLib.Variant, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    callCreateFinish(res: Gio.AsyncResult): [ /* returnType */ boolean, /* outPath */ string | null ]
-    callCreateSync(argProperties: GLib.Variant, cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* outPath */ string | null ]
+    callCreateFinish(res: Gio.AsyncResult): { returnType: boolean, outPath: string | null }
+    callCreateSync(argProperties: GLib.Variant, cancellable?: Gio.Cancellable | null): { returnType: boolean, outPath: string | null }
     callDelete(argPath: string, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     callDeleteFinish(res: Gio.AsyncResult): boolean
     callDeleteSync(argPath: string, cancellable?: Gio.Cancellable | null): boolean
     callList(cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    callListFinish(res: Gio.AsyncResult): [ /* returnType */ boolean, /* outResult */ string[] | null ]
-    callListSync(cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* outResult */ string[] | null ]
+    callListFinish(res: Gio.AsyncResult): { returnType: boolean, outResult: string[] | null }
+    callListSync(cancellable?: Gio.Cancellable | null): { returnType: boolean, outResult: string[] | null }
     completeCreate(invocation: Gio.DBusMethodInvocation, path: string): void
     completeDelete(invocation: Gio.DBusMethodInvocation): void
     completeList(invocation: Gio.DBusMethodInvocation, result: string): void
     emitAdded(argPath: string, argReceived: boolean): void
     emitDeleted(argPath: string): void
-    /* Virtual methods of ModemManager.GdbusModemMessaging */
-    vfuncAdded(argPath: string, argReceived: boolean): void
-    vfuncDeleted(argPath: string): void
-    vfuncHandleCreate(invocation: Gio.DBusMethodInvocation, argProperties: GLib.Variant): boolean
-    vfuncHandleDelete(invocation: Gio.DBusMethodInvocation, argPath: string): boolean
-    vfuncHandleList(invocation: Gio.DBusMethodInvocation): boolean
-    /* Signals of ModemManager.GdbusModemMessaging */
+    /* Signals of ModemManager-1.0.ModemManager.GdbusModemMessaging */
     connect(sigName: "added", callback: (($obj: GdbusModemMessaging, argPath: string, argReceived: boolean) => void)): number
-    connect_after(sigName: "added", callback: (($obj: GdbusModemMessaging, argPath: string, argReceived: boolean) => void)): number
+    on(sigName: "added", callback: (argPath: string, argReceived: boolean) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "added", callback: (argPath: string, argReceived: boolean) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "added", callback: (argPath: string, argReceived: boolean) => void): NodeJS.EventEmitter
     emit(sigName: "added", argPath: string, argReceived: boolean): void
-    on(sigName: "added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "added", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "deleted", callback: (($obj: GdbusModemMessaging, argPath: string) => void)): number
-    connect_after(sigName: "deleted", callback: (($obj: GdbusModemMessaging, argPath: string) => void)): number
+    on(sigName: "deleted", callback: (argPath: string) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "deleted", callback: (argPath: string) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "deleted", callback: (argPath: string) => void): NodeJS.EventEmitter
     emit(sigName: "deleted", argPath: string): void
-    on(sigName: "deleted", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "deleted", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "deleted", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "handle-create", callback: (($obj: GdbusModemMessaging, invocation: Gio.DBusMethodInvocation, argProperties: GLib.Variant) => boolean)): number
-    connect_after(sigName: "handle-create", callback: (($obj: GdbusModemMessaging, invocation: Gio.DBusMethodInvocation, argProperties: GLib.Variant) => boolean)): number
+    on(sigName: "handle-create", callback: (invocation: Gio.DBusMethodInvocation, argProperties: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-create", callback: (invocation: Gio.DBusMethodInvocation, argProperties: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-create", callback: (invocation: Gio.DBusMethodInvocation, argProperties: GLib.Variant) => void): NodeJS.EventEmitter
     emit(sigName: "handle-create", invocation: Gio.DBusMethodInvocation, argProperties: GLib.Variant): void
-    on(sigName: "handle-create", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-create", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-create", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "handle-delete", callback: (($obj: GdbusModemMessaging, invocation: Gio.DBusMethodInvocation, argPath: string) => boolean)): number
-    connect_after(sigName: "handle-delete", callback: (($obj: GdbusModemMessaging, invocation: Gio.DBusMethodInvocation, argPath: string) => boolean)): number
+    on(sigName: "handle-delete", callback: (invocation: Gio.DBusMethodInvocation, argPath: string) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-delete", callback: (invocation: Gio.DBusMethodInvocation, argPath: string) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-delete", callback: (invocation: Gio.DBusMethodInvocation, argPath: string) => void): NodeJS.EventEmitter
     emit(sigName: "handle-delete", invocation: Gio.DBusMethodInvocation, argPath: string): void
-    on(sigName: "handle-delete", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-delete", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-delete", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "handle-list", callback: (($obj: GdbusModemMessaging, invocation: Gio.DBusMethodInvocation) => boolean)): number
-    connect_after(sigName: "handle-list", callback: (($obj: GdbusModemMessaging, invocation: Gio.DBusMethodInvocation) => boolean)): number
+    on(sigName: "handle-list", callback: (invocation: Gio.DBusMethodInvocation) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-list", callback: (invocation: Gio.DBusMethodInvocation) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-list", callback: (invocation: Gio.DBusMethodInvocation) => void): NodeJS.EventEmitter
     emit(sigName: "handle-list", invocation: Gio.DBusMethodInvocation): void
-    on(sigName: "handle-list", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-list", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-list", callback: (...args: any[]) => void): NodeJS.EventEmitter
     static name: string
     /* Static methods and pseudo-constructors */
     static interfaceInfo(): Gio.DBusInterfaceInfo
     static overrideProperties(klass: GObject.ObjectClass, propertyIdBegin: number): number
 }
 export class GdbusModemOma {
-    /* Properties of ModemManager.GdbusModemOma */
+    /* Properties of ModemManager-1.0.ModemManager.GdbusModemOma */
     features: number
     pendingNetworkInitiatedSessions: GLib.Variant
     sessionState: number
     sessionType: number
-    /* Methods of ModemManager.GdbusModemOma */
+    /* Methods of ModemManager-1.0.ModemManager.GdbusModemOma */
     callAcceptNetworkInitiatedSession(argSessionId: number, argAccept: boolean, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     callAcceptNetworkInitiatedSessionFinish(res: Gio.AsyncResult): boolean
     callAcceptNetworkInitiatedSessionSync(argSessionId: number, argAccept: boolean, cancellable?: Gio.Cancellable | null): boolean
@@ -1651,50 +1569,39 @@ export class GdbusModemOma {
     completeSetup(invocation: Gio.DBusMethodInvocation): void
     completeStartClientInitiatedSession(invocation: Gio.DBusMethodInvocation): void
     emitSessionStateChanged(argOldSessionState: number, argNewSessionState: number, argSessionStateFailedReason: number): void
-    /* Virtual methods of ModemManager.GdbusModemOma */
-    vfuncHandleAcceptNetworkInitiatedSession(invocation: Gio.DBusMethodInvocation, argSessionId: number, argAccept: boolean): boolean
-    vfuncHandleCancelSession(invocation: Gio.DBusMethodInvocation): boolean
-    vfuncHandleSetup(invocation: Gio.DBusMethodInvocation, argFeatures: number): boolean
-    vfuncHandleStartClientInitiatedSession(invocation: Gio.DBusMethodInvocation, argSessionType: number): boolean
-    vfuncSessionStateChanged(argOldSessionState: number, argNewSessionState: number, argSessionStateFailedReason: number): void
-    /* Signals of ModemManager.GdbusModemOma */
+    /* Signals of ModemManager-1.0.ModemManager.GdbusModemOma */
     connect(sigName: "handle-accept-network-initiated-session", callback: (($obj: GdbusModemOma, invocation: Gio.DBusMethodInvocation, argSessionId: number, argAccept: boolean) => boolean)): number
-    connect_after(sigName: "handle-accept-network-initiated-session", callback: (($obj: GdbusModemOma, invocation: Gio.DBusMethodInvocation, argSessionId: number, argAccept: boolean) => boolean)): number
+    on(sigName: "handle-accept-network-initiated-session", callback: (invocation: Gio.DBusMethodInvocation, argSessionId: number, argAccept: boolean) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-accept-network-initiated-session", callback: (invocation: Gio.DBusMethodInvocation, argSessionId: number, argAccept: boolean) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-accept-network-initiated-session", callback: (invocation: Gio.DBusMethodInvocation, argSessionId: number, argAccept: boolean) => void): NodeJS.EventEmitter
     emit(sigName: "handle-accept-network-initiated-session", invocation: Gio.DBusMethodInvocation, argSessionId: number, argAccept: boolean): void
-    on(sigName: "handle-accept-network-initiated-session", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-accept-network-initiated-session", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-accept-network-initiated-session", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "handle-cancel-session", callback: (($obj: GdbusModemOma, invocation: Gio.DBusMethodInvocation) => boolean)): number
-    connect_after(sigName: "handle-cancel-session", callback: (($obj: GdbusModemOma, invocation: Gio.DBusMethodInvocation) => boolean)): number
+    on(sigName: "handle-cancel-session", callback: (invocation: Gio.DBusMethodInvocation) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-cancel-session", callback: (invocation: Gio.DBusMethodInvocation) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-cancel-session", callback: (invocation: Gio.DBusMethodInvocation) => void): NodeJS.EventEmitter
     emit(sigName: "handle-cancel-session", invocation: Gio.DBusMethodInvocation): void
-    on(sigName: "handle-cancel-session", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-cancel-session", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-cancel-session", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "handle-setup", callback: (($obj: GdbusModemOma, invocation: Gio.DBusMethodInvocation, argFeatures: number) => boolean)): number
-    connect_after(sigName: "handle-setup", callback: (($obj: GdbusModemOma, invocation: Gio.DBusMethodInvocation, argFeatures: number) => boolean)): number
+    on(sigName: "handle-setup", callback: (invocation: Gio.DBusMethodInvocation, argFeatures: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-setup", callback: (invocation: Gio.DBusMethodInvocation, argFeatures: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-setup", callback: (invocation: Gio.DBusMethodInvocation, argFeatures: number) => void): NodeJS.EventEmitter
     emit(sigName: "handle-setup", invocation: Gio.DBusMethodInvocation, argFeatures: number): void
-    on(sigName: "handle-setup", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-setup", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-setup", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "handle-start-client-initiated-session", callback: (($obj: GdbusModemOma, invocation: Gio.DBusMethodInvocation, argSessionType: number) => boolean)): number
-    connect_after(sigName: "handle-start-client-initiated-session", callback: (($obj: GdbusModemOma, invocation: Gio.DBusMethodInvocation, argSessionType: number) => boolean)): number
+    on(sigName: "handle-start-client-initiated-session", callback: (invocation: Gio.DBusMethodInvocation, argSessionType: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-start-client-initiated-session", callback: (invocation: Gio.DBusMethodInvocation, argSessionType: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-start-client-initiated-session", callback: (invocation: Gio.DBusMethodInvocation, argSessionType: number) => void): NodeJS.EventEmitter
     emit(sigName: "handle-start-client-initiated-session", invocation: Gio.DBusMethodInvocation, argSessionType: number): void
-    on(sigName: "handle-start-client-initiated-session", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-start-client-initiated-session", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-start-client-initiated-session", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "session-state-changed", callback: (($obj: GdbusModemOma, argOldSessionState: number, argNewSessionState: number, argSessionStateFailedReason: number) => void)): number
-    connect_after(sigName: "session-state-changed", callback: (($obj: GdbusModemOma, argOldSessionState: number, argNewSessionState: number, argSessionStateFailedReason: number) => void)): number
+    on(sigName: "session-state-changed", callback: (argOldSessionState: number, argNewSessionState: number, argSessionStateFailedReason: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "session-state-changed", callback: (argOldSessionState: number, argNewSessionState: number, argSessionStateFailedReason: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "session-state-changed", callback: (argOldSessionState: number, argNewSessionState: number, argSessionStateFailedReason: number) => void): NodeJS.EventEmitter
     emit(sigName: "session-state-changed", argOldSessionState: number, argNewSessionState: number, argSessionStateFailedReason: number): void
-    on(sigName: "session-state-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "session-state-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "session-state-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     static name: string
     /* Static methods and pseudo-constructors */
     static interfaceInfo(): Gio.DBusInterfaceInfo
     static overrideProperties(klass: GObject.ObjectClass, propertyIdBegin: number): number
 }
 export class GdbusModemSignal {
-    /* Properties of ModemManager.GdbusModemSignal */
+    /* Properties of ModemManager-1.0.ModemManager.GdbusModemSignal */
     cdma: GLib.Variant
     evdo: GLib.Variant
     gsm: GLib.Variant
@@ -1702,111 +1609,96 @@ export class GdbusModemSignal {
     nr5g: GLib.Variant
     rate: number
     umts: GLib.Variant
-    /* Methods of ModemManager.GdbusModemSignal */
+    /* Methods of ModemManager-1.0.ModemManager.GdbusModemSignal */
     callSetup(argRate: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     callSetupFinish(res: Gio.AsyncResult): boolean
     callSetupSync(argRate: number, cancellable?: Gio.Cancellable | null): boolean
     completeSetup(invocation: Gio.DBusMethodInvocation): void
-    /* Virtual methods of ModemManager.GdbusModemSignal */
-    vfuncHandleSetup(invocation: Gio.DBusMethodInvocation, argRate: number): boolean
-    /* Signals of ModemManager.GdbusModemSignal */
+    /* Signals of ModemManager-1.0.ModemManager.GdbusModemSignal */
     connect(sigName: "handle-setup", callback: (($obj: GdbusModemSignal, invocation: Gio.DBusMethodInvocation, argRate: number) => boolean)): number
-    connect_after(sigName: "handle-setup", callback: (($obj: GdbusModemSignal, invocation: Gio.DBusMethodInvocation, argRate: number) => boolean)): number
+    on(sigName: "handle-setup", callback: (invocation: Gio.DBusMethodInvocation, argRate: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-setup", callback: (invocation: Gio.DBusMethodInvocation, argRate: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-setup", callback: (invocation: Gio.DBusMethodInvocation, argRate: number) => void): NodeJS.EventEmitter
     emit(sigName: "handle-setup", invocation: Gio.DBusMethodInvocation, argRate: number): void
-    on(sigName: "handle-setup", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-setup", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-setup", callback: (...args: any[]) => void): NodeJS.EventEmitter
     static name: string
     /* Static methods and pseudo-constructors */
     static interfaceInfo(): Gio.DBusInterfaceInfo
     static overrideProperties(klass: GObject.ObjectClass, propertyIdBegin: number): number
 }
 export class GdbusModemSimple {
-    /* Methods of ModemManager.GdbusModemSimple */
+    /* Methods of ModemManager-1.0.ModemManager.GdbusModemSimple */
     callConnect(argProperties: GLib.Variant, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    callConnectFinish(res: Gio.AsyncResult): [ /* returnType */ boolean, /* outBearer */ string | null ]
-    callConnectSync(argProperties: GLib.Variant, cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* outBearer */ string | null ]
+    callConnectFinish(res: Gio.AsyncResult): { returnType: boolean, outBearer: string | null }
+    callConnectSync(argProperties: GLib.Variant, cancellable?: Gio.Cancellable | null): { returnType: boolean, outBearer: string | null }
     callDisconnect(argBearer: string, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     callDisconnectFinish(res: Gio.AsyncResult): boolean
     callDisconnectSync(argBearer: string, cancellable?: Gio.Cancellable | null): boolean
     callGetStatus(cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    callGetStatusFinish(res: Gio.AsyncResult): [ /* returnType */ boolean, /* outProperties */ GLib.Variant | null ]
-    callGetStatusSync(cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* outProperties */ GLib.Variant | null ]
+    callGetStatusFinish(res: Gio.AsyncResult): { returnType: boolean, outProperties: GLib.Variant | null }
+    callGetStatusSync(cancellable?: Gio.Cancellable | null): { returnType: boolean, outProperties: GLib.Variant | null }
     completeConnect(invocation: Gio.DBusMethodInvocation, bearer: string): void
     completeDisconnect(invocation: Gio.DBusMethodInvocation): void
     completeGetStatus(invocation: Gio.DBusMethodInvocation, properties: GLib.Variant): void
-    /* Virtual methods of ModemManager.GdbusModemSimple */
-    vfuncHandleConnect(invocation: Gio.DBusMethodInvocation, argProperties: GLib.Variant): boolean
-    vfuncHandleDisconnect(invocation: Gio.DBusMethodInvocation, argBearer: string): boolean
-    vfuncHandleGetStatus(invocation: Gio.DBusMethodInvocation): boolean
-    /* Signals of ModemManager.GdbusModemSimple */
+    /* Signals of ModemManager-1.0.ModemManager.GdbusModemSimple */
     connect(sigName: "handle-connect", callback: (($obj: GdbusModemSimple, invocation: Gio.DBusMethodInvocation, argProperties: GLib.Variant) => boolean)): number
-    connect_after(sigName: "handle-connect", callback: (($obj: GdbusModemSimple, invocation: Gio.DBusMethodInvocation, argProperties: GLib.Variant) => boolean)): number
+    on(sigName: "handle-connect", callback: (invocation: Gio.DBusMethodInvocation, argProperties: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-connect", callback: (invocation: Gio.DBusMethodInvocation, argProperties: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-connect", callback: (invocation: Gio.DBusMethodInvocation, argProperties: GLib.Variant) => void): NodeJS.EventEmitter
     emit(sigName: "handle-connect", invocation: Gio.DBusMethodInvocation, argProperties: GLib.Variant): void
-    on(sigName: "handle-connect", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-connect", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-connect", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "handle-disconnect", callback: (($obj: GdbusModemSimple, invocation: Gio.DBusMethodInvocation, argBearer: string) => boolean)): number
-    connect_after(sigName: "handle-disconnect", callback: (($obj: GdbusModemSimple, invocation: Gio.DBusMethodInvocation, argBearer: string) => boolean)): number
+    on(sigName: "handle-disconnect", callback: (invocation: Gio.DBusMethodInvocation, argBearer: string) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-disconnect", callback: (invocation: Gio.DBusMethodInvocation, argBearer: string) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-disconnect", callback: (invocation: Gio.DBusMethodInvocation, argBearer: string) => void): NodeJS.EventEmitter
     emit(sigName: "handle-disconnect", invocation: Gio.DBusMethodInvocation, argBearer: string): void
-    on(sigName: "handle-disconnect", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-disconnect", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-disconnect", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "handle-get-status", callback: (($obj: GdbusModemSimple, invocation: Gio.DBusMethodInvocation) => boolean)): number
-    connect_after(sigName: "handle-get-status", callback: (($obj: GdbusModemSimple, invocation: Gio.DBusMethodInvocation) => boolean)): number
+    on(sigName: "handle-get-status", callback: (invocation: Gio.DBusMethodInvocation) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-get-status", callback: (invocation: Gio.DBusMethodInvocation) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-get-status", callback: (invocation: Gio.DBusMethodInvocation) => void): NodeJS.EventEmitter
     emit(sigName: "handle-get-status", invocation: Gio.DBusMethodInvocation): void
-    on(sigName: "handle-get-status", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-get-status", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-get-status", callback: (...args: any[]) => void): NodeJS.EventEmitter
     static name: string
     /* Static methods and pseudo-constructors */
     static interfaceInfo(): Gio.DBusInterfaceInfo
     static overrideProperties(klass: GObject.ObjectClass, propertyIdBegin: number): number
 }
 export class GdbusModemTime {
-    /* Properties of ModemManager.GdbusModemTime */
+    /* Properties of ModemManager-1.0.ModemManager.GdbusModemTime */
     networkTimezone: GLib.Variant
-    /* Methods of ModemManager.GdbusModemTime */
+    /* Methods of ModemManager-1.0.ModemManager.GdbusModemTime */
     callGetNetworkTime(cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    callGetNetworkTimeFinish(res: Gio.AsyncResult): [ /* returnType */ boolean, /* outTime */ string | null ]
-    callGetNetworkTimeSync(cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* outTime */ string | null ]
+    callGetNetworkTimeFinish(res: Gio.AsyncResult): { returnType: boolean, outTime: string | null }
+    callGetNetworkTimeSync(cancellable?: Gio.Cancellable | null): { returnType: boolean, outTime: string | null }
     completeGetNetworkTime(invocation: Gio.DBusMethodInvocation, time: string): void
     emitNetworkTimeChanged(argTime: string): void
-    /* Virtual methods of ModemManager.GdbusModemTime */
-    vfuncHandleGetNetworkTime(invocation: Gio.DBusMethodInvocation): boolean
-    vfuncNetworkTimeChanged(argTime: string): void
-    /* Signals of ModemManager.GdbusModemTime */
+    /* Signals of ModemManager-1.0.ModemManager.GdbusModemTime */
     connect(sigName: "handle-get-network-time", callback: (($obj: GdbusModemTime, invocation: Gio.DBusMethodInvocation) => boolean)): number
-    connect_after(sigName: "handle-get-network-time", callback: (($obj: GdbusModemTime, invocation: Gio.DBusMethodInvocation) => boolean)): number
+    on(sigName: "handle-get-network-time", callback: (invocation: Gio.DBusMethodInvocation) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-get-network-time", callback: (invocation: Gio.DBusMethodInvocation) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-get-network-time", callback: (invocation: Gio.DBusMethodInvocation) => void): NodeJS.EventEmitter
     emit(sigName: "handle-get-network-time", invocation: Gio.DBusMethodInvocation): void
-    on(sigName: "handle-get-network-time", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-get-network-time", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-get-network-time", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "network-time-changed", callback: (($obj: GdbusModemTime, argTime: string) => void)): number
-    connect_after(sigName: "network-time-changed", callback: (($obj: GdbusModemTime, argTime: string) => void)): number
+    on(sigName: "network-time-changed", callback: (argTime: string) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "network-time-changed", callback: (argTime: string) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "network-time-changed", callback: (argTime: string) => void): NodeJS.EventEmitter
     emit(sigName: "network-time-changed", argTime: string): void
-    on(sigName: "network-time-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "network-time-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "network-time-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     static name: string
     /* Static methods and pseudo-constructors */
     static interfaceInfo(): Gio.DBusInterfaceInfo
     static overrideProperties(klass: GObject.ObjectClass, propertyIdBegin: number): number
 }
 export class GdbusModemVoice {
-    /* Properties of ModemManager.GdbusModemVoice */
+    /* Properties of ModemManager-1.0.ModemManager.GdbusModemVoice */
     calls: string[]
     emergencyOnly: boolean
-    /* Methods of ModemManager.GdbusModemVoice */
+    /* Methods of ModemManager-1.0.ModemManager.GdbusModemVoice */
     callCallWaitingQuery(cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    callCallWaitingQueryFinish(res: Gio.AsyncResult): [ /* returnType */ boolean, /* outStatus */ boolean | null ]
-    callCallWaitingQuerySync(cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* outStatus */ boolean | null ]
+    callCallWaitingQueryFinish(res: Gio.AsyncResult): { returnType: boolean, outStatus: boolean | null }
+    callCallWaitingQuerySync(cancellable?: Gio.Cancellable | null): { returnType: boolean, outStatus: boolean | null }
     callCallWaitingSetup(argEnable: boolean, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     callCallWaitingSetupFinish(res: Gio.AsyncResult): boolean
     callCallWaitingSetupSync(argEnable: boolean, cancellable?: Gio.Cancellable | null): boolean
     callCreateCall(argProperties: GLib.Variant, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    callCreateCallFinish(res: Gio.AsyncResult): [ /* returnType */ boolean, /* outPath */ string | null ]
-    callCreateCallSync(argProperties: GLib.Variant, cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* outPath */ string | null ]
+    callCreateCallFinish(res: Gio.AsyncResult): { returnType: boolean, outPath: string | null }
+    callCreateCallSync(argProperties: GLib.Variant, cancellable?: Gio.Cancellable | null): { returnType: boolean, outPath: string | null }
     callDeleteCall(argPath: string, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     callDeleteCallFinish(res: Gio.AsyncResult): boolean
     callDeleteCallSync(argPath: string, cancellable?: Gio.Cancellable | null): boolean
@@ -1820,8 +1712,8 @@ export class GdbusModemVoice {
     callHoldAndAcceptFinish(res: Gio.AsyncResult): boolean
     callHoldAndAcceptSync(cancellable?: Gio.Cancellable | null): boolean
     callListCalls(cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    callListCallsFinish(res: Gio.AsyncResult): [ /* returnType */ boolean, /* outResult */ string[] | null ]
-    callListCallsSync(cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* outResult */ string[] | null ]
+    callListCallsFinish(res: Gio.AsyncResult): { returnType: boolean, outResult: string[] | null }
+    callListCallsSync(cancellable?: Gio.Cancellable | null): { returnType: boolean, outResult: string[] | null }
     callTransfer(cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     callTransferFinish(res: Gio.AsyncResult): boolean
     callTransferSync(cancellable?: Gio.Cancellable | null): boolean
@@ -1836,92 +1728,69 @@ export class GdbusModemVoice {
     completeTransfer(invocation: Gio.DBusMethodInvocation): void
     emitCallAdded(argPath: string): void
     emitCallDeleted(argPath: string): void
-    /* Virtual methods of ModemManager.GdbusModemVoice */
-    vfuncCallAdded(argPath: string): void
-    vfuncCallDeleted(argPath: string): void
-    vfuncHandleCallWaitingQuery(invocation: Gio.DBusMethodInvocation): boolean
-    vfuncHandleCallWaitingSetup(invocation: Gio.DBusMethodInvocation, argEnable: boolean): boolean
-    vfuncHandleCreateCall(invocation: Gio.DBusMethodInvocation, argProperties: GLib.Variant): boolean
-    vfuncHandleDeleteCall(invocation: Gio.DBusMethodInvocation, argPath: string): boolean
-    vfuncHandleHangupAll(invocation: Gio.DBusMethodInvocation): boolean
-    vfuncHandleHangupAndAccept(invocation: Gio.DBusMethodInvocation): boolean
-    vfuncHandleHoldAndAccept(invocation: Gio.DBusMethodInvocation): boolean
-    vfuncHandleListCalls(invocation: Gio.DBusMethodInvocation): boolean
-    vfuncHandleTransfer(invocation: Gio.DBusMethodInvocation): boolean
-    /* Signals of ModemManager.GdbusModemVoice */
+    /* Signals of ModemManager-1.0.ModemManager.GdbusModemVoice */
     connect(sigName: "call-added", callback: (($obj: GdbusModemVoice, argPath: string) => void)): number
-    connect_after(sigName: "call-added", callback: (($obj: GdbusModemVoice, argPath: string) => void)): number
+    on(sigName: "call-added", callback: (argPath: string) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "call-added", callback: (argPath: string) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "call-added", callback: (argPath: string) => void): NodeJS.EventEmitter
     emit(sigName: "call-added", argPath: string): void
-    on(sigName: "call-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "call-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "call-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "call-deleted", callback: (($obj: GdbusModemVoice, argPath: string) => void)): number
-    connect_after(sigName: "call-deleted", callback: (($obj: GdbusModemVoice, argPath: string) => void)): number
+    on(sigName: "call-deleted", callback: (argPath: string) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "call-deleted", callback: (argPath: string) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "call-deleted", callback: (argPath: string) => void): NodeJS.EventEmitter
     emit(sigName: "call-deleted", argPath: string): void
-    on(sigName: "call-deleted", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "call-deleted", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "call-deleted", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "handle-call-waiting-query", callback: (($obj: GdbusModemVoice, invocation: Gio.DBusMethodInvocation) => boolean)): number
-    connect_after(sigName: "handle-call-waiting-query", callback: (($obj: GdbusModemVoice, invocation: Gio.DBusMethodInvocation) => boolean)): number
+    on(sigName: "handle-call-waiting-query", callback: (invocation: Gio.DBusMethodInvocation) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-call-waiting-query", callback: (invocation: Gio.DBusMethodInvocation) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-call-waiting-query", callback: (invocation: Gio.DBusMethodInvocation) => void): NodeJS.EventEmitter
     emit(sigName: "handle-call-waiting-query", invocation: Gio.DBusMethodInvocation): void
-    on(sigName: "handle-call-waiting-query", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-call-waiting-query", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-call-waiting-query", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "handle-call-waiting-setup", callback: (($obj: GdbusModemVoice, invocation: Gio.DBusMethodInvocation, argEnable: boolean) => boolean)): number
-    connect_after(sigName: "handle-call-waiting-setup", callback: (($obj: GdbusModemVoice, invocation: Gio.DBusMethodInvocation, argEnable: boolean) => boolean)): number
+    on(sigName: "handle-call-waiting-setup", callback: (invocation: Gio.DBusMethodInvocation, argEnable: boolean) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-call-waiting-setup", callback: (invocation: Gio.DBusMethodInvocation, argEnable: boolean) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-call-waiting-setup", callback: (invocation: Gio.DBusMethodInvocation, argEnable: boolean) => void): NodeJS.EventEmitter
     emit(sigName: "handle-call-waiting-setup", invocation: Gio.DBusMethodInvocation, argEnable: boolean): void
-    on(sigName: "handle-call-waiting-setup", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-call-waiting-setup", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-call-waiting-setup", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "handle-create-call", callback: (($obj: GdbusModemVoice, invocation: Gio.DBusMethodInvocation, argProperties: GLib.Variant) => boolean)): number
-    connect_after(sigName: "handle-create-call", callback: (($obj: GdbusModemVoice, invocation: Gio.DBusMethodInvocation, argProperties: GLib.Variant) => boolean)): number
+    on(sigName: "handle-create-call", callback: (invocation: Gio.DBusMethodInvocation, argProperties: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-create-call", callback: (invocation: Gio.DBusMethodInvocation, argProperties: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-create-call", callback: (invocation: Gio.DBusMethodInvocation, argProperties: GLib.Variant) => void): NodeJS.EventEmitter
     emit(sigName: "handle-create-call", invocation: Gio.DBusMethodInvocation, argProperties: GLib.Variant): void
-    on(sigName: "handle-create-call", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-create-call", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-create-call", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "handle-delete-call", callback: (($obj: GdbusModemVoice, invocation: Gio.DBusMethodInvocation, argPath: string) => boolean)): number
-    connect_after(sigName: "handle-delete-call", callback: (($obj: GdbusModemVoice, invocation: Gio.DBusMethodInvocation, argPath: string) => boolean)): number
+    on(sigName: "handle-delete-call", callback: (invocation: Gio.DBusMethodInvocation, argPath: string) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-delete-call", callback: (invocation: Gio.DBusMethodInvocation, argPath: string) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-delete-call", callback: (invocation: Gio.DBusMethodInvocation, argPath: string) => void): NodeJS.EventEmitter
     emit(sigName: "handle-delete-call", invocation: Gio.DBusMethodInvocation, argPath: string): void
-    on(sigName: "handle-delete-call", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-delete-call", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-delete-call", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "handle-hangup-all", callback: (($obj: GdbusModemVoice, invocation: Gio.DBusMethodInvocation) => boolean)): number
-    connect_after(sigName: "handle-hangup-all", callback: (($obj: GdbusModemVoice, invocation: Gio.DBusMethodInvocation) => boolean)): number
+    on(sigName: "handle-hangup-all", callback: (invocation: Gio.DBusMethodInvocation) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-hangup-all", callback: (invocation: Gio.DBusMethodInvocation) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-hangup-all", callback: (invocation: Gio.DBusMethodInvocation) => void): NodeJS.EventEmitter
     emit(sigName: "handle-hangup-all", invocation: Gio.DBusMethodInvocation): void
-    on(sigName: "handle-hangup-all", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-hangup-all", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-hangup-all", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "handle-hangup-and-accept", callback: (($obj: GdbusModemVoice, invocation: Gio.DBusMethodInvocation) => boolean)): number
-    connect_after(sigName: "handle-hangup-and-accept", callback: (($obj: GdbusModemVoice, invocation: Gio.DBusMethodInvocation) => boolean)): number
+    on(sigName: "handle-hangup-and-accept", callback: (invocation: Gio.DBusMethodInvocation) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-hangup-and-accept", callback: (invocation: Gio.DBusMethodInvocation) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-hangup-and-accept", callback: (invocation: Gio.DBusMethodInvocation) => void): NodeJS.EventEmitter
     emit(sigName: "handle-hangup-and-accept", invocation: Gio.DBusMethodInvocation): void
-    on(sigName: "handle-hangup-and-accept", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-hangup-and-accept", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-hangup-and-accept", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "handle-hold-and-accept", callback: (($obj: GdbusModemVoice, invocation: Gio.DBusMethodInvocation) => boolean)): number
-    connect_after(sigName: "handle-hold-and-accept", callback: (($obj: GdbusModemVoice, invocation: Gio.DBusMethodInvocation) => boolean)): number
+    on(sigName: "handle-hold-and-accept", callback: (invocation: Gio.DBusMethodInvocation) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-hold-and-accept", callback: (invocation: Gio.DBusMethodInvocation) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-hold-and-accept", callback: (invocation: Gio.DBusMethodInvocation) => void): NodeJS.EventEmitter
     emit(sigName: "handle-hold-and-accept", invocation: Gio.DBusMethodInvocation): void
-    on(sigName: "handle-hold-and-accept", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-hold-and-accept", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-hold-and-accept", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "handle-list-calls", callback: (($obj: GdbusModemVoice, invocation: Gio.DBusMethodInvocation) => boolean)): number
-    connect_after(sigName: "handle-list-calls", callback: (($obj: GdbusModemVoice, invocation: Gio.DBusMethodInvocation) => boolean)): number
+    on(sigName: "handle-list-calls", callback: (invocation: Gio.DBusMethodInvocation) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-list-calls", callback: (invocation: Gio.DBusMethodInvocation) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-list-calls", callback: (invocation: Gio.DBusMethodInvocation) => void): NodeJS.EventEmitter
     emit(sigName: "handle-list-calls", invocation: Gio.DBusMethodInvocation): void
-    on(sigName: "handle-list-calls", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-list-calls", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-list-calls", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "handle-transfer", callback: (($obj: GdbusModemVoice, invocation: Gio.DBusMethodInvocation) => boolean)): number
-    connect_after(sigName: "handle-transfer", callback: (($obj: GdbusModemVoice, invocation: Gio.DBusMethodInvocation) => boolean)): number
+    on(sigName: "handle-transfer", callback: (invocation: Gio.DBusMethodInvocation) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-transfer", callback: (invocation: Gio.DBusMethodInvocation) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-transfer", callback: (invocation: Gio.DBusMethodInvocation) => void): NodeJS.EventEmitter
     emit(sigName: "handle-transfer", invocation: Gio.DBusMethodInvocation): void
-    on(sigName: "handle-transfer", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-transfer", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-transfer", callback: (...args: any[]) => void): NodeJS.EventEmitter
     static name: string
     /* Static methods and pseudo-constructors */
     static interfaceInfo(): Gio.DBusInterfaceInfo
     static overrideProperties(klass: GObject.ObjectClass, propertyIdBegin: number): number
 }
 export class GdbusObject {
-    /* Properties of ModemManager.GdbusObject */
+    /* Properties of ModemManager-1.0.ModemManager.GdbusObject */
     modem: GdbusModem
     modemCdma: GdbusModemCdma
     modemFirmware: GdbusModemFirmware
@@ -1934,7 +1803,7 @@ export class GdbusObject {
     modemVoice: GdbusModemVoice
     modem3gpp: GdbusModem3gpp
     modem3gppUssd: GdbusModem3gppUssd
-    /* Methods of ModemManager.GdbusObject */
+    /* Methods of ModemManager-1.0.ModemManager.GdbusObject */
     getModem(): GdbusModem | null
     getModem3gpp(): GdbusModem3gpp | null
     getModem3gppUssd(): GdbusModem3gppUssd | null
@@ -1947,35 +1816,27 @@ export class GdbusObject {
     getModemSimple(): GdbusModemSimple | null
     getModemTime(): GdbusModemTime | null
     getModemVoice(): GdbusModemVoice | null
-    /* Methods of Gio.DBusObject */
+    /* Methods of Gio-2.0.Gio.DBusObject */
     getInterface(interfaceName: string): Gio.DBusInterface | null
     getInterfaces(): Gio.DBusInterface[]
     getObjectPath(): string
-    /* Virtual methods of Gio.DBusObject */
-    vfuncGetInterface(interfaceName: string): Gio.DBusInterface | null
-    vfuncGetInterfaces(): Gio.DBusInterface[]
-    vfuncGetObjectPath(): string
-    vfuncInterfaceAdded(interface: Gio.DBusInterface): void
-    vfuncInterfaceRemoved(interface: Gio.DBusInterface): void
-    /* Signals of Gio.DBusObject */
+    /* Signals of Gio-2.0.Gio.DBusObject */
     connect(sigName: "interface-added", callback: (($obj: GdbusObject, interface: Gio.DBusInterface) => void)): number
-    connect_after(sigName: "interface-added", callback: (($obj: GdbusObject, interface: Gio.DBusInterface) => void)): number
+    on(sigName: "interface-added", callback: (interface: Gio.DBusInterface) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "interface-added", callback: (interface: Gio.DBusInterface) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "interface-added", callback: (interface: Gio.DBusInterface) => void): NodeJS.EventEmitter
     emit(sigName: "interface-added", interface: Gio.DBusInterface): void
-    on(sigName: "interface-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "interface-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "interface-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "interface-removed", callback: (($obj: GdbusObject, interface: Gio.DBusInterface) => void)): number
-    connect_after(sigName: "interface-removed", callback: (($obj: GdbusObject, interface: Gio.DBusInterface) => void)): number
+    on(sigName: "interface-removed", callback: (interface: Gio.DBusInterface) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "interface-removed", callback: (interface: Gio.DBusInterface) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "interface-removed", callback: (interface: Gio.DBusInterface) => void): NodeJS.EventEmitter
     emit(sigName: "interface-removed", interface: Gio.DBusInterface): void
-    on(sigName: "interface-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "interface-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "interface-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     static name: string
 }
 export class GdbusOrgFreedesktopModemManager1 {
-    /* Properties of ModemManager.GdbusOrgFreedesktopModemManager1 */
+    /* Properties of ModemManager-1.0.ModemManager.GdbusOrgFreedesktopModemManager1 */
     version: string
-    /* Methods of ModemManager.GdbusOrgFreedesktopModemManager1 */
+    /* Methods of ModemManager-1.0.ModemManager.GdbusOrgFreedesktopModemManager1 */
     callInhibitDevice(argUid: string, argInhibit: boolean, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     callInhibitDeviceFinish(res: Gio.AsyncResult): boolean
     callInhibitDeviceSync(argUid: string, argInhibit: boolean, cancellable?: Gio.Cancellable | null): boolean
@@ -1992,43 +1853,34 @@ export class GdbusOrgFreedesktopModemManager1 {
     completeReportKernelEvent(invocation: Gio.DBusMethodInvocation): void
     completeScanDevices(invocation: Gio.DBusMethodInvocation): void
     completeSetLogging(invocation: Gio.DBusMethodInvocation): void
-    /* Virtual methods of ModemManager.GdbusOrgFreedesktopModemManager1 */
-    vfuncHandleInhibitDevice(invocation: Gio.DBusMethodInvocation, argUid: string, argInhibit: boolean): boolean
-    vfuncHandleReportKernelEvent(invocation: Gio.DBusMethodInvocation, argProperties: GLib.Variant): boolean
-    vfuncHandleScanDevices(invocation: Gio.DBusMethodInvocation): boolean
-    vfuncHandleSetLogging(invocation: Gio.DBusMethodInvocation, argLevel: string): boolean
-    /* Signals of ModemManager.GdbusOrgFreedesktopModemManager1 */
+    /* Signals of ModemManager-1.0.ModemManager.GdbusOrgFreedesktopModemManager1 */
     connect(sigName: "handle-inhibit-device", callback: (($obj: GdbusOrgFreedesktopModemManager1, invocation: Gio.DBusMethodInvocation, argUid: string, argInhibit: boolean) => boolean)): number
-    connect_after(sigName: "handle-inhibit-device", callback: (($obj: GdbusOrgFreedesktopModemManager1, invocation: Gio.DBusMethodInvocation, argUid: string, argInhibit: boolean) => boolean)): number
+    on(sigName: "handle-inhibit-device", callback: (invocation: Gio.DBusMethodInvocation, argUid: string, argInhibit: boolean) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-inhibit-device", callback: (invocation: Gio.DBusMethodInvocation, argUid: string, argInhibit: boolean) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-inhibit-device", callback: (invocation: Gio.DBusMethodInvocation, argUid: string, argInhibit: boolean) => void): NodeJS.EventEmitter
     emit(sigName: "handle-inhibit-device", invocation: Gio.DBusMethodInvocation, argUid: string, argInhibit: boolean): void
-    on(sigName: "handle-inhibit-device", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-inhibit-device", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-inhibit-device", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "handle-report-kernel-event", callback: (($obj: GdbusOrgFreedesktopModemManager1, invocation: Gio.DBusMethodInvocation, argProperties: GLib.Variant) => boolean)): number
-    connect_after(sigName: "handle-report-kernel-event", callback: (($obj: GdbusOrgFreedesktopModemManager1, invocation: Gio.DBusMethodInvocation, argProperties: GLib.Variant) => boolean)): number
+    on(sigName: "handle-report-kernel-event", callback: (invocation: Gio.DBusMethodInvocation, argProperties: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-report-kernel-event", callback: (invocation: Gio.DBusMethodInvocation, argProperties: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-report-kernel-event", callback: (invocation: Gio.DBusMethodInvocation, argProperties: GLib.Variant) => void): NodeJS.EventEmitter
     emit(sigName: "handle-report-kernel-event", invocation: Gio.DBusMethodInvocation, argProperties: GLib.Variant): void
-    on(sigName: "handle-report-kernel-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-report-kernel-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-report-kernel-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "handle-scan-devices", callback: (($obj: GdbusOrgFreedesktopModemManager1, invocation: Gio.DBusMethodInvocation) => boolean)): number
-    connect_after(sigName: "handle-scan-devices", callback: (($obj: GdbusOrgFreedesktopModemManager1, invocation: Gio.DBusMethodInvocation) => boolean)): number
+    on(sigName: "handle-scan-devices", callback: (invocation: Gio.DBusMethodInvocation) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-scan-devices", callback: (invocation: Gio.DBusMethodInvocation) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-scan-devices", callback: (invocation: Gio.DBusMethodInvocation) => void): NodeJS.EventEmitter
     emit(sigName: "handle-scan-devices", invocation: Gio.DBusMethodInvocation): void
-    on(sigName: "handle-scan-devices", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-scan-devices", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-scan-devices", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "handle-set-logging", callback: (($obj: GdbusOrgFreedesktopModemManager1, invocation: Gio.DBusMethodInvocation, argLevel: string) => boolean)): number
-    connect_after(sigName: "handle-set-logging", callback: (($obj: GdbusOrgFreedesktopModemManager1, invocation: Gio.DBusMethodInvocation, argLevel: string) => boolean)): number
+    on(sigName: "handle-set-logging", callback: (invocation: Gio.DBusMethodInvocation, argLevel: string) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-set-logging", callback: (invocation: Gio.DBusMethodInvocation, argLevel: string) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-set-logging", callback: (invocation: Gio.DBusMethodInvocation, argLevel: string) => void): NodeJS.EventEmitter
     emit(sigName: "handle-set-logging", invocation: Gio.DBusMethodInvocation, argLevel: string): void
-    on(sigName: "handle-set-logging", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-set-logging", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-set-logging", callback: (...args: any[]) => void): NodeJS.EventEmitter
     static name: string
     /* Static methods and pseudo-constructors */
     static interfaceInfo(): Gio.DBusInterfaceInfo
     static overrideProperties(klass: GObject.ObjectClass, propertyIdBegin: number): number
 }
 export class GdbusSim {
-    /* Properties of ModemManager.GdbusSim */
+    /* Properties of ModemManager-1.0.ModemManager.GdbusSim */
     active: boolean
     eid: string
     emergencyNumbers: string[]
@@ -2036,7 +1888,7 @@ export class GdbusSim {
     operatorIdentifier: string
     operatorName: string
     simIdentifier: string
-    /* Methods of ModemManager.GdbusSim */
+    /* Methods of ModemManager-1.0.ModemManager.GdbusSim */
     callChangePin(argOldPin: string, argNewPin: string, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     callChangePinFinish(res: Gio.AsyncResult): boolean
     callChangePinSync(argOldPin: string, argNewPin: string, cancellable?: Gio.Cancellable | null): boolean
@@ -2053,43 +1905,34 @@ export class GdbusSim {
     completeEnablePin(invocation: Gio.DBusMethodInvocation): void
     completeSendPin(invocation: Gio.DBusMethodInvocation): void
     completeSendPuk(invocation: Gio.DBusMethodInvocation): void
-    /* Virtual methods of ModemManager.GdbusSim */
-    vfuncHandleChangePin(invocation: Gio.DBusMethodInvocation, argOldPin: string, argNewPin: string): boolean
-    vfuncHandleEnablePin(invocation: Gio.DBusMethodInvocation, argPin: string, argEnabled: boolean): boolean
-    vfuncHandleSendPin(invocation: Gio.DBusMethodInvocation, argPin: string): boolean
-    vfuncHandleSendPuk(invocation: Gio.DBusMethodInvocation, argPuk: string, argPin: string): boolean
-    /* Signals of ModemManager.GdbusSim */
+    /* Signals of ModemManager-1.0.ModemManager.GdbusSim */
     connect(sigName: "handle-change-pin", callback: (($obj: GdbusSim, invocation: Gio.DBusMethodInvocation, argOldPin: string, argNewPin: string) => boolean)): number
-    connect_after(sigName: "handle-change-pin", callback: (($obj: GdbusSim, invocation: Gio.DBusMethodInvocation, argOldPin: string, argNewPin: string) => boolean)): number
+    on(sigName: "handle-change-pin", callback: (invocation: Gio.DBusMethodInvocation, argOldPin: string, argNewPin: string) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-change-pin", callback: (invocation: Gio.DBusMethodInvocation, argOldPin: string, argNewPin: string) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-change-pin", callback: (invocation: Gio.DBusMethodInvocation, argOldPin: string, argNewPin: string) => void): NodeJS.EventEmitter
     emit(sigName: "handle-change-pin", invocation: Gio.DBusMethodInvocation, argOldPin: string, argNewPin: string): void
-    on(sigName: "handle-change-pin", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-change-pin", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-change-pin", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "handle-enable-pin", callback: (($obj: GdbusSim, invocation: Gio.DBusMethodInvocation, argPin: string, argEnabled: boolean) => boolean)): number
-    connect_after(sigName: "handle-enable-pin", callback: (($obj: GdbusSim, invocation: Gio.DBusMethodInvocation, argPin: string, argEnabled: boolean) => boolean)): number
+    on(sigName: "handle-enable-pin", callback: (invocation: Gio.DBusMethodInvocation, argPin: string, argEnabled: boolean) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-enable-pin", callback: (invocation: Gio.DBusMethodInvocation, argPin: string, argEnabled: boolean) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-enable-pin", callback: (invocation: Gio.DBusMethodInvocation, argPin: string, argEnabled: boolean) => void): NodeJS.EventEmitter
     emit(sigName: "handle-enable-pin", invocation: Gio.DBusMethodInvocation, argPin: string, argEnabled: boolean): void
-    on(sigName: "handle-enable-pin", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-enable-pin", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-enable-pin", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "handle-send-pin", callback: (($obj: GdbusSim, invocation: Gio.DBusMethodInvocation, argPin: string) => boolean)): number
-    connect_after(sigName: "handle-send-pin", callback: (($obj: GdbusSim, invocation: Gio.DBusMethodInvocation, argPin: string) => boolean)): number
+    on(sigName: "handle-send-pin", callback: (invocation: Gio.DBusMethodInvocation, argPin: string) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-send-pin", callback: (invocation: Gio.DBusMethodInvocation, argPin: string) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-send-pin", callback: (invocation: Gio.DBusMethodInvocation, argPin: string) => void): NodeJS.EventEmitter
     emit(sigName: "handle-send-pin", invocation: Gio.DBusMethodInvocation, argPin: string): void
-    on(sigName: "handle-send-pin", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-send-pin", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-send-pin", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "handle-send-puk", callback: (($obj: GdbusSim, invocation: Gio.DBusMethodInvocation, argPuk: string, argPin: string) => boolean)): number
-    connect_after(sigName: "handle-send-puk", callback: (($obj: GdbusSim, invocation: Gio.DBusMethodInvocation, argPuk: string, argPin: string) => boolean)): number
+    on(sigName: "handle-send-puk", callback: (invocation: Gio.DBusMethodInvocation, argPuk: string, argPin: string) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-send-puk", callback: (invocation: Gio.DBusMethodInvocation, argPuk: string, argPin: string) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-send-puk", callback: (invocation: Gio.DBusMethodInvocation, argPuk: string, argPin: string) => void): NodeJS.EventEmitter
     emit(sigName: "handle-send-puk", invocation: Gio.DBusMethodInvocation, argPuk: string, argPin: string): void
-    on(sigName: "handle-send-puk", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-send-puk", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-send-puk", callback: (...args: any[]) => void): NodeJS.EventEmitter
     static name: string
     /* Static methods and pseudo-constructors */
     static interfaceInfo(): Gio.DBusInterfaceInfo
     static overrideProperties(klass: GObject.ObjectClass, propertyIdBegin: number): number
 }
 export class GdbusSms {
-    /* Properties of ModemManager.GdbusSms */
+    /* Properties of ModemManager-1.0.ModemManager.GdbusSms */
     "class": number
     data: GLib.Variant
     deliveryReportRequest: boolean
@@ -2106,7 +1949,7 @@ export class GdbusSms {
     text: string
     timestamp: string
     validity: GLib.Variant
-    /* Methods of ModemManager.GdbusSms */
+    /* Methods of ModemManager-1.0.ModemManager.GdbusSms */
     callSend(cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     callSendFinish(res: Gio.AsyncResult): boolean
     callSendSync(cancellable?: Gio.Cancellable | null): boolean
@@ -2115,22 +1958,17 @@ export class GdbusSms {
     callStoreSync(argStorage: number, cancellable?: Gio.Cancellable | null): boolean
     completeSend(invocation: Gio.DBusMethodInvocation): void
     completeStore(invocation: Gio.DBusMethodInvocation): void
-    /* Virtual methods of ModemManager.GdbusSms */
-    vfuncHandleSend(invocation: Gio.DBusMethodInvocation): boolean
-    vfuncHandleStore(invocation: Gio.DBusMethodInvocation, argStorage: number): boolean
-    /* Signals of ModemManager.GdbusSms */
+    /* Signals of ModemManager-1.0.ModemManager.GdbusSms */
     connect(sigName: "handle-send", callback: (($obj: GdbusSms, invocation: Gio.DBusMethodInvocation) => boolean)): number
-    connect_after(sigName: "handle-send", callback: (($obj: GdbusSms, invocation: Gio.DBusMethodInvocation) => boolean)): number
+    on(sigName: "handle-send", callback: (invocation: Gio.DBusMethodInvocation) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-send", callback: (invocation: Gio.DBusMethodInvocation) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-send", callback: (invocation: Gio.DBusMethodInvocation) => void): NodeJS.EventEmitter
     emit(sigName: "handle-send", invocation: Gio.DBusMethodInvocation): void
-    on(sigName: "handle-send", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-send", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-send", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "handle-store", callback: (($obj: GdbusSms, invocation: Gio.DBusMethodInvocation, argStorage: number) => boolean)): number
-    connect_after(sigName: "handle-store", callback: (($obj: GdbusSms, invocation: Gio.DBusMethodInvocation, argStorage: number) => boolean)): number
+    on(sigName: "handle-store", callback: (invocation: Gio.DBusMethodInvocation, argStorage: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-store", callback: (invocation: Gio.DBusMethodInvocation, argStorage: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-store", callback: (invocation: Gio.DBusMethodInvocation, argStorage: number) => void): NodeJS.EventEmitter
     emit(sigName: "handle-store", invocation: Gio.DBusMethodInvocation, argStorage: number): void
-    on(sigName: "handle-store", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-store", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-store", callback: (...args: any[]) => void): NodeJS.EventEmitter
     static name: string
     /* Static methods and pseudo-constructors */
     static interfaceInfo(): Gio.DBusInterfaceInfo
@@ -2148,11 +1986,11 @@ export interface Bearer_ConstructProps extends GdbusBearerProxy_ConstructProps {
     suspended?: boolean
 }
 export class Bearer {
-    /* Properties of Gio.DBusProxy */
+    /* Properties of Gio-2.0.Gio.DBusProxy */
     gDefaultTimeout: number
     gInterfaceInfo: Gio.DBusInterfaceInfo
     readonly gNameOwner: string
-    /* Properties of ModemManager.GdbusBearer */
+    /* Properties of ModemManager-1.0.ModemManager.GdbusBearer */
     bearerType: number
     connected: boolean
     interface: string
@@ -2162,9 +2000,9 @@ export class Bearer {
     properties: GLib.Variant
     stats: GLib.Variant
     suspended: boolean
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of ModemManager.Bearer */
+    /* Methods of ModemManager-1.0.ModemManager.Bearer */
     connect(cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     connectFinish(res: Gio.AsyncResult): boolean
     connectSync(cancellable?: Gio.Cancellable | null): boolean
@@ -2187,13 +2025,13 @@ export class Bearer {
     peekIpv6Config(): BearerIpConfig
     peekProperties(): BearerProperties
     peekStats(): BearerStats
-    /* Methods of Gio.DBusProxy */
+    /* Methods of Gio-2.0.Gio.DBusProxy */
     call(methodName: string, parameters: GLib.Variant | null, flags: Gio.DBusCallFlags, timeoutMsec: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     callFinish(res: Gio.AsyncResult): GLib.Variant
     callSync(methodName: string, parameters: GLib.Variant | null, flags: Gio.DBusCallFlags, timeoutMsec: number, cancellable?: Gio.Cancellable | null): GLib.Variant
     callWithUnixFdList(methodName: string, parameters: GLib.Variant | null, flags: Gio.DBusCallFlags, timeoutMsec: number, fdList?: Gio.UnixFDList | null, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    callWithUnixFdListFinish(res: Gio.AsyncResult): [ /* returnType */ GLib.Variant, /* outFdList */ Gio.UnixFDList | null ]
-    callWithUnixFdListSync(methodName: string, parameters: GLib.Variant | null, flags: Gio.DBusCallFlags, timeoutMsec: number, fdList?: Gio.UnixFDList | null, cancellable?: Gio.Cancellable | null): [ /* returnType */ GLib.Variant, /* outFdList */ Gio.UnixFDList | null ]
+    callWithUnixFdListFinish(res: Gio.AsyncResult): { returnType: GLib.Variant, outFdList: Gio.UnixFDList | null }
+    callWithUnixFdListSync(methodName: string, parameters: GLib.Variant | null, flags: Gio.DBusCallFlags, timeoutMsec: number, fdList?: Gio.UnixFDList | null, cancellable?: Gio.Cancellable | null): { returnType: GLib.Variant, outFdList: Gio.UnixFDList | null }
     getCachedProperty(propertyName: string): GLib.Variant | null
     getCachedPropertyNames(): string[] | null
     getConnection(): Gio.DBusConnection
@@ -2207,7 +2045,7 @@ export class Bearer {
     setCachedProperty(propertyName: string, value?: GLib.Variant | null): void
     setDefaultTimeout(timeoutMsec: number): void
     setInterfaceInfo(info?: Gio.DBusInterfaceInfo | null): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -2229,17 +2067,17 @@ export class Bearer {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of Gio.AsyncInitable */
+    /* Methods of Gio-2.0.Gio.AsyncInitable */
     initAsync(ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     initFinish(res: Gio.AsyncResult): boolean
     newFinish(res: Gio.AsyncResult): GObject.Object
-    /* Methods of Gio.DBusInterface */
+    /* Methods of Gio-2.0.Gio.DBusInterface */
     getObject(): Gio.DBusObject | null
     getInfo(): Gio.DBusInterfaceInfo
     setObject(object?: Gio.DBusObject | null): void
-    /* Methods of Gio.Initable */
+    /* Methods of Gio-2.0.Gio.Initable */
     init(cancellable?: Gio.Cancellable | null): boolean
-    /* Methods of ModemManager.GdbusBearer */
+    /* Methods of ModemManager-1.0.ModemManager.GdbusBearer */
     callConnect(cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     callConnectFinish(res: Gio.AsyncResult): boolean
     callConnectSync(cancellable?: Gio.Cancellable | null): boolean
@@ -2248,59 +2086,34 @@ export class Bearer {
     callDisconnectSync(cancellable?: Gio.Cancellable | null): boolean
     completeConnect(invocation: Gio.DBusMethodInvocation): void
     completeDisconnect(invocation: Gio.DBusMethodInvocation): void
-    /* Virtual methods of ModemManager.GdbusBearerProxy */
-    vfuncInitAsync(ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    vfuncInitFinish(res: Gio.AsyncResult): boolean
-    vfuncDupObject(): Gio.DBusObject | null
-    vfuncGetInfo(): Gio.DBusInterfaceInfo
-    vfuncSetObject(object?: Gio.DBusObject | null): void
-    vfuncInit(cancellable?: Gio.Cancellable | null): boolean
-    vfuncHandleConnect(invocation: Gio.DBusMethodInvocation): boolean
-    vfuncHandleDisconnect(invocation: Gio.DBusMethodInvocation): boolean
-    /* Virtual methods of Gio.DBusProxy */
-    vfuncGPropertiesChanged(changedProperties: GLib.Variant, invalidatedProperties: string): void
-    vfuncGSignal(senderName: string, signalName: string, parameters: GLib.Variant): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gio.DBusProxy */
+    /* Signals of Gio-2.0.Gio.DBusProxy */
     connect(sigName: "g-properties-changed", callback: (($obj: Bearer, changedProperties: GLib.Variant, invalidatedProperties: string[]) => void)): number
-    connect_after(sigName: "g-properties-changed", callback: (($obj: Bearer, changedProperties: GLib.Variant, invalidatedProperties: string[]) => void)): number
+    on(sigName: "g-properties-changed", callback: (changedProperties: GLib.Variant, invalidatedProperties: string[]) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "g-properties-changed", callback: (changedProperties: GLib.Variant, invalidatedProperties: string[]) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "g-properties-changed", callback: (changedProperties: GLib.Variant, invalidatedProperties: string[]) => void): NodeJS.EventEmitter
     emit(sigName: "g-properties-changed", changedProperties: GLib.Variant, invalidatedProperties: string[]): void
-    on(sigName: "g-properties-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "g-properties-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "g-properties-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "g-signal", callback: (($obj: Bearer, senderName: string | null, signalName: string, parameters: GLib.Variant) => void)): number
-    connect_after(sigName: "g-signal", callback: (($obj: Bearer, senderName: string | null, signalName: string, parameters: GLib.Variant) => void)): number
+    on(sigName: "g-signal", callback: (senderName: string | null, signalName: string, parameters: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "g-signal", callback: (senderName: string | null, signalName: string, parameters: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "g-signal", callback: (senderName: string | null, signalName: string, parameters: GLib.Variant) => void): NodeJS.EventEmitter
     emit(sigName: "g-signal", senderName: string | null, signalName: string, parameters: GLib.Variant): void
-    on(sigName: "g-signal", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "g-signal", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "g-signal", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Bearer, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Bearer, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of ModemManager.GdbusBearer */
+    /* Signals of ModemManager-1.0.ModemManager.GdbusBearer */
     connect(sigName: "handle-connect", callback: (($obj: Bearer, invocation: Gio.DBusMethodInvocation) => boolean)): number
-    connect_after(sigName: "handle-connect", callback: (($obj: Bearer, invocation: Gio.DBusMethodInvocation) => boolean)): number
+    on(sigName: "handle-connect", callback: (invocation: Gio.DBusMethodInvocation) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-connect", callback: (invocation: Gio.DBusMethodInvocation) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-connect", callback: (invocation: Gio.DBusMethodInvocation) => void): NodeJS.EventEmitter
     emit(sigName: "handle-connect", invocation: Gio.DBusMethodInvocation): void
-    on(sigName: "handle-connect", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-connect", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-connect", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "handle-disconnect", callback: (($obj: Bearer, invocation: Gio.DBusMethodInvocation) => boolean)): number
-    connect_after(sigName: "handle-disconnect", callback: (($obj: Bearer, invocation: Gio.DBusMethodInvocation) => boolean)): number
+    on(sigName: "handle-disconnect", callback: (invocation: Gio.DBusMethodInvocation) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-disconnect", callback: (invocation: Gio.DBusMethodInvocation) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-disconnect", callback: (invocation: Gio.DBusMethodInvocation) => void): NodeJS.EventEmitter
     emit(sigName: "handle-disconnect", invocation: Gio.DBusMethodInvocation): void
-    on(sigName: "handle-disconnect", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-disconnect", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-disconnect", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::g-default-timeout", callback: (($obj: Bearer, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::g-default-timeout", callback: (($obj: Bearer, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::g-default-timeout", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -2383,16 +2196,16 @@ export class Bearer {
 export interface BearerIpConfig_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class BearerIpConfig {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of ModemManager.BearerIpConfig */
+    /* Methods of ModemManager-1.0.ModemManager.BearerIpConfig */
     getAddress(): string
     getDns(): string[]
     getGateway(): string
     getMethod(): BearerIpMethod
     getMtu(): number
     getPrefix(): number
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -2414,21 +2227,12 @@ export class BearerIpConfig {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: BearerIpConfig, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: BearerIpConfig, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -2444,9 +2248,9 @@ export class BearerIpConfig {
 export interface BearerProperties_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class BearerProperties {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of ModemManager.BearerProperties */
+    /* Methods of ModemManager-1.0.ModemManager.BearerProperties */
     getAllowRoaming(): boolean
     getAllowedAuth(): BearerAllowedAuth
     getApn(): string
@@ -2463,7 +2267,7 @@ export class BearerProperties {
     setPassword(password: string): void
     setRmProtocol(protocol: ModemCdmaRmProtocol): void
     setUser(user: string): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -2485,21 +2289,12 @@ export class BearerProperties {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: BearerProperties, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: BearerProperties, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -2517,9 +2312,9 @@ export class BearerProperties {
 export interface BearerStats_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class BearerStats {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of ModemManager.BearerStats */
+    /* Methods of ModemManager-1.0.ModemManager.BearerStats */
     getAttempts(): number
     getDuration(): number
     getFailedAttempts(): number
@@ -2528,7 +2323,7 @@ export class BearerStats {
     getTotalRxBytes(): number
     getTotalTxBytes(): number
     getTxBytes(): number
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -2550,21 +2345,12 @@ export class BearerStats {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: BearerStats, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: BearerStats, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -2580,13 +2366,13 @@ export class BearerStats {
 export interface Call_ConstructProps extends Gio.DBusProxy_ConstructProps {
 }
 export class Call {
-    /* Properties of Gio.DBusProxy */
+    /* Properties of Gio-2.0.Gio.DBusProxy */
     gDefaultTimeout: number
     gInterfaceInfo: Gio.DBusInterfaceInfo
     readonly gNameOwner: string
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of ModemManager.Call */
+    /* Methods of ModemManager-1.0.ModemManager.Call */
     accept(cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     acceptFinish(res: Gio.AsyncResult): boolean
     acceptSync(cancellable?: Gio.Cancellable | null): boolean
@@ -2620,13 +2406,13 @@ export class Call {
     start(cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     startFinish(res: Gio.AsyncResult): boolean
     startSync(cancellable?: Gio.Cancellable | null): boolean
-    /* Methods of Gio.DBusProxy */
+    /* Methods of Gio-2.0.Gio.DBusProxy */
     call(methodName: string, parameters: GLib.Variant | null, flags: Gio.DBusCallFlags, timeoutMsec: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     callFinish(res: Gio.AsyncResult): GLib.Variant
     callSync(methodName: string, parameters: GLib.Variant | null, flags: Gio.DBusCallFlags, timeoutMsec: number, cancellable?: Gio.Cancellable | null): GLib.Variant
     callWithUnixFdList(methodName: string, parameters: GLib.Variant | null, flags: Gio.DBusCallFlags, timeoutMsec: number, fdList?: Gio.UnixFDList | null, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    callWithUnixFdListFinish(res: Gio.AsyncResult): [ /* returnType */ GLib.Variant, /* outFdList */ Gio.UnixFDList | null ]
-    callWithUnixFdListSync(methodName: string, parameters: GLib.Variant | null, flags: Gio.DBusCallFlags, timeoutMsec: number, fdList?: Gio.UnixFDList | null, cancellable?: Gio.Cancellable | null): [ /* returnType */ GLib.Variant, /* outFdList */ Gio.UnixFDList | null ]
+    callWithUnixFdListFinish(res: Gio.AsyncResult): { returnType: GLib.Variant, outFdList: Gio.UnixFDList | null }
+    callWithUnixFdListSync(methodName: string, parameters: GLib.Variant | null, flags: Gio.DBusCallFlags, timeoutMsec: number, fdList?: Gio.UnixFDList | null, cancellable?: Gio.Cancellable | null): { returnType: GLib.Variant, outFdList: Gio.UnixFDList | null }
     getCachedProperty(propertyName: string): GLib.Variant | null
     getCachedPropertyNames(): string[] | null
     getConnection(): Gio.DBusConnection
@@ -2640,7 +2426,7 @@ export class Call {
     setCachedProperty(propertyName: string, value?: GLib.Variant | null): void
     setDefaultTimeout(timeoutMsec: number): void
     setInterfaceInfo(info?: Gio.DBusInterfaceInfo | null): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -2662,54 +2448,33 @@ export class Call {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of Gio.AsyncInitable */
+    /* Methods of Gio-2.0.Gio.AsyncInitable */
     initAsync(ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     initFinish(res: Gio.AsyncResult): boolean
     newFinish(res: Gio.AsyncResult): GObject.Object
-    /* Methods of Gio.DBusInterface */
+    /* Methods of Gio-2.0.Gio.DBusInterface */
     getObject(): Gio.DBusObject | null
     getInfo(): Gio.DBusInterfaceInfo
     setObject(object?: Gio.DBusObject | null): void
-    /* Methods of Gio.Initable */
+    /* Methods of Gio-2.0.Gio.Initable */
     init(cancellable?: Gio.Cancellable | null): boolean
-    /* Virtual methods of ModemManager.Call */
-    vfuncInitAsync(ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    vfuncInitFinish(res: Gio.AsyncResult): boolean
-    vfuncDupObject(): Gio.DBusObject | null
-    vfuncGetInfo(): Gio.DBusInterfaceInfo
-    vfuncSetObject(object?: Gio.DBusObject | null): void
-    vfuncInit(cancellable?: Gio.Cancellable | null): boolean
-    /* Virtual methods of Gio.DBusProxy */
-    vfuncGPropertiesChanged(changedProperties: GLib.Variant, invalidatedProperties: string): void
-    vfuncGSignal(senderName: string, signalName: string, parameters: GLib.Variant): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gio.DBusProxy */
+    /* Signals of Gio-2.0.Gio.DBusProxy */
     connect(sigName: "g-properties-changed", callback: (($obj: Call, changedProperties: GLib.Variant, invalidatedProperties: string[]) => void)): number
-    connect_after(sigName: "g-properties-changed", callback: (($obj: Call, changedProperties: GLib.Variant, invalidatedProperties: string[]) => void)): number
+    on(sigName: "g-properties-changed", callback: (changedProperties: GLib.Variant, invalidatedProperties: string[]) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "g-properties-changed", callback: (changedProperties: GLib.Variant, invalidatedProperties: string[]) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "g-properties-changed", callback: (changedProperties: GLib.Variant, invalidatedProperties: string[]) => void): NodeJS.EventEmitter
     emit(sigName: "g-properties-changed", changedProperties: GLib.Variant, invalidatedProperties: string[]): void
-    on(sigName: "g-properties-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "g-properties-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "g-properties-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "g-signal", callback: (($obj: Call, senderName: string | null, signalName: string, parameters: GLib.Variant) => void)): number
-    connect_after(sigName: "g-signal", callback: (($obj: Call, senderName: string | null, signalName: string, parameters: GLib.Variant) => void)): number
+    on(sigName: "g-signal", callback: (senderName: string | null, signalName: string, parameters: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "g-signal", callback: (senderName: string | null, signalName: string, parameters: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "g-signal", callback: (senderName: string | null, signalName: string, parameters: GLib.Variant) => void): NodeJS.EventEmitter
     emit(sigName: "g-signal", senderName: string | null, signalName: string, parameters: GLib.Variant): void
-    on(sigName: "g-signal", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "g-signal", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "g-signal", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Call, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Call, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::g-default-timeout", callback: (($obj: Call, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::g-default-timeout", callback: (($obj: Call, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::g-default-timeout", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -2743,13 +2508,13 @@ export class Call {
 export interface CallAudioFormat_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class CallAudioFormat {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of ModemManager.CallAudioFormat */
+    /* Methods of ModemManager-1.0.ModemManager.CallAudioFormat */
     getEncoding(): string
     getRate(): number
     getResolution(): string
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -2771,21 +2536,12 @@ export class CallAudioFormat {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: CallAudioFormat, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: CallAudioFormat, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -2801,9 +2557,9 @@ export class CallAudioFormat {
 export interface CallProperties_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class CallProperties {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of ModemManager.CallProperties */
+    /* Methods of ModemManager-1.0.ModemManager.CallProperties */
     getDictionary(): GLib.Variant
     getDirection(): CallDirection
     getNumber(): string
@@ -2813,7 +2569,7 @@ export class CallProperties {
     setNumber(text: string): void
     setState(state: CallState): void
     setStateReason(stateReason: CallStateReason): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -2835,21 +2591,12 @@ export class CallProperties {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: CallProperties, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: CallProperties, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -2869,14 +2616,14 @@ export class CallProperties {
 export interface CdmaManualActivationProperties_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class CdmaManualActivationProperties {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of ModemManager.CdmaManualActivationProperties */
+    /* Methods of ModemManager-1.0.ModemManager.CdmaManualActivationProperties */
     getMdn(): string
     getMin(): string
     getMnAaaKey(): string
     getMnHaKey(): string
-    getPrl(): [ /* returnType */ number, /* prlLen */ number ]
+    getPrl(): { returnType: number, prlLen: number }
     getPrlBytearray(): any[]
     getSid(): number
     getSpc(): string
@@ -2889,7 +2636,7 @@ export class CdmaManualActivationProperties {
     setPrlBytearray(prl: any[]): boolean
     setSid(sid: number): void
     setSpc(spc: string): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -2911,21 +2658,12 @@ export class CdmaManualActivationProperties {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: CdmaManualActivationProperties, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: CdmaManualActivationProperties, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -2943,9 +2681,9 @@ export class CdmaManualActivationProperties {
 export interface FirmwareProperties_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class FirmwareProperties {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of ModemManager.FirmwareProperties */
+    /* Methods of ModemManager-1.0.ModemManager.FirmwareProperties */
     getDictionary(): GLib.Variant
     getGobiBootVersion(): string
     getGobiModemUniqueId(): string
@@ -2959,7 +2697,7 @@ export class FirmwareProperties {
     setGobiPriInfo(info: string): void
     setGobiPriUniqueId(id: string): void
     setGobiPriVersion(version: string): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -2981,21 +2719,12 @@ export class FirmwareProperties {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: FirmwareProperties, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: FirmwareProperties, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -3014,14 +2743,14 @@ export class FirmwareProperties {
 export interface FirmwareUpdateSettings_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class FirmwareUpdateSettings {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of ModemManager.FirmwareUpdateSettings */
+    /* Methods of ModemManager-1.0.ModemManager.FirmwareUpdateSettings */
     getDeviceIds(): string[]
     getFastbootAt(): string
     getMethod(): ModemFirmwareUpdateMethod
     getVersion(): string
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -3043,21 +2772,12 @@ export class FirmwareUpdateSettings {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: FirmwareUpdateSettings, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: FirmwareUpdateSettings, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -3082,11 +2802,11 @@ export interface GdbusBearerProxy_ConstructProps extends Gio.DBusProxy_Construct
     suspended?: boolean
 }
 export class GdbusBearerProxy {
-    /* Properties of Gio.DBusProxy */
+    /* Properties of Gio-2.0.Gio.DBusProxy */
     gDefaultTimeout: number
     gInterfaceInfo: Gio.DBusInterfaceInfo
     readonly gNameOwner: string
-    /* Properties of ModemManager.GdbusBearer */
+    /* Properties of ModemManager-1.0.ModemManager.GdbusBearer */
     bearerType: number
     connected: boolean
     interface: string
@@ -3096,15 +2816,15 @@ export class GdbusBearerProxy {
     properties: GLib.Variant
     stats: GLib.Variant
     suspended: boolean
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Gio.DBusProxy */
+    /* Methods of Gio-2.0.Gio.DBusProxy */
     call(methodName: string, parameters: GLib.Variant | null, flags: Gio.DBusCallFlags, timeoutMsec: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     callFinish(res: Gio.AsyncResult): GLib.Variant
     callSync(methodName: string, parameters: GLib.Variant | null, flags: Gio.DBusCallFlags, timeoutMsec: number, cancellable?: Gio.Cancellable | null): GLib.Variant
     callWithUnixFdList(methodName: string, parameters: GLib.Variant | null, flags: Gio.DBusCallFlags, timeoutMsec: number, fdList?: Gio.UnixFDList | null, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    callWithUnixFdListFinish(res: Gio.AsyncResult): [ /* returnType */ GLib.Variant, /* outFdList */ Gio.UnixFDList | null ]
-    callWithUnixFdListSync(methodName: string, parameters: GLib.Variant | null, flags: Gio.DBusCallFlags, timeoutMsec: number, fdList?: Gio.UnixFDList | null, cancellable?: Gio.Cancellable | null): [ /* returnType */ GLib.Variant, /* outFdList */ Gio.UnixFDList | null ]
+    callWithUnixFdListFinish(res: Gio.AsyncResult): { returnType: GLib.Variant, outFdList: Gio.UnixFDList | null }
+    callWithUnixFdListSync(methodName: string, parameters: GLib.Variant | null, flags: Gio.DBusCallFlags, timeoutMsec: number, fdList?: Gio.UnixFDList | null, cancellable?: Gio.Cancellable | null): { returnType: GLib.Variant, outFdList: Gio.UnixFDList | null }
     getCachedProperty(propertyName: string): GLib.Variant | null
     getCachedPropertyNames(): string[] | null
     getConnection(): Gio.DBusConnection
@@ -3118,7 +2838,7 @@ export class GdbusBearerProxy {
     setCachedProperty(propertyName: string, value?: GLib.Variant | null): void
     setDefaultTimeout(timeoutMsec: number): void
     setInterfaceInfo(info?: Gio.DBusInterfaceInfo | null): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -3140,17 +2860,17 @@ export class GdbusBearerProxy {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of Gio.AsyncInitable */
+    /* Methods of Gio-2.0.Gio.AsyncInitable */
     initAsync(ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     initFinish(res: Gio.AsyncResult): boolean
     newFinish(res: Gio.AsyncResult): GObject.Object
-    /* Methods of Gio.DBusInterface */
+    /* Methods of Gio-2.0.Gio.DBusInterface */
     getObject(): Gio.DBusObject | null
     getInfo(): Gio.DBusInterfaceInfo
     setObject(object?: Gio.DBusObject | null): void
-    /* Methods of Gio.Initable */
+    /* Methods of Gio-2.0.Gio.Initable */
     init(cancellable?: Gio.Cancellable | null): boolean
-    /* Methods of ModemManager.GdbusBearer */
+    /* Methods of ModemManager-1.0.ModemManager.GdbusBearer */
     callConnect(cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     callConnectFinish(res: Gio.AsyncResult): boolean
     callConnectSync(cancellable?: Gio.Cancellable | null): boolean
@@ -3159,59 +2879,34 @@ export class GdbusBearerProxy {
     callDisconnectSync(cancellable?: Gio.Cancellable | null): boolean
     completeConnect(invocation: Gio.DBusMethodInvocation): void
     completeDisconnect(invocation: Gio.DBusMethodInvocation): void
-    /* Virtual methods of ModemManager.GdbusBearerProxy */
-    vfuncInitAsync(ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    vfuncInitFinish(res: Gio.AsyncResult): boolean
-    vfuncDupObject(): Gio.DBusObject | null
-    vfuncGetInfo(): Gio.DBusInterfaceInfo
-    vfuncSetObject(object?: Gio.DBusObject | null): void
-    vfuncInit(cancellable?: Gio.Cancellable | null): boolean
-    vfuncHandleConnect(invocation: Gio.DBusMethodInvocation): boolean
-    vfuncHandleDisconnect(invocation: Gio.DBusMethodInvocation): boolean
-    /* Virtual methods of Gio.DBusProxy */
-    vfuncGPropertiesChanged(changedProperties: GLib.Variant, invalidatedProperties: string): void
-    vfuncGSignal(senderName: string, signalName: string, parameters: GLib.Variant): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gio.DBusProxy */
+    /* Signals of Gio-2.0.Gio.DBusProxy */
     connect(sigName: "g-properties-changed", callback: (($obj: GdbusBearerProxy, changedProperties: GLib.Variant, invalidatedProperties: string[]) => void)): number
-    connect_after(sigName: "g-properties-changed", callback: (($obj: GdbusBearerProxy, changedProperties: GLib.Variant, invalidatedProperties: string[]) => void)): number
+    on(sigName: "g-properties-changed", callback: (changedProperties: GLib.Variant, invalidatedProperties: string[]) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "g-properties-changed", callback: (changedProperties: GLib.Variant, invalidatedProperties: string[]) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "g-properties-changed", callback: (changedProperties: GLib.Variant, invalidatedProperties: string[]) => void): NodeJS.EventEmitter
     emit(sigName: "g-properties-changed", changedProperties: GLib.Variant, invalidatedProperties: string[]): void
-    on(sigName: "g-properties-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "g-properties-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "g-properties-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "g-signal", callback: (($obj: GdbusBearerProxy, senderName: string | null, signalName: string, parameters: GLib.Variant) => void)): number
-    connect_after(sigName: "g-signal", callback: (($obj: GdbusBearerProxy, senderName: string | null, signalName: string, parameters: GLib.Variant) => void)): number
+    on(sigName: "g-signal", callback: (senderName: string | null, signalName: string, parameters: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "g-signal", callback: (senderName: string | null, signalName: string, parameters: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "g-signal", callback: (senderName: string | null, signalName: string, parameters: GLib.Variant) => void): NodeJS.EventEmitter
     emit(sigName: "g-signal", senderName: string | null, signalName: string, parameters: GLib.Variant): void
-    on(sigName: "g-signal", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "g-signal", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "g-signal", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: GdbusBearerProxy, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: GdbusBearerProxy, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of ModemManager.GdbusBearer */
+    /* Signals of ModemManager-1.0.ModemManager.GdbusBearer */
     connect(sigName: "handle-connect", callback: (($obj: GdbusBearerProxy, invocation: Gio.DBusMethodInvocation) => boolean)): number
-    connect_after(sigName: "handle-connect", callback: (($obj: GdbusBearerProxy, invocation: Gio.DBusMethodInvocation) => boolean)): number
+    on(sigName: "handle-connect", callback: (invocation: Gio.DBusMethodInvocation) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-connect", callback: (invocation: Gio.DBusMethodInvocation) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-connect", callback: (invocation: Gio.DBusMethodInvocation) => void): NodeJS.EventEmitter
     emit(sigName: "handle-connect", invocation: Gio.DBusMethodInvocation): void
-    on(sigName: "handle-connect", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-connect", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-connect", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "handle-disconnect", callback: (($obj: GdbusBearerProxy, invocation: Gio.DBusMethodInvocation) => boolean)): number
-    connect_after(sigName: "handle-disconnect", callback: (($obj: GdbusBearerProxy, invocation: Gio.DBusMethodInvocation) => boolean)): number
+    on(sigName: "handle-disconnect", callback: (invocation: Gio.DBusMethodInvocation) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-disconnect", callback: (invocation: Gio.DBusMethodInvocation) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-disconnect", callback: (invocation: Gio.DBusMethodInvocation) => void): NodeJS.EventEmitter
     emit(sigName: "handle-disconnect", invocation: Gio.DBusMethodInvocation): void
-    on(sigName: "handle-disconnect", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-disconnect", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-disconnect", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::g-default-timeout", callback: (($obj: GdbusBearerProxy, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::g-default-timeout", callback: (($obj: GdbusBearerProxy, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::g-default-timeout", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -3309,9 +3004,9 @@ export interface GdbusBearerSkeleton_ConstructProps extends Gio.DBusInterfaceSke
     suspended?: boolean
 }
 export class GdbusBearerSkeleton {
-    /* Properties of Gio.DBusInterfaceSkeleton */
+    /* Properties of Gio-2.0.Gio.DBusInterfaceSkeleton */
     gFlags: Gio.DBusInterfaceSkeletonFlags
-    /* Properties of ModemManager.GdbusBearer */
+    /* Properties of ModemManager-1.0.ModemManager.GdbusBearer */
     bearerType: number
     connected: boolean
     interface: string
@@ -3321,9 +3016,9 @@ export class GdbusBearerSkeleton {
     properties: GLib.Variant
     stats: GLib.Variant
     suspended: boolean
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Gio.DBusInterfaceSkeleton */
+    /* Methods of Gio-2.0.Gio.DBusInterfaceSkeleton */
     export(connection: Gio.DBusConnection, objectPath: string): boolean
     flush(): void
     getConnection(): Gio.DBusConnection | null
@@ -3336,7 +3031,7 @@ export class GdbusBearerSkeleton {
     setFlags(flags: Gio.DBusInterfaceSkeletonFlags): void
     unexport(): void
     unexportFromConnection(connection: Gio.DBusConnection): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -3358,10 +3053,10 @@ export class GdbusBearerSkeleton {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of Gio.DBusInterface */
+    /* Methods of Gio-2.0.Gio.DBusInterface */
     getObject(): Gio.DBusObject | null
     setObject(object?: Gio.DBusObject | null): void
-    /* Methods of ModemManager.GdbusBearer */
+    /* Methods of ModemManager-1.0.ModemManager.GdbusBearer */
     callConnect(cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     callConnectFinish(res: Gio.AsyncResult): boolean
     callConnectSync(cancellable?: Gio.Cancellable | null): boolean
@@ -3370,52 +3065,29 @@ export class GdbusBearerSkeleton {
     callDisconnectSync(cancellable?: Gio.Cancellable | null): boolean
     completeConnect(invocation: Gio.DBusMethodInvocation): void
     completeDisconnect(invocation: Gio.DBusMethodInvocation): void
-    /* Virtual methods of ModemManager.GdbusBearerSkeleton */
-    vfuncDupObject(): Gio.DBusObject | null
-    vfuncGetInfo(): Gio.DBusInterfaceInfo
-    vfuncSetObject(object?: Gio.DBusObject | null): void
-    vfuncHandleConnect(invocation: Gio.DBusMethodInvocation): boolean
-    vfuncHandleDisconnect(invocation: Gio.DBusMethodInvocation): boolean
-    /* Virtual methods of Gio.DBusInterfaceSkeleton */
-    vfuncFlush(): void
-    vfuncGAuthorizeMethod(invocation: Gio.DBusMethodInvocation): boolean
-    vfuncGetInfo(): Gio.DBusInterfaceInfo
-    vfuncGetProperties(): GLib.Variant
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gio.DBusInterfaceSkeleton */
+    /* Signals of Gio-2.0.Gio.DBusInterfaceSkeleton */
     connect(sigName: "g-authorize-method", callback: (($obj: GdbusBearerSkeleton, invocation: Gio.DBusMethodInvocation) => boolean)): number
-    connect_after(sigName: "g-authorize-method", callback: (($obj: GdbusBearerSkeleton, invocation: Gio.DBusMethodInvocation) => boolean)): number
+    on(sigName: "g-authorize-method", callback: (invocation: Gio.DBusMethodInvocation) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "g-authorize-method", callback: (invocation: Gio.DBusMethodInvocation) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "g-authorize-method", callback: (invocation: Gio.DBusMethodInvocation) => void): NodeJS.EventEmitter
     emit(sigName: "g-authorize-method", invocation: Gio.DBusMethodInvocation): void
-    on(sigName: "g-authorize-method", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "g-authorize-method", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "g-authorize-method", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: GdbusBearerSkeleton, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: GdbusBearerSkeleton, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of ModemManager.GdbusBearer */
+    /* Signals of ModemManager-1.0.ModemManager.GdbusBearer */
     connect(sigName: "handle-connect", callback: (($obj: GdbusBearerSkeleton, invocation: Gio.DBusMethodInvocation) => boolean)): number
-    connect_after(sigName: "handle-connect", callback: (($obj: GdbusBearerSkeleton, invocation: Gio.DBusMethodInvocation) => boolean)): number
+    on(sigName: "handle-connect", callback: (invocation: Gio.DBusMethodInvocation) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-connect", callback: (invocation: Gio.DBusMethodInvocation) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-connect", callback: (invocation: Gio.DBusMethodInvocation) => void): NodeJS.EventEmitter
     emit(sigName: "handle-connect", invocation: Gio.DBusMethodInvocation): void
-    on(sigName: "handle-connect", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-connect", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-connect", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "handle-disconnect", callback: (($obj: GdbusBearerSkeleton, invocation: Gio.DBusMethodInvocation) => boolean)): number
-    connect_after(sigName: "handle-disconnect", callback: (($obj: GdbusBearerSkeleton, invocation: Gio.DBusMethodInvocation) => boolean)): number
+    on(sigName: "handle-disconnect", callback: (invocation: Gio.DBusMethodInvocation) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-disconnect", callback: (invocation: Gio.DBusMethodInvocation) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-disconnect", callback: (invocation: Gio.DBusMethodInvocation) => void): NodeJS.EventEmitter
     emit(sigName: "handle-disconnect", invocation: Gio.DBusMethodInvocation): void
-    on(sigName: "handle-disconnect", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-disconnect", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-disconnect", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::g-flags", callback: (($obj: GdbusBearerSkeleton, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::g-flags", callback: (($obj: GdbusBearerSkeleton, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::g-flags", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -3495,11 +3167,11 @@ export interface GdbusModem3gppProxy_ConstructProps extends Gio.DBusProxy_Constr
     subscriptionState?: number
 }
 export class GdbusModem3gppProxy {
-    /* Properties of Gio.DBusProxy */
+    /* Properties of Gio-2.0.Gio.DBusProxy */
     gDefaultTimeout: number
     gInterfaceInfo: Gio.DBusInterfaceInfo
     readonly gNameOwner: string
-    /* Properties of ModemManager.GdbusModem3gpp */
+    /* Properties of ModemManager-1.0.ModemManager.GdbusModem3gpp */
     enabledFacilityLocks: number
     epsUeModeOperation: number
     imei: string
@@ -3510,15 +3182,15 @@ export class GdbusModem3gppProxy {
     pco: GLib.Variant
     registrationState: number
     subscriptionState: number
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Gio.DBusProxy */
+    /* Methods of Gio-2.0.Gio.DBusProxy */
     call(methodName: string, parameters: GLib.Variant | null, flags: Gio.DBusCallFlags, timeoutMsec: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     callFinish(res: Gio.AsyncResult): GLib.Variant
     callSync(methodName: string, parameters: GLib.Variant | null, flags: Gio.DBusCallFlags, timeoutMsec: number, cancellable?: Gio.Cancellable | null): GLib.Variant
     callWithUnixFdList(methodName: string, parameters: GLib.Variant | null, flags: Gio.DBusCallFlags, timeoutMsec: number, fdList?: Gio.UnixFDList | null, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    callWithUnixFdListFinish(res: Gio.AsyncResult): [ /* returnType */ GLib.Variant, /* outFdList */ Gio.UnixFDList | null ]
-    callWithUnixFdListSync(methodName: string, parameters: GLib.Variant | null, flags: Gio.DBusCallFlags, timeoutMsec: number, fdList?: Gio.UnixFDList | null, cancellable?: Gio.Cancellable | null): [ /* returnType */ GLib.Variant, /* outFdList */ Gio.UnixFDList | null ]
+    callWithUnixFdListFinish(res: Gio.AsyncResult): { returnType: GLib.Variant, outFdList: Gio.UnixFDList | null }
+    callWithUnixFdListSync(methodName: string, parameters: GLib.Variant | null, flags: Gio.DBusCallFlags, timeoutMsec: number, fdList?: Gio.UnixFDList | null, cancellable?: Gio.Cancellable | null): { returnType: GLib.Variant, outFdList: Gio.UnixFDList | null }
     getCachedProperty(propertyName: string): GLib.Variant | null
     getCachedPropertyNames(): string[] | null
     getConnection(): Gio.DBusConnection
@@ -3532,7 +3204,7 @@ export class GdbusModem3gppProxy {
     setCachedProperty(propertyName: string, value?: GLib.Variant | null): void
     setDefaultTimeout(timeoutMsec: number): void
     setInterfaceInfo(info?: Gio.DBusInterfaceInfo | null): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -3554,23 +3226,23 @@ export class GdbusModem3gppProxy {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of Gio.AsyncInitable */
+    /* Methods of Gio-2.0.Gio.AsyncInitable */
     initAsync(ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     initFinish(res: Gio.AsyncResult): boolean
     newFinish(res: Gio.AsyncResult): GObject.Object
-    /* Methods of Gio.DBusInterface */
+    /* Methods of Gio-2.0.Gio.DBusInterface */
     getObject(): Gio.DBusObject | null
     getInfo(): Gio.DBusInterfaceInfo
     setObject(object?: Gio.DBusObject | null): void
-    /* Methods of Gio.Initable */
+    /* Methods of Gio-2.0.Gio.Initable */
     init(cancellable?: Gio.Cancellable | null): boolean
-    /* Methods of ModemManager.GdbusModem3gpp */
+    /* Methods of ModemManager-1.0.ModemManager.GdbusModem3gpp */
     callRegister(argOperatorId: string, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     callRegisterFinish(res: Gio.AsyncResult): boolean
     callRegisterSync(argOperatorId: string, cancellable?: Gio.Cancellable | null): boolean
     callScan(cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    callScanFinish(res: Gio.AsyncResult): [ /* returnType */ boolean, /* outResults */ GLib.Variant | null ]
-    callScanSync(cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* outResults */ GLib.Variant | null ]
+    callScanFinish(res: Gio.AsyncResult): { returnType: boolean, outResults: GLib.Variant | null }
+    callScanSync(cancellable?: Gio.Cancellable | null): { returnType: boolean, outResults: GLib.Variant | null }
     callSetEpsUeModeOperation(argMode: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     callSetEpsUeModeOperationFinish(res: Gio.AsyncResult): boolean
     callSetEpsUeModeOperationSync(argMode: number, cancellable?: Gio.Cancellable | null): boolean
@@ -3581,73 +3253,44 @@ export class GdbusModem3gppProxy {
     completeScan(invocation: Gio.DBusMethodInvocation, results: GLib.Variant): void
     completeSetEpsUeModeOperation(invocation: Gio.DBusMethodInvocation): void
     completeSetInitialEpsBearerSettings(invocation: Gio.DBusMethodInvocation): void
-    /* Virtual methods of ModemManager.GdbusModem3gppProxy */
-    vfuncInitAsync(ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    vfuncInitFinish(res: Gio.AsyncResult): boolean
-    vfuncDupObject(): Gio.DBusObject | null
-    vfuncGetInfo(): Gio.DBusInterfaceInfo
-    vfuncSetObject(object?: Gio.DBusObject | null): void
-    vfuncInit(cancellable?: Gio.Cancellable | null): boolean
-    vfuncHandleRegister(invocation: Gio.DBusMethodInvocation, argOperatorId: string): boolean
-    vfuncHandleScan(invocation: Gio.DBusMethodInvocation): boolean
-    vfuncHandleSetEpsUeModeOperation(invocation: Gio.DBusMethodInvocation, argMode: number): boolean
-    vfuncHandleSetInitialEpsBearerSettings(invocation: Gio.DBusMethodInvocation, argSettings: GLib.Variant): boolean
-    /* Virtual methods of Gio.DBusProxy */
-    vfuncGPropertiesChanged(changedProperties: GLib.Variant, invalidatedProperties: string): void
-    vfuncGSignal(senderName: string, signalName: string, parameters: GLib.Variant): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gio.DBusProxy */
+    /* Signals of Gio-2.0.Gio.DBusProxy */
     connect(sigName: "g-properties-changed", callback: (($obj: GdbusModem3gppProxy, changedProperties: GLib.Variant, invalidatedProperties: string[]) => void)): number
-    connect_after(sigName: "g-properties-changed", callback: (($obj: GdbusModem3gppProxy, changedProperties: GLib.Variant, invalidatedProperties: string[]) => void)): number
+    on(sigName: "g-properties-changed", callback: (changedProperties: GLib.Variant, invalidatedProperties: string[]) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "g-properties-changed", callback: (changedProperties: GLib.Variant, invalidatedProperties: string[]) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "g-properties-changed", callback: (changedProperties: GLib.Variant, invalidatedProperties: string[]) => void): NodeJS.EventEmitter
     emit(sigName: "g-properties-changed", changedProperties: GLib.Variant, invalidatedProperties: string[]): void
-    on(sigName: "g-properties-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "g-properties-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "g-properties-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "g-signal", callback: (($obj: GdbusModem3gppProxy, senderName: string | null, signalName: string, parameters: GLib.Variant) => void)): number
-    connect_after(sigName: "g-signal", callback: (($obj: GdbusModem3gppProxy, senderName: string | null, signalName: string, parameters: GLib.Variant) => void)): number
+    on(sigName: "g-signal", callback: (senderName: string | null, signalName: string, parameters: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "g-signal", callback: (senderName: string | null, signalName: string, parameters: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "g-signal", callback: (senderName: string | null, signalName: string, parameters: GLib.Variant) => void): NodeJS.EventEmitter
     emit(sigName: "g-signal", senderName: string | null, signalName: string, parameters: GLib.Variant): void
-    on(sigName: "g-signal", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "g-signal", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "g-signal", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: GdbusModem3gppProxy, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: GdbusModem3gppProxy, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of ModemManager.GdbusModem3gpp */
+    /* Signals of ModemManager-1.0.ModemManager.GdbusModem3gpp */
     connect(sigName: "handle-register", callback: (($obj: GdbusModem3gppProxy, invocation: Gio.DBusMethodInvocation, argOperatorId: string) => boolean)): number
-    connect_after(sigName: "handle-register", callback: (($obj: GdbusModem3gppProxy, invocation: Gio.DBusMethodInvocation, argOperatorId: string) => boolean)): number
+    on(sigName: "handle-register", callback: (invocation: Gio.DBusMethodInvocation, argOperatorId: string) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-register", callback: (invocation: Gio.DBusMethodInvocation, argOperatorId: string) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-register", callback: (invocation: Gio.DBusMethodInvocation, argOperatorId: string) => void): NodeJS.EventEmitter
     emit(sigName: "handle-register", invocation: Gio.DBusMethodInvocation, argOperatorId: string): void
-    on(sigName: "handle-register", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-register", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-register", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "handle-scan", callback: (($obj: GdbusModem3gppProxy, invocation: Gio.DBusMethodInvocation) => boolean)): number
-    connect_after(sigName: "handle-scan", callback: (($obj: GdbusModem3gppProxy, invocation: Gio.DBusMethodInvocation) => boolean)): number
+    on(sigName: "handle-scan", callback: (invocation: Gio.DBusMethodInvocation) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-scan", callback: (invocation: Gio.DBusMethodInvocation) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-scan", callback: (invocation: Gio.DBusMethodInvocation) => void): NodeJS.EventEmitter
     emit(sigName: "handle-scan", invocation: Gio.DBusMethodInvocation): void
-    on(sigName: "handle-scan", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-scan", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-scan", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "handle-set-eps-ue-mode-operation", callback: (($obj: GdbusModem3gppProxy, invocation: Gio.DBusMethodInvocation, argMode: number) => boolean)): number
-    connect_after(sigName: "handle-set-eps-ue-mode-operation", callback: (($obj: GdbusModem3gppProxy, invocation: Gio.DBusMethodInvocation, argMode: number) => boolean)): number
+    on(sigName: "handle-set-eps-ue-mode-operation", callback: (invocation: Gio.DBusMethodInvocation, argMode: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-set-eps-ue-mode-operation", callback: (invocation: Gio.DBusMethodInvocation, argMode: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-set-eps-ue-mode-operation", callback: (invocation: Gio.DBusMethodInvocation, argMode: number) => void): NodeJS.EventEmitter
     emit(sigName: "handle-set-eps-ue-mode-operation", invocation: Gio.DBusMethodInvocation, argMode: number): void
-    on(sigName: "handle-set-eps-ue-mode-operation", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-set-eps-ue-mode-operation", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-set-eps-ue-mode-operation", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "handle-set-initial-eps-bearer-settings", callback: (($obj: GdbusModem3gppProxy, invocation: Gio.DBusMethodInvocation, argSettings: GLib.Variant) => boolean)): number
-    connect_after(sigName: "handle-set-initial-eps-bearer-settings", callback: (($obj: GdbusModem3gppProxy, invocation: Gio.DBusMethodInvocation, argSettings: GLib.Variant) => boolean)): number
+    on(sigName: "handle-set-initial-eps-bearer-settings", callback: (invocation: Gio.DBusMethodInvocation, argSettings: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-set-initial-eps-bearer-settings", callback: (invocation: Gio.DBusMethodInvocation, argSettings: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-set-initial-eps-bearer-settings", callback: (invocation: Gio.DBusMethodInvocation, argSettings: GLib.Variant) => void): NodeJS.EventEmitter
     emit(sigName: "handle-set-initial-eps-bearer-settings", invocation: Gio.DBusMethodInvocation, argSettings: GLib.Variant): void
-    on(sigName: "handle-set-initial-eps-bearer-settings", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-set-initial-eps-bearer-settings", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-set-initial-eps-bearer-settings", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::g-default-timeout", callback: (($obj: GdbusModem3gppProxy, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::g-default-timeout", callback: (($obj: GdbusModem3gppProxy, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::g-default-timeout", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -3751,9 +3394,9 @@ export interface GdbusModem3gppSkeleton_ConstructProps extends Gio.DBusInterface
     subscriptionState?: number
 }
 export class GdbusModem3gppSkeleton {
-    /* Properties of Gio.DBusInterfaceSkeleton */
+    /* Properties of Gio-2.0.Gio.DBusInterfaceSkeleton */
     gFlags: Gio.DBusInterfaceSkeletonFlags
-    /* Properties of ModemManager.GdbusModem3gpp */
+    /* Properties of ModemManager-1.0.ModemManager.GdbusModem3gpp */
     enabledFacilityLocks: number
     epsUeModeOperation: number
     imei: string
@@ -3764,9 +3407,9 @@ export class GdbusModem3gppSkeleton {
     pco: GLib.Variant
     registrationState: number
     subscriptionState: number
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Gio.DBusInterfaceSkeleton */
+    /* Methods of Gio-2.0.Gio.DBusInterfaceSkeleton */
     export(connection: Gio.DBusConnection, objectPath: string): boolean
     flush(): void
     getConnection(): Gio.DBusConnection | null
@@ -3779,7 +3422,7 @@ export class GdbusModem3gppSkeleton {
     setFlags(flags: Gio.DBusInterfaceSkeletonFlags): void
     unexport(): void
     unexportFromConnection(connection: Gio.DBusConnection): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -3801,16 +3444,16 @@ export class GdbusModem3gppSkeleton {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of Gio.DBusInterface */
+    /* Methods of Gio-2.0.Gio.DBusInterface */
     getObject(): Gio.DBusObject | null
     setObject(object?: Gio.DBusObject | null): void
-    /* Methods of ModemManager.GdbusModem3gpp */
+    /* Methods of ModemManager-1.0.ModemManager.GdbusModem3gpp */
     callRegister(argOperatorId: string, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     callRegisterFinish(res: Gio.AsyncResult): boolean
     callRegisterSync(argOperatorId: string, cancellable?: Gio.Cancellable | null): boolean
     callScan(cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    callScanFinish(res: Gio.AsyncResult): [ /* returnType */ boolean, /* outResults */ GLib.Variant | null ]
-    callScanSync(cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* outResults */ GLib.Variant | null ]
+    callScanFinish(res: Gio.AsyncResult): { returnType: boolean, outResults: GLib.Variant | null }
+    callScanSync(cancellable?: Gio.Cancellable | null): { returnType: boolean, outResults: GLib.Variant | null }
     callSetEpsUeModeOperation(argMode: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     callSetEpsUeModeOperationFinish(res: Gio.AsyncResult): boolean
     callSetEpsUeModeOperationSync(argMode: number, cancellable?: Gio.Cancellable | null): boolean
@@ -3821,66 +3464,39 @@ export class GdbusModem3gppSkeleton {
     completeScan(invocation: Gio.DBusMethodInvocation, results: GLib.Variant): void
     completeSetEpsUeModeOperation(invocation: Gio.DBusMethodInvocation): void
     completeSetInitialEpsBearerSettings(invocation: Gio.DBusMethodInvocation): void
-    /* Virtual methods of ModemManager.GdbusModem3gppSkeleton */
-    vfuncDupObject(): Gio.DBusObject | null
-    vfuncGetInfo(): Gio.DBusInterfaceInfo
-    vfuncSetObject(object?: Gio.DBusObject | null): void
-    vfuncHandleRegister(invocation: Gio.DBusMethodInvocation, argOperatorId: string): boolean
-    vfuncHandleScan(invocation: Gio.DBusMethodInvocation): boolean
-    vfuncHandleSetEpsUeModeOperation(invocation: Gio.DBusMethodInvocation, argMode: number): boolean
-    vfuncHandleSetInitialEpsBearerSettings(invocation: Gio.DBusMethodInvocation, argSettings: GLib.Variant): boolean
-    /* Virtual methods of Gio.DBusInterfaceSkeleton */
-    vfuncFlush(): void
-    vfuncGAuthorizeMethod(invocation: Gio.DBusMethodInvocation): boolean
-    vfuncGetInfo(): Gio.DBusInterfaceInfo
-    vfuncGetProperties(): GLib.Variant
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gio.DBusInterfaceSkeleton */
+    /* Signals of Gio-2.0.Gio.DBusInterfaceSkeleton */
     connect(sigName: "g-authorize-method", callback: (($obj: GdbusModem3gppSkeleton, invocation: Gio.DBusMethodInvocation) => boolean)): number
-    connect_after(sigName: "g-authorize-method", callback: (($obj: GdbusModem3gppSkeleton, invocation: Gio.DBusMethodInvocation) => boolean)): number
+    on(sigName: "g-authorize-method", callback: (invocation: Gio.DBusMethodInvocation) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "g-authorize-method", callback: (invocation: Gio.DBusMethodInvocation) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "g-authorize-method", callback: (invocation: Gio.DBusMethodInvocation) => void): NodeJS.EventEmitter
     emit(sigName: "g-authorize-method", invocation: Gio.DBusMethodInvocation): void
-    on(sigName: "g-authorize-method", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "g-authorize-method", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "g-authorize-method", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: GdbusModem3gppSkeleton, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: GdbusModem3gppSkeleton, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of ModemManager.GdbusModem3gpp */
+    /* Signals of ModemManager-1.0.ModemManager.GdbusModem3gpp */
     connect(sigName: "handle-register", callback: (($obj: GdbusModem3gppSkeleton, invocation: Gio.DBusMethodInvocation, argOperatorId: string) => boolean)): number
-    connect_after(sigName: "handle-register", callback: (($obj: GdbusModem3gppSkeleton, invocation: Gio.DBusMethodInvocation, argOperatorId: string) => boolean)): number
+    on(sigName: "handle-register", callback: (invocation: Gio.DBusMethodInvocation, argOperatorId: string) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-register", callback: (invocation: Gio.DBusMethodInvocation, argOperatorId: string) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-register", callback: (invocation: Gio.DBusMethodInvocation, argOperatorId: string) => void): NodeJS.EventEmitter
     emit(sigName: "handle-register", invocation: Gio.DBusMethodInvocation, argOperatorId: string): void
-    on(sigName: "handle-register", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-register", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-register", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "handle-scan", callback: (($obj: GdbusModem3gppSkeleton, invocation: Gio.DBusMethodInvocation) => boolean)): number
-    connect_after(sigName: "handle-scan", callback: (($obj: GdbusModem3gppSkeleton, invocation: Gio.DBusMethodInvocation) => boolean)): number
+    on(sigName: "handle-scan", callback: (invocation: Gio.DBusMethodInvocation) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-scan", callback: (invocation: Gio.DBusMethodInvocation) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-scan", callback: (invocation: Gio.DBusMethodInvocation) => void): NodeJS.EventEmitter
     emit(sigName: "handle-scan", invocation: Gio.DBusMethodInvocation): void
-    on(sigName: "handle-scan", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-scan", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-scan", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "handle-set-eps-ue-mode-operation", callback: (($obj: GdbusModem3gppSkeleton, invocation: Gio.DBusMethodInvocation, argMode: number) => boolean)): number
-    connect_after(sigName: "handle-set-eps-ue-mode-operation", callback: (($obj: GdbusModem3gppSkeleton, invocation: Gio.DBusMethodInvocation, argMode: number) => boolean)): number
+    on(sigName: "handle-set-eps-ue-mode-operation", callback: (invocation: Gio.DBusMethodInvocation, argMode: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-set-eps-ue-mode-operation", callback: (invocation: Gio.DBusMethodInvocation, argMode: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-set-eps-ue-mode-operation", callback: (invocation: Gio.DBusMethodInvocation, argMode: number) => void): NodeJS.EventEmitter
     emit(sigName: "handle-set-eps-ue-mode-operation", invocation: Gio.DBusMethodInvocation, argMode: number): void
-    on(sigName: "handle-set-eps-ue-mode-operation", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-set-eps-ue-mode-operation", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-set-eps-ue-mode-operation", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "handle-set-initial-eps-bearer-settings", callback: (($obj: GdbusModem3gppSkeleton, invocation: Gio.DBusMethodInvocation, argSettings: GLib.Variant) => boolean)): number
-    connect_after(sigName: "handle-set-initial-eps-bearer-settings", callback: (($obj: GdbusModem3gppSkeleton, invocation: Gio.DBusMethodInvocation, argSettings: GLib.Variant) => boolean)): number
+    on(sigName: "handle-set-initial-eps-bearer-settings", callback: (invocation: Gio.DBusMethodInvocation, argSettings: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-set-initial-eps-bearer-settings", callback: (invocation: Gio.DBusMethodInvocation, argSettings: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-set-initial-eps-bearer-settings", callback: (invocation: Gio.DBusMethodInvocation, argSettings: GLib.Variant) => void): NodeJS.EventEmitter
     emit(sigName: "handle-set-initial-eps-bearer-settings", invocation: Gio.DBusMethodInvocation, argSettings: GLib.Variant): void
-    on(sigName: "handle-set-initial-eps-bearer-settings", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-set-initial-eps-bearer-settings", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-set-initial-eps-bearer-settings", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::g-flags", callback: (($obj: GdbusModem3gppSkeleton, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::g-flags", callback: (($obj: GdbusModem3gppSkeleton, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::g-flags", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -3958,23 +3574,23 @@ export interface GdbusModem3gppUssdProxy_ConstructProps extends Gio.DBusProxy_Co
     state?: number
 }
 export class GdbusModem3gppUssdProxy {
-    /* Properties of Gio.DBusProxy */
+    /* Properties of Gio-2.0.Gio.DBusProxy */
     gDefaultTimeout: number
     gInterfaceInfo: Gio.DBusInterfaceInfo
     readonly gNameOwner: string
-    /* Properties of ModemManager.GdbusModem3gppUssd */
+    /* Properties of ModemManager-1.0.ModemManager.GdbusModem3gppUssd */
     networkNotification: string
     networkRequest: string
     state: number
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Gio.DBusProxy */
+    /* Methods of Gio-2.0.Gio.DBusProxy */
     call(methodName: string, parameters: GLib.Variant | null, flags: Gio.DBusCallFlags, timeoutMsec: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     callFinish(res: Gio.AsyncResult): GLib.Variant
     callSync(methodName: string, parameters: GLib.Variant | null, flags: Gio.DBusCallFlags, timeoutMsec: number, cancellable?: Gio.Cancellable | null): GLib.Variant
     callWithUnixFdList(methodName: string, parameters: GLib.Variant | null, flags: Gio.DBusCallFlags, timeoutMsec: number, fdList?: Gio.UnixFDList | null, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    callWithUnixFdListFinish(res: Gio.AsyncResult): [ /* returnType */ GLib.Variant, /* outFdList */ Gio.UnixFDList | null ]
-    callWithUnixFdListSync(methodName: string, parameters: GLib.Variant | null, flags: Gio.DBusCallFlags, timeoutMsec: number, fdList?: Gio.UnixFDList | null, cancellable?: Gio.Cancellable | null): [ /* returnType */ GLib.Variant, /* outFdList */ Gio.UnixFDList | null ]
+    callWithUnixFdListFinish(res: Gio.AsyncResult): { returnType: GLib.Variant, outFdList: Gio.UnixFDList | null }
+    callWithUnixFdListSync(methodName: string, parameters: GLib.Variant | null, flags: Gio.DBusCallFlags, timeoutMsec: number, fdList?: Gio.UnixFDList | null, cancellable?: Gio.Cancellable | null): { returnType: GLib.Variant, outFdList: Gio.UnixFDList | null }
     getCachedProperty(propertyName: string): GLib.Variant | null
     getCachedPropertyNames(): string[] | null
     getConnection(): Gio.DBusConnection
@@ -3988,7 +3604,7 @@ export class GdbusModem3gppUssdProxy {
     setCachedProperty(propertyName: string, value?: GLib.Variant | null): void
     setDefaultTimeout(timeoutMsec: number): void
     setInterfaceInfo(info?: Gio.DBusInterfaceInfo | null): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -4010,89 +3626,62 @@ export class GdbusModem3gppUssdProxy {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of Gio.AsyncInitable */
+    /* Methods of Gio-2.0.Gio.AsyncInitable */
     initAsync(ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     initFinish(res: Gio.AsyncResult): boolean
     newFinish(res: Gio.AsyncResult): GObject.Object
-    /* Methods of Gio.DBusInterface */
+    /* Methods of Gio-2.0.Gio.DBusInterface */
     getObject(): Gio.DBusObject | null
     getInfo(): Gio.DBusInterfaceInfo
     setObject(object?: Gio.DBusObject | null): void
-    /* Methods of Gio.Initable */
+    /* Methods of Gio-2.0.Gio.Initable */
     init(cancellable?: Gio.Cancellable | null): boolean
-    /* Methods of ModemManager.GdbusModem3gppUssd */
+    /* Methods of ModemManager-1.0.ModemManager.GdbusModem3gppUssd */
     callCancel(cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     callCancelFinish(res: Gio.AsyncResult): boolean
     callCancelSync(cancellable?: Gio.Cancellable | null): boolean
     callInitiate(argCommand: string, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    callInitiateFinish(res: Gio.AsyncResult): [ /* returnType */ boolean, /* outReply */ string | null ]
-    callInitiateSync(argCommand: string, cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* outReply */ string | null ]
+    callInitiateFinish(res: Gio.AsyncResult): { returnType: boolean, outReply: string | null }
+    callInitiateSync(argCommand: string, cancellable?: Gio.Cancellable | null): { returnType: boolean, outReply: string | null }
     callRespond(argResponse: string, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    callRespondFinish(res: Gio.AsyncResult): [ /* returnType */ boolean, /* outReply */ string | null ]
-    callRespondSync(argResponse: string, cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* outReply */ string | null ]
+    callRespondFinish(res: Gio.AsyncResult): { returnType: boolean, outReply: string | null }
+    callRespondSync(argResponse: string, cancellable?: Gio.Cancellable | null): { returnType: boolean, outReply: string | null }
     completeCancel(invocation: Gio.DBusMethodInvocation): void
     completeInitiate(invocation: Gio.DBusMethodInvocation, reply: string): void
     completeRespond(invocation: Gio.DBusMethodInvocation, reply: string): void
-    /* Virtual methods of ModemManager.GdbusModem3gppUssdProxy */
-    vfuncInitAsync(ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    vfuncInitFinish(res: Gio.AsyncResult): boolean
-    vfuncDupObject(): Gio.DBusObject | null
-    vfuncGetInfo(): Gio.DBusInterfaceInfo
-    vfuncSetObject(object?: Gio.DBusObject | null): void
-    vfuncInit(cancellable?: Gio.Cancellable | null): boolean
-    vfuncHandleCancel(invocation: Gio.DBusMethodInvocation): boolean
-    vfuncHandleInitiate(invocation: Gio.DBusMethodInvocation, argCommand: string): boolean
-    vfuncHandleRespond(invocation: Gio.DBusMethodInvocation, argResponse: string): boolean
-    /* Virtual methods of Gio.DBusProxy */
-    vfuncGPropertiesChanged(changedProperties: GLib.Variant, invalidatedProperties: string): void
-    vfuncGSignal(senderName: string, signalName: string, parameters: GLib.Variant): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gio.DBusProxy */
+    /* Signals of Gio-2.0.Gio.DBusProxy */
     connect(sigName: "g-properties-changed", callback: (($obj: GdbusModem3gppUssdProxy, changedProperties: GLib.Variant, invalidatedProperties: string[]) => void)): number
-    connect_after(sigName: "g-properties-changed", callback: (($obj: GdbusModem3gppUssdProxy, changedProperties: GLib.Variant, invalidatedProperties: string[]) => void)): number
+    on(sigName: "g-properties-changed", callback: (changedProperties: GLib.Variant, invalidatedProperties: string[]) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "g-properties-changed", callback: (changedProperties: GLib.Variant, invalidatedProperties: string[]) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "g-properties-changed", callback: (changedProperties: GLib.Variant, invalidatedProperties: string[]) => void): NodeJS.EventEmitter
     emit(sigName: "g-properties-changed", changedProperties: GLib.Variant, invalidatedProperties: string[]): void
-    on(sigName: "g-properties-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "g-properties-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "g-properties-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "g-signal", callback: (($obj: GdbusModem3gppUssdProxy, senderName: string | null, signalName: string, parameters: GLib.Variant) => void)): number
-    connect_after(sigName: "g-signal", callback: (($obj: GdbusModem3gppUssdProxy, senderName: string | null, signalName: string, parameters: GLib.Variant) => void)): number
+    on(sigName: "g-signal", callback: (senderName: string | null, signalName: string, parameters: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "g-signal", callback: (senderName: string | null, signalName: string, parameters: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "g-signal", callback: (senderName: string | null, signalName: string, parameters: GLib.Variant) => void): NodeJS.EventEmitter
     emit(sigName: "g-signal", senderName: string | null, signalName: string, parameters: GLib.Variant): void
-    on(sigName: "g-signal", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "g-signal", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "g-signal", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: GdbusModem3gppUssdProxy, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: GdbusModem3gppUssdProxy, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of ModemManager.GdbusModem3gppUssd */
+    /* Signals of ModemManager-1.0.ModemManager.GdbusModem3gppUssd */
     connect(sigName: "handle-cancel", callback: (($obj: GdbusModem3gppUssdProxy, invocation: Gio.DBusMethodInvocation) => boolean)): number
-    connect_after(sigName: "handle-cancel", callback: (($obj: GdbusModem3gppUssdProxy, invocation: Gio.DBusMethodInvocation) => boolean)): number
+    on(sigName: "handle-cancel", callback: (invocation: Gio.DBusMethodInvocation) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-cancel", callback: (invocation: Gio.DBusMethodInvocation) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-cancel", callback: (invocation: Gio.DBusMethodInvocation) => void): NodeJS.EventEmitter
     emit(sigName: "handle-cancel", invocation: Gio.DBusMethodInvocation): void
-    on(sigName: "handle-cancel", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-cancel", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-cancel", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "handle-initiate", callback: (($obj: GdbusModem3gppUssdProxy, invocation: Gio.DBusMethodInvocation, argCommand: string) => boolean)): number
-    connect_after(sigName: "handle-initiate", callback: (($obj: GdbusModem3gppUssdProxy, invocation: Gio.DBusMethodInvocation, argCommand: string) => boolean)): number
+    on(sigName: "handle-initiate", callback: (invocation: Gio.DBusMethodInvocation, argCommand: string) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-initiate", callback: (invocation: Gio.DBusMethodInvocation, argCommand: string) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-initiate", callback: (invocation: Gio.DBusMethodInvocation, argCommand: string) => void): NodeJS.EventEmitter
     emit(sigName: "handle-initiate", invocation: Gio.DBusMethodInvocation, argCommand: string): void
-    on(sigName: "handle-initiate", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-initiate", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-initiate", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "handle-respond", callback: (($obj: GdbusModem3gppUssdProxy, invocation: Gio.DBusMethodInvocation, argResponse: string) => boolean)): number
-    connect_after(sigName: "handle-respond", callback: (($obj: GdbusModem3gppUssdProxy, invocation: Gio.DBusMethodInvocation, argResponse: string) => boolean)): number
+    on(sigName: "handle-respond", callback: (invocation: Gio.DBusMethodInvocation, argResponse: string) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-respond", callback: (invocation: Gio.DBusMethodInvocation, argResponse: string) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-respond", callback: (invocation: Gio.DBusMethodInvocation, argResponse: string) => void): NodeJS.EventEmitter
     emit(sigName: "handle-respond", invocation: Gio.DBusMethodInvocation, argResponse: string): void
-    on(sigName: "handle-respond", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-respond", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-respond", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::g-default-timeout", callback: (($obj: GdbusModem3gppUssdProxy, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::g-default-timeout", callback: (($obj: GdbusModem3gppUssdProxy, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::g-default-timeout", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -4154,15 +3743,15 @@ export interface GdbusModem3gppUssdSkeleton_ConstructProps extends Gio.DBusInter
     state?: number
 }
 export class GdbusModem3gppUssdSkeleton {
-    /* Properties of Gio.DBusInterfaceSkeleton */
+    /* Properties of Gio-2.0.Gio.DBusInterfaceSkeleton */
     gFlags: Gio.DBusInterfaceSkeletonFlags
-    /* Properties of ModemManager.GdbusModem3gppUssd */
+    /* Properties of ModemManager-1.0.ModemManager.GdbusModem3gppUssd */
     networkNotification: string
     networkRequest: string
     state: number
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Gio.DBusInterfaceSkeleton */
+    /* Methods of Gio-2.0.Gio.DBusInterfaceSkeleton */
     export(connection: Gio.DBusConnection, objectPath: string): boolean
     flush(): void
     getConnection(): Gio.DBusConnection | null
@@ -4175,7 +3764,7 @@ export class GdbusModem3gppUssdSkeleton {
     setFlags(flags: Gio.DBusInterfaceSkeletonFlags): void
     unexport(): void
     unexportFromConnection(connection: Gio.DBusConnection): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -4197,75 +3786,50 @@ export class GdbusModem3gppUssdSkeleton {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of Gio.DBusInterface */
+    /* Methods of Gio-2.0.Gio.DBusInterface */
     getObject(): Gio.DBusObject | null
     setObject(object?: Gio.DBusObject | null): void
-    /* Methods of ModemManager.GdbusModem3gppUssd */
+    /* Methods of ModemManager-1.0.ModemManager.GdbusModem3gppUssd */
     callCancel(cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     callCancelFinish(res: Gio.AsyncResult): boolean
     callCancelSync(cancellable?: Gio.Cancellable | null): boolean
     callInitiate(argCommand: string, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    callInitiateFinish(res: Gio.AsyncResult): [ /* returnType */ boolean, /* outReply */ string | null ]
-    callInitiateSync(argCommand: string, cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* outReply */ string | null ]
+    callInitiateFinish(res: Gio.AsyncResult): { returnType: boolean, outReply: string | null }
+    callInitiateSync(argCommand: string, cancellable?: Gio.Cancellable | null): { returnType: boolean, outReply: string | null }
     callRespond(argResponse: string, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    callRespondFinish(res: Gio.AsyncResult): [ /* returnType */ boolean, /* outReply */ string | null ]
-    callRespondSync(argResponse: string, cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* outReply */ string | null ]
+    callRespondFinish(res: Gio.AsyncResult): { returnType: boolean, outReply: string | null }
+    callRespondSync(argResponse: string, cancellable?: Gio.Cancellable | null): { returnType: boolean, outReply: string | null }
     completeCancel(invocation: Gio.DBusMethodInvocation): void
     completeInitiate(invocation: Gio.DBusMethodInvocation, reply: string): void
     completeRespond(invocation: Gio.DBusMethodInvocation, reply: string): void
-    /* Virtual methods of ModemManager.GdbusModem3gppUssdSkeleton */
-    vfuncDupObject(): Gio.DBusObject | null
-    vfuncGetInfo(): Gio.DBusInterfaceInfo
-    vfuncSetObject(object?: Gio.DBusObject | null): void
-    vfuncHandleCancel(invocation: Gio.DBusMethodInvocation): boolean
-    vfuncHandleInitiate(invocation: Gio.DBusMethodInvocation, argCommand: string): boolean
-    vfuncHandleRespond(invocation: Gio.DBusMethodInvocation, argResponse: string): boolean
-    /* Virtual methods of Gio.DBusInterfaceSkeleton */
-    vfuncFlush(): void
-    vfuncGAuthorizeMethod(invocation: Gio.DBusMethodInvocation): boolean
-    vfuncGetInfo(): Gio.DBusInterfaceInfo
-    vfuncGetProperties(): GLib.Variant
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gio.DBusInterfaceSkeleton */
+    /* Signals of Gio-2.0.Gio.DBusInterfaceSkeleton */
     connect(sigName: "g-authorize-method", callback: (($obj: GdbusModem3gppUssdSkeleton, invocation: Gio.DBusMethodInvocation) => boolean)): number
-    connect_after(sigName: "g-authorize-method", callback: (($obj: GdbusModem3gppUssdSkeleton, invocation: Gio.DBusMethodInvocation) => boolean)): number
+    on(sigName: "g-authorize-method", callback: (invocation: Gio.DBusMethodInvocation) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "g-authorize-method", callback: (invocation: Gio.DBusMethodInvocation) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "g-authorize-method", callback: (invocation: Gio.DBusMethodInvocation) => void): NodeJS.EventEmitter
     emit(sigName: "g-authorize-method", invocation: Gio.DBusMethodInvocation): void
-    on(sigName: "g-authorize-method", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "g-authorize-method", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "g-authorize-method", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: GdbusModem3gppUssdSkeleton, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: GdbusModem3gppUssdSkeleton, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of ModemManager.GdbusModem3gppUssd */
+    /* Signals of ModemManager-1.0.ModemManager.GdbusModem3gppUssd */
     connect(sigName: "handle-cancel", callback: (($obj: GdbusModem3gppUssdSkeleton, invocation: Gio.DBusMethodInvocation) => boolean)): number
-    connect_after(sigName: "handle-cancel", callback: (($obj: GdbusModem3gppUssdSkeleton, invocation: Gio.DBusMethodInvocation) => boolean)): number
+    on(sigName: "handle-cancel", callback: (invocation: Gio.DBusMethodInvocation) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-cancel", callback: (invocation: Gio.DBusMethodInvocation) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-cancel", callback: (invocation: Gio.DBusMethodInvocation) => void): NodeJS.EventEmitter
     emit(sigName: "handle-cancel", invocation: Gio.DBusMethodInvocation): void
-    on(sigName: "handle-cancel", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-cancel", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-cancel", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "handle-initiate", callback: (($obj: GdbusModem3gppUssdSkeleton, invocation: Gio.DBusMethodInvocation, argCommand: string) => boolean)): number
-    connect_after(sigName: "handle-initiate", callback: (($obj: GdbusModem3gppUssdSkeleton, invocation: Gio.DBusMethodInvocation, argCommand: string) => boolean)): number
+    on(sigName: "handle-initiate", callback: (invocation: Gio.DBusMethodInvocation, argCommand: string) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-initiate", callback: (invocation: Gio.DBusMethodInvocation, argCommand: string) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-initiate", callback: (invocation: Gio.DBusMethodInvocation, argCommand: string) => void): NodeJS.EventEmitter
     emit(sigName: "handle-initiate", invocation: Gio.DBusMethodInvocation, argCommand: string): void
-    on(sigName: "handle-initiate", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-initiate", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-initiate", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "handle-respond", callback: (($obj: GdbusModem3gppUssdSkeleton, invocation: Gio.DBusMethodInvocation, argResponse: string) => boolean)): number
-    connect_after(sigName: "handle-respond", callback: (($obj: GdbusModem3gppUssdSkeleton, invocation: Gio.DBusMethodInvocation, argResponse: string) => boolean)): number
+    on(sigName: "handle-respond", callback: (invocation: Gio.DBusMethodInvocation, argResponse: string) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-respond", callback: (invocation: Gio.DBusMethodInvocation, argResponse: string) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-respond", callback: (invocation: Gio.DBusMethodInvocation, argResponse: string) => void): NodeJS.EventEmitter
     emit(sigName: "handle-respond", invocation: Gio.DBusMethodInvocation, argResponse: string): void
-    on(sigName: "handle-respond", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-respond", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-respond", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::g-flags", callback: (($obj: GdbusModem3gppUssdSkeleton, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::g-flags", callback: (($obj: GdbusModem3gppUssdSkeleton, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::g-flags", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -4312,11 +3876,11 @@ export interface GdbusModemCdmaProxy_ConstructProps extends Gio.DBusProxy_Constr
     sid?: number
 }
 export class GdbusModemCdmaProxy {
-    /* Properties of Gio.DBusProxy */
+    /* Properties of Gio-2.0.Gio.DBusProxy */
     gDefaultTimeout: number
     gInterfaceInfo: Gio.DBusInterfaceInfo
     readonly gNameOwner: string
-    /* Properties of ModemManager.GdbusModemCdma */
+    /* Properties of ModemManager-1.0.ModemManager.GdbusModemCdma */
     activationState: number
     cdma1xRegistrationState: number
     esn: string
@@ -4324,15 +3888,15 @@ export class GdbusModemCdmaProxy {
     meid: string
     nid: number
     sid: number
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Gio.DBusProxy */
+    /* Methods of Gio-2.0.Gio.DBusProxy */
     call(methodName: string, parameters: GLib.Variant | null, flags: Gio.DBusCallFlags, timeoutMsec: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     callFinish(res: Gio.AsyncResult): GLib.Variant
     callSync(methodName: string, parameters: GLib.Variant | null, flags: Gio.DBusCallFlags, timeoutMsec: number, cancellable?: Gio.Cancellable | null): GLib.Variant
     callWithUnixFdList(methodName: string, parameters: GLib.Variant | null, flags: Gio.DBusCallFlags, timeoutMsec: number, fdList?: Gio.UnixFDList | null, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    callWithUnixFdListFinish(res: Gio.AsyncResult): [ /* returnType */ GLib.Variant, /* outFdList */ Gio.UnixFDList | null ]
-    callWithUnixFdListSync(methodName: string, parameters: GLib.Variant | null, flags: Gio.DBusCallFlags, timeoutMsec: number, fdList?: Gio.UnixFDList | null, cancellable?: Gio.Cancellable | null): [ /* returnType */ GLib.Variant, /* outFdList */ Gio.UnixFDList | null ]
+    callWithUnixFdListFinish(res: Gio.AsyncResult): { returnType: GLib.Variant, outFdList: Gio.UnixFDList | null }
+    callWithUnixFdListSync(methodName: string, parameters: GLib.Variant | null, flags: Gio.DBusCallFlags, timeoutMsec: number, fdList?: Gio.UnixFDList | null, cancellable?: Gio.Cancellable | null): { returnType: GLib.Variant, outFdList: Gio.UnixFDList | null }
     getCachedProperty(propertyName: string): GLib.Variant | null
     getCachedPropertyNames(): string[] | null
     getConnection(): Gio.DBusConnection
@@ -4346,7 +3910,7 @@ export class GdbusModemCdmaProxy {
     setCachedProperty(propertyName: string, value?: GLib.Variant | null): void
     setDefaultTimeout(timeoutMsec: number): void
     setInterfaceInfo(info?: Gio.DBusInterfaceInfo | null): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -4368,17 +3932,17 @@ export class GdbusModemCdmaProxy {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of Gio.AsyncInitable */
+    /* Methods of Gio-2.0.Gio.AsyncInitable */
     initAsync(ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     initFinish(res: Gio.AsyncResult): boolean
     newFinish(res: Gio.AsyncResult): GObject.Object
-    /* Methods of Gio.DBusInterface */
+    /* Methods of Gio-2.0.Gio.DBusInterface */
     getObject(): Gio.DBusObject | null
     getInfo(): Gio.DBusInterfaceInfo
     setObject(object?: Gio.DBusObject | null): void
-    /* Methods of Gio.Initable */
+    /* Methods of Gio-2.0.Gio.Initable */
     init(cancellable?: Gio.Cancellable | null): boolean
-    /* Methods of ModemManager.GdbusModemCdma */
+    /* Methods of ModemManager-1.0.ModemManager.GdbusModemCdma */
     callActivate(argCarrierCode: string, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     callActivateFinish(res: Gio.AsyncResult): boolean
     callActivateManual(argProperties: GLib.Variant, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
@@ -4388,66 +3952,39 @@ export class GdbusModemCdmaProxy {
     completeActivate(invocation: Gio.DBusMethodInvocation): void
     completeActivateManual(invocation: Gio.DBusMethodInvocation): void
     emitActivationStateChanged(argActivationState: number, argActivationError: number, argStatusChanges: GLib.Variant): void
-    /* Virtual methods of ModemManager.GdbusModemCdmaProxy */
-    vfuncInitAsync(ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    vfuncInitFinish(res: Gio.AsyncResult): boolean
-    vfuncDupObject(): Gio.DBusObject | null
-    vfuncGetInfo(): Gio.DBusInterfaceInfo
-    vfuncSetObject(object?: Gio.DBusObject | null): void
-    vfuncInit(cancellable?: Gio.Cancellable | null): boolean
-    vfuncActivationStateChanged(argActivationState: number, argActivationError: number, argStatusChanges: GLib.Variant): void
-    vfuncHandleActivate(invocation: Gio.DBusMethodInvocation, argCarrierCode: string): boolean
-    vfuncHandleActivateManual(invocation: Gio.DBusMethodInvocation, argProperties: GLib.Variant): boolean
-    /* Virtual methods of Gio.DBusProxy */
-    vfuncGPropertiesChanged(changedProperties: GLib.Variant, invalidatedProperties: string): void
-    vfuncGSignal(senderName: string, signalName: string, parameters: GLib.Variant): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gio.DBusProxy */
+    /* Signals of Gio-2.0.Gio.DBusProxy */
     connect(sigName: "g-properties-changed", callback: (($obj: GdbusModemCdmaProxy, changedProperties: GLib.Variant, invalidatedProperties: string[]) => void)): number
-    connect_after(sigName: "g-properties-changed", callback: (($obj: GdbusModemCdmaProxy, changedProperties: GLib.Variant, invalidatedProperties: string[]) => void)): number
+    on(sigName: "g-properties-changed", callback: (changedProperties: GLib.Variant, invalidatedProperties: string[]) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "g-properties-changed", callback: (changedProperties: GLib.Variant, invalidatedProperties: string[]) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "g-properties-changed", callback: (changedProperties: GLib.Variant, invalidatedProperties: string[]) => void): NodeJS.EventEmitter
     emit(sigName: "g-properties-changed", changedProperties: GLib.Variant, invalidatedProperties: string[]): void
-    on(sigName: "g-properties-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "g-properties-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "g-properties-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "g-signal", callback: (($obj: GdbusModemCdmaProxy, senderName: string | null, signalName: string, parameters: GLib.Variant) => void)): number
-    connect_after(sigName: "g-signal", callback: (($obj: GdbusModemCdmaProxy, senderName: string | null, signalName: string, parameters: GLib.Variant) => void)): number
+    on(sigName: "g-signal", callback: (senderName: string | null, signalName: string, parameters: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "g-signal", callback: (senderName: string | null, signalName: string, parameters: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "g-signal", callback: (senderName: string | null, signalName: string, parameters: GLib.Variant) => void): NodeJS.EventEmitter
     emit(sigName: "g-signal", senderName: string | null, signalName: string, parameters: GLib.Variant): void
-    on(sigName: "g-signal", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "g-signal", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "g-signal", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: GdbusModemCdmaProxy, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: GdbusModemCdmaProxy, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of ModemManager.GdbusModemCdma */
+    /* Signals of ModemManager-1.0.ModemManager.GdbusModemCdma */
     connect(sigName: "activation-state-changed", callback: (($obj: GdbusModemCdmaProxy, argActivationState: number, argActivationError: number, argStatusChanges: GLib.Variant) => void)): number
-    connect_after(sigName: "activation-state-changed", callback: (($obj: GdbusModemCdmaProxy, argActivationState: number, argActivationError: number, argStatusChanges: GLib.Variant) => void)): number
+    on(sigName: "activation-state-changed", callback: (argActivationState: number, argActivationError: number, argStatusChanges: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "activation-state-changed", callback: (argActivationState: number, argActivationError: number, argStatusChanges: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "activation-state-changed", callback: (argActivationState: number, argActivationError: number, argStatusChanges: GLib.Variant) => void): NodeJS.EventEmitter
     emit(sigName: "activation-state-changed", argActivationState: number, argActivationError: number, argStatusChanges: GLib.Variant): void
-    on(sigName: "activation-state-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "activation-state-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "activation-state-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "handle-activate", callback: (($obj: GdbusModemCdmaProxy, invocation: Gio.DBusMethodInvocation, argCarrierCode: string) => boolean)): number
-    connect_after(sigName: "handle-activate", callback: (($obj: GdbusModemCdmaProxy, invocation: Gio.DBusMethodInvocation, argCarrierCode: string) => boolean)): number
+    on(sigName: "handle-activate", callback: (invocation: Gio.DBusMethodInvocation, argCarrierCode: string) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-activate", callback: (invocation: Gio.DBusMethodInvocation, argCarrierCode: string) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-activate", callback: (invocation: Gio.DBusMethodInvocation, argCarrierCode: string) => void): NodeJS.EventEmitter
     emit(sigName: "handle-activate", invocation: Gio.DBusMethodInvocation, argCarrierCode: string): void
-    on(sigName: "handle-activate", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-activate", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-activate", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "handle-activate-manual", callback: (($obj: GdbusModemCdmaProxy, invocation: Gio.DBusMethodInvocation, argProperties: GLib.Variant) => boolean)): number
-    connect_after(sigName: "handle-activate-manual", callback: (($obj: GdbusModemCdmaProxy, invocation: Gio.DBusMethodInvocation, argProperties: GLib.Variant) => boolean)): number
+    on(sigName: "handle-activate-manual", callback: (invocation: Gio.DBusMethodInvocation, argProperties: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-activate-manual", callback: (invocation: Gio.DBusMethodInvocation, argProperties: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-activate-manual", callback: (invocation: Gio.DBusMethodInvocation, argProperties: GLib.Variant) => void): NodeJS.EventEmitter
     emit(sigName: "handle-activate-manual", invocation: Gio.DBusMethodInvocation, argProperties: GLib.Variant): void
-    on(sigName: "handle-activate-manual", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-activate-manual", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-activate-manual", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::g-default-timeout", callback: (($obj: GdbusModemCdmaProxy, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::g-default-timeout", callback: (($obj: GdbusModemCdmaProxy, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::g-default-timeout", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -4533,9 +4070,9 @@ export interface GdbusModemCdmaSkeleton_ConstructProps extends Gio.DBusInterface
     sid?: number
 }
 export class GdbusModemCdmaSkeleton {
-    /* Properties of Gio.DBusInterfaceSkeleton */
+    /* Properties of Gio-2.0.Gio.DBusInterfaceSkeleton */
     gFlags: Gio.DBusInterfaceSkeletonFlags
-    /* Properties of ModemManager.GdbusModemCdma */
+    /* Properties of ModemManager-1.0.ModemManager.GdbusModemCdma */
     activationState: number
     cdma1xRegistrationState: number
     esn: string
@@ -4543,9 +4080,9 @@ export class GdbusModemCdmaSkeleton {
     meid: string
     nid: number
     sid: number
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Gio.DBusInterfaceSkeleton */
+    /* Methods of Gio-2.0.Gio.DBusInterfaceSkeleton */
     export(connection: Gio.DBusConnection, objectPath: string): boolean
     flush(): void
     getConnection(): Gio.DBusConnection | null
@@ -4558,7 +4095,7 @@ export class GdbusModemCdmaSkeleton {
     setFlags(flags: Gio.DBusInterfaceSkeletonFlags): void
     unexport(): void
     unexportFromConnection(connection: Gio.DBusConnection): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -4580,10 +4117,10 @@ export class GdbusModemCdmaSkeleton {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of Gio.DBusInterface */
+    /* Methods of Gio-2.0.Gio.DBusInterface */
     getObject(): Gio.DBusObject | null
     setObject(object?: Gio.DBusObject | null): void
-    /* Methods of ModemManager.GdbusModemCdma */
+    /* Methods of ModemManager-1.0.ModemManager.GdbusModemCdma */
     callActivate(argCarrierCode: string, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     callActivateFinish(res: Gio.AsyncResult): boolean
     callActivateManual(argProperties: GLib.Variant, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
@@ -4593,59 +4130,34 @@ export class GdbusModemCdmaSkeleton {
     completeActivate(invocation: Gio.DBusMethodInvocation): void
     completeActivateManual(invocation: Gio.DBusMethodInvocation): void
     emitActivationStateChanged(argActivationState: number, argActivationError: number, argStatusChanges: GLib.Variant): void
-    /* Virtual methods of ModemManager.GdbusModemCdmaSkeleton */
-    vfuncDupObject(): Gio.DBusObject | null
-    vfuncGetInfo(): Gio.DBusInterfaceInfo
-    vfuncSetObject(object?: Gio.DBusObject | null): void
-    vfuncActivationStateChanged(argActivationState: number, argActivationError: number, argStatusChanges: GLib.Variant): void
-    vfuncHandleActivate(invocation: Gio.DBusMethodInvocation, argCarrierCode: string): boolean
-    vfuncHandleActivateManual(invocation: Gio.DBusMethodInvocation, argProperties: GLib.Variant): boolean
-    /* Virtual methods of Gio.DBusInterfaceSkeleton */
-    vfuncFlush(): void
-    vfuncGAuthorizeMethod(invocation: Gio.DBusMethodInvocation): boolean
-    vfuncGetInfo(): Gio.DBusInterfaceInfo
-    vfuncGetProperties(): GLib.Variant
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gio.DBusInterfaceSkeleton */
+    /* Signals of Gio-2.0.Gio.DBusInterfaceSkeleton */
     connect(sigName: "g-authorize-method", callback: (($obj: GdbusModemCdmaSkeleton, invocation: Gio.DBusMethodInvocation) => boolean)): number
-    connect_after(sigName: "g-authorize-method", callback: (($obj: GdbusModemCdmaSkeleton, invocation: Gio.DBusMethodInvocation) => boolean)): number
+    on(sigName: "g-authorize-method", callback: (invocation: Gio.DBusMethodInvocation) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "g-authorize-method", callback: (invocation: Gio.DBusMethodInvocation) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "g-authorize-method", callback: (invocation: Gio.DBusMethodInvocation) => void): NodeJS.EventEmitter
     emit(sigName: "g-authorize-method", invocation: Gio.DBusMethodInvocation): void
-    on(sigName: "g-authorize-method", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "g-authorize-method", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "g-authorize-method", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: GdbusModemCdmaSkeleton, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: GdbusModemCdmaSkeleton, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of ModemManager.GdbusModemCdma */
+    /* Signals of ModemManager-1.0.ModemManager.GdbusModemCdma */
     connect(sigName: "activation-state-changed", callback: (($obj: GdbusModemCdmaSkeleton, argActivationState: number, argActivationError: number, argStatusChanges: GLib.Variant) => void)): number
-    connect_after(sigName: "activation-state-changed", callback: (($obj: GdbusModemCdmaSkeleton, argActivationState: number, argActivationError: number, argStatusChanges: GLib.Variant) => void)): number
+    on(sigName: "activation-state-changed", callback: (argActivationState: number, argActivationError: number, argStatusChanges: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "activation-state-changed", callback: (argActivationState: number, argActivationError: number, argStatusChanges: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "activation-state-changed", callback: (argActivationState: number, argActivationError: number, argStatusChanges: GLib.Variant) => void): NodeJS.EventEmitter
     emit(sigName: "activation-state-changed", argActivationState: number, argActivationError: number, argStatusChanges: GLib.Variant): void
-    on(sigName: "activation-state-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "activation-state-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "activation-state-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "handle-activate", callback: (($obj: GdbusModemCdmaSkeleton, invocation: Gio.DBusMethodInvocation, argCarrierCode: string) => boolean)): number
-    connect_after(sigName: "handle-activate", callback: (($obj: GdbusModemCdmaSkeleton, invocation: Gio.DBusMethodInvocation, argCarrierCode: string) => boolean)): number
+    on(sigName: "handle-activate", callback: (invocation: Gio.DBusMethodInvocation, argCarrierCode: string) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-activate", callback: (invocation: Gio.DBusMethodInvocation, argCarrierCode: string) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-activate", callback: (invocation: Gio.DBusMethodInvocation, argCarrierCode: string) => void): NodeJS.EventEmitter
     emit(sigName: "handle-activate", invocation: Gio.DBusMethodInvocation, argCarrierCode: string): void
-    on(sigName: "handle-activate", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-activate", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-activate", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "handle-activate-manual", callback: (($obj: GdbusModemCdmaSkeleton, invocation: Gio.DBusMethodInvocation, argProperties: GLib.Variant) => boolean)): number
-    connect_after(sigName: "handle-activate-manual", callback: (($obj: GdbusModemCdmaSkeleton, invocation: Gio.DBusMethodInvocation, argProperties: GLib.Variant) => boolean)): number
+    on(sigName: "handle-activate-manual", callback: (invocation: Gio.DBusMethodInvocation, argProperties: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-activate-manual", callback: (invocation: Gio.DBusMethodInvocation, argProperties: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-activate-manual", callback: (invocation: Gio.DBusMethodInvocation, argProperties: GLib.Variant) => void): NodeJS.EventEmitter
     emit(sigName: "handle-activate-manual", invocation: Gio.DBusMethodInvocation, argProperties: GLib.Variant): void
-    on(sigName: "handle-activate-manual", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-activate-manual", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-activate-manual", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::g-flags", callback: (($obj: GdbusModemCdmaSkeleton, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::g-flags", callback: (($obj: GdbusModemCdmaSkeleton, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::g-flags", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -4706,21 +4218,21 @@ export interface GdbusModemFirmwareProxy_ConstructProps extends Gio.DBusProxy_Co
     updateSettings?: GLib.Variant
 }
 export class GdbusModemFirmwareProxy {
-    /* Properties of Gio.DBusProxy */
+    /* Properties of Gio-2.0.Gio.DBusProxy */
     gDefaultTimeout: number
     gInterfaceInfo: Gio.DBusInterfaceInfo
     readonly gNameOwner: string
-    /* Properties of ModemManager.GdbusModemFirmware */
+    /* Properties of ModemManager-1.0.ModemManager.GdbusModemFirmware */
     updateSettings: GLib.Variant
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Gio.DBusProxy */
+    /* Methods of Gio-2.0.Gio.DBusProxy */
     call(methodName: string, parameters: GLib.Variant | null, flags: Gio.DBusCallFlags, timeoutMsec: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     callFinish(res: Gio.AsyncResult): GLib.Variant
     callSync(methodName: string, parameters: GLib.Variant | null, flags: Gio.DBusCallFlags, timeoutMsec: number, cancellable?: Gio.Cancellable | null): GLib.Variant
     callWithUnixFdList(methodName: string, parameters: GLib.Variant | null, flags: Gio.DBusCallFlags, timeoutMsec: number, fdList?: Gio.UnixFDList | null, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    callWithUnixFdListFinish(res: Gio.AsyncResult): [ /* returnType */ GLib.Variant, /* outFdList */ Gio.UnixFDList | null ]
-    callWithUnixFdListSync(methodName: string, parameters: GLib.Variant | null, flags: Gio.DBusCallFlags, timeoutMsec: number, fdList?: Gio.UnixFDList | null, cancellable?: Gio.Cancellable | null): [ /* returnType */ GLib.Variant, /* outFdList */ Gio.UnixFDList | null ]
+    callWithUnixFdListFinish(res: Gio.AsyncResult): { returnType: GLib.Variant, outFdList: Gio.UnixFDList | null }
+    callWithUnixFdListSync(methodName: string, parameters: GLib.Variant | null, flags: Gio.DBusCallFlags, timeoutMsec: number, fdList?: Gio.UnixFDList | null, cancellable?: Gio.Cancellable | null): { returnType: GLib.Variant, outFdList: Gio.UnixFDList | null }
     getCachedProperty(propertyName: string): GLib.Variant | null
     getCachedPropertyNames(): string[] | null
     getConnection(): Gio.DBusConnection
@@ -4734,7 +4246,7 @@ export class GdbusModemFirmwareProxy {
     setCachedProperty(propertyName: string, value?: GLib.Variant | null): void
     setDefaultTimeout(timeoutMsec: number): void
     setInterfaceInfo(info?: Gio.DBusInterfaceInfo | null): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -4756,78 +4268,53 @@ export class GdbusModemFirmwareProxy {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of Gio.AsyncInitable */
+    /* Methods of Gio-2.0.Gio.AsyncInitable */
     initAsync(ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     initFinish(res: Gio.AsyncResult): boolean
     newFinish(res: Gio.AsyncResult): GObject.Object
-    /* Methods of Gio.DBusInterface */
+    /* Methods of Gio-2.0.Gio.DBusInterface */
     getObject(): Gio.DBusObject | null
     getInfo(): Gio.DBusInterfaceInfo
     setObject(object?: Gio.DBusObject | null): void
-    /* Methods of Gio.Initable */
+    /* Methods of Gio-2.0.Gio.Initable */
     init(cancellable?: Gio.Cancellable | null): boolean
-    /* Methods of ModemManager.GdbusModemFirmware */
+    /* Methods of ModemManager-1.0.ModemManager.GdbusModemFirmware */
     callList(cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    callListFinish(res: Gio.AsyncResult): [ /* returnType */ boolean, /* outSelected */ string | null, /* outInstalled */ GLib.Variant | null ]
-    callListSync(cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* outSelected */ string | null, /* outInstalled */ GLib.Variant | null ]
+    callListFinish(res: Gio.AsyncResult): { returnType: boolean, outSelected: string | null, outInstalled: GLib.Variant | null }
+    callListSync(cancellable?: Gio.Cancellable | null): { returnType: boolean, outSelected: string | null, outInstalled: GLib.Variant | null }
     callSelect(argUniqueid: string, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     callSelectFinish(res: Gio.AsyncResult): boolean
     callSelectSync(argUniqueid: string, cancellable?: Gio.Cancellable | null): boolean
     completeList(invocation: Gio.DBusMethodInvocation, selected: string, installed: GLib.Variant): void
     completeSelect(invocation: Gio.DBusMethodInvocation): void
-    /* Virtual methods of ModemManager.GdbusModemFirmwareProxy */
-    vfuncInitAsync(ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    vfuncInitFinish(res: Gio.AsyncResult): boolean
-    vfuncDupObject(): Gio.DBusObject | null
-    vfuncGetInfo(): Gio.DBusInterfaceInfo
-    vfuncSetObject(object?: Gio.DBusObject | null): void
-    vfuncInit(cancellable?: Gio.Cancellable | null): boolean
-    vfuncHandleList(invocation: Gio.DBusMethodInvocation): boolean
-    vfuncHandleSelect(invocation: Gio.DBusMethodInvocation, argUniqueid: string): boolean
-    /* Virtual methods of Gio.DBusProxy */
-    vfuncGPropertiesChanged(changedProperties: GLib.Variant, invalidatedProperties: string): void
-    vfuncGSignal(senderName: string, signalName: string, parameters: GLib.Variant): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gio.DBusProxy */
+    /* Signals of Gio-2.0.Gio.DBusProxy */
     connect(sigName: "g-properties-changed", callback: (($obj: GdbusModemFirmwareProxy, changedProperties: GLib.Variant, invalidatedProperties: string[]) => void)): number
-    connect_after(sigName: "g-properties-changed", callback: (($obj: GdbusModemFirmwareProxy, changedProperties: GLib.Variant, invalidatedProperties: string[]) => void)): number
+    on(sigName: "g-properties-changed", callback: (changedProperties: GLib.Variant, invalidatedProperties: string[]) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "g-properties-changed", callback: (changedProperties: GLib.Variant, invalidatedProperties: string[]) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "g-properties-changed", callback: (changedProperties: GLib.Variant, invalidatedProperties: string[]) => void): NodeJS.EventEmitter
     emit(sigName: "g-properties-changed", changedProperties: GLib.Variant, invalidatedProperties: string[]): void
-    on(sigName: "g-properties-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "g-properties-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "g-properties-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "g-signal", callback: (($obj: GdbusModemFirmwareProxy, senderName: string | null, signalName: string, parameters: GLib.Variant) => void)): number
-    connect_after(sigName: "g-signal", callback: (($obj: GdbusModemFirmwareProxy, senderName: string | null, signalName: string, parameters: GLib.Variant) => void)): number
+    on(sigName: "g-signal", callback: (senderName: string | null, signalName: string, parameters: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "g-signal", callback: (senderName: string | null, signalName: string, parameters: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "g-signal", callback: (senderName: string | null, signalName: string, parameters: GLib.Variant) => void): NodeJS.EventEmitter
     emit(sigName: "g-signal", senderName: string | null, signalName: string, parameters: GLib.Variant): void
-    on(sigName: "g-signal", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "g-signal", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "g-signal", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: GdbusModemFirmwareProxy, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: GdbusModemFirmwareProxy, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of ModemManager.GdbusModemFirmware */
+    /* Signals of ModemManager-1.0.ModemManager.GdbusModemFirmware */
     connect(sigName: "handle-list", callback: (($obj: GdbusModemFirmwareProxy, invocation: Gio.DBusMethodInvocation) => boolean)): number
-    connect_after(sigName: "handle-list", callback: (($obj: GdbusModemFirmwareProxy, invocation: Gio.DBusMethodInvocation) => boolean)): number
+    on(sigName: "handle-list", callback: (invocation: Gio.DBusMethodInvocation) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-list", callback: (invocation: Gio.DBusMethodInvocation) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-list", callback: (invocation: Gio.DBusMethodInvocation) => void): NodeJS.EventEmitter
     emit(sigName: "handle-list", invocation: Gio.DBusMethodInvocation): void
-    on(sigName: "handle-list", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-list", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-list", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "handle-select", callback: (($obj: GdbusModemFirmwareProxy, invocation: Gio.DBusMethodInvocation, argUniqueid: string) => boolean)): number
-    connect_after(sigName: "handle-select", callback: (($obj: GdbusModemFirmwareProxy, invocation: Gio.DBusMethodInvocation, argUniqueid: string) => boolean)): number
+    on(sigName: "handle-select", callback: (invocation: Gio.DBusMethodInvocation, argUniqueid: string) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-select", callback: (invocation: Gio.DBusMethodInvocation, argUniqueid: string) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-select", callback: (invocation: Gio.DBusMethodInvocation, argUniqueid: string) => void): NodeJS.EventEmitter
     emit(sigName: "handle-select", invocation: Gio.DBusMethodInvocation, argUniqueid: string): void
-    on(sigName: "handle-select", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-select", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-select", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::g-default-timeout", callback: (($obj: GdbusModemFirmwareProxy, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::g-default-timeout", callback: (($obj: GdbusModemFirmwareProxy, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::g-default-timeout", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -4877,13 +4364,13 @@ export interface GdbusModemFirmwareSkeleton_ConstructProps extends Gio.DBusInter
     updateSettings?: GLib.Variant
 }
 export class GdbusModemFirmwareSkeleton {
-    /* Properties of Gio.DBusInterfaceSkeleton */
+    /* Properties of Gio-2.0.Gio.DBusInterfaceSkeleton */
     gFlags: Gio.DBusInterfaceSkeletonFlags
-    /* Properties of ModemManager.GdbusModemFirmware */
+    /* Properties of ModemManager-1.0.ModemManager.GdbusModemFirmware */
     updateSettings: GLib.Variant
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Gio.DBusInterfaceSkeleton */
+    /* Methods of Gio-2.0.Gio.DBusInterfaceSkeleton */
     export(connection: Gio.DBusConnection, objectPath: string): boolean
     flush(): void
     getConnection(): Gio.DBusConnection | null
@@ -4896,7 +4383,7 @@ export class GdbusModemFirmwareSkeleton {
     setFlags(flags: Gio.DBusInterfaceSkeletonFlags): void
     unexport(): void
     unexportFromConnection(connection: Gio.DBusConnection): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -4918,64 +4405,41 @@ export class GdbusModemFirmwareSkeleton {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of Gio.DBusInterface */
+    /* Methods of Gio-2.0.Gio.DBusInterface */
     getObject(): Gio.DBusObject | null
     setObject(object?: Gio.DBusObject | null): void
-    /* Methods of ModemManager.GdbusModemFirmware */
+    /* Methods of ModemManager-1.0.ModemManager.GdbusModemFirmware */
     callList(cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    callListFinish(res: Gio.AsyncResult): [ /* returnType */ boolean, /* outSelected */ string | null, /* outInstalled */ GLib.Variant | null ]
-    callListSync(cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* outSelected */ string | null, /* outInstalled */ GLib.Variant | null ]
+    callListFinish(res: Gio.AsyncResult): { returnType: boolean, outSelected: string | null, outInstalled: GLib.Variant | null }
+    callListSync(cancellable?: Gio.Cancellable | null): { returnType: boolean, outSelected: string | null, outInstalled: GLib.Variant | null }
     callSelect(argUniqueid: string, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     callSelectFinish(res: Gio.AsyncResult): boolean
     callSelectSync(argUniqueid: string, cancellable?: Gio.Cancellable | null): boolean
     completeList(invocation: Gio.DBusMethodInvocation, selected: string, installed: GLib.Variant): void
     completeSelect(invocation: Gio.DBusMethodInvocation): void
-    /* Virtual methods of ModemManager.GdbusModemFirmwareSkeleton */
-    vfuncDupObject(): Gio.DBusObject | null
-    vfuncGetInfo(): Gio.DBusInterfaceInfo
-    vfuncSetObject(object?: Gio.DBusObject | null): void
-    vfuncHandleList(invocation: Gio.DBusMethodInvocation): boolean
-    vfuncHandleSelect(invocation: Gio.DBusMethodInvocation, argUniqueid: string): boolean
-    /* Virtual methods of Gio.DBusInterfaceSkeleton */
-    vfuncFlush(): void
-    vfuncGAuthorizeMethod(invocation: Gio.DBusMethodInvocation): boolean
-    vfuncGetInfo(): Gio.DBusInterfaceInfo
-    vfuncGetProperties(): GLib.Variant
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gio.DBusInterfaceSkeleton */
+    /* Signals of Gio-2.0.Gio.DBusInterfaceSkeleton */
     connect(sigName: "g-authorize-method", callback: (($obj: GdbusModemFirmwareSkeleton, invocation: Gio.DBusMethodInvocation) => boolean)): number
-    connect_after(sigName: "g-authorize-method", callback: (($obj: GdbusModemFirmwareSkeleton, invocation: Gio.DBusMethodInvocation) => boolean)): number
+    on(sigName: "g-authorize-method", callback: (invocation: Gio.DBusMethodInvocation) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "g-authorize-method", callback: (invocation: Gio.DBusMethodInvocation) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "g-authorize-method", callback: (invocation: Gio.DBusMethodInvocation) => void): NodeJS.EventEmitter
     emit(sigName: "g-authorize-method", invocation: Gio.DBusMethodInvocation): void
-    on(sigName: "g-authorize-method", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "g-authorize-method", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "g-authorize-method", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: GdbusModemFirmwareSkeleton, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: GdbusModemFirmwareSkeleton, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of ModemManager.GdbusModemFirmware */
+    /* Signals of ModemManager-1.0.ModemManager.GdbusModemFirmware */
     connect(sigName: "handle-list", callback: (($obj: GdbusModemFirmwareSkeleton, invocation: Gio.DBusMethodInvocation) => boolean)): number
-    connect_after(sigName: "handle-list", callback: (($obj: GdbusModemFirmwareSkeleton, invocation: Gio.DBusMethodInvocation) => boolean)): number
+    on(sigName: "handle-list", callback: (invocation: Gio.DBusMethodInvocation) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-list", callback: (invocation: Gio.DBusMethodInvocation) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-list", callback: (invocation: Gio.DBusMethodInvocation) => void): NodeJS.EventEmitter
     emit(sigName: "handle-list", invocation: Gio.DBusMethodInvocation): void
-    on(sigName: "handle-list", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-list", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-list", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "handle-select", callback: (($obj: GdbusModemFirmwareSkeleton, invocation: Gio.DBusMethodInvocation, argUniqueid: string) => boolean)): number
-    connect_after(sigName: "handle-select", callback: (($obj: GdbusModemFirmwareSkeleton, invocation: Gio.DBusMethodInvocation, argUniqueid: string) => boolean)): number
+    on(sigName: "handle-select", callback: (invocation: Gio.DBusMethodInvocation, argUniqueid: string) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-select", callback: (invocation: Gio.DBusMethodInvocation, argUniqueid: string) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-select", callback: (invocation: Gio.DBusMethodInvocation, argUniqueid: string) => void): NodeJS.EventEmitter
     emit(sigName: "handle-select", invocation: Gio.DBusMethodInvocation, argUniqueid: string): void
-    on(sigName: "handle-select", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-select", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-select", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::g-flags", callback: (($obj: GdbusModemFirmwareSkeleton, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::g-flags", callback: (($obj: GdbusModemFirmwareSkeleton, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::g-flags", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -5013,11 +4477,11 @@ export interface GdbusModemLocationProxy_ConstructProps extends Gio.DBusProxy_Co
     supportedAssistanceData?: number
 }
 export class GdbusModemLocationProxy {
-    /* Properties of Gio.DBusProxy */
+    /* Properties of Gio-2.0.Gio.DBusProxy */
     gDefaultTimeout: number
     gInterfaceInfo: Gio.DBusInterfaceInfo
     readonly gNameOwner: string
-    /* Properties of ModemManager.GdbusModemLocation */
+    /* Properties of ModemManager-1.0.ModemManager.GdbusModemLocation */
     assistanceDataServers: string[]
     capabilities: number
     enabled: number
@@ -5026,15 +4490,15 @@ export class GdbusModemLocationProxy {
     signalsLocation: boolean
     suplServer: string
     supportedAssistanceData: number
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Gio.DBusProxy */
+    /* Methods of Gio-2.0.Gio.DBusProxy */
     call(methodName: string, parameters: GLib.Variant | null, flags: Gio.DBusCallFlags, timeoutMsec: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     callFinish(res: Gio.AsyncResult): GLib.Variant
     callSync(methodName: string, parameters: GLib.Variant | null, flags: Gio.DBusCallFlags, timeoutMsec: number, cancellable?: Gio.Cancellable | null): GLib.Variant
     callWithUnixFdList(methodName: string, parameters: GLib.Variant | null, flags: Gio.DBusCallFlags, timeoutMsec: number, fdList?: Gio.UnixFDList | null, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    callWithUnixFdListFinish(res: Gio.AsyncResult): [ /* returnType */ GLib.Variant, /* outFdList */ Gio.UnixFDList | null ]
-    callWithUnixFdListSync(methodName: string, parameters: GLib.Variant | null, flags: Gio.DBusCallFlags, timeoutMsec: number, fdList?: Gio.UnixFDList | null, cancellable?: Gio.Cancellable | null): [ /* returnType */ GLib.Variant, /* outFdList */ Gio.UnixFDList | null ]
+    callWithUnixFdListFinish(res: Gio.AsyncResult): { returnType: GLib.Variant, outFdList: Gio.UnixFDList | null }
+    callWithUnixFdListSync(methodName: string, parameters: GLib.Variant | null, flags: Gio.DBusCallFlags, timeoutMsec: number, fdList?: Gio.UnixFDList | null, cancellable?: Gio.Cancellable | null): { returnType: GLib.Variant, outFdList: Gio.UnixFDList | null }
     getCachedProperty(propertyName: string): GLib.Variant | null
     getCachedPropertyNames(): string[] | null
     getConnection(): Gio.DBusConnection
@@ -5048,7 +4512,7 @@ export class GdbusModemLocationProxy {
     setCachedProperty(propertyName: string, value?: GLib.Variant | null): void
     setDefaultTimeout(timeoutMsec: number): void
     setInterfaceInfo(info?: Gio.DBusInterfaceInfo | null): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -5070,20 +4534,20 @@ export class GdbusModemLocationProxy {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of Gio.AsyncInitable */
+    /* Methods of Gio-2.0.Gio.AsyncInitable */
     initAsync(ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     initFinish(res: Gio.AsyncResult): boolean
     newFinish(res: Gio.AsyncResult): GObject.Object
-    /* Methods of Gio.DBusInterface */
+    /* Methods of Gio-2.0.Gio.DBusInterface */
     getObject(): Gio.DBusObject | null
     getInfo(): Gio.DBusInterfaceInfo
     setObject(object?: Gio.DBusObject | null): void
-    /* Methods of Gio.Initable */
+    /* Methods of Gio-2.0.Gio.Initable */
     init(cancellable?: Gio.Cancellable | null): boolean
-    /* Methods of ModemManager.GdbusModemLocation */
+    /* Methods of ModemManager-1.0.ModemManager.GdbusModemLocation */
     callGetLocation(cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    callGetLocationFinish(res: Gio.AsyncResult): [ /* returnType */ boolean, /* outLocation */ GLib.Variant | null ]
-    callGetLocationSync(cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* outLocation */ GLib.Variant | null ]
+    callGetLocationFinish(res: Gio.AsyncResult): { returnType: boolean, outLocation: GLib.Variant | null }
+    callGetLocationSync(cancellable?: Gio.Cancellable | null): { returnType: boolean, outLocation: GLib.Variant | null }
     callInjectAssistanceData(argData: GLib.Variant, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     callInjectAssistanceDataFinish(res: Gio.AsyncResult): boolean
     callInjectAssistanceDataSync(argData: GLib.Variant, cancellable?: Gio.Cancellable | null): boolean
@@ -5101,80 +4565,49 @@ export class GdbusModemLocationProxy {
     completeSetGpsRefreshRate(invocation: Gio.DBusMethodInvocation): void
     completeSetSuplServer(invocation: Gio.DBusMethodInvocation): void
     completeSetup(invocation: Gio.DBusMethodInvocation): void
-    /* Virtual methods of ModemManager.GdbusModemLocationProxy */
-    vfuncInitAsync(ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    vfuncInitFinish(res: Gio.AsyncResult): boolean
-    vfuncDupObject(): Gio.DBusObject | null
-    vfuncGetInfo(): Gio.DBusInterfaceInfo
-    vfuncSetObject(object?: Gio.DBusObject | null): void
-    vfuncInit(cancellable?: Gio.Cancellable | null): boolean
-    vfuncHandleGetLocation(invocation: Gio.DBusMethodInvocation): boolean
-    vfuncHandleInjectAssistanceData(invocation: Gio.DBusMethodInvocation, argData: GLib.Variant): boolean
-    vfuncHandleSetGpsRefreshRate(invocation: Gio.DBusMethodInvocation, argRate: number): boolean
-    vfuncHandleSetSuplServer(invocation: Gio.DBusMethodInvocation, argSupl: string): boolean
-    vfuncHandleSetup(invocation: Gio.DBusMethodInvocation, argSources: number, argSignalLocation: boolean): boolean
-    /* Virtual methods of Gio.DBusProxy */
-    vfuncGPropertiesChanged(changedProperties: GLib.Variant, invalidatedProperties: string): void
-    vfuncGSignal(senderName: string, signalName: string, parameters: GLib.Variant): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gio.DBusProxy */
+    /* Signals of Gio-2.0.Gio.DBusProxy */
     connect(sigName: "g-properties-changed", callback: (($obj: GdbusModemLocationProxy, changedProperties: GLib.Variant, invalidatedProperties: string[]) => void)): number
-    connect_after(sigName: "g-properties-changed", callback: (($obj: GdbusModemLocationProxy, changedProperties: GLib.Variant, invalidatedProperties: string[]) => void)): number
+    on(sigName: "g-properties-changed", callback: (changedProperties: GLib.Variant, invalidatedProperties: string[]) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "g-properties-changed", callback: (changedProperties: GLib.Variant, invalidatedProperties: string[]) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "g-properties-changed", callback: (changedProperties: GLib.Variant, invalidatedProperties: string[]) => void): NodeJS.EventEmitter
     emit(sigName: "g-properties-changed", changedProperties: GLib.Variant, invalidatedProperties: string[]): void
-    on(sigName: "g-properties-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "g-properties-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "g-properties-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "g-signal", callback: (($obj: GdbusModemLocationProxy, senderName: string | null, signalName: string, parameters: GLib.Variant) => void)): number
-    connect_after(sigName: "g-signal", callback: (($obj: GdbusModemLocationProxy, senderName: string | null, signalName: string, parameters: GLib.Variant) => void)): number
+    on(sigName: "g-signal", callback: (senderName: string | null, signalName: string, parameters: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "g-signal", callback: (senderName: string | null, signalName: string, parameters: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "g-signal", callback: (senderName: string | null, signalName: string, parameters: GLib.Variant) => void): NodeJS.EventEmitter
     emit(sigName: "g-signal", senderName: string | null, signalName: string, parameters: GLib.Variant): void
-    on(sigName: "g-signal", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "g-signal", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "g-signal", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: GdbusModemLocationProxy, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: GdbusModemLocationProxy, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of ModemManager.GdbusModemLocation */
+    /* Signals of ModemManager-1.0.ModemManager.GdbusModemLocation */
     connect(sigName: "handle-get-location", callback: (($obj: GdbusModemLocationProxy, invocation: Gio.DBusMethodInvocation) => boolean)): number
-    connect_after(sigName: "handle-get-location", callback: (($obj: GdbusModemLocationProxy, invocation: Gio.DBusMethodInvocation) => boolean)): number
+    on(sigName: "handle-get-location", callback: (invocation: Gio.DBusMethodInvocation) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-get-location", callback: (invocation: Gio.DBusMethodInvocation) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-get-location", callback: (invocation: Gio.DBusMethodInvocation) => void): NodeJS.EventEmitter
     emit(sigName: "handle-get-location", invocation: Gio.DBusMethodInvocation): void
-    on(sigName: "handle-get-location", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-get-location", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-get-location", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "handle-inject-assistance-data", callback: (($obj: GdbusModemLocationProxy, invocation: Gio.DBusMethodInvocation, argData: GLib.Variant) => boolean)): number
-    connect_after(sigName: "handle-inject-assistance-data", callback: (($obj: GdbusModemLocationProxy, invocation: Gio.DBusMethodInvocation, argData: GLib.Variant) => boolean)): number
+    on(sigName: "handle-inject-assistance-data", callback: (invocation: Gio.DBusMethodInvocation, argData: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-inject-assistance-data", callback: (invocation: Gio.DBusMethodInvocation, argData: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-inject-assistance-data", callback: (invocation: Gio.DBusMethodInvocation, argData: GLib.Variant) => void): NodeJS.EventEmitter
     emit(sigName: "handle-inject-assistance-data", invocation: Gio.DBusMethodInvocation, argData: GLib.Variant): void
-    on(sigName: "handle-inject-assistance-data", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-inject-assistance-data", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-inject-assistance-data", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "handle-set-gps-refresh-rate", callback: (($obj: GdbusModemLocationProxy, invocation: Gio.DBusMethodInvocation, argRate: number) => boolean)): number
-    connect_after(sigName: "handle-set-gps-refresh-rate", callback: (($obj: GdbusModemLocationProxy, invocation: Gio.DBusMethodInvocation, argRate: number) => boolean)): number
+    on(sigName: "handle-set-gps-refresh-rate", callback: (invocation: Gio.DBusMethodInvocation, argRate: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-set-gps-refresh-rate", callback: (invocation: Gio.DBusMethodInvocation, argRate: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-set-gps-refresh-rate", callback: (invocation: Gio.DBusMethodInvocation, argRate: number) => void): NodeJS.EventEmitter
     emit(sigName: "handle-set-gps-refresh-rate", invocation: Gio.DBusMethodInvocation, argRate: number): void
-    on(sigName: "handle-set-gps-refresh-rate", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-set-gps-refresh-rate", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-set-gps-refresh-rate", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "handle-set-supl-server", callback: (($obj: GdbusModemLocationProxy, invocation: Gio.DBusMethodInvocation, argSupl: string) => boolean)): number
-    connect_after(sigName: "handle-set-supl-server", callback: (($obj: GdbusModemLocationProxy, invocation: Gio.DBusMethodInvocation, argSupl: string) => boolean)): number
+    on(sigName: "handle-set-supl-server", callback: (invocation: Gio.DBusMethodInvocation, argSupl: string) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-set-supl-server", callback: (invocation: Gio.DBusMethodInvocation, argSupl: string) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-set-supl-server", callback: (invocation: Gio.DBusMethodInvocation, argSupl: string) => void): NodeJS.EventEmitter
     emit(sigName: "handle-set-supl-server", invocation: Gio.DBusMethodInvocation, argSupl: string): void
-    on(sigName: "handle-set-supl-server", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-set-supl-server", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-set-supl-server", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "handle-setup", callback: (($obj: GdbusModemLocationProxy, invocation: Gio.DBusMethodInvocation, argSources: number, argSignalLocation: boolean) => boolean)): number
-    connect_after(sigName: "handle-setup", callback: (($obj: GdbusModemLocationProxy, invocation: Gio.DBusMethodInvocation, argSources: number, argSignalLocation: boolean) => boolean)): number
+    on(sigName: "handle-setup", callback: (invocation: Gio.DBusMethodInvocation, argSources: number, argSignalLocation: boolean) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-setup", callback: (invocation: Gio.DBusMethodInvocation, argSources: number, argSignalLocation: boolean) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-setup", callback: (invocation: Gio.DBusMethodInvocation, argSources: number, argSignalLocation: boolean) => void): NodeJS.EventEmitter
     emit(sigName: "handle-setup", invocation: Gio.DBusMethodInvocation, argSources: number, argSignalLocation: boolean): void
-    on(sigName: "handle-setup", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-setup", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-setup", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::g-default-timeout", callback: (($obj: GdbusModemLocationProxy, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::g-default-timeout", callback: (($obj: GdbusModemLocationProxy, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::g-default-timeout", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -5266,9 +4699,9 @@ export interface GdbusModemLocationSkeleton_ConstructProps extends Gio.DBusInter
     supportedAssistanceData?: number
 }
 export class GdbusModemLocationSkeleton {
-    /* Properties of Gio.DBusInterfaceSkeleton */
+    /* Properties of Gio-2.0.Gio.DBusInterfaceSkeleton */
     gFlags: Gio.DBusInterfaceSkeletonFlags
-    /* Properties of ModemManager.GdbusModemLocation */
+    /* Properties of ModemManager-1.0.ModemManager.GdbusModemLocation */
     assistanceDataServers: string[]
     capabilities: number
     enabled: number
@@ -5277,9 +4710,9 @@ export class GdbusModemLocationSkeleton {
     signalsLocation: boolean
     suplServer: string
     supportedAssistanceData: number
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Gio.DBusInterfaceSkeleton */
+    /* Methods of Gio-2.0.Gio.DBusInterfaceSkeleton */
     export(connection: Gio.DBusConnection, objectPath: string): boolean
     flush(): void
     getConnection(): Gio.DBusConnection | null
@@ -5292,7 +4725,7 @@ export class GdbusModemLocationSkeleton {
     setFlags(flags: Gio.DBusInterfaceSkeletonFlags): void
     unexport(): void
     unexportFromConnection(connection: Gio.DBusConnection): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -5314,13 +4747,13 @@ export class GdbusModemLocationSkeleton {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of Gio.DBusInterface */
+    /* Methods of Gio-2.0.Gio.DBusInterface */
     getObject(): Gio.DBusObject | null
     setObject(object?: Gio.DBusObject | null): void
-    /* Methods of ModemManager.GdbusModemLocation */
+    /* Methods of ModemManager-1.0.ModemManager.GdbusModemLocation */
     callGetLocation(cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    callGetLocationFinish(res: Gio.AsyncResult): [ /* returnType */ boolean, /* outLocation */ GLib.Variant | null ]
-    callGetLocationSync(cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* outLocation */ GLib.Variant | null ]
+    callGetLocationFinish(res: Gio.AsyncResult): { returnType: boolean, outLocation: GLib.Variant | null }
+    callGetLocationSync(cancellable?: Gio.Cancellable | null): { returnType: boolean, outLocation: GLib.Variant | null }
     callInjectAssistanceData(argData: GLib.Variant, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     callInjectAssistanceDataFinish(res: Gio.AsyncResult): boolean
     callInjectAssistanceDataSync(argData: GLib.Variant, cancellable?: Gio.Cancellable | null): boolean
@@ -5338,73 +4771,44 @@ export class GdbusModemLocationSkeleton {
     completeSetGpsRefreshRate(invocation: Gio.DBusMethodInvocation): void
     completeSetSuplServer(invocation: Gio.DBusMethodInvocation): void
     completeSetup(invocation: Gio.DBusMethodInvocation): void
-    /* Virtual methods of ModemManager.GdbusModemLocationSkeleton */
-    vfuncDupObject(): Gio.DBusObject | null
-    vfuncGetInfo(): Gio.DBusInterfaceInfo
-    vfuncSetObject(object?: Gio.DBusObject | null): void
-    vfuncHandleGetLocation(invocation: Gio.DBusMethodInvocation): boolean
-    vfuncHandleInjectAssistanceData(invocation: Gio.DBusMethodInvocation, argData: GLib.Variant): boolean
-    vfuncHandleSetGpsRefreshRate(invocation: Gio.DBusMethodInvocation, argRate: number): boolean
-    vfuncHandleSetSuplServer(invocation: Gio.DBusMethodInvocation, argSupl: string): boolean
-    vfuncHandleSetup(invocation: Gio.DBusMethodInvocation, argSources: number, argSignalLocation: boolean): boolean
-    /* Virtual methods of Gio.DBusInterfaceSkeleton */
-    vfuncFlush(): void
-    vfuncGAuthorizeMethod(invocation: Gio.DBusMethodInvocation): boolean
-    vfuncGetInfo(): Gio.DBusInterfaceInfo
-    vfuncGetProperties(): GLib.Variant
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gio.DBusInterfaceSkeleton */
+    /* Signals of Gio-2.0.Gio.DBusInterfaceSkeleton */
     connect(sigName: "g-authorize-method", callback: (($obj: GdbusModemLocationSkeleton, invocation: Gio.DBusMethodInvocation) => boolean)): number
-    connect_after(sigName: "g-authorize-method", callback: (($obj: GdbusModemLocationSkeleton, invocation: Gio.DBusMethodInvocation) => boolean)): number
+    on(sigName: "g-authorize-method", callback: (invocation: Gio.DBusMethodInvocation) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "g-authorize-method", callback: (invocation: Gio.DBusMethodInvocation) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "g-authorize-method", callback: (invocation: Gio.DBusMethodInvocation) => void): NodeJS.EventEmitter
     emit(sigName: "g-authorize-method", invocation: Gio.DBusMethodInvocation): void
-    on(sigName: "g-authorize-method", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "g-authorize-method", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "g-authorize-method", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: GdbusModemLocationSkeleton, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: GdbusModemLocationSkeleton, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of ModemManager.GdbusModemLocation */
+    /* Signals of ModemManager-1.0.ModemManager.GdbusModemLocation */
     connect(sigName: "handle-get-location", callback: (($obj: GdbusModemLocationSkeleton, invocation: Gio.DBusMethodInvocation) => boolean)): number
-    connect_after(sigName: "handle-get-location", callback: (($obj: GdbusModemLocationSkeleton, invocation: Gio.DBusMethodInvocation) => boolean)): number
+    on(sigName: "handle-get-location", callback: (invocation: Gio.DBusMethodInvocation) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-get-location", callback: (invocation: Gio.DBusMethodInvocation) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-get-location", callback: (invocation: Gio.DBusMethodInvocation) => void): NodeJS.EventEmitter
     emit(sigName: "handle-get-location", invocation: Gio.DBusMethodInvocation): void
-    on(sigName: "handle-get-location", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-get-location", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-get-location", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "handle-inject-assistance-data", callback: (($obj: GdbusModemLocationSkeleton, invocation: Gio.DBusMethodInvocation, argData: GLib.Variant) => boolean)): number
-    connect_after(sigName: "handle-inject-assistance-data", callback: (($obj: GdbusModemLocationSkeleton, invocation: Gio.DBusMethodInvocation, argData: GLib.Variant) => boolean)): number
+    on(sigName: "handle-inject-assistance-data", callback: (invocation: Gio.DBusMethodInvocation, argData: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-inject-assistance-data", callback: (invocation: Gio.DBusMethodInvocation, argData: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-inject-assistance-data", callback: (invocation: Gio.DBusMethodInvocation, argData: GLib.Variant) => void): NodeJS.EventEmitter
     emit(sigName: "handle-inject-assistance-data", invocation: Gio.DBusMethodInvocation, argData: GLib.Variant): void
-    on(sigName: "handle-inject-assistance-data", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-inject-assistance-data", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-inject-assistance-data", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "handle-set-gps-refresh-rate", callback: (($obj: GdbusModemLocationSkeleton, invocation: Gio.DBusMethodInvocation, argRate: number) => boolean)): number
-    connect_after(sigName: "handle-set-gps-refresh-rate", callback: (($obj: GdbusModemLocationSkeleton, invocation: Gio.DBusMethodInvocation, argRate: number) => boolean)): number
+    on(sigName: "handle-set-gps-refresh-rate", callback: (invocation: Gio.DBusMethodInvocation, argRate: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-set-gps-refresh-rate", callback: (invocation: Gio.DBusMethodInvocation, argRate: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-set-gps-refresh-rate", callback: (invocation: Gio.DBusMethodInvocation, argRate: number) => void): NodeJS.EventEmitter
     emit(sigName: "handle-set-gps-refresh-rate", invocation: Gio.DBusMethodInvocation, argRate: number): void
-    on(sigName: "handle-set-gps-refresh-rate", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-set-gps-refresh-rate", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-set-gps-refresh-rate", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "handle-set-supl-server", callback: (($obj: GdbusModemLocationSkeleton, invocation: Gio.DBusMethodInvocation, argSupl: string) => boolean)): number
-    connect_after(sigName: "handle-set-supl-server", callback: (($obj: GdbusModemLocationSkeleton, invocation: Gio.DBusMethodInvocation, argSupl: string) => boolean)): number
+    on(sigName: "handle-set-supl-server", callback: (invocation: Gio.DBusMethodInvocation, argSupl: string) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-set-supl-server", callback: (invocation: Gio.DBusMethodInvocation, argSupl: string) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-set-supl-server", callback: (invocation: Gio.DBusMethodInvocation, argSupl: string) => void): NodeJS.EventEmitter
     emit(sigName: "handle-set-supl-server", invocation: Gio.DBusMethodInvocation, argSupl: string): void
-    on(sigName: "handle-set-supl-server", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-set-supl-server", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-set-supl-server", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "handle-setup", callback: (($obj: GdbusModemLocationSkeleton, invocation: Gio.DBusMethodInvocation, argSources: number, argSignalLocation: boolean) => boolean)): number
-    connect_after(sigName: "handle-setup", callback: (($obj: GdbusModemLocationSkeleton, invocation: Gio.DBusMethodInvocation, argSources: number, argSignalLocation: boolean) => boolean)): number
+    on(sigName: "handle-setup", callback: (invocation: Gio.DBusMethodInvocation, argSources: number, argSignalLocation: boolean) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-setup", callback: (invocation: Gio.DBusMethodInvocation, argSources: number, argSignalLocation: boolean) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-setup", callback: (invocation: Gio.DBusMethodInvocation, argSources: number, argSignalLocation: boolean) => void): NodeJS.EventEmitter
     emit(sigName: "handle-setup", invocation: Gio.DBusMethodInvocation, argSources: number, argSignalLocation: boolean): void
-    on(sigName: "handle-setup", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-setup", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-setup", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::g-flags", callback: (($obj: GdbusModemLocationSkeleton, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::g-flags", callback: (($obj: GdbusModemLocationSkeleton, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::g-flags", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -5472,23 +4876,23 @@ export interface GdbusModemMessagingProxy_ConstructProps extends Gio.DBusProxy_C
     supportedStorages?: GLib.Variant
 }
 export class GdbusModemMessagingProxy {
-    /* Properties of Gio.DBusProxy */
+    /* Properties of Gio-2.0.Gio.DBusProxy */
     gDefaultTimeout: number
     gInterfaceInfo: Gio.DBusInterfaceInfo
     readonly gNameOwner: string
-    /* Properties of ModemManager.GdbusModemMessaging */
+    /* Properties of ModemManager-1.0.ModemManager.GdbusModemMessaging */
     defaultStorage: number
     messages: string[]
     supportedStorages: GLib.Variant
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Gio.DBusProxy */
+    /* Methods of Gio-2.0.Gio.DBusProxy */
     call(methodName: string, parameters: GLib.Variant | null, flags: Gio.DBusCallFlags, timeoutMsec: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     callFinish(res: Gio.AsyncResult): GLib.Variant
     callSync(methodName: string, parameters: GLib.Variant | null, flags: Gio.DBusCallFlags, timeoutMsec: number, cancellable?: Gio.Cancellable | null): GLib.Variant
     callWithUnixFdList(methodName: string, parameters: GLib.Variant | null, flags: Gio.DBusCallFlags, timeoutMsec: number, fdList?: Gio.UnixFDList | null, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    callWithUnixFdListFinish(res: Gio.AsyncResult): [ /* returnType */ GLib.Variant, /* outFdList */ Gio.UnixFDList | null ]
-    callWithUnixFdListSync(methodName: string, parameters: GLib.Variant | null, flags: Gio.DBusCallFlags, timeoutMsec: number, fdList?: Gio.UnixFDList | null, cancellable?: Gio.Cancellable | null): [ /* returnType */ GLib.Variant, /* outFdList */ Gio.UnixFDList | null ]
+    callWithUnixFdListFinish(res: Gio.AsyncResult): { returnType: GLib.Variant, outFdList: Gio.UnixFDList | null }
+    callWithUnixFdListSync(methodName: string, parameters: GLib.Variant | null, flags: Gio.DBusCallFlags, timeoutMsec: number, fdList?: Gio.UnixFDList | null, cancellable?: Gio.Cancellable | null): { returnType: GLib.Variant, outFdList: Gio.UnixFDList | null }
     getCachedProperty(propertyName: string): GLib.Variant | null
     getCachedPropertyNames(): string[] | null
     getConnection(): Gio.DBusConnection
@@ -5502,7 +4906,7 @@ export class GdbusModemMessagingProxy {
     setCachedProperty(propertyName: string, value?: GLib.Variant | null): void
     setDefaultTimeout(timeoutMsec: number): void
     setInterfaceInfo(info?: Gio.DBusInterfaceInfo | null): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -5524,105 +4928,74 @@ export class GdbusModemMessagingProxy {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of Gio.AsyncInitable */
+    /* Methods of Gio-2.0.Gio.AsyncInitable */
     initAsync(ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     initFinish(res: Gio.AsyncResult): boolean
     newFinish(res: Gio.AsyncResult): GObject.Object
-    /* Methods of Gio.DBusInterface */
+    /* Methods of Gio-2.0.Gio.DBusInterface */
     getObject(): Gio.DBusObject | null
     getInfo(): Gio.DBusInterfaceInfo
     setObject(object?: Gio.DBusObject | null): void
-    /* Methods of Gio.Initable */
+    /* Methods of Gio-2.0.Gio.Initable */
     init(cancellable?: Gio.Cancellable | null): boolean
-    /* Methods of ModemManager.GdbusModemMessaging */
+    /* Methods of ModemManager-1.0.ModemManager.GdbusModemMessaging */
     callCreate(argProperties: GLib.Variant, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    callCreateFinish(res: Gio.AsyncResult): [ /* returnType */ boolean, /* outPath */ string | null ]
-    callCreateSync(argProperties: GLib.Variant, cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* outPath */ string | null ]
+    callCreateFinish(res: Gio.AsyncResult): { returnType: boolean, outPath: string | null }
+    callCreateSync(argProperties: GLib.Variant, cancellable?: Gio.Cancellable | null): { returnType: boolean, outPath: string | null }
     callDelete(argPath: string, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     callDeleteFinish(res: Gio.AsyncResult): boolean
     callDeleteSync(argPath: string, cancellable?: Gio.Cancellable | null): boolean
     callList(cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    callListFinish(res: Gio.AsyncResult): [ /* returnType */ boolean, /* outResult */ string[] | null ]
-    callListSync(cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* outResult */ string[] | null ]
+    callListFinish(res: Gio.AsyncResult): { returnType: boolean, outResult: string[] | null }
+    callListSync(cancellable?: Gio.Cancellable | null): { returnType: boolean, outResult: string[] | null }
     completeCreate(invocation: Gio.DBusMethodInvocation, path: string): void
     completeDelete(invocation: Gio.DBusMethodInvocation): void
     completeList(invocation: Gio.DBusMethodInvocation, result: string): void
     emitAdded(argPath: string, argReceived: boolean): void
     emitDeleted(argPath: string): void
-    /* Virtual methods of ModemManager.GdbusModemMessagingProxy */
-    vfuncInitAsync(ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    vfuncInitFinish(res: Gio.AsyncResult): boolean
-    vfuncDupObject(): Gio.DBusObject | null
-    vfuncGetInfo(): Gio.DBusInterfaceInfo
-    vfuncSetObject(object?: Gio.DBusObject | null): void
-    vfuncInit(cancellable?: Gio.Cancellable | null): boolean
-    vfuncAdded(argPath: string, argReceived: boolean): void
-    vfuncDeleted(argPath: string): void
-    vfuncHandleCreate(invocation: Gio.DBusMethodInvocation, argProperties: GLib.Variant): boolean
-    vfuncHandleDelete(invocation: Gio.DBusMethodInvocation, argPath: string): boolean
-    vfuncHandleList(invocation: Gio.DBusMethodInvocation): boolean
-    /* Virtual methods of Gio.DBusProxy */
-    vfuncGPropertiesChanged(changedProperties: GLib.Variant, invalidatedProperties: string): void
-    vfuncGSignal(senderName: string, signalName: string, parameters: GLib.Variant): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gio.DBusProxy */
+    /* Signals of Gio-2.0.Gio.DBusProxy */
     connect(sigName: "g-properties-changed", callback: (($obj: GdbusModemMessagingProxy, changedProperties: GLib.Variant, invalidatedProperties: string[]) => void)): number
-    connect_after(sigName: "g-properties-changed", callback: (($obj: GdbusModemMessagingProxy, changedProperties: GLib.Variant, invalidatedProperties: string[]) => void)): number
+    on(sigName: "g-properties-changed", callback: (changedProperties: GLib.Variant, invalidatedProperties: string[]) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "g-properties-changed", callback: (changedProperties: GLib.Variant, invalidatedProperties: string[]) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "g-properties-changed", callback: (changedProperties: GLib.Variant, invalidatedProperties: string[]) => void): NodeJS.EventEmitter
     emit(sigName: "g-properties-changed", changedProperties: GLib.Variant, invalidatedProperties: string[]): void
-    on(sigName: "g-properties-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "g-properties-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "g-properties-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "g-signal", callback: (($obj: GdbusModemMessagingProxy, senderName: string | null, signalName: string, parameters: GLib.Variant) => void)): number
-    connect_after(sigName: "g-signal", callback: (($obj: GdbusModemMessagingProxy, senderName: string | null, signalName: string, parameters: GLib.Variant) => void)): number
+    on(sigName: "g-signal", callback: (senderName: string | null, signalName: string, parameters: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "g-signal", callback: (senderName: string | null, signalName: string, parameters: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "g-signal", callback: (senderName: string | null, signalName: string, parameters: GLib.Variant) => void): NodeJS.EventEmitter
     emit(sigName: "g-signal", senderName: string | null, signalName: string, parameters: GLib.Variant): void
-    on(sigName: "g-signal", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "g-signal", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "g-signal", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: GdbusModemMessagingProxy, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: GdbusModemMessagingProxy, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of ModemManager.GdbusModemMessaging */
+    /* Signals of ModemManager-1.0.ModemManager.GdbusModemMessaging */
     connect(sigName: "added", callback: (($obj: GdbusModemMessagingProxy, argPath: string, argReceived: boolean) => void)): number
-    connect_after(sigName: "added", callback: (($obj: GdbusModemMessagingProxy, argPath: string, argReceived: boolean) => void)): number
+    on(sigName: "added", callback: (argPath: string, argReceived: boolean) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "added", callback: (argPath: string, argReceived: boolean) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "added", callback: (argPath: string, argReceived: boolean) => void): NodeJS.EventEmitter
     emit(sigName: "added", argPath: string, argReceived: boolean): void
-    on(sigName: "added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "added", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "deleted", callback: (($obj: GdbusModemMessagingProxy, argPath: string) => void)): number
-    connect_after(sigName: "deleted", callback: (($obj: GdbusModemMessagingProxy, argPath: string) => void)): number
+    on(sigName: "deleted", callback: (argPath: string) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "deleted", callback: (argPath: string) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "deleted", callback: (argPath: string) => void): NodeJS.EventEmitter
     emit(sigName: "deleted", argPath: string): void
-    on(sigName: "deleted", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "deleted", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "deleted", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "handle-create", callback: (($obj: GdbusModemMessagingProxy, invocation: Gio.DBusMethodInvocation, argProperties: GLib.Variant) => boolean)): number
-    connect_after(sigName: "handle-create", callback: (($obj: GdbusModemMessagingProxy, invocation: Gio.DBusMethodInvocation, argProperties: GLib.Variant) => boolean)): number
+    on(sigName: "handle-create", callback: (invocation: Gio.DBusMethodInvocation, argProperties: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-create", callback: (invocation: Gio.DBusMethodInvocation, argProperties: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-create", callback: (invocation: Gio.DBusMethodInvocation, argProperties: GLib.Variant) => void): NodeJS.EventEmitter
     emit(sigName: "handle-create", invocation: Gio.DBusMethodInvocation, argProperties: GLib.Variant): void
-    on(sigName: "handle-create", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-create", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-create", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "handle-delete", callback: (($obj: GdbusModemMessagingProxy, invocation: Gio.DBusMethodInvocation, argPath: string) => boolean)): number
-    connect_after(sigName: "handle-delete", callback: (($obj: GdbusModemMessagingProxy, invocation: Gio.DBusMethodInvocation, argPath: string) => boolean)): number
+    on(sigName: "handle-delete", callback: (invocation: Gio.DBusMethodInvocation, argPath: string) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-delete", callback: (invocation: Gio.DBusMethodInvocation, argPath: string) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-delete", callback: (invocation: Gio.DBusMethodInvocation, argPath: string) => void): NodeJS.EventEmitter
     emit(sigName: "handle-delete", invocation: Gio.DBusMethodInvocation, argPath: string): void
-    on(sigName: "handle-delete", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-delete", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-delete", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "handle-list", callback: (($obj: GdbusModemMessagingProxy, invocation: Gio.DBusMethodInvocation) => boolean)): number
-    connect_after(sigName: "handle-list", callback: (($obj: GdbusModemMessagingProxy, invocation: Gio.DBusMethodInvocation) => boolean)): number
+    on(sigName: "handle-list", callback: (invocation: Gio.DBusMethodInvocation) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-list", callback: (invocation: Gio.DBusMethodInvocation) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-list", callback: (invocation: Gio.DBusMethodInvocation) => void): NodeJS.EventEmitter
     emit(sigName: "handle-list", invocation: Gio.DBusMethodInvocation): void
-    on(sigName: "handle-list", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-list", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-list", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::g-default-timeout", callback: (($obj: GdbusModemMessagingProxy, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::g-default-timeout", callback: (($obj: GdbusModemMessagingProxy, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::g-default-timeout", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -5684,15 +5057,15 @@ export interface GdbusModemMessagingSkeleton_ConstructProps extends Gio.DBusInte
     supportedStorages?: GLib.Variant
 }
 export class GdbusModemMessagingSkeleton {
-    /* Properties of Gio.DBusInterfaceSkeleton */
+    /* Properties of Gio-2.0.Gio.DBusInterfaceSkeleton */
     gFlags: Gio.DBusInterfaceSkeletonFlags
-    /* Properties of ModemManager.GdbusModemMessaging */
+    /* Properties of ModemManager-1.0.ModemManager.GdbusModemMessaging */
     defaultStorage: number
     messages: string[]
     supportedStorages: GLib.Variant
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Gio.DBusInterfaceSkeleton */
+    /* Methods of Gio-2.0.Gio.DBusInterfaceSkeleton */
     export(connection: Gio.DBusConnection, objectPath: string): boolean
     flush(): void
     getConnection(): Gio.DBusConnection | null
@@ -5705,7 +5078,7 @@ export class GdbusModemMessagingSkeleton {
     setFlags(flags: Gio.DBusInterfaceSkeletonFlags): void
     unexport(): void
     unexportFromConnection(connection: Gio.DBusConnection): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -5727,91 +5100,62 @@ export class GdbusModemMessagingSkeleton {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of Gio.DBusInterface */
+    /* Methods of Gio-2.0.Gio.DBusInterface */
     getObject(): Gio.DBusObject | null
     setObject(object?: Gio.DBusObject | null): void
-    /* Methods of ModemManager.GdbusModemMessaging */
+    /* Methods of ModemManager-1.0.ModemManager.GdbusModemMessaging */
     callCreate(argProperties: GLib.Variant, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    callCreateFinish(res: Gio.AsyncResult): [ /* returnType */ boolean, /* outPath */ string | null ]
-    callCreateSync(argProperties: GLib.Variant, cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* outPath */ string | null ]
+    callCreateFinish(res: Gio.AsyncResult): { returnType: boolean, outPath: string | null }
+    callCreateSync(argProperties: GLib.Variant, cancellable?: Gio.Cancellable | null): { returnType: boolean, outPath: string | null }
     callDelete(argPath: string, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     callDeleteFinish(res: Gio.AsyncResult): boolean
     callDeleteSync(argPath: string, cancellable?: Gio.Cancellable | null): boolean
     callList(cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    callListFinish(res: Gio.AsyncResult): [ /* returnType */ boolean, /* outResult */ string[] | null ]
-    callListSync(cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* outResult */ string[] | null ]
+    callListFinish(res: Gio.AsyncResult): { returnType: boolean, outResult: string[] | null }
+    callListSync(cancellable?: Gio.Cancellable | null): { returnType: boolean, outResult: string[] | null }
     completeCreate(invocation: Gio.DBusMethodInvocation, path: string): void
     completeDelete(invocation: Gio.DBusMethodInvocation): void
     completeList(invocation: Gio.DBusMethodInvocation, result: string): void
     emitAdded(argPath: string, argReceived: boolean): void
     emitDeleted(argPath: string): void
-    /* Virtual methods of ModemManager.GdbusModemMessagingSkeleton */
-    vfuncDupObject(): Gio.DBusObject | null
-    vfuncGetInfo(): Gio.DBusInterfaceInfo
-    vfuncSetObject(object?: Gio.DBusObject | null): void
-    vfuncAdded(argPath: string, argReceived: boolean): void
-    vfuncDeleted(argPath: string): void
-    vfuncHandleCreate(invocation: Gio.DBusMethodInvocation, argProperties: GLib.Variant): boolean
-    vfuncHandleDelete(invocation: Gio.DBusMethodInvocation, argPath: string): boolean
-    vfuncHandleList(invocation: Gio.DBusMethodInvocation): boolean
-    /* Virtual methods of Gio.DBusInterfaceSkeleton */
-    vfuncFlush(): void
-    vfuncGAuthorizeMethod(invocation: Gio.DBusMethodInvocation): boolean
-    vfuncGetInfo(): Gio.DBusInterfaceInfo
-    vfuncGetProperties(): GLib.Variant
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gio.DBusInterfaceSkeleton */
+    /* Signals of Gio-2.0.Gio.DBusInterfaceSkeleton */
     connect(sigName: "g-authorize-method", callback: (($obj: GdbusModemMessagingSkeleton, invocation: Gio.DBusMethodInvocation) => boolean)): number
-    connect_after(sigName: "g-authorize-method", callback: (($obj: GdbusModemMessagingSkeleton, invocation: Gio.DBusMethodInvocation) => boolean)): number
+    on(sigName: "g-authorize-method", callback: (invocation: Gio.DBusMethodInvocation) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "g-authorize-method", callback: (invocation: Gio.DBusMethodInvocation) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "g-authorize-method", callback: (invocation: Gio.DBusMethodInvocation) => void): NodeJS.EventEmitter
     emit(sigName: "g-authorize-method", invocation: Gio.DBusMethodInvocation): void
-    on(sigName: "g-authorize-method", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "g-authorize-method", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "g-authorize-method", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: GdbusModemMessagingSkeleton, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: GdbusModemMessagingSkeleton, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of ModemManager.GdbusModemMessaging */
+    /* Signals of ModemManager-1.0.ModemManager.GdbusModemMessaging */
     connect(sigName: "added", callback: (($obj: GdbusModemMessagingSkeleton, argPath: string, argReceived: boolean) => void)): number
-    connect_after(sigName: "added", callback: (($obj: GdbusModemMessagingSkeleton, argPath: string, argReceived: boolean) => void)): number
+    on(sigName: "added", callback: (argPath: string, argReceived: boolean) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "added", callback: (argPath: string, argReceived: boolean) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "added", callback: (argPath: string, argReceived: boolean) => void): NodeJS.EventEmitter
     emit(sigName: "added", argPath: string, argReceived: boolean): void
-    on(sigName: "added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "added", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "deleted", callback: (($obj: GdbusModemMessagingSkeleton, argPath: string) => void)): number
-    connect_after(sigName: "deleted", callback: (($obj: GdbusModemMessagingSkeleton, argPath: string) => void)): number
+    on(sigName: "deleted", callback: (argPath: string) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "deleted", callback: (argPath: string) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "deleted", callback: (argPath: string) => void): NodeJS.EventEmitter
     emit(sigName: "deleted", argPath: string): void
-    on(sigName: "deleted", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "deleted", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "deleted", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "handle-create", callback: (($obj: GdbusModemMessagingSkeleton, invocation: Gio.DBusMethodInvocation, argProperties: GLib.Variant) => boolean)): number
-    connect_after(sigName: "handle-create", callback: (($obj: GdbusModemMessagingSkeleton, invocation: Gio.DBusMethodInvocation, argProperties: GLib.Variant) => boolean)): number
+    on(sigName: "handle-create", callback: (invocation: Gio.DBusMethodInvocation, argProperties: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-create", callback: (invocation: Gio.DBusMethodInvocation, argProperties: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-create", callback: (invocation: Gio.DBusMethodInvocation, argProperties: GLib.Variant) => void): NodeJS.EventEmitter
     emit(sigName: "handle-create", invocation: Gio.DBusMethodInvocation, argProperties: GLib.Variant): void
-    on(sigName: "handle-create", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-create", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-create", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "handle-delete", callback: (($obj: GdbusModemMessagingSkeleton, invocation: Gio.DBusMethodInvocation, argPath: string) => boolean)): number
-    connect_after(sigName: "handle-delete", callback: (($obj: GdbusModemMessagingSkeleton, invocation: Gio.DBusMethodInvocation, argPath: string) => boolean)): number
+    on(sigName: "handle-delete", callback: (invocation: Gio.DBusMethodInvocation, argPath: string) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-delete", callback: (invocation: Gio.DBusMethodInvocation, argPath: string) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-delete", callback: (invocation: Gio.DBusMethodInvocation, argPath: string) => void): NodeJS.EventEmitter
     emit(sigName: "handle-delete", invocation: Gio.DBusMethodInvocation, argPath: string): void
-    on(sigName: "handle-delete", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-delete", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-delete", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "handle-list", callback: (($obj: GdbusModemMessagingSkeleton, invocation: Gio.DBusMethodInvocation) => boolean)): number
-    connect_after(sigName: "handle-list", callback: (($obj: GdbusModemMessagingSkeleton, invocation: Gio.DBusMethodInvocation) => boolean)): number
+    on(sigName: "handle-list", callback: (invocation: Gio.DBusMethodInvocation) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-list", callback: (invocation: Gio.DBusMethodInvocation) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-list", callback: (invocation: Gio.DBusMethodInvocation) => void): NodeJS.EventEmitter
     emit(sigName: "handle-list", invocation: Gio.DBusMethodInvocation): void
-    on(sigName: "handle-list", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-list", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-list", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::g-flags", callback: (($obj: GdbusModemMessagingSkeleton, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::g-flags", callback: (($obj: GdbusModemMessagingSkeleton, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::g-flags", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -5855,24 +5199,24 @@ export interface GdbusModemOmaProxy_ConstructProps extends Gio.DBusProxy_Constru
     sessionType?: number
 }
 export class GdbusModemOmaProxy {
-    /* Properties of Gio.DBusProxy */
+    /* Properties of Gio-2.0.Gio.DBusProxy */
     gDefaultTimeout: number
     gInterfaceInfo: Gio.DBusInterfaceInfo
     readonly gNameOwner: string
-    /* Properties of ModemManager.GdbusModemOma */
+    /* Properties of ModemManager-1.0.ModemManager.GdbusModemOma */
     features: number
     pendingNetworkInitiatedSessions: GLib.Variant
     sessionState: number
     sessionType: number
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Gio.DBusProxy */
+    /* Methods of Gio-2.0.Gio.DBusProxy */
     call(methodName: string, parameters: GLib.Variant | null, flags: Gio.DBusCallFlags, timeoutMsec: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     callFinish(res: Gio.AsyncResult): GLib.Variant
     callSync(methodName: string, parameters: GLib.Variant | null, flags: Gio.DBusCallFlags, timeoutMsec: number, cancellable?: Gio.Cancellable | null): GLib.Variant
     callWithUnixFdList(methodName: string, parameters: GLib.Variant | null, flags: Gio.DBusCallFlags, timeoutMsec: number, fdList?: Gio.UnixFDList | null, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    callWithUnixFdListFinish(res: Gio.AsyncResult): [ /* returnType */ GLib.Variant, /* outFdList */ Gio.UnixFDList | null ]
-    callWithUnixFdListSync(methodName: string, parameters: GLib.Variant | null, flags: Gio.DBusCallFlags, timeoutMsec: number, fdList?: Gio.UnixFDList | null, cancellable?: Gio.Cancellable | null): [ /* returnType */ GLib.Variant, /* outFdList */ Gio.UnixFDList | null ]
+    callWithUnixFdListFinish(res: Gio.AsyncResult): { returnType: GLib.Variant, outFdList: Gio.UnixFDList | null }
+    callWithUnixFdListSync(methodName: string, parameters: GLib.Variant | null, flags: Gio.DBusCallFlags, timeoutMsec: number, fdList?: Gio.UnixFDList | null, cancellable?: Gio.Cancellable | null): { returnType: GLib.Variant, outFdList: Gio.UnixFDList | null }
     getCachedProperty(propertyName: string): GLib.Variant | null
     getCachedPropertyNames(): string[] | null
     getConnection(): Gio.DBusConnection
@@ -5886,7 +5230,7 @@ export class GdbusModemOmaProxy {
     setCachedProperty(propertyName: string, value?: GLib.Variant | null): void
     setDefaultTimeout(timeoutMsec: number): void
     setInterfaceInfo(info?: Gio.DBusInterfaceInfo | null): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -5908,17 +5252,17 @@ export class GdbusModemOmaProxy {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of Gio.AsyncInitable */
+    /* Methods of Gio-2.0.Gio.AsyncInitable */
     initAsync(ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     initFinish(res: Gio.AsyncResult): boolean
     newFinish(res: Gio.AsyncResult): GObject.Object
-    /* Methods of Gio.DBusInterface */
+    /* Methods of Gio-2.0.Gio.DBusInterface */
     getObject(): Gio.DBusObject | null
     getInfo(): Gio.DBusInterfaceInfo
     setObject(object?: Gio.DBusObject | null): void
-    /* Methods of Gio.Initable */
+    /* Methods of Gio-2.0.Gio.Initable */
     init(cancellable?: Gio.Cancellable | null): boolean
-    /* Methods of ModemManager.GdbusModemOma */
+    /* Methods of ModemManager-1.0.ModemManager.GdbusModemOma */
     callAcceptNetworkInitiatedSession(argSessionId: number, argAccept: boolean, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     callAcceptNetworkInitiatedSessionFinish(res: Gio.AsyncResult): boolean
     callAcceptNetworkInitiatedSessionSync(argSessionId: number, argAccept: boolean, cancellable?: Gio.Cancellable | null): boolean
@@ -5936,80 +5280,49 @@ export class GdbusModemOmaProxy {
     completeSetup(invocation: Gio.DBusMethodInvocation): void
     completeStartClientInitiatedSession(invocation: Gio.DBusMethodInvocation): void
     emitSessionStateChanged(argOldSessionState: number, argNewSessionState: number, argSessionStateFailedReason: number): void
-    /* Virtual methods of ModemManager.GdbusModemOmaProxy */
-    vfuncInitAsync(ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    vfuncInitFinish(res: Gio.AsyncResult): boolean
-    vfuncDupObject(): Gio.DBusObject | null
-    vfuncGetInfo(): Gio.DBusInterfaceInfo
-    vfuncSetObject(object?: Gio.DBusObject | null): void
-    vfuncInit(cancellable?: Gio.Cancellable | null): boolean
-    vfuncHandleAcceptNetworkInitiatedSession(invocation: Gio.DBusMethodInvocation, argSessionId: number, argAccept: boolean): boolean
-    vfuncHandleCancelSession(invocation: Gio.DBusMethodInvocation): boolean
-    vfuncHandleSetup(invocation: Gio.DBusMethodInvocation, argFeatures: number): boolean
-    vfuncHandleStartClientInitiatedSession(invocation: Gio.DBusMethodInvocation, argSessionType: number): boolean
-    vfuncSessionStateChanged(argOldSessionState: number, argNewSessionState: number, argSessionStateFailedReason: number): void
-    /* Virtual methods of Gio.DBusProxy */
-    vfuncGPropertiesChanged(changedProperties: GLib.Variant, invalidatedProperties: string): void
-    vfuncGSignal(senderName: string, signalName: string, parameters: GLib.Variant): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gio.DBusProxy */
+    /* Signals of Gio-2.0.Gio.DBusProxy */
     connect(sigName: "g-properties-changed", callback: (($obj: GdbusModemOmaProxy, changedProperties: GLib.Variant, invalidatedProperties: string[]) => void)): number
-    connect_after(sigName: "g-properties-changed", callback: (($obj: GdbusModemOmaProxy, changedProperties: GLib.Variant, invalidatedProperties: string[]) => void)): number
+    on(sigName: "g-properties-changed", callback: (changedProperties: GLib.Variant, invalidatedProperties: string[]) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "g-properties-changed", callback: (changedProperties: GLib.Variant, invalidatedProperties: string[]) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "g-properties-changed", callback: (changedProperties: GLib.Variant, invalidatedProperties: string[]) => void): NodeJS.EventEmitter
     emit(sigName: "g-properties-changed", changedProperties: GLib.Variant, invalidatedProperties: string[]): void
-    on(sigName: "g-properties-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "g-properties-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "g-properties-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "g-signal", callback: (($obj: GdbusModemOmaProxy, senderName: string | null, signalName: string, parameters: GLib.Variant) => void)): number
-    connect_after(sigName: "g-signal", callback: (($obj: GdbusModemOmaProxy, senderName: string | null, signalName: string, parameters: GLib.Variant) => void)): number
+    on(sigName: "g-signal", callback: (senderName: string | null, signalName: string, parameters: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "g-signal", callback: (senderName: string | null, signalName: string, parameters: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "g-signal", callback: (senderName: string | null, signalName: string, parameters: GLib.Variant) => void): NodeJS.EventEmitter
     emit(sigName: "g-signal", senderName: string | null, signalName: string, parameters: GLib.Variant): void
-    on(sigName: "g-signal", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "g-signal", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "g-signal", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: GdbusModemOmaProxy, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: GdbusModemOmaProxy, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of ModemManager.GdbusModemOma */
+    /* Signals of ModemManager-1.0.ModemManager.GdbusModemOma */
     connect(sigName: "handle-accept-network-initiated-session", callback: (($obj: GdbusModemOmaProxy, invocation: Gio.DBusMethodInvocation, argSessionId: number, argAccept: boolean) => boolean)): number
-    connect_after(sigName: "handle-accept-network-initiated-session", callback: (($obj: GdbusModemOmaProxy, invocation: Gio.DBusMethodInvocation, argSessionId: number, argAccept: boolean) => boolean)): number
+    on(sigName: "handle-accept-network-initiated-session", callback: (invocation: Gio.DBusMethodInvocation, argSessionId: number, argAccept: boolean) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-accept-network-initiated-session", callback: (invocation: Gio.DBusMethodInvocation, argSessionId: number, argAccept: boolean) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-accept-network-initiated-session", callback: (invocation: Gio.DBusMethodInvocation, argSessionId: number, argAccept: boolean) => void): NodeJS.EventEmitter
     emit(sigName: "handle-accept-network-initiated-session", invocation: Gio.DBusMethodInvocation, argSessionId: number, argAccept: boolean): void
-    on(sigName: "handle-accept-network-initiated-session", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-accept-network-initiated-session", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-accept-network-initiated-session", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "handle-cancel-session", callback: (($obj: GdbusModemOmaProxy, invocation: Gio.DBusMethodInvocation) => boolean)): number
-    connect_after(sigName: "handle-cancel-session", callback: (($obj: GdbusModemOmaProxy, invocation: Gio.DBusMethodInvocation) => boolean)): number
+    on(sigName: "handle-cancel-session", callback: (invocation: Gio.DBusMethodInvocation) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-cancel-session", callback: (invocation: Gio.DBusMethodInvocation) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-cancel-session", callback: (invocation: Gio.DBusMethodInvocation) => void): NodeJS.EventEmitter
     emit(sigName: "handle-cancel-session", invocation: Gio.DBusMethodInvocation): void
-    on(sigName: "handle-cancel-session", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-cancel-session", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-cancel-session", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "handle-setup", callback: (($obj: GdbusModemOmaProxy, invocation: Gio.DBusMethodInvocation, argFeatures: number) => boolean)): number
-    connect_after(sigName: "handle-setup", callback: (($obj: GdbusModemOmaProxy, invocation: Gio.DBusMethodInvocation, argFeatures: number) => boolean)): number
+    on(sigName: "handle-setup", callback: (invocation: Gio.DBusMethodInvocation, argFeatures: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-setup", callback: (invocation: Gio.DBusMethodInvocation, argFeatures: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-setup", callback: (invocation: Gio.DBusMethodInvocation, argFeatures: number) => void): NodeJS.EventEmitter
     emit(sigName: "handle-setup", invocation: Gio.DBusMethodInvocation, argFeatures: number): void
-    on(sigName: "handle-setup", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-setup", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-setup", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "handle-start-client-initiated-session", callback: (($obj: GdbusModemOmaProxy, invocation: Gio.DBusMethodInvocation, argSessionType: number) => boolean)): number
-    connect_after(sigName: "handle-start-client-initiated-session", callback: (($obj: GdbusModemOmaProxy, invocation: Gio.DBusMethodInvocation, argSessionType: number) => boolean)): number
+    on(sigName: "handle-start-client-initiated-session", callback: (invocation: Gio.DBusMethodInvocation, argSessionType: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-start-client-initiated-session", callback: (invocation: Gio.DBusMethodInvocation, argSessionType: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-start-client-initiated-session", callback: (invocation: Gio.DBusMethodInvocation, argSessionType: number) => void): NodeJS.EventEmitter
     emit(sigName: "handle-start-client-initiated-session", invocation: Gio.DBusMethodInvocation, argSessionType: number): void
-    on(sigName: "handle-start-client-initiated-session", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-start-client-initiated-session", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-start-client-initiated-session", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "session-state-changed", callback: (($obj: GdbusModemOmaProxy, argOldSessionState: number, argNewSessionState: number, argSessionStateFailedReason: number) => void)): number
-    connect_after(sigName: "session-state-changed", callback: (($obj: GdbusModemOmaProxy, argOldSessionState: number, argNewSessionState: number, argSessionStateFailedReason: number) => void)): number
+    on(sigName: "session-state-changed", callback: (argOldSessionState: number, argNewSessionState: number, argSessionStateFailedReason: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "session-state-changed", callback: (argOldSessionState: number, argNewSessionState: number, argSessionStateFailedReason: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "session-state-changed", callback: (argOldSessionState: number, argNewSessionState: number, argSessionStateFailedReason: number) => void): NodeJS.EventEmitter
     emit(sigName: "session-state-changed", argOldSessionState: number, argNewSessionState: number, argSessionStateFailedReason: number): void
-    on(sigName: "session-state-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "session-state-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "session-state-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::g-default-timeout", callback: (($obj: GdbusModemOmaProxy, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::g-default-timeout", callback: (($obj: GdbusModemOmaProxy, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::g-default-timeout", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -6077,16 +5390,16 @@ export interface GdbusModemOmaSkeleton_ConstructProps extends Gio.DBusInterfaceS
     sessionType?: number
 }
 export class GdbusModemOmaSkeleton {
-    /* Properties of Gio.DBusInterfaceSkeleton */
+    /* Properties of Gio-2.0.Gio.DBusInterfaceSkeleton */
     gFlags: Gio.DBusInterfaceSkeletonFlags
-    /* Properties of ModemManager.GdbusModemOma */
+    /* Properties of ModemManager-1.0.ModemManager.GdbusModemOma */
     features: number
     pendingNetworkInitiatedSessions: GLib.Variant
     sessionState: number
     sessionType: number
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Gio.DBusInterfaceSkeleton */
+    /* Methods of Gio-2.0.Gio.DBusInterfaceSkeleton */
     export(connection: Gio.DBusConnection, objectPath: string): boolean
     flush(): void
     getConnection(): Gio.DBusConnection | null
@@ -6099,7 +5412,7 @@ export class GdbusModemOmaSkeleton {
     setFlags(flags: Gio.DBusInterfaceSkeletonFlags): void
     unexport(): void
     unexportFromConnection(connection: Gio.DBusConnection): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -6121,10 +5434,10 @@ export class GdbusModemOmaSkeleton {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of Gio.DBusInterface */
+    /* Methods of Gio-2.0.Gio.DBusInterface */
     getObject(): Gio.DBusObject | null
     setObject(object?: Gio.DBusObject | null): void
-    /* Methods of ModemManager.GdbusModemOma */
+    /* Methods of ModemManager-1.0.ModemManager.GdbusModemOma */
     callAcceptNetworkInitiatedSession(argSessionId: number, argAccept: boolean, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     callAcceptNetworkInitiatedSessionFinish(res: Gio.AsyncResult): boolean
     callAcceptNetworkInitiatedSessionSync(argSessionId: number, argAccept: boolean, cancellable?: Gio.Cancellable | null): boolean
@@ -6142,73 +5455,44 @@ export class GdbusModemOmaSkeleton {
     completeSetup(invocation: Gio.DBusMethodInvocation): void
     completeStartClientInitiatedSession(invocation: Gio.DBusMethodInvocation): void
     emitSessionStateChanged(argOldSessionState: number, argNewSessionState: number, argSessionStateFailedReason: number): void
-    /* Virtual methods of ModemManager.GdbusModemOmaSkeleton */
-    vfuncDupObject(): Gio.DBusObject | null
-    vfuncGetInfo(): Gio.DBusInterfaceInfo
-    vfuncSetObject(object?: Gio.DBusObject | null): void
-    vfuncHandleAcceptNetworkInitiatedSession(invocation: Gio.DBusMethodInvocation, argSessionId: number, argAccept: boolean): boolean
-    vfuncHandleCancelSession(invocation: Gio.DBusMethodInvocation): boolean
-    vfuncHandleSetup(invocation: Gio.DBusMethodInvocation, argFeatures: number): boolean
-    vfuncHandleStartClientInitiatedSession(invocation: Gio.DBusMethodInvocation, argSessionType: number): boolean
-    vfuncSessionStateChanged(argOldSessionState: number, argNewSessionState: number, argSessionStateFailedReason: number): void
-    /* Virtual methods of Gio.DBusInterfaceSkeleton */
-    vfuncFlush(): void
-    vfuncGAuthorizeMethod(invocation: Gio.DBusMethodInvocation): boolean
-    vfuncGetInfo(): Gio.DBusInterfaceInfo
-    vfuncGetProperties(): GLib.Variant
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gio.DBusInterfaceSkeleton */
+    /* Signals of Gio-2.0.Gio.DBusInterfaceSkeleton */
     connect(sigName: "g-authorize-method", callback: (($obj: GdbusModemOmaSkeleton, invocation: Gio.DBusMethodInvocation) => boolean)): number
-    connect_after(sigName: "g-authorize-method", callback: (($obj: GdbusModemOmaSkeleton, invocation: Gio.DBusMethodInvocation) => boolean)): number
+    on(sigName: "g-authorize-method", callback: (invocation: Gio.DBusMethodInvocation) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "g-authorize-method", callback: (invocation: Gio.DBusMethodInvocation) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "g-authorize-method", callback: (invocation: Gio.DBusMethodInvocation) => void): NodeJS.EventEmitter
     emit(sigName: "g-authorize-method", invocation: Gio.DBusMethodInvocation): void
-    on(sigName: "g-authorize-method", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "g-authorize-method", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "g-authorize-method", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: GdbusModemOmaSkeleton, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: GdbusModemOmaSkeleton, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of ModemManager.GdbusModemOma */
+    /* Signals of ModemManager-1.0.ModemManager.GdbusModemOma */
     connect(sigName: "handle-accept-network-initiated-session", callback: (($obj: GdbusModemOmaSkeleton, invocation: Gio.DBusMethodInvocation, argSessionId: number, argAccept: boolean) => boolean)): number
-    connect_after(sigName: "handle-accept-network-initiated-session", callback: (($obj: GdbusModemOmaSkeleton, invocation: Gio.DBusMethodInvocation, argSessionId: number, argAccept: boolean) => boolean)): number
+    on(sigName: "handle-accept-network-initiated-session", callback: (invocation: Gio.DBusMethodInvocation, argSessionId: number, argAccept: boolean) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-accept-network-initiated-session", callback: (invocation: Gio.DBusMethodInvocation, argSessionId: number, argAccept: boolean) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-accept-network-initiated-session", callback: (invocation: Gio.DBusMethodInvocation, argSessionId: number, argAccept: boolean) => void): NodeJS.EventEmitter
     emit(sigName: "handle-accept-network-initiated-session", invocation: Gio.DBusMethodInvocation, argSessionId: number, argAccept: boolean): void
-    on(sigName: "handle-accept-network-initiated-session", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-accept-network-initiated-session", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-accept-network-initiated-session", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "handle-cancel-session", callback: (($obj: GdbusModemOmaSkeleton, invocation: Gio.DBusMethodInvocation) => boolean)): number
-    connect_after(sigName: "handle-cancel-session", callback: (($obj: GdbusModemOmaSkeleton, invocation: Gio.DBusMethodInvocation) => boolean)): number
+    on(sigName: "handle-cancel-session", callback: (invocation: Gio.DBusMethodInvocation) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-cancel-session", callback: (invocation: Gio.DBusMethodInvocation) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-cancel-session", callback: (invocation: Gio.DBusMethodInvocation) => void): NodeJS.EventEmitter
     emit(sigName: "handle-cancel-session", invocation: Gio.DBusMethodInvocation): void
-    on(sigName: "handle-cancel-session", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-cancel-session", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-cancel-session", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "handle-setup", callback: (($obj: GdbusModemOmaSkeleton, invocation: Gio.DBusMethodInvocation, argFeatures: number) => boolean)): number
-    connect_after(sigName: "handle-setup", callback: (($obj: GdbusModemOmaSkeleton, invocation: Gio.DBusMethodInvocation, argFeatures: number) => boolean)): number
+    on(sigName: "handle-setup", callback: (invocation: Gio.DBusMethodInvocation, argFeatures: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-setup", callback: (invocation: Gio.DBusMethodInvocation, argFeatures: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-setup", callback: (invocation: Gio.DBusMethodInvocation, argFeatures: number) => void): NodeJS.EventEmitter
     emit(sigName: "handle-setup", invocation: Gio.DBusMethodInvocation, argFeatures: number): void
-    on(sigName: "handle-setup", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-setup", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-setup", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "handle-start-client-initiated-session", callback: (($obj: GdbusModemOmaSkeleton, invocation: Gio.DBusMethodInvocation, argSessionType: number) => boolean)): number
-    connect_after(sigName: "handle-start-client-initiated-session", callback: (($obj: GdbusModemOmaSkeleton, invocation: Gio.DBusMethodInvocation, argSessionType: number) => boolean)): number
+    on(sigName: "handle-start-client-initiated-session", callback: (invocation: Gio.DBusMethodInvocation, argSessionType: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-start-client-initiated-session", callback: (invocation: Gio.DBusMethodInvocation, argSessionType: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-start-client-initiated-session", callback: (invocation: Gio.DBusMethodInvocation, argSessionType: number) => void): NodeJS.EventEmitter
     emit(sigName: "handle-start-client-initiated-session", invocation: Gio.DBusMethodInvocation, argSessionType: number): void
-    on(sigName: "handle-start-client-initiated-session", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-start-client-initiated-session", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-start-client-initiated-session", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "session-state-changed", callback: (($obj: GdbusModemOmaSkeleton, argOldSessionState: number, argNewSessionState: number, argSessionStateFailedReason: number) => void)): number
-    connect_after(sigName: "session-state-changed", callback: (($obj: GdbusModemOmaSkeleton, argOldSessionState: number, argNewSessionState: number, argSessionStateFailedReason: number) => void)): number
+    on(sigName: "session-state-changed", callback: (argOldSessionState: number, argNewSessionState: number, argSessionStateFailedReason: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "session-state-changed", callback: (argOldSessionState: number, argNewSessionState: number, argSessionStateFailedReason: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "session-state-changed", callback: (argOldSessionState: number, argNewSessionState: number, argSessionStateFailedReason: number) => void): NodeJS.EventEmitter
     emit(sigName: "session-state-changed", argOldSessionState: number, argNewSessionState: number, argSessionStateFailedReason: number): void
-    on(sigName: "session-state-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "session-state-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "session-state-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::g-flags", callback: (($obj: GdbusModemOmaSkeleton, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::g-flags", callback: (($obj: GdbusModemOmaSkeleton, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::g-flags", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -6287,11 +5571,11 @@ export interface GdbusModemProxy_ConstructProps extends Gio.DBusProxy_ConstructP
     unlockRetries?: GLib.Variant
 }
 export class GdbusModemProxy {
-    /* Properties of Gio.DBusProxy */
+    /* Properties of Gio-2.0.Gio.DBusProxy */
     gDefaultTimeout: number
     gInterfaceInfo: Gio.DBusInterfaceInfo
     readonly gNameOwner: string
-    /* Properties of ModemManager.GdbusModem */
+    /* Properties of ModemManager-1.0.ModemManager.GdbusModem */
     accessTechnologies: number
     bearers: string[]
     carrierConfiguration: string
@@ -6326,15 +5610,15 @@ export class GdbusModemProxy {
     supportedModes: GLib.Variant
     unlockRequired: number
     unlockRetries: GLib.Variant
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Gio.DBusProxy */
+    /* Methods of Gio-2.0.Gio.DBusProxy */
     call(methodName: string, parameters: GLib.Variant | null, flags: Gio.DBusCallFlags, timeoutMsec: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     callFinish(res: Gio.AsyncResult): GLib.Variant
     callSync(methodName: string, parameters: GLib.Variant | null, flags: Gio.DBusCallFlags, timeoutMsec: number, cancellable?: Gio.Cancellable | null): GLib.Variant
     callWithUnixFdList(methodName: string, parameters: GLib.Variant | null, flags: Gio.DBusCallFlags, timeoutMsec: number, fdList?: Gio.UnixFDList | null, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    callWithUnixFdListFinish(res: Gio.AsyncResult): [ /* returnType */ GLib.Variant, /* outFdList */ Gio.UnixFDList | null ]
-    callWithUnixFdListSync(methodName: string, parameters: GLib.Variant | null, flags: Gio.DBusCallFlags, timeoutMsec: number, fdList?: Gio.UnixFDList | null, cancellable?: Gio.Cancellable | null): [ /* returnType */ GLib.Variant, /* outFdList */ Gio.UnixFDList | null ]
+    callWithUnixFdListFinish(res: Gio.AsyncResult): { returnType: GLib.Variant, outFdList: Gio.UnixFDList | null }
+    callWithUnixFdListSync(methodName: string, parameters: GLib.Variant | null, flags: Gio.DBusCallFlags, timeoutMsec: number, fdList?: Gio.UnixFDList | null, cancellable?: Gio.Cancellable | null): { returnType: GLib.Variant, outFdList: Gio.UnixFDList | null }
     getCachedProperty(propertyName: string): GLib.Variant | null
     getCachedPropertyNames(): string[] | null
     getConnection(): Gio.DBusConnection
@@ -6348,7 +5632,7 @@ export class GdbusModemProxy {
     setCachedProperty(propertyName: string, value?: GLib.Variant | null): void
     setDefaultTimeout(timeoutMsec: number): void
     setInterfaceInfo(info?: Gio.DBusInterfaceInfo | null): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -6370,23 +5654,23 @@ export class GdbusModemProxy {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of Gio.AsyncInitable */
+    /* Methods of Gio-2.0.Gio.AsyncInitable */
     initAsync(ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     initFinish(res: Gio.AsyncResult): boolean
     newFinish(res: Gio.AsyncResult): GObject.Object
-    /* Methods of Gio.DBusInterface */
+    /* Methods of Gio-2.0.Gio.DBusInterface */
     getObject(): Gio.DBusObject | null
     getInfo(): Gio.DBusInterfaceInfo
     setObject(object?: Gio.DBusObject | null): void
-    /* Methods of Gio.Initable */
+    /* Methods of Gio-2.0.Gio.Initable */
     init(cancellable?: Gio.Cancellable | null): boolean
-    /* Methods of ModemManager.GdbusModem */
+    /* Methods of ModemManager-1.0.ModemManager.GdbusModem */
     callCommand(argCmd: string, argTimeout: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    callCommandFinish(res: Gio.AsyncResult): [ /* returnType */ boolean, /* outResponse */ string | null ]
-    callCommandSync(argCmd: string, argTimeout: number, cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* outResponse */ string | null ]
+    callCommandFinish(res: Gio.AsyncResult): { returnType: boolean, outResponse: string | null }
+    callCommandSync(argCmd: string, argTimeout: number, cancellable?: Gio.Cancellable | null): { returnType: boolean, outResponse: string | null }
     callCreateBearer(argProperties: GLib.Variant, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    callCreateBearerFinish(res: Gio.AsyncResult): [ /* returnType */ boolean, /* outPath */ string | null ]
-    callCreateBearerSync(argProperties: GLib.Variant, cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* outPath */ string | null ]
+    callCreateBearerFinish(res: Gio.AsyncResult): { returnType: boolean, outPath: string | null }
+    callCreateBearerSync(argProperties: GLib.Variant, cancellable?: Gio.Cancellable | null): { returnType: boolean, outPath: string | null }
     callDeleteBearer(argBearer: string, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     callDeleteBearerFinish(res: Gio.AsyncResult): boolean
     callDeleteBearerSync(argBearer: string, cancellable?: Gio.Cancellable | null): boolean
@@ -6397,8 +5681,8 @@ export class GdbusModemProxy {
     callFactoryResetFinish(res: Gio.AsyncResult): boolean
     callFactoryResetSync(argCode: string, cancellable?: Gio.Cancellable | null): boolean
     callListBearers(cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    callListBearersFinish(res: Gio.AsyncResult): [ /* returnType */ boolean, /* outBearers */ string[] | null ]
-    callListBearersSync(cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* outBearers */ string[] | null ]
+    callListBearersFinish(res: Gio.AsyncResult): { returnType: boolean, outBearers: string[] | null }
+    callListBearersSync(cancellable?: Gio.Cancellable | null): { returnType: boolean, outBearers: string[] | null }
     callReset(cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     callResetFinish(res: Gio.AsyncResult): boolean
     callResetSync(cancellable?: Gio.Cancellable | null): boolean
@@ -6430,136 +5714,89 @@ export class GdbusModemProxy {
     completeSetPowerState(invocation: Gio.DBusMethodInvocation): void
     completeSetPrimarySimSlot(invocation: Gio.DBusMethodInvocation): void
     emitStateChanged(argOld: number, argNew: number, argReason: number): void
-    /* Virtual methods of ModemManager.GdbusModemProxy */
-    vfuncInitAsync(ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    vfuncInitFinish(res: Gio.AsyncResult): boolean
-    vfuncDupObject(): Gio.DBusObject | null
-    vfuncGetInfo(): Gio.DBusInterfaceInfo
-    vfuncSetObject(object?: Gio.DBusObject | null): void
-    vfuncInit(cancellable?: Gio.Cancellable | null): boolean
-    vfuncHandleCommand(invocation: Gio.DBusMethodInvocation, argCmd: string, argTimeout: number): boolean
-    vfuncHandleCreateBearer(invocation: Gio.DBusMethodInvocation, argProperties: GLib.Variant): boolean
-    vfuncHandleDeleteBearer(invocation: Gio.DBusMethodInvocation, argBearer: string): boolean
-    vfuncHandleEnable(invocation: Gio.DBusMethodInvocation, argEnable: boolean): boolean
-    vfuncHandleFactoryReset(invocation: Gio.DBusMethodInvocation, argCode: string): boolean
-    vfuncHandleListBearers(invocation: Gio.DBusMethodInvocation): boolean
-    vfuncHandleReset(invocation: Gio.DBusMethodInvocation): boolean
-    vfuncHandleSetCurrentBands(invocation: Gio.DBusMethodInvocation, argBands: GLib.Variant): boolean
-    vfuncHandleSetCurrentCapabilities(invocation: Gio.DBusMethodInvocation, argCapabilities: number): boolean
-    vfuncHandleSetCurrentModes(invocation: Gio.DBusMethodInvocation, argModes: GLib.Variant): boolean
-    vfuncHandleSetPowerState(invocation: Gio.DBusMethodInvocation, argState: number): boolean
-    vfuncHandleSetPrimarySimSlot(invocation: Gio.DBusMethodInvocation, argSimSlot: number): boolean
-    vfuncStateChanged(argOld: number, argNew: number, argReason: number): void
-    /* Virtual methods of Gio.DBusProxy */
-    vfuncGPropertiesChanged(changedProperties: GLib.Variant, invalidatedProperties: string): void
-    vfuncGSignal(senderName: string, signalName: string, parameters: GLib.Variant): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gio.DBusProxy */
+    /* Signals of Gio-2.0.Gio.DBusProxy */
     connect(sigName: "g-properties-changed", callback: (($obj: GdbusModemProxy, changedProperties: GLib.Variant, invalidatedProperties: string[]) => void)): number
-    connect_after(sigName: "g-properties-changed", callback: (($obj: GdbusModemProxy, changedProperties: GLib.Variant, invalidatedProperties: string[]) => void)): number
+    on(sigName: "g-properties-changed", callback: (changedProperties: GLib.Variant, invalidatedProperties: string[]) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "g-properties-changed", callback: (changedProperties: GLib.Variant, invalidatedProperties: string[]) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "g-properties-changed", callback: (changedProperties: GLib.Variant, invalidatedProperties: string[]) => void): NodeJS.EventEmitter
     emit(sigName: "g-properties-changed", changedProperties: GLib.Variant, invalidatedProperties: string[]): void
-    on(sigName: "g-properties-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "g-properties-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "g-properties-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "g-signal", callback: (($obj: GdbusModemProxy, senderName: string | null, signalName: string, parameters: GLib.Variant) => void)): number
-    connect_after(sigName: "g-signal", callback: (($obj: GdbusModemProxy, senderName: string | null, signalName: string, parameters: GLib.Variant) => void)): number
+    on(sigName: "g-signal", callback: (senderName: string | null, signalName: string, parameters: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "g-signal", callback: (senderName: string | null, signalName: string, parameters: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "g-signal", callback: (senderName: string | null, signalName: string, parameters: GLib.Variant) => void): NodeJS.EventEmitter
     emit(sigName: "g-signal", senderName: string | null, signalName: string, parameters: GLib.Variant): void
-    on(sigName: "g-signal", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "g-signal", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "g-signal", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: GdbusModemProxy, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: GdbusModemProxy, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of ModemManager.GdbusModem */
+    /* Signals of ModemManager-1.0.ModemManager.GdbusModem */
     connect(sigName: "handle-command", callback: (($obj: GdbusModemProxy, invocation: Gio.DBusMethodInvocation, argCmd: string, argTimeout: number) => boolean)): number
-    connect_after(sigName: "handle-command", callback: (($obj: GdbusModemProxy, invocation: Gio.DBusMethodInvocation, argCmd: string, argTimeout: number) => boolean)): number
+    on(sigName: "handle-command", callback: (invocation: Gio.DBusMethodInvocation, argCmd: string, argTimeout: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-command", callback: (invocation: Gio.DBusMethodInvocation, argCmd: string, argTimeout: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-command", callback: (invocation: Gio.DBusMethodInvocation, argCmd: string, argTimeout: number) => void): NodeJS.EventEmitter
     emit(sigName: "handle-command", invocation: Gio.DBusMethodInvocation, argCmd: string, argTimeout: number): void
-    on(sigName: "handle-command", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-command", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-command", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "handle-create-bearer", callback: (($obj: GdbusModemProxy, invocation: Gio.DBusMethodInvocation, argProperties: GLib.Variant) => boolean)): number
-    connect_after(sigName: "handle-create-bearer", callback: (($obj: GdbusModemProxy, invocation: Gio.DBusMethodInvocation, argProperties: GLib.Variant) => boolean)): number
+    on(sigName: "handle-create-bearer", callback: (invocation: Gio.DBusMethodInvocation, argProperties: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-create-bearer", callback: (invocation: Gio.DBusMethodInvocation, argProperties: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-create-bearer", callback: (invocation: Gio.DBusMethodInvocation, argProperties: GLib.Variant) => void): NodeJS.EventEmitter
     emit(sigName: "handle-create-bearer", invocation: Gio.DBusMethodInvocation, argProperties: GLib.Variant): void
-    on(sigName: "handle-create-bearer", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-create-bearer", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-create-bearer", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "handle-delete-bearer", callback: (($obj: GdbusModemProxy, invocation: Gio.DBusMethodInvocation, argBearer: string) => boolean)): number
-    connect_after(sigName: "handle-delete-bearer", callback: (($obj: GdbusModemProxy, invocation: Gio.DBusMethodInvocation, argBearer: string) => boolean)): number
+    on(sigName: "handle-delete-bearer", callback: (invocation: Gio.DBusMethodInvocation, argBearer: string) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-delete-bearer", callback: (invocation: Gio.DBusMethodInvocation, argBearer: string) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-delete-bearer", callback: (invocation: Gio.DBusMethodInvocation, argBearer: string) => void): NodeJS.EventEmitter
     emit(sigName: "handle-delete-bearer", invocation: Gio.DBusMethodInvocation, argBearer: string): void
-    on(sigName: "handle-delete-bearer", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-delete-bearer", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-delete-bearer", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "handle-enable", callback: (($obj: GdbusModemProxy, invocation: Gio.DBusMethodInvocation, argEnable: boolean) => boolean)): number
-    connect_after(sigName: "handle-enable", callback: (($obj: GdbusModemProxy, invocation: Gio.DBusMethodInvocation, argEnable: boolean) => boolean)): number
+    on(sigName: "handle-enable", callback: (invocation: Gio.DBusMethodInvocation, argEnable: boolean) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-enable", callback: (invocation: Gio.DBusMethodInvocation, argEnable: boolean) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-enable", callback: (invocation: Gio.DBusMethodInvocation, argEnable: boolean) => void): NodeJS.EventEmitter
     emit(sigName: "handle-enable", invocation: Gio.DBusMethodInvocation, argEnable: boolean): void
-    on(sigName: "handle-enable", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-enable", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-enable", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "handle-factory-reset", callback: (($obj: GdbusModemProxy, invocation: Gio.DBusMethodInvocation, argCode: string) => boolean)): number
-    connect_after(sigName: "handle-factory-reset", callback: (($obj: GdbusModemProxy, invocation: Gio.DBusMethodInvocation, argCode: string) => boolean)): number
+    on(sigName: "handle-factory-reset", callback: (invocation: Gio.DBusMethodInvocation, argCode: string) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-factory-reset", callback: (invocation: Gio.DBusMethodInvocation, argCode: string) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-factory-reset", callback: (invocation: Gio.DBusMethodInvocation, argCode: string) => void): NodeJS.EventEmitter
     emit(sigName: "handle-factory-reset", invocation: Gio.DBusMethodInvocation, argCode: string): void
-    on(sigName: "handle-factory-reset", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-factory-reset", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-factory-reset", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "handle-list-bearers", callback: (($obj: GdbusModemProxy, invocation: Gio.DBusMethodInvocation) => boolean)): number
-    connect_after(sigName: "handle-list-bearers", callback: (($obj: GdbusModemProxy, invocation: Gio.DBusMethodInvocation) => boolean)): number
+    on(sigName: "handle-list-bearers", callback: (invocation: Gio.DBusMethodInvocation) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-list-bearers", callback: (invocation: Gio.DBusMethodInvocation) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-list-bearers", callback: (invocation: Gio.DBusMethodInvocation) => void): NodeJS.EventEmitter
     emit(sigName: "handle-list-bearers", invocation: Gio.DBusMethodInvocation): void
-    on(sigName: "handle-list-bearers", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-list-bearers", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-list-bearers", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "handle-reset", callback: (($obj: GdbusModemProxy, invocation: Gio.DBusMethodInvocation) => boolean)): number
-    connect_after(sigName: "handle-reset", callback: (($obj: GdbusModemProxy, invocation: Gio.DBusMethodInvocation) => boolean)): number
+    on(sigName: "handle-reset", callback: (invocation: Gio.DBusMethodInvocation) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-reset", callback: (invocation: Gio.DBusMethodInvocation) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-reset", callback: (invocation: Gio.DBusMethodInvocation) => void): NodeJS.EventEmitter
     emit(sigName: "handle-reset", invocation: Gio.DBusMethodInvocation): void
-    on(sigName: "handle-reset", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-reset", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-reset", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "handle-set-current-bands", callback: (($obj: GdbusModemProxy, invocation: Gio.DBusMethodInvocation, argBands: GLib.Variant) => boolean)): number
-    connect_after(sigName: "handle-set-current-bands", callback: (($obj: GdbusModemProxy, invocation: Gio.DBusMethodInvocation, argBands: GLib.Variant) => boolean)): number
+    on(sigName: "handle-set-current-bands", callback: (invocation: Gio.DBusMethodInvocation, argBands: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-set-current-bands", callback: (invocation: Gio.DBusMethodInvocation, argBands: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-set-current-bands", callback: (invocation: Gio.DBusMethodInvocation, argBands: GLib.Variant) => void): NodeJS.EventEmitter
     emit(sigName: "handle-set-current-bands", invocation: Gio.DBusMethodInvocation, argBands: GLib.Variant): void
-    on(sigName: "handle-set-current-bands", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-set-current-bands", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-set-current-bands", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "handle-set-current-capabilities", callback: (($obj: GdbusModemProxy, invocation: Gio.DBusMethodInvocation, argCapabilities: number) => boolean)): number
-    connect_after(sigName: "handle-set-current-capabilities", callback: (($obj: GdbusModemProxy, invocation: Gio.DBusMethodInvocation, argCapabilities: number) => boolean)): number
+    on(sigName: "handle-set-current-capabilities", callback: (invocation: Gio.DBusMethodInvocation, argCapabilities: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-set-current-capabilities", callback: (invocation: Gio.DBusMethodInvocation, argCapabilities: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-set-current-capabilities", callback: (invocation: Gio.DBusMethodInvocation, argCapabilities: number) => void): NodeJS.EventEmitter
     emit(sigName: "handle-set-current-capabilities", invocation: Gio.DBusMethodInvocation, argCapabilities: number): void
-    on(sigName: "handle-set-current-capabilities", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-set-current-capabilities", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-set-current-capabilities", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "handle-set-current-modes", callback: (($obj: GdbusModemProxy, invocation: Gio.DBusMethodInvocation, argModes: GLib.Variant) => boolean)): number
-    connect_after(sigName: "handle-set-current-modes", callback: (($obj: GdbusModemProxy, invocation: Gio.DBusMethodInvocation, argModes: GLib.Variant) => boolean)): number
+    on(sigName: "handle-set-current-modes", callback: (invocation: Gio.DBusMethodInvocation, argModes: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-set-current-modes", callback: (invocation: Gio.DBusMethodInvocation, argModes: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-set-current-modes", callback: (invocation: Gio.DBusMethodInvocation, argModes: GLib.Variant) => void): NodeJS.EventEmitter
     emit(sigName: "handle-set-current-modes", invocation: Gio.DBusMethodInvocation, argModes: GLib.Variant): void
-    on(sigName: "handle-set-current-modes", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-set-current-modes", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-set-current-modes", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "handle-set-power-state", callback: (($obj: GdbusModemProxy, invocation: Gio.DBusMethodInvocation, argState: number) => boolean)): number
-    connect_after(sigName: "handle-set-power-state", callback: (($obj: GdbusModemProxy, invocation: Gio.DBusMethodInvocation, argState: number) => boolean)): number
+    on(sigName: "handle-set-power-state", callback: (invocation: Gio.DBusMethodInvocation, argState: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-set-power-state", callback: (invocation: Gio.DBusMethodInvocation, argState: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-set-power-state", callback: (invocation: Gio.DBusMethodInvocation, argState: number) => void): NodeJS.EventEmitter
     emit(sigName: "handle-set-power-state", invocation: Gio.DBusMethodInvocation, argState: number): void
-    on(sigName: "handle-set-power-state", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-set-power-state", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-set-power-state", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "handle-set-primary-sim-slot", callback: (($obj: GdbusModemProxy, invocation: Gio.DBusMethodInvocation, argSimSlot: number) => boolean)): number
-    connect_after(sigName: "handle-set-primary-sim-slot", callback: (($obj: GdbusModemProxy, invocation: Gio.DBusMethodInvocation, argSimSlot: number) => boolean)): number
+    on(sigName: "handle-set-primary-sim-slot", callback: (invocation: Gio.DBusMethodInvocation, argSimSlot: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-set-primary-sim-slot", callback: (invocation: Gio.DBusMethodInvocation, argSimSlot: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-set-primary-sim-slot", callback: (invocation: Gio.DBusMethodInvocation, argSimSlot: number) => void): NodeJS.EventEmitter
     emit(sigName: "handle-set-primary-sim-slot", invocation: Gio.DBusMethodInvocation, argSimSlot: number): void
-    on(sigName: "handle-set-primary-sim-slot", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-set-primary-sim-slot", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-set-primary-sim-slot", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "state-changed", callback: (($obj: GdbusModemProxy, argOld: number, argNew: number, argReason: number) => void)): number
-    connect_after(sigName: "state-changed", callback: (($obj: GdbusModemProxy, argOld: number, argNew: number, argReason: number) => void)): number
+    on(sigName: "state-changed", callback: (argOld: number, argNew: number, argReason: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "state-changed", callback: (argOld: number, argNew: number, argReason: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "state-changed", callback: (argOld: number, argNew: number, argReason: number) => void): NodeJS.EventEmitter
     emit(sigName: "state-changed", argOld: number, argNew: number, argReason: number): void
-    on(sigName: "state-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "state-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "state-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::g-default-timeout", callback: (($obj: GdbusModemProxy, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::g-default-timeout", callback: (($obj: GdbusModemProxy, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::g-default-timeout", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -6780,11 +6017,11 @@ export interface GdbusModemSignalProxy_ConstructProps extends Gio.DBusProxy_Cons
     umts?: GLib.Variant
 }
 export class GdbusModemSignalProxy {
-    /* Properties of Gio.DBusProxy */
+    /* Properties of Gio-2.0.Gio.DBusProxy */
     gDefaultTimeout: number
     gInterfaceInfo: Gio.DBusInterfaceInfo
     readonly gNameOwner: string
-    /* Properties of ModemManager.GdbusModemSignal */
+    /* Properties of ModemManager-1.0.ModemManager.GdbusModemSignal */
     cdma: GLib.Variant
     evdo: GLib.Variant
     gsm: GLib.Variant
@@ -6792,15 +6029,15 @@ export class GdbusModemSignalProxy {
     nr5g: GLib.Variant
     rate: number
     umts: GLib.Variant
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Gio.DBusProxy */
+    /* Methods of Gio-2.0.Gio.DBusProxy */
     call(methodName: string, parameters: GLib.Variant | null, flags: Gio.DBusCallFlags, timeoutMsec: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     callFinish(res: Gio.AsyncResult): GLib.Variant
     callSync(methodName: string, parameters: GLib.Variant | null, flags: Gio.DBusCallFlags, timeoutMsec: number, cancellable?: Gio.Cancellable | null): GLib.Variant
     callWithUnixFdList(methodName: string, parameters: GLib.Variant | null, flags: Gio.DBusCallFlags, timeoutMsec: number, fdList?: Gio.UnixFDList | null, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    callWithUnixFdListFinish(res: Gio.AsyncResult): [ /* returnType */ GLib.Variant, /* outFdList */ Gio.UnixFDList | null ]
-    callWithUnixFdListSync(methodName: string, parameters: GLib.Variant | null, flags: Gio.DBusCallFlags, timeoutMsec: number, fdList?: Gio.UnixFDList | null, cancellable?: Gio.Cancellable | null): [ /* returnType */ GLib.Variant, /* outFdList */ Gio.UnixFDList | null ]
+    callWithUnixFdListFinish(res: Gio.AsyncResult): { returnType: GLib.Variant, outFdList: Gio.UnixFDList | null }
+    callWithUnixFdListSync(methodName: string, parameters: GLib.Variant | null, flags: Gio.DBusCallFlags, timeoutMsec: number, fdList?: Gio.UnixFDList | null, cancellable?: Gio.Cancellable | null): { returnType: GLib.Variant, outFdList: Gio.UnixFDList | null }
     getCachedProperty(propertyName: string): GLib.Variant | null
     getCachedPropertyNames(): string[] | null
     getConnection(): Gio.DBusConnection
@@ -6814,7 +6051,7 @@ export class GdbusModemSignalProxy {
     setCachedProperty(propertyName: string, value?: GLib.Variant | null): void
     setDefaultTimeout(timeoutMsec: number): void
     setInterfaceInfo(info?: Gio.DBusInterfaceInfo | null): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -6836,67 +6073,44 @@ export class GdbusModemSignalProxy {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of Gio.AsyncInitable */
+    /* Methods of Gio-2.0.Gio.AsyncInitable */
     initAsync(ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     initFinish(res: Gio.AsyncResult): boolean
     newFinish(res: Gio.AsyncResult): GObject.Object
-    /* Methods of Gio.DBusInterface */
+    /* Methods of Gio-2.0.Gio.DBusInterface */
     getObject(): Gio.DBusObject | null
     getInfo(): Gio.DBusInterfaceInfo
     setObject(object?: Gio.DBusObject | null): void
-    /* Methods of Gio.Initable */
+    /* Methods of Gio-2.0.Gio.Initable */
     init(cancellable?: Gio.Cancellable | null): boolean
-    /* Methods of ModemManager.GdbusModemSignal */
+    /* Methods of ModemManager-1.0.ModemManager.GdbusModemSignal */
     callSetup(argRate: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     callSetupFinish(res: Gio.AsyncResult): boolean
     callSetupSync(argRate: number, cancellable?: Gio.Cancellable | null): boolean
     completeSetup(invocation: Gio.DBusMethodInvocation): void
-    /* Virtual methods of ModemManager.GdbusModemSignalProxy */
-    vfuncInitAsync(ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    vfuncInitFinish(res: Gio.AsyncResult): boolean
-    vfuncDupObject(): Gio.DBusObject | null
-    vfuncGetInfo(): Gio.DBusInterfaceInfo
-    vfuncSetObject(object?: Gio.DBusObject | null): void
-    vfuncInit(cancellable?: Gio.Cancellable | null): boolean
-    vfuncHandleSetup(invocation: Gio.DBusMethodInvocation, argRate: number): boolean
-    /* Virtual methods of Gio.DBusProxy */
-    vfuncGPropertiesChanged(changedProperties: GLib.Variant, invalidatedProperties: string): void
-    vfuncGSignal(senderName: string, signalName: string, parameters: GLib.Variant): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gio.DBusProxy */
+    /* Signals of Gio-2.0.Gio.DBusProxy */
     connect(sigName: "g-properties-changed", callback: (($obj: GdbusModemSignalProxy, changedProperties: GLib.Variant, invalidatedProperties: string[]) => void)): number
-    connect_after(sigName: "g-properties-changed", callback: (($obj: GdbusModemSignalProxy, changedProperties: GLib.Variant, invalidatedProperties: string[]) => void)): number
+    on(sigName: "g-properties-changed", callback: (changedProperties: GLib.Variant, invalidatedProperties: string[]) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "g-properties-changed", callback: (changedProperties: GLib.Variant, invalidatedProperties: string[]) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "g-properties-changed", callback: (changedProperties: GLib.Variant, invalidatedProperties: string[]) => void): NodeJS.EventEmitter
     emit(sigName: "g-properties-changed", changedProperties: GLib.Variant, invalidatedProperties: string[]): void
-    on(sigName: "g-properties-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "g-properties-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "g-properties-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "g-signal", callback: (($obj: GdbusModemSignalProxy, senderName: string | null, signalName: string, parameters: GLib.Variant) => void)): number
-    connect_after(sigName: "g-signal", callback: (($obj: GdbusModemSignalProxy, senderName: string | null, signalName: string, parameters: GLib.Variant) => void)): number
+    on(sigName: "g-signal", callback: (senderName: string | null, signalName: string, parameters: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "g-signal", callback: (senderName: string | null, signalName: string, parameters: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "g-signal", callback: (senderName: string | null, signalName: string, parameters: GLib.Variant) => void): NodeJS.EventEmitter
     emit(sigName: "g-signal", senderName: string | null, signalName: string, parameters: GLib.Variant): void
-    on(sigName: "g-signal", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "g-signal", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "g-signal", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: GdbusModemSignalProxy, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: GdbusModemSignalProxy, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of ModemManager.GdbusModemSignal */
+    /* Signals of ModemManager-1.0.ModemManager.GdbusModemSignal */
     connect(sigName: "handle-setup", callback: (($obj: GdbusModemSignalProxy, invocation: Gio.DBusMethodInvocation, argRate: number) => boolean)): number
-    connect_after(sigName: "handle-setup", callback: (($obj: GdbusModemSignalProxy, invocation: Gio.DBusMethodInvocation, argRate: number) => boolean)): number
+    on(sigName: "handle-setup", callback: (invocation: Gio.DBusMethodInvocation, argRate: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-setup", callback: (invocation: Gio.DBusMethodInvocation, argRate: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-setup", callback: (invocation: Gio.DBusMethodInvocation, argRate: number) => void): NodeJS.EventEmitter
     emit(sigName: "handle-setup", invocation: Gio.DBusMethodInvocation, argRate: number): void
-    on(sigName: "handle-setup", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-setup", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-setup", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::g-default-timeout", callback: (($obj: GdbusModemSignalProxy, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::g-default-timeout", callback: (($obj: GdbusModemSignalProxy, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::g-default-timeout", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -6982,9 +6196,9 @@ export interface GdbusModemSignalSkeleton_ConstructProps extends Gio.DBusInterfa
     umts?: GLib.Variant
 }
 export class GdbusModemSignalSkeleton {
-    /* Properties of Gio.DBusInterfaceSkeleton */
+    /* Properties of Gio-2.0.Gio.DBusInterfaceSkeleton */
     gFlags: Gio.DBusInterfaceSkeletonFlags
-    /* Properties of ModemManager.GdbusModemSignal */
+    /* Properties of ModemManager-1.0.ModemManager.GdbusModemSignal */
     cdma: GLib.Variant
     evdo: GLib.Variant
     gsm: GLib.Variant
@@ -6992,9 +6206,9 @@ export class GdbusModemSignalSkeleton {
     nr5g: GLib.Variant
     rate: number
     umts: GLib.Variant
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Gio.DBusInterfaceSkeleton */
+    /* Methods of Gio-2.0.Gio.DBusInterfaceSkeleton */
     export(connection: Gio.DBusConnection, objectPath: string): boolean
     flush(): void
     getConnection(): Gio.DBusConnection | null
@@ -7007,7 +6221,7 @@ export class GdbusModemSignalSkeleton {
     setFlags(flags: Gio.DBusInterfaceSkeletonFlags): void
     unexport(): void
     unexportFromConnection(connection: Gio.DBusConnection): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -7029,53 +6243,32 @@ export class GdbusModemSignalSkeleton {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of Gio.DBusInterface */
+    /* Methods of Gio-2.0.Gio.DBusInterface */
     getObject(): Gio.DBusObject | null
     setObject(object?: Gio.DBusObject | null): void
-    /* Methods of ModemManager.GdbusModemSignal */
+    /* Methods of ModemManager-1.0.ModemManager.GdbusModemSignal */
     callSetup(argRate: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     callSetupFinish(res: Gio.AsyncResult): boolean
     callSetupSync(argRate: number, cancellable?: Gio.Cancellable | null): boolean
     completeSetup(invocation: Gio.DBusMethodInvocation): void
-    /* Virtual methods of ModemManager.GdbusModemSignalSkeleton */
-    vfuncDupObject(): Gio.DBusObject | null
-    vfuncGetInfo(): Gio.DBusInterfaceInfo
-    vfuncSetObject(object?: Gio.DBusObject | null): void
-    vfuncHandleSetup(invocation: Gio.DBusMethodInvocation, argRate: number): boolean
-    /* Virtual methods of Gio.DBusInterfaceSkeleton */
-    vfuncFlush(): void
-    vfuncGAuthorizeMethod(invocation: Gio.DBusMethodInvocation): boolean
-    vfuncGetInfo(): Gio.DBusInterfaceInfo
-    vfuncGetProperties(): GLib.Variant
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gio.DBusInterfaceSkeleton */
+    /* Signals of Gio-2.0.Gio.DBusInterfaceSkeleton */
     connect(sigName: "g-authorize-method", callback: (($obj: GdbusModemSignalSkeleton, invocation: Gio.DBusMethodInvocation) => boolean)): number
-    connect_after(sigName: "g-authorize-method", callback: (($obj: GdbusModemSignalSkeleton, invocation: Gio.DBusMethodInvocation) => boolean)): number
+    on(sigName: "g-authorize-method", callback: (invocation: Gio.DBusMethodInvocation) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "g-authorize-method", callback: (invocation: Gio.DBusMethodInvocation) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "g-authorize-method", callback: (invocation: Gio.DBusMethodInvocation) => void): NodeJS.EventEmitter
     emit(sigName: "g-authorize-method", invocation: Gio.DBusMethodInvocation): void
-    on(sigName: "g-authorize-method", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "g-authorize-method", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "g-authorize-method", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: GdbusModemSignalSkeleton, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: GdbusModemSignalSkeleton, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of ModemManager.GdbusModemSignal */
+    /* Signals of ModemManager-1.0.ModemManager.GdbusModemSignal */
     connect(sigName: "handle-setup", callback: (($obj: GdbusModemSignalSkeleton, invocation: Gio.DBusMethodInvocation, argRate: number) => boolean)): number
-    connect_after(sigName: "handle-setup", callback: (($obj: GdbusModemSignalSkeleton, invocation: Gio.DBusMethodInvocation, argRate: number) => boolean)): number
+    on(sigName: "handle-setup", callback: (invocation: Gio.DBusMethodInvocation, argRate: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-setup", callback: (invocation: Gio.DBusMethodInvocation, argRate: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-setup", callback: (invocation: Gio.DBusMethodInvocation, argRate: number) => void): NodeJS.EventEmitter
     emit(sigName: "handle-setup", invocation: Gio.DBusMethodInvocation, argRate: number): void
-    on(sigName: "handle-setup", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-setup", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-setup", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::g-flags", callback: (($obj: GdbusModemSignalSkeleton, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::g-flags", callback: (($obj: GdbusModemSignalSkeleton, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::g-flags", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -7135,19 +6328,19 @@ export class GdbusModemSignalSkeleton {
 export interface GdbusModemSimpleProxy_ConstructProps extends Gio.DBusProxy_ConstructProps {
 }
 export class GdbusModemSimpleProxy {
-    /* Properties of Gio.DBusProxy */
+    /* Properties of Gio-2.0.Gio.DBusProxy */
     gDefaultTimeout: number
     gInterfaceInfo: Gio.DBusInterfaceInfo
     readonly gNameOwner: string
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Gio.DBusProxy */
+    /* Methods of Gio-2.0.Gio.DBusProxy */
     call(methodName: string, parameters: GLib.Variant | null, flags: Gio.DBusCallFlags, timeoutMsec: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     callFinish(res: Gio.AsyncResult): GLib.Variant
     callSync(methodName: string, parameters: GLib.Variant | null, flags: Gio.DBusCallFlags, timeoutMsec: number, cancellable?: Gio.Cancellable | null): GLib.Variant
     callWithUnixFdList(methodName: string, parameters: GLib.Variant | null, flags: Gio.DBusCallFlags, timeoutMsec: number, fdList?: Gio.UnixFDList | null, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    callWithUnixFdListFinish(res: Gio.AsyncResult): [ /* returnType */ GLib.Variant, /* outFdList */ Gio.UnixFDList | null ]
-    callWithUnixFdListSync(methodName: string, parameters: GLib.Variant | null, flags: Gio.DBusCallFlags, timeoutMsec: number, fdList?: Gio.UnixFDList | null, cancellable?: Gio.Cancellable | null): [ /* returnType */ GLib.Variant, /* outFdList */ Gio.UnixFDList | null ]
+    callWithUnixFdListFinish(res: Gio.AsyncResult): { returnType: GLib.Variant, outFdList: Gio.UnixFDList | null }
+    callWithUnixFdListSync(methodName: string, parameters: GLib.Variant | null, flags: Gio.DBusCallFlags, timeoutMsec: number, fdList?: Gio.UnixFDList | null, cancellable?: Gio.Cancellable | null): { returnType: GLib.Variant, outFdList: Gio.UnixFDList | null }
     getCachedProperty(propertyName: string): GLib.Variant | null
     getCachedPropertyNames(): string[] | null
     getConnection(): Gio.DBusConnection
@@ -7161,7 +6354,7 @@ export class GdbusModemSimpleProxy {
     setCachedProperty(propertyName: string, value?: GLib.Variant | null): void
     setDefaultTimeout(timeoutMsec: number): void
     setInterfaceInfo(info?: Gio.DBusInterfaceInfo | null): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -7183,89 +6376,62 @@ export class GdbusModemSimpleProxy {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of Gio.AsyncInitable */
+    /* Methods of Gio-2.0.Gio.AsyncInitable */
     initAsync(ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     initFinish(res: Gio.AsyncResult): boolean
     newFinish(res: Gio.AsyncResult): GObject.Object
-    /* Methods of Gio.DBusInterface */
+    /* Methods of Gio-2.0.Gio.DBusInterface */
     getObject(): Gio.DBusObject | null
     getInfo(): Gio.DBusInterfaceInfo
     setObject(object?: Gio.DBusObject | null): void
-    /* Methods of Gio.Initable */
+    /* Methods of Gio-2.0.Gio.Initable */
     init(cancellable?: Gio.Cancellable | null): boolean
-    /* Methods of ModemManager.GdbusModemSimple */
+    /* Methods of ModemManager-1.0.ModemManager.GdbusModemSimple */
     callConnect(argProperties: GLib.Variant, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    callConnectFinish(res: Gio.AsyncResult): [ /* returnType */ boolean, /* outBearer */ string | null ]
-    callConnectSync(argProperties: GLib.Variant, cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* outBearer */ string | null ]
+    callConnectFinish(res: Gio.AsyncResult): { returnType: boolean, outBearer: string | null }
+    callConnectSync(argProperties: GLib.Variant, cancellable?: Gio.Cancellable | null): { returnType: boolean, outBearer: string | null }
     callDisconnect(argBearer: string, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     callDisconnectFinish(res: Gio.AsyncResult): boolean
     callDisconnectSync(argBearer: string, cancellable?: Gio.Cancellable | null): boolean
     callGetStatus(cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    callGetStatusFinish(res: Gio.AsyncResult): [ /* returnType */ boolean, /* outProperties */ GLib.Variant | null ]
-    callGetStatusSync(cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* outProperties */ GLib.Variant | null ]
+    callGetStatusFinish(res: Gio.AsyncResult): { returnType: boolean, outProperties: GLib.Variant | null }
+    callGetStatusSync(cancellable?: Gio.Cancellable | null): { returnType: boolean, outProperties: GLib.Variant | null }
     completeConnect(invocation: Gio.DBusMethodInvocation, bearer: string): void
     completeDisconnect(invocation: Gio.DBusMethodInvocation): void
     completeGetStatus(invocation: Gio.DBusMethodInvocation, properties: GLib.Variant): void
-    /* Virtual methods of ModemManager.GdbusModemSimpleProxy */
-    vfuncInitAsync(ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    vfuncInitFinish(res: Gio.AsyncResult): boolean
-    vfuncDupObject(): Gio.DBusObject | null
-    vfuncGetInfo(): Gio.DBusInterfaceInfo
-    vfuncSetObject(object?: Gio.DBusObject | null): void
-    vfuncInit(cancellable?: Gio.Cancellable | null): boolean
-    vfuncHandleConnect(invocation: Gio.DBusMethodInvocation, argProperties: GLib.Variant): boolean
-    vfuncHandleDisconnect(invocation: Gio.DBusMethodInvocation, argBearer: string): boolean
-    vfuncHandleGetStatus(invocation: Gio.DBusMethodInvocation): boolean
-    /* Virtual methods of Gio.DBusProxy */
-    vfuncGPropertiesChanged(changedProperties: GLib.Variant, invalidatedProperties: string): void
-    vfuncGSignal(senderName: string, signalName: string, parameters: GLib.Variant): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gio.DBusProxy */
+    /* Signals of Gio-2.0.Gio.DBusProxy */
     connect(sigName: "g-properties-changed", callback: (($obj: GdbusModemSimpleProxy, changedProperties: GLib.Variant, invalidatedProperties: string[]) => void)): number
-    connect_after(sigName: "g-properties-changed", callback: (($obj: GdbusModemSimpleProxy, changedProperties: GLib.Variant, invalidatedProperties: string[]) => void)): number
+    on(sigName: "g-properties-changed", callback: (changedProperties: GLib.Variant, invalidatedProperties: string[]) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "g-properties-changed", callback: (changedProperties: GLib.Variant, invalidatedProperties: string[]) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "g-properties-changed", callback: (changedProperties: GLib.Variant, invalidatedProperties: string[]) => void): NodeJS.EventEmitter
     emit(sigName: "g-properties-changed", changedProperties: GLib.Variant, invalidatedProperties: string[]): void
-    on(sigName: "g-properties-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "g-properties-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "g-properties-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "g-signal", callback: (($obj: GdbusModemSimpleProxy, senderName: string | null, signalName: string, parameters: GLib.Variant) => void)): number
-    connect_after(sigName: "g-signal", callback: (($obj: GdbusModemSimpleProxy, senderName: string | null, signalName: string, parameters: GLib.Variant) => void)): number
+    on(sigName: "g-signal", callback: (senderName: string | null, signalName: string, parameters: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "g-signal", callback: (senderName: string | null, signalName: string, parameters: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "g-signal", callback: (senderName: string | null, signalName: string, parameters: GLib.Variant) => void): NodeJS.EventEmitter
     emit(sigName: "g-signal", senderName: string | null, signalName: string, parameters: GLib.Variant): void
-    on(sigName: "g-signal", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "g-signal", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "g-signal", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: GdbusModemSimpleProxy, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: GdbusModemSimpleProxy, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of ModemManager.GdbusModemSimple */
+    /* Signals of ModemManager-1.0.ModemManager.GdbusModemSimple */
     connect(sigName: "handle-connect", callback: (($obj: GdbusModemSimpleProxy, invocation: Gio.DBusMethodInvocation, argProperties: GLib.Variant) => boolean)): number
-    connect_after(sigName: "handle-connect", callback: (($obj: GdbusModemSimpleProxy, invocation: Gio.DBusMethodInvocation, argProperties: GLib.Variant) => boolean)): number
+    on(sigName: "handle-connect", callback: (invocation: Gio.DBusMethodInvocation, argProperties: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-connect", callback: (invocation: Gio.DBusMethodInvocation, argProperties: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-connect", callback: (invocation: Gio.DBusMethodInvocation, argProperties: GLib.Variant) => void): NodeJS.EventEmitter
     emit(sigName: "handle-connect", invocation: Gio.DBusMethodInvocation, argProperties: GLib.Variant): void
-    on(sigName: "handle-connect", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-connect", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-connect", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "handle-disconnect", callback: (($obj: GdbusModemSimpleProxy, invocation: Gio.DBusMethodInvocation, argBearer: string) => boolean)): number
-    connect_after(sigName: "handle-disconnect", callback: (($obj: GdbusModemSimpleProxy, invocation: Gio.DBusMethodInvocation, argBearer: string) => boolean)): number
+    on(sigName: "handle-disconnect", callback: (invocation: Gio.DBusMethodInvocation, argBearer: string) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-disconnect", callback: (invocation: Gio.DBusMethodInvocation, argBearer: string) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-disconnect", callback: (invocation: Gio.DBusMethodInvocation, argBearer: string) => void): NodeJS.EventEmitter
     emit(sigName: "handle-disconnect", invocation: Gio.DBusMethodInvocation, argBearer: string): void
-    on(sigName: "handle-disconnect", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-disconnect", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-disconnect", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "handle-get-status", callback: (($obj: GdbusModemSimpleProxy, invocation: Gio.DBusMethodInvocation) => boolean)): number
-    connect_after(sigName: "handle-get-status", callback: (($obj: GdbusModemSimpleProxy, invocation: Gio.DBusMethodInvocation) => boolean)): number
+    on(sigName: "handle-get-status", callback: (invocation: Gio.DBusMethodInvocation) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-get-status", callback: (invocation: Gio.DBusMethodInvocation) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-get-status", callback: (invocation: Gio.DBusMethodInvocation) => void): NodeJS.EventEmitter
     emit(sigName: "handle-get-status", invocation: Gio.DBusMethodInvocation): void
-    on(sigName: "handle-get-status", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-get-status", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-get-status", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::g-default-timeout", callback: (($obj: GdbusModemSimpleProxy, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::g-default-timeout", callback: (($obj: GdbusModemSimpleProxy, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::g-default-timeout", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -7309,11 +6475,11 @@ export class GdbusModemSimpleProxy {
 export interface GdbusModemSimpleSkeleton_ConstructProps extends Gio.DBusInterfaceSkeleton_ConstructProps {
 }
 export class GdbusModemSimpleSkeleton {
-    /* Properties of Gio.DBusInterfaceSkeleton */
+    /* Properties of Gio-2.0.Gio.DBusInterfaceSkeleton */
     gFlags: Gio.DBusInterfaceSkeletonFlags
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Gio.DBusInterfaceSkeleton */
+    /* Methods of Gio-2.0.Gio.DBusInterfaceSkeleton */
     export(connection: Gio.DBusConnection, objectPath: string): boolean
     flush(): void
     getConnection(): Gio.DBusConnection | null
@@ -7326,7 +6492,7 @@ export class GdbusModemSimpleSkeleton {
     setFlags(flags: Gio.DBusInterfaceSkeletonFlags): void
     unexport(): void
     unexportFromConnection(connection: Gio.DBusConnection): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -7348,75 +6514,50 @@ export class GdbusModemSimpleSkeleton {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of Gio.DBusInterface */
+    /* Methods of Gio-2.0.Gio.DBusInterface */
     getObject(): Gio.DBusObject | null
     setObject(object?: Gio.DBusObject | null): void
-    /* Methods of ModemManager.GdbusModemSimple */
+    /* Methods of ModemManager-1.0.ModemManager.GdbusModemSimple */
     callConnect(argProperties: GLib.Variant, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    callConnectFinish(res: Gio.AsyncResult): [ /* returnType */ boolean, /* outBearer */ string | null ]
-    callConnectSync(argProperties: GLib.Variant, cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* outBearer */ string | null ]
+    callConnectFinish(res: Gio.AsyncResult): { returnType: boolean, outBearer: string | null }
+    callConnectSync(argProperties: GLib.Variant, cancellable?: Gio.Cancellable | null): { returnType: boolean, outBearer: string | null }
     callDisconnect(argBearer: string, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     callDisconnectFinish(res: Gio.AsyncResult): boolean
     callDisconnectSync(argBearer: string, cancellable?: Gio.Cancellable | null): boolean
     callGetStatus(cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    callGetStatusFinish(res: Gio.AsyncResult): [ /* returnType */ boolean, /* outProperties */ GLib.Variant | null ]
-    callGetStatusSync(cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* outProperties */ GLib.Variant | null ]
+    callGetStatusFinish(res: Gio.AsyncResult): { returnType: boolean, outProperties: GLib.Variant | null }
+    callGetStatusSync(cancellable?: Gio.Cancellable | null): { returnType: boolean, outProperties: GLib.Variant | null }
     completeConnect(invocation: Gio.DBusMethodInvocation, bearer: string): void
     completeDisconnect(invocation: Gio.DBusMethodInvocation): void
     completeGetStatus(invocation: Gio.DBusMethodInvocation, properties: GLib.Variant): void
-    /* Virtual methods of ModemManager.GdbusModemSimpleSkeleton */
-    vfuncDupObject(): Gio.DBusObject | null
-    vfuncGetInfo(): Gio.DBusInterfaceInfo
-    vfuncSetObject(object?: Gio.DBusObject | null): void
-    vfuncHandleConnect(invocation: Gio.DBusMethodInvocation, argProperties: GLib.Variant): boolean
-    vfuncHandleDisconnect(invocation: Gio.DBusMethodInvocation, argBearer: string): boolean
-    vfuncHandleGetStatus(invocation: Gio.DBusMethodInvocation): boolean
-    /* Virtual methods of Gio.DBusInterfaceSkeleton */
-    vfuncFlush(): void
-    vfuncGAuthorizeMethod(invocation: Gio.DBusMethodInvocation): boolean
-    vfuncGetInfo(): Gio.DBusInterfaceInfo
-    vfuncGetProperties(): GLib.Variant
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gio.DBusInterfaceSkeleton */
+    /* Signals of Gio-2.0.Gio.DBusInterfaceSkeleton */
     connect(sigName: "g-authorize-method", callback: (($obj: GdbusModemSimpleSkeleton, invocation: Gio.DBusMethodInvocation) => boolean)): number
-    connect_after(sigName: "g-authorize-method", callback: (($obj: GdbusModemSimpleSkeleton, invocation: Gio.DBusMethodInvocation) => boolean)): number
+    on(sigName: "g-authorize-method", callback: (invocation: Gio.DBusMethodInvocation) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "g-authorize-method", callback: (invocation: Gio.DBusMethodInvocation) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "g-authorize-method", callback: (invocation: Gio.DBusMethodInvocation) => void): NodeJS.EventEmitter
     emit(sigName: "g-authorize-method", invocation: Gio.DBusMethodInvocation): void
-    on(sigName: "g-authorize-method", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "g-authorize-method", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "g-authorize-method", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: GdbusModemSimpleSkeleton, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: GdbusModemSimpleSkeleton, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of ModemManager.GdbusModemSimple */
+    /* Signals of ModemManager-1.0.ModemManager.GdbusModemSimple */
     connect(sigName: "handle-connect", callback: (($obj: GdbusModemSimpleSkeleton, invocation: Gio.DBusMethodInvocation, argProperties: GLib.Variant) => boolean)): number
-    connect_after(sigName: "handle-connect", callback: (($obj: GdbusModemSimpleSkeleton, invocation: Gio.DBusMethodInvocation, argProperties: GLib.Variant) => boolean)): number
+    on(sigName: "handle-connect", callback: (invocation: Gio.DBusMethodInvocation, argProperties: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-connect", callback: (invocation: Gio.DBusMethodInvocation, argProperties: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-connect", callback: (invocation: Gio.DBusMethodInvocation, argProperties: GLib.Variant) => void): NodeJS.EventEmitter
     emit(sigName: "handle-connect", invocation: Gio.DBusMethodInvocation, argProperties: GLib.Variant): void
-    on(sigName: "handle-connect", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-connect", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-connect", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "handle-disconnect", callback: (($obj: GdbusModemSimpleSkeleton, invocation: Gio.DBusMethodInvocation, argBearer: string) => boolean)): number
-    connect_after(sigName: "handle-disconnect", callback: (($obj: GdbusModemSimpleSkeleton, invocation: Gio.DBusMethodInvocation, argBearer: string) => boolean)): number
+    on(sigName: "handle-disconnect", callback: (invocation: Gio.DBusMethodInvocation, argBearer: string) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-disconnect", callback: (invocation: Gio.DBusMethodInvocation, argBearer: string) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-disconnect", callback: (invocation: Gio.DBusMethodInvocation, argBearer: string) => void): NodeJS.EventEmitter
     emit(sigName: "handle-disconnect", invocation: Gio.DBusMethodInvocation, argBearer: string): void
-    on(sigName: "handle-disconnect", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-disconnect", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-disconnect", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "handle-get-status", callback: (($obj: GdbusModemSimpleSkeleton, invocation: Gio.DBusMethodInvocation) => boolean)): number
-    connect_after(sigName: "handle-get-status", callback: (($obj: GdbusModemSimpleSkeleton, invocation: Gio.DBusMethodInvocation) => boolean)): number
+    on(sigName: "handle-get-status", callback: (invocation: Gio.DBusMethodInvocation) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-get-status", callback: (invocation: Gio.DBusMethodInvocation) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-get-status", callback: (invocation: Gio.DBusMethodInvocation) => void): NodeJS.EventEmitter
     emit(sigName: "handle-get-status", invocation: Gio.DBusMethodInvocation): void
-    on(sigName: "handle-get-status", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-get-status", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-get-status", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::g-flags", callback: (($obj: GdbusModemSimpleSkeleton, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::g-flags", callback: (($obj: GdbusModemSimpleSkeleton, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::g-flags", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -7475,9 +6616,9 @@ export interface GdbusModemSkeleton_ConstructProps extends Gio.DBusInterfaceSkel
     unlockRetries?: GLib.Variant
 }
 export class GdbusModemSkeleton {
-    /* Properties of Gio.DBusInterfaceSkeleton */
+    /* Properties of Gio-2.0.Gio.DBusInterfaceSkeleton */
     gFlags: Gio.DBusInterfaceSkeletonFlags
-    /* Properties of ModemManager.GdbusModem */
+    /* Properties of ModemManager-1.0.ModemManager.GdbusModem */
     accessTechnologies: number
     bearers: string[]
     carrierConfiguration: string
@@ -7512,9 +6653,9 @@ export class GdbusModemSkeleton {
     supportedModes: GLib.Variant
     unlockRequired: number
     unlockRetries: GLib.Variant
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Gio.DBusInterfaceSkeleton */
+    /* Methods of Gio-2.0.Gio.DBusInterfaceSkeleton */
     export(connection: Gio.DBusConnection, objectPath: string): boolean
     flush(): void
     getConnection(): Gio.DBusConnection | null
@@ -7527,7 +6668,7 @@ export class GdbusModemSkeleton {
     setFlags(flags: Gio.DBusInterfaceSkeletonFlags): void
     unexport(): void
     unexportFromConnection(connection: Gio.DBusConnection): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -7549,16 +6690,16 @@ export class GdbusModemSkeleton {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of Gio.DBusInterface */
+    /* Methods of Gio-2.0.Gio.DBusInterface */
     getObject(): Gio.DBusObject | null
     setObject(object?: Gio.DBusObject | null): void
-    /* Methods of ModemManager.GdbusModem */
+    /* Methods of ModemManager-1.0.ModemManager.GdbusModem */
     callCommand(argCmd: string, argTimeout: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    callCommandFinish(res: Gio.AsyncResult): [ /* returnType */ boolean, /* outResponse */ string | null ]
-    callCommandSync(argCmd: string, argTimeout: number, cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* outResponse */ string | null ]
+    callCommandFinish(res: Gio.AsyncResult): { returnType: boolean, outResponse: string | null }
+    callCommandSync(argCmd: string, argTimeout: number, cancellable?: Gio.Cancellable | null): { returnType: boolean, outResponse: string | null }
     callCreateBearer(argProperties: GLib.Variant, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    callCreateBearerFinish(res: Gio.AsyncResult): [ /* returnType */ boolean, /* outPath */ string | null ]
-    callCreateBearerSync(argProperties: GLib.Variant, cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* outPath */ string | null ]
+    callCreateBearerFinish(res: Gio.AsyncResult): { returnType: boolean, outPath: string | null }
+    callCreateBearerSync(argProperties: GLib.Variant, cancellable?: Gio.Cancellable | null): { returnType: boolean, outPath: string | null }
     callDeleteBearer(argBearer: string, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     callDeleteBearerFinish(res: Gio.AsyncResult): boolean
     callDeleteBearerSync(argBearer: string, cancellable?: Gio.Cancellable | null): boolean
@@ -7569,8 +6710,8 @@ export class GdbusModemSkeleton {
     callFactoryResetFinish(res: Gio.AsyncResult): boolean
     callFactoryResetSync(argCode: string, cancellable?: Gio.Cancellable | null): boolean
     callListBearers(cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    callListBearersFinish(res: Gio.AsyncResult): [ /* returnType */ boolean, /* outBearers */ string[] | null ]
-    callListBearersSync(cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* outBearers */ string[] | null ]
+    callListBearersFinish(res: Gio.AsyncResult): { returnType: boolean, outBearers: string[] | null }
+    callListBearersSync(cancellable?: Gio.Cancellable | null): { returnType: boolean, outBearers: string[] | null }
     callReset(cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     callResetFinish(res: Gio.AsyncResult): boolean
     callResetSync(cancellable?: Gio.Cancellable | null): boolean
@@ -7602,129 +6743,84 @@ export class GdbusModemSkeleton {
     completeSetPowerState(invocation: Gio.DBusMethodInvocation): void
     completeSetPrimarySimSlot(invocation: Gio.DBusMethodInvocation): void
     emitStateChanged(argOld: number, argNew: number, argReason: number): void
-    /* Virtual methods of ModemManager.GdbusModemSkeleton */
-    vfuncDupObject(): Gio.DBusObject | null
-    vfuncGetInfo(): Gio.DBusInterfaceInfo
-    vfuncSetObject(object?: Gio.DBusObject | null): void
-    vfuncHandleCommand(invocation: Gio.DBusMethodInvocation, argCmd: string, argTimeout: number): boolean
-    vfuncHandleCreateBearer(invocation: Gio.DBusMethodInvocation, argProperties: GLib.Variant): boolean
-    vfuncHandleDeleteBearer(invocation: Gio.DBusMethodInvocation, argBearer: string): boolean
-    vfuncHandleEnable(invocation: Gio.DBusMethodInvocation, argEnable: boolean): boolean
-    vfuncHandleFactoryReset(invocation: Gio.DBusMethodInvocation, argCode: string): boolean
-    vfuncHandleListBearers(invocation: Gio.DBusMethodInvocation): boolean
-    vfuncHandleReset(invocation: Gio.DBusMethodInvocation): boolean
-    vfuncHandleSetCurrentBands(invocation: Gio.DBusMethodInvocation, argBands: GLib.Variant): boolean
-    vfuncHandleSetCurrentCapabilities(invocation: Gio.DBusMethodInvocation, argCapabilities: number): boolean
-    vfuncHandleSetCurrentModes(invocation: Gio.DBusMethodInvocation, argModes: GLib.Variant): boolean
-    vfuncHandleSetPowerState(invocation: Gio.DBusMethodInvocation, argState: number): boolean
-    vfuncHandleSetPrimarySimSlot(invocation: Gio.DBusMethodInvocation, argSimSlot: number): boolean
-    vfuncStateChanged(argOld: number, argNew: number, argReason: number): void
-    /* Virtual methods of Gio.DBusInterfaceSkeleton */
-    vfuncFlush(): void
-    vfuncGAuthorizeMethod(invocation: Gio.DBusMethodInvocation): boolean
-    vfuncGetInfo(): Gio.DBusInterfaceInfo
-    vfuncGetProperties(): GLib.Variant
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gio.DBusInterfaceSkeleton */
+    /* Signals of Gio-2.0.Gio.DBusInterfaceSkeleton */
     connect(sigName: "g-authorize-method", callback: (($obj: GdbusModemSkeleton, invocation: Gio.DBusMethodInvocation) => boolean)): number
-    connect_after(sigName: "g-authorize-method", callback: (($obj: GdbusModemSkeleton, invocation: Gio.DBusMethodInvocation) => boolean)): number
+    on(sigName: "g-authorize-method", callback: (invocation: Gio.DBusMethodInvocation) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "g-authorize-method", callback: (invocation: Gio.DBusMethodInvocation) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "g-authorize-method", callback: (invocation: Gio.DBusMethodInvocation) => void): NodeJS.EventEmitter
     emit(sigName: "g-authorize-method", invocation: Gio.DBusMethodInvocation): void
-    on(sigName: "g-authorize-method", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "g-authorize-method", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "g-authorize-method", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: GdbusModemSkeleton, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: GdbusModemSkeleton, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of ModemManager.GdbusModem */
+    /* Signals of ModemManager-1.0.ModemManager.GdbusModem */
     connect(sigName: "handle-command", callback: (($obj: GdbusModemSkeleton, invocation: Gio.DBusMethodInvocation, argCmd: string, argTimeout: number) => boolean)): number
-    connect_after(sigName: "handle-command", callback: (($obj: GdbusModemSkeleton, invocation: Gio.DBusMethodInvocation, argCmd: string, argTimeout: number) => boolean)): number
+    on(sigName: "handle-command", callback: (invocation: Gio.DBusMethodInvocation, argCmd: string, argTimeout: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-command", callback: (invocation: Gio.DBusMethodInvocation, argCmd: string, argTimeout: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-command", callback: (invocation: Gio.DBusMethodInvocation, argCmd: string, argTimeout: number) => void): NodeJS.EventEmitter
     emit(sigName: "handle-command", invocation: Gio.DBusMethodInvocation, argCmd: string, argTimeout: number): void
-    on(sigName: "handle-command", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-command", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-command", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "handle-create-bearer", callback: (($obj: GdbusModemSkeleton, invocation: Gio.DBusMethodInvocation, argProperties: GLib.Variant) => boolean)): number
-    connect_after(sigName: "handle-create-bearer", callback: (($obj: GdbusModemSkeleton, invocation: Gio.DBusMethodInvocation, argProperties: GLib.Variant) => boolean)): number
+    on(sigName: "handle-create-bearer", callback: (invocation: Gio.DBusMethodInvocation, argProperties: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-create-bearer", callback: (invocation: Gio.DBusMethodInvocation, argProperties: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-create-bearer", callback: (invocation: Gio.DBusMethodInvocation, argProperties: GLib.Variant) => void): NodeJS.EventEmitter
     emit(sigName: "handle-create-bearer", invocation: Gio.DBusMethodInvocation, argProperties: GLib.Variant): void
-    on(sigName: "handle-create-bearer", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-create-bearer", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-create-bearer", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "handle-delete-bearer", callback: (($obj: GdbusModemSkeleton, invocation: Gio.DBusMethodInvocation, argBearer: string) => boolean)): number
-    connect_after(sigName: "handle-delete-bearer", callback: (($obj: GdbusModemSkeleton, invocation: Gio.DBusMethodInvocation, argBearer: string) => boolean)): number
+    on(sigName: "handle-delete-bearer", callback: (invocation: Gio.DBusMethodInvocation, argBearer: string) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-delete-bearer", callback: (invocation: Gio.DBusMethodInvocation, argBearer: string) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-delete-bearer", callback: (invocation: Gio.DBusMethodInvocation, argBearer: string) => void): NodeJS.EventEmitter
     emit(sigName: "handle-delete-bearer", invocation: Gio.DBusMethodInvocation, argBearer: string): void
-    on(sigName: "handle-delete-bearer", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-delete-bearer", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-delete-bearer", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "handle-enable", callback: (($obj: GdbusModemSkeleton, invocation: Gio.DBusMethodInvocation, argEnable: boolean) => boolean)): number
-    connect_after(sigName: "handle-enable", callback: (($obj: GdbusModemSkeleton, invocation: Gio.DBusMethodInvocation, argEnable: boolean) => boolean)): number
+    on(sigName: "handle-enable", callback: (invocation: Gio.DBusMethodInvocation, argEnable: boolean) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-enable", callback: (invocation: Gio.DBusMethodInvocation, argEnable: boolean) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-enable", callback: (invocation: Gio.DBusMethodInvocation, argEnable: boolean) => void): NodeJS.EventEmitter
     emit(sigName: "handle-enable", invocation: Gio.DBusMethodInvocation, argEnable: boolean): void
-    on(sigName: "handle-enable", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-enable", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-enable", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "handle-factory-reset", callback: (($obj: GdbusModemSkeleton, invocation: Gio.DBusMethodInvocation, argCode: string) => boolean)): number
-    connect_after(sigName: "handle-factory-reset", callback: (($obj: GdbusModemSkeleton, invocation: Gio.DBusMethodInvocation, argCode: string) => boolean)): number
+    on(sigName: "handle-factory-reset", callback: (invocation: Gio.DBusMethodInvocation, argCode: string) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-factory-reset", callback: (invocation: Gio.DBusMethodInvocation, argCode: string) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-factory-reset", callback: (invocation: Gio.DBusMethodInvocation, argCode: string) => void): NodeJS.EventEmitter
     emit(sigName: "handle-factory-reset", invocation: Gio.DBusMethodInvocation, argCode: string): void
-    on(sigName: "handle-factory-reset", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-factory-reset", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-factory-reset", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "handle-list-bearers", callback: (($obj: GdbusModemSkeleton, invocation: Gio.DBusMethodInvocation) => boolean)): number
-    connect_after(sigName: "handle-list-bearers", callback: (($obj: GdbusModemSkeleton, invocation: Gio.DBusMethodInvocation) => boolean)): number
+    on(sigName: "handle-list-bearers", callback: (invocation: Gio.DBusMethodInvocation) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-list-bearers", callback: (invocation: Gio.DBusMethodInvocation) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-list-bearers", callback: (invocation: Gio.DBusMethodInvocation) => void): NodeJS.EventEmitter
     emit(sigName: "handle-list-bearers", invocation: Gio.DBusMethodInvocation): void
-    on(sigName: "handle-list-bearers", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-list-bearers", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-list-bearers", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "handle-reset", callback: (($obj: GdbusModemSkeleton, invocation: Gio.DBusMethodInvocation) => boolean)): number
-    connect_after(sigName: "handle-reset", callback: (($obj: GdbusModemSkeleton, invocation: Gio.DBusMethodInvocation) => boolean)): number
+    on(sigName: "handle-reset", callback: (invocation: Gio.DBusMethodInvocation) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-reset", callback: (invocation: Gio.DBusMethodInvocation) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-reset", callback: (invocation: Gio.DBusMethodInvocation) => void): NodeJS.EventEmitter
     emit(sigName: "handle-reset", invocation: Gio.DBusMethodInvocation): void
-    on(sigName: "handle-reset", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-reset", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-reset", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "handle-set-current-bands", callback: (($obj: GdbusModemSkeleton, invocation: Gio.DBusMethodInvocation, argBands: GLib.Variant) => boolean)): number
-    connect_after(sigName: "handle-set-current-bands", callback: (($obj: GdbusModemSkeleton, invocation: Gio.DBusMethodInvocation, argBands: GLib.Variant) => boolean)): number
+    on(sigName: "handle-set-current-bands", callback: (invocation: Gio.DBusMethodInvocation, argBands: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-set-current-bands", callback: (invocation: Gio.DBusMethodInvocation, argBands: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-set-current-bands", callback: (invocation: Gio.DBusMethodInvocation, argBands: GLib.Variant) => void): NodeJS.EventEmitter
     emit(sigName: "handle-set-current-bands", invocation: Gio.DBusMethodInvocation, argBands: GLib.Variant): void
-    on(sigName: "handle-set-current-bands", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-set-current-bands", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-set-current-bands", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "handle-set-current-capabilities", callback: (($obj: GdbusModemSkeleton, invocation: Gio.DBusMethodInvocation, argCapabilities: number) => boolean)): number
-    connect_after(sigName: "handle-set-current-capabilities", callback: (($obj: GdbusModemSkeleton, invocation: Gio.DBusMethodInvocation, argCapabilities: number) => boolean)): number
+    on(sigName: "handle-set-current-capabilities", callback: (invocation: Gio.DBusMethodInvocation, argCapabilities: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-set-current-capabilities", callback: (invocation: Gio.DBusMethodInvocation, argCapabilities: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-set-current-capabilities", callback: (invocation: Gio.DBusMethodInvocation, argCapabilities: number) => void): NodeJS.EventEmitter
     emit(sigName: "handle-set-current-capabilities", invocation: Gio.DBusMethodInvocation, argCapabilities: number): void
-    on(sigName: "handle-set-current-capabilities", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-set-current-capabilities", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-set-current-capabilities", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "handle-set-current-modes", callback: (($obj: GdbusModemSkeleton, invocation: Gio.DBusMethodInvocation, argModes: GLib.Variant) => boolean)): number
-    connect_after(sigName: "handle-set-current-modes", callback: (($obj: GdbusModemSkeleton, invocation: Gio.DBusMethodInvocation, argModes: GLib.Variant) => boolean)): number
+    on(sigName: "handle-set-current-modes", callback: (invocation: Gio.DBusMethodInvocation, argModes: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-set-current-modes", callback: (invocation: Gio.DBusMethodInvocation, argModes: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-set-current-modes", callback: (invocation: Gio.DBusMethodInvocation, argModes: GLib.Variant) => void): NodeJS.EventEmitter
     emit(sigName: "handle-set-current-modes", invocation: Gio.DBusMethodInvocation, argModes: GLib.Variant): void
-    on(sigName: "handle-set-current-modes", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-set-current-modes", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-set-current-modes", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "handle-set-power-state", callback: (($obj: GdbusModemSkeleton, invocation: Gio.DBusMethodInvocation, argState: number) => boolean)): number
-    connect_after(sigName: "handle-set-power-state", callback: (($obj: GdbusModemSkeleton, invocation: Gio.DBusMethodInvocation, argState: number) => boolean)): number
+    on(sigName: "handle-set-power-state", callback: (invocation: Gio.DBusMethodInvocation, argState: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-set-power-state", callback: (invocation: Gio.DBusMethodInvocation, argState: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-set-power-state", callback: (invocation: Gio.DBusMethodInvocation, argState: number) => void): NodeJS.EventEmitter
     emit(sigName: "handle-set-power-state", invocation: Gio.DBusMethodInvocation, argState: number): void
-    on(sigName: "handle-set-power-state", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-set-power-state", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-set-power-state", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "handle-set-primary-sim-slot", callback: (($obj: GdbusModemSkeleton, invocation: Gio.DBusMethodInvocation, argSimSlot: number) => boolean)): number
-    connect_after(sigName: "handle-set-primary-sim-slot", callback: (($obj: GdbusModemSkeleton, invocation: Gio.DBusMethodInvocation, argSimSlot: number) => boolean)): number
+    on(sigName: "handle-set-primary-sim-slot", callback: (invocation: Gio.DBusMethodInvocation, argSimSlot: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-set-primary-sim-slot", callback: (invocation: Gio.DBusMethodInvocation, argSimSlot: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-set-primary-sim-slot", callback: (invocation: Gio.DBusMethodInvocation, argSimSlot: number) => void): NodeJS.EventEmitter
     emit(sigName: "handle-set-primary-sim-slot", invocation: Gio.DBusMethodInvocation, argSimSlot: number): void
-    on(sigName: "handle-set-primary-sim-slot", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-set-primary-sim-slot", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-set-primary-sim-slot", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "state-changed", callback: (($obj: GdbusModemSkeleton, argOld: number, argNew: number, argReason: number) => void)): number
-    connect_after(sigName: "state-changed", callback: (($obj: GdbusModemSkeleton, argOld: number, argNew: number, argReason: number) => void)): number
+    on(sigName: "state-changed", callback: (argOld: number, argNew: number, argReason: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "state-changed", callback: (argOld: number, argNew: number, argReason: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "state-changed", callback: (argOld: number, argNew: number, argReason: number) => void): NodeJS.EventEmitter
     emit(sigName: "state-changed", argOld: number, argNew: number, argReason: number): void
-    on(sigName: "state-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "state-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "state-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::g-flags", callback: (($obj: GdbusModemSkeleton, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::g-flags", callback: (($obj: GdbusModemSkeleton, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::g-flags", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -7920,21 +7016,21 @@ export interface GdbusModemTimeProxy_ConstructProps extends Gio.DBusProxy_Constr
     networkTimezone?: GLib.Variant
 }
 export class GdbusModemTimeProxy {
-    /* Properties of Gio.DBusProxy */
+    /* Properties of Gio-2.0.Gio.DBusProxy */
     gDefaultTimeout: number
     gInterfaceInfo: Gio.DBusInterfaceInfo
     readonly gNameOwner: string
-    /* Properties of ModemManager.GdbusModemTime */
+    /* Properties of ModemManager-1.0.ModemManager.GdbusModemTime */
     networkTimezone: GLib.Variant
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Gio.DBusProxy */
+    /* Methods of Gio-2.0.Gio.DBusProxy */
     call(methodName: string, parameters: GLib.Variant | null, flags: Gio.DBusCallFlags, timeoutMsec: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     callFinish(res: Gio.AsyncResult): GLib.Variant
     callSync(methodName: string, parameters: GLib.Variant | null, flags: Gio.DBusCallFlags, timeoutMsec: number, cancellable?: Gio.Cancellable | null): GLib.Variant
     callWithUnixFdList(methodName: string, parameters: GLib.Variant | null, flags: Gio.DBusCallFlags, timeoutMsec: number, fdList?: Gio.UnixFDList | null, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    callWithUnixFdListFinish(res: Gio.AsyncResult): [ /* returnType */ GLib.Variant, /* outFdList */ Gio.UnixFDList | null ]
-    callWithUnixFdListSync(methodName: string, parameters: GLib.Variant | null, flags: Gio.DBusCallFlags, timeoutMsec: number, fdList?: Gio.UnixFDList | null, cancellable?: Gio.Cancellable | null): [ /* returnType */ GLib.Variant, /* outFdList */ Gio.UnixFDList | null ]
+    callWithUnixFdListFinish(res: Gio.AsyncResult): { returnType: GLib.Variant, outFdList: Gio.UnixFDList | null }
+    callWithUnixFdListSync(methodName: string, parameters: GLib.Variant | null, flags: Gio.DBusCallFlags, timeoutMsec: number, fdList?: Gio.UnixFDList | null, cancellable?: Gio.Cancellable | null): { returnType: GLib.Variant, outFdList: Gio.UnixFDList | null }
     getCachedProperty(propertyName: string): GLib.Variant | null
     getCachedPropertyNames(): string[] | null
     getConnection(): Gio.DBusConnection
@@ -7948,7 +7044,7 @@ export class GdbusModemTimeProxy {
     setCachedProperty(propertyName: string, value?: GLib.Variant | null): void
     setDefaultTimeout(timeoutMsec: number): void
     setInterfaceInfo(info?: Gio.DBusInterfaceInfo | null): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -7970,75 +7066,50 @@ export class GdbusModemTimeProxy {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of Gio.AsyncInitable */
+    /* Methods of Gio-2.0.Gio.AsyncInitable */
     initAsync(ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     initFinish(res: Gio.AsyncResult): boolean
     newFinish(res: Gio.AsyncResult): GObject.Object
-    /* Methods of Gio.DBusInterface */
+    /* Methods of Gio-2.0.Gio.DBusInterface */
     getObject(): Gio.DBusObject | null
     getInfo(): Gio.DBusInterfaceInfo
     setObject(object?: Gio.DBusObject | null): void
-    /* Methods of Gio.Initable */
+    /* Methods of Gio-2.0.Gio.Initable */
     init(cancellable?: Gio.Cancellable | null): boolean
-    /* Methods of ModemManager.GdbusModemTime */
+    /* Methods of ModemManager-1.0.ModemManager.GdbusModemTime */
     callGetNetworkTime(cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    callGetNetworkTimeFinish(res: Gio.AsyncResult): [ /* returnType */ boolean, /* outTime */ string | null ]
-    callGetNetworkTimeSync(cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* outTime */ string | null ]
+    callGetNetworkTimeFinish(res: Gio.AsyncResult): { returnType: boolean, outTime: string | null }
+    callGetNetworkTimeSync(cancellable?: Gio.Cancellable | null): { returnType: boolean, outTime: string | null }
     completeGetNetworkTime(invocation: Gio.DBusMethodInvocation, time: string): void
     emitNetworkTimeChanged(argTime: string): void
-    /* Virtual methods of ModemManager.GdbusModemTimeProxy */
-    vfuncInitAsync(ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    vfuncInitFinish(res: Gio.AsyncResult): boolean
-    vfuncDupObject(): Gio.DBusObject | null
-    vfuncGetInfo(): Gio.DBusInterfaceInfo
-    vfuncSetObject(object?: Gio.DBusObject | null): void
-    vfuncInit(cancellable?: Gio.Cancellable | null): boolean
-    vfuncHandleGetNetworkTime(invocation: Gio.DBusMethodInvocation): boolean
-    vfuncNetworkTimeChanged(argTime: string): void
-    /* Virtual methods of Gio.DBusProxy */
-    vfuncGPropertiesChanged(changedProperties: GLib.Variant, invalidatedProperties: string): void
-    vfuncGSignal(senderName: string, signalName: string, parameters: GLib.Variant): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gio.DBusProxy */
+    /* Signals of Gio-2.0.Gio.DBusProxy */
     connect(sigName: "g-properties-changed", callback: (($obj: GdbusModemTimeProxy, changedProperties: GLib.Variant, invalidatedProperties: string[]) => void)): number
-    connect_after(sigName: "g-properties-changed", callback: (($obj: GdbusModemTimeProxy, changedProperties: GLib.Variant, invalidatedProperties: string[]) => void)): number
+    on(sigName: "g-properties-changed", callback: (changedProperties: GLib.Variant, invalidatedProperties: string[]) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "g-properties-changed", callback: (changedProperties: GLib.Variant, invalidatedProperties: string[]) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "g-properties-changed", callback: (changedProperties: GLib.Variant, invalidatedProperties: string[]) => void): NodeJS.EventEmitter
     emit(sigName: "g-properties-changed", changedProperties: GLib.Variant, invalidatedProperties: string[]): void
-    on(sigName: "g-properties-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "g-properties-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "g-properties-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "g-signal", callback: (($obj: GdbusModemTimeProxy, senderName: string | null, signalName: string, parameters: GLib.Variant) => void)): number
-    connect_after(sigName: "g-signal", callback: (($obj: GdbusModemTimeProxy, senderName: string | null, signalName: string, parameters: GLib.Variant) => void)): number
+    on(sigName: "g-signal", callback: (senderName: string | null, signalName: string, parameters: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "g-signal", callback: (senderName: string | null, signalName: string, parameters: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "g-signal", callback: (senderName: string | null, signalName: string, parameters: GLib.Variant) => void): NodeJS.EventEmitter
     emit(sigName: "g-signal", senderName: string | null, signalName: string, parameters: GLib.Variant): void
-    on(sigName: "g-signal", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "g-signal", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "g-signal", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: GdbusModemTimeProxy, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: GdbusModemTimeProxy, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of ModemManager.GdbusModemTime */
+    /* Signals of ModemManager-1.0.ModemManager.GdbusModemTime */
     connect(sigName: "handle-get-network-time", callback: (($obj: GdbusModemTimeProxy, invocation: Gio.DBusMethodInvocation) => boolean)): number
-    connect_after(sigName: "handle-get-network-time", callback: (($obj: GdbusModemTimeProxy, invocation: Gio.DBusMethodInvocation) => boolean)): number
+    on(sigName: "handle-get-network-time", callback: (invocation: Gio.DBusMethodInvocation) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-get-network-time", callback: (invocation: Gio.DBusMethodInvocation) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-get-network-time", callback: (invocation: Gio.DBusMethodInvocation) => void): NodeJS.EventEmitter
     emit(sigName: "handle-get-network-time", invocation: Gio.DBusMethodInvocation): void
-    on(sigName: "handle-get-network-time", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-get-network-time", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-get-network-time", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "network-time-changed", callback: (($obj: GdbusModemTimeProxy, argTime: string) => void)): number
-    connect_after(sigName: "network-time-changed", callback: (($obj: GdbusModemTimeProxy, argTime: string) => void)): number
+    on(sigName: "network-time-changed", callback: (argTime: string) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "network-time-changed", callback: (argTime: string) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "network-time-changed", callback: (argTime: string) => void): NodeJS.EventEmitter
     emit(sigName: "network-time-changed", argTime: string): void
-    on(sigName: "network-time-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "network-time-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "network-time-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::g-default-timeout", callback: (($obj: GdbusModemTimeProxy, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::g-default-timeout", callback: (($obj: GdbusModemTimeProxy, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::g-default-timeout", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -8088,13 +7159,13 @@ export interface GdbusModemTimeSkeleton_ConstructProps extends Gio.DBusInterface
     networkTimezone?: GLib.Variant
 }
 export class GdbusModemTimeSkeleton {
-    /* Properties of Gio.DBusInterfaceSkeleton */
+    /* Properties of Gio-2.0.Gio.DBusInterfaceSkeleton */
     gFlags: Gio.DBusInterfaceSkeletonFlags
-    /* Properties of ModemManager.GdbusModemTime */
+    /* Properties of ModemManager-1.0.ModemManager.GdbusModemTime */
     networkTimezone: GLib.Variant
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Gio.DBusInterfaceSkeleton */
+    /* Methods of Gio-2.0.Gio.DBusInterfaceSkeleton */
     export(connection: Gio.DBusConnection, objectPath: string): boolean
     flush(): void
     getConnection(): Gio.DBusConnection | null
@@ -8107,7 +7178,7 @@ export class GdbusModemTimeSkeleton {
     setFlags(flags: Gio.DBusInterfaceSkeletonFlags): void
     unexport(): void
     unexportFromConnection(connection: Gio.DBusConnection): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -8129,61 +7200,38 @@ export class GdbusModemTimeSkeleton {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of Gio.DBusInterface */
+    /* Methods of Gio-2.0.Gio.DBusInterface */
     getObject(): Gio.DBusObject | null
     setObject(object?: Gio.DBusObject | null): void
-    /* Methods of ModemManager.GdbusModemTime */
+    /* Methods of ModemManager-1.0.ModemManager.GdbusModemTime */
     callGetNetworkTime(cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    callGetNetworkTimeFinish(res: Gio.AsyncResult): [ /* returnType */ boolean, /* outTime */ string | null ]
-    callGetNetworkTimeSync(cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* outTime */ string | null ]
+    callGetNetworkTimeFinish(res: Gio.AsyncResult): { returnType: boolean, outTime: string | null }
+    callGetNetworkTimeSync(cancellable?: Gio.Cancellable | null): { returnType: boolean, outTime: string | null }
     completeGetNetworkTime(invocation: Gio.DBusMethodInvocation, time: string): void
     emitNetworkTimeChanged(argTime: string): void
-    /* Virtual methods of ModemManager.GdbusModemTimeSkeleton */
-    vfuncDupObject(): Gio.DBusObject | null
-    vfuncGetInfo(): Gio.DBusInterfaceInfo
-    vfuncSetObject(object?: Gio.DBusObject | null): void
-    vfuncHandleGetNetworkTime(invocation: Gio.DBusMethodInvocation): boolean
-    vfuncNetworkTimeChanged(argTime: string): void
-    /* Virtual methods of Gio.DBusInterfaceSkeleton */
-    vfuncFlush(): void
-    vfuncGAuthorizeMethod(invocation: Gio.DBusMethodInvocation): boolean
-    vfuncGetInfo(): Gio.DBusInterfaceInfo
-    vfuncGetProperties(): GLib.Variant
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gio.DBusInterfaceSkeleton */
+    /* Signals of Gio-2.0.Gio.DBusInterfaceSkeleton */
     connect(sigName: "g-authorize-method", callback: (($obj: GdbusModemTimeSkeleton, invocation: Gio.DBusMethodInvocation) => boolean)): number
-    connect_after(sigName: "g-authorize-method", callback: (($obj: GdbusModemTimeSkeleton, invocation: Gio.DBusMethodInvocation) => boolean)): number
+    on(sigName: "g-authorize-method", callback: (invocation: Gio.DBusMethodInvocation) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "g-authorize-method", callback: (invocation: Gio.DBusMethodInvocation) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "g-authorize-method", callback: (invocation: Gio.DBusMethodInvocation) => void): NodeJS.EventEmitter
     emit(sigName: "g-authorize-method", invocation: Gio.DBusMethodInvocation): void
-    on(sigName: "g-authorize-method", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "g-authorize-method", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "g-authorize-method", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: GdbusModemTimeSkeleton, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: GdbusModemTimeSkeleton, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of ModemManager.GdbusModemTime */
+    /* Signals of ModemManager-1.0.ModemManager.GdbusModemTime */
     connect(sigName: "handle-get-network-time", callback: (($obj: GdbusModemTimeSkeleton, invocation: Gio.DBusMethodInvocation) => boolean)): number
-    connect_after(sigName: "handle-get-network-time", callback: (($obj: GdbusModemTimeSkeleton, invocation: Gio.DBusMethodInvocation) => boolean)): number
+    on(sigName: "handle-get-network-time", callback: (invocation: Gio.DBusMethodInvocation) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-get-network-time", callback: (invocation: Gio.DBusMethodInvocation) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-get-network-time", callback: (invocation: Gio.DBusMethodInvocation) => void): NodeJS.EventEmitter
     emit(sigName: "handle-get-network-time", invocation: Gio.DBusMethodInvocation): void
-    on(sigName: "handle-get-network-time", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-get-network-time", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-get-network-time", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "network-time-changed", callback: (($obj: GdbusModemTimeSkeleton, argTime: string) => void)): number
-    connect_after(sigName: "network-time-changed", callback: (($obj: GdbusModemTimeSkeleton, argTime: string) => void)): number
+    on(sigName: "network-time-changed", callback: (argTime: string) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "network-time-changed", callback: (argTime: string) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "network-time-changed", callback: (argTime: string) => void): NodeJS.EventEmitter
     emit(sigName: "network-time-changed", argTime: string): void
-    on(sigName: "network-time-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "network-time-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "network-time-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::g-flags", callback: (($obj: GdbusModemTimeSkeleton, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::g-flags", callback: (($obj: GdbusModemTimeSkeleton, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::g-flags", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -8215,22 +7263,22 @@ export interface GdbusModemVoiceProxy_ConstructProps extends Gio.DBusProxy_Const
     emergencyOnly?: boolean
 }
 export class GdbusModemVoiceProxy {
-    /* Properties of Gio.DBusProxy */
+    /* Properties of Gio-2.0.Gio.DBusProxy */
     gDefaultTimeout: number
     gInterfaceInfo: Gio.DBusInterfaceInfo
     readonly gNameOwner: string
-    /* Properties of ModemManager.GdbusModemVoice */
+    /* Properties of ModemManager-1.0.ModemManager.GdbusModemVoice */
     calls: string[]
     emergencyOnly: boolean
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Gio.DBusProxy */
+    /* Methods of Gio-2.0.Gio.DBusProxy */
     call(methodName: string, parameters: GLib.Variant | null, flags: Gio.DBusCallFlags, timeoutMsec: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     callFinish(res: Gio.AsyncResult): GLib.Variant
     callSync(methodName: string, parameters: GLib.Variant | null, flags: Gio.DBusCallFlags, timeoutMsec: number, cancellable?: Gio.Cancellable | null): GLib.Variant
     callWithUnixFdList(methodName: string, parameters: GLib.Variant | null, flags: Gio.DBusCallFlags, timeoutMsec: number, fdList?: Gio.UnixFDList | null, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    callWithUnixFdListFinish(res: Gio.AsyncResult): [ /* returnType */ GLib.Variant, /* outFdList */ Gio.UnixFDList | null ]
-    callWithUnixFdListSync(methodName: string, parameters: GLib.Variant | null, flags: Gio.DBusCallFlags, timeoutMsec: number, fdList?: Gio.UnixFDList | null, cancellable?: Gio.Cancellable | null): [ /* returnType */ GLib.Variant, /* outFdList */ Gio.UnixFDList | null ]
+    callWithUnixFdListFinish(res: Gio.AsyncResult): { returnType: GLib.Variant, outFdList: Gio.UnixFDList | null }
+    callWithUnixFdListSync(methodName: string, parameters: GLib.Variant | null, flags: Gio.DBusCallFlags, timeoutMsec: number, fdList?: Gio.UnixFDList | null, cancellable?: Gio.Cancellable | null): { returnType: GLib.Variant, outFdList: Gio.UnixFDList | null }
     getCachedProperty(propertyName: string): GLib.Variant | null
     getCachedPropertyNames(): string[] | null
     getConnection(): Gio.DBusConnection
@@ -8244,7 +7292,7 @@ export class GdbusModemVoiceProxy {
     setCachedProperty(propertyName: string, value?: GLib.Variant | null): void
     setDefaultTimeout(timeoutMsec: number): void
     setInterfaceInfo(info?: Gio.DBusInterfaceInfo | null): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -8266,26 +7314,26 @@ export class GdbusModemVoiceProxy {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of Gio.AsyncInitable */
+    /* Methods of Gio-2.0.Gio.AsyncInitable */
     initAsync(ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     initFinish(res: Gio.AsyncResult): boolean
     newFinish(res: Gio.AsyncResult): GObject.Object
-    /* Methods of Gio.DBusInterface */
+    /* Methods of Gio-2.0.Gio.DBusInterface */
     getObject(): Gio.DBusObject | null
     getInfo(): Gio.DBusInterfaceInfo
     setObject(object?: Gio.DBusObject | null): void
-    /* Methods of Gio.Initable */
+    /* Methods of Gio-2.0.Gio.Initable */
     init(cancellable?: Gio.Cancellable | null): boolean
-    /* Methods of ModemManager.GdbusModemVoice */
+    /* Methods of ModemManager-1.0.ModemManager.GdbusModemVoice */
     callCallWaitingQuery(cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    callCallWaitingQueryFinish(res: Gio.AsyncResult): [ /* returnType */ boolean, /* outStatus */ boolean | null ]
-    callCallWaitingQuerySync(cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* outStatus */ boolean | null ]
+    callCallWaitingQueryFinish(res: Gio.AsyncResult): { returnType: boolean, outStatus: boolean | null }
+    callCallWaitingQuerySync(cancellable?: Gio.Cancellable | null): { returnType: boolean, outStatus: boolean | null }
     callCallWaitingSetup(argEnable: boolean, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     callCallWaitingSetupFinish(res: Gio.AsyncResult): boolean
     callCallWaitingSetupSync(argEnable: boolean, cancellable?: Gio.Cancellable | null): boolean
     callCreateCall(argProperties: GLib.Variant, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    callCreateCallFinish(res: Gio.AsyncResult): [ /* returnType */ boolean, /* outPath */ string | null ]
-    callCreateCallSync(argProperties: GLib.Variant, cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* outPath */ string | null ]
+    callCreateCallFinish(res: Gio.AsyncResult): { returnType: boolean, outPath: string | null }
+    callCreateCallSync(argProperties: GLib.Variant, cancellable?: Gio.Cancellable | null): { returnType: boolean, outPath: string | null }
     callDeleteCall(argPath: string, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     callDeleteCallFinish(res: Gio.AsyncResult): boolean
     callDeleteCallSync(argPath: string, cancellable?: Gio.Cancellable | null): boolean
@@ -8299,8 +7347,8 @@ export class GdbusModemVoiceProxy {
     callHoldAndAcceptFinish(res: Gio.AsyncResult): boolean
     callHoldAndAcceptSync(cancellable?: Gio.Cancellable | null): boolean
     callListCalls(cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    callListCallsFinish(res: Gio.AsyncResult): [ /* returnType */ boolean, /* outResult */ string[] | null ]
-    callListCallsSync(cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* outResult */ string[] | null ]
+    callListCallsFinish(res: Gio.AsyncResult): { returnType: boolean, outResult: string[] | null }
+    callListCallsSync(cancellable?: Gio.Cancellable | null): { returnType: boolean, outResult: string[] | null }
     callTransfer(cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     callTransferFinish(res: Gio.AsyncResult): boolean
     callTransferSync(cancellable?: Gio.Cancellable | null): boolean
@@ -8315,122 +7363,79 @@ export class GdbusModemVoiceProxy {
     completeTransfer(invocation: Gio.DBusMethodInvocation): void
     emitCallAdded(argPath: string): void
     emitCallDeleted(argPath: string): void
-    /* Virtual methods of ModemManager.GdbusModemVoiceProxy */
-    vfuncInitAsync(ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    vfuncInitFinish(res: Gio.AsyncResult): boolean
-    vfuncDupObject(): Gio.DBusObject | null
-    vfuncGetInfo(): Gio.DBusInterfaceInfo
-    vfuncSetObject(object?: Gio.DBusObject | null): void
-    vfuncInit(cancellable?: Gio.Cancellable | null): boolean
-    vfuncCallAdded(argPath: string): void
-    vfuncCallDeleted(argPath: string): void
-    vfuncHandleCallWaitingQuery(invocation: Gio.DBusMethodInvocation): boolean
-    vfuncHandleCallWaitingSetup(invocation: Gio.DBusMethodInvocation, argEnable: boolean): boolean
-    vfuncHandleCreateCall(invocation: Gio.DBusMethodInvocation, argProperties: GLib.Variant): boolean
-    vfuncHandleDeleteCall(invocation: Gio.DBusMethodInvocation, argPath: string): boolean
-    vfuncHandleHangupAll(invocation: Gio.DBusMethodInvocation): boolean
-    vfuncHandleHangupAndAccept(invocation: Gio.DBusMethodInvocation): boolean
-    vfuncHandleHoldAndAccept(invocation: Gio.DBusMethodInvocation): boolean
-    vfuncHandleListCalls(invocation: Gio.DBusMethodInvocation): boolean
-    vfuncHandleTransfer(invocation: Gio.DBusMethodInvocation): boolean
-    /* Virtual methods of Gio.DBusProxy */
-    vfuncGPropertiesChanged(changedProperties: GLib.Variant, invalidatedProperties: string): void
-    vfuncGSignal(senderName: string, signalName: string, parameters: GLib.Variant): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gio.DBusProxy */
+    /* Signals of Gio-2.0.Gio.DBusProxy */
     connect(sigName: "g-properties-changed", callback: (($obj: GdbusModemVoiceProxy, changedProperties: GLib.Variant, invalidatedProperties: string[]) => void)): number
-    connect_after(sigName: "g-properties-changed", callback: (($obj: GdbusModemVoiceProxy, changedProperties: GLib.Variant, invalidatedProperties: string[]) => void)): number
+    on(sigName: "g-properties-changed", callback: (changedProperties: GLib.Variant, invalidatedProperties: string[]) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "g-properties-changed", callback: (changedProperties: GLib.Variant, invalidatedProperties: string[]) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "g-properties-changed", callback: (changedProperties: GLib.Variant, invalidatedProperties: string[]) => void): NodeJS.EventEmitter
     emit(sigName: "g-properties-changed", changedProperties: GLib.Variant, invalidatedProperties: string[]): void
-    on(sigName: "g-properties-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "g-properties-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "g-properties-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "g-signal", callback: (($obj: GdbusModemVoiceProxy, senderName: string | null, signalName: string, parameters: GLib.Variant) => void)): number
-    connect_after(sigName: "g-signal", callback: (($obj: GdbusModemVoiceProxy, senderName: string | null, signalName: string, parameters: GLib.Variant) => void)): number
+    on(sigName: "g-signal", callback: (senderName: string | null, signalName: string, parameters: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "g-signal", callback: (senderName: string | null, signalName: string, parameters: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "g-signal", callback: (senderName: string | null, signalName: string, parameters: GLib.Variant) => void): NodeJS.EventEmitter
     emit(sigName: "g-signal", senderName: string | null, signalName: string, parameters: GLib.Variant): void
-    on(sigName: "g-signal", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "g-signal", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "g-signal", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: GdbusModemVoiceProxy, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: GdbusModemVoiceProxy, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of ModemManager.GdbusModemVoice */
+    /* Signals of ModemManager-1.0.ModemManager.GdbusModemVoice */
     connect(sigName: "call-added", callback: (($obj: GdbusModemVoiceProxy, argPath: string) => void)): number
-    connect_after(sigName: "call-added", callback: (($obj: GdbusModemVoiceProxy, argPath: string) => void)): number
+    on(sigName: "call-added", callback: (argPath: string) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "call-added", callback: (argPath: string) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "call-added", callback: (argPath: string) => void): NodeJS.EventEmitter
     emit(sigName: "call-added", argPath: string): void
-    on(sigName: "call-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "call-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "call-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "call-deleted", callback: (($obj: GdbusModemVoiceProxy, argPath: string) => void)): number
-    connect_after(sigName: "call-deleted", callback: (($obj: GdbusModemVoiceProxy, argPath: string) => void)): number
+    on(sigName: "call-deleted", callback: (argPath: string) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "call-deleted", callback: (argPath: string) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "call-deleted", callback: (argPath: string) => void): NodeJS.EventEmitter
     emit(sigName: "call-deleted", argPath: string): void
-    on(sigName: "call-deleted", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "call-deleted", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "call-deleted", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "handle-call-waiting-query", callback: (($obj: GdbusModemVoiceProxy, invocation: Gio.DBusMethodInvocation) => boolean)): number
-    connect_after(sigName: "handle-call-waiting-query", callback: (($obj: GdbusModemVoiceProxy, invocation: Gio.DBusMethodInvocation) => boolean)): number
+    on(sigName: "handle-call-waiting-query", callback: (invocation: Gio.DBusMethodInvocation) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-call-waiting-query", callback: (invocation: Gio.DBusMethodInvocation) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-call-waiting-query", callback: (invocation: Gio.DBusMethodInvocation) => void): NodeJS.EventEmitter
     emit(sigName: "handle-call-waiting-query", invocation: Gio.DBusMethodInvocation): void
-    on(sigName: "handle-call-waiting-query", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-call-waiting-query", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-call-waiting-query", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "handle-call-waiting-setup", callback: (($obj: GdbusModemVoiceProxy, invocation: Gio.DBusMethodInvocation, argEnable: boolean) => boolean)): number
-    connect_after(sigName: "handle-call-waiting-setup", callback: (($obj: GdbusModemVoiceProxy, invocation: Gio.DBusMethodInvocation, argEnable: boolean) => boolean)): number
+    on(sigName: "handle-call-waiting-setup", callback: (invocation: Gio.DBusMethodInvocation, argEnable: boolean) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-call-waiting-setup", callback: (invocation: Gio.DBusMethodInvocation, argEnable: boolean) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-call-waiting-setup", callback: (invocation: Gio.DBusMethodInvocation, argEnable: boolean) => void): NodeJS.EventEmitter
     emit(sigName: "handle-call-waiting-setup", invocation: Gio.DBusMethodInvocation, argEnable: boolean): void
-    on(sigName: "handle-call-waiting-setup", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-call-waiting-setup", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-call-waiting-setup", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "handle-create-call", callback: (($obj: GdbusModemVoiceProxy, invocation: Gio.DBusMethodInvocation, argProperties: GLib.Variant) => boolean)): number
-    connect_after(sigName: "handle-create-call", callback: (($obj: GdbusModemVoiceProxy, invocation: Gio.DBusMethodInvocation, argProperties: GLib.Variant) => boolean)): number
+    on(sigName: "handle-create-call", callback: (invocation: Gio.DBusMethodInvocation, argProperties: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-create-call", callback: (invocation: Gio.DBusMethodInvocation, argProperties: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-create-call", callback: (invocation: Gio.DBusMethodInvocation, argProperties: GLib.Variant) => void): NodeJS.EventEmitter
     emit(sigName: "handle-create-call", invocation: Gio.DBusMethodInvocation, argProperties: GLib.Variant): void
-    on(sigName: "handle-create-call", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-create-call", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-create-call", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "handle-delete-call", callback: (($obj: GdbusModemVoiceProxy, invocation: Gio.DBusMethodInvocation, argPath: string) => boolean)): number
-    connect_after(sigName: "handle-delete-call", callback: (($obj: GdbusModemVoiceProxy, invocation: Gio.DBusMethodInvocation, argPath: string) => boolean)): number
+    on(sigName: "handle-delete-call", callback: (invocation: Gio.DBusMethodInvocation, argPath: string) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-delete-call", callback: (invocation: Gio.DBusMethodInvocation, argPath: string) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-delete-call", callback: (invocation: Gio.DBusMethodInvocation, argPath: string) => void): NodeJS.EventEmitter
     emit(sigName: "handle-delete-call", invocation: Gio.DBusMethodInvocation, argPath: string): void
-    on(sigName: "handle-delete-call", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-delete-call", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-delete-call", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "handle-hangup-all", callback: (($obj: GdbusModemVoiceProxy, invocation: Gio.DBusMethodInvocation) => boolean)): number
-    connect_after(sigName: "handle-hangup-all", callback: (($obj: GdbusModemVoiceProxy, invocation: Gio.DBusMethodInvocation) => boolean)): number
+    on(sigName: "handle-hangup-all", callback: (invocation: Gio.DBusMethodInvocation) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-hangup-all", callback: (invocation: Gio.DBusMethodInvocation) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-hangup-all", callback: (invocation: Gio.DBusMethodInvocation) => void): NodeJS.EventEmitter
     emit(sigName: "handle-hangup-all", invocation: Gio.DBusMethodInvocation): void
-    on(sigName: "handle-hangup-all", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-hangup-all", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-hangup-all", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "handle-hangup-and-accept", callback: (($obj: GdbusModemVoiceProxy, invocation: Gio.DBusMethodInvocation) => boolean)): number
-    connect_after(sigName: "handle-hangup-and-accept", callback: (($obj: GdbusModemVoiceProxy, invocation: Gio.DBusMethodInvocation) => boolean)): number
+    on(sigName: "handle-hangup-and-accept", callback: (invocation: Gio.DBusMethodInvocation) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-hangup-and-accept", callback: (invocation: Gio.DBusMethodInvocation) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-hangup-and-accept", callback: (invocation: Gio.DBusMethodInvocation) => void): NodeJS.EventEmitter
     emit(sigName: "handle-hangup-and-accept", invocation: Gio.DBusMethodInvocation): void
-    on(sigName: "handle-hangup-and-accept", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-hangup-and-accept", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-hangup-and-accept", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "handle-hold-and-accept", callback: (($obj: GdbusModemVoiceProxy, invocation: Gio.DBusMethodInvocation) => boolean)): number
-    connect_after(sigName: "handle-hold-and-accept", callback: (($obj: GdbusModemVoiceProxy, invocation: Gio.DBusMethodInvocation) => boolean)): number
+    on(sigName: "handle-hold-and-accept", callback: (invocation: Gio.DBusMethodInvocation) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-hold-and-accept", callback: (invocation: Gio.DBusMethodInvocation) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-hold-and-accept", callback: (invocation: Gio.DBusMethodInvocation) => void): NodeJS.EventEmitter
     emit(sigName: "handle-hold-and-accept", invocation: Gio.DBusMethodInvocation): void
-    on(sigName: "handle-hold-and-accept", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-hold-and-accept", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-hold-and-accept", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "handle-list-calls", callback: (($obj: GdbusModemVoiceProxy, invocation: Gio.DBusMethodInvocation) => boolean)): number
-    connect_after(sigName: "handle-list-calls", callback: (($obj: GdbusModemVoiceProxy, invocation: Gio.DBusMethodInvocation) => boolean)): number
+    on(sigName: "handle-list-calls", callback: (invocation: Gio.DBusMethodInvocation) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-list-calls", callback: (invocation: Gio.DBusMethodInvocation) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-list-calls", callback: (invocation: Gio.DBusMethodInvocation) => void): NodeJS.EventEmitter
     emit(sigName: "handle-list-calls", invocation: Gio.DBusMethodInvocation): void
-    on(sigName: "handle-list-calls", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-list-calls", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-list-calls", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "handle-transfer", callback: (($obj: GdbusModemVoiceProxy, invocation: Gio.DBusMethodInvocation) => boolean)): number
-    connect_after(sigName: "handle-transfer", callback: (($obj: GdbusModemVoiceProxy, invocation: Gio.DBusMethodInvocation) => boolean)): number
+    on(sigName: "handle-transfer", callback: (invocation: Gio.DBusMethodInvocation) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-transfer", callback: (invocation: Gio.DBusMethodInvocation) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-transfer", callback: (invocation: Gio.DBusMethodInvocation) => void): NodeJS.EventEmitter
     emit(sigName: "handle-transfer", invocation: Gio.DBusMethodInvocation): void
-    on(sigName: "handle-transfer", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-transfer", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-transfer", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::g-default-timeout", callback: (($obj: GdbusModemVoiceProxy, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::g-default-timeout", callback: (($obj: GdbusModemVoiceProxy, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::g-default-timeout", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -8486,14 +7491,14 @@ export interface GdbusModemVoiceSkeleton_ConstructProps extends Gio.DBusInterfac
     emergencyOnly?: boolean
 }
 export class GdbusModemVoiceSkeleton {
-    /* Properties of Gio.DBusInterfaceSkeleton */
+    /* Properties of Gio-2.0.Gio.DBusInterfaceSkeleton */
     gFlags: Gio.DBusInterfaceSkeletonFlags
-    /* Properties of ModemManager.GdbusModemVoice */
+    /* Properties of ModemManager-1.0.ModemManager.GdbusModemVoice */
     calls: string[]
     emergencyOnly: boolean
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Gio.DBusInterfaceSkeleton */
+    /* Methods of Gio-2.0.Gio.DBusInterfaceSkeleton */
     export(connection: Gio.DBusConnection, objectPath: string): boolean
     flush(): void
     getConnection(): Gio.DBusConnection | null
@@ -8506,7 +7511,7 @@ export class GdbusModemVoiceSkeleton {
     setFlags(flags: Gio.DBusInterfaceSkeletonFlags): void
     unexport(): void
     unexportFromConnection(connection: Gio.DBusConnection): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -8528,19 +7533,19 @@ export class GdbusModemVoiceSkeleton {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of Gio.DBusInterface */
+    /* Methods of Gio-2.0.Gio.DBusInterface */
     getObject(): Gio.DBusObject | null
     setObject(object?: Gio.DBusObject | null): void
-    /* Methods of ModemManager.GdbusModemVoice */
+    /* Methods of ModemManager-1.0.ModemManager.GdbusModemVoice */
     callCallWaitingQuery(cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    callCallWaitingQueryFinish(res: Gio.AsyncResult): [ /* returnType */ boolean, /* outStatus */ boolean | null ]
-    callCallWaitingQuerySync(cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* outStatus */ boolean | null ]
+    callCallWaitingQueryFinish(res: Gio.AsyncResult): { returnType: boolean, outStatus: boolean | null }
+    callCallWaitingQuerySync(cancellable?: Gio.Cancellable | null): { returnType: boolean, outStatus: boolean | null }
     callCallWaitingSetup(argEnable: boolean, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     callCallWaitingSetupFinish(res: Gio.AsyncResult): boolean
     callCallWaitingSetupSync(argEnable: boolean, cancellable?: Gio.Cancellable | null): boolean
     callCreateCall(argProperties: GLib.Variant, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    callCreateCallFinish(res: Gio.AsyncResult): [ /* returnType */ boolean, /* outPath */ string | null ]
-    callCreateCallSync(argProperties: GLib.Variant, cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* outPath */ string | null ]
+    callCreateCallFinish(res: Gio.AsyncResult): { returnType: boolean, outPath: string | null }
+    callCreateCallSync(argProperties: GLib.Variant, cancellable?: Gio.Cancellable | null): { returnType: boolean, outPath: string | null }
     callDeleteCall(argPath: string, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     callDeleteCallFinish(res: Gio.AsyncResult): boolean
     callDeleteCallSync(argPath: string, cancellable?: Gio.Cancellable | null): boolean
@@ -8554,8 +7559,8 @@ export class GdbusModemVoiceSkeleton {
     callHoldAndAcceptFinish(res: Gio.AsyncResult): boolean
     callHoldAndAcceptSync(cancellable?: Gio.Cancellable | null): boolean
     callListCalls(cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    callListCallsFinish(res: Gio.AsyncResult): [ /* returnType */ boolean, /* outResult */ string[] | null ]
-    callListCallsSync(cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* outResult */ string[] | null ]
+    callListCallsFinish(res: Gio.AsyncResult): { returnType: boolean, outResult: string[] | null }
+    callListCallsSync(cancellable?: Gio.Cancellable | null): { returnType: boolean, outResult: string[] | null }
     callTransfer(cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     callTransferFinish(res: Gio.AsyncResult): boolean
     callTransferSync(cancellable?: Gio.Cancellable | null): boolean
@@ -8570,115 +7575,74 @@ export class GdbusModemVoiceSkeleton {
     completeTransfer(invocation: Gio.DBusMethodInvocation): void
     emitCallAdded(argPath: string): void
     emitCallDeleted(argPath: string): void
-    /* Virtual methods of ModemManager.GdbusModemVoiceSkeleton */
-    vfuncDupObject(): Gio.DBusObject | null
-    vfuncGetInfo(): Gio.DBusInterfaceInfo
-    vfuncSetObject(object?: Gio.DBusObject | null): void
-    vfuncCallAdded(argPath: string): void
-    vfuncCallDeleted(argPath: string): void
-    vfuncHandleCallWaitingQuery(invocation: Gio.DBusMethodInvocation): boolean
-    vfuncHandleCallWaitingSetup(invocation: Gio.DBusMethodInvocation, argEnable: boolean): boolean
-    vfuncHandleCreateCall(invocation: Gio.DBusMethodInvocation, argProperties: GLib.Variant): boolean
-    vfuncHandleDeleteCall(invocation: Gio.DBusMethodInvocation, argPath: string): boolean
-    vfuncHandleHangupAll(invocation: Gio.DBusMethodInvocation): boolean
-    vfuncHandleHangupAndAccept(invocation: Gio.DBusMethodInvocation): boolean
-    vfuncHandleHoldAndAccept(invocation: Gio.DBusMethodInvocation): boolean
-    vfuncHandleListCalls(invocation: Gio.DBusMethodInvocation): boolean
-    vfuncHandleTransfer(invocation: Gio.DBusMethodInvocation): boolean
-    /* Virtual methods of Gio.DBusInterfaceSkeleton */
-    vfuncFlush(): void
-    vfuncGAuthorizeMethod(invocation: Gio.DBusMethodInvocation): boolean
-    vfuncGetInfo(): Gio.DBusInterfaceInfo
-    vfuncGetProperties(): GLib.Variant
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gio.DBusInterfaceSkeleton */
+    /* Signals of Gio-2.0.Gio.DBusInterfaceSkeleton */
     connect(sigName: "g-authorize-method", callback: (($obj: GdbusModemVoiceSkeleton, invocation: Gio.DBusMethodInvocation) => boolean)): number
-    connect_after(sigName: "g-authorize-method", callback: (($obj: GdbusModemVoiceSkeleton, invocation: Gio.DBusMethodInvocation) => boolean)): number
+    on(sigName: "g-authorize-method", callback: (invocation: Gio.DBusMethodInvocation) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "g-authorize-method", callback: (invocation: Gio.DBusMethodInvocation) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "g-authorize-method", callback: (invocation: Gio.DBusMethodInvocation) => void): NodeJS.EventEmitter
     emit(sigName: "g-authorize-method", invocation: Gio.DBusMethodInvocation): void
-    on(sigName: "g-authorize-method", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "g-authorize-method", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "g-authorize-method", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: GdbusModemVoiceSkeleton, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: GdbusModemVoiceSkeleton, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of ModemManager.GdbusModemVoice */
+    /* Signals of ModemManager-1.0.ModemManager.GdbusModemVoice */
     connect(sigName: "call-added", callback: (($obj: GdbusModemVoiceSkeleton, argPath: string) => void)): number
-    connect_after(sigName: "call-added", callback: (($obj: GdbusModemVoiceSkeleton, argPath: string) => void)): number
+    on(sigName: "call-added", callback: (argPath: string) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "call-added", callback: (argPath: string) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "call-added", callback: (argPath: string) => void): NodeJS.EventEmitter
     emit(sigName: "call-added", argPath: string): void
-    on(sigName: "call-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "call-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "call-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "call-deleted", callback: (($obj: GdbusModemVoiceSkeleton, argPath: string) => void)): number
-    connect_after(sigName: "call-deleted", callback: (($obj: GdbusModemVoiceSkeleton, argPath: string) => void)): number
+    on(sigName: "call-deleted", callback: (argPath: string) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "call-deleted", callback: (argPath: string) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "call-deleted", callback: (argPath: string) => void): NodeJS.EventEmitter
     emit(sigName: "call-deleted", argPath: string): void
-    on(sigName: "call-deleted", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "call-deleted", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "call-deleted", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "handle-call-waiting-query", callback: (($obj: GdbusModemVoiceSkeleton, invocation: Gio.DBusMethodInvocation) => boolean)): number
-    connect_after(sigName: "handle-call-waiting-query", callback: (($obj: GdbusModemVoiceSkeleton, invocation: Gio.DBusMethodInvocation) => boolean)): number
+    on(sigName: "handle-call-waiting-query", callback: (invocation: Gio.DBusMethodInvocation) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-call-waiting-query", callback: (invocation: Gio.DBusMethodInvocation) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-call-waiting-query", callback: (invocation: Gio.DBusMethodInvocation) => void): NodeJS.EventEmitter
     emit(sigName: "handle-call-waiting-query", invocation: Gio.DBusMethodInvocation): void
-    on(sigName: "handle-call-waiting-query", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-call-waiting-query", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-call-waiting-query", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "handle-call-waiting-setup", callback: (($obj: GdbusModemVoiceSkeleton, invocation: Gio.DBusMethodInvocation, argEnable: boolean) => boolean)): number
-    connect_after(sigName: "handle-call-waiting-setup", callback: (($obj: GdbusModemVoiceSkeleton, invocation: Gio.DBusMethodInvocation, argEnable: boolean) => boolean)): number
+    on(sigName: "handle-call-waiting-setup", callback: (invocation: Gio.DBusMethodInvocation, argEnable: boolean) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-call-waiting-setup", callback: (invocation: Gio.DBusMethodInvocation, argEnable: boolean) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-call-waiting-setup", callback: (invocation: Gio.DBusMethodInvocation, argEnable: boolean) => void): NodeJS.EventEmitter
     emit(sigName: "handle-call-waiting-setup", invocation: Gio.DBusMethodInvocation, argEnable: boolean): void
-    on(sigName: "handle-call-waiting-setup", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-call-waiting-setup", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-call-waiting-setup", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "handle-create-call", callback: (($obj: GdbusModemVoiceSkeleton, invocation: Gio.DBusMethodInvocation, argProperties: GLib.Variant) => boolean)): number
-    connect_after(sigName: "handle-create-call", callback: (($obj: GdbusModemVoiceSkeleton, invocation: Gio.DBusMethodInvocation, argProperties: GLib.Variant) => boolean)): number
+    on(sigName: "handle-create-call", callback: (invocation: Gio.DBusMethodInvocation, argProperties: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-create-call", callback: (invocation: Gio.DBusMethodInvocation, argProperties: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-create-call", callback: (invocation: Gio.DBusMethodInvocation, argProperties: GLib.Variant) => void): NodeJS.EventEmitter
     emit(sigName: "handle-create-call", invocation: Gio.DBusMethodInvocation, argProperties: GLib.Variant): void
-    on(sigName: "handle-create-call", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-create-call", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-create-call", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "handle-delete-call", callback: (($obj: GdbusModemVoiceSkeleton, invocation: Gio.DBusMethodInvocation, argPath: string) => boolean)): number
-    connect_after(sigName: "handle-delete-call", callback: (($obj: GdbusModemVoiceSkeleton, invocation: Gio.DBusMethodInvocation, argPath: string) => boolean)): number
+    on(sigName: "handle-delete-call", callback: (invocation: Gio.DBusMethodInvocation, argPath: string) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-delete-call", callback: (invocation: Gio.DBusMethodInvocation, argPath: string) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-delete-call", callback: (invocation: Gio.DBusMethodInvocation, argPath: string) => void): NodeJS.EventEmitter
     emit(sigName: "handle-delete-call", invocation: Gio.DBusMethodInvocation, argPath: string): void
-    on(sigName: "handle-delete-call", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-delete-call", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-delete-call", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "handle-hangup-all", callback: (($obj: GdbusModemVoiceSkeleton, invocation: Gio.DBusMethodInvocation) => boolean)): number
-    connect_after(sigName: "handle-hangup-all", callback: (($obj: GdbusModemVoiceSkeleton, invocation: Gio.DBusMethodInvocation) => boolean)): number
+    on(sigName: "handle-hangup-all", callback: (invocation: Gio.DBusMethodInvocation) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-hangup-all", callback: (invocation: Gio.DBusMethodInvocation) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-hangup-all", callback: (invocation: Gio.DBusMethodInvocation) => void): NodeJS.EventEmitter
     emit(sigName: "handle-hangup-all", invocation: Gio.DBusMethodInvocation): void
-    on(sigName: "handle-hangup-all", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-hangup-all", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-hangup-all", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "handle-hangup-and-accept", callback: (($obj: GdbusModemVoiceSkeleton, invocation: Gio.DBusMethodInvocation) => boolean)): number
-    connect_after(sigName: "handle-hangup-and-accept", callback: (($obj: GdbusModemVoiceSkeleton, invocation: Gio.DBusMethodInvocation) => boolean)): number
+    on(sigName: "handle-hangup-and-accept", callback: (invocation: Gio.DBusMethodInvocation) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-hangup-and-accept", callback: (invocation: Gio.DBusMethodInvocation) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-hangup-and-accept", callback: (invocation: Gio.DBusMethodInvocation) => void): NodeJS.EventEmitter
     emit(sigName: "handle-hangup-and-accept", invocation: Gio.DBusMethodInvocation): void
-    on(sigName: "handle-hangup-and-accept", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-hangup-and-accept", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-hangup-and-accept", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "handle-hold-and-accept", callback: (($obj: GdbusModemVoiceSkeleton, invocation: Gio.DBusMethodInvocation) => boolean)): number
-    connect_after(sigName: "handle-hold-and-accept", callback: (($obj: GdbusModemVoiceSkeleton, invocation: Gio.DBusMethodInvocation) => boolean)): number
+    on(sigName: "handle-hold-and-accept", callback: (invocation: Gio.DBusMethodInvocation) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-hold-and-accept", callback: (invocation: Gio.DBusMethodInvocation) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-hold-and-accept", callback: (invocation: Gio.DBusMethodInvocation) => void): NodeJS.EventEmitter
     emit(sigName: "handle-hold-and-accept", invocation: Gio.DBusMethodInvocation): void
-    on(sigName: "handle-hold-and-accept", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-hold-and-accept", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-hold-and-accept", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "handle-list-calls", callback: (($obj: GdbusModemVoiceSkeleton, invocation: Gio.DBusMethodInvocation) => boolean)): number
-    connect_after(sigName: "handle-list-calls", callback: (($obj: GdbusModemVoiceSkeleton, invocation: Gio.DBusMethodInvocation) => boolean)): number
+    on(sigName: "handle-list-calls", callback: (invocation: Gio.DBusMethodInvocation) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-list-calls", callback: (invocation: Gio.DBusMethodInvocation) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-list-calls", callback: (invocation: Gio.DBusMethodInvocation) => void): NodeJS.EventEmitter
     emit(sigName: "handle-list-calls", invocation: Gio.DBusMethodInvocation): void
-    on(sigName: "handle-list-calls", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-list-calls", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-list-calls", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "handle-transfer", callback: (($obj: GdbusModemVoiceSkeleton, invocation: Gio.DBusMethodInvocation) => boolean)): number
-    connect_after(sigName: "handle-transfer", callback: (($obj: GdbusModemVoiceSkeleton, invocation: Gio.DBusMethodInvocation) => boolean)): number
+    on(sigName: "handle-transfer", callback: (invocation: Gio.DBusMethodInvocation) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-transfer", callback: (invocation: Gio.DBusMethodInvocation) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-transfer", callback: (invocation: Gio.DBusMethodInvocation) => void): NodeJS.EventEmitter
     emit(sigName: "handle-transfer", invocation: Gio.DBusMethodInvocation): void
-    on(sigName: "handle-transfer", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-transfer", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-transfer", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::g-flags", callback: (($obj: GdbusModemVoiceSkeleton, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::g-flags", callback: (($obj: GdbusModemVoiceSkeleton, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::g-flags", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -8713,16 +7677,16 @@ export class GdbusModemVoiceSkeleton {
 export interface GdbusObjectManagerClient_ConstructProps extends Gio.DBusObjectManagerClient_ConstructProps {
 }
 export class GdbusObjectManagerClient {
-    /* Properties of Gio.DBusObjectManagerClient */
+    /* Properties of Gio-2.0.Gio.DBusObjectManagerClient */
     readonly nameOwner: string
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Gio.DBusObjectManagerClient */
+    /* Methods of Gio-2.0.Gio.DBusObjectManagerClient */
     getConnection(): Gio.DBusConnection
     getFlags(): Gio.DBusObjectManagerClientFlags
     getName(): string
     getNameOwner(): string | null
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -8744,85 +7708,55 @@ export class GdbusObjectManagerClient {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of Gio.AsyncInitable */
+    /* Methods of Gio-2.0.Gio.AsyncInitable */
     initAsync(ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     initFinish(res: Gio.AsyncResult): boolean
     newFinish(res: Gio.AsyncResult): GObject.Object
-    /* Methods of Gio.DBusObjectManager */
+    /* Methods of Gio-2.0.Gio.DBusObjectManager */
     getInterface(objectPath: string, interfaceName: string): Gio.DBusInterface
     getObject(objectPath: string): Gio.DBusObject
     getObjectPath(): string
     getObjects(): Gio.DBusObject[]
-    /* Methods of Gio.Initable */
+    /* Methods of Gio-2.0.Gio.Initable */
     init(cancellable?: Gio.Cancellable | null): boolean
-    /* Virtual methods of ModemManager.GdbusObjectManagerClient */
-    vfuncInitAsync(ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    vfuncInitFinish(res: Gio.AsyncResult): boolean
-    vfuncGetInterface(objectPath: string, interfaceName: string): Gio.DBusInterface
-    vfuncGetObject(objectPath: string): Gio.DBusObject
-    vfuncGetObjectPath(): string
-    vfuncGetObjects(): Gio.DBusObject[]
-    vfuncInterfaceAdded(object: Gio.DBusObject, interface: Gio.DBusInterface): void
-    vfuncInterfaceRemoved(object: Gio.DBusObject, interface: Gio.DBusInterface): void
-    vfuncObjectAdded(object: Gio.DBusObject): void
-    vfuncObjectRemoved(object: Gio.DBusObject): void
-    vfuncInit(cancellable?: Gio.Cancellable | null): boolean
-    /* Virtual methods of Gio.DBusObjectManagerClient */
-    vfuncInterfaceProxyPropertiesChanged(objectProxy: Gio.DBusObjectProxy, interfaceProxy: Gio.DBusProxy, changedProperties: GLib.Variant, invalidatedProperties: string): void
-    vfuncInterfaceProxySignal(objectProxy: Gio.DBusObjectProxy, interfaceProxy: Gio.DBusProxy, senderName: string, signalName: string, parameters: GLib.Variant): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gio.DBusObjectManagerClient */
+    /* Signals of Gio-2.0.Gio.DBusObjectManagerClient */
     connect(sigName: "interface-proxy-properties-changed", callback: (($obj: GdbusObjectManagerClient, objectProxy: Gio.DBusObjectProxy, interfaceProxy: Gio.DBusProxy, changedProperties: GLib.Variant, invalidatedProperties: string[]) => void)): number
-    connect_after(sigName: "interface-proxy-properties-changed", callback: (($obj: GdbusObjectManagerClient, objectProxy: Gio.DBusObjectProxy, interfaceProxy: Gio.DBusProxy, changedProperties: GLib.Variant, invalidatedProperties: string[]) => void)): number
+    on(sigName: "interface-proxy-properties-changed", callback: (objectProxy: Gio.DBusObjectProxy, interfaceProxy: Gio.DBusProxy, changedProperties: GLib.Variant, invalidatedProperties: string[]) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "interface-proxy-properties-changed", callback: (objectProxy: Gio.DBusObjectProxy, interfaceProxy: Gio.DBusProxy, changedProperties: GLib.Variant, invalidatedProperties: string[]) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "interface-proxy-properties-changed", callback: (objectProxy: Gio.DBusObjectProxy, interfaceProxy: Gio.DBusProxy, changedProperties: GLib.Variant, invalidatedProperties: string[]) => void): NodeJS.EventEmitter
     emit(sigName: "interface-proxy-properties-changed", objectProxy: Gio.DBusObjectProxy, interfaceProxy: Gio.DBusProxy, changedProperties: GLib.Variant, invalidatedProperties: string[]): void
-    on(sigName: "interface-proxy-properties-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "interface-proxy-properties-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "interface-proxy-properties-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "interface-proxy-signal", callback: (($obj: GdbusObjectManagerClient, objectProxy: Gio.DBusObjectProxy, interfaceProxy: Gio.DBusProxy, senderName: string, signalName: string, parameters: GLib.Variant) => void)): number
-    connect_after(sigName: "interface-proxy-signal", callback: (($obj: GdbusObjectManagerClient, objectProxy: Gio.DBusObjectProxy, interfaceProxy: Gio.DBusProxy, senderName: string, signalName: string, parameters: GLib.Variant) => void)): number
+    on(sigName: "interface-proxy-signal", callback: (objectProxy: Gio.DBusObjectProxy, interfaceProxy: Gio.DBusProxy, senderName: string, signalName: string, parameters: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "interface-proxy-signal", callback: (objectProxy: Gio.DBusObjectProxy, interfaceProxy: Gio.DBusProxy, senderName: string, signalName: string, parameters: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "interface-proxy-signal", callback: (objectProxy: Gio.DBusObjectProxy, interfaceProxy: Gio.DBusProxy, senderName: string, signalName: string, parameters: GLib.Variant) => void): NodeJS.EventEmitter
     emit(sigName: "interface-proxy-signal", objectProxy: Gio.DBusObjectProxy, interfaceProxy: Gio.DBusProxy, senderName: string, signalName: string, parameters: GLib.Variant): void
-    on(sigName: "interface-proxy-signal", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "interface-proxy-signal", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "interface-proxy-signal", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: GdbusObjectManagerClient, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: GdbusObjectManagerClient, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of Gio.DBusObjectManager */
+    /* Signals of Gio-2.0.Gio.DBusObjectManager */
     connect(sigName: "interface-added", callback: (($obj: GdbusObjectManagerClient, object: Gio.DBusObject, interface: Gio.DBusInterface) => void)): number
-    connect_after(sigName: "interface-added", callback: (($obj: GdbusObjectManagerClient, object: Gio.DBusObject, interface: Gio.DBusInterface) => void)): number
+    on(sigName: "interface-added", callback: (object: Gio.DBusObject, interface: Gio.DBusInterface) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "interface-added", callback: (object: Gio.DBusObject, interface: Gio.DBusInterface) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "interface-added", callback: (object: Gio.DBusObject, interface: Gio.DBusInterface) => void): NodeJS.EventEmitter
     emit(sigName: "interface-added", object: Gio.DBusObject, interface: Gio.DBusInterface): void
-    on(sigName: "interface-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "interface-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "interface-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "interface-removed", callback: (($obj: GdbusObjectManagerClient, object: Gio.DBusObject, interface: Gio.DBusInterface) => void)): number
-    connect_after(sigName: "interface-removed", callback: (($obj: GdbusObjectManagerClient, object: Gio.DBusObject, interface: Gio.DBusInterface) => void)): number
+    on(sigName: "interface-removed", callback: (object: Gio.DBusObject, interface: Gio.DBusInterface) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "interface-removed", callback: (object: Gio.DBusObject, interface: Gio.DBusInterface) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "interface-removed", callback: (object: Gio.DBusObject, interface: Gio.DBusInterface) => void): NodeJS.EventEmitter
     emit(sigName: "interface-removed", object: Gio.DBusObject, interface: Gio.DBusInterface): void
-    on(sigName: "interface-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "interface-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "interface-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "object-added", callback: (($obj: GdbusObjectManagerClient, object: Gio.DBusObject) => void)): number
-    connect_after(sigName: "object-added", callback: (($obj: GdbusObjectManagerClient, object: Gio.DBusObject) => void)): number
+    on(sigName: "object-added", callback: (object: Gio.DBusObject) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "object-added", callback: (object: Gio.DBusObject) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "object-added", callback: (object: Gio.DBusObject) => void): NodeJS.EventEmitter
     emit(sigName: "object-added", object: Gio.DBusObject): void
-    on(sigName: "object-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "object-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "object-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "object-removed", callback: (($obj: GdbusObjectManagerClient, object: Gio.DBusObject) => void)): number
-    connect_after(sigName: "object-removed", callback: (($obj: GdbusObjectManagerClient, object: Gio.DBusObject) => void)): number
+    on(sigName: "object-removed", callback: (object: Gio.DBusObject) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "object-removed", callback: (object: Gio.DBusObject) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "object-removed", callback: (object: Gio.DBusObject) => void): NodeJS.EventEmitter
     emit(sigName: "object-removed", object: Gio.DBusObject): void
-    on(sigName: "object-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "object-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "object-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::name-owner", callback: (($obj: GdbusObjectManagerClient, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::name-owner", callback: (($obj: GdbusObjectManagerClient, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::name-owner", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -8867,7 +7801,7 @@ export interface GdbusObjectProxy_ConstructProps extends Gio.DBusObjectProxy_Con
     modem3gppUssd?: GdbusModem3gppUssd
 }
 export class GdbusObjectProxy {
-    /* Properties of ModemManager.GdbusObject */
+    /* Properties of ModemManager-1.0.ModemManager.GdbusObject */
     modem: GdbusModem
     modemCdma: GdbusModemCdma
     modemFirmware: GdbusModemFirmware
@@ -8880,11 +7814,11 @@ export class GdbusObjectProxy {
     modemVoice: GdbusModemVoice
     modem3gpp: GdbusModem3gpp
     modem3gppUssd: GdbusModem3gppUssd
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Gio.DBusObjectProxy */
+    /* Methods of Gio-2.0.Gio.DBusObjectProxy */
     getConnection(): Gio.DBusConnection
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -8906,11 +7840,11 @@ export class GdbusObjectProxy {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of Gio.DBusObject */
+    /* Methods of Gio-2.0.Gio.DBusObject */
     getInterface(interfaceName: string): Gio.DBusInterface | null
     getInterfaces(): Gio.DBusInterface[]
     getObjectPath(): string
-    /* Methods of ModemManager.GdbusObject */
+    /* Methods of ModemManager-1.0.ModemManager.GdbusObject */
     getModem(): GdbusModem | null
     getModem3gpp(): GdbusModem3gpp | null
     getModem3gppUssd(): GdbusModem3gppUssd | null
@@ -8923,40 +7857,23 @@ export class GdbusObjectProxy {
     getModemSimple(): GdbusModemSimple | null
     getModemTime(): GdbusModemTime | null
     getModemVoice(): GdbusModemVoice | null
-    /* Virtual methods of ModemManager.GdbusObjectProxy */
-    vfuncGetInterface(interfaceName: string): Gio.DBusInterface | null
-    vfuncGetInterfaces(): Gio.DBusInterface[]
-    vfuncGetObjectPath(): string
-    vfuncInterfaceAdded(interface: Gio.DBusInterface): void
-    vfuncInterfaceRemoved(interface: Gio.DBusInterface): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: GdbusObjectProxy, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: GdbusObjectProxy, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of Gio.DBusObject */
+    /* Signals of Gio-2.0.Gio.DBusObject */
     connect(sigName: "interface-added", callback: (($obj: GdbusObjectProxy, interface: Gio.DBusInterface) => void)): number
-    connect_after(sigName: "interface-added", callback: (($obj: GdbusObjectProxy, interface: Gio.DBusInterface) => void)): number
+    on(sigName: "interface-added", callback: (interface: Gio.DBusInterface) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "interface-added", callback: (interface: Gio.DBusInterface) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "interface-added", callback: (interface: Gio.DBusInterface) => void): NodeJS.EventEmitter
     emit(sigName: "interface-added", interface: Gio.DBusInterface): void
-    on(sigName: "interface-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "interface-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "interface-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "interface-removed", callback: (($obj: GdbusObjectProxy, interface: Gio.DBusInterface) => void)): number
-    connect_after(sigName: "interface-removed", callback: (($obj: GdbusObjectProxy, interface: Gio.DBusInterface) => void)): number
+    on(sigName: "interface-removed", callback: (interface: Gio.DBusInterface) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "interface-removed", callback: (interface: Gio.DBusInterface) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "interface-removed", callback: (interface: Gio.DBusInterface) => void): NodeJS.EventEmitter
     emit(sigName: "interface-removed", interface: Gio.DBusInterface): void
-    on(sigName: "interface-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "interface-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "interface-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::modem", callback: (($obj: GdbusObjectProxy, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::modem", callback: (($obj: GdbusObjectProxy, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::modem", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -9046,9 +7963,9 @@ export interface GdbusObjectSkeleton_ConstructProps extends Gio.DBusObjectSkelet
     modem3gppUssd?: GdbusModem3gppUssd
 }
 export class GdbusObjectSkeleton {
-    /* Properties of Gio.DBusObjectSkeleton */
+    /* Properties of Gio-2.0.Gio.DBusObjectSkeleton */
     gObjectPath: string
-    /* Properties of ModemManager.GdbusObject */
+    /* Properties of ModemManager-1.0.ModemManager.GdbusObject */
     modem: GdbusModem
     modemCdma: GdbusModemCdma
     modemFirmware: GdbusModemFirmware
@@ -9061,9 +7978,9 @@ export class GdbusObjectSkeleton {
     modemVoice: GdbusModemVoice
     modem3gpp: GdbusModem3gpp
     modem3gppUssd: GdbusModem3gppUssd
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of ModemManager.GdbusObjectSkeleton */
+    /* Methods of ModemManager-1.0.ModemManager.GdbusObjectSkeleton */
     setModem(interface?: GdbusModem | null): void
     setModem3gpp(interface?: GdbusModem3gpp | null): void
     setModem3gppUssd(interface?: GdbusModem3gppUssd | null): void
@@ -9076,13 +7993,13 @@ export class GdbusObjectSkeleton {
     setModemSimple(interface?: GdbusModemSimple | null): void
     setModemTime(interface?: GdbusModemTime | null): void
     setModemVoice(interface?: GdbusModemVoice | null): void
-    /* Methods of Gio.DBusObjectSkeleton */
+    /* Methods of Gio-2.0.Gio.DBusObjectSkeleton */
     addInterface(interface: Gio.DBusInterfaceSkeleton): void
     flush(): void
     removeInterface(interface: Gio.DBusInterfaceSkeleton): void
     removeInterfaceByName(interfaceName: string): void
     setObjectPath(objectPath: string): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -9104,11 +8021,11 @@ export class GdbusObjectSkeleton {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of Gio.DBusObject */
+    /* Methods of Gio-2.0.Gio.DBusObject */
     getInterface(interfaceName: string): Gio.DBusInterface | null
     getInterfaces(): Gio.DBusInterface[]
     getObjectPath(): string
-    /* Methods of ModemManager.GdbusObject */
+    /* Methods of ModemManager-1.0.ModemManager.GdbusObject */
     getModem(): GdbusModem | null
     getModem3gpp(): GdbusModem3gpp | null
     getModem3gppUssd(): GdbusModem3gppUssd | null
@@ -9121,49 +8038,29 @@ export class GdbusObjectSkeleton {
     getModemSimple(): GdbusModemSimple | null
     getModemTime(): GdbusModemTime | null
     getModemVoice(): GdbusModemVoice | null
-    /* Virtual methods of ModemManager.GdbusObjectSkeleton */
-    vfuncGetInterface(interfaceName: string): Gio.DBusInterface | null
-    vfuncGetInterfaces(): Gio.DBusInterface[]
-    vfuncGetObjectPath(): string
-    vfuncInterfaceAdded(interface: Gio.DBusInterface): void
-    vfuncInterfaceRemoved(interface: Gio.DBusInterface): void
-    /* Virtual methods of Gio.DBusObjectSkeleton */
-    vfuncAuthorizeMethod(interface: Gio.DBusInterfaceSkeleton, invocation: Gio.DBusMethodInvocation): boolean
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gio.DBusObjectSkeleton */
+    /* Signals of Gio-2.0.Gio.DBusObjectSkeleton */
     connect(sigName: "authorize-method", callback: (($obj: GdbusObjectSkeleton, interface: Gio.DBusInterfaceSkeleton, invocation: Gio.DBusMethodInvocation) => boolean)): number
-    connect_after(sigName: "authorize-method", callback: (($obj: GdbusObjectSkeleton, interface: Gio.DBusInterfaceSkeleton, invocation: Gio.DBusMethodInvocation) => boolean)): number
+    on(sigName: "authorize-method", callback: (interface: Gio.DBusInterfaceSkeleton, invocation: Gio.DBusMethodInvocation) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "authorize-method", callback: (interface: Gio.DBusInterfaceSkeleton, invocation: Gio.DBusMethodInvocation) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "authorize-method", callback: (interface: Gio.DBusInterfaceSkeleton, invocation: Gio.DBusMethodInvocation) => void): NodeJS.EventEmitter
     emit(sigName: "authorize-method", interface: Gio.DBusInterfaceSkeleton, invocation: Gio.DBusMethodInvocation): void
-    on(sigName: "authorize-method", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "authorize-method", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "authorize-method", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: GdbusObjectSkeleton, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: GdbusObjectSkeleton, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of Gio.DBusObject */
+    /* Signals of Gio-2.0.Gio.DBusObject */
     connect(sigName: "interface-added", callback: (($obj: GdbusObjectSkeleton, interface: Gio.DBusInterface) => void)): number
-    connect_after(sigName: "interface-added", callback: (($obj: GdbusObjectSkeleton, interface: Gio.DBusInterface) => void)): number
+    on(sigName: "interface-added", callback: (interface: Gio.DBusInterface) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "interface-added", callback: (interface: Gio.DBusInterface) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "interface-added", callback: (interface: Gio.DBusInterface) => void): NodeJS.EventEmitter
     emit(sigName: "interface-added", interface: Gio.DBusInterface): void
-    on(sigName: "interface-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "interface-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "interface-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "interface-removed", callback: (($obj: GdbusObjectSkeleton, interface: Gio.DBusInterface) => void)): number
-    connect_after(sigName: "interface-removed", callback: (($obj: GdbusObjectSkeleton, interface: Gio.DBusInterface) => void)): number
+    on(sigName: "interface-removed", callback: (interface: Gio.DBusInterface) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "interface-removed", callback: (interface: Gio.DBusInterface) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "interface-removed", callback: (interface: Gio.DBusInterface) => void): NodeJS.EventEmitter
     emit(sigName: "interface-removed", interface: Gio.DBusInterface): void
-    on(sigName: "interface-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "interface-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "interface-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::g-object-path", callback: (($obj: GdbusObjectSkeleton, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::g-object-path", callback: (($obj: GdbusObjectSkeleton, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::g-object-path", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -9247,21 +8144,21 @@ export interface GdbusOrgFreedesktopModemManager1Proxy_ConstructProps extends Gi
     version?: string
 }
 export class GdbusOrgFreedesktopModemManager1Proxy {
-    /* Properties of Gio.DBusProxy */
+    /* Properties of Gio-2.0.Gio.DBusProxy */
     gDefaultTimeout: number
     gInterfaceInfo: Gio.DBusInterfaceInfo
     readonly gNameOwner: string
-    /* Properties of ModemManager.GdbusOrgFreedesktopModemManager1 */
+    /* Properties of ModemManager-1.0.ModemManager.GdbusOrgFreedesktopModemManager1 */
     version: string
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Gio.DBusProxy */
+    /* Methods of Gio-2.0.Gio.DBusProxy */
     call(methodName: string, parameters: GLib.Variant | null, flags: Gio.DBusCallFlags, timeoutMsec: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     callFinish(res: Gio.AsyncResult): GLib.Variant
     callSync(methodName: string, parameters: GLib.Variant | null, flags: Gio.DBusCallFlags, timeoutMsec: number, cancellable?: Gio.Cancellable | null): GLib.Variant
     callWithUnixFdList(methodName: string, parameters: GLib.Variant | null, flags: Gio.DBusCallFlags, timeoutMsec: number, fdList?: Gio.UnixFDList | null, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    callWithUnixFdListFinish(res: Gio.AsyncResult): [ /* returnType */ GLib.Variant, /* outFdList */ Gio.UnixFDList | null ]
-    callWithUnixFdListSync(methodName: string, parameters: GLib.Variant | null, flags: Gio.DBusCallFlags, timeoutMsec: number, fdList?: Gio.UnixFDList | null, cancellable?: Gio.Cancellable | null): [ /* returnType */ GLib.Variant, /* outFdList */ Gio.UnixFDList | null ]
+    callWithUnixFdListFinish(res: Gio.AsyncResult): { returnType: GLib.Variant, outFdList: Gio.UnixFDList | null }
+    callWithUnixFdListSync(methodName: string, parameters: GLib.Variant | null, flags: Gio.DBusCallFlags, timeoutMsec: number, fdList?: Gio.UnixFDList | null, cancellable?: Gio.Cancellable | null): { returnType: GLib.Variant, outFdList: Gio.UnixFDList | null }
     getCachedProperty(propertyName: string): GLib.Variant | null
     getCachedPropertyNames(): string[] | null
     getConnection(): Gio.DBusConnection
@@ -9275,7 +8172,7 @@ export class GdbusOrgFreedesktopModemManager1Proxy {
     setCachedProperty(propertyName: string, value?: GLib.Variant | null): void
     setDefaultTimeout(timeoutMsec: number): void
     setInterfaceInfo(info?: Gio.DBusInterfaceInfo | null): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -9297,17 +8194,17 @@ export class GdbusOrgFreedesktopModemManager1Proxy {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of Gio.AsyncInitable */
+    /* Methods of Gio-2.0.Gio.AsyncInitable */
     initAsync(ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     initFinish(res: Gio.AsyncResult): boolean
     newFinish(res: Gio.AsyncResult): GObject.Object
-    /* Methods of Gio.DBusInterface */
+    /* Methods of Gio-2.0.Gio.DBusInterface */
     getObject(): Gio.DBusObject | null
     getInfo(): Gio.DBusInterfaceInfo
     setObject(object?: Gio.DBusObject | null): void
-    /* Methods of Gio.Initable */
+    /* Methods of Gio-2.0.Gio.Initable */
     init(cancellable?: Gio.Cancellable | null): boolean
-    /* Methods of ModemManager.GdbusOrgFreedesktopModemManager1 */
+    /* Methods of ModemManager-1.0.ModemManager.GdbusOrgFreedesktopModemManager1 */
     callInhibitDevice(argUid: string, argInhibit: boolean, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     callInhibitDeviceFinish(res: Gio.AsyncResult): boolean
     callInhibitDeviceSync(argUid: string, argInhibit: boolean, cancellable?: Gio.Cancellable | null): boolean
@@ -9324,73 +8221,44 @@ export class GdbusOrgFreedesktopModemManager1Proxy {
     completeReportKernelEvent(invocation: Gio.DBusMethodInvocation): void
     completeScanDevices(invocation: Gio.DBusMethodInvocation): void
     completeSetLogging(invocation: Gio.DBusMethodInvocation): void
-    /* Virtual methods of ModemManager.GdbusOrgFreedesktopModemManager1Proxy */
-    vfuncInitAsync(ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    vfuncInitFinish(res: Gio.AsyncResult): boolean
-    vfuncDupObject(): Gio.DBusObject | null
-    vfuncGetInfo(): Gio.DBusInterfaceInfo
-    vfuncSetObject(object?: Gio.DBusObject | null): void
-    vfuncInit(cancellable?: Gio.Cancellable | null): boolean
-    vfuncHandleInhibitDevice(invocation: Gio.DBusMethodInvocation, argUid: string, argInhibit: boolean): boolean
-    vfuncHandleReportKernelEvent(invocation: Gio.DBusMethodInvocation, argProperties: GLib.Variant): boolean
-    vfuncHandleScanDevices(invocation: Gio.DBusMethodInvocation): boolean
-    vfuncHandleSetLogging(invocation: Gio.DBusMethodInvocation, argLevel: string): boolean
-    /* Virtual methods of Gio.DBusProxy */
-    vfuncGPropertiesChanged(changedProperties: GLib.Variant, invalidatedProperties: string): void
-    vfuncGSignal(senderName: string, signalName: string, parameters: GLib.Variant): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gio.DBusProxy */
+    /* Signals of Gio-2.0.Gio.DBusProxy */
     connect(sigName: "g-properties-changed", callback: (($obj: GdbusOrgFreedesktopModemManager1Proxy, changedProperties: GLib.Variant, invalidatedProperties: string[]) => void)): number
-    connect_after(sigName: "g-properties-changed", callback: (($obj: GdbusOrgFreedesktopModemManager1Proxy, changedProperties: GLib.Variant, invalidatedProperties: string[]) => void)): number
+    on(sigName: "g-properties-changed", callback: (changedProperties: GLib.Variant, invalidatedProperties: string[]) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "g-properties-changed", callback: (changedProperties: GLib.Variant, invalidatedProperties: string[]) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "g-properties-changed", callback: (changedProperties: GLib.Variant, invalidatedProperties: string[]) => void): NodeJS.EventEmitter
     emit(sigName: "g-properties-changed", changedProperties: GLib.Variant, invalidatedProperties: string[]): void
-    on(sigName: "g-properties-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "g-properties-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "g-properties-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "g-signal", callback: (($obj: GdbusOrgFreedesktopModemManager1Proxy, senderName: string | null, signalName: string, parameters: GLib.Variant) => void)): number
-    connect_after(sigName: "g-signal", callback: (($obj: GdbusOrgFreedesktopModemManager1Proxy, senderName: string | null, signalName: string, parameters: GLib.Variant) => void)): number
+    on(sigName: "g-signal", callback: (senderName: string | null, signalName: string, parameters: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "g-signal", callback: (senderName: string | null, signalName: string, parameters: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "g-signal", callback: (senderName: string | null, signalName: string, parameters: GLib.Variant) => void): NodeJS.EventEmitter
     emit(sigName: "g-signal", senderName: string | null, signalName: string, parameters: GLib.Variant): void
-    on(sigName: "g-signal", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "g-signal", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "g-signal", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: GdbusOrgFreedesktopModemManager1Proxy, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: GdbusOrgFreedesktopModemManager1Proxy, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of ModemManager.GdbusOrgFreedesktopModemManager1 */
+    /* Signals of ModemManager-1.0.ModemManager.GdbusOrgFreedesktopModemManager1 */
     connect(sigName: "handle-inhibit-device", callback: (($obj: GdbusOrgFreedesktopModemManager1Proxy, invocation: Gio.DBusMethodInvocation, argUid: string, argInhibit: boolean) => boolean)): number
-    connect_after(sigName: "handle-inhibit-device", callback: (($obj: GdbusOrgFreedesktopModemManager1Proxy, invocation: Gio.DBusMethodInvocation, argUid: string, argInhibit: boolean) => boolean)): number
+    on(sigName: "handle-inhibit-device", callback: (invocation: Gio.DBusMethodInvocation, argUid: string, argInhibit: boolean) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-inhibit-device", callback: (invocation: Gio.DBusMethodInvocation, argUid: string, argInhibit: boolean) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-inhibit-device", callback: (invocation: Gio.DBusMethodInvocation, argUid: string, argInhibit: boolean) => void): NodeJS.EventEmitter
     emit(sigName: "handle-inhibit-device", invocation: Gio.DBusMethodInvocation, argUid: string, argInhibit: boolean): void
-    on(sigName: "handle-inhibit-device", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-inhibit-device", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-inhibit-device", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "handle-report-kernel-event", callback: (($obj: GdbusOrgFreedesktopModemManager1Proxy, invocation: Gio.DBusMethodInvocation, argProperties: GLib.Variant) => boolean)): number
-    connect_after(sigName: "handle-report-kernel-event", callback: (($obj: GdbusOrgFreedesktopModemManager1Proxy, invocation: Gio.DBusMethodInvocation, argProperties: GLib.Variant) => boolean)): number
+    on(sigName: "handle-report-kernel-event", callback: (invocation: Gio.DBusMethodInvocation, argProperties: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-report-kernel-event", callback: (invocation: Gio.DBusMethodInvocation, argProperties: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-report-kernel-event", callback: (invocation: Gio.DBusMethodInvocation, argProperties: GLib.Variant) => void): NodeJS.EventEmitter
     emit(sigName: "handle-report-kernel-event", invocation: Gio.DBusMethodInvocation, argProperties: GLib.Variant): void
-    on(sigName: "handle-report-kernel-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-report-kernel-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-report-kernel-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "handle-scan-devices", callback: (($obj: GdbusOrgFreedesktopModemManager1Proxy, invocation: Gio.DBusMethodInvocation) => boolean)): number
-    connect_after(sigName: "handle-scan-devices", callback: (($obj: GdbusOrgFreedesktopModemManager1Proxy, invocation: Gio.DBusMethodInvocation) => boolean)): number
+    on(sigName: "handle-scan-devices", callback: (invocation: Gio.DBusMethodInvocation) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-scan-devices", callback: (invocation: Gio.DBusMethodInvocation) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-scan-devices", callback: (invocation: Gio.DBusMethodInvocation) => void): NodeJS.EventEmitter
     emit(sigName: "handle-scan-devices", invocation: Gio.DBusMethodInvocation): void
-    on(sigName: "handle-scan-devices", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-scan-devices", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-scan-devices", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "handle-set-logging", callback: (($obj: GdbusOrgFreedesktopModemManager1Proxy, invocation: Gio.DBusMethodInvocation, argLevel: string) => boolean)): number
-    connect_after(sigName: "handle-set-logging", callback: (($obj: GdbusOrgFreedesktopModemManager1Proxy, invocation: Gio.DBusMethodInvocation, argLevel: string) => boolean)): number
+    on(sigName: "handle-set-logging", callback: (invocation: Gio.DBusMethodInvocation, argLevel: string) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-set-logging", callback: (invocation: Gio.DBusMethodInvocation, argLevel: string) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-set-logging", callback: (invocation: Gio.DBusMethodInvocation, argLevel: string) => void): NodeJS.EventEmitter
     emit(sigName: "handle-set-logging", invocation: Gio.DBusMethodInvocation, argLevel: string): void
-    on(sigName: "handle-set-logging", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-set-logging", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-set-logging", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::g-default-timeout", callback: (($obj: GdbusOrgFreedesktopModemManager1Proxy, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::g-default-timeout", callback: (($obj: GdbusOrgFreedesktopModemManager1Proxy, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::g-default-timeout", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -9440,13 +8308,13 @@ export interface GdbusOrgFreedesktopModemManager1Skeleton_ConstructProps extends
     version?: string
 }
 export class GdbusOrgFreedesktopModemManager1Skeleton {
-    /* Properties of Gio.DBusInterfaceSkeleton */
+    /* Properties of Gio-2.0.Gio.DBusInterfaceSkeleton */
     gFlags: Gio.DBusInterfaceSkeletonFlags
-    /* Properties of ModemManager.GdbusOrgFreedesktopModemManager1 */
+    /* Properties of ModemManager-1.0.ModemManager.GdbusOrgFreedesktopModemManager1 */
     version: string
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Gio.DBusInterfaceSkeleton */
+    /* Methods of Gio-2.0.Gio.DBusInterfaceSkeleton */
     export(connection: Gio.DBusConnection, objectPath: string): boolean
     flush(): void
     getConnection(): Gio.DBusConnection | null
@@ -9459,7 +8327,7 @@ export class GdbusOrgFreedesktopModemManager1Skeleton {
     setFlags(flags: Gio.DBusInterfaceSkeletonFlags): void
     unexport(): void
     unexportFromConnection(connection: Gio.DBusConnection): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -9481,10 +8349,10 @@ export class GdbusOrgFreedesktopModemManager1Skeleton {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of Gio.DBusInterface */
+    /* Methods of Gio-2.0.Gio.DBusInterface */
     getObject(): Gio.DBusObject | null
     setObject(object?: Gio.DBusObject | null): void
-    /* Methods of ModemManager.GdbusOrgFreedesktopModemManager1 */
+    /* Methods of ModemManager-1.0.ModemManager.GdbusOrgFreedesktopModemManager1 */
     callInhibitDevice(argUid: string, argInhibit: boolean, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     callInhibitDeviceFinish(res: Gio.AsyncResult): boolean
     callInhibitDeviceSync(argUid: string, argInhibit: boolean, cancellable?: Gio.Cancellable | null): boolean
@@ -9501,66 +8369,39 @@ export class GdbusOrgFreedesktopModemManager1Skeleton {
     completeReportKernelEvent(invocation: Gio.DBusMethodInvocation): void
     completeScanDevices(invocation: Gio.DBusMethodInvocation): void
     completeSetLogging(invocation: Gio.DBusMethodInvocation): void
-    /* Virtual methods of ModemManager.GdbusOrgFreedesktopModemManager1Skeleton */
-    vfuncDupObject(): Gio.DBusObject | null
-    vfuncGetInfo(): Gio.DBusInterfaceInfo
-    vfuncSetObject(object?: Gio.DBusObject | null): void
-    vfuncHandleInhibitDevice(invocation: Gio.DBusMethodInvocation, argUid: string, argInhibit: boolean): boolean
-    vfuncHandleReportKernelEvent(invocation: Gio.DBusMethodInvocation, argProperties: GLib.Variant): boolean
-    vfuncHandleScanDevices(invocation: Gio.DBusMethodInvocation): boolean
-    vfuncHandleSetLogging(invocation: Gio.DBusMethodInvocation, argLevel: string): boolean
-    /* Virtual methods of Gio.DBusInterfaceSkeleton */
-    vfuncFlush(): void
-    vfuncGAuthorizeMethod(invocation: Gio.DBusMethodInvocation): boolean
-    vfuncGetInfo(): Gio.DBusInterfaceInfo
-    vfuncGetProperties(): GLib.Variant
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gio.DBusInterfaceSkeleton */
+    /* Signals of Gio-2.0.Gio.DBusInterfaceSkeleton */
     connect(sigName: "g-authorize-method", callback: (($obj: GdbusOrgFreedesktopModemManager1Skeleton, invocation: Gio.DBusMethodInvocation) => boolean)): number
-    connect_after(sigName: "g-authorize-method", callback: (($obj: GdbusOrgFreedesktopModemManager1Skeleton, invocation: Gio.DBusMethodInvocation) => boolean)): number
+    on(sigName: "g-authorize-method", callback: (invocation: Gio.DBusMethodInvocation) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "g-authorize-method", callback: (invocation: Gio.DBusMethodInvocation) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "g-authorize-method", callback: (invocation: Gio.DBusMethodInvocation) => void): NodeJS.EventEmitter
     emit(sigName: "g-authorize-method", invocation: Gio.DBusMethodInvocation): void
-    on(sigName: "g-authorize-method", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "g-authorize-method", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "g-authorize-method", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: GdbusOrgFreedesktopModemManager1Skeleton, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: GdbusOrgFreedesktopModemManager1Skeleton, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of ModemManager.GdbusOrgFreedesktopModemManager1 */
+    /* Signals of ModemManager-1.0.ModemManager.GdbusOrgFreedesktopModemManager1 */
     connect(sigName: "handle-inhibit-device", callback: (($obj: GdbusOrgFreedesktopModemManager1Skeleton, invocation: Gio.DBusMethodInvocation, argUid: string, argInhibit: boolean) => boolean)): number
-    connect_after(sigName: "handle-inhibit-device", callback: (($obj: GdbusOrgFreedesktopModemManager1Skeleton, invocation: Gio.DBusMethodInvocation, argUid: string, argInhibit: boolean) => boolean)): number
+    on(sigName: "handle-inhibit-device", callback: (invocation: Gio.DBusMethodInvocation, argUid: string, argInhibit: boolean) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-inhibit-device", callback: (invocation: Gio.DBusMethodInvocation, argUid: string, argInhibit: boolean) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-inhibit-device", callback: (invocation: Gio.DBusMethodInvocation, argUid: string, argInhibit: boolean) => void): NodeJS.EventEmitter
     emit(sigName: "handle-inhibit-device", invocation: Gio.DBusMethodInvocation, argUid: string, argInhibit: boolean): void
-    on(sigName: "handle-inhibit-device", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-inhibit-device", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-inhibit-device", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "handle-report-kernel-event", callback: (($obj: GdbusOrgFreedesktopModemManager1Skeleton, invocation: Gio.DBusMethodInvocation, argProperties: GLib.Variant) => boolean)): number
-    connect_after(sigName: "handle-report-kernel-event", callback: (($obj: GdbusOrgFreedesktopModemManager1Skeleton, invocation: Gio.DBusMethodInvocation, argProperties: GLib.Variant) => boolean)): number
+    on(sigName: "handle-report-kernel-event", callback: (invocation: Gio.DBusMethodInvocation, argProperties: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-report-kernel-event", callback: (invocation: Gio.DBusMethodInvocation, argProperties: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-report-kernel-event", callback: (invocation: Gio.DBusMethodInvocation, argProperties: GLib.Variant) => void): NodeJS.EventEmitter
     emit(sigName: "handle-report-kernel-event", invocation: Gio.DBusMethodInvocation, argProperties: GLib.Variant): void
-    on(sigName: "handle-report-kernel-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-report-kernel-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-report-kernel-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "handle-scan-devices", callback: (($obj: GdbusOrgFreedesktopModemManager1Skeleton, invocation: Gio.DBusMethodInvocation) => boolean)): number
-    connect_after(sigName: "handle-scan-devices", callback: (($obj: GdbusOrgFreedesktopModemManager1Skeleton, invocation: Gio.DBusMethodInvocation) => boolean)): number
+    on(sigName: "handle-scan-devices", callback: (invocation: Gio.DBusMethodInvocation) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-scan-devices", callback: (invocation: Gio.DBusMethodInvocation) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-scan-devices", callback: (invocation: Gio.DBusMethodInvocation) => void): NodeJS.EventEmitter
     emit(sigName: "handle-scan-devices", invocation: Gio.DBusMethodInvocation): void
-    on(sigName: "handle-scan-devices", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-scan-devices", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-scan-devices", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "handle-set-logging", callback: (($obj: GdbusOrgFreedesktopModemManager1Skeleton, invocation: Gio.DBusMethodInvocation, argLevel: string) => boolean)): number
-    connect_after(sigName: "handle-set-logging", callback: (($obj: GdbusOrgFreedesktopModemManager1Skeleton, invocation: Gio.DBusMethodInvocation, argLevel: string) => boolean)): number
+    on(sigName: "handle-set-logging", callback: (invocation: Gio.DBusMethodInvocation, argLevel: string) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-set-logging", callback: (invocation: Gio.DBusMethodInvocation, argLevel: string) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-set-logging", callback: (invocation: Gio.DBusMethodInvocation, argLevel: string) => void): NodeJS.EventEmitter
     emit(sigName: "handle-set-logging", invocation: Gio.DBusMethodInvocation, argLevel: string): void
-    on(sigName: "handle-set-logging", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-set-logging", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-set-logging", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::g-flags", callback: (($obj: GdbusOrgFreedesktopModemManager1Skeleton, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::g-flags", callback: (($obj: GdbusOrgFreedesktopModemManager1Skeleton, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::g-flags", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -9597,11 +8438,11 @@ export interface GdbusSimProxy_ConstructProps extends Gio.DBusProxy_ConstructPro
     simIdentifier?: string
 }
 export class GdbusSimProxy {
-    /* Properties of Gio.DBusProxy */
+    /* Properties of Gio-2.0.Gio.DBusProxy */
     gDefaultTimeout: number
     gInterfaceInfo: Gio.DBusInterfaceInfo
     readonly gNameOwner: string
-    /* Properties of ModemManager.GdbusSim */
+    /* Properties of ModemManager-1.0.ModemManager.GdbusSim */
     active: boolean
     eid: string
     emergencyNumbers: string[]
@@ -9609,15 +8450,15 @@ export class GdbusSimProxy {
     operatorIdentifier: string
     operatorName: string
     simIdentifier: string
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Gio.DBusProxy */
+    /* Methods of Gio-2.0.Gio.DBusProxy */
     call(methodName: string, parameters: GLib.Variant | null, flags: Gio.DBusCallFlags, timeoutMsec: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     callFinish(res: Gio.AsyncResult): GLib.Variant
     callSync(methodName: string, parameters: GLib.Variant | null, flags: Gio.DBusCallFlags, timeoutMsec: number, cancellable?: Gio.Cancellable | null): GLib.Variant
     callWithUnixFdList(methodName: string, parameters: GLib.Variant | null, flags: Gio.DBusCallFlags, timeoutMsec: number, fdList?: Gio.UnixFDList | null, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    callWithUnixFdListFinish(res: Gio.AsyncResult): [ /* returnType */ GLib.Variant, /* outFdList */ Gio.UnixFDList | null ]
-    callWithUnixFdListSync(methodName: string, parameters: GLib.Variant | null, flags: Gio.DBusCallFlags, timeoutMsec: number, fdList?: Gio.UnixFDList | null, cancellable?: Gio.Cancellable | null): [ /* returnType */ GLib.Variant, /* outFdList */ Gio.UnixFDList | null ]
+    callWithUnixFdListFinish(res: Gio.AsyncResult): { returnType: GLib.Variant, outFdList: Gio.UnixFDList | null }
+    callWithUnixFdListSync(methodName: string, parameters: GLib.Variant | null, flags: Gio.DBusCallFlags, timeoutMsec: number, fdList?: Gio.UnixFDList | null, cancellable?: Gio.Cancellable | null): { returnType: GLib.Variant, outFdList: Gio.UnixFDList | null }
     getCachedProperty(propertyName: string): GLib.Variant | null
     getCachedPropertyNames(): string[] | null
     getConnection(): Gio.DBusConnection
@@ -9631,7 +8472,7 @@ export class GdbusSimProxy {
     setCachedProperty(propertyName: string, value?: GLib.Variant | null): void
     setDefaultTimeout(timeoutMsec: number): void
     setInterfaceInfo(info?: Gio.DBusInterfaceInfo | null): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -9653,17 +8494,17 @@ export class GdbusSimProxy {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of Gio.AsyncInitable */
+    /* Methods of Gio-2.0.Gio.AsyncInitable */
     initAsync(ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     initFinish(res: Gio.AsyncResult): boolean
     newFinish(res: Gio.AsyncResult): GObject.Object
-    /* Methods of Gio.DBusInterface */
+    /* Methods of Gio-2.0.Gio.DBusInterface */
     getObject(): Gio.DBusObject | null
     getInfo(): Gio.DBusInterfaceInfo
     setObject(object?: Gio.DBusObject | null): void
-    /* Methods of Gio.Initable */
+    /* Methods of Gio-2.0.Gio.Initable */
     init(cancellable?: Gio.Cancellable | null): boolean
-    /* Methods of ModemManager.GdbusSim */
+    /* Methods of ModemManager-1.0.ModemManager.GdbusSim */
     callChangePin(argOldPin: string, argNewPin: string, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     callChangePinFinish(res: Gio.AsyncResult): boolean
     callChangePinSync(argOldPin: string, argNewPin: string, cancellable?: Gio.Cancellable | null): boolean
@@ -9680,73 +8521,44 @@ export class GdbusSimProxy {
     completeEnablePin(invocation: Gio.DBusMethodInvocation): void
     completeSendPin(invocation: Gio.DBusMethodInvocation): void
     completeSendPuk(invocation: Gio.DBusMethodInvocation): void
-    /* Virtual methods of ModemManager.GdbusSimProxy */
-    vfuncInitAsync(ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    vfuncInitFinish(res: Gio.AsyncResult): boolean
-    vfuncDupObject(): Gio.DBusObject | null
-    vfuncGetInfo(): Gio.DBusInterfaceInfo
-    vfuncSetObject(object?: Gio.DBusObject | null): void
-    vfuncInit(cancellable?: Gio.Cancellable | null): boolean
-    vfuncHandleChangePin(invocation: Gio.DBusMethodInvocation, argOldPin: string, argNewPin: string): boolean
-    vfuncHandleEnablePin(invocation: Gio.DBusMethodInvocation, argPin: string, argEnabled: boolean): boolean
-    vfuncHandleSendPin(invocation: Gio.DBusMethodInvocation, argPin: string): boolean
-    vfuncHandleSendPuk(invocation: Gio.DBusMethodInvocation, argPuk: string, argPin: string): boolean
-    /* Virtual methods of Gio.DBusProxy */
-    vfuncGPropertiesChanged(changedProperties: GLib.Variant, invalidatedProperties: string): void
-    vfuncGSignal(senderName: string, signalName: string, parameters: GLib.Variant): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gio.DBusProxy */
+    /* Signals of Gio-2.0.Gio.DBusProxy */
     connect(sigName: "g-properties-changed", callback: (($obj: GdbusSimProxy, changedProperties: GLib.Variant, invalidatedProperties: string[]) => void)): number
-    connect_after(sigName: "g-properties-changed", callback: (($obj: GdbusSimProxy, changedProperties: GLib.Variant, invalidatedProperties: string[]) => void)): number
+    on(sigName: "g-properties-changed", callback: (changedProperties: GLib.Variant, invalidatedProperties: string[]) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "g-properties-changed", callback: (changedProperties: GLib.Variant, invalidatedProperties: string[]) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "g-properties-changed", callback: (changedProperties: GLib.Variant, invalidatedProperties: string[]) => void): NodeJS.EventEmitter
     emit(sigName: "g-properties-changed", changedProperties: GLib.Variant, invalidatedProperties: string[]): void
-    on(sigName: "g-properties-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "g-properties-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "g-properties-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "g-signal", callback: (($obj: GdbusSimProxy, senderName: string | null, signalName: string, parameters: GLib.Variant) => void)): number
-    connect_after(sigName: "g-signal", callback: (($obj: GdbusSimProxy, senderName: string | null, signalName: string, parameters: GLib.Variant) => void)): number
+    on(sigName: "g-signal", callback: (senderName: string | null, signalName: string, parameters: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "g-signal", callback: (senderName: string | null, signalName: string, parameters: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "g-signal", callback: (senderName: string | null, signalName: string, parameters: GLib.Variant) => void): NodeJS.EventEmitter
     emit(sigName: "g-signal", senderName: string | null, signalName: string, parameters: GLib.Variant): void
-    on(sigName: "g-signal", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "g-signal", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "g-signal", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: GdbusSimProxy, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: GdbusSimProxy, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of ModemManager.GdbusSim */
+    /* Signals of ModemManager-1.0.ModemManager.GdbusSim */
     connect(sigName: "handle-change-pin", callback: (($obj: GdbusSimProxy, invocation: Gio.DBusMethodInvocation, argOldPin: string, argNewPin: string) => boolean)): number
-    connect_after(sigName: "handle-change-pin", callback: (($obj: GdbusSimProxy, invocation: Gio.DBusMethodInvocation, argOldPin: string, argNewPin: string) => boolean)): number
+    on(sigName: "handle-change-pin", callback: (invocation: Gio.DBusMethodInvocation, argOldPin: string, argNewPin: string) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-change-pin", callback: (invocation: Gio.DBusMethodInvocation, argOldPin: string, argNewPin: string) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-change-pin", callback: (invocation: Gio.DBusMethodInvocation, argOldPin: string, argNewPin: string) => void): NodeJS.EventEmitter
     emit(sigName: "handle-change-pin", invocation: Gio.DBusMethodInvocation, argOldPin: string, argNewPin: string): void
-    on(sigName: "handle-change-pin", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-change-pin", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-change-pin", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "handle-enable-pin", callback: (($obj: GdbusSimProxy, invocation: Gio.DBusMethodInvocation, argPin: string, argEnabled: boolean) => boolean)): number
-    connect_after(sigName: "handle-enable-pin", callback: (($obj: GdbusSimProxy, invocation: Gio.DBusMethodInvocation, argPin: string, argEnabled: boolean) => boolean)): number
+    on(sigName: "handle-enable-pin", callback: (invocation: Gio.DBusMethodInvocation, argPin: string, argEnabled: boolean) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-enable-pin", callback: (invocation: Gio.DBusMethodInvocation, argPin: string, argEnabled: boolean) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-enable-pin", callback: (invocation: Gio.DBusMethodInvocation, argPin: string, argEnabled: boolean) => void): NodeJS.EventEmitter
     emit(sigName: "handle-enable-pin", invocation: Gio.DBusMethodInvocation, argPin: string, argEnabled: boolean): void
-    on(sigName: "handle-enable-pin", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-enable-pin", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-enable-pin", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "handle-send-pin", callback: (($obj: GdbusSimProxy, invocation: Gio.DBusMethodInvocation, argPin: string) => boolean)): number
-    connect_after(sigName: "handle-send-pin", callback: (($obj: GdbusSimProxy, invocation: Gio.DBusMethodInvocation, argPin: string) => boolean)): number
+    on(sigName: "handle-send-pin", callback: (invocation: Gio.DBusMethodInvocation, argPin: string) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-send-pin", callback: (invocation: Gio.DBusMethodInvocation, argPin: string) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-send-pin", callback: (invocation: Gio.DBusMethodInvocation, argPin: string) => void): NodeJS.EventEmitter
     emit(sigName: "handle-send-pin", invocation: Gio.DBusMethodInvocation, argPin: string): void
-    on(sigName: "handle-send-pin", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-send-pin", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-send-pin", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "handle-send-puk", callback: (($obj: GdbusSimProxy, invocation: Gio.DBusMethodInvocation, argPuk: string, argPin: string) => boolean)): number
-    connect_after(sigName: "handle-send-puk", callback: (($obj: GdbusSimProxy, invocation: Gio.DBusMethodInvocation, argPuk: string, argPin: string) => boolean)): number
+    on(sigName: "handle-send-puk", callback: (invocation: Gio.DBusMethodInvocation, argPuk: string, argPin: string) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-send-puk", callback: (invocation: Gio.DBusMethodInvocation, argPuk: string, argPin: string) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-send-puk", callback: (invocation: Gio.DBusMethodInvocation, argPuk: string, argPin: string) => void): NodeJS.EventEmitter
     emit(sigName: "handle-send-puk", invocation: Gio.DBusMethodInvocation, argPuk: string, argPin: string): void
-    on(sigName: "handle-send-puk", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-send-puk", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-send-puk", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::g-default-timeout", callback: (($obj: GdbusSimProxy, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::g-default-timeout", callback: (($obj: GdbusSimProxy, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::g-default-timeout", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -9832,9 +8644,9 @@ export interface GdbusSimSkeleton_ConstructProps extends Gio.DBusInterfaceSkelet
     simIdentifier?: string
 }
 export class GdbusSimSkeleton {
-    /* Properties of Gio.DBusInterfaceSkeleton */
+    /* Properties of Gio-2.0.Gio.DBusInterfaceSkeleton */
     gFlags: Gio.DBusInterfaceSkeletonFlags
-    /* Properties of ModemManager.GdbusSim */
+    /* Properties of ModemManager-1.0.ModemManager.GdbusSim */
     active: boolean
     eid: string
     emergencyNumbers: string[]
@@ -9842,9 +8654,9 @@ export class GdbusSimSkeleton {
     operatorIdentifier: string
     operatorName: string
     simIdentifier: string
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Gio.DBusInterfaceSkeleton */
+    /* Methods of Gio-2.0.Gio.DBusInterfaceSkeleton */
     export(connection: Gio.DBusConnection, objectPath: string): boolean
     flush(): void
     getConnection(): Gio.DBusConnection | null
@@ -9857,7 +8669,7 @@ export class GdbusSimSkeleton {
     setFlags(flags: Gio.DBusInterfaceSkeletonFlags): void
     unexport(): void
     unexportFromConnection(connection: Gio.DBusConnection): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -9879,10 +8691,10 @@ export class GdbusSimSkeleton {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of Gio.DBusInterface */
+    /* Methods of Gio-2.0.Gio.DBusInterface */
     getObject(): Gio.DBusObject | null
     setObject(object?: Gio.DBusObject | null): void
-    /* Methods of ModemManager.GdbusSim */
+    /* Methods of ModemManager-1.0.ModemManager.GdbusSim */
     callChangePin(argOldPin: string, argNewPin: string, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     callChangePinFinish(res: Gio.AsyncResult): boolean
     callChangePinSync(argOldPin: string, argNewPin: string, cancellable?: Gio.Cancellable | null): boolean
@@ -9899,66 +8711,39 @@ export class GdbusSimSkeleton {
     completeEnablePin(invocation: Gio.DBusMethodInvocation): void
     completeSendPin(invocation: Gio.DBusMethodInvocation): void
     completeSendPuk(invocation: Gio.DBusMethodInvocation): void
-    /* Virtual methods of ModemManager.GdbusSimSkeleton */
-    vfuncDupObject(): Gio.DBusObject | null
-    vfuncGetInfo(): Gio.DBusInterfaceInfo
-    vfuncSetObject(object?: Gio.DBusObject | null): void
-    vfuncHandleChangePin(invocation: Gio.DBusMethodInvocation, argOldPin: string, argNewPin: string): boolean
-    vfuncHandleEnablePin(invocation: Gio.DBusMethodInvocation, argPin: string, argEnabled: boolean): boolean
-    vfuncHandleSendPin(invocation: Gio.DBusMethodInvocation, argPin: string): boolean
-    vfuncHandleSendPuk(invocation: Gio.DBusMethodInvocation, argPuk: string, argPin: string): boolean
-    /* Virtual methods of Gio.DBusInterfaceSkeleton */
-    vfuncFlush(): void
-    vfuncGAuthorizeMethod(invocation: Gio.DBusMethodInvocation): boolean
-    vfuncGetInfo(): Gio.DBusInterfaceInfo
-    vfuncGetProperties(): GLib.Variant
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gio.DBusInterfaceSkeleton */
+    /* Signals of Gio-2.0.Gio.DBusInterfaceSkeleton */
     connect(sigName: "g-authorize-method", callback: (($obj: GdbusSimSkeleton, invocation: Gio.DBusMethodInvocation) => boolean)): number
-    connect_after(sigName: "g-authorize-method", callback: (($obj: GdbusSimSkeleton, invocation: Gio.DBusMethodInvocation) => boolean)): number
+    on(sigName: "g-authorize-method", callback: (invocation: Gio.DBusMethodInvocation) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "g-authorize-method", callback: (invocation: Gio.DBusMethodInvocation) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "g-authorize-method", callback: (invocation: Gio.DBusMethodInvocation) => void): NodeJS.EventEmitter
     emit(sigName: "g-authorize-method", invocation: Gio.DBusMethodInvocation): void
-    on(sigName: "g-authorize-method", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "g-authorize-method", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "g-authorize-method", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: GdbusSimSkeleton, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: GdbusSimSkeleton, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of ModemManager.GdbusSim */
+    /* Signals of ModemManager-1.0.ModemManager.GdbusSim */
     connect(sigName: "handle-change-pin", callback: (($obj: GdbusSimSkeleton, invocation: Gio.DBusMethodInvocation, argOldPin: string, argNewPin: string) => boolean)): number
-    connect_after(sigName: "handle-change-pin", callback: (($obj: GdbusSimSkeleton, invocation: Gio.DBusMethodInvocation, argOldPin: string, argNewPin: string) => boolean)): number
+    on(sigName: "handle-change-pin", callback: (invocation: Gio.DBusMethodInvocation, argOldPin: string, argNewPin: string) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-change-pin", callback: (invocation: Gio.DBusMethodInvocation, argOldPin: string, argNewPin: string) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-change-pin", callback: (invocation: Gio.DBusMethodInvocation, argOldPin: string, argNewPin: string) => void): NodeJS.EventEmitter
     emit(sigName: "handle-change-pin", invocation: Gio.DBusMethodInvocation, argOldPin: string, argNewPin: string): void
-    on(sigName: "handle-change-pin", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-change-pin", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-change-pin", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "handle-enable-pin", callback: (($obj: GdbusSimSkeleton, invocation: Gio.DBusMethodInvocation, argPin: string, argEnabled: boolean) => boolean)): number
-    connect_after(sigName: "handle-enable-pin", callback: (($obj: GdbusSimSkeleton, invocation: Gio.DBusMethodInvocation, argPin: string, argEnabled: boolean) => boolean)): number
+    on(sigName: "handle-enable-pin", callback: (invocation: Gio.DBusMethodInvocation, argPin: string, argEnabled: boolean) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-enable-pin", callback: (invocation: Gio.DBusMethodInvocation, argPin: string, argEnabled: boolean) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-enable-pin", callback: (invocation: Gio.DBusMethodInvocation, argPin: string, argEnabled: boolean) => void): NodeJS.EventEmitter
     emit(sigName: "handle-enable-pin", invocation: Gio.DBusMethodInvocation, argPin: string, argEnabled: boolean): void
-    on(sigName: "handle-enable-pin", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-enable-pin", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-enable-pin", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "handle-send-pin", callback: (($obj: GdbusSimSkeleton, invocation: Gio.DBusMethodInvocation, argPin: string) => boolean)): number
-    connect_after(sigName: "handle-send-pin", callback: (($obj: GdbusSimSkeleton, invocation: Gio.DBusMethodInvocation, argPin: string) => boolean)): number
+    on(sigName: "handle-send-pin", callback: (invocation: Gio.DBusMethodInvocation, argPin: string) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-send-pin", callback: (invocation: Gio.DBusMethodInvocation, argPin: string) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-send-pin", callback: (invocation: Gio.DBusMethodInvocation, argPin: string) => void): NodeJS.EventEmitter
     emit(sigName: "handle-send-pin", invocation: Gio.DBusMethodInvocation, argPin: string): void
-    on(sigName: "handle-send-pin", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-send-pin", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-send-pin", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "handle-send-puk", callback: (($obj: GdbusSimSkeleton, invocation: Gio.DBusMethodInvocation, argPuk: string, argPin: string) => boolean)): number
-    connect_after(sigName: "handle-send-puk", callback: (($obj: GdbusSimSkeleton, invocation: Gio.DBusMethodInvocation, argPuk: string, argPin: string) => boolean)): number
+    on(sigName: "handle-send-puk", callback: (invocation: Gio.DBusMethodInvocation, argPuk: string, argPin: string) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-send-puk", callback: (invocation: Gio.DBusMethodInvocation, argPuk: string, argPin: string) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-send-puk", callback: (invocation: Gio.DBusMethodInvocation, argPuk: string, argPin: string) => void): NodeJS.EventEmitter
     emit(sigName: "handle-send-puk", invocation: Gio.DBusMethodInvocation, argPuk: string, argPin: string): void
-    on(sigName: "handle-send-puk", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-send-puk", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-send-puk", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::g-flags", callback: (($obj: GdbusSimSkeleton, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::g-flags", callback: (($obj: GdbusSimSkeleton, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::g-flags", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -10034,11 +8819,11 @@ export interface GdbusSmsProxy_ConstructProps extends Gio.DBusProxy_ConstructPro
     validity?: GLib.Variant
 }
 export class GdbusSmsProxy {
-    /* Properties of Gio.DBusProxy */
+    /* Properties of Gio-2.0.Gio.DBusProxy */
     gDefaultTimeout: number
     gInterfaceInfo: Gio.DBusInterfaceInfo
     readonly gNameOwner: string
-    /* Properties of ModemManager.GdbusSms */
+    /* Properties of ModemManager-1.0.ModemManager.GdbusSms */
     "class": number
     data: GLib.Variant
     deliveryReportRequest: boolean
@@ -10055,15 +8840,15 @@ export class GdbusSmsProxy {
     text: string
     timestamp: string
     validity: GLib.Variant
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Gio.DBusProxy */
+    /* Methods of Gio-2.0.Gio.DBusProxy */
     call(methodName: string, parameters: GLib.Variant | null, flags: Gio.DBusCallFlags, timeoutMsec: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     callFinish(res: Gio.AsyncResult): GLib.Variant
     callSync(methodName: string, parameters: GLib.Variant | null, flags: Gio.DBusCallFlags, timeoutMsec: number, cancellable?: Gio.Cancellable | null): GLib.Variant
     callWithUnixFdList(methodName: string, parameters: GLib.Variant | null, flags: Gio.DBusCallFlags, timeoutMsec: number, fdList?: Gio.UnixFDList | null, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    callWithUnixFdListFinish(res: Gio.AsyncResult): [ /* returnType */ GLib.Variant, /* outFdList */ Gio.UnixFDList | null ]
-    callWithUnixFdListSync(methodName: string, parameters: GLib.Variant | null, flags: Gio.DBusCallFlags, timeoutMsec: number, fdList?: Gio.UnixFDList | null, cancellable?: Gio.Cancellable | null): [ /* returnType */ GLib.Variant, /* outFdList */ Gio.UnixFDList | null ]
+    callWithUnixFdListFinish(res: Gio.AsyncResult): { returnType: GLib.Variant, outFdList: Gio.UnixFDList | null }
+    callWithUnixFdListSync(methodName: string, parameters: GLib.Variant | null, flags: Gio.DBusCallFlags, timeoutMsec: number, fdList?: Gio.UnixFDList | null, cancellable?: Gio.Cancellable | null): { returnType: GLib.Variant, outFdList: Gio.UnixFDList | null }
     getCachedProperty(propertyName: string): GLib.Variant | null
     getCachedPropertyNames(): string[] | null
     getConnection(): Gio.DBusConnection
@@ -10077,7 +8862,7 @@ export class GdbusSmsProxy {
     setCachedProperty(propertyName: string, value?: GLib.Variant | null): void
     setDefaultTimeout(timeoutMsec: number): void
     setInterfaceInfo(info?: Gio.DBusInterfaceInfo | null): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -10099,17 +8884,17 @@ export class GdbusSmsProxy {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of Gio.AsyncInitable */
+    /* Methods of Gio-2.0.Gio.AsyncInitable */
     initAsync(ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     initFinish(res: Gio.AsyncResult): boolean
     newFinish(res: Gio.AsyncResult): GObject.Object
-    /* Methods of Gio.DBusInterface */
+    /* Methods of Gio-2.0.Gio.DBusInterface */
     getObject(): Gio.DBusObject | null
     getInfo(): Gio.DBusInterfaceInfo
     setObject(object?: Gio.DBusObject | null): void
-    /* Methods of Gio.Initable */
+    /* Methods of Gio-2.0.Gio.Initable */
     init(cancellable?: Gio.Cancellable | null): boolean
-    /* Methods of ModemManager.GdbusSms */
+    /* Methods of ModemManager-1.0.ModemManager.GdbusSms */
     callSend(cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     callSendFinish(res: Gio.AsyncResult): boolean
     callSendSync(cancellable?: Gio.Cancellable | null): boolean
@@ -10118,59 +8903,34 @@ export class GdbusSmsProxy {
     callStoreSync(argStorage: number, cancellable?: Gio.Cancellable | null): boolean
     completeSend(invocation: Gio.DBusMethodInvocation): void
     completeStore(invocation: Gio.DBusMethodInvocation): void
-    /* Virtual methods of ModemManager.GdbusSmsProxy */
-    vfuncInitAsync(ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    vfuncInitFinish(res: Gio.AsyncResult): boolean
-    vfuncDupObject(): Gio.DBusObject | null
-    vfuncGetInfo(): Gio.DBusInterfaceInfo
-    vfuncSetObject(object?: Gio.DBusObject | null): void
-    vfuncInit(cancellable?: Gio.Cancellable | null): boolean
-    vfuncHandleSend(invocation: Gio.DBusMethodInvocation): boolean
-    vfuncHandleStore(invocation: Gio.DBusMethodInvocation, argStorage: number): boolean
-    /* Virtual methods of Gio.DBusProxy */
-    vfuncGPropertiesChanged(changedProperties: GLib.Variant, invalidatedProperties: string): void
-    vfuncGSignal(senderName: string, signalName: string, parameters: GLib.Variant): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gio.DBusProxy */
+    /* Signals of Gio-2.0.Gio.DBusProxy */
     connect(sigName: "g-properties-changed", callback: (($obj: GdbusSmsProxy, changedProperties: GLib.Variant, invalidatedProperties: string[]) => void)): number
-    connect_after(sigName: "g-properties-changed", callback: (($obj: GdbusSmsProxy, changedProperties: GLib.Variant, invalidatedProperties: string[]) => void)): number
+    on(sigName: "g-properties-changed", callback: (changedProperties: GLib.Variant, invalidatedProperties: string[]) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "g-properties-changed", callback: (changedProperties: GLib.Variant, invalidatedProperties: string[]) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "g-properties-changed", callback: (changedProperties: GLib.Variant, invalidatedProperties: string[]) => void): NodeJS.EventEmitter
     emit(sigName: "g-properties-changed", changedProperties: GLib.Variant, invalidatedProperties: string[]): void
-    on(sigName: "g-properties-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "g-properties-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "g-properties-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "g-signal", callback: (($obj: GdbusSmsProxy, senderName: string | null, signalName: string, parameters: GLib.Variant) => void)): number
-    connect_after(sigName: "g-signal", callback: (($obj: GdbusSmsProxy, senderName: string | null, signalName: string, parameters: GLib.Variant) => void)): number
+    on(sigName: "g-signal", callback: (senderName: string | null, signalName: string, parameters: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "g-signal", callback: (senderName: string | null, signalName: string, parameters: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "g-signal", callback: (senderName: string | null, signalName: string, parameters: GLib.Variant) => void): NodeJS.EventEmitter
     emit(sigName: "g-signal", senderName: string | null, signalName: string, parameters: GLib.Variant): void
-    on(sigName: "g-signal", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "g-signal", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "g-signal", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: GdbusSmsProxy, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: GdbusSmsProxy, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of ModemManager.GdbusSms */
+    /* Signals of ModemManager-1.0.ModemManager.GdbusSms */
     connect(sigName: "handle-send", callback: (($obj: GdbusSmsProxy, invocation: Gio.DBusMethodInvocation) => boolean)): number
-    connect_after(sigName: "handle-send", callback: (($obj: GdbusSmsProxy, invocation: Gio.DBusMethodInvocation) => boolean)): number
+    on(sigName: "handle-send", callback: (invocation: Gio.DBusMethodInvocation) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-send", callback: (invocation: Gio.DBusMethodInvocation) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-send", callback: (invocation: Gio.DBusMethodInvocation) => void): NodeJS.EventEmitter
     emit(sigName: "handle-send", invocation: Gio.DBusMethodInvocation): void
-    on(sigName: "handle-send", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-send", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-send", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "handle-store", callback: (($obj: GdbusSmsProxy, invocation: Gio.DBusMethodInvocation, argStorage: number) => boolean)): number
-    connect_after(sigName: "handle-store", callback: (($obj: GdbusSmsProxy, invocation: Gio.DBusMethodInvocation, argStorage: number) => boolean)): number
+    on(sigName: "handle-store", callback: (invocation: Gio.DBusMethodInvocation, argStorage: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-store", callback: (invocation: Gio.DBusMethodInvocation, argStorage: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-store", callback: (invocation: Gio.DBusMethodInvocation, argStorage: number) => void): NodeJS.EventEmitter
     emit(sigName: "handle-store", invocation: Gio.DBusMethodInvocation, argStorage: number): void
-    on(sigName: "handle-store", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-store", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-store", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::g-default-timeout", callback: (($obj: GdbusSmsProxy, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::g-default-timeout", callback: (($obj: GdbusSmsProxy, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::g-default-timeout", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -10310,9 +9070,9 @@ export interface GdbusSmsSkeleton_ConstructProps extends Gio.DBusInterfaceSkelet
     validity?: GLib.Variant
 }
 export class GdbusSmsSkeleton {
-    /* Properties of Gio.DBusInterfaceSkeleton */
+    /* Properties of Gio-2.0.Gio.DBusInterfaceSkeleton */
     gFlags: Gio.DBusInterfaceSkeletonFlags
-    /* Properties of ModemManager.GdbusSms */
+    /* Properties of ModemManager-1.0.ModemManager.GdbusSms */
     "class": number
     data: GLib.Variant
     deliveryReportRequest: boolean
@@ -10329,9 +9089,9 @@ export class GdbusSmsSkeleton {
     text: string
     timestamp: string
     validity: GLib.Variant
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Gio.DBusInterfaceSkeleton */
+    /* Methods of Gio-2.0.Gio.DBusInterfaceSkeleton */
     export(connection: Gio.DBusConnection, objectPath: string): boolean
     flush(): void
     getConnection(): Gio.DBusConnection | null
@@ -10344,7 +9104,7 @@ export class GdbusSmsSkeleton {
     setFlags(flags: Gio.DBusInterfaceSkeletonFlags): void
     unexport(): void
     unexportFromConnection(connection: Gio.DBusConnection): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -10366,10 +9126,10 @@ export class GdbusSmsSkeleton {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of Gio.DBusInterface */
+    /* Methods of Gio-2.0.Gio.DBusInterface */
     getObject(): Gio.DBusObject | null
     setObject(object?: Gio.DBusObject | null): void
-    /* Methods of ModemManager.GdbusSms */
+    /* Methods of ModemManager-1.0.ModemManager.GdbusSms */
     callSend(cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     callSendFinish(res: Gio.AsyncResult): boolean
     callSendSync(cancellable?: Gio.Cancellable | null): boolean
@@ -10378,52 +9138,29 @@ export class GdbusSmsSkeleton {
     callStoreSync(argStorage: number, cancellable?: Gio.Cancellable | null): boolean
     completeSend(invocation: Gio.DBusMethodInvocation): void
     completeStore(invocation: Gio.DBusMethodInvocation): void
-    /* Virtual methods of ModemManager.GdbusSmsSkeleton */
-    vfuncDupObject(): Gio.DBusObject | null
-    vfuncGetInfo(): Gio.DBusInterfaceInfo
-    vfuncSetObject(object?: Gio.DBusObject | null): void
-    vfuncHandleSend(invocation: Gio.DBusMethodInvocation): boolean
-    vfuncHandleStore(invocation: Gio.DBusMethodInvocation, argStorage: number): boolean
-    /* Virtual methods of Gio.DBusInterfaceSkeleton */
-    vfuncFlush(): void
-    vfuncGAuthorizeMethod(invocation: Gio.DBusMethodInvocation): boolean
-    vfuncGetInfo(): Gio.DBusInterfaceInfo
-    vfuncGetProperties(): GLib.Variant
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gio.DBusInterfaceSkeleton */
+    /* Signals of Gio-2.0.Gio.DBusInterfaceSkeleton */
     connect(sigName: "g-authorize-method", callback: (($obj: GdbusSmsSkeleton, invocation: Gio.DBusMethodInvocation) => boolean)): number
-    connect_after(sigName: "g-authorize-method", callback: (($obj: GdbusSmsSkeleton, invocation: Gio.DBusMethodInvocation) => boolean)): number
+    on(sigName: "g-authorize-method", callback: (invocation: Gio.DBusMethodInvocation) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "g-authorize-method", callback: (invocation: Gio.DBusMethodInvocation) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "g-authorize-method", callback: (invocation: Gio.DBusMethodInvocation) => void): NodeJS.EventEmitter
     emit(sigName: "g-authorize-method", invocation: Gio.DBusMethodInvocation): void
-    on(sigName: "g-authorize-method", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "g-authorize-method", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "g-authorize-method", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: GdbusSmsSkeleton, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: GdbusSmsSkeleton, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of ModemManager.GdbusSms */
+    /* Signals of ModemManager-1.0.ModemManager.GdbusSms */
     connect(sigName: "handle-send", callback: (($obj: GdbusSmsSkeleton, invocation: Gio.DBusMethodInvocation) => boolean)): number
-    connect_after(sigName: "handle-send", callback: (($obj: GdbusSmsSkeleton, invocation: Gio.DBusMethodInvocation) => boolean)): number
+    on(sigName: "handle-send", callback: (invocation: Gio.DBusMethodInvocation) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-send", callback: (invocation: Gio.DBusMethodInvocation) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-send", callback: (invocation: Gio.DBusMethodInvocation) => void): NodeJS.EventEmitter
     emit(sigName: "handle-send", invocation: Gio.DBusMethodInvocation): void
-    on(sigName: "handle-send", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-send", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-send", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "handle-store", callback: (($obj: GdbusSmsSkeleton, invocation: Gio.DBusMethodInvocation, argStorage: number) => boolean)): number
-    connect_after(sigName: "handle-store", callback: (($obj: GdbusSmsSkeleton, invocation: Gio.DBusMethodInvocation, argStorage: number) => boolean)): number
+    on(sigName: "handle-store", callback: (invocation: Gio.DBusMethodInvocation, argStorage: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-store", callback: (invocation: Gio.DBusMethodInvocation, argStorage: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-store", callback: (invocation: Gio.DBusMethodInvocation, argStorage: number) => void): NodeJS.EventEmitter
     emit(sigName: "handle-store", invocation: Gio.DBusMethodInvocation, argStorage: number): void
-    on(sigName: "handle-store", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-store", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-store", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::g-flags", callback: (($obj: GdbusSmsSkeleton, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::g-flags", callback: (($obj: GdbusSmsSkeleton, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::g-flags", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -10528,9 +9265,9 @@ export class GdbusSmsSkeleton {
 export interface KernelEventProperties_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class KernelEventProperties {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of ModemManager.KernelEventProperties */
+    /* Methods of ModemManager-1.0.ModemManager.KernelEventProperties */
     getAction(): string
     getName(): string
     getSubsystem(): string
@@ -10539,7 +9276,7 @@ export class KernelEventProperties {
     setName(name: string): void
     setSubsystem(subsystem: string): void
     setUid(uid: string): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -10561,21 +9298,12 @@ export class KernelEventProperties {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: KernelEventProperties, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: KernelEventProperties, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -10593,15 +9321,15 @@ export class KernelEventProperties {
 export interface Location3gpp_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class Location3gpp {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of ModemManager.Location3gpp */
+    /* Methods of ModemManager-1.0.ModemManager.Location3gpp */
     getCellId(): number
     getLocationAreaCode(): number
     getMobileCountryCode(): number
     getMobileNetworkCode(): number
     getTrackingAreaCode(): number
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -10623,21 +9351,12 @@ export class Location3gpp {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Location3gpp, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Location3gpp, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -10653,12 +9372,12 @@ export class Location3gpp {
 export interface LocationCdmaBs_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class LocationCdmaBs {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of ModemManager.LocationCdmaBs */
+    /* Methods of ModemManager-1.0.ModemManager.LocationCdmaBs */
     getLatitude(): number
     getLongitude(): number
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -10680,21 +9399,12 @@ export class LocationCdmaBs {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: LocationCdmaBs, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: LocationCdmaBs, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -10710,13 +9420,13 @@ export class LocationCdmaBs {
 export interface LocationGpsNmea_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class LocationGpsNmea {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of ModemManager.LocationGpsNmea */
+    /* Methods of ModemManager-1.0.ModemManager.LocationGpsNmea */
     buildFull(): string
     getTrace(traceType: string): string
     getTraces(): string[]
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -10738,21 +9448,12 @@ export class LocationGpsNmea {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: LocationGpsNmea, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: LocationGpsNmea, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -10768,14 +9469,14 @@ export class LocationGpsNmea {
 export interface LocationGpsRaw_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class LocationGpsRaw {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of ModemManager.LocationGpsRaw */
+    /* Methods of ModemManager-1.0.ModemManager.LocationGpsRaw */
     getAltitude(): number
     getLatitude(): number
     getLongitude(): number
     getUtcTime(): string
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -10797,21 +9498,12 @@ export class LocationGpsRaw {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: LocationGpsRaw, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: LocationGpsRaw, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -10827,11 +9519,11 @@ export class LocationGpsRaw {
 export interface Manager_ConstructProps extends GdbusObjectManagerClient_ConstructProps {
 }
 export class Manager {
-    /* Properties of Gio.DBusObjectManagerClient */
+    /* Properties of Gio-2.0.Gio.DBusObjectManagerClient */
     readonly nameOwner: string
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of ModemManager.Manager */
+    /* Methods of ModemManager-1.0.ModemManager.Manager */
     getProxy(): Gio.DBusProxy
     getVersion(): string
     inhibitDevice(uid: string, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
@@ -10850,12 +9542,12 @@ export class Manager {
     uninhibitDevice(uid: string, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     uninhibitDeviceFinish(res: Gio.AsyncResult): boolean
     uninhibitDeviceSync(uid: string, cancellable?: Gio.Cancellable | null): boolean
-    /* Methods of Gio.DBusObjectManagerClient */
+    /* Methods of Gio-2.0.Gio.DBusObjectManagerClient */
     getConnection(): Gio.DBusConnection
     getFlags(): Gio.DBusObjectManagerClientFlags
     getName(): string
     getNameOwner(): string | null
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -10877,85 +9569,55 @@ export class Manager {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of Gio.AsyncInitable */
+    /* Methods of Gio-2.0.Gio.AsyncInitable */
     initAsync(ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     initFinish(res: Gio.AsyncResult): boolean
     newFinish(res: Gio.AsyncResult): GObject.Object
-    /* Methods of Gio.DBusObjectManager */
+    /* Methods of Gio-2.0.Gio.DBusObjectManager */
     getInterface(objectPath: string, interfaceName: string): Gio.DBusInterface
     getObject(objectPath: string): Gio.DBusObject
     getObjectPath(): string
     getObjects(): Gio.DBusObject[]
-    /* Methods of Gio.Initable */
+    /* Methods of Gio-2.0.Gio.Initable */
     init(cancellable?: Gio.Cancellable | null): boolean
-    /* Virtual methods of ModemManager.GdbusObjectManagerClient */
-    vfuncInitAsync(ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    vfuncInitFinish(res: Gio.AsyncResult): boolean
-    vfuncGetInterface(objectPath: string, interfaceName: string): Gio.DBusInterface
-    vfuncGetObject(objectPath: string): Gio.DBusObject
-    vfuncGetObjectPath(): string
-    vfuncGetObjects(): Gio.DBusObject[]
-    vfuncInterfaceAdded(object: Gio.DBusObject, interface: Gio.DBusInterface): void
-    vfuncInterfaceRemoved(object: Gio.DBusObject, interface: Gio.DBusInterface): void
-    vfuncObjectAdded(object: Gio.DBusObject): void
-    vfuncObjectRemoved(object: Gio.DBusObject): void
-    vfuncInit(cancellable?: Gio.Cancellable | null): boolean
-    /* Virtual methods of Gio.DBusObjectManagerClient */
-    vfuncInterfaceProxyPropertiesChanged(objectProxy: Gio.DBusObjectProxy, interfaceProxy: Gio.DBusProxy, changedProperties: GLib.Variant, invalidatedProperties: string): void
-    vfuncInterfaceProxySignal(objectProxy: Gio.DBusObjectProxy, interfaceProxy: Gio.DBusProxy, senderName: string, signalName: string, parameters: GLib.Variant): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gio.DBusObjectManagerClient */
+    /* Signals of Gio-2.0.Gio.DBusObjectManagerClient */
     connect(sigName: "interface-proxy-properties-changed", callback: (($obj: Manager, objectProxy: Gio.DBusObjectProxy, interfaceProxy: Gio.DBusProxy, changedProperties: GLib.Variant, invalidatedProperties: string[]) => void)): number
-    connect_after(sigName: "interface-proxy-properties-changed", callback: (($obj: Manager, objectProxy: Gio.DBusObjectProxy, interfaceProxy: Gio.DBusProxy, changedProperties: GLib.Variant, invalidatedProperties: string[]) => void)): number
+    on(sigName: "interface-proxy-properties-changed", callback: (objectProxy: Gio.DBusObjectProxy, interfaceProxy: Gio.DBusProxy, changedProperties: GLib.Variant, invalidatedProperties: string[]) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "interface-proxy-properties-changed", callback: (objectProxy: Gio.DBusObjectProxy, interfaceProxy: Gio.DBusProxy, changedProperties: GLib.Variant, invalidatedProperties: string[]) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "interface-proxy-properties-changed", callback: (objectProxy: Gio.DBusObjectProxy, interfaceProxy: Gio.DBusProxy, changedProperties: GLib.Variant, invalidatedProperties: string[]) => void): NodeJS.EventEmitter
     emit(sigName: "interface-proxy-properties-changed", objectProxy: Gio.DBusObjectProxy, interfaceProxy: Gio.DBusProxy, changedProperties: GLib.Variant, invalidatedProperties: string[]): void
-    on(sigName: "interface-proxy-properties-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "interface-proxy-properties-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "interface-proxy-properties-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "interface-proxy-signal", callback: (($obj: Manager, objectProxy: Gio.DBusObjectProxy, interfaceProxy: Gio.DBusProxy, senderName: string, signalName: string, parameters: GLib.Variant) => void)): number
-    connect_after(sigName: "interface-proxy-signal", callback: (($obj: Manager, objectProxy: Gio.DBusObjectProxy, interfaceProxy: Gio.DBusProxy, senderName: string, signalName: string, parameters: GLib.Variant) => void)): number
+    on(sigName: "interface-proxy-signal", callback: (objectProxy: Gio.DBusObjectProxy, interfaceProxy: Gio.DBusProxy, senderName: string, signalName: string, parameters: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "interface-proxy-signal", callback: (objectProxy: Gio.DBusObjectProxy, interfaceProxy: Gio.DBusProxy, senderName: string, signalName: string, parameters: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "interface-proxy-signal", callback: (objectProxy: Gio.DBusObjectProxy, interfaceProxy: Gio.DBusProxy, senderName: string, signalName: string, parameters: GLib.Variant) => void): NodeJS.EventEmitter
     emit(sigName: "interface-proxy-signal", objectProxy: Gio.DBusObjectProxy, interfaceProxy: Gio.DBusProxy, senderName: string, signalName: string, parameters: GLib.Variant): void
-    on(sigName: "interface-proxy-signal", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "interface-proxy-signal", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "interface-proxy-signal", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Manager, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Manager, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of Gio.DBusObjectManager */
+    /* Signals of Gio-2.0.Gio.DBusObjectManager */
     connect(sigName: "interface-added", callback: (($obj: Manager, object: Gio.DBusObject, interface: Gio.DBusInterface) => void)): number
-    connect_after(sigName: "interface-added", callback: (($obj: Manager, object: Gio.DBusObject, interface: Gio.DBusInterface) => void)): number
+    on(sigName: "interface-added", callback: (object: Gio.DBusObject, interface: Gio.DBusInterface) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "interface-added", callback: (object: Gio.DBusObject, interface: Gio.DBusInterface) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "interface-added", callback: (object: Gio.DBusObject, interface: Gio.DBusInterface) => void): NodeJS.EventEmitter
     emit(sigName: "interface-added", object: Gio.DBusObject, interface: Gio.DBusInterface): void
-    on(sigName: "interface-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "interface-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "interface-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "interface-removed", callback: (($obj: Manager, object: Gio.DBusObject, interface: Gio.DBusInterface) => void)): number
-    connect_after(sigName: "interface-removed", callback: (($obj: Manager, object: Gio.DBusObject, interface: Gio.DBusInterface) => void)): number
+    on(sigName: "interface-removed", callback: (object: Gio.DBusObject, interface: Gio.DBusInterface) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "interface-removed", callback: (object: Gio.DBusObject, interface: Gio.DBusInterface) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "interface-removed", callback: (object: Gio.DBusObject, interface: Gio.DBusInterface) => void): NodeJS.EventEmitter
     emit(sigName: "interface-removed", object: Gio.DBusObject, interface: Gio.DBusInterface): void
-    on(sigName: "interface-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "interface-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "interface-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "object-added", callback: (($obj: Manager, object: Gio.DBusObject) => void)): number
-    connect_after(sigName: "object-added", callback: (($obj: Manager, object: Gio.DBusObject) => void)): number
+    on(sigName: "object-added", callback: (object: Gio.DBusObject) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "object-added", callback: (object: Gio.DBusObject) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "object-added", callback: (object: Gio.DBusObject) => void): NodeJS.EventEmitter
     emit(sigName: "object-added", object: Gio.DBusObject): void
-    on(sigName: "object-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "object-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "object-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "object-removed", callback: (($obj: Manager, object: Gio.DBusObject) => void)): number
-    connect_after(sigName: "object-removed", callback: (($obj: Manager, object: Gio.DBusObject) => void)): number
+    on(sigName: "object-removed", callback: (object: Gio.DBusObject) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "object-removed", callback: (object: Gio.DBusObject) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "object-removed", callback: (object: Gio.DBusObject) => void): NodeJS.EventEmitter
     emit(sigName: "object-removed", object: Gio.DBusObject): void
-    on(sigName: "object-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "object-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "object-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::name-owner", callback: (($obj: Manager, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::name-owner", callback: (($obj: Manager, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::name-owner", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -11019,11 +9681,11 @@ export interface Modem_ConstructProps extends GdbusModemProxy_ConstructProps {
     unlockRetries?: GLib.Variant
 }
 export class Modem {
-    /* Properties of Gio.DBusProxy */
+    /* Properties of Gio-2.0.Gio.DBusProxy */
     gDefaultTimeout: number
     gInterfaceInfo: Gio.DBusInterfaceInfo
     readonly gNameOwner: string
-    /* Properties of ModemManager.GdbusModem */
+    /* Properties of ModemManager-1.0.ModemManager.GdbusModem */
     accessTechnologies: number
     bearers: string[]
     carrierConfiguration: string
@@ -11058,9 +9720,9 @@ export class Modem {
     supportedModes: GLib.Variant
     unlockRequired: number
     unlockRetries: GLib.Variant
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of ModemManager.Modem */
+    /* Methods of ModemManager-1.0.ModemManager.Modem */
     command(cmd: string, timeout: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     commandFinish(res: Gio.AsyncResult): string
     commandSync(cmd: string, timeout: number, cancellable?: Gio.Cancellable | null): string
@@ -11100,9 +9762,9 @@ export class Modem {
     getBearerPaths(): string[]
     getCarrierConfiguration(): string
     getCarrierConfigurationRevision(): string
-    getCurrentBands(): [ /* returnType */ boolean, /* bands */ ModemBand[] ]
+    getCurrentBands(): { returnType: boolean, bands: ModemBand[] }
     getCurrentCapabilities(): ModemCapability
-    getCurrentModes(): [ /* returnType */ boolean, /* allowed */ ModemMode, /* preferred */ ModemMode ]
+    getCurrentModes(): { returnType: boolean, allowed: ModemMode, preferred: ModemMode }
     getDevice(): string
     getDeviceIdentifier(): string
     getDrivers(): string[]
@@ -11113,22 +9775,22 @@ export class Modem {
     getMaxBearers(): number
     getModel(): string
     getPlugin(): string
-    getPorts(): [ /* returnType */ boolean, /* ports */ ModemPortInfo[] ]
+    getPorts(): { returnType: boolean, ports: ModemPortInfo[] }
     getPowerState(): ModemPowerState
     getPrimaryPort(): string
     getPrimarySimSlot(): number
     getRevision(): string
-    getSignalQuality(): [ /* returnType */ number, /* recent */ boolean ]
+    getSignalQuality(): { returnType: number, recent: boolean }
     getSim(cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     getSimFinish(res: Gio.AsyncResult): Sim
     getSimSlotPaths(): string[]
     getSimSync(cancellable?: Gio.Cancellable | null): Sim
     getState(): ModemState
     getStateFailedReason(): ModemStateFailedReason
-    getSupportedBands(): [ /* returnType */ boolean, /* bands */ ModemBand[] ]
-    getSupportedCapabilities(): [ /* returnType */ boolean, /* capabilities */ ModemCapability[] ]
+    getSupportedBands(): { returnType: boolean, bands: ModemBand[] }
+    getSupportedCapabilities(): { returnType: boolean, capabilities: ModemCapability[] }
     getSupportedIpFamilies(): BearerIpFamily
-    getSupportedModes(): [ /* returnType */ boolean, /* modes */ ModemModeCombination[] ]
+    getSupportedModes(): { returnType: boolean, modes: ModemModeCombination[] }
     getUnlockRequired(): ModemLock
     getUnlockRetries(): UnlockRetries
     listBearers(cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
@@ -11137,11 +9799,11 @@ export class Modem {
     listSimSlots(cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     listSimSlotsFinish(res: Gio.AsyncResult): Sim[]
     listSimSlotsSync(cancellable?: Gio.Cancellable | null): Sim[]
-    peekCurrentBands(): [ /* returnType */ boolean, /* bands */ ModemBand[] ]
-    peekPorts(): [ /* returnType */ boolean, /* ports */ ModemPortInfo[] ]
-    peekSupportedBands(): [ /* returnType */ boolean, /* bands */ ModemBand[] ]
-    peekSupportedCapabilities(): [ /* returnType */ boolean, /* capabilities */ ModemCapability[] ]
-    peekSupportedModes(): [ /* returnType */ boolean, /* modes */ ModemModeCombination[] ]
+    peekCurrentBands(): { returnType: boolean, bands: ModemBand[] }
+    peekPorts(): { returnType: boolean, ports: ModemPortInfo[] }
+    peekSupportedBands(): { returnType: boolean, bands: ModemBand[] }
+    peekSupportedCapabilities(): { returnType: boolean, capabilities: ModemCapability[] }
+    peekSupportedModes(): { returnType: boolean, modes: ModemModeCombination[] }
     peekUnlockRetries(): UnlockRetries
     reset(cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     resetFinish(res: Gio.AsyncResult): boolean
@@ -11161,13 +9823,13 @@ export class Modem {
     setPrimarySimSlot(simSlot: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     setPrimarySimSlotFinish(res: Gio.AsyncResult): boolean
     setPrimarySimSlotSync(simSlot: number, cancellable?: Gio.Cancellable | null): boolean
-    /* Methods of Gio.DBusProxy */
+    /* Methods of Gio-2.0.Gio.DBusProxy */
     call(methodName: string, parameters: GLib.Variant | null, flags: Gio.DBusCallFlags, timeoutMsec: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     callFinish(res: Gio.AsyncResult): GLib.Variant
     callSync(methodName: string, parameters: GLib.Variant | null, flags: Gio.DBusCallFlags, timeoutMsec: number, cancellable?: Gio.Cancellable | null): GLib.Variant
     callWithUnixFdList(methodName: string, parameters: GLib.Variant | null, flags: Gio.DBusCallFlags, timeoutMsec: number, fdList?: Gio.UnixFDList | null, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    callWithUnixFdListFinish(res: Gio.AsyncResult): [ /* returnType */ GLib.Variant, /* outFdList */ Gio.UnixFDList | null ]
-    callWithUnixFdListSync(methodName: string, parameters: GLib.Variant | null, flags: Gio.DBusCallFlags, timeoutMsec: number, fdList?: Gio.UnixFDList | null, cancellable?: Gio.Cancellable | null): [ /* returnType */ GLib.Variant, /* outFdList */ Gio.UnixFDList | null ]
+    callWithUnixFdListFinish(res: Gio.AsyncResult): { returnType: GLib.Variant, outFdList: Gio.UnixFDList | null }
+    callWithUnixFdListSync(methodName: string, parameters: GLib.Variant | null, flags: Gio.DBusCallFlags, timeoutMsec: number, fdList?: Gio.UnixFDList | null, cancellable?: Gio.Cancellable | null): { returnType: GLib.Variant, outFdList: Gio.UnixFDList | null }
     getCachedProperty(propertyName: string): GLib.Variant | null
     getCachedPropertyNames(): string[] | null
     getConnection(): Gio.DBusConnection
@@ -11181,7 +9843,7 @@ export class Modem {
     setCachedProperty(propertyName: string, value?: GLib.Variant | null): void
     setDefaultTimeout(timeoutMsec: number): void
     setInterfaceInfo(info?: Gio.DBusInterfaceInfo | null): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -11203,23 +9865,23 @@ export class Modem {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of Gio.AsyncInitable */
+    /* Methods of Gio-2.0.Gio.AsyncInitable */
     initAsync(ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     initFinish(res: Gio.AsyncResult): boolean
     newFinish(res: Gio.AsyncResult): GObject.Object
-    /* Methods of Gio.DBusInterface */
+    /* Methods of Gio-2.0.Gio.DBusInterface */
     getObject(): Gio.DBusObject | null
     getInfo(): Gio.DBusInterfaceInfo
     setObject(object?: Gio.DBusObject | null): void
-    /* Methods of Gio.Initable */
+    /* Methods of Gio-2.0.Gio.Initable */
     init(cancellable?: Gio.Cancellable | null): boolean
-    /* Methods of ModemManager.GdbusModem */
+    /* Methods of ModemManager-1.0.ModemManager.GdbusModem */
     callCommand(argCmd: string, argTimeout: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    callCommandFinish(res: Gio.AsyncResult): [ /* returnType */ boolean, /* outResponse */ string | null ]
-    callCommandSync(argCmd: string, argTimeout: number, cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* outResponse */ string | null ]
+    callCommandFinish(res: Gio.AsyncResult): { returnType: boolean, outResponse: string | null }
+    callCommandSync(argCmd: string, argTimeout: number, cancellable?: Gio.Cancellable | null): { returnType: boolean, outResponse: string | null }
     callCreateBearer(argProperties: GLib.Variant, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    callCreateBearerFinish(res: Gio.AsyncResult): [ /* returnType */ boolean, /* outPath */ string | null ]
-    callCreateBearerSync(argProperties: GLib.Variant, cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* outPath */ string | null ]
+    callCreateBearerFinish(res: Gio.AsyncResult): { returnType: boolean, outPath: string | null }
+    callCreateBearerSync(argProperties: GLib.Variant, cancellable?: Gio.Cancellable | null): { returnType: boolean, outPath: string | null }
     callDeleteBearer(argBearer: string, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     callDeleteBearerFinish(res: Gio.AsyncResult): boolean
     callDeleteBearerSync(argBearer: string, cancellable?: Gio.Cancellable | null): boolean
@@ -11230,8 +9892,8 @@ export class Modem {
     callFactoryResetFinish(res: Gio.AsyncResult): boolean
     callFactoryResetSync(argCode: string, cancellable?: Gio.Cancellable | null): boolean
     callListBearers(cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    callListBearersFinish(res: Gio.AsyncResult): [ /* returnType */ boolean, /* outBearers */ string[] | null ]
-    callListBearersSync(cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* outBearers */ string[] | null ]
+    callListBearersFinish(res: Gio.AsyncResult): { returnType: boolean, outBearers: string[] | null }
+    callListBearersSync(cancellable?: Gio.Cancellable | null): { returnType: boolean, outBearers: string[] | null }
     callReset(cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     callResetFinish(res: Gio.AsyncResult): boolean
     callResetSync(cancellable?: Gio.Cancellable | null): boolean
@@ -11263,136 +9925,89 @@ export class Modem {
     completeSetPowerState(invocation: Gio.DBusMethodInvocation): void
     completeSetPrimarySimSlot(invocation: Gio.DBusMethodInvocation): void
     emitStateChanged(argOld: number, argNew: number, argReason: number): void
-    /* Virtual methods of ModemManager.GdbusModemProxy */
-    vfuncInitAsync(ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    vfuncInitFinish(res: Gio.AsyncResult): boolean
-    vfuncDupObject(): Gio.DBusObject | null
-    vfuncGetInfo(): Gio.DBusInterfaceInfo
-    vfuncSetObject(object?: Gio.DBusObject | null): void
-    vfuncInit(cancellable?: Gio.Cancellable | null): boolean
-    vfuncHandleCommand(invocation: Gio.DBusMethodInvocation, argCmd: string, argTimeout: number): boolean
-    vfuncHandleCreateBearer(invocation: Gio.DBusMethodInvocation, argProperties: GLib.Variant): boolean
-    vfuncHandleDeleteBearer(invocation: Gio.DBusMethodInvocation, argBearer: string): boolean
-    vfuncHandleEnable(invocation: Gio.DBusMethodInvocation, argEnable: boolean): boolean
-    vfuncHandleFactoryReset(invocation: Gio.DBusMethodInvocation, argCode: string): boolean
-    vfuncHandleListBearers(invocation: Gio.DBusMethodInvocation): boolean
-    vfuncHandleReset(invocation: Gio.DBusMethodInvocation): boolean
-    vfuncHandleSetCurrentBands(invocation: Gio.DBusMethodInvocation, argBands: GLib.Variant): boolean
-    vfuncHandleSetCurrentCapabilities(invocation: Gio.DBusMethodInvocation, argCapabilities: number): boolean
-    vfuncHandleSetCurrentModes(invocation: Gio.DBusMethodInvocation, argModes: GLib.Variant): boolean
-    vfuncHandleSetPowerState(invocation: Gio.DBusMethodInvocation, argState: number): boolean
-    vfuncHandleSetPrimarySimSlot(invocation: Gio.DBusMethodInvocation, argSimSlot: number): boolean
-    vfuncStateChanged(argOld: number, argNew: number, argReason: number): void
-    /* Virtual methods of Gio.DBusProxy */
-    vfuncGPropertiesChanged(changedProperties: GLib.Variant, invalidatedProperties: string): void
-    vfuncGSignal(senderName: string, signalName: string, parameters: GLib.Variant): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gio.DBusProxy */
+    /* Signals of Gio-2.0.Gio.DBusProxy */
     connect(sigName: "g-properties-changed", callback: (($obj: Modem, changedProperties: GLib.Variant, invalidatedProperties: string[]) => void)): number
-    connect_after(sigName: "g-properties-changed", callback: (($obj: Modem, changedProperties: GLib.Variant, invalidatedProperties: string[]) => void)): number
+    on(sigName: "g-properties-changed", callback: (changedProperties: GLib.Variant, invalidatedProperties: string[]) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "g-properties-changed", callback: (changedProperties: GLib.Variant, invalidatedProperties: string[]) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "g-properties-changed", callback: (changedProperties: GLib.Variant, invalidatedProperties: string[]) => void): NodeJS.EventEmitter
     emit(sigName: "g-properties-changed", changedProperties: GLib.Variant, invalidatedProperties: string[]): void
-    on(sigName: "g-properties-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "g-properties-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "g-properties-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "g-signal", callback: (($obj: Modem, senderName: string | null, signalName: string, parameters: GLib.Variant) => void)): number
-    connect_after(sigName: "g-signal", callback: (($obj: Modem, senderName: string | null, signalName: string, parameters: GLib.Variant) => void)): number
+    on(sigName: "g-signal", callback: (senderName: string | null, signalName: string, parameters: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "g-signal", callback: (senderName: string | null, signalName: string, parameters: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "g-signal", callback: (senderName: string | null, signalName: string, parameters: GLib.Variant) => void): NodeJS.EventEmitter
     emit(sigName: "g-signal", senderName: string | null, signalName: string, parameters: GLib.Variant): void
-    on(sigName: "g-signal", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "g-signal", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "g-signal", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Modem, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Modem, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of ModemManager.GdbusModem */
+    /* Signals of ModemManager-1.0.ModemManager.GdbusModem */
     connect(sigName: "handle-command", callback: (($obj: Modem, invocation: Gio.DBusMethodInvocation, argCmd: string, argTimeout: number) => boolean)): number
-    connect_after(sigName: "handle-command", callback: (($obj: Modem, invocation: Gio.DBusMethodInvocation, argCmd: string, argTimeout: number) => boolean)): number
+    on(sigName: "handle-command", callback: (invocation: Gio.DBusMethodInvocation, argCmd: string, argTimeout: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-command", callback: (invocation: Gio.DBusMethodInvocation, argCmd: string, argTimeout: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-command", callback: (invocation: Gio.DBusMethodInvocation, argCmd: string, argTimeout: number) => void): NodeJS.EventEmitter
     emit(sigName: "handle-command", invocation: Gio.DBusMethodInvocation, argCmd: string, argTimeout: number): void
-    on(sigName: "handle-command", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-command", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-command", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "handle-create-bearer", callback: (($obj: Modem, invocation: Gio.DBusMethodInvocation, argProperties: GLib.Variant) => boolean)): number
-    connect_after(sigName: "handle-create-bearer", callback: (($obj: Modem, invocation: Gio.DBusMethodInvocation, argProperties: GLib.Variant) => boolean)): number
+    on(sigName: "handle-create-bearer", callback: (invocation: Gio.DBusMethodInvocation, argProperties: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-create-bearer", callback: (invocation: Gio.DBusMethodInvocation, argProperties: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-create-bearer", callback: (invocation: Gio.DBusMethodInvocation, argProperties: GLib.Variant) => void): NodeJS.EventEmitter
     emit(sigName: "handle-create-bearer", invocation: Gio.DBusMethodInvocation, argProperties: GLib.Variant): void
-    on(sigName: "handle-create-bearer", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-create-bearer", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-create-bearer", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "handle-delete-bearer", callback: (($obj: Modem, invocation: Gio.DBusMethodInvocation, argBearer: string) => boolean)): number
-    connect_after(sigName: "handle-delete-bearer", callback: (($obj: Modem, invocation: Gio.DBusMethodInvocation, argBearer: string) => boolean)): number
+    on(sigName: "handle-delete-bearer", callback: (invocation: Gio.DBusMethodInvocation, argBearer: string) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-delete-bearer", callback: (invocation: Gio.DBusMethodInvocation, argBearer: string) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-delete-bearer", callback: (invocation: Gio.DBusMethodInvocation, argBearer: string) => void): NodeJS.EventEmitter
     emit(sigName: "handle-delete-bearer", invocation: Gio.DBusMethodInvocation, argBearer: string): void
-    on(sigName: "handle-delete-bearer", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-delete-bearer", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-delete-bearer", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "handle-enable", callback: (($obj: Modem, invocation: Gio.DBusMethodInvocation, argEnable: boolean) => boolean)): number
-    connect_after(sigName: "handle-enable", callback: (($obj: Modem, invocation: Gio.DBusMethodInvocation, argEnable: boolean) => boolean)): number
+    on(sigName: "handle-enable", callback: (invocation: Gio.DBusMethodInvocation, argEnable: boolean) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-enable", callback: (invocation: Gio.DBusMethodInvocation, argEnable: boolean) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-enable", callback: (invocation: Gio.DBusMethodInvocation, argEnable: boolean) => void): NodeJS.EventEmitter
     emit(sigName: "handle-enable", invocation: Gio.DBusMethodInvocation, argEnable: boolean): void
-    on(sigName: "handle-enable", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-enable", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-enable", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "handle-factory-reset", callback: (($obj: Modem, invocation: Gio.DBusMethodInvocation, argCode: string) => boolean)): number
-    connect_after(sigName: "handle-factory-reset", callback: (($obj: Modem, invocation: Gio.DBusMethodInvocation, argCode: string) => boolean)): number
+    on(sigName: "handle-factory-reset", callback: (invocation: Gio.DBusMethodInvocation, argCode: string) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-factory-reset", callback: (invocation: Gio.DBusMethodInvocation, argCode: string) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-factory-reset", callback: (invocation: Gio.DBusMethodInvocation, argCode: string) => void): NodeJS.EventEmitter
     emit(sigName: "handle-factory-reset", invocation: Gio.DBusMethodInvocation, argCode: string): void
-    on(sigName: "handle-factory-reset", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-factory-reset", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-factory-reset", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "handle-list-bearers", callback: (($obj: Modem, invocation: Gio.DBusMethodInvocation) => boolean)): number
-    connect_after(sigName: "handle-list-bearers", callback: (($obj: Modem, invocation: Gio.DBusMethodInvocation) => boolean)): number
+    on(sigName: "handle-list-bearers", callback: (invocation: Gio.DBusMethodInvocation) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-list-bearers", callback: (invocation: Gio.DBusMethodInvocation) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-list-bearers", callback: (invocation: Gio.DBusMethodInvocation) => void): NodeJS.EventEmitter
     emit(sigName: "handle-list-bearers", invocation: Gio.DBusMethodInvocation): void
-    on(sigName: "handle-list-bearers", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-list-bearers", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-list-bearers", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "handle-reset", callback: (($obj: Modem, invocation: Gio.DBusMethodInvocation) => boolean)): number
-    connect_after(sigName: "handle-reset", callback: (($obj: Modem, invocation: Gio.DBusMethodInvocation) => boolean)): number
+    on(sigName: "handle-reset", callback: (invocation: Gio.DBusMethodInvocation) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-reset", callback: (invocation: Gio.DBusMethodInvocation) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-reset", callback: (invocation: Gio.DBusMethodInvocation) => void): NodeJS.EventEmitter
     emit(sigName: "handle-reset", invocation: Gio.DBusMethodInvocation): void
-    on(sigName: "handle-reset", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-reset", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-reset", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "handle-set-current-bands", callback: (($obj: Modem, invocation: Gio.DBusMethodInvocation, argBands: GLib.Variant) => boolean)): number
-    connect_after(sigName: "handle-set-current-bands", callback: (($obj: Modem, invocation: Gio.DBusMethodInvocation, argBands: GLib.Variant) => boolean)): number
+    on(sigName: "handle-set-current-bands", callback: (invocation: Gio.DBusMethodInvocation, argBands: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-set-current-bands", callback: (invocation: Gio.DBusMethodInvocation, argBands: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-set-current-bands", callback: (invocation: Gio.DBusMethodInvocation, argBands: GLib.Variant) => void): NodeJS.EventEmitter
     emit(sigName: "handle-set-current-bands", invocation: Gio.DBusMethodInvocation, argBands: GLib.Variant): void
-    on(sigName: "handle-set-current-bands", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-set-current-bands", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-set-current-bands", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "handle-set-current-capabilities", callback: (($obj: Modem, invocation: Gio.DBusMethodInvocation, argCapabilities: number) => boolean)): number
-    connect_after(sigName: "handle-set-current-capabilities", callback: (($obj: Modem, invocation: Gio.DBusMethodInvocation, argCapabilities: number) => boolean)): number
+    on(sigName: "handle-set-current-capabilities", callback: (invocation: Gio.DBusMethodInvocation, argCapabilities: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-set-current-capabilities", callback: (invocation: Gio.DBusMethodInvocation, argCapabilities: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-set-current-capabilities", callback: (invocation: Gio.DBusMethodInvocation, argCapabilities: number) => void): NodeJS.EventEmitter
     emit(sigName: "handle-set-current-capabilities", invocation: Gio.DBusMethodInvocation, argCapabilities: number): void
-    on(sigName: "handle-set-current-capabilities", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-set-current-capabilities", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-set-current-capabilities", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "handle-set-current-modes", callback: (($obj: Modem, invocation: Gio.DBusMethodInvocation, argModes: GLib.Variant) => boolean)): number
-    connect_after(sigName: "handle-set-current-modes", callback: (($obj: Modem, invocation: Gio.DBusMethodInvocation, argModes: GLib.Variant) => boolean)): number
+    on(sigName: "handle-set-current-modes", callback: (invocation: Gio.DBusMethodInvocation, argModes: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-set-current-modes", callback: (invocation: Gio.DBusMethodInvocation, argModes: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-set-current-modes", callback: (invocation: Gio.DBusMethodInvocation, argModes: GLib.Variant) => void): NodeJS.EventEmitter
     emit(sigName: "handle-set-current-modes", invocation: Gio.DBusMethodInvocation, argModes: GLib.Variant): void
-    on(sigName: "handle-set-current-modes", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-set-current-modes", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-set-current-modes", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "handle-set-power-state", callback: (($obj: Modem, invocation: Gio.DBusMethodInvocation, argState: number) => boolean)): number
-    connect_after(sigName: "handle-set-power-state", callback: (($obj: Modem, invocation: Gio.DBusMethodInvocation, argState: number) => boolean)): number
+    on(sigName: "handle-set-power-state", callback: (invocation: Gio.DBusMethodInvocation, argState: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-set-power-state", callback: (invocation: Gio.DBusMethodInvocation, argState: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-set-power-state", callback: (invocation: Gio.DBusMethodInvocation, argState: number) => void): NodeJS.EventEmitter
     emit(sigName: "handle-set-power-state", invocation: Gio.DBusMethodInvocation, argState: number): void
-    on(sigName: "handle-set-power-state", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-set-power-state", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-set-power-state", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "handle-set-primary-sim-slot", callback: (($obj: Modem, invocation: Gio.DBusMethodInvocation, argSimSlot: number) => boolean)): number
-    connect_after(sigName: "handle-set-primary-sim-slot", callback: (($obj: Modem, invocation: Gio.DBusMethodInvocation, argSimSlot: number) => boolean)): number
+    on(sigName: "handle-set-primary-sim-slot", callback: (invocation: Gio.DBusMethodInvocation, argSimSlot: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-set-primary-sim-slot", callback: (invocation: Gio.DBusMethodInvocation, argSimSlot: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-set-primary-sim-slot", callback: (invocation: Gio.DBusMethodInvocation, argSimSlot: number) => void): NodeJS.EventEmitter
     emit(sigName: "handle-set-primary-sim-slot", invocation: Gio.DBusMethodInvocation, argSimSlot: number): void
-    on(sigName: "handle-set-primary-sim-slot", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-set-primary-sim-slot", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-set-primary-sim-slot", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "state-changed", callback: (($obj: Modem, argOld: number, argNew: number, argReason: number) => void)): number
-    connect_after(sigName: "state-changed", callback: (($obj: Modem, argOld: number, argNew: number, argReason: number) => void)): number
+    on(sigName: "state-changed", callback: (argOld: number, argNew: number, argReason: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "state-changed", callback: (argOld: number, argNew: number, argReason: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "state-changed", callback: (argOld: number, argNew: number, argReason: number) => void): NodeJS.EventEmitter
     emit(sigName: "state-changed", argOld: number, argNew: number, argReason: number): void
-    on(sigName: "state-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "state-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "state-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::g-default-timeout", callback: (($obj: Modem, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::g-default-timeout", callback: (($obj: Modem, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::g-default-timeout", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -11593,8 +10208,8 @@ export class Modem {
     static newForBusSync(busType: Gio.BusType, flags: Gio.DBusProxyFlags, info: Gio.DBusInterfaceInfo | null, name: string, objectPath: string, interfaceName: string, cancellable?: Gio.Cancellable | null): Modem
     static newSync(connection: Gio.DBusConnection, flags: Gio.DBusProxyFlags, name: string | null, objectPath: string, cancellable?: Gio.Cancellable | null): Modem
     static newSync(connection: Gio.DBusConnection, flags: Gio.DBusProxyFlags, info: Gio.DBusInterfaceInfo | null, name: string | null, objectPath: string, interfaceName: string, cancellable?: Gio.Cancellable | null): Modem
-    static getPendingNetworkInitiatedSessions(self: ModemOma): [ /* returnType */ boolean, /* sessions */ OmaPendingNetworkInitiatedSession[] ]
-    static peekPendingNetworkInitiatedSessions(self: ModemOma): [ /* returnType */ boolean, /* sessions */ OmaPendingNetworkInitiatedSession[] ]
+    static getPendingNetworkInitiatedSessions(self: ModemOma): { returnType: boolean, sessions: OmaPendingNetworkInitiatedSession[] }
+    static peekPendingNetworkInitiatedSessions(self: ModemOma): { returnType: boolean, sessions: OmaPendingNetworkInitiatedSession[] }
     static newForBus(busType: Gio.BusType, flags: Gio.DBusProxyFlags, name: string, objectPath: string, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     static newForBus(busType: Gio.BusType, flags: Gio.DBusProxyFlags, info: Gio.DBusInterfaceInfo | null, name: string, objectPath: string, interfaceName: string, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     static $gtype: GObject.Type
@@ -11612,11 +10227,11 @@ export interface Modem3gpp_ConstructProps extends GdbusModem3gppProxy_ConstructP
     subscriptionState?: number
 }
 export class Modem3gpp {
-    /* Properties of Gio.DBusProxy */
+    /* Properties of Gio-2.0.Gio.DBusProxy */
     gDefaultTimeout: number
     gInterfaceInfo: Gio.DBusInterfaceInfo
     readonly gNameOwner: string
-    /* Properties of ModemManager.GdbusModem3gpp */
+    /* Properties of ModemManager-1.0.ModemManager.GdbusModem3gpp */
     enabledFacilityLocks: number
     epsUeModeOperation: number
     imei: string
@@ -11627,9 +10242,9 @@ export class Modem3gpp {
     pco: GLib.Variant
     registrationState: number
     subscriptionState: number
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of ModemManager.Modem3gpp */
+    /* Methods of ModemManager-1.0.ModemManager.Modem3gpp */
     dupImei(): string
     dupInitialEpsBearerPath(): string
     dupOperatorCode(): string
@@ -11661,13 +10276,13 @@ export class Modem3gpp {
     setInitialEpsBearerSettings(config: BearerProperties, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     setInitialEpsBearerSettingsFinish(res: Gio.AsyncResult): boolean
     setInitialEpsBearerSettingsSync(config: BearerProperties, cancellable?: Gio.Cancellable | null): boolean
-    /* Methods of Gio.DBusProxy */
+    /* Methods of Gio-2.0.Gio.DBusProxy */
     call(methodName: string, parameters: GLib.Variant | null, flags: Gio.DBusCallFlags, timeoutMsec: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     callFinish(res: Gio.AsyncResult): GLib.Variant
     callSync(methodName: string, parameters: GLib.Variant | null, flags: Gio.DBusCallFlags, timeoutMsec: number, cancellable?: Gio.Cancellable | null): GLib.Variant
     callWithUnixFdList(methodName: string, parameters: GLib.Variant | null, flags: Gio.DBusCallFlags, timeoutMsec: number, fdList?: Gio.UnixFDList | null, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    callWithUnixFdListFinish(res: Gio.AsyncResult): [ /* returnType */ GLib.Variant, /* outFdList */ Gio.UnixFDList | null ]
-    callWithUnixFdListSync(methodName: string, parameters: GLib.Variant | null, flags: Gio.DBusCallFlags, timeoutMsec: number, fdList?: Gio.UnixFDList | null, cancellable?: Gio.Cancellable | null): [ /* returnType */ GLib.Variant, /* outFdList */ Gio.UnixFDList | null ]
+    callWithUnixFdListFinish(res: Gio.AsyncResult): { returnType: GLib.Variant, outFdList: Gio.UnixFDList | null }
+    callWithUnixFdListSync(methodName: string, parameters: GLib.Variant | null, flags: Gio.DBusCallFlags, timeoutMsec: number, fdList?: Gio.UnixFDList | null, cancellable?: Gio.Cancellable | null): { returnType: GLib.Variant, outFdList: Gio.UnixFDList | null }
     getCachedProperty(propertyName: string): GLib.Variant | null
     getCachedPropertyNames(): string[] | null
     getConnection(): Gio.DBusConnection
@@ -11681,7 +10296,7 @@ export class Modem3gpp {
     setCachedProperty(propertyName: string, value?: GLib.Variant | null): void
     setDefaultTimeout(timeoutMsec: number): void
     setInterfaceInfo(info?: Gio.DBusInterfaceInfo | null): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -11703,23 +10318,23 @@ export class Modem3gpp {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of Gio.AsyncInitable */
+    /* Methods of Gio-2.0.Gio.AsyncInitable */
     initAsync(ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     initFinish(res: Gio.AsyncResult): boolean
     newFinish(res: Gio.AsyncResult): GObject.Object
-    /* Methods of Gio.DBusInterface */
+    /* Methods of Gio-2.0.Gio.DBusInterface */
     getObject(): Gio.DBusObject | null
     getInfo(): Gio.DBusInterfaceInfo
     setObject(object?: Gio.DBusObject | null): void
-    /* Methods of Gio.Initable */
+    /* Methods of Gio-2.0.Gio.Initable */
     init(cancellable?: Gio.Cancellable | null): boolean
-    /* Methods of ModemManager.GdbusModem3gpp */
+    /* Methods of ModemManager-1.0.ModemManager.GdbusModem3gpp */
     callRegister(argOperatorId: string, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     callRegisterFinish(res: Gio.AsyncResult): boolean
     callRegisterSync(argOperatorId: string, cancellable?: Gio.Cancellable | null): boolean
     callScan(cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    callScanFinish(res: Gio.AsyncResult): [ /* returnType */ boolean, /* outResults */ GLib.Variant | null ]
-    callScanSync(cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* outResults */ GLib.Variant | null ]
+    callScanFinish(res: Gio.AsyncResult): { returnType: boolean, outResults: GLib.Variant | null }
+    callScanSync(cancellable?: Gio.Cancellable | null): { returnType: boolean, outResults: GLib.Variant | null }
     callSetEpsUeModeOperation(argMode: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     callSetEpsUeModeOperationFinish(res: Gio.AsyncResult): boolean
     callSetEpsUeModeOperationSync(argMode: number, cancellable?: Gio.Cancellable | null): boolean
@@ -11730,73 +10345,44 @@ export class Modem3gpp {
     completeScan(invocation: Gio.DBusMethodInvocation, results: GLib.Variant): void
     completeSetEpsUeModeOperation(invocation: Gio.DBusMethodInvocation): void
     completeSetInitialEpsBearerSettings(invocation: Gio.DBusMethodInvocation): void
-    /* Virtual methods of ModemManager.GdbusModem3gppProxy */
-    vfuncInitAsync(ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    vfuncInitFinish(res: Gio.AsyncResult): boolean
-    vfuncDupObject(): Gio.DBusObject | null
-    vfuncGetInfo(): Gio.DBusInterfaceInfo
-    vfuncSetObject(object?: Gio.DBusObject | null): void
-    vfuncInit(cancellable?: Gio.Cancellable | null): boolean
-    vfuncHandleRegister(invocation: Gio.DBusMethodInvocation, argOperatorId: string): boolean
-    vfuncHandleScan(invocation: Gio.DBusMethodInvocation): boolean
-    vfuncHandleSetEpsUeModeOperation(invocation: Gio.DBusMethodInvocation, argMode: number): boolean
-    vfuncHandleSetInitialEpsBearerSettings(invocation: Gio.DBusMethodInvocation, argSettings: GLib.Variant): boolean
-    /* Virtual methods of Gio.DBusProxy */
-    vfuncGPropertiesChanged(changedProperties: GLib.Variant, invalidatedProperties: string): void
-    vfuncGSignal(senderName: string, signalName: string, parameters: GLib.Variant): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gio.DBusProxy */
+    /* Signals of Gio-2.0.Gio.DBusProxy */
     connect(sigName: "g-properties-changed", callback: (($obj: Modem3gpp, changedProperties: GLib.Variant, invalidatedProperties: string[]) => void)): number
-    connect_after(sigName: "g-properties-changed", callback: (($obj: Modem3gpp, changedProperties: GLib.Variant, invalidatedProperties: string[]) => void)): number
+    on(sigName: "g-properties-changed", callback: (changedProperties: GLib.Variant, invalidatedProperties: string[]) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "g-properties-changed", callback: (changedProperties: GLib.Variant, invalidatedProperties: string[]) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "g-properties-changed", callback: (changedProperties: GLib.Variant, invalidatedProperties: string[]) => void): NodeJS.EventEmitter
     emit(sigName: "g-properties-changed", changedProperties: GLib.Variant, invalidatedProperties: string[]): void
-    on(sigName: "g-properties-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "g-properties-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "g-properties-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "g-signal", callback: (($obj: Modem3gpp, senderName: string | null, signalName: string, parameters: GLib.Variant) => void)): number
-    connect_after(sigName: "g-signal", callback: (($obj: Modem3gpp, senderName: string | null, signalName: string, parameters: GLib.Variant) => void)): number
+    on(sigName: "g-signal", callback: (senderName: string | null, signalName: string, parameters: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "g-signal", callback: (senderName: string | null, signalName: string, parameters: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "g-signal", callback: (senderName: string | null, signalName: string, parameters: GLib.Variant) => void): NodeJS.EventEmitter
     emit(sigName: "g-signal", senderName: string | null, signalName: string, parameters: GLib.Variant): void
-    on(sigName: "g-signal", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "g-signal", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "g-signal", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Modem3gpp, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Modem3gpp, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of ModemManager.GdbusModem3gpp */
+    /* Signals of ModemManager-1.0.ModemManager.GdbusModem3gpp */
     connect(sigName: "handle-register", callback: (($obj: Modem3gpp, invocation: Gio.DBusMethodInvocation, argOperatorId: string) => boolean)): number
-    connect_after(sigName: "handle-register", callback: (($obj: Modem3gpp, invocation: Gio.DBusMethodInvocation, argOperatorId: string) => boolean)): number
+    on(sigName: "handle-register", callback: (invocation: Gio.DBusMethodInvocation, argOperatorId: string) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-register", callback: (invocation: Gio.DBusMethodInvocation, argOperatorId: string) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-register", callback: (invocation: Gio.DBusMethodInvocation, argOperatorId: string) => void): NodeJS.EventEmitter
     emit(sigName: "handle-register", invocation: Gio.DBusMethodInvocation, argOperatorId: string): void
-    on(sigName: "handle-register", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-register", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-register", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "handle-scan", callback: (($obj: Modem3gpp, invocation: Gio.DBusMethodInvocation) => boolean)): number
-    connect_after(sigName: "handle-scan", callback: (($obj: Modem3gpp, invocation: Gio.DBusMethodInvocation) => boolean)): number
+    on(sigName: "handle-scan", callback: (invocation: Gio.DBusMethodInvocation) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-scan", callback: (invocation: Gio.DBusMethodInvocation) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-scan", callback: (invocation: Gio.DBusMethodInvocation) => void): NodeJS.EventEmitter
     emit(sigName: "handle-scan", invocation: Gio.DBusMethodInvocation): void
-    on(sigName: "handle-scan", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-scan", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-scan", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "handle-set-eps-ue-mode-operation", callback: (($obj: Modem3gpp, invocation: Gio.DBusMethodInvocation, argMode: number) => boolean)): number
-    connect_after(sigName: "handle-set-eps-ue-mode-operation", callback: (($obj: Modem3gpp, invocation: Gio.DBusMethodInvocation, argMode: number) => boolean)): number
+    on(sigName: "handle-set-eps-ue-mode-operation", callback: (invocation: Gio.DBusMethodInvocation, argMode: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-set-eps-ue-mode-operation", callback: (invocation: Gio.DBusMethodInvocation, argMode: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-set-eps-ue-mode-operation", callback: (invocation: Gio.DBusMethodInvocation, argMode: number) => void): NodeJS.EventEmitter
     emit(sigName: "handle-set-eps-ue-mode-operation", invocation: Gio.DBusMethodInvocation, argMode: number): void
-    on(sigName: "handle-set-eps-ue-mode-operation", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-set-eps-ue-mode-operation", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-set-eps-ue-mode-operation", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "handle-set-initial-eps-bearer-settings", callback: (($obj: Modem3gpp, invocation: Gio.DBusMethodInvocation, argSettings: GLib.Variant) => boolean)): number
-    connect_after(sigName: "handle-set-initial-eps-bearer-settings", callback: (($obj: Modem3gpp, invocation: Gio.DBusMethodInvocation, argSettings: GLib.Variant) => boolean)): number
+    on(sigName: "handle-set-initial-eps-bearer-settings", callback: (invocation: Gio.DBusMethodInvocation, argSettings: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-set-initial-eps-bearer-settings", callback: (invocation: Gio.DBusMethodInvocation, argSettings: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-set-initial-eps-bearer-settings", callback: (invocation: Gio.DBusMethodInvocation, argSettings: GLib.Variant) => void): NodeJS.EventEmitter
     emit(sigName: "handle-set-initial-eps-bearer-settings", invocation: Gio.DBusMethodInvocation, argSettings: GLib.Variant): void
-    on(sigName: "handle-set-initial-eps-bearer-settings", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-set-initial-eps-bearer-settings", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-set-initial-eps-bearer-settings", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::g-default-timeout", callback: (($obj: Modem3gpp, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::g-default-timeout", callback: (($obj: Modem3gpp, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::g-default-timeout", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -11887,17 +10473,17 @@ export interface Modem3gppUssd_ConstructProps extends GdbusModem3gppUssdProxy_Co
     state?: number
 }
 export class Modem3gppUssd {
-    /* Properties of Gio.DBusProxy */
+    /* Properties of Gio-2.0.Gio.DBusProxy */
     gDefaultTimeout: number
     gInterfaceInfo: Gio.DBusInterfaceInfo
     readonly gNameOwner: string
-    /* Properties of ModemManager.GdbusModem3gppUssd */
+    /* Properties of ModemManager-1.0.ModemManager.GdbusModem3gppUssd */
     networkNotification: string
     networkRequest: string
     state: number
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of ModemManager.Modem3gppUssd */
+    /* Methods of ModemManager-1.0.ModemManager.Modem3gppUssd */
     cancel(cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     cancelFinish(res: Gio.AsyncResult): boolean
     cancelSync(cancellable?: Gio.Cancellable | null): boolean
@@ -11914,13 +10500,13 @@ export class Modem3gppUssd {
     respond(response: string, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     respondFinish(res: Gio.AsyncResult): string
     respondSync(response: string, cancellable?: Gio.Cancellable | null): string
-    /* Methods of Gio.DBusProxy */
+    /* Methods of Gio-2.0.Gio.DBusProxy */
     call(methodName: string, parameters: GLib.Variant | null, flags: Gio.DBusCallFlags, timeoutMsec: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     callFinish(res: Gio.AsyncResult): GLib.Variant
     callSync(methodName: string, parameters: GLib.Variant | null, flags: Gio.DBusCallFlags, timeoutMsec: number, cancellable?: Gio.Cancellable | null): GLib.Variant
     callWithUnixFdList(methodName: string, parameters: GLib.Variant | null, flags: Gio.DBusCallFlags, timeoutMsec: number, fdList?: Gio.UnixFDList | null, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    callWithUnixFdListFinish(res: Gio.AsyncResult): [ /* returnType */ GLib.Variant, /* outFdList */ Gio.UnixFDList | null ]
-    callWithUnixFdListSync(methodName: string, parameters: GLib.Variant | null, flags: Gio.DBusCallFlags, timeoutMsec: number, fdList?: Gio.UnixFDList | null, cancellable?: Gio.Cancellable | null): [ /* returnType */ GLib.Variant, /* outFdList */ Gio.UnixFDList | null ]
+    callWithUnixFdListFinish(res: Gio.AsyncResult): { returnType: GLib.Variant, outFdList: Gio.UnixFDList | null }
+    callWithUnixFdListSync(methodName: string, parameters: GLib.Variant | null, flags: Gio.DBusCallFlags, timeoutMsec: number, fdList?: Gio.UnixFDList | null, cancellable?: Gio.Cancellable | null): { returnType: GLib.Variant, outFdList: Gio.UnixFDList | null }
     getCachedProperty(propertyName: string): GLib.Variant | null
     getCachedPropertyNames(): string[] | null
     getConnection(): Gio.DBusConnection
@@ -11934,7 +10520,7 @@ export class Modem3gppUssd {
     setCachedProperty(propertyName: string, value?: GLib.Variant | null): void
     setDefaultTimeout(timeoutMsec: number): void
     setInterfaceInfo(info?: Gio.DBusInterfaceInfo | null): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -11956,89 +10542,62 @@ export class Modem3gppUssd {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of Gio.AsyncInitable */
+    /* Methods of Gio-2.0.Gio.AsyncInitable */
     initAsync(ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     initFinish(res: Gio.AsyncResult): boolean
     newFinish(res: Gio.AsyncResult): GObject.Object
-    /* Methods of Gio.DBusInterface */
+    /* Methods of Gio-2.0.Gio.DBusInterface */
     getObject(): Gio.DBusObject | null
     getInfo(): Gio.DBusInterfaceInfo
     setObject(object?: Gio.DBusObject | null): void
-    /* Methods of Gio.Initable */
+    /* Methods of Gio-2.0.Gio.Initable */
     init(cancellable?: Gio.Cancellable | null): boolean
-    /* Methods of ModemManager.GdbusModem3gppUssd */
+    /* Methods of ModemManager-1.0.ModemManager.GdbusModem3gppUssd */
     callCancel(cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     callCancelFinish(res: Gio.AsyncResult): boolean
     callCancelSync(cancellable?: Gio.Cancellable | null): boolean
     callInitiate(argCommand: string, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    callInitiateFinish(res: Gio.AsyncResult): [ /* returnType */ boolean, /* outReply */ string | null ]
-    callInitiateSync(argCommand: string, cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* outReply */ string | null ]
+    callInitiateFinish(res: Gio.AsyncResult): { returnType: boolean, outReply: string | null }
+    callInitiateSync(argCommand: string, cancellable?: Gio.Cancellable | null): { returnType: boolean, outReply: string | null }
     callRespond(argResponse: string, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    callRespondFinish(res: Gio.AsyncResult): [ /* returnType */ boolean, /* outReply */ string | null ]
-    callRespondSync(argResponse: string, cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* outReply */ string | null ]
+    callRespondFinish(res: Gio.AsyncResult): { returnType: boolean, outReply: string | null }
+    callRespondSync(argResponse: string, cancellable?: Gio.Cancellable | null): { returnType: boolean, outReply: string | null }
     completeCancel(invocation: Gio.DBusMethodInvocation): void
     completeInitiate(invocation: Gio.DBusMethodInvocation, reply: string): void
     completeRespond(invocation: Gio.DBusMethodInvocation, reply: string): void
-    /* Virtual methods of ModemManager.GdbusModem3gppUssdProxy */
-    vfuncInitAsync(ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    vfuncInitFinish(res: Gio.AsyncResult): boolean
-    vfuncDupObject(): Gio.DBusObject | null
-    vfuncGetInfo(): Gio.DBusInterfaceInfo
-    vfuncSetObject(object?: Gio.DBusObject | null): void
-    vfuncInit(cancellable?: Gio.Cancellable | null): boolean
-    vfuncHandleCancel(invocation: Gio.DBusMethodInvocation): boolean
-    vfuncHandleInitiate(invocation: Gio.DBusMethodInvocation, argCommand: string): boolean
-    vfuncHandleRespond(invocation: Gio.DBusMethodInvocation, argResponse: string): boolean
-    /* Virtual methods of Gio.DBusProxy */
-    vfuncGPropertiesChanged(changedProperties: GLib.Variant, invalidatedProperties: string): void
-    vfuncGSignal(senderName: string, signalName: string, parameters: GLib.Variant): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gio.DBusProxy */
+    /* Signals of Gio-2.0.Gio.DBusProxy */
     connect(sigName: "g-properties-changed", callback: (($obj: Modem3gppUssd, changedProperties: GLib.Variant, invalidatedProperties: string[]) => void)): number
-    connect_after(sigName: "g-properties-changed", callback: (($obj: Modem3gppUssd, changedProperties: GLib.Variant, invalidatedProperties: string[]) => void)): number
+    on(sigName: "g-properties-changed", callback: (changedProperties: GLib.Variant, invalidatedProperties: string[]) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "g-properties-changed", callback: (changedProperties: GLib.Variant, invalidatedProperties: string[]) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "g-properties-changed", callback: (changedProperties: GLib.Variant, invalidatedProperties: string[]) => void): NodeJS.EventEmitter
     emit(sigName: "g-properties-changed", changedProperties: GLib.Variant, invalidatedProperties: string[]): void
-    on(sigName: "g-properties-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "g-properties-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "g-properties-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "g-signal", callback: (($obj: Modem3gppUssd, senderName: string | null, signalName: string, parameters: GLib.Variant) => void)): number
-    connect_after(sigName: "g-signal", callback: (($obj: Modem3gppUssd, senderName: string | null, signalName: string, parameters: GLib.Variant) => void)): number
+    on(sigName: "g-signal", callback: (senderName: string | null, signalName: string, parameters: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "g-signal", callback: (senderName: string | null, signalName: string, parameters: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "g-signal", callback: (senderName: string | null, signalName: string, parameters: GLib.Variant) => void): NodeJS.EventEmitter
     emit(sigName: "g-signal", senderName: string | null, signalName: string, parameters: GLib.Variant): void
-    on(sigName: "g-signal", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "g-signal", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "g-signal", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Modem3gppUssd, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Modem3gppUssd, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of ModemManager.GdbusModem3gppUssd */
+    /* Signals of ModemManager-1.0.ModemManager.GdbusModem3gppUssd */
     connect(sigName: "handle-cancel", callback: (($obj: Modem3gppUssd, invocation: Gio.DBusMethodInvocation) => boolean)): number
-    connect_after(sigName: "handle-cancel", callback: (($obj: Modem3gppUssd, invocation: Gio.DBusMethodInvocation) => boolean)): number
+    on(sigName: "handle-cancel", callback: (invocation: Gio.DBusMethodInvocation) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-cancel", callback: (invocation: Gio.DBusMethodInvocation) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-cancel", callback: (invocation: Gio.DBusMethodInvocation) => void): NodeJS.EventEmitter
     emit(sigName: "handle-cancel", invocation: Gio.DBusMethodInvocation): void
-    on(sigName: "handle-cancel", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-cancel", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-cancel", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "handle-initiate", callback: (($obj: Modem3gppUssd, invocation: Gio.DBusMethodInvocation, argCommand: string) => boolean)): number
-    connect_after(sigName: "handle-initiate", callback: (($obj: Modem3gppUssd, invocation: Gio.DBusMethodInvocation, argCommand: string) => boolean)): number
+    on(sigName: "handle-initiate", callback: (invocation: Gio.DBusMethodInvocation, argCommand: string) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-initiate", callback: (invocation: Gio.DBusMethodInvocation, argCommand: string) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-initiate", callback: (invocation: Gio.DBusMethodInvocation, argCommand: string) => void): NodeJS.EventEmitter
     emit(sigName: "handle-initiate", invocation: Gio.DBusMethodInvocation, argCommand: string): void
-    on(sigName: "handle-initiate", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-initiate", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-initiate", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "handle-respond", callback: (($obj: Modem3gppUssd, invocation: Gio.DBusMethodInvocation, argResponse: string) => boolean)): number
-    connect_after(sigName: "handle-respond", callback: (($obj: Modem3gppUssd, invocation: Gio.DBusMethodInvocation, argResponse: string) => boolean)): number
+    on(sigName: "handle-respond", callback: (invocation: Gio.DBusMethodInvocation, argResponse: string) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-respond", callback: (invocation: Gio.DBusMethodInvocation, argResponse: string) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-respond", callback: (invocation: Gio.DBusMethodInvocation, argResponse: string) => void): NodeJS.EventEmitter
     emit(sigName: "handle-respond", invocation: Gio.DBusMethodInvocation, argResponse: string): void
-    on(sigName: "handle-respond", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-respond", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-respond", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::g-default-timeout", callback: (($obj: Modem3gppUssd, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::g-default-timeout", callback: (($obj: Modem3gppUssd, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::g-default-timeout", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -12098,11 +10657,11 @@ export interface ModemCdma_ConstructProps extends GdbusModemCdmaProxy_ConstructP
     sid?: number
 }
 export class ModemCdma {
-    /* Properties of Gio.DBusProxy */
+    /* Properties of Gio-2.0.Gio.DBusProxy */
     gDefaultTimeout: number
     gInterfaceInfo: Gio.DBusInterfaceInfo
     readonly gNameOwner: string
-    /* Properties of ModemManager.GdbusModemCdma */
+    /* Properties of ModemManager-1.0.ModemManager.GdbusModemCdma */
     activationState: number
     cdma1xRegistrationState: number
     esn: string
@@ -12110,9 +10669,9 @@ export class ModemCdma {
     meid: string
     nid: number
     sid: number
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of ModemManager.ModemCdma */
+    /* Methods of ModemManager-1.0.ModemManager.ModemCdma */
     activate(carrier: string, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     activateFinish(res: Gio.AsyncResult): boolean
     activateManual(properties: CdmaManualActivationProperties, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
@@ -12130,13 +10689,13 @@ export class ModemCdma {
     getNid(): number
     getPath(): string
     getSid(): number
-    /* Methods of Gio.DBusProxy */
+    /* Methods of Gio-2.0.Gio.DBusProxy */
     call(methodName: string, parameters: GLib.Variant | null, flags: Gio.DBusCallFlags, timeoutMsec: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     callFinish(res: Gio.AsyncResult): GLib.Variant
     callSync(methodName: string, parameters: GLib.Variant | null, flags: Gio.DBusCallFlags, timeoutMsec: number, cancellable?: Gio.Cancellable | null): GLib.Variant
     callWithUnixFdList(methodName: string, parameters: GLib.Variant | null, flags: Gio.DBusCallFlags, timeoutMsec: number, fdList?: Gio.UnixFDList | null, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    callWithUnixFdListFinish(res: Gio.AsyncResult): [ /* returnType */ GLib.Variant, /* outFdList */ Gio.UnixFDList | null ]
-    callWithUnixFdListSync(methodName: string, parameters: GLib.Variant | null, flags: Gio.DBusCallFlags, timeoutMsec: number, fdList?: Gio.UnixFDList | null, cancellable?: Gio.Cancellable | null): [ /* returnType */ GLib.Variant, /* outFdList */ Gio.UnixFDList | null ]
+    callWithUnixFdListFinish(res: Gio.AsyncResult): { returnType: GLib.Variant, outFdList: Gio.UnixFDList | null }
+    callWithUnixFdListSync(methodName: string, parameters: GLib.Variant | null, flags: Gio.DBusCallFlags, timeoutMsec: number, fdList?: Gio.UnixFDList | null, cancellable?: Gio.Cancellable | null): { returnType: GLib.Variant, outFdList: Gio.UnixFDList | null }
     getCachedProperty(propertyName: string): GLib.Variant | null
     getCachedPropertyNames(): string[] | null
     getConnection(): Gio.DBusConnection
@@ -12150,7 +10709,7 @@ export class ModemCdma {
     setCachedProperty(propertyName: string, value?: GLib.Variant | null): void
     setDefaultTimeout(timeoutMsec: number): void
     setInterfaceInfo(info?: Gio.DBusInterfaceInfo | null): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -12172,17 +10731,17 @@ export class ModemCdma {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of Gio.AsyncInitable */
+    /* Methods of Gio-2.0.Gio.AsyncInitable */
     initAsync(ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     initFinish(res: Gio.AsyncResult): boolean
     newFinish(res: Gio.AsyncResult): GObject.Object
-    /* Methods of Gio.DBusInterface */
+    /* Methods of Gio-2.0.Gio.DBusInterface */
     getObject(): Gio.DBusObject | null
     getInfo(): Gio.DBusInterfaceInfo
     setObject(object?: Gio.DBusObject | null): void
-    /* Methods of Gio.Initable */
+    /* Methods of Gio-2.0.Gio.Initable */
     init(cancellable?: Gio.Cancellable | null): boolean
-    /* Methods of ModemManager.GdbusModemCdma */
+    /* Methods of ModemManager-1.0.ModemManager.GdbusModemCdma */
     callActivate(argCarrierCode: string, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     callActivateFinish(res: Gio.AsyncResult): boolean
     callActivateManual(argProperties: GLib.Variant, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
@@ -12192,66 +10751,39 @@ export class ModemCdma {
     completeActivate(invocation: Gio.DBusMethodInvocation): void
     completeActivateManual(invocation: Gio.DBusMethodInvocation): void
     emitActivationStateChanged(argActivationState: number, argActivationError: number, argStatusChanges: GLib.Variant): void
-    /* Virtual methods of ModemManager.GdbusModemCdmaProxy */
-    vfuncInitAsync(ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    vfuncInitFinish(res: Gio.AsyncResult): boolean
-    vfuncDupObject(): Gio.DBusObject | null
-    vfuncGetInfo(): Gio.DBusInterfaceInfo
-    vfuncSetObject(object?: Gio.DBusObject | null): void
-    vfuncInit(cancellable?: Gio.Cancellable | null): boolean
-    vfuncActivationStateChanged(argActivationState: number, argActivationError: number, argStatusChanges: GLib.Variant): void
-    vfuncHandleActivate(invocation: Gio.DBusMethodInvocation, argCarrierCode: string): boolean
-    vfuncHandleActivateManual(invocation: Gio.DBusMethodInvocation, argProperties: GLib.Variant): boolean
-    /* Virtual methods of Gio.DBusProxy */
-    vfuncGPropertiesChanged(changedProperties: GLib.Variant, invalidatedProperties: string): void
-    vfuncGSignal(senderName: string, signalName: string, parameters: GLib.Variant): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gio.DBusProxy */
+    /* Signals of Gio-2.0.Gio.DBusProxy */
     connect(sigName: "g-properties-changed", callback: (($obj: ModemCdma, changedProperties: GLib.Variant, invalidatedProperties: string[]) => void)): number
-    connect_after(sigName: "g-properties-changed", callback: (($obj: ModemCdma, changedProperties: GLib.Variant, invalidatedProperties: string[]) => void)): number
+    on(sigName: "g-properties-changed", callback: (changedProperties: GLib.Variant, invalidatedProperties: string[]) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "g-properties-changed", callback: (changedProperties: GLib.Variant, invalidatedProperties: string[]) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "g-properties-changed", callback: (changedProperties: GLib.Variant, invalidatedProperties: string[]) => void): NodeJS.EventEmitter
     emit(sigName: "g-properties-changed", changedProperties: GLib.Variant, invalidatedProperties: string[]): void
-    on(sigName: "g-properties-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "g-properties-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "g-properties-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "g-signal", callback: (($obj: ModemCdma, senderName: string | null, signalName: string, parameters: GLib.Variant) => void)): number
-    connect_after(sigName: "g-signal", callback: (($obj: ModemCdma, senderName: string | null, signalName: string, parameters: GLib.Variant) => void)): number
+    on(sigName: "g-signal", callback: (senderName: string | null, signalName: string, parameters: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "g-signal", callback: (senderName: string | null, signalName: string, parameters: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "g-signal", callback: (senderName: string | null, signalName: string, parameters: GLib.Variant) => void): NodeJS.EventEmitter
     emit(sigName: "g-signal", senderName: string | null, signalName: string, parameters: GLib.Variant): void
-    on(sigName: "g-signal", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "g-signal", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "g-signal", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: ModemCdma, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: ModemCdma, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of ModemManager.GdbusModemCdma */
+    /* Signals of ModemManager-1.0.ModemManager.GdbusModemCdma */
     connect(sigName: "activation-state-changed", callback: (($obj: ModemCdma, argActivationState: number, argActivationError: number, argStatusChanges: GLib.Variant) => void)): number
-    connect_after(sigName: "activation-state-changed", callback: (($obj: ModemCdma, argActivationState: number, argActivationError: number, argStatusChanges: GLib.Variant) => void)): number
+    on(sigName: "activation-state-changed", callback: (argActivationState: number, argActivationError: number, argStatusChanges: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "activation-state-changed", callback: (argActivationState: number, argActivationError: number, argStatusChanges: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "activation-state-changed", callback: (argActivationState: number, argActivationError: number, argStatusChanges: GLib.Variant) => void): NodeJS.EventEmitter
     emit(sigName: "activation-state-changed", argActivationState: number, argActivationError: number, argStatusChanges: GLib.Variant): void
-    on(sigName: "activation-state-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "activation-state-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "activation-state-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "handle-activate", callback: (($obj: ModemCdma, invocation: Gio.DBusMethodInvocation, argCarrierCode: string) => boolean)): number
-    connect_after(sigName: "handle-activate", callback: (($obj: ModemCdma, invocation: Gio.DBusMethodInvocation, argCarrierCode: string) => boolean)): number
+    on(sigName: "handle-activate", callback: (invocation: Gio.DBusMethodInvocation, argCarrierCode: string) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-activate", callback: (invocation: Gio.DBusMethodInvocation, argCarrierCode: string) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-activate", callback: (invocation: Gio.DBusMethodInvocation, argCarrierCode: string) => void): NodeJS.EventEmitter
     emit(sigName: "handle-activate", invocation: Gio.DBusMethodInvocation, argCarrierCode: string): void
-    on(sigName: "handle-activate", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-activate", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-activate", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "handle-activate-manual", callback: (($obj: ModemCdma, invocation: Gio.DBusMethodInvocation, argProperties: GLib.Variant) => boolean)): number
-    connect_after(sigName: "handle-activate-manual", callback: (($obj: ModemCdma, invocation: Gio.DBusMethodInvocation, argProperties: GLib.Variant) => boolean)): number
+    on(sigName: "handle-activate-manual", callback: (invocation: Gio.DBusMethodInvocation, argProperties: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-activate-manual", callback: (invocation: Gio.DBusMethodInvocation, argProperties: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-activate-manual", callback: (invocation: Gio.DBusMethodInvocation, argProperties: GLib.Variant) => void): NodeJS.EventEmitter
     emit(sigName: "handle-activate-manual", invocation: Gio.DBusMethodInvocation, argProperties: GLib.Variant): void
-    on(sigName: "handle-activate-manual", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-activate-manual", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-activate-manual", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::g-default-timeout", callback: (($obj: ModemCdma, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::g-default-timeout", callback: (($obj: ModemCdma, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::g-default-timeout", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -12325,32 +10857,32 @@ export interface ModemFirmware_ConstructProps extends GdbusModemFirmwareProxy_Co
     updateSettings?: GLib.Variant
 }
 export class ModemFirmware {
-    /* Properties of Gio.DBusProxy */
+    /* Properties of Gio-2.0.Gio.DBusProxy */
     gDefaultTimeout: number
     gInterfaceInfo: Gio.DBusInterfaceInfo
     readonly gNameOwner: string
-    /* Properties of ModemManager.GdbusModemFirmware */
+    /* Properties of ModemManager-1.0.ModemManager.GdbusModemFirmware */
     updateSettings: GLib.Variant
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of ModemManager.ModemFirmware */
+    /* Methods of ModemManager-1.0.ModemManager.ModemFirmware */
     dupPath(): string
     getPath(): string
     getUpdateSettings(): FirmwareUpdateSettings
     list(cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    listFinish(res: Gio.AsyncResult): [ /* returnType */ boolean, /* selected */ FirmwareProperties | null, /* installed */ FirmwareProperties[] | null ]
-    listSync(cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* selected */ FirmwareProperties | null, /* installed */ FirmwareProperties[] | null ]
+    listFinish(res: Gio.AsyncResult): { returnType: boolean, selected: FirmwareProperties | null, installed: FirmwareProperties[] | null }
+    listSync(cancellable?: Gio.Cancellable | null): { returnType: boolean, selected: FirmwareProperties | null, installed: FirmwareProperties[] | null }
     peekUpdateSettings(): FirmwareUpdateSettings
     select(uniqueId: string, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     selectFinish(res: Gio.AsyncResult): boolean
     selectSync(uniqueId: string, cancellable?: Gio.Cancellable | null): boolean
-    /* Methods of Gio.DBusProxy */
+    /* Methods of Gio-2.0.Gio.DBusProxy */
     call(methodName: string, parameters: GLib.Variant | null, flags: Gio.DBusCallFlags, timeoutMsec: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     callFinish(res: Gio.AsyncResult): GLib.Variant
     callSync(methodName: string, parameters: GLib.Variant | null, flags: Gio.DBusCallFlags, timeoutMsec: number, cancellable?: Gio.Cancellable | null): GLib.Variant
     callWithUnixFdList(methodName: string, parameters: GLib.Variant | null, flags: Gio.DBusCallFlags, timeoutMsec: number, fdList?: Gio.UnixFDList | null, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    callWithUnixFdListFinish(res: Gio.AsyncResult): [ /* returnType */ GLib.Variant, /* outFdList */ Gio.UnixFDList | null ]
-    callWithUnixFdListSync(methodName: string, parameters: GLib.Variant | null, flags: Gio.DBusCallFlags, timeoutMsec: number, fdList?: Gio.UnixFDList | null, cancellable?: Gio.Cancellable | null): [ /* returnType */ GLib.Variant, /* outFdList */ Gio.UnixFDList | null ]
+    callWithUnixFdListFinish(res: Gio.AsyncResult): { returnType: GLib.Variant, outFdList: Gio.UnixFDList | null }
+    callWithUnixFdListSync(methodName: string, parameters: GLib.Variant | null, flags: Gio.DBusCallFlags, timeoutMsec: number, fdList?: Gio.UnixFDList | null, cancellable?: Gio.Cancellable | null): { returnType: GLib.Variant, outFdList: Gio.UnixFDList | null }
     getCachedProperty(propertyName: string): GLib.Variant | null
     getCachedPropertyNames(): string[] | null
     getConnection(): Gio.DBusConnection
@@ -12364,7 +10896,7 @@ export class ModemFirmware {
     setCachedProperty(propertyName: string, value?: GLib.Variant | null): void
     setDefaultTimeout(timeoutMsec: number): void
     setInterfaceInfo(info?: Gio.DBusInterfaceInfo | null): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -12386,78 +10918,53 @@ export class ModemFirmware {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of Gio.AsyncInitable */
+    /* Methods of Gio-2.0.Gio.AsyncInitable */
     initAsync(ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     initFinish(res: Gio.AsyncResult): boolean
     newFinish(res: Gio.AsyncResult): GObject.Object
-    /* Methods of Gio.DBusInterface */
+    /* Methods of Gio-2.0.Gio.DBusInterface */
     getObject(): Gio.DBusObject | null
     getInfo(): Gio.DBusInterfaceInfo
     setObject(object?: Gio.DBusObject | null): void
-    /* Methods of Gio.Initable */
+    /* Methods of Gio-2.0.Gio.Initable */
     init(cancellable?: Gio.Cancellable | null): boolean
-    /* Methods of ModemManager.GdbusModemFirmware */
+    /* Methods of ModemManager-1.0.ModemManager.GdbusModemFirmware */
     callList(cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    callListFinish(res: Gio.AsyncResult): [ /* returnType */ boolean, /* outSelected */ string | null, /* outInstalled */ GLib.Variant | null ]
-    callListSync(cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* outSelected */ string | null, /* outInstalled */ GLib.Variant | null ]
+    callListFinish(res: Gio.AsyncResult): { returnType: boolean, outSelected: string | null, outInstalled: GLib.Variant | null }
+    callListSync(cancellable?: Gio.Cancellable | null): { returnType: boolean, outSelected: string | null, outInstalled: GLib.Variant | null }
     callSelect(argUniqueid: string, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     callSelectFinish(res: Gio.AsyncResult): boolean
     callSelectSync(argUniqueid: string, cancellable?: Gio.Cancellable | null): boolean
     completeList(invocation: Gio.DBusMethodInvocation, selected: string, installed: GLib.Variant): void
     completeSelect(invocation: Gio.DBusMethodInvocation): void
-    /* Virtual methods of ModemManager.GdbusModemFirmwareProxy */
-    vfuncInitAsync(ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    vfuncInitFinish(res: Gio.AsyncResult): boolean
-    vfuncDupObject(): Gio.DBusObject | null
-    vfuncGetInfo(): Gio.DBusInterfaceInfo
-    vfuncSetObject(object?: Gio.DBusObject | null): void
-    vfuncInit(cancellable?: Gio.Cancellable | null): boolean
-    vfuncHandleList(invocation: Gio.DBusMethodInvocation): boolean
-    vfuncHandleSelect(invocation: Gio.DBusMethodInvocation, argUniqueid: string): boolean
-    /* Virtual methods of Gio.DBusProxy */
-    vfuncGPropertiesChanged(changedProperties: GLib.Variant, invalidatedProperties: string): void
-    vfuncGSignal(senderName: string, signalName: string, parameters: GLib.Variant): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gio.DBusProxy */
+    /* Signals of Gio-2.0.Gio.DBusProxy */
     connect(sigName: "g-properties-changed", callback: (($obj: ModemFirmware, changedProperties: GLib.Variant, invalidatedProperties: string[]) => void)): number
-    connect_after(sigName: "g-properties-changed", callback: (($obj: ModemFirmware, changedProperties: GLib.Variant, invalidatedProperties: string[]) => void)): number
+    on(sigName: "g-properties-changed", callback: (changedProperties: GLib.Variant, invalidatedProperties: string[]) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "g-properties-changed", callback: (changedProperties: GLib.Variant, invalidatedProperties: string[]) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "g-properties-changed", callback: (changedProperties: GLib.Variant, invalidatedProperties: string[]) => void): NodeJS.EventEmitter
     emit(sigName: "g-properties-changed", changedProperties: GLib.Variant, invalidatedProperties: string[]): void
-    on(sigName: "g-properties-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "g-properties-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "g-properties-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "g-signal", callback: (($obj: ModemFirmware, senderName: string | null, signalName: string, parameters: GLib.Variant) => void)): number
-    connect_after(sigName: "g-signal", callback: (($obj: ModemFirmware, senderName: string | null, signalName: string, parameters: GLib.Variant) => void)): number
+    on(sigName: "g-signal", callback: (senderName: string | null, signalName: string, parameters: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "g-signal", callback: (senderName: string | null, signalName: string, parameters: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "g-signal", callback: (senderName: string | null, signalName: string, parameters: GLib.Variant) => void): NodeJS.EventEmitter
     emit(sigName: "g-signal", senderName: string | null, signalName: string, parameters: GLib.Variant): void
-    on(sigName: "g-signal", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "g-signal", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "g-signal", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: ModemFirmware, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: ModemFirmware, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of ModemManager.GdbusModemFirmware */
+    /* Signals of ModemManager-1.0.ModemManager.GdbusModemFirmware */
     connect(sigName: "handle-list", callback: (($obj: ModemFirmware, invocation: Gio.DBusMethodInvocation) => boolean)): number
-    connect_after(sigName: "handle-list", callback: (($obj: ModemFirmware, invocation: Gio.DBusMethodInvocation) => boolean)): number
+    on(sigName: "handle-list", callback: (invocation: Gio.DBusMethodInvocation) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-list", callback: (invocation: Gio.DBusMethodInvocation) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-list", callback: (invocation: Gio.DBusMethodInvocation) => void): NodeJS.EventEmitter
     emit(sigName: "handle-list", invocation: Gio.DBusMethodInvocation): void
-    on(sigName: "handle-list", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-list", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-list", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "handle-select", callback: (($obj: ModemFirmware, invocation: Gio.DBusMethodInvocation, argUniqueid: string) => boolean)): number
-    connect_after(sigName: "handle-select", callback: (($obj: ModemFirmware, invocation: Gio.DBusMethodInvocation, argUniqueid: string) => boolean)): number
+    on(sigName: "handle-select", callback: (invocation: Gio.DBusMethodInvocation, argUniqueid: string) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-select", callback: (invocation: Gio.DBusMethodInvocation, argUniqueid: string) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-select", callback: (invocation: Gio.DBusMethodInvocation, argUniqueid: string) => void): NodeJS.EventEmitter
     emit(sigName: "handle-select", invocation: Gio.DBusMethodInvocation, argUniqueid: string): void
-    on(sigName: "handle-select", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-select", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-select", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::g-default-timeout", callback: (($obj: ModemFirmware, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::g-default-timeout", callback: (($obj: ModemFirmware, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::g-default-timeout", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -12508,11 +11015,11 @@ export interface ModemLocation_ConstructProps extends GdbusModemLocationProxy_Co
     supportedAssistanceData?: number
 }
 export class ModemLocation {
-    /* Properties of Gio.DBusProxy */
+    /* Properties of Gio-2.0.Gio.DBusProxy */
     gDefaultTimeout: number
     gInterfaceInfo: Gio.DBusInterfaceInfo
     readonly gNameOwner: string
-    /* Properties of ModemManager.GdbusModemLocation */
+    /* Properties of ModemManager-1.0.ModemManager.GdbusModemLocation */
     assistanceDataServers: string[]
     capabilities: number
     enabled: number
@@ -12521,9 +11028,9 @@ export class ModemLocation {
     signalsLocation: boolean
     suplServer: string
     supportedAssistanceData: number
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of ModemManager.ModemLocation */
+    /* Methods of ModemManager-1.0.ModemManager.ModemLocation */
     dupAssistanceDataServers(): string[]
     dupPath(): string
     dupSuplServer(): string
@@ -12537,8 +11044,8 @@ export class ModemLocation {
     getCdmaBsSync(cancellable?: Gio.Cancellable | null): LocationCdmaBs
     getEnabled(): ModemLocationSource
     getFull(cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    getFullFinish(res: Gio.AsyncResult): [ /* returnType */ boolean, /* location3gpp */ Location3gpp | null, /* locationGpsNmea */ LocationGpsNmea | null, /* locationGpsRaw */ LocationGpsRaw | null, /* locationCdmaBs */ LocationCdmaBs | null ]
-    getFullSync(cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* location3gpp */ Location3gpp | null, /* locationGpsNmea */ LocationGpsNmea | null, /* locationGpsRaw */ LocationGpsRaw | null, /* locationCdmaBs */ LocationCdmaBs | null ]
+    getFullFinish(res: Gio.AsyncResult): { returnType: boolean, location3gpp: Location3gpp | null, locationGpsNmea: LocationGpsNmea | null, locationGpsRaw: LocationGpsRaw | null, locationCdmaBs: LocationCdmaBs | null }
+    getFullSync(cancellable?: Gio.Cancellable | null): { returnType: boolean, location3gpp: Location3gpp | null, locationGpsNmea: LocationGpsNmea | null, locationGpsRaw: LocationGpsRaw | null, locationCdmaBs: LocationCdmaBs | null }
     getGpsNmea(cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     getGpsNmeaFinish(res: Gio.AsyncResult): LocationGpsNmea
     getGpsNmeaSync(cancellable?: Gio.Cancellable | null): LocationGpsNmea
@@ -12561,13 +11068,13 @@ export class ModemLocation {
     setup(sources: ModemLocationSource, signalLocation: boolean, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     setupFinish(res: Gio.AsyncResult): boolean
     setupSync(sources: ModemLocationSource, signalLocation: boolean, cancellable?: Gio.Cancellable | null): boolean
-    /* Methods of Gio.DBusProxy */
+    /* Methods of Gio-2.0.Gio.DBusProxy */
     call(methodName: string, parameters: GLib.Variant | null, flags: Gio.DBusCallFlags, timeoutMsec: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     callFinish(res: Gio.AsyncResult): GLib.Variant
     callSync(methodName: string, parameters: GLib.Variant | null, flags: Gio.DBusCallFlags, timeoutMsec: number, cancellable?: Gio.Cancellable | null): GLib.Variant
     callWithUnixFdList(methodName: string, parameters: GLib.Variant | null, flags: Gio.DBusCallFlags, timeoutMsec: number, fdList?: Gio.UnixFDList | null, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    callWithUnixFdListFinish(res: Gio.AsyncResult): [ /* returnType */ GLib.Variant, /* outFdList */ Gio.UnixFDList | null ]
-    callWithUnixFdListSync(methodName: string, parameters: GLib.Variant | null, flags: Gio.DBusCallFlags, timeoutMsec: number, fdList?: Gio.UnixFDList | null, cancellable?: Gio.Cancellable | null): [ /* returnType */ GLib.Variant, /* outFdList */ Gio.UnixFDList | null ]
+    callWithUnixFdListFinish(res: Gio.AsyncResult): { returnType: GLib.Variant, outFdList: Gio.UnixFDList | null }
+    callWithUnixFdListSync(methodName: string, parameters: GLib.Variant | null, flags: Gio.DBusCallFlags, timeoutMsec: number, fdList?: Gio.UnixFDList | null, cancellable?: Gio.Cancellable | null): { returnType: GLib.Variant, outFdList: Gio.UnixFDList | null }
     getCachedProperty(propertyName: string): GLib.Variant | null
     getCachedPropertyNames(): string[] | null
     getConnection(): Gio.DBusConnection
@@ -12581,7 +11088,7 @@ export class ModemLocation {
     setCachedProperty(propertyName: string, value?: GLib.Variant | null): void
     setDefaultTimeout(timeoutMsec: number): void
     setInterfaceInfo(info?: Gio.DBusInterfaceInfo | null): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -12603,20 +11110,20 @@ export class ModemLocation {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of Gio.AsyncInitable */
+    /* Methods of Gio-2.0.Gio.AsyncInitable */
     initAsync(ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     initFinish(res: Gio.AsyncResult): boolean
     newFinish(res: Gio.AsyncResult): GObject.Object
-    /* Methods of Gio.DBusInterface */
+    /* Methods of Gio-2.0.Gio.DBusInterface */
     getObject(): Gio.DBusObject | null
     getInfo(): Gio.DBusInterfaceInfo
     setObject(object?: Gio.DBusObject | null): void
-    /* Methods of Gio.Initable */
+    /* Methods of Gio-2.0.Gio.Initable */
     init(cancellable?: Gio.Cancellable | null): boolean
-    /* Methods of ModemManager.GdbusModemLocation */
+    /* Methods of ModemManager-1.0.ModemManager.GdbusModemLocation */
     callGetLocation(cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    callGetLocationFinish(res: Gio.AsyncResult): [ /* returnType */ boolean, /* outLocation */ GLib.Variant | null ]
-    callGetLocationSync(cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* outLocation */ GLib.Variant | null ]
+    callGetLocationFinish(res: Gio.AsyncResult): { returnType: boolean, outLocation: GLib.Variant | null }
+    callGetLocationSync(cancellable?: Gio.Cancellable | null): { returnType: boolean, outLocation: GLib.Variant | null }
     callInjectAssistanceData(argData: GLib.Variant, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     callInjectAssistanceDataFinish(res: Gio.AsyncResult): boolean
     callInjectAssistanceDataSync(argData: GLib.Variant, cancellable?: Gio.Cancellable | null): boolean
@@ -12634,80 +11141,49 @@ export class ModemLocation {
     completeSetGpsRefreshRate(invocation: Gio.DBusMethodInvocation): void
     completeSetSuplServer(invocation: Gio.DBusMethodInvocation): void
     completeSetup(invocation: Gio.DBusMethodInvocation): void
-    /* Virtual methods of ModemManager.GdbusModemLocationProxy */
-    vfuncInitAsync(ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    vfuncInitFinish(res: Gio.AsyncResult): boolean
-    vfuncDupObject(): Gio.DBusObject | null
-    vfuncGetInfo(): Gio.DBusInterfaceInfo
-    vfuncSetObject(object?: Gio.DBusObject | null): void
-    vfuncInit(cancellable?: Gio.Cancellable | null): boolean
-    vfuncHandleGetLocation(invocation: Gio.DBusMethodInvocation): boolean
-    vfuncHandleInjectAssistanceData(invocation: Gio.DBusMethodInvocation, argData: GLib.Variant): boolean
-    vfuncHandleSetGpsRefreshRate(invocation: Gio.DBusMethodInvocation, argRate: number): boolean
-    vfuncHandleSetSuplServer(invocation: Gio.DBusMethodInvocation, argSupl: string): boolean
-    vfuncHandleSetup(invocation: Gio.DBusMethodInvocation, argSources: number, argSignalLocation: boolean): boolean
-    /* Virtual methods of Gio.DBusProxy */
-    vfuncGPropertiesChanged(changedProperties: GLib.Variant, invalidatedProperties: string): void
-    vfuncGSignal(senderName: string, signalName: string, parameters: GLib.Variant): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gio.DBusProxy */
+    /* Signals of Gio-2.0.Gio.DBusProxy */
     connect(sigName: "g-properties-changed", callback: (($obj: ModemLocation, changedProperties: GLib.Variant, invalidatedProperties: string[]) => void)): number
-    connect_after(sigName: "g-properties-changed", callback: (($obj: ModemLocation, changedProperties: GLib.Variant, invalidatedProperties: string[]) => void)): number
+    on(sigName: "g-properties-changed", callback: (changedProperties: GLib.Variant, invalidatedProperties: string[]) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "g-properties-changed", callback: (changedProperties: GLib.Variant, invalidatedProperties: string[]) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "g-properties-changed", callback: (changedProperties: GLib.Variant, invalidatedProperties: string[]) => void): NodeJS.EventEmitter
     emit(sigName: "g-properties-changed", changedProperties: GLib.Variant, invalidatedProperties: string[]): void
-    on(sigName: "g-properties-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "g-properties-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "g-properties-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "g-signal", callback: (($obj: ModemLocation, senderName: string | null, signalName: string, parameters: GLib.Variant) => void)): number
-    connect_after(sigName: "g-signal", callback: (($obj: ModemLocation, senderName: string | null, signalName: string, parameters: GLib.Variant) => void)): number
+    on(sigName: "g-signal", callback: (senderName: string | null, signalName: string, parameters: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "g-signal", callback: (senderName: string | null, signalName: string, parameters: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "g-signal", callback: (senderName: string | null, signalName: string, parameters: GLib.Variant) => void): NodeJS.EventEmitter
     emit(sigName: "g-signal", senderName: string | null, signalName: string, parameters: GLib.Variant): void
-    on(sigName: "g-signal", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "g-signal", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "g-signal", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: ModemLocation, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: ModemLocation, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of ModemManager.GdbusModemLocation */
+    /* Signals of ModemManager-1.0.ModemManager.GdbusModemLocation */
     connect(sigName: "handle-get-location", callback: (($obj: ModemLocation, invocation: Gio.DBusMethodInvocation) => boolean)): number
-    connect_after(sigName: "handle-get-location", callback: (($obj: ModemLocation, invocation: Gio.DBusMethodInvocation) => boolean)): number
+    on(sigName: "handle-get-location", callback: (invocation: Gio.DBusMethodInvocation) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-get-location", callback: (invocation: Gio.DBusMethodInvocation) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-get-location", callback: (invocation: Gio.DBusMethodInvocation) => void): NodeJS.EventEmitter
     emit(sigName: "handle-get-location", invocation: Gio.DBusMethodInvocation): void
-    on(sigName: "handle-get-location", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-get-location", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-get-location", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "handle-inject-assistance-data", callback: (($obj: ModemLocation, invocation: Gio.DBusMethodInvocation, argData: GLib.Variant) => boolean)): number
-    connect_after(sigName: "handle-inject-assistance-data", callback: (($obj: ModemLocation, invocation: Gio.DBusMethodInvocation, argData: GLib.Variant) => boolean)): number
+    on(sigName: "handle-inject-assistance-data", callback: (invocation: Gio.DBusMethodInvocation, argData: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-inject-assistance-data", callback: (invocation: Gio.DBusMethodInvocation, argData: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-inject-assistance-data", callback: (invocation: Gio.DBusMethodInvocation, argData: GLib.Variant) => void): NodeJS.EventEmitter
     emit(sigName: "handle-inject-assistance-data", invocation: Gio.DBusMethodInvocation, argData: GLib.Variant): void
-    on(sigName: "handle-inject-assistance-data", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-inject-assistance-data", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-inject-assistance-data", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "handle-set-gps-refresh-rate", callback: (($obj: ModemLocation, invocation: Gio.DBusMethodInvocation, argRate: number) => boolean)): number
-    connect_after(sigName: "handle-set-gps-refresh-rate", callback: (($obj: ModemLocation, invocation: Gio.DBusMethodInvocation, argRate: number) => boolean)): number
+    on(sigName: "handle-set-gps-refresh-rate", callback: (invocation: Gio.DBusMethodInvocation, argRate: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-set-gps-refresh-rate", callback: (invocation: Gio.DBusMethodInvocation, argRate: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-set-gps-refresh-rate", callback: (invocation: Gio.DBusMethodInvocation, argRate: number) => void): NodeJS.EventEmitter
     emit(sigName: "handle-set-gps-refresh-rate", invocation: Gio.DBusMethodInvocation, argRate: number): void
-    on(sigName: "handle-set-gps-refresh-rate", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-set-gps-refresh-rate", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-set-gps-refresh-rate", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "handle-set-supl-server", callback: (($obj: ModemLocation, invocation: Gio.DBusMethodInvocation, argSupl: string) => boolean)): number
-    connect_after(sigName: "handle-set-supl-server", callback: (($obj: ModemLocation, invocation: Gio.DBusMethodInvocation, argSupl: string) => boolean)): number
+    on(sigName: "handle-set-supl-server", callback: (invocation: Gio.DBusMethodInvocation, argSupl: string) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-set-supl-server", callback: (invocation: Gio.DBusMethodInvocation, argSupl: string) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-set-supl-server", callback: (invocation: Gio.DBusMethodInvocation, argSupl: string) => void): NodeJS.EventEmitter
     emit(sigName: "handle-set-supl-server", invocation: Gio.DBusMethodInvocation, argSupl: string): void
-    on(sigName: "handle-set-supl-server", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-set-supl-server", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-set-supl-server", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "handle-setup", callback: (($obj: ModemLocation, invocation: Gio.DBusMethodInvocation, argSources: number, argSignalLocation: boolean) => boolean)): number
-    connect_after(sigName: "handle-setup", callback: (($obj: ModemLocation, invocation: Gio.DBusMethodInvocation, argSources: number, argSignalLocation: boolean) => boolean)): number
+    on(sigName: "handle-setup", callback: (invocation: Gio.DBusMethodInvocation, argSources: number, argSignalLocation: boolean) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-setup", callback: (invocation: Gio.DBusMethodInvocation, argSources: number, argSignalLocation: boolean) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-setup", callback: (invocation: Gio.DBusMethodInvocation, argSources: number, argSignalLocation: boolean) => void): NodeJS.EventEmitter
     emit(sigName: "handle-setup", invocation: Gio.DBusMethodInvocation, argSources: number, argSignalLocation: boolean): void
-    on(sigName: "handle-setup", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-setup", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-setup", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::g-default-timeout", callback: (($obj: ModemLocation, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::g-default-timeout", callback: (($obj: ModemLocation, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::g-default-timeout", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -12788,17 +11264,17 @@ export interface ModemMessaging_ConstructProps extends GdbusModemMessagingProxy_
     supportedStorages?: GLib.Variant
 }
 export class ModemMessaging {
-    /* Properties of Gio.DBusProxy */
+    /* Properties of Gio-2.0.Gio.DBusProxy */
     gDefaultTimeout: number
     gInterfaceInfo: Gio.DBusInterfaceInfo
     readonly gNameOwner: string
-    /* Properties of ModemManager.GdbusModemMessaging */
+    /* Properties of ModemManager-1.0.ModemManager.GdbusModemMessaging */
     defaultStorage: number
     messages: string[]
     supportedStorages: GLib.Variant
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of ModemManager.ModemMessaging */
+    /* Methods of ModemManager-1.0.ModemManager.ModemMessaging */
     create(properties: SmsProperties, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     createFinish(res: Gio.AsyncResult): Sms
     createSync(properties: SmsProperties, cancellable?: Gio.Cancellable | null): Sms
@@ -12808,18 +11284,18 @@ export class ModemMessaging {
     dupPath(): string
     getDefaultStorage(): SmsStorage
     getPath(): string
-    getSupportedStorages(): [ /* returnType */ boolean, /* storages */ SmsStorage[] ]
+    getSupportedStorages(): { returnType: boolean, storages: SmsStorage[] }
     list(cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     listFinish(res: Gio.AsyncResult): Sms[]
     listSync(cancellable?: Gio.Cancellable | null): Sms[]
-    peekSupportedStorages(): [ /* returnType */ boolean, /* storages */ SmsStorage, /* nStorages */ number ]
-    /* Methods of Gio.DBusProxy */
+    peekSupportedStorages(): { returnType: boolean, storages: SmsStorage, nStorages: number }
+    /* Methods of Gio-2.0.Gio.DBusProxy */
     call(methodName: string, parameters: GLib.Variant | null, flags: Gio.DBusCallFlags, timeoutMsec: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     callFinish(res: Gio.AsyncResult): GLib.Variant
     callSync(methodName: string, parameters: GLib.Variant | null, flags: Gio.DBusCallFlags, timeoutMsec: number, cancellable?: Gio.Cancellable | null): GLib.Variant
     callWithUnixFdList(methodName: string, parameters: GLib.Variant | null, flags: Gio.DBusCallFlags, timeoutMsec: number, fdList?: Gio.UnixFDList | null, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    callWithUnixFdListFinish(res: Gio.AsyncResult): [ /* returnType */ GLib.Variant, /* outFdList */ Gio.UnixFDList | null ]
-    callWithUnixFdListSync(methodName: string, parameters: GLib.Variant | null, flags: Gio.DBusCallFlags, timeoutMsec: number, fdList?: Gio.UnixFDList | null, cancellable?: Gio.Cancellable | null): [ /* returnType */ GLib.Variant, /* outFdList */ Gio.UnixFDList | null ]
+    callWithUnixFdListFinish(res: Gio.AsyncResult): { returnType: GLib.Variant, outFdList: Gio.UnixFDList | null }
+    callWithUnixFdListSync(methodName: string, parameters: GLib.Variant | null, flags: Gio.DBusCallFlags, timeoutMsec: number, fdList?: Gio.UnixFDList | null, cancellable?: Gio.Cancellable | null): { returnType: GLib.Variant, outFdList: Gio.UnixFDList | null }
     getCachedProperty(propertyName: string): GLib.Variant | null
     getCachedPropertyNames(): string[] | null
     getConnection(): Gio.DBusConnection
@@ -12833,7 +11309,7 @@ export class ModemMessaging {
     setCachedProperty(propertyName: string, value?: GLib.Variant | null): void
     setDefaultTimeout(timeoutMsec: number): void
     setInterfaceInfo(info?: Gio.DBusInterfaceInfo | null): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -12855,105 +11331,74 @@ export class ModemMessaging {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of Gio.AsyncInitable */
+    /* Methods of Gio-2.0.Gio.AsyncInitable */
     initAsync(ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     initFinish(res: Gio.AsyncResult): boolean
     newFinish(res: Gio.AsyncResult): GObject.Object
-    /* Methods of Gio.DBusInterface */
+    /* Methods of Gio-2.0.Gio.DBusInterface */
     getObject(): Gio.DBusObject | null
     getInfo(): Gio.DBusInterfaceInfo
     setObject(object?: Gio.DBusObject | null): void
-    /* Methods of Gio.Initable */
+    /* Methods of Gio-2.0.Gio.Initable */
     init(cancellable?: Gio.Cancellable | null): boolean
-    /* Methods of ModemManager.GdbusModemMessaging */
+    /* Methods of ModemManager-1.0.ModemManager.GdbusModemMessaging */
     callCreate(argProperties: GLib.Variant, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    callCreateFinish(res: Gio.AsyncResult): [ /* returnType */ boolean, /* outPath */ string | null ]
-    callCreateSync(argProperties: GLib.Variant, cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* outPath */ string | null ]
+    callCreateFinish(res: Gio.AsyncResult): { returnType: boolean, outPath: string | null }
+    callCreateSync(argProperties: GLib.Variant, cancellable?: Gio.Cancellable | null): { returnType: boolean, outPath: string | null }
     callDelete(argPath: string, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     callDeleteFinish(res: Gio.AsyncResult): boolean
     callDeleteSync(argPath: string, cancellable?: Gio.Cancellable | null): boolean
     callList(cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    callListFinish(res: Gio.AsyncResult): [ /* returnType */ boolean, /* outResult */ string[] | null ]
-    callListSync(cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* outResult */ string[] | null ]
+    callListFinish(res: Gio.AsyncResult): { returnType: boolean, outResult: string[] | null }
+    callListSync(cancellable?: Gio.Cancellable | null): { returnType: boolean, outResult: string[] | null }
     completeCreate(invocation: Gio.DBusMethodInvocation, path: string): void
     completeDelete(invocation: Gio.DBusMethodInvocation): void
     completeList(invocation: Gio.DBusMethodInvocation, result: string): void
     emitAdded(argPath: string, argReceived: boolean): void
     emitDeleted(argPath: string): void
-    /* Virtual methods of ModemManager.GdbusModemMessagingProxy */
-    vfuncInitAsync(ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    vfuncInitFinish(res: Gio.AsyncResult): boolean
-    vfuncDupObject(): Gio.DBusObject | null
-    vfuncGetInfo(): Gio.DBusInterfaceInfo
-    vfuncSetObject(object?: Gio.DBusObject | null): void
-    vfuncInit(cancellable?: Gio.Cancellable | null): boolean
-    vfuncAdded(argPath: string, argReceived: boolean): void
-    vfuncDeleted(argPath: string): void
-    vfuncHandleCreate(invocation: Gio.DBusMethodInvocation, argProperties: GLib.Variant): boolean
-    vfuncHandleDelete(invocation: Gio.DBusMethodInvocation, argPath: string): boolean
-    vfuncHandleList(invocation: Gio.DBusMethodInvocation): boolean
-    /* Virtual methods of Gio.DBusProxy */
-    vfuncGPropertiesChanged(changedProperties: GLib.Variant, invalidatedProperties: string): void
-    vfuncGSignal(senderName: string, signalName: string, parameters: GLib.Variant): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gio.DBusProxy */
+    /* Signals of Gio-2.0.Gio.DBusProxy */
     connect(sigName: "g-properties-changed", callback: (($obj: ModemMessaging, changedProperties: GLib.Variant, invalidatedProperties: string[]) => void)): number
-    connect_after(sigName: "g-properties-changed", callback: (($obj: ModemMessaging, changedProperties: GLib.Variant, invalidatedProperties: string[]) => void)): number
+    on(sigName: "g-properties-changed", callback: (changedProperties: GLib.Variant, invalidatedProperties: string[]) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "g-properties-changed", callback: (changedProperties: GLib.Variant, invalidatedProperties: string[]) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "g-properties-changed", callback: (changedProperties: GLib.Variant, invalidatedProperties: string[]) => void): NodeJS.EventEmitter
     emit(sigName: "g-properties-changed", changedProperties: GLib.Variant, invalidatedProperties: string[]): void
-    on(sigName: "g-properties-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "g-properties-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "g-properties-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "g-signal", callback: (($obj: ModemMessaging, senderName: string | null, signalName: string, parameters: GLib.Variant) => void)): number
-    connect_after(sigName: "g-signal", callback: (($obj: ModemMessaging, senderName: string | null, signalName: string, parameters: GLib.Variant) => void)): number
+    on(sigName: "g-signal", callback: (senderName: string | null, signalName: string, parameters: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "g-signal", callback: (senderName: string | null, signalName: string, parameters: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "g-signal", callback: (senderName: string | null, signalName: string, parameters: GLib.Variant) => void): NodeJS.EventEmitter
     emit(sigName: "g-signal", senderName: string | null, signalName: string, parameters: GLib.Variant): void
-    on(sigName: "g-signal", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "g-signal", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "g-signal", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: ModemMessaging, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: ModemMessaging, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of ModemManager.GdbusModemMessaging */
+    /* Signals of ModemManager-1.0.ModemManager.GdbusModemMessaging */
     connect(sigName: "added", callback: (($obj: ModemMessaging, argPath: string, argReceived: boolean) => void)): number
-    connect_after(sigName: "added", callback: (($obj: ModemMessaging, argPath: string, argReceived: boolean) => void)): number
+    on(sigName: "added", callback: (argPath: string, argReceived: boolean) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "added", callback: (argPath: string, argReceived: boolean) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "added", callback: (argPath: string, argReceived: boolean) => void): NodeJS.EventEmitter
     emit(sigName: "added", argPath: string, argReceived: boolean): void
-    on(sigName: "added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "added", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "deleted", callback: (($obj: ModemMessaging, argPath: string) => void)): number
-    connect_after(sigName: "deleted", callback: (($obj: ModemMessaging, argPath: string) => void)): number
+    on(sigName: "deleted", callback: (argPath: string) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "deleted", callback: (argPath: string) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "deleted", callback: (argPath: string) => void): NodeJS.EventEmitter
     emit(sigName: "deleted", argPath: string): void
-    on(sigName: "deleted", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "deleted", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "deleted", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "handle-create", callback: (($obj: ModemMessaging, invocation: Gio.DBusMethodInvocation, argProperties: GLib.Variant) => boolean)): number
-    connect_after(sigName: "handle-create", callback: (($obj: ModemMessaging, invocation: Gio.DBusMethodInvocation, argProperties: GLib.Variant) => boolean)): number
+    on(sigName: "handle-create", callback: (invocation: Gio.DBusMethodInvocation, argProperties: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-create", callback: (invocation: Gio.DBusMethodInvocation, argProperties: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-create", callback: (invocation: Gio.DBusMethodInvocation, argProperties: GLib.Variant) => void): NodeJS.EventEmitter
     emit(sigName: "handle-create", invocation: Gio.DBusMethodInvocation, argProperties: GLib.Variant): void
-    on(sigName: "handle-create", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-create", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-create", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "handle-delete", callback: (($obj: ModemMessaging, invocation: Gio.DBusMethodInvocation, argPath: string) => boolean)): number
-    connect_after(sigName: "handle-delete", callback: (($obj: ModemMessaging, invocation: Gio.DBusMethodInvocation, argPath: string) => boolean)): number
+    on(sigName: "handle-delete", callback: (invocation: Gio.DBusMethodInvocation, argPath: string) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-delete", callback: (invocation: Gio.DBusMethodInvocation, argPath: string) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-delete", callback: (invocation: Gio.DBusMethodInvocation, argPath: string) => void): NodeJS.EventEmitter
     emit(sigName: "handle-delete", invocation: Gio.DBusMethodInvocation, argPath: string): void
-    on(sigName: "handle-delete", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-delete", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-delete", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "handle-list", callback: (($obj: ModemMessaging, invocation: Gio.DBusMethodInvocation) => boolean)): number
-    connect_after(sigName: "handle-list", callback: (($obj: ModemMessaging, invocation: Gio.DBusMethodInvocation) => boolean)): number
+    on(sigName: "handle-list", callback: (invocation: Gio.DBusMethodInvocation) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-list", callback: (invocation: Gio.DBusMethodInvocation) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-list", callback: (invocation: Gio.DBusMethodInvocation) => void): NodeJS.EventEmitter
     emit(sigName: "handle-list", invocation: Gio.DBusMethodInvocation): void
-    on(sigName: "handle-list", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-list", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-list", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::g-default-timeout", callback: (($obj: ModemMessaging, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::g-default-timeout", callback: (($obj: ModemMessaging, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::g-default-timeout", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -13010,18 +11455,18 @@ export interface ModemOma_ConstructProps extends GdbusModemOmaProxy_ConstructPro
     sessionType?: number
 }
 export class ModemOma {
-    /* Properties of Gio.DBusProxy */
+    /* Properties of Gio-2.0.Gio.DBusProxy */
     gDefaultTimeout: number
     gInterfaceInfo: Gio.DBusInterfaceInfo
     readonly gNameOwner: string
-    /* Properties of ModemManager.GdbusModemOma */
+    /* Properties of ModemManager-1.0.ModemManager.GdbusModemOma */
     features: number
     pendingNetworkInitiatedSessions: GLib.Variant
     sessionState: number
     sessionType: number
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of ModemManager.ModemOma */
+    /* Methods of ModemManager-1.0.ModemManager.ModemOma */
     acceptNetworkInitiatedSession(sessionId: number, accept: boolean, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     acceptNetworkInitiatedSessionFinish(res: Gio.AsyncResult): boolean
     acceptNetworkInitiatedSessionSync(sessionId: number, accept: boolean, cancellable?: Gio.Cancellable | null): boolean
@@ -13039,13 +11484,13 @@ export class ModemOma {
     startClientInitiatedSession(sessionType: OmaSessionType, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     startClientInitiatedSessionFinish(res: Gio.AsyncResult): boolean
     startClientInitiatedSessionSync(sessionType: OmaSessionType, cancellable?: Gio.Cancellable | null): boolean
-    /* Methods of Gio.DBusProxy */
+    /* Methods of Gio-2.0.Gio.DBusProxy */
     call(methodName: string, parameters: GLib.Variant | null, flags: Gio.DBusCallFlags, timeoutMsec: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     callFinish(res: Gio.AsyncResult): GLib.Variant
     callSync(methodName: string, parameters: GLib.Variant | null, flags: Gio.DBusCallFlags, timeoutMsec: number, cancellable?: Gio.Cancellable | null): GLib.Variant
     callWithUnixFdList(methodName: string, parameters: GLib.Variant | null, flags: Gio.DBusCallFlags, timeoutMsec: number, fdList?: Gio.UnixFDList | null, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    callWithUnixFdListFinish(res: Gio.AsyncResult): [ /* returnType */ GLib.Variant, /* outFdList */ Gio.UnixFDList | null ]
-    callWithUnixFdListSync(methodName: string, parameters: GLib.Variant | null, flags: Gio.DBusCallFlags, timeoutMsec: number, fdList?: Gio.UnixFDList | null, cancellable?: Gio.Cancellable | null): [ /* returnType */ GLib.Variant, /* outFdList */ Gio.UnixFDList | null ]
+    callWithUnixFdListFinish(res: Gio.AsyncResult): { returnType: GLib.Variant, outFdList: Gio.UnixFDList | null }
+    callWithUnixFdListSync(methodName: string, parameters: GLib.Variant | null, flags: Gio.DBusCallFlags, timeoutMsec: number, fdList?: Gio.UnixFDList | null, cancellable?: Gio.Cancellable | null): { returnType: GLib.Variant, outFdList: Gio.UnixFDList | null }
     getCachedProperty(propertyName: string): GLib.Variant | null
     getCachedPropertyNames(): string[] | null
     getConnection(): Gio.DBusConnection
@@ -13059,7 +11504,7 @@ export class ModemOma {
     setCachedProperty(propertyName: string, value?: GLib.Variant | null): void
     setDefaultTimeout(timeoutMsec: number): void
     setInterfaceInfo(info?: Gio.DBusInterfaceInfo | null): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -13081,17 +11526,17 @@ export class ModemOma {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of Gio.AsyncInitable */
+    /* Methods of Gio-2.0.Gio.AsyncInitable */
     initAsync(ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     initFinish(res: Gio.AsyncResult): boolean
     newFinish(res: Gio.AsyncResult): GObject.Object
-    /* Methods of Gio.DBusInterface */
+    /* Methods of Gio-2.0.Gio.DBusInterface */
     getObject(): Gio.DBusObject | null
     getInfo(): Gio.DBusInterfaceInfo
     setObject(object?: Gio.DBusObject | null): void
-    /* Methods of Gio.Initable */
+    /* Methods of Gio-2.0.Gio.Initable */
     init(cancellable?: Gio.Cancellable | null): boolean
-    /* Methods of ModemManager.GdbusModemOma */
+    /* Methods of ModemManager-1.0.ModemManager.GdbusModemOma */
     callAcceptNetworkInitiatedSession(argSessionId: number, argAccept: boolean, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     callAcceptNetworkInitiatedSessionFinish(res: Gio.AsyncResult): boolean
     callAcceptNetworkInitiatedSessionSync(argSessionId: number, argAccept: boolean, cancellable?: Gio.Cancellable | null): boolean
@@ -13109,80 +11554,49 @@ export class ModemOma {
     completeSetup(invocation: Gio.DBusMethodInvocation): void
     completeStartClientInitiatedSession(invocation: Gio.DBusMethodInvocation): void
     emitSessionStateChanged(argOldSessionState: number, argNewSessionState: number, argSessionStateFailedReason: number): void
-    /* Virtual methods of ModemManager.GdbusModemOmaProxy */
-    vfuncInitAsync(ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    vfuncInitFinish(res: Gio.AsyncResult): boolean
-    vfuncDupObject(): Gio.DBusObject | null
-    vfuncGetInfo(): Gio.DBusInterfaceInfo
-    vfuncSetObject(object?: Gio.DBusObject | null): void
-    vfuncInit(cancellable?: Gio.Cancellable | null): boolean
-    vfuncHandleAcceptNetworkInitiatedSession(invocation: Gio.DBusMethodInvocation, argSessionId: number, argAccept: boolean): boolean
-    vfuncHandleCancelSession(invocation: Gio.DBusMethodInvocation): boolean
-    vfuncHandleSetup(invocation: Gio.DBusMethodInvocation, argFeatures: number): boolean
-    vfuncHandleStartClientInitiatedSession(invocation: Gio.DBusMethodInvocation, argSessionType: number): boolean
-    vfuncSessionStateChanged(argOldSessionState: number, argNewSessionState: number, argSessionStateFailedReason: number): void
-    /* Virtual methods of Gio.DBusProxy */
-    vfuncGPropertiesChanged(changedProperties: GLib.Variant, invalidatedProperties: string): void
-    vfuncGSignal(senderName: string, signalName: string, parameters: GLib.Variant): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gio.DBusProxy */
+    /* Signals of Gio-2.0.Gio.DBusProxy */
     connect(sigName: "g-properties-changed", callback: (($obj: ModemOma, changedProperties: GLib.Variant, invalidatedProperties: string[]) => void)): number
-    connect_after(sigName: "g-properties-changed", callback: (($obj: ModemOma, changedProperties: GLib.Variant, invalidatedProperties: string[]) => void)): number
+    on(sigName: "g-properties-changed", callback: (changedProperties: GLib.Variant, invalidatedProperties: string[]) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "g-properties-changed", callback: (changedProperties: GLib.Variant, invalidatedProperties: string[]) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "g-properties-changed", callback: (changedProperties: GLib.Variant, invalidatedProperties: string[]) => void): NodeJS.EventEmitter
     emit(sigName: "g-properties-changed", changedProperties: GLib.Variant, invalidatedProperties: string[]): void
-    on(sigName: "g-properties-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "g-properties-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "g-properties-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "g-signal", callback: (($obj: ModemOma, senderName: string | null, signalName: string, parameters: GLib.Variant) => void)): number
-    connect_after(sigName: "g-signal", callback: (($obj: ModemOma, senderName: string | null, signalName: string, parameters: GLib.Variant) => void)): number
+    on(sigName: "g-signal", callback: (senderName: string | null, signalName: string, parameters: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "g-signal", callback: (senderName: string | null, signalName: string, parameters: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "g-signal", callback: (senderName: string | null, signalName: string, parameters: GLib.Variant) => void): NodeJS.EventEmitter
     emit(sigName: "g-signal", senderName: string | null, signalName: string, parameters: GLib.Variant): void
-    on(sigName: "g-signal", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "g-signal", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "g-signal", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: ModemOma, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: ModemOma, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of ModemManager.GdbusModemOma */
+    /* Signals of ModemManager-1.0.ModemManager.GdbusModemOma */
     connect(sigName: "handle-accept-network-initiated-session", callback: (($obj: ModemOma, invocation: Gio.DBusMethodInvocation, argSessionId: number, argAccept: boolean) => boolean)): number
-    connect_after(sigName: "handle-accept-network-initiated-session", callback: (($obj: ModemOma, invocation: Gio.DBusMethodInvocation, argSessionId: number, argAccept: boolean) => boolean)): number
+    on(sigName: "handle-accept-network-initiated-session", callback: (invocation: Gio.DBusMethodInvocation, argSessionId: number, argAccept: boolean) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-accept-network-initiated-session", callback: (invocation: Gio.DBusMethodInvocation, argSessionId: number, argAccept: boolean) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-accept-network-initiated-session", callback: (invocation: Gio.DBusMethodInvocation, argSessionId: number, argAccept: boolean) => void): NodeJS.EventEmitter
     emit(sigName: "handle-accept-network-initiated-session", invocation: Gio.DBusMethodInvocation, argSessionId: number, argAccept: boolean): void
-    on(sigName: "handle-accept-network-initiated-session", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-accept-network-initiated-session", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-accept-network-initiated-session", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "handle-cancel-session", callback: (($obj: ModemOma, invocation: Gio.DBusMethodInvocation) => boolean)): number
-    connect_after(sigName: "handle-cancel-session", callback: (($obj: ModemOma, invocation: Gio.DBusMethodInvocation) => boolean)): number
+    on(sigName: "handle-cancel-session", callback: (invocation: Gio.DBusMethodInvocation) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-cancel-session", callback: (invocation: Gio.DBusMethodInvocation) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-cancel-session", callback: (invocation: Gio.DBusMethodInvocation) => void): NodeJS.EventEmitter
     emit(sigName: "handle-cancel-session", invocation: Gio.DBusMethodInvocation): void
-    on(sigName: "handle-cancel-session", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-cancel-session", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-cancel-session", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "handle-setup", callback: (($obj: ModemOma, invocation: Gio.DBusMethodInvocation, argFeatures: number) => boolean)): number
-    connect_after(sigName: "handle-setup", callback: (($obj: ModemOma, invocation: Gio.DBusMethodInvocation, argFeatures: number) => boolean)): number
+    on(sigName: "handle-setup", callback: (invocation: Gio.DBusMethodInvocation, argFeatures: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-setup", callback: (invocation: Gio.DBusMethodInvocation, argFeatures: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-setup", callback: (invocation: Gio.DBusMethodInvocation, argFeatures: number) => void): NodeJS.EventEmitter
     emit(sigName: "handle-setup", invocation: Gio.DBusMethodInvocation, argFeatures: number): void
-    on(sigName: "handle-setup", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-setup", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-setup", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "handle-start-client-initiated-session", callback: (($obj: ModemOma, invocation: Gio.DBusMethodInvocation, argSessionType: number) => boolean)): number
-    connect_after(sigName: "handle-start-client-initiated-session", callback: (($obj: ModemOma, invocation: Gio.DBusMethodInvocation, argSessionType: number) => boolean)): number
+    on(sigName: "handle-start-client-initiated-session", callback: (invocation: Gio.DBusMethodInvocation, argSessionType: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-start-client-initiated-session", callback: (invocation: Gio.DBusMethodInvocation, argSessionType: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-start-client-initiated-session", callback: (invocation: Gio.DBusMethodInvocation, argSessionType: number) => void): NodeJS.EventEmitter
     emit(sigName: "handle-start-client-initiated-session", invocation: Gio.DBusMethodInvocation, argSessionType: number): void
-    on(sigName: "handle-start-client-initiated-session", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-start-client-initiated-session", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-start-client-initiated-session", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "session-state-changed", callback: (($obj: ModemOma, argOldSessionState: number, argNewSessionState: number, argSessionStateFailedReason: number) => void)): number
-    connect_after(sigName: "session-state-changed", callback: (($obj: ModemOma, argOldSessionState: number, argNewSessionState: number, argSessionStateFailedReason: number) => void)): number
+    on(sigName: "session-state-changed", callback: (argOldSessionState: number, argNewSessionState: number, argSessionStateFailedReason: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "session-state-changed", callback: (argOldSessionState: number, argNewSessionState: number, argSessionStateFailedReason: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "session-state-changed", callback: (argOldSessionState: number, argNewSessionState: number, argSessionStateFailedReason: number) => void): NodeJS.EventEmitter
     emit(sigName: "session-state-changed", argOldSessionState: number, argNewSessionState: number, argSessionStateFailedReason: number): void
-    on(sigName: "session-state-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "session-state-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "session-state-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::g-default-timeout", callback: (($obj: ModemOma, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::g-default-timeout", callback: (($obj: ModemOma, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::g-default-timeout", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -13247,11 +11661,11 @@ export interface ModemSignal_ConstructProps extends GdbusModemSignalProxy_Constr
     umts?: GLib.Variant
 }
 export class ModemSignal {
-    /* Properties of Gio.DBusProxy */
+    /* Properties of Gio-2.0.Gio.DBusProxy */
     gDefaultTimeout: number
     gInterfaceInfo: Gio.DBusInterfaceInfo
     readonly gNameOwner: string
-    /* Properties of ModemManager.GdbusModemSignal */
+    /* Properties of ModemManager-1.0.ModemManager.GdbusModemSignal */
     cdma: GLib.Variant
     evdo: GLib.Variant
     gsm: GLib.Variant
@@ -13259,9 +11673,9 @@ export class ModemSignal {
     nr5g: GLib.Variant
     rate: number
     umts: GLib.Variant
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of ModemManager.ModemSignal */
+    /* Methods of ModemManager-1.0.ModemManager.ModemSignal */
     dupPath(): string
     getCdma(): Signal
     getEvdo(): Signal
@@ -13280,13 +11694,13 @@ export class ModemSignal {
     setup(rate: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     setupFinish(res: Gio.AsyncResult): boolean
     setupSync(rate: number, cancellable?: Gio.Cancellable | null): boolean
-    /* Methods of Gio.DBusProxy */
+    /* Methods of Gio-2.0.Gio.DBusProxy */
     call(methodName: string, parameters: GLib.Variant | null, flags: Gio.DBusCallFlags, timeoutMsec: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     callFinish(res: Gio.AsyncResult): GLib.Variant
     callSync(methodName: string, parameters: GLib.Variant | null, flags: Gio.DBusCallFlags, timeoutMsec: number, cancellable?: Gio.Cancellable | null): GLib.Variant
     callWithUnixFdList(methodName: string, parameters: GLib.Variant | null, flags: Gio.DBusCallFlags, timeoutMsec: number, fdList?: Gio.UnixFDList | null, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    callWithUnixFdListFinish(res: Gio.AsyncResult): [ /* returnType */ GLib.Variant, /* outFdList */ Gio.UnixFDList | null ]
-    callWithUnixFdListSync(methodName: string, parameters: GLib.Variant | null, flags: Gio.DBusCallFlags, timeoutMsec: number, fdList?: Gio.UnixFDList | null, cancellable?: Gio.Cancellable | null): [ /* returnType */ GLib.Variant, /* outFdList */ Gio.UnixFDList | null ]
+    callWithUnixFdListFinish(res: Gio.AsyncResult): { returnType: GLib.Variant, outFdList: Gio.UnixFDList | null }
+    callWithUnixFdListSync(methodName: string, parameters: GLib.Variant | null, flags: Gio.DBusCallFlags, timeoutMsec: number, fdList?: Gio.UnixFDList | null, cancellable?: Gio.Cancellable | null): { returnType: GLib.Variant, outFdList: Gio.UnixFDList | null }
     getCachedProperty(propertyName: string): GLib.Variant | null
     getCachedPropertyNames(): string[] | null
     getConnection(): Gio.DBusConnection
@@ -13300,7 +11714,7 @@ export class ModemSignal {
     setCachedProperty(propertyName: string, value?: GLib.Variant | null): void
     setDefaultTimeout(timeoutMsec: number): void
     setInterfaceInfo(info?: Gio.DBusInterfaceInfo | null): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -13322,67 +11736,44 @@ export class ModemSignal {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of Gio.AsyncInitable */
+    /* Methods of Gio-2.0.Gio.AsyncInitable */
     initAsync(ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     initFinish(res: Gio.AsyncResult): boolean
     newFinish(res: Gio.AsyncResult): GObject.Object
-    /* Methods of Gio.DBusInterface */
+    /* Methods of Gio-2.0.Gio.DBusInterface */
     getObject(): Gio.DBusObject | null
     getInfo(): Gio.DBusInterfaceInfo
     setObject(object?: Gio.DBusObject | null): void
-    /* Methods of Gio.Initable */
+    /* Methods of Gio-2.0.Gio.Initable */
     init(cancellable?: Gio.Cancellable | null): boolean
-    /* Methods of ModemManager.GdbusModemSignal */
+    /* Methods of ModemManager-1.0.ModemManager.GdbusModemSignal */
     callSetup(argRate: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     callSetupFinish(res: Gio.AsyncResult): boolean
     callSetupSync(argRate: number, cancellable?: Gio.Cancellable | null): boolean
     completeSetup(invocation: Gio.DBusMethodInvocation): void
-    /* Virtual methods of ModemManager.GdbusModemSignalProxy */
-    vfuncInitAsync(ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    vfuncInitFinish(res: Gio.AsyncResult): boolean
-    vfuncDupObject(): Gio.DBusObject | null
-    vfuncGetInfo(): Gio.DBusInterfaceInfo
-    vfuncSetObject(object?: Gio.DBusObject | null): void
-    vfuncInit(cancellable?: Gio.Cancellable | null): boolean
-    vfuncHandleSetup(invocation: Gio.DBusMethodInvocation, argRate: number): boolean
-    /* Virtual methods of Gio.DBusProxy */
-    vfuncGPropertiesChanged(changedProperties: GLib.Variant, invalidatedProperties: string): void
-    vfuncGSignal(senderName: string, signalName: string, parameters: GLib.Variant): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gio.DBusProxy */
+    /* Signals of Gio-2.0.Gio.DBusProxy */
     connect(sigName: "g-properties-changed", callback: (($obj: ModemSignal, changedProperties: GLib.Variant, invalidatedProperties: string[]) => void)): number
-    connect_after(sigName: "g-properties-changed", callback: (($obj: ModemSignal, changedProperties: GLib.Variant, invalidatedProperties: string[]) => void)): number
+    on(sigName: "g-properties-changed", callback: (changedProperties: GLib.Variant, invalidatedProperties: string[]) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "g-properties-changed", callback: (changedProperties: GLib.Variant, invalidatedProperties: string[]) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "g-properties-changed", callback: (changedProperties: GLib.Variant, invalidatedProperties: string[]) => void): NodeJS.EventEmitter
     emit(sigName: "g-properties-changed", changedProperties: GLib.Variant, invalidatedProperties: string[]): void
-    on(sigName: "g-properties-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "g-properties-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "g-properties-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "g-signal", callback: (($obj: ModemSignal, senderName: string | null, signalName: string, parameters: GLib.Variant) => void)): number
-    connect_after(sigName: "g-signal", callback: (($obj: ModemSignal, senderName: string | null, signalName: string, parameters: GLib.Variant) => void)): number
+    on(sigName: "g-signal", callback: (senderName: string | null, signalName: string, parameters: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "g-signal", callback: (senderName: string | null, signalName: string, parameters: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "g-signal", callback: (senderName: string | null, signalName: string, parameters: GLib.Variant) => void): NodeJS.EventEmitter
     emit(sigName: "g-signal", senderName: string | null, signalName: string, parameters: GLib.Variant): void
-    on(sigName: "g-signal", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "g-signal", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "g-signal", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: ModemSignal, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: ModemSignal, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of ModemManager.GdbusModemSignal */
+    /* Signals of ModemManager-1.0.ModemManager.GdbusModemSignal */
     connect(sigName: "handle-setup", callback: (($obj: ModemSignal, invocation: Gio.DBusMethodInvocation, argRate: number) => boolean)): number
-    connect_after(sigName: "handle-setup", callback: (($obj: ModemSignal, invocation: Gio.DBusMethodInvocation, argRate: number) => boolean)): number
+    on(sigName: "handle-setup", callback: (invocation: Gio.DBusMethodInvocation, argRate: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-setup", callback: (invocation: Gio.DBusMethodInvocation, argRate: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-setup", callback: (invocation: Gio.DBusMethodInvocation, argRate: number) => void): NodeJS.EventEmitter
     emit(sigName: "handle-setup", invocation: Gio.DBusMethodInvocation, argRate: number): void
-    on(sigName: "handle-setup", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-setup", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-setup", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::g-default-timeout", callback: (($obj: ModemSignal, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::g-default-timeout", callback: (($obj: ModemSignal, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::g-default-timeout", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -13455,13 +11846,13 @@ export class ModemSignal {
 export interface ModemSimple_ConstructProps extends GdbusModemSimpleProxy_ConstructProps {
 }
 export class ModemSimple {
-    /* Properties of Gio.DBusProxy */
+    /* Properties of Gio-2.0.Gio.DBusProxy */
     gDefaultTimeout: number
     gInterfaceInfo: Gio.DBusInterfaceInfo
     readonly gNameOwner: string
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of ModemManager.ModemSimple */
+    /* Methods of ModemManager-1.0.ModemManager.ModemSimple */
     connect(properties: SimpleConnectProperties, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     connectFinish(res: Gio.AsyncResult): Bearer
     connectSync(properties: SimpleConnectProperties, cancellable?: Gio.Cancellable | null): Bearer
@@ -13473,13 +11864,13 @@ export class ModemSimple {
     getStatus(cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     getStatusFinish(res: Gio.AsyncResult): SimpleStatus
     getStatusSync(cancellable?: Gio.Cancellable | null): SimpleStatus
-    /* Methods of Gio.DBusProxy */
+    /* Methods of Gio-2.0.Gio.DBusProxy */
     call(methodName: string, parameters: GLib.Variant | null, flags: Gio.DBusCallFlags, timeoutMsec: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     callFinish(res: Gio.AsyncResult): GLib.Variant
     callSync(methodName: string, parameters: GLib.Variant | null, flags: Gio.DBusCallFlags, timeoutMsec: number, cancellable?: Gio.Cancellable | null): GLib.Variant
     callWithUnixFdList(methodName: string, parameters: GLib.Variant | null, flags: Gio.DBusCallFlags, timeoutMsec: number, fdList?: Gio.UnixFDList | null, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    callWithUnixFdListFinish(res: Gio.AsyncResult): [ /* returnType */ GLib.Variant, /* outFdList */ Gio.UnixFDList | null ]
-    callWithUnixFdListSync(methodName: string, parameters: GLib.Variant | null, flags: Gio.DBusCallFlags, timeoutMsec: number, fdList?: Gio.UnixFDList | null, cancellable?: Gio.Cancellable | null): [ /* returnType */ GLib.Variant, /* outFdList */ Gio.UnixFDList | null ]
+    callWithUnixFdListFinish(res: Gio.AsyncResult): { returnType: GLib.Variant, outFdList: Gio.UnixFDList | null }
+    callWithUnixFdListSync(methodName: string, parameters: GLib.Variant | null, flags: Gio.DBusCallFlags, timeoutMsec: number, fdList?: Gio.UnixFDList | null, cancellable?: Gio.Cancellable | null): { returnType: GLib.Variant, outFdList: Gio.UnixFDList | null }
     getCachedProperty(propertyName: string): GLib.Variant | null
     getCachedPropertyNames(): string[] | null
     getConnection(): Gio.DBusConnection
@@ -13493,7 +11884,7 @@ export class ModemSimple {
     setCachedProperty(propertyName: string, value?: GLib.Variant | null): void
     setDefaultTimeout(timeoutMsec: number): void
     setInterfaceInfo(info?: Gio.DBusInterfaceInfo | null): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -13515,89 +11906,62 @@ export class ModemSimple {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of Gio.AsyncInitable */
+    /* Methods of Gio-2.0.Gio.AsyncInitable */
     initAsync(ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     initFinish(res: Gio.AsyncResult): boolean
     newFinish(res: Gio.AsyncResult): GObject.Object
-    /* Methods of Gio.DBusInterface */
+    /* Methods of Gio-2.0.Gio.DBusInterface */
     getObject(): Gio.DBusObject | null
     getInfo(): Gio.DBusInterfaceInfo
     setObject(object?: Gio.DBusObject | null): void
-    /* Methods of Gio.Initable */
+    /* Methods of Gio-2.0.Gio.Initable */
     init(cancellable?: Gio.Cancellable | null): boolean
-    /* Methods of ModemManager.GdbusModemSimple */
+    /* Methods of ModemManager-1.0.ModemManager.GdbusModemSimple */
     callConnect(argProperties: GLib.Variant, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    callConnectFinish(res: Gio.AsyncResult): [ /* returnType */ boolean, /* outBearer */ string | null ]
-    callConnectSync(argProperties: GLib.Variant, cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* outBearer */ string | null ]
+    callConnectFinish(res: Gio.AsyncResult): { returnType: boolean, outBearer: string | null }
+    callConnectSync(argProperties: GLib.Variant, cancellable?: Gio.Cancellable | null): { returnType: boolean, outBearer: string | null }
     callDisconnect(argBearer: string, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     callDisconnectFinish(res: Gio.AsyncResult): boolean
     callDisconnectSync(argBearer: string, cancellable?: Gio.Cancellable | null): boolean
     callGetStatus(cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    callGetStatusFinish(res: Gio.AsyncResult): [ /* returnType */ boolean, /* outProperties */ GLib.Variant | null ]
-    callGetStatusSync(cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* outProperties */ GLib.Variant | null ]
+    callGetStatusFinish(res: Gio.AsyncResult): { returnType: boolean, outProperties: GLib.Variant | null }
+    callGetStatusSync(cancellable?: Gio.Cancellable | null): { returnType: boolean, outProperties: GLib.Variant | null }
     completeConnect(invocation: Gio.DBusMethodInvocation, bearer: string): void
     completeDisconnect(invocation: Gio.DBusMethodInvocation): void
     completeGetStatus(invocation: Gio.DBusMethodInvocation, properties: GLib.Variant): void
-    /* Virtual methods of ModemManager.GdbusModemSimpleProxy */
-    vfuncInitAsync(ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    vfuncInitFinish(res: Gio.AsyncResult): boolean
-    vfuncDupObject(): Gio.DBusObject | null
-    vfuncGetInfo(): Gio.DBusInterfaceInfo
-    vfuncSetObject(object?: Gio.DBusObject | null): void
-    vfuncInit(cancellable?: Gio.Cancellable | null): boolean
-    vfuncHandleConnect(invocation: Gio.DBusMethodInvocation, argProperties: GLib.Variant): boolean
-    vfuncHandleDisconnect(invocation: Gio.DBusMethodInvocation, argBearer: string): boolean
-    vfuncHandleGetStatus(invocation: Gio.DBusMethodInvocation): boolean
-    /* Virtual methods of Gio.DBusProxy */
-    vfuncGPropertiesChanged(changedProperties: GLib.Variant, invalidatedProperties: string): void
-    vfuncGSignal(senderName: string, signalName: string, parameters: GLib.Variant): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gio.DBusProxy */
+    /* Signals of Gio-2.0.Gio.DBusProxy */
     connect(sigName: "g-properties-changed", callback: (($obj: ModemSimple, changedProperties: GLib.Variant, invalidatedProperties: string[]) => void)): number
-    connect_after(sigName: "g-properties-changed", callback: (($obj: ModemSimple, changedProperties: GLib.Variant, invalidatedProperties: string[]) => void)): number
+    on(sigName: "g-properties-changed", callback: (changedProperties: GLib.Variant, invalidatedProperties: string[]) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "g-properties-changed", callback: (changedProperties: GLib.Variant, invalidatedProperties: string[]) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "g-properties-changed", callback: (changedProperties: GLib.Variant, invalidatedProperties: string[]) => void): NodeJS.EventEmitter
     emit(sigName: "g-properties-changed", changedProperties: GLib.Variant, invalidatedProperties: string[]): void
-    on(sigName: "g-properties-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "g-properties-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "g-properties-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "g-signal", callback: (($obj: ModemSimple, senderName: string | null, signalName: string, parameters: GLib.Variant) => void)): number
-    connect_after(sigName: "g-signal", callback: (($obj: ModemSimple, senderName: string | null, signalName: string, parameters: GLib.Variant) => void)): number
+    on(sigName: "g-signal", callback: (senderName: string | null, signalName: string, parameters: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "g-signal", callback: (senderName: string | null, signalName: string, parameters: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "g-signal", callback: (senderName: string | null, signalName: string, parameters: GLib.Variant) => void): NodeJS.EventEmitter
     emit(sigName: "g-signal", senderName: string | null, signalName: string, parameters: GLib.Variant): void
-    on(sigName: "g-signal", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "g-signal", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "g-signal", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: ModemSimple, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: ModemSimple, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of ModemManager.GdbusModemSimple */
+    /* Signals of ModemManager-1.0.ModemManager.GdbusModemSimple */
     connect(sigName: "handle-connect", callback: (($obj: ModemSimple, invocation: Gio.DBusMethodInvocation, argProperties: GLib.Variant) => boolean)): number
-    connect_after(sigName: "handle-connect", callback: (($obj: ModemSimple, invocation: Gio.DBusMethodInvocation, argProperties: GLib.Variant) => boolean)): number
+    on(sigName: "handle-connect", callback: (invocation: Gio.DBusMethodInvocation, argProperties: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-connect", callback: (invocation: Gio.DBusMethodInvocation, argProperties: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-connect", callback: (invocation: Gio.DBusMethodInvocation, argProperties: GLib.Variant) => void): NodeJS.EventEmitter
     emit(sigName: "handle-connect", invocation: Gio.DBusMethodInvocation, argProperties: GLib.Variant): void
-    on(sigName: "handle-connect", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-connect", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-connect", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "handle-disconnect", callback: (($obj: ModemSimple, invocation: Gio.DBusMethodInvocation, argBearer: string) => boolean)): number
-    connect_after(sigName: "handle-disconnect", callback: (($obj: ModemSimple, invocation: Gio.DBusMethodInvocation, argBearer: string) => boolean)): number
+    on(sigName: "handle-disconnect", callback: (invocation: Gio.DBusMethodInvocation, argBearer: string) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-disconnect", callback: (invocation: Gio.DBusMethodInvocation, argBearer: string) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-disconnect", callback: (invocation: Gio.DBusMethodInvocation, argBearer: string) => void): NodeJS.EventEmitter
     emit(sigName: "handle-disconnect", invocation: Gio.DBusMethodInvocation, argBearer: string): void
-    on(sigName: "handle-disconnect", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-disconnect", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-disconnect", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "handle-get-status", callback: (($obj: ModemSimple, invocation: Gio.DBusMethodInvocation) => boolean)): number
-    connect_after(sigName: "handle-get-status", callback: (($obj: ModemSimple, invocation: Gio.DBusMethodInvocation) => boolean)): number
+    on(sigName: "handle-get-status", callback: (invocation: Gio.DBusMethodInvocation) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-get-status", callback: (invocation: Gio.DBusMethodInvocation) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-get-status", callback: (invocation: Gio.DBusMethodInvocation) => void): NodeJS.EventEmitter
     emit(sigName: "handle-get-status", invocation: Gio.DBusMethodInvocation): void
-    on(sigName: "handle-get-status", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-get-status", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-get-status", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::g-default-timeout", callback: (($obj: ModemSimple, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::g-default-timeout", callback: (($obj: ModemSimple, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::g-default-timeout", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -13636,15 +12000,15 @@ export interface ModemTime_ConstructProps extends GdbusModemTimeProxy_ConstructP
     networkTimezone?: GLib.Variant
 }
 export class ModemTime {
-    /* Properties of Gio.DBusProxy */
+    /* Properties of Gio-2.0.Gio.DBusProxy */
     gDefaultTimeout: number
     gInterfaceInfo: Gio.DBusInterfaceInfo
     readonly gNameOwner: string
-    /* Properties of ModemManager.GdbusModemTime */
+    /* Properties of ModemManager-1.0.ModemManager.GdbusModemTime */
     networkTimezone: GLib.Variant
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of ModemManager.ModemTime */
+    /* Methods of ModemManager-1.0.ModemManager.ModemTime */
     dupPath(): string
     getNetworkTime(cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     getNetworkTimeFinish(res: Gio.AsyncResult): string
@@ -13652,13 +12016,13 @@ export class ModemTime {
     getNetworkTimezone(): NetworkTimezone
     getPath(): string
     peekNetworkTimezone(): NetworkTimezone
-    /* Methods of Gio.DBusProxy */
+    /* Methods of Gio-2.0.Gio.DBusProxy */
     call(methodName: string, parameters: GLib.Variant | null, flags: Gio.DBusCallFlags, timeoutMsec: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     callFinish(res: Gio.AsyncResult): GLib.Variant
     callSync(methodName: string, parameters: GLib.Variant | null, flags: Gio.DBusCallFlags, timeoutMsec: number, cancellable?: Gio.Cancellable | null): GLib.Variant
     callWithUnixFdList(methodName: string, parameters: GLib.Variant | null, flags: Gio.DBusCallFlags, timeoutMsec: number, fdList?: Gio.UnixFDList | null, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    callWithUnixFdListFinish(res: Gio.AsyncResult): [ /* returnType */ GLib.Variant, /* outFdList */ Gio.UnixFDList | null ]
-    callWithUnixFdListSync(methodName: string, parameters: GLib.Variant | null, flags: Gio.DBusCallFlags, timeoutMsec: number, fdList?: Gio.UnixFDList | null, cancellable?: Gio.Cancellable | null): [ /* returnType */ GLib.Variant, /* outFdList */ Gio.UnixFDList | null ]
+    callWithUnixFdListFinish(res: Gio.AsyncResult): { returnType: GLib.Variant, outFdList: Gio.UnixFDList | null }
+    callWithUnixFdListSync(methodName: string, parameters: GLib.Variant | null, flags: Gio.DBusCallFlags, timeoutMsec: number, fdList?: Gio.UnixFDList | null, cancellable?: Gio.Cancellable | null): { returnType: GLib.Variant, outFdList: Gio.UnixFDList | null }
     getCachedProperty(propertyName: string): GLib.Variant | null
     getCachedPropertyNames(): string[] | null
     getConnection(): Gio.DBusConnection
@@ -13672,7 +12036,7 @@ export class ModemTime {
     setCachedProperty(propertyName: string, value?: GLib.Variant | null): void
     setDefaultTimeout(timeoutMsec: number): void
     setInterfaceInfo(info?: Gio.DBusInterfaceInfo | null): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -13694,75 +12058,50 @@ export class ModemTime {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of Gio.AsyncInitable */
+    /* Methods of Gio-2.0.Gio.AsyncInitable */
     initAsync(ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     initFinish(res: Gio.AsyncResult): boolean
     newFinish(res: Gio.AsyncResult): GObject.Object
-    /* Methods of Gio.DBusInterface */
+    /* Methods of Gio-2.0.Gio.DBusInterface */
     getObject(): Gio.DBusObject | null
     getInfo(): Gio.DBusInterfaceInfo
     setObject(object?: Gio.DBusObject | null): void
-    /* Methods of Gio.Initable */
+    /* Methods of Gio-2.0.Gio.Initable */
     init(cancellable?: Gio.Cancellable | null): boolean
-    /* Methods of ModemManager.GdbusModemTime */
+    /* Methods of ModemManager-1.0.ModemManager.GdbusModemTime */
     callGetNetworkTime(cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    callGetNetworkTimeFinish(res: Gio.AsyncResult): [ /* returnType */ boolean, /* outTime */ string | null ]
-    callGetNetworkTimeSync(cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* outTime */ string | null ]
+    callGetNetworkTimeFinish(res: Gio.AsyncResult): { returnType: boolean, outTime: string | null }
+    callGetNetworkTimeSync(cancellable?: Gio.Cancellable | null): { returnType: boolean, outTime: string | null }
     completeGetNetworkTime(invocation: Gio.DBusMethodInvocation, time: string): void
     emitNetworkTimeChanged(argTime: string): void
-    /* Virtual methods of ModemManager.GdbusModemTimeProxy */
-    vfuncInitAsync(ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    vfuncInitFinish(res: Gio.AsyncResult): boolean
-    vfuncDupObject(): Gio.DBusObject | null
-    vfuncGetInfo(): Gio.DBusInterfaceInfo
-    vfuncSetObject(object?: Gio.DBusObject | null): void
-    vfuncInit(cancellable?: Gio.Cancellable | null): boolean
-    vfuncHandleGetNetworkTime(invocation: Gio.DBusMethodInvocation): boolean
-    vfuncNetworkTimeChanged(argTime: string): void
-    /* Virtual methods of Gio.DBusProxy */
-    vfuncGPropertiesChanged(changedProperties: GLib.Variant, invalidatedProperties: string): void
-    vfuncGSignal(senderName: string, signalName: string, parameters: GLib.Variant): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gio.DBusProxy */
+    /* Signals of Gio-2.0.Gio.DBusProxy */
     connect(sigName: "g-properties-changed", callback: (($obj: ModemTime, changedProperties: GLib.Variant, invalidatedProperties: string[]) => void)): number
-    connect_after(sigName: "g-properties-changed", callback: (($obj: ModemTime, changedProperties: GLib.Variant, invalidatedProperties: string[]) => void)): number
+    on(sigName: "g-properties-changed", callback: (changedProperties: GLib.Variant, invalidatedProperties: string[]) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "g-properties-changed", callback: (changedProperties: GLib.Variant, invalidatedProperties: string[]) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "g-properties-changed", callback: (changedProperties: GLib.Variant, invalidatedProperties: string[]) => void): NodeJS.EventEmitter
     emit(sigName: "g-properties-changed", changedProperties: GLib.Variant, invalidatedProperties: string[]): void
-    on(sigName: "g-properties-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "g-properties-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "g-properties-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "g-signal", callback: (($obj: ModemTime, senderName: string | null, signalName: string, parameters: GLib.Variant) => void)): number
-    connect_after(sigName: "g-signal", callback: (($obj: ModemTime, senderName: string | null, signalName: string, parameters: GLib.Variant) => void)): number
+    on(sigName: "g-signal", callback: (senderName: string | null, signalName: string, parameters: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "g-signal", callback: (senderName: string | null, signalName: string, parameters: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "g-signal", callback: (senderName: string | null, signalName: string, parameters: GLib.Variant) => void): NodeJS.EventEmitter
     emit(sigName: "g-signal", senderName: string | null, signalName: string, parameters: GLib.Variant): void
-    on(sigName: "g-signal", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "g-signal", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "g-signal", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: ModemTime, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: ModemTime, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of ModemManager.GdbusModemTime */
+    /* Signals of ModemManager-1.0.ModemManager.GdbusModemTime */
     connect(sigName: "handle-get-network-time", callback: (($obj: ModemTime, invocation: Gio.DBusMethodInvocation) => boolean)): number
-    connect_after(sigName: "handle-get-network-time", callback: (($obj: ModemTime, invocation: Gio.DBusMethodInvocation) => boolean)): number
+    on(sigName: "handle-get-network-time", callback: (invocation: Gio.DBusMethodInvocation) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-get-network-time", callback: (invocation: Gio.DBusMethodInvocation) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-get-network-time", callback: (invocation: Gio.DBusMethodInvocation) => void): NodeJS.EventEmitter
     emit(sigName: "handle-get-network-time", invocation: Gio.DBusMethodInvocation): void
-    on(sigName: "handle-get-network-time", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-get-network-time", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-get-network-time", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "network-time-changed", callback: (($obj: ModemTime, argTime: string) => void)): number
-    connect_after(sigName: "network-time-changed", callback: (($obj: ModemTime, argTime: string) => void)): number
+    on(sigName: "network-time-changed", callback: (argTime: string) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "network-time-changed", callback: (argTime: string) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "network-time-changed", callback: (argTime: string) => void): NodeJS.EventEmitter
     emit(sigName: "network-time-changed", argTime: string): void
-    on(sigName: "network-time-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "network-time-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "network-time-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::g-default-timeout", callback: (($obj: ModemTime, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::g-default-timeout", callback: (($obj: ModemTime, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::g-default-timeout", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -13807,16 +12146,16 @@ export interface ModemVoice_ConstructProps extends GdbusModemVoiceProxy_Construc
     emergencyOnly?: boolean
 }
 export class ModemVoice {
-    /* Properties of Gio.DBusProxy */
+    /* Properties of Gio-2.0.Gio.DBusProxy */
     gDefaultTimeout: number
     gInterfaceInfo: Gio.DBusInterfaceInfo
     readonly gNameOwner: string
-    /* Properties of ModemManager.GdbusModemVoice */
+    /* Properties of ModemManager-1.0.ModemManager.GdbusModemVoice */
     calls: string[]
     emergencyOnly: boolean
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of ModemManager.ModemVoice */
+    /* Methods of ModemManager-1.0.ModemManager.ModemVoice */
     callWaitingQuery(cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     callWaitingQueryFinish(res: Gio.AsyncResult, status: boolean): boolean
     callWaitingQuerySync(cancellable: Gio.Cancellable | null, status: boolean): boolean
@@ -13847,13 +12186,13 @@ export class ModemVoice {
     transfer(cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     transferFinish(res: Gio.AsyncResult): boolean
     transferSync(cancellable?: Gio.Cancellable | null): boolean
-    /* Methods of Gio.DBusProxy */
+    /* Methods of Gio-2.0.Gio.DBusProxy */
     call(methodName: string, parameters: GLib.Variant | null, flags: Gio.DBusCallFlags, timeoutMsec: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     callFinish(res: Gio.AsyncResult): GLib.Variant
     callSync(methodName: string, parameters: GLib.Variant | null, flags: Gio.DBusCallFlags, timeoutMsec: number, cancellable?: Gio.Cancellable | null): GLib.Variant
     callWithUnixFdList(methodName: string, parameters: GLib.Variant | null, flags: Gio.DBusCallFlags, timeoutMsec: number, fdList?: Gio.UnixFDList | null, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    callWithUnixFdListFinish(res: Gio.AsyncResult): [ /* returnType */ GLib.Variant, /* outFdList */ Gio.UnixFDList | null ]
-    callWithUnixFdListSync(methodName: string, parameters: GLib.Variant | null, flags: Gio.DBusCallFlags, timeoutMsec: number, fdList?: Gio.UnixFDList | null, cancellable?: Gio.Cancellable | null): [ /* returnType */ GLib.Variant, /* outFdList */ Gio.UnixFDList | null ]
+    callWithUnixFdListFinish(res: Gio.AsyncResult): { returnType: GLib.Variant, outFdList: Gio.UnixFDList | null }
+    callWithUnixFdListSync(methodName: string, parameters: GLib.Variant | null, flags: Gio.DBusCallFlags, timeoutMsec: number, fdList?: Gio.UnixFDList | null, cancellable?: Gio.Cancellable | null): { returnType: GLib.Variant, outFdList: Gio.UnixFDList | null }
     getCachedProperty(propertyName: string): GLib.Variant | null
     getCachedPropertyNames(): string[] | null
     getConnection(): Gio.DBusConnection
@@ -13867,7 +12206,7 @@ export class ModemVoice {
     setCachedProperty(propertyName: string, value?: GLib.Variant | null): void
     setDefaultTimeout(timeoutMsec: number): void
     setInterfaceInfo(info?: Gio.DBusInterfaceInfo | null): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -13889,26 +12228,26 @@ export class ModemVoice {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of Gio.AsyncInitable */
+    /* Methods of Gio-2.0.Gio.AsyncInitable */
     initAsync(ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     initFinish(res: Gio.AsyncResult): boolean
     newFinish(res: Gio.AsyncResult): GObject.Object
-    /* Methods of Gio.DBusInterface */
+    /* Methods of Gio-2.0.Gio.DBusInterface */
     getObject(): Gio.DBusObject | null
     getInfo(): Gio.DBusInterfaceInfo
     setObject(object?: Gio.DBusObject | null): void
-    /* Methods of Gio.Initable */
+    /* Methods of Gio-2.0.Gio.Initable */
     init(cancellable?: Gio.Cancellable | null): boolean
-    /* Methods of ModemManager.GdbusModemVoice */
+    /* Methods of ModemManager-1.0.ModemManager.GdbusModemVoice */
     callCallWaitingQuery(cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    callCallWaitingQueryFinish(res: Gio.AsyncResult): [ /* returnType */ boolean, /* outStatus */ boolean | null ]
-    callCallWaitingQuerySync(cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* outStatus */ boolean | null ]
+    callCallWaitingQueryFinish(res: Gio.AsyncResult): { returnType: boolean, outStatus: boolean | null }
+    callCallWaitingQuerySync(cancellable?: Gio.Cancellable | null): { returnType: boolean, outStatus: boolean | null }
     callCallWaitingSetup(argEnable: boolean, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     callCallWaitingSetupFinish(res: Gio.AsyncResult): boolean
     callCallWaitingSetupSync(argEnable: boolean, cancellable?: Gio.Cancellable | null): boolean
     callCreateCall(argProperties: GLib.Variant, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    callCreateCallFinish(res: Gio.AsyncResult): [ /* returnType */ boolean, /* outPath */ string | null ]
-    callCreateCallSync(argProperties: GLib.Variant, cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* outPath */ string | null ]
+    callCreateCallFinish(res: Gio.AsyncResult): { returnType: boolean, outPath: string | null }
+    callCreateCallSync(argProperties: GLib.Variant, cancellable?: Gio.Cancellable | null): { returnType: boolean, outPath: string | null }
     callDeleteCall(argPath: string, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     callDeleteCallFinish(res: Gio.AsyncResult): boolean
     callDeleteCallSync(argPath: string, cancellable?: Gio.Cancellable | null): boolean
@@ -13922,8 +12261,8 @@ export class ModemVoice {
     callHoldAndAcceptFinish(res: Gio.AsyncResult): boolean
     callHoldAndAcceptSync(cancellable?: Gio.Cancellable | null): boolean
     callListCalls(cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    callListCallsFinish(res: Gio.AsyncResult): [ /* returnType */ boolean, /* outResult */ string[] | null ]
-    callListCallsSync(cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* outResult */ string[] | null ]
+    callListCallsFinish(res: Gio.AsyncResult): { returnType: boolean, outResult: string[] | null }
+    callListCallsSync(cancellable?: Gio.Cancellable | null): { returnType: boolean, outResult: string[] | null }
     callTransfer(cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     callTransferFinish(res: Gio.AsyncResult): boolean
     callTransferSync(cancellable?: Gio.Cancellable | null): boolean
@@ -13938,122 +12277,79 @@ export class ModemVoice {
     completeTransfer(invocation: Gio.DBusMethodInvocation): void
     emitCallAdded(argPath: string): void
     emitCallDeleted(argPath: string): void
-    /* Virtual methods of ModemManager.GdbusModemVoiceProxy */
-    vfuncInitAsync(ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    vfuncInitFinish(res: Gio.AsyncResult): boolean
-    vfuncDupObject(): Gio.DBusObject | null
-    vfuncGetInfo(): Gio.DBusInterfaceInfo
-    vfuncSetObject(object?: Gio.DBusObject | null): void
-    vfuncInit(cancellable?: Gio.Cancellable | null): boolean
-    vfuncCallAdded(argPath: string): void
-    vfuncCallDeleted(argPath: string): void
-    vfuncHandleCallWaitingQuery(invocation: Gio.DBusMethodInvocation): boolean
-    vfuncHandleCallWaitingSetup(invocation: Gio.DBusMethodInvocation, argEnable: boolean): boolean
-    vfuncHandleCreateCall(invocation: Gio.DBusMethodInvocation, argProperties: GLib.Variant): boolean
-    vfuncHandleDeleteCall(invocation: Gio.DBusMethodInvocation, argPath: string): boolean
-    vfuncHandleHangupAll(invocation: Gio.DBusMethodInvocation): boolean
-    vfuncHandleHangupAndAccept(invocation: Gio.DBusMethodInvocation): boolean
-    vfuncHandleHoldAndAccept(invocation: Gio.DBusMethodInvocation): boolean
-    vfuncHandleListCalls(invocation: Gio.DBusMethodInvocation): boolean
-    vfuncHandleTransfer(invocation: Gio.DBusMethodInvocation): boolean
-    /* Virtual methods of Gio.DBusProxy */
-    vfuncGPropertiesChanged(changedProperties: GLib.Variant, invalidatedProperties: string): void
-    vfuncGSignal(senderName: string, signalName: string, parameters: GLib.Variant): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gio.DBusProxy */
+    /* Signals of Gio-2.0.Gio.DBusProxy */
     connect(sigName: "g-properties-changed", callback: (($obj: ModemVoice, changedProperties: GLib.Variant, invalidatedProperties: string[]) => void)): number
-    connect_after(sigName: "g-properties-changed", callback: (($obj: ModemVoice, changedProperties: GLib.Variant, invalidatedProperties: string[]) => void)): number
+    on(sigName: "g-properties-changed", callback: (changedProperties: GLib.Variant, invalidatedProperties: string[]) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "g-properties-changed", callback: (changedProperties: GLib.Variant, invalidatedProperties: string[]) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "g-properties-changed", callback: (changedProperties: GLib.Variant, invalidatedProperties: string[]) => void): NodeJS.EventEmitter
     emit(sigName: "g-properties-changed", changedProperties: GLib.Variant, invalidatedProperties: string[]): void
-    on(sigName: "g-properties-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "g-properties-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "g-properties-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "g-signal", callback: (($obj: ModemVoice, senderName: string | null, signalName: string, parameters: GLib.Variant) => void)): number
-    connect_after(sigName: "g-signal", callback: (($obj: ModemVoice, senderName: string | null, signalName: string, parameters: GLib.Variant) => void)): number
+    on(sigName: "g-signal", callback: (senderName: string | null, signalName: string, parameters: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "g-signal", callback: (senderName: string | null, signalName: string, parameters: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "g-signal", callback: (senderName: string | null, signalName: string, parameters: GLib.Variant) => void): NodeJS.EventEmitter
     emit(sigName: "g-signal", senderName: string | null, signalName: string, parameters: GLib.Variant): void
-    on(sigName: "g-signal", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "g-signal", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "g-signal", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: ModemVoice, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: ModemVoice, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of ModemManager.GdbusModemVoice */
+    /* Signals of ModemManager-1.0.ModemManager.GdbusModemVoice */
     connect(sigName: "call-added", callback: (($obj: ModemVoice, argPath: string) => void)): number
-    connect_after(sigName: "call-added", callback: (($obj: ModemVoice, argPath: string) => void)): number
+    on(sigName: "call-added", callback: (argPath: string) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "call-added", callback: (argPath: string) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "call-added", callback: (argPath: string) => void): NodeJS.EventEmitter
     emit(sigName: "call-added", argPath: string): void
-    on(sigName: "call-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "call-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "call-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "call-deleted", callback: (($obj: ModemVoice, argPath: string) => void)): number
-    connect_after(sigName: "call-deleted", callback: (($obj: ModemVoice, argPath: string) => void)): number
+    on(sigName: "call-deleted", callback: (argPath: string) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "call-deleted", callback: (argPath: string) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "call-deleted", callback: (argPath: string) => void): NodeJS.EventEmitter
     emit(sigName: "call-deleted", argPath: string): void
-    on(sigName: "call-deleted", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "call-deleted", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "call-deleted", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "handle-call-waiting-query", callback: (($obj: ModemVoice, invocation: Gio.DBusMethodInvocation) => boolean)): number
-    connect_after(sigName: "handle-call-waiting-query", callback: (($obj: ModemVoice, invocation: Gio.DBusMethodInvocation) => boolean)): number
+    on(sigName: "handle-call-waiting-query", callback: (invocation: Gio.DBusMethodInvocation) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-call-waiting-query", callback: (invocation: Gio.DBusMethodInvocation) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-call-waiting-query", callback: (invocation: Gio.DBusMethodInvocation) => void): NodeJS.EventEmitter
     emit(sigName: "handle-call-waiting-query", invocation: Gio.DBusMethodInvocation): void
-    on(sigName: "handle-call-waiting-query", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-call-waiting-query", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-call-waiting-query", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "handle-call-waiting-setup", callback: (($obj: ModemVoice, invocation: Gio.DBusMethodInvocation, argEnable: boolean) => boolean)): number
-    connect_after(sigName: "handle-call-waiting-setup", callback: (($obj: ModemVoice, invocation: Gio.DBusMethodInvocation, argEnable: boolean) => boolean)): number
+    on(sigName: "handle-call-waiting-setup", callback: (invocation: Gio.DBusMethodInvocation, argEnable: boolean) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-call-waiting-setup", callback: (invocation: Gio.DBusMethodInvocation, argEnable: boolean) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-call-waiting-setup", callback: (invocation: Gio.DBusMethodInvocation, argEnable: boolean) => void): NodeJS.EventEmitter
     emit(sigName: "handle-call-waiting-setup", invocation: Gio.DBusMethodInvocation, argEnable: boolean): void
-    on(sigName: "handle-call-waiting-setup", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-call-waiting-setup", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-call-waiting-setup", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "handle-create-call", callback: (($obj: ModemVoice, invocation: Gio.DBusMethodInvocation, argProperties: GLib.Variant) => boolean)): number
-    connect_after(sigName: "handle-create-call", callback: (($obj: ModemVoice, invocation: Gio.DBusMethodInvocation, argProperties: GLib.Variant) => boolean)): number
+    on(sigName: "handle-create-call", callback: (invocation: Gio.DBusMethodInvocation, argProperties: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-create-call", callback: (invocation: Gio.DBusMethodInvocation, argProperties: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-create-call", callback: (invocation: Gio.DBusMethodInvocation, argProperties: GLib.Variant) => void): NodeJS.EventEmitter
     emit(sigName: "handle-create-call", invocation: Gio.DBusMethodInvocation, argProperties: GLib.Variant): void
-    on(sigName: "handle-create-call", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-create-call", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-create-call", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "handle-delete-call", callback: (($obj: ModemVoice, invocation: Gio.DBusMethodInvocation, argPath: string) => boolean)): number
-    connect_after(sigName: "handle-delete-call", callback: (($obj: ModemVoice, invocation: Gio.DBusMethodInvocation, argPath: string) => boolean)): number
+    on(sigName: "handle-delete-call", callback: (invocation: Gio.DBusMethodInvocation, argPath: string) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-delete-call", callback: (invocation: Gio.DBusMethodInvocation, argPath: string) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-delete-call", callback: (invocation: Gio.DBusMethodInvocation, argPath: string) => void): NodeJS.EventEmitter
     emit(sigName: "handle-delete-call", invocation: Gio.DBusMethodInvocation, argPath: string): void
-    on(sigName: "handle-delete-call", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-delete-call", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-delete-call", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "handle-hangup-all", callback: (($obj: ModemVoice, invocation: Gio.DBusMethodInvocation) => boolean)): number
-    connect_after(sigName: "handle-hangup-all", callback: (($obj: ModemVoice, invocation: Gio.DBusMethodInvocation) => boolean)): number
+    on(sigName: "handle-hangup-all", callback: (invocation: Gio.DBusMethodInvocation) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-hangup-all", callback: (invocation: Gio.DBusMethodInvocation) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-hangup-all", callback: (invocation: Gio.DBusMethodInvocation) => void): NodeJS.EventEmitter
     emit(sigName: "handle-hangup-all", invocation: Gio.DBusMethodInvocation): void
-    on(sigName: "handle-hangup-all", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-hangup-all", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-hangup-all", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "handle-hangup-and-accept", callback: (($obj: ModemVoice, invocation: Gio.DBusMethodInvocation) => boolean)): number
-    connect_after(sigName: "handle-hangup-and-accept", callback: (($obj: ModemVoice, invocation: Gio.DBusMethodInvocation) => boolean)): number
+    on(sigName: "handle-hangup-and-accept", callback: (invocation: Gio.DBusMethodInvocation) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-hangup-and-accept", callback: (invocation: Gio.DBusMethodInvocation) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-hangup-and-accept", callback: (invocation: Gio.DBusMethodInvocation) => void): NodeJS.EventEmitter
     emit(sigName: "handle-hangup-and-accept", invocation: Gio.DBusMethodInvocation): void
-    on(sigName: "handle-hangup-and-accept", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-hangup-and-accept", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-hangup-and-accept", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "handle-hold-and-accept", callback: (($obj: ModemVoice, invocation: Gio.DBusMethodInvocation) => boolean)): number
-    connect_after(sigName: "handle-hold-and-accept", callback: (($obj: ModemVoice, invocation: Gio.DBusMethodInvocation) => boolean)): number
+    on(sigName: "handle-hold-and-accept", callback: (invocation: Gio.DBusMethodInvocation) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-hold-and-accept", callback: (invocation: Gio.DBusMethodInvocation) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-hold-and-accept", callback: (invocation: Gio.DBusMethodInvocation) => void): NodeJS.EventEmitter
     emit(sigName: "handle-hold-and-accept", invocation: Gio.DBusMethodInvocation): void
-    on(sigName: "handle-hold-and-accept", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-hold-and-accept", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-hold-and-accept", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "handle-list-calls", callback: (($obj: ModemVoice, invocation: Gio.DBusMethodInvocation) => boolean)): number
-    connect_after(sigName: "handle-list-calls", callback: (($obj: ModemVoice, invocation: Gio.DBusMethodInvocation) => boolean)): number
+    on(sigName: "handle-list-calls", callback: (invocation: Gio.DBusMethodInvocation) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-list-calls", callback: (invocation: Gio.DBusMethodInvocation) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-list-calls", callback: (invocation: Gio.DBusMethodInvocation) => void): NodeJS.EventEmitter
     emit(sigName: "handle-list-calls", invocation: Gio.DBusMethodInvocation): void
-    on(sigName: "handle-list-calls", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-list-calls", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-list-calls", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "handle-transfer", callback: (($obj: ModemVoice, invocation: Gio.DBusMethodInvocation) => boolean)): number
-    connect_after(sigName: "handle-transfer", callback: (($obj: ModemVoice, invocation: Gio.DBusMethodInvocation) => boolean)): number
+    on(sigName: "handle-transfer", callback: (invocation: Gio.DBusMethodInvocation) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-transfer", callback: (invocation: Gio.DBusMethodInvocation) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-transfer", callback: (invocation: Gio.DBusMethodInvocation) => void): NodeJS.EventEmitter
     emit(sigName: "handle-transfer", invocation: Gio.DBusMethodInvocation): void
-    on(sigName: "handle-transfer", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-transfer", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-transfer", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::g-default-timeout", callback: (($obj: ModemVoice, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::g-default-timeout", callback: (($obj: ModemVoice, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::g-default-timeout", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -14101,13 +12397,13 @@ export class ModemVoice {
 export interface NetworkTimezone_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class NetworkTimezone {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of ModemManager.NetworkTimezone */
+    /* Methods of ModemManager-1.0.ModemManager.NetworkTimezone */
     getDstOffset(): number
     getLeapSeconds(): number
     getOffset(): number
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -14129,21 +12425,12 @@ export class NetworkTimezone {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: NetworkTimezone, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: NetworkTimezone, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -14171,7 +12458,7 @@ export interface Object_ConstructProps extends GdbusObjectProxy_ConstructProps {
     modem3gppUssd?: GdbusModem3gppUssd
 }
 export class Object {
-    /* Properties of ModemManager.GdbusObject */
+    /* Properties of ModemManager-1.0.ModemManager.GdbusObject */
     modem: GdbusModem
     modemCdma: GdbusModemCdma
     modemFirmware: GdbusModemFirmware
@@ -14184,9 +12471,9 @@ export class Object {
     modemVoice: GdbusModemVoice
     modem3gpp: GdbusModem3gpp
     modem3gppUssd: GdbusModem3gppUssd
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of ModemManager.Object */
+    /* Methods of ModemManager-1.0.ModemManager.Object */
     dupPath(): string
     getModem(): Modem
     getModem3gpp(): Modem3gpp
@@ -14200,9 +12487,9 @@ export class Object {
     getModemSimple(): ModemSimple
     getModemTime(): ModemTime
     getModemVoice(): ModemVoice
-    /* Methods of Gio.DBusObjectProxy */
+    /* Methods of Gio-2.0.Gio.DBusObjectProxy */
     getConnection(): Gio.DBusConnection
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -14224,11 +12511,11 @@ export class Object {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of Gio.DBusObject */
+    /* Methods of Gio-2.0.Gio.DBusObject */
     getInterface(interfaceName: string): Gio.DBusInterface | null
     getInterfaces(): Gio.DBusInterface[]
     getObjectPath(): string
-    /* Methods of ModemManager.GdbusObject */
+    /* Methods of ModemManager-1.0.ModemManager.GdbusObject */
     getModem(): GdbusModem | null
     getModem3gpp(): GdbusModem3gpp | null
     getModem3gppUssd(): GdbusModem3gppUssd | null
@@ -14241,40 +12528,23 @@ export class Object {
     getModemSimple(): GdbusModemSimple | null
     getModemTime(): GdbusModemTime | null
     getModemVoice(): GdbusModemVoice | null
-    /* Virtual methods of ModemManager.GdbusObjectProxy */
-    vfuncGetInterface(interfaceName: string): Gio.DBusInterface | null
-    vfuncGetInterfaces(): Gio.DBusInterface[]
-    vfuncGetObjectPath(): string
-    vfuncInterfaceAdded(interface: Gio.DBusInterface): void
-    vfuncInterfaceRemoved(interface: Gio.DBusInterface): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Object, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Object, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of Gio.DBusObject */
+    /* Signals of Gio-2.0.Gio.DBusObject */
     connect(sigName: "interface-added", callback: (($obj: Object, interface: Gio.DBusInterface) => void)): number
-    connect_after(sigName: "interface-added", callback: (($obj: Object, interface: Gio.DBusInterface) => void)): number
+    on(sigName: "interface-added", callback: (interface: Gio.DBusInterface) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "interface-added", callback: (interface: Gio.DBusInterface) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "interface-added", callback: (interface: Gio.DBusInterface) => void): NodeJS.EventEmitter
     emit(sigName: "interface-added", interface: Gio.DBusInterface): void
-    on(sigName: "interface-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "interface-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "interface-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "interface-removed", callback: (($obj: Object, interface: Gio.DBusInterface) => void)): number
-    connect_after(sigName: "interface-removed", callback: (($obj: Object, interface: Gio.DBusInterface) => void)): number
+    on(sigName: "interface-removed", callback: (interface: Gio.DBusInterface) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "interface-removed", callback: (interface: Gio.DBusInterface) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "interface-removed", callback: (interface: Gio.DBusInterface) => void): NodeJS.EventEmitter
     emit(sigName: "interface-removed", interface: Gio.DBusInterface): void
-    on(sigName: "interface-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "interface-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "interface-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::modem", callback: (($obj: Object, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::modem", callback: (($obj: Object, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::modem", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -14350,13 +12620,13 @@ export class Object {
 export interface Pco_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class Pco {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of ModemManager.Pco */
-    getData(): [ /* returnType */ number, /* dataSize */ number ]
+    /* Methods of ModemManager-1.0.ModemManager.Pco */
+    getData(): { returnType: number, dataSize: number }
     getSessionId(): number
     isComplete(): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -14378,21 +12648,12 @@ export class Pco {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Pco, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Pco, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -14410,9 +12671,9 @@ export class Pco {
 export interface Signal_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class Signal {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of ModemManager.Signal */
+    /* Methods of ModemManager-1.0.ModemManager.Signal */
     getEcio(): number
     getIo(): number
     getRscp(): number
@@ -14421,7 +12682,7 @@ export class Signal {
     getRssi(): number
     getSinr(): number
     getSnr(): number
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -14443,21 +12704,12 @@ export class Signal {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Signal, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Signal, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -14480,11 +12732,11 @@ export interface Sim_ConstructProps extends GdbusSimProxy_ConstructProps {
     simIdentifier?: string
 }
 export class Sim {
-    /* Properties of Gio.DBusProxy */
+    /* Properties of Gio-2.0.Gio.DBusProxy */
     gDefaultTimeout: number
     gInterfaceInfo: Gio.DBusInterfaceInfo
     readonly gNameOwner: string
-    /* Properties of ModemManager.GdbusSim */
+    /* Properties of ModemManager-1.0.ModemManager.GdbusSim */
     active: boolean
     eid: string
     emergencyNumbers: string[]
@@ -14492,9 +12744,9 @@ export class Sim {
     operatorIdentifier: string
     operatorName: string
     simIdentifier: string
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of ModemManager.Sim */
+    /* Methods of ModemManager-1.0.ModemManager.Sim */
     changePin(oldPin: string, newPin: string, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     changePinFinish(res: Gio.AsyncResult): boolean
     changePinSync(oldPin: string, newPin: string, cancellable?: Gio.Cancellable | null): boolean
@@ -14525,13 +12777,13 @@ export class Sim {
     sendPuk(puk: string, pin: string, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     sendPukFinish(res: Gio.AsyncResult): boolean
     sendPukSync(puk: string, pin: string, cancellable?: Gio.Cancellable | null): boolean
-    /* Methods of Gio.DBusProxy */
+    /* Methods of Gio-2.0.Gio.DBusProxy */
     call(methodName: string, parameters: GLib.Variant | null, flags: Gio.DBusCallFlags, timeoutMsec: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     callFinish(res: Gio.AsyncResult): GLib.Variant
     callSync(methodName: string, parameters: GLib.Variant | null, flags: Gio.DBusCallFlags, timeoutMsec: number, cancellable?: Gio.Cancellable | null): GLib.Variant
     callWithUnixFdList(methodName: string, parameters: GLib.Variant | null, flags: Gio.DBusCallFlags, timeoutMsec: number, fdList?: Gio.UnixFDList | null, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    callWithUnixFdListFinish(res: Gio.AsyncResult): [ /* returnType */ GLib.Variant, /* outFdList */ Gio.UnixFDList | null ]
-    callWithUnixFdListSync(methodName: string, parameters: GLib.Variant | null, flags: Gio.DBusCallFlags, timeoutMsec: number, fdList?: Gio.UnixFDList | null, cancellable?: Gio.Cancellable | null): [ /* returnType */ GLib.Variant, /* outFdList */ Gio.UnixFDList | null ]
+    callWithUnixFdListFinish(res: Gio.AsyncResult): { returnType: GLib.Variant, outFdList: Gio.UnixFDList | null }
+    callWithUnixFdListSync(methodName: string, parameters: GLib.Variant | null, flags: Gio.DBusCallFlags, timeoutMsec: number, fdList?: Gio.UnixFDList | null, cancellable?: Gio.Cancellable | null): { returnType: GLib.Variant, outFdList: Gio.UnixFDList | null }
     getCachedProperty(propertyName: string): GLib.Variant | null
     getCachedPropertyNames(): string[] | null
     getConnection(): Gio.DBusConnection
@@ -14545,7 +12797,7 @@ export class Sim {
     setCachedProperty(propertyName: string, value?: GLib.Variant | null): void
     setDefaultTimeout(timeoutMsec: number): void
     setInterfaceInfo(info?: Gio.DBusInterfaceInfo | null): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -14567,17 +12819,17 @@ export class Sim {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of Gio.AsyncInitable */
+    /* Methods of Gio-2.0.Gio.AsyncInitable */
     initAsync(ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     initFinish(res: Gio.AsyncResult): boolean
     newFinish(res: Gio.AsyncResult): GObject.Object
-    /* Methods of Gio.DBusInterface */
+    /* Methods of Gio-2.0.Gio.DBusInterface */
     getObject(): Gio.DBusObject | null
     getInfo(): Gio.DBusInterfaceInfo
     setObject(object?: Gio.DBusObject | null): void
-    /* Methods of Gio.Initable */
+    /* Methods of Gio-2.0.Gio.Initable */
     init(cancellable?: Gio.Cancellable | null): boolean
-    /* Methods of ModemManager.GdbusSim */
+    /* Methods of ModemManager-1.0.ModemManager.GdbusSim */
     callChangePin(argOldPin: string, argNewPin: string, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     callChangePinFinish(res: Gio.AsyncResult): boolean
     callChangePinSync(argOldPin: string, argNewPin: string, cancellable?: Gio.Cancellable | null): boolean
@@ -14594,73 +12846,44 @@ export class Sim {
     completeEnablePin(invocation: Gio.DBusMethodInvocation): void
     completeSendPin(invocation: Gio.DBusMethodInvocation): void
     completeSendPuk(invocation: Gio.DBusMethodInvocation): void
-    /* Virtual methods of ModemManager.GdbusSimProxy */
-    vfuncInitAsync(ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    vfuncInitFinish(res: Gio.AsyncResult): boolean
-    vfuncDupObject(): Gio.DBusObject | null
-    vfuncGetInfo(): Gio.DBusInterfaceInfo
-    vfuncSetObject(object?: Gio.DBusObject | null): void
-    vfuncInit(cancellable?: Gio.Cancellable | null): boolean
-    vfuncHandleChangePin(invocation: Gio.DBusMethodInvocation, argOldPin: string, argNewPin: string): boolean
-    vfuncHandleEnablePin(invocation: Gio.DBusMethodInvocation, argPin: string, argEnabled: boolean): boolean
-    vfuncHandleSendPin(invocation: Gio.DBusMethodInvocation, argPin: string): boolean
-    vfuncHandleSendPuk(invocation: Gio.DBusMethodInvocation, argPuk: string, argPin: string): boolean
-    /* Virtual methods of Gio.DBusProxy */
-    vfuncGPropertiesChanged(changedProperties: GLib.Variant, invalidatedProperties: string): void
-    vfuncGSignal(senderName: string, signalName: string, parameters: GLib.Variant): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gio.DBusProxy */
+    /* Signals of Gio-2.0.Gio.DBusProxy */
     connect(sigName: "g-properties-changed", callback: (($obj: Sim, changedProperties: GLib.Variant, invalidatedProperties: string[]) => void)): number
-    connect_after(sigName: "g-properties-changed", callback: (($obj: Sim, changedProperties: GLib.Variant, invalidatedProperties: string[]) => void)): number
+    on(sigName: "g-properties-changed", callback: (changedProperties: GLib.Variant, invalidatedProperties: string[]) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "g-properties-changed", callback: (changedProperties: GLib.Variant, invalidatedProperties: string[]) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "g-properties-changed", callback: (changedProperties: GLib.Variant, invalidatedProperties: string[]) => void): NodeJS.EventEmitter
     emit(sigName: "g-properties-changed", changedProperties: GLib.Variant, invalidatedProperties: string[]): void
-    on(sigName: "g-properties-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "g-properties-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "g-properties-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "g-signal", callback: (($obj: Sim, senderName: string | null, signalName: string, parameters: GLib.Variant) => void)): number
-    connect_after(sigName: "g-signal", callback: (($obj: Sim, senderName: string | null, signalName: string, parameters: GLib.Variant) => void)): number
+    on(sigName: "g-signal", callback: (senderName: string | null, signalName: string, parameters: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "g-signal", callback: (senderName: string | null, signalName: string, parameters: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "g-signal", callback: (senderName: string | null, signalName: string, parameters: GLib.Variant) => void): NodeJS.EventEmitter
     emit(sigName: "g-signal", senderName: string | null, signalName: string, parameters: GLib.Variant): void
-    on(sigName: "g-signal", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "g-signal", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "g-signal", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Sim, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Sim, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of ModemManager.GdbusSim */
+    /* Signals of ModemManager-1.0.ModemManager.GdbusSim */
     connect(sigName: "handle-change-pin", callback: (($obj: Sim, invocation: Gio.DBusMethodInvocation, argOldPin: string, argNewPin: string) => boolean)): number
-    connect_after(sigName: "handle-change-pin", callback: (($obj: Sim, invocation: Gio.DBusMethodInvocation, argOldPin: string, argNewPin: string) => boolean)): number
+    on(sigName: "handle-change-pin", callback: (invocation: Gio.DBusMethodInvocation, argOldPin: string, argNewPin: string) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-change-pin", callback: (invocation: Gio.DBusMethodInvocation, argOldPin: string, argNewPin: string) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-change-pin", callback: (invocation: Gio.DBusMethodInvocation, argOldPin: string, argNewPin: string) => void): NodeJS.EventEmitter
     emit(sigName: "handle-change-pin", invocation: Gio.DBusMethodInvocation, argOldPin: string, argNewPin: string): void
-    on(sigName: "handle-change-pin", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-change-pin", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-change-pin", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "handle-enable-pin", callback: (($obj: Sim, invocation: Gio.DBusMethodInvocation, argPin: string, argEnabled: boolean) => boolean)): number
-    connect_after(sigName: "handle-enable-pin", callback: (($obj: Sim, invocation: Gio.DBusMethodInvocation, argPin: string, argEnabled: boolean) => boolean)): number
+    on(sigName: "handle-enable-pin", callback: (invocation: Gio.DBusMethodInvocation, argPin: string, argEnabled: boolean) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-enable-pin", callback: (invocation: Gio.DBusMethodInvocation, argPin: string, argEnabled: boolean) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-enable-pin", callback: (invocation: Gio.DBusMethodInvocation, argPin: string, argEnabled: boolean) => void): NodeJS.EventEmitter
     emit(sigName: "handle-enable-pin", invocation: Gio.DBusMethodInvocation, argPin: string, argEnabled: boolean): void
-    on(sigName: "handle-enable-pin", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-enable-pin", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-enable-pin", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "handle-send-pin", callback: (($obj: Sim, invocation: Gio.DBusMethodInvocation, argPin: string) => boolean)): number
-    connect_after(sigName: "handle-send-pin", callback: (($obj: Sim, invocation: Gio.DBusMethodInvocation, argPin: string) => boolean)): number
+    on(sigName: "handle-send-pin", callback: (invocation: Gio.DBusMethodInvocation, argPin: string) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-send-pin", callback: (invocation: Gio.DBusMethodInvocation, argPin: string) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-send-pin", callback: (invocation: Gio.DBusMethodInvocation, argPin: string) => void): NodeJS.EventEmitter
     emit(sigName: "handle-send-pin", invocation: Gio.DBusMethodInvocation, argPin: string): void
-    on(sigName: "handle-send-pin", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-send-pin", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-send-pin", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "handle-send-puk", callback: (($obj: Sim, invocation: Gio.DBusMethodInvocation, argPuk: string, argPin: string) => boolean)): number
-    connect_after(sigName: "handle-send-puk", callback: (($obj: Sim, invocation: Gio.DBusMethodInvocation, argPuk: string, argPin: string) => boolean)): number
+    on(sigName: "handle-send-puk", callback: (invocation: Gio.DBusMethodInvocation, argPuk: string, argPin: string) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-send-puk", callback: (invocation: Gio.DBusMethodInvocation, argPuk: string, argPin: string) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-send-puk", callback: (invocation: Gio.DBusMethodInvocation, argPuk: string, argPin: string) => void): NodeJS.EventEmitter
     emit(sigName: "handle-send-puk", invocation: Gio.DBusMethodInvocation, argPuk: string, argPin: string): void
-    on(sigName: "handle-send-puk", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-send-puk", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-send-puk", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::g-default-timeout", callback: (($obj: Sim, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::g-default-timeout", callback: (($obj: Sim, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::g-default-timeout", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -14733,9 +12956,9 @@ export class Sim {
 export interface SimpleConnectProperties_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class SimpleConnectProperties {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of ModemManager.SimpleConnectProperties */
+    /* Methods of ModemManager-1.0.ModemManager.SimpleConnectProperties */
     getAllowRoaming(): boolean
     getAllowedAuth(): BearerAllowedAuth
     getApn(): string
@@ -14754,7 +12977,7 @@ export class SimpleConnectProperties {
     setPassword(password: string): void
     setPin(pin: string): void
     setUser(user: string): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -14776,21 +12999,12 @@ export class SimpleConnectProperties {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: SimpleConnectProperties, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: SimpleConnectProperties, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -14820,7 +13034,7 @@ export interface SimpleStatus_ConstructProps extends GObject.Object_ConstructPro
     state?: ModemState
 }
 export class SimpleStatus {
-    /* Properties of ModemManager.SimpleStatus */
+    /* Properties of ModemManager-1.0.ModemManager.SimpleStatus */
     accessTechnologies: ModemAccessTechnology
     cdmaCdma1xRegistrationState: ModemCdmaRegistrationState
     cdmaEvdoRegistrationState: ModemCdmaRegistrationState
@@ -14833,9 +13047,9 @@ export class SimpleStatus {
     m3gppSubscriptionState: Modem3gppSubscriptionState
     signalQuality: GLib.Variant
     state: ModemState
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of ModemManager.SimpleStatus */
+    /* Methods of ModemManager-1.0.ModemManager.SimpleStatus */
     get3gppOperatorCode(): string
     get3gppOperatorName(): string
     get3gppRegistrationState(): Modem3gppRegistrationState
@@ -14845,10 +13059,10 @@ export class SimpleStatus {
     getCdmaEvdoRegistrationState(): ModemCdmaRegistrationState
     getCdmaNid(): number
     getCdmaSid(): number
-    getCurrentBands(): [ /* bands */ ModemBand, /* nBands */ number ]
-    getSignalQuality(): [ /* returnType */ number, /* recent */ boolean | null ]
+    getCurrentBands(): { bands: ModemBand, nBands: number }
+    getSignalQuality(): { returnType: number, recent: boolean | null }
     getState(): ModemState
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -14870,21 +13084,12 @@ export class SimpleStatus {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: SimpleStatus, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: SimpleStatus, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::access-technologies", callback: (($obj: SimpleStatus, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::access-technologies", callback: (($obj: SimpleStatus, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::access-technologies", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -14976,11 +13181,11 @@ export interface Sms_ConstructProps extends GdbusSmsProxy_ConstructProps {
     validity?: GLib.Variant
 }
 export class Sms {
-    /* Properties of Gio.DBusProxy */
+    /* Properties of Gio-2.0.Gio.DBusProxy */
     gDefaultTimeout: number
     gInterfaceInfo: Gio.DBusInterfaceInfo
     readonly gNameOwner: string
-    /* Properties of ModemManager.GdbusSms */
+    /* Properties of ModemManager-1.0.ModemManager.GdbusSms */
     "class": number
     data: GLib.Variant
     deliveryReportRequest: boolean
@@ -14997,9 +13202,9 @@ export class Sms {
     text: string
     timestamp: string
     validity: GLib.Variant
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of ModemManager.Sms */
+    /* Methods of ModemManager-1.0.ModemManager.Sms */
     dupData(): any[]
     dupDischargeTimestamp(): string
     dupNumber(): string
@@ -15031,13 +13236,13 @@ export class Sms {
     store(storage: SmsStorage, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     storeFinish(res: Gio.AsyncResult): boolean
     storeSync(storage: SmsStorage, cancellable?: Gio.Cancellable | null): boolean
-    /* Methods of Gio.DBusProxy */
+    /* Methods of Gio-2.0.Gio.DBusProxy */
     call(methodName: string, parameters: GLib.Variant | null, flags: Gio.DBusCallFlags, timeoutMsec: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     callFinish(res: Gio.AsyncResult): GLib.Variant
     callSync(methodName: string, parameters: GLib.Variant | null, flags: Gio.DBusCallFlags, timeoutMsec: number, cancellable?: Gio.Cancellable | null): GLib.Variant
     callWithUnixFdList(methodName: string, parameters: GLib.Variant | null, flags: Gio.DBusCallFlags, timeoutMsec: number, fdList?: Gio.UnixFDList | null, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    callWithUnixFdListFinish(res: Gio.AsyncResult): [ /* returnType */ GLib.Variant, /* outFdList */ Gio.UnixFDList | null ]
-    callWithUnixFdListSync(methodName: string, parameters: GLib.Variant | null, flags: Gio.DBusCallFlags, timeoutMsec: number, fdList?: Gio.UnixFDList | null, cancellable?: Gio.Cancellable | null): [ /* returnType */ GLib.Variant, /* outFdList */ Gio.UnixFDList | null ]
+    callWithUnixFdListFinish(res: Gio.AsyncResult): { returnType: GLib.Variant, outFdList: Gio.UnixFDList | null }
+    callWithUnixFdListSync(methodName: string, parameters: GLib.Variant | null, flags: Gio.DBusCallFlags, timeoutMsec: number, fdList?: Gio.UnixFDList | null, cancellable?: Gio.Cancellable | null): { returnType: GLib.Variant, outFdList: Gio.UnixFDList | null }
     getCachedProperty(propertyName: string): GLib.Variant | null
     getCachedPropertyNames(): string[] | null
     getConnection(): Gio.DBusConnection
@@ -15051,7 +13256,7 @@ export class Sms {
     setCachedProperty(propertyName: string, value?: GLib.Variant | null): void
     setDefaultTimeout(timeoutMsec: number): void
     setInterfaceInfo(info?: Gio.DBusInterfaceInfo | null): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -15073,17 +13278,17 @@ export class Sms {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of Gio.AsyncInitable */
+    /* Methods of Gio-2.0.Gio.AsyncInitable */
     initAsync(ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     initFinish(res: Gio.AsyncResult): boolean
     newFinish(res: Gio.AsyncResult): GObject.Object
-    /* Methods of Gio.DBusInterface */
+    /* Methods of Gio-2.0.Gio.DBusInterface */
     getObject(): Gio.DBusObject | null
     getInfo(): Gio.DBusInterfaceInfo
     setObject(object?: Gio.DBusObject | null): void
-    /* Methods of Gio.Initable */
+    /* Methods of Gio-2.0.Gio.Initable */
     init(cancellable?: Gio.Cancellable | null): boolean
-    /* Methods of ModemManager.GdbusSms */
+    /* Methods of ModemManager-1.0.ModemManager.GdbusSms */
     callSend(cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     callSendFinish(res: Gio.AsyncResult): boolean
     callSendSync(cancellable?: Gio.Cancellable | null): boolean
@@ -15092,59 +13297,34 @@ export class Sms {
     callStoreSync(argStorage: number, cancellable?: Gio.Cancellable | null): boolean
     completeSend(invocation: Gio.DBusMethodInvocation): void
     completeStore(invocation: Gio.DBusMethodInvocation): void
-    /* Virtual methods of ModemManager.GdbusSmsProxy */
-    vfuncInitAsync(ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    vfuncInitFinish(res: Gio.AsyncResult): boolean
-    vfuncDupObject(): Gio.DBusObject | null
-    vfuncGetInfo(): Gio.DBusInterfaceInfo
-    vfuncSetObject(object?: Gio.DBusObject | null): void
-    vfuncInit(cancellable?: Gio.Cancellable | null): boolean
-    vfuncHandleSend(invocation: Gio.DBusMethodInvocation): boolean
-    vfuncHandleStore(invocation: Gio.DBusMethodInvocation, argStorage: number): boolean
-    /* Virtual methods of Gio.DBusProxy */
-    vfuncGPropertiesChanged(changedProperties: GLib.Variant, invalidatedProperties: string): void
-    vfuncGSignal(senderName: string, signalName: string, parameters: GLib.Variant): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gio.DBusProxy */
+    /* Signals of Gio-2.0.Gio.DBusProxy */
     connect(sigName: "g-properties-changed", callback: (($obj: Sms, changedProperties: GLib.Variant, invalidatedProperties: string[]) => void)): number
-    connect_after(sigName: "g-properties-changed", callback: (($obj: Sms, changedProperties: GLib.Variant, invalidatedProperties: string[]) => void)): number
+    on(sigName: "g-properties-changed", callback: (changedProperties: GLib.Variant, invalidatedProperties: string[]) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "g-properties-changed", callback: (changedProperties: GLib.Variant, invalidatedProperties: string[]) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "g-properties-changed", callback: (changedProperties: GLib.Variant, invalidatedProperties: string[]) => void): NodeJS.EventEmitter
     emit(sigName: "g-properties-changed", changedProperties: GLib.Variant, invalidatedProperties: string[]): void
-    on(sigName: "g-properties-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "g-properties-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "g-properties-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "g-signal", callback: (($obj: Sms, senderName: string | null, signalName: string, parameters: GLib.Variant) => void)): number
-    connect_after(sigName: "g-signal", callback: (($obj: Sms, senderName: string | null, signalName: string, parameters: GLib.Variant) => void)): number
+    on(sigName: "g-signal", callback: (senderName: string | null, signalName: string, parameters: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "g-signal", callback: (senderName: string | null, signalName: string, parameters: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "g-signal", callback: (senderName: string | null, signalName: string, parameters: GLib.Variant) => void): NodeJS.EventEmitter
     emit(sigName: "g-signal", senderName: string | null, signalName: string, parameters: GLib.Variant): void
-    on(sigName: "g-signal", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "g-signal", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "g-signal", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Sms, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Sms, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of ModemManager.GdbusSms */
+    /* Signals of ModemManager-1.0.ModemManager.GdbusSms */
     connect(sigName: "handle-send", callback: (($obj: Sms, invocation: Gio.DBusMethodInvocation) => boolean)): number
-    connect_after(sigName: "handle-send", callback: (($obj: Sms, invocation: Gio.DBusMethodInvocation) => boolean)): number
+    on(sigName: "handle-send", callback: (invocation: Gio.DBusMethodInvocation) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-send", callback: (invocation: Gio.DBusMethodInvocation) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-send", callback: (invocation: Gio.DBusMethodInvocation) => void): NodeJS.EventEmitter
     emit(sigName: "handle-send", invocation: Gio.DBusMethodInvocation): void
-    on(sigName: "handle-send", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-send", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-send", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "handle-store", callback: (($obj: Sms, invocation: Gio.DBusMethodInvocation, argStorage: number) => boolean)): number
-    connect_after(sigName: "handle-store", callback: (($obj: Sms, invocation: Gio.DBusMethodInvocation, argStorage: number) => boolean)): number
+    on(sigName: "handle-store", callback: (invocation: Gio.DBusMethodInvocation, argStorage: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-store", callback: (invocation: Gio.DBusMethodInvocation, argStorage: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-store", callback: (invocation: Gio.DBusMethodInvocation, argStorage: number) => void): NodeJS.EventEmitter
     emit(sigName: "handle-store", invocation: Gio.DBusMethodInvocation, argStorage: number): void
-    on(sigName: "handle-store", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-store", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-store", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::g-default-timeout", callback: (($obj: Sms, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::g-default-timeout", callback: (($obj: Sms, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::g-default-timeout", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -15262,11 +13442,11 @@ export class Sms {
 export interface SmsProperties_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class SmsProperties {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of ModemManager.SmsProperties */
+    /* Methods of ModemManager-1.0.ModemManager.SmsProperties */
     getClass(): number
-    getData(): [ /* returnType */ number, /* dataLen */ number ]
+    getData(): { returnType: number, dataLen: number }
     getDataBytearray(): any[]
     getDeliveryReportRequest(): boolean
     getNumber(): string
@@ -15287,7 +13467,7 @@ export class SmsProperties {
     setTeleserviceId(teleserviceId: SmsCdmaTeleserviceId): void
     setText(text: string): void
     setValidityRelative(validity: number): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -15309,21 +13489,12 @@ export class SmsProperties {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: SmsProperties, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: SmsProperties, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -15341,12 +13512,12 @@ export class SmsProperties {
 export interface UnlockRetries_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class UnlockRetries {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of ModemManager.UnlockRetries */
+    /* Methods of ModemManager-1.0.ModemManager.UnlockRetries */
     foreach(callback: UnlockRetriesForeachCb): void
     get(lock: ModemLock): number
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -15368,21 +13539,12 @@ export class UnlockRetries {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: UnlockRetries, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: UnlockRetries, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -15456,7 +13618,7 @@ export class FirmwareUpdateSettingsPrivate {
     static name: string
 }
 export abstract class GdbusBearerIface {
-    /* Fields of ModemManager.GdbusBearerIface */
+    /* Fields of ModemManager-1.0.ModemManager.GdbusBearerIface */
     parentIface: GObject.TypeInterface
     handleConnect: (object: GdbusBearer, invocation: Gio.DBusMethodInvocation) => boolean
     handleDisconnect: (object: GdbusBearer, invocation: Gio.DBusMethodInvocation) => boolean
@@ -15472,7 +13634,7 @@ export abstract class GdbusBearerIface {
     static name: string
 }
 export abstract class GdbusBearerProxyClass {
-    /* Fields of ModemManager.GdbusBearerProxyClass */
+    /* Fields of ModemManager-1.0.ModemManager.GdbusBearerProxyClass */
     parentClass: Gio.DBusProxyClass
     static name: string
 }
@@ -15480,7 +13642,7 @@ export class GdbusBearerProxyPrivate {
     static name: string
 }
 export abstract class GdbusBearerSkeletonClass {
-    /* Fields of ModemManager.GdbusBearerSkeletonClass */
+    /* Fields of ModemManager-1.0.ModemManager.GdbusBearerSkeletonClass */
     parentClass: Gio.DBusInterfaceSkeletonClass
     static name: string
 }
@@ -15488,7 +13650,7 @@ export class GdbusBearerSkeletonPrivate {
     static name: string
 }
 export abstract class GdbusModem3gppIface {
-    /* Fields of ModemManager.GdbusModem3gppIface */
+    /* Fields of ModemManager-1.0.ModemManager.GdbusModem3gppIface */
     parentIface: GObject.TypeInterface
     handleRegister: (object: GdbusModem3gpp, invocation: Gio.DBusMethodInvocation, argOperatorId: string) => boolean
     handleScan: (object: GdbusModem3gpp, invocation: Gio.DBusMethodInvocation) => boolean
@@ -15507,7 +13669,7 @@ export abstract class GdbusModem3gppIface {
     static name: string
 }
 export abstract class GdbusModem3gppProxyClass {
-    /* Fields of ModemManager.GdbusModem3gppProxyClass */
+    /* Fields of ModemManager-1.0.ModemManager.GdbusModem3gppProxyClass */
     parentClass: Gio.DBusProxyClass
     static name: string
 }
@@ -15515,7 +13677,7 @@ export class GdbusModem3gppProxyPrivate {
     static name: string
 }
 export abstract class GdbusModem3gppSkeletonClass {
-    /* Fields of ModemManager.GdbusModem3gppSkeletonClass */
+    /* Fields of ModemManager-1.0.ModemManager.GdbusModem3gppSkeletonClass */
     parentClass: Gio.DBusInterfaceSkeletonClass
     static name: string
 }
@@ -15523,7 +13685,7 @@ export class GdbusModem3gppSkeletonPrivate {
     static name: string
 }
 export abstract class GdbusModem3gppUssdIface {
-    /* Fields of ModemManager.GdbusModem3gppUssdIface */
+    /* Fields of ModemManager-1.0.ModemManager.GdbusModem3gppUssdIface */
     parentIface: GObject.TypeInterface
     handleCancel: (object: GdbusModem3gppUssd, invocation: Gio.DBusMethodInvocation) => boolean
     handleInitiate: (object: GdbusModem3gppUssd, invocation: Gio.DBusMethodInvocation, argCommand: string) => boolean
@@ -15534,7 +13696,7 @@ export abstract class GdbusModem3gppUssdIface {
     static name: string
 }
 export abstract class GdbusModem3gppUssdProxyClass {
-    /* Fields of ModemManager.GdbusModem3gppUssdProxyClass */
+    /* Fields of ModemManager-1.0.ModemManager.GdbusModem3gppUssdProxyClass */
     parentClass: Gio.DBusProxyClass
     static name: string
 }
@@ -15542,7 +13704,7 @@ export class GdbusModem3gppUssdProxyPrivate {
     static name: string
 }
 export abstract class GdbusModem3gppUssdSkeletonClass {
-    /* Fields of ModemManager.GdbusModem3gppUssdSkeletonClass */
+    /* Fields of ModemManager-1.0.ModemManager.GdbusModem3gppUssdSkeletonClass */
     parentClass: Gio.DBusInterfaceSkeletonClass
     static name: string
 }
@@ -15550,7 +13712,7 @@ export class GdbusModem3gppUssdSkeletonPrivate {
     static name: string
 }
 export abstract class GdbusModemCdmaIface {
-    /* Fields of ModemManager.GdbusModemCdmaIface */
+    /* Fields of ModemManager-1.0.ModemManager.GdbusModemCdmaIface */
     parentIface: GObject.TypeInterface
     handleActivate: (object: GdbusModemCdma, invocation: Gio.DBusMethodInvocation, argCarrierCode: string) => boolean
     handleActivateManual: (object: GdbusModemCdma, invocation: Gio.DBusMethodInvocation, argProperties: GLib.Variant) => boolean
@@ -15565,7 +13727,7 @@ export abstract class GdbusModemCdmaIface {
     static name: string
 }
 export abstract class GdbusModemCdmaProxyClass {
-    /* Fields of ModemManager.GdbusModemCdmaProxyClass */
+    /* Fields of ModemManager-1.0.ModemManager.GdbusModemCdmaProxyClass */
     parentClass: Gio.DBusProxyClass
     static name: string
 }
@@ -15573,7 +13735,7 @@ export class GdbusModemCdmaProxyPrivate {
     static name: string
 }
 export abstract class GdbusModemCdmaSkeletonClass {
-    /* Fields of ModemManager.GdbusModemCdmaSkeletonClass */
+    /* Fields of ModemManager-1.0.ModemManager.GdbusModemCdmaSkeletonClass */
     parentClass: Gio.DBusInterfaceSkeletonClass
     static name: string
 }
@@ -15581,7 +13743,7 @@ export class GdbusModemCdmaSkeletonPrivate {
     static name: string
 }
 export abstract class GdbusModemFirmwareIface {
-    /* Fields of ModemManager.GdbusModemFirmwareIface */
+    /* Fields of ModemManager-1.0.ModemManager.GdbusModemFirmwareIface */
     parentIface: GObject.TypeInterface
     handleList: (object: GdbusModemFirmware, invocation: Gio.DBusMethodInvocation) => boolean
     handleSelect: (object: GdbusModemFirmware, invocation: Gio.DBusMethodInvocation, argUniqueid: string) => boolean
@@ -15589,7 +13751,7 @@ export abstract class GdbusModemFirmwareIface {
     static name: string
 }
 export abstract class GdbusModemFirmwareProxyClass {
-    /* Fields of ModemManager.GdbusModemFirmwareProxyClass */
+    /* Fields of ModemManager-1.0.ModemManager.GdbusModemFirmwareProxyClass */
     parentClass: Gio.DBusProxyClass
     static name: string
 }
@@ -15597,7 +13759,7 @@ export class GdbusModemFirmwareProxyPrivate {
     static name: string
 }
 export abstract class GdbusModemFirmwareSkeletonClass {
-    /* Fields of ModemManager.GdbusModemFirmwareSkeletonClass */
+    /* Fields of ModemManager-1.0.ModemManager.GdbusModemFirmwareSkeletonClass */
     parentClass: Gio.DBusInterfaceSkeletonClass
     static name: string
 }
@@ -15605,7 +13767,7 @@ export class GdbusModemFirmwareSkeletonPrivate {
     static name: string
 }
 export abstract class GdbusModemIface {
-    /* Fields of ModemManager.GdbusModemIface */
+    /* Fields of ModemManager-1.0.ModemManager.GdbusModemIface */
     parentIface: GObject.TypeInterface
     handleCommand: (object: GdbusModem, invocation: Gio.DBusMethodInvocation, argCmd: string, argTimeout: number) => boolean
     handleCreateBearer: (object: GdbusModem, invocation: Gio.DBusMethodInvocation, argProperties: GLib.Variant) => boolean
@@ -15657,7 +13819,7 @@ export abstract class GdbusModemIface {
     static name: string
 }
 export abstract class GdbusModemLocationIface {
-    /* Fields of ModemManager.GdbusModemLocationIface */
+    /* Fields of ModemManager-1.0.ModemManager.GdbusModemLocationIface */
     parentIface: GObject.TypeInterface
     handleGetLocation: (object: GdbusModemLocation, invocation: Gio.DBusMethodInvocation) => boolean
     handleInjectAssistanceData: (object: GdbusModemLocation, invocation: Gio.DBusMethodInvocation, argData: GLib.Variant) => boolean
@@ -15675,7 +13837,7 @@ export abstract class GdbusModemLocationIface {
     static name: string
 }
 export abstract class GdbusModemLocationProxyClass {
-    /* Fields of ModemManager.GdbusModemLocationProxyClass */
+    /* Fields of ModemManager-1.0.ModemManager.GdbusModemLocationProxyClass */
     parentClass: Gio.DBusProxyClass
     static name: string
 }
@@ -15683,7 +13845,7 @@ export class GdbusModemLocationProxyPrivate {
     static name: string
 }
 export abstract class GdbusModemLocationSkeletonClass {
-    /* Fields of ModemManager.GdbusModemLocationSkeletonClass */
+    /* Fields of ModemManager-1.0.ModemManager.GdbusModemLocationSkeletonClass */
     parentClass: Gio.DBusInterfaceSkeletonClass
     static name: string
 }
@@ -15691,7 +13853,7 @@ export class GdbusModemLocationSkeletonPrivate {
     static name: string
 }
 export abstract class GdbusModemMessagingIface {
-    /* Fields of ModemManager.GdbusModemMessagingIface */
+    /* Fields of ModemManager-1.0.ModemManager.GdbusModemMessagingIface */
     parentIface: GObject.TypeInterface
     handleCreate: (object: GdbusModemMessaging, invocation: Gio.DBusMethodInvocation, argProperties: GLib.Variant) => boolean
     handleDelete: (object: GdbusModemMessaging, invocation: Gio.DBusMethodInvocation, argPath: string) => boolean
@@ -15704,7 +13866,7 @@ export abstract class GdbusModemMessagingIface {
     static name: string
 }
 export abstract class GdbusModemMessagingProxyClass {
-    /* Fields of ModemManager.GdbusModemMessagingProxyClass */
+    /* Fields of ModemManager-1.0.ModemManager.GdbusModemMessagingProxyClass */
     parentClass: Gio.DBusProxyClass
     static name: string
 }
@@ -15712,7 +13874,7 @@ export class GdbusModemMessagingProxyPrivate {
     static name: string
 }
 export abstract class GdbusModemMessagingSkeletonClass {
-    /* Fields of ModemManager.GdbusModemMessagingSkeletonClass */
+    /* Fields of ModemManager-1.0.ModemManager.GdbusModemMessagingSkeletonClass */
     parentClass: Gio.DBusInterfaceSkeletonClass
     static name: string
 }
@@ -15720,7 +13882,7 @@ export class GdbusModemMessagingSkeletonPrivate {
     static name: string
 }
 export abstract class GdbusModemOmaIface {
-    /* Fields of ModemManager.GdbusModemOmaIface */
+    /* Fields of ModemManager-1.0.ModemManager.GdbusModemOmaIface */
     parentIface: GObject.TypeInterface
     handleAcceptNetworkInitiatedSession: (object: GdbusModemOma, invocation: Gio.DBusMethodInvocation, argSessionId: number, argAccept: boolean) => boolean
     handleCancelSession: (object: GdbusModemOma, invocation: Gio.DBusMethodInvocation) => boolean
@@ -15734,7 +13896,7 @@ export abstract class GdbusModemOmaIface {
     static name: string
 }
 export abstract class GdbusModemOmaProxyClass {
-    /* Fields of ModemManager.GdbusModemOmaProxyClass */
+    /* Fields of ModemManager-1.0.ModemManager.GdbusModemOmaProxyClass */
     parentClass: Gio.DBusProxyClass
     static name: string
 }
@@ -15742,7 +13904,7 @@ export class GdbusModemOmaProxyPrivate {
     static name: string
 }
 export abstract class GdbusModemOmaSkeletonClass {
-    /* Fields of ModemManager.GdbusModemOmaSkeletonClass */
+    /* Fields of ModemManager-1.0.ModemManager.GdbusModemOmaSkeletonClass */
     parentClass: Gio.DBusInterfaceSkeletonClass
     static name: string
 }
@@ -15750,7 +13912,7 @@ export class GdbusModemOmaSkeletonPrivate {
     static name: string
 }
 export abstract class GdbusModemProxyClass {
-    /* Fields of ModemManager.GdbusModemProxyClass */
+    /* Fields of ModemManager-1.0.ModemManager.GdbusModemProxyClass */
     parentClass: Gio.DBusProxyClass
     static name: string
 }
@@ -15758,7 +13920,7 @@ export class GdbusModemProxyPrivate {
     static name: string
 }
 export abstract class GdbusModemSignalIface {
-    /* Fields of ModemManager.GdbusModemSignalIface */
+    /* Fields of ModemManager-1.0.ModemManager.GdbusModemSignalIface */
     parentIface: GObject.TypeInterface
     handleSetup: (object: GdbusModemSignal, invocation: Gio.DBusMethodInvocation, argRate: number) => boolean
     getCdma: (object: GdbusModemSignal) => GLib.Variant | null
@@ -15771,7 +13933,7 @@ export abstract class GdbusModemSignalIface {
     static name: string
 }
 export abstract class GdbusModemSignalProxyClass {
-    /* Fields of ModemManager.GdbusModemSignalProxyClass */
+    /* Fields of ModemManager-1.0.ModemManager.GdbusModemSignalProxyClass */
     parentClass: Gio.DBusProxyClass
     static name: string
 }
@@ -15779,7 +13941,7 @@ export class GdbusModemSignalProxyPrivate {
     static name: string
 }
 export abstract class GdbusModemSignalSkeletonClass {
-    /* Fields of ModemManager.GdbusModemSignalSkeletonClass */
+    /* Fields of ModemManager-1.0.ModemManager.GdbusModemSignalSkeletonClass */
     parentClass: Gio.DBusInterfaceSkeletonClass
     static name: string
 }
@@ -15787,7 +13949,7 @@ export class GdbusModemSignalSkeletonPrivate {
     static name: string
 }
 export abstract class GdbusModemSimpleIface {
-    /* Fields of ModemManager.GdbusModemSimpleIface */
+    /* Fields of ModemManager-1.0.ModemManager.GdbusModemSimpleIface */
     parentIface: GObject.TypeInterface
     handleConnect: (object: GdbusModemSimple, invocation: Gio.DBusMethodInvocation, argProperties: GLib.Variant) => boolean
     handleDisconnect: (object: GdbusModemSimple, invocation: Gio.DBusMethodInvocation, argBearer: string) => boolean
@@ -15795,7 +13957,7 @@ export abstract class GdbusModemSimpleIface {
     static name: string
 }
 export abstract class GdbusModemSimpleProxyClass {
-    /* Fields of ModemManager.GdbusModemSimpleProxyClass */
+    /* Fields of ModemManager-1.0.ModemManager.GdbusModemSimpleProxyClass */
     parentClass: Gio.DBusProxyClass
     static name: string
 }
@@ -15803,7 +13965,7 @@ export class GdbusModemSimpleProxyPrivate {
     static name: string
 }
 export abstract class GdbusModemSimpleSkeletonClass {
-    /* Fields of ModemManager.GdbusModemSimpleSkeletonClass */
+    /* Fields of ModemManager-1.0.ModemManager.GdbusModemSimpleSkeletonClass */
     parentClass: Gio.DBusInterfaceSkeletonClass
     static name: string
 }
@@ -15811,7 +13973,7 @@ export class GdbusModemSimpleSkeletonPrivate {
     static name: string
 }
 export abstract class GdbusModemSkeletonClass {
-    /* Fields of ModemManager.GdbusModemSkeletonClass */
+    /* Fields of ModemManager-1.0.ModemManager.GdbusModemSkeletonClass */
     parentClass: Gio.DBusInterfaceSkeletonClass
     static name: string
 }
@@ -15819,7 +13981,7 @@ export class GdbusModemSkeletonPrivate {
     static name: string
 }
 export abstract class GdbusModemTimeIface {
-    /* Fields of ModemManager.GdbusModemTimeIface */
+    /* Fields of ModemManager-1.0.ModemManager.GdbusModemTimeIface */
     parentIface: GObject.TypeInterface
     handleGetNetworkTime: (object: GdbusModemTime, invocation: Gio.DBusMethodInvocation) => boolean
     getNetworkTimezone: (object: GdbusModemTime) => GLib.Variant | null
@@ -15827,7 +13989,7 @@ export abstract class GdbusModemTimeIface {
     static name: string
 }
 export abstract class GdbusModemTimeProxyClass {
-    /* Fields of ModemManager.GdbusModemTimeProxyClass */
+    /* Fields of ModemManager-1.0.ModemManager.GdbusModemTimeProxyClass */
     parentClass: Gio.DBusProxyClass
     static name: string
 }
@@ -15835,7 +13997,7 @@ export class GdbusModemTimeProxyPrivate {
     static name: string
 }
 export abstract class GdbusModemTimeSkeletonClass {
-    /* Fields of ModemManager.GdbusModemTimeSkeletonClass */
+    /* Fields of ModemManager-1.0.ModemManager.GdbusModemTimeSkeletonClass */
     parentClass: Gio.DBusInterfaceSkeletonClass
     static name: string
 }
@@ -15843,7 +14005,7 @@ export class GdbusModemTimeSkeletonPrivate {
     static name: string
 }
 export abstract class GdbusModemVoiceIface {
-    /* Fields of ModemManager.GdbusModemVoiceIface */
+    /* Fields of ModemManager-1.0.ModemManager.GdbusModemVoiceIface */
     parentIface: GObject.TypeInterface
     handleCallWaitingQuery: (object: GdbusModemVoice, invocation: Gio.DBusMethodInvocation) => boolean
     handleCallWaitingSetup: (object: GdbusModemVoice, invocation: Gio.DBusMethodInvocation, argEnable: boolean) => boolean
@@ -15861,7 +14023,7 @@ export abstract class GdbusModemVoiceIface {
     static name: string
 }
 export abstract class GdbusModemVoiceProxyClass {
-    /* Fields of ModemManager.GdbusModemVoiceProxyClass */
+    /* Fields of ModemManager-1.0.ModemManager.GdbusModemVoiceProxyClass */
     parentClass: Gio.DBusProxyClass
     static name: string
 }
@@ -15869,7 +14031,7 @@ export class GdbusModemVoiceProxyPrivate {
     static name: string
 }
 export abstract class GdbusModemVoiceSkeletonClass {
-    /* Fields of ModemManager.GdbusModemVoiceSkeletonClass */
+    /* Fields of ModemManager-1.0.ModemManager.GdbusModemVoiceSkeletonClass */
     parentClass: Gio.DBusInterfaceSkeletonClass
     static name: string
 }
@@ -15877,12 +14039,12 @@ export class GdbusModemVoiceSkeletonPrivate {
     static name: string
 }
 export abstract class GdbusObjectIface {
-    /* Fields of ModemManager.GdbusObjectIface */
+    /* Fields of ModemManager-1.0.ModemManager.GdbusObjectIface */
     parentIface: GObject.TypeInterface
     static name: string
 }
 export abstract class GdbusObjectManagerClientClass {
-    /* Fields of ModemManager.GdbusObjectManagerClientClass */
+    /* Fields of ModemManager-1.0.ModemManager.GdbusObjectManagerClientClass */
     parentClass: Gio.DBusObjectManagerClientClass
     static name: string
 }
@@ -15890,7 +14052,7 @@ export class GdbusObjectManagerClientPrivate {
     static name: string
 }
 export abstract class GdbusObjectProxyClass {
-    /* Fields of ModemManager.GdbusObjectProxyClass */
+    /* Fields of ModemManager-1.0.ModemManager.GdbusObjectProxyClass */
     parentClass: Gio.DBusObjectProxyClass
     static name: string
 }
@@ -15898,7 +14060,7 @@ export class GdbusObjectProxyPrivate {
     static name: string
 }
 export abstract class GdbusObjectSkeletonClass {
-    /* Fields of ModemManager.GdbusObjectSkeletonClass */
+    /* Fields of ModemManager-1.0.ModemManager.GdbusObjectSkeletonClass */
     parentClass: Gio.DBusObjectSkeletonClass
     static name: string
 }
@@ -15906,7 +14068,7 @@ export class GdbusObjectSkeletonPrivate {
     static name: string
 }
 export abstract class GdbusOrgFreedesktopModemManager1Iface {
-    /* Fields of ModemManager.GdbusOrgFreedesktopModemManager1Iface */
+    /* Fields of ModemManager-1.0.ModemManager.GdbusOrgFreedesktopModemManager1Iface */
     parentIface: GObject.TypeInterface
     handleInhibitDevice: (object: GdbusOrgFreedesktopModemManager1, invocation: Gio.DBusMethodInvocation, argUid: string, argInhibit: boolean) => boolean
     handleReportKernelEvent: (object: GdbusOrgFreedesktopModemManager1, invocation: Gio.DBusMethodInvocation, argProperties: GLib.Variant) => boolean
@@ -15916,7 +14078,7 @@ export abstract class GdbusOrgFreedesktopModemManager1Iface {
     static name: string
 }
 export abstract class GdbusOrgFreedesktopModemManager1ProxyClass {
-    /* Fields of ModemManager.GdbusOrgFreedesktopModemManager1ProxyClass */
+    /* Fields of ModemManager-1.0.ModemManager.GdbusOrgFreedesktopModemManager1ProxyClass */
     parentClass: Gio.DBusProxyClass
     static name: string
 }
@@ -15924,7 +14086,7 @@ export class GdbusOrgFreedesktopModemManager1ProxyPrivate {
     static name: string
 }
 export abstract class GdbusOrgFreedesktopModemManager1SkeletonClass {
-    /* Fields of ModemManager.GdbusOrgFreedesktopModemManager1SkeletonClass */
+    /* Fields of ModemManager-1.0.ModemManager.GdbusOrgFreedesktopModemManager1SkeletonClass */
     parentClass: Gio.DBusInterfaceSkeletonClass
     static name: string
 }
@@ -15932,7 +14094,7 @@ export class GdbusOrgFreedesktopModemManager1SkeletonPrivate {
     static name: string
 }
 export abstract class GdbusSimIface {
-    /* Fields of ModemManager.GdbusSimIface */
+    /* Fields of ModemManager-1.0.ModemManager.GdbusSimIface */
     parentIface: GObject.TypeInterface
     handleChangePin: (object: GdbusSim, invocation: Gio.DBusMethodInvocation, argOldPin: string, argNewPin: string) => boolean
     handleEnablePin: (object: GdbusSim, invocation: Gio.DBusMethodInvocation, argPin: string, argEnabled: boolean) => boolean
@@ -15948,7 +14110,7 @@ export abstract class GdbusSimIface {
     static name: string
 }
 export abstract class GdbusSimProxyClass {
-    /* Fields of ModemManager.GdbusSimProxyClass */
+    /* Fields of ModemManager-1.0.ModemManager.GdbusSimProxyClass */
     parentClass: Gio.DBusProxyClass
     static name: string
 }
@@ -15956,7 +14118,7 @@ export class GdbusSimProxyPrivate {
     static name: string
 }
 export abstract class GdbusSimSkeletonClass {
-    /* Fields of ModemManager.GdbusSimSkeletonClass */
+    /* Fields of ModemManager-1.0.ModemManager.GdbusSimSkeletonClass */
     parentClass: Gio.DBusInterfaceSkeletonClass
     static name: string
 }
@@ -15964,7 +14126,7 @@ export class GdbusSimSkeletonPrivate {
     static name: string
 }
 export abstract class GdbusSmsIface {
-    /* Fields of ModemManager.GdbusSmsIface */
+    /* Fields of ModemManager-1.0.ModemManager.GdbusSmsIface */
     parentIface: GObject.TypeInterface
     handleSend: (object: GdbusSms, invocation: Gio.DBusMethodInvocation) => boolean
     handleStore: (object: GdbusSms, invocation: Gio.DBusMethodInvocation, argStorage: number) => boolean
@@ -15987,7 +14149,7 @@ export abstract class GdbusSmsIface {
     static name: string
 }
 export abstract class GdbusSmsProxyClass {
-    /* Fields of ModemManager.GdbusSmsProxyClass */
+    /* Fields of ModemManager-1.0.ModemManager.GdbusSmsProxyClass */
     parentClass: Gio.DBusProxyClass
     static name: string
 }
@@ -15995,7 +14157,7 @@ export class GdbusSmsProxyPrivate {
     static name: string
 }
 export abstract class GdbusSmsSkeletonClass {
-    /* Fields of ModemManager.GdbusSmsSkeletonClass */
+    /* Fields of ModemManager-1.0.ModemManager.GdbusSmsSkeletonClass */
     parentClass: Gio.DBusInterfaceSkeletonClass
     static name: string
 }
@@ -16042,7 +14204,7 @@ export abstract class Modem3gppClass {
     static name: string
 }
 export class Modem3gppNetwork {
-    /* Methods of ModemManager.Modem3gppNetwork */
+    /* Methods of ModemManager-1.0.ModemManager.Modem3gppNetwork */
     free(): void
     getAccessTechnology(): ModemAccessTechnology
     getAvailability(): Modem3gppNetworkAvailability
@@ -16079,7 +14241,7 @@ export class ModemMessagingPrivate {
     static name: string
 }
 export class ModemModeCombination {
-    /* Fields of ModemManager.ModemModeCombination */
+    /* Fields of ModemManager-1.0.ModemManager.ModemModeCombination */
     allowed: ModemMode
     preferred: ModemMode
     static name: string
@@ -16091,10 +14253,10 @@ export class ModemOmaPrivate {
     static name: string
 }
 export class ModemPortInfo {
-    /* Fields of ModemManager.ModemPortInfo */
+    /* Fields of ModemManager-1.0.ModemManager.ModemPortInfo */
     name: string
     type: ModemPortType
-    /* Methods of ModemManager.ModemPortInfo */
+    /* Methods of ModemManager-1.0.ModemManager.ModemPortInfo */
     arrayFree(arraySize: number): void
     static name: string
 }
@@ -16132,7 +14294,7 @@ export abstract class ObjectClass {
     static name: string
 }
 export class OmaPendingNetworkInitiatedSession {
-    /* Fields of ModemManager.OmaPendingNetworkInitiatedSession */
+    /* Fields of ModemManager-1.0.ModemManager.OmaPendingNetworkInitiatedSession */
     sessionType: OmaSessionType
     sessionId: number
     static name: string

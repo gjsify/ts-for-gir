@@ -50,14 +50,14 @@ export const VERSION: number
 export const VERSION_HEX: number
 export const VERSION_S: string
 export class Location {
-    /* Properties of Shumate.Location */
+    /* Properties of Shumate-0.0.Shumate.Location */
     latitude: number
     longitude: number
-    /* Methods of Shumate.Location */
+    /* Methods of Shumate-0.0.Shumate.Location */
     get_latitude(): number
     get_longitude(): number
     set_location(latitude: number, longitude: number): void
-    /* Virtual methods of Shumate.Location */
+    /* Virtual methods of Shumate-0.0.Shumate.Location */
     vfunc_get_latitude(): number
     vfunc_get_longitude(): number
     vfunc_set_location(latitude: number, longitude: number): void
@@ -68,14 +68,14 @@ export interface Coordinate_ConstructProps extends GObject.InitiallyUnowned_Cons
     longitude?: number
 }
 export class Coordinate {
-    /* Properties of Shumate.Location */
+    /* Properties of Shumate-0.0.Shumate.Location */
     latitude: number
     longitude: number
-    /* Fields of Shumate.Coordinate */
+    /* Fields of Shumate-0.0.Shumate.Coordinate */
     parent_instance: GObject.InitiallyUnowned
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -97,15 +97,15 @@ export class Coordinate {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of Shumate.Location */
+    /* Methods of Shumate-0.0.Shumate.Location */
     get_latitude(): number
     get_longitude(): number
     set_location(latitude: number, longitude: number): void
-    /* Virtual methods of Shumate.Coordinate */
+    /* Virtual methods of Shumate-0.0.Shumate.Coordinate */
     vfunc_get_latitude(): number
     vfunc_get_longitude(): number
     vfunc_set_location(latitude: number, longitude: number): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -113,7 +113,7 @@ export class Coordinate {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Coordinate, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Coordinate, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -136,7 +136,7 @@ export class Coordinate {
 export interface ErrorTileSource_ConstructProps extends TileSource_ConstructProps {
 }
 export class ErrorTileSource {
-    /* Properties of Shumate.TileSource */
+    /* Properties of Shumate-0.0.Shumate.TileSource */
     cache: TileCache
     id: string
     license: string
@@ -146,13 +146,13 @@ export class ErrorTileSource {
     name: string
     projection: MapProjection
     tile_size: number
-    /* Properties of Shumate.MapSource */
+    /* Properties of Shumate-0.0.Shumate.MapSource */
     next_source: MapSource
-    /* Fields of Shumate.ErrorTileSource */
+    /* Fields of Shumate-0.0.Shumate.ErrorTileSource */
     parent_instance: TileSource
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Shumate.TileSource */
+    /* Methods of Shumate-0.0.Shumate.TileSource */
     get_cache(): TileCache
     set_cache(cache: TileCache): void
     set_id(id: string): void
@@ -163,7 +163,7 @@ export class ErrorTileSource {
     set_name(name: string): void
     set_projection(projection: MapProjection): void
     set_tile_size(tile_size: number): void
-    /* Methods of Shumate.MapSource */
+    /* Methods of Shumate-0.0.Shumate.MapSource */
     fill_tile(tile: Tile, cancellable?: Gio.Cancellable | null): void
     get_column_count(zoom_level: number): number
     get_id(): string
@@ -182,7 +182,7 @@ export class ErrorTileSource {
     get_x(zoom_level: number, longitude: number): number
     get_y(zoom_level: number, latitude: number): number
     set_next_source(next_source: MapSource): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -204,7 +204,7 @@ export class ErrorTileSource {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Shumate.MapSource */
+    /* Virtual methods of Shumate-0.0.Shumate.MapSource */
     vfunc_fill_tile(tile: Tile, cancellable?: Gio.Cancellable | null): void
     vfunc_get_id(): string
     vfunc_get_license(): string
@@ -214,7 +214,7 @@ export class ErrorTileSource {
     vfunc_get_name(): string
     vfunc_get_projection(): MapProjection
     vfunc_get_tile_size(): number
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -222,7 +222,7 @@ export class ErrorTileSource {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: ErrorTileSource, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: ErrorTileSource, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -262,25 +262,25 @@ export interface FileCache_ConstructProps extends TileCache_ConstructProps {
     size_limit?: number
 }
 export class FileCache {
-    /* Properties of Shumate.FileCache */
+    /* Properties of Shumate-0.0.Shumate.FileCache */
     size_limit: number
-    /* Properties of Shumate.MapSource */
+    /* Properties of Shumate-0.0.Shumate.MapSource */
     next_source: MapSource
-    /* Fields of Shumate.FileCache */
+    /* Fields of Shumate-0.0.Shumate.FileCache */
     parent_instance: TileCache
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Shumate.FileCache */
+    /* Methods of Shumate-0.0.Shumate.FileCache */
     get_cache_dir(): string
     get_size_limit(): number
     purge(): void
     purge_on_idle(): void
     set_size_limit(size_limit: number): void
-    /* Methods of Shumate.TileCache */
+    /* Methods of Shumate-0.0.Shumate.TileCache */
     on_tile_filled(tile: Tile): void
     refresh_tile_time(tile: Tile): void
     store_tile(tile: Tile, contents: string, size: number): void
-    /* Methods of Shumate.MapSource */
+    /* Methods of Shumate-0.0.Shumate.MapSource */
     fill_tile(tile: Tile, cancellable?: Gio.Cancellable | null): void
     get_column_count(zoom_level: number): number
     get_id(): string
@@ -299,7 +299,7 @@ export class FileCache {
     get_x(zoom_level: number, longitude: number): number
     get_y(zoom_level: number, latitude: number): number
     set_next_source(next_source: MapSource): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -321,11 +321,11 @@ export class FileCache {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Shumate.TileCache */
+    /* Virtual methods of Shumate-0.0.Shumate.TileCache */
     vfunc_on_tile_filled(tile: Tile): void
     vfunc_refresh_tile_time(tile: Tile): void
     vfunc_store_tile(tile: Tile, contents: string, size: number): void
-    /* Virtual methods of Shumate.MapSource */
+    /* Virtual methods of Shumate-0.0.Shumate.MapSource */
     vfunc_fill_tile(tile: Tile, cancellable?: Gio.Cancellable | null): void
     vfunc_get_id(): string
     vfunc_get_license(): string
@@ -335,7 +335,7 @@ export class FileCache {
     vfunc_get_name(): string
     vfunc_get_projection(): MapProjection
     vfunc_get_tile_size(): number
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -343,7 +343,7 @@ export class FileCache {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: FileCache, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: FileCache, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -367,7 +367,7 @@ export interface Layer_ConstructProps extends Gtk.Widget_ConstructProps {
     accessible_role?: Gtk.AccessibleRole
 }
 export class Layer {
-    /* Properties of Gtk.Widget */
+    /* Properties of Gtk-4.0.Gtk.Widget */
     can_focus: boolean
     can_target: boolean
     css_classes: string[]
@@ -401,15 +401,15 @@ export class Layer {
     vexpand_set: boolean
     visible: boolean
     width_request: number
-    /* Properties of Gtk.Accessible */
+    /* Properties of Gtk-4.0.Gtk.Accessible */
     accessible_role: Gtk.AccessibleRole
-    /* Fields of Shumate.Layer */
+    /* Fields of Shumate-0.0.Shumate.Layer */
     parent_instance: Gtk.Widget
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Shumate.Layer */
+    /* Methods of Shumate-0.0.Shumate.Layer */
     get_viewport(): Viewport
-    /* Methods of Gtk.Widget */
+    /* Methods of Gtk-4.0.Gtk.Widget */
     action_set_enabled(action_name: string, enabled: boolean): void
     activate(): boolean
     activate_action(name: string, args?: GLib.Variant | null): boolean
@@ -566,7 +566,7 @@ export class Layer {
     unparent(): void
     unrealize(): void
     unset_state_flags(flags: Gtk.StateFlags): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -588,7 +588,7 @@ export class Layer {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of Gtk.Accessible */
+    /* Methods of Gtk-4.0.Gtk.Accessible */
     get_accessible_role(): Gtk.AccessibleRole
     reset_property(property: Gtk.AccessibleProperty): void
     reset_relation(relation: Gtk.AccessibleRelation): void
@@ -596,9 +596,9 @@ export class Layer {
     update_property(properties: Gtk.AccessibleProperty[], values: any[]): void
     update_relation(relations: Gtk.AccessibleRelation[], values: any[]): void
     update_state(states: Gtk.AccessibleState[], values: any[]): void
-    /* Methods of Gtk.Buildable */
+    /* Methods of Gtk-4.0.Gtk.Buildable */
     get_buildable_id(): string
-    /* Virtual methods of Shumate.Layer */
+    /* Virtual methods of Shumate-0.0.Shumate.Layer */
     vfunc_add_child(builder: Gtk.Builder, child: GObject.Object, type?: string | null): void
     vfunc_custom_finished(builder: Gtk.Builder, child: GObject.Object | null, tagname: string, data?: object | null): void
     vfunc_custom_tag_end(builder: Gtk.Builder, child: GObject.Object | null, tagname: string, data?: object | null): void
@@ -608,7 +608,7 @@ export class Layer {
     vfunc_parser_finished(builder: Gtk.Builder): void
     vfunc_set_buildable_property(builder: Gtk.Builder, name: string, value: any): void
     vfunc_set_id(id: string): void
-    /* Virtual methods of Gtk.Widget */
+    /* Virtual methods of Gtk-4.0.Gtk.Widget */
     vfunc_compute_expand(hexpand_p: boolean, vexpand_p: boolean): void
     vfunc_contains(x: number, y: number): boolean
     vfunc_css_changed(change: Gtk.CssStyleChange): void
@@ -634,7 +634,7 @@ export class Layer {
     vfunc_unmap(): void
     vfunc_unrealize(): void
     vfunc_unroot(): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -642,7 +642,7 @@ export class Layer {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gtk.Widget */
+    /* Signals of Gtk-4.0.Gtk.Widget */
     connect(sigName: "destroy", callback: (($obj: Layer) => void)): number
     connect_after(sigName: "destroy", callback: (($obj: Layer) => void)): number
     emit(sigName: "destroy"): void
@@ -682,7 +682,7 @@ export class Layer {
     connect(sigName: "unrealize", callback: (($obj: Layer) => void)): number
     connect_after(sigName: "unrealize", callback: (($obj: Layer) => void)): number
     emit(sigName: "unrealize"): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Layer, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Layer, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -769,10 +769,10 @@ export interface License_ConstructProps extends Gtk.Widget_ConstructProps {
     accessible_role?: Gtk.AccessibleRole
 }
 export class License {
-    /* Properties of Shumate.License */
+    /* Properties of Shumate-0.0.Shumate.License */
     extra_text: string
     xalign: number
-    /* Properties of Gtk.Widget */
+    /* Properties of Gtk-4.0.Gtk.Widget */
     can_focus: boolean
     can_target: boolean
     css_classes: string[]
@@ -806,13 +806,13 @@ export class License {
     vexpand_set: boolean
     visible: boolean
     width_request: number
-    /* Properties of Gtk.Accessible */
+    /* Properties of Gtk-4.0.Gtk.Accessible */
     accessible_role: Gtk.AccessibleRole
-    /* Fields of Gtk.Widget */
+    /* Fields of Gtk-4.0.Gtk.Widget */
     parent_instance: GObject.InitiallyUnowned
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Shumate.License */
+    /* Methods of Shumate-0.0.Shumate.License */
     append_map_source(map_source: MapSource): void
     get_extra_text(): string
     get_xalign(): number
@@ -820,7 +820,7 @@ export class License {
     remove_map_source(map_source: MapSource): void
     set_extra_text(text: string): void
     set_xalign(xalign: number): void
-    /* Methods of Gtk.Widget */
+    /* Methods of Gtk-4.0.Gtk.Widget */
     action_set_enabled(action_name: string, enabled: boolean): void
     activate(): boolean
     activate_action(name: string, args?: GLib.Variant | null): boolean
@@ -977,7 +977,7 @@ export class License {
     unparent(): void
     unrealize(): void
     unset_state_flags(flags: Gtk.StateFlags): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -999,7 +999,7 @@ export class License {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of Gtk.Accessible */
+    /* Methods of Gtk-4.0.Gtk.Accessible */
     get_accessible_role(): Gtk.AccessibleRole
     reset_property(property: Gtk.AccessibleProperty): void
     reset_relation(relation: Gtk.AccessibleRelation): void
@@ -1007,9 +1007,9 @@ export class License {
     update_property(properties: Gtk.AccessibleProperty[], values: any[]): void
     update_relation(relations: Gtk.AccessibleRelation[], values: any[]): void
     update_state(states: Gtk.AccessibleState[], values: any[]): void
-    /* Methods of Gtk.Buildable */
+    /* Methods of Gtk-4.0.Gtk.Buildable */
     get_buildable_id(): string
-    /* Virtual methods of Shumate.License */
+    /* Virtual methods of Shumate-0.0.Shumate.License */
     vfunc_add_child(builder: Gtk.Builder, child: GObject.Object, type?: string | null): void
     vfunc_custom_finished(builder: Gtk.Builder, child: GObject.Object | null, tagname: string, data?: object | null): void
     vfunc_custom_tag_end(builder: Gtk.Builder, child: GObject.Object | null, tagname: string, data?: object | null): void
@@ -1019,7 +1019,7 @@ export class License {
     vfunc_parser_finished(builder: Gtk.Builder): void
     vfunc_set_buildable_property(builder: Gtk.Builder, name: string, value: any): void
     vfunc_set_id(id: string): void
-    /* Virtual methods of Gtk.Widget */
+    /* Virtual methods of Gtk-4.0.Gtk.Widget */
     vfunc_compute_expand(hexpand_p: boolean, vexpand_p: boolean): void
     vfunc_contains(x: number, y: number): boolean
     vfunc_css_changed(change: Gtk.CssStyleChange): void
@@ -1045,7 +1045,7 @@ export class License {
     vfunc_unmap(): void
     vfunc_unrealize(): void
     vfunc_unroot(): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -1053,7 +1053,7 @@ export class License {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gtk.Widget */
+    /* Signals of Gtk-4.0.Gtk.Widget */
     connect(sigName: "destroy", callback: (($obj: License) => void)): number
     connect_after(sigName: "destroy", callback: (($obj: License) => void)): number
     emit(sigName: "destroy"): void
@@ -1093,7 +1093,7 @@ export class License {
     connect(sigName: "unrealize", callback: (($obj: License) => void)): number
     connect_after(sigName: "unrealize", callback: (($obj: License) => void)): number
     emit(sigName: "unrealize"): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: License, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: License, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -1185,7 +1185,7 @@ export interface MapLayer_ConstructProps extends Layer_ConstructProps {
     accessible_role?: Gtk.AccessibleRole
 }
 export class MapLayer {
-    /* Properties of Gtk.Widget */
+    /* Properties of Gtk-4.0.Gtk.Widget */
     can_focus: boolean
     can_target: boolean
     css_classes: string[]
@@ -1219,15 +1219,15 @@ export class MapLayer {
     vexpand_set: boolean
     visible: boolean
     width_request: number
-    /* Properties of Gtk.Accessible */
+    /* Properties of Gtk-4.0.Gtk.Accessible */
     accessible_role: Gtk.AccessibleRole
-    /* Fields of Shumate.Layer */
+    /* Fields of Shumate-0.0.Shumate.Layer */
     parent_instance: Gtk.Widget
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Shumate.Layer */
+    /* Methods of Shumate-0.0.Shumate.Layer */
     get_viewport(): Viewport
-    /* Methods of Gtk.Widget */
+    /* Methods of Gtk-4.0.Gtk.Widget */
     action_set_enabled(action_name: string, enabled: boolean): void
     activate(): boolean
     activate_action(name: string, args?: GLib.Variant | null): boolean
@@ -1384,7 +1384,7 @@ export class MapLayer {
     unparent(): void
     unrealize(): void
     unset_state_flags(flags: Gtk.StateFlags): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -1406,7 +1406,7 @@ export class MapLayer {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of Gtk.Accessible */
+    /* Methods of Gtk-4.0.Gtk.Accessible */
     get_accessible_role(): Gtk.AccessibleRole
     reset_property(property: Gtk.AccessibleProperty): void
     reset_relation(relation: Gtk.AccessibleRelation): void
@@ -1414,9 +1414,9 @@ export class MapLayer {
     update_property(properties: Gtk.AccessibleProperty[], values: any[]): void
     update_relation(relations: Gtk.AccessibleRelation[], values: any[]): void
     update_state(states: Gtk.AccessibleState[], values: any[]): void
-    /* Methods of Gtk.Buildable */
+    /* Methods of Gtk-4.0.Gtk.Buildable */
     get_buildable_id(): string
-    /* Virtual methods of Shumate.Layer */
+    /* Virtual methods of Shumate-0.0.Shumate.Layer */
     vfunc_add_child(builder: Gtk.Builder, child: GObject.Object, type?: string | null): void
     vfunc_custom_finished(builder: Gtk.Builder, child: GObject.Object | null, tagname: string, data?: object | null): void
     vfunc_custom_tag_end(builder: Gtk.Builder, child: GObject.Object | null, tagname: string, data?: object | null): void
@@ -1426,7 +1426,7 @@ export class MapLayer {
     vfunc_parser_finished(builder: Gtk.Builder): void
     vfunc_set_buildable_property(builder: Gtk.Builder, name: string, value: any): void
     vfunc_set_id(id: string): void
-    /* Virtual methods of Gtk.Widget */
+    /* Virtual methods of Gtk-4.0.Gtk.Widget */
     vfunc_compute_expand(hexpand_p: boolean, vexpand_p: boolean): void
     vfunc_contains(x: number, y: number): boolean
     vfunc_css_changed(change: Gtk.CssStyleChange): void
@@ -1452,7 +1452,7 @@ export class MapLayer {
     vfunc_unmap(): void
     vfunc_unrealize(): void
     vfunc_unroot(): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -1460,7 +1460,7 @@ export class MapLayer {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gtk.Widget */
+    /* Signals of Gtk-4.0.Gtk.Widget */
     connect(sigName: "destroy", callback: (($obj: MapLayer) => void)): number
     connect_after(sigName: "destroy", callback: (($obj: MapLayer) => void)): number
     emit(sigName: "destroy"): void
@@ -1500,7 +1500,7 @@ export class MapLayer {
     connect(sigName: "unrealize", callback: (($obj: MapLayer) => void)): number
     connect_after(sigName: "unrealize", callback: (($obj: MapLayer) => void)): number
     emit(sigName: "unrealize"): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: MapLayer, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: MapLayer, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -1587,13 +1587,13 @@ export interface MapSource_ConstructProps extends GObject.InitiallyUnowned_Const
     next_source?: MapSource
 }
 export class MapSource {
-    /* Properties of Shumate.MapSource */
+    /* Properties of Shumate-0.0.Shumate.MapSource */
     next_source: MapSource
-    /* Fields of Shumate.MapSource */
+    /* Fields of Shumate-0.0.Shumate.MapSource */
     parent_instance: GObject.InitiallyUnowned
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Shumate.MapSource */
+    /* Methods of Shumate-0.0.Shumate.MapSource */
     fill_tile(tile: Tile, cancellable?: Gio.Cancellable | null): void
     get_column_count(zoom_level: number): number
     get_id(): string
@@ -1612,7 +1612,7 @@ export class MapSource {
     get_x(zoom_level: number, longitude: number): number
     get_y(zoom_level: number, latitude: number): number
     set_next_source(next_source: MapSource): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -1634,7 +1634,7 @@ export class MapSource {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Shumate.MapSource */
+    /* Virtual methods of Shumate-0.0.Shumate.MapSource */
     vfunc_fill_tile(tile: Tile, cancellable?: Gio.Cancellable | null): void
     vfunc_get_id(): string
     vfunc_get_license(): string
@@ -1644,7 +1644,7 @@ export class MapSource {
     vfunc_get_name(): string
     vfunc_get_projection(): MapProjection
     vfunc_get_tile_size(): number
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -1652,7 +1652,7 @@ export class MapSource {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: MapSource, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: MapSource, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -1670,16 +1670,16 @@ export class MapSource {
 export interface MapSourceChain_ConstructProps extends MapSource_ConstructProps {
 }
 export class MapSourceChain {
-    /* Properties of Shumate.MapSource */
+    /* Properties of Shumate-0.0.Shumate.MapSource */
     next_source: MapSource
-    /* Fields of Shumate.MapSourceChain */
+    /* Fields of Shumate-0.0.Shumate.MapSourceChain */
     parent_instance: MapSource
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Shumate.MapSourceChain */
+    /* Methods of Shumate-0.0.Shumate.MapSourceChain */
     pop(): void
     push(map_source: MapSource): void
-    /* Methods of Shumate.MapSource */
+    /* Methods of Shumate-0.0.Shumate.MapSource */
     fill_tile(tile: Tile, cancellable?: Gio.Cancellable | null): void
     get_column_count(zoom_level: number): number
     get_id(): string
@@ -1698,7 +1698,7 @@ export class MapSourceChain {
     get_x(zoom_level: number, longitude: number): number
     get_y(zoom_level: number, latitude: number): number
     set_next_source(next_source: MapSource): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -1720,7 +1720,7 @@ export class MapSourceChain {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Shumate.MapSource */
+    /* Virtual methods of Shumate-0.0.Shumate.MapSource */
     vfunc_fill_tile(tile: Tile, cancellable?: Gio.Cancellable | null): void
     vfunc_get_id(): string
     vfunc_get_license(): string
@@ -1730,7 +1730,7 @@ export class MapSourceChain {
     vfunc_get_name(): string
     vfunc_get_projection(): MapProjection
     vfunc_get_tile_size(): number
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -1738,7 +1738,7 @@ export class MapSourceChain {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: MapSourceChain, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: MapSourceChain, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -1769,9 +1769,9 @@ export interface MapSourceDesc_ConstructProps extends GObject.Object_ConstructPr
     uri_format?: string
 }
 export class MapSourceDesc {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Shumate.MapSourceDesc */
+    /* Methods of Shumate-0.0.Shumate.MapSourceDesc */
     get_data(): object | null
     get_id(): string
     get_license(): string
@@ -1782,7 +1782,7 @@ export class MapSourceDesc {
     get_projection(): MapProjection
     get_tile_size(): number
     get_uri_format(): string
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -1804,7 +1804,7 @@ export class MapSourceDesc {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -1812,7 +1812,7 @@ export class MapSourceDesc {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: MapSourceDesc, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: MapSourceDesc, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -1828,16 +1828,16 @@ export class MapSourceDesc {
 export interface MapSourceFactory_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class MapSourceFactory {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Shumate.MapSourceFactory */
+    /* Methods of Shumate-0.0.Shumate.MapSourceFactory */
     create(id: string): MapSource
     create_cached_source(id: string): MapSource
     create_error_source(tile_size: number): MapSource
     create_memcached_source(id: string): MapSource
     get_registered(): MapSourceDesc[]
     register(desc: MapSourceDesc): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -1859,7 +1859,7 @@ export class MapSourceFactory {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -1867,7 +1867,7 @@ export class MapSourceFactory {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: MapSourceFactory, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: MapSourceFactory, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -1890,10 +1890,10 @@ export interface Marker_ConstructProps extends Gtk.Widget_ConstructProps {
     longitude?: number
 }
 export class Marker {
-    /* Properties of Shumate.Marker */
+    /* Properties of Shumate-0.0.Shumate.Marker */
     draggable: boolean
     selectable: boolean
-    /* Properties of Gtk.Widget */
+    /* Properties of Gtk-4.0.Gtk.Widget */
     can_focus: boolean
     can_target: boolean
     css_classes: string[]
@@ -1927,16 +1927,16 @@ export class Marker {
     vexpand_set: boolean
     visible: boolean
     width_request: number
-    /* Properties of Gtk.Accessible */
+    /* Properties of Gtk-4.0.Gtk.Accessible */
     accessible_role: Gtk.AccessibleRole
-    /* Properties of Shumate.Location */
+    /* Properties of Shumate-0.0.Shumate.Location */
     latitude: number
     longitude: number
-    /* Fields of Shumate.Marker */
+    /* Fields of Shumate-0.0.Shumate.Marker */
     parent_instance: Gtk.Widget
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Shumate.Marker */
+    /* Methods of Shumate-0.0.Shumate.Marker */
     animate_in(): void
     animate_in_with_delay(delay: number): void
     animate_out(): void
@@ -1946,7 +1946,7 @@ export class Marker {
     is_selected(): boolean
     set_draggable(value: boolean): void
     set_selectable(value: boolean): void
-    /* Methods of Gtk.Widget */
+    /* Methods of Gtk-4.0.Gtk.Widget */
     action_set_enabled(action_name: string, enabled: boolean): void
     activate(): boolean
     activate_action(name: string, args?: GLib.Variant | null): boolean
@@ -2103,7 +2103,7 @@ export class Marker {
     unparent(): void
     unrealize(): void
     unset_state_flags(flags: Gtk.StateFlags): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -2125,7 +2125,7 @@ export class Marker {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of Gtk.Accessible */
+    /* Methods of Gtk-4.0.Gtk.Accessible */
     get_accessible_role(): Gtk.AccessibleRole
     reset_property(property: Gtk.AccessibleProperty): void
     reset_relation(relation: Gtk.AccessibleRelation): void
@@ -2133,13 +2133,13 @@ export class Marker {
     update_property(properties: Gtk.AccessibleProperty[], values: any[]): void
     update_relation(relations: Gtk.AccessibleRelation[], values: any[]): void
     update_state(states: Gtk.AccessibleState[], values: any[]): void
-    /* Methods of Gtk.Buildable */
+    /* Methods of Gtk-4.0.Gtk.Buildable */
     get_buildable_id(): string
-    /* Methods of Shumate.Location */
+    /* Methods of Shumate-0.0.Shumate.Location */
     get_latitude(): number
     get_longitude(): number
     set_location(latitude: number, longitude: number): void
-    /* Virtual methods of Shumate.Marker */
+    /* Virtual methods of Shumate-0.0.Shumate.Marker */
     vfunc_add_child(builder: Gtk.Builder, child: GObject.Object, type?: string | null): void
     vfunc_custom_finished(builder: Gtk.Builder, child: GObject.Object | null, tagname: string, data?: object | null): void
     vfunc_custom_tag_end(builder: Gtk.Builder, child: GObject.Object | null, tagname: string, data?: object | null): void
@@ -2152,7 +2152,7 @@ export class Marker {
     vfunc_get_latitude(): number
     vfunc_get_longitude(): number
     vfunc_set_location(latitude: number, longitude: number): void
-    /* Virtual methods of Gtk.Widget */
+    /* Virtual methods of Gtk-4.0.Gtk.Widget */
     vfunc_compute_expand(hexpand_p: boolean, vexpand_p: boolean): void
     vfunc_contains(x: number, y: number): boolean
     vfunc_css_changed(change: Gtk.CssStyleChange): void
@@ -2178,7 +2178,7 @@ export class Marker {
     vfunc_unmap(): void
     vfunc_unrealize(): void
     vfunc_unroot(): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -2186,7 +2186,7 @@ export class Marker {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gtk.Widget */
+    /* Signals of Gtk-4.0.Gtk.Widget */
     connect(sigName: "destroy", callback: (($obj: Marker) => void)): number
     connect_after(sigName: "destroy", callback: (($obj: Marker) => void)): number
     emit(sigName: "destroy"): void
@@ -2226,7 +2226,7 @@ export class Marker {
     connect(sigName: "unrealize", callback: (($obj: Marker) => void)): number
     connect_after(sigName: "unrealize", callback: (($obj: Marker) => void)): number
     emit(sigName: "unrealize"): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Marker, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Marker, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -2326,9 +2326,9 @@ export interface MarkerLayer_ConstructProps extends Layer_ConstructProps {
     accessible_role?: Gtk.AccessibleRole
 }
 export class MarkerLayer {
-    /* Properties of Shumate.MarkerLayer */
+    /* Properties of Shumate-0.0.Shumate.MarkerLayer */
     selection_mode: Gtk.SelectionMode
-    /* Properties of Gtk.Widget */
+    /* Properties of Gtk-4.0.Gtk.Widget */
     can_focus: boolean
     can_target: boolean
     css_classes: string[]
@@ -2362,13 +2362,13 @@ export class MarkerLayer {
     vexpand_set: boolean
     visible: boolean
     width_request: number
-    /* Properties of Gtk.Accessible */
+    /* Properties of Gtk-4.0.Gtk.Accessible */
     accessible_role: Gtk.AccessibleRole
-    /* Fields of Shumate.MarkerLayer */
+    /* Fields of Shumate-0.0.Shumate.MarkerLayer */
     parent_instance: Layer
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Shumate.MarkerLayer */
+    /* Methods of Shumate-0.0.Shumate.MarkerLayer */
     add_marker(marker: Marker): void
     animate_in_all_markers(): void
     animate_out_all_markers(): void
@@ -2384,9 +2384,9 @@ export class MarkerLayer {
     set_selection_mode(mode: Gtk.SelectionMode): void
     show_all_markers(): void
     unselect_all_markers(): void
-    /* Methods of Shumate.Layer */
+    /* Methods of Shumate-0.0.Shumate.Layer */
     get_viewport(): Viewport
-    /* Methods of Gtk.Widget */
+    /* Methods of Gtk-4.0.Gtk.Widget */
     action_set_enabled(action_name: string, enabled: boolean): void
     activate(): boolean
     activate_action(name: string, args?: GLib.Variant | null): boolean
@@ -2543,7 +2543,7 @@ export class MarkerLayer {
     unparent(): void
     unrealize(): void
     unset_state_flags(flags: Gtk.StateFlags): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -2565,7 +2565,7 @@ export class MarkerLayer {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of Gtk.Accessible */
+    /* Methods of Gtk-4.0.Gtk.Accessible */
     get_accessible_role(): Gtk.AccessibleRole
     reset_property(property: Gtk.AccessibleProperty): void
     reset_relation(relation: Gtk.AccessibleRelation): void
@@ -2573,9 +2573,9 @@ export class MarkerLayer {
     update_property(properties: Gtk.AccessibleProperty[], values: any[]): void
     update_relation(relations: Gtk.AccessibleRelation[], values: any[]): void
     update_state(states: Gtk.AccessibleState[], values: any[]): void
-    /* Methods of Gtk.Buildable */
+    /* Methods of Gtk-4.0.Gtk.Buildable */
     get_buildable_id(): string
-    /* Virtual methods of Shumate.Layer */
+    /* Virtual methods of Shumate-0.0.Shumate.Layer */
     vfunc_add_child(builder: Gtk.Builder, child: GObject.Object, type?: string | null): void
     vfunc_custom_finished(builder: Gtk.Builder, child: GObject.Object | null, tagname: string, data?: object | null): void
     vfunc_custom_tag_end(builder: Gtk.Builder, child: GObject.Object | null, tagname: string, data?: object | null): void
@@ -2585,7 +2585,7 @@ export class MarkerLayer {
     vfunc_parser_finished(builder: Gtk.Builder): void
     vfunc_set_buildable_property(builder: Gtk.Builder, name: string, value: any): void
     vfunc_set_id(id: string): void
-    /* Virtual methods of Gtk.Widget */
+    /* Virtual methods of Gtk-4.0.Gtk.Widget */
     vfunc_compute_expand(hexpand_p: boolean, vexpand_p: boolean): void
     vfunc_contains(x: number, y: number): boolean
     vfunc_css_changed(change: Gtk.CssStyleChange): void
@@ -2611,7 +2611,7 @@ export class MarkerLayer {
     vfunc_unmap(): void
     vfunc_unrealize(): void
     vfunc_unroot(): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -2619,7 +2619,7 @@ export class MarkerLayer {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gtk.Widget */
+    /* Signals of Gtk-4.0.Gtk.Widget */
     connect(sigName: "destroy", callback: (($obj: MarkerLayer) => void)): number
     connect_after(sigName: "destroy", callback: (($obj: MarkerLayer) => void)): number
     emit(sigName: "destroy"): void
@@ -2659,7 +2659,7 @@ export class MarkerLayer {
     connect(sigName: "unrealize", callback: (($obj: MarkerLayer) => void)): number
     connect_after(sigName: "unrealize", callback: (($obj: MarkerLayer) => void)): number
     emit(sigName: "unrealize"): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: MarkerLayer, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: MarkerLayer, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -2749,23 +2749,23 @@ export interface MemoryCache_ConstructProps extends TileCache_ConstructProps {
     size_limit?: number
 }
 export class MemoryCache {
-    /* Properties of Shumate.MemoryCache */
+    /* Properties of Shumate-0.0.Shumate.MemoryCache */
     size_limit: number
-    /* Properties of Shumate.MapSource */
+    /* Properties of Shumate-0.0.Shumate.MapSource */
     next_source: MapSource
-    /* Fields of Shumate.MemoryCache */
+    /* Fields of Shumate-0.0.Shumate.MemoryCache */
     parent_instance: TileCache
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Shumate.MemoryCache */
+    /* Methods of Shumate-0.0.Shumate.MemoryCache */
     clean(): void
     get_size_limit(): number
     set_size_limit(size_limit: number): void
-    /* Methods of Shumate.TileCache */
+    /* Methods of Shumate-0.0.Shumate.TileCache */
     on_tile_filled(tile: Tile): void
     refresh_tile_time(tile: Tile): void
     store_tile(tile: Tile, contents: string, size: number): void
-    /* Methods of Shumate.MapSource */
+    /* Methods of Shumate-0.0.Shumate.MapSource */
     fill_tile(tile: Tile, cancellable?: Gio.Cancellable | null): void
     get_column_count(zoom_level: number): number
     get_id(): string
@@ -2784,7 +2784,7 @@ export class MemoryCache {
     get_x(zoom_level: number, longitude: number): number
     get_y(zoom_level: number, latitude: number): number
     set_next_source(next_source: MapSource): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -2806,11 +2806,11 @@ export class MemoryCache {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Shumate.TileCache */
+    /* Virtual methods of Shumate-0.0.Shumate.TileCache */
     vfunc_on_tile_filled(tile: Tile): void
     vfunc_refresh_tile_time(tile: Tile): void
     vfunc_store_tile(tile: Tile, contents: string, size: number): void
-    /* Virtual methods of Shumate.MapSource */
+    /* Virtual methods of Shumate-0.0.Shumate.MapSource */
     vfunc_fill_tile(tile: Tile, cancellable?: Gio.Cancellable | null): void
     vfunc_get_id(): string
     vfunc_get_license(): string
@@ -2820,7 +2820,7 @@ export class MemoryCache {
     vfunc_get_name(): string
     vfunc_get_projection(): MapProjection
     vfunc_get_tile_size(): number
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -2828,7 +2828,7 @@ export class MemoryCache {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: MemoryCache, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: MemoryCache, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -2855,13 +2855,13 @@ export interface NetworkTileSource_ConstructProps extends TileSource_ConstructPr
     user_agent?: string
 }
 export class NetworkTileSource {
-    /* Properties of Shumate.NetworkTileSource */
+    /* Properties of Shumate-0.0.Shumate.NetworkTileSource */
     max_conns: number
     offline: boolean
     proxy_uri: string
     uri_format: string
     user_agent: string
-    /* Properties of Shumate.TileSource */
+    /* Properties of Shumate-0.0.Shumate.TileSource */
     cache: TileCache
     id: string
     license: string
@@ -2871,13 +2871,13 @@ export class NetworkTileSource {
     name: string
     projection: MapProjection
     tile_size: number
-    /* Properties of Shumate.MapSource */
+    /* Properties of Shumate-0.0.Shumate.MapSource */
     next_source: MapSource
-    /* Fields of Shumate.NetworkTileSource */
+    /* Fields of Shumate-0.0.Shumate.NetworkTileSource */
     parent_instance: TileSource
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Shumate.NetworkTileSource */
+    /* Methods of Shumate-0.0.Shumate.NetworkTileSource */
     get_max_conns(): number
     get_offline(): boolean
     get_proxy_uri(): string
@@ -2887,7 +2887,7 @@ export class NetworkTileSource {
     set_proxy_uri(proxy_uri: string): void
     set_uri_format(uri_format: string): void
     set_user_agent(user_agent: string): void
-    /* Methods of Shumate.TileSource */
+    /* Methods of Shumate-0.0.Shumate.TileSource */
     get_cache(): TileCache
     set_cache(cache: TileCache): void
     set_id(id: string): void
@@ -2898,7 +2898,7 @@ export class NetworkTileSource {
     set_name(name: string): void
     set_projection(projection: MapProjection): void
     set_tile_size(tile_size: number): void
-    /* Methods of Shumate.MapSource */
+    /* Methods of Shumate-0.0.Shumate.MapSource */
     fill_tile(tile: Tile, cancellable?: Gio.Cancellable | null): void
     get_column_count(zoom_level: number): number
     get_id(): string
@@ -2917,7 +2917,7 @@ export class NetworkTileSource {
     get_x(zoom_level: number, longitude: number): number
     get_y(zoom_level: number, latitude: number): number
     set_next_source(next_source: MapSource): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -2939,7 +2939,7 @@ export class NetworkTileSource {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Shumate.MapSource */
+    /* Virtual methods of Shumate-0.0.Shumate.MapSource */
     vfunc_fill_tile(tile: Tile, cancellable?: Gio.Cancellable | null): void
     vfunc_get_id(): string
     vfunc_get_license(): string
@@ -2949,7 +2949,7 @@ export class NetworkTileSource {
     vfunc_get_name(): string
     vfunc_get_projection(): MapProjection
     vfunc_get_tile_size(): number
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -2957,7 +2957,7 @@ export class NetworkTileSource {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: NetworkTileSource, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: NetworkTileSource, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -3012,14 +3012,14 @@ export interface PathLayer_ConstructProps extends Layer_ConstructProps {
     accessible_role?: Gtk.AccessibleRole
 }
 export class PathLayer {
-    /* Properties of Shumate.PathLayer */
+    /* Properties of Shumate-0.0.Shumate.PathLayer */
     closed: boolean
     fill: boolean
     fill_color: Gdk.RGBA
     stroke: boolean
     stroke_color: Gdk.RGBA
     stroke_width: number
-    /* Properties of Gtk.Widget */
+    /* Properties of Gtk-4.0.Gtk.Widget */
     can_focus: boolean
     can_target: boolean
     css_classes: string[]
@@ -3053,13 +3053,13 @@ export class PathLayer {
     vexpand_set: boolean
     visible: boolean
     width_request: number
-    /* Properties of Gtk.Accessible */
+    /* Properties of Gtk-4.0.Gtk.Accessible */
     accessible_role: Gtk.AccessibleRole
-    /* Fields of Shumate.PathLayer */
+    /* Fields of Shumate-0.0.Shumate.PathLayer */
     parent_instance: Layer
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Shumate.PathLayer */
+    /* Methods of Shumate-0.0.Shumate.PathLayer */
     add_node(location: Location): void
     get_closed(): boolean
     get_dash(): number[]
@@ -3079,9 +3079,9 @@ export class PathLayer {
     set_stroke(value: boolean): void
     set_stroke_color(color?: Gdk.RGBA | null): void
     set_stroke_width(value: number): void
-    /* Methods of Shumate.Layer */
+    /* Methods of Shumate-0.0.Shumate.Layer */
     get_viewport(): Viewport
-    /* Methods of Gtk.Widget */
+    /* Methods of Gtk-4.0.Gtk.Widget */
     action_set_enabled(action_name: string, enabled: boolean): void
     activate(): boolean
     activate_action(name: string, args?: GLib.Variant | null): boolean
@@ -3238,7 +3238,7 @@ export class PathLayer {
     unparent(): void
     unrealize(): void
     unset_state_flags(flags: Gtk.StateFlags): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -3260,7 +3260,7 @@ export class PathLayer {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of Gtk.Accessible */
+    /* Methods of Gtk-4.0.Gtk.Accessible */
     get_accessible_role(): Gtk.AccessibleRole
     reset_property(property: Gtk.AccessibleProperty): void
     reset_relation(relation: Gtk.AccessibleRelation): void
@@ -3268,9 +3268,9 @@ export class PathLayer {
     update_property(properties: Gtk.AccessibleProperty[], values: any[]): void
     update_relation(relations: Gtk.AccessibleRelation[], values: any[]): void
     update_state(states: Gtk.AccessibleState[], values: any[]): void
-    /* Methods of Gtk.Buildable */
+    /* Methods of Gtk-4.0.Gtk.Buildable */
     get_buildable_id(): string
-    /* Virtual methods of Shumate.Layer */
+    /* Virtual methods of Shumate-0.0.Shumate.Layer */
     vfunc_add_child(builder: Gtk.Builder, child: GObject.Object, type?: string | null): void
     vfunc_custom_finished(builder: Gtk.Builder, child: GObject.Object | null, tagname: string, data?: object | null): void
     vfunc_custom_tag_end(builder: Gtk.Builder, child: GObject.Object | null, tagname: string, data?: object | null): void
@@ -3280,7 +3280,7 @@ export class PathLayer {
     vfunc_parser_finished(builder: Gtk.Builder): void
     vfunc_set_buildable_property(builder: Gtk.Builder, name: string, value: any): void
     vfunc_set_id(id: string): void
-    /* Virtual methods of Gtk.Widget */
+    /* Virtual methods of Gtk-4.0.Gtk.Widget */
     vfunc_compute_expand(hexpand_p: boolean, vexpand_p: boolean): void
     vfunc_contains(x: number, y: number): boolean
     vfunc_css_changed(change: Gtk.CssStyleChange): void
@@ -3306,7 +3306,7 @@ export class PathLayer {
     vfunc_unmap(): void
     vfunc_unrealize(): void
     vfunc_unroot(): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -3314,7 +3314,7 @@ export class PathLayer {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gtk.Widget */
+    /* Signals of Gtk-4.0.Gtk.Widget */
     connect(sigName: "destroy", callback: (($obj: PathLayer) => void)): number
     connect_after(sigName: "destroy", callback: (($obj: PathLayer) => void)): number
     emit(sigName: "destroy"): void
@@ -3354,7 +3354,7 @@ export class PathLayer {
     connect(sigName: "unrealize", callback: (($obj: PathLayer) => void)): number
     connect_after(sigName: "unrealize", callback: (($obj: PathLayer) => void)): number
     emit(sigName: "unrealize"): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: PathLayer, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: PathLayer, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -3455,10 +3455,10 @@ export interface Point_ConstructProps extends Marker_ConstructProps {
     longitude?: number
 }
 export class Point {
-    /* Properties of Shumate.Marker */
+    /* Properties of Shumate-0.0.Shumate.Marker */
     draggable: boolean
     selectable: boolean
-    /* Properties of Gtk.Widget */
+    /* Properties of Gtk-4.0.Gtk.Widget */
     can_focus: boolean
     can_target: boolean
     css_classes: string[]
@@ -3492,16 +3492,16 @@ export class Point {
     vexpand_set: boolean
     visible: boolean
     width_request: number
-    /* Properties of Gtk.Accessible */
+    /* Properties of Gtk-4.0.Gtk.Accessible */
     accessible_role: Gtk.AccessibleRole
-    /* Properties of Shumate.Location */
+    /* Properties of Shumate-0.0.Shumate.Location */
     latitude: number
     longitude: number
-    /* Fields of Shumate.Marker */
+    /* Fields of Shumate-0.0.Shumate.Marker */
     parent_instance: Gtk.Widget
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Shumate.Marker */
+    /* Methods of Shumate-0.0.Shumate.Marker */
     animate_in(): void
     animate_in_with_delay(delay: number): void
     animate_out(): void
@@ -3511,7 +3511,7 @@ export class Point {
     is_selected(): boolean
     set_draggable(value: boolean): void
     set_selectable(value: boolean): void
-    /* Methods of Gtk.Widget */
+    /* Methods of Gtk-4.0.Gtk.Widget */
     action_set_enabled(action_name: string, enabled: boolean): void
     activate(): boolean
     activate_action(name: string, args?: GLib.Variant | null): boolean
@@ -3668,7 +3668,7 @@ export class Point {
     unparent(): void
     unrealize(): void
     unset_state_flags(flags: Gtk.StateFlags): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -3690,7 +3690,7 @@ export class Point {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of Gtk.Accessible */
+    /* Methods of Gtk-4.0.Gtk.Accessible */
     get_accessible_role(): Gtk.AccessibleRole
     reset_property(property: Gtk.AccessibleProperty): void
     reset_relation(relation: Gtk.AccessibleRelation): void
@@ -3698,13 +3698,13 @@ export class Point {
     update_property(properties: Gtk.AccessibleProperty[], values: any[]): void
     update_relation(relations: Gtk.AccessibleRelation[], values: any[]): void
     update_state(states: Gtk.AccessibleState[], values: any[]): void
-    /* Methods of Gtk.Buildable */
+    /* Methods of Gtk-4.0.Gtk.Buildable */
     get_buildable_id(): string
-    /* Methods of Shumate.Location */
+    /* Methods of Shumate-0.0.Shumate.Location */
     get_latitude(): number
     get_longitude(): number
     set_location(latitude: number, longitude: number): void
-    /* Virtual methods of Shumate.Marker */
+    /* Virtual methods of Shumate-0.0.Shumate.Marker */
     vfunc_add_child(builder: Gtk.Builder, child: GObject.Object, type?: string | null): void
     vfunc_custom_finished(builder: Gtk.Builder, child: GObject.Object | null, tagname: string, data?: object | null): void
     vfunc_custom_tag_end(builder: Gtk.Builder, child: GObject.Object | null, tagname: string, data?: object | null): void
@@ -3717,7 +3717,7 @@ export class Point {
     vfunc_get_latitude(): number
     vfunc_get_longitude(): number
     vfunc_set_location(latitude: number, longitude: number): void
-    /* Virtual methods of Gtk.Widget */
+    /* Virtual methods of Gtk-4.0.Gtk.Widget */
     vfunc_compute_expand(hexpand_p: boolean, vexpand_p: boolean): void
     vfunc_contains(x: number, y: number): boolean
     vfunc_css_changed(change: Gtk.CssStyleChange): void
@@ -3743,7 +3743,7 @@ export class Point {
     vfunc_unmap(): void
     vfunc_unrealize(): void
     vfunc_unroot(): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -3751,7 +3751,7 @@ export class Point {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gtk.Widget */
+    /* Signals of Gtk-4.0.Gtk.Widget */
     connect(sigName: "destroy", callback: (($obj: Point) => void)): number
     connect_after(sigName: "destroy", callback: (($obj: Point) => void)): number
     emit(sigName: "destroy"): void
@@ -3791,7 +3791,7 @@ export class Point {
     connect(sigName: "unrealize", callback: (($obj: Point) => void)): number
     connect_after(sigName: "unrealize", callback: (($obj: Point) => void)): number
     emit(sigName: "unrealize"): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Point, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Point, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -3889,10 +3889,10 @@ export interface Scale_ConstructProps extends Gtk.Widget_ConstructProps {
     accessible_role?: Gtk.AccessibleRole
 }
 export class Scale {
-    /* Properties of Shumate.Scale */
+    /* Properties of Shumate-0.0.Shumate.Scale */
     max_width: number
     unit: Unit
-    /* Properties of Gtk.Widget */
+    /* Properties of Gtk-4.0.Gtk.Widget */
     can_focus: boolean
     can_target: boolean
     css_classes: string[]
@@ -3926,18 +3926,18 @@ export class Scale {
     vexpand_set: boolean
     visible: boolean
     width_request: number
-    /* Properties of Gtk.Accessible */
+    /* Properties of Gtk-4.0.Gtk.Accessible */
     accessible_role: Gtk.AccessibleRole
-    /* Fields of Gtk.Widget */
+    /* Fields of Gtk-4.0.Gtk.Widget */
     parent_instance: GObject.InitiallyUnowned
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Shumate.Scale */
+    /* Methods of Shumate-0.0.Shumate.Scale */
     get_max_width(): number
     get_unit(): Unit
     set_max_width(value: number): void
     set_unit(unit: Unit): void
-    /* Methods of Gtk.Widget */
+    /* Methods of Gtk-4.0.Gtk.Widget */
     action_set_enabled(action_name: string, enabled: boolean): void
     activate(): boolean
     activate_action(name: string, args?: GLib.Variant | null): boolean
@@ -4094,7 +4094,7 @@ export class Scale {
     unparent(): void
     unrealize(): void
     unset_state_flags(flags: Gtk.StateFlags): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -4116,7 +4116,7 @@ export class Scale {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of Gtk.Accessible */
+    /* Methods of Gtk-4.0.Gtk.Accessible */
     get_accessible_role(): Gtk.AccessibleRole
     reset_property(property: Gtk.AccessibleProperty): void
     reset_relation(relation: Gtk.AccessibleRelation): void
@@ -4124,9 +4124,9 @@ export class Scale {
     update_property(properties: Gtk.AccessibleProperty[], values: any[]): void
     update_relation(relations: Gtk.AccessibleRelation[], values: any[]): void
     update_state(states: Gtk.AccessibleState[], values: any[]): void
-    /* Methods of Gtk.Buildable */
+    /* Methods of Gtk-4.0.Gtk.Buildable */
     get_buildable_id(): string
-    /* Virtual methods of Shumate.Scale */
+    /* Virtual methods of Shumate-0.0.Shumate.Scale */
     vfunc_add_child(builder: Gtk.Builder, child: GObject.Object, type?: string | null): void
     vfunc_custom_finished(builder: Gtk.Builder, child: GObject.Object | null, tagname: string, data?: object | null): void
     vfunc_custom_tag_end(builder: Gtk.Builder, child: GObject.Object | null, tagname: string, data?: object | null): void
@@ -4136,7 +4136,7 @@ export class Scale {
     vfunc_parser_finished(builder: Gtk.Builder): void
     vfunc_set_buildable_property(builder: Gtk.Builder, name: string, value: any): void
     vfunc_set_id(id: string): void
-    /* Virtual methods of Gtk.Widget */
+    /* Virtual methods of Gtk-4.0.Gtk.Widget */
     vfunc_compute_expand(hexpand_p: boolean, vexpand_p: boolean): void
     vfunc_contains(x: number, y: number): boolean
     vfunc_css_changed(change: Gtk.CssStyleChange): void
@@ -4162,7 +4162,7 @@ export class Scale {
     vfunc_unmap(): void
     vfunc_unrealize(): void
     vfunc_unroot(): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -4170,7 +4170,7 @@ export class Scale {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gtk.Widget */
+    /* Signals of Gtk-4.0.Gtk.Widget */
     connect(sigName: "destroy", callback: (($obj: Scale) => void)): number
     connect_after(sigName: "destroy", callback: (($obj: Scale) => void)): number
     emit(sigName: "destroy"): void
@@ -4210,7 +4210,7 @@ export class Scale {
     connect(sigName: "unrealize", callback: (($obj: Scale) => void)): number
     connect_after(sigName: "unrealize", callback: (($obj: Scale) => void)): number
     emit(sigName: "unrealize"): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Scale, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Scale, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -4310,7 +4310,7 @@ export interface Tile_ConstructProps extends Gtk.Widget_ConstructProps {
     accessible_role?: Gtk.AccessibleRole
 }
 export class Tile {
-    /* Properties of Shumate.Tile */
+    /* Properties of Shumate-0.0.Shumate.Tile */
     etag: string
     fade_in: boolean
     modified_time: GLib.DateTime
@@ -4320,7 +4320,7 @@ export class Tile {
     x: number
     y: number
     zoom_level: number
-    /* Properties of Gtk.Widget */
+    /* Properties of Gtk-4.0.Gtk.Widget */
     can_focus: boolean
     can_target: boolean
     css_classes: string[]
@@ -4354,13 +4354,13 @@ export class Tile {
     vexpand_set: boolean
     visible: boolean
     width_request: number
-    /* Properties of Gtk.Accessible */
+    /* Properties of Gtk-4.0.Gtk.Accessible */
     accessible_role: Gtk.AccessibleRole
-    /* Fields of Shumate.Tile */
+    /* Fields of Shumate-0.0.Shumate.Tile */
     parent_instance: Gtk.Widget
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Shumate.Tile */
+    /* Methods of Shumate-0.0.Shumate.Tile */
     get_etag(): string
     get_fade_in(): boolean
     get_modified_time(): GLib.DateTime
@@ -4379,7 +4379,7 @@ export class Tile {
     set_x(x: number): void
     set_y(y: number): void
     set_zoom_level(zoom_level: number): void
-    /* Methods of Gtk.Widget */
+    /* Methods of Gtk-4.0.Gtk.Widget */
     action_set_enabled(action_name: string, enabled: boolean): void
     activate(): boolean
     activate_action(name: string, args?: GLib.Variant | null): boolean
@@ -4536,7 +4536,7 @@ export class Tile {
     unparent(): void
     unrealize(): void
     unset_state_flags(flags: Gtk.StateFlags): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -4558,7 +4558,7 @@ export class Tile {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of Gtk.Accessible */
+    /* Methods of Gtk-4.0.Gtk.Accessible */
     get_accessible_role(): Gtk.AccessibleRole
     reset_property(property: Gtk.AccessibleProperty): void
     reset_relation(relation: Gtk.AccessibleRelation): void
@@ -4566,9 +4566,9 @@ export class Tile {
     update_property(properties: Gtk.AccessibleProperty[], values: any[]): void
     update_relation(relations: Gtk.AccessibleRelation[], values: any[]): void
     update_state(states: Gtk.AccessibleState[], values: any[]): void
-    /* Methods of Gtk.Buildable */
+    /* Methods of Gtk-4.0.Gtk.Buildable */
     get_buildable_id(): string
-    /* Virtual methods of Shumate.Tile */
+    /* Virtual methods of Shumate-0.0.Shumate.Tile */
     vfunc_add_child(builder: Gtk.Builder, child: GObject.Object, type?: string | null): void
     vfunc_custom_finished(builder: Gtk.Builder, child: GObject.Object | null, tagname: string, data?: object | null): void
     vfunc_custom_tag_end(builder: Gtk.Builder, child: GObject.Object | null, tagname: string, data?: object | null): void
@@ -4578,7 +4578,7 @@ export class Tile {
     vfunc_parser_finished(builder: Gtk.Builder): void
     vfunc_set_buildable_property(builder: Gtk.Builder, name: string, value: any): void
     vfunc_set_id(id: string): void
-    /* Virtual methods of Gtk.Widget */
+    /* Virtual methods of Gtk-4.0.Gtk.Widget */
     vfunc_compute_expand(hexpand_p: boolean, vexpand_p: boolean): void
     vfunc_contains(x: number, y: number): boolean
     vfunc_css_changed(change: Gtk.CssStyleChange): void
@@ -4604,7 +4604,7 @@ export class Tile {
     vfunc_unmap(): void
     vfunc_unrealize(): void
     vfunc_unroot(): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -4612,7 +4612,7 @@ export class Tile {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gtk.Widget */
+    /* Signals of Gtk-4.0.Gtk.Widget */
     connect(sigName: "destroy", callback: (($obj: Tile) => void)): number
     connect_after(sigName: "destroy", callback: (($obj: Tile) => void)): number
     emit(sigName: "destroy"): void
@@ -4652,7 +4652,7 @@ export class Tile {
     connect(sigName: "unrealize", callback: (($obj: Tile) => void)): number
     connect_after(sigName: "unrealize", callback: (($obj: Tile) => void)): number
     emit(sigName: "unrealize"): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Tile, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Tile, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -4757,17 +4757,17 @@ export class Tile {
 export interface TileCache_ConstructProps extends MapSource_ConstructProps {
 }
 export class TileCache {
-    /* Properties of Shumate.MapSource */
+    /* Properties of Shumate-0.0.Shumate.MapSource */
     next_source: MapSource
-    /* Fields of Shumate.TileCache */
+    /* Fields of Shumate-0.0.Shumate.TileCache */
     parent_instance: MapSource
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Shumate.TileCache */
+    /* Methods of Shumate-0.0.Shumate.TileCache */
     on_tile_filled(tile: Tile): void
     refresh_tile_time(tile: Tile): void
     store_tile(tile: Tile, contents: string, size: number): void
-    /* Methods of Shumate.MapSource */
+    /* Methods of Shumate-0.0.Shumate.MapSource */
     fill_tile(tile: Tile, cancellable?: Gio.Cancellable | null): void
     get_column_count(zoom_level: number): number
     get_id(): string
@@ -4786,7 +4786,7 @@ export class TileCache {
     get_x(zoom_level: number, longitude: number): number
     get_y(zoom_level: number, latitude: number): number
     set_next_source(next_source: MapSource): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -4808,11 +4808,11 @@ export class TileCache {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Shumate.TileCache */
+    /* Virtual methods of Shumate-0.0.Shumate.TileCache */
     vfunc_on_tile_filled(tile: Tile): void
     vfunc_refresh_tile_time(tile: Tile): void
     vfunc_store_tile(tile: Tile, contents: string, size: number): void
-    /* Virtual methods of Shumate.MapSource */
+    /* Virtual methods of Shumate-0.0.Shumate.MapSource */
     vfunc_fill_tile(tile: Tile, cancellable?: Gio.Cancellable | null): void
     vfunc_get_id(): string
     vfunc_get_license(): string
@@ -4822,7 +4822,7 @@ export class TileCache {
     vfunc_get_name(): string
     vfunc_get_projection(): MapProjection
     vfunc_get_tile_size(): number
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -4830,7 +4830,7 @@ export class TileCache {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: TileCache, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: TileCache, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -4857,7 +4857,7 @@ export interface TileSource_ConstructProps extends MapSource_ConstructProps {
     tile_size?: number
 }
 export class TileSource {
-    /* Properties of Shumate.TileSource */
+    /* Properties of Shumate-0.0.Shumate.TileSource */
     cache: TileCache
     id: string
     license: string
@@ -4867,13 +4867,13 @@ export class TileSource {
     name: string
     projection: MapProjection
     tile_size: number
-    /* Properties of Shumate.MapSource */
+    /* Properties of Shumate-0.0.Shumate.MapSource */
     next_source: MapSource
-    /* Fields of Shumate.TileSource */
+    /* Fields of Shumate-0.0.Shumate.TileSource */
     parent_instance: MapSource
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Shumate.TileSource */
+    /* Methods of Shumate-0.0.Shumate.TileSource */
     get_cache(): TileCache
     set_cache(cache: TileCache): void
     set_id(id: string): void
@@ -4884,7 +4884,7 @@ export class TileSource {
     set_name(name: string): void
     set_projection(projection: MapProjection): void
     set_tile_size(tile_size: number): void
-    /* Methods of Shumate.MapSource */
+    /* Methods of Shumate-0.0.Shumate.MapSource */
     fill_tile(tile: Tile, cancellable?: Gio.Cancellable | null): void
     get_column_count(zoom_level: number): number
     get_id(): string
@@ -4903,7 +4903,7 @@ export class TileSource {
     get_x(zoom_level: number, longitude: number): number
     get_y(zoom_level: number, latitude: number): number
     set_next_source(next_source: MapSource): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -4925,7 +4925,7 @@ export class TileSource {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Shumate.MapSource */
+    /* Virtual methods of Shumate-0.0.Shumate.MapSource */
     vfunc_fill_tile(tile: Tile, cancellable?: Gio.Cancellable | null): void
     vfunc_get_id(): string
     vfunc_get_license(): string
@@ -4935,7 +4935,7 @@ export class TileSource {
     vfunc_get_name(): string
     vfunc_get_projection(): MapProjection
     vfunc_get_tile_size(): number
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -4943,7 +4943,7 @@ export class TileSource {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: TileSource, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: TileSource, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -4985,14 +4985,14 @@ export interface View_ConstructProps extends Gtk.Widget_ConstructProps {
     accessible_role?: Gtk.AccessibleRole
 }
 export class View {
-    /* Properties of Shumate.View */
+    /* Properties of Shumate-0.0.Shumate.View */
     animate_zoom: boolean
     deceleration: number
     goto_animation_duration: number
     kinetic_mode: boolean
     readonly state: State
     zoom_on_double_click: boolean
-    /* Properties of Gtk.Widget */
+    /* Properties of Gtk-4.0.Gtk.Widget */
     can_focus: boolean
     can_target: boolean
     css_classes: string[]
@@ -5026,13 +5026,13 @@ export class View {
     vexpand_set: boolean
     visible: boolean
     width_request: number
-    /* Properties of Gtk.Accessible */
+    /* Properties of Gtk-4.0.Gtk.Accessible */
     accessible_role: Gtk.AccessibleRole
-    /* Fields of Shumate.View */
+    /* Fields of Shumate-0.0.Shumate.View */
     parent_instance: Gtk.Widget
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Shumate.View */
+    /* Methods of Shumate-0.0.Shumate.View */
     add_layer(layer: Layer): void
     add_overlay_source(map_source: MapSource): void
     center_on(latitude: number, longitude: number): void
@@ -5052,7 +5052,7 @@ export class View {
     set_map_source(map_source: MapSource): void
     set_zoom_on_double_click(value: boolean): void
     stop_go_to(): void
-    /* Methods of Gtk.Widget */
+    /* Methods of Gtk-4.0.Gtk.Widget */
     action_set_enabled(action_name: string, enabled: boolean): void
     activate(): boolean
     activate_action(name: string, args?: GLib.Variant | null): boolean
@@ -5209,7 +5209,7 @@ export class View {
     unparent(): void
     unrealize(): void
     unset_state_flags(flags: Gtk.StateFlags): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -5231,7 +5231,7 @@ export class View {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of Gtk.Accessible */
+    /* Methods of Gtk-4.0.Gtk.Accessible */
     get_accessible_role(): Gtk.AccessibleRole
     reset_property(property: Gtk.AccessibleProperty): void
     reset_relation(relation: Gtk.AccessibleRelation): void
@@ -5239,9 +5239,9 @@ export class View {
     update_property(properties: Gtk.AccessibleProperty[], values: any[]): void
     update_relation(relations: Gtk.AccessibleRelation[], values: any[]): void
     update_state(states: Gtk.AccessibleState[], values: any[]): void
-    /* Methods of Gtk.Buildable */
+    /* Methods of Gtk-4.0.Gtk.Buildable */
     get_buildable_id(): string
-    /* Virtual methods of Shumate.View */
+    /* Virtual methods of Shumate-0.0.Shumate.View */
     vfunc_add_child(builder: Gtk.Builder, child: GObject.Object, type?: string | null): void
     vfunc_custom_finished(builder: Gtk.Builder, child: GObject.Object | null, tagname: string, data?: object | null): void
     vfunc_custom_tag_end(builder: Gtk.Builder, child: GObject.Object | null, tagname: string, data?: object | null): void
@@ -5251,7 +5251,7 @@ export class View {
     vfunc_parser_finished(builder: Gtk.Builder): void
     vfunc_set_buildable_property(builder: Gtk.Builder, name: string, value: any): void
     vfunc_set_id(id: string): void
-    /* Virtual methods of Gtk.Widget */
+    /* Virtual methods of Gtk-4.0.Gtk.Widget */
     vfunc_compute_expand(hexpand_p: boolean, vexpand_p: boolean): void
     vfunc_contains(x: number, y: number): boolean
     vfunc_css_changed(change: Gtk.CssStyleChange): void
@@ -5277,7 +5277,7 @@ export class View {
     vfunc_unmap(): void
     vfunc_unrealize(): void
     vfunc_unroot(): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -5285,11 +5285,11 @@ export class View {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Shumate.View */
+    /* Signals of Shumate-0.0.Shumate.View */
     connect(sigName: "animation-completed", callback: (($obj: View) => void)): number
     connect_after(sigName: "animation-completed", callback: (($obj: View) => void)): number
     emit(sigName: "animation-completed"): void
-    /* Signals of Gtk.Widget */
+    /* Signals of Gtk-4.0.Gtk.Widget */
     connect(sigName: "destroy", callback: (($obj: View) => void)): number
     connect_after(sigName: "destroy", callback: (($obj: View) => void)): number
     emit(sigName: "destroy"): void
@@ -5329,7 +5329,7 @@ export class View {
     connect(sigName: "unrealize", callback: (($obj: View) => void)): number
     connect_after(sigName: "unrealize", callback: (($obj: View) => void)): number
     emit(sigName: "unrealize"): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: View, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: View, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -5434,17 +5434,17 @@ export interface Viewport_ConstructProps extends GObject.Object_ConstructProps {
     longitude?: number
 }
 export class Viewport {
-    /* Properties of Shumate.Viewport */
+    /* Properties of Shumate-0.0.Shumate.Viewport */
     max_zoom_level: number
     min_zoom_level: number
     reference_map_source: MapSource
     zoom_level: number
-    /* Properties of Shumate.Location */
+    /* Properties of Shumate-0.0.Shumate.Location */
     latitude: number
     longitude: number
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Shumate.Viewport */
+    /* Methods of Shumate-0.0.Shumate.Viewport */
     get_max_zoom_level(): number
     get_min_zoom_level(): number
     get_reference_map_source(): MapSource | null
@@ -5459,7 +5459,7 @@ export class Viewport {
     widget_y_to_latitude(widget: Gtk.Widget, y: number): number
     zoom_in(): void
     zoom_out(): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -5481,15 +5481,15 @@ export class Viewport {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of Shumate.Location */
+    /* Methods of Shumate-0.0.Shumate.Location */
     get_latitude(): number
     get_longitude(): number
     set_location(latitude: number, longitude: number): void
-    /* Virtual methods of Shumate.Viewport */
+    /* Virtual methods of Shumate-0.0.Shumate.Viewport */
     vfunc_get_latitude(): number
     vfunc_get_longitude(): number
     vfunc_set_location(latitude: number, longitude: number): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -5497,7 +5497,7 @@ export class Viewport {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Viewport, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Viewport, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -5525,49 +5525,49 @@ export class Viewport {
     static $gtype: GObject.Type
 }
 export abstract class CoordinateClass {
-    /* Fields of Shumate.CoordinateClass */
+    /* Fields of Shumate-0.0.Shumate.CoordinateClass */
     parent_class: GObject.InitiallyUnownedClass
     static name: string
 }
 export abstract class ErrorTileSourceClass {
-    /* Fields of Shumate.ErrorTileSourceClass */
+    /* Fields of Shumate-0.0.Shumate.ErrorTileSourceClass */
     parent_class: TileSourceClass
     static name: string
 }
 export abstract class FileCacheClass {
-    /* Fields of Shumate.FileCacheClass */
+    /* Fields of Shumate-0.0.Shumate.FileCacheClass */
     parent_class: TileCacheClass
     static name: string
 }
 export abstract class LayerClass {
-    /* Fields of Shumate.LayerClass */
+    /* Fields of Shumate-0.0.Shumate.LayerClass */
     parent_class: Gtk.WidgetClass
     static name: string
 }
 export abstract class LicenseClass {
-    /* Fields of Shumate.LicenseClass */
+    /* Fields of Shumate-0.0.Shumate.LicenseClass */
     parent_class: Gtk.WidgetClass
     static name: string
 }
 export abstract class LocationInterface {
-    /* Fields of Shumate.LocationInterface */
+    /* Fields of Shumate-0.0.Shumate.LocationInterface */
     get_latitude: (location: Location) => number
     get_longitude: (location: Location) => number
     set_location: (location: Location, latitude: number, longitude: number) => void
     static name: string
 }
 export abstract class MapLayerClass {
-    /* Fields of Shumate.MapLayerClass */
+    /* Fields of Shumate-0.0.Shumate.MapLayerClass */
     parent_class: LayerClass
     static name: string
 }
 export abstract class MapSourceChainClass {
-    /* Fields of Shumate.MapSourceChainClass */
+    /* Fields of Shumate-0.0.Shumate.MapSourceChainClass */
     parent_class: MapSourceClass
     static name: string
 }
 export abstract class MapSourceClass {
-    /* Fields of Shumate.MapSourceClass */
+    /* Fields of Shumate-0.0.Shumate.MapSourceClass */
     parent_class: GObject.InitiallyUnownedClass
     get_id: (map_source: MapSource) => string
     get_name: (map_source: MapSource) => string
@@ -5581,52 +5581,52 @@ export abstract class MapSourceClass {
     static name: string
 }
 export abstract class MapSourceDescClass {
-    /* Fields of Shumate.MapSourceDescClass */
+    /* Fields of Shumate-0.0.Shumate.MapSourceDescClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
 export abstract class MapSourceFactoryClass {
-    /* Fields of Shumate.MapSourceFactoryClass */
+    /* Fields of Shumate-0.0.Shumate.MapSourceFactoryClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
 export abstract class MarkerClass {
-    /* Fields of Shumate.MarkerClass */
+    /* Fields of Shumate-0.0.Shumate.MarkerClass */
     parent_class: Gtk.WidgetClass
     static name: string
 }
 export abstract class MarkerLayerClass {
-    /* Fields of Shumate.MarkerLayerClass */
+    /* Fields of Shumate-0.0.Shumate.MarkerLayerClass */
     parent_class: LayerClass
     static name: string
 }
 export abstract class MemoryCacheClass {
-    /* Fields of Shumate.MemoryCacheClass */
+    /* Fields of Shumate-0.0.Shumate.MemoryCacheClass */
     parent_class: TileCacheClass
     static name: string
 }
 export abstract class NetworkTileSourceClass {
-    /* Fields of Shumate.NetworkTileSourceClass */
+    /* Fields of Shumate-0.0.Shumate.NetworkTileSourceClass */
     parent_class: TileSourceClass
     static name: string
 }
 export abstract class PathLayerClass {
-    /* Fields of Shumate.PathLayerClass */
+    /* Fields of Shumate-0.0.Shumate.PathLayerClass */
     parent_class: LayerClass
     static name: string
 }
 export abstract class PointClass {
-    /* Fields of Shumate.PointClass */
+    /* Fields of Shumate-0.0.Shumate.PointClass */
     parent_class: MarkerClass
     static name: string
 }
 export abstract class ScaleClass {
-    /* Fields of Shumate.ScaleClass */
+    /* Fields of Shumate-0.0.Shumate.ScaleClass */
     parent_class: Gtk.WidgetClass
     static name: string
 }
 export abstract class TileCacheClass {
-    /* Fields of Shumate.TileCacheClass */
+    /* Fields of Shumate-0.0.Shumate.TileCacheClass */
     parent_class: MapSourceClass
     store_tile: (tile_cache: TileCache, tile: Tile, contents: string, size: number) => void
     refresh_tile_time: (tile_cache: TileCache, tile: Tile) => void
@@ -5634,22 +5634,22 @@ export abstract class TileCacheClass {
     static name: string
 }
 export abstract class TileClass {
-    /* Fields of Shumate.TileClass */
+    /* Fields of Shumate-0.0.Shumate.TileClass */
     parent_class: Gtk.WidgetClass
     static name: string
 }
 export abstract class TileSourceClass {
-    /* Fields of Shumate.TileSourceClass */
+    /* Fields of Shumate-0.0.Shumate.TileSourceClass */
     parent_class: MapSourceClass
     static name: string
 }
 export abstract class ViewClass {
-    /* Fields of Shumate.ViewClass */
+    /* Fields of Shumate-0.0.Shumate.ViewClass */
     parent_class: Gtk.WidgetClass
     static name: string
 }
 export abstract class ViewportClass {
-    /* Fields of Shumate.ViewportClass */
+    /* Fields of Shumate-0.0.Shumate.ViewportClass */
     parent_class: GObject.ObjectClass
     static name: string
 }

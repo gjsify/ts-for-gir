@@ -44,12 +44,12 @@ export interface logger {
 export interface GContext_ConstructProps extends GObject.InitiallyUnowned_ConstructProps {
 }
 export class GContext {
-    /* Fields of Anthy.GContext */
+    /* Fields of Anthy-9000.Anthy.GContext */
     parent: GObject.InitiallyUnowned
     priv: GContextPrivate
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Anthy.GContext */
+    /* Methods of Anthy-9000.Anthy.GContext */
     commitPrediction(nthSeg: number): number
     commitSegment(nthSeg: number, nthLookup: number): number
     doSetPersonality(dictName: string): number
@@ -63,7 +63,7 @@ export class GContext {
     setEncoding(encoding: number): number
     setPredictionString(string: string): number
     setString(string: string): number
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -85,21 +85,12 @@ export class GContext {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: GContext, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: GContext, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -115,7 +106,7 @@ export class GContext {
     static $gtype: GObject.Type
 }
 export abstract class GContextClass {
-    /* Fields of Anthy.GContextClass */
+    /* Fields of Anthy-9000.Anthy.GContextClass */
     parent: GObject.InitiallyUnownedClass
     static name: string
 }
@@ -126,17 +117,17 @@ export class anthy_context_t {
     static name: string
 }
 export class anthy_conv_stat {
-    /* Fields of Anthy.anthy_conv_stat */
+    /* Fields of Anthy-9000.Anthy.anthy_conv_stat */
     nrSegment: number
     static name: string
 }
 export class anthy_prediction_stat {
-    /* Fields of Anthy.anthy_prediction_stat */
+    /* Fields of Anthy-9000.Anthy.anthy_prediction_stat */
     nrPrediction: number
     static name: string
 }
 export class anthy_segment_stat {
-    /* Fields of Anthy.anthy_segment_stat */
+    /* Fields of Anthy-9000.Anthy.anthy_segment_stat */
     nrCandidate: number
     segLen: number
     static name: string

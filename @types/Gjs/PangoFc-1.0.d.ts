@@ -21,12 +21,12 @@ export interface SubstituteFunc {
 export interface Decoder_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class Decoder {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of PangoFc.Decoder */
+    /* Methods of PangoFc-1.0.PangoFc.Decoder */
     get_charset(fcfont: Font): fontconfig.CharSet
     get_glyph(fcfont: Font, wc: number): Pango.Glyph
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -48,10 +48,10 @@ export class Decoder {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of PangoFc.Decoder */
+    /* Virtual methods of PangoFc-1.0.PangoFc.Decoder */
     vfunc_get_charset(fcfont: Font): fontconfig.CharSet
     vfunc_get_glyph(fcfont: Font, wc: number): Pango.Glyph
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -59,7 +59,7 @@ export class Decoder {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Decoder, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Decoder, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -77,9 +77,9 @@ export interface Font_ConstructProps extends Pango.Font_ConstructProps {
     pattern?: object
 }
 export class Font {
-    /* Properties of PangoFc.Font */
+    /* Properties of PangoFc-1.0.PangoFc.Font */
     fontmap: FontMap
-    /* Fields of PangoFc.Font */
+    /* Fields of PangoFc-1.0.PangoFc.Font */
     parent_instance: Pango.Font
     font_pattern: fontconfig.Pattern
     priv: object
@@ -88,16 +88,16 @@ export class Font {
     metrics_by_lang: object[]
     is_hinted: number
     is_transformed: number
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of PangoFc.Font */
+    /* Methods of PangoFc-1.0.PangoFc.Font */
     get_glyph(wc: number): number
     get_languages(): Pango.Language | null
     get_unknown_glyph(wc: number): Pango.Glyph
     has_char(wc: number): boolean
     kern_glyphs(glyphs: Pango.GlyphString): void
     unlock_face(): void
-    /* Methods of Pango.Font */
+    /* Methods of Pango-1.0.Pango.Font */
     describe(): Pango.FontDescription
     describe_with_absolute_size(): Pango.FontDescription
     find_shaper(language: Pango.Language, ch: number): Pango.EngineShape
@@ -107,7 +107,7 @@ export class Font {
     get_font_map(): Pango.FontMap | null
     get_glyph_extents(glyph: Pango.Glyph): [ /* ink_rect */ Pango.Rectangle | null, /* logical_rect */ Pango.Rectangle | null ]
     get_metrics(language?: Pango.Language | null): Pango.FontMetrics
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -129,7 +129,7 @@ export class Font {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Pango.Font */
+    /* Virtual methods of Pango-1.0.Pango.Font */
     vfunc_create_hb_font(): HarfBuzz.font_t
     vfunc_describe(): Pango.FontDescription
     vfunc_describe_absolute(): Pango.FontDescription
@@ -138,7 +138,7 @@ export class Font {
     vfunc_get_font_map(): Pango.FontMap | null
     vfunc_get_glyph_extents(glyph: Pango.Glyph): [ /* ink_rect */ Pango.Rectangle | null, /* logical_rect */ Pango.Rectangle | null ]
     vfunc_get_metrics(language?: Pango.Language | null): Pango.FontMetrics
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -146,7 +146,7 @@ export class Font {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Font, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Font, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -166,11 +166,11 @@ export class Font {
 export interface FontMap_ConstructProps extends Pango.FontMap_ConstructProps {
 }
 export class FontMap {
-    /* Fields of Pango.FontMap */
+    /* Fields of Pango-1.0.Pango.FontMap */
     parent_instance: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of PangoFc.FontMap */
+    /* Methods of PangoFc-1.0.PangoFc.FontMap */
     cache_clear(): void
     config_changed(): void
     create_context(): Pango.Context
@@ -178,14 +178,14 @@ export class FontMap {
     set_default_substitute(func: SubstituteFunc): void
     shutdown(): void
     substitute_changed(): void
-    /* Methods of Pango.FontMap */
+    /* Methods of Pango-1.0.Pango.FontMap */
     changed(): void
     get_family(name: string): Pango.FontFamily
     get_serial(): number
     list_families(): /* families */ Pango.FontFamily[]
     load_font(context: Pango.Context, desc: Pango.FontDescription): Pango.Font | null
     load_fontset(context: Pango.Context, desc: Pango.FontDescription, language: Pango.Language): Pango.Fontset | null
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -207,14 +207,14 @@ export class FontMap {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Pango.FontMap */
+    /* Virtual methods of Pango-1.0.Pango.FontMap */
     vfunc_changed(): void
     vfunc_get_family(name: string): Pango.FontFamily
     vfunc_get_serial(): number
     vfunc_list_families(): /* families */ Pango.FontFamily[]
     vfunc_load_font(context: Pango.Context, desc: Pango.FontDescription): Pango.Font | null
     vfunc_load_fontset(context: Pango.Context, desc: Pango.FontDescription, language: Pango.Language): Pango.Fontset | null
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -222,7 +222,7 @@ export class FontMap {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: FontMap, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: FontMap, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -236,7 +236,7 @@ export class FontMap {
     static $gtype: GObject.Type
 }
 export abstract class DecoderClass {
-    /* Fields of PangoFc.DecoderClass */
+    /* Fields of PangoFc-1.0.PangoFc.DecoderClass */
     get_charset: (decoder: Decoder, fcfont: Font) => fontconfig.CharSet
     get_glyph: (decoder: Decoder, fcfont: Font, wc: number) => Pango.Glyph
     static name: string

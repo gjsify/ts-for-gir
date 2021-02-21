@@ -28,18 +28,18 @@ export interface EGLImageDestroyNotify {
 export interface GLDisplayEGL_ConstructProps extends GstGL.GLDisplay_ConstructProps {
 }
 export class GLDisplayEGL {
-    /* Properties of Gst.Object */
+    /* Properties of Gst-1.0.Gst.Object */
     name: string
     parent: Gst.Object
-    /* Fields of Gst.Object */
+    /* Fields of Gst-1.0.Gst.Object */
     object: GObject.InitiallyUnowned
     lock: GLib.Mutex
     flags: number
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GstGL.GLDisplay */
+    /* Methods of GstGL-1.0.GstGL.GLDisplay */
     addContext(context: GstGL.GLContext): boolean
-    createContext(otherContext: GstGL.GLContext): [ /* returnType */ boolean, /* pContext */ GstGL.GLContext ]
+    createContext(otherContext: GstGL.GLContext): { returnType: boolean, pContext: GstGL.GLContext }
     createWindow(): GstGL.GLWindow
     filterGlApi(glApi: GstGL.GLAPI): void
     findWindow(data: object | null, compareFunc: GLib.CompareFunc): GstGL.GLWindow
@@ -51,7 +51,7 @@ export class GLDisplayEGL {
     removeContext(context: GstGL.GLContext): void
     removeWindow(window: GstGL.GLWindow): boolean
     retrieveWindow(data: object | null, compareFunc: GLib.CompareFunc): GstGL.GLWindow
-    /* Methods of Gst.Object */
+    /* Methods of Gst-1.0.Gst.Object */
     addControlBinding(binding: Gst.ControlBinding): boolean
     defaultError(error: GLib.Error, debug?: string | null): void
     getControlBinding(propertyName: string): Gst.ControlBinding | null
@@ -76,7 +76,7 @@ export class GLDisplayEGL {
     syncValues(timestamp: Gst.ClockTime): boolean
     unparent(): void
     unref(): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -97,40 +97,24 @@ export class GLDisplayEGL {
     stealQdata(quark: GLib.Quark): object | null
     thawNotify(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GstGL.GLDisplay */
-    vfuncCreateWindow(): GstGL.GLWindow
-    vfuncGetHandle(): number
-    /* Virtual methods of Gst.Object */
-    vfuncDeepNotify(orig: Gst.Object, pspec: GObject.ParamSpec): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GstGL.GLDisplay */
+    /* Signals of GstGL-1.0.GstGL.GLDisplay */
     connect(sigName: "create-context", callback: (($obj: GLDisplayEGL, context: GstGL.GLContext) => GstGL.GLContext)): number
-    connect_after(sigName: "create-context", callback: (($obj: GLDisplayEGL, context: GstGL.GLContext) => GstGL.GLContext)): number
+    on(sigName: "create-context", callback: (context: GstGL.GLContext) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "create-context", callback: (context: GstGL.GLContext) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "create-context", callback: (context: GstGL.GLContext) => void): NodeJS.EventEmitter
     emit(sigName: "create-context", context: GstGL.GLContext): void
-    on(sigName: "create-context", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "create-context", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "create-context", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of Gst.Object */
+    /* Signals of Gst-1.0.Gst.Object */
     connect(sigName: "deep-notify", callback: (($obj: GLDisplayEGL, propObject: Gst.Object, prop: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "deep-notify", callback: (($obj: GLDisplayEGL, propObject: Gst.Object, prop: GObject.ParamSpec) => void)): number
+    on(sigName: "deep-notify", callback: (propObject: Gst.Object, prop: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "deep-notify", callback: (propObject: Gst.Object, prop: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "deep-notify", callback: (propObject: Gst.Object, prop: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "deep-notify", propObject: Gst.Object, prop: GObject.ParamSpec): void
-    on(sigName: "deep-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "deep-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "deep-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: GLDisplayEGL, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: GLDisplayEGL, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::name", callback: (($obj: GLDisplayEGL, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::name", callback: (($obj: GLDisplayEGL, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::name", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -161,21 +145,21 @@ export class GLDisplayEGL {
 export interface GLDisplayEGLDevice_ConstructProps extends GstGL.GLDisplay_ConstructProps {
 }
 export class GLDisplayEGLDevice {
-    /* Properties of Gst.Object */
+    /* Properties of Gst-1.0.Gst.Object */
     name: string
     parent: Gst.Object
-    /* Fields of GstGLEGL.GLDisplayEGLDevice */
+    /* Fields of GstGLEGL-1.0.GstGLEGL.GLDisplayEGLDevice */
     device: object
     padding: object[]
-    /* Fields of Gst.Object */
+    /* Fields of Gst-1.0.Gst.Object */
     object: GObject.InitiallyUnowned
     lock: GLib.Mutex
     flags: number
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GstGL.GLDisplay */
+    /* Methods of GstGL-1.0.GstGL.GLDisplay */
     addContext(context: GstGL.GLContext): boolean
-    createContext(otherContext: GstGL.GLContext): [ /* returnType */ boolean, /* pContext */ GstGL.GLContext ]
+    createContext(otherContext: GstGL.GLContext): { returnType: boolean, pContext: GstGL.GLContext }
     createWindow(): GstGL.GLWindow
     filterGlApi(glApi: GstGL.GLAPI): void
     findWindow(data: object | null, compareFunc: GLib.CompareFunc): GstGL.GLWindow
@@ -187,7 +171,7 @@ export class GLDisplayEGLDevice {
     removeContext(context: GstGL.GLContext): void
     removeWindow(window: GstGL.GLWindow): boolean
     retrieveWindow(data: object | null, compareFunc: GLib.CompareFunc): GstGL.GLWindow
-    /* Methods of Gst.Object */
+    /* Methods of Gst-1.0.Gst.Object */
     addControlBinding(binding: Gst.ControlBinding): boolean
     defaultError(error: GLib.Error, debug?: string | null): void
     getControlBinding(propertyName: string): Gst.ControlBinding | null
@@ -212,7 +196,7 @@ export class GLDisplayEGLDevice {
     syncValues(timestamp: Gst.ClockTime): boolean
     unparent(): void
     unref(): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -233,40 +217,24 @@ export class GLDisplayEGLDevice {
     stealQdata(quark: GLib.Quark): object | null
     thawNotify(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GstGL.GLDisplay */
-    vfuncCreateWindow(): GstGL.GLWindow
-    vfuncGetHandle(): number
-    /* Virtual methods of Gst.Object */
-    vfuncDeepNotify(orig: Gst.Object, pspec: GObject.ParamSpec): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GstGL.GLDisplay */
+    /* Signals of GstGL-1.0.GstGL.GLDisplay */
     connect(sigName: "create-context", callback: (($obj: GLDisplayEGLDevice, context: GstGL.GLContext) => GstGL.GLContext)): number
-    connect_after(sigName: "create-context", callback: (($obj: GLDisplayEGLDevice, context: GstGL.GLContext) => GstGL.GLContext)): number
+    on(sigName: "create-context", callback: (context: GstGL.GLContext) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "create-context", callback: (context: GstGL.GLContext) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "create-context", callback: (context: GstGL.GLContext) => void): NodeJS.EventEmitter
     emit(sigName: "create-context", context: GstGL.GLContext): void
-    on(sigName: "create-context", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "create-context", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "create-context", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of Gst.Object */
+    /* Signals of Gst-1.0.Gst.Object */
     connect(sigName: "deep-notify", callback: (($obj: GLDisplayEGLDevice, propObject: Gst.Object, prop: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "deep-notify", callback: (($obj: GLDisplayEGLDevice, propObject: Gst.Object, prop: GObject.ParamSpec) => void)): number
+    on(sigName: "deep-notify", callback: (propObject: Gst.Object, prop: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "deep-notify", callback: (propObject: Gst.Object, prop: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "deep-notify", callback: (propObject: Gst.Object, prop: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "deep-notify", propObject: Gst.Object, prop: GObject.ParamSpec): void
-    on(sigName: "deep-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "deep-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "deep-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: GLDisplayEGLDevice, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: GLDisplayEGLDevice, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::name", callback: (($obj: GLDisplayEGLDevice, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::name", callback: (($obj: GLDisplayEGLDevice, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::name", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -296,10 +264,10 @@ export class GLDisplayEGLDevice {
 export interface GLMemoryEGLAllocator_ConstructProps extends GstGL.GLMemoryAllocator_ConstructProps {
 }
 export class GLMemoryEGLAllocator {
-    /* Properties of Gst.Object */
+    /* Properties of Gst-1.0.Gst.Object */
     name: string
     parent: Gst.Object
-    /* Fields of Gst.Allocator */
+    /* Fields of Gst-1.0.Gst.Allocator */
     object: Gst.Object
     memType: string
     memMap: Gst.MemoryMapFunction
@@ -309,16 +277,16 @@ export class GLMemoryEGLAllocator {
     memIsSpan: Gst.MemoryIsSpanFunction
     memMapFull: Gst.MemoryMapFullFunction
     memUnmapFull: Gst.MemoryUnmapFullFunction
-    /* Fields of Gst.Object */
+    /* Fields of Gst-1.0.Gst.Object */
     lock: GLib.Mutex
     flags: number
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Gst.Allocator */
+    /* Methods of Gst-1.0.Gst.Allocator */
     alloc(size: number, params?: Gst.AllocationParams | null): Gst.Memory | null
     free(memory: Gst.Memory): void
     setDefault(): void
-    /* Methods of Gst.Object */
+    /* Methods of Gst-1.0.Gst.Object */
     addControlBinding(binding: Gst.ControlBinding): boolean
     defaultError(error: GLib.Error, debug?: string | null): void
     getControlBinding(propertyName: string): Gst.ControlBinding | null
@@ -343,7 +311,7 @@ export class GLMemoryEGLAllocator {
     syncValues(timestamp: Gst.ClockTime): boolean
     unparent(): void
     unref(): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -364,42 +332,18 @@ export class GLMemoryEGLAllocator {
     stealQdata(quark: GLib.Quark): object | null
     thawNotify(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GstGLEGL.GLMemoryEGLAllocator */
-    vfuncAlloc(params: GstGL.GLAllocationParams): GstGL.GLBaseMemory
-    vfuncAlloc(size: number, params?: Gst.AllocationParams | null): Gst.Memory | null
-    /* Virtual methods of GstGL.GLMemoryAllocator */
-    vfuncAlloc(params: GstGL.GLAllocationParams): GstGL.GLBaseMemory
-    vfuncAlloc(size: number, params?: Gst.AllocationParams | null): Gst.Memory | null
-    /* Virtual methods of GstGL.GLBaseMemoryAllocator */
-    vfuncAlloc(params: GstGL.GLAllocationParams): GstGL.GLBaseMemory
-    vfuncAlloc(size: number, params?: Gst.AllocationParams | null): Gst.Memory | null
-    /* Virtual methods of Gst.Allocator */
-    vfuncAlloc(size: number, params?: Gst.AllocationParams | null): Gst.Memory | null
-    vfuncFree(memory: Gst.Memory): void
-    /* Virtual methods of Gst.Object */
-    vfuncDeepNotify(orig: Gst.Object, pspec: GObject.ParamSpec): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gst.Object */
+    /* Signals of Gst-1.0.Gst.Object */
     connect(sigName: "deep-notify", callback: (($obj: GLMemoryEGLAllocator, propObject: Gst.Object, prop: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "deep-notify", callback: (($obj: GLMemoryEGLAllocator, propObject: Gst.Object, prop: GObject.ParamSpec) => void)): number
+    on(sigName: "deep-notify", callback: (propObject: Gst.Object, prop: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "deep-notify", callback: (propObject: Gst.Object, prop: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "deep-notify", callback: (propObject: Gst.Object, prop: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "deep-notify", propObject: Gst.Object, prop: GObject.ParamSpec): void
-    on(sigName: "deep-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "deep-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "deep-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: GLMemoryEGLAllocator, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: GLMemoryEGLAllocator, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::name", callback: (($obj: GLMemoryEGLAllocator, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::name", callback: (($obj: GLMemoryEGLAllocator, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::name", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -423,7 +367,7 @@ export class GLMemoryEGLAllocator {
     static $gtype: GObject.Type
 }
 export class EGLImage {
-    /* Methods of GstGLEGL.EGLImage */
+    /* Methods of GstGLEGL-1.0.GstGLEGL.EGLImage */
     exportDmabuf(fd: number, stride: number, offset: number): boolean
     getImage(): object | null
     static name: string
@@ -435,19 +379,19 @@ export class EGLImage {
     static fromTexture(context: GstGL.GLContext, glMem: GstGL.GLMemory, attribs: number): EGLImage
 }
 export abstract class GLDisplayEGLClass {
-    /* Fields of GstGLEGL.GLDisplayEGLClass */
+    /* Fields of GstGLEGL-1.0.GstGLEGL.GLDisplayEGLClass */
     objectClass: GstGL.GLDisplayClass
     padding: object[]
     static name: string
 }
 export abstract class GLDisplayEGLDeviceClass {
-    /* Fields of GstGLEGL.GLDisplayEGLDeviceClass */
+    /* Fields of GstGLEGL-1.0.GstGLEGL.GLDisplayEGLDeviceClass */
     objectClass: GstGL.GLDisplayClass
     padding: object[]
     static name: string
 }
 export class GLMemoryEGL {
-    /* Methods of GstGLEGL.GLMemoryEGL */
+    /* Methods of GstGLEGL-1.0.GstGLEGL.GLMemoryEGL */
     getDisplay(): object | null
     getImage(): object | null
     static name: string

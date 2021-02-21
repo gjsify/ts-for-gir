@@ -11,18 +11,18 @@ import type * as GLib from './GLib-2.0';
 import type * as GModule from './GModule-2.0';
 
 export class DLNADiscoverer {
-    /* Fields of GUPnP.DLNADiscoverer */
+    /* Fields of GUPnP-1.0.GUPnP.DLNADiscoverer */
     parent: any
-    /* Methods of GUPnP.DLNADiscoverer */
+    /* Methods of GUPnP-1.0.GUPnP.DLNADiscoverer */
     discover_uri(uri: string): boolean
     discover_uri_sync(uri: string): DLNAInformation
     get_extended_mode(): boolean
     get_profile(name: string): DLNAProfile
     get_relaxed_mode(): boolean
     list_profiles(): DLNAProfile[]
-    /* Virtual methods of GUPnP.DLNADiscoverer */
+    /* Virtual methods of GUPnP-1.0.GUPnP.DLNADiscoverer */
     vfunc_done(dlna: DLNAInformation, err: GLib.Error): void
-    /* Signals of GUPnP.DLNADiscoverer */
+    /* Signals of GUPnP-1.0.GUPnP.DLNADiscoverer */
     connect(sigName: "done", callback: (($obj: DLNADiscoverer, dlna: DLNAInformation, err: GLib.Error) => void)): number
     connect_after(sigName: "done", callback: (($obj: DLNADiscoverer, dlna: DLNAInformation, err: GLib.Error) => void)): number
     emit(sigName: "done", dlna: DLNAInformation, err: GLib.Error): void
@@ -38,15 +38,15 @@ export interface DLNAInformation_ConstructProps extends GObject.Object_Construct
     name?: string
 }
 export class DLNAInformation {
-    /* Fields of GUPnP.DLNAInformation */
+    /* Fields of GUPnP-1.0.GUPnP.DLNAInformation */
     parent: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GUPnP.DLNAInformation */
+    /* Methods of GUPnP-1.0.GUPnP.DLNAInformation */
     get_info(): any
     get_mime(): string
     get_name(): string
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -68,7 +68,7 @@ export class DLNAInformation {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -76,7 +76,7 @@ export class DLNAInformation {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: DLNAInformation, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: DLNAInformation, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -97,18 +97,18 @@ export interface DLNAProfile_ConstructProps extends GObject.Object_ConstructProp
     name?: string
 }
 export class DLNAProfile {
-    /* Properties of GUPnP.DLNAProfile */
+    /* Properties of GUPnP-1.0.GUPnP.DLNAProfile */
     readonly encoding_profile: any
-    /* Fields of GUPnP.DLNAProfile */
+    /* Fields of GUPnP-1.0.GUPnP.DLNAProfile */
     parent: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GUPnP.DLNAProfile */
+    /* Methods of GUPnP-1.0.GUPnP.DLNAProfile */
     get_encoding_profile(): any
     get_extended(): boolean
     get_mime(): string
     get_name(): string
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -130,7 +130,7 @@ export class DLNAProfile {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -138,7 +138,7 @@ export class DLNAProfile {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: DLNAProfile, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: DLNAProfile, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -154,18 +154,18 @@ export class DLNAProfile {
     static $gtype: GObject.Type
 }
 export abstract class DLNADiscovererClass {
-    /* Fields of GUPnP.DLNADiscovererClass */
+    /* Fields of GUPnP-1.0.GUPnP.DLNADiscovererClass */
     parent_class: any
     done: (discoverer: DLNADiscoverer, dlna: DLNAInformation, err: GLib.Error) => void
     static name: string
 }
 export abstract class DLNAInformationClass {
-    /* Fields of GUPnP.DLNAInformationClass */
+    /* Fields of GUPnP-1.0.GUPnP.DLNAInformationClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
 export abstract class DLNAProfileClass {
-    /* Fields of GUPnP.DLNAProfileClass */
+    /* Fields of GUPnP-1.0.GUPnP.DLNAProfileClass */
     parent_class: GObject.ObjectClass
     static name: string
 }

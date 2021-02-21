@@ -37,16 +37,16 @@ export interface Notification_ConstructProps extends GObject.Object_ConstructPro
     summary?: string
 }
 export class Notification {
-    /* Properties of Notify.Notification */
+    /* Properties of Notify-0.7.Notify.Notification */
     app_name: string
     body: string
     readonly closed_reason: number
     icon_name: string
     id: number
     summary: string
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Notify.Notification */
+    /* Methods of Notify-0.7.Notify.Notification */
     add_action(action: string, label: string, callback: ActionCallback): void
     clear_actions(): void
     clear_hints(): void
@@ -67,7 +67,7 @@ export class Notification {
     set_urgency(urgency: Urgency): void
     show(): boolean
     update(summary: string, body?: string | null, icon?: string | null): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -89,9 +89,9 @@ export class Notification {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Notify.Notification */
+    /* Virtual methods of Notify-0.7.Notify.Notification */
     vfunc_closed(): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -99,11 +99,11 @@ export class Notification {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Notify.Notification */
+    /* Signals of Notify-0.7.Notify.Notification */
     connect(sigName: "closed", callback: (($obj: Notification) => void)): number
     connect_after(sigName: "closed", callback: (($obj: Notification) => void)): number
     emit(sigName: "closed"): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Notification, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Notification, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -131,7 +131,7 @@ export class Notification {
     static $gtype: GObject.Type
 }
 export abstract class NotificationClass {
-    /* Fields of Notify.NotificationClass */
+    /* Fields of Notify-0.7.Notify.NotificationClass */
     parent_class: GObject.ObjectClass
     closed: (notification: Notification) => void
     static name: string

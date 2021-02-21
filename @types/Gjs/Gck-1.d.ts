@@ -70,19 +70,19 @@ export interface ObjectCache_ConstructProps extends Object_ConstructProps {
     attributes?: Attributes
 }
 export class ObjectCache {
-    /* Properties of Gck.ObjectCache */
+    /* Properties of Gck-1.Gck.ObjectCache */
     attributes: Attributes
-    /* Fields of Gck.Object */
+    /* Fields of Gck-1.Gck.Object */
     parent: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Gck.ObjectCache */
+    /* Methods of Gck-1.Gck.ObjectCache */
     fill(attrs: Attributes): void
     set_attributes(attrs?: Attributes | null): void
     update(attr_types: number[], cancellable?: Gio.Cancellable | null): boolean
     update_async(attr_types: number[], cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     update_finish(result: Gio.AsyncResult): boolean
-    /* Methods of Gck.Object */
+    /* Methods of Gck-1.Gck.Object */
     cache_lookup(attr_types: number[], cancellable?: Gio.Cancellable | null): Attributes
     cache_lookup_async(attr_types: number[], cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     cache_lookup_finish(result: Gio.AsyncResult): Attributes
@@ -109,7 +109,7 @@ export class ObjectCache {
     set_template(attr_type: number, attrs: Attributes, cancellable?: Gio.Cancellable | null): boolean
     set_template_async(attr_type: number, attrs: Attributes, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     set_template_finish(result: Gio.AsyncResult): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -131,9 +131,9 @@ export class ObjectCache {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Gck.ObjectCache */
+    /* Virtual methods of Gck-1.Gck.ObjectCache */
     vfunc_fill(attrs: Attributes): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -141,7 +141,7 @@ export class ObjectCache {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: ObjectCache, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: ObjectCache, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -161,14 +161,14 @@ export interface Enumerator_ConstructProps extends GObject.Object_ConstructProps
     interaction?: Gio.TlsInteraction
 }
 export class Enumerator {
-    /* Properties of Gck.Enumerator */
+    /* Properties of Gck-1.Gck.Enumerator */
     chained: Enumerator
     interaction: Gio.TlsInteraction
-    /* Fields of Gck.Enumerator */
+    /* Fields of Gck-1.Gck.Enumerator */
     parent: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Gck.Enumerator */
+    /* Methods of Gck-1.Gck.Enumerator */
     get_chained(): Enumerator | null
     get_interaction(): Gio.TlsInteraction | null
     get_object_type(): GObject.Type
@@ -179,7 +179,7 @@ export class Enumerator {
     set_chained(chained?: Enumerator | null): void
     set_interaction(interaction?: Gio.TlsInteraction | null): void
     set_object_type(object_type: GObject.Type, attr_types: number[]): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -201,7 +201,7 @@ export class Enumerator {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -209,7 +209,7 @@ export class Enumerator {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Enumerator, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Enumerator, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -231,18 +231,18 @@ export interface Module_ConstructProps extends GObject.Object_ConstructProps {
     path?: string
 }
 export class Module {
-    /* Fields of Gck.Module */
+    /* Fields of Gck-1.Gck.Module */
     parent: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Gck.Module */
+    /* Methods of Gck-1.Gck.Module */
     equal(module2: Module): boolean
     get_info(): ModuleInfo
     get_path(): string
     get_slots(token_present: boolean): Slot[]
     hash(): number
     match(uri: UriData): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -264,10 +264,10 @@ export class Module {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Gck.Module */
+    /* Virtual methods of Gck-1.Gck.Module */
     vfunc_authenticate_object(object: Object, label: string, password: string): boolean
     vfunc_authenticate_slot(slot: Slot, label: string, password: string): boolean
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -275,14 +275,14 @@ export class Module {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gck.Module */
+    /* Signals of Gck-1.Gck.Module */
     connect(sigName: "authenticate-object", callback: (($obj: Module, object: Object, label: string, password?: object | null) => boolean)): number
     connect_after(sigName: "authenticate-object", callback: (($obj: Module, object: Object, label: string, password?: object | null) => boolean)): number
     emit(sigName: "authenticate-object", object: Object, label: string, password?: object | null): void
     connect(sigName: "authenticate-slot", callback: (($obj: Module, slot: Slot, string: string, password?: object | null) => boolean)): number
     connect_after(sigName: "authenticate-slot", callback: (($obj: Module, slot: Slot, string: string, password?: object | null) => boolean)): number
     emit(sigName: "authenticate-slot", slot: Slot, string: string, password?: object | null): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Module, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Module, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -305,11 +305,11 @@ export interface Object_ConstructProps extends GObject.Object_ConstructProps {
     session?: Session
 }
 export class Object {
-    /* Fields of Gck.Object */
+    /* Fields of Gck-1.Gck.Object */
     parent: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Gck.Object */
+    /* Methods of Gck-1.Gck.Object */
     cache_lookup(attr_types: number[], cancellable?: Gio.Cancellable | null): Attributes
     cache_lookup_async(attr_types: number[], cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     cache_lookup_finish(result: Gio.AsyncResult): Attributes
@@ -336,7 +336,7 @@ export class Object {
     set_template(attr_type: number, attrs: Attributes, cancellable?: Gio.Cancellable | null): boolean
     set_template_async(attr_type: number, attrs: Attributes, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     set_template_finish(result: Gio.AsyncResult): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -358,7 +358,7 @@ export class Object {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -366,7 +366,7 @@ export class Object {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Object, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Object, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -386,24 +386,24 @@ export interface Password_ConstructProps extends Gio.TlsPassword_ConstructProps 
     token?: Slot
 }
 export class Password {
-    /* Properties of Gck.Password */
+    /* Properties of Gck-1.Gck.Password */
     readonly module: Module
-    /* Properties of Gio.TlsPassword */
+    /* Properties of Gio-2.0.Gio.TlsPassword */
     description: string
     flags: Gio.TlsPasswordFlags
     warning: string
-    /* Fields of Gck.Password */
+    /* Fields of Gck-1.Gck.Password */
     parent: Gio.TlsPassword
-    /* Fields of Gio.TlsPassword */
+    /* Fields of Gio-2.0.Gio.TlsPassword */
     parent_instance: GObject.Object
     priv: Gio.TlsPasswordPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Gck.Password */
+    /* Methods of Gck-1.Gck.Password */
     get_key(): Object
     get_module(): Module
     get_token(): Slot
-    /* Methods of Gio.TlsPassword */
+    /* Methods of Gio-2.0.Gio.TlsPassword */
     get_description(): string
     get_flags(): Gio.TlsPasswordFlags
     get_value(length?: number | null): number
@@ -413,7 +413,7 @@ export class Password {
     set_value(value: Uint8Array[]): void
     set_value_full(value: Uint8Array[], destroy?: GLib.DestroyNotify | null): void
     set_warning(warning: string): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -435,11 +435,11 @@ export class Password {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Gio.TlsPassword */
+    /* Virtual methods of Gio-2.0.Gio.TlsPassword */
     vfunc_get_default_warning(): string
     vfunc_get_value(length?: number | null): number
     vfunc_set_value(value: Uint8Array[], destroy?: GLib.DestroyNotify | null): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -447,7 +447,7 @@ export class Password {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Password, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Password, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -477,14 +477,14 @@ export interface Session_ConstructProps extends GObject.Object_ConstructProps {
     slot?: Slot
 }
 export class Session {
-    /* Properties of Gck.Session */
+    /* Properties of Gck-1.Gck.Session */
     interaction: Gio.TlsInteraction
     readonly module: Module
-    /* Fields of Gck.Session */
+    /* Fields of Gck-1.Gck.Session */
     parent: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Gck.Session */
+    /* Methods of Gck-1.Gck.Session */
     create_object(attrs: Attributes, cancellable?: Gio.Cancellable | null): Object
     create_object_async(attrs: Attributes, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     create_object_finish(result: Gio.AsyncResult): Object
@@ -550,7 +550,7 @@ export class Session {
     wrap_key_async(wrapper: Object, mechanism: Mechanism, wrapped: Object, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     wrap_key_finish(result: Gio.AsyncResult): Uint8Array[]
     wrap_key_full(wrapper: Object, mechanism: Mechanism, wrapped: Object, cancellable?: Gio.Cancellable | null): Uint8Array[]
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -572,17 +572,17 @@ export class Session {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of Gio.AsyncInitable */
+    /* Methods of Gio-2.0.Gio.AsyncInitable */
     init_async(io_priority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     init_finish(res: Gio.AsyncResult): boolean
     new_finish(res: Gio.AsyncResult): GObject.Object
-    /* Methods of Gio.Initable */
+    /* Methods of Gio-2.0.Gio.Initable */
     init(cancellable?: Gio.Cancellable | null): boolean
-    /* Virtual methods of Gck.Session */
+    /* Virtual methods of Gck-1.Gck.Session */
     vfunc_init_async(io_priority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     vfunc_init_finish(res: Gio.AsyncResult): boolean
     vfunc_init(cancellable?: Gio.Cancellable | null): boolean
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -590,11 +590,11 @@ export class Session {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gck.Session */
+    /* Signals of Gck-1.Gck.Session */
     connect(sigName: "discard-handle", callback: (($obj: Session, handle: number) => boolean)): number
     connect_after(sigName: "discard-handle", callback: (($obj: Session, handle: number) => boolean)): number
     emit(sigName: "discard-handle", handle: number): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Session, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Session, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -623,11 +623,11 @@ export interface Slot_ConstructProps extends GObject.Object_ConstructProps {
     module?: Module
 }
 export class Slot {
-    /* Fields of Gck.Slot */
+    /* Fields of Gck-1.Gck.Slot */
     parent: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Gck.Slot */
+    /* Methods of Gck-1.Gck.Slot */
     enumerate_objects(match: Attributes, options: SessionOptions): Enumerator
     equal(slot2: Slot): boolean
     get_handle(): number
@@ -642,7 +642,7 @@ export class Slot {
     open_session(options: SessionOptions, cancellable?: Gio.Cancellable | null): Session
     open_session_async(options: SessionOptions, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     open_session_finish(result: Gio.AsyncResult): Session
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -664,7 +664,7 @@ export class Slot {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -672,7 +672,7 @@ export class Slot {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Slot, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Slot, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -688,11 +688,11 @@ export class Slot {
     static $gtype: GObject.Type
 }
 export class Attribute {
-    /* Fields of Gck.Attribute */
+    /* Fields of Gck-1.Gck.Attribute */
     type: number
     value: Uint8Array[]
     length: number
-    /* Methods of Gck.Attribute */
+    /* Methods of Gck-1.Gck.Attribute */
     clear(): void
     dump(): void
     dup(): Attribute
@@ -719,7 +719,7 @@ export class Attribute {
     static new_ulong(attr_type: number, value: number): Attribute
 }
 export class Attributes {
-    /* Methods of Gck.Attributes */
+    /* Methods of Gck-1.Gck.Attributes */
     at(index: number): Attribute
     contains(match: Attribute): boolean
     count(): number
@@ -740,7 +740,7 @@ export class Attributes {
     static new(reserved: number): Attributes
 }
 export class Builder {
-    /* Methods of Gck.Builder */
+    /* Methods of Gck-1.Gck.Builder */
     add_all(attrs: Attributes): void
     add_attribute(attr: Attribute): void
     add_boolean(attr_type: number, value: boolean): void
@@ -780,7 +780,7 @@ export class Builder {
     static unref(builder?: object | null): void
 }
 export abstract class EnumeratorClass {
-    /* Fields of Gck.EnumeratorClass */
+    /* Fields of Gck-1.Gck.EnumeratorClass */
     parent: GObject.ObjectClass
     static name: string
 }
@@ -788,31 +788,31 @@ export class EnumeratorPrivate {
     static name: string
 }
 export class Mechanism {
-    /* Fields of Gck.Mechanism */
+    /* Fields of Gck-1.Gck.Mechanism */
     type: number
     parameter: object
     n_parameter: number
     static name: string
 }
 export class MechanismInfo {
-    /* Fields of Gck.MechanismInfo */
+    /* Fields of Gck-1.Gck.MechanismInfo */
     min_key_size: number
     max_key_size: number
     flags: number
-    /* Methods of Gck.MechanismInfo */
+    /* Methods of Gck-1.Gck.MechanismInfo */
     copy(): MechanismInfo
     free(): void
     static name: string
 }
 export abstract class ModuleClass {
-    /* Fields of Gck.ModuleClass */
+    /* Fields of Gck-1.Gck.ModuleClass */
     parent: GObject.ObjectClass
     authenticate_slot: (self: Module, slot: Slot, label: string, password: string) => boolean
     authenticate_object: (self: Module, object: Object, label: string, password: string) => boolean
     static name: string
 }
 export class ModuleInfo {
-    /* Fields of Gck.ModuleInfo */
+    /* Fields of Gck-1.Gck.ModuleInfo */
     pkcs11_version_major: number
     pkcs11_version_minor: number
     manufacturer_id: string
@@ -820,7 +820,7 @@ export class ModuleInfo {
     library_description: string
     library_version_major: number
     library_version_minor: number
-    /* Methods of Gck.ModuleInfo */
+    /* Methods of Gck-1.Gck.ModuleInfo */
     copy(): ModuleInfo
     free(): void
     static name: string
@@ -829,7 +829,7 @@ export class ModulePrivate {
     static name: string
 }
 export abstract class ObjectCacheIface {
-    /* Fields of Gck.ObjectCacheIface */
+    /* Fields of Gck-1.Gck.ObjectCacheIface */
     interface: GObject.TypeInterface
     default_types: number[]
     n_default_types: number
@@ -837,7 +837,7 @@ export abstract class ObjectCacheIface {
     static name: string
 }
 export abstract class ObjectClass {
-    /* Fields of Gck.ObjectClass */
+    /* Fields of Gck-1.Gck.ObjectClass */
     parent: GObject.ObjectClass
     static name: string
 }
@@ -845,7 +845,7 @@ export class ObjectPrivate {
     static name: string
 }
 export abstract class PasswordClass {
-    /* Fields of Gck.PasswordClass */
+    /* Fields of Gck-1.Gck.PasswordClass */
     parent: Gio.TlsPasswordClass
     static name: string
 }
@@ -853,17 +853,17 @@ export class PasswordPrivate {
     static name: string
 }
 export abstract class SessionClass {
-    /* Fields of Gck.SessionClass */
+    /* Fields of Gck-1.Gck.SessionClass */
     parent: GObject.ObjectClass
     static name: string
 }
 export class SessionInfo {
-    /* Fields of Gck.SessionInfo */
+    /* Fields of Gck-1.Gck.SessionInfo */
     slot_id: number
     state: number
     flags: number
     device_error: number
-    /* Methods of Gck.SessionInfo */
+    /* Methods of Gck-1.Gck.SessionInfo */
     copy(): SessionInfo
     free(): void
     static name: string
@@ -872,12 +872,12 @@ export class SessionPrivate {
     static name: string
 }
 export abstract class SlotClass {
-    /* Fields of Gck.SlotClass */
+    /* Fields of Gck-1.Gck.SlotClass */
     parent: GObject.ObjectClass
     static name: string
 }
 export class SlotInfo {
-    /* Fields of Gck.SlotInfo */
+    /* Fields of Gck-1.Gck.SlotInfo */
     slot_description: string
     manufacturer_id: string
     flags: number
@@ -885,7 +885,7 @@ export class SlotInfo {
     hardware_version_minor: number
     firmware_version_major: number
     firmware_version_minor: number
-    /* Methods of Gck.SlotInfo */
+    /* Methods of Gck-1.Gck.SlotInfo */
     copy(): SlotInfo
     free(): void
     static name: string
@@ -894,7 +894,7 @@ export class SlotPrivate {
     static name: string
 }
 export class TokenInfo {
-    /* Fields of Gck.TokenInfo */
+    /* Fields of Gck-1.Gck.TokenInfo */
     label: string
     manufacturer_id: string
     model: string
@@ -915,18 +915,18 @@ export class TokenInfo {
     firmware_version_major: number
     firmware_version_minor: number
     utc_time: number
-    /* Methods of Gck.TokenInfo */
+    /* Methods of Gck-1.Gck.TokenInfo */
     copy(): TokenInfo
     free(): void
     static name: string
 }
 export class UriData {
-    /* Fields of Gck.UriData */
+    /* Fields of Gck-1.Gck.UriData */
     any_unrecognized: boolean
     module_info: ModuleInfo
     token_info: TokenInfo
     attributes: Attributes
-    /* Methods of Gck.UriData */
+    /* Methods of Gck-1.Gck.UriData */
     copy(): UriData
     free(): void
     static name: string

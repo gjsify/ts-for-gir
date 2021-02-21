@@ -216,11 +216,11 @@ export interface CalRecurInstanceFn {
 export interface Cal_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class Cal {
-    /* Fields of ECalendar.Cal */
+    /* Fields of ECalendar-1.2.ECalendar.Cal */
     object: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of ECalendar.Cal */
+    /* Methods of ECalendar-1.2.ECalendar.Cal */
     discardAlarm(comp: CalComponent, auid: string): boolean
     getAlarmEmailAddress(alarmAddress: string): boolean
     getAlarmsForObject(id: CalComponentId, start: number, end: number, alarms: CalComponentAlarms): boolean
@@ -228,11 +228,11 @@ export class Cal {
     getLdapAttribute(ldapAttribute: string): boolean
     getLoadState(): CalLoadState
     getLocalAttachmentStore(): string
-    getObjectList(query: string): [ /* returnType */ boolean, /* objects */ number[] ]
+    getObjectList(query: string): { returnType: boolean, objects: number[] }
     getOneAlarmOnly(): boolean
     getOrganizerMustAccept(): boolean
     getOrganizerMustAttend(): boolean
-    getQuery(sexp: string): [ /* returnType */ boolean, /* query */ CalView ]
+    getQuery(sexp: string): { returnType: boolean, query: CalView }
     getRecurrencesNoMaster(): boolean
     getRefreshSupported(): boolean
     getSaveSchedules(): boolean
@@ -244,7 +244,7 @@ export class Cal {
     refresh(): boolean
     remove(): boolean
     removeObject(uid: string): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -266,57 +266,38 @@ export class Cal {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of ECalendar.Cal */
-    vfuncBackendDied(): void
-    vfuncBackendError(message: string): void
-    vfuncCalOpened(status: CalendarStatus): void
-    vfuncCalOpenedEx(error: GLib.Error): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of ECalendar.Cal */
+    /* Signals of ECalendar-1.2.ECalendar.Cal */
     connect(sigName: "backend-died", callback: (($obj: Cal) => void)): number
-    connect_after(sigName: "backend-died", callback: (($obj: Cal) => void)): number
+    on(sigName: "backend-died", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "backend-died", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "backend-died", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "backend-died"): void
-    on(sigName: "backend-died", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "backend-died", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "backend-died", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "backend-error", callback: (($obj: Cal, object: string) => void)): number
-    connect_after(sigName: "backend-error", callback: (($obj: Cal, object: string) => void)): number
+    on(sigName: "backend-error", callback: (object: string) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "backend-error", callback: (object: string) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "backend-error", callback: (object: string) => void): NodeJS.EventEmitter
     emit(sigName: "backend-error", object: string): void
-    on(sigName: "backend-error", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "backend-error", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "backend-error", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "cal-opened", callback: (($obj: Cal, object: number) => void)): number
-    connect_after(sigName: "cal-opened", callback: (($obj: Cal, object: number) => void)): number
+    on(sigName: "cal-opened", callback: (object: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "cal-opened", callback: (object: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "cal-opened", callback: (object: number) => void): NodeJS.EventEmitter
     emit(sigName: "cal-opened", object: number): void
-    on(sigName: "cal-opened", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "cal-opened", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "cal-opened", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "cal-opened-ex", callback: (($obj: Cal, error: number) => void)): number
-    connect_after(sigName: "cal-opened-ex", callback: (($obj: Cal, error: number) => void)): number
+    on(sigName: "cal-opened-ex", callback: (error: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "cal-opened-ex", callback: (error: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "cal-opened-ex", callback: (error: number) => void): NodeJS.EventEmitter
     emit(sigName: "cal-opened-ex", error: number): void
-    on(sigName: "cal-opened-ex", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "cal-opened-ex", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "cal-opened-ex", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "cal-set-mode", callback: (($obj: Cal, object: CalSetModeStatusEnum, p0: any) => void)): number
-    connect_after(sigName: "cal-set-mode", callback: (($obj: Cal, object: CalSetModeStatusEnum, p0: any) => void)): number
+    on(sigName: "cal-set-mode", callback: (object: CalSetModeStatusEnum, p0: any) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "cal-set-mode", callback: (object: CalSetModeStatusEnum, p0: any) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "cal-set-mode", callback: (object: CalSetModeStatusEnum, p0: any) => void): NodeJS.EventEmitter
     emit(sigName: "cal-set-mode", object: CalSetModeStatusEnum, p0: any): void
-    on(sigName: "cal-set-mode", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "cal-set-mode", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "cal-set-mode", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Cal, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Cal, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -343,33 +324,33 @@ export class Cal {
 export interface CalClient_ConstructProps extends EDataServer.Client_ConstructProps {
 }
 export class CalClient {
-    /* Properties of EDataServer.Client */
+    /* Properties of EDataServer-1.2.EDataServer.Client */
     readonly capabilities: object
     readonly mainContext: GLib.MainContext
     online: boolean
     readonly opened: boolean
     readonly readonly: boolean
-    /* Fields of ECalendar.CalClient */
+    /* Fields of ECalendar-1.2.ECalendar.CalClient */
     parent: EDataServer.Client
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of ECalendar.CalClient */
+    /* Methods of ECalendar-1.2.ECalendar.CalClient */
     addTimezoneFinish(result: Gio.AsyncResult): boolean
     checkOneAlarmOnly(): boolean
     checkOrganizerMustAccept(): boolean
     checkOrganizerMustAttend(): boolean
     checkRecurrencesNoMaster(): boolean
     checkSaveSchedules(): boolean
-    createObjectFinish(result: Gio.AsyncResult): [ /* returnType */ boolean, /* uid */ string ]
-    createObjectsFinish(result: Gio.AsyncResult): [ /* returnType */ boolean, /* uids */ string[] ]
+    createObjectFinish(result: Gio.AsyncResult): { returnType: boolean, uid: string }
+    createObjectsFinish(result: Gio.AsyncResult): { returnType: boolean, uids: string[] }
     discardAlarm(uid: string, rid: string, auid: string, cancellable: Gio.Cancellable | null, callback: Gio.AsyncReadyCallback | null): void
     discardAlarmFinish(result: Gio.AsyncResult): boolean
     discardAlarmSync(uid: string, rid: string, auid: string, cancellable?: Gio.Cancellable | null): boolean
     generateInstances(start: number, end: number, cancellable: Gio.Cancellable | null, cb: CalRecurInstanceFn): void
     generateInstancesSync(start: number, end: number, cb: CalRecurInstanceFn): void
     getAttachmentUris(uid: string, rid: string, cancellable: Gio.Cancellable | null, callback: Gio.AsyncReadyCallback | null): void
-    getAttachmentUrisFinish(result: Gio.AsyncResult): [ /* returnType */ boolean, /* attachmentUris */ string[] ]
-    getAttachmentUrisSync(uid: string, rid: string, cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* attachmentUris */ string[] ]
+    getAttachmentUrisFinish(result: Gio.AsyncResult): { returnType: boolean, attachmentUris: string[] }
+    getAttachmentUrisSync(uid: string, rid: string, cancellable?: Gio.Cancellable | null): { returnType: boolean, attachmentUris: string[] }
     getDefaultObject(cancellable: Gio.Cancellable | null, callback: Gio.AsyncReadyCallback | null): void
     getFreeBusy(start: number, end: number, users: string[], cancellable: Gio.Cancellable | null, callback: Gio.AsyncReadyCallback | null): void
     getFreeBusyFinish(result: Gio.AsyncResult): boolean
@@ -378,29 +359,29 @@ export class CalClient {
     getObject(uid: string, rid: string, cancellable: Gio.Cancellable | null, callback: Gio.AsyncReadyCallback | null): void
     getObjectList(sexp: string, cancellable: Gio.Cancellable | null, callback: Gio.AsyncReadyCallback | null): void
     getObjectListAsComps(sexp: string, cancellable: Gio.Cancellable | null, callback: Gio.AsyncReadyCallback | null): void
-    getObjectListAsCompsFinish(result: Gio.AsyncResult): [ /* returnType */ boolean, /* ecalcomps */ CalComponent[] ]
-    getObjectListAsCompsSync(sexp: string, cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* ecalcomps */ CalComponent[] ]
+    getObjectListAsCompsFinish(result: Gio.AsyncResult): { returnType: boolean, ecalcomps: CalComponent[] }
+    getObjectListAsCompsSync(sexp: string, cancellable?: Gio.Cancellable | null): { returnType: boolean, ecalcomps: CalComponent[] }
     getObjectsForUid(uid: string, cancellable: Gio.Cancellable | null, callback: Gio.AsyncReadyCallback | null): void
-    getObjectsForUidFinish(result: Gio.AsyncResult): [ /* returnType */ boolean, /* ecalcomps */ CalComponent[] ]
-    getObjectsForUidSync(uid: string, cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* ecalcomps */ CalComponent[] ]
+    getObjectsForUidFinish(result: Gio.AsyncResult): { returnType: boolean, ecalcomps: CalComponent[] }
+    getObjectsForUidSync(uid: string, cancellable?: Gio.Cancellable | null): { returnType: boolean, ecalcomps: CalComponent[] }
     getSourceType(): CalClientSourceType
     getTimezone(tzid: string, cancellable: Gio.Cancellable | null, callback: Gio.AsyncReadyCallback | null): void
     getView(sexp: string, cancellable: Gio.Cancellable | null, callback: Gio.AsyncReadyCallback | null): void
-    getViewFinish(result: Gio.AsyncResult): [ /* returnType */ boolean, /* view */ CalClientView ]
-    getViewSync(sexp: string, cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* view */ CalClientView ]
+    getViewFinish(result: Gio.AsyncResult): { returnType: boolean, view: CalClientView }
+    getViewSync(sexp: string, cancellable?: Gio.Cancellable | null): { returnType: boolean, view: CalClientView }
     modifyObjectFinish(result: Gio.AsyncResult): boolean
     modifyObjectsFinish(result: Gio.AsyncResult): boolean
     receiveObjectsFinish(result: Gio.AsyncResult): boolean
     removeObjectFinish(result: Gio.AsyncResult): boolean
     removeObjectsFinish(result: Gio.AsyncResult): boolean
-    /* Methods of EDataServer.Client */
+    /* Methods of EDataServer-1.2.EDataServer.Client */
     cancelAll(): void
     checkCapability(capability: string): boolean
     checkRefreshSupported(): boolean
     dupBusName(): string
     getBackendProperty(propName: string, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    getBackendPropertyFinish(result: Gio.AsyncResult): [ /* returnType */ boolean, /* propValue */ string ]
-    getBackendPropertySync(propName: string, cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* propValue */ string ]
+    getBackendPropertyFinish(result: Gio.AsyncResult): { returnType: boolean, propValue: string }
+    getBackendPropertySync(propName: string, cancellable?: Gio.Cancellable | null): { returnType: boolean, propValue: string }
     getCapabilities(): string[]
     getSource(): EDataServer.Source
     isOnline(): boolean
@@ -417,8 +398,8 @@ export class CalClient {
     removeFinish(result: Gio.AsyncResult): boolean
     removeSync(cancellable?: Gio.Cancellable | null): boolean
     retrieveCapabilities(cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    retrieveCapabilitiesFinish(result: Gio.AsyncResult): [ /* returnType */ boolean, /* capabilities */ string ]
-    retrieveCapabilitiesSync(cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* capabilities */ string ]
+    retrieveCapabilitiesFinish(result: Gio.AsyncResult): { returnType: boolean, capabilities: string }
+    retrieveCapabilitiesSync(cancellable?: Gio.Cancellable | null): { returnType: boolean, capabilities: string }
     retrieveProperties(cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     retrievePropertiesFinish(result: Gio.AsyncResult): boolean
     retrievePropertiesSync(cancellable?: Gio.Cancellable | null): boolean
@@ -430,7 +411,7 @@ export class CalClient {
     waitForConnected(timeoutSeconds: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     waitForConnectedFinish(result: Gio.AsyncResult): boolean
     waitForConnectedSync(timeoutSeconds: number, cancellable?: Gio.Cancellable | null): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -452,78 +433,39 @@ export class CalClient {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of EDataServer.Client */
-    vfuncBackendDied(): void
-    vfuncBackendError(errorMsg: string): void
-    vfuncBackendPropertyChanged(propName: string, propValue: string): void
-    vfuncGetBackendProperty(propName: string, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    vfuncGetBackendPropertyFinish(result: Gio.AsyncResult): [ /* returnType */ boolean, /* propValue */ string ]
-    vfuncGetBackendPropertySync(propName: string, cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* propValue */ string ]
-    vfuncOpen(onlyIfExists: boolean, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    vfuncOpenFinish(result: Gio.AsyncResult): boolean
-    vfuncOpenSync(onlyIfExists: boolean, cancellable?: Gio.Cancellable | null): boolean
-    vfuncOpened(error: GLib.Error): void
-    vfuncRefresh(cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    vfuncRefreshFinish(result: Gio.AsyncResult): boolean
-    vfuncRefreshSync(cancellable?: Gio.Cancellable | null): boolean
-    vfuncRemove(cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    vfuncRemoveFinish(result: Gio.AsyncResult): boolean
-    vfuncRemoveSync(cancellable?: Gio.Cancellable | null): boolean
-    vfuncRetrieveCapabilities(cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    vfuncRetrieveCapabilitiesFinish(result: Gio.AsyncResult): [ /* returnType */ boolean, /* capabilities */ string ]
-    vfuncRetrieveCapabilitiesSync(cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* capabilities */ string ]
-    vfuncRetrievePropertiesSync(cancellable?: Gio.Cancellable | null): boolean
-    vfuncSetBackendProperty(propName: string, propValue: string, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    vfuncSetBackendPropertyFinish(result: Gio.AsyncResult): boolean
-    vfuncSetBackendPropertySync(propName: string, propValue: string, cancellable?: Gio.Cancellable | null): boolean
-    vfuncUnwrapDbusError(dbusError: GLib.Error): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of ECalendar.CalClient */
+    /* Signals of ECalendar-1.2.ECalendar.CalClient */
     connect(sigName: "free-busy-data", callback: (($obj: CalClient, object: object) => void)): number
-    connect_after(sigName: "free-busy-data", callback: (($obj: CalClient, object: object) => void)): number
+    on(sigName: "free-busy-data", callback: (object: object) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "free-busy-data", callback: (object: object) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "free-busy-data", callback: (object: object) => void): NodeJS.EventEmitter
     emit(sigName: "free-busy-data", object: object): void
-    on(sigName: "free-busy-data", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "free-busy-data", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "free-busy-data", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of EDataServer.Client */
+    /* Signals of EDataServer-1.2.EDataServer.Client */
     connect(sigName: "backend-died", callback: (($obj: CalClient) => void)): number
-    connect_after(sigName: "backend-died", callback: (($obj: CalClient) => void)): number
+    on(sigName: "backend-died", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "backend-died", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "backend-died", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "backend-died"): void
-    on(sigName: "backend-died", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "backend-died", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "backend-died", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "backend-error", callback: (($obj: CalClient, object: string) => void)): number
-    connect_after(sigName: "backend-error", callback: (($obj: CalClient, object: string) => void)): number
+    on(sigName: "backend-error", callback: (object: string) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "backend-error", callback: (object: string) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "backend-error", callback: (object: string) => void): NodeJS.EventEmitter
     emit(sigName: "backend-error", object: string): void
-    on(sigName: "backend-error", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "backend-error", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "backend-error", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "backend-property-changed", callback: (($obj: CalClient, object: string, p0: string) => void)): number
-    connect_after(sigName: "backend-property-changed", callback: (($obj: CalClient, object: string, p0: string) => void)): number
+    on(sigName: "backend-property-changed", callback: (object: string, p0: string) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "backend-property-changed", callback: (object: string, p0: string) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "backend-property-changed", callback: (object: string, p0: string) => void): NodeJS.EventEmitter
     emit(sigName: "backend-property-changed", object: string, p0: string): void
-    on(sigName: "backend-property-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "backend-property-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "backend-property-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "opened", callback: (($obj: CalClient, object: GLib.Error) => void)): number
-    connect_after(sigName: "opened", callback: (($obj: CalClient, object: GLib.Error) => void)): number
+    on(sigName: "opened", callback: (object: GLib.Error) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "opened", callback: (object: GLib.Error) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "opened", callback: (object: GLib.Error) => void): NodeJS.EventEmitter
     emit(sigName: "opened", object: GLib.Error): void
-    on(sigName: "opened", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "opened", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "opened", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: CalClient, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: CalClient, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::capabilities", callback: (($obj: CalClient, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::capabilities", callback: (($obj: CalClient, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::capabilities", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -574,18 +516,18 @@ export interface CalClientView_ConstructProps extends GObject.Object_ConstructPr
     view?: object
 }
 export class CalClientView {
-    /* Fields of ECalendar.CalClientView */
+    /* Fields of ECalendar-1.2.ECalendar.CalClientView */
     object: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of ECalendar.CalClientView */
+    /* Methods of ECalendar-1.2.ECalendar.CalClientView */
     getClient(): object
     isRunning(): boolean
     setFieldsOfInterest(fieldsOfInterest?: string[] | null): void
     setFlags(flags: CalClientViewFlags): void
     start(): void
     stop(): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -607,55 +549,38 @@ export class CalClientView {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of ECalendar.CalClientView */
-    vfuncComplete(error: GLib.Error): void
-    vfuncProgress(percent: number, message: string): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of ECalendar.CalClientView */
+    /* Signals of ECalendar-1.2.ECalendar.CalClientView */
     connect(sigName: "complete", callback: (($obj: CalClientView, object: GLib.Error) => void)): number
-    connect_after(sigName: "complete", callback: (($obj: CalClientView, object: GLib.Error) => void)): number
+    on(sigName: "complete", callback: (object: GLib.Error) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "complete", callback: (object: GLib.Error) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "complete", callback: (object: GLib.Error) => void): NodeJS.EventEmitter
     emit(sigName: "complete", object: GLib.Error): void
-    on(sigName: "complete", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "complete", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "complete", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "objects-added", callback: (($obj: CalClientView, objects: number[]) => void)): number
-    connect_after(sigName: "objects-added", callback: (($obj: CalClientView, objects: number[]) => void)): number
+    on(sigName: "objects-added", callback: (objects: number[]) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "objects-added", callback: (objects: number[]) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "objects-added", callback: (objects: number[]) => void): NodeJS.EventEmitter
     emit(sigName: "objects-added", objects: number[]): void
-    on(sigName: "objects-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "objects-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "objects-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "objects-modified", callback: (($obj: CalClientView, objects: number[]) => void)): number
-    connect_after(sigName: "objects-modified", callback: (($obj: CalClientView, objects: number[]) => void)): number
+    on(sigName: "objects-modified", callback: (objects: number[]) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "objects-modified", callback: (objects: number[]) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "objects-modified", callback: (objects: number[]) => void): NodeJS.EventEmitter
     emit(sigName: "objects-modified", objects: number[]): void
-    on(sigName: "objects-modified", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "objects-modified", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "objects-modified", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "objects-removed", callback: (($obj: CalClientView, objects: CalComponentId[]) => void)): number
-    connect_after(sigName: "objects-removed", callback: (($obj: CalClientView, objects: CalComponentId[]) => void)): number
+    on(sigName: "objects-removed", callback: (objects: CalComponentId[]) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "objects-removed", callback: (objects: CalComponentId[]) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "objects-removed", callback: (objects: CalComponentId[]) => void): NodeJS.EventEmitter
     emit(sigName: "objects-removed", objects: CalComponentId[]): void
-    on(sigName: "objects-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "objects-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "objects-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "progress", callback: (($obj: CalClientView, object: number, p0: string) => void)): number
-    connect_after(sigName: "progress", callback: (($obj: CalClientView, object: number, p0: string) => void)): number
+    on(sigName: "progress", callback: (object: number, p0: string) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "progress", callback: (object: number, p0: string) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "progress", callback: (object: number, p0: string) => void): NodeJS.EventEmitter
     emit(sigName: "progress", object: number, p0: string): void
-    on(sigName: "progress", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "progress", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "progress", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: CalClientView, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: CalClientView, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -671,11 +596,11 @@ export class CalClientView {
 export interface CalComponent_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class CalComponent {
-    /* Fields of ECalendar.CalComponent */
+    /* Fields of ECalendar-1.2.ECalendar.CalComponent */
     object: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of ECalendar.CalComponent */
+    /* Methods of ECalendar-1.2.ECalendar.CalComponent */
     abortSequence(): void
     addAlarm(alarm: CalComponentAlarm): void
     clone(): CalComponent
@@ -683,21 +608,21 @@ export class CalComponent {
     eventDatesMatch(comp2: CalComponent): boolean
     getAlarmUids(): string[]
     getAsString(): string
-    getAttachmentList(): /* attachmentList */ string[]
-    getAttendeeList(): /* attendeeList */ CalComponentAttendee[]
+    getAttachmentList(): { attachmentList: string[] }
+    getAttendeeList(): { attendeeList: CalComponentAttendee[] }
     getCategories(categories: string): void
-    getCategoriesList(): /* categList */ string[]
+    getCategoriesList(): { categList: string[] }
     getClassification(classif: CalComponentClassification): void
-    getCommentList(): /* textList */ CalComponentText[]
+    getCommentList(): { textList: CalComponentText[] }
     getCompleted(t: object): void
-    getContactList(): /* textList */ CalComponentText[]
+    getContactList(): { textList: CalComponentText[] }
     getCreated(t: object): void
-    getDescriptionList(): /* textList */ CalComponentText[]
+    getDescriptionList(): { textList: CalComponentText[] }
     getDtend(dt: CalComponentDateTime): void
     getDtstamp(t: object): void
     getDtstart(dt: CalComponentDateTime): void
     getDue(dt: CalComponentDateTime): void
-    getExdateList(): /* exdateList */ CalComponentDateTime[]
+    getExdateList(): { exdateList: CalComponentDateTime[] }
     getGeo(geo: object): void
     getLastModified(t: object): void
     getLocation(location: string): void
@@ -706,7 +631,7 @@ export class CalComponent {
     getPercent(percent: number): void
     getPercentAsInt(): number
     getPriority(priority: number): void
-    getRdateList(): /* periodList */ CalComponentPeriod[]
+    getRdateList(): { periodList: CalComponentPeriod[] }
     getRecurid(recurId: CalComponentRange): void
     getRecuridAsString(): string
     getSequence(sequence: number): void
@@ -761,7 +686,7 @@ export class CalComponent {
     setUid(uid: string): void
     setUrl(url: string): void
     stripErrors(): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -783,21 +708,12 @@ export class CalComponent {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: CalComponent, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: CalComponent, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -832,14 +748,14 @@ export interface CalView_ConstructProps extends GObject.Object_ConstructProps {
     view?: object
 }
 export class CalView {
-    /* Fields of ECalendar.CalView */
+    /* Fields of ECalendar-1.2.ECalendar.CalView */
     object: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of ECalendar.CalView */
+    /* Methods of ECalendar-1.2.ECalendar.CalView */
     start(): void
     stop(): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -861,62 +777,43 @@ export class CalView {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of ECalendar.CalView */
-    vfuncViewComplete(status: CalendarStatus, errorMsg: string): void
-    vfuncViewDone(status: CalendarStatus): void
-    vfuncViewProgress(message: string, percent: number): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of ECalendar.CalView */
+    /* Signals of ECalendar-1.2.ECalendar.CalView */
     connect(sigName: "objects-added", callback: (($obj: CalView, objects: number[]) => void)): number
-    connect_after(sigName: "objects-added", callback: (($obj: CalView, objects: number[]) => void)): number
+    on(sigName: "objects-added", callback: (objects: number[]) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "objects-added", callback: (objects: number[]) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "objects-added", callback: (objects: number[]) => void): NodeJS.EventEmitter
     emit(sigName: "objects-added", objects: number[]): void
-    on(sigName: "objects-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "objects-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "objects-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "objects-modified", callback: (($obj: CalView, objects: number[]) => void)): number
-    connect_after(sigName: "objects-modified", callback: (($obj: CalView, objects: number[]) => void)): number
+    on(sigName: "objects-modified", callback: (objects: number[]) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "objects-modified", callback: (objects: number[]) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "objects-modified", callback: (objects: number[]) => void): NodeJS.EventEmitter
     emit(sigName: "objects-modified", objects: number[]): void
-    on(sigName: "objects-modified", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "objects-modified", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "objects-modified", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "objects-removed", callback: (($obj: CalView, objects: CalComponentId[]) => void)): number
-    connect_after(sigName: "objects-removed", callback: (($obj: CalView, objects: CalComponentId[]) => void)): number
+    on(sigName: "objects-removed", callback: (objects: CalComponentId[]) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "objects-removed", callback: (objects: CalComponentId[]) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "objects-removed", callback: (objects: CalComponentId[]) => void): NodeJS.EventEmitter
     emit(sigName: "objects-removed", objects: CalComponentId[]): void
-    on(sigName: "objects-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "objects-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "objects-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "view-complete", callback: (($obj: CalView, object: number, p0: string) => void)): number
-    connect_after(sigName: "view-complete", callback: (($obj: CalView, object: number, p0: string) => void)): number
+    on(sigName: "view-complete", callback: (object: number, p0: string) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "view-complete", callback: (object: number, p0: string) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "view-complete", callback: (object: number, p0: string) => void): NodeJS.EventEmitter
     emit(sigName: "view-complete", object: number, p0: string): void
-    on(sigName: "view-complete", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "view-complete", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "view-complete", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "view-done", callback: (($obj: CalView, object: number) => void)): number
-    connect_after(sigName: "view-done", callback: (($obj: CalView, object: number) => void)): number
+    on(sigName: "view-done", callback: (object: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "view-done", callback: (object: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "view-done", callback: (object: number) => void): NodeJS.EventEmitter
     emit(sigName: "view-done", object: number): void
-    on(sigName: "view-done", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "view-done", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "view-done", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "view-progress", callback: (($obj: CalView, object: string, p0: number) => void)): number
-    connect_after(sigName: "view-progress", callback: (($obj: CalView, object: string, p0: number) => void)): number
+    on(sigName: "view-progress", callback: (object: string, p0: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "view-progress", callback: (object: string, p0: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "view-progress", callback: (object: string, p0: number) => void): NodeJS.EventEmitter
     emit(sigName: "view-progress", object: string, p0: number): void
-    on(sigName: "view-progress", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "view-progress", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "view-progress", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: CalView, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: CalView, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -930,13 +827,13 @@ export class CalView {
     static $gtype: GObject.Type
 }
 export class CalChange {
-    /* Fields of ECalendar.CalChange */
+    /* Fields of ECalendar-1.2.ECalendar.CalChange */
     comp: CalComponent
     type: CalChangeType
     static name: string
 }
 export abstract class CalClass {
-    /* Fields of ECalendar.CalClass */
+    /* Fields of ECalendar-1.2.ECalendar.CalClass */
     parentClass: GObject.ObjectClass
     calOpened: (ecal: Cal, status: CalendarStatus) => void
     calOpenedEx: (ecal: Cal, error: GLib.Error) => void
@@ -945,7 +842,7 @@ export abstract class CalClass {
     static name: string
 }
 export abstract class CalClientClass {
-    /* Fields of ECalendar.CalClientClass */
+    /* Fields of ECalendar-1.2.ECalendar.CalClientClass */
     parent: EDataServer.ClientClass
     static name: string
 }
@@ -953,7 +850,7 @@ export class CalClientPrivate {
     static name: string
 }
 export abstract class CalClientViewClass {
-    /* Fields of ECalendar.CalClientViewClass */
+    /* Fields of ECalendar-1.2.ECalendar.CalClientViewClass */
     parentClass: GObject.ObjectClass
     progress: (view: CalClientView, percent: number, message: string) => void
     complete: (view: CalClientView, error: GLib.Error) => void
@@ -963,10 +860,10 @@ export class CalClientViewPrivate {
     static name: string
 }
 export class CalComponentAlarm {
-    /* Methods of ECalendar.CalComponentAlarm */
+    /* Methods of ECalendar-1.2.ECalendar.CalComponentAlarm */
     free(): void
     getAction(action: CalComponentAlarmAction): void
-    getAttendeeList(): /* attendeeList */ CalComponentAttendee[]
+    getAttendeeList(): { attendeeList: CalComponentAttendee[] }
     getDescription(description: CalComponentText): void
     getRepeat(repeat: CalComponentAlarmRepeat): void
     getTrigger(trigger: CalComponentAlarmTrigger): void
@@ -980,7 +877,7 @@ export class CalComponentAlarm {
     static name: string
 }
 export class CalComponentAlarmInstance {
-    /* Fields of ECalendar.CalComponentAlarmInstance */
+    /* Fields of ECalendar-1.2.ECalendar.CalComponentAlarmInstance */
     auid: string
     trigger: number
     occurStart: number
@@ -988,26 +885,26 @@ export class CalComponentAlarmInstance {
     static name: string
 }
 export class CalComponentAlarmRepeat {
-    /* Fields of ECalendar.CalComponentAlarmRepeat */
+    /* Fields of ECalendar-1.2.ECalendar.CalComponentAlarmRepeat */
     repetitions: number
     duration: object
     static name: string
 }
 export class CalComponentAlarmTrigger {
-    /* Fields of ECalendar.CalComponentAlarmTrigger */
+    /* Fields of ECalendar-1.2.ECalendar.CalComponentAlarmTrigger */
     type: CalComponentAlarmTriggerType
     static name: string
 }
 export class CalComponentAlarms {
-    /* Fields of ECalendar.CalComponentAlarms */
+    /* Fields of ECalendar-1.2.ECalendar.CalComponentAlarms */
     comp: CalComponent
     alarms: object[]
-    /* Methods of ECalendar.CalComponentAlarms */
+    /* Methods of ECalendar-1.2.ECalendar.CalComponentAlarms */
     free(): void
     static name: string
 }
 export class CalComponentAttendee {
-    /* Fields of ECalendar.CalComponentAttendee */
+    /* Fields of ECalendar-1.2.ECalendar.CalComponentAttendee */
     value: string
     member: string
     rsvp: boolean
@@ -1019,24 +916,24 @@ export class CalComponentAttendee {
     static name: string
 }
 export abstract class CalComponentClass {
-    /* Fields of ECalendar.CalComponentClass */
+    /* Fields of ECalendar-1.2.ECalendar.CalComponentClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
 export class CalComponentDateTime {
-    /* Fields of ECalendar.CalComponentDateTime */
+    /* Fields of ECalendar-1.2.ECalendar.CalComponentDateTime */
     value: object
     tzid: string
     static name: string
 }
 export class CalComponentId {
-    /* Fields of ECalendar.CalComponentId */
+    /* Fields of ECalendar-1.2.ECalendar.CalComponentId */
     uid: string
     rid: string
     static name: string
 }
 export class CalComponentOrganizer {
-    /* Fields of ECalendar.CalComponentOrganizer */
+    /* Fields of ECalendar-1.2.ECalendar.CalComponentOrganizer */
     value: string
     sentby: string
     cn: string
@@ -1044,7 +941,7 @@ export class CalComponentOrganizer {
     static name: string
 }
 export class CalComponentPeriod {
-    /* Fields of ECalendar.CalComponentPeriod */
+    /* Fields of ECalendar-1.2.ECalendar.CalComponentPeriod */
     type: CalComponentPeriodType
     start: object
     static name: string
@@ -1053,13 +950,13 @@ export class CalComponentPrivate {
     static name: string
 }
 export class CalComponentRange {
-    /* Fields of ECalendar.CalComponentRange */
+    /* Fields of ECalendar-1.2.ECalendar.CalComponentRange */
     type: CalComponentRangeType
     datetime: CalComponentDateTime
     static name: string
 }
 export class CalComponentText {
-    /* Fields of ECalendar.CalComponentText */
+    /* Fields of ECalendar-1.2.ECalendar.CalComponentText */
     value: string
     altrep: string
     static name: string
@@ -1068,7 +965,7 @@ export class CalPrivate {
     static name: string
 }
 export abstract class CalViewClass {
-    /* Fields of ECalendar.CalViewClass */
+    /* Fields of ECalendar-1.2.ECalendar.CalViewClass */
     parentClass: GObject.ObjectClass
     viewProgress: (view: CalView, message: string, percent: number) => void
     viewDone: (view: CalView, status: CalendarStatus) => void

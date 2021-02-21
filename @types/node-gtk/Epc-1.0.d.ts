@@ -78,13 +78,13 @@ export interface Consumer_ConstructProps extends GObject.Object_ConstructProps {
     username?: string
 }
 export class Consumer {
-    /* Properties of Epc.Consumer */
+    /* Properties of Epc-1.0.Epc.Consumer */
     password: string
     protocol: Protocol
     username: string
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Epc.Consumer */
+    /* Methods of Epc-1.0.Epc.Consumer */
     getPassword(): string
     getProtocol(): Protocol
     getUsername(): string
@@ -93,7 +93,7 @@ export class Consumer {
     setPassword(password: string): void
     setProtocol(protocol: Protocol): void
     setUsername(username: string): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -115,37 +115,23 @@ export class Consumer {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of Epc.Consumer */
-    vfuncAuthenticate(realm: string): void
-    vfuncPublisherResolved(protocol: Protocol, hostname: string, port: number): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Epc.Consumer */
+    /* Signals of Epc-1.0.Epc.Consumer */
     connect(sigName: "authenticate", callback: (($obj: Consumer, object: string) => boolean)): number
-    connect_after(sigName: "authenticate", callback: (($obj: Consumer, object: string) => boolean)): number
+    on(sigName: "authenticate", callback: (object: string) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "authenticate", callback: (object: string) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "authenticate", callback: (object: string) => void): NodeJS.EventEmitter
     emit(sigName: "authenticate", object: string): void
-    on(sigName: "authenticate", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "authenticate", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "authenticate", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "publisher-resolved", callback: (($obj: Consumer, object: Protocol, p0: string, p1: number) => void)): number
-    connect_after(sigName: "publisher-resolved", callback: (($obj: Consumer, object: Protocol, p0: string, p1: number) => void)): number
+    on(sigName: "publisher-resolved", callback: (object: Protocol, p0: string, p1: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "publisher-resolved", callback: (object: Protocol, p0: string, p1: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "publisher-resolved", callback: (object: Protocol, p0: string, p1: number) => void): NodeJS.EventEmitter
     emit(sigName: "publisher-resolved", object: Protocol, p0: string, p1: number): void
-    on(sigName: "publisher-resolved", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "publisher-resolved", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "publisher-resolved", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Consumer, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Consumer, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::password", callback: (($obj: Consumer, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::password", callback: (($obj: Consumer, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::password", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -183,13 +169,13 @@ export interface Dispatcher_ConstructProps extends GObject.Object_ConstructProps
     name?: string
 }
 export class Dispatcher {
-    /* Properties of Epc.Dispatcher */
+    /* Properties of Epc-1.0.Epc.Dispatcher */
     collisionHandling: CollisionHandling
     cookie: string
     name: string
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Epc.Dispatcher */
+    /* Methods of Epc-1.0.Epc.Dispatcher */
     addServiceSubtype(type: string, subtype: string): void
     getCollisionHandling(): CollisionHandling
     getCookie(): string
@@ -199,7 +185,7 @@ export class Dispatcher {
     setCollisionHandling(method: CollisionHandling): void
     setCookie(cookie: string): void
     setName(name: string): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -221,21 +207,12 @@ export class Dispatcher {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Dispatcher, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Dispatcher, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::collision-handling", callback: (($obj: Dispatcher, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::collision-handling", callback: (($obj: Dispatcher, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::collision-handling", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -278,7 +255,7 @@ export interface Publisher_ConstructProps extends GObject.Object_ConstructProps 
     serviceName?: string
 }
 export class Publisher {
-    /* Properties of Epc.Publisher */
+    /* Properties of Epc-1.0.Epc.Publisher */
     application: string
     authFlags: AuthFlags
     certificateFile: string
@@ -289,9 +266,9 @@ export class Publisher {
     serviceCookie: string
     serviceDomain: string
     serviceName: string
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Epc.Publisher */
+    /* Methods of Epc-1.0.Epc.Publisher */
     add(key: string, data: object, length: number): void
     addBookmark(key: string, label: string): void
     addFile(key: string, filename: string): void
@@ -320,7 +297,7 @@ export class Publisher {
     setProtocol(protocol: Protocol): void
     setServiceCookie(cookie: string): void
     setServiceName(name: string): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -342,21 +319,12 @@ export class Publisher {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Publisher, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Publisher, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::application", callback: (($obj: Publisher, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::application", callback: (($obj: Publisher, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::application", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -429,14 +397,14 @@ export interface ServiceMonitor_ConstructProps extends GObject.Object_ConstructP
     skipOurOwn?: boolean
 }
 export class ServiceMonitor {
-    /* Properties of Epc.ServiceMonitor */
+    /* Properties of Epc-1.0.Epc.ServiceMonitor */
     skipOurOwn: boolean
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Epc.ServiceMonitor */
+    /* Methods of Epc-1.0.Epc.ServiceMonitor */
     getSkipOurOwn(): boolean
     setSkipOurOwn(setting: boolean): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -458,44 +426,28 @@ export class ServiceMonitor {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of Epc.ServiceMonitor */
-    vfuncScanningDone(type: string): void
-    vfuncServiceFound(name: string, info: ServiceInfo): void
-    vfuncServiceRemoved(name: string, type: string): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Epc.ServiceMonitor */
+    /* Signals of Epc-1.0.Epc.ServiceMonitor */
     connect(sigName: "scanning-done", callback: (($obj: ServiceMonitor, object: string) => void)): number
-    connect_after(sigName: "scanning-done", callback: (($obj: ServiceMonitor, object: string) => void)): number
+    on(sigName: "scanning-done", callback: (object: string) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "scanning-done", callback: (object: string) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "scanning-done", callback: (object: string) => void): NodeJS.EventEmitter
     emit(sigName: "scanning-done", object: string): void
-    on(sigName: "scanning-done", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "scanning-done", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "scanning-done", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "service-found", callback: (($obj: ServiceMonitor, object: string, p0: ServiceInfo) => void)): number
-    connect_after(sigName: "service-found", callback: (($obj: ServiceMonitor, object: string, p0: ServiceInfo) => void)): number
+    on(sigName: "service-found", callback: (object: string, p0: ServiceInfo) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "service-found", callback: (object: string, p0: ServiceInfo) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "service-found", callback: (object: string, p0: ServiceInfo) => void): NodeJS.EventEmitter
     emit(sigName: "service-found", object: string, p0: ServiceInfo): void
-    on(sigName: "service-found", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "service-found", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "service-found", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "service-removed", callback: (($obj: ServiceMonitor, object: string, p0: string) => void)): number
-    connect_after(sigName: "service-removed", callback: (($obj: ServiceMonitor, object: string, p0: string) => void)): number
+    on(sigName: "service-removed", callback: (object: string, p0: string) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "service-removed", callback: (object: string, p0: string) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "service-removed", callback: (object: string, p0: string) => void): NodeJS.EventEmitter
     emit(sigName: "service-removed", object: string, p0: string): void
-    on(sigName: "service-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "service-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "service-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: ServiceMonitor, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: ServiceMonitor, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::skip-our-own", callback: (($obj: ServiceMonitor, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::skip-our-own", callback: (($obj: ServiceMonitor, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::skip-our-own", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -516,14 +468,14 @@ export class ServiceMonitor {
     static $gtype: GObject.Type
 }
 export class AuthContext {
-    /* Methods of Epc.AuthContext */
+    /* Methods of Epc-1.0.Epc.AuthContext */
     checkPassword(password: string): boolean
     getKey(): string
     getPassword(): string
     static name: string
 }
 export abstract class ConsumerClass {
-    /* Fields of Epc.ConsumerClass */
+    /* Fields of Epc-1.0.Epc.ConsumerClass */
     authenticate: (consumer: Consumer, realm: string) => void
     publisherResolved: (consumer: Consumer, protocol: Protocol, hostname: string, port: number) => void
     static name: string
@@ -532,7 +484,7 @@ export class ConsumerPrivate {
     static name: string
 }
 export class Contents {
-    /* Methods of Epc.Contents */
+    /* Methods of Epc-1.0.Epc.Contents */
     getMimeType(): string
     isStream(): boolean
     ref(): Contents
@@ -558,7 +510,7 @@ export class PublisherPrivate {
     static name: string
 }
 export class ServiceInfo {
-    /* Methods of Epc.ServiceInfo */
+    /* Methods of Epc-1.0.Epc.ServiceInfo */
     getAddressFamily(): AddressFamily
     getDetail(name: string): string
     getHost(): string
@@ -570,7 +522,7 @@ export class ServiceInfo {
     static name: string
 }
 export abstract class ServiceMonitorClass {
-    /* Fields of Epc.ServiceMonitorClass */
+    /* Fields of Epc-1.0.Epc.ServiceMonitorClass */
     serviceFound: (monitor: ServiceMonitor, name: string, info: ServiceInfo) => void
     serviceRemoved: (monitor: ServiceMonitor, name: string, type: string) => void
     scanningDone: (monitor: ServiceMonitor, type: string) => void
@@ -580,7 +532,7 @@ export class ServiceMonitorPrivate {
     static name: string
 }
 export class ShellProgressHooks {
-    /* Fields of Epc.ShellProgressHooks */
+    /* Fields of Epc-1.0.Epc.ShellProgressHooks */
     begin: (title: string) => void
     update: (percentage: number, message: string) => void
     end: () => void

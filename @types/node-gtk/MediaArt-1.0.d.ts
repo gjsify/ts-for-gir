@@ -27,8 +27,8 @@ export enum ProcessFlags {
 export function bufferToJpeg(buffer: number, len: number, bufferMime: string, target: string): boolean
 export function errorQuark(): GLib.Quark
 export function fileToJpeg(filename: string, target: string): boolean
-export function getFile(artist?: string | null, title?: string | null, prefix?: string | null, file?: Gio.File | null): [ /* returnType */ boolean, /* cacheFile */ Gio.File | null, /* localFile */ Gio.File | null ]
-export function getPath(artist?: string | null, title?: string | null, prefix?: string | null, uri?: string | null): [ /* returnType */ boolean, /* cachePath */ string | null, /* localUri */ string | null ]
+export function getFile(artist?: string | null, title?: string | null, prefix?: string | null, file?: Gio.File | null): { returnType: boolean, cacheFile: Gio.File | null, localFile: Gio.File | null }
+export function getPath(artist?: string | null, title?: string | null, prefix?: string | null, uri?: string | null): { returnType: boolean, cachePath: string | null, localUri: string | null }
 export function pluginInit(maxWidth: number): void
 export function pluginShutdown(): void
 export function remove(artist: string, album?: string | null): boolean
@@ -36,15 +36,15 @@ export function stripInvalidEntities(original: string): string
 export interface Process_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class Process {
-    /* Fields of MediaArt.Process */
+    /* Fields of MediaArt-1.0.MediaArt.Process */
     parent: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of MediaArt.Process */
+    /* Methods of MediaArt-1.0.MediaArt.Process */
     buffer(type: Type, flags: ProcessFlags, relatedFile: Gio.File, buffer: any[] | null, mime: string, artist?: string | null, title?: string | null): boolean
     file(type: Type, flags: ProcessFlags, file: Gio.File, artist?: string | null, title?: string | null): boolean
     uri(type: Type, flags: ProcessFlags, uri: string, artist?: string | null, title?: string | null): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -66,25 +66,14 @@ export class Process {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of Gio.Initable */
+    /* Methods of Gio-2.0.Gio.Initable */
     init(cancellable?: Gio.Cancellable | null): boolean
-    /* Virtual methods of MediaArt.Process */
-    vfuncInit(cancellable?: Gio.Cancellable | null): boolean
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Process, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Process, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -101,7 +90,7 @@ export class Process {
     static $gtype: GObject.Type
 }
 export abstract class ProcessClass {
-    /* Fields of MediaArt.ProcessClass */
+    /* Fields of MediaArt-1.0.MediaArt.ProcessClass */
     parent: GObject.ObjectClass
     static name: string
 }

@@ -328,22 +328,19 @@ export interface URISchemeRequestCallback {
     (request: URISchemeRequest): void
 }
 export class PermissionRequest {
-    /* Methods of WebKit2.PermissionRequest */
+    /* Methods of WebKit2-4.0.WebKit2.PermissionRequest */
     allow(): void
     deny(): void
-    /* Virtual methods of WebKit2.PermissionRequest */
-    vfuncAllow(): void
-    vfuncDeny(): void
     static name: string
 }
 export interface AuthenticationRequest_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class AuthenticationRequest {
-    /* Fields of WebKit2.AuthenticationRequest */
+    /* Fields of WebKit2-4.0.WebKit2.AuthenticationRequest */
     parent: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of WebKit2.AuthenticationRequest */
+    /* Methods of WebKit2-4.0.WebKit2.AuthenticationRequest */
     authenticate(credential?: Credential | null): void
     canSaveCredentials(): boolean
     cancel(): void
@@ -357,7 +354,7 @@ export class AuthenticationRequest {
     isRetry(): boolean
     setCanSaveCredentials(enabled: boolean): void
     setProposedCredential(credential: Credential): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -379,34 +376,23 @@ export class AuthenticationRequest {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of WebKit2.AuthenticationRequest */
+    /* Signals of WebKit2-4.0.WebKit2.AuthenticationRequest */
     connect(sigName: "authenticated", callback: (($obj: AuthenticationRequest, credential: Credential) => void)): number
-    connect_after(sigName: "authenticated", callback: (($obj: AuthenticationRequest, credential: Credential) => void)): number
+    on(sigName: "authenticated", callback: (credential: Credential) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "authenticated", callback: (credential: Credential) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "authenticated", callback: (credential: Credential) => void): NodeJS.EventEmitter
     emit(sigName: "authenticated", credential: Credential): void
-    on(sigName: "authenticated", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "authenticated", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "authenticated", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "cancelled", callback: (($obj: AuthenticationRequest) => void)): number
-    connect_after(sigName: "cancelled", callback: (($obj: AuthenticationRequest) => void)): number
+    on(sigName: "cancelled", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "cancelled", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "cancelled", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "cancelled"): void
-    on(sigName: "cancelled", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "cancelled", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "cancelled", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: AuthenticationRequest, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: AuthenticationRequest, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -423,16 +409,16 @@ export interface AutomationSession_ConstructProps extends GObject.Object_Constru
     id?: string
 }
 export class AutomationSession {
-    /* Fields of WebKit2.AutomationSession */
+    /* Fields of WebKit2-4.0.WebKit2.AutomationSession */
     parent: GObject.Object
     priv: AutomationSessionPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of WebKit2.AutomationSession */
+    /* Methods of WebKit2-4.0.WebKit2.AutomationSession */
     getApplicationInfo(): ApplicationInfo
     getId(): string
     setApplicationInfo(info: ApplicationInfo): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -454,28 +440,18 @@ export class AutomationSession {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of WebKit2.AutomationSession */
+    /* Signals of WebKit2-4.0.WebKit2.AutomationSession */
     connect(sigName: "create-web-view", callback: (($obj: AutomationSession) => WebView)): number
-    connect_after(sigName: "create-web-view", callback: (($obj: AutomationSession) => WebView)): number
+    on(sigName: "create-web-view", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "create-web-view", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "create-web-view", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "create-web-view"): void
-    on(sigName: "create-web-view", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "create-web-view", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "create-web-view", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: AutomationSession, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: AutomationSession, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -491,12 +467,12 @@ export class AutomationSession {
 export interface BackForwardList_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class BackForwardList {
-    /* Fields of WebKit2.BackForwardList */
+    /* Fields of WebKit2-4.0.WebKit2.BackForwardList */
     parent: GObject.Object
     priv: BackForwardListPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of WebKit2.BackForwardList */
+    /* Methods of WebKit2-4.0.WebKit2.BackForwardList */
     getBackItem(): BackForwardListItem | null
     getBackList(): BackForwardListItem[]
     getBackListWithLimit(limit: number): BackForwardListItem[]
@@ -506,7 +482,7 @@ export class BackForwardList {
     getForwardListWithLimit(limit: number): BackForwardListItem[]
     getLength(): number
     getNthItem(index: number): BackForwardListItem | null
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -528,28 +504,18 @@ export class BackForwardList {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of WebKit2.BackForwardList */
+    /* Signals of WebKit2-4.0.WebKit2.BackForwardList */
     connect(sigName: "changed", callback: (($obj: BackForwardList, itemAdded?: BackForwardListItem | null, itemsRemoved?: object | null) => void)): number
-    connect_after(sigName: "changed", callback: (($obj: BackForwardList, itemAdded?: BackForwardListItem | null, itemsRemoved?: object | null) => void)): number
+    on(sigName: "changed", callback: (itemAdded?: BackForwardListItem | null, itemsRemoved?: object | null) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "changed", callback: (itemAdded?: BackForwardListItem | null, itemsRemoved?: object | null) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "changed", callback: (itemAdded?: BackForwardListItem | null, itemsRemoved?: object | null) => void): NodeJS.EventEmitter
     emit(sigName: "changed", itemAdded?: BackForwardListItem | null, itemsRemoved?: object | null): void
-    on(sigName: "changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: BackForwardList, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: BackForwardList, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -565,16 +531,16 @@ export class BackForwardList {
 export interface BackForwardListItem_ConstructProps extends GObject.InitiallyUnowned_ConstructProps {
 }
 export class BackForwardListItem {
-    /* Fields of WebKit2.BackForwardListItem */
+    /* Fields of WebKit2-4.0.WebKit2.BackForwardListItem */
     parent: GObject.InitiallyUnowned
     priv: BackForwardListItemPrivate
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of WebKit2.BackForwardListItem */
+    /* Methods of WebKit2-4.0.WebKit2.BackForwardListItem */
     getOriginalUri(): string
     getTitle(): string
     getUri(): string
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -596,21 +562,12 @@ export class BackForwardListItem {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: BackForwardListItem, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: BackForwardListItem, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -627,19 +584,19 @@ export interface ColorChooserRequest_ConstructProps extends GObject.Object_Const
     rgba?: Gdk.RGBA
 }
 export class ColorChooserRequest {
-    /* Properties of WebKit2.ColorChooserRequest */
+    /* Properties of WebKit2-4.0.WebKit2.ColorChooserRequest */
     rgba: Gdk.RGBA
-    /* Fields of WebKit2.ColorChooserRequest */
+    /* Fields of WebKit2-4.0.WebKit2.ColorChooserRequest */
     parent: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of WebKit2.ColorChooserRequest */
+    /* Methods of WebKit2-4.0.WebKit2.ColorChooserRequest */
     cancel(): void
     finish(): void
-    getElementRectangle(): /* rect */ Gdk.Rectangle
-    getRgba(): /* rgba */ Gdk.RGBA
+    getElementRectangle(): { rect: Gdk.Rectangle }
+    getRgba(): { rgba: Gdk.RGBA }
     setRgba(rgba: Gdk.RGBA): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -661,28 +618,18 @@ export class ColorChooserRequest {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of WebKit2.ColorChooserRequest */
+    /* Signals of WebKit2-4.0.WebKit2.ColorChooserRequest */
     connect(sigName: "finished", callback: (($obj: ColorChooserRequest) => void)): number
-    connect_after(sigName: "finished", callback: (($obj: ColorChooserRequest) => void)): number
+    on(sigName: "finished", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "finished", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "finished", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "finished"): void
-    on(sigName: "finished", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "finished", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "finished", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: ColorChooserRequest, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: ColorChooserRequest, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::rgba", callback: (($obj: ColorChooserRequest, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::rgba", callback: (($obj: ColorChooserRequest, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::rgba", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -703,12 +650,12 @@ export class ColorChooserRequest {
 export interface ContextMenu_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class ContextMenu {
-    /* Fields of WebKit2.ContextMenu */
+    /* Fields of WebKit2-4.0.WebKit2.ContextMenu */
     parent: GObject.Object
     priv: ContextMenuPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of WebKit2.ContextMenu */
+    /* Methods of WebKit2-4.0.WebKit2.ContextMenu */
     append(item: ContextMenuItem): void
     first(): ContextMenuItem
     getItemAtPosition(position: number): ContextMenuItem
@@ -722,7 +669,7 @@ export class ContextMenu {
     remove(item: ContextMenuItem): void
     removeAll(): void
     setUserData(userData: GLib.Variant): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -744,21 +691,12 @@ export class ContextMenu {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: ContextMenu, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: ContextMenu, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -777,19 +715,19 @@ export class ContextMenu {
 export interface ContextMenuItem_ConstructProps extends GObject.InitiallyUnowned_ConstructProps {
 }
 export class ContextMenuItem {
-    /* Fields of WebKit2.ContextMenuItem */
+    /* Fields of WebKit2-4.0.WebKit2.ContextMenuItem */
     parent: GObject.InitiallyUnowned
     priv: ContextMenuItemPrivate
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of WebKit2.ContextMenuItem */
+    /* Methods of WebKit2-4.0.WebKit2.ContextMenuItem */
     getAction(): Gtk.Action
     getGaction(): Gio.Action
     getStockAction(): ContextMenuAction
     getSubmenu(): ContextMenu
     isSeparator(): boolean
     setSubmenu(submenu?: ContextMenu | null): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -811,21 +749,12 @@ export class ContextMenuItem {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: ContextMenuItem, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: ContextMenuItem, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -848,12 +777,12 @@ export class ContextMenuItem {
 export interface CookieManager_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class CookieManager {
-    /* Fields of WebKit2.CookieManager */
+    /* Fields of WebKit2-4.0.WebKit2.CookieManager */
     parent: GObject.Object
     priv: CookieManagerPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of WebKit2.CookieManager */
+    /* Methods of WebKit2-4.0.WebKit2.CookieManager */
     addCookie(cookie: Soup.Cookie, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     addCookieFinish(result: Gio.AsyncResult): boolean
     deleteAllCookies(): void
@@ -868,7 +797,7 @@ export class CookieManager {
     getDomainsWithCookiesFinish(result: Gio.AsyncResult): string[]
     setAcceptPolicy(policy: CookieAcceptPolicy): void
     setPersistentStorage(filename: string, storage: CookiePersistentStorage): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -890,28 +819,18 @@ export class CookieManager {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of WebKit2.CookieManager */
+    /* Signals of WebKit2-4.0.WebKit2.CookieManager */
     connect(sigName: "changed", callback: (($obj: CookieManager) => void)): number
-    connect_after(sigName: "changed", callback: (($obj: CookieManager) => void)): number
+    on(sigName: "changed", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "changed", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "changed", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "changed"): void
-    on(sigName: "changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: CookieManager, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: CookieManager, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -927,11 +846,11 @@ export class CookieManager {
 export interface DeviceInfoPermissionRequest_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class DeviceInfoPermissionRequest {
-    /* Fields of WebKit2.DeviceInfoPermissionRequest */
+    /* Fields of WebKit2-4.0.WebKit2.DeviceInfoPermissionRequest */
     parent: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -953,27 +872,15 @@ export class DeviceInfoPermissionRequest {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of WebKit2.PermissionRequest */
+    /* Methods of WebKit2-4.0.WebKit2.PermissionRequest */
     allow(): void
     deny(): void
-    /* Virtual methods of WebKit2.DeviceInfoPermissionRequest */
-    vfuncAllow(): void
-    vfuncDeny(): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: DeviceInfoPermissionRequest, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: DeviceInfoPermissionRequest, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -990,17 +897,17 @@ export interface Download_ConstructProps extends GObject.Object_ConstructProps {
     allowOverwrite?: boolean
 }
 export class Download {
-    /* Properties of WebKit2.Download */
+    /* Properties of WebKit2-4.0.WebKit2.Download */
     allowOverwrite: boolean
     readonly destination: string
     readonly estimatedProgress: number
     readonly response: URIResponse
-    /* Fields of WebKit2.Download */
+    /* Fields of WebKit2-4.0.WebKit2.Download */
     parent: GObject.Object
     priv: DownloadPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of WebKit2.Download */
+    /* Methods of WebKit2-4.0.WebKit2.Download */
     cancel(): void
     getAllowOverwrite(): boolean
     getDestination(): string
@@ -1012,7 +919,7 @@ export class Download {
     getWebView(): WebView
     setAllowOverwrite(allowed: boolean): void
     setDestination(uri: string): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -1034,54 +941,38 @@ export class Download {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of WebKit2.Download */
-    vfuncDecideDestination(suggestedFilename: string): boolean
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of WebKit2.Download */
+    /* Signals of WebKit2-4.0.WebKit2.Download */
     connect(sigName: "created-destination", callback: (($obj: Download, destination: string) => void)): number
-    connect_after(sigName: "created-destination", callback: (($obj: Download, destination: string) => void)): number
+    on(sigName: "created-destination", callback: (destination: string) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "created-destination", callback: (destination: string) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "created-destination", callback: (destination: string) => void): NodeJS.EventEmitter
     emit(sigName: "created-destination", destination: string): void
-    on(sigName: "created-destination", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "created-destination", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "created-destination", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "decide-destination", callback: (($obj: Download, suggestedFilename: string) => boolean)): number
-    connect_after(sigName: "decide-destination", callback: (($obj: Download, suggestedFilename: string) => boolean)): number
+    on(sigName: "decide-destination", callback: (suggestedFilename: string) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "decide-destination", callback: (suggestedFilename: string) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "decide-destination", callback: (suggestedFilename: string) => void): NodeJS.EventEmitter
     emit(sigName: "decide-destination", suggestedFilename: string): void
-    on(sigName: "decide-destination", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "decide-destination", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "decide-destination", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "failed", callback: (($obj: Download, error: GLib.Error) => void)): number
-    connect_after(sigName: "failed", callback: (($obj: Download, error: GLib.Error) => void)): number
+    on(sigName: "failed", callback: (error: GLib.Error) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "failed", callback: (error: GLib.Error) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "failed", callback: (error: GLib.Error) => void): NodeJS.EventEmitter
     emit(sigName: "failed", error: GLib.Error): void
-    on(sigName: "failed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "failed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "failed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "finished", callback: (($obj: Download) => void)): number
-    connect_after(sigName: "finished", callback: (($obj: Download) => void)): number
+    on(sigName: "finished", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "finished", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "finished", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "finished"): void
-    on(sigName: "finished", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "finished", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "finished", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "received-data", callback: (($obj: Download, dataLength: number) => void)): number
-    connect_after(sigName: "received-data", callback: (($obj: Download, dataLength: number) => void)): number
+    on(sigName: "received-data", callback: (dataLength: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "received-data", callback: (dataLength: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "received-data", callback: (dataLength: number) => void): NodeJS.EventEmitter
     emit(sigName: "received-data", dataLength: number): void
-    on(sigName: "received-data", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "received-data", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "received-data", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Download, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Download, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::allow-overwrite", callback: (($obj: Download, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::allow-overwrite", callback: (($obj: Download, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::allow-overwrite", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -1117,21 +1008,21 @@ export class Download {
 export interface EditorState_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class EditorState {
-    /* Properties of WebKit2.EditorState */
+    /* Properties of WebKit2-4.0.WebKit2.EditorState */
     readonly typingAttributes: number
-    /* Fields of WebKit2.EditorState */
+    /* Fields of WebKit2-4.0.WebKit2.EditorState */
     parent: GObject.Object
     priv: EditorStatePrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of WebKit2.EditorState */
+    /* Methods of WebKit2-4.0.WebKit2.EditorState */
     getTypingAttributes(): number
     isCopyAvailable(): boolean
     isCutAvailable(): boolean
     isPasteAvailable(): boolean
     isRedoAvailable(): boolean
     isUndoAvailable(): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -1153,21 +1044,12 @@ export class EditorState {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: EditorState, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: EditorState, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::typing-attributes", callback: (($obj: EditorState, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::typing-attributes", callback: (($obj: EditorState, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::typing-attributes", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -1188,17 +1070,17 @@ export class EditorState {
 export interface FaviconDatabase_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class FaviconDatabase {
-    /* Fields of WebKit2.FaviconDatabase */
+    /* Fields of WebKit2-4.0.WebKit2.FaviconDatabase */
     parent: GObject.Object
     priv: FaviconDatabasePrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of WebKit2.FaviconDatabase */
+    /* Methods of WebKit2-4.0.WebKit2.FaviconDatabase */
     clear(): void
     getFavicon(pageUri: string, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     getFaviconFinish(result: Gio.AsyncResult): cairo.Surface
     getFaviconUri(pageUri: string): string
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -1220,28 +1102,18 @@ export class FaviconDatabase {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of WebKit2.FaviconDatabase */
+    /* Signals of WebKit2-4.0.WebKit2.FaviconDatabase */
     connect(sigName: "favicon-changed", callback: (($obj: FaviconDatabase, pageUri: string, faviconUri: string) => void)): number
-    connect_after(sigName: "favicon-changed", callback: (($obj: FaviconDatabase, pageUri: string, faviconUri: string) => void)): number
+    on(sigName: "favicon-changed", callback: (pageUri: string, faviconUri: string) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "favicon-changed", callback: (pageUri: string, faviconUri: string) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "favicon-changed", callback: (pageUri: string, faviconUri: string) => void): NodeJS.EventEmitter
     emit(sigName: "favicon-changed", pageUri: string, faviconUri: string): void
-    on(sigName: "favicon-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "favicon-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "favicon-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: FaviconDatabase, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: FaviconDatabase, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -1257,23 +1129,23 @@ export class FaviconDatabase {
 export interface FileChooserRequest_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class FileChooserRequest {
-    /* Properties of WebKit2.FileChooserRequest */
+    /* Properties of WebKit2-4.0.WebKit2.FileChooserRequest */
     readonly filter: Gtk.FileFilter
     readonly mimeTypes: string[]
     readonly selectMultiple: boolean
     readonly selectedFiles: string[]
-    /* Fields of WebKit2.FileChooserRequest */
+    /* Fields of WebKit2-4.0.WebKit2.FileChooserRequest */
     parent: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of WebKit2.FileChooserRequest */
+    /* Methods of WebKit2-4.0.WebKit2.FileChooserRequest */
     cancel(): void
     getMimeTypes(): string[]
     getMimeTypesFilter(): Gtk.FileFilter
     getSelectMultiple(): boolean
     getSelectedFiles(): string[]
     selectFiles(files: string[]): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -1295,21 +1167,12 @@ export class FileChooserRequest {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: FileChooserRequest, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: FileChooserRequest, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::filter", callback: (($obj: FileChooserRequest, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::filter", callback: (($obj: FileChooserRequest, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::filter", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -1346,15 +1209,15 @@ export interface FindController_ConstructProps extends GObject.Object_ConstructP
     webView?: WebView
 }
 export class FindController {
-    /* Properties of WebKit2.FindController */
+    /* Properties of WebKit2-4.0.WebKit2.FindController */
     readonly maxMatchCount: number
     readonly options: FindOptions
     readonly text: string
-    /* Fields of WebKit2.FindController */
+    /* Fields of WebKit2-4.0.WebKit2.FindController */
     parent: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of WebKit2.FindController */
+    /* Methods of WebKit2-4.0.WebKit2.FindController */
     countMatches(searchText: string, findOptions: number, maxMatchCount: number): void
     getMaxMatchCount(): number
     getOptions(): number
@@ -1364,7 +1227,7 @@ export class FindController {
     searchFinish(): void
     searchNext(): void
     searchPrevious(): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -1386,40 +1249,28 @@ export class FindController {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of WebKit2.FindController */
+    /* Signals of WebKit2-4.0.WebKit2.FindController */
     connect(sigName: "counted-matches", callback: (($obj: FindController, matchCount: number) => void)): number
-    connect_after(sigName: "counted-matches", callback: (($obj: FindController, matchCount: number) => void)): number
+    on(sigName: "counted-matches", callback: (matchCount: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "counted-matches", callback: (matchCount: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "counted-matches", callback: (matchCount: number) => void): NodeJS.EventEmitter
     emit(sigName: "counted-matches", matchCount: number): void
-    on(sigName: "counted-matches", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "counted-matches", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "counted-matches", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "failed-to-find-text", callback: (($obj: FindController) => void)): number
-    connect_after(sigName: "failed-to-find-text", callback: (($obj: FindController) => void)): number
+    on(sigName: "failed-to-find-text", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "failed-to-find-text", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "failed-to-find-text", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "failed-to-find-text"): void
-    on(sigName: "failed-to-find-text", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "failed-to-find-text", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "failed-to-find-text", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "found-text", callback: (($obj: FindController, matchCount: number) => void)): number
-    connect_after(sigName: "found-text", callback: (($obj: FindController, matchCount: number) => void)): number
+    on(sigName: "found-text", callback: (matchCount: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "found-text", callback: (matchCount: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "found-text", callback: (matchCount: number) => void): NodeJS.EventEmitter
     emit(sigName: "found-text", matchCount: number): void
-    on(sigName: "found-text", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "found-text", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "found-text", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: FindController, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: FindController, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::max-match-count", callback: (($obj: FindController, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::max-match-count", callback: (($obj: FindController, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::max-match-count", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -1450,15 +1301,15 @@ export class FindController {
 export interface FormSubmissionRequest_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class FormSubmissionRequest {
-    /* Fields of WebKit2.FormSubmissionRequest */
+    /* Fields of WebKit2-4.0.WebKit2.FormSubmissionRequest */
     parent: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of WebKit2.FormSubmissionRequest */
+    /* Methods of WebKit2-4.0.WebKit2.FormSubmissionRequest */
     getTextFields(): GLib.HashTable | null
-    listTextFields(): [ /* returnType */ boolean, /* fieldNames */ string[] | null, /* fieldValues */ string[] | null ]
+    listTextFields(): { returnType: boolean, fieldNames: string[] | null, fieldValues: string[] | null }
     submit(): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -1480,21 +1331,12 @@ export class FormSubmissionRequest {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: FormSubmissionRequest, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: FormSubmissionRequest, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -1510,17 +1352,17 @@ export class FormSubmissionRequest {
 export interface GeolocationManager_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class GeolocationManager {
-    /* Properties of WebKit2.GeolocationManager */
+    /* Properties of WebKit2-4.0.WebKit2.GeolocationManager */
     readonly enableHighAccuracy: boolean
-    /* Fields of WebKit2.GeolocationManager */
+    /* Fields of WebKit2-4.0.WebKit2.GeolocationManager */
     parent: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of WebKit2.GeolocationManager */
+    /* Methods of WebKit2-4.0.WebKit2.GeolocationManager */
     failed(errorMessage: string): void
     getEnableHighAccuracy(): boolean
     updatePosition(position: GeolocationPosition): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -1542,34 +1384,23 @@ export class GeolocationManager {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of WebKit2.GeolocationManager */
+    /* Signals of WebKit2-4.0.WebKit2.GeolocationManager */
     connect(sigName: "start", callback: (($obj: GeolocationManager) => boolean)): number
-    connect_after(sigName: "start", callback: (($obj: GeolocationManager) => boolean)): number
+    on(sigName: "start", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "start", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "start", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "start"): void
-    on(sigName: "start", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "start", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "start", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "stop", callback: (($obj: GeolocationManager) => void)): number
-    connect_after(sigName: "stop", callback: (($obj: GeolocationManager) => void)): number
+    on(sigName: "stop", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "stop", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "stop", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "stop"): void
-    on(sigName: "stop", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "stop", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "stop", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: GeolocationManager, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: GeolocationManager, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::enable-high-accuracy", callback: (($obj: GeolocationManager, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::enable-high-accuracy", callback: (($obj: GeolocationManager, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::enable-high-accuracy", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -1590,11 +1421,11 @@ export class GeolocationManager {
 export interface GeolocationPermissionRequest_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class GeolocationPermissionRequest {
-    /* Fields of WebKit2.GeolocationPermissionRequest */
+    /* Fields of WebKit2-4.0.WebKit2.GeolocationPermissionRequest */
     parent: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -1616,27 +1447,15 @@ export class GeolocationPermissionRequest {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of WebKit2.PermissionRequest */
+    /* Methods of WebKit2-4.0.WebKit2.PermissionRequest */
     allow(): void
     deny(): void
-    /* Virtual methods of WebKit2.GeolocationPermissionRequest */
-    vfuncAllow(): void
-    vfuncDeny(): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: GeolocationPermissionRequest, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: GeolocationPermissionRequest, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -1658,12 +1477,12 @@ export interface HitTestResult_ConstructProps extends GObject.Object_ConstructPr
     mediaUri?: string
 }
 export class HitTestResult {
-    /* Fields of WebKit2.HitTestResult */
+    /* Fields of WebKit2-4.0.WebKit2.HitTestResult */
     parent: GObject.Object
     priv: HitTestResultPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of WebKit2.HitTestResult */
+    /* Methods of WebKit2-4.0.WebKit2.HitTestResult */
     contextIsEditable(): boolean
     contextIsImage(): boolean
     contextIsLink(): boolean
@@ -1676,7 +1495,7 @@ export class HitTestResult {
     getLinkTitle(): string
     getLinkUri(): string
     getMediaUri(): string
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -1698,21 +1517,12 @@ export class HitTestResult {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: HitTestResult, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: HitTestResult, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -1730,18 +1540,18 @@ export interface InputMethodContext_ConstructProps extends GObject.Object_Constr
     inputPurpose?: InputPurpose
 }
 export class InputMethodContext {
-    /* Properties of WebKit2.InputMethodContext */
+    /* Properties of WebKit2-4.0.WebKit2.InputMethodContext */
     inputHints: InputHints
     inputPurpose: InputPurpose
-    /* Fields of WebKit2.InputMethodContext */
+    /* Fields of WebKit2-4.0.WebKit2.InputMethodContext */
     parent: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of WebKit2.InputMethodContext */
+    /* Methods of WebKit2-4.0.WebKit2.InputMethodContext */
     filterKeyEvent(keyEvent: Gdk.EventKey): boolean
     getInputHints(): InputHints
     getInputPurpose(): InputPurpose
-    getPreedit(): [ /* text */ string | null, /* underlines */ InputMethodUnderline[] | null, /* cursorOffset */ number | null ]
+    getPreedit(): { text: string | null, underlines: InputMethodUnderline[] | null, cursorOffset: number | null }
     notifyCursorArea(x: number, y: number, width: number, height: number): void
     notifyFocusIn(): void
     notifyFocusOut(): void
@@ -1750,7 +1560,7 @@ export class InputMethodContext {
     setEnablePreedit(enabled: boolean): void
     setInputHints(hints: InputHints): void
     setInputPurpose(purpose: InputPurpose): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -1772,66 +1582,38 @@ export class InputMethodContext {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of WebKit2.InputMethodContext */
-    vfuncCommitted(text: string): void
-    vfuncDeleteSurrounding(offset: number, nChars: number): void
-    vfuncFilterKeyEvent(keyEvent: Gdk.EventKey): boolean
-    vfuncGetPreedit(): [ /* text */ string | null, /* underlines */ InputMethodUnderline[] | null, /* cursorOffset */ number | null ]
-    vfuncNotifyCursorArea(x: number, y: number, width: number, height: number): void
-    vfuncNotifyFocusIn(): void
-    vfuncNotifyFocusOut(): void
-    vfuncNotifySurrounding(text: string, length: number, cursorIndex: number, selectionIndex: number): void
-    vfuncPreeditChanged(): void
-    vfuncPreeditFinished(): void
-    vfuncPreeditStarted(): void
-    vfuncReset(): void
-    vfuncSetEnablePreedit(enabled: boolean): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of WebKit2.InputMethodContext */
+    /* Signals of WebKit2-4.0.WebKit2.InputMethodContext */
     connect(sigName: "committed", callback: (($obj: InputMethodContext, text: string) => void)): number
-    connect_after(sigName: "committed", callback: (($obj: InputMethodContext, text: string) => void)): number
+    on(sigName: "committed", callback: (text: string) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "committed", callback: (text: string) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "committed", callback: (text: string) => void): NodeJS.EventEmitter
     emit(sigName: "committed", text: string): void
-    on(sigName: "committed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "committed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "committed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "delete-surrounding", callback: (($obj: InputMethodContext, offset: number, nChars: number) => void)): number
-    connect_after(sigName: "delete-surrounding", callback: (($obj: InputMethodContext, offset: number, nChars: number) => void)): number
+    on(sigName: "delete-surrounding", callback: (offset: number, nChars: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "delete-surrounding", callback: (offset: number, nChars: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "delete-surrounding", callback: (offset: number, nChars: number) => void): NodeJS.EventEmitter
     emit(sigName: "delete-surrounding", offset: number, nChars: number): void
-    on(sigName: "delete-surrounding", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "delete-surrounding", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "delete-surrounding", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "preedit-changed", callback: (($obj: InputMethodContext) => void)): number
-    connect_after(sigName: "preedit-changed", callback: (($obj: InputMethodContext) => void)): number
+    on(sigName: "preedit-changed", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "preedit-changed", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "preedit-changed", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "preedit-changed"): void
-    on(sigName: "preedit-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "preedit-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "preedit-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "preedit-finished", callback: (($obj: InputMethodContext) => void)): number
-    connect_after(sigName: "preedit-finished", callback: (($obj: InputMethodContext) => void)): number
+    on(sigName: "preedit-finished", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "preedit-finished", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "preedit-finished", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "preedit-finished"): void
-    on(sigName: "preedit-finished", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "preedit-finished", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "preedit-finished", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "preedit-started", callback: (($obj: InputMethodContext) => void)): number
-    connect_after(sigName: "preedit-started", callback: (($obj: InputMethodContext) => void)): number
+    on(sigName: "preedit-started", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "preedit-started", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "preedit-started", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "preedit-started"): void
-    on(sigName: "preedit-started", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "preedit-started", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "preedit-started", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: InputMethodContext, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: InputMethodContext, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::input-hints", callback: (($obj: InputMethodContext, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::input-hints", callback: (($obj: InputMethodContext, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::input-hints", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -1857,14 +1639,14 @@ export class InputMethodContext {
 export interface InstallMissingMediaPluginsPermissionRequest_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class InstallMissingMediaPluginsPermissionRequest {
-    /* Fields of WebKit2.InstallMissingMediaPluginsPermissionRequest */
+    /* Fields of WebKit2-4.0.WebKit2.InstallMissingMediaPluginsPermissionRequest */
     parent: GObject.Object
     priv: InstallMissingMediaPluginsPermissionRequestPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of WebKit2.InstallMissingMediaPluginsPermissionRequest */
+    /* Methods of WebKit2-4.0.WebKit2.InstallMissingMediaPluginsPermissionRequest */
     getDescription(): string
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -1886,27 +1668,15 @@ export class InstallMissingMediaPluginsPermissionRequest {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of WebKit2.PermissionRequest */
+    /* Methods of WebKit2-4.0.WebKit2.PermissionRequest */
     allow(): void
     deny(): void
-    /* Virtual methods of WebKit2.InstallMissingMediaPluginsPermissionRequest */
-    vfuncAllow(): void
-    vfuncDeny(): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: InstallMissingMediaPluginsPermissionRequest, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: InstallMissingMediaPluginsPermissionRequest, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -1922,30 +1692,30 @@ export class InstallMissingMediaPluginsPermissionRequest {
 export interface NavigationPolicyDecision_ConstructProps extends PolicyDecision_ConstructProps {
 }
 export class NavigationPolicyDecision {
-    /* Properties of WebKit2.NavigationPolicyDecision */
+    /* Properties of WebKit2-4.0.WebKit2.NavigationPolicyDecision */
     readonly frameName: string
     readonly modifiers: number
     readonly mouseButton: number
     readonly navigationAction: NavigationAction
     readonly navigationType: NavigationType
     readonly request: URIRequest
-    /* Fields of WebKit2.NavigationPolicyDecision */
+    /* Fields of WebKit2-4.0.WebKit2.NavigationPolicyDecision */
     parent: PolicyDecision
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of WebKit2.NavigationPolicyDecision */
+    /* Methods of WebKit2-4.0.WebKit2.NavigationPolicyDecision */
     getFrameName(): string
     getModifiers(): number
     getMouseButton(): number
     getNavigationAction(): NavigationAction
     getNavigationType(): NavigationType
     getRequest(): URIRequest
-    /* Methods of WebKit2.PolicyDecision */
+    /* Methods of WebKit2-4.0.WebKit2.PolicyDecision */
     download(): void
     ignore(): void
     use(): void
     useWithPolicies(policies: WebsitePolicies): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -1967,21 +1737,12 @@ export class NavigationPolicyDecision {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: NavigationPolicyDecision, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: NavigationPolicyDecision, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::frame-name", callback: (($obj: NavigationPolicyDecision, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::frame-name", callback: (($obj: NavigationPolicyDecision, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::frame-name", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -2027,24 +1788,24 @@ export class NavigationPolicyDecision {
 export interface Notification_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class Notification {
-    /* Properties of WebKit2.Notification */
+    /* Properties of WebKit2-4.0.WebKit2.Notification */
     readonly body: string
     readonly id: number
     readonly tag: string
     readonly title: string
-    /* Fields of WebKit2.Notification */
+    /* Fields of WebKit2-4.0.WebKit2.Notification */
     parent: GObject.Object
     priv: NotificationPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of WebKit2.Notification */
+    /* Methods of WebKit2-4.0.WebKit2.Notification */
     clicked(): void
     close(): void
     getBody(): string
     getId(): number
     getTag(): string | null
     getTitle(): string
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -2066,34 +1827,23 @@ export class Notification {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of WebKit2.Notification */
+    /* Signals of WebKit2-4.0.WebKit2.Notification */
     connect(sigName: "clicked", callback: (($obj: Notification) => void)): number
-    connect_after(sigName: "clicked", callback: (($obj: Notification) => void)): number
+    on(sigName: "clicked", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "clicked", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "clicked", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "clicked"): void
-    on(sigName: "clicked", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "clicked", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "clicked", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "closed", callback: (($obj: Notification) => void)): number
-    connect_after(sigName: "closed", callback: (($obj: Notification) => void)): number
+    on(sigName: "closed", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "closed", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "closed", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "closed"): void
-    on(sigName: "closed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "closed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "closed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Notification, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Notification, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::body", callback: (($obj: Notification, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::body", callback: (($obj: Notification, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::body", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -2129,11 +1879,11 @@ export class Notification {
 export interface NotificationPermissionRequest_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class NotificationPermissionRequest {
-    /* Fields of WebKit2.NotificationPermissionRequest */
+    /* Fields of WebKit2-4.0.WebKit2.NotificationPermissionRequest */
     parent: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -2155,27 +1905,15 @@ export class NotificationPermissionRequest {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of WebKit2.PermissionRequest */
+    /* Methods of WebKit2-4.0.WebKit2.PermissionRequest */
     allow(): void
     deny(): void
-    /* Virtual methods of WebKit2.NotificationPermissionRequest */
-    vfuncAllow(): void
-    vfuncDeny(): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: NotificationPermissionRequest, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: NotificationPermissionRequest, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -2191,18 +1929,18 @@ export class NotificationPermissionRequest {
 export interface OptionMenu_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class OptionMenu {
-    /* Fields of WebKit2.OptionMenu */
+    /* Fields of WebKit2-4.0.WebKit2.OptionMenu */
     parent: GObject.Object
     priv: OptionMenuPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of WebKit2.OptionMenu */
+    /* Methods of WebKit2-4.0.WebKit2.OptionMenu */
     activateItem(index: number): void
     close(): void
     getItem(index: number): OptionMenuItem
     getNItems(): number
     selectItem(index: number): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -2224,28 +1962,18 @@ export class OptionMenu {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of WebKit2.OptionMenu */
+    /* Signals of WebKit2-4.0.WebKit2.OptionMenu */
     connect(sigName: "close", callback: (($obj: OptionMenu) => void)): number
-    connect_after(sigName: "close", callback: (($obj: OptionMenu) => void)): number
+    on(sigName: "close", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "close", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "close", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "close"): void
-    on(sigName: "close", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "close", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "close", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: OptionMenu, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: OptionMenu, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -2261,17 +1989,17 @@ export class OptionMenu {
 export interface Plugin_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class Plugin {
-    /* Fields of WebKit2.Plugin */
+    /* Fields of WebKit2-4.0.WebKit2.Plugin */
     parent: GObject.Object
     priv: PluginPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of WebKit2.Plugin */
+    /* Methods of WebKit2-4.0.WebKit2.Plugin */
     getDescription(): string
     getMimeInfoList(): MimeInfo[]
     getName(): string
     getPath(): string
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -2293,21 +2021,12 @@ export class Plugin {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Plugin, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Plugin, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -2323,11 +2042,11 @@ export class Plugin {
 export interface PointerLockPermissionRequest_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class PointerLockPermissionRequest {
-    /* Fields of WebKit2.PointerLockPermissionRequest */
+    /* Fields of WebKit2-4.0.WebKit2.PointerLockPermissionRequest */
     parent: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -2349,27 +2068,15 @@ export class PointerLockPermissionRequest {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of WebKit2.PermissionRequest */
+    /* Methods of WebKit2-4.0.WebKit2.PermissionRequest */
     allow(): void
     deny(): void
-    /* Virtual methods of WebKit2.PointerLockPermissionRequest */
-    vfuncAllow(): void
-    vfuncDeny(): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: PointerLockPermissionRequest, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: PointerLockPermissionRequest, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -2385,16 +2092,16 @@ export class PointerLockPermissionRequest {
 export interface PolicyDecision_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class PolicyDecision {
-    /* Fields of WebKit2.PolicyDecision */
+    /* Fields of WebKit2-4.0.WebKit2.PolicyDecision */
     parent: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of WebKit2.PolicyDecision */
+    /* Methods of WebKit2-4.0.WebKit2.PolicyDecision */
     download(): void
     ignore(): void
     use(): void
     useWithPolicies(policies: WebsitePolicies): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -2416,21 +2123,12 @@ export class PolicyDecision {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: PolicyDecision, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: PolicyDecision, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -2448,15 +2146,15 @@ export interface PrintCustomWidget_ConstructProps extends GObject.Object_Constru
     widget?: Gtk.Widget
 }
 export class PrintCustomWidget {
-    /* Fields of WebKit2.PrintCustomWidget */
+    /* Fields of WebKit2-4.0.WebKit2.PrintCustomWidget */
     parent: GObject.Object
     priv: PrintCustomWidgetPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of WebKit2.PrintCustomWidget */
+    /* Methods of WebKit2-4.0.WebKit2.PrintCustomWidget */
     getTitle(): string
     getWidget(): Gtk.Widget
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -2478,37 +2176,23 @@ export class PrintCustomWidget {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of WebKit2.PrintCustomWidget */
-    vfuncApply(widget: Gtk.Widget): void
-    vfuncUpdate(widget: Gtk.Widget, pageSetup: Gtk.PageSetup, printSettings: Gtk.PrintSettings): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of WebKit2.PrintCustomWidget */
+    /* Signals of WebKit2-4.0.WebKit2.PrintCustomWidget */
     connect(sigName: "apply", callback: (($obj: PrintCustomWidget) => void)): number
-    connect_after(sigName: "apply", callback: (($obj: PrintCustomWidget) => void)): number
+    on(sigName: "apply", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "apply", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "apply", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "apply"): void
-    on(sigName: "apply", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "apply", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "apply", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "update", callback: (($obj: PrintCustomWidget, pageSetup: Gtk.PageSetup, printSettings: Gtk.PrintSettings) => void)): number
-    connect_after(sigName: "update", callback: (($obj: PrintCustomWidget, pageSetup: Gtk.PageSetup, printSettings: Gtk.PrintSettings) => void)): number
+    on(sigName: "update", callback: (pageSetup: Gtk.PageSetup, printSettings: Gtk.PrintSettings) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "update", callback: (pageSetup: Gtk.PageSetup, printSettings: Gtk.PrintSettings) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "update", callback: (pageSetup: Gtk.PageSetup, printSettings: Gtk.PrintSettings) => void): NodeJS.EventEmitter
     emit(sigName: "update", pageSetup: Gtk.PageSetup, printSettings: Gtk.PrintSettings): void
-    on(sigName: "update", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "update", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "update", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: PrintCustomWidget, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: PrintCustomWidget, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -2529,22 +2213,22 @@ export interface PrintOperation_ConstructProps extends GObject.Object_ConstructP
     webView?: WebView
 }
 export class PrintOperation {
-    /* Properties of WebKit2.PrintOperation */
+    /* Properties of WebKit2-4.0.WebKit2.PrintOperation */
     pageSetup: Gtk.PageSetup
     printSettings: Gtk.PrintSettings
-    /* Fields of WebKit2.PrintOperation */
+    /* Fields of WebKit2-4.0.WebKit2.PrintOperation */
     parent: GObject.Object
     priv: PrintOperationPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of WebKit2.PrintOperation */
+    /* Methods of WebKit2-4.0.WebKit2.PrintOperation */
     getPageSetup(): Gtk.PageSetup
     getPrintSettings(): Gtk.PrintSettings
     print(): void
     runDialog(parent?: Gtk.Window | null): PrintOperationResponse
     setPageSetup(pageSetup: Gtk.PageSetup): void
     setPrintSettings(printSettings: Gtk.PrintSettings): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -2566,40 +2250,28 @@ export class PrintOperation {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of WebKit2.PrintOperation */
+    /* Signals of WebKit2-4.0.WebKit2.PrintOperation */
     connect(sigName: "create-custom-widget", callback: (($obj: PrintOperation) => PrintCustomWidget)): number
-    connect_after(sigName: "create-custom-widget", callback: (($obj: PrintOperation) => PrintCustomWidget)): number
+    on(sigName: "create-custom-widget", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "create-custom-widget", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "create-custom-widget", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "create-custom-widget"): void
-    on(sigName: "create-custom-widget", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "create-custom-widget", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "create-custom-widget", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "failed", callback: (($obj: PrintOperation, error: GLib.Error) => void)): number
-    connect_after(sigName: "failed", callback: (($obj: PrintOperation, error: GLib.Error) => void)): number
+    on(sigName: "failed", callback: (error: GLib.Error) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "failed", callback: (error: GLib.Error) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "failed", callback: (error: GLib.Error) => void): NodeJS.EventEmitter
     emit(sigName: "failed", error: GLib.Error): void
-    on(sigName: "failed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "failed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "failed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "finished", callback: (($obj: PrintOperation) => void)): number
-    connect_after(sigName: "finished", callback: (($obj: PrintOperation) => void)): number
+    on(sigName: "finished", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "finished", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "finished", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "finished"): void
-    on(sigName: "finished", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "finished", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "finished", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: PrintOperation, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: PrintOperation, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::page-setup", callback: (($obj: PrintOperation, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::page-setup", callback: (($obj: PrintOperation, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::page-setup", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -2627,23 +2299,23 @@ export class PrintOperation {
 export interface ResponsePolicyDecision_ConstructProps extends PolicyDecision_ConstructProps {
 }
 export class ResponsePolicyDecision {
-    /* Properties of WebKit2.ResponsePolicyDecision */
+    /* Properties of WebKit2-4.0.WebKit2.ResponsePolicyDecision */
     readonly request: URIRequest
     readonly response: URIResponse
-    /* Fields of WebKit2.ResponsePolicyDecision */
+    /* Fields of WebKit2-4.0.WebKit2.ResponsePolicyDecision */
     parent: PolicyDecision
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of WebKit2.ResponsePolicyDecision */
+    /* Methods of WebKit2-4.0.WebKit2.ResponsePolicyDecision */
     getRequest(): URIRequest
     getResponse(): URIResponse
     isMimeTypeSupported(): boolean
-    /* Methods of WebKit2.PolicyDecision */
+    /* Methods of WebKit2-4.0.WebKit2.PolicyDecision */
     download(): void
     ignore(): void
     use(): void
     useWithPolicies(policies: WebsitePolicies): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -2665,21 +2337,12 @@ export class ResponsePolicyDecision {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: ResponsePolicyDecision, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: ResponsePolicyDecision, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::request", callback: (($obj: ResponsePolicyDecision, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::request", callback: (($obj: ResponsePolicyDecision, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::request", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -2705,12 +2368,12 @@ export class ResponsePolicyDecision {
 export interface SecurityManager_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class SecurityManager {
-    /* Fields of WebKit2.SecurityManager */
+    /* Fields of WebKit2-4.0.WebKit2.SecurityManager */
     parent: GObject.Object
     priv: SecurityManagerPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of WebKit2.SecurityManager */
+    /* Methods of WebKit2-4.0.WebKit2.SecurityManager */
     registerUriSchemeAsCorsEnabled(scheme: string): void
     registerUriSchemeAsDisplayIsolated(scheme: string): void
     registerUriSchemeAsEmptyDocument(scheme: string): void
@@ -2723,7 +2386,7 @@ export class SecurityManager {
     uriSchemeIsLocal(scheme: string): boolean
     uriSchemeIsNoAccess(scheme: string): boolean
     uriSchemeIsSecure(scheme: string): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -2745,21 +2408,12 @@ export class SecurityManager {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: SecurityManager, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: SecurityManager, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -2834,7 +2488,7 @@ export interface Settings_ConstructProps extends GObject.Object_ConstructProps {
     zoomTextOnly?: boolean
 }
 export class Settings {
-    /* Properties of WebKit2.Settings */
+    /* Properties of WebKit2-4.0.WebKit2.Settings */
     allowFileAccessFromFileUrls: boolean
     allowModalDialogs: boolean
     allowTopNavigationToDataUrls: boolean
@@ -2894,12 +2548,12 @@ export class Settings {
     serifFontFamily: string
     userAgent: string
     zoomTextOnly: boolean
-    /* Fields of WebKit2.Settings */
+    /* Fields of WebKit2-4.0.WebKit2.Settings */
     parentInstance: GObject.Object
     priv: SettingsPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of WebKit2.Settings */
+    /* Methods of WebKit2-4.0.WebKit2.Settings */
     getAllowFileAccessFromFileUrls(): boolean
     getAllowModalDialogs(): boolean
     getAllowTopNavigationToDataUrls(): boolean
@@ -3019,7 +2673,7 @@ export class Settings {
     setUserAgent(userAgent?: string | null): void
     setUserAgentWithApplicationDetails(applicationName?: string | null, applicationVersion?: string | null): void
     setZoomTextOnly(zoomTextOnly: boolean): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -3041,21 +2695,12 @@ export class Settings {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Settings, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Settings, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::allow-file-access-from-file-urls", callback: (($obj: Settings, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::allow-file-access-from-file-urls", callback: (($obj: Settings, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::allow-file-access-from-file-urls", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -3371,18 +3016,18 @@ export interface URIRequest_ConstructProps extends GObject.Object_ConstructProps
     uri?: string
 }
 export class URIRequest {
-    /* Properties of WebKit2.URIRequest */
+    /* Properties of WebKit2-4.0.WebKit2.URIRequest */
     uri: string
-    /* Fields of WebKit2.URIRequest */
+    /* Fields of WebKit2-4.0.WebKit2.URIRequest */
     parent: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of WebKit2.URIRequest */
+    /* Methods of WebKit2-4.0.WebKit2.URIRequest */
     getHttpHeaders(): Soup.MessageHeaders
     getHttpMethod(): string
     getUri(): string
     setUri(uri: string): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -3404,21 +3049,12 @@ export class URIRequest {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: URIRequest, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: URIRequest, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::uri", callback: (($obj: URIRequest, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::uri", callback: (($obj: URIRequest, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::uri", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -3441,25 +3077,25 @@ export class URIRequest {
 export interface URIResponse_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class URIResponse {
-    /* Properties of WebKit2.URIResponse */
+    /* Properties of WebKit2-4.0.WebKit2.URIResponse */
     readonly contentLength: number
     readonly httpHeaders: Soup.MessageHeaders
     readonly mimeType: string
     readonly statusCode: number
     readonly suggestedFilename: string
     readonly uri: string
-    /* Fields of WebKit2.URIResponse */
+    /* Fields of WebKit2-4.0.WebKit2.URIResponse */
     parent: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of WebKit2.URIResponse */
+    /* Methods of WebKit2-4.0.WebKit2.URIResponse */
     getContentLength(): number
     getHttpHeaders(): Soup.MessageHeaders
     getMimeType(): string
     getStatusCode(): number
     getSuggestedFilename(): string
     getUri(): string
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -3481,21 +3117,12 @@ export class URIResponse {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: URIResponse, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: URIResponse, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::content-length", callback: (($obj: URIResponse, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::content-length", callback: (($obj: URIResponse, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::content-length", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -3541,19 +3168,19 @@ export class URIResponse {
 export interface URISchemeRequest_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class URISchemeRequest {
-    /* Fields of WebKit2.URISchemeRequest */
+    /* Fields of WebKit2-4.0.WebKit2.URISchemeRequest */
     parent: GObject.Object
     priv: URISchemeRequestPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of WebKit2.URISchemeRequest */
+    /* Methods of WebKit2-4.0.WebKit2.URISchemeRequest */
     finish(stream: Gio.InputStream, streamLength: number, contentType?: string | null): void
     finishError(error: GLib.Error): void
     getPath(): string
     getScheme(): string
     getUri(): string
     getWebView(): WebView
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -3575,21 +3202,12 @@ export class URISchemeRequest {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: URISchemeRequest, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: URISchemeRequest, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -3606,11 +3224,11 @@ export interface UserContentFilterStore_ConstructProps extends GObject.Object_Co
     path?: string
 }
 export class UserContentFilterStore {
-    /* Fields of WebKit2.UserContentFilterStore */
+    /* Fields of WebKit2-4.0.WebKit2.UserContentFilterStore */
     parent: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of WebKit2.UserContentFilterStore */
+    /* Methods of WebKit2-4.0.WebKit2.UserContentFilterStore */
     fetchIdentifiers(cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     fetchIdentifiersFinish(result: Gio.AsyncResult): string[]
     getPath(): string
@@ -3622,7 +3240,7 @@ export class UserContentFilterStore {
     saveFinish(result: Gio.AsyncResult): UserContentFilter
     saveFromFile(identifier: string, file: Gio.File, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     saveFromFileFinish(result: Gio.AsyncResult): UserContentFilter
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -3644,21 +3262,12 @@ export class UserContentFilterStore {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: UserContentFilterStore, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: UserContentFilterStore, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -3676,11 +3285,11 @@ export class UserContentFilterStore {
 export interface UserContentManager_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class UserContentManager {
-    /* Fields of WebKit2.UserContentManager */
+    /* Fields of WebKit2-4.0.WebKit2.UserContentManager */
     parent: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of WebKit2.UserContentManager */
+    /* Methods of WebKit2-4.0.WebKit2.UserContentManager */
     addFilter(filter: UserContentFilter): void
     addScript(script: UserScript): void
     addStyleSheet(stylesheet: UserStyleSheet): void
@@ -3695,7 +3304,7 @@ export class UserContentManager {
     removeStyleSheet(stylesheet: UserStyleSheet): void
     unregisterScriptMessageHandler(name: string): void
     unregisterScriptMessageHandlerInWorld(name: string, worldName: string): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -3717,28 +3326,18 @@ export class UserContentManager {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of WebKit2.UserContentManager */
+    /* Signals of WebKit2-4.0.WebKit2.UserContentManager */
     connect(sigName: "script-message-received", callback: (($obj: UserContentManager, jsResult: JavascriptResult) => void)): number
-    connect_after(sigName: "script-message-received", callback: (($obj: UserContentManager, jsResult: JavascriptResult) => void)): number
+    on(sigName: "script-message-received", callback: (jsResult: JavascriptResult) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "script-message-received", callback: (jsResult: JavascriptResult) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "script-message-received", callback: (jsResult: JavascriptResult) => void): NodeJS.EventEmitter
     emit(sigName: "script-message-received", jsResult: JavascriptResult): void
-    on(sigName: "script-message-received", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "script-message-received", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "script-message-received", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: UserContentManager, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: UserContentManager, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -3756,14 +3355,14 @@ export class UserContentManager {
 export interface UserMediaPermissionRequest_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class UserMediaPermissionRequest {
-    /* Properties of WebKit2.UserMediaPermissionRequest */
+    /* Properties of WebKit2-4.0.WebKit2.UserMediaPermissionRequest */
     readonly isForAudioDevice: boolean
     readonly isForVideoDevice: boolean
-    /* Fields of WebKit2.UserMediaPermissionRequest */
+    /* Fields of WebKit2-4.0.WebKit2.UserMediaPermissionRequest */
     parent: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -3785,27 +3384,15 @@ export class UserMediaPermissionRequest {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of WebKit2.PermissionRequest */
+    /* Methods of WebKit2-4.0.WebKit2.PermissionRequest */
     allow(): void
     deny(): void
-    /* Virtual methods of WebKit2.UserMediaPermissionRequest */
-    vfuncAllow(): void
-    vfuncDeny(): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: UserMediaPermissionRequest, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: UserMediaPermissionRequest, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::is-for-audio-device", callback: (($obj: UserMediaPermissionRequest, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::is-for-audio-device", callback: (($obj: UserMediaPermissionRequest, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::is-for-audio-device", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -3834,17 +3421,17 @@ export interface UserMessage_ConstructProps extends GObject.InitiallyUnowned_Con
     parameters?: GLib.Variant
 }
 export class UserMessage {
-    /* Fields of WebKit2.UserMessage */
+    /* Fields of WebKit2-4.0.WebKit2.UserMessage */
     parent: GObject.InitiallyUnowned
     priv: UserMessagePrivate
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of WebKit2.UserMessage */
+    /* Methods of WebKit2-4.0.WebKit2.UserMessage */
     getFdList(): Gio.UnixFDList | null
     getName(): string
     getParameters(): GLib.Variant | null
     sendReply(reply: UserMessage): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -3866,21 +3453,12 @@ export class UserMessage {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: UserMessage, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: UserMessage, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -3903,13 +3481,13 @@ export interface WebContext_ConstructProps extends GObject.Object_ConstructProps
     websiteDataManager?: WebsiteDataManager
 }
 export class WebContext {
-    /* Properties of WebKit2.WebContext */
+    /* Properties of WebKit2-4.0.WebKit2.WebContext */
     useSystemAppearanceForScrollbars: boolean
-    /* Fields of WebKit2.WebContext */
+    /* Fields of WebKit2-4.0.WebKit2.WebContext */
     parent: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of WebKit2.WebContext */
+    /* Methods of WebKit2-4.0.WebKit2.WebContext */
     addPathToSandbox(path: string, readOnly: boolean): void
     allowTlsCertificateForHost(certificate: Gio.TlsCertificate, host: string): void
     clearCache(): void
@@ -3952,7 +3530,7 @@ export class WebContext {
     setWebExtensionsDirectory(directory: string): void
     setWebExtensionsInitializationUserData(userData: GLib.Variant): void
     setWebProcessCountLimit(limit: number): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -3974,58 +3552,38 @@ export class WebContext {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of WebKit2.WebContext */
-    vfuncAutomationStarted(session: AutomationSession): void
-    vfuncDownloadStarted(download: Download): void
-    vfuncInitializeNotificationPermissions(): void
-    vfuncInitializeWebExtensions(): void
-    vfuncUserMessageReceived(message: UserMessage): boolean
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of WebKit2.WebContext */
+    /* Signals of WebKit2-4.0.WebKit2.WebContext */
     connect(sigName: "automation-started", callback: (($obj: WebContext, session: AutomationSession) => void)): number
-    connect_after(sigName: "automation-started", callback: (($obj: WebContext, session: AutomationSession) => void)): number
+    on(sigName: "automation-started", callback: (session: AutomationSession) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "automation-started", callback: (session: AutomationSession) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "automation-started", callback: (session: AutomationSession) => void): NodeJS.EventEmitter
     emit(sigName: "automation-started", session: AutomationSession): void
-    on(sigName: "automation-started", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "automation-started", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "automation-started", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "download-started", callback: (($obj: WebContext, download: Download) => void)): number
-    connect_after(sigName: "download-started", callback: (($obj: WebContext, download: Download) => void)): number
+    on(sigName: "download-started", callback: (download: Download) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "download-started", callback: (download: Download) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "download-started", callback: (download: Download) => void): NodeJS.EventEmitter
     emit(sigName: "download-started", download: Download): void
-    on(sigName: "download-started", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "download-started", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "download-started", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "initialize-notification-permissions", callback: (($obj: WebContext) => void)): number
-    connect_after(sigName: "initialize-notification-permissions", callback: (($obj: WebContext) => void)): number
+    on(sigName: "initialize-notification-permissions", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "initialize-notification-permissions", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "initialize-notification-permissions", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "initialize-notification-permissions"): void
-    on(sigName: "initialize-notification-permissions", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "initialize-notification-permissions", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "initialize-notification-permissions", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "initialize-web-extensions", callback: (($obj: WebContext) => void)): number
-    connect_after(sigName: "initialize-web-extensions", callback: (($obj: WebContext) => void)): number
+    on(sigName: "initialize-web-extensions", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "initialize-web-extensions", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "initialize-web-extensions", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "initialize-web-extensions"): void
-    on(sigName: "initialize-web-extensions", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "initialize-web-extensions", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "initialize-web-extensions", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "user-message-received", callback: (($obj: WebContext, message: UserMessage) => boolean)): number
-    connect_after(sigName: "user-message-received", callback: (($obj: WebContext, message: UserMessage) => boolean)): number
+    on(sigName: "user-message-received", callback: (message: UserMessage) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "user-message-received", callback: (message: UserMessage) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "user-message-received", callback: (message: UserMessage) => void): NodeJS.EventEmitter
     emit(sigName: "user-message-received", message: UserMessage): void
-    on(sigName: "user-message-received", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "user-message-received", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "user-message-received", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: WebContext, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: WebContext, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::use-system-appearance-for-scrollbars", callback: (($obj: WebContext, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::use-system-appearance-for-scrollbars", callback: (($obj: WebContext, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::use-system-appearance-for-scrollbars", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -4051,16 +3609,16 @@ export class WebContext {
 export interface WebInspector_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class WebInspector {
-    /* Properties of WebKit2.WebInspector */
+    /* Properties of WebKit2-4.0.WebKit2.WebInspector */
     readonly attachedHeight: number
     readonly canAttach: boolean
     readonly inspectedUri: string
-    /* Fields of WebKit2.WebInspector */
+    /* Fields of WebKit2-4.0.WebKit2.WebInspector */
     parent: GObject.Object
     priv: WebInspectorPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of WebKit2.WebInspector */
+    /* Methods of WebKit2-4.0.WebKit2.WebInspector */
     attach(): void
     close(): void
     detach(): void
@@ -4070,7 +3628,7 @@ export class WebInspector {
     getWebView(): WebViewBase
     isAttached(): boolean
     show(): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -4092,52 +3650,38 @@ export class WebInspector {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of WebKit2.WebInspector */
+    /* Signals of WebKit2-4.0.WebKit2.WebInspector */
     connect(sigName: "attach", callback: (($obj: WebInspector) => boolean)): number
-    connect_after(sigName: "attach", callback: (($obj: WebInspector) => boolean)): number
+    on(sigName: "attach", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "attach", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "attach", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "attach"): void
-    on(sigName: "attach", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "attach", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "attach", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "bring-to-front", callback: (($obj: WebInspector) => boolean)): number
-    connect_after(sigName: "bring-to-front", callback: (($obj: WebInspector) => boolean)): number
+    on(sigName: "bring-to-front", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "bring-to-front", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "bring-to-front", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "bring-to-front"): void
-    on(sigName: "bring-to-front", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "bring-to-front", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "bring-to-front", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "closed", callback: (($obj: WebInspector) => void)): number
-    connect_after(sigName: "closed", callback: (($obj: WebInspector) => void)): number
+    on(sigName: "closed", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "closed", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "closed", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "closed"): void
-    on(sigName: "closed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "closed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "closed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "detach", callback: (($obj: WebInspector) => boolean)): number
-    connect_after(sigName: "detach", callback: (($obj: WebInspector) => boolean)): number
+    on(sigName: "detach", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "detach", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "detach", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "detach"): void
-    on(sigName: "detach", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "detach", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "detach", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "open-window", callback: (($obj: WebInspector) => boolean)): number
-    connect_after(sigName: "open-window", callback: (($obj: WebInspector) => boolean)): number
+    on(sigName: "open-window", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "open-window", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "open-window", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "open-window"): void
-    on(sigName: "open-window", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "open-window", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "open-window", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: WebInspector, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: WebInspector, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::attached-height", callback: (($obj: WebInspector, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::attached-height", callback: (($obj: WebInspector, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::attached-height", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -4168,20 +3712,20 @@ export class WebInspector {
 export interface WebResource_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class WebResource {
-    /* Properties of WebKit2.WebResource */
+    /* Properties of WebKit2-4.0.WebKit2.WebResource */
     readonly response: URIResponse
     readonly uri: string
-    /* Fields of WebKit2.WebResource */
+    /* Fields of WebKit2-4.0.WebKit2.WebResource */
     parent: GObject.Object
     priv: WebResourcePrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of WebKit2.WebResource */
+    /* Methods of WebKit2-4.0.WebKit2.WebResource */
     getData(cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     getDataFinish(result: Gio.AsyncResult): any[]
     getResponse(): URIResponse
     getUri(): string
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -4203,52 +3747,38 @@ export class WebResource {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of WebKit2.WebResource */
+    /* Signals of WebKit2-4.0.WebKit2.WebResource */
     connect(sigName: "failed", callback: (($obj: WebResource, error: GLib.Error) => void)): number
-    connect_after(sigName: "failed", callback: (($obj: WebResource, error: GLib.Error) => void)): number
+    on(sigName: "failed", callback: (error: GLib.Error) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "failed", callback: (error: GLib.Error) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "failed", callback: (error: GLib.Error) => void): NodeJS.EventEmitter
     emit(sigName: "failed", error: GLib.Error): void
-    on(sigName: "failed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "failed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "failed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "failed-with-tls-errors", callback: (($obj: WebResource, certificate: Gio.TlsCertificate, errors: Gio.TlsCertificateFlags) => void)): number
-    connect_after(sigName: "failed-with-tls-errors", callback: (($obj: WebResource, certificate: Gio.TlsCertificate, errors: Gio.TlsCertificateFlags) => void)): number
+    on(sigName: "failed-with-tls-errors", callback: (certificate: Gio.TlsCertificate, errors: Gio.TlsCertificateFlags) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "failed-with-tls-errors", callback: (certificate: Gio.TlsCertificate, errors: Gio.TlsCertificateFlags) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "failed-with-tls-errors", callback: (certificate: Gio.TlsCertificate, errors: Gio.TlsCertificateFlags) => void): NodeJS.EventEmitter
     emit(sigName: "failed-with-tls-errors", certificate: Gio.TlsCertificate, errors: Gio.TlsCertificateFlags): void
-    on(sigName: "failed-with-tls-errors", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "failed-with-tls-errors", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "failed-with-tls-errors", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "finished", callback: (($obj: WebResource) => void)): number
-    connect_after(sigName: "finished", callback: (($obj: WebResource) => void)): number
+    on(sigName: "finished", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "finished", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "finished", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "finished"): void
-    on(sigName: "finished", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "finished", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "finished", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "received-data", callback: (($obj: WebResource, dataLength: number) => void)): number
-    connect_after(sigName: "received-data", callback: (($obj: WebResource, dataLength: number) => void)): number
+    on(sigName: "received-data", callback: (dataLength: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "received-data", callback: (dataLength: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "received-data", callback: (dataLength: number) => void): NodeJS.EventEmitter
     emit(sigName: "received-data", dataLength: number): void
-    on(sigName: "received-data", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "received-data", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "received-data", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "sent-request", callback: (($obj: WebResource, request: URIRequest, redirectedResponse: URIResponse) => void)): number
-    connect_after(sigName: "sent-request", callback: (($obj: WebResource, request: URIRequest, redirectedResponse: URIResponse) => void)): number
+    on(sigName: "sent-request", callback: (request: URIRequest, redirectedResponse: URIResponse) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "sent-request", callback: (request: URIRequest, redirectedResponse: URIResponse) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "sent-request", callback: (request: URIRequest, redirectedResponse: URIResponse) => void): NodeJS.EventEmitter
     emit(sigName: "sent-request", request: URIRequest, redirectedResponse: URIResponse): void
-    on(sigName: "sent-request", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "sent-request", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "sent-request", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: WebResource, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: WebResource, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::response", callback: (($obj: WebResource, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::response", callback: (($obj: WebResource, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::response", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -4285,7 +3815,7 @@ export interface WebView_ConstructProps extends WebViewBase_ConstructProps {
     zoomLevel?: number
 }
 export class WebView {
-    /* Properties of WebKit2.WebView */
+    /* Properties of WebKit2-4.0.WebKit2.WebView */
     editable: boolean
     readonly estimatedLoadProgress: number
     readonly favicon: object
@@ -4297,11 +3827,11 @@ export class WebView {
     readonly title: string
     readonly uri: string
     zoomLevel: number
-    /* Properties of Gtk.Container */
+    /* Properties of Gtk-3.0.Gtk.Container */
     borderWidth: number
     child: Gtk.Widget
     resizeMode: Gtk.ResizeMode
-    /* Properties of Gtk.Widget */
+    /* Properties of Gtk-3.0.Gtk.Widget */
     appPaintable: boolean
     canDefault: boolean
     canFocus: boolean
@@ -4341,13 +3871,13 @@ export class WebView {
     visible: boolean
     widthRequest: number
     readonly window: Gdk.Window
-    /* Fields of WebKit2.WebViewBase */
+    /* Fields of WebKit2-4.0.WebKit2.WebViewBase */
     parentInstance: Gtk.Container
-    /* Fields of Gtk.Container */
+    /* Fields of Gtk-3.0.Gtk.Container */
     widget: Gtk.Widget
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of WebKit2.WebView */
+    /* Methods of WebKit2-4.0.WebKit2.WebView */
     canExecuteEditingCommand(command: string, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     canExecuteEditingCommandFinish(result: Gio.AsyncResult): boolean
     canGoBack(): boolean
@@ -4358,7 +3888,7 @@ export class WebView {
     executeEditingCommandWithArgument(command: string, argument: string): void
     getAutomationPresentationType(): AutomationBrowsingContextPresentation
     getBackForwardList(): BackForwardList
-    getBackgroundColor(): /* rgba */ Gdk.RGBA
+    getBackgroundColor(): { rgba: Gdk.RGBA }
     getContext(): WebContext
     getCustomCharset(): string
     getEditorState(): EditorState
@@ -4375,7 +3905,7 @@ export class WebView {
     getSnapshot(region: SnapshotRegion, options: SnapshotOptions, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     getSnapshotFinish(result: Gio.AsyncResult): cairo.Surface
     getTitle(): string
-    getTlsInfo(): [ /* returnType */ boolean, /* certificate */ Gio.TlsCertificate, /* errors */ Gio.TlsCertificateFlags ]
+    getTlsInfo(): { returnType: boolean, certificate: Gio.TlsCertificate, errors: Gio.TlsCertificateFlags }
     getUri(): string
     getUserContentManager(): UserContentManager
     getWebsiteDataManager(): WebsiteDataManager
@@ -4418,7 +3948,7 @@ export class WebView {
     setZoomLevel(zoomLevel: number): void
     stopLoading(): void
     tryClose(): void
-    /* Methods of Gtk.Container */
+    /* Methods of Gtk-3.0.Gtk.Container */
     add(widget: Gtk.Widget): void
     checkResize(): void
     childGetProperty(child: Gtk.Widget, propertyName: string, value: any): void
@@ -4429,7 +3959,7 @@ export class WebView {
     foreach(callback: Gtk.Callback): void
     getBorderWidth(): number
     getChildren(): Gtk.Widget[]
-    getFocusChain(): [ /* returnType */ boolean, /* focusableWidgets */ Gtk.Widget[] ]
+    getFocusChain(): { returnType: boolean, focusableWidgets: Gtk.Widget[] }
     getFocusChild(): Gtk.Widget | null
     getFocusHadjustment(): Gtk.Adjustment | null
     getFocusVadjustment(): Gtk.Adjustment | null
@@ -4446,7 +3976,7 @@ export class WebView {
     setReallocateRedraws(needsRedraws: boolean): void
     setResizeMode(resizeMode: Gtk.ResizeMode): void
     unsetFocusChain(): void
-    /* Methods of Gtk.Widget */
+    /* Methods of Gtk-3.0.Gtk.Widget */
     activate(): boolean
     addAccelerator(accelSignal: string, accelGroup: Gtk.AccelGroup, accelKey: number, accelMods: Gdk.ModifierType, accelFlags: Gtk.AccelFlags): void
     addDeviceEvents(device: Gdk.Device, events: Gdk.EventMask): void
@@ -4456,12 +3986,12 @@ export class WebView {
     canActivateAccel(signalId: number): boolean
     childFocus(direction: Gtk.DirectionType): boolean
     childNotify(childProperty: string): void
-    classPath(): [ /* pathLength */ number | null, /* path */ string | null, /* pathReversed */ string | null ]
+    classPath(): { pathLength: number | null, path: string | null, pathReversed: string | null }
     computeExpand(orientation: Gtk.Orientation): boolean
     createPangoContext(): Pango.Context
     createPangoLayout(text?: string | null): Pango.Layout
     destroy(): void
-    destroyed(widgetPointer: Gtk.Widget): /* widgetPointer */ Gtk.Widget
+    destroyed(widgetPointer: Gtk.Widget): { widgetPointer: Gtk.Widget }
     deviceIsShadowed(device: Gdk.Device): boolean
     dragBegin(targets: Gtk.TargetList, actions: Gdk.DragAction, button: number, event?: Gdk.Event | null): Gdk.DragContext
     dragBeginWithCoordinates(targets: Gtk.TargetList, actions: Gdk.DragAction, button: number, event: Gdk.Event | null, x: number, y: number): Gdk.DragContext
@@ -4500,16 +4030,16 @@ export class WebView {
     getActionGroup(prefix: string): Gio.ActionGroup | null
     getAllocatedBaseline(): number
     getAllocatedHeight(): number
-    getAllocatedSize(): [ /* allocation */ Gtk.Allocation, /* baseline */ number | null ]
+    getAllocatedSize(): { allocation: Gtk.Allocation, baseline: number | null }
     getAllocatedWidth(): number
-    getAllocation(): /* allocation */ Gtk.Allocation
+    getAllocation(): { allocation: Gtk.Allocation }
     getAncestor(widgetType: GObject.Type): Gtk.Widget | null
     getAppPaintable(): boolean
     getCanDefault(): boolean
     getCanFocus(): boolean
-    getChildRequisition(): /* requisition */ Gtk.Requisition
+    getChildRequisition(): { requisition: Gtk.Requisition }
     getChildVisible(): boolean
-    getClip(): /* clip */ Gtk.Allocation
+    getClip(): { clip: Gtk.Allocation }
     getClipboard(selection: Gdk.Atom): Gtk.Clipboard
     getCompositeName(): string
     getDeviceEnabled(device: Gdk.Device): boolean
@@ -4543,23 +4073,23 @@ export class WebView {
     getParent(): Gtk.Widget | null
     getParentWindow(): Gdk.Window | null
     getPath(): Gtk.WidgetPath
-    getPointer(): [ /* x */ number | null, /* y */ number | null ]
-    getPreferredHeight(): [ /* minimumHeight */ number | null, /* naturalHeight */ number | null ]
-    getPreferredHeightAndBaselineForWidth(width: number): [ /* minimumHeight */ number | null, /* naturalHeight */ number | null, /* minimumBaseline */ number | null, /* naturalBaseline */ number | null ]
-    getPreferredHeightForWidth(width: number): [ /* minimumHeight */ number | null, /* naturalHeight */ number | null ]
-    getPreferredSize(): [ /* minimumSize */ Gtk.Requisition | null, /* naturalSize */ Gtk.Requisition | null ]
-    getPreferredWidth(): [ /* minimumWidth */ number | null, /* naturalWidth */ number | null ]
-    getPreferredWidthForHeight(height: number): [ /* minimumWidth */ number | null, /* naturalWidth */ number | null ]
+    getPointer(): { x: number | null, y: number | null }
+    getPreferredHeight(): { minimumHeight: number | null, naturalHeight: number | null }
+    getPreferredHeightAndBaselineForWidth(width: number): { minimumHeight: number | null, naturalHeight: number | null, minimumBaseline: number | null, naturalBaseline: number | null }
+    getPreferredHeightForWidth(width: number): { minimumHeight: number | null, naturalHeight: number | null }
+    getPreferredSize(): { minimumSize: Gtk.Requisition | null, naturalSize: Gtk.Requisition | null }
+    getPreferredWidth(): { minimumWidth: number | null, naturalWidth: number | null }
+    getPreferredWidthForHeight(height: number): { minimumWidth: number | null, naturalWidth: number | null }
     getRealized(): boolean
     getReceivesDefault(): boolean
     getRequestMode(): Gtk.SizeRequestMode
-    getRequisition(): /* requisition */ Gtk.Requisition
+    getRequisition(): { requisition: Gtk.Requisition }
     getRootWindow(): Gdk.Window
     getScaleFactor(): number
     getScreen(): Gdk.Screen
     getSensitive(): boolean
     getSettings(): Gtk.Settings
-    getSizeRequest(): [ /* width */ number | null, /* height */ number | null ]
+    getSizeRequest(): { width: number | null, height: number | null }
     getState(): Gtk.StateType
     getStateFlags(): Gtk.StateFlags
     getStyle(): Gtk.Style
@@ -4591,7 +4121,7 @@ export class WebView {
     initTemplate(): void
     inputShapeCombineRegion(region?: cairo.Region | null): void
     insertActionGroup(name: string, group?: Gio.ActionGroup | null): void
-    intersect(area: Gdk.Rectangle): [ /* returnType */ boolean, /* intersection */ Gdk.Rectangle | null ]
+    intersect(area: Gdk.Rectangle): { returnType: boolean, intersection: Gdk.Rectangle | null }
     isAncestor(ancestor: Gtk.Widget): boolean
     isComposited(): boolean
     isDrawable(): boolean
@@ -4616,7 +4146,7 @@ export class WebView {
     overrideCursor(cursor?: Gdk.RGBA | null, secondaryCursor?: Gdk.RGBA | null): void
     overrideFont(fontDesc?: Pango.FontDescription | null): void
     overrideSymbolicColor(name: string, color?: Gdk.RGBA | null): void
-    path(): [ /* pathLength */ number | null, /* path */ string | null, /* pathReversed */ string | null ]
+    path(): { pathLength: number | null, path: string | null, pathReversed: string | null }
     queueAllocate(): void
     queueComputeExpand(): void
     queueDraw(): void
@@ -4694,18 +4224,18 @@ export class WebView {
     showNow(): void
     sizeAllocate(allocation: Gtk.Allocation): void
     sizeAllocateWithBaseline(allocation: Gtk.Allocation, baseline: number): void
-    sizeRequest(): /* requisition */ Gtk.Requisition
+    sizeRequest(): { requisition: Gtk.Requisition }
     styleAttach(): void
     styleGetProperty(propertyName: string, value: any): void
     thawChildNotify(): void
-    translateCoordinates(destWidget: Gtk.Widget, srcX: number, srcY: number): [ /* returnType */ boolean, /* destX */ number | null, /* destY */ number | null ]
+    translateCoordinates(destWidget: Gtk.Widget, srcX: number, srcY: number): { returnType: boolean, destX: number | null, destY: number | null }
     triggerTooltipQuery(): void
     unmap(): void
     unparent(): void
     unrealize(): void
     unregisterWindow(window: Gdk.Window): void
     unsetStateFlags(flags: Gtk.StateFlags): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -4727,765 +4257,524 @@ export class WebView {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of Gtk.Buildable */
+    /* Methods of Gtk-3.0.Gtk.Buildable */
     addChild(builder: Gtk.Builder, child: GObject.Object, type?: string | null): void
     constructChild(builder: Gtk.Builder, name: string): GObject.Object
     customFinished(builder: Gtk.Builder, child: GObject.Object | null, tagname: string, data?: object | null): void
     customTagEnd(builder: Gtk.Builder, child: GObject.Object | null, tagname: string, data?: object | null): void
-    customTagStart(builder: Gtk.Builder, child: GObject.Object | null, tagname: string): [ /* returnType */ boolean, /* parser */ GLib.MarkupParser, /* data */ object | null ]
+    customTagStart(builder: Gtk.Builder, child: GObject.Object | null, tagname: string): { returnType: boolean, parser: GLib.MarkupParser, data: object | null }
     getInternalChild(builder: Gtk.Builder, childname: string): GObject.Object
     parserFinished(builder: Gtk.Builder): void
     setBuildableProperty(builder: Gtk.Builder, name: string, value: any): void
-    /* Virtual methods of WebKit2.WebView */
-    vfuncAuthenticate(request: AuthenticationRequest): boolean
-    vfuncClose(): void
-    vfuncContextMenu(contextMenu: ContextMenu, event: Gdk.Event, hitTestResult: HitTestResult): boolean
-    vfuncContextMenuDismissed(): void
-    vfuncDecidePolicy(decision: PolicyDecision, type: PolicyDecisionType): boolean
-    vfuncEnterFullscreen(): boolean
-    vfuncInsecureContentDetected(event: InsecureContentEvent): void
-    vfuncLeaveFullscreen(): boolean
-    vfuncLoadChanged(loadEvent: LoadEvent): void
-    vfuncLoadFailed(loadEvent: LoadEvent, failingUri: string, error: GLib.Error): boolean
-    vfuncLoadFailedWithTlsErrors(failingUri: string, certificate: Gio.TlsCertificate, errors: Gio.TlsCertificateFlags): boolean
-    vfuncMouseTargetChanged(hitTestResult: HitTestResult, modifiers: number): void
-    vfuncPermissionRequest(permissionRequest: PermissionRequest): boolean
-    vfuncPrint(printOperation: PrintOperation): boolean
-    vfuncReadyToShow(): void
-    vfuncResourceLoadStarted(resource: WebResource, request: URIRequest): void
-    vfuncRunAsModal(): void
-    vfuncRunColorChooser(request: ColorChooserRequest): boolean
-    vfuncRunFileChooser(request: FileChooserRequest): boolean
-    vfuncScriptDialog(dialog: ScriptDialog): boolean
-    vfuncShowNotification(notification: Notification): boolean
-    vfuncShowOptionMenu(rectangle: Gdk.Rectangle, menu: OptionMenu): boolean
-    vfuncSubmitForm(request: FormSubmissionRequest): void
-    vfuncUserMessageReceived(message: UserMessage): boolean
-    vfuncWebProcessCrashed(): boolean
-    vfuncWebProcessTerminated(reason: WebProcessTerminationReason): void
-    /* Virtual methods of WebKit2.WebViewBase */
-    vfuncAddChild(builder: Gtk.Builder, child: GObject.Object, type?: string | null): void
-    vfuncConstructChild(builder: Gtk.Builder, name: string): GObject.Object
-    vfuncCustomFinished(builder: Gtk.Builder, child: GObject.Object | null, tagname: string, data?: object | null): void
-    vfuncCustomTagEnd(builder: Gtk.Builder, child: GObject.Object | null, tagname: string, data?: object | null): void
-    vfuncCustomTagStart(builder: Gtk.Builder, child: GObject.Object | null, tagname: string): [ /* returnType */ boolean, /* parser */ GLib.MarkupParser, /* data */ object | null ]
-    vfuncGetInternalChild(builder: Gtk.Builder, childname: string): GObject.Object
-    vfuncGetName(): string
-    vfuncParserFinished(builder: Gtk.Builder): void
-    vfuncSetBuildableProperty(builder: Gtk.Builder, name: string, value: any): void
-    vfuncSetName(name: string): void
-    /* Virtual methods of Gtk.Container */
-    vfuncAdd(widget: Gtk.Widget): void
-    vfuncCheckResize(): void
-    vfuncChildType(): GObject.Type
-    vfuncCompositeName(child: Gtk.Widget): string
-    vfuncForall(includeInternals: boolean, callback: Gtk.Callback): void
-    vfuncGetChildProperty(child: Gtk.Widget, propertyId: number, value: any, pspec: GObject.ParamSpec): void
-    vfuncGetPathForChild(child: Gtk.Widget): Gtk.WidgetPath
-    vfuncRemove(widget: Gtk.Widget): void
-    vfuncSetChildProperty(child: Gtk.Widget, propertyId: number, value: any, pspec: GObject.ParamSpec): void
-    vfuncSetFocusChild(child?: Gtk.Widget | null): void
-    /* Virtual methods of Gtk.Widget */
-    vfuncAdjustBaselineAllocation(baseline: number): void
-    vfuncAdjustBaselineRequest(minimumBaseline: number, naturalBaseline: number): void
-    vfuncAdjustSizeAllocation(orientation: Gtk.Orientation, minimumSize: number, naturalSize: number, allocatedPos: number, allocatedSize: number): void
-    vfuncAdjustSizeRequest(orientation: Gtk.Orientation, minimumSize: number, naturalSize: number): void
-    vfuncButtonPressEvent(event: Gdk.EventButton): boolean
-    vfuncButtonReleaseEvent(event: Gdk.EventButton): boolean
-    vfuncCanActivateAccel(signalId: number): boolean
-    vfuncChildNotify(childProperty: GObject.ParamSpec): void
-    vfuncCompositedChanged(): void
-    vfuncComputeExpand(hexpandP: boolean, vexpandP: boolean): void
-    vfuncConfigureEvent(event: Gdk.EventConfigure): boolean
-    vfuncDamageEvent(event: Gdk.EventExpose): boolean
-    vfuncDeleteEvent(event: Gdk.EventAny): boolean
-    vfuncDestroy(): void
-    vfuncDestroyEvent(event: Gdk.EventAny): boolean
-    vfuncDirectionChanged(previousDirection: Gtk.TextDirection): void
-    vfuncDispatchChildPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDragBegin(context: Gdk.DragContext): void
-    vfuncDragDataDelete(context: Gdk.DragContext): void
-    vfuncDragDataGet(context: Gdk.DragContext, selectionData: Gtk.SelectionData, info: number, time: number): void
-    vfuncDragDataReceived(context: Gdk.DragContext, x: number, y: number, selectionData: Gtk.SelectionData, info: number, time: number): void
-    vfuncDragDrop(context: Gdk.DragContext, x: number, y: number, time: number): boolean
-    vfuncDragEnd(context: Gdk.DragContext): void
-    vfuncDragFailed(context: Gdk.DragContext, result: Gtk.DragResult): boolean
-    vfuncDragLeave(context: Gdk.DragContext, time: number): void
-    vfuncDragMotion(context: Gdk.DragContext, x: number, y: number, time: number): boolean
-    vfuncDraw(cr: cairo.Context): boolean
-    vfuncEnterNotifyEvent(event: Gdk.EventCrossing): boolean
-    vfuncEvent(event: Gdk.Event): boolean
-    vfuncFocus(direction: Gtk.DirectionType): boolean
-    vfuncFocusInEvent(event: Gdk.EventFocus): boolean
-    vfuncFocusOutEvent(event: Gdk.EventFocus): boolean
-    vfuncGetAccessible(): Atk.Object
-    vfuncGetPreferredHeight(): [ /* minimumHeight */ number | null, /* naturalHeight */ number | null ]
-    vfuncGetPreferredHeightAndBaselineForWidth(width: number): [ /* minimumHeight */ number | null, /* naturalHeight */ number | null, /* minimumBaseline */ number | null, /* naturalBaseline */ number | null ]
-    vfuncGetPreferredHeightForWidth(width: number): [ /* minimumHeight */ number | null, /* naturalHeight */ number | null ]
-    vfuncGetPreferredWidth(): [ /* minimumWidth */ number | null, /* naturalWidth */ number | null ]
-    vfuncGetPreferredWidthForHeight(height: number): [ /* minimumWidth */ number | null, /* naturalWidth */ number | null ]
-    vfuncGetRequestMode(): Gtk.SizeRequestMode
-    vfuncGrabBrokenEvent(event: Gdk.EventGrabBroken): boolean
-    vfuncGrabFocus(): void
-    vfuncGrabNotify(wasGrabbed: boolean): void
-    vfuncHide(): void
-    vfuncHierarchyChanged(previousToplevel: Gtk.Widget): void
-    vfuncKeyPressEvent(event: Gdk.EventKey): boolean
-    vfuncKeyReleaseEvent(event: Gdk.EventKey): boolean
-    vfuncKeynavFailed(direction: Gtk.DirectionType): boolean
-    vfuncLeaveNotifyEvent(event: Gdk.EventCrossing): boolean
-    vfuncMap(): void
-    vfuncMapEvent(event: Gdk.EventAny): boolean
-    vfuncMnemonicActivate(groupCycling: boolean): boolean
-    vfuncMotionNotifyEvent(event: Gdk.EventMotion): boolean
-    vfuncMoveFocus(direction: Gtk.DirectionType): void
-    vfuncParentSet(previousParent: Gtk.Widget): void
-    vfuncPopupMenu(): boolean
-    vfuncPropertyNotifyEvent(event: Gdk.EventProperty): boolean
-    vfuncProximityInEvent(event: Gdk.EventProximity): boolean
-    vfuncProximityOutEvent(event: Gdk.EventProximity): boolean
-    vfuncQueryTooltip(x: number, y: number, keyboardTooltip: boolean, tooltip: Gtk.Tooltip): boolean
-    vfuncQueueDrawRegion(region: cairo.Region): void
-    vfuncRealize(): void
-    vfuncScreenChanged(previousScreen: Gdk.Screen): void
-    vfuncScrollEvent(event: Gdk.EventScroll): boolean
-    vfuncSelectionClearEvent(event: Gdk.EventSelection): boolean
-    vfuncSelectionGet(selectionData: Gtk.SelectionData, info: number, time: number): void
-    vfuncSelectionNotifyEvent(event: Gdk.EventSelection): boolean
-    vfuncSelectionReceived(selectionData: Gtk.SelectionData, time: number): void
-    vfuncSelectionRequestEvent(event: Gdk.EventSelection): boolean
-    vfuncShow(): void
-    vfuncShowAll(): void
-    vfuncShowHelp(helpType: Gtk.WidgetHelpType): boolean
-    vfuncSizeAllocate(allocation: Gtk.Allocation): void
-    vfuncStateChanged(previousState: Gtk.StateType): void
-    vfuncStateFlagsChanged(previousStateFlags: Gtk.StateFlags): void
-    vfuncStyleSet(previousStyle: Gtk.Style): void
-    vfuncStyleUpdated(): void
-    vfuncTouchEvent(event: Gdk.EventTouch): boolean
-    vfuncUnmap(): void
-    vfuncUnmapEvent(event: Gdk.EventAny): boolean
-    vfuncUnrealize(): void
-    vfuncVisibilityNotifyEvent(event: Gdk.EventVisibility): boolean
-    vfuncWindowStateEvent(event: Gdk.EventWindowState): boolean
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of WebKit2.WebView */
+    /* Signals of WebKit2-4.0.WebKit2.WebView */
     connect(sigName: "authenticate", callback: (($obj: WebView, request: AuthenticationRequest) => boolean)): number
-    connect_after(sigName: "authenticate", callback: (($obj: WebView, request: AuthenticationRequest) => boolean)): number
+    on(sigName: "authenticate", callback: (request: AuthenticationRequest) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "authenticate", callback: (request: AuthenticationRequest) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "authenticate", callback: (request: AuthenticationRequest) => void): NodeJS.EventEmitter
     emit(sigName: "authenticate", request: AuthenticationRequest): void
-    on(sigName: "authenticate", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "authenticate", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "authenticate", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "close", callback: (($obj: WebView) => void)): number
-    connect_after(sigName: "close", callback: (($obj: WebView) => void)): number
+    on(sigName: "close", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "close", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "close", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "close"): void
-    on(sigName: "close", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "close", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "close", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "context-menu", callback: (($obj: WebView, contextMenu: ContextMenu, event: Gdk.Event, hitTestResult: HitTestResult) => boolean)): number
-    connect_after(sigName: "context-menu", callback: (($obj: WebView, contextMenu: ContextMenu, event: Gdk.Event, hitTestResult: HitTestResult) => boolean)): number
+    on(sigName: "context-menu", callback: (contextMenu: ContextMenu, event: Gdk.Event, hitTestResult: HitTestResult) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "context-menu", callback: (contextMenu: ContextMenu, event: Gdk.Event, hitTestResult: HitTestResult) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "context-menu", callback: (contextMenu: ContextMenu, event: Gdk.Event, hitTestResult: HitTestResult) => void): NodeJS.EventEmitter
     emit(sigName: "context-menu", contextMenu: ContextMenu, event: Gdk.Event, hitTestResult: HitTestResult): void
-    on(sigName: "context-menu", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "context-menu", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "context-menu", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "context-menu-dismissed", callback: (($obj: WebView) => void)): number
-    connect_after(sigName: "context-menu-dismissed", callback: (($obj: WebView) => void)): number
+    on(sigName: "context-menu-dismissed", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "context-menu-dismissed", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "context-menu-dismissed", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "context-menu-dismissed"): void
-    on(sigName: "context-menu-dismissed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "context-menu-dismissed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "context-menu-dismissed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "create", callback: (($obj: WebView, navigationAction: NavigationAction) => Gtk.Widget)): number
-    connect_after(sigName: "create", callback: (($obj: WebView, navigationAction: NavigationAction) => Gtk.Widget)): number
+    on(sigName: "create", callback: (navigationAction: NavigationAction) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "create", callback: (navigationAction: NavigationAction) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "create", callback: (navigationAction: NavigationAction) => void): NodeJS.EventEmitter
     emit(sigName: "create", navigationAction: NavigationAction): void
-    on(sigName: "create", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "create", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "create", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "decide-policy", callback: (($obj: WebView, decision: PolicyDecision, decisionType: PolicyDecisionType) => boolean)): number
-    connect_after(sigName: "decide-policy", callback: (($obj: WebView, decision: PolicyDecision, decisionType: PolicyDecisionType) => boolean)): number
+    on(sigName: "decide-policy", callback: (decision: PolicyDecision, decisionType: PolicyDecisionType) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "decide-policy", callback: (decision: PolicyDecision, decisionType: PolicyDecisionType) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "decide-policy", callback: (decision: PolicyDecision, decisionType: PolicyDecisionType) => void): NodeJS.EventEmitter
     emit(sigName: "decide-policy", decision: PolicyDecision, decisionType: PolicyDecisionType): void
-    on(sigName: "decide-policy", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "decide-policy", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "decide-policy", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "enter-fullscreen", callback: (($obj: WebView) => boolean)): number
-    connect_after(sigName: "enter-fullscreen", callback: (($obj: WebView) => boolean)): number
+    on(sigName: "enter-fullscreen", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "enter-fullscreen", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "enter-fullscreen", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "enter-fullscreen"): void
-    on(sigName: "enter-fullscreen", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "enter-fullscreen", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "enter-fullscreen", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "insecure-content-detected", callback: (($obj: WebView, event: InsecureContentEvent) => void)): number
-    connect_after(sigName: "insecure-content-detected", callback: (($obj: WebView, event: InsecureContentEvent) => void)): number
+    on(sigName: "insecure-content-detected", callback: (event: InsecureContentEvent) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "insecure-content-detected", callback: (event: InsecureContentEvent) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "insecure-content-detected", callback: (event: InsecureContentEvent) => void): NodeJS.EventEmitter
     emit(sigName: "insecure-content-detected", event: InsecureContentEvent): void
-    on(sigName: "insecure-content-detected", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "insecure-content-detected", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "insecure-content-detected", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "leave-fullscreen", callback: (($obj: WebView) => boolean)): number
-    connect_after(sigName: "leave-fullscreen", callback: (($obj: WebView) => boolean)): number
+    on(sigName: "leave-fullscreen", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "leave-fullscreen", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "leave-fullscreen", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "leave-fullscreen"): void
-    on(sigName: "leave-fullscreen", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "leave-fullscreen", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "leave-fullscreen", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "load-changed", callback: (($obj: WebView, loadEvent: LoadEvent) => void)): number
-    connect_after(sigName: "load-changed", callback: (($obj: WebView, loadEvent: LoadEvent) => void)): number
+    on(sigName: "load-changed", callback: (loadEvent: LoadEvent) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "load-changed", callback: (loadEvent: LoadEvent) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "load-changed", callback: (loadEvent: LoadEvent) => void): NodeJS.EventEmitter
     emit(sigName: "load-changed", loadEvent: LoadEvent): void
-    on(sigName: "load-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "load-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "load-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "load-failed", callback: (($obj: WebView, loadEvent: LoadEvent, failingUri: string, error: GLib.Error) => boolean)): number
-    connect_after(sigName: "load-failed", callback: (($obj: WebView, loadEvent: LoadEvent, failingUri: string, error: GLib.Error) => boolean)): number
+    on(sigName: "load-failed", callback: (loadEvent: LoadEvent, failingUri: string, error: GLib.Error) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "load-failed", callback: (loadEvent: LoadEvent, failingUri: string, error: GLib.Error) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "load-failed", callback: (loadEvent: LoadEvent, failingUri: string, error: GLib.Error) => void): NodeJS.EventEmitter
     emit(sigName: "load-failed", loadEvent: LoadEvent, failingUri: string, error: GLib.Error): void
-    on(sigName: "load-failed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "load-failed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "load-failed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "load-failed-with-tls-errors", callback: (($obj: WebView, failingUri: string, certificate: Gio.TlsCertificate, errors: Gio.TlsCertificateFlags) => boolean)): number
-    connect_after(sigName: "load-failed-with-tls-errors", callback: (($obj: WebView, failingUri: string, certificate: Gio.TlsCertificate, errors: Gio.TlsCertificateFlags) => boolean)): number
+    on(sigName: "load-failed-with-tls-errors", callback: (failingUri: string, certificate: Gio.TlsCertificate, errors: Gio.TlsCertificateFlags) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "load-failed-with-tls-errors", callback: (failingUri: string, certificate: Gio.TlsCertificate, errors: Gio.TlsCertificateFlags) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "load-failed-with-tls-errors", callback: (failingUri: string, certificate: Gio.TlsCertificate, errors: Gio.TlsCertificateFlags) => void): NodeJS.EventEmitter
     emit(sigName: "load-failed-with-tls-errors", failingUri: string, certificate: Gio.TlsCertificate, errors: Gio.TlsCertificateFlags): void
-    on(sigName: "load-failed-with-tls-errors", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "load-failed-with-tls-errors", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "load-failed-with-tls-errors", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "mouse-target-changed", callback: (($obj: WebView, hitTestResult: HitTestResult, modifiers: number) => void)): number
-    connect_after(sigName: "mouse-target-changed", callback: (($obj: WebView, hitTestResult: HitTestResult, modifiers: number) => void)): number
+    on(sigName: "mouse-target-changed", callback: (hitTestResult: HitTestResult, modifiers: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "mouse-target-changed", callback: (hitTestResult: HitTestResult, modifiers: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "mouse-target-changed", callback: (hitTestResult: HitTestResult, modifiers: number) => void): NodeJS.EventEmitter
     emit(sigName: "mouse-target-changed", hitTestResult: HitTestResult, modifiers: number): void
-    on(sigName: "mouse-target-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "mouse-target-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "mouse-target-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "permission-request", callback: (($obj: WebView, request: PermissionRequest) => boolean)): number
-    connect_after(sigName: "permission-request", callback: (($obj: WebView, request: PermissionRequest) => boolean)): number
+    on(sigName: "permission-request", callback: (request: PermissionRequest) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "permission-request", callback: (request: PermissionRequest) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "permission-request", callback: (request: PermissionRequest) => void): NodeJS.EventEmitter
     emit(sigName: "permission-request", request: PermissionRequest): void
-    on(sigName: "permission-request", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "permission-request", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "permission-request", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "print", callback: (($obj: WebView, printOperation: PrintOperation) => boolean)): number
-    connect_after(sigName: "print", callback: (($obj: WebView, printOperation: PrintOperation) => boolean)): number
+    on(sigName: "print", callback: (printOperation: PrintOperation) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "print", callback: (printOperation: PrintOperation) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "print", callback: (printOperation: PrintOperation) => void): NodeJS.EventEmitter
     emit(sigName: "print", printOperation: PrintOperation): void
-    on(sigName: "print", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "print", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "print", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "ready-to-show", callback: (($obj: WebView) => void)): number
-    connect_after(sigName: "ready-to-show", callback: (($obj: WebView) => void)): number
+    on(sigName: "ready-to-show", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "ready-to-show", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "ready-to-show", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "ready-to-show"): void
-    on(sigName: "ready-to-show", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "ready-to-show", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "ready-to-show", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "resource-load-started", callback: (($obj: WebView, resource: WebResource, request: URIRequest) => void)): number
-    connect_after(sigName: "resource-load-started", callback: (($obj: WebView, resource: WebResource, request: URIRequest) => void)): number
+    on(sigName: "resource-load-started", callback: (resource: WebResource, request: URIRequest) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "resource-load-started", callback: (resource: WebResource, request: URIRequest) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "resource-load-started", callback: (resource: WebResource, request: URIRequest) => void): NodeJS.EventEmitter
     emit(sigName: "resource-load-started", resource: WebResource, request: URIRequest): void
-    on(sigName: "resource-load-started", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "resource-load-started", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "resource-load-started", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "run-as-modal", callback: (($obj: WebView) => void)): number
-    connect_after(sigName: "run-as-modal", callback: (($obj: WebView) => void)): number
+    on(sigName: "run-as-modal", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "run-as-modal", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "run-as-modal", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "run-as-modal"): void
-    on(sigName: "run-as-modal", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "run-as-modal", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "run-as-modal", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "run-color-chooser", callback: (($obj: WebView, request: ColorChooserRequest) => boolean)): number
-    connect_after(sigName: "run-color-chooser", callback: (($obj: WebView, request: ColorChooserRequest) => boolean)): number
+    on(sigName: "run-color-chooser", callback: (request: ColorChooserRequest) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "run-color-chooser", callback: (request: ColorChooserRequest) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "run-color-chooser", callback: (request: ColorChooserRequest) => void): NodeJS.EventEmitter
     emit(sigName: "run-color-chooser", request: ColorChooserRequest): void
-    on(sigName: "run-color-chooser", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "run-color-chooser", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "run-color-chooser", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "run-file-chooser", callback: (($obj: WebView, request: FileChooserRequest) => boolean)): number
-    connect_after(sigName: "run-file-chooser", callback: (($obj: WebView, request: FileChooserRequest) => boolean)): number
+    on(sigName: "run-file-chooser", callback: (request: FileChooserRequest) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "run-file-chooser", callback: (request: FileChooserRequest) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "run-file-chooser", callback: (request: FileChooserRequest) => void): NodeJS.EventEmitter
     emit(sigName: "run-file-chooser", request: FileChooserRequest): void
-    on(sigName: "run-file-chooser", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "run-file-chooser", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "run-file-chooser", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "script-dialog", callback: (($obj: WebView, dialog: ScriptDialog) => boolean)): number
-    connect_after(sigName: "script-dialog", callback: (($obj: WebView, dialog: ScriptDialog) => boolean)): number
+    on(sigName: "script-dialog", callback: (dialog: ScriptDialog) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "script-dialog", callback: (dialog: ScriptDialog) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "script-dialog", callback: (dialog: ScriptDialog) => void): NodeJS.EventEmitter
     emit(sigName: "script-dialog", dialog: ScriptDialog): void
-    on(sigName: "script-dialog", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "script-dialog", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "script-dialog", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "show-notification", callback: (($obj: WebView, notification: Notification) => boolean)): number
-    connect_after(sigName: "show-notification", callback: (($obj: WebView, notification: Notification) => boolean)): number
+    on(sigName: "show-notification", callback: (notification: Notification) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "show-notification", callback: (notification: Notification) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "show-notification", callback: (notification: Notification) => void): NodeJS.EventEmitter
     emit(sigName: "show-notification", notification: Notification): void
-    on(sigName: "show-notification", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "show-notification", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "show-notification", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "show-option-menu", callback: (($obj: WebView, object: OptionMenu, p0: Gdk.Event, p1: Gdk.Rectangle) => boolean)): number
-    connect_after(sigName: "show-option-menu", callback: (($obj: WebView, object: OptionMenu, p0: Gdk.Event, p1: Gdk.Rectangle) => boolean)): number
+    on(sigName: "show-option-menu", callback: (object: OptionMenu, p0: Gdk.Event, p1: Gdk.Rectangle) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "show-option-menu", callback: (object: OptionMenu, p0: Gdk.Event, p1: Gdk.Rectangle) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "show-option-menu", callback: (object: OptionMenu, p0: Gdk.Event, p1: Gdk.Rectangle) => void): NodeJS.EventEmitter
     emit(sigName: "show-option-menu", object: OptionMenu, p0: Gdk.Event, p1: Gdk.Rectangle): void
-    on(sigName: "show-option-menu", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "show-option-menu", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "show-option-menu", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "submit-form", callback: (($obj: WebView, request: FormSubmissionRequest) => void)): number
-    connect_after(sigName: "submit-form", callback: (($obj: WebView, request: FormSubmissionRequest) => void)): number
+    on(sigName: "submit-form", callback: (request: FormSubmissionRequest) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "submit-form", callback: (request: FormSubmissionRequest) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "submit-form", callback: (request: FormSubmissionRequest) => void): NodeJS.EventEmitter
     emit(sigName: "submit-form", request: FormSubmissionRequest): void
-    on(sigName: "submit-form", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "submit-form", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "submit-form", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "user-message-received", callback: (($obj: WebView, message: UserMessage) => boolean)): number
-    connect_after(sigName: "user-message-received", callback: (($obj: WebView, message: UserMessage) => boolean)): number
+    on(sigName: "user-message-received", callback: (message: UserMessage) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "user-message-received", callback: (message: UserMessage) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "user-message-received", callback: (message: UserMessage) => void): NodeJS.EventEmitter
     emit(sigName: "user-message-received", message: UserMessage): void
-    on(sigName: "user-message-received", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "user-message-received", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "user-message-received", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "web-process-crashed", callback: (($obj: WebView) => boolean)): number
-    connect_after(sigName: "web-process-crashed", callback: (($obj: WebView) => boolean)): number
+    on(sigName: "web-process-crashed", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "web-process-crashed", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "web-process-crashed", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "web-process-crashed"): void
-    on(sigName: "web-process-crashed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "web-process-crashed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "web-process-crashed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "web-process-terminated", callback: (($obj: WebView, reason: WebProcessTerminationReason) => void)): number
-    connect_after(sigName: "web-process-terminated", callback: (($obj: WebView, reason: WebProcessTerminationReason) => void)): number
+    on(sigName: "web-process-terminated", callback: (reason: WebProcessTerminationReason) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "web-process-terminated", callback: (reason: WebProcessTerminationReason) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "web-process-terminated", callback: (reason: WebProcessTerminationReason) => void): NodeJS.EventEmitter
     emit(sigName: "web-process-terminated", reason: WebProcessTerminationReason): void
-    on(sigName: "web-process-terminated", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "web-process-terminated", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "web-process-terminated", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of Gtk.Container */
+    /* Signals of Gtk-3.0.Gtk.Container */
     connect(sigName: "add", callback: (($obj: WebView, object: Gtk.Widget) => void)): number
-    connect_after(sigName: "add", callback: (($obj: WebView, object: Gtk.Widget) => void)): number
+    on(sigName: "add", callback: (object: Gtk.Widget) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "add", callback: (object: Gtk.Widget) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "add", callback: (object: Gtk.Widget) => void): NodeJS.EventEmitter
     emit(sigName: "add", object: Gtk.Widget): void
-    on(sigName: "add", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "add", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "add", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "check-resize", callback: (($obj: WebView) => void)): number
-    connect_after(sigName: "check-resize", callback: (($obj: WebView) => void)): number
+    on(sigName: "check-resize", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "check-resize", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "check-resize", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "check-resize"): void
-    on(sigName: "check-resize", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "check-resize", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "check-resize", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "remove", callback: (($obj: WebView, object: Gtk.Widget) => void)): number
-    connect_after(sigName: "remove", callback: (($obj: WebView, object: Gtk.Widget) => void)): number
+    on(sigName: "remove", callback: (object: Gtk.Widget) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "remove", callback: (object: Gtk.Widget) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "remove", callback: (object: Gtk.Widget) => void): NodeJS.EventEmitter
     emit(sigName: "remove", object: Gtk.Widget): void
-    on(sigName: "remove", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "remove", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "remove", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "set-focus-child", callback: (($obj: WebView, object: Gtk.Widget) => void)): number
-    connect_after(sigName: "set-focus-child", callback: (($obj: WebView, object: Gtk.Widget) => void)): number
+    on(sigName: "set-focus-child", callback: (object: Gtk.Widget) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "set-focus-child", callback: (object: Gtk.Widget) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "set-focus-child", callback: (object: Gtk.Widget) => void): NodeJS.EventEmitter
     emit(sigName: "set-focus-child", object: Gtk.Widget): void
-    on(sigName: "set-focus-child", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "set-focus-child", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "set-focus-child", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of Gtk.Widget */
+    /* Signals of Gtk-3.0.Gtk.Widget */
     connect(sigName: "accel-closures-changed", callback: (($obj: WebView) => void)): number
-    connect_after(sigName: "accel-closures-changed", callback: (($obj: WebView) => void)): number
+    on(sigName: "accel-closures-changed", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "accel-closures-changed", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "accel-closures-changed", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "accel-closures-changed"): void
-    on(sigName: "accel-closures-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "accel-closures-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "accel-closures-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "button-press-event", callback: (($obj: WebView, event: Gdk.EventButton) => boolean)): number
-    connect_after(sigName: "button-press-event", callback: (($obj: WebView, event: Gdk.EventButton) => boolean)): number
+    on(sigName: "button-press-event", callback: (event: Gdk.EventButton) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "button-press-event", callback: (event: Gdk.EventButton) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "button-press-event", callback: (event: Gdk.EventButton) => void): NodeJS.EventEmitter
     emit(sigName: "button-press-event", event: Gdk.EventButton): void
-    on(sigName: "button-press-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "button-press-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "button-press-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "button-release-event", callback: (($obj: WebView, event: Gdk.EventButton) => boolean)): number
-    connect_after(sigName: "button-release-event", callback: (($obj: WebView, event: Gdk.EventButton) => boolean)): number
+    on(sigName: "button-release-event", callback: (event: Gdk.EventButton) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "button-release-event", callback: (event: Gdk.EventButton) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "button-release-event", callback: (event: Gdk.EventButton) => void): NodeJS.EventEmitter
     emit(sigName: "button-release-event", event: Gdk.EventButton): void
-    on(sigName: "button-release-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "button-release-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "button-release-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "can-activate-accel", callback: (($obj: WebView, signalId: number) => boolean)): number
-    connect_after(sigName: "can-activate-accel", callback: (($obj: WebView, signalId: number) => boolean)): number
+    on(sigName: "can-activate-accel", callback: (signalId: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "can-activate-accel", callback: (signalId: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "can-activate-accel", callback: (signalId: number) => void): NodeJS.EventEmitter
     emit(sigName: "can-activate-accel", signalId: number): void
-    on(sigName: "can-activate-accel", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "can-activate-accel", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "can-activate-accel", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "child-notify", callback: (($obj: WebView, childProperty: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "child-notify", callback: (($obj: WebView, childProperty: GObject.ParamSpec) => void)): number
+    on(sigName: "child-notify", callback: (childProperty: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "child-notify", callback: (childProperty: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "child-notify", callback: (childProperty: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "child-notify", childProperty: GObject.ParamSpec): void
-    on(sigName: "child-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "child-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "child-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "composited-changed", callback: (($obj: WebView) => void)): number
-    connect_after(sigName: "composited-changed", callback: (($obj: WebView) => void)): number
+    on(sigName: "composited-changed", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "composited-changed", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "composited-changed", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "composited-changed"): void
-    on(sigName: "composited-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "composited-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "composited-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "configure-event", callback: (($obj: WebView, event: Gdk.EventConfigure) => boolean)): number
-    connect_after(sigName: "configure-event", callback: (($obj: WebView, event: Gdk.EventConfigure) => boolean)): number
+    on(sigName: "configure-event", callback: (event: Gdk.EventConfigure) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "configure-event", callback: (event: Gdk.EventConfigure) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "configure-event", callback: (event: Gdk.EventConfigure) => void): NodeJS.EventEmitter
     emit(sigName: "configure-event", event: Gdk.EventConfigure): void
-    on(sigName: "configure-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "configure-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "configure-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "damage-event", callback: (($obj: WebView, event: Gdk.EventExpose) => boolean)): number
-    connect_after(sigName: "damage-event", callback: (($obj: WebView, event: Gdk.EventExpose) => boolean)): number
+    on(sigName: "damage-event", callback: (event: Gdk.EventExpose) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "damage-event", callback: (event: Gdk.EventExpose) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "damage-event", callback: (event: Gdk.EventExpose) => void): NodeJS.EventEmitter
     emit(sigName: "damage-event", event: Gdk.EventExpose): void
-    on(sigName: "damage-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "damage-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "damage-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "delete-event", callback: (($obj: WebView, event: Gdk.Event) => boolean)): number
-    connect_after(sigName: "delete-event", callback: (($obj: WebView, event: Gdk.Event) => boolean)): number
+    on(sigName: "delete-event", callback: (event: Gdk.Event) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "delete-event", callback: (event: Gdk.Event) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "delete-event", callback: (event: Gdk.Event) => void): NodeJS.EventEmitter
     emit(sigName: "delete-event", event: Gdk.Event): void
-    on(sigName: "delete-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "delete-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "delete-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "destroy", callback: (($obj: WebView) => void)): number
-    connect_after(sigName: "destroy", callback: (($obj: WebView) => void)): number
+    on(sigName: "destroy", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "destroy", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "destroy", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "destroy"): void
-    on(sigName: "destroy", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "destroy", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "destroy", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "destroy-event", callback: (($obj: WebView, event: Gdk.Event) => boolean)): number
-    connect_after(sigName: "destroy-event", callback: (($obj: WebView, event: Gdk.Event) => boolean)): number
+    on(sigName: "destroy-event", callback: (event: Gdk.Event) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "destroy-event", callback: (event: Gdk.Event) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "destroy-event", callback: (event: Gdk.Event) => void): NodeJS.EventEmitter
     emit(sigName: "destroy-event", event: Gdk.Event): void
-    on(sigName: "destroy-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "destroy-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "destroy-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "direction-changed", callback: (($obj: WebView, previousDirection: Gtk.TextDirection) => void)): number
-    connect_after(sigName: "direction-changed", callback: (($obj: WebView, previousDirection: Gtk.TextDirection) => void)): number
+    on(sigName: "direction-changed", callback: (previousDirection: Gtk.TextDirection) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "direction-changed", callback: (previousDirection: Gtk.TextDirection) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "direction-changed", callback: (previousDirection: Gtk.TextDirection) => void): NodeJS.EventEmitter
     emit(sigName: "direction-changed", previousDirection: Gtk.TextDirection): void
-    on(sigName: "direction-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "direction-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "direction-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "drag-begin", callback: (($obj: WebView, context: Gdk.DragContext) => void)): number
-    connect_after(sigName: "drag-begin", callback: (($obj: WebView, context: Gdk.DragContext) => void)): number
+    on(sigName: "drag-begin", callback: (context: Gdk.DragContext) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "drag-begin", callback: (context: Gdk.DragContext) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "drag-begin", callback: (context: Gdk.DragContext) => void): NodeJS.EventEmitter
     emit(sigName: "drag-begin", context: Gdk.DragContext): void
-    on(sigName: "drag-begin", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "drag-begin", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "drag-begin", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "drag-data-delete", callback: (($obj: WebView, context: Gdk.DragContext) => void)): number
-    connect_after(sigName: "drag-data-delete", callback: (($obj: WebView, context: Gdk.DragContext) => void)): number
+    on(sigName: "drag-data-delete", callback: (context: Gdk.DragContext) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "drag-data-delete", callback: (context: Gdk.DragContext) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "drag-data-delete", callback: (context: Gdk.DragContext) => void): NodeJS.EventEmitter
     emit(sigName: "drag-data-delete", context: Gdk.DragContext): void
-    on(sigName: "drag-data-delete", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "drag-data-delete", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "drag-data-delete", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "drag-data-get", callback: (($obj: WebView, context: Gdk.DragContext, data: Gtk.SelectionData, info: number, time: number) => void)): number
-    connect_after(sigName: "drag-data-get", callback: (($obj: WebView, context: Gdk.DragContext, data: Gtk.SelectionData, info: number, time: number) => void)): number
+    on(sigName: "drag-data-get", callback: (context: Gdk.DragContext, data: Gtk.SelectionData, info: number, time: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "drag-data-get", callback: (context: Gdk.DragContext, data: Gtk.SelectionData, info: number, time: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "drag-data-get", callback: (context: Gdk.DragContext, data: Gtk.SelectionData, info: number, time: number) => void): NodeJS.EventEmitter
     emit(sigName: "drag-data-get", context: Gdk.DragContext, data: Gtk.SelectionData, info: number, time: number): void
-    on(sigName: "drag-data-get", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "drag-data-get", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "drag-data-get", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "drag-data-received", callback: (($obj: WebView, context: Gdk.DragContext, x: number, y: number, data: Gtk.SelectionData, info: number, time: number) => void)): number
-    connect_after(sigName: "drag-data-received", callback: (($obj: WebView, context: Gdk.DragContext, x: number, y: number, data: Gtk.SelectionData, info: number, time: number) => void)): number
+    on(sigName: "drag-data-received", callback: (context: Gdk.DragContext, x: number, y: number, data: Gtk.SelectionData, info: number, time: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "drag-data-received", callback: (context: Gdk.DragContext, x: number, y: number, data: Gtk.SelectionData, info: number, time: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "drag-data-received", callback: (context: Gdk.DragContext, x: number, y: number, data: Gtk.SelectionData, info: number, time: number) => void): NodeJS.EventEmitter
     emit(sigName: "drag-data-received", context: Gdk.DragContext, x: number, y: number, data: Gtk.SelectionData, info: number, time: number): void
-    on(sigName: "drag-data-received", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "drag-data-received", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "drag-data-received", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "drag-drop", callback: (($obj: WebView, context: Gdk.DragContext, x: number, y: number, time: number) => boolean)): number
-    connect_after(sigName: "drag-drop", callback: (($obj: WebView, context: Gdk.DragContext, x: number, y: number, time: number) => boolean)): number
+    on(sigName: "drag-drop", callback: (context: Gdk.DragContext, x: number, y: number, time: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "drag-drop", callback: (context: Gdk.DragContext, x: number, y: number, time: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "drag-drop", callback: (context: Gdk.DragContext, x: number, y: number, time: number) => void): NodeJS.EventEmitter
     emit(sigName: "drag-drop", context: Gdk.DragContext, x: number, y: number, time: number): void
-    on(sigName: "drag-drop", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "drag-drop", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "drag-drop", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "drag-end", callback: (($obj: WebView, context: Gdk.DragContext) => void)): number
-    connect_after(sigName: "drag-end", callback: (($obj: WebView, context: Gdk.DragContext) => void)): number
+    on(sigName: "drag-end", callback: (context: Gdk.DragContext) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "drag-end", callback: (context: Gdk.DragContext) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "drag-end", callback: (context: Gdk.DragContext) => void): NodeJS.EventEmitter
     emit(sigName: "drag-end", context: Gdk.DragContext): void
-    on(sigName: "drag-end", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "drag-end", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "drag-end", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "drag-failed", callback: (($obj: WebView, context: Gdk.DragContext, result: Gtk.DragResult) => boolean)): number
-    connect_after(sigName: "drag-failed", callback: (($obj: WebView, context: Gdk.DragContext, result: Gtk.DragResult) => boolean)): number
+    on(sigName: "drag-failed", callback: (context: Gdk.DragContext, result: Gtk.DragResult) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "drag-failed", callback: (context: Gdk.DragContext, result: Gtk.DragResult) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "drag-failed", callback: (context: Gdk.DragContext, result: Gtk.DragResult) => void): NodeJS.EventEmitter
     emit(sigName: "drag-failed", context: Gdk.DragContext, result: Gtk.DragResult): void
-    on(sigName: "drag-failed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "drag-failed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "drag-failed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "drag-leave", callback: (($obj: WebView, context: Gdk.DragContext, time: number) => void)): number
-    connect_after(sigName: "drag-leave", callback: (($obj: WebView, context: Gdk.DragContext, time: number) => void)): number
+    on(sigName: "drag-leave", callback: (context: Gdk.DragContext, time: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "drag-leave", callback: (context: Gdk.DragContext, time: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "drag-leave", callback: (context: Gdk.DragContext, time: number) => void): NodeJS.EventEmitter
     emit(sigName: "drag-leave", context: Gdk.DragContext, time: number): void
-    on(sigName: "drag-leave", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "drag-leave", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "drag-leave", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "drag-motion", callback: (($obj: WebView, context: Gdk.DragContext, x: number, y: number, time: number) => boolean)): number
-    connect_after(sigName: "drag-motion", callback: (($obj: WebView, context: Gdk.DragContext, x: number, y: number, time: number) => boolean)): number
+    on(sigName: "drag-motion", callback: (context: Gdk.DragContext, x: number, y: number, time: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "drag-motion", callback: (context: Gdk.DragContext, x: number, y: number, time: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "drag-motion", callback: (context: Gdk.DragContext, x: number, y: number, time: number) => void): NodeJS.EventEmitter
     emit(sigName: "drag-motion", context: Gdk.DragContext, x: number, y: number, time: number): void
-    on(sigName: "drag-motion", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "drag-motion", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "drag-motion", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "draw", callback: (($obj: WebView, cr: cairo.Context) => boolean)): number
-    connect_after(sigName: "draw", callback: (($obj: WebView, cr: cairo.Context) => boolean)): number
+    on(sigName: "draw", callback: (cr: cairo.Context) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "draw", callback: (cr: cairo.Context) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "draw", callback: (cr: cairo.Context) => void): NodeJS.EventEmitter
     emit(sigName: "draw", cr: cairo.Context): void
-    on(sigName: "draw", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "draw", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "draw", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "enter-notify-event", callback: (($obj: WebView, event: Gdk.EventCrossing) => boolean)): number
-    connect_after(sigName: "enter-notify-event", callback: (($obj: WebView, event: Gdk.EventCrossing) => boolean)): number
+    on(sigName: "enter-notify-event", callback: (event: Gdk.EventCrossing) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "enter-notify-event", callback: (event: Gdk.EventCrossing) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "enter-notify-event", callback: (event: Gdk.EventCrossing) => void): NodeJS.EventEmitter
     emit(sigName: "enter-notify-event", event: Gdk.EventCrossing): void
-    on(sigName: "enter-notify-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "enter-notify-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "enter-notify-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "event", callback: (($obj: WebView, event: Gdk.Event) => boolean)): number
-    connect_after(sigName: "event", callback: (($obj: WebView, event: Gdk.Event) => boolean)): number
+    on(sigName: "event", callback: (event: Gdk.Event) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "event", callback: (event: Gdk.Event) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "event", callback: (event: Gdk.Event) => void): NodeJS.EventEmitter
     emit(sigName: "event", event: Gdk.Event): void
-    on(sigName: "event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "event-after", callback: (($obj: WebView, event: Gdk.Event) => void)): number
-    connect_after(sigName: "event-after", callback: (($obj: WebView, event: Gdk.Event) => void)): number
+    on(sigName: "event-after", callback: (event: Gdk.Event) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "event-after", callback: (event: Gdk.Event) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "event-after", callback: (event: Gdk.Event) => void): NodeJS.EventEmitter
     emit(sigName: "event-after", event: Gdk.Event): void
-    on(sigName: "event-after", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "event-after", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "event-after", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "focus", callback: (($obj: WebView, direction: Gtk.DirectionType) => boolean)): number
-    connect_after(sigName: "focus", callback: (($obj: WebView, direction: Gtk.DirectionType) => boolean)): number
+    on(sigName: "focus", callback: (direction: Gtk.DirectionType) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "focus", callback: (direction: Gtk.DirectionType) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "focus", callback: (direction: Gtk.DirectionType) => void): NodeJS.EventEmitter
     emit(sigName: "focus", direction: Gtk.DirectionType): void
-    on(sigName: "focus", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "focus", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "focus", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "focus-in-event", callback: (($obj: WebView, event: Gdk.EventFocus) => boolean)): number
-    connect_after(sigName: "focus-in-event", callback: (($obj: WebView, event: Gdk.EventFocus) => boolean)): number
+    on(sigName: "focus-in-event", callback: (event: Gdk.EventFocus) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "focus-in-event", callback: (event: Gdk.EventFocus) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "focus-in-event", callback: (event: Gdk.EventFocus) => void): NodeJS.EventEmitter
     emit(sigName: "focus-in-event", event: Gdk.EventFocus): void
-    on(sigName: "focus-in-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "focus-in-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "focus-in-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "focus-out-event", callback: (($obj: WebView, event: Gdk.EventFocus) => boolean)): number
-    connect_after(sigName: "focus-out-event", callback: (($obj: WebView, event: Gdk.EventFocus) => boolean)): number
+    on(sigName: "focus-out-event", callback: (event: Gdk.EventFocus) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "focus-out-event", callback: (event: Gdk.EventFocus) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "focus-out-event", callback: (event: Gdk.EventFocus) => void): NodeJS.EventEmitter
     emit(sigName: "focus-out-event", event: Gdk.EventFocus): void
-    on(sigName: "focus-out-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "focus-out-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "focus-out-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "grab-broken-event", callback: (($obj: WebView, event: Gdk.EventGrabBroken) => boolean)): number
-    connect_after(sigName: "grab-broken-event", callback: (($obj: WebView, event: Gdk.EventGrabBroken) => boolean)): number
+    on(sigName: "grab-broken-event", callback: (event: Gdk.EventGrabBroken) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "grab-broken-event", callback: (event: Gdk.EventGrabBroken) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "grab-broken-event", callback: (event: Gdk.EventGrabBroken) => void): NodeJS.EventEmitter
     emit(sigName: "grab-broken-event", event: Gdk.EventGrabBroken): void
-    on(sigName: "grab-broken-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "grab-broken-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "grab-broken-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "grab-focus", callback: (($obj: WebView) => void)): number
-    connect_after(sigName: "grab-focus", callback: (($obj: WebView) => void)): number
+    on(sigName: "grab-focus", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "grab-focus", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "grab-focus", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "grab-focus"): void
-    on(sigName: "grab-focus", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "grab-focus", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "grab-focus", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "grab-notify", callback: (($obj: WebView, wasGrabbed: boolean) => void)): number
-    connect_after(sigName: "grab-notify", callback: (($obj: WebView, wasGrabbed: boolean) => void)): number
+    on(sigName: "grab-notify", callback: (wasGrabbed: boolean) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "grab-notify", callback: (wasGrabbed: boolean) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "grab-notify", callback: (wasGrabbed: boolean) => void): NodeJS.EventEmitter
     emit(sigName: "grab-notify", wasGrabbed: boolean): void
-    on(sigName: "grab-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "grab-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "grab-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "hide", callback: (($obj: WebView) => void)): number
-    connect_after(sigName: "hide", callback: (($obj: WebView) => void)): number
+    on(sigName: "hide", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "hide", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "hide", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "hide"): void
-    on(sigName: "hide", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "hide", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "hide", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "hierarchy-changed", callback: (($obj: WebView, previousToplevel?: Gtk.Widget | null) => void)): number
-    connect_after(sigName: "hierarchy-changed", callback: (($obj: WebView, previousToplevel?: Gtk.Widget | null) => void)): number
+    on(sigName: "hierarchy-changed", callback: (previousToplevel?: Gtk.Widget | null) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "hierarchy-changed", callback: (previousToplevel?: Gtk.Widget | null) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "hierarchy-changed", callback: (previousToplevel?: Gtk.Widget | null) => void): NodeJS.EventEmitter
     emit(sigName: "hierarchy-changed", previousToplevel?: Gtk.Widget | null): void
-    on(sigName: "hierarchy-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "hierarchy-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "hierarchy-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "key-press-event", callback: (($obj: WebView, event: Gdk.EventKey) => boolean)): number
-    connect_after(sigName: "key-press-event", callback: (($obj: WebView, event: Gdk.EventKey) => boolean)): number
+    on(sigName: "key-press-event", callback: (event: Gdk.EventKey) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "key-press-event", callback: (event: Gdk.EventKey) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "key-press-event", callback: (event: Gdk.EventKey) => void): NodeJS.EventEmitter
     emit(sigName: "key-press-event", event: Gdk.EventKey): void
-    on(sigName: "key-press-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "key-press-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "key-press-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "key-release-event", callback: (($obj: WebView, event: Gdk.EventKey) => boolean)): number
-    connect_after(sigName: "key-release-event", callback: (($obj: WebView, event: Gdk.EventKey) => boolean)): number
+    on(sigName: "key-release-event", callback: (event: Gdk.EventKey) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "key-release-event", callback: (event: Gdk.EventKey) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "key-release-event", callback: (event: Gdk.EventKey) => void): NodeJS.EventEmitter
     emit(sigName: "key-release-event", event: Gdk.EventKey): void
-    on(sigName: "key-release-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "key-release-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "key-release-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "keynav-failed", callback: (($obj: WebView, direction: Gtk.DirectionType) => boolean)): number
-    connect_after(sigName: "keynav-failed", callback: (($obj: WebView, direction: Gtk.DirectionType) => boolean)): number
+    on(sigName: "keynav-failed", callback: (direction: Gtk.DirectionType) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "keynav-failed", callback: (direction: Gtk.DirectionType) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "keynav-failed", callback: (direction: Gtk.DirectionType) => void): NodeJS.EventEmitter
     emit(sigName: "keynav-failed", direction: Gtk.DirectionType): void
-    on(sigName: "keynav-failed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "keynav-failed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "keynav-failed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "leave-notify-event", callback: (($obj: WebView, event: Gdk.EventCrossing) => boolean)): number
-    connect_after(sigName: "leave-notify-event", callback: (($obj: WebView, event: Gdk.EventCrossing) => boolean)): number
+    on(sigName: "leave-notify-event", callback: (event: Gdk.EventCrossing) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "leave-notify-event", callback: (event: Gdk.EventCrossing) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "leave-notify-event", callback: (event: Gdk.EventCrossing) => void): NodeJS.EventEmitter
     emit(sigName: "leave-notify-event", event: Gdk.EventCrossing): void
-    on(sigName: "leave-notify-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "leave-notify-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "leave-notify-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "map", callback: (($obj: WebView) => void)): number
-    connect_after(sigName: "map", callback: (($obj: WebView) => void)): number
+    on(sigName: "map", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "map", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "map", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "map"): void
-    on(sigName: "map", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "map", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "map", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "map-event", callback: (($obj: WebView, event: Gdk.EventAny) => boolean)): number
-    connect_after(sigName: "map-event", callback: (($obj: WebView, event: Gdk.EventAny) => boolean)): number
+    on(sigName: "map-event", callback: (event: Gdk.EventAny) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "map-event", callback: (event: Gdk.EventAny) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "map-event", callback: (event: Gdk.EventAny) => void): NodeJS.EventEmitter
     emit(sigName: "map-event", event: Gdk.EventAny): void
-    on(sigName: "map-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "map-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "map-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "mnemonic-activate", callback: (($obj: WebView, groupCycling: boolean) => boolean)): number
-    connect_after(sigName: "mnemonic-activate", callback: (($obj: WebView, groupCycling: boolean) => boolean)): number
+    on(sigName: "mnemonic-activate", callback: (groupCycling: boolean) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "mnemonic-activate", callback: (groupCycling: boolean) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "mnemonic-activate", callback: (groupCycling: boolean) => void): NodeJS.EventEmitter
     emit(sigName: "mnemonic-activate", groupCycling: boolean): void
-    on(sigName: "mnemonic-activate", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "mnemonic-activate", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "mnemonic-activate", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "motion-notify-event", callback: (($obj: WebView, event: Gdk.EventMotion) => boolean)): number
-    connect_after(sigName: "motion-notify-event", callback: (($obj: WebView, event: Gdk.EventMotion) => boolean)): number
+    on(sigName: "motion-notify-event", callback: (event: Gdk.EventMotion) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "motion-notify-event", callback: (event: Gdk.EventMotion) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "motion-notify-event", callback: (event: Gdk.EventMotion) => void): NodeJS.EventEmitter
     emit(sigName: "motion-notify-event", event: Gdk.EventMotion): void
-    on(sigName: "motion-notify-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "motion-notify-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "motion-notify-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "move-focus", callback: (($obj: WebView, direction: Gtk.DirectionType) => void)): number
-    connect_after(sigName: "move-focus", callback: (($obj: WebView, direction: Gtk.DirectionType) => void)): number
+    on(sigName: "move-focus", callback: (direction: Gtk.DirectionType) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "move-focus", callback: (direction: Gtk.DirectionType) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "move-focus", callback: (direction: Gtk.DirectionType) => void): NodeJS.EventEmitter
     emit(sigName: "move-focus", direction: Gtk.DirectionType): void
-    on(sigName: "move-focus", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "move-focus", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "move-focus", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "parent-set", callback: (($obj: WebView, oldParent?: Gtk.Widget | null) => void)): number
-    connect_after(sigName: "parent-set", callback: (($obj: WebView, oldParent?: Gtk.Widget | null) => void)): number
+    on(sigName: "parent-set", callback: (oldParent?: Gtk.Widget | null) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "parent-set", callback: (oldParent?: Gtk.Widget | null) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "parent-set", callback: (oldParent?: Gtk.Widget | null) => void): NodeJS.EventEmitter
     emit(sigName: "parent-set", oldParent?: Gtk.Widget | null): void
-    on(sigName: "parent-set", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "parent-set", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "parent-set", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "popup-menu", callback: (($obj: WebView) => boolean)): number
-    connect_after(sigName: "popup-menu", callback: (($obj: WebView) => boolean)): number
+    on(sigName: "popup-menu", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "popup-menu", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "popup-menu", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "popup-menu"): void
-    on(sigName: "popup-menu", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "popup-menu", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "popup-menu", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "property-notify-event", callback: (($obj: WebView, event: Gdk.EventProperty) => boolean)): number
-    connect_after(sigName: "property-notify-event", callback: (($obj: WebView, event: Gdk.EventProperty) => boolean)): number
+    on(sigName: "property-notify-event", callback: (event: Gdk.EventProperty) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "property-notify-event", callback: (event: Gdk.EventProperty) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "property-notify-event", callback: (event: Gdk.EventProperty) => void): NodeJS.EventEmitter
     emit(sigName: "property-notify-event", event: Gdk.EventProperty): void
-    on(sigName: "property-notify-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "property-notify-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "property-notify-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "proximity-in-event", callback: (($obj: WebView, event: Gdk.EventProximity) => boolean)): number
-    connect_after(sigName: "proximity-in-event", callback: (($obj: WebView, event: Gdk.EventProximity) => boolean)): number
+    on(sigName: "proximity-in-event", callback: (event: Gdk.EventProximity) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "proximity-in-event", callback: (event: Gdk.EventProximity) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "proximity-in-event", callback: (event: Gdk.EventProximity) => void): NodeJS.EventEmitter
     emit(sigName: "proximity-in-event", event: Gdk.EventProximity): void
-    on(sigName: "proximity-in-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "proximity-in-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "proximity-in-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "proximity-out-event", callback: (($obj: WebView, event: Gdk.EventProximity) => boolean)): number
-    connect_after(sigName: "proximity-out-event", callback: (($obj: WebView, event: Gdk.EventProximity) => boolean)): number
+    on(sigName: "proximity-out-event", callback: (event: Gdk.EventProximity) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "proximity-out-event", callback: (event: Gdk.EventProximity) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "proximity-out-event", callback: (event: Gdk.EventProximity) => void): NodeJS.EventEmitter
     emit(sigName: "proximity-out-event", event: Gdk.EventProximity): void
-    on(sigName: "proximity-out-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "proximity-out-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "proximity-out-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "query-tooltip", callback: (($obj: WebView, x: number, y: number, keyboardMode: boolean, tooltip: Gtk.Tooltip) => boolean)): number
-    connect_after(sigName: "query-tooltip", callback: (($obj: WebView, x: number, y: number, keyboardMode: boolean, tooltip: Gtk.Tooltip) => boolean)): number
+    on(sigName: "query-tooltip", callback: (x: number, y: number, keyboardMode: boolean, tooltip: Gtk.Tooltip) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "query-tooltip", callback: (x: number, y: number, keyboardMode: boolean, tooltip: Gtk.Tooltip) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "query-tooltip", callback: (x: number, y: number, keyboardMode: boolean, tooltip: Gtk.Tooltip) => void): NodeJS.EventEmitter
     emit(sigName: "query-tooltip", x: number, y: number, keyboardMode: boolean, tooltip: Gtk.Tooltip): void
-    on(sigName: "query-tooltip", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "query-tooltip", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "query-tooltip", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "realize", callback: (($obj: WebView) => void)): number
-    connect_after(sigName: "realize", callback: (($obj: WebView) => void)): number
+    on(sigName: "realize", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "realize", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "realize", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "realize"): void
-    on(sigName: "realize", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "realize", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "realize", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "screen-changed", callback: (($obj: WebView, previousScreen?: Gdk.Screen | null) => void)): number
-    connect_after(sigName: "screen-changed", callback: (($obj: WebView, previousScreen?: Gdk.Screen | null) => void)): number
+    on(sigName: "screen-changed", callback: (previousScreen?: Gdk.Screen | null) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "screen-changed", callback: (previousScreen?: Gdk.Screen | null) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "screen-changed", callback: (previousScreen?: Gdk.Screen | null) => void): NodeJS.EventEmitter
     emit(sigName: "screen-changed", previousScreen?: Gdk.Screen | null): void
-    on(sigName: "screen-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "screen-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "screen-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "scroll-event", callback: (($obj: WebView, event: Gdk.EventScroll) => boolean)): number
-    connect_after(sigName: "scroll-event", callback: (($obj: WebView, event: Gdk.EventScroll) => boolean)): number
+    on(sigName: "scroll-event", callback: (event: Gdk.EventScroll) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "scroll-event", callback: (event: Gdk.EventScroll) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "scroll-event", callback: (event: Gdk.EventScroll) => void): NodeJS.EventEmitter
     emit(sigName: "scroll-event", event: Gdk.EventScroll): void
-    on(sigName: "scroll-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "scroll-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "scroll-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "selection-clear-event", callback: (($obj: WebView, event: Gdk.EventSelection) => boolean)): number
-    connect_after(sigName: "selection-clear-event", callback: (($obj: WebView, event: Gdk.EventSelection) => boolean)): number
+    on(sigName: "selection-clear-event", callback: (event: Gdk.EventSelection) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "selection-clear-event", callback: (event: Gdk.EventSelection) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "selection-clear-event", callback: (event: Gdk.EventSelection) => void): NodeJS.EventEmitter
     emit(sigName: "selection-clear-event", event: Gdk.EventSelection): void
-    on(sigName: "selection-clear-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "selection-clear-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "selection-clear-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "selection-get", callback: (($obj: WebView, data: Gtk.SelectionData, info: number, time: number) => void)): number
-    connect_after(sigName: "selection-get", callback: (($obj: WebView, data: Gtk.SelectionData, info: number, time: number) => void)): number
+    on(sigName: "selection-get", callback: (data: Gtk.SelectionData, info: number, time: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "selection-get", callback: (data: Gtk.SelectionData, info: number, time: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "selection-get", callback: (data: Gtk.SelectionData, info: number, time: number) => void): NodeJS.EventEmitter
     emit(sigName: "selection-get", data: Gtk.SelectionData, info: number, time: number): void
-    on(sigName: "selection-get", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "selection-get", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "selection-get", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "selection-notify-event", callback: (($obj: WebView, event: Gdk.EventSelection) => boolean)): number
-    connect_after(sigName: "selection-notify-event", callback: (($obj: WebView, event: Gdk.EventSelection) => boolean)): number
+    on(sigName: "selection-notify-event", callback: (event: Gdk.EventSelection) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "selection-notify-event", callback: (event: Gdk.EventSelection) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "selection-notify-event", callback: (event: Gdk.EventSelection) => void): NodeJS.EventEmitter
     emit(sigName: "selection-notify-event", event: Gdk.EventSelection): void
-    on(sigName: "selection-notify-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "selection-notify-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "selection-notify-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "selection-received", callback: (($obj: WebView, data: Gtk.SelectionData, time: number) => void)): number
-    connect_after(sigName: "selection-received", callback: (($obj: WebView, data: Gtk.SelectionData, time: number) => void)): number
+    on(sigName: "selection-received", callback: (data: Gtk.SelectionData, time: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "selection-received", callback: (data: Gtk.SelectionData, time: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "selection-received", callback: (data: Gtk.SelectionData, time: number) => void): NodeJS.EventEmitter
     emit(sigName: "selection-received", data: Gtk.SelectionData, time: number): void
-    on(sigName: "selection-received", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "selection-received", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "selection-received", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "selection-request-event", callback: (($obj: WebView, event: Gdk.EventSelection) => boolean)): number
-    connect_after(sigName: "selection-request-event", callback: (($obj: WebView, event: Gdk.EventSelection) => boolean)): number
+    on(sigName: "selection-request-event", callback: (event: Gdk.EventSelection) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "selection-request-event", callback: (event: Gdk.EventSelection) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "selection-request-event", callback: (event: Gdk.EventSelection) => void): NodeJS.EventEmitter
     emit(sigName: "selection-request-event", event: Gdk.EventSelection): void
-    on(sigName: "selection-request-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "selection-request-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "selection-request-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "show", callback: (($obj: WebView) => void)): number
-    connect_after(sigName: "show", callback: (($obj: WebView) => void)): number
+    on(sigName: "show", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "show", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "show", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "show"): void
-    on(sigName: "show", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "show", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "show", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "show-help", callback: (($obj: WebView, helpType: Gtk.WidgetHelpType) => boolean)): number
-    connect_after(sigName: "show-help", callback: (($obj: WebView, helpType: Gtk.WidgetHelpType) => boolean)): number
+    on(sigName: "show-help", callback: (helpType: Gtk.WidgetHelpType) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "show-help", callback: (helpType: Gtk.WidgetHelpType) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "show-help", callback: (helpType: Gtk.WidgetHelpType) => void): NodeJS.EventEmitter
     emit(sigName: "show-help", helpType: Gtk.WidgetHelpType): void
-    on(sigName: "show-help", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "show-help", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "show-help", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "size-allocate", callback: (($obj: WebView, allocation: Gtk.Allocation) => void)): number
-    connect_after(sigName: "size-allocate", callback: (($obj: WebView, allocation: Gtk.Allocation) => void)): number
+    on(sigName: "size-allocate", callback: (allocation: Gtk.Allocation) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "size-allocate", callback: (allocation: Gtk.Allocation) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "size-allocate", callback: (allocation: Gtk.Allocation) => void): NodeJS.EventEmitter
     emit(sigName: "size-allocate", allocation: Gtk.Allocation): void
-    on(sigName: "size-allocate", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "size-allocate", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "size-allocate", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "state-changed", callback: (($obj: WebView, state: Gtk.StateType) => void)): number
-    connect_after(sigName: "state-changed", callback: (($obj: WebView, state: Gtk.StateType) => void)): number
+    on(sigName: "state-changed", callback: (state: Gtk.StateType) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "state-changed", callback: (state: Gtk.StateType) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "state-changed", callback: (state: Gtk.StateType) => void): NodeJS.EventEmitter
     emit(sigName: "state-changed", state: Gtk.StateType): void
-    on(sigName: "state-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "state-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "state-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "state-flags-changed", callback: (($obj: WebView, flags: Gtk.StateFlags) => void)): number
-    connect_after(sigName: "state-flags-changed", callback: (($obj: WebView, flags: Gtk.StateFlags) => void)): number
+    on(sigName: "state-flags-changed", callback: (flags: Gtk.StateFlags) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "state-flags-changed", callback: (flags: Gtk.StateFlags) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "state-flags-changed", callback: (flags: Gtk.StateFlags) => void): NodeJS.EventEmitter
     emit(sigName: "state-flags-changed", flags: Gtk.StateFlags): void
-    on(sigName: "state-flags-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "state-flags-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "state-flags-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "style-set", callback: (($obj: WebView, previousStyle?: Gtk.Style | null) => void)): number
-    connect_after(sigName: "style-set", callback: (($obj: WebView, previousStyle?: Gtk.Style | null) => void)): number
+    on(sigName: "style-set", callback: (previousStyle?: Gtk.Style | null) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "style-set", callback: (previousStyle?: Gtk.Style | null) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "style-set", callback: (previousStyle?: Gtk.Style | null) => void): NodeJS.EventEmitter
     emit(sigName: "style-set", previousStyle?: Gtk.Style | null): void
-    on(sigName: "style-set", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "style-set", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "style-set", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "style-updated", callback: (($obj: WebView) => void)): number
-    connect_after(sigName: "style-updated", callback: (($obj: WebView) => void)): number
+    on(sigName: "style-updated", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "style-updated", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "style-updated", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "style-updated"): void
-    on(sigName: "style-updated", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "style-updated", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "style-updated", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "touch-event", callback: (($obj: WebView, object: Gdk.Event) => boolean)): number
-    connect_after(sigName: "touch-event", callback: (($obj: WebView, object: Gdk.Event) => boolean)): number
+    on(sigName: "touch-event", callback: (object: Gdk.Event) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "touch-event", callback: (object: Gdk.Event) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "touch-event", callback: (object: Gdk.Event) => void): NodeJS.EventEmitter
     emit(sigName: "touch-event", object: Gdk.Event): void
-    on(sigName: "touch-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "touch-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "touch-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "unmap", callback: (($obj: WebView) => void)): number
-    connect_after(sigName: "unmap", callback: (($obj: WebView) => void)): number
+    on(sigName: "unmap", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "unmap", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "unmap", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "unmap"): void
-    on(sigName: "unmap", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "unmap", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "unmap", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "unmap-event", callback: (($obj: WebView, event: Gdk.EventAny) => boolean)): number
-    connect_after(sigName: "unmap-event", callback: (($obj: WebView, event: Gdk.EventAny) => boolean)): number
+    on(sigName: "unmap-event", callback: (event: Gdk.EventAny) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "unmap-event", callback: (event: Gdk.EventAny) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "unmap-event", callback: (event: Gdk.EventAny) => void): NodeJS.EventEmitter
     emit(sigName: "unmap-event", event: Gdk.EventAny): void
-    on(sigName: "unmap-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "unmap-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "unmap-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "unrealize", callback: (($obj: WebView) => void)): number
-    connect_after(sigName: "unrealize", callback: (($obj: WebView) => void)): number
+    on(sigName: "unrealize", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "unrealize", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "unrealize", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "unrealize"): void
-    on(sigName: "unrealize", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "unrealize", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "unrealize", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "visibility-notify-event", callback: (($obj: WebView, event: Gdk.EventVisibility) => boolean)): number
-    connect_after(sigName: "visibility-notify-event", callback: (($obj: WebView, event: Gdk.EventVisibility) => boolean)): number
+    on(sigName: "visibility-notify-event", callback: (event: Gdk.EventVisibility) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "visibility-notify-event", callback: (event: Gdk.EventVisibility) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "visibility-notify-event", callback: (event: Gdk.EventVisibility) => void): NodeJS.EventEmitter
     emit(sigName: "visibility-notify-event", event: Gdk.EventVisibility): void
-    on(sigName: "visibility-notify-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "visibility-notify-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "visibility-notify-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "window-state-event", callback: (($obj: WebView, event: Gdk.EventWindowState) => boolean)): number
-    connect_after(sigName: "window-state-event", callback: (($obj: WebView, event: Gdk.EventWindowState) => boolean)): number
+    on(sigName: "window-state-event", callback: (event: Gdk.EventWindowState) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "window-state-event", callback: (event: Gdk.EventWindowState) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "window-state-event", callback: (event: Gdk.EventWindowState) => void): NodeJS.EventEmitter
     emit(sigName: "window-state-event", event: Gdk.EventWindowState): void
-    on(sigName: "window-state-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "window-state-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "window-state-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: WebView, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: WebView, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::editable", callback: (($obj: WebView, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::editable", callback: (($obj: WebView, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::editable", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -5772,11 +5061,11 @@ export class WebView {
 export interface WebViewBase_ConstructProps extends Gtk.Container_ConstructProps {
 }
 export class WebViewBase {
-    /* Properties of Gtk.Container */
+    /* Properties of Gtk-3.0.Gtk.Container */
     borderWidth: number
     child: Gtk.Widget
     resizeMode: Gtk.ResizeMode
-    /* Properties of Gtk.Widget */
+    /* Properties of Gtk-3.0.Gtk.Widget */
     appPaintable: boolean
     canDefault: boolean
     canFocus: boolean
@@ -5816,13 +5105,13 @@ export class WebViewBase {
     visible: boolean
     widthRequest: number
     readonly window: Gdk.Window
-    /* Fields of WebKit2.WebViewBase */
+    /* Fields of WebKit2-4.0.WebKit2.WebViewBase */
     parentInstance: Gtk.Container
-    /* Fields of Gtk.Container */
+    /* Fields of Gtk-3.0.Gtk.Container */
     widget: Gtk.Widget
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Gtk.Container */
+    /* Methods of Gtk-3.0.Gtk.Container */
     add(widget: Gtk.Widget): void
     checkResize(): void
     childGetProperty(child: Gtk.Widget, propertyName: string, value: any): void
@@ -5833,7 +5122,7 @@ export class WebViewBase {
     foreach(callback: Gtk.Callback): void
     getBorderWidth(): number
     getChildren(): Gtk.Widget[]
-    getFocusChain(): [ /* returnType */ boolean, /* focusableWidgets */ Gtk.Widget[] ]
+    getFocusChain(): { returnType: boolean, focusableWidgets: Gtk.Widget[] }
     getFocusChild(): Gtk.Widget | null
     getFocusHadjustment(): Gtk.Adjustment | null
     getFocusVadjustment(): Gtk.Adjustment | null
@@ -5850,7 +5139,7 @@ export class WebViewBase {
     setReallocateRedraws(needsRedraws: boolean): void
     setResizeMode(resizeMode: Gtk.ResizeMode): void
     unsetFocusChain(): void
-    /* Methods of Gtk.Widget */
+    /* Methods of Gtk-3.0.Gtk.Widget */
     activate(): boolean
     addAccelerator(accelSignal: string, accelGroup: Gtk.AccelGroup, accelKey: number, accelMods: Gdk.ModifierType, accelFlags: Gtk.AccelFlags): void
     addDeviceEvents(device: Gdk.Device, events: Gdk.EventMask): void
@@ -5860,12 +5149,12 @@ export class WebViewBase {
     canActivateAccel(signalId: number): boolean
     childFocus(direction: Gtk.DirectionType): boolean
     childNotify(childProperty: string): void
-    classPath(): [ /* pathLength */ number | null, /* path */ string | null, /* pathReversed */ string | null ]
+    classPath(): { pathLength: number | null, path: string | null, pathReversed: string | null }
     computeExpand(orientation: Gtk.Orientation): boolean
     createPangoContext(): Pango.Context
     createPangoLayout(text?: string | null): Pango.Layout
     destroy(): void
-    destroyed(widgetPointer: Gtk.Widget): /* widgetPointer */ Gtk.Widget
+    destroyed(widgetPointer: Gtk.Widget): { widgetPointer: Gtk.Widget }
     deviceIsShadowed(device: Gdk.Device): boolean
     dragBegin(targets: Gtk.TargetList, actions: Gdk.DragAction, button: number, event?: Gdk.Event | null): Gdk.DragContext
     dragBeginWithCoordinates(targets: Gtk.TargetList, actions: Gdk.DragAction, button: number, event: Gdk.Event | null, x: number, y: number): Gdk.DragContext
@@ -5904,16 +5193,16 @@ export class WebViewBase {
     getActionGroup(prefix: string): Gio.ActionGroup | null
     getAllocatedBaseline(): number
     getAllocatedHeight(): number
-    getAllocatedSize(): [ /* allocation */ Gtk.Allocation, /* baseline */ number | null ]
+    getAllocatedSize(): { allocation: Gtk.Allocation, baseline: number | null }
     getAllocatedWidth(): number
-    getAllocation(): /* allocation */ Gtk.Allocation
+    getAllocation(): { allocation: Gtk.Allocation }
     getAncestor(widgetType: GObject.Type): Gtk.Widget | null
     getAppPaintable(): boolean
     getCanDefault(): boolean
     getCanFocus(): boolean
-    getChildRequisition(): /* requisition */ Gtk.Requisition
+    getChildRequisition(): { requisition: Gtk.Requisition }
     getChildVisible(): boolean
-    getClip(): /* clip */ Gtk.Allocation
+    getClip(): { clip: Gtk.Allocation }
     getClipboard(selection: Gdk.Atom): Gtk.Clipboard
     getCompositeName(): string
     getDeviceEnabled(device: Gdk.Device): boolean
@@ -5947,23 +5236,23 @@ export class WebViewBase {
     getParent(): Gtk.Widget | null
     getParentWindow(): Gdk.Window | null
     getPath(): Gtk.WidgetPath
-    getPointer(): [ /* x */ number | null, /* y */ number | null ]
-    getPreferredHeight(): [ /* minimumHeight */ number | null, /* naturalHeight */ number | null ]
-    getPreferredHeightAndBaselineForWidth(width: number): [ /* minimumHeight */ number | null, /* naturalHeight */ number | null, /* minimumBaseline */ number | null, /* naturalBaseline */ number | null ]
-    getPreferredHeightForWidth(width: number): [ /* minimumHeight */ number | null, /* naturalHeight */ number | null ]
-    getPreferredSize(): [ /* minimumSize */ Gtk.Requisition | null, /* naturalSize */ Gtk.Requisition | null ]
-    getPreferredWidth(): [ /* minimumWidth */ number | null, /* naturalWidth */ number | null ]
-    getPreferredWidthForHeight(height: number): [ /* minimumWidth */ number | null, /* naturalWidth */ number | null ]
+    getPointer(): { x: number | null, y: number | null }
+    getPreferredHeight(): { minimumHeight: number | null, naturalHeight: number | null }
+    getPreferredHeightAndBaselineForWidth(width: number): { minimumHeight: number | null, naturalHeight: number | null, minimumBaseline: number | null, naturalBaseline: number | null }
+    getPreferredHeightForWidth(width: number): { minimumHeight: number | null, naturalHeight: number | null }
+    getPreferredSize(): { minimumSize: Gtk.Requisition | null, naturalSize: Gtk.Requisition | null }
+    getPreferredWidth(): { minimumWidth: number | null, naturalWidth: number | null }
+    getPreferredWidthForHeight(height: number): { minimumWidth: number | null, naturalWidth: number | null }
     getRealized(): boolean
     getReceivesDefault(): boolean
     getRequestMode(): Gtk.SizeRequestMode
-    getRequisition(): /* requisition */ Gtk.Requisition
+    getRequisition(): { requisition: Gtk.Requisition }
     getRootWindow(): Gdk.Window
     getScaleFactor(): number
     getScreen(): Gdk.Screen
     getSensitive(): boolean
     getSettings(): Gtk.Settings
-    getSizeRequest(): [ /* width */ number | null, /* height */ number | null ]
+    getSizeRequest(): { width: number | null, height: number | null }
     getState(): Gtk.StateType
     getStateFlags(): Gtk.StateFlags
     getStyle(): Gtk.Style
@@ -5995,7 +5284,7 @@ export class WebViewBase {
     initTemplate(): void
     inputShapeCombineRegion(region?: cairo.Region | null): void
     insertActionGroup(name: string, group?: Gio.ActionGroup | null): void
-    intersect(area: Gdk.Rectangle): [ /* returnType */ boolean, /* intersection */ Gdk.Rectangle | null ]
+    intersect(area: Gdk.Rectangle): { returnType: boolean, intersection: Gdk.Rectangle | null }
     isAncestor(ancestor: Gtk.Widget): boolean
     isComposited(): boolean
     isDrawable(): boolean
@@ -6020,7 +5309,7 @@ export class WebViewBase {
     overrideCursor(cursor?: Gdk.RGBA | null, secondaryCursor?: Gdk.RGBA | null): void
     overrideFont(fontDesc?: Pango.FontDescription | null): void
     overrideSymbolicColor(name: string, color?: Gdk.RGBA | null): void
-    path(): [ /* pathLength */ number | null, /* path */ string | null, /* pathReversed */ string | null ]
+    path(): { pathLength: number | null, path: string | null, pathReversed: string | null }
     queueAllocate(): void
     queueComputeExpand(): void
     queueDraw(): void
@@ -6098,18 +5387,18 @@ export class WebViewBase {
     showNow(): void
     sizeAllocate(allocation: Gtk.Allocation): void
     sizeAllocateWithBaseline(allocation: Gtk.Allocation, baseline: number): void
-    sizeRequest(): /* requisition */ Gtk.Requisition
+    sizeRequest(): { requisition: Gtk.Requisition }
     styleAttach(): void
     styleGetProperty(propertyName: string, value: any): void
     thawChildNotify(): void
-    translateCoordinates(destWidget: Gtk.Widget, srcX: number, srcY: number): [ /* returnType */ boolean, /* destX */ number | null, /* destY */ number | null ]
+    translateCoordinates(destWidget: Gtk.Widget, srcX: number, srcY: number): { returnType: boolean, destX: number | null, destY: number | null }
     triggerTooltipQuery(): void
     unmap(): void
     unparent(): void
     unrealize(): void
     unregisterWindow(window: Gdk.Window): void
     unsetStateFlags(flags: Gtk.StateFlags): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -6131,575 +5420,388 @@ export class WebViewBase {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of Gtk.Buildable */
+    /* Methods of Gtk-3.0.Gtk.Buildable */
     addChild(builder: Gtk.Builder, child: GObject.Object, type?: string | null): void
     constructChild(builder: Gtk.Builder, name: string): GObject.Object
     customFinished(builder: Gtk.Builder, child: GObject.Object | null, tagname: string, data?: object | null): void
     customTagEnd(builder: Gtk.Builder, child: GObject.Object | null, tagname: string, data?: object | null): void
-    customTagStart(builder: Gtk.Builder, child: GObject.Object | null, tagname: string): [ /* returnType */ boolean, /* parser */ GLib.MarkupParser, /* data */ object | null ]
+    customTagStart(builder: Gtk.Builder, child: GObject.Object | null, tagname: string): { returnType: boolean, parser: GLib.MarkupParser, data: object | null }
     getInternalChild(builder: Gtk.Builder, childname: string): GObject.Object
     parserFinished(builder: Gtk.Builder): void
     setBuildableProperty(builder: Gtk.Builder, name: string, value: any): void
-    /* Virtual methods of WebKit2.WebViewBase */
-    vfuncAddChild(builder: Gtk.Builder, child: GObject.Object, type?: string | null): void
-    vfuncConstructChild(builder: Gtk.Builder, name: string): GObject.Object
-    vfuncCustomFinished(builder: Gtk.Builder, child: GObject.Object | null, tagname: string, data?: object | null): void
-    vfuncCustomTagEnd(builder: Gtk.Builder, child: GObject.Object | null, tagname: string, data?: object | null): void
-    vfuncCustomTagStart(builder: Gtk.Builder, child: GObject.Object | null, tagname: string): [ /* returnType */ boolean, /* parser */ GLib.MarkupParser, /* data */ object | null ]
-    vfuncGetInternalChild(builder: Gtk.Builder, childname: string): GObject.Object
-    vfuncGetName(): string
-    vfuncParserFinished(builder: Gtk.Builder): void
-    vfuncSetBuildableProperty(builder: Gtk.Builder, name: string, value: any): void
-    vfuncSetName(name: string): void
-    /* Virtual methods of Gtk.Container */
-    vfuncAdd(widget: Gtk.Widget): void
-    vfuncCheckResize(): void
-    vfuncChildType(): GObject.Type
-    vfuncCompositeName(child: Gtk.Widget): string
-    vfuncForall(includeInternals: boolean, callback: Gtk.Callback): void
-    vfuncGetChildProperty(child: Gtk.Widget, propertyId: number, value: any, pspec: GObject.ParamSpec): void
-    vfuncGetPathForChild(child: Gtk.Widget): Gtk.WidgetPath
-    vfuncRemove(widget: Gtk.Widget): void
-    vfuncSetChildProperty(child: Gtk.Widget, propertyId: number, value: any, pspec: GObject.ParamSpec): void
-    vfuncSetFocusChild(child?: Gtk.Widget | null): void
-    /* Virtual methods of Gtk.Widget */
-    vfuncAdjustBaselineAllocation(baseline: number): void
-    vfuncAdjustBaselineRequest(minimumBaseline: number, naturalBaseline: number): void
-    vfuncAdjustSizeAllocation(orientation: Gtk.Orientation, minimumSize: number, naturalSize: number, allocatedPos: number, allocatedSize: number): void
-    vfuncAdjustSizeRequest(orientation: Gtk.Orientation, minimumSize: number, naturalSize: number): void
-    vfuncButtonPressEvent(event: Gdk.EventButton): boolean
-    vfuncButtonReleaseEvent(event: Gdk.EventButton): boolean
-    vfuncCanActivateAccel(signalId: number): boolean
-    vfuncChildNotify(childProperty: GObject.ParamSpec): void
-    vfuncCompositedChanged(): void
-    vfuncComputeExpand(hexpandP: boolean, vexpandP: boolean): void
-    vfuncConfigureEvent(event: Gdk.EventConfigure): boolean
-    vfuncDamageEvent(event: Gdk.EventExpose): boolean
-    vfuncDeleteEvent(event: Gdk.EventAny): boolean
-    vfuncDestroy(): void
-    vfuncDestroyEvent(event: Gdk.EventAny): boolean
-    vfuncDirectionChanged(previousDirection: Gtk.TextDirection): void
-    vfuncDispatchChildPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDragBegin(context: Gdk.DragContext): void
-    vfuncDragDataDelete(context: Gdk.DragContext): void
-    vfuncDragDataGet(context: Gdk.DragContext, selectionData: Gtk.SelectionData, info: number, time: number): void
-    vfuncDragDataReceived(context: Gdk.DragContext, x: number, y: number, selectionData: Gtk.SelectionData, info: number, time: number): void
-    vfuncDragDrop(context: Gdk.DragContext, x: number, y: number, time: number): boolean
-    vfuncDragEnd(context: Gdk.DragContext): void
-    vfuncDragFailed(context: Gdk.DragContext, result: Gtk.DragResult): boolean
-    vfuncDragLeave(context: Gdk.DragContext, time: number): void
-    vfuncDragMotion(context: Gdk.DragContext, x: number, y: number, time: number): boolean
-    vfuncDraw(cr: cairo.Context): boolean
-    vfuncEnterNotifyEvent(event: Gdk.EventCrossing): boolean
-    vfuncEvent(event: Gdk.Event): boolean
-    vfuncFocus(direction: Gtk.DirectionType): boolean
-    vfuncFocusInEvent(event: Gdk.EventFocus): boolean
-    vfuncFocusOutEvent(event: Gdk.EventFocus): boolean
-    vfuncGetAccessible(): Atk.Object
-    vfuncGetPreferredHeight(): [ /* minimumHeight */ number | null, /* naturalHeight */ number | null ]
-    vfuncGetPreferredHeightAndBaselineForWidth(width: number): [ /* minimumHeight */ number | null, /* naturalHeight */ number | null, /* minimumBaseline */ number | null, /* naturalBaseline */ number | null ]
-    vfuncGetPreferredHeightForWidth(width: number): [ /* minimumHeight */ number | null, /* naturalHeight */ number | null ]
-    vfuncGetPreferredWidth(): [ /* minimumWidth */ number | null, /* naturalWidth */ number | null ]
-    vfuncGetPreferredWidthForHeight(height: number): [ /* minimumWidth */ number | null, /* naturalWidth */ number | null ]
-    vfuncGetRequestMode(): Gtk.SizeRequestMode
-    vfuncGrabBrokenEvent(event: Gdk.EventGrabBroken): boolean
-    vfuncGrabFocus(): void
-    vfuncGrabNotify(wasGrabbed: boolean): void
-    vfuncHide(): void
-    vfuncHierarchyChanged(previousToplevel: Gtk.Widget): void
-    vfuncKeyPressEvent(event: Gdk.EventKey): boolean
-    vfuncKeyReleaseEvent(event: Gdk.EventKey): boolean
-    vfuncKeynavFailed(direction: Gtk.DirectionType): boolean
-    vfuncLeaveNotifyEvent(event: Gdk.EventCrossing): boolean
-    vfuncMap(): void
-    vfuncMapEvent(event: Gdk.EventAny): boolean
-    vfuncMnemonicActivate(groupCycling: boolean): boolean
-    vfuncMotionNotifyEvent(event: Gdk.EventMotion): boolean
-    vfuncMoveFocus(direction: Gtk.DirectionType): void
-    vfuncParentSet(previousParent: Gtk.Widget): void
-    vfuncPopupMenu(): boolean
-    vfuncPropertyNotifyEvent(event: Gdk.EventProperty): boolean
-    vfuncProximityInEvent(event: Gdk.EventProximity): boolean
-    vfuncProximityOutEvent(event: Gdk.EventProximity): boolean
-    vfuncQueryTooltip(x: number, y: number, keyboardTooltip: boolean, tooltip: Gtk.Tooltip): boolean
-    vfuncQueueDrawRegion(region: cairo.Region): void
-    vfuncRealize(): void
-    vfuncScreenChanged(previousScreen: Gdk.Screen): void
-    vfuncScrollEvent(event: Gdk.EventScroll): boolean
-    vfuncSelectionClearEvent(event: Gdk.EventSelection): boolean
-    vfuncSelectionGet(selectionData: Gtk.SelectionData, info: number, time: number): void
-    vfuncSelectionNotifyEvent(event: Gdk.EventSelection): boolean
-    vfuncSelectionReceived(selectionData: Gtk.SelectionData, time: number): void
-    vfuncSelectionRequestEvent(event: Gdk.EventSelection): boolean
-    vfuncShow(): void
-    vfuncShowAll(): void
-    vfuncShowHelp(helpType: Gtk.WidgetHelpType): boolean
-    vfuncSizeAllocate(allocation: Gtk.Allocation): void
-    vfuncStateChanged(previousState: Gtk.StateType): void
-    vfuncStateFlagsChanged(previousStateFlags: Gtk.StateFlags): void
-    vfuncStyleSet(previousStyle: Gtk.Style): void
-    vfuncStyleUpdated(): void
-    vfuncTouchEvent(event: Gdk.EventTouch): boolean
-    vfuncUnmap(): void
-    vfuncUnmapEvent(event: Gdk.EventAny): boolean
-    vfuncUnrealize(): void
-    vfuncVisibilityNotifyEvent(event: Gdk.EventVisibility): boolean
-    vfuncWindowStateEvent(event: Gdk.EventWindowState): boolean
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gtk.Container */
+    /* Signals of Gtk-3.0.Gtk.Container */
     connect(sigName: "add", callback: (($obj: WebViewBase, object: Gtk.Widget) => void)): number
-    connect_after(sigName: "add", callback: (($obj: WebViewBase, object: Gtk.Widget) => void)): number
+    on(sigName: "add", callback: (object: Gtk.Widget) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "add", callback: (object: Gtk.Widget) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "add", callback: (object: Gtk.Widget) => void): NodeJS.EventEmitter
     emit(sigName: "add", object: Gtk.Widget): void
-    on(sigName: "add", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "add", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "add", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "check-resize", callback: (($obj: WebViewBase) => void)): number
-    connect_after(sigName: "check-resize", callback: (($obj: WebViewBase) => void)): number
+    on(sigName: "check-resize", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "check-resize", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "check-resize", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "check-resize"): void
-    on(sigName: "check-resize", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "check-resize", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "check-resize", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "remove", callback: (($obj: WebViewBase, object: Gtk.Widget) => void)): number
-    connect_after(sigName: "remove", callback: (($obj: WebViewBase, object: Gtk.Widget) => void)): number
+    on(sigName: "remove", callback: (object: Gtk.Widget) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "remove", callback: (object: Gtk.Widget) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "remove", callback: (object: Gtk.Widget) => void): NodeJS.EventEmitter
     emit(sigName: "remove", object: Gtk.Widget): void
-    on(sigName: "remove", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "remove", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "remove", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "set-focus-child", callback: (($obj: WebViewBase, object: Gtk.Widget) => void)): number
-    connect_after(sigName: "set-focus-child", callback: (($obj: WebViewBase, object: Gtk.Widget) => void)): number
+    on(sigName: "set-focus-child", callback: (object: Gtk.Widget) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "set-focus-child", callback: (object: Gtk.Widget) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "set-focus-child", callback: (object: Gtk.Widget) => void): NodeJS.EventEmitter
     emit(sigName: "set-focus-child", object: Gtk.Widget): void
-    on(sigName: "set-focus-child", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "set-focus-child", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "set-focus-child", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of Gtk.Widget */
+    /* Signals of Gtk-3.0.Gtk.Widget */
     connect(sigName: "accel-closures-changed", callback: (($obj: WebViewBase) => void)): number
-    connect_after(sigName: "accel-closures-changed", callback: (($obj: WebViewBase) => void)): number
+    on(sigName: "accel-closures-changed", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "accel-closures-changed", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "accel-closures-changed", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "accel-closures-changed"): void
-    on(sigName: "accel-closures-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "accel-closures-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "accel-closures-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "button-press-event", callback: (($obj: WebViewBase, event: Gdk.EventButton) => boolean)): number
-    connect_after(sigName: "button-press-event", callback: (($obj: WebViewBase, event: Gdk.EventButton) => boolean)): number
+    on(sigName: "button-press-event", callback: (event: Gdk.EventButton) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "button-press-event", callback: (event: Gdk.EventButton) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "button-press-event", callback: (event: Gdk.EventButton) => void): NodeJS.EventEmitter
     emit(sigName: "button-press-event", event: Gdk.EventButton): void
-    on(sigName: "button-press-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "button-press-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "button-press-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "button-release-event", callback: (($obj: WebViewBase, event: Gdk.EventButton) => boolean)): number
-    connect_after(sigName: "button-release-event", callback: (($obj: WebViewBase, event: Gdk.EventButton) => boolean)): number
+    on(sigName: "button-release-event", callback: (event: Gdk.EventButton) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "button-release-event", callback: (event: Gdk.EventButton) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "button-release-event", callback: (event: Gdk.EventButton) => void): NodeJS.EventEmitter
     emit(sigName: "button-release-event", event: Gdk.EventButton): void
-    on(sigName: "button-release-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "button-release-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "button-release-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "can-activate-accel", callback: (($obj: WebViewBase, signalId: number) => boolean)): number
-    connect_after(sigName: "can-activate-accel", callback: (($obj: WebViewBase, signalId: number) => boolean)): number
+    on(sigName: "can-activate-accel", callback: (signalId: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "can-activate-accel", callback: (signalId: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "can-activate-accel", callback: (signalId: number) => void): NodeJS.EventEmitter
     emit(sigName: "can-activate-accel", signalId: number): void
-    on(sigName: "can-activate-accel", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "can-activate-accel", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "can-activate-accel", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "child-notify", callback: (($obj: WebViewBase, childProperty: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "child-notify", callback: (($obj: WebViewBase, childProperty: GObject.ParamSpec) => void)): number
+    on(sigName: "child-notify", callback: (childProperty: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "child-notify", callback: (childProperty: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "child-notify", callback: (childProperty: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "child-notify", childProperty: GObject.ParamSpec): void
-    on(sigName: "child-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "child-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "child-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "composited-changed", callback: (($obj: WebViewBase) => void)): number
-    connect_after(sigName: "composited-changed", callback: (($obj: WebViewBase) => void)): number
+    on(sigName: "composited-changed", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "composited-changed", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "composited-changed", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "composited-changed"): void
-    on(sigName: "composited-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "composited-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "composited-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "configure-event", callback: (($obj: WebViewBase, event: Gdk.EventConfigure) => boolean)): number
-    connect_after(sigName: "configure-event", callback: (($obj: WebViewBase, event: Gdk.EventConfigure) => boolean)): number
+    on(sigName: "configure-event", callback: (event: Gdk.EventConfigure) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "configure-event", callback: (event: Gdk.EventConfigure) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "configure-event", callback: (event: Gdk.EventConfigure) => void): NodeJS.EventEmitter
     emit(sigName: "configure-event", event: Gdk.EventConfigure): void
-    on(sigName: "configure-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "configure-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "configure-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "damage-event", callback: (($obj: WebViewBase, event: Gdk.EventExpose) => boolean)): number
-    connect_after(sigName: "damage-event", callback: (($obj: WebViewBase, event: Gdk.EventExpose) => boolean)): number
+    on(sigName: "damage-event", callback: (event: Gdk.EventExpose) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "damage-event", callback: (event: Gdk.EventExpose) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "damage-event", callback: (event: Gdk.EventExpose) => void): NodeJS.EventEmitter
     emit(sigName: "damage-event", event: Gdk.EventExpose): void
-    on(sigName: "damage-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "damage-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "damage-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "delete-event", callback: (($obj: WebViewBase, event: Gdk.Event) => boolean)): number
-    connect_after(sigName: "delete-event", callback: (($obj: WebViewBase, event: Gdk.Event) => boolean)): number
+    on(sigName: "delete-event", callback: (event: Gdk.Event) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "delete-event", callback: (event: Gdk.Event) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "delete-event", callback: (event: Gdk.Event) => void): NodeJS.EventEmitter
     emit(sigName: "delete-event", event: Gdk.Event): void
-    on(sigName: "delete-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "delete-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "delete-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "destroy", callback: (($obj: WebViewBase) => void)): number
-    connect_after(sigName: "destroy", callback: (($obj: WebViewBase) => void)): number
+    on(sigName: "destroy", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "destroy", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "destroy", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "destroy"): void
-    on(sigName: "destroy", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "destroy", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "destroy", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "destroy-event", callback: (($obj: WebViewBase, event: Gdk.Event) => boolean)): number
-    connect_after(sigName: "destroy-event", callback: (($obj: WebViewBase, event: Gdk.Event) => boolean)): number
+    on(sigName: "destroy-event", callback: (event: Gdk.Event) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "destroy-event", callback: (event: Gdk.Event) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "destroy-event", callback: (event: Gdk.Event) => void): NodeJS.EventEmitter
     emit(sigName: "destroy-event", event: Gdk.Event): void
-    on(sigName: "destroy-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "destroy-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "destroy-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "direction-changed", callback: (($obj: WebViewBase, previousDirection: Gtk.TextDirection) => void)): number
-    connect_after(sigName: "direction-changed", callback: (($obj: WebViewBase, previousDirection: Gtk.TextDirection) => void)): number
+    on(sigName: "direction-changed", callback: (previousDirection: Gtk.TextDirection) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "direction-changed", callback: (previousDirection: Gtk.TextDirection) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "direction-changed", callback: (previousDirection: Gtk.TextDirection) => void): NodeJS.EventEmitter
     emit(sigName: "direction-changed", previousDirection: Gtk.TextDirection): void
-    on(sigName: "direction-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "direction-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "direction-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "drag-begin", callback: (($obj: WebViewBase, context: Gdk.DragContext) => void)): number
-    connect_after(sigName: "drag-begin", callback: (($obj: WebViewBase, context: Gdk.DragContext) => void)): number
+    on(sigName: "drag-begin", callback: (context: Gdk.DragContext) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "drag-begin", callback: (context: Gdk.DragContext) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "drag-begin", callback: (context: Gdk.DragContext) => void): NodeJS.EventEmitter
     emit(sigName: "drag-begin", context: Gdk.DragContext): void
-    on(sigName: "drag-begin", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "drag-begin", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "drag-begin", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "drag-data-delete", callback: (($obj: WebViewBase, context: Gdk.DragContext) => void)): number
-    connect_after(sigName: "drag-data-delete", callback: (($obj: WebViewBase, context: Gdk.DragContext) => void)): number
+    on(sigName: "drag-data-delete", callback: (context: Gdk.DragContext) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "drag-data-delete", callback: (context: Gdk.DragContext) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "drag-data-delete", callback: (context: Gdk.DragContext) => void): NodeJS.EventEmitter
     emit(sigName: "drag-data-delete", context: Gdk.DragContext): void
-    on(sigName: "drag-data-delete", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "drag-data-delete", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "drag-data-delete", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "drag-data-get", callback: (($obj: WebViewBase, context: Gdk.DragContext, data: Gtk.SelectionData, info: number, time: number) => void)): number
-    connect_after(sigName: "drag-data-get", callback: (($obj: WebViewBase, context: Gdk.DragContext, data: Gtk.SelectionData, info: number, time: number) => void)): number
+    on(sigName: "drag-data-get", callback: (context: Gdk.DragContext, data: Gtk.SelectionData, info: number, time: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "drag-data-get", callback: (context: Gdk.DragContext, data: Gtk.SelectionData, info: number, time: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "drag-data-get", callback: (context: Gdk.DragContext, data: Gtk.SelectionData, info: number, time: number) => void): NodeJS.EventEmitter
     emit(sigName: "drag-data-get", context: Gdk.DragContext, data: Gtk.SelectionData, info: number, time: number): void
-    on(sigName: "drag-data-get", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "drag-data-get", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "drag-data-get", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "drag-data-received", callback: (($obj: WebViewBase, context: Gdk.DragContext, x: number, y: number, data: Gtk.SelectionData, info: number, time: number) => void)): number
-    connect_after(sigName: "drag-data-received", callback: (($obj: WebViewBase, context: Gdk.DragContext, x: number, y: number, data: Gtk.SelectionData, info: number, time: number) => void)): number
+    on(sigName: "drag-data-received", callback: (context: Gdk.DragContext, x: number, y: number, data: Gtk.SelectionData, info: number, time: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "drag-data-received", callback: (context: Gdk.DragContext, x: number, y: number, data: Gtk.SelectionData, info: number, time: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "drag-data-received", callback: (context: Gdk.DragContext, x: number, y: number, data: Gtk.SelectionData, info: number, time: number) => void): NodeJS.EventEmitter
     emit(sigName: "drag-data-received", context: Gdk.DragContext, x: number, y: number, data: Gtk.SelectionData, info: number, time: number): void
-    on(sigName: "drag-data-received", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "drag-data-received", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "drag-data-received", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "drag-drop", callback: (($obj: WebViewBase, context: Gdk.DragContext, x: number, y: number, time: number) => boolean)): number
-    connect_after(sigName: "drag-drop", callback: (($obj: WebViewBase, context: Gdk.DragContext, x: number, y: number, time: number) => boolean)): number
+    on(sigName: "drag-drop", callback: (context: Gdk.DragContext, x: number, y: number, time: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "drag-drop", callback: (context: Gdk.DragContext, x: number, y: number, time: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "drag-drop", callback: (context: Gdk.DragContext, x: number, y: number, time: number) => void): NodeJS.EventEmitter
     emit(sigName: "drag-drop", context: Gdk.DragContext, x: number, y: number, time: number): void
-    on(sigName: "drag-drop", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "drag-drop", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "drag-drop", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "drag-end", callback: (($obj: WebViewBase, context: Gdk.DragContext) => void)): number
-    connect_after(sigName: "drag-end", callback: (($obj: WebViewBase, context: Gdk.DragContext) => void)): number
+    on(sigName: "drag-end", callback: (context: Gdk.DragContext) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "drag-end", callback: (context: Gdk.DragContext) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "drag-end", callback: (context: Gdk.DragContext) => void): NodeJS.EventEmitter
     emit(sigName: "drag-end", context: Gdk.DragContext): void
-    on(sigName: "drag-end", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "drag-end", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "drag-end", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "drag-failed", callback: (($obj: WebViewBase, context: Gdk.DragContext, result: Gtk.DragResult) => boolean)): number
-    connect_after(sigName: "drag-failed", callback: (($obj: WebViewBase, context: Gdk.DragContext, result: Gtk.DragResult) => boolean)): number
+    on(sigName: "drag-failed", callback: (context: Gdk.DragContext, result: Gtk.DragResult) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "drag-failed", callback: (context: Gdk.DragContext, result: Gtk.DragResult) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "drag-failed", callback: (context: Gdk.DragContext, result: Gtk.DragResult) => void): NodeJS.EventEmitter
     emit(sigName: "drag-failed", context: Gdk.DragContext, result: Gtk.DragResult): void
-    on(sigName: "drag-failed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "drag-failed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "drag-failed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "drag-leave", callback: (($obj: WebViewBase, context: Gdk.DragContext, time: number) => void)): number
-    connect_after(sigName: "drag-leave", callback: (($obj: WebViewBase, context: Gdk.DragContext, time: number) => void)): number
+    on(sigName: "drag-leave", callback: (context: Gdk.DragContext, time: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "drag-leave", callback: (context: Gdk.DragContext, time: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "drag-leave", callback: (context: Gdk.DragContext, time: number) => void): NodeJS.EventEmitter
     emit(sigName: "drag-leave", context: Gdk.DragContext, time: number): void
-    on(sigName: "drag-leave", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "drag-leave", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "drag-leave", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "drag-motion", callback: (($obj: WebViewBase, context: Gdk.DragContext, x: number, y: number, time: number) => boolean)): number
-    connect_after(sigName: "drag-motion", callback: (($obj: WebViewBase, context: Gdk.DragContext, x: number, y: number, time: number) => boolean)): number
+    on(sigName: "drag-motion", callback: (context: Gdk.DragContext, x: number, y: number, time: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "drag-motion", callback: (context: Gdk.DragContext, x: number, y: number, time: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "drag-motion", callback: (context: Gdk.DragContext, x: number, y: number, time: number) => void): NodeJS.EventEmitter
     emit(sigName: "drag-motion", context: Gdk.DragContext, x: number, y: number, time: number): void
-    on(sigName: "drag-motion", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "drag-motion", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "drag-motion", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "draw", callback: (($obj: WebViewBase, cr: cairo.Context) => boolean)): number
-    connect_after(sigName: "draw", callback: (($obj: WebViewBase, cr: cairo.Context) => boolean)): number
+    on(sigName: "draw", callback: (cr: cairo.Context) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "draw", callback: (cr: cairo.Context) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "draw", callback: (cr: cairo.Context) => void): NodeJS.EventEmitter
     emit(sigName: "draw", cr: cairo.Context): void
-    on(sigName: "draw", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "draw", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "draw", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "enter-notify-event", callback: (($obj: WebViewBase, event: Gdk.EventCrossing) => boolean)): number
-    connect_after(sigName: "enter-notify-event", callback: (($obj: WebViewBase, event: Gdk.EventCrossing) => boolean)): number
+    on(sigName: "enter-notify-event", callback: (event: Gdk.EventCrossing) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "enter-notify-event", callback: (event: Gdk.EventCrossing) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "enter-notify-event", callback: (event: Gdk.EventCrossing) => void): NodeJS.EventEmitter
     emit(sigName: "enter-notify-event", event: Gdk.EventCrossing): void
-    on(sigName: "enter-notify-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "enter-notify-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "enter-notify-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "event", callback: (($obj: WebViewBase, event: Gdk.Event) => boolean)): number
-    connect_after(sigName: "event", callback: (($obj: WebViewBase, event: Gdk.Event) => boolean)): number
+    on(sigName: "event", callback: (event: Gdk.Event) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "event", callback: (event: Gdk.Event) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "event", callback: (event: Gdk.Event) => void): NodeJS.EventEmitter
     emit(sigName: "event", event: Gdk.Event): void
-    on(sigName: "event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "event-after", callback: (($obj: WebViewBase, event: Gdk.Event) => void)): number
-    connect_after(sigName: "event-after", callback: (($obj: WebViewBase, event: Gdk.Event) => void)): number
+    on(sigName: "event-after", callback: (event: Gdk.Event) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "event-after", callback: (event: Gdk.Event) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "event-after", callback: (event: Gdk.Event) => void): NodeJS.EventEmitter
     emit(sigName: "event-after", event: Gdk.Event): void
-    on(sigName: "event-after", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "event-after", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "event-after", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "focus", callback: (($obj: WebViewBase, direction: Gtk.DirectionType) => boolean)): number
-    connect_after(sigName: "focus", callback: (($obj: WebViewBase, direction: Gtk.DirectionType) => boolean)): number
+    on(sigName: "focus", callback: (direction: Gtk.DirectionType) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "focus", callback: (direction: Gtk.DirectionType) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "focus", callback: (direction: Gtk.DirectionType) => void): NodeJS.EventEmitter
     emit(sigName: "focus", direction: Gtk.DirectionType): void
-    on(sigName: "focus", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "focus", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "focus", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "focus-in-event", callback: (($obj: WebViewBase, event: Gdk.EventFocus) => boolean)): number
-    connect_after(sigName: "focus-in-event", callback: (($obj: WebViewBase, event: Gdk.EventFocus) => boolean)): number
+    on(sigName: "focus-in-event", callback: (event: Gdk.EventFocus) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "focus-in-event", callback: (event: Gdk.EventFocus) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "focus-in-event", callback: (event: Gdk.EventFocus) => void): NodeJS.EventEmitter
     emit(sigName: "focus-in-event", event: Gdk.EventFocus): void
-    on(sigName: "focus-in-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "focus-in-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "focus-in-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "focus-out-event", callback: (($obj: WebViewBase, event: Gdk.EventFocus) => boolean)): number
-    connect_after(sigName: "focus-out-event", callback: (($obj: WebViewBase, event: Gdk.EventFocus) => boolean)): number
+    on(sigName: "focus-out-event", callback: (event: Gdk.EventFocus) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "focus-out-event", callback: (event: Gdk.EventFocus) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "focus-out-event", callback: (event: Gdk.EventFocus) => void): NodeJS.EventEmitter
     emit(sigName: "focus-out-event", event: Gdk.EventFocus): void
-    on(sigName: "focus-out-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "focus-out-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "focus-out-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "grab-broken-event", callback: (($obj: WebViewBase, event: Gdk.EventGrabBroken) => boolean)): number
-    connect_after(sigName: "grab-broken-event", callback: (($obj: WebViewBase, event: Gdk.EventGrabBroken) => boolean)): number
+    on(sigName: "grab-broken-event", callback: (event: Gdk.EventGrabBroken) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "grab-broken-event", callback: (event: Gdk.EventGrabBroken) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "grab-broken-event", callback: (event: Gdk.EventGrabBroken) => void): NodeJS.EventEmitter
     emit(sigName: "grab-broken-event", event: Gdk.EventGrabBroken): void
-    on(sigName: "grab-broken-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "grab-broken-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "grab-broken-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "grab-focus", callback: (($obj: WebViewBase) => void)): number
-    connect_after(sigName: "grab-focus", callback: (($obj: WebViewBase) => void)): number
+    on(sigName: "grab-focus", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "grab-focus", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "grab-focus", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "grab-focus"): void
-    on(sigName: "grab-focus", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "grab-focus", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "grab-focus", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "grab-notify", callback: (($obj: WebViewBase, wasGrabbed: boolean) => void)): number
-    connect_after(sigName: "grab-notify", callback: (($obj: WebViewBase, wasGrabbed: boolean) => void)): number
+    on(sigName: "grab-notify", callback: (wasGrabbed: boolean) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "grab-notify", callback: (wasGrabbed: boolean) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "grab-notify", callback: (wasGrabbed: boolean) => void): NodeJS.EventEmitter
     emit(sigName: "grab-notify", wasGrabbed: boolean): void
-    on(sigName: "grab-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "grab-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "grab-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "hide", callback: (($obj: WebViewBase) => void)): number
-    connect_after(sigName: "hide", callback: (($obj: WebViewBase) => void)): number
+    on(sigName: "hide", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "hide", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "hide", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "hide"): void
-    on(sigName: "hide", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "hide", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "hide", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "hierarchy-changed", callback: (($obj: WebViewBase, previousToplevel?: Gtk.Widget | null) => void)): number
-    connect_after(sigName: "hierarchy-changed", callback: (($obj: WebViewBase, previousToplevel?: Gtk.Widget | null) => void)): number
+    on(sigName: "hierarchy-changed", callback: (previousToplevel?: Gtk.Widget | null) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "hierarchy-changed", callback: (previousToplevel?: Gtk.Widget | null) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "hierarchy-changed", callback: (previousToplevel?: Gtk.Widget | null) => void): NodeJS.EventEmitter
     emit(sigName: "hierarchy-changed", previousToplevel?: Gtk.Widget | null): void
-    on(sigName: "hierarchy-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "hierarchy-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "hierarchy-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "key-press-event", callback: (($obj: WebViewBase, event: Gdk.EventKey) => boolean)): number
-    connect_after(sigName: "key-press-event", callback: (($obj: WebViewBase, event: Gdk.EventKey) => boolean)): number
+    on(sigName: "key-press-event", callback: (event: Gdk.EventKey) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "key-press-event", callback: (event: Gdk.EventKey) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "key-press-event", callback: (event: Gdk.EventKey) => void): NodeJS.EventEmitter
     emit(sigName: "key-press-event", event: Gdk.EventKey): void
-    on(sigName: "key-press-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "key-press-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "key-press-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "key-release-event", callback: (($obj: WebViewBase, event: Gdk.EventKey) => boolean)): number
-    connect_after(sigName: "key-release-event", callback: (($obj: WebViewBase, event: Gdk.EventKey) => boolean)): number
+    on(sigName: "key-release-event", callback: (event: Gdk.EventKey) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "key-release-event", callback: (event: Gdk.EventKey) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "key-release-event", callback: (event: Gdk.EventKey) => void): NodeJS.EventEmitter
     emit(sigName: "key-release-event", event: Gdk.EventKey): void
-    on(sigName: "key-release-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "key-release-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "key-release-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "keynav-failed", callback: (($obj: WebViewBase, direction: Gtk.DirectionType) => boolean)): number
-    connect_after(sigName: "keynav-failed", callback: (($obj: WebViewBase, direction: Gtk.DirectionType) => boolean)): number
+    on(sigName: "keynav-failed", callback: (direction: Gtk.DirectionType) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "keynav-failed", callback: (direction: Gtk.DirectionType) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "keynav-failed", callback: (direction: Gtk.DirectionType) => void): NodeJS.EventEmitter
     emit(sigName: "keynav-failed", direction: Gtk.DirectionType): void
-    on(sigName: "keynav-failed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "keynav-failed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "keynav-failed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "leave-notify-event", callback: (($obj: WebViewBase, event: Gdk.EventCrossing) => boolean)): number
-    connect_after(sigName: "leave-notify-event", callback: (($obj: WebViewBase, event: Gdk.EventCrossing) => boolean)): number
+    on(sigName: "leave-notify-event", callback: (event: Gdk.EventCrossing) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "leave-notify-event", callback: (event: Gdk.EventCrossing) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "leave-notify-event", callback: (event: Gdk.EventCrossing) => void): NodeJS.EventEmitter
     emit(sigName: "leave-notify-event", event: Gdk.EventCrossing): void
-    on(sigName: "leave-notify-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "leave-notify-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "leave-notify-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "map", callback: (($obj: WebViewBase) => void)): number
-    connect_after(sigName: "map", callback: (($obj: WebViewBase) => void)): number
+    on(sigName: "map", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "map", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "map", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "map"): void
-    on(sigName: "map", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "map", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "map", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "map-event", callback: (($obj: WebViewBase, event: Gdk.EventAny) => boolean)): number
-    connect_after(sigName: "map-event", callback: (($obj: WebViewBase, event: Gdk.EventAny) => boolean)): number
+    on(sigName: "map-event", callback: (event: Gdk.EventAny) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "map-event", callback: (event: Gdk.EventAny) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "map-event", callback: (event: Gdk.EventAny) => void): NodeJS.EventEmitter
     emit(sigName: "map-event", event: Gdk.EventAny): void
-    on(sigName: "map-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "map-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "map-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "mnemonic-activate", callback: (($obj: WebViewBase, groupCycling: boolean) => boolean)): number
-    connect_after(sigName: "mnemonic-activate", callback: (($obj: WebViewBase, groupCycling: boolean) => boolean)): number
+    on(sigName: "mnemonic-activate", callback: (groupCycling: boolean) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "mnemonic-activate", callback: (groupCycling: boolean) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "mnemonic-activate", callback: (groupCycling: boolean) => void): NodeJS.EventEmitter
     emit(sigName: "mnemonic-activate", groupCycling: boolean): void
-    on(sigName: "mnemonic-activate", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "mnemonic-activate", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "mnemonic-activate", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "motion-notify-event", callback: (($obj: WebViewBase, event: Gdk.EventMotion) => boolean)): number
-    connect_after(sigName: "motion-notify-event", callback: (($obj: WebViewBase, event: Gdk.EventMotion) => boolean)): number
+    on(sigName: "motion-notify-event", callback: (event: Gdk.EventMotion) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "motion-notify-event", callback: (event: Gdk.EventMotion) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "motion-notify-event", callback: (event: Gdk.EventMotion) => void): NodeJS.EventEmitter
     emit(sigName: "motion-notify-event", event: Gdk.EventMotion): void
-    on(sigName: "motion-notify-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "motion-notify-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "motion-notify-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "move-focus", callback: (($obj: WebViewBase, direction: Gtk.DirectionType) => void)): number
-    connect_after(sigName: "move-focus", callback: (($obj: WebViewBase, direction: Gtk.DirectionType) => void)): number
+    on(sigName: "move-focus", callback: (direction: Gtk.DirectionType) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "move-focus", callback: (direction: Gtk.DirectionType) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "move-focus", callback: (direction: Gtk.DirectionType) => void): NodeJS.EventEmitter
     emit(sigName: "move-focus", direction: Gtk.DirectionType): void
-    on(sigName: "move-focus", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "move-focus", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "move-focus", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "parent-set", callback: (($obj: WebViewBase, oldParent?: Gtk.Widget | null) => void)): number
-    connect_after(sigName: "parent-set", callback: (($obj: WebViewBase, oldParent?: Gtk.Widget | null) => void)): number
+    on(sigName: "parent-set", callback: (oldParent?: Gtk.Widget | null) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "parent-set", callback: (oldParent?: Gtk.Widget | null) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "parent-set", callback: (oldParent?: Gtk.Widget | null) => void): NodeJS.EventEmitter
     emit(sigName: "parent-set", oldParent?: Gtk.Widget | null): void
-    on(sigName: "parent-set", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "parent-set", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "parent-set", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "popup-menu", callback: (($obj: WebViewBase) => boolean)): number
-    connect_after(sigName: "popup-menu", callback: (($obj: WebViewBase) => boolean)): number
+    on(sigName: "popup-menu", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "popup-menu", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "popup-menu", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "popup-menu"): void
-    on(sigName: "popup-menu", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "popup-menu", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "popup-menu", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "property-notify-event", callback: (($obj: WebViewBase, event: Gdk.EventProperty) => boolean)): number
-    connect_after(sigName: "property-notify-event", callback: (($obj: WebViewBase, event: Gdk.EventProperty) => boolean)): number
+    on(sigName: "property-notify-event", callback: (event: Gdk.EventProperty) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "property-notify-event", callback: (event: Gdk.EventProperty) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "property-notify-event", callback: (event: Gdk.EventProperty) => void): NodeJS.EventEmitter
     emit(sigName: "property-notify-event", event: Gdk.EventProperty): void
-    on(sigName: "property-notify-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "property-notify-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "property-notify-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "proximity-in-event", callback: (($obj: WebViewBase, event: Gdk.EventProximity) => boolean)): number
-    connect_after(sigName: "proximity-in-event", callback: (($obj: WebViewBase, event: Gdk.EventProximity) => boolean)): number
+    on(sigName: "proximity-in-event", callback: (event: Gdk.EventProximity) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "proximity-in-event", callback: (event: Gdk.EventProximity) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "proximity-in-event", callback: (event: Gdk.EventProximity) => void): NodeJS.EventEmitter
     emit(sigName: "proximity-in-event", event: Gdk.EventProximity): void
-    on(sigName: "proximity-in-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "proximity-in-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "proximity-in-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "proximity-out-event", callback: (($obj: WebViewBase, event: Gdk.EventProximity) => boolean)): number
-    connect_after(sigName: "proximity-out-event", callback: (($obj: WebViewBase, event: Gdk.EventProximity) => boolean)): number
+    on(sigName: "proximity-out-event", callback: (event: Gdk.EventProximity) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "proximity-out-event", callback: (event: Gdk.EventProximity) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "proximity-out-event", callback: (event: Gdk.EventProximity) => void): NodeJS.EventEmitter
     emit(sigName: "proximity-out-event", event: Gdk.EventProximity): void
-    on(sigName: "proximity-out-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "proximity-out-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "proximity-out-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "query-tooltip", callback: (($obj: WebViewBase, x: number, y: number, keyboardMode: boolean, tooltip: Gtk.Tooltip) => boolean)): number
-    connect_after(sigName: "query-tooltip", callback: (($obj: WebViewBase, x: number, y: number, keyboardMode: boolean, tooltip: Gtk.Tooltip) => boolean)): number
+    on(sigName: "query-tooltip", callback: (x: number, y: number, keyboardMode: boolean, tooltip: Gtk.Tooltip) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "query-tooltip", callback: (x: number, y: number, keyboardMode: boolean, tooltip: Gtk.Tooltip) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "query-tooltip", callback: (x: number, y: number, keyboardMode: boolean, tooltip: Gtk.Tooltip) => void): NodeJS.EventEmitter
     emit(sigName: "query-tooltip", x: number, y: number, keyboardMode: boolean, tooltip: Gtk.Tooltip): void
-    on(sigName: "query-tooltip", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "query-tooltip", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "query-tooltip", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "realize", callback: (($obj: WebViewBase) => void)): number
-    connect_after(sigName: "realize", callback: (($obj: WebViewBase) => void)): number
+    on(sigName: "realize", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "realize", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "realize", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "realize"): void
-    on(sigName: "realize", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "realize", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "realize", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "screen-changed", callback: (($obj: WebViewBase, previousScreen?: Gdk.Screen | null) => void)): number
-    connect_after(sigName: "screen-changed", callback: (($obj: WebViewBase, previousScreen?: Gdk.Screen | null) => void)): number
+    on(sigName: "screen-changed", callback: (previousScreen?: Gdk.Screen | null) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "screen-changed", callback: (previousScreen?: Gdk.Screen | null) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "screen-changed", callback: (previousScreen?: Gdk.Screen | null) => void): NodeJS.EventEmitter
     emit(sigName: "screen-changed", previousScreen?: Gdk.Screen | null): void
-    on(sigName: "screen-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "screen-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "screen-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "scroll-event", callback: (($obj: WebViewBase, event: Gdk.EventScroll) => boolean)): number
-    connect_after(sigName: "scroll-event", callback: (($obj: WebViewBase, event: Gdk.EventScroll) => boolean)): number
+    on(sigName: "scroll-event", callback: (event: Gdk.EventScroll) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "scroll-event", callback: (event: Gdk.EventScroll) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "scroll-event", callback: (event: Gdk.EventScroll) => void): NodeJS.EventEmitter
     emit(sigName: "scroll-event", event: Gdk.EventScroll): void
-    on(sigName: "scroll-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "scroll-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "scroll-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "selection-clear-event", callback: (($obj: WebViewBase, event: Gdk.EventSelection) => boolean)): number
-    connect_after(sigName: "selection-clear-event", callback: (($obj: WebViewBase, event: Gdk.EventSelection) => boolean)): number
+    on(sigName: "selection-clear-event", callback: (event: Gdk.EventSelection) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "selection-clear-event", callback: (event: Gdk.EventSelection) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "selection-clear-event", callback: (event: Gdk.EventSelection) => void): NodeJS.EventEmitter
     emit(sigName: "selection-clear-event", event: Gdk.EventSelection): void
-    on(sigName: "selection-clear-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "selection-clear-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "selection-clear-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "selection-get", callback: (($obj: WebViewBase, data: Gtk.SelectionData, info: number, time: number) => void)): number
-    connect_after(sigName: "selection-get", callback: (($obj: WebViewBase, data: Gtk.SelectionData, info: number, time: number) => void)): number
+    on(sigName: "selection-get", callback: (data: Gtk.SelectionData, info: number, time: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "selection-get", callback: (data: Gtk.SelectionData, info: number, time: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "selection-get", callback: (data: Gtk.SelectionData, info: number, time: number) => void): NodeJS.EventEmitter
     emit(sigName: "selection-get", data: Gtk.SelectionData, info: number, time: number): void
-    on(sigName: "selection-get", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "selection-get", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "selection-get", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "selection-notify-event", callback: (($obj: WebViewBase, event: Gdk.EventSelection) => boolean)): number
-    connect_after(sigName: "selection-notify-event", callback: (($obj: WebViewBase, event: Gdk.EventSelection) => boolean)): number
+    on(sigName: "selection-notify-event", callback: (event: Gdk.EventSelection) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "selection-notify-event", callback: (event: Gdk.EventSelection) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "selection-notify-event", callback: (event: Gdk.EventSelection) => void): NodeJS.EventEmitter
     emit(sigName: "selection-notify-event", event: Gdk.EventSelection): void
-    on(sigName: "selection-notify-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "selection-notify-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "selection-notify-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "selection-received", callback: (($obj: WebViewBase, data: Gtk.SelectionData, time: number) => void)): number
-    connect_after(sigName: "selection-received", callback: (($obj: WebViewBase, data: Gtk.SelectionData, time: number) => void)): number
+    on(sigName: "selection-received", callback: (data: Gtk.SelectionData, time: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "selection-received", callback: (data: Gtk.SelectionData, time: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "selection-received", callback: (data: Gtk.SelectionData, time: number) => void): NodeJS.EventEmitter
     emit(sigName: "selection-received", data: Gtk.SelectionData, time: number): void
-    on(sigName: "selection-received", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "selection-received", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "selection-received", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "selection-request-event", callback: (($obj: WebViewBase, event: Gdk.EventSelection) => boolean)): number
-    connect_after(sigName: "selection-request-event", callback: (($obj: WebViewBase, event: Gdk.EventSelection) => boolean)): number
+    on(sigName: "selection-request-event", callback: (event: Gdk.EventSelection) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "selection-request-event", callback: (event: Gdk.EventSelection) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "selection-request-event", callback: (event: Gdk.EventSelection) => void): NodeJS.EventEmitter
     emit(sigName: "selection-request-event", event: Gdk.EventSelection): void
-    on(sigName: "selection-request-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "selection-request-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "selection-request-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "show", callback: (($obj: WebViewBase) => void)): number
-    connect_after(sigName: "show", callback: (($obj: WebViewBase) => void)): number
+    on(sigName: "show", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "show", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "show", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "show"): void
-    on(sigName: "show", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "show", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "show", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "show-help", callback: (($obj: WebViewBase, helpType: Gtk.WidgetHelpType) => boolean)): number
-    connect_after(sigName: "show-help", callback: (($obj: WebViewBase, helpType: Gtk.WidgetHelpType) => boolean)): number
+    on(sigName: "show-help", callback: (helpType: Gtk.WidgetHelpType) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "show-help", callback: (helpType: Gtk.WidgetHelpType) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "show-help", callback: (helpType: Gtk.WidgetHelpType) => void): NodeJS.EventEmitter
     emit(sigName: "show-help", helpType: Gtk.WidgetHelpType): void
-    on(sigName: "show-help", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "show-help", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "show-help", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "size-allocate", callback: (($obj: WebViewBase, allocation: Gtk.Allocation) => void)): number
-    connect_after(sigName: "size-allocate", callback: (($obj: WebViewBase, allocation: Gtk.Allocation) => void)): number
+    on(sigName: "size-allocate", callback: (allocation: Gtk.Allocation) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "size-allocate", callback: (allocation: Gtk.Allocation) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "size-allocate", callback: (allocation: Gtk.Allocation) => void): NodeJS.EventEmitter
     emit(sigName: "size-allocate", allocation: Gtk.Allocation): void
-    on(sigName: "size-allocate", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "size-allocate", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "size-allocate", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "state-changed", callback: (($obj: WebViewBase, state: Gtk.StateType) => void)): number
-    connect_after(sigName: "state-changed", callback: (($obj: WebViewBase, state: Gtk.StateType) => void)): number
+    on(sigName: "state-changed", callback: (state: Gtk.StateType) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "state-changed", callback: (state: Gtk.StateType) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "state-changed", callback: (state: Gtk.StateType) => void): NodeJS.EventEmitter
     emit(sigName: "state-changed", state: Gtk.StateType): void
-    on(sigName: "state-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "state-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "state-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "state-flags-changed", callback: (($obj: WebViewBase, flags: Gtk.StateFlags) => void)): number
-    connect_after(sigName: "state-flags-changed", callback: (($obj: WebViewBase, flags: Gtk.StateFlags) => void)): number
+    on(sigName: "state-flags-changed", callback: (flags: Gtk.StateFlags) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "state-flags-changed", callback: (flags: Gtk.StateFlags) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "state-flags-changed", callback: (flags: Gtk.StateFlags) => void): NodeJS.EventEmitter
     emit(sigName: "state-flags-changed", flags: Gtk.StateFlags): void
-    on(sigName: "state-flags-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "state-flags-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "state-flags-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "style-set", callback: (($obj: WebViewBase, previousStyle?: Gtk.Style | null) => void)): number
-    connect_after(sigName: "style-set", callback: (($obj: WebViewBase, previousStyle?: Gtk.Style | null) => void)): number
+    on(sigName: "style-set", callback: (previousStyle?: Gtk.Style | null) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "style-set", callback: (previousStyle?: Gtk.Style | null) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "style-set", callback: (previousStyle?: Gtk.Style | null) => void): NodeJS.EventEmitter
     emit(sigName: "style-set", previousStyle?: Gtk.Style | null): void
-    on(sigName: "style-set", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "style-set", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "style-set", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "style-updated", callback: (($obj: WebViewBase) => void)): number
-    connect_after(sigName: "style-updated", callback: (($obj: WebViewBase) => void)): number
+    on(sigName: "style-updated", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "style-updated", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "style-updated", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "style-updated"): void
-    on(sigName: "style-updated", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "style-updated", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "style-updated", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "touch-event", callback: (($obj: WebViewBase, object: Gdk.Event) => boolean)): number
-    connect_after(sigName: "touch-event", callback: (($obj: WebViewBase, object: Gdk.Event) => boolean)): number
+    on(sigName: "touch-event", callback: (object: Gdk.Event) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "touch-event", callback: (object: Gdk.Event) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "touch-event", callback: (object: Gdk.Event) => void): NodeJS.EventEmitter
     emit(sigName: "touch-event", object: Gdk.Event): void
-    on(sigName: "touch-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "touch-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "touch-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "unmap", callback: (($obj: WebViewBase) => void)): number
-    connect_after(sigName: "unmap", callback: (($obj: WebViewBase) => void)): number
+    on(sigName: "unmap", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "unmap", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "unmap", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "unmap"): void
-    on(sigName: "unmap", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "unmap", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "unmap", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "unmap-event", callback: (($obj: WebViewBase, event: Gdk.EventAny) => boolean)): number
-    connect_after(sigName: "unmap-event", callback: (($obj: WebViewBase, event: Gdk.EventAny) => boolean)): number
+    on(sigName: "unmap-event", callback: (event: Gdk.EventAny) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "unmap-event", callback: (event: Gdk.EventAny) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "unmap-event", callback: (event: Gdk.EventAny) => void): NodeJS.EventEmitter
     emit(sigName: "unmap-event", event: Gdk.EventAny): void
-    on(sigName: "unmap-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "unmap-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "unmap-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "unrealize", callback: (($obj: WebViewBase) => void)): number
-    connect_after(sigName: "unrealize", callback: (($obj: WebViewBase) => void)): number
+    on(sigName: "unrealize", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "unrealize", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "unrealize", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "unrealize"): void
-    on(sigName: "unrealize", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "unrealize", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "unrealize", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "visibility-notify-event", callback: (($obj: WebViewBase, event: Gdk.EventVisibility) => boolean)): number
-    connect_after(sigName: "visibility-notify-event", callback: (($obj: WebViewBase, event: Gdk.EventVisibility) => boolean)): number
+    on(sigName: "visibility-notify-event", callback: (event: Gdk.EventVisibility) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "visibility-notify-event", callback: (event: Gdk.EventVisibility) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "visibility-notify-event", callback: (event: Gdk.EventVisibility) => void): NodeJS.EventEmitter
     emit(sigName: "visibility-notify-event", event: Gdk.EventVisibility): void
-    on(sigName: "visibility-notify-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "visibility-notify-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "visibility-notify-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "window-state-event", callback: (($obj: WebViewBase, event: Gdk.EventWindowState) => boolean)): number
-    connect_after(sigName: "window-state-event", callback: (($obj: WebViewBase, event: Gdk.EventWindowState) => boolean)): number
+    on(sigName: "window-state-event", callback: (event: Gdk.EventWindowState) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "window-state-event", callback: (event: Gdk.EventWindowState) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "window-state-event", callback: (event: Gdk.EventWindowState) => void): NodeJS.EventEmitter
     emit(sigName: "window-state-event", event: Gdk.EventWindowState): void
-    on(sigName: "window-state-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "window-state-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "window-state-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: WebViewBase, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: WebViewBase, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::border-width", callback: (($obj: WebViewBase, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::border-width", callback: (($obj: WebViewBase, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::border-width", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -6925,14 +6027,14 @@ export class WebViewBase {
 export interface WebsiteDataAccessPermissionRequest_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class WebsiteDataAccessPermissionRequest {
-    /* Fields of WebKit2.WebsiteDataAccessPermissionRequest */
+    /* Fields of WebKit2-4.0.WebKit2.WebsiteDataAccessPermissionRequest */
     parent: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of WebKit2.WebsiteDataAccessPermissionRequest */
+    /* Methods of WebKit2-4.0.WebKit2.WebsiteDataAccessPermissionRequest */
     getCurrentDomain(): string
     getRequestingDomain(): string
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -6954,27 +6056,15 @@ export class WebsiteDataAccessPermissionRequest {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of WebKit2.PermissionRequest */
+    /* Methods of WebKit2-4.0.WebKit2.PermissionRequest */
     allow(): void
     deny(): void
-    /* Virtual methods of WebKit2.WebsiteDataAccessPermissionRequest */
-    vfuncAllow(): void
-    vfuncDeny(): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: WebsiteDataAccessPermissionRequest, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: WebsiteDataAccessPermissionRequest, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -7002,12 +6092,12 @@ export interface WebsiteDataManager_ConstructProps extends GObject.Object_Constr
     websqlDirectory?: string
 }
 export class WebsiteDataManager {
-    /* Fields of WebKit2.WebsiteDataManager */
+    /* Fields of WebKit2-4.0.WebKit2.WebsiteDataManager */
     parent: GObject.Object
     priv: WebsiteDataManagerPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of WebKit2.WebsiteDataManager */
+    /* Methods of WebKit2-4.0.WebKit2.WebsiteDataManager */
     clear(types: WebsiteDataTypes, timespan: GLib.TimeSpan, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     clearFinish(result: Gio.AsyncResult): boolean
     fetch(types: WebsiteDataTypes, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
@@ -7036,7 +6126,7 @@ export class WebsiteDataManager {
     setNetworkProxySettings(proxyMode: NetworkProxyMode, proxySettings?: NetworkProxySettings | null): void
     setPersistentCredentialStorageEnabled(enabled: boolean): void
     setTlsErrorsPolicy(policy: TLSErrorsPolicy): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -7058,21 +6148,12 @@ export class WebsiteDataManager {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: WebsiteDataManager, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: WebsiteDataManager, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -7091,14 +6172,14 @@ export interface WebsitePolicies_ConstructProps extends GObject.Object_Construct
     autoplay?: AutoplayPolicy
 }
 export class WebsitePolicies {
-    /* Fields of WebKit2.WebsitePolicies */
+    /* Fields of WebKit2-4.0.WebKit2.WebsitePolicies */
     parent: GObject.Object
     priv: WebsitePoliciesPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of WebKit2.WebsitePolicies */
+    /* Methods of WebKit2-4.0.WebKit2.WebsitePolicies */
     getAutoplayPolicy(): AutoplayPolicy
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -7120,21 +6201,12 @@ export class WebsitePolicies {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: WebsitePolicies, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: WebsitePolicies, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -7160,20 +6232,20 @@ export interface WindowProperties_ConstructProps extends GObject.Object_Construc
     toolbarVisible?: boolean
 }
 export class WindowProperties {
-    /* Fields of WebKit2.WindowProperties */
+    /* Fields of WebKit2-4.0.WebKit2.WindowProperties */
     parent: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of WebKit2.WindowProperties */
+    /* Methods of WebKit2-4.0.WebKit2.WindowProperties */
     getFullscreen(): boolean
-    getGeometry(): /* geometry */ Gdk.Rectangle
+    getGeometry(): { geometry: Gdk.Rectangle }
     getLocationbarVisible(): boolean
     getMenubarVisible(): boolean
     getResizable(): boolean
     getScrollbarsVisible(): boolean
     getStatusbarVisible(): boolean
     getToolbarVisible(): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -7195,21 +6267,12 @@ export class WindowProperties {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: WindowProperties, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: WindowProperties, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -7223,9 +6286,9 @@ export class WindowProperties {
     static $gtype: GObject.Type
 }
 export class ApplicationInfo {
-    /* Methods of WebKit2.ApplicationInfo */
+    /* Methods of WebKit2-4.0.WebKit2.ApplicationInfo */
     getName(): string
-    getVersion(): [ /* major */ number, /* minor */ number | null, /* micro */ number | null ]
+    getVersion(): { major: number, minor: number | null, micro: number | null }
     ref(): ApplicationInfo
     setName(name: string): void
     setVersion(major: number, minor: number, micro: number): void
@@ -7237,7 +6300,7 @@ export class ApplicationInfo {
     static new(): ApplicationInfo
 }
 export abstract class AuthenticationRequestClass {
-    /* Fields of WebKit2.AuthenticationRequestClass */
+    /* Fields of WebKit2-4.0.WebKit2.AuthenticationRequestClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
@@ -7245,7 +6308,7 @@ export class AuthenticationRequestPrivate {
     static name: string
 }
 export abstract class AutomationSessionClass {
-    /* Fields of WebKit2.AutomationSessionClass */
+    /* Fields of WebKit2-4.0.WebKit2.AutomationSessionClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
@@ -7253,12 +6316,12 @@ export class AutomationSessionPrivate {
     static name: string
 }
 export abstract class BackForwardListClass {
-    /* Fields of WebKit2.BackForwardListClass */
+    /* Fields of WebKit2-4.0.WebKit2.BackForwardListClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
 export abstract class BackForwardListItemClass {
-    /* Fields of WebKit2.BackForwardListItemClass */
+    /* Fields of WebKit2-4.0.WebKit2.BackForwardListItemClass */
     parentClass: GObject.InitiallyUnownedClass
     static name: string
 }
@@ -7269,7 +6332,7 @@ export class BackForwardListPrivate {
     static name: string
 }
 export abstract class ColorChooserRequestClass {
-    /* Fields of WebKit2.ColorChooserRequestClass */
+    /* Fields of WebKit2-4.0.WebKit2.ColorChooserRequestClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
@@ -7277,12 +6340,12 @@ export class ColorChooserRequestPrivate {
     static name: string
 }
 export abstract class ContextMenuClass {
-    /* Fields of WebKit2.ContextMenuClass */
+    /* Fields of WebKit2-4.0.WebKit2.ContextMenuClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
 export abstract class ContextMenuItemClass {
-    /* Fields of WebKit2.ContextMenuItemClass */
+    /* Fields of WebKit2-4.0.WebKit2.ContextMenuItemClass */
     parentClass: GObject.InitiallyUnownedClass
     static name: string
 }
@@ -7293,7 +6356,7 @@ export class ContextMenuPrivate {
     static name: string
 }
 export abstract class CookieManagerClass {
-    /* Fields of WebKit2.CookieManagerClass */
+    /* Fields of WebKit2-4.0.WebKit2.CookieManagerClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
@@ -7301,7 +6364,7 @@ export class CookieManagerPrivate {
     static name: string
 }
 export class Credential {
-    /* Methods of WebKit2.Credential */
+    /* Methods of WebKit2-4.0.WebKit2.Credential */
     copy(): Credential
     free(): void
     getPassword(): string
@@ -7315,7 +6378,7 @@ export class Credential {
     static new(username: string, password: string, persistence: CredentialPersistence): Credential
 }
 export abstract class DeviceInfoPermissionRequestClass {
-    /* Fields of WebKit2.DeviceInfoPermissionRequestClass */
+    /* Fields of WebKit2-4.0.WebKit2.DeviceInfoPermissionRequestClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
@@ -7323,7 +6386,7 @@ export class DeviceInfoPermissionRequestPrivate {
     static name: string
 }
 export abstract class DownloadClass {
-    /* Fields of WebKit2.DownloadClass */
+    /* Fields of WebKit2-4.0.WebKit2.DownloadClass */
     parentClass: GObject.ObjectClass
     decideDestination: (download: Download, suggestedFilename: string) => boolean
     static name: string
@@ -7332,7 +6395,7 @@ export class DownloadPrivate {
     static name: string
 }
 export abstract class EditorStateClass {
-    /* Fields of WebKit2.EditorStateClass */
+    /* Fields of WebKit2-4.0.WebKit2.EditorStateClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
@@ -7340,7 +6403,7 @@ export class EditorStatePrivate {
     static name: string
 }
 export abstract class FaviconDatabaseClass {
-    /* Fields of WebKit2.FaviconDatabaseClass */
+    /* Fields of WebKit2-4.0.WebKit2.FaviconDatabaseClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
@@ -7348,7 +6411,7 @@ export class FaviconDatabasePrivate {
     static name: string
 }
 export abstract class FileChooserRequestClass {
-    /* Fields of WebKit2.FileChooserRequestClass */
+    /* Fields of WebKit2-4.0.WebKit2.FileChooserRequestClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
@@ -7356,7 +6419,7 @@ export class FileChooserRequestPrivate {
     static name: string
 }
 export abstract class FindControllerClass {
-    /* Fields of WebKit2.FindControllerClass */
+    /* Fields of WebKit2-4.0.WebKit2.FindControllerClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
@@ -7364,7 +6427,7 @@ export class FindControllerPrivate {
     static name: string
 }
 export abstract class FormSubmissionRequestClass {
-    /* Fields of WebKit2.FormSubmissionRequestClass */
+    /* Fields of WebKit2-4.0.WebKit2.FormSubmissionRequestClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
@@ -7372,7 +6435,7 @@ export class FormSubmissionRequestPrivate {
     static name: string
 }
 export abstract class GeolocationManagerClass {
-    /* Fields of WebKit2.GeolocationManagerClass */
+    /* Fields of WebKit2-4.0.WebKit2.GeolocationManagerClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
@@ -7380,7 +6443,7 @@ export class GeolocationManagerPrivate {
     static name: string
 }
 export abstract class GeolocationPermissionRequestClass {
-    /* Fields of WebKit2.GeolocationPermissionRequestClass */
+    /* Fields of WebKit2-4.0.WebKit2.GeolocationPermissionRequestClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
@@ -7388,7 +6451,7 @@ export class GeolocationPermissionRequestPrivate {
     static name: string
 }
 export class GeolocationPosition {
-    /* Methods of WebKit2.GeolocationPosition */
+    /* Methods of WebKit2-4.0.WebKit2.GeolocationPosition */
     copy(): GeolocationPosition
     free(): void
     setAltitude(altitude: number): void
@@ -7403,7 +6466,7 @@ export class GeolocationPosition {
     static new(latitude: number, longitude: number, accuracy: number): GeolocationPosition
 }
 export abstract class HitTestResultClass {
-    /* Fields of WebKit2.HitTestResultClass */
+    /* Fields of WebKit2-4.0.WebKit2.HitTestResultClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
@@ -7411,7 +6474,7 @@ export class HitTestResultPrivate {
     static name: string
 }
 export class ITPFirstParty {
-    /* Methods of WebKit2.ITPFirstParty */
+    /* Methods of WebKit2-4.0.WebKit2.ITPFirstParty */
     getDomain(): string
     getLastUpdateTime(): GLib.DateTime
     getWebsiteDataAccessAllowed(): boolean
@@ -7420,7 +6483,7 @@ export class ITPFirstParty {
     static name: string
 }
 export class ITPThirdParty {
-    /* Methods of WebKit2.ITPThirdParty */
+    /* Methods of WebKit2-4.0.WebKit2.ITPThirdParty */
     getDomain(): string
     getFirstParties(): ITPFirstParty[]
     ref(): ITPThirdParty
@@ -7428,7 +6491,7 @@ export class ITPThirdParty {
     static name: string
 }
 export abstract class InputMethodContextClass {
-    /* Fields of WebKit2.InputMethodContextClass */
+    /* Fields of WebKit2-4.0.WebKit2.InputMethodContextClass */
     parentClass: GObject.ObjectClass
     preeditStarted: (context: InputMethodContext) => void
     preeditChanged: (context: InputMethodContext) => void
@@ -7436,7 +6499,7 @@ export abstract class InputMethodContextClass {
     committed: (context: InputMethodContext, text: string) => void
     deleteSurrounding: (context: InputMethodContext, offset: number, nChars: number) => void
     setEnablePreedit: (context: InputMethodContext, enabled: boolean) => void
-    getPreedit: (context: InputMethodContext) => [ /* text */ string | null, /* underlines */ InputMethodUnderline[] | null, /* cursorOffset */ number | null ]
+    getPreedit: (context: InputMethodContext) => { text: string | null, underlines: InputMethodUnderline[] | null, cursorOffset: number | null }
     filterKeyEvent: (context: InputMethodContext, keyEvent: Gdk.EventKey) => boolean
     notifyFocusIn: (context: InputMethodContext) => void
     notifyFocusOut: (context: InputMethodContext) => void
@@ -7449,7 +6512,7 @@ export class InputMethodContextPrivate {
     static name: string
 }
 export class InputMethodUnderline {
-    /* Methods of WebKit2.InputMethodUnderline */
+    /* Methods of WebKit2-4.0.WebKit2.InputMethodUnderline */
     copy(): InputMethodUnderline
     free(): void
     setColor(rgba?: Gdk.RGBA | null): void
@@ -7460,7 +6523,7 @@ export class InputMethodUnderline {
     static new(startOffset: number, endOffset: number): InputMethodUnderline
 }
 export abstract class InstallMissingMediaPluginsPermissionRequestClass {
-    /* Fields of WebKit2.InstallMissingMediaPluginsPermissionRequestClass */
+    /* Fields of WebKit2-4.0.WebKit2.InstallMissingMediaPluginsPermissionRequestClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
@@ -7468,14 +6531,14 @@ export class InstallMissingMediaPluginsPermissionRequestPrivate {
     static name: string
 }
 export class JavascriptResult {
-    /* Methods of WebKit2.JavascriptResult */
+    /* Methods of WebKit2-4.0.WebKit2.JavascriptResult */
     getJsValue(): JavaScriptCore.Value
     ref(): JavascriptResult
     unref(): void
     static name: string
 }
 export class MimeInfo {
-    /* Methods of WebKit2.MimeInfo */
+    /* Methods of WebKit2-4.0.WebKit2.MimeInfo */
     getDescription(): string
     getExtensions(): string[]
     getMimeType(): string
@@ -7484,7 +6547,7 @@ export class MimeInfo {
     static name: string
 }
 export class NavigationAction {
-    /* Methods of WebKit2.NavigationAction */
+    /* Methods of WebKit2-4.0.WebKit2.NavigationAction */
     copy(): NavigationAction
     free(): void
     getModifiers(): number
@@ -7496,7 +6559,7 @@ export class NavigationAction {
     static name: string
 }
 export abstract class NavigationPolicyDecisionClass {
-    /* Fields of WebKit2.NavigationPolicyDecisionClass */
+    /* Fields of WebKit2-4.0.WebKit2.NavigationPolicyDecisionClass */
     parentClass: PolicyDecisionClass
     static name: string
 }
@@ -7504,7 +6567,7 @@ export class NavigationPolicyDecisionPrivate {
     static name: string
 }
 export class NetworkProxySettings {
-    /* Methods of WebKit2.NetworkProxySettings */
+    /* Methods of WebKit2-4.0.WebKit2.NetworkProxySettings */
     addProxyForScheme(scheme: string, proxyUri: string): void
     copy(): NetworkProxySettings
     free(): void
@@ -7515,12 +6578,12 @@ export class NetworkProxySettings {
     static new(defaultProxyUri?: string | null, ignoreHosts?: string[] | null): NetworkProxySettings
 }
 export abstract class NotificationClass {
-    /* Fields of WebKit2.NotificationClass */
+    /* Fields of WebKit2-4.0.WebKit2.NotificationClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
 export abstract class NotificationPermissionRequestClass {
-    /* Fields of WebKit2.NotificationPermissionRequestClass */
+    /* Fields of WebKit2-4.0.WebKit2.NotificationPermissionRequestClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
@@ -7531,12 +6594,12 @@ export class NotificationPrivate {
     static name: string
 }
 export abstract class OptionMenuClass {
-    /* Fields of WebKit2.OptionMenuClass */
+    /* Fields of WebKit2-4.0.WebKit2.OptionMenuClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
 export class OptionMenuItem {
-    /* Methods of WebKit2.OptionMenuItem */
+    /* Methods of WebKit2-4.0.WebKit2.OptionMenuItem */
     copy(): OptionMenuItem
     free(): void
     getLabel(): string
@@ -7551,14 +6614,14 @@ export class OptionMenuPrivate {
     static name: string
 }
 export abstract class PermissionRequestIface {
-    /* Fields of WebKit2.PermissionRequestIface */
+    /* Fields of WebKit2-4.0.WebKit2.PermissionRequestIface */
     parentInterface: GObject.TypeInterface
     allow: (request: PermissionRequest) => void
     deny: (request: PermissionRequest) => void
     static name: string
 }
 export abstract class PluginClass {
-    /* Fields of WebKit2.PluginClass */
+    /* Fields of WebKit2-4.0.WebKit2.PluginClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
@@ -7566,7 +6629,7 @@ export class PluginPrivate {
     static name: string
 }
 export abstract class PointerLockPermissionRequestClass {
-    /* Fields of WebKit2.PointerLockPermissionRequestClass */
+    /* Fields of WebKit2-4.0.WebKit2.PointerLockPermissionRequestClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
@@ -7574,7 +6637,7 @@ export class PointerLockPermissionRequestPrivate {
     static name: string
 }
 export abstract class PolicyDecisionClass {
-    /* Fields of WebKit2.PolicyDecisionClass */
+    /* Fields of WebKit2-4.0.WebKit2.PolicyDecisionClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
@@ -7582,7 +6645,7 @@ export class PolicyDecisionPrivate {
     static name: string
 }
 export abstract class PrintCustomWidgetClass {
-    /* Fields of WebKit2.PrintCustomWidgetClass */
+    /* Fields of WebKit2-4.0.WebKit2.PrintCustomWidgetClass */
     parentClass: GObject.ObjectClass
     apply: (printCustomWidget: PrintCustomWidget, widget: Gtk.Widget) => void
     update: (printCustomWidget: PrintCustomWidget, widget: Gtk.Widget, pageSetup: Gtk.PageSetup, printSettings: Gtk.PrintSettings) => void
@@ -7592,7 +6655,7 @@ export class PrintCustomWidgetPrivate {
     static name: string
 }
 export abstract class PrintOperationClass {
-    /* Fields of WebKit2.PrintOperationClass */
+    /* Fields of WebKit2-4.0.WebKit2.PrintOperationClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
@@ -7600,7 +6663,7 @@ export class PrintOperationPrivate {
     static name: string
 }
 export abstract class ResponsePolicyDecisionClass {
-    /* Fields of WebKit2.ResponsePolicyDecisionClass */
+    /* Fields of WebKit2-4.0.WebKit2.ResponsePolicyDecisionClass */
     parentClass: PolicyDecisionClass
     static name: string
 }
@@ -7608,7 +6671,7 @@ export class ResponsePolicyDecisionPrivate {
     static name: string
 }
 export class ScriptDialog {
-    /* Methods of WebKit2.ScriptDialog */
+    /* Methods of WebKit2-4.0.WebKit2.ScriptDialog */
     close(): void
     confirmSetConfirmed(confirmed: boolean): void
     getDialogType(): ScriptDialogType
@@ -7620,7 +6683,7 @@ export class ScriptDialog {
     static name: string
 }
 export abstract class SecurityManagerClass {
-    /* Fields of WebKit2.SecurityManagerClass */
+    /* Fields of WebKit2-4.0.WebKit2.SecurityManagerClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
@@ -7628,7 +6691,7 @@ export class SecurityManagerPrivate {
     static name: string
 }
 export class SecurityOrigin {
-    /* Methods of WebKit2.SecurityOrigin */
+    /* Methods of WebKit2-4.0.WebKit2.SecurityOrigin */
     getHost(): string | null
     getPort(): number
     getProtocol(): string | null
@@ -7644,7 +6707,7 @@ export class SecurityOrigin {
     static newForUri(uri: string): SecurityOrigin
 }
 export abstract class SettingsClass {
-    /* Fields of WebKit2.SettingsClass */
+    /* Fields of WebKit2-4.0.WebKit2.SettingsClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
@@ -7652,7 +6715,7 @@ export class SettingsPrivate {
     static name: string
 }
 export abstract class URIRequestClass {
-    /* Fields of WebKit2.URIRequestClass */
+    /* Fields of WebKit2-4.0.WebKit2.URIRequestClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
@@ -7660,7 +6723,7 @@ export class URIRequestPrivate {
     static name: string
 }
 export abstract class URIResponseClass {
-    /* Fields of WebKit2.URIResponseClass */
+    /* Fields of WebKit2-4.0.WebKit2.URIResponseClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
@@ -7668,7 +6731,7 @@ export class URIResponsePrivate {
     static name: string
 }
 export abstract class URISchemeRequestClass {
-    /* Fields of WebKit2.URISchemeRequestClass */
+    /* Fields of WebKit2-4.0.WebKit2.URISchemeRequestClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
@@ -7676,14 +6739,14 @@ export class URISchemeRequestPrivate {
     static name: string
 }
 export class UserContentFilter {
-    /* Methods of WebKit2.UserContentFilter */
+    /* Methods of WebKit2-4.0.WebKit2.UserContentFilter */
     getIdentifier(): string
     ref(): UserContentFilter
     unref(): void
     static name: string
 }
 export abstract class UserContentFilterStoreClass {
-    /* Fields of WebKit2.UserContentFilterStoreClass */
+    /* Fields of WebKit2-4.0.WebKit2.UserContentFilterStoreClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
@@ -7691,7 +6754,7 @@ export class UserContentFilterStorePrivate {
     static name: string
 }
 export abstract class UserContentManagerClass {
-    /* Fields of WebKit2.UserContentManagerClass */
+    /* Fields of WebKit2-4.0.WebKit2.UserContentManagerClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
@@ -7699,7 +6762,7 @@ export class UserContentManagerPrivate {
     static name: string
 }
 export abstract class UserMediaPermissionRequestClass {
-    /* Fields of WebKit2.UserMediaPermissionRequestClass */
+    /* Fields of WebKit2-4.0.WebKit2.UserMediaPermissionRequestClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
@@ -7707,7 +6770,7 @@ export class UserMediaPermissionRequestPrivate {
     static name: string
 }
 export abstract class UserMessageClass {
-    /* Fields of WebKit2.UserMessageClass */
+    /* Fields of WebKit2-4.0.WebKit2.UserMessageClass */
     parentClass: GObject.InitiallyUnownedClass
     static name: string
 }
@@ -7715,7 +6778,7 @@ export class UserMessagePrivate {
     static name: string
 }
 export class UserScript {
-    /* Methods of WebKit2.UserScript */
+    /* Methods of WebKit2-4.0.WebKit2.UserScript */
     ref(): UserScript
     unref(): void
     static name: string
@@ -7726,7 +6789,7 @@ export class UserScript {
     static newForWorld(source: string, injectedFrames: UserContentInjectedFrames, injectionTime: UserScriptInjectionTime, worldName: string, allowList?: string[] | null, blockList?: string[] | null): UserScript
 }
 export class UserStyleSheet {
-    /* Methods of WebKit2.UserStyleSheet */
+    /* Methods of WebKit2-4.0.WebKit2.UserStyleSheet */
     ref(): UserStyleSheet
     unref(): void
     static name: string
@@ -7737,7 +6800,7 @@ export class UserStyleSheet {
     static newForWorld(source: string, injectedFrames: UserContentInjectedFrames, level: UserStyleLevel, worldName: string, allowList?: string[] | null, blockList?: string[] | null): UserStyleSheet
 }
 export abstract class WebContextClass {
-    /* Fields of WebKit2.WebContextClass */
+    /* Fields of WebKit2-4.0.WebKit2.WebContextClass */
     parent: GObject.ObjectClass
     downloadStarted: (context: WebContext, download: Download) => void
     initializeWebExtensions: (context: WebContext) => void
@@ -7750,7 +6813,7 @@ export class WebContextPrivate {
     static name: string
 }
 export abstract class WebInspectorClass {
-    /* Fields of WebKit2.WebInspectorClass */
+    /* Fields of WebKit2-4.0.WebKit2.WebInspectorClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
@@ -7758,7 +6821,7 @@ export class WebInspectorPrivate {
     static name: string
 }
 export abstract class WebResourceClass {
-    /* Fields of WebKit2.WebResourceClass */
+    /* Fields of WebKit2-4.0.WebKit2.WebResourceClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
@@ -7766,7 +6829,7 @@ export class WebResourcePrivate {
     static name: string
 }
 export abstract class WebViewBaseClass {
-    /* Fields of WebKit2.WebViewBaseClass */
+    /* Fields of WebKit2-4.0.WebKit2.WebViewBaseClass */
     parentClass: Gtk.ContainerClass
     static name: string
 }
@@ -7774,7 +6837,7 @@ export class WebViewBasePrivate {
     static name: string
 }
 export abstract class WebViewClass {
-    /* Fields of WebKit2.WebViewClass */
+    /* Fields of WebKit2-4.0.WebKit2.WebViewClass */
     parent: WebViewBaseClass
     loadChanged: (webView: WebView, loadEvent: LoadEvent) => void
     loadFailed: (webView: WebView, loadEvent: LoadEvent, failingUri: string, error: GLib.Error) => boolean
@@ -7808,7 +6871,7 @@ export class WebViewPrivate {
     static name: string
 }
 export class WebViewSessionState {
-    /* Methods of WebKit2.WebViewSessionState */
+    /* Methods of WebKit2-4.0.WebKit2.WebViewSessionState */
     ref(): WebViewSessionState
     serialize(): any
     unref(): void
@@ -7819,7 +6882,7 @@ export class WebViewSessionState {
     static new(data: any): WebViewSessionState
 }
 export class WebsiteData {
-    /* Methods of WebKit2.WebsiteData */
+    /* Methods of WebKit2-4.0.WebKit2.WebsiteData */
     getName(): string
     getSize(types: WebsiteDataTypes): number
     getTypes(): WebsiteDataTypes
@@ -7828,7 +6891,7 @@ export class WebsiteData {
     static name: string
 }
 export abstract class WebsiteDataAccessPermissionRequestClass {
-    /* Fields of WebKit2.WebsiteDataAccessPermissionRequestClass */
+    /* Fields of WebKit2-4.0.WebKit2.WebsiteDataAccessPermissionRequestClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
@@ -7836,7 +6899,7 @@ export class WebsiteDataAccessPermissionRequestPrivate {
     static name: string
 }
 export abstract class WebsiteDataManagerClass {
-    /* Fields of WebKit2.WebsiteDataManagerClass */
+    /* Fields of WebKit2-4.0.WebKit2.WebsiteDataManagerClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
@@ -7844,7 +6907,7 @@ export class WebsiteDataManagerPrivate {
     static name: string
 }
 export abstract class WebsitePoliciesClass {
-    /* Fields of WebKit2.WebsitePoliciesClass */
+    /* Fields of WebKit2-4.0.WebKit2.WebsitePoliciesClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
@@ -7852,7 +6915,7 @@ export class WebsitePoliciesPrivate {
     static name: string
 }
 export abstract class WindowPropertiesClass {
-    /* Fields of WebKit2.WindowPropertiesClass */
+    /* Fields of WebKit2-4.0.WebKit2.WindowPropertiesClass */
     parentClass: GObject.ObjectClass
     static name: string
 }

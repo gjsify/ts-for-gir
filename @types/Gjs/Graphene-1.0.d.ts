@@ -76,7 +76,7 @@ export function vec4_y_axis(): Vec4
 export function vec4_z_axis(): Vec4
 export function vec4_zero(): Vec4
 export class Box {
-    /* Methods of Graphene.Box */
+    /* Methods of Graphene-1.0.Graphene.Box */
     contains_box(b: Box): boolean
     contains_point(point: Point3D): boolean
     equal(b: Box): boolean
@@ -111,7 +111,7 @@ export class Box {
     static zero(): Box
 }
 export class Euler {
-    /* Methods of Graphene.Euler */
+    /* Methods of Graphene-1.0.Graphene.Euler */
     equal(b: Euler): boolean
     free(): void
     get_alpha(): number
@@ -137,7 +137,7 @@ export class Euler {
     static alloc(): Euler
 }
 export class Frustum {
-    /* Methods of Graphene.Frustum */
+    /* Methods of Graphene-1.0.Graphene.Frustum */
     contains_point(point: Point3D): boolean
     equal(b: Frustum): boolean
     free(): void
@@ -152,7 +152,7 @@ export class Frustum {
     static alloc(): Frustum
 }
 export class Matrix {
-    /* Methods of Graphene.Matrix */
+    /* Methods of Graphene-1.0.Graphene.Matrix */
     decompose(): [ /* returnType */ boolean, /* translate */ Vec3, /* scale */ Vec3, /* rotate */ Quaternion, /* shear */ Vec3, /* perspective */ Vec4 ]
     determinant(): number
     equal(b: Matrix): boolean
@@ -224,7 +224,7 @@ export class Matrix {
     static alloc(): Matrix
 }
 export class Plane {
-    /* Methods of Graphene.Plane */
+    /* Methods of Graphene-1.0.Graphene.Plane */
     distance(point: Point3D): number
     equal(b: Plane): boolean
     free(): void
@@ -243,10 +243,10 @@ export class Plane {
     static alloc(): Plane
 }
 export class Point {
-    /* Fields of Graphene.Point */
+    /* Fields of Graphene-1.0.Graphene.Point */
     x: number
     y: number
-    /* Methods of Graphene.Point */
+    /* Methods of Graphene-1.0.Graphene.Point */
     distance(b: Point): [ /* returnType */ number, /* d_x */ number | null, /* d_y */ number | null ]
     equal(b: Point): boolean
     free(): void
@@ -262,11 +262,11 @@ export class Point {
     static zero(): Point
 }
 export class Point3D {
-    /* Fields of Graphene.Point3D */
+    /* Fields of Graphene-1.0.Graphene.Point3D */
     x: number
     y: number
     z: number
-    /* Methods of Graphene.Point3D */
+    /* Methods of Graphene-1.0.Graphene.Point3D */
     cross(b: Point3D): /* res */ Point3D
     distance(b: Point3D): [ /* returnType */ number, /* delta */ Vec3 | null ]
     dot(b: Point3D): number
@@ -288,7 +288,7 @@ export class Point3D {
     static zero(): Point3D
 }
 export class Quad {
-    /* Methods of Graphene.Quad */
+    /* Methods of Graphene-1.0.Graphene.Quad */
     bounds(): /* r */ Rect
     contains(p: Point): boolean
     free(): void
@@ -301,7 +301,7 @@ export class Quad {
     static alloc(): Quad
 }
 export class Quaternion {
-    /* Methods of Graphene.Quaternion */
+    /* Methods of Graphene-1.0.Graphene.Quaternion */
     add(b: Quaternion): /* res */ Quaternion
     dot(b: Quaternion): number
     equal(b: Quaternion): boolean
@@ -330,7 +330,7 @@ export class Quaternion {
     static alloc(): Quaternion
 }
 export class Ray {
-    /* Methods of Graphene.Ray */
+    /* Methods of Graphene-1.0.Graphene.Ray */
     equal(b: Ray): boolean
     free(): void
     get_closest_point_to_point(p: Point3D): /* res */ Point3D
@@ -353,10 +353,10 @@ export class Ray {
     static alloc(): Ray
 }
 export class Rect {
-    /* Fields of Graphene.Rect */
+    /* Fields of Graphene-1.0.Graphene.Rect */
     origin: Point
     size: Size
-    /* Methods of Graphene.Rect */
+    /* Methods of Graphene-1.0.Graphene.Rect */
     contains_point(p: Point): boolean
     contains_rect(b: Rect): boolean
     equal(b: Rect): boolean
@@ -400,10 +400,10 @@ export class Simd4X4F {
     static name: string
 }
 export class Size {
-    /* Fields of Graphene.Size */
+    /* Fields of Graphene-1.0.Graphene.Size */
     width: number
     height: number
-    /* Methods of Graphene.Size */
+    /* Methods of Graphene-1.0.Graphene.Size */
     equal(b: Size): boolean
     free(): void
     init(width: number, height: number): Size
@@ -416,7 +416,7 @@ export class Size {
     static zero(): Size
 }
 export class Sphere {
-    /* Methods of Graphene.Sphere */
+    /* Methods of Graphene-1.0.Graphene.Sphere */
     contains_point(point: Point3D): boolean
     distance(point: Point3D): number
     equal(b: Sphere): boolean
@@ -434,7 +434,7 @@ export class Sphere {
     static alloc(): Sphere
 }
 export class Triangle {
-    /* Methods of Graphene.Triangle */
+    /* Methods of Graphene-1.0.Graphene.Triangle */
     contains_point(p: Point3D): boolean
     equal(b: Triangle): boolean
     free(): void
@@ -455,7 +455,7 @@ export class Triangle {
     static alloc(): Triangle
 }
 export class Vec2 {
-    /* Methods of Graphene.Vec2 */
+    /* Methods of Graphene-1.0.Graphene.Vec2 */
     add(b: Vec2): /* res */ Vec2
     divide(b: Vec2): /* res */ Vec2
     dot(b: Vec2): number
@@ -486,7 +486,7 @@ export class Vec2 {
     static zero(): Vec2
 }
 export class Vec3 {
-    /* Methods of Graphene.Vec3 */
+    /* Methods of Graphene-1.0.Graphene.Vec3 */
     add(b: Vec3): /* res */ Vec3
     cross(b: Vec3): /* res */ Vec3
     divide(b: Vec3): /* res */ Vec3
@@ -525,7 +525,7 @@ export class Vec3 {
     static zero(): Vec3
 }
 export class Vec4 {
-    /* Methods of Graphene.Vec4 */
+    /* Methods of Graphene-1.0.Graphene.Vec4 */
     add(b: Vec4): /* res */ Vec4
     divide(b: Vec4): /* res */ Vec4
     dot(b: Vec4): number

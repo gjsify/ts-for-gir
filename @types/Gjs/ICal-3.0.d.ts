@@ -1482,7 +1482,7 @@ export interface pvl_findf {
     (a?: object | null, b?: object | null): number
 }
 export class array {
-    /* Fields of ICal.array */
+    /* Fields of ICal-3.0.ICal.array */
     element_size: number
     increment_size: number
     num_elements: number
@@ -1494,7 +1494,7 @@ export class attach {
     static name: string
 }
 export class compiter {
-    /* Fields of ICal.compiter */
+    /* Fields of ICal-3.0.ICal.compiter */
     kind: component_kind
     iter: pvl_elem
     static name: string
@@ -1503,13 +1503,13 @@ export class component {
     static name: string
 }
 export class datetimeperiodtype {
-    /* Fields of ICal.datetimeperiodtype */
+    /* Fields of ICal-3.0.ICal.datetimeperiodtype */
     time: object
     period: object
     static name: string
 }
 export class durationtype {
-    /* Fields of ICal.durationtype */
+    /* Fields of ICal-3.0.ICal.durationtype */
     is_neg: number
     days: number
     weeks: number
@@ -1519,7 +1519,7 @@ export class durationtype {
     static name: string
 }
 export class geotype {
-    /* Fields of ICal.geotype */
+    /* Fields of ICal-3.0.ICal.geotype */
     lat: number
     lon: number
     static name: string
@@ -1531,7 +1531,7 @@ export class parser {
     static name: string
 }
 export class periodtype {
-    /* Fields of ICal.periodtype */
+    /* Fields of ICal-3.0.ICal.periodtype */
     start: object
     end: object
     duration: object
@@ -1544,7 +1544,7 @@ export class pvl_elem {
     static name: string
 }
 export class pvl_elem_t {
-    /* Fields of ICal.pvl_elem_t */
+    /* Fields of ICal-3.0.ICal.pvl_elem_t */
     MAGIC: number
     d: object
     next: object
@@ -1558,7 +1558,7 @@ export class recur_iterator {
     static name: string
 }
 export class recurrencetype {
-    /* Fields of ICal.recurrencetype */
+    /* Fields of ICal-3.0.ICal.recurrencetype */
     freq: recurrencetype_frequency
     until: object
     count: number
@@ -1578,14 +1578,14 @@ export class recurrencetype {
     static name: string
 }
 export class reqstattype {
-    /* Fields of ICal.reqstattype */
+    /* Fields of ICal-3.0.ICal.reqstattype */
     code: requeststatus
     desc: string
     debug: string
     static name: string
 }
 export class sspm_action_map {
-    /* Fields of ICal.sspm_action_map */
+    /* Fields of ICal-3.0.ICal.sspm_action_map */
     major: object
     minor: object
     new_part: () => object
@@ -1595,7 +1595,7 @@ export class sspm_action_map {
     static name: string
 }
 export class sspm_header {
-    /* Fields of ICal.sspm_header */
+    /* Fields of ICal-3.0.ICal.sspm_header */
     def: number
     boundary: string
     major: object
@@ -1611,7 +1611,7 @@ export class sspm_header {
     static name: string
 }
 export class sspm_part {
-    /* Fields of ICal.sspm_part */
+    /* Fields of ICal-3.0.ICal.sspm_part */
     header: object
     level: number
     data_size: number
@@ -1619,14 +1619,14 @@ export class sspm_part {
     static name: string
 }
 export class time_span {
-    /* Fields of ICal.time_span */
+    /* Fields of ICal-3.0.ICal.time_span */
     start: number
     end: number
     is_busy: number
     static name: string
 }
 export class timetype {
-    /* Fields of ICal.timetype */
+    /* Fields of ICal-3.0.ICal.timetype */
     year: number
     month: number
     day: number
@@ -1642,7 +1642,7 @@ export class timezone {
     static name: string
 }
 export class triggertype {
-    /* Fields of ICal.triggertype */
+    /* Fields of ICal-3.0.ICal.triggertype */
     time: object
     duration: object
     static name: string

@@ -103,11 +103,11 @@ export function io_get_system_data_dirs(): string[]
 export interface MergeStrategy_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class MergeStrategy {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Unity.MergeStrategy */
+    /* Methods of Unity-6.0.Unity.MergeStrategy */
     merge_result(target: Dee.Model, row: GLib.Variant[]): Dee.ModelIter | null
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -129,9 +129,9 @@ export class MergeStrategy {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Unity.MergeStrategy */
+    /* Virtual methods of Unity-6.0.Unity.MergeStrategy */
     vfunc_merge_result(target: Dee.Model, row: GLib.Variant[]): Dee.ModelIter | null
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -139,7 +139,7 @@ export class MergeStrategy {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: MergeStrategy, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: MergeStrategy, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -155,12 +155,12 @@ export class MergeStrategy {
 export interface AppInfoManager_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class AppInfoManager {
-    /* Fields of Unity.AppInfoManager */
+    /* Fields of Unity-6.0.Unity.AppInfoManager */
     parent_instance: GObject.Object
     priv: AppInfoManagerPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Unity.AppInfoManager */
+    /* Methods of Unity-6.0.Unity.AppInfoManager */
     lookup(id: string): Gio.AppInfo | null
     get_categories(id: string): string[] | null
     get_keywords(id: string): string[] | null
@@ -168,7 +168,7 @@ export class AppInfoManager {
     lookup_async(id: string, _callback_?: Gio.AsyncReadyCallback | null): void
     lookup_finish(_res_: Gio.AsyncResult): Gio.AppInfo | null
     clear(): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -190,7 +190,7 @@ export class AppInfoManager {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -198,11 +198,11 @@ export class AppInfoManager {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Unity.AppInfoManager */
+    /* Signals of Unity-6.0.Unity.AppInfoManager */
     connect(sigName: "changed", callback: (($obj: AppInfoManager, id: string, new_appinfo?: Gio.AppInfo | null) => void)): number
     connect_after(sigName: "changed", callback: (($obj: AppInfoManager, id: string, new_appinfo?: Gio.AppInfo | null) => void)): number
     emit(sigName: "changed", id: string, new_appinfo?: Gio.AppInfo | null): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: AppInfoManager, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: AppInfoManager, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -225,19 +225,19 @@ export interface AnnotatedIcon_ConstructProps extends GObject.Object_ConstructPr
     size_hint?: IconSizeHint
 }
 export class AnnotatedIcon {
-    /* Properties of Unity.AnnotatedIcon */
+    /* Properties of Unity-6.0.Unity.AnnotatedIcon */
     icon: Gio.Icon
     ribbon: string
     category: CategoryType
     size_hint: IconSizeHint
-    /* Fields of Unity.AnnotatedIcon */
+    /* Fields of Unity-6.0.Unity.AnnotatedIcon */
     parent_instance: GObject.Object
     priv: AnnotatedIconPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Unity.AnnotatedIcon */
+    /* Methods of Unity-6.0.Unity.AnnotatedIcon */
     to_string(): string
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -259,7 +259,7 @@ export class AnnotatedIcon {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -267,7 +267,7 @@ export class AnnotatedIcon {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: AnnotatedIcon, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: AnnotatedIcon, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -293,15 +293,15 @@ export class AnnotatedIcon {
 export interface Inspector_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class Inspector {
-    /* Properties of Unity.Inspector */
+    /* Properties of Unity-6.0.Unity.Inspector */
     readonly unity_running: boolean
     readonly unity_bus_name: string
-    /* Fields of Unity.Inspector */
+    /* Fields of Unity-6.0.Unity.Inspector */
     parent_instance: GObject.Object
     priv: InspectorPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -323,7 +323,7 @@ export class Inspector {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -331,7 +331,7 @@ export class Inspector {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Inspector, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Inspector, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -360,7 +360,7 @@ export interface LauncherEntry_ConstructProps extends GObject.Object_ConstructPr
     quicklist?: Dbusmenu.Menuitem
 }
 export class LauncherEntry {
-    /* Properties of Unity.LauncherEntry */
+    /* Properties of Unity-6.0.Unity.LauncherEntry */
     app_uri: string
     count: number
     count_visible: boolean
@@ -368,12 +368,12 @@ export class LauncherEntry {
     progress_visible: boolean
     urgent: boolean
     quicklist: Dbusmenu.Menuitem
-    /* Fields of Unity.LauncherEntry */
+    /* Fields of Unity-6.0.Unity.LauncherEntry */
     parent_instance: GObject.Object
     priv: LauncherEntryPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -395,12 +395,12 @@ export class LauncherEntry {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of Dee.Serializable */
+    /* Methods of Dee-1.0.Dee.Serializable */
     externalize(): GLib.Variant
     serialize(): GLib.Variant
-    /* Virtual methods of Unity.LauncherEntry */
+    /* Virtual methods of Unity-6.0.Unity.LauncherEntry */
     vfunc_serialize(): GLib.Variant
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -408,7 +408,7 @@ export class LauncherEntry {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: LauncherEntry, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: LauncherEntry, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -444,18 +444,18 @@ export class LauncherEntry {
 export interface LauncherFavorites_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class LauncherFavorites {
-    /* Fields of Unity.LauncherFavorites */
+    /* Fields of Unity-6.0.Unity.LauncherFavorites */
     parent_instance: GObject.Object
     priv: LauncherFavoritesPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Unity.LauncherFavorites */
+    /* Methods of Unity-6.0.Unity.LauncherFavorites */
     has_app_info(appinfo: Gio.AppInfo): boolean
     has_app_id(app_id: string): boolean
     lookup(app_id: string): Gio.AppInfo | null
     enumerate_ids(): string[]
     enumerate_app_infos(): Gio.AppInfo[]
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -477,7 +477,7 @@ export class LauncherFavorites {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -485,11 +485,11 @@ export class LauncherFavorites {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Unity.LauncherFavorites */
+    /* Signals of Unity-6.0.Unity.LauncherFavorites */
     connect(sigName: "changed", callback: (($obj: LauncherFavorites) => void)): number
     connect_after(sigName: "changed", callback: (($obj: LauncherFavorites) => void)): number
     emit(sigName: "changed"): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: LauncherFavorites, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: LauncherFavorites, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -509,14 +509,14 @@ export interface ActivationResponse_ConstructProps extends GObject.InitiallyUnow
     goto_uri?: string
 }
 export class ActivationResponse {
-    /* Properties of Unity.ActivationResponse */
+    /* Properties of Unity-6.0.Unity.ActivationResponse */
     goto_uri: string
-    /* Fields of Unity.ActivationResponse */
+    /* Fields of Unity-6.0.Unity.ActivationResponse */
     parent_instance: GObject.InitiallyUnowned
     priv: ActivationResponsePrivate
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -538,7 +538,7 @@ export class ActivationResponse {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -546,7 +546,7 @@ export class ActivationResponse {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: ActivationResponse, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: ActivationResponse, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -570,12 +570,12 @@ export interface Category_ConstructProps extends GObject.Object_ConstructProps {
     default_renderer?: CategoryRenderer
 }
 export class Category {
-    /* Fields of Unity.Category */
+    /* Fields of Unity-6.0.Unity.Category */
     parent_instance: GObject.Object
     priv: CategoryPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -597,7 +597,7 @@ export class Category {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -605,7 +605,7 @@ export class Category {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Category, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Category, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -630,16 +630,16 @@ export interface Filter_ConstructProps extends GObject.Object_ConstructProps {
     filtering?: boolean
 }
 export class Filter {
-    /* Properties of Unity.Filter */
+    /* Properties of Unity-6.0.Unity.Filter */
     display_name: string
     visible: boolean
     filtering: boolean
-    /* Fields of Unity.Filter */
+    /* Fields of Unity-6.0.Unity.Filter */
     parent_instance: GObject.Object
     priv: FilterPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -661,7 +661,7 @@ export class Filter {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -669,11 +669,11 @@ export class Filter {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Unity.Filter */
+    /* Signals of Unity-6.0.Unity.Filter */
     connect(sigName: "changed", callback: (($obj: Filter) => void)): number
     connect_after(sigName: "changed", callback: (($obj: Filter) => void)): number
     emit(sigName: "changed"): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Filter, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Filter, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -699,14 +699,14 @@ export interface FilterOption_ConstructProps extends GObject.Object_ConstructPro
     active?: boolean
 }
 export class FilterOption {
-    /* Properties of Unity.FilterOption */
+    /* Properties of Unity-6.0.Unity.FilterOption */
     active: boolean
-    /* Fields of Unity.FilterOption */
+    /* Fields of Unity-6.0.Unity.FilterOption */
     parent_instance: GObject.Object
     priv: FilterOptionPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -728,7 +728,7 @@ export class FilterOption {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -736,7 +736,7 @@ export class FilterOption {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: FilterOption, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: FilterOption, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -757,23 +757,23 @@ export interface OptionsFilter_ConstructProps extends Filter_ConstructProps {
     sort_type?: OptionsFilterSortType
 }
 export class OptionsFilter {
-    /* Properties of Unity.OptionsFilter */
+    /* Properties of Unity-6.0.Unity.OptionsFilter */
     sort_type: OptionsFilterSortType
-    /* Properties of Unity.Filter */
+    /* Properties of Unity-6.0.Unity.Filter */
     display_name: string
     visible: boolean
     filtering: boolean
-    /* Fields of Unity.OptionsFilter */
+    /* Fields of Unity-6.0.Unity.OptionsFilter */
     parent_instance: Filter
     priv: OptionsFilterPrivate
     options: FilterOption[]
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Unity.OptionsFilter */
+    /* Methods of Unity-6.0.Unity.OptionsFilter */
     add_option(id: string, display_name: string, icon_hint?: Gio.Icon | null): FilterOption
     get_option(id: string): FilterOption | null
     remove_option(id: string): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -795,7 +795,7 @@ export class OptionsFilter {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -803,11 +803,11 @@ export class OptionsFilter {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Unity.Filter */
+    /* Signals of Unity-6.0.Unity.Filter */
     connect(sigName: "changed", callback: (($obj: OptionsFilter) => void)): number
     connect_after(sigName: "changed", callback: (($obj: OptionsFilter) => void)): number
     emit(sigName: "changed"): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: OptionsFilter, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: OptionsFilter, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -833,26 +833,26 @@ export class OptionsFilter {
 export interface RadioOptionFilter_ConstructProps extends OptionsFilter_ConstructProps {
 }
 export class RadioOptionFilter {
-    /* Properties of Unity.OptionsFilter */
+    /* Properties of Unity-6.0.Unity.OptionsFilter */
     sort_type: OptionsFilterSortType
-    /* Properties of Unity.Filter */
+    /* Properties of Unity-6.0.Unity.Filter */
     display_name: string
     visible: boolean
     filtering: boolean
-    /* Fields of Unity.RadioOptionFilter */
+    /* Fields of Unity-6.0.Unity.RadioOptionFilter */
     parent_instance: OptionsFilter
     priv: RadioOptionFilterPrivate
-    /* Fields of Unity.OptionsFilter */
+    /* Fields of Unity-6.0.Unity.OptionsFilter */
     options: FilterOption[]
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Unity.RadioOptionFilter */
+    /* Methods of Unity-6.0.Unity.RadioOptionFilter */
     get_active_option(): FilterOption | null
-    /* Methods of Unity.OptionsFilter */
+    /* Methods of Unity-6.0.Unity.OptionsFilter */
     add_option(id: string, display_name: string, icon_hint?: Gio.Icon | null): FilterOption
     get_option(id: string): FilterOption | null
     remove_option(id: string): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -874,7 +874,7 @@ export class RadioOptionFilter {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -882,11 +882,11 @@ export class RadioOptionFilter {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Unity.Filter */
+    /* Signals of Unity-6.0.Unity.Filter */
     connect(sigName: "changed", callback: (($obj: RadioOptionFilter) => void)): number
     connect_after(sigName: "changed", callback: (($obj: RadioOptionFilter) => void)): number
     emit(sigName: "changed"): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: RadioOptionFilter, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: RadioOptionFilter, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -913,24 +913,24 @@ export class RadioOptionFilter {
 export interface CheckOptionFilter_ConstructProps extends OptionsFilter_ConstructProps {
 }
 export class CheckOptionFilter {
-    /* Properties of Unity.OptionsFilter */
+    /* Properties of Unity-6.0.Unity.OptionsFilter */
     sort_type: OptionsFilterSortType
-    /* Properties of Unity.Filter */
+    /* Properties of Unity-6.0.Unity.Filter */
     display_name: string
     visible: boolean
     filtering: boolean
-    /* Fields of Unity.CheckOptionFilter */
+    /* Fields of Unity-6.0.Unity.CheckOptionFilter */
     parent_instance: OptionsFilter
     priv: CheckOptionFilterPrivate
-    /* Fields of Unity.OptionsFilter */
+    /* Fields of Unity-6.0.Unity.OptionsFilter */
     options: FilterOption[]
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Unity.OptionsFilter */
+    /* Methods of Unity-6.0.Unity.OptionsFilter */
     add_option(id: string, display_name: string, icon_hint?: Gio.Icon | null): FilterOption
     get_option(id: string): FilterOption | null
     remove_option(id: string): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -952,7 +952,7 @@ export class CheckOptionFilter {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -960,11 +960,11 @@ export class CheckOptionFilter {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Unity.Filter */
+    /* Signals of Unity-6.0.Unity.Filter */
     connect(sigName: "changed", callback: (($obj: CheckOptionFilter) => void)): number
     connect_after(sigName: "changed", callback: (($obj: CheckOptionFilter) => void)): number
     emit(sigName: "changed"): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: CheckOptionFilter, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: CheckOptionFilter, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -991,24 +991,24 @@ export class CheckOptionFilter {
 export interface CheckOptionFilterCompact_ConstructProps extends OptionsFilter_ConstructProps {
 }
 export class CheckOptionFilterCompact {
-    /* Properties of Unity.OptionsFilter */
+    /* Properties of Unity-6.0.Unity.OptionsFilter */
     sort_type: OptionsFilterSortType
-    /* Properties of Unity.Filter */
+    /* Properties of Unity-6.0.Unity.Filter */
     display_name: string
     visible: boolean
     filtering: boolean
-    /* Fields of Unity.CheckOptionFilterCompact */
+    /* Fields of Unity-6.0.Unity.CheckOptionFilterCompact */
     parent_instance: OptionsFilter
     priv: CheckOptionFilterCompactPrivate
-    /* Fields of Unity.OptionsFilter */
+    /* Fields of Unity-6.0.Unity.OptionsFilter */
     options: FilterOption[]
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Unity.OptionsFilter */
+    /* Methods of Unity-6.0.Unity.OptionsFilter */
     add_option(id: string, display_name: string, icon_hint?: Gio.Icon | null): FilterOption
     get_option(id: string): FilterOption | null
     remove_option(id: string): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -1030,7 +1030,7 @@ export class CheckOptionFilterCompact {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -1038,11 +1038,11 @@ export class CheckOptionFilterCompact {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Unity.Filter */
+    /* Signals of Unity-6.0.Unity.Filter */
     connect(sigName: "changed", callback: (($obj: CheckOptionFilterCompact) => void)): number
     connect_after(sigName: "changed", callback: (($obj: CheckOptionFilterCompact) => void)): number
     emit(sigName: "changed"): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: CheckOptionFilterCompact, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: CheckOptionFilterCompact, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -1070,18 +1070,18 @@ export interface RatingsFilter_ConstructProps extends Filter_ConstructProps {
     rating?: number
 }
 export class RatingsFilter {
-    /* Properties of Unity.RatingsFilter */
+    /* Properties of Unity-6.0.Unity.RatingsFilter */
     rating: number
-    /* Properties of Unity.Filter */
+    /* Properties of Unity-6.0.Unity.Filter */
     display_name: string
     visible: boolean
     filtering: boolean
-    /* Fields of Unity.RatingsFilter */
+    /* Fields of Unity-6.0.Unity.RatingsFilter */
     parent_instance: Filter
     priv: RatingsFilterPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -1103,7 +1103,7 @@ export class RatingsFilter {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -1111,11 +1111,11 @@ export class RatingsFilter {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Unity.Filter */
+    /* Signals of Unity-6.0.Unity.Filter */
     connect(sigName: "changed", callback: (($obj: RatingsFilter) => void)): number
     connect_after(sigName: "changed", callback: (($obj: RatingsFilter) => void)): number
     emit(sigName: "changed"): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: RatingsFilter, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: RatingsFilter, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -1141,27 +1141,27 @@ export class RatingsFilter {
 export interface MultiRangeFilter_ConstructProps extends OptionsFilter_ConstructProps {
 }
 export class MultiRangeFilter {
-    /* Properties of Unity.OptionsFilter */
+    /* Properties of Unity-6.0.Unity.OptionsFilter */
     sort_type: OptionsFilterSortType
-    /* Properties of Unity.Filter */
+    /* Properties of Unity-6.0.Unity.Filter */
     display_name: string
     visible: boolean
     filtering: boolean
-    /* Fields of Unity.MultiRangeFilter */
+    /* Fields of Unity-6.0.Unity.MultiRangeFilter */
     parent_instance: OptionsFilter
     priv: MultiRangeFilterPrivate
-    /* Fields of Unity.OptionsFilter */
+    /* Fields of Unity-6.0.Unity.OptionsFilter */
     options: FilterOption[]
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Unity.MultiRangeFilter */
+    /* Methods of Unity-6.0.Unity.MultiRangeFilter */
     get_first_active(): FilterOption | null
     get_last_active(): FilterOption | null
-    /* Methods of Unity.OptionsFilter */
+    /* Methods of Unity-6.0.Unity.OptionsFilter */
     add_option(id: string, display_name: string, icon_hint?: Gio.Icon | null): FilterOption
     get_option(id: string): FilterOption | null
     remove_option(id: string): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -1183,7 +1183,7 @@ export class MultiRangeFilter {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -1191,11 +1191,11 @@ export class MultiRangeFilter {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Unity.Filter */
+    /* Signals of Unity-6.0.Unity.Filter */
     connect(sigName: "changed", callback: (($obj: MultiRangeFilter) => void)): number
     connect_after(sigName: "changed", callback: (($obj: MultiRangeFilter) => void)): number
     emit(sigName: "changed"): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: MultiRangeFilter, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: MultiRangeFilter, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -1223,14 +1223,14 @@ export interface PreferencesManager_ConstructProps extends GObject.Object_Constr
     remote_content_search?: PreferencesManagerRemoteContent
 }
 export class PreferencesManager {
-    /* Properties of Unity.PreferencesManager */
+    /* Properties of Unity-6.0.Unity.PreferencesManager */
     remote_content_search: PreferencesManagerRemoteContent
-    /* Fields of Unity.PreferencesManager */
+    /* Fields of Unity-6.0.Unity.PreferencesManager */
     parent_instance: GObject.Object
     priv: PreferencesManagerPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -1252,7 +1252,7 @@ export class PreferencesManager {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -1260,7 +1260,7 @@ export class PreferencesManager {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: PreferencesManager, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: PreferencesManager, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -1283,16 +1283,16 @@ export interface LensSearch_ConstructProps extends GObject.InitiallyUnowned_Cons
     results_model?: Dee.SerializableModel
 }
 export class LensSearch {
-    /* Fields of Unity.LensSearch */
+    /* Fields of Unity-6.0.Unity.LensSearch */
     parent_instance: GObject.InitiallyUnowned
     priv: LensSearchPrivate
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Unity.LensSearch */
+    /* Methods of Unity-6.0.Unity.LensSearch */
     emit_finished(): void
     equals(other?: LensSearch | null): boolean
     set_reply_hint(key: string, variant: GLib.Variant): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -1314,7 +1314,7 @@ export class LensSearch {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -1322,11 +1322,11 @@ export class LensSearch {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Unity.LensSearch */
+    /* Signals of Unity-6.0.Unity.LensSearch */
     connect(sigName: "finished", callback: (($obj: LensSearch) => void)): number
     connect_after(sigName: "finished", callback: (($obj: LensSearch) => void)): number
     emit(sigName: "finished"): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: LensSearch, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: LensSearch, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -1358,7 +1358,7 @@ export interface Lens_ConstructProps extends GObject.Object_ConstructProps {
     sources_display_name?: string
 }
 export class Lens {
-    /* Properties of Unity.Lens */
+    /* Properties of Unity-6.0.Unity.Lens */
     active: boolean
     visible: boolean
     searching: boolean
@@ -1371,15 +1371,15 @@ export class Lens {
     merge_strategy: MergeStrategy
     global_merge_strategy: MergeStrategy
     sources_display_name: string
-    /* Fields of Unity.Lens */
+    /* Fields of Unity-6.0.Unity.Lens */
     parent_instance: GObject.Object
     priv: LensPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Unity.Lens */
+    /* Methods of Unity-6.0.Unity.Lens */
     export(): void
     add_local_scope(scope: Scope): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -1401,7 +1401,7 @@ export class Lens {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -1409,7 +1409,7 @@ export class Lens {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Lens, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Lens, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -1456,21 +1456,21 @@ export interface Preview_ConstructProps extends GObject.Object_ConstructProps {
     image?: Gio.Icon
 }
 export class Preview {
-    /* Properties of Unity.Preview */
+    /* Properties of Unity-6.0.Unity.Preview */
     title: string
     subtitle: string
     description_markup: string
     image_source_uri: string
     image: Gio.Icon
-    /* Fields of Unity.Preview */
+    /* Fields of Unity-6.0.Unity.Preview */
     parent_instance: GObject.Object
     priv: PreviewPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Unity.Preview */
+    /* Methods of Unity-6.0.Unity.Preview */
     add_action(action: PreviewAction): void
     add_info(info_hint: InfoHint): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -1492,12 +1492,12 @@ export class Preview {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of Dee.Serializable */
+    /* Methods of Dee-1.0.Dee.Serializable */
     externalize(): GLib.Variant
     serialize(): GLib.Variant
-    /* Virtual methods of Unity.Preview */
+    /* Virtual methods of Unity-6.0.Unity.Preview */
     vfunc_serialize(): GLib.Variant
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -1505,11 +1505,11 @@ export class Preview {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Unity.Preview */
+    /* Signals of Unity-6.0.Unity.Preview */
     connect(sigName: "closed", callback: (($obj: Preview) => void)): number
     connect_after(sigName: "closed", callback: (($obj: Preview) => void)): number
     emit(sigName: "closed"): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Preview, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Preview, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -1543,15 +1543,15 @@ export interface PreviewAction_ConstructProps extends GObject.Object_ConstructPr
     layout_hint?: LayoutHint
 }
 export class PreviewAction {
-    /* Properties of Unity.PreviewAction */
+    /* Properties of Unity-6.0.Unity.PreviewAction */
     extra_text: string
     readonly hints: GLib.HashTable
-    /* Fields of Unity.PreviewAction */
+    /* Fields of Unity-6.0.Unity.PreviewAction */
     parent_instance: GObject.Object
     priv: PreviewActionPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -1573,12 +1573,12 @@ export class PreviewAction {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of Dee.Serializable */
+    /* Methods of Dee-1.0.Dee.Serializable */
     externalize(): GLib.Variant
     serialize(): GLib.Variant
-    /* Virtual methods of Unity.PreviewAction */
+    /* Virtual methods of Unity-6.0.Unity.PreviewAction */
     vfunc_serialize(): GLib.Variant
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -1586,11 +1586,11 @@ export class PreviewAction {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Unity.PreviewAction */
+    /* Signals of Unity-6.0.Unity.PreviewAction */
     connect(sigName: "activated", callback: (($obj: PreviewAction, uri: string) => ActivationResponse)): number
     connect_after(sigName: "activated", callback: (($obj: PreviewAction, uri: string) => ActivationResponse)): number
     emit(sigName: "activated", uri: string): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: PreviewAction, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: PreviewAction, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -1619,12 +1619,12 @@ export interface InfoHint_ConstructProps extends GObject.InitiallyUnowned_Constr
     data?: GLib.Variant
 }
 export class InfoHint {
-    /* Fields of Unity.InfoHint */
+    /* Fields of Unity-6.0.Unity.InfoHint */
     parent_instance: GObject.InitiallyUnowned
     priv: InfoHintPrivate
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -1646,7 +1646,7 @@ export class InfoHint {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -1654,7 +1654,7 @@ export class InfoHint {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: InfoHint, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: InfoHint, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -1673,21 +1673,21 @@ export class InfoHint {
 export interface GenericPreview_ConstructProps extends Preview_ConstructProps {
 }
 export class GenericPreview {
-    /* Properties of Unity.Preview */
+    /* Properties of Unity-6.0.Unity.Preview */
     title: string
     subtitle: string
     description_markup: string
     image_source_uri: string
     image: Gio.Icon
-    /* Fields of Unity.GenericPreview */
+    /* Fields of Unity-6.0.Unity.GenericPreview */
     parent_instance: Preview
     priv: GenericPreviewPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Unity.Preview */
+    /* Methods of Unity-6.0.Unity.Preview */
     add_action(action: PreviewAction): void
     add_info(info_hint: InfoHint): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -1709,9 +1709,9 @@ export class GenericPreview {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Unity.Preview */
+    /* Virtual methods of Unity-6.0.Unity.Preview */
     vfunc_serialize(): GLib.Variant
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -1719,11 +1719,11 @@ export class GenericPreview {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Unity.Preview */
+    /* Signals of Unity-6.0.Unity.Preview */
     connect(sigName: "closed", callback: (($obj: GenericPreview) => void)): number
     connect_after(sigName: "closed", callback: (($obj: GenericPreview) => void)): number
     emit(sigName: "closed"): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: GenericPreview, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: GenericPreview, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -1755,28 +1755,28 @@ export interface ApplicationPreview_ConstructProps extends Preview_ConstructProp
     last_update?: string
 }
 export class ApplicationPreview {
-    /* Properties of Unity.ApplicationPreview */
+    /* Properties of Unity-6.0.Unity.ApplicationPreview */
     app_icon: Gio.Icon
     license: string
     copyright: string
     last_update: string
-    /* Properties of Unity.Preview */
+    /* Properties of Unity-6.0.Unity.Preview */
     title: string
     subtitle: string
     description_markup: string
     image_source_uri: string
     image: Gio.Icon
-    /* Fields of Unity.ApplicationPreview */
+    /* Fields of Unity-6.0.Unity.ApplicationPreview */
     parent_instance: Preview
     priv: ApplicationPreviewPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Unity.ApplicationPreview */
+    /* Methods of Unity-6.0.Unity.ApplicationPreview */
     set_rating(rating: number, num_ratings: number): void
-    /* Methods of Unity.Preview */
+    /* Methods of Unity-6.0.Unity.Preview */
     add_action(action: PreviewAction): void
     add_info(info_hint: InfoHint): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -1798,9 +1798,9 @@ export class ApplicationPreview {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Unity.Preview */
+    /* Virtual methods of Unity-6.0.Unity.Preview */
     vfunc_serialize(): GLib.Variant
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -1808,11 +1808,11 @@ export class ApplicationPreview {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Unity.Preview */
+    /* Signals of Unity-6.0.Unity.Preview */
     connect(sigName: "closed", callback: (($obj: ApplicationPreview) => void)): number
     connect_after(sigName: "closed", callback: (($obj: ApplicationPreview) => void)): number
     emit(sigName: "closed"): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: ApplicationPreview, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: ApplicationPreview, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -1851,27 +1851,27 @@ export interface MusicPreview_ConstructProps extends Preview_ConstructProps {
     current_track_state?: MusicPreviewTrackState
 }
 export class MusicPreview {
-    /* Properties of Unity.MusicPreview */
+    /* Properties of Unity-6.0.Unity.MusicPreview */
     current_track_uri: string
     current_progress: number
     current_track_state: MusicPreviewTrackState
-    /* Properties of Unity.Preview */
+    /* Properties of Unity-6.0.Unity.Preview */
     title: string
     subtitle: string
     description_markup: string
     image_source_uri: string
     image: Gio.Icon
-    /* Fields of Unity.MusicPreview */
+    /* Fields of Unity-6.0.Unity.MusicPreview */
     parent_instance: Preview
     priv: MusicPreviewPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Unity.MusicPreview */
+    /* Methods of Unity-6.0.Unity.MusicPreview */
     add_track(track: TrackMetadata): void
-    /* Methods of Unity.Preview */
+    /* Methods of Unity-6.0.Unity.Preview */
     add_action(action: PreviewAction): void
     add_info(info_hint: InfoHint): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -1893,9 +1893,9 @@ export class MusicPreview {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Unity.Preview */
+    /* Virtual methods of Unity-6.0.Unity.Preview */
     vfunc_serialize(): GLib.Variant
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -1903,18 +1903,18 @@ export class MusicPreview {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Unity.MusicPreview */
+    /* Signals of Unity-6.0.Unity.MusicPreview */
     connect(sigName: "play", callback: (($obj: MusicPreview, uri: string) => void)): number
     connect_after(sigName: "play", callback: (($obj: MusicPreview, uri: string) => void)): number
     emit(sigName: "play", uri: string): void
     connect(sigName: "pause", callback: (($obj: MusicPreview, uri: string) => void)): number
     connect_after(sigName: "pause", callback: (($obj: MusicPreview, uri: string) => void)): number
     emit(sigName: "pause", uri: string): void
-    /* Signals of Unity.Preview */
+    /* Signals of Unity-6.0.Unity.Preview */
     connect(sigName: "closed", callback: (($obj: MusicPreview) => void)): number
     connect_after(sigName: "closed", callback: (($obj: MusicPreview) => void)): number
     emit(sigName: "closed"): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: MusicPreview, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: MusicPreview, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -1949,25 +1949,25 @@ export interface MoviePreview_ConstructProps extends Preview_ConstructProps {
     year?: string
 }
 export class MoviePreview {
-    /* Properties of Unity.MoviePreview */
+    /* Properties of Unity-6.0.Unity.MoviePreview */
     year: string
-    /* Properties of Unity.Preview */
+    /* Properties of Unity-6.0.Unity.Preview */
     title: string
     subtitle: string
     description_markup: string
     image_source_uri: string
     image: Gio.Icon
-    /* Fields of Unity.MoviePreview */
+    /* Fields of Unity-6.0.Unity.MoviePreview */
     parent_instance: Preview
     priv: MoviePreviewPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Unity.MoviePreview */
+    /* Methods of Unity-6.0.Unity.MoviePreview */
     set_rating(rating: number, num_ratings: number): void
-    /* Methods of Unity.Preview */
+    /* Methods of Unity-6.0.Unity.Preview */
     add_action(action: PreviewAction): void
     add_info(info_hint: InfoHint): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -1989,9 +1989,9 @@ export class MoviePreview {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Unity.Preview */
+    /* Virtual methods of Unity-6.0.Unity.Preview */
     vfunc_serialize(): GLib.Variant
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -1999,11 +1999,11 @@ export class MoviePreview {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Unity.Preview */
+    /* Signals of Unity-6.0.Unity.Preview */
     connect(sigName: "closed", callback: (($obj: MoviePreview) => void)): number
     connect_after(sigName: "closed", callback: (($obj: MoviePreview) => void)): number
     emit(sigName: "closed"): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: MoviePreview, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: MoviePreview, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -2036,27 +2036,27 @@ export interface SocialPreview_ConstructProps extends Preview_ConstructProps {
     sender?: string
 }
 export class SocialPreview {
-    /* Properties of Unity.SocialPreview */
+    /* Properties of Unity-6.0.Unity.SocialPreview */
     avatar: Gio.Icon
     content: string
     sender: string
-    /* Properties of Unity.Preview */
+    /* Properties of Unity-6.0.Unity.Preview */
     title: string
     subtitle: string
     description_markup: string
     image_source_uri: string
     image: Gio.Icon
-    /* Fields of Unity.SocialPreview */
+    /* Fields of Unity-6.0.Unity.SocialPreview */
     parent_instance: Preview
     priv: SocialPreviewPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Unity.SocialPreview */
+    /* Methods of Unity-6.0.Unity.SocialPreview */
     add_comment(comment: SocialPreviewComment): void
-    /* Methods of Unity.Preview */
+    /* Methods of Unity-6.0.Unity.Preview */
     add_action(action: PreviewAction): void
     add_info(info_hint: InfoHint): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -2078,9 +2078,9 @@ export class SocialPreview {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Unity.Preview */
+    /* Virtual methods of Unity-6.0.Unity.Preview */
     vfunc_serialize(): GLib.Variant
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -2088,11 +2088,11 @@ export class SocialPreview {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Unity.Preview */
+    /* Signals of Unity-6.0.Unity.Preview */
     connect(sigName: "closed", callback: (($obj: SocialPreview) => void)): number
     connect_after(sigName: "closed", callback: (($obj: SocialPreview) => void)): number
     emit(sigName: "closed"): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: SocialPreview, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: SocialPreview, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -2130,12 +2130,12 @@ export interface SocialPreviewComment_ConstructProps extends GObject.InitiallyUn
     time?: string
 }
 export class SocialPreviewComment {
-    /* Fields of Unity.SocialPreviewComment */
+    /* Fields of Unity-6.0.Unity.SocialPreviewComment */
     parent_instance: GObject.InitiallyUnowned
     priv: CommentPrivate
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -2157,7 +2157,7 @@ export class SocialPreviewComment {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -2165,7 +2165,7 @@ export class SocialPreviewComment {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: SocialPreviewComment, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: SocialPreviewComment, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -2184,25 +2184,25 @@ export interface AsyncPreview_ConstructProps extends Preview_ConstructProps {
     cancellable?: Gio.Cancellable
 }
 export class AsyncPreview {
-    /* Properties of Unity.AsyncPreview */
+    /* Properties of Unity-6.0.Unity.AsyncPreview */
     cancellable: Gio.Cancellable
-    /* Properties of Unity.Preview */
+    /* Properties of Unity-6.0.Unity.Preview */
     title: string
     subtitle: string
     description_markup: string
     image_source_uri: string
     image: Gio.Icon
-    /* Fields of Unity.AsyncPreview */
+    /* Fields of Unity-6.0.Unity.AsyncPreview */
     parent_instance: Preview
     priv: AsyncPreviewPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Unity.AsyncPreview */
+    /* Methods of Unity-6.0.Unity.AsyncPreview */
     emit_preview_ready(preview?: Preview | null): void
-    /* Methods of Unity.Preview */
+    /* Methods of Unity-6.0.Unity.Preview */
     add_action(action: PreviewAction): void
     add_info(info_hint: InfoHint): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -2224,9 +2224,9 @@ export class AsyncPreview {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Unity.Preview */
+    /* Virtual methods of Unity-6.0.Unity.Preview */
     vfunc_serialize(): GLib.Variant
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -2234,15 +2234,15 @@ export class AsyncPreview {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Unity.AsyncPreview */
+    /* Signals of Unity-6.0.Unity.AsyncPreview */
     connect(sigName: "preview_ready", callback: (($obj: AsyncPreview, preview: Preview) => void)): number
     connect_after(sigName: "preview_ready", callback: (($obj: AsyncPreview, preview: Preview) => void)): number
     emit(sigName: "preview_ready", preview: Preview): void
-    /* Signals of Unity.Preview */
+    /* Signals of Unity-6.0.Unity.Preview */
     connect(sigName: "closed", callback: (($obj: AsyncPreview) => void)): number
     connect_after(sigName: "closed", callback: (($obj: AsyncPreview) => void)): number
     emit(sigName: "closed"): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: AsyncPreview, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: AsyncPreview, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -2279,7 +2279,7 @@ export interface Scope_ConstructProps extends GObject.Object_ConstructProps {
     sources?: OptionsFilter
 }
 export class Scope {
-    /* Properties of Unity.Scope */
+    /* Properties of Unity-6.0.Unity.Scope */
     active: boolean
     exported: boolean
     search_in_global: boolean
@@ -2288,17 +2288,17 @@ export class Scope {
     readonly filters: Filter[]
     readonly results_model: Dee.SerializableModel
     readonly global_results_model: Dee.SerializableModel
-    /* Fields of Unity.Scope */
+    /* Fields of Unity-6.0.Unity.Scope */
     parent_instance: GObject.Object
     priv: ScopePrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Unity.Scope */
+    /* Methods of Unity-6.0.Unity.Scope */
     export(): void
     get_filter(id: string): Filter | null
     queue_search_changed(search_type: SearchType): void
     invalidate_search(search_type: SearchType): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -2320,7 +2320,7 @@ export class Scope {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -2328,7 +2328,7 @@ export class Scope {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Unity.Scope */
+    /* Signals of Unity-6.0.Unity.Scope */
     connect(sigName: "activate_uri", callback: (($obj: Scope, uri: string) => ActivationResponse | null)): number
     connect_after(sigName: "activate_uri", callback: (($obj: Scope, uri: string) => ActivationResponse | null)): number
     emit(sigName: "activate_uri", uri: string): void
@@ -2347,7 +2347,7 @@ export class Scope {
     connect(sigName: "generate_search_key", callback: (($obj: Scope, search: LensSearch) => string)): number
     connect_after(sigName: "generate_search_key", callback: (($obj: Scope, search: LensSearch) => string)): number
     emit(sigName: "generate_search_key", search: LensSearch): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Scope, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Scope, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -2389,7 +2389,7 @@ export interface TrackMetadata_ConstructProps extends GObject.Object_ConstructPr
     art_icon?: Gio.Icon
 }
 export class TrackMetadata {
-    /* Properties of Unity.TrackMetadata */
+    /* Properties of Unity-6.0.Unity.TrackMetadata */
     uri: string
     track_no: number
     artist: string
@@ -2398,12 +2398,12 @@ export class TrackMetadata {
     length: number
     art_location: Gio.File
     art_icon: Gio.Icon
-    /* Fields of Unity.TrackMetadata */
+    /* Fields of Unity-6.0.Unity.TrackMetadata */
     parent_instance: GObject.Object
     priv: TrackMetadataPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -2425,7 +2425,7 @@ export class TrackMetadata {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -2433,7 +2433,7 @@ export class TrackMetadata {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: TrackMetadata, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: TrackMetadata, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -2474,18 +2474,18 @@ export interface Playlist_ConstructProps extends GObject.Object_ConstructProps {
     last_play_date?: GLib.DateTime
 }
 export class Playlist {
-    /* Properties of Unity.Playlist */
+    /* Properties of Unity-6.0.Unity.Playlist */
     name: string
     icon: Gio.Icon
     creation_date: GLib.DateTime
     modification_date: GLib.DateTime
     last_play_date: GLib.DateTime
-    /* Fields of Unity.Playlist */
+    /* Fields of Unity-6.0.Unity.Playlist */
     parent_instance: GObject.Object
     priv: PlaylistPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -2507,7 +2507,7 @@ export class Playlist {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -2515,7 +2515,7 @@ export class Playlist {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Playlist, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Playlist, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -2556,7 +2556,7 @@ export interface MusicPlayer_ConstructProps extends GObject.Object_ConstructProp
     player_menu?: Dbusmenu.Menuitem
 }
 export class MusicPlayer {
-    /* Properties of Unity.MusicPlayer */
+    /* Properties of Unity-6.0.Unity.MusicPlayer */
     is_blacklisted: boolean
     title: string
     can_go_next: boolean
@@ -2568,19 +2568,19 @@ export class MusicPlayer {
     current_playlist: Playlist
     track_menu: Dbusmenu.Menuitem
     player_menu: Dbusmenu.Menuitem
-    /* Fields of Unity.MusicPlayer */
+    /* Fields of Unity-6.0.Unity.MusicPlayer */
     parent_instance: GObject.Object
     priv: MusicPlayerPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Unity.MusicPlayer */
+    /* Methods of Unity-6.0.Unity.MusicPlayer */
     export(): void
     unexport(): void
     add_playlist(p: Playlist): boolean
     remove_playlist(p: Playlist): boolean
     get_playlists(): Playlist[]
     edit_playlist_name(id: string, name: string): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -2602,7 +2602,7 @@ export class MusicPlayer {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -2610,7 +2610,7 @@ export class MusicPlayer {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Unity.MusicPlayer */
+    /* Signals of Unity-6.0.Unity.MusicPlayer */
     connect(sigName: "raise", callback: (($obj: MusicPlayer) => void)): number
     connect_after(sigName: "raise", callback: (($obj: MusicPlayer) => void)): number
     emit(sigName: "raise"): void
@@ -2626,7 +2626,7 @@ export class MusicPlayer {
     connect(sigName: "activate_playlist", callback: (($obj: MusicPlayer, playlist_id: any) => void)): number
     connect_after(sigName: "activate_playlist", callback: (($obj: MusicPlayer, playlist_id: any) => void)): number
     emit(sigName: "activate_playlist", playlist_id: any): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: MusicPlayer, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: MusicPlayer, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -2664,7 +2664,7 @@ export class MusicPlayer {
     static $gtype: GObject.Type
 }
 export abstract class AppInfoManagerClass {
-    /* Fields of Unity.AppInfoManagerClass */
+    /* Fields of Unity-6.0.Unity.AppInfoManagerClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
@@ -2672,7 +2672,7 @@ export class AppInfoManagerPrivate {
     static name: string
 }
 export abstract class AnnotatedIconClass {
-    /* Fields of Unity.AnnotatedIconClass */
+    /* Fields of Unity-6.0.Unity.AnnotatedIconClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
@@ -2680,7 +2680,7 @@ export class AnnotatedIconPrivate {
     static name: string
 }
 export abstract class InspectorClass {
-    /* Fields of Unity.InspectorClass */
+    /* Fields of Unity-6.0.Unity.InspectorClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
@@ -2688,7 +2688,7 @@ export class InspectorPrivate {
     static name: string
 }
 export abstract class LauncherEntryClass {
-    /* Fields of Unity.LauncherEntryClass */
+    /* Fields of Unity-6.0.Unity.LauncherEntryClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
@@ -2696,7 +2696,7 @@ export class LauncherEntryPrivate {
     static name: string
 }
 export abstract class LauncherFavoritesClass {
-    /* Fields of Unity.LauncherFavoritesClass */
+    /* Fields of Unity-6.0.Unity.LauncherFavoritesClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
@@ -2704,7 +2704,7 @@ export class LauncherFavoritesPrivate {
     static name: string
 }
 export abstract class ActivationResponseClass {
-    /* Fields of Unity.ActivationResponseClass */
+    /* Fields of Unity-6.0.Unity.ActivationResponseClass */
     parent_class: GObject.InitiallyUnownedClass
     static name: string
 }
@@ -2712,7 +2712,7 @@ export class ActivationResponsePrivate {
     static name: string
 }
 export abstract class CategoryClass {
-    /* Fields of Unity.CategoryClass */
+    /* Fields of Unity-6.0.Unity.CategoryClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
@@ -2720,7 +2720,7 @@ export class CategoryPrivate {
     static name: string
 }
 export abstract class FilterClass {
-    /* Fields of Unity.FilterClass */
+    /* Fields of Unity-6.0.Unity.FilterClass */
     parent_class: GObject.ObjectClass
     get_hints: (self: Filter) => GLib.HashTable
     update: (self: Filter, properties: GLib.Variant) => void
@@ -2730,7 +2730,7 @@ export class FilterPrivate {
     static name: string
 }
 export abstract class FilterOptionClass {
-    /* Fields of Unity.FilterOptionClass */
+    /* Fields of Unity-6.0.Unity.FilterOptionClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
@@ -2738,7 +2738,7 @@ export class FilterOptionPrivate {
     static name: string
 }
 export abstract class OptionsFilterClass {
-    /* Fields of Unity.OptionsFilterClass */
+    /* Fields of Unity-6.0.Unity.OptionsFilterClass */
     parent_class: FilterClass
     static name: string
 }
@@ -2746,7 +2746,7 @@ export class OptionsFilterPrivate {
     static name: string
 }
 export abstract class RadioOptionFilterClass {
-    /* Fields of Unity.RadioOptionFilterClass */
+    /* Fields of Unity-6.0.Unity.RadioOptionFilterClass */
     parent_class: OptionsFilterClass
     static name: string
 }
@@ -2754,7 +2754,7 @@ export class RadioOptionFilterPrivate {
     static name: string
 }
 export abstract class CheckOptionFilterClass {
-    /* Fields of Unity.CheckOptionFilterClass */
+    /* Fields of Unity-6.0.Unity.CheckOptionFilterClass */
     parent_class: OptionsFilterClass
     static name: string
 }
@@ -2762,7 +2762,7 @@ export class CheckOptionFilterPrivate {
     static name: string
 }
 export abstract class CheckOptionFilterCompactClass {
-    /* Fields of Unity.CheckOptionFilterCompactClass */
+    /* Fields of Unity-6.0.Unity.CheckOptionFilterCompactClass */
     parent_class: OptionsFilterClass
     static name: string
 }
@@ -2770,7 +2770,7 @@ export class CheckOptionFilterCompactPrivate {
     static name: string
 }
 export abstract class RatingsFilterClass {
-    /* Fields of Unity.RatingsFilterClass */
+    /* Fields of Unity-6.0.Unity.RatingsFilterClass */
     parent_class: FilterClass
     static name: string
 }
@@ -2778,7 +2778,7 @@ export class RatingsFilterPrivate {
     static name: string
 }
 export abstract class MultiRangeFilterClass {
-    /* Fields of Unity.MultiRangeFilterClass */
+    /* Fields of Unity-6.0.Unity.MultiRangeFilterClass */
     parent_class: OptionsFilterClass
     static name: string
 }
@@ -2786,7 +2786,7 @@ export class MultiRangeFilterPrivate {
     static name: string
 }
 export abstract class PreferencesManagerClass {
-    /* Fields of Unity.PreferencesManagerClass */
+    /* Fields of Unity-6.0.Unity.PreferencesManagerClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
@@ -2794,7 +2794,7 @@ export class PreferencesManagerPrivate {
     static name: string
 }
 export abstract class LensSearchClass {
-    /* Fields of Unity.LensSearchClass */
+    /* Fields of Unity-6.0.Unity.LensSearchClass */
     parent_class: GObject.InitiallyUnownedClass
     static name: string
 }
@@ -2802,7 +2802,7 @@ export class LensSearchPrivate {
     static name: string
 }
 export abstract class LensClass {
-    /* Fields of Unity.LensClass */
+    /* Fields of Unity-6.0.Unity.LensClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
@@ -2810,7 +2810,7 @@ export class LensPrivate {
     static name: string
 }
 export abstract class PreviewClass {
-    /* Fields of Unity.PreviewClass */
+    /* Fields of Unity-6.0.Unity.PreviewClass */
     parent_class: GObject.ObjectClass
     create_raw: (self: Preview) => GObject.Object
     update_property: (self: Preview, values: GLib.HashTable, _callback_?: Gio.AsyncReadyCallback | null) => void
@@ -2825,7 +2825,7 @@ export class PreviewPrivate {
     static name: string
 }
 export abstract class PreviewActionClass {
-    /* Fields of Unity.PreviewActionClass */
+    /* Fields of Unity-6.0.Unity.PreviewActionClass */
     parent_class: GObject.ObjectClass
     dummy1: (self: PreviewAction) => void
     dummy2: (self: PreviewAction) => void
@@ -2837,7 +2837,7 @@ export class PreviewActionPrivate {
     static name: string
 }
 export abstract class InfoHintClass {
-    /* Fields of Unity.InfoHintClass */
+    /* Fields of Unity-6.0.Unity.InfoHintClass */
     parent_class: GObject.InitiallyUnownedClass
     static name: string
 }
@@ -2845,7 +2845,7 @@ export class InfoHintPrivate {
     static name: string
 }
 export abstract class GenericPreviewClass {
-    /* Fields of Unity.GenericPreviewClass */
+    /* Fields of Unity-6.0.Unity.GenericPreviewClass */
     parent_class: PreviewClass
     static name: string
 }
@@ -2853,7 +2853,7 @@ export class GenericPreviewPrivate {
     static name: string
 }
 export abstract class ApplicationPreviewClass {
-    /* Fields of Unity.ApplicationPreviewClass */
+    /* Fields of Unity-6.0.Unity.ApplicationPreviewClass */
     parent_class: PreviewClass
     static name: string
 }
@@ -2861,7 +2861,7 @@ export class ApplicationPreviewPrivate {
     static name: string
 }
 export abstract class MusicPreviewClass {
-    /* Fields of Unity.MusicPreviewClass */
+    /* Fields of Unity-6.0.Unity.MusicPreviewClass */
     parent_class: PreviewClass
     static name: string
 }
@@ -2869,7 +2869,7 @@ export class MusicPreviewPrivate {
     static name: string
 }
 export abstract class MoviePreviewClass {
-    /* Fields of Unity.MoviePreviewClass */
+    /* Fields of Unity-6.0.Unity.MoviePreviewClass */
     parent_class: PreviewClass
     static name: string
 }
@@ -2877,7 +2877,7 @@ export class MoviePreviewPrivate {
     static name: string
 }
 export abstract class SocialPreviewClass {
-    /* Fields of Unity.SocialPreviewClass */
+    /* Fields of Unity-6.0.Unity.SocialPreviewClass */
     parent_class: PreviewClass
     static name: string
 }
@@ -2885,7 +2885,7 @@ export class SocialPreviewPrivate {
     static name: string
 }
 export abstract class CommentClass {
-    /* Fields of Unity.CommentClass */
+    /* Fields of Unity-6.0.Unity.CommentClass */
     parent_class: GObject.InitiallyUnownedClass
     static name: string
 }
@@ -2893,7 +2893,7 @@ export class CommentPrivate {
     static name: string
 }
 export abstract class AsyncPreviewClass {
-    /* Fields of Unity.AsyncPreviewClass */
+    /* Fields of Unity-6.0.Unity.AsyncPreviewClass */
     parent_class: PreviewClass
     static name: string
 }
@@ -2901,7 +2901,7 @@ export class AsyncPreviewPrivate {
     static name: string
 }
 export abstract class ScopeClass {
-    /* Fields of Unity.ScopeClass */
+    /* Fields of Unity-6.0.Unity.ScopeClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
@@ -2909,7 +2909,7 @@ export class ScopePrivate {
     static name: string
 }
 export abstract class TrackMetadataClass {
-    /* Fields of Unity.TrackMetadataClass */
+    /* Fields of Unity-6.0.Unity.TrackMetadataClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
@@ -2917,7 +2917,7 @@ export class TrackMetadataPrivate {
     static name: string
 }
 export abstract class PlaylistClass {
-    /* Fields of Unity.PlaylistClass */
+    /* Fields of Unity-6.0.Unity.PlaylistClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
@@ -2925,7 +2925,7 @@ export class PlaylistPrivate {
     static name: string
 }
 export abstract class MusicPlayerClass {
-    /* Fields of Unity.MusicPlayerClass */
+    /* Fields of Unity-6.0.Unity.MusicPlayerClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
@@ -2933,20 +2933,20 @@ export class MusicPlayerPrivate {
     static name: string
 }
 export abstract class MergeStrategyIface {
-    /* Fields of Unity.MergeStrategyIface */
+    /* Fields of Unity-6.0.Unity.MergeStrategyIface */
     parent_iface: GObject.TypeInterface
     merge_result: (self: MergeStrategy, target: Dee.Model, row: GLib.Variant[]) => Dee.ModelIter | null
     static name: string
 }
 export class PlaylistDetails {
-    /* Fields of Unity.PlaylistDetails */
+    /* Fields of Unity-6.0.Unity.PlaylistDetails */
     id: string
     name: string
     icon_name: string
     static name: string
 }
 export class ActivePlaylistContainer {
-    /* Fields of Unity.ActivePlaylistContainer */
+    /* Fields of Unity-6.0.Unity.ActivePlaylistContainer */
     valid: boolean
     details: PlaylistDetails
     static name: string

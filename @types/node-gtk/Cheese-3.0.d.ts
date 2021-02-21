@@ -40,16 +40,16 @@ export interface Camera_ConstructProps extends GObject.Object_ConstructProps {
     videoTexture?: object
 }
 export class Camera {
-    /* Properties of Cheese.Camera */
+    /* Properties of Cheese-3.0.Cheese.Camera */
     device: CameraDevice
     format: VideoFormat
     readonly numCameraDevices: number
     videoTexture: object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Cheese.Camera */
+    /* Methods of Cheese-3.0.Cheese.Camera */
     connectEffectTexture(effect: Effect, texture: Clutter.Actor): void
-    getBalancePropertyRange(property: string): [ /* returnType */ boolean, /* min */ number, /* max */ number, /* def */ number ]
+    getBalancePropertyRange(property: string): { returnType: boolean, min: number, max: number, def: number }
     getCameraDevices(): CameraDevice[]
     getCurrentVideoFormat(): VideoFormat
     getRecordedTime(): string
@@ -68,7 +68,7 @@ export class Camera {
     takePhoto(filename: string): boolean
     takePhotoPixbuf(): boolean
     toggleEffectsPipeline(active: boolean): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -90,51 +90,33 @@ export class Camera {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of Cheese.Camera */
-    vfuncPhotoSaved(): void
-    vfuncPhotoTaken(pixbuf: GdkPixbuf.Pixbuf): void
-    vfuncStateFlagsChanged(newState: Gst.State): void
-    vfuncVideoSaved(): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Cheese.Camera */
+    /* Signals of Cheese-3.0.Cheese.Camera */
     connect(sigName: "photo-saved", callback: (($obj: Camera) => void)): number
-    connect_after(sigName: "photo-saved", callback: (($obj: Camera) => void)): number
+    on(sigName: "photo-saved", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "photo-saved", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "photo-saved", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "photo-saved"): void
-    on(sigName: "photo-saved", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "photo-saved", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "photo-saved", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "photo-taken", callback: (($obj: Camera, pixbuf: GdkPixbuf.Pixbuf) => void)): number
-    connect_after(sigName: "photo-taken", callback: (($obj: Camera, pixbuf: GdkPixbuf.Pixbuf) => void)): number
+    on(sigName: "photo-taken", callback: (pixbuf: GdkPixbuf.Pixbuf) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "photo-taken", callback: (pixbuf: GdkPixbuf.Pixbuf) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "photo-taken", callback: (pixbuf: GdkPixbuf.Pixbuf) => void): NodeJS.EventEmitter
     emit(sigName: "photo-taken", pixbuf: GdkPixbuf.Pixbuf): void
-    on(sigName: "photo-taken", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "photo-taken", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "photo-taken", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "state-flags-changed", callback: (($obj: Camera, state: number) => void)): number
-    connect_after(sigName: "state-flags-changed", callback: (($obj: Camera, state: number) => void)): number
+    on(sigName: "state-flags-changed", callback: (state: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "state-flags-changed", callback: (state: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "state-flags-changed", callback: (state: number) => void): NodeJS.EventEmitter
     emit(sigName: "state-flags-changed", state: number): void
-    on(sigName: "state-flags-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "state-flags-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "state-flags-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "video-saved", callback: (($obj: Camera) => void)): number
-    connect_after(sigName: "video-saved", callback: (($obj: Camera) => void)): number
+    on(sigName: "video-saved", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "video-saved", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "video-saved", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "video-saved"): void
-    on(sigName: "video-saved", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "video-saved", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "video-saved", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Camera, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Camera, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::device", callback: (($obj: Camera, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::device", callback: (($obj: Camera, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::device", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -175,16 +157,16 @@ export interface CameraDevice_ConstructProps extends GObject.Object_ConstructPro
     path?: string
 }
 export class CameraDevice {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Cheese.CameraDevice */
+    /* Methods of Cheese-3.0.Cheese.CameraDevice */
     getBestFormat(): VideoFormat
     getCapsForFormat(format: VideoFormat): Gst.Caps
     getFormatList(): VideoFormat[]
     getName(): string
     getPath(): string
     getSrc(): Gst.Element
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -206,25 +188,14 @@ export class CameraDevice {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of Gio.Initable */
+    /* Methods of Gio-2.0.Gio.Initable */
     init(cancellable?: Gio.Cancellable | null): boolean
-    /* Virtual methods of Cheese.CameraDevice */
-    vfuncInit(cancellable?: Gio.Cancellable | null): boolean
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: CameraDevice, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: CameraDevice, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -244,11 +215,11 @@ export class CameraDevice {
 export interface CameraDeviceMonitor_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class CameraDeviceMonitor {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Cheese.CameraDeviceMonitor */
+    /* Methods of Cheese-3.0.Cheese.CameraDeviceMonitor */
     coldplug(): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -270,46 +241,29 @@ export class CameraDeviceMonitor {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of Gio.AsyncInitable */
+    /* Methods of Gio-2.0.Gio.AsyncInitable */
     initAsync(ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     initFinish(res: Gio.AsyncResult): boolean
     newFinish(res: Gio.AsyncResult): GObject.Object
-    /* Methods of Gio.Initable */
+    /* Methods of Gio-2.0.Gio.Initable */
     init(cancellable?: Gio.Cancellable | null): boolean
-    /* Virtual methods of Cheese.CameraDeviceMonitor */
-    vfuncAdded(device: CameraDevice): void
-    vfuncRemoved(device: CameraDevice): void
-    vfuncInitAsync(ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    vfuncInitFinish(res: Gio.AsyncResult): boolean
-    vfuncInit(cancellable?: Gio.Cancellable | null): boolean
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Cheese.CameraDeviceMonitor */
+    /* Signals of Cheese-3.0.Cheese.CameraDeviceMonitor */
     connect(sigName: "added", callback: (($obj: CameraDeviceMonitor, device: CameraDevice) => void)): number
-    connect_after(sigName: "added", callback: (($obj: CameraDeviceMonitor, device: CameraDevice) => void)): number
+    on(sigName: "added", callback: (device: CameraDevice) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "added", callback: (device: CameraDevice) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "added", callback: (device: CameraDevice) => void): NodeJS.EventEmitter
     emit(sigName: "added", device: CameraDevice): void
-    on(sigName: "added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "added", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "removed", callback: (($obj: CameraDeviceMonitor, device: CameraDevice) => void)): number
-    connect_after(sigName: "removed", callback: (($obj: CameraDeviceMonitor, device: CameraDevice) => void)): number
+    on(sigName: "removed", callback: (device: CameraDevice) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "removed", callback: (device: CameraDevice) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "removed", callback: (device: CameraDevice) => void): NodeJS.EventEmitter
     emit(sigName: "removed", device: CameraDevice): void
-    on(sigName: "removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: CameraDeviceMonitor, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: CameraDeviceMonitor, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -334,17 +288,17 @@ export interface Effect_ConstructProps extends GObject.Object_ConstructProps {
     pipelineDesc?: string
 }
 export class Effect {
-    /* Properties of Cheese.Effect */
+    /* Properties of Cheese-3.0.Cheese.Effect */
     controlValve: Gst.Element
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Cheese.Effect */
+    /* Methods of Cheese-3.0.Cheese.Effect */
     disablePreview(): void
     enablePreview(): void
     getName(): string
     getPipelineDesc(): string
     isPreviewConnected(): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -366,21 +320,12 @@ export class Effect {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Effect, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Effect, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::control-valve", callback: (($obj: Effect, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::control-valve", callback: (($obj: Effect, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::control-valve", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -405,14 +350,14 @@ export class Effect {
 export interface FileUtil_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class FileUtil {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Cheese.FileUtil */
+    /* Methods of Cheese-3.0.Cheese.FileUtil */
     getNewMediaFilename(mode: MediaMode): string
     getPhotoPath(): string
     getVideoPath(): string
     resetBurst(): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -434,21 +379,12 @@ export class FileUtil {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: FileUtil, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: FileUtil, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -464,7 +400,7 @@ export class FileUtil {
     static $gtype: GObject.Type
 }
 export abstract class CameraClass {
-    /* Fields of Cheese.CameraClass */
+    /* Fields of Cheese-3.0.Cheese.CameraClass */
     photoSaved: (camera: Camera) => void
     photoTaken: (camera: Camera, pixbuf: GdkPixbuf.Pixbuf) => void
     videoSaved: (camera: Camera) => void
@@ -472,12 +408,12 @@ export abstract class CameraClass {
     static name: string
 }
 export abstract class CameraDeviceClass {
-    /* Fields of Cheese.CameraDeviceClass */
+    /* Fields of Cheese-3.0.Cheese.CameraDeviceClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
 export abstract class CameraDeviceMonitorClass {
-    /* Fields of Cheese.CameraDeviceMonitorClass */
+    /* Fields of Cheese-3.0.Cheese.CameraDeviceMonitorClass */
     added: (monitor: CameraDeviceMonitor, device: CameraDevice) => void
     removed: (monitor: CameraDeviceMonitor, device: CameraDevice) => void
     static name: string
@@ -489,17 +425,17 @@ export class CameraPrivate {
     static name: string
 }
 export abstract class EffectClass {
-    /* Fields of Cheese.EffectClass */
+    /* Fields of Cheese-3.0.Cheese.EffectClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
 export abstract class FileUtilClass {
-    /* Fields of Cheese.FileUtilClass */
+    /* Fields of Cheese-3.0.Cheese.FileUtilClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
 export class VideoFormat {
-    /* Fields of Cheese.VideoFormat */
+    /* Fields of Cheese-3.0.Cheese.VideoFormat */
     width: number
     height: number
     static name: string

@@ -24,11 +24,11 @@ export interface FactoryFunc {
     (parameters: GObject.Parameter[]): GObject.Object
 }
 export class Activatable {
-    /* Methods of Peas.Activatable */
+    /* Methods of Peas-1.0.Peas.Activatable */
     activate(): void
     deactivate(): void
     update_state(): void
-    /* Virtual methods of Peas.Activatable */
+    /* Virtual methods of Peas-1.0.Peas.Activatable */
     vfunc_activate(): void
     vfunc_deactivate(): void
     vfunc_update_state(): void
@@ -39,14 +39,14 @@ export interface Engine_ConstructProps extends GObject.Object_ConstructProps {
     nonglobal_loaders?: boolean
 }
 export class Engine {
-    /* Properties of Peas.Engine */
+    /* Properties of Peas-1.0.Peas.Engine */
     loaded_plugins: string[]
     readonly plugin_list: object
-    /* Fields of Peas.Engine */
+    /* Fields of Peas-1.0.Peas.Engine */
     parent: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Peas.Engine */
+    /* Methods of Peas-1.0.Peas.Engine */
     add_search_path(module_dir: string, data_dir?: string | null): void
     create_extension(info: PluginInfo, extension_type: GObject.Type, prop_names: string[], prop_values: any[]): Extension
     enable_loader(loader_name: string): void
@@ -60,7 +60,7 @@ export class Engine {
     rescan_plugins(): void
     set_loaded_plugins(plugin_names?: string[] | null): void
     unload_plugin(info: PluginInfo): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -82,10 +82,10 @@ export class Engine {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Peas.Engine */
+    /* Virtual methods of Peas-1.0.Peas.Engine */
     vfunc_load_plugin(info: PluginInfo): void
     vfunc_unload_plugin(info: PluginInfo): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -93,14 +93,14 @@ export class Engine {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Peas.Engine */
+    /* Signals of Peas-1.0.Peas.Engine */
     connect(sigName: "load-plugin", callback: (($obj: Engine, info: PluginInfo) => void)): number
     connect_after(sigName: "load-plugin", callback: (($obj: Engine, info: PluginInfo) => void)): number
     emit(sigName: "load-plugin", info: PluginInfo): void
     connect(sigName: "unload-plugin", callback: (($obj: Engine, info: PluginInfo) => void)): number
     connect_after(sigName: "unload-plugin", callback: (($obj: Engine, info: PluginInfo) => void)): number
     emit(sigName: "unload-plugin", info: PluginInfo): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Engine, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Engine, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -125,17 +125,17 @@ export interface ExtensionBase_ConstructProps extends GObject.Object_ConstructPr
     plugin_info?: PluginInfo
 }
 export class ExtensionBase {
-    /* Properties of Peas.ExtensionBase */
+    /* Properties of Peas-1.0.Peas.ExtensionBase */
     readonly data_dir: string
-    /* Fields of Peas.ExtensionBase */
+    /* Fields of Peas-1.0.Peas.ExtensionBase */
     parent: GObject.Object
     priv: ExtensionBasePrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Peas.ExtensionBase */
+    /* Methods of Peas-1.0.Peas.ExtensionBase */
     get_data_dir(): string
     get_plugin_info(): PluginInfo
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -157,7 +157,7 @@ export class ExtensionBase {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -165,7 +165,7 @@ export class ExtensionBase {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: ExtensionBase, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: ExtensionBase, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -186,15 +186,15 @@ export interface ExtensionSet_ConstructProps extends GObject.Object_ConstructPro
     extension_type?: GObject.Type
 }
 export class ExtensionSet {
-    /* Fields of Peas.ExtensionSet */
+    /* Fields of Peas-1.0.Peas.ExtensionSet */
     parent: GObject.Object
     priv: ExtensionSetPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Peas.ExtensionSet */
+    /* Methods of Peas-1.0.Peas.ExtensionSet */
     foreach(func: ExtensionSetForeachFunc): void
     get_extension(info: PluginInfo): Extension
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -216,11 +216,11 @@ export class ExtensionSet {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Peas.ExtensionSet */
+    /* Virtual methods of Peas-1.0.Peas.ExtensionSet */
     vfunc_call(method_name: string, args: GIRepository.Argument): boolean
     vfunc_extension_added(info: PluginInfo, exten: Extension): void
     vfunc_extension_removed(info: PluginInfo, exten: Extension): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -228,14 +228,14 @@ export class ExtensionSet {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Peas.ExtensionSet */
+    /* Signals of Peas-1.0.Peas.ExtensionSet */
     connect(sigName: "extension-added", callback: (($obj: ExtensionSet, info: PluginInfo, exten: GObject.Object) => void)): number
     connect_after(sigName: "extension-added", callback: (($obj: ExtensionSet, info: PluginInfo, exten: GObject.Object) => void)): number
     emit(sigName: "extension-added", info: PluginInfo, exten: GObject.Object): void
     connect(sigName: "extension-removed", callback: (($obj: ExtensionSet, info: PluginInfo, exten: GObject.Object) => void)): number
     connect_after(sigName: "extension-removed", callback: (($obj: ExtensionSet, info: PluginInfo, exten: GObject.Object) => void)): number
     emit(sigName: "extension-removed", info: PluginInfo, exten: GObject.Object): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: ExtensionSet, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: ExtensionSet, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -258,21 +258,21 @@ export interface ObjectModule_ConstructProps extends GObject.TypeModule_Construc
     symbol?: string
 }
 export class ObjectModule {
-    /* Fields of Peas.ObjectModule */
+    /* Fields of Peas-1.0.Peas.ObjectModule */
     parent: GObject.TypeModule
     priv: ObjectModulePrivate
-    /* Fields of GObject.TypeModule */
+    /* Fields of GObject-2.0.GObject.TypeModule */
     parent_instance: GObject.Object
     use_count: number
     type_infos: object[]
     interface_infos: object[]
     name: string
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Peas.ObjectModule */
+    /* Methods of Peas-1.0.Peas.ObjectModule */
     register_extension_factory(exten_type: GObject.Type, factory_func: FactoryFunc): void
     register_extension_type(exten_type: GObject.Type, impl_type: GObject.Type): void
-    /* Methods of GObject.TypeModule */
+    /* Methods of GObject-2.0.GObject.TypeModule */
     add_interface(instance_type: GObject.Type, interface_type: GObject.Type, interface_info: GObject.InterfaceInfo): void
     register_enum(name: string, const_static_values: GObject.EnumValue): GObject.Type
     register_flags(name: string, const_static_values: GObject.FlagsValue): GObject.Type
@@ -280,7 +280,7 @@ export class ObjectModule {
     set_name(name: string): void
     unuse(): void
     use(): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -302,14 +302,14 @@ export class ObjectModule {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of GObject.TypePlugin */
+    /* Methods of GObject-2.0.GObject.TypePlugin */
     complete_interface_info(instance_type: GObject.Type, interface_type: GObject.Type, info: GObject.InterfaceInfo): void
     complete_type_info(g_type: GObject.Type, info: GObject.TypeInfo, value_table: GObject.TypeValueTable): void
     use(): void
-    /* Virtual methods of GObject.TypeModule */
+    /* Virtual methods of GObject-2.0.GObject.TypeModule */
     vfunc_load(): boolean
     vfunc_unload(): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -317,7 +317,7 @@ export class ObjectModule {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: ObjectModule, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: ObjectModule, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -331,7 +331,7 @@ export class ObjectModule {
     static $gtype: GObject.Type
 }
 export abstract class ActivatableInterface {
-    /* Fields of Peas.ActivatableInterface */
+    /* Fields of Peas-1.0.Peas.ActivatableInterface */
     g_iface: GObject.TypeInterface
     activate: (activatable: Activatable) => void
     deactivate: (activatable: Activatable) => void
@@ -339,7 +339,7 @@ export abstract class ActivatableInterface {
     static name: string
 }
 export abstract class EngineClass {
-    /* Fields of Peas.EngineClass */
+    /* Fields of Peas-1.0.Peas.EngineClass */
     parent_class: GObject.ObjectClass
     load_plugin: (engine: Engine, info: PluginInfo) => void
     unload_plugin: (engine: Engine, info: PluginInfo) => void
@@ -349,7 +349,7 @@ export class EnginePrivate {
     static name: string
 }
 export abstract class ExtensionBaseClass {
-    /* Fields of Peas.ExtensionBaseClass */
+    /* Fields of Peas-1.0.Peas.ExtensionBaseClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
@@ -357,7 +357,7 @@ export class ExtensionBasePrivate {
     static name: string
 }
 export abstract class ExtensionSetClass {
-    /* Fields of Peas.ExtensionSetClass */
+    /* Fields of Peas-1.0.Peas.ExtensionSetClass */
     parent_class: GObject.ObjectClass
     call: (set: ExtensionSet, method_name: string, args: GIRepository.Argument) => boolean
     extension_added: (set: ExtensionSet, info: PluginInfo, exten: Extension) => void
@@ -368,7 +368,7 @@ export class ExtensionSetPrivate {
     static name: string
 }
 export abstract class ObjectModuleClass {
-    /* Fields of Peas.ObjectModuleClass */
+    /* Fields of Peas-1.0.Peas.ObjectModuleClass */
     parent_class: GObject.TypeModuleClass
     static name: string
 }
@@ -376,7 +376,7 @@ export class ObjectModulePrivate {
     static name: string
 }
 export class PluginInfo {
-    /* Methods of Peas.PluginInfo */
+    /* Methods of Peas-1.0.Peas.PluginInfo */
     get_authors(): string[]
     get_copyright(): string
     get_data_dir(): string

@@ -344,7 +344,7 @@ export interface Client_ConstructProps extends GObject.Object_ConstructProps {
     status?: number
 }
 export class Client {
-    /* Properties of Fwupd.Client */
+    /* Properties of Fwupd-2.0.Fwupd.Client */
     readonly daemonVersion: string
     readonly hostMachineId: string
     readonly hostProduct: string
@@ -354,11 +354,11 @@ export class Client {
     readonly soupSession: GObject.Object
     status: number
     readonly tainted: boolean
-    /* Fields of Fwupd.Client */
+    /* Fields of Fwupd-2.0.Fwupd.Client */
     parentInstance: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Fwupd.Client */
+    /* Methods of Fwupd-2.0.Fwupd.Client */
     activate(cancellable: Gio.Cancellable | null, deviceId: string): boolean
     activateAsync(deviceId: string, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     activateFinish(res: Gio.AsyncResult): boolean
@@ -484,7 +484,7 @@ export class Client {
     verifyUpdate(deviceId: string, cancellable?: Gio.Cancellable | null): boolean
     verifyUpdateAsync(deviceId: string, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     verifyUpdateFinish(res: Gio.AsyncResult): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -506,58 +506,38 @@ export class Client {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of Fwupd.Client */
-    vfuncChanged(): void
-    vfuncDeviceAdded(result: Device): void
-    vfuncDeviceChanged(result: Device): void
-    vfuncDeviceRemoved(result: Device): void
-    vfuncStatusChanged(status: Status): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Fwupd.Client */
+    /* Signals of Fwupd-2.0.Fwupd.Client */
     connect(sigName: "changed", callback: (($obj: Client) => void)): number
-    connect_after(sigName: "changed", callback: (($obj: Client) => void)): number
+    on(sigName: "changed", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "changed", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "changed", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "changed"): void
-    on(sigName: "changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "device-added", callback: (($obj: Client, result: Device) => void)): number
-    connect_after(sigName: "device-added", callback: (($obj: Client, result: Device) => void)): number
+    on(sigName: "device-added", callback: (result: Device) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "device-added", callback: (result: Device) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "device-added", callback: (result: Device) => void): NodeJS.EventEmitter
     emit(sigName: "device-added", result: Device): void
-    on(sigName: "device-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "device-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "device-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "device-changed", callback: (($obj: Client, result: Device) => void)): number
-    connect_after(sigName: "device-changed", callback: (($obj: Client, result: Device) => void)): number
+    on(sigName: "device-changed", callback: (result: Device) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "device-changed", callback: (result: Device) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "device-changed", callback: (result: Device) => void): NodeJS.EventEmitter
     emit(sigName: "device-changed", result: Device): void
-    on(sigName: "device-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "device-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "device-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "device-removed", callback: (($obj: Client, result: Device) => void)): number
-    connect_after(sigName: "device-removed", callback: (($obj: Client, result: Device) => void)): number
+    on(sigName: "device-removed", callback: (result: Device) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "device-removed", callback: (result: Device) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "device-removed", callback: (result: Device) => void): NodeJS.EventEmitter
     emit(sigName: "device-removed", result: Device): void
-    on(sigName: "device-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "device-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "device-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "status-changed", callback: (($obj: Client, object: number) => void)): number
-    connect_after(sigName: "status-changed", callback: (($obj: Client, object: number) => void)): number
+    on(sigName: "status-changed", callback: (object: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "status-changed", callback: (object: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "status-changed", callback: (object: number) => void): NodeJS.EventEmitter
     emit(sigName: "status-changed", object: number): void
-    on(sigName: "status-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "status-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "status-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Client, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Client, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::daemon-version", callback: (($obj: Client, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::daemon-version", callback: (($obj: Client, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::daemon-version", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -625,17 +605,17 @@ export interface Device_ConstructProps extends GObject.Object_ConstructProps {
     versionFormat?: number
 }
 export class Device {
-    /* Properties of Fwupd.Device */
+    /* Properties of Fwupd-2.0.Fwupd.Device */
     flags: number
     parent: Device
     protocol: string
     status: number
     versionFormat: number
-    /* Fields of Fwupd.Device */
+    /* Fields of Fwupd-2.0.Fwupd.Device */
     parentInstance: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Fwupd.Device */
+    /* Methods of Fwupd-2.0.Fwupd.Device */
     addChecksum(checksum: string): void
     addChild(child: Device): void
     addFlag(flag: DeviceFlags): void
@@ -721,7 +701,7 @@ export class Device {
     toString(): string
     toVariant(): GLib.Variant
     toVariantFull(flags: DeviceFlags): GLib.Variant
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -743,21 +723,12 @@ export class Device {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Device, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Device, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::flags", callback: (($obj: Device, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::flags", callback: (($obj: Device, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::flags", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -808,14 +779,14 @@ export interface Plugin_ConstructProps extends GObject.Object_ConstructProps {
     name?: string
 }
 export class Plugin {
-    /* Properties of Fwupd.Plugin */
+    /* Properties of Fwupd-2.0.Fwupd.Plugin */
     flags: number
     name: string
-    /* Fields of Fwupd.Plugin */
+    /* Fields of Fwupd-2.0.Fwupd.Plugin */
     parentInstance: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Fwupd.Plugin */
+    /* Methods of Fwupd-2.0.Fwupd.Plugin */
     addFlag(flag: PluginFlags): void
     getFlags(): number
     getName(): string
@@ -825,7 +796,7 @@ export class Plugin {
     setName(name: string): void
     toString(): string
     toVariant(): GLib.Variant
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -847,21 +818,12 @@ export class Plugin {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Plugin, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Plugin, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::flags", callback: (($obj: Plugin, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::flags", callback: (($obj: Plugin, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::flags", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -893,11 +855,11 @@ export class Plugin {
 export interface Release_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class Release {
-    /* Fields of Fwupd.Release */
+    /* Fields of Fwupd-2.0.Fwupd.Release */
     parentInstance: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Fwupd.Release */
+    /* Methods of Fwupd-2.0.Fwupd.Release */
     addCategory(category: string): void
     addChecksum(checksum: string): void
     addFlag(flag: ReleaseFlags): void
@@ -967,7 +929,7 @@ export class Release {
     setVersion(version: string): void
     toString(): string
     toVariant(): GLib.Variant
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -989,21 +951,12 @@ export class Release {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Release, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Release, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -1032,17 +985,17 @@ export interface Remote_ConstructProps extends GObject.Object_ConstructProps {
     id?: string
 }
 export class Remote {
-    /* Properties of Fwupd.Remote */
+    /* Properties of Fwupd-2.0.Fwupd.Remote */
     approvalRequired: boolean
     automaticReports: boolean
     automaticSecurityReports: boolean
     enabled: boolean
     id: string
-    /* Fields of Fwupd.Remote */
+    /* Fields of Fwupd-2.0.Fwupd.Remote */
     parentInstance: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Fwupd.Remote */
+    /* Methods of Fwupd-2.0.Fwupd.Remote */
     buildFirmwareUri(url: string): string
     getAge(): number
     getAgreement(): string
@@ -1078,7 +1031,7 @@ export class Remote {
     setPriority(priority: number): void
     setRemotesDir(directory: string): void
     toVariant(): GLib.Variant
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -1100,21 +1053,12 @@ export class Remote {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Remote, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Remote, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::approval-required", callback: (($obj: Remote, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::approval-required", callback: (($obj: Remote, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::approval-required", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -1161,11 +1105,11 @@ export class Remote {
 export interface SecurityAttr_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class SecurityAttr {
-    /* Fields of Fwupd.SecurityAttr */
+    /* Fields of Fwupd-2.0.Fwupd.SecurityAttr */
     parentInstance: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Fwupd.SecurityAttr */
+    /* Methods of Fwupd-2.0.Fwupd.SecurityAttr */
     addFlag(flag: SecurityAttrFlags): void
     addMetadata(key: string, value?: string | null): void
     addObsolete(appstreamId: string): void
@@ -1189,7 +1133,7 @@ export class SecurityAttr {
     setUrl(url: string): void
     toString(): string
     toVariant(): GLib.Variant
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -1211,21 +1155,12 @@ export class SecurityAttr {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: SecurityAttr, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: SecurityAttr, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -1246,7 +1181,7 @@ export class SecurityAttr {
     static $gtype: GObject.Type
 }
 export abstract class ClientClass {
-    /* Fields of Fwupd.ClientClass */
+    /* Fields of Fwupd-2.0.Fwupd.ClientClass */
     parentClass: GObject.ObjectClass
     changed: (client: Client) => void
     statusChanged: (client: Client, status: Status) => void
@@ -1256,27 +1191,27 @@ export abstract class ClientClass {
     static name: string
 }
 export abstract class DeviceClass {
-    /* Fields of Fwupd.DeviceClass */
+    /* Fields of Fwupd-2.0.Fwupd.DeviceClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
 export abstract class PluginClass {
-    /* Fields of Fwupd.PluginClass */
+    /* Fields of Fwupd-2.0.Fwupd.PluginClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
 export abstract class ReleaseClass {
-    /* Fields of Fwupd.ReleaseClass */
+    /* Fields of Fwupd-2.0.Fwupd.ReleaseClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
 export abstract class RemoteClass {
-    /* Fields of Fwupd.RemoteClass */
+    /* Fields of Fwupd-2.0.Fwupd.RemoteClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
 export abstract class SecurityAttrClass {
-    /* Fields of Fwupd.SecurityAttrClass */
+    /* Fields of Fwupd-2.0.Fwupd.SecurityAttrClass */
     parentClass: GObject.ObjectClass
     static name: string
 }

@@ -41,21 +41,21 @@ export interface TwoConfigItemsProcessFunc {
 export interface ConfigItem_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class ConfigItem {
-    /* Fields of Xkl.ConfigItem */
+    /* Fields of Xkl-1.0.Xkl.ConfigItem */
     parent: GObject.Object
     name: number[]
     short_description: number[]
     description: number[]
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Xkl.ConfigItem */
+    /* Methods of Xkl-1.0.Xkl.ConfigItem */
     get_description(): string
     get_name(): string
     get_short_description(): string
     set_description(description?: string | null): void
     set_name(name?: string | null): void
     set_short_description(short_description?: string | null): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -77,7 +77,7 @@ export class ConfigItem {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -85,7 +85,7 @@ export class ConfigItem {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: ConfigItem, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: ConfigItem, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -103,15 +103,15 @@ export class ConfigItem {
 export interface ConfigRec_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class ConfigRec {
-    /* Fields of Xkl.ConfigRec */
+    /* Fields of Xkl-1.0.Xkl.ConfigRec */
     parent: GObject.Object
     model: string
     layouts: string[]
     variants: string[]
     options: string[]
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Xkl.ConfigRec */
+    /* Methods of Xkl-1.0.Xkl.ConfigRec */
     activate(engine: Engine): boolean
     equals(data2: ConfigRec): boolean
     get_from_backup(engine: Engine): boolean
@@ -123,7 +123,7 @@ export class ConfigRec {
     set_options(new_options: string[]): void
     set_to_root_window_property(rules_atom_name: xlib.Atom, rules_file: string, engine: Engine): boolean
     set_variants(new_variants: string[]): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -145,7 +145,7 @@ export class ConfigRec {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -153,7 +153,7 @@ export class ConfigRec {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: ConfigRec, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: ConfigRec, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -173,11 +173,11 @@ export interface ConfigRegistry_ConstructProps extends GObject.Object_ConstructP
     engine?: Engine
 }
 export class ConfigRegistry {
-    /* Fields of Xkl.ConfigRegistry */
+    /* Fields of Xkl-1.0.Xkl.ConfigRegistry */
     parent: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Xkl.ConfigRegistry */
+    /* Methods of Xkl-1.0.Xkl.ConfigRegistry */
     find_layout(item: ConfigItem): boolean
     find_model(item: ConfigItem): boolean
     find_option(option_group_name: string, item: ConfigItem): boolean
@@ -194,7 +194,7 @@ export class ConfigRegistry {
     foreach_option_group(func: ConfigItemProcessFunc): void
     load(if_extras_needed: boolean): boolean
     search_by_pattern(pattern: string, func: TwoConfigItemsProcessFunc): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -216,7 +216,7 @@ export class ConfigRegistry {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -224,7 +224,7 @@ export class ConfigRegistry {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: ConfigRegistry, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: ConfigRegistry, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -243,7 +243,7 @@ export interface Engine_ConstructProps extends GObject.Object_ConstructProps {
     display?: object
 }
 export class Engine {
-    /* Properties of Xkl.Engine */
+    /* Properties of Xkl-1.0.Xkl.Engine */
     readonly backendName: string
     readonly default_group: number
     readonly features: EngineFeatures
@@ -251,11 +251,11 @@ export class Engine {
     readonly max_num_groups: number
     readonly num_groups: number
     readonly secondary_groups_mask: number
-    /* Fields of Xkl.Engine */
+    /* Fields of Xkl-1.0.Xkl.Engine */
     parent: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Xkl.Engine */
+    /* Methods of Xkl-1.0.Xkl.Engine */
     allow_one_switch_to_secondary_group(): void
     backup_names_prop(): boolean
     delete_state(win: xlib.Window): void
@@ -292,7 +292,7 @@ export class Engine {
     start_listen(flags: number): number
     stop_listen(flags: number): number
     ungrab_key(keycode: number, modifiers: number): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -314,12 +314,12 @@ export class Engine {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Xkl.Engine */
+    /* Virtual methods of Xkl-1.0.Xkl.Engine */
     vfunc_config_notify(): void
     vfunc_new_device_notify(): void
     vfunc_new_window_notify(win: xlib.Window, parent: xlib.Window): number
     vfunc_state_notify(change_type: EngineStateChange, group: number, restore: boolean): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -327,7 +327,7 @@ export class Engine {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Xkl.Engine */
+    /* Signals of Xkl-1.0.Xkl.Engine */
     connect(sigName: "X-config-changed", callback: (($obj: Engine) => void)): number
     connect_after(sigName: "X-config-changed", callback: (($obj: Engine) => void)): number
     emit(sigName: "X-config-changed"): void
@@ -340,7 +340,7 @@ export class Engine {
     connect(sigName: "new-toplevel-window", callback: (($obj: Engine, object: number, p0: number) => number)): number
     connect_after(sigName: "new-toplevel-window", callback: (($obj: Engine, object: number, p0: number) => number)): number
     emit(sigName: "new-toplevel-window", object: number, p0: number): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Engine, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Engine, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -372,17 +372,17 @@ export class Engine {
     static $gtype: GObject.Type
 }
 export abstract class ConfigItemClass {
-    /* Fields of Xkl.ConfigItemClass */
+    /* Fields of Xkl-1.0.Xkl.ConfigItemClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
 export abstract class ConfigRecClass {
-    /* Fields of Xkl.ConfigRecClass */
+    /* Fields of Xkl-1.0.Xkl.ConfigRecClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
 export abstract class ConfigRegistryClass {
-    /* Fields of Xkl.ConfigRegistryClass */
+    /* Fields of Xkl-1.0.Xkl.ConfigRegistryClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
@@ -390,7 +390,7 @@ export class ConfigRegistryPrivate {
     static name: string
 }
 export abstract class EngineClass {
-    /* Fields of Xkl.EngineClass */
+    /* Fields of Xkl-1.0.Xkl.EngineClass */
     parent_class: GObject.ObjectClass
     config_notify: (engine: Engine) => void
     new_window_notify: (engine: Engine, win: xlib.Window, parent: xlib.Window) => number
@@ -402,7 +402,7 @@ export class EnginePrivate {
     static name: string
 }
 export class State {
-    /* Fields of Xkl.State */
+    /* Fields of Xkl-1.0.Xkl.State */
     group: number
     indicators: number
     static name: string

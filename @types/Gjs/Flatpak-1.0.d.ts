@@ -121,11 +121,11 @@ export interface BundleRef_ConstructProps extends Ref_ConstructProps {
     file?: Gio.File
 }
 export class BundleRef {
-    /* Fields of Flatpak.BundleRef */
+    /* Fields of Flatpak-1.0.Flatpak.BundleRef */
     parent: Ref
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Flatpak.BundleRef */
+    /* Methods of Flatpak-1.0.Flatpak.BundleRef */
     get_appstream(): GLib.Bytes
     get_file(): Gio.File
     get_icon(size: number): GLib.Bytes
@@ -133,7 +133,7 @@ export class BundleRef {
     get_metadata(): GLib.Bytes
     get_origin(): string
     get_runtime_repo_url(): string
-    /* Methods of Flatpak.Ref */
+    /* Methods of Flatpak-1.0.Flatpak.Ref */
     format_ref(): string
     get_arch(): string
     get_branch(): string
@@ -141,7 +141,7 @@ export class BundleRef {
     get_commit(): string
     get_kind(): RefKind
     get_name(): string
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -163,7 +163,7 @@ export class BundleRef {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -171,7 +171,7 @@ export class BundleRef {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: BundleRef, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: BundleRef, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -189,11 +189,11 @@ export class BundleRef {
 export interface Installation_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class Installation {
-    /* Fields of Flatpak.Installation */
+    /* Fields of Flatpak-1.0.Flatpak.Installation */
     parent: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Flatpak.Installation */
+    /* Methods of Flatpak-1.0.Flatpak.Installation */
     add_remote(remote: Remote, if_needed: boolean, cancellable?: Gio.Cancellable | null): boolean
     cleanup_local_refs_sync(cancellable?: Gio.Cancellable | null): boolean
     create_monitor(cancellable?: Gio.Cancellable | null): Gio.FileMonitor
@@ -247,7 +247,7 @@ export class Installation {
     update_appstream_sync(remote_name: string, arch?: string | null, out_changed?: boolean | null, cancellable?: Gio.Cancellable | null): boolean
     update_full(flags: UpdateFlags, kind: RefKind, name: string, arch?: string | null, branch?: string | null, subpaths?: string[] | null, cancellable?: Gio.Cancellable | null): InstalledRef
     update_remote_sync(name: string, cancellable?: Gio.Cancellable | null): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -269,7 +269,7 @@ export class Installation {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -277,7 +277,7 @@ export class Installation {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Installation, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Installation, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -312,18 +312,18 @@ export interface InstalledRef_ConstructProps extends Ref_ConstructProps {
     subpaths?: string[]
 }
 export class InstalledRef {
-    /* Properties of Flatpak.InstalledRef */
+    /* Properties of Flatpak-1.0.Flatpak.InstalledRef */
     deploy_dir: string
     installed_size: number
     is_current: boolean
     latest_commit: string
     origin: string
     subpaths: string[]
-    /* Fields of Flatpak.InstalledRef */
+    /* Fields of Flatpak-1.0.Flatpak.InstalledRef */
     parent: Ref
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Flatpak.InstalledRef */
+    /* Methods of Flatpak-1.0.Flatpak.InstalledRef */
     get_appdata_content_rating(): GLib.HashTable | null
     get_appdata_content_rating_type(): string | null
     get_appdata_license(): string
@@ -340,7 +340,7 @@ export class InstalledRef {
     get_subpaths(): string[]
     load_appdata(cancellable?: Gio.Cancellable | null): GLib.Bytes
     load_metadata(cancellable?: Gio.Cancellable | null): GLib.Bytes
-    /* Methods of Flatpak.Ref */
+    /* Methods of Flatpak-1.0.Flatpak.Ref */
     format_ref(): string
     get_arch(): string
     get_branch(): string
@@ -348,7 +348,7 @@ export class InstalledRef {
     get_commit(): string
     get_kind(): RefKind
     get_name(): string
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -370,7 +370,7 @@ export class InstalledRef {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -378,7 +378,7 @@ export class InstalledRef {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: InstalledRef, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: InstalledRef, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -406,11 +406,11 @@ export class InstalledRef {
 export interface Instance_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class Instance {
-    /* Fields of Flatpak.Instance */
+    /* Fields of Flatpak-1.0.Flatpak.Instance */
     parent: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Flatpak.Instance */
+    /* Methods of Flatpak-1.0.Flatpak.Instance */
     get_app(): string
     get_arch(): string
     get_branch(): string
@@ -422,7 +422,7 @@ export class Instance {
     get_runtime(): string
     get_runtime_commit(): string
     is_running(): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -444,7 +444,7 @@ export class Instance {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -452,7 +452,7 @@ export class Instance {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Instance, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Instance, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -476,11 +476,11 @@ export interface Ref_ConstructProps extends GObject.Object_ConstructProps {
     name?: string
 }
 export class Ref {
-    /* Fields of Flatpak.Ref */
+    /* Fields of Flatpak-1.0.Flatpak.Ref */
     parent: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Flatpak.Ref */
+    /* Methods of Flatpak-1.0.Flatpak.Ref */
     format_ref(): string
     get_arch(): string
     get_branch(): string
@@ -488,7 +488,7 @@ export class Ref {
     get_commit(): string
     get_kind(): RefKind
     get_name(): string
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -510,7 +510,7 @@ export class Ref {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -518,7 +518,7 @@ export class Ref {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Ref, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Ref, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -540,16 +540,16 @@ export interface RelatedRef_ConstructProps extends Ref_ConstructProps {
     subpaths?: string[]
 }
 export class RelatedRef {
-    /* Fields of Flatpak.RelatedRef */
+    /* Fields of Flatpak-1.0.Flatpak.RelatedRef */
     parent: Ref
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Flatpak.RelatedRef */
+    /* Methods of Flatpak-1.0.Flatpak.RelatedRef */
     get_subpaths(): string[]
     should_autoprune(): boolean
     should_delete(): boolean
     should_download(): boolean
-    /* Methods of Flatpak.Ref */
+    /* Methods of Flatpak-1.0.Flatpak.Ref */
     format_ref(): string
     get_arch(): string
     get_branch(): string
@@ -557,7 +557,7 @@ export class RelatedRef {
     get_commit(): string
     get_kind(): RefKind
     get_name(): string
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -579,7 +579,7 @@ export class RelatedRef {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -587,7 +587,7 @@ export class RelatedRef {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: RelatedRef, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: RelatedRef, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -605,13 +605,13 @@ export interface Remote_ConstructProps extends GObject.Object_ConstructProps {
     type?: RemoteType
 }
 export class Remote {
-    /* Properties of Flatpak.Remote */
+    /* Properties of Flatpak-1.0.Flatpak.Remote */
     name: string
-    /* Fields of Flatpak.Remote */
+    /* Fields of Flatpak-1.0.Flatpak.Remote */
     parent: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Flatpak.Remote */
+    /* Methods of Flatpak-1.0.Flatpak.Remote */
     get_appstream_dir(arch?: string | null): Gio.File
     get_appstream_timestamp(arch?: string | null): Gio.File
     get_collection_id(): string | null
@@ -647,7 +647,7 @@ export class Remote {
     set_prio(prio: number): void
     set_title(title: string): void
     set_url(url: string): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -669,7 +669,7 @@ export class Remote {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -677,7 +677,7 @@ export class Remote {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Remote, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Remote, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -704,18 +704,18 @@ export interface RemoteRef_ConstructProps extends Ref_ConstructProps {
     remote_name?: string
 }
 export class RemoteRef {
-    /* Fields of Flatpak.RemoteRef */
+    /* Fields of Flatpak-1.0.Flatpak.RemoteRef */
     parent: Ref
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Flatpak.RemoteRef */
+    /* Methods of Flatpak-1.0.Flatpak.RemoteRef */
     get_download_size(): number
     get_eol(): string
     get_eol_rebase(): string
     get_installed_size(): number
     get_metadata(): GLib.Bytes | null
     get_remote_name(): string
-    /* Methods of Flatpak.Ref */
+    /* Methods of Flatpak-1.0.Flatpak.Ref */
     format_ref(): string
     get_arch(): string
     get_branch(): string
@@ -723,7 +723,7 @@ export class RemoteRef {
     get_commit(): string
     get_kind(): RefKind
     get_name(): string
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -745,7 +745,7 @@ export class RemoteRef {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -753,7 +753,7 @@ export class RemoteRef {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: RemoteRef, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: RemoteRef, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -770,11 +770,11 @@ export interface Transaction_ConstructProps extends GObject.Object_ConstructProp
     installation?: Installation
 }
 export class Transaction {
-    /* Fields of Flatpak.Transaction */
+    /* Fields of Flatpak-1.0.Flatpak.Transaction */
     parent_instance: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Flatpak.Transaction */
+    /* Methods of Flatpak-1.0.Flatpak.Transaction */
     abort_webflow(id: number): void
     add_default_dependency_sources(): void
     add_dependency_source(installation: Installation): void
@@ -805,7 +805,7 @@ export class Transaction {
     set_no_pull(no_pull: boolean): void
     set_parent_window(parent_window: string): void
     set_reinstall(reinstall: boolean): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -827,9 +827,9 @@ export class Transaction {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of Gio.Initable */
+    /* Methods of Gio-2.0.Gio.Initable */
     init(cancellable?: Gio.Cancellable | null): boolean
-    /* Virtual methods of Flatpak.Transaction */
+    /* Virtual methods of Flatpak-1.0.Flatpak.Transaction */
     vfunc_add_new_remote(reason: TransactionRemoteReason, from_id: string, remote_name: string, url: string): boolean
     vfunc_basic_auth_start(remote: string, realm: string, options: GLib.Variant, id: number): boolean
     vfunc_choose_remote_for_ref(for_ref: string, runtime_ref: string, remotes: string): number
@@ -844,7 +844,7 @@ export class Transaction {
     vfunc_webflow_done(options: GLib.Variant, id: number): void
     vfunc_webflow_start(remote: string, url: string, options: GLib.Variant, id: number): boolean
     vfunc_init(cancellable?: Gio.Cancellable | null): boolean
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -852,7 +852,7 @@ export class Transaction {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Flatpak.Transaction */
+    /* Signals of Flatpak-1.0.Flatpak.Transaction */
     connect(sigName: "add-new-remote", callback: (($obj: Transaction, reason: TransactionRemoteReason, from_id: string, suggested_remote_name: string, url: string) => boolean)): number
     connect_after(sigName: "add-new-remote", callback: (($obj: Transaction, reason: TransactionRemoteReason, from_id: string, suggested_remote_name: string, url: string) => boolean)): number
     emit(sigName: "add-new-remote", reason: TransactionRemoteReason, from_id: string, suggested_remote_name: string, url: string): void
@@ -889,7 +889,7 @@ export class Transaction {
     connect(sigName: "webflow-start", callback: (($obj: Transaction, remote: string, url: string, options: GLib.Variant, id: number) => boolean)): number
     connect_after(sigName: "webflow-start", callback: (($obj: Transaction, remote: string, url: string, options: GLib.Variant, id: number) => boolean)): number
     emit(sigName: "webflow-start", remote: string, url: string, options: GLib.Variant, id: number): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Transaction, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Transaction, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -908,9 +908,9 @@ export class Transaction {
 export interface TransactionOperation_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class TransactionOperation {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Flatpak.TransactionOperation */
+    /* Methods of Flatpak-1.0.Flatpak.TransactionOperation */
     get_bundle_path(): Gio.File
     get_commit(): string
     get_download_size(): number
@@ -922,7 +922,7 @@ export class TransactionOperation {
     get_ref(): string
     get_related_to_ops(): TransactionOperation[] | null
     get_remote(): string
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -944,7 +944,7 @@ export class TransactionOperation {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -952,7 +952,7 @@ export class TransactionOperation {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: TransactionOperation, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: TransactionOperation, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -968,16 +968,16 @@ export class TransactionOperation {
 export interface TransactionProgress_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class TransactionProgress {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Flatpak.TransactionProgress */
+    /* Methods of Flatpak-1.0.Flatpak.TransactionProgress */
     get_bytes_transferred(): number
     get_is_estimating(): boolean
     get_progress(): number
     get_start_time(): number
     get_status(): string
     set_update_frequency(update_interval: number): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -999,7 +999,7 @@ export class TransactionProgress {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -1007,11 +1007,11 @@ export class TransactionProgress {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Flatpak.TransactionProgress */
+    /* Signals of Flatpak-1.0.Flatpak.TransactionProgress */
     connect(sigName: "changed", callback: (($obj: TransactionProgress) => void)): number
     connect_after(sigName: "changed", callback: (($obj: TransactionProgress) => void)): number
     emit(sigName: "changed"): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: TransactionProgress, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: TransactionProgress, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -1025,47 +1025,47 @@ export class TransactionProgress {
     static $gtype: GObject.Type
 }
 export abstract class BundleRefClass {
-    /* Fields of Flatpak.BundleRefClass */
+    /* Fields of Flatpak-1.0.Flatpak.BundleRefClass */
     parent_class: RefClass
     static name: string
 }
 export abstract class InstallationClass {
-    /* Fields of Flatpak.InstallationClass */
+    /* Fields of Flatpak-1.0.Flatpak.InstallationClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
 export abstract class InstalledRefClass {
-    /* Fields of Flatpak.InstalledRefClass */
+    /* Fields of Flatpak-1.0.Flatpak.InstalledRefClass */
     parent_class: RefClass
     static name: string
 }
 export abstract class InstanceClass {
-    /* Fields of Flatpak.InstanceClass */
+    /* Fields of Flatpak-1.0.Flatpak.InstanceClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
 export abstract class RefClass {
-    /* Fields of Flatpak.RefClass */
+    /* Fields of Flatpak-1.0.Flatpak.RefClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
 export abstract class RelatedRefClass {
-    /* Fields of Flatpak.RelatedRefClass */
+    /* Fields of Flatpak-1.0.Flatpak.RelatedRefClass */
     parent_class: RefClass
     static name: string
 }
 export abstract class RemoteClass {
-    /* Fields of Flatpak.RemoteClass */
+    /* Fields of Flatpak-1.0.Flatpak.RemoteClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
 export abstract class RemoteRefClass {
-    /* Fields of Flatpak.RemoteRefClass */
+    /* Fields of Flatpak-1.0.Flatpak.RemoteRefClass */
     parent_class: RefClass
     static name: string
 }
 export abstract class TransactionClass {
-    /* Fields of Flatpak.TransactionClass */
+    /* Fields of Flatpak-1.0.Flatpak.TransactionClass */
     parent_class: GObject.ObjectClass
     new_operation: (transaction: Transaction, operation: TransactionOperation, progress: TransactionProgress) => void
     operation_done: (transaction: Transaction, operation: TransactionOperation, commit: string, details: TransactionResult) => void
@@ -1084,12 +1084,12 @@ export abstract class TransactionClass {
     static name: string
 }
 export abstract class TransactionOperationClass {
-    /* Fields of Flatpak.TransactionOperationClass */
+    /* Fields of Flatpak-1.0.Flatpak.TransactionOperationClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
 export abstract class TransactionProgressClass {
-    /* Fields of Flatpak.TransactionProgressClass */
+    /* Fields of Flatpak-1.0.Flatpak.TransactionProgressClass */
     parent_class: GObject.ObjectClass
     static name: string
 }

@@ -28,24 +28,24 @@ export function menuitem_property_set_shortcut_string(menuitem: Dbusmenu.Menuite
 export interface Client_ConstructProps extends Dbusmenu.Client_ConstructProps {
 }
 export class Client {
-    /* Properties of Dbusmenu.Client */
+    /* Properties of Dbusmenu-0.4.Dbusmenu.Client */
     group_events: boolean
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of DbusmenuGtk.Client */
+    /* Methods of DbusmenuGtk-0.4.DbusmenuGtk.Client */
     get_accel_group(): Gtk.AccelGroup
     menuitem_get(item: Dbusmenu.Menuitem): Gtk.MenuItem
     menuitem_get_submenu(item: Dbusmenu.Menuitem): Gtk.Menu
     newitem_base(item: Dbusmenu.Menuitem, gmi: Gtk.MenuItem, parent: Dbusmenu.Menuitem): void
     set_accel_group(agroup: Gtk.AccelGroup): void
-    /* Methods of Dbusmenu.Client */
+    /* Methods of Dbusmenu-0.4.Dbusmenu.Client */
     add_type_handler(type: string, newfunc: Dbusmenu.ClientTypeHandler): boolean
     add_type_handler_full(type: string, newfunc: Dbusmenu.ClientTypeHandler): boolean
     get_icon_paths(): string[]
     get_root(): Dbusmenu.Menuitem
     get_status(): Dbusmenu.Status
     get_text_direction(): Dbusmenu.TextDirection
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -67,7 +67,7 @@ export class Client {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -75,7 +75,7 @@ export class Client {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Dbusmenu.Client */
+    /* Signals of Dbusmenu-0.4.Dbusmenu.Client */
     connect(sigName: "event-result", callback: (($obj: Client, object: GObject.Object, p0: string, p1: GLib.Variant, p2: number, p3?: object | null) => void)): number
     connect_after(sigName: "event-result", callback: (($obj: Client, object: GObject.Object, p0: string, p1: GLib.Variant, p2: number, p3?: object | null) => void)): number
     emit(sigName: "event-result", object: GObject.Object, p0: string, p1: GLib.Variant, p2: number, p3?: object | null): void
@@ -94,7 +94,7 @@ export class Client {
     connect(sigName: "root-changed", callback: (($obj: Client, arg1: GObject.Object) => void)): number
     connect_after(sigName: "root-changed", callback: (($obj: Client, arg1: GObject.Object) => void)): number
     emit(sigName: "root-changed", arg1: GObject.Object): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Client, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Client, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -116,7 +116,7 @@ export interface Menu_ConstructProps extends Gtk.Menu_ConstructProps {
     dbus_object?: string
 }
 export class Menu {
-    /* Properties of Gtk.Menu */
+    /* Properties of Gtk-2.0.Gtk.Menu */
     accel_group: Gtk.AccelGroup
     accel_path: string
     active: number
@@ -125,13 +125,13 @@ export class Menu {
     reserve_toggle_size: boolean
     tearoff_state: boolean
     tearoff_title: string
-    /* Properties of Gtk.MenuShell */
+    /* Properties of Gtk-2.0.Gtk.MenuShell */
     take_focus: boolean
-    /* Properties of Gtk.Container */
+    /* Properties of Gtk-2.0.Gtk.Container */
     border_width: number
     child: Gtk.Widget
     resize_mode: Gtk.ResizeMode
-    /* Properties of Gtk.Widget */
+    /* Properties of Gtk-2.0.Gtk.Widget */
     app_paintable: boolean
     can_default: boolean
     can_focus: boolean
@@ -155,11 +155,11 @@ export class Menu {
     visible: boolean
     width_request: number
     readonly window: Gdk.Window
-    /* Properties of Gtk.Object */
+    /* Properties of Gtk-2.0.Gtk.Object */
     user_data: object
-    /* Fields of DbusmenuGtk.Menu */
+    /* Fields of DbusmenuGtk-0.4.DbusmenuGtk.Menu */
     priv: MenuPrivate
-    /* Fields of Gtk.Menu */
+    /* Fields of Gtk-2.0.Gtk.Menu */
     menu_shell: Gtk.MenuShell
     parent_menu_item: Gtk.Widget
     old_active_menu_item: Gtk.Widget
@@ -187,7 +187,7 @@ export class Menu {
     lower_arrow_visible: number
     upper_arrow_prelight: number
     lower_arrow_prelight: number
-    /* Fields of Gtk.MenuShell */
+    /* Fields of Gtk-2.0.Gtk.MenuShell */
     container: Gtk.Container
     children: object[]
     active_menu_item: Gtk.Widget
@@ -200,24 +200,24 @@ export class Menu {
     menu_flag: number
     ignore_enter: number
     keyboard_mode: number
-    /* Fields of Gtk.Container */
+    /* Fields of Gtk-2.0.Gtk.Container */
     widget: Gtk.Widget
     focus_child: Gtk.Widget
-    /* Fields of Gtk.Widget */
+    /* Fields of Gtk-2.0.Gtk.Widget */
     object: Gtk.Object
     private_flags: number
     state: number
     saved_state: number
     requisition: Gtk.Requisition
     allocation: Gtk.Allocation
-    /* Fields of Gtk.Object */
+    /* Fields of Gtk-2.0.Gtk.Object */
     parent_instance: GObject.InitiallyUnowned
     flags: number
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     g_type_instance: GObject.TypeInstance
-    /* Methods of DbusmenuGtk.Menu */
+    /* Methods of DbusmenuGtk-0.4.DbusmenuGtk.Menu */
     get_client(): Client
-    /* Methods of Gtk.Menu */
+    /* Methods of Gtk-2.0.Gtk.Menu */
     attach(child: Gtk.Widget, left_attach: number, right_attach: number, top_attach: number, bottom_attach: number): void
     detach(): void
     get_accel_group(): Gtk.AccelGroup
@@ -239,7 +239,7 @@ export class Menu {
     set_screen(screen?: Gdk.Screen | null): void
     set_tearoff_state(torn_off: boolean): void
     set_title(title: string): void
-    /* Methods of Gtk.MenuShell */
+    /* Methods of Gtk-2.0.Gtk.MenuShell */
     activate_item(menu_item: Gtk.Widget, force_deactivate: boolean): void
     append(child: Gtk.Widget): void
     cancel(): void
@@ -251,7 +251,7 @@ export class Menu {
     select_first(search_sensitive: boolean): void
     select_item(menu_item: Gtk.Widget): void
     set_take_focus(take_focus: boolean): void
-    /* Methods of Gtk.Container */
+    /* Methods of Gtk-2.0.Gtk.Container */
     add(widget: Gtk.Widget): void
     check_resize(): void
     child_get_property(child: Gtk.Widget, property_name: string, value: any): void
@@ -276,7 +276,7 @@ export class Menu {
     set_reallocate_redraws(needs_redraws: boolean): void
     set_resize_mode(resize_mode: Gtk.ResizeMode): void
     unset_focus_chain(): void
-    /* Methods of Gtk.Widget */
+    /* Methods of Gtk-2.0.Gtk.Widget */
     activate(): boolean
     add_accelerator(accel_signal: string, accel_group: Gtk.AccelGroup, accel_key: number, accel_mods: Gdk.ModifierType, accel_flags: Gtk.AccelFlags): void
     add_events(events: number): void
@@ -429,7 +429,7 @@ export class Menu {
     unparent(): void
     unrealize(): void
     unref(): void
-    /* Methods of Gtk.Object */
+    /* Methods of Gtk-2.0.Gtk.Object */
     get_data(key: string): object | null
     get_data_by_id(data_id: GLib.Quark): object | null
     get_user_data(): object | null
@@ -445,7 +445,7 @@ export class Menu {
     sink(): void
     weakref(notify: GLib.DestroyNotify, data?: object | null): void
     weakunref(notify: GLib.DestroyNotify, data?: object | null): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -464,7 +464,7 @@ export class Menu {
     steal_qdata(quark: GLib.Quark): object | null
     thaw_notify(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of Gtk.Buildable */
+    /* Methods of Gtk-2.0.Gtk.Buildable */
     add_child(builder: Gtk.Builder, child: GObject.Object, type?: string | null): void
     construct_child(builder: Gtk.Builder, name: string): GObject.Object
     custom_finished(builder: Gtk.Builder, child: GObject.Object | null, tagname: string, data?: object | null): void
@@ -473,7 +473,7 @@ export class Menu {
     get_internal_child(builder: Gtk.Builder, childname: string): GObject.Object
     parser_finished(builder: Gtk.Builder): void
     set_buildable_property(builder: Gtk.Builder, name: string, value: any): void
-    /* Virtual methods of DbusmenuGtk.Menu */
+    /* Virtual methods of DbusmenuGtk-0.4.DbusmenuGtk.Menu */
     vfunc_add_child(builder: Gtk.Builder, child: GObject.Object, type?: string | null): void
     vfunc_construct_child(builder: Gtk.Builder, name: string): GObject.Object
     vfunc_custom_finished(builder: Gtk.Builder, child: GObject.Object | null, tagname: string, data?: object | null): void
@@ -484,7 +484,7 @@ export class Menu {
     vfunc_parser_finished(builder: Gtk.Builder): void
     vfunc_set_buildable_property(builder: Gtk.Builder, name: string, value: any): void
     vfunc_set_name(name: string): void
-    /* Virtual methods of Gtk.MenuShell */
+    /* Virtual methods of Gtk-2.0.Gtk.MenuShell */
     vfunc_activate_current(force_hide: boolean): void
     vfunc_cancel(): void
     vfunc_deactivate(): void
@@ -494,7 +494,7 @@ export class Menu {
     vfunc_move_selected(distance: number): boolean
     vfunc_select_item(menu_item: Gtk.Widget): void
     vfunc_selection_done(): void
-    /* Virtual methods of Gtk.Container */
+    /* Virtual methods of Gtk-2.0.Gtk.Container */
     vfunc_add(widget: Gtk.Widget): void
     vfunc_check_resize(): void
     vfunc_child_type(): GObject.Type
@@ -503,7 +503,7 @@ export class Menu {
     vfunc_remove(widget: Gtk.Widget): void
     vfunc_set_child_property(child: Gtk.Widget, property_id: number, value: any, pspec: GObject.ParamSpec): void
     vfunc_set_focus_child(widget: Gtk.Widget): void
-    /* Virtual methods of Gtk.Widget */
+    /* Virtual methods of Gtk-2.0.Gtk.Widget */
     vfunc_button_press_event(event: Gdk.EventButton): boolean
     vfunc_button_release_event(event: Gdk.EventButton): boolean
     vfunc_can_activate_accel(signal_id: number): boolean
@@ -570,11 +570,11 @@ export class Menu {
     vfunc_unrealize(): void
     vfunc_visibility_notify_event(event: Gdk.EventVisibility): boolean
     vfunc_window_state_event(event: Gdk.EventWindowState): boolean
-    /* Virtual methods of Gtk.Object */
+    /* Virtual methods of Gtk-2.0.Gtk.Object */
     vfunc_destroy(): void
     vfunc_get_arg(arg: Gtk.Arg, arg_id: number): void
     vfunc_set_arg(arg: Gtk.Arg, arg_id: number): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -582,11 +582,11 @@ export class Menu {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gtk.Menu */
+    /* Signals of Gtk-2.0.Gtk.Menu */
     connect(sigName: "move-scroll", callback: (($obj: Menu, object: Gtk.ScrollType) => void)): number
     connect_after(sigName: "move-scroll", callback: (($obj: Menu, object: Gtk.ScrollType) => void)): number
     emit(sigName: "move-scroll", object: Gtk.ScrollType): void
-    /* Signals of Gtk.MenuShell */
+    /* Signals of Gtk-2.0.Gtk.MenuShell */
     connect(sigName: "activate-current", callback: (($obj: Menu, object: boolean) => void)): number
     connect_after(sigName: "activate-current", callback: (($obj: Menu, object: boolean) => void)): number
     emit(sigName: "activate-current", object: boolean): void
@@ -611,7 +611,7 @@ export class Menu {
     connect(sigName: "selection-done", callback: (($obj: Menu) => void)): number
     connect_after(sigName: "selection-done", callback: (($obj: Menu) => void)): number
     emit(sigName: "selection-done"): void
-    /* Signals of Gtk.Container */
+    /* Signals of Gtk-2.0.Gtk.Container */
     connect(sigName: "add", callback: (($obj: Menu, object: Gtk.Widget) => void)): number
     connect_after(sigName: "add", callback: (($obj: Menu, object: Gtk.Widget) => void)): number
     emit(sigName: "add", object: Gtk.Widget): void
@@ -624,7 +624,7 @@ export class Menu {
     connect(sigName: "set-focus-child", callback: (($obj: Menu, object: Gtk.Widget) => void)): number
     connect_after(sigName: "set-focus-child", callback: (($obj: Menu, object: Gtk.Widget) => void)): number
     emit(sigName: "set-focus-child", object: Gtk.Widget): void
-    /* Signals of Gtk.Widget */
+    /* Signals of Gtk-2.0.Gtk.Widget */
     connect(sigName: "accel-closures-changed", callback: (($obj: Menu) => void)): number
     connect_after(sigName: "accel-closures-changed", callback: (($obj: Menu) => void)): number
     emit(sigName: "accel-closures-changed"): void
@@ -829,11 +829,11 @@ export class Menu {
     connect(sigName: "window-state-event", callback: (($obj: Menu, event: Gdk.EventWindowState) => boolean)): number
     connect_after(sigName: "window-state-event", callback: (($obj: Menu, event: Gdk.EventWindowState) => boolean)): number
     emit(sigName: "window-state-event", event: Gdk.EventWindowState): void
-    /* Signals of Gtk.Object */
+    /* Signals of Gtk-2.0.Gtk.Object */
     connect(sigName: "destroy", callback: (($obj: Menu) => void)): number
     connect_after(sigName: "destroy", callback: (($obj: Menu) => void)): number
     emit(sigName: "destroy"): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Menu, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Menu, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -922,7 +922,7 @@ export class Menu {
     static $gtype: GObject.Type
 }
 export abstract class ClientClass {
-    /* Fields of DbusmenuGtk.ClientClass */
+    /* Fields of DbusmenuGtk-0.4.DbusmenuGtk.ClientClass */
     parent_class: Dbusmenu.ClientClass
     root_changed: (newroot: Dbusmenu.Menuitem) => void
     reserved1: () => void
@@ -937,7 +937,7 @@ export class ClientPrivate {
     static name: string
 }
 export abstract class MenuClass {
-    /* Fields of DbusmenuGtk.MenuClass */
+    /* Fields of DbusmenuGtk-0.4.DbusmenuGtk.MenuClass */
     parent_class: Gtk.MenuClass
     reserved1: () => void
     reserved2: () => void

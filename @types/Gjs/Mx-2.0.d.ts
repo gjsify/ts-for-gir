@@ -161,12 +161,12 @@ export interface Draggable_ConstructProps extends Clutter.Actor_ConstructProps {
     drag_threshold?: number
 }
 export class Draggable {
-    /* Properties of Mx.Draggable */
+    /* Properties of Mx-2.0.Mx.Draggable */
     axis: DragAxis
     drag_actor: Clutter.Actor
     drag_enabled: boolean
     drag_threshold: number
-    /* Properties of Clutter.Actor */
+    /* Properties of Clutter-1.0.Clutter.Actor */
     actions: Clutter.Action
     readonly allocation: Clutter.ActorBox
     anchor_gravity: Clutter.Gravity
@@ -249,11 +249,11 @@ export class Draggable {
     y_align: Clutter.ActorAlign
     y_expand: boolean
     z_position: number
-    /* Fields of Clutter.Actor */
+    /* Fields of Clutter-1.0.Clutter.Actor */
     flags: number
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Mx.Draggable */
+    /* Methods of Mx-2.0.Mx.Draggable */
     disable(): void
     enable(): void
     get_axis(): DragAxis
@@ -263,7 +263,7 @@ export class Draggable {
     set_axis(axis: DragAxis): void
     set_drag_actor(actor: Clutter.Actor): void
     set_drag_threshold(threshold: number): void
-    /* Methods of Clutter.Actor */
+    /* Methods of Clutter-1.0.Clutter.Actor */
     add_action(action: Clutter.Action): void
     add_action_with_name(name: string, action: Clutter.Action): void
     add_child(child: Clutter.Actor): void
@@ -499,7 +499,7 @@ export class Draggable {
     unparent(): void
     unrealize(): void
     unset_flags(flags: Clutter.ActorFlags): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -521,13 +521,13 @@ export class Draggable {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Mx.Draggable */
+    /* Virtual methods of Mx-2.0.Mx.Draggable */
     vfunc_disable(): void
     vfunc_drag_begin(event_x: number, event_y: number, event_button: number, modifiers: Clutter.ModifierType): void
     vfunc_drag_end(event_x: number, event_y: number): void
     vfunc_drag_motion(delta_x: number, delta_y: number): void
     vfunc_enable(): void
-    /* Virtual methods of Clutter.Actor */
+    /* Virtual methods of Clutter-1.0.Clutter.Actor */
     vfunc_allocate(box: Clutter.ActorBox, flags: Clutter.AllocationFlags): void
     vfunc_apply_transform(matrix: Clutter.Matrix): void
     vfunc_button_press_event(event: Clutter.ButtonEvent): boolean
@@ -563,7 +563,7 @@ export class Draggable {
     vfunc_touch_event(event: Clutter.TouchEvent): boolean
     vfunc_unmap(): void
     vfunc_unrealize(): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -571,7 +571,7 @@ export class Draggable {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Mx.Draggable */
+    /* Signals of Mx-2.0.Mx.Draggable */
     connect(sigName: "drag-begin", callback: (($obj: Draggable, object: number, p0: number, p1: number, p2: Clutter.ModifierType) => void)): number
     connect_after(sigName: "drag-begin", callback: (($obj: Draggable, object: number, p0: number, p1: number, p2: Clutter.ModifierType) => void)): number
     emit(sigName: "drag-begin", object: number, p0: number, p1: number, p2: Clutter.ModifierType): void
@@ -581,7 +581,7 @@ export class Draggable {
     connect(sigName: "drag-motion", callback: (($obj: Draggable, object: number, p0: number) => void)): number
     connect_after(sigName: "drag-motion", callback: (($obj: Draggable, object: number, p0: number) => void)): number
     emit(sigName: "drag-motion", object: number, p0: number): void
-    /* Signals of Clutter.Actor */
+    /* Signals of Clutter-1.0.Clutter.Actor */
     connect(sigName: "allocation-changed", callback: (($obj: Draggable, box: Clutter.ActorBox, flags: Clutter.AllocationFlags) => void)): number
     connect_after(sigName: "allocation-changed", callback: (($obj: Draggable, box: Clutter.ActorBox, flags: Clutter.AllocationFlags) => void)): number
     emit(sigName: "allocation-changed", box: Clutter.ActorBox, flags: Clutter.AllocationFlags): void
@@ -660,7 +660,7 @@ export class Draggable {
     connect(sigName: "unrealize", callback: (($obj: Draggable) => void)): number
     connect_after(sigName: "unrealize", callback: (($obj: Draggable) => void)): number
     emit(sigName: "unrealize"): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Draggable, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Draggable, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -849,9 +849,9 @@ export interface Droppable_ConstructProps extends Clutter.Actor_ConstructProps {
     drop_enabled?: boolean
 }
 export class Droppable {
-    /* Properties of Mx.Droppable */
+    /* Properties of Mx-2.0.Mx.Droppable */
     drop_enabled: boolean
-    /* Properties of Clutter.Actor */
+    /* Properties of Clutter-1.0.Clutter.Actor */
     actions: Clutter.Action
     readonly allocation: Clutter.ActorBox
     anchor_gravity: Clutter.Gravity
@@ -934,16 +934,16 @@ export class Droppable {
     y_align: Clutter.ActorAlign
     y_expand: boolean
     z_position: number
-    /* Fields of Clutter.Actor */
+    /* Fields of Clutter-1.0.Clutter.Actor */
     flags: number
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Mx.Droppable */
+    /* Methods of Mx-2.0.Mx.Droppable */
     accept_drop(draggable: Draggable): boolean
     disable(): void
     enable(): void
     is_enabled(): boolean
-    /* Methods of Clutter.Actor */
+    /* Methods of Clutter-1.0.Clutter.Actor */
     add_action(action: Clutter.Action): void
     add_action_with_name(name: string, action: Clutter.Action): void
     add_child(child: Clutter.Actor): void
@@ -1179,7 +1179,7 @@ export class Droppable {
     unparent(): void
     unrealize(): void
     unset_flags(flags: Clutter.ActorFlags): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -1201,14 +1201,14 @@ export class Droppable {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Mx.Droppable */
+    /* Virtual methods of Mx-2.0.Mx.Droppable */
     vfunc_accept_drop(draggable: Draggable): boolean
     vfunc_disable(): void
     vfunc_drop(draggable: Draggable, event_x: number, event_y: number, button: number, modifiers: Clutter.ModifierType): void
     vfunc_enable(): void
     vfunc_over_in(draggable: Draggable): void
     vfunc_over_out(draggable: Draggable): void
-    /* Virtual methods of Clutter.Actor */
+    /* Virtual methods of Clutter-1.0.Clutter.Actor */
     vfunc_allocate(box: Clutter.ActorBox, flags: Clutter.AllocationFlags): void
     vfunc_apply_transform(matrix: Clutter.Matrix): void
     vfunc_button_press_event(event: Clutter.ButtonEvent): boolean
@@ -1244,7 +1244,7 @@ export class Droppable {
     vfunc_touch_event(event: Clutter.TouchEvent): boolean
     vfunc_unmap(): void
     vfunc_unrealize(): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -1252,7 +1252,7 @@ export class Droppable {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Mx.Droppable */
+    /* Signals of Mx-2.0.Mx.Droppable */
     connect(sigName: "drop", callback: (($obj: Droppable, object: Clutter.Actor, p0: number, p1: number, p2: number, p3: Clutter.ModifierType) => void)): number
     connect_after(sigName: "drop", callback: (($obj: Droppable, object: Clutter.Actor, p0: number, p1: number, p2: number, p3: Clutter.ModifierType) => void)): number
     emit(sigName: "drop", object: Clutter.Actor, p0: number, p1: number, p2: number, p3: Clutter.ModifierType): void
@@ -1262,7 +1262,7 @@ export class Droppable {
     connect(sigName: "over-out", callback: (($obj: Droppable, object: Clutter.Actor) => void)): number
     connect_after(sigName: "over-out", callback: (($obj: Droppable, object: Clutter.Actor) => void)): number
     emit(sigName: "over-out", object: Clutter.Actor): void
-    /* Signals of Clutter.Actor */
+    /* Signals of Clutter-1.0.Clutter.Actor */
     connect(sigName: "allocation-changed", callback: (($obj: Droppable, box: Clutter.ActorBox, flags: Clutter.AllocationFlags) => void)): number
     connect_after(sigName: "allocation-changed", callback: (($obj: Droppable, box: Clutter.ActorBox, flags: Clutter.AllocationFlags) => void)): number
     emit(sigName: "allocation-changed", box: Clutter.ActorBox, flags: Clutter.AllocationFlags): void
@@ -1341,7 +1341,7 @@ export class Droppable {
     connect(sigName: "unrealize", callback: (($obj: Droppable) => void)): number
     connect_after(sigName: "unrealize", callback: (($obj: Droppable) => void)): number
     emit(sigName: "unrealize"): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Droppable, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Droppable, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -1521,39 +1521,39 @@ export class Droppable {
     static $gtype: GObject.Type
 }
 export class Focusable {
-    /* Methods of Mx.Focusable */
+    /* Methods of Mx-2.0.Mx.Focusable */
     accept_focus(hint: FocusHint): Focusable
     move_focus(direction: FocusDirection, from: Focusable): Focusable
-    /* Virtual methods of Mx.Focusable */
+    /* Virtual methods of Mx-2.0.Mx.Focusable */
     vfunc_accept_focus(hint: FocusHint): Focusable
     vfunc_move_focus(direction: FocusDirection, from: Focusable): Focusable
     static name: string
 }
 export class ItemFactory {
-    /* Methods of Mx.ItemFactory */
+    /* Methods of Mx-2.0.Mx.ItemFactory */
     create(): Clutter.Actor
-    /* Virtual methods of Mx.ItemFactory */
+    /* Virtual methods of Mx-2.0.Mx.ItemFactory */
     vfunc_create(): Clutter.Actor
     static name: string
 }
 export class Scrollable {
-    /* Properties of Mx.Scrollable */
+    /* Properties of Mx-2.0.Mx.Scrollable */
     horizontal_adjustment: Adjustment
     vertical_adjustment: Adjustment
-    /* Methods of Mx.Scrollable */
+    /* Methods of Mx-2.0.Mx.Scrollable */
     get_adjustments(): [ /* hadjustment */ Adjustment | null, /* vadjustment */ Adjustment | null ]
     set_adjustments(hadjustment: Adjustment, vadjustment: Adjustment): void
-    /* Virtual methods of Mx.Scrollable */
+    /* Virtual methods of Mx-2.0.Mx.Scrollable */
     vfunc_get_adjustments(): [ /* hadjustment */ Adjustment | null, /* vadjustment */ Adjustment | null ]
     vfunc_set_adjustments(hadjustment: Adjustment, vadjustment: Adjustment): void
     static name: string
 }
 export class Stylable {
-    /* Properties of Mx.Stylable */
+    /* Properties of Mx-2.0.Mx.Stylable */
     style: Style
     style_class: string
     style_pseudo_class: string
-    /* Methods of Mx.Stylable */
+    /* Methods of Mx-2.0.Mx.Stylable */
     apply_clutter_text_attributes(text: Clutter.Text): void
     connect_change_notifiers(): void
     disconnect_change_notifiers(): void
@@ -1571,7 +1571,7 @@ export class Stylable {
     style_pseudo_class_add(new_class: string): void
     style_pseudo_class_contains(pseudo_class: string): boolean
     style_pseudo_class_remove(remove_class: string): void
-    /* Virtual methods of Mx.Stylable */
+    /* Virtual methods of Mx-2.0.Mx.Stylable */
     vfunc_get_style(): Style
     vfunc_get_style_class(): string
     vfunc_get_style_pseudo_class(): string
@@ -1579,7 +1579,7 @@ export class Stylable {
     vfunc_set_style_class(style_class: string): void
     vfunc_set_style_pseudo_class(pseudo_class: string): void
     vfunc_style_changed(flags: StyleChangedFlags): void
-    /* Signals of Mx.Stylable */
+    /* Signals of Mx-2.0.Mx.Stylable */
     connect(sigName: "style-changed", callback: (($obj: Stylable, flags: StyleChangedFlags) => void)): number
     connect_after(sigName: "style-changed", callback: (($obj: Stylable, flags: StyleChangedFlags) => void)): number
     emit(sigName: "style-changed", flags: StyleChangedFlags): void
@@ -1593,19 +1593,19 @@ export interface Action_ConstructProps extends GObject.InitiallyUnowned_Construc
     icon?: string
 }
 export class Action {
-    /* Properties of Mx.Action */
+    /* Properties of Mx-2.0.Mx.Action */
     active: boolean
     display_name: string
     icon: string
-    /* Properties of Gio.Action */
+    /* Properties of Gio-2.0.Gio.Action */
     readonly enabled: boolean
     readonly name: string
     readonly parameter_type: GLib.VariantType
     readonly state: GLib.Variant
     readonly state_type: GLib.VariantType
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Mx.Action */
+    /* Methods of Mx-2.0.Mx.Action */
     get_active(): boolean
     get_display_name(): string
     get_icon(): string
@@ -1614,7 +1614,7 @@ export class Action {
     set_display_name(name: string): void
     set_icon(name: string): void
     set_name(name: string): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -1636,7 +1636,7 @@ export class Action {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of Gio.Action */
+    /* Methods of Gio-2.0.Gio.Action */
     activate(parameter?: GLib.Variant | null): void
     change_state(value: GLib.Variant): void
     get_enabled(): boolean
@@ -1644,7 +1644,7 @@ export class Action {
     get_state(): GLib.Variant | null
     get_state_hint(): GLib.Variant | null
     get_state_type(): GLib.VariantType | null
-    /* Virtual methods of Mx.Action */
+    /* Virtual methods of Mx-2.0.Mx.Action */
     vfunc_activated(): void
     vfunc_activate(parameter?: GLib.Variant | null): void
     vfunc_change_state(value: GLib.Variant): void
@@ -1654,7 +1654,7 @@ export class Action {
     vfunc_get_state(): GLib.Variant | null
     vfunc_get_state_hint(): GLib.Variant | null
     vfunc_get_state_type(): GLib.VariantType | null
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -1662,14 +1662,14 @@ export class Action {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Mx.Action */
+    /* Signals of Mx-2.0.Mx.Action */
     connect(sigName: "activate", callback: (($obj: Action, parameter?: GLib.Variant | null) => void)): number
     connect_after(sigName: "activate", callback: (($obj: Action, parameter?: GLib.Variant | null) => void)): number
     emit(sigName: "activate", parameter?: GLib.Variant | null): void
     connect(sigName: "activated", callback: (($obj: Action) => void)): number
     connect_after(sigName: "activated", callback: (($obj: Action) => void)): number
     emit(sigName: "activated"): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Action, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Action, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -1711,15 +1711,15 @@ export interface ActorManager_ConstructProps extends GObject.Object_ConstructPro
     time_slice?: number
 }
 export class ActorManager {
-    /* Properties of Mx.ActorManager */
+    /* Properties of Mx-2.0.Mx.ActorManager */
     readonly n_operations: number
     time_slice: number
-    /* Fields of Mx.ActorManager */
+    /* Fields of Mx-2.0.Mx.ActorManager */
     parent: GObject.Object
     priv: ActorManagerPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Mx.ActorManager */
+    /* Methods of Mx-2.0.Mx.ActorManager */
     add_actor(container: Clutter.Actor, actor: Clutter.Actor): number
     cancel_operation(id: number): void
     cancel_operations(actor: Clutter.Actor): void
@@ -1729,7 +1729,7 @@ export class ActorManager {
     remove_actor(container: Clutter.Actor, actor: Clutter.Actor): number
     remove_container(container: Clutter.Actor): void
     set_time_slice(msecs: number): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -1751,7 +1751,7 @@ export class ActorManager {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Mx.ActorManager */
+    /* Virtual methods of Mx-2.0.Mx.ActorManager */
     vfunc_actor_added(id: number, container: Clutter.Actor, actor: Clutter.Actor): void
     vfunc_actor_created(id: number, actor: Clutter.Actor): void
     vfunc_actor_finished(actor: Clutter.Actor): void
@@ -1759,7 +1759,7 @@ export class ActorManager {
     vfunc_operation_cancelled(id: number): void
     vfunc_operation_completed(id: number): void
     vfunc_operation_failed(id: number, error: GLib.Error): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -1767,7 +1767,7 @@ export class ActorManager {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Mx.ActorManager */
+    /* Signals of Mx-2.0.Mx.ActorManager */
     connect(sigName: "actor-added", callback: (($obj: ActorManager, id: number, container: Clutter.Actor, actor: Clutter.Actor) => void)): number
     connect_after(sigName: "actor-added", callback: (($obj: ActorManager, id: number, container: Clutter.Actor, actor: Clutter.Actor) => void)): number
     emit(sigName: "actor-added", id: number, container: Clutter.Actor, actor: Clutter.Actor): void
@@ -1789,7 +1789,7 @@ export class ActorManager {
     connect(sigName: "operation-failed", callback: (($obj: ActorManager, id: number, error: GLib.Error) => void)): number
     connect_after(sigName: "operation-failed", callback: (($obj: ActorManager, id: number, error: GLib.Error) => void)): number
     emit(sigName: "operation-failed", id: number, error: GLib.Error): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: ActorManager, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: ActorManager, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -1820,7 +1820,7 @@ export interface Adjustment_ConstructProps extends GObject.Object_ConstructProps
     value?: number
 }
 export class Adjustment {
-    /* Properties of Mx.Adjustment */
+    /* Properties of Mx-2.0.Mx.Adjustment */
     clamp_value: boolean
     elastic: boolean
     lower: number
@@ -1829,9 +1829,9 @@ export class Adjustment {
     step_increment: number
     upper: number
     value: number
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Mx.Adjustment */
+    /* Methods of Mx-2.0.Mx.Adjustment */
     get_clamp_value(): boolean
     get_elastic(): boolean
     get_lower(): number
@@ -1852,7 +1852,7 @@ export class Adjustment {
     set_upper(upper: number): void
     set_value(value: number): void
     set_values(value: number, lower: number, upper: number, step_increment: number, page_increment: number, page_size: number): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -1874,11 +1874,11 @@ export class Adjustment {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Mx.Adjustment */
+    /* Virtual methods of Mx-2.0.Mx.Adjustment */
     vfunc_changed(): void
     vfunc_changed_immediate(): void
     vfunc_interpolation_completed(): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -1886,7 +1886,7 @@ export class Adjustment {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Mx.Adjustment */
+    /* Signals of Mx-2.0.Mx.Adjustment */
     connect(sigName: "changed", callback: (($obj: Adjustment) => void)): number
     connect_after(sigName: "changed", callback: (($obj: Adjustment) => void)): number
     emit(sigName: "changed"): void
@@ -1896,7 +1896,7 @@ export class Adjustment {
     connect(sigName: "interpolation-completed", callback: (($obj: Adjustment) => void)): number
     connect_after(sigName: "interpolation-completed", callback: (($obj: Adjustment) => void)): number
     emit(sigName: "interpolation-completed"): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Adjustment, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Adjustment, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -1931,7 +1931,7 @@ export class Adjustment {
 export interface Application_ConstructProps extends Gio.Application_ConstructProps {
 }
 export class Application {
-    /* Properties of Gio.Application */
+    /* Properties of Gio-2.0.Gio.Application */
     action_group: Gio.ActionGroup
     application_id: string
     flags: Gio.ApplicationFlags
@@ -1940,17 +1940,17 @@ export class Application {
     readonly is_registered: boolean
     readonly is_remote: boolean
     resource_base_path: string
-    /* Fields of Mx.Application */
+    /* Fields of Mx-2.0.Mx.Application */
     parent: Gio.Application
     priv: ApplicationPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Mx.Application */
+    /* Methods of Mx-2.0.Mx.Application */
     add_window(window: Window): void
     create_window(window_title: string): Window
     get_windows(): Window[]
     remove_window(window: Window): void
-    /* Methods of Gio.Application */
+    /* Methods of Gio-2.0.Gio.Application */
     activate(): void
     add_main_option(long_name: string, short_name: number, flags: GLib.OptionFlags, arg: GLib.OptionArg, description: string, arg_description?: string | null): void
     add_main_option_entries(entries: GLib.OptionEntry[]): void
@@ -1985,7 +1985,7 @@ export class Application {
     unbind_busy_property(object: GObject.Object, property: string): void
     unmark_busy(): void
     withdraw_notification(id: string): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -2007,7 +2007,7 @@ export class Application {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of Gio.ActionGroup */
+    /* Methods of Gio-2.0.Gio.ActionGroup */
     action_added(action_name: string): void
     action_enabled_changed(action_name: string, enabled: boolean): void
     action_removed(action_name: string): void
@@ -2022,12 +2022,12 @@ export class Application {
     has_action(action_name: string): boolean
     list_actions(): string[]
     query_action(action_name: string): [ /* returnType */ boolean, /* enabled */ boolean, /* parameter_type */ GLib.VariantType | null, /* state_type */ GLib.VariantType | null, /* state_hint */ GLib.Variant | null, /* state */ GLib.Variant | null ]
-    /* Methods of Gio.ActionMap */
+    /* Methods of Gio-2.0.Gio.ActionMap */
     add_action(action: Gio.Action): void
     add_action_entries(entries: Gio.ActionEntry[], user_data?: object | null): void
     lookup_action(action_name: string): Gio.Action | null
     remove_action(action_name: string): void
-    /* Virtual methods of Mx.Application */
+    /* Virtual methods of Mx-2.0.Mx.Application */
     vfunc_action_added(action_name: string): void
     vfunc_action_enabled_changed(action_name: string, enabled: boolean): void
     vfunc_action_removed(action_name: string): void
@@ -2045,7 +2045,7 @@ export class Application {
     vfunc_add_action(action: Gio.Action): void
     vfunc_lookup_action(action_name: string): Gio.Action | null
     vfunc_remove_action(action_name: string): void
-    /* Virtual methods of Gio.Application */
+    /* Virtual methods of Gio-2.0.Gio.Application */
     vfunc_activate(): void
     vfunc_add_platform_data(builder: GLib.VariantBuilder): void
     vfunc_after_emit(platform_data: GLib.Variant): void
@@ -2061,7 +2061,7 @@ export class Application {
     vfunc_run_mainloop(): void
     vfunc_shutdown(): void
     vfunc_startup(): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -2069,7 +2069,7 @@ export class Application {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gio.Application */
+    /* Signals of Gio-2.0.Gio.Application */
     connect(sigName: "activate", callback: (($obj: Application) => void)): number
     connect_after(sigName: "activate", callback: (($obj: Application) => void)): number
     emit(sigName: "activate"): void
@@ -2091,11 +2091,11 @@ export class Application {
     connect(sigName: "startup", callback: (($obj: Application) => void)): number
     connect_after(sigName: "startup", callback: (($obj: Application) => void)): number
     emit(sigName: "startup"): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Application, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Application, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    /* Signals of Gio.ActionGroup */
+    /* Signals of Gio-2.0.Gio.ActionGroup */
     connect(sigName: "action-added", callback: (($obj: Application, action_name: string) => void)): number
     connect_after(sigName: "action-added", callback: (($obj: Application, action_name: string) => void)): number
     emit(sigName: "action-added", action_name: string): void
@@ -2147,18 +2147,18 @@ export interface Bin_ConstructProps extends Widget_ConstructProps {
     style_pseudo_class?: string
 }
 export class Bin {
-    /* Properties of Mx.Bin */
+    /* Properties of Mx-2.0.Mx.Bin */
     child: Clutter.Actor
     x_align: Align
     x_fill: boolean
     y_align: Align
     y_fill: boolean
-    /* Properties of Mx.Widget */
+    /* Properties of Mx-2.0.Mx.Widget */
     disabled: boolean
     menu: Menu
     tooltip_delay: number
     tooltip_text: string
-    /* Properties of Clutter.Actor */
+    /* Properties of Clutter-1.0.Clutter.Actor */
     actions: Clutter.Action
     readonly allocation: Clutter.ActorBox
     anchor_gravity: Clutter.Gravity
@@ -2239,15 +2239,15 @@ export class Bin {
     y: number
     y_expand: boolean
     z_position: number
-    /* Properties of Mx.Stylable */
+    /* Properties of Mx-2.0.Mx.Stylable */
     style: Style
     style_class: string
     style_pseudo_class: string
-    /* Fields of Clutter.Actor */
+    /* Fields of Clutter-1.0.Clutter.Actor */
     flags: number
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Mx.Bin */
+    /* Methods of Mx-2.0.Mx.Bin */
     allocate_child(box: Clutter.ActorBox, flags: Clutter.AllocationFlags): void
     get_alignment(): [ /* x_align */ Align | null, /* y_align */ Align | null ]
     get_child(): Clutter.Actor
@@ -2255,7 +2255,7 @@ export class Bin {
     set_alignment(x_align: Align, y_align: Align): void
     set_child(child: Clutter.Actor): void
     set_fill(x_fill: boolean, y_fill: boolean): void
-    /* Methods of Mx.Widget */
+    /* Methods of Mx-2.0.Mx.Widget */
     apply_style(style: Style): void
     get_available_area(allocation: Clutter.ActorBox, area: Clutter.ActorBox): void
     get_background_color(): Clutter.Color
@@ -2273,7 +2273,7 @@ export class Bin {
     set_tooltip_delay(delay: number): void
     set_tooltip_text(text: string): void
     show_tooltip(): void
-    /* Methods of Clutter.Actor */
+    /* Methods of Clutter-1.0.Clutter.Actor */
     add_action(action: Clutter.Action): void
     add_action_with_name(name: string, action: Clutter.Action): void
     add_child(child: Clutter.Actor): void
@@ -2509,7 +2509,7 @@ export class Bin {
     unparent(): void
     unrealize(): void
     unset_flags(flags: Clutter.ActorFlags): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -2531,13 +2531,13 @@ export class Bin {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of Clutter.Animatable */
+    /* Methods of Clutter-1.0.Clutter.Animatable */
     animate_property(animation: Clutter.Animation, property_name: string, initial_value: any, final_value: any, progress: number, value: any): boolean
     find_property(property_name: string): GObject.ParamSpec
     get_initial_state(property_name: string, value: any): void
     interpolate_value(property_name: string, interval: Clutter.Interval, progress: number): [ /* returnType */ boolean, /* value */ any ]
     set_final_state(property_name: string, value: any): void
-    /* Methods of Clutter.Container */
+    /* Methods of Clutter-1.0.Clutter.Container */
     add_actor(actor: Clutter.Actor): void
     child_get_property(child: Clutter.Actor, property: string, value: any): void
     child_notify(child: Clutter.Actor, pspec: GObject.ParamSpec): void
@@ -2552,15 +2552,15 @@ export class Bin {
     raise_child(actor: Clutter.Actor, sibling?: Clutter.Actor | null): void
     remove_actor(actor: Clutter.Actor): void
     sort_depth_order(): void
-    /* Methods of Clutter.Scriptable */
+    /* Methods of Clutter-1.0.Clutter.Scriptable */
     get_id(): string
     parse_custom_node(script: Clutter.Script, value: any, name: string, node: Json.Node): boolean
     set_custom_property(script: Clutter.Script, name: string, value: any): void
     set_id(id_: string): void
-    /* Methods of Mx.Focusable */
+    /* Methods of Mx-2.0.Mx.Focusable */
     accept_focus(hint: FocusHint): Focusable
     move_focus(direction: FocusDirection, from: Focusable): Focusable
-    /* Methods of Mx.Stylable */
+    /* Methods of Mx-2.0.Mx.Stylable */
     apply_clutter_text_attributes(text: Clutter.Text): void
     connect_change_notifiers(): void
     disconnect_change_notifiers(): void
@@ -2577,10 +2577,10 @@ export class Bin {
     style_pseudo_class_add(new_class: string): void
     style_pseudo_class_contains(pseudo_class: string): boolean
     style_pseudo_class_remove(remove_class: string): void
-    /* Virtual methods of Mx.Bin */
+    /* Virtual methods of Mx-2.0.Mx.Bin */
     vfunc_accept_focus(hint: FocusHint): Focusable
     vfunc_move_focus(direction: FocusDirection, from: Focusable): Focusable
-    /* Virtual methods of Mx.Widget */
+    /* Virtual methods of Mx-2.0.Mx.Widget */
     vfunc_long_press(action: LongPressAction, x: number, y: number): boolean
     vfunc_animate_property(animation: Clutter.Animation, property_name: string, initial_value: any, final_value: any, progress: number, value: any): boolean
     vfunc_find_property(property_name: string): GObject.ParamSpec
@@ -2611,7 +2611,7 @@ export class Bin {
     vfunc_set_style_class(style_class: string): void
     vfunc_set_style_pseudo_class(pseudo_class: string): void
     vfunc_style_changed(flags: StyleChangedFlags): void
-    /* Virtual methods of Clutter.Actor */
+    /* Virtual methods of Clutter-1.0.Clutter.Actor */
     vfunc_allocate(box: Clutter.ActorBox, flags: Clutter.AllocationFlags): void
     vfunc_apply_transform(matrix: Clutter.Matrix): void
     vfunc_button_press_event(event: Clutter.ButtonEvent): boolean
@@ -2647,7 +2647,7 @@ export class Bin {
     vfunc_touch_event(event: Clutter.TouchEvent): boolean
     vfunc_unmap(): void
     vfunc_unrealize(): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -2655,11 +2655,11 @@ export class Bin {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Mx.Widget */
+    /* Signals of Mx-2.0.Mx.Widget */
     connect(sigName: "long-press", callback: (($obj: Bin, object: number, p0: number, p1: LongPressAction) => boolean)): number
     connect_after(sigName: "long-press", callback: (($obj: Bin, object: number, p0: number, p1: LongPressAction) => boolean)): number
     emit(sigName: "long-press", object: number, p0: number, p1: LongPressAction): void
-    /* Signals of Clutter.Actor */
+    /* Signals of Clutter-1.0.Clutter.Actor */
     connect(sigName: "allocation-changed", callback: (($obj: Bin, box: Clutter.ActorBox, flags: Clutter.AllocationFlags) => void)): number
     connect_after(sigName: "allocation-changed", callback: (($obj: Bin, box: Clutter.ActorBox, flags: Clutter.AllocationFlags) => void)): number
     emit(sigName: "allocation-changed", box: Clutter.ActorBox, flags: Clutter.AllocationFlags): void
@@ -2738,11 +2738,11 @@ export class Bin {
     connect(sigName: "unrealize", callback: (($obj: Bin) => void)): number
     connect_after(sigName: "unrealize", callback: (($obj: Bin) => void)): number
     emit(sigName: "unrealize"): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Bin, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Bin, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    /* Signals of Clutter.Container */
+    /* Signals of Clutter-1.0.Clutter.Container */
     connect(sigName: "actor-added", callback: (($obj: Bin, actor: Clutter.Actor) => void)): number
     connect_after(sigName: "actor-added", callback: (($obj: Bin, actor: Clutter.Actor) => void)): number
     emit(sigName: "actor-added", actor: Clutter.Actor): void
@@ -2752,7 +2752,7 @@ export class Bin {
     connect(sigName: "child-notify", callback: (($obj: Bin, actor: Clutter.Actor, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "child-notify", callback: (($obj: Bin, actor: Clutter.Actor, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "child-notify", actor: Clutter.Actor, pspec: GObject.ParamSpec): void
-    /* Signals of Mx.Stylable */
+    /* Signals of Mx-2.0.Mx.Stylable */
     connect(sigName: "style-changed", callback: (($obj: Bin, flags: StyleChangedFlags) => void)): number
     connect_after(sigName: "style-changed", callback: (($obj: Bin, flags: StyleChangedFlags) => void)): number
     emit(sigName: "style-changed", flags: StyleChangedFlags): void
@@ -2961,17 +2961,17 @@ export interface BoxLayout_ConstructProps extends Widget_ConstructProps {
     style_pseudo_class?: string
 }
 export class BoxLayout {
-    /* Properties of Mx.BoxLayout */
+    /* Properties of Mx-2.0.Mx.BoxLayout */
     enable_animations: boolean
     orientation: Orientation
     scroll_to_focused: boolean
     spacing: number
-    /* Properties of Mx.Widget */
+    /* Properties of Mx-2.0.Mx.Widget */
     disabled: boolean
     menu: Menu
     tooltip_delay: number
     tooltip_text: string
-    /* Properties of Clutter.Actor */
+    /* Properties of Clutter-1.0.Clutter.Actor */
     actions: Clutter.Action
     readonly allocation: Clutter.ActorBox
     anchor_gravity: Clutter.Gravity
@@ -3054,18 +3054,18 @@ export class BoxLayout {
     y_align: Clutter.ActorAlign
     y_expand: boolean
     z_position: number
-    /* Properties of Mx.Scrollable */
+    /* Properties of Mx-2.0.Mx.Scrollable */
     horizontal_adjustment: Adjustment
     vertical_adjustment: Adjustment
-    /* Properties of Mx.Stylable */
+    /* Properties of Mx-2.0.Mx.Stylable */
     style: Style
     style_class: string
     style_pseudo_class: string
-    /* Fields of Clutter.Actor */
+    /* Fields of Clutter-1.0.Clutter.Actor */
     flags: number
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Mx.BoxLayout */
+    /* Methods of Mx-2.0.Mx.BoxLayout */
     child_get_expand(child: Clutter.Actor): boolean
     child_get_x_align(child: Clutter.Actor): Align
     child_get_x_fill(child: Clutter.Actor): boolean
@@ -3085,7 +3085,7 @@ export class BoxLayout {
     set_orientation(orientation: Orientation): void
     set_scroll_to_focused(scroll_to_focused: boolean): void
     set_spacing(spacing: number): void
-    /* Methods of Mx.Widget */
+    /* Methods of Mx-2.0.Mx.Widget */
     apply_style(style: Style): void
     get_available_area(allocation: Clutter.ActorBox, area: Clutter.ActorBox): void
     get_background_color(): Clutter.Color
@@ -3103,7 +3103,7 @@ export class BoxLayout {
     set_tooltip_delay(delay: number): void
     set_tooltip_text(text: string): void
     show_tooltip(): void
-    /* Methods of Clutter.Actor */
+    /* Methods of Clutter-1.0.Clutter.Actor */
     add_action(action: Clutter.Action): void
     add_action_with_name(name: string, action: Clutter.Action): void
     add_child(child: Clutter.Actor): void
@@ -3339,7 +3339,7 @@ export class BoxLayout {
     unparent(): void
     unrealize(): void
     unset_flags(flags: Clutter.ActorFlags): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -3361,13 +3361,13 @@ export class BoxLayout {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of Clutter.Animatable */
+    /* Methods of Clutter-1.0.Clutter.Animatable */
     animate_property(animation: Clutter.Animation, property_name: string, initial_value: any, final_value: any, progress: number, value: any): boolean
     find_property(property_name: string): GObject.ParamSpec
     get_initial_state(property_name: string, value: any): void
     interpolate_value(property_name: string, interval: Clutter.Interval, progress: number): [ /* returnType */ boolean, /* value */ any ]
     set_final_state(property_name: string, value: any): void
-    /* Methods of Clutter.Container */
+    /* Methods of Clutter-1.0.Clutter.Container */
     add_actor(actor: Clutter.Actor): void
     child_get_property(child: Clutter.Actor, property: string, value: any): void
     child_notify(child: Clutter.Actor, pspec: GObject.ParamSpec): void
@@ -3382,18 +3382,18 @@ export class BoxLayout {
     raise_child(actor: Clutter.Actor, sibling?: Clutter.Actor | null): void
     remove_actor(actor: Clutter.Actor): void
     sort_depth_order(): void
-    /* Methods of Clutter.Scriptable */
+    /* Methods of Clutter-1.0.Clutter.Scriptable */
     get_id(): string
     parse_custom_node(script: Clutter.Script, value: any, name: string, node: Json.Node): boolean
     set_custom_property(script: Clutter.Script, name: string, value: any): void
     set_id(id_: string): void
-    /* Methods of Mx.Focusable */
+    /* Methods of Mx-2.0.Mx.Focusable */
     accept_focus(hint: FocusHint): Focusable
     move_focus(direction: FocusDirection, from: Focusable): Focusable
-    /* Methods of Mx.Scrollable */
+    /* Methods of Mx-2.0.Mx.Scrollable */
     get_adjustments(): [ /* hadjustment */ Adjustment | null, /* vadjustment */ Adjustment | null ]
     set_adjustments(hadjustment: Adjustment, vadjustment: Adjustment): void
-    /* Methods of Mx.Stylable */
+    /* Methods of Mx-2.0.Mx.Stylable */
     apply_clutter_text_attributes(text: Clutter.Text): void
     connect_change_notifiers(): void
     disconnect_change_notifiers(): void
@@ -3410,12 +3410,12 @@ export class BoxLayout {
     style_pseudo_class_add(new_class: string): void
     style_pseudo_class_contains(pseudo_class: string): boolean
     style_pseudo_class_remove(remove_class: string): void
-    /* Virtual methods of Mx.BoxLayout */
+    /* Virtual methods of Mx-2.0.Mx.BoxLayout */
     vfunc_accept_focus(hint: FocusHint): Focusable
     vfunc_move_focus(direction: FocusDirection, from: Focusable): Focusable
     vfunc_get_adjustments(): [ /* hadjustment */ Adjustment | null, /* vadjustment */ Adjustment | null ]
     vfunc_set_adjustments(hadjustment: Adjustment, vadjustment: Adjustment): void
-    /* Virtual methods of Mx.Widget */
+    /* Virtual methods of Mx-2.0.Mx.Widget */
     vfunc_long_press(action: LongPressAction, x: number, y: number): boolean
     vfunc_animate_property(animation: Clutter.Animation, property_name: string, initial_value: any, final_value: any, progress: number, value: any): boolean
     vfunc_find_property(property_name: string): GObject.ParamSpec
@@ -3446,7 +3446,7 @@ export class BoxLayout {
     vfunc_set_style_class(style_class: string): void
     vfunc_set_style_pseudo_class(pseudo_class: string): void
     vfunc_style_changed(flags: StyleChangedFlags): void
-    /* Virtual methods of Clutter.Actor */
+    /* Virtual methods of Clutter-1.0.Clutter.Actor */
     vfunc_allocate(box: Clutter.ActorBox, flags: Clutter.AllocationFlags): void
     vfunc_apply_transform(matrix: Clutter.Matrix): void
     vfunc_button_press_event(event: Clutter.ButtonEvent): boolean
@@ -3482,7 +3482,7 @@ export class BoxLayout {
     vfunc_touch_event(event: Clutter.TouchEvent): boolean
     vfunc_unmap(): void
     vfunc_unrealize(): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -3490,11 +3490,11 @@ export class BoxLayout {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Mx.Widget */
+    /* Signals of Mx-2.0.Mx.Widget */
     connect(sigName: "long-press", callback: (($obj: BoxLayout, object: number, p0: number, p1: LongPressAction) => boolean)): number
     connect_after(sigName: "long-press", callback: (($obj: BoxLayout, object: number, p0: number, p1: LongPressAction) => boolean)): number
     emit(sigName: "long-press", object: number, p0: number, p1: LongPressAction): void
-    /* Signals of Clutter.Actor */
+    /* Signals of Clutter-1.0.Clutter.Actor */
     connect(sigName: "allocation-changed", callback: (($obj: BoxLayout, box: Clutter.ActorBox, flags: Clutter.AllocationFlags) => void)): number
     connect_after(sigName: "allocation-changed", callback: (($obj: BoxLayout, box: Clutter.ActorBox, flags: Clutter.AllocationFlags) => void)): number
     emit(sigName: "allocation-changed", box: Clutter.ActorBox, flags: Clutter.AllocationFlags): void
@@ -3573,11 +3573,11 @@ export class BoxLayout {
     connect(sigName: "unrealize", callback: (($obj: BoxLayout) => void)): number
     connect_after(sigName: "unrealize", callback: (($obj: BoxLayout) => void)): number
     emit(sigName: "unrealize"): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: BoxLayout, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: BoxLayout, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    /* Signals of Clutter.Container */
+    /* Signals of Clutter-1.0.Clutter.Container */
     connect(sigName: "actor-added", callback: (($obj: BoxLayout, actor: Clutter.Actor) => void)): number
     connect_after(sigName: "actor-added", callback: (($obj: BoxLayout, actor: Clutter.Actor) => void)): number
     emit(sigName: "actor-added", actor: Clutter.Actor): void
@@ -3587,7 +3587,7 @@ export class BoxLayout {
     connect(sigName: "child-notify", callback: (($obj: BoxLayout, actor: Clutter.Actor, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "child-notify", callback: (($obj: BoxLayout, actor: Clutter.Actor, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "child-notify", actor: Clutter.Actor, pspec: GObject.ParamSpec): void
-    /* Signals of Mx.Stylable */
+    /* Signals of Mx-2.0.Mx.Stylable */
     connect(sigName: "style-changed", callback: (($obj: BoxLayout, flags: StyleChangedFlags) => void)): number
     connect_after(sigName: "style-changed", callback: (($obj: BoxLayout, flags: StyleChangedFlags) => void)): number
     emit(sigName: "style-changed", flags: StyleChangedFlags): void
@@ -3801,21 +3801,21 @@ export interface BoxLayoutChild_ConstructProps extends Clutter.ChildMeta_Constru
     y_fill?: boolean
 }
 export class BoxLayoutChild {
-    /* Properties of Mx.BoxLayoutChild */
+    /* Properties of Mx-2.0.Mx.BoxLayoutChild */
     expand: boolean
     x_align: Align
     x_fill: boolean
     y_align: Align
     y_fill: boolean
-    /* Fields of Clutter.ChildMeta */
+    /* Fields of Clutter-1.0.Clutter.ChildMeta */
     container: Clutter.Container
     actor: Clutter.Actor
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Clutter.ChildMeta */
+    /* Methods of Clutter-1.0.Clutter.ChildMeta */
     get_actor(): Clutter.Actor
     get_container(): Clutter.Container
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -3837,7 +3837,7 @@ export class BoxLayoutChild {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -3845,7 +3845,7 @@ export class BoxLayoutChild {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: BoxLayoutChild, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: BoxLayoutChild, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -3883,7 +3883,7 @@ export interface Button_ConstructProps extends Widget_ConstructProps {
     style_pseudo_class?: string
 }
 export class Button {
-    /* Properties of Mx.Button */
+    /* Properties of Mx-2.0.Mx.Button */
     action: Action
     icon_name: string
     icon_position: Position
@@ -3893,12 +3893,12 @@ export class Button {
     label: string
     label_visible: boolean
     toggled: boolean
-    /* Properties of Mx.Widget */
+    /* Properties of Mx-2.0.Mx.Widget */
     disabled: boolean
     menu: Menu
     tooltip_delay: number
     tooltip_text: string
-    /* Properties of Clutter.Actor */
+    /* Properties of Clutter-1.0.Clutter.Actor */
     actions: Clutter.Action
     readonly allocation: Clutter.ActorBox
     anchor_gravity: Clutter.Gravity
@@ -3981,15 +3981,15 @@ export class Button {
     y_align: Clutter.ActorAlign
     y_expand: boolean
     z_position: number
-    /* Properties of Mx.Stylable */
+    /* Properties of Mx-2.0.Mx.Stylable */
     style: Style
     style_class: string
     style_pseudo_class: string
-    /* Fields of Clutter.Actor */
+    /* Fields of Clutter-1.0.Clutter.Actor */
     flags: number
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Mx.Button */
+    /* Methods of Mx-2.0.Mx.Button */
     get_action(): Action
     get_icon_name(): string
     get_icon_position(): Position
@@ -4008,7 +4008,7 @@ export class Button {
     set_label(text: string): void
     set_label_visible(visible: boolean): void
     set_toggled(toggled: boolean): void
-    /* Methods of Mx.Widget */
+    /* Methods of Mx-2.0.Mx.Widget */
     apply_style(style: Style): void
     get_available_area(allocation: Clutter.ActorBox, area: Clutter.ActorBox): void
     get_background_color(): Clutter.Color
@@ -4026,7 +4026,7 @@ export class Button {
     set_tooltip_delay(delay: number): void
     set_tooltip_text(text: string): void
     show_tooltip(): void
-    /* Methods of Clutter.Actor */
+    /* Methods of Clutter-1.0.Clutter.Actor */
     add_action(action: Clutter.Action): void
     add_action_with_name(name: string, action: Clutter.Action): void
     add_child(child: Clutter.Actor): void
@@ -4262,7 +4262,7 @@ export class Button {
     unparent(): void
     unrealize(): void
     unset_flags(flags: Clutter.ActorFlags): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -4284,13 +4284,13 @@ export class Button {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of Clutter.Animatable */
+    /* Methods of Clutter-1.0.Clutter.Animatable */
     animate_property(animation: Clutter.Animation, property_name: string, initial_value: any, final_value: any, progress: number, value: any): boolean
     find_property(property_name: string): GObject.ParamSpec
     get_initial_state(property_name: string, value: any): void
     interpolate_value(property_name: string, interval: Clutter.Interval, progress: number): [ /* returnType */ boolean, /* value */ any ]
     set_final_state(property_name: string, value: any): void
-    /* Methods of Clutter.Container */
+    /* Methods of Clutter-1.0.Clutter.Container */
     add_actor(actor: Clutter.Actor): void
     child_get_property(child: Clutter.Actor, property: string, value: any): void
     child_notify(child: Clutter.Actor, pspec: GObject.ParamSpec): void
@@ -4305,15 +4305,15 @@ export class Button {
     raise_child(actor: Clutter.Actor, sibling?: Clutter.Actor | null): void
     remove_actor(actor: Clutter.Actor): void
     sort_depth_order(): void
-    /* Methods of Clutter.Scriptable */
+    /* Methods of Clutter-1.0.Clutter.Scriptable */
     get_id(): string
     parse_custom_node(script: Clutter.Script, value: any, name: string, node: Json.Node): boolean
     set_custom_property(script: Clutter.Script, name: string, value: any): void
     set_id(id_: string): void
-    /* Methods of Mx.Focusable */
+    /* Methods of Mx-2.0.Mx.Focusable */
     accept_focus(hint: FocusHint): Focusable
     move_focus(direction: FocusDirection, from: Focusable): Focusable
-    /* Methods of Mx.Stylable */
+    /* Methods of Mx-2.0.Mx.Stylable */
     apply_clutter_text_attributes(text: Clutter.Text): void
     connect_change_notifiers(): void
     disconnect_change_notifiers(): void
@@ -4330,11 +4330,11 @@ export class Button {
     style_pseudo_class_add(new_class: string): void
     style_pseudo_class_contains(pseudo_class: string): boolean
     style_pseudo_class_remove(remove_class: string): void
-    /* Virtual methods of Mx.Button */
+    /* Virtual methods of Mx-2.0.Mx.Button */
     vfunc_clicked(): void
     vfunc_accept_focus(hint: FocusHint): Focusable
     vfunc_move_focus(direction: FocusDirection, from: Focusable): Focusable
-    /* Virtual methods of Mx.Widget */
+    /* Virtual methods of Mx-2.0.Mx.Widget */
     vfunc_long_press(action: LongPressAction, x: number, y: number): boolean
     vfunc_animate_property(animation: Clutter.Animation, property_name: string, initial_value: any, final_value: any, progress: number, value: any): boolean
     vfunc_find_property(property_name: string): GObject.ParamSpec
@@ -4365,7 +4365,7 @@ export class Button {
     vfunc_set_style_class(style_class: string): void
     vfunc_set_style_pseudo_class(pseudo_class: string): void
     vfunc_style_changed(flags: StyleChangedFlags): void
-    /* Virtual methods of Clutter.Actor */
+    /* Virtual methods of Clutter-1.0.Clutter.Actor */
     vfunc_allocate(box: Clutter.ActorBox, flags: Clutter.AllocationFlags): void
     vfunc_apply_transform(matrix: Clutter.Matrix): void
     vfunc_button_press_event(event: Clutter.ButtonEvent): boolean
@@ -4401,7 +4401,7 @@ export class Button {
     vfunc_touch_event(event: Clutter.TouchEvent): boolean
     vfunc_unmap(): void
     vfunc_unrealize(): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -4409,15 +4409,15 @@ export class Button {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Mx.Button */
+    /* Signals of Mx-2.0.Mx.Button */
     connect(sigName: "clicked", callback: (($obj: Button) => void)): number
     connect_after(sigName: "clicked", callback: (($obj: Button) => void)): number
     emit(sigName: "clicked"): void
-    /* Signals of Mx.Widget */
+    /* Signals of Mx-2.0.Mx.Widget */
     connect(sigName: "long-press", callback: (($obj: Button, object: number, p0: number, p1: LongPressAction) => boolean)): number
     connect_after(sigName: "long-press", callback: (($obj: Button, object: number, p0: number, p1: LongPressAction) => boolean)): number
     emit(sigName: "long-press", object: number, p0: number, p1: LongPressAction): void
-    /* Signals of Clutter.Actor */
+    /* Signals of Clutter-1.0.Clutter.Actor */
     connect(sigName: "allocation-changed", callback: (($obj: Button, box: Clutter.ActorBox, flags: Clutter.AllocationFlags) => void)): number
     connect_after(sigName: "allocation-changed", callback: (($obj: Button, box: Clutter.ActorBox, flags: Clutter.AllocationFlags) => void)): number
     emit(sigName: "allocation-changed", box: Clutter.ActorBox, flags: Clutter.AllocationFlags): void
@@ -4496,11 +4496,11 @@ export class Button {
     connect(sigName: "unrealize", callback: (($obj: Button) => void)): number
     connect_after(sigName: "unrealize", callback: (($obj: Button) => void)): number
     emit(sigName: "unrealize"): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Button, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Button, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    /* Signals of Clutter.Container */
+    /* Signals of Clutter-1.0.Clutter.Container */
     connect(sigName: "actor-added", callback: (($obj: Button, actor: Clutter.Actor) => void)): number
     connect_after(sigName: "actor-added", callback: (($obj: Button, actor: Clutter.Actor) => void)): number
     emit(sigName: "actor-added", actor: Clutter.Actor): void
@@ -4510,7 +4510,7 @@ export class Button {
     connect(sigName: "child-notify", callback: (($obj: Button, actor: Clutter.Actor, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "child-notify", callback: (($obj: Button, actor: Clutter.Actor, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "child-notify", actor: Clutter.Actor, pspec: GObject.ParamSpec): void
-    /* Signals of Mx.Stylable */
+    /* Signals of Mx-2.0.Mx.Stylable */
     connect(sigName: "style-changed", callback: (($obj: Button, flags: StyleChangedFlags) => void)): number
     connect_after(sigName: "style-changed", callback: (($obj: Button, flags: StyleChangedFlags) => void)): number
     emit(sigName: "style-changed", flags: StyleChangedFlags): void
@@ -4727,15 +4727,15 @@ export interface ButtonGroup_ConstructProps extends GObject.InitiallyUnowned_Con
     allow_no_active?: boolean
 }
 export class ButtonGroup {
-    /* Properties of Mx.ButtonGroup */
+    /* Properties of Mx-2.0.Mx.ButtonGroup */
     active_button: Button
     allow_no_active: boolean
-    /* Fields of Mx.ButtonGroup */
+    /* Fields of Mx-2.0.Mx.ButtonGroup */
     parent: GObject.InitiallyUnowned
     priv: ButtonGroupPrivate
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Mx.ButtonGroup */
+    /* Methods of Mx-2.0.Mx.ButtonGroup */
     add(button: Button): void
     foreach(callback: Clutter.Callback): void
     get_active_button(): Button
@@ -4744,7 +4744,7 @@ export class ButtonGroup {
     remove(button: Button): void
     set_active_button(button?: Button | null): void
     set_allow_no_active(allow_no_active: boolean): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -4766,7 +4766,7 @@ export class ButtonGroup {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -4774,7 +4774,7 @@ export class ButtonGroup {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: ButtonGroup, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: ButtonGroup, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -4796,12 +4796,12 @@ export class ButtonGroup {
 export interface Clipboard_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class Clipboard {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Mx.Clipboard */
+    /* Methods of Mx-2.0.Mx.Clipboard */
     get_text(callback: ClipboardCallbackFunc): void
     set_text(text: string): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -4823,7 +4823,7 @@ export class Clipboard {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -4831,7 +4831,7 @@ export class Clipboard {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Clipboard, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Clipboard, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -4855,16 +4855,16 @@ export interface ComboBox_ConstructProps extends Widget_ConstructProps {
     style_pseudo_class?: string
 }
 export class ComboBox {
-    /* Properties of Mx.ComboBox */
+    /* Properties of Mx-2.0.Mx.ComboBox */
     active_icon_name: string
     active_text: string
     index: number
-    /* Properties of Mx.Widget */
+    /* Properties of Mx-2.0.Mx.Widget */
     disabled: boolean
     menu: Menu
     tooltip_delay: number
     tooltip_text: string
-    /* Properties of Clutter.Actor */
+    /* Properties of Clutter-1.0.Clutter.Actor */
     actions: Clutter.Action
     readonly allocation: Clutter.ActorBox
     anchor_gravity: Clutter.Gravity
@@ -4947,15 +4947,15 @@ export class ComboBox {
     y_align: Clutter.ActorAlign
     y_expand: boolean
     z_position: number
-    /* Properties of Mx.Stylable */
+    /* Properties of Mx-2.0.Mx.Stylable */
     style: Style
     style_class: string
     style_pseudo_class: string
-    /* Fields of Clutter.Actor */
+    /* Fields of Clutter-1.0.Clutter.Actor */
     flags: number
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Mx.ComboBox */
+    /* Methods of Mx-2.0.Mx.ComboBox */
     append_text(text: string): void
     get_active_icon_name(): string
     get_active_text(): string
@@ -4968,7 +4968,7 @@ export class ComboBox {
     set_active_icon_name(icon_name?: string | null): void
     set_active_text(text: string): void
     set_index(index: number): void
-    /* Methods of Mx.Widget */
+    /* Methods of Mx-2.0.Mx.Widget */
     apply_style(style: Style): void
     get_available_area(allocation: Clutter.ActorBox, area: Clutter.ActorBox): void
     get_background_color(): Clutter.Color
@@ -4986,7 +4986,7 @@ export class ComboBox {
     set_tooltip_delay(delay: number): void
     set_tooltip_text(text: string): void
     show_tooltip(): void
-    /* Methods of Clutter.Actor */
+    /* Methods of Clutter-1.0.Clutter.Actor */
     add_action(action: Clutter.Action): void
     add_action_with_name(name: string, action: Clutter.Action): void
     add_child(child: Clutter.Actor): void
@@ -5222,7 +5222,7 @@ export class ComboBox {
     unparent(): void
     unrealize(): void
     unset_flags(flags: Clutter.ActorFlags): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -5244,13 +5244,13 @@ export class ComboBox {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of Clutter.Animatable */
+    /* Methods of Clutter-1.0.Clutter.Animatable */
     animate_property(animation: Clutter.Animation, property_name: string, initial_value: any, final_value: any, progress: number, value: any): boolean
     find_property(property_name: string): GObject.ParamSpec
     get_initial_state(property_name: string, value: any): void
     interpolate_value(property_name: string, interval: Clutter.Interval, progress: number): [ /* returnType */ boolean, /* value */ any ]
     set_final_state(property_name: string, value: any): void
-    /* Methods of Clutter.Container */
+    /* Methods of Clutter-1.0.Clutter.Container */
     add_actor(actor: Clutter.Actor): void
     child_get_property(child: Clutter.Actor, property: string, value: any): void
     child_notify(child: Clutter.Actor, pspec: GObject.ParamSpec): void
@@ -5265,15 +5265,15 @@ export class ComboBox {
     raise_child(actor: Clutter.Actor, sibling?: Clutter.Actor | null): void
     remove_actor(actor: Clutter.Actor): void
     sort_depth_order(): void
-    /* Methods of Clutter.Scriptable */
+    /* Methods of Clutter-1.0.Clutter.Scriptable */
     get_id(): string
     parse_custom_node(script: Clutter.Script, value: any, name: string, node: Json.Node): boolean
     set_custom_property(script: Clutter.Script, name: string, value: any): void
     set_id(id_: string): void
-    /* Methods of Mx.Focusable */
+    /* Methods of Mx-2.0.Mx.Focusable */
     accept_focus(hint: FocusHint): Focusable
     move_focus(direction: FocusDirection, from: Focusable): Focusable
-    /* Methods of Mx.Stylable */
+    /* Methods of Mx-2.0.Mx.Stylable */
     apply_clutter_text_attributes(text: Clutter.Text): void
     connect_change_notifiers(): void
     disconnect_change_notifiers(): void
@@ -5290,10 +5290,10 @@ export class ComboBox {
     style_pseudo_class_add(new_class: string): void
     style_pseudo_class_contains(pseudo_class: string): boolean
     style_pseudo_class_remove(remove_class: string): void
-    /* Virtual methods of Mx.ComboBox */
+    /* Virtual methods of Mx-2.0.Mx.ComboBox */
     vfunc_accept_focus(hint: FocusHint): Focusable
     vfunc_move_focus(direction: FocusDirection, from: Focusable): Focusable
-    /* Virtual methods of Mx.Widget */
+    /* Virtual methods of Mx-2.0.Mx.Widget */
     vfunc_long_press(action: LongPressAction, x: number, y: number): boolean
     vfunc_animate_property(animation: Clutter.Animation, property_name: string, initial_value: any, final_value: any, progress: number, value: any): boolean
     vfunc_find_property(property_name: string): GObject.ParamSpec
@@ -5324,7 +5324,7 @@ export class ComboBox {
     vfunc_set_style_class(style_class: string): void
     vfunc_set_style_pseudo_class(pseudo_class: string): void
     vfunc_style_changed(flags: StyleChangedFlags): void
-    /* Virtual methods of Clutter.Actor */
+    /* Virtual methods of Clutter-1.0.Clutter.Actor */
     vfunc_allocate(box: Clutter.ActorBox, flags: Clutter.AllocationFlags): void
     vfunc_apply_transform(matrix: Clutter.Matrix): void
     vfunc_button_press_event(event: Clutter.ButtonEvent): boolean
@@ -5360,7 +5360,7 @@ export class ComboBox {
     vfunc_touch_event(event: Clutter.TouchEvent): boolean
     vfunc_unmap(): void
     vfunc_unrealize(): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -5368,11 +5368,11 @@ export class ComboBox {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Mx.Widget */
+    /* Signals of Mx-2.0.Mx.Widget */
     connect(sigName: "long-press", callback: (($obj: ComboBox, object: number, p0: number, p1: LongPressAction) => boolean)): number
     connect_after(sigName: "long-press", callback: (($obj: ComboBox, object: number, p0: number, p1: LongPressAction) => boolean)): number
     emit(sigName: "long-press", object: number, p0: number, p1: LongPressAction): void
-    /* Signals of Clutter.Actor */
+    /* Signals of Clutter-1.0.Clutter.Actor */
     connect(sigName: "allocation-changed", callback: (($obj: ComboBox, box: Clutter.ActorBox, flags: Clutter.AllocationFlags) => void)): number
     connect_after(sigName: "allocation-changed", callback: (($obj: ComboBox, box: Clutter.ActorBox, flags: Clutter.AllocationFlags) => void)): number
     emit(sigName: "allocation-changed", box: Clutter.ActorBox, flags: Clutter.AllocationFlags): void
@@ -5451,11 +5451,11 @@ export class ComboBox {
     connect(sigName: "unrealize", callback: (($obj: ComboBox) => void)): number
     connect_after(sigName: "unrealize", callback: (($obj: ComboBox) => void)): number
     emit(sigName: "unrealize"): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: ComboBox, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: ComboBox, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    /* Signals of Clutter.Container */
+    /* Signals of Clutter-1.0.Clutter.Container */
     connect(sigName: "actor-added", callback: (($obj: ComboBox, actor: Clutter.Actor) => void)): number
     connect_after(sigName: "actor-added", callback: (($obj: ComboBox, actor: Clutter.Actor) => void)): number
     emit(sigName: "actor-added", actor: Clutter.Actor): void
@@ -5465,7 +5465,7 @@ export class ComboBox {
     connect(sigName: "child-notify", callback: (($obj: ComboBox, actor: Clutter.Actor, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "child-notify", callback: (($obj: ComboBox, actor: Clutter.Actor, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "child-notify", actor: Clutter.Actor, pspec: GObject.ParamSpec): void
-    /* Signals of Mx.Stylable */
+    /* Signals of Mx-2.0.Mx.Stylable */
     connect(sigName: "style-changed", callback: (($obj: ComboBox, flags: StyleChangedFlags) => void)): number
     connect_after(sigName: "style-changed", callback: (($obj: ComboBox, flags: StyleChangedFlags) => void)): number
     emit(sigName: "style-changed", flags: StyleChangedFlags): void
@@ -5670,12 +5670,12 @@ export interface Dialog_ConstructProps extends Widget_ConstructProps {
     style_pseudo_class?: string
 }
 export class Dialog {
-    /* Properties of Mx.Widget */
+    /* Properties of Mx-2.0.Mx.Widget */
     disabled: boolean
     menu: Menu
     tooltip_delay: number
     tooltip_text: string
-    /* Properties of Clutter.Actor */
+    /* Properties of Clutter-1.0.Clutter.Actor */
     actions: Clutter.Action
     readonly allocation: Clutter.ActorBox
     anchor_gravity: Clutter.Gravity
@@ -5758,20 +5758,20 @@ export class Dialog {
     y_align: Clutter.ActorAlign
     y_expand: boolean
     z_position: number
-    /* Properties of Mx.Stylable */
+    /* Properties of Mx-2.0.Mx.Stylable */
     style: Style
     style_class: string
     style_pseudo_class: string
-    /* Fields of Clutter.Actor */
+    /* Fields of Clutter-1.0.Clutter.Actor */
     flags: number
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Mx.Dialog */
+    /* Methods of Mx-2.0.Mx.Dialog */
     add_action(action: Action): void
     get_actions(): Action[]
     remove_action(action: Action): void
     set_transient_parent(actor: Clutter.Actor): void
-    /* Methods of Mx.Widget */
+    /* Methods of Mx-2.0.Mx.Widget */
     apply_style(style: Style): void
     get_available_area(allocation: Clutter.ActorBox, area: Clutter.ActorBox): void
     get_background_color(): Clutter.Color
@@ -5789,7 +5789,7 @@ export class Dialog {
     set_tooltip_delay(delay: number): void
     set_tooltip_text(text: string): void
     show_tooltip(): void
-    /* Methods of Clutter.Actor */
+    /* Methods of Clutter-1.0.Clutter.Actor */
     add_action(action: Clutter.Action): void
     add_action_with_name(name: string, action: Clutter.Action): void
     add_child(child: Clutter.Actor): void
@@ -6025,7 +6025,7 @@ export class Dialog {
     unparent(): void
     unrealize(): void
     unset_flags(flags: Clutter.ActorFlags): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -6047,13 +6047,13 @@ export class Dialog {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of Clutter.Animatable */
+    /* Methods of Clutter-1.0.Clutter.Animatable */
     animate_property(animation: Clutter.Animation, property_name: string, initial_value: any, final_value: any, progress: number, value: any): boolean
     find_property(property_name: string): GObject.ParamSpec
     get_initial_state(property_name: string, value: any): void
     interpolate_value(property_name: string, interval: Clutter.Interval, progress: number): [ /* returnType */ boolean, /* value */ any ]
     set_final_state(property_name: string, value: any): void
-    /* Methods of Clutter.Container */
+    /* Methods of Clutter-1.0.Clutter.Container */
     add_actor(actor: Clutter.Actor): void
     child_get_property(child: Clutter.Actor, property: string, value: any): void
     child_notify(child: Clutter.Actor, pspec: GObject.ParamSpec): void
@@ -6068,15 +6068,15 @@ export class Dialog {
     raise_child(actor: Clutter.Actor, sibling?: Clutter.Actor | null): void
     remove_actor(actor: Clutter.Actor): void
     sort_depth_order(): void
-    /* Methods of Clutter.Scriptable */
+    /* Methods of Clutter-1.0.Clutter.Scriptable */
     get_id(): string
     parse_custom_node(script: Clutter.Script, value: any, name: string, node: Json.Node): boolean
     set_custom_property(script: Clutter.Script, name: string, value: any): void
     set_id(id_: string): void
-    /* Methods of Mx.Focusable */
+    /* Methods of Mx-2.0.Mx.Focusable */
     accept_focus(hint: FocusHint): Focusable
     move_focus(direction: FocusDirection, from: Focusable): Focusable
-    /* Methods of Mx.Stylable */
+    /* Methods of Mx-2.0.Mx.Stylable */
     apply_clutter_text_attributes(text: Clutter.Text): void
     connect_change_notifiers(): void
     disconnect_change_notifiers(): void
@@ -6093,10 +6093,10 @@ export class Dialog {
     style_pseudo_class_add(new_class: string): void
     style_pseudo_class_contains(pseudo_class: string): boolean
     style_pseudo_class_remove(remove_class: string): void
-    /* Virtual methods of Mx.Dialog */
+    /* Virtual methods of Mx-2.0.Mx.Dialog */
     vfunc_accept_focus(hint: FocusHint): Focusable
     vfunc_move_focus(direction: FocusDirection, from: Focusable): Focusable
-    /* Virtual methods of Mx.Widget */
+    /* Virtual methods of Mx-2.0.Mx.Widget */
     vfunc_long_press(action: LongPressAction, x: number, y: number): boolean
     vfunc_animate_property(animation: Clutter.Animation, property_name: string, initial_value: any, final_value: any, progress: number, value: any): boolean
     vfunc_find_property(property_name: string): GObject.ParamSpec
@@ -6127,7 +6127,7 @@ export class Dialog {
     vfunc_set_style_class(style_class: string): void
     vfunc_set_style_pseudo_class(pseudo_class: string): void
     vfunc_style_changed(flags: StyleChangedFlags): void
-    /* Virtual methods of Clutter.Actor */
+    /* Virtual methods of Clutter-1.0.Clutter.Actor */
     vfunc_allocate(box: Clutter.ActorBox, flags: Clutter.AllocationFlags): void
     vfunc_apply_transform(matrix: Clutter.Matrix): void
     vfunc_button_press_event(event: Clutter.ButtonEvent): boolean
@@ -6163,7 +6163,7 @@ export class Dialog {
     vfunc_touch_event(event: Clutter.TouchEvent): boolean
     vfunc_unmap(): void
     vfunc_unrealize(): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -6171,11 +6171,11 @@ export class Dialog {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Mx.Widget */
+    /* Signals of Mx-2.0.Mx.Widget */
     connect(sigName: "long-press", callback: (($obj: Dialog, object: number, p0: number, p1: LongPressAction) => boolean)): number
     connect_after(sigName: "long-press", callback: (($obj: Dialog, object: number, p0: number, p1: LongPressAction) => boolean)): number
     emit(sigName: "long-press", object: number, p0: number, p1: LongPressAction): void
-    /* Signals of Clutter.Actor */
+    /* Signals of Clutter-1.0.Clutter.Actor */
     connect(sigName: "allocation-changed", callback: (($obj: Dialog, box: Clutter.ActorBox, flags: Clutter.AllocationFlags) => void)): number
     connect_after(sigName: "allocation-changed", callback: (($obj: Dialog, box: Clutter.ActorBox, flags: Clutter.AllocationFlags) => void)): number
     emit(sigName: "allocation-changed", box: Clutter.ActorBox, flags: Clutter.AllocationFlags): void
@@ -6254,11 +6254,11 @@ export class Dialog {
     connect(sigName: "unrealize", callback: (($obj: Dialog) => void)): number
     connect_after(sigName: "unrealize", callback: (($obj: Dialog) => void)): number
     emit(sigName: "unrealize"): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Dialog, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Dialog, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    /* Signals of Clutter.Container */
+    /* Signals of Clutter-1.0.Clutter.Container */
     connect(sigName: "actor-added", callback: (($obj: Dialog, actor: Clutter.Actor) => void)): number
     connect_after(sigName: "actor-added", callback: (($obj: Dialog, actor: Clutter.Actor) => void)): number
     emit(sigName: "actor-added", actor: Clutter.Actor): void
@@ -6268,7 +6268,7 @@ export class Dialog {
     connect(sigName: "child-notify", callback: (($obj: Dialog, actor: Clutter.Actor, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "child-notify", callback: (($obj: Dialog, actor: Clutter.Actor, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "child-notify", actor: Clutter.Actor, pspec: GObject.ParamSpec): void
-    /* Signals of Mx.Stylable */
+    /* Signals of Mx-2.0.Mx.Stylable */
     connect(sigName: "style-changed", callback: (($obj: Dialog, flags: StyleChangedFlags) => void)): number
     connect_after(sigName: "style-changed", callback: (($obj: Dialog, flags: StyleChangedFlags) => void)): number
     emit(sigName: "style-changed", flags: StyleChangedFlags): void
@@ -6473,7 +6473,7 @@ export interface Entry_ConstructProps extends Widget_ConstructProps {
     style_pseudo_class?: string
 }
 export class Entry {
-    /* Properties of Mx.Entry */
+    /* Properties of Mx-2.0.Mx.Entry */
     readonly clutter_text: Clutter.Text
     icon_highlight_suffix: string
     password_char: number
@@ -6481,12 +6481,12 @@ export class Entry {
     primary_icon_tooltip_text: string
     secondary_icon_tooltip_text: string
     text: string
-    /* Properties of Mx.Widget */
+    /* Properties of Mx-2.0.Mx.Widget */
     disabled: boolean
     menu: Menu
     tooltip_delay: number
     tooltip_text: string
-    /* Properties of Clutter.Actor */
+    /* Properties of Clutter-1.0.Clutter.Actor */
     actions: Clutter.Action
     readonly allocation: Clutter.ActorBox
     anchor_gravity: Clutter.Gravity
@@ -6569,15 +6569,15 @@ export class Entry {
     y_align: Clutter.ActorAlign
     y_expand: boolean
     z_position: number
-    /* Properties of Mx.Stylable */
+    /* Properties of Mx-2.0.Mx.Stylable */
     style: Style
     style_class: string
     style_pseudo_class: string
-    /* Fields of Clutter.Actor */
+    /* Fields of Clutter-1.0.Clutter.Actor */
     flags: number
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Mx.Entry */
+    /* Methods of Mx-2.0.Mx.Entry */
     get_clutter_text(): Clutter.Actor
     get_icon_highlight_suffix(): string
     get_password_char(): number
@@ -6591,7 +6591,7 @@ export class Entry {
     set_secondary_icon_from_file(filename: string): void
     set_secondary_icon_tooltip_text(text: string): void
     set_text(text: string): void
-    /* Methods of Mx.Widget */
+    /* Methods of Mx-2.0.Mx.Widget */
     apply_style(style: Style): void
     get_available_area(allocation: Clutter.ActorBox, area: Clutter.ActorBox): void
     get_background_color(): Clutter.Color
@@ -6609,7 +6609,7 @@ export class Entry {
     set_tooltip_delay(delay: number): void
     set_tooltip_text(text: string): void
     show_tooltip(): void
-    /* Methods of Clutter.Actor */
+    /* Methods of Clutter-1.0.Clutter.Actor */
     add_action(action: Clutter.Action): void
     add_action_with_name(name: string, action: Clutter.Action): void
     add_child(child: Clutter.Actor): void
@@ -6845,7 +6845,7 @@ export class Entry {
     unparent(): void
     unrealize(): void
     unset_flags(flags: Clutter.ActorFlags): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -6867,13 +6867,13 @@ export class Entry {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of Clutter.Animatable */
+    /* Methods of Clutter-1.0.Clutter.Animatable */
     animate_property(animation: Clutter.Animation, property_name: string, initial_value: any, final_value: any, progress: number, value: any): boolean
     find_property(property_name: string): GObject.ParamSpec
     get_initial_state(property_name: string, value: any): void
     interpolate_value(property_name: string, interval: Clutter.Interval, progress: number): [ /* returnType */ boolean, /* value */ any ]
     set_final_state(property_name: string, value: any): void
-    /* Methods of Clutter.Container */
+    /* Methods of Clutter-1.0.Clutter.Container */
     add_actor(actor: Clutter.Actor): void
     child_get_property(child: Clutter.Actor, property: string, value: any): void
     child_notify(child: Clutter.Actor, pspec: GObject.ParamSpec): void
@@ -6888,15 +6888,15 @@ export class Entry {
     raise_child(actor: Clutter.Actor, sibling?: Clutter.Actor | null): void
     remove_actor(actor: Clutter.Actor): void
     sort_depth_order(): void
-    /* Methods of Clutter.Scriptable */
+    /* Methods of Clutter-1.0.Clutter.Scriptable */
     get_id(): string
     parse_custom_node(script: Clutter.Script, value: any, name: string, node: Json.Node): boolean
     set_custom_property(script: Clutter.Script, name: string, value: any): void
     set_id(id_: string): void
-    /* Methods of Mx.Focusable */
+    /* Methods of Mx-2.0.Mx.Focusable */
     accept_focus(hint: FocusHint): Focusable
     move_focus(direction: FocusDirection, from: Focusable): Focusable
-    /* Methods of Mx.Stylable */
+    /* Methods of Mx-2.0.Mx.Stylable */
     apply_clutter_text_attributes(text: Clutter.Text): void
     connect_change_notifiers(): void
     disconnect_change_notifiers(): void
@@ -6913,12 +6913,12 @@ export class Entry {
     style_pseudo_class_add(new_class: string): void
     style_pseudo_class_contains(pseudo_class: string): boolean
     style_pseudo_class_remove(remove_class: string): void
-    /* Virtual methods of Mx.Entry */
+    /* Virtual methods of Mx-2.0.Mx.Entry */
     vfunc_primary_icon_clicked(): void
     vfunc_secondary_icon_clicked(): void
     vfunc_accept_focus(hint: FocusHint): Focusable
     vfunc_move_focus(direction: FocusDirection, from: Focusable): Focusable
-    /* Virtual methods of Mx.Widget */
+    /* Virtual methods of Mx-2.0.Mx.Widget */
     vfunc_long_press(action: LongPressAction, x: number, y: number): boolean
     vfunc_animate_property(animation: Clutter.Animation, property_name: string, initial_value: any, final_value: any, progress: number, value: any): boolean
     vfunc_find_property(property_name: string): GObject.ParamSpec
@@ -6949,7 +6949,7 @@ export class Entry {
     vfunc_set_style_class(style_class: string): void
     vfunc_set_style_pseudo_class(pseudo_class: string): void
     vfunc_style_changed(flags: StyleChangedFlags): void
-    /* Virtual methods of Clutter.Actor */
+    /* Virtual methods of Clutter-1.0.Clutter.Actor */
     vfunc_allocate(box: Clutter.ActorBox, flags: Clutter.AllocationFlags): void
     vfunc_apply_transform(matrix: Clutter.Matrix): void
     vfunc_button_press_event(event: Clutter.ButtonEvent): boolean
@@ -6985,7 +6985,7 @@ export class Entry {
     vfunc_touch_event(event: Clutter.TouchEvent): boolean
     vfunc_unmap(): void
     vfunc_unrealize(): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -6993,18 +6993,18 @@ export class Entry {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Mx.Entry */
+    /* Signals of Mx-2.0.Mx.Entry */
     connect(sigName: "primary-icon-clicked", callback: (($obj: Entry) => void)): number
     connect_after(sigName: "primary-icon-clicked", callback: (($obj: Entry) => void)): number
     emit(sigName: "primary-icon-clicked"): void
     connect(sigName: "secondary-icon-clicked", callback: (($obj: Entry) => void)): number
     connect_after(sigName: "secondary-icon-clicked", callback: (($obj: Entry) => void)): number
     emit(sigName: "secondary-icon-clicked"): void
-    /* Signals of Mx.Widget */
+    /* Signals of Mx-2.0.Mx.Widget */
     connect(sigName: "long-press", callback: (($obj: Entry, object: number, p0: number, p1: LongPressAction) => boolean)): number
     connect_after(sigName: "long-press", callback: (($obj: Entry, object: number, p0: number, p1: LongPressAction) => boolean)): number
     emit(sigName: "long-press", object: number, p0: number, p1: LongPressAction): void
-    /* Signals of Clutter.Actor */
+    /* Signals of Clutter-1.0.Clutter.Actor */
     connect(sigName: "allocation-changed", callback: (($obj: Entry, box: Clutter.ActorBox, flags: Clutter.AllocationFlags) => void)): number
     connect_after(sigName: "allocation-changed", callback: (($obj: Entry, box: Clutter.ActorBox, flags: Clutter.AllocationFlags) => void)): number
     emit(sigName: "allocation-changed", box: Clutter.ActorBox, flags: Clutter.AllocationFlags): void
@@ -7083,11 +7083,11 @@ export class Entry {
     connect(sigName: "unrealize", callback: (($obj: Entry) => void)): number
     connect_after(sigName: "unrealize", callback: (($obj: Entry) => void)): number
     emit(sigName: "unrealize"): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Entry, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Entry, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    /* Signals of Clutter.Container */
+    /* Signals of Clutter-1.0.Clutter.Container */
     connect(sigName: "actor-added", callback: (($obj: Entry, actor: Clutter.Actor) => void)): number
     connect_after(sigName: "actor-added", callback: (($obj: Entry, actor: Clutter.Actor) => void)): number
     emit(sigName: "actor-added", actor: Clutter.Actor): void
@@ -7097,7 +7097,7 @@ export class Entry {
     connect(sigName: "child-notify", callback: (($obj: Entry, actor: Clutter.Actor, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "child-notify", callback: (($obj: Entry, actor: Clutter.Actor, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "child-notify", actor: Clutter.Actor, pspec: GObject.ParamSpec): void
-    /* Signals of Mx.Stylable */
+    /* Signals of Mx-2.0.Mx.Stylable */
     connect(sigName: "style-changed", callback: (($obj: Entry, flags: StyleChangedFlags) => void)): number
     connect_after(sigName: "style-changed", callback: (($obj: Entry, flags: StyleChangedFlags) => void)): number
     emit(sigName: "style-changed", flags: StyleChangedFlags): void
@@ -7313,15 +7313,15 @@ export interface Expander_ConstructProps extends Widget_ConstructProps {
     style_pseudo_class?: string
 }
 export class Expander {
-    /* Properties of Mx.Expander */
+    /* Properties of Mx-2.0.Mx.Expander */
     expanded: boolean
     label: string
-    /* Properties of Mx.Widget */
+    /* Properties of Mx-2.0.Mx.Widget */
     disabled: boolean
     menu: Menu
     tooltip_delay: number
     tooltip_text: string
-    /* Properties of Clutter.Actor */
+    /* Properties of Clutter-1.0.Clutter.Actor */
     actions: Clutter.Action
     readonly allocation: Clutter.ActorBox
     anchor_gravity: Clutter.Gravity
@@ -7404,19 +7404,19 @@ export class Expander {
     y_align: Clutter.ActorAlign
     y_expand: boolean
     z_position: number
-    /* Properties of Mx.Stylable */
+    /* Properties of Mx-2.0.Mx.Stylable */
     style: Style
     style_class: string
     style_pseudo_class: string
-    /* Fields of Clutter.Actor */
+    /* Fields of Clutter-1.0.Clutter.Actor */
     flags: number
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Mx.Expander */
+    /* Methods of Mx-2.0.Mx.Expander */
     get_expanded(): boolean
     set_expanded(expanded: boolean): void
     set_label(label: string): void
-    /* Methods of Mx.Widget */
+    /* Methods of Mx-2.0.Mx.Widget */
     apply_style(style: Style): void
     get_available_area(allocation: Clutter.ActorBox, area: Clutter.ActorBox): void
     get_background_color(): Clutter.Color
@@ -7434,7 +7434,7 @@ export class Expander {
     set_tooltip_delay(delay: number): void
     set_tooltip_text(text: string): void
     show_tooltip(): void
-    /* Methods of Clutter.Actor */
+    /* Methods of Clutter-1.0.Clutter.Actor */
     add_action(action: Clutter.Action): void
     add_action_with_name(name: string, action: Clutter.Action): void
     add_child(child: Clutter.Actor): void
@@ -7670,7 +7670,7 @@ export class Expander {
     unparent(): void
     unrealize(): void
     unset_flags(flags: Clutter.ActorFlags): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -7692,13 +7692,13 @@ export class Expander {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of Clutter.Animatable */
+    /* Methods of Clutter-1.0.Clutter.Animatable */
     animate_property(animation: Clutter.Animation, property_name: string, initial_value: any, final_value: any, progress: number, value: any): boolean
     find_property(property_name: string): GObject.ParamSpec
     get_initial_state(property_name: string, value: any): void
     interpolate_value(property_name: string, interval: Clutter.Interval, progress: number): [ /* returnType */ boolean, /* value */ any ]
     set_final_state(property_name: string, value: any): void
-    /* Methods of Clutter.Container */
+    /* Methods of Clutter-1.0.Clutter.Container */
     add_actor(actor: Clutter.Actor): void
     child_get_property(child: Clutter.Actor, property: string, value: any): void
     child_notify(child: Clutter.Actor, pspec: GObject.ParamSpec): void
@@ -7713,12 +7713,12 @@ export class Expander {
     raise_child(actor: Clutter.Actor, sibling?: Clutter.Actor | null): void
     remove_actor(actor: Clutter.Actor): void
     sort_depth_order(): void
-    /* Methods of Clutter.Scriptable */
+    /* Methods of Clutter-1.0.Clutter.Scriptable */
     get_id(): string
     parse_custom_node(script: Clutter.Script, value: any, name: string, node: Json.Node): boolean
     set_custom_property(script: Clutter.Script, name: string, value: any): void
     set_id(id_: string): void
-    /* Methods of Mx.Stylable */
+    /* Methods of Mx-2.0.Mx.Stylable */
     apply_clutter_text_attributes(text: Clutter.Text): void
     connect_change_notifiers(): void
     disconnect_change_notifiers(): void
@@ -7735,9 +7735,9 @@ export class Expander {
     style_pseudo_class_add(new_class: string): void
     style_pseudo_class_contains(pseudo_class: string): boolean
     style_pseudo_class_remove(remove_class: string): void
-    /* Virtual methods of Mx.Expander */
+    /* Virtual methods of Mx-2.0.Mx.Expander */
     vfunc_expand_complete(): void
-    /* Virtual methods of Mx.Widget */
+    /* Virtual methods of Mx-2.0.Mx.Widget */
     vfunc_long_press(action: LongPressAction, x: number, y: number): boolean
     vfunc_animate_property(animation: Clutter.Animation, property_name: string, initial_value: any, final_value: any, progress: number, value: any): boolean
     vfunc_find_property(property_name: string): GObject.ParamSpec
@@ -7768,7 +7768,7 @@ export class Expander {
     vfunc_set_style_class(style_class: string): void
     vfunc_set_style_pseudo_class(pseudo_class: string): void
     vfunc_style_changed(flags: StyleChangedFlags): void
-    /* Virtual methods of Clutter.Actor */
+    /* Virtual methods of Clutter-1.0.Clutter.Actor */
     vfunc_allocate(box: Clutter.ActorBox, flags: Clutter.AllocationFlags): void
     vfunc_apply_transform(matrix: Clutter.Matrix): void
     vfunc_button_press_event(event: Clutter.ButtonEvent): boolean
@@ -7804,7 +7804,7 @@ export class Expander {
     vfunc_touch_event(event: Clutter.TouchEvent): boolean
     vfunc_unmap(): void
     vfunc_unrealize(): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -7812,15 +7812,15 @@ export class Expander {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Mx.Expander */
+    /* Signals of Mx-2.0.Mx.Expander */
     connect(sigName: "expand-complete", callback: (($obj: Expander) => void)): number
     connect_after(sigName: "expand-complete", callback: (($obj: Expander) => void)): number
     emit(sigName: "expand-complete"): void
-    /* Signals of Mx.Widget */
+    /* Signals of Mx-2.0.Mx.Widget */
     connect(sigName: "long-press", callback: (($obj: Expander, object: number, p0: number, p1: LongPressAction) => boolean)): number
     connect_after(sigName: "long-press", callback: (($obj: Expander, object: number, p0: number, p1: LongPressAction) => boolean)): number
     emit(sigName: "long-press", object: number, p0: number, p1: LongPressAction): void
-    /* Signals of Clutter.Actor */
+    /* Signals of Clutter-1.0.Clutter.Actor */
     connect(sigName: "allocation-changed", callback: (($obj: Expander, box: Clutter.ActorBox, flags: Clutter.AllocationFlags) => void)): number
     connect_after(sigName: "allocation-changed", callback: (($obj: Expander, box: Clutter.ActorBox, flags: Clutter.AllocationFlags) => void)): number
     emit(sigName: "allocation-changed", box: Clutter.ActorBox, flags: Clutter.AllocationFlags): void
@@ -7899,11 +7899,11 @@ export class Expander {
     connect(sigName: "unrealize", callback: (($obj: Expander) => void)): number
     connect_after(sigName: "unrealize", callback: (($obj: Expander) => void)): number
     emit(sigName: "unrealize"): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Expander, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Expander, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    /* Signals of Clutter.Container */
+    /* Signals of Clutter-1.0.Clutter.Container */
     connect(sigName: "actor-added", callback: (($obj: Expander, actor: Clutter.Actor) => void)): number
     connect_after(sigName: "actor-added", callback: (($obj: Expander, actor: Clutter.Actor) => void)): number
     emit(sigName: "actor-added", actor: Clutter.Actor): void
@@ -7913,7 +7913,7 @@ export class Expander {
     connect(sigName: "child-notify", callback: (($obj: Expander, actor: Clutter.Actor, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "child-notify", callback: (($obj: Expander, actor: Clutter.Actor, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "child-notify", actor: Clutter.Actor, pspec: GObject.ParamSpec): void
-    /* Signals of Mx.Stylable */
+    /* Signals of Mx-2.0.Mx.Stylable */
     connect(sigName: "style-changed", callback: (($obj: Expander, flags: StyleChangedFlags) => void)): number
     connect_after(sigName: "style-changed", callback: (($obj: Expander, flags: StyleChangedFlags) => void)): number
     emit(sigName: "style-changed", flags: StyleChangedFlags): void
@@ -8123,7 +8123,7 @@ export interface FadeEffect_ConstructProps extends Clutter.OffscreenEffect_Const
     freeze_update?: boolean
 }
 export class FadeEffect {
-    /* Properties of Mx.FadeEffect */
+    /* Properties of Mx-2.0.Mx.FadeEffect */
     border_bottom: number
     border_left: number
     border_right: number
@@ -8134,38 +8134,38 @@ export class FadeEffect {
     bounds_y: number
     color: Clutter.Color
     freeze_update: boolean
-    /* Properties of Clutter.ActorMeta */
+    /* Properties of Clutter-1.0.Clutter.ActorMeta */
     readonly actor: Clutter.Actor
     enabled: boolean
     name: string
-    /* Fields of Mx.FadeEffect */
+    /* Fields of Mx-2.0.Mx.FadeEffect */
     parent: Clutter.OffscreenEffect
     priv: FadeEffectPrivate
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Mx.FadeEffect */
+    /* Methods of Mx-2.0.Mx.FadeEffect */
     get_border(): [ /* top */ number | null, /* right */ number | null, /* bottom */ number | null, /* left */ number | null ]
     get_bounds(): [ /* x */ number | null, /* y */ number | null, /* width */ number | null, /* height */ number | null ]
     get_color(): /* color */ Clutter.Color
     set_border(top: number, right: number, bottom: number, left: number): void
     set_bounds(x: number, y: number, width: number, height: number): void
     set_color(color: Clutter.Color): void
-    /* Methods of Clutter.OffscreenEffect */
+    /* Methods of Clutter-1.0.Clutter.OffscreenEffect */
     create_texture(width: number, height: number): Cogl.Handle
     get_target(): Cogl.Material
     get_target_rect(): [ /* returnType */ boolean, /* rect */ Clutter.Rect ]
     get_target_size(): [ /* returnType */ boolean, /* width */ number, /* height */ number ]
     get_texture(): Cogl.Handle
     paint_target(): void
-    /* Methods of Clutter.Effect */
+    /* Methods of Clutter-1.0.Clutter.Effect */
     queue_repaint(): void
-    /* Methods of Clutter.ActorMeta */
+    /* Methods of Clutter-1.0.Clutter.ActorMeta */
     get_actor(): Clutter.Actor
     get_enabled(): boolean
     get_name(): string
     set_enabled(is_enabled: boolean): void
     set_name(name: string): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -8187,18 +8187,18 @@ export class FadeEffect {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Clutter.OffscreenEffect */
+    /* Virtual methods of Clutter-1.0.Clutter.OffscreenEffect */
     vfunc_create_texture(width: number, height: number): Cogl.Handle
     vfunc_paint_target(): void
-    /* Virtual methods of Clutter.Effect */
+    /* Virtual methods of Clutter-1.0.Clutter.Effect */
     vfunc_get_paint_volume(volume: Clutter.PaintVolume): boolean
     vfunc_paint(flags: Clutter.EffectPaintFlags): void
     vfunc_pick(flags: Clutter.EffectPaintFlags): void
     vfunc_post_paint(): void
     vfunc_pre_paint(): boolean
-    /* Virtual methods of Clutter.ActorMeta */
+    /* Virtual methods of Clutter-1.0.Clutter.ActorMeta */
     vfunc_set_actor(actor?: Clutter.Actor | null): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -8206,7 +8206,7 @@ export class FadeEffect {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: FadeEffect, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: FadeEffect, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -8253,12 +8253,12 @@ export interface FloatingWidget_ConstructProps extends Widget_ConstructProps {
     style_pseudo_class?: string
 }
 export class FloatingWidget {
-    /* Properties of Mx.Widget */
+    /* Properties of Mx-2.0.Mx.Widget */
     disabled: boolean
     menu: Menu
     tooltip_delay: number
     tooltip_text: string
-    /* Properties of Clutter.Actor */
+    /* Properties of Clutter-1.0.Clutter.Actor */
     actions: Clutter.Action
     readonly allocation: Clutter.ActorBox
     anchor_gravity: Clutter.Gravity
@@ -8341,18 +8341,18 @@ export class FloatingWidget {
     y_align: Clutter.ActorAlign
     y_expand: boolean
     z_position: number
-    /* Properties of Mx.Stylable */
+    /* Properties of Mx-2.0.Mx.Stylable */
     style: Style
     style_class: string
     style_pseudo_class: string
-    /* Fields of Mx.FloatingWidget */
+    /* Fields of Mx-2.0.Mx.FloatingWidget */
     parent: Widget
     priv: FloatingWidgetPrivate
-    /* Fields of Clutter.Actor */
+    /* Fields of Clutter-1.0.Clutter.Actor */
     flags: number
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Mx.Widget */
+    /* Methods of Mx-2.0.Mx.Widget */
     apply_style(style: Style): void
     get_available_area(allocation: Clutter.ActorBox, area: Clutter.ActorBox): void
     get_background_color(): Clutter.Color
@@ -8370,7 +8370,7 @@ export class FloatingWidget {
     set_tooltip_delay(delay: number): void
     set_tooltip_text(text: string): void
     show_tooltip(): void
-    /* Methods of Clutter.Actor */
+    /* Methods of Clutter-1.0.Clutter.Actor */
     add_action(action: Clutter.Action): void
     add_action_with_name(name: string, action: Clutter.Action): void
     add_child(child: Clutter.Actor): void
@@ -8606,7 +8606,7 @@ export class FloatingWidget {
     unparent(): void
     unrealize(): void
     unset_flags(flags: Clutter.ActorFlags): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -8628,13 +8628,13 @@ export class FloatingWidget {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of Clutter.Animatable */
+    /* Methods of Clutter-1.0.Clutter.Animatable */
     animate_property(animation: Clutter.Animation, property_name: string, initial_value: any, final_value: any, progress: number, value: any): boolean
     find_property(property_name: string): GObject.ParamSpec
     get_initial_state(property_name: string, value: any): void
     interpolate_value(property_name: string, interval: Clutter.Interval, progress: number): [ /* returnType */ boolean, /* value */ any ]
     set_final_state(property_name: string, value: any): void
-    /* Methods of Clutter.Container */
+    /* Methods of Clutter-1.0.Clutter.Container */
     add_actor(actor: Clutter.Actor): void
     child_get_property(child: Clutter.Actor, property: string, value: any): void
     child_notify(child: Clutter.Actor, pspec: GObject.ParamSpec): void
@@ -8649,12 +8649,12 @@ export class FloatingWidget {
     raise_child(actor: Clutter.Actor, sibling?: Clutter.Actor | null): void
     remove_actor(actor: Clutter.Actor): void
     sort_depth_order(): void
-    /* Methods of Clutter.Scriptable */
+    /* Methods of Clutter-1.0.Clutter.Scriptable */
     get_id(): string
     parse_custom_node(script: Clutter.Script, value: any, name: string, node: Json.Node): boolean
     set_custom_property(script: Clutter.Script, name: string, value: any): void
     set_id(id_: string): void
-    /* Methods of Mx.Stylable */
+    /* Methods of Mx-2.0.Mx.Stylable */
     apply_clutter_text_attributes(text: Clutter.Text): void
     connect_change_notifiers(): void
     disconnect_change_notifiers(): void
@@ -8671,7 +8671,7 @@ export class FloatingWidget {
     style_pseudo_class_add(new_class: string): void
     style_pseudo_class_contains(pseudo_class: string): boolean
     style_pseudo_class_remove(remove_class: string): void
-    /* Virtual methods of Mx.Widget */
+    /* Virtual methods of Mx-2.0.Mx.Widget */
     vfunc_long_press(action: LongPressAction, x: number, y: number): boolean
     vfunc_animate_property(animation: Clutter.Animation, property_name: string, initial_value: any, final_value: any, progress: number, value: any): boolean
     vfunc_find_property(property_name: string): GObject.ParamSpec
@@ -8702,7 +8702,7 @@ export class FloatingWidget {
     vfunc_set_style_class(style_class: string): void
     vfunc_set_style_pseudo_class(pseudo_class: string): void
     vfunc_style_changed(flags: StyleChangedFlags): void
-    /* Virtual methods of Clutter.Actor */
+    /* Virtual methods of Clutter-1.0.Clutter.Actor */
     vfunc_allocate(box: Clutter.ActorBox, flags: Clutter.AllocationFlags): void
     vfunc_apply_transform(matrix: Clutter.Matrix): void
     vfunc_button_press_event(event: Clutter.ButtonEvent): boolean
@@ -8738,7 +8738,7 @@ export class FloatingWidget {
     vfunc_touch_event(event: Clutter.TouchEvent): boolean
     vfunc_unmap(): void
     vfunc_unrealize(): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -8746,11 +8746,11 @@ export class FloatingWidget {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Mx.Widget */
+    /* Signals of Mx-2.0.Mx.Widget */
     connect(sigName: "long-press", callback: (($obj: FloatingWidget, object: number, p0: number, p1: LongPressAction) => boolean)): number
     connect_after(sigName: "long-press", callback: (($obj: FloatingWidget, object: number, p0: number, p1: LongPressAction) => boolean)): number
     emit(sigName: "long-press", object: number, p0: number, p1: LongPressAction): void
-    /* Signals of Clutter.Actor */
+    /* Signals of Clutter-1.0.Clutter.Actor */
     connect(sigName: "allocation-changed", callback: (($obj: FloatingWidget, box: Clutter.ActorBox, flags: Clutter.AllocationFlags) => void)): number
     connect_after(sigName: "allocation-changed", callback: (($obj: FloatingWidget, box: Clutter.ActorBox, flags: Clutter.AllocationFlags) => void)): number
     emit(sigName: "allocation-changed", box: Clutter.ActorBox, flags: Clutter.AllocationFlags): void
@@ -8829,11 +8829,11 @@ export class FloatingWidget {
     connect(sigName: "unrealize", callback: (($obj: FloatingWidget) => void)): number
     connect_after(sigName: "unrealize", callback: (($obj: FloatingWidget) => void)): number
     emit(sigName: "unrealize"): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: FloatingWidget, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: FloatingWidget, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    /* Signals of Clutter.Container */
+    /* Signals of Clutter-1.0.Clutter.Container */
     connect(sigName: "actor-added", callback: (($obj: FloatingWidget, actor: Clutter.Actor) => void)): number
     connect_after(sigName: "actor-added", callback: (($obj: FloatingWidget, actor: Clutter.Actor) => void)): number
     emit(sigName: "actor-added", actor: Clutter.Actor): void
@@ -8843,7 +8843,7 @@ export class FloatingWidget {
     connect(sigName: "child-notify", callback: (($obj: FloatingWidget, actor: Clutter.Actor, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "child-notify", callback: (($obj: FloatingWidget, actor: Clutter.Actor, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "child-notify", actor: Clutter.Actor, pspec: GObject.ParamSpec): void
-    /* Signals of Mx.Stylable */
+    /* Signals of Mx-2.0.Mx.Stylable */
     connect(sigName: "style-changed", callback: (($obj: FloatingWidget, flags: StyleChangedFlags) => void)): number
     connect_after(sigName: "style-changed", callback: (($obj: FloatingWidget, flags: StyleChangedFlags) => void)): number
     emit(sigName: "style-changed", flags: StyleChangedFlags): void
@@ -9037,21 +9037,21 @@ export class FloatingWidget {
 export interface FocusManager_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class FocusManager {
-    /* Properties of Mx.FocusManager */
+    /* Properties of Mx-2.0.Mx.FocusManager */
     readonly focused: Clutter.Actor
     readonly stage: Clutter.Stage
-    /* Fields of Mx.FocusManager */
+    /* Fields of Mx-2.0.Mx.FocusManager */
     parent: GObject.Object
     priv: FocusManagerPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Mx.FocusManager */
+    /* Methods of Mx-2.0.Mx.FocusManager */
     get_focused(): Focusable
     get_stage(): Clutter.Stage
     move_focus(direction: FocusDirection): void
     push_focus(focusable: Focusable): void
     push_focus_with_hint(focusable: Focusable, hint: FocusHint): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -9073,7 +9073,7 @@ export class FocusManager {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -9081,7 +9081,7 @@ export class FocusManager {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: FocusManager, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: FocusManager, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -9106,12 +9106,12 @@ export interface Frame_ConstructProps extends Widget_ConstructProps {
     style_pseudo_class?: string
 }
 export class Frame {
-    /* Properties of Mx.Widget */
+    /* Properties of Mx-2.0.Mx.Widget */
     disabled: boolean
     menu: Menu
     tooltip_delay: number
     tooltip_text: string
-    /* Properties of Clutter.Actor */
+    /* Properties of Clutter-1.0.Clutter.Actor */
     actions: Clutter.Action
     readonly allocation: Clutter.ActorBox
     anchor_gravity: Clutter.Gravity
@@ -9194,18 +9194,18 @@ export class Frame {
     y_align: Clutter.ActorAlign
     y_expand: boolean
     z_position: number
-    /* Properties of Mx.Stylable */
+    /* Properties of Mx-2.0.Mx.Stylable */
     style: Style
     style_class: string
     style_pseudo_class: string
-    /* Fields of Mx.Frame */
+    /* Fields of Mx-2.0.Mx.Frame */
     parent: Widget
     priv: FramePrivate
-    /* Fields of Clutter.Actor */
+    /* Fields of Clutter-1.0.Clutter.Actor */
     flags: number
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Mx.Widget */
+    /* Methods of Mx-2.0.Mx.Widget */
     apply_style(style: Style): void
     get_available_area(allocation: Clutter.ActorBox, area: Clutter.ActorBox): void
     get_background_color(): Clutter.Color
@@ -9223,7 +9223,7 @@ export class Frame {
     set_tooltip_delay(delay: number): void
     set_tooltip_text(text: string): void
     show_tooltip(): void
-    /* Methods of Clutter.Actor */
+    /* Methods of Clutter-1.0.Clutter.Actor */
     add_action(action: Clutter.Action): void
     add_action_with_name(name: string, action: Clutter.Action): void
     add_child(child: Clutter.Actor): void
@@ -9459,7 +9459,7 @@ export class Frame {
     unparent(): void
     unrealize(): void
     unset_flags(flags: Clutter.ActorFlags): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -9481,13 +9481,13 @@ export class Frame {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of Clutter.Animatable */
+    /* Methods of Clutter-1.0.Clutter.Animatable */
     animate_property(animation: Clutter.Animation, property_name: string, initial_value: any, final_value: any, progress: number, value: any): boolean
     find_property(property_name: string): GObject.ParamSpec
     get_initial_state(property_name: string, value: any): void
     interpolate_value(property_name: string, interval: Clutter.Interval, progress: number): [ /* returnType */ boolean, /* value */ any ]
     set_final_state(property_name: string, value: any): void
-    /* Methods of Clutter.Container */
+    /* Methods of Clutter-1.0.Clutter.Container */
     add_actor(actor: Clutter.Actor): void
     child_get_property(child: Clutter.Actor, property: string, value: any): void
     child_notify(child: Clutter.Actor, pspec: GObject.ParamSpec): void
@@ -9502,12 +9502,12 @@ export class Frame {
     raise_child(actor: Clutter.Actor, sibling?: Clutter.Actor | null): void
     remove_actor(actor: Clutter.Actor): void
     sort_depth_order(): void
-    /* Methods of Clutter.Scriptable */
+    /* Methods of Clutter-1.0.Clutter.Scriptable */
     get_id(): string
     parse_custom_node(script: Clutter.Script, value: any, name: string, node: Json.Node): boolean
     set_custom_property(script: Clutter.Script, name: string, value: any): void
     set_id(id_: string): void
-    /* Methods of Mx.Stylable */
+    /* Methods of Mx-2.0.Mx.Stylable */
     apply_clutter_text_attributes(text: Clutter.Text): void
     connect_change_notifiers(): void
     disconnect_change_notifiers(): void
@@ -9524,7 +9524,7 @@ export class Frame {
     style_pseudo_class_add(new_class: string): void
     style_pseudo_class_contains(pseudo_class: string): boolean
     style_pseudo_class_remove(remove_class: string): void
-    /* Virtual methods of Mx.Widget */
+    /* Virtual methods of Mx-2.0.Mx.Widget */
     vfunc_long_press(action: LongPressAction, x: number, y: number): boolean
     vfunc_animate_property(animation: Clutter.Animation, property_name: string, initial_value: any, final_value: any, progress: number, value: any): boolean
     vfunc_find_property(property_name: string): GObject.ParamSpec
@@ -9555,7 +9555,7 @@ export class Frame {
     vfunc_set_style_class(style_class: string): void
     vfunc_set_style_pseudo_class(pseudo_class: string): void
     vfunc_style_changed(flags: StyleChangedFlags): void
-    /* Virtual methods of Clutter.Actor */
+    /* Virtual methods of Clutter-1.0.Clutter.Actor */
     vfunc_allocate(box: Clutter.ActorBox, flags: Clutter.AllocationFlags): void
     vfunc_apply_transform(matrix: Clutter.Matrix): void
     vfunc_button_press_event(event: Clutter.ButtonEvent): boolean
@@ -9591,7 +9591,7 @@ export class Frame {
     vfunc_touch_event(event: Clutter.TouchEvent): boolean
     vfunc_unmap(): void
     vfunc_unrealize(): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -9599,11 +9599,11 @@ export class Frame {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Mx.Widget */
+    /* Signals of Mx-2.0.Mx.Widget */
     connect(sigName: "long-press", callback: (($obj: Frame, object: number, p0: number, p1: LongPressAction) => boolean)): number
     connect_after(sigName: "long-press", callback: (($obj: Frame, object: number, p0: number, p1: LongPressAction) => boolean)): number
     emit(sigName: "long-press", object: number, p0: number, p1: LongPressAction): void
-    /* Signals of Clutter.Actor */
+    /* Signals of Clutter-1.0.Clutter.Actor */
     connect(sigName: "allocation-changed", callback: (($obj: Frame, box: Clutter.ActorBox, flags: Clutter.AllocationFlags) => void)): number
     connect_after(sigName: "allocation-changed", callback: (($obj: Frame, box: Clutter.ActorBox, flags: Clutter.AllocationFlags) => void)): number
     emit(sigName: "allocation-changed", box: Clutter.ActorBox, flags: Clutter.AllocationFlags): void
@@ -9682,11 +9682,11 @@ export class Frame {
     connect(sigName: "unrealize", callback: (($obj: Frame) => void)): number
     connect_after(sigName: "unrealize", callback: (($obj: Frame) => void)): number
     emit(sigName: "unrealize"): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Frame, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Frame, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    /* Signals of Clutter.Container */
+    /* Signals of Clutter-1.0.Clutter.Container */
     connect(sigName: "actor-added", callback: (($obj: Frame, actor: Clutter.Actor) => void)): number
     connect_after(sigName: "actor-added", callback: (($obj: Frame, actor: Clutter.Actor) => void)): number
     emit(sigName: "actor-added", actor: Clutter.Actor): void
@@ -9696,7 +9696,7 @@ export class Frame {
     connect(sigName: "child-notify", callback: (($obj: Frame, actor: Clutter.Actor, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "child-notify", callback: (($obj: Frame, actor: Clutter.Actor, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "child-notify", actor: Clutter.Actor, pspec: GObject.ParamSpec): void
-    /* Signals of Mx.Stylable */
+    /* Signals of Mx-2.0.Mx.Stylable */
     connect(sigName: "style-changed", callback: (($obj: Frame, flags: StyleChangedFlags) => void)): number
     connect_after(sigName: "style-changed", callback: (($obj: Frame, flags: StyleChangedFlags) => void)): number
     emit(sigName: "style-changed", flags: StyleChangedFlags): void
@@ -9906,7 +9906,7 @@ export interface Grid_ConstructProps extends Widget_ConstructProps {
     style_pseudo_class?: string
 }
 export class Grid {
-    /* Properties of Mx.Grid */
+    /* Properties of Mx-2.0.Mx.Grid */
     child_x_align: Align
     child_y_align: Align
     column_spacing: number
@@ -9916,12 +9916,12 @@ export class Grid {
     max_stride: number
     orientation: Orientation
     row_spacing: number
-    /* Properties of Mx.Widget */
+    /* Properties of Mx-2.0.Mx.Widget */
     disabled: boolean
     menu: Menu
     tooltip_delay: number
     tooltip_text: string
-    /* Properties of Clutter.Actor */
+    /* Properties of Clutter-1.0.Clutter.Actor */
     actions: Clutter.Action
     readonly allocation: Clutter.ActorBox
     anchor_gravity: Clutter.Gravity
@@ -10004,18 +10004,18 @@ export class Grid {
     y_align: Clutter.ActorAlign
     y_expand: boolean
     z_position: number
-    /* Properties of Mx.Scrollable */
+    /* Properties of Mx-2.0.Mx.Scrollable */
     horizontal_adjustment: Adjustment
     vertical_adjustment: Adjustment
-    /* Properties of Mx.Stylable */
+    /* Properties of Mx-2.0.Mx.Stylable */
     style: Style
     style_class: string
     style_pseudo_class: string
-    /* Fields of Clutter.Actor */
+    /* Fields of Clutter-1.0.Clutter.Actor */
     flags: number
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Mx.Grid */
+    /* Methods of Mx-2.0.Mx.Grid */
     get_child_x_align(): Align
     get_child_y_align(): Align
     get_column_spacing(): number
@@ -10034,7 +10034,7 @@ export class Grid {
     set_max_stride(value: number): void
     set_orientation(orientation: Orientation): void
     set_row_spacing(value: number): void
-    /* Methods of Mx.Widget */
+    /* Methods of Mx-2.0.Mx.Widget */
     apply_style(style: Style): void
     get_available_area(allocation: Clutter.ActorBox, area: Clutter.ActorBox): void
     get_background_color(): Clutter.Color
@@ -10052,7 +10052,7 @@ export class Grid {
     set_tooltip_delay(delay: number): void
     set_tooltip_text(text: string): void
     show_tooltip(): void
-    /* Methods of Clutter.Actor */
+    /* Methods of Clutter-1.0.Clutter.Actor */
     add_action(action: Clutter.Action): void
     add_action_with_name(name: string, action: Clutter.Action): void
     add_child(child: Clutter.Actor): void
@@ -10288,7 +10288,7 @@ export class Grid {
     unparent(): void
     unrealize(): void
     unset_flags(flags: Clutter.ActorFlags): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -10310,13 +10310,13 @@ export class Grid {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of Clutter.Animatable */
+    /* Methods of Clutter-1.0.Clutter.Animatable */
     animate_property(animation: Clutter.Animation, property_name: string, initial_value: any, final_value: any, progress: number, value: any): boolean
     find_property(property_name: string): GObject.ParamSpec
     get_initial_state(property_name: string, value: any): void
     interpolate_value(property_name: string, interval: Clutter.Interval, progress: number): [ /* returnType */ boolean, /* value */ any ]
     set_final_state(property_name: string, value: any): void
-    /* Methods of Clutter.Container */
+    /* Methods of Clutter-1.0.Clutter.Container */
     add_actor(actor: Clutter.Actor): void
     child_get_property(child: Clutter.Actor, property: string, value: any): void
     child_notify(child: Clutter.Actor, pspec: GObject.ParamSpec): void
@@ -10331,18 +10331,18 @@ export class Grid {
     raise_child(actor: Clutter.Actor, sibling?: Clutter.Actor | null): void
     remove_actor(actor: Clutter.Actor): void
     sort_depth_order(): void
-    /* Methods of Clutter.Scriptable */
+    /* Methods of Clutter-1.0.Clutter.Scriptable */
     get_id(): string
     parse_custom_node(script: Clutter.Script, value: any, name: string, node: Json.Node): boolean
     set_custom_property(script: Clutter.Script, name: string, value: any): void
     set_id(id_: string): void
-    /* Methods of Mx.Focusable */
+    /* Methods of Mx-2.0.Mx.Focusable */
     accept_focus(hint: FocusHint): Focusable
     move_focus(direction: FocusDirection, from: Focusable): Focusable
-    /* Methods of Mx.Scrollable */
+    /* Methods of Mx-2.0.Mx.Scrollable */
     get_adjustments(): [ /* hadjustment */ Adjustment | null, /* vadjustment */ Adjustment | null ]
     set_adjustments(hadjustment: Adjustment, vadjustment: Adjustment): void
-    /* Methods of Mx.Stylable */
+    /* Methods of Mx-2.0.Mx.Stylable */
     apply_clutter_text_attributes(text: Clutter.Text): void
     connect_change_notifiers(): void
     disconnect_change_notifiers(): void
@@ -10359,12 +10359,12 @@ export class Grid {
     style_pseudo_class_add(new_class: string): void
     style_pseudo_class_contains(pseudo_class: string): boolean
     style_pseudo_class_remove(remove_class: string): void
-    /* Virtual methods of Mx.Grid */
+    /* Virtual methods of Mx-2.0.Mx.Grid */
     vfunc_accept_focus(hint: FocusHint): Focusable
     vfunc_move_focus(direction: FocusDirection, from: Focusable): Focusable
     vfunc_get_adjustments(): [ /* hadjustment */ Adjustment | null, /* vadjustment */ Adjustment | null ]
     vfunc_set_adjustments(hadjustment: Adjustment, vadjustment: Adjustment): void
-    /* Virtual methods of Mx.Widget */
+    /* Virtual methods of Mx-2.0.Mx.Widget */
     vfunc_long_press(action: LongPressAction, x: number, y: number): boolean
     vfunc_animate_property(animation: Clutter.Animation, property_name: string, initial_value: any, final_value: any, progress: number, value: any): boolean
     vfunc_find_property(property_name: string): GObject.ParamSpec
@@ -10395,7 +10395,7 @@ export class Grid {
     vfunc_set_style_class(style_class: string): void
     vfunc_set_style_pseudo_class(pseudo_class: string): void
     vfunc_style_changed(flags: StyleChangedFlags): void
-    /* Virtual methods of Clutter.Actor */
+    /* Virtual methods of Clutter-1.0.Clutter.Actor */
     vfunc_allocate(box: Clutter.ActorBox, flags: Clutter.AllocationFlags): void
     vfunc_apply_transform(matrix: Clutter.Matrix): void
     vfunc_button_press_event(event: Clutter.ButtonEvent): boolean
@@ -10431,7 +10431,7 @@ export class Grid {
     vfunc_touch_event(event: Clutter.TouchEvent): boolean
     vfunc_unmap(): void
     vfunc_unrealize(): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -10439,11 +10439,11 @@ export class Grid {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Mx.Widget */
+    /* Signals of Mx-2.0.Mx.Widget */
     connect(sigName: "long-press", callback: (($obj: Grid, object: number, p0: number, p1: LongPressAction) => boolean)): number
     connect_after(sigName: "long-press", callback: (($obj: Grid, object: number, p0: number, p1: LongPressAction) => boolean)): number
     emit(sigName: "long-press", object: number, p0: number, p1: LongPressAction): void
-    /* Signals of Clutter.Actor */
+    /* Signals of Clutter-1.0.Clutter.Actor */
     connect(sigName: "allocation-changed", callback: (($obj: Grid, box: Clutter.ActorBox, flags: Clutter.AllocationFlags) => void)): number
     connect_after(sigName: "allocation-changed", callback: (($obj: Grid, box: Clutter.ActorBox, flags: Clutter.AllocationFlags) => void)): number
     emit(sigName: "allocation-changed", box: Clutter.ActorBox, flags: Clutter.AllocationFlags): void
@@ -10522,11 +10522,11 @@ export class Grid {
     connect(sigName: "unrealize", callback: (($obj: Grid) => void)): number
     connect_after(sigName: "unrealize", callback: (($obj: Grid) => void)): number
     emit(sigName: "unrealize"): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Grid, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Grid, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    /* Signals of Clutter.Container */
+    /* Signals of Clutter-1.0.Clutter.Container */
     connect(sigName: "actor-added", callback: (($obj: Grid, actor: Clutter.Actor) => void)): number
     connect_after(sigName: "actor-added", callback: (($obj: Grid, actor: Clutter.Actor) => void)): number
     emit(sigName: "actor-added", actor: Clutter.Actor): void
@@ -10536,7 +10536,7 @@ export class Grid {
     connect(sigName: "child-notify", callback: (($obj: Grid, actor: Clutter.Actor, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "child-notify", callback: (($obj: Grid, actor: Clutter.Actor, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "child-notify", actor: Clutter.Actor, pspec: GObject.ParamSpec): void
-    /* Signals of Mx.Stylable */
+    /* Signals of Mx-2.0.Mx.Stylable */
     connect(sigName: "style-changed", callback: (($obj: Grid, flags: StyleChangedFlags) => void)): number
     connect_after(sigName: "style-changed", callback: (($obj: Grid, flags: StyleChangedFlags) => void)): number
     emit(sigName: "style-changed", flags: StyleChangedFlags): void
@@ -10759,15 +10759,15 @@ export interface Icon_ConstructProps extends Widget_ConstructProps {
     style_pseudo_class?: string
 }
 export class Icon {
-    /* Properties of Mx.Icon */
+    /* Properties of Mx-2.0.Mx.Icon */
     icon_name: string
     icon_size: number
-    /* Properties of Mx.Widget */
+    /* Properties of Mx-2.0.Mx.Widget */
     disabled: boolean
     menu: Menu
     tooltip_delay: number
     tooltip_text: string
-    /* Properties of Clutter.Actor */
+    /* Properties of Clutter-1.0.Clutter.Actor */
     actions: Clutter.Action
     readonly allocation: Clutter.ActorBox
     anchor_gravity: Clutter.Gravity
@@ -10850,20 +10850,20 @@ export class Icon {
     y_align: Clutter.ActorAlign
     y_expand: boolean
     z_position: number
-    /* Properties of Mx.Stylable */
+    /* Properties of Mx-2.0.Mx.Stylable */
     style: Style
     style_class: string
     style_pseudo_class: string
-    /* Fields of Clutter.Actor */
+    /* Fields of Clutter-1.0.Clutter.Actor */
     flags: number
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Mx.Icon */
+    /* Methods of Mx-2.0.Mx.Icon */
     get_icon_name(): string
     get_icon_size(): number
     set_icon_name(icon_name: string): void
     set_icon_size(size: number): void
-    /* Methods of Mx.Widget */
+    /* Methods of Mx-2.0.Mx.Widget */
     apply_style(style: Style): void
     get_available_area(allocation: Clutter.ActorBox, area: Clutter.ActorBox): void
     get_background_color(): Clutter.Color
@@ -10881,7 +10881,7 @@ export class Icon {
     set_tooltip_delay(delay: number): void
     set_tooltip_text(text: string): void
     show_tooltip(): void
-    /* Methods of Clutter.Actor */
+    /* Methods of Clutter-1.0.Clutter.Actor */
     add_action(action: Clutter.Action): void
     add_action_with_name(name: string, action: Clutter.Action): void
     add_child(child: Clutter.Actor): void
@@ -11117,7 +11117,7 @@ export class Icon {
     unparent(): void
     unrealize(): void
     unset_flags(flags: Clutter.ActorFlags): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -11139,13 +11139,13 @@ export class Icon {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of Clutter.Animatable */
+    /* Methods of Clutter-1.0.Clutter.Animatable */
     animate_property(animation: Clutter.Animation, property_name: string, initial_value: any, final_value: any, progress: number, value: any): boolean
     find_property(property_name: string): GObject.ParamSpec
     get_initial_state(property_name: string, value: any): void
     interpolate_value(property_name: string, interval: Clutter.Interval, progress: number): [ /* returnType */ boolean, /* value */ any ]
     set_final_state(property_name: string, value: any): void
-    /* Methods of Clutter.Container */
+    /* Methods of Clutter-1.0.Clutter.Container */
     add_actor(actor: Clutter.Actor): void
     child_get_property(child: Clutter.Actor, property: string, value: any): void
     child_notify(child: Clutter.Actor, pspec: GObject.ParamSpec): void
@@ -11160,12 +11160,12 @@ export class Icon {
     raise_child(actor: Clutter.Actor, sibling?: Clutter.Actor | null): void
     remove_actor(actor: Clutter.Actor): void
     sort_depth_order(): void
-    /* Methods of Clutter.Scriptable */
+    /* Methods of Clutter-1.0.Clutter.Scriptable */
     get_id(): string
     parse_custom_node(script: Clutter.Script, value: any, name: string, node: Json.Node): boolean
     set_custom_property(script: Clutter.Script, name: string, value: any): void
     set_id(id_: string): void
-    /* Methods of Mx.Stylable */
+    /* Methods of Mx-2.0.Mx.Stylable */
     apply_clutter_text_attributes(text: Clutter.Text): void
     connect_change_notifiers(): void
     disconnect_change_notifiers(): void
@@ -11182,7 +11182,7 @@ export class Icon {
     style_pseudo_class_add(new_class: string): void
     style_pseudo_class_contains(pseudo_class: string): boolean
     style_pseudo_class_remove(remove_class: string): void
-    /* Virtual methods of Mx.Widget */
+    /* Virtual methods of Mx-2.0.Mx.Widget */
     vfunc_long_press(action: LongPressAction, x: number, y: number): boolean
     vfunc_animate_property(animation: Clutter.Animation, property_name: string, initial_value: any, final_value: any, progress: number, value: any): boolean
     vfunc_find_property(property_name: string): GObject.ParamSpec
@@ -11213,7 +11213,7 @@ export class Icon {
     vfunc_set_style_class(style_class: string): void
     vfunc_set_style_pseudo_class(pseudo_class: string): void
     vfunc_style_changed(flags: StyleChangedFlags): void
-    /* Virtual methods of Clutter.Actor */
+    /* Virtual methods of Clutter-1.0.Clutter.Actor */
     vfunc_allocate(box: Clutter.ActorBox, flags: Clutter.AllocationFlags): void
     vfunc_apply_transform(matrix: Clutter.Matrix): void
     vfunc_button_press_event(event: Clutter.ButtonEvent): boolean
@@ -11249,7 +11249,7 @@ export class Icon {
     vfunc_touch_event(event: Clutter.TouchEvent): boolean
     vfunc_unmap(): void
     vfunc_unrealize(): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -11257,11 +11257,11 @@ export class Icon {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Mx.Widget */
+    /* Signals of Mx-2.0.Mx.Widget */
     connect(sigName: "long-press", callback: (($obj: Icon, object: number, p0: number, p1: LongPressAction) => boolean)): number
     connect_after(sigName: "long-press", callback: (($obj: Icon, object: number, p0: number, p1: LongPressAction) => boolean)): number
     emit(sigName: "long-press", object: number, p0: number, p1: LongPressAction): void
-    /* Signals of Clutter.Actor */
+    /* Signals of Clutter-1.0.Clutter.Actor */
     connect(sigName: "allocation-changed", callback: (($obj: Icon, box: Clutter.ActorBox, flags: Clutter.AllocationFlags) => void)): number
     connect_after(sigName: "allocation-changed", callback: (($obj: Icon, box: Clutter.ActorBox, flags: Clutter.AllocationFlags) => void)): number
     emit(sigName: "allocation-changed", box: Clutter.ActorBox, flags: Clutter.AllocationFlags): void
@@ -11340,11 +11340,11 @@ export class Icon {
     connect(sigName: "unrealize", callback: (($obj: Icon) => void)): number
     connect_after(sigName: "unrealize", callback: (($obj: Icon) => void)): number
     emit(sigName: "unrealize"): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Icon, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Icon, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    /* Signals of Clutter.Container */
+    /* Signals of Clutter-1.0.Clutter.Container */
     connect(sigName: "actor-added", callback: (($obj: Icon, actor: Clutter.Actor) => void)): number
     connect_after(sigName: "actor-added", callback: (($obj: Icon, actor: Clutter.Actor) => void)): number
     emit(sigName: "actor-added", actor: Clutter.Actor): void
@@ -11354,7 +11354,7 @@ export class Icon {
     connect(sigName: "child-notify", callback: (($obj: Icon, actor: Clutter.Actor, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "child-notify", callback: (($obj: Icon, actor: Clutter.Actor, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "child-notify", actor: Clutter.Actor, pspec: GObject.ParamSpec): void
-    /* Signals of Mx.Stylable */
+    /* Signals of Mx-2.0.Mx.Stylable */
     connect(sigName: "style-changed", callback: (($obj: Icon, flags: StyleChangedFlags) => void)): number
     connect_after(sigName: "style-changed", callback: (($obj: Icon, flags: StyleChangedFlags) => void)): number
     emit(sigName: "style-changed", flags: StyleChangedFlags): void
@@ -11555,14 +11555,14 @@ export interface IconTheme_ConstructProps extends GObject.Object_ConstructProps 
     theme_name?: string
 }
 export class IconTheme {
-    /* Properties of Mx.IconTheme */
+    /* Properties of Mx-2.0.Mx.IconTheme */
     theme_name: string
-    /* Fields of Mx.IconTheme */
+    /* Fields of Mx-2.0.Mx.IconTheme */
     parent: GObject.Object
     priv: IconThemePrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Mx.IconTheme */
+    /* Methods of Mx-2.0.Mx.IconTheme */
     get_search_paths(): string[]
     get_theme_name(): string
     has_icon(icon_name: string): boolean
@@ -11570,7 +11570,7 @@ export class IconTheme {
     lookup_texture(icon_name: string, size: number): Clutter.Texture
     set_search_paths(paths: string[]): void
     set_theme_name(theme_name: string): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -11592,7 +11592,7 @@ export class IconTheme {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -11600,7 +11600,7 @@ export class IconTheme {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: IconTheme, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: IconTheme, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -11632,7 +11632,7 @@ export interface Image_ConstructProps extends Widget_ConstructProps {
     style_pseudo_class?: string
 }
 export class Image {
-    /* Properties of Mx.Image */
+    /* Properties of Mx-2.0.Mx.Image */
     allow_upscale: boolean
     filename: string
     image_rotation: number
@@ -11641,12 +11641,12 @@ export class Image {
     scale_mode: ImageScaleMode
     scale_width_threshold: number
     transition_duration: number
-    /* Properties of Mx.Widget */
+    /* Properties of Mx-2.0.Mx.Widget */
     disabled: boolean
     menu: Menu
     tooltip_delay: number
     tooltip_text: string
-    /* Properties of Clutter.Actor */
+    /* Properties of Clutter-1.0.Clutter.Actor */
     actions: Clutter.Action
     readonly allocation: Clutter.ActorBox
     anchor_gravity: Clutter.Gravity
@@ -11729,15 +11729,15 @@ export class Image {
     y_align: Clutter.ActorAlign
     y_expand: boolean
     z_position: number
-    /* Properties of Mx.Stylable */
+    /* Properties of Mx-2.0.Mx.Stylable */
     style: Style
     style_class: string
     style_pseudo_class: string
-    /* Fields of Clutter.Actor */
+    /* Fields of Clutter-1.0.Clutter.Actor */
     flags: number
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Mx.Image */
+    /* Methods of Mx-2.0.Mx.Image */
     animate_scale_mode(mode: number, duration: number, scale_mode: ImageScaleMode): void
     clear(): void
     get_allow_upscale(): boolean
@@ -11760,7 +11760,7 @@ export class Image {
     set_scale_mode(mode: ImageScaleMode): void
     set_scale_width_threshold(pixels: number): void
     set_transition_duration(duration: number): void
-    /* Methods of Mx.Widget */
+    /* Methods of Mx-2.0.Mx.Widget */
     apply_style(style: Style): void
     get_available_area(allocation: Clutter.ActorBox, area: Clutter.ActorBox): void
     get_background_color(): Clutter.Color
@@ -11778,7 +11778,7 @@ export class Image {
     set_tooltip_delay(delay: number): void
     set_tooltip_text(text: string): void
     show_tooltip(): void
-    /* Methods of Clutter.Actor */
+    /* Methods of Clutter-1.0.Clutter.Actor */
     add_action(action: Clutter.Action): void
     add_action_with_name(name: string, action: Clutter.Action): void
     add_child(child: Clutter.Actor): void
@@ -12014,7 +12014,7 @@ export class Image {
     unparent(): void
     unrealize(): void
     unset_flags(flags: Clutter.ActorFlags): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -12036,13 +12036,13 @@ export class Image {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of Clutter.Animatable */
+    /* Methods of Clutter-1.0.Clutter.Animatable */
     animate_property(animation: Clutter.Animation, property_name: string, initial_value: any, final_value: any, progress: number, value: any): boolean
     find_property(property_name: string): GObject.ParamSpec
     get_initial_state(property_name: string, value: any): void
     interpolate_value(property_name: string, interval: Clutter.Interval, progress: number): [ /* returnType */ boolean, /* value */ any ]
     set_final_state(property_name: string, value: any): void
-    /* Methods of Clutter.Container */
+    /* Methods of Clutter-1.0.Clutter.Container */
     add_actor(actor: Clutter.Actor): void
     child_get_property(child: Clutter.Actor, property: string, value: any): void
     child_notify(child: Clutter.Actor, pspec: GObject.ParamSpec): void
@@ -12057,12 +12057,12 @@ export class Image {
     raise_child(actor: Clutter.Actor, sibling?: Clutter.Actor | null): void
     remove_actor(actor: Clutter.Actor): void
     sort_depth_order(): void
-    /* Methods of Clutter.Scriptable */
+    /* Methods of Clutter-1.0.Clutter.Scriptable */
     get_id(): string
     parse_custom_node(script: Clutter.Script, value: any, name: string, node: Json.Node): boolean
     set_custom_property(script: Clutter.Script, name: string, value: any): void
     set_id(id_: string): void
-    /* Methods of Mx.Stylable */
+    /* Methods of Mx-2.0.Mx.Stylable */
     apply_clutter_text_attributes(text: Clutter.Text): void
     connect_change_notifiers(): void
     disconnect_change_notifiers(): void
@@ -12079,10 +12079,10 @@ export class Image {
     style_pseudo_class_add(new_class: string): void
     style_pseudo_class_contains(pseudo_class: string): boolean
     style_pseudo_class_remove(remove_class: string): void
-    /* Virtual methods of Mx.Image */
+    /* Virtual methods of Mx-2.0.Mx.Image */
     vfunc_image_load_error(error: GLib.Error): void
     vfunc_image_loaded(): void
-    /* Virtual methods of Mx.Widget */
+    /* Virtual methods of Mx-2.0.Mx.Widget */
     vfunc_long_press(action: LongPressAction, x: number, y: number): boolean
     vfunc_animate_property(animation: Clutter.Animation, property_name: string, initial_value: any, final_value: any, progress: number, value: any): boolean
     vfunc_find_property(property_name: string): GObject.ParamSpec
@@ -12113,7 +12113,7 @@ export class Image {
     vfunc_set_style_class(style_class: string): void
     vfunc_set_style_pseudo_class(pseudo_class: string): void
     vfunc_style_changed(flags: StyleChangedFlags): void
-    /* Virtual methods of Clutter.Actor */
+    /* Virtual methods of Clutter-1.0.Clutter.Actor */
     vfunc_allocate(box: Clutter.ActorBox, flags: Clutter.AllocationFlags): void
     vfunc_apply_transform(matrix: Clutter.Matrix): void
     vfunc_button_press_event(event: Clutter.ButtonEvent): boolean
@@ -12149,7 +12149,7 @@ export class Image {
     vfunc_touch_event(event: Clutter.TouchEvent): boolean
     vfunc_unmap(): void
     vfunc_unrealize(): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -12157,18 +12157,18 @@ export class Image {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Mx.Image */
+    /* Signals of Mx-2.0.Mx.Image */
     connect(sigName: "image-load-error", callback: (($obj: Image, object: GLib.Error) => void)): number
     connect_after(sigName: "image-load-error", callback: (($obj: Image, object: GLib.Error) => void)): number
     emit(sigName: "image-load-error", object: GLib.Error): void
     connect(sigName: "image-loaded", callback: (($obj: Image) => void)): number
     connect_after(sigName: "image-loaded", callback: (($obj: Image) => void)): number
     emit(sigName: "image-loaded"): void
-    /* Signals of Mx.Widget */
+    /* Signals of Mx-2.0.Mx.Widget */
     connect(sigName: "long-press", callback: (($obj: Image, object: number, p0: number, p1: LongPressAction) => boolean)): number
     connect_after(sigName: "long-press", callback: (($obj: Image, object: number, p0: number, p1: LongPressAction) => boolean)): number
     emit(sigName: "long-press", object: number, p0: number, p1: LongPressAction): void
-    /* Signals of Clutter.Actor */
+    /* Signals of Clutter-1.0.Clutter.Actor */
     connect(sigName: "allocation-changed", callback: (($obj: Image, box: Clutter.ActorBox, flags: Clutter.AllocationFlags) => void)): number
     connect_after(sigName: "allocation-changed", callback: (($obj: Image, box: Clutter.ActorBox, flags: Clutter.AllocationFlags) => void)): number
     emit(sigName: "allocation-changed", box: Clutter.ActorBox, flags: Clutter.AllocationFlags): void
@@ -12247,11 +12247,11 @@ export class Image {
     connect(sigName: "unrealize", callback: (($obj: Image) => void)): number
     connect_after(sigName: "unrealize", callback: (($obj: Image) => void)): number
     emit(sigName: "unrealize"): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Image, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Image, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    /* Signals of Clutter.Container */
+    /* Signals of Clutter-1.0.Clutter.Container */
     connect(sigName: "actor-added", callback: (($obj: Image, actor: Clutter.Actor) => void)): number
     connect_after(sigName: "actor-added", callback: (($obj: Image, actor: Clutter.Actor) => void)): number
     emit(sigName: "actor-added", actor: Clutter.Actor): void
@@ -12261,7 +12261,7 @@ export class Image {
     connect(sigName: "child-notify", callback: (($obj: Image, actor: Clutter.Actor, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "child-notify", callback: (($obj: Image, actor: Clutter.Actor, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "child-notify", actor: Clutter.Actor, pspec: GObject.ParamSpec): void
-    /* Signals of Mx.Stylable */
+    /* Signals of Mx-2.0.Mx.Stylable */
     connect(sigName: "style-changed", callback: (($obj: Image, flags: StyleChangedFlags) => void)): number
     connect_after(sigName: "style-changed", callback: (($obj: Image, flags: StyleChangedFlags) => void)): number
     emit(sigName: "style-changed", flags: StyleChangedFlags): void
@@ -12481,11 +12481,11 @@ export interface ItemView_ConstructProps extends Grid_ConstructProps {
     style_pseudo_class?: string
 }
 export class ItemView {
-    /* Properties of Mx.ItemView */
+    /* Properties of Mx-2.0.Mx.ItemView */
     factory: GObject.Object
     item_type: GObject.Type
     model: Clutter.Model
-    /* Properties of Mx.Grid */
+    /* Properties of Mx-2.0.Mx.Grid */
     child_x_align: Align
     child_y_align: Align
     column_spacing: number
@@ -12495,12 +12495,12 @@ export class ItemView {
     max_stride: number
     orientation: Orientation
     row_spacing: number
-    /* Properties of Mx.Widget */
+    /* Properties of Mx-2.0.Mx.Widget */
     disabled: boolean
     menu: Menu
     tooltip_delay: number
     tooltip_text: string
-    /* Properties of Clutter.Actor */
+    /* Properties of Clutter-1.0.Clutter.Actor */
     actions: Clutter.Action
     readonly allocation: Clutter.ActorBox
     anchor_gravity: Clutter.Gravity
@@ -12583,18 +12583,18 @@ export class ItemView {
     y_align: Clutter.ActorAlign
     y_expand: boolean
     z_position: number
-    /* Properties of Mx.Scrollable */
+    /* Properties of Mx-2.0.Mx.Scrollable */
     horizontal_adjustment: Adjustment
     vertical_adjustment: Adjustment
-    /* Properties of Mx.Stylable */
+    /* Properties of Mx-2.0.Mx.Stylable */
     style: Style
     style_class: string
     style_pseudo_class: string
-    /* Fields of Clutter.Actor */
+    /* Fields of Clutter-1.0.Clutter.Actor */
     flags: number
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Mx.ItemView */
+    /* Methods of Mx-2.0.Mx.ItemView */
     add_attribute(attribute: string, column: number): void
     freeze(): void
     get_factory(): ItemFactory
@@ -12604,7 +12604,7 @@ export class ItemView {
     set_item_type(item_type: GObject.Type): void
     set_model(model: Clutter.Model): void
     thaw(): void
-    /* Methods of Mx.Grid */
+    /* Methods of Mx-2.0.Mx.Grid */
     get_child_x_align(): Align
     get_child_y_align(): Align
     get_column_spacing(): number
@@ -12623,7 +12623,7 @@ export class ItemView {
     set_max_stride(value: number): void
     set_orientation(orientation: Orientation): void
     set_row_spacing(value: number): void
-    /* Methods of Mx.Widget */
+    /* Methods of Mx-2.0.Mx.Widget */
     apply_style(style: Style): void
     get_available_area(allocation: Clutter.ActorBox, area: Clutter.ActorBox): void
     get_background_color(): Clutter.Color
@@ -12641,7 +12641,7 @@ export class ItemView {
     set_tooltip_delay(delay: number): void
     set_tooltip_text(text: string): void
     show_tooltip(): void
-    /* Methods of Clutter.Actor */
+    /* Methods of Clutter-1.0.Clutter.Actor */
     add_action(action: Clutter.Action): void
     add_action_with_name(name: string, action: Clutter.Action): void
     add_child(child: Clutter.Actor): void
@@ -12877,7 +12877,7 @@ export class ItemView {
     unparent(): void
     unrealize(): void
     unset_flags(flags: Clutter.ActorFlags): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -12899,13 +12899,13 @@ export class ItemView {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of Clutter.Animatable */
+    /* Methods of Clutter-1.0.Clutter.Animatable */
     animate_property(animation: Clutter.Animation, property_name: string, initial_value: any, final_value: any, progress: number, value: any): boolean
     find_property(property_name: string): GObject.ParamSpec
     get_initial_state(property_name: string, value: any): void
     interpolate_value(property_name: string, interval: Clutter.Interval, progress: number): [ /* returnType */ boolean, /* value */ any ]
     set_final_state(property_name: string, value: any): void
-    /* Methods of Clutter.Container */
+    /* Methods of Clutter-1.0.Clutter.Container */
     add_actor(actor: Clutter.Actor): void
     child_get_property(child: Clutter.Actor, property: string, value: any): void
     child_notify(child: Clutter.Actor, pspec: GObject.ParamSpec): void
@@ -12920,18 +12920,18 @@ export class ItemView {
     raise_child(actor: Clutter.Actor, sibling?: Clutter.Actor | null): void
     remove_actor(actor: Clutter.Actor): void
     sort_depth_order(): void
-    /* Methods of Clutter.Scriptable */
+    /* Methods of Clutter-1.0.Clutter.Scriptable */
     get_id(): string
     parse_custom_node(script: Clutter.Script, value: any, name: string, node: Json.Node): boolean
     set_custom_property(script: Clutter.Script, name: string, value: any): void
     set_id(id_: string): void
-    /* Methods of Mx.Focusable */
+    /* Methods of Mx-2.0.Mx.Focusable */
     accept_focus(hint: FocusHint): Focusable
     move_focus(direction: FocusDirection, from: Focusable): Focusable
-    /* Methods of Mx.Scrollable */
+    /* Methods of Mx-2.0.Mx.Scrollable */
     get_adjustments(): [ /* hadjustment */ Adjustment | null, /* vadjustment */ Adjustment | null ]
     set_adjustments(hadjustment: Adjustment, vadjustment: Adjustment): void
-    /* Methods of Mx.Stylable */
+    /* Methods of Mx-2.0.Mx.Stylable */
     apply_clutter_text_attributes(text: Clutter.Text): void
     connect_change_notifiers(): void
     disconnect_change_notifiers(): void
@@ -12948,12 +12948,12 @@ export class ItemView {
     style_pseudo_class_add(new_class: string): void
     style_pseudo_class_contains(pseudo_class: string): boolean
     style_pseudo_class_remove(remove_class: string): void
-    /* Virtual methods of Mx.Grid */
+    /* Virtual methods of Mx-2.0.Mx.Grid */
     vfunc_accept_focus(hint: FocusHint): Focusable
     vfunc_move_focus(direction: FocusDirection, from: Focusable): Focusable
     vfunc_get_adjustments(): [ /* hadjustment */ Adjustment | null, /* vadjustment */ Adjustment | null ]
     vfunc_set_adjustments(hadjustment: Adjustment, vadjustment: Adjustment): void
-    /* Virtual methods of Mx.Widget */
+    /* Virtual methods of Mx-2.0.Mx.Widget */
     vfunc_long_press(action: LongPressAction, x: number, y: number): boolean
     vfunc_animate_property(animation: Clutter.Animation, property_name: string, initial_value: any, final_value: any, progress: number, value: any): boolean
     vfunc_find_property(property_name: string): GObject.ParamSpec
@@ -12984,7 +12984,7 @@ export class ItemView {
     vfunc_set_style_class(style_class: string): void
     vfunc_set_style_pseudo_class(pseudo_class: string): void
     vfunc_style_changed(flags: StyleChangedFlags): void
-    /* Virtual methods of Clutter.Actor */
+    /* Virtual methods of Clutter-1.0.Clutter.Actor */
     vfunc_allocate(box: Clutter.ActorBox, flags: Clutter.AllocationFlags): void
     vfunc_apply_transform(matrix: Clutter.Matrix): void
     vfunc_button_press_event(event: Clutter.ButtonEvent): boolean
@@ -13020,7 +13020,7 @@ export class ItemView {
     vfunc_touch_event(event: Clutter.TouchEvent): boolean
     vfunc_unmap(): void
     vfunc_unrealize(): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -13028,11 +13028,11 @@ export class ItemView {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Mx.Widget */
+    /* Signals of Mx-2.0.Mx.Widget */
     connect(sigName: "long-press", callback: (($obj: ItemView, object: number, p0: number, p1: LongPressAction) => boolean)): number
     connect_after(sigName: "long-press", callback: (($obj: ItemView, object: number, p0: number, p1: LongPressAction) => boolean)): number
     emit(sigName: "long-press", object: number, p0: number, p1: LongPressAction): void
-    /* Signals of Clutter.Actor */
+    /* Signals of Clutter-1.0.Clutter.Actor */
     connect(sigName: "allocation-changed", callback: (($obj: ItemView, box: Clutter.ActorBox, flags: Clutter.AllocationFlags) => void)): number
     connect_after(sigName: "allocation-changed", callback: (($obj: ItemView, box: Clutter.ActorBox, flags: Clutter.AllocationFlags) => void)): number
     emit(sigName: "allocation-changed", box: Clutter.ActorBox, flags: Clutter.AllocationFlags): void
@@ -13111,11 +13111,11 @@ export class ItemView {
     connect(sigName: "unrealize", callback: (($obj: ItemView) => void)): number
     connect_after(sigName: "unrealize", callback: (($obj: ItemView) => void)): number
     emit(sigName: "unrealize"): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: ItemView, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: ItemView, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    /* Signals of Clutter.Container */
+    /* Signals of Clutter-1.0.Clutter.Container */
     connect(sigName: "actor-added", callback: (($obj: ItemView, actor: Clutter.Actor) => void)): number
     connect_after(sigName: "actor-added", callback: (($obj: ItemView, actor: Clutter.Actor) => void)): number
     emit(sigName: "actor-added", actor: Clutter.Actor): void
@@ -13125,7 +13125,7 @@ export class ItemView {
     connect(sigName: "child-notify", callback: (($obj: ItemView, actor: Clutter.Actor, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "child-notify", callback: (($obj: ItemView, actor: Clutter.Actor, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "child-notify", actor: Clutter.Actor, pspec: GObject.ParamSpec): void
-    /* Signals of Mx.Stylable */
+    /* Signals of Mx-2.0.Mx.Stylable */
     connect(sigName: "style-changed", callback: (($obj: ItemView, flags: StyleChangedFlags) => void)): number
     connect_after(sigName: "style-changed", callback: (($obj: ItemView, flags: StyleChangedFlags) => void)): number
     emit(sigName: "style-changed", flags: StyleChangedFlags): void
@@ -13365,7 +13365,7 @@ export interface KineticScrollView_ConstructProps extends Widget_ConstructProps 
     style_pseudo_class?: string
 }
 export class KineticScrollView {
-    /* Properties of Mx.KineticScrollView */
+    /* Properties of Mx-2.0.Mx.KineticScrollView */
     acceleration_factor: number
     clamp_duration: number
     clamp_mode: number
@@ -13378,12 +13378,12 @@ export class KineticScrollView {
     readonly state: KineticScrollViewState
     use_captured: boolean
     use_grab: boolean
-    /* Properties of Mx.Widget */
+    /* Properties of Mx-2.0.Mx.Widget */
     disabled: boolean
     menu: Menu
     tooltip_delay: number
     tooltip_text: string
-    /* Properties of Clutter.Actor */
+    /* Properties of Clutter-1.0.Clutter.Actor */
     actions: Clutter.Action
     readonly allocation: Clutter.ActorBox
     anchor_gravity: Clutter.Gravity
@@ -13466,18 +13466,18 @@ export class KineticScrollView {
     y_align: Clutter.ActorAlign
     y_expand: boolean
     z_position: number
-    /* Properties of Mx.Scrollable */
+    /* Properties of Mx-2.0.Mx.Scrollable */
     horizontal_adjustment: Adjustment
     vertical_adjustment: Adjustment
-    /* Properties of Mx.Stylable */
+    /* Properties of Mx-2.0.Mx.Stylable */
     style: Style
     style_class: string
     style_pseudo_class: string
-    /* Fields of Clutter.Actor */
+    /* Fields of Clutter-1.0.Clutter.Actor */
     flags: number
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Mx.KineticScrollView */
+    /* Methods of Mx-2.0.Mx.KineticScrollView */
     ensure_visible(geometry: Clutter.Geometry): void
     get_acceleration_factor(): number
     get_clamp_duration(): number
@@ -13503,7 +13503,7 @@ export class KineticScrollView {
     set_use_captured(use_captured: boolean): void
     set_use_grab(use_grab: boolean): void
     stop(): void
-    /* Methods of Mx.Widget */
+    /* Methods of Mx-2.0.Mx.Widget */
     apply_style(style: Style): void
     get_available_area(allocation: Clutter.ActorBox, area: Clutter.ActorBox): void
     get_background_color(): Clutter.Color
@@ -13521,7 +13521,7 @@ export class KineticScrollView {
     set_tooltip_delay(delay: number): void
     set_tooltip_text(text: string): void
     show_tooltip(): void
-    /* Methods of Clutter.Actor */
+    /* Methods of Clutter-1.0.Clutter.Actor */
     add_action(action: Clutter.Action): void
     add_action_with_name(name: string, action: Clutter.Action): void
     add_child(child: Clutter.Actor): void
@@ -13757,7 +13757,7 @@ export class KineticScrollView {
     unparent(): void
     unrealize(): void
     unset_flags(flags: Clutter.ActorFlags): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -13779,13 +13779,13 @@ export class KineticScrollView {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of Clutter.Animatable */
+    /* Methods of Clutter-1.0.Clutter.Animatable */
     animate_property(animation: Clutter.Animation, property_name: string, initial_value: any, final_value: any, progress: number, value: any): boolean
     find_property(property_name: string): GObject.ParamSpec
     get_initial_state(property_name: string, value: any): void
     interpolate_value(property_name: string, interval: Clutter.Interval, progress: number): [ /* returnType */ boolean, /* value */ any ]
     set_final_state(property_name: string, value: any): void
-    /* Methods of Clutter.Container */
+    /* Methods of Clutter-1.0.Clutter.Container */
     add_actor(actor: Clutter.Actor): void
     child_get_property(child: Clutter.Actor, property: string, value: any): void
     child_notify(child: Clutter.Actor, pspec: GObject.ParamSpec): void
@@ -13800,18 +13800,18 @@ export class KineticScrollView {
     raise_child(actor: Clutter.Actor, sibling?: Clutter.Actor | null): void
     remove_actor(actor: Clutter.Actor): void
     sort_depth_order(): void
-    /* Methods of Clutter.Scriptable */
+    /* Methods of Clutter-1.0.Clutter.Scriptable */
     get_id(): string
     parse_custom_node(script: Clutter.Script, value: any, name: string, node: Json.Node): boolean
     set_custom_property(script: Clutter.Script, name: string, value: any): void
     set_id(id_: string): void
-    /* Methods of Mx.Focusable */
+    /* Methods of Mx-2.0.Mx.Focusable */
     accept_focus(hint: FocusHint): Focusable
     move_focus(direction: FocusDirection, from: Focusable): Focusable
-    /* Methods of Mx.Scrollable */
+    /* Methods of Mx-2.0.Mx.Scrollable */
     get_adjustments(): [ /* hadjustment */ Adjustment | null, /* vadjustment */ Adjustment | null ]
     set_adjustments(hadjustment: Adjustment, vadjustment: Adjustment): void
-    /* Methods of Mx.Stylable */
+    /* Methods of Mx-2.0.Mx.Stylable */
     apply_clutter_text_attributes(text: Clutter.Text): void
     connect_change_notifiers(): void
     disconnect_change_notifiers(): void
@@ -13828,12 +13828,12 @@ export class KineticScrollView {
     style_pseudo_class_add(new_class: string): void
     style_pseudo_class_contains(pseudo_class: string): boolean
     style_pseudo_class_remove(remove_class: string): void
-    /* Virtual methods of Mx.KineticScrollView */
+    /* Virtual methods of Mx-2.0.Mx.KineticScrollView */
     vfunc_accept_focus(hint: FocusHint): Focusable
     vfunc_move_focus(direction: FocusDirection, from: Focusable): Focusable
     vfunc_get_adjustments(): [ /* hadjustment */ Adjustment | null, /* vadjustment */ Adjustment | null ]
     vfunc_set_adjustments(hadjustment: Adjustment, vadjustment: Adjustment): void
-    /* Virtual methods of Mx.Widget */
+    /* Virtual methods of Mx-2.0.Mx.Widget */
     vfunc_long_press(action: LongPressAction, x: number, y: number): boolean
     vfunc_animate_property(animation: Clutter.Animation, property_name: string, initial_value: any, final_value: any, progress: number, value: any): boolean
     vfunc_find_property(property_name: string): GObject.ParamSpec
@@ -13864,7 +13864,7 @@ export class KineticScrollView {
     vfunc_set_style_class(style_class: string): void
     vfunc_set_style_pseudo_class(pseudo_class: string): void
     vfunc_style_changed(flags: StyleChangedFlags): void
-    /* Virtual methods of Clutter.Actor */
+    /* Virtual methods of Clutter-1.0.Clutter.Actor */
     vfunc_allocate(box: Clutter.ActorBox, flags: Clutter.AllocationFlags): void
     vfunc_apply_transform(matrix: Clutter.Matrix): void
     vfunc_button_press_event(event: Clutter.ButtonEvent): boolean
@@ -13900,7 +13900,7 @@ export class KineticScrollView {
     vfunc_touch_event(event: Clutter.TouchEvent): boolean
     vfunc_unmap(): void
     vfunc_unrealize(): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -13908,11 +13908,11 @@ export class KineticScrollView {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Mx.Widget */
+    /* Signals of Mx-2.0.Mx.Widget */
     connect(sigName: "long-press", callback: (($obj: KineticScrollView, object: number, p0: number, p1: LongPressAction) => boolean)): number
     connect_after(sigName: "long-press", callback: (($obj: KineticScrollView, object: number, p0: number, p1: LongPressAction) => boolean)): number
     emit(sigName: "long-press", object: number, p0: number, p1: LongPressAction): void
-    /* Signals of Clutter.Actor */
+    /* Signals of Clutter-1.0.Clutter.Actor */
     connect(sigName: "allocation-changed", callback: (($obj: KineticScrollView, box: Clutter.ActorBox, flags: Clutter.AllocationFlags) => void)): number
     connect_after(sigName: "allocation-changed", callback: (($obj: KineticScrollView, box: Clutter.ActorBox, flags: Clutter.AllocationFlags) => void)): number
     emit(sigName: "allocation-changed", box: Clutter.ActorBox, flags: Clutter.AllocationFlags): void
@@ -13991,11 +13991,11 @@ export class KineticScrollView {
     connect(sigName: "unrealize", callback: (($obj: KineticScrollView) => void)): number
     connect_after(sigName: "unrealize", callback: (($obj: KineticScrollView) => void)): number
     emit(sigName: "unrealize"): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: KineticScrollView, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: KineticScrollView, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    /* Signals of Clutter.Container */
+    /* Signals of Clutter-1.0.Clutter.Container */
     connect(sigName: "actor-added", callback: (($obj: KineticScrollView, actor: Clutter.Actor) => void)): number
     connect_after(sigName: "actor-added", callback: (($obj: KineticScrollView, actor: Clutter.Actor) => void)): number
     emit(sigName: "actor-added", actor: Clutter.Actor): void
@@ -14005,7 +14005,7 @@ export class KineticScrollView {
     connect(sigName: "child-notify", callback: (($obj: KineticScrollView, actor: Clutter.Actor, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "child-notify", callback: (($obj: KineticScrollView, actor: Clutter.Actor, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "child-notify", actor: Clutter.Actor, pspec: GObject.ParamSpec): void
-    /* Signals of Mx.Stylable */
+    /* Signals of Mx-2.0.Mx.Stylable */
     connect(sigName: "style-changed", callback: (($obj: KineticScrollView, flags: StyleChangedFlags) => void)): number
     connect_after(sigName: "style-changed", callback: (($obj: KineticScrollView, flags: StyleChangedFlags) => void)): number
     emit(sigName: "style-changed", flags: StyleChangedFlags): void
@@ -14239,7 +14239,7 @@ export interface Label_ConstructProps extends Widget_ConstructProps {
     style_pseudo_class?: string
 }
 export class Label {
-    /* Properties of Mx.Label */
+    /* Properties of Mx-2.0.Mx.Label */
     readonly clutter_text: Clutter.Text
     fade_out: boolean
     line_wrap: boolean
@@ -14248,12 +14248,12 @@ export class Label {
     use_markup: boolean
     x_align: Align
     y_align: Align
-    /* Properties of Mx.Widget */
+    /* Properties of Mx-2.0.Mx.Widget */
     disabled: boolean
     menu: Menu
     tooltip_delay: number
     tooltip_text: string
-    /* Properties of Clutter.Actor */
+    /* Properties of Clutter-1.0.Clutter.Actor */
     actions: Clutter.Action
     readonly allocation: Clutter.ActorBox
     anchor_gravity: Clutter.Gravity
@@ -14334,15 +14334,15 @@ export class Label {
     y: number
     y_expand: boolean
     z_position: number
-    /* Properties of Mx.Stylable */
+    /* Properties of Mx-2.0.Mx.Stylable */
     style: Style
     style_class: string
     style_pseudo_class: string
-    /* Fields of Clutter.Actor */
+    /* Fields of Clutter-1.0.Clutter.Actor */
     flags: number
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Mx.Label */
+    /* Methods of Mx-2.0.Mx.Label */
     get_alignment(): [ /* x_align */ Align | null, /* y_align */ Align | null ]
     get_clutter_text(): Clutter.Actor
     get_fade_out(): boolean
@@ -14360,7 +14360,7 @@ export class Label {
     set_use_markup(use_markup: boolean): void
     set_x_align(align: Align): void
     set_y_align(align: Align): void
-    /* Methods of Mx.Widget */
+    /* Methods of Mx-2.0.Mx.Widget */
     apply_style(style: Style): void
     get_available_area(allocation: Clutter.ActorBox, area: Clutter.ActorBox): void
     get_background_color(): Clutter.Color
@@ -14377,7 +14377,7 @@ export class Label {
     set_menu(menu: Menu): void
     set_tooltip_delay(delay: number): void
     set_tooltip_text(text: string): void
-    /* Methods of Clutter.Actor */
+    /* Methods of Clutter-1.0.Clutter.Actor */
     add_action(action: Clutter.Action): void
     add_action_with_name(name: string, action: Clutter.Action): void
     add_child(child: Clutter.Actor): void
@@ -14613,7 +14613,7 @@ export class Label {
     unparent(): void
     unrealize(): void
     unset_flags(flags: Clutter.ActorFlags): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -14635,13 +14635,13 @@ export class Label {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of Clutter.Animatable */
+    /* Methods of Clutter-1.0.Clutter.Animatable */
     animate_property(animation: Clutter.Animation, property_name: string, initial_value: any, final_value: any, progress: number, value: any): boolean
     find_property(property_name: string): GObject.ParamSpec
     get_initial_state(property_name: string, value: any): void
     interpolate_value(property_name: string, interval: Clutter.Interval, progress: number): [ /* returnType */ boolean, /* value */ any ]
     set_final_state(property_name: string, value: any): void
-    /* Methods of Clutter.Container */
+    /* Methods of Clutter-1.0.Clutter.Container */
     add_actor(actor: Clutter.Actor): void
     child_get_property(child: Clutter.Actor, property: string, value: any): void
     child_notify(child: Clutter.Actor, pspec: GObject.ParamSpec): void
@@ -14656,12 +14656,12 @@ export class Label {
     raise_child(actor: Clutter.Actor, sibling?: Clutter.Actor | null): void
     remove_actor(actor: Clutter.Actor): void
     sort_depth_order(): void
-    /* Methods of Clutter.Scriptable */
+    /* Methods of Clutter-1.0.Clutter.Scriptable */
     get_id(): string
     parse_custom_node(script: Clutter.Script, value: any, name: string, node: Json.Node): boolean
     set_custom_property(script: Clutter.Script, name: string, value: any): void
     set_id(id_: string): void
-    /* Methods of Mx.Stylable */
+    /* Methods of Mx-2.0.Mx.Stylable */
     apply_clutter_text_attributes(text: Clutter.Text): void
     connect_change_notifiers(): void
     disconnect_change_notifiers(): void
@@ -14678,7 +14678,7 @@ export class Label {
     style_pseudo_class_add(new_class: string): void
     style_pseudo_class_contains(pseudo_class: string): boolean
     style_pseudo_class_remove(remove_class: string): void
-    /* Virtual methods of Mx.Widget */
+    /* Virtual methods of Mx-2.0.Mx.Widget */
     vfunc_long_press(action: LongPressAction, x: number, y: number): boolean
     vfunc_animate_property(animation: Clutter.Animation, property_name: string, initial_value: any, final_value: any, progress: number, value: any): boolean
     vfunc_find_property(property_name: string): GObject.ParamSpec
@@ -14709,7 +14709,7 @@ export class Label {
     vfunc_set_style_class(style_class: string): void
     vfunc_set_style_pseudo_class(pseudo_class: string): void
     vfunc_style_changed(flags: StyleChangedFlags): void
-    /* Virtual methods of Clutter.Actor */
+    /* Virtual methods of Clutter-1.0.Clutter.Actor */
     vfunc_allocate(box: Clutter.ActorBox, flags: Clutter.AllocationFlags): void
     vfunc_apply_transform(matrix: Clutter.Matrix): void
     vfunc_button_press_event(event: Clutter.ButtonEvent): boolean
@@ -14745,7 +14745,7 @@ export class Label {
     vfunc_touch_event(event: Clutter.TouchEvent): boolean
     vfunc_unmap(): void
     vfunc_unrealize(): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -14753,11 +14753,11 @@ export class Label {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Mx.Widget */
+    /* Signals of Mx-2.0.Mx.Widget */
     connect(sigName: "long-press", callback: (($obj: Label, object: number, p0: number, p1: LongPressAction) => boolean)): number
     connect_after(sigName: "long-press", callback: (($obj: Label, object: number, p0: number, p1: LongPressAction) => boolean)): number
     emit(sigName: "long-press", object: number, p0: number, p1: LongPressAction): void
-    /* Signals of Clutter.Actor */
+    /* Signals of Clutter-1.0.Clutter.Actor */
     connect(sigName: "allocation-changed", callback: (($obj: Label, box: Clutter.ActorBox, flags: Clutter.AllocationFlags) => void)): number
     connect_after(sigName: "allocation-changed", callback: (($obj: Label, box: Clutter.ActorBox, flags: Clutter.AllocationFlags) => void)): number
     emit(sigName: "allocation-changed", box: Clutter.ActorBox, flags: Clutter.AllocationFlags): void
@@ -14836,11 +14836,11 @@ export class Label {
     connect(sigName: "unrealize", callback: (($obj: Label) => void)): number
     connect_after(sigName: "unrealize", callback: (($obj: Label) => void)): number
     emit(sigName: "unrealize"): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Label, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Label, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    /* Signals of Clutter.Container */
+    /* Signals of Clutter-1.0.Clutter.Container */
     connect(sigName: "actor-added", callback: (($obj: Label, actor: Clutter.Actor) => void)): number
     connect_after(sigName: "actor-added", callback: (($obj: Label, actor: Clutter.Actor) => void)): number
     emit(sigName: "actor-added", actor: Clutter.Actor): void
@@ -14850,7 +14850,7 @@ export class Label {
     connect(sigName: "child-notify", callback: (($obj: Label, actor: Clutter.Actor, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "child-notify", callback: (($obj: Label, actor: Clutter.Actor, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "child-notify", actor: Clutter.Actor, pspec: GObject.ParamSpec): void
-    /* Signals of Mx.Stylable */
+    /* Signals of Mx-2.0.Mx.Stylable */
     connect(sigName: "style-changed", callback: (($obj: Label, flags: StyleChangedFlags) => void)): number
     connect_after(sigName: "style-changed", callback: (($obj: Label, flags: StyleChangedFlags) => void)): number
     emit(sigName: "style-changed", flags: StyleChangedFlags): void
@@ -15067,21 +15067,21 @@ export interface ListView_ConstructProps extends BoxLayout_ConstructProps {
     style_pseudo_class?: string
 }
 export class ListView {
-    /* Properties of Mx.ListView */
+    /* Properties of Mx-2.0.Mx.ListView */
     factory: GObject.Object
     item_type: GObject.Type
     model: Clutter.Model
-    /* Properties of Mx.BoxLayout */
+    /* Properties of Mx-2.0.Mx.BoxLayout */
     enable_animations: boolean
     orientation: Orientation
     scroll_to_focused: boolean
     spacing: number
-    /* Properties of Mx.Widget */
+    /* Properties of Mx-2.0.Mx.Widget */
     disabled: boolean
     menu: Menu
     tooltip_delay: number
     tooltip_text: string
-    /* Properties of Clutter.Actor */
+    /* Properties of Clutter-1.0.Clutter.Actor */
     actions: Clutter.Action
     readonly allocation: Clutter.ActorBox
     anchor_gravity: Clutter.Gravity
@@ -15164,18 +15164,18 @@ export class ListView {
     y_align: Clutter.ActorAlign
     y_expand: boolean
     z_position: number
-    /* Properties of Mx.Scrollable */
+    /* Properties of Mx-2.0.Mx.Scrollable */
     horizontal_adjustment: Adjustment
     vertical_adjustment: Adjustment
-    /* Properties of Mx.Stylable */
+    /* Properties of Mx-2.0.Mx.Stylable */
     style: Style
     style_class: string
     style_pseudo_class: string
-    /* Fields of Clutter.Actor */
+    /* Fields of Clutter-1.0.Clutter.Actor */
     flags: number
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Mx.ListView */
+    /* Methods of Mx-2.0.Mx.ListView */
     add_attribute(attribute: string, column: number): void
     freeze(): void
     get_factory(): ItemFactory
@@ -15185,7 +15185,7 @@ export class ListView {
     set_item_type(item_type: GObject.Type): void
     set_model(model: Clutter.Model): void
     thaw(): void
-    /* Methods of Mx.BoxLayout */
+    /* Methods of Mx-2.0.Mx.BoxLayout */
     child_get_expand(child: Clutter.Actor): boolean
     child_get_x_align(child: Clutter.Actor): Align
     child_get_x_fill(child: Clutter.Actor): boolean
@@ -15205,7 +15205,7 @@ export class ListView {
     set_orientation(orientation: Orientation): void
     set_scroll_to_focused(scroll_to_focused: boolean): void
     set_spacing(spacing: number): void
-    /* Methods of Mx.Widget */
+    /* Methods of Mx-2.0.Mx.Widget */
     apply_style(style: Style): void
     get_available_area(allocation: Clutter.ActorBox, area: Clutter.ActorBox): void
     get_background_color(): Clutter.Color
@@ -15223,7 +15223,7 @@ export class ListView {
     set_tooltip_delay(delay: number): void
     set_tooltip_text(text: string): void
     show_tooltip(): void
-    /* Methods of Clutter.Actor */
+    /* Methods of Clutter-1.0.Clutter.Actor */
     add_action(action: Clutter.Action): void
     add_action_with_name(name: string, action: Clutter.Action): void
     add_child(child: Clutter.Actor): void
@@ -15459,7 +15459,7 @@ export class ListView {
     unparent(): void
     unrealize(): void
     unset_flags(flags: Clutter.ActorFlags): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -15481,13 +15481,13 @@ export class ListView {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of Clutter.Animatable */
+    /* Methods of Clutter-1.0.Clutter.Animatable */
     animate_property(animation: Clutter.Animation, property_name: string, initial_value: any, final_value: any, progress: number, value: any): boolean
     find_property(property_name: string): GObject.ParamSpec
     get_initial_state(property_name: string, value: any): void
     interpolate_value(property_name: string, interval: Clutter.Interval, progress: number): [ /* returnType */ boolean, /* value */ any ]
     set_final_state(property_name: string, value: any): void
-    /* Methods of Clutter.Container */
+    /* Methods of Clutter-1.0.Clutter.Container */
     add_actor(actor: Clutter.Actor): void
     child_get_property(child: Clutter.Actor, property: string, value: any): void
     child_notify(child: Clutter.Actor, pspec: GObject.ParamSpec): void
@@ -15502,18 +15502,18 @@ export class ListView {
     raise_child(actor: Clutter.Actor, sibling?: Clutter.Actor | null): void
     remove_actor(actor: Clutter.Actor): void
     sort_depth_order(): void
-    /* Methods of Clutter.Scriptable */
+    /* Methods of Clutter-1.0.Clutter.Scriptable */
     get_id(): string
     parse_custom_node(script: Clutter.Script, value: any, name: string, node: Json.Node): boolean
     set_custom_property(script: Clutter.Script, name: string, value: any): void
     set_id(id_: string): void
-    /* Methods of Mx.Focusable */
+    /* Methods of Mx-2.0.Mx.Focusable */
     accept_focus(hint: FocusHint): Focusable
     move_focus(direction: FocusDirection, from: Focusable): Focusable
-    /* Methods of Mx.Scrollable */
+    /* Methods of Mx-2.0.Mx.Scrollable */
     get_adjustments(): [ /* hadjustment */ Adjustment | null, /* vadjustment */ Adjustment | null ]
     set_adjustments(hadjustment: Adjustment, vadjustment: Adjustment): void
-    /* Methods of Mx.Stylable */
+    /* Methods of Mx-2.0.Mx.Stylable */
     apply_clutter_text_attributes(text: Clutter.Text): void
     connect_change_notifiers(): void
     disconnect_change_notifiers(): void
@@ -15530,12 +15530,12 @@ export class ListView {
     style_pseudo_class_add(new_class: string): void
     style_pseudo_class_contains(pseudo_class: string): boolean
     style_pseudo_class_remove(remove_class: string): void
-    /* Virtual methods of Mx.BoxLayout */
+    /* Virtual methods of Mx-2.0.Mx.BoxLayout */
     vfunc_accept_focus(hint: FocusHint): Focusable
     vfunc_move_focus(direction: FocusDirection, from: Focusable): Focusable
     vfunc_get_adjustments(): [ /* hadjustment */ Adjustment | null, /* vadjustment */ Adjustment | null ]
     vfunc_set_adjustments(hadjustment: Adjustment, vadjustment: Adjustment): void
-    /* Virtual methods of Mx.Widget */
+    /* Virtual methods of Mx-2.0.Mx.Widget */
     vfunc_long_press(action: LongPressAction, x: number, y: number): boolean
     vfunc_animate_property(animation: Clutter.Animation, property_name: string, initial_value: any, final_value: any, progress: number, value: any): boolean
     vfunc_find_property(property_name: string): GObject.ParamSpec
@@ -15566,7 +15566,7 @@ export class ListView {
     vfunc_set_style_class(style_class: string): void
     vfunc_set_style_pseudo_class(pseudo_class: string): void
     vfunc_style_changed(flags: StyleChangedFlags): void
-    /* Virtual methods of Clutter.Actor */
+    /* Virtual methods of Clutter-1.0.Clutter.Actor */
     vfunc_allocate(box: Clutter.ActorBox, flags: Clutter.AllocationFlags): void
     vfunc_apply_transform(matrix: Clutter.Matrix): void
     vfunc_button_press_event(event: Clutter.ButtonEvent): boolean
@@ -15602,7 +15602,7 @@ export class ListView {
     vfunc_touch_event(event: Clutter.TouchEvent): boolean
     vfunc_unmap(): void
     vfunc_unrealize(): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -15610,11 +15610,11 @@ export class ListView {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Mx.Widget */
+    /* Signals of Mx-2.0.Mx.Widget */
     connect(sigName: "long-press", callback: (($obj: ListView, object: number, p0: number, p1: LongPressAction) => boolean)): number
     connect_after(sigName: "long-press", callback: (($obj: ListView, object: number, p0: number, p1: LongPressAction) => boolean)): number
     emit(sigName: "long-press", object: number, p0: number, p1: LongPressAction): void
-    /* Signals of Clutter.Actor */
+    /* Signals of Clutter-1.0.Clutter.Actor */
     connect(sigName: "allocation-changed", callback: (($obj: ListView, box: Clutter.ActorBox, flags: Clutter.AllocationFlags) => void)): number
     connect_after(sigName: "allocation-changed", callback: (($obj: ListView, box: Clutter.ActorBox, flags: Clutter.AllocationFlags) => void)): number
     emit(sigName: "allocation-changed", box: Clutter.ActorBox, flags: Clutter.AllocationFlags): void
@@ -15693,11 +15693,11 @@ export class ListView {
     connect(sigName: "unrealize", callback: (($obj: ListView) => void)): number
     connect_after(sigName: "unrealize", callback: (($obj: ListView) => void)): number
     emit(sigName: "unrealize"): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: ListView, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: ListView, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    /* Signals of Clutter.Container */
+    /* Signals of Clutter-1.0.Clutter.Container */
     connect(sigName: "actor-added", callback: (($obj: ListView, actor: Clutter.Actor) => void)): number
     connect_after(sigName: "actor-added", callback: (($obj: ListView, actor: Clutter.Actor) => void)): number
     emit(sigName: "actor-added", actor: Clutter.Actor): void
@@ -15707,7 +15707,7 @@ export class ListView {
     connect(sigName: "child-notify", callback: (($obj: ListView, actor: Clutter.Actor, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "child-notify", callback: (($obj: ListView, actor: Clutter.Actor, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "child-notify", actor: Clutter.Actor, pspec: GObject.ParamSpec): void
-    /* Signals of Mx.Stylable */
+    /* Signals of Mx-2.0.Mx.Stylable */
     connect(sigName: "style-changed", callback: (($obj: ListView, flags: StyleChangedFlags) => void)): number
     connect_after(sigName: "style-changed", callback: (($obj: ListView, flags: StyleChangedFlags) => void)): number
     emit(sigName: "style-changed", flags: StyleChangedFlags): void
@@ -15924,12 +15924,12 @@ export interface Menu_ConstructProps extends FloatingWidget_ConstructProps {
     style_pseudo_class?: string
 }
 export class Menu {
-    /* Properties of Mx.Widget */
+    /* Properties of Mx-2.0.Mx.Widget */
     disabled: boolean
     menu: Menu
     tooltip_delay: number
     tooltip_text: string
-    /* Properties of Clutter.Actor */
+    /* Properties of Clutter-1.0.Clutter.Actor */
     actions: Clutter.Action
     readonly allocation: Clutter.ActorBox
     anchor_gravity: Clutter.Gravity
@@ -16012,23 +16012,23 @@ export class Menu {
     y_align: Clutter.ActorAlign
     y_expand: boolean
     z_position: number
-    /* Properties of Mx.Stylable */
+    /* Properties of Mx-2.0.Mx.Stylable */
     style: Style
     style_class: string
     style_pseudo_class: string
-    /* Fields of Mx.FloatingWidget */
+    /* Fields of Mx-2.0.Mx.FloatingWidget */
     parent: Widget
     priv: FloatingWidgetPrivate
-    /* Fields of Clutter.Actor */
+    /* Fields of Clutter-1.0.Clutter.Actor */
     flags: number
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Mx.Menu */
+    /* Methods of Mx-2.0.Mx.Menu */
     add_action(action: Action): void
     remove_action(action: Action): void
     remove_all(): void
     show_with_position(x: number, y: number): void
-    /* Methods of Mx.Widget */
+    /* Methods of Mx-2.0.Mx.Widget */
     apply_style(style: Style): void
     get_available_area(allocation: Clutter.ActorBox, area: Clutter.ActorBox): void
     get_background_color(): Clutter.Color
@@ -16046,7 +16046,7 @@ export class Menu {
     set_tooltip_delay(delay: number): void
     set_tooltip_text(text: string): void
     show_tooltip(): void
-    /* Methods of Clutter.Actor */
+    /* Methods of Clutter-1.0.Clutter.Actor */
     add_action(action: Clutter.Action): void
     add_action_with_name(name: string, action: Clutter.Action): void
     add_child(child: Clutter.Actor): void
@@ -16282,7 +16282,7 @@ export class Menu {
     unparent(): void
     unrealize(): void
     unset_flags(flags: Clutter.ActorFlags): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -16304,13 +16304,13 @@ export class Menu {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of Clutter.Animatable */
+    /* Methods of Clutter-1.0.Clutter.Animatable */
     animate_property(animation: Clutter.Animation, property_name: string, initial_value: any, final_value: any, progress: number, value: any): boolean
     find_property(property_name: string): GObject.ParamSpec
     get_initial_state(property_name: string, value: any): void
     interpolate_value(property_name: string, interval: Clutter.Interval, progress: number): [ /* returnType */ boolean, /* value */ any ]
     set_final_state(property_name: string, value: any): void
-    /* Methods of Clutter.Container */
+    /* Methods of Clutter-1.0.Clutter.Container */
     add_actor(actor: Clutter.Actor): void
     child_get_property(child: Clutter.Actor, property: string, value: any): void
     child_notify(child: Clutter.Actor, pspec: GObject.ParamSpec): void
@@ -16325,15 +16325,15 @@ export class Menu {
     raise_child(actor: Clutter.Actor, sibling?: Clutter.Actor | null): void
     remove_actor(actor: Clutter.Actor): void
     sort_depth_order(): void
-    /* Methods of Clutter.Scriptable */
+    /* Methods of Clutter-1.0.Clutter.Scriptable */
     get_id(): string
     parse_custom_node(script: Clutter.Script, value: any, name: string, node: Json.Node): boolean
     set_custom_property(script: Clutter.Script, name: string, value: any): void
     set_id(id_: string): void
-    /* Methods of Mx.Focusable */
+    /* Methods of Mx-2.0.Mx.Focusable */
     accept_focus(hint: FocusHint): Focusable
     move_focus(direction: FocusDirection, from: Focusable): Focusable
-    /* Methods of Mx.Stylable */
+    /* Methods of Mx-2.0.Mx.Stylable */
     apply_clutter_text_attributes(text: Clutter.Text): void
     connect_change_notifiers(): void
     disconnect_change_notifiers(): void
@@ -16350,11 +16350,11 @@ export class Menu {
     style_pseudo_class_add(new_class: string): void
     style_pseudo_class_contains(pseudo_class: string): boolean
     style_pseudo_class_remove(remove_class: string): void
-    /* Virtual methods of Mx.Menu */
+    /* Virtual methods of Mx-2.0.Mx.Menu */
     vfunc_action_activated(action: Action): void
     vfunc_accept_focus(hint: FocusHint): Focusable
     vfunc_move_focus(direction: FocusDirection, from: Focusable): Focusable
-    /* Virtual methods of Mx.Widget */
+    /* Virtual methods of Mx-2.0.Mx.Widget */
     vfunc_long_press(action: LongPressAction, x: number, y: number): boolean
     vfunc_animate_property(animation: Clutter.Animation, property_name: string, initial_value: any, final_value: any, progress: number, value: any): boolean
     vfunc_find_property(property_name: string): GObject.ParamSpec
@@ -16385,7 +16385,7 @@ export class Menu {
     vfunc_set_style_class(style_class: string): void
     vfunc_set_style_pseudo_class(pseudo_class: string): void
     vfunc_style_changed(flags: StyleChangedFlags): void
-    /* Virtual methods of Clutter.Actor */
+    /* Virtual methods of Clutter-1.0.Clutter.Actor */
     vfunc_allocate(box: Clutter.ActorBox, flags: Clutter.AllocationFlags): void
     vfunc_apply_transform(matrix: Clutter.Matrix): void
     vfunc_button_press_event(event: Clutter.ButtonEvent): boolean
@@ -16421,7 +16421,7 @@ export class Menu {
     vfunc_touch_event(event: Clutter.TouchEvent): boolean
     vfunc_unmap(): void
     vfunc_unrealize(): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -16429,15 +16429,15 @@ export class Menu {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Mx.Menu */
+    /* Signals of Mx-2.0.Mx.Menu */
     connect(sigName: "action-activated", callback: (($obj: Menu, object: Action) => void)): number
     connect_after(sigName: "action-activated", callback: (($obj: Menu, object: Action) => void)): number
     emit(sigName: "action-activated", object: Action): void
-    /* Signals of Mx.Widget */
+    /* Signals of Mx-2.0.Mx.Widget */
     connect(sigName: "long-press", callback: (($obj: Menu, object: number, p0: number, p1: LongPressAction) => boolean)): number
     connect_after(sigName: "long-press", callback: (($obj: Menu, object: number, p0: number, p1: LongPressAction) => boolean)): number
     emit(sigName: "long-press", object: number, p0: number, p1: LongPressAction): void
-    /* Signals of Clutter.Actor */
+    /* Signals of Clutter-1.0.Clutter.Actor */
     connect(sigName: "allocation-changed", callback: (($obj: Menu, box: Clutter.ActorBox, flags: Clutter.AllocationFlags) => void)): number
     connect_after(sigName: "allocation-changed", callback: (($obj: Menu, box: Clutter.ActorBox, flags: Clutter.AllocationFlags) => void)): number
     emit(sigName: "allocation-changed", box: Clutter.ActorBox, flags: Clutter.AllocationFlags): void
@@ -16516,11 +16516,11 @@ export class Menu {
     connect(sigName: "unrealize", callback: (($obj: Menu) => void)): number
     connect_after(sigName: "unrealize", callback: (($obj: Menu) => void)): number
     emit(sigName: "unrealize"): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Menu, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Menu, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    /* Signals of Clutter.Container */
+    /* Signals of Clutter-1.0.Clutter.Container */
     connect(sigName: "actor-added", callback: (($obj: Menu, actor: Clutter.Actor) => void)): number
     connect_after(sigName: "actor-added", callback: (($obj: Menu, actor: Clutter.Actor) => void)): number
     emit(sigName: "actor-added", actor: Clutter.Actor): void
@@ -16530,7 +16530,7 @@ export class Menu {
     connect(sigName: "child-notify", callback: (($obj: Menu, actor: Clutter.Actor, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "child-notify", callback: (($obj: Menu, actor: Clutter.Actor, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "child-notify", actor: Clutter.Actor, pspec: GObject.ParamSpec): void
-    /* Signals of Mx.Stylable */
+    /* Signals of Mx-2.0.Mx.Stylable */
     connect(sigName: "style-changed", callback: (($obj: Menu, flags: StyleChangedFlags) => void)): number
     connect_after(sigName: "style-changed", callback: (($obj: Menu, flags: StyleChangedFlags) => void)): number
     emit(sigName: "style-changed", flags: StyleChangedFlags): void
@@ -16730,14 +16730,14 @@ export interface Notebook_ConstructProps extends Widget_ConstructProps {
     style_pseudo_class?: string
 }
 export class Notebook {
-    /* Properties of Mx.Notebook */
+    /* Properties of Mx-2.0.Mx.Notebook */
     current_page: Clutter.Actor
-    /* Properties of Mx.Widget */
+    /* Properties of Mx-2.0.Mx.Widget */
     disabled: boolean
     menu: Menu
     tooltip_delay: number
     tooltip_text: string
-    /* Properties of Clutter.Actor */
+    /* Properties of Clutter-1.0.Clutter.Actor */
     actions: Clutter.Action
     readonly allocation: Clutter.ActorBox
     anchor_gravity: Clutter.Gravity
@@ -16820,23 +16820,23 @@ export class Notebook {
     y_align: Clutter.ActorAlign
     y_expand: boolean
     z_position: number
-    /* Properties of Mx.Stylable */
+    /* Properties of Mx-2.0.Mx.Stylable */
     style: Style
     style_class: string
     style_pseudo_class: string
-    /* Fields of Mx.Notebook */
+    /* Fields of Mx-2.0.Mx.Notebook */
     parent: Widget
     priv: NotebookPrivate
-    /* Fields of Clutter.Actor */
+    /* Fields of Clutter-1.0.Clutter.Actor */
     flags: number
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Mx.Notebook */
+    /* Methods of Mx-2.0.Mx.Notebook */
     get_current_page(): Clutter.Actor
     next_page(): void
     previous_page(): void
     set_current_page(page: Clutter.Actor): void
-    /* Methods of Mx.Widget */
+    /* Methods of Mx-2.0.Mx.Widget */
     apply_style(style: Style): void
     get_available_area(allocation: Clutter.ActorBox, area: Clutter.ActorBox): void
     get_background_color(): Clutter.Color
@@ -16854,7 +16854,7 @@ export class Notebook {
     set_tooltip_delay(delay: number): void
     set_tooltip_text(text: string): void
     show_tooltip(): void
-    /* Methods of Clutter.Actor */
+    /* Methods of Clutter-1.0.Clutter.Actor */
     add_action(action: Clutter.Action): void
     add_action_with_name(name: string, action: Clutter.Action): void
     add_child(child: Clutter.Actor): void
@@ -17090,7 +17090,7 @@ export class Notebook {
     unparent(): void
     unrealize(): void
     unset_flags(flags: Clutter.ActorFlags): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -17112,13 +17112,13 @@ export class Notebook {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of Clutter.Animatable */
+    /* Methods of Clutter-1.0.Clutter.Animatable */
     animate_property(animation: Clutter.Animation, property_name: string, initial_value: any, final_value: any, progress: number, value: any): boolean
     find_property(property_name: string): GObject.ParamSpec
     get_initial_state(property_name: string, value: any): void
     interpolate_value(property_name: string, interval: Clutter.Interval, progress: number): [ /* returnType */ boolean, /* value */ any ]
     set_final_state(property_name: string, value: any): void
-    /* Methods of Clutter.Container */
+    /* Methods of Clutter-1.0.Clutter.Container */
     add_actor(actor: Clutter.Actor): void
     child_get_property(child: Clutter.Actor, property: string, value: any): void
     child_notify(child: Clutter.Actor, pspec: GObject.ParamSpec): void
@@ -17133,15 +17133,15 @@ export class Notebook {
     raise_child(actor: Clutter.Actor, sibling?: Clutter.Actor | null): void
     remove_actor(actor: Clutter.Actor): void
     sort_depth_order(): void
-    /* Methods of Clutter.Scriptable */
+    /* Methods of Clutter-1.0.Clutter.Scriptable */
     get_id(): string
     parse_custom_node(script: Clutter.Script, value: any, name: string, node: Json.Node): boolean
     set_custom_property(script: Clutter.Script, name: string, value: any): void
     set_id(id_: string): void
-    /* Methods of Mx.Focusable */
+    /* Methods of Mx-2.0.Mx.Focusable */
     accept_focus(hint: FocusHint): Focusable
     move_focus(direction: FocusDirection, from: Focusable): Focusable
-    /* Methods of Mx.Stylable */
+    /* Methods of Mx-2.0.Mx.Stylable */
     apply_clutter_text_attributes(text: Clutter.Text): void
     connect_change_notifiers(): void
     disconnect_change_notifiers(): void
@@ -17158,10 +17158,10 @@ export class Notebook {
     style_pseudo_class_add(new_class: string): void
     style_pseudo_class_contains(pseudo_class: string): boolean
     style_pseudo_class_remove(remove_class: string): void
-    /* Virtual methods of Mx.Notebook */
+    /* Virtual methods of Mx-2.0.Mx.Notebook */
     vfunc_accept_focus(hint: FocusHint): Focusable
     vfunc_move_focus(direction: FocusDirection, from: Focusable): Focusable
-    /* Virtual methods of Mx.Widget */
+    /* Virtual methods of Mx-2.0.Mx.Widget */
     vfunc_long_press(action: LongPressAction, x: number, y: number): boolean
     vfunc_animate_property(animation: Clutter.Animation, property_name: string, initial_value: any, final_value: any, progress: number, value: any): boolean
     vfunc_find_property(property_name: string): GObject.ParamSpec
@@ -17192,7 +17192,7 @@ export class Notebook {
     vfunc_set_style_class(style_class: string): void
     vfunc_set_style_pseudo_class(pseudo_class: string): void
     vfunc_style_changed(flags: StyleChangedFlags): void
-    /* Virtual methods of Clutter.Actor */
+    /* Virtual methods of Clutter-1.0.Clutter.Actor */
     vfunc_allocate(box: Clutter.ActorBox, flags: Clutter.AllocationFlags): void
     vfunc_apply_transform(matrix: Clutter.Matrix): void
     vfunc_button_press_event(event: Clutter.ButtonEvent): boolean
@@ -17228,7 +17228,7 @@ export class Notebook {
     vfunc_touch_event(event: Clutter.TouchEvent): boolean
     vfunc_unmap(): void
     vfunc_unrealize(): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -17236,11 +17236,11 @@ export class Notebook {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Mx.Widget */
+    /* Signals of Mx-2.0.Mx.Widget */
     connect(sigName: "long-press", callback: (($obj: Notebook, object: number, p0: number, p1: LongPressAction) => boolean)): number
     connect_after(sigName: "long-press", callback: (($obj: Notebook, object: number, p0: number, p1: LongPressAction) => boolean)): number
     emit(sigName: "long-press", object: number, p0: number, p1: LongPressAction): void
-    /* Signals of Clutter.Actor */
+    /* Signals of Clutter-1.0.Clutter.Actor */
     connect(sigName: "allocation-changed", callback: (($obj: Notebook, box: Clutter.ActorBox, flags: Clutter.AllocationFlags) => void)): number
     connect_after(sigName: "allocation-changed", callback: (($obj: Notebook, box: Clutter.ActorBox, flags: Clutter.AllocationFlags) => void)): number
     emit(sigName: "allocation-changed", box: Clutter.ActorBox, flags: Clutter.AllocationFlags): void
@@ -17319,11 +17319,11 @@ export class Notebook {
     connect(sigName: "unrealize", callback: (($obj: Notebook) => void)): number
     connect_after(sigName: "unrealize", callback: (($obj: Notebook) => void)): number
     emit(sigName: "unrealize"): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Notebook, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Notebook, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    /* Signals of Clutter.Container */
+    /* Signals of Clutter-1.0.Clutter.Container */
     connect(sigName: "actor-added", callback: (($obj: Notebook, actor: Clutter.Actor) => void)): number
     connect_after(sigName: "actor-added", callback: (($obj: Notebook, actor: Clutter.Actor) => void)): number
     emit(sigName: "actor-added", actor: Clutter.Actor): void
@@ -17333,7 +17333,7 @@ export class Notebook {
     connect(sigName: "child-notify", callback: (($obj: Notebook, actor: Clutter.Actor, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "child-notify", callback: (($obj: Notebook, actor: Clutter.Actor, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "child-notify", actor: Clutter.Actor, pspec: GObject.ParamSpec): void
-    /* Signals of Mx.Stylable */
+    /* Signals of Mx-2.0.Mx.Stylable */
     connect(sigName: "style-changed", callback: (($obj: Notebook, flags: StyleChangedFlags) => void)): number
     connect_after(sigName: "style-changed", callback: (($obj: Notebook, flags: StyleChangedFlags) => void)): number
     emit(sigName: "style-changed", flags: StyleChangedFlags): void
@@ -17537,16 +17537,16 @@ export interface Pager_ConstructProps extends Stack_ConstructProps {
     style_pseudo_class?: string
 }
 export class Pager {
-    /* Properties of Mx.Pager */
+    /* Properties of Mx-2.0.Mx.Pager */
     edge_previews: boolean
     page_actor: Clutter.Actor
     page_num: number
-    /* Properties of Mx.Widget */
+    /* Properties of Mx-2.0.Mx.Widget */
     disabled: boolean
     menu: Menu
     tooltip_delay: number
     tooltip_text: string
-    /* Properties of Clutter.Actor */
+    /* Properties of Clutter-1.0.Clutter.Actor */
     actions: Clutter.Action
     readonly allocation: Clutter.ActorBox
     anchor_gravity: Clutter.Gravity
@@ -17629,15 +17629,15 @@ export class Pager {
     y_align: Clutter.ActorAlign
     y_expand: boolean
     z_position: number
-    /* Properties of Mx.Stylable */
+    /* Properties of Mx-2.0.Mx.Stylable */
     style: Style
     style_class: string
     style_pseudo_class: string
-    /* Fields of Clutter.Actor */
+    /* Fields of Clutter-1.0.Clutter.Actor */
     flags: number
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Mx.Pager */
+    /* Methods of Mx-2.0.Mx.Pager */
     get_actor_for_page(page: number): Clutter.Actor
     get_current_page(): number
     get_current_page_actor(): Clutter.Actor
@@ -17649,7 +17649,7 @@ export class Pager {
     set_current_page(page: number, animate: boolean): void
     set_current_page_by_actor(actor: Clutter.Actor, animate: boolean): void
     set_edge_previews(edge_previews: boolean): void
-    /* Methods of Mx.Stack */
+    /* Methods of Mx-2.0.Mx.Stack */
     child_get_crop(child: Clutter.Actor): boolean
     child_get_fit(child: Clutter.Actor): boolean
     child_get_x_align(child: Clutter.Actor): Align
@@ -17662,7 +17662,7 @@ export class Pager {
     child_set_x_fill(child: Clutter.Actor, x_fill: boolean): void
     child_set_y_align(child: Clutter.Actor, y_align: Align): void
     child_set_y_fill(child: Clutter.Actor, y_fill: boolean): void
-    /* Methods of Mx.Widget */
+    /* Methods of Mx-2.0.Mx.Widget */
     apply_style(style: Style): void
     get_available_area(allocation: Clutter.ActorBox, area: Clutter.ActorBox): void
     get_background_color(): Clutter.Color
@@ -17680,7 +17680,7 @@ export class Pager {
     set_tooltip_delay(delay: number): void
     set_tooltip_text(text: string): void
     show_tooltip(): void
-    /* Methods of Clutter.Actor */
+    /* Methods of Clutter-1.0.Clutter.Actor */
     add_action(action: Clutter.Action): void
     add_action_with_name(name: string, action: Clutter.Action): void
     add_child(child: Clutter.Actor): void
@@ -17916,7 +17916,7 @@ export class Pager {
     unparent(): void
     unrealize(): void
     unset_flags(flags: Clutter.ActorFlags): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -17938,13 +17938,13 @@ export class Pager {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of Clutter.Animatable */
+    /* Methods of Clutter-1.0.Clutter.Animatable */
     animate_property(animation: Clutter.Animation, property_name: string, initial_value: any, final_value: any, progress: number, value: any): boolean
     find_property(property_name: string): GObject.ParamSpec
     get_initial_state(property_name: string, value: any): void
     interpolate_value(property_name: string, interval: Clutter.Interval, progress: number): [ /* returnType */ boolean, /* value */ any ]
     set_final_state(property_name: string, value: any): void
-    /* Methods of Clutter.Container */
+    /* Methods of Clutter-1.0.Clutter.Container */
     add_actor(actor: Clutter.Actor): void
     child_get_property(child: Clutter.Actor, property: string, value: any): void
     child_notify(child: Clutter.Actor, pspec: GObject.ParamSpec): void
@@ -17959,15 +17959,15 @@ export class Pager {
     raise_child(actor: Clutter.Actor, sibling?: Clutter.Actor | null): void
     remove_actor(actor: Clutter.Actor): void
     sort_depth_order(): void
-    /* Methods of Clutter.Scriptable */
+    /* Methods of Clutter-1.0.Clutter.Scriptable */
     get_id(): string
     parse_custom_node(script: Clutter.Script, value: any, name: string, node: Json.Node): boolean
     set_custom_property(script: Clutter.Script, name: string, value: any): void
     set_id(id_: string): void
-    /* Methods of Mx.Focusable */
+    /* Methods of Mx-2.0.Mx.Focusable */
     accept_focus(hint: FocusHint): Focusable
     move_focus(direction: FocusDirection, from: Focusable): Focusable
-    /* Methods of Mx.Stylable */
+    /* Methods of Mx-2.0.Mx.Stylable */
     apply_clutter_text_attributes(text: Clutter.Text): void
     connect_change_notifiers(): void
     disconnect_change_notifiers(): void
@@ -17984,10 +17984,10 @@ export class Pager {
     style_pseudo_class_add(new_class: string): void
     style_pseudo_class_contains(pseudo_class: string): boolean
     style_pseudo_class_remove(remove_class: string): void
-    /* Virtual methods of Mx.Stack */
+    /* Virtual methods of Mx-2.0.Mx.Stack */
     vfunc_accept_focus(hint: FocusHint): Focusable
     vfunc_move_focus(direction: FocusDirection, from: Focusable): Focusable
-    /* Virtual methods of Mx.Widget */
+    /* Virtual methods of Mx-2.0.Mx.Widget */
     vfunc_long_press(action: LongPressAction, x: number, y: number): boolean
     vfunc_animate_property(animation: Clutter.Animation, property_name: string, initial_value: any, final_value: any, progress: number, value: any): boolean
     vfunc_find_property(property_name: string): GObject.ParamSpec
@@ -18018,7 +18018,7 @@ export class Pager {
     vfunc_set_style_class(style_class: string): void
     vfunc_set_style_pseudo_class(pseudo_class: string): void
     vfunc_style_changed(flags: StyleChangedFlags): void
-    /* Virtual methods of Clutter.Actor */
+    /* Virtual methods of Clutter-1.0.Clutter.Actor */
     vfunc_allocate(box: Clutter.ActorBox, flags: Clutter.AllocationFlags): void
     vfunc_apply_transform(matrix: Clutter.Matrix): void
     vfunc_button_press_event(event: Clutter.ButtonEvent): boolean
@@ -18054,7 +18054,7 @@ export class Pager {
     vfunc_touch_event(event: Clutter.TouchEvent): boolean
     vfunc_unmap(): void
     vfunc_unrealize(): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -18062,11 +18062,11 @@ export class Pager {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Mx.Widget */
+    /* Signals of Mx-2.0.Mx.Widget */
     connect(sigName: "long-press", callback: (($obj: Pager, object: number, p0: number, p1: LongPressAction) => boolean)): number
     connect_after(sigName: "long-press", callback: (($obj: Pager, object: number, p0: number, p1: LongPressAction) => boolean)): number
     emit(sigName: "long-press", object: number, p0: number, p1: LongPressAction): void
-    /* Signals of Clutter.Actor */
+    /* Signals of Clutter-1.0.Clutter.Actor */
     connect(sigName: "allocation-changed", callback: (($obj: Pager, box: Clutter.ActorBox, flags: Clutter.AllocationFlags) => void)): number
     connect_after(sigName: "allocation-changed", callback: (($obj: Pager, box: Clutter.ActorBox, flags: Clutter.AllocationFlags) => void)): number
     emit(sigName: "allocation-changed", box: Clutter.ActorBox, flags: Clutter.AllocationFlags): void
@@ -18145,11 +18145,11 @@ export class Pager {
     connect(sigName: "unrealize", callback: (($obj: Pager) => void)): number
     connect_after(sigName: "unrealize", callback: (($obj: Pager) => void)): number
     emit(sigName: "unrealize"): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Pager, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Pager, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    /* Signals of Clutter.Container */
+    /* Signals of Clutter-1.0.Clutter.Container */
     connect(sigName: "actor-added", callback: (($obj: Pager, actor: Clutter.Actor) => void)): number
     connect_after(sigName: "actor-added", callback: (($obj: Pager, actor: Clutter.Actor) => void)): number
     emit(sigName: "actor-added", actor: Clutter.Actor): void
@@ -18159,7 +18159,7 @@ export class Pager {
     connect(sigName: "child-notify", callback: (($obj: Pager, actor: Clutter.Actor, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "child-notify", callback: (($obj: Pager, actor: Clutter.Actor, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "child-notify", actor: Clutter.Actor, pspec: GObject.ParamSpec): void
-    /* Signals of Mx.Stylable */
+    /* Signals of Mx-2.0.Mx.Stylable */
     connect(sigName: "style-changed", callback: (($obj: Pager, flags: StyleChangedFlags) => void)): number
     connect_after(sigName: "style-changed", callback: (($obj: Pager, flags: StyleChangedFlags) => void)): number
     emit(sigName: "style-changed", flags: StyleChangedFlags): void
@@ -18366,17 +18366,17 @@ export interface PathBar_ConstructProps extends Widget_ConstructProps {
     style_pseudo_class?: string
 }
 export class PathBar {
-    /* Properties of Mx.PathBar */
+    /* Properties of Mx-2.0.Mx.PathBar */
     clear_on_change: boolean
     editable: boolean
     readonly entry: Entry
     readonly level: number
-    /* Properties of Mx.Widget */
+    /* Properties of Mx-2.0.Mx.Widget */
     disabled: boolean
     menu: Menu
     tooltip_delay: number
     tooltip_text: string
-    /* Properties of Clutter.Actor */
+    /* Properties of Clutter-1.0.Clutter.Actor */
     actions: Clutter.Action
     readonly allocation: Clutter.ActorBox
     anchor_gravity: Clutter.Gravity
@@ -18459,18 +18459,18 @@ export class PathBar {
     y_align: Clutter.ActorAlign
     y_expand: boolean
     z_position: number
-    /* Properties of Mx.Stylable */
+    /* Properties of Mx-2.0.Mx.Stylable */
     style: Style
     style_class: string
     style_pseudo_class: string
-    /* Fields of Mx.PathBar */
+    /* Fields of Mx-2.0.Mx.PathBar */
     parent: Widget
     priv: PathBarPrivate
-    /* Fields of Clutter.Actor */
+    /* Fields of Clutter-1.0.Clutter.Actor */
     flags: number
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Mx.PathBar */
+    /* Methods of Mx-2.0.Mx.PathBar */
     clear(): void
     get_clear_on_change(): boolean
     get_editable(): boolean
@@ -18484,7 +18484,7 @@ export class PathBar {
     set_editable(editable: boolean): void
     set_label(level: number, label: string): void
     set_text(text: string): void
-    /* Methods of Mx.Widget */
+    /* Methods of Mx-2.0.Mx.Widget */
     apply_style(style: Style): void
     get_available_area(allocation: Clutter.ActorBox, area: Clutter.ActorBox): void
     get_background_color(): Clutter.Color
@@ -18502,7 +18502,7 @@ export class PathBar {
     set_tooltip_delay(delay: number): void
     set_tooltip_text(text: string): void
     show_tooltip(): void
-    /* Methods of Clutter.Actor */
+    /* Methods of Clutter-1.0.Clutter.Actor */
     add_action(action: Clutter.Action): void
     add_action_with_name(name: string, action: Clutter.Action): void
     add_child(child: Clutter.Actor): void
@@ -18738,7 +18738,7 @@ export class PathBar {
     unparent(): void
     unrealize(): void
     unset_flags(flags: Clutter.ActorFlags): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -18760,13 +18760,13 @@ export class PathBar {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of Clutter.Animatable */
+    /* Methods of Clutter-1.0.Clutter.Animatable */
     animate_property(animation: Clutter.Animation, property_name: string, initial_value: any, final_value: any, progress: number, value: any): boolean
     find_property(property_name: string): GObject.ParamSpec
     get_initial_state(property_name: string, value: any): void
     interpolate_value(property_name: string, interval: Clutter.Interval, progress: number): [ /* returnType */ boolean, /* value */ any ]
     set_final_state(property_name: string, value: any): void
-    /* Methods of Clutter.Container */
+    /* Methods of Clutter-1.0.Clutter.Container */
     add_actor(actor: Clutter.Actor): void
     child_get_property(child: Clutter.Actor, property: string, value: any): void
     child_notify(child: Clutter.Actor, pspec: GObject.ParamSpec): void
@@ -18781,15 +18781,15 @@ export class PathBar {
     raise_child(actor: Clutter.Actor, sibling?: Clutter.Actor | null): void
     remove_actor(actor: Clutter.Actor): void
     sort_depth_order(): void
-    /* Methods of Clutter.Scriptable */
+    /* Methods of Clutter-1.0.Clutter.Scriptable */
     get_id(): string
     parse_custom_node(script: Clutter.Script, value: any, name: string, node: Json.Node): boolean
     set_custom_property(script: Clutter.Script, name: string, value: any): void
     set_id(id_: string): void
-    /* Methods of Mx.Focusable */
+    /* Methods of Mx-2.0.Mx.Focusable */
     accept_focus(hint: FocusHint): Focusable
     move_focus(direction: FocusDirection, from: Focusable): Focusable
-    /* Methods of Mx.Stylable */
+    /* Methods of Mx-2.0.Mx.Stylable */
     apply_clutter_text_attributes(text: Clutter.Text): void
     connect_change_notifiers(): void
     disconnect_change_notifiers(): void
@@ -18806,10 +18806,10 @@ export class PathBar {
     style_pseudo_class_add(new_class: string): void
     style_pseudo_class_contains(pseudo_class: string): boolean
     style_pseudo_class_remove(remove_class: string): void
-    /* Virtual methods of Mx.PathBar */
+    /* Virtual methods of Mx-2.0.Mx.PathBar */
     vfunc_accept_focus(hint: FocusHint): Focusable
     vfunc_move_focus(direction: FocusDirection, from: Focusable): Focusable
-    /* Virtual methods of Mx.Widget */
+    /* Virtual methods of Mx-2.0.Mx.Widget */
     vfunc_long_press(action: LongPressAction, x: number, y: number): boolean
     vfunc_animate_property(animation: Clutter.Animation, property_name: string, initial_value: any, final_value: any, progress: number, value: any): boolean
     vfunc_find_property(property_name: string): GObject.ParamSpec
@@ -18840,7 +18840,7 @@ export class PathBar {
     vfunc_set_style_class(style_class: string): void
     vfunc_set_style_pseudo_class(pseudo_class: string): void
     vfunc_style_changed(flags: StyleChangedFlags): void
-    /* Virtual methods of Clutter.Actor */
+    /* Virtual methods of Clutter-1.0.Clutter.Actor */
     vfunc_allocate(box: Clutter.ActorBox, flags: Clutter.AllocationFlags): void
     vfunc_apply_transform(matrix: Clutter.Matrix): void
     vfunc_button_press_event(event: Clutter.ButtonEvent): boolean
@@ -18876,7 +18876,7 @@ export class PathBar {
     vfunc_touch_event(event: Clutter.TouchEvent): boolean
     vfunc_unmap(): void
     vfunc_unrealize(): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -18884,11 +18884,11 @@ export class PathBar {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Mx.Widget */
+    /* Signals of Mx-2.0.Mx.Widget */
     connect(sigName: "long-press", callback: (($obj: PathBar, object: number, p0: number, p1: LongPressAction) => boolean)): number
     connect_after(sigName: "long-press", callback: (($obj: PathBar, object: number, p0: number, p1: LongPressAction) => boolean)): number
     emit(sigName: "long-press", object: number, p0: number, p1: LongPressAction): void
-    /* Signals of Clutter.Actor */
+    /* Signals of Clutter-1.0.Clutter.Actor */
     connect(sigName: "allocation-changed", callback: (($obj: PathBar, box: Clutter.ActorBox, flags: Clutter.AllocationFlags) => void)): number
     connect_after(sigName: "allocation-changed", callback: (($obj: PathBar, box: Clutter.ActorBox, flags: Clutter.AllocationFlags) => void)): number
     emit(sigName: "allocation-changed", box: Clutter.ActorBox, flags: Clutter.AllocationFlags): void
@@ -18967,11 +18967,11 @@ export class PathBar {
     connect(sigName: "unrealize", callback: (($obj: PathBar) => void)): number
     connect_after(sigName: "unrealize", callback: (($obj: PathBar) => void)): number
     emit(sigName: "unrealize"): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: PathBar, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: PathBar, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    /* Signals of Clutter.Container */
+    /* Signals of Clutter-1.0.Clutter.Container */
     connect(sigName: "actor-added", callback: (($obj: PathBar, actor: Clutter.Actor) => void)): number
     connect_after(sigName: "actor-added", callback: (($obj: PathBar, actor: Clutter.Actor) => void)): number
     emit(sigName: "actor-added", actor: Clutter.Actor): void
@@ -18981,7 +18981,7 @@ export class PathBar {
     connect(sigName: "child-notify", callback: (($obj: PathBar, actor: Clutter.Actor, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "child-notify", callback: (($obj: PathBar, actor: Clutter.Actor, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "child-notify", actor: Clutter.Actor, pspec: GObject.ParamSpec): void
-    /* Signals of Mx.Stylable */
+    /* Signals of Mx-2.0.Mx.Stylable */
     connect(sigName: "style-changed", callback: (($obj: PathBar, flags: StyleChangedFlags) => void)): number
     connect_after(sigName: "style-changed", callback: (($obj: PathBar, flags: StyleChangedFlags) => void)): number
     emit(sigName: "style-changed", flags: StyleChangedFlags): void
@@ -19189,14 +19189,14 @@ export interface ProgressBar_ConstructProps extends Widget_ConstructProps {
     style_pseudo_class?: string
 }
 export class ProgressBar {
-    /* Properties of Mx.ProgressBar */
+    /* Properties of Mx-2.0.Mx.ProgressBar */
     progress: number
-    /* Properties of Mx.Widget */
+    /* Properties of Mx-2.0.Mx.Widget */
     disabled: boolean
     menu: Menu
     tooltip_delay: number
     tooltip_text: string
-    /* Properties of Clutter.Actor */
+    /* Properties of Clutter-1.0.Clutter.Actor */
     actions: Clutter.Action
     readonly allocation: Clutter.ActorBox
     anchor_gravity: Clutter.Gravity
@@ -19279,18 +19279,18 @@ export class ProgressBar {
     y_align: Clutter.ActorAlign
     y_expand: boolean
     z_position: number
-    /* Properties of Mx.Stylable */
+    /* Properties of Mx-2.0.Mx.Stylable */
     style: Style
     style_class: string
     style_pseudo_class: string
-    /* Fields of Clutter.Actor */
+    /* Fields of Clutter-1.0.Clutter.Actor */
     flags: number
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Mx.ProgressBar */
+    /* Methods of Mx-2.0.Mx.ProgressBar */
     get_progress(): number
     set_progress(progress: number): void
-    /* Methods of Mx.Widget */
+    /* Methods of Mx-2.0.Mx.Widget */
     apply_style(style: Style): void
     get_available_area(allocation: Clutter.ActorBox, area: Clutter.ActorBox): void
     get_background_color(): Clutter.Color
@@ -19308,7 +19308,7 @@ export class ProgressBar {
     set_tooltip_delay(delay: number): void
     set_tooltip_text(text: string): void
     show_tooltip(): void
-    /* Methods of Clutter.Actor */
+    /* Methods of Clutter-1.0.Clutter.Actor */
     add_action(action: Clutter.Action): void
     add_action_with_name(name: string, action: Clutter.Action): void
     add_child(child: Clutter.Actor): void
@@ -19544,7 +19544,7 @@ export class ProgressBar {
     unparent(): void
     unrealize(): void
     unset_flags(flags: Clutter.ActorFlags): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -19566,13 +19566,13 @@ export class ProgressBar {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of Clutter.Animatable */
+    /* Methods of Clutter-1.0.Clutter.Animatable */
     animate_property(animation: Clutter.Animation, property_name: string, initial_value: any, final_value: any, progress: number, value: any): boolean
     find_property(property_name: string): GObject.ParamSpec
     get_initial_state(property_name: string, value: any): void
     interpolate_value(property_name: string, interval: Clutter.Interval, progress: number): [ /* returnType */ boolean, /* value */ any ]
     set_final_state(property_name: string, value: any): void
-    /* Methods of Clutter.Container */
+    /* Methods of Clutter-1.0.Clutter.Container */
     add_actor(actor: Clutter.Actor): void
     child_get_property(child: Clutter.Actor, property: string, value: any): void
     child_notify(child: Clutter.Actor, pspec: GObject.ParamSpec): void
@@ -19587,12 +19587,12 @@ export class ProgressBar {
     raise_child(actor: Clutter.Actor, sibling?: Clutter.Actor | null): void
     remove_actor(actor: Clutter.Actor): void
     sort_depth_order(): void
-    /* Methods of Clutter.Scriptable */
+    /* Methods of Clutter-1.0.Clutter.Scriptable */
     get_id(): string
     parse_custom_node(script: Clutter.Script, value: any, name: string, node: Json.Node): boolean
     set_custom_property(script: Clutter.Script, name: string, value: any): void
     set_id(id_: string): void
-    /* Methods of Mx.Stylable */
+    /* Methods of Mx-2.0.Mx.Stylable */
     apply_clutter_text_attributes(text: Clutter.Text): void
     connect_change_notifiers(): void
     disconnect_change_notifiers(): void
@@ -19609,7 +19609,7 @@ export class ProgressBar {
     style_pseudo_class_add(new_class: string): void
     style_pseudo_class_contains(pseudo_class: string): boolean
     style_pseudo_class_remove(remove_class: string): void
-    /* Virtual methods of Mx.Widget */
+    /* Virtual methods of Mx-2.0.Mx.Widget */
     vfunc_long_press(action: LongPressAction, x: number, y: number): boolean
     vfunc_animate_property(animation: Clutter.Animation, property_name: string, initial_value: any, final_value: any, progress: number, value: any): boolean
     vfunc_find_property(property_name: string): GObject.ParamSpec
@@ -19640,7 +19640,7 @@ export class ProgressBar {
     vfunc_set_style_class(style_class: string): void
     vfunc_set_style_pseudo_class(pseudo_class: string): void
     vfunc_style_changed(flags: StyleChangedFlags): void
-    /* Virtual methods of Clutter.Actor */
+    /* Virtual methods of Clutter-1.0.Clutter.Actor */
     vfunc_allocate(box: Clutter.ActorBox, flags: Clutter.AllocationFlags): void
     vfunc_apply_transform(matrix: Clutter.Matrix): void
     vfunc_button_press_event(event: Clutter.ButtonEvent): boolean
@@ -19676,7 +19676,7 @@ export class ProgressBar {
     vfunc_touch_event(event: Clutter.TouchEvent): boolean
     vfunc_unmap(): void
     vfunc_unrealize(): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -19684,11 +19684,11 @@ export class ProgressBar {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Mx.Widget */
+    /* Signals of Mx-2.0.Mx.Widget */
     connect(sigName: "long-press", callback: (($obj: ProgressBar, object: number, p0: number, p1: LongPressAction) => boolean)): number
     connect_after(sigName: "long-press", callback: (($obj: ProgressBar, object: number, p0: number, p1: LongPressAction) => boolean)): number
     emit(sigName: "long-press", object: number, p0: number, p1: LongPressAction): void
-    /* Signals of Clutter.Actor */
+    /* Signals of Clutter-1.0.Clutter.Actor */
     connect(sigName: "allocation-changed", callback: (($obj: ProgressBar, box: Clutter.ActorBox, flags: Clutter.AllocationFlags) => void)): number
     connect_after(sigName: "allocation-changed", callback: (($obj: ProgressBar, box: Clutter.ActorBox, flags: Clutter.AllocationFlags) => void)): number
     emit(sigName: "allocation-changed", box: Clutter.ActorBox, flags: Clutter.AllocationFlags): void
@@ -19767,11 +19767,11 @@ export class ProgressBar {
     connect(sigName: "unrealize", callback: (($obj: ProgressBar) => void)): number
     connect_after(sigName: "unrealize", callback: (($obj: ProgressBar) => void)): number
     emit(sigName: "unrealize"): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: ProgressBar, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: ProgressBar, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    /* Signals of Clutter.Container */
+    /* Signals of Clutter-1.0.Clutter.Container */
     connect(sigName: "actor-added", callback: (($obj: ProgressBar, actor: Clutter.Actor) => void)): number
     connect_after(sigName: "actor-added", callback: (($obj: ProgressBar, actor: Clutter.Actor) => void)): number
     emit(sigName: "actor-added", actor: Clutter.Actor): void
@@ -19781,7 +19781,7 @@ export class ProgressBar {
     connect(sigName: "child-notify", callback: (($obj: ProgressBar, actor: Clutter.Actor, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "child-notify", callback: (($obj: ProgressBar, actor: Clutter.Actor, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "child-notify", actor: Clutter.Actor, pspec: GObject.ParamSpec): void
-    /* Signals of Mx.Stylable */
+    /* Signals of Mx-2.0.Mx.Stylable */
     connect(sigName: "style-changed", callback: (($obj: ProgressBar, flags: StyleChangedFlags) => void)): number
     connect_after(sigName: "style-changed", callback: (($obj: ProgressBar, flags: StyleChangedFlags) => void)): number
     emit(sigName: "style-changed", flags: StyleChangedFlags): void
@@ -19984,15 +19984,15 @@ export interface ScrollBar_ConstructProps extends Widget_ConstructProps {
     style_pseudo_class?: string
 }
 export class ScrollBar {
-    /* Properties of Mx.ScrollBar */
+    /* Properties of Mx-2.0.Mx.ScrollBar */
     adjustment: Adjustment
     orientation: Orientation
-    /* Properties of Mx.Widget */
+    /* Properties of Mx-2.0.Mx.Widget */
     disabled: boolean
     menu: Menu
     tooltip_delay: number
     tooltip_text: string
-    /* Properties of Clutter.Actor */
+    /* Properties of Clutter-1.0.Clutter.Actor */
     actions: Clutter.Action
     readonly allocation: Clutter.ActorBox
     anchor_gravity: Clutter.Gravity
@@ -20075,20 +20075,20 @@ export class ScrollBar {
     y_align: Clutter.ActorAlign
     y_expand: boolean
     z_position: number
-    /* Properties of Mx.Stylable */
+    /* Properties of Mx-2.0.Mx.Stylable */
     style: Style
     style_class: string
     style_pseudo_class: string
-    /* Fields of Clutter.Actor */
+    /* Fields of Clutter-1.0.Clutter.Actor */
     flags: number
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Mx.ScrollBar */
+    /* Methods of Mx-2.0.Mx.ScrollBar */
     get_adjustment(): Adjustment
     get_orientation(): Orientation
     set_adjustment(adjustment: Adjustment): void
     set_orientation(orientation: Orientation): void
-    /* Methods of Mx.Widget */
+    /* Methods of Mx-2.0.Mx.Widget */
     apply_style(style: Style): void
     get_available_area(allocation: Clutter.ActorBox, area: Clutter.ActorBox): void
     get_background_color(): Clutter.Color
@@ -20106,7 +20106,7 @@ export class ScrollBar {
     set_tooltip_delay(delay: number): void
     set_tooltip_text(text: string): void
     show_tooltip(): void
-    /* Methods of Clutter.Actor */
+    /* Methods of Clutter-1.0.Clutter.Actor */
     add_action(action: Clutter.Action): void
     add_action_with_name(name: string, action: Clutter.Action): void
     add_child(child: Clutter.Actor): void
@@ -20342,7 +20342,7 @@ export class ScrollBar {
     unparent(): void
     unrealize(): void
     unset_flags(flags: Clutter.ActorFlags): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -20364,13 +20364,13 @@ export class ScrollBar {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of Clutter.Animatable */
+    /* Methods of Clutter-1.0.Clutter.Animatable */
     animate_property(animation: Clutter.Animation, property_name: string, initial_value: any, final_value: any, progress: number, value: any): boolean
     find_property(property_name: string): GObject.ParamSpec
     get_initial_state(property_name: string, value: any): void
     interpolate_value(property_name: string, interval: Clutter.Interval, progress: number): [ /* returnType */ boolean, /* value */ any ]
     set_final_state(property_name: string, value: any): void
-    /* Methods of Clutter.Container */
+    /* Methods of Clutter-1.0.Clutter.Container */
     add_actor(actor: Clutter.Actor): void
     child_get_property(child: Clutter.Actor, property: string, value: any): void
     child_notify(child: Clutter.Actor, pspec: GObject.ParamSpec): void
@@ -20385,12 +20385,12 @@ export class ScrollBar {
     raise_child(actor: Clutter.Actor, sibling?: Clutter.Actor | null): void
     remove_actor(actor: Clutter.Actor): void
     sort_depth_order(): void
-    /* Methods of Clutter.Scriptable */
+    /* Methods of Clutter-1.0.Clutter.Scriptable */
     get_id(): string
     parse_custom_node(script: Clutter.Script, value: any, name: string, node: Json.Node): boolean
     set_custom_property(script: Clutter.Script, name: string, value: any): void
     set_id(id_: string): void
-    /* Methods of Mx.Stylable */
+    /* Methods of Mx-2.0.Mx.Stylable */
     apply_clutter_text_attributes(text: Clutter.Text): void
     connect_change_notifiers(): void
     disconnect_change_notifiers(): void
@@ -20407,10 +20407,10 @@ export class ScrollBar {
     style_pseudo_class_add(new_class: string): void
     style_pseudo_class_contains(pseudo_class: string): boolean
     style_pseudo_class_remove(remove_class: string): void
-    /* Virtual methods of Mx.ScrollBar */
+    /* Virtual methods of Mx-2.0.Mx.ScrollBar */
     vfunc_scroll_start(): void
     vfunc_scroll_stop(): void
-    /* Virtual methods of Mx.Widget */
+    /* Virtual methods of Mx-2.0.Mx.Widget */
     vfunc_long_press(action: LongPressAction, x: number, y: number): boolean
     vfunc_animate_property(animation: Clutter.Animation, property_name: string, initial_value: any, final_value: any, progress: number, value: any): boolean
     vfunc_find_property(property_name: string): GObject.ParamSpec
@@ -20441,7 +20441,7 @@ export class ScrollBar {
     vfunc_set_style_class(style_class: string): void
     vfunc_set_style_pseudo_class(pseudo_class: string): void
     vfunc_style_changed(flags: StyleChangedFlags): void
-    /* Virtual methods of Clutter.Actor */
+    /* Virtual methods of Clutter-1.0.Clutter.Actor */
     vfunc_allocate(box: Clutter.ActorBox, flags: Clutter.AllocationFlags): void
     vfunc_apply_transform(matrix: Clutter.Matrix): void
     vfunc_button_press_event(event: Clutter.ButtonEvent): boolean
@@ -20477,7 +20477,7 @@ export class ScrollBar {
     vfunc_touch_event(event: Clutter.TouchEvent): boolean
     vfunc_unmap(): void
     vfunc_unrealize(): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -20485,18 +20485,18 @@ export class ScrollBar {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Mx.ScrollBar */
+    /* Signals of Mx-2.0.Mx.ScrollBar */
     connect(sigName: "scroll-start", callback: (($obj: ScrollBar) => void)): number
     connect_after(sigName: "scroll-start", callback: (($obj: ScrollBar) => void)): number
     emit(sigName: "scroll-start"): void
     connect(sigName: "scroll-stop", callback: (($obj: ScrollBar) => void)): number
     connect_after(sigName: "scroll-stop", callback: (($obj: ScrollBar) => void)): number
     emit(sigName: "scroll-stop"): void
-    /* Signals of Mx.Widget */
+    /* Signals of Mx-2.0.Mx.Widget */
     connect(sigName: "long-press", callback: (($obj: ScrollBar, object: number, p0: number, p1: LongPressAction) => boolean)): number
     connect_after(sigName: "long-press", callback: (($obj: ScrollBar, object: number, p0: number, p1: LongPressAction) => boolean)): number
     emit(sigName: "long-press", object: number, p0: number, p1: LongPressAction): void
-    /* Signals of Clutter.Actor */
+    /* Signals of Clutter-1.0.Clutter.Actor */
     connect(sigName: "allocation-changed", callback: (($obj: ScrollBar, box: Clutter.ActorBox, flags: Clutter.AllocationFlags) => void)): number
     connect_after(sigName: "allocation-changed", callback: (($obj: ScrollBar, box: Clutter.ActorBox, flags: Clutter.AllocationFlags) => void)): number
     emit(sigName: "allocation-changed", box: Clutter.ActorBox, flags: Clutter.AllocationFlags): void
@@ -20575,11 +20575,11 @@ export class ScrollBar {
     connect(sigName: "unrealize", callback: (($obj: ScrollBar) => void)): number
     connect_after(sigName: "unrealize", callback: (($obj: ScrollBar) => void)): number
     emit(sigName: "unrealize"): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: ScrollBar, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: ScrollBar, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    /* Signals of Clutter.Container */
+    /* Signals of Clutter-1.0.Clutter.Container */
     connect(sigName: "actor-added", callback: (($obj: ScrollBar, actor: Clutter.Actor) => void)): number
     connect_after(sigName: "actor-added", callback: (($obj: ScrollBar, actor: Clutter.Actor) => void)): number
     emit(sigName: "actor-added", actor: Clutter.Actor): void
@@ -20589,7 +20589,7 @@ export class ScrollBar {
     connect(sigName: "child-notify", callback: (($obj: ScrollBar, actor: Clutter.Actor, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "child-notify", callback: (($obj: ScrollBar, actor: Clutter.Actor, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "child-notify", actor: Clutter.Actor, pspec: GObject.ParamSpec): void
-    /* Signals of Mx.Stylable */
+    /* Signals of Mx-2.0.Mx.Stylable */
     connect(sigName: "style-changed", callback: (($obj: ScrollBar, flags: StyleChangedFlags) => void)): number
     connect_after(sigName: "style-changed", callback: (($obj: ScrollBar, flags: StyleChangedFlags) => void)): number
     emit(sigName: "style-changed", flags: StyleChangedFlags): void
@@ -20796,16 +20796,16 @@ export interface ScrollView_ConstructProps extends Widget_ConstructProps {
     style_pseudo_class?: string
 }
 export class ScrollView {
-    /* Properties of Mx.ScrollView */
+    /* Properties of Mx-2.0.Mx.ScrollView */
     enable_mouse_scrolling: boolean
     scroll_policy: ScrollPolicy
     scroll_visibility: ScrollPolicy
-    /* Properties of Mx.Widget */
+    /* Properties of Mx-2.0.Mx.Widget */
     disabled: boolean
     menu: Menu
     tooltip_delay: number
     tooltip_text: string
-    /* Properties of Clutter.Actor */
+    /* Properties of Clutter-1.0.Clutter.Actor */
     actions: Clutter.Action
     readonly allocation: Clutter.ActorBox
     anchor_gravity: Clutter.Gravity
@@ -20888,15 +20888,15 @@ export class ScrollView {
     y_align: Clutter.ActorAlign
     y_expand: boolean
     z_position: number
-    /* Properties of Mx.Stylable */
+    /* Properties of Mx-2.0.Mx.Stylable */
     style: Style
     style_class: string
     style_pseudo_class: string
-    /* Fields of Clutter.Actor */
+    /* Fields of Clutter-1.0.Clutter.Actor */
     flags: number
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Mx.ScrollView */
+    /* Methods of Mx-2.0.Mx.ScrollView */
     ensure_visible(geometry: Clutter.Geometry): void
     get_enable_mouse_scrolling(): boolean
     get_scroll_policy(): ScrollPolicy
@@ -20904,7 +20904,7 @@ export class ScrollView {
     set_enable_mouse_scrolling(enabled: boolean): void
     set_scroll_policy(policy: ScrollPolicy): void
     set_scroll_visibility(visibility: ScrollPolicy): void
-    /* Methods of Mx.Widget */
+    /* Methods of Mx-2.0.Mx.Widget */
     apply_style(style: Style): void
     get_available_area(allocation: Clutter.ActorBox, area: Clutter.ActorBox): void
     get_background_color(): Clutter.Color
@@ -20922,7 +20922,7 @@ export class ScrollView {
     set_tooltip_delay(delay: number): void
     set_tooltip_text(text: string): void
     show_tooltip(): void
-    /* Methods of Clutter.Actor */
+    /* Methods of Clutter-1.0.Clutter.Actor */
     add_action(action: Clutter.Action): void
     add_action_with_name(name: string, action: Clutter.Action): void
     add_child(child: Clutter.Actor): void
@@ -21158,7 +21158,7 @@ export class ScrollView {
     unparent(): void
     unrealize(): void
     unset_flags(flags: Clutter.ActorFlags): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -21180,13 +21180,13 @@ export class ScrollView {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of Clutter.Animatable */
+    /* Methods of Clutter-1.0.Clutter.Animatable */
     animate_property(animation: Clutter.Animation, property_name: string, initial_value: any, final_value: any, progress: number, value: any): boolean
     find_property(property_name: string): GObject.ParamSpec
     get_initial_state(property_name: string, value: any): void
     interpolate_value(property_name: string, interval: Clutter.Interval, progress: number): [ /* returnType */ boolean, /* value */ any ]
     set_final_state(property_name: string, value: any): void
-    /* Methods of Clutter.Container */
+    /* Methods of Clutter-1.0.Clutter.Container */
     add_actor(actor: Clutter.Actor): void
     child_get_property(child: Clutter.Actor, property: string, value: any): void
     child_notify(child: Clutter.Actor, pspec: GObject.ParamSpec): void
@@ -21201,12 +21201,12 @@ export class ScrollView {
     raise_child(actor: Clutter.Actor, sibling?: Clutter.Actor | null): void
     remove_actor(actor: Clutter.Actor): void
     sort_depth_order(): void
-    /* Methods of Clutter.Scriptable */
+    /* Methods of Clutter-1.0.Clutter.Scriptable */
     get_id(): string
     parse_custom_node(script: Clutter.Script, value: any, name: string, node: Json.Node): boolean
     set_custom_property(script: Clutter.Script, name: string, value: any): void
     set_id(id_: string): void
-    /* Methods of Mx.Stylable */
+    /* Methods of Mx-2.0.Mx.Stylable */
     apply_clutter_text_attributes(text: Clutter.Text): void
     connect_change_notifiers(): void
     disconnect_change_notifiers(): void
@@ -21223,7 +21223,7 @@ export class ScrollView {
     style_pseudo_class_add(new_class: string): void
     style_pseudo_class_contains(pseudo_class: string): boolean
     style_pseudo_class_remove(remove_class: string): void
-    /* Virtual methods of Mx.Widget */
+    /* Virtual methods of Mx-2.0.Mx.Widget */
     vfunc_long_press(action: LongPressAction, x: number, y: number): boolean
     vfunc_animate_property(animation: Clutter.Animation, property_name: string, initial_value: any, final_value: any, progress: number, value: any): boolean
     vfunc_find_property(property_name: string): GObject.ParamSpec
@@ -21254,7 +21254,7 @@ export class ScrollView {
     vfunc_set_style_class(style_class: string): void
     vfunc_set_style_pseudo_class(pseudo_class: string): void
     vfunc_style_changed(flags: StyleChangedFlags): void
-    /* Virtual methods of Clutter.Actor */
+    /* Virtual methods of Clutter-1.0.Clutter.Actor */
     vfunc_allocate(box: Clutter.ActorBox, flags: Clutter.AllocationFlags): void
     vfunc_apply_transform(matrix: Clutter.Matrix): void
     vfunc_button_press_event(event: Clutter.ButtonEvent): boolean
@@ -21290,7 +21290,7 @@ export class ScrollView {
     vfunc_touch_event(event: Clutter.TouchEvent): boolean
     vfunc_unmap(): void
     vfunc_unrealize(): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -21298,11 +21298,11 @@ export class ScrollView {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Mx.Widget */
+    /* Signals of Mx-2.0.Mx.Widget */
     connect(sigName: "long-press", callback: (($obj: ScrollView, object: number, p0: number, p1: LongPressAction) => boolean)): number
     connect_after(sigName: "long-press", callback: (($obj: ScrollView, object: number, p0: number, p1: LongPressAction) => boolean)): number
     emit(sigName: "long-press", object: number, p0: number, p1: LongPressAction): void
-    /* Signals of Clutter.Actor */
+    /* Signals of Clutter-1.0.Clutter.Actor */
     connect(sigName: "allocation-changed", callback: (($obj: ScrollView, box: Clutter.ActorBox, flags: Clutter.AllocationFlags) => void)): number
     connect_after(sigName: "allocation-changed", callback: (($obj: ScrollView, box: Clutter.ActorBox, flags: Clutter.AllocationFlags) => void)): number
     emit(sigName: "allocation-changed", box: Clutter.ActorBox, flags: Clutter.AllocationFlags): void
@@ -21381,11 +21381,11 @@ export class ScrollView {
     connect(sigName: "unrealize", callback: (($obj: ScrollView) => void)): number
     connect_after(sigName: "unrealize", callback: (($obj: ScrollView) => void)): number
     emit(sigName: "unrealize"): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: ScrollView, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: ScrollView, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    /* Signals of Clutter.Container */
+    /* Signals of Clutter-1.0.Clutter.Container */
     connect(sigName: "actor-added", callback: (($obj: ScrollView, actor: Clutter.Actor) => void)): number
     connect_after(sigName: "actor-added", callback: (($obj: ScrollView, actor: Clutter.Actor) => void)): number
     emit(sigName: "actor-added", actor: Clutter.Actor): void
@@ -21395,7 +21395,7 @@ export class ScrollView {
     connect(sigName: "child-notify", callback: (($obj: ScrollView, actor: Clutter.Actor, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "child-notify", callback: (($obj: ScrollView, actor: Clutter.Actor, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "child-notify", actor: Clutter.Actor, pspec: GObject.ParamSpec): void
-    /* Signals of Mx.Stylable */
+    /* Signals of Mx-2.0.Mx.Stylable */
     connect(sigName: "style-changed", callback: (($obj: ScrollView, flags: StyleChangedFlags) => void)): number
     connect_after(sigName: "style-changed", callback: (($obj: ScrollView, flags: StyleChangedFlags) => void)): number
     emit(sigName: "style-changed", flags: StyleChangedFlags): void
@@ -21603,19 +21603,19 @@ export interface Settings_ConstructProps extends GObject.Object_ConstructProps {
     touch_mode?: boolean
 }
 export class Settings {
-    /* Properties of Mx.Settings */
+    /* Properties of Mx-2.0.Mx.Settings */
     drag_threshold: number
     font_name: string
     icon_theme: string
     long_press_timeout: number
     small_screen: boolean
     touch_mode: boolean
-    /* Fields of Mx.Settings */
+    /* Fields of Mx-2.0.Mx.Settings */
     parent: GObject.Object
     priv: SettingsPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -21637,7 +21637,7 @@ export class Settings {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -21645,7 +21645,7 @@ export class Settings {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Settings, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Settings, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -21680,15 +21680,15 @@ export interface Slider_ConstructProps extends Widget_ConstructProps {
     style_pseudo_class?: string
 }
 export class Slider {
-    /* Properties of Mx.Slider */
+    /* Properties of Mx-2.0.Mx.Slider */
     buffer_value: number
     value: number
-    /* Properties of Mx.Widget */
+    /* Properties of Mx-2.0.Mx.Widget */
     disabled: boolean
     menu: Menu
     tooltip_delay: number
     tooltip_text: string
-    /* Properties of Clutter.Actor */
+    /* Properties of Clutter-1.0.Clutter.Actor */
     actions: Clutter.Action
     readonly allocation: Clutter.ActorBox
     anchor_gravity: Clutter.Gravity
@@ -21771,20 +21771,20 @@ export class Slider {
     y_align: Clutter.ActorAlign
     y_expand: boolean
     z_position: number
-    /* Properties of Mx.Stylable */
+    /* Properties of Mx-2.0.Mx.Stylable */
     style: Style
     style_class: string
     style_pseudo_class: string
-    /* Fields of Clutter.Actor */
+    /* Fields of Clutter-1.0.Clutter.Actor */
     flags: number
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Mx.Slider */
+    /* Methods of Mx-2.0.Mx.Slider */
     get_buffer_value(): number
     get_value(): number
     set_buffer_value(value: number): void
     set_value(value: number): void
-    /* Methods of Mx.Widget */
+    /* Methods of Mx-2.0.Mx.Widget */
     apply_style(style: Style): void
     get_available_area(allocation: Clutter.ActorBox, area: Clutter.ActorBox): void
     get_background_color(): Clutter.Color
@@ -21802,7 +21802,7 @@ export class Slider {
     set_tooltip_delay(delay: number): void
     set_tooltip_text(text: string): void
     show_tooltip(): void
-    /* Methods of Clutter.Actor */
+    /* Methods of Clutter-1.0.Clutter.Actor */
     add_action(action: Clutter.Action): void
     add_action_with_name(name: string, action: Clutter.Action): void
     add_child(child: Clutter.Actor): void
@@ -22038,7 +22038,7 @@ export class Slider {
     unparent(): void
     unrealize(): void
     unset_flags(flags: Clutter.ActorFlags): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -22060,13 +22060,13 @@ export class Slider {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of Clutter.Animatable */
+    /* Methods of Clutter-1.0.Clutter.Animatable */
     animate_property(animation: Clutter.Animation, property_name: string, initial_value: any, final_value: any, progress: number, value: any): boolean
     find_property(property_name: string): GObject.ParamSpec
     get_initial_state(property_name: string, value: any): void
     interpolate_value(property_name: string, interval: Clutter.Interval, progress: number): [ /* returnType */ boolean, /* value */ any ]
     set_final_state(property_name: string, value: any): void
-    /* Methods of Clutter.Container */
+    /* Methods of Clutter-1.0.Clutter.Container */
     add_actor(actor: Clutter.Actor): void
     child_get_property(child: Clutter.Actor, property: string, value: any): void
     child_notify(child: Clutter.Actor, pspec: GObject.ParamSpec): void
@@ -22081,15 +22081,15 @@ export class Slider {
     raise_child(actor: Clutter.Actor, sibling?: Clutter.Actor | null): void
     remove_actor(actor: Clutter.Actor): void
     sort_depth_order(): void
-    /* Methods of Clutter.Scriptable */
+    /* Methods of Clutter-1.0.Clutter.Scriptable */
     get_id(): string
     parse_custom_node(script: Clutter.Script, value: any, name: string, node: Json.Node): boolean
     set_custom_property(script: Clutter.Script, name: string, value: any): void
     set_id(id_: string): void
-    /* Methods of Mx.Focusable */
+    /* Methods of Mx-2.0.Mx.Focusable */
     accept_focus(hint: FocusHint): Focusable
     move_focus(direction: FocusDirection, from: Focusable): Focusable
-    /* Methods of Mx.Stylable */
+    /* Methods of Mx-2.0.Mx.Stylable */
     apply_clutter_text_attributes(text: Clutter.Text): void
     connect_change_notifiers(): void
     disconnect_change_notifiers(): void
@@ -22106,10 +22106,10 @@ export class Slider {
     style_pseudo_class_add(new_class: string): void
     style_pseudo_class_contains(pseudo_class: string): boolean
     style_pseudo_class_remove(remove_class: string): void
-    /* Virtual methods of Mx.Slider */
+    /* Virtual methods of Mx-2.0.Mx.Slider */
     vfunc_accept_focus(hint: FocusHint): Focusable
     vfunc_move_focus(direction: FocusDirection, from: Focusable): Focusable
-    /* Virtual methods of Mx.Widget */
+    /* Virtual methods of Mx-2.0.Mx.Widget */
     vfunc_long_press(action: LongPressAction, x: number, y: number): boolean
     vfunc_animate_property(animation: Clutter.Animation, property_name: string, initial_value: any, final_value: any, progress: number, value: any): boolean
     vfunc_find_property(property_name: string): GObject.ParamSpec
@@ -22140,7 +22140,7 @@ export class Slider {
     vfunc_set_style_class(style_class: string): void
     vfunc_set_style_pseudo_class(pseudo_class: string): void
     vfunc_style_changed(flags: StyleChangedFlags): void
-    /* Virtual methods of Clutter.Actor */
+    /* Virtual methods of Clutter-1.0.Clutter.Actor */
     vfunc_allocate(box: Clutter.ActorBox, flags: Clutter.AllocationFlags): void
     vfunc_apply_transform(matrix: Clutter.Matrix): void
     vfunc_button_press_event(event: Clutter.ButtonEvent): boolean
@@ -22176,7 +22176,7 @@ export class Slider {
     vfunc_touch_event(event: Clutter.TouchEvent): boolean
     vfunc_unmap(): void
     vfunc_unrealize(): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -22184,18 +22184,18 @@ export class Slider {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Mx.Slider */
+    /* Signals of Mx-2.0.Mx.Slider */
     connect(sigName: "slide-start", callback: (($obj: Slider) => void)): number
     connect_after(sigName: "slide-start", callback: (($obj: Slider) => void)): number
     emit(sigName: "slide-start"): void
     connect(sigName: "slide-stop", callback: (($obj: Slider) => void)): number
     connect_after(sigName: "slide-stop", callback: (($obj: Slider) => void)): number
     emit(sigName: "slide-stop"): void
-    /* Signals of Mx.Widget */
+    /* Signals of Mx-2.0.Mx.Widget */
     connect(sigName: "long-press", callback: (($obj: Slider, object: number, p0: number, p1: LongPressAction) => boolean)): number
     connect_after(sigName: "long-press", callback: (($obj: Slider, object: number, p0: number, p1: LongPressAction) => boolean)): number
     emit(sigName: "long-press", object: number, p0: number, p1: LongPressAction): void
-    /* Signals of Clutter.Actor */
+    /* Signals of Clutter-1.0.Clutter.Actor */
     connect(sigName: "allocation-changed", callback: (($obj: Slider, box: Clutter.ActorBox, flags: Clutter.AllocationFlags) => void)): number
     connect_after(sigName: "allocation-changed", callback: (($obj: Slider, box: Clutter.ActorBox, flags: Clutter.AllocationFlags) => void)): number
     emit(sigName: "allocation-changed", box: Clutter.ActorBox, flags: Clutter.AllocationFlags): void
@@ -22274,11 +22274,11 @@ export class Slider {
     connect(sigName: "unrealize", callback: (($obj: Slider) => void)): number
     connect_after(sigName: "unrealize", callback: (($obj: Slider) => void)): number
     emit(sigName: "unrealize"): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Slider, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Slider, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    /* Signals of Clutter.Container */
+    /* Signals of Clutter-1.0.Clutter.Container */
     connect(sigName: "actor-added", callback: (($obj: Slider, actor: Clutter.Actor) => void)): number
     connect_after(sigName: "actor-added", callback: (($obj: Slider, actor: Clutter.Actor) => void)): number
     emit(sigName: "actor-added", actor: Clutter.Actor): void
@@ -22288,7 +22288,7 @@ export class Slider {
     connect(sigName: "child-notify", callback: (($obj: Slider, actor: Clutter.Actor, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "child-notify", callback: (($obj: Slider, actor: Clutter.Actor, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "child-notify", actor: Clutter.Actor, pspec: GObject.ParamSpec): void
-    /* Signals of Mx.Stylable */
+    /* Signals of Mx-2.0.Mx.Stylable */
     connect(sigName: "style-changed", callback: (($obj: Slider, flags: StyleChangedFlags) => void)): number
     connect_after(sigName: "style-changed", callback: (($obj: Slider, flags: StyleChangedFlags) => void)): number
     emit(sigName: "style-changed", flags: StyleChangedFlags): void
@@ -22492,14 +22492,14 @@ export interface Spinner_ConstructProps extends Widget_ConstructProps {
     style_pseudo_class?: string
 }
 export class Spinner {
-    /* Properties of Mx.Spinner */
+    /* Properties of Mx-2.0.Mx.Spinner */
     animating: boolean
-    /* Properties of Mx.Widget */
+    /* Properties of Mx-2.0.Mx.Widget */
     disabled: boolean
     menu: Menu
     tooltip_delay: number
     tooltip_text: string
-    /* Properties of Clutter.Actor */
+    /* Properties of Clutter-1.0.Clutter.Actor */
     actions: Clutter.Action
     readonly allocation: Clutter.ActorBox
     anchor_gravity: Clutter.Gravity
@@ -22582,18 +22582,18 @@ export class Spinner {
     y_align: Clutter.ActorAlign
     y_expand: boolean
     z_position: number
-    /* Properties of Mx.Stylable */
+    /* Properties of Mx-2.0.Mx.Stylable */
     style: Style
     style_class: string
     style_pseudo_class: string
-    /* Fields of Clutter.Actor */
+    /* Fields of Clutter-1.0.Clutter.Actor */
     flags: number
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Mx.Spinner */
+    /* Methods of Mx-2.0.Mx.Spinner */
     get_animating(): boolean
     set_animating(animating: boolean): void
-    /* Methods of Mx.Widget */
+    /* Methods of Mx-2.0.Mx.Widget */
     apply_style(style: Style): void
     get_available_area(allocation: Clutter.ActorBox, area: Clutter.ActorBox): void
     get_background_color(): Clutter.Color
@@ -22611,7 +22611,7 @@ export class Spinner {
     set_tooltip_delay(delay: number): void
     set_tooltip_text(text: string): void
     show_tooltip(): void
-    /* Methods of Clutter.Actor */
+    /* Methods of Clutter-1.0.Clutter.Actor */
     add_action(action: Clutter.Action): void
     add_action_with_name(name: string, action: Clutter.Action): void
     add_child(child: Clutter.Actor): void
@@ -22847,7 +22847,7 @@ export class Spinner {
     unparent(): void
     unrealize(): void
     unset_flags(flags: Clutter.ActorFlags): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -22869,13 +22869,13 @@ export class Spinner {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of Clutter.Animatable */
+    /* Methods of Clutter-1.0.Clutter.Animatable */
     animate_property(animation: Clutter.Animation, property_name: string, initial_value: any, final_value: any, progress: number, value: any): boolean
     find_property(property_name: string): GObject.ParamSpec
     get_initial_state(property_name: string, value: any): void
     interpolate_value(property_name: string, interval: Clutter.Interval, progress: number): [ /* returnType */ boolean, /* value */ any ]
     set_final_state(property_name: string, value: any): void
-    /* Methods of Clutter.Container */
+    /* Methods of Clutter-1.0.Clutter.Container */
     add_actor(actor: Clutter.Actor): void
     child_get_property(child: Clutter.Actor, property: string, value: any): void
     child_notify(child: Clutter.Actor, pspec: GObject.ParamSpec): void
@@ -22890,12 +22890,12 @@ export class Spinner {
     raise_child(actor: Clutter.Actor, sibling?: Clutter.Actor | null): void
     remove_actor(actor: Clutter.Actor): void
     sort_depth_order(): void
-    /* Methods of Clutter.Scriptable */
+    /* Methods of Clutter-1.0.Clutter.Scriptable */
     get_id(): string
     parse_custom_node(script: Clutter.Script, value: any, name: string, node: Json.Node): boolean
     set_custom_property(script: Clutter.Script, name: string, value: any): void
     set_id(id_: string): void
-    /* Methods of Mx.Stylable */
+    /* Methods of Mx-2.0.Mx.Stylable */
     apply_clutter_text_attributes(text: Clutter.Text): void
     connect_change_notifiers(): void
     disconnect_change_notifiers(): void
@@ -22912,9 +22912,9 @@ export class Spinner {
     style_pseudo_class_add(new_class: string): void
     style_pseudo_class_contains(pseudo_class: string): boolean
     style_pseudo_class_remove(remove_class: string): void
-    /* Virtual methods of Mx.Spinner */
+    /* Virtual methods of Mx-2.0.Mx.Spinner */
     vfunc_looped(): void
-    /* Virtual methods of Mx.Widget */
+    /* Virtual methods of Mx-2.0.Mx.Widget */
     vfunc_long_press(action: LongPressAction, x: number, y: number): boolean
     vfunc_animate_property(animation: Clutter.Animation, property_name: string, initial_value: any, final_value: any, progress: number, value: any): boolean
     vfunc_find_property(property_name: string): GObject.ParamSpec
@@ -22945,7 +22945,7 @@ export class Spinner {
     vfunc_set_style_class(style_class: string): void
     vfunc_set_style_pseudo_class(pseudo_class: string): void
     vfunc_style_changed(flags: StyleChangedFlags): void
-    /* Virtual methods of Clutter.Actor */
+    /* Virtual methods of Clutter-1.0.Clutter.Actor */
     vfunc_allocate(box: Clutter.ActorBox, flags: Clutter.AllocationFlags): void
     vfunc_apply_transform(matrix: Clutter.Matrix): void
     vfunc_button_press_event(event: Clutter.ButtonEvent): boolean
@@ -22981,7 +22981,7 @@ export class Spinner {
     vfunc_touch_event(event: Clutter.TouchEvent): boolean
     vfunc_unmap(): void
     vfunc_unrealize(): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -22989,15 +22989,15 @@ export class Spinner {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Mx.Spinner */
+    /* Signals of Mx-2.0.Mx.Spinner */
     connect(sigName: "looped", callback: (($obj: Spinner) => void)): number
     connect_after(sigName: "looped", callback: (($obj: Spinner) => void)): number
     emit(sigName: "looped"): void
-    /* Signals of Mx.Widget */
+    /* Signals of Mx-2.0.Mx.Widget */
     connect(sigName: "long-press", callback: (($obj: Spinner, object: number, p0: number, p1: LongPressAction) => boolean)): number
     connect_after(sigName: "long-press", callback: (($obj: Spinner, object: number, p0: number, p1: LongPressAction) => boolean)): number
     emit(sigName: "long-press", object: number, p0: number, p1: LongPressAction): void
-    /* Signals of Clutter.Actor */
+    /* Signals of Clutter-1.0.Clutter.Actor */
     connect(sigName: "allocation-changed", callback: (($obj: Spinner, box: Clutter.ActorBox, flags: Clutter.AllocationFlags) => void)): number
     connect_after(sigName: "allocation-changed", callback: (($obj: Spinner, box: Clutter.ActorBox, flags: Clutter.AllocationFlags) => void)): number
     emit(sigName: "allocation-changed", box: Clutter.ActorBox, flags: Clutter.AllocationFlags): void
@@ -23076,11 +23076,11 @@ export class Spinner {
     connect(sigName: "unrealize", callback: (($obj: Spinner) => void)): number
     connect_after(sigName: "unrealize", callback: (($obj: Spinner) => void)): number
     emit(sigName: "unrealize"): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Spinner, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Spinner, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    /* Signals of Clutter.Container */
+    /* Signals of Clutter-1.0.Clutter.Container */
     connect(sigName: "actor-added", callback: (($obj: Spinner, actor: Clutter.Actor) => void)): number
     connect_after(sigName: "actor-added", callback: (($obj: Spinner, actor: Clutter.Actor) => void)): number
     emit(sigName: "actor-added", actor: Clutter.Actor): void
@@ -23090,7 +23090,7 @@ export class Spinner {
     connect(sigName: "child-notify", callback: (($obj: Spinner, actor: Clutter.Actor, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "child-notify", callback: (($obj: Spinner, actor: Clutter.Actor, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "child-notify", actor: Clutter.Actor, pspec: GObject.ParamSpec): void
-    /* Signals of Mx.Stylable */
+    /* Signals of Mx-2.0.Mx.Stylable */
     connect(sigName: "style-changed", callback: (($obj: Spinner, flags: StyleChangedFlags) => void)): number
     connect_after(sigName: "style-changed", callback: (($obj: Spinner, flags: StyleChangedFlags) => void)): number
     emit(sigName: "style-changed", flags: StyleChangedFlags): void
@@ -23291,12 +23291,12 @@ export interface Stack_ConstructProps extends Widget_ConstructProps {
     style_pseudo_class?: string
 }
 export class Stack {
-    /* Properties of Mx.Widget */
+    /* Properties of Mx-2.0.Mx.Widget */
     disabled: boolean
     menu: Menu
     tooltip_delay: number
     tooltip_text: string
-    /* Properties of Clutter.Actor */
+    /* Properties of Clutter-1.0.Clutter.Actor */
     actions: Clutter.Action
     readonly allocation: Clutter.ActorBox
     anchor_gravity: Clutter.Gravity
@@ -23379,15 +23379,15 @@ export class Stack {
     y_align: Clutter.ActorAlign
     y_expand: boolean
     z_position: number
-    /* Properties of Mx.Stylable */
+    /* Properties of Mx-2.0.Mx.Stylable */
     style: Style
     style_class: string
     style_pseudo_class: string
-    /* Fields of Clutter.Actor */
+    /* Fields of Clutter-1.0.Clutter.Actor */
     flags: number
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Mx.Stack */
+    /* Methods of Mx-2.0.Mx.Stack */
     child_get_crop(child: Clutter.Actor): boolean
     child_get_fit(child: Clutter.Actor): boolean
     child_get_x_align(child: Clutter.Actor): Align
@@ -23400,7 +23400,7 @@ export class Stack {
     child_set_x_fill(child: Clutter.Actor, x_fill: boolean): void
     child_set_y_align(child: Clutter.Actor, y_align: Align): void
     child_set_y_fill(child: Clutter.Actor, y_fill: boolean): void
-    /* Methods of Mx.Widget */
+    /* Methods of Mx-2.0.Mx.Widget */
     apply_style(style: Style): void
     get_available_area(allocation: Clutter.ActorBox, area: Clutter.ActorBox): void
     get_background_color(): Clutter.Color
@@ -23418,7 +23418,7 @@ export class Stack {
     set_tooltip_delay(delay: number): void
     set_tooltip_text(text: string): void
     show_tooltip(): void
-    /* Methods of Clutter.Actor */
+    /* Methods of Clutter-1.0.Clutter.Actor */
     add_action(action: Clutter.Action): void
     add_action_with_name(name: string, action: Clutter.Action): void
     add_child(child: Clutter.Actor): void
@@ -23654,7 +23654,7 @@ export class Stack {
     unparent(): void
     unrealize(): void
     unset_flags(flags: Clutter.ActorFlags): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -23676,13 +23676,13 @@ export class Stack {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of Clutter.Animatable */
+    /* Methods of Clutter-1.0.Clutter.Animatable */
     animate_property(animation: Clutter.Animation, property_name: string, initial_value: any, final_value: any, progress: number, value: any): boolean
     find_property(property_name: string): GObject.ParamSpec
     get_initial_state(property_name: string, value: any): void
     interpolate_value(property_name: string, interval: Clutter.Interval, progress: number): [ /* returnType */ boolean, /* value */ any ]
     set_final_state(property_name: string, value: any): void
-    /* Methods of Clutter.Container */
+    /* Methods of Clutter-1.0.Clutter.Container */
     add_actor(actor: Clutter.Actor): void
     child_get_property(child: Clutter.Actor, property: string, value: any): void
     child_notify(child: Clutter.Actor, pspec: GObject.ParamSpec): void
@@ -23697,15 +23697,15 @@ export class Stack {
     raise_child(actor: Clutter.Actor, sibling?: Clutter.Actor | null): void
     remove_actor(actor: Clutter.Actor): void
     sort_depth_order(): void
-    /* Methods of Clutter.Scriptable */
+    /* Methods of Clutter-1.0.Clutter.Scriptable */
     get_id(): string
     parse_custom_node(script: Clutter.Script, value: any, name: string, node: Json.Node): boolean
     set_custom_property(script: Clutter.Script, name: string, value: any): void
     set_id(id_: string): void
-    /* Methods of Mx.Focusable */
+    /* Methods of Mx-2.0.Mx.Focusable */
     accept_focus(hint: FocusHint): Focusable
     move_focus(direction: FocusDirection, from: Focusable): Focusable
-    /* Methods of Mx.Stylable */
+    /* Methods of Mx-2.0.Mx.Stylable */
     apply_clutter_text_attributes(text: Clutter.Text): void
     connect_change_notifiers(): void
     disconnect_change_notifiers(): void
@@ -23722,10 +23722,10 @@ export class Stack {
     style_pseudo_class_add(new_class: string): void
     style_pseudo_class_contains(pseudo_class: string): boolean
     style_pseudo_class_remove(remove_class: string): void
-    /* Virtual methods of Mx.Stack */
+    /* Virtual methods of Mx-2.0.Mx.Stack */
     vfunc_accept_focus(hint: FocusHint): Focusable
     vfunc_move_focus(direction: FocusDirection, from: Focusable): Focusable
-    /* Virtual methods of Mx.Widget */
+    /* Virtual methods of Mx-2.0.Mx.Widget */
     vfunc_long_press(action: LongPressAction, x: number, y: number): boolean
     vfunc_animate_property(animation: Clutter.Animation, property_name: string, initial_value: any, final_value: any, progress: number, value: any): boolean
     vfunc_find_property(property_name: string): GObject.ParamSpec
@@ -23756,7 +23756,7 @@ export class Stack {
     vfunc_set_style_class(style_class: string): void
     vfunc_set_style_pseudo_class(pseudo_class: string): void
     vfunc_style_changed(flags: StyleChangedFlags): void
-    /* Virtual methods of Clutter.Actor */
+    /* Virtual methods of Clutter-1.0.Clutter.Actor */
     vfunc_allocate(box: Clutter.ActorBox, flags: Clutter.AllocationFlags): void
     vfunc_apply_transform(matrix: Clutter.Matrix): void
     vfunc_button_press_event(event: Clutter.ButtonEvent): boolean
@@ -23792,7 +23792,7 @@ export class Stack {
     vfunc_touch_event(event: Clutter.TouchEvent): boolean
     vfunc_unmap(): void
     vfunc_unrealize(): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -23800,11 +23800,11 @@ export class Stack {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Mx.Widget */
+    /* Signals of Mx-2.0.Mx.Widget */
     connect(sigName: "long-press", callback: (($obj: Stack, object: number, p0: number, p1: LongPressAction) => boolean)): number
     connect_after(sigName: "long-press", callback: (($obj: Stack, object: number, p0: number, p1: LongPressAction) => boolean)): number
     emit(sigName: "long-press", object: number, p0: number, p1: LongPressAction): void
-    /* Signals of Clutter.Actor */
+    /* Signals of Clutter-1.0.Clutter.Actor */
     connect(sigName: "allocation-changed", callback: (($obj: Stack, box: Clutter.ActorBox, flags: Clutter.AllocationFlags) => void)): number
     connect_after(sigName: "allocation-changed", callback: (($obj: Stack, box: Clutter.ActorBox, flags: Clutter.AllocationFlags) => void)): number
     emit(sigName: "allocation-changed", box: Clutter.ActorBox, flags: Clutter.AllocationFlags): void
@@ -23883,11 +23883,11 @@ export class Stack {
     connect(sigName: "unrealize", callback: (($obj: Stack) => void)): number
     connect_after(sigName: "unrealize", callback: (($obj: Stack) => void)): number
     emit(sigName: "unrealize"): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Stack, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Stack, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    /* Signals of Clutter.Container */
+    /* Signals of Clutter-1.0.Clutter.Container */
     connect(sigName: "actor-added", callback: (($obj: Stack, actor: Clutter.Actor) => void)): number
     connect_after(sigName: "actor-added", callback: (($obj: Stack, actor: Clutter.Actor) => void)): number
     emit(sigName: "actor-added", actor: Clutter.Actor): void
@@ -23897,7 +23897,7 @@ export class Stack {
     connect(sigName: "child-notify", callback: (($obj: Stack, actor: Clutter.Actor, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "child-notify", callback: (($obj: Stack, actor: Clutter.Actor, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "child-notify", actor: Clutter.Actor, pspec: GObject.ParamSpec): void
-    /* Signals of Mx.Stylable */
+    /* Signals of Mx-2.0.Mx.Stylable */
     connect(sigName: "style-changed", callback: (($obj: Stack, flags: StyleChangedFlags) => void)): number
     connect_after(sigName: "style-changed", callback: (($obj: Stack, flags: StyleChangedFlags) => void)): number
     emit(sigName: "style-changed", flags: StyleChangedFlags): void
@@ -24099,22 +24099,22 @@ export interface StackChild_ConstructProps extends Clutter.ChildMeta_ConstructPr
     y_fill?: boolean
 }
 export class StackChild {
-    /* Properties of Mx.StackChild */
+    /* Properties of Mx-2.0.Mx.StackChild */
     crop: boolean
     fit: boolean
     x_align: Align
     x_fill: boolean
     y_align: Align
     y_fill: boolean
-    /* Fields of Clutter.ChildMeta */
+    /* Fields of Clutter-1.0.Clutter.ChildMeta */
     container: Clutter.Container
     actor: Clutter.Actor
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Clutter.ChildMeta */
+    /* Methods of Clutter-1.0.Clutter.ChildMeta */
     get_actor(): Clutter.Actor
     get_container(): Clutter.Container
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -24136,7 +24136,7 @@ export class StackChild {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -24144,7 +24144,7 @@ export class StackChild {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: StackChild, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: StackChild, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -24172,14 +24172,14 @@ export class StackChild {
 export interface Style_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class Style {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Mx.Style */
+    /* Methods of Mx-2.0.Mx.Style */
     get_property(stylable: Stylable, pspec: GObject.ParamSpec): /* value */ any
     load_from_data(id: string, data: string): boolean
     load_from_file(filename: string): boolean
     load_from_resource(path: string): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -24201,9 +24201,9 @@ export class Style {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Mx.Style */
+    /* Virtual methods of Mx-2.0.Mx.Style */
     vfunc_changed(): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -24211,11 +24211,11 @@ export class Style {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Mx.Style */
+    /* Signals of Mx-2.0.Mx.Style */
     connect(sigName: "changed", callback: (($obj: Style) => void)): number
     connect_after(sigName: "changed", callback: (($obj: Style) => void)): number
     emit(sigName: "changed"): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Style, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Style, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -24239,17 +24239,17 @@ export interface Table_ConstructProps extends Widget_ConstructProps {
     style_pseudo_class?: string
 }
 export class Table {
-    /* Properties of Mx.Table */
+    /* Properties of Mx-2.0.Mx.Table */
     readonly column_count: number
     column_spacing: number
     readonly row_count: number
     row_spacing: number
-    /* Properties of Mx.Widget */
+    /* Properties of Mx-2.0.Mx.Widget */
     disabled: boolean
     menu: Menu
     tooltip_delay: number
     tooltip_text: string
-    /* Properties of Clutter.Actor */
+    /* Properties of Clutter-1.0.Clutter.Actor */
     actions: Clutter.Action
     readonly allocation: Clutter.ActorBox
     anchor_gravity: Clutter.Gravity
@@ -24332,15 +24332,15 @@ export class Table {
     y_align: Clutter.ActorAlign
     y_expand: boolean
     z_position: number
-    /* Properties of Mx.Stylable */
+    /* Properties of Mx-2.0.Mx.Stylable */
     style: Style
     style_class: string
     style_pseudo_class: string
-    /* Fields of Clutter.Actor */
+    /* Fields of Clutter-1.0.Clutter.Actor */
     flags: number
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Mx.Table */
+    /* Methods of Mx-2.0.Mx.Table */
     child_get_column(child: Clutter.Actor): number
     child_get_column_span(child: Clutter.Actor): number
     child_get_row(child: Clutter.Actor): number
@@ -24369,7 +24369,7 @@ export class Table {
     insert_actor(actor: Clutter.Actor, row: number, column: number): void
     set_column_spacing(spacing: number): void
     set_row_spacing(spacing: number): void
-    /* Methods of Mx.Widget */
+    /* Methods of Mx-2.0.Mx.Widget */
     apply_style(style: Style): void
     get_available_area(allocation: Clutter.ActorBox, area: Clutter.ActorBox): void
     get_background_color(): Clutter.Color
@@ -24387,7 +24387,7 @@ export class Table {
     set_tooltip_delay(delay: number): void
     set_tooltip_text(text: string): void
     show_tooltip(): void
-    /* Methods of Clutter.Actor */
+    /* Methods of Clutter-1.0.Clutter.Actor */
     add_action(action: Clutter.Action): void
     add_action_with_name(name: string, action: Clutter.Action): void
     add_child(child: Clutter.Actor): void
@@ -24623,7 +24623,7 @@ export class Table {
     unparent(): void
     unrealize(): void
     unset_flags(flags: Clutter.ActorFlags): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -24645,13 +24645,13 @@ export class Table {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of Clutter.Animatable */
+    /* Methods of Clutter-1.0.Clutter.Animatable */
     animate_property(animation: Clutter.Animation, property_name: string, initial_value: any, final_value: any, progress: number, value: any): boolean
     find_property(property_name: string): GObject.ParamSpec
     get_initial_state(property_name: string, value: any): void
     interpolate_value(property_name: string, interval: Clutter.Interval, progress: number): [ /* returnType */ boolean, /* value */ any ]
     set_final_state(property_name: string, value: any): void
-    /* Methods of Clutter.Container */
+    /* Methods of Clutter-1.0.Clutter.Container */
     add_actor(actor: Clutter.Actor): void
     child_get_property(child: Clutter.Actor, property: string, value: any): void
     child_notify(child: Clutter.Actor, pspec: GObject.ParamSpec): void
@@ -24666,15 +24666,15 @@ export class Table {
     raise_child(actor: Clutter.Actor, sibling?: Clutter.Actor | null): void
     remove_actor(actor: Clutter.Actor): void
     sort_depth_order(): void
-    /* Methods of Clutter.Scriptable */
+    /* Methods of Clutter-1.0.Clutter.Scriptable */
     get_id(): string
     parse_custom_node(script: Clutter.Script, value: any, name: string, node: Json.Node): boolean
     set_custom_property(script: Clutter.Script, name: string, value: any): void
     set_id(id_: string): void
-    /* Methods of Mx.Focusable */
+    /* Methods of Mx-2.0.Mx.Focusable */
     accept_focus(hint: FocusHint): Focusable
     move_focus(direction: FocusDirection, from: Focusable): Focusable
-    /* Methods of Mx.Stylable */
+    /* Methods of Mx-2.0.Mx.Stylable */
     apply_clutter_text_attributes(text: Clutter.Text): void
     connect_change_notifiers(): void
     disconnect_change_notifiers(): void
@@ -24691,10 +24691,10 @@ export class Table {
     style_pseudo_class_add(new_class: string): void
     style_pseudo_class_contains(pseudo_class: string): boolean
     style_pseudo_class_remove(remove_class: string): void
-    /* Virtual methods of Mx.Table */
+    /* Virtual methods of Mx-2.0.Mx.Table */
     vfunc_accept_focus(hint: FocusHint): Focusable
     vfunc_move_focus(direction: FocusDirection, from: Focusable): Focusable
-    /* Virtual methods of Mx.Widget */
+    /* Virtual methods of Mx-2.0.Mx.Widget */
     vfunc_long_press(action: LongPressAction, x: number, y: number): boolean
     vfunc_animate_property(animation: Clutter.Animation, property_name: string, initial_value: any, final_value: any, progress: number, value: any): boolean
     vfunc_find_property(property_name: string): GObject.ParamSpec
@@ -24725,7 +24725,7 @@ export class Table {
     vfunc_set_style_class(style_class: string): void
     vfunc_set_style_pseudo_class(pseudo_class: string): void
     vfunc_style_changed(flags: StyleChangedFlags): void
-    /* Virtual methods of Clutter.Actor */
+    /* Virtual methods of Clutter-1.0.Clutter.Actor */
     vfunc_allocate(box: Clutter.ActorBox, flags: Clutter.AllocationFlags): void
     vfunc_apply_transform(matrix: Clutter.Matrix): void
     vfunc_button_press_event(event: Clutter.ButtonEvent): boolean
@@ -24761,7 +24761,7 @@ export class Table {
     vfunc_touch_event(event: Clutter.TouchEvent): boolean
     vfunc_unmap(): void
     vfunc_unrealize(): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -24769,11 +24769,11 @@ export class Table {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Mx.Widget */
+    /* Signals of Mx-2.0.Mx.Widget */
     connect(sigName: "long-press", callback: (($obj: Table, object: number, p0: number, p1: LongPressAction) => boolean)): number
     connect_after(sigName: "long-press", callback: (($obj: Table, object: number, p0: number, p1: LongPressAction) => boolean)): number
     emit(sigName: "long-press", object: number, p0: number, p1: LongPressAction): void
-    /* Signals of Clutter.Actor */
+    /* Signals of Clutter-1.0.Clutter.Actor */
     connect(sigName: "allocation-changed", callback: (($obj: Table, box: Clutter.ActorBox, flags: Clutter.AllocationFlags) => void)): number
     connect_after(sigName: "allocation-changed", callback: (($obj: Table, box: Clutter.ActorBox, flags: Clutter.AllocationFlags) => void)): number
     emit(sigName: "allocation-changed", box: Clutter.ActorBox, flags: Clutter.AllocationFlags): void
@@ -24852,11 +24852,11 @@ export class Table {
     connect(sigName: "unrealize", callback: (($obj: Table) => void)): number
     connect_after(sigName: "unrealize", callback: (($obj: Table) => void)): number
     emit(sigName: "unrealize"): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Table, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Table, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    /* Signals of Clutter.Container */
+    /* Signals of Clutter-1.0.Clutter.Container */
     connect(sigName: "actor-added", callback: (($obj: Table, actor: Clutter.Actor) => void)): number
     connect_after(sigName: "actor-added", callback: (($obj: Table, actor: Clutter.Actor) => void)): number
     emit(sigName: "actor-added", actor: Clutter.Actor): void
@@ -24866,7 +24866,7 @@ export class Table {
     connect(sigName: "child-notify", callback: (($obj: Table, actor: Clutter.Actor, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "child-notify", callback: (($obj: Table, actor: Clutter.Actor, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "child-notify", actor: Clutter.Actor, pspec: GObject.ParamSpec): void
-    /* Signals of Mx.Stylable */
+    /* Signals of Mx-2.0.Mx.Stylable */
     connect(sigName: "style-changed", callback: (($obj: Table, flags: StyleChangedFlags) => void)): number
     connect_after(sigName: "style-changed", callback: (($obj: Table, flags: StyleChangedFlags) => void)): number
     emit(sigName: "style-changed", flags: StyleChangedFlags): void
@@ -25080,7 +25080,7 @@ export interface TableChild_ConstructProps extends Clutter.ChildMeta_ConstructPr
     y_fill?: boolean
 }
 export class TableChild {
-    /* Properties of Mx.TableChild */
+    /* Properties of Mx-2.0.Mx.TableChild */
     column: number
     column_span: number
     row: number
@@ -25091,15 +25091,15 @@ export class TableChild {
     y_align: Align
     y_expand: boolean
     y_fill: boolean
-    /* Fields of Clutter.ChildMeta */
+    /* Fields of Clutter-1.0.Clutter.ChildMeta */
     container: Clutter.Container
     actor: Clutter.Actor
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Clutter.ChildMeta */
+    /* Methods of Clutter-1.0.Clutter.ChildMeta */
     get_actor(): Clutter.Actor
     get_container(): Clutter.Container
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -25121,7 +25121,7 @@ export class TableChild {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -25129,7 +25129,7 @@ export class TableChild {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: TableChild, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: TableChild, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -25165,9 +25165,9 @@ export class TableChild {
 export interface TextureCache_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class TextureCache {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Mx.TextureCache */
+    /* Methods of Mx-2.0.Mx.TextureCache */
     contains(uri: string): boolean
     contains_meta(uri: string, ident: object): boolean
     get_actor(uri: string): Clutter.Actor
@@ -25179,7 +25179,7 @@ export class TextureCache {
     insert(uri: string, texture: Cogl.Handle): void
     insert_meta(uri: string, ident: object, texture: Cogl.Handle, destroy_func: GLib.DestroyNotify): void
     load_cache(filename: string): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -25201,10 +25201,10 @@ export class TextureCache {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Mx.TextureCache */
+    /* Virtual methods of Mx-2.0.Mx.TextureCache */
     vfunc_error_loading(error: GLib.Error): void
     vfunc_loaded(uri: string, texture: Clutter.Texture): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -25212,7 +25212,7 @@ export class TextureCache {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: TextureCache, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: TextureCache, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -25235,13 +25235,13 @@ export interface TextureFrame_ConstructProps extends Clutter.Actor_ConstructProp
     top?: number
 }
 export class TextureFrame {
-    /* Properties of Mx.TextureFrame */
+    /* Properties of Mx-2.0.Mx.TextureFrame */
     bottom: number
     left: number
     parent_texture: Clutter.Texture
     right: number
     top: number
-    /* Properties of Clutter.Actor */
+    /* Properties of Clutter-1.0.Clutter.Actor */
     actions: Clutter.Action
     readonly allocation: Clutter.ActorBox
     anchor_gravity: Clutter.Gravity
@@ -25324,16 +25324,16 @@ export class TextureFrame {
     y_align: Clutter.ActorAlign
     y_expand: boolean
     z_position: number
-    /* Fields of Clutter.Actor */
+    /* Fields of Clutter-1.0.Clutter.Actor */
     flags: number
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Mx.TextureFrame */
+    /* Methods of Mx-2.0.Mx.TextureFrame */
     get_border_values(top: number, right: number, bottom: number, left: number): void
     get_parent_texture(): Clutter.Texture
     set_border_values(top: number, right: number, bottom: number, left: number): void
     set_parent_texture(texture: Clutter.Texture): void
-    /* Methods of Clutter.Actor */
+    /* Methods of Clutter-1.0.Clutter.Actor */
     add_action(action: Clutter.Action): void
     add_action_with_name(name: string, action: Clutter.Action): void
     add_child(child: Clutter.Actor): void
@@ -25569,7 +25569,7 @@ export class TextureFrame {
     unparent(): void
     unrealize(): void
     unset_flags(flags: Clutter.ActorFlags): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -25591,13 +25591,13 @@ export class TextureFrame {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of Clutter.Animatable */
+    /* Methods of Clutter-1.0.Clutter.Animatable */
     animate_property(animation: Clutter.Animation, property_name: string, initial_value: any, final_value: any, progress: number, value: any): boolean
     find_property(property_name: string): GObject.ParamSpec
     get_initial_state(property_name: string, value: any): void
     interpolate_value(property_name: string, interval: Clutter.Interval, progress: number): [ /* returnType */ boolean, /* value */ any ]
     set_final_state(property_name: string, value: any): void
-    /* Methods of Clutter.Container */
+    /* Methods of Clutter-1.0.Clutter.Container */
     add_actor(actor: Clutter.Actor): void
     child_get_property(child: Clutter.Actor, property: string, value: any): void
     child_notify(child: Clutter.Actor, pspec: GObject.ParamSpec): void
@@ -25612,12 +25612,12 @@ export class TextureFrame {
     raise_child(actor: Clutter.Actor, sibling?: Clutter.Actor | null): void
     remove_actor(actor: Clutter.Actor): void
     sort_depth_order(): void
-    /* Methods of Clutter.Scriptable */
+    /* Methods of Clutter-1.0.Clutter.Scriptable */
     get_id(): string
     parse_custom_node(script: Clutter.Script, value: any, name: string, node: Json.Node): boolean
     set_custom_property(script: Clutter.Script, name: string, value: any): void
     set_id(id_: string): void
-    /* Virtual methods of Mx.TextureFrame */
+    /* Virtual methods of Mx-2.0.Mx.TextureFrame */
     vfunc_animate_property(animation: Clutter.Animation, property_name: string, initial_value: any, final_value: any, progress: number, value: any): boolean
     vfunc_find_property(property_name: string): GObject.ParamSpec
     vfunc_get_initial_state(property_name: string, value: any): void
@@ -25640,7 +25640,7 @@ export class TextureFrame {
     vfunc_parse_custom_node(script: Clutter.Script, value: any, name: string, node: Json.Node): boolean
     vfunc_set_custom_property(script: Clutter.Script, name: string, value: any): void
     vfunc_set_id(id_: string): void
-    /* Virtual methods of Clutter.Actor */
+    /* Virtual methods of Clutter-1.0.Clutter.Actor */
     vfunc_allocate(box: Clutter.ActorBox, flags: Clutter.AllocationFlags): void
     vfunc_apply_transform(matrix: Clutter.Matrix): void
     vfunc_button_press_event(event: Clutter.ButtonEvent): boolean
@@ -25676,7 +25676,7 @@ export class TextureFrame {
     vfunc_touch_event(event: Clutter.TouchEvent): boolean
     vfunc_unmap(): void
     vfunc_unrealize(): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -25684,7 +25684,7 @@ export class TextureFrame {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Clutter.Actor */
+    /* Signals of Clutter-1.0.Clutter.Actor */
     connect(sigName: "allocation-changed", callback: (($obj: TextureFrame, box: Clutter.ActorBox, flags: Clutter.AllocationFlags) => void)): number
     connect_after(sigName: "allocation-changed", callback: (($obj: TextureFrame, box: Clutter.ActorBox, flags: Clutter.AllocationFlags) => void)): number
     emit(sigName: "allocation-changed", box: Clutter.ActorBox, flags: Clutter.AllocationFlags): void
@@ -25763,11 +25763,11 @@ export class TextureFrame {
     connect(sigName: "unrealize", callback: (($obj: TextureFrame) => void)): number
     connect_after(sigName: "unrealize", callback: (($obj: TextureFrame) => void)): number
     emit(sigName: "unrealize"): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: TextureFrame, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: TextureFrame, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    /* Signals of Clutter.Container */
+    /* Signals of Clutter-1.0.Clutter.Container */
     connect(sigName: "actor-added", callback: (($obj: TextureFrame, actor: Clutter.Actor) => void)): number
     connect_after(sigName: "actor-added", callback: (($obj: TextureFrame, actor: Clutter.Actor) => void)): number
     emit(sigName: "actor-added", actor: Clutter.Actor): void
@@ -25974,14 +25974,14 @@ export interface Toggle_ConstructProps extends Widget_ConstructProps {
     style_pseudo_class?: string
 }
 export class Toggle {
-    /* Properties of Mx.Toggle */
+    /* Properties of Mx-2.0.Mx.Toggle */
     active: boolean
-    /* Properties of Mx.Widget */
+    /* Properties of Mx-2.0.Mx.Widget */
     disabled: boolean
     menu: Menu
     tooltip_delay: number
     tooltip_text: string
-    /* Properties of Clutter.Actor */
+    /* Properties of Clutter-1.0.Clutter.Actor */
     actions: Clutter.Action
     readonly allocation: Clutter.ActorBox
     anchor_gravity: Clutter.Gravity
@@ -26064,21 +26064,21 @@ export class Toggle {
     y_align: Clutter.ActorAlign
     y_expand: boolean
     z_position: number
-    /* Properties of Mx.Stylable */
+    /* Properties of Mx-2.0.Mx.Stylable */
     style: Style
     style_class: string
     style_pseudo_class: string
-    /* Fields of Mx.Toggle */
+    /* Fields of Mx-2.0.Mx.Toggle */
     parent: Widget
     priv: TogglePrivate
-    /* Fields of Clutter.Actor */
+    /* Fields of Clutter-1.0.Clutter.Actor */
     flags: number
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Mx.Toggle */
+    /* Methods of Mx-2.0.Mx.Toggle */
     get_active(): boolean
     set_active(active: boolean): void
-    /* Methods of Mx.Widget */
+    /* Methods of Mx-2.0.Mx.Widget */
     apply_style(style: Style): void
     get_available_area(allocation: Clutter.ActorBox, area: Clutter.ActorBox): void
     get_background_color(): Clutter.Color
@@ -26096,7 +26096,7 @@ export class Toggle {
     set_tooltip_delay(delay: number): void
     set_tooltip_text(text: string): void
     show_tooltip(): void
-    /* Methods of Clutter.Actor */
+    /* Methods of Clutter-1.0.Clutter.Actor */
     add_action(action: Clutter.Action): void
     add_action_with_name(name: string, action: Clutter.Action): void
     add_child(child: Clutter.Actor): void
@@ -26332,7 +26332,7 @@ export class Toggle {
     unparent(): void
     unrealize(): void
     unset_flags(flags: Clutter.ActorFlags): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -26354,13 +26354,13 @@ export class Toggle {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of Clutter.Animatable */
+    /* Methods of Clutter-1.0.Clutter.Animatable */
     animate_property(animation: Clutter.Animation, property_name: string, initial_value: any, final_value: any, progress: number, value: any): boolean
     find_property(property_name: string): GObject.ParamSpec
     get_initial_state(property_name: string, value: any): void
     interpolate_value(property_name: string, interval: Clutter.Interval, progress: number): [ /* returnType */ boolean, /* value */ any ]
     set_final_state(property_name: string, value: any): void
-    /* Methods of Clutter.Container */
+    /* Methods of Clutter-1.0.Clutter.Container */
     add_actor(actor: Clutter.Actor): void
     child_get_property(child: Clutter.Actor, property: string, value: any): void
     child_notify(child: Clutter.Actor, pspec: GObject.ParamSpec): void
@@ -26375,15 +26375,15 @@ export class Toggle {
     raise_child(actor: Clutter.Actor, sibling?: Clutter.Actor | null): void
     remove_actor(actor: Clutter.Actor): void
     sort_depth_order(): void
-    /* Methods of Clutter.Scriptable */
+    /* Methods of Clutter-1.0.Clutter.Scriptable */
     get_id(): string
     parse_custom_node(script: Clutter.Script, value: any, name: string, node: Json.Node): boolean
     set_custom_property(script: Clutter.Script, name: string, value: any): void
     set_id(id_: string): void
-    /* Methods of Mx.Focusable */
+    /* Methods of Mx-2.0.Mx.Focusable */
     accept_focus(hint: FocusHint): Focusable
     move_focus(direction: FocusDirection, from: Focusable): Focusable
-    /* Methods of Mx.Stylable */
+    /* Methods of Mx-2.0.Mx.Stylable */
     apply_clutter_text_attributes(text: Clutter.Text): void
     connect_change_notifiers(): void
     disconnect_change_notifiers(): void
@@ -26400,10 +26400,10 @@ export class Toggle {
     style_pseudo_class_add(new_class: string): void
     style_pseudo_class_contains(pseudo_class: string): boolean
     style_pseudo_class_remove(remove_class: string): void
-    /* Virtual methods of Mx.Toggle */
+    /* Virtual methods of Mx-2.0.Mx.Toggle */
     vfunc_accept_focus(hint: FocusHint): Focusable
     vfunc_move_focus(direction: FocusDirection, from: Focusable): Focusable
-    /* Virtual methods of Mx.Widget */
+    /* Virtual methods of Mx-2.0.Mx.Widget */
     vfunc_long_press(action: LongPressAction, x: number, y: number): boolean
     vfunc_animate_property(animation: Clutter.Animation, property_name: string, initial_value: any, final_value: any, progress: number, value: any): boolean
     vfunc_find_property(property_name: string): GObject.ParamSpec
@@ -26434,7 +26434,7 @@ export class Toggle {
     vfunc_set_style_class(style_class: string): void
     vfunc_set_style_pseudo_class(pseudo_class: string): void
     vfunc_style_changed(flags: StyleChangedFlags): void
-    /* Virtual methods of Clutter.Actor */
+    /* Virtual methods of Clutter-1.0.Clutter.Actor */
     vfunc_allocate(box: Clutter.ActorBox, flags: Clutter.AllocationFlags): void
     vfunc_apply_transform(matrix: Clutter.Matrix): void
     vfunc_button_press_event(event: Clutter.ButtonEvent): boolean
@@ -26470,7 +26470,7 @@ export class Toggle {
     vfunc_touch_event(event: Clutter.TouchEvent): boolean
     vfunc_unmap(): void
     vfunc_unrealize(): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -26478,11 +26478,11 @@ export class Toggle {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Mx.Widget */
+    /* Signals of Mx-2.0.Mx.Widget */
     connect(sigName: "long-press", callback: (($obj: Toggle, object: number, p0: number, p1: LongPressAction) => boolean)): number
     connect_after(sigName: "long-press", callback: (($obj: Toggle, object: number, p0: number, p1: LongPressAction) => boolean)): number
     emit(sigName: "long-press", object: number, p0: number, p1: LongPressAction): void
-    /* Signals of Clutter.Actor */
+    /* Signals of Clutter-1.0.Clutter.Actor */
     connect(sigName: "allocation-changed", callback: (($obj: Toggle, box: Clutter.ActorBox, flags: Clutter.AllocationFlags) => void)): number
     connect_after(sigName: "allocation-changed", callback: (($obj: Toggle, box: Clutter.ActorBox, flags: Clutter.AllocationFlags) => void)): number
     emit(sigName: "allocation-changed", box: Clutter.ActorBox, flags: Clutter.AllocationFlags): void
@@ -26561,11 +26561,11 @@ export class Toggle {
     connect(sigName: "unrealize", callback: (($obj: Toggle) => void)): number
     connect_after(sigName: "unrealize", callback: (($obj: Toggle) => void)): number
     emit(sigName: "unrealize"): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Toggle, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Toggle, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    /* Signals of Clutter.Container */
+    /* Signals of Clutter-1.0.Clutter.Container */
     connect(sigName: "actor-added", callback: (($obj: Toggle, actor: Clutter.Actor) => void)): number
     connect_after(sigName: "actor-added", callback: (($obj: Toggle, actor: Clutter.Actor) => void)): number
     emit(sigName: "actor-added", actor: Clutter.Actor): void
@@ -26575,7 +26575,7 @@ export class Toggle {
     connect(sigName: "child-notify", callback: (($obj: Toggle, actor: Clutter.Actor, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "child-notify", callback: (($obj: Toggle, actor: Clutter.Actor, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "child-notify", actor: Clutter.Actor, pspec: GObject.ParamSpec): void
-    /* Signals of Mx.Stylable */
+    /* Signals of Mx-2.0.Mx.Stylable */
     connect(sigName: "style-changed", callback: (($obj: Toggle, flags: StyleChangedFlags) => void)): number
     connect_after(sigName: "style-changed", callback: (($obj: Toggle, flags: StyleChangedFlags) => void)): number
     emit(sigName: "style-changed", flags: StyleChangedFlags): void
@@ -26777,14 +26777,14 @@ export interface Toolbar_ConstructProps extends Widget_ConstructProps {
     style_pseudo_class?: string
 }
 export class Toolbar {
-    /* Properties of Mx.Toolbar */
+    /* Properties of Mx-2.0.Mx.Toolbar */
     has_close_button: boolean
-    /* Properties of Mx.Widget */
+    /* Properties of Mx-2.0.Mx.Widget */
     disabled: boolean
     menu: Menu
     tooltip_delay: number
     tooltip_text: string
-    /* Properties of Clutter.Actor */
+    /* Properties of Clutter-1.0.Clutter.Actor */
     actions: Clutter.Action
     readonly allocation: Clutter.ActorBox
     anchor_gravity: Clutter.Gravity
@@ -26867,21 +26867,21 @@ export class Toolbar {
     y_align: Clutter.ActorAlign
     y_expand: boolean
     z_position: number
-    /* Properties of Mx.Stylable */
+    /* Properties of Mx-2.0.Mx.Stylable */
     style: Style
     style_class: string
     style_pseudo_class: string
-    /* Fields of Mx.Toolbar */
+    /* Fields of Mx-2.0.Mx.Toolbar */
     parent: Widget
     priv: ToolbarPrivate
-    /* Fields of Clutter.Actor */
+    /* Fields of Clutter-1.0.Clutter.Actor */
     flags: number
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Mx.Toolbar */
+    /* Methods of Mx-2.0.Mx.Toolbar */
     get_has_close_button(): boolean
     set_has_close_button(has_close_button: boolean): void
-    /* Methods of Mx.Widget */
+    /* Methods of Mx-2.0.Mx.Widget */
     apply_style(style: Style): void
     get_available_area(allocation: Clutter.ActorBox, area: Clutter.ActorBox): void
     get_background_color(): Clutter.Color
@@ -26899,7 +26899,7 @@ export class Toolbar {
     set_tooltip_delay(delay: number): void
     set_tooltip_text(text: string): void
     show_tooltip(): void
-    /* Methods of Clutter.Actor */
+    /* Methods of Clutter-1.0.Clutter.Actor */
     add_action(action: Clutter.Action): void
     add_action_with_name(name: string, action: Clutter.Action): void
     add_child(child: Clutter.Actor): void
@@ -27135,7 +27135,7 @@ export class Toolbar {
     unparent(): void
     unrealize(): void
     unset_flags(flags: Clutter.ActorFlags): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -27157,13 +27157,13 @@ export class Toolbar {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of Clutter.Animatable */
+    /* Methods of Clutter-1.0.Clutter.Animatable */
     animate_property(animation: Clutter.Animation, property_name: string, initial_value: any, final_value: any, progress: number, value: any): boolean
     find_property(property_name: string): GObject.ParamSpec
     get_initial_state(property_name: string, value: any): void
     interpolate_value(property_name: string, interval: Clutter.Interval, progress: number): [ /* returnType */ boolean, /* value */ any ]
     set_final_state(property_name: string, value: any): void
-    /* Methods of Clutter.Container */
+    /* Methods of Clutter-1.0.Clutter.Container */
     add_actor(actor: Clutter.Actor): void
     child_get_property(child: Clutter.Actor, property: string, value: any): void
     child_notify(child: Clutter.Actor, pspec: GObject.ParamSpec): void
@@ -27178,15 +27178,15 @@ export class Toolbar {
     raise_child(actor: Clutter.Actor, sibling?: Clutter.Actor | null): void
     remove_actor(actor: Clutter.Actor): void
     sort_depth_order(): void
-    /* Methods of Clutter.Scriptable */
+    /* Methods of Clutter-1.0.Clutter.Scriptable */
     get_id(): string
     parse_custom_node(script: Clutter.Script, value: any, name: string, node: Json.Node): boolean
     set_custom_property(script: Clutter.Script, name: string, value: any): void
     set_id(id_: string): void
-    /* Methods of Mx.Focusable */
+    /* Methods of Mx-2.0.Mx.Focusable */
     accept_focus(hint: FocusHint): Focusable
     move_focus(direction: FocusDirection, from: Focusable): Focusable
-    /* Methods of Mx.Stylable */
+    /* Methods of Mx-2.0.Mx.Stylable */
     apply_clutter_text_attributes(text: Clutter.Text): void
     connect_change_notifiers(): void
     disconnect_change_notifiers(): void
@@ -27203,11 +27203,11 @@ export class Toolbar {
     style_pseudo_class_add(new_class: string): void
     style_pseudo_class_contains(pseudo_class: string): boolean
     style_pseudo_class_remove(remove_class: string): void
-    /* Virtual methods of Mx.Toolbar */
+    /* Virtual methods of Mx-2.0.Mx.Toolbar */
     vfunc_close_button_clicked(): boolean
     vfunc_accept_focus(hint: FocusHint): Focusable
     vfunc_move_focus(direction: FocusDirection, from: Focusable): Focusable
-    /* Virtual methods of Mx.Widget */
+    /* Virtual methods of Mx-2.0.Mx.Widget */
     vfunc_long_press(action: LongPressAction, x: number, y: number): boolean
     vfunc_animate_property(animation: Clutter.Animation, property_name: string, initial_value: any, final_value: any, progress: number, value: any): boolean
     vfunc_find_property(property_name: string): GObject.ParamSpec
@@ -27238,7 +27238,7 @@ export class Toolbar {
     vfunc_set_style_class(style_class: string): void
     vfunc_set_style_pseudo_class(pseudo_class: string): void
     vfunc_style_changed(flags: StyleChangedFlags): void
-    /* Virtual methods of Clutter.Actor */
+    /* Virtual methods of Clutter-1.0.Clutter.Actor */
     vfunc_allocate(box: Clutter.ActorBox, flags: Clutter.AllocationFlags): void
     vfunc_apply_transform(matrix: Clutter.Matrix): void
     vfunc_button_press_event(event: Clutter.ButtonEvent): boolean
@@ -27274,7 +27274,7 @@ export class Toolbar {
     vfunc_touch_event(event: Clutter.TouchEvent): boolean
     vfunc_unmap(): void
     vfunc_unrealize(): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -27282,15 +27282,15 @@ export class Toolbar {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Mx.Toolbar */
+    /* Signals of Mx-2.0.Mx.Toolbar */
     connect(sigName: "close-button-clicked", callback: (($obj: Toolbar) => boolean)): number
     connect_after(sigName: "close-button-clicked", callback: (($obj: Toolbar) => boolean)): number
     emit(sigName: "close-button-clicked"): void
-    /* Signals of Mx.Widget */
+    /* Signals of Mx-2.0.Mx.Widget */
     connect(sigName: "long-press", callback: (($obj: Toolbar, object: number, p0: number, p1: LongPressAction) => boolean)): number
     connect_after(sigName: "long-press", callback: (($obj: Toolbar, object: number, p0: number, p1: LongPressAction) => boolean)): number
     emit(sigName: "long-press", object: number, p0: number, p1: LongPressAction): void
-    /* Signals of Clutter.Actor */
+    /* Signals of Clutter-1.0.Clutter.Actor */
     connect(sigName: "allocation-changed", callback: (($obj: Toolbar, box: Clutter.ActorBox, flags: Clutter.AllocationFlags) => void)): number
     connect_after(sigName: "allocation-changed", callback: (($obj: Toolbar, box: Clutter.ActorBox, flags: Clutter.AllocationFlags) => void)): number
     emit(sigName: "allocation-changed", box: Clutter.ActorBox, flags: Clutter.AllocationFlags): void
@@ -27369,11 +27369,11 @@ export class Toolbar {
     connect(sigName: "unrealize", callback: (($obj: Toolbar) => void)): number
     connect_after(sigName: "unrealize", callback: (($obj: Toolbar) => void)): number
     emit(sigName: "unrealize"): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Toolbar, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Toolbar, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    /* Signals of Clutter.Container */
+    /* Signals of Clutter-1.0.Clutter.Container */
     connect(sigName: "actor-added", callback: (($obj: Toolbar, actor: Clutter.Actor) => void)): number
     connect_after(sigName: "actor-added", callback: (($obj: Toolbar, actor: Clutter.Actor) => void)): number
     emit(sigName: "actor-added", actor: Clutter.Actor): void
@@ -27383,7 +27383,7 @@ export class Toolbar {
     connect(sigName: "child-notify", callback: (($obj: Toolbar, actor: Clutter.Actor, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "child-notify", callback: (($obj: Toolbar, actor: Clutter.Actor, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "child-notify", actor: Clutter.Actor, pspec: GObject.ParamSpec): void
-    /* Signals of Mx.Stylable */
+    /* Signals of Mx-2.0.Mx.Stylable */
     connect(sigName: "style-changed", callback: (($obj: Toolbar, flags: StyleChangedFlags) => void)): number
     connect_after(sigName: "style-changed", callback: (($obj: Toolbar, flags: StyleChangedFlags) => void)): number
     emit(sigName: "style-changed", flags: StyleChangedFlags): void
@@ -27586,15 +27586,15 @@ export interface Tooltip_ConstructProps extends FloatingWidget_ConstructProps {
     style_pseudo_class?: string
 }
 export class Tooltip {
-    /* Properties of Mx.Tooltip */
+    /* Properties of Mx-2.0.Mx.Tooltip */
     text: string
     tip_area: Clutter.Geometry
-    /* Properties of Mx.Widget */
+    /* Properties of Mx-2.0.Mx.Widget */
     disabled: boolean
     menu: Menu
     tooltip_delay: number
     tooltip_text: string
-    /* Properties of Clutter.Actor */
+    /* Properties of Clutter-1.0.Clutter.Actor */
     actions: Clutter.Action
     readonly allocation: Clutter.ActorBox
     anchor_gravity: Clutter.Gravity
@@ -27677,18 +27677,18 @@ export class Tooltip {
     y_align: Clutter.ActorAlign
     y_expand: boolean
     z_position: number
-    /* Properties of Mx.Stylable */
+    /* Properties of Mx-2.0.Mx.Stylable */
     style: Style
     style_class: string
     style_pseudo_class: string
-    /* Fields of Mx.FloatingWidget */
+    /* Fields of Mx-2.0.Mx.FloatingWidget */
     parent: Widget
     priv: FloatingWidgetPrivate
-    /* Fields of Clutter.Actor */
+    /* Fields of Clutter-1.0.Clutter.Actor */
     flags: number
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Mx.Tooltip */
+    /* Methods of Mx-2.0.Mx.Tooltip */
     get_text(): string
     get_tip_area(): Clutter.Geometry
     hide(): void
@@ -27696,7 +27696,7 @@ export class Tooltip {
     set_tip_area(area: Clutter.Geometry): void
     set_tip_area_from_actor(actor: Clutter.Actor): void
     show(): void
-    /* Methods of Mx.Widget */
+    /* Methods of Mx-2.0.Mx.Widget */
     apply_style(style: Style): void
     get_available_area(allocation: Clutter.ActorBox, area: Clutter.ActorBox): void
     get_background_color(): Clutter.Color
@@ -27714,7 +27714,7 @@ export class Tooltip {
     set_tooltip_delay(delay: number): void
     set_tooltip_text(text: string): void
     show_tooltip(): void
-    /* Methods of Clutter.Actor */
+    /* Methods of Clutter-1.0.Clutter.Actor */
     add_action(action: Clutter.Action): void
     add_action_with_name(name: string, action: Clutter.Action): void
     add_child(child: Clutter.Actor): void
@@ -27948,7 +27948,7 @@ export class Tooltip {
     unparent(): void
     unrealize(): void
     unset_flags(flags: Clutter.ActorFlags): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -27970,13 +27970,13 @@ export class Tooltip {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of Clutter.Animatable */
+    /* Methods of Clutter-1.0.Clutter.Animatable */
     animate_property(animation: Clutter.Animation, property_name: string, initial_value: any, final_value: any, progress: number, value: any): boolean
     find_property(property_name: string): GObject.ParamSpec
     get_initial_state(property_name: string, value: any): void
     interpolate_value(property_name: string, interval: Clutter.Interval, progress: number): [ /* returnType */ boolean, /* value */ any ]
     set_final_state(property_name: string, value: any): void
-    /* Methods of Clutter.Container */
+    /* Methods of Clutter-1.0.Clutter.Container */
     add_actor(actor: Clutter.Actor): void
     child_get_property(child: Clutter.Actor, property: string, value: any): void
     child_notify(child: Clutter.Actor, pspec: GObject.ParamSpec): void
@@ -27991,12 +27991,12 @@ export class Tooltip {
     raise_child(actor: Clutter.Actor, sibling?: Clutter.Actor | null): void
     remove_actor(actor: Clutter.Actor): void
     sort_depth_order(): void
-    /* Methods of Clutter.Scriptable */
+    /* Methods of Clutter-1.0.Clutter.Scriptable */
     get_id(): string
     parse_custom_node(script: Clutter.Script, value: any, name: string, node: Json.Node): boolean
     set_custom_property(script: Clutter.Script, name: string, value: any): void
     set_id(id_: string): void
-    /* Methods of Mx.Stylable */
+    /* Methods of Mx-2.0.Mx.Stylable */
     apply_clutter_text_attributes(text: Clutter.Text): void
     connect_change_notifiers(): void
     disconnect_change_notifiers(): void
@@ -28013,7 +28013,7 @@ export class Tooltip {
     style_pseudo_class_add(new_class: string): void
     style_pseudo_class_contains(pseudo_class: string): boolean
     style_pseudo_class_remove(remove_class: string): void
-    /* Virtual methods of Mx.Widget */
+    /* Virtual methods of Mx-2.0.Mx.Widget */
     vfunc_long_press(action: LongPressAction, x: number, y: number): boolean
     vfunc_animate_property(animation: Clutter.Animation, property_name: string, initial_value: any, final_value: any, progress: number, value: any): boolean
     vfunc_find_property(property_name: string): GObject.ParamSpec
@@ -28044,7 +28044,7 @@ export class Tooltip {
     vfunc_set_style_class(style_class: string): void
     vfunc_set_style_pseudo_class(pseudo_class: string): void
     vfunc_style_changed(flags: StyleChangedFlags): void
-    /* Virtual methods of Clutter.Actor */
+    /* Virtual methods of Clutter-1.0.Clutter.Actor */
     vfunc_allocate(box: Clutter.ActorBox, flags: Clutter.AllocationFlags): void
     vfunc_apply_transform(matrix: Clutter.Matrix): void
     vfunc_button_press_event(event: Clutter.ButtonEvent): boolean
@@ -28080,7 +28080,7 @@ export class Tooltip {
     vfunc_touch_event(event: Clutter.TouchEvent): boolean
     vfunc_unmap(): void
     vfunc_unrealize(): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -28088,11 +28088,11 @@ export class Tooltip {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Mx.Widget */
+    /* Signals of Mx-2.0.Mx.Widget */
     connect(sigName: "long-press", callback: (($obj: Tooltip, object: number, p0: number, p1: LongPressAction) => boolean)): number
     connect_after(sigName: "long-press", callback: (($obj: Tooltip, object: number, p0: number, p1: LongPressAction) => boolean)): number
     emit(sigName: "long-press", object: number, p0: number, p1: LongPressAction): void
-    /* Signals of Clutter.Actor */
+    /* Signals of Clutter-1.0.Clutter.Actor */
     connect(sigName: "allocation-changed", callback: (($obj: Tooltip, box: Clutter.ActorBox, flags: Clutter.AllocationFlags) => void)): number
     connect_after(sigName: "allocation-changed", callback: (($obj: Tooltip, box: Clutter.ActorBox, flags: Clutter.AllocationFlags) => void)): number
     emit(sigName: "allocation-changed", box: Clutter.ActorBox, flags: Clutter.AllocationFlags): void
@@ -28171,11 +28171,11 @@ export class Tooltip {
     connect(sigName: "unrealize", callback: (($obj: Tooltip) => void)): number
     connect_after(sigName: "unrealize", callback: (($obj: Tooltip) => void)): number
     emit(sigName: "unrealize"): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Tooltip, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Tooltip, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    /* Signals of Clutter.Container */
+    /* Signals of Clutter-1.0.Clutter.Container */
     connect(sigName: "actor-added", callback: (($obj: Tooltip, actor: Clutter.Actor) => void)): number
     connect_after(sigName: "actor-added", callback: (($obj: Tooltip, actor: Clutter.Actor) => void)): number
     emit(sigName: "actor-added", actor: Clutter.Actor): void
@@ -28185,7 +28185,7 @@ export class Tooltip {
     connect(sigName: "child-notify", callback: (($obj: Tooltip, actor: Clutter.Actor, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "child-notify", callback: (($obj: Tooltip, actor: Clutter.Actor, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "child-notify", actor: Clutter.Actor, pspec: GObject.ParamSpec): void
-    /* Signals of Mx.Stylable */
+    /* Signals of Mx-2.0.Mx.Stylable */
     connect(sigName: "style-changed", callback: (($obj: Tooltip, flags: StyleChangedFlags) => void)): number
     connect_after(sigName: "style-changed", callback: (($obj: Tooltip, flags: StyleChangedFlags) => void)): number
     emit(sigName: "style-changed", flags: StyleChangedFlags): void
@@ -28394,23 +28394,23 @@ export interface Viewport_ConstructProps extends Bin_ConstructProps {
     style_pseudo_class?: string
 }
 export class Viewport {
-    /* Properties of Mx.Viewport */
+    /* Properties of Mx-2.0.Mx.Viewport */
     sync_adjustments: boolean
     x_origin: number
     y_origin: number
     z_origin: number
-    /* Properties of Mx.Bin */
+    /* Properties of Mx-2.0.Mx.Bin */
     child: Clutter.Actor
     x_align: Align
     x_fill: boolean
     y_align: Align
     y_fill: boolean
-    /* Properties of Mx.Widget */
+    /* Properties of Mx-2.0.Mx.Widget */
     disabled: boolean
     menu: Menu
     tooltip_delay: number
     tooltip_text: string
-    /* Properties of Clutter.Actor */
+    /* Properties of Clutter-1.0.Clutter.Actor */
     actions: Clutter.Action
     readonly allocation: Clutter.ActorBox
     anchor_gravity: Clutter.Gravity
@@ -28491,23 +28491,23 @@ export class Viewport {
     y: number
     y_expand: boolean
     z_position: number
-    /* Properties of Mx.Scrollable */
+    /* Properties of Mx-2.0.Mx.Scrollable */
     horizontal_adjustment: Adjustment
     vertical_adjustment: Adjustment
-    /* Properties of Mx.Stylable */
+    /* Properties of Mx-2.0.Mx.Stylable */
     style: Style
     style_class: string
     style_pseudo_class: string
-    /* Fields of Clutter.Actor */
+    /* Fields of Clutter-1.0.Clutter.Actor */
     flags: number
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Mx.Viewport */
+    /* Methods of Mx-2.0.Mx.Viewport */
     get_origin(x: number, y: number, z: number): void
     get_sync_adjustments(): boolean
     set_origin(x: number, y: number, z: number): void
     set_sync_adjustments(sync: boolean): void
-    /* Methods of Mx.Bin */
+    /* Methods of Mx-2.0.Mx.Bin */
     allocate_child(box: Clutter.ActorBox, flags: Clutter.AllocationFlags): void
     get_alignment(): [ /* x_align */ Align | null, /* y_align */ Align | null ]
     get_child(): Clutter.Actor
@@ -28515,7 +28515,7 @@ export class Viewport {
     set_alignment(x_align: Align, y_align: Align): void
     set_child(child: Clutter.Actor): void
     set_fill(x_fill: boolean, y_fill: boolean): void
-    /* Methods of Mx.Widget */
+    /* Methods of Mx-2.0.Mx.Widget */
     apply_style(style: Style): void
     get_available_area(allocation: Clutter.ActorBox, area: Clutter.ActorBox): void
     get_background_color(): Clutter.Color
@@ -28533,7 +28533,7 @@ export class Viewport {
     set_tooltip_delay(delay: number): void
     set_tooltip_text(text: string): void
     show_tooltip(): void
-    /* Methods of Clutter.Actor */
+    /* Methods of Clutter-1.0.Clutter.Actor */
     add_action(action: Clutter.Action): void
     add_action_with_name(name: string, action: Clutter.Action): void
     add_child(child: Clutter.Actor): void
@@ -28769,7 +28769,7 @@ export class Viewport {
     unparent(): void
     unrealize(): void
     unset_flags(flags: Clutter.ActorFlags): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -28791,13 +28791,13 @@ export class Viewport {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of Clutter.Animatable */
+    /* Methods of Clutter-1.0.Clutter.Animatable */
     animate_property(animation: Clutter.Animation, property_name: string, initial_value: any, final_value: any, progress: number, value: any): boolean
     find_property(property_name: string): GObject.ParamSpec
     get_initial_state(property_name: string, value: any): void
     interpolate_value(property_name: string, interval: Clutter.Interval, progress: number): [ /* returnType */ boolean, /* value */ any ]
     set_final_state(property_name: string, value: any): void
-    /* Methods of Clutter.Container */
+    /* Methods of Clutter-1.0.Clutter.Container */
     add_actor(actor: Clutter.Actor): void
     child_get_property(child: Clutter.Actor, property: string, value: any): void
     child_notify(child: Clutter.Actor, pspec: GObject.ParamSpec): void
@@ -28812,18 +28812,18 @@ export class Viewport {
     raise_child(actor: Clutter.Actor, sibling?: Clutter.Actor | null): void
     remove_actor(actor: Clutter.Actor): void
     sort_depth_order(): void
-    /* Methods of Clutter.Scriptable */
+    /* Methods of Clutter-1.0.Clutter.Scriptable */
     get_id(): string
     parse_custom_node(script: Clutter.Script, value: any, name: string, node: Json.Node): boolean
     set_custom_property(script: Clutter.Script, name: string, value: any): void
     set_id(id_: string): void
-    /* Methods of Mx.Focusable */
+    /* Methods of Mx-2.0.Mx.Focusable */
     accept_focus(hint: FocusHint): Focusable
     move_focus(direction: FocusDirection, from: Focusable): Focusable
-    /* Methods of Mx.Scrollable */
+    /* Methods of Mx-2.0.Mx.Scrollable */
     get_adjustments(): [ /* hadjustment */ Adjustment | null, /* vadjustment */ Adjustment | null ]
     set_adjustments(hadjustment: Adjustment, vadjustment: Adjustment): void
-    /* Methods of Mx.Stylable */
+    /* Methods of Mx-2.0.Mx.Stylable */
     apply_clutter_text_attributes(text: Clutter.Text): void
     connect_change_notifiers(): void
     disconnect_change_notifiers(): void
@@ -28840,13 +28840,13 @@ export class Viewport {
     style_pseudo_class_add(new_class: string): void
     style_pseudo_class_contains(pseudo_class: string): boolean
     style_pseudo_class_remove(remove_class: string): void
-    /* Virtual methods of Mx.Viewport */
+    /* Virtual methods of Mx-2.0.Mx.Viewport */
     vfunc_get_adjustments(): [ /* hadjustment */ Adjustment | null, /* vadjustment */ Adjustment | null ]
     vfunc_set_adjustments(hadjustment: Adjustment, vadjustment: Adjustment): void
-    /* Virtual methods of Mx.Bin */
+    /* Virtual methods of Mx-2.0.Mx.Bin */
     vfunc_accept_focus(hint: FocusHint): Focusable
     vfunc_move_focus(direction: FocusDirection, from: Focusable): Focusable
-    /* Virtual methods of Mx.Widget */
+    /* Virtual methods of Mx-2.0.Mx.Widget */
     vfunc_long_press(action: LongPressAction, x: number, y: number): boolean
     vfunc_animate_property(animation: Clutter.Animation, property_name: string, initial_value: any, final_value: any, progress: number, value: any): boolean
     vfunc_find_property(property_name: string): GObject.ParamSpec
@@ -28877,7 +28877,7 @@ export class Viewport {
     vfunc_set_style_class(style_class: string): void
     vfunc_set_style_pseudo_class(pseudo_class: string): void
     vfunc_style_changed(flags: StyleChangedFlags): void
-    /* Virtual methods of Clutter.Actor */
+    /* Virtual methods of Clutter-1.0.Clutter.Actor */
     vfunc_allocate(box: Clutter.ActorBox, flags: Clutter.AllocationFlags): void
     vfunc_apply_transform(matrix: Clutter.Matrix): void
     vfunc_button_press_event(event: Clutter.ButtonEvent): boolean
@@ -28913,7 +28913,7 @@ export class Viewport {
     vfunc_touch_event(event: Clutter.TouchEvent): boolean
     vfunc_unmap(): void
     vfunc_unrealize(): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -28921,11 +28921,11 @@ export class Viewport {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Mx.Widget */
+    /* Signals of Mx-2.0.Mx.Widget */
     connect(sigName: "long-press", callback: (($obj: Viewport, object: number, p0: number, p1: LongPressAction) => boolean)): number
     connect_after(sigName: "long-press", callback: (($obj: Viewport, object: number, p0: number, p1: LongPressAction) => boolean)): number
     emit(sigName: "long-press", object: number, p0: number, p1: LongPressAction): void
-    /* Signals of Clutter.Actor */
+    /* Signals of Clutter-1.0.Clutter.Actor */
     connect(sigName: "allocation-changed", callback: (($obj: Viewport, box: Clutter.ActorBox, flags: Clutter.AllocationFlags) => void)): number
     connect_after(sigName: "allocation-changed", callback: (($obj: Viewport, box: Clutter.ActorBox, flags: Clutter.AllocationFlags) => void)): number
     emit(sigName: "allocation-changed", box: Clutter.ActorBox, flags: Clutter.AllocationFlags): void
@@ -29004,11 +29004,11 @@ export class Viewport {
     connect(sigName: "unrealize", callback: (($obj: Viewport) => void)): number
     connect_after(sigName: "unrealize", callback: (($obj: Viewport) => void)): number
     emit(sigName: "unrealize"): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Viewport, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Viewport, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    /* Signals of Clutter.Container */
+    /* Signals of Clutter-1.0.Clutter.Container */
     connect(sigName: "actor-added", callback: (($obj: Viewport, actor: Clutter.Actor) => void)): number
     connect_after(sigName: "actor-added", callback: (($obj: Viewport, actor: Clutter.Actor) => void)): number
     emit(sigName: "actor-added", actor: Clutter.Actor): void
@@ -29018,7 +29018,7 @@ export class Viewport {
     connect(sigName: "child-notify", callback: (($obj: Viewport, actor: Clutter.Actor, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "child-notify", callback: (($obj: Viewport, actor: Clutter.Actor, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "child-notify", actor: Clutter.Actor, pspec: GObject.ParamSpec): void
-    /* Signals of Mx.Stylable */
+    /* Signals of Mx-2.0.Mx.Stylable */
     connect(sigName: "style-changed", callback: (($obj: Viewport, flags: StyleChangedFlags) => void)): number
     connect_after(sigName: "style-changed", callback: (($obj: Viewport, flags: StyleChangedFlags) => void)): number
     emit(sigName: "style-changed", flags: StyleChangedFlags): void
@@ -29239,12 +29239,12 @@ export interface Widget_ConstructProps extends Clutter.Actor_ConstructProps {
     style_pseudo_class?: string
 }
 export class Widget {
-    /* Properties of Mx.Widget */
+    /* Properties of Mx-2.0.Mx.Widget */
     disabled: boolean
     menu: Menu
     tooltip_delay: number
     tooltip_text: string
-    /* Properties of Clutter.Actor */
+    /* Properties of Clutter-1.0.Clutter.Actor */
     actions: Clutter.Action
     readonly allocation: Clutter.ActorBox
     anchor_gravity: Clutter.Gravity
@@ -29327,15 +29327,15 @@ export class Widget {
     y_align: Clutter.ActorAlign
     y_expand: boolean
     z_position: number
-    /* Properties of Mx.Stylable */
+    /* Properties of Mx-2.0.Mx.Stylable */
     style: Style
     style_class: string
     style_pseudo_class: string
-    /* Fields of Clutter.Actor */
+    /* Fields of Clutter-1.0.Clutter.Actor */
     flags: number
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Mx.Widget */
+    /* Methods of Mx-2.0.Mx.Widget */
     apply_style(style: Style): void
     get_available_area(allocation: Clutter.ActorBox, area: Clutter.ActorBox): void
     get_background_color(): Clutter.Color
@@ -29353,7 +29353,7 @@ export class Widget {
     set_tooltip_delay(delay: number): void
     set_tooltip_text(text: string): void
     show_tooltip(): void
-    /* Methods of Clutter.Actor */
+    /* Methods of Clutter-1.0.Clutter.Actor */
     add_action(action: Clutter.Action): void
     add_action_with_name(name: string, action: Clutter.Action): void
     add_child(child: Clutter.Actor): void
@@ -29589,7 +29589,7 @@ export class Widget {
     unparent(): void
     unrealize(): void
     unset_flags(flags: Clutter.ActorFlags): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -29611,13 +29611,13 @@ export class Widget {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of Clutter.Animatable */
+    /* Methods of Clutter-1.0.Clutter.Animatable */
     animate_property(animation: Clutter.Animation, property_name: string, initial_value: any, final_value: any, progress: number, value: any): boolean
     find_property(property_name: string): GObject.ParamSpec
     get_initial_state(property_name: string, value: any): void
     interpolate_value(property_name: string, interval: Clutter.Interval, progress: number): [ /* returnType */ boolean, /* value */ any ]
     set_final_state(property_name: string, value: any): void
-    /* Methods of Clutter.Container */
+    /* Methods of Clutter-1.0.Clutter.Container */
     add_actor(actor: Clutter.Actor): void
     child_get_property(child: Clutter.Actor, property: string, value: any): void
     child_notify(child: Clutter.Actor, pspec: GObject.ParamSpec): void
@@ -29632,12 +29632,12 @@ export class Widget {
     raise_child(actor: Clutter.Actor, sibling?: Clutter.Actor | null): void
     remove_actor(actor: Clutter.Actor): void
     sort_depth_order(): void
-    /* Methods of Clutter.Scriptable */
+    /* Methods of Clutter-1.0.Clutter.Scriptable */
     get_id(): string
     parse_custom_node(script: Clutter.Script, value: any, name: string, node: Json.Node): boolean
     set_custom_property(script: Clutter.Script, name: string, value: any): void
     set_id(id_: string): void
-    /* Methods of Mx.Stylable */
+    /* Methods of Mx-2.0.Mx.Stylable */
     apply_clutter_text_attributes(text: Clutter.Text): void
     connect_change_notifiers(): void
     disconnect_change_notifiers(): void
@@ -29654,7 +29654,7 @@ export class Widget {
     style_pseudo_class_add(new_class: string): void
     style_pseudo_class_contains(pseudo_class: string): boolean
     style_pseudo_class_remove(remove_class: string): void
-    /* Virtual methods of Mx.Widget */
+    /* Virtual methods of Mx-2.0.Mx.Widget */
     vfunc_long_press(action: LongPressAction, x: number, y: number): boolean
     vfunc_animate_property(animation: Clutter.Animation, property_name: string, initial_value: any, final_value: any, progress: number, value: any): boolean
     vfunc_find_property(property_name: string): GObject.ParamSpec
@@ -29685,7 +29685,7 @@ export class Widget {
     vfunc_set_style_class(style_class: string): void
     vfunc_set_style_pseudo_class(pseudo_class: string): void
     vfunc_style_changed(flags: StyleChangedFlags): void
-    /* Virtual methods of Clutter.Actor */
+    /* Virtual methods of Clutter-1.0.Clutter.Actor */
     vfunc_allocate(box: Clutter.ActorBox, flags: Clutter.AllocationFlags): void
     vfunc_apply_transform(matrix: Clutter.Matrix): void
     vfunc_button_press_event(event: Clutter.ButtonEvent): boolean
@@ -29721,7 +29721,7 @@ export class Widget {
     vfunc_touch_event(event: Clutter.TouchEvent): boolean
     vfunc_unmap(): void
     vfunc_unrealize(): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -29729,11 +29729,11 @@ export class Widget {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Mx.Widget */
+    /* Signals of Mx-2.0.Mx.Widget */
     connect(sigName: "long-press", callback: (($obj: Widget, object: number, p0: number, p1: LongPressAction) => boolean)): number
     connect_after(sigName: "long-press", callback: (($obj: Widget, object: number, p0: number, p1: LongPressAction) => boolean)): number
     emit(sigName: "long-press", object: number, p0: number, p1: LongPressAction): void
-    /* Signals of Clutter.Actor */
+    /* Signals of Clutter-1.0.Clutter.Actor */
     connect(sigName: "allocation-changed", callback: (($obj: Widget, box: Clutter.ActorBox, flags: Clutter.AllocationFlags) => void)): number
     connect_after(sigName: "allocation-changed", callback: (($obj: Widget, box: Clutter.ActorBox, flags: Clutter.AllocationFlags) => void)): number
     emit(sigName: "allocation-changed", box: Clutter.ActorBox, flags: Clutter.AllocationFlags): void
@@ -29812,11 +29812,11 @@ export class Widget {
     connect(sigName: "unrealize", callback: (($obj: Widget) => void)): number
     connect_after(sigName: "unrealize", callback: (($obj: Widget) => void)): number
     emit(sigName: "unrealize"): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Widget, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Widget, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    /* Signals of Clutter.Container */
+    /* Signals of Clutter-1.0.Clutter.Container */
     connect(sigName: "actor-added", callback: (($obj: Widget, actor: Clutter.Actor) => void)): number
     connect_after(sigName: "actor-added", callback: (($obj: Widget, actor: Clutter.Actor) => void)): number
     emit(sigName: "actor-added", actor: Clutter.Actor): void
@@ -29826,7 +29826,7 @@ export class Widget {
     connect(sigName: "child-notify", callback: (($obj: Widget, actor: Clutter.Actor, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "child-notify", callback: (($obj: Widget, actor: Clutter.Actor, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "child-notify", actor: Clutter.Actor, pspec: GObject.ParamSpec): void
-    /* Signals of Mx.Stylable */
+    /* Signals of Mx-2.0.Mx.Stylable */
     connect(sigName: "style-changed", callback: (($obj: Widget, flags: StyleChangedFlags) => void)): number
     connect_after(sigName: "style-changed", callback: (($obj: Widget, flags: StyleChangedFlags) => void)): number
     emit(sigName: "style-changed", flags: StyleChangedFlags): void
@@ -30034,7 +30034,7 @@ export interface Window_ConstructProps extends GObject.Object_ConstructProps {
     window_rotation?: WindowRotation
 }
 export class Window {
-    /* Properties of Mx.Window */
+    /* Properties of Mx-2.0.Mx.Window */
     child: Clutter.Actor
     fullscreen: boolean
     has_toolbar: boolean
@@ -30046,12 +30046,12 @@ export class Window {
     window_rotation: WindowRotation
     readonly window_rotation_angle: number
     readonly window_rotation_timeline: Clutter.Timeline
-    /* Fields of Mx.Window */
+    /* Fields of Mx-2.0.Mx.Window */
     parent: GObject.Object
     priv: WindowPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Mx.Window */
+    /* Methods of Mx-2.0.Mx.Window */
     get_child(): Clutter.Actor
     get_clutter_stage(): Clutter.Stage
     get_fullscreen(): boolean
@@ -30077,7 +30077,7 @@ export class Window {
     set_window_rotation(rotation: WindowRotation): void
     set_window_size(width: number, height: number): void
     show(): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -30099,9 +30099,9 @@ export class Window {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Mx.Window */
+    /* Virtual methods of Mx-2.0.Mx.Window */
     vfunc_destroy(): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -30109,11 +30109,11 @@ export class Window {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Mx.Window */
+    /* Signals of Mx-2.0.Mx.Window */
     connect(sigName: "destroy", callback: (($obj: Window) => void)): number
     connect_after(sigName: "destroy", callback: (($obj: Window) => void)): number
     emit(sigName: "destroy"): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Window, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Window, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -30153,7 +30153,7 @@ export class Window {
     static $gtype: GObject.Type
 }
 export abstract class ActionClass {
-    /* Fields of Mx.ActionClass */
+    /* Fields of Mx-2.0.Mx.ActionClass */
     parent_class: GObject.InitiallyUnownedClass
     activated: (action: Action) => void
     static name: string
@@ -30162,7 +30162,7 @@ export class ActionPrivate {
     static name: string
 }
 export abstract class ActorManagerClass {
-    /* Fields of Mx.ActorManagerClass */
+    /* Fields of Mx-2.0.Mx.ActorManagerClass */
     parent_class: GObject.ObjectClass
     actor_created: (manager: ActorManager, id: number, actor: Clutter.Actor) => void
     actor_added: (manager: ActorManager, id: number, container: Clutter.Actor, actor: Clutter.Actor) => void
@@ -30177,7 +30177,7 @@ export class ActorManagerPrivate {
     static name: string
 }
 export abstract class AdjustmentClass {
-    /* Fields of Mx.AdjustmentClass */
+    /* Fields of Mx-2.0.Mx.AdjustmentClass */
     changed: (adjustment: Adjustment) => void
     interpolation_completed: (adjustment: Adjustment) => void
     changed_immediate: (adjustment: Adjustment) => void
@@ -30187,7 +30187,7 @@ export class AdjustmentPrivate {
     static name: string
 }
 export abstract class ApplicationClass {
-    /* Fields of Mx.ApplicationClass */
+    /* Fields of Mx-2.0.Mx.ApplicationClass */
     parent_class: Gio.ApplicationClass
     static name: string
 }
@@ -30201,20 +30201,20 @@ export class BinPrivate {
     static name: string
 }
 export class BorderImage {
-    /* Fields of Mx.BorderImage */
+    /* Fields of Mx-2.0.Mx.BorderImage */
     uri: string
     top: number
     right: number
     bottom: number
     left: number
-    /* Methods of Mx.BorderImage */
+    /* Methods of Mx-2.0.Mx.BorderImage */
     equal(b2: BorderImage): boolean
     static name: string
     /* Static methods and pseudo-constructors */
     static set_from_string(value: any, str: string, filename: string): void
 }
 export abstract class BoxLayoutChildClass {
-    /* Fields of Mx.BoxLayoutChildClass */
+    /* Fields of Mx-2.0.Mx.BoxLayoutChildClass */
     parent_class: Clutter.ChildMetaClass
     static name: string
 }
@@ -30222,7 +30222,7 @@ export class BoxLayoutChildPrivate {
     static name: string
 }
 export abstract class BoxLayoutClass {
-    /* Fields of Mx.BoxLayoutClass */
+    /* Fields of Mx-2.0.Mx.BoxLayoutClass */
     parent_class: WidgetClass
     static name: string
 }
@@ -30230,13 +30230,13 @@ export class BoxLayoutPrivate {
     static name: string
 }
 export abstract class ButtonClass {
-    /* Fields of Mx.ButtonClass */
+    /* Fields of Mx-2.0.Mx.ButtonClass */
     parent_class: WidgetClass
     clicked: (button: Button) => void
     static name: string
 }
 export abstract class ButtonGroupClass {
-    /* Fields of Mx.ButtonGroupClass */
+    /* Fields of Mx-2.0.Mx.ButtonGroupClass */
     parent_class: GObject.InitiallyUnownedClass
     static name: string
 }
@@ -30247,7 +30247,7 @@ export class ButtonPrivate {
     static name: string
 }
 export abstract class ClipboardClass {
-    /* Fields of Mx.ClipboardClass */
+    /* Fields of Mx-2.0.Mx.ClipboardClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
@@ -30255,7 +30255,7 @@ export class ClipboardPrivate {
     static name: string
 }
 export abstract class ComboBoxClass {
-    /* Fields of Mx.ComboBoxClass */
+    /* Fields of Mx-2.0.Mx.ComboBoxClass */
     parent_class: WidgetClass
     static name: string
 }
@@ -30263,7 +30263,7 @@ export class ComboBoxPrivate {
     static name: string
 }
 export abstract class DialogClass {
-    /* Fields of Mx.DialogClass */
+    /* Fields of Mx-2.0.Mx.DialogClass */
     parent_class: WidgetClass
     static name: string
 }
@@ -30271,7 +30271,7 @@ export class DialogPrivate {
     static name: string
 }
 export abstract class DraggableIface {
-    /* Fields of Mx.DraggableIface */
+    /* Fields of Mx-2.0.Mx.DraggableIface */
     enable: (draggable: Draggable) => void
     disable: (draggable: Draggable) => void
     drag_begin: (draggable: Draggable, event_x: number, event_y: number, event_button: number, modifiers: Clutter.ModifierType) => void
@@ -30280,7 +30280,7 @@ export abstract class DraggableIface {
     static name: string
 }
 export abstract class DroppableIface {
-    /* Fields of Mx.DroppableIface */
+    /* Fields of Mx-2.0.Mx.DroppableIface */
     enable: (droppable: Droppable) => void
     disable: (droppable: Droppable) => void
     accept_drop: (droppable: Droppable, draggable: Draggable) => boolean
@@ -30290,7 +30290,7 @@ export abstract class DroppableIface {
     static name: string
 }
 export abstract class EntryClass {
-    /* Fields of Mx.EntryClass */
+    /* Fields of Mx-2.0.Mx.EntryClass */
     parent_class: WidgetClass
     primary_icon_clicked: (entry: Entry) => void
     secondary_icon_clicked: (entry: Entry) => void
@@ -30300,7 +30300,7 @@ export class EntryPrivate {
     static name: string
 }
 export abstract class ExpanderClass {
-    /* Fields of Mx.ExpanderClass */
+    /* Fields of Mx-2.0.Mx.ExpanderClass */
     parent_class: WidgetClass
     expand_complete: (expander: Expander) => void
     static name: string
@@ -30309,7 +30309,7 @@ export class ExpanderPrivate {
     static name: string
 }
 export abstract class FadeEffectClass {
-    /* Fields of Mx.FadeEffectClass */
+    /* Fields of Mx-2.0.Mx.FadeEffectClass */
     parent_class: Clutter.OffscreenEffectClass
     static name: string
 }
@@ -30317,7 +30317,7 @@ export class FadeEffectPrivate {
     static name: string
 }
 export abstract class FloatingWidgetClass {
-    /* Fields of Mx.FloatingWidgetClass */
+    /* Fields of Mx-2.0.Mx.FloatingWidgetClass */
     parent_class: WidgetClass
     floating_pick: (actor: Clutter.Actor, color: Clutter.Color) => void
     floating_paint: (actor: Clutter.Actor) => void
@@ -30327,7 +30327,7 @@ export class FloatingWidgetPrivate {
     static name: string
 }
 export abstract class FocusManagerClass {
-    /* Fields of Mx.FocusManagerClass */
+    /* Fields of Mx-2.0.Mx.FocusManagerClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
@@ -30335,14 +30335,14 @@ export class FocusManagerPrivate {
     static name: string
 }
 export abstract class FocusableIface {
-    /* Fields of Mx.FocusableIface */
+    /* Fields of Mx-2.0.Mx.FocusableIface */
     parent_class: GObject.ObjectClass
     accept_focus: (focusable: Focusable, hint: FocusHint) => Focusable
     move_focus: (focusable: Focusable, direction: FocusDirection, from: Focusable) => Focusable
     static name: string
 }
 export abstract class FrameClass {
-    /* Fields of Mx.FrameClass */
+    /* Fields of Mx-2.0.Mx.FrameClass */
     parent_class: WidgetClass
     static name: string
 }
@@ -30350,7 +30350,7 @@ export class FramePrivate {
     static name: string
 }
 export abstract class GridClass {
-    /* Fields of Mx.GridClass */
+    /* Fields of Mx-2.0.Mx.GridClass */
     parent_class: WidgetClass
     static name: string
 }
@@ -30358,7 +30358,7 @@ export class GridPrivate {
     static name: string
 }
 export abstract class IconClass {
-    /* Fields of Mx.IconClass */
+    /* Fields of Mx-2.0.Mx.IconClass */
     parent_class: WidgetClass
     static name: string
 }
@@ -30366,7 +30366,7 @@ export class IconPrivate {
     static name: string
 }
 export abstract class IconThemeClass {
-    /* Fields of Mx.IconThemeClass */
+    /* Fields of Mx-2.0.Mx.IconThemeClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
@@ -30374,7 +30374,7 @@ export class IconThemePrivate {
     static name: string
 }
 export abstract class ImageClass {
-    /* Fields of Mx.ImageClass */
+    /* Fields of Mx-2.0.Mx.ImageClass */
     image_loaded: (image: Image) => void
     image_load_error: (image: Image, error: GLib.Error) => void
     static name: string
@@ -30383,12 +30383,12 @@ export class ImagePrivate {
     static name: string
 }
 export abstract class ItemFactoryIface {
-    /* Fields of Mx.ItemFactoryIface */
+    /* Fields of Mx-2.0.Mx.ItemFactoryIface */
     create: (factory: ItemFactory) => Clutter.Actor
     static name: string
 }
 export abstract class ItemViewClass {
-    /* Fields of Mx.ItemViewClass */
+    /* Fields of Mx-2.0.Mx.ItemViewClass */
     parent_class: GridClass
     static name: string
 }
@@ -30396,7 +30396,7 @@ export class ItemViewPrivate {
     static name: string
 }
 export abstract class KineticScrollViewClass {
-    /* Fields of Mx.KineticScrollViewClass */
+    /* Fields of Mx-2.0.Mx.KineticScrollViewClass */
     parent_class: WidgetClass
     static name: string
 }
@@ -30404,7 +30404,7 @@ export class KineticScrollViewPrivate {
     static name: string
 }
 export abstract class LabelClass {
-    /* Fields of Mx.LabelClass */
+    /* Fields of Mx-2.0.Mx.LabelClass */
     parent_class: WidgetClass
     static name: string
 }
@@ -30412,7 +30412,7 @@ export class LabelPrivate {
     static name: string
 }
 export abstract class ListViewClass {
-    /* Fields of Mx.ListViewClass */
+    /* Fields of Mx-2.0.Mx.ListViewClass */
     parent_class: BoxLayoutClass
     static name: string
 }
@@ -30420,7 +30420,7 @@ export class ListViewPrivate {
     static name: string
 }
 export abstract class MenuClass {
-    /* Fields of Mx.MenuClass */
+    /* Fields of Mx-2.0.Mx.MenuClass */
     parent_class: FloatingWidgetClass
     action_activated: (menu: Menu, action: Action) => void
     static name: string
@@ -30429,7 +30429,7 @@ export class MenuPrivate {
     static name: string
 }
 export abstract class NotebookClass {
-    /* Fields of Mx.NotebookClass */
+    /* Fields of Mx-2.0.Mx.NotebookClass */
     parent_class: WidgetClass
     static name: string
 }
@@ -30437,7 +30437,7 @@ export class NotebookPrivate {
     static name: string
 }
 export class Padding {
-    /* Fields of Mx.Padding */
+    /* Fields of Mx-2.0.Mx.Padding */
     top: number
     right: number
     bottom: number
@@ -30451,7 +30451,7 @@ export class PagerPrivate {
     static name: string
 }
 export abstract class PathBarClass {
-    /* Fields of Mx.PathBarClass */
+    /* Fields of Mx-2.0.Mx.PathBarClass */
     parent_class: WidgetClass
     static name: string
 }
@@ -30459,7 +30459,7 @@ export class PathBarPrivate {
     static name: string
 }
 export abstract class ProgressBarClass {
-    /* Fields of Mx.ProgressBarClass */
+    /* Fields of Mx-2.0.Mx.ProgressBarClass */
     parent_class: WidgetClass
     static name: string
 }
@@ -30467,7 +30467,7 @@ export class ProgressBarPrivate {
     static name: string
 }
 export abstract class ScrollBarClass {
-    /* Fields of Mx.ScrollBarClass */
+    /* Fields of Mx-2.0.Mx.ScrollBarClass */
     parent_class: WidgetClass
     scroll_start: (bar: ScrollBar) => void
     scroll_stop: (bar: ScrollBar) => void
@@ -30477,7 +30477,7 @@ export class ScrollBarPrivate {
     static name: string
 }
 export abstract class ScrollViewClass {
-    /* Fields of Mx.ScrollViewClass */
+    /* Fields of Mx-2.0.Mx.ScrollViewClass */
     parent_class: WidgetClass
     static name: string
 }
@@ -30485,13 +30485,13 @@ export class ScrollViewPrivate {
     static name: string
 }
 export abstract class ScrollableIface {
-    /* Fields of Mx.ScrollableIface */
+    /* Fields of Mx-2.0.Mx.ScrollableIface */
     set_adjustments: (scrollable: Scrollable, hadjustment: Adjustment, vadjustment: Adjustment) => void
     get_adjustments: (scrollable: Scrollable) => [ /* hadjustment */ Adjustment | null, /* vadjustment */ Adjustment | null ]
     static name: string
 }
 export abstract class SettingsClass {
-    /* Fields of Mx.SettingsClass */
+    /* Fields of Mx-2.0.Mx.SettingsClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
@@ -30505,7 +30505,7 @@ export class SettingsProviderIface {
     static name: string
 }
 export abstract class SliderClass {
-    /* Fields of Mx.SliderClass */
+    /* Fields of Mx-2.0.Mx.SliderClass */
     parent_class: WidgetClass
     static name: string
 }
@@ -30513,7 +30513,7 @@ export class SliderPrivate {
     static name: string
 }
 export abstract class SpinnerClass {
-    /* Fields of Mx.SpinnerClass */
+    /* Fields of Mx-2.0.Mx.SpinnerClass */
     parent_class: WidgetClass
     looped: (spinner: Spinner) => void
     static name: string
@@ -30522,7 +30522,7 @@ export class SpinnerPrivate {
     static name: string
 }
 export abstract class StackChildClass {
-    /* Fields of Mx.StackChildClass */
+    /* Fields of Mx-2.0.Mx.StackChildClass */
     parent_class: Clutter.ChildMetaClass
     static name: string
 }
@@ -30530,7 +30530,7 @@ export class StackChildPrivate {
     static name: string
 }
 export abstract class StackClass {
-    /* Fields of Mx.StackClass */
+    /* Fields of Mx-2.0.Mx.StackClass */
     parent_class: WidgetClass
     static name: string
 }
@@ -30538,7 +30538,7 @@ export class StackPrivate {
     static name: string
 }
 export abstract class StylableIface {
-    /* Fields of Mx.StylableIface */
+    /* Fields of Mx-2.0.Mx.StylableIface */
     get_style: (stylable: Stylable) => Style
     set_style: (stylable: Stylable, style: Style) => void
     get_style_class: (stylable: Stylable) => string
@@ -30546,12 +30546,12 @@ export abstract class StylableIface {
     get_style_pseudo_class: (stylable: Stylable) => string
     set_style_pseudo_class: (stylable: Stylable, pseudo_class: string) => void
     style_changed: (stylable: Stylable, flags: StyleChangedFlags) => void
-    /* Methods of Mx.StylableIface */
+    /* Methods of Mx-2.0.Mx.StylableIface */
     install_property(iface: Stylable | Function | GObject.Type, owner_type: GObject.Type, pspec: GObject.ParamSpec): void
     static name: string
 }
 export abstract class StyleClass {
-    /* Fields of Mx.StyleClass */
+    /* Fields of Mx-2.0.Mx.StyleClass */
     parent_class: GObject.ObjectClass
     changed: (style: Style) => void
     static name: string
@@ -30560,12 +30560,12 @@ export class StylePrivate {
     static name: string
 }
 export abstract class TableChildClass {
-    /* Fields of Mx.TableChildClass */
+    /* Fields of Mx-2.0.Mx.TableChildClass */
     parent_class: Clutter.ChildMetaClass
     static name: string
 }
 export abstract class TableClass {
-    /* Fields of Mx.TableClass */
+    /* Fields of Mx-2.0.Mx.TableClass */
     parent_class: WidgetClass
     static name: string
 }
@@ -30573,7 +30573,7 @@ export class TablePrivate {
     static name: string
 }
 export class TextShadow {
-    /* Fields of Mx.TextShadow */
+    /* Fields of Mx-2.0.Mx.TextShadow */
     h_offset: number
     v_offset: number
     blur: number
@@ -30581,14 +30581,14 @@ export class TextShadow {
     static name: string
 }
 export abstract class TextureCacheClass {
-    /* Fields of Mx.TextureCacheClass */
+    /* Fields of Mx-2.0.Mx.TextureCacheClass */
     parent_class: GObject.ObjectClass
     loaded: (self: TextureCache, uri: string, texture: Clutter.Texture) => void
     error_loading: (self: TextureCache, error: GLib.Error) => void
     static name: string
 }
 export abstract class TextureFrameClass {
-    /* Fields of Mx.TextureFrameClass */
+    /* Fields of Mx-2.0.Mx.TextureFrameClass */
     parent_class: Clutter.ActorClass
     static name: string
 }
@@ -30596,7 +30596,7 @@ export class TextureFramePrivate {
     static name: string
 }
 export abstract class ToggleClass {
-    /* Fields of Mx.ToggleClass */
+    /* Fields of Mx-2.0.Mx.ToggleClass */
     parent_class: WidgetClass
     static name: string
 }
@@ -30604,7 +30604,7 @@ export class TogglePrivate {
     static name: string
 }
 export abstract class ToolbarClass {
-    /* Fields of Mx.ToolbarClass */
+    /* Fields of Mx-2.0.Mx.ToolbarClass */
     parent_class: WidgetClass
     close_button_clicked: (toolbar: Toolbar) => boolean
     static name: string
@@ -30613,7 +30613,7 @@ export class ToolbarPrivate {
     static name: string
 }
 export abstract class TooltipClass {
-    /* Fields of Mx.TooltipClass */
+    /* Fields of Mx-2.0.Mx.TooltipClass */
     parent_class: FloatingWidgetClass
     static name: string
 }
@@ -30621,7 +30621,7 @@ export class TooltipPrivate {
     static name: string
 }
 export abstract class ViewportClass {
-    /* Fields of Mx.ViewportClass */
+    /* Fields of Mx-2.0.Mx.ViewportClass */
     parent_class: BinClass
     static name: string
 }
@@ -30629,7 +30629,7 @@ export class ViewportPrivate {
     static name: string
 }
 export abstract class WidgetClass {
-    /* Fields of Mx.WidgetClass */
+    /* Fields of Mx-2.0.Mx.WidgetClass */
     long_press: (widget: Widget, action: LongPressAction, x: number, y: number) => boolean
     static name: string
 }
@@ -30637,7 +30637,7 @@ export class WidgetPrivate {
     static name: string
 }
 export abstract class WindowClass {
-    /* Fields of Mx.WindowClass */
+    /* Fields of Mx-2.0.Mx.WindowClass */
     parent_class: GObject.ObjectClass
     destroy: (window: Window) => void
     static name: string

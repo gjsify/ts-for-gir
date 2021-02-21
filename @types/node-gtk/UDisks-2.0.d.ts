@@ -76,7 +76,7 @@ export function partitionTableOverrideProperties(klass: GObject.ObjectClass, pro
 export function swapspaceInterfaceInfo(): Gio.DBusInterfaceInfo
 export function swapspaceOverrideProperties(klass: GObject.ObjectClass, propertyIdBegin: number): number
 export class Block {
-    /* Properties of UDisks.Block */
+    /* Properties of UDisks-2.0.UDisks.Block */
     configuration: GLib.Variant
     cryptoBackingDevice: string
     device: string
@@ -101,7 +101,7 @@ export class Block {
     readOnly: boolean
     size: number
     symlinks: string[]
-    /* Methods of UDisks.Block */
+    /* Methods of UDisks-2.0.UDisks.Block */
     callAddConfigurationItem(argItem: GLib.Variant, argOptions: GLib.Variant, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     callAddConfigurationItemFinish(res: Gio.AsyncResult): boolean
     callAddConfigurationItemSync(argItem: GLib.Variant, argOptions: GLib.Variant, cancellable?: Gio.Cancellable | null): boolean
@@ -109,17 +109,17 @@ export class Block {
     callFormatFinish(res: Gio.AsyncResult): boolean
     callFormatSync(argType: string, argOptions: GLib.Variant, cancellable?: Gio.Cancellable | null): boolean
     callGetSecretConfiguration(argOptions: GLib.Variant, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    callGetSecretConfigurationFinish(res: Gio.AsyncResult): [ /* returnType */ boolean, /* outConfiguration */ GLib.Variant ]
-    callGetSecretConfigurationSync(argOptions: GLib.Variant, cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* outConfiguration */ GLib.Variant ]
+    callGetSecretConfigurationFinish(res: Gio.AsyncResult): { returnType: boolean, outConfiguration: GLib.Variant }
+    callGetSecretConfigurationSync(argOptions: GLib.Variant, cancellable?: Gio.Cancellable | null): { returnType: boolean, outConfiguration: GLib.Variant }
     callOpenForBackup(argOptions: GLib.Variant, fdList?: Gio.UnixFDList | null, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    callOpenForBackupFinish(res: Gio.AsyncResult): [ /* returnType */ boolean, /* outFd */ GLib.Variant, /* outFdList */ Gio.UnixFDList ]
-    callOpenForBackupSync(argOptions: GLib.Variant, fdList?: Gio.UnixFDList | null, cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* outFd */ GLib.Variant, /* outFdList */ Gio.UnixFDList ]
+    callOpenForBackupFinish(res: Gio.AsyncResult): { returnType: boolean, outFd: GLib.Variant, outFdList: Gio.UnixFDList }
+    callOpenForBackupSync(argOptions: GLib.Variant, fdList?: Gio.UnixFDList | null, cancellable?: Gio.Cancellable | null): { returnType: boolean, outFd: GLib.Variant, outFdList: Gio.UnixFDList }
     callOpenForBenchmark(argOptions: GLib.Variant, fdList?: Gio.UnixFDList | null, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    callOpenForBenchmarkFinish(res: Gio.AsyncResult): [ /* returnType */ boolean, /* outFd */ GLib.Variant, /* outFdList */ Gio.UnixFDList ]
-    callOpenForBenchmarkSync(argOptions: GLib.Variant, fdList?: Gio.UnixFDList | null, cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* outFd */ GLib.Variant, /* outFdList */ Gio.UnixFDList ]
+    callOpenForBenchmarkFinish(res: Gio.AsyncResult): { returnType: boolean, outFd: GLib.Variant, outFdList: Gio.UnixFDList }
+    callOpenForBenchmarkSync(argOptions: GLib.Variant, fdList?: Gio.UnixFDList | null, cancellable?: Gio.Cancellable | null): { returnType: boolean, outFd: GLib.Variant, outFdList: Gio.UnixFDList }
     callOpenForRestore(argOptions: GLib.Variant, fdList?: Gio.UnixFDList | null, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    callOpenForRestoreFinish(res: Gio.AsyncResult): [ /* returnType */ boolean, /* outFd */ GLib.Variant, /* outFdList */ Gio.UnixFDList ]
-    callOpenForRestoreSync(argOptions: GLib.Variant, fdList?: Gio.UnixFDList | null, cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* outFd */ GLib.Variant, /* outFdList */ Gio.UnixFDList ]
+    callOpenForRestoreFinish(res: Gio.AsyncResult): { returnType: boolean, outFd: GLib.Variant, outFdList: Gio.UnixFDList }
+    callOpenForRestoreSync(argOptions: GLib.Variant, fdList?: Gio.UnixFDList | null, cancellable?: Gio.Cancellable | null): { returnType: boolean, outFd: GLib.Variant, outFdList: Gio.UnixFDList }
     callRemoveConfigurationItem(argItem: GLib.Variant, argOptions: GLib.Variant, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     callRemoveConfigurationItemFinish(res: Gio.AsyncResult): boolean
     callRemoveConfigurationItemSync(argItem: GLib.Variant, argOptions: GLib.Variant, cancellable?: Gio.Cancellable | null): boolean
@@ -138,78 +138,59 @@ export class Block {
     completeRemoveConfigurationItem(invocation: Gio.DBusMethodInvocation): void
     completeRescan(invocation: Gio.DBusMethodInvocation): void
     completeUpdateConfigurationItem(invocation: Gio.DBusMethodInvocation): void
-    /* Virtual methods of UDisks.Block */
-    vfuncHandleAddConfigurationItem(invocation: Gio.DBusMethodInvocation, argItem: GLib.Variant, argOptions: GLib.Variant): boolean
-    vfuncHandleFormat(invocation: Gio.DBusMethodInvocation, argType: string, argOptions: GLib.Variant): boolean
-    vfuncHandleGetSecretConfiguration(invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant): boolean
-    vfuncHandleOpenForBackup(invocation: Gio.DBusMethodInvocation, fdList: Gio.UnixFDList, argOptions: GLib.Variant): boolean
-    vfuncHandleOpenForBenchmark(invocation: Gio.DBusMethodInvocation, fdList: Gio.UnixFDList, argOptions: GLib.Variant): boolean
-    vfuncHandleOpenForRestore(invocation: Gio.DBusMethodInvocation, fdList: Gio.UnixFDList, argOptions: GLib.Variant): boolean
-    vfuncHandleRemoveConfigurationItem(invocation: Gio.DBusMethodInvocation, argItem: GLib.Variant, argOptions: GLib.Variant): boolean
-    vfuncHandleRescan(invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant): boolean
-    vfuncHandleUpdateConfigurationItem(invocation: Gio.DBusMethodInvocation, argOldItem: GLib.Variant, argNewItem: GLib.Variant, argOptions: GLib.Variant): boolean
-    /* Signals of UDisks.Block */
+    /* Signals of UDisks-2.0.UDisks.Block */
     connect(sigName: "handle-add-configuration-item", callback: (($obj: Block, invocation: Gio.DBusMethodInvocation, argItem: GLib.Variant, argOptions: GLib.Variant) => boolean)): number
-    connect_after(sigName: "handle-add-configuration-item", callback: (($obj: Block, invocation: Gio.DBusMethodInvocation, argItem: GLib.Variant, argOptions: GLib.Variant) => boolean)): number
+    on(sigName: "handle-add-configuration-item", callback: (invocation: Gio.DBusMethodInvocation, argItem: GLib.Variant, argOptions: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-add-configuration-item", callback: (invocation: Gio.DBusMethodInvocation, argItem: GLib.Variant, argOptions: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-add-configuration-item", callback: (invocation: Gio.DBusMethodInvocation, argItem: GLib.Variant, argOptions: GLib.Variant) => void): NodeJS.EventEmitter
     emit(sigName: "handle-add-configuration-item", invocation: Gio.DBusMethodInvocation, argItem: GLib.Variant, argOptions: GLib.Variant): void
-    on(sigName: "handle-add-configuration-item", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-add-configuration-item", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-add-configuration-item", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "handle-format", callback: (($obj: Block, invocation: Gio.DBusMethodInvocation, argType: string, argOptions: GLib.Variant) => boolean)): number
-    connect_after(sigName: "handle-format", callback: (($obj: Block, invocation: Gio.DBusMethodInvocation, argType: string, argOptions: GLib.Variant) => boolean)): number
+    on(sigName: "handle-format", callback: (invocation: Gio.DBusMethodInvocation, argType: string, argOptions: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-format", callback: (invocation: Gio.DBusMethodInvocation, argType: string, argOptions: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-format", callback: (invocation: Gio.DBusMethodInvocation, argType: string, argOptions: GLib.Variant) => void): NodeJS.EventEmitter
     emit(sigName: "handle-format", invocation: Gio.DBusMethodInvocation, argType: string, argOptions: GLib.Variant): void
-    on(sigName: "handle-format", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-format", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-format", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "handle-get-secret-configuration", callback: (($obj: Block, invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant) => boolean)): number
-    connect_after(sigName: "handle-get-secret-configuration", callback: (($obj: Block, invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant) => boolean)): number
+    on(sigName: "handle-get-secret-configuration", callback: (invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-get-secret-configuration", callback: (invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-get-secret-configuration", callback: (invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant) => void): NodeJS.EventEmitter
     emit(sigName: "handle-get-secret-configuration", invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant): void
-    on(sigName: "handle-get-secret-configuration", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-get-secret-configuration", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-get-secret-configuration", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "handle-open-for-backup", callback: (($obj: Block, invocation: Gio.DBusMethodInvocation, fdList: Gio.UnixFDList | null, argOptions: GLib.Variant) => boolean)): number
-    connect_after(sigName: "handle-open-for-backup", callback: (($obj: Block, invocation: Gio.DBusMethodInvocation, fdList: Gio.UnixFDList | null, argOptions: GLib.Variant) => boolean)): number
+    on(sigName: "handle-open-for-backup", callback: (invocation: Gio.DBusMethodInvocation, fdList: Gio.UnixFDList | null, argOptions: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-open-for-backup", callback: (invocation: Gio.DBusMethodInvocation, fdList: Gio.UnixFDList | null, argOptions: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-open-for-backup", callback: (invocation: Gio.DBusMethodInvocation, fdList: Gio.UnixFDList | null, argOptions: GLib.Variant) => void): NodeJS.EventEmitter
     emit(sigName: "handle-open-for-backup", invocation: Gio.DBusMethodInvocation, fdList: Gio.UnixFDList | null, argOptions: GLib.Variant): void
-    on(sigName: "handle-open-for-backup", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-open-for-backup", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-open-for-backup", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "handle-open-for-benchmark", callback: (($obj: Block, invocation: Gio.DBusMethodInvocation, fdList: Gio.UnixFDList | null, argOptions: GLib.Variant) => boolean)): number
-    connect_after(sigName: "handle-open-for-benchmark", callback: (($obj: Block, invocation: Gio.DBusMethodInvocation, fdList: Gio.UnixFDList | null, argOptions: GLib.Variant) => boolean)): number
+    on(sigName: "handle-open-for-benchmark", callback: (invocation: Gio.DBusMethodInvocation, fdList: Gio.UnixFDList | null, argOptions: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-open-for-benchmark", callback: (invocation: Gio.DBusMethodInvocation, fdList: Gio.UnixFDList | null, argOptions: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-open-for-benchmark", callback: (invocation: Gio.DBusMethodInvocation, fdList: Gio.UnixFDList | null, argOptions: GLib.Variant) => void): NodeJS.EventEmitter
     emit(sigName: "handle-open-for-benchmark", invocation: Gio.DBusMethodInvocation, fdList: Gio.UnixFDList | null, argOptions: GLib.Variant): void
-    on(sigName: "handle-open-for-benchmark", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-open-for-benchmark", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-open-for-benchmark", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "handle-open-for-restore", callback: (($obj: Block, invocation: Gio.DBusMethodInvocation, fdList: Gio.UnixFDList | null, argOptions: GLib.Variant) => boolean)): number
-    connect_after(sigName: "handle-open-for-restore", callback: (($obj: Block, invocation: Gio.DBusMethodInvocation, fdList: Gio.UnixFDList | null, argOptions: GLib.Variant) => boolean)): number
+    on(sigName: "handle-open-for-restore", callback: (invocation: Gio.DBusMethodInvocation, fdList: Gio.UnixFDList | null, argOptions: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-open-for-restore", callback: (invocation: Gio.DBusMethodInvocation, fdList: Gio.UnixFDList | null, argOptions: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-open-for-restore", callback: (invocation: Gio.DBusMethodInvocation, fdList: Gio.UnixFDList | null, argOptions: GLib.Variant) => void): NodeJS.EventEmitter
     emit(sigName: "handle-open-for-restore", invocation: Gio.DBusMethodInvocation, fdList: Gio.UnixFDList | null, argOptions: GLib.Variant): void
-    on(sigName: "handle-open-for-restore", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-open-for-restore", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-open-for-restore", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "handle-remove-configuration-item", callback: (($obj: Block, invocation: Gio.DBusMethodInvocation, argItem: GLib.Variant, argOptions: GLib.Variant) => boolean)): number
-    connect_after(sigName: "handle-remove-configuration-item", callback: (($obj: Block, invocation: Gio.DBusMethodInvocation, argItem: GLib.Variant, argOptions: GLib.Variant) => boolean)): number
+    on(sigName: "handle-remove-configuration-item", callback: (invocation: Gio.DBusMethodInvocation, argItem: GLib.Variant, argOptions: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-remove-configuration-item", callback: (invocation: Gio.DBusMethodInvocation, argItem: GLib.Variant, argOptions: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-remove-configuration-item", callback: (invocation: Gio.DBusMethodInvocation, argItem: GLib.Variant, argOptions: GLib.Variant) => void): NodeJS.EventEmitter
     emit(sigName: "handle-remove-configuration-item", invocation: Gio.DBusMethodInvocation, argItem: GLib.Variant, argOptions: GLib.Variant): void
-    on(sigName: "handle-remove-configuration-item", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-remove-configuration-item", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-remove-configuration-item", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "handle-rescan", callback: (($obj: Block, invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant) => boolean)): number
-    connect_after(sigName: "handle-rescan", callback: (($obj: Block, invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant) => boolean)): number
+    on(sigName: "handle-rescan", callback: (invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-rescan", callback: (invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-rescan", callback: (invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant) => void): NodeJS.EventEmitter
     emit(sigName: "handle-rescan", invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant): void
-    on(sigName: "handle-rescan", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-rescan", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-rescan", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "handle-update-configuration-item", callback: (($obj: Block, invocation: Gio.DBusMethodInvocation, argOldItem: GLib.Variant, argNewItem: GLib.Variant, argOptions: GLib.Variant) => boolean)): number
-    connect_after(sigName: "handle-update-configuration-item", callback: (($obj: Block, invocation: Gio.DBusMethodInvocation, argOldItem: GLib.Variant, argNewItem: GLib.Variant, argOptions: GLib.Variant) => boolean)): number
+    on(sigName: "handle-update-configuration-item", callback: (invocation: Gio.DBusMethodInvocation, argOldItem: GLib.Variant, argNewItem: GLib.Variant, argOptions: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-update-configuration-item", callback: (invocation: Gio.DBusMethodInvocation, argOldItem: GLib.Variant, argNewItem: GLib.Variant, argOptions: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-update-configuration-item", callback: (invocation: Gio.DBusMethodInvocation, argOldItem: GLib.Variant, argNewItem: GLib.Variant, argOptions: GLib.Variant) => void): NodeJS.EventEmitter
     emit(sigName: "handle-update-configuration-item", invocation: Gio.DBusMethodInvocation, argOldItem: GLib.Variant, argNewItem: GLib.Variant, argOptions: GLib.Variant): void
-    on(sigName: "handle-update-configuration-item", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-update-configuration-item", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-update-configuration-item", callback: (...args: any[]) => void): NodeJS.EventEmitter
     static name: string
     /* Static methods and pseudo-constructors */
     static interfaceInfo(): Gio.DBusInterfaceInfo
     static overrideProperties(klass: GObject.ObjectClass, propertyIdBegin: number): number
 }
 export class Drive {
-    /* Properties of UDisks.Drive */
+    /* Properties of UDisks-2.0.UDisks.Drive */
     canPowerOff: boolean
     configuration: GLib.Variant
     connectionBus: string
@@ -239,7 +220,7 @@ export class Drive {
     timeMediaDetected: number
     vendor: string
     wwn: string
-    /* Methods of UDisks.Drive */
+    /* Methods of UDisks-2.0.UDisks.Drive */
     callEject(argOptions: GLib.Variant, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     callEjectFinish(res: Gio.AsyncResult): boolean
     callEjectSync(argOptions: GLib.Variant, cancellable?: Gio.Cancellable | null): boolean
@@ -252,36 +233,29 @@ export class Drive {
     completeEject(invocation: Gio.DBusMethodInvocation): void
     completePowerOff(invocation: Gio.DBusMethodInvocation): void
     completeSetConfiguration(invocation: Gio.DBusMethodInvocation): void
-    /* Virtual methods of UDisks.Drive */
-    vfuncHandleEject(invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant): boolean
-    vfuncHandlePowerOff(invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant): boolean
-    vfuncHandleSetConfiguration(invocation: Gio.DBusMethodInvocation, argValue: GLib.Variant, argOptions: GLib.Variant): boolean
-    /* Signals of UDisks.Drive */
+    /* Signals of UDisks-2.0.UDisks.Drive */
     connect(sigName: "handle-eject", callback: (($obj: Drive, invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant) => boolean)): number
-    connect_after(sigName: "handle-eject", callback: (($obj: Drive, invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant) => boolean)): number
+    on(sigName: "handle-eject", callback: (invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-eject", callback: (invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-eject", callback: (invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant) => void): NodeJS.EventEmitter
     emit(sigName: "handle-eject", invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant): void
-    on(sigName: "handle-eject", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-eject", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-eject", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "handle-power-off", callback: (($obj: Drive, invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant) => boolean)): number
-    connect_after(sigName: "handle-power-off", callback: (($obj: Drive, invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant) => boolean)): number
+    on(sigName: "handle-power-off", callback: (invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-power-off", callback: (invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-power-off", callback: (invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant) => void): NodeJS.EventEmitter
     emit(sigName: "handle-power-off", invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant): void
-    on(sigName: "handle-power-off", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-power-off", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-power-off", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "handle-set-configuration", callback: (($obj: Drive, invocation: Gio.DBusMethodInvocation, argValue: GLib.Variant, argOptions: GLib.Variant) => boolean)): number
-    connect_after(sigName: "handle-set-configuration", callback: (($obj: Drive, invocation: Gio.DBusMethodInvocation, argValue: GLib.Variant, argOptions: GLib.Variant) => boolean)): number
+    on(sigName: "handle-set-configuration", callback: (invocation: Gio.DBusMethodInvocation, argValue: GLib.Variant, argOptions: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-set-configuration", callback: (invocation: Gio.DBusMethodInvocation, argValue: GLib.Variant, argOptions: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-set-configuration", callback: (invocation: Gio.DBusMethodInvocation, argValue: GLib.Variant, argOptions: GLib.Variant) => void): NodeJS.EventEmitter
     emit(sigName: "handle-set-configuration", invocation: Gio.DBusMethodInvocation, argValue: GLib.Variant, argOptions: GLib.Variant): void
-    on(sigName: "handle-set-configuration", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-set-configuration", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-set-configuration", callback: (...args: any[]) => void): NodeJS.EventEmitter
     static name: string
     /* Static methods and pseudo-constructors */
     static interfaceInfo(): Gio.DBusInterfaceInfo
     static overrideProperties(klass: GObject.ObjectClass, propertyIdBegin: number): number
 }
 export class DriveAta {
-    /* Properties of UDisks.DriveAta */
+    /* Properties of UDisks-2.0.UDisks.DriveAta */
     aamEnabled: boolean
     aamSupported: boolean
     aamVendorRecommendedValue: number
@@ -307,10 +281,10 @@ export class DriveAta {
     smartUpdated: number
     writeCacheEnabled: boolean
     writeCacheSupported: boolean
-    /* Methods of UDisks.DriveAta */
+    /* Methods of UDisks-2.0.UDisks.DriveAta */
     callPmGetState(argOptions: GLib.Variant, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    callPmGetStateFinish(res: Gio.AsyncResult): [ /* returnType */ boolean, /* outState */ number ]
-    callPmGetStateSync(argOptions: GLib.Variant, cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* outState */ number ]
+    callPmGetStateFinish(res: Gio.AsyncResult): { returnType: boolean, outState: number }
+    callPmGetStateSync(argOptions: GLib.Variant, cancellable?: Gio.Cancellable | null): { returnType: boolean, outState: number }
     callPmStandby(argOptions: GLib.Variant, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     callPmStandbyFinish(res: Gio.AsyncResult): boolean
     callPmStandbySync(argOptions: GLib.Variant, cancellable?: Gio.Cancellable | null): boolean
@@ -321,8 +295,8 @@ export class DriveAta {
     callSecurityEraseUnitFinish(res: Gio.AsyncResult): boolean
     callSecurityEraseUnitSync(argOptions: GLib.Variant, cancellable?: Gio.Cancellable | null): boolean
     callSmartGetAttributes(argOptions: GLib.Variant, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    callSmartGetAttributesFinish(res: Gio.AsyncResult): [ /* returnType */ boolean, /* outAttributes */ GLib.Variant ]
-    callSmartGetAttributesSync(argOptions: GLib.Variant, cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* outAttributes */ GLib.Variant ]
+    callSmartGetAttributesFinish(res: Gio.AsyncResult): { returnType: boolean, outAttributes: GLib.Variant }
+    callSmartGetAttributesSync(argOptions: GLib.Variant, cancellable?: Gio.Cancellable | null): { returnType: boolean, outAttributes: GLib.Variant }
     callSmartSelftestAbort(argOptions: GLib.Variant, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     callSmartSelftestAbortFinish(res: Gio.AsyncResult): boolean
     callSmartSelftestAbortSync(argOptions: GLib.Variant, cancellable?: Gio.Cancellable | null): boolean
@@ -344,80 +318,61 @@ export class DriveAta {
     completeSmartSelftestStart(invocation: Gio.DBusMethodInvocation): void
     completeSmartSetEnabled(invocation: Gio.DBusMethodInvocation): void
     completeSmartUpdate(invocation: Gio.DBusMethodInvocation): void
-    /* Virtual methods of UDisks.DriveAta */
-    vfuncHandlePmGetState(invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant): boolean
-    vfuncHandlePmStandby(invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant): boolean
-    vfuncHandlePmWakeup(invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant): boolean
-    vfuncHandleSecurityEraseUnit(invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant): boolean
-    vfuncHandleSmartGetAttributes(invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant): boolean
-    vfuncHandleSmartSelftestAbort(invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant): boolean
-    vfuncHandleSmartSelftestStart(invocation: Gio.DBusMethodInvocation, argType: string, argOptions: GLib.Variant): boolean
-    vfuncHandleSmartSetEnabled(invocation: Gio.DBusMethodInvocation, argValue: boolean, argOptions: GLib.Variant): boolean
-    vfuncHandleSmartUpdate(invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant): boolean
-    /* Signals of UDisks.DriveAta */
+    /* Signals of UDisks-2.0.UDisks.DriveAta */
     connect(sigName: "handle-pm-get-state", callback: (($obj: DriveAta, invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant) => boolean)): number
-    connect_after(sigName: "handle-pm-get-state", callback: (($obj: DriveAta, invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant) => boolean)): number
+    on(sigName: "handle-pm-get-state", callback: (invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-pm-get-state", callback: (invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-pm-get-state", callback: (invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant) => void): NodeJS.EventEmitter
     emit(sigName: "handle-pm-get-state", invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant): void
-    on(sigName: "handle-pm-get-state", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-pm-get-state", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-pm-get-state", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "handle-pm-standby", callback: (($obj: DriveAta, invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant) => boolean)): number
-    connect_after(sigName: "handle-pm-standby", callback: (($obj: DriveAta, invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant) => boolean)): number
+    on(sigName: "handle-pm-standby", callback: (invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-pm-standby", callback: (invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-pm-standby", callback: (invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant) => void): NodeJS.EventEmitter
     emit(sigName: "handle-pm-standby", invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant): void
-    on(sigName: "handle-pm-standby", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-pm-standby", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-pm-standby", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "handle-pm-wakeup", callback: (($obj: DriveAta, invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant) => boolean)): number
-    connect_after(sigName: "handle-pm-wakeup", callback: (($obj: DriveAta, invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant) => boolean)): number
+    on(sigName: "handle-pm-wakeup", callback: (invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-pm-wakeup", callback: (invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-pm-wakeup", callback: (invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant) => void): NodeJS.EventEmitter
     emit(sigName: "handle-pm-wakeup", invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant): void
-    on(sigName: "handle-pm-wakeup", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-pm-wakeup", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-pm-wakeup", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "handle-security-erase-unit", callback: (($obj: DriveAta, invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant) => boolean)): number
-    connect_after(sigName: "handle-security-erase-unit", callback: (($obj: DriveAta, invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant) => boolean)): number
+    on(sigName: "handle-security-erase-unit", callback: (invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-security-erase-unit", callback: (invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-security-erase-unit", callback: (invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant) => void): NodeJS.EventEmitter
     emit(sigName: "handle-security-erase-unit", invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant): void
-    on(sigName: "handle-security-erase-unit", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-security-erase-unit", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-security-erase-unit", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "handle-smart-get-attributes", callback: (($obj: DriveAta, invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant) => boolean)): number
-    connect_after(sigName: "handle-smart-get-attributes", callback: (($obj: DriveAta, invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant) => boolean)): number
+    on(sigName: "handle-smart-get-attributes", callback: (invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-smart-get-attributes", callback: (invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-smart-get-attributes", callback: (invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant) => void): NodeJS.EventEmitter
     emit(sigName: "handle-smart-get-attributes", invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant): void
-    on(sigName: "handle-smart-get-attributes", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-smart-get-attributes", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-smart-get-attributes", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "handle-smart-selftest-abort", callback: (($obj: DriveAta, invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant) => boolean)): number
-    connect_after(sigName: "handle-smart-selftest-abort", callback: (($obj: DriveAta, invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant) => boolean)): number
+    on(sigName: "handle-smart-selftest-abort", callback: (invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-smart-selftest-abort", callback: (invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-smart-selftest-abort", callback: (invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant) => void): NodeJS.EventEmitter
     emit(sigName: "handle-smart-selftest-abort", invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant): void
-    on(sigName: "handle-smart-selftest-abort", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-smart-selftest-abort", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-smart-selftest-abort", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "handle-smart-selftest-start", callback: (($obj: DriveAta, invocation: Gio.DBusMethodInvocation, argType: string, argOptions: GLib.Variant) => boolean)): number
-    connect_after(sigName: "handle-smart-selftest-start", callback: (($obj: DriveAta, invocation: Gio.DBusMethodInvocation, argType: string, argOptions: GLib.Variant) => boolean)): number
+    on(sigName: "handle-smart-selftest-start", callback: (invocation: Gio.DBusMethodInvocation, argType: string, argOptions: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-smart-selftest-start", callback: (invocation: Gio.DBusMethodInvocation, argType: string, argOptions: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-smart-selftest-start", callback: (invocation: Gio.DBusMethodInvocation, argType: string, argOptions: GLib.Variant) => void): NodeJS.EventEmitter
     emit(sigName: "handle-smart-selftest-start", invocation: Gio.DBusMethodInvocation, argType: string, argOptions: GLib.Variant): void
-    on(sigName: "handle-smart-selftest-start", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-smart-selftest-start", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-smart-selftest-start", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "handle-smart-set-enabled", callback: (($obj: DriveAta, invocation: Gio.DBusMethodInvocation, argValue: boolean, argOptions: GLib.Variant) => boolean)): number
-    connect_after(sigName: "handle-smart-set-enabled", callback: (($obj: DriveAta, invocation: Gio.DBusMethodInvocation, argValue: boolean, argOptions: GLib.Variant) => boolean)): number
+    on(sigName: "handle-smart-set-enabled", callback: (invocation: Gio.DBusMethodInvocation, argValue: boolean, argOptions: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-smart-set-enabled", callback: (invocation: Gio.DBusMethodInvocation, argValue: boolean, argOptions: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-smart-set-enabled", callback: (invocation: Gio.DBusMethodInvocation, argValue: boolean, argOptions: GLib.Variant) => void): NodeJS.EventEmitter
     emit(sigName: "handle-smart-set-enabled", invocation: Gio.DBusMethodInvocation, argValue: boolean, argOptions: GLib.Variant): void
-    on(sigName: "handle-smart-set-enabled", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-smart-set-enabled", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-smart-set-enabled", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "handle-smart-update", callback: (($obj: DriveAta, invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant) => boolean)): number
-    connect_after(sigName: "handle-smart-update", callback: (($obj: DriveAta, invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant) => boolean)): number
+    on(sigName: "handle-smart-update", callback: (invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-smart-update", callback: (invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-smart-update", callback: (invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant) => void): NodeJS.EventEmitter
     emit(sigName: "handle-smart-update", invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant): void
-    on(sigName: "handle-smart-update", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-smart-update", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-smart-update", callback: (...args: any[]) => void): NodeJS.EventEmitter
     static name: string
     /* Static methods and pseudo-constructors */
     static interfaceInfo(): Gio.DBusInterfaceInfo
     static overrideProperties(klass: GObject.ObjectClass, propertyIdBegin: number): number
 }
 export class Encrypted {
-    /* Properties of UDisks.Encrypted */
+    /* Properties of UDisks-2.0.UDisks.Encrypted */
     childConfiguration: GLib.Variant
-    /* Methods of UDisks.Encrypted */
+    /* Methods of UDisks-2.0.UDisks.Encrypted */
     callChangePassphrase(argPassphrase: string, argNewPassphrase: string, argOptions: GLib.Variant, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     callChangePassphraseFinish(res: Gio.AsyncResult): boolean
     callChangePassphraseSync(argPassphrase: string, argNewPassphrase: string, argOptions: GLib.Variant, cancellable?: Gio.Cancellable | null): boolean
@@ -425,46 +380,39 @@ export class Encrypted {
     callLockFinish(res: Gio.AsyncResult): boolean
     callLockSync(argOptions: GLib.Variant, cancellable?: Gio.Cancellable | null): boolean
     callUnlock(argPassphrase: string, argOptions: GLib.Variant, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    callUnlockFinish(res: Gio.AsyncResult): [ /* returnType */ boolean, /* outCleartextDevice */ string ]
-    callUnlockSync(argPassphrase: string, argOptions: GLib.Variant, cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* outCleartextDevice */ string ]
+    callUnlockFinish(res: Gio.AsyncResult): { returnType: boolean, outCleartextDevice: string }
+    callUnlockSync(argPassphrase: string, argOptions: GLib.Variant, cancellable?: Gio.Cancellable | null): { returnType: boolean, outCleartextDevice: string }
     completeChangePassphrase(invocation: Gio.DBusMethodInvocation): void
     completeLock(invocation: Gio.DBusMethodInvocation): void
     completeUnlock(invocation: Gio.DBusMethodInvocation, cleartextDevice: string): void
-    /* Virtual methods of UDisks.Encrypted */
-    vfuncHandleChangePassphrase(invocation: Gio.DBusMethodInvocation, argPassphrase: string, argNewPassphrase: string, argOptions: GLib.Variant): boolean
-    vfuncHandleLock(invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant): boolean
-    vfuncHandleUnlock(invocation: Gio.DBusMethodInvocation, argPassphrase: string, argOptions: GLib.Variant): boolean
-    /* Signals of UDisks.Encrypted */
+    /* Signals of UDisks-2.0.UDisks.Encrypted */
     connect(sigName: "handle-change-passphrase", callback: (($obj: Encrypted, invocation: Gio.DBusMethodInvocation, argPassphrase: string, argNewPassphrase: string, argOptions: GLib.Variant) => boolean)): number
-    connect_after(sigName: "handle-change-passphrase", callback: (($obj: Encrypted, invocation: Gio.DBusMethodInvocation, argPassphrase: string, argNewPassphrase: string, argOptions: GLib.Variant) => boolean)): number
+    on(sigName: "handle-change-passphrase", callback: (invocation: Gio.DBusMethodInvocation, argPassphrase: string, argNewPassphrase: string, argOptions: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-change-passphrase", callback: (invocation: Gio.DBusMethodInvocation, argPassphrase: string, argNewPassphrase: string, argOptions: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-change-passphrase", callback: (invocation: Gio.DBusMethodInvocation, argPassphrase: string, argNewPassphrase: string, argOptions: GLib.Variant) => void): NodeJS.EventEmitter
     emit(sigName: "handle-change-passphrase", invocation: Gio.DBusMethodInvocation, argPassphrase: string, argNewPassphrase: string, argOptions: GLib.Variant): void
-    on(sigName: "handle-change-passphrase", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-change-passphrase", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-change-passphrase", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "handle-lock", callback: (($obj: Encrypted, invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant) => boolean)): number
-    connect_after(sigName: "handle-lock", callback: (($obj: Encrypted, invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant) => boolean)): number
+    on(sigName: "handle-lock", callback: (invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-lock", callback: (invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-lock", callback: (invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant) => void): NodeJS.EventEmitter
     emit(sigName: "handle-lock", invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant): void
-    on(sigName: "handle-lock", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-lock", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-lock", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "handle-unlock", callback: (($obj: Encrypted, invocation: Gio.DBusMethodInvocation, argPassphrase: string, argOptions: GLib.Variant) => boolean)): number
-    connect_after(sigName: "handle-unlock", callback: (($obj: Encrypted, invocation: Gio.DBusMethodInvocation, argPassphrase: string, argOptions: GLib.Variant) => boolean)): number
+    on(sigName: "handle-unlock", callback: (invocation: Gio.DBusMethodInvocation, argPassphrase: string, argOptions: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-unlock", callback: (invocation: Gio.DBusMethodInvocation, argPassphrase: string, argOptions: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-unlock", callback: (invocation: Gio.DBusMethodInvocation, argPassphrase: string, argOptions: GLib.Variant) => void): NodeJS.EventEmitter
     emit(sigName: "handle-unlock", invocation: Gio.DBusMethodInvocation, argPassphrase: string, argOptions: GLib.Variant): void
-    on(sigName: "handle-unlock", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-unlock", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-unlock", callback: (...args: any[]) => void): NodeJS.EventEmitter
     static name: string
     /* Static methods and pseudo-constructors */
     static interfaceInfo(): Gio.DBusInterfaceInfo
     static overrideProperties(klass: GObject.ObjectClass, propertyIdBegin: number): number
 }
 export class Filesystem {
-    /* Properties of UDisks.Filesystem */
+    /* Properties of UDisks-2.0.UDisks.Filesystem */
     mountPoints: string[]
-    /* Methods of UDisks.Filesystem */
+    /* Methods of UDisks-2.0.UDisks.Filesystem */
     callMount(argOptions: GLib.Variant, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    callMountFinish(res: Gio.AsyncResult): [ /* returnType */ boolean, /* outMountPath */ string ]
-    callMountSync(argOptions: GLib.Variant, cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* outMountPath */ string ]
+    callMountFinish(res: Gio.AsyncResult): { returnType: boolean, outMountPath: string }
+    callMountSync(argOptions: GLib.Variant, cancellable?: Gio.Cancellable | null): { returnType: boolean, outMountPath: string }
     callSetLabel(argLabel: string, argOptions: GLib.Variant, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     callSetLabelFinish(res: Gio.AsyncResult): boolean
     callSetLabelSync(argLabel: string, argOptions: GLib.Variant, cancellable?: Gio.Cancellable | null): boolean
@@ -474,36 +422,29 @@ export class Filesystem {
     completeMount(invocation: Gio.DBusMethodInvocation, mountPath: string): void
     completeSetLabel(invocation: Gio.DBusMethodInvocation): void
     completeUnmount(invocation: Gio.DBusMethodInvocation): void
-    /* Virtual methods of UDisks.Filesystem */
-    vfuncHandleMount(invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant): boolean
-    vfuncHandleSetLabel(invocation: Gio.DBusMethodInvocation, argLabel: string, argOptions: GLib.Variant): boolean
-    vfuncHandleUnmount(invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant): boolean
-    /* Signals of UDisks.Filesystem */
+    /* Signals of UDisks-2.0.UDisks.Filesystem */
     connect(sigName: "handle-mount", callback: (($obj: Filesystem, invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant) => boolean)): number
-    connect_after(sigName: "handle-mount", callback: (($obj: Filesystem, invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant) => boolean)): number
+    on(sigName: "handle-mount", callback: (invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-mount", callback: (invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-mount", callback: (invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant) => void): NodeJS.EventEmitter
     emit(sigName: "handle-mount", invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant): void
-    on(sigName: "handle-mount", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-mount", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-mount", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "handle-set-label", callback: (($obj: Filesystem, invocation: Gio.DBusMethodInvocation, argLabel: string, argOptions: GLib.Variant) => boolean)): number
-    connect_after(sigName: "handle-set-label", callback: (($obj: Filesystem, invocation: Gio.DBusMethodInvocation, argLabel: string, argOptions: GLib.Variant) => boolean)): number
+    on(sigName: "handle-set-label", callback: (invocation: Gio.DBusMethodInvocation, argLabel: string, argOptions: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-set-label", callback: (invocation: Gio.DBusMethodInvocation, argLabel: string, argOptions: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-set-label", callback: (invocation: Gio.DBusMethodInvocation, argLabel: string, argOptions: GLib.Variant) => void): NodeJS.EventEmitter
     emit(sigName: "handle-set-label", invocation: Gio.DBusMethodInvocation, argLabel: string, argOptions: GLib.Variant): void
-    on(sigName: "handle-set-label", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-set-label", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-set-label", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "handle-unmount", callback: (($obj: Filesystem, invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant) => boolean)): number
-    connect_after(sigName: "handle-unmount", callback: (($obj: Filesystem, invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant) => boolean)): number
+    on(sigName: "handle-unmount", callback: (invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-unmount", callback: (invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-unmount", callback: (invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant) => void): NodeJS.EventEmitter
     emit(sigName: "handle-unmount", invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant): void
-    on(sigName: "handle-unmount", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-unmount", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-unmount", callback: (...args: any[]) => void): NodeJS.EventEmitter
     static name: string
     /* Static methods and pseudo-constructors */
     static interfaceInfo(): Gio.DBusInterfaceInfo
     static overrideProperties(klass: GObject.ObjectClass, propertyIdBegin: number): number
 }
 export class Job {
-    /* Properties of UDisks.Job */
+    /* Properties of UDisks-2.0.UDisks.Job */
     bytes: number
     cancelable: boolean
     expectedEndTime: number
@@ -514,39 +455,34 @@ export class Job {
     rate: number
     startTime: number
     startedByUid: number
-    /* Methods of UDisks.Job */
+    /* Methods of UDisks-2.0.UDisks.Job */
     callCancel(argOptions: GLib.Variant, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     callCancelFinish(res: Gio.AsyncResult): boolean
     callCancelSync(argOptions: GLib.Variant, cancellable?: Gio.Cancellable | null): boolean
     completeCancel(invocation: Gio.DBusMethodInvocation): void
     emitCompleted(argSuccess: boolean, argMessage: string): void
-    /* Virtual methods of UDisks.Job */
-    vfuncCompleted(argSuccess: boolean, argMessage: string): void
-    vfuncHandleCancel(invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant): boolean
-    /* Signals of UDisks.Job */
+    /* Signals of UDisks-2.0.UDisks.Job */
     connect(sigName: "completed", callback: (($obj: Job, argSuccess: boolean, argMessage: string) => void)): number
-    connect_after(sigName: "completed", callback: (($obj: Job, argSuccess: boolean, argMessage: string) => void)): number
+    on(sigName: "completed", callback: (argSuccess: boolean, argMessage: string) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "completed", callback: (argSuccess: boolean, argMessage: string) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "completed", callback: (argSuccess: boolean, argMessage: string) => void): NodeJS.EventEmitter
     emit(sigName: "completed", argSuccess: boolean, argMessage: string): void
-    on(sigName: "completed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "completed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "completed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "handle-cancel", callback: (($obj: Job, invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant) => boolean)): number
-    connect_after(sigName: "handle-cancel", callback: (($obj: Job, invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant) => boolean)): number
+    on(sigName: "handle-cancel", callback: (invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-cancel", callback: (invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-cancel", callback: (invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant) => void): NodeJS.EventEmitter
     emit(sigName: "handle-cancel", invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant): void
-    on(sigName: "handle-cancel", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-cancel", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-cancel", callback: (...args: any[]) => void): NodeJS.EventEmitter
     static name: string
     /* Static methods and pseudo-constructors */
     static interfaceInfo(): Gio.DBusInterfaceInfo
     static overrideProperties(klass: GObject.ObjectClass, propertyIdBegin: number): number
 }
 export class Loop {
-    /* Properties of UDisks.Loop */
+    /* Properties of UDisks-2.0.UDisks.Loop */
     autoclear: boolean
     backingFile: string
     setupByUid: number
-    /* Methods of UDisks.Loop */
+    /* Methods of UDisks-2.0.UDisks.Loop */
     callDelete(argOptions: GLib.Variant, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     callDeleteFinish(res: Gio.AsyncResult): boolean
     callDeleteSync(argOptions: GLib.Variant, cancellable?: Gio.Cancellable | null): boolean
@@ -555,29 +491,24 @@ export class Loop {
     callSetAutoclearSync(argValue: boolean, argOptions: GLib.Variant, cancellable?: Gio.Cancellable | null): boolean
     completeDelete(invocation: Gio.DBusMethodInvocation): void
     completeSetAutoclear(invocation: Gio.DBusMethodInvocation): void
-    /* Virtual methods of UDisks.Loop */
-    vfuncHandleDelete(invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant): boolean
-    vfuncHandleSetAutoclear(invocation: Gio.DBusMethodInvocation, argValue: boolean, argOptions: GLib.Variant): boolean
-    /* Signals of UDisks.Loop */
+    /* Signals of UDisks-2.0.UDisks.Loop */
     connect(sigName: "handle-delete", callback: (($obj: Loop, invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant) => boolean)): number
-    connect_after(sigName: "handle-delete", callback: (($obj: Loop, invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant) => boolean)): number
+    on(sigName: "handle-delete", callback: (invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-delete", callback: (invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-delete", callback: (invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant) => void): NodeJS.EventEmitter
     emit(sigName: "handle-delete", invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant): void
-    on(sigName: "handle-delete", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-delete", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-delete", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "handle-set-autoclear", callback: (($obj: Loop, invocation: Gio.DBusMethodInvocation, argValue: boolean, argOptions: GLib.Variant) => boolean)): number
-    connect_after(sigName: "handle-set-autoclear", callback: (($obj: Loop, invocation: Gio.DBusMethodInvocation, argValue: boolean, argOptions: GLib.Variant) => boolean)): number
+    on(sigName: "handle-set-autoclear", callback: (invocation: Gio.DBusMethodInvocation, argValue: boolean, argOptions: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-set-autoclear", callback: (invocation: Gio.DBusMethodInvocation, argValue: boolean, argOptions: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-set-autoclear", callback: (invocation: Gio.DBusMethodInvocation, argValue: boolean, argOptions: GLib.Variant) => void): NodeJS.EventEmitter
     emit(sigName: "handle-set-autoclear", invocation: Gio.DBusMethodInvocation, argValue: boolean, argOptions: GLib.Variant): void
-    on(sigName: "handle-set-autoclear", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-set-autoclear", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-set-autoclear", callback: (...args: any[]) => void): NodeJS.EventEmitter
     static name: string
     /* Static methods and pseudo-constructors */
     static interfaceInfo(): Gio.DBusInterfaceInfo
     static overrideProperties(klass: GObject.ObjectClass, propertyIdBegin: number): number
 }
 export class MDRaid {
-    /* Properties of UDisks.MDRaid */
+    /* Properties of UDisks-2.0.UDisks.MDRaid */
     activeDevices: GLib.Variant
     bitmapLocation: string
     childConfiguration: GLib.Variant
@@ -593,7 +524,7 @@ export class MDRaid {
     syncRate: number
     syncRemainingTime: number
     uuid: string
-    /* Methods of UDisks.MDRaid */
+    /* Methods of UDisks-2.0.UDisks.MDRaid */
     callAddDevice(argDevice: string, argOptions: GLib.Variant, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     callAddDeviceFinish(res: Gio.AsyncResult): boolean
     callAddDeviceSync(argDevice: string, argOptions: GLib.Variant, cancellable?: Gio.Cancellable | null): boolean
@@ -622,109 +553,87 @@ export class MDRaid {
     completeSetBitmapLocation(invocation: Gio.DBusMethodInvocation): void
     completeStart(invocation: Gio.DBusMethodInvocation): void
     completeStop(invocation: Gio.DBusMethodInvocation): void
-    /* Virtual methods of UDisks.MDRaid */
-    vfuncHandleAddDevice(invocation: Gio.DBusMethodInvocation, argDevice: string, argOptions: GLib.Variant): boolean
-    vfuncHandleDelete(invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant): boolean
-    vfuncHandleRemoveDevice(invocation: Gio.DBusMethodInvocation, argDevice: string, argOptions: GLib.Variant): boolean
-    vfuncHandleRequestSyncAction(invocation: Gio.DBusMethodInvocation, argSyncAction: string, argOptions: GLib.Variant): boolean
-    vfuncHandleSetBitmapLocation(invocation: Gio.DBusMethodInvocation, argValue: string, argOptions: GLib.Variant): boolean
-    vfuncHandleStart(invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant): boolean
-    vfuncHandleStop(invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant): boolean
-    /* Signals of UDisks.MDRaid */
+    /* Signals of UDisks-2.0.UDisks.MDRaid */
     connect(sigName: "handle-add-device", callback: (($obj: MDRaid, invocation: Gio.DBusMethodInvocation, argDevice: string, argOptions: GLib.Variant) => boolean)): number
-    connect_after(sigName: "handle-add-device", callback: (($obj: MDRaid, invocation: Gio.DBusMethodInvocation, argDevice: string, argOptions: GLib.Variant) => boolean)): number
+    on(sigName: "handle-add-device", callback: (invocation: Gio.DBusMethodInvocation, argDevice: string, argOptions: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-add-device", callback: (invocation: Gio.DBusMethodInvocation, argDevice: string, argOptions: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-add-device", callback: (invocation: Gio.DBusMethodInvocation, argDevice: string, argOptions: GLib.Variant) => void): NodeJS.EventEmitter
     emit(sigName: "handle-add-device", invocation: Gio.DBusMethodInvocation, argDevice: string, argOptions: GLib.Variant): void
-    on(sigName: "handle-add-device", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-add-device", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-add-device", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "handle-delete", callback: (($obj: MDRaid, invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant) => boolean)): number
-    connect_after(sigName: "handle-delete", callback: (($obj: MDRaid, invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant) => boolean)): number
+    on(sigName: "handle-delete", callback: (invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-delete", callback: (invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-delete", callback: (invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant) => void): NodeJS.EventEmitter
     emit(sigName: "handle-delete", invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant): void
-    on(sigName: "handle-delete", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-delete", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-delete", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "handle-remove-device", callback: (($obj: MDRaid, invocation: Gio.DBusMethodInvocation, argDevice: string, argOptions: GLib.Variant) => boolean)): number
-    connect_after(sigName: "handle-remove-device", callback: (($obj: MDRaid, invocation: Gio.DBusMethodInvocation, argDevice: string, argOptions: GLib.Variant) => boolean)): number
+    on(sigName: "handle-remove-device", callback: (invocation: Gio.DBusMethodInvocation, argDevice: string, argOptions: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-remove-device", callback: (invocation: Gio.DBusMethodInvocation, argDevice: string, argOptions: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-remove-device", callback: (invocation: Gio.DBusMethodInvocation, argDevice: string, argOptions: GLib.Variant) => void): NodeJS.EventEmitter
     emit(sigName: "handle-remove-device", invocation: Gio.DBusMethodInvocation, argDevice: string, argOptions: GLib.Variant): void
-    on(sigName: "handle-remove-device", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-remove-device", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-remove-device", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "handle-request-sync-action", callback: (($obj: MDRaid, invocation: Gio.DBusMethodInvocation, argSyncAction: string, argOptions: GLib.Variant) => boolean)): number
-    connect_after(sigName: "handle-request-sync-action", callback: (($obj: MDRaid, invocation: Gio.DBusMethodInvocation, argSyncAction: string, argOptions: GLib.Variant) => boolean)): number
+    on(sigName: "handle-request-sync-action", callback: (invocation: Gio.DBusMethodInvocation, argSyncAction: string, argOptions: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-request-sync-action", callback: (invocation: Gio.DBusMethodInvocation, argSyncAction: string, argOptions: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-request-sync-action", callback: (invocation: Gio.DBusMethodInvocation, argSyncAction: string, argOptions: GLib.Variant) => void): NodeJS.EventEmitter
     emit(sigName: "handle-request-sync-action", invocation: Gio.DBusMethodInvocation, argSyncAction: string, argOptions: GLib.Variant): void
-    on(sigName: "handle-request-sync-action", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-request-sync-action", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-request-sync-action", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "handle-set-bitmap-location", callback: (($obj: MDRaid, invocation: Gio.DBusMethodInvocation, argValue: string, argOptions: GLib.Variant) => boolean)): number
-    connect_after(sigName: "handle-set-bitmap-location", callback: (($obj: MDRaid, invocation: Gio.DBusMethodInvocation, argValue: string, argOptions: GLib.Variant) => boolean)): number
+    on(sigName: "handle-set-bitmap-location", callback: (invocation: Gio.DBusMethodInvocation, argValue: string, argOptions: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-set-bitmap-location", callback: (invocation: Gio.DBusMethodInvocation, argValue: string, argOptions: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-set-bitmap-location", callback: (invocation: Gio.DBusMethodInvocation, argValue: string, argOptions: GLib.Variant) => void): NodeJS.EventEmitter
     emit(sigName: "handle-set-bitmap-location", invocation: Gio.DBusMethodInvocation, argValue: string, argOptions: GLib.Variant): void
-    on(sigName: "handle-set-bitmap-location", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-set-bitmap-location", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-set-bitmap-location", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "handle-start", callback: (($obj: MDRaid, invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant) => boolean)): number
-    connect_after(sigName: "handle-start", callback: (($obj: MDRaid, invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant) => boolean)): number
+    on(sigName: "handle-start", callback: (invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-start", callback: (invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-start", callback: (invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant) => void): NodeJS.EventEmitter
     emit(sigName: "handle-start", invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant): void
-    on(sigName: "handle-start", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-start", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-start", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "handle-stop", callback: (($obj: MDRaid, invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant) => boolean)): number
-    connect_after(sigName: "handle-stop", callback: (($obj: MDRaid, invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant) => boolean)): number
+    on(sigName: "handle-stop", callback: (invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-stop", callback: (invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-stop", callback: (invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant) => void): NodeJS.EventEmitter
     emit(sigName: "handle-stop", invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant): void
-    on(sigName: "handle-stop", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-stop", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-stop", callback: (...args: any[]) => void): NodeJS.EventEmitter
     static name: string
     /* Static methods and pseudo-constructors */
     static interfaceInfo(): Gio.DBusInterfaceInfo
     static overrideProperties(klass: GObject.ObjectClass, propertyIdBegin: number): number
 }
 export class Manager {
-    /* Properties of UDisks.Manager */
+    /* Properties of UDisks-2.0.UDisks.Manager */
     supportedFilesystems: string[]
     version: string
-    /* Methods of UDisks.Manager */
+    /* Methods of UDisks-2.0.UDisks.Manager */
     callEnableModules(argEnable: boolean, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     callEnableModulesFinish(res: Gio.AsyncResult): boolean
     callEnableModulesSync(argEnable: boolean, cancellable?: Gio.Cancellable | null): boolean
     callLoopSetup(argFd: GLib.Variant, argOptions: GLib.Variant, fdList?: Gio.UnixFDList | null, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    callLoopSetupFinish(res: Gio.AsyncResult): [ /* returnType */ boolean, /* outResultingDevice */ string, /* outFdList */ Gio.UnixFDList ]
-    callLoopSetupSync(argFd: GLib.Variant, argOptions: GLib.Variant, fdList?: Gio.UnixFDList | null, cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* outResultingDevice */ string, /* outFdList */ Gio.UnixFDList ]
+    callLoopSetupFinish(res: Gio.AsyncResult): { returnType: boolean, outResultingDevice: string, outFdList: Gio.UnixFDList }
+    callLoopSetupSync(argFd: GLib.Variant, argOptions: GLib.Variant, fdList?: Gio.UnixFDList | null, cancellable?: Gio.Cancellable | null): { returnType: boolean, outResultingDevice: string, outFdList: Gio.UnixFDList }
     callMdraidCreate(argBlocks: string, argLevel: string, argName: string, argChunk: number, argOptions: GLib.Variant, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    callMdraidCreateFinish(res: Gio.AsyncResult): [ /* returnType */ boolean, /* outResultingArray */ string ]
-    callMdraidCreateSync(argBlocks: string, argLevel: string, argName: string, argChunk: number, argOptions: GLib.Variant, cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* outResultingArray */ string ]
+    callMdraidCreateFinish(res: Gio.AsyncResult): { returnType: boolean, outResultingArray: string }
+    callMdraidCreateSync(argBlocks: string, argLevel: string, argName: string, argChunk: number, argOptions: GLib.Variant, cancellable?: Gio.Cancellable | null): { returnType: boolean, outResultingArray: string }
     completeEnableModules(invocation: Gio.DBusMethodInvocation): void
     completeLoopSetup(invocation: Gio.DBusMethodInvocation, fdList: Gio.UnixFDList | null, resultingDevice: string): void
     completeMdraidCreate(invocation: Gio.DBusMethodInvocation, resultingArray: string): void
-    /* Virtual methods of UDisks.Manager */
-    vfuncHandleEnableModules(invocation: Gio.DBusMethodInvocation, argEnable: boolean): boolean
-    vfuncHandleLoopSetup(invocation: Gio.DBusMethodInvocation, fdList: Gio.UnixFDList, argFd: GLib.Variant, argOptions: GLib.Variant): boolean
-    vfuncHandleMdraidCreate(invocation: Gio.DBusMethodInvocation, argBlocks: string, argLevel: string, argName: string, argChunk: number, argOptions: GLib.Variant): boolean
-    /* Signals of UDisks.Manager */
+    /* Signals of UDisks-2.0.UDisks.Manager */
     connect(sigName: "handle-enable-modules", callback: (($obj: Manager, invocation: Gio.DBusMethodInvocation, argEnable: boolean) => boolean)): number
-    connect_after(sigName: "handle-enable-modules", callback: (($obj: Manager, invocation: Gio.DBusMethodInvocation, argEnable: boolean) => boolean)): number
+    on(sigName: "handle-enable-modules", callback: (invocation: Gio.DBusMethodInvocation, argEnable: boolean) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-enable-modules", callback: (invocation: Gio.DBusMethodInvocation, argEnable: boolean) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-enable-modules", callback: (invocation: Gio.DBusMethodInvocation, argEnable: boolean) => void): NodeJS.EventEmitter
     emit(sigName: "handle-enable-modules", invocation: Gio.DBusMethodInvocation, argEnable: boolean): void
-    on(sigName: "handle-enable-modules", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-enable-modules", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-enable-modules", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "handle-loop-setup", callback: (($obj: Manager, invocation: Gio.DBusMethodInvocation, fdList: Gio.UnixFDList | null, argFd: GLib.Variant, argOptions: GLib.Variant) => boolean)): number
-    connect_after(sigName: "handle-loop-setup", callback: (($obj: Manager, invocation: Gio.DBusMethodInvocation, fdList: Gio.UnixFDList | null, argFd: GLib.Variant, argOptions: GLib.Variant) => boolean)): number
+    on(sigName: "handle-loop-setup", callback: (invocation: Gio.DBusMethodInvocation, fdList: Gio.UnixFDList | null, argFd: GLib.Variant, argOptions: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-loop-setup", callback: (invocation: Gio.DBusMethodInvocation, fdList: Gio.UnixFDList | null, argFd: GLib.Variant, argOptions: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-loop-setup", callback: (invocation: Gio.DBusMethodInvocation, fdList: Gio.UnixFDList | null, argFd: GLib.Variant, argOptions: GLib.Variant) => void): NodeJS.EventEmitter
     emit(sigName: "handle-loop-setup", invocation: Gio.DBusMethodInvocation, fdList: Gio.UnixFDList | null, argFd: GLib.Variant, argOptions: GLib.Variant): void
-    on(sigName: "handle-loop-setup", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-loop-setup", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-loop-setup", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "handle-mdraid-create", callback: (($obj: Manager, invocation: Gio.DBusMethodInvocation, argBlocks: string[], argLevel: string, argName: string, argChunk: number, argOptions: GLib.Variant) => boolean)): number
-    connect_after(sigName: "handle-mdraid-create", callback: (($obj: Manager, invocation: Gio.DBusMethodInvocation, argBlocks: string[], argLevel: string, argName: string, argChunk: number, argOptions: GLib.Variant) => boolean)): number
+    on(sigName: "handle-mdraid-create", callback: (invocation: Gio.DBusMethodInvocation, argBlocks: string[], argLevel: string, argName: string, argChunk: number, argOptions: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-mdraid-create", callback: (invocation: Gio.DBusMethodInvocation, argBlocks: string[], argLevel: string, argName: string, argChunk: number, argOptions: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-mdraid-create", callback: (invocation: Gio.DBusMethodInvocation, argBlocks: string[], argLevel: string, argName: string, argChunk: number, argOptions: GLib.Variant) => void): NodeJS.EventEmitter
     emit(sigName: "handle-mdraid-create", invocation: Gio.DBusMethodInvocation, argBlocks: string[], argLevel: string, argName: string, argChunk: number, argOptions: GLib.Variant): void
-    on(sigName: "handle-mdraid-create", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-mdraid-create", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-mdraid-create", callback: (...args: any[]) => void): NodeJS.EventEmitter
     static name: string
     /* Static methods and pseudo-constructors */
     static interfaceInfo(): Gio.DBusInterfaceInfo
     static overrideProperties(klass: GObject.ObjectClass, propertyIdBegin: number): number
 }
 export class Object {
-    /* Properties of UDisks.Object */
+    /* Properties of UDisks-2.0.UDisks.Object */
     block: Block
     drive: Drive
     driveAta: DriveAta
@@ -737,7 +646,7 @@ export class Object {
     partition: Partition
     partitionTable: PartitionTable
     swapspace: Swapspace
-    /* Methods of UDisks.Object */
+    /* Methods of UDisks-2.0.UDisks.Object */
     getBlock(): Block
     getDrive(): Drive
     getDriveAta(): DriveAta
@@ -750,33 +659,25 @@ export class Object {
     getPartition(): Partition
     getPartitionTable(): PartitionTable
     getSwapspace(): Swapspace
-    /* Methods of Gio.DBusObject */
+    /* Methods of Gio-2.0.Gio.DBusObject */
     getInterface(interfaceName: string): Gio.DBusInterface | null
     getInterfaces(): Gio.DBusInterface[]
     getObjectPath(): string
-    /* Virtual methods of Gio.DBusObject */
-    vfuncGetInterface(interfaceName: string): Gio.DBusInterface | null
-    vfuncGetInterfaces(): Gio.DBusInterface[]
-    vfuncGetObjectPath(): string
-    vfuncInterfaceAdded(interface: Gio.DBusInterface): void
-    vfuncInterfaceRemoved(interface: Gio.DBusInterface): void
-    /* Signals of Gio.DBusObject */
+    /* Signals of Gio-2.0.Gio.DBusObject */
     connect(sigName: "interface-added", callback: (($obj: Object, interface: Gio.DBusInterface) => void)): number
-    connect_after(sigName: "interface-added", callback: (($obj: Object, interface: Gio.DBusInterface) => void)): number
+    on(sigName: "interface-added", callback: (interface: Gio.DBusInterface) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "interface-added", callback: (interface: Gio.DBusInterface) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "interface-added", callback: (interface: Gio.DBusInterface) => void): NodeJS.EventEmitter
     emit(sigName: "interface-added", interface: Gio.DBusInterface): void
-    on(sigName: "interface-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "interface-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "interface-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "interface-removed", callback: (($obj: Object, interface: Gio.DBusInterface) => void)): number
-    connect_after(sigName: "interface-removed", callback: (($obj: Object, interface: Gio.DBusInterface) => void)): number
+    on(sigName: "interface-removed", callback: (interface: Gio.DBusInterface) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "interface-removed", callback: (interface: Gio.DBusInterface) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "interface-removed", callback: (interface: Gio.DBusInterface) => void): NodeJS.EventEmitter
     emit(sigName: "interface-removed", interface: Gio.DBusInterface): void
-    on(sigName: "interface-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "interface-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "interface-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     static name: string
 }
 export class Partition {
-    /* Properties of UDisks.Partition */
+    /* Properties of UDisks-2.0.UDisks.Partition */
     flags: number
     isContained: boolean
     isContainer: boolean
@@ -787,7 +688,7 @@ export class Partition {
     table: string
     type: string
     uuid: string
-    /* Methods of UDisks.Partition */
+    /* Methods of UDisks-2.0.UDisks.Partition */
     callDelete(argOptions: GLib.Variant, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     callDeleteFinish(res: Gio.AsyncResult): boolean
     callDeleteSync(argOptions: GLib.Variant, cancellable?: Gio.Cancellable | null): boolean
@@ -804,78 +705,64 @@ export class Partition {
     completeSetFlags(invocation: Gio.DBusMethodInvocation): void
     completeSetName(invocation: Gio.DBusMethodInvocation): void
     completeSetType(invocation: Gio.DBusMethodInvocation): void
-    /* Virtual methods of UDisks.Partition */
-    vfuncHandleDelete(invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant): boolean
-    vfuncHandleSetFlags(invocation: Gio.DBusMethodInvocation, argFlags: number, argOptions: GLib.Variant): boolean
-    vfuncHandleSetName(invocation: Gio.DBusMethodInvocation, argName: string, argOptions: GLib.Variant): boolean
-    vfuncHandleSetType(invocation: Gio.DBusMethodInvocation, argType: string, argOptions: GLib.Variant): boolean
-    /* Signals of UDisks.Partition */
+    /* Signals of UDisks-2.0.UDisks.Partition */
     connect(sigName: "handle-delete", callback: (($obj: Partition, invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant) => boolean)): number
-    connect_after(sigName: "handle-delete", callback: (($obj: Partition, invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant) => boolean)): number
+    on(sigName: "handle-delete", callback: (invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-delete", callback: (invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-delete", callback: (invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant) => void): NodeJS.EventEmitter
     emit(sigName: "handle-delete", invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant): void
-    on(sigName: "handle-delete", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-delete", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-delete", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "handle-set-flags", callback: (($obj: Partition, invocation: Gio.DBusMethodInvocation, argFlags: number, argOptions: GLib.Variant) => boolean)): number
-    connect_after(sigName: "handle-set-flags", callback: (($obj: Partition, invocation: Gio.DBusMethodInvocation, argFlags: number, argOptions: GLib.Variant) => boolean)): number
+    on(sigName: "handle-set-flags", callback: (invocation: Gio.DBusMethodInvocation, argFlags: number, argOptions: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-set-flags", callback: (invocation: Gio.DBusMethodInvocation, argFlags: number, argOptions: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-set-flags", callback: (invocation: Gio.DBusMethodInvocation, argFlags: number, argOptions: GLib.Variant) => void): NodeJS.EventEmitter
     emit(sigName: "handle-set-flags", invocation: Gio.DBusMethodInvocation, argFlags: number, argOptions: GLib.Variant): void
-    on(sigName: "handle-set-flags", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-set-flags", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-set-flags", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "handle-set-name", callback: (($obj: Partition, invocation: Gio.DBusMethodInvocation, argName: string, argOptions: GLib.Variant) => boolean)): number
-    connect_after(sigName: "handle-set-name", callback: (($obj: Partition, invocation: Gio.DBusMethodInvocation, argName: string, argOptions: GLib.Variant) => boolean)): number
+    on(sigName: "handle-set-name", callback: (invocation: Gio.DBusMethodInvocation, argName: string, argOptions: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-set-name", callback: (invocation: Gio.DBusMethodInvocation, argName: string, argOptions: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-set-name", callback: (invocation: Gio.DBusMethodInvocation, argName: string, argOptions: GLib.Variant) => void): NodeJS.EventEmitter
     emit(sigName: "handle-set-name", invocation: Gio.DBusMethodInvocation, argName: string, argOptions: GLib.Variant): void
-    on(sigName: "handle-set-name", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-set-name", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-set-name", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "handle-set-type", callback: (($obj: Partition, invocation: Gio.DBusMethodInvocation, argType: string, argOptions: GLib.Variant) => boolean)): number
-    connect_after(sigName: "handle-set-type", callback: (($obj: Partition, invocation: Gio.DBusMethodInvocation, argType: string, argOptions: GLib.Variant) => boolean)): number
+    on(sigName: "handle-set-type", callback: (invocation: Gio.DBusMethodInvocation, argType: string, argOptions: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-set-type", callback: (invocation: Gio.DBusMethodInvocation, argType: string, argOptions: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-set-type", callback: (invocation: Gio.DBusMethodInvocation, argType: string, argOptions: GLib.Variant) => void): NodeJS.EventEmitter
     emit(sigName: "handle-set-type", invocation: Gio.DBusMethodInvocation, argType: string, argOptions: GLib.Variant): void
-    on(sigName: "handle-set-type", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-set-type", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-set-type", callback: (...args: any[]) => void): NodeJS.EventEmitter
     static name: string
     /* Static methods and pseudo-constructors */
     static interfaceInfo(): Gio.DBusInterfaceInfo
     static overrideProperties(klass: GObject.ObjectClass, propertyIdBegin: number): number
 }
 export class PartitionTable {
-    /* Properties of UDisks.PartitionTable */
+    /* Properties of UDisks-2.0.UDisks.PartitionTable */
     type: string
-    /* Methods of UDisks.PartitionTable */
+    /* Methods of UDisks-2.0.UDisks.PartitionTable */
     callCreatePartition(argOffset: number, argSize: number, argType: string, argName: string, argOptions: GLib.Variant, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     callCreatePartitionAndFormat(argOffset: number, argSize: number, argType: string, argName: string, argOptions: GLib.Variant, argFormatType: string, argFormatOptions: GLib.Variant, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    callCreatePartitionAndFormatFinish(res: Gio.AsyncResult): [ /* returnType */ boolean, /* outCreatedPartition */ string ]
-    callCreatePartitionAndFormatSync(argOffset: number, argSize: number, argType: string, argName: string, argOptions: GLib.Variant, argFormatType: string, argFormatOptions: GLib.Variant, cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* outCreatedPartition */ string ]
-    callCreatePartitionFinish(res: Gio.AsyncResult): [ /* returnType */ boolean, /* outCreatedPartition */ string ]
-    callCreatePartitionSync(argOffset: number, argSize: number, argType: string, argName: string, argOptions: GLib.Variant, cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* outCreatedPartition */ string ]
+    callCreatePartitionAndFormatFinish(res: Gio.AsyncResult): { returnType: boolean, outCreatedPartition: string }
+    callCreatePartitionAndFormatSync(argOffset: number, argSize: number, argType: string, argName: string, argOptions: GLib.Variant, argFormatType: string, argFormatOptions: GLib.Variant, cancellable?: Gio.Cancellable | null): { returnType: boolean, outCreatedPartition: string }
+    callCreatePartitionFinish(res: Gio.AsyncResult): { returnType: boolean, outCreatedPartition: string }
+    callCreatePartitionSync(argOffset: number, argSize: number, argType: string, argName: string, argOptions: GLib.Variant, cancellable?: Gio.Cancellable | null): { returnType: boolean, outCreatedPartition: string }
     completeCreatePartition(invocation: Gio.DBusMethodInvocation, createdPartition: string): void
     completeCreatePartitionAndFormat(invocation: Gio.DBusMethodInvocation, createdPartition: string): void
-    /* Virtual methods of UDisks.PartitionTable */
-    vfuncHandleCreatePartition(invocation: Gio.DBusMethodInvocation, argOffset: number, argSize: number, argType: string, argName: string, argOptions: GLib.Variant): boolean
-    vfuncHandleCreatePartitionAndFormat(invocation: Gio.DBusMethodInvocation, argOffset: number, argSize: number, argType: string, argName: string, argOptions: GLib.Variant, argFormatType: string, argFormatOptions: GLib.Variant): boolean
-    /* Signals of UDisks.PartitionTable */
+    /* Signals of UDisks-2.0.UDisks.PartitionTable */
     connect(sigName: "handle-create-partition", callback: (($obj: PartitionTable, invocation: Gio.DBusMethodInvocation, argOffset: number, argSize: number, argType: string, argName: string, argOptions: GLib.Variant) => boolean)): number
-    connect_after(sigName: "handle-create-partition", callback: (($obj: PartitionTable, invocation: Gio.DBusMethodInvocation, argOffset: number, argSize: number, argType: string, argName: string, argOptions: GLib.Variant) => boolean)): number
+    on(sigName: "handle-create-partition", callback: (invocation: Gio.DBusMethodInvocation, argOffset: number, argSize: number, argType: string, argName: string, argOptions: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-create-partition", callback: (invocation: Gio.DBusMethodInvocation, argOffset: number, argSize: number, argType: string, argName: string, argOptions: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-create-partition", callback: (invocation: Gio.DBusMethodInvocation, argOffset: number, argSize: number, argType: string, argName: string, argOptions: GLib.Variant) => void): NodeJS.EventEmitter
     emit(sigName: "handle-create-partition", invocation: Gio.DBusMethodInvocation, argOffset: number, argSize: number, argType: string, argName: string, argOptions: GLib.Variant): void
-    on(sigName: "handle-create-partition", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-create-partition", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-create-partition", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "handle-create-partition-and-format", callback: (($obj: PartitionTable, invocation: Gio.DBusMethodInvocation, argOffset: number, argSize: number, argType: string, argName: string, argOptions: GLib.Variant, argFormatType: string, argFormatOptions: GLib.Variant) => boolean)): number
-    connect_after(sigName: "handle-create-partition-and-format", callback: (($obj: PartitionTable, invocation: Gio.DBusMethodInvocation, argOffset: number, argSize: number, argType: string, argName: string, argOptions: GLib.Variant, argFormatType: string, argFormatOptions: GLib.Variant) => boolean)): number
+    on(sigName: "handle-create-partition-and-format", callback: (invocation: Gio.DBusMethodInvocation, argOffset: number, argSize: number, argType: string, argName: string, argOptions: GLib.Variant, argFormatType: string, argFormatOptions: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-create-partition-and-format", callback: (invocation: Gio.DBusMethodInvocation, argOffset: number, argSize: number, argType: string, argName: string, argOptions: GLib.Variant, argFormatType: string, argFormatOptions: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-create-partition-and-format", callback: (invocation: Gio.DBusMethodInvocation, argOffset: number, argSize: number, argType: string, argName: string, argOptions: GLib.Variant, argFormatType: string, argFormatOptions: GLib.Variant) => void): NodeJS.EventEmitter
     emit(sigName: "handle-create-partition-and-format", invocation: Gio.DBusMethodInvocation, argOffset: number, argSize: number, argType: string, argName: string, argOptions: GLib.Variant, argFormatType: string, argFormatOptions: GLib.Variant): void
-    on(sigName: "handle-create-partition-and-format", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-create-partition-and-format", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-create-partition-and-format", callback: (...args: any[]) => void): NodeJS.EventEmitter
     static name: string
     /* Static methods and pseudo-constructors */
     static interfaceInfo(): Gio.DBusInterfaceInfo
     static overrideProperties(klass: GObject.ObjectClass, propertyIdBegin: number): number
 }
 export class Swapspace {
-    /* Properties of UDisks.Swapspace */
+    /* Properties of UDisks-2.0.UDisks.Swapspace */
     active: boolean
-    /* Methods of UDisks.Swapspace */
+    /* Methods of UDisks-2.0.UDisks.Swapspace */
     callStart(argOptions: GLib.Variant, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     callStartFinish(res: Gio.AsyncResult): boolean
     callStartSync(argOptions: GLib.Variant, cancellable?: Gio.Cancellable | null): boolean
@@ -884,22 +771,17 @@ export class Swapspace {
     callStopSync(argOptions: GLib.Variant, cancellable?: Gio.Cancellable | null): boolean
     completeStart(invocation: Gio.DBusMethodInvocation): void
     completeStop(invocation: Gio.DBusMethodInvocation): void
-    /* Virtual methods of UDisks.Swapspace */
-    vfuncHandleStart(invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant): boolean
-    vfuncHandleStop(invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant): boolean
-    /* Signals of UDisks.Swapspace */
+    /* Signals of UDisks-2.0.UDisks.Swapspace */
     connect(sigName: "handle-start", callback: (($obj: Swapspace, invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant) => boolean)): number
-    connect_after(sigName: "handle-start", callback: (($obj: Swapspace, invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant) => boolean)): number
+    on(sigName: "handle-start", callback: (invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-start", callback: (invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-start", callback: (invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant) => void): NodeJS.EventEmitter
     emit(sigName: "handle-start", invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant): void
-    on(sigName: "handle-start", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-start", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-start", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "handle-stop", callback: (($obj: Swapspace, invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant) => boolean)): number
-    connect_after(sigName: "handle-stop", callback: (($obj: Swapspace, invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant) => boolean)): number
+    on(sigName: "handle-stop", callback: (invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-stop", callback: (invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-stop", callback: (invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant) => void): NodeJS.EventEmitter
     emit(sigName: "handle-stop", invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant): void
-    on(sigName: "handle-stop", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-stop", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-stop", callback: (...args: any[]) => void): NodeJS.EventEmitter
     static name: string
     /* Static methods and pseudo-constructors */
     static interfaceInfo(): Gio.DBusInterfaceInfo
@@ -932,11 +814,11 @@ export interface BlockProxy_ConstructProps extends Gio.DBusProxy_ConstructProps 
     symlinks?: string[]
 }
 export class BlockProxy {
-    /* Properties of Gio.DBusProxy */
+    /* Properties of Gio-2.0.Gio.DBusProxy */
     gDefaultTimeout: number
     gInterfaceInfo: Gio.DBusInterfaceInfo
     readonly gNameOwner: string
-    /* Properties of UDisks.Block */
+    /* Properties of UDisks-2.0.UDisks.Block */
     configuration: GLib.Variant
     cryptoBackingDevice: string
     device: string
@@ -961,15 +843,15 @@ export class BlockProxy {
     readOnly: boolean
     size: number
     symlinks: string[]
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Gio.DBusProxy */
+    /* Methods of Gio-2.0.Gio.DBusProxy */
     call(methodName: string, parameters: GLib.Variant | null, flags: Gio.DBusCallFlags, timeoutMsec: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     callFinish(res: Gio.AsyncResult): GLib.Variant
     callSync(methodName: string, parameters: GLib.Variant | null, flags: Gio.DBusCallFlags, timeoutMsec: number, cancellable?: Gio.Cancellable | null): GLib.Variant
     callWithUnixFdList(methodName: string, parameters: GLib.Variant | null, flags: Gio.DBusCallFlags, timeoutMsec: number, fdList?: Gio.UnixFDList | null, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    callWithUnixFdListFinish(res: Gio.AsyncResult): [ /* returnType */ GLib.Variant, /* outFdList */ Gio.UnixFDList | null ]
-    callWithUnixFdListSync(methodName: string, parameters: GLib.Variant | null, flags: Gio.DBusCallFlags, timeoutMsec: number, fdList?: Gio.UnixFDList | null, cancellable?: Gio.Cancellable | null): [ /* returnType */ GLib.Variant, /* outFdList */ Gio.UnixFDList | null ]
+    callWithUnixFdListFinish(res: Gio.AsyncResult): { returnType: GLib.Variant, outFdList: Gio.UnixFDList | null }
+    callWithUnixFdListSync(methodName: string, parameters: GLib.Variant | null, flags: Gio.DBusCallFlags, timeoutMsec: number, fdList?: Gio.UnixFDList | null, cancellable?: Gio.Cancellable | null): { returnType: GLib.Variant, outFdList: Gio.UnixFDList | null }
     getCachedProperty(propertyName: string): GLib.Variant | null
     getCachedPropertyNames(): string[] | null
     getConnection(): Gio.DBusConnection
@@ -983,7 +865,7 @@ export class BlockProxy {
     setCachedProperty(propertyName: string, value?: GLib.Variant | null): void
     setDefaultTimeout(timeoutMsec: number): void
     setInterfaceInfo(info?: Gio.DBusInterfaceInfo | null): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -1005,17 +887,17 @@ export class BlockProxy {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of Gio.AsyncInitable */
+    /* Methods of Gio-2.0.Gio.AsyncInitable */
     initAsync(ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     initFinish(res: Gio.AsyncResult): boolean
     newFinish(res: Gio.AsyncResult): GObject.Object
-    /* Methods of Gio.DBusInterface */
+    /* Methods of Gio-2.0.Gio.DBusInterface */
     getObject(): Gio.DBusObject | null
     getInfo(): Gio.DBusInterfaceInfo
     setObject(object?: Gio.DBusObject | null): void
-    /* Methods of Gio.Initable */
+    /* Methods of Gio-2.0.Gio.Initable */
     init(cancellable?: Gio.Cancellable | null): boolean
-    /* Methods of UDisks.Block */
+    /* Methods of UDisks-2.0.UDisks.Block */
     callAddConfigurationItem(argItem: GLib.Variant, argOptions: GLib.Variant, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     callAddConfigurationItemFinish(res: Gio.AsyncResult): boolean
     callAddConfigurationItemSync(argItem: GLib.Variant, argOptions: GLib.Variant, cancellable?: Gio.Cancellable | null): boolean
@@ -1023,17 +905,17 @@ export class BlockProxy {
     callFormatFinish(res: Gio.AsyncResult): boolean
     callFormatSync(argType: string, argOptions: GLib.Variant, cancellable?: Gio.Cancellable | null): boolean
     callGetSecretConfiguration(argOptions: GLib.Variant, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    callGetSecretConfigurationFinish(res: Gio.AsyncResult): [ /* returnType */ boolean, /* outConfiguration */ GLib.Variant ]
-    callGetSecretConfigurationSync(argOptions: GLib.Variant, cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* outConfiguration */ GLib.Variant ]
+    callGetSecretConfigurationFinish(res: Gio.AsyncResult): { returnType: boolean, outConfiguration: GLib.Variant }
+    callGetSecretConfigurationSync(argOptions: GLib.Variant, cancellable?: Gio.Cancellable | null): { returnType: boolean, outConfiguration: GLib.Variant }
     callOpenForBackup(argOptions: GLib.Variant, fdList?: Gio.UnixFDList | null, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    callOpenForBackupFinish(res: Gio.AsyncResult): [ /* returnType */ boolean, /* outFd */ GLib.Variant, /* outFdList */ Gio.UnixFDList ]
-    callOpenForBackupSync(argOptions: GLib.Variant, fdList?: Gio.UnixFDList | null, cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* outFd */ GLib.Variant, /* outFdList */ Gio.UnixFDList ]
+    callOpenForBackupFinish(res: Gio.AsyncResult): { returnType: boolean, outFd: GLib.Variant, outFdList: Gio.UnixFDList }
+    callOpenForBackupSync(argOptions: GLib.Variant, fdList?: Gio.UnixFDList | null, cancellable?: Gio.Cancellable | null): { returnType: boolean, outFd: GLib.Variant, outFdList: Gio.UnixFDList }
     callOpenForBenchmark(argOptions: GLib.Variant, fdList?: Gio.UnixFDList | null, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    callOpenForBenchmarkFinish(res: Gio.AsyncResult): [ /* returnType */ boolean, /* outFd */ GLib.Variant, /* outFdList */ Gio.UnixFDList ]
-    callOpenForBenchmarkSync(argOptions: GLib.Variant, fdList?: Gio.UnixFDList | null, cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* outFd */ GLib.Variant, /* outFdList */ Gio.UnixFDList ]
+    callOpenForBenchmarkFinish(res: Gio.AsyncResult): { returnType: boolean, outFd: GLib.Variant, outFdList: Gio.UnixFDList }
+    callOpenForBenchmarkSync(argOptions: GLib.Variant, fdList?: Gio.UnixFDList | null, cancellable?: Gio.Cancellable | null): { returnType: boolean, outFd: GLib.Variant, outFdList: Gio.UnixFDList }
     callOpenForRestore(argOptions: GLib.Variant, fdList?: Gio.UnixFDList | null, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    callOpenForRestoreFinish(res: Gio.AsyncResult): [ /* returnType */ boolean, /* outFd */ GLib.Variant, /* outFdList */ Gio.UnixFDList ]
-    callOpenForRestoreSync(argOptions: GLib.Variant, fdList?: Gio.UnixFDList | null, cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* outFd */ GLib.Variant, /* outFdList */ Gio.UnixFDList ]
+    callOpenForRestoreFinish(res: Gio.AsyncResult): { returnType: boolean, outFd: GLib.Variant, outFdList: Gio.UnixFDList }
+    callOpenForRestoreSync(argOptions: GLib.Variant, fdList?: Gio.UnixFDList | null, cancellable?: Gio.Cancellable | null): { returnType: boolean, outFd: GLib.Variant, outFdList: Gio.UnixFDList }
     callRemoveConfigurationItem(argItem: GLib.Variant, argOptions: GLib.Variant, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     callRemoveConfigurationItemFinish(res: Gio.AsyncResult): boolean
     callRemoveConfigurationItemSync(argItem: GLib.Variant, argOptions: GLib.Variant, cancellable?: Gio.Cancellable | null): boolean
@@ -1052,108 +934,69 @@ export class BlockProxy {
     completeRemoveConfigurationItem(invocation: Gio.DBusMethodInvocation): void
     completeRescan(invocation: Gio.DBusMethodInvocation): void
     completeUpdateConfigurationItem(invocation: Gio.DBusMethodInvocation): void
-    /* Virtual methods of UDisks.BlockProxy */
-    vfuncInitAsync(ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    vfuncInitFinish(res: Gio.AsyncResult): boolean
-    vfuncDupObject(): Gio.DBusObject | null
-    vfuncGetInfo(): Gio.DBusInterfaceInfo
-    vfuncSetObject(object?: Gio.DBusObject | null): void
-    vfuncInit(cancellable?: Gio.Cancellable | null): boolean
-    vfuncHandleAddConfigurationItem(invocation: Gio.DBusMethodInvocation, argItem: GLib.Variant, argOptions: GLib.Variant): boolean
-    vfuncHandleFormat(invocation: Gio.DBusMethodInvocation, argType: string, argOptions: GLib.Variant): boolean
-    vfuncHandleGetSecretConfiguration(invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant): boolean
-    vfuncHandleOpenForBackup(invocation: Gio.DBusMethodInvocation, fdList: Gio.UnixFDList, argOptions: GLib.Variant): boolean
-    vfuncHandleOpenForBenchmark(invocation: Gio.DBusMethodInvocation, fdList: Gio.UnixFDList, argOptions: GLib.Variant): boolean
-    vfuncHandleOpenForRestore(invocation: Gio.DBusMethodInvocation, fdList: Gio.UnixFDList, argOptions: GLib.Variant): boolean
-    vfuncHandleRemoveConfigurationItem(invocation: Gio.DBusMethodInvocation, argItem: GLib.Variant, argOptions: GLib.Variant): boolean
-    vfuncHandleRescan(invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant): boolean
-    vfuncHandleUpdateConfigurationItem(invocation: Gio.DBusMethodInvocation, argOldItem: GLib.Variant, argNewItem: GLib.Variant, argOptions: GLib.Variant): boolean
-    /* Virtual methods of Gio.DBusProxy */
-    vfuncGPropertiesChanged(changedProperties: GLib.Variant, invalidatedProperties: string): void
-    vfuncGSignal(senderName: string, signalName: string, parameters: GLib.Variant): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gio.DBusProxy */
+    /* Signals of Gio-2.0.Gio.DBusProxy */
     connect(sigName: "g-properties-changed", callback: (($obj: BlockProxy, changedProperties: GLib.Variant, invalidatedProperties: string[]) => void)): number
-    connect_after(sigName: "g-properties-changed", callback: (($obj: BlockProxy, changedProperties: GLib.Variant, invalidatedProperties: string[]) => void)): number
+    on(sigName: "g-properties-changed", callback: (changedProperties: GLib.Variant, invalidatedProperties: string[]) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "g-properties-changed", callback: (changedProperties: GLib.Variant, invalidatedProperties: string[]) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "g-properties-changed", callback: (changedProperties: GLib.Variant, invalidatedProperties: string[]) => void): NodeJS.EventEmitter
     emit(sigName: "g-properties-changed", changedProperties: GLib.Variant, invalidatedProperties: string[]): void
-    on(sigName: "g-properties-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "g-properties-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "g-properties-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "g-signal", callback: (($obj: BlockProxy, senderName: string | null, signalName: string, parameters: GLib.Variant) => void)): number
-    connect_after(sigName: "g-signal", callback: (($obj: BlockProxy, senderName: string | null, signalName: string, parameters: GLib.Variant) => void)): number
+    on(sigName: "g-signal", callback: (senderName: string | null, signalName: string, parameters: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "g-signal", callback: (senderName: string | null, signalName: string, parameters: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "g-signal", callback: (senderName: string | null, signalName: string, parameters: GLib.Variant) => void): NodeJS.EventEmitter
     emit(sigName: "g-signal", senderName: string | null, signalName: string, parameters: GLib.Variant): void
-    on(sigName: "g-signal", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "g-signal", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "g-signal", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: BlockProxy, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: BlockProxy, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of UDisks.Block */
+    /* Signals of UDisks-2.0.UDisks.Block */
     connect(sigName: "handle-add-configuration-item", callback: (($obj: BlockProxy, invocation: Gio.DBusMethodInvocation, argItem: GLib.Variant, argOptions: GLib.Variant) => boolean)): number
-    connect_after(sigName: "handle-add-configuration-item", callback: (($obj: BlockProxy, invocation: Gio.DBusMethodInvocation, argItem: GLib.Variant, argOptions: GLib.Variant) => boolean)): number
+    on(sigName: "handle-add-configuration-item", callback: (invocation: Gio.DBusMethodInvocation, argItem: GLib.Variant, argOptions: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-add-configuration-item", callback: (invocation: Gio.DBusMethodInvocation, argItem: GLib.Variant, argOptions: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-add-configuration-item", callback: (invocation: Gio.DBusMethodInvocation, argItem: GLib.Variant, argOptions: GLib.Variant) => void): NodeJS.EventEmitter
     emit(sigName: "handle-add-configuration-item", invocation: Gio.DBusMethodInvocation, argItem: GLib.Variant, argOptions: GLib.Variant): void
-    on(sigName: "handle-add-configuration-item", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-add-configuration-item", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-add-configuration-item", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "handle-format", callback: (($obj: BlockProxy, invocation: Gio.DBusMethodInvocation, argType: string, argOptions: GLib.Variant) => boolean)): number
-    connect_after(sigName: "handle-format", callback: (($obj: BlockProxy, invocation: Gio.DBusMethodInvocation, argType: string, argOptions: GLib.Variant) => boolean)): number
+    on(sigName: "handle-format", callback: (invocation: Gio.DBusMethodInvocation, argType: string, argOptions: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-format", callback: (invocation: Gio.DBusMethodInvocation, argType: string, argOptions: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-format", callback: (invocation: Gio.DBusMethodInvocation, argType: string, argOptions: GLib.Variant) => void): NodeJS.EventEmitter
     emit(sigName: "handle-format", invocation: Gio.DBusMethodInvocation, argType: string, argOptions: GLib.Variant): void
-    on(sigName: "handle-format", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-format", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-format", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "handle-get-secret-configuration", callback: (($obj: BlockProxy, invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant) => boolean)): number
-    connect_after(sigName: "handle-get-secret-configuration", callback: (($obj: BlockProxy, invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant) => boolean)): number
+    on(sigName: "handle-get-secret-configuration", callback: (invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-get-secret-configuration", callback: (invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-get-secret-configuration", callback: (invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant) => void): NodeJS.EventEmitter
     emit(sigName: "handle-get-secret-configuration", invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant): void
-    on(sigName: "handle-get-secret-configuration", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-get-secret-configuration", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-get-secret-configuration", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "handle-open-for-backup", callback: (($obj: BlockProxy, invocation: Gio.DBusMethodInvocation, fdList: Gio.UnixFDList | null, argOptions: GLib.Variant) => boolean)): number
-    connect_after(sigName: "handle-open-for-backup", callback: (($obj: BlockProxy, invocation: Gio.DBusMethodInvocation, fdList: Gio.UnixFDList | null, argOptions: GLib.Variant) => boolean)): number
+    on(sigName: "handle-open-for-backup", callback: (invocation: Gio.DBusMethodInvocation, fdList: Gio.UnixFDList | null, argOptions: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-open-for-backup", callback: (invocation: Gio.DBusMethodInvocation, fdList: Gio.UnixFDList | null, argOptions: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-open-for-backup", callback: (invocation: Gio.DBusMethodInvocation, fdList: Gio.UnixFDList | null, argOptions: GLib.Variant) => void): NodeJS.EventEmitter
     emit(sigName: "handle-open-for-backup", invocation: Gio.DBusMethodInvocation, fdList: Gio.UnixFDList | null, argOptions: GLib.Variant): void
-    on(sigName: "handle-open-for-backup", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-open-for-backup", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-open-for-backup", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "handle-open-for-benchmark", callback: (($obj: BlockProxy, invocation: Gio.DBusMethodInvocation, fdList: Gio.UnixFDList | null, argOptions: GLib.Variant) => boolean)): number
-    connect_after(sigName: "handle-open-for-benchmark", callback: (($obj: BlockProxy, invocation: Gio.DBusMethodInvocation, fdList: Gio.UnixFDList | null, argOptions: GLib.Variant) => boolean)): number
+    on(sigName: "handle-open-for-benchmark", callback: (invocation: Gio.DBusMethodInvocation, fdList: Gio.UnixFDList | null, argOptions: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-open-for-benchmark", callback: (invocation: Gio.DBusMethodInvocation, fdList: Gio.UnixFDList | null, argOptions: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-open-for-benchmark", callback: (invocation: Gio.DBusMethodInvocation, fdList: Gio.UnixFDList | null, argOptions: GLib.Variant) => void): NodeJS.EventEmitter
     emit(sigName: "handle-open-for-benchmark", invocation: Gio.DBusMethodInvocation, fdList: Gio.UnixFDList | null, argOptions: GLib.Variant): void
-    on(sigName: "handle-open-for-benchmark", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-open-for-benchmark", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-open-for-benchmark", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "handle-open-for-restore", callback: (($obj: BlockProxy, invocation: Gio.DBusMethodInvocation, fdList: Gio.UnixFDList | null, argOptions: GLib.Variant) => boolean)): number
-    connect_after(sigName: "handle-open-for-restore", callback: (($obj: BlockProxy, invocation: Gio.DBusMethodInvocation, fdList: Gio.UnixFDList | null, argOptions: GLib.Variant) => boolean)): number
+    on(sigName: "handle-open-for-restore", callback: (invocation: Gio.DBusMethodInvocation, fdList: Gio.UnixFDList | null, argOptions: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-open-for-restore", callback: (invocation: Gio.DBusMethodInvocation, fdList: Gio.UnixFDList | null, argOptions: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-open-for-restore", callback: (invocation: Gio.DBusMethodInvocation, fdList: Gio.UnixFDList | null, argOptions: GLib.Variant) => void): NodeJS.EventEmitter
     emit(sigName: "handle-open-for-restore", invocation: Gio.DBusMethodInvocation, fdList: Gio.UnixFDList | null, argOptions: GLib.Variant): void
-    on(sigName: "handle-open-for-restore", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-open-for-restore", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-open-for-restore", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "handle-remove-configuration-item", callback: (($obj: BlockProxy, invocation: Gio.DBusMethodInvocation, argItem: GLib.Variant, argOptions: GLib.Variant) => boolean)): number
-    connect_after(sigName: "handle-remove-configuration-item", callback: (($obj: BlockProxy, invocation: Gio.DBusMethodInvocation, argItem: GLib.Variant, argOptions: GLib.Variant) => boolean)): number
+    on(sigName: "handle-remove-configuration-item", callback: (invocation: Gio.DBusMethodInvocation, argItem: GLib.Variant, argOptions: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-remove-configuration-item", callback: (invocation: Gio.DBusMethodInvocation, argItem: GLib.Variant, argOptions: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-remove-configuration-item", callback: (invocation: Gio.DBusMethodInvocation, argItem: GLib.Variant, argOptions: GLib.Variant) => void): NodeJS.EventEmitter
     emit(sigName: "handle-remove-configuration-item", invocation: Gio.DBusMethodInvocation, argItem: GLib.Variant, argOptions: GLib.Variant): void
-    on(sigName: "handle-remove-configuration-item", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-remove-configuration-item", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-remove-configuration-item", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "handle-rescan", callback: (($obj: BlockProxy, invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant) => boolean)): number
-    connect_after(sigName: "handle-rescan", callback: (($obj: BlockProxy, invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant) => boolean)): number
+    on(sigName: "handle-rescan", callback: (invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-rescan", callback: (invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-rescan", callback: (invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant) => void): NodeJS.EventEmitter
     emit(sigName: "handle-rescan", invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant): void
-    on(sigName: "handle-rescan", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-rescan", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-rescan", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "handle-update-configuration-item", callback: (($obj: BlockProxy, invocation: Gio.DBusMethodInvocation, argOldItem: GLib.Variant, argNewItem: GLib.Variant, argOptions: GLib.Variant) => boolean)): number
-    connect_after(sigName: "handle-update-configuration-item", callback: (($obj: BlockProxy, invocation: Gio.DBusMethodInvocation, argOldItem: GLib.Variant, argNewItem: GLib.Variant, argOptions: GLib.Variant) => boolean)): number
+    on(sigName: "handle-update-configuration-item", callback: (invocation: Gio.DBusMethodInvocation, argOldItem: GLib.Variant, argNewItem: GLib.Variant, argOptions: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-update-configuration-item", callback: (invocation: Gio.DBusMethodInvocation, argOldItem: GLib.Variant, argNewItem: GLib.Variant, argOptions: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-update-configuration-item", callback: (invocation: Gio.DBusMethodInvocation, argOldItem: GLib.Variant, argNewItem: GLib.Variant, argOptions: GLib.Variant) => void): NodeJS.EventEmitter
     emit(sigName: "handle-update-configuration-item", invocation: Gio.DBusMethodInvocation, argOldItem: GLib.Variant, argNewItem: GLib.Variant, argOptions: GLib.Variant): void
-    on(sigName: "handle-update-configuration-item", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-update-configuration-item", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-update-configuration-item", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::g-default-timeout", callback: (($obj: BlockProxy, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::g-default-timeout", callback: (($obj: BlockProxy, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::g-default-timeout", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -1341,9 +1184,9 @@ export interface BlockSkeleton_ConstructProps extends Gio.DBusInterfaceSkeleton_
     symlinks?: string[]
 }
 export class BlockSkeleton {
-    /* Properties of Gio.DBusInterfaceSkeleton */
+    /* Properties of Gio-2.0.Gio.DBusInterfaceSkeleton */
     gFlags: Gio.DBusInterfaceSkeletonFlags
-    /* Properties of UDisks.Block */
+    /* Properties of UDisks-2.0.UDisks.Block */
     configuration: GLib.Variant
     cryptoBackingDevice: string
     device: string
@@ -1368,9 +1211,9 @@ export class BlockSkeleton {
     readOnly: boolean
     size: number
     symlinks: string[]
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Gio.DBusInterfaceSkeleton */
+    /* Methods of Gio-2.0.Gio.DBusInterfaceSkeleton */
     export(connection: Gio.DBusConnection, objectPath: string): boolean
     flush(): void
     getConnection(): Gio.DBusConnection | null
@@ -1383,7 +1226,7 @@ export class BlockSkeleton {
     setFlags(flags: Gio.DBusInterfaceSkeletonFlags): void
     unexport(): void
     unexportFromConnection(connection: Gio.DBusConnection): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -1405,10 +1248,10 @@ export class BlockSkeleton {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of Gio.DBusInterface */
+    /* Methods of Gio-2.0.Gio.DBusInterface */
     getObject(): Gio.DBusObject | null
     setObject(object?: Gio.DBusObject | null): void
-    /* Methods of UDisks.Block */
+    /* Methods of UDisks-2.0.UDisks.Block */
     callAddConfigurationItem(argItem: GLib.Variant, argOptions: GLib.Variant, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     callAddConfigurationItemFinish(res: Gio.AsyncResult): boolean
     callAddConfigurationItemSync(argItem: GLib.Variant, argOptions: GLib.Variant, cancellable?: Gio.Cancellable | null): boolean
@@ -1416,17 +1259,17 @@ export class BlockSkeleton {
     callFormatFinish(res: Gio.AsyncResult): boolean
     callFormatSync(argType: string, argOptions: GLib.Variant, cancellable?: Gio.Cancellable | null): boolean
     callGetSecretConfiguration(argOptions: GLib.Variant, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    callGetSecretConfigurationFinish(res: Gio.AsyncResult): [ /* returnType */ boolean, /* outConfiguration */ GLib.Variant ]
-    callGetSecretConfigurationSync(argOptions: GLib.Variant, cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* outConfiguration */ GLib.Variant ]
+    callGetSecretConfigurationFinish(res: Gio.AsyncResult): { returnType: boolean, outConfiguration: GLib.Variant }
+    callGetSecretConfigurationSync(argOptions: GLib.Variant, cancellable?: Gio.Cancellable | null): { returnType: boolean, outConfiguration: GLib.Variant }
     callOpenForBackup(argOptions: GLib.Variant, fdList?: Gio.UnixFDList | null, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    callOpenForBackupFinish(res: Gio.AsyncResult): [ /* returnType */ boolean, /* outFd */ GLib.Variant, /* outFdList */ Gio.UnixFDList ]
-    callOpenForBackupSync(argOptions: GLib.Variant, fdList?: Gio.UnixFDList | null, cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* outFd */ GLib.Variant, /* outFdList */ Gio.UnixFDList ]
+    callOpenForBackupFinish(res: Gio.AsyncResult): { returnType: boolean, outFd: GLib.Variant, outFdList: Gio.UnixFDList }
+    callOpenForBackupSync(argOptions: GLib.Variant, fdList?: Gio.UnixFDList | null, cancellable?: Gio.Cancellable | null): { returnType: boolean, outFd: GLib.Variant, outFdList: Gio.UnixFDList }
     callOpenForBenchmark(argOptions: GLib.Variant, fdList?: Gio.UnixFDList | null, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    callOpenForBenchmarkFinish(res: Gio.AsyncResult): [ /* returnType */ boolean, /* outFd */ GLib.Variant, /* outFdList */ Gio.UnixFDList ]
-    callOpenForBenchmarkSync(argOptions: GLib.Variant, fdList?: Gio.UnixFDList | null, cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* outFd */ GLib.Variant, /* outFdList */ Gio.UnixFDList ]
+    callOpenForBenchmarkFinish(res: Gio.AsyncResult): { returnType: boolean, outFd: GLib.Variant, outFdList: Gio.UnixFDList }
+    callOpenForBenchmarkSync(argOptions: GLib.Variant, fdList?: Gio.UnixFDList | null, cancellable?: Gio.Cancellable | null): { returnType: boolean, outFd: GLib.Variant, outFdList: Gio.UnixFDList }
     callOpenForRestore(argOptions: GLib.Variant, fdList?: Gio.UnixFDList | null, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    callOpenForRestoreFinish(res: Gio.AsyncResult): [ /* returnType */ boolean, /* outFd */ GLib.Variant, /* outFdList */ Gio.UnixFDList ]
-    callOpenForRestoreSync(argOptions: GLib.Variant, fdList?: Gio.UnixFDList | null, cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* outFd */ GLib.Variant, /* outFdList */ Gio.UnixFDList ]
+    callOpenForRestoreFinish(res: Gio.AsyncResult): { returnType: boolean, outFd: GLib.Variant, outFdList: Gio.UnixFDList }
+    callOpenForRestoreSync(argOptions: GLib.Variant, fdList?: Gio.UnixFDList | null, cancellable?: Gio.Cancellable | null): { returnType: boolean, outFd: GLib.Variant, outFdList: Gio.UnixFDList }
     callRemoveConfigurationItem(argItem: GLib.Variant, argOptions: GLib.Variant, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     callRemoveConfigurationItemFinish(res: Gio.AsyncResult): boolean
     callRemoveConfigurationItemSync(argItem: GLib.Variant, argOptions: GLib.Variant, cancellable?: Gio.Cancellable | null): boolean
@@ -1445,101 +1288,64 @@ export class BlockSkeleton {
     completeRemoveConfigurationItem(invocation: Gio.DBusMethodInvocation): void
     completeRescan(invocation: Gio.DBusMethodInvocation): void
     completeUpdateConfigurationItem(invocation: Gio.DBusMethodInvocation): void
-    /* Virtual methods of UDisks.BlockSkeleton */
-    vfuncDupObject(): Gio.DBusObject | null
-    vfuncGetInfo(): Gio.DBusInterfaceInfo
-    vfuncSetObject(object?: Gio.DBusObject | null): void
-    vfuncHandleAddConfigurationItem(invocation: Gio.DBusMethodInvocation, argItem: GLib.Variant, argOptions: GLib.Variant): boolean
-    vfuncHandleFormat(invocation: Gio.DBusMethodInvocation, argType: string, argOptions: GLib.Variant): boolean
-    vfuncHandleGetSecretConfiguration(invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant): boolean
-    vfuncHandleOpenForBackup(invocation: Gio.DBusMethodInvocation, fdList: Gio.UnixFDList, argOptions: GLib.Variant): boolean
-    vfuncHandleOpenForBenchmark(invocation: Gio.DBusMethodInvocation, fdList: Gio.UnixFDList, argOptions: GLib.Variant): boolean
-    vfuncHandleOpenForRestore(invocation: Gio.DBusMethodInvocation, fdList: Gio.UnixFDList, argOptions: GLib.Variant): boolean
-    vfuncHandleRemoveConfigurationItem(invocation: Gio.DBusMethodInvocation, argItem: GLib.Variant, argOptions: GLib.Variant): boolean
-    vfuncHandleRescan(invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant): boolean
-    vfuncHandleUpdateConfigurationItem(invocation: Gio.DBusMethodInvocation, argOldItem: GLib.Variant, argNewItem: GLib.Variant, argOptions: GLib.Variant): boolean
-    /* Virtual methods of Gio.DBusInterfaceSkeleton */
-    vfuncFlush(): void
-    vfuncGAuthorizeMethod(invocation: Gio.DBusMethodInvocation): boolean
-    vfuncGetInfo(): Gio.DBusInterfaceInfo
-    vfuncGetProperties(): GLib.Variant
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gio.DBusInterfaceSkeleton */
+    /* Signals of Gio-2.0.Gio.DBusInterfaceSkeleton */
     connect(sigName: "g-authorize-method", callback: (($obj: BlockSkeleton, invocation: Gio.DBusMethodInvocation) => boolean)): number
-    connect_after(sigName: "g-authorize-method", callback: (($obj: BlockSkeleton, invocation: Gio.DBusMethodInvocation) => boolean)): number
+    on(sigName: "g-authorize-method", callback: (invocation: Gio.DBusMethodInvocation) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "g-authorize-method", callback: (invocation: Gio.DBusMethodInvocation) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "g-authorize-method", callback: (invocation: Gio.DBusMethodInvocation) => void): NodeJS.EventEmitter
     emit(sigName: "g-authorize-method", invocation: Gio.DBusMethodInvocation): void
-    on(sigName: "g-authorize-method", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "g-authorize-method", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "g-authorize-method", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: BlockSkeleton, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: BlockSkeleton, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of UDisks.Block */
+    /* Signals of UDisks-2.0.UDisks.Block */
     connect(sigName: "handle-add-configuration-item", callback: (($obj: BlockSkeleton, invocation: Gio.DBusMethodInvocation, argItem: GLib.Variant, argOptions: GLib.Variant) => boolean)): number
-    connect_after(sigName: "handle-add-configuration-item", callback: (($obj: BlockSkeleton, invocation: Gio.DBusMethodInvocation, argItem: GLib.Variant, argOptions: GLib.Variant) => boolean)): number
+    on(sigName: "handle-add-configuration-item", callback: (invocation: Gio.DBusMethodInvocation, argItem: GLib.Variant, argOptions: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-add-configuration-item", callback: (invocation: Gio.DBusMethodInvocation, argItem: GLib.Variant, argOptions: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-add-configuration-item", callback: (invocation: Gio.DBusMethodInvocation, argItem: GLib.Variant, argOptions: GLib.Variant) => void): NodeJS.EventEmitter
     emit(sigName: "handle-add-configuration-item", invocation: Gio.DBusMethodInvocation, argItem: GLib.Variant, argOptions: GLib.Variant): void
-    on(sigName: "handle-add-configuration-item", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-add-configuration-item", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-add-configuration-item", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "handle-format", callback: (($obj: BlockSkeleton, invocation: Gio.DBusMethodInvocation, argType: string, argOptions: GLib.Variant) => boolean)): number
-    connect_after(sigName: "handle-format", callback: (($obj: BlockSkeleton, invocation: Gio.DBusMethodInvocation, argType: string, argOptions: GLib.Variant) => boolean)): number
+    on(sigName: "handle-format", callback: (invocation: Gio.DBusMethodInvocation, argType: string, argOptions: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-format", callback: (invocation: Gio.DBusMethodInvocation, argType: string, argOptions: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-format", callback: (invocation: Gio.DBusMethodInvocation, argType: string, argOptions: GLib.Variant) => void): NodeJS.EventEmitter
     emit(sigName: "handle-format", invocation: Gio.DBusMethodInvocation, argType: string, argOptions: GLib.Variant): void
-    on(sigName: "handle-format", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-format", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-format", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "handle-get-secret-configuration", callback: (($obj: BlockSkeleton, invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant) => boolean)): number
-    connect_after(sigName: "handle-get-secret-configuration", callback: (($obj: BlockSkeleton, invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant) => boolean)): number
+    on(sigName: "handle-get-secret-configuration", callback: (invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-get-secret-configuration", callback: (invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-get-secret-configuration", callback: (invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant) => void): NodeJS.EventEmitter
     emit(sigName: "handle-get-secret-configuration", invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant): void
-    on(sigName: "handle-get-secret-configuration", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-get-secret-configuration", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-get-secret-configuration", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "handle-open-for-backup", callback: (($obj: BlockSkeleton, invocation: Gio.DBusMethodInvocation, fdList: Gio.UnixFDList | null, argOptions: GLib.Variant) => boolean)): number
-    connect_after(sigName: "handle-open-for-backup", callback: (($obj: BlockSkeleton, invocation: Gio.DBusMethodInvocation, fdList: Gio.UnixFDList | null, argOptions: GLib.Variant) => boolean)): number
+    on(sigName: "handle-open-for-backup", callback: (invocation: Gio.DBusMethodInvocation, fdList: Gio.UnixFDList | null, argOptions: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-open-for-backup", callback: (invocation: Gio.DBusMethodInvocation, fdList: Gio.UnixFDList | null, argOptions: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-open-for-backup", callback: (invocation: Gio.DBusMethodInvocation, fdList: Gio.UnixFDList | null, argOptions: GLib.Variant) => void): NodeJS.EventEmitter
     emit(sigName: "handle-open-for-backup", invocation: Gio.DBusMethodInvocation, fdList: Gio.UnixFDList | null, argOptions: GLib.Variant): void
-    on(sigName: "handle-open-for-backup", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-open-for-backup", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-open-for-backup", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "handle-open-for-benchmark", callback: (($obj: BlockSkeleton, invocation: Gio.DBusMethodInvocation, fdList: Gio.UnixFDList | null, argOptions: GLib.Variant) => boolean)): number
-    connect_after(sigName: "handle-open-for-benchmark", callback: (($obj: BlockSkeleton, invocation: Gio.DBusMethodInvocation, fdList: Gio.UnixFDList | null, argOptions: GLib.Variant) => boolean)): number
+    on(sigName: "handle-open-for-benchmark", callback: (invocation: Gio.DBusMethodInvocation, fdList: Gio.UnixFDList | null, argOptions: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-open-for-benchmark", callback: (invocation: Gio.DBusMethodInvocation, fdList: Gio.UnixFDList | null, argOptions: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-open-for-benchmark", callback: (invocation: Gio.DBusMethodInvocation, fdList: Gio.UnixFDList | null, argOptions: GLib.Variant) => void): NodeJS.EventEmitter
     emit(sigName: "handle-open-for-benchmark", invocation: Gio.DBusMethodInvocation, fdList: Gio.UnixFDList | null, argOptions: GLib.Variant): void
-    on(sigName: "handle-open-for-benchmark", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-open-for-benchmark", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-open-for-benchmark", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "handle-open-for-restore", callback: (($obj: BlockSkeleton, invocation: Gio.DBusMethodInvocation, fdList: Gio.UnixFDList | null, argOptions: GLib.Variant) => boolean)): number
-    connect_after(sigName: "handle-open-for-restore", callback: (($obj: BlockSkeleton, invocation: Gio.DBusMethodInvocation, fdList: Gio.UnixFDList | null, argOptions: GLib.Variant) => boolean)): number
+    on(sigName: "handle-open-for-restore", callback: (invocation: Gio.DBusMethodInvocation, fdList: Gio.UnixFDList | null, argOptions: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-open-for-restore", callback: (invocation: Gio.DBusMethodInvocation, fdList: Gio.UnixFDList | null, argOptions: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-open-for-restore", callback: (invocation: Gio.DBusMethodInvocation, fdList: Gio.UnixFDList | null, argOptions: GLib.Variant) => void): NodeJS.EventEmitter
     emit(sigName: "handle-open-for-restore", invocation: Gio.DBusMethodInvocation, fdList: Gio.UnixFDList | null, argOptions: GLib.Variant): void
-    on(sigName: "handle-open-for-restore", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-open-for-restore", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-open-for-restore", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "handle-remove-configuration-item", callback: (($obj: BlockSkeleton, invocation: Gio.DBusMethodInvocation, argItem: GLib.Variant, argOptions: GLib.Variant) => boolean)): number
-    connect_after(sigName: "handle-remove-configuration-item", callback: (($obj: BlockSkeleton, invocation: Gio.DBusMethodInvocation, argItem: GLib.Variant, argOptions: GLib.Variant) => boolean)): number
+    on(sigName: "handle-remove-configuration-item", callback: (invocation: Gio.DBusMethodInvocation, argItem: GLib.Variant, argOptions: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-remove-configuration-item", callback: (invocation: Gio.DBusMethodInvocation, argItem: GLib.Variant, argOptions: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-remove-configuration-item", callback: (invocation: Gio.DBusMethodInvocation, argItem: GLib.Variant, argOptions: GLib.Variant) => void): NodeJS.EventEmitter
     emit(sigName: "handle-remove-configuration-item", invocation: Gio.DBusMethodInvocation, argItem: GLib.Variant, argOptions: GLib.Variant): void
-    on(sigName: "handle-remove-configuration-item", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-remove-configuration-item", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-remove-configuration-item", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "handle-rescan", callback: (($obj: BlockSkeleton, invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant) => boolean)): number
-    connect_after(sigName: "handle-rescan", callback: (($obj: BlockSkeleton, invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant) => boolean)): number
+    on(sigName: "handle-rescan", callback: (invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-rescan", callback: (invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-rescan", callback: (invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant) => void): NodeJS.EventEmitter
     emit(sigName: "handle-rescan", invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant): void
-    on(sigName: "handle-rescan", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-rescan", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-rescan", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "handle-update-configuration-item", callback: (($obj: BlockSkeleton, invocation: Gio.DBusMethodInvocation, argOldItem: GLib.Variant, argNewItem: GLib.Variant, argOptions: GLib.Variant) => boolean)): number
-    connect_after(sigName: "handle-update-configuration-item", callback: (($obj: BlockSkeleton, invocation: Gio.DBusMethodInvocation, argOldItem: GLib.Variant, argNewItem: GLib.Variant, argOptions: GLib.Variant) => boolean)): number
+    on(sigName: "handle-update-configuration-item", callback: (invocation: Gio.DBusMethodInvocation, argOldItem: GLib.Variant, argNewItem: GLib.Variant, argOptions: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-update-configuration-item", callback: (invocation: Gio.DBusMethodInvocation, argOldItem: GLib.Variant, argNewItem: GLib.Variant, argOptions: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-update-configuration-item", callback: (invocation: Gio.DBusMethodInvocation, argOldItem: GLib.Variant, argNewItem: GLib.Variant, argOptions: GLib.Variant) => void): NodeJS.EventEmitter
     emit(sigName: "handle-update-configuration-item", invocation: Gio.DBusMethodInvocation, argOldItem: GLib.Variant, argNewItem: GLib.Variant, argOptions: GLib.Variant): void
-    on(sigName: "handle-update-configuration-item", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-update-configuration-item", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-update-configuration-item", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::g-flags", callback: (($obj: BlockSkeleton, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::g-flags", callback: (($obj: BlockSkeleton, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::g-flags", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -1684,12 +1490,12 @@ export class BlockSkeleton {
 export interface Client_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class Client {
-    /* Properties of UDisks.Client */
+    /* Properties of UDisks-2.0.UDisks.Client */
     readonly manager: Manager
     readonly objectManager: Gio.DBusObjectManager
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of UDisks.Client */
+    /* Methods of UDisks-2.0.UDisks.Client */
     getAllBlocksForMdraid(raid: MDRaid): Block[]
     getBlockForDev(blockDeviceNumber: number): Block
     getBlockForDrive(drive: Drive, getPhysical: boolean): Block
@@ -1698,7 +1504,7 @@ export class Client {
     getBlockForUuid(uuid: string): Block[]
     getCleartextBlock(block: Block): Block
     getDriveForBlock(block: Block): Drive
-    getDriveInfo(drive: Drive): [ /* outName */ string | null, /* outDescription */ string | null, /* outDriveIcon */ Gio.Icon | null, /* outMediaDescription */ string | null, /* outMediaIcon */ Gio.Icon | null ]
+    getDriveInfo(drive: Drive): { outName: string | null, outDescription: string | null, outDriveIcon: Gio.Icon | null, outMediaDescription: string | null, outMediaIcon: Gio.Icon | null }
     getDriveSiblings(drive: Drive): Drive[]
     getIdForDisplay(usage: string, type: string, version: string, longString: boolean): string
     getJobDescription(job: Job): string
@@ -1724,7 +1530,7 @@ export class Client {
     peekObject(objectPath: string): Object
     queueChanged(): void
     settle(): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -1746,38 +1552,24 @@ export class Client {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of Gio.AsyncInitable */
+    /* Methods of Gio-2.0.Gio.AsyncInitable */
     initAsync(ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     initFinish(res: Gio.AsyncResult): boolean
     newFinish(res: Gio.AsyncResult): GObject.Object
-    /* Methods of Gio.Initable */
+    /* Methods of Gio-2.0.Gio.Initable */
     init(cancellable?: Gio.Cancellable | null): boolean
-    /* Virtual methods of UDisks.Client */
-    vfuncInitAsync(ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    vfuncInitFinish(res: Gio.AsyncResult): boolean
-    vfuncInit(cancellable?: Gio.Cancellable | null): boolean
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of UDisks.Client */
+    /* Signals of UDisks-2.0.UDisks.Client */
     connect(sigName: "changed", callback: (($obj: Client) => void)): number
-    connect_after(sigName: "changed", callback: (($obj: Client) => void)): number
+    on(sigName: "changed", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "changed", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "changed", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "changed"): void
-    on(sigName: "changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Client, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Client, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::manager", callback: (($obj: Client, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::manager", callback: (($obj: Client, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::manager", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -1833,11 +1625,11 @@ export interface DriveAtaProxy_ConstructProps extends Gio.DBusProxy_ConstructPro
     writeCacheSupported?: boolean
 }
 export class DriveAtaProxy {
-    /* Properties of Gio.DBusProxy */
+    /* Properties of Gio-2.0.Gio.DBusProxy */
     gDefaultTimeout: number
     gInterfaceInfo: Gio.DBusInterfaceInfo
     readonly gNameOwner: string
-    /* Properties of UDisks.DriveAta */
+    /* Properties of UDisks-2.0.UDisks.DriveAta */
     aamEnabled: boolean
     aamSupported: boolean
     aamVendorRecommendedValue: number
@@ -1863,15 +1655,15 @@ export class DriveAtaProxy {
     smartUpdated: number
     writeCacheEnabled: boolean
     writeCacheSupported: boolean
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Gio.DBusProxy */
+    /* Methods of Gio-2.0.Gio.DBusProxy */
     call(methodName: string, parameters: GLib.Variant | null, flags: Gio.DBusCallFlags, timeoutMsec: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     callFinish(res: Gio.AsyncResult): GLib.Variant
     callSync(methodName: string, parameters: GLib.Variant | null, flags: Gio.DBusCallFlags, timeoutMsec: number, cancellable?: Gio.Cancellable | null): GLib.Variant
     callWithUnixFdList(methodName: string, parameters: GLib.Variant | null, flags: Gio.DBusCallFlags, timeoutMsec: number, fdList?: Gio.UnixFDList | null, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    callWithUnixFdListFinish(res: Gio.AsyncResult): [ /* returnType */ GLib.Variant, /* outFdList */ Gio.UnixFDList | null ]
-    callWithUnixFdListSync(methodName: string, parameters: GLib.Variant | null, flags: Gio.DBusCallFlags, timeoutMsec: number, fdList?: Gio.UnixFDList | null, cancellable?: Gio.Cancellable | null): [ /* returnType */ GLib.Variant, /* outFdList */ Gio.UnixFDList | null ]
+    callWithUnixFdListFinish(res: Gio.AsyncResult): { returnType: GLib.Variant, outFdList: Gio.UnixFDList | null }
+    callWithUnixFdListSync(methodName: string, parameters: GLib.Variant | null, flags: Gio.DBusCallFlags, timeoutMsec: number, fdList?: Gio.UnixFDList | null, cancellable?: Gio.Cancellable | null): { returnType: GLib.Variant, outFdList: Gio.UnixFDList | null }
     getCachedProperty(propertyName: string): GLib.Variant | null
     getCachedPropertyNames(): string[] | null
     getConnection(): Gio.DBusConnection
@@ -1885,7 +1677,7 @@ export class DriveAtaProxy {
     setCachedProperty(propertyName: string, value?: GLib.Variant | null): void
     setDefaultTimeout(timeoutMsec: number): void
     setInterfaceInfo(info?: Gio.DBusInterfaceInfo | null): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -1907,20 +1699,20 @@ export class DriveAtaProxy {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of Gio.AsyncInitable */
+    /* Methods of Gio-2.0.Gio.AsyncInitable */
     initAsync(ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     initFinish(res: Gio.AsyncResult): boolean
     newFinish(res: Gio.AsyncResult): GObject.Object
-    /* Methods of Gio.DBusInterface */
+    /* Methods of Gio-2.0.Gio.DBusInterface */
     getObject(): Gio.DBusObject | null
     getInfo(): Gio.DBusInterfaceInfo
     setObject(object?: Gio.DBusObject | null): void
-    /* Methods of Gio.Initable */
+    /* Methods of Gio-2.0.Gio.Initable */
     init(cancellable?: Gio.Cancellable | null): boolean
-    /* Methods of UDisks.DriveAta */
+    /* Methods of UDisks-2.0.UDisks.DriveAta */
     callPmGetState(argOptions: GLib.Variant, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    callPmGetStateFinish(res: Gio.AsyncResult): [ /* returnType */ boolean, /* outState */ number ]
-    callPmGetStateSync(argOptions: GLib.Variant, cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* outState */ number ]
+    callPmGetStateFinish(res: Gio.AsyncResult): { returnType: boolean, outState: number }
+    callPmGetStateSync(argOptions: GLib.Variant, cancellable?: Gio.Cancellable | null): { returnType: boolean, outState: number }
     callPmStandby(argOptions: GLib.Variant, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     callPmStandbyFinish(res: Gio.AsyncResult): boolean
     callPmStandbySync(argOptions: GLib.Variant, cancellable?: Gio.Cancellable | null): boolean
@@ -1931,8 +1723,8 @@ export class DriveAtaProxy {
     callSecurityEraseUnitFinish(res: Gio.AsyncResult): boolean
     callSecurityEraseUnitSync(argOptions: GLib.Variant, cancellable?: Gio.Cancellable | null): boolean
     callSmartGetAttributes(argOptions: GLib.Variant, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    callSmartGetAttributesFinish(res: Gio.AsyncResult): [ /* returnType */ boolean, /* outAttributes */ GLib.Variant ]
-    callSmartGetAttributesSync(argOptions: GLib.Variant, cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* outAttributes */ GLib.Variant ]
+    callSmartGetAttributesFinish(res: Gio.AsyncResult): { returnType: boolean, outAttributes: GLib.Variant }
+    callSmartGetAttributesSync(argOptions: GLib.Variant, cancellable?: Gio.Cancellable | null): { returnType: boolean, outAttributes: GLib.Variant }
     callSmartSelftestAbort(argOptions: GLib.Variant, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     callSmartSelftestAbortFinish(res: Gio.AsyncResult): boolean
     callSmartSelftestAbortSync(argOptions: GLib.Variant, cancellable?: Gio.Cancellable | null): boolean
@@ -1954,108 +1746,69 @@ export class DriveAtaProxy {
     completeSmartSelftestStart(invocation: Gio.DBusMethodInvocation): void
     completeSmartSetEnabled(invocation: Gio.DBusMethodInvocation): void
     completeSmartUpdate(invocation: Gio.DBusMethodInvocation): void
-    /* Virtual methods of UDisks.DriveAtaProxy */
-    vfuncInitAsync(ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    vfuncInitFinish(res: Gio.AsyncResult): boolean
-    vfuncDupObject(): Gio.DBusObject | null
-    vfuncGetInfo(): Gio.DBusInterfaceInfo
-    vfuncSetObject(object?: Gio.DBusObject | null): void
-    vfuncInit(cancellable?: Gio.Cancellable | null): boolean
-    vfuncHandlePmGetState(invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant): boolean
-    vfuncHandlePmStandby(invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant): boolean
-    vfuncHandlePmWakeup(invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant): boolean
-    vfuncHandleSecurityEraseUnit(invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant): boolean
-    vfuncHandleSmartGetAttributes(invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant): boolean
-    vfuncHandleSmartSelftestAbort(invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant): boolean
-    vfuncHandleSmartSelftestStart(invocation: Gio.DBusMethodInvocation, argType: string, argOptions: GLib.Variant): boolean
-    vfuncHandleSmartSetEnabled(invocation: Gio.DBusMethodInvocation, argValue: boolean, argOptions: GLib.Variant): boolean
-    vfuncHandleSmartUpdate(invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant): boolean
-    /* Virtual methods of Gio.DBusProxy */
-    vfuncGPropertiesChanged(changedProperties: GLib.Variant, invalidatedProperties: string): void
-    vfuncGSignal(senderName: string, signalName: string, parameters: GLib.Variant): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gio.DBusProxy */
+    /* Signals of Gio-2.0.Gio.DBusProxy */
     connect(sigName: "g-properties-changed", callback: (($obj: DriveAtaProxy, changedProperties: GLib.Variant, invalidatedProperties: string[]) => void)): number
-    connect_after(sigName: "g-properties-changed", callback: (($obj: DriveAtaProxy, changedProperties: GLib.Variant, invalidatedProperties: string[]) => void)): number
+    on(sigName: "g-properties-changed", callback: (changedProperties: GLib.Variant, invalidatedProperties: string[]) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "g-properties-changed", callback: (changedProperties: GLib.Variant, invalidatedProperties: string[]) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "g-properties-changed", callback: (changedProperties: GLib.Variant, invalidatedProperties: string[]) => void): NodeJS.EventEmitter
     emit(sigName: "g-properties-changed", changedProperties: GLib.Variant, invalidatedProperties: string[]): void
-    on(sigName: "g-properties-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "g-properties-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "g-properties-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "g-signal", callback: (($obj: DriveAtaProxy, senderName: string | null, signalName: string, parameters: GLib.Variant) => void)): number
-    connect_after(sigName: "g-signal", callback: (($obj: DriveAtaProxy, senderName: string | null, signalName: string, parameters: GLib.Variant) => void)): number
+    on(sigName: "g-signal", callback: (senderName: string | null, signalName: string, parameters: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "g-signal", callback: (senderName: string | null, signalName: string, parameters: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "g-signal", callback: (senderName: string | null, signalName: string, parameters: GLib.Variant) => void): NodeJS.EventEmitter
     emit(sigName: "g-signal", senderName: string | null, signalName: string, parameters: GLib.Variant): void
-    on(sigName: "g-signal", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "g-signal", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "g-signal", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: DriveAtaProxy, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: DriveAtaProxy, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of UDisks.DriveAta */
+    /* Signals of UDisks-2.0.UDisks.DriveAta */
     connect(sigName: "handle-pm-get-state", callback: (($obj: DriveAtaProxy, invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant) => boolean)): number
-    connect_after(sigName: "handle-pm-get-state", callback: (($obj: DriveAtaProxy, invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant) => boolean)): number
+    on(sigName: "handle-pm-get-state", callback: (invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-pm-get-state", callback: (invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-pm-get-state", callback: (invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant) => void): NodeJS.EventEmitter
     emit(sigName: "handle-pm-get-state", invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant): void
-    on(sigName: "handle-pm-get-state", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-pm-get-state", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-pm-get-state", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "handle-pm-standby", callback: (($obj: DriveAtaProxy, invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant) => boolean)): number
-    connect_after(sigName: "handle-pm-standby", callback: (($obj: DriveAtaProxy, invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant) => boolean)): number
+    on(sigName: "handle-pm-standby", callback: (invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-pm-standby", callback: (invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-pm-standby", callback: (invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant) => void): NodeJS.EventEmitter
     emit(sigName: "handle-pm-standby", invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant): void
-    on(sigName: "handle-pm-standby", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-pm-standby", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-pm-standby", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "handle-pm-wakeup", callback: (($obj: DriveAtaProxy, invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant) => boolean)): number
-    connect_after(sigName: "handle-pm-wakeup", callback: (($obj: DriveAtaProxy, invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant) => boolean)): number
+    on(sigName: "handle-pm-wakeup", callback: (invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-pm-wakeup", callback: (invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-pm-wakeup", callback: (invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant) => void): NodeJS.EventEmitter
     emit(sigName: "handle-pm-wakeup", invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant): void
-    on(sigName: "handle-pm-wakeup", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-pm-wakeup", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-pm-wakeup", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "handle-security-erase-unit", callback: (($obj: DriveAtaProxy, invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant) => boolean)): number
-    connect_after(sigName: "handle-security-erase-unit", callback: (($obj: DriveAtaProxy, invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant) => boolean)): number
+    on(sigName: "handle-security-erase-unit", callback: (invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-security-erase-unit", callback: (invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-security-erase-unit", callback: (invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant) => void): NodeJS.EventEmitter
     emit(sigName: "handle-security-erase-unit", invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant): void
-    on(sigName: "handle-security-erase-unit", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-security-erase-unit", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-security-erase-unit", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "handle-smart-get-attributes", callback: (($obj: DriveAtaProxy, invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant) => boolean)): number
-    connect_after(sigName: "handle-smart-get-attributes", callback: (($obj: DriveAtaProxy, invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant) => boolean)): number
+    on(sigName: "handle-smart-get-attributes", callback: (invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-smart-get-attributes", callback: (invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-smart-get-attributes", callback: (invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant) => void): NodeJS.EventEmitter
     emit(sigName: "handle-smart-get-attributes", invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant): void
-    on(sigName: "handle-smart-get-attributes", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-smart-get-attributes", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-smart-get-attributes", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "handle-smart-selftest-abort", callback: (($obj: DriveAtaProxy, invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant) => boolean)): number
-    connect_after(sigName: "handle-smart-selftest-abort", callback: (($obj: DriveAtaProxy, invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant) => boolean)): number
+    on(sigName: "handle-smart-selftest-abort", callback: (invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-smart-selftest-abort", callback: (invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-smart-selftest-abort", callback: (invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant) => void): NodeJS.EventEmitter
     emit(sigName: "handle-smart-selftest-abort", invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant): void
-    on(sigName: "handle-smart-selftest-abort", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-smart-selftest-abort", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-smart-selftest-abort", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "handle-smart-selftest-start", callback: (($obj: DriveAtaProxy, invocation: Gio.DBusMethodInvocation, argType: string, argOptions: GLib.Variant) => boolean)): number
-    connect_after(sigName: "handle-smart-selftest-start", callback: (($obj: DriveAtaProxy, invocation: Gio.DBusMethodInvocation, argType: string, argOptions: GLib.Variant) => boolean)): number
+    on(sigName: "handle-smart-selftest-start", callback: (invocation: Gio.DBusMethodInvocation, argType: string, argOptions: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-smart-selftest-start", callback: (invocation: Gio.DBusMethodInvocation, argType: string, argOptions: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-smart-selftest-start", callback: (invocation: Gio.DBusMethodInvocation, argType: string, argOptions: GLib.Variant) => void): NodeJS.EventEmitter
     emit(sigName: "handle-smart-selftest-start", invocation: Gio.DBusMethodInvocation, argType: string, argOptions: GLib.Variant): void
-    on(sigName: "handle-smart-selftest-start", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-smart-selftest-start", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-smart-selftest-start", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "handle-smart-set-enabled", callback: (($obj: DriveAtaProxy, invocation: Gio.DBusMethodInvocation, argValue: boolean, argOptions: GLib.Variant) => boolean)): number
-    connect_after(sigName: "handle-smart-set-enabled", callback: (($obj: DriveAtaProxy, invocation: Gio.DBusMethodInvocation, argValue: boolean, argOptions: GLib.Variant) => boolean)): number
+    on(sigName: "handle-smart-set-enabled", callback: (invocation: Gio.DBusMethodInvocation, argValue: boolean, argOptions: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-smart-set-enabled", callback: (invocation: Gio.DBusMethodInvocation, argValue: boolean, argOptions: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-smart-set-enabled", callback: (invocation: Gio.DBusMethodInvocation, argValue: boolean, argOptions: GLib.Variant) => void): NodeJS.EventEmitter
     emit(sigName: "handle-smart-set-enabled", invocation: Gio.DBusMethodInvocation, argValue: boolean, argOptions: GLib.Variant): void
-    on(sigName: "handle-smart-set-enabled", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-smart-set-enabled", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-smart-set-enabled", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "handle-smart-update", callback: (($obj: DriveAtaProxy, invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant) => boolean)): number
-    connect_after(sigName: "handle-smart-update", callback: (($obj: DriveAtaProxy, invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant) => boolean)): number
+    on(sigName: "handle-smart-update", callback: (invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-smart-update", callback: (invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-smart-update", callback: (invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant) => void): NodeJS.EventEmitter
     emit(sigName: "handle-smart-update", invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant): void
-    on(sigName: "handle-smart-update", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-smart-update", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-smart-update", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::g-default-timeout", callback: (($obj: DriveAtaProxy, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::g-default-timeout", callback: (($obj: DriveAtaProxy, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::g-default-timeout", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -2249,9 +2002,9 @@ export interface DriveAtaSkeleton_ConstructProps extends Gio.DBusInterfaceSkelet
     writeCacheSupported?: boolean
 }
 export class DriveAtaSkeleton {
-    /* Properties of Gio.DBusInterfaceSkeleton */
+    /* Properties of Gio-2.0.Gio.DBusInterfaceSkeleton */
     gFlags: Gio.DBusInterfaceSkeletonFlags
-    /* Properties of UDisks.DriveAta */
+    /* Properties of UDisks-2.0.UDisks.DriveAta */
     aamEnabled: boolean
     aamSupported: boolean
     aamVendorRecommendedValue: number
@@ -2277,9 +2030,9 @@ export class DriveAtaSkeleton {
     smartUpdated: number
     writeCacheEnabled: boolean
     writeCacheSupported: boolean
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Gio.DBusInterfaceSkeleton */
+    /* Methods of Gio-2.0.Gio.DBusInterfaceSkeleton */
     export(connection: Gio.DBusConnection, objectPath: string): boolean
     flush(): void
     getConnection(): Gio.DBusConnection | null
@@ -2292,7 +2045,7 @@ export class DriveAtaSkeleton {
     setFlags(flags: Gio.DBusInterfaceSkeletonFlags): void
     unexport(): void
     unexportFromConnection(connection: Gio.DBusConnection): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -2314,13 +2067,13 @@ export class DriveAtaSkeleton {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of Gio.DBusInterface */
+    /* Methods of Gio-2.0.Gio.DBusInterface */
     getObject(): Gio.DBusObject | null
     setObject(object?: Gio.DBusObject | null): void
-    /* Methods of UDisks.DriveAta */
+    /* Methods of UDisks-2.0.UDisks.DriveAta */
     callPmGetState(argOptions: GLib.Variant, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    callPmGetStateFinish(res: Gio.AsyncResult): [ /* returnType */ boolean, /* outState */ number ]
-    callPmGetStateSync(argOptions: GLib.Variant, cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* outState */ number ]
+    callPmGetStateFinish(res: Gio.AsyncResult): { returnType: boolean, outState: number }
+    callPmGetStateSync(argOptions: GLib.Variant, cancellable?: Gio.Cancellable | null): { returnType: boolean, outState: number }
     callPmStandby(argOptions: GLib.Variant, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     callPmStandbyFinish(res: Gio.AsyncResult): boolean
     callPmStandbySync(argOptions: GLib.Variant, cancellable?: Gio.Cancellable | null): boolean
@@ -2331,8 +2084,8 @@ export class DriveAtaSkeleton {
     callSecurityEraseUnitFinish(res: Gio.AsyncResult): boolean
     callSecurityEraseUnitSync(argOptions: GLib.Variant, cancellable?: Gio.Cancellable | null): boolean
     callSmartGetAttributes(argOptions: GLib.Variant, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    callSmartGetAttributesFinish(res: Gio.AsyncResult): [ /* returnType */ boolean, /* outAttributes */ GLib.Variant ]
-    callSmartGetAttributesSync(argOptions: GLib.Variant, cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* outAttributes */ GLib.Variant ]
+    callSmartGetAttributesFinish(res: Gio.AsyncResult): { returnType: boolean, outAttributes: GLib.Variant }
+    callSmartGetAttributesSync(argOptions: GLib.Variant, cancellable?: Gio.Cancellable | null): { returnType: boolean, outAttributes: GLib.Variant }
     callSmartSelftestAbort(argOptions: GLib.Variant, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     callSmartSelftestAbortFinish(res: Gio.AsyncResult): boolean
     callSmartSelftestAbortSync(argOptions: GLib.Variant, cancellable?: Gio.Cancellable | null): boolean
@@ -2354,101 +2107,64 @@ export class DriveAtaSkeleton {
     completeSmartSelftestStart(invocation: Gio.DBusMethodInvocation): void
     completeSmartSetEnabled(invocation: Gio.DBusMethodInvocation): void
     completeSmartUpdate(invocation: Gio.DBusMethodInvocation): void
-    /* Virtual methods of UDisks.DriveAtaSkeleton */
-    vfuncDupObject(): Gio.DBusObject | null
-    vfuncGetInfo(): Gio.DBusInterfaceInfo
-    vfuncSetObject(object?: Gio.DBusObject | null): void
-    vfuncHandlePmGetState(invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant): boolean
-    vfuncHandlePmStandby(invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant): boolean
-    vfuncHandlePmWakeup(invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant): boolean
-    vfuncHandleSecurityEraseUnit(invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant): boolean
-    vfuncHandleSmartGetAttributes(invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant): boolean
-    vfuncHandleSmartSelftestAbort(invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant): boolean
-    vfuncHandleSmartSelftestStart(invocation: Gio.DBusMethodInvocation, argType: string, argOptions: GLib.Variant): boolean
-    vfuncHandleSmartSetEnabled(invocation: Gio.DBusMethodInvocation, argValue: boolean, argOptions: GLib.Variant): boolean
-    vfuncHandleSmartUpdate(invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant): boolean
-    /* Virtual methods of Gio.DBusInterfaceSkeleton */
-    vfuncFlush(): void
-    vfuncGAuthorizeMethod(invocation: Gio.DBusMethodInvocation): boolean
-    vfuncGetInfo(): Gio.DBusInterfaceInfo
-    vfuncGetProperties(): GLib.Variant
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gio.DBusInterfaceSkeleton */
+    /* Signals of Gio-2.0.Gio.DBusInterfaceSkeleton */
     connect(sigName: "g-authorize-method", callback: (($obj: DriveAtaSkeleton, invocation: Gio.DBusMethodInvocation) => boolean)): number
-    connect_after(sigName: "g-authorize-method", callback: (($obj: DriveAtaSkeleton, invocation: Gio.DBusMethodInvocation) => boolean)): number
+    on(sigName: "g-authorize-method", callback: (invocation: Gio.DBusMethodInvocation) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "g-authorize-method", callback: (invocation: Gio.DBusMethodInvocation) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "g-authorize-method", callback: (invocation: Gio.DBusMethodInvocation) => void): NodeJS.EventEmitter
     emit(sigName: "g-authorize-method", invocation: Gio.DBusMethodInvocation): void
-    on(sigName: "g-authorize-method", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "g-authorize-method", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "g-authorize-method", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: DriveAtaSkeleton, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: DriveAtaSkeleton, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of UDisks.DriveAta */
+    /* Signals of UDisks-2.0.UDisks.DriveAta */
     connect(sigName: "handle-pm-get-state", callback: (($obj: DriveAtaSkeleton, invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant) => boolean)): number
-    connect_after(sigName: "handle-pm-get-state", callback: (($obj: DriveAtaSkeleton, invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant) => boolean)): number
+    on(sigName: "handle-pm-get-state", callback: (invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-pm-get-state", callback: (invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-pm-get-state", callback: (invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant) => void): NodeJS.EventEmitter
     emit(sigName: "handle-pm-get-state", invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant): void
-    on(sigName: "handle-pm-get-state", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-pm-get-state", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-pm-get-state", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "handle-pm-standby", callback: (($obj: DriveAtaSkeleton, invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant) => boolean)): number
-    connect_after(sigName: "handle-pm-standby", callback: (($obj: DriveAtaSkeleton, invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant) => boolean)): number
+    on(sigName: "handle-pm-standby", callback: (invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-pm-standby", callback: (invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-pm-standby", callback: (invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant) => void): NodeJS.EventEmitter
     emit(sigName: "handle-pm-standby", invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant): void
-    on(sigName: "handle-pm-standby", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-pm-standby", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-pm-standby", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "handle-pm-wakeup", callback: (($obj: DriveAtaSkeleton, invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant) => boolean)): number
-    connect_after(sigName: "handle-pm-wakeup", callback: (($obj: DriveAtaSkeleton, invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant) => boolean)): number
+    on(sigName: "handle-pm-wakeup", callback: (invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-pm-wakeup", callback: (invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-pm-wakeup", callback: (invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant) => void): NodeJS.EventEmitter
     emit(sigName: "handle-pm-wakeup", invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant): void
-    on(sigName: "handle-pm-wakeup", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-pm-wakeup", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-pm-wakeup", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "handle-security-erase-unit", callback: (($obj: DriveAtaSkeleton, invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant) => boolean)): number
-    connect_after(sigName: "handle-security-erase-unit", callback: (($obj: DriveAtaSkeleton, invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant) => boolean)): number
+    on(sigName: "handle-security-erase-unit", callback: (invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-security-erase-unit", callback: (invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-security-erase-unit", callback: (invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant) => void): NodeJS.EventEmitter
     emit(sigName: "handle-security-erase-unit", invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant): void
-    on(sigName: "handle-security-erase-unit", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-security-erase-unit", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-security-erase-unit", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "handle-smart-get-attributes", callback: (($obj: DriveAtaSkeleton, invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant) => boolean)): number
-    connect_after(sigName: "handle-smart-get-attributes", callback: (($obj: DriveAtaSkeleton, invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant) => boolean)): number
+    on(sigName: "handle-smart-get-attributes", callback: (invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-smart-get-attributes", callback: (invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-smart-get-attributes", callback: (invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant) => void): NodeJS.EventEmitter
     emit(sigName: "handle-smart-get-attributes", invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant): void
-    on(sigName: "handle-smart-get-attributes", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-smart-get-attributes", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-smart-get-attributes", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "handle-smart-selftest-abort", callback: (($obj: DriveAtaSkeleton, invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant) => boolean)): number
-    connect_after(sigName: "handle-smart-selftest-abort", callback: (($obj: DriveAtaSkeleton, invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant) => boolean)): number
+    on(sigName: "handle-smart-selftest-abort", callback: (invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-smart-selftest-abort", callback: (invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-smart-selftest-abort", callback: (invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant) => void): NodeJS.EventEmitter
     emit(sigName: "handle-smart-selftest-abort", invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant): void
-    on(sigName: "handle-smart-selftest-abort", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-smart-selftest-abort", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-smart-selftest-abort", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "handle-smart-selftest-start", callback: (($obj: DriveAtaSkeleton, invocation: Gio.DBusMethodInvocation, argType: string, argOptions: GLib.Variant) => boolean)): number
-    connect_after(sigName: "handle-smart-selftest-start", callback: (($obj: DriveAtaSkeleton, invocation: Gio.DBusMethodInvocation, argType: string, argOptions: GLib.Variant) => boolean)): number
+    on(sigName: "handle-smart-selftest-start", callback: (invocation: Gio.DBusMethodInvocation, argType: string, argOptions: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-smart-selftest-start", callback: (invocation: Gio.DBusMethodInvocation, argType: string, argOptions: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-smart-selftest-start", callback: (invocation: Gio.DBusMethodInvocation, argType: string, argOptions: GLib.Variant) => void): NodeJS.EventEmitter
     emit(sigName: "handle-smart-selftest-start", invocation: Gio.DBusMethodInvocation, argType: string, argOptions: GLib.Variant): void
-    on(sigName: "handle-smart-selftest-start", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-smart-selftest-start", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-smart-selftest-start", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "handle-smart-set-enabled", callback: (($obj: DriveAtaSkeleton, invocation: Gio.DBusMethodInvocation, argValue: boolean, argOptions: GLib.Variant) => boolean)): number
-    connect_after(sigName: "handle-smart-set-enabled", callback: (($obj: DriveAtaSkeleton, invocation: Gio.DBusMethodInvocation, argValue: boolean, argOptions: GLib.Variant) => boolean)): number
+    on(sigName: "handle-smart-set-enabled", callback: (invocation: Gio.DBusMethodInvocation, argValue: boolean, argOptions: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-smart-set-enabled", callback: (invocation: Gio.DBusMethodInvocation, argValue: boolean, argOptions: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-smart-set-enabled", callback: (invocation: Gio.DBusMethodInvocation, argValue: boolean, argOptions: GLib.Variant) => void): NodeJS.EventEmitter
     emit(sigName: "handle-smart-set-enabled", invocation: Gio.DBusMethodInvocation, argValue: boolean, argOptions: GLib.Variant): void
-    on(sigName: "handle-smart-set-enabled", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-smart-set-enabled", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-smart-set-enabled", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "handle-smart-update", callback: (($obj: DriveAtaSkeleton, invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant) => boolean)): number
-    connect_after(sigName: "handle-smart-update", callback: (($obj: DriveAtaSkeleton, invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant) => boolean)): number
+    on(sigName: "handle-smart-update", callback: (invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-smart-update", callback: (invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-smart-update", callback: (invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant) => void): NodeJS.EventEmitter
     emit(sigName: "handle-smart-update", invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant): void
-    on(sigName: "handle-smart-update", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-smart-update", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-smart-update", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::g-flags", callback: (($obj: DriveAtaSkeleton, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::g-flags", callback: (($obj: DriveAtaSkeleton, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::g-flags", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -2627,11 +2343,11 @@ export interface DriveProxy_ConstructProps extends Gio.DBusProxy_ConstructProps 
     wwn?: string
 }
 export class DriveProxy {
-    /* Properties of Gio.DBusProxy */
+    /* Properties of Gio-2.0.Gio.DBusProxy */
     gDefaultTimeout: number
     gInterfaceInfo: Gio.DBusInterfaceInfo
     readonly gNameOwner: string
-    /* Properties of UDisks.Drive */
+    /* Properties of UDisks-2.0.UDisks.Drive */
     canPowerOff: boolean
     configuration: GLib.Variant
     connectionBus: string
@@ -2661,15 +2377,15 @@ export class DriveProxy {
     timeMediaDetected: number
     vendor: string
     wwn: string
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Gio.DBusProxy */
+    /* Methods of Gio-2.0.Gio.DBusProxy */
     call(methodName: string, parameters: GLib.Variant | null, flags: Gio.DBusCallFlags, timeoutMsec: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     callFinish(res: Gio.AsyncResult): GLib.Variant
     callSync(methodName: string, parameters: GLib.Variant | null, flags: Gio.DBusCallFlags, timeoutMsec: number, cancellable?: Gio.Cancellable | null): GLib.Variant
     callWithUnixFdList(methodName: string, parameters: GLib.Variant | null, flags: Gio.DBusCallFlags, timeoutMsec: number, fdList?: Gio.UnixFDList | null, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    callWithUnixFdListFinish(res: Gio.AsyncResult): [ /* returnType */ GLib.Variant, /* outFdList */ Gio.UnixFDList | null ]
-    callWithUnixFdListSync(methodName: string, parameters: GLib.Variant | null, flags: Gio.DBusCallFlags, timeoutMsec: number, fdList?: Gio.UnixFDList | null, cancellable?: Gio.Cancellable | null): [ /* returnType */ GLib.Variant, /* outFdList */ Gio.UnixFDList | null ]
+    callWithUnixFdListFinish(res: Gio.AsyncResult): { returnType: GLib.Variant, outFdList: Gio.UnixFDList | null }
+    callWithUnixFdListSync(methodName: string, parameters: GLib.Variant | null, flags: Gio.DBusCallFlags, timeoutMsec: number, fdList?: Gio.UnixFDList | null, cancellable?: Gio.Cancellable | null): { returnType: GLib.Variant, outFdList: Gio.UnixFDList | null }
     getCachedProperty(propertyName: string): GLib.Variant | null
     getCachedPropertyNames(): string[] | null
     getConnection(): Gio.DBusConnection
@@ -2683,7 +2399,7 @@ export class DriveProxy {
     setCachedProperty(propertyName: string, value?: GLib.Variant | null): void
     setDefaultTimeout(timeoutMsec: number): void
     setInterfaceInfo(info?: Gio.DBusInterfaceInfo | null): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -2705,17 +2421,17 @@ export class DriveProxy {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of Gio.AsyncInitable */
+    /* Methods of Gio-2.0.Gio.AsyncInitable */
     initAsync(ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     initFinish(res: Gio.AsyncResult): boolean
     newFinish(res: Gio.AsyncResult): GObject.Object
-    /* Methods of Gio.DBusInterface */
+    /* Methods of Gio-2.0.Gio.DBusInterface */
     getObject(): Gio.DBusObject | null
     getInfo(): Gio.DBusInterfaceInfo
     setObject(object?: Gio.DBusObject | null): void
-    /* Methods of Gio.Initable */
+    /* Methods of Gio-2.0.Gio.Initable */
     init(cancellable?: Gio.Cancellable | null): boolean
-    /* Methods of UDisks.Drive */
+    /* Methods of UDisks-2.0.UDisks.Drive */
     callEject(argOptions: GLib.Variant, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     callEjectFinish(res: Gio.AsyncResult): boolean
     callEjectSync(argOptions: GLib.Variant, cancellable?: Gio.Cancellable | null): boolean
@@ -2728,66 +2444,39 @@ export class DriveProxy {
     completeEject(invocation: Gio.DBusMethodInvocation): void
     completePowerOff(invocation: Gio.DBusMethodInvocation): void
     completeSetConfiguration(invocation: Gio.DBusMethodInvocation): void
-    /* Virtual methods of UDisks.DriveProxy */
-    vfuncInitAsync(ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    vfuncInitFinish(res: Gio.AsyncResult): boolean
-    vfuncDupObject(): Gio.DBusObject | null
-    vfuncGetInfo(): Gio.DBusInterfaceInfo
-    vfuncSetObject(object?: Gio.DBusObject | null): void
-    vfuncInit(cancellable?: Gio.Cancellable | null): boolean
-    vfuncHandleEject(invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant): boolean
-    vfuncHandlePowerOff(invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant): boolean
-    vfuncHandleSetConfiguration(invocation: Gio.DBusMethodInvocation, argValue: GLib.Variant, argOptions: GLib.Variant): boolean
-    /* Virtual methods of Gio.DBusProxy */
-    vfuncGPropertiesChanged(changedProperties: GLib.Variant, invalidatedProperties: string): void
-    vfuncGSignal(senderName: string, signalName: string, parameters: GLib.Variant): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gio.DBusProxy */
+    /* Signals of Gio-2.0.Gio.DBusProxy */
     connect(sigName: "g-properties-changed", callback: (($obj: DriveProxy, changedProperties: GLib.Variant, invalidatedProperties: string[]) => void)): number
-    connect_after(sigName: "g-properties-changed", callback: (($obj: DriveProxy, changedProperties: GLib.Variant, invalidatedProperties: string[]) => void)): number
+    on(sigName: "g-properties-changed", callback: (changedProperties: GLib.Variant, invalidatedProperties: string[]) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "g-properties-changed", callback: (changedProperties: GLib.Variant, invalidatedProperties: string[]) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "g-properties-changed", callback: (changedProperties: GLib.Variant, invalidatedProperties: string[]) => void): NodeJS.EventEmitter
     emit(sigName: "g-properties-changed", changedProperties: GLib.Variant, invalidatedProperties: string[]): void
-    on(sigName: "g-properties-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "g-properties-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "g-properties-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "g-signal", callback: (($obj: DriveProxy, senderName: string | null, signalName: string, parameters: GLib.Variant) => void)): number
-    connect_after(sigName: "g-signal", callback: (($obj: DriveProxy, senderName: string | null, signalName: string, parameters: GLib.Variant) => void)): number
+    on(sigName: "g-signal", callback: (senderName: string | null, signalName: string, parameters: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "g-signal", callback: (senderName: string | null, signalName: string, parameters: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "g-signal", callback: (senderName: string | null, signalName: string, parameters: GLib.Variant) => void): NodeJS.EventEmitter
     emit(sigName: "g-signal", senderName: string | null, signalName: string, parameters: GLib.Variant): void
-    on(sigName: "g-signal", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "g-signal", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "g-signal", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: DriveProxy, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: DriveProxy, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of UDisks.Drive */
+    /* Signals of UDisks-2.0.UDisks.Drive */
     connect(sigName: "handle-eject", callback: (($obj: DriveProxy, invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant) => boolean)): number
-    connect_after(sigName: "handle-eject", callback: (($obj: DriveProxy, invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant) => boolean)): number
+    on(sigName: "handle-eject", callback: (invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-eject", callback: (invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-eject", callback: (invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant) => void): NodeJS.EventEmitter
     emit(sigName: "handle-eject", invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant): void
-    on(sigName: "handle-eject", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-eject", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-eject", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "handle-power-off", callback: (($obj: DriveProxy, invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant) => boolean)): number
-    connect_after(sigName: "handle-power-off", callback: (($obj: DriveProxy, invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant) => boolean)): number
+    on(sigName: "handle-power-off", callback: (invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-power-off", callback: (invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-power-off", callback: (invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant) => void): NodeJS.EventEmitter
     emit(sigName: "handle-power-off", invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant): void
-    on(sigName: "handle-power-off", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-power-off", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-power-off", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "handle-set-configuration", callback: (($obj: DriveProxy, invocation: Gio.DBusMethodInvocation, argValue: GLib.Variant, argOptions: GLib.Variant) => boolean)): number
-    connect_after(sigName: "handle-set-configuration", callback: (($obj: DriveProxy, invocation: Gio.DBusMethodInvocation, argValue: GLib.Variant, argOptions: GLib.Variant) => boolean)): number
+    on(sigName: "handle-set-configuration", callback: (invocation: Gio.DBusMethodInvocation, argValue: GLib.Variant, argOptions: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-set-configuration", callback: (invocation: Gio.DBusMethodInvocation, argValue: GLib.Variant, argOptions: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-set-configuration", callback: (invocation: Gio.DBusMethodInvocation, argValue: GLib.Variant, argOptions: GLib.Variant) => void): NodeJS.EventEmitter
     emit(sigName: "handle-set-configuration", invocation: Gio.DBusMethodInvocation, argValue: GLib.Variant, argOptions: GLib.Variant): void
-    on(sigName: "handle-set-configuration", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-set-configuration", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-set-configuration", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::g-default-timeout", callback: (($obj: DriveProxy, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::g-default-timeout", callback: (($obj: DriveProxy, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::g-default-timeout", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -3005,9 +2694,9 @@ export interface DriveSkeleton_ConstructProps extends Gio.DBusInterfaceSkeleton_
     wwn?: string
 }
 export class DriveSkeleton {
-    /* Properties of Gio.DBusInterfaceSkeleton */
+    /* Properties of Gio-2.0.Gio.DBusInterfaceSkeleton */
     gFlags: Gio.DBusInterfaceSkeletonFlags
-    /* Properties of UDisks.Drive */
+    /* Properties of UDisks-2.0.UDisks.Drive */
     canPowerOff: boolean
     configuration: GLib.Variant
     connectionBus: string
@@ -3037,9 +2726,9 @@ export class DriveSkeleton {
     timeMediaDetected: number
     vendor: string
     wwn: string
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Gio.DBusInterfaceSkeleton */
+    /* Methods of Gio-2.0.Gio.DBusInterfaceSkeleton */
     export(connection: Gio.DBusConnection, objectPath: string): boolean
     flush(): void
     getConnection(): Gio.DBusConnection | null
@@ -3052,7 +2741,7 @@ export class DriveSkeleton {
     setFlags(flags: Gio.DBusInterfaceSkeletonFlags): void
     unexport(): void
     unexportFromConnection(connection: Gio.DBusConnection): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -3074,10 +2763,10 @@ export class DriveSkeleton {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of Gio.DBusInterface */
+    /* Methods of Gio-2.0.Gio.DBusInterface */
     getObject(): Gio.DBusObject | null
     setObject(object?: Gio.DBusObject | null): void
-    /* Methods of UDisks.Drive */
+    /* Methods of UDisks-2.0.UDisks.Drive */
     callEject(argOptions: GLib.Variant, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     callEjectFinish(res: Gio.AsyncResult): boolean
     callEjectSync(argOptions: GLib.Variant, cancellable?: Gio.Cancellable | null): boolean
@@ -3090,59 +2779,34 @@ export class DriveSkeleton {
     completeEject(invocation: Gio.DBusMethodInvocation): void
     completePowerOff(invocation: Gio.DBusMethodInvocation): void
     completeSetConfiguration(invocation: Gio.DBusMethodInvocation): void
-    /* Virtual methods of UDisks.DriveSkeleton */
-    vfuncDupObject(): Gio.DBusObject | null
-    vfuncGetInfo(): Gio.DBusInterfaceInfo
-    vfuncSetObject(object?: Gio.DBusObject | null): void
-    vfuncHandleEject(invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant): boolean
-    vfuncHandlePowerOff(invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant): boolean
-    vfuncHandleSetConfiguration(invocation: Gio.DBusMethodInvocation, argValue: GLib.Variant, argOptions: GLib.Variant): boolean
-    /* Virtual methods of Gio.DBusInterfaceSkeleton */
-    vfuncFlush(): void
-    vfuncGAuthorizeMethod(invocation: Gio.DBusMethodInvocation): boolean
-    vfuncGetInfo(): Gio.DBusInterfaceInfo
-    vfuncGetProperties(): GLib.Variant
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gio.DBusInterfaceSkeleton */
+    /* Signals of Gio-2.0.Gio.DBusInterfaceSkeleton */
     connect(sigName: "g-authorize-method", callback: (($obj: DriveSkeleton, invocation: Gio.DBusMethodInvocation) => boolean)): number
-    connect_after(sigName: "g-authorize-method", callback: (($obj: DriveSkeleton, invocation: Gio.DBusMethodInvocation) => boolean)): number
+    on(sigName: "g-authorize-method", callback: (invocation: Gio.DBusMethodInvocation) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "g-authorize-method", callback: (invocation: Gio.DBusMethodInvocation) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "g-authorize-method", callback: (invocation: Gio.DBusMethodInvocation) => void): NodeJS.EventEmitter
     emit(sigName: "g-authorize-method", invocation: Gio.DBusMethodInvocation): void
-    on(sigName: "g-authorize-method", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "g-authorize-method", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "g-authorize-method", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: DriveSkeleton, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: DriveSkeleton, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of UDisks.Drive */
+    /* Signals of UDisks-2.0.UDisks.Drive */
     connect(sigName: "handle-eject", callback: (($obj: DriveSkeleton, invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant) => boolean)): number
-    connect_after(sigName: "handle-eject", callback: (($obj: DriveSkeleton, invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant) => boolean)): number
+    on(sigName: "handle-eject", callback: (invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-eject", callback: (invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-eject", callback: (invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant) => void): NodeJS.EventEmitter
     emit(sigName: "handle-eject", invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant): void
-    on(sigName: "handle-eject", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-eject", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-eject", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "handle-power-off", callback: (($obj: DriveSkeleton, invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant) => boolean)): number
-    connect_after(sigName: "handle-power-off", callback: (($obj: DriveSkeleton, invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant) => boolean)): number
+    on(sigName: "handle-power-off", callback: (invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-power-off", callback: (invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-power-off", callback: (invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant) => void): NodeJS.EventEmitter
     emit(sigName: "handle-power-off", invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant): void
-    on(sigName: "handle-power-off", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-power-off", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-power-off", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "handle-set-configuration", callback: (($obj: DriveSkeleton, invocation: Gio.DBusMethodInvocation, argValue: GLib.Variant, argOptions: GLib.Variant) => boolean)): number
-    connect_after(sigName: "handle-set-configuration", callback: (($obj: DriveSkeleton, invocation: Gio.DBusMethodInvocation, argValue: GLib.Variant, argOptions: GLib.Variant) => boolean)): number
+    on(sigName: "handle-set-configuration", callback: (invocation: Gio.DBusMethodInvocation, argValue: GLib.Variant, argOptions: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-set-configuration", callback: (invocation: Gio.DBusMethodInvocation, argValue: GLib.Variant, argOptions: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-set-configuration", callback: (invocation: Gio.DBusMethodInvocation, argValue: GLib.Variant, argOptions: GLib.Variant) => void): NodeJS.EventEmitter
     emit(sigName: "handle-set-configuration", invocation: Gio.DBusMethodInvocation, argValue: GLib.Variant, argOptions: GLib.Variant): void
-    on(sigName: "handle-set-configuration", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-set-configuration", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-set-configuration", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::g-flags", callback: (($obj: DriveSkeleton, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::g-flags", callback: (($obj: DriveSkeleton, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::g-flags", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -3313,21 +2977,21 @@ export interface EncryptedProxy_ConstructProps extends Gio.DBusProxy_ConstructPr
     childConfiguration?: GLib.Variant
 }
 export class EncryptedProxy {
-    /* Properties of Gio.DBusProxy */
+    /* Properties of Gio-2.0.Gio.DBusProxy */
     gDefaultTimeout: number
     gInterfaceInfo: Gio.DBusInterfaceInfo
     readonly gNameOwner: string
-    /* Properties of UDisks.Encrypted */
+    /* Properties of UDisks-2.0.UDisks.Encrypted */
     childConfiguration: GLib.Variant
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Gio.DBusProxy */
+    /* Methods of Gio-2.0.Gio.DBusProxy */
     call(methodName: string, parameters: GLib.Variant | null, flags: Gio.DBusCallFlags, timeoutMsec: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     callFinish(res: Gio.AsyncResult): GLib.Variant
     callSync(methodName: string, parameters: GLib.Variant | null, flags: Gio.DBusCallFlags, timeoutMsec: number, cancellable?: Gio.Cancellable | null): GLib.Variant
     callWithUnixFdList(methodName: string, parameters: GLib.Variant | null, flags: Gio.DBusCallFlags, timeoutMsec: number, fdList?: Gio.UnixFDList | null, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    callWithUnixFdListFinish(res: Gio.AsyncResult): [ /* returnType */ GLib.Variant, /* outFdList */ Gio.UnixFDList | null ]
-    callWithUnixFdListSync(methodName: string, parameters: GLib.Variant | null, flags: Gio.DBusCallFlags, timeoutMsec: number, fdList?: Gio.UnixFDList | null, cancellable?: Gio.Cancellable | null): [ /* returnType */ GLib.Variant, /* outFdList */ Gio.UnixFDList | null ]
+    callWithUnixFdListFinish(res: Gio.AsyncResult): { returnType: GLib.Variant, outFdList: Gio.UnixFDList | null }
+    callWithUnixFdListSync(methodName: string, parameters: GLib.Variant | null, flags: Gio.DBusCallFlags, timeoutMsec: number, fdList?: Gio.UnixFDList | null, cancellable?: Gio.Cancellable | null): { returnType: GLib.Variant, outFdList: Gio.UnixFDList | null }
     getCachedProperty(propertyName: string): GLib.Variant | null
     getCachedPropertyNames(): string[] | null
     getConnection(): Gio.DBusConnection
@@ -3341,7 +3005,7 @@ export class EncryptedProxy {
     setCachedProperty(propertyName: string, value?: GLib.Variant | null): void
     setDefaultTimeout(timeoutMsec: number): void
     setInterfaceInfo(info?: Gio.DBusInterfaceInfo | null): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -3363,17 +3027,17 @@ export class EncryptedProxy {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of Gio.AsyncInitable */
+    /* Methods of Gio-2.0.Gio.AsyncInitable */
     initAsync(ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     initFinish(res: Gio.AsyncResult): boolean
     newFinish(res: Gio.AsyncResult): GObject.Object
-    /* Methods of Gio.DBusInterface */
+    /* Methods of Gio-2.0.Gio.DBusInterface */
     getObject(): Gio.DBusObject | null
     getInfo(): Gio.DBusInterfaceInfo
     setObject(object?: Gio.DBusObject | null): void
-    /* Methods of Gio.Initable */
+    /* Methods of Gio-2.0.Gio.Initable */
     init(cancellable?: Gio.Cancellable | null): boolean
-    /* Methods of UDisks.Encrypted */
+    /* Methods of UDisks-2.0.UDisks.Encrypted */
     callChangePassphrase(argPassphrase: string, argNewPassphrase: string, argOptions: GLib.Variant, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     callChangePassphraseFinish(res: Gio.AsyncResult): boolean
     callChangePassphraseSync(argPassphrase: string, argNewPassphrase: string, argOptions: GLib.Variant, cancellable?: Gio.Cancellable | null): boolean
@@ -3381,71 +3045,44 @@ export class EncryptedProxy {
     callLockFinish(res: Gio.AsyncResult): boolean
     callLockSync(argOptions: GLib.Variant, cancellable?: Gio.Cancellable | null): boolean
     callUnlock(argPassphrase: string, argOptions: GLib.Variant, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    callUnlockFinish(res: Gio.AsyncResult): [ /* returnType */ boolean, /* outCleartextDevice */ string ]
-    callUnlockSync(argPassphrase: string, argOptions: GLib.Variant, cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* outCleartextDevice */ string ]
+    callUnlockFinish(res: Gio.AsyncResult): { returnType: boolean, outCleartextDevice: string }
+    callUnlockSync(argPassphrase: string, argOptions: GLib.Variant, cancellable?: Gio.Cancellable | null): { returnType: boolean, outCleartextDevice: string }
     completeChangePassphrase(invocation: Gio.DBusMethodInvocation): void
     completeLock(invocation: Gio.DBusMethodInvocation): void
     completeUnlock(invocation: Gio.DBusMethodInvocation, cleartextDevice: string): void
-    /* Virtual methods of UDisks.EncryptedProxy */
-    vfuncInitAsync(ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    vfuncInitFinish(res: Gio.AsyncResult): boolean
-    vfuncDupObject(): Gio.DBusObject | null
-    vfuncGetInfo(): Gio.DBusInterfaceInfo
-    vfuncSetObject(object?: Gio.DBusObject | null): void
-    vfuncInit(cancellable?: Gio.Cancellable | null): boolean
-    vfuncHandleChangePassphrase(invocation: Gio.DBusMethodInvocation, argPassphrase: string, argNewPassphrase: string, argOptions: GLib.Variant): boolean
-    vfuncHandleLock(invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant): boolean
-    vfuncHandleUnlock(invocation: Gio.DBusMethodInvocation, argPassphrase: string, argOptions: GLib.Variant): boolean
-    /* Virtual methods of Gio.DBusProxy */
-    vfuncGPropertiesChanged(changedProperties: GLib.Variant, invalidatedProperties: string): void
-    vfuncGSignal(senderName: string, signalName: string, parameters: GLib.Variant): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gio.DBusProxy */
+    /* Signals of Gio-2.0.Gio.DBusProxy */
     connect(sigName: "g-properties-changed", callback: (($obj: EncryptedProxy, changedProperties: GLib.Variant, invalidatedProperties: string[]) => void)): number
-    connect_after(sigName: "g-properties-changed", callback: (($obj: EncryptedProxy, changedProperties: GLib.Variant, invalidatedProperties: string[]) => void)): number
+    on(sigName: "g-properties-changed", callback: (changedProperties: GLib.Variant, invalidatedProperties: string[]) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "g-properties-changed", callback: (changedProperties: GLib.Variant, invalidatedProperties: string[]) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "g-properties-changed", callback: (changedProperties: GLib.Variant, invalidatedProperties: string[]) => void): NodeJS.EventEmitter
     emit(sigName: "g-properties-changed", changedProperties: GLib.Variant, invalidatedProperties: string[]): void
-    on(sigName: "g-properties-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "g-properties-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "g-properties-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "g-signal", callback: (($obj: EncryptedProxy, senderName: string | null, signalName: string, parameters: GLib.Variant) => void)): number
-    connect_after(sigName: "g-signal", callback: (($obj: EncryptedProxy, senderName: string | null, signalName: string, parameters: GLib.Variant) => void)): number
+    on(sigName: "g-signal", callback: (senderName: string | null, signalName: string, parameters: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "g-signal", callback: (senderName: string | null, signalName: string, parameters: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "g-signal", callback: (senderName: string | null, signalName: string, parameters: GLib.Variant) => void): NodeJS.EventEmitter
     emit(sigName: "g-signal", senderName: string | null, signalName: string, parameters: GLib.Variant): void
-    on(sigName: "g-signal", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "g-signal", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "g-signal", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: EncryptedProxy, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: EncryptedProxy, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of UDisks.Encrypted */
+    /* Signals of UDisks-2.0.UDisks.Encrypted */
     connect(sigName: "handle-change-passphrase", callback: (($obj: EncryptedProxy, invocation: Gio.DBusMethodInvocation, argPassphrase: string, argNewPassphrase: string, argOptions: GLib.Variant) => boolean)): number
-    connect_after(sigName: "handle-change-passphrase", callback: (($obj: EncryptedProxy, invocation: Gio.DBusMethodInvocation, argPassphrase: string, argNewPassphrase: string, argOptions: GLib.Variant) => boolean)): number
+    on(sigName: "handle-change-passphrase", callback: (invocation: Gio.DBusMethodInvocation, argPassphrase: string, argNewPassphrase: string, argOptions: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-change-passphrase", callback: (invocation: Gio.DBusMethodInvocation, argPassphrase: string, argNewPassphrase: string, argOptions: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-change-passphrase", callback: (invocation: Gio.DBusMethodInvocation, argPassphrase: string, argNewPassphrase: string, argOptions: GLib.Variant) => void): NodeJS.EventEmitter
     emit(sigName: "handle-change-passphrase", invocation: Gio.DBusMethodInvocation, argPassphrase: string, argNewPassphrase: string, argOptions: GLib.Variant): void
-    on(sigName: "handle-change-passphrase", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-change-passphrase", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-change-passphrase", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "handle-lock", callback: (($obj: EncryptedProxy, invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant) => boolean)): number
-    connect_after(sigName: "handle-lock", callback: (($obj: EncryptedProxy, invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant) => boolean)): number
+    on(sigName: "handle-lock", callback: (invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-lock", callback: (invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-lock", callback: (invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant) => void): NodeJS.EventEmitter
     emit(sigName: "handle-lock", invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant): void
-    on(sigName: "handle-lock", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-lock", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-lock", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "handle-unlock", callback: (($obj: EncryptedProxy, invocation: Gio.DBusMethodInvocation, argPassphrase: string, argOptions: GLib.Variant) => boolean)): number
-    connect_after(sigName: "handle-unlock", callback: (($obj: EncryptedProxy, invocation: Gio.DBusMethodInvocation, argPassphrase: string, argOptions: GLib.Variant) => boolean)): number
+    on(sigName: "handle-unlock", callback: (invocation: Gio.DBusMethodInvocation, argPassphrase: string, argOptions: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-unlock", callback: (invocation: Gio.DBusMethodInvocation, argPassphrase: string, argOptions: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-unlock", callback: (invocation: Gio.DBusMethodInvocation, argPassphrase: string, argOptions: GLib.Variant) => void): NodeJS.EventEmitter
     emit(sigName: "handle-unlock", invocation: Gio.DBusMethodInvocation, argPassphrase: string, argOptions: GLib.Variant): void
-    on(sigName: "handle-unlock", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-unlock", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-unlock", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::g-default-timeout", callback: (($obj: EncryptedProxy, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::g-default-timeout", callback: (($obj: EncryptedProxy, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::g-default-timeout", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -3495,13 +3132,13 @@ export interface EncryptedSkeleton_ConstructProps extends Gio.DBusInterfaceSkele
     childConfiguration?: GLib.Variant
 }
 export class EncryptedSkeleton {
-    /* Properties of Gio.DBusInterfaceSkeleton */
+    /* Properties of Gio-2.0.Gio.DBusInterfaceSkeleton */
     gFlags: Gio.DBusInterfaceSkeletonFlags
-    /* Properties of UDisks.Encrypted */
+    /* Properties of UDisks-2.0.UDisks.Encrypted */
     childConfiguration: GLib.Variant
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Gio.DBusInterfaceSkeleton */
+    /* Methods of Gio-2.0.Gio.DBusInterfaceSkeleton */
     export(connection: Gio.DBusConnection, objectPath: string): boolean
     flush(): void
     getConnection(): Gio.DBusConnection | null
@@ -3514,7 +3151,7 @@ export class EncryptedSkeleton {
     setFlags(flags: Gio.DBusInterfaceSkeletonFlags): void
     unexport(): void
     unexportFromConnection(connection: Gio.DBusConnection): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -3536,10 +3173,10 @@ export class EncryptedSkeleton {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of Gio.DBusInterface */
+    /* Methods of Gio-2.0.Gio.DBusInterface */
     getObject(): Gio.DBusObject | null
     setObject(object?: Gio.DBusObject | null): void
-    /* Methods of UDisks.Encrypted */
+    /* Methods of UDisks-2.0.UDisks.Encrypted */
     callChangePassphrase(argPassphrase: string, argNewPassphrase: string, argOptions: GLib.Variant, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     callChangePassphraseFinish(res: Gio.AsyncResult): boolean
     callChangePassphraseSync(argPassphrase: string, argNewPassphrase: string, argOptions: GLib.Variant, cancellable?: Gio.Cancellable | null): boolean
@@ -3547,64 +3184,39 @@ export class EncryptedSkeleton {
     callLockFinish(res: Gio.AsyncResult): boolean
     callLockSync(argOptions: GLib.Variant, cancellable?: Gio.Cancellable | null): boolean
     callUnlock(argPassphrase: string, argOptions: GLib.Variant, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    callUnlockFinish(res: Gio.AsyncResult): [ /* returnType */ boolean, /* outCleartextDevice */ string ]
-    callUnlockSync(argPassphrase: string, argOptions: GLib.Variant, cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* outCleartextDevice */ string ]
+    callUnlockFinish(res: Gio.AsyncResult): { returnType: boolean, outCleartextDevice: string }
+    callUnlockSync(argPassphrase: string, argOptions: GLib.Variant, cancellable?: Gio.Cancellable | null): { returnType: boolean, outCleartextDevice: string }
     completeChangePassphrase(invocation: Gio.DBusMethodInvocation): void
     completeLock(invocation: Gio.DBusMethodInvocation): void
     completeUnlock(invocation: Gio.DBusMethodInvocation, cleartextDevice: string): void
-    /* Virtual methods of UDisks.EncryptedSkeleton */
-    vfuncDupObject(): Gio.DBusObject | null
-    vfuncGetInfo(): Gio.DBusInterfaceInfo
-    vfuncSetObject(object?: Gio.DBusObject | null): void
-    vfuncHandleChangePassphrase(invocation: Gio.DBusMethodInvocation, argPassphrase: string, argNewPassphrase: string, argOptions: GLib.Variant): boolean
-    vfuncHandleLock(invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant): boolean
-    vfuncHandleUnlock(invocation: Gio.DBusMethodInvocation, argPassphrase: string, argOptions: GLib.Variant): boolean
-    /* Virtual methods of Gio.DBusInterfaceSkeleton */
-    vfuncFlush(): void
-    vfuncGAuthorizeMethod(invocation: Gio.DBusMethodInvocation): boolean
-    vfuncGetInfo(): Gio.DBusInterfaceInfo
-    vfuncGetProperties(): GLib.Variant
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gio.DBusInterfaceSkeleton */
+    /* Signals of Gio-2.0.Gio.DBusInterfaceSkeleton */
     connect(sigName: "g-authorize-method", callback: (($obj: EncryptedSkeleton, invocation: Gio.DBusMethodInvocation) => boolean)): number
-    connect_after(sigName: "g-authorize-method", callback: (($obj: EncryptedSkeleton, invocation: Gio.DBusMethodInvocation) => boolean)): number
+    on(sigName: "g-authorize-method", callback: (invocation: Gio.DBusMethodInvocation) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "g-authorize-method", callback: (invocation: Gio.DBusMethodInvocation) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "g-authorize-method", callback: (invocation: Gio.DBusMethodInvocation) => void): NodeJS.EventEmitter
     emit(sigName: "g-authorize-method", invocation: Gio.DBusMethodInvocation): void
-    on(sigName: "g-authorize-method", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "g-authorize-method", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "g-authorize-method", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: EncryptedSkeleton, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: EncryptedSkeleton, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of UDisks.Encrypted */
+    /* Signals of UDisks-2.0.UDisks.Encrypted */
     connect(sigName: "handle-change-passphrase", callback: (($obj: EncryptedSkeleton, invocation: Gio.DBusMethodInvocation, argPassphrase: string, argNewPassphrase: string, argOptions: GLib.Variant) => boolean)): number
-    connect_after(sigName: "handle-change-passphrase", callback: (($obj: EncryptedSkeleton, invocation: Gio.DBusMethodInvocation, argPassphrase: string, argNewPassphrase: string, argOptions: GLib.Variant) => boolean)): number
+    on(sigName: "handle-change-passphrase", callback: (invocation: Gio.DBusMethodInvocation, argPassphrase: string, argNewPassphrase: string, argOptions: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-change-passphrase", callback: (invocation: Gio.DBusMethodInvocation, argPassphrase: string, argNewPassphrase: string, argOptions: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-change-passphrase", callback: (invocation: Gio.DBusMethodInvocation, argPassphrase: string, argNewPassphrase: string, argOptions: GLib.Variant) => void): NodeJS.EventEmitter
     emit(sigName: "handle-change-passphrase", invocation: Gio.DBusMethodInvocation, argPassphrase: string, argNewPassphrase: string, argOptions: GLib.Variant): void
-    on(sigName: "handle-change-passphrase", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-change-passphrase", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-change-passphrase", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "handle-lock", callback: (($obj: EncryptedSkeleton, invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant) => boolean)): number
-    connect_after(sigName: "handle-lock", callback: (($obj: EncryptedSkeleton, invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant) => boolean)): number
+    on(sigName: "handle-lock", callback: (invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-lock", callback: (invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-lock", callback: (invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant) => void): NodeJS.EventEmitter
     emit(sigName: "handle-lock", invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant): void
-    on(sigName: "handle-lock", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-lock", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-lock", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "handle-unlock", callback: (($obj: EncryptedSkeleton, invocation: Gio.DBusMethodInvocation, argPassphrase: string, argOptions: GLib.Variant) => boolean)): number
-    connect_after(sigName: "handle-unlock", callback: (($obj: EncryptedSkeleton, invocation: Gio.DBusMethodInvocation, argPassphrase: string, argOptions: GLib.Variant) => boolean)): number
+    on(sigName: "handle-unlock", callback: (invocation: Gio.DBusMethodInvocation, argPassphrase: string, argOptions: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-unlock", callback: (invocation: Gio.DBusMethodInvocation, argPassphrase: string, argOptions: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-unlock", callback: (invocation: Gio.DBusMethodInvocation, argPassphrase: string, argOptions: GLib.Variant) => void): NodeJS.EventEmitter
     emit(sigName: "handle-unlock", invocation: Gio.DBusMethodInvocation, argPassphrase: string, argOptions: GLib.Variant): void
-    on(sigName: "handle-unlock", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-unlock", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-unlock", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::g-flags", callback: (($obj: EncryptedSkeleton, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::g-flags", callback: (($obj: EncryptedSkeleton, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::g-flags", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -3635,21 +3247,21 @@ export interface FilesystemProxy_ConstructProps extends Gio.DBusProxy_ConstructP
     mountPoints?: string[]
 }
 export class FilesystemProxy {
-    /* Properties of Gio.DBusProxy */
+    /* Properties of Gio-2.0.Gio.DBusProxy */
     gDefaultTimeout: number
     gInterfaceInfo: Gio.DBusInterfaceInfo
     readonly gNameOwner: string
-    /* Properties of UDisks.Filesystem */
+    /* Properties of UDisks-2.0.UDisks.Filesystem */
     mountPoints: string[]
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Gio.DBusProxy */
+    /* Methods of Gio-2.0.Gio.DBusProxy */
     call(methodName: string, parameters: GLib.Variant | null, flags: Gio.DBusCallFlags, timeoutMsec: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     callFinish(res: Gio.AsyncResult): GLib.Variant
     callSync(methodName: string, parameters: GLib.Variant | null, flags: Gio.DBusCallFlags, timeoutMsec: number, cancellable?: Gio.Cancellable | null): GLib.Variant
     callWithUnixFdList(methodName: string, parameters: GLib.Variant | null, flags: Gio.DBusCallFlags, timeoutMsec: number, fdList?: Gio.UnixFDList | null, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    callWithUnixFdListFinish(res: Gio.AsyncResult): [ /* returnType */ GLib.Variant, /* outFdList */ Gio.UnixFDList | null ]
-    callWithUnixFdListSync(methodName: string, parameters: GLib.Variant | null, flags: Gio.DBusCallFlags, timeoutMsec: number, fdList?: Gio.UnixFDList | null, cancellable?: Gio.Cancellable | null): [ /* returnType */ GLib.Variant, /* outFdList */ Gio.UnixFDList | null ]
+    callWithUnixFdListFinish(res: Gio.AsyncResult): { returnType: GLib.Variant, outFdList: Gio.UnixFDList | null }
+    callWithUnixFdListSync(methodName: string, parameters: GLib.Variant | null, flags: Gio.DBusCallFlags, timeoutMsec: number, fdList?: Gio.UnixFDList | null, cancellable?: Gio.Cancellable | null): { returnType: GLib.Variant, outFdList: Gio.UnixFDList | null }
     getCachedProperty(propertyName: string): GLib.Variant | null
     getCachedPropertyNames(): string[] | null
     getConnection(): Gio.DBusConnection
@@ -3663,7 +3275,7 @@ export class FilesystemProxy {
     setCachedProperty(propertyName: string, value?: GLib.Variant | null): void
     setDefaultTimeout(timeoutMsec: number): void
     setInterfaceInfo(info?: Gio.DBusInterfaceInfo | null): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -3685,20 +3297,20 @@ export class FilesystemProxy {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of Gio.AsyncInitable */
+    /* Methods of Gio-2.0.Gio.AsyncInitable */
     initAsync(ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     initFinish(res: Gio.AsyncResult): boolean
     newFinish(res: Gio.AsyncResult): GObject.Object
-    /* Methods of Gio.DBusInterface */
+    /* Methods of Gio-2.0.Gio.DBusInterface */
     getObject(): Gio.DBusObject | null
     getInfo(): Gio.DBusInterfaceInfo
     setObject(object?: Gio.DBusObject | null): void
-    /* Methods of Gio.Initable */
+    /* Methods of Gio-2.0.Gio.Initable */
     init(cancellable?: Gio.Cancellable | null): boolean
-    /* Methods of UDisks.Filesystem */
+    /* Methods of UDisks-2.0.UDisks.Filesystem */
     callMount(argOptions: GLib.Variant, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    callMountFinish(res: Gio.AsyncResult): [ /* returnType */ boolean, /* outMountPath */ string ]
-    callMountSync(argOptions: GLib.Variant, cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* outMountPath */ string ]
+    callMountFinish(res: Gio.AsyncResult): { returnType: boolean, outMountPath: string }
+    callMountSync(argOptions: GLib.Variant, cancellable?: Gio.Cancellable | null): { returnType: boolean, outMountPath: string }
     callSetLabel(argLabel: string, argOptions: GLib.Variant, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     callSetLabelFinish(res: Gio.AsyncResult): boolean
     callSetLabelSync(argLabel: string, argOptions: GLib.Variant, cancellable?: Gio.Cancellable | null): boolean
@@ -3708,66 +3320,39 @@ export class FilesystemProxy {
     completeMount(invocation: Gio.DBusMethodInvocation, mountPath: string): void
     completeSetLabel(invocation: Gio.DBusMethodInvocation): void
     completeUnmount(invocation: Gio.DBusMethodInvocation): void
-    /* Virtual methods of UDisks.FilesystemProxy */
-    vfuncInitAsync(ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    vfuncInitFinish(res: Gio.AsyncResult): boolean
-    vfuncDupObject(): Gio.DBusObject | null
-    vfuncGetInfo(): Gio.DBusInterfaceInfo
-    vfuncSetObject(object?: Gio.DBusObject | null): void
-    vfuncInit(cancellable?: Gio.Cancellable | null): boolean
-    vfuncHandleMount(invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant): boolean
-    vfuncHandleSetLabel(invocation: Gio.DBusMethodInvocation, argLabel: string, argOptions: GLib.Variant): boolean
-    vfuncHandleUnmount(invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant): boolean
-    /* Virtual methods of Gio.DBusProxy */
-    vfuncGPropertiesChanged(changedProperties: GLib.Variant, invalidatedProperties: string): void
-    vfuncGSignal(senderName: string, signalName: string, parameters: GLib.Variant): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gio.DBusProxy */
+    /* Signals of Gio-2.0.Gio.DBusProxy */
     connect(sigName: "g-properties-changed", callback: (($obj: FilesystemProxy, changedProperties: GLib.Variant, invalidatedProperties: string[]) => void)): number
-    connect_after(sigName: "g-properties-changed", callback: (($obj: FilesystemProxy, changedProperties: GLib.Variant, invalidatedProperties: string[]) => void)): number
+    on(sigName: "g-properties-changed", callback: (changedProperties: GLib.Variant, invalidatedProperties: string[]) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "g-properties-changed", callback: (changedProperties: GLib.Variant, invalidatedProperties: string[]) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "g-properties-changed", callback: (changedProperties: GLib.Variant, invalidatedProperties: string[]) => void): NodeJS.EventEmitter
     emit(sigName: "g-properties-changed", changedProperties: GLib.Variant, invalidatedProperties: string[]): void
-    on(sigName: "g-properties-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "g-properties-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "g-properties-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "g-signal", callback: (($obj: FilesystemProxy, senderName: string | null, signalName: string, parameters: GLib.Variant) => void)): number
-    connect_after(sigName: "g-signal", callback: (($obj: FilesystemProxy, senderName: string | null, signalName: string, parameters: GLib.Variant) => void)): number
+    on(sigName: "g-signal", callback: (senderName: string | null, signalName: string, parameters: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "g-signal", callback: (senderName: string | null, signalName: string, parameters: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "g-signal", callback: (senderName: string | null, signalName: string, parameters: GLib.Variant) => void): NodeJS.EventEmitter
     emit(sigName: "g-signal", senderName: string | null, signalName: string, parameters: GLib.Variant): void
-    on(sigName: "g-signal", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "g-signal", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "g-signal", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: FilesystemProxy, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: FilesystemProxy, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of UDisks.Filesystem */
+    /* Signals of UDisks-2.0.UDisks.Filesystem */
     connect(sigName: "handle-mount", callback: (($obj: FilesystemProxy, invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant) => boolean)): number
-    connect_after(sigName: "handle-mount", callback: (($obj: FilesystemProxy, invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant) => boolean)): number
+    on(sigName: "handle-mount", callback: (invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-mount", callback: (invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-mount", callback: (invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant) => void): NodeJS.EventEmitter
     emit(sigName: "handle-mount", invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant): void
-    on(sigName: "handle-mount", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-mount", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-mount", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "handle-set-label", callback: (($obj: FilesystemProxy, invocation: Gio.DBusMethodInvocation, argLabel: string, argOptions: GLib.Variant) => boolean)): number
-    connect_after(sigName: "handle-set-label", callback: (($obj: FilesystemProxy, invocation: Gio.DBusMethodInvocation, argLabel: string, argOptions: GLib.Variant) => boolean)): number
+    on(sigName: "handle-set-label", callback: (invocation: Gio.DBusMethodInvocation, argLabel: string, argOptions: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-set-label", callback: (invocation: Gio.DBusMethodInvocation, argLabel: string, argOptions: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-set-label", callback: (invocation: Gio.DBusMethodInvocation, argLabel: string, argOptions: GLib.Variant) => void): NodeJS.EventEmitter
     emit(sigName: "handle-set-label", invocation: Gio.DBusMethodInvocation, argLabel: string, argOptions: GLib.Variant): void
-    on(sigName: "handle-set-label", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-set-label", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-set-label", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "handle-unmount", callback: (($obj: FilesystemProxy, invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant) => boolean)): number
-    connect_after(sigName: "handle-unmount", callback: (($obj: FilesystemProxy, invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant) => boolean)): number
+    on(sigName: "handle-unmount", callback: (invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-unmount", callback: (invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-unmount", callback: (invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant) => void): NodeJS.EventEmitter
     emit(sigName: "handle-unmount", invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant): void
-    on(sigName: "handle-unmount", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-unmount", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-unmount", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::g-default-timeout", callback: (($obj: FilesystemProxy, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::g-default-timeout", callback: (($obj: FilesystemProxy, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::g-default-timeout", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -3817,13 +3402,13 @@ export interface FilesystemSkeleton_ConstructProps extends Gio.DBusInterfaceSkel
     mountPoints?: string[]
 }
 export class FilesystemSkeleton {
-    /* Properties of Gio.DBusInterfaceSkeleton */
+    /* Properties of Gio-2.0.Gio.DBusInterfaceSkeleton */
     gFlags: Gio.DBusInterfaceSkeletonFlags
-    /* Properties of UDisks.Filesystem */
+    /* Properties of UDisks-2.0.UDisks.Filesystem */
     mountPoints: string[]
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Gio.DBusInterfaceSkeleton */
+    /* Methods of Gio-2.0.Gio.DBusInterfaceSkeleton */
     export(connection: Gio.DBusConnection, objectPath: string): boolean
     flush(): void
     getConnection(): Gio.DBusConnection | null
@@ -3836,7 +3421,7 @@ export class FilesystemSkeleton {
     setFlags(flags: Gio.DBusInterfaceSkeletonFlags): void
     unexport(): void
     unexportFromConnection(connection: Gio.DBusConnection): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -3858,13 +3443,13 @@ export class FilesystemSkeleton {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of Gio.DBusInterface */
+    /* Methods of Gio-2.0.Gio.DBusInterface */
     getObject(): Gio.DBusObject | null
     setObject(object?: Gio.DBusObject | null): void
-    /* Methods of UDisks.Filesystem */
+    /* Methods of UDisks-2.0.UDisks.Filesystem */
     callMount(argOptions: GLib.Variant, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    callMountFinish(res: Gio.AsyncResult): [ /* returnType */ boolean, /* outMountPath */ string ]
-    callMountSync(argOptions: GLib.Variant, cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* outMountPath */ string ]
+    callMountFinish(res: Gio.AsyncResult): { returnType: boolean, outMountPath: string }
+    callMountSync(argOptions: GLib.Variant, cancellable?: Gio.Cancellable | null): { returnType: boolean, outMountPath: string }
     callSetLabel(argLabel: string, argOptions: GLib.Variant, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     callSetLabelFinish(res: Gio.AsyncResult): boolean
     callSetLabelSync(argLabel: string, argOptions: GLib.Variant, cancellable?: Gio.Cancellable | null): boolean
@@ -3874,59 +3459,34 @@ export class FilesystemSkeleton {
     completeMount(invocation: Gio.DBusMethodInvocation, mountPath: string): void
     completeSetLabel(invocation: Gio.DBusMethodInvocation): void
     completeUnmount(invocation: Gio.DBusMethodInvocation): void
-    /* Virtual methods of UDisks.FilesystemSkeleton */
-    vfuncDupObject(): Gio.DBusObject | null
-    vfuncGetInfo(): Gio.DBusInterfaceInfo
-    vfuncSetObject(object?: Gio.DBusObject | null): void
-    vfuncHandleMount(invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant): boolean
-    vfuncHandleSetLabel(invocation: Gio.DBusMethodInvocation, argLabel: string, argOptions: GLib.Variant): boolean
-    vfuncHandleUnmount(invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant): boolean
-    /* Virtual methods of Gio.DBusInterfaceSkeleton */
-    vfuncFlush(): void
-    vfuncGAuthorizeMethod(invocation: Gio.DBusMethodInvocation): boolean
-    vfuncGetInfo(): Gio.DBusInterfaceInfo
-    vfuncGetProperties(): GLib.Variant
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gio.DBusInterfaceSkeleton */
+    /* Signals of Gio-2.0.Gio.DBusInterfaceSkeleton */
     connect(sigName: "g-authorize-method", callback: (($obj: FilesystemSkeleton, invocation: Gio.DBusMethodInvocation) => boolean)): number
-    connect_after(sigName: "g-authorize-method", callback: (($obj: FilesystemSkeleton, invocation: Gio.DBusMethodInvocation) => boolean)): number
+    on(sigName: "g-authorize-method", callback: (invocation: Gio.DBusMethodInvocation) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "g-authorize-method", callback: (invocation: Gio.DBusMethodInvocation) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "g-authorize-method", callback: (invocation: Gio.DBusMethodInvocation) => void): NodeJS.EventEmitter
     emit(sigName: "g-authorize-method", invocation: Gio.DBusMethodInvocation): void
-    on(sigName: "g-authorize-method", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "g-authorize-method", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "g-authorize-method", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: FilesystemSkeleton, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: FilesystemSkeleton, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of UDisks.Filesystem */
+    /* Signals of UDisks-2.0.UDisks.Filesystem */
     connect(sigName: "handle-mount", callback: (($obj: FilesystemSkeleton, invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant) => boolean)): number
-    connect_after(sigName: "handle-mount", callback: (($obj: FilesystemSkeleton, invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant) => boolean)): number
+    on(sigName: "handle-mount", callback: (invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-mount", callback: (invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-mount", callback: (invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant) => void): NodeJS.EventEmitter
     emit(sigName: "handle-mount", invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant): void
-    on(sigName: "handle-mount", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-mount", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-mount", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "handle-set-label", callback: (($obj: FilesystemSkeleton, invocation: Gio.DBusMethodInvocation, argLabel: string, argOptions: GLib.Variant) => boolean)): number
-    connect_after(sigName: "handle-set-label", callback: (($obj: FilesystemSkeleton, invocation: Gio.DBusMethodInvocation, argLabel: string, argOptions: GLib.Variant) => boolean)): number
+    on(sigName: "handle-set-label", callback: (invocation: Gio.DBusMethodInvocation, argLabel: string, argOptions: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-set-label", callback: (invocation: Gio.DBusMethodInvocation, argLabel: string, argOptions: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-set-label", callback: (invocation: Gio.DBusMethodInvocation, argLabel: string, argOptions: GLib.Variant) => void): NodeJS.EventEmitter
     emit(sigName: "handle-set-label", invocation: Gio.DBusMethodInvocation, argLabel: string, argOptions: GLib.Variant): void
-    on(sigName: "handle-set-label", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-set-label", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-set-label", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "handle-unmount", callback: (($obj: FilesystemSkeleton, invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant) => boolean)): number
-    connect_after(sigName: "handle-unmount", callback: (($obj: FilesystemSkeleton, invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant) => boolean)): number
+    on(sigName: "handle-unmount", callback: (invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-unmount", callback: (invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-unmount", callback: (invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant) => void): NodeJS.EventEmitter
     emit(sigName: "handle-unmount", invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant): void
-    on(sigName: "handle-unmount", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-unmount", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-unmount", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::g-flags", callback: (($obj: FilesystemSkeleton, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::g-flags", callback: (($obj: FilesystemSkeleton, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::g-flags", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -3966,11 +3526,11 @@ export interface JobProxy_ConstructProps extends Gio.DBusProxy_ConstructProps {
     startedByUid?: number
 }
 export class JobProxy {
-    /* Properties of Gio.DBusProxy */
+    /* Properties of Gio-2.0.Gio.DBusProxy */
     gDefaultTimeout: number
     gInterfaceInfo: Gio.DBusInterfaceInfo
     readonly gNameOwner: string
-    /* Properties of UDisks.Job */
+    /* Properties of UDisks-2.0.UDisks.Job */
     bytes: number
     cancelable: boolean
     expectedEndTime: number
@@ -3981,15 +3541,15 @@ export class JobProxy {
     rate: number
     startTime: number
     startedByUid: number
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Gio.DBusProxy */
+    /* Methods of Gio-2.0.Gio.DBusProxy */
     call(methodName: string, parameters: GLib.Variant | null, flags: Gio.DBusCallFlags, timeoutMsec: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     callFinish(res: Gio.AsyncResult): GLib.Variant
     callSync(methodName: string, parameters: GLib.Variant | null, flags: Gio.DBusCallFlags, timeoutMsec: number, cancellable?: Gio.Cancellable | null): GLib.Variant
     callWithUnixFdList(methodName: string, parameters: GLib.Variant | null, flags: Gio.DBusCallFlags, timeoutMsec: number, fdList?: Gio.UnixFDList | null, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    callWithUnixFdListFinish(res: Gio.AsyncResult): [ /* returnType */ GLib.Variant, /* outFdList */ Gio.UnixFDList | null ]
-    callWithUnixFdListSync(methodName: string, parameters: GLib.Variant | null, flags: Gio.DBusCallFlags, timeoutMsec: number, fdList?: Gio.UnixFDList | null, cancellable?: Gio.Cancellable | null): [ /* returnType */ GLib.Variant, /* outFdList */ Gio.UnixFDList | null ]
+    callWithUnixFdListFinish(res: Gio.AsyncResult): { returnType: GLib.Variant, outFdList: Gio.UnixFDList | null }
+    callWithUnixFdListSync(methodName: string, parameters: GLib.Variant | null, flags: Gio.DBusCallFlags, timeoutMsec: number, fdList?: Gio.UnixFDList | null, cancellable?: Gio.Cancellable | null): { returnType: GLib.Variant, outFdList: Gio.UnixFDList | null }
     getCachedProperty(propertyName: string): GLib.Variant | null
     getCachedPropertyNames(): string[] | null
     getConnection(): Gio.DBusConnection
@@ -4003,7 +3563,7 @@ export class JobProxy {
     setCachedProperty(propertyName: string, value?: GLib.Variant | null): void
     setDefaultTimeout(timeoutMsec: number): void
     setInterfaceInfo(info?: Gio.DBusInterfaceInfo | null): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -4025,75 +3585,50 @@ export class JobProxy {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of Gio.AsyncInitable */
+    /* Methods of Gio-2.0.Gio.AsyncInitable */
     initAsync(ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     initFinish(res: Gio.AsyncResult): boolean
     newFinish(res: Gio.AsyncResult): GObject.Object
-    /* Methods of Gio.DBusInterface */
+    /* Methods of Gio-2.0.Gio.DBusInterface */
     getObject(): Gio.DBusObject | null
     getInfo(): Gio.DBusInterfaceInfo
     setObject(object?: Gio.DBusObject | null): void
-    /* Methods of Gio.Initable */
+    /* Methods of Gio-2.0.Gio.Initable */
     init(cancellable?: Gio.Cancellable | null): boolean
-    /* Methods of UDisks.Job */
+    /* Methods of UDisks-2.0.UDisks.Job */
     callCancel(argOptions: GLib.Variant, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     callCancelFinish(res: Gio.AsyncResult): boolean
     callCancelSync(argOptions: GLib.Variant, cancellable?: Gio.Cancellable | null): boolean
     completeCancel(invocation: Gio.DBusMethodInvocation): void
     emitCompleted(argSuccess: boolean, argMessage: string): void
-    /* Virtual methods of UDisks.JobProxy */
-    vfuncInitAsync(ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    vfuncInitFinish(res: Gio.AsyncResult): boolean
-    vfuncDupObject(): Gio.DBusObject | null
-    vfuncGetInfo(): Gio.DBusInterfaceInfo
-    vfuncSetObject(object?: Gio.DBusObject | null): void
-    vfuncInit(cancellable?: Gio.Cancellable | null): boolean
-    vfuncCompleted(argSuccess: boolean, argMessage: string): void
-    vfuncHandleCancel(invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant): boolean
-    /* Virtual methods of Gio.DBusProxy */
-    vfuncGPropertiesChanged(changedProperties: GLib.Variant, invalidatedProperties: string): void
-    vfuncGSignal(senderName: string, signalName: string, parameters: GLib.Variant): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gio.DBusProxy */
+    /* Signals of Gio-2.0.Gio.DBusProxy */
     connect(sigName: "g-properties-changed", callback: (($obj: JobProxy, changedProperties: GLib.Variant, invalidatedProperties: string[]) => void)): number
-    connect_after(sigName: "g-properties-changed", callback: (($obj: JobProxy, changedProperties: GLib.Variant, invalidatedProperties: string[]) => void)): number
+    on(sigName: "g-properties-changed", callback: (changedProperties: GLib.Variant, invalidatedProperties: string[]) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "g-properties-changed", callback: (changedProperties: GLib.Variant, invalidatedProperties: string[]) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "g-properties-changed", callback: (changedProperties: GLib.Variant, invalidatedProperties: string[]) => void): NodeJS.EventEmitter
     emit(sigName: "g-properties-changed", changedProperties: GLib.Variant, invalidatedProperties: string[]): void
-    on(sigName: "g-properties-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "g-properties-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "g-properties-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "g-signal", callback: (($obj: JobProxy, senderName: string | null, signalName: string, parameters: GLib.Variant) => void)): number
-    connect_after(sigName: "g-signal", callback: (($obj: JobProxy, senderName: string | null, signalName: string, parameters: GLib.Variant) => void)): number
+    on(sigName: "g-signal", callback: (senderName: string | null, signalName: string, parameters: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "g-signal", callback: (senderName: string | null, signalName: string, parameters: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "g-signal", callback: (senderName: string | null, signalName: string, parameters: GLib.Variant) => void): NodeJS.EventEmitter
     emit(sigName: "g-signal", senderName: string | null, signalName: string, parameters: GLib.Variant): void
-    on(sigName: "g-signal", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "g-signal", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "g-signal", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: JobProxy, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: JobProxy, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of UDisks.Job */
+    /* Signals of UDisks-2.0.UDisks.Job */
     connect(sigName: "completed", callback: (($obj: JobProxy, argSuccess: boolean, argMessage: string) => void)): number
-    connect_after(sigName: "completed", callback: (($obj: JobProxy, argSuccess: boolean, argMessage: string) => void)): number
+    on(sigName: "completed", callback: (argSuccess: boolean, argMessage: string) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "completed", callback: (argSuccess: boolean, argMessage: string) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "completed", callback: (argSuccess: boolean, argMessage: string) => void): NodeJS.EventEmitter
     emit(sigName: "completed", argSuccess: boolean, argMessage: string): void
-    on(sigName: "completed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "completed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "completed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "handle-cancel", callback: (($obj: JobProxy, invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant) => boolean)): number
-    connect_after(sigName: "handle-cancel", callback: (($obj: JobProxy, invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant) => boolean)): number
+    on(sigName: "handle-cancel", callback: (invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-cancel", callback: (invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-cancel", callback: (invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant) => void): NodeJS.EventEmitter
     emit(sigName: "handle-cancel", invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant): void
-    on(sigName: "handle-cancel", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-cancel", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-cancel", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::g-default-timeout", callback: (($obj: JobProxy, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::g-default-timeout", callback: (($obj: JobProxy, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::g-default-timeout", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -4197,9 +3732,9 @@ export interface JobSkeleton_ConstructProps extends Gio.DBusInterfaceSkeleton_Co
     startedByUid?: number
 }
 export class JobSkeleton {
-    /* Properties of Gio.DBusInterfaceSkeleton */
+    /* Properties of Gio-2.0.Gio.DBusInterfaceSkeleton */
     gFlags: Gio.DBusInterfaceSkeletonFlags
-    /* Properties of UDisks.Job */
+    /* Properties of UDisks-2.0.UDisks.Job */
     bytes: number
     cancelable: boolean
     expectedEndTime: number
@@ -4210,9 +3745,9 @@ export class JobSkeleton {
     rate: number
     startTime: number
     startedByUid: number
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Gio.DBusInterfaceSkeleton */
+    /* Methods of Gio-2.0.Gio.DBusInterfaceSkeleton */
     export(connection: Gio.DBusConnection, objectPath: string): boolean
     flush(): void
     getConnection(): Gio.DBusConnection | null
@@ -4225,7 +3760,7 @@ export class JobSkeleton {
     setFlags(flags: Gio.DBusInterfaceSkeletonFlags): void
     unexport(): void
     unexportFromConnection(connection: Gio.DBusConnection): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -4247,61 +3782,38 @@ export class JobSkeleton {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of Gio.DBusInterface */
+    /* Methods of Gio-2.0.Gio.DBusInterface */
     getObject(): Gio.DBusObject | null
     setObject(object?: Gio.DBusObject | null): void
-    /* Methods of UDisks.Job */
+    /* Methods of UDisks-2.0.UDisks.Job */
     callCancel(argOptions: GLib.Variant, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     callCancelFinish(res: Gio.AsyncResult): boolean
     callCancelSync(argOptions: GLib.Variant, cancellable?: Gio.Cancellable | null): boolean
     completeCancel(invocation: Gio.DBusMethodInvocation): void
     emitCompleted(argSuccess: boolean, argMessage: string): void
-    /* Virtual methods of UDisks.JobSkeleton */
-    vfuncDupObject(): Gio.DBusObject | null
-    vfuncGetInfo(): Gio.DBusInterfaceInfo
-    vfuncSetObject(object?: Gio.DBusObject | null): void
-    vfuncCompleted(argSuccess: boolean, argMessage: string): void
-    vfuncHandleCancel(invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant): boolean
-    /* Virtual methods of Gio.DBusInterfaceSkeleton */
-    vfuncFlush(): void
-    vfuncGAuthorizeMethod(invocation: Gio.DBusMethodInvocation): boolean
-    vfuncGetInfo(): Gio.DBusInterfaceInfo
-    vfuncGetProperties(): GLib.Variant
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gio.DBusInterfaceSkeleton */
+    /* Signals of Gio-2.0.Gio.DBusInterfaceSkeleton */
     connect(sigName: "g-authorize-method", callback: (($obj: JobSkeleton, invocation: Gio.DBusMethodInvocation) => boolean)): number
-    connect_after(sigName: "g-authorize-method", callback: (($obj: JobSkeleton, invocation: Gio.DBusMethodInvocation) => boolean)): number
+    on(sigName: "g-authorize-method", callback: (invocation: Gio.DBusMethodInvocation) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "g-authorize-method", callback: (invocation: Gio.DBusMethodInvocation) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "g-authorize-method", callback: (invocation: Gio.DBusMethodInvocation) => void): NodeJS.EventEmitter
     emit(sigName: "g-authorize-method", invocation: Gio.DBusMethodInvocation): void
-    on(sigName: "g-authorize-method", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "g-authorize-method", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "g-authorize-method", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: JobSkeleton, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: JobSkeleton, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of UDisks.Job */
+    /* Signals of UDisks-2.0.UDisks.Job */
     connect(sigName: "completed", callback: (($obj: JobSkeleton, argSuccess: boolean, argMessage: string) => void)): number
-    connect_after(sigName: "completed", callback: (($obj: JobSkeleton, argSuccess: boolean, argMessage: string) => void)): number
+    on(sigName: "completed", callback: (argSuccess: boolean, argMessage: string) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "completed", callback: (argSuccess: boolean, argMessage: string) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "completed", callback: (argSuccess: boolean, argMessage: string) => void): NodeJS.EventEmitter
     emit(sigName: "completed", argSuccess: boolean, argMessage: string): void
-    on(sigName: "completed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "completed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "completed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "handle-cancel", callback: (($obj: JobSkeleton, invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant) => boolean)): number
-    connect_after(sigName: "handle-cancel", callback: (($obj: JobSkeleton, invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant) => boolean)): number
+    on(sigName: "handle-cancel", callback: (invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-cancel", callback: (invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-cancel", callback: (invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant) => void): NodeJS.EventEmitter
     emit(sigName: "handle-cancel", invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant): void
-    on(sigName: "handle-cancel", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-cancel", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-cancel", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::g-flags", callback: (($obj: JobSkeleton, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::g-flags", callback: (($obj: JobSkeleton, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::g-flags", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -4379,23 +3891,23 @@ export interface LoopProxy_ConstructProps extends Gio.DBusProxy_ConstructProps {
     setupByUid?: number
 }
 export class LoopProxy {
-    /* Properties of Gio.DBusProxy */
+    /* Properties of Gio-2.0.Gio.DBusProxy */
     gDefaultTimeout: number
     gInterfaceInfo: Gio.DBusInterfaceInfo
     readonly gNameOwner: string
-    /* Properties of UDisks.Loop */
+    /* Properties of UDisks-2.0.UDisks.Loop */
     autoclear: boolean
     backingFile: string
     setupByUid: number
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Gio.DBusProxy */
+    /* Methods of Gio-2.0.Gio.DBusProxy */
     call(methodName: string, parameters: GLib.Variant | null, flags: Gio.DBusCallFlags, timeoutMsec: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     callFinish(res: Gio.AsyncResult): GLib.Variant
     callSync(methodName: string, parameters: GLib.Variant | null, flags: Gio.DBusCallFlags, timeoutMsec: number, cancellable?: Gio.Cancellable | null): GLib.Variant
     callWithUnixFdList(methodName: string, parameters: GLib.Variant | null, flags: Gio.DBusCallFlags, timeoutMsec: number, fdList?: Gio.UnixFDList | null, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    callWithUnixFdListFinish(res: Gio.AsyncResult): [ /* returnType */ GLib.Variant, /* outFdList */ Gio.UnixFDList | null ]
-    callWithUnixFdListSync(methodName: string, parameters: GLib.Variant | null, flags: Gio.DBusCallFlags, timeoutMsec: number, fdList?: Gio.UnixFDList | null, cancellable?: Gio.Cancellable | null): [ /* returnType */ GLib.Variant, /* outFdList */ Gio.UnixFDList | null ]
+    callWithUnixFdListFinish(res: Gio.AsyncResult): { returnType: GLib.Variant, outFdList: Gio.UnixFDList | null }
+    callWithUnixFdListSync(methodName: string, parameters: GLib.Variant | null, flags: Gio.DBusCallFlags, timeoutMsec: number, fdList?: Gio.UnixFDList | null, cancellable?: Gio.Cancellable | null): { returnType: GLib.Variant, outFdList: Gio.UnixFDList | null }
     getCachedProperty(propertyName: string): GLib.Variant | null
     getCachedPropertyNames(): string[] | null
     getConnection(): Gio.DBusConnection
@@ -4409,7 +3921,7 @@ export class LoopProxy {
     setCachedProperty(propertyName: string, value?: GLib.Variant | null): void
     setDefaultTimeout(timeoutMsec: number): void
     setInterfaceInfo(info?: Gio.DBusInterfaceInfo | null): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -4431,17 +3943,17 @@ export class LoopProxy {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of Gio.AsyncInitable */
+    /* Methods of Gio-2.0.Gio.AsyncInitable */
     initAsync(ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     initFinish(res: Gio.AsyncResult): boolean
     newFinish(res: Gio.AsyncResult): GObject.Object
-    /* Methods of Gio.DBusInterface */
+    /* Methods of Gio-2.0.Gio.DBusInterface */
     getObject(): Gio.DBusObject | null
     getInfo(): Gio.DBusInterfaceInfo
     setObject(object?: Gio.DBusObject | null): void
-    /* Methods of Gio.Initable */
+    /* Methods of Gio-2.0.Gio.Initable */
     init(cancellable?: Gio.Cancellable | null): boolean
-    /* Methods of UDisks.Loop */
+    /* Methods of UDisks-2.0.UDisks.Loop */
     callDelete(argOptions: GLib.Variant, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     callDeleteFinish(res: Gio.AsyncResult): boolean
     callDeleteSync(argOptions: GLib.Variant, cancellable?: Gio.Cancellable | null): boolean
@@ -4450,59 +3962,34 @@ export class LoopProxy {
     callSetAutoclearSync(argValue: boolean, argOptions: GLib.Variant, cancellable?: Gio.Cancellable | null): boolean
     completeDelete(invocation: Gio.DBusMethodInvocation): void
     completeSetAutoclear(invocation: Gio.DBusMethodInvocation): void
-    /* Virtual methods of UDisks.LoopProxy */
-    vfuncInitAsync(ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    vfuncInitFinish(res: Gio.AsyncResult): boolean
-    vfuncDupObject(): Gio.DBusObject | null
-    vfuncGetInfo(): Gio.DBusInterfaceInfo
-    vfuncSetObject(object?: Gio.DBusObject | null): void
-    vfuncInit(cancellable?: Gio.Cancellable | null): boolean
-    vfuncHandleDelete(invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant): boolean
-    vfuncHandleSetAutoclear(invocation: Gio.DBusMethodInvocation, argValue: boolean, argOptions: GLib.Variant): boolean
-    /* Virtual methods of Gio.DBusProxy */
-    vfuncGPropertiesChanged(changedProperties: GLib.Variant, invalidatedProperties: string): void
-    vfuncGSignal(senderName: string, signalName: string, parameters: GLib.Variant): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gio.DBusProxy */
+    /* Signals of Gio-2.0.Gio.DBusProxy */
     connect(sigName: "g-properties-changed", callback: (($obj: LoopProxy, changedProperties: GLib.Variant, invalidatedProperties: string[]) => void)): number
-    connect_after(sigName: "g-properties-changed", callback: (($obj: LoopProxy, changedProperties: GLib.Variant, invalidatedProperties: string[]) => void)): number
+    on(sigName: "g-properties-changed", callback: (changedProperties: GLib.Variant, invalidatedProperties: string[]) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "g-properties-changed", callback: (changedProperties: GLib.Variant, invalidatedProperties: string[]) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "g-properties-changed", callback: (changedProperties: GLib.Variant, invalidatedProperties: string[]) => void): NodeJS.EventEmitter
     emit(sigName: "g-properties-changed", changedProperties: GLib.Variant, invalidatedProperties: string[]): void
-    on(sigName: "g-properties-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "g-properties-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "g-properties-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "g-signal", callback: (($obj: LoopProxy, senderName: string | null, signalName: string, parameters: GLib.Variant) => void)): number
-    connect_after(sigName: "g-signal", callback: (($obj: LoopProxy, senderName: string | null, signalName: string, parameters: GLib.Variant) => void)): number
+    on(sigName: "g-signal", callback: (senderName: string | null, signalName: string, parameters: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "g-signal", callback: (senderName: string | null, signalName: string, parameters: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "g-signal", callback: (senderName: string | null, signalName: string, parameters: GLib.Variant) => void): NodeJS.EventEmitter
     emit(sigName: "g-signal", senderName: string | null, signalName: string, parameters: GLib.Variant): void
-    on(sigName: "g-signal", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "g-signal", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "g-signal", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: LoopProxy, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: LoopProxy, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of UDisks.Loop */
+    /* Signals of UDisks-2.0.UDisks.Loop */
     connect(sigName: "handle-delete", callback: (($obj: LoopProxy, invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant) => boolean)): number
-    connect_after(sigName: "handle-delete", callback: (($obj: LoopProxy, invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant) => boolean)): number
+    on(sigName: "handle-delete", callback: (invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-delete", callback: (invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-delete", callback: (invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant) => void): NodeJS.EventEmitter
     emit(sigName: "handle-delete", invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant): void
-    on(sigName: "handle-delete", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-delete", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-delete", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "handle-set-autoclear", callback: (($obj: LoopProxy, invocation: Gio.DBusMethodInvocation, argValue: boolean, argOptions: GLib.Variant) => boolean)): number
-    connect_after(sigName: "handle-set-autoclear", callback: (($obj: LoopProxy, invocation: Gio.DBusMethodInvocation, argValue: boolean, argOptions: GLib.Variant) => boolean)): number
+    on(sigName: "handle-set-autoclear", callback: (invocation: Gio.DBusMethodInvocation, argValue: boolean, argOptions: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-set-autoclear", callback: (invocation: Gio.DBusMethodInvocation, argValue: boolean, argOptions: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-set-autoclear", callback: (invocation: Gio.DBusMethodInvocation, argValue: boolean, argOptions: GLib.Variant) => void): NodeJS.EventEmitter
     emit(sigName: "handle-set-autoclear", invocation: Gio.DBusMethodInvocation, argValue: boolean, argOptions: GLib.Variant): void
-    on(sigName: "handle-set-autoclear", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-set-autoclear", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-set-autoclear", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::g-default-timeout", callback: (($obj: LoopProxy, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::g-default-timeout", callback: (($obj: LoopProxy, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::g-default-timeout", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -4564,15 +4051,15 @@ export interface LoopSkeleton_ConstructProps extends Gio.DBusInterfaceSkeleton_C
     setupByUid?: number
 }
 export class LoopSkeleton {
-    /* Properties of Gio.DBusInterfaceSkeleton */
+    /* Properties of Gio-2.0.Gio.DBusInterfaceSkeleton */
     gFlags: Gio.DBusInterfaceSkeletonFlags
-    /* Properties of UDisks.Loop */
+    /* Properties of UDisks-2.0.UDisks.Loop */
     autoclear: boolean
     backingFile: string
     setupByUid: number
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Gio.DBusInterfaceSkeleton */
+    /* Methods of Gio-2.0.Gio.DBusInterfaceSkeleton */
     export(connection: Gio.DBusConnection, objectPath: string): boolean
     flush(): void
     getConnection(): Gio.DBusConnection | null
@@ -4585,7 +4072,7 @@ export class LoopSkeleton {
     setFlags(flags: Gio.DBusInterfaceSkeletonFlags): void
     unexport(): void
     unexportFromConnection(connection: Gio.DBusConnection): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -4607,10 +4094,10 @@ export class LoopSkeleton {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of Gio.DBusInterface */
+    /* Methods of Gio-2.0.Gio.DBusInterface */
     getObject(): Gio.DBusObject | null
     setObject(object?: Gio.DBusObject | null): void
-    /* Methods of UDisks.Loop */
+    /* Methods of UDisks-2.0.UDisks.Loop */
     callDelete(argOptions: GLib.Variant, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     callDeleteFinish(res: Gio.AsyncResult): boolean
     callDeleteSync(argOptions: GLib.Variant, cancellable?: Gio.Cancellable | null): boolean
@@ -4619,52 +4106,29 @@ export class LoopSkeleton {
     callSetAutoclearSync(argValue: boolean, argOptions: GLib.Variant, cancellable?: Gio.Cancellable | null): boolean
     completeDelete(invocation: Gio.DBusMethodInvocation): void
     completeSetAutoclear(invocation: Gio.DBusMethodInvocation): void
-    /* Virtual methods of UDisks.LoopSkeleton */
-    vfuncDupObject(): Gio.DBusObject | null
-    vfuncGetInfo(): Gio.DBusInterfaceInfo
-    vfuncSetObject(object?: Gio.DBusObject | null): void
-    vfuncHandleDelete(invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant): boolean
-    vfuncHandleSetAutoclear(invocation: Gio.DBusMethodInvocation, argValue: boolean, argOptions: GLib.Variant): boolean
-    /* Virtual methods of Gio.DBusInterfaceSkeleton */
-    vfuncFlush(): void
-    vfuncGAuthorizeMethod(invocation: Gio.DBusMethodInvocation): boolean
-    vfuncGetInfo(): Gio.DBusInterfaceInfo
-    vfuncGetProperties(): GLib.Variant
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gio.DBusInterfaceSkeleton */
+    /* Signals of Gio-2.0.Gio.DBusInterfaceSkeleton */
     connect(sigName: "g-authorize-method", callback: (($obj: LoopSkeleton, invocation: Gio.DBusMethodInvocation) => boolean)): number
-    connect_after(sigName: "g-authorize-method", callback: (($obj: LoopSkeleton, invocation: Gio.DBusMethodInvocation) => boolean)): number
+    on(sigName: "g-authorize-method", callback: (invocation: Gio.DBusMethodInvocation) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "g-authorize-method", callback: (invocation: Gio.DBusMethodInvocation) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "g-authorize-method", callback: (invocation: Gio.DBusMethodInvocation) => void): NodeJS.EventEmitter
     emit(sigName: "g-authorize-method", invocation: Gio.DBusMethodInvocation): void
-    on(sigName: "g-authorize-method", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "g-authorize-method", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "g-authorize-method", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: LoopSkeleton, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: LoopSkeleton, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of UDisks.Loop */
+    /* Signals of UDisks-2.0.UDisks.Loop */
     connect(sigName: "handle-delete", callback: (($obj: LoopSkeleton, invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant) => boolean)): number
-    connect_after(sigName: "handle-delete", callback: (($obj: LoopSkeleton, invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant) => boolean)): number
+    on(sigName: "handle-delete", callback: (invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-delete", callback: (invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-delete", callback: (invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant) => void): NodeJS.EventEmitter
     emit(sigName: "handle-delete", invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant): void
-    on(sigName: "handle-delete", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-delete", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-delete", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "handle-set-autoclear", callback: (($obj: LoopSkeleton, invocation: Gio.DBusMethodInvocation, argValue: boolean, argOptions: GLib.Variant) => boolean)): number
-    connect_after(sigName: "handle-set-autoclear", callback: (($obj: LoopSkeleton, invocation: Gio.DBusMethodInvocation, argValue: boolean, argOptions: GLib.Variant) => boolean)): number
+    on(sigName: "handle-set-autoclear", callback: (invocation: Gio.DBusMethodInvocation, argValue: boolean, argOptions: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-set-autoclear", callback: (invocation: Gio.DBusMethodInvocation, argValue: boolean, argOptions: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-set-autoclear", callback: (invocation: Gio.DBusMethodInvocation, argValue: boolean, argOptions: GLib.Variant) => void): NodeJS.EventEmitter
     emit(sigName: "handle-set-autoclear", invocation: Gio.DBusMethodInvocation, argValue: boolean, argOptions: GLib.Variant): void
-    on(sigName: "handle-set-autoclear", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-set-autoclear", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-set-autoclear", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::g-flags", callback: (($obj: LoopSkeleton, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::g-flags", callback: (($obj: LoopSkeleton, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::g-flags", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -4719,11 +4183,11 @@ export interface MDRaidProxy_ConstructProps extends Gio.DBusProxy_ConstructProps
     uuid?: string
 }
 export class MDRaidProxy {
-    /* Properties of Gio.DBusProxy */
+    /* Properties of Gio-2.0.Gio.DBusProxy */
     gDefaultTimeout: number
     gInterfaceInfo: Gio.DBusInterfaceInfo
     readonly gNameOwner: string
-    /* Properties of UDisks.MDRaid */
+    /* Properties of UDisks-2.0.UDisks.MDRaid */
     activeDevices: GLib.Variant
     bitmapLocation: string
     childConfiguration: GLib.Variant
@@ -4739,15 +4203,15 @@ export class MDRaidProxy {
     syncRate: number
     syncRemainingTime: number
     uuid: string
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Gio.DBusProxy */
+    /* Methods of Gio-2.0.Gio.DBusProxy */
     call(methodName: string, parameters: GLib.Variant | null, flags: Gio.DBusCallFlags, timeoutMsec: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     callFinish(res: Gio.AsyncResult): GLib.Variant
     callSync(methodName: string, parameters: GLib.Variant | null, flags: Gio.DBusCallFlags, timeoutMsec: number, cancellable?: Gio.Cancellable | null): GLib.Variant
     callWithUnixFdList(methodName: string, parameters: GLib.Variant | null, flags: Gio.DBusCallFlags, timeoutMsec: number, fdList?: Gio.UnixFDList | null, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    callWithUnixFdListFinish(res: Gio.AsyncResult): [ /* returnType */ GLib.Variant, /* outFdList */ Gio.UnixFDList | null ]
-    callWithUnixFdListSync(methodName: string, parameters: GLib.Variant | null, flags: Gio.DBusCallFlags, timeoutMsec: number, fdList?: Gio.UnixFDList | null, cancellable?: Gio.Cancellable | null): [ /* returnType */ GLib.Variant, /* outFdList */ Gio.UnixFDList | null ]
+    callWithUnixFdListFinish(res: Gio.AsyncResult): { returnType: GLib.Variant, outFdList: Gio.UnixFDList | null }
+    callWithUnixFdListSync(methodName: string, parameters: GLib.Variant | null, flags: Gio.DBusCallFlags, timeoutMsec: number, fdList?: Gio.UnixFDList | null, cancellable?: Gio.Cancellable | null): { returnType: GLib.Variant, outFdList: Gio.UnixFDList | null }
     getCachedProperty(propertyName: string): GLib.Variant | null
     getCachedPropertyNames(): string[] | null
     getConnection(): Gio.DBusConnection
@@ -4761,7 +4225,7 @@ export class MDRaidProxy {
     setCachedProperty(propertyName: string, value?: GLib.Variant | null): void
     setDefaultTimeout(timeoutMsec: number): void
     setInterfaceInfo(info?: Gio.DBusInterfaceInfo | null): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -4783,17 +4247,17 @@ export class MDRaidProxy {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of Gio.AsyncInitable */
+    /* Methods of Gio-2.0.Gio.AsyncInitable */
     initAsync(ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     initFinish(res: Gio.AsyncResult): boolean
     newFinish(res: Gio.AsyncResult): GObject.Object
-    /* Methods of Gio.DBusInterface */
+    /* Methods of Gio-2.0.Gio.DBusInterface */
     getObject(): Gio.DBusObject | null
     getInfo(): Gio.DBusInterfaceInfo
     setObject(object?: Gio.DBusObject | null): void
-    /* Methods of Gio.Initable */
+    /* Methods of Gio-2.0.Gio.Initable */
     init(cancellable?: Gio.Cancellable | null): boolean
-    /* Methods of UDisks.MDRaid */
+    /* Methods of UDisks-2.0.UDisks.MDRaid */
     callAddDevice(argDevice: string, argOptions: GLib.Variant, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     callAddDeviceFinish(res: Gio.AsyncResult): boolean
     callAddDeviceSync(argDevice: string, argOptions: GLib.Variant, cancellable?: Gio.Cancellable | null): boolean
@@ -4822,94 +4286,59 @@ export class MDRaidProxy {
     completeSetBitmapLocation(invocation: Gio.DBusMethodInvocation): void
     completeStart(invocation: Gio.DBusMethodInvocation): void
     completeStop(invocation: Gio.DBusMethodInvocation): void
-    /* Virtual methods of UDisks.MDRaidProxy */
-    vfuncInitAsync(ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    vfuncInitFinish(res: Gio.AsyncResult): boolean
-    vfuncDupObject(): Gio.DBusObject | null
-    vfuncGetInfo(): Gio.DBusInterfaceInfo
-    vfuncSetObject(object?: Gio.DBusObject | null): void
-    vfuncInit(cancellable?: Gio.Cancellable | null): boolean
-    vfuncHandleAddDevice(invocation: Gio.DBusMethodInvocation, argDevice: string, argOptions: GLib.Variant): boolean
-    vfuncHandleDelete(invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant): boolean
-    vfuncHandleRemoveDevice(invocation: Gio.DBusMethodInvocation, argDevice: string, argOptions: GLib.Variant): boolean
-    vfuncHandleRequestSyncAction(invocation: Gio.DBusMethodInvocation, argSyncAction: string, argOptions: GLib.Variant): boolean
-    vfuncHandleSetBitmapLocation(invocation: Gio.DBusMethodInvocation, argValue: string, argOptions: GLib.Variant): boolean
-    vfuncHandleStart(invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant): boolean
-    vfuncHandleStop(invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant): boolean
-    /* Virtual methods of Gio.DBusProxy */
-    vfuncGPropertiesChanged(changedProperties: GLib.Variant, invalidatedProperties: string): void
-    vfuncGSignal(senderName: string, signalName: string, parameters: GLib.Variant): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gio.DBusProxy */
+    /* Signals of Gio-2.0.Gio.DBusProxy */
     connect(sigName: "g-properties-changed", callback: (($obj: MDRaidProxy, changedProperties: GLib.Variant, invalidatedProperties: string[]) => void)): number
-    connect_after(sigName: "g-properties-changed", callback: (($obj: MDRaidProxy, changedProperties: GLib.Variant, invalidatedProperties: string[]) => void)): number
+    on(sigName: "g-properties-changed", callback: (changedProperties: GLib.Variant, invalidatedProperties: string[]) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "g-properties-changed", callback: (changedProperties: GLib.Variant, invalidatedProperties: string[]) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "g-properties-changed", callback: (changedProperties: GLib.Variant, invalidatedProperties: string[]) => void): NodeJS.EventEmitter
     emit(sigName: "g-properties-changed", changedProperties: GLib.Variant, invalidatedProperties: string[]): void
-    on(sigName: "g-properties-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "g-properties-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "g-properties-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "g-signal", callback: (($obj: MDRaidProxy, senderName: string | null, signalName: string, parameters: GLib.Variant) => void)): number
-    connect_after(sigName: "g-signal", callback: (($obj: MDRaidProxy, senderName: string | null, signalName: string, parameters: GLib.Variant) => void)): number
+    on(sigName: "g-signal", callback: (senderName: string | null, signalName: string, parameters: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "g-signal", callback: (senderName: string | null, signalName: string, parameters: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "g-signal", callback: (senderName: string | null, signalName: string, parameters: GLib.Variant) => void): NodeJS.EventEmitter
     emit(sigName: "g-signal", senderName: string | null, signalName: string, parameters: GLib.Variant): void
-    on(sigName: "g-signal", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "g-signal", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "g-signal", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: MDRaidProxy, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: MDRaidProxy, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of UDisks.MDRaid */
+    /* Signals of UDisks-2.0.UDisks.MDRaid */
     connect(sigName: "handle-add-device", callback: (($obj: MDRaidProxy, invocation: Gio.DBusMethodInvocation, argDevice: string, argOptions: GLib.Variant) => boolean)): number
-    connect_after(sigName: "handle-add-device", callback: (($obj: MDRaidProxy, invocation: Gio.DBusMethodInvocation, argDevice: string, argOptions: GLib.Variant) => boolean)): number
+    on(sigName: "handle-add-device", callback: (invocation: Gio.DBusMethodInvocation, argDevice: string, argOptions: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-add-device", callback: (invocation: Gio.DBusMethodInvocation, argDevice: string, argOptions: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-add-device", callback: (invocation: Gio.DBusMethodInvocation, argDevice: string, argOptions: GLib.Variant) => void): NodeJS.EventEmitter
     emit(sigName: "handle-add-device", invocation: Gio.DBusMethodInvocation, argDevice: string, argOptions: GLib.Variant): void
-    on(sigName: "handle-add-device", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-add-device", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-add-device", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "handle-delete", callback: (($obj: MDRaidProxy, invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant) => boolean)): number
-    connect_after(sigName: "handle-delete", callback: (($obj: MDRaidProxy, invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant) => boolean)): number
+    on(sigName: "handle-delete", callback: (invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-delete", callback: (invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-delete", callback: (invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant) => void): NodeJS.EventEmitter
     emit(sigName: "handle-delete", invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant): void
-    on(sigName: "handle-delete", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-delete", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-delete", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "handle-remove-device", callback: (($obj: MDRaidProxy, invocation: Gio.DBusMethodInvocation, argDevice: string, argOptions: GLib.Variant) => boolean)): number
-    connect_after(sigName: "handle-remove-device", callback: (($obj: MDRaidProxy, invocation: Gio.DBusMethodInvocation, argDevice: string, argOptions: GLib.Variant) => boolean)): number
+    on(sigName: "handle-remove-device", callback: (invocation: Gio.DBusMethodInvocation, argDevice: string, argOptions: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-remove-device", callback: (invocation: Gio.DBusMethodInvocation, argDevice: string, argOptions: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-remove-device", callback: (invocation: Gio.DBusMethodInvocation, argDevice: string, argOptions: GLib.Variant) => void): NodeJS.EventEmitter
     emit(sigName: "handle-remove-device", invocation: Gio.DBusMethodInvocation, argDevice: string, argOptions: GLib.Variant): void
-    on(sigName: "handle-remove-device", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-remove-device", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-remove-device", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "handle-request-sync-action", callback: (($obj: MDRaidProxy, invocation: Gio.DBusMethodInvocation, argSyncAction: string, argOptions: GLib.Variant) => boolean)): number
-    connect_after(sigName: "handle-request-sync-action", callback: (($obj: MDRaidProxy, invocation: Gio.DBusMethodInvocation, argSyncAction: string, argOptions: GLib.Variant) => boolean)): number
+    on(sigName: "handle-request-sync-action", callback: (invocation: Gio.DBusMethodInvocation, argSyncAction: string, argOptions: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-request-sync-action", callback: (invocation: Gio.DBusMethodInvocation, argSyncAction: string, argOptions: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-request-sync-action", callback: (invocation: Gio.DBusMethodInvocation, argSyncAction: string, argOptions: GLib.Variant) => void): NodeJS.EventEmitter
     emit(sigName: "handle-request-sync-action", invocation: Gio.DBusMethodInvocation, argSyncAction: string, argOptions: GLib.Variant): void
-    on(sigName: "handle-request-sync-action", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-request-sync-action", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-request-sync-action", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "handle-set-bitmap-location", callback: (($obj: MDRaidProxy, invocation: Gio.DBusMethodInvocation, argValue: string, argOptions: GLib.Variant) => boolean)): number
-    connect_after(sigName: "handle-set-bitmap-location", callback: (($obj: MDRaidProxy, invocation: Gio.DBusMethodInvocation, argValue: string, argOptions: GLib.Variant) => boolean)): number
+    on(sigName: "handle-set-bitmap-location", callback: (invocation: Gio.DBusMethodInvocation, argValue: string, argOptions: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-set-bitmap-location", callback: (invocation: Gio.DBusMethodInvocation, argValue: string, argOptions: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-set-bitmap-location", callback: (invocation: Gio.DBusMethodInvocation, argValue: string, argOptions: GLib.Variant) => void): NodeJS.EventEmitter
     emit(sigName: "handle-set-bitmap-location", invocation: Gio.DBusMethodInvocation, argValue: string, argOptions: GLib.Variant): void
-    on(sigName: "handle-set-bitmap-location", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-set-bitmap-location", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-set-bitmap-location", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "handle-start", callback: (($obj: MDRaidProxy, invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant) => boolean)): number
-    connect_after(sigName: "handle-start", callback: (($obj: MDRaidProxy, invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant) => boolean)): number
+    on(sigName: "handle-start", callback: (invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-start", callback: (invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-start", callback: (invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant) => void): NodeJS.EventEmitter
     emit(sigName: "handle-start", invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant): void
-    on(sigName: "handle-start", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-start", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-start", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "handle-stop", callback: (($obj: MDRaidProxy, invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant) => boolean)): number
-    connect_after(sigName: "handle-stop", callback: (($obj: MDRaidProxy, invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant) => boolean)): number
+    on(sigName: "handle-stop", callback: (invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-stop", callback: (invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-stop", callback: (invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant) => void): NodeJS.EventEmitter
     emit(sigName: "handle-stop", invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant): void
-    on(sigName: "handle-stop", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-stop", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-stop", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::g-default-timeout", callback: (($obj: MDRaidProxy, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::g-default-timeout", callback: (($obj: MDRaidProxy, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::g-default-timeout", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -5043,9 +4472,9 @@ export interface MDRaidSkeleton_ConstructProps extends Gio.DBusInterfaceSkeleton
     uuid?: string
 }
 export class MDRaidSkeleton {
-    /* Properties of Gio.DBusInterfaceSkeleton */
+    /* Properties of Gio-2.0.Gio.DBusInterfaceSkeleton */
     gFlags: Gio.DBusInterfaceSkeletonFlags
-    /* Properties of UDisks.MDRaid */
+    /* Properties of UDisks-2.0.UDisks.MDRaid */
     activeDevices: GLib.Variant
     bitmapLocation: string
     childConfiguration: GLib.Variant
@@ -5061,9 +4490,9 @@ export class MDRaidSkeleton {
     syncRate: number
     syncRemainingTime: number
     uuid: string
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Gio.DBusInterfaceSkeleton */
+    /* Methods of Gio-2.0.Gio.DBusInterfaceSkeleton */
     export(connection: Gio.DBusConnection, objectPath: string): boolean
     flush(): void
     getConnection(): Gio.DBusConnection | null
@@ -5076,7 +4505,7 @@ export class MDRaidSkeleton {
     setFlags(flags: Gio.DBusInterfaceSkeletonFlags): void
     unexport(): void
     unexportFromConnection(connection: Gio.DBusConnection): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -5098,10 +4527,10 @@ export class MDRaidSkeleton {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of Gio.DBusInterface */
+    /* Methods of Gio-2.0.Gio.DBusInterface */
     getObject(): Gio.DBusObject | null
     setObject(object?: Gio.DBusObject | null): void
-    /* Methods of UDisks.MDRaid */
+    /* Methods of UDisks-2.0.UDisks.MDRaid */
     callAddDevice(argDevice: string, argOptions: GLib.Variant, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     callAddDeviceFinish(res: Gio.AsyncResult): boolean
     callAddDeviceSync(argDevice: string, argOptions: GLib.Variant, cancellable?: Gio.Cancellable | null): boolean
@@ -5130,87 +4559,54 @@ export class MDRaidSkeleton {
     completeSetBitmapLocation(invocation: Gio.DBusMethodInvocation): void
     completeStart(invocation: Gio.DBusMethodInvocation): void
     completeStop(invocation: Gio.DBusMethodInvocation): void
-    /* Virtual methods of UDisks.MDRaidSkeleton */
-    vfuncDupObject(): Gio.DBusObject | null
-    vfuncGetInfo(): Gio.DBusInterfaceInfo
-    vfuncSetObject(object?: Gio.DBusObject | null): void
-    vfuncHandleAddDevice(invocation: Gio.DBusMethodInvocation, argDevice: string, argOptions: GLib.Variant): boolean
-    vfuncHandleDelete(invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant): boolean
-    vfuncHandleRemoveDevice(invocation: Gio.DBusMethodInvocation, argDevice: string, argOptions: GLib.Variant): boolean
-    vfuncHandleRequestSyncAction(invocation: Gio.DBusMethodInvocation, argSyncAction: string, argOptions: GLib.Variant): boolean
-    vfuncHandleSetBitmapLocation(invocation: Gio.DBusMethodInvocation, argValue: string, argOptions: GLib.Variant): boolean
-    vfuncHandleStart(invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant): boolean
-    vfuncHandleStop(invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant): boolean
-    /* Virtual methods of Gio.DBusInterfaceSkeleton */
-    vfuncFlush(): void
-    vfuncGAuthorizeMethod(invocation: Gio.DBusMethodInvocation): boolean
-    vfuncGetInfo(): Gio.DBusInterfaceInfo
-    vfuncGetProperties(): GLib.Variant
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gio.DBusInterfaceSkeleton */
+    /* Signals of Gio-2.0.Gio.DBusInterfaceSkeleton */
     connect(sigName: "g-authorize-method", callback: (($obj: MDRaidSkeleton, invocation: Gio.DBusMethodInvocation) => boolean)): number
-    connect_after(sigName: "g-authorize-method", callback: (($obj: MDRaidSkeleton, invocation: Gio.DBusMethodInvocation) => boolean)): number
+    on(sigName: "g-authorize-method", callback: (invocation: Gio.DBusMethodInvocation) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "g-authorize-method", callback: (invocation: Gio.DBusMethodInvocation) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "g-authorize-method", callback: (invocation: Gio.DBusMethodInvocation) => void): NodeJS.EventEmitter
     emit(sigName: "g-authorize-method", invocation: Gio.DBusMethodInvocation): void
-    on(sigName: "g-authorize-method", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "g-authorize-method", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "g-authorize-method", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: MDRaidSkeleton, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: MDRaidSkeleton, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of UDisks.MDRaid */
+    /* Signals of UDisks-2.0.UDisks.MDRaid */
     connect(sigName: "handle-add-device", callback: (($obj: MDRaidSkeleton, invocation: Gio.DBusMethodInvocation, argDevice: string, argOptions: GLib.Variant) => boolean)): number
-    connect_after(sigName: "handle-add-device", callback: (($obj: MDRaidSkeleton, invocation: Gio.DBusMethodInvocation, argDevice: string, argOptions: GLib.Variant) => boolean)): number
+    on(sigName: "handle-add-device", callback: (invocation: Gio.DBusMethodInvocation, argDevice: string, argOptions: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-add-device", callback: (invocation: Gio.DBusMethodInvocation, argDevice: string, argOptions: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-add-device", callback: (invocation: Gio.DBusMethodInvocation, argDevice: string, argOptions: GLib.Variant) => void): NodeJS.EventEmitter
     emit(sigName: "handle-add-device", invocation: Gio.DBusMethodInvocation, argDevice: string, argOptions: GLib.Variant): void
-    on(sigName: "handle-add-device", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-add-device", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-add-device", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "handle-delete", callback: (($obj: MDRaidSkeleton, invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant) => boolean)): number
-    connect_after(sigName: "handle-delete", callback: (($obj: MDRaidSkeleton, invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant) => boolean)): number
+    on(sigName: "handle-delete", callback: (invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-delete", callback: (invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-delete", callback: (invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant) => void): NodeJS.EventEmitter
     emit(sigName: "handle-delete", invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant): void
-    on(sigName: "handle-delete", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-delete", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-delete", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "handle-remove-device", callback: (($obj: MDRaidSkeleton, invocation: Gio.DBusMethodInvocation, argDevice: string, argOptions: GLib.Variant) => boolean)): number
-    connect_after(sigName: "handle-remove-device", callback: (($obj: MDRaidSkeleton, invocation: Gio.DBusMethodInvocation, argDevice: string, argOptions: GLib.Variant) => boolean)): number
+    on(sigName: "handle-remove-device", callback: (invocation: Gio.DBusMethodInvocation, argDevice: string, argOptions: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-remove-device", callback: (invocation: Gio.DBusMethodInvocation, argDevice: string, argOptions: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-remove-device", callback: (invocation: Gio.DBusMethodInvocation, argDevice: string, argOptions: GLib.Variant) => void): NodeJS.EventEmitter
     emit(sigName: "handle-remove-device", invocation: Gio.DBusMethodInvocation, argDevice: string, argOptions: GLib.Variant): void
-    on(sigName: "handle-remove-device", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-remove-device", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-remove-device", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "handle-request-sync-action", callback: (($obj: MDRaidSkeleton, invocation: Gio.DBusMethodInvocation, argSyncAction: string, argOptions: GLib.Variant) => boolean)): number
-    connect_after(sigName: "handle-request-sync-action", callback: (($obj: MDRaidSkeleton, invocation: Gio.DBusMethodInvocation, argSyncAction: string, argOptions: GLib.Variant) => boolean)): number
+    on(sigName: "handle-request-sync-action", callback: (invocation: Gio.DBusMethodInvocation, argSyncAction: string, argOptions: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-request-sync-action", callback: (invocation: Gio.DBusMethodInvocation, argSyncAction: string, argOptions: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-request-sync-action", callback: (invocation: Gio.DBusMethodInvocation, argSyncAction: string, argOptions: GLib.Variant) => void): NodeJS.EventEmitter
     emit(sigName: "handle-request-sync-action", invocation: Gio.DBusMethodInvocation, argSyncAction: string, argOptions: GLib.Variant): void
-    on(sigName: "handle-request-sync-action", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-request-sync-action", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-request-sync-action", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "handle-set-bitmap-location", callback: (($obj: MDRaidSkeleton, invocation: Gio.DBusMethodInvocation, argValue: string, argOptions: GLib.Variant) => boolean)): number
-    connect_after(sigName: "handle-set-bitmap-location", callback: (($obj: MDRaidSkeleton, invocation: Gio.DBusMethodInvocation, argValue: string, argOptions: GLib.Variant) => boolean)): number
+    on(sigName: "handle-set-bitmap-location", callback: (invocation: Gio.DBusMethodInvocation, argValue: string, argOptions: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-set-bitmap-location", callback: (invocation: Gio.DBusMethodInvocation, argValue: string, argOptions: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-set-bitmap-location", callback: (invocation: Gio.DBusMethodInvocation, argValue: string, argOptions: GLib.Variant) => void): NodeJS.EventEmitter
     emit(sigName: "handle-set-bitmap-location", invocation: Gio.DBusMethodInvocation, argValue: string, argOptions: GLib.Variant): void
-    on(sigName: "handle-set-bitmap-location", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-set-bitmap-location", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-set-bitmap-location", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "handle-start", callback: (($obj: MDRaidSkeleton, invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant) => boolean)): number
-    connect_after(sigName: "handle-start", callback: (($obj: MDRaidSkeleton, invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant) => boolean)): number
+    on(sigName: "handle-start", callback: (invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-start", callback: (invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-start", callback: (invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant) => void): NodeJS.EventEmitter
     emit(sigName: "handle-start", invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant): void
-    on(sigName: "handle-start", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-start", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-start", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "handle-stop", callback: (($obj: MDRaidSkeleton, invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant) => boolean)): number
-    connect_after(sigName: "handle-stop", callback: (($obj: MDRaidSkeleton, invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant) => boolean)): number
+    on(sigName: "handle-stop", callback: (invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-stop", callback: (invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-stop", callback: (invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant) => void): NodeJS.EventEmitter
     emit(sigName: "handle-stop", invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant): void
-    on(sigName: "handle-stop", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-stop", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-stop", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::g-flags", callback: (($obj: MDRaidSkeleton, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::g-flags", callback: (($obj: MDRaidSkeleton, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::g-flags", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -5312,22 +4708,22 @@ export interface ManagerProxy_ConstructProps extends Gio.DBusProxy_ConstructProp
     version?: string
 }
 export class ManagerProxy {
-    /* Properties of Gio.DBusProxy */
+    /* Properties of Gio-2.0.Gio.DBusProxy */
     gDefaultTimeout: number
     gInterfaceInfo: Gio.DBusInterfaceInfo
     readonly gNameOwner: string
-    /* Properties of UDisks.Manager */
+    /* Properties of UDisks-2.0.UDisks.Manager */
     supportedFilesystems: string[]
     version: string
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Gio.DBusProxy */
+    /* Methods of Gio-2.0.Gio.DBusProxy */
     call(methodName: string, parameters: GLib.Variant | null, flags: Gio.DBusCallFlags, timeoutMsec: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     callFinish(res: Gio.AsyncResult): GLib.Variant
     callSync(methodName: string, parameters: GLib.Variant | null, flags: Gio.DBusCallFlags, timeoutMsec: number, cancellable?: Gio.Cancellable | null): GLib.Variant
     callWithUnixFdList(methodName: string, parameters: GLib.Variant | null, flags: Gio.DBusCallFlags, timeoutMsec: number, fdList?: Gio.UnixFDList | null, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    callWithUnixFdListFinish(res: Gio.AsyncResult): [ /* returnType */ GLib.Variant, /* outFdList */ Gio.UnixFDList | null ]
-    callWithUnixFdListSync(methodName: string, parameters: GLib.Variant | null, flags: Gio.DBusCallFlags, timeoutMsec: number, fdList?: Gio.UnixFDList | null, cancellable?: Gio.Cancellable | null): [ /* returnType */ GLib.Variant, /* outFdList */ Gio.UnixFDList | null ]
+    callWithUnixFdListFinish(res: Gio.AsyncResult): { returnType: GLib.Variant, outFdList: Gio.UnixFDList | null }
+    callWithUnixFdListSync(methodName: string, parameters: GLib.Variant | null, flags: Gio.DBusCallFlags, timeoutMsec: number, fdList?: Gio.UnixFDList | null, cancellable?: Gio.Cancellable | null): { returnType: GLib.Variant, outFdList: Gio.UnixFDList | null }
     getCachedProperty(propertyName: string): GLib.Variant | null
     getCachedPropertyNames(): string[] | null
     getConnection(): Gio.DBusConnection
@@ -5341,7 +4737,7 @@ export class ManagerProxy {
     setCachedProperty(propertyName: string, value?: GLib.Variant | null): void
     setDefaultTimeout(timeoutMsec: number): void
     setInterfaceInfo(info?: Gio.DBusInterfaceInfo | null): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -5363,89 +4759,62 @@ export class ManagerProxy {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of Gio.AsyncInitable */
+    /* Methods of Gio-2.0.Gio.AsyncInitable */
     initAsync(ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     initFinish(res: Gio.AsyncResult): boolean
     newFinish(res: Gio.AsyncResult): GObject.Object
-    /* Methods of Gio.DBusInterface */
+    /* Methods of Gio-2.0.Gio.DBusInterface */
     getObject(): Gio.DBusObject | null
     getInfo(): Gio.DBusInterfaceInfo
     setObject(object?: Gio.DBusObject | null): void
-    /* Methods of Gio.Initable */
+    /* Methods of Gio-2.0.Gio.Initable */
     init(cancellable?: Gio.Cancellable | null): boolean
-    /* Methods of UDisks.Manager */
+    /* Methods of UDisks-2.0.UDisks.Manager */
     callEnableModules(argEnable: boolean, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     callEnableModulesFinish(res: Gio.AsyncResult): boolean
     callEnableModulesSync(argEnable: boolean, cancellable?: Gio.Cancellable | null): boolean
     callLoopSetup(argFd: GLib.Variant, argOptions: GLib.Variant, fdList?: Gio.UnixFDList | null, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    callLoopSetupFinish(res: Gio.AsyncResult): [ /* returnType */ boolean, /* outResultingDevice */ string, /* outFdList */ Gio.UnixFDList ]
-    callLoopSetupSync(argFd: GLib.Variant, argOptions: GLib.Variant, fdList?: Gio.UnixFDList | null, cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* outResultingDevice */ string, /* outFdList */ Gio.UnixFDList ]
+    callLoopSetupFinish(res: Gio.AsyncResult): { returnType: boolean, outResultingDevice: string, outFdList: Gio.UnixFDList }
+    callLoopSetupSync(argFd: GLib.Variant, argOptions: GLib.Variant, fdList?: Gio.UnixFDList | null, cancellable?: Gio.Cancellable | null): { returnType: boolean, outResultingDevice: string, outFdList: Gio.UnixFDList }
     callMdraidCreate(argBlocks: string, argLevel: string, argName: string, argChunk: number, argOptions: GLib.Variant, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    callMdraidCreateFinish(res: Gio.AsyncResult): [ /* returnType */ boolean, /* outResultingArray */ string ]
-    callMdraidCreateSync(argBlocks: string, argLevel: string, argName: string, argChunk: number, argOptions: GLib.Variant, cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* outResultingArray */ string ]
+    callMdraidCreateFinish(res: Gio.AsyncResult): { returnType: boolean, outResultingArray: string }
+    callMdraidCreateSync(argBlocks: string, argLevel: string, argName: string, argChunk: number, argOptions: GLib.Variant, cancellable?: Gio.Cancellable | null): { returnType: boolean, outResultingArray: string }
     completeEnableModules(invocation: Gio.DBusMethodInvocation): void
     completeLoopSetup(invocation: Gio.DBusMethodInvocation, fdList: Gio.UnixFDList | null, resultingDevice: string): void
     completeMdraidCreate(invocation: Gio.DBusMethodInvocation, resultingArray: string): void
-    /* Virtual methods of UDisks.ManagerProxy */
-    vfuncInitAsync(ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    vfuncInitFinish(res: Gio.AsyncResult): boolean
-    vfuncDupObject(): Gio.DBusObject | null
-    vfuncGetInfo(): Gio.DBusInterfaceInfo
-    vfuncSetObject(object?: Gio.DBusObject | null): void
-    vfuncInit(cancellable?: Gio.Cancellable | null): boolean
-    vfuncHandleEnableModules(invocation: Gio.DBusMethodInvocation, argEnable: boolean): boolean
-    vfuncHandleLoopSetup(invocation: Gio.DBusMethodInvocation, fdList: Gio.UnixFDList, argFd: GLib.Variant, argOptions: GLib.Variant): boolean
-    vfuncHandleMdraidCreate(invocation: Gio.DBusMethodInvocation, argBlocks: string, argLevel: string, argName: string, argChunk: number, argOptions: GLib.Variant): boolean
-    /* Virtual methods of Gio.DBusProxy */
-    vfuncGPropertiesChanged(changedProperties: GLib.Variant, invalidatedProperties: string): void
-    vfuncGSignal(senderName: string, signalName: string, parameters: GLib.Variant): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gio.DBusProxy */
+    /* Signals of Gio-2.0.Gio.DBusProxy */
     connect(sigName: "g-properties-changed", callback: (($obj: ManagerProxy, changedProperties: GLib.Variant, invalidatedProperties: string[]) => void)): number
-    connect_after(sigName: "g-properties-changed", callback: (($obj: ManagerProxy, changedProperties: GLib.Variant, invalidatedProperties: string[]) => void)): number
+    on(sigName: "g-properties-changed", callback: (changedProperties: GLib.Variant, invalidatedProperties: string[]) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "g-properties-changed", callback: (changedProperties: GLib.Variant, invalidatedProperties: string[]) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "g-properties-changed", callback: (changedProperties: GLib.Variant, invalidatedProperties: string[]) => void): NodeJS.EventEmitter
     emit(sigName: "g-properties-changed", changedProperties: GLib.Variant, invalidatedProperties: string[]): void
-    on(sigName: "g-properties-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "g-properties-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "g-properties-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "g-signal", callback: (($obj: ManagerProxy, senderName: string | null, signalName: string, parameters: GLib.Variant) => void)): number
-    connect_after(sigName: "g-signal", callback: (($obj: ManagerProxy, senderName: string | null, signalName: string, parameters: GLib.Variant) => void)): number
+    on(sigName: "g-signal", callback: (senderName: string | null, signalName: string, parameters: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "g-signal", callback: (senderName: string | null, signalName: string, parameters: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "g-signal", callback: (senderName: string | null, signalName: string, parameters: GLib.Variant) => void): NodeJS.EventEmitter
     emit(sigName: "g-signal", senderName: string | null, signalName: string, parameters: GLib.Variant): void
-    on(sigName: "g-signal", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "g-signal", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "g-signal", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: ManagerProxy, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: ManagerProxy, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of UDisks.Manager */
+    /* Signals of UDisks-2.0.UDisks.Manager */
     connect(sigName: "handle-enable-modules", callback: (($obj: ManagerProxy, invocation: Gio.DBusMethodInvocation, argEnable: boolean) => boolean)): number
-    connect_after(sigName: "handle-enable-modules", callback: (($obj: ManagerProxy, invocation: Gio.DBusMethodInvocation, argEnable: boolean) => boolean)): number
+    on(sigName: "handle-enable-modules", callback: (invocation: Gio.DBusMethodInvocation, argEnable: boolean) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-enable-modules", callback: (invocation: Gio.DBusMethodInvocation, argEnable: boolean) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-enable-modules", callback: (invocation: Gio.DBusMethodInvocation, argEnable: boolean) => void): NodeJS.EventEmitter
     emit(sigName: "handle-enable-modules", invocation: Gio.DBusMethodInvocation, argEnable: boolean): void
-    on(sigName: "handle-enable-modules", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-enable-modules", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-enable-modules", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "handle-loop-setup", callback: (($obj: ManagerProxy, invocation: Gio.DBusMethodInvocation, fdList: Gio.UnixFDList | null, argFd: GLib.Variant, argOptions: GLib.Variant) => boolean)): number
-    connect_after(sigName: "handle-loop-setup", callback: (($obj: ManagerProxy, invocation: Gio.DBusMethodInvocation, fdList: Gio.UnixFDList | null, argFd: GLib.Variant, argOptions: GLib.Variant) => boolean)): number
+    on(sigName: "handle-loop-setup", callback: (invocation: Gio.DBusMethodInvocation, fdList: Gio.UnixFDList | null, argFd: GLib.Variant, argOptions: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-loop-setup", callback: (invocation: Gio.DBusMethodInvocation, fdList: Gio.UnixFDList | null, argFd: GLib.Variant, argOptions: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-loop-setup", callback: (invocation: Gio.DBusMethodInvocation, fdList: Gio.UnixFDList | null, argFd: GLib.Variant, argOptions: GLib.Variant) => void): NodeJS.EventEmitter
     emit(sigName: "handle-loop-setup", invocation: Gio.DBusMethodInvocation, fdList: Gio.UnixFDList | null, argFd: GLib.Variant, argOptions: GLib.Variant): void
-    on(sigName: "handle-loop-setup", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-loop-setup", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-loop-setup", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "handle-mdraid-create", callback: (($obj: ManagerProxy, invocation: Gio.DBusMethodInvocation, argBlocks: string[], argLevel: string, argName: string, argChunk: number, argOptions: GLib.Variant) => boolean)): number
-    connect_after(sigName: "handle-mdraid-create", callback: (($obj: ManagerProxy, invocation: Gio.DBusMethodInvocation, argBlocks: string[], argLevel: string, argName: string, argChunk: number, argOptions: GLib.Variant) => boolean)): number
+    on(sigName: "handle-mdraid-create", callback: (invocation: Gio.DBusMethodInvocation, argBlocks: string[], argLevel: string, argName: string, argChunk: number, argOptions: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-mdraid-create", callback: (invocation: Gio.DBusMethodInvocation, argBlocks: string[], argLevel: string, argName: string, argChunk: number, argOptions: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-mdraid-create", callback: (invocation: Gio.DBusMethodInvocation, argBlocks: string[], argLevel: string, argName: string, argChunk: number, argOptions: GLib.Variant) => void): NodeJS.EventEmitter
     emit(sigName: "handle-mdraid-create", invocation: Gio.DBusMethodInvocation, argBlocks: string[], argLevel: string, argName: string, argChunk: number, argOptions: GLib.Variant): void
-    on(sigName: "handle-mdraid-create", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-mdraid-create", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-mdraid-create", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::g-default-timeout", callback: (($obj: ManagerProxy, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::g-default-timeout", callback: (($obj: ManagerProxy, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::g-default-timeout", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -5501,14 +4870,14 @@ export interface ManagerSkeleton_ConstructProps extends Gio.DBusInterfaceSkeleto
     version?: string
 }
 export class ManagerSkeleton {
-    /* Properties of Gio.DBusInterfaceSkeleton */
+    /* Properties of Gio-2.0.Gio.DBusInterfaceSkeleton */
     gFlags: Gio.DBusInterfaceSkeletonFlags
-    /* Properties of UDisks.Manager */
+    /* Properties of UDisks-2.0.UDisks.Manager */
     supportedFilesystems: string[]
     version: string
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Gio.DBusInterfaceSkeleton */
+    /* Methods of Gio-2.0.Gio.DBusInterfaceSkeleton */
     export(connection: Gio.DBusConnection, objectPath: string): boolean
     flush(): void
     getConnection(): Gio.DBusConnection | null
@@ -5521,7 +4890,7 @@ export class ManagerSkeleton {
     setFlags(flags: Gio.DBusInterfaceSkeletonFlags): void
     unexport(): void
     unexportFromConnection(connection: Gio.DBusConnection): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -5543,75 +4912,50 @@ export class ManagerSkeleton {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of Gio.DBusInterface */
+    /* Methods of Gio-2.0.Gio.DBusInterface */
     getObject(): Gio.DBusObject | null
     setObject(object?: Gio.DBusObject | null): void
-    /* Methods of UDisks.Manager */
+    /* Methods of UDisks-2.0.UDisks.Manager */
     callEnableModules(argEnable: boolean, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     callEnableModulesFinish(res: Gio.AsyncResult): boolean
     callEnableModulesSync(argEnable: boolean, cancellable?: Gio.Cancellable | null): boolean
     callLoopSetup(argFd: GLib.Variant, argOptions: GLib.Variant, fdList?: Gio.UnixFDList | null, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    callLoopSetupFinish(res: Gio.AsyncResult): [ /* returnType */ boolean, /* outResultingDevice */ string, /* outFdList */ Gio.UnixFDList ]
-    callLoopSetupSync(argFd: GLib.Variant, argOptions: GLib.Variant, fdList?: Gio.UnixFDList | null, cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* outResultingDevice */ string, /* outFdList */ Gio.UnixFDList ]
+    callLoopSetupFinish(res: Gio.AsyncResult): { returnType: boolean, outResultingDevice: string, outFdList: Gio.UnixFDList }
+    callLoopSetupSync(argFd: GLib.Variant, argOptions: GLib.Variant, fdList?: Gio.UnixFDList | null, cancellable?: Gio.Cancellable | null): { returnType: boolean, outResultingDevice: string, outFdList: Gio.UnixFDList }
     callMdraidCreate(argBlocks: string, argLevel: string, argName: string, argChunk: number, argOptions: GLib.Variant, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    callMdraidCreateFinish(res: Gio.AsyncResult): [ /* returnType */ boolean, /* outResultingArray */ string ]
-    callMdraidCreateSync(argBlocks: string, argLevel: string, argName: string, argChunk: number, argOptions: GLib.Variant, cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* outResultingArray */ string ]
+    callMdraidCreateFinish(res: Gio.AsyncResult): { returnType: boolean, outResultingArray: string }
+    callMdraidCreateSync(argBlocks: string, argLevel: string, argName: string, argChunk: number, argOptions: GLib.Variant, cancellable?: Gio.Cancellable | null): { returnType: boolean, outResultingArray: string }
     completeEnableModules(invocation: Gio.DBusMethodInvocation): void
     completeLoopSetup(invocation: Gio.DBusMethodInvocation, fdList: Gio.UnixFDList | null, resultingDevice: string): void
     completeMdraidCreate(invocation: Gio.DBusMethodInvocation, resultingArray: string): void
-    /* Virtual methods of UDisks.ManagerSkeleton */
-    vfuncDupObject(): Gio.DBusObject | null
-    vfuncGetInfo(): Gio.DBusInterfaceInfo
-    vfuncSetObject(object?: Gio.DBusObject | null): void
-    vfuncHandleEnableModules(invocation: Gio.DBusMethodInvocation, argEnable: boolean): boolean
-    vfuncHandleLoopSetup(invocation: Gio.DBusMethodInvocation, fdList: Gio.UnixFDList, argFd: GLib.Variant, argOptions: GLib.Variant): boolean
-    vfuncHandleMdraidCreate(invocation: Gio.DBusMethodInvocation, argBlocks: string, argLevel: string, argName: string, argChunk: number, argOptions: GLib.Variant): boolean
-    /* Virtual methods of Gio.DBusInterfaceSkeleton */
-    vfuncFlush(): void
-    vfuncGAuthorizeMethod(invocation: Gio.DBusMethodInvocation): boolean
-    vfuncGetInfo(): Gio.DBusInterfaceInfo
-    vfuncGetProperties(): GLib.Variant
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gio.DBusInterfaceSkeleton */
+    /* Signals of Gio-2.0.Gio.DBusInterfaceSkeleton */
     connect(sigName: "g-authorize-method", callback: (($obj: ManagerSkeleton, invocation: Gio.DBusMethodInvocation) => boolean)): number
-    connect_after(sigName: "g-authorize-method", callback: (($obj: ManagerSkeleton, invocation: Gio.DBusMethodInvocation) => boolean)): number
+    on(sigName: "g-authorize-method", callback: (invocation: Gio.DBusMethodInvocation) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "g-authorize-method", callback: (invocation: Gio.DBusMethodInvocation) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "g-authorize-method", callback: (invocation: Gio.DBusMethodInvocation) => void): NodeJS.EventEmitter
     emit(sigName: "g-authorize-method", invocation: Gio.DBusMethodInvocation): void
-    on(sigName: "g-authorize-method", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "g-authorize-method", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "g-authorize-method", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: ManagerSkeleton, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: ManagerSkeleton, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of UDisks.Manager */
+    /* Signals of UDisks-2.0.UDisks.Manager */
     connect(sigName: "handle-enable-modules", callback: (($obj: ManagerSkeleton, invocation: Gio.DBusMethodInvocation, argEnable: boolean) => boolean)): number
-    connect_after(sigName: "handle-enable-modules", callback: (($obj: ManagerSkeleton, invocation: Gio.DBusMethodInvocation, argEnable: boolean) => boolean)): number
+    on(sigName: "handle-enable-modules", callback: (invocation: Gio.DBusMethodInvocation, argEnable: boolean) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-enable-modules", callback: (invocation: Gio.DBusMethodInvocation, argEnable: boolean) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-enable-modules", callback: (invocation: Gio.DBusMethodInvocation, argEnable: boolean) => void): NodeJS.EventEmitter
     emit(sigName: "handle-enable-modules", invocation: Gio.DBusMethodInvocation, argEnable: boolean): void
-    on(sigName: "handle-enable-modules", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-enable-modules", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-enable-modules", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "handle-loop-setup", callback: (($obj: ManagerSkeleton, invocation: Gio.DBusMethodInvocation, fdList: Gio.UnixFDList | null, argFd: GLib.Variant, argOptions: GLib.Variant) => boolean)): number
-    connect_after(sigName: "handle-loop-setup", callback: (($obj: ManagerSkeleton, invocation: Gio.DBusMethodInvocation, fdList: Gio.UnixFDList | null, argFd: GLib.Variant, argOptions: GLib.Variant) => boolean)): number
+    on(sigName: "handle-loop-setup", callback: (invocation: Gio.DBusMethodInvocation, fdList: Gio.UnixFDList | null, argFd: GLib.Variant, argOptions: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-loop-setup", callback: (invocation: Gio.DBusMethodInvocation, fdList: Gio.UnixFDList | null, argFd: GLib.Variant, argOptions: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-loop-setup", callback: (invocation: Gio.DBusMethodInvocation, fdList: Gio.UnixFDList | null, argFd: GLib.Variant, argOptions: GLib.Variant) => void): NodeJS.EventEmitter
     emit(sigName: "handle-loop-setup", invocation: Gio.DBusMethodInvocation, fdList: Gio.UnixFDList | null, argFd: GLib.Variant, argOptions: GLib.Variant): void
-    on(sigName: "handle-loop-setup", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-loop-setup", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-loop-setup", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "handle-mdraid-create", callback: (($obj: ManagerSkeleton, invocation: Gio.DBusMethodInvocation, argBlocks: string[], argLevel: string, argName: string, argChunk: number, argOptions: GLib.Variant) => boolean)): number
-    connect_after(sigName: "handle-mdraid-create", callback: (($obj: ManagerSkeleton, invocation: Gio.DBusMethodInvocation, argBlocks: string[], argLevel: string, argName: string, argChunk: number, argOptions: GLib.Variant) => boolean)): number
+    on(sigName: "handle-mdraid-create", callback: (invocation: Gio.DBusMethodInvocation, argBlocks: string[], argLevel: string, argName: string, argChunk: number, argOptions: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-mdraid-create", callback: (invocation: Gio.DBusMethodInvocation, argBlocks: string[], argLevel: string, argName: string, argChunk: number, argOptions: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-mdraid-create", callback: (invocation: Gio.DBusMethodInvocation, argBlocks: string[], argLevel: string, argName: string, argChunk: number, argOptions: GLib.Variant) => void): NodeJS.EventEmitter
     emit(sigName: "handle-mdraid-create", invocation: Gio.DBusMethodInvocation, argBlocks: string[], argLevel: string, argName: string, argChunk: number, argOptions: GLib.Variant): void
-    on(sigName: "handle-mdraid-create", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-mdraid-create", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-mdraid-create", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::g-flags", callback: (($obj: ManagerSkeleton, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::g-flags", callback: (($obj: ManagerSkeleton, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::g-flags", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -5646,9 +4990,9 @@ export class ManagerSkeleton {
 export interface ObjectInfo_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class ObjectInfo {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of UDisks.ObjectInfo */
+    /* Methods of UDisks-2.0.UDisks.ObjectInfo */
     getDescription(): string
     getIcon(): Gio.Icon
     getIconSymbolic(): Gio.Icon
@@ -5659,7 +5003,7 @@ export class ObjectInfo {
     getObject(): Object
     getOneLiner(): string
     getSortKey(): string
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -5681,21 +5025,12 @@ export class ObjectInfo {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: ObjectInfo, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: ObjectInfo, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -5711,16 +5046,16 @@ export class ObjectInfo {
 export interface ObjectManagerClient_ConstructProps extends Gio.DBusObjectManagerClient_ConstructProps {
 }
 export class ObjectManagerClient {
-    /* Properties of Gio.DBusObjectManagerClient */
+    /* Properties of Gio-2.0.Gio.DBusObjectManagerClient */
     readonly nameOwner: string
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Gio.DBusObjectManagerClient */
+    /* Methods of Gio-2.0.Gio.DBusObjectManagerClient */
     getConnection(): Gio.DBusConnection
     getFlags(): Gio.DBusObjectManagerClientFlags
     getName(): string
     getNameOwner(): string | null
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -5742,85 +5077,55 @@ export class ObjectManagerClient {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of Gio.AsyncInitable */
+    /* Methods of Gio-2.0.Gio.AsyncInitable */
     initAsync(ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     initFinish(res: Gio.AsyncResult): boolean
     newFinish(res: Gio.AsyncResult): GObject.Object
-    /* Methods of Gio.DBusObjectManager */
+    /* Methods of Gio-2.0.Gio.DBusObjectManager */
     getInterface(objectPath: string, interfaceName: string): Gio.DBusInterface
     getObject(objectPath: string): Gio.DBusObject
     getObjectPath(): string
     getObjects(): Gio.DBusObject[]
-    /* Methods of Gio.Initable */
+    /* Methods of Gio-2.0.Gio.Initable */
     init(cancellable?: Gio.Cancellable | null): boolean
-    /* Virtual methods of UDisks.ObjectManagerClient */
-    vfuncInitAsync(ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    vfuncInitFinish(res: Gio.AsyncResult): boolean
-    vfuncGetInterface(objectPath: string, interfaceName: string): Gio.DBusInterface
-    vfuncGetObject(objectPath: string): Gio.DBusObject
-    vfuncGetObjectPath(): string
-    vfuncGetObjects(): Gio.DBusObject[]
-    vfuncInterfaceAdded(object: Gio.DBusObject, interface: Gio.DBusInterface): void
-    vfuncInterfaceRemoved(object: Gio.DBusObject, interface: Gio.DBusInterface): void
-    vfuncObjectAdded(object: Gio.DBusObject): void
-    vfuncObjectRemoved(object: Gio.DBusObject): void
-    vfuncInit(cancellable?: Gio.Cancellable | null): boolean
-    /* Virtual methods of Gio.DBusObjectManagerClient */
-    vfuncInterfaceProxyPropertiesChanged(objectProxy: Gio.DBusObjectProxy, interfaceProxy: Gio.DBusProxy, changedProperties: GLib.Variant, invalidatedProperties: string): void
-    vfuncInterfaceProxySignal(objectProxy: Gio.DBusObjectProxy, interfaceProxy: Gio.DBusProxy, senderName: string, signalName: string, parameters: GLib.Variant): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gio.DBusObjectManagerClient */
+    /* Signals of Gio-2.0.Gio.DBusObjectManagerClient */
     connect(sigName: "interface-proxy-properties-changed", callback: (($obj: ObjectManagerClient, objectProxy: Gio.DBusObjectProxy, interfaceProxy: Gio.DBusProxy, changedProperties: GLib.Variant, invalidatedProperties: string[]) => void)): number
-    connect_after(sigName: "interface-proxy-properties-changed", callback: (($obj: ObjectManagerClient, objectProxy: Gio.DBusObjectProxy, interfaceProxy: Gio.DBusProxy, changedProperties: GLib.Variant, invalidatedProperties: string[]) => void)): number
+    on(sigName: "interface-proxy-properties-changed", callback: (objectProxy: Gio.DBusObjectProxy, interfaceProxy: Gio.DBusProxy, changedProperties: GLib.Variant, invalidatedProperties: string[]) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "interface-proxy-properties-changed", callback: (objectProxy: Gio.DBusObjectProxy, interfaceProxy: Gio.DBusProxy, changedProperties: GLib.Variant, invalidatedProperties: string[]) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "interface-proxy-properties-changed", callback: (objectProxy: Gio.DBusObjectProxy, interfaceProxy: Gio.DBusProxy, changedProperties: GLib.Variant, invalidatedProperties: string[]) => void): NodeJS.EventEmitter
     emit(sigName: "interface-proxy-properties-changed", objectProxy: Gio.DBusObjectProxy, interfaceProxy: Gio.DBusProxy, changedProperties: GLib.Variant, invalidatedProperties: string[]): void
-    on(sigName: "interface-proxy-properties-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "interface-proxy-properties-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "interface-proxy-properties-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "interface-proxy-signal", callback: (($obj: ObjectManagerClient, objectProxy: Gio.DBusObjectProxy, interfaceProxy: Gio.DBusProxy, senderName: string, signalName: string, parameters: GLib.Variant) => void)): number
-    connect_after(sigName: "interface-proxy-signal", callback: (($obj: ObjectManagerClient, objectProxy: Gio.DBusObjectProxy, interfaceProxy: Gio.DBusProxy, senderName: string, signalName: string, parameters: GLib.Variant) => void)): number
+    on(sigName: "interface-proxy-signal", callback: (objectProxy: Gio.DBusObjectProxy, interfaceProxy: Gio.DBusProxy, senderName: string, signalName: string, parameters: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "interface-proxy-signal", callback: (objectProxy: Gio.DBusObjectProxy, interfaceProxy: Gio.DBusProxy, senderName: string, signalName: string, parameters: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "interface-proxy-signal", callback: (objectProxy: Gio.DBusObjectProxy, interfaceProxy: Gio.DBusProxy, senderName: string, signalName: string, parameters: GLib.Variant) => void): NodeJS.EventEmitter
     emit(sigName: "interface-proxy-signal", objectProxy: Gio.DBusObjectProxy, interfaceProxy: Gio.DBusProxy, senderName: string, signalName: string, parameters: GLib.Variant): void
-    on(sigName: "interface-proxy-signal", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "interface-proxy-signal", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "interface-proxy-signal", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: ObjectManagerClient, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: ObjectManagerClient, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of Gio.DBusObjectManager */
+    /* Signals of Gio-2.0.Gio.DBusObjectManager */
     connect(sigName: "interface-added", callback: (($obj: ObjectManagerClient, object: Gio.DBusObject, interface: Gio.DBusInterface) => void)): number
-    connect_after(sigName: "interface-added", callback: (($obj: ObjectManagerClient, object: Gio.DBusObject, interface: Gio.DBusInterface) => void)): number
+    on(sigName: "interface-added", callback: (object: Gio.DBusObject, interface: Gio.DBusInterface) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "interface-added", callback: (object: Gio.DBusObject, interface: Gio.DBusInterface) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "interface-added", callback: (object: Gio.DBusObject, interface: Gio.DBusInterface) => void): NodeJS.EventEmitter
     emit(sigName: "interface-added", object: Gio.DBusObject, interface: Gio.DBusInterface): void
-    on(sigName: "interface-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "interface-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "interface-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "interface-removed", callback: (($obj: ObjectManagerClient, object: Gio.DBusObject, interface: Gio.DBusInterface) => void)): number
-    connect_after(sigName: "interface-removed", callback: (($obj: ObjectManagerClient, object: Gio.DBusObject, interface: Gio.DBusInterface) => void)): number
+    on(sigName: "interface-removed", callback: (object: Gio.DBusObject, interface: Gio.DBusInterface) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "interface-removed", callback: (object: Gio.DBusObject, interface: Gio.DBusInterface) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "interface-removed", callback: (object: Gio.DBusObject, interface: Gio.DBusInterface) => void): NodeJS.EventEmitter
     emit(sigName: "interface-removed", object: Gio.DBusObject, interface: Gio.DBusInterface): void
-    on(sigName: "interface-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "interface-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "interface-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "object-added", callback: (($obj: ObjectManagerClient, object: Gio.DBusObject) => void)): number
-    connect_after(sigName: "object-added", callback: (($obj: ObjectManagerClient, object: Gio.DBusObject) => void)): number
+    on(sigName: "object-added", callback: (object: Gio.DBusObject) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "object-added", callback: (object: Gio.DBusObject) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "object-added", callback: (object: Gio.DBusObject) => void): NodeJS.EventEmitter
     emit(sigName: "object-added", object: Gio.DBusObject): void
-    on(sigName: "object-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "object-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "object-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "object-removed", callback: (($obj: ObjectManagerClient, object: Gio.DBusObject) => void)): number
-    connect_after(sigName: "object-removed", callback: (($obj: ObjectManagerClient, object: Gio.DBusObject) => void)): number
+    on(sigName: "object-removed", callback: (object: Gio.DBusObject) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "object-removed", callback: (object: Gio.DBusObject) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "object-removed", callback: (object: Gio.DBusObject) => void): NodeJS.EventEmitter
     emit(sigName: "object-removed", object: Gio.DBusObject): void
-    on(sigName: "object-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "object-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "object-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::name-owner", callback: (($obj: ObjectManagerClient, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::name-owner", callback: (($obj: ObjectManagerClient, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::name-owner", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -5865,7 +5170,7 @@ export interface ObjectProxy_ConstructProps extends Gio.DBusObjectProxy_Construc
     swapspace?: Swapspace
 }
 export class ObjectProxy {
-    /* Properties of UDisks.Object */
+    /* Properties of UDisks-2.0.UDisks.Object */
     block: Block
     drive: Drive
     driveAta: DriveAta
@@ -5878,11 +5183,11 @@ export class ObjectProxy {
     partition: Partition
     partitionTable: PartitionTable
     swapspace: Swapspace
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Gio.DBusObjectProxy */
+    /* Methods of Gio-2.0.Gio.DBusObjectProxy */
     getConnection(): Gio.DBusConnection
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -5904,11 +5209,11 @@ export class ObjectProxy {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of Gio.DBusObject */
+    /* Methods of Gio-2.0.Gio.DBusObject */
     getInterface(interfaceName: string): Gio.DBusInterface | null
     getInterfaces(): Gio.DBusInterface[]
     getObjectPath(): string
-    /* Methods of UDisks.Object */
+    /* Methods of UDisks-2.0.UDisks.Object */
     getBlock(): Block
     getDrive(): Drive
     getDriveAta(): DriveAta
@@ -5921,40 +5226,23 @@ export class ObjectProxy {
     getPartition(): Partition
     getPartitionTable(): PartitionTable
     getSwapspace(): Swapspace
-    /* Virtual methods of UDisks.ObjectProxy */
-    vfuncGetInterface(interfaceName: string): Gio.DBusInterface | null
-    vfuncGetInterfaces(): Gio.DBusInterface[]
-    vfuncGetObjectPath(): string
-    vfuncInterfaceAdded(interface: Gio.DBusInterface): void
-    vfuncInterfaceRemoved(interface: Gio.DBusInterface): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: ObjectProxy, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: ObjectProxy, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of Gio.DBusObject */
+    /* Signals of Gio-2.0.Gio.DBusObject */
     connect(sigName: "interface-added", callback: (($obj: ObjectProxy, interface: Gio.DBusInterface) => void)): number
-    connect_after(sigName: "interface-added", callback: (($obj: ObjectProxy, interface: Gio.DBusInterface) => void)): number
+    on(sigName: "interface-added", callback: (interface: Gio.DBusInterface) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "interface-added", callback: (interface: Gio.DBusInterface) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "interface-added", callback: (interface: Gio.DBusInterface) => void): NodeJS.EventEmitter
     emit(sigName: "interface-added", interface: Gio.DBusInterface): void
-    on(sigName: "interface-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "interface-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "interface-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "interface-removed", callback: (($obj: ObjectProxy, interface: Gio.DBusInterface) => void)): number
-    connect_after(sigName: "interface-removed", callback: (($obj: ObjectProxy, interface: Gio.DBusInterface) => void)): number
+    on(sigName: "interface-removed", callback: (interface: Gio.DBusInterface) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "interface-removed", callback: (interface: Gio.DBusInterface) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "interface-removed", callback: (interface: Gio.DBusInterface) => void): NodeJS.EventEmitter
     emit(sigName: "interface-removed", interface: Gio.DBusInterface): void
-    on(sigName: "interface-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "interface-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "interface-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::block", callback: (($obj: ObjectProxy, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::block", callback: (($obj: ObjectProxy, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::block", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -6044,9 +5332,9 @@ export interface ObjectSkeleton_ConstructProps extends Gio.DBusObjectSkeleton_Co
     swapspace?: Swapspace
 }
 export class ObjectSkeleton {
-    /* Properties of Gio.DBusObjectSkeleton */
+    /* Properties of Gio-2.0.Gio.DBusObjectSkeleton */
     gObjectPath: string
-    /* Properties of UDisks.Object */
+    /* Properties of UDisks-2.0.UDisks.Object */
     block: Block
     drive: Drive
     driveAta: DriveAta
@@ -6059,9 +5347,9 @@ export class ObjectSkeleton {
     partition: Partition
     partitionTable: PartitionTable
     swapspace: Swapspace
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of UDisks.ObjectSkeleton */
+    /* Methods of UDisks-2.0.UDisks.ObjectSkeleton */
     setBlock(interface?: Block | null): void
     setDrive(interface?: Drive | null): void
     setDriveAta(interface?: DriveAta | null): void
@@ -6074,13 +5362,13 @@ export class ObjectSkeleton {
     setPartition(interface?: Partition | null): void
     setPartitionTable(interface?: PartitionTable | null): void
     setSwapspace(interface?: Swapspace | null): void
-    /* Methods of Gio.DBusObjectSkeleton */
+    /* Methods of Gio-2.0.Gio.DBusObjectSkeleton */
     addInterface(interface: Gio.DBusInterfaceSkeleton): void
     flush(): void
     removeInterface(interface: Gio.DBusInterfaceSkeleton): void
     removeInterfaceByName(interfaceName: string): void
     setObjectPath(objectPath: string): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -6102,11 +5390,11 @@ export class ObjectSkeleton {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of Gio.DBusObject */
+    /* Methods of Gio-2.0.Gio.DBusObject */
     getInterface(interfaceName: string): Gio.DBusInterface | null
     getInterfaces(): Gio.DBusInterface[]
     getObjectPath(): string
-    /* Methods of UDisks.Object */
+    /* Methods of UDisks-2.0.UDisks.Object */
     getBlock(): Block
     getDrive(): Drive
     getDriveAta(): DriveAta
@@ -6119,49 +5407,29 @@ export class ObjectSkeleton {
     getPartition(): Partition
     getPartitionTable(): PartitionTable
     getSwapspace(): Swapspace
-    /* Virtual methods of UDisks.ObjectSkeleton */
-    vfuncGetInterface(interfaceName: string): Gio.DBusInterface | null
-    vfuncGetInterfaces(): Gio.DBusInterface[]
-    vfuncGetObjectPath(): string
-    vfuncInterfaceAdded(interface: Gio.DBusInterface): void
-    vfuncInterfaceRemoved(interface: Gio.DBusInterface): void
-    /* Virtual methods of Gio.DBusObjectSkeleton */
-    vfuncAuthorizeMethod(interface: Gio.DBusInterfaceSkeleton, invocation: Gio.DBusMethodInvocation): boolean
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gio.DBusObjectSkeleton */
+    /* Signals of Gio-2.0.Gio.DBusObjectSkeleton */
     connect(sigName: "authorize-method", callback: (($obj: ObjectSkeleton, interface: Gio.DBusInterfaceSkeleton, invocation: Gio.DBusMethodInvocation) => boolean)): number
-    connect_after(sigName: "authorize-method", callback: (($obj: ObjectSkeleton, interface: Gio.DBusInterfaceSkeleton, invocation: Gio.DBusMethodInvocation) => boolean)): number
+    on(sigName: "authorize-method", callback: (interface: Gio.DBusInterfaceSkeleton, invocation: Gio.DBusMethodInvocation) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "authorize-method", callback: (interface: Gio.DBusInterfaceSkeleton, invocation: Gio.DBusMethodInvocation) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "authorize-method", callback: (interface: Gio.DBusInterfaceSkeleton, invocation: Gio.DBusMethodInvocation) => void): NodeJS.EventEmitter
     emit(sigName: "authorize-method", interface: Gio.DBusInterfaceSkeleton, invocation: Gio.DBusMethodInvocation): void
-    on(sigName: "authorize-method", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "authorize-method", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "authorize-method", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: ObjectSkeleton, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: ObjectSkeleton, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of Gio.DBusObject */
+    /* Signals of Gio-2.0.Gio.DBusObject */
     connect(sigName: "interface-added", callback: (($obj: ObjectSkeleton, interface: Gio.DBusInterface) => void)): number
-    connect_after(sigName: "interface-added", callback: (($obj: ObjectSkeleton, interface: Gio.DBusInterface) => void)): number
+    on(sigName: "interface-added", callback: (interface: Gio.DBusInterface) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "interface-added", callback: (interface: Gio.DBusInterface) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "interface-added", callback: (interface: Gio.DBusInterface) => void): NodeJS.EventEmitter
     emit(sigName: "interface-added", interface: Gio.DBusInterface): void
-    on(sigName: "interface-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "interface-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "interface-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "interface-removed", callback: (($obj: ObjectSkeleton, interface: Gio.DBusInterface) => void)): number
-    connect_after(sigName: "interface-removed", callback: (($obj: ObjectSkeleton, interface: Gio.DBusInterface) => void)): number
+    on(sigName: "interface-removed", callback: (interface: Gio.DBusInterface) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "interface-removed", callback: (interface: Gio.DBusInterface) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "interface-removed", callback: (interface: Gio.DBusInterface) => void): NodeJS.EventEmitter
     emit(sigName: "interface-removed", interface: Gio.DBusInterface): void
-    on(sigName: "interface-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "interface-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "interface-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::g-object-path", callback: (($obj: ObjectSkeleton, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::g-object-path", callback: (($obj: ObjectSkeleton, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::g-object-path", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -6254,11 +5522,11 @@ export interface PartitionProxy_ConstructProps extends Gio.DBusProxy_ConstructPr
     uuid?: string
 }
 export class PartitionProxy {
-    /* Properties of Gio.DBusProxy */
+    /* Properties of Gio-2.0.Gio.DBusProxy */
     gDefaultTimeout: number
     gInterfaceInfo: Gio.DBusInterfaceInfo
     readonly gNameOwner: string
-    /* Properties of UDisks.Partition */
+    /* Properties of UDisks-2.0.UDisks.Partition */
     flags: number
     isContained: boolean
     isContainer: boolean
@@ -6269,15 +5537,15 @@ export class PartitionProxy {
     table: string
     type: string
     uuid: string
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Gio.DBusProxy */
+    /* Methods of Gio-2.0.Gio.DBusProxy */
     call(methodName: string, parameters: GLib.Variant | null, flags: Gio.DBusCallFlags, timeoutMsec: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     callFinish(res: Gio.AsyncResult): GLib.Variant
     callSync(methodName: string, parameters: GLib.Variant | null, flags: Gio.DBusCallFlags, timeoutMsec: number, cancellable?: Gio.Cancellable | null): GLib.Variant
     callWithUnixFdList(methodName: string, parameters: GLib.Variant | null, flags: Gio.DBusCallFlags, timeoutMsec: number, fdList?: Gio.UnixFDList | null, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    callWithUnixFdListFinish(res: Gio.AsyncResult): [ /* returnType */ GLib.Variant, /* outFdList */ Gio.UnixFDList | null ]
-    callWithUnixFdListSync(methodName: string, parameters: GLib.Variant | null, flags: Gio.DBusCallFlags, timeoutMsec: number, fdList?: Gio.UnixFDList | null, cancellable?: Gio.Cancellable | null): [ /* returnType */ GLib.Variant, /* outFdList */ Gio.UnixFDList | null ]
+    callWithUnixFdListFinish(res: Gio.AsyncResult): { returnType: GLib.Variant, outFdList: Gio.UnixFDList | null }
+    callWithUnixFdListSync(methodName: string, parameters: GLib.Variant | null, flags: Gio.DBusCallFlags, timeoutMsec: number, fdList?: Gio.UnixFDList | null, cancellable?: Gio.Cancellable | null): { returnType: GLib.Variant, outFdList: Gio.UnixFDList | null }
     getCachedProperty(propertyName: string): GLib.Variant | null
     getCachedPropertyNames(): string[] | null
     getConnection(): Gio.DBusConnection
@@ -6291,7 +5559,7 @@ export class PartitionProxy {
     setCachedProperty(propertyName: string, value?: GLib.Variant | null): void
     setDefaultTimeout(timeoutMsec: number): void
     setInterfaceInfo(info?: Gio.DBusInterfaceInfo | null): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -6313,17 +5581,17 @@ export class PartitionProxy {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of Gio.AsyncInitable */
+    /* Methods of Gio-2.0.Gio.AsyncInitable */
     initAsync(ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     initFinish(res: Gio.AsyncResult): boolean
     newFinish(res: Gio.AsyncResult): GObject.Object
-    /* Methods of Gio.DBusInterface */
+    /* Methods of Gio-2.0.Gio.DBusInterface */
     getObject(): Gio.DBusObject | null
     getInfo(): Gio.DBusInterfaceInfo
     setObject(object?: Gio.DBusObject | null): void
-    /* Methods of Gio.Initable */
+    /* Methods of Gio-2.0.Gio.Initable */
     init(cancellable?: Gio.Cancellable | null): boolean
-    /* Methods of UDisks.Partition */
+    /* Methods of UDisks-2.0.UDisks.Partition */
     callDelete(argOptions: GLib.Variant, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     callDeleteFinish(res: Gio.AsyncResult): boolean
     callDeleteSync(argOptions: GLib.Variant, cancellable?: Gio.Cancellable | null): boolean
@@ -6340,73 +5608,44 @@ export class PartitionProxy {
     completeSetFlags(invocation: Gio.DBusMethodInvocation): void
     completeSetName(invocation: Gio.DBusMethodInvocation): void
     completeSetType(invocation: Gio.DBusMethodInvocation): void
-    /* Virtual methods of UDisks.PartitionProxy */
-    vfuncInitAsync(ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    vfuncInitFinish(res: Gio.AsyncResult): boolean
-    vfuncDupObject(): Gio.DBusObject | null
-    vfuncGetInfo(): Gio.DBusInterfaceInfo
-    vfuncSetObject(object?: Gio.DBusObject | null): void
-    vfuncInit(cancellable?: Gio.Cancellable | null): boolean
-    vfuncHandleDelete(invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant): boolean
-    vfuncHandleSetFlags(invocation: Gio.DBusMethodInvocation, argFlags: number, argOptions: GLib.Variant): boolean
-    vfuncHandleSetName(invocation: Gio.DBusMethodInvocation, argName: string, argOptions: GLib.Variant): boolean
-    vfuncHandleSetType(invocation: Gio.DBusMethodInvocation, argType: string, argOptions: GLib.Variant): boolean
-    /* Virtual methods of Gio.DBusProxy */
-    vfuncGPropertiesChanged(changedProperties: GLib.Variant, invalidatedProperties: string): void
-    vfuncGSignal(senderName: string, signalName: string, parameters: GLib.Variant): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gio.DBusProxy */
+    /* Signals of Gio-2.0.Gio.DBusProxy */
     connect(sigName: "g-properties-changed", callback: (($obj: PartitionProxy, changedProperties: GLib.Variant, invalidatedProperties: string[]) => void)): number
-    connect_after(sigName: "g-properties-changed", callback: (($obj: PartitionProxy, changedProperties: GLib.Variant, invalidatedProperties: string[]) => void)): number
+    on(sigName: "g-properties-changed", callback: (changedProperties: GLib.Variant, invalidatedProperties: string[]) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "g-properties-changed", callback: (changedProperties: GLib.Variant, invalidatedProperties: string[]) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "g-properties-changed", callback: (changedProperties: GLib.Variant, invalidatedProperties: string[]) => void): NodeJS.EventEmitter
     emit(sigName: "g-properties-changed", changedProperties: GLib.Variant, invalidatedProperties: string[]): void
-    on(sigName: "g-properties-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "g-properties-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "g-properties-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "g-signal", callback: (($obj: PartitionProxy, senderName: string | null, signalName: string, parameters: GLib.Variant) => void)): number
-    connect_after(sigName: "g-signal", callback: (($obj: PartitionProxy, senderName: string | null, signalName: string, parameters: GLib.Variant) => void)): number
+    on(sigName: "g-signal", callback: (senderName: string | null, signalName: string, parameters: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "g-signal", callback: (senderName: string | null, signalName: string, parameters: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "g-signal", callback: (senderName: string | null, signalName: string, parameters: GLib.Variant) => void): NodeJS.EventEmitter
     emit(sigName: "g-signal", senderName: string | null, signalName: string, parameters: GLib.Variant): void
-    on(sigName: "g-signal", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "g-signal", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "g-signal", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: PartitionProxy, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: PartitionProxy, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of UDisks.Partition */
+    /* Signals of UDisks-2.0.UDisks.Partition */
     connect(sigName: "handle-delete", callback: (($obj: PartitionProxy, invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant) => boolean)): number
-    connect_after(sigName: "handle-delete", callback: (($obj: PartitionProxy, invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant) => boolean)): number
+    on(sigName: "handle-delete", callback: (invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-delete", callback: (invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-delete", callback: (invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant) => void): NodeJS.EventEmitter
     emit(sigName: "handle-delete", invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant): void
-    on(sigName: "handle-delete", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-delete", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-delete", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "handle-set-flags", callback: (($obj: PartitionProxy, invocation: Gio.DBusMethodInvocation, argFlags: number, argOptions: GLib.Variant) => boolean)): number
-    connect_after(sigName: "handle-set-flags", callback: (($obj: PartitionProxy, invocation: Gio.DBusMethodInvocation, argFlags: number, argOptions: GLib.Variant) => boolean)): number
+    on(sigName: "handle-set-flags", callback: (invocation: Gio.DBusMethodInvocation, argFlags: number, argOptions: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-set-flags", callback: (invocation: Gio.DBusMethodInvocation, argFlags: number, argOptions: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-set-flags", callback: (invocation: Gio.DBusMethodInvocation, argFlags: number, argOptions: GLib.Variant) => void): NodeJS.EventEmitter
     emit(sigName: "handle-set-flags", invocation: Gio.DBusMethodInvocation, argFlags: number, argOptions: GLib.Variant): void
-    on(sigName: "handle-set-flags", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-set-flags", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-set-flags", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "handle-set-name", callback: (($obj: PartitionProxy, invocation: Gio.DBusMethodInvocation, argName: string, argOptions: GLib.Variant) => boolean)): number
-    connect_after(sigName: "handle-set-name", callback: (($obj: PartitionProxy, invocation: Gio.DBusMethodInvocation, argName: string, argOptions: GLib.Variant) => boolean)): number
+    on(sigName: "handle-set-name", callback: (invocation: Gio.DBusMethodInvocation, argName: string, argOptions: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-set-name", callback: (invocation: Gio.DBusMethodInvocation, argName: string, argOptions: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-set-name", callback: (invocation: Gio.DBusMethodInvocation, argName: string, argOptions: GLib.Variant) => void): NodeJS.EventEmitter
     emit(sigName: "handle-set-name", invocation: Gio.DBusMethodInvocation, argName: string, argOptions: GLib.Variant): void
-    on(sigName: "handle-set-name", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-set-name", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-set-name", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "handle-set-type", callback: (($obj: PartitionProxy, invocation: Gio.DBusMethodInvocation, argType: string, argOptions: GLib.Variant) => boolean)): number
-    connect_after(sigName: "handle-set-type", callback: (($obj: PartitionProxy, invocation: Gio.DBusMethodInvocation, argType: string, argOptions: GLib.Variant) => boolean)): number
+    on(sigName: "handle-set-type", callback: (invocation: Gio.DBusMethodInvocation, argType: string, argOptions: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-set-type", callback: (invocation: Gio.DBusMethodInvocation, argType: string, argOptions: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-set-type", callback: (invocation: Gio.DBusMethodInvocation, argType: string, argOptions: GLib.Variant) => void): NodeJS.EventEmitter
     emit(sigName: "handle-set-type", invocation: Gio.DBusMethodInvocation, argType: string, argOptions: GLib.Variant): void
-    on(sigName: "handle-set-type", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-set-type", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-set-type", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::g-default-timeout", callback: (($obj: PartitionProxy, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::g-default-timeout", callback: (($obj: PartitionProxy, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::g-default-timeout", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -6510,9 +5749,9 @@ export interface PartitionSkeleton_ConstructProps extends Gio.DBusInterfaceSkele
     uuid?: string
 }
 export class PartitionSkeleton {
-    /* Properties of Gio.DBusInterfaceSkeleton */
+    /* Properties of Gio-2.0.Gio.DBusInterfaceSkeleton */
     gFlags: Gio.DBusInterfaceSkeletonFlags
-    /* Properties of UDisks.Partition */
+    /* Properties of UDisks-2.0.UDisks.Partition */
     flags: number
     isContained: boolean
     isContainer: boolean
@@ -6523,9 +5762,9 @@ export class PartitionSkeleton {
     table: string
     type: string
     uuid: string
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Gio.DBusInterfaceSkeleton */
+    /* Methods of Gio-2.0.Gio.DBusInterfaceSkeleton */
     export(connection: Gio.DBusConnection, objectPath: string): boolean
     flush(): void
     getConnection(): Gio.DBusConnection | null
@@ -6538,7 +5777,7 @@ export class PartitionSkeleton {
     setFlags(flags: Gio.DBusInterfaceSkeletonFlags): void
     unexport(): void
     unexportFromConnection(connection: Gio.DBusConnection): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -6560,10 +5799,10 @@ export class PartitionSkeleton {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of Gio.DBusInterface */
+    /* Methods of Gio-2.0.Gio.DBusInterface */
     getObject(): Gio.DBusObject | null
     setObject(object?: Gio.DBusObject | null): void
-    /* Methods of UDisks.Partition */
+    /* Methods of UDisks-2.0.UDisks.Partition */
     callDelete(argOptions: GLib.Variant, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     callDeleteFinish(res: Gio.AsyncResult): boolean
     callDeleteSync(argOptions: GLib.Variant, cancellable?: Gio.Cancellable | null): boolean
@@ -6580,66 +5819,39 @@ export class PartitionSkeleton {
     completeSetFlags(invocation: Gio.DBusMethodInvocation): void
     completeSetName(invocation: Gio.DBusMethodInvocation): void
     completeSetType(invocation: Gio.DBusMethodInvocation): void
-    /* Virtual methods of UDisks.PartitionSkeleton */
-    vfuncDupObject(): Gio.DBusObject | null
-    vfuncGetInfo(): Gio.DBusInterfaceInfo
-    vfuncSetObject(object?: Gio.DBusObject | null): void
-    vfuncHandleDelete(invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant): boolean
-    vfuncHandleSetFlags(invocation: Gio.DBusMethodInvocation, argFlags: number, argOptions: GLib.Variant): boolean
-    vfuncHandleSetName(invocation: Gio.DBusMethodInvocation, argName: string, argOptions: GLib.Variant): boolean
-    vfuncHandleSetType(invocation: Gio.DBusMethodInvocation, argType: string, argOptions: GLib.Variant): boolean
-    /* Virtual methods of Gio.DBusInterfaceSkeleton */
-    vfuncFlush(): void
-    vfuncGAuthorizeMethod(invocation: Gio.DBusMethodInvocation): boolean
-    vfuncGetInfo(): Gio.DBusInterfaceInfo
-    vfuncGetProperties(): GLib.Variant
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gio.DBusInterfaceSkeleton */
+    /* Signals of Gio-2.0.Gio.DBusInterfaceSkeleton */
     connect(sigName: "g-authorize-method", callback: (($obj: PartitionSkeleton, invocation: Gio.DBusMethodInvocation) => boolean)): number
-    connect_after(sigName: "g-authorize-method", callback: (($obj: PartitionSkeleton, invocation: Gio.DBusMethodInvocation) => boolean)): number
+    on(sigName: "g-authorize-method", callback: (invocation: Gio.DBusMethodInvocation) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "g-authorize-method", callback: (invocation: Gio.DBusMethodInvocation) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "g-authorize-method", callback: (invocation: Gio.DBusMethodInvocation) => void): NodeJS.EventEmitter
     emit(sigName: "g-authorize-method", invocation: Gio.DBusMethodInvocation): void
-    on(sigName: "g-authorize-method", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "g-authorize-method", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "g-authorize-method", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: PartitionSkeleton, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: PartitionSkeleton, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of UDisks.Partition */
+    /* Signals of UDisks-2.0.UDisks.Partition */
     connect(sigName: "handle-delete", callback: (($obj: PartitionSkeleton, invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant) => boolean)): number
-    connect_after(sigName: "handle-delete", callback: (($obj: PartitionSkeleton, invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant) => boolean)): number
+    on(sigName: "handle-delete", callback: (invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-delete", callback: (invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-delete", callback: (invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant) => void): NodeJS.EventEmitter
     emit(sigName: "handle-delete", invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant): void
-    on(sigName: "handle-delete", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-delete", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-delete", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "handle-set-flags", callback: (($obj: PartitionSkeleton, invocation: Gio.DBusMethodInvocation, argFlags: number, argOptions: GLib.Variant) => boolean)): number
-    connect_after(sigName: "handle-set-flags", callback: (($obj: PartitionSkeleton, invocation: Gio.DBusMethodInvocation, argFlags: number, argOptions: GLib.Variant) => boolean)): number
+    on(sigName: "handle-set-flags", callback: (invocation: Gio.DBusMethodInvocation, argFlags: number, argOptions: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-set-flags", callback: (invocation: Gio.DBusMethodInvocation, argFlags: number, argOptions: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-set-flags", callback: (invocation: Gio.DBusMethodInvocation, argFlags: number, argOptions: GLib.Variant) => void): NodeJS.EventEmitter
     emit(sigName: "handle-set-flags", invocation: Gio.DBusMethodInvocation, argFlags: number, argOptions: GLib.Variant): void
-    on(sigName: "handle-set-flags", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-set-flags", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-set-flags", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "handle-set-name", callback: (($obj: PartitionSkeleton, invocation: Gio.DBusMethodInvocation, argName: string, argOptions: GLib.Variant) => boolean)): number
-    connect_after(sigName: "handle-set-name", callback: (($obj: PartitionSkeleton, invocation: Gio.DBusMethodInvocation, argName: string, argOptions: GLib.Variant) => boolean)): number
+    on(sigName: "handle-set-name", callback: (invocation: Gio.DBusMethodInvocation, argName: string, argOptions: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-set-name", callback: (invocation: Gio.DBusMethodInvocation, argName: string, argOptions: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-set-name", callback: (invocation: Gio.DBusMethodInvocation, argName: string, argOptions: GLib.Variant) => void): NodeJS.EventEmitter
     emit(sigName: "handle-set-name", invocation: Gio.DBusMethodInvocation, argName: string, argOptions: GLib.Variant): void
-    on(sigName: "handle-set-name", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-set-name", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-set-name", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "handle-set-type", callback: (($obj: PartitionSkeleton, invocation: Gio.DBusMethodInvocation, argType: string, argOptions: GLib.Variant) => boolean)): number
-    connect_after(sigName: "handle-set-type", callback: (($obj: PartitionSkeleton, invocation: Gio.DBusMethodInvocation, argType: string, argOptions: GLib.Variant) => boolean)): number
+    on(sigName: "handle-set-type", callback: (invocation: Gio.DBusMethodInvocation, argType: string, argOptions: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-set-type", callback: (invocation: Gio.DBusMethodInvocation, argType: string, argOptions: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-set-type", callback: (invocation: Gio.DBusMethodInvocation, argType: string, argOptions: GLib.Variant) => void): NodeJS.EventEmitter
     emit(sigName: "handle-set-type", invocation: Gio.DBusMethodInvocation, argType: string, argOptions: GLib.Variant): void
-    on(sigName: "handle-set-type", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-set-type", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-set-type", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::g-flags", callback: (($obj: PartitionSkeleton, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::g-flags", callback: (($obj: PartitionSkeleton, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::g-flags", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -6715,21 +5927,21 @@ export interface PartitionTableProxy_ConstructProps extends Gio.DBusProxy_Constr
     type?: string
 }
 export class PartitionTableProxy {
-    /* Properties of Gio.DBusProxy */
+    /* Properties of Gio-2.0.Gio.DBusProxy */
     gDefaultTimeout: number
     gInterfaceInfo: Gio.DBusInterfaceInfo
     readonly gNameOwner: string
-    /* Properties of UDisks.PartitionTable */
+    /* Properties of UDisks-2.0.UDisks.PartitionTable */
     type: string
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Gio.DBusProxy */
+    /* Methods of Gio-2.0.Gio.DBusProxy */
     call(methodName: string, parameters: GLib.Variant | null, flags: Gio.DBusCallFlags, timeoutMsec: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     callFinish(res: Gio.AsyncResult): GLib.Variant
     callSync(methodName: string, parameters: GLib.Variant | null, flags: Gio.DBusCallFlags, timeoutMsec: number, cancellable?: Gio.Cancellable | null): GLib.Variant
     callWithUnixFdList(methodName: string, parameters: GLib.Variant | null, flags: Gio.DBusCallFlags, timeoutMsec: number, fdList?: Gio.UnixFDList | null, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    callWithUnixFdListFinish(res: Gio.AsyncResult): [ /* returnType */ GLib.Variant, /* outFdList */ Gio.UnixFDList | null ]
-    callWithUnixFdListSync(methodName: string, parameters: GLib.Variant | null, flags: Gio.DBusCallFlags, timeoutMsec: number, fdList?: Gio.UnixFDList | null, cancellable?: Gio.Cancellable | null): [ /* returnType */ GLib.Variant, /* outFdList */ Gio.UnixFDList | null ]
+    callWithUnixFdListFinish(res: Gio.AsyncResult): { returnType: GLib.Variant, outFdList: Gio.UnixFDList | null }
+    callWithUnixFdListSync(methodName: string, parameters: GLib.Variant | null, flags: Gio.DBusCallFlags, timeoutMsec: number, fdList?: Gio.UnixFDList | null, cancellable?: Gio.Cancellable | null): { returnType: GLib.Variant, outFdList: Gio.UnixFDList | null }
     getCachedProperty(propertyName: string): GLib.Variant | null
     getCachedPropertyNames(): string[] | null
     getConnection(): Gio.DBusConnection
@@ -6743,7 +5955,7 @@ export class PartitionTableProxy {
     setCachedProperty(propertyName: string, value?: GLib.Variant | null): void
     setDefaultTimeout(timeoutMsec: number): void
     setInterfaceInfo(info?: Gio.DBusInterfaceInfo | null): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -6765,78 +5977,53 @@ export class PartitionTableProxy {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of Gio.AsyncInitable */
+    /* Methods of Gio-2.0.Gio.AsyncInitable */
     initAsync(ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     initFinish(res: Gio.AsyncResult): boolean
     newFinish(res: Gio.AsyncResult): GObject.Object
-    /* Methods of Gio.DBusInterface */
+    /* Methods of Gio-2.0.Gio.DBusInterface */
     getObject(): Gio.DBusObject | null
     getInfo(): Gio.DBusInterfaceInfo
     setObject(object?: Gio.DBusObject | null): void
-    /* Methods of Gio.Initable */
+    /* Methods of Gio-2.0.Gio.Initable */
     init(cancellable?: Gio.Cancellable | null): boolean
-    /* Methods of UDisks.PartitionTable */
+    /* Methods of UDisks-2.0.UDisks.PartitionTable */
     callCreatePartition(argOffset: number, argSize: number, argType: string, argName: string, argOptions: GLib.Variant, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     callCreatePartitionAndFormat(argOffset: number, argSize: number, argType: string, argName: string, argOptions: GLib.Variant, argFormatType: string, argFormatOptions: GLib.Variant, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    callCreatePartitionAndFormatFinish(res: Gio.AsyncResult): [ /* returnType */ boolean, /* outCreatedPartition */ string ]
-    callCreatePartitionAndFormatSync(argOffset: number, argSize: number, argType: string, argName: string, argOptions: GLib.Variant, argFormatType: string, argFormatOptions: GLib.Variant, cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* outCreatedPartition */ string ]
-    callCreatePartitionFinish(res: Gio.AsyncResult): [ /* returnType */ boolean, /* outCreatedPartition */ string ]
-    callCreatePartitionSync(argOffset: number, argSize: number, argType: string, argName: string, argOptions: GLib.Variant, cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* outCreatedPartition */ string ]
+    callCreatePartitionAndFormatFinish(res: Gio.AsyncResult): { returnType: boolean, outCreatedPartition: string }
+    callCreatePartitionAndFormatSync(argOffset: number, argSize: number, argType: string, argName: string, argOptions: GLib.Variant, argFormatType: string, argFormatOptions: GLib.Variant, cancellable?: Gio.Cancellable | null): { returnType: boolean, outCreatedPartition: string }
+    callCreatePartitionFinish(res: Gio.AsyncResult): { returnType: boolean, outCreatedPartition: string }
+    callCreatePartitionSync(argOffset: number, argSize: number, argType: string, argName: string, argOptions: GLib.Variant, cancellable?: Gio.Cancellable | null): { returnType: boolean, outCreatedPartition: string }
     completeCreatePartition(invocation: Gio.DBusMethodInvocation, createdPartition: string): void
     completeCreatePartitionAndFormat(invocation: Gio.DBusMethodInvocation, createdPartition: string): void
-    /* Virtual methods of UDisks.PartitionTableProxy */
-    vfuncInitAsync(ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    vfuncInitFinish(res: Gio.AsyncResult): boolean
-    vfuncDupObject(): Gio.DBusObject | null
-    vfuncGetInfo(): Gio.DBusInterfaceInfo
-    vfuncSetObject(object?: Gio.DBusObject | null): void
-    vfuncInit(cancellable?: Gio.Cancellable | null): boolean
-    vfuncHandleCreatePartition(invocation: Gio.DBusMethodInvocation, argOffset: number, argSize: number, argType: string, argName: string, argOptions: GLib.Variant): boolean
-    vfuncHandleCreatePartitionAndFormat(invocation: Gio.DBusMethodInvocation, argOffset: number, argSize: number, argType: string, argName: string, argOptions: GLib.Variant, argFormatType: string, argFormatOptions: GLib.Variant): boolean
-    /* Virtual methods of Gio.DBusProxy */
-    vfuncGPropertiesChanged(changedProperties: GLib.Variant, invalidatedProperties: string): void
-    vfuncGSignal(senderName: string, signalName: string, parameters: GLib.Variant): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gio.DBusProxy */
+    /* Signals of Gio-2.0.Gio.DBusProxy */
     connect(sigName: "g-properties-changed", callback: (($obj: PartitionTableProxy, changedProperties: GLib.Variant, invalidatedProperties: string[]) => void)): number
-    connect_after(sigName: "g-properties-changed", callback: (($obj: PartitionTableProxy, changedProperties: GLib.Variant, invalidatedProperties: string[]) => void)): number
+    on(sigName: "g-properties-changed", callback: (changedProperties: GLib.Variant, invalidatedProperties: string[]) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "g-properties-changed", callback: (changedProperties: GLib.Variant, invalidatedProperties: string[]) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "g-properties-changed", callback: (changedProperties: GLib.Variant, invalidatedProperties: string[]) => void): NodeJS.EventEmitter
     emit(sigName: "g-properties-changed", changedProperties: GLib.Variant, invalidatedProperties: string[]): void
-    on(sigName: "g-properties-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "g-properties-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "g-properties-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "g-signal", callback: (($obj: PartitionTableProxy, senderName: string | null, signalName: string, parameters: GLib.Variant) => void)): number
-    connect_after(sigName: "g-signal", callback: (($obj: PartitionTableProxy, senderName: string | null, signalName: string, parameters: GLib.Variant) => void)): number
+    on(sigName: "g-signal", callback: (senderName: string | null, signalName: string, parameters: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "g-signal", callback: (senderName: string | null, signalName: string, parameters: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "g-signal", callback: (senderName: string | null, signalName: string, parameters: GLib.Variant) => void): NodeJS.EventEmitter
     emit(sigName: "g-signal", senderName: string | null, signalName: string, parameters: GLib.Variant): void
-    on(sigName: "g-signal", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "g-signal", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "g-signal", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: PartitionTableProxy, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: PartitionTableProxy, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of UDisks.PartitionTable */
+    /* Signals of UDisks-2.0.UDisks.PartitionTable */
     connect(sigName: "handle-create-partition", callback: (($obj: PartitionTableProxy, invocation: Gio.DBusMethodInvocation, argOffset: number, argSize: number, argType: string, argName: string, argOptions: GLib.Variant) => boolean)): number
-    connect_after(sigName: "handle-create-partition", callback: (($obj: PartitionTableProxy, invocation: Gio.DBusMethodInvocation, argOffset: number, argSize: number, argType: string, argName: string, argOptions: GLib.Variant) => boolean)): number
+    on(sigName: "handle-create-partition", callback: (invocation: Gio.DBusMethodInvocation, argOffset: number, argSize: number, argType: string, argName: string, argOptions: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-create-partition", callback: (invocation: Gio.DBusMethodInvocation, argOffset: number, argSize: number, argType: string, argName: string, argOptions: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-create-partition", callback: (invocation: Gio.DBusMethodInvocation, argOffset: number, argSize: number, argType: string, argName: string, argOptions: GLib.Variant) => void): NodeJS.EventEmitter
     emit(sigName: "handle-create-partition", invocation: Gio.DBusMethodInvocation, argOffset: number, argSize: number, argType: string, argName: string, argOptions: GLib.Variant): void
-    on(sigName: "handle-create-partition", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-create-partition", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-create-partition", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "handle-create-partition-and-format", callback: (($obj: PartitionTableProxy, invocation: Gio.DBusMethodInvocation, argOffset: number, argSize: number, argType: string, argName: string, argOptions: GLib.Variant, argFormatType: string, argFormatOptions: GLib.Variant) => boolean)): number
-    connect_after(sigName: "handle-create-partition-and-format", callback: (($obj: PartitionTableProxy, invocation: Gio.DBusMethodInvocation, argOffset: number, argSize: number, argType: string, argName: string, argOptions: GLib.Variant, argFormatType: string, argFormatOptions: GLib.Variant) => boolean)): number
+    on(sigName: "handle-create-partition-and-format", callback: (invocation: Gio.DBusMethodInvocation, argOffset: number, argSize: number, argType: string, argName: string, argOptions: GLib.Variant, argFormatType: string, argFormatOptions: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-create-partition-and-format", callback: (invocation: Gio.DBusMethodInvocation, argOffset: number, argSize: number, argType: string, argName: string, argOptions: GLib.Variant, argFormatType: string, argFormatOptions: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-create-partition-and-format", callback: (invocation: Gio.DBusMethodInvocation, argOffset: number, argSize: number, argType: string, argName: string, argOptions: GLib.Variant, argFormatType: string, argFormatOptions: GLib.Variant) => void): NodeJS.EventEmitter
     emit(sigName: "handle-create-partition-and-format", invocation: Gio.DBusMethodInvocation, argOffset: number, argSize: number, argType: string, argName: string, argOptions: GLib.Variant, argFormatType: string, argFormatOptions: GLib.Variant): void
-    on(sigName: "handle-create-partition-and-format", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-create-partition-and-format", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-create-partition-and-format", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::g-default-timeout", callback: (($obj: PartitionTableProxy, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::g-default-timeout", callback: (($obj: PartitionTableProxy, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::g-default-timeout", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -6886,13 +6073,13 @@ export interface PartitionTableSkeleton_ConstructProps extends Gio.DBusInterface
     type?: string
 }
 export class PartitionTableSkeleton {
-    /* Properties of Gio.DBusInterfaceSkeleton */
+    /* Properties of Gio-2.0.Gio.DBusInterfaceSkeleton */
     gFlags: Gio.DBusInterfaceSkeletonFlags
-    /* Properties of UDisks.PartitionTable */
+    /* Properties of UDisks-2.0.UDisks.PartitionTable */
     type: string
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Gio.DBusInterfaceSkeleton */
+    /* Methods of Gio-2.0.Gio.DBusInterfaceSkeleton */
     export(connection: Gio.DBusConnection, objectPath: string): boolean
     flush(): void
     getConnection(): Gio.DBusConnection | null
@@ -6905,7 +6092,7 @@ export class PartitionTableSkeleton {
     setFlags(flags: Gio.DBusInterfaceSkeletonFlags): void
     unexport(): void
     unexportFromConnection(connection: Gio.DBusConnection): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -6927,64 +6114,41 @@ export class PartitionTableSkeleton {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of Gio.DBusInterface */
+    /* Methods of Gio-2.0.Gio.DBusInterface */
     getObject(): Gio.DBusObject | null
     setObject(object?: Gio.DBusObject | null): void
-    /* Methods of UDisks.PartitionTable */
+    /* Methods of UDisks-2.0.UDisks.PartitionTable */
     callCreatePartition(argOffset: number, argSize: number, argType: string, argName: string, argOptions: GLib.Variant, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     callCreatePartitionAndFormat(argOffset: number, argSize: number, argType: string, argName: string, argOptions: GLib.Variant, argFormatType: string, argFormatOptions: GLib.Variant, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    callCreatePartitionAndFormatFinish(res: Gio.AsyncResult): [ /* returnType */ boolean, /* outCreatedPartition */ string ]
-    callCreatePartitionAndFormatSync(argOffset: number, argSize: number, argType: string, argName: string, argOptions: GLib.Variant, argFormatType: string, argFormatOptions: GLib.Variant, cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* outCreatedPartition */ string ]
-    callCreatePartitionFinish(res: Gio.AsyncResult): [ /* returnType */ boolean, /* outCreatedPartition */ string ]
-    callCreatePartitionSync(argOffset: number, argSize: number, argType: string, argName: string, argOptions: GLib.Variant, cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* outCreatedPartition */ string ]
+    callCreatePartitionAndFormatFinish(res: Gio.AsyncResult): { returnType: boolean, outCreatedPartition: string }
+    callCreatePartitionAndFormatSync(argOffset: number, argSize: number, argType: string, argName: string, argOptions: GLib.Variant, argFormatType: string, argFormatOptions: GLib.Variant, cancellable?: Gio.Cancellable | null): { returnType: boolean, outCreatedPartition: string }
+    callCreatePartitionFinish(res: Gio.AsyncResult): { returnType: boolean, outCreatedPartition: string }
+    callCreatePartitionSync(argOffset: number, argSize: number, argType: string, argName: string, argOptions: GLib.Variant, cancellable?: Gio.Cancellable | null): { returnType: boolean, outCreatedPartition: string }
     completeCreatePartition(invocation: Gio.DBusMethodInvocation, createdPartition: string): void
     completeCreatePartitionAndFormat(invocation: Gio.DBusMethodInvocation, createdPartition: string): void
-    /* Virtual methods of UDisks.PartitionTableSkeleton */
-    vfuncDupObject(): Gio.DBusObject | null
-    vfuncGetInfo(): Gio.DBusInterfaceInfo
-    vfuncSetObject(object?: Gio.DBusObject | null): void
-    vfuncHandleCreatePartition(invocation: Gio.DBusMethodInvocation, argOffset: number, argSize: number, argType: string, argName: string, argOptions: GLib.Variant): boolean
-    vfuncHandleCreatePartitionAndFormat(invocation: Gio.DBusMethodInvocation, argOffset: number, argSize: number, argType: string, argName: string, argOptions: GLib.Variant, argFormatType: string, argFormatOptions: GLib.Variant): boolean
-    /* Virtual methods of Gio.DBusInterfaceSkeleton */
-    vfuncFlush(): void
-    vfuncGAuthorizeMethod(invocation: Gio.DBusMethodInvocation): boolean
-    vfuncGetInfo(): Gio.DBusInterfaceInfo
-    vfuncGetProperties(): GLib.Variant
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gio.DBusInterfaceSkeleton */
+    /* Signals of Gio-2.0.Gio.DBusInterfaceSkeleton */
     connect(sigName: "g-authorize-method", callback: (($obj: PartitionTableSkeleton, invocation: Gio.DBusMethodInvocation) => boolean)): number
-    connect_after(sigName: "g-authorize-method", callback: (($obj: PartitionTableSkeleton, invocation: Gio.DBusMethodInvocation) => boolean)): number
+    on(sigName: "g-authorize-method", callback: (invocation: Gio.DBusMethodInvocation) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "g-authorize-method", callback: (invocation: Gio.DBusMethodInvocation) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "g-authorize-method", callback: (invocation: Gio.DBusMethodInvocation) => void): NodeJS.EventEmitter
     emit(sigName: "g-authorize-method", invocation: Gio.DBusMethodInvocation): void
-    on(sigName: "g-authorize-method", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "g-authorize-method", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "g-authorize-method", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: PartitionTableSkeleton, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: PartitionTableSkeleton, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of UDisks.PartitionTable */
+    /* Signals of UDisks-2.0.UDisks.PartitionTable */
     connect(sigName: "handle-create-partition", callback: (($obj: PartitionTableSkeleton, invocation: Gio.DBusMethodInvocation, argOffset: number, argSize: number, argType: string, argName: string, argOptions: GLib.Variant) => boolean)): number
-    connect_after(sigName: "handle-create-partition", callback: (($obj: PartitionTableSkeleton, invocation: Gio.DBusMethodInvocation, argOffset: number, argSize: number, argType: string, argName: string, argOptions: GLib.Variant) => boolean)): number
+    on(sigName: "handle-create-partition", callback: (invocation: Gio.DBusMethodInvocation, argOffset: number, argSize: number, argType: string, argName: string, argOptions: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-create-partition", callback: (invocation: Gio.DBusMethodInvocation, argOffset: number, argSize: number, argType: string, argName: string, argOptions: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-create-partition", callback: (invocation: Gio.DBusMethodInvocation, argOffset: number, argSize: number, argType: string, argName: string, argOptions: GLib.Variant) => void): NodeJS.EventEmitter
     emit(sigName: "handle-create-partition", invocation: Gio.DBusMethodInvocation, argOffset: number, argSize: number, argType: string, argName: string, argOptions: GLib.Variant): void
-    on(sigName: "handle-create-partition", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-create-partition", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-create-partition", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "handle-create-partition-and-format", callback: (($obj: PartitionTableSkeleton, invocation: Gio.DBusMethodInvocation, argOffset: number, argSize: number, argType: string, argName: string, argOptions: GLib.Variant, argFormatType: string, argFormatOptions: GLib.Variant) => boolean)): number
-    connect_after(sigName: "handle-create-partition-and-format", callback: (($obj: PartitionTableSkeleton, invocation: Gio.DBusMethodInvocation, argOffset: number, argSize: number, argType: string, argName: string, argOptions: GLib.Variant, argFormatType: string, argFormatOptions: GLib.Variant) => boolean)): number
+    on(sigName: "handle-create-partition-and-format", callback: (invocation: Gio.DBusMethodInvocation, argOffset: number, argSize: number, argType: string, argName: string, argOptions: GLib.Variant, argFormatType: string, argFormatOptions: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-create-partition-and-format", callback: (invocation: Gio.DBusMethodInvocation, argOffset: number, argSize: number, argType: string, argName: string, argOptions: GLib.Variant, argFormatType: string, argFormatOptions: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-create-partition-and-format", callback: (invocation: Gio.DBusMethodInvocation, argOffset: number, argSize: number, argType: string, argName: string, argOptions: GLib.Variant, argFormatType: string, argFormatOptions: GLib.Variant) => void): NodeJS.EventEmitter
     emit(sigName: "handle-create-partition-and-format", invocation: Gio.DBusMethodInvocation, argOffset: number, argSize: number, argType: string, argName: string, argOptions: GLib.Variant, argFormatType: string, argFormatOptions: GLib.Variant): void
-    on(sigName: "handle-create-partition-and-format", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-create-partition-and-format", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-create-partition-and-format", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::g-flags", callback: (($obj: PartitionTableSkeleton, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::g-flags", callback: (($obj: PartitionTableSkeleton, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::g-flags", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -7015,21 +6179,21 @@ export interface SwapspaceProxy_ConstructProps extends Gio.DBusProxy_ConstructPr
     active?: boolean
 }
 export class SwapspaceProxy {
-    /* Properties of Gio.DBusProxy */
+    /* Properties of Gio-2.0.Gio.DBusProxy */
     gDefaultTimeout: number
     gInterfaceInfo: Gio.DBusInterfaceInfo
     readonly gNameOwner: string
-    /* Properties of UDisks.Swapspace */
+    /* Properties of UDisks-2.0.UDisks.Swapspace */
     active: boolean
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Gio.DBusProxy */
+    /* Methods of Gio-2.0.Gio.DBusProxy */
     call(methodName: string, parameters: GLib.Variant | null, flags: Gio.DBusCallFlags, timeoutMsec: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     callFinish(res: Gio.AsyncResult): GLib.Variant
     callSync(methodName: string, parameters: GLib.Variant | null, flags: Gio.DBusCallFlags, timeoutMsec: number, cancellable?: Gio.Cancellable | null): GLib.Variant
     callWithUnixFdList(methodName: string, parameters: GLib.Variant | null, flags: Gio.DBusCallFlags, timeoutMsec: number, fdList?: Gio.UnixFDList | null, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    callWithUnixFdListFinish(res: Gio.AsyncResult): [ /* returnType */ GLib.Variant, /* outFdList */ Gio.UnixFDList | null ]
-    callWithUnixFdListSync(methodName: string, parameters: GLib.Variant | null, flags: Gio.DBusCallFlags, timeoutMsec: number, fdList?: Gio.UnixFDList | null, cancellable?: Gio.Cancellable | null): [ /* returnType */ GLib.Variant, /* outFdList */ Gio.UnixFDList | null ]
+    callWithUnixFdListFinish(res: Gio.AsyncResult): { returnType: GLib.Variant, outFdList: Gio.UnixFDList | null }
+    callWithUnixFdListSync(methodName: string, parameters: GLib.Variant | null, flags: Gio.DBusCallFlags, timeoutMsec: number, fdList?: Gio.UnixFDList | null, cancellable?: Gio.Cancellable | null): { returnType: GLib.Variant, outFdList: Gio.UnixFDList | null }
     getCachedProperty(propertyName: string): GLib.Variant | null
     getCachedPropertyNames(): string[] | null
     getConnection(): Gio.DBusConnection
@@ -7043,7 +6207,7 @@ export class SwapspaceProxy {
     setCachedProperty(propertyName: string, value?: GLib.Variant | null): void
     setDefaultTimeout(timeoutMsec: number): void
     setInterfaceInfo(info?: Gio.DBusInterfaceInfo | null): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -7065,17 +6229,17 @@ export class SwapspaceProxy {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of Gio.AsyncInitable */
+    /* Methods of Gio-2.0.Gio.AsyncInitable */
     initAsync(ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     initFinish(res: Gio.AsyncResult): boolean
     newFinish(res: Gio.AsyncResult): GObject.Object
-    /* Methods of Gio.DBusInterface */
+    /* Methods of Gio-2.0.Gio.DBusInterface */
     getObject(): Gio.DBusObject | null
     getInfo(): Gio.DBusInterfaceInfo
     setObject(object?: Gio.DBusObject | null): void
-    /* Methods of Gio.Initable */
+    /* Methods of Gio-2.0.Gio.Initable */
     init(cancellable?: Gio.Cancellable | null): boolean
-    /* Methods of UDisks.Swapspace */
+    /* Methods of UDisks-2.0.UDisks.Swapspace */
     callStart(argOptions: GLib.Variant, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     callStartFinish(res: Gio.AsyncResult): boolean
     callStartSync(argOptions: GLib.Variant, cancellable?: Gio.Cancellable | null): boolean
@@ -7084,59 +6248,34 @@ export class SwapspaceProxy {
     callStopSync(argOptions: GLib.Variant, cancellable?: Gio.Cancellable | null): boolean
     completeStart(invocation: Gio.DBusMethodInvocation): void
     completeStop(invocation: Gio.DBusMethodInvocation): void
-    /* Virtual methods of UDisks.SwapspaceProxy */
-    vfuncInitAsync(ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    vfuncInitFinish(res: Gio.AsyncResult): boolean
-    vfuncDupObject(): Gio.DBusObject | null
-    vfuncGetInfo(): Gio.DBusInterfaceInfo
-    vfuncSetObject(object?: Gio.DBusObject | null): void
-    vfuncInit(cancellable?: Gio.Cancellable | null): boolean
-    vfuncHandleStart(invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant): boolean
-    vfuncHandleStop(invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant): boolean
-    /* Virtual methods of Gio.DBusProxy */
-    vfuncGPropertiesChanged(changedProperties: GLib.Variant, invalidatedProperties: string): void
-    vfuncGSignal(senderName: string, signalName: string, parameters: GLib.Variant): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gio.DBusProxy */
+    /* Signals of Gio-2.0.Gio.DBusProxy */
     connect(sigName: "g-properties-changed", callback: (($obj: SwapspaceProxy, changedProperties: GLib.Variant, invalidatedProperties: string[]) => void)): number
-    connect_after(sigName: "g-properties-changed", callback: (($obj: SwapspaceProxy, changedProperties: GLib.Variant, invalidatedProperties: string[]) => void)): number
+    on(sigName: "g-properties-changed", callback: (changedProperties: GLib.Variant, invalidatedProperties: string[]) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "g-properties-changed", callback: (changedProperties: GLib.Variant, invalidatedProperties: string[]) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "g-properties-changed", callback: (changedProperties: GLib.Variant, invalidatedProperties: string[]) => void): NodeJS.EventEmitter
     emit(sigName: "g-properties-changed", changedProperties: GLib.Variant, invalidatedProperties: string[]): void
-    on(sigName: "g-properties-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "g-properties-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "g-properties-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "g-signal", callback: (($obj: SwapspaceProxy, senderName: string | null, signalName: string, parameters: GLib.Variant) => void)): number
-    connect_after(sigName: "g-signal", callback: (($obj: SwapspaceProxy, senderName: string | null, signalName: string, parameters: GLib.Variant) => void)): number
+    on(sigName: "g-signal", callback: (senderName: string | null, signalName: string, parameters: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "g-signal", callback: (senderName: string | null, signalName: string, parameters: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "g-signal", callback: (senderName: string | null, signalName: string, parameters: GLib.Variant) => void): NodeJS.EventEmitter
     emit(sigName: "g-signal", senderName: string | null, signalName: string, parameters: GLib.Variant): void
-    on(sigName: "g-signal", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "g-signal", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "g-signal", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: SwapspaceProxy, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: SwapspaceProxy, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of UDisks.Swapspace */
+    /* Signals of UDisks-2.0.UDisks.Swapspace */
     connect(sigName: "handle-start", callback: (($obj: SwapspaceProxy, invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant) => boolean)): number
-    connect_after(sigName: "handle-start", callback: (($obj: SwapspaceProxy, invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant) => boolean)): number
+    on(sigName: "handle-start", callback: (invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-start", callback: (invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-start", callback: (invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant) => void): NodeJS.EventEmitter
     emit(sigName: "handle-start", invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant): void
-    on(sigName: "handle-start", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-start", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-start", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "handle-stop", callback: (($obj: SwapspaceProxy, invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant) => boolean)): number
-    connect_after(sigName: "handle-stop", callback: (($obj: SwapspaceProxy, invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant) => boolean)): number
+    on(sigName: "handle-stop", callback: (invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-stop", callback: (invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-stop", callback: (invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant) => void): NodeJS.EventEmitter
     emit(sigName: "handle-stop", invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant): void
-    on(sigName: "handle-stop", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-stop", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-stop", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::g-default-timeout", callback: (($obj: SwapspaceProxy, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::g-default-timeout", callback: (($obj: SwapspaceProxy, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::g-default-timeout", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -7186,13 +6325,13 @@ export interface SwapspaceSkeleton_ConstructProps extends Gio.DBusInterfaceSkele
     active?: boolean
 }
 export class SwapspaceSkeleton {
-    /* Properties of Gio.DBusInterfaceSkeleton */
+    /* Properties of Gio-2.0.Gio.DBusInterfaceSkeleton */
     gFlags: Gio.DBusInterfaceSkeletonFlags
-    /* Properties of UDisks.Swapspace */
+    /* Properties of UDisks-2.0.UDisks.Swapspace */
     active: boolean
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Gio.DBusInterfaceSkeleton */
+    /* Methods of Gio-2.0.Gio.DBusInterfaceSkeleton */
     export(connection: Gio.DBusConnection, objectPath: string): boolean
     flush(): void
     getConnection(): Gio.DBusConnection | null
@@ -7205,7 +6344,7 @@ export class SwapspaceSkeleton {
     setFlags(flags: Gio.DBusInterfaceSkeletonFlags): void
     unexport(): void
     unexportFromConnection(connection: Gio.DBusConnection): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -7227,10 +6366,10 @@ export class SwapspaceSkeleton {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of Gio.DBusInterface */
+    /* Methods of Gio-2.0.Gio.DBusInterface */
     getObject(): Gio.DBusObject | null
     setObject(object?: Gio.DBusObject | null): void
-    /* Methods of UDisks.Swapspace */
+    /* Methods of UDisks-2.0.UDisks.Swapspace */
     callStart(argOptions: GLib.Variant, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     callStartFinish(res: Gio.AsyncResult): boolean
     callStartSync(argOptions: GLib.Variant, cancellable?: Gio.Cancellable | null): boolean
@@ -7239,52 +6378,29 @@ export class SwapspaceSkeleton {
     callStopSync(argOptions: GLib.Variant, cancellable?: Gio.Cancellable | null): boolean
     completeStart(invocation: Gio.DBusMethodInvocation): void
     completeStop(invocation: Gio.DBusMethodInvocation): void
-    /* Virtual methods of UDisks.SwapspaceSkeleton */
-    vfuncDupObject(): Gio.DBusObject | null
-    vfuncGetInfo(): Gio.DBusInterfaceInfo
-    vfuncSetObject(object?: Gio.DBusObject | null): void
-    vfuncHandleStart(invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant): boolean
-    vfuncHandleStop(invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant): boolean
-    /* Virtual methods of Gio.DBusInterfaceSkeleton */
-    vfuncFlush(): void
-    vfuncGAuthorizeMethod(invocation: Gio.DBusMethodInvocation): boolean
-    vfuncGetInfo(): Gio.DBusInterfaceInfo
-    vfuncGetProperties(): GLib.Variant
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gio.DBusInterfaceSkeleton */
+    /* Signals of Gio-2.0.Gio.DBusInterfaceSkeleton */
     connect(sigName: "g-authorize-method", callback: (($obj: SwapspaceSkeleton, invocation: Gio.DBusMethodInvocation) => boolean)): number
-    connect_after(sigName: "g-authorize-method", callback: (($obj: SwapspaceSkeleton, invocation: Gio.DBusMethodInvocation) => boolean)): number
+    on(sigName: "g-authorize-method", callback: (invocation: Gio.DBusMethodInvocation) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "g-authorize-method", callback: (invocation: Gio.DBusMethodInvocation) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "g-authorize-method", callback: (invocation: Gio.DBusMethodInvocation) => void): NodeJS.EventEmitter
     emit(sigName: "g-authorize-method", invocation: Gio.DBusMethodInvocation): void
-    on(sigName: "g-authorize-method", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "g-authorize-method", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "g-authorize-method", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: SwapspaceSkeleton, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: SwapspaceSkeleton, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of UDisks.Swapspace */
+    /* Signals of UDisks-2.0.UDisks.Swapspace */
     connect(sigName: "handle-start", callback: (($obj: SwapspaceSkeleton, invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant) => boolean)): number
-    connect_after(sigName: "handle-start", callback: (($obj: SwapspaceSkeleton, invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant) => boolean)): number
+    on(sigName: "handle-start", callback: (invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-start", callback: (invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-start", callback: (invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant) => void): NodeJS.EventEmitter
     emit(sigName: "handle-start", invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant): void
-    on(sigName: "handle-start", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-start", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-start", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "handle-stop", callback: (($obj: SwapspaceSkeleton, invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant) => boolean)): number
-    connect_after(sigName: "handle-stop", callback: (($obj: SwapspaceSkeleton, invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant) => boolean)): number
+    on(sigName: "handle-stop", callback: (invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-stop", callback: (invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-stop", callback: (invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant) => void): NodeJS.EventEmitter
     emit(sigName: "handle-stop", invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant): void
-    on(sigName: "handle-stop", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-stop", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-stop", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::g-flags", callback: (($obj: SwapspaceSkeleton, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::g-flags", callback: (($obj: SwapspaceSkeleton, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::g-flags", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -7312,7 +6428,7 @@ export class SwapspaceSkeleton {
     static $gtype: GObject.Type
 }
 export abstract class BlockIface {
-    /* Fields of UDisks.BlockIface */
+    /* Fields of UDisks-2.0.UDisks.BlockIface */
     parentIface: GObject.TypeInterface
     handleAddConfigurationItem: (object: Block, invocation: Gio.DBusMethodInvocation, argItem: GLib.Variant, argOptions: GLib.Variant) => boolean
     handleFormat: (object: Block, invocation: Gio.DBusMethodInvocation, argType: string, argOptions: GLib.Variant) => boolean
@@ -7350,7 +6466,7 @@ export abstract class BlockIface {
     static name: string
 }
 export abstract class BlockProxyClass {
-    /* Fields of UDisks.BlockProxyClass */
+    /* Fields of UDisks-2.0.UDisks.BlockProxyClass */
     parentClass: Gio.DBusProxyClass
     static name: string
 }
@@ -7358,7 +6474,7 @@ export class BlockProxyPrivate {
     static name: string
 }
 export abstract class BlockSkeletonClass {
-    /* Fields of UDisks.BlockSkeletonClass */
+    /* Fields of UDisks-2.0.UDisks.BlockSkeletonClass */
     parentClass: Gio.DBusInterfaceSkeletonClass
     static name: string
 }
@@ -7366,7 +6482,7 @@ export class BlockSkeletonPrivate {
     static name: string
 }
 export abstract class DriveAtaIface {
-    /* Fields of UDisks.DriveAtaIface */
+    /* Fields of UDisks-2.0.UDisks.DriveAtaIface */
     parentIface: GObject.TypeInterface
     handlePmGetState: (object: DriveAta, invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant) => boolean
     handlePmStandby: (object: DriveAta, invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant) => boolean
@@ -7405,7 +6521,7 @@ export abstract class DriveAtaIface {
     static name: string
 }
 export abstract class DriveAtaProxyClass {
-    /* Fields of UDisks.DriveAtaProxyClass */
+    /* Fields of UDisks-2.0.UDisks.DriveAtaProxyClass */
     parentClass: Gio.DBusProxyClass
     static name: string
 }
@@ -7413,7 +6529,7 @@ export class DriveAtaProxyPrivate {
     static name: string
 }
 export abstract class DriveAtaSkeletonClass {
-    /* Fields of UDisks.DriveAtaSkeletonClass */
+    /* Fields of UDisks-2.0.UDisks.DriveAtaSkeletonClass */
     parentClass: Gio.DBusInterfaceSkeletonClass
     static name: string
 }
@@ -7421,7 +6537,7 @@ export class DriveAtaSkeletonPrivate {
     static name: string
 }
 export abstract class DriveIface {
-    /* Fields of UDisks.DriveIface */
+    /* Fields of UDisks-2.0.UDisks.DriveIface */
     parentIface: GObject.TypeInterface
     handleEject: (object: Drive, invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant) => boolean
     handleSetConfiguration: (object: Drive, invocation: Gio.DBusMethodInvocation, argValue: GLib.Variant, argOptions: GLib.Variant) => boolean
@@ -7458,7 +6574,7 @@ export abstract class DriveIface {
     static name: string
 }
 export abstract class DriveProxyClass {
-    /* Fields of UDisks.DriveProxyClass */
+    /* Fields of UDisks-2.0.UDisks.DriveProxyClass */
     parentClass: Gio.DBusProxyClass
     static name: string
 }
@@ -7466,7 +6582,7 @@ export class DriveProxyPrivate {
     static name: string
 }
 export abstract class DriveSkeletonClass {
-    /* Fields of UDisks.DriveSkeletonClass */
+    /* Fields of UDisks-2.0.UDisks.DriveSkeletonClass */
     parentClass: Gio.DBusInterfaceSkeletonClass
     static name: string
 }
@@ -7474,7 +6590,7 @@ export class DriveSkeletonPrivate {
     static name: string
 }
 export abstract class EncryptedIface {
-    /* Fields of UDisks.EncryptedIface */
+    /* Fields of UDisks-2.0.UDisks.EncryptedIface */
     parentIface: GObject.TypeInterface
     handleChangePassphrase: (object: Encrypted, invocation: Gio.DBusMethodInvocation, argPassphrase: string, argNewPassphrase: string, argOptions: GLib.Variant) => boolean
     handleLock: (object: Encrypted, invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant) => boolean
@@ -7483,7 +6599,7 @@ export abstract class EncryptedIface {
     static name: string
 }
 export abstract class EncryptedProxyClass {
-    /* Fields of UDisks.EncryptedProxyClass */
+    /* Fields of UDisks-2.0.UDisks.EncryptedProxyClass */
     parentClass: Gio.DBusProxyClass
     static name: string
 }
@@ -7491,7 +6607,7 @@ export class EncryptedProxyPrivate {
     static name: string
 }
 export abstract class EncryptedSkeletonClass {
-    /* Fields of UDisks.EncryptedSkeletonClass */
+    /* Fields of UDisks-2.0.UDisks.EncryptedSkeletonClass */
     parentClass: Gio.DBusInterfaceSkeletonClass
     static name: string
 }
@@ -7499,7 +6615,7 @@ export class EncryptedSkeletonPrivate {
     static name: string
 }
 export abstract class FilesystemIface {
-    /* Fields of UDisks.FilesystemIface */
+    /* Fields of UDisks-2.0.UDisks.FilesystemIface */
     parentIface: GObject.TypeInterface
     handleMount: (object: Filesystem, invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant) => boolean
     handleSetLabel: (object: Filesystem, invocation: Gio.DBusMethodInvocation, argLabel: string, argOptions: GLib.Variant) => boolean
@@ -7508,7 +6624,7 @@ export abstract class FilesystemIface {
     static name: string
 }
 export abstract class FilesystemProxyClass {
-    /* Fields of UDisks.FilesystemProxyClass */
+    /* Fields of UDisks-2.0.UDisks.FilesystemProxyClass */
     parentClass: Gio.DBusProxyClass
     static name: string
 }
@@ -7516,7 +6632,7 @@ export class FilesystemProxyPrivate {
     static name: string
 }
 export abstract class FilesystemSkeletonClass {
-    /* Fields of UDisks.FilesystemSkeletonClass */
+    /* Fields of UDisks-2.0.UDisks.FilesystemSkeletonClass */
     parentClass: Gio.DBusInterfaceSkeletonClass
     static name: string
 }
@@ -7524,7 +6640,7 @@ export class FilesystemSkeletonPrivate {
     static name: string
 }
 export abstract class JobIface {
-    /* Fields of UDisks.JobIface */
+    /* Fields of UDisks-2.0.UDisks.JobIface */
     parentIface: GObject.TypeInterface
     handleCancel: (object: Job, invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant) => boolean
     getCancelable: (object: Job) => boolean
@@ -7541,7 +6657,7 @@ export abstract class JobIface {
     static name: string
 }
 export abstract class JobProxyClass {
-    /* Fields of UDisks.JobProxyClass */
+    /* Fields of UDisks-2.0.UDisks.JobProxyClass */
     parentClass: Gio.DBusProxyClass
     static name: string
 }
@@ -7549,7 +6665,7 @@ export class JobProxyPrivate {
     static name: string
 }
 export abstract class JobSkeletonClass {
-    /* Fields of UDisks.JobSkeletonClass */
+    /* Fields of UDisks-2.0.UDisks.JobSkeletonClass */
     parentClass: Gio.DBusInterfaceSkeletonClass
     static name: string
 }
@@ -7557,7 +6673,7 @@ export class JobSkeletonPrivate {
     static name: string
 }
 export abstract class LoopIface {
-    /* Fields of UDisks.LoopIface */
+    /* Fields of UDisks-2.0.UDisks.LoopIface */
     parentIface: GObject.TypeInterface
     handleDelete: (object: Loop, invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant) => boolean
     handleSetAutoclear: (object: Loop, invocation: Gio.DBusMethodInvocation, argValue: boolean, argOptions: GLib.Variant) => boolean
@@ -7567,7 +6683,7 @@ export abstract class LoopIface {
     static name: string
 }
 export abstract class LoopProxyClass {
-    /* Fields of UDisks.LoopProxyClass */
+    /* Fields of UDisks-2.0.UDisks.LoopProxyClass */
     parentClass: Gio.DBusProxyClass
     static name: string
 }
@@ -7575,7 +6691,7 @@ export class LoopProxyPrivate {
     static name: string
 }
 export abstract class LoopSkeletonClass {
-    /* Fields of UDisks.LoopSkeletonClass */
+    /* Fields of UDisks-2.0.UDisks.LoopSkeletonClass */
     parentClass: Gio.DBusInterfaceSkeletonClass
     static name: string
 }
@@ -7583,7 +6699,7 @@ export class LoopSkeletonPrivate {
     static name: string
 }
 export abstract class MDRaidIface {
-    /* Fields of UDisks.MDRaidIface */
+    /* Fields of UDisks-2.0.UDisks.MDRaidIface */
     parentIface: GObject.TypeInterface
     handleAddDevice: (object: MDRaid, invocation: Gio.DBusMethodInvocation, argDevice: string, argOptions: GLib.Variant) => boolean
     handleDelete: (object: MDRaid, invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant) => boolean
@@ -7610,7 +6726,7 @@ export abstract class MDRaidIface {
     static name: string
 }
 export abstract class MDRaidProxyClass {
-    /* Fields of UDisks.MDRaidProxyClass */
+    /* Fields of UDisks-2.0.UDisks.MDRaidProxyClass */
     parentClass: Gio.DBusProxyClass
     static name: string
 }
@@ -7618,7 +6734,7 @@ export class MDRaidProxyPrivate {
     static name: string
 }
 export abstract class MDRaidSkeletonClass {
-    /* Fields of UDisks.MDRaidSkeletonClass */
+    /* Fields of UDisks-2.0.UDisks.MDRaidSkeletonClass */
     parentClass: Gio.DBusInterfaceSkeletonClass
     static name: string
 }
@@ -7626,7 +6742,7 @@ export class MDRaidSkeletonPrivate {
     static name: string
 }
 export abstract class ManagerIface {
-    /* Fields of UDisks.ManagerIface */
+    /* Fields of UDisks-2.0.UDisks.ManagerIface */
     parentIface: GObject.TypeInterface
     handleEnableModules: (object: Manager, invocation: Gio.DBusMethodInvocation, argEnable: boolean) => boolean
     handleLoopSetup: (object: Manager, invocation: Gio.DBusMethodInvocation, fdList: Gio.UnixFDList, argFd: GLib.Variant, argOptions: GLib.Variant) => boolean
@@ -7636,7 +6752,7 @@ export abstract class ManagerIface {
     static name: string
 }
 export abstract class ManagerProxyClass {
-    /* Fields of UDisks.ManagerProxyClass */
+    /* Fields of UDisks-2.0.UDisks.ManagerProxyClass */
     parentClass: Gio.DBusProxyClass
     static name: string
 }
@@ -7644,7 +6760,7 @@ export class ManagerProxyPrivate {
     static name: string
 }
 export abstract class ManagerSkeletonClass {
-    /* Fields of UDisks.ManagerSkeletonClass */
+    /* Fields of UDisks-2.0.UDisks.ManagerSkeletonClass */
     parentClass: Gio.DBusInterfaceSkeletonClass
     static name: string
 }
@@ -7652,12 +6768,12 @@ export class ManagerSkeletonPrivate {
     static name: string
 }
 export abstract class ObjectIface {
-    /* Fields of UDisks.ObjectIface */
+    /* Fields of UDisks-2.0.UDisks.ObjectIface */
     parentIface: GObject.TypeInterface
     static name: string
 }
 export abstract class ObjectManagerClientClass {
-    /* Fields of UDisks.ObjectManagerClientClass */
+    /* Fields of UDisks-2.0.UDisks.ObjectManagerClientClass */
     parentClass: Gio.DBusObjectManagerClientClass
     static name: string
 }
@@ -7665,7 +6781,7 @@ export class ObjectManagerClientPrivate {
     static name: string
 }
 export abstract class ObjectProxyClass {
-    /* Fields of UDisks.ObjectProxyClass */
+    /* Fields of UDisks-2.0.UDisks.ObjectProxyClass */
     parentClass: Gio.DBusObjectProxyClass
     static name: string
 }
@@ -7673,7 +6789,7 @@ export class ObjectProxyPrivate {
     static name: string
 }
 export abstract class ObjectSkeletonClass {
-    /* Fields of UDisks.ObjectSkeletonClass */
+    /* Fields of UDisks-2.0.UDisks.ObjectSkeletonClass */
     parentClass: Gio.DBusObjectSkeletonClass
     static name: string
 }
@@ -7681,7 +6797,7 @@ export class ObjectSkeletonPrivate {
     static name: string
 }
 export abstract class PartitionIface {
-    /* Fields of UDisks.PartitionIface */
+    /* Fields of UDisks-2.0.UDisks.PartitionIface */
     parentIface: GObject.TypeInterface
     handleDelete: (object: Partition, invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant) => boolean
     handleSetFlags: (object: Partition, invocation: Gio.DBusMethodInvocation, argFlags: number, argOptions: GLib.Variant) => boolean
@@ -7700,7 +6816,7 @@ export abstract class PartitionIface {
     static name: string
 }
 export abstract class PartitionProxyClass {
-    /* Fields of UDisks.PartitionProxyClass */
+    /* Fields of UDisks-2.0.UDisks.PartitionProxyClass */
     parentClass: Gio.DBusProxyClass
     static name: string
 }
@@ -7708,7 +6824,7 @@ export class PartitionProxyPrivate {
     static name: string
 }
 export abstract class PartitionSkeletonClass {
-    /* Fields of UDisks.PartitionSkeletonClass */
+    /* Fields of UDisks-2.0.UDisks.PartitionSkeletonClass */
     parentClass: Gio.DBusInterfaceSkeletonClass
     static name: string
 }
@@ -7716,7 +6832,7 @@ export class PartitionSkeletonPrivate {
     static name: string
 }
 export abstract class PartitionTableIface {
-    /* Fields of UDisks.PartitionTableIface */
+    /* Fields of UDisks-2.0.UDisks.PartitionTableIface */
     parentIface: GObject.TypeInterface
     handleCreatePartition: (object: PartitionTable, invocation: Gio.DBusMethodInvocation, argOffset: number, argSize: number, argType: string, argName: string, argOptions: GLib.Variant) => boolean
     handleCreatePartitionAndFormat: (object: PartitionTable, invocation: Gio.DBusMethodInvocation, argOffset: number, argSize: number, argType: string, argName: string, argOptions: GLib.Variant, argFormatType: string, argFormatOptions: GLib.Variant) => boolean
@@ -7724,7 +6840,7 @@ export abstract class PartitionTableIface {
     static name: string
 }
 export abstract class PartitionTableProxyClass {
-    /* Fields of UDisks.PartitionTableProxyClass */
+    /* Fields of UDisks-2.0.UDisks.PartitionTableProxyClass */
     parentClass: Gio.DBusProxyClass
     static name: string
 }
@@ -7732,7 +6848,7 @@ export class PartitionTableProxyPrivate {
     static name: string
 }
 export abstract class PartitionTableSkeletonClass {
-    /* Fields of UDisks.PartitionTableSkeletonClass */
+    /* Fields of UDisks-2.0.UDisks.PartitionTableSkeletonClass */
     parentClass: Gio.DBusInterfaceSkeletonClass
     static name: string
 }
@@ -7740,17 +6856,17 @@ export class PartitionTableSkeletonPrivate {
     static name: string
 }
 export class PartitionTypeInfo {
-    /* Fields of UDisks.PartitionTypeInfo */
+    /* Fields of UDisks-2.0.UDisks.PartitionTypeInfo */
     tableType: string
     tableSubtype: string
     type: string
     flags: PartitionTypeInfoFlags
-    /* Methods of UDisks.PartitionTypeInfo */
+    /* Methods of UDisks-2.0.UDisks.PartitionTypeInfo */
     free(): void
     static name: string
 }
 export abstract class SwapspaceIface {
-    /* Fields of UDisks.SwapspaceIface */
+    /* Fields of UDisks-2.0.UDisks.SwapspaceIface */
     parentIface: GObject.TypeInterface
     handleStart: (object: Swapspace, invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant) => boolean
     handleStop: (object: Swapspace, invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant) => boolean
@@ -7758,7 +6874,7 @@ export abstract class SwapspaceIface {
     static name: string
 }
 export abstract class SwapspaceProxyClass {
-    /* Fields of UDisks.SwapspaceProxyClass */
+    /* Fields of UDisks-2.0.UDisks.SwapspaceProxyClass */
     parentClass: Gio.DBusProxyClass
     static name: string
 }
@@ -7766,7 +6882,7 @@ export class SwapspaceProxyPrivate {
     static name: string
 }
 export abstract class SwapspaceSkeletonClass {
-    /* Fields of UDisks.SwapspaceSkeletonClass */
+    /* Fields of UDisks-2.0.UDisks.SwapspaceSkeletonClass */
     parentClass: Gio.DBusInterfaceSkeletonClass
     static name: string
 }

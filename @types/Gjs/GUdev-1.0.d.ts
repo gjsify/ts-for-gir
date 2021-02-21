@@ -15,17 +15,17 @@ export interface Client_ConstructProps extends GObject.Object_ConstructProps {
     subsystems?: string[]
 }
 export class Client {
-    /* Fields of GUdev.Client */
+    /* Fields of GUdev-1.0.GUdev.Client */
     parent: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GUdev.Client */
+    /* Methods of GUdev-1.0.GUdev.Client */
     query_by_device_file(device_file: string): Device | null
     query_by_device_number(type: DeviceType, number: DeviceNumber): Device | null
     query_by_subsystem(subsystem?: string | null): Device[] | null
     query_by_subsystem_and_name(subsystem: string, name: string): Device | null
     query_by_sysfs_path(sysfs_path: string): Device | null
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -47,9 +47,9 @@ export class Client {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GUdev.Client */
+    /* Virtual methods of GUdev-1.0.GUdev.Client */
     vfunc_uevent(action: string, device: Device): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -57,11 +57,11 @@ export class Client {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GUdev.Client */
+    /* Signals of GUdev-1.0.GUdev.Client */
     connect(sigName: "uevent", callback: (($obj: Client, action: string, device: Device) => void)): number
     connect_after(sigName: "uevent", callback: (($obj: Client, action: string, device: Device) => void)): number
     emit(sigName: "uevent", action: string, device: Device): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Client, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Client, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -79,11 +79,11 @@ export class Client {
 export interface Device_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class Device {
-    /* Fields of GUdev.Device */
+    /* Fields of GUdev-1.0.GUdev.Device */
     parent: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GUdev.Device */
+    /* Methods of GUdev-1.0.GUdev.Device */
     get_action(): string
     get_device_file(): string | null
     get_device_file_symlinks(): string[]
@@ -124,7 +124,7 @@ export class Device {
     has_property(key: string): boolean
     has_sysfs_attr(key: string): boolean
     has_sysfs_attr_uncached(key: string): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -146,7 +146,7 @@ export class Device {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -154,7 +154,7 @@ export class Device {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Device, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Device, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -171,11 +171,11 @@ export interface Enumerator_ConstructProps extends GObject.Object_ConstructProps
     client?: Client
 }
 export class Enumerator {
-    /* Fields of GUdev.Enumerator */
+    /* Fields of GUdev-1.0.GUdev.Enumerator */
     parent: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GUdev.Enumerator */
+    /* Methods of GUdev-1.0.GUdev.Enumerator */
     add_match_is_initialized(): Enumerator
     add_match_name(name: string): Enumerator
     add_match_property(name: string, value: string): Enumerator
@@ -186,7 +186,7 @@ export class Enumerator {
     add_nomatch_sysfs_attr(name: string, value: string): Enumerator
     add_sysfs_path(sysfs_path: string): Enumerator
     execute(): Device[]
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -208,7 +208,7 @@ export class Enumerator {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -216,7 +216,7 @@ export class Enumerator {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Enumerator, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Enumerator, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -232,7 +232,7 @@ export class Enumerator {
     static $gtype: GObject.Type
 }
 export abstract class ClientClass {
-    /* Fields of GUdev.ClientClass */
+    /* Fields of GUdev-1.0.GUdev.ClientClass */
     parent_class: GObject.ObjectClass
     uevent: (client: Client, action: string, device: Device) => void
     reserved1: () => void
@@ -249,7 +249,7 @@ export class ClientPrivate {
     static name: string
 }
 export abstract class DeviceClass {
-    /* Fields of GUdev.DeviceClass */
+    /* Fields of GUdev-1.0.GUdev.DeviceClass */
     parent_class: GObject.ObjectClass
     reserved1: () => void
     reserved2: () => void
@@ -265,7 +265,7 @@ export class DevicePrivate {
     static name: string
 }
 export abstract class EnumeratorClass {
-    /* Fields of GUdev.EnumeratorClass */
+    /* Fields of GUdev-1.0.GUdev.EnumeratorClass */
     parent_class: GObject.ObjectClass
     reserved1: () => void
     reserved2: () => void

@@ -506,21 +506,21 @@ export interface Category_ConstructProps extends Source_ConstructProps {
     summary?: string
 }
 export class Category {
-    /* Properties of PackageKitGlib.Category */
+    /* Properties of PackageKitGlib-1.0.PackageKitGlib.Category */
     cat_id: string
     icon: string
     name: string
     parent_id: string
     summary: string
-    /* Properties of PackageKitGlib.Source */
+    /* Properties of PackageKitGlib-1.0.PackageKitGlib.Source */
     role: RoleEnum
     transaction_id: string
-    /* Fields of PackageKitGlib.Category */
+    /* Fields of PackageKitGlib-1.0.PackageKitGlib.Category */
     parent: Source
     priv: CategoryPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of PackageKitGlib.Category */
+    /* Methods of PackageKitGlib-1.0.PackageKitGlib.Category */
     get_icon(): string
     get_id(): string
     get_name(): string
@@ -531,7 +531,7 @@ export class Category {
     set_name(name: string): void
     set_parent_id(parent_id: string): void
     set_summary(summary: string): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -553,7 +553,7 @@ export class Category {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -561,7 +561,7 @@ export class Category {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Category, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Category, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -597,18 +597,18 @@ export interface Client_ConstructProps extends GObject.Object_ConstructProps {
     locale?: string
 }
 export class Client {
-    /* Properties of PackageKitGlib.Client */
+    /* Properties of PackageKitGlib-1.0.PackageKitGlib.Client */
     background: boolean
     cache_age: number
     readonly idle: boolean
     interactive: boolean
     locale: string
-    /* Fields of PackageKitGlib.Client */
+    /* Fields of PackageKitGlib-1.0.PackageKitGlib.Client */
     parent: GObject.Object
     priv: ClientPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of PackageKitGlib.Client */
+    /* Methods of PackageKitGlib-1.0.PackageKitGlib.Client */
     accept_eula(eula_id: string, cancellable: Gio.Cancellable | null, progress_callback: ProgressCallback): Results
     accept_eula_async(eula_id: string, cancellable: Gio.Cancellable | null, progress_callback: ProgressCallback, callback_ready?: Gio.AsyncReadyCallback | null): void
     adopt(transaction_id: string, cancellable: Gio.Cancellable | null, progress_callback: ProgressCallback): Results
@@ -688,7 +688,7 @@ export class Client {
     upgrade_system_async(transaction_flags: Bitfield, distro_id: string, upgrade_kind: UpgradeKindEnum, cancellable: Gio.Cancellable | null, progress_callback: ProgressCallback, callback_ready?: Gio.AsyncReadyCallback | null): void
     what_provides(filters: Bitfield, values: string[], cancellable: Gio.Cancellable | null, progress_callback: ProgressCallback): Results
     what_provides_async(filters: Bitfield, values: string[], cancellable: Gio.Cancellable | null, progress_callback: ProgressCallback, callback_ready?: Gio.AsyncReadyCallback | null): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -710,9 +710,9 @@ export class Client {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of PackageKitGlib.Client */
+    /* Virtual methods of PackageKitGlib-1.0.PackageKitGlib.Client */
     vfunc_changed(): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -720,7 +720,7 @@ export class Client {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Client, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Client, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -749,17 +749,17 @@ export class Client {
 export interface ClientHelper_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class ClientHelper {
-    /* Fields of PackageKitGlib.ClientHelper */
+    /* Fields of PackageKitGlib-1.0.PackageKitGlib.ClientHelper */
     parent: GObject.Object
     priv: ClientHelperPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of PackageKitGlib.ClientHelper */
+    /* Methods of PackageKitGlib-1.0.PackageKitGlib.ClientHelper */
     is_active(): boolean
     start(socket_filename: string, argv: string, envp: string): boolean
     start_with_socket(socket: Gio.Socket, argv: string, envp: string): boolean
     stop(): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -781,7 +781,7 @@ export class ClientHelper {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -789,7 +789,7 @@ export class ClientHelper {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: ClientHelper, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: ClientHelper, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -819,7 +819,7 @@ export interface Control_ConstructProps extends GObject.Object_ConstructProps {
     roles?: number
 }
 export class Control {
-    /* Properties of PackageKitGlib.Control */
+    /* Properties of PackageKitGlib-1.0.PackageKitGlib.Control */
     backend_author: string
     backend_description: string
     backend_name: string
@@ -835,12 +835,12 @@ export class Control {
     readonly version_major: number
     readonly version_micro: number
     readonly version_minor: number
-    /* Fields of PackageKitGlib.Control */
+    /* Fields of PackageKitGlib-1.0.PackageKitGlib.Control */
     parent: GObject.Object
     priv: ControlPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of PackageKitGlib.Control */
+    /* Methods of PackageKitGlib-1.0.PackageKitGlib.Control */
     can_authorize_async(action_id: string, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     can_authorize_finish(res: Gio.AsyncResult): AuthorizeEnum
     get_daemon_state_async(cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
@@ -863,7 +863,7 @@ export class Control {
     suggest_daemon_quit(cancellable?: Gio.Cancellable | null): boolean
     suggest_daemon_quit_async(cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     suggest_daemon_quit_finish(res: Gio.AsyncResult): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -885,7 +885,7 @@ export class Control {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of PackageKitGlib.Control */
+    /* Virtual methods of PackageKitGlib-1.0.PackageKitGlib.Control */
     vfunc_connection_changed(connected: boolean): void
     vfunc_locked(is_locked: boolean): void
     vfunc_network_state_changed(): void
@@ -893,7 +893,7 @@ export class Control {
     vfunc_restart_schedule(): void
     vfunc_transaction_list_changed(transaction_ids: string): void
     vfunc_updates_changed(): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -901,7 +901,7 @@ export class Control {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of PackageKitGlib.Control */
+    /* Signals of PackageKitGlib-1.0.PackageKitGlib.Control */
     connect(sigName: "repo-list-changed", callback: (($obj: Control) => void)): number
     connect_after(sigName: "repo-list-changed", callback: (($obj: Control) => void)): number
     emit(sigName: "repo-list-changed"): void
@@ -914,7 +914,7 @@ export class Control {
     connect(sigName: "updates-changed", callback: (($obj: Control) => void)): number
     connect_after(sigName: "updates-changed", callback: (($obj: Control) => void)): number
     emit(sigName: "updates-changed"): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Control, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Control, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -962,17 +962,17 @@ export class Control {
 export interface Desktop_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class Desktop {
-    /* Fields of PackageKitGlib.Desktop */
+    /* Fields of PackageKitGlib-1.0.PackageKitGlib.Desktop */
     parent: GObject.Object
     priv: DesktopPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of PackageKitGlib.Desktop */
+    /* Methods of PackageKitGlib-1.0.PackageKitGlib.Desktop */
     get_files_for_package(package: string): string[]
     get_package_for_file(filename: string): string
     get_shown_for_package(package: string): string[]
     open_database(): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -994,7 +994,7 @@ export class Desktop {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -1002,7 +1002,7 @@ export class Desktop {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Desktop, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Desktop, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -1027,7 +1027,7 @@ export interface Details_ConstructProps extends Source_ConstructProps {
     url?: string
 }
 export class Details {
-    /* Properties of PackageKitGlib.Details */
+    /* Properties of PackageKitGlib-1.0.PackageKitGlib.Details */
     description: string
     group: GroupEnum
     license: string
@@ -1035,15 +1035,15 @@ export class Details {
     size: number
     summary: string
     url: string
-    /* Properties of PackageKitGlib.Source */
+    /* Properties of PackageKitGlib-1.0.PackageKitGlib.Source */
     role: RoleEnum
     transaction_id: string
-    /* Fields of PackageKitGlib.Details */
+    /* Fields of PackageKitGlib-1.0.PackageKitGlib.Details */
     parent: Source
     priv: DetailsPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of PackageKitGlib.Details */
+    /* Methods of PackageKitGlib-1.0.PackageKitGlib.Details */
     get_description(): string
     get_group(): GroupEnum
     get_license(): string
@@ -1051,7 +1051,7 @@ export class Details {
     get_size(): number
     get_summary(): string
     get_url(): string
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -1073,7 +1073,7 @@ export class Details {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -1081,7 +1081,7 @@ export class Details {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Details, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Details, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -1120,23 +1120,23 @@ export interface DistroUpgrade_ConstructProps extends Source_ConstructProps {
     summary?: string
 }
 export class DistroUpgrade {
-    /* Properties of PackageKitGlib.DistroUpgrade */
+    /* Properties of PackageKitGlib-1.0.PackageKitGlib.DistroUpgrade */
     name: string
     state: DistroUpgradeEnum
     summary: string
-    /* Properties of PackageKitGlib.Source */
+    /* Properties of PackageKitGlib-1.0.PackageKitGlib.Source */
     role: RoleEnum
     transaction_id: string
-    /* Fields of PackageKitGlib.DistroUpgrade */
+    /* Fields of PackageKitGlib-1.0.PackageKitGlib.DistroUpgrade */
     parent: Source
     priv: DistroUpgradePrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of PackageKitGlib.DistroUpgrade */
+    /* Methods of PackageKitGlib-1.0.PackageKitGlib.DistroUpgrade */
     get_id(): string
     get_state(): DistroUpgradeEnum
     get_summary(): string
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -1158,7 +1158,7 @@ export class DistroUpgrade {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -1166,7 +1166,7 @@ export class DistroUpgrade {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: DistroUpgrade, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: DistroUpgrade, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -1196,21 +1196,21 @@ export interface Error_ConstructProps extends Source_ConstructProps {
     details?: string
 }
 export class Error {
-    /* Properties of PackageKitGlib.Error */
+    /* Properties of PackageKitGlib-1.0.PackageKitGlib.Error */
     code: ErrorEnum
     details: string
-    /* Properties of PackageKitGlib.Source */
+    /* Properties of PackageKitGlib-1.0.PackageKitGlib.Source */
     role: RoleEnum
     transaction_id: string
-    /* Fields of PackageKitGlib.Error */
+    /* Fields of PackageKitGlib-1.0.PackageKitGlib.Error */
     parent: Source
     priv: ErrorPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of PackageKitGlib.Error */
+    /* Methods of PackageKitGlib-1.0.PackageKitGlib.Error */
     get_code(): ErrorEnum
     get_details(): string
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -1232,7 +1232,7 @@ export class Error {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -1240,7 +1240,7 @@ export class Error {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Error, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Error, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -1270,25 +1270,25 @@ export interface EulaRequired_ConstructProps extends Source_ConstructProps {
     vendor_name?: string
 }
 export class EulaRequired {
-    /* Properties of PackageKitGlib.EulaRequired */
+    /* Properties of PackageKitGlib-1.0.PackageKitGlib.EulaRequired */
     eula_id: string
     license_agreement: string
     package_id: string
     vendor_name: string
-    /* Properties of PackageKitGlib.Source */
+    /* Properties of PackageKitGlib-1.0.PackageKitGlib.Source */
     role: RoleEnum
     transaction_id: string
-    /* Fields of PackageKitGlib.EulaRequired */
+    /* Fields of PackageKitGlib-1.0.PackageKitGlib.EulaRequired */
     parent: Source
     priv: EulaRequiredPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of PackageKitGlib.EulaRequired */
+    /* Methods of PackageKitGlib-1.0.PackageKitGlib.EulaRequired */
     get_eula_id(): string
     get_license_agreement(): string
     get_package_id(): string
     get_vendor_name(): string
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -1310,7 +1310,7 @@ export class EulaRequired {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -1318,7 +1318,7 @@ export class EulaRequired {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: EulaRequired, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: EulaRequired, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -1350,21 +1350,21 @@ export interface Files_ConstructProps extends Source_ConstructProps {
     package_id?: string
 }
 export class Files {
-    /* Properties of PackageKitGlib.Files */
+    /* Properties of PackageKitGlib-1.0.PackageKitGlib.Files */
     files: string[]
     package_id: string
-    /* Properties of PackageKitGlib.Source */
+    /* Properties of PackageKitGlib-1.0.PackageKitGlib.Source */
     role: RoleEnum
     transaction_id: string
-    /* Fields of PackageKitGlib.Files */
+    /* Fields of PackageKitGlib-1.0.PackageKitGlib.Files */
     parent: Source
     priv: FilesPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of PackageKitGlib.Files */
+    /* Methods of PackageKitGlib-1.0.PackageKitGlib.Files */
     get_files(): string[]
     get_package_id(): string
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -1386,7 +1386,7 @@ export class Files {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -1394,7 +1394,7 @@ export class Files {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Files, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Files, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -1423,23 +1423,23 @@ export interface ItemProgress_ConstructProps extends Source_ConstructProps {
     status?: number
 }
 export class ItemProgress {
-    /* Properties of PackageKitGlib.ItemProgress */
+    /* Properties of PackageKitGlib-1.0.PackageKitGlib.ItemProgress */
     package_id: string
     percentage: number
     status: number
-    /* Properties of PackageKitGlib.Source */
+    /* Properties of PackageKitGlib-1.0.PackageKitGlib.Source */
     role: RoleEnum
     transaction_id: string
-    /* Fields of PackageKitGlib.ItemProgress */
+    /* Fields of PackageKitGlib-1.0.PackageKitGlib.ItemProgress */
     parent: Source
     priv: ItemProgressPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of PackageKitGlib.ItemProgress */
+    /* Methods of PackageKitGlib-1.0.PackageKitGlib.ItemProgress */
     get_package_id(): string
     get_percentage(): number
     get_status(): StatusEnum
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -1461,7 +1461,7 @@ export class ItemProgress {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -1469,7 +1469,7 @@ export class ItemProgress {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: ItemProgress, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: ItemProgress, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -1500,19 +1500,19 @@ export interface MediaChangeRequired_ConstructProps extends Source_ConstructProp
     media_type?: MediaTypeEnum
 }
 export class MediaChangeRequired {
-    /* Properties of PackageKitGlib.MediaChangeRequired */
+    /* Properties of PackageKitGlib-1.0.PackageKitGlib.MediaChangeRequired */
     media_id: string
     media_text: string
     media_type: MediaTypeEnum
-    /* Properties of PackageKitGlib.Source */
+    /* Properties of PackageKitGlib-1.0.PackageKitGlib.Source */
     role: RoleEnum
     transaction_id: string
-    /* Fields of PackageKitGlib.MediaChangeRequired */
+    /* Fields of PackageKitGlib-1.0.PackageKitGlib.MediaChangeRequired */
     parent: Source
     priv: MediaChangeRequiredPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -1534,7 +1534,7 @@ export class MediaChangeRequired {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -1542,7 +1542,7 @@ export class MediaChangeRequired {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: MediaChangeRequired, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: MediaChangeRequired, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -1588,7 +1588,7 @@ export interface Package_ConstructProps extends Source_ConstructProps {
     url?: string
 }
 export class Package {
-    /* Properties of PackageKitGlib.Package */
+    /* Properties of PackageKitGlib-1.0.PackageKitGlib.Package */
     description: string
     group: GroupEnum
     info: InfoEnum
@@ -1608,15 +1608,15 @@ export class Package {
     update_updates: string
     update_vendor_urls: string[]
     url: string
-    /* Properties of PackageKitGlib.Source */
+    /* Properties of PackageKitGlib-1.0.PackageKitGlib.Source */
     role: RoleEnum
     transaction_id: string
-    /* Fields of PackageKitGlib.Package */
+    /* Fields of PackageKitGlib-1.0.PackageKitGlib.Package */
     parent: Source
     priv: PackagePrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of PackageKitGlib.Package */
+    /* Methods of PackageKitGlib-1.0.PackageKitGlib.Package */
     equal(package2: Package): boolean
     equal_id(package2: Package): boolean
     get_arch(): string
@@ -1631,7 +1631,7 @@ export class Package {
     set_id(package_id: string): boolean
     set_info(info: InfoEnum): void
     set_summary(summary: string): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -1653,9 +1653,9 @@ export class Package {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of PackageKitGlib.Package */
+    /* Virtual methods of PackageKitGlib-1.0.PackageKitGlib.Package */
     vfunc_changed(): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -1663,11 +1663,11 @@ export class Package {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of PackageKitGlib.Package */
+    /* Signals of PackageKitGlib-1.0.PackageKitGlib.Package */
     connect(sigName: "changed", callback: (($obj: Package) => void)): number
     connect_after(sigName: "changed", callback: (($obj: Package) => void)): number
     emit(sigName: "changed"): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Package, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Package, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -1740,12 +1740,12 @@ export class Package {
 export interface PackageSack_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class PackageSack {
-    /* Fields of PackageKitGlib.PackageSack */
+    /* Fields of PackageKitGlib-1.0.PackageKitGlib.PackageSack */
     parent: GObject.Object
     priv: PackageSackPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of PackageKitGlib.PackageSack */
+    /* Methods of PackageKitGlib-1.0.PackageKitGlib.PackageSack */
     add_package(package: Package): boolean
     add_package_by_id(package_id: string): boolean
     add_packages_from_file(file: Gio.File): boolean
@@ -1770,7 +1770,7 @@ export class PackageSack {
     resolve_async(cancellable: Gio.Cancellable | null, progress_callback: ProgressCallback, callback?: Gio.AsyncReadyCallback | null): void
     sort(type: PackageSackSortType): void
     to_file(file: Gio.File): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -1792,9 +1792,9 @@ export class PackageSack {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of PackageKitGlib.PackageSack */
+    /* Virtual methods of PackageKitGlib-1.0.PackageKitGlib.PackageSack */
     vfunc_changed(): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -1802,7 +1802,7 @@ export class PackageSack {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: PackageSack, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: PackageSack, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -1835,7 +1835,7 @@ export interface Progress_ConstructProps extends GObject.Object_ConstructProps {
     uid?: number
 }
 export class Progress {
-    /* Properties of PackageKitGlib.Progress */
+    /* Properties of PackageKitGlib-1.0.PackageKitGlib.Progress */
     allow_cancel: boolean
     caller_active: boolean
     download_size_remaining: number
@@ -1851,12 +1851,12 @@ export class Progress {
     transaction_flags: number
     transaction_id: string
     uid: number
-    /* Fields of PackageKitGlib.Progress */
+    /* Fields of PackageKitGlib-1.0.PackageKitGlib.Progress */
     parent: GObject.Object
     priv: ProgressPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of PackageKitGlib.Progress */
+    /* Methods of PackageKitGlib-1.0.PackageKitGlib.Progress */
     get_allow_cancel(): boolean
     get_caller_active(): boolean
     get_download_size_remaining(): number
@@ -1887,7 +1887,7 @@ export class Progress {
     set_transaction_flags(transaction_flags: number): boolean
     set_transaction_id(transaction_id: string): boolean
     set_uid(uid: number): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -1909,7 +1909,7 @@ export class Progress {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -1917,7 +1917,7 @@ export class Progress {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Progress, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Progress, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -1968,23 +1968,23 @@ export interface RepoDetail_ConstructProps extends Source_ConstructProps {
     repo_id?: string
 }
 export class RepoDetail {
-    /* Properties of PackageKitGlib.RepoDetail */
+    /* Properties of PackageKitGlib-1.0.PackageKitGlib.RepoDetail */
     description: string
     enabled: boolean
     repo_id: string
-    /* Properties of PackageKitGlib.Source */
+    /* Properties of PackageKitGlib-1.0.PackageKitGlib.Source */
     role: RoleEnum
     transaction_id: string
-    /* Fields of PackageKitGlib.RepoDetail */
+    /* Fields of PackageKitGlib-1.0.PackageKitGlib.RepoDetail */
     parent: Source
     priv: RepoDetailPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of PackageKitGlib.RepoDetail */
+    /* Methods of PackageKitGlib-1.0.PackageKitGlib.RepoDetail */
     get_description(): string
     get_enabled(): boolean
     get_id(): string
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -2006,7 +2006,7 @@ export class RepoDetail {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -2014,7 +2014,7 @@ export class RepoDetail {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: RepoDetail, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: RepoDetail, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -2050,7 +2050,7 @@ export interface RepoSignatureRequired_ConstructProps extends Source_ConstructPr
     type?: SigTypeEnum
 }
 export class RepoSignatureRequired {
-    /* Properties of PackageKitGlib.RepoSignatureRequired */
+    /* Properties of PackageKitGlib-1.0.PackageKitGlib.RepoSignatureRequired */
     key_fingerprint: string
     key_id: string
     key_timestamp: string
@@ -2059,15 +2059,15 @@ export class RepoSignatureRequired {
     package_id: string
     repository_name: string
     type: SigTypeEnum
-    /* Properties of PackageKitGlib.Source */
+    /* Properties of PackageKitGlib-1.0.PackageKitGlib.Source */
     role: RoleEnum
     transaction_id: string
-    /* Fields of PackageKitGlib.RepoSignatureRequired */
+    /* Fields of PackageKitGlib-1.0.PackageKitGlib.RepoSignatureRequired */
     parent: Source
     priv: RepoSignatureRequiredPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -2089,7 +2089,7 @@ export class RepoSignatureRequired {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -2097,7 +2097,7 @@ export class RepoSignatureRequired {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: RepoSignatureRequired, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: RepoSignatureRequired, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -2137,18 +2137,18 @@ export interface RequireRestart_ConstructProps extends Source_ConstructProps {
     restart?: RestartEnum
 }
 export class RequireRestart {
-    /* Properties of PackageKitGlib.RequireRestart */
+    /* Properties of PackageKitGlib-1.0.PackageKitGlib.RequireRestart */
     package_id: string
     restart: RestartEnum
-    /* Properties of PackageKitGlib.Source */
+    /* Properties of PackageKitGlib-1.0.PackageKitGlib.Source */
     role: RoleEnum
     transaction_id: string
-    /* Fields of PackageKitGlib.RequireRestart */
+    /* Fields of PackageKitGlib-1.0.PackageKitGlib.RequireRestart */
     parent: Source
     priv: RequireRestartPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -2170,7 +2170,7 @@ export class RequireRestart {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -2178,7 +2178,7 @@ export class RequireRestart {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: RequireRestart, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: RequireRestart, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -2208,17 +2208,17 @@ export interface Results_ConstructProps extends GObject.Object_ConstructProps {
     transaction_flags?: number
 }
 export class Results {
-    /* Properties of PackageKitGlib.Results */
+    /* Properties of PackageKitGlib-1.0.PackageKitGlib.Results */
     inputs: number
     progress: Progress
     role: RoleEnum
     transaction_flags: number
-    /* Fields of PackageKitGlib.Results */
+    /* Fields of PackageKitGlib-1.0.PackageKitGlib.Results */
     parent: GObject.Object
     priv: ResultsPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of PackageKitGlib.Results */
+    /* Methods of PackageKitGlib-1.0.PackageKitGlib.Results */
     add_category(item: Category): boolean
     add_details(item: Details): boolean
     add_distro_upgrade(item: DistroUpgrade): boolean
@@ -2252,7 +2252,7 @@ export class Results {
     set_error_code(item: Error): boolean
     set_exit_code(exit_enum: ExitEnum): boolean
     set_role(role: RoleEnum): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -2274,7 +2274,7 @@ export class Results {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -2282,7 +2282,7 @@ export class Results {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Results, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Results, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -2310,15 +2310,15 @@ export interface Source_ConstructProps extends GObject.Object_ConstructProps {
     transaction_id?: string
 }
 export class Source {
-    /* Properties of PackageKitGlib.Source */
+    /* Properties of PackageKitGlib-1.0.PackageKitGlib.Source */
     role: RoleEnum
     transaction_id: string
-    /* Fields of PackageKitGlib.Source */
+    /* Fields of PackageKitGlib-1.0.PackageKitGlib.Source */
     parent: GObject.Object
     priv: SourcePrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -2340,7 +2340,7 @@ export class Source {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -2348,7 +2348,7 @@ export class Source {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Source, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Source, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -2375,24 +2375,24 @@ export interface Task_ConstructProps extends Client_ConstructProps {
     simulate?: boolean
 }
 export class Task {
-    /* Properties of PackageKitGlib.Task */
+    /* Properties of PackageKitGlib-1.0.PackageKitGlib.Task */
     allow_downgrade: boolean
     allow_reinstall: boolean
     only_download: boolean
     only_trusted: boolean
     simulate: boolean
-    /* Properties of PackageKitGlib.Client */
+    /* Properties of PackageKitGlib-1.0.PackageKitGlib.Client */
     background: boolean
     cache_age: number
     readonly idle: boolean
     interactive: boolean
     locale: string
-    /* Fields of PackageKitGlib.Task */
+    /* Fields of PackageKitGlib-1.0.PackageKitGlib.Task */
     parent: Client
     priv: TaskPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of PackageKitGlib.Task */
+    /* Methods of PackageKitGlib-1.0.PackageKitGlib.Task */
     depends_on_async(filters: Bitfield, package_ids: string[], recursive: boolean, cancellable: Gio.Cancellable | null, progress_callback: ProgressCallback, callback_ready?: Gio.AsyncReadyCallback | null): void
     depends_on_sync(filters: Bitfield, package_ids: string[], recursive: boolean, cancellable: Gio.Cancellable | null, progress_callback: ProgressCallback): Results
     download_packages_async(package_ids: string[], directory: string, cancellable: Gio.Cancellable | null, progress_callback: ProgressCallback, callback_ready?: Gio.AsyncReadyCallback | null): void
@@ -2454,7 +2454,7 @@ export class Task {
     user_declined(request: number): boolean
     what_provides_async(filters: Bitfield, values: string[], cancellable: Gio.Cancellable | null, progress_callback: ProgressCallback, callback_ready?: Gio.AsyncReadyCallback | null): void
     what_provides_sync(filters: Bitfield, values: string[], cancellable: Gio.Cancellable | null, progress_callback: ProgressCallback): Results
-    /* Methods of PackageKitGlib.Client */
+    /* Methods of PackageKitGlib-1.0.PackageKitGlib.Client */
     accept_eula(eula_id: string, cancellable: Gio.Cancellable | null, progress_callback: ProgressCallback): Results
     accept_eula_async(eula_id: string, cancellable: Gio.Cancellable | null, progress_callback: ProgressCallback, callback_ready?: Gio.AsyncReadyCallback | null): void
     adopt(transaction_id: string, cancellable: Gio.Cancellable | null, progress_callback: ProgressCallback): Results
@@ -2515,7 +2515,7 @@ export class Task {
     upgrade_system(transaction_flags: Bitfield, distro_id: string, upgrade_kind: UpgradeKindEnum, cancellable: Gio.Cancellable | null, progress_callback: ProgressCallback): Results
     upgrade_system_async(transaction_flags: Bitfield, distro_id: string, upgrade_kind: UpgradeKindEnum, cancellable: Gio.Cancellable | null, progress_callback: ProgressCallback, callback_ready?: Gio.AsyncReadyCallback | null): void
     what_provides(filters: Bitfield, values: string[], cancellable: Gio.Cancellable | null, progress_callback: ProgressCallback): Results
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -2537,16 +2537,16 @@ export class Task {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of PackageKitGlib.Task */
+    /* Virtual methods of PackageKitGlib-1.0.PackageKitGlib.Task */
     vfunc_eula_question(request: number, results: Results): void
     vfunc_key_question(request: number, results: Results): void
     vfunc_media_change_question(request: number, results: Results): void
     vfunc_repair_question(request: number, results: Results): void
     vfunc_simulate_question(request: number, results: Results): void
     vfunc_untrusted_question(request: number, results: Results): void
-    /* Virtual methods of PackageKitGlib.Client */
+    /* Virtual methods of PackageKitGlib-1.0.PackageKitGlib.Client */
     vfunc_changed(): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -2554,7 +2554,7 @@ export class Task {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Task, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Task, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -2592,14 +2592,14 @@ export class Task {
 export interface TransactionList_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class TransactionList {
-    /* Fields of PackageKitGlib.TransactionList */
+    /* Fields of PackageKitGlib-1.0.PackageKitGlib.TransactionList */
     parent: GObject.Object
     priv: TransactionListPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of PackageKitGlib.TransactionList */
+    /* Methods of PackageKitGlib-1.0.PackageKitGlib.TransactionList */
     get_ids(): string[]
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -2621,10 +2621,10 @@ export class TransactionList {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of PackageKitGlib.TransactionList */
+    /* Virtual methods of PackageKitGlib-1.0.PackageKitGlib.TransactionList */
     vfunc_added(tid: string): void
     vfunc_removed(tid: string): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -2632,14 +2632,14 @@ export class TransactionList {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of PackageKitGlib.TransactionList */
+    /* Signals of PackageKitGlib-1.0.PackageKitGlib.TransactionList */
     connect(sigName: "added", callback: (($obj: TransactionList, tid: string) => void)): number
     connect_after(sigName: "added", callback: (($obj: TransactionList, tid: string) => void)): number
     emit(sigName: "added", tid: string): void
     connect(sigName: "removed", callback: (($obj: TransactionList, tid: string) => void)): number
     connect_after(sigName: "removed", callback: (($obj: TransactionList, tid: string) => void)): number
     emit(sigName: "removed", tid: string): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: TransactionList, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: TransactionList, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -2665,7 +2665,7 @@ export interface TransactionPast_ConstructProps extends Source_ConstructProps {
     uid?: number
 }
 export class TransactionPast {
-    /* Properties of PackageKitGlib.TransactionPast */
+    /* Properties of PackageKitGlib-1.0.PackageKitGlib.TransactionPast */
     cmdline: string
     data: string
     duration: number
@@ -2674,14 +2674,14 @@ export class TransactionPast {
     tid: string
     timespec: string
     uid: number
-    /* Properties of PackageKitGlib.Source */
+    /* Properties of PackageKitGlib-1.0.PackageKitGlib.Source */
     transaction_id: string
-    /* Fields of PackageKitGlib.TransactionPast */
+    /* Fields of PackageKitGlib-1.0.PackageKitGlib.TransactionPast */
     parent: Source
     priv: TransactionPastPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of PackageKitGlib.TransactionPast */
+    /* Methods of PackageKitGlib-1.0.PackageKitGlib.TransactionPast */
     get_cmdline(): string
     get_data(): string
     get_datetime(): GLib.DateTime
@@ -2692,7 +2692,7 @@ export class TransactionPast {
     get_timespec(): string
     get_timestamp(): number
     get_uid(): number
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -2714,7 +2714,7 @@ export class TransactionPast {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -2722,7 +2722,7 @@ export class TransactionPast {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: TransactionPast, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: TransactionPast, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -2770,7 +2770,7 @@ export interface UpdateDetail_ConstructProps extends Source_ConstructProps {
     vendor_urls?: string[]
 }
 export class UpdateDetail {
-    /* Properties of PackageKitGlib.UpdateDetail */
+    /* Properties of PackageKitGlib-1.0.PackageKitGlib.UpdateDetail */
     bugzilla_urls: string[]
     changelog: string
     cve_urls: string[]
@@ -2783,15 +2783,15 @@ export class UpdateDetail {
     updated: string
     updates: string[]
     vendor_urls: string[]
-    /* Properties of PackageKitGlib.Source */
+    /* Properties of PackageKitGlib-1.0.PackageKitGlib.Source */
     role: RoleEnum
     transaction_id: string
-    /* Fields of PackageKitGlib.UpdateDetail */
+    /* Fields of PackageKitGlib-1.0.PackageKitGlib.UpdateDetail */
     parent: Source
     priv: UpdateDetailPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of PackageKitGlib.UpdateDetail */
+    /* Methods of PackageKitGlib-1.0.PackageKitGlib.UpdateDetail */
     get_bugzilla_urls(): string[]
     get_changelog(): string
     get_cve_urls(): string[]
@@ -2804,7 +2804,7 @@ export class UpdateDetail {
     get_updated(): string
     get_updates(): string[]
     get_vendor_urls(): string[]
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -2826,7 +2826,7 @@ export class UpdateDetail {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -2834,7 +2834,7 @@ export class UpdateDetail {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: UpdateDetail, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: UpdateDetail, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -2878,7 +2878,7 @@ export class UpdateDetail {
     static $gtype: GObject.Type
 }
 export abstract class CategoryClass {
-    /* Fields of PackageKitGlib.CategoryClass */
+    /* Fields of PackageKitGlib-1.0.PackageKitGlib.CategoryClass */
     parent_class: SourceClass
     static name: string
 }
@@ -2886,13 +2886,13 @@ export class CategoryPrivate {
     static name: string
 }
 export abstract class ClientClass {
-    /* Fields of PackageKitGlib.ClientClass */
+    /* Fields of PackageKitGlib-1.0.PackageKitGlib.ClientClass */
     parent_class: GObject.ObjectClass
     changed: (client: Client) => void
     static name: string
 }
 export abstract class ClientHelperClass {
-    /* Fields of PackageKitGlib.ClientHelperClass */
+    /* Fields of PackageKitGlib-1.0.PackageKitGlib.ClientHelperClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
@@ -2903,7 +2903,7 @@ export class ClientPrivate {
     static name: string
 }
 export abstract class ControlClass {
-    /* Fields of PackageKitGlib.ControlClass */
+    /* Fields of PackageKitGlib-1.0.PackageKitGlib.ControlClass */
     parent_class: GObject.ObjectClass
     transaction_list_changed: (control: Control, transaction_ids: string) => void
     updates_changed: (control: Control) => void
@@ -2918,7 +2918,7 @@ export class ControlPrivate {
     static name: string
 }
 export abstract class DesktopClass {
-    /* Fields of PackageKitGlib.DesktopClass */
+    /* Fields of PackageKitGlib-1.0.PackageKitGlib.DesktopClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
@@ -2926,7 +2926,7 @@ export class DesktopPrivate {
     static name: string
 }
 export abstract class DetailsClass {
-    /* Fields of PackageKitGlib.DetailsClass */
+    /* Fields of PackageKitGlib-1.0.PackageKitGlib.DetailsClass */
     parent_class: SourceClass
     static name: string
 }
@@ -2934,7 +2934,7 @@ export class DetailsPrivate {
     static name: string
 }
 export abstract class DistroUpgradeClass {
-    /* Fields of PackageKitGlib.DistroUpgradeClass */
+    /* Fields of PackageKitGlib-1.0.PackageKitGlib.DistroUpgradeClass */
     parent_class: SourceClass
     static name: string
 }
@@ -2942,13 +2942,13 @@ export class DistroUpgradePrivate {
     static name: string
 }
 export class EnumMatch {
-    /* Fields of PackageKitGlib.EnumMatch */
+    /* Fields of PackageKitGlib-1.0.PackageKitGlib.EnumMatch */
     value: number
     string: string
     static name: string
 }
 export abstract class ErrorClass {
-    /* Fields of PackageKitGlib.ErrorClass */
+    /* Fields of PackageKitGlib-1.0.PackageKitGlib.ErrorClass */
     parent_class: SourceClass
     static name: string
 }
@@ -2956,7 +2956,7 @@ export class ErrorPrivate {
     static name: string
 }
 export abstract class EulaRequiredClass {
-    /* Fields of PackageKitGlib.EulaRequiredClass */
+    /* Fields of PackageKitGlib-1.0.PackageKitGlib.EulaRequiredClass */
     parent_class: SourceClass
     static name: string
 }
@@ -2964,7 +2964,7 @@ export class EulaRequiredPrivate {
     static name: string
 }
 export abstract class FilesClass {
-    /* Fields of PackageKitGlib.FilesClass */
+    /* Fields of PackageKitGlib-1.0.PackageKitGlib.FilesClass */
     parent_class: SourceClass
     static name: string
 }
@@ -2972,7 +2972,7 @@ export class FilesPrivate {
     static name: string
 }
 export abstract class ItemProgressClass {
-    /* Fields of PackageKitGlib.ItemProgressClass */
+    /* Fields of PackageKitGlib-1.0.PackageKitGlib.ItemProgressClass */
     parent_class: SourceClass
     static name: string
 }
@@ -2980,7 +2980,7 @@ export class ItemProgressPrivate {
     static name: string
 }
 export abstract class MediaChangeRequiredClass {
-    /* Fields of PackageKitGlib.MediaChangeRequiredClass */
+    /* Fields of PackageKitGlib-1.0.PackageKitGlib.MediaChangeRequiredClass */
     parent_class: SourceClass
     static name: string
 }
@@ -2988,7 +2988,7 @@ export class MediaChangeRequiredPrivate {
     static name: string
 }
 export abstract class PackageClass {
-    /* Fields of PackageKitGlib.PackageClass */
+    /* Fields of PackageKitGlib-1.0.PackageKitGlib.PackageClass */
     parent_class: SourceClass
     changed: (package: Package) => void
     static name: string
@@ -2997,7 +2997,7 @@ export class PackagePrivate {
     static name: string
 }
 export abstract class PackageSackClass {
-    /* Fields of PackageKitGlib.PackageSackClass */
+    /* Fields of PackageKitGlib-1.0.PackageKitGlib.PackageSackClass */
     parent_class: GObject.ObjectClass
     changed: (sack: PackageSack) => void
     static name: string
@@ -3009,7 +3009,7 @@ export class PackageSackResults {
     static name: string
 }
 export abstract class ProgressClass {
-    /* Fields of PackageKitGlib.ProgressClass */
+    /* Fields of PackageKitGlib-1.0.PackageKitGlib.ProgressClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
@@ -3017,7 +3017,7 @@ export class ProgressPrivate {
     static name: string
 }
 export abstract class RepoDetailClass {
-    /* Fields of PackageKitGlib.RepoDetailClass */
+    /* Fields of PackageKitGlib-1.0.PackageKitGlib.RepoDetailClass */
     parent_class: SourceClass
     static name: string
 }
@@ -3025,7 +3025,7 @@ export class RepoDetailPrivate {
     static name: string
 }
 export abstract class RepoSignatureRequiredClass {
-    /* Fields of PackageKitGlib.RepoSignatureRequiredClass */
+    /* Fields of PackageKitGlib-1.0.PackageKitGlib.RepoSignatureRequiredClass */
     parent_class: SourceClass
     static name: string
 }
@@ -3033,7 +3033,7 @@ export class RepoSignatureRequiredPrivate {
     static name: string
 }
 export abstract class RequireRestartClass {
-    /* Fields of PackageKitGlib.RequireRestartClass */
+    /* Fields of PackageKitGlib-1.0.PackageKitGlib.RequireRestartClass */
     parent_class: SourceClass
     static name: string
 }
@@ -3041,7 +3041,7 @@ export class RequireRestartPrivate {
     static name: string
 }
 export abstract class ResultsClass {
-    /* Fields of PackageKitGlib.ResultsClass */
+    /* Fields of PackageKitGlib-1.0.PackageKitGlib.ResultsClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
@@ -3049,7 +3049,7 @@ export class ResultsPrivate {
     static name: string
 }
 export abstract class SourceClass {
-    /* Fields of PackageKitGlib.SourceClass */
+    /* Fields of PackageKitGlib-1.0.PackageKitGlib.SourceClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
@@ -3057,7 +3057,7 @@ export class SourcePrivate {
     static name: string
 }
 export abstract class TaskClass {
-    /* Fields of PackageKitGlib.TaskClass */
+    /* Fields of PackageKitGlib-1.0.PackageKitGlib.TaskClass */
     parent_class: ClientClass
     untrusted_question: (task: Task, request: number, results: Results) => void
     key_question: (task: Task, request: number, results: Results) => void
@@ -3071,7 +3071,7 @@ export class TaskPrivate {
     static name: string
 }
 export abstract class TransactionListClass {
-    /* Fields of PackageKitGlib.TransactionListClass */
+    /* Fields of PackageKitGlib-1.0.PackageKitGlib.TransactionListClass */
     parent_class: GObject.ObjectClass
     added: (tlist: TransactionList, tid: string) => void
     removed: (tlist: TransactionList, tid: string) => void
@@ -3081,7 +3081,7 @@ export class TransactionListPrivate {
     static name: string
 }
 export abstract class TransactionPastClass {
-    /* Fields of PackageKitGlib.TransactionPastClass */
+    /* Fields of PackageKitGlib-1.0.PackageKitGlib.TransactionPastClass */
     parent_class: SourceClass
     static name: string
 }
@@ -3089,7 +3089,7 @@ export class TransactionPastPrivate {
     static name: string
 }
 export abstract class UpdateDetailClass {
-    /* Fields of PackageKitGlib.UpdateDetailClass */
+    /* Fields of PackageKitGlib-1.0.PackageKitGlib.UpdateDetailClass */
     parent_class: SourceClass
     static name: string
 }

@@ -52,17 +52,13 @@ export const VERSION: number
 export const VERSION_HEX: number
 export const VERSION_S: string
 export class Location {
-    /* Properties of Shumate.Location */
+    /* Properties of Shumate-0.0.Shumate.Location */
     latitude: number
     longitude: number
-    /* Methods of Shumate.Location */
+    /* Methods of Shumate-0.0.Shumate.Location */
     getLatitude(): number
     getLongitude(): number
     setLocation(latitude: number, longitude: number): void
-    /* Virtual methods of Shumate.Location */
-    vfuncGetLatitude(): number
-    vfuncGetLongitude(): number
-    vfuncSetLocation(latitude: number, longitude: number): void
     static name: string
 }
 export interface Coordinate_ConstructProps extends GObject.InitiallyUnowned_ConstructProps {
@@ -70,14 +66,14 @@ export interface Coordinate_ConstructProps extends GObject.InitiallyUnowned_Cons
     longitude?: number
 }
 export class Coordinate {
-    /* Properties of Shumate.Location */
+    /* Properties of Shumate-0.0.Shumate.Location */
     latitude: number
     longitude: number
-    /* Fields of Shumate.Coordinate */
+    /* Fields of Shumate-0.0.Shumate.Coordinate */
     parentInstance: GObject.InitiallyUnowned
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -99,29 +95,16 @@ export class Coordinate {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of Shumate.Location */
+    /* Methods of Shumate-0.0.Shumate.Location */
     getLatitude(): number
     getLongitude(): number
     setLocation(latitude: number, longitude: number): void
-    /* Virtual methods of Shumate.Coordinate */
-    vfuncGetLatitude(): number
-    vfuncGetLongitude(): number
-    vfuncSetLocation(latitude: number, longitude: number): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Coordinate, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Coordinate, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::latitude", callback: (($obj: Coordinate, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::latitude", callback: (($obj: Coordinate, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::latitude", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -150,7 +133,7 @@ export class Coordinate {
 export interface ErrorTileSource_ConstructProps extends TileSource_ConstructProps {
 }
 export class ErrorTileSource {
-    /* Properties of Shumate.TileSource */
+    /* Properties of Shumate-0.0.Shumate.TileSource */
     cache: TileCache
     id: string
     license: string
@@ -160,13 +143,13 @@ export class ErrorTileSource {
     name: string
     projection: MapProjection
     tileSize: number
-    /* Properties of Shumate.MapSource */
+    /* Properties of Shumate-0.0.Shumate.MapSource */
     nextSource: MapSource
-    /* Fields of Shumate.ErrorTileSource */
+    /* Fields of Shumate-0.0.Shumate.ErrorTileSource */
     parentInstance: TileSource
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Shumate.TileSource */
+    /* Methods of Shumate-0.0.Shumate.TileSource */
     getCache(): TileCache
     setCache(cache: TileCache): void
     setId(id: string): void
@@ -177,7 +160,7 @@ export class ErrorTileSource {
     setName(name: string): void
     setProjection(projection: MapProjection): void
     setTileSize(tileSize: number): void
-    /* Methods of Shumate.MapSource */
+    /* Methods of Shumate-0.0.Shumate.MapSource */
     fillTile(tile: Tile, cancellable?: Gio.Cancellable | null): void
     getColumnCount(zoomLevel: number): number
     getId(): string
@@ -196,7 +179,7 @@ export class ErrorTileSource {
     getX(zoomLevel: number, longitude: number): number
     getY(zoomLevel: number, latitude: number): number
     setNextSource(nextSource: MapSource): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -218,31 +201,12 @@ export class ErrorTileSource {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of Shumate.MapSource */
-    vfuncFillTile(tile: Tile, cancellable?: Gio.Cancellable | null): void
-    vfuncGetId(): string
-    vfuncGetLicense(): string
-    vfuncGetLicenseUri(): string
-    vfuncGetMaxZoomLevel(): number
-    vfuncGetMinZoomLevel(): number
-    vfuncGetName(): string
-    vfuncGetProjection(): MapProjection
-    vfuncGetTileSize(): number
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: ErrorTileSource, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: ErrorTileSource, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::cache", callback: (($obj: ErrorTileSource, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::cache", callback: (($obj: ErrorTileSource, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::cache", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -312,25 +276,25 @@ export interface FileCache_ConstructProps extends TileCache_ConstructProps {
     sizeLimit?: number
 }
 export class FileCache {
-    /* Properties of Shumate.FileCache */
+    /* Properties of Shumate-0.0.Shumate.FileCache */
     sizeLimit: number
-    /* Properties of Shumate.MapSource */
+    /* Properties of Shumate-0.0.Shumate.MapSource */
     nextSource: MapSource
-    /* Fields of Shumate.FileCache */
+    /* Fields of Shumate-0.0.Shumate.FileCache */
     parentInstance: TileCache
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Shumate.FileCache */
+    /* Methods of Shumate-0.0.Shumate.FileCache */
     getCacheDir(): string
     getSizeLimit(): number
     purge(): void
     purgeOnIdle(): void
     setSizeLimit(sizeLimit: number): void
-    /* Methods of Shumate.TileCache */
+    /* Methods of Shumate-0.0.Shumate.TileCache */
     onTileFilled(tile: Tile): void
     refreshTileTime(tile: Tile): void
     storeTile(tile: Tile, contents: string, size: number): void
-    /* Methods of Shumate.MapSource */
+    /* Methods of Shumate-0.0.Shumate.MapSource */
     fillTile(tile: Tile, cancellable?: Gio.Cancellable | null): void
     getColumnCount(zoomLevel: number): number
     getId(): string
@@ -349,7 +313,7 @@ export class FileCache {
     getX(zoomLevel: number, longitude: number): number
     getY(zoomLevel: number, latitude: number): number
     setNextSource(nextSource: MapSource): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -371,35 +335,12 @@ export class FileCache {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of Shumate.TileCache */
-    vfuncOnTileFilled(tile: Tile): void
-    vfuncRefreshTileTime(tile: Tile): void
-    vfuncStoreTile(tile: Tile, contents: string, size: number): void
-    /* Virtual methods of Shumate.MapSource */
-    vfuncFillTile(tile: Tile, cancellable?: Gio.Cancellable | null): void
-    vfuncGetId(): string
-    vfuncGetLicense(): string
-    vfuncGetLicenseUri(): string
-    vfuncGetMaxZoomLevel(): number
-    vfuncGetMinZoomLevel(): number
-    vfuncGetName(): string
-    vfuncGetProjection(): MapProjection
-    vfuncGetTileSize(): number
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: FileCache, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: FileCache, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::size-limit", callback: (($obj: FileCache, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::size-limit", callback: (($obj: FileCache, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::size-limit", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -429,7 +370,7 @@ export interface Layer_ConstructProps extends Gtk.Widget_ConstructProps {
     accessibleRole?: Gtk.AccessibleRole
 }
 export class Layer {
-    /* Properties of Gtk.Widget */
+    /* Properties of Gtk-4.0.Gtk.Widget */
     canFocus: boolean
     canTarget: boolean
     cssClasses: string[]
@@ -463,15 +404,15 @@ export class Layer {
     vexpandSet: boolean
     visible: boolean
     widthRequest: number
-    /* Properties of Gtk.Accessible */
+    /* Properties of Gtk-4.0.Gtk.Accessible */
     accessibleRole: Gtk.AccessibleRole
-    /* Fields of Shumate.Layer */
+    /* Fields of Shumate-0.0.Shumate.Layer */
     parentInstance: Gtk.Widget
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Shumate.Layer */
+    /* Methods of Shumate-0.0.Shumate.Layer */
     getViewport(): Viewport
-    /* Methods of Gtk.Widget */
+    /* Methods of Gtk-4.0.Gtk.Widget */
     actionSetEnabled(actionName: string, enabled: boolean): void
     activate(): boolean
     activateAction(name: string, args?: GLib.Variant | null): boolean
@@ -482,10 +423,10 @@ export class Layer {
     addTickCallback(callback: Gtk.TickCallback): number
     allocate(width: number, height: number, baseline: number, transform?: Gsk.Transform | null): void
     childFocus(direction: Gtk.DirectionType): boolean
-    computeBounds(target: Gtk.Widget): [ /* returnType */ boolean, /* outBounds */ Graphene.Rect ]
+    computeBounds(target: Gtk.Widget): { returnType: boolean, outBounds: Graphene.Rect }
     computeExpand(orientation: Gtk.Orientation): boolean
-    computePoint(target: Gtk.Widget, point: Graphene.Point): [ /* returnType */ boolean, /* outPoint */ Graphene.Point ]
-    computeTransform(target: Gtk.Widget): [ /* returnType */ boolean, /* outTransform */ Graphene.Matrix ]
+    computePoint(target: Gtk.Widget, point: Graphene.Point): { returnType: boolean, outPoint: Graphene.Point }
+    computeTransform(target: Gtk.Widget): { returnType: boolean, outTransform: Graphene.Matrix }
     contains(x: number, y: number): boolean
     createPangoContext(): Pango.Context
     createPangoLayout(text?: string | null): Pango.Layout
@@ -494,7 +435,7 @@ export class Layer {
     getAllocatedBaseline(): number
     getAllocatedHeight(): number
     getAllocatedWidth(): number
-    getAllocation(): /* allocation */ Gtk.Allocation
+    getAllocation(): { allocation: Gtk.Allocation }
     getAncestor(widgetType: GObject.Type): Gtk.Widget | null
     getCanFocus(): boolean
     getCanTarget(): boolean
@@ -531,7 +472,7 @@ export class Layer {
     getOverflow(): Gtk.Overflow
     getPangoContext(): Pango.Context
     getParent(): Gtk.Widget | null
-    getPreferredSize(): [ /* minimumSize */ Gtk.Requisition | null, /* naturalSize */ Gtk.Requisition | null ]
+    getPreferredSize(): { minimumSize: Gtk.Requisition | null, naturalSize: Gtk.Requisition | null }
     getPrevSibling(): Gtk.Widget | null
     getPrimaryClipboard(): Gdk.Clipboard
     getRealized(): boolean
@@ -542,7 +483,7 @@ export class Layer {
     getSensitive(): boolean
     getSettings(): Gtk.Settings
     getSize(orientation: Gtk.Orientation): number
-    getSizeRequest(): [ /* width */ number | null, /* height */ number | null ]
+    getSizeRequest(): { width: number | null, height: number | null }
     getStateFlags(): Gtk.StateFlags
     getStyleContext(): Gtk.StyleContext
     getTemplateChild(widgetType: GObject.Type, name: string): GObject.Object
@@ -570,7 +511,7 @@ export class Layer {
     keynavFailed(direction: Gtk.DirectionType): boolean
     listMnemonicLabels(): Gtk.Widget[]
     map(): void
-    measure(orientation: Gtk.Orientation, forSize: number): [ /* minimum */ number | null, /* natural */ number | null, /* minimumBaseline */ number | null, /* naturalBaseline */ number | null ]
+    measure(orientation: Gtk.Orientation, forSize: number): { minimum: number | null, natural: number | null, minimumBaseline: number | null, naturalBaseline: number | null }
     mnemonicActivate(groupCycling: boolean): boolean
     observeChildren(): Gio.ListModel
     observeControllers(): Gio.ListModel
@@ -622,13 +563,13 @@ export class Layer {
     show(): void
     sizeAllocate(allocation: Gtk.Allocation, baseline: number): void
     snapshotChild(child: Gtk.Widget, snapshot: Gtk.Snapshot): void
-    translateCoordinates(destWidget: Gtk.Widget, srcX: number, srcY: number): [ /* returnType */ boolean, /* destX */ number | null, /* destY */ number | null ]
+    translateCoordinates(destWidget: Gtk.Widget, srcX: number, srcY: number): { returnType: boolean, destX: number | null, destY: number | null }
     triggerTooltipQuery(): void
     unmap(): void
     unparent(): void
     unrealize(): void
     unsetStateFlags(flags: Gtk.StateFlags): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -650,7 +591,7 @@ export class Layer {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of Gtk.Accessible */
+    /* Methods of Gtk-4.0.Gtk.Accessible */
     getAccessibleRole(): Gtk.AccessibleRole
     resetProperty(property: Gtk.AccessibleProperty): void
     resetRelation(relation: Gtk.AccessibleRelation): void
@@ -658,138 +599,80 @@ export class Layer {
     updateProperty(properties: Gtk.AccessibleProperty[], values: any[]): void
     updateRelation(relations: Gtk.AccessibleRelation[], values: any[]): void
     updateState(states: Gtk.AccessibleState[], values: any[]): void
-    /* Methods of Gtk.Buildable */
+    /* Methods of Gtk-4.0.Gtk.Buildable */
     getBuildableId(): string
-    /* Virtual methods of Shumate.Layer */
-    vfuncAddChild(builder: Gtk.Builder, child: GObject.Object, type?: string | null): void
-    vfuncCustomFinished(builder: Gtk.Builder, child: GObject.Object | null, tagname: string, data?: object | null): void
-    vfuncCustomTagEnd(builder: Gtk.Builder, child: GObject.Object | null, tagname: string, data?: object | null): void
-    vfuncCustomTagStart(builder: Gtk.Builder, child: GObject.Object | null, tagname: string): [ /* returnType */ boolean, /* parser */ Gtk.BuildableParser, /* data */ object | null ]
-    vfuncGetId(): string
-    vfuncGetInternalChild(builder: Gtk.Builder, childname: string): GObject.Object
-    vfuncParserFinished(builder: Gtk.Builder): void
-    vfuncSetBuildableProperty(builder: Gtk.Builder, name: string, value: any): void
-    vfuncSetId(id: string): void
-    /* Virtual methods of Gtk.Widget */
-    vfuncComputeExpand(hexpandP: boolean, vexpandP: boolean): void
-    vfuncContains(x: number, y: number): boolean
-    vfuncCssChanged(change: Gtk.CssStyleChange): void
-    vfuncDirectionChanged(previousDirection: Gtk.TextDirection): void
-    vfuncFocus(direction: Gtk.DirectionType): boolean
-    vfuncGetRequestMode(): Gtk.SizeRequestMode
-    vfuncGrabFocus(): boolean
-    vfuncHide(): void
-    vfuncKeynavFailed(direction: Gtk.DirectionType): boolean
-    vfuncMap(): void
-    vfuncMeasure(orientation: Gtk.Orientation, forSize: number): [ /* minimum */ number | null, /* natural */ number | null, /* minimumBaseline */ number | null, /* naturalBaseline */ number | null ]
-    vfuncMnemonicActivate(groupCycling: boolean): boolean
-    vfuncMoveFocus(direction: Gtk.DirectionType): void
-    vfuncQueryTooltip(x: number, y: number, keyboardTooltip: boolean, tooltip: Gtk.Tooltip): boolean
-    vfuncRealize(): void
-    vfuncRoot(): void
-    vfuncSetFocusChild(child?: Gtk.Widget | null): void
-    vfuncShow(): void
-    vfuncSizeAllocate(width: number, height: number, baseline: number): void
-    vfuncSnapshot(snapshot: Gtk.Snapshot): void
-    vfuncStateFlagsChanged(previousStateFlags: Gtk.StateFlags): void
-    vfuncSystemSettingChanged(settings: Gtk.SystemSetting): void
-    vfuncUnmap(): void
-    vfuncUnrealize(): void
-    vfuncUnroot(): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gtk.Widget */
+    /* Signals of Gtk-4.0.Gtk.Widget */
     connect(sigName: "destroy", callback: (($obj: Layer) => void)): number
-    connect_after(sigName: "destroy", callback: (($obj: Layer) => void)): number
+    on(sigName: "destroy", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "destroy", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "destroy", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "destroy"): void
-    on(sigName: "destroy", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "destroy", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "destroy", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "direction-changed", callback: (($obj: Layer, previousDirection: Gtk.TextDirection) => void)): number
-    connect_after(sigName: "direction-changed", callback: (($obj: Layer, previousDirection: Gtk.TextDirection) => void)): number
+    on(sigName: "direction-changed", callback: (previousDirection: Gtk.TextDirection) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "direction-changed", callback: (previousDirection: Gtk.TextDirection) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "direction-changed", callback: (previousDirection: Gtk.TextDirection) => void): NodeJS.EventEmitter
     emit(sigName: "direction-changed", previousDirection: Gtk.TextDirection): void
-    on(sigName: "direction-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "direction-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "direction-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "hide", callback: (($obj: Layer) => void)): number
-    connect_after(sigName: "hide", callback: (($obj: Layer) => void)): number
+    on(sigName: "hide", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "hide", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "hide", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "hide"): void
-    on(sigName: "hide", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "hide", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "hide", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "keynav-failed", callback: (($obj: Layer, direction: Gtk.DirectionType) => boolean)): number
-    connect_after(sigName: "keynav-failed", callback: (($obj: Layer, direction: Gtk.DirectionType) => boolean)): number
+    on(sigName: "keynav-failed", callback: (direction: Gtk.DirectionType) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "keynav-failed", callback: (direction: Gtk.DirectionType) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "keynav-failed", callback: (direction: Gtk.DirectionType) => void): NodeJS.EventEmitter
     emit(sigName: "keynav-failed", direction: Gtk.DirectionType): void
-    on(sigName: "keynav-failed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "keynav-failed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "keynav-failed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "map", callback: (($obj: Layer) => void)): number
-    connect_after(sigName: "map", callback: (($obj: Layer) => void)): number
+    on(sigName: "map", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "map", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "map", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "map"): void
-    on(sigName: "map", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "map", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "map", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "mnemonic-activate", callback: (($obj: Layer, groupCycling: boolean) => boolean)): number
-    connect_after(sigName: "mnemonic-activate", callback: (($obj: Layer, groupCycling: boolean) => boolean)): number
+    on(sigName: "mnemonic-activate", callback: (groupCycling: boolean) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "mnemonic-activate", callback: (groupCycling: boolean) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "mnemonic-activate", callback: (groupCycling: boolean) => void): NodeJS.EventEmitter
     emit(sigName: "mnemonic-activate", groupCycling: boolean): void
-    on(sigName: "mnemonic-activate", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "mnemonic-activate", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "mnemonic-activate", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "move-focus", callback: (($obj: Layer, direction: Gtk.DirectionType) => void)): number
-    connect_after(sigName: "move-focus", callback: (($obj: Layer, direction: Gtk.DirectionType) => void)): number
+    on(sigName: "move-focus", callback: (direction: Gtk.DirectionType) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "move-focus", callback: (direction: Gtk.DirectionType) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "move-focus", callback: (direction: Gtk.DirectionType) => void): NodeJS.EventEmitter
     emit(sigName: "move-focus", direction: Gtk.DirectionType): void
-    on(sigName: "move-focus", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "move-focus", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "move-focus", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "query-tooltip", callback: (($obj: Layer, x: number, y: number, keyboardMode: boolean, tooltip: Gtk.Tooltip) => boolean)): number
-    connect_after(sigName: "query-tooltip", callback: (($obj: Layer, x: number, y: number, keyboardMode: boolean, tooltip: Gtk.Tooltip) => boolean)): number
+    on(sigName: "query-tooltip", callback: (x: number, y: number, keyboardMode: boolean, tooltip: Gtk.Tooltip) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "query-tooltip", callback: (x: number, y: number, keyboardMode: boolean, tooltip: Gtk.Tooltip) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "query-tooltip", callback: (x: number, y: number, keyboardMode: boolean, tooltip: Gtk.Tooltip) => void): NodeJS.EventEmitter
     emit(sigName: "query-tooltip", x: number, y: number, keyboardMode: boolean, tooltip: Gtk.Tooltip): void
-    on(sigName: "query-tooltip", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "query-tooltip", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "query-tooltip", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "realize", callback: (($obj: Layer) => void)): number
-    connect_after(sigName: "realize", callback: (($obj: Layer) => void)): number
+    on(sigName: "realize", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "realize", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "realize", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "realize"): void
-    on(sigName: "realize", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "realize", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "realize", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "show", callback: (($obj: Layer) => void)): number
-    connect_after(sigName: "show", callback: (($obj: Layer) => void)): number
+    on(sigName: "show", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "show", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "show", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "show"): void
-    on(sigName: "show", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "show", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "show", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "state-flags-changed", callback: (($obj: Layer, flags: Gtk.StateFlags) => void)): number
-    connect_after(sigName: "state-flags-changed", callback: (($obj: Layer, flags: Gtk.StateFlags) => void)): number
+    on(sigName: "state-flags-changed", callback: (flags: Gtk.StateFlags) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "state-flags-changed", callback: (flags: Gtk.StateFlags) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "state-flags-changed", callback: (flags: Gtk.StateFlags) => void): NodeJS.EventEmitter
     emit(sigName: "state-flags-changed", flags: Gtk.StateFlags): void
-    on(sigName: "state-flags-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "state-flags-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "state-flags-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "unmap", callback: (($obj: Layer) => void)): number
-    connect_after(sigName: "unmap", callback: (($obj: Layer) => void)): number
+    on(sigName: "unmap", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "unmap", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "unmap", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "unmap"): void
-    on(sigName: "unmap", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "unmap", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "unmap", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "unrealize", callback: (($obj: Layer) => void)): number
-    connect_after(sigName: "unrealize", callback: (($obj: Layer) => void)): number
+    on(sigName: "unrealize", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "unrealize", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "unrealize", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "unrealize"): void
-    on(sigName: "unrealize", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "unrealize", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "unrealize", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Layer, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Layer, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::can-focus", callback: (($obj: Layer, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::can-focus", callback: (($obj: Layer, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::can-focus", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -978,10 +861,10 @@ export interface License_ConstructProps extends Gtk.Widget_ConstructProps {
     accessibleRole?: Gtk.AccessibleRole
 }
 export class License {
-    /* Properties of Shumate.License */
+    /* Properties of Shumate-0.0.Shumate.License */
     extraText: string
     xalign: number
-    /* Properties of Gtk.Widget */
+    /* Properties of Gtk-4.0.Gtk.Widget */
     canFocus: boolean
     canTarget: boolean
     cssClasses: string[]
@@ -1015,13 +898,13 @@ export class License {
     vexpandSet: boolean
     visible: boolean
     widthRequest: number
-    /* Properties of Gtk.Accessible */
+    /* Properties of Gtk-4.0.Gtk.Accessible */
     accessibleRole: Gtk.AccessibleRole
-    /* Fields of Gtk.Widget */
+    /* Fields of Gtk-4.0.Gtk.Widget */
     parentInstance: GObject.InitiallyUnowned
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Shumate.License */
+    /* Methods of Shumate-0.0.Shumate.License */
     appendMapSource(mapSource: MapSource): void
     getExtraText(): string
     getXalign(): number
@@ -1029,7 +912,7 @@ export class License {
     removeMapSource(mapSource: MapSource): void
     setExtraText(text: string): void
     setXalign(xalign: number): void
-    /* Methods of Gtk.Widget */
+    /* Methods of Gtk-4.0.Gtk.Widget */
     actionSetEnabled(actionName: string, enabled: boolean): void
     activate(): boolean
     activateAction(name: string, args?: GLib.Variant | null): boolean
@@ -1040,10 +923,10 @@ export class License {
     addTickCallback(callback: Gtk.TickCallback): number
     allocate(width: number, height: number, baseline: number, transform?: Gsk.Transform | null): void
     childFocus(direction: Gtk.DirectionType): boolean
-    computeBounds(target: Gtk.Widget): [ /* returnType */ boolean, /* outBounds */ Graphene.Rect ]
+    computeBounds(target: Gtk.Widget): { returnType: boolean, outBounds: Graphene.Rect }
     computeExpand(orientation: Gtk.Orientation): boolean
-    computePoint(target: Gtk.Widget, point: Graphene.Point): [ /* returnType */ boolean, /* outPoint */ Graphene.Point ]
-    computeTransform(target: Gtk.Widget): [ /* returnType */ boolean, /* outTransform */ Graphene.Matrix ]
+    computePoint(target: Gtk.Widget, point: Graphene.Point): { returnType: boolean, outPoint: Graphene.Point }
+    computeTransform(target: Gtk.Widget): { returnType: boolean, outTransform: Graphene.Matrix }
     contains(x: number, y: number): boolean
     createPangoContext(): Pango.Context
     createPangoLayout(text?: string | null): Pango.Layout
@@ -1052,7 +935,7 @@ export class License {
     getAllocatedBaseline(): number
     getAllocatedHeight(): number
     getAllocatedWidth(): number
-    getAllocation(): /* allocation */ Gtk.Allocation
+    getAllocation(): { allocation: Gtk.Allocation }
     getAncestor(widgetType: GObject.Type): Gtk.Widget | null
     getCanFocus(): boolean
     getCanTarget(): boolean
@@ -1089,7 +972,7 @@ export class License {
     getOverflow(): Gtk.Overflow
     getPangoContext(): Pango.Context
     getParent(): Gtk.Widget | null
-    getPreferredSize(): [ /* minimumSize */ Gtk.Requisition | null, /* naturalSize */ Gtk.Requisition | null ]
+    getPreferredSize(): { minimumSize: Gtk.Requisition | null, naturalSize: Gtk.Requisition | null }
     getPrevSibling(): Gtk.Widget | null
     getPrimaryClipboard(): Gdk.Clipboard
     getRealized(): boolean
@@ -1100,7 +983,7 @@ export class License {
     getSensitive(): boolean
     getSettings(): Gtk.Settings
     getSize(orientation: Gtk.Orientation): number
-    getSizeRequest(): [ /* width */ number | null, /* height */ number | null ]
+    getSizeRequest(): { width: number | null, height: number | null }
     getStateFlags(): Gtk.StateFlags
     getStyleContext(): Gtk.StyleContext
     getTemplateChild(widgetType: GObject.Type, name: string): GObject.Object
@@ -1128,7 +1011,7 @@ export class License {
     keynavFailed(direction: Gtk.DirectionType): boolean
     listMnemonicLabels(): Gtk.Widget[]
     map(): void
-    measure(orientation: Gtk.Orientation, forSize: number): [ /* minimum */ number | null, /* natural */ number | null, /* minimumBaseline */ number | null, /* naturalBaseline */ number | null ]
+    measure(orientation: Gtk.Orientation, forSize: number): { minimum: number | null, natural: number | null, minimumBaseline: number | null, naturalBaseline: number | null }
     mnemonicActivate(groupCycling: boolean): boolean
     observeChildren(): Gio.ListModel
     observeControllers(): Gio.ListModel
@@ -1180,13 +1063,13 @@ export class License {
     show(): void
     sizeAllocate(allocation: Gtk.Allocation, baseline: number): void
     snapshotChild(child: Gtk.Widget, snapshot: Gtk.Snapshot): void
-    translateCoordinates(destWidget: Gtk.Widget, srcX: number, srcY: number): [ /* returnType */ boolean, /* destX */ number | null, /* destY */ number | null ]
+    translateCoordinates(destWidget: Gtk.Widget, srcX: number, srcY: number): { returnType: boolean, destX: number | null, destY: number | null }
     triggerTooltipQuery(): void
     unmap(): void
     unparent(): void
     unrealize(): void
     unsetStateFlags(flags: Gtk.StateFlags): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -1208,7 +1091,7 @@ export class License {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of Gtk.Accessible */
+    /* Methods of Gtk-4.0.Gtk.Accessible */
     getAccessibleRole(): Gtk.AccessibleRole
     resetProperty(property: Gtk.AccessibleProperty): void
     resetRelation(relation: Gtk.AccessibleRelation): void
@@ -1216,138 +1099,80 @@ export class License {
     updateProperty(properties: Gtk.AccessibleProperty[], values: any[]): void
     updateRelation(relations: Gtk.AccessibleRelation[], values: any[]): void
     updateState(states: Gtk.AccessibleState[], values: any[]): void
-    /* Methods of Gtk.Buildable */
+    /* Methods of Gtk-4.0.Gtk.Buildable */
     getBuildableId(): string
-    /* Virtual methods of Shumate.License */
-    vfuncAddChild(builder: Gtk.Builder, child: GObject.Object, type?: string | null): void
-    vfuncCustomFinished(builder: Gtk.Builder, child: GObject.Object | null, tagname: string, data?: object | null): void
-    vfuncCustomTagEnd(builder: Gtk.Builder, child: GObject.Object | null, tagname: string, data?: object | null): void
-    vfuncCustomTagStart(builder: Gtk.Builder, child: GObject.Object | null, tagname: string): [ /* returnType */ boolean, /* parser */ Gtk.BuildableParser, /* data */ object | null ]
-    vfuncGetId(): string
-    vfuncGetInternalChild(builder: Gtk.Builder, childname: string): GObject.Object
-    vfuncParserFinished(builder: Gtk.Builder): void
-    vfuncSetBuildableProperty(builder: Gtk.Builder, name: string, value: any): void
-    vfuncSetId(id: string): void
-    /* Virtual methods of Gtk.Widget */
-    vfuncComputeExpand(hexpandP: boolean, vexpandP: boolean): void
-    vfuncContains(x: number, y: number): boolean
-    vfuncCssChanged(change: Gtk.CssStyleChange): void
-    vfuncDirectionChanged(previousDirection: Gtk.TextDirection): void
-    vfuncFocus(direction: Gtk.DirectionType): boolean
-    vfuncGetRequestMode(): Gtk.SizeRequestMode
-    vfuncGrabFocus(): boolean
-    vfuncHide(): void
-    vfuncKeynavFailed(direction: Gtk.DirectionType): boolean
-    vfuncMap(): void
-    vfuncMeasure(orientation: Gtk.Orientation, forSize: number): [ /* minimum */ number | null, /* natural */ number | null, /* minimumBaseline */ number | null, /* naturalBaseline */ number | null ]
-    vfuncMnemonicActivate(groupCycling: boolean): boolean
-    vfuncMoveFocus(direction: Gtk.DirectionType): void
-    vfuncQueryTooltip(x: number, y: number, keyboardTooltip: boolean, tooltip: Gtk.Tooltip): boolean
-    vfuncRealize(): void
-    vfuncRoot(): void
-    vfuncSetFocusChild(child?: Gtk.Widget | null): void
-    vfuncShow(): void
-    vfuncSizeAllocate(width: number, height: number, baseline: number): void
-    vfuncSnapshot(snapshot: Gtk.Snapshot): void
-    vfuncStateFlagsChanged(previousStateFlags: Gtk.StateFlags): void
-    vfuncSystemSettingChanged(settings: Gtk.SystemSetting): void
-    vfuncUnmap(): void
-    vfuncUnrealize(): void
-    vfuncUnroot(): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gtk.Widget */
+    /* Signals of Gtk-4.0.Gtk.Widget */
     connect(sigName: "destroy", callback: (($obj: License) => void)): number
-    connect_after(sigName: "destroy", callback: (($obj: License) => void)): number
+    on(sigName: "destroy", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "destroy", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "destroy", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "destroy"): void
-    on(sigName: "destroy", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "destroy", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "destroy", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "direction-changed", callback: (($obj: License, previousDirection: Gtk.TextDirection) => void)): number
-    connect_after(sigName: "direction-changed", callback: (($obj: License, previousDirection: Gtk.TextDirection) => void)): number
+    on(sigName: "direction-changed", callback: (previousDirection: Gtk.TextDirection) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "direction-changed", callback: (previousDirection: Gtk.TextDirection) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "direction-changed", callback: (previousDirection: Gtk.TextDirection) => void): NodeJS.EventEmitter
     emit(sigName: "direction-changed", previousDirection: Gtk.TextDirection): void
-    on(sigName: "direction-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "direction-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "direction-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "hide", callback: (($obj: License) => void)): number
-    connect_after(sigName: "hide", callback: (($obj: License) => void)): number
+    on(sigName: "hide", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "hide", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "hide", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "hide"): void
-    on(sigName: "hide", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "hide", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "hide", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "keynav-failed", callback: (($obj: License, direction: Gtk.DirectionType) => boolean)): number
-    connect_after(sigName: "keynav-failed", callback: (($obj: License, direction: Gtk.DirectionType) => boolean)): number
+    on(sigName: "keynav-failed", callback: (direction: Gtk.DirectionType) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "keynav-failed", callback: (direction: Gtk.DirectionType) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "keynav-failed", callback: (direction: Gtk.DirectionType) => void): NodeJS.EventEmitter
     emit(sigName: "keynav-failed", direction: Gtk.DirectionType): void
-    on(sigName: "keynav-failed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "keynav-failed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "keynav-failed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "map", callback: (($obj: License) => void)): number
-    connect_after(sigName: "map", callback: (($obj: License) => void)): number
+    on(sigName: "map", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "map", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "map", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "map"): void
-    on(sigName: "map", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "map", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "map", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "mnemonic-activate", callback: (($obj: License, groupCycling: boolean) => boolean)): number
-    connect_after(sigName: "mnemonic-activate", callback: (($obj: License, groupCycling: boolean) => boolean)): number
+    on(sigName: "mnemonic-activate", callback: (groupCycling: boolean) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "mnemonic-activate", callback: (groupCycling: boolean) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "mnemonic-activate", callback: (groupCycling: boolean) => void): NodeJS.EventEmitter
     emit(sigName: "mnemonic-activate", groupCycling: boolean): void
-    on(sigName: "mnemonic-activate", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "mnemonic-activate", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "mnemonic-activate", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "move-focus", callback: (($obj: License, direction: Gtk.DirectionType) => void)): number
-    connect_after(sigName: "move-focus", callback: (($obj: License, direction: Gtk.DirectionType) => void)): number
+    on(sigName: "move-focus", callback: (direction: Gtk.DirectionType) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "move-focus", callback: (direction: Gtk.DirectionType) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "move-focus", callback: (direction: Gtk.DirectionType) => void): NodeJS.EventEmitter
     emit(sigName: "move-focus", direction: Gtk.DirectionType): void
-    on(sigName: "move-focus", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "move-focus", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "move-focus", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "query-tooltip", callback: (($obj: License, x: number, y: number, keyboardMode: boolean, tooltip: Gtk.Tooltip) => boolean)): number
-    connect_after(sigName: "query-tooltip", callback: (($obj: License, x: number, y: number, keyboardMode: boolean, tooltip: Gtk.Tooltip) => boolean)): number
+    on(sigName: "query-tooltip", callback: (x: number, y: number, keyboardMode: boolean, tooltip: Gtk.Tooltip) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "query-tooltip", callback: (x: number, y: number, keyboardMode: boolean, tooltip: Gtk.Tooltip) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "query-tooltip", callback: (x: number, y: number, keyboardMode: boolean, tooltip: Gtk.Tooltip) => void): NodeJS.EventEmitter
     emit(sigName: "query-tooltip", x: number, y: number, keyboardMode: boolean, tooltip: Gtk.Tooltip): void
-    on(sigName: "query-tooltip", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "query-tooltip", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "query-tooltip", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "realize", callback: (($obj: License) => void)): number
-    connect_after(sigName: "realize", callback: (($obj: License) => void)): number
+    on(sigName: "realize", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "realize", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "realize", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "realize"): void
-    on(sigName: "realize", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "realize", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "realize", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "show", callback: (($obj: License) => void)): number
-    connect_after(sigName: "show", callback: (($obj: License) => void)): number
+    on(sigName: "show", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "show", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "show", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "show"): void
-    on(sigName: "show", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "show", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "show", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "state-flags-changed", callback: (($obj: License, flags: Gtk.StateFlags) => void)): number
-    connect_after(sigName: "state-flags-changed", callback: (($obj: License, flags: Gtk.StateFlags) => void)): number
+    on(sigName: "state-flags-changed", callback: (flags: Gtk.StateFlags) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "state-flags-changed", callback: (flags: Gtk.StateFlags) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "state-flags-changed", callback: (flags: Gtk.StateFlags) => void): NodeJS.EventEmitter
     emit(sigName: "state-flags-changed", flags: Gtk.StateFlags): void
-    on(sigName: "state-flags-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "state-flags-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "state-flags-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "unmap", callback: (($obj: License) => void)): number
-    connect_after(sigName: "unmap", callback: (($obj: License) => void)): number
+    on(sigName: "unmap", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "unmap", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "unmap", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "unmap"): void
-    on(sigName: "unmap", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "unmap", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "unmap", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "unrealize", callback: (($obj: License) => void)): number
-    connect_after(sigName: "unrealize", callback: (($obj: License) => void)): number
+    on(sigName: "unrealize", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "unrealize", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "unrealize", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "unrealize"): void
-    on(sigName: "unrealize", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "unrealize", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "unrealize", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: License, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: License, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::extra-text", callback: (($obj: License, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::extra-text", callback: (($obj: License, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::extra-text", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -1547,7 +1372,7 @@ export interface MapLayer_ConstructProps extends Layer_ConstructProps {
     accessibleRole?: Gtk.AccessibleRole
 }
 export class MapLayer {
-    /* Properties of Gtk.Widget */
+    /* Properties of Gtk-4.0.Gtk.Widget */
     canFocus: boolean
     canTarget: boolean
     cssClasses: string[]
@@ -1581,15 +1406,15 @@ export class MapLayer {
     vexpandSet: boolean
     visible: boolean
     widthRequest: number
-    /* Properties of Gtk.Accessible */
+    /* Properties of Gtk-4.0.Gtk.Accessible */
     accessibleRole: Gtk.AccessibleRole
-    /* Fields of Shumate.Layer */
+    /* Fields of Shumate-0.0.Shumate.Layer */
     parentInstance: Gtk.Widget
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Shumate.Layer */
+    /* Methods of Shumate-0.0.Shumate.Layer */
     getViewport(): Viewport
-    /* Methods of Gtk.Widget */
+    /* Methods of Gtk-4.0.Gtk.Widget */
     actionSetEnabled(actionName: string, enabled: boolean): void
     activate(): boolean
     activateAction(name: string, args?: GLib.Variant | null): boolean
@@ -1600,10 +1425,10 @@ export class MapLayer {
     addTickCallback(callback: Gtk.TickCallback): number
     allocate(width: number, height: number, baseline: number, transform?: Gsk.Transform | null): void
     childFocus(direction: Gtk.DirectionType): boolean
-    computeBounds(target: Gtk.Widget): [ /* returnType */ boolean, /* outBounds */ Graphene.Rect ]
+    computeBounds(target: Gtk.Widget): { returnType: boolean, outBounds: Graphene.Rect }
     computeExpand(orientation: Gtk.Orientation): boolean
-    computePoint(target: Gtk.Widget, point: Graphene.Point): [ /* returnType */ boolean, /* outPoint */ Graphene.Point ]
-    computeTransform(target: Gtk.Widget): [ /* returnType */ boolean, /* outTransform */ Graphene.Matrix ]
+    computePoint(target: Gtk.Widget, point: Graphene.Point): { returnType: boolean, outPoint: Graphene.Point }
+    computeTransform(target: Gtk.Widget): { returnType: boolean, outTransform: Graphene.Matrix }
     contains(x: number, y: number): boolean
     createPangoContext(): Pango.Context
     createPangoLayout(text?: string | null): Pango.Layout
@@ -1612,7 +1437,7 @@ export class MapLayer {
     getAllocatedBaseline(): number
     getAllocatedHeight(): number
     getAllocatedWidth(): number
-    getAllocation(): /* allocation */ Gtk.Allocation
+    getAllocation(): { allocation: Gtk.Allocation }
     getAncestor(widgetType: GObject.Type): Gtk.Widget | null
     getCanFocus(): boolean
     getCanTarget(): boolean
@@ -1649,7 +1474,7 @@ export class MapLayer {
     getOverflow(): Gtk.Overflow
     getPangoContext(): Pango.Context
     getParent(): Gtk.Widget | null
-    getPreferredSize(): [ /* minimumSize */ Gtk.Requisition | null, /* naturalSize */ Gtk.Requisition | null ]
+    getPreferredSize(): { minimumSize: Gtk.Requisition | null, naturalSize: Gtk.Requisition | null }
     getPrevSibling(): Gtk.Widget | null
     getPrimaryClipboard(): Gdk.Clipboard
     getRealized(): boolean
@@ -1660,7 +1485,7 @@ export class MapLayer {
     getSensitive(): boolean
     getSettings(): Gtk.Settings
     getSize(orientation: Gtk.Orientation): number
-    getSizeRequest(): [ /* width */ number | null, /* height */ number | null ]
+    getSizeRequest(): { width: number | null, height: number | null }
     getStateFlags(): Gtk.StateFlags
     getStyleContext(): Gtk.StyleContext
     getTemplateChild(widgetType: GObject.Type, name: string): GObject.Object
@@ -1688,7 +1513,7 @@ export class MapLayer {
     keynavFailed(direction: Gtk.DirectionType): boolean
     listMnemonicLabels(): Gtk.Widget[]
     map(): void
-    measure(orientation: Gtk.Orientation, forSize: number): [ /* minimum */ number | null, /* natural */ number | null, /* minimumBaseline */ number | null, /* naturalBaseline */ number | null ]
+    measure(orientation: Gtk.Orientation, forSize: number): { minimum: number | null, natural: number | null, minimumBaseline: number | null, naturalBaseline: number | null }
     mnemonicActivate(groupCycling: boolean): boolean
     observeChildren(): Gio.ListModel
     observeControllers(): Gio.ListModel
@@ -1740,13 +1565,13 @@ export class MapLayer {
     show(): void
     sizeAllocate(allocation: Gtk.Allocation, baseline: number): void
     snapshotChild(child: Gtk.Widget, snapshot: Gtk.Snapshot): void
-    translateCoordinates(destWidget: Gtk.Widget, srcX: number, srcY: number): [ /* returnType */ boolean, /* destX */ number | null, /* destY */ number | null ]
+    translateCoordinates(destWidget: Gtk.Widget, srcX: number, srcY: number): { returnType: boolean, destX: number | null, destY: number | null }
     triggerTooltipQuery(): void
     unmap(): void
     unparent(): void
     unrealize(): void
     unsetStateFlags(flags: Gtk.StateFlags): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -1768,7 +1593,7 @@ export class MapLayer {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of Gtk.Accessible */
+    /* Methods of Gtk-4.0.Gtk.Accessible */
     getAccessibleRole(): Gtk.AccessibleRole
     resetProperty(property: Gtk.AccessibleProperty): void
     resetRelation(relation: Gtk.AccessibleRelation): void
@@ -1776,138 +1601,80 @@ export class MapLayer {
     updateProperty(properties: Gtk.AccessibleProperty[], values: any[]): void
     updateRelation(relations: Gtk.AccessibleRelation[], values: any[]): void
     updateState(states: Gtk.AccessibleState[], values: any[]): void
-    /* Methods of Gtk.Buildable */
+    /* Methods of Gtk-4.0.Gtk.Buildable */
     getBuildableId(): string
-    /* Virtual methods of Shumate.Layer */
-    vfuncAddChild(builder: Gtk.Builder, child: GObject.Object, type?: string | null): void
-    vfuncCustomFinished(builder: Gtk.Builder, child: GObject.Object | null, tagname: string, data?: object | null): void
-    vfuncCustomTagEnd(builder: Gtk.Builder, child: GObject.Object | null, tagname: string, data?: object | null): void
-    vfuncCustomTagStart(builder: Gtk.Builder, child: GObject.Object | null, tagname: string): [ /* returnType */ boolean, /* parser */ Gtk.BuildableParser, /* data */ object | null ]
-    vfuncGetId(): string
-    vfuncGetInternalChild(builder: Gtk.Builder, childname: string): GObject.Object
-    vfuncParserFinished(builder: Gtk.Builder): void
-    vfuncSetBuildableProperty(builder: Gtk.Builder, name: string, value: any): void
-    vfuncSetId(id: string): void
-    /* Virtual methods of Gtk.Widget */
-    vfuncComputeExpand(hexpandP: boolean, vexpandP: boolean): void
-    vfuncContains(x: number, y: number): boolean
-    vfuncCssChanged(change: Gtk.CssStyleChange): void
-    vfuncDirectionChanged(previousDirection: Gtk.TextDirection): void
-    vfuncFocus(direction: Gtk.DirectionType): boolean
-    vfuncGetRequestMode(): Gtk.SizeRequestMode
-    vfuncGrabFocus(): boolean
-    vfuncHide(): void
-    vfuncKeynavFailed(direction: Gtk.DirectionType): boolean
-    vfuncMap(): void
-    vfuncMeasure(orientation: Gtk.Orientation, forSize: number): [ /* minimum */ number | null, /* natural */ number | null, /* minimumBaseline */ number | null, /* naturalBaseline */ number | null ]
-    vfuncMnemonicActivate(groupCycling: boolean): boolean
-    vfuncMoveFocus(direction: Gtk.DirectionType): void
-    vfuncQueryTooltip(x: number, y: number, keyboardTooltip: boolean, tooltip: Gtk.Tooltip): boolean
-    vfuncRealize(): void
-    vfuncRoot(): void
-    vfuncSetFocusChild(child?: Gtk.Widget | null): void
-    vfuncShow(): void
-    vfuncSizeAllocate(width: number, height: number, baseline: number): void
-    vfuncSnapshot(snapshot: Gtk.Snapshot): void
-    vfuncStateFlagsChanged(previousStateFlags: Gtk.StateFlags): void
-    vfuncSystemSettingChanged(settings: Gtk.SystemSetting): void
-    vfuncUnmap(): void
-    vfuncUnrealize(): void
-    vfuncUnroot(): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gtk.Widget */
+    /* Signals of Gtk-4.0.Gtk.Widget */
     connect(sigName: "destroy", callback: (($obj: MapLayer) => void)): number
-    connect_after(sigName: "destroy", callback: (($obj: MapLayer) => void)): number
+    on(sigName: "destroy", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "destroy", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "destroy", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "destroy"): void
-    on(sigName: "destroy", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "destroy", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "destroy", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "direction-changed", callback: (($obj: MapLayer, previousDirection: Gtk.TextDirection) => void)): number
-    connect_after(sigName: "direction-changed", callback: (($obj: MapLayer, previousDirection: Gtk.TextDirection) => void)): number
+    on(sigName: "direction-changed", callback: (previousDirection: Gtk.TextDirection) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "direction-changed", callback: (previousDirection: Gtk.TextDirection) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "direction-changed", callback: (previousDirection: Gtk.TextDirection) => void): NodeJS.EventEmitter
     emit(sigName: "direction-changed", previousDirection: Gtk.TextDirection): void
-    on(sigName: "direction-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "direction-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "direction-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "hide", callback: (($obj: MapLayer) => void)): number
-    connect_after(sigName: "hide", callback: (($obj: MapLayer) => void)): number
+    on(sigName: "hide", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "hide", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "hide", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "hide"): void
-    on(sigName: "hide", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "hide", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "hide", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "keynav-failed", callback: (($obj: MapLayer, direction: Gtk.DirectionType) => boolean)): number
-    connect_after(sigName: "keynav-failed", callback: (($obj: MapLayer, direction: Gtk.DirectionType) => boolean)): number
+    on(sigName: "keynav-failed", callback: (direction: Gtk.DirectionType) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "keynav-failed", callback: (direction: Gtk.DirectionType) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "keynav-failed", callback: (direction: Gtk.DirectionType) => void): NodeJS.EventEmitter
     emit(sigName: "keynav-failed", direction: Gtk.DirectionType): void
-    on(sigName: "keynav-failed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "keynav-failed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "keynav-failed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "map", callback: (($obj: MapLayer) => void)): number
-    connect_after(sigName: "map", callback: (($obj: MapLayer) => void)): number
+    on(sigName: "map", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "map", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "map", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "map"): void
-    on(sigName: "map", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "map", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "map", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "mnemonic-activate", callback: (($obj: MapLayer, groupCycling: boolean) => boolean)): number
-    connect_after(sigName: "mnemonic-activate", callback: (($obj: MapLayer, groupCycling: boolean) => boolean)): number
+    on(sigName: "mnemonic-activate", callback: (groupCycling: boolean) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "mnemonic-activate", callback: (groupCycling: boolean) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "mnemonic-activate", callback: (groupCycling: boolean) => void): NodeJS.EventEmitter
     emit(sigName: "mnemonic-activate", groupCycling: boolean): void
-    on(sigName: "mnemonic-activate", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "mnemonic-activate", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "mnemonic-activate", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "move-focus", callback: (($obj: MapLayer, direction: Gtk.DirectionType) => void)): number
-    connect_after(sigName: "move-focus", callback: (($obj: MapLayer, direction: Gtk.DirectionType) => void)): number
+    on(sigName: "move-focus", callback: (direction: Gtk.DirectionType) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "move-focus", callback: (direction: Gtk.DirectionType) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "move-focus", callback: (direction: Gtk.DirectionType) => void): NodeJS.EventEmitter
     emit(sigName: "move-focus", direction: Gtk.DirectionType): void
-    on(sigName: "move-focus", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "move-focus", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "move-focus", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "query-tooltip", callback: (($obj: MapLayer, x: number, y: number, keyboardMode: boolean, tooltip: Gtk.Tooltip) => boolean)): number
-    connect_after(sigName: "query-tooltip", callback: (($obj: MapLayer, x: number, y: number, keyboardMode: boolean, tooltip: Gtk.Tooltip) => boolean)): number
+    on(sigName: "query-tooltip", callback: (x: number, y: number, keyboardMode: boolean, tooltip: Gtk.Tooltip) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "query-tooltip", callback: (x: number, y: number, keyboardMode: boolean, tooltip: Gtk.Tooltip) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "query-tooltip", callback: (x: number, y: number, keyboardMode: boolean, tooltip: Gtk.Tooltip) => void): NodeJS.EventEmitter
     emit(sigName: "query-tooltip", x: number, y: number, keyboardMode: boolean, tooltip: Gtk.Tooltip): void
-    on(sigName: "query-tooltip", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "query-tooltip", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "query-tooltip", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "realize", callback: (($obj: MapLayer) => void)): number
-    connect_after(sigName: "realize", callback: (($obj: MapLayer) => void)): number
+    on(sigName: "realize", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "realize", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "realize", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "realize"): void
-    on(sigName: "realize", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "realize", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "realize", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "show", callback: (($obj: MapLayer) => void)): number
-    connect_after(sigName: "show", callback: (($obj: MapLayer) => void)): number
+    on(sigName: "show", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "show", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "show", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "show"): void
-    on(sigName: "show", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "show", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "show", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "state-flags-changed", callback: (($obj: MapLayer, flags: Gtk.StateFlags) => void)): number
-    connect_after(sigName: "state-flags-changed", callback: (($obj: MapLayer, flags: Gtk.StateFlags) => void)): number
+    on(sigName: "state-flags-changed", callback: (flags: Gtk.StateFlags) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "state-flags-changed", callback: (flags: Gtk.StateFlags) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "state-flags-changed", callback: (flags: Gtk.StateFlags) => void): NodeJS.EventEmitter
     emit(sigName: "state-flags-changed", flags: Gtk.StateFlags): void
-    on(sigName: "state-flags-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "state-flags-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "state-flags-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "unmap", callback: (($obj: MapLayer) => void)): number
-    connect_after(sigName: "unmap", callback: (($obj: MapLayer) => void)): number
+    on(sigName: "unmap", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "unmap", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "unmap", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "unmap"): void
-    on(sigName: "unmap", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "unmap", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "unmap", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "unrealize", callback: (($obj: MapLayer) => void)): number
-    connect_after(sigName: "unrealize", callback: (($obj: MapLayer) => void)): number
+    on(sigName: "unrealize", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "unrealize", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "unrealize", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "unrealize"): void
-    on(sigName: "unrealize", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "unrealize", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "unrealize", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: MapLayer, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: MapLayer, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::can-focus", callback: (($obj: MapLayer, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::can-focus", callback: (($obj: MapLayer, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::can-focus", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -2096,13 +1863,13 @@ export interface MapSource_ConstructProps extends GObject.InitiallyUnowned_Const
     nextSource?: MapSource
 }
 export class MapSource {
-    /* Properties of Shumate.MapSource */
+    /* Properties of Shumate-0.0.Shumate.MapSource */
     nextSource: MapSource
-    /* Fields of Shumate.MapSource */
+    /* Fields of Shumate-0.0.Shumate.MapSource */
     parentInstance: GObject.InitiallyUnowned
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Shumate.MapSource */
+    /* Methods of Shumate-0.0.Shumate.MapSource */
     fillTile(tile: Tile, cancellable?: Gio.Cancellable | null): void
     getColumnCount(zoomLevel: number): number
     getId(): string
@@ -2121,7 +1888,7 @@ export class MapSource {
     getX(zoomLevel: number, longitude: number): number
     getY(zoomLevel: number, latitude: number): number
     setNextSource(nextSource: MapSource): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -2143,31 +1910,12 @@ export class MapSource {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of Shumate.MapSource */
-    vfuncFillTile(tile: Tile, cancellable?: Gio.Cancellable | null): void
-    vfuncGetId(): string
-    vfuncGetLicense(): string
-    vfuncGetLicenseUri(): string
-    vfuncGetMaxZoomLevel(): number
-    vfuncGetMinZoomLevel(): number
-    vfuncGetName(): string
-    vfuncGetProjection(): MapProjection
-    vfuncGetTileSize(): number
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: MapSource, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: MapSource, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::next-source", callback: (($obj: MapSource, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::next-source", callback: (($obj: MapSource, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::next-source", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -2188,16 +1936,16 @@ export class MapSource {
 export interface MapSourceChain_ConstructProps extends MapSource_ConstructProps {
 }
 export class MapSourceChain {
-    /* Properties of Shumate.MapSource */
+    /* Properties of Shumate-0.0.Shumate.MapSource */
     nextSource: MapSource
-    /* Fields of Shumate.MapSourceChain */
+    /* Fields of Shumate-0.0.Shumate.MapSourceChain */
     parentInstance: MapSource
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Shumate.MapSourceChain */
+    /* Methods of Shumate-0.0.Shumate.MapSourceChain */
     pop(): void
     push(mapSource: MapSource): void
-    /* Methods of Shumate.MapSource */
+    /* Methods of Shumate-0.0.Shumate.MapSource */
     fillTile(tile: Tile, cancellable?: Gio.Cancellable | null): void
     getColumnCount(zoomLevel: number): number
     getId(): string
@@ -2216,7 +1964,7 @@ export class MapSourceChain {
     getX(zoomLevel: number, longitude: number): number
     getY(zoomLevel: number, latitude: number): number
     setNextSource(nextSource: MapSource): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -2238,31 +1986,12 @@ export class MapSourceChain {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of Shumate.MapSource */
-    vfuncFillTile(tile: Tile, cancellable?: Gio.Cancellable | null): void
-    vfuncGetId(): string
-    vfuncGetLicense(): string
-    vfuncGetLicenseUri(): string
-    vfuncGetMaxZoomLevel(): number
-    vfuncGetMinZoomLevel(): number
-    vfuncGetName(): string
-    vfuncGetProjection(): MapProjection
-    vfuncGetTileSize(): number
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: MapSourceChain, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: MapSourceChain, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::next-source", callback: (($obj: MapSourceChain, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::next-source", callback: (($obj: MapSourceChain, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::next-source", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -2296,9 +2025,9 @@ export interface MapSourceDesc_ConstructProps extends GObject.Object_ConstructPr
     uriFormat?: string
 }
 export class MapSourceDesc {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Shumate.MapSourceDesc */
+    /* Methods of Shumate-0.0.Shumate.MapSourceDesc */
     getData(): object | null
     getId(): string
     getLicense(): string
@@ -2309,7 +2038,7 @@ export class MapSourceDesc {
     getProjection(): MapProjection
     getTileSize(): number
     getUriFormat(): string
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -2331,21 +2060,12 @@ export class MapSourceDesc {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: MapSourceDesc, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: MapSourceDesc, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -2361,16 +2081,16 @@ export class MapSourceDesc {
 export interface MapSourceFactory_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class MapSourceFactory {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Shumate.MapSourceFactory */
+    /* Methods of Shumate-0.0.Shumate.MapSourceFactory */
     create(id: string): MapSource
     createCachedSource(id: string): MapSource
     createErrorSource(tileSize: number): MapSource
     createMemcachedSource(id: string): MapSource
     getRegistered(): MapSourceDesc[]
     register(desc: MapSourceDesc): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -2392,21 +2112,12 @@ export class MapSourceFactory {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: MapSourceFactory, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: MapSourceFactory, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -2429,10 +2140,10 @@ export interface Marker_ConstructProps extends Gtk.Widget_ConstructProps {
     longitude?: number
 }
 export class Marker {
-    /* Properties of Shumate.Marker */
+    /* Properties of Shumate-0.0.Shumate.Marker */
     draggable: boolean
     selectable: boolean
-    /* Properties of Gtk.Widget */
+    /* Properties of Gtk-4.0.Gtk.Widget */
     canFocus: boolean
     canTarget: boolean
     cssClasses: string[]
@@ -2466,16 +2177,16 @@ export class Marker {
     vexpandSet: boolean
     visible: boolean
     widthRequest: number
-    /* Properties of Gtk.Accessible */
+    /* Properties of Gtk-4.0.Gtk.Accessible */
     accessibleRole: Gtk.AccessibleRole
-    /* Properties of Shumate.Location */
+    /* Properties of Shumate-0.0.Shumate.Location */
     latitude: number
     longitude: number
-    /* Fields of Shumate.Marker */
+    /* Fields of Shumate-0.0.Shumate.Marker */
     parentInstance: Gtk.Widget
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Shumate.Marker */
+    /* Methods of Shumate-0.0.Shumate.Marker */
     animateIn(): void
     animateInWithDelay(delay: number): void
     animateOut(): void
@@ -2485,7 +2196,7 @@ export class Marker {
     isSelected(): boolean
     setDraggable(value: boolean): void
     setSelectable(value: boolean): void
-    /* Methods of Gtk.Widget */
+    /* Methods of Gtk-4.0.Gtk.Widget */
     actionSetEnabled(actionName: string, enabled: boolean): void
     activate(): boolean
     activateAction(name: string, args?: GLib.Variant | null): boolean
@@ -2496,10 +2207,10 @@ export class Marker {
     addTickCallback(callback: Gtk.TickCallback): number
     allocate(width: number, height: number, baseline: number, transform?: Gsk.Transform | null): void
     childFocus(direction: Gtk.DirectionType): boolean
-    computeBounds(target: Gtk.Widget): [ /* returnType */ boolean, /* outBounds */ Graphene.Rect ]
+    computeBounds(target: Gtk.Widget): { returnType: boolean, outBounds: Graphene.Rect }
     computeExpand(orientation: Gtk.Orientation): boolean
-    computePoint(target: Gtk.Widget, point: Graphene.Point): [ /* returnType */ boolean, /* outPoint */ Graphene.Point ]
-    computeTransform(target: Gtk.Widget): [ /* returnType */ boolean, /* outTransform */ Graphene.Matrix ]
+    computePoint(target: Gtk.Widget, point: Graphene.Point): { returnType: boolean, outPoint: Graphene.Point }
+    computeTransform(target: Gtk.Widget): { returnType: boolean, outTransform: Graphene.Matrix }
     contains(x: number, y: number): boolean
     createPangoContext(): Pango.Context
     createPangoLayout(text?: string | null): Pango.Layout
@@ -2508,7 +2219,7 @@ export class Marker {
     getAllocatedBaseline(): number
     getAllocatedHeight(): number
     getAllocatedWidth(): number
-    getAllocation(): /* allocation */ Gtk.Allocation
+    getAllocation(): { allocation: Gtk.Allocation }
     getAncestor(widgetType: GObject.Type): Gtk.Widget | null
     getCanFocus(): boolean
     getCanTarget(): boolean
@@ -2545,7 +2256,7 @@ export class Marker {
     getOverflow(): Gtk.Overflow
     getPangoContext(): Pango.Context
     getParent(): Gtk.Widget | null
-    getPreferredSize(): [ /* minimumSize */ Gtk.Requisition | null, /* naturalSize */ Gtk.Requisition | null ]
+    getPreferredSize(): { minimumSize: Gtk.Requisition | null, naturalSize: Gtk.Requisition | null }
     getPrevSibling(): Gtk.Widget | null
     getPrimaryClipboard(): Gdk.Clipboard
     getRealized(): boolean
@@ -2556,7 +2267,7 @@ export class Marker {
     getSensitive(): boolean
     getSettings(): Gtk.Settings
     getSize(orientation: Gtk.Orientation): number
-    getSizeRequest(): [ /* width */ number | null, /* height */ number | null ]
+    getSizeRequest(): { width: number | null, height: number | null }
     getStateFlags(): Gtk.StateFlags
     getStyleContext(): Gtk.StyleContext
     getTemplateChild(widgetType: GObject.Type, name: string): GObject.Object
@@ -2584,7 +2295,7 @@ export class Marker {
     keynavFailed(direction: Gtk.DirectionType): boolean
     listMnemonicLabels(): Gtk.Widget[]
     map(): void
-    measure(orientation: Gtk.Orientation, forSize: number): [ /* minimum */ number | null, /* natural */ number | null, /* minimumBaseline */ number | null, /* naturalBaseline */ number | null ]
+    measure(orientation: Gtk.Orientation, forSize: number): { minimum: number | null, natural: number | null, minimumBaseline: number | null, naturalBaseline: number | null }
     mnemonicActivate(groupCycling: boolean): boolean
     observeChildren(): Gio.ListModel
     observeControllers(): Gio.ListModel
@@ -2636,13 +2347,13 @@ export class Marker {
     show(): void
     sizeAllocate(allocation: Gtk.Allocation, baseline: number): void
     snapshotChild(child: Gtk.Widget, snapshot: Gtk.Snapshot): void
-    translateCoordinates(destWidget: Gtk.Widget, srcX: number, srcY: number): [ /* returnType */ boolean, /* destX */ number | null, /* destY */ number | null ]
+    translateCoordinates(destWidget: Gtk.Widget, srcX: number, srcY: number): { returnType: boolean, destX: number | null, destY: number | null }
     triggerTooltipQuery(): void
     unmap(): void
     unparent(): void
     unrealize(): void
     unsetStateFlags(flags: Gtk.StateFlags): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -2664,7 +2375,7 @@ export class Marker {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of Gtk.Accessible */
+    /* Methods of Gtk-4.0.Gtk.Accessible */
     getAccessibleRole(): Gtk.AccessibleRole
     resetProperty(property: Gtk.AccessibleProperty): void
     resetRelation(relation: Gtk.AccessibleRelation): void
@@ -2672,145 +2383,84 @@ export class Marker {
     updateProperty(properties: Gtk.AccessibleProperty[], values: any[]): void
     updateRelation(relations: Gtk.AccessibleRelation[], values: any[]): void
     updateState(states: Gtk.AccessibleState[], values: any[]): void
-    /* Methods of Gtk.Buildable */
+    /* Methods of Gtk-4.0.Gtk.Buildable */
     getBuildableId(): string
-    /* Methods of Shumate.Location */
+    /* Methods of Shumate-0.0.Shumate.Location */
     getLatitude(): number
     getLongitude(): number
     setLocation(latitude: number, longitude: number): void
-    /* Virtual methods of Shumate.Marker */
-    vfuncAddChild(builder: Gtk.Builder, child: GObject.Object, type?: string | null): void
-    vfuncCustomFinished(builder: Gtk.Builder, child: GObject.Object | null, tagname: string, data?: object | null): void
-    vfuncCustomTagEnd(builder: Gtk.Builder, child: GObject.Object | null, tagname: string, data?: object | null): void
-    vfuncCustomTagStart(builder: Gtk.Builder, child: GObject.Object | null, tagname: string): [ /* returnType */ boolean, /* parser */ Gtk.BuildableParser, /* data */ object | null ]
-    vfuncGetId(): string
-    vfuncGetInternalChild(builder: Gtk.Builder, childname: string): GObject.Object
-    vfuncParserFinished(builder: Gtk.Builder): void
-    vfuncSetBuildableProperty(builder: Gtk.Builder, name: string, value: any): void
-    vfuncSetId(id: string): void
-    vfuncGetLatitude(): number
-    vfuncGetLongitude(): number
-    vfuncSetLocation(latitude: number, longitude: number): void
-    /* Virtual methods of Gtk.Widget */
-    vfuncComputeExpand(hexpandP: boolean, vexpandP: boolean): void
-    vfuncContains(x: number, y: number): boolean
-    vfuncCssChanged(change: Gtk.CssStyleChange): void
-    vfuncDirectionChanged(previousDirection: Gtk.TextDirection): void
-    vfuncFocus(direction: Gtk.DirectionType): boolean
-    vfuncGetRequestMode(): Gtk.SizeRequestMode
-    vfuncGrabFocus(): boolean
-    vfuncHide(): void
-    vfuncKeynavFailed(direction: Gtk.DirectionType): boolean
-    vfuncMap(): void
-    vfuncMeasure(orientation: Gtk.Orientation, forSize: number): [ /* minimum */ number | null, /* natural */ number | null, /* minimumBaseline */ number | null, /* naturalBaseline */ number | null ]
-    vfuncMnemonicActivate(groupCycling: boolean): boolean
-    vfuncMoveFocus(direction: Gtk.DirectionType): void
-    vfuncQueryTooltip(x: number, y: number, keyboardTooltip: boolean, tooltip: Gtk.Tooltip): boolean
-    vfuncRealize(): void
-    vfuncRoot(): void
-    vfuncSetFocusChild(child?: Gtk.Widget | null): void
-    vfuncShow(): void
-    vfuncSizeAllocate(width: number, height: number, baseline: number): void
-    vfuncSnapshot(snapshot: Gtk.Snapshot): void
-    vfuncStateFlagsChanged(previousStateFlags: Gtk.StateFlags): void
-    vfuncSystemSettingChanged(settings: Gtk.SystemSetting): void
-    vfuncUnmap(): void
-    vfuncUnrealize(): void
-    vfuncUnroot(): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gtk.Widget */
+    /* Signals of Gtk-4.0.Gtk.Widget */
     connect(sigName: "destroy", callback: (($obj: Marker) => void)): number
-    connect_after(sigName: "destroy", callback: (($obj: Marker) => void)): number
+    on(sigName: "destroy", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "destroy", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "destroy", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "destroy"): void
-    on(sigName: "destroy", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "destroy", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "destroy", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "direction-changed", callback: (($obj: Marker, previousDirection: Gtk.TextDirection) => void)): number
-    connect_after(sigName: "direction-changed", callback: (($obj: Marker, previousDirection: Gtk.TextDirection) => void)): number
+    on(sigName: "direction-changed", callback: (previousDirection: Gtk.TextDirection) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "direction-changed", callback: (previousDirection: Gtk.TextDirection) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "direction-changed", callback: (previousDirection: Gtk.TextDirection) => void): NodeJS.EventEmitter
     emit(sigName: "direction-changed", previousDirection: Gtk.TextDirection): void
-    on(sigName: "direction-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "direction-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "direction-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "hide", callback: (($obj: Marker) => void)): number
-    connect_after(sigName: "hide", callback: (($obj: Marker) => void)): number
+    on(sigName: "hide", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "hide", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "hide", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "hide"): void
-    on(sigName: "hide", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "hide", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "hide", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "keynav-failed", callback: (($obj: Marker, direction: Gtk.DirectionType) => boolean)): number
-    connect_after(sigName: "keynav-failed", callback: (($obj: Marker, direction: Gtk.DirectionType) => boolean)): number
+    on(sigName: "keynav-failed", callback: (direction: Gtk.DirectionType) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "keynav-failed", callback: (direction: Gtk.DirectionType) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "keynav-failed", callback: (direction: Gtk.DirectionType) => void): NodeJS.EventEmitter
     emit(sigName: "keynav-failed", direction: Gtk.DirectionType): void
-    on(sigName: "keynav-failed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "keynav-failed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "keynav-failed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "map", callback: (($obj: Marker) => void)): number
-    connect_after(sigName: "map", callback: (($obj: Marker) => void)): number
+    on(sigName: "map", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "map", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "map", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "map"): void
-    on(sigName: "map", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "map", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "map", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "mnemonic-activate", callback: (($obj: Marker, groupCycling: boolean) => boolean)): number
-    connect_after(sigName: "mnemonic-activate", callback: (($obj: Marker, groupCycling: boolean) => boolean)): number
+    on(sigName: "mnemonic-activate", callback: (groupCycling: boolean) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "mnemonic-activate", callback: (groupCycling: boolean) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "mnemonic-activate", callback: (groupCycling: boolean) => void): NodeJS.EventEmitter
     emit(sigName: "mnemonic-activate", groupCycling: boolean): void
-    on(sigName: "mnemonic-activate", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "mnemonic-activate", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "mnemonic-activate", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "move-focus", callback: (($obj: Marker, direction: Gtk.DirectionType) => void)): number
-    connect_after(sigName: "move-focus", callback: (($obj: Marker, direction: Gtk.DirectionType) => void)): number
+    on(sigName: "move-focus", callback: (direction: Gtk.DirectionType) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "move-focus", callback: (direction: Gtk.DirectionType) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "move-focus", callback: (direction: Gtk.DirectionType) => void): NodeJS.EventEmitter
     emit(sigName: "move-focus", direction: Gtk.DirectionType): void
-    on(sigName: "move-focus", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "move-focus", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "move-focus", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "query-tooltip", callback: (($obj: Marker, x: number, y: number, keyboardMode: boolean, tooltip: Gtk.Tooltip) => boolean)): number
-    connect_after(sigName: "query-tooltip", callback: (($obj: Marker, x: number, y: number, keyboardMode: boolean, tooltip: Gtk.Tooltip) => boolean)): number
+    on(sigName: "query-tooltip", callback: (x: number, y: number, keyboardMode: boolean, tooltip: Gtk.Tooltip) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "query-tooltip", callback: (x: number, y: number, keyboardMode: boolean, tooltip: Gtk.Tooltip) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "query-tooltip", callback: (x: number, y: number, keyboardMode: boolean, tooltip: Gtk.Tooltip) => void): NodeJS.EventEmitter
     emit(sigName: "query-tooltip", x: number, y: number, keyboardMode: boolean, tooltip: Gtk.Tooltip): void
-    on(sigName: "query-tooltip", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "query-tooltip", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "query-tooltip", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "realize", callback: (($obj: Marker) => void)): number
-    connect_after(sigName: "realize", callback: (($obj: Marker) => void)): number
+    on(sigName: "realize", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "realize", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "realize", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "realize"): void
-    on(sigName: "realize", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "realize", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "realize", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "show", callback: (($obj: Marker) => void)): number
-    connect_after(sigName: "show", callback: (($obj: Marker) => void)): number
+    on(sigName: "show", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "show", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "show", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "show"): void
-    on(sigName: "show", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "show", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "show", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "state-flags-changed", callback: (($obj: Marker, flags: Gtk.StateFlags) => void)): number
-    connect_after(sigName: "state-flags-changed", callback: (($obj: Marker, flags: Gtk.StateFlags) => void)): number
+    on(sigName: "state-flags-changed", callback: (flags: Gtk.StateFlags) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "state-flags-changed", callback: (flags: Gtk.StateFlags) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "state-flags-changed", callback: (flags: Gtk.StateFlags) => void): NodeJS.EventEmitter
     emit(sigName: "state-flags-changed", flags: Gtk.StateFlags): void
-    on(sigName: "state-flags-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "state-flags-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "state-flags-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "unmap", callback: (($obj: Marker) => void)): number
-    connect_after(sigName: "unmap", callback: (($obj: Marker) => void)): number
+    on(sigName: "unmap", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "unmap", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "unmap", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "unmap"): void
-    on(sigName: "unmap", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "unmap", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "unmap", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "unrealize", callback: (($obj: Marker) => void)): number
-    connect_after(sigName: "unrealize", callback: (($obj: Marker) => void)): number
+    on(sigName: "unrealize", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "unrealize", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "unrealize", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "unrealize"): void
-    on(sigName: "unrealize", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "unrealize", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "unrealize", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Marker, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Marker, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::draggable", callback: (($obj: Marker, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::draggable", callback: (($obj: Marker, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::draggable", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -3024,9 +2674,9 @@ export interface MarkerLayer_ConstructProps extends Layer_ConstructProps {
     accessibleRole?: Gtk.AccessibleRole
 }
 export class MarkerLayer {
-    /* Properties of Shumate.MarkerLayer */
+    /* Properties of Shumate-0.0.Shumate.MarkerLayer */
     selectionMode: Gtk.SelectionMode
-    /* Properties of Gtk.Widget */
+    /* Properties of Gtk-4.0.Gtk.Widget */
     canFocus: boolean
     canTarget: boolean
     cssClasses: string[]
@@ -3060,13 +2710,13 @@ export class MarkerLayer {
     vexpandSet: boolean
     visible: boolean
     widthRequest: number
-    /* Properties of Gtk.Accessible */
+    /* Properties of Gtk-4.0.Gtk.Accessible */
     accessibleRole: Gtk.AccessibleRole
-    /* Fields of Shumate.MarkerLayer */
+    /* Fields of Shumate-0.0.Shumate.MarkerLayer */
     parentInstance: Layer
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Shumate.MarkerLayer */
+    /* Methods of Shumate-0.0.Shumate.MarkerLayer */
     addMarker(marker: Marker): void
     animateInAllMarkers(): void
     animateOutAllMarkers(): void
@@ -3082,9 +2732,9 @@ export class MarkerLayer {
     setSelectionMode(mode: Gtk.SelectionMode): void
     showAllMarkers(): void
     unselectAllMarkers(): void
-    /* Methods of Shumate.Layer */
+    /* Methods of Shumate-0.0.Shumate.Layer */
     getViewport(): Viewport
-    /* Methods of Gtk.Widget */
+    /* Methods of Gtk-4.0.Gtk.Widget */
     actionSetEnabled(actionName: string, enabled: boolean): void
     activate(): boolean
     activateAction(name: string, args?: GLib.Variant | null): boolean
@@ -3095,10 +2745,10 @@ export class MarkerLayer {
     addTickCallback(callback: Gtk.TickCallback): number
     allocate(width: number, height: number, baseline: number, transform?: Gsk.Transform | null): void
     childFocus(direction: Gtk.DirectionType): boolean
-    computeBounds(target: Gtk.Widget): [ /* returnType */ boolean, /* outBounds */ Graphene.Rect ]
+    computeBounds(target: Gtk.Widget): { returnType: boolean, outBounds: Graphene.Rect }
     computeExpand(orientation: Gtk.Orientation): boolean
-    computePoint(target: Gtk.Widget, point: Graphene.Point): [ /* returnType */ boolean, /* outPoint */ Graphene.Point ]
-    computeTransform(target: Gtk.Widget): [ /* returnType */ boolean, /* outTransform */ Graphene.Matrix ]
+    computePoint(target: Gtk.Widget, point: Graphene.Point): { returnType: boolean, outPoint: Graphene.Point }
+    computeTransform(target: Gtk.Widget): { returnType: boolean, outTransform: Graphene.Matrix }
     contains(x: number, y: number): boolean
     createPangoContext(): Pango.Context
     createPangoLayout(text?: string | null): Pango.Layout
@@ -3107,7 +2757,7 @@ export class MarkerLayer {
     getAllocatedBaseline(): number
     getAllocatedHeight(): number
     getAllocatedWidth(): number
-    getAllocation(): /* allocation */ Gtk.Allocation
+    getAllocation(): { allocation: Gtk.Allocation }
     getAncestor(widgetType: GObject.Type): Gtk.Widget | null
     getCanFocus(): boolean
     getCanTarget(): boolean
@@ -3144,7 +2794,7 @@ export class MarkerLayer {
     getOverflow(): Gtk.Overflow
     getPangoContext(): Pango.Context
     getParent(): Gtk.Widget | null
-    getPreferredSize(): [ /* minimumSize */ Gtk.Requisition | null, /* naturalSize */ Gtk.Requisition | null ]
+    getPreferredSize(): { minimumSize: Gtk.Requisition | null, naturalSize: Gtk.Requisition | null }
     getPrevSibling(): Gtk.Widget | null
     getPrimaryClipboard(): Gdk.Clipboard
     getRealized(): boolean
@@ -3155,7 +2805,7 @@ export class MarkerLayer {
     getSensitive(): boolean
     getSettings(): Gtk.Settings
     getSize(orientation: Gtk.Orientation): number
-    getSizeRequest(): [ /* width */ number | null, /* height */ number | null ]
+    getSizeRequest(): { width: number | null, height: number | null }
     getStateFlags(): Gtk.StateFlags
     getStyleContext(): Gtk.StyleContext
     getTemplateChild(widgetType: GObject.Type, name: string): GObject.Object
@@ -3183,7 +2833,7 @@ export class MarkerLayer {
     keynavFailed(direction: Gtk.DirectionType): boolean
     listMnemonicLabels(): Gtk.Widget[]
     map(): void
-    measure(orientation: Gtk.Orientation, forSize: number): [ /* minimum */ number | null, /* natural */ number | null, /* minimumBaseline */ number | null, /* naturalBaseline */ number | null ]
+    measure(orientation: Gtk.Orientation, forSize: number): { minimum: number | null, natural: number | null, minimumBaseline: number | null, naturalBaseline: number | null }
     mnemonicActivate(groupCycling: boolean): boolean
     observeChildren(): Gio.ListModel
     observeControllers(): Gio.ListModel
@@ -3235,13 +2885,13 @@ export class MarkerLayer {
     show(): void
     sizeAllocate(allocation: Gtk.Allocation, baseline: number): void
     snapshotChild(child: Gtk.Widget, snapshot: Gtk.Snapshot): void
-    translateCoordinates(destWidget: Gtk.Widget, srcX: number, srcY: number): [ /* returnType */ boolean, /* destX */ number | null, /* destY */ number | null ]
+    translateCoordinates(destWidget: Gtk.Widget, srcX: number, srcY: number): { returnType: boolean, destX: number | null, destY: number | null }
     triggerTooltipQuery(): void
     unmap(): void
     unparent(): void
     unrealize(): void
     unsetStateFlags(flags: Gtk.StateFlags): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -3263,7 +2913,7 @@ export class MarkerLayer {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of Gtk.Accessible */
+    /* Methods of Gtk-4.0.Gtk.Accessible */
     getAccessibleRole(): Gtk.AccessibleRole
     resetProperty(property: Gtk.AccessibleProperty): void
     resetRelation(relation: Gtk.AccessibleRelation): void
@@ -3271,138 +2921,80 @@ export class MarkerLayer {
     updateProperty(properties: Gtk.AccessibleProperty[], values: any[]): void
     updateRelation(relations: Gtk.AccessibleRelation[], values: any[]): void
     updateState(states: Gtk.AccessibleState[], values: any[]): void
-    /* Methods of Gtk.Buildable */
+    /* Methods of Gtk-4.0.Gtk.Buildable */
     getBuildableId(): string
-    /* Virtual methods of Shumate.Layer */
-    vfuncAddChild(builder: Gtk.Builder, child: GObject.Object, type?: string | null): void
-    vfuncCustomFinished(builder: Gtk.Builder, child: GObject.Object | null, tagname: string, data?: object | null): void
-    vfuncCustomTagEnd(builder: Gtk.Builder, child: GObject.Object | null, tagname: string, data?: object | null): void
-    vfuncCustomTagStart(builder: Gtk.Builder, child: GObject.Object | null, tagname: string): [ /* returnType */ boolean, /* parser */ Gtk.BuildableParser, /* data */ object | null ]
-    vfuncGetId(): string
-    vfuncGetInternalChild(builder: Gtk.Builder, childname: string): GObject.Object
-    vfuncParserFinished(builder: Gtk.Builder): void
-    vfuncSetBuildableProperty(builder: Gtk.Builder, name: string, value: any): void
-    vfuncSetId(id: string): void
-    /* Virtual methods of Gtk.Widget */
-    vfuncComputeExpand(hexpandP: boolean, vexpandP: boolean): void
-    vfuncContains(x: number, y: number): boolean
-    vfuncCssChanged(change: Gtk.CssStyleChange): void
-    vfuncDirectionChanged(previousDirection: Gtk.TextDirection): void
-    vfuncFocus(direction: Gtk.DirectionType): boolean
-    vfuncGetRequestMode(): Gtk.SizeRequestMode
-    vfuncGrabFocus(): boolean
-    vfuncHide(): void
-    vfuncKeynavFailed(direction: Gtk.DirectionType): boolean
-    vfuncMap(): void
-    vfuncMeasure(orientation: Gtk.Orientation, forSize: number): [ /* minimum */ number | null, /* natural */ number | null, /* minimumBaseline */ number | null, /* naturalBaseline */ number | null ]
-    vfuncMnemonicActivate(groupCycling: boolean): boolean
-    vfuncMoveFocus(direction: Gtk.DirectionType): void
-    vfuncQueryTooltip(x: number, y: number, keyboardTooltip: boolean, tooltip: Gtk.Tooltip): boolean
-    vfuncRealize(): void
-    vfuncRoot(): void
-    vfuncSetFocusChild(child?: Gtk.Widget | null): void
-    vfuncShow(): void
-    vfuncSizeAllocate(width: number, height: number, baseline: number): void
-    vfuncSnapshot(snapshot: Gtk.Snapshot): void
-    vfuncStateFlagsChanged(previousStateFlags: Gtk.StateFlags): void
-    vfuncSystemSettingChanged(settings: Gtk.SystemSetting): void
-    vfuncUnmap(): void
-    vfuncUnrealize(): void
-    vfuncUnroot(): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gtk.Widget */
+    /* Signals of Gtk-4.0.Gtk.Widget */
     connect(sigName: "destroy", callback: (($obj: MarkerLayer) => void)): number
-    connect_after(sigName: "destroy", callback: (($obj: MarkerLayer) => void)): number
+    on(sigName: "destroy", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "destroy", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "destroy", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "destroy"): void
-    on(sigName: "destroy", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "destroy", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "destroy", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "direction-changed", callback: (($obj: MarkerLayer, previousDirection: Gtk.TextDirection) => void)): number
-    connect_after(sigName: "direction-changed", callback: (($obj: MarkerLayer, previousDirection: Gtk.TextDirection) => void)): number
+    on(sigName: "direction-changed", callback: (previousDirection: Gtk.TextDirection) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "direction-changed", callback: (previousDirection: Gtk.TextDirection) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "direction-changed", callback: (previousDirection: Gtk.TextDirection) => void): NodeJS.EventEmitter
     emit(sigName: "direction-changed", previousDirection: Gtk.TextDirection): void
-    on(sigName: "direction-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "direction-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "direction-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "hide", callback: (($obj: MarkerLayer) => void)): number
-    connect_after(sigName: "hide", callback: (($obj: MarkerLayer) => void)): number
+    on(sigName: "hide", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "hide", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "hide", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "hide"): void
-    on(sigName: "hide", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "hide", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "hide", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "keynav-failed", callback: (($obj: MarkerLayer, direction: Gtk.DirectionType) => boolean)): number
-    connect_after(sigName: "keynav-failed", callback: (($obj: MarkerLayer, direction: Gtk.DirectionType) => boolean)): number
+    on(sigName: "keynav-failed", callback: (direction: Gtk.DirectionType) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "keynav-failed", callback: (direction: Gtk.DirectionType) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "keynav-failed", callback: (direction: Gtk.DirectionType) => void): NodeJS.EventEmitter
     emit(sigName: "keynav-failed", direction: Gtk.DirectionType): void
-    on(sigName: "keynav-failed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "keynav-failed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "keynav-failed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "map", callback: (($obj: MarkerLayer) => void)): number
-    connect_after(sigName: "map", callback: (($obj: MarkerLayer) => void)): number
+    on(sigName: "map", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "map", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "map", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "map"): void
-    on(sigName: "map", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "map", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "map", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "mnemonic-activate", callback: (($obj: MarkerLayer, groupCycling: boolean) => boolean)): number
-    connect_after(sigName: "mnemonic-activate", callback: (($obj: MarkerLayer, groupCycling: boolean) => boolean)): number
+    on(sigName: "mnemonic-activate", callback: (groupCycling: boolean) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "mnemonic-activate", callback: (groupCycling: boolean) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "mnemonic-activate", callback: (groupCycling: boolean) => void): NodeJS.EventEmitter
     emit(sigName: "mnemonic-activate", groupCycling: boolean): void
-    on(sigName: "mnemonic-activate", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "mnemonic-activate", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "mnemonic-activate", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "move-focus", callback: (($obj: MarkerLayer, direction: Gtk.DirectionType) => void)): number
-    connect_after(sigName: "move-focus", callback: (($obj: MarkerLayer, direction: Gtk.DirectionType) => void)): number
+    on(sigName: "move-focus", callback: (direction: Gtk.DirectionType) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "move-focus", callback: (direction: Gtk.DirectionType) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "move-focus", callback: (direction: Gtk.DirectionType) => void): NodeJS.EventEmitter
     emit(sigName: "move-focus", direction: Gtk.DirectionType): void
-    on(sigName: "move-focus", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "move-focus", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "move-focus", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "query-tooltip", callback: (($obj: MarkerLayer, x: number, y: number, keyboardMode: boolean, tooltip: Gtk.Tooltip) => boolean)): number
-    connect_after(sigName: "query-tooltip", callback: (($obj: MarkerLayer, x: number, y: number, keyboardMode: boolean, tooltip: Gtk.Tooltip) => boolean)): number
+    on(sigName: "query-tooltip", callback: (x: number, y: number, keyboardMode: boolean, tooltip: Gtk.Tooltip) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "query-tooltip", callback: (x: number, y: number, keyboardMode: boolean, tooltip: Gtk.Tooltip) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "query-tooltip", callback: (x: number, y: number, keyboardMode: boolean, tooltip: Gtk.Tooltip) => void): NodeJS.EventEmitter
     emit(sigName: "query-tooltip", x: number, y: number, keyboardMode: boolean, tooltip: Gtk.Tooltip): void
-    on(sigName: "query-tooltip", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "query-tooltip", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "query-tooltip", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "realize", callback: (($obj: MarkerLayer) => void)): number
-    connect_after(sigName: "realize", callback: (($obj: MarkerLayer) => void)): number
+    on(sigName: "realize", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "realize", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "realize", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "realize"): void
-    on(sigName: "realize", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "realize", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "realize", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "show", callback: (($obj: MarkerLayer) => void)): number
-    connect_after(sigName: "show", callback: (($obj: MarkerLayer) => void)): number
+    on(sigName: "show", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "show", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "show", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "show"): void
-    on(sigName: "show", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "show", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "show", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "state-flags-changed", callback: (($obj: MarkerLayer, flags: Gtk.StateFlags) => void)): number
-    connect_after(sigName: "state-flags-changed", callback: (($obj: MarkerLayer, flags: Gtk.StateFlags) => void)): number
+    on(sigName: "state-flags-changed", callback: (flags: Gtk.StateFlags) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "state-flags-changed", callback: (flags: Gtk.StateFlags) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "state-flags-changed", callback: (flags: Gtk.StateFlags) => void): NodeJS.EventEmitter
     emit(sigName: "state-flags-changed", flags: Gtk.StateFlags): void
-    on(sigName: "state-flags-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "state-flags-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "state-flags-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "unmap", callback: (($obj: MarkerLayer) => void)): number
-    connect_after(sigName: "unmap", callback: (($obj: MarkerLayer) => void)): number
+    on(sigName: "unmap", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "unmap", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "unmap", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "unmap"): void
-    on(sigName: "unmap", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "unmap", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "unmap", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "unrealize", callback: (($obj: MarkerLayer) => void)): number
-    connect_after(sigName: "unrealize", callback: (($obj: MarkerLayer) => void)): number
+    on(sigName: "unrealize", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "unrealize", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "unrealize", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "unrealize"): void
-    on(sigName: "unrealize", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "unrealize", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "unrealize", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: MarkerLayer, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: MarkerLayer, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::selection-mode", callback: (($obj: MarkerLayer, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::selection-mode", callback: (($obj: MarkerLayer, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::selection-mode", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -3597,23 +3189,23 @@ export interface MemoryCache_ConstructProps extends TileCache_ConstructProps {
     sizeLimit?: number
 }
 export class MemoryCache {
-    /* Properties of Shumate.MemoryCache */
+    /* Properties of Shumate-0.0.Shumate.MemoryCache */
     sizeLimit: number
-    /* Properties of Shumate.MapSource */
+    /* Properties of Shumate-0.0.Shumate.MapSource */
     nextSource: MapSource
-    /* Fields of Shumate.MemoryCache */
+    /* Fields of Shumate-0.0.Shumate.MemoryCache */
     parentInstance: TileCache
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Shumate.MemoryCache */
+    /* Methods of Shumate-0.0.Shumate.MemoryCache */
     clean(): void
     getSizeLimit(): number
     setSizeLimit(sizeLimit: number): void
-    /* Methods of Shumate.TileCache */
+    /* Methods of Shumate-0.0.Shumate.TileCache */
     onTileFilled(tile: Tile): void
     refreshTileTime(tile: Tile): void
     storeTile(tile: Tile, contents: string, size: number): void
-    /* Methods of Shumate.MapSource */
+    /* Methods of Shumate-0.0.Shumate.MapSource */
     fillTile(tile: Tile, cancellable?: Gio.Cancellable | null): void
     getColumnCount(zoomLevel: number): number
     getId(): string
@@ -3632,7 +3224,7 @@ export class MemoryCache {
     getX(zoomLevel: number, longitude: number): number
     getY(zoomLevel: number, latitude: number): number
     setNextSource(nextSource: MapSource): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -3654,35 +3246,12 @@ export class MemoryCache {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of Shumate.TileCache */
-    vfuncOnTileFilled(tile: Tile): void
-    vfuncRefreshTileTime(tile: Tile): void
-    vfuncStoreTile(tile: Tile, contents: string, size: number): void
-    /* Virtual methods of Shumate.MapSource */
-    vfuncFillTile(tile: Tile, cancellable?: Gio.Cancellable | null): void
-    vfuncGetId(): string
-    vfuncGetLicense(): string
-    vfuncGetLicenseUri(): string
-    vfuncGetMaxZoomLevel(): number
-    vfuncGetMinZoomLevel(): number
-    vfuncGetName(): string
-    vfuncGetProjection(): MapProjection
-    vfuncGetTileSize(): number
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: MemoryCache, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: MemoryCache, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::size-limit", callback: (($obj: MemoryCache, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::size-limit", callback: (($obj: MemoryCache, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::size-limit", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -3715,13 +3284,13 @@ export interface NetworkTileSource_ConstructProps extends TileSource_ConstructPr
     userAgent?: string
 }
 export class NetworkTileSource {
-    /* Properties of Shumate.NetworkTileSource */
+    /* Properties of Shumate-0.0.Shumate.NetworkTileSource */
     maxConns: number
     offline: boolean
     proxyUri: string
     uriFormat: string
     userAgent: string
-    /* Properties of Shumate.TileSource */
+    /* Properties of Shumate-0.0.Shumate.TileSource */
     cache: TileCache
     id: string
     license: string
@@ -3731,13 +3300,13 @@ export class NetworkTileSource {
     name: string
     projection: MapProjection
     tileSize: number
-    /* Properties of Shumate.MapSource */
+    /* Properties of Shumate-0.0.Shumate.MapSource */
     nextSource: MapSource
-    /* Fields of Shumate.NetworkTileSource */
+    /* Fields of Shumate-0.0.Shumate.NetworkTileSource */
     parentInstance: TileSource
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Shumate.NetworkTileSource */
+    /* Methods of Shumate-0.0.Shumate.NetworkTileSource */
     getMaxConns(): number
     getOffline(): boolean
     getProxyUri(): string
@@ -3747,7 +3316,7 @@ export class NetworkTileSource {
     setProxyUri(proxyUri: string): void
     setUriFormat(uriFormat: string): void
     setUserAgent(userAgent: string): void
-    /* Methods of Shumate.TileSource */
+    /* Methods of Shumate-0.0.Shumate.TileSource */
     getCache(): TileCache
     setCache(cache: TileCache): void
     setId(id: string): void
@@ -3758,7 +3327,7 @@ export class NetworkTileSource {
     setName(name: string): void
     setProjection(projection: MapProjection): void
     setTileSize(tileSize: number): void
-    /* Methods of Shumate.MapSource */
+    /* Methods of Shumate-0.0.Shumate.MapSource */
     fillTile(tile: Tile, cancellable?: Gio.Cancellable | null): void
     getColumnCount(zoomLevel: number): number
     getId(): string
@@ -3777,7 +3346,7 @@ export class NetworkTileSource {
     getX(zoomLevel: number, longitude: number): number
     getY(zoomLevel: number, latitude: number): number
     setNextSource(nextSource: MapSource): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -3799,31 +3368,12 @@ export class NetworkTileSource {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of Shumate.MapSource */
-    vfuncFillTile(tile: Tile, cancellable?: Gio.Cancellable | null): void
-    vfuncGetId(): string
-    vfuncGetLicense(): string
-    vfuncGetLicenseUri(): string
-    vfuncGetMaxZoomLevel(): number
-    vfuncGetMinZoomLevel(): number
-    vfuncGetName(): string
-    vfuncGetProjection(): MapProjection
-    vfuncGetTileSize(): number
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: NetworkTileSource, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: NetworkTileSource, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::max-conns", callback: (($obj: NetworkTileSource, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::max-conns", callback: (($obj: NetworkTileSource, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::max-conns", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -3923,14 +3473,14 @@ export interface PathLayer_ConstructProps extends Layer_ConstructProps {
     accessibleRole?: Gtk.AccessibleRole
 }
 export class PathLayer {
-    /* Properties of Shumate.PathLayer */
+    /* Properties of Shumate-0.0.Shumate.PathLayer */
     closed: boolean
     fill: boolean
     fillColor: Gdk.RGBA
     stroke: boolean
     strokeColor: Gdk.RGBA
     strokeWidth: number
-    /* Properties of Gtk.Widget */
+    /* Properties of Gtk-4.0.Gtk.Widget */
     canFocus: boolean
     canTarget: boolean
     cssClasses: string[]
@@ -3964,13 +3514,13 @@ export class PathLayer {
     vexpandSet: boolean
     visible: boolean
     widthRequest: number
-    /* Properties of Gtk.Accessible */
+    /* Properties of Gtk-4.0.Gtk.Accessible */
     accessibleRole: Gtk.AccessibleRole
-    /* Fields of Shumate.PathLayer */
+    /* Fields of Shumate-0.0.Shumate.PathLayer */
     parentInstance: Layer
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Shumate.PathLayer */
+    /* Methods of Shumate-0.0.Shumate.PathLayer */
     addNode(location: Location): void
     getClosed(): boolean
     getDash(): number[]
@@ -3990,9 +3540,9 @@ export class PathLayer {
     setStroke(value: boolean): void
     setStrokeColor(color?: Gdk.RGBA | null): void
     setStrokeWidth(value: number): void
-    /* Methods of Shumate.Layer */
+    /* Methods of Shumate-0.0.Shumate.Layer */
     getViewport(): Viewport
-    /* Methods of Gtk.Widget */
+    /* Methods of Gtk-4.0.Gtk.Widget */
     actionSetEnabled(actionName: string, enabled: boolean): void
     activate(): boolean
     activateAction(name: string, args?: GLib.Variant | null): boolean
@@ -4003,10 +3553,10 @@ export class PathLayer {
     addTickCallback(callback: Gtk.TickCallback): number
     allocate(width: number, height: number, baseline: number, transform?: Gsk.Transform | null): void
     childFocus(direction: Gtk.DirectionType): boolean
-    computeBounds(target: Gtk.Widget): [ /* returnType */ boolean, /* outBounds */ Graphene.Rect ]
+    computeBounds(target: Gtk.Widget): { returnType: boolean, outBounds: Graphene.Rect }
     computeExpand(orientation: Gtk.Orientation): boolean
-    computePoint(target: Gtk.Widget, point: Graphene.Point): [ /* returnType */ boolean, /* outPoint */ Graphene.Point ]
-    computeTransform(target: Gtk.Widget): [ /* returnType */ boolean, /* outTransform */ Graphene.Matrix ]
+    computePoint(target: Gtk.Widget, point: Graphene.Point): { returnType: boolean, outPoint: Graphene.Point }
+    computeTransform(target: Gtk.Widget): { returnType: boolean, outTransform: Graphene.Matrix }
     contains(x: number, y: number): boolean
     createPangoContext(): Pango.Context
     createPangoLayout(text?: string | null): Pango.Layout
@@ -4015,7 +3565,7 @@ export class PathLayer {
     getAllocatedBaseline(): number
     getAllocatedHeight(): number
     getAllocatedWidth(): number
-    getAllocation(): /* allocation */ Gtk.Allocation
+    getAllocation(): { allocation: Gtk.Allocation }
     getAncestor(widgetType: GObject.Type): Gtk.Widget | null
     getCanFocus(): boolean
     getCanTarget(): boolean
@@ -4052,7 +3602,7 @@ export class PathLayer {
     getOverflow(): Gtk.Overflow
     getPangoContext(): Pango.Context
     getParent(): Gtk.Widget | null
-    getPreferredSize(): [ /* minimumSize */ Gtk.Requisition | null, /* naturalSize */ Gtk.Requisition | null ]
+    getPreferredSize(): { minimumSize: Gtk.Requisition | null, naturalSize: Gtk.Requisition | null }
     getPrevSibling(): Gtk.Widget | null
     getPrimaryClipboard(): Gdk.Clipboard
     getRealized(): boolean
@@ -4063,7 +3613,7 @@ export class PathLayer {
     getSensitive(): boolean
     getSettings(): Gtk.Settings
     getSize(orientation: Gtk.Orientation): number
-    getSizeRequest(): [ /* width */ number | null, /* height */ number | null ]
+    getSizeRequest(): { width: number | null, height: number | null }
     getStateFlags(): Gtk.StateFlags
     getStyleContext(): Gtk.StyleContext
     getTemplateChild(widgetType: GObject.Type, name: string): GObject.Object
@@ -4091,7 +3641,7 @@ export class PathLayer {
     keynavFailed(direction: Gtk.DirectionType): boolean
     listMnemonicLabels(): Gtk.Widget[]
     map(): void
-    measure(orientation: Gtk.Orientation, forSize: number): [ /* minimum */ number | null, /* natural */ number | null, /* minimumBaseline */ number | null, /* naturalBaseline */ number | null ]
+    measure(orientation: Gtk.Orientation, forSize: number): { minimum: number | null, natural: number | null, minimumBaseline: number | null, naturalBaseline: number | null }
     mnemonicActivate(groupCycling: boolean): boolean
     observeChildren(): Gio.ListModel
     observeControllers(): Gio.ListModel
@@ -4143,13 +3693,13 @@ export class PathLayer {
     show(): void
     sizeAllocate(allocation: Gtk.Allocation, baseline: number): void
     snapshotChild(child: Gtk.Widget, snapshot: Gtk.Snapshot): void
-    translateCoordinates(destWidget: Gtk.Widget, srcX: number, srcY: number): [ /* returnType */ boolean, /* destX */ number | null, /* destY */ number | null ]
+    translateCoordinates(destWidget: Gtk.Widget, srcX: number, srcY: number): { returnType: boolean, destX: number | null, destY: number | null }
     triggerTooltipQuery(): void
     unmap(): void
     unparent(): void
     unrealize(): void
     unsetStateFlags(flags: Gtk.StateFlags): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -4171,7 +3721,7 @@ export class PathLayer {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of Gtk.Accessible */
+    /* Methods of Gtk-4.0.Gtk.Accessible */
     getAccessibleRole(): Gtk.AccessibleRole
     resetProperty(property: Gtk.AccessibleProperty): void
     resetRelation(relation: Gtk.AccessibleRelation): void
@@ -4179,138 +3729,80 @@ export class PathLayer {
     updateProperty(properties: Gtk.AccessibleProperty[], values: any[]): void
     updateRelation(relations: Gtk.AccessibleRelation[], values: any[]): void
     updateState(states: Gtk.AccessibleState[], values: any[]): void
-    /* Methods of Gtk.Buildable */
+    /* Methods of Gtk-4.0.Gtk.Buildable */
     getBuildableId(): string
-    /* Virtual methods of Shumate.Layer */
-    vfuncAddChild(builder: Gtk.Builder, child: GObject.Object, type?: string | null): void
-    vfuncCustomFinished(builder: Gtk.Builder, child: GObject.Object | null, tagname: string, data?: object | null): void
-    vfuncCustomTagEnd(builder: Gtk.Builder, child: GObject.Object | null, tagname: string, data?: object | null): void
-    vfuncCustomTagStart(builder: Gtk.Builder, child: GObject.Object | null, tagname: string): [ /* returnType */ boolean, /* parser */ Gtk.BuildableParser, /* data */ object | null ]
-    vfuncGetId(): string
-    vfuncGetInternalChild(builder: Gtk.Builder, childname: string): GObject.Object
-    vfuncParserFinished(builder: Gtk.Builder): void
-    vfuncSetBuildableProperty(builder: Gtk.Builder, name: string, value: any): void
-    vfuncSetId(id: string): void
-    /* Virtual methods of Gtk.Widget */
-    vfuncComputeExpand(hexpandP: boolean, vexpandP: boolean): void
-    vfuncContains(x: number, y: number): boolean
-    vfuncCssChanged(change: Gtk.CssStyleChange): void
-    vfuncDirectionChanged(previousDirection: Gtk.TextDirection): void
-    vfuncFocus(direction: Gtk.DirectionType): boolean
-    vfuncGetRequestMode(): Gtk.SizeRequestMode
-    vfuncGrabFocus(): boolean
-    vfuncHide(): void
-    vfuncKeynavFailed(direction: Gtk.DirectionType): boolean
-    vfuncMap(): void
-    vfuncMeasure(orientation: Gtk.Orientation, forSize: number): [ /* minimum */ number | null, /* natural */ number | null, /* minimumBaseline */ number | null, /* naturalBaseline */ number | null ]
-    vfuncMnemonicActivate(groupCycling: boolean): boolean
-    vfuncMoveFocus(direction: Gtk.DirectionType): void
-    vfuncQueryTooltip(x: number, y: number, keyboardTooltip: boolean, tooltip: Gtk.Tooltip): boolean
-    vfuncRealize(): void
-    vfuncRoot(): void
-    vfuncSetFocusChild(child?: Gtk.Widget | null): void
-    vfuncShow(): void
-    vfuncSizeAllocate(width: number, height: number, baseline: number): void
-    vfuncSnapshot(snapshot: Gtk.Snapshot): void
-    vfuncStateFlagsChanged(previousStateFlags: Gtk.StateFlags): void
-    vfuncSystemSettingChanged(settings: Gtk.SystemSetting): void
-    vfuncUnmap(): void
-    vfuncUnrealize(): void
-    vfuncUnroot(): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gtk.Widget */
+    /* Signals of Gtk-4.0.Gtk.Widget */
     connect(sigName: "destroy", callback: (($obj: PathLayer) => void)): number
-    connect_after(sigName: "destroy", callback: (($obj: PathLayer) => void)): number
+    on(sigName: "destroy", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "destroy", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "destroy", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "destroy"): void
-    on(sigName: "destroy", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "destroy", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "destroy", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "direction-changed", callback: (($obj: PathLayer, previousDirection: Gtk.TextDirection) => void)): number
-    connect_after(sigName: "direction-changed", callback: (($obj: PathLayer, previousDirection: Gtk.TextDirection) => void)): number
+    on(sigName: "direction-changed", callback: (previousDirection: Gtk.TextDirection) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "direction-changed", callback: (previousDirection: Gtk.TextDirection) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "direction-changed", callback: (previousDirection: Gtk.TextDirection) => void): NodeJS.EventEmitter
     emit(sigName: "direction-changed", previousDirection: Gtk.TextDirection): void
-    on(sigName: "direction-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "direction-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "direction-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "hide", callback: (($obj: PathLayer) => void)): number
-    connect_after(sigName: "hide", callback: (($obj: PathLayer) => void)): number
+    on(sigName: "hide", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "hide", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "hide", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "hide"): void
-    on(sigName: "hide", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "hide", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "hide", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "keynav-failed", callback: (($obj: PathLayer, direction: Gtk.DirectionType) => boolean)): number
-    connect_after(sigName: "keynav-failed", callback: (($obj: PathLayer, direction: Gtk.DirectionType) => boolean)): number
+    on(sigName: "keynav-failed", callback: (direction: Gtk.DirectionType) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "keynav-failed", callback: (direction: Gtk.DirectionType) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "keynav-failed", callback: (direction: Gtk.DirectionType) => void): NodeJS.EventEmitter
     emit(sigName: "keynav-failed", direction: Gtk.DirectionType): void
-    on(sigName: "keynav-failed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "keynav-failed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "keynav-failed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "map", callback: (($obj: PathLayer) => void)): number
-    connect_after(sigName: "map", callback: (($obj: PathLayer) => void)): number
+    on(sigName: "map", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "map", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "map", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "map"): void
-    on(sigName: "map", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "map", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "map", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "mnemonic-activate", callback: (($obj: PathLayer, groupCycling: boolean) => boolean)): number
-    connect_after(sigName: "mnemonic-activate", callback: (($obj: PathLayer, groupCycling: boolean) => boolean)): number
+    on(sigName: "mnemonic-activate", callback: (groupCycling: boolean) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "mnemonic-activate", callback: (groupCycling: boolean) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "mnemonic-activate", callback: (groupCycling: boolean) => void): NodeJS.EventEmitter
     emit(sigName: "mnemonic-activate", groupCycling: boolean): void
-    on(sigName: "mnemonic-activate", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "mnemonic-activate", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "mnemonic-activate", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "move-focus", callback: (($obj: PathLayer, direction: Gtk.DirectionType) => void)): number
-    connect_after(sigName: "move-focus", callback: (($obj: PathLayer, direction: Gtk.DirectionType) => void)): number
+    on(sigName: "move-focus", callback: (direction: Gtk.DirectionType) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "move-focus", callback: (direction: Gtk.DirectionType) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "move-focus", callback: (direction: Gtk.DirectionType) => void): NodeJS.EventEmitter
     emit(sigName: "move-focus", direction: Gtk.DirectionType): void
-    on(sigName: "move-focus", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "move-focus", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "move-focus", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "query-tooltip", callback: (($obj: PathLayer, x: number, y: number, keyboardMode: boolean, tooltip: Gtk.Tooltip) => boolean)): number
-    connect_after(sigName: "query-tooltip", callback: (($obj: PathLayer, x: number, y: number, keyboardMode: boolean, tooltip: Gtk.Tooltip) => boolean)): number
+    on(sigName: "query-tooltip", callback: (x: number, y: number, keyboardMode: boolean, tooltip: Gtk.Tooltip) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "query-tooltip", callback: (x: number, y: number, keyboardMode: boolean, tooltip: Gtk.Tooltip) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "query-tooltip", callback: (x: number, y: number, keyboardMode: boolean, tooltip: Gtk.Tooltip) => void): NodeJS.EventEmitter
     emit(sigName: "query-tooltip", x: number, y: number, keyboardMode: boolean, tooltip: Gtk.Tooltip): void
-    on(sigName: "query-tooltip", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "query-tooltip", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "query-tooltip", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "realize", callback: (($obj: PathLayer) => void)): number
-    connect_after(sigName: "realize", callback: (($obj: PathLayer) => void)): number
+    on(sigName: "realize", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "realize", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "realize", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "realize"): void
-    on(sigName: "realize", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "realize", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "realize", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "show", callback: (($obj: PathLayer) => void)): number
-    connect_after(sigName: "show", callback: (($obj: PathLayer) => void)): number
+    on(sigName: "show", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "show", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "show", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "show"): void
-    on(sigName: "show", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "show", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "show", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "state-flags-changed", callback: (($obj: PathLayer, flags: Gtk.StateFlags) => void)): number
-    connect_after(sigName: "state-flags-changed", callback: (($obj: PathLayer, flags: Gtk.StateFlags) => void)): number
+    on(sigName: "state-flags-changed", callback: (flags: Gtk.StateFlags) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "state-flags-changed", callback: (flags: Gtk.StateFlags) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "state-flags-changed", callback: (flags: Gtk.StateFlags) => void): NodeJS.EventEmitter
     emit(sigName: "state-flags-changed", flags: Gtk.StateFlags): void
-    on(sigName: "state-flags-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "state-flags-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "state-flags-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "unmap", callback: (($obj: PathLayer) => void)): number
-    connect_after(sigName: "unmap", callback: (($obj: PathLayer) => void)): number
+    on(sigName: "unmap", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "unmap", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "unmap", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "unmap"): void
-    on(sigName: "unmap", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "unmap", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "unmap", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "unrealize", callback: (($obj: PathLayer) => void)): number
-    connect_after(sigName: "unrealize", callback: (($obj: PathLayer) => void)): number
+    on(sigName: "unrealize", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "unrealize", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "unrealize", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "unrealize"): void
-    on(sigName: "unrealize", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "unrealize", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "unrealize", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: PathLayer, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: PathLayer, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::closed", callback: (($obj: PathLayer, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::closed", callback: (($obj: PathLayer, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::closed", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -4531,10 +4023,10 @@ export interface Point_ConstructProps extends Marker_ConstructProps {
     longitude?: number
 }
 export class Point {
-    /* Properties of Shumate.Marker */
+    /* Properties of Shumate-0.0.Shumate.Marker */
     draggable: boolean
     selectable: boolean
-    /* Properties of Gtk.Widget */
+    /* Properties of Gtk-4.0.Gtk.Widget */
     canFocus: boolean
     canTarget: boolean
     cssClasses: string[]
@@ -4568,16 +4060,16 @@ export class Point {
     vexpandSet: boolean
     visible: boolean
     widthRequest: number
-    /* Properties of Gtk.Accessible */
+    /* Properties of Gtk-4.0.Gtk.Accessible */
     accessibleRole: Gtk.AccessibleRole
-    /* Properties of Shumate.Location */
+    /* Properties of Shumate-0.0.Shumate.Location */
     latitude: number
     longitude: number
-    /* Fields of Shumate.Marker */
+    /* Fields of Shumate-0.0.Shumate.Marker */
     parentInstance: Gtk.Widget
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Shumate.Marker */
+    /* Methods of Shumate-0.0.Shumate.Marker */
     animateIn(): void
     animateInWithDelay(delay: number): void
     animateOut(): void
@@ -4587,7 +4079,7 @@ export class Point {
     isSelected(): boolean
     setDraggable(value: boolean): void
     setSelectable(value: boolean): void
-    /* Methods of Gtk.Widget */
+    /* Methods of Gtk-4.0.Gtk.Widget */
     actionSetEnabled(actionName: string, enabled: boolean): void
     activate(): boolean
     activateAction(name: string, args?: GLib.Variant | null): boolean
@@ -4598,10 +4090,10 @@ export class Point {
     addTickCallback(callback: Gtk.TickCallback): number
     allocate(width: number, height: number, baseline: number, transform?: Gsk.Transform | null): void
     childFocus(direction: Gtk.DirectionType): boolean
-    computeBounds(target: Gtk.Widget): [ /* returnType */ boolean, /* outBounds */ Graphene.Rect ]
+    computeBounds(target: Gtk.Widget): { returnType: boolean, outBounds: Graphene.Rect }
     computeExpand(orientation: Gtk.Orientation): boolean
-    computePoint(target: Gtk.Widget, point: Graphene.Point): [ /* returnType */ boolean, /* outPoint */ Graphene.Point ]
-    computeTransform(target: Gtk.Widget): [ /* returnType */ boolean, /* outTransform */ Graphene.Matrix ]
+    computePoint(target: Gtk.Widget, point: Graphene.Point): { returnType: boolean, outPoint: Graphene.Point }
+    computeTransform(target: Gtk.Widget): { returnType: boolean, outTransform: Graphene.Matrix }
     contains(x: number, y: number): boolean
     createPangoContext(): Pango.Context
     createPangoLayout(text?: string | null): Pango.Layout
@@ -4610,7 +4102,7 @@ export class Point {
     getAllocatedBaseline(): number
     getAllocatedHeight(): number
     getAllocatedWidth(): number
-    getAllocation(): /* allocation */ Gtk.Allocation
+    getAllocation(): { allocation: Gtk.Allocation }
     getAncestor(widgetType: GObject.Type): Gtk.Widget | null
     getCanFocus(): boolean
     getCanTarget(): boolean
@@ -4647,7 +4139,7 @@ export class Point {
     getOverflow(): Gtk.Overflow
     getPangoContext(): Pango.Context
     getParent(): Gtk.Widget | null
-    getPreferredSize(): [ /* minimumSize */ Gtk.Requisition | null, /* naturalSize */ Gtk.Requisition | null ]
+    getPreferredSize(): { minimumSize: Gtk.Requisition | null, naturalSize: Gtk.Requisition | null }
     getPrevSibling(): Gtk.Widget | null
     getPrimaryClipboard(): Gdk.Clipboard
     getRealized(): boolean
@@ -4658,7 +4150,7 @@ export class Point {
     getSensitive(): boolean
     getSettings(): Gtk.Settings
     getSize(orientation: Gtk.Orientation): number
-    getSizeRequest(): [ /* width */ number | null, /* height */ number | null ]
+    getSizeRequest(): { width: number | null, height: number | null }
     getStateFlags(): Gtk.StateFlags
     getStyleContext(): Gtk.StyleContext
     getTemplateChild(widgetType: GObject.Type, name: string): GObject.Object
@@ -4686,7 +4178,7 @@ export class Point {
     keynavFailed(direction: Gtk.DirectionType): boolean
     listMnemonicLabels(): Gtk.Widget[]
     map(): void
-    measure(orientation: Gtk.Orientation, forSize: number): [ /* minimum */ number | null, /* natural */ number | null, /* minimumBaseline */ number | null, /* naturalBaseline */ number | null ]
+    measure(orientation: Gtk.Orientation, forSize: number): { minimum: number | null, natural: number | null, minimumBaseline: number | null, naturalBaseline: number | null }
     mnemonicActivate(groupCycling: boolean): boolean
     observeChildren(): Gio.ListModel
     observeControllers(): Gio.ListModel
@@ -4738,13 +4230,13 @@ export class Point {
     show(): void
     sizeAllocate(allocation: Gtk.Allocation, baseline: number): void
     snapshotChild(child: Gtk.Widget, snapshot: Gtk.Snapshot): void
-    translateCoordinates(destWidget: Gtk.Widget, srcX: number, srcY: number): [ /* returnType */ boolean, /* destX */ number | null, /* destY */ number | null ]
+    translateCoordinates(destWidget: Gtk.Widget, srcX: number, srcY: number): { returnType: boolean, destX: number | null, destY: number | null }
     triggerTooltipQuery(): void
     unmap(): void
     unparent(): void
     unrealize(): void
     unsetStateFlags(flags: Gtk.StateFlags): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -4766,7 +4258,7 @@ export class Point {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of Gtk.Accessible */
+    /* Methods of Gtk-4.0.Gtk.Accessible */
     getAccessibleRole(): Gtk.AccessibleRole
     resetProperty(property: Gtk.AccessibleProperty): void
     resetRelation(relation: Gtk.AccessibleRelation): void
@@ -4774,145 +4266,84 @@ export class Point {
     updateProperty(properties: Gtk.AccessibleProperty[], values: any[]): void
     updateRelation(relations: Gtk.AccessibleRelation[], values: any[]): void
     updateState(states: Gtk.AccessibleState[], values: any[]): void
-    /* Methods of Gtk.Buildable */
+    /* Methods of Gtk-4.0.Gtk.Buildable */
     getBuildableId(): string
-    /* Methods of Shumate.Location */
+    /* Methods of Shumate-0.0.Shumate.Location */
     getLatitude(): number
     getLongitude(): number
     setLocation(latitude: number, longitude: number): void
-    /* Virtual methods of Shumate.Marker */
-    vfuncAddChild(builder: Gtk.Builder, child: GObject.Object, type?: string | null): void
-    vfuncCustomFinished(builder: Gtk.Builder, child: GObject.Object | null, tagname: string, data?: object | null): void
-    vfuncCustomTagEnd(builder: Gtk.Builder, child: GObject.Object | null, tagname: string, data?: object | null): void
-    vfuncCustomTagStart(builder: Gtk.Builder, child: GObject.Object | null, tagname: string): [ /* returnType */ boolean, /* parser */ Gtk.BuildableParser, /* data */ object | null ]
-    vfuncGetId(): string
-    vfuncGetInternalChild(builder: Gtk.Builder, childname: string): GObject.Object
-    vfuncParserFinished(builder: Gtk.Builder): void
-    vfuncSetBuildableProperty(builder: Gtk.Builder, name: string, value: any): void
-    vfuncSetId(id: string): void
-    vfuncGetLatitude(): number
-    vfuncGetLongitude(): number
-    vfuncSetLocation(latitude: number, longitude: number): void
-    /* Virtual methods of Gtk.Widget */
-    vfuncComputeExpand(hexpandP: boolean, vexpandP: boolean): void
-    vfuncContains(x: number, y: number): boolean
-    vfuncCssChanged(change: Gtk.CssStyleChange): void
-    vfuncDirectionChanged(previousDirection: Gtk.TextDirection): void
-    vfuncFocus(direction: Gtk.DirectionType): boolean
-    vfuncGetRequestMode(): Gtk.SizeRequestMode
-    vfuncGrabFocus(): boolean
-    vfuncHide(): void
-    vfuncKeynavFailed(direction: Gtk.DirectionType): boolean
-    vfuncMap(): void
-    vfuncMeasure(orientation: Gtk.Orientation, forSize: number): [ /* minimum */ number | null, /* natural */ number | null, /* minimumBaseline */ number | null, /* naturalBaseline */ number | null ]
-    vfuncMnemonicActivate(groupCycling: boolean): boolean
-    vfuncMoveFocus(direction: Gtk.DirectionType): void
-    vfuncQueryTooltip(x: number, y: number, keyboardTooltip: boolean, tooltip: Gtk.Tooltip): boolean
-    vfuncRealize(): void
-    vfuncRoot(): void
-    vfuncSetFocusChild(child?: Gtk.Widget | null): void
-    vfuncShow(): void
-    vfuncSizeAllocate(width: number, height: number, baseline: number): void
-    vfuncSnapshot(snapshot: Gtk.Snapshot): void
-    vfuncStateFlagsChanged(previousStateFlags: Gtk.StateFlags): void
-    vfuncSystemSettingChanged(settings: Gtk.SystemSetting): void
-    vfuncUnmap(): void
-    vfuncUnrealize(): void
-    vfuncUnroot(): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gtk.Widget */
+    /* Signals of Gtk-4.0.Gtk.Widget */
     connect(sigName: "destroy", callback: (($obj: Point) => void)): number
-    connect_after(sigName: "destroy", callback: (($obj: Point) => void)): number
+    on(sigName: "destroy", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "destroy", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "destroy", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "destroy"): void
-    on(sigName: "destroy", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "destroy", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "destroy", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "direction-changed", callback: (($obj: Point, previousDirection: Gtk.TextDirection) => void)): number
-    connect_after(sigName: "direction-changed", callback: (($obj: Point, previousDirection: Gtk.TextDirection) => void)): number
+    on(sigName: "direction-changed", callback: (previousDirection: Gtk.TextDirection) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "direction-changed", callback: (previousDirection: Gtk.TextDirection) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "direction-changed", callback: (previousDirection: Gtk.TextDirection) => void): NodeJS.EventEmitter
     emit(sigName: "direction-changed", previousDirection: Gtk.TextDirection): void
-    on(sigName: "direction-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "direction-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "direction-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "hide", callback: (($obj: Point) => void)): number
-    connect_after(sigName: "hide", callback: (($obj: Point) => void)): number
+    on(sigName: "hide", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "hide", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "hide", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "hide"): void
-    on(sigName: "hide", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "hide", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "hide", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "keynav-failed", callback: (($obj: Point, direction: Gtk.DirectionType) => boolean)): number
-    connect_after(sigName: "keynav-failed", callback: (($obj: Point, direction: Gtk.DirectionType) => boolean)): number
+    on(sigName: "keynav-failed", callback: (direction: Gtk.DirectionType) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "keynav-failed", callback: (direction: Gtk.DirectionType) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "keynav-failed", callback: (direction: Gtk.DirectionType) => void): NodeJS.EventEmitter
     emit(sigName: "keynav-failed", direction: Gtk.DirectionType): void
-    on(sigName: "keynav-failed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "keynav-failed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "keynav-failed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "map", callback: (($obj: Point) => void)): number
-    connect_after(sigName: "map", callback: (($obj: Point) => void)): number
+    on(sigName: "map", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "map", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "map", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "map"): void
-    on(sigName: "map", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "map", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "map", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "mnemonic-activate", callback: (($obj: Point, groupCycling: boolean) => boolean)): number
-    connect_after(sigName: "mnemonic-activate", callback: (($obj: Point, groupCycling: boolean) => boolean)): number
+    on(sigName: "mnemonic-activate", callback: (groupCycling: boolean) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "mnemonic-activate", callback: (groupCycling: boolean) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "mnemonic-activate", callback: (groupCycling: boolean) => void): NodeJS.EventEmitter
     emit(sigName: "mnemonic-activate", groupCycling: boolean): void
-    on(sigName: "mnemonic-activate", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "mnemonic-activate", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "mnemonic-activate", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "move-focus", callback: (($obj: Point, direction: Gtk.DirectionType) => void)): number
-    connect_after(sigName: "move-focus", callback: (($obj: Point, direction: Gtk.DirectionType) => void)): number
+    on(sigName: "move-focus", callback: (direction: Gtk.DirectionType) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "move-focus", callback: (direction: Gtk.DirectionType) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "move-focus", callback: (direction: Gtk.DirectionType) => void): NodeJS.EventEmitter
     emit(sigName: "move-focus", direction: Gtk.DirectionType): void
-    on(sigName: "move-focus", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "move-focus", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "move-focus", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "query-tooltip", callback: (($obj: Point, x: number, y: number, keyboardMode: boolean, tooltip: Gtk.Tooltip) => boolean)): number
-    connect_after(sigName: "query-tooltip", callback: (($obj: Point, x: number, y: number, keyboardMode: boolean, tooltip: Gtk.Tooltip) => boolean)): number
+    on(sigName: "query-tooltip", callback: (x: number, y: number, keyboardMode: boolean, tooltip: Gtk.Tooltip) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "query-tooltip", callback: (x: number, y: number, keyboardMode: boolean, tooltip: Gtk.Tooltip) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "query-tooltip", callback: (x: number, y: number, keyboardMode: boolean, tooltip: Gtk.Tooltip) => void): NodeJS.EventEmitter
     emit(sigName: "query-tooltip", x: number, y: number, keyboardMode: boolean, tooltip: Gtk.Tooltip): void
-    on(sigName: "query-tooltip", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "query-tooltip", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "query-tooltip", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "realize", callback: (($obj: Point) => void)): number
-    connect_after(sigName: "realize", callback: (($obj: Point) => void)): number
+    on(sigName: "realize", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "realize", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "realize", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "realize"): void
-    on(sigName: "realize", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "realize", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "realize", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "show", callback: (($obj: Point) => void)): number
-    connect_after(sigName: "show", callback: (($obj: Point) => void)): number
+    on(sigName: "show", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "show", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "show", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "show"): void
-    on(sigName: "show", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "show", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "show", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "state-flags-changed", callback: (($obj: Point, flags: Gtk.StateFlags) => void)): number
-    connect_after(sigName: "state-flags-changed", callback: (($obj: Point, flags: Gtk.StateFlags) => void)): number
+    on(sigName: "state-flags-changed", callback: (flags: Gtk.StateFlags) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "state-flags-changed", callback: (flags: Gtk.StateFlags) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "state-flags-changed", callback: (flags: Gtk.StateFlags) => void): NodeJS.EventEmitter
     emit(sigName: "state-flags-changed", flags: Gtk.StateFlags): void
-    on(sigName: "state-flags-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "state-flags-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "state-flags-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "unmap", callback: (($obj: Point) => void)): number
-    connect_after(sigName: "unmap", callback: (($obj: Point) => void)): number
+    on(sigName: "unmap", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "unmap", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "unmap", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "unmap"): void
-    on(sigName: "unmap", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "unmap", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "unmap", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "unrealize", callback: (($obj: Point) => void)): number
-    connect_after(sigName: "unrealize", callback: (($obj: Point) => void)): number
+    on(sigName: "unrealize", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "unrealize", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "unrealize", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "unrealize"): void
-    on(sigName: "unrealize", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "unrealize", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "unrealize", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Point, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Point, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::draggable", callback: (($obj: Point, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::draggable", callback: (($obj: Point, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::draggable", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -5124,10 +4555,10 @@ export interface Scale_ConstructProps extends Gtk.Widget_ConstructProps {
     accessibleRole?: Gtk.AccessibleRole
 }
 export class Scale {
-    /* Properties of Shumate.Scale */
+    /* Properties of Shumate-0.0.Shumate.Scale */
     maxWidth: number
     unit: Unit
-    /* Properties of Gtk.Widget */
+    /* Properties of Gtk-4.0.Gtk.Widget */
     canFocus: boolean
     canTarget: boolean
     cssClasses: string[]
@@ -5161,18 +4592,18 @@ export class Scale {
     vexpandSet: boolean
     visible: boolean
     widthRequest: number
-    /* Properties of Gtk.Accessible */
+    /* Properties of Gtk-4.0.Gtk.Accessible */
     accessibleRole: Gtk.AccessibleRole
-    /* Fields of Gtk.Widget */
+    /* Fields of Gtk-4.0.Gtk.Widget */
     parentInstance: GObject.InitiallyUnowned
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Shumate.Scale */
+    /* Methods of Shumate-0.0.Shumate.Scale */
     getMaxWidth(): number
     getUnit(): Unit
     setMaxWidth(value: number): void
     setUnit(unit: Unit): void
-    /* Methods of Gtk.Widget */
+    /* Methods of Gtk-4.0.Gtk.Widget */
     actionSetEnabled(actionName: string, enabled: boolean): void
     activate(): boolean
     activateAction(name: string, args?: GLib.Variant | null): boolean
@@ -5183,10 +4614,10 @@ export class Scale {
     addTickCallback(callback: Gtk.TickCallback): number
     allocate(width: number, height: number, baseline: number, transform?: Gsk.Transform | null): void
     childFocus(direction: Gtk.DirectionType): boolean
-    computeBounds(target: Gtk.Widget): [ /* returnType */ boolean, /* outBounds */ Graphene.Rect ]
+    computeBounds(target: Gtk.Widget): { returnType: boolean, outBounds: Graphene.Rect }
     computeExpand(orientation: Gtk.Orientation): boolean
-    computePoint(target: Gtk.Widget, point: Graphene.Point): [ /* returnType */ boolean, /* outPoint */ Graphene.Point ]
-    computeTransform(target: Gtk.Widget): [ /* returnType */ boolean, /* outTransform */ Graphene.Matrix ]
+    computePoint(target: Gtk.Widget, point: Graphene.Point): { returnType: boolean, outPoint: Graphene.Point }
+    computeTransform(target: Gtk.Widget): { returnType: boolean, outTransform: Graphene.Matrix }
     contains(x: number, y: number): boolean
     createPangoContext(): Pango.Context
     createPangoLayout(text?: string | null): Pango.Layout
@@ -5195,7 +4626,7 @@ export class Scale {
     getAllocatedBaseline(): number
     getAllocatedHeight(): number
     getAllocatedWidth(): number
-    getAllocation(): /* allocation */ Gtk.Allocation
+    getAllocation(): { allocation: Gtk.Allocation }
     getAncestor(widgetType: GObject.Type): Gtk.Widget | null
     getCanFocus(): boolean
     getCanTarget(): boolean
@@ -5232,7 +4663,7 @@ export class Scale {
     getOverflow(): Gtk.Overflow
     getPangoContext(): Pango.Context
     getParent(): Gtk.Widget | null
-    getPreferredSize(): [ /* minimumSize */ Gtk.Requisition | null, /* naturalSize */ Gtk.Requisition | null ]
+    getPreferredSize(): { minimumSize: Gtk.Requisition | null, naturalSize: Gtk.Requisition | null }
     getPrevSibling(): Gtk.Widget | null
     getPrimaryClipboard(): Gdk.Clipboard
     getRealized(): boolean
@@ -5243,7 +4674,7 @@ export class Scale {
     getSensitive(): boolean
     getSettings(): Gtk.Settings
     getSize(orientation: Gtk.Orientation): number
-    getSizeRequest(): [ /* width */ number | null, /* height */ number | null ]
+    getSizeRequest(): { width: number | null, height: number | null }
     getStateFlags(): Gtk.StateFlags
     getStyleContext(): Gtk.StyleContext
     getTemplateChild(widgetType: GObject.Type, name: string): GObject.Object
@@ -5271,7 +4702,7 @@ export class Scale {
     keynavFailed(direction: Gtk.DirectionType): boolean
     listMnemonicLabels(): Gtk.Widget[]
     map(): void
-    measure(orientation: Gtk.Orientation, forSize: number): [ /* minimum */ number | null, /* natural */ number | null, /* minimumBaseline */ number | null, /* naturalBaseline */ number | null ]
+    measure(orientation: Gtk.Orientation, forSize: number): { minimum: number | null, natural: number | null, minimumBaseline: number | null, naturalBaseline: number | null }
     mnemonicActivate(groupCycling: boolean): boolean
     observeChildren(): Gio.ListModel
     observeControllers(): Gio.ListModel
@@ -5323,13 +4754,13 @@ export class Scale {
     show(): void
     sizeAllocate(allocation: Gtk.Allocation, baseline: number): void
     snapshotChild(child: Gtk.Widget, snapshot: Gtk.Snapshot): void
-    translateCoordinates(destWidget: Gtk.Widget, srcX: number, srcY: number): [ /* returnType */ boolean, /* destX */ number | null, /* destY */ number | null ]
+    translateCoordinates(destWidget: Gtk.Widget, srcX: number, srcY: number): { returnType: boolean, destX: number | null, destY: number | null }
     triggerTooltipQuery(): void
     unmap(): void
     unparent(): void
     unrealize(): void
     unsetStateFlags(flags: Gtk.StateFlags): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -5351,7 +4782,7 @@ export class Scale {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of Gtk.Accessible */
+    /* Methods of Gtk-4.0.Gtk.Accessible */
     getAccessibleRole(): Gtk.AccessibleRole
     resetProperty(property: Gtk.AccessibleProperty): void
     resetRelation(relation: Gtk.AccessibleRelation): void
@@ -5359,138 +4790,80 @@ export class Scale {
     updateProperty(properties: Gtk.AccessibleProperty[], values: any[]): void
     updateRelation(relations: Gtk.AccessibleRelation[], values: any[]): void
     updateState(states: Gtk.AccessibleState[], values: any[]): void
-    /* Methods of Gtk.Buildable */
+    /* Methods of Gtk-4.0.Gtk.Buildable */
     getBuildableId(): string
-    /* Virtual methods of Shumate.Scale */
-    vfuncAddChild(builder: Gtk.Builder, child: GObject.Object, type?: string | null): void
-    vfuncCustomFinished(builder: Gtk.Builder, child: GObject.Object | null, tagname: string, data?: object | null): void
-    vfuncCustomTagEnd(builder: Gtk.Builder, child: GObject.Object | null, tagname: string, data?: object | null): void
-    vfuncCustomTagStart(builder: Gtk.Builder, child: GObject.Object | null, tagname: string): [ /* returnType */ boolean, /* parser */ Gtk.BuildableParser, /* data */ object | null ]
-    vfuncGetId(): string
-    vfuncGetInternalChild(builder: Gtk.Builder, childname: string): GObject.Object
-    vfuncParserFinished(builder: Gtk.Builder): void
-    vfuncSetBuildableProperty(builder: Gtk.Builder, name: string, value: any): void
-    vfuncSetId(id: string): void
-    /* Virtual methods of Gtk.Widget */
-    vfuncComputeExpand(hexpandP: boolean, vexpandP: boolean): void
-    vfuncContains(x: number, y: number): boolean
-    vfuncCssChanged(change: Gtk.CssStyleChange): void
-    vfuncDirectionChanged(previousDirection: Gtk.TextDirection): void
-    vfuncFocus(direction: Gtk.DirectionType): boolean
-    vfuncGetRequestMode(): Gtk.SizeRequestMode
-    vfuncGrabFocus(): boolean
-    vfuncHide(): void
-    vfuncKeynavFailed(direction: Gtk.DirectionType): boolean
-    vfuncMap(): void
-    vfuncMeasure(orientation: Gtk.Orientation, forSize: number): [ /* minimum */ number | null, /* natural */ number | null, /* minimumBaseline */ number | null, /* naturalBaseline */ number | null ]
-    vfuncMnemonicActivate(groupCycling: boolean): boolean
-    vfuncMoveFocus(direction: Gtk.DirectionType): void
-    vfuncQueryTooltip(x: number, y: number, keyboardTooltip: boolean, tooltip: Gtk.Tooltip): boolean
-    vfuncRealize(): void
-    vfuncRoot(): void
-    vfuncSetFocusChild(child?: Gtk.Widget | null): void
-    vfuncShow(): void
-    vfuncSizeAllocate(width: number, height: number, baseline: number): void
-    vfuncSnapshot(snapshot: Gtk.Snapshot): void
-    vfuncStateFlagsChanged(previousStateFlags: Gtk.StateFlags): void
-    vfuncSystemSettingChanged(settings: Gtk.SystemSetting): void
-    vfuncUnmap(): void
-    vfuncUnrealize(): void
-    vfuncUnroot(): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gtk.Widget */
+    /* Signals of Gtk-4.0.Gtk.Widget */
     connect(sigName: "destroy", callback: (($obj: Scale) => void)): number
-    connect_after(sigName: "destroy", callback: (($obj: Scale) => void)): number
+    on(sigName: "destroy", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "destroy", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "destroy", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "destroy"): void
-    on(sigName: "destroy", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "destroy", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "destroy", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "direction-changed", callback: (($obj: Scale, previousDirection: Gtk.TextDirection) => void)): number
-    connect_after(sigName: "direction-changed", callback: (($obj: Scale, previousDirection: Gtk.TextDirection) => void)): number
+    on(sigName: "direction-changed", callback: (previousDirection: Gtk.TextDirection) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "direction-changed", callback: (previousDirection: Gtk.TextDirection) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "direction-changed", callback: (previousDirection: Gtk.TextDirection) => void): NodeJS.EventEmitter
     emit(sigName: "direction-changed", previousDirection: Gtk.TextDirection): void
-    on(sigName: "direction-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "direction-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "direction-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "hide", callback: (($obj: Scale) => void)): number
-    connect_after(sigName: "hide", callback: (($obj: Scale) => void)): number
+    on(sigName: "hide", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "hide", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "hide", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "hide"): void
-    on(sigName: "hide", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "hide", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "hide", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "keynav-failed", callback: (($obj: Scale, direction: Gtk.DirectionType) => boolean)): number
-    connect_after(sigName: "keynav-failed", callback: (($obj: Scale, direction: Gtk.DirectionType) => boolean)): number
+    on(sigName: "keynav-failed", callback: (direction: Gtk.DirectionType) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "keynav-failed", callback: (direction: Gtk.DirectionType) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "keynav-failed", callback: (direction: Gtk.DirectionType) => void): NodeJS.EventEmitter
     emit(sigName: "keynav-failed", direction: Gtk.DirectionType): void
-    on(sigName: "keynav-failed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "keynav-failed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "keynav-failed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "map", callback: (($obj: Scale) => void)): number
-    connect_after(sigName: "map", callback: (($obj: Scale) => void)): number
+    on(sigName: "map", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "map", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "map", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "map"): void
-    on(sigName: "map", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "map", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "map", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "mnemonic-activate", callback: (($obj: Scale, groupCycling: boolean) => boolean)): number
-    connect_after(sigName: "mnemonic-activate", callback: (($obj: Scale, groupCycling: boolean) => boolean)): number
+    on(sigName: "mnemonic-activate", callback: (groupCycling: boolean) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "mnemonic-activate", callback: (groupCycling: boolean) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "mnemonic-activate", callback: (groupCycling: boolean) => void): NodeJS.EventEmitter
     emit(sigName: "mnemonic-activate", groupCycling: boolean): void
-    on(sigName: "mnemonic-activate", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "mnemonic-activate", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "mnemonic-activate", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "move-focus", callback: (($obj: Scale, direction: Gtk.DirectionType) => void)): number
-    connect_after(sigName: "move-focus", callback: (($obj: Scale, direction: Gtk.DirectionType) => void)): number
+    on(sigName: "move-focus", callback: (direction: Gtk.DirectionType) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "move-focus", callback: (direction: Gtk.DirectionType) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "move-focus", callback: (direction: Gtk.DirectionType) => void): NodeJS.EventEmitter
     emit(sigName: "move-focus", direction: Gtk.DirectionType): void
-    on(sigName: "move-focus", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "move-focus", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "move-focus", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "query-tooltip", callback: (($obj: Scale, x: number, y: number, keyboardMode: boolean, tooltip: Gtk.Tooltip) => boolean)): number
-    connect_after(sigName: "query-tooltip", callback: (($obj: Scale, x: number, y: number, keyboardMode: boolean, tooltip: Gtk.Tooltip) => boolean)): number
+    on(sigName: "query-tooltip", callback: (x: number, y: number, keyboardMode: boolean, tooltip: Gtk.Tooltip) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "query-tooltip", callback: (x: number, y: number, keyboardMode: boolean, tooltip: Gtk.Tooltip) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "query-tooltip", callback: (x: number, y: number, keyboardMode: boolean, tooltip: Gtk.Tooltip) => void): NodeJS.EventEmitter
     emit(sigName: "query-tooltip", x: number, y: number, keyboardMode: boolean, tooltip: Gtk.Tooltip): void
-    on(sigName: "query-tooltip", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "query-tooltip", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "query-tooltip", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "realize", callback: (($obj: Scale) => void)): number
-    connect_after(sigName: "realize", callback: (($obj: Scale) => void)): number
+    on(sigName: "realize", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "realize", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "realize", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "realize"): void
-    on(sigName: "realize", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "realize", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "realize", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "show", callback: (($obj: Scale) => void)): number
-    connect_after(sigName: "show", callback: (($obj: Scale) => void)): number
+    on(sigName: "show", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "show", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "show", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "show"): void
-    on(sigName: "show", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "show", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "show", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "state-flags-changed", callback: (($obj: Scale, flags: Gtk.StateFlags) => void)): number
-    connect_after(sigName: "state-flags-changed", callback: (($obj: Scale, flags: Gtk.StateFlags) => void)): number
+    on(sigName: "state-flags-changed", callback: (flags: Gtk.StateFlags) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "state-flags-changed", callback: (flags: Gtk.StateFlags) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "state-flags-changed", callback: (flags: Gtk.StateFlags) => void): NodeJS.EventEmitter
     emit(sigName: "state-flags-changed", flags: Gtk.StateFlags): void
-    on(sigName: "state-flags-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "state-flags-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "state-flags-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "unmap", callback: (($obj: Scale) => void)): number
-    connect_after(sigName: "unmap", callback: (($obj: Scale) => void)): number
+    on(sigName: "unmap", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "unmap", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "unmap", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "unmap"): void
-    on(sigName: "unmap", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "unmap", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "unmap", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "unrealize", callback: (($obj: Scale) => void)): number
-    connect_after(sigName: "unrealize", callback: (($obj: Scale) => void)): number
+    on(sigName: "unrealize", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "unrealize", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "unrealize", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "unrealize"): void
-    on(sigName: "unrealize", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "unrealize", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "unrealize", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Scale, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Scale, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::max-width", callback: (($obj: Scale, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::max-width", callback: (($obj: Scale, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::max-width", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -5698,7 +5071,7 @@ export interface Tile_ConstructProps extends Gtk.Widget_ConstructProps {
     accessibleRole?: Gtk.AccessibleRole
 }
 export class Tile {
-    /* Properties of Shumate.Tile */
+    /* Properties of Shumate-0.0.Shumate.Tile */
     etag: string
     fadeIn: boolean
     modifiedTime: GLib.DateTime
@@ -5708,7 +5081,7 @@ export class Tile {
     x: number
     y: number
     zoomLevel: number
-    /* Properties of Gtk.Widget */
+    /* Properties of Gtk-4.0.Gtk.Widget */
     canFocus: boolean
     canTarget: boolean
     cssClasses: string[]
@@ -5742,13 +5115,13 @@ export class Tile {
     vexpandSet: boolean
     visible: boolean
     widthRequest: number
-    /* Properties of Gtk.Accessible */
+    /* Properties of Gtk-4.0.Gtk.Accessible */
     accessibleRole: Gtk.AccessibleRole
-    /* Fields of Shumate.Tile */
+    /* Fields of Shumate-0.0.Shumate.Tile */
     parentInstance: Gtk.Widget
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Shumate.Tile */
+    /* Methods of Shumate-0.0.Shumate.Tile */
     getEtag(): string
     getFadeIn(): boolean
     getModifiedTime(): GLib.DateTime
@@ -5767,7 +5140,7 @@ export class Tile {
     setX(x: number): void
     setY(y: number): void
     setZoomLevel(zoomLevel: number): void
-    /* Methods of Gtk.Widget */
+    /* Methods of Gtk-4.0.Gtk.Widget */
     actionSetEnabled(actionName: string, enabled: boolean): void
     activate(): boolean
     activateAction(name: string, args?: GLib.Variant | null): boolean
@@ -5778,10 +5151,10 @@ export class Tile {
     addTickCallback(callback: Gtk.TickCallback): number
     allocate(width: number, height: number, baseline: number, transform?: Gsk.Transform | null): void
     childFocus(direction: Gtk.DirectionType): boolean
-    computeBounds(target: Gtk.Widget): [ /* returnType */ boolean, /* outBounds */ Graphene.Rect ]
+    computeBounds(target: Gtk.Widget): { returnType: boolean, outBounds: Graphene.Rect }
     computeExpand(orientation: Gtk.Orientation): boolean
-    computePoint(target: Gtk.Widget, point: Graphene.Point): [ /* returnType */ boolean, /* outPoint */ Graphene.Point ]
-    computeTransform(target: Gtk.Widget): [ /* returnType */ boolean, /* outTransform */ Graphene.Matrix ]
+    computePoint(target: Gtk.Widget, point: Graphene.Point): { returnType: boolean, outPoint: Graphene.Point }
+    computeTransform(target: Gtk.Widget): { returnType: boolean, outTransform: Graphene.Matrix }
     contains(x: number, y: number): boolean
     createPangoContext(): Pango.Context
     createPangoLayout(text?: string | null): Pango.Layout
@@ -5790,7 +5163,7 @@ export class Tile {
     getAllocatedBaseline(): number
     getAllocatedHeight(): number
     getAllocatedWidth(): number
-    getAllocation(): /* allocation */ Gtk.Allocation
+    getAllocation(): { allocation: Gtk.Allocation }
     getAncestor(widgetType: GObject.Type): Gtk.Widget | null
     getCanFocus(): boolean
     getCanTarget(): boolean
@@ -5827,7 +5200,7 @@ export class Tile {
     getOverflow(): Gtk.Overflow
     getPangoContext(): Pango.Context
     getParent(): Gtk.Widget | null
-    getPreferredSize(): [ /* minimumSize */ Gtk.Requisition | null, /* naturalSize */ Gtk.Requisition | null ]
+    getPreferredSize(): { minimumSize: Gtk.Requisition | null, naturalSize: Gtk.Requisition | null }
     getPrevSibling(): Gtk.Widget | null
     getPrimaryClipboard(): Gdk.Clipboard
     getRealized(): boolean
@@ -5838,7 +5211,7 @@ export class Tile {
     getSensitive(): boolean
     getSettings(): Gtk.Settings
     getSize(orientation: Gtk.Orientation): number
-    getSizeRequest(): [ /* width */ number | null, /* height */ number | null ]
+    getSizeRequest(): { width: number | null, height: number | null }
     getStateFlags(): Gtk.StateFlags
     getStyleContext(): Gtk.StyleContext
     getTemplateChild(widgetType: GObject.Type, name: string): GObject.Object
@@ -5866,7 +5239,7 @@ export class Tile {
     keynavFailed(direction: Gtk.DirectionType): boolean
     listMnemonicLabels(): Gtk.Widget[]
     map(): void
-    measure(orientation: Gtk.Orientation, forSize: number): [ /* minimum */ number | null, /* natural */ number | null, /* minimumBaseline */ number | null, /* naturalBaseline */ number | null ]
+    measure(orientation: Gtk.Orientation, forSize: number): { minimum: number | null, natural: number | null, minimumBaseline: number | null, naturalBaseline: number | null }
     mnemonicActivate(groupCycling: boolean): boolean
     observeChildren(): Gio.ListModel
     observeControllers(): Gio.ListModel
@@ -5918,13 +5291,13 @@ export class Tile {
     show(): void
     sizeAllocate(allocation: Gtk.Allocation, baseline: number): void
     snapshotChild(child: Gtk.Widget, snapshot: Gtk.Snapshot): void
-    translateCoordinates(destWidget: Gtk.Widget, srcX: number, srcY: number): [ /* returnType */ boolean, /* destX */ number | null, /* destY */ number | null ]
+    translateCoordinates(destWidget: Gtk.Widget, srcX: number, srcY: number): { returnType: boolean, destX: number | null, destY: number | null }
     triggerTooltipQuery(): void
     unmap(): void
     unparent(): void
     unrealize(): void
     unsetStateFlags(flags: Gtk.StateFlags): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -5946,7 +5319,7 @@ export class Tile {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of Gtk.Accessible */
+    /* Methods of Gtk-4.0.Gtk.Accessible */
     getAccessibleRole(): Gtk.AccessibleRole
     resetProperty(property: Gtk.AccessibleProperty): void
     resetRelation(relation: Gtk.AccessibleRelation): void
@@ -5954,138 +5327,80 @@ export class Tile {
     updateProperty(properties: Gtk.AccessibleProperty[], values: any[]): void
     updateRelation(relations: Gtk.AccessibleRelation[], values: any[]): void
     updateState(states: Gtk.AccessibleState[], values: any[]): void
-    /* Methods of Gtk.Buildable */
+    /* Methods of Gtk-4.0.Gtk.Buildable */
     getBuildableId(): string
-    /* Virtual methods of Shumate.Tile */
-    vfuncAddChild(builder: Gtk.Builder, child: GObject.Object, type?: string | null): void
-    vfuncCustomFinished(builder: Gtk.Builder, child: GObject.Object | null, tagname: string, data?: object | null): void
-    vfuncCustomTagEnd(builder: Gtk.Builder, child: GObject.Object | null, tagname: string, data?: object | null): void
-    vfuncCustomTagStart(builder: Gtk.Builder, child: GObject.Object | null, tagname: string): [ /* returnType */ boolean, /* parser */ Gtk.BuildableParser, /* data */ object | null ]
-    vfuncGetId(): string
-    vfuncGetInternalChild(builder: Gtk.Builder, childname: string): GObject.Object
-    vfuncParserFinished(builder: Gtk.Builder): void
-    vfuncSetBuildableProperty(builder: Gtk.Builder, name: string, value: any): void
-    vfuncSetId(id: string): void
-    /* Virtual methods of Gtk.Widget */
-    vfuncComputeExpand(hexpandP: boolean, vexpandP: boolean): void
-    vfuncContains(x: number, y: number): boolean
-    vfuncCssChanged(change: Gtk.CssStyleChange): void
-    vfuncDirectionChanged(previousDirection: Gtk.TextDirection): void
-    vfuncFocus(direction: Gtk.DirectionType): boolean
-    vfuncGetRequestMode(): Gtk.SizeRequestMode
-    vfuncGrabFocus(): boolean
-    vfuncHide(): void
-    vfuncKeynavFailed(direction: Gtk.DirectionType): boolean
-    vfuncMap(): void
-    vfuncMeasure(orientation: Gtk.Orientation, forSize: number): [ /* minimum */ number | null, /* natural */ number | null, /* minimumBaseline */ number | null, /* naturalBaseline */ number | null ]
-    vfuncMnemonicActivate(groupCycling: boolean): boolean
-    vfuncMoveFocus(direction: Gtk.DirectionType): void
-    vfuncQueryTooltip(x: number, y: number, keyboardTooltip: boolean, tooltip: Gtk.Tooltip): boolean
-    vfuncRealize(): void
-    vfuncRoot(): void
-    vfuncSetFocusChild(child?: Gtk.Widget | null): void
-    vfuncShow(): void
-    vfuncSizeAllocate(width: number, height: number, baseline: number): void
-    vfuncSnapshot(snapshot: Gtk.Snapshot): void
-    vfuncStateFlagsChanged(previousStateFlags: Gtk.StateFlags): void
-    vfuncSystemSettingChanged(settings: Gtk.SystemSetting): void
-    vfuncUnmap(): void
-    vfuncUnrealize(): void
-    vfuncUnroot(): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gtk.Widget */
+    /* Signals of Gtk-4.0.Gtk.Widget */
     connect(sigName: "destroy", callback: (($obj: Tile) => void)): number
-    connect_after(sigName: "destroy", callback: (($obj: Tile) => void)): number
+    on(sigName: "destroy", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "destroy", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "destroy", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "destroy"): void
-    on(sigName: "destroy", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "destroy", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "destroy", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "direction-changed", callback: (($obj: Tile, previousDirection: Gtk.TextDirection) => void)): number
-    connect_after(sigName: "direction-changed", callback: (($obj: Tile, previousDirection: Gtk.TextDirection) => void)): number
+    on(sigName: "direction-changed", callback: (previousDirection: Gtk.TextDirection) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "direction-changed", callback: (previousDirection: Gtk.TextDirection) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "direction-changed", callback: (previousDirection: Gtk.TextDirection) => void): NodeJS.EventEmitter
     emit(sigName: "direction-changed", previousDirection: Gtk.TextDirection): void
-    on(sigName: "direction-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "direction-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "direction-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "hide", callback: (($obj: Tile) => void)): number
-    connect_after(sigName: "hide", callback: (($obj: Tile) => void)): number
+    on(sigName: "hide", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "hide", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "hide", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "hide"): void
-    on(sigName: "hide", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "hide", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "hide", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "keynav-failed", callback: (($obj: Tile, direction: Gtk.DirectionType) => boolean)): number
-    connect_after(sigName: "keynav-failed", callback: (($obj: Tile, direction: Gtk.DirectionType) => boolean)): number
+    on(sigName: "keynav-failed", callback: (direction: Gtk.DirectionType) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "keynav-failed", callback: (direction: Gtk.DirectionType) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "keynav-failed", callback: (direction: Gtk.DirectionType) => void): NodeJS.EventEmitter
     emit(sigName: "keynav-failed", direction: Gtk.DirectionType): void
-    on(sigName: "keynav-failed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "keynav-failed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "keynav-failed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "map", callback: (($obj: Tile) => void)): number
-    connect_after(sigName: "map", callback: (($obj: Tile) => void)): number
+    on(sigName: "map", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "map", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "map", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "map"): void
-    on(sigName: "map", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "map", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "map", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "mnemonic-activate", callback: (($obj: Tile, groupCycling: boolean) => boolean)): number
-    connect_after(sigName: "mnemonic-activate", callback: (($obj: Tile, groupCycling: boolean) => boolean)): number
+    on(sigName: "mnemonic-activate", callback: (groupCycling: boolean) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "mnemonic-activate", callback: (groupCycling: boolean) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "mnemonic-activate", callback: (groupCycling: boolean) => void): NodeJS.EventEmitter
     emit(sigName: "mnemonic-activate", groupCycling: boolean): void
-    on(sigName: "mnemonic-activate", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "mnemonic-activate", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "mnemonic-activate", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "move-focus", callback: (($obj: Tile, direction: Gtk.DirectionType) => void)): number
-    connect_after(sigName: "move-focus", callback: (($obj: Tile, direction: Gtk.DirectionType) => void)): number
+    on(sigName: "move-focus", callback: (direction: Gtk.DirectionType) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "move-focus", callback: (direction: Gtk.DirectionType) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "move-focus", callback: (direction: Gtk.DirectionType) => void): NodeJS.EventEmitter
     emit(sigName: "move-focus", direction: Gtk.DirectionType): void
-    on(sigName: "move-focus", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "move-focus", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "move-focus", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "query-tooltip", callback: (($obj: Tile, x: number, y: number, keyboardMode: boolean, tooltip: Gtk.Tooltip) => boolean)): number
-    connect_after(sigName: "query-tooltip", callback: (($obj: Tile, x: number, y: number, keyboardMode: boolean, tooltip: Gtk.Tooltip) => boolean)): number
+    on(sigName: "query-tooltip", callback: (x: number, y: number, keyboardMode: boolean, tooltip: Gtk.Tooltip) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "query-tooltip", callback: (x: number, y: number, keyboardMode: boolean, tooltip: Gtk.Tooltip) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "query-tooltip", callback: (x: number, y: number, keyboardMode: boolean, tooltip: Gtk.Tooltip) => void): NodeJS.EventEmitter
     emit(sigName: "query-tooltip", x: number, y: number, keyboardMode: boolean, tooltip: Gtk.Tooltip): void
-    on(sigName: "query-tooltip", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "query-tooltip", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "query-tooltip", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "realize", callback: (($obj: Tile) => void)): number
-    connect_after(sigName: "realize", callback: (($obj: Tile) => void)): number
+    on(sigName: "realize", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "realize", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "realize", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "realize"): void
-    on(sigName: "realize", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "realize", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "realize", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "show", callback: (($obj: Tile) => void)): number
-    connect_after(sigName: "show", callback: (($obj: Tile) => void)): number
+    on(sigName: "show", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "show", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "show", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "show"): void
-    on(sigName: "show", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "show", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "show", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "state-flags-changed", callback: (($obj: Tile, flags: Gtk.StateFlags) => void)): number
-    connect_after(sigName: "state-flags-changed", callback: (($obj: Tile, flags: Gtk.StateFlags) => void)): number
+    on(sigName: "state-flags-changed", callback: (flags: Gtk.StateFlags) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "state-flags-changed", callback: (flags: Gtk.StateFlags) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "state-flags-changed", callback: (flags: Gtk.StateFlags) => void): NodeJS.EventEmitter
     emit(sigName: "state-flags-changed", flags: Gtk.StateFlags): void
-    on(sigName: "state-flags-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "state-flags-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "state-flags-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "unmap", callback: (($obj: Tile) => void)): number
-    connect_after(sigName: "unmap", callback: (($obj: Tile) => void)): number
+    on(sigName: "unmap", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "unmap", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "unmap", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "unmap"): void
-    on(sigName: "unmap", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "unmap", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "unmap", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "unrealize", callback: (($obj: Tile) => void)): number
-    connect_after(sigName: "unrealize", callback: (($obj: Tile) => void)): number
+    on(sigName: "unrealize", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "unrealize", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "unrealize", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "unrealize"): void
-    on(sigName: "unrealize", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "unrealize", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "unrealize", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Tile, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Tile, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::etag", callback: (($obj: Tile, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::etag", callback: (($obj: Tile, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::etag", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -6319,17 +5634,17 @@ export class Tile {
 export interface TileCache_ConstructProps extends MapSource_ConstructProps {
 }
 export class TileCache {
-    /* Properties of Shumate.MapSource */
+    /* Properties of Shumate-0.0.Shumate.MapSource */
     nextSource: MapSource
-    /* Fields of Shumate.TileCache */
+    /* Fields of Shumate-0.0.Shumate.TileCache */
     parentInstance: MapSource
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Shumate.TileCache */
+    /* Methods of Shumate-0.0.Shumate.TileCache */
     onTileFilled(tile: Tile): void
     refreshTileTime(tile: Tile): void
     storeTile(tile: Tile, contents: string, size: number): void
-    /* Methods of Shumate.MapSource */
+    /* Methods of Shumate-0.0.Shumate.MapSource */
     fillTile(tile: Tile, cancellable?: Gio.Cancellable | null): void
     getColumnCount(zoomLevel: number): number
     getId(): string
@@ -6348,7 +5663,7 @@ export class TileCache {
     getX(zoomLevel: number, longitude: number): number
     getY(zoomLevel: number, latitude: number): number
     setNextSource(nextSource: MapSource): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -6370,35 +5685,12 @@ export class TileCache {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of Shumate.TileCache */
-    vfuncOnTileFilled(tile: Tile): void
-    vfuncRefreshTileTime(tile: Tile): void
-    vfuncStoreTile(tile: Tile, contents: string, size: number): void
-    /* Virtual methods of Shumate.MapSource */
-    vfuncFillTile(tile: Tile, cancellable?: Gio.Cancellable | null): void
-    vfuncGetId(): string
-    vfuncGetLicense(): string
-    vfuncGetLicenseUri(): string
-    vfuncGetMaxZoomLevel(): number
-    vfuncGetMinZoomLevel(): number
-    vfuncGetName(): string
-    vfuncGetProjection(): MapProjection
-    vfuncGetTileSize(): number
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: TileCache, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: TileCache, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::next-source", callback: (($obj: TileCache, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::next-source", callback: (($obj: TileCache, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::next-source", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -6428,7 +5720,7 @@ export interface TileSource_ConstructProps extends MapSource_ConstructProps {
     tileSize?: number
 }
 export class TileSource {
-    /* Properties of Shumate.TileSource */
+    /* Properties of Shumate-0.0.Shumate.TileSource */
     cache: TileCache
     id: string
     license: string
@@ -6438,13 +5730,13 @@ export class TileSource {
     name: string
     projection: MapProjection
     tileSize: number
-    /* Properties of Shumate.MapSource */
+    /* Properties of Shumate-0.0.Shumate.MapSource */
     nextSource: MapSource
-    /* Fields of Shumate.TileSource */
+    /* Fields of Shumate-0.0.Shumate.TileSource */
     parentInstance: MapSource
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Shumate.TileSource */
+    /* Methods of Shumate-0.0.Shumate.TileSource */
     getCache(): TileCache
     setCache(cache: TileCache): void
     setId(id: string): void
@@ -6455,7 +5747,7 @@ export class TileSource {
     setName(name: string): void
     setProjection(projection: MapProjection): void
     setTileSize(tileSize: number): void
-    /* Methods of Shumate.MapSource */
+    /* Methods of Shumate-0.0.Shumate.MapSource */
     fillTile(tile: Tile, cancellable?: Gio.Cancellable | null): void
     getColumnCount(zoomLevel: number): number
     getId(): string
@@ -6474,7 +5766,7 @@ export class TileSource {
     getX(zoomLevel: number, longitude: number): number
     getY(zoomLevel: number, latitude: number): number
     setNextSource(nextSource: MapSource): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -6496,31 +5788,12 @@ export class TileSource {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of Shumate.MapSource */
-    vfuncFillTile(tile: Tile, cancellable?: Gio.Cancellable | null): void
-    vfuncGetId(): string
-    vfuncGetLicense(): string
-    vfuncGetLicenseUri(): string
-    vfuncGetMaxZoomLevel(): number
-    vfuncGetMinZoomLevel(): number
-    vfuncGetName(): string
-    vfuncGetProjection(): MapProjection
-    vfuncGetTileSize(): number
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: TileSource, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: TileSource, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::cache", callback: (($obj: TileSource, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::cache", callback: (($obj: TileSource, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::cache", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -6592,14 +5865,14 @@ export interface View_ConstructProps extends Gtk.Widget_ConstructProps {
     accessibleRole?: Gtk.AccessibleRole
 }
 export class View {
-    /* Properties of Shumate.View */
+    /* Properties of Shumate-0.0.Shumate.View */
     animateZoom: boolean
     deceleration: number
     gotoAnimationDuration: number
     kineticMode: boolean
     readonly state: State
     zoomOnDoubleClick: boolean
-    /* Properties of Gtk.Widget */
+    /* Properties of Gtk-4.0.Gtk.Widget */
     canFocus: boolean
     canTarget: boolean
     cssClasses: string[]
@@ -6633,13 +5906,13 @@ export class View {
     vexpandSet: boolean
     visible: boolean
     widthRequest: number
-    /* Properties of Gtk.Accessible */
+    /* Properties of Gtk-4.0.Gtk.Accessible */
     accessibleRole: Gtk.AccessibleRole
-    /* Fields of Shumate.View */
+    /* Fields of Shumate-0.0.Shumate.View */
     parentInstance: Gtk.Widget
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Shumate.View */
+    /* Methods of Shumate-0.0.Shumate.View */
     addLayer(layer: Layer): void
     addOverlaySource(mapSource: MapSource): void
     centerOn(latitude: number, longitude: number): void
@@ -6659,7 +5932,7 @@ export class View {
     setMapSource(mapSource: MapSource): void
     setZoomOnDoubleClick(value: boolean): void
     stopGoTo(): void
-    /* Methods of Gtk.Widget */
+    /* Methods of Gtk-4.0.Gtk.Widget */
     actionSetEnabled(actionName: string, enabled: boolean): void
     activate(): boolean
     activateAction(name: string, args?: GLib.Variant | null): boolean
@@ -6670,10 +5943,10 @@ export class View {
     addTickCallback(callback: Gtk.TickCallback): number
     allocate(width: number, height: number, baseline: number, transform?: Gsk.Transform | null): void
     childFocus(direction: Gtk.DirectionType): boolean
-    computeBounds(target: Gtk.Widget): [ /* returnType */ boolean, /* outBounds */ Graphene.Rect ]
+    computeBounds(target: Gtk.Widget): { returnType: boolean, outBounds: Graphene.Rect }
     computeExpand(orientation: Gtk.Orientation): boolean
-    computePoint(target: Gtk.Widget, point: Graphene.Point): [ /* returnType */ boolean, /* outPoint */ Graphene.Point ]
-    computeTransform(target: Gtk.Widget): [ /* returnType */ boolean, /* outTransform */ Graphene.Matrix ]
+    computePoint(target: Gtk.Widget, point: Graphene.Point): { returnType: boolean, outPoint: Graphene.Point }
+    computeTransform(target: Gtk.Widget): { returnType: boolean, outTransform: Graphene.Matrix }
     contains(x: number, y: number): boolean
     createPangoContext(): Pango.Context
     createPangoLayout(text?: string | null): Pango.Layout
@@ -6682,7 +5955,7 @@ export class View {
     getAllocatedBaseline(): number
     getAllocatedHeight(): number
     getAllocatedWidth(): number
-    getAllocation(): /* allocation */ Gtk.Allocation
+    getAllocation(): { allocation: Gtk.Allocation }
     getAncestor(widgetType: GObject.Type): Gtk.Widget | null
     getCanFocus(): boolean
     getCanTarget(): boolean
@@ -6719,7 +5992,7 @@ export class View {
     getOverflow(): Gtk.Overflow
     getPangoContext(): Pango.Context
     getParent(): Gtk.Widget | null
-    getPreferredSize(): [ /* minimumSize */ Gtk.Requisition | null, /* naturalSize */ Gtk.Requisition | null ]
+    getPreferredSize(): { minimumSize: Gtk.Requisition | null, naturalSize: Gtk.Requisition | null }
     getPrevSibling(): Gtk.Widget | null
     getPrimaryClipboard(): Gdk.Clipboard
     getRealized(): boolean
@@ -6730,7 +6003,7 @@ export class View {
     getSensitive(): boolean
     getSettings(): Gtk.Settings
     getSize(orientation: Gtk.Orientation): number
-    getSizeRequest(): [ /* width */ number | null, /* height */ number | null ]
+    getSizeRequest(): { width: number | null, height: number | null }
     getStateFlags(): Gtk.StateFlags
     getStyleContext(): Gtk.StyleContext
     getTemplateChild(widgetType: GObject.Type, name: string): GObject.Object
@@ -6758,7 +6031,7 @@ export class View {
     keynavFailed(direction: Gtk.DirectionType): boolean
     listMnemonicLabels(): Gtk.Widget[]
     map(): void
-    measure(orientation: Gtk.Orientation, forSize: number): [ /* minimum */ number | null, /* natural */ number | null, /* minimumBaseline */ number | null, /* naturalBaseline */ number | null ]
+    measure(orientation: Gtk.Orientation, forSize: number): { minimum: number | null, natural: number | null, minimumBaseline: number | null, naturalBaseline: number | null }
     mnemonicActivate(groupCycling: boolean): boolean
     observeChildren(): Gio.ListModel
     observeControllers(): Gio.ListModel
@@ -6810,13 +6083,13 @@ export class View {
     show(): void
     sizeAllocate(allocation: Gtk.Allocation, baseline: number): void
     snapshotChild(child: Gtk.Widget, snapshot: Gtk.Snapshot): void
-    translateCoordinates(destWidget: Gtk.Widget, srcX: number, srcY: number): [ /* returnType */ boolean, /* destX */ number | null, /* destY */ number | null ]
+    translateCoordinates(destWidget: Gtk.Widget, srcX: number, srcY: number): { returnType: boolean, destX: number | null, destY: number | null }
     triggerTooltipQuery(): void
     unmap(): void
     unparent(): void
     unrealize(): void
     unsetStateFlags(flags: Gtk.StateFlags): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -6838,7 +6111,7 @@ export class View {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of Gtk.Accessible */
+    /* Methods of Gtk-4.0.Gtk.Accessible */
     getAccessibleRole(): Gtk.AccessibleRole
     resetProperty(property: Gtk.AccessibleProperty): void
     resetRelation(relation: Gtk.AccessibleRelation): void
@@ -6846,145 +6119,86 @@ export class View {
     updateProperty(properties: Gtk.AccessibleProperty[], values: any[]): void
     updateRelation(relations: Gtk.AccessibleRelation[], values: any[]): void
     updateState(states: Gtk.AccessibleState[], values: any[]): void
-    /* Methods of Gtk.Buildable */
+    /* Methods of Gtk-4.0.Gtk.Buildable */
     getBuildableId(): string
-    /* Virtual methods of Shumate.View */
-    vfuncAddChild(builder: Gtk.Builder, child: GObject.Object, type?: string | null): void
-    vfuncCustomFinished(builder: Gtk.Builder, child: GObject.Object | null, tagname: string, data?: object | null): void
-    vfuncCustomTagEnd(builder: Gtk.Builder, child: GObject.Object | null, tagname: string, data?: object | null): void
-    vfuncCustomTagStart(builder: Gtk.Builder, child: GObject.Object | null, tagname: string): [ /* returnType */ boolean, /* parser */ Gtk.BuildableParser, /* data */ object | null ]
-    vfuncGetId(): string
-    vfuncGetInternalChild(builder: Gtk.Builder, childname: string): GObject.Object
-    vfuncParserFinished(builder: Gtk.Builder): void
-    vfuncSetBuildableProperty(builder: Gtk.Builder, name: string, value: any): void
-    vfuncSetId(id: string): void
-    /* Virtual methods of Gtk.Widget */
-    vfuncComputeExpand(hexpandP: boolean, vexpandP: boolean): void
-    vfuncContains(x: number, y: number): boolean
-    vfuncCssChanged(change: Gtk.CssStyleChange): void
-    vfuncDirectionChanged(previousDirection: Gtk.TextDirection): void
-    vfuncFocus(direction: Gtk.DirectionType): boolean
-    vfuncGetRequestMode(): Gtk.SizeRequestMode
-    vfuncGrabFocus(): boolean
-    vfuncHide(): void
-    vfuncKeynavFailed(direction: Gtk.DirectionType): boolean
-    vfuncMap(): void
-    vfuncMeasure(orientation: Gtk.Orientation, forSize: number): [ /* minimum */ number | null, /* natural */ number | null, /* minimumBaseline */ number | null, /* naturalBaseline */ number | null ]
-    vfuncMnemonicActivate(groupCycling: boolean): boolean
-    vfuncMoveFocus(direction: Gtk.DirectionType): void
-    vfuncQueryTooltip(x: number, y: number, keyboardTooltip: boolean, tooltip: Gtk.Tooltip): boolean
-    vfuncRealize(): void
-    vfuncRoot(): void
-    vfuncSetFocusChild(child?: Gtk.Widget | null): void
-    vfuncShow(): void
-    vfuncSizeAllocate(width: number, height: number, baseline: number): void
-    vfuncSnapshot(snapshot: Gtk.Snapshot): void
-    vfuncStateFlagsChanged(previousStateFlags: Gtk.StateFlags): void
-    vfuncSystemSettingChanged(settings: Gtk.SystemSetting): void
-    vfuncUnmap(): void
-    vfuncUnrealize(): void
-    vfuncUnroot(): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Shumate.View */
+    /* Signals of Shumate-0.0.Shumate.View */
     connect(sigName: "animation-completed", callback: (($obj: View) => void)): number
-    connect_after(sigName: "animation-completed", callback: (($obj: View) => void)): number
+    on(sigName: "animation-completed", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "animation-completed", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "animation-completed", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "animation-completed"): void
-    on(sigName: "animation-completed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "animation-completed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "animation-completed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of Gtk.Widget */
+    /* Signals of Gtk-4.0.Gtk.Widget */
     connect(sigName: "destroy", callback: (($obj: View) => void)): number
-    connect_after(sigName: "destroy", callback: (($obj: View) => void)): number
+    on(sigName: "destroy", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "destroy", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "destroy", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "destroy"): void
-    on(sigName: "destroy", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "destroy", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "destroy", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "direction-changed", callback: (($obj: View, previousDirection: Gtk.TextDirection) => void)): number
-    connect_after(sigName: "direction-changed", callback: (($obj: View, previousDirection: Gtk.TextDirection) => void)): number
+    on(sigName: "direction-changed", callback: (previousDirection: Gtk.TextDirection) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "direction-changed", callback: (previousDirection: Gtk.TextDirection) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "direction-changed", callback: (previousDirection: Gtk.TextDirection) => void): NodeJS.EventEmitter
     emit(sigName: "direction-changed", previousDirection: Gtk.TextDirection): void
-    on(sigName: "direction-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "direction-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "direction-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "hide", callback: (($obj: View) => void)): number
-    connect_after(sigName: "hide", callback: (($obj: View) => void)): number
+    on(sigName: "hide", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "hide", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "hide", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "hide"): void
-    on(sigName: "hide", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "hide", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "hide", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "keynav-failed", callback: (($obj: View, direction: Gtk.DirectionType) => boolean)): number
-    connect_after(sigName: "keynav-failed", callback: (($obj: View, direction: Gtk.DirectionType) => boolean)): number
+    on(sigName: "keynav-failed", callback: (direction: Gtk.DirectionType) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "keynav-failed", callback: (direction: Gtk.DirectionType) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "keynav-failed", callback: (direction: Gtk.DirectionType) => void): NodeJS.EventEmitter
     emit(sigName: "keynav-failed", direction: Gtk.DirectionType): void
-    on(sigName: "keynav-failed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "keynav-failed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "keynav-failed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "map", callback: (($obj: View) => void)): number
-    connect_after(sigName: "map", callback: (($obj: View) => void)): number
+    on(sigName: "map", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "map", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "map", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "map"): void
-    on(sigName: "map", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "map", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "map", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "mnemonic-activate", callback: (($obj: View, groupCycling: boolean) => boolean)): number
-    connect_after(sigName: "mnemonic-activate", callback: (($obj: View, groupCycling: boolean) => boolean)): number
+    on(sigName: "mnemonic-activate", callback: (groupCycling: boolean) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "mnemonic-activate", callback: (groupCycling: boolean) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "mnemonic-activate", callback: (groupCycling: boolean) => void): NodeJS.EventEmitter
     emit(sigName: "mnemonic-activate", groupCycling: boolean): void
-    on(sigName: "mnemonic-activate", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "mnemonic-activate", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "mnemonic-activate", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "move-focus", callback: (($obj: View, direction: Gtk.DirectionType) => void)): number
-    connect_after(sigName: "move-focus", callback: (($obj: View, direction: Gtk.DirectionType) => void)): number
+    on(sigName: "move-focus", callback: (direction: Gtk.DirectionType) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "move-focus", callback: (direction: Gtk.DirectionType) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "move-focus", callback: (direction: Gtk.DirectionType) => void): NodeJS.EventEmitter
     emit(sigName: "move-focus", direction: Gtk.DirectionType): void
-    on(sigName: "move-focus", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "move-focus", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "move-focus", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "query-tooltip", callback: (($obj: View, x: number, y: number, keyboardMode: boolean, tooltip: Gtk.Tooltip) => boolean)): number
-    connect_after(sigName: "query-tooltip", callback: (($obj: View, x: number, y: number, keyboardMode: boolean, tooltip: Gtk.Tooltip) => boolean)): number
+    on(sigName: "query-tooltip", callback: (x: number, y: number, keyboardMode: boolean, tooltip: Gtk.Tooltip) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "query-tooltip", callback: (x: number, y: number, keyboardMode: boolean, tooltip: Gtk.Tooltip) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "query-tooltip", callback: (x: number, y: number, keyboardMode: boolean, tooltip: Gtk.Tooltip) => void): NodeJS.EventEmitter
     emit(sigName: "query-tooltip", x: number, y: number, keyboardMode: boolean, tooltip: Gtk.Tooltip): void
-    on(sigName: "query-tooltip", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "query-tooltip", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "query-tooltip", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "realize", callback: (($obj: View) => void)): number
-    connect_after(sigName: "realize", callback: (($obj: View) => void)): number
+    on(sigName: "realize", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "realize", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "realize", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "realize"): void
-    on(sigName: "realize", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "realize", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "realize", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "show", callback: (($obj: View) => void)): number
-    connect_after(sigName: "show", callback: (($obj: View) => void)): number
+    on(sigName: "show", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "show", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "show", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "show"): void
-    on(sigName: "show", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "show", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "show", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "state-flags-changed", callback: (($obj: View, flags: Gtk.StateFlags) => void)): number
-    connect_after(sigName: "state-flags-changed", callback: (($obj: View, flags: Gtk.StateFlags) => void)): number
+    on(sigName: "state-flags-changed", callback: (flags: Gtk.StateFlags) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "state-flags-changed", callback: (flags: Gtk.StateFlags) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "state-flags-changed", callback: (flags: Gtk.StateFlags) => void): NodeJS.EventEmitter
     emit(sigName: "state-flags-changed", flags: Gtk.StateFlags): void
-    on(sigName: "state-flags-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "state-flags-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "state-flags-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "unmap", callback: (($obj: View) => void)): number
-    connect_after(sigName: "unmap", callback: (($obj: View) => void)): number
+    on(sigName: "unmap", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "unmap", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "unmap", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "unmap"): void
-    on(sigName: "unmap", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "unmap", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "unmap", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "unrealize", callback: (($obj: View) => void)): number
-    connect_after(sigName: "unrealize", callback: (($obj: View) => void)): number
+    on(sigName: "unrealize", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "unrealize", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "unrealize", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "unrealize"): void
-    on(sigName: "unrealize", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "unrealize", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "unrealize", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: View, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: View, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::animate-zoom", callback: (($obj: View, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::animate-zoom", callback: (($obj: View, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::animate-zoom", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -7209,17 +6423,17 @@ export interface Viewport_ConstructProps extends GObject.Object_ConstructProps {
     longitude?: number
 }
 export class Viewport {
-    /* Properties of Shumate.Viewport */
+    /* Properties of Shumate-0.0.Shumate.Viewport */
     maxZoomLevel: number
     minZoomLevel: number
     referenceMapSource: MapSource
     zoomLevel: number
-    /* Properties of Shumate.Location */
+    /* Properties of Shumate-0.0.Shumate.Location */
     latitude: number
     longitude: number
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Shumate.Viewport */
+    /* Methods of Shumate-0.0.Shumate.Viewport */
     getMaxZoomLevel(): number
     getMinZoomLevel(): number
     getReferenceMapSource(): MapSource | null
@@ -7234,7 +6448,7 @@ export class Viewport {
     widgetYToLatitude(widget: Gtk.Widget, y: number): number
     zoomIn(): void
     zoomOut(): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -7256,29 +6470,16 @@ export class Viewport {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of Shumate.Location */
+    /* Methods of Shumate-0.0.Shumate.Location */
     getLatitude(): number
     getLongitude(): number
     setLocation(latitude: number, longitude: number): void
-    /* Virtual methods of Shumate.Viewport */
-    vfuncGetLatitude(): number
-    vfuncGetLongitude(): number
-    vfuncSetLocation(latitude: number, longitude: number): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Viewport, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Viewport, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::max-zoom-level", callback: (($obj: Viewport, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::max-zoom-level", callback: (($obj: Viewport, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::max-zoom-level", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -7324,49 +6525,49 @@ export class Viewport {
     static $gtype: GObject.Type
 }
 export abstract class CoordinateClass {
-    /* Fields of Shumate.CoordinateClass */
+    /* Fields of Shumate-0.0.Shumate.CoordinateClass */
     parentClass: GObject.InitiallyUnownedClass
     static name: string
 }
 export abstract class ErrorTileSourceClass {
-    /* Fields of Shumate.ErrorTileSourceClass */
+    /* Fields of Shumate-0.0.Shumate.ErrorTileSourceClass */
     parentClass: TileSourceClass
     static name: string
 }
 export abstract class FileCacheClass {
-    /* Fields of Shumate.FileCacheClass */
+    /* Fields of Shumate-0.0.Shumate.FileCacheClass */
     parentClass: TileCacheClass
     static name: string
 }
 export abstract class LayerClass {
-    /* Fields of Shumate.LayerClass */
+    /* Fields of Shumate-0.0.Shumate.LayerClass */
     parentClass: Gtk.WidgetClass
     static name: string
 }
 export abstract class LicenseClass {
-    /* Fields of Shumate.LicenseClass */
+    /* Fields of Shumate-0.0.Shumate.LicenseClass */
     parentClass: Gtk.WidgetClass
     static name: string
 }
 export abstract class LocationInterface {
-    /* Fields of Shumate.LocationInterface */
+    /* Fields of Shumate-0.0.Shumate.LocationInterface */
     getLatitude: (location: Location) => number
     getLongitude: (location: Location) => number
     setLocation: (location: Location, latitude: number, longitude: number) => void
     static name: string
 }
 export abstract class MapLayerClass {
-    /* Fields of Shumate.MapLayerClass */
+    /* Fields of Shumate-0.0.Shumate.MapLayerClass */
     parentClass: LayerClass
     static name: string
 }
 export abstract class MapSourceChainClass {
-    /* Fields of Shumate.MapSourceChainClass */
+    /* Fields of Shumate-0.0.Shumate.MapSourceChainClass */
     parentClass: MapSourceClass
     static name: string
 }
 export abstract class MapSourceClass {
-    /* Fields of Shumate.MapSourceClass */
+    /* Fields of Shumate-0.0.Shumate.MapSourceClass */
     parentClass: GObject.InitiallyUnownedClass
     getId: (mapSource: MapSource) => string
     getName: (mapSource: MapSource) => string
@@ -7380,52 +6581,52 @@ export abstract class MapSourceClass {
     static name: string
 }
 export abstract class MapSourceDescClass {
-    /* Fields of Shumate.MapSourceDescClass */
+    /* Fields of Shumate-0.0.Shumate.MapSourceDescClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
 export abstract class MapSourceFactoryClass {
-    /* Fields of Shumate.MapSourceFactoryClass */
+    /* Fields of Shumate-0.0.Shumate.MapSourceFactoryClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
 export abstract class MarkerClass {
-    /* Fields of Shumate.MarkerClass */
+    /* Fields of Shumate-0.0.Shumate.MarkerClass */
     parentClass: Gtk.WidgetClass
     static name: string
 }
 export abstract class MarkerLayerClass {
-    /* Fields of Shumate.MarkerLayerClass */
+    /* Fields of Shumate-0.0.Shumate.MarkerLayerClass */
     parentClass: LayerClass
     static name: string
 }
 export abstract class MemoryCacheClass {
-    /* Fields of Shumate.MemoryCacheClass */
+    /* Fields of Shumate-0.0.Shumate.MemoryCacheClass */
     parentClass: TileCacheClass
     static name: string
 }
 export abstract class NetworkTileSourceClass {
-    /* Fields of Shumate.NetworkTileSourceClass */
+    /* Fields of Shumate-0.0.Shumate.NetworkTileSourceClass */
     parentClass: TileSourceClass
     static name: string
 }
 export abstract class PathLayerClass {
-    /* Fields of Shumate.PathLayerClass */
+    /* Fields of Shumate-0.0.Shumate.PathLayerClass */
     parentClass: LayerClass
     static name: string
 }
 export abstract class PointClass {
-    /* Fields of Shumate.PointClass */
+    /* Fields of Shumate-0.0.Shumate.PointClass */
     parentClass: MarkerClass
     static name: string
 }
 export abstract class ScaleClass {
-    /* Fields of Shumate.ScaleClass */
+    /* Fields of Shumate-0.0.Shumate.ScaleClass */
     parentClass: Gtk.WidgetClass
     static name: string
 }
 export abstract class TileCacheClass {
-    /* Fields of Shumate.TileCacheClass */
+    /* Fields of Shumate-0.0.Shumate.TileCacheClass */
     parentClass: MapSourceClass
     storeTile: (tileCache: TileCache, tile: Tile, contents: string, size: number) => void
     refreshTileTime: (tileCache: TileCache, tile: Tile) => void
@@ -7433,22 +6634,22 @@ export abstract class TileCacheClass {
     static name: string
 }
 export abstract class TileClass {
-    /* Fields of Shumate.TileClass */
+    /* Fields of Shumate-0.0.Shumate.TileClass */
     parentClass: Gtk.WidgetClass
     static name: string
 }
 export abstract class TileSourceClass {
-    /* Fields of Shumate.TileSourceClass */
+    /* Fields of Shumate-0.0.Shumate.TileSourceClass */
     parentClass: MapSourceClass
     static name: string
 }
 export abstract class ViewClass {
-    /* Fields of Shumate.ViewClass */
+    /* Fields of Shumate-0.0.Shumate.ViewClass */
     parentClass: Gtk.WidgetClass
     static name: string
 }
 export abstract class ViewportClass {
-    /* Fields of Shumate.ViewportClass */
+    /* Fields of Shumate-0.0.Shumate.ViewportClass */
     parentClass: GObject.ObjectClass
     static name: string
 }

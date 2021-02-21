@@ -232,21 +232,21 @@ export function commandToString(cmd: Cmd): string
 export function deviceCheckFirmware(device: GUsb.Device, data: number, dataLen: number): boolean
 export function deviceClose(device: GUsb.Device): boolean
 export function deviceErrorQuark(): GLib.Quark
-export function deviceGetAdcCalibrationNeg(device: GUsb.Device, cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* value */ number ]
-export function deviceGetAdcCalibrationPos(device: GUsb.Device, cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* value */ number ]
+export function deviceGetAdcCalibrationNeg(device: GUsb.Device, cancellable?: Gio.Cancellable | null): { returnType: boolean, value: number }
+export function deviceGetAdcCalibrationPos(device: GUsb.Device, cancellable?: Gio.Cancellable | null): { returnType: boolean, value: number }
 export function deviceGetCcdCalibration(device: GUsb.Device, nmStart: number, c0: number, c1: number, c2: number, cancellable?: Gio.Cancellable | null): boolean
-export function deviceGetError(device: GUsb.Device, cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* status */ Error, /* cmd */ Cmd ]
+export function deviceGetError(device: GUsb.Device, cancellable?: Gio.Cancellable | null): { returnType: boolean, status: Error, cmd: Cmd }
 export function deviceGetGuid(device: GUsb.Device): string
-export function deviceGetIlluminants(device: GUsb.Device, cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* value */ Illuminant ]
-export function deviceGetIntegralTime(device: GUsb.Device, cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* value */ number ]
-export function deviceGetLeds(device: GUsb.Device, cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* value */ StatusLed ]
+export function deviceGetIlluminants(device: GUsb.Device, cancellable?: Gio.Cancellable | null): { returnType: boolean, value: Illuminant }
+export function deviceGetIntegralTime(device: GUsb.Device, cancellable?: Gio.Cancellable | null): { returnType: boolean, value: number }
+export function deviceGetLeds(device: GUsb.Device, cancellable?: Gio.Cancellable | null): { returnType: boolean, value: StatusLed }
 export function deviceGetMode(device: GUsb.Device): DeviceMode
-export function deviceGetPcbErrata(device: GUsb.Device, cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* value */ PcbErrata ]
+export function deviceGetPcbErrata(device: GUsb.Device, cancellable?: Gio.Cancellable | null): { returnType: boolean, value: PcbErrata }
 export function deviceGetRuncodeAddress(device: GUsb.Device): number
-export function deviceGetSerialNumber(device: GUsb.Device, cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* value */ number ]
+export function deviceGetSerialNumber(device: GUsb.Device, cancellable?: Gio.Cancellable | null): { returnType: boolean, value: number }
 export function deviceGetSpectrum(device: GUsb.Device, cancellable?: Gio.Cancellable | null): Colord.Spectrum
 export function deviceGetSpectrumFull(device: GUsb.Device, kind: SpectrumKind, cancellable?: Gio.Cancellable | null): Colord.Spectrum
-export function deviceGetTemperature(device: GUsb.Device, cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* value */ number ]
+export function deviceGetTemperature(device: GUsb.Device, cancellable?: Gio.Cancellable | null): { returnType: boolean, value: number }
 export function deviceIsColorhug(device: GUsb.Device): boolean
 export function deviceLoadSram(device: GUsb.Device, cancellable?: Gio.Cancellable | null): boolean
 export function deviceModeFromFirmware(data: number, dataLen: number): DeviceMode
@@ -277,11 +277,11 @@ export function strerror(errorEnum: Error): string
 export interface DeviceQueue_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class DeviceQueue {
-    /* Fields of ColorHug.DeviceQueue */
+    /* Fields of ColorHug-1.0.ColorHug.DeviceQueue */
     parentInstance: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of ColorHug.DeviceQueue */
+    /* Methods of ColorHug-1.0.ColorHug.DeviceQueue */
     add(device: GUsb.Device, cmd: number, bufferIn: number, bufferInLen: number, bufferOut: number, bufferOutLen: number): void
     bootFlash(device: GUsb.Device): void
     clearCalibration(device: GUsb.Device, calibrationIndex: number): void
@@ -346,7 +346,7 @@ export class DeviceQueue {
     writeFirmware(device: GUsb.Device, data: number, len: number): void
     writeFlash(device: GUsb.Device, address: number, data: number, len: number): void
     writeSram(device: GUsb.Device, address: number, data: number, len: number): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -368,37 +368,23 @@ export class DeviceQueue {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of ColorHug.DeviceQueue */
-    vfuncDeviceFailed(device: GUsb.Device, errorMessage: string): void
-    vfuncProgressChanged(percentage: number): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of ColorHug.DeviceQueue */
+    /* Signals of ColorHug-1.0.ColorHug.DeviceQueue */
     connect(sigName: "device-failed", callback: (($obj: DeviceQueue, object: GObject.Object, p0: string) => void)): number
-    connect_after(sigName: "device-failed", callback: (($obj: DeviceQueue, object: GObject.Object, p0: string) => void)): number
+    on(sigName: "device-failed", callback: (object: GObject.Object, p0: string) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "device-failed", callback: (object: GObject.Object, p0: string) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "device-failed", callback: (object: GObject.Object, p0: string) => void): NodeJS.EventEmitter
     emit(sigName: "device-failed", object: GObject.Object, p0: string): void
-    on(sigName: "device-failed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "device-failed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "device-failed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "progress-changed", callback: (($obj: DeviceQueue, object: number) => void)): number
-    connect_after(sigName: "progress-changed", callback: (($obj: DeviceQueue, object: number) => void)): number
+    on(sigName: "progress-changed", callback: (object: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "progress-changed", callback: (object: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "progress-changed", callback: (object: number) => void): NodeJS.EventEmitter
     emit(sigName: "progress-changed", object: number): void
-    on(sigName: "progress-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "progress-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "progress-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: DeviceQueue, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: DeviceQueue, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -414,16 +400,16 @@ export class DeviceQueue {
     static $gtype: GObject.Type
 }
 export abstract class DeviceQueueClass {
-    /* Fields of ColorHug.DeviceQueueClass */
+    /* Fields of ColorHug-1.0.ColorHug.DeviceQueueClass */
     parentClass: GObject.ObjectClass
     deviceFailed: (deviceQueue: DeviceQueue, device: GUsb.Device, errorMessage: string) => void
     progressChanged: (deviceQueue: DeviceQueue, percentage: number) => void
     static name: string
 }
 export class Sha1 {
-    /* Fields of ColorHug.Sha1 */
+    /* Fields of ColorHug-1.0.ColorHug.Sha1 */
     bytes: any[]
-    /* Methods of ColorHug.Sha1 */
+    /* Methods of ColorHug-1.0.ColorHug.Sha1 */
     toString(): string
     static name: string
     /* Static methods and pseudo-constructors */

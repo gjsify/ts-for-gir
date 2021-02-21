@@ -27,16 +27,16 @@ export interface Wc_ConstructProps extends GObject.Object_ConstructProps {
     throttling?: number
 }
 export class Wc {
-    /* Properties of GrlNet.Wc */
+    /* Properties of GrlNet-0.1.GrlNet.Wc */
     cache: boolean
     cacheSize: number
     loglevel: number
     throttling: number
-    /* Fields of GrlNet.Wc */
+    /* Fields of GrlNet-0.1.GrlNet.Wc */
     parent: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GrlNet.Wc */
+    /* Methods of GrlNet-0.1.GrlNet.Wc */
     flushDelayedRequests(): void
     requestAsync(uri: string, cancellable: Gio.Cancellable | null, callback: Gio.AsyncReadyCallback | null): void
     requestFinish(result: Gio.AsyncResult, content: string, length?: number | null): boolean
@@ -44,7 +44,7 @@ export class Wc {
     setCacheSize(cacheSize: number): void
     setLogLevel(logLevel: number): void
     setThrottling(throttling: number): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -66,21 +66,12 @@ export class Wc {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Wc, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Wc, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::cache", callback: (($obj: Wc, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::cache", callback: (($obj: Wc, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::cache", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -117,7 +108,7 @@ export class Wc {
     static $gtype: GObject.Type
 }
 export abstract class WcClass {
-    /* Fields of GrlNet.WcClass */
+    /* Fields of GrlNet-0.1.GrlNet.WcClass */
     parentClass: GObject.ObjectClass
     static name: string
 }

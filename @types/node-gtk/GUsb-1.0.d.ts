@@ -89,15 +89,15 @@ export interface Context_ConstructProps extends GObject.Object_ConstructProps {
     debugLevel?: number
 }
 export class Context {
-    /* Properties of GUsb.Context */
+    /* Properties of GUsb-1.0.GUsb.Context */
     debugLevel: number
     readonly libusbContext: object
-    /* Fields of GUsb.Context */
+    /* Fields of GUsb-1.0.GUsb.Context */
     parent: GObject.Object
     priv: ContextPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GUsb.Context */
+    /* Methods of GUsb-1.0.GUsb.Context */
     enumerate(): void
     findByBusAddress(bus: number, address: number): Device
     findByPlatformId(platformId: string): Device
@@ -110,7 +110,7 @@ export class Context {
     setFlags(flags: ContextFlags): void
     setMainContext(mainCtx: GLib.MainContext): void
     waitForReplug(device: Device, timeoutMs: number): Device
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -132,40 +132,25 @@ export class Context {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of Gio.Initable */
+    /* Methods of Gio-2.0.Gio.Initable */
     init(cancellable?: Gio.Cancellable | null): boolean
-    /* Virtual methods of GUsb.Context */
-    vfuncDeviceAdded(device: Device): void
-    vfuncDeviceRemoved(device: Device): void
-    vfuncInit(cancellable?: Gio.Cancellable | null): boolean
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GUsb.Context */
+    /* Signals of GUsb-1.0.GUsb.Context */
     connect(sigName: "device-added", callback: (($obj: Context, device: Device) => void)): number
-    connect_after(sigName: "device-added", callback: (($obj: Context, device: Device) => void)): number
+    on(sigName: "device-added", callback: (device: Device) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "device-added", callback: (device: Device) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "device-added", callback: (device: Device) => void): NodeJS.EventEmitter
     emit(sigName: "device-added", device: Device): void
-    on(sigName: "device-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "device-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "device-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "device-removed", callback: (($obj: Context, device: Device) => void)): number
-    connect_after(sigName: "device-removed", callback: (($obj: Context, device: Device) => void)): number
+    on(sigName: "device-removed", callback: (device: Device) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "device-removed", callback: (device: Device) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "device-removed", callback: (device: Device) => void): NodeJS.EventEmitter
     emit(sigName: "device-removed", device: Device): void
-    on(sigName: "device-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "device-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "device-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Context, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Context, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::debug-level", callback: (($obj: Context, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::debug-level", callback: (($obj: Context, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::debug-level", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -198,18 +183,18 @@ export interface Device_ConstructProps extends GObject.Object_ConstructProps {
     platformId?: string
 }
 export class Device {
-    /* Fields of GUsb.Device */
+    /* Fields of GUsb-1.0.GUsb.Device */
     parent: GObject.Object
     priv: DevicePrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GUsb.Device */
-    bulkTransfer(endpoint: number, data: any[], timeout: number, cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* actualLength */ number | null ]
+    /* Methods of GUsb-1.0.GUsb.Device */
+    bulkTransfer(endpoint: number, data: any[], timeout: number, cancellable?: Gio.Cancellable | null): { returnType: boolean, actualLength: number | null }
     bulkTransferAsync(endpoint: number, data: any[], timeout: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     bulkTransferFinish(res: Gio.AsyncResult): number
     claimInterface(interface: number, flags: DeviceClaimInterfaceFlags): boolean
     close(): boolean
-    controlTransfer(direction: DeviceDirection, requestType: DeviceRequestType, recipient: DeviceRecipient, request: number, value: number, idx: number, data: any[], timeout: number, cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* actualLength */ number | null ]
+    controlTransfer(direction: DeviceDirection, requestType: DeviceRequestType, recipient: DeviceRecipient, request: number, value: number, idx: number, data: any[], timeout: number, cancellable?: Gio.Cancellable | null): { returnType: boolean, actualLength: number | null }
     controlTransferAsync(direction: DeviceDirection, requestType: DeviceRequestType, recipient: DeviceRecipient, request: number, value: number, idx: number, data: any[], timeout: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     controlTransferFinish(res: Gio.AsyncResult): number
     getAddress(): number
@@ -237,7 +222,7 @@ export class Device {
     getStringDescriptorBytes(descIndex: number, langid: number): any
     getVid(): number
     getVidAsStr(): string
-    interruptTransfer(endpoint: number, data: any[], timeout: number, cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* actualLength */ number | null ]
+    interruptTransfer(endpoint: number, data: any[], timeout: number, cancellable?: Gio.Cancellable | null): { returnType: boolean, actualLength: number | null }
     interruptTransferAsync(endpoint: number, data: any[], timeout: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     interruptTransferFinish(res: Gio.AsyncResult): number
     open(): boolean
@@ -245,7 +230,7 @@ export class Device {
     reset(): boolean
     setConfiguration(configuration: number): boolean
     setInterfaceAlt(interface: number, alt: number): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -267,25 +252,14 @@ export class Device {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of Gio.Initable */
+    /* Methods of Gio-2.0.Gio.Initable */
     init(cancellable?: Gio.Cancellable | null): boolean
-    /* Virtual methods of GUsb.Device */
-    vfuncInit(cancellable?: Gio.Cancellable | null): boolean
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Device, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Device, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -305,17 +279,17 @@ export interface DeviceList_ConstructProps extends GObject.Object_ConstructProps
     context?: Context
 }
 export class DeviceList {
-    /* Fields of GUsb.DeviceList */
+    /* Fields of GUsb-1.0.GUsb.DeviceList */
     parent: GObject.Object
     priv: DeviceListPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GUsb.DeviceList */
+    /* Methods of GUsb-1.0.GUsb.DeviceList */
     coldplug(): void
     findByBusAddress(bus: number, address: number): Device
     findByVidPid(vid: number, pid: number): Device
     getDevices(): Device[]
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -337,37 +311,23 @@ export class DeviceList {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GUsb.DeviceList */
-    vfuncDeviceAdded(device: Device): void
-    vfuncDeviceRemoved(device: Device): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GUsb.DeviceList */
+    /* Signals of GUsb-1.0.GUsb.DeviceList */
     connect(sigName: "device-added", callback: (($obj: DeviceList, device: Device) => void)): number
-    connect_after(sigName: "device-added", callback: (($obj: DeviceList, device: Device) => void)): number
+    on(sigName: "device-added", callback: (device: Device) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "device-added", callback: (device: Device) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "device-added", callback: (device: Device) => void): NodeJS.EventEmitter
     emit(sigName: "device-added", device: Device): void
-    on(sigName: "device-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "device-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "device-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "device-removed", callback: (($obj: DeviceList, device: Device) => void)): number
-    connect_after(sigName: "device-removed", callback: (($obj: DeviceList, device: Device) => void)): number
+    on(sigName: "device-removed", callback: (device: Device) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "device-removed", callback: (device: Device) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "device-removed", callback: (device: Device) => void): NodeJS.EventEmitter
     emit(sigName: "device-removed", device: Device): void
-    on(sigName: "device-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "device-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "device-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: DeviceList, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: DeviceList, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -385,9 +345,9 @@ export class DeviceList {
 export interface Endpoint_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class Endpoint {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GUsb.Endpoint */
+    /* Methods of GUsb-1.0.GUsb.Endpoint */
     getAddress(): number
     getDirection(): DeviceDirection
     getExtra(): any
@@ -397,7 +357,7 @@ export class Endpoint {
     getPollingInterval(): number
     getRefresh(): number
     getSynchAddress(): number
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -419,21 +379,12 @@ export class Endpoint {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Endpoint, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Endpoint, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -449,9 +400,9 @@ export class Endpoint {
 export interface Interface_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class Interface {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GUsb.Interface */
+    /* Methods of GUsb-1.0.GUsb.Interface */
     getAlternate(): number
     getClass(): number
     getEndpoints(): Endpoint[]
@@ -462,7 +413,7 @@ export class Interface {
     getNumber(): number
     getProtocol(): number
     getSubclass(): number
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -484,21 +435,12 @@ export class Interface {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Interface, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Interface, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -512,7 +454,7 @@ export class Interface {
     static $gtype: GObject.Type
 }
 export abstract class ContextClass {
-    /* Fields of GUsb.ContextClass */
+    /* Fields of GUsb-1.0.GUsb.ContextClass */
     parentClass: GObject.ObjectClass
     deviceAdded: (context: Context, device: Device) => void
     deviceRemoved: (context: Context, device: Device) => void
@@ -522,12 +464,12 @@ export class ContextPrivate {
     static name: string
 }
 export abstract class DeviceClass {
-    /* Fields of GUsb.DeviceClass */
+    /* Fields of GUsb-1.0.GUsb.DeviceClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
 export abstract class DeviceListClass {
-    /* Fields of GUsb.DeviceListClass */
+    /* Fields of GUsb-1.0.GUsb.DeviceListClass */
     parentClass: GObject.ObjectClass
     deviceAdded: (list: DeviceList, device: Device) => void
     deviceRemoved: (list: DeviceList, device: Device) => void
@@ -540,17 +482,17 @@ export class DevicePrivate {
     static name: string
 }
 export abstract class EndpointClass {
-    /* Fields of GUsb.EndpointClass */
+    /* Fields of GUsb-1.0.GUsb.EndpointClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
 export abstract class InterfaceClass {
-    /* Fields of GUsb.InterfaceClass */
+    /* Fields of GUsb-1.0.GUsb.InterfaceClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
 export class Source {
-    /* Methods of GUsb.Source */
+    /* Methods of GUsb-1.0.GUsb.Source */
     setCallback(func: GLib.SourceFunc): void
     static name: string
     /* Static methods and pseudo-constructors */

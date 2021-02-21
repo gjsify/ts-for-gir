@@ -30,11 +30,11 @@ export interface CoreProperties_ConstructProps extends GObject.Object_ConstructP
     source?: string
 }
 export class CoreProperties {
-    /* Fields of GXPS.CoreProperties */
+    /* Fields of GXPS-0.1.GXPS.CoreProperties */
     parent: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GXPS.CoreProperties */
+    /* Methods of GXPS-0.1.GXPS.CoreProperties */
     get_category(): string
     get_content_status(): string
     get_content_type(): string
@@ -51,7 +51,7 @@ export class CoreProperties {
     get_subject(): string
     get_title(): string
     get_version(): string
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -73,11 +73,11 @@ export class CoreProperties {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of Gio.Initable */
+    /* Methods of Gio-2.0.Gio.Initable */
     init(cancellable?: Gio.Cancellable | null): boolean
-    /* Virtual methods of GXPS.CoreProperties */
+    /* Virtual methods of GXPS-0.1.GXPS.CoreProperties */
     vfunc_init(cancellable?: Gio.Cancellable | null): boolean
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -85,7 +85,7 @@ export class CoreProperties {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: CoreProperties, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: CoreProperties, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -104,17 +104,17 @@ export interface Document_ConstructProps extends GObject.Object_ConstructProps {
     source?: string
 }
 export class Document {
-    /* Fields of GXPS.Document */
+    /* Fields of GXPS-0.1.GXPS.Document */
     parent: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GXPS.Document */
+    /* Methods of GXPS-0.1.GXPS.Document */
     get_n_pages(): number
     get_page(n_page: number): Page
     get_page_for_anchor(anchor: string): number
     get_page_size(n_page: number): [ /* returnType */ boolean, /* width */ number | null, /* height */ number | null ]
     get_structure(): DocumentStructure
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -136,11 +136,11 @@ export class Document {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of Gio.Initable */
+    /* Methods of Gio-2.0.Gio.Initable */
     init(cancellable?: Gio.Cancellable | null): boolean
-    /* Virtual methods of GXPS.Document */
+    /* Virtual methods of GXPS-0.1.GXPS.Document */
     vfunc_init(cancellable?: Gio.Cancellable | null): boolean
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -148,7 +148,7 @@ export class Document {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Document, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Document, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -167,13 +167,13 @@ export interface DocumentStructure_ConstructProps extends GObject.Object_Constru
     source?: string
 }
 export class DocumentStructure {
-    /* Fields of GXPS.DocumentStructure */
+    /* Fields of GXPS-0.1.GXPS.DocumentStructure */
     parent: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GXPS.DocumentStructure */
+    /* Methods of GXPS-0.1.GXPS.DocumentStructure */
     has_outline(): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -195,7 +195,7 @@ export class DocumentStructure {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -203,7 +203,7 @@ export class DocumentStructure {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: DocumentStructure, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: DocumentStructure, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -222,16 +222,16 @@ export interface File_ConstructProps extends GObject.Object_ConstructProps {
     file?: Gio.File
 }
 export class File {
-    /* Fields of GXPS.File */
+    /* Fields of GXPS-0.1.GXPS.File */
     parent: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GXPS.File */
+    /* Methods of GXPS-0.1.GXPS.File */
     get_core_properties(): CoreProperties
     get_document(n_doc: number): Document
     get_document_for_link_target(target: LinkTarget): number
     get_n_documents(): number
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -253,11 +253,11 @@ export class File {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of Gio.Initable */
+    /* Methods of Gio-2.0.Gio.Initable */
     init(cancellable?: Gio.Cancellable | null): boolean
-    /* Virtual methods of GXPS.File */
+    /* Virtual methods of GXPS-0.1.GXPS.File */
     vfunc_init(cancellable?: Gio.Cancellable | null): boolean
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -265,7 +265,7 @@ export class File {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: File, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: File, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -286,16 +286,16 @@ export interface Page_ConstructProps extends GObject.Object_ConstructProps {
     source?: string
 }
 export class Page {
-    /* Fields of GXPS.Page */
+    /* Fields of GXPS-0.1.GXPS.Page */
     parent: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GXPS.Page */
+    /* Methods of GXPS-0.1.GXPS.Page */
     get_anchor_destination(anchor: string): [ /* returnType */ boolean, /* area */ cairo.Rectangle ]
     get_links(): Link[]
     get_size(): [ /* width */ number | null, /* height */ number | null ]
     render(cr: cairo.Context): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -317,11 +317,11 @@ export class Page {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of Gio.Initable */
+    /* Methods of Gio-2.0.Gio.Initable */
     init(cancellable?: Gio.Cancellable | null): boolean
-    /* Virtual methods of GXPS.Page */
+    /* Virtual methods of GXPS-0.1.GXPS.Page */
     vfunc_init(cancellable?: Gio.Cancellable | null): boolean
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -329,7 +329,7 @@ export class Page {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Page, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Page, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -346,7 +346,7 @@ export class Page {
     static $gtype: GObject.Type
 }
 export abstract class CorePropertiesClass {
-    /* Fields of GXPS.CorePropertiesClass */
+    /* Fields of GXPS-0.1.GXPS.CorePropertiesClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
@@ -354,7 +354,7 @@ export class CorePropertiesPrivate {
     static name: string
 }
 export abstract class DocumentClass {
-    /* Fields of GXPS.DocumentClass */
+    /* Fields of GXPS-0.1.GXPS.DocumentClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
@@ -362,7 +362,7 @@ export class DocumentPrivate {
     static name: string
 }
 export abstract class DocumentStructureClass {
-    /* Fields of GXPS.DocumentStructureClass */
+    /* Fields of GXPS-0.1.GXPS.DocumentStructureClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
@@ -370,7 +370,7 @@ export class DocumentStructurePrivate {
     static name: string
 }
 export abstract class FileClass {
-    /* Fields of GXPS.FileClass */
+    /* Fields of GXPS-0.1.GXPS.FileClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
@@ -378,7 +378,7 @@ export class FilePrivate {
     static name: string
 }
 export class Link {
-    /* Methods of GXPS.Link */
+    /* Methods of GXPS-0.1.GXPS.Link */
     copy(): Link
     free(): void
     get_area(): /* area */ cairo.Rectangle
@@ -386,7 +386,7 @@ export class Link {
     static name: string
 }
 export class LinkTarget {
-    /* Methods of GXPS.LinkTarget */
+    /* Methods of GXPS-0.1.GXPS.LinkTarget */
     copy(): LinkTarget
     free(): void
     get_anchor(): string
@@ -395,7 +395,7 @@ export class LinkTarget {
     static name: string
 }
 export class OutlineIter {
-    /* Methods of GXPS.OutlineIter */
+    /* Methods of GXPS-0.1.GXPS.OutlineIter */
     children(parent: OutlineIter): boolean
     get_description(): string
     get_target(): LinkTarget
@@ -403,7 +403,7 @@ export class OutlineIter {
     static name: string
 }
 export abstract class PageClass {
-    /* Fields of GXPS.PageClass */
+    /* Fields of GXPS-0.1.GXPS.PageClass */
     parent_class: GObject.ObjectClass
     static name: string
 }

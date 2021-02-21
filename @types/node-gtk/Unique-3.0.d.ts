@@ -38,16 +38,16 @@ export interface App_ConstructProps extends GObject.Object_ConstructProps {
     startupId?: string
 }
 export class App {
-    /* Properties of Unique.App */
+    /* Properties of Unique-3.0.Unique.App */
     readonly isRunning: boolean
     screen: Gdk.Screen
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Unique.App */
+    /* Methods of Unique-3.0.Unique.App */
     addCommand(commandName: string, commandId: number): void
     sendMessage(commandId: number, messageData?: MessageData | null): Response
     watchWindow(window: Gtk.Window): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -69,30 +69,18 @@ export class App {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of Unique.App */
-    vfuncMessageReceived(command: number, messageData: MessageData, time: number): Response
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Unique.App */
+    /* Signals of Unique-3.0.Unique.App */
     connect(sigName: "message-received", callback: (($obj: App, command: number, messageData: MessageData, time: number) => Response)): number
-    connect_after(sigName: "message-received", callback: (($obj: App, command: number, messageData: MessageData, time: number) => Response)): number
+    on(sigName: "message-received", callback: (command: number, messageData: MessageData, time: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "message-received", callback: (command: number, messageData: MessageData, time: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "message-received", callback: (command: number, messageData: MessageData, time: number) => void): NodeJS.EventEmitter
     emit(sigName: "message-received", command: number, messageData: MessageData, time: number): void
-    on(sigName: "message-received", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "message-received", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "message-received", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: App, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: App, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::is-running", callback: (($obj: App, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::is-running", callback: (($obj: App, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::is-running", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -120,11 +108,11 @@ export class App {
 export interface Backend_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class Backend {
-    /* Fields of Unique.Backend */
+    /* Fields of Unique-3.0.Unique.Backend */
     parentInstance: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Unique.Backend */
+    /* Methods of Unique-3.0.Unique.Backend */
     getName(): string
     getScreen(): Gdk.Screen
     getStartupId(): string
@@ -134,7 +122,7 @@ export class Backend {
     setName(name: string): void
     setScreen(screen: Gdk.Screen): void
     setStartupId(startupId: string): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -156,24 +144,12 @@ export class Backend {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of Unique.Backend */
-    vfuncRequestName(): boolean
-    vfuncSendMessage(commandId: number, messageData: MessageData, time: number): Response
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Backend, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Backend, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -189,7 +165,7 @@ export class Backend {
     static $gtype: GObject.Type
 }
 export abstract class AppClass {
-    /* Fields of Unique.AppClass */
+    /* Fields of Unique-3.0.Unique.AppClass */
     messageReceived: (app: App, command: number, messageData: MessageData, time: number) => Response
     static name: string
 }
@@ -197,16 +173,16 @@ export class AppPrivate {
     static name: string
 }
 export abstract class BackendClass {
-    /* Fields of Unique.BackendClass */
+    /* Fields of Unique-3.0.Unique.BackendClass */
     requestName: (backend: Backend) => boolean
     sendMessage: (backend: Backend, commandId: number, messageData: MessageData, time: number) => Response
     static name: string
 }
 export class MessageData {
-    /* Methods of Unique.MessageData */
+    /* Methods of Unique-3.0.Unique.MessageData */
     copy(): MessageData
     free(): void
-    get(): [ /* returnType */ number, /* length */ number ]
+    get(): { returnType: number, length: number }
     getFilename(): string
     getScreen(): Gdk.Screen
     getStartupId(): string

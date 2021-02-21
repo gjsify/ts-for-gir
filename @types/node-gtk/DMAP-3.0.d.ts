@@ -244,47 +244,32 @@ export interface ResponseHandler {
     (connection: Connection, status: number, structure: GLib.Node): void
 }
 export class ContainerDb {
-    /* Methods of DMAP.ContainerDb */
+    /* Methods of DMAP-3.0.DMAP.ContainerDb */
     add(record: ContainerRecord): void
     count(): number
-    /* Virtual methods of DMAP.ContainerDb */
-    vfuncAdd(record: ContainerRecord): void
-    vfuncCount(): number
     static name: string
 }
 export class ContainerRecord {
-    /* Properties of DMAP.ContainerRecord */
+    /* Properties of DMAP-3.0.DMAP.ContainerRecord */
     name: string
-    /* Methods of DMAP.ContainerRecord */
+    /* Methods of DMAP-3.0.DMAP.ContainerRecord */
     addEntry(record: Record, id: number): void
     getEntryCount(): number
     getId(): number
-    /* Virtual methods of DMAP.ContainerRecord */
-    vfuncAddEntry(record: Record, id: number): void
-    vfuncGetEntryCount(): number
-    vfuncGetId(): number
     static name: string
 }
 export class Db {
-    /* Methods of DMAP.Db */
+    /* Methods of DMAP-3.0.DMAP.Db */
     add(record: Record): number
     addPath(path: string): number
     addWithId(record: Record, id: number): number
     count(): number
     lookupIdByLocation(location: string): number
-    /* Virtual methods of DMAP.Db */
-    vfuncAdd(record: Record): number
-    vfuncAddPath(path: string): number
-    vfuncAddWithId(record: Record, id: number): number
-    vfuncCount(): number
-    vfuncLookupIdByLocation(location: string): number
     static name: string
 }
 export class Record {
-    /* Methods of DMAP.Record */
+    /* Methods of DMAP-3.0.DMAP.Record */
     setFromBlob(blob: any[]): boolean
-    /* Virtual methods of DMAP.Record */
-    vfuncSetFromBlob(blob: any[]): boolean
     static name: string
 }
 export class RecordFactory {
@@ -305,24 +290,24 @@ export interface Connection_ConstructProps extends GObject.Object_ConstructProps
     username?: string
 }
 export class Connection {
-    /* Properties of DMAP.Connection */
+    /* Properties of DMAP-3.0.DMAP.Connection */
     baseUri: object
     databaseId: number
     dmapVersion: number
     password: string
     revisionNumber: number
     sessionId: number
-    /* Fields of DMAP.Connection */
+    /* Fields of DMAP-3.0.DMAP.Connection */
     parent: GObject.Object
     priv: ConnectionPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of DMAP.Connection */
+    /* Methods of DMAP-3.0.DMAP.Connection */
     authenticateMessage(session: Soup.Session, message: Soup.Message, auth: Soup.Auth, password: string): void
     getHeaders(uri: string): Soup.MessageHeaders
     isConnected(): boolean
     setup(): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -344,60 +329,38 @@ export class Connection {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of DMAP.Connection */
-    vfuncAuthenticate(name: string): string
-    vfuncConnected(): void
-    vfuncConnecting(state: ConnectionState, progress: number): void
-    vfuncDisconnected(): void
-    vfuncGetProtocolVersionCc(): ContentCode
-    vfuncGetQueryMetadata(): string
-    vfuncOperationDone(): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of DMAP.Connection */
+    /* Signals of DMAP-3.0.DMAP.Connection */
     connect(sigName: "authenticate", callback: (($obj: Connection, object: string, p0: Soup.Session, p1: Soup.Message, p2: Soup.Auth, p3: boolean) => void)): number
-    connect_after(sigName: "authenticate", callback: (($obj: Connection, object: string, p0: Soup.Session, p1: Soup.Message, p2: Soup.Auth, p3: boolean) => void)): number
+    on(sigName: "authenticate", callback: (object: string, p0: Soup.Session, p1: Soup.Message, p2: Soup.Auth, p3: boolean) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "authenticate", callback: (object: string, p0: Soup.Session, p1: Soup.Message, p2: Soup.Auth, p3: boolean) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "authenticate", callback: (object: string, p0: Soup.Session, p1: Soup.Message, p2: Soup.Auth, p3: boolean) => void): NodeJS.EventEmitter
     emit(sigName: "authenticate", object: string, p0: Soup.Session, p1: Soup.Message, p2: Soup.Auth, p3: boolean): void
-    on(sigName: "authenticate", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "authenticate", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "authenticate", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "connected", callback: (($obj: Connection) => void)): number
-    connect_after(sigName: "connected", callback: (($obj: Connection) => void)): number
+    on(sigName: "connected", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "connected", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "connected", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "connected"): void
-    on(sigName: "connected", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "connected", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "connected", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "connecting", callback: (($obj: Connection, object: number, p0: number) => void)): number
-    connect_after(sigName: "connecting", callback: (($obj: Connection, object: number, p0: number) => void)): number
+    on(sigName: "connecting", callback: (object: number, p0: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "connecting", callback: (object: number, p0: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "connecting", callback: (object: number, p0: number) => void): NodeJS.EventEmitter
     emit(sigName: "connecting", object: number, p0: number): void
-    on(sigName: "connecting", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "connecting", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "connecting", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "disconnected", callback: (($obj: Connection) => void)): number
-    connect_after(sigName: "disconnected", callback: (($obj: Connection) => void)): number
+    on(sigName: "disconnected", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "disconnected", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "disconnected", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "disconnected"): void
-    on(sigName: "disconnected", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "disconnected", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "disconnected", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "operation-done", callback: (($obj: Connection) => void)): number
-    connect_after(sigName: "operation-done", callback: (($obj: Connection) => void)): number
+    on(sigName: "operation-done", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "operation-done", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "operation-done", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "operation-done"): void
-    on(sigName: "operation-done", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "operation-done", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "operation-done", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Connection, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Connection, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::base-uri", callback: (($obj: Connection, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::base-uri", callback: (($obj: Connection, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::base-uri", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -443,25 +406,25 @@ export class Connection {
 export interface GstInputStream_ConstructProps extends Gio.InputStream_ConstructProps {
 }
 export class GstInputStream {
-    /* Fields of DMAP.GstInputStream */
+    /* Fields of DMAP-3.0.DMAP.GstInputStream */
     parent: Gio.InputStream
     priv: GstInputStreamPrivate
-    /* Fields of Gio.InputStream */
+    /* Fields of Gio-2.0.Gio.InputStream */
     parentInstance: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Gio.InputStream */
+    /* Methods of Gio-2.0.Gio.InputStream */
     clearPending(): void
     close(cancellable?: Gio.Cancellable | null): boolean
     closeAsync(ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     closeFinish(result: Gio.AsyncResult): boolean
     hasPending(): boolean
     isClosed(): boolean
-    read(cancellable?: Gio.Cancellable | null): [ /* returnType */ number, /* buffer */ any[] ]
-    readAll(cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* buffer */ any[], /* bytesRead */ number ]
-    readAllAsync(ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): /* buffer */ any[]
-    readAllFinish(result: Gio.AsyncResult): [ /* returnType */ boolean, /* bytesRead */ number ]
-    readAsync(ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): /* buffer */ any[]
+    read(cancellable?: Gio.Cancellable | null): { returnType: number, buffer: any[] }
+    readAll(cancellable?: Gio.Cancellable | null): { returnType: boolean, buffer: any[], bytesRead: number }
+    readAllAsync(ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): { buffer: any[] }
+    readAllFinish(result: Gio.AsyncResult): { returnType: boolean, bytesRead: number }
+    readAsync(ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): { buffer: any[] }
     readBytes(count: number, cancellable?: Gio.Cancellable | null): any
     readBytesAsync(count: number, ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     readBytesFinish(result: Gio.AsyncResult): any
@@ -470,7 +433,7 @@ export class GstInputStream {
     skip(count: number, cancellable?: Gio.Cancellable | null): number
     skipAsync(count: number, ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     skipFinish(result: Gio.AsyncResult): number
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -492,44 +455,18 @@ export class GstInputStream {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of Gio.Seekable */
+    /* Methods of Gio-2.0.Gio.Seekable */
     canSeek(): boolean
     canTruncate(): boolean
     seek(offset: number, type: GLib.SeekType, cancellable?: Gio.Cancellable | null): boolean
     tell(): number
     truncate(offset: number, cancellable?: Gio.Cancellable | null): boolean
-    /* Virtual methods of DMAP.GstInputStream */
-    vfuncKillPipeline(): void
-    vfuncCanSeek(): boolean
-    vfuncCanTruncate(): boolean
-    vfuncSeek(offset: number, type: GLib.SeekType, cancellable?: Gio.Cancellable | null): boolean
-    vfuncTell(): number
-    vfuncTruncateFn(offset: number, cancellable?: Gio.Cancellable | null): boolean
-    /* Virtual methods of Gio.InputStream */
-    vfuncCloseAsync(ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    vfuncCloseFinish(result: Gio.AsyncResult): boolean
-    vfuncCloseFn(cancellable?: Gio.Cancellable | null): boolean
-    vfuncReadAsync(ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): /* buffer */ any[] | null
-    vfuncReadFinish(result: Gio.AsyncResult): number
-    vfuncReadFn(buffer: object | null, count: number, cancellable?: Gio.Cancellable | null): number
-    vfuncSkip(count: number, cancellable?: Gio.Cancellable | null): number
-    vfuncSkipAsync(count: number, ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    vfuncSkipFinish(result: Gio.AsyncResult): number
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: GstInputStream, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: GstInputStream, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -547,16 +484,16 @@ export class GstInputStream {
 export interface MdnsBrowser_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class MdnsBrowser {
-    /* Fields of DMAP.MdnsBrowser */
+    /* Fields of DMAP-3.0.DMAP.MdnsBrowser */
     object: GObject.Object
     priv: MdnsBrowserPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of DMAP.MdnsBrowser */
+    /* Methods of DMAP-3.0.DMAP.MdnsBrowser */
     getServiceType(): MdnsBrowserServiceType
     start(): boolean
     stop(): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -578,37 +515,23 @@ export class MdnsBrowser {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of DMAP.MdnsBrowser */
-    vfuncServiceAdded(service: MdnsBrowserService): void
-    vfuncServiceRemoved(service: MdnsBrowserService): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of DMAP.MdnsBrowser */
+    /* Signals of DMAP-3.0.DMAP.MdnsBrowser */
     connect(sigName: "service-added", callback: (($obj: MdnsBrowser, service: object) => void)): number
-    connect_after(sigName: "service-added", callback: (($obj: MdnsBrowser, service: object) => void)): number
+    on(sigName: "service-added", callback: (service: object) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "service-added", callback: (service: object) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "service-added", callback: (service: object) => void): NodeJS.EventEmitter
     emit(sigName: "service-added", service: object): void
-    on(sigName: "service-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "service-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "service-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "service-removed", callback: (($obj: MdnsBrowser, object: string) => void)): number
-    connect_after(sigName: "service-removed", callback: (($obj: MdnsBrowser, object: string) => void)): number
+    on(sigName: "service-removed", callback: (object: string) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "service-removed", callback: (object: string) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "service-removed", callback: (object: string) => void): NodeJS.EventEmitter
     emit(sigName: "service-removed", object: string): void
-    on(sigName: "service-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "service-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "service-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: MdnsBrowser, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: MdnsBrowser, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -626,16 +549,16 @@ export class MdnsBrowser {
 export interface MdnsPublisher_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class MdnsPublisher {
-    /* Fields of DMAP.MdnsPublisher */
+    /* Fields of DMAP-3.0.DMAP.MdnsPublisher */
     object: GObject.Object
     priv: MdnsPublisherPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of DMAP.MdnsPublisher */
+    /* Methods of DMAP-3.0.DMAP.MdnsPublisher */
     publish(name: string, port: number, typeOfService: string, passwordRequired: boolean, txtRecords: string): boolean
     renameAtPort(port: number, name: string): boolean
     withdraw(port: number): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -657,37 +580,23 @@ export class MdnsPublisher {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of DMAP.MdnsPublisher */
-    vfuncNameCollision(name: string): void
-    vfuncPublished(name: string): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of DMAP.MdnsPublisher */
+    /* Signals of DMAP-3.0.DMAP.MdnsPublisher */
     connect(sigName: "name-collision", callback: (($obj: MdnsPublisher, object: string) => void)): number
-    connect_after(sigName: "name-collision", callback: (($obj: MdnsPublisher, object: string) => void)): number
+    on(sigName: "name-collision", callback: (object: string) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "name-collision", callback: (object: string) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "name-collision", callback: (object: string) => void): NodeJS.EventEmitter
     emit(sigName: "name-collision", object: string): void
-    on(sigName: "name-collision", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "name-collision", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "name-collision", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "published", callback: (($obj: MdnsPublisher, object: string) => void)): number
-    connect_after(sigName: "published", callback: (($obj: MdnsPublisher, object: string) => void)): number
+    on(sigName: "published", callback: (object: string) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "published", callback: (object: string) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "published", callback: (object: string) => void): NodeJS.EventEmitter
     emit(sigName: "published", object: string): void
-    on(sigName: "published", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "published", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "published", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: MdnsPublisher, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: MdnsPublisher, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -713,7 +622,7 @@ export interface Share_ConstructProps extends GObject.Object_ConstructProps {
     txtRecords?: string[]
 }
 export class Share {
-    /* Properties of DMAP.Share */
+    /* Properties of DMAP-3.0.DMAP.Share */
     authMethod: number
     name: string
     password: string
@@ -721,12 +630,12 @@ export class Share {
     readonly serverIpv4: Soup.Server
     readonly serverIpv6: Soup.Server
     txtRecords: string[]
-    /* Fields of DMAP.Share */
+    /* Fields of DMAP-3.0.DMAP.Share */
     parent: GObject.Object
     priv: SharePrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -748,36 +657,12 @@ export class Share {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of DMAP.Share */
-    vfuncContentCodes(server: Soup.Server, message: Soup.Message, path: string, query: GLib.HashTable, ctx: Soup.ClientContext): void
-    vfuncCtrlInt(server: Soup.Server, message: Soup.Message, path: string, query: GLib.HashTable, ctx: Soup.ClientContext): void
-    vfuncDatabases(server: Soup.Server, message: Soup.Message, path: string, query: GLib.HashTable, context: Soup.ClientContext): void
-    vfuncDatabasesBrowseXxx(server: Soup.Server, msg: Soup.Message, path: string, query: GLib.HashTable, context: Soup.ClientContext): void
-    vfuncDatabasesItemsXxx(server: Soup.Server, msg: Soup.Message, path: string, query: GLib.HashTable, context: Soup.ClientContext): void
-    vfuncGetDesiredPort(): number
-    vfuncGetTypeOfService(): string
-    vfuncLogin(server: Soup.Server, message: Soup.Message, path: string, query: GLib.HashTable, ctx: Soup.ClientContext): void
-    vfuncLogout(server: Soup.Server, message: Soup.Message, path: string, query: GLib.HashTable, ctx: Soup.ClientContext): void
-    vfuncMessageAddStandardHeaders(msg: Soup.Message): void
-    vfuncNameCollision(publisher: MdnsPublisher, name: string): void
-    vfuncPublished(publisher: MdnsPublisher, name: string): void
-    vfuncServerInfo(server: Soup.Server, message: Soup.Message, path: string, query: GLib.HashTable, ctx: Soup.ClientContext): void
-    vfuncUpdate(server: Soup.Server, message: Soup.Message, path: string, query: GLib.HashTable, ctx: Soup.ClientContext): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Share, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Share, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::auth-method", callback: (($obj: Share, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::auth-method", callback: (($obj: Share, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::auth-method", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -826,7 +711,7 @@ export class Share {
     static $gtype: GObject.Type
 }
 export abstract class ConnectionClass {
-    /* Fields of DMAP.ConnectionClass */
+    /* Fields of DMAP-3.0.DMAP.ConnectionClass */
     parent: GObject.ObjectClass
     getProtocolVersionCc: (connection: Connection) => ContentCode
     getQueryMetadata: (connection: Connection) => string
@@ -841,14 +726,14 @@ export class ConnectionPrivate {
     static name: string
 }
 export abstract class ContainerDbIface {
-    /* Fields of DMAP.ContainerDbIface */
+    /* Fields of DMAP-3.0.DMAP.ContainerDbIface */
     parent: GObject.TypeInterface
     add: (db: ContainerDb, record: ContainerRecord) => void
     count: (db: ContainerDb) => number
     static name: string
 }
 export abstract class ContainerRecordIface {
-    /* Fields of DMAP.ContainerRecordIface */
+    /* Fields of DMAP-3.0.DMAP.ContainerRecordIface */
     parent: GObject.TypeInterface
     getId: (record: ContainerRecord) => number
     addEntry: (containerRecord: ContainerRecord, record: Record, id: number) => void
@@ -856,7 +741,7 @@ export abstract class ContainerRecordIface {
     static name: string
 }
 export class ContentCodeDefinition {
-    /* Fields of DMAP.ContentCodeDefinition */
+    /* Fields of DMAP-3.0.DMAP.ContentCodeDefinition */
     code: ContentCode
     intCode: number
     name: string
@@ -865,14 +750,14 @@ export class ContentCodeDefinition {
     static name: string
 }
 export class DbFilterDefinition {
-    /* Fields of DMAP.DbFilterDefinition */
+    /* Fields of DMAP-3.0.DMAP.DbFilterDefinition */
     key: string
     value: string
     negate: boolean
     static name: string
 }
 export abstract class DbIface {
-    /* Fields of DMAP.DbIface */
+    /* Fields of DMAP-3.0.DMAP.DbIface */
     parent: GObject.TypeInterface
     add: (db: Db, record: Record) => number
     addWithId: (db: Db, record: Record, id: number) => number
@@ -882,7 +767,7 @@ export abstract class DbIface {
     static name: string
 }
 export abstract class GstInputStreamClass {
-    /* Fields of DMAP.GstInputStreamClass */
+    /* Fields of DMAP-3.0.DMAP.GstInputStreamClass */
     parent: Gio.InputStreamClass
     killPipeline: (arg0: GstInputStream) => void
     static name: string
@@ -891,7 +776,7 @@ export class GstInputStreamPrivate {
     static name: string
 }
 export class HashContext {
-    /* Fields of DMAP.HashContext */
+    /* Fields of DMAP-3.0.DMAP.HashContext */
     buf: number[]
     bits: number[]
     in_: number[]
@@ -899,7 +784,7 @@ export class HashContext {
     static name: string
 }
 export abstract class MdnsBrowserClass {
-    /* Fields of DMAP.MdnsBrowserClass */
+    /* Fields of DMAP-3.0.DMAP.MdnsBrowserClass */
     parentClass: GObject.ObjectClass
     serviceAdded: (browser: MdnsBrowser, service: MdnsBrowserService) => void
     serviceRemoved: (browser: MdnsBrowser, service: MdnsBrowserService) => void
@@ -909,7 +794,7 @@ export class MdnsBrowserPrivate {
     static name: string
 }
 export class MdnsBrowserService {
-    /* Fields of DMAP.MdnsBrowserService */
+    /* Fields of DMAP-3.0.DMAP.MdnsBrowserService */
     serviceName: string
     name: string
     host: string
@@ -920,7 +805,7 @@ export class MdnsBrowserService {
     static name: string
 }
 export abstract class MdnsPublisherClass {
-    /* Fields of DMAP.MdnsPublisherClass */
+    /* Fields of DMAP-3.0.DMAP.MdnsPublisherClass */
     parentClass: GObject.ObjectClass
     published: (publisher: MdnsPublisher, name: string) => void
     nameCollision: (publisher: MdnsPublisher, name: string) => void
@@ -930,31 +815,31 @@ export class MdnsPublisherPrivate {
     static name: string
 }
 export class MetaDataMap {
-    /* Fields of DMAP.MetaDataMap */
+    /* Fields of DMAP-3.0.DMAP.MetaDataMap */
     tag: string
     md: number
     static name: string
 }
 export class Playlist {
-    /* Fields of DMAP.Playlist */
+    /* Fields of DMAP-3.0.DMAP.Playlist */
     name: string
     id: number
     uris: object[]
     static name: string
 }
 export abstract class RecordFactoryIface {
-    /* Fields of DMAP.RecordFactoryIface */
+    /* Fields of DMAP-3.0.DMAP.RecordFactoryIface */
     parent: GObject.TypeInterface
     static name: string
 }
 export abstract class RecordIface {
-    /* Fields of DMAP.RecordIface */
+    /* Fields of DMAP-3.0.DMAP.RecordIface */
     parent: GObject.TypeInterface
     setFromBlob: (record: Record, blob: any[]) => boolean
     static name: string
 }
 export abstract class ShareClass {
-    /* Fields of DMAP.ShareClass */
+    /* Fields of DMAP-3.0.DMAP.ShareClass */
     parent: GObject.ObjectClass
     getDesiredPort: (share: Share) => number
     getTypeOfService: (share: Share) => string
@@ -977,7 +862,7 @@ export class SharePrivate {
     static name: string
 }
 export class StructureItem {
-    /* Fields of DMAP.StructureItem */
+    /* Fields of DMAP-3.0.DMAP.StructureItem */
     contentCode: ContentCode
     content: any
     size: number

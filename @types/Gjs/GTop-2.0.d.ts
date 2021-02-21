@@ -402,7 +402,7 @@ export function glibtop_init_r(features: number, flags: number): [ /* returnType
 export function glibtop_internet_addr(host: string): number
 export function glibtop_make_connection(hostarg: string, portarg: number, s: number): number
 export class glibtop {
-    /* Fields of GTop.glibtop */
+    /* Fields of GTop-2.0.GTop.glibtop */
     flags: number
     method: number
     error_method: number
@@ -427,7 +427,7 @@ export class glibtop {
     gid: number
     egid: number
     machine: glibtop_machine
-    /* Methods of GTop.glibtop */
+    /* Methods of GTop-2.0.GTop.glibtop */
     call_l(command: number, send_size: number, send_buf: object | null, recv_size: number, recv_buf?: object | null): object | null
     call_s(command: number, send_size: number, send_buf: object | null, recv_size: number, recv_buf?: object | null): object | null
     close_p(): void
@@ -532,7 +532,7 @@ export class glibtop {
     static make_connection(hostarg: string, portarg: number, s: number): number
 }
 export class glibtop_command {
-    /* Fields of GTop.glibtop_command */
+    /* Fields of GTop-2.0.GTop.glibtop_command */
     command: number
     size: number
     data_size: number
@@ -540,7 +540,7 @@ export class glibtop_command {
     static name: string
 }
 export class glibtop_cpu {
-    /* Fields of GTop.glibtop_cpu */
+    /* Fields of GTop-2.0.GTop.glibtop_cpu */
     flags: number
     total: number
     user: number
@@ -563,14 +563,14 @@ export class glibtop_cpu {
     static name: string
 }
 export class glibtop_entry {
-    /* Fields of GTop.glibtop_entry */
+    /* Fields of GTop-2.0.GTop.glibtop_entry */
     labels: object[]
     values: GLib.HashTable
     descriptions: GLib.HashTable
     static name: string
 }
 export class glibtop_fsusage {
-    /* Fields of GTop.glibtop_fsusage */
+    /* Fields of GTop-2.0.GTop.glibtop_fsusage */
     flags: number
     blocks: number
     bfree: number
@@ -583,7 +583,7 @@ export class glibtop_fsusage {
     static name: string
 }
 export class glibtop_loadavg {
-    /* Fields of GTop.glibtop_loadavg */
+    /* Fields of GTop-2.0.GTop.glibtop_loadavg */
     flags: number
     loadavg: number[]
     nr_running: number
@@ -595,7 +595,7 @@ export class glibtop_machine {
     static name: string
 }
 export class glibtop_map_entry {
-    /* Fields of GTop.glibtop_map_entry */
+    /* Fields of GTop-2.0.GTop.glibtop_map_entry */
     flags: number
     start: number
     end: number
@@ -615,7 +615,7 @@ export class glibtop_map_entry {
     static name: string
 }
 export class glibtop_mem {
-    /* Fields of GTop.glibtop_mem */
+    /* Fields of GTop-2.0.GTop.glibtop_mem */
     flags: number
     total: number
     used: number
@@ -628,7 +628,7 @@ export class glibtop_mem {
     static name: string
 }
 export class glibtop_mountentry {
-    /* Fields of GTop.glibtop_mountentry */
+    /* Fields of GTop-2.0.GTop.glibtop_mountentry */
     dev: number
     devname: number[]
     mountdir: number[]
@@ -636,7 +636,7 @@ export class glibtop_mountentry {
     static name: string
 }
 export class glibtop_mountlist {
-    /* Fields of GTop.glibtop_mountlist */
+    /* Fields of GTop-2.0.GTop.glibtop_mountlist */
     flags: number
     number: number
     total: number
@@ -644,7 +644,7 @@ export class glibtop_mountlist {
     static name: string
 }
 export class glibtop_msg_limits {
-    /* Fields of GTop.glibtop_msg_limits */
+    /* Fields of GTop-2.0.GTop.glibtop_msg_limits */
     flags: number
     msgpool: number
     msgmap: number
@@ -656,13 +656,13 @@ export class glibtop_msg_limits {
     static name: string
 }
 export class glibtop_netlist {
-    /* Fields of GTop.glibtop_netlist */
+    /* Fields of GTop-2.0.GTop.glibtop_netlist */
     flags: number
     number: number
     static name: string
 }
 export class glibtop_netload {
-    /* Fields of GTop.glibtop_netload */
+    /* Fields of GTop-2.0.GTop.glibtop_netload */
     flags: number
     if_flags: number
     mtu: number
@@ -685,13 +685,13 @@ export class glibtop_netload {
     static name: string
 }
 export class glibtop_open_files_entry {
-    /* Fields of GTop.glibtop_open_files_entry */
+    /* Fields of GTop-2.0.GTop.glibtop_open_files_entry */
     fd: number
     type: number
     static name: string
 }
 export class glibtop_ppp {
-    /* Fields of GTop.glibtop_ppp */
+    /* Fields of GTop-2.0.GTop.glibtop_ppp */
     flags: number
     state: number
     bytes_in: number
@@ -699,20 +699,20 @@ export class glibtop_ppp {
     static name: string
 }
 export class glibtop_proc_affinity {
-    /* Fields of GTop.glibtop_proc_affinity */
+    /* Fields of GTop-2.0.GTop.glibtop_proc_affinity */
     flags: number
     number: number
     all: boolean
     static name: string
 }
 export class glibtop_proc_args {
-    /* Fields of GTop.glibtop_proc_args */
+    /* Fields of GTop-2.0.GTop.glibtop_proc_args */
     flags: number
     size: number
     static name: string
 }
 export class glibtop_proc_io {
-    /* Fields of GTop.glibtop_proc_io */
+    /* Fields of GTop-2.0.GTop.glibtop_proc_io */
     flags: number
     disk_rchar: number
     disk_wchar: number
@@ -722,7 +722,7 @@ export class glibtop_proc_io {
     static name: string
 }
 export class glibtop_proc_kernel {
-    /* Fields of GTop.glibtop_proc_kernel */
+    /* Fields of GTop-2.0.GTop.glibtop_proc_kernel */
     flags: number
     k_flags: number
     min_flt: number
@@ -736,7 +736,7 @@ export class glibtop_proc_kernel {
     static name: string
 }
 export class glibtop_proc_map {
-    /* Fields of GTop.glibtop_proc_map */
+    /* Fields of GTop-2.0.GTop.glibtop_proc_map */
     flags: number
     number: number
     total: number
@@ -744,7 +744,7 @@ export class glibtop_proc_map {
     static name: string
 }
 export class glibtop_proc_mem {
-    /* Fields of GTop.glibtop_proc_mem */
+    /* Fields of GTop-2.0.GTop.glibtop_proc_mem */
     flags: number
     size: number
     vsize: number
@@ -755,7 +755,7 @@ export class glibtop_proc_mem {
     static name: string
 }
 export class glibtop_proc_open_files {
-    /* Fields of GTop.glibtop_proc_open_files */
+    /* Fields of GTop-2.0.GTop.glibtop_proc_open_files */
     flags: number
     number: number
     total: number
@@ -763,7 +763,7 @@ export class glibtop_proc_open_files {
     static name: string
 }
 export class glibtop_proc_segment {
-    /* Fields of GTop.glibtop_proc_segment */
+    /* Fields of GTop-2.0.GTop.glibtop_proc_segment */
     flags: number
     text_rss: number
     shlib_rss: number
@@ -776,7 +776,7 @@ export class glibtop_proc_segment {
     static name: string
 }
 export class glibtop_proc_signal {
-    /* Fields of GTop.glibtop_proc_signal */
+    /* Fields of GTop-2.0.GTop.glibtop_proc_signal */
     flags: number
     signal: number[]
     blocked: number[]
@@ -785,7 +785,7 @@ export class glibtop_proc_signal {
     static name: string
 }
 export class glibtop_proc_state {
-    /* Fields of GTop.glibtop_proc_state */
+    /* Fields of GTop-2.0.GTop.glibtop_proc_state */
     flags: number
     cmd: number[]
     state: number
@@ -799,7 +799,7 @@ export class glibtop_proc_state {
     static name: string
 }
 export class glibtop_proc_time {
-    /* Fields of GTop.glibtop_proc_time */
+    /* Fields of GTop-2.0.GTop.glibtop_proc_time */
     start_time: number
     rtime: number
     utime: number
@@ -814,7 +814,7 @@ export class glibtop_proc_time {
     static name: string
 }
 export class glibtop_proc_uid {
-    /* Fields of GTop.glibtop_proc_uid */
+    /* Fields of GTop-2.0.GTop.glibtop_proc_uid */
     flags: number
     uid: number
     euid: number
@@ -837,7 +837,7 @@ export class glibtop_proc_uid {
     static name: string
 }
 export class glibtop_proc_wd {
-    /* Fields of GTop.glibtop_proc_wd */
+    /* Fields of GTop-2.0.GTop.glibtop_proc_wd */
     flags: number
     number: number
     root: number[]
@@ -845,7 +845,7 @@ export class glibtop_proc_wd {
     static name: string
 }
 export class glibtop_proclist {
-    /* Fields of GTop.glibtop_proclist */
+    /* Fields of GTop-2.0.GTop.glibtop_proclist */
     flags: number
     number: number
     total: number
@@ -853,7 +853,7 @@ export class glibtop_proclist {
     static name: string
 }
 export class glibtop_response {
-    /* Fields of GTop.glibtop_response */
+    /* Fields of GTop-2.0.GTop.glibtop_response */
     offset: number
     size: number
     data_size: number
@@ -861,7 +861,7 @@ export class glibtop_response {
     static name: string
 }
 export class glibtop_sem_limits {
-    /* Fields of GTop.glibtop_sem_limits */
+    /* Fields of GTop-2.0.GTop.glibtop_sem_limits */
     flags: number
     semmap: number
     semmni: number
@@ -876,7 +876,7 @@ export class glibtop_sem_limits {
     static name: string
 }
 export class glibtop_shm_limits {
-    /* Fields of GTop.glibtop_shm_limits */
+    /* Fields of GTop-2.0.GTop.glibtop_shm_limits */
     flags: number
     shmmax: number
     shmmin: number
@@ -886,14 +886,14 @@ export class glibtop_shm_limits {
     static name: string
 }
 export class glibtop_signame {
-    /* Fields of GTop.glibtop_signame */
+    /* Fields of GTop-2.0.GTop.glibtop_signame */
     number: number
     name: string
     label: string
     static name: string
 }
 export class glibtop_swap {
-    /* Fields of GTop.glibtop_swap */
+    /* Fields of GTop-2.0.GTop.glibtop_swap */
     flags: number
     total: number
     used: number
@@ -903,7 +903,7 @@ export class glibtop_swap {
     static name: string
 }
 export class glibtop_sysdeps {
-    /* Fields of GTop.glibtop_sysdeps */
+    /* Fields of GTop-2.0.GTop.glibtop_sysdeps */
     flags: number
     features: number
     cpu: number
@@ -944,14 +944,14 @@ export class glibtop_sysdeps {
     static name: string
 }
 export class glibtop_sysinfo {
-    /* Fields of GTop.glibtop_sysinfo */
+    /* Fields of GTop-2.0.GTop.glibtop_sysinfo */
     flags: number
     ncpu: number
     cpuinfo: glibtop_entry[]
     static name: string
 }
 export class glibtop_uptime {
-    /* Fields of GTop.glibtop_uptime */
+    /* Fields of GTop-2.0.GTop.glibtop_uptime */
     flags: number
     uptime: number
     idletime: number
@@ -959,13 +959,13 @@ export class glibtop_uptime {
     static name: string
 }
 export class glibtop_response_union {
-    /* Fields of GTop.glibtop_response_union */
+    /* Fields of GTop-2.0.GTop.glibtop_response_union */
     data: glibtop_union
     sysdeps: glibtop_sysdeps
     static name: string
 }
 export class glibtop_union {
-    /* Fields of GTop.glibtop_union */
+    /* Fields of GTop-2.0.GTop.glibtop_union */
     cpu: glibtop_cpu
     mem: glibtop_mem
     swap: glibtop_swap

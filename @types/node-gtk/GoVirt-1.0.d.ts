@@ -35,10 +35,10 @@ export interface Proxy_ConstructProps extends Rest.Proxy_ConstructProps {
     caCert?: object[]
 }
 export class Proxy {
-    /* Properties of GoVirt.Proxy */
+    /* Properties of GoVirt-1.0.GoVirt.Proxy */
     admin: boolean
     caCert: object[]
-    /* Properties of Rest.Proxy */
+    /* Properties of Rest-0.7.Rest.Proxy */
     bindingRequired: boolean
     password: string
     sslCaFile: string
@@ -46,12 +46,12 @@ export class Proxy {
     urlFormat: string
     userAgent: string
     username: string
-    /* Fields of GoVirt.Proxy */
+    /* Fields of GoVirt-1.0.GoVirt.Proxy */
     parent: Rest.Proxy
     priv: ProxyPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GoVirt.Proxy */
+    /* Methods of GoVirt-1.0.GoVirt.Proxy */
     fetchCaCertificate(): boolean
     fetchCaCertificateAsync(cancellable: Gio.Cancellable | null, callback: Gio.AsyncReadyCallback | null): void
     fetchCaCertificateFinish(result: Gio.AsyncResult): any[]
@@ -60,12 +60,12 @@ export class Proxy {
     fetchVmsFinish(result: Gio.AsyncResult): Vm[]
     getVms(): Vm[]
     lookupVm(vmName: string): Vm
-    /* Methods of Rest.Proxy */
+    /* Methods of Rest-0.7.Rest.Proxy */
     addSoupFeature(feature: Soup.SessionFeature): void
     getUserAgent(): string
     newCall(): Rest.ProxyCall
     setUserAgent(userAgent: string): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -87,31 +87,18 @@ export class Proxy {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of Rest.Proxy */
-    vfuncAuthenticate(auth: Rest.ProxyAuth, retrying: boolean): boolean
-    vfuncNewCall(): Rest.ProxyCall
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Rest.Proxy */
+    /* Signals of Rest-0.7.Rest.Proxy */
     connect(sigName: "authenticate", callback: (($obj: Proxy, auth: Rest.ProxyAuth, retrying: boolean) => boolean)): number
-    connect_after(sigName: "authenticate", callback: (($obj: Proxy, auth: Rest.ProxyAuth, retrying: boolean) => boolean)): number
+    on(sigName: "authenticate", callback: (auth: Rest.ProxyAuth, retrying: boolean) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "authenticate", callback: (auth: Rest.ProxyAuth, retrying: boolean) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "authenticate", callback: (auth: Rest.ProxyAuth, retrying: boolean) => void): NodeJS.EventEmitter
     emit(sigName: "authenticate", auth: Rest.ProxyAuth, retrying: boolean): void
-    on(sigName: "authenticate", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "authenticate", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "authenticate", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Proxy, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Proxy, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::admin", callback: (($obj: Proxy, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::admin", callback: (($obj: Proxy, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::admin", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -180,18 +167,18 @@ export interface Vm_ConstructProps extends GObject.Object_ConstructProps {
     uuid?: string
 }
 export class Vm {
-    /* Properties of GoVirt.Vm */
+    /* Properties of GoVirt-1.0.GoVirt.Vm */
     display: VmDisplay
     href: string
     name: string
     state: VmState
     uuid: string
-    /* Fields of GoVirt.Vm */
+    /* Fields of GoVirt-1.0.GoVirt.Vm */
     parent: GObject.Object
     priv: VmPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GoVirt.Vm */
+    /* Methods of GoVirt-1.0.GoVirt.Vm */
     getTicket(proxy: Proxy): boolean
     getTicketAsync(proxy: Proxy, cancellable: Gio.Cancellable | null, callback: Gio.AsyncReadyCallback | null): void
     getTicketFinish(result: Gio.AsyncResult): boolean
@@ -201,7 +188,7 @@ export class Vm {
     stop(proxy: Proxy): boolean
     stopAsync(proxy: Proxy, cancellable: Gio.Cancellable | null, callback: Gio.AsyncReadyCallback | null): void
     stopFinish(result: Gio.AsyncResult): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -223,21 +210,12 @@ export class Vm {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Vm, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Vm, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::display", callback: (($obj: Vm, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::display", callback: (($obj: Vm, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::display", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -287,7 +265,7 @@ export interface VmDisplay_ConstructProps extends GObject.Object_ConstructProps 
     type?: VmDisplayType
 }
 export class VmDisplay {
-    /* Properties of GoVirt.VmDisplay */
+    /* Properties of GoVirt-1.0.GoVirt.VmDisplay */
     address: string
     expiry: number
     monitorCount: number
@@ -295,12 +273,12 @@ export class VmDisplay {
     securePort: number
     ticket: string
     type: VmDisplayType
-    /* Fields of GoVirt.VmDisplay */
+    /* Fields of GoVirt-1.0.GoVirt.VmDisplay */
     parent: GObject.Object
     priv: VmDisplayPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -322,21 +300,12 @@ export class VmDisplay {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: VmDisplay, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: VmDisplay, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::address", callback: (($obj: VmDisplay, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::address", callback: (($obj: VmDisplay, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::address", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -387,7 +356,7 @@ export class VmDisplay {
     static $gtype: GObject.Type
 }
 export abstract class ProxyClass {
-    /* Fields of GoVirt.ProxyClass */
+    /* Fields of GoVirt-1.0.GoVirt.ProxyClass */
     parentClass: Rest.ProxyClass
     static name: string
 }
@@ -395,13 +364,13 @@ export class ProxyPrivate {
     static name: string
 }
 export abstract class VmClass {
-    /* Fields of GoVirt.VmClass */
+    /* Fields of GoVirt-1.0.GoVirt.VmClass */
     parentClass: GObject.ObjectClass
     padding: object[]
     static name: string
 }
 export abstract class VmDisplayClass {
-    /* Fields of GoVirt.VmDisplayClass */
+    /* Fields of GoVirt-1.0.GoVirt.VmDisplayClass */
     parentClass: GObject.ObjectClass
     padding: object[]
     static name: string

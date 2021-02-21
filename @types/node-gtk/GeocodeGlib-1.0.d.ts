@@ -75,20 +75,13 @@ export const LOCATION_ACCURACY_STREET: number
 export const LOCATION_ACCURACY_UNKNOWN: number
 export function errorQuark(): GLib.Quark
 export class Backend {
-    /* Methods of GeocodeGlib.Backend */
+    /* Methods of GeocodeGlib-1.0.GeocodeGlib.Backend */
     forwardSearch(params: GLib.HashTable, cancellable?: Gio.Cancellable | null): Place[]
     forwardSearchAsync(params: GLib.HashTable, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     forwardSearchFinish(result: Gio.AsyncResult): Place[]
     reverseResolve(params: GLib.HashTable, cancellable?: Gio.Cancellable | null): Place[]
     reverseResolveAsync(params: GLib.HashTable, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     reverseResolveFinish(result: Gio.AsyncResult): Place[]
-    /* Virtual methods of GeocodeGlib.Backend */
-    vfuncForwardSearch(params: GLib.HashTable, cancellable?: Gio.Cancellable | null): Place[]
-    vfuncForwardSearchAsync(params: GLib.HashTable, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    vfuncForwardSearchFinish(result: Gio.AsyncResult): Place[]
-    vfuncReverseResolve(params: GLib.HashTable, cancellable?: Gio.Cancellable | null): Place[]
-    vfuncReverseResolveAsync(params: GLib.HashTable, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    vfuncReverseResolveFinish(result: Gio.AsyncResult): Place[]
     static name: string
 }
 export interface BoundingBox_ConstructProps extends GObject.Object_ConstructProps {
@@ -98,15 +91,15 @@ export interface BoundingBox_ConstructProps extends GObject.Object_ConstructProp
     top?: number
 }
 export class BoundingBox {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GeocodeGlib.BoundingBox */
+    /* Methods of GeocodeGlib-1.0.GeocodeGlib.BoundingBox */
     equal(b: BoundingBox): boolean
     getBottom(): number
     getLeft(): number
     getRight(): number
     getTop(): number
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -128,21 +121,12 @@ export class BoundingBox {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: BoundingBox, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: BoundingBox, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -163,13 +147,13 @@ export interface Forward_ConstructProps extends GObject.Object_ConstructProps {
     searchArea?: BoundingBox
 }
 export class Forward {
-    /* Properties of GeocodeGlib.Forward */
+    /* Properties of GeocodeGlib-1.0.GeocodeGlib.Forward */
     answerCount: number
     bounded: boolean
     searchArea: BoundingBox
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GeocodeGlib.Forward */
+    /* Methods of GeocodeGlib-1.0.GeocodeGlib.Forward */
     getAnswerCount(): number
     getBounded(): boolean
     getSearchArea(): BoundingBox | null
@@ -180,7 +164,7 @@ export class Forward {
     setBackend(backend?: Backend | null): void
     setBounded(bounded: boolean): void
     setSearchArea(box: BoundingBox): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -202,21 +186,12 @@ export class Forward {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Forward, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Forward, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::answer-count", callback: (($obj: Forward, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::answer-count", callback: (($obj: Forward, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::answer-count", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -257,15 +232,15 @@ export interface Location_ConstructProps extends GObject.Object_ConstructProps {
     timestamp?: number
 }
 export class Location {
-    /* Properties of GeocodeGlib.Location */
+    /* Properties of GeocodeGlib-1.0.GeocodeGlib.Location */
     accuracy: number
     altitude: number
     description: string
     latitude: number
     longitude: number
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GeocodeGlib.Location */
+    /* Methods of GeocodeGlib-1.0.GeocodeGlib.Location */
     equal(b: Location): boolean
     getAccuracy(): number
     getAltitude(): number
@@ -278,7 +253,7 @@ export class Location {
     setDescription(description: string): void
     setFromUri(uri: string): boolean
     toUri(scheme: LocationURIScheme): string
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -300,21 +275,12 @@ export class Location {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Location, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Location, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::accuracy", callback: (($obj: Location, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::accuracy", callback: (($obj: Location, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::accuracy", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -358,14 +324,14 @@ export class Location {
 export interface MockBackend_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class MockBackend {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GeocodeGlib.MockBackend */
+    /* Methods of GeocodeGlib-1.0.GeocodeGlib.MockBackend */
     addForwardResult(params: GLib.HashTable, results?: Place[] | null, error?: GLib.Error | null): void
     addReverseResult(params: GLib.HashTable, results?: Place[] | null, error?: GLib.Error | null): void
     clear(): void
     getQueryLog(): MockBackendQuery[]
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -387,35 +353,19 @@ export class MockBackend {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of GeocodeGlib.Backend */
+    /* Methods of GeocodeGlib-1.0.GeocodeGlib.Backend */
     forwardSearch(params: GLib.HashTable, cancellable?: Gio.Cancellable | null): Place[]
     forwardSearchAsync(params: GLib.HashTable, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     forwardSearchFinish(result: Gio.AsyncResult): Place[]
     reverseResolve(params: GLib.HashTable, cancellable?: Gio.Cancellable | null): Place[]
     reverseResolveAsync(params: GLib.HashTable, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     reverseResolveFinish(result: Gio.AsyncResult): Place[]
-    /* Virtual methods of GeocodeGlib.MockBackend */
-    vfuncForwardSearch(params: GLib.HashTable, cancellable?: Gio.Cancellable | null): Place[]
-    vfuncForwardSearchAsync(params: GLib.HashTable, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    vfuncForwardSearchFinish(result: Gio.AsyncResult): Place[]
-    vfuncReverseResolve(params: GLib.HashTable, cancellable?: Gio.Cancellable | null): Place[]
-    vfuncReverseResolveAsync(params: GLib.HashTable, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    vfuncReverseResolveFinish(result: Gio.AsyncResult): Place[]
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: MockBackend, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: MockBackend, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -436,13 +386,13 @@ export interface Nominatim_ConstructProps extends GObject.Object_ConstructProps 
     userAgent?: string
 }
 export class Nominatim {
-    /* Properties of GeocodeGlib.Nominatim */
+    /* Properties of GeocodeGlib-1.0.GeocodeGlib.Nominatim */
     userAgent: string
-    /* Fields of GeocodeGlib.Nominatim */
+    /* Fields of GeocodeGlib-1.0.GeocodeGlib.Nominatim */
     parentInstance: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -464,38 +414,19 @@ export class Nominatim {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of GeocodeGlib.Backend */
+    /* Methods of GeocodeGlib-1.0.GeocodeGlib.Backend */
     forwardSearch(params: GLib.HashTable, cancellable?: Gio.Cancellable | null): Place[]
     forwardSearchAsync(params: GLib.HashTable, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     forwardSearchFinish(result: Gio.AsyncResult): Place[]
     reverseResolve(params: GLib.HashTable, cancellable?: Gio.Cancellable | null): Place[]
     reverseResolveAsync(params: GLib.HashTable, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     reverseResolveFinish(result: Gio.AsyncResult): Place[]
-    /* Virtual methods of GeocodeGlib.Nominatim */
-    vfuncQuery(uri: string, cancellable?: Gio.Cancellable | null): string
-    vfuncQueryAsync(uri: string, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    vfuncQueryFinish(res: Gio.AsyncResult): string
-    vfuncForwardSearch(params: GLib.HashTable, cancellable?: Gio.Cancellable | null): Place[]
-    vfuncForwardSearchAsync(params: GLib.HashTable, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    vfuncForwardSearchFinish(result: Gio.AsyncResult): Place[]
-    vfuncReverseResolve(params: GLib.HashTable, cancellable?: Gio.Cancellable | null): Place[]
-    vfuncReverseResolveAsync(params: GLib.HashTable, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    vfuncReverseResolveFinish(result: Gio.AsyncResult): Place[]
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Nominatim, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Nominatim, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::user-agent", callback: (($obj: Nominatim, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::user-agent", callback: (($obj: Nominatim, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::user-agent", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -537,7 +468,7 @@ export interface Place_ConstructProps extends GObject.Object_ConstructProps {
     town?: string
 }
 export class Place {
-    /* Properties of GeocodeGlib.Place */
+    /* Properties of GeocodeGlib-1.0.GeocodeGlib.Place */
     administrativeArea: string
     area: string
     boundingBox: BoundingBox
@@ -556,9 +487,9 @@ export class Place {
     street: string
     streetAddress: string
     town: string
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GeocodeGlib.Place */
+    /* Methods of GeocodeGlib-1.0.GeocodeGlib.Place */
     equal(b: Place): boolean
     getAdministrativeArea(): string
     getArea(): string
@@ -594,7 +525,7 @@ export class Place {
     setStreet(street: string): void
     setStreetAddress(streetAddress: string): void
     setTown(town: string): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -616,21 +547,12 @@ export class Place {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Place, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Place, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::administrative-area", callback: (($obj: Place, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::administrative-area", callback: (($obj: Place, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::administrative-area", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -739,14 +661,14 @@ export class Place {
 export interface Reverse_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class Reverse {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GeocodeGlib.Reverse */
+    /* Methods of GeocodeGlib-1.0.GeocodeGlib.Reverse */
     resolve(): Place
     resolveAsync(cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     resolveFinish(res: Gio.AsyncResult): Place
     setBackend(backend?: Backend | null): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -768,21 +690,12 @@ export class Reverse {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Reverse, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Reverse, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -798,7 +711,7 @@ export class Reverse {
     static $gtype: GObject.Type
 }
 export abstract class BackendInterface {
-    /* Fields of GeocodeGlib.BackendInterface */
+    /* Fields of GeocodeGlib-1.0.GeocodeGlib.BackendInterface */
     forwardSearch: (backend: Backend, params: GLib.HashTable, cancellable?: Gio.Cancellable | null) => Place[]
     forwardSearchAsync: (backend: Backend, params: GLib.HashTable, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null) => void
     forwardSearchFinish: (backend: Backend, result: Gio.AsyncResult) => Place[]
@@ -826,12 +739,12 @@ export class LocationPrivate {
     static name: string
 }
 export abstract class MockBackendClass {
-    /* Fields of GeocodeGlib.MockBackendClass */
+    /* Fields of GeocodeGlib-1.0.GeocodeGlib.MockBackendClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
 export class MockBackendQuery {
-    /* Fields of GeocodeGlib.MockBackendQuery */
+    /* Fields of GeocodeGlib-1.0.GeocodeGlib.MockBackendQuery */
     params: GLib.HashTable
     isForward: boolean
     results: Place[]
@@ -839,7 +752,7 @@ export class MockBackendQuery {
     static name: string
 }
 export abstract class NominatimClass {
-    /* Fields of GeocodeGlib.NominatimClass */
+    /* Fields of GeocodeGlib-1.0.GeocodeGlib.NominatimClass */
     parentClass: GObject.ObjectClass
     query: (self: Nominatim, uri: string, cancellable?: Gio.Cancellable | null) => string
     queryAsync: (self: Nominatim, uri: string, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null) => void

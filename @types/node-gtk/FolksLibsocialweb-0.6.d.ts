@@ -24,33 +24,33 @@ export interface Persona_ConstructProps extends Folks.Persona_ConstructProps {
     webServiceAddresses?: Gee.MultiMap
 }
 export class Persona {
-    /* Properties of Folks.Persona */
+    /* Properties of Folks-0.6.Folks.Persona */
     individual: Folks.Individual
     readonly linkableProperties: string[]
     readonly writeableProperties: string[]
-    /* Properties of Folks.AvatarDetails */
+    /* Properties of Folks-0.6.Folks.AvatarDetails */
     avatar: Gio.LoadableIcon
-    /* Properties of Folks.GenderDetails */
+    /* Properties of Folks-0.6.Folks.GenderDetails */
     gender: Folks.Gender
-    /* Properties of Folks.ImDetails */
+    /* Properties of Folks-0.6.Folks.ImDetails */
     imAddresses: Gee.MultiMap
-    /* Properties of Folks.NameDetails */
+    /* Properties of Folks-0.6.Folks.NameDetails */
     structuredName: Folks.StructuredName
     fullName: string
     nickname: string
-    /* Properties of Folks.UrlDetails */
+    /* Properties of Folks-0.6.Folks.UrlDetails */
     urls: Gee.Set
-    /* Properties of Folks.WebServiceDetails */
+    /* Properties of Folks-0.6.Folks.WebServiceDetails */
     webServiceAddresses: Gee.MultiMap
-    /* Fields of FolksLibsocialweb.Persona */
+    /* Fields of FolksLibsocialweb-0.6.FolksLibsocialweb.Persona */
     parentInstance: Folks.Persona
     priv: PersonaPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of FolksLibsocialweb.Persona */
+    /* Methods of FolksLibsocialweb-0.6.FolksLibsocialweb.Persona */
     update(contact: any): void
     getLswContact(): any
-    /* Methods of Folks.Persona */
+    /* Methods of Folks-0.6.Folks.Persona */
     linkablePropertyToLinks(propName: string, callback: any): void
     getIid(): string
     getUid(): string
@@ -60,7 +60,7 @@ export class Persona {
     getIndividual(): Folks.Individual | null
     getLinkableProperties(): string[]
     getWriteableProperties(): string[]
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -82,22 +82,22 @@ export class Persona {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of Folks.AvatarDetails */
+    /* Methods of Folks-0.6.Folks.AvatarDetails */
     changeAvatar(avatar?: Gio.LoadableIcon | null, callback?: Gio.AsyncReadyCallback | null): void
     changeAvatarFinish(res: Gio.AsyncResult): void
     getAvatar(): Gio.LoadableIcon | null
     setAvatar(value?: Gio.LoadableIcon | null): void
-    /* Methods of Folks.GenderDetails */
+    /* Methods of Folks-0.6.Folks.GenderDetails */
     changeGender(gender: Folks.Gender, callback?: Gio.AsyncReadyCallback | null): void
     changeGenderFinish(res: Gio.AsyncResult): void
     getGender(): Folks.Gender
     setGender(value: Folks.Gender): void
-    /* Methods of Folks.ImDetails */
+    /* Methods of Folks-0.6.Folks.ImDetails */
     changeImAddresses(imAddresses: Gee.MultiMap, callback?: Gio.AsyncReadyCallback | null): void
     changeImAddressesFinish(res: Gio.AsyncResult): void
     getImAddresses(): Gee.MultiMap
     setImAddresses(value: Gee.MultiMap): void
-    /* Methods of Folks.NameDetails */
+    /* Methods of Folks-0.6.Folks.NameDetails */
     changeStructuredName(name?: Folks.StructuredName | null, callback?: Gio.AsyncReadyCallback | null): void
     changeStructuredNameFinish(res: Gio.AsyncResult): void
     changeFullName(fullName: string, callback?: Gio.AsyncReadyCallback | null): void
@@ -110,68 +110,22 @@ export class Persona {
     setFullName(value: string): void
     getNickname(): string
     setNickname(value: string): void
-    /* Methods of Folks.UrlDetails */
+    /* Methods of Folks-0.6.Folks.UrlDetails */
     changeUrls(urls: Gee.Set, callback?: Gio.AsyncReadyCallback | null): void
     changeUrlsFinish(res: Gio.AsyncResult): void
     getUrls(): Gee.Set
     setUrls(value: Gee.Set): void
-    /* Methods of Folks.WebServiceDetails */
+    /* Methods of Folks-0.6.Folks.WebServiceDetails */
     changeWebServiceAddresses(webServiceAddresses: Gee.MultiMap, callback?: Gio.AsyncReadyCallback | null): void
     changeWebServiceAddressesFinish(res: Gio.AsyncResult): void
     getWebServiceAddresses(): Gee.MultiMap
     setWebServiceAddresses(value: Gee.MultiMap): void
-    /* Virtual methods of FolksLibsocialweb.Persona */
-    vfuncChangeAvatar(avatar?: Gio.LoadableIcon | null, callback?: Gio.AsyncReadyCallback | null): void
-    vfuncChangeAvatarFinish(res: Gio.AsyncResult): void
-    vfuncGetAvatar(): Gio.LoadableIcon | null
-    vfuncSetAvatar(value?: Gio.LoadableIcon | null): void
-    vfuncChangeGender(gender: Folks.Gender, callback?: Gio.AsyncReadyCallback | null): void
-    vfuncChangeGenderFinish(res: Gio.AsyncResult): void
-    vfuncGetGender(): Folks.Gender
-    vfuncSetGender(value: Folks.Gender): void
-    vfuncChangeImAddresses(imAddresses: Gee.MultiMap, callback?: Gio.AsyncReadyCallback | null): void
-    vfuncChangeImAddressesFinish(res: Gio.AsyncResult): void
-    vfuncGetImAddresses(): Gee.MultiMap
-    vfuncSetImAddresses(value: Gee.MultiMap): void
-    vfuncChangeStructuredName(name?: Folks.StructuredName | null, callback?: Gio.AsyncReadyCallback | null): void
-    vfuncChangeStructuredNameFinish(res: Gio.AsyncResult): void
-    vfuncChangeFullName(fullName: string, callback?: Gio.AsyncReadyCallback | null): void
-    vfuncChangeFullNameFinish(res: Gio.AsyncResult): void
-    vfuncChangeNickname(nickname: string, callback?: Gio.AsyncReadyCallback | null): void
-    vfuncChangeNicknameFinish(res: Gio.AsyncResult): void
-    vfuncGetStructuredName(): Folks.StructuredName | null
-    vfuncSetStructuredName(value?: Folks.StructuredName | null): void
-    vfuncGetFullName(): string
-    vfuncSetFullName(value: string): void
-    vfuncGetNickname(): string
-    vfuncSetNickname(value: string): void
-    vfuncChangeUrls(urls: Gee.Set, callback?: Gio.AsyncReadyCallback | null): void
-    vfuncChangeUrlsFinish(res: Gio.AsyncResult): void
-    vfuncGetUrls(): Gee.Set
-    vfuncSetUrls(value: Gee.Set): void
-    vfuncChangeWebServiceAddresses(webServiceAddresses: Gee.MultiMap, callback?: Gio.AsyncReadyCallback | null): void
-    vfuncChangeWebServiceAddressesFinish(res: Gio.AsyncResult): void
-    vfuncGetWebServiceAddresses(): Gee.MultiMap
-    vfuncSetWebServiceAddresses(value: Gee.MultiMap): void
-    /* Virtual methods of Folks.Persona */
-    vfuncLinkablePropertyToLinks(propName: string, callback: any): void
-    vfuncGetLinkableProperties(): string[]
-    vfuncGetWriteableProperties(): string[]
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Persona, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Persona, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::individual", callback: (($obj: Persona, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::individual", callback: (($obj: Persona, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::individual", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -247,7 +201,7 @@ export interface PersonaStore_ConstructProps extends Folks.PersonaStore_Construc
     service?: any
 }
 export class PersonaStore {
-    /* Properties of Folks.PersonaStore */
+    /* Properties of Folks-0.6.Folks.PersonaStore */
     readonly typeId: string
     readonly personas: Gee.Map
     readonly canAddPersonas: Folks.MaybeBool
@@ -261,14 +215,14 @@ export class PersonaStore {
     readonly alwaysWriteableProperties: string[]
     isPrimaryStore: boolean
     isUserSetDefault: boolean
-    /* Fields of FolksLibsocialweb.PersonaStore */
+    /* Fields of FolksLibsocialweb-0.6.FolksLibsocialweb.PersonaStore */
     parentInstance: Folks.PersonaStore
     priv: PersonaStorePrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of FolksLibsocialweb.PersonaStore */
+    /* Methods of FolksLibsocialweb-0.6.FolksLibsocialweb.PersonaStore */
     getService(): any
-    /* Methods of Folks.PersonaStore */
+    /* Methods of Folks-0.6.Folks.PersonaStore */
     emitPersonasChanged(added: Gee.Set | null, removed: Gee.Set | null, message: string | null, actor: Folks.Persona | null, reason: Folks.GroupDetailsChangeReason): void
     prepare(callback?: Gio.AsyncReadyCallback | null): void
     prepareFinish(res: Gio.AsyncResult): void
@@ -295,7 +249,7 @@ export class PersonaStore {
     getAlwaysWriteableProperties(): string[]
     getIsPrimaryStore(): boolean
     getIsUserSetDefault(): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -317,52 +271,23 @@ export class PersonaStore {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of Folks.PersonaStore */
-    vfuncPrepare(callback?: Gio.AsyncReadyCallback | null): void
-    vfuncPrepareFinish(res: Gio.AsyncResult): void
-    vfuncFlush(callback?: Gio.AsyncReadyCallback | null): void
-    vfuncFlushFinish(res: Gio.AsyncResult): void
-    vfuncAddPersonaFromDetails(details: GLib.HashTable, callback?: Gio.AsyncReadyCallback | null): void
-    vfuncAddPersonaFromDetailsFinish(res: Gio.AsyncResult): Folks.Persona | null
-    vfuncRemovePersona(persona: Folks.Persona, callback?: Gio.AsyncReadyCallback | null): void
-    vfuncRemovePersonaFinish(res: Gio.AsyncResult): void
-    vfuncGetTypeId(): string
-    vfuncGetPersonas(): Gee.Map
-    vfuncGetCanAddPersonas(): Folks.MaybeBool
-    vfuncGetCanAliasPersonas(): Folks.MaybeBool
-    vfuncGetCanGroupPersonas(): Folks.MaybeBool
-    vfuncGetCanRemovePersonas(): Folks.MaybeBool
-    vfuncGetIsPrepared(): boolean
-    vfuncGetIsQuiescent(): boolean
-    vfuncGetAlwaysWriteableProperties(): string[]
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Folks.PersonaStore */
+    /* Signals of Folks-0.6.Folks.PersonaStore */
     connect(sigName: "personas-changed", callback: (($obj: PersonaStore, added: Gee.Set, removed: Gee.Set, message: string | null, actor: Folks.Persona | null, reason: Folks.GroupDetailsChangeReason) => void)): number
-    connect_after(sigName: "personas-changed", callback: (($obj: PersonaStore, added: Gee.Set, removed: Gee.Set, message: string | null, actor: Folks.Persona | null, reason: Folks.GroupDetailsChangeReason) => void)): number
+    on(sigName: "personas-changed", callback: (added: Gee.Set, removed: Gee.Set, message: string | null, actor: Folks.Persona | null, reason: Folks.GroupDetailsChangeReason) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "personas-changed", callback: (added: Gee.Set, removed: Gee.Set, message: string | null, actor: Folks.Persona | null, reason: Folks.GroupDetailsChangeReason) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "personas-changed", callback: (added: Gee.Set, removed: Gee.Set, message: string | null, actor: Folks.Persona | null, reason: Folks.GroupDetailsChangeReason) => void): NodeJS.EventEmitter
     emit(sigName: "personas-changed", added: Gee.Set, removed: Gee.Set, message: string | null, actor: Folks.Persona | null, reason: Folks.GroupDetailsChangeReason): void
-    on(sigName: "personas-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "personas-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "personas-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "removed", callback: (($obj: PersonaStore) => void)): number
-    connect_after(sigName: "removed", callback: (($obj: PersonaStore) => void)): number
+    on(sigName: "removed", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "removed", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "removed", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "removed"): void
-    on(sigName: "removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: PersonaStore, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: PersonaStore, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::type-id", callback: (($obj: PersonaStore, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::type-id", callback: (($obj: PersonaStore, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::type-id", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -443,7 +368,7 @@ export class PersonaStore {
     static $gtype: GObject.Type
 }
 export abstract class PersonaClass {
-    /* Fields of FolksLibsocialweb.PersonaClass */
+    /* Fields of FolksLibsocialweb-0.6.FolksLibsocialweb.PersonaClass */
     parentClass: Folks.PersonaClass
     static name: string
 }
@@ -451,7 +376,7 @@ export class PersonaPrivate {
     static name: string
 }
 export abstract class PersonaStoreClass {
-    /* Fields of FolksLibsocialweb.PersonaStoreClass */
+    /* Fields of FolksLibsocialweb-0.6.FolksLibsocialweb.PersonaStoreClass */
     parentClass: Folks.PersonaStoreClass
     static name: string
 }

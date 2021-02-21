@@ -88,11 +88,11 @@ export enum GroupLevel {
 export interface Assign_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class Assign {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GCalc.Assign */
+    /* Methods of GCalc-1.GCalc.Assign */
     evaluate(): Expression
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -114,21 +114,12 @@ export class Assign {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Assign, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Assign, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -144,9 +135,9 @@ export class Assign {
 export interface BinaryOperator_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class BinaryOperator {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -168,21 +159,12 @@ export class BinaryOperator {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: BinaryOperator, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: BinaryOperator, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -198,9 +180,9 @@ export class BinaryOperator {
 export interface Constant_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class Constant {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GCalc.Constant */
+    /* Methods of GCalc-1.GCalc.Constant */
     real(): number
     imag(): number
     zero(): void
@@ -209,7 +191,7 @@ export class Constant {
     divide(c: Constant): Constant
     neg(): Constant
     pow(c: Constant): Constant
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -231,30 +213,12 @@ export class Constant {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GCalc.Constant */
-    vfuncReal(): number
-    vfuncImag(): number
-    vfuncZero(): void
-    vfuncAdd(c: Constant): Constant
-    vfuncMultiply(c: Constant): Constant
-    vfuncDivide(c: Constant): Constant
-    vfuncNeg(): Constant
-    vfuncPow(c: Constant): Constant
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Constant, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Constant, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -270,9 +234,9 @@ export class Constant {
 export interface Division_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class Division {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -294,21 +258,12 @@ export class Division {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Division, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Division, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -325,18 +280,18 @@ export interface Expression_ConstructProps extends GObject.Object_ConstructProps
     parent?: Expression
 }
 export class Expression {
-    /* Properties of GCalc.Expression */
+    /* Properties of GCalc-1.GCalc.Expression */
     parent: Expression
     readonly expressions: ExpressionContainer
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GCalc.Expression */
+    /* Methods of GCalc-1.GCalc.Expression */
     toString(): string
     solve(): Result
     getParent(): Expression
     setParent(value: Expression): void
     getExpressions(): ExpressionContainer
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -358,27 +313,12 @@ export class Expression {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GCalc.Expression */
-    vfuncToString(): string
-    vfuncSolve(): Result
-    vfuncGetParent(): Expression
-    vfuncSetParent(value: Expression): void
-    vfuncGetExpressions(): ExpressionContainer
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Expression, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Expression, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::parent", callback: (($obj: Expression, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::parent", callback: (($obj: Expression, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::parent", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -404,9 +344,9 @@ export class Expression {
 export interface ErrorExpression_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class ErrorExpression {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -428,21 +368,12 @@ export class ErrorExpression {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: ErrorExpression, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: ErrorExpression, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -461,14 +392,14 @@ export interface Function_ConstructProps extends GObject.Object_ConstructProps {
     closed?: boolean
 }
 export class Function {
-    /* Properties of GCalc.Function */
+    /* Properties of GCalc-1.GCalc.Function */
     readonly paramTypes: ExpressionContainer
     name: string
     nParams: number
     closed: boolean
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GCalc.Function */
+    /* Methods of GCalc-1.GCalc.Function */
     evaluate(): Expression
     verifyParams(): boolean
     getParamTypes(): ExpressionContainer
@@ -478,7 +409,7 @@ export class Function {
     setNParams(value: number): void
     getClosed(): boolean
     setClosed(value: boolean): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -500,31 +431,12 @@ export class Function {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GCalc.Function */
-    vfuncEvaluate(): Expression
-    vfuncVerifyParams(): boolean
-    vfuncGetParamTypes(): ExpressionContainer
-    vfuncGetName(): string
-    vfuncSetName(value: string): void
-    vfuncGetNParams(): number
-    vfuncSetNParams(value: number): void
-    vfuncGetClosed(): boolean
-    vfuncSetClosed(value: boolean): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Function, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Function, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::param-types", callback: (($obj: Function, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::param-types", callback: (($obj: Function, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::param-types", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -560,13 +472,13 @@ export class Function {
 export interface ErrorResult_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class ErrorResult {
-    /* Properties of GCalc.ErrorResult */
+    /* Properties of GCalc-1.GCalc.ErrorResult */
     readonly message: string
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GCalc.ErrorResult */
+    /* Methods of GCalc-1.GCalc.ErrorResult */
     getMessage(): string
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -588,23 +500,12 @@ export class ErrorResult {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GCalc.ErrorResult */
-    vfuncGetMessage(): string
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: ErrorResult, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: ErrorResult, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::message", callback: (($obj: ErrorResult, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::message", callback: (($obj: ErrorResult, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::message", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -627,18 +528,18 @@ export interface Group_ConstructProps extends GObject.Object_ConstructProps {
     closed?: boolean
 }
 export class Group {
-    /* Properties of GCalc.Group */
+    /* Properties of GCalc-1.GCalc.Group */
     level: GroupLevel
     closed: boolean
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GCalc.Group */
+    /* Methods of GCalc-1.GCalc.Group */
     evaluate(): Expression
     getLevel(): GroupLevel
     setLevel(value: GroupLevel): void
     getClosed(): boolean
     setClosed(value: boolean): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -660,27 +561,12 @@ export class Group {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GCalc.Group */
-    vfuncEvaluate(): Expression
-    vfuncGetLevel(): GroupLevel
-    vfuncSetLevel(value: GroupLevel): void
-    vfuncGetClosed(): boolean
-    vfuncSetClosed(value: boolean): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Group, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Group, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::level", callback: (($obj: Group, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::level", callback: (($obj: Group, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::level", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -706,11 +592,11 @@ export class Group {
 export interface Hashable_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class Hashable {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GCalc.Hashable */
+    /* Methods of GCalc-1.GCalc.Hashable */
     hash(): number
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -732,23 +618,12 @@ export class Hashable {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GCalc.Hashable */
-    vfuncHash(): number
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Hashable, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Hashable, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -764,13 +639,13 @@ export class Hashable {
 export interface MathEquation_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class MathEquation {
-    /* Properties of GCalc.MathEquation */
+    /* Properties of GCalc-1.GCalc.MathEquation */
     readonly variables: ExpressionHashMap
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GCalc.MathEquation */
+    /* Methods of GCalc-1.GCalc.MathEquation */
     getVariables(): ExpressionHashMap
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -792,23 +667,12 @@ export class MathEquation {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GCalc.MathEquation */
-    vfuncGetVariables(): ExpressionHashMap
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: MathEquation, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: MathEquation, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::variables", callback: (($obj: MathEquation, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::variables", callback: (($obj: MathEquation, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::variables", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -829,16 +693,16 @@ export class MathEquation {
 export interface MathEquationManager_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class MathEquationManager {
-    /* Properties of GCalc.MathEquationManager */
+    /* Properties of GCalc-1.GCalc.MathEquationManager */
     readonly equations: ExpressionContainer
     readonly functions: ExpressionContainer
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GCalc.MathEquationManager */
+    /* Methods of GCalc-1.GCalc.MathEquationManager */
     findVariable(name: string): Variable
     getEquations(): ExpressionContainer
     getFunctions(): ExpressionContainer
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -860,25 +724,12 @@ export class MathEquationManager {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GCalc.MathEquationManager */
-    vfuncFindVariable(name: string): Variable
-    vfuncGetEquations(): ExpressionContainer
-    vfuncGetFunctions(): ExpressionContainer
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: MathEquationManager, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: MathEquationManager, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::equations", callback: (($obj: MathEquationManager, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::equations", callback: (($obj: MathEquationManager, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::equations", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -904,9 +755,9 @@ export class MathEquationManager {
 export interface Minus_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class Minus {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -928,21 +779,12 @@ export class Minus {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Minus, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Minus, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -958,9 +800,9 @@ export class Minus {
 export interface Multiply_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class Multiply {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -982,21 +824,12 @@ export class Multiply {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Multiply, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Multiply, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -1012,9 +845,9 @@ export class Multiply {
 export interface Operator_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class Operator {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -1036,21 +869,12 @@ export class Operator {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Operator, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Operator, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -1066,9 +890,9 @@ export class Operator {
 export interface Plus_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class Plus {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -1090,21 +914,12 @@ export class Plus {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Plus, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Plus, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -1120,11 +935,11 @@ export class Plus {
 export interface Polynomial_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class Polynomial {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GCalc.Polynomial */
+    /* Methods of GCalc-1.GCalc.Polynomial */
     evaluate(): Expression
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -1146,23 +961,12 @@ export class Polynomial {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GCalc.Polynomial */
-    vfuncEvaluate(): Expression
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Polynomial, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Polynomial, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -1178,9 +982,9 @@ export class Polynomial {
 export interface Pow_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class Pow {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -1202,21 +1006,12 @@ export class Pow {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Pow, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Pow, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -1232,14 +1027,14 @@ export class Pow {
 export interface Result_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class Result {
-    /* Properties of GCalc.Result */
+    /* Properties of GCalc-1.GCalc.Result */
     readonly expression: Expression
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GCalc.Result */
+    /* Methods of GCalc-1.GCalc.Result */
     toString(): string
     getExpression(): Expression
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -1261,24 +1056,12 @@ export class Result {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GCalc.Result */
-    vfuncToString(): string
-    vfuncGetExpression(): Expression
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Result, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Result, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::expression", callback: (($obj: Result, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::expression", callback: (($obj: Result, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::expression", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -1300,15 +1083,15 @@ export interface Solver_ConstructProps extends GObject.Object_ConstructProps {
     equationManager?: MathEquationManager
 }
 export class Solver {
-    /* Properties of GCalc.Solver */
+    /* Properties of GCalc-1.GCalc.Solver */
     equationManager: MathEquationManager
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GCalc.Solver */
+    /* Methods of GCalc-1.GCalc.Solver */
     solve(str: string): Result
     getEquationManager(): MathEquationManager
     setEquationManager(value: MathEquationManager): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -1330,25 +1113,12 @@ export class Solver {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GCalc.Solver */
-    vfuncSolve(str: string): Result
-    vfuncGetEquationManager(): MathEquationManager
-    vfuncSetEquationManager(value: MathEquationManager): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Solver, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Solver, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::equation-manager", callback: (($obj: Solver, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::equation-manager", callback: (($obj: Solver, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::equation-manager", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -1369,12 +1139,12 @@ export class Solver {
 export interface Term_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class Term {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GCalc.Term */
+    /* Methods of GCalc-1.GCalc.Term */
     add(t: Term): Expression
     evaluate(): Expression
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -1396,24 +1166,12 @@ export class Term {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GCalc.Term */
-    vfuncAdd(t: Term): Expression
-    vfuncEvaluate(): Expression
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Term, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Term, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -1434,13 +1192,13 @@ export interface Variable_ConstructProps extends GObject.Object_ConstructProps {
     bind?: Variable
 }
 export class Variable {
-    /* Properties of GCalc.Variable */
+    /* Properties of GCalc-1.GCalc.Variable */
     name: string
     value: Constant
     bind: Variable
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GCalc.Variable */
+    /* Methods of GCalc-1.GCalc.Variable */
     evaluate(): Expression
     getName(): string
     setName(value: string): void
@@ -1449,7 +1207,7 @@ export class Variable {
     getBind(): Variable
     setBind(value: Variable): void
     getBinded(): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -1471,30 +1229,12 @@ export class Variable {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GCalc.Variable */
-    vfuncEvaluate(): Expression
-    vfuncGetName(): string
-    vfuncSetName(value: string): void
-    vfuncGetValue(): Constant
-    vfuncSetValue(value: Constant): void
-    vfuncGetBind(): Variable
-    vfuncSetBind(value: Variable): void
-    vfuncGetBinded(): boolean
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Variable, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Variable, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::name", callback: (($obj: Variable, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::name", callback: (($obj: Variable, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::name", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -1526,22 +1266,22 @@ export interface ExpressionContainer_ConstructProps extends Gee.ArrayList_Constr
     parent?: Expression
 }
 export class ExpressionContainer {
-    /* Properties of GCalc.ExpressionContainer */
+    /* Properties of GCalc-1.GCalc.ExpressionContainer */
     parent: Expression
-    /* Properties of Gee.AbstractBidirList */
+    /* Properties of Gee-0.8.Gee.AbstractBidirList */
     readonly readOnlyView: Gee.BidirList
-    /* Properties of Gee.AbstractCollection */
+    /* Properties of Gee-0.8.Gee.AbstractCollection */
     readonly size: number
     readonly readOnly: boolean
-    /* Fields of GCalc.ExpressionContainer */
+    /* Fields of GCalc-1.GCalc.ExpressionContainer */
     parentInstance: Gee.ArrayList
     priv: ExpressionContainerPrivate
-    /* Fields of Gee.ArrayList */
+    /* Fields of Gee-0.8.Gee.ArrayList */
     items: object[]
     itemsLength1: number
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GCalc.ExpressionContainer */
+    /* Methods of GCalc-1.GCalc.ExpressionContainer */
     add(exp: Expression): void
     removeAt(index: number): Expression
     remove(exp: Expression): Expression
@@ -1550,10 +1290,10 @@ export class ExpressionContainer {
     findNamed(name: string): Expression | null
     getParent(): Expression
     setParent(value: Expression): void
-    /* Methods of Gee.ArrayList */
+    /* Methods of Gee-0.8.Gee.ArrayList */
     addAll(collection: Gee.Collection): boolean
-    getEqualFunc(): [ /* returnType */ Gee.EqualDataFunc, /* resultTarget */ object | null ]
-    /* Methods of Gee.AbstractBidirList */
+    getEqualFunc(): { returnType: Gee.EqualDataFunc, resultTarget: object | null }
+    /* Methods of Gee-0.8.Gee.AbstractBidirList */
     bidirListIterator(): Gee.BidirListIterator
     reserved0(): void
     reserved1(): void
@@ -1566,7 +1306,7 @@ export class ExpressionContainer {
     reserved8(): void
     reserved9(): void
     getReadOnlyView(): Gee.BidirList
-    /* Methods of Gee.AbstractList */
+    /* Methods of Gee-0.8.Gee.AbstractList */
     listIterator(): Gee.ListIterator
     get(index: number): object | null
     set(index: number, item?: object | null): void
@@ -1575,7 +1315,7 @@ export class ExpressionContainer {
     removeAt(index: number): object | null
     slice(start: number, stop: number): Gee.List | null
     getReadOnlyView(): Gee.List
-    /* Methods of Gee.AbstractCollection */
+    /* Methods of Gee-0.8.Gee.AbstractCollection */
     contains(item?: object | null): boolean
     add(item?: object | null): boolean
     remove(item?: object | null): boolean
@@ -1585,7 +1325,7 @@ export class ExpressionContainer {
     getSize(): number
     getReadOnly(): boolean
     getReadOnlyView(): Gee.Collection
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -1607,130 +1347,23 @@ export class ExpressionContainer {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of Gio.ListModel */
+    /* Methods of Gio-2.0.Gio.ListModel */
     getItemType(): GObject.Type
     getNItems(): number
     getItem(position: number): GObject.Object | null
     itemsChanged(position: number, removed: number, added: number): void
-    /* Virtual methods of GCalc.ExpressionContainer */
-    vfuncGetItem(position: number): GObject.Object | null
-    vfuncGetItemType(): GObject.Type
-    vfuncGetNItems(): number
-    vfuncGetReadOnlyView(): Gee.BidirList
-    vfuncGetReadOnlyView(): Gee.List
-    vfuncGetReadOnlyView(): Gee.Collection
-    /* Virtual methods of Gee.ArrayList */
-    vfuncGetReadOnlyView(): Gee.BidirList
-    vfuncGetReadOnlyView(): Gee.List
-    vfuncGetReadOnlyView(): Gee.Collection
-    /* Virtual methods of Gee.AbstractBidirList */
-    vfuncBidirListIterator(): Gee.BidirListIterator
-    vfuncReserved0(): void
-    vfuncReserved1(): void
-    vfuncReserved2(): void
-    vfuncReserved3(): void
-    vfuncReserved4(): void
-    vfuncReserved5(): void
-    vfuncReserved6(): void
-    vfuncReserved7(): void
-    vfuncReserved8(): void
-    vfuncReserved9(): void
-    vfuncGetReadOnlyView(): Gee.BidirList
-    vfuncGetReadOnlyView(): Gee.List
-    vfuncGetReadOnlyView(): Gee.Collection
-    /* Virtual methods of Gee.AbstractList */
-    vfuncListIterator(): Gee.ListIterator
-    vfuncGet(index: number): object | null
-    vfuncSet(index: number, item?: object | null): void
-    vfuncIndexOf(item?: object | null): number
-    vfuncInsert(index: number, item?: object | null): void
-    vfuncRemoveAt(index: number): object | null
-    vfuncSlice(start: number, stop: number): Gee.List | null
-    vfuncReserved0(): void
-    vfuncReserved1(): void
-    vfuncReserved2(): void
-    vfuncReserved3(): void
-    vfuncReserved4(): void
-    vfuncReserved5(): void
-    vfuncReserved6(): void
-    vfuncReserved7(): void
-    vfuncReserved8(): void
-    vfuncReserved9(): void
-    vfuncGetReadOnlyView(): Gee.List
-    vfuncGetReadOnlyView(): Gee.Collection
-    vfuncFirst(): object | null
-    vfuncLast(): object | null
-    vfuncInsertAll(index: number, collection: Gee.Collection): void
-    vfuncSort(compareFunc: GLib.CompareDataFunc | null): void
-    /* Virtual methods of Gee.AbstractCollection */
-    vfuncContains(item?: object | null): boolean
-    vfuncAdd(item?: object | null): boolean
-    vfuncRemove(item?: object | null): boolean
-    vfuncClear(): void
-    vfuncIterator(): Gee.Iterator
-    vfuncForeach(f: Gee.ForallFunc): boolean
-    vfuncReserved0(): void
-    vfuncReserved1(): void
-    vfuncReserved2(): void
-    vfuncReserved3(): void
-    vfuncReserved4(): void
-    vfuncReserved5(): void
-    vfuncReserved6(): void
-    vfuncReserved7(): void
-    vfuncReserved8(): void
-    vfuncReserved9(): void
-    vfuncGetSize(): number
-    vfuncGetReadOnly(): boolean
-    vfuncGetReadOnlyView(): Gee.Collection
-    vfuncStream(aType: GObject.Type, aDupFunc: GObject.BoxedCopyFunc, aDestroyFunc: GLib.DestroyNotify, f: Gee.StreamFunc): Gee.Iterator
-    vfuncFold(aType: GObject.Type, aDupFunc: GObject.BoxedCopyFunc, aDestroyFunc: GLib.DestroyNotify, f: Gee.FoldFunc, seed?: object | null): object | null
-    vfuncMap(aType: GObject.Type, aDupFunc: GObject.BoxedCopyFunc, aDestroyFunc: GLib.DestroyNotify, f: Gee.MapFunc): Gee.Iterator
-    vfuncScan(aType: GObject.Type, aDupFunc: GObject.BoxedCopyFunc, aDestroyFunc: GLib.DestroyNotify, f: Gee.FoldFunc, seed?: object | null): Gee.Iterator
-    vfuncFilter(pred: Gee.Predicate): Gee.Iterator
-    vfuncChop(offset: number, length: number): Gee.Iterator
-    vfuncFlatMap(aType: GObject.Type, aDupFunc: GObject.BoxedCopyFunc, aDestroyFunc: GLib.DestroyNotify, f: Gee.FlatMapFunc): Gee.Iterator
-    vfuncTee(forks: number): Gee.Iterator[]
-    vfuncFirstMatch(pred: Gee.Predicate): object | null
-    vfuncAnyMatch(pred: Gee.Predicate): boolean
-    vfuncAllMatch(pred: Gee.Predicate): boolean
-    vfuncMax(compare: GLib.CompareDataFunc): object | null
-    vfuncMin(compare: GLib.CompareDataFunc): object | null
-    vfuncOrderBy(compare: GLib.CompareDataFunc | null): Gee.Iterator
-    vfuncGetElementType(): GObject.Type
-    vfuncAddAll(collection: Gee.Collection): boolean
-    vfuncContainsAll(collection: Gee.Collection): boolean
-    vfuncRemoveAll(collection: Gee.Collection): boolean
-    vfuncRetainAll(collection: Gee.Collection): boolean
-    vfuncToArray(): object[]
-    vfuncAddAllArray(array: object[]): boolean
-    vfuncContainsAllArray(array: object[]): boolean
-    vfuncRemoveAllArray(array: object[]): boolean
-    vfuncAddAllIterator(iter: Gee.Iterator): boolean
-    vfuncContainsAllIterator(iter: Gee.Iterator): boolean
-    vfuncRemoveAllIterator(iter: Gee.Iterator): boolean
-    vfuncGetIsEmpty(): boolean
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: ExpressionContainer, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: ExpressionContainer, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of Gio.ListModel */
+    /* Signals of Gio-2.0.Gio.ListModel */
     connect(sigName: "items-changed", callback: (($obj: ExpressionContainer, position: number, removed: number, added: number) => void)): number
-    connect_after(sigName: "items-changed", callback: (($obj: ExpressionContainer, position: number, removed: number, added: number) => void)): number
+    on(sigName: "items-changed", callback: (position: number, removed: number, added: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "items-changed", callback: (position: number, removed: number, added: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "items-changed", callback: (position: number, removed: number, added: number) => void): NodeJS.EventEmitter
     emit(sigName: "items-changed", position: number, removed: number, added: number): void
-    on(sigName: "items-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "items-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "items-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::parent", callback: (($obj: ExpressionContainer, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::parent", callback: (($obj: ExpressionContainer, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::parent", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -1770,36 +1403,36 @@ export interface ExpressionHashMap_ConstructProps extends Gee.HashMap_ConstructP
     parent?: Expression
 }
 export class ExpressionHashMap {
-    /* Properties of GCalc.ExpressionHashMap */
+    /* Properties of GCalc-1.GCalc.ExpressionHashMap */
     parent: Expression
-    /* Properties of Gee.AbstractMap */
+    /* Properties of Gee-0.8.Gee.AbstractMap */
     readonly size: number
     readonly readOnly: boolean
     readonly keys: Gee.Set
     readonly values: Gee.Collection
     readonly entries: Gee.Set
     readonly readOnlyView: Gee.Map
-    /* Fields of GCalc.ExpressionHashMap */
+    /* Fields of GCalc-1.GCalc.ExpressionHashMap */
     parentInstance: Gee.HashMap
     priv: ExpressionHashMapPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GCalc.ExpressionHashMap */
+    /* Methods of GCalc-1.GCalc.ExpressionHashMap */
     add(exp: Expression): void
     remove(exp: Expression): void
     findNamed(name: string): Expression
     getParent(): Expression
     setParent(value: Expression): void
-    /* Methods of Gee.HashMap */
-    getKeyHashFunc(): [ /* returnType */ Gee.HashDataFunc, /* resultTarget */ object | null ]
-    getKeyEqualFunc(): [ /* returnType */ Gee.EqualDataFunc, /* resultTarget */ object | null ]
-    getValueEqualFunc(): [ /* returnType */ Gee.EqualDataFunc, /* resultTarget */ object | null ]
-    /* Methods of Gee.AbstractMap */
+    /* Methods of Gee-0.8.Gee.HashMap */
+    getKeyHashFunc(): { returnType: Gee.HashDataFunc, resultTarget: object | null }
+    getKeyEqualFunc(): { returnType: Gee.EqualDataFunc, resultTarget: object | null }
+    getValueEqualFunc(): { returnType: Gee.EqualDataFunc, resultTarget: object | null }
+    /* Methods of Gee-0.8.Gee.AbstractMap */
     hasKey(key?: object | null): boolean
     has(key?: object | null, value?: object | null): boolean
     get(key?: object | null): object | null
     set(key?: object | null, value?: object | null): void
-    unset(key?: object | null): [ /* returnType */ boolean, /* value */ object | null ]
+    unset(key?: object | null): { returnType: boolean, value: object | null }
     mapIterator(): Gee.MapIterator
     clear(): void
     foreach(f: Gee.ForallFunc): boolean
@@ -1820,7 +1453,7 @@ export class ExpressionHashMap {
     getValues(): Gee.Collection
     getEntries(): Gee.Set
     getReadOnlyView(): Gee.Map
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -1842,66 +1475,12 @@ export class ExpressionHashMap {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of Gee.AbstractMap */
-    vfuncHasKey(key?: object | null): boolean
-    vfuncHas(key?: object | null, value?: object | null): boolean
-    vfuncGet(key?: object | null): object | null
-    vfuncSet(key?: object | null, value?: object | null): void
-    vfuncUnset(key?: object | null): [ /* returnType */ boolean, /* value */ object | null ]
-    vfuncMapIterator(): Gee.MapIterator
-    vfuncClear(): void
-    vfuncForeach(f: Gee.ForallFunc): boolean
-    vfuncStream(aType: GObject.Type, aDupFunc: GObject.BoxedCopyFunc, aDestroyFunc: GLib.DestroyNotify, f: Gee.StreamFunc): Gee.Iterator
-    vfuncReserved0(): void
-    vfuncReserved1(): void
-    vfuncReserved2(): void
-    vfuncReserved3(): void
-    vfuncReserved4(): void
-    vfuncReserved5(): void
-    vfuncReserved6(): void
-    vfuncReserved7(): void
-    vfuncReserved8(): void
-    vfuncReserved9(): void
-    vfuncGetSize(): number
-    vfuncGetReadOnly(): boolean
-    vfuncGetKeys(): Gee.Set
-    vfuncGetValues(): Gee.Collection
-    vfuncGetEntries(): Gee.Set
-    vfuncGetReadOnlyView(): Gee.Map
-    vfuncFold(aType: GObject.Type, aDupFunc: GObject.BoxedCopyFunc, aDestroyFunc: GLib.DestroyNotify, f: Gee.FoldFunc, seed?: object | null): object | null
-    vfuncMap(aType: GObject.Type, aDupFunc: GObject.BoxedCopyFunc, aDestroyFunc: GLib.DestroyNotify, f: Gee.MapFunc): Gee.Iterator
-    vfuncScan(aType: GObject.Type, aDupFunc: GObject.BoxedCopyFunc, aDestroyFunc: GLib.DestroyNotify, f: Gee.FoldFunc, seed?: object | null): Gee.Iterator
-    vfuncFilter(pred: Gee.Predicate): Gee.Iterator
-    vfuncChop(offset: number, length: number): Gee.Iterator
-    vfuncFlatMap(aType: GObject.Type, aDupFunc: GObject.BoxedCopyFunc, aDestroyFunc: GLib.DestroyNotify, f: Gee.FlatMapFunc): Gee.Iterator
-    vfuncTee(forks: number): Gee.Iterator[]
-    vfuncFirstMatch(pred: Gee.Predicate): object | null
-    vfuncAnyMatch(pred: Gee.Predicate): boolean
-    vfuncAllMatch(pred: Gee.Predicate): boolean
-    vfuncMax(compare: GLib.CompareDataFunc): object | null
-    vfuncMin(compare: GLib.CompareDataFunc): object | null
-    vfuncOrderBy(compare: GLib.CompareDataFunc | null): Gee.Iterator
-    vfuncGetElementType(): GObject.Type
-    vfuncIterator(): Gee.Iterator
-    vfuncSetAll(map: Gee.Map): void
-    vfuncUnsetAll(map: Gee.Map): boolean
-    vfuncHasAll(map: Gee.Map): boolean
-    vfuncGetIsEmpty(): boolean
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: ExpressionHashMap, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: ExpressionHashMap, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::parent", callback: (($obj: ExpressionHashMap, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::parent", callback: (($obj: ExpressionHashMap, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::parent", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -1955,17 +1534,17 @@ export class ExpressionHashMap {
 export interface GFunctionAcos_ConstructProps extends GFunction_ConstructProps {
 }
 export class GFunctionAcos {
-    /* Fields of GCalc.GFunctionAcos */
+    /* Fields of GCalc-1.GCalc.GFunctionAcos */
     parentInstance: GFunction
     priv: GFunctionAcosPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GCalc.GFunction */
+    /* Methods of GCalc-1.GCalc.GFunction */
     evaluate(): Expression
-    /* Methods of GCalc.GExpression */
+    /* Methods of GCalc-1.GCalc.GExpression */
     toString(): string
     solve(): Result
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -1987,38 +1566,12 @@ export class GFunctionAcos {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GCalc.GFunction */
-    vfuncEvaluate(): Expression
-    vfuncVerifyParams(): boolean
-    vfuncGetParamTypes(): ExpressionContainer
-    vfuncGetName(): string
-    vfuncSetName(value: string): void
-    vfuncGetNParams(): number
-    vfuncSetNParams(value: number): void
-    vfuncGetClosed(): boolean
-    vfuncSetClosed(value: boolean): void
-    vfuncHash(): number
-    /* Virtual methods of GCalc.GExpression */
-    vfuncToString(): string
-    vfuncSolve(): Result
-    vfuncGetParent(): Expression
-    vfuncSetParent(value: Expression): void
-    vfuncGetExpressions(): ExpressionContainer
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: GFunctionAcos, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: GFunctionAcos, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -2036,17 +1589,17 @@ export class GFunctionAcos {
 export interface GFunctionAcosh_ConstructProps extends GFunction_ConstructProps {
 }
 export class GFunctionAcosh {
-    /* Fields of GCalc.GFunctionAcosh */
+    /* Fields of GCalc-1.GCalc.GFunctionAcosh */
     parentInstance: GFunction
     priv: GFunctionAcoshPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GCalc.GFunction */
+    /* Methods of GCalc-1.GCalc.GFunction */
     evaluate(): Expression
-    /* Methods of GCalc.GExpression */
+    /* Methods of GCalc-1.GCalc.GExpression */
     toString(): string
     solve(): Result
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -2068,38 +1621,12 @@ export class GFunctionAcosh {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GCalc.GFunction */
-    vfuncEvaluate(): Expression
-    vfuncVerifyParams(): boolean
-    vfuncGetParamTypes(): ExpressionContainer
-    vfuncGetName(): string
-    vfuncSetName(value: string): void
-    vfuncGetNParams(): number
-    vfuncSetNParams(value: number): void
-    vfuncGetClosed(): boolean
-    vfuncSetClosed(value: boolean): void
-    vfuncHash(): number
-    /* Virtual methods of GCalc.GExpression */
-    vfuncToString(): string
-    vfuncSolve(): Result
-    vfuncGetParent(): Expression
-    vfuncSetParent(value: Expression): void
-    vfuncGetExpressions(): ExpressionContainer
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: GFunctionAcosh, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: GFunctionAcosh, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -2117,17 +1644,17 @@ export class GFunctionAcosh {
 export interface GFunctionAsin_ConstructProps extends GFunction_ConstructProps {
 }
 export class GFunctionAsin {
-    /* Fields of GCalc.GFunctionAsin */
+    /* Fields of GCalc-1.GCalc.GFunctionAsin */
     parentInstance: GFunction
     priv: GFunctionAsinPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GCalc.GFunction */
+    /* Methods of GCalc-1.GCalc.GFunction */
     evaluate(): Expression
-    /* Methods of GCalc.GExpression */
+    /* Methods of GCalc-1.GCalc.GExpression */
     toString(): string
     solve(): Result
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -2149,38 +1676,12 @@ export class GFunctionAsin {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GCalc.GFunction */
-    vfuncEvaluate(): Expression
-    vfuncVerifyParams(): boolean
-    vfuncGetParamTypes(): ExpressionContainer
-    vfuncGetName(): string
-    vfuncSetName(value: string): void
-    vfuncGetNParams(): number
-    vfuncSetNParams(value: number): void
-    vfuncGetClosed(): boolean
-    vfuncSetClosed(value: boolean): void
-    vfuncHash(): number
-    /* Virtual methods of GCalc.GExpression */
-    vfuncToString(): string
-    vfuncSolve(): Result
-    vfuncGetParent(): Expression
-    vfuncSetParent(value: Expression): void
-    vfuncGetExpressions(): ExpressionContainer
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: GFunctionAsin, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: GFunctionAsin, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -2198,17 +1699,17 @@ export class GFunctionAsin {
 export interface GFunctionAsinh_ConstructProps extends GFunction_ConstructProps {
 }
 export class GFunctionAsinh {
-    /* Fields of GCalc.GFunctionAsinh */
+    /* Fields of GCalc-1.GCalc.GFunctionAsinh */
     parentInstance: GFunction
     priv: GFunctionAsinhPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GCalc.GFunction */
+    /* Methods of GCalc-1.GCalc.GFunction */
     evaluate(): Expression
-    /* Methods of GCalc.GExpression */
+    /* Methods of GCalc-1.GCalc.GExpression */
     toString(): string
     solve(): Result
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -2230,38 +1731,12 @@ export class GFunctionAsinh {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GCalc.GFunction */
-    vfuncEvaluate(): Expression
-    vfuncVerifyParams(): boolean
-    vfuncGetParamTypes(): ExpressionContainer
-    vfuncGetName(): string
-    vfuncSetName(value: string): void
-    vfuncGetNParams(): number
-    vfuncSetNParams(value: number): void
-    vfuncGetClosed(): boolean
-    vfuncSetClosed(value: boolean): void
-    vfuncHash(): number
-    /* Virtual methods of GCalc.GExpression */
-    vfuncToString(): string
-    vfuncSolve(): Result
-    vfuncGetParent(): Expression
-    vfuncSetParent(value: Expression): void
-    vfuncGetExpressions(): ExpressionContainer
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: GFunctionAsinh, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: GFunctionAsinh, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -2279,17 +1754,17 @@ export class GFunctionAsinh {
 export interface GFunctionAtan_ConstructProps extends GFunction_ConstructProps {
 }
 export class GFunctionAtan {
-    /* Fields of GCalc.GFunctionAtan */
+    /* Fields of GCalc-1.GCalc.GFunctionAtan */
     parentInstance: GFunction
     priv: GFunctionAtanPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GCalc.GFunction */
+    /* Methods of GCalc-1.GCalc.GFunction */
     evaluate(): Expression
-    /* Methods of GCalc.GExpression */
+    /* Methods of GCalc-1.GCalc.GExpression */
     toString(): string
     solve(): Result
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -2311,38 +1786,12 @@ export class GFunctionAtan {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GCalc.GFunction */
-    vfuncEvaluate(): Expression
-    vfuncVerifyParams(): boolean
-    vfuncGetParamTypes(): ExpressionContainer
-    vfuncGetName(): string
-    vfuncSetName(value: string): void
-    vfuncGetNParams(): number
-    vfuncSetNParams(value: number): void
-    vfuncGetClosed(): boolean
-    vfuncSetClosed(value: boolean): void
-    vfuncHash(): number
-    /* Virtual methods of GCalc.GExpression */
-    vfuncToString(): string
-    vfuncSolve(): Result
-    vfuncGetParent(): Expression
-    vfuncSetParent(value: Expression): void
-    vfuncGetExpressions(): ExpressionContainer
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: GFunctionAtan, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: GFunctionAtan, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -2360,17 +1809,17 @@ export class GFunctionAtan {
 export interface GFunctionAtanh_ConstructProps extends GFunction_ConstructProps {
 }
 export class GFunctionAtanh {
-    /* Fields of GCalc.GFunctionAtanh */
+    /* Fields of GCalc-1.GCalc.GFunctionAtanh */
     parentInstance: GFunction
     priv: GFunctionAtanhPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GCalc.GFunction */
+    /* Methods of GCalc-1.GCalc.GFunction */
     evaluate(): Expression
-    /* Methods of GCalc.GExpression */
+    /* Methods of GCalc-1.GCalc.GExpression */
     toString(): string
     solve(): Result
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -2392,38 +1841,12 @@ export class GFunctionAtanh {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GCalc.GFunction */
-    vfuncEvaluate(): Expression
-    vfuncVerifyParams(): boolean
-    vfuncGetParamTypes(): ExpressionContainer
-    vfuncGetName(): string
-    vfuncSetName(value: string): void
-    vfuncGetNParams(): number
-    vfuncSetNParams(value: number): void
-    vfuncGetClosed(): boolean
-    vfuncSetClosed(value: boolean): void
-    vfuncHash(): number
-    /* Virtual methods of GCalc.GExpression */
-    vfuncToString(): string
-    vfuncSolve(): Result
-    vfuncGetParent(): Expression
-    vfuncSetParent(value: Expression): void
-    vfuncGetExpressions(): ExpressionContainer
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: GFunctionAtanh, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: GFunctionAtanh, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -2441,17 +1864,17 @@ export class GFunctionAtanh {
 export interface GFunctionCos_ConstructProps extends GFunction_ConstructProps {
 }
 export class GFunctionCos {
-    /* Fields of GCalc.GFunctionCos */
+    /* Fields of GCalc-1.GCalc.GFunctionCos */
     parentInstance: GFunction
     priv: GFunctionCosPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GCalc.GFunction */
+    /* Methods of GCalc-1.GCalc.GFunction */
     evaluate(): Expression
-    /* Methods of GCalc.GExpression */
+    /* Methods of GCalc-1.GCalc.GExpression */
     toString(): string
     solve(): Result
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -2473,38 +1896,12 @@ export class GFunctionCos {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GCalc.GFunction */
-    vfuncEvaluate(): Expression
-    vfuncVerifyParams(): boolean
-    vfuncGetParamTypes(): ExpressionContainer
-    vfuncGetName(): string
-    vfuncSetName(value: string): void
-    vfuncGetNParams(): number
-    vfuncSetNParams(value: number): void
-    vfuncGetClosed(): boolean
-    vfuncSetClosed(value: boolean): void
-    vfuncHash(): number
-    /* Virtual methods of GCalc.GExpression */
-    vfuncToString(): string
-    vfuncSolve(): Result
-    vfuncGetParent(): Expression
-    vfuncSetParent(value: Expression): void
-    vfuncGetExpressions(): ExpressionContainer
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: GFunctionCos, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: GFunctionCos, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -2522,17 +1919,17 @@ export class GFunctionCos {
 export interface GFunctionCosh_ConstructProps extends GFunction_ConstructProps {
 }
 export class GFunctionCosh {
-    /* Fields of GCalc.GFunctionCosh */
+    /* Fields of GCalc-1.GCalc.GFunctionCosh */
     parentInstance: GFunction
     priv: GFunctionCoshPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GCalc.GFunction */
+    /* Methods of GCalc-1.GCalc.GFunction */
     evaluate(): Expression
-    /* Methods of GCalc.GExpression */
+    /* Methods of GCalc-1.GCalc.GExpression */
     toString(): string
     solve(): Result
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -2554,38 +1951,12 @@ export class GFunctionCosh {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GCalc.GFunction */
-    vfuncEvaluate(): Expression
-    vfuncVerifyParams(): boolean
-    vfuncGetParamTypes(): ExpressionContainer
-    vfuncGetName(): string
-    vfuncSetName(value: string): void
-    vfuncGetNParams(): number
-    vfuncSetNParams(value: number): void
-    vfuncGetClosed(): boolean
-    vfuncSetClosed(value: boolean): void
-    vfuncHash(): number
-    /* Virtual methods of GCalc.GExpression */
-    vfuncToString(): string
-    vfuncSolve(): Result
-    vfuncGetParent(): Expression
-    vfuncSetParent(value: Expression): void
-    vfuncGetExpressions(): ExpressionContainer
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: GFunctionCosh, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: GFunctionCosh, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -2603,17 +1974,17 @@ export class GFunctionCosh {
 export interface GFunctionExp_ConstructProps extends GFunction_ConstructProps {
 }
 export class GFunctionExp {
-    /* Fields of GCalc.GFunctionExp */
+    /* Fields of GCalc-1.GCalc.GFunctionExp */
     parentInstance: GFunction
     priv: GFunctionExpPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GCalc.GFunction */
+    /* Methods of GCalc-1.GCalc.GFunction */
     evaluate(): Expression
-    /* Methods of GCalc.GExpression */
+    /* Methods of GCalc-1.GCalc.GExpression */
     toString(): string
     solve(): Result
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -2635,38 +2006,12 @@ export class GFunctionExp {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GCalc.GFunction */
-    vfuncEvaluate(): Expression
-    vfuncVerifyParams(): boolean
-    vfuncGetParamTypes(): ExpressionContainer
-    vfuncGetName(): string
-    vfuncSetName(value: string): void
-    vfuncGetNParams(): number
-    vfuncSetNParams(value: number): void
-    vfuncGetClosed(): boolean
-    vfuncSetClosed(value: boolean): void
-    vfuncHash(): number
-    /* Virtual methods of GCalc.GExpression */
-    vfuncToString(): string
-    vfuncSolve(): Result
-    vfuncGetParent(): Expression
-    vfuncSetParent(value: Expression): void
-    vfuncGetExpressions(): ExpressionContainer
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: GFunctionExp, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: GFunctionExp, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -2684,17 +2029,17 @@ export class GFunctionExp {
 export interface GFunctionLog_ConstructProps extends GFunction_ConstructProps {
 }
 export class GFunctionLog {
-    /* Fields of GCalc.GFunctionLog */
+    /* Fields of GCalc-1.GCalc.GFunctionLog */
     parentInstance: GFunction
     priv: GFunctionLogPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GCalc.GFunction */
+    /* Methods of GCalc-1.GCalc.GFunction */
     evaluate(): Expression
-    /* Methods of GCalc.GExpression */
+    /* Methods of GCalc-1.GCalc.GExpression */
     toString(): string
     solve(): Result
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -2716,38 +2061,12 @@ export class GFunctionLog {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GCalc.GFunction */
-    vfuncEvaluate(): Expression
-    vfuncVerifyParams(): boolean
-    vfuncGetParamTypes(): ExpressionContainer
-    vfuncGetName(): string
-    vfuncSetName(value: string): void
-    vfuncGetNParams(): number
-    vfuncSetNParams(value: number): void
-    vfuncGetClosed(): boolean
-    vfuncSetClosed(value: boolean): void
-    vfuncHash(): number
-    /* Virtual methods of GCalc.GExpression */
-    vfuncToString(): string
-    vfuncSolve(): Result
-    vfuncGetParent(): Expression
-    vfuncSetParent(value: Expression): void
-    vfuncGetExpressions(): ExpressionContainer
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: GFunctionLog, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: GFunctionLog, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -2765,17 +2084,17 @@ export class GFunctionLog {
 export interface GFunctionSin_ConstructProps extends GFunction_ConstructProps {
 }
 export class GFunctionSin {
-    /* Fields of GCalc.GFunctionSin */
+    /* Fields of GCalc-1.GCalc.GFunctionSin */
     parentInstance: GFunction
     priv: GFunctionSinPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GCalc.GFunction */
+    /* Methods of GCalc-1.GCalc.GFunction */
     evaluate(): Expression
-    /* Methods of GCalc.GExpression */
+    /* Methods of GCalc-1.GCalc.GExpression */
     toString(): string
     solve(): Result
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -2797,38 +2116,12 @@ export class GFunctionSin {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GCalc.GFunction */
-    vfuncEvaluate(): Expression
-    vfuncVerifyParams(): boolean
-    vfuncGetParamTypes(): ExpressionContainer
-    vfuncGetName(): string
-    vfuncSetName(value: string): void
-    vfuncGetNParams(): number
-    vfuncSetNParams(value: number): void
-    vfuncGetClosed(): boolean
-    vfuncSetClosed(value: boolean): void
-    vfuncHash(): number
-    /* Virtual methods of GCalc.GExpression */
-    vfuncToString(): string
-    vfuncSolve(): Result
-    vfuncGetParent(): Expression
-    vfuncSetParent(value: Expression): void
-    vfuncGetExpressions(): ExpressionContainer
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: GFunctionSin, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: GFunctionSin, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -2846,17 +2139,17 @@ export class GFunctionSin {
 export interface GFunctionSinh_ConstructProps extends GFunction_ConstructProps {
 }
 export class GFunctionSinh {
-    /* Fields of GCalc.GFunctionSinh */
+    /* Fields of GCalc-1.GCalc.GFunctionSinh */
     parentInstance: GFunction
     priv: GFunctionSinhPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GCalc.GFunction */
+    /* Methods of GCalc-1.GCalc.GFunction */
     evaluate(): Expression
-    /* Methods of GCalc.GExpression */
+    /* Methods of GCalc-1.GCalc.GExpression */
     toString(): string
     solve(): Result
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -2878,38 +2171,12 @@ export class GFunctionSinh {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GCalc.GFunction */
-    vfuncEvaluate(): Expression
-    vfuncVerifyParams(): boolean
-    vfuncGetParamTypes(): ExpressionContainer
-    vfuncGetName(): string
-    vfuncSetName(value: string): void
-    vfuncGetNParams(): number
-    vfuncSetNParams(value: number): void
-    vfuncGetClosed(): boolean
-    vfuncSetClosed(value: boolean): void
-    vfuncHash(): number
-    /* Virtual methods of GCalc.GExpression */
-    vfuncToString(): string
-    vfuncSolve(): Result
-    vfuncGetParent(): Expression
-    vfuncSetParent(value: Expression): void
-    vfuncGetExpressions(): ExpressionContainer
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: GFunctionSinh, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: GFunctionSinh, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -2927,17 +2194,17 @@ export class GFunctionSinh {
 export interface GFunctionSqrt_ConstructProps extends GFunction_ConstructProps {
 }
 export class GFunctionSqrt {
-    /* Fields of GCalc.GFunctionSqrt */
+    /* Fields of GCalc-1.GCalc.GFunctionSqrt */
     parentInstance: GFunction
     priv: GFunctionSqrtPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GCalc.GFunction */
+    /* Methods of GCalc-1.GCalc.GFunction */
     evaluate(): Expression
-    /* Methods of GCalc.GExpression */
+    /* Methods of GCalc-1.GCalc.GExpression */
     toString(): string
     solve(): Result
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -2959,38 +2226,12 @@ export class GFunctionSqrt {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GCalc.GFunction */
-    vfuncEvaluate(): Expression
-    vfuncVerifyParams(): boolean
-    vfuncGetParamTypes(): ExpressionContainer
-    vfuncGetName(): string
-    vfuncSetName(value: string): void
-    vfuncGetNParams(): number
-    vfuncSetNParams(value: number): void
-    vfuncGetClosed(): boolean
-    vfuncSetClosed(value: boolean): void
-    vfuncHash(): number
-    /* Virtual methods of GCalc.GExpression */
-    vfuncToString(): string
-    vfuncSolve(): Result
-    vfuncGetParent(): Expression
-    vfuncSetParent(value: Expression): void
-    vfuncGetExpressions(): ExpressionContainer
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: GFunctionSqrt, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: GFunctionSqrt, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -3008,17 +2249,17 @@ export class GFunctionSqrt {
 export interface GFunctionTan_ConstructProps extends GFunction_ConstructProps {
 }
 export class GFunctionTan {
-    /* Fields of GCalc.GFunctionTan */
+    /* Fields of GCalc-1.GCalc.GFunctionTan */
     parentInstance: GFunction
     priv: GFunctionTanPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GCalc.GFunction */
+    /* Methods of GCalc-1.GCalc.GFunction */
     evaluate(): Expression
-    /* Methods of GCalc.GExpression */
+    /* Methods of GCalc-1.GCalc.GExpression */
     toString(): string
     solve(): Result
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -3040,38 +2281,12 @@ export class GFunctionTan {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GCalc.GFunction */
-    vfuncEvaluate(): Expression
-    vfuncVerifyParams(): boolean
-    vfuncGetParamTypes(): ExpressionContainer
-    vfuncGetName(): string
-    vfuncSetName(value: string): void
-    vfuncGetNParams(): number
-    vfuncSetNParams(value: number): void
-    vfuncGetClosed(): boolean
-    vfuncSetClosed(value: boolean): void
-    vfuncHash(): number
-    /* Virtual methods of GCalc.GExpression */
-    vfuncToString(): string
-    vfuncSolve(): Result
-    vfuncGetParent(): Expression
-    vfuncSetParent(value: Expression): void
-    vfuncGetExpressions(): ExpressionContainer
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: GFunctionTan, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: GFunctionTan, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -3089,17 +2304,17 @@ export class GFunctionTan {
 export interface GFunctionTanh_ConstructProps extends GFunction_ConstructProps {
 }
 export class GFunctionTanh {
-    /* Fields of GCalc.GFunctionTanh */
+    /* Fields of GCalc-1.GCalc.GFunctionTanh */
     parentInstance: GFunction
     priv: GFunctionTanhPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GCalc.GFunction */
+    /* Methods of GCalc-1.GCalc.GFunction */
     evaluate(): Expression
-    /* Methods of GCalc.GExpression */
+    /* Methods of GCalc-1.GCalc.GExpression */
     toString(): string
     solve(): Result
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -3121,38 +2336,12 @@ export class GFunctionTanh {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GCalc.GFunction */
-    vfuncEvaluate(): Expression
-    vfuncVerifyParams(): boolean
-    vfuncGetParamTypes(): ExpressionContainer
-    vfuncGetName(): string
-    vfuncSetName(value: string): void
-    vfuncGetNParams(): number
-    vfuncSetNParams(value: number): void
-    vfuncGetClosed(): boolean
-    vfuncSetClosed(value: boolean): void
-    vfuncHash(): number
-    /* Virtual methods of GCalc.GExpression */
-    vfuncToString(): string
-    vfuncSolve(): Result
-    vfuncGetParent(): Expression
-    vfuncSetParent(value: Expression): void
-    vfuncGetExpressions(): ExpressionContainer
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: GFunctionTanh, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: GFunctionTanh, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -3171,18 +2360,18 @@ export interface GExpression_ConstructProps extends GObject.Object_ConstructProp
     parent?: Expression
 }
 export class GExpression {
-    /* Properties of GCalc.Expression */
+    /* Properties of GCalc-1.GCalc.Expression */
     parent: Expression
     readonly expressions: ExpressionContainer
-    /* Fields of GCalc.GExpression */
+    /* Fields of GCalc-1.GCalc.GExpression */
     parentInstance: GObject.Object
     priv: GExpressionPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GCalc.GExpression */
+    /* Methods of GCalc-1.GCalc.GExpression */
     toString(): string
     solve(): Result
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -3204,31 +2393,16 @@ export class GExpression {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of GCalc.Expression */
+    /* Methods of GCalc-1.GCalc.Expression */
     getParent(): Expression
     setParent(value: Expression): void
     getExpressions(): ExpressionContainer
-    /* Virtual methods of GCalc.GExpression */
-    vfuncToString(): string
-    vfuncSolve(): Result
-    vfuncGetParent(): Expression
-    vfuncSetParent(value: Expression): void
-    vfuncGetExpressions(): ExpressionContainer
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: GExpression, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: GExpression, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::parent", callback: (($obj: GExpression, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::parent", callback: (($obj: GExpression, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::parent", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -3256,15 +2430,15 @@ export class GExpression {
 export interface GErrorExpression_ConstructProps extends GExpression_ConstructProps {
 }
 export class GErrorExpression {
-    /* Fields of GCalc.GErrorExpression */
+    /* Fields of GCalc-1.GCalc.GErrorExpression */
     parentInstance: GExpression
     priv: GErrorExpressionPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GCalc.GExpression */
+    /* Methods of GCalc-1.GCalc.GExpression */
     toString(): string
     solve(): Result
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -3286,27 +2460,12 @@ export class GErrorExpression {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GCalc.GExpression */
-    vfuncToString(): string
-    vfuncSolve(): Result
-    vfuncGetParent(): Expression
-    vfuncSetParent(value: Expression): void
-    vfuncGetExpressions(): ExpressionContainer
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: GErrorExpression, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: GErrorExpression, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -3324,15 +2483,15 @@ export class GErrorExpression {
 export interface GAssign_ConstructProps extends GExpression_ConstructProps {
 }
 export class GAssign {
-    /* Fields of GCalc.GAssign */
+    /* Fields of GCalc-1.GCalc.GAssign */
     parentInstance: GExpression
     priv: GAssignPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GCalc.GExpression */
+    /* Methods of GCalc-1.GCalc.GExpression */
     toString(): string
     solve(): Result
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -3354,29 +2513,14 @@ export class GAssign {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of GCalc.Assign */
+    /* Methods of GCalc-1.GCalc.Assign */
     evaluate(): Expression
-    /* Virtual methods of GCalc.GExpression */
-    vfuncToString(): string
-    vfuncSolve(): Result
-    vfuncGetParent(): Expression
-    vfuncSetParent(value: Expression): void
-    vfuncGetExpressions(): ExpressionContainer
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: GAssign, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: GAssign, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -3394,17 +2538,17 @@ export class GAssign {
 export interface GConstant_ConstructProps extends GExpression_ConstructProps {
 }
 export class GConstant {
-    /* Fields of GCalc.GConstant */
+    /* Fields of GCalc-1.GCalc.GConstant */
     parentInstance: GExpression
     priv: GConstantPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GCalc.GConstant */
+    /* Methods of GCalc-1.GCalc.GConstant */
     subtract(c: Constant): Constant
-    /* Methods of GCalc.GExpression */
+    /* Methods of GCalc-1.GCalc.GExpression */
     toString(): string
     solve(): Result
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -3426,7 +2570,7 @@ export class GConstant {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of GCalc.Constant */
+    /* Methods of GCalc-1.GCalc.Constant */
     real(): number
     imag(): number
     zero(): void
@@ -3435,36 +2579,12 @@ export class GConstant {
     divide(c: Constant): Constant
     neg(): Constant
     pow(c: Constant): Constant
-    /* Virtual methods of GCalc.GConstant */
-    vfuncReal(): number
-    vfuncImag(): number
-    vfuncZero(): void
-    vfuncAdd(c: Constant): Constant
-    vfuncMultiply(c: Constant): Constant
-    vfuncDivide(c: Constant): Constant
-    vfuncNeg(): Constant
-    vfuncPow(c: Constant): Constant
-    /* Virtual methods of GCalc.GExpression */
-    vfuncToString(): string
-    vfuncSolve(): Result
-    vfuncGetParent(): Expression
-    vfuncSetParent(value: Expression): void
-    vfuncGetExpressions(): ExpressionContainer
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: GConstant, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: GConstant, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -3486,15 +2606,15 @@ export class GConstant {
 export interface GDivision_ConstructProps extends GExpression_ConstructProps {
 }
 export class GDivision {
-    /* Fields of GCalc.GDivision */
+    /* Fields of GCalc-1.GCalc.GDivision */
     parentInstance: GExpression
     priv: GDivisionPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GCalc.GExpression */
+    /* Methods of GCalc-1.GCalc.GExpression */
     toString(): string
     solve(): Result
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -3516,27 +2636,12 @@ export class GDivision {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GCalc.GExpression */
-    vfuncToString(): string
-    vfuncSolve(): Result
-    vfuncGetParent(): Expression
-    vfuncSetParent(value: Expression): void
-    vfuncGetExpressions(): ExpressionContainer
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: GDivision, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: GDivision, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -3554,16 +2659,16 @@ export class GDivision {
 export interface GErrorResult_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class GErrorResult {
-    /* Properties of GCalc.Result */
+    /* Properties of GCalc-1.GCalc.Result */
     readonly expression: Expression
-    /* Properties of GCalc.ErrorResult */
+    /* Properties of GCalc-1.GCalc.ErrorResult */
     readonly message: string
-    /* Fields of GCalc.GErrorResult */
+    /* Fields of GCalc-1.GCalc.GErrorResult */
     parentInstance: GObject.Object
     priv: GErrorResultPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -3585,30 +2690,17 @@ export class GErrorResult {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of GCalc.Result */
+    /* Methods of GCalc-1.GCalc.Result */
     toString(): string
     getExpression(): Expression
-    /* Methods of GCalc.ErrorResult */
+    /* Methods of GCalc-1.GCalc.ErrorResult */
     getMessage(): string
-    /* Virtual methods of GCalc.GErrorResult */
-    vfuncToString(): string
-    vfuncGetExpression(): Expression
-    vfuncGetMessage(): string
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: GErrorResult, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: GErrorResult, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::expression", callback: (($obj: GErrorResult, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::expression", callback: (($obj: GErrorResult, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::expression", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -3639,22 +2731,22 @@ export interface GFunction_ConstructProps extends GExpression_ConstructProps {
     closed?: boolean
 }
 export class GFunction {
-    /* Properties of GCalc.Function */
+    /* Properties of GCalc-1.GCalc.Function */
     readonly paramTypes: ExpressionContainer
     name: string
     nParams: number
     closed: boolean
-    /* Fields of GCalc.GFunction */
+    /* Fields of GCalc-1.GCalc.GFunction */
     parentInstance: GExpression
     priv: GFunctionPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GCalc.GFunction */
+    /* Methods of GCalc-1.GCalc.GFunction */
     evaluate(): Expression
-    /* Methods of GCalc.GExpression */
+    /* Methods of GCalc-1.GCalc.GExpression */
     toString(): string
     solve(): Result
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -3676,7 +2768,7 @@ export class GFunction {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of GCalc.Function */
+    /* Methods of GCalc-1.GCalc.Function */
     verifyParams(): boolean
     getParamTypes(): ExpressionContainer
     getName(): string
@@ -3685,40 +2777,14 @@ export class GFunction {
     setNParams(value: number): void
     getClosed(): boolean
     setClosed(value: boolean): void
-    /* Methods of GCalc.Hashable */
+    /* Methods of GCalc-1.GCalc.Hashable */
     hash(): number
-    /* Virtual methods of GCalc.GFunction */
-    vfuncEvaluate(): Expression
-    vfuncVerifyParams(): boolean
-    vfuncGetParamTypes(): ExpressionContainer
-    vfuncGetName(): string
-    vfuncSetName(value: string): void
-    vfuncGetNParams(): number
-    vfuncSetNParams(value: number): void
-    vfuncGetClosed(): boolean
-    vfuncSetClosed(value: boolean): void
-    vfuncHash(): number
-    /* Virtual methods of GCalc.GExpression */
-    vfuncToString(): string
-    vfuncSolve(): Result
-    vfuncGetParent(): Expression
-    vfuncSetParent(value: Expression): void
-    vfuncGetExpressions(): ExpressionContainer
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: GFunction, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: GFunction, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::param-types", callback: (($obj: GFunction, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::param-types", callback: (($obj: GFunction, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::param-types", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -3757,17 +2823,17 @@ export class GFunction {
 export interface GMathEquation_ConstructProps extends GExpression_ConstructProps {
 }
 export class GMathEquation {
-    /* Properties of GCalc.MathEquation */
+    /* Properties of GCalc-1.GCalc.MathEquation */
     readonly variables: ExpressionHashMap
-    /* Fields of GCalc.GMathEquation */
+    /* Fields of GCalc-1.GCalc.GMathEquation */
     parentInstance: GExpression
     priv: GMathEquationPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GCalc.GExpression */
+    /* Methods of GCalc-1.GCalc.GExpression */
     toString(): string
     solve(): Result
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -3789,31 +2855,14 @@ export class GMathEquation {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of GCalc.MathEquation */
+    /* Methods of GCalc-1.GCalc.MathEquation */
     getVariables(): ExpressionHashMap
-    /* Virtual methods of GCalc.GMathEquation */
-    vfuncGetVariables(): ExpressionHashMap
-    /* Virtual methods of GCalc.GExpression */
-    vfuncToString(): string
-    vfuncSolve(): Result
-    vfuncGetParent(): Expression
-    vfuncSetParent(value: Expression): void
-    vfuncGetExpressions(): ExpressionContainer
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: GMathEquation, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: GMathEquation, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::variables", callback: (($obj: GMathEquation, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::variables", callback: (($obj: GMathEquation, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::variables", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -3836,15 +2885,15 @@ export class GMathEquation {
 export interface GMathEquationManager_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class GMathEquationManager {
-    /* Properties of GCalc.MathEquationManager */
+    /* Properties of GCalc-1.GCalc.MathEquationManager */
     readonly equations: ExpressionContainer
     readonly functions: ExpressionContainer
-    /* Fields of GCalc.GMathEquationManager */
+    /* Fields of GCalc-1.GCalc.GMathEquationManager */
     parentInstance: GObject.Object
     priv: GMathEquationManagerPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -3866,29 +2915,16 @@ export class GMathEquationManager {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of GCalc.MathEquationManager */
+    /* Methods of GCalc-1.GCalc.MathEquationManager */
     findVariable(name: string): Variable
     getEquations(): ExpressionContainer
     getFunctions(): ExpressionContainer
-    /* Virtual methods of GCalc.GMathEquationManager */
-    vfuncFindVariable(name: string): Variable
-    vfuncGetEquations(): ExpressionContainer
-    vfuncGetFunctions(): ExpressionContainer
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: GMathEquationManager, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: GMathEquationManager, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::equations", callback: (($obj: GMathEquationManager, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::equations", callback: (($obj: GMathEquationManager, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::equations", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -3916,15 +2952,15 @@ export class GMathEquationManager {
 export interface GMinus_ConstructProps extends GExpression_ConstructProps {
 }
 export class GMinus {
-    /* Fields of GCalc.GMinus */
+    /* Fields of GCalc-1.GCalc.GMinus */
     parentInstance: GExpression
     priv: GMinusPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GCalc.GExpression */
+    /* Methods of GCalc-1.GCalc.GExpression */
     toString(): string
     solve(): Result
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -3946,27 +2982,12 @@ export class GMinus {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GCalc.GExpression */
-    vfuncToString(): string
-    vfuncSolve(): Result
-    vfuncGetParent(): Expression
-    vfuncSetParent(value: Expression): void
-    vfuncGetExpressions(): ExpressionContainer
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: GMinus, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: GMinus, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -3984,15 +3005,15 @@ export class GMinus {
 export interface GMultiply_ConstructProps extends GExpression_ConstructProps {
 }
 export class GMultiply {
-    /* Fields of GCalc.GMultiply */
+    /* Fields of GCalc-1.GCalc.GMultiply */
     parentInstance: GExpression
     priv: GMultiplyPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GCalc.GExpression */
+    /* Methods of GCalc-1.GCalc.GExpression */
     toString(): string
     solve(): Result
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -4014,27 +3035,12 @@ export class GMultiply {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GCalc.GExpression */
-    vfuncToString(): string
-    vfuncSolve(): Result
-    vfuncGetParent(): Expression
-    vfuncSetParent(value: Expression): void
-    vfuncGetExpressions(): ExpressionContainer
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: GMultiply, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: GMultiply, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -4052,16 +3058,16 @@ export class GMultiply {
 export interface GParser_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class GParser {
-    /* Fields of GCalc.GParser */
+    /* Fields of GCalc-1.GCalc.GParser */
     parentInstance: GObject.Object
     priv: GParserPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GCalc.GParser */
+    /* Methods of GCalc-1.GCalc.GParser */
     parse(str: string, eqman: MathEquationManager): void
     readToken(): GParserTokenType
     tokenToString(): string
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -4083,21 +3089,12 @@ export class GParser {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: GParser, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: GParser, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -4115,15 +3112,15 @@ export class GParser {
 export interface GPlus_ConstructProps extends GExpression_ConstructProps {
 }
 export class GPlus {
-    /* Fields of GCalc.GPlus */
+    /* Fields of GCalc-1.GCalc.GPlus */
     parentInstance: GExpression
     priv: GPlusPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GCalc.GExpression */
+    /* Methods of GCalc-1.GCalc.GExpression */
     toString(): string
     solve(): Result
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -4145,27 +3142,12 @@ export class GPlus {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GCalc.GExpression */
-    vfuncToString(): string
-    vfuncSolve(): Result
-    vfuncGetParent(): Expression
-    vfuncSetParent(value: Expression): void
-    vfuncGetExpressions(): ExpressionContainer
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: GPlus, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: GPlus, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -4183,15 +3165,15 @@ export class GPlus {
 export interface GPolynomial_ConstructProps extends GExpression_ConstructProps {
 }
 export class GPolynomial {
-    /* Fields of GCalc.GPolynomial */
+    /* Fields of GCalc-1.GCalc.GPolynomial */
     parentInstance: GExpression
     priv: GPolynomialPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GCalc.GExpression */
+    /* Methods of GCalc-1.GCalc.GExpression */
     toString(): string
     solve(): Result
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -4213,31 +3195,14 @@ export class GPolynomial {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of GCalc.Polynomial */
+    /* Methods of GCalc-1.GCalc.Polynomial */
     evaluate(): Expression
-    /* Virtual methods of GCalc.GPolynomial */
-    vfuncEvaluate(): Expression
-    /* Virtual methods of GCalc.GExpression */
-    vfuncToString(): string
-    vfuncSolve(): Result
-    vfuncGetParent(): Expression
-    vfuncSetParent(value: Expression): void
-    vfuncGetExpressions(): ExpressionContainer
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: GPolynomial, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: GPolynomial, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -4255,15 +3220,15 @@ export class GPolynomial {
 export interface GPow_ConstructProps extends GExpression_ConstructProps {
 }
 export class GPow {
-    /* Fields of GCalc.GPow */
+    /* Fields of GCalc-1.GCalc.GPow */
     parentInstance: GExpression
     priv: GPowPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GCalc.GExpression */
+    /* Methods of GCalc-1.GCalc.GExpression */
     toString(): string
     solve(): Result
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -4285,27 +3250,12 @@ export class GPow {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GCalc.GExpression */
-    vfuncToString(): string
-    vfuncSolve(): Result
-    vfuncGetParent(): Expression
-    vfuncSetParent(value: Expression): void
-    vfuncGetExpressions(): ExpressionContainer
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: GPow, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: GPow, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -4323,14 +3273,14 @@ export class GPow {
 export interface GResult_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class GResult {
-    /* Properties of GCalc.Result */
+    /* Properties of GCalc-1.GCalc.Result */
     readonly expression: Expression
-    /* Fields of GCalc.GResult */
+    /* Fields of GCalc-1.GCalc.GResult */
     parentInstance: GObject.Object
     priv: GResultPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -4352,27 +3302,15 @@ export class GResult {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of GCalc.Result */
+    /* Methods of GCalc-1.GCalc.Result */
     toString(): string
     getExpression(): Expression
-    /* Virtual methods of GCalc.GResult */
-    vfuncToString(): string
-    vfuncGetExpression(): Expression
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: GResult, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: GResult, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::expression", callback: (($obj: GResult, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::expression", callback: (($obj: GResult, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::expression", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -4397,18 +3335,18 @@ export interface GGroup_ConstructProps extends GExpression_ConstructProps {
     closed?: boolean
 }
 export class GGroup {
-    /* Properties of GCalc.Group */
+    /* Properties of GCalc-1.GCalc.Group */
     level: GroupLevel
     closed: boolean
-    /* Fields of GCalc.GGroup */
+    /* Fields of GCalc-1.GCalc.GGroup */
     parentInstance: GExpression
     priv: GGroupPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GCalc.GExpression */
+    /* Methods of GCalc-1.GCalc.GExpression */
     toString(): string
     solve(): Result
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -4430,39 +3368,18 @@ export class GGroup {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of GCalc.Group */
+    /* Methods of GCalc-1.GCalc.Group */
     evaluate(): Expression
     getLevel(): GroupLevel
     setLevel(value: GroupLevel): void
     getClosed(): boolean
     setClosed(value: boolean): void
-    /* Virtual methods of GCalc.GGroup */
-    vfuncEvaluate(): Expression
-    vfuncGetLevel(): GroupLevel
-    vfuncSetLevel(value: GroupLevel): void
-    vfuncGetClosed(): boolean
-    vfuncSetClosed(value: boolean): void
-    /* Virtual methods of GCalc.GExpression */
-    vfuncToString(): string
-    vfuncSolve(): Result
-    vfuncGetParent(): Expression
-    vfuncSetParent(value: Expression): void
-    vfuncGetExpressions(): ExpressionContainer
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: GGroup, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: GGroup, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::level", callback: (($obj: GGroup, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::level", callback: (($obj: GGroup, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::level", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -4491,14 +3408,14 @@ export interface GSolver_ConstructProps extends GObject.Object_ConstructProps {
     equationManager?: MathEquationManager
 }
 export class GSolver {
-    /* Properties of GCalc.Solver */
+    /* Properties of GCalc-1.GCalc.Solver */
     equationManager: MathEquationManager
-    /* Fields of GCalc.GSolver */
+    /* Fields of GCalc-1.GCalc.GSolver */
     parentInstance: GObject.Object
     priv: GSolverPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -4520,29 +3437,16 @@ export class GSolver {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of GCalc.Solver */
+    /* Methods of GCalc-1.GCalc.Solver */
     solve(str: string): Result
     getEquationManager(): MathEquationManager
     setEquationManager(value: MathEquationManager): void
-    /* Virtual methods of GCalc.GSolver */
-    vfuncSolve(str: string): Result
-    vfuncGetEquationManager(): MathEquationManager
-    vfuncSetEquationManager(value: MathEquationManager): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: GSolver, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: GSolver, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::equation-manager", callback: (($obj: GSolver, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::equation-manager", callback: (($obj: GSolver, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::equation-manager", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -4565,15 +3469,15 @@ export class GSolver {
 export interface GTerm_ConstructProps extends GExpression_ConstructProps {
 }
 export class GTerm {
-    /* Fields of GCalc.GTerm */
+    /* Fields of GCalc-1.GCalc.GTerm */
     parentInstance: GExpression
     priv: GTermPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GCalc.GExpression */
+    /* Methods of GCalc-1.GCalc.GExpression */
     toString(): string
     solve(): Result
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -4595,33 +3499,15 @@ export class GTerm {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of GCalc.Term */
+    /* Methods of GCalc-1.GCalc.Term */
     add(t: Term): Expression
     evaluate(): Expression
-    /* Virtual methods of GCalc.GTerm */
-    vfuncAdd(t: Term): Expression
-    vfuncEvaluate(): Expression
-    /* Virtual methods of GCalc.GExpression */
-    vfuncToString(): string
-    vfuncSolve(): Result
-    vfuncGetParent(): Expression
-    vfuncSetParent(value: Expression): void
-    vfuncGetExpressions(): ExpressionContainer
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: GTerm, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: GTerm, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -4643,19 +3529,19 @@ export interface GVariable_ConstructProps extends GExpression_ConstructProps {
     bind?: Variable
 }
 export class GVariable {
-    /* Properties of GCalc.Variable */
+    /* Properties of GCalc-1.GCalc.Variable */
     name: string
     value: Constant
     bind: Variable
-    /* Fields of GCalc.GVariable */
+    /* Fields of GCalc-1.GCalc.GVariable */
     parentInstance: GExpression
     priv: GVariablePrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GCalc.GExpression */
+    /* Methods of GCalc-1.GCalc.GExpression */
     toString(): string
     solve(): Result
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -4677,7 +3563,7 @@ export class GVariable {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of GCalc.Variable */
+    /* Methods of GCalc-1.GCalc.Variable */
     evaluate(): Expression
     getName(): string
     setName(value: string): void
@@ -4686,39 +3572,14 @@ export class GVariable {
     getBind(): Variable
     setBind(value: Variable): void
     getBinded(): boolean
-    /* Methods of GCalc.Hashable */
+    /* Methods of GCalc-1.GCalc.Hashable */
     hash(): number
-    /* Virtual methods of GCalc.GVariable */
-    vfuncEvaluate(): Expression
-    vfuncGetName(): string
-    vfuncSetName(value: string): void
-    vfuncGetValue(): Constant
-    vfuncSetValue(value: Constant): void
-    vfuncGetBind(): Variable
-    vfuncSetBind(value: Variable): void
-    vfuncGetBinded(): boolean
-    vfuncHash(): number
-    /* Virtual methods of GCalc.GExpression */
-    vfuncToString(): string
-    vfuncSolve(): Result
-    vfuncGetParent(): Expression
-    vfuncSetParent(value: Expression): void
-    vfuncGetExpressions(): ExpressionContainer
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: GVariable, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: GVariable, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::name", callback: (($obj: GVariable, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::name", callback: (($obj: GVariable, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::name", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -4750,7 +3611,7 @@ export class GVariable {
     static $gtype: GObject.Type
 }
 export abstract class ExpressionContainerClass {
-    /* Fields of GCalc.ExpressionContainerClass */
+    /* Fields of GCalc-1.GCalc.ExpressionContainerClass */
     parentClass: Gee.ArrayListClass
     static name: string
 }
@@ -4758,7 +3619,7 @@ export class ExpressionContainerPrivate {
     static name: string
 }
 export abstract class ExpressionHashMapClass {
-    /* Fields of GCalc.ExpressionHashMapClass */
+    /* Fields of GCalc-1.GCalc.ExpressionHashMapClass */
     parentClass: Gee.HashMapClass
     static name: string
 }
@@ -4766,7 +3627,7 @@ export class ExpressionHashMapPrivate {
     static name: string
 }
 export abstract class GFunctionAcosClass {
-    /* Fields of GCalc.GFunctionAcosClass */
+    /* Fields of GCalc-1.GCalc.GFunctionAcosClass */
     parentClass: GFunctionClass
     static name: string
 }
@@ -4774,7 +3635,7 @@ export class GFunctionAcosPrivate {
     static name: string
 }
 export abstract class GFunctionAcoshClass {
-    /* Fields of GCalc.GFunctionAcoshClass */
+    /* Fields of GCalc-1.GCalc.GFunctionAcoshClass */
     parentClass: GFunctionClass
     static name: string
 }
@@ -4782,7 +3643,7 @@ export class GFunctionAcoshPrivate {
     static name: string
 }
 export abstract class GFunctionAsinClass {
-    /* Fields of GCalc.GFunctionAsinClass */
+    /* Fields of GCalc-1.GCalc.GFunctionAsinClass */
     parentClass: GFunctionClass
     static name: string
 }
@@ -4790,7 +3651,7 @@ export class GFunctionAsinPrivate {
     static name: string
 }
 export abstract class GFunctionAsinhClass {
-    /* Fields of GCalc.GFunctionAsinhClass */
+    /* Fields of GCalc-1.GCalc.GFunctionAsinhClass */
     parentClass: GFunctionClass
     static name: string
 }
@@ -4798,7 +3659,7 @@ export class GFunctionAsinhPrivate {
     static name: string
 }
 export abstract class GFunctionAtanClass {
-    /* Fields of GCalc.GFunctionAtanClass */
+    /* Fields of GCalc-1.GCalc.GFunctionAtanClass */
     parentClass: GFunctionClass
     static name: string
 }
@@ -4806,7 +3667,7 @@ export class GFunctionAtanPrivate {
     static name: string
 }
 export abstract class GFunctionAtanhClass {
-    /* Fields of GCalc.GFunctionAtanhClass */
+    /* Fields of GCalc-1.GCalc.GFunctionAtanhClass */
     parentClass: GFunctionClass
     static name: string
 }
@@ -4814,7 +3675,7 @@ export class GFunctionAtanhPrivate {
     static name: string
 }
 export abstract class GFunctionCosClass {
-    /* Fields of GCalc.GFunctionCosClass */
+    /* Fields of GCalc-1.GCalc.GFunctionCosClass */
     parentClass: GFunctionClass
     static name: string
 }
@@ -4822,7 +3683,7 @@ export class GFunctionCosPrivate {
     static name: string
 }
 export abstract class GFunctionCoshClass {
-    /* Fields of GCalc.GFunctionCoshClass */
+    /* Fields of GCalc-1.GCalc.GFunctionCoshClass */
     parentClass: GFunctionClass
     static name: string
 }
@@ -4830,7 +3691,7 @@ export class GFunctionCoshPrivate {
     static name: string
 }
 export abstract class GFunctionExpClass {
-    /* Fields of GCalc.GFunctionExpClass */
+    /* Fields of GCalc-1.GCalc.GFunctionExpClass */
     parentClass: GFunctionClass
     static name: string
 }
@@ -4838,7 +3699,7 @@ export class GFunctionExpPrivate {
     static name: string
 }
 export abstract class GFunctionLogClass {
-    /* Fields of GCalc.GFunctionLogClass */
+    /* Fields of GCalc-1.GCalc.GFunctionLogClass */
     parentClass: GFunctionClass
     static name: string
 }
@@ -4846,7 +3707,7 @@ export class GFunctionLogPrivate {
     static name: string
 }
 export abstract class GFunctionSinClass {
-    /* Fields of GCalc.GFunctionSinClass */
+    /* Fields of GCalc-1.GCalc.GFunctionSinClass */
     parentClass: GFunctionClass
     static name: string
 }
@@ -4854,7 +3715,7 @@ export class GFunctionSinPrivate {
     static name: string
 }
 export abstract class GFunctionSinhClass {
-    /* Fields of GCalc.GFunctionSinhClass */
+    /* Fields of GCalc-1.GCalc.GFunctionSinhClass */
     parentClass: GFunctionClass
     static name: string
 }
@@ -4862,7 +3723,7 @@ export class GFunctionSinhPrivate {
     static name: string
 }
 export abstract class GFunctionSqrtClass {
-    /* Fields of GCalc.GFunctionSqrtClass */
+    /* Fields of GCalc-1.GCalc.GFunctionSqrtClass */
     parentClass: GFunctionClass
     static name: string
 }
@@ -4870,7 +3731,7 @@ export class GFunctionSqrtPrivate {
     static name: string
 }
 export abstract class GFunctionTanClass {
-    /* Fields of GCalc.GFunctionTanClass */
+    /* Fields of GCalc-1.GCalc.GFunctionTanClass */
     parentClass: GFunctionClass
     static name: string
 }
@@ -4878,7 +3739,7 @@ export class GFunctionTanPrivate {
     static name: string
 }
 export abstract class GFunctionTanhClass {
-    /* Fields of GCalc.GFunctionTanhClass */
+    /* Fields of GCalc-1.GCalc.GFunctionTanhClass */
     parentClass: GFunctionClass
     static name: string
 }
@@ -4886,7 +3747,7 @@ export class GFunctionTanhPrivate {
     static name: string
 }
 export abstract class GExpressionClass {
-    /* Fields of GCalc.GExpressionClass */
+    /* Fields of GCalc-1.GCalc.GExpressionClass */
     parentClass: GObject.ObjectClass
     toString: (self: GExpression) => string
     solve: (self: GExpression) => Result
@@ -4896,7 +3757,7 @@ export class GExpressionPrivate {
     static name: string
 }
 export abstract class GErrorExpressionClass {
-    /* Fields of GCalc.GErrorExpressionClass */
+    /* Fields of GCalc-1.GCalc.GErrorExpressionClass */
     parentClass: GExpressionClass
     static name: string
 }
@@ -4904,7 +3765,7 @@ export class GErrorExpressionPrivate {
     static name: string
 }
 export abstract class GAssignClass {
-    /* Fields of GCalc.GAssignClass */
+    /* Fields of GCalc-1.GCalc.GAssignClass */
     parentClass: GExpressionClass
     static name: string
 }
@@ -4912,7 +3773,7 @@ export class GAssignPrivate {
     static name: string
 }
 export abstract class GConstantClass {
-    /* Fields of GCalc.GConstantClass */
+    /* Fields of GCalc-1.GCalc.GConstantClass */
     parentClass: GExpressionClass
     static name: string
 }
@@ -4920,7 +3781,7 @@ export class GConstantPrivate {
     static name: string
 }
 export abstract class GDivisionClass {
-    /* Fields of GCalc.GDivisionClass */
+    /* Fields of GCalc-1.GCalc.GDivisionClass */
     parentClass: GExpressionClass
     static name: string
 }
@@ -4928,7 +3789,7 @@ export class GDivisionPrivate {
     static name: string
 }
 export abstract class GErrorResultClass {
-    /* Fields of GCalc.GErrorResultClass */
+    /* Fields of GCalc-1.GCalc.GErrorResultClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
@@ -4936,7 +3797,7 @@ export class GErrorResultPrivate {
     static name: string
 }
 export abstract class GFunctionClass {
-    /* Fields of GCalc.GFunctionClass */
+    /* Fields of GCalc-1.GCalc.GFunctionClass */
     parentClass: GExpressionClass
     evaluate: (self: GFunction) => Expression
     static name: string
@@ -4945,7 +3806,7 @@ export class GFunctionPrivate {
     static name: string
 }
 export abstract class GMathEquationClass {
-    /* Fields of GCalc.GMathEquationClass */
+    /* Fields of GCalc-1.GCalc.GMathEquationClass */
     parentClass: GExpressionClass
     static name: string
 }
@@ -4953,7 +3814,7 @@ export class GMathEquationPrivate {
     static name: string
 }
 export abstract class GMathEquationManagerClass {
-    /* Fields of GCalc.GMathEquationManagerClass */
+    /* Fields of GCalc-1.GCalc.GMathEquationManagerClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
@@ -4961,7 +3822,7 @@ export class GMathEquationManagerPrivate {
     static name: string
 }
 export abstract class GMinusClass {
-    /* Fields of GCalc.GMinusClass */
+    /* Fields of GCalc-1.GCalc.GMinusClass */
     parentClass: GExpressionClass
     static name: string
 }
@@ -4969,7 +3830,7 @@ export class GMinusPrivate {
     static name: string
 }
 export abstract class GMultiplyClass {
-    /* Fields of GCalc.GMultiplyClass */
+    /* Fields of GCalc-1.GCalc.GMultiplyClass */
     parentClass: GExpressionClass
     static name: string
 }
@@ -4977,7 +3838,7 @@ export class GMultiplyPrivate {
     static name: string
 }
 export abstract class GParserClass {
-    /* Fields of GCalc.GParserClass */
+    /* Fields of GCalc-1.GCalc.GParserClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
@@ -4985,7 +3846,7 @@ export class GParserPrivate {
     static name: string
 }
 export abstract class GPlusClass {
-    /* Fields of GCalc.GPlusClass */
+    /* Fields of GCalc-1.GCalc.GPlusClass */
     parentClass: GExpressionClass
     static name: string
 }
@@ -4993,7 +3854,7 @@ export class GPlusPrivate {
     static name: string
 }
 export abstract class GPolynomialClass {
-    /* Fields of GCalc.GPolynomialClass */
+    /* Fields of GCalc-1.GCalc.GPolynomialClass */
     parentClass: GExpressionClass
     static name: string
 }
@@ -5001,7 +3862,7 @@ export class GPolynomialPrivate {
     static name: string
 }
 export abstract class GPowClass {
-    /* Fields of GCalc.GPowClass */
+    /* Fields of GCalc-1.GCalc.GPowClass */
     parentClass: GExpressionClass
     static name: string
 }
@@ -5009,7 +3870,7 @@ export class GPowPrivate {
     static name: string
 }
 export abstract class GResultClass {
-    /* Fields of GCalc.GResultClass */
+    /* Fields of GCalc-1.GCalc.GResultClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
@@ -5017,7 +3878,7 @@ export class GResultPrivate {
     static name: string
 }
 export abstract class GGroupClass {
-    /* Fields of GCalc.GGroupClass */
+    /* Fields of GCalc-1.GCalc.GGroupClass */
     parentClass: GExpressionClass
     static name: string
 }
@@ -5025,7 +3886,7 @@ export class GGroupPrivate {
     static name: string
 }
 export abstract class GSolverClass {
-    /* Fields of GCalc.GSolverClass */
+    /* Fields of GCalc-1.GCalc.GSolverClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
@@ -5033,7 +3894,7 @@ export class GSolverPrivate {
     static name: string
 }
 export abstract class GTermClass {
-    /* Fields of GCalc.GTermClass */
+    /* Fields of GCalc-1.GCalc.GTermClass */
     parentClass: GExpressionClass
     static name: string
 }
@@ -5041,7 +3902,7 @@ export class GTermPrivate {
     static name: string
 }
 export abstract class GVariableClass {
-    /* Fields of GCalc.GVariableClass */
+    /* Fields of GCalc-1.GCalc.GVariableClass */
     parentClass: GExpressionClass
     static name: string
 }
@@ -5049,17 +3910,17 @@ export class GVariablePrivate {
     static name: string
 }
 export abstract class AssignIface {
-    /* Fields of GCalc.AssignIface */
+    /* Fields of GCalc-1.GCalc.AssignIface */
     parentIface: GObject.TypeInterface
     static name: string
 }
 export abstract class BinaryOperatorIface {
-    /* Fields of GCalc.BinaryOperatorIface */
+    /* Fields of GCalc-1.GCalc.BinaryOperatorIface */
     parentIface: GObject.TypeInterface
     static name: string
 }
 export abstract class ConstantIface {
-    /* Fields of GCalc.ConstantIface */
+    /* Fields of GCalc-1.GCalc.ConstantIface */
     parentIface: GObject.TypeInterface
     real: (self: Constant) => number
     imag: (self: Constant) => number
@@ -5072,12 +3933,12 @@ export abstract class ConstantIface {
     static name: string
 }
 export abstract class DivisionIface {
-    /* Fields of GCalc.DivisionIface */
+    /* Fields of GCalc-1.GCalc.DivisionIface */
     parentIface: GObject.TypeInterface
     static name: string
 }
 export abstract class ExpressionIface {
-    /* Fields of GCalc.ExpressionIface */
+    /* Fields of GCalc-1.GCalc.ExpressionIface */
     parentIface: GObject.TypeInterface
     toString: (self: Expression) => string
     solve: (self: Expression) => Result
@@ -5087,12 +3948,12 @@ export abstract class ExpressionIface {
     static name: string
 }
 export abstract class ErrorExpressionIface {
-    /* Fields of GCalc.ErrorExpressionIface */
+    /* Fields of GCalc-1.GCalc.ErrorExpressionIface */
     parentIface: GObject.TypeInterface
     static name: string
 }
 export abstract class FunctionIface {
-    /* Fields of GCalc.FunctionIface */
+    /* Fields of GCalc-1.GCalc.FunctionIface */
     parentIface: GObject.TypeInterface
     evaluate: (self: Function) => Expression
     verifyParams: (self: Function) => boolean
@@ -5106,13 +3967,13 @@ export abstract class FunctionIface {
     static name: string
 }
 export abstract class ErrorResultIface {
-    /* Fields of GCalc.ErrorResultIface */
+    /* Fields of GCalc-1.GCalc.ErrorResultIface */
     parentIface: GObject.TypeInterface
     getMessage: (self: ErrorResult) => string
     static name: string
 }
 export abstract class GroupIface {
-    /* Fields of GCalc.GroupIface */
+    /* Fields of GCalc-1.GCalc.GroupIface */
     parentIface: GObject.TypeInterface
     evaluate: (self: Group) => Expression
     getLevel: (self: Group) => GroupLevel
@@ -5122,19 +3983,19 @@ export abstract class GroupIface {
     static name: string
 }
 export abstract class HashableIface {
-    /* Fields of GCalc.HashableIface */
+    /* Fields of GCalc-1.GCalc.HashableIface */
     parentIface: GObject.TypeInterface
     hash: (self: Hashable) => number
     static name: string
 }
 export abstract class MathEquationIface {
-    /* Fields of GCalc.MathEquationIface */
+    /* Fields of GCalc-1.GCalc.MathEquationIface */
     parentIface: GObject.TypeInterface
     getVariables: (self: MathEquation) => ExpressionHashMap
     static name: string
 }
 export abstract class MathEquationManagerIface {
-    /* Fields of GCalc.MathEquationManagerIface */
+    /* Fields of GCalc-1.GCalc.MathEquationManagerIface */
     parentIface: GObject.TypeInterface
     findVariable: (self: MathEquationManager, name: string) => Variable
     getEquations: (self: MathEquationManager) => ExpressionContainer
@@ -5142,45 +4003,45 @@ export abstract class MathEquationManagerIface {
     static name: string
 }
 export abstract class MinusIface {
-    /* Fields of GCalc.MinusIface */
+    /* Fields of GCalc-1.GCalc.MinusIface */
     parentIface: GObject.TypeInterface
     static name: string
 }
 export abstract class MultiplyIface {
-    /* Fields of GCalc.MultiplyIface */
+    /* Fields of GCalc-1.GCalc.MultiplyIface */
     parentIface: GObject.TypeInterface
     static name: string
 }
 export abstract class OperatorIface {
-    /* Fields of GCalc.OperatorIface */
+    /* Fields of GCalc-1.GCalc.OperatorIface */
     parentIface: GObject.TypeInterface
     static name: string
 }
 export abstract class PlusIface {
-    /* Fields of GCalc.PlusIface */
+    /* Fields of GCalc-1.GCalc.PlusIface */
     parentIface: GObject.TypeInterface
     static name: string
 }
 export abstract class PolynomialIface {
-    /* Fields of GCalc.PolynomialIface */
+    /* Fields of GCalc-1.GCalc.PolynomialIface */
     parentIface: GObject.TypeInterface
     evaluate: (self: Polynomial) => Expression
     static name: string
 }
 export abstract class PowIface {
-    /* Fields of GCalc.PowIface */
+    /* Fields of GCalc-1.GCalc.PowIface */
     parentIface: GObject.TypeInterface
     static name: string
 }
 export abstract class ResultIface {
-    /* Fields of GCalc.ResultIface */
+    /* Fields of GCalc-1.GCalc.ResultIface */
     parentIface: GObject.TypeInterface
     toString: (self: Result) => string
     getExpression: (self: Result) => Expression
     static name: string
 }
 export abstract class SolverIface {
-    /* Fields of GCalc.SolverIface */
+    /* Fields of GCalc-1.GCalc.SolverIface */
     parentIface: GObject.TypeInterface
     solve: (self: Solver, str: string) => Result
     getEquationManager: (self: Solver) => MathEquationManager
@@ -5188,14 +4049,14 @@ export abstract class SolverIface {
     static name: string
 }
 export abstract class TermIface {
-    /* Fields of GCalc.TermIface */
+    /* Fields of GCalc-1.GCalc.TermIface */
     parentIface: GObject.TypeInterface
     add: (self: Term, t: Term) => Expression
     evaluate: (self: Term) => Expression
     static name: string
 }
 export abstract class VariableIface {
-    /* Fields of GCalc.VariableIface */
+    /* Fields of GCalc-1.GCalc.VariableIface */
     parentIface: GObject.TypeInterface
     evaluate: (self: Variable) => Expression
     getName: (self: Variable) => string

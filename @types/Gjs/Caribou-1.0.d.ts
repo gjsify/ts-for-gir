@@ -32,17 +32,17 @@ export interface IScannableItem_ConstructProps extends GObject.Object_ConstructP
     scan_selected?: boolean
 }
 export class IScannableItem {
-    /* Properties of Caribou.IScannableItem */
+    /* Properties of Caribou-1.0.Caribou.IScannableItem */
     scan_stepping: boolean
     scan_selected: boolean
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Caribou.IScannableItem */
+    /* Methods of Caribou-1.0.Caribou.IScannableItem */
     get_scan_stepping(): boolean
     set_scan_stepping(value: boolean): void
     get_scan_selected(): boolean
     set_scan_selected(value: boolean): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -64,12 +64,12 @@ export class IScannableItem {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Caribou.IScannableItem */
+    /* Virtual methods of Caribou-1.0.Caribou.IScannableItem */
     vfunc_get_scan_stepping(): boolean
     vfunc_set_scan_stepping(value: boolean): void
     vfunc_get_scan_selected(): boolean
     vfunc_set_scan_selected(value: boolean): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -77,7 +77,7 @@ export class IScannableItem {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: IScannableItem, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: IScannableItem, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -98,11 +98,11 @@ export interface IScannableGroup_ConstructProps extends GObject.Object_Construct
     scan_grouping?: ScanGrouping
 }
 export class IScannableGroup {
-    /* Properties of Caribou.IScannableGroup */
+    /* Properties of Caribou-1.0.Caribou.IScannableGroup */
     scan_grouping: ScanGrouping
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Caribou.IScannableGroup */
+    /* Methods of Caribou-1.0.Caribou.IScannableGroup */
     child_select(): IScannableItem | null
     scan_reset(): void
     get_scan_children(): IScannableItem[]
@@ -111,7 +111,7 @@ export class IScannableGroup {
     get_selected_path(): IScannableItem[]
     get_scan_grouping(): ScanGrouping
     set_scan_grouping(value: ScanGrouping): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -133,7 +133,7 @@ export class IScannableGroup {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Caribou.IScannableGroup */
+    /* Virtual methods of Caribou-1.0.Caribou.IScannableGroup */
     vfunc_child_select(): IScannableItem | null
     vfunc_scan_reset(): void
     vfunc_get_scan_children(): IScannableItem[]
@@ -142,7 +142,7 @@ export class IScannableGroup {
     vfunc_get_selected_path(): IScannableItem[]
     vfunc_get_scan_grouping(): ScanGrouping
     vfunc_set_scan_grouping(value: ScanGrouping): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -150,7 +150,7 @@ export class IScannableGroup {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Caribou.IScannableGroup */
+    /* Signals of Caribou-1.0.Caribou.IScannableGroup */
     connect(sigName: "selected-item-changed", callback: (($obj: IScannableGroup, selected_item?: IScannableItem | null) => void)): number
     connect_after(sigName: "selected-item-changed", callback: (($obj: IScannableGroup, selected_item?: IScannableItem | null) => void)): number
     emit(sigName: "selected-item-changed", selected_item?: IScannableItem | null): void
@@ -160,7 +160,7 @@ export class IScannableGroup {
     connect(sigName: "scan-cleared", callback: (($obj: IScannableGroup) => void)): number
     connect_after(sigName: "scan-cleared", callback: (($obj: IScannableGroup) => void)): number
     emit(sigName: "scan-cleared"): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: IScannableGroup, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: IScannableGroup, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -178,12 +178,12 @@ export class IScannableGroup {
 export interface IKeyboardObject_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class IKeyboardObject {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Caribou.IKeyboardObject */
+    /* Methods of Caribou-1.0.Caribou.IKeyboardObject */
     get_children(): IKeyboardObject[]
     get_keys(): KeyModel[]
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -205,10 +205,10 @@ export class IKeyboardObject {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Caribou.IKeyboardObject */
+    /* Virtual methods of Caribou-1.0.Caribou.IKeyboardObject */
     vfunc_get_children(): IKeyboardObject[]
     vfunc_get_keys(): KeyModel[]
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -216,7 +216,7 @@ export class IKeyboardObject {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Caribou.IKeyboardObject */
+    /* Signals of Caribou-1.0.Caribou.IKeyboardObject */
     connect(sigName: "key-clicked", callback: (($obj: IKeyboardObject, key: KeyModel) => void)): number
     connect_after(sigName: "key-clicked", callback: (($obj: IKeyboardObject, key: KeyModel) => void)): number
     emit(sigName: "key-clicked", key: KeyModel): void
@@ -226,7 +226,7 @@ export class IKeyboardObject {
     connect(sigName: "key-released", callback: (($obj: IKeyboardObject, key: KeyModel) => void)): number
     connect_after(sigName: "key-released", callback: (($obj: IKeyboardObject, key: KeyModel) => void)): number
     emit(sigName: "key-released", key: KeyModel): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: IKeyboardObject, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: IKeyboardObject, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -243,9 +243,9 @@ export interface DisplayAdapter_ConstructProps extends GObject.Object_ConstructP
     display?: Gdk.Display
 }
 export class DisplayAdapter {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Caribou.DisplayAdapter */
+    /* Methods of Caribou-1.0.Caribou.DisplayAdapter */
     keyval_press(keyval: number): void
     keyval_release(keyval: number): void
     mod_lock(mask: number): void
@@ -257,7 +257,7 @@ export class DisplayAdapter {
     register_key_func(keyval: number, func?: KeyButtonCallback | null): void
     register_button_func(button: number, func?: KeyButtonCallback | null): void
     get_display(): Gdk.Display
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -279,7 +279,7 @@ export class DisplayAdapter {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Caribou.DisplayAdapter */
+    /* Virtual methods of Caribou-1.0.Caribou.DisplayAdapter */
     vfunc_keyval_press(keyval: number): void
     vfunc_keyval_release(keyval: number): void
     vfunc_mod_lock(mask: number): void
@@ -290,7 +290,7 @@ export class DisplayAdapter {
     vfunc_get_groups(): [ /* group_names */ string[], /* variant_names */ string[] ]
     vfunc_register_key_func(keyval: number, func?: KeyButtonCallback | null): void
     vfunc_register_button_func(button: number, func?: KeyButtonCallback | null): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -298,7 +298,7 @@ export class DisplayAdapter {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Caribou.DisplayAdapter */
+    /* Signals of Caribou-1.0.Caribou.DisplayAdapter */
     connect(sigName: "modifiers-changed", callback: (($obj: DisplayAdapter, modifiers: number) => void)): number
     connect_after(sigName: "modifiers-changed", callback: (($obj: DisplayAdapter, modifiers: number) => void)): number
     emit(sigName: "modifiers-changed", modifiers: number): void
@@ -308,7 +308,7 @@ export class DisplayAdapter {
     connect(sigName: "config-changed", callback: (($obj: DisplayAdapter) => void)): number
     connect_after(sigName: "config-changed", callback: (($obj: DisplayAdapter) => void)): number
     emit(sigName: "config-changed"): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: DisplayAdapter, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: DisplayAdapter, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -327,9 +327,9 @@ export class DisplayAdapter {
 export interface NullAdapter_ConstructProps extends DisplayAdapter_ConstructProps {
 }
 export class NullAdapter {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Caribou.DisplayAdapter */
+    /* Methods of Caribou-1.0.Caribou.DisplayAdapter */
     keyval_press(keyval: number): void
     keyval_release(keyval: number): void
     mod_lock(mask: number): void
@@ -341,7 +341,7 @@ export class NullAdapter {
     register_key_func(keyval: number, func?: KeyButtonCallback | null): void
     register_button_func(button: number, func?: KeyButtonCallback | null): void
     get_display(): Gdk.Display
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -363,7 +363,7 @@ export class NullAdapter {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Caribou.DisplayAdapter */
+    /* Virtual methods of Caribou-1.0.Caribou.DisplayAdapter */
     vfunc_keyval_press(keyval: number): void
     vfunc_keyval_release(keyval: number): void
     vfunc_mod_lock(mask: number): void
@@ -374,7 +374,7 @@ export class NullAdapter {
     vfunc_get_groups(): [ /* group_names */ string[], /* variant_names */ string[] ]
     vfunc_register_key_func(keyval: number, func?: KeyButtonCallback | null): void
     vfunc_register_button_func(button: number, func?: KeyButtonCallback | null): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -382,7 +382,7 @@ export class NullAdapter {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Caribou.DisplayAdapter */
+    /* Signals of Caribou-1.0.Caribou.DisplayAdapter */
     connect(sigName: "modifiers-changed", callback: (($obj: NullAdapter, modifiers: number) => void)): number
     connect_after(sigName: "modifiers-changed", callback: (($obj: NullAdapter, modifiers: number) => void)): number
     emit(sigName: "modifiers-changed", modifiers: number): void
@@ -392,7 +392,7 @@ export class NullAdapter {
     connect(sigName: "config-changed", callback: (($obj: NullAdapter) => void)): number
     connect_after(sigName: "config-changed", callback: (($obj: NullAdapter) => void)): number
     emit(sigName: "config-changed"): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: NullAdapter, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: NullAdapter, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -410,9 +410,9 @@ export class NullAdapter {
 export interface XAdapter_ConstructProps extends DisplayAdapter_ConstructProps {
 }
 export class XAdapter {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Caribou.DisplayAdapter */
+    /* Methods of Caribou-1.0.Caribou.DisplayAdapter */
     keyval_press(keyval: number): void
     keyval_release(keyval: number): void
     mod_lock(mask: number): void
@@ -424,7 +424,7 @@ export class XAdapter {
     register_key_func(keyval: number, func?: KeyButtonCallback | null): void
     register_button_func(button: number, func?: KeyButtonCallback | null): void
     get_display(): Gdk.Display
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -446,7 +446,7 @@ export class XAdapter {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Caribou.DisplayAdapter */
+    /* Virtual methods of Caribou-1.0.Caribou.DisplayAdapter */
     vfunc_keyval_press(keyval: number): void
     vfunc_keyval_release(keyval: number): void
     vfunc_mod_lock(mask: number): void
@@ -457,7 +457,7 @@ export class XAdapter {
     vfunc_get_groups(): [ /* group_names */ string[], /* variant_names */ string[] ]
     vfunc_register_key_func(keyval: number, func?: KeyButtonCallback | null): void
     vfunc_register_button_func(button: number, func?: KeyButtonCallback | null): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -465,7 +465,7 @@ export class XAdapter {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Caribou.DisplayAdapter */
+    /* Signals of Caribou-1.0.Caribou.DisplayAdapter */
     connect(sigName: "modifiers-changed", callback: (($obj: XAdapter, modifiers: number) => void)): number
     connect_after(sigName: "modifiers-changed", callback: (($obj: XAdapter, modifiers: number) => void)): number
     emit(sigName: "modifiers-changed", modifiers: number): void
@@ -475,7 +475,7 @@ export class XAdapter {
     connect(sigName: "config-changed", callback: (($obj: XAdapter) => void)): number
     connect_after(sigName: "config-changed", callback: (($obj: XAdapter) => void)): number
     emit(sigName: "config-changed"): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: XAdapter, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: XAdapter, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -496,17 +496,17 @@ export interface KeyboardModel_ConstructProps extends GObject.Object_ConstructPr
     keyboard_file?: string
 }
 export class KeyboardModel {
-    /* Properties of Caribou.KeyboardModel */
+    /* Properties of Caribou-1.0.Caribou.KeyboardModel */
     active_group: string
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Caribou.KeyboardModel */
+    /* Methods of Caribou-1.0.Caribou.KeyboardModel */
     get_groups(): string[]
     get_group(group_name: string): GroupModel
     get_active_group(): string
     get_keyboard_type(): string
     get_keyboard_file(): string
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -528,13 +528,13 @@ export class KeyboardModel {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of Caribou.IKeyboardObject */
+    /* Methods of Caribou-1.0.Caribou.IKeyboardObject */
     get_children(): IKeyboardObject[]
     get_keys(): KeyModel[]
-    /* Virtual methods of Caribou.KeyboardModel */
+    /* Virtual methods of Caribou-1.0.Caribou.KeyboardModel */
     vfunc_get_children(): IKeyboardObject[]
     vfunc_get_keys(): KeyModel[]
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -542,18 +542,18 @@ export class KeyboardModel {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Caribou.KeyboardModel */
+    /* Signals of Caribou-1.0.Caribou.KeyboardModel */
     connect(sigName: "group-added", callback: (($obj: KeyboardModel, name: string) => void)): number
     connect_after(sigName: "group-added", callback: (($obj: KeyboardModel, name: string) => void)): number
     emit(sigName: "group-added", name: string): void
     connect(sigName: "group-removed", callback: (($obj: KeyboardModel, name: string) => void)): number
     connect_after(sigName: "group-removed", callback: (($obj: KeyboardModel, name: string) => void)): number
     emit(sigName: "group-removed", name: string): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: KeyboardModel, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: KeyboardModel, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    /* Signals of Caribou.IKeyboardObject */
+    /* Signals of Caribou-1.0.Caribou.IKeyboardObject */
     connect(sigName: "key-clicked", callback: (($obj: KeyboardModel, key: KeyModel) => void)): number
     connect_after(sigName: "key-clicked", callback: (($obj: KeyboardModel, key: KeyModel) => void)): number
     emit(sigName: "key-clicked", key: KeyModel): void
@@ -579,16 +579,16 @@ export class KeyboardModel {
 export interface KeyboardService_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class KeyboardService {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Caribou.KeyboardService */
+    /* Methods of Caribou-1.0.Caribou.KeyboardService */
     set_cursor_location(x: number, y: number, w: number, h: number): void
     set_entry_location(x: number, y: number, w: number, h: number): void
     show(timestamp: number): void
     hide(timestamp: number): void
     register_keyboard(name: string): void
     name_lost(name: string): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -610,13 +610,13 @@ export class KeyboardService {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Caribou.KeyboardService */
+    /* Virtual methods of Caribou-1.0.Caribou.KeyboardService */
     vfunc_set_cursor_location(x: number, y: number, w: number, h: number): void
     vfunc_set_entry_location(x: number, y: number, w: number, h: number): void
     vfunc_show(timestamp: number): void
     vfunc_hide(timestamp: number): void
     vfunc_name_lost(name: string): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -624,7 +624,7 @@ export class KeyboardService {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: KeyboardService, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: KeyboardService, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -641,18 +641,18 @@ export interface GroupModel_ConstructProps extends GObject.Object_ConstructProps
     active_level?: string
 }
 export class GroupModel {
-    /* Properties of Caribou.GroupModel */
+    /* Properties of Caribou-1.0.Caribou.GroupModel */
     active_level: string
-    /* Fields of Caribou.GroupModel */
+    /* Fields of Caribou-1.0.Caribou.GroupModel */
     group: string
     variant: string
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Caribou.GroupModel */
+    /* Methods of Caribou-1.0.Caribou.GroupModel */
     get_levels(): string[]
     get_level(level_name: string): LevelModel
     get_active_level(): string
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -674,13 +674,13 @@ export class GroupModel {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of Caribou.IKeyboardObject */
+    /* Methods of Caribou-1.0.Caribou.IKeyboardObject */
     get_children(): IKeyboardObject[]
     get_keys(): KeyModel[]
-    /* Virtual methods of Caribou.GroupModel */
+    /* Virtual methods of Caribou-1.0.Caribou.GroupModel */
     vfunc_get_children(): IKeyboardObject[]
     vfunc_get_keys(): KeyModel[]
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -688,11 +688,11 @@ export class GroupModel {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: GroupModel, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: GroupModel, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    /* Signals of Caribou.IKeyboardObject */
+    /* Signals of Caribou-1.0.Caribou.IKeyboardObject */
     connect(sigName: "key-clicked", callback: (($obj: GroupModel, key: KeyModel) => void)): number
     connect_after(sigName: "key-clicked", callback: (($obj: GroupModel, key: KeyModel) => void)): number
     emit(sigName: "key-clicked", key: KeyModel): void
@@ -720,17 +720,17 @@ export interface LevelModel_ConstructProps extends ScannableGroup_ConstructProps
     mode?: string
 }
 export class LevelModel {
-    /* Properties of Caribou.LevelModel */
+    /* Properties of Caribou-1.0.Caribou.LevelModel */
     mode: string
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Caribou.LevelModel */
+    /* Methods of Caribou-1.0.Caribou.LevelModel */
     get_rows(): RowModel[]
     get_mode(): string
-    /* Methods of Caribou.ScannableGroup */
+    /* Methods of Caribou-1.0.Caribou.ScannableGroup */
     get_scan_children(): IScannableItem[]
     child_select(): IScannableItem | null
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -752,13 +752,13 @@ export class LevelModel {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of Caribou.IKeyboardObject */
+    /* Methods of Caribou-1.0.Caribou.IKeyboardObject */
     get_children(): IKeyboardObject[]
     get_keys(): KeyModel[]
-    /* Virtual methods of Caribou.LevelModel */
+    /* Virtual methods of Caribou-1.0.Caribou.LevelModel */
     vfunc_get_children(): IKeyboardObject[]
     vfunc_get_keys(): KeyModel[]
-    /* Virtual methods of Caribou.ScannableGroup */
+    /* Virtual methods of Caribou-1.0.Caribou.ScannableGroup */
     vfunc_get_scan_children(): IScannableItem[]
     vfunc_child_select(): IScannableItem | null
     vfunc_scan_reset(): void
@@ -767,7 +767,7 @@ export class LevelModel {
     vfunc_get_selected_path(): IScannableItem[]
     vfunc_get_scan_grouping(): ScanGrouping
     vfunc_set_scan_grouping(value: ScanGrouping): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -775,15 +775,15 @@ export class LevelModel {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Caribou.LevelModel */
+    /* Signals of Caribou-1.0.Caribou.LevelModel */
     connect(sigName: "level-toggled", callback: (($obj: LevelModel, new_level: string) => void)): number
     connect_after(sigName: "level-toggled", callback: (($obj: LevelModel, new_level: string) => void)): number
     emit(sigName: "level-toggled", new_level: string): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: LevelModel, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: LevelModel, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    /* Signals of Caribou.IKeyboardObject */
+    /* Signals of Caribou-1.0.Caribou.IKeyboardObject */
     connect(sigName: "key-clicked", callback: (($obj: LevelModel, key: KeyModel) => void)): number
     connect_after(sigName: "key-clicked", callback: (($obj: LevelModel, key: KeyModel) => void)): number
     emit(sigName: "key-clicked", key: KeyModel): void
@@ -811,17 +811,17 @@ export interface RowModel_ConstructProps extends ScannableGroup_ConstructProps {
     scan_selected?: boolean
 }
 export class RowModel {
-    /* Properties of Caribou.IScannableItem */
+    /* Properties of Caribou-1.0.Caribou.IScannableItem */
     scan_stepping: boolean
     scan_selected: boolean
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Caribou.RowModel */
+    /* Methods of Caribou-1.0.Caribou.RowModel */
     get_columns(): ColumnModel[]
-    /* Methods of Caribou.ScannableGroup */
+    /* Methods of Caribou-1.0.Caribou.ScannableGroup */
     get_scan_children(): IScannableItem[]
     child_select(): IScannableItem | null
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -843,22 +843,22 @@ export class RowModel {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of Caribou.IScannableItem */
+    /* Methods of Caribou-1.0.Caribou.IScannableItem */
     get_scan_stepping(): boolean
     set_scan_stepping(value: boolean): void
     get_scan_selected(): boolean
     set_scan_selected(value: boolean): void
-    /* Methods of Caribou.IKeyboardObject */
+    /* Methods of Caribou-1.0.Caribou.IKeyboardObject */
     get_children(): IKeyboardObject[]
     get_keys(): KeyModel[]
-    /* Virtual methods of Caribou.RowModel */
+    /* Virtual methods of Caribou-1.0.Caribou.RowModel */
     vfunc_get_scan_stepping(): boolean
     vfunc_set_scan_stepping(value: boolean): void
     vfunc_get_scan_selected(): boolean
     vfunc_set_scan_selected(value: boolean): void
     vfunc_get_children(): IKeyboardObject[]
     vfunc_get_keys(): KeyModel[]
-    /* Virtual methods of Caribou.ScannableGroup */
+    /* Virtual methods of Caribou-1.0.Caribou.ScannableGroup */
     vfunc_get_scan_children(): IScannableItem[]
     vfunc_child_select(): IScannableItem | null
     vfunc_scan_reset(): void
@@ -867,7 +867,7 @@ export class RowModel {
     vfunc_get_selected_path(): IScannableItem[]
     vfunc_get_scan_grouping(): ScanGrouping
     vfunc_set_scan_grouping(value: ScanGrouping): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -875,11 +875,11 @@ export class RowModel {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: RowModel, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: RowModel, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    /* Signals of Caribou.IKeyboardObject */
+    /* Signals of Caribou-1.0.Caribou.IKeyboardObject */
     connect(sigName: "key-clicked", callback: (($obj: RowModel, key: KeyModel) => void)): number
     connect_after(sigName: "key-clicked", callback: (($obj: RowModel, key: KeyModel) => void)): number
     emit(sigName: "key-clicked", key: KeyModel): void
@@ -919,7 +919,7 @@ export interface KeyModel_ConstructProps extends GObject.Object_ConstructProps {
     scan_selected?: boolean
 }
 export class KeyModel {
-    /* Properties of Caribou.KeyModel */
+    /* Properties of Caribou-1.0.Caribou.KeyModel */
     align: string
     width: number
     toggle: string
@@ -930,14 +930,14 @@ export class KeyModel {
     keyval: number
     text: string
     label: string
-    /* Properties of Caribou.IScannableItem */
+    /* Properties of Caribou-1.0.Caribou.IScannableItem */
     scan_stepping: boolean
     scan_selected: boolean
-    /* Fields of Caribou.KeyModel */
+    /* Fields of Caribou-1.0.Caribou.KeyModel */
     modifier_state: ModifierState
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Caribou.KeyModel */
+    /* Methods of Caribou-1.0.Caribou.KeyModel */
     press(): void
     release(): void
     get_extended_keys(): KeyModel[]
@@ -958,7 +958,7 @@ export class KeyModel {
     get_text(): string | null
     get_label(): string
     set_label(value: string): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -980,22 +980,22 @@ export class KeyModel {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of Caribou.IScannableItem */
+    /* Methods of Caribou-1.0.Caribou.IScannableItem */
     get_scan_stepping(): boolean
     set_scan_stepping(value: boolean): void
     get_scan_selected(): boolean
     set_scan_selected(value: boolean): void
-    /* Methods of Caribou.IKeyboardObject */
+    /* Methods of Caribou-1.0.Caribou.IKeyboardObject */
     get_children(): IKeyboardObject[]
     get_keys(): KeyModel[]
-    /* Virtual methods of Caribou.KeyModel */
+    /* Virtual methods of Caribou-1.0.Caribou.KeyModel */
     vfunc_get_scan_stepping(): boolean
     vfunc_set_scan_stepping(value: boolean): void
     vfunc_get_scan_selected(): boolean
     vfunc_set_scan_selected(value: boolean): void
     vfunc_get_children(): IKeyboardObject[]
     vfunc_get_keys(): KeyModel[]
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -1003,18 +1003,18 @@ export class KeyModel {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Caribou.KeyModel */
+    /* Signals of Caribou-1.0.Caribou.KeyModel */
     connect(sigName: "key-hold-end", callback: (($obj: KeyModel) => void)): number
     connect_after(sigName: "key-hold-end", callback: (($obj: KeyModel) => void)): number
     emit(sigName: "key-hold-end"): void
     connect(sigName: "key-hold", callback: (($obj: KeyModel) => void)): number
     connect_after(sigName: "key-hold", callback: (($obj: KeyModel) => void)): number
     emit(sigName: "key-hold"): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: KeyModel, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: KeyModel, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    /* Signals of Caribou.IKeyboardObject */
+    /* Signals of Caribou-1.0.Caribou.IKeyboardObject */
     connect(sigName: "key-clicked", callback: (($obj: KeyModel, key: KeyModel) => void)): number
     connect_after(sigName: "key-clicked", callback: (($obj: KeyModel, key: KeyModel) => void)): number
     emit(sigName: "key-clicked", key: KeyModel): void
@@ -1064,18 +1064,18 @@ export interface ColumnModel_ConstructProps extends ScannableGroup_ConstructProp
     scan_selected?: boolean
 }
 export class ColumnModel {
-    /* Properties of Caribou.IScannableItem */
+    /* Properties of Caribou-1.0.Caribou.IScannableItem */
     scan_stepping: boolean
     scan_selected: boolean
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Caribou.ColumnModel */
+    /* Methods of Caribou-1.0.Caribou.ColumnModel */
     get_key(index: number): KeyModel
     first_key(): KeyModel
-    /* Methods of Caribou.ScannableGroup */
+    /* Methods of Caribou-1.0.Caribou.ScannableGroup */
     get_scan_children(): IScannableItem[]
     child_select(): IScannableItem | null
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -1097,22 +1097,22 @@ export class ColumnModel {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of Caribou.IScannableItem */
+    /* Methods of Caribou-1.0.Caribou.IScannableItem */
     get_scan_stepping(): boolean
     set_scan_stepping(value: boolean): void
     get_scan_selected(): boolean
     set_scan_selected(value: boolean): void
-    /* Methods of Caribou.IKeyboardObject */
+    /* Methods of Caribou-1.0.Caribou.IKeyboardObject */
     get_children(): IKeyboardObject[]
     get_keys(): KeyModel[]
-    /* Virtual methods of Caribou.ColumnModel */
+    /* Virtual methods of Caribou-1.0.Caribou.ColumnModel */
     vfunc_get_scan_stepping(): boolean
     vfunc_set_scan_stepping(value: boolean): void
     vfunc_get_scan_selected(): boolean
     vfunc_set_scan_selected(value: boolean): void
     vfunc_get_children(): IKeyboardObject[]
     vfunc_get_keys(): KeyModel[]
-    /* Virtual methods of Caribou.ScannableGroup */
+    /* Virtual methods of Caribou-1.0.Caribou.ScannableGroup */
     vfunc_get_scan_children(): IScannableItem[]
     vfunc_child_select(): IScannableItem | null
     vfunc_scan_reset(): void
@@ -1121,7 +1121,7 @@ export class ColumnModel {
     vfunc_get_selected_path(): IScannableItem[]
     vfunc_get_scan_grouping(): ScanGrouping
     vfunc_set_scan_grouping(value: ScanGrouping): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -1129,11 +1129,11 @@ export class ColumnModel {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: ColumnModel, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: ColumnModel, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    /* Signals of Caribou.IKeyboardObject */
+    /* Signals of Caribou-1.0.Caribou.IKeyboardObject */
     connect(sigName: "key-clicked", callback: (($obj: ColumnModel, key: KeyModel) => void)): number
     connect_after(sigName: "key-clicked", callback: (($obj: ColumnModel, key: KeyModel) => void)): number
     emit(sigName: "key-clicked", key: KeyModel): void
@@ -1171,7 +1171,7 @@ export interface Scanner_ConstructProps extends GObject.Object_ConstructProps {
     inverse_scanning?: boolean
 }
 export class Scanner {
-    /* Properties of Caribou.Scanner */
+    /* Properties of Caribou-1.0.Caribou.Scanner */
     scan_grouping: number
     scan_enabled: boolean
     step_time: number
@@ -1181,9 +1181,9 @@ export class Scanner {
     scan_cycles: number
     autorestart: boolean
     inverse_scanning: boolean
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Caribou.Scanner */
+    /* Methods of Caribou-1.0.Caribou.Scanner */
     set_keyboard(keyboard: KeyboardModel): void
     reset(): void
     get_bind_settings(): boolean
@@ -1205,7 +1205,7 @@ export class Scanner {
     set_autorestart(value: boolean): void
     get_inverse_scanning(): boolean
     set_inverse_scanning(value: boolean): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -1227,7 +1227,7 @@ export class Scanner {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -1235,7 +1235,7 @@ export class Scanner {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Scanner, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Scanner, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -1272,14 +1272,14 @@ export interface ScannableGroup_ConstructProps extends GObject.Object_ConstructP
     scan_grouping?: ScanGrouping
 }
 export class ScannableGroup {
-    /* Properties of Caribou.IScannableGroup */
+    /* Properties of Caribou-1.0.Caribou.IScannableGroup */
     scan_grouping: ScanGrouping
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Caribou.ScannableGroup */
+    /* Methods of Caribou-1.0.Caribou.ScannableGroup */
     get_scan_children(): IScannableItem[]
     child_select(): IScannableItem | null
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -1301,14 +1301,14 @@ export class ScannableGroup {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of Caribou.IScannableGroup */
+    /* Methods of Caribou-1.0.Caribou.IScannableGroup */
     scan_reset(): void
     child_step(cycles: number): IScannableItem | null
     get_step_path(): IScannableItem[]
     get_selected_path(): IScannableItem[]
     get_scan_grouping(): ScanGrouping
     set_scan_grouping(value: ScanGrouping): void
-    /* Virtual methods of Caribou.ScannableGroup */
+    /* Virtual methods of Caribou-1.0.Caribou.ScannableGroup */
     vfunc_get_scan_children(): IScannableItem[]
     vfunc_child_select(): IScannableItem | null
     vfunc_scan_reset(): void
@@ -1317,7 +1317,7 @@ export class ScannableGroup {
     vfunc_get_selected_path(): IScannableItem[]
     vfunc_get_scan_grouping(): ScanGrouping
     vfunc_set_scan_grouping(value: ScanGrouping): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -1325,11 +1325,11 @@ export class ScannableGroup {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: ScannableGroup, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: ScannableGroup, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    /* Signals of Caribou.IScannableGroup */
+    /* Signals of Caribou-1.0.Caribou.IScannableGroup */
     connect(sigName: "selected-item-changed", callback: (($obj: ScannableGroup, selected_item?: IScannableItem | null) => void)): number
     connect_after(sigName: "selected-item-changed", callback: (($obj: ScannableGroup, selected_item?: IScannableItem | null) => void)): number
     emit(sigName: "selected-item-changed", selected_item?: IScannableItem | null): void
@@ -1351,7 +1351,7 @@ export class ScannableGroup {
     static $gtype: GObject.Type
 }
 export abstract class DisplayAdapterClass {
-    /* Fields of Caribou.DisplayAdapterClass */
+    /* Fields of Caribou-1.0.Caribou.DisplayAdapterClass */
     keyval_press: (keyval: number) => void
     keyval_release: (keyval: number) => void
     mod_lock: (mask: number) => void
@@ -1386,7 +1386,7 @@ export class KeyboardModelPrivate {
     static name: string
 }
 export abstract class KeyboardServiceClass {
-    /* Fields of Caribou.KeyboardServiceClass */
+    /* Fields of Caribou-1.0.Caribou.KeyboardServiceClass */
     set_cursor_location: (x: number, y: number, w: number, h: number) => void
     set_entry_location: (x: number, y: number, w: number, h: number) => void
     show: (timestamp: number) => void
@@ -1434,7 +1434,7 @@ export class ScannerPrivate {
     static name: string
 }
 export abstract class ScannableGroupClass {
-    /* Fields of Caribou.ScannableGroupClass */
+    /* Fields of Caribou-1.0.Caribou.ScannableGroupClass */
     get_scan_children: () => IScannableItem[]
     child_select: () => IScannableItem | null
     static name: string
@@ -1443,7 +1443,7 @@ export class ScannableGroupPrivate {
     static name: string
 }
 export abstract class IScannableItemIface {
-    /* Fields of Caribou.IScannableItemIface */
+    /* Fields of Caribou-1.0.Caribou.IScannableItemIface */
     get_scan_stepping: () => boolean
     set_scan_stepping: (value: boolean) => void
     get_scan_selected: () => boolean
@@ -1451,7 +1451,7 @@ export abstract class IScannableItemIface {
     static name: string
 }
 export abstract class IScannableGroupIface {
-    /* Fields of Caribou.IScannableGroupIface */
+    /* Fields of Caribou-1.0.Caribou.IScannableGroupIface */
     child_select: () => IScannableItem | null
     scan_reset: () => void
     get_scan_children: () => IScannableItem[]
@@ -1463,7 +1463,7 @@ export abstract class IScannableGroupIface {
     static name: string
 }
 export abstract class IKeyboardObjectIface {
-    /* Fields of Caribou.IKeyboardObjectIface */
+    /* Fields of Caribou-1.0.Caribou.IKeyboardObjectIface */
     get_children: () => IKeyboardObject[]
     get_keys: () => KeyModel[]
     static name: string

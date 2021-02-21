@@ -20,9 +20,9 @@ export interface CreateScopeCallback {
 export interface PreviewPlayer_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class PreviewPlayer {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of UnityExtras.PreviewPlayer */
+    /* Methods of UnityExtras-7.0.UnityExtras.PreviewPlayer */
     play(uri: string, callback?: Gio.AsyncReadyCallback | null): void
     playFinish(res: Gio.AsyncResult): void
     pause(callback?: Gio.AsyncReadyCallback | null): void
@@ -37,7 +37,7 @@ export class PreviewPlayer {
     closeFinish(res: Gio.AsyncResult): void
     videoProperties(uri: string, callback?: Gio.AsyncReadyCallback | null): void
     videoPropertiesFinish(res: Gio.AsyncResult): GLib.HashTable
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -59,28 +59,18 @@ export class PreviewPlayer {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of UnityExtras.PreviewPlayer */
+    /* Signals of UnityExtras-7.0.UnityExtras.PreviewPlayer */
     connect(sigName: "progress", callback: (($obj: PreviewPlayer, uri: string, state: Unity.MusicPreviewTrackState, progress: number) => void)): number
-    connect_after(sigName: "progress", callback: (($obj: PreviewPlayer, uri: string, state: Unity.MusicPreviewTrackState, progress: number) => void)): number
+    on(sigName: "progress", callback: (uri: string, state: Unity.MusicPreviewTrackState, progress: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "progress", callback: (uri: string, state: Unity.MusicPreviewTrackState, progress: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "progress", callback: (uri: string, state: Unity.MusicPreviewTrackState, progress: number) => void): NodeJS.EventEmitter
     emit(sigName: "progress", uri: string, state: Unity.MusicPreviewTrackState, progress: number): void
-    on(sigName: "progress", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "progress", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "progress", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: PreviewPlayer, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: PreviewPlayer, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void

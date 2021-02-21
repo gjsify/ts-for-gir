@@ -29,7 +29,7 @@ export const TIMEZONE_COMPLETION_ZONE: number
 export interface TimezoneCompletion_ConstructProps extends Gtk.EntryCompletion_ConstructProps {
 }
 export class TimezoneCompletion {
-    /* Properties of Gtk.EntryCompletion */
+    /* Properties of Gtk-3.0.Gtk.EntryCompletion */
     inlineCompletion: boolean
     inlineSelection: boolean
     minimumKeyLength: number
@@ -38,16 +38,16 @@ export class TimezoneCompletion {
     popupSetWidth: boolean
     popupSingleMatch: boolean
     textColumn: number
-    /* Fields of TimezoneMap.TimezoneCompletion */
+    /* Fields of TimezoneMap-1.0.TimezoneMap.TimezoneCompletion */
     parent: Gtk.EntryCompletion
     priv: TimezoneCompletionPrivate
-    /* Fields of Gtk.EntryCompletion */
+    /* Fields of Gtk-3.0.Gtk.EntryCompletion */
     parentInstance: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of TimezoneMap.TimezoneCompletion */
+    /* Methods of TimezoneMap-1.0.TimezoneMap.TimezoneCompletion */
     watchEntry(entry: Gtk.Entry): void
-    /* Methods of Gtk.EntryCompletion */
+    /* Methods of Gtk-3.0.Gtk.EntryCompletion */
     complete(): void
     computePrefix(key: string): string | null
     deleteAction(index: number): void
@@ -73,7 +73,7 @@ export class TimezoneCompletion {
     setPopupSetWidth(popupSetWidth: boolean): void
     setPopupSingleMatch(popupSingleMatch: boolean): void
     setTextColumn(column: number): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -95,18 +95,18 @@ export class TimezoneCompletion {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of Gtk.Buildable */
+    /* Methods of Gtk-3.0.Gtk.Buildable */
     addChild(builder: Gtk.Builder, child: GObject.Object, type?: string | null): void
     constructChild(builder: Gtk.Builder, name: string): GObject.Object
     customFinished(builder: Gtk.Builder, child: GObject.Object | null, tagname: string, data?: object | null): void
     customTagEnd(builder: Gtk.Builder, child: GObject.Object | null, tagname: string, data?: object | null): void
-    customTagStart(builder: Gtk.Builder, child: GObject.Object | null, tagname: string): [ /* returnType */ boolean, /* parser */ GLib.MarkupParser, /* data */ object | null ]
+    customTagStart(builder: Gtk.Builder, child: GObject.Object | null, tagname: string): { returnType: boolean, parser: GLib.MarkupParser, data: object | null }
     getInternalChild(builder: Gtk.Builder, childname: string): GObject.Object
     getName(): string
     parserFinished(builder: Gtk.Builder): void
     setBuildableProperty(builder: Gtk.Builder, name: string, value: any): void
     setName(name: string): void
-    /* Methods of Gtk.CellLayout */
+    /* Methods of Gtk-3.0.Gtk.CellLayout */
     addAttribute(cell: Gtk.CellRenderer, attribute: string, column: number): void
     clear(): void
     clearAttributes(cell: Gtk.CellRenderer): void
@@ -116,78 +116,38 @@ export class TimezoneCompletion {
     packStart(cell: Gtk.CellRenderer, expand: boolean): void
     reorder(cell: Gtk.CellRenderer, position: number): void
     setCellDataFunc(cell: Gtk.CellRenderer, func: Gtk.CellLayoutDataFunc | null): void
-    /* Virtual methods of TimezoneMap.TimezoneCompletion */
-    vfuncAddChild(builder: Gtk.Builder, child: GObject.Object, type?: string | null): void
-    vfuncConstructChild(builder: Gtk.Builder, name: string): GObject.Object
-    vfuncCustomFinished(builder: Gtk.Builder, child: GObject.Object | null, tagname: string, data?: object | null): void
-    vfuncCustomTagEnd(builder: Gtk.Builder, child: GObject.Object | null, tagname: string, data?: object | null): void
-    vfuncCustomTagStart(builder: Gtk.Builder, child: GObject.Object | null, tagname: string): [ /* returnType */ boolean, /* parser */ GLib.MarkupParser, /* data */ object | null ]
-    vfuncGetInternalChild(builder: Gtk.Builder, childname: string): GObject.Object
-    vfuncGetName(): string
-    vfuncParserFinished(builder: Gtk.Builder): void
-    vfuncSetBuildableProperty(builder: Gtk.Builder, name: string, value: any): void
-    vfuncSetName(name: string): void
-    vfuncAddAttribute(cell: Gtk.CellRenderer, attribute: string, column: number): void
-    vfuncClear(): void
-    vfuncClearAttributes(cell: Gtk.CellRenderer): void
-    vfuncGetArea(): Gtk.CellArea | null
-    vfuncGetCells(): Gtk.CellRenderer[]
-    vfuncPackEnd(cell: Gtk.CellRenderer, expand: boolean): void
-    vfuncPackStart(cell: Gtk.CellRenderer, expand: boolean): void
-    vfuncReorder(cell: Gtk.CellRenderer, position: number): void
-    vfuncSetCellDataFunc(cell: Gtk.CellRenderer, func: Gtk.CellLayoutDataFunc | null): void
-    /* Virtual methods of Gtk.EntryCompletion */
-    vfuncActionActivated(index: number): void
-    vfuncCursorOnMatch(model: Gtk.TreeModel, iter: Gtk.TreeIter): boolean
-    vfuncInsertPrefix(prefix: string): boolean
-    vfuncMatchSelected(model: Gtk.TreeModel, iter: Gtk.TreeIter): boolean
-    vfuncNoMatches(): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gtk.EntryCompletion */
+    /* Signals of Gtk-3.0.Gtk.EntryCompletion */
     connect(sigName: "action-activated", callback: (($obj: TimezoneCompletion, index: number) => void)): number
-    connect_after(sigName: "action-activated", callback: (($obj: TimezoneCompletion, index: number) => void)): number
+    on(sigName: "action-activated", callback: (index: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "action-activated", callback: (index: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "action-activated", callback: (index: number) => void): NodeJS.EventEmitter
     emit(sigName: "action-activated", index: number): void
-    on(sigName: "action-activated", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "action-activated", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "action-activated", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "cursor-on-match", callback: (($obj: TimezoneCompletion, model: Gtk.TreeModel, iter: Gtk.TreeIter) => boolean)): number
-    connect_after(sigName: "cursor-on-match", callback: (($obj: TimezoneCompletion, model: Gtk.TreeModel, iter: Gtk.TreeIter) => boolean)): number
+    on(sigName: "cursor-on-match", callback: (model: Gtk.TreeModel, iter: Gtk.TreeIter) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "cursor-on-match", callback: (model: Gtk.TreeModel, iter: Gtk.TreeIter) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "cursor-on-match", callback: (model: Gtk.TreeModel, iter: Gtk.TreeIter) => void): NodeJS.EventEmitter
     emit(sigName: "cursor-on-match", model: Gtk.TreeModel, iter: Gtk.TreeIter): void
-    on(sigName: "cursor-on-match", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "cursor-on-match", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "cursor-on-match", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "insert-prefix", callback: (($obj: TimezoneCompletion, prefix: string) => boolean)): number
-    connect_after(sigName: "insert-prefix", callback: (($obj: TimezoneCompletion, prefix: string) => boolean)): number
+    on(sigName: "insert-prefix", callback: (prefix: string) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "insert-prefix", callback: (prefix: string) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "insert-prefix", callback: (prefix: string) => void): NodeJS.EventEmitter
     emit(sigName: "insert-prefix", prefix: string): void
-    on(sigName: "insert-prefix", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "insert-prefix", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "insert-prefix", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "match-selected", callback: (($obj: TimezoneCompletion, model: Gtk.TreeModel, iter: Gtk.TreeIter) => boolean)): number
-    connect_after(sigName: "match-selected", callback: (($obj: TimezoneCompletion, model: Gtk.TreeModel, iter: Gtk.TreeIter) => boolean)): number
+    on(sigName: "match-selected", callback: (model: Gtk.TreeModel, iter: Gtk.TreeIter) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "match-selected", callback: (model: Gtk.TreeModel, iter: Gtk.TreeIter) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "match-selected", callback: (model: Gtk.TreeModel, iter: Gtk.TreeIter) => void): NodeJS.EventEmitter
     emit(sigName: "match-selected", model: Gtk.TreeModel, iter: Gtk.TreeIter): void
-    on(sigName: "match-selected", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "match-selected", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "match-selected", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "no-matches", callback: (($obj: TimezoneCompletion) => void)): number
-    connect_after(sigName: "no-matches", callback: (($obj: TimezoneCompletion) => void)): number
+    on(sigName: "no-matches", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "no-matches", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "no-matches", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "no-matches"): void
-    on(sigName: "no-matches", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "no-matches", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "no-matches", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: TimezoneCompletion, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: TimezoneCompletion, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::inline-completion", callback: (($obj: TimezoneCompletion, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::inline-completion", callback: (($obj: TimezoneCompletion, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::inline-completion", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -251,19 +211,19 @@ export interface TimezoneLocation_ConstructProps extends GObject.Object_Construc
     zone?: string
 }
 export class TimezoneLocation {
-    /* Properties of TimezoneMap.TimezoneLocation */
+    /* Properties of TimezoneMap-1.0.TimezoneMap.TimezoneLocation */
     comment: string
     country: string
     dist: number
     latitude: number
     longitude: number
     zone: string
-    /* Fields of TimezoneMap.TimezoneLocation */
+    /* Fields of TimezoneMap-1.0.TimezoneMap.TimezoneLocation */
     parent: GObject.Object
     priv: TimezoneLocationPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -285,21 +245,12 @@ export class TimezoneLocation {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: TimezoneLocation, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: TimezoneLocation, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::Comment", callback: (($obj: TimezoneLocation, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::Comment", callback: (($obj: TimezoneLocation, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::Comment", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -347,7 +298,7 @@ export class TimezoneLocation {
 export interface TimezoneMap_ConstructProps extends Gtk.Widget_ConstructProps {
 }
 export class TimezoneMap {
-    /* Properties of Gtk.Widget */
+    /* Properties of Gtk-3.0.Gtk.Widget */
     appPaintable: boolean
     canDefault: boolean
     canFocus: boolean
@@ -387,18 +338,18 @@ export class TimezoneMap {
     visible: boolean
     widthRequest: number
     readonly window: Gdk.Window
-    /* Fields of TimezoneMap.TimezoneMap */
+    /* Fields of TimezoneMap-1.0.TimezoneMap.TimezoneMap */
     priv: TimezoneMapPrivate
-    /* Fields of Gtk.Widget */
+    /* Fields of Gtk-3.0.Gtk.Widget */
     parentInstance: GObject.InitiallyUnowned
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of TimezoneMap.TimezoneMap */
+    /* Methods of TimezoneMap-1.0.TimezoneMap.TimezoneMap */
     getTimezoneAtCoords(lon: number, lat: number): string
     setCoords(lon: number, lat: number): void
     setTimezone(timezone: string): void
     setWatermark(watermark: string): void
-    /* Methods of Gtk.Widget */
+    /* Methods of Gtk-3.0.Gtk.Widget */
     activate(): boolean
     addAccelerator(accelSignal: string, accelGroup: Gtk.AccelGroup, accelKey: number, accelMods: Gdk.ModifierType, accelFlags: Gtk.AccelFlags): void
     addDeviceEvents(device: Gdk.Device, events: Gdk.EventMask): void
@@ -408,12 +359,12 @@ export class TimezoneMap {
     canActivateAccel(signalId: number): boolean
     childFocus(direction: Gtk.DirectionType): boolean
     childNotify(childProperty: string): void
-    classPath(): [ /* pathLength */ number | null, /* path */ string | null, /* pathReversed */ string | null ]
+    classPath(): { pathLength: number | null, path: string | null, pathReversed: string | null }
     computeExpand(orientation: Gtk.Orientation): boolean
     createPangoContext(): Pango.Context
     createPangoLayout(text?: string | null): Pango.Layout
     destroy(): void
-    destroyed(widgetPointer: Gtk.Widget): /* widgetPointer */ Gtk.Widget
+    destroyed(widgetPointer: Gtk.Widget): { widgetPointer: Gtk.Widget }
     deviceIsShadowed(device: Gdk.Device): boolean
     dragBegin(targets: Gtk.TargetList, actions: Gdk.DragAction, button: number, event?: Gdk.Event | null): Gdk.DragContext
     dragBeginWithCoordinates(targets: Gtk.TargetList, actions: Gdk.DragAction, button: number, event: Gdk.Event | null, x: number, y: number): Gdk.DragContext
@@ -452,16 +403,16 @@ export class TimezoneMap {
     getActionGroup(prefix: string): Gio.ActionGroup | null
     getAllocatedBaseline(): number
     getAllocatedHeight(): number
-    getAllocatedSize(): [ /* allocation */ Gtk.Allocation, /* baseline */ number | null ]
+    getAllocatedSize(): { allocation: Gtk.Allocation, baseline: number | null }
     getAllocatedWidth(): number
-    getAllocation(): /* allocation */ Gtk.Allocation
+    getAllocation(): { allocation: Gtk.Allocation }
     getAncestor(widgetType: GObject.Type): Gtk.Widget | null
     getAppPaintable(): boolean
     getCanDefault(): boolean
     getCanFocus(): boolean
-    getChildRequisition(): /* requisition */ Gtk.Requisition
+    getChildRequisition(): { requisition: Gtk.Requisition }
     getChildVisible(): boolean
-    getClip(): /* clip */ Gtk.Allocation
+    getClip(): { clip: Gtk.Allocation }
     getClipboard(selection: Gdk.Atom): Gtk.Clipboard
     getCompositeName(): string
     getDeviceEnabled(device: Gdk.Device): boolean
@@ -495,23 +446,23 @@ export class TimezoneMap {
     getParent(): Gtk.Widget | null
     getParentWindow(): Gdk.Window | null
     getPath(): Gtk.WidgetPath
-    getPointer(): [ /* x */ number | null, /* y */ number | null ]
-    getPreferredHeight(): [ /* minimumHeight */ number | null, /* naturalHeight */ number | null ]
-    getPreferredHeightAndBaselineForWidth(width: number): [ /* minimumHeight */ number | null, /* naturalHeight */ number | null, /* minimumBaseline */ number | null, /* naturalBaseline */ number | null ]
-    getPreferredHeightForWidth(width: number): [ /* minimumHeight */ number | null, /* naturalHeight */ number | null ]
-    getPreferredSize(): [ /* minimumSize */ Gtk.Requisition | null, /* naturalSize */ Gtk.Requisition | null ]
-    getPreferredWidth(): [ /* minimumWidth */ number | null, /* naturalWidth */ number | null ]
-    getPreferredWidthForHeight(height: number): [ /* minimumWidth */ number | null, /* naturalWidth */ number | null ]
+    getPointer(): { x: number | null, y: number | null }
+    getPreferredHeight(): { minimumHeight: number | null, naturalHeight: number | null }
+    getPreferredHeightAndBaselineForWidth(width: number): { minimumHeight: number | null, naturalHeight: number | null, minimumBaseline: number | null, naturalBaseline: number | null }
+    getPreferredHeightForWidth(width: number): { minimumHeight: number | null, naturalHeight: number | null }
+    getPreferredSize(): { minimumSize: Gtk.Requisition | null, naturalSize: Gtk.Requisition | null }
+    getPreferredWidth(): { minimumWidth: number | null, naturalWidth: number | null }
+    getPreferredWidthForHeight(height: number): { minimumWidth: number | null, naturalWidth: number | null }
     getRealized(): boolean
     getReceivesDefault(): boolean
     getRequestMode(): Gtk.SizeRequestMode
-    getRequisition(): /* requisition */ Gtk.Requisition
+    getRequisition(): { requisition: Gtk.Requisition }
     getRootWindow(): Gdk.Window
     getScaleFactor(): number
     getScreen(): Gdk.Screen
     getSensitive(): boolean
     getSettings(): Gtk.Settings
-    getSizeRequest(): [ /* width */ number | null, /* height */ number | null ]
+    getSizeRequest(): { width: number | null, height: number | null }
     getState(): Gtk.StateType
     getStateFlags(): Gtk.StateFlags
     getStyle(): Gtk.Style
@@ -543,7 +494,7 @@ export class TimezoneMap {
     initTemplate(): void
     inputShapeCombineRegion(region?: cairo.Region | null): void
     insertActionGroup(name: string, group?: Gio.ActionGroup | null): void
-    intersect(area: Gdk.Rectangle): [ /* returnType */ boolean, /* intersection */ Gdk.Rectangle | null ]
+    intersect(area: Gdk.Rectangle): { returnType: boolean, intersection: Gdk.Rectangle | null }
     isAncestor(ancestor: Gtk.Widget): boolean
     isComposited(): boolean
     isDrawable(): boolean
@@ -568,7 +519,7 @@ export class TimezoneMap {
     overrideCursor(cursor?: Gdk.RGBA | null, secondaryCursor?: Gdk.RGBA | null): void
     overrideFont(fontDesc?: Pango.FontDescription | null): void
     overrideSymbolicColor(name: string, color?: Gdk.RGBA | null): void
-    path(): [ /* pathLength */ number | null, /* path */ string | null, /* pathReversed */ string | null ]
+    path(): { pathLength: number | null, path: string | null, pathReversed: string | null }
     queueAllocate(): void
     queueComputeExpand(): void
     queueDraw(): void
@@ -646,18 +597,18 @@ export class TimezoneMap {
     showNow(): void
     sizeAllocate(allocation: Gtk.Allocation): void
     sizeAllocateWithBaseline(allocation: Gtk.Allocation, baseline: number): void
-    sizeRequest(): /* requisition */ Gtk.Requisition
+    sizeRequest(): { requisition: Gtk.Requisition }
     styleAttach(): void
     styleGetProperty(propertyName: string, value: any): void
     thawChildNotify(): void
-    translateCoordinates(destWidget: Gtk.Widget, srcX: number, srcY: number): [ /* returnType */ boolean, /* destX */ number | null, /* destY */ number | null ]
+    translateCoordinates(destWidget: Gtk.Widget, srcX: number, srcY: number): { returnType: boolean, destX: number | null, destY: number | null }
     triggerTooltipQuery(): void
     unmap(): void
     unparent(): void
     unrealize(): void
     unregisterWindow(window: Gdk.Window): void
     unsetStateFlags(flags: Gtk.StateFlags): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -679,546 +630,373 @@ export class TimezoneMap {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of Gtk.Buildable */
+    /* Methods of Gtk-3.0.Gtk.Buildable */
     addChild(builder: Gtk.Builder, child: GObject.Object, type?: string | null): void
     constructChild(builder: Gtk.Builder, name: string): GObject.Object
     customFinished(builder: Gtk.Builder, child: GObject.Object | null, tagname: string, data?: object | null): void
     customTagEnd(builder: Gtk.Builder, child: GObject.Object | null, tagname: string, data?: object | null): void
-    customTagStart(builder: Gtk.Builder, child: GObject.Object | null, tagname: string): [ /* returnType */ boolean, /* parser */ GLib.MarkupParser, /* data */ object | null ]
+    customTagStart(builder: Gtk.Builder, child: GObject.Object | null, tagname: string): { returnType: boolean, parser: GLib.MarkupParser, data: object | null }
     getInternalChild(builder: Gtk.Builder, childname: string): GObject.Object
     parserFinished(builder: Gtk.Builder): void
     setBuildableProperty(builder: Gtk.Builder, name: string, value: any): void
-    /* Virtual methods of TimezoneMap.TimezoneMap */
-    vfuncAddChild(builder: Gtk.Builder, child: GObject.Object, type?: string | null): void
-    vfuncConstructChild(builder: Gtk.Builder, name: string): GObject.Object
-    vfuncCustomFinished(builder: Gtk.Builder, child: GObject.Object | null, tagname: string, data?: object | null): void
-    vfuncCustomTagEnd(builder: Gtk.Builder, child: GObject.Object | null, tagname: string, data?: object | null): void
-    vfuncCustomTagStart(builder: Gtk.Builder, child: GObject.Object | null, tagname: string): [ /* returnType */ boolean, /* parser */ GLib.MarkupParser, /* data */ object | null ]
-    vfuncGetInternalChild(builder: Gtk.Builder, childname: string): GObject.Object
-    vfuncGetName(): string
-    vfuncParserFinished(builder: Gtk.Builder): void
-    vfuncSetBuildableProperty(builder: Gtk.Builder, name: string, value: any): void
-    vfuncSetName(name: string): void
-    /* Virtual methods of Gtk.Widget */
-    vfuncAdjustBaselineAllocation(baseline: number): void
-    vfuncAdjustBaselineRequest(minimumBaseline: number, naturalBaseline: number): void
-    vfuncAdjustSizeAllocation(orientation: Gtk.Orientation, minimumSize: number, naturalSize: number, allocatedPos: number, allocatedSize: number): void
-    vfuncAdjustSizeRequest(orientation: Gtk.Orientation, minimumSize: number, naturalSize: number): void
-    vfuncButtonPressEvent(event: Gdk.EventButton): boolean
-    vfuncButtonReleaseEvent(event: Gdk.EventButton): boolean
-    vfuncCanActivateAccel(signalId: number): boolean
-    vfuncChildNotify(childProperty: GObject.ParamSpec): void
-    vfuncCompositedChanged(): void
-    vfuncComputeExpand(hexpandP: boolean, vexpandP: boolean): void
-    vfuncConfigureEvent(event: Gdk.EventConfigure): boolean
-    vfuncDamageEvent(event: Gdk.EventExpose): boolean
-    vfuncDeleteEvent(event: Gdk.EventAny): boolean
-    vfuncDestroy(): void
-    vfuncDestroyEvent(event: Gdk.EventAny): boolean
-    vfuncDirectionChanged(previousDirection: Gtk.TextDirection): void
-    vfuncDispatchChildPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDragBegin(context: Gdk.DragContext): void
-    vfuncDragDataDelete(context: Gdk.DragContext): void
-    vfuncDragDataGet(context: Gdk.DragContext, selectionData: Gtk.SelectionData, info: number, time: number): void
-    vfuncDragDataReceived(context: Gdk.DragContext, x: number, y: number, selectionData: Gtk.SelectionData, info: number, time: number): void
-    vfuncDragDrop(context: Gdk.DragContext, x: number, y: number, time: number): boolean
-    vfuncDragEnd(context: Gdk.DragContext): void
-    vfuncDragFailed(context: Gdk.DragContext, result: Gtk.DragResult): boolean
-    vfuncDragLeave(context: Gdk.DragContext, time: number): void
-    vfuncDragMotion(context: Gdk.DragContext, x: number, y: number, time: number): boolean
-    vfuncDraw(cr: cairo.Context): boolean
-    vfuncEnterNotifyEvent(event: Gdk.EventCrossing): boolean
-    vfuncEvent(event: Gdk.Event): boolean
-    vfuncFocus(direction: Gtk.DirectionType): boolean
-    vfuncFocusInEvent(event: Gdk.EventFocus): boolean
-    vfuncFocusOutEvent(event: Gdk.EventFocus): boolean
-    vfuncGetAccessible(): Atk.Object
-    vfuncGetPreferredHeight(): [ /* minimumHeight */ number | null, /* naturalHeight */ number | null ]
-    vfuncGetPreferredHeightAndBaselineForWidth(width: number): [ /* minimumHeight */ number | null, /* naturalHeight */ number | null, /* minimumBaseline */ number | null, /* naturalBaseline */ number | null ]
-    vfuncGetPreferredHeightForWidth(width: number): [ /* minimumHeight */ number | null, /* naturalHeight */ number | null ]
-    vfuncGetPreferredWidth(): [ /* minimumWidth */ number | null, /* naturalWidth */ number | null ]
-    vfuncGetPreferredWidthForHeight(height: number): [ /* minimumWidth */ number | null, /* naturalWidth */ number | null ]
-    vfuncGetRequestMode(): Gtk.SizeRequestMode
-    vfuncGrabBrokenEvent(event: Gdk.EventGrabBroken): boolean
-    vfuncGrabFocus(): void
-    vfuncGrabNotify(wasGrabbed: boolean): void
-    vfuncHide(): void
-    vfuncHierarchyChanged(previousToplevel: Gtk.Widget): void
-    vfuncKeyPressEvent(event: Gdk.EventKey): boolean
-    vfuncKeyReleaseEvent(event: Gdk.EventKey): boolean
-    vfuncKeynavFailed(direction: Gtk.DirectionType): boolean
-    vfuncLeaveNotifyEvent(event: Gdk.EventCrossing): boolean
-    vfuncMap(): void
-    vfuncMapEvent(event: Gdk.EventAny): boolean
-    vfuncMnemonicActivate(groupCycling: boolean): boolean
-    vfuncMotionNotifyEvent(event: Gdk.EventMotion): boolean
-    vfuncMoveFocus(direction: Gtk.DirectionType): void
-    vfuncParentSet(previousParent: Gtk.Widget): void
-    vfuncPopupMenu(): boolean
-    vfuncPropertyNotifyEvent(event: Gdk.EventProperty): boolean
-    vfuncProximityInEvent(event: Gdk.EventProximity): boolean
-    vfuncProximityOutEvent(event: Gdk.EventProximity): boolean
-    vfuncQueryTooltip(x: number, y: number, keyboardTooltip: boolean, tooltip: Gtk.Tooltip): boolean
-    vfuncQueueDrawRegion(region: cairo.Region): void
-    vfuncRealize(): void
-    vfuncScreenChanged(previousScreen: Gdk.Screen): void
-    vfuncScrollEvent(event: Gdk.EventScroll): boolean
-    vfuncSelectionClearEvent(event: Gdk.EventSelection): boolean
-    vfuncSelectionGet(selectionData: Gtk.SelectionData, info: number, time: number): void
-    vfuncSelectionNotifyEvent(event: Gdk.EventSelection): boolean
-    vfuncSelectionReceived(selectionData: Gtk.SelectionData, time: number): void
-    vfuncSelectionRequestEvent(event: Gdk.EventSelection): boolean
-    vfuncShow(): void
-    vfuncShowAll(): void
-    vfuncShowHelp(helpType: Gtk.WidgetHelpType): boolean
-    vfuncSizeAllocate(allocation: Gtk.Allocation): void
-    vfuncStateChanged(previousState: Gtk.StateType): void
-    vfuncStateFlagsChanged(previousStateFlags: Gtk.StateFlags): void
-    vfuncStyleSet(previousStyle: Gtk.Style): void
-    vfuncStyleUpdated(): void
-    vfuncTouchEvent(event: Gdk.EventTouch): boolean
-    vfuncUnmap(): void
-    vfuncUnmapEvent(event: Gdk.EventAny): boolean
-    vfuncUnrealize(): void
-    vfuncVisibilityNotifyEvent(event: Gdk.EventVisibility): boolean
-    vfuncWindowStateEvent(event: Gdk.EventWindowState): boolean
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of TimezoneMap.TimezoneMap */
+    /* Signals of TimezoneMap-1.0.TimezoneMap.TimezoneMap */
     connect(sigName: "location-changed", callback: (($obj: TimezoneMap, object: TimezoneLocation) => void)): number
-    connect_after(sigName: "location-changed", callback: (($obj: TimezoneMap, object: TimezoneLocation) => void)): number
+    on(sigName: "location-changed", callback: (object: TimezoneLocation) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "location-changed", callback: (object: TimezoneLocation) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "location-changed", callback: (object: TimezoneLocation) => void): NodeJS.EventEmitter
     emit(sigName: "location-changed", object: TimezoneLocation): void
-    on(sigName: "location-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "location-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "location-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of Gtk.Widget */
+    /* Signals of Gtk-3.0.Gtk.Widget */
     connect(sigName: "accel-closures-changed", callback: (($obj: TimezoneMap) => void)): number
-    connect_after(sigName: "accel-closures-changed", callback: (($obj: TimezoneMap) => void)): number
+    on(sigName: "accel-closures-changed", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "accel-closures-changed", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "accel-closures-changed", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "accel-closures-changed"): void
-    on(sigName: "accel-closures-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "accel-closures-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "accel-closures-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "button-press-event", callback: (($obj: TimezoneMap, event: Gdk.EventButton) => boolean)): number
-    connect_after(sigName: "button-press-event", callback: (($obj: TimezoneMap, event: Gdk.EventButton) => boolean)): number
+    on(sigName: "button-press-event", callback: (event: Gdk.EventButton) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "button-press-event", callback: (event: Gdk.EventButton) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "button-press-event", callback: (event: Gdk.EventButton) => void): NodeJS.EventEmitter
     emit(sigName: "button-press-event", event: Gdk.EventButton): void
-    on(sigName: "button-press-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "button-press-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "button-press-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "button-release-event", callback: (($obj: TimezoneMap, event: Gdk.EventButton) => boolean)): number
-    connect_after(sigName: "button-release-event", callback: (($obj: TimezoneMap, event: Gdk.EventButton) => boolean)): number
+    on(sigName: "button-release-event", callback: (event: Gdk.EventButton) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "button-release-event", callback: (event: Gdk.EventButton) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "button-release-event", callback: (event: Gdk.EventButton) => void): NodeJS.EventEmitter
     emit(sigName: "button-release-event", event: Gdk.EventButton): void
-    on(sigName: "button-release-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "button-release-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "button-release-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "can-activate-accel", callback: (($obj: TimezoneMap, signalId: number) => boolean)): number
-    connect_after(sigName: "can-activate-accel", callback: (($obj: TimezoneMap, signalId: number) => boolean)): number
+    on(sigName: "can-activate-accel", callback: (signalId: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "can-activate-accel", callback: (signalId: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "can-activate-accel", callback: (signalId: number) => void): NodeJS.EventEmitter
     emit(sigName: "can-activate-accel", signalId: number): void
-    on(sigName: "can-activate-accel", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "can-activate-accel", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "can-activate-accel", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "child-notify", callback: (($obj: TimezoneMap, childProperty: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "child-notify", callback: (($obj: TimezoneMap, childProperty: GObject.ParamSpec) => void)): number
+    on(sigName: "child-notify", callback: (childProperty: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "child-notify", callback: (childProperty: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "child-notify", callback: (childProperty: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "child-notify", childProperty: GObject.ParamSpec): void
-    on(sigName: "child-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "child-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "child-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "composited-changed", callback: (($obj: TimezoneMap) => void)): number
-    connect_after(sigName: "composited-changed", callback: (($obj: TimezoneMap) => void)): number
+    on(sigName: "composited-changed", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "composited-changed", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "composited-changed", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "composited-changed"): void
-    on(sigName: "composited-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "composited-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "composited-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "configure-event", callback: (($obj: TimezoneMap, event: Gdk.EventConfigure) => boolean)): number
-    connect_after(sigName: "configure-event", callback: (($obj: TimezoneMap, event: Gdk.EventConfigure) => boolean)): number
+    on(sigName: "configure-event", callback: (event: Gdk.EventConfigure) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "configure-event", callback: (event: Gdk.EventConfigure) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "configure-event", callback: (event: Gdk.EventConfigure) => void): NodeJS.EventEmitter
     emit(sigName: "configure-event", event: Gdk.EventConfigure): void
-    on(sigName: "configure-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "configure-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "configure-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "damage-event", callback: (($obj: TimezoneMap, event: Gdk.EventExpose) => boolean)): number
-    connect_after(sigName: "damage-event", callback: (($obj: TimezoneMap, event: Gdk.EventExpose) => boolean)): number
+    on(sigName: "damage-event", callback: (event: Gdk.EventExpose) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "damage-event", callback: (event: Gdk.EventExpose) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "damage-event", callback: (event: Gdk.EventExpose) => void): NodeJS.EventEmitter
     emit(sigName: "damage-event", event: Gdk.EventExpose): void
-    on(sigName: "damage-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "damage-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "damage-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "delete-event", callback: (($obj: TimezoneMap, event: Gdk.Event) => boolean)): number
-    connect_after(sigName: "delete-event", callback: (($obj: TimezoneMap, event: Gdk.Event) => boolean)): number
+    on(sigName: "delete-event", callback: (event: Gdk.Event) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "delete-event", callback: (event: Gdk.Event) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "delete-event", callback: (event: Gdk.Event) => void): NodeJS.EventEmitter
     emit(sigName: "delete-event", event: Gdk.Event): void
-    on(sigName: "delete-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "delete-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "delete-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "destroy", callback: (($obj: TimezoneMap) => void)): number
-    connect_after(sigName: "destroy", callback: (($obj: TimezoneMap) => void)): number
+    on(sigName: "destroy", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "destroy", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "destroy", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "destroy"): void
-    on(sigName: "destroy", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "destroy", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "destroy", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "destroy-event", callback: (($obj: TimezoneMap, event: Gdk.Event) => boolean)): number
-    connect_after(sigName: "destroy-event", callback: (($obj: TimezoneMap, event: Gdk.Event) => boolean)): number
+    on(sigName: "destroy-event", callback: (event: Gdk.Event) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "destroy-event", callback: (event: Gdk.Event) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "destroy-event", callback: (event: Gdk.Event) => void): NodeJS.EventEmitter
     emit(sigName: "destroy-event", event: Gdk.Event): void
-    on(sigName: "destroy-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "destroy-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "destroy-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "direction-changed", callback: (($obj: TimezoneMap, previousDirection: Gtk.TextDirection) => void)): number
-    connect_after(sigName: "direction-changed", callback: (($obj: TimezoneMap, previousDirection: Gtk.TextDirection) => void)): number
+    on(sigName: "direction-changed", callback: (previousDirection: Gtk.TextDirection) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "direction-changed", callback: (previousDirection: Gtk.TextDirection) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "direction-changed", callback: (previousDirection: Gtk.TextDirection) => void): NodeJS.EventEmitter
     emit(sigName: "direction-changed", previousDirection: Gtk.TextDirection): void
-    on(sigName: "direction-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "direction-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "direction-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "drag-begin", callback: (($obj: TimezoneMap, context: Gdk.DragContext) => void)): number
-    connect_after(sigName: "drag-begin", callback: (($obj: TimezoneMap, context: Gdk.DragContext) => void)): number
+    on(sigName: "drag-begin", callback: (context: Gdk.DragContext) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "drag-begin", callback: (context: Gdk.DragContext) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "drag-begin", callback: (context: Gdk.DragContext) => void): NodeJS.EventEmitter
     emit(sigName: "drag-begin", context: Gdk.DragContext): void
-    on(sigName: "drag-begin", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "drag-begin", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "drag-begin", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "drag-data-delete", callback: (($obj: TimezoneMap, context: Gdk.DragContext) => void)): number
-    connect_after(sigName: "drag-data-delete", callback: (($obj: TimezoneMap, context: Gdk.DragContext) => void)): number
+    on(sigName: "drag-data-delete", callback: (context: Gdk.DragContext) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "drag-data-delete", callback: (context: Gdk.DragContext) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "drag-data-delete", callback: (context: Gdk.DragContext) => void): NodeJS.EventEmitter
     emit(sigName: "drag-data-delete", context: Gdk.DragContext): void
-    on(sigName: "drag-data-delete", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "drag-data-delete", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "drag-data-delete", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "drag-data-get", callback: (($obj: TimezoneMap, context: Gdk.DragContext, data: Gtk.SelectionData, info: number, time: number) => void)): number
-    connect_after(sigName: "drag-data-get", callback: (($obj: TimezoneMap, context: Gdk.DragContext, data: Gtk.SelectionData, info: number, time: number) => void)): number
+    on(sigName: "drag-data-get", callback: (context: Gdk.DragContext, data: Gtk.SelectionData, info: number, time: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "drag-data-get", callback: (context: Gdk.DragContext, data: Gtk.SelectionData, info: number, time: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "drag-data-get", callback: (context: Gdk.DragContext, data: Gtk.SelectionData, info: number, time: number) => void): NodeJS.EventEmitter
     emit(sigName: "drag-data-get", context: Gdk.DragContext, data: Gtk.SelectionData, info: number, time: number): void
-    on(sigName: "drag-data-get", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "drag-data-get", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "drag-data-get", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "drag-data-received", callback: (($obj: TimezoneMap, context: Gdk.DragContext, x: number, y: number, data: Gtk.SelectionData, info: number, time: number) => void)): number
-    connect_after(sigName: "drag-data-received", callback: (($obj: TimezoneMap, context: Gdk.DragContext, x: number, y: number, data: Gtk.SelectionData, info: number, time: number) => void)): number
+    on(sigName: "drag-data-received", callback: (context: Gdk.DragContext, x: number, y: number, data: Gtk.SelectionData, info: number, time: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "drag-data-received", callback: (context: Gdk.DragContext, x: number, y: number, data: Gtk.SelectionData, info: number, time: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "drag-data-received", callback: (context: Gdk.DragContext, x: number, y: number, data: Gtk.SelectionData, info: number, time: number) => void): NodeJS.EventEmitter
     emit(sigName: "drag-data-received", context: Gdk.DragContext, x: number, y: number, data: Gtk.SelectionData, info: number, time: number): void
-    on(sigName: "drag-data-received", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "drag-data-received", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "drag-data-received", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "drag-drop", callback: (($obj: TimezoneMap, context: Gdk.DragContext, x: number, y: number, time: number) => boolean)): number
-    connect_after(sigName: "drag-drop", callback: (($obj: TimezoneMap, context: Gdk.DragContext, x: number, y: number, time: number) => boolean)): number
+    on(sigName: "drag-drop", callback: (context: Gdk.DragContext, x: number, y: number, time: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "drag-drop", callback: (context: Gdk.DragContext, x: number, y: number, time: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "drag-drop", callback: (context: Gdk.DragContext, x: number, y: number, time: number) => void): NodeJS.EventEmitter
     emit(sigName: "drag-drop", context: Gdk.DragContext, x: number, y: number, time: number): void
-    on(sigName: "drag-drop", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "drag-drop", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "drag-drop", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "drag-end", callback: (($obj: TimezoneMap, context: Gdk.DragContext) => void)): number
-    connect_after(sigName: "drag-end", callback: (($obj: TimezoneMap, context: Gdk.DragContext) => void)): number
+    on(sigName: "drag-end", callback: (context: Gdk.DragContext) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "drag-end", callback: (context: Gdk.DragContext) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "drag-end", callback: (context: Gdk.DragContext) => void): NodeJS.EventEmitter
     emit(sigName: "drag-end", context: Gdk.DragContext): void
-    on(sigName: "drag-end", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "drag-end", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "drag-end", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "drag-failed", callback: (($obj: TimezoneMap, context: Gdk.DragContext, result: Gtk.DragResult) => boolean)): number
-    connect_after(sigName: "drag-failed", callback: (($obj: TimezoneMap, context: Gdk.DragContext, result: Gtk.DragResult) => boolean)): number
+    on(sigName: "drag-failed", callback: (context: Gdk.DragContext, result: Gtk.DragResult) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "drag-failed", callback: (context: Gdk.DragContext, result: Gtk.DragResult) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "drag-failed", callback: (context: Gdk.DragContext, result: Gtk.DragResult) => void): NodeJS.EventEmitter
     emit(sigName: "drag-failed", context: Gdk.DragContext, result: Gtk.DragResult): void
-    on(sigName: "drag-failed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "drag-failed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "drag-failed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "drag-leave", callback: (($obj: TimezoneMap, context: Gdk.DragContext, time: number) => void)): number
-    connect_after(sigName: "drag-leave", callback: (($obj: TimezoneMap, context: Gdk.DragContext, time: number) => void)): number
+    on(sigName: "drag-leave", callback: (context: Gdk.DragContext, time: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "drag-leave", callback: (context: Gdk.DragContext, time: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "drag-leave", callback: (context: Gdk.DragContext, time: number) => void): NodeJS.EventEmitter
     emit(sigName: "drag-leave", context: Gdk.DragContext, time: number): void
-    on(sigName: "drag-leave", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "drag-leave", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "drag-leave", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "drag-motion", callback: (($obj: TimezoneMap, context: Gdk.DragContext, x: number, y: number, time: number) => boolean)): number
-    connect_after(sigName: "drag-motion", callback: (($obj: TimezoneMap, context: Gdk.DragContext, x: number, y: number, time: number) => boolean)): number
+    on(sigName: "drag-motion", callback: (context: Gdk.DragContext, x: number, y: number, time: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "drag-motion", callback: (context: Gdk.DragContext, x: number, y: number, time: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "drag-motion", callback: (context: Gdk.DragContext, x: number, y: number, time: number) => void): NodeJS.EventEmitter
     emit(sigName: "drag-motion", context: Gdk.DragContext, x: number, y: number, time: number): void
-    on(sigName: "drag-motion", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "drag-motion", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "drag-motion", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "draw", callback: (($obj: TimezoneMap, cr: cairo.Context) => boolean)): number
-    connect_after(sigName: "draw", callback: (($obj: TimezoneMap, cr: cairo.Context) => boolean)): number
+    on(sigName: "draw", callback: (cr: cairo.Context) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "draw", callback: (cr: cairo.Context) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "draw", callback: (cr: cairo.Context) => void): NodeJS.EventEmitter
     emit(sigName: "draw", cr: cairo.Context): void
-    on(sigName: "draw", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "draw", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "draw", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "enter-notify-event", callback: (($obj: TimezoneMap, event: Gdk.EventCrossing) => boolean)): number
-    connect_after(sigName: "enter-notify-event", callback: (($obj: TimezoneMap, event: Gdk.EventCrossing) => boolean)): number
+    on(sigName: "enter-notify-event", callback: (event: Gdk.EventCrossing) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "enter-notify-event", callback: (event: Gdk.EventCrossing) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "enter-notify-event", callback: (event: Gdk.EventCrossing) => void): NodeJS.EventEmitter
     emit(sigName: "enter-notify-event", event: Gdk.EventCrossing): void
-    on(sigName: "enter-notify-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "enter-notify-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "enter-notify-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "event", callback: (($obj: TimezoneMap, event: Gdk.Event) => boolean)): number
-    connect_after(sigName: "event", callback: (($obj: TimezoneMap, event: Gdk.Event) => boolean)): number
+    on(sigName: "event", callback: (event: Gdk.Event) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "event", callback: (event: Gdk.Event) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "event", callback: (event: Gdk.Event) => void): NodeJS.EventEmitter
     emit(sigName: "event", event: Gdk.Event): void
-    on(sigName: "event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "event-after", callback: (($obj: TimezoneMap, event: Gdk.Event) => void)): number
-    connect_after(sigName: "event-after", callback: (($obj: TimezoneMap, event: Gdk.Event) => void)): number
+    on(sigName: "event-after", callback: (event: Gdk.Event) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "event-after", callback: (event: Gdk.Event) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "event-after", callback: (event: Gdk.Event) => void): NodeJS.EventEmitter
     emit(sigName: "event-after", event: Gdk.Event): void
-    on(sigName: "event-after", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "event-after", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "event-after", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "focus", callback: (($obj: TimezoneMap, direction: Gtk.DirectionType) => boolean)): number
-    connect_after(sigName: "focus", callback: (($obj: TimezoneMap, direction: Gtk.DirectionType) => boolean)): number
+    on(sigName: "focus", callback: (direction: Gtk.DirectionType) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "focus", callback: (direction: Gtk.DirectionType) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "focus", callback: (direction: Gtk.DirectionType) => void): NodeJS.EventEmitter
     emit(sigName: "focus", direction: Gtk.DirectionType): void
-    on(sigName: "focus", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "focus", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "focus", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "focus-in-event", callback: (($obj: TimezoneMap, event: Gdk.EventFocus) => boolean)): number
-    connect_after(sigName: "focus-in-event", callback: (($obj: TimezoneMap, event: Gdk.EventFocus) => boolean)): number
+    on(sigName: "focus-in-event", callback: (event: Gdk.EventFocus) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "focus-in-event", callback: (event: Gdk.EventFocus) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "focus-in-event", callback: (event: Gdk.EventFocus) => void): NodeJS.EventEmitter
     emit(sigName: "focus-in-event", event: Gdk.EventFocus): void
-    on(sigName: "focus-in-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "focus-in-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "focus-in-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "focus-out-event", callback: (($obj: TimezoneMap, event: Gdk.EventFocus) => boolean)): number
-    connect_after(sigName: "focus-out-event", callback: (($obj: TimezoneMap, event: Gdk.EventFocus) => boolean)): number
+    on(sigName: "focus-out-event", callback: (event: Gdk.EventFocus) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "focus-out-event", callback: (event: Gdk.EventFocus) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "focus-out-event", callback: (event: Gdk.EventFocus) => void): NodeJS.EventEmitter
     emit(sigName: "focus-out-event", event: Gdk.EventFocus): void
-    on(sigName: "focus-out-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "focus-out-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "focus-out-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "grab-broken-event", callback: (($obj: TimezoneMap, event: Gdk.EventGrabBroken) => boolean)): number
-    connect_after(sigName: "grab-broken-event", callback: (($obj: TimezoneMap, event: Gdk.EventGrabBroken) => boolean)): number
+    on(sigName: "grab-broken-event", callback: (event: Gdk.EventGrabBroken) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "grab-broken-event", callback: (event: Gdk.EventGrabBroken) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "grab-broken-event", callback: (event: Gdk.EventGrabBroken) => void): NodeJS.EventEmitter
     emit(sigName: "grab-broken-event", event: Gdk.EventGrabBroken): void
-    on(sigName: "grab-broken-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "grab-broken-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "grab-broken-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "grab-focus", callback: (($obj: TimezoneMap) => void)): number
-    connect_after(sigName: "grab-focus", callback: (($obj: TimezoneMap) => void)): number
+    on(sigName: "grab-focus", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "grab-focus", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "grab-focus", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "grab-focus"): void
-    on(sigName: "grab-focus", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "grab-focus", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "grab-focus", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "grab-notify", callback: (($obj: TimezoneMap, wasGrabbed: boolean) => void)): number
-    connect_after(sigName: "grab-notify", callback: (($obj: TimezoneMap, wasGrabbed: boolean) => void)): number
+    on(sigName: "grab-notify", callback: (wasGrabbed: boolean) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "grab-notify", callback: (wasGrabbed: boolean) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "grab-notify", callback: (wasGrabbed: boolean) => void): NodeJS.EventEmitter
     emit(sigName: "grab-notify", wasGrabbed: boolean): void
-    on(sigName: "grab-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "grab-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "grab-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "hide", callback: (($obj: TimezoneMap) => void)): number
-    connect_after(sigName: "hide", callback: (($obj: TimezoneMap) => void)): number
+    on(sigName: "hide", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "hide", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "hide", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "hide"): void
-    on(sigName: "hide", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "hide", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "hide", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "hierarchy-changed", callback: (($obj: TimezoneMap, previousToplevel?: Gtk.Widget | null) => void)): number
-    connect_after(sigName: "hierarchy-changed", callback: (($obj: TimezoneMap, previousToplevel?: Gtk.Widget | null) => void)): number
+    on(sigName: "hierarchy-changed", callback: (previousToplevel?: Gtk.Widget | null) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "hierarchy-changed", callback: (previousToplevel?: Gtk.Widget | null) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "hierarchy-changed", callback: (previousToplevel?: Gtk.Widget | null) => void): NodeJS.EventEmitter
     emit(sigName: "hierarchy-changed", previousToplevel?: Gtk.Widget | null): void
-    on(sigName: "hierarchy-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "hierarchy-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "hierarchy-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "key-press-event", callback: (($obj: TimezoneMap, event: Gdk.EventKey) => boolean)): number
-    connect_after(sigName: "key-press-event", callback: (($obj: TimezoneMap, event: Gdk.EventKey) => boolean)): number
+    on(sigName: "key-press-event", callback: (event: Gdk.EventKey) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "key-press-event", callback: (event: Gdk.EventKey) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "key-press-event", callback: (event: Gdk.EventKey) => void): NodeJS.EventEmitter
     emit(sigName: "key-press-event", event: Gdk.EventKey): void
-    on(sigName: "key-press-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "key-press-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "key-press-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "key-release-event", callback: (($obj: TimezoneMap, event: Gdk.EventKey) => boolean)): number
-    connect_after(sigName: "key-release-event", callback: (($obj: TimezoneMap, event: Gdk.EventKey) => boolean)): number
+    on(sigName: "key-release-event", callback: (event: Gdk.EventKey) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "key-release-event", callback: (event: Gdk.EventKey) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "key-release-event", callback: (event: Gdk.EventKey) => void): NodeJS.EventEmitter
     emit(sigName: "key-release-event", event: Gdk.EventKey): void
-    on(sigName: "key-release-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "key-release-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "key-release-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "keynav-failed", callback: (($obj: TimezoneMap, direction: Gtk.DirectionType) => boolean)): number
-    connect_after(sigName: "keynav-failed", callback: (($obj: TimezoneMap, direction: Gtk.DirectionType) => boolean)): number
+    on(sigName: "keynav-failed", callback: (direction: Gtk.DirectionType) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "keynav-failed", callback: (direction: Gtk.DirectionType) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "keynav-failed", callback: (direction: Gtk.DirectionType) => void): NodeJS.EventEmitter
     emit(sigName: "keynav-failed", direction: Gtk.DirectionType): void
-    on(sigName: "keynav-failed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "keynav-failed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "keynav-failed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "leave-notify-event", callback: (($obj: TimezoneMap, event: Gdk.EventCrossing) => boolean)): number
-    connect_after(sigName: "leave-notify-event", callback: (($obj: TimezoneMap, event: Gdk.EventCrossing) => boolean)): number
+    on(sigName: "leave-notify-event", callback: (event: Gdk.EventCrossing) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "leave-notify-event", callback: (event: Gdk.EventCrossing) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "leave-notify-event", callback: (event: Gdk.EventCrossing) => void): NodeJS.EventEmitter
     emit(sigName: "leave-notify-event", event: Gdk.EventCrossing): void
-    on(sigName: "leave-notify-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "leave-notify-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "leave-notify-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "map", callback: (($obj: TimezoneMap) => void)): number
-    connect_after(sigName: "map", callback: (($obj: TimezoneMap) => void)): number
+    on(sigName: "map", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "map", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "map", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "map"): void
-    on(sigName: "map", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "map", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "map", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "map-event", callback: (($obj: TimezoneMap, event: Gdk.EventAny) => boolean)): number
-    connect_after(sigName: "map-event", callback: (($obj: TimezoneMap, event: Gdk.EventAny) => boolean)): number
+    on(sigName: "map-event", callback: (event: Gdk.EventAny) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "map-event", callback: (event: Gdk.EventAny) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "map-event", callback: (event: Gdk.EventAny) => void): NodeJS.EventEmitter
     emit(sigName: "map-event", event: Gdk.EventAny): void
-    on(sigName: "map-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "map-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "map-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "mnemonic-activate", callback: (($obj: TimezoneMap, groupCycling: boolean) => boolean)): number
-    connect_after(sigName: "mnemonic-activate", callback: (($obj: TimezoneMap, groupCycling: boolean) => boolean)): number
+    on(sigName: "mnemonic-activate", callback: (groupCycling: boolean) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "mnemonic-activate", callback: (groupCycling: boolean) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "mnemonic-activate", callback: (groupCycling: boolean) => void): NodeJS.EventEmitter
     emit(sigName: "mnemonic-activate", groupCycling: boolean): void
-    on(sigName: "mnemonic-activate", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "mnemonic-activate", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "mnemonic-activate", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "motion-notify-event", callback: (($obj: TimezoneMap, event: Gdk.EventMotion) => boolean)): number
-    connect_after(sigName: "motion-notify-event", callback: (($obj: TimezoneMap, event: Gdk.EventMotion) => boolean)): number
+    on(sigName: "motion-notify-event", callback: (event: Gdk.EventMotion) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "motion-notify-event", callback: (event: Gdk.EventMotion) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "motion-notify-event", callback: (event: Gdk.EventMotion) => void): NodeJS.EventEmitter
     emit(sigName: "motion-notify-event", event: Gdk.EventMotion): void
-    on(sigName: "motion-notify-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "motion-notify-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "motion-notify-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "move-focus", callback: (($obj: TimezoneMap, direction: Gtk.DirectionType) => void)): number
-    connect_after(sigName: "move-focus", callback: (($obj: TimezoneMap, direction: Gtk.DirectionType) => void)): number
+    on(sigName: "move-focus", callback: (direction: Gtk.DirectionType) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "move-focus", callback: (direction: Gtk.DirectionType) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "move-focus", callback: (direction: Gtk.DirectionType) => void): NodeJS.EventEmitter
     emit(sigName: "move-focus", direction: Gtk.DirectionType): void
-    on(sigName: "move-focus", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "move-focus", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "move-focus", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "parent-set", callback: (($obj: TimezoneMap, oldParent?: Gtk.Widget | null) => void)): number
-    connect_after(sigName: "parent-set", callback: (($obj: TimezoneMap, oldParent?: Gtk.Widget | null) => void)): number
+    on(sigName: "parent-set", callback: (oldParent?: Gtk.Widget | null) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "parent-set", callback: (oldParent?: Gtk.Widget | null) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "parent-set", callback: (oldParent?: Gtk.Widget | null) => void): NodeJS.EventEmitter
     emit(sigName: "parent-set", oldParent?: Gtk.Widget | null): void
-    on(sigName: "parent-set", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "parent-set", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "parent-set", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "popup-menu", callback: (($obj: TimezoneMap) => boolean)): number
-    connect_after(sigName: "popup-menu", callback: (($obj: TimezoneMap) => boolean)): number
+    on(sigName: "popup-menu", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "popup-menu", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "popup-menu", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "popup-menu"): void
-    on(sigName: "popup-menu", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "popup-menu", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "popup-menu", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "property-notify-event", callback: (($obj: TimezoneMap, event: Gdk.EventProperty) => boolean)): number
-    connect_after(sigName: "property-notify-event", callback: (($obj: TimezoneMap, event: Gdk.EventProperty) => boolean)): number
+    on(sigName: "property-notify-event", callback: (event: Gdk.EventProperty) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "property-notify-event", callback: (event: Gdk.EventProperty) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "property-notify-event", callback: (event: Gdk.EventProperty) => void): NodeJS.EventEmitter
     emit(sigName: "property-notify-event", event: Gdk.EventProperty): void
-    on(sigName: "property-notify-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "property-notify-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "property-notify-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "proximity-in-event", callback: (($obj: TimezoneMap, event: Gdk.EventProximity) => boolean)): number
-    connect_after(sigName: "proximity-in-event", callback: (($obj: TimezoneMap, event: Gdk.EventProximity) => boolean)): number
+    on(sigName: "proximity-in-event", callback: (event: Gdk.EventProximity) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "proximity-in-event", callback: (event: Gdk.EventProximity) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "proximity-in-event", callback: (event: Gdk.EventProximity) => void): NodeJS.EventEmitter
     emit(sigName: "proximity-in-event", event: Gdk.EventProximity): void
-    on(sigName: "proximity-in-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "proximity-in-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "proximity-in-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "proximity-out-event", callback: (($obj: TimezoneMap, event: Gdk.EventProximity) => boolean)): number
-    connect_after(sigName: "proximity-out-event", callback: (($obj: TimezoneMap, event: Gdk.EventProximity) => boolean)): number
+    on(sigName: "proximity-out-event", callback: (event: Gdk.EventProximity) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "proximity-out-event", callback: (event: Gdk.EventProximity) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "proximity-out-event", callback: (event: Gdk.EventProximity) => void): NodeJS.EventEmitter
     emit(sigName: "proximity-out-event", event: Gdk.EventProximity): void
-    on(sigName: "proximity-out-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "proximity-out-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "proximity-out-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "query-tooltip", callback: (($obj: TimezoneMap, x: number, y: number, keyboardMode: boolean, tooltip: Gtk.Tooltip) => boolean)): number
-    connect_after(sigName: "query-tooltip", callback: (($obj: TimezoneMap, x: number, y: number, keyboardMode: boolean, tooltip: Gtk.Tooltip) => boolean)): number
+    on(sigName: "query-tooltip", callback: (x: number, y: number, keyboardMode: boolean, tooltip: Gtk.Tooltip) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "query-tooltip", callback: (x: number, y: number, keyboardMode: boolean, tooltip: Gtk.Tooltip) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "query-tooltip", callback: (x: number, y: number, keyboardMode: boolean, tooltip: Gtk.Tooltip) => void): NodeJS.EventEmitter
     emit(sigName: "query-tooltip", x: number, y: number, keyboardMode: boolean, tooltip: Gtk.Tooltip): void
-    on(sigName: "query-tooltip", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "query-tooltip", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "query-tooltip", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "realize", callback: (($obj: TimezoneMap) => void)): number
-    connect_after(sigName: "realize", callback: (($obj: TimezoneMap) => void)): number
+    on(sigName: "realize", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "realize", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "realize", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "realize"): void
-    on(sigName: "realize", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "realize", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "realize", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "screen-changed", callback: (($obj: TimezoneMap, previousScreen?: Gdk.Screen | null) => void)): number
-    connect_after(sigName: "screen-changed", callback: (($obj: TimezoneMap, previousScreen?: Gdk.Screen | null) => void)): number
+    on(sigName: "screen-changed", callback: (previousScreen?: Gdk.Screen | null) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "screen-changed", callback: (previousScreen?: Gdk.Screen | null) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "screen-changed", callback: (previousScreen?: Gdk.Screen | null) => void): NodeJS.EventEmitter
     emit(sigName: "screen-changed", previousScreen?: Gdk.Screen | null): void
-    on(sigName: "screen-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "screen-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "screen-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "scroll-event", callback: (($obj: TimezoneMap, event: Gdk.EventScroll) => boolean)): number
-    connect_after(sigName: "scroll-event", callback: (($obj: TimezoneMap, event: Gdk.EventScroll) => boolean)): number
+    on(sigName: "scroll-event", callback: (event: Gdk.EventScroll) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "scroll-event", callback: (event: Gdk.EventScroll) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "scroll-event", callback: (event: Gdk.EventScroll) => void): NodeJS.EventEmitter
     emit(sigName: "scroll-event", event: Gdk.EventScroll): void
-    on(sigName: "scroll-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "scroll-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "scroll-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "selection-clear-event", callback: (($obj: TimezoneMap, event: Gdk.EventSelection) => boolean)): number
-    connect_after(sigName: "selection-clear-event", callback: (($obj: TimezoneMap, event: Gdk.EventSelection) => boolean)): number
+    on(sigName: "selection-clear-event", callback: (event: Gdk.EventSelection) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "selection-clear-event", callback: (event: Gdk.EventSelection) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "selection-clear-event", callback: (event: Gdk.EventSelection) => void): NodeJS.EventEmitter
     emit(sigName: "selection-clear-event", event: Gdk.EventSelection): void
-    on(sigName: "selection-clear-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "selection-clear-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "selection-clear-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "selection-get", callback: (($obj: TimezoneMap, data: Gtk.SelectionData, info: number, time: number) => void)): number
-    connect_after(sigName: "selection-get", callback: (($obj: TimezoneMap, data: Gtk.SelectionData, info: number, time: number) => void)): number
+    on(sigName: "selection-get", callback: (data: Gtk.SelectionData, info: number, time: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "selection-get", callback: (data: Gtk.SelectionData, info: number, time: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "selection-get", callback: (data: Gtk.SelectionData, info: number, time: number) => void): NodeJS.EventEmitter
     emit(sigName: "selection-get", data: Gtk.SelectionData, info: number, time: number): void
-    on(sigName: "selection-get", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "selection-get", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "selection-get", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "selection-notify-event", callback: (($obj: TimezoneMap, event: Gdk.EventSelection) => boolean)): number
-    connect_after(sigName: "selection-notify-event", callback: (($obj: TimezoneMap, event: Gdk.EventSelection) => boolean)): number
+    on(sigName: "selection-notify-event", callback: (event: Gdk.EventSelection) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "selection-notify-event", callback: (event: Gdk.EventSelection) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "selection-notify-event", callback: (event: Gdk.EventSelection) => void): NodeJS.EventEmitter
     emit(sigName: "selection-notify-event", event: Gdk.EventSelection): void
-    on(sigName: "selection-notify-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "selection-notify-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "selection-notify-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "selection-received", callback: (($obj: TimezoneMap, data: Gtk.SelectionData, time: number) => void)): number
-    connect_after(sigName: "selection-received", callback: (($obj: TimezoneMap, data: Gtk.SelectionData, time: number) => void)): number
+    on(sigName: "selection-received", callback: (data: Gtk.SelectionData, time: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "selection-received", callback: (data: Gtk.SelectionData, time: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "selection-received", callback: (data: Gtk.SelectionData, time: number) => void): NodeJS.EventEmitter
     emit(sigName: "selection-received", data: Gtk.SelectionData, time: number): void
-    on(sigName: "selection-received", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "selection-received", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "selection-received", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "selection-request-event", callback: (($obj: TimezoneMap, event: Gdk.EventSelection) => boolean)): number
-    connect_after(sigName: "selection-request-event", callback: (($obj: TimezoneMap, event: Gdk.EventSelection) => boolean)): number
+    on(sigName: "selection-request-event", callback: (event: Gdk.EventSelection) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "selection-request-event", callback: (event: Gdk.EventSelection) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "selection-request-event", callback: (event: Gdk.EventSelection) => void): NodeJS.EventEmitter
     emit(sigName: "selection-request-event", event: Gdk.EventSelection): void
-    on(sigName: "selection-request-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "selection-request-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "selection-request-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "show", callback: (($obj: TimezoneMap) => void)): number
-    connect_after(sigName: "show", callback: (($obj: TimezoneMap) => void)): number
+    on(sigName: "show", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "show", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "show", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "show"): void
-    on(sigName: "show", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "show", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "show", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "show-help", callback: (($obj: TimezoneMap, helpType: Gtk.WidgetHelpType) => boolean)): number
-    connect_after(sigName: "show-help", callback: (($obj: TimezoneMap, helpType: Gtk.WidgetHelpType) => boolean)): number
+    on(sigName: "show-help", callback: (helpType: Gtk.WidgetHelpType) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "show-help", callback: (helpType: Gtk.WidgetHelpType) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "show-help", callback: (helpType: Gtk.WidgetHelpType) => void): NodeJS.EventEmitter
     emit(sigName: "show-help", helpType: Gtk.WidgetHelpType): void
-    on(sigName: "show-help", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "show-help", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "show-help", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "size-allocate", callback: (($obj: TimezoneMap, allocation: Gtk.Allocation) => void)): number
-    connect_after(sigName: "size-allocate", callback: (($obj: TimezoneMap, allocation: Gtk.Allocation) => void)): number
+    on(sigName: "size-allocate", callback: (allocation: Gtk.Allocation) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "size-allocate", callback: (allocation: Gtk.Allocation) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "size-allocate", callback: (allocation: Gtk.Allocation) => void): NodeJS.EventEmitter
     emit(sigName: "size-allocate", allocation: Gtk.Allocation): void
-    on(sigName: "size-allocate", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "size-allocate", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "size-allocate", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "state-changed", callback: (($obj: TimezoneMap, state: Gtk.StateType) => void)): number
-    connect_after(sigName: "state-changed", callback: (($obj: TimezoneMap, state: Gtk.StateType) => void)): number
+    on(sigName: "state-changed", callback: (state: Gtk.StateType) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "state-changed", callback: (state: Gtk.StateType) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "state-changed", callback: (state: Gtk.StateType) => void): NodeJS.EventEmitter
     emit(sigName: "state-changed", state: Gtk.StateType): void
-    on(sigName: "state-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "state-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "state-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "state-flags-changed", callback: (($obj: TimezoneMap, flags: Gtk.StateFlags) => void)): number
-    connect_after(sigName: "state-flags-changed", callback: (($obj: TimezoneMap, flags: Gtk.StateFlags) => void)): number
+    on(sigName: "state-flags-changed", callback: (flags: Gtk.StateFlags) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "state-flags-changed", callback: (flags: Gtk.StateFlags) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "state-flags-changed", callback: (flags: Gtk.StateFlags) => void): NodeJS.EventEmitter
     emit(sigName: "state-flags-changed", flags: Gtk.StateFlags): void
-    on(sigName: "state-flags-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "state-flags-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "state-flags-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "style-set", callback: (($obj: TimezoneMap, previousStyle?: Gtk.Style | null) => void)): number
-    connect_after(sigName: "style-set", callback: (($obj: TimezoneMap, previousStyle?: Gtk.Style | null) => void)): number
+    on(sigName: "style-set", callback: (previousStyle?: Gtk.Style | null) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "style-set", callback: (previousStyle?: Gtk.Style | null) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "style-set", callback: (previousStyle?: Gtk.Style | null) => void): NodeJS.EventEmitter
     emit(sigName: "style-set", previousStyle?: Gtk.Style | null): void
-    on(sigName: "style-set", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "style-set", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "style-set", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "style-updated", callback: (($obj: TimezoneMap) => void)): number
-    connect_after(sigName: "style-updated", callback: (($obj: TimezoneMap) => void)): number
+    on(sigName: "style-updated", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "style-updated", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "style-updated", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "style-updated"): void
-    on(sigName: "style-updated", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "style-updated", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "style-updated", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "touch-event", callback: (($obj: TimezoneMap, object: Gdk.Event) => boolean)): number
-    connect_after(sigName: "touch-event", callback: (($obj: TimezoneMap, object: Gdk.Event) => boolean)): number
+    on(sigName: "touch-event", callback: (object: Gdk.Event) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "touch-event", callback: (object: Gdk.Event) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "touch-event", callback: (object: Gdk.Event) => void): NodeJS.EventEmitter
     emit(sigName: "touch-event", object: Gdk.Event): void
-    on(sigName: "touch-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "touch-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "touch-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "unmap", callback: (($obj: TimezoneMap) => void)): number
-    connect_after(sigName: "unmap", callback: (($obj: TimezoneMap) => void)): number
+    on(sigName: "unmap", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "unmap", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "unmap", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "unmap"): void
-    on(sigName: "unmap", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "unmap", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "unmap", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "unmap-event", callback: (($obj: TimezoneMap, event: Gdk.EventAny) => boolean)): number
-    connect_after(sigName: "unmap-event", callback: (($obj: TimezoneMap, event: Gdk.EventAny) => boolean)): number
+    on(sigName: "unmap-event", callback: (event: Gdk.EventAny) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "unmap-event", callback: (event: Gdk.EventAny) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "unmap-event", callback: (event: Gdk.EventAny) => void): NodeJS.EventEmitter
     emit(sigName: "unmap-event", event: Gdk.EventAny): void
-    on(sigName: "unmap-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "unmap-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "unmap-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "unrealize", callback: (($obj: TimezoneMap) => void)): number
-    connect_after(sigName: "unrealize", callback: (($obj: TimezoneMap) => void)): number
+    on(sigName: "unrealize", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "unrealize", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "unrealize", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "unrealize"): void
-    on(sigName: "unrealize", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "unrealize", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "unrealize", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "visibility-notify-event", callback: (($obj: TimezoneMap, event: Gdk.EventVisibility) => boolean)): number
-    connect_after(sigName: "visibility-notify-event", callback: (($obj: TimezoneMap, event: Gdk.EventVisibility) => boolean)): number
+    on(sigName: "visibility-notify-event", callback: (event: Gdk.EventVisibility) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "visibility-notify-event", callback: (event: Gdk.EventVisibility) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "visibility-notify-event", callback: (event: Gdk.EventVisibility) => void): NodeJS.EventEmitter
     emit(sigName: "visibility-notify-event", event: Gdk.EventVisibility): void
-    on(sigName: "visibility-notify-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "visibility-notify-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "visibility-notify-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "window-state-event", callback: (($obj: TimezoneMap, event: Gdk.EventWindowState) => boolean)): number
-    connect_after(sigName: "window-state-event", callback: (($obj: TimezoneMap, event: Gdk.EventWindowState) => boolean)): number
+    on(sigName: "window-state-event", callback: (event: Gdk.EventWindowState) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "window-state-event", callback: (event: Gdk.EventWindowState) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "window-state-event", callback: (event: Gdk.EventWindowState) => void): NodeJS.EventEmitter
     emit(sigName: "window-state-event", event: Gdk.EventWindowState): void
-    on(sigName: "window-state-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "window-state-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "window-state-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: TimezoneMap, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: TimezoneMap, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::app-paintable", callback: (($obj: TimezoneMap, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::app-paintable", callback: (($obj: TimezoneMap, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::app-paintable", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -1429,7 +1207,7 @@ export class TimezoneMap {
     static $gtype: GObject.Type
 }
 export abstract class TimezoneCompletionClass {
-    /* Fields of TimezoneMap.TimezoneCompletionClass */
+    /* Fields of TimezoneMap-1.0.TimezoneMap.TimezoneCompletionClass */
     parentClass: Gtk.EntryCompletionClass
     static name: string
 }
@@ -1437,7 +1215,7 @@ export class TimezoneCompletionPrivate {
     static name: string
 }
 export abstract class TimezoneLocationClass {
-    /* Fields of TimezoneMap.TimezoneLocationClass */
+    /* Fields of TimezoneMap-1.0.TimezoneMap.TimezoneLocationClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
@@ -1445,7 +1223,7 @@ export class TimezoneLocationPrivate {
     static name: string
 }
 export abstract class TimezoneMapClass {
-    /* Fields of TimezoneMap.TimezoneMapClass */
+    /* Fields of TimezoneMap-1.0.TimezoneMap.TimezoneMapClass */
     parentClass: Gtk.WidgetClass
     static name: string
 }

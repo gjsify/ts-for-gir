@@ -71,19 +71,19 @@ export function unicode_version_to_string(version: UnicodeVersion): string
 export interface BlockChaptersModel_ConstructProps extends ChaptersModel_ConstructProps {
 }
 export class BlockChaptersModel {
-    /* Fields of Gucharmap.BlockChaptersModel */
+    /* Fields of Gucharmap-2.90.Gucharmap.BlockChaptersModel */
     parent: ChaptersModel
-    /* Fields of Gucharmap.ChaptersModel */
+    /* Fields of Gucharmap-2.90.Gucharmap.ChaptersModel */
     parent_instance: Gtk.ListStore
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Gucharmap.ChaptersModel */
+    /* Methods of Gucharmap-2.90.Gucharmap.ChaptersModel */
     character_to_iter(wc: number): [ /* returnType */ boolean, /* iter */ Gtk.TreeIter ]
     get_book_codepoint_list(): CodepointList
     get_codepoint_list(iter: Gtk.TreeIter): CodepointList
     get_title(): string
     id_to_iter(id: string): [ /* returnType */ boolean, /* _iter */ Gtk.TreeIter ]
-    /* Methods of Gtk.ListStore */
+    /* Methods of Gtk-3.0.Gtk.ListStore */
     append(): /* iter */ Gtk.TreeIter
     clear(): void
     insert(position: number): /* iter */ Gtk.TreeIter
@@ -100,7 +100,7 @@ export class BlockChaptersModel {
     set_value(iter: Gtk.TreeIter, column: number, value: any): void
     set(iter: Gtk.TreeIter, columns: number[], values: any[]): void
     swap(a: Gtk.TreeIter, b: Gtk.TreeIter): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -122,7 +122,7 @@ export class BlockChaptersModel {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of Gtk.Buildable */
+    /* Methods of Gtk-3.0.Gtk.Buildable */
     add_child(builder: Gtk.Builder, child: GObject.Object, type?: string | null): void
     construct_child(builder: Gtk.Builder, name: string): GObject.Object
     custom_finished(builder: Gtk.Builder, child: GObject.Object | null, tagname: string, data?: object | null): void
@@ -133,14 +133,14 @@ export class BlockChaptersModel {
     parser_finished(builder: Gtk.Builder): void
     set_buildable_property(builder: Gtk.Builder, name: string, value: any): void
     set_name(name: string): void
-    /* Methods of Gtk.TreeDragDest */
+    /* Methods of Gtk-3.0.Gtk.TreeDragDest */
     drag_data_received(dest: Gtk.TreePath, selection_data: Gtk.SelectionData): boolean
     row_drop_possible(dest_path: Gtk.TreePath, selection_data: Gtk.SelectionData): boolean
-    /* Methods of Gtk.TreeDragSource */
+    /* Methods of Gtk-3.0.Gtk.TreeDragSource */
     drag_data_delete(path: Gtk.TreePath): boolean
     drag_data_get(path: Gtk.TreePath, selection_data: Gtk.SelectionData): boolean
     row_draggable(path: Gtk.TreePath): boolean
-    /* Methods of Gtk.TreeModel */
+    /* Methods of Gtk-3.0.Gtk.TreeModel */
     filter_new(root?: Gtk.TreePath | null): Gtk.TreeModel
     foreach(func: Gtk.TreeModelForeachFunc): void
     get_column_type(index_: number): GObject.Type
@@ -166,14 +166,14 @@ export class BlockChaptersModel {
     row_inserted(path: Gtk.TreePath, iter: Gtk.TreeIter): void
     rows_reordered(path: Gtk.TreePath, iter: Gtk.TreeIter | null, new_order: number[]): void
     unref_node(iter: Gtk.TreeIter): void
-    /* Methods of Gtk.TreeSortable */
+    /* Methods of Gtk-3.0.Gtk.TreeSortable */
     get_sort_column_id(): [ /* returnType */ boolean, /* sort_column_id */ number, /* order */ Gtk.SortType ]
     has_default_sort_func(): boolean
     set_default_sort_func(sort_func: Gtk.TreeIterCompareFunc): void
     set_sort_column_id(sort_column_id: number, order: Gtk.SortType): void
     set_sort_func(sort_column_id: number, sort_func: Gtk.TreeIterCompareFunc): void
     sort_column_changed(): void
-    /* Virtual methods of Gucharmap.ChaptersModel */
+    /* Virtual methods of Gucharmap-2.90.Gucharmap.ChaptersModel */
     vfunc_character_to_iter(wc: number): [ /* returnType */ boolean, /* iter */ Gtk.TreeIter ]
     vfunc_get_book_codepoint_list(): CodepointList
     vfunc_get_codepoint_list(iter: Gtk.TreeIter): CodepointList
@@ -217,7 +217,7 @@ export class BlockChaptersModel {
     vfunc_set_sort_column_id(sort_column_id: number, order: Gtk.SortType): void
     vfunc_set_sort_func(sort_column_id: number, sort_func: Gtk.TreeIterCompareFunc): void
     vfunc_sort_column_changed(): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -225,11 +225,11 @@ export class BlockChaptersModel {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: BlockChaptersModel, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: BlockChaptersModel, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    /* Signals of Gtk.TreeModel */
+    /* Signals of Gtk-3.0.Gtk.TreeModel */
     connect(sigName: "row-changed", callback: (($obj: BlockChaptersModel, path: Gtk.TreePath, iter: Gtk.TreeIter) => void)): number
     connect_after(sigName: "row-changed", callback: (($obj: BlockChaptersModel, path: Gtk.TreePath, iter: Gtk.TreeIter) => void)): number
     emit(sigName: "row-changed", path: Gtk.TreePath, iter: Gtk.TreeIter): void
@@ -245,7 +245,7 @@ export class BlockChaptersModel {
     connect(sigName: "rows-reordered", callback: (($obj: BlockChaptersModel, path: Gtk.TreePath, iter: Gtk.TreeIter, new_order?: object | null) => void)): number
     connect_after(sigName: "rows-reordered", callback: (($obj: BlockChaptersModel, path: Gtk.TreePath, iter: Gtk.TreeIter, new_order?: object | null) => void)): number
     emit(sigName: "rows-reordered", path: Gtk.TreePath, iter: Gtk.TreeIter, new_order?: object | null): void
-    /* Signals of Gtk.TreeSortable */
+    /* Signals of Gtk-3.0.Gtk.TreeSortable */
     connect(sigName: "sort-column-changed", callback: (($obj: BlockChaptersModel) => void)): number
     connect_after(sigName: "sort-column-changed", callback: (($obj: BlockChaptersModel) => void)): number
     emit(sigName: "sort-column-changed"): void
@@ -266,15 +266,15 @@ export interface BlockCodepointList_ConstructProps extends CodepointList_Constru
     last_codepoint?: number
 }
 export class BlockCodepointList {
-    /* Fields of Gucharmap.BlockCodepointList */
+    /* Fields of Gucharmap-2.90.Gucharmap.BlockCodepointList */
     parent_instance: CodepointList
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Gucharmap.CodepointList */
+    /* Methods of Gucharmap-2.90.Gucharmap.CodepointList */
     get_char(index: number): number
     get_index(wc: number): number
     get_last_index(): number
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -296,11 +296,11 @@ export class BlockCodepointList {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Gucharmap.CodepointList */
+    /* Virtual methods of Gucharmap-2.90.Gucharmap.CodepointList */
     vfunc_get_char(index: number): number
     vfunc_get_index(wc: number): number
     vfunc_get_last_index(): number
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -308,7 +308,7 @@ export class BlockCodepointList {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: BlockCodepointList, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: BlockCodepointList, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -326,19 +326,19 @@ export class BlockCodepointList {
 export interface ChaptersModel_ConstructProps extends Gtk.ListStore_ConstructProps {
 }
 export class ChaptersModel {
-    /* Fields of Gucharmap.ChaptersModel */
+    /* Fields of Gucharmap-2.90.Gucharmap.ChaptersModel */
     parent_instance: Gtk.ListStore
-    /* Fields of Gtk.ListStore */
+    /* Fields of Gtk-3.0.Gtk.ListStore */
     parent: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Gucharmap.ChaptersModel */
+    /* Methods of Gucharmap-2.90.Gucharmap.ChaptersModel */
     character_to_iter(wc: number): [ /* returnType */ boolean, /* iter */ Gtk.TreeIter ]
     get_book_codepoint_list(): CodepointList
     get_codepoint_list(iter: Gtk.TreeIter): CodepointList
     get_title(): string
     id_to_iter(id: string): [ /* returnType */ boolean, /* _iter */ Gtk.TreeIter ]
-    /* Methods of Gtk.ListStore */
+    /* Methods of Gtk-3.0.Gtk.ListStore */
     append(): /* iter */ Gtk.TreeIter
     clear(): void
     insert(position: number): /* iter */ Gtk.TreeIter
@@ -355,7 +355,7 @@ export class ChaptersModel {
     set_value(iter: Gtk.TreeIter, column: number, value: any): void
     set(iter: Gtk.TreeIter, columns: number[], values: any[]): void
     swap(a: Gtk.TreeIter, b: Gtk.TreeIter): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -377,7 +377,7 @@ export class ChaptersModel {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of Gtk.Buildable */
+    /* Methods of Gtk-3.0.Gtk.Buildable */
     add_child(builder: Gtk.Builder, child: GObject.Object, type?: string | null): void
     construct_child(builder: Gtk.Builder, name: string): GObject.Object
     custom_finished(builder: Gtk.Builder, child: GObject.Object | null, tagname: string, data?: object | null): void
@@ -388,14 +388,14 @@ export class ChaptersModel {
     parser_finished(builder: Gtk.Builder): void
     set_buildable_property(builder: Gtk.Builder, name: string, value: any): void
     set_name(name: string): void
-    /* Methods of Gtk.TreeDragDest */
+    /* Methods of Gtk-3.0.Gtk.TreeDragDest */
     drag_data_received(dest: Gtk.TreePath, selection_data: Gtk.SelectionData): boolean
     row_drop_possible(dest_path: Gtk.TreePath, selection_data: Gtk.SelectionData): boolean
-    /* Methods of Gtk.TreeDragSource */
+    /* Methods of Gtk-3.0.Gtk.TreeDragSource */
     drag_data_delete(path: Gtk.TreePath): boolean
     drag_data_get(path: Gtk.TreePath, selection_data: Gtk.SelectionData): boolean
     row_draggable(path: Gtk.TreePath): boolean
-    /* Methods of Gtk.TreeModel */
+    /* Methods of Gtk-3.0.Gtk.TreeModel */
     filter_new(root?: Gtk.TreePath | null): Gtk.TreeModel
     foreach(func: Gtk.TreeModelForeachFunc): void
     get_column_type(index_: number): GObject.Type
@@ -421,14 +421,14 @@ export class ChaptersModel {
     row_inserted(path: Gtk.TreePath, iter: Gtk.TreeIter): void
     rows_reordered(path: Gtk.TreePath, iter: Gtk.TreeIter | null, new_order: number[]): void
     unref_node(iter: Gtk.TreeIter): void
-    /* Methods of Gtk.TreeSortable */
+    /* Methods of Gtk-3.0.Gtk.TreeSortable */
     get_sort_column_id(): [ /* returnType */ boolean, /* sort_column_id */ number, /* order */ Gtk.SortType ]
     has_default_sort_func(): boolean
     set_default_sort_func(sort_func: Gtk.TreeIterCompareFunc): void
     set_sort_column_id(sort_column_id: number, order: Gtk.SortType): void
     set_sort_func(sort_column_id: number, sort_func: Gtk.TreeIterCompareFunc): void
     sort_column_changed(): void
-    /* Virtual methods of Gucharmap.ChaptersModel */
+    /* Virtual methods of Gucharmap-2.90.Gucharmap.ChaptersModel */
     vfunc_character_to_iter(wc: number): [ /* returnType */ boolean, /* iter */ Gtk.TreeIter ]
     vfunc_get_book_codepoint_list(): CodepointList
     vfunc_get_codepoint_list(iter: Gtk.TreeIter): CodepointList
@@ -472,7 +472,7 @@ export class ChaptersModel {
     vfunc_set_sort_column_id(sort_column_id: number, order: Gtk.SortType): void
     vfunc_set_sort_func(sort_column_id: number, sort_func: Gtk.TreeIterCompareFunc): void
     vfunc_sort_column_changed(): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -480,11 +480,11 @@ export class ChaptersModel {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: ChaptersModel, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: ChaptersModel, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    /* Signals of Gtk.TreeModel */
+    /* Signals of Gtk-3.0.Gtk.TreeModel */
     connect(sigName: "row-changed", callback: (($obj: ChaptersModel, path: Gtk.TreePath, iter: Gtk.TreeIter) => void)): number
     connect_after(sigName: "row-changed", callback: (($obj: ChaptersModel, path: Gtk.TreePath, iter: Gtk.TreeIter) => void)): number
     emit(sigName: "row-changed", path: Gtk.TreePath, iter: Gtk.TreeIter): void
@@ -500,7 +500,7 @@ export class ChaptersModel {
     connect(sigName: "rows-reordered", callback: (($obj: ChaptersModel, path: Gtk.TreePath, iter: Gtk.TreeIter, new_order?: object | null) => void)): number
     connect_after(sigName: "rows-reordered", callback: (($obj: ChaptersModel, path: Gtk.TreePath, iter: Gtk.TreeIter, new_order?: object | null) => void)): number
     emit(sigName: "rows-reordered", path: Gtk.TreePath, iter: Gtk.TreeIter, new_order?: object | null): void
-    /* Signals of Gtk.TreeSortable */
+    /* Signals of Gtk-3.0.Gtk.TreeSortable */
     connect(sigName: "sort-column-changed", callback: (($obj: ChaptersModel) => void)): number
     connect_after(sigName: "sort-column-changed", callback: (($obj: ChaptersModel) => void)): number
     emit(sigName: "sort-column-changed"): void
@@ -520,7 +520,7 @@ export interface ChaptersView_ConstructProps extends Gtk.TreeView_ConstructProps
     vscroll_policy?: Gtk.ScrollablePolicy
 }
 export class ChaptersView {
-    /* Properties of Gtk.TreeView */
+    /* Properties of Gtk-3.0.Gtk.TreeView */
     activate_on_single_click: boolean
     enable_grid_lines: Gtk.TreeViewGridLines
     enable_search: boolean
@@ -539,11 +539,11 @@ export class ChaptersView {
     search_column: number
     show_expanders: boolean
     tooltip_column: number
-    /* Properties of Gtk.Container */
+    /* Properties of Gtk-3.0.Gtk.Container */
     border_width: number
     child: Gtk.Widget
     resize_mode: Gtk.ResizeMode
-    /* Properties of Gtk.Widget */
+    /* Properties of Gtk-3.0.Gtk.Widget */
     app_paintable: boolean
     can_default: boolean
     can_focus: boolean
@@ -583,18 +583,18 @@ export class ChaptersView {
     visible: boolean
     width_request: number
     readonly window: Gdk.Window
-    /* Properties of Gtk.Scrollable */
+    /* Properties of Gtk-3.0.Gtk.Scrollable */
     hadjustment: Gtk.Adjustment
     hscroll_policy: Gtk.ScrollablePolicy
     vadjustment: Gtk.Adjustment
     vscroll_policy: Gtk.ScrollablePolicy
-    /* Fields of Gucharmap.ChaptersView */
+    /* Fields of Gucharmap-2.90.Gucharmap.ChaptersView */
     parent_instance: Gtk.TreeView
-    /* Fields of Gtk.Container */
+    /* Fields of Gtk-3.0.Gtk.Container */
     widget: Gtk.Widget
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Gucharmap.ChaptersView */
+    /* Methods of Gucharmap-2.90.Gucharmap.ChaptersView */
     get_book_codepoint_list(): CodepointList
     get_codepoint_list(): CodepointList
     get_model(): ChaptersModel
@@ -605,7 +605,7 @@ export class ChaptersView {
     select_locale(): boolean
     set_model(model: ChaptersModel): void
     set_selected(name: string): boolean
-    /* Methods of Gtk.TreeView */
+    /* Methods of Gtk-3.0.Gtk.TreeView */
     append_column(column: Gtk.TreeViewColumn): number
     collapse_all(): void
     collapse_row(path: Gtk.TreePath): boolean
@@ -701,7 +701,7 @@ export class ChaptersView {
     set_vadjustment(adjustment?: Gtk.Adjustment | null): void
     unset_rows_drag_dest(): void
     unset_rows_drag_source(): void
-    /* Methods of Gtk.Container */
+    /* Methods of Gtk-3.0.Gtk.Container */
     add(widget: Gtk.Widget): void
     check_resize(): void
     child_get_property(child: Gtk.Widget, property_name: string, value: any): void
@@ -729,7 +729,7 @@ export class ChaptersView {
     set_reallocate_redraws(needs_redraws: boolean): void
     set_resize_mode(resize_mode: Gtk.ResizeMode): void
     unset_focus_chain(): void
-    /* Methods of Gtk.Widget */
+    /* Methods of Gtk-3.0.Gtk.Widget */
     activate(): boolean
     add_accelerator(accel_signal: string, accel_group: Gtk.AccelGroup, accel_key: number, accel_mods: Gdk.ModifierType, accel_flags: Gtk.AccelFlags): void
     add_device_events(device: Gdk.Device, events: Gdk.EventMask): void
@@ -988,7 +988,7 @@ export class ChaptersView {
     unrealize(): void
     unregister_window(window: Gdk.Window): void
     unset_state_flags(flags: Gtk.StateFlags): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -1010,7 +1010,7 @@ export class ChaptersView {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of Gtk.Buildable */
+    /* Methods of Gtk-3.0.Gtk.Buildable */
     add_child(builder: Gtk.Builder, child: GObject.Object, type?: string | null): void
     construct_child(builder: Gtk.Builder, name: string): GObject.Object
     custom_finished(builder: Gtk.Builder, child: GObject.Object | null, tagname: string, data?: object | null): void
@@ -1019,7 +1019,7 @@ export class ChaptersView {
     get_internal_child(builder: Gtk.Builder, childname: string): GObject.Object
     parser_finished(builder: Gtk.Builder): void
     set_buildable_property(builder: Gtk.Builder, name: string, value: any): void
-    /* Methods of Gtk.Scrollable */
+    /* Methods of Gtk-3.0.Gtk.Scrollable */
     get_border(): [ /* returnType */ boolean, /* border */ Gtk.Border ]
     get_hscroll_policy(): Gtk.ScrollablePolicy
     get_vscroll_policy(): Gtk.ScrollablePolicy
@@ -1027,7 +1027,7 @@ export class ChaptersView {
     set_hscroll_policy(policy: Gtk.ScrollablePolicy): void
     set_vadjustment(vadjustment?: Gtk.Adjustment | null): void
     set_vscroll_policy(policy: Gtk.ScrollablePolicy): void
-    /* Virtual methods of Gucharmap.ChaptersView */
+    /* Virtual methods of Gucharmap-2.90.Gucharmap.ChaptersView */
     vfunc_add_child(builder: Gtk.Builder, child: GObject.Object, type?: string | null): void
     vfunc_construct_child(builder: Gtk.Builder, name: string): GObject.Object
     vfunc_custom_finished(builder: Gtk.Builder, child: GObject.Object | null, tagname: string, data?: object | null): void
@@ -1039,7 +1039,7 @@ export class ChaptersView {
     vfunc_set_buildable_property(builder: Gtk.Builder, name: string, value: any): void
     vfunc_set_name(name: string): void
     vfunc_get_border(): [ /* returnType */ boolean, /* border */ Gtk.Border ]
-    /* Virtual methods of Gtk.TreeView */
+    /* Virtual methods of Gtk-3.0.Gtk.TreeView */
     vfunc_columns_changed(): void
     vfunc_cursor_changed(): void
     vfunc_expand_collapse_cursor_row(logical: boolean, expand: boolean, open_all: boolean): boolean
@@ -1055,7 +1055,7 @@ export class ChaptersView {
     vfunc_test_expand_row(iter: Gtk.TreeIter, path: Gtk.TreePath): boolean
     vfunc_toggle_cursor_row(): boolean
     vfunc_unselect_all(): boolean
-    /* Virtual methods of Gtk.Container */
+    /* Virtual methods of Gtk-3.0.Gtk.Container */
     vfunc_add(widget: Gtk.Widget): void
     vfunc_check_resize(): void
     vfunc_child_type(): GObject.Type
@@ -1066,7 +1066,7 @@ export class ChaptersView {
     vfunc_remove(widget: Gtk.Widget): void
     vfunc_set_child_property(child: Gtk.Widget, property_id: number, value: any, pspec: GObject.ParamSpec): void
     vfunc_set_focus_child(child?: Gtk.Widget | null): void
-    /* Virtual methods of Gtk.Widget */
+    /* Virtual methods of Gtk-3.0.Gtk.Widget */
     vfunc_adjust_baseline_allocation(baseline: number): void
     vfunc_adjust_baseline_request(minimum_baseline: number, natural_baseline: number): void
     vfunc_adjust_size_allocation(orientation: Gtk.Orientation, minimum_size: number, natural_size: number, allocated_pos: number, allocated_size: number): void
@@ -1149,7 +1149,7 @@ export class ChaptersView {
     vfunc_unrealize(): void
     vfunc_visibility_notify_event(event: Gdk.EventVisibility): boolean
     vfunc_window_state_event(event: Gdk.EventWindowState): boolean
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -1157,7 +1157,7 @@ export class ChaptersView {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gtk.TreeView */
+    /* Signals of Gtk-3.0.Gtk.TreeView */
     connect(sigName: "columns-changed", callback: (($obj: ChaptersView) => void)): number
     connect_after(sigName: "columns-changed", callback: (($obj: ChaptersView) => void)): number
     emit(sigName: "columns-changed"): void
@@ -1203,7 +1203,7 @@ export class ChaptersView {
     connect(sigName: "unselect-all", callback: (($obj: ChaptersView) => boolean)): number
     connect_after(sigName: "unselect-all", callback: (($obj: ChaptersView) => boolean)): number
     emit(sigName: "unselect-all"): void
-    /* Signals of Gtk.Container */
+    /* Signals of Gtk-3.0.Gtk.Container */
     connect(sigName: "add", callback: (($obj: ChaptersView, object: Gtk.Widget) => void)): number
     connect_after(sigName: "add", callback: (($obj: ChaptersView, object: Gtk.Widget) => void)): number
     emit(sigName: "add", object: Gtk.Widget): void
@@ -1216,7 +1216,7 @@ export class ChaptersView {
     connect(sigName: "set-focus-child", callback: (($obj: ChaptersView, object: Gtk.Widget) => void)): number
     connect_after(sigName: "set-focus-child", callback: (($obj: ChaptersView, object: Gtk.Widget) => void)): number
     emit(sigName: "set-focus-child", object: Gtk.Widget): void
-    /* Signals of Gtk.Widget */
+    /* Signals of Gtk-3.0.Gtk.Widget */
     connect(sigName: "accel-closures-changed", callback: (($obj: ChaptersView) => void)): number
     connect_after(sigName: "accel-closures-changed", callback: (($obj: ChaptersView) => void)): number
     emit(sigName: "accel-closures-changed"): void
@@ -1424,7 +1424,7 @@ export class ChaptersView {
     connect(sigName: "window-state-event", callback: (($obj: ChaptersView, event: Gdk.EventWindowState) => boolean)): number
     connect_after(sigName: "window-state-event", callback: (($obj: ChaptersView, event: Gdk.EventWindowState) => boolean)): number
     emit(sigName: "window-state-event", event: Gdk.EventWindowState): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: ChaptersView, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: ChaptersView, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -1578,7 +1578,7 @@ export interface Charmap_ConstructProps extends Gtk.Paned_ConstructProps {
     orientation?: Gtk.Orientation
 }
 export class Charmap {
-    /* Properties of Gucharmap.Charmap */
+    /* Properties of Gucharmap-2.90.Gucharmap.Charmap */
     active_chapter: string
     active_character: number
     readonly active_codepoint_list: CodepointList
@@ -1587,17 +1587,17 @@ export class Charmap {
     font_desc: Pango.FontDescription
     font_fallback: boolean
     snap_power_2: boolean
-    /* Properties of Gtk.Paned */
+    /* Properties of Gtk-3.0.Gtk.Paned */
     readonly max_position: number
     readonly min_position: number
     position: number
     position_set: boolean
     wide_handle: boolean
-    /* Properties of Gtk.Container */
+    /* Properties of Gtk-3.0.Gtk.Container */
     border_width: number
     child: Gtk.Widget
     resize_mode: Gtk.ResizeMode
-    /* Properties of Gtk.Widget */
+    /* Properties of Gtk-3.0.Gtk.Widget */
     app_paintable: boolean
     can_default: boolean
     can_focus: boolean
@@ -1637,17 +1637,17 @@ export class Charmap {
     visible: boolean
     width_request: number
     readonly window: Gdk.Window
-    /* Properties of Gtk.Orientable */
+    /* Properties of Gtk-3.0.Gtk.Orientable */
     orientation: Gtk.Orientation
-    /* Fields of Gtk.Paned */
+    /* Fields of Gtk-3.0.Gtk.Paned */
     container: Gtk.Container
-    /* Fields of Gtk.Container */
+    /* Fields of Gtk-3.0.Gtk.Container */
     widget: Gtk.Widget
-    /* Fields of Gtk.Widget */
+    /* Fields of Gtk-3.0.Gtk.Widget */
     parent_instance: GObject.InitiallyUnowned
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Gucharmap.Charmap */
+    /* Methods of Gucharmap-2.90.Gucharmap.Charmap */
     get_active_chapter(): string
     get_active_character(): number
     get_active_codepoint_list(): CodepointList
@@ -1672,7 +1672,7 @@ export class Charmap {
     set_font_fallback(enable_font_fallback: boolean): void
     set_page_visible(page: number, visible: boolean): void
     set_snap_pow2(snap: boolean): void
-    /* Methods of Gtk.Paned */
+    /* Methods of Gtk-3.0.Gtk.Paned */
     add1(child: Gtk.Widget): void
     add2(child: Gtk.Widget): void
     get_child1(): Gtk.Widget | null
@@ -1684,7 +1684,7 @@ export class Charmap {
     pack2(child: Gtk.Widget, resize: boolean, shrink: boolean): void
     set_position(position: number): void
     set_wide_handle(wide: boolean): void
-    /* Methods of Gtk.Container */
+    /* Methods of Gtk-3.0.Gtk.Container */
     add(widget: Gtk.Widget): void
     check_resize(): void
     child_get_property(child: Gtk.Widget, property_name: string, value: any): void
@@ -1712,7 +1712,7 @@ export class Charmap {
     set_reallocate_redraws(needs_redraws: boolean): void
     set_resize_mode(resize_mode: Gtk.ResizeMode): void
     unset_focus_chain(): void
-    /* Methods of Gtk.Widget */
+    /* Methods of Gtk-3.0.Gtk.Widget */
     activate(): boolean
     add_accelerator(accel_signal: string, accel_group: Gtk.AccelGroup, accel_key: number, accel_mods: Gdk.ModifierType, accel_flags: Gtk.AccelFlags): void
     add_device_events(device: Gdk.Device, events: Gdk.EventMask): void
@@ -1971,7 +1971,7 @@ export class Charmap {
     unrealize(): void
     unregister_window(window: Gdk.Window): void
     unset_state_flags(flags: Gtk.StateFlags): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -1993,7 +1993,7 @@ export class Charmap {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of Gtk.Buildable */
+    /* Methods of Gtk-3.0.Gtk.Buildable */
     add_child(builder: Gtk.Builder, child: GObject.Object, type?: string | null): void
     construct_child(builder: Gtk.Builder, name: string): GObject.Object
     custom_finished(builder: Gtk.Builder, child: GObject.Object | null, tagname: string, data?: object | null): void
@@ -2002,10 +2002,10 @@ export class Charmap {
     get_internal_child(builder: Gtk.Builder, childname: string): GObject.Object
     parser_finished(builder: Gtk.Builder): void
     set_buildable_property(builder: Gtk.Builder, name: string, value: any): void
-    /* Methods of Gtk.Orientable */
+    /* Methods of Gtk-3.0.Gtk.Orientable */
     get_orientation(): Gtk.Orientation
     set_orientation(orientation: Gtk.Orientation): void
-    /* Virtual methods of Gucharmap.Charmap */
+    /* Virtual methods of Gucharmap-2.90.Gucharmap.Charmap */
     vfunc_link_clicked(old_character: number, new_character: number): void
     vfunc_status_message(message: string): void
     vfunc_add_child(builder: Gtk.Builder, child: GObject.Object, type?: string | null): void
@@ -2018,14 +2018,14 @@ export class Charmap {
     vfunc_parser_finished(builder: Gtk.Builder): void
     vfunc_set_buildable_property(builder: Gtk.Builder, name: string, value: any): void
     vfunc_set_name(name: string): void
-    /* Virtual methods of Gtk.Paned */
+    /* Virtual methods of Gtk-3.0.Gtk.Paned */
     vfunc_accept_position(): boolean
     vfunc_cancel_position(): boolean
     vfunc_cycle_child_focus(reverse: boolean): boolean
     vfunc_cycle_handle_focus(reverse: boolean): boolean
     vfunc_move_handle(scroll: Gtk.ScrollType): boolean
     vfunc_toggle_handle_focus(): boolean
-    /* Virtual methods of Gtk.Container */
+    /* Virtual methods of Gtk-3.0.Gtk.Container */
     vfunc_add(widget: Gtk.Widget): void
     vfunc_check_resize(): void
     vfunc_child_type(): GObject.Type
@@ -2036,7 +2036,7 @@ export class Charmap {
     vfunc_remove(widget: Gtk.Widget): void
     vfunc_set_child_property(child: Gtk.Widget, property_id: number, value: any, pspec: GObject.ParamSpec): void
     vfunc_set_focus_child(child?: Gtk.Widget | null): void
-    /* Virtual methods of Gtk.Widget */
+    /* Virtual methods of Gtk-3.0.Gtk.Widget */
     vfunc_adjust_baseline_allocation(baseline: number): void
     vfunc_adjust_baseline_request(minimum_baseline: number, natural_baseline: number): void
     vfunc_adjust_size_allocation(orientation: Gtk.Orientation, minimum_size: number, natural_size: number, allocated_pos: number, allocated_size: number): void
@@ -2119,7 +2119,7 @@ export class Charmap {
     vfunc_unrealize(): void
     vfunc_visibility_notify_event(event: Gdk.EventVisibility): boolean
     vfunc_window_state_event(event: Gdk.EventWindowState): boolean
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -2127,14 +2127,14 @@ export class Charmap {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gucharmap.Charmap */
+    /* Signals of Gucharmap-2.90.Gucharmap.Charmap */
     connect(sigName: "link-clicked", callback: (($obj: Charmap, object: number, p0: number) => void)): number
     connect_after(sigName: "link-clicked", callback: (($obj: Charmap, object: number, p0: number) => void)): number
     emit(sigName: "link-clicked", object: number, p0: number): void
     connect(sigName: "status-message", callback: (($obj: Charmap, object: string) => void)): number
     connect_after(sigName: "status-message", callback: (($obj: Charmap, object: string) => void)): number
     emit(sigName: "status-message", object: string): void
-    /* Signals of Gtk.Paned */
+    /* Signals of Gtk-3.0.Gtk.Paned */
     connect(sigName: "accept-position", callback: (($obj: Charmap) => boolean)): number
     connect_after(sigName: "accept-position", callback: (($obj: Charmap) => boolean)): number
     emit(sigName: "accept-position"): void
@@ -2153,7 +2153,7 @@ export class Charmap {
     connect(sigName: "toggle-handle-focus", callback: (($obj: Charmap) => boolean)): number
     connect_after(sigName: "toggle-handle-focus", callback: (($obj: Charmap) => boolean)): number
     emit(sigName: "toggle-handle-focus"): void
-    /* Signals of Gtk.Container */
+    /* Signals of Gtk-3.0.Gtk.Container */
     connect(sigName: "add", callback: (($obj: Charmap, object: Gtk.Widget) => void)): number
     connect_after(sigName: "add", callback: (($obj: Charmap, object: Gtk.Widget) => void)): number
     emit(sigName: "add", object: Gtk.Widget): void
@@ -2166,7 +2166,7 @@ export class Charmap {
     connect(sigName: "set-focus-child", callback: (($obj: Charmap, object: Gtk.Widget) => void)): number
     connect_after(sigName: "set-focus-child", callback: (($obj: Charmap, object: Gtk.Widget) => void)): number
     emit(sigName: "set-focus-child", object: Gtk.Widget): void
-    /* Signals of Gtk.Widget */
+    /* Signals of Gtk-3.0.Gtk.Widget */
     connect(sigName: "accel-closures-changed", callback: (($obj: Charmap) => void)): number
     connect_after(sigName: "accel-closures-changed", callback: (($obj: Charmap) => void)): number
     emit(sigName: "accel-closures-changed"): void
@@ -2374,7 +2374,7 @@ export class Charmap {
     connect(sigName: "window-state-event", callback: (($obj: Charmap, event: Gdk.EventWindowState) => boolean)): number
     connect_after(sigName: "window-state-event", callback: (($obj: Charmap, event: Gdk.EventWindowState) => boolean)): number
     emit(sigName: "window-state-event", event: Gdk.EventWindowState): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Charmap, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Charmap, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -2515,7 +2515,7 @@ export interface Chartable_ConstructProps extends Gtk.DrawingArea_ConstructProps
     vscroll_policy?: Gtk.ScrollablePolicy
 }
 export class Chartable {
-    /* Properties of Gucharmap.Chartable */
+    /* Properties of Gucharmap-2.90.Gucharmap.Chartable */
     active_character: number
     codepoint_list: CodepointList
     font_desc: Pango.FontDescription
@@ -2523,7 +2523,7 @@ export class Chartable {
     snap_power_2: boolean
     zoom_enabled: boolean
     readonly zoom_showing: boolean
-    /* Properties of Gtk.Widget */
+    /* Properties of Gtk-3.0.Gtk.Widget */
     app_paintable: boolean
     can_default: boolean
     can_focus: boolean
@@ -2563,18 +2563,18 @@ export class Chartable {
     visible: boolean
     width_request: number
     readonly window: Gdk.Window
-    /* Properties of Gtk.Scrollable */
+    /* Properties of Gtk-3.0.Gtk.Scrollable */
     hadjustment: Gtk.Adjustment
     hscroll_policy: Gtk.ScrollablePolicy
     vadjustment: Gtk.Adjustment
     vscroll_policy: Gtk.ScrollablePolicy
-    /* Fields of Gucharmap.Chartable */
+    /* Fields of Gucharmap-2.90.Gucharmap.Chartable */
     parent_instance: Gtk.DrawingArea
-    /* Fields of Gtk.DrawingArea */
+    /* Fields of Gtk-3.0.Gtk.DrawingArea */
     widget: Gtk.Widget
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Gucharmap.Chartable */
+    /* Methods of Gucharmap-2.90.Gucharmap.Chartable */
     get_active_character(): number
     get_codepoint_list(): CodepointList
     get_font_desc(): Pango.FontDescription
@@ -2587,7 +2587,7 @@ export class Chartable {
     set_font_fallback(enable_font_fallback: boolean): void
     set_snap_pow2(snap: boolean): void
     set_zoom_enabled(enabled: boolean): void
-    /* Methods of Gtk.Widget */
+    /* Methods of Gtk-3.0.Gtk.Widget */
     activate(): boolean
     add_accelerator(accel_signal: string, accel_group: Gtk.AccelGroup, accel_key: number, accel_mods: Gdk.ModifierType, accel_flags: Gtk.AccelFlags): void
     add_device_events(device: Gdk.Device, events: Gdk.EventMask): void
@@ -2846,7 +2846,7 @@ export class Chartable {
     unrealize(): void
     unregister_window(window: Gdk.Window): void
     unset_state_flags(flags: Gtk.StateFlags): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -2868,7 +2868,7 @@ export class Chartable {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of Gtk.Buildable */
+    /* Methods of Gtk-3.0.Gtk.Buildable */
     add_child(builder: Gtk.Builder, child: GObject.Object, type?: string | null): void
     construct_child(builder: Gtk.Builder, name: string): GObject.Object
     custom_finished(builder: Gtk.Builder, child: GObject.Object | null, tagname: string, data?: object | null): void
@@ -2877,7 +2877,7 @@ export class Chartable {
     get_internal_child(builder: Gtk.Builder, childname: string): GObject.Object
     parser_finished(builder: Gtk.Builder): void
     set_buildable_property(builder: Gtk.Builder, name: string, value: any): void
-    /* Methods of Gtk.Scrollable */
+    /* Methods of Gtk-3.0.Gtk.Scrollable */
     get_border(): [ /* returnType */ boolean, /* border */ Gtk.Border ]
     get_hadjustment(): Gtk.Adjustment
     get_hscroll_policy(): Gtk.ScrollablePolicy
@@ -2887,7 +2887,7 @@ export class Chartable {
     set_hscroll_policy(policy: Gtk.ScrollablePolicy): void
     set_vadjustment(vadjustment?: Gtk.Adjustment | null): void
     set_vscroll_policy(policy: Gtk.ScrollablePolicy): void
-    /* Virtual methods of Gucharmap.Chartable */
+    /* Virtual methods of Gucharmap-2.90.Gucharmap.Chartable */
     vfunc_activate(): void
     vfunc_copy_clipboard(): void
     vfunc_move_cursor(step: Gtk.MovementStep, count: number): boolean
@@ -2906,7 +2906,7 @@ export class Chartable {
     vfunc_set_buildable_property(builder: Gtk.Builder, name: string, value: any): void
     vfunc_set_name(name: string): void
     vfunc_get_border(): [ /* returnType */ boolean, /* border */ Gtk.Border ]
-    /* Virtual methods of Gtk.Widget */
+    /* Virtual methods of Gtk-3.0.Gtk.Widget */
     vfunc_adjust_baseline_allocation(baseline: number): void
     vfunc_adjust_baseline_request(minimum_baseline: number, natural_baseline: number): void
     vfunc_adjust_size_allocation(orientation: Gtk.Orientation, minimum_size: number, natural_size: number, allocated_pos: number, allocated_size: number): void
@@ -2989,7 +2989,7 @@ export class Chartable {
     vfunc_unrealize(): void
     vfunc_visibility_notify_event(event: Gdk.EventVisibility): boolean
     vfunc_window_state_event(event: Gdk.EventWindowState): boolean
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -2997,7 +2997,7 @@ export class Chartable {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gucharmap.Chartable */
+    /* Signals of Gucharmap-2.90.Gucharmap.Chartable */
     connect(sigName: "activate", callback: (($obj: Chartable) => void)): number
     connect_after(sigName: "activate", callback: (($obj: Chartable) => void)): number
     emit(sigName: "activate"): void
@@ -3013,7 +3013,7 @@ export class Chartable {
     connect(sigName: "status-message", callback: (($obj: Chartable, object: string) => void)): number
     connect_after(sigName: "status-message", callback: (($obj: Chartable, object: string) => void)): number
     emit(sigName: "status-message", object: string): void
-    /* Signals of Gtk.Widget */
+    /* Signals of Gtk-3.0.Gtk.Widget */
     connect(sigName: "accel-closures-changed", callback: (($obj: Chartable) => void)): number
     connect_after(sigName: "accel-closures-changed", callback: (($obj: Chartable) => void)): number
     emit(sigName: "accel-closures-changed"): void
@@ -3221,7 +3221,7 @@ export class Chartable {
     connect(sigName: "window-state-event", callback: (($obj: Chartable, event: Gdk.EventWindowState) => boolean)): number
     connect_after(sigName: "window-state-event", callback: (($obj: Chartable, event: Gdk.EventWindowState) => boolean)): number
     emit(sigName: "window-state-event", event: Gdk.EventWindowState): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Chartable, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Chartable, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -3339,7 +3339,7 @@ export class Chartable {
 export interface ChartableAccessible_ConstructProps extends Atk.NoOpObject_ConstructProps {
 }
 export class ChartableAccessible {
-    /* Properties of Atk.Object */
+    /* Properties of Atk-1.0.Atk.Object */
     readonly accessible_component_layer: number
     readonly accessible_component_mdi_zorder: number
     accessible_description: string
@@ -3355,17 +3355,17 @@ export class ChartableAccessible {
     accessible_table_row_header: Atk.Object
     accessible_table_summary: Atk.Object
     accessible_value: number
-    /* Fields of Atk.NoOpObject */
+    /* Fields of Atk-1.0.Atk.NoOpObject */
     parent: Atk.Object
-    /* Fields of Atk.Object */
+    /* Fields of Atk-1.0.Atk.Object */
     description: string
     name: string
     role: Atk.Role
     relation_set: Atk.RelationSet
     layer: Atk.Layer
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Atk.Object */
+    /* Methods of Atk-1.0.Atk.Object */
     add_relationship(relationship: Atk.RelationType, target: Atk.Object): boolean
     get_accessible_id(): string
     get_attributes(): Atk.AttributeSet
@@ -3391,7 +3391,7 @@ export class ChartableAccessible {
     set_name(name: string): void
     set_parent(parent: Atk.Object): void
     set_role(role: Atk.Role): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -3413,7 +3413,7 @@ export class ChartableAccessible {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of Atk.Action */
+    /* Methods of Atk-1.0.Atk.Action */
     do_action(i: number): boolean
     get_description(i: number): string | null
     get_keybinding(i: number): string | null
@@ -3421,7 +3421,7 @@ export class ChartableAccessible {
     get_n_actions(): number
     get_name(i: number): string | null
     set_description(i: number, desc: string): boolean
-    /* Methods of Atk.Component */
+    /* Methods of Atk-1.0.Atk.Component */
     contains(x: number, y: number, coord_type: Atk.CoordType): boolean
     get_alpha(): number
     get_extents(coord_type: Atk.CoordType): [ /* x */ number | null, /* y */ number | null, /* width */ number | null, /* height */ number | null ]
@@ -3435,7 +3435,7 @@ export class ChartableAccessible {
     set_extents(x: number, y: number, width: number, height: number, coord_type: Atk.CoordType): boolean
     set_position(x: number, y: number, coord_type: Atk.CoordType): boolean
     set_size(width: number, height: number): boolean
-    /* Methods of Atk.Document */
+    /* Methods of Atk-1.0.Atk.Document */
     get_attribute_value(attribute_name: string): string | null
     get_current_page_number(): number
     get_document(): object | null
@@ -3443,7 +3443,7 @@ export class ChartableAccessible {
     get_locale(): string
     get_page_count(): number
     set_attribute_value(attribute_name: string, attribute_value: string): boolean
-    /* Methods of Atk.EditableText */
+    /* Methods of Atk-1.0.Atk.EditableText */
     copy_text(start_pos: number, end_pos: number): void
     cut_text(start_pos: number, end_pos: number): void
     delete_text(start_pos: number, end_pos: number): void
@@ -3451,17 +3451,17 @@ export class ChartableAccessible {
     paste_text(position: number): void
     set_run_attributes(attrib_set: Atk.AttributeSet, start_offset: number, end_offset: number): boolean
     set_text_contents(string: string): void
-    /* Methods of Atk.Hypertext */
+    /* Methods of Atk-1.0.Atk.Hypertext */
     get_link(link_index: number): Atk.Hyperlink
     get_link_index(char_index: number): number
     get_n_links(): number
-    /* Methods of Atk.Image */
+    /* Methods of Atk-1.0.Atk.Image */
     get_image_description(): string
     get_image_locale(): string | null
     get_image_position(coord_type: Atk.CoordType): [ /* x */ number | null, /* y */ number | null ]
     get_image_size(): [ /* width */ number | null, /* height */ number | null ]
     set_image_description(description: string): boolean
-    /* Methods of Atk.Selection */
+    /* Methods of Atk-1.0.Atk.Selection */
     add_selection(i: number): boolean
     clear_selection(): boolean
     get_selection_count(): number
@@ -3469,7 +3469,7 @@ export class ChartableAccessible {
     ref_selection(i: number): Atk.Object | null
     remove_selection(i: number): boolean
     select_all_selection(): boolean
-    /* Methods of Atk.Table */
+    /* Methods of Atk-1.0.Atk.Table */
     add_column_selection(column: number): boolean
     add_row_selection(row: number): boolean
     get_caption(): Atk.Object | null
@@ -3499,7 +3499,7 @@ export class ChartableAccessible {
     set_row_description(row: number, description: string): void
     set_row_header(row: number, header: Atk.Object): void
     set_summary(accessible: Atk.Object): void
-    /* Methods of Atk.TableCell */
+    /* Methods of Atk-1.0.Atk.TableCell */
     get_column_header_cells(): Atk.Object[]
     get_column_span(): number
     get_position(): [ /* returnType */ boolean, /* row */ number, /* column */ number ]
@@ -3507,7 +3507,7 @@ export class ChartableAccessible {
     get_row_header_cells(): Atk.Object[]
     get_row_span(): number
     get_table(): Atk.Object
-    /* Methods of Atk.Text */
+    /* Methods of Atk-1.0.Atk.Text */
     add_selection(start_offset: number, end_offset: number): boolean
     get_bounded_ranges(rect: Atk.TextRectangle, coord_type: Atk.CoordType, x_clip_type: Atk.TextClipType, y_clip_type: Atk.TextClipType): Atk.TextRange[]
     get_caret_offset(): number
@@ -3530,7 +3530,7 @@ export class ChartableAccessible {
     scroll_substring_to_point(start_offset: number, end_offset: number, coords: Atk.CoordType, x: number, y: number): boolean
     set_caret_offset(offset: number): boolean
     set_selection(selection_num: number, start_offset: number, end_offset: number): boolean
-    /* Methods of Atk.Value */
+    /* Methods of Atk-1.0.Atk.Value */
     get_current_value(): /* value */ any
     get_increment(): number
     get_maximum_value(): /* value */ any
@@ -3541,7 +3541,7 @@ export class ChartableAccessible {
     get_value_and_text(): [ /* value */ number, /* text */ string | null ]
     set_current_value(value: any): boolean
     set_value(new_value: number): void
-    /* Virtual methods of Gucharmap.ChartableAccessible */
+    /* Virtual methods of Gucharmap-2.90.Gucharmap.ChartableAccessible */
     vfunc_do_action(i: number): boolean
     vfunc_get_description(i: number): string | null
     vfunc_get_description(): string | null
@@ -3678,7 +3678,7 @@ export class ChartableAccessible {
     vfunc_get_value_and_text(): [ /* value */ number, /* text */ string | null ]
     vfunc_set_current_value(value: any): boolean
     vfunc_set_value(new_value: number): void
-    /* Virtual methods of Atk.Object */
+    /* Virtual methods of Atk-1.0.Atk.Object */
     vfunc_active_descendant_changed(child?: object | null): void
     vfunc_children_changed(change_index: number, changed_child?: object | null): void
     vfunc_focus_event(focus_in: boolean): void
@@ -3703,7 +3703,7 @@ export class ChartableAccessible {
     vfunc_set_role(role: Atk.Role): void
     vfunc_state_change(name: string, state_set: boolean): void
     vfunc_visible_data_changed(): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -3711,7 +3711,7 @@ export class ChartableAccessible {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Atk.Object */
+    /* Signals of Atk-1.0.Atk.Object */
     connect(sigName: "active-descendant-changed", callback: (($obj: ChartableAccessible, arg1: Atk.Object) => void)): number
     connect_after(sigName: "active-descendant-changed", callback: (($obj: ChartableAccessible, arg1: Atk.Object) => void)): number
     emit(sigName: "active-descendant-changed", arg1: Atk.Object): void
@@ -3730,15 +3730,15 @@ export class ChartableAccessible {
     connect(sigName: "visible-data-changed", callback: (($obj: ChartableAccessible) => void)): number
     connect_after(sigName: "visible-data-changed", callback: (($obj: ChartableAccessible) => void)): number
     emit(sigName: "visible-data-changed"): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: ChartableAccessible, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: ChartableAccessible, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    /* Signals of Atk.Component */
+    /* Signals of Atk-1.0.Atk.Component */
     connect(sigName: "bounds-changed", callback: (($obj: ChartableAccessible, arg1: Atk.Rectangle) => void)): number
     connect_after(sigName: "bounds-changed", callback: (($obj: ChartableAccessible, arg1: Atk.Rectangle) => void)): number
     emit(sigName: "bounds-changed", arg1: Atk.Rectangle): void
-    /* Signals of Atk.Document */
+    /* Signals of Atk-1.0.Atk.Document */
     connect(sigName: "load-complete", callback: (($obj: ChartableAccessible) => void)): number
     connect_after(sigName: "load-complete", callback: (($obj: ChartableAccessible) => void)): number
     emit(sigName: "load-complete"): void
@@ -3751,15 +3751,15 @@ export class ChartableAccessible {
     connect(sigName: "reload", callback: (($obj: ChartableAccessible) => void)): number
     connect_after(sigName: "reload", callback: (($obj: ChartableAccessible) => void)): number
     emit(sigName: "reload"): void
-    /* Signals of Atk.Hypertext */
+    /* Signals of Atk-1.0.Atk.Hypertext */
     connect(sigName: "link-selected", callback: (($obj: ChartableAccessible, arg1: number) => void)): number
     connect_after(sigName: "link-selected", callback: (($obj: ChartableAccessible, arg1: number) => void)): number
     emit(sigName: "link-selected", arg1: number): void
-    /* Signals of Atk.Selection */
+    /* Signals of Atk-1.0.Atk.Selection */
     connect(sigName: "selection-changed", callback: (($obj: ChartableAccessible) => void)): number
     connect_after(sigName: "selection-changed", callback: (($obj: ChartableAccessible) => void)): number
     emit(sigName: "selection-changed"): void
-    /* Signals of Atk.Table */
+    /* Signals of Atk-1.0.Atk.Table */
     connect(sigName: "column-deleted", callback: (($obj: ChartableAccessible, arg1: number, arg2: number) => void)): number
     connect_after(sigName: "column-deleted", callback: (($obj: ChartableAccessible, arg1: number, arg2: number) => void)): number
     emit(sigName: "column-deleted", arg1: number, arg2: number): void
@@ -3781,7 +3781,7 @@ export class ChartableAccessible {
     connect(sigName: "row-reordered", callback: (($obj: ChartableAccessible) => void)): number
     connect_after(sigName: "row-reordered", callback: (($obj: ChartableAccessible) => void)): number
     emit(sigName: "row-reordered"): void
-    /* Signals of Atk.Text */
+    /* Signals of Atk-1.0.Atk.Text */
     connect(sigName: "text-attributes-changed", callback: (($obj: ChartableAccessible) => void)): number
     connect_after(sigName: "text-attributes-changed", callback: (($obj: ChartableAccessible) => void)): number
     emit(sigName: "text-attributes-changed"): void
@@ -3800,11 +3800,11 @@ export class ChartableAccessible {
     connect(sigName: "text-selection-changed", callback: (($obj: ChartableAccessible) => void)): number
     connect_after(sigName: "text-selection-changed", callback: (($obj: ChartableAccessible) => void)): number
     emit(sigName: "text-selection-changed"): void
-    /* Signals of Atk.Value */
+    /* Signals of Atk-1.0.Atk.Value */
     connect(sigName: "value-changed", callback: (($obj: ChartableAccessible, value: number, text: string) => void)): number
     connect_after(sigName: "value-changed", callback: (($obj: ChartableAccessible, value: number, text: string) => void)): number
     emit(sigName: "value-changed", value: number, text: string): void
-    /* Signals of Atk.Window */
+    /* Signals of Atk-1.0.Atk.Window */
     connect(sigName: "activate", callback: (($obj: ChartableAccessible) => void)): number
     connect_after(sigName: "activate", callback: (($obj: ChartableAccessible) => void)): number
     emit(sigName: "activate"): void
@@ -3878,7 +3878,7 @@ export class ChartableAccessible {
 export interface ChartableCellAccessible_ConstructProps extends Atk.Object_ConstructProps {
 }
 export class ChartableCellAccessible {
-    /* Properties of Atk.Object */
+    /* Properties of Atk-1.0.Atk.Object */
     readonly accessible_component_layer: number
     readonly accessible_component_mdi_zorder: number
     accessible_description: string
@@ -3894,26 +3894,26 @@ export class ChartableCellAccessible {
     accessible_table_row_header: Atk.Object
     accessible_table_summary: Atk.Object
     accessible_value: number
-    /* Fields of Gucharmap.ChartableCellAccessible */
+    /* Fields of Gucharmap-2.90.Gucharmap.ChartableCellAccessible */
     parent: Atk.Object
     widget: Gtk.Widget
     index: number
     state_set: Atk.StateSet
     activate_description: string
     action_idle_handler: number
-    /* Fields of Atk.Object */
+    /* Fields of Atk-1.0.Atk.Object */
     description: string
     name: string
     role: Atk.Role
     relation_set: Atk.RelationSet
     layer: Atk.Layer
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Gucharmap.ChartableCellAccessible */
+    /* Methods of Gucharmap-2.90.Gucharmap.ChartableCellAccessible */
     add_state(state_type: Atk.StateType, emit_signal: boolean): boolean
     initialise(widget: Gtk.Widget, parent: Atk.Object, index: number): void
     remove_state(state_type: Atk.StateType, emit_signal: boolean): boolean
-    /* Methods of Atk.Object */
+    /* Methods of Atk-1.0.Atk.Object */
     add_relationship(relationship: Atk.RelationType, target: Atk.Object): boolean
     get_accessible_id(): string
     get_attributes(): Atk.AttributeSet
@@ -3939,7 +3939,7 @@ export class ChartableCellAccessible {
     set_name(name: string): void
     set_parent(parent: Atk.Object): void
     set_role(role: Atk.Role): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -3961,7 +3961,7 @@ export class ChartableCellAccessible {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of Atk.Action */
+    /* Methods of Atk-1.0.Atk.Action */
     do_action(i: number): boolean
     get_description(i: number): string | null
     get_keybinding(i: number): string | null
@@ -3969,7 +3969,7 @@ export class ChartableCellAccessible {
     get_n_actions(): number
     get_name(i: number): string | null
     set_description(i: number, desc: string): boolean
-    /* Methods of Atk.Component */
+    /* Methods of Atk-1.0.Atk.Component */
     contains(x: number, y: number, coord_type: Atk.CoordType): boolean
     get_alpha(): number
     get_extents(coord_type: Atk.CoordType): [ /* x */ number | null, /* y */ number | null, /* width */ number | null, /* height */ number | null ]
@@ -3983,7 +3983,7 @@ export class ChartableCellAccessible {
     set_extents(x: number, y: number, width: number, height: number, coord_type: Atk.CoordType): boolean
     set_position(x: number, y: number, coord_type: Atk.CoordType): boolean
     set_size(width: number, height: number): boolean
-    /* Virtual methods of Gucharmap.ChartableCellAccessible */
+    /* Virtual methods of Gucharmap-2.90.Gucharmap.ChartableCellAccessible */
     vfunc_do_action(i: number): boolean
     vfunc_get_description(i: number): string | null
     vfunc_get_description(): string | null
@@ -4010,7 +4010,7 @@ export class ChartableCellAccessible {
     vfunc_set_extents(x: number, y: number, width: number, height: number, coord_type: Atk.CoordType): boolean
     vfunc_set_position(x: number, y: number, coord_type: Atk.CoordType): boolean
     vfunc_set_size(width: number, height: number): boolean
-    /* Virtual methods of Atk.Object */
+    /* Virtual methods of Atk-1.0.Atk.Object */
     vfunc_active_descendant_changed(child?: object | null): void
     vfunc_children_changed(change_index: number, changed_child?: object | null): void
     vfunc_focus_event(focus_in: boolean): void
@@ -4035,7 +4035,7 @@ export class ChartableCellAccessible {
     vfunc_set_role(role: Atk.Role): void
     vfunc_state_change(name: string, state_set: boolean): void
     vfunc_visible_data_changed(): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -4043,7 +4043,7 @@ export class ChartableCellAccessible {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Atk.Object */
+    /* Signals of Atk-1.0.Atk.Object */
     connect(sigName: "active-descendant-changed", callback: (($obj: ChartableCellAccessible, arg1: Atk.Object) => void)): number
     connect_after(sigName: "active-descendant-changed", callback: (($obj: ChartableCellAccessible, arg1: Atk.Object) => void)): number
     emit(sigName: "active-descendant-changed", arg1: Atk.Object): void
@@ -4062,11 +4062,11 @@ export class ChartableCellAccessible {
     connect(sigName: "visible-data-changed", callback: (($obj: ChartableCellAccessible) => void)): number
     connect_after(sigName: "visible-data-changed", callback: (($obj: ChartableCellAccessible) => void)): number
     emit(sigName: "visible-data-changed"): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: ChartableCellAccessible, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: ChartableCellAccessible, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    /* Signals of Atk.Component */
+    /* Signals of Atk-1.0.Atk.Component */
     connect(sigName: "bounds-changed", callback: (($obj: ChartableCellAccessible, arg1: Atk.Rectangle) => void)): number
     connect_after(sigName: "bounds-changed", callback: (($obj: ChartableCellAccessible, arg1: Atk.Rectangle) => void)): number
     emit(sigName: "bounds-changed", arg1: Atk.Rectangle): void
@@ -4114,15 +4114,15 @@ export class ChartableCellAccessible {
 export interface CodepointList_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class CodepointList {
-    /* Fields of Gucharmap.CodepointList */
+    /* Fields of Gucharmap-2.90.Gucharmap.CodepointList */
     parent_instance: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Gucharmap.CodepointList */
+    /* Methods of Gucharmap-2.90.Gucharmap.CodepointList */
     get_char(index: number): number
     get_index(wc: number): number
     get_last_index(): number
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -4144,11 +4144,11 @@ export class CodepointList {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Gucharmap.CodepointList */
+    /* Virtual methods of Gucharmap-2.90.Gucharmap.CodepointList */
     vfunc_get_char(index: number): number
     vfunc_get_index(wc: number): number
     vfunc_get_last_index(): number
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -4156,7 +4156,7 @@ export class CodepointList {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: CodepointList, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: CodepointList, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -4172,19 +4172,19 @@ export class CodepointList {
 export interface ScriptChaptersModel_ConstructProps extends ChaptersModel_ConstructProps {
 }
 export class ScriptChaptersModel {
-    /* Fields of Gucharmap.ScriptChaptersModel */
+    /* Fields of Gucharmap-2.90.Gucharmap.ScriptChaptersModel */
     parent: ChaptersModel
-    /* Fields of Gucharmap.ChaptersModel */
+    /* Fields of Gucharmap-2.90.Gucharmap.ChaptersModel */
     parent_instance: Gtk.ListStore
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Gucharmap.ChaptersModel */
+    /* Methods of Gucharmap-2.90.Gucharmap.ChaptersModel */
     character_to_iter(wc: number): [ /* returnType */ boolean, /* iter */ Gtk.TreeIter ]
     get_book_codepoint_list(): CodepointList
     get_codepoint_list(iter: Gtk.TreeIter): CodepointList
     get_title(): string
     id_to_iter(id: string): [ /* returnType */ boolean, /* _iter */ Gtk.TreeIter ]
-    /* Methods of Gtk.ListStore */
+    /* Methods of Gtk-3.0.Gtk.ListStore */
     append(): /* iter */ Gtk.TreeIter
     clear(): void
     insert(position: number): /* iter */ Gtk.TreeIter
@@ -4201,7 +4201,7 @@ export class ScriptChaptersModel {
     set_value(iter: Gtk.TreeIter, column: number, value: any): void
     set(iter: Gtk.TreeIter, columns: number[], values: any[]): void
     swap(a: Gtk.TreeIter, b: Gtk.TreeIter): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -4223,7 +4223,7 @@ export class ScriptChaptersModel {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of Gtk.Buildable */
+    /* Methods of Gtk-3.0.Gtk.Buildable */
     add_child(builder: Gtk.Builder, child: GObject.Object, type?: string | null): void
     construct_child(builder: Gtk.Builder, name: string): GObject.Object
     custom_finished(builder: Gtk.Builder, child: GObject.Object | null, tagname: string, data?: object | null): void
@@ -4234,14 +4234,14 @@ export class ScriptChaptersModel {
     parser_finished(builder: Gtk.Builder): void
     set_buildable_property(builder: Gtk.Builder, name: string, value: any): void
     set_name(name: string): void
-    /* Methods of Gtk.TreeDragDest */
+    /* Methods of Gtk-3.0.Gtk.TreeDragDest */
     drag_data_received(dest: Gtk.TreePath, selection_data: Gtk.SelectionData): boolean
     row_drop_possible(dest_path: Gtk.TreePath, selection_data: Gtk.SelectionData): boolean
-    /* Methods of Gtk.TreeDragSource */
+    /* Methods of Gtk-3.0.Gtk.TreeDragSource */
     drag_data_delete(path: Gtk.TreePath): boolean
     drag_data_get(path: Gtk.TreePath, selection_data: Gtk.SelectionData): boolean
     row_draggable(path: Gtk.TreePath): boolean
-    /* Methods of Gtk.TreeModel */
+    /* Methods of Gtk-3.0.Gtk.TreeModel */
     filter_new(root?: Gtk.TreePath | null): Gtk.TreeModel
     foreach(func: Gtk.TreeModelForeachFunc): void
     get_column_type(index_: number): GObject.Type
@@ -4267,14 +4267,14 @@ export class ScriptChaptersModel {
     row_inserted(path: Gtk.TreePath, iter: Gtk.TreeIter): void
     rows_reordered(path: Gtk.TreePath, iter: Gtk.TreeIter | null, new_order: number[]): void
     unref_node(iter: Gtk.TreeIter): void
-    /* Methods of Gtk.TreeSortable */
+    /* Methods of Gtk-3.0.Gtk.TreeSortable */
     get_sort_column_id(): [ /* returnType */ boolean, /* sort_column_id */ number, /* order */ Gtk.SortType ]
     has_default_sort_func(): boolean
     set_default_sort_func(sort_func: Gtk.TreeIterCompareFunc): void
     set_sort_column_id(sort_column_id: number, order: Gtk.SortType): void
     set_sort_func(sort_column_id: number, sort_func: Gtk.TreeIterCompareFunc): void
     sort_column_changed(): void
-    /* Virtual methods of Gucharmap.ChaptersModel */
+    /* Virtual methods of Gucharmap-2.90.Gucharmap.ChaptersModel */
     vfunc_character_to_iter(wc: number): [ /* returnType */ boolean, /* iter */ Gtk.TreeIter ]
     vfunc_get_book_codepoint_list(): CodepointList
     vfunc_get_codepoint_list(iter: Gtk.TreeIter): CodepointList
@@ -4318,7 +4318,7 @@ export class ScriptChaptersModel {
     vfunc_set_sort_column_id(sort_column_id: number, order: Gtk.SortType): void
     vfunc_set_sort_func(sort_column_id: number, sort_func: Gtk.TreeIterCompareFunc): void
     vfunc_sort_column_changed(): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -4326,11 +4326,11 @@ export class ScriptChaptersModel {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: ScriptChaptersModel, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: ScriptChaptersModel, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    /* Signals of Gtk.TreeModel */
+    /* Signals of Gtk-3.0.Gtk.TreeModel */
     connect(sigName: "row-changed", callback: (($obj: ScriptChaptersModel, path: Gtk.TreePath, iter: Gtk.TreeIter) => void)): number
     connect_after(sigName: "row-changed", callback: (($obj: ScriptChaptersModel, path: Gtk.TreePath, iter: Gtk.TreeIter) => void)): number
     emit(sigName: "row-changed", path: Gtk.TreePath, iter: Gtk.TreeIter): void
@@ -4346,7 +4346,7 @@ export class ScriptChaptersModel {
     connect(sigName: "rows-reordered", callback: (($obj: ScriptChaptersModel, path: Gtk.TreePath, iter: Gtk.TreeIter, new_order?: object | null) => void)): number
     connect_after(sigName: "rows-reordered", callback: (($obj: ScriptChaptersModel, path: Gtk.TreePath, iter: Gtk.TreeIter, new_order?: object | null) => void)): number
     emit(sigName: "rows-reordered", path: Gtk.TreePath, iter: Gtk.TreeIter, new_order?: object | null): void
-    /* Signals of Gtk.TreeSortable */
+    /* Signals of Gtk-3.0.Gtk.TreeSortable */
     connect(sigName: "sort-column-changed", callback: (($obj: ScriptChaptersModel) => void)): number
     connect_after(sigName: "sort-column-changed", callback: (($obj: ScriptChaptersModel) => void)): number
     emit(sigName: "sort-column-changed"): void
@@ -4365,21 +4365,21 @@ export class ScriptChaptersModel {
 export interface ScriptCodepointList_ConstructProps extends CodepointList_ConstructProps {
 }
 export class ScriptCodepointList {
-    /* Fields of Gucharmap.ScriptCodepointList */
+    /* Fields of Gucharmap-2.90.Gucharmap.ScriptCodepointList */
     parent: CodepointList
-    /* Fields of Gucharmap.CodepointList */
+    /* Fields of Gucharmap-2.90.Gucharmap.CodepointList */
     parent_instance: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Gucharmap.ScriptCodepointList */
+    /* Methods of Gucharmap-2.90.Gucharmap.ScriptCodepointList */
     append_script(script: string): boolean
     set_script(script: string): boolean
     set_scripts(scripts: string): boolean
-    /* Methods of Gucharmap.CodepointList */
+    /* Methods of Gucharmap-2.90.Gucharmap.CodepointList */
     get_char(index: number): number
     get_index(wc: number): number
     get_last_index(): number
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -4401,11 +4401,11 @@ export class ScriptCodepointList {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Gucharmap.CodepointList */
+    /* Virtual methods of Gucharmap-2.90.Gucharmap.CodepointList */
     vfunc_get_char(index: number): number
     vfunc_get_index(wc: number): number
     vfunc_get_last_index(): number
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -4413,7 +4413,7 @@ export class ScriptCodepointList {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: ScriptCodepointList, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: ScriptCodepointList, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -4429,7 +4429,7 @@ export class ScriptCodepointList {
     static $gtype: GObject.Type
 }
 export abstract class BlockChaptersModelClass {
-    /* Fields of Gucharmap.BlockChaptersModelClass */
+    /* Fields of Gucharmap-2.90.Gucharmap.BlockChaptersModelClass */
     parent_class: ChaptersModelClass
     static name: string
 }
@@ -4437,7 +4437,7 @@ export class BlockChaptersModelPrivate {
     static name: string
 }
 export abstract class BlockCodepointListClass {
-    /* Fields of Gucharmap.BlockCodepointListClass */
+    /* Fields of Gucharmap-2.90.Gucharmap.BlockCodepointListClass */
     parent_class: CodepointListClass
     static name: string
 }
@@ -4445,7 +4445,7 @@ export class BlockCodepointListPrivate {
     static name: string
 }
 export abstract class ChaptersModelClass {
-    /* Fields of Gucharmap.ChaptersModelClass */
+    /* Fields of Gucharmap-2.90.Gucharmap.ChaptersModelClass */
     parent_class: Gtk.ListStoreClass
     title: string
     character_to_iter: (chapters: ChaptersModel, wc: number) => [ /* returnType */ boolean, /* iter */ Gtk.TreeIter ]
@@ -4454,12 +4454,12 @@ export abstract class ChaptersModelClass {
     static name: string
 }
 export class ChaptersModelPrivate {
-    /* Fields of Gucharmap.ChaptersModelPrivate */
+    /* Fields of Gucharmap-2.90.Gucharmap.ChaptersModelPrivate */
     book_list: CodepointList
     static name: string
 }
 export abstract class ChaptersViewClass {
-    /* Fields of Gucharmap.ChaptersViewClass */
+    /* Fields of Gucharmap-2.90.Gucharmap.ChaptersViewClass */
     parent_class: Gtk.TreeViewClass
     static name: string
 }
@@ -4467,7 +4467,7 @@ export class ChaptersViewPrivate {
     static name: string
 }
 export abstract class CharmapClass {
-    /* Fields of Gucharmap.CharmapClass */
+    /* Fields of Gucharmap-2.90.Gucharmap.CharmapClass */
     parent_class: Gtk.PanedClass
     status_message: (charmap: Charmap, message: string) => void
     link_clicked: (charmap: Charmap, old_character: number, new_character: number) => void
@@ -4480,12 +4480,12 @@ export abstract class ChartableAccessibleClass {
     static name: string
 }
 export abstract class ChartableCellAccessibleClass {
-    /* Fields of Gucharmap.ChartableCellAccessibleClass */
+    /* Fields of Gucharmap-2.90.Gucharmap.ChartableCellAccessibleClass */
     parent_class: Atk.ObjectClass
     static name: string
 }
 export abstract class ChartableClass {
-    /* Fields of Gucharmap.ChartableClass */
+    /* Fields of Gucharmap-2.90.Gucharmap.ChartableClass */
     parent_class: Gtk.DrawingAreaClass
     set_scroll_adjustments: (chartable: Chartable, hadjustment: Gtk.Adjustment, vadjustment: Gtk.Adjustment) => void
     move_cursor: (chartable: Chartable, step: Gtk.MovementStep, count: number) => boolean
@@ -4497,7 +4497,7 @@ export abstract class ChartableClass {
     static name: string
 }
 export class ChartablePrivate {
-    /* Fields of Gucharmap.ChartablePrivate */
+    /* Fields of Gucharmap-2.90.Gucharmap.ChartablePrivate */
     vadjustment: Gtk.Adjustment
     vadjustment_changed_handler_id: number
     hadjustment: Gtk.Adjustment
@@ -4529,7 +4529,7 @@ export class ChartablePrivate {
     static name: string
 }
 export abstract class CodepointListClass {
-    /* Fields of Gucharmap.CodepointListClass */
+    /* Fields of Gucharmap-2.90.Gucharmap.CodepointListClass */
     parent_class: GObject.ObjectClass
     get_last_index: (list: CodepointList) => number
     get_char: (list: CodepointList, index: number) => number
@@ -4540,7 +4540,7 @@ export class CodepointListPrivate {
     static name: string
 }
 export abstract class ScriptChaptersModelClass {
-    /* Fields of Gucharmap.ScriptChaptersModelClass */
+    /* Fields of Gucharmap-2.90.Gucharmap.ScriptChaptersModelClass */
     parent_class: ChaptersModelClass
     static name: string
 }
@@ -4548,7 +4548,7 @@ export class ScriptChaptersModelPrivate {
     static name: string
 }
 export abstract class ScriptCodepointListClass {
-    /* Fields of Gucharmap.ScriptCodepointListClass */
+    /* Fields of Gucharmap-2.90.Gucharmap.ScriptCodepointListClass */
     parent_class: CodepointListClass
     static name: string
 }

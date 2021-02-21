@@ -108,10 +108,10 @@ export const META_NAME_THUMBNAIL: string
 export const META_NAME_TITLE: string
 export const META_NAME_WORD_COUNT: string
 export function base64DecodeSimple(data: any[], len: number): number
-export function base64DecodeStep(in_: any[], len: number, out: any[], state: number, save: number): [ /* returnType */ number, /* state */ number, /* save */ number ]
-export function base64EncodeClose(in_: any[], breakLines: boolean, out: any[], state: number, save: number): [ /* returnType */ number, /* state */ number, /* save */ number ]
+export function base64DecodeStep(in_: any[], len: number, out: any[], state: number, save: number): { returnType: number, state: number, save: number }
+export function base64EncodeClose(in_: any[], breakLines: boolean, out: any[], state: number, save: number): { returnType: number, state: number, save: number }
 export function base64EncodeSimple(data: any[], len: number): number
-export function base64EncodeStep(in_: any[], len: number, breakLines: boolean, out: any[], state: number, save: number): [ /* returnType */ number, /* state */ number, /* save */ number ]
+export function base64EncodeStep(in_: any[], len: number, breakLines: boolean, out: any[], state: number, save: number): { returnType: number, state: number, save: number }
 export function debugFlag(flag: string): boolean
 export function docMetaDump(meta: DocMetaData): void
 export function errorQuark(): GLib.Quark
@@ -167,15 +167,15 @@ export interface XMLProbeFunc {
 export interface Blob_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class Blob {
-    /* Fields of Gsf.Blob */
+    /* Fields of Gsf-1.Gsf.Blob */
     object: GObject.Object
     priv: BlobPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Gsf.Blob */
+    /* Methods of Gsf-1.Gsf.Blob */
     getSize(): number
     peekData(): object | null
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -197,21 +197,12 @@ export class Blob {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Blob, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Blob, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -229,17 +220,17 @@ export class Blob {
 export interface ClipData_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class ClipData {
-    /* Fields of Gsf.ClipData */
+    /* Fields of Gsf-1.Gsf.ClipData */
     object: GObject.Object
     priv: ClipDataPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Gsf.ClipData */
+    /* Methods of Gsf-1.Gsf.ClipData */
     getDataBlob(): Blob
     getFormat(): ClipFormat
     getWindowsClipboardFormat(): ClipFormatWindows
     peekRealData(retSize: number): object | null
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -261,21 +252,12 @@ export class ClipData {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: ClipData, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: ClipData, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -293,9 +275,9 @@ export class ClipData {
 export interface DocMetaData_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class DocMetaData {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Gsf.DocMetaData */
+    /* Methods of Gsf-1.Gsf.DocMetaData */
     foreach(func: GLib.HFunc): void
     insert(name: string, value: any): void
     lookup(name: string): DocProp | null
@@ -308,7 +290,7 @@ export class DocMetaData {
     store(prop: DocProp): void
     writeToMsole(out: Output, docNotComponent: boolean): boolean
     writeToOdf(output: XMLOut): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -330,21 +312,12 @@ export class DocMetaData {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: DocMetaData, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: DocMetaData, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -362,12 +335,12 @@ export class DocMetaData {
 export interface DocPropVector_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class DocPropVector {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Gsf.DocPropVector */
+    /* Methods of Gsf-1.Gsf.DocPropVector */
     append(value: any): void
     asString(): string
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -389,21 +362,12 @@ export class DocPropVector {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: DocPropVector, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: DocPropVector, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -421,7 +385,7 @@ export class DocPropVector {
 export interface Infile_ConstructProps extends Input_ConstructProps {
 }
 export class Infile {
-    /* Properties of Gsf.Input */
+    /* Properties of Gsf-1.Gsf.Input */
     readonly container: Infile
     readonly eof: boolean
     readonly modtime: GLib.DateTime
@@ -429,20 +393,20 @@ export class Infile {
     readonly position: number
     readonly remaining: number
     readonly size: number
-    /* Fields of Gsf.Infile */
+    /* Fields of Gsf-1.Gsf.Infile */
     parent: Input
-    /* Fields of Gsf.Input */
+    /* Fields of Gsf-1.Gsf.Input */
     gObject: GObject.Object
     curOffset: gsf_off_t
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Gsf.Infile */
+    /* Methods of Gsf-1.Gsf.Infile */
     childByAname(names: string[]): Input
     childByIndex(i: number): Input
     childByName(name: string): Input
     nameByIndex(i: number): string | null
     numChildren(): number
-    /* Methods of Gsf.Input */
+    /* Methods of Gsf-1.Gsf.Input */
     copy(output: Output): boolean
     dump(dumpAsHex: boolean): void
     dup(): Input | null
@@ -460,7 +424,7 @@ export class Infile {
     sibling(name: string): Input
     tell(): gsf_off_t
     uncompress(): Input
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -482,28 +446,12 @@ export class Infile {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of Gsf.Infile */
-    vfuncNameByIndex(i: number): string | null
-    vfuncNumChildren(): number
-    /* Virtual methods of Gsf.Input */
-    vfuncDup(): Input | null
-    vfuncOpenSibling(name: string): Input
-    vfuncSeek(offset: gsf_off_t, whence: GLib.SeekType): boolean
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Infile, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Infile, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::container", callback: (($obj: Infile, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::container", callback: (($obj: Infile, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::container", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -554,7 +502,7 @@ export class Infile {
 export interface InfileMSOle_ConstructProps extends Infile_ConstructProps {
 }
 export class InfileMSOle {
-    /* Properties of Gsf.Input */
+    /* Properties of Gsf-1.Gsf.Input */
     readonly container: Infile
     readonly eof: boolean
     readonly modtime: GLib.DateTime
@@ -562,22 +510,22 @@ export class InfileMSOle {
     readonly position: number
     readonly remaining: number
     readonly size: number
-    /* Fields of Gsf.Infile */
+    /* Fields of Gsf-1.Gsf.Infile */
     parent: Input
-    /* Fields of Gsf.Input */
+    /* Fields of Gsf-1.Gsf.Input */
     gObject: GObject.Object
     curOffset: gsf_off_t
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Gsf.InfileMSOle */
+    /* Methods of Gsf-1.Gsf.InfileMSOle */
     getClassId(res: number): boolean
-    /* Methods of Gsf.Infile */
+    /* Methods of Gsf-1.Gsf.Infile */
     childByAname(names: string[]): Input
     childByIndex(i: number): Input
     childByName(name: string): Input
     nameByIndex(i: number): string | null
     numChildren(): number
-    /* Methods of Gsf.Input */
+    /* Methods of Gsf-1.Gsf.Input */
     copy(output: Output): boolean
     dump(dumpAsHex: boolean): void
     dup(): Input | null
@@ -595,7 +543,7 @@ export class InfileMSOle {
     sibling(name: string): Input
     tell(): gsf_off_t
     uncompress(): Input
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -617,28 +565,12 @@ export class InfileMSOle {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of Gsf.Infile */
-    vfuncNameByIndex(i: number): string | null
-    vfuncNumChildren(): number
-    /* Virtual methods of Gsf.Input */
-    vfuncDup(): Input | null
-    vfuncOpenSibling(name: string): Input
-    vfuncSeek(offset: gsf_off_t, whence: GLib.SeekType): boolean
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: InfileMSOle, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: InfileMSOle, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::container", callback: (($obj: InfileMSOle, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::container", callback: (($obj: InfileMSOle, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::container", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -691,7 +623,7 @@ export class InfileMSOle {
 export interface InfileMSVBA_ConstructProps extends Infile_ConstructProps {
 }
 export class InfileMSVBA {
-    /* Properties of Gsf.Input */
+    /* Properties of Gsf-1.Gsf.Input */
     readonly container: Infile
     readonly eof: boolean
     readonly modtime: GLib.DateTime
@@ -699,23 +631,23 @@ export class InfileMSVBA {
     readonly position: number
     readonly remaining: number
     readonly size: number
-    /* Fields of Gsf.Infile */
+    /* Fields of Gsf-1.Gsf.Infile */
     parent: Input
-    /* Fields of Gsf.Input */
+    /* Fields of Gsf-1.Gsf.Input */
     gObject: GObject.Object
     curOffset: gsf_off_t
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Gsf.InfileMSVBA */
+    /* Methods of Gsf-1.Gsf.InfileMSVBA */
     getModules(): GLib.HashTable | null
     stealModules(): GLib.HashTable | null
-    /* Methods of Gsf.Infile */
+    /* Methods of Gsf-1.Gsf.Infile */
     childByAname(names: string[]): Input
     childByIndex(i: number): Input
     childByName(name: string): Input
     nameByIndex(i: number): string | null
     numChildren(): number
-    /* Methods of Gsf.Input */
+    /* Methods of Gsf-1.Gsf.Input */
     copy(output: Output): boolean
     dump(dumpAsHex: boolean): void
     dup(): Input | null
@@ -733,7 +665,7 @@ export class InfileMSVBA {
     sibling(name: string): Input
     tell(): gsf_off_t
     uncompress(): Input
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -755,28 +687,12 @@ export class InfileMSVBA {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of Gsf.Infile */
-    vfuncNameByIndex(i: number): string | null
-    vfuncNumChildren(): number
-    /* Virtual methods of Gsf.Input */
-    vfuncDup(): Input | null
-    vfuncOpenSibling(name: string): Input
-    vfuncSeek(offset: gsf_off_t, whence: GLib.SeekType): boolean
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: InfileMSVBA, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: InfileMSVBA, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::container", callback: (($obj: InfileMSVBA, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::container", callback: (($obj: InfileMSVBA, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::container", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -829,7 +745,7 @@ export class InfileMSVBA {
 export interface InfileStdio_ConstructProps extends Infile_ConstructProps {
 }
 export class InfileStdio {
-    /* Properties of Gsf.Input */
+    /* Properties of Gsf-1.Gsf.Input */
     readonly container: Infile
     readonly eof: boolean
     readonly modtime: GLib.DateTime
@@ -837,20 +753,20 @@ export class InfileStdio {
     readonly position: number
     readonly remaining: number
     readonly size: number
-    /* Fields of Gsf.Infile */
+    /* Fields of Gsf-1.Gsf.Infile */
     parent: Input
-    /* Fields of Gsf.Input */
+    /* Fields of Gsf-1.Gsf.Input */
     gObject: GObject.Object
     curOffset: gsf_off_t
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Gsf.Infile */
+    /* Methods of Gsf-1.Gsf.Infile */
     childByAname(names: string[]): Input
     childByIndex(i: number): Input
     childByName(name: string): Input
     nameByIndex(i: number): string | null
     numChildren(): number
-    /* Methods of Gsf.Input */
+    /* Methods of Gsf-1.Gsf.Input */
     copy(output: Output): boolean
     dump(dumpAsHex: boolean): void
     dup(): Input | null
@@ -868,7 +784,7 @@ export class InfileStdio {
     sibling(name: string): Input
     tell(): gsf_off_t
     uncompress(): Input
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -890,28 +806,12 @@ export class InfileStdio {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of Gsf.Infile */
-    vfuncNameByIndex(i: number): string | null
-    vfuncNumChildren(): number
-    /* Virtual methods of Gsf.Input */
-    vfuncDup(): Input | null
-    vfuncOpenSibling(name: string): Input
-    vfuncSeek(offset: gsf_off_t, whence: GLib.SeekType): boolean
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: InfileStdio, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: InfileStdio, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::container", callback: (($obj: InfileStdio, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::container", callback: (($obj: InfileStdio, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::container", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -965,7 +865,7 @@ export interface InfileTar_ConstructProps extends Infile_ConstructProps {
     source?: Input
 }
 export class InfileTar {
-    /* Properties of Gsf.Input */
+    /* Properties of Gsf-1.Gsf.Input */
     readonly container: Infile
     readonly eof: boolean
     readonly modtime: GLib.DateTime
@@ -973,20 +873,20 @@ export class InfileTar {
     readonly position: number
     readonly remaining: number
     readonly size: number
-    /* Fields of Gsf.Infile */
+    /* Fields of Gsf-1.Gsf.Infile */
     parent: Input
-    /* Fields of Gsf.Input */
+    /* Fields of Gsf-1.Gsf.Input */
     gObject: GObject.Object
     curOffset: gsf_off_t
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Gsf.Infile */
+    /* Methods of Gsf-1.Gsf.Infile */
     childByAname(names: string[]): Input
     childByIndex(i: number): Input
     childByName(name: string): Input
     nameByIndex(i: number): string | null
     numChildren(): number
-    /* Methods of Gsf.Input */
+    /* Methods of Gsf-1.Gsf.Input */
     copy(output: Output): boolean
     dump(dumpAsHex: boolean): void
     dup(): Input | null
@@ -1004,7 +904,7 @@ export class InfileTar {
     sibling(name: string): Input
     tell(): gsf_off_t
     uncompress(): Input
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -1026,28 +926,12 @@ export class InfileTar {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of Gsf.Infile */
-    vfuncNameByIndex(i: number): string | null
-    vfuncNumChildren(): number
-    /* Virtual methods of Gsf.Input */
-    vfuncDup(): Input | null
-    vfuncOpenSibling(name: string): Input
-    vfuncSeek(offset: gsf_off_t, whence: GLib.SeekType): boolean
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: InfileTar, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: InfileTar, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::container", callback: (($obj: InfileTar, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::container", callback: (($obj: InfileTar, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::container", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -1102,9 +986,9 @@ export interface InfileZip_ConstructProps extends Infile_ConstructProps {
     source?: Input
 }
 export class InfileZip {
-    /* Properties of Gsf.InfileZip */
+    /* Properties of Gsf-1.Gsf.InfileZip */
     readonly compressionLevel: number
-    /* Properties of Gsf.Input */
+    /* Properties of Gsf-1.Gsf.Input */
     readonly container: Infile
     readonly eof: boolean
     readonly modtime: GLib.DateTime
@@ -1112,20 +996,20 @@ export class InfileZip {
     readonly position: number
     readonly remaining: number
     readonly size: number
-    /* Fields of Gsf.Infile */
+    /* Fields of Gsf-1.Gsf.Infile */
     parent: Input
-    /* Fields of Gsf.Input */
+    /* Fields of Gsf-1.Gsf.Input */
     gObject: GObject.Object
     curOffset: gsf_off_t
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Gsf.Infile */
+    /* Methods of Gsf-1.Gsf.Infile */
     childByAname(names: string[]): Input
     childByIndex(i: number): Input
     childByName(name: string): Input
     nameByIndex(i: number): string | null
     numChildren(): number
-    /* Methods of Gsf.Input */
+    /* Methods of Gsf-1.Gsf.Input */
     copy(output: Output): boolean
     dump(dumpAsHex: boolean): void
     dup(): Input | null
@@ -1143,7 +1027,7 @@ export class InfileZip {
     sibling(name: string): Input
     tell(): gsf_off_t
     uncompress(): Input
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -1165,28 +1049,12 @@ export class InfileZip {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of Gsf.Infile */
-    vfuncNameByIndex(i: number): string | null
-    vfuncNumChildren(): number
-    /* Virtual methods of Gsf.Input */
-    vfuncDup(): Input | null
-    vfuncOpenSibling(name: string): Input
-    vfuncSeek(offset: gsf_off_t, whence: GLib.SeekType): boolean
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: InfileZip, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: InfileZip, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::compression-level", callback: (($obj: InfileZip, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::compression-level", callback: (($obj: InfileZip, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::compression-level", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -1244,7 +1112,7 @@ export class InfileZip {
 export interface Input_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class Input {
-    /* Properties of Gsf.Input */
+    /* Properties of Gsf-1.Gsf.Input */
     readonly container: Infile
     readonly eof: boolean
     readonly modtime: GLib.DateTime
@@ -1252,12 +1120,12 @@ export class Input {
     readonly position: number
     readonly remaining: number
     readonly size: number
-    /* Fields of Gsf.Input */
+    /* Fields of Gsf-1.Gsf.Input */
     gObject: GObject.Object
     curOffset: gsf_off_t
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Gsf.Input */
+    /* Methods of Gsf-1.Gsf.Input */
     copy(output: Output): boolean
     dump(dumpAsHex: boolean): void
     dup(): Input | null
@@ -1275,7 +1143,7 @@ export class Input {
     sibling(name: string): Input
     tell(): gsf_off_t
     uncompress(): Input
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -1297,25 +1165,12 @@ export class Input {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of Gsf.Input */
-    vfuncDup(): Input | null
-    vfuncOpenSibling(name: string): Input
-    vfuncSeek(offset: gsf_off_t, whence: GLib.SeekType): boolean
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Input, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Input, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::container", callback: (($obj: Input, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::container", callback: (($obj: Input, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::container", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -1372,7 +1227,7 @@ export interface InputGZip_ConstructProps extends Input_ConstructProps {
     uncompressedSize?: number
 }
 export class InputGZip {
-    /* Properties of Gsf.Input */
+    /* Properties of Gsf-1.Gsf.Input */
     readonly container: Infile
     readonly eof: boolean
     readonly modtime: GLib.DateTime
@@ -1380,12 +1235,12 @@ export class InputGZip {
     readonly position: number
     readonly remaining: number
     readonly size: number
-    /* Fields of Gsf.Input */
+    /* Fields of Gsf-1.Gsf.Input */
     gObject: GObject.Object
     curOffset: gsf_off_t
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Gsf.Input */
+    /* Methods of Gsf-1.Gsf.Input */
     copy(output: Output): boolean
     dump(dumpAsHex: boolean): void
     dup(): Input | null
@@ -1403,7 +1258,7 @@ export class InputGZip {
     sibling(name: string): Input
     tell(): gsf_off_t
     uncompress(): Input
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -1425,25 +1280,12 @@ export class InputGZip {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of Gsf.Input */
-    vfuncDup(): Input | null
-    vfuncOpenSibling(name: string): Input
-    vfuncSeek(offset: gsf_off_t, whence: GLib.SeekType): boolean
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: InputGZip, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: InputGZip, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::container", callback: (($obj: InputGZip, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::container", callback: (($obj: InputGZip, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::container", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -1496,7 +1338,7 @@ export class InputGZip {
 export interface InputGio_ConstructProps extends Input_ConstructProps {
 }
 export class InputGio {
-    /* Properties of Gsf.Input */
+    /* Properties of Gsf-1.Gsf.Input */
     readonly container: Infile
     readonly eof: boolean
     readonly modtime: GLib.DateTime
@@ -1504,12 +1346,12 @@ export class InputGio {
     readonly position: number
     readonly remaining: number
     readonly size: number
-    /* Fields of Gsf.Input */
+    /* Fields of Gsf-1.Gsf.Input */
     gObject: GObject.Object
     curOffset: gsf_off_t
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Gsf.Input */
+    /* Methods of Gsf-1.Gsf.Input */
     copy(output: Output): boolean
     dump(dumpAsHex: boolean): void
     dup(): Input | null
@@ -1527,7 +1369,7 @@ export class InputGio {
     sibling(name: string): Input
     tell(): gsf_off_t
     uncompress(): Input
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -1549,25 +1391,12 @@ export class InputGio {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of Gsf.Input */
-    vfuncDup(): Input | null
-    vfuncOpenSibling(name: string): Input
-    vfuncSeek(offset: gsf_off_t, whence: GLib.SeekType): boolean
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: InputGio, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: InputGio, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::container", callback: (($obj: InputGio, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::container", callback: (($obj: InputGio, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::container", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -1624,7 +1453,7 @@ export interface InputHTTP_ConstructProps extends Input_ConstructProps {
     url?: string
 }
 export class InputHTTP {
-    /* Properties of Gsf.Input */
+    /* Properties of Gsf-1.Gsf.Input */
     readonly container: Infile
     readonly eof: boolean
     readonly modtime: GLib.DateTime
@@ -1632,15 +1461,15 @@ export class InputHTTP {
     readonly position: number
     readonly remaining: number
     readonly size: number
-    /* Fields of Gsf.Input */
+    /* Fields of Gsf-1.Gsf.Input */
     gObject: GObject.Object
     curOffset: gsf_off_t
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Gsf.InputHTTP */
+    /* Methods of Gsf-1.Gsf.InputHTTP */
     getContentType(): string
     getUrl(): string
-    /* Methods of Gsf.Input */
+    /* Methods of Gsf-1.Gsf.Input */
     copy(output: Output): boolean
     dump(dumpAsHex: boolean): void
     dup(): Input | null
@@ -1658,7 +1487,7 @@ export class InputHTTP {
     sibling(name: string): Input
     tell(): gsf_off_t
     uncompress(): Input
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -1680,25 +1509,12 @@ export class InputHTTP {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of Gsf.Input */
-    vfuncDup(): Input | null
-    vfuncOpenSibling(name: string): Input
-    vfuncSeek(offset: gsf_off_t, whence: GLib.SeekType): boolean
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: InputHTTP, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: InputHTTP, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::container", callback: (($obj: InputHTTP, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::container", callback: (($obj: InputHTTP, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::container", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -1751,7 +1567,7 @@ export class InputHTTP {
 export interface InputMemory_ConstructProps extends Input_ConstructProps {
 }
 export class InputMemory {
-    /* Properties of Gsf.Input */
+    /* Properties of Gsf-1.Gsf.Input */
     readonly container: Infile
     readonly eof: boolean
     readonly modtime: GLib.DateTime
@@ -1759,12 +1575,12 @@ export class InputMemory {
     readonly position: number
     readonly remaining: number
     readonly size: number
-    /* Fields of Gsf.Input */
+    /* Fields of Gsf-1.Gsf.Input */
     gObject: GObject.Object
     curOffset: gsf_off_t
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Gsf.Input */
+    /* Methods of Gsf-1.Gsf.Input */
     copy(output: Output): boolean
     dump(dumpAsHex: boolean): void
     dup(): Input | null
@@ -1782,7 +1598,7 @@ export class InputMemory {
     sibling(name: string): Input
     tell(): gsf_off_t
     uncompress(): Input
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -1804,25 +1620,12 @@ export class InputMemory {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of Gsf.Input */
-    vfuncDup(): Input | null
-    vfuncOpenSibling(name: string): Input
-    vfuncSeek(offset: gsf_off_t, whence: GLib.SeekType): boolean
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: InputMemory, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: InputMemory, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::container", callback: (($obj: InputMemory, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::container", callback: (($obj: InputMemory, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::container", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -1878,7 +1681,7 @@ export class InputMemory {
 export interface InputProxy_ConstructProps extends Input_ConstructProps {
 }
 export class InputProxy {
-    /* Properties of Gsf.Input */
+    /* Properties of Gsf-1.Gsf.Input */
     readonly container: Infile
     readonly eof: boolean
     readonly modtime: GLib.DateTime
@@ -1886,12 +1689,12 @@ export class InputProxy {
     readonly position: number
     readonly remaining: number
     readonly size: number
-    /* Fields of Gsf.Input */
+    /* Fields of Gsf-1.Gsf.Input */
     gObject: GObject.Object
     curOffset: gsf_off_t
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Gsf.Input */
+    /* Methods of Gsf-1.Gsf.Input */
     copy(output: Output): boolean
     dump(dumpAsHex: boolean): void
     dup(): Input | null
@@ -1909,7 +1712,7 @@ export class InputProxy {
     sibling(name: string): Input
     tell(): gsf_off_t
     uncompress(): Input
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -1931,25 +1734,12 @@ export class InputProxy {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of Gsf.Input */
-    vfuncDup(): Input | null
-    vfuncOpenSibling(name: string): Input
-    vfuncSeek(offset: gsf_off_t, whence: GLib.SeekType): boolean
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: InputProxy, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: InputProxy, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::container", callback: (($obj: InputProxy, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::container", callback: (($obj: InputProxy, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::container", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -2003,7 +1793,7 @@ export class InputProxy {
 export interface InputStdio_ConstructProps extends Input_ConstructProps {
 }
 export class InputStdio {
-    /* Properties of Gsf.Input */
+    /* Properties of Gsf-1.Gsf.Input */
     readonly container: Infile
     readonly eof: boolean
     readonly modtime: GLib.DateTime
@@ -2011,12 +1801,12 @@ export class InputStdio {
     readonly position: number
     readonly remaining: number
     readonly size: number
-    /* Fields of Gsf.Input */
+    /* Fields of Gsf-1.Gsf.Input */
     gObject: GObject.Object
     curOffset: gsf_off_t
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Gsf.Input */
+    /* Methods of Gsf-1.Gsf.Input */
     copy(output: Output): boolean
     dump(dumpAsHex: boolean): void
     dup(): Input | null
@@ -2034,7 +1824,7 @@ export class InputStdio {
     sibling(name: string): Input
     tell(): gsf_off_t
     uncompress(): Input
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -2056,25 +1846,12 @@ export class InputStdio {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of Gsf.Input */
-    vfuncDup(): Input | null
-    vfuncOpenSibling(name: string): Input
-    vfuncSeek(offset: gsf_off_t, whence: GLib.SeekType): boolean
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: InputStdio, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: InputStdio, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::container", callback: (($obj: InputStdio, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::container", callback: (($obj: InputStdio, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::container", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -2128,7 +1905,7 @@ export class InputStdio {
 export interface InputTextline_ConstructProps extends Input_ConstructProps {
 }
 export class InputTextline {
-    /* Properties of Gsf.Input */
+    /* Properties of Gsf-1.Gsf.Input */
     readonly container: Infile
     readonly eof: boolean
     readonly modtime: GLib.DateTime
@@ -2136,15 +1913,15 @@ export class InputTextline {
     readonly position: number
     readonly remaining: number
     readonly size: number
-    /* Fields of Gsf.Input */
+    /* Fields of Gsf-1.Gsf.Input */
     gObject: GObject.Object
     curOffset: gsf_off_t
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Gsf.InputTextline */
+    /* Methods of Gsf-1.Gsf.InputTextline */
     asciiGets(): any[] | null
     utf8Gets(): any[] | null
-    /* Methods of Gsf.Input */
+    /* Methods of Gsf-1.Gsf.Input */
     copy(output: Output): boolean
     dump(dumpAsHex: boolean): void
     dup(): Input | null
@@ -2162,7 +1939,7 @@ export class InputTextline {
     sibling(name: string): Input
     tell(): gsf_off_t
     uncompress(): Input
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -2184,25 +1961,12 @@ export class InputTextline {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of Gsf.Input */
-    vfuncDup(): Input | null
-    vfuncOpenSibling(name: string): Input
-    vfuncSeek(offset: gsf_off_t, whence: GLib.SeekType): boolean
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: InputTextline, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: InputTextline, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::container", callback: (($obj: InputTextline, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::container", callback: (($obj: InputTextline, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::container", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -2256,19 +2020,19 @@ export interface ODFOut_ConstructProps extends XMLOut_ConstructProps {
     odfVersion?: number
 }
 export class ODFOut {
-    /* Properties of Gsf.XMLOut */
+    /* Properties of Gsf-1.Gsf.XMLOut */
     prettyPrint: boolean
-    /* Fields of Gsf.ODFOut */
+    /* Fields of Gsf-1.Gsf.ODFOut */
     base: XMLOut
     priv: object
-    /* Fields of Gsf.XMLOut */
+    /* Fields of Gsf-1.Gsf.XMLOut */
     output: Output
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Gsf.ODFOut */
+    /* Methods of Gsf-1.Gsf.ODFOut */
     getVersion(): number
     getVersionString(): string
-    /* Methods of Gsf.XMLOut */
+    /* Methods of Gsf-1.Gsf.XMLOut */
     addBase64(id: string | null, data: any[]): void
     addBool(id: string | null, val: boolean): void
     addColor(id: string | null, r: number, g: number, b: number): void
@@ -2288,7 +2052,7 @@ export class ODFOut {
     simpleFloatElement(id: string, val: number, precision: number): void
     simpleIntElement(id: string, val: number): void
     startElement(id: string): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -2310,21 +2074,12 @@ export class ODFOut {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: ODFOut, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: ODFOut, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::pretty-print", callback: (($obj: ODFOut, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::pretty-print", callback: (($obj: ODFOut, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::pretty-print", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -2345,15 +2100,15 @@ export class ODFOut {
 export interface Outfile_ConstructProps extends Output_ConstructProps {
 }
 export class Outfile {
-    /* Properties of Gsf.Output */
+    /* Properties of Gsf-1.Gsf.Output */
     container: Outfile
     readonly isClosed: boolean
     name: string
     readonly position: number
     readonly size: number
-    /* Fields of Gsf.Outfile */
+    /* Fields of Gsf-1.Gsf.Outfile */
     parent: Output
-    /* Fields of Gsf.Output */
+    /* Fields of Gsf-1.Gsf.Output */
     gObject: GObject.Object
     curSize: gsf_off_t
     curOffset: gsf_off_t
@@ -2361,12 +2116,12 @@ export class Outfile {
     err: GLib.Error
     printfBuf: string
     printfBufSize: number
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Gsf.Outfile */
+    /* Methods of Gsf-1.Gsf.Outfile */
     newChild(name: string, isDir: boolean): Output
     openPkgAddRel(name: string, contentType: string, parent: Outfile, type: string): Output
-    /* Methods of Gsf.Output */
+    /* Methods of Gsf-1.Gsf.Output */
     close(): boolean
     error(): GLib.Error | null
     getModtime(): GLib.DateTime | null
@@ -2378,7 +2133,7 @@ export class Outfile {
     setNameFromFilename(filename?: string | null): boolean
     tell(): gsf_off_t
     write(data: any[]): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -2400,25 +2155,12 @@ export class Outfile {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of Gsf.Output */
-    vfuncClose(): boolean
-    vfuncSeek(offset: gsf_off_t, whence: GLib.SeekType): boolean
-    vfuncWrite(data: any[]): boolean
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Outfile, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Outfile, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::container", callback: (($obj: Outfile, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::container", callback: (($obj: Outfile, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::container", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -2462,15 +2204,15 @@ export interface OutfileMSOle_ConstructProps extends Outfile_ConstructProps {
     smallBlockSize?: number
 }
 export class OutfileMSOle {
-    /* Properties of Gsf.Output */
+    /* Properties of Gsf-1.Gsf.Output */
     container: Outfile
     readonly isClosed: boolean
     name: string
     readonly position: number
     readonly size: number
-    /* Fields of Gsf.Outfile */
+    /* Fields of Gsf-1.Gsf.Outfile */
     parent: Output
-    /* Fields of Gsf.Output */
+    /* Fields of Gsf-1.Gsf.Output */
     gObject: GObject.Object
     curSize: gsf_off_t
     curOffset: gsf_off_t
@@ -2478,14 +2220,14 @@ export class OutfileMSOle {
     err: GLib.Error
     printfBuf: string
     printfBufSize: number
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Gsf.OutfileMSOle */
+    /* Methods of Gsf-1.Gsf.OutfileMSOle */
     setClassId(clsid: any[]): boolean
-    /* Methods of Gsf.Outfile */
+    /* Methods of Gsf-1.Gsf.Outfile */
     newChild(name: string, isDir: boolean): Output
     openPkgAddRel(name: string, contentType: string, parent: Outfile, type: string): Output
-    /* Methods of Gsf.Output */
+    /* Methods of Gsf-1.Gsf.Output */
     close(): boolean
     error(): GLib.Error | null
     getModtime(): GLib.DateTime | null
@@ -2497,7 +2239,7 @@ export class OutfileMSOle {
     setNameFromFilename(filename?: string | null): boolean
     tell(): gsf_off_t
     write(data: any[]): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -2519,25 +2261,12 @@ export class OutfileMSOle {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of Gsf.Output */
-    vfuncClose(): boolean
-    vfuncSeek(offset: gsf_off_t, whence: GLib.SeekType): boolean
-    vfuncWrite(data: any[]): boolean
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: OutfileMSOle, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: OutfileMSOle, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::container", callback: (($obj: OutfileMSOle, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::container", callback: (($obj: OutfileMSOle, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::container", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -2584,15 +2313,15 @@ export interface OutfileOpenPkg_ConstructProps extends Outfile_ConstructProps {
     sink?: Outfile
 }
 export class OutfileOpenPkg {
-    /* Properties of Gsf.Output */
+    /* Properties of Gsf-1.Gsf.Output */
     container: Outfile
     readonly isClosed: boolean
     name: string
     readonly position: number
     readonly size: number
-    /* Fields of Gsf.Outfile */
+    /* Fields of Gsf-1.Gsf.Outfile */
     parent: Output
-    /* Fields of Gsf.Output */
+    /* Fields of Gsf-1.Gsf.Output */
     gObject: GObject.Object
     curSize: gsf_off_t
     curOffset: gsf_off_t
@@ -2600,17 +2329,17 @@ export class OutfileOpenPkg {
     err: GLib.Error
     printfBuf: string
     printfBufSize: number
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Gsf.OutfileOpenPkg */
+    /* Methods of Gsf-1.Gsf.OutfileOpenPkg */
     addExternRel(target: string, contentType: string): string
     relate(parent: OutfileOpenPkg, type: string): string
     setContentType(contentType: string): void
     setSink(sink: Output): void
-    /* Methods of Gsf.Outfile */
+    /* Methods of Gsf-1.Gsf.Outfile */
     newChild(name: string, isDir: boolean): Output
     openPkgAddRel(name: string, contentType: string, parent: Outfile, type: string): Output
-    /* Methods of Gsf.Output */
+    /* Methods of Gsf-1.Gsf.Output */
     close(): boolean
     error(): GLib.Error | null
     getModtime(): GLib.DateTime | null
@@ -2622,7 +2351,7 @@ export class OutfileOpenPkg {
     setNameFromFilename(filename?: string | null): boolean
     tell(): gsf_off_t
     write(data: any[]): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -2644,25 +2373,12 @@ export class OutfileOpenPkg {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of Gsf.Output */
-    vfuncClose(): boolean
-    vfuncSeek(offset: gsf_off_t, whence: GLib.SeekType): boolean
-    vfuncWrite(data: any[]): boolean
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: OutfileOpenPkg, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: OutfileOpenPkg, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::container", callback: (($obj: OutfileOpenPkg, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::container", callback: (($obj: OutfileOpenPkg, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::container", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -2705,15 +2421,15 @@ export class OutfileOpenPkg {
 export interface OutfileStdio_ConstructProps extends Outfile_ConstructProps {
 }
 export class OutfileStdio {
-    /* Properties of Gsf.Output */
+    /* Properties of Gsf-1.Gsf.Output */
     container: Outfile
     readonly isClosed: boolean
     name: string
     readonly position: number
     readonly size: number
-    /* Fields of Gsf.Outfile */
+    /* Fields of Gsf-1.Gsf.Outfile */
     parent: Output
-    /* Fields of Gsf.Output */
+    /* Fields of Gsf-1.Gsf.Output */
     gObject: GObject.Object
     curSize: gsf_off_t
     curOffset: gsf_off_t
@@ -2721,12 +2437,12 @@ export class OutfileStdio {
     err: GLib.Error
     printfBuf: string
     printfBufSize: number
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Gsf.Outfile */
+    /* Methods of Gsf-1.Gsf.Outfile */
     newChild(name: string, isDir: boolean): Output
     openPkgAddRel(name: string, contentType: string, parent: Outfile, type: string): Output
-    /* Methods of Gsf.Output */
+    /* Methods of Gsf-1.Gsf.Output */
     close(): boolean
     error(): GLib.Error | null
     getModtime(): GLib.DateTime | null
@@ -2738,7 +2454,7 @@ export class OutfileStdio {
     setNameFromFilename(filename?: string | null): boolean
     tell(): gsf_off_t
     write(data: any[]): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -2760,25 +2476,12 @@ export class OutfileStdio {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of Gsf.Output */
-    vfuncClose(): boolean
-    vfuncSeek(offset: gsf_off_t, whence: GLib.SeekType): boolean
-    vfuncWrite(data: any[]): boolean
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: OutfileStdio, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: OutfileStdio, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::container", callback: (($obj: OutfileStdio, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::container", callback: (($obj: OutfileStdio, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::container", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -2826,15 +2529,15 @@ export interface OutfileZip_ConstructProps extends Outfile_ConstructProps {
     zip64?: number
 }
 export class OutfileZip {
-    /* Properties of Gsf.Output */
+    /* Properties of Gsf-1.Gsf.Output */
     container: Outfile
     readonly isClosed: boolean
     name: string
     readonly position: number
     readonly size: number
-    /* Fields of Gsf.Outfile */
+    /* Fields of Gsf-1.Gsf.Outfile */
     parent: Output
-    /* Fields of Gsf.Output */
+    /* Fields of Gsf-1.Gsf.Output */
     gObject: GObject.Object
     curSize: gsf_off_t
     curOffset: gsf_off_t
@@ -2842,14 +2545,14 @@ export class OutfileZip {
     err: GLib.Error
     printfBuf: string
     printfBufSize: number
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Gsf.OutfileZip */
+    /* Methods of Gsf-1.Gsf.OutfileZip */
     setCompressionMethod(method: ZipCompressionMethod): boolean
-    /* Methods of Gsf.Outfile */
+    /* Methods of Gsf-1.Gsf.Outfile */
     newChild(name: string, isDir: boolean): Output
     openPkgAddRel(name: string, contentType: string, parent: Outfile, type: string): Output
-    /* Methods of Gsf.Output */
+    /* Methods of Gsf-1.Gsf.Output */
     close(): boolean
     error(): GLib.Error | null
     getModtime(): GLib.DateTime | null
@@ -2861,7 +2564,7 @@ export class OutfileZip {
     setNameFromFilename(filename?: string | null): boolean
     tell(): gsf_off_t
     write(data: any[]): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -2883,25 +2586,12 @@ export class OutfileZip {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of Gsf.Output */
-    vfuncClose(): boolean
-    vfuncSeek(offset: gsf_off_t, whence: GLib.SeekType): boolean
-    vfuncWrite(data: any[]): boolean
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: OutfileZip, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: OutfileZip, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::container", callback: (($obj: OutfileZip, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::container", callback: (($obj: OutfileZip, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::container", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -2947,13 +2637,13 @@ export interface Output_ConstructProps extends GObject.Object_ConstructProps {
     name?: string
 }
 export class Output {
-    /* Properties of Gsf.Output */
+    /* Properties of Gsf-1.Gsf.Output */
     container: Outfile
     readonly isClosed: boolean
     name: string
     readonly position: number
     readonly size: number
-    /* Fields of Gsf.Output */
+    /* Fields of Gsf-1.Gsf.Output */
     gObject: GObject.Object
     curSize: gsf_off_t
     curOffset: gsf_off_t
@@ -2961,9 +2651,9 @@ export class Output {
     err: GLib.Error
     printfBuf: string
     printfBufSize: number
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Gsf.Output */
+    /* Methods of Gsf-1.Gsf.Output */
     close(): boolean
     error(): GLib.Error | null
     getModtime(): GLib.DateTime | null
@@ -2975,7 +2665,7 @@ export class Output {
     setNameFromFilename(filename?: string | null): boolean
     tell(): gsf_off_t
     write(data: any[]): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -2997,25 +2687,12 @@ export class Output {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of Gsf.Output */
-    vfuncClose(): boolean
-    vfuncSeek(offset: gsf_off_t, whence: GLib.SeekType): boolean
-    vfuncWrite(data: any[]): boolean
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Output, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Output, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::container", callback: (($obj: Output, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::container", callback: (($obj: Output, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::container", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -3060,13 +2737,13 @@ export class Output {
 export interface OutputBzip_ConstructProps extends Output_ConstructProps {
 }
 export class OutputBzip {
-    /* Properties of Gsf.Output */
+    /* Properties of Gsf-1.Gsf.Output */
     container: Outfile
     readonly isClosed: boolean
     name: string
     readonly position: number
     readonly size: number
-    /* Fields of Gsf.Output */
+    /* Fields of Gsf-1.Gsf.Output */
     gObject: GObject.Object
     curSize: gsf_off_t
     curOffset: gsf_off_t
@@ -3074,9 +2751,9 @@ export class OutputBzip {
     err: GLib.Error
     printfBuf: string
     printfBufSize: number
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Gsf.Output */
+    /* Methods of Gsf-1.Gsf.Output */
     close(): boolean
     error(): GLib.Error | null
     getModtime(): GLib.DateTime | null
@@ -3088,7 +2765,7 @@ export class OutputBzip {
     setNameFromFilename(filename?: string | null): boolean
     tell(): gsf_off_t
     write(data: any[]): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -3110,25 +2787,12 @@ export class OutputBzip {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of Gsf.Output */
-    vfuncClose(): boolean
-    vfuncSeek(offset: gsf_off_t, whence: GLib.SeekType): boolean
-    vfuncWrite(data: any[]): boolean
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: OutputBzip, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: OutputBzip, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::container", callback: (($obj: OutputBzip, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::container", callback: (($obj: OutputBzip, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::container", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -3178,7 +2842,7 @@ export interface OutputCsv_ConstructProps extends Output_ConstructProps {
     sink?: Output
 }
 export class OutputCsv {
-    /* Properties of Gsf.OutputCsv */
+    /* Properties of Gsf-1.Gsf.OutputCsv */
     eol: string
     quote: string
     quotingMode: OutputCsvQuotingMode
@@ -3186,20 +2850,20 @@ export class OutputCsv {
     quotingTriggers: string
     separator: string
     sink: Output
-    /* Properties of Gsf.Output */
+    /* Properties of Gsf-1.Gsf.Output */
     container: Outfile
     readonly isClosed: boolean
     name: string
     readonly position: number
     readonly size: number
-    /* Fields of Gsf.OutputCsv */
+    /* Fields of Gsf-1.Gsf.OutputCsv */
     output: Output
     quoteLen: number
     eolLen: number
     separatorLen: number
     fieldsOnLine: boolean
     buf: GLib.String
-    /* Fields of Gsf.Output */
+    /* Fields of Gsf-1.Gsf.Output */
     gObject: GObject.Object
     curSize: gsf_off_t
     curOffset: gsf_off_t
@@ -3207,12 +2871,12 @@ export class OutputCsv {
     err: GLib.Error
     printfBuf: string
     printfBufSize: number
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Gsf.OutputCsv */
+    /* Methods of Gsf-1.Gsf.OutputCsv */
     writeEol(): boolean
     writeField(field: string, len: number): boolean
-    /* Methods of Gsf.Output */
+    /* Methods of Gsf-1.Gsf.Output */
     close(): boolean
     error(): GLib.Error | null
     getModtime(): GLib.DateTime | null
@@ -3224,7 +2888,7 @@ export class OutputCsv {
     setNameFromFilename(filename?: string | null): boolean
     tell(): gsf_off_t
     write(data: any[]): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -3246,25 +2910,12 @@ export class OutputCsv {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of Gsf.Output */
-    vfuncClose(): boolean
-    vfuncSeek(offset: gsf_off_t, whence: GLib.SeekType): boolean
-    vfuncWrite(data: any[]): boolean
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: OutputCsv, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: OutputCsv, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::eol", callback: (($obj: OutputCsv, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::eol", callback: (($obj: OutputCsv, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::eol", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -3343,15 +2994,15 @@ export interface OutputGZip_ConstructProps extends Output_ConstructProps {
     sink?: Output
 }
 export class OutputGZip {
-    /* Properties of Gsf.OutputGZip */
+    /* Properties of Gsf-1.Gsf.OutputGZip */
     deflateLevel: number
-    /* Properties of Gsf.Output */
+    /* Properties of Gsf-1.Gsf.Output */
     container: Outfile
     readonly isClosed: boolean
     name: string
     readonly position: number
     readonly size: number
-    /* Fields of Gsf.Output */
+    /* Fields of Gsf-1.Gsf.Output */
     gObject: GObject.Object
     curSize: gsf_off_t
     curOffset: gsf_off_t
@@ -3359,9 +3010,9 @@ export class OutputGZip {
     err: GLib.Error
     printfBuf: string
     printfBufSize: number
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Gsf.Output */
+    /* Methods of Gsf-1.Gsf.Output */
     close(): boolean
     error(): GLib.Error | null
     getModtime(): GLib.DateTime | null
@@ -3373,7 +3024,7 @@ export class OutputGZip {
     setNameFromFilename(filename?: string | null): boolean
     tell(): gsf_off_t
     write(data: any[]): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -3395,25 +3046,12 @@ export class OutputGZip {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of Gsf.Output */
-    vfuncClose(): boolean
-    vfuncSeek(offset: gsf_off_t, whence: GLib.SeekType): boolean
-    vfuncWrite(data: any[]): boolean
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: OutputGZip, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: OutputGZip, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::deflate-level", callback: (($obj: OutputGZip, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::deflate-level", callback: (($obj: OutputGZip, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::deflate-level", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -3461,13 +3099,13 @@ export class OutputGZip {
 export interface OutputGio_ConstructProps extends Output_ConstructProps {
 }
 export class OutputGio {
-    /* Properties of Gsf.Output */
+    /* Properties of Gsf-1.Gsf.Output */
     container: Outfile
     readonly isClosed: boolean
     name: string
     readonly position: number
     readonly size: number
-    /* Fields of Gsf.Output */
+    /* Fields of Gsf-1.Gsf.Output */
     gObject: GObject.Object
     curSize: gsf_off_t
     curOffset: gsf_off_t
@@ -3475,9 +3113,9 @@ export class OutputGio {
     err: GLib.Error
     printfBuf: string
     printfBufSize: number
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Gsf.Output */
+    /* Methods of Gsf-1.Gsf.Output */
     close(): boolean
     error(): GLib.Error | null
     getModtime(): GLib.DateTime | null
@@ -3489,7 +3127,7 @@ export class OutputGio {
     setNameFromFilename(filename?: string | null): boolean
     tell(): gsf_off_t
     write(data: any[]): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -3511,25 +3149,12 @@ export class OutputGio {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of Gsf.Output */
-    vfuncClose(): boolean
-    vfuncSeek(offset: gsf_off_t, whence: GLib.SeekType): boolean
-    vfuncWrite(data: any[]): boolean
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: OutputGio, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: OutputGio, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::container", callback: (($obj: OutputGio, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::container", callback: (($obj: OutputGio, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::container", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -3574,13 +3199,13 @@ export class OutputGio {
 export interface OutputIOChannel_ConstructProps extends Output_ConstructProps {
 }
 export class OutputIOChannel {
-    /* Properties of Gsf.Output */
+    /* Properties of Gsf-1.Gsf.Output */
     container: Outfile
     readonly isClosed: boolean
     name: string
     readonly position: number
     readonly size: number
-    /* Fields of Gsf.Output */
+    /* Fields of Gsf-1.Gsf.Output */
     gObject: GObject.Object
     curSize: gsf_off_t
     curOffset: gsf_off_t
@@ -3588,9 +3213,9 @@ export class OutputIOChannel {
     err: GLib.Error
     printfBuf: string
     printfBufSize: number
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Gsf.Output */
+    /* Methods of Gsf-1.Gsf.Output */
     close(): boolean
     error(): GLib.Error | null
     getModtime(): GLib.DateTime | null
@@ -3602,7 +3227,7 @@ export class OutputIOChannel {
     setNameFromFilename(filename?: string | null): boolean
     tell(): gsf_off_t
     write(data: any[]): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -3624,25 +3249,12 @@ export class OutputIOChannel {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of Gsf.Output */
-    vfuncClose(): boolean
-    vfuncSeek(offset: gsf_off_t, whence: GLib.SeekType): boolean
-    vfuncWrite(data: any[]): boolean
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: OutputIOChannel, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: OutputIOChannel, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::container", callback: (($obj: OutputIOChannel, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::container", callback: (($obj: OutputIOChannel, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::container", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -3689,15 +3301,15 @@ export interface OutputIconv_ConstructProps extends Output_ConstructProps {
     sink?: Output
 }
 export class OutputIconv {
-    /* Properties of Gsf.OutputIconv */
+    /* Properties of Gsf-1.Gsf.OutputIconv */
     fallback: string
-    /* Properties of Gsf.Output */
+    /* Properties of Gsf-1.Gsf.Output */
     container: Outfile
     readonly isClosed: boolean
     name: string
     readonly position: number
     readonly size: number
-    /* Fields of Gsf.Output */
+    /* Fields of Gsf-1.Gsf.Output */
     gObject: GObject.Object
     curSize: gsf_off_t
     curOffset: gsf_off_t
@@ -3705,9 +3317,9 @@ export class OutputIconv {
     err: GLib.Error
     printfBuf: string
     printfBufSize: number
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Gsf.Output */
+    /* Methods of Gsf-1.Gsf.Output */
     close(): boolean
     error(): GLib.Error | null
     getModtime(): GLib.DateTime | null
@@ -3719,7 +3331,7 @@ export class OutputIconv {
     setNameFromFilename(filename?: string | null): boolean
     tell(): gsf_off_t
     write(data: any[]): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -3741,25 +3353,12 @@ export class OutputIconv {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of Gsf.Output */
-    vfuncClose(): boolean
-    vfuncSeek(offset: gsf_off_t, whence: GLib.SeekType): boolean
-    vfuncWrite(data: any[]): boolean
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: OutputIconv, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: OutputIconv, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::fallback", callback: (($obj: OutputIconv, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::fallback", callback: (($obj: OutputIconv, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::fallback", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -3807,13 +3406,13 @@ export class OutputIconv {
 export interface OutputMemory_ConstructProps extends Output_ConstructProps {
 }
 export class OutputMemory {
-    /* Properties of Gsf.Output */
+    /* Properties of Gsf-1.Gsf.Output */
     container: Outfile
     readonly isClosed: boolean
     name: string
     readonly position: number
     readonly size: number
-    /* Fields of Gsf.Output */
+    /* Fields of Gsf-1.Gsf.Output */
     gObject: GObject.Object
     curSize: gsf_off_t
     curOffset: gsf_off_t
@@ -3821,12 +3420,12 @@ export class OutputMemory {
     err: GLib.Error
     printfBuf: string
     printfBufSize: number
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Gsf.OutputMemory */
+    /* Methods of Gsf-1.Gsf.OutputMemory */
     getBytes(): any[] | null
     stealBytes(): any[] | null
-    /* Methods of Gsf.Output */
+    /* Methods of Gsf-1.Gsf.Output */
     close(): boolean
     error(): GLib.Error | null
     getModtime(): GLib.DateTime | null
@@ -3838,7 +3437,7 @@ export class OutputMemory {
     setNameFromFilename(filename?: string | null): boolean
     tell(): gsf_off_t
     write(data: any[]): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -3860,25 +3459,12 @@ export class OutputMemory {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of Gsf.Output */
-    vfuncClose(): boolean
-    vfuncSeek(offset: gsf_off_t, whence: GLib.SeekType): boolean
-    vfuncWrite(data: any[]): boolean
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: OutputMemory, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: OutputMemory, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::container", callback: (($obj: OutputMemory, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::container", callback: (($obj: OutputMemory, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::container", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -3921,13 +3507,13 @@ export class OutputMemory {
 export interface OutputStdio_ConstructProps extends Output_ConstructProps {
 }
 export class OutputStdio {
-    /* Properties of Gsf.Output */
+    /* Properties of Gsf-1.Gsf.Output */
     container: Outfile
     readonly isClosed: boolean
     name: string
     readonly position: number
     readonly size: number
-    /* Fields of Gsf.Output */
+    /* Fields of Gsf-1.Gsf.Output */
     gObject: GObject.Object
     curSize: gsf_off_t
     curOffset: gsf_off_t
@@ -3935,9 +3521,9 @@ export class OutputStdio {
     err: GLib.Error
     printfBuf: string
     printfBufSize: number
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Gsf.Output */
+    /* Methods of Gsf-1.Gsf.Output */
     close(): boolean
     error(): GLib.Error | null
     getModtime(): GLib.DateTime | null
@@ -3949,7 +3535,7 @@ export class OutputStdio {
     setNameFromFilename(filename?: string | null): boolean
     tell(): gsf_off_t
     write(data: any[]): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -3971,25 +3557,12 @@ export class OutputStdio {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of Gsf.Output */
-    vfuncClose(): boolean
-    vfuncSeek(offset: gsf_off_t, whence: GLib.SeekType): boolean
-    vfuncWrite(data: any[]): boolean
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: OutputStdio, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: OutputStdio, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::container", callback: (($obj: OutputStdio, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::container", callback: (($obj: OutputStdio, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::container", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -4032,15 +3605,15 @@ export class OutputStdio {
 export interface SharedMemory_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class SharedMemory {
-    /* Fields of Gsf.SharedMemory */
+    /* Fields of Gsf-1.Gsf.SharedMemory */
     gObject: GObject.Object
     buf: object
     size: gsf_off_t
     needsFree: boolean
     needsUnmap: boolean
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -4062,21 +3635,12 @@ export class SharedMemory {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: SharedMemory, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: SharedMemory, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -4095,7 +3659,7 @@ export class SharedMemory {
 export interface StructuredBlob_ConstructProps extends Infile_ConstructProps {
 }
 export class StructuredBlob {
-    /* Properties of Gsf.Input */
+    /* Properties of Gsf-1.Gsf.Input */
     readonly container: Infile
     readonly eof: boolean
     readonly modtime: GLib.DateTime
@@ -4103,22 +3667,22 @@ export class StructuredBlob {
     readonly position: number
     readonly remaining: number
     readonly size: number
-    /* Fields of Gsf.Infile */
+    /* Fields of Gsf-1.Gsf.Infile */
     parent: Input
-    /* Fields of Gsf.Input */
+    /* Fields of Gsf-1.Gsf.Input */
     gObject: GObject.Object
     curOffset: gsf_off_t
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Gsf.StructuredBlob */
+    /* Methods of Gsf-1.Gsf.StructuredBlob */
     write(container: Outfile): boolean
-    /* Methods of Gsf.Infile */
+    /* Methods of Gsf-1.Gsf.Infile */
     childByAname(names: string[]): Input
     childByIndex(i: number): Input
     childByName(name: string): Input
     nameByIndex(i: number): string | null
     numChildren(): number
-    /* Methods of Gsf.Input */
+    /* Methods of Gsf-1.Gsf.Input */
     copy(output: Output): boolean
     dump(dumpAsHex: boolean): void
     dup(): Input | null
@@ -4136,7 +3700,7 @@ export class StructuredBlob {
     sibling(name: string): Input
     tell(): gsf_off_t
     uncompress(): Input
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -4158,28 +3722,12 @@ export class StructuredBlob {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of Gsf.Infile */
-    vfuncNameByIndex(i: number): string | null
-    vfuncNumChildren(): number
-    /* Virtual methods of Gsf.Input */
-    vfuncDup(): Input | null
-    vfuncOpenSibling(name: string): Input
-    vfuncSeek(offset: gsf_off_t, whence: GLib.SeekType): boolean
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: StructuredBlob, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: StructuredBlob, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::container", callback: (($obj: StructuredBlob, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::container", callback: (($obj: StructuredBlob, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::container", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -4234,15 +3782,15 @@ export interface XMLOut_ConstructProps extends GObject.Object_ConstructProps {
     sink?: Output
 }
 export class XMLOut {
-    /* Properties of Gsf.XMLOut */
+    /* Properties of Gsf-1.Gsf.XMLOut */
     prettyPrint: boolean
-    /* Fields of Gsf.XMLOut */
+    /* Fields of Gsf-1.Gsf.XMLOut */
     base: GObject.Object
     output: Output
     priv: object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Gsf.XMLOut */
+    /* Methods of Gsf-1.Gsf.XMLOut */
     addBase64(id: string | null, data: any[]): void
     addBool(id: string | null, val: boolean): void
     addColor(id: string | null, r: number, g: number, b: number): void
@@ -4262,7 +3810,7 @@ export class XMLOut {
     simpleFloatElement(id: string, val: number, precision: number): void
     simpleIntElement(id: string, val: number): void
     startElement(id: string): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -4284,21 +3832,12 @@ export class XMLOut {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: XMLOut, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: XMLOut, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::pretty-print", callback: (($obj: XMLOut, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::pretty-print", callback: (($obj: XMLOut, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::pretty-print", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -4331,7 +3870,7 @@ export class ClipDataPrivate {
     static name: string
 }
 export class DocProp {
-    /* Methods of Gsf.DocProp */
+    /* Methods of Gsf-1.Gsf.DocProp */
     dump(): void
     free(): void
     getLink(): string | null
@@ -4347,14 +3886,14 @@ export class DocProp {
     static new(name: string): DocProp
 }
 export abstract class InfileClass {
-    /* Fields of Gsf.InfileClass */
+    /* Fields of Gsf-1.Gsf.InfileClass */
     inputClass: InputClass
     numChildren: (infile: Infile) => number
     nameByIndex: (infile: Infile, i: number) => string | null
     static name: string
 }
 export abstract class InputClass {
-    /* Fields of Gsf.InputClass */
+    /* Fields of Gsf-1.Gsf.InputClass */
     gObjectClass: GObject.ObjectClass
     dup: (input: Input) => Input | null
     read: (input: Input, numBytes: number, optionalBuffer?: any[] | null) => any[] | null
@@ -4363,7 +3902,7 @@ export abstract class InputClass {
     static name: string
 }
 export class MSOleSortingKey {
-    /* Methods of Gsf.MSOleSortingKey */
+    /* Methods of Gsf-1.Gsf.MSOleSortingKey */
     cmp(b: MSOleSortingKey): number
     free(): void
     static name: string
@@ -4373,12 +3912,12 @@ export class MSOleSortingKey {
     static new(name: string): MSOleSortingKey
 }
 export abstract class ODFOutClass {
-    /* Fields of Gsf.ODFOutClass */
+    /* Fields of Gsf-1.Gsf.ODFOutClass */
     base: XMLOutClass
     static name: string
 }
 export class OpenPkgRel {
-    /* Methods of Gsf.OpenPkgRel */
+    /* Methods of Gsf-1.Gsf.OpenPkgRel */
     getTarget(): string
     getType(): string
     isExtern(): boolean
@@ -4388,12 +3927,12 @@ export class OpenPkgRels {
     static name: string
 }
 export abstract class OutfileClass {
-    /* Fields of Gsf.OutfileClass */
+    /* Fields of Gsf-1.Gsf.OutfileClass */
     outputClass: OutputClass
     static name: string
 }
 export abstract class OutputClass {
-    /* Fields of Gsf.OutputClass */
+    /* Fields of Gsf-1.Gsf.OutputClass */
     gObjectClass: GObject.ObjectClass
     close: (output: Output) => boolean
     seek: (output: Output, offset: gsf_off_t, whence: GLib.SeekType) => boolean
@@ -4401,22 +3940,22 @@ export abstract class OutputClass {
     static name: string
 }
 export abstract class OutputCsvClass {
-    /* Fields of Gsf.OutputCsvClass */
+    /* Fields of Gsf-1.Gsf.OutputCsvClass */
     outputClass: OutputClass
     static name: string
 }
 export abstract class OutputIconvClass {
-    /* Fields of Gsf.OutputIconvClass */
+    /* Fields of Gsf-1.Gsf.OutputIconvClass */
     outputClass: OutputClass
     static name: string
 }
 export class Timestamp {
-    /* Fields of Gsf.Timestamp */
+    /* Fields of Gsf-1.Gsf.Timestamp */
     date: GLib.Date
     seconds: number
     timeZone: GLib.String
     timet: number
-    /* Methods of Gsf.Timestamp */
+    /* Methods of Gsf-1.Gsf.Timestamp */
     asString(): string
     copy(): Timestamp
     equal(b: Timestamp): boolean
@@ -4435,12 +3974,12 @@ export class XMLBlob {
     static name: string
 }
 export class XMLIn {
-    /* Fields of Gsf.XMLIn */
+    /* Fields of Gsf-1.Gsf.XMLIn */
     userState: object
     content: GLib.String
     doc: XMLInDoc
     node: XMLInNode
-    /* Methods of Gsf.XMLIn */
+    /* Methods of Gsf-1.Gsf.XMLIn */
     checkNs(str: string, nsId: number): string | null
     getInput(): Input
     namecmp(str: string, nsId: number, name: string): boolean
@@ -4449,7 +3988,7 @@ export class XMLIn {
     static name: string
 }
 export class XMLInDoc {
-    /* Methods of Gsf.XMLInDoc */
+    /* Methods of Gsf-1.Gsf.XMLInDoc */
     addNodes(nodes: XMLInNode[]): void
     free(): void
     parse(input: Input, userState?: object | null): boolean
@@ -4461,13 +4000,13 @@ export class XMLInDoc {
     static new(nodes: XMLInNode[], ns: XMLInNS[]): XMLInDoc
 }
 export class XMLInNS {
-    /* Fields of Gsf.XMLInNS */
+    /* Fields of Gsf-1.Gsf.XMLInNS */
     uri: string
     nsId: number
     static name: string
 }
 export class XMLInNode {
-    /* Fields of Gsf.XMLInNode */
+    /* Fields of Gsf-1.Gsf.XMLInNode */
     id: string
     nsId: number
     name: string
@@ -4480,7 +4019,7 @@ export class XMLInNode {
     static name: string
 }
 export abstract class XMLOutClass {
-    /* Fields of Gsf.XMLOutClass */
+    /* Fields of Gsf-1.Gsf.XMLOutClass */
     base: GObject.ObjectClass
     static name: string
 }

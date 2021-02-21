@@ -146,7 +146,7 @@ export interface FilterCollectionFunc {
     (object: GObject.Object): boolean
 }
 export class Certificate {
-    /* Properties of Gcr.Certificate */
+    /* Properties of Gcr-3.Gcr.Certificate */
     readonly description: string
     readonly expiry: GLib.Date
     readonly icon: Gio.Icon
@@ -154,7 +154,7 @@ export class Certificate {
     readonly label: string
     readonly markup: string
     readonly subject: string
-    /* Methods of Gcr.Certificate */
+    /* Methods of Gcr-3.Gcr.Certificate */
     get_basic_constraints(): [ /* returnType */ boolean, /* is_ca */ boolean | null, /* path_len */ number | null ]
     get_der_data(): Uint8Array[]
     get_expiry_date(): GLib.Date
@@ -177,30 +177,30 @@ export class Certificate {
     get_subject_raw(): Uint8Array[]
     is_issuer(issuer: Certificate): boolean
     mixin_emit_notify(): void
-    /* Methods of Gcr.Comparable */
+    /* Methods of Gcr-3.Gcr.Comparable */
     compare(other?: Comparable | null): number
-    /* Virtual methods of Gcr.Certificate */
+    /* Virtual methods of Gcr-3.Gcr.Certificate */
     vfunc_get_der_data(): Uint8Array[]
-    /* Virtual methods of Gcr.Comparable */
+    /* Virtual methods of Gcr-3.Gcr.Comparable */
     vfunc_compare(other?: Comparable | null): number
     static name: string
     /* Static methods and pseudo-constructors */
     static compare(first?: Comparable | null, other?: Comparable | null): number
 }
 export class Collection {
-    /* Methods of Gcr.Collection */
+    /* Methods of Gcr-3.Gcr.Collection */
     contains(object: GObject.Object): boolean
     emit_added(object: GObject.Object): void
     emit_removed(object: GObject.Object): void
     get_length(): number
     get_objects(): GObject.Object[]
-    /* Virtual methods of Gcr.Collection */
+    /* Virtual methods of Gcr-3.Gcr.Collection */
     vfunc_added(object: GObject.Object): void
     vfunc_contains(object: GObject.Object): boolean
     vfunc_get_length(): number
     vfunc_get_objects(): GObject.Object[]
     vfunc_removed(object: GObject.Object): void
-    /* Signals of Gcr.Collection */
+    /* Signals of Gcr-3.Gcr.Collection */
     connect(sigName: "added", callback: (($obj: Collection, object: GObject.Object) => void)): number
     connect_after(sigName: "added", callback: (($obj: Collection, object: GObject.Object) => void)): number
     emit(sigName: "added", object: GObject.Object): void
@@ -210,23 +210,23 @@ export class Collection {
     static name: string
 }
 export class Comparable {
-    /* Methods of Gcr.Comparable */
+    /* Methods of Gcr-3.Gcr.Comparable */
     compare(other?: Comparable | null): number
-    /* Virtual methods of Gcr.Comparable */
+    /* Virtual methods of Gcr-3.Gcr.Comparable */
     vfunc_compare(other?: Comparable | null): number
     static name: string
 }
 export interface ImportInteraction_ConstructProps extends Gio.TlsInteraction_ConstructProps {
 }
 export class ImportInteraction {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Gcr.ImportInteraction */
+    /* Methods of Gcr-3.Gcr.ImportInteraction */
     supplement(builder: Gck.Builder, cancellable?: Gio.Cancellable | null): Gio.TlsInteractionResult
     supplement_async(builder: Gck.Builder, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     supplement_finish(result: Gio.AsyncResult): Gio.TlsInteractionResult
     supplement_prep(builder: Gck.Builder): void
-    /* Methods of Gio.TlsInteraction */
+    /* Methods of Gio-2.0.Gio.TlsInteraction */
     ask_password(password: Gio.TlsPassword, cancellable?: Gio.Cancellable | null): Gio.TlsInteractionResult
     ask_password_async(password: Gio.TlsPassword, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     ask_password_finish(result: Gio.AsyncResult): Gio.TlsInteractionResult
@@ -235,7 +235,7 @@ export class ImportInteraction {
     request_certificate(connection: Gio.TlsConnection, flags: Gio.TlsCertificateRequestFlags, cancellable?: Gio.Cancellable | null): Gio.TlsInteractionResult
     request_certificate_async(connection: Gio.TlsConnection, flags: Gio.TlsCertificateRequestFlags, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     request_certificate_finish(result: Gio.AsyncResult): Gio.TlsInteractionResult
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -257,19 +257,19 @@ export class ImportInteraction {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Gcr.ImportInteraction */
+    /* Virtual methods of Gcr-3.Gcr.ImportInteraction */
     vfunc_supplement(builder: Gck.Builder, cancellable?: Gio.Cancellable | null): Gio.TlsInteractionResult
     vfunc_supplement_async(builder: Gck.Builder, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     vfunc_supplement_finish(result: Gio.AsyncResult): Gio.TlsInteractionResult
     vfunc_supplement_prep(builder: Gck.Builder): void
-    /* Virtual methods of Gio.TlsInteraction */
+    /* Virtual methods of Gio-2.0.Gio.TlsInteraction */
     vfunc_ask_password(password: Gio.TlsPassword, cancellable?: Gio.Cancellable | null): Gio.TlsInteractionResult
     vfunc_ask_password_async(password: Gio.TlsPassword, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     vfunc_ask_password_finish(result: Gio.AsyncResult): Gio.TlsInteractionResult
     vfunc_request_certificate(connection: Gio.TlsConnection, flags: Gio.TlsCertificateRequestFlags, cancellable?: Gio.Cancellable | null): Gio.TlsInteractionResult
     vfunc_request_certificate_async(connection: Gio.TlsConnection, flags: Gio.TlsCertificateRequestFlags, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     vfunc_request_certificate_finish(result: Gio.AsyncResult): Gio.TlsInteractionResult
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -277,7 +277,7 @@ export class ImportInteraction {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: ImportInteraction, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: ImportInteraction, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -291,19 +291,19 @@ export class ImportInteraction {
     static $gtype: GObject.Type
 }
 export class Importer {
-    /* Properties of Gcr.Importer */
+    /* Properties of Gcr-3.Gcr.Importer */
     readonly icon: Gio.Icon
     interaction: Gio.TlsInteraction
     readonly label: string
     readonly uri: string
-    /* Methods of Gcr.Importer */
+    /* Methods of Gcr-3.Gcr.Importer */
     get_interaction(): Gio.TlsInteraction | null
     import(cancellable?: Gio.Cancellable | null): boolean
     import_async(cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     import_finish(result: Gio.AsyncResult): boolean
     queue_for_parsed(parsed: Parsed): boolean
     set_interaction(interaction: Gio.TlsInteraction): void
-    /* Virtual methods of Gcr.Importer */
+    /* Virtual methods of Gcr-3.Gcr.Importer */
     vfunc_import_async(cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     vfunc_import_finish(result: Gio.AsyncResult): boolean
     vfunc_import_sync(cancellable?: Gio.Cancellable | null): boolean
@@ -316,7 +316,7 @@ export class Importer {
     static register_well_known(): void
 }
 export class Prompt {
-    /* Properties of Gcr.Prompt */
+    /* Properties of Gcr-3.Gcr.Prompt */
     caller_window: string
     cancel_label: string
     choice_chosen: boolean
@@ -328,7 +328,7 @@ export class Prompt {
     readonly password_strength: number
     title: string
     warning: string
-    /* Methods of Gcr.Prompt */
+    /* Methods of Gcr-3.Gcr.Prompt */
     close(): void
     confirm(cancellable?: Gio.Cancellable | null): PromptReply
     confirm_async(cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
@@ -360,13 +360,13 @@ export class Prompt {
     set_password_new(new_password: boolean): void
     set_title(title: string): void
     set_warning(warning?: string | null): void
-    /* Virtual methods of Gcr.Prompt */
+    /* Virtual methods of Gcr-3.Gcr.Prompt */
     vfunc_prompt_close(): void
     vfunc_prompt_confirm_async(cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     vfunc_prompt_confirm_finish(result: Gio.AsyncResult): PromptReply
     vfunc_prompt_password_async(cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     vfunc_prompt_password_finish(result: Gio.AsyncResult): string
-    /* Signals of Gcr.Prompt */
+    /* Signals of Gcr-3.Gcr.Prompt */
     connect(sigName: "prompt-close", callback: (($obj: Prompt) => void)): number
     connect_after(sigName: "prompt-close", callback: (($obj: Prompt) => void)): number
     emit(sigName: "prompt-close"): void
@@ -375,13 +375,13 @@ export class Prompt {
 export interface CertificateChain_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class CertificateChain {
-    /* Properties of Gcr.CertificateChain */
+    /* Properties of Gcr-3.Gcr.CertificateChain */
     readonly length: number
-    /* Fields of Gcr.CertificateChain */
+    /* Fields of Gcr-3.Gcr.CertificateChain */
     parent: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Gcr.CertificateChain */
+    /* Methods of Gcr-3.Gcr.CertificateChain */
     add(certificate: Certificate): void
     build(purpose: string, peer: string | null, flags: CertificateChainFlags, cancellable?: Gio.Cancellable | null): boolean
     build_async(purpose: string, peer: string | null, flags: CertificateChainFlags, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
@@ -391,7 +391,7 @@ export class CertificateChain {
     get_endpoint(): Certificate
     get_length(): number
     get_status(): CertificateChainStatus
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -413,7 +413,7 @@ export class CertificateChain {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -421,7 +421,7 @@ export class CertificateChain {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: CertificateChain, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: CertificateChain, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -442,9 +442,9 @@ export interface CertificateRequest_ConstructProps extends GObject.Object_Constr
     private_key?: Gck.Object
 }
 export class CertificateRequest {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Gcr.CertificateRequest */
+    /* Methods of Gcr-3.Gcr.CertificateRequest */
     complete(cancellable?: Gio.Cancellable | null): boolean
     complete_async(cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     complete_finish(result: Gio.AsyncResult): boolean
@@ -452,7 +452,7 @@ export class CertificateRequest {
     get_format(): CertificateRequestFormat
     get_private_key(): Gck.Object
     set_cn(cn: string): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -474,7 +474,7 @@ export class CertificateRequest {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -482,7 +482,7 @@ export class CertificateRequest {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: CertificateRequest, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: CertificateRequest, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -504,15 +504,15 @@ export interface FilterCollection_ConstructProps extends GObject.Object_Construc
     underlying?: Collection
 }
 export class FilterCollection {
-    /* Fields of Gcr.FilterCollection */
+    /* Fields of Gcr-3.Gcr.FilterCollection */
     parent: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Gcr.FilterCollection */
+    /* Methods of Gcr-3.Gcr.FilterCollection */
     get_underlying(): Collection
     refilter(): void
     set_callback(callback: FilterCollectionFunc | null): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -534,19 +534,19 @@ export class FilterCollection {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of Gcr.Collection */
+    /* Methods of Gcr-3.Gcr.Collection */
     contains(object: GObject.Object): boolean
     emit_added(object: GObject.Object): void
     emit_removed(object: GObject.Object): void
     get_length(): number
     get_objects(): GObject.Object[]
-    /* Virtual methods of Gcr.FilterCollection */
+    /* Virtual methods of Gcr-3.Gcr.FilterCollection */
     vfunc_added(object: GObject.Object): void
     vfunc_contains(object: GObject.Object): boolean
     vfunc_get_length(): number
     vfunc_get_objects(): GObject.Object[]
     vfunc_removed(object: GObject.Object): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -554,11 +554,11 @@ export class FilterCollection {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: FilterCollection, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: FilterCollection, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    /* Signals of Gcr.Collection */
+    /* Signals of Gcr-3.Gcr.Collection */
     connect(sigName: "added", callback: (($obj: FilterCollection, object: GObject.Object) => void)): number
     connect_after(sigName: "added", callback: (($obj: FilterCollection, object: GObject.Object) => void)): number
     emit(sigName: "added", object: GObject.Object): void
@@ -579,15 +579,15 @@ export class FilterCollection {
 export interface Parser_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class Parser {
-    /* Properties of Gcr.Parser */
+    /* Properties of Gcr-3.Gcr.Parser */
     readonly parsed_attributes: Gck.Attributes
     readonly parsed_description: string
     readonly parsed_label: string
-    /* Fields of Gcr.Parser */
+    /* Fields of Gcr-3.Gcr.Parser */
     parent: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Gcr.Parser */
+    /* Methods of Gcr-3.Gcr.Parser */
     add_password(password?: string | null): void
     format_disable(format: DataFormat): void
     format_enable(format: DataFormat): void
@@ -606,7 +606,7 @@ export class Parser {
     parse_stream_async(input: Gio.InputStream, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     parse_stream_finish(result: Gio.AsyncResult): boolean
     set_filename(filename?: string | null): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -628,10 +628,10 @@ export class Parser {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Gcr.Parser */
+    /* Virtual methods of Gcr-3.Gcr.Parser */
     vfunc_authenticate(count: number): boolean
     vfunc_parsed(): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -639,14 +639,14 @@ export class Parser {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gcr.Parser */
+    /* Signals of Gcr-3.Gcr.Parser */
     connect(sigName: "authenticate", callback: (($obj: Parser, count: number) => boolean)): number
     connect_after(sigName: "authenticate", callback: (($obj: Parser, count: number) => boolean)): number
     emit(sigName: "authenticate", count: number): void
     connect(sigName: "parsed", callback: (($obj: Parser) => void)): number
     connect_after(sigName: "parsed", callback: (($obj: Parser) => void)): number
     emit(sigName: "parsed"): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Parser, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Parser, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -671,7 +671,7 @@ export interface Pkcs11Certificate_ConstructProps extends Gck.Object_ConstructPr
     attributes?: Gck.Attributes
 }
 export class Pkcs11Certificate {
-    /* Properties of Gcr.Certificate */
+    /* Properties of Gcr-3.Gcr.Certificate */
     readonly description: string
     readonly expiry: GLib.Date
     readonly icon: Gio.Icon
@@ -679,13 +679,13 @@ export class Pkcs11Certificate {
     readonly label: string
     readonly markup: string
     readonly subject: string
-    /* Fields of Gcr.Pkcs11Certificate */
+    /* Fields of Gcr-3.Gcr.Pkcs11Certificate */
     parent: Gck.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Gcr.Pkcs11Certificate */
+    /* Methods of Gcr-3.Gcr.Pkcs11Certificate */
     get_attributes(): Gck.Attributes
-    /* Methods of Gck.Object */
+    /* Methods of Gck-1.Gck.Object */
     cache_lookup(attr_types: number[], cancellable?: Gio.Cancellable | null): Gck.Attributes
     cache_lookup_async(attr_types: number[], cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     cache_lookup_finish(result: Gio.AsyncResult): Gck.Attributes
@@ -712,7 +712,7 @@ export class Pkcs11Certificate {
     set_template(attr_type: number, attrs: Gck.Attributes, cancellable?: Gio.Cancellable | null): boolean
     set_template_async(attr_type: number, attrs: Gck.Attributes, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     set_template_finish(result: Gio.AsyncResult): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -734,7 +734,7 @@ export class Pkcs11Certificate {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of Gcr.Certificate */
+    /* Methods of Gcr-3.Gcr.Certificate */
     get_basic_constraints(): [ /* returnType */ boolean, /* is_ca */ boolean | null, /* path_len */ number | null ]
     get_der_data(): Uint8Array[]
     get_expiry_date(): GLib.Date
@@ -757,12 +757,12 @@ export class Pkcs11Certificate {
     get_subject_raw(): Uint8Array[]
     is_issuer(issuer: Certificate): boolean
     mixin_emit_notify(): void
-    /* Methods of Gcr.Comparable */
+    /* Methods of Gcr-3.Gcr.Comparable */
     compare(other?: Comparable | null): number
-    /* Virtual methods of Gcr.Pkcs11Certificate */
+    /* Virtual methods of Gcr-3.Gcr.Pkcs11Certificate */
     vfunc_get_der_data(): Uint8Array[]
     vfunc_compare(other?: Comparable | null): number
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -770,7 +770,7 @@ export class Pkcs11Certificate {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Pkcs11Certificate, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Pkcs11Certificate, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -806,15 +806,15 @@ export interface SecretExchange_ConstructProps extends GObject.Object_ConstructP
     protocol?: string
 }
 export class SecretExchange {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Gcr.SecretExchange */
+    /* Methods of Gcr-3.Gcr.SecretExchange */
     begin(): string
     get_protocol(): string
     get_secret(): string[]
     receive(exchange: string): boolean
     send(secret: string | null, secret_len: number): string
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -836,10 +836,10 @@ export class SecretExchange {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Gcr.SecretExchange */
+    /* Virtual methods of Gcr-3.Gcr.SecretExchange */
     vfunc_derive_transport_key(peer: number, n_peer: number): boolean
     vfunc_generate_exchange_key(scheme: string, public_key: number, n_public_key: number): boolean
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -847,7 +847,7 @@ export class SecretExchange {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: SecretExchange, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: SecretExchange, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -865,7 +865,7 @@ export class SecretExchange {
 export interface SimpleCertificate_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class SimpleCertificate {
-    /* Properties of Gcr.Certificate */
+    /* Properties of Gcr-3.Gcr.Certificate */
     readonly description: string
     readonly expiry: GLib.Date
     readonly icon: Gio.Icon
@@ -873,11 +873,11 @@ export class SimpleCertificate {
     readonly label: string
     readonly markup: string
     readonly subject: string
-    /* Fields of Gcr.SimpleCertificate */
+    /* Fields of Gcr-3.Gcr.SimpleCertificate */
     parent: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -899,7 +899,7 @@ export class SimpleCertificate {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of Gcr.Certificate */
+    /* Methods of Gcr-3.Gcr.Certificate */
     get_basic_constraints(): [ /* returnType */ boolean, /* is_ca */ boolean | null, /* path_len */ number | null ]
     get_der_data(): Uint8Array[]
     get_expiry_date(): GLib.Date
@@ -922,12 +922,12 @@ export class SimpleCertificate {
     get_subject_raw(): Uint8Array[]
     is_issuer(issuer: Certificate): boolean
     mixin_emit_notify(): void
-    /* Methods of Gcr.Comparable */
+    /* Methods of Gcr-3.Gcr.Comparable */
     compare(other?: Comparable | null): number
-    /* Virtual methods of Gcr.SimpleCertificate */
+    /* Virtual methods of Gcr-3.Gcr.SimpleCertificate */
     vfunc_get_der_data(): Uint8Array[]
     vfunc_compare(other?: Comparable | null): number
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -935,7 +935,7 @@ export class SimpleCertificate {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: SimpleCertificate, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: SimpleCertificate, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -968,14 +968,14 @@ export class SimpleCertificate {
 export interface SimpleCollection_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class SimpleCollection {
-    /* Fields of Gcr.SimpleCollection */
+    /* Fields of Gcr-3.Gcr.SimpleCollection */
     parent: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Gcr.SimpleCollection */
+    /* Methods of Gcr-3.Gcr.SimpleCollection */
     add(object: GObject.Object): void
     remove(object: GObject.Object): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -997,19 +997,19 @@ export class SimpleCollection {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of Gcr.Collection */
+    /* Methods of Gcr-3.Gcr.Collection */
     contains(object: GObject.Object): boolean
     emit_added(object: GObject.Object): void
     emit_removed(object: GObject.Object): void
     get_length(): number
     get_objects(): GObject.Object[]
-    /* Virtual methods of Gcr.SimpleCollection */
+    /* Virtual methods of Gcr-3.Gcr.SimpleCollection */
     vfunc_added(object: GObject.Object): void
     vfunc_contains(object: GObject.Object): boolean
     vfunc_get_length(): number
     vfunc_get_objects(): GObject.Object[]
     vfunc_removed(object: GObject.Object): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -1017,11 +1017,11 @@ export class SimpleCollection {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: SimpleCollection, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: SimpleCollection, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    /* Signals of Gcr.Collection */
+    /* Signals of Gcr-3.Gcr.Collection */
     connect(sigName: "added", callback: (($obj: SimpleCollection, object: GObject.Object) => void)): number
     connect_after(sigName: "added", callback: (($obj: SimpleCollection, object: GObject.Object) => void)): number
     emit(sigName: "added", object: GObject.Object): void
@@ -1043,11 +1043,11 @@ export interface SshAskpass_ConstructProps extends GObject.Object_ConstructProps
     interaction?: Gio.TlsInteraction
 }
 export class SshAskpass {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Gcr.SshAskpass */
+    /* Methods of Gcr-3.Gcr.SshAskpass */
     get_interaction(): Gio.TlsInteraction
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -1069,7 +1069,7 @@ export class SshAskpass {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -1077,7 +1077,7 @@ export class SshAskpass {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: SshAskpass, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: SshAskpass, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -1109,9 +1109,9 @@ export interface SystemPrompt_ConstructProps extends GObject.Object_ConstructPro
     warning?: string
 }
 export class SystemPrompt {
-    /* Properties of Gcr.SystemPrompt */
+    /* Properties of Gcr-3.Gcr.SystemPrompt */
     secret_exchange: SecretExchange
-    /* Properties of Gcr.Prompt */
+    /* Properties of Gcr-3.Gcr.Prompt */
     caller_window: string
     cancel_label: string
     choice_chosen: boolean
@@ -1123,16 +1123,16 @@ export class SystemPrompt {
     readonly password_strength: number
     title: string
     warning: string
-    /* Fields of Gcr.SystemPrompt */
+    /* Fields of Gcr-3.Gcr.SystemPrompt */
     parent: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Gcr.SystemPrompt */
+    /* Methods of Gcr-3.Gcr.SystemPrompt */
     close(cancellable?: Gio.Cancellable | null): boolean
     close_async(cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     close_finish(result: Gio.AsyncResult): boolean
     get_secret_exchange(): SecretExchange
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -1154,7 +1154,7 @@ export class SystemPrompt {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of Gcr.Prompt */
+    /* Methods of Gcr-3.Gcr.Prompt */
     close(): void
     confirm(cancellable?: Gio.Cancellable | null): PromptReply
     confirm_async(cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
@@ -1186,13 +1186,13 @@ export class SystemPrompt {
     set_password_new(new_password: boolean): void
     set_title(title: string): void
     set_warning(warning?: string | null): void
-    /* Methods of Gio.AsyncInitable */
+    /* Methods of Gio-2.0.Gio.AsyncInitable */
     init_async(io_priority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     init_finish(res: Gio.AsyncResult): boolean
     new_finish(res: Gio.AsyncResult): GObject.Object
-    /* Methods of Gio.Initable */
+    /* Methods of Gio-2.0.Gio.Initable */
     init(cancellable?: Gio.Cancellable | null): boolean
-    /* Virtual methods of Gcr.SystemPrompt */
+    /* Virtual methods of Gcr-3.Gcr.SystemPrompt */
     vfunc_prompt_close(): void
     vfunc_prompt_confirm_async(cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     vfunc_prompt_confirm_finish(result: Gio.AsyncResult): PromptReply
@@ -1201,7 +1201,7 @@ export class SystemPrompt {
     vfunc_init_async(io_priority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     vfunc_init_finish(res: Gio.AsyncResult): boolean
     vfunc_init(cancellable?: Gio.Cancellable | null): boolean
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -1209,11 +1209,11 @@ export class SystemPrompt {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: SystemPrompt, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: SystemPrompt, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    /* Signals of Gcr.Prompt */
+    /* Signals of Gcr-3.Gcr.Prompt */
     connect(sigName: "prompt-close", callback: (($obj: SystemPrompt) => void)): number
     connect_after(sigName: "prompt-close", callback: (($obj: SystemPrompt) => void)): number
     emit(sigName: "prompt-close"): void
@@ -1263,19 +1263,19 @@ export interface SystemPrompter_ConstructProps extends GObject.Object_ConstructP
     prompt_type?: GObject.Type
 }
 export class SystemPrompter {
-    /* Properties of Gcr.SystemPrompter */
+    /* Properties of Gcr-3.Gcr.SystemPrompter */
     readonly prompting: boolean
-    /* Fields of Gcr.SystemPrompter */
+    /* Fields of Gcr-3.Gcr.SystemPrompter */
     parent: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Gcr.SystemPrompter */
+    /* Methods of Gcr-3.Gcr.SystemPrompter */
     get_mode(): SystemPrompterMode
     get_prompt_type(): GObject.Type
     get_prompting(): boolean
     register(connection: Gio.DBusConnection): void
     unregister(wait: boolean): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -1297,7 +1297,7 @@ export class SystemPrompter {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -1305,11 +1305,11 @@ export class SystemPrompter {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gcr.SystemPrompter */
+    /* Signals of Gcr-3.Gcr.SystemPrompter */
     connect(sigName: "new-prompt", callback: (($obj: SystemPrompter) => Prompt)): number
     connect_after(sigName: "new-prompt", callback: (($obj: SystemPrompter) => Prompt)): number
     emit(sigName: "new-prompt"): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: SystemPrompter, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: SystemPrompter, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -1329,18 +1329,18 @@ export class SystemPrompter {
 export interface UnionCollection_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class UnionCollection {
-    /* Fields of Gcr.UnionCollection */
+    /* Fields of Gcr-3.Gcr.UnionCollection */
     parent: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Gcr.UnionCollection */
+    /* Methods of Gcr-3.Gcr.UnionCollection */
     add(collection: Collection): void
     elements(): Collection[]
     have(collection: Collection): boolean
     remove(collection: Collection): void
     size(): number
     take(collection: Collection): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -1362,19 +1362,19 @@ export class UnionCollection {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of Gcr.Collection */
+    /* Methods of Gcr-3.Gcr.Collection */
     contains(object: GObject.Object): boolean
     emit_added(object: GObject.Object): void
     emit_removed(object: GObject.Object): void
     get_length(): number
     get_objects(): GObject.Object[]
-    /* Virtual methods of Gcr.UnionCollection */
+    /* Virtual methods of Gcr-3.Gcr.UnionCollection */
     vfunc_added(object: GObject.Object): void
     vfunc_contains(object: GObject.Object): boolean
     vfunc_get_length(): number
     vfunc_get_objects(): GObject.Object[]
     vfunc_removed(object: GObject.Object): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -1382,11 +1382,11 @@ export class UnionCollection {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: UnionCollection, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: UnionCollection, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    /* Signals of Gcr.Collection */
+    /* Signals of Gcr-3.Gcr.Collection */
     connect(sigName: "added", callback: (($obj: UnionCollection, object: GObject.Object) => void)): number
     connect_after(sigName: "added", callback: (($obj: UnionCollection, object: GObject.Object) => void)): number
     emit(sigName: "added", object: GObject.Object): void
@@ -1405,7 +1405,7 @@ export class UnionCollection {
     static $gtype: GObject.Type
 }
 export abstract class CertificateChainClass {
-    /* Fields of Gcr.CertificateChainClass */
+    /* Fields of Gcr-3.Gcr.CertificateChainClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
@@ -1413,18 +1413,18 @@ export class CertificateChainPrivate {
     static name: string
 }
 export abstract class CertificateIface {
-    /* Fields of Gcr.CertificateIface */
+    /* Fields of Gcr-3.Gcr.CertificateIface */
     parent: GObject.TypeInterface
     get_der_data: (self: Certificate) => Uint8Array[]
     static name: string
 }
 export abstract class CertificateRequestClass {
-    /* Fields of Gcr.CertificateRequestClass */
+    /* Fields of Gcr-3.Gcr.CertificateRequestClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
 export abstract class CollectionIface {
-    /* Fields of Gcr.CollectionIface */
+    /* Fields of Gcr-3.Gcr.CollectionIface */
     parent: GObject.TypeInterface
     added: (self: Collection, object: GObject.Object) => void
     removed: (self: Collection, object: GObject.Object) => void
@@ -1434,7 +1434,7 @@ export abstract class CollectionIface {
     static name: string
 }
 export class Column {
-    /* Fields of Gcr.Column */
+    /* Fields of Gcr-3.Gcr.Column */
     property_name: string
     property_type: GObject.Type
     column_type: GObject.Type
@@ -1445,13 +1445,13 @@ export class Column {
     static name: string
 }
 export abstract class ComparableIface {
-    /* Fields of Gcr.ComparableIface */
+    /* Fields of Gcr-3.Gcr.ComparableIface */
     parent: GObject.TypeInterface
     compare: (self: Comparable, other?: Comparable | null) => number
     static name: string
 }
 export abstract class FilterCollectionClass {
-    /* Fields of Gcr.FilterCollectionClass */
+    /* Fields of Gcr-3.Gcr.FilterCollectionClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
@@ -1459,7 +1459,7 @@ export class FilterCollectionPrivate {
     static name: string
 }
 export abstract class ImportInteractionIface {
-    /* Fields of Gcr.ImportInteractionIface */
+    /* Fields of Gcr-3.Gcr.ImportInteractionIface */
     parent: GObject.TypeInterface
     supplement_prep: (interaction: ImportInteraction, builder: Gck.Builder) => void
     supplement: (interaction: ImportInteraction, builder: Gck.Builder, cancellable?: Gio.Cancellable | null) => Gio.TlsInteractionResult
@@ -1468,7 +1468,7 @@ export abstract class ImportInteractionIface {
     static name: string
 }
 export abstract class ImporterIface {
-    /* Fields of Gcr.ImporterIface */
+    /* Fields of Gcr-3.Gcr.ImporterIface */
     parent: GObject.TypeInterface
     queue_for_parsed: (importer: Importer, parsed: Parsed) => boolean
     import_sync: (importer: Importer, cancellable?: Gio.Cancellable | null) => boolean
@@ -1477,7 +1477,7 @@ export abstract class ImporterIface {
     static name: string
 }
 export class Parsed {
-    /* Methods of Gcr.Parsed */
+    /* Methods of Gcr-3.Gcr.Parsed */
     get_attributes(): Gck.Attributes | null
     get_bytes(): GLib.Bytes
     get_data(): Uint8Array[] | null
@@ -1491,7 +1491,7 @@ export class Parsed {
     static unref(parsed?: object | null): void
 }
 export abstract class ParserClass {
-    /* Fields of Gcr.ParserClass */
+    /* Fields of Gcr-3.Gcr.ParserClass */
     parent_class: GObject.ObjectClass
     authenticate: (self: Parser, count: number) => boolean
     parsed: (self: Parser) => void
@@ -1507,7 +1507,7 @@ export class Pkcs11CertificatePrivate {
     static name: string
 }
 export abstract class PromptIface {
-    /* Fields of Gcr.PromptIface */
+    /* Fields of Gcr-3.Gcr.PromptIface */
     parent_iface: GObject.TypeInterface
     prompt_password_async: (prompt: Prompt, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null) => void
     prompt_password_finish: (prompt: Prompt, result: Gio.AsyncResult) => string
@@ -1517,7 +1517,7 @@ export abstract class PromptIface {
     static name: string
 }
 export abstract class SecretExchangeClass {
-    /* Fields of Gcr.SecretExchangeClass */
+    /* Fields of Gcr-3.Gcr.SecretExchangeClass */
     generate_exchange_key: (exchange: SecretExchange, scheme: string, public_key: number, n_public_key: number) => boolean
     derive_transport_key: (exchange: SecretExchange, peer: number, n_peer: number) => boolean
     static name: string
@@ -1526,7 +1526,7 @@ export class SecretExchangePrivate {
     static name: string
 }
 export abstract class SimpleCertificateClass {
-    /* Fields of Gcr.SimpleCertificateClass */
+    /* Fields of Gcr-3.Gcr.SimpleCertificateClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
@@ -1534,7 +1534,7 @@ export class SimpleCertificatePrivate {
     static name: string
 }
 export abstract class SimpleCollectionClass {
-    /* Fields of Gcr.SimpleCollectionClass */
+    /* Fields of Gcr-3.Gcr.SimpleCollectionClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
@@ -1542,12 +1542,12 @@ export class SimpleCollectionPrivate {
     static name: string
 }
 export abstract class SshAskpassClass {
-    /* Fields of Gcr.SshAskpassClass */
+    /* Fields of Gcr-3.Gcr.SshAskpassClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
 export abstract class SystemPromptClass {
-    /* Fields of Gcr.SystemPromptClass */
+    /* Fields of Gcr-3.Gcr.SystemPromptClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
@@ -1555,7 +1555,7 @@ export class SystemPromptPrivate {
     static name: string
 }
 export abstract class SystemPrompterClass {
-    /* Fields of Gcr.SystemPrompterClass */
+    /* Fields of Gcr-3.Gcr.SystemPrompterClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
@@ -1563,7 +1563,7 @@ export class SystemPrompterPrivate {
     static name: string
 }
 export abstract class UnionCollectionClass {
-    /* Fields of Gcr.UnionCollectionClass */
+    /* Fields of Gcr-3.Gcr.UnionCollectionClass */
     parent_class: GObject.ObjectClass
     static name: string
 }

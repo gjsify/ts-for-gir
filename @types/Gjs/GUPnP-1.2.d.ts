@@ -63,12 +63,12 @@ export interface ServiceProxyNotifyCallback {
     (proxy: ServiceProxy, variable: string, value: any): void
 }
 export class Acl {
-    /* Methods of GUPnP.Acl */
+    /* Methods of GUPnP-1.2.GUPnP.Acl */
     can_sync(): boolean
     is_allowed(device: object | null, service: object | null, path: string, address: string, agent?: string | null): boolean
     is_allowed_async(device: object | null, service: object | null, path: string, address: string, agent?: string | null, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     is_allowed_finish(res: Gio.AsyncResult): boolean
-    /* Virtual methods of GUPnP.Acl */
+    /* Virtual methods of GUPnP-1.2.GUPnP.Acl */
     vfunc_can_sync(): boolean
     vfunc_is_allowed(device: object | null, service: object | null, path: string, address: string, agent?: string | null): boolean
     vfunc_is_allowed_async(device: object | null, service: object | null, path: string, address: string, agent?: string | null, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
@@ -82,12 +82,12 @@ export interface Context_ConstructProps extends GSSDP.Client_ConstructProps {
     subscription_timeout?: number
 }
 export class Context {
-    /* Properties of GUPnP.Context */
+    /* Properties of GUPnP-1.2.GUPnP.Context */
     acl: Acl
     default_language: string
     readonly server: Soup.Server
     readonly session: Soup.Session
-    /* Properties of GSSDP.Client */
+    /* Properties of GSSDP-1.2.GSSDP.Client */
     active: boolean
     boot_id: number
     config_id: number
@@ -95,11 +95,11 @@ export class Context {
     host_mask: Gio.InetAddressMask
     network: string
     server_id: string
-    /* Fields of GUPnP.Context */
+    /* Fields of GUPnP-1.2.GUPnP.Context */
     parent_instance: GSSDP.Client
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GUPnP.Context */
+    /* Methods of GUPnP-1.2.GUPnP.Context */
     add_server_handler(use_acl: boolean, path: string, callback: Soup.ServerCallback): void
     get_acl(): Acl
     get_default_language(): string
@@ -115,7 +115,7 @@ export class Context {
     set_default_language(language: string): void
     set_subscription_timeout(timeout: number): void
     unhost_path(server_path: string): void
-    /* Methods of GSSDP.Client */
+    /* Methods of GSSDP-1.2.GSSDP.Client */
     add_cache_entry(ip_address: string, user_agent: string): void
     append_header(name: string, value: string): void
     clear_headers(): void
@@ -135,7 +135,7 @@ export class Context {
     set_config_id(config_id: number): void
     set_network(network: string): void
     set_server_id(server_id: string): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -157,11 +157,11 @@ export class Context {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of Gio.Initable */
+    /* Methods of Gio-2.0.Gio.Initable */
     init(cancellable?: Gio.Cancellable | null): boolean
-    /* Virtual methods of GSSDP.Client */
+    /* Virtual methods of GSSDP-1.2.GSSDP.Client */
     vfunc_init(cancellable?: Gio.Cancellable | null): boolean
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -169,11 +169,11 @@ export class Context {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GSSDP.Client */
+    /* Signals of GSSDP-1.2.GSSDP.Client */
     connect(sigName: "message-received", callback: (($obj: Context, from_ip: string, from_port: number, type: number, headers: Soup.MessageHeaders) => void)): number
     connect_after(sigName: "message-received", callback: (($obj: Context, from_ip: string, from_port: number, type: number, headers: Soup.MessageHeaders) => void)): number
     emit(sigName: "message-received", from_ip: string, from_port: number, type: number, headers: Soup.MessageHeaders): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Context, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Context, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -217,13 +217,13 @@ export interface ContextManager_ConstructProps extends GObject.Object_ConstructP
     uda_version?: GSSDP.UDAVersion
 }
 export class ContextManager {
-    /* Properties of GUPnP.ContextManager */
+    /* Properties of GUPnP-1.2.GUPnP.ContextManager */
     readonly white_list: WhiteList
-    /* Fields of GUPnP.ContextManager */
+    /* Fields of GUPnP-1.2.GUPnP.ContextManager */
     parent_instance: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GUPnP.ContextManager */
+    /* Methods of GUPnP-1.2.GUPnP.ContextManager */
     get_port(): number
     get_socket_family(): Gio.SocketFamily
     get_uda_version(): GSSDP.UDAVersion
@@ -231,7 +231,7 @@ export class ContextManager {
     manage_control_point(control_point: ControlPoint): void
     manage_root_device(root_device: RootDevice): void
     rescan_control_points(): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -253,7 +253,7 @@ export class ContextManager {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -261,14 +261,14 @@ export class ContextManager {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GUPnP.ContextManager */
+    /* Signals of GUPnP-1.2.GUPnP.ContextManager */
     connect(sigName: "context-available", callback: (($obj: ContextManager, context: Context) => void)): number
     connect_after(sigName: "context-available", callback: (($obj: ContextManager, context: Context) => void)): number
     emit(sigName: "context-available", context: Context): void
     connect(sigName: "context-unavailable", callback: (($obj: ContextManager, context: Context) => void)): number
     connect_after(sigName: "context-unavailable", callback: (($obj: ContextManager, context: Context) => void)): number
     emit(sigName: "context-unavailable", context: Context): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: ContextManager, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: ContextManager, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -290,20 +290,20 @@ export interface ControlPoint_ConstructProps extends GSSDP.ResourceBrowser_Const
     resource_factory?: ResourceFactory
 }
 export class ControlPoint {
-    /* Properties of GSSDP.ResourceBrowser */
+    /* Properties of GSSDP-1.2.GSSDP.ResourceBrowser */
     active: boolean
     mx: number
     target: string
-    /* Fields of GUPnP.ControlPoint */
+    /* Fields of GUPnP-1.2.GUPnP.ControlPoint */
     parent_instance: GSSDP.ResourceBrowser
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GUPnP.ControlPoint */
+    /* Methods of GUPnP-1.2.GUPnP.ControlPoint */
     get_context(): Context
     get_resource_factory(): ResourceFactory
     list_device_proxies(): DeviceProxy[]
     list_service_proxies(): ServiceProxy[]
-    /* Methods of GSSDP.ResourceBrowser */
+    /* Methods of GSSDP-1.2.GSSDP.ResourceBrowser */
     get_active(): boolean
     get_client(): GSSDP.Client
     get_mx(): number
@@ -312,7 +312,7 @@ export class ControlPoint {
     set_active(active: boolean): void
     set_mx(mx: number): void
     set_target(target: string): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -334,15 +334,15 @@ export class ControlPoint {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GUPnP.ControlPoint */
+    /* Virtual methods of GUPnP-1.2.GUPnP.ControlPoint */
     vfunc_device_proxy_available(proxy: DeviceProxy): void
     vfunc_device_proxy_unavailable(proxy: DeviceProxy): void
     vfunc_service_proxy_available(proxy: ServiceProxy): void
     vfunc_service_proxy_unavailable(proxy: ServiceProxy): void
-    /* Virtual methods of GSSDP.ResourceBrowser */
+    /* Virtual methods of GSSDP-1.2.GSSDP.ResourceBrowser */
     vfunc_resource_unavailable(usn: string): void
     vfunc_resource_update(usn: string, boot_id: number, next_boot_id: number): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -350,7 +350,7 @@ export class ControlPoint {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GUPnP.ControlPoint */
+    /* Signals of GUPnP-1.2.GUPnP.ControlPoint */
     connect(sigName: "device-proxy-available", callback: (($obj: ControlPoint, proxy: DeviceProxy) => void)): number
     connect_after(sigName: "device-proxy-available", callback: (($obj: ControlPoint, proxy: DeviceProxy) => void)): number
     emit(sigName: "device-proxy-available", proxy: DeviceProxy): void
@@ -363,7 +363,7 @@ export class ControlPoint {
     connect(sigName: "service-proxy-unavailable", callback: (($obj: ControlPoint, proxy: ServiceProxy) => void)): number
     connect_after(sigName: "service-proxy-unavailable", callback: (($obj: ControlPoint, proxy: ServiceProxy) => void)): number
     emit(sigName: "service-proxy-unavailable", proxy: ServiceProxy): void
-    /* Signals of GSSDP.ResourceBrowser */
+    /* Signals of GSSDP-1.2.GSSDP.ResourceBrowser */
     connect(sigName: "resource-available", callback: (($obj: ControlPoint, usn: string, locations: string[]) => void)): number
     connect_after(sigName: "resource-available", callback: (($obj: ControlPoint, usn: string, locations: string[]) => void)): number
     emit(sigName: "resource-available", usn: string, locations: string[]): void
@@ -373,7 +373,7 @@ export class ControlPoint {
     connect(sigName: "resource-update", callback: (($obj: ControlPoint, usn: string, boot_id: number, next_boot_id: number) => void)): number
     connect_after(sigName: "resource-update", callback: (($obj: ControlPoint, usn: string, boot_id: number, next_boot_id: number) => void)): number
     emit(sigName: "resource-update", usn: string, boot_id: number, next_boot_id: number): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: ControlPoint, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: ControlPoint, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -400,15 +400,15 @@ export interface Device_ConstructProps extends DeviceInfo_ConstructProps {
     root_device?: RootDevice
 }
 export class Device {
-    /* Properties of GUPnP.DeviceInfo */
+    /* Properties of GUPnP-1.2.GUPnP.DeviceInfo */
     element: object
     location: string
     url_base: Soup.URI
-    /* Fields of GUPnP.Device */
+    /* Fields of GUPnP-1.2.GUPnP.Device */
     parent_instance: DeviceInfo
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GUPnP.DeviceInfo */
+    /* Methods of GUPnP-1.2.GUPnP.DeviceInfo */
     get_context(): Context
     get_description_value(element: string): string
     get_device(type: string): DeviceInfo | null
@@ -435,7 +435,7 @@ export class Device {
     list_dlna_device_class_identifier(): string[]
     list_service_types(): string[]
     list_services(): ServiceInfo[]
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -457,7 +457,7 @@ export class Device {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -465,7 +465,7 @@ export class Device {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Device, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Device, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -495,15 +495,15 @@ export interface DeviceInfo_ConstructProps extends GObject.Object_ConstructProps
     url_base?: Soup.URI
 }
 export class DeviceInfo {
-    /* Properties of GUPnP.DeviceInfo */
+    /* Properties of GUPnP-1.2.GUPnP.DeviceInfo */
     element: object
     location: string
     url_base: Soup.URI
-    /* Fields of GUPnP.DeviceInfo */
+    /* Fields of GUPnP-1.2.GUPnP.DeviceInfo */
     parent_instance: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GUPnP.DeviceInfo */
+    /* Methods of GUPnP-1.2.GUPnP.DeviceInfo */
     get_context(): Context
     get_description_value(element: string): string
     get_device(type: string): DeviceInfo | null
@@ -530,7 +530,7 @@ export class DeviceInfo {
     list_dlna_device_class_identifier(): string[]
     list_service_types(): string[]
     list_services(): ServiceInfo[]
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -552,7 +552,7 @@ export class DeviceInfo {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -560,7 +560,7 @@ export class DeviceInfo {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: DeviceInfo, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: DeviceInfo, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -582,15 +582,15 @@ export class DeviceInfo {
 export interface DeviceProxy_ConstructProps extends DeviceInfo_ConstructProps {
 }
 export class DeviceProxy {
-    /* Properties of GUPnP.DeviceInfo */
+    /* Properties of GUPnP-1.2.GUPnP.DeviceInfo */
     element: object
     location: string
     url_base: Soup.URI
-    /* Fields of GUPnP.DeviceProxy */
+    /* Fields of GUPnP-1.2.GUPnP.DeviceProxy */
     parent_instance: DeviceInfo
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GUPnP.DeviceInfo */
+    /* Methods of GUPnP-1.2.GUPnP.DeviceInfo */
     get_context(): Context
     get_description_value(element: string): string
     get_device(type: string): DeviceInfo | null
@@ -617,7 +617,7 @@ export class DeviceProxy {
     list_dlna_device_class_identifier(): string[]
     list_service_types(): string[]
     list_services(): ServiceInfo[]
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -639,7 +639,7 @@ export class DeviceProxy {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -647,7 +647,7 @@ export class DeviceProxy {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: DeviceProxy, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: DeviceProxy, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -669,16 +669,16 @@ export class DeviceProxy {
 export interface ResourceFactory_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class ResourceFactory {
-    /* Fields of GUPnP.ResourceFactory */
+    /* Fields of GUPnP-1.2.GUPnP.ResourceFactory */
     parent_instance: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GUPnP.ResourceFactory */
+    /* Methods of GUPnP-1.2.GUPnP.ResourceFactory */
     register_resource_proxy_type(upnp_type: string, type: GObject.Type): void
     register_resource_type(upnp_type: string, type: GObject.Type): void
     unregister_resource_proxy_type(upnp_type: string): boolean
     unregister_resource_type(upnp_type: string): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -700,7 +700,7 @@ export class ResourceFactory {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -708,7 +708,7 @@ export class ResourceFactory {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: ResourceFactory, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: ResourceFactory, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -731,24 +731,24 @@ export interface RootDevice_ConstructProps extends Device_ConstructProps {
     description_path?: string
 }
 export class RootDevice {
-    /* Properties of GUPnP.RootDevice */
+    /* Properties of GUPnP-1.2.GUPnP.RootDevice */
     available: boolean
-    /* Properties of GUPnP.DeviceInfo */
+    /* Properties of GUPnP-1.2.GUPnP.DeviceInfo */
     element: object
     location: string
     url_base: Soup.URI
-    /* Fields of GUPnP.RootDevice */
+    /* Fields of GUPnP-1.2.GUPnP.RootDevice */
     parent_instance: Device
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GUPnP.RootDevice */
+    /* Methods of GUPnP-1.2.GUPnP.RootDevice */
     get_available(): boolean
     get_description_dir(): string
     get_description_path(): string
     get_relative_location(): string
     get_ssdp_resource_group(): GSSDP.ResourceGroup
     set_available(available: boolean): void
-    /* Methods of GUPnP.DeviceInfo */
+    /* Methods of GUPnP-1.2.GUPnP.DeviceInfo */
     get_context(): Context
     get_description_value(element: string): string
     get_device(type: string): DeviceInfo | null
@@ -775,7 +775,7 @@ export class RootDevice {
     list_dlna_device_class_identifier(): string[]
     list_service_types(): string[]
     list_services(): ServiceInfo[]
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -797,11 +797,11 @@ export class RootDevice {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of Gio.Initable */
+    /* Methods of Gio-2.0.Gio.Initable */
     init(cancellable?: Gio.Cancellable | null): boolean
-    /* Virtual methods of GUPnP.RootDevice */
+    /* Virtual methods of GUPnP-1.2.GUPnP.RootDevice */
     vfunc_init(cancellable?: Gio.Cancellable | null): boolean
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -809,7 +809,7 @@ export class RootDevice {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: RootDevice, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: RootDevice, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -838,16 +838,16 @@ export interface Service_ConstructProps extends ServiceInfo_ConstructProps {
     root_device?: RootDevice
 }
 export class Service {
-    /* Fields of GUPnP.Service */
+    /* Fields of GUPnP-1.2.GUPnP.Service */
     parent_instance: ServiceInfo
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GUPnP.Service */
+    /* Methods of GUPnP-1.2.GUPnP.Service */
     freeze_notify(): void
     notify_value(variable: string, value: any): void
     signals_autoconnect(user_data?: object | null): void
     thaw_notify(): void
-    /* Methods of GUPnP.ServiceInfo */
+    /* Methods of GUPnP-1.2.GUPnP.ServiceInfo */
     get_context(): Context
     get_control_url(): string
     get_event_subscription_url(): string
@@ -861,7 +861,7 @@ export class Service {
     get_url_base(): Soup.URI
     introspect_async(cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     introspect_finish(res: Gio.AsyncResult): ServiceIntrospection
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -881,10 +881,10 @@ export class Service {
     steal_qdata(quark: GLib.Quark): object | null
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GUPnP.Service */
+    /* Virtual methods of GUPnP-1.2.GUPnP.Service */
     vfunc_action_invoked(action: ServiceAction): void
     vfunc_query_variable(variable: string, value: any): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -892,7 +892,7 @@ export class Service {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GUPnP.Service */
+    /* Signals of GUPnP-1.2.GUPnP.Service */
     connect(sigName: "action-invoked", callback: (($obj: Service, action: ServiceAction) => void)): number
     connect_after(sigName: "action-invoked", callback: (($obj: Service, action: ServiceAction) => void)): number
     emit(sigName: "action-invoked", action: ServiceAction): void
@@ -902,7 +902,7 @@ export class Service {
     connect(sigName: "query-variable", callback: (($obj: Service, variable: string, value: any) => void)): number
     connect_after(sigName: "query-variable", callback: (($obj: Service, variable: string, value: any) => void)): number
     emit(sigName: "query-variable", variable: string, value: any): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Service, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Service, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -925,11 +925,11 @@ export interface ServiceInfo_ConstructProps extends GObject.Object_ConstructProp
     url_base?: Soup.URI
 }
 export class ServiceInfo {
-    /* Fields of GUPnP.ServiceInfo */
+    /* Fields of GUPnP-1.2.GUPnP.ServiceInfo */
     parent_instance: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GUPnP.ServiceInfo */
+    /* Methods of GUPnP-1.2.GUPnP.ServiceInfo */
     get_context(): Context
     get_control_url(): string
     get_event_subscription_url(): string
@@ -943,7 +943,7 @@ export class ServiceInfo {
     get_url_base(): Soup.URI
     introspect_async(cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     introspect_finish(res: Gio.AsyncResult): ServiceIntrospection
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -965,7 +965,7 @@ export class ServiceInfo {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -973,7 +973,7 @@ export class ServiceInfo {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: ServiceInfo, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: ServiceInfo, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -990,16 +990,16 @@ export interface ServiceIntrospection_ConstructProps extends GObject.Object_Cons
     scpd?: object
 }
 export class ServiceIntrospection {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GUPnP.ServiceIntrospection */
+    /* Methods of GUPnP-1.2.GUPnP.ServiceIntrospection */
     get_action(action_name: string): ServiceActionInfo
     get_state_variable(variable_name: string): ServiceStateVariableInfo
     list_action_names(): string[]
     list_actions(): ServiceActionInfo[]
     list_state_variable_names(): string[]
     list_state_variables(): ServiceStateVariableInfo[]
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -1021,7 +1021,7 @@ export class ServiceIntrospection {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -1029,7 +1029,7 @@ export class ServiceIntrospection {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: ServiceIntrospection, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: ServiceIntrospection, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -1046,13 +1046,13 @@ export interface ServiceProxy_ConstructProps extends ServiceInfo_ConstructProps 
     subscribed?: boolean
 }
 export class ServiceProxy {
-    /* Properties of GUPnP.ServiceProxy */
+    /* Properties of GUPnP-1.2.GUPnP.ServiceProxy */
     subscribed: boolean
-    /* Fields of GUPnP.ServiceProxy */
+    /* Fields of GUPnP-1.2.GUPnP.ServiceProxy */
     parent_instance: ServiceInfo
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GUPnP.ServiceProxy */
+    /* Methods of GUPnP-1.2.GUPnP.ServiceProxy */
     add_notify(variable: string, type: GObject.Type, callback: ServiceProxyNotifyCallback): boolean
     add_raw_notify(callback: ServiceProxyNotifyCallback): boolean
     begin_action_list(action: string, in_names: string[], in_values: any[], callback: ServiceProxyActionCallback): ServiceProxyAction
@@ -1067,7 +1067,7 @@ export class ServiceProxy {
     remove_raw_notify(callback: ServiceProxyNotifyCallback): boolean
     send_action_list(action: string, in_names: string[], in_values: any[], out_names: string[], out_types: GObject.Type[]): [ /* returnType */ boolean, /* out_values */ any[] ]
     set_subscribed(subscribed: boolean): void
-    /* Methods of GUPnP.ServiceInfo */
+    /* Methods of GUPnP-1.2.GUPnP.ServiceInfo */
     get_context(): Context
     get_control_url(): string
     get_event_subscription_url(): string
@@ -1081,7 +1081,7 @@ export class ServiceProxy {
     get_url_base(): Soup.URI
     introspect_async(cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     introspect_finish(res: Gio.AsyncResult): ServiceIntrospection
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -1103,9 +1103,9 @@ export class ServiceProxy {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GUPnP.ServiceProxy */
+    /* Virtual methods of GUPnP-1.2.GUPnP.ServiceProxy */
     vfunc_subscription_lost(reason: GLib.Error): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -1113,11 +1113,11 @@ export class ServiceProxy {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GUPnP.ServiceProxy */
+    /* Signals of GUPnP-1.2.GUPnP.ServiceProxy */
     connect(sigName: "subscription-lost", callback: (($obj: ServiceProxy, error: GLib.Error) => void)): number
     connect_after(sigName: "subscription-lost", callback: (($obj: ServiceProxy, error: GLib.Error) => void)): number
     emit(sigName: "subscription-lost", error: GLib.Error): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: ServiceProxy, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: ServiceProxy, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -1137,13 +1137,13 @@ export interface WhiteList_ConstructProps extends GObject.Object_ConstructProps 
     entries?: string[]
 }
 export class WhiteList {
-    /* Properties of GUPnP.WhiteList */
+    /* Properties of GUPnP-1.2.GUPnP.WhiteList */
     enabled: boolean
-    /* Fields of GUPnP.WhiteList */
+    /* Fields of GUPnP-1.2.GUPnP.WhiteList */
     parent_instance: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GUPnP.WhiteList */
+    /* Methods of GUPnP-1.2.GUPnP.WhiteList */
     add_entry(entry: string): boolean
     add_entryv(entries: string[]): void
     check_context(context: Context): boolean
@@ -1153,7 +1153,7 @@ export class WhiteList {
     is_empty(): boolean
     remove_entry(entry: string): boolean
     set_enabled(enable: boolean): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -1175,7 +1175,7 @@ export class WhiteList {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -1183,7 +1183,7 @@ export class WhiteList {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: WhiteList, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: WhiteList, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -1203,11 +1203,11 @@ export class WhiteList {
 export interface XMLDoc_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class XMLDoc {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GUPnP.XMLDoc */
+    /* Methods of GUPnP-1.2.GUPnP.XMLDoc */
     get_doc(): libxml2.Doc
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -1229,7 +1229,7 @@ export class XMLDoc {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -1237,7 +1237,7 @@ export class XMLDoc {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: XMLDoc, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: XMLDoc, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -1254,7 +1254,7 @@ export class XMLDoc {
     static $gtype: GObject.Type
 }
 export abstract class AclInterface {
-    /* Fields of GUPnP.AclInterface */
+    /* Fields of GUPnP-1.2.GUPnP.AclInterface */
     parent: GObject.TypeInterface
     is_allowed: (self: Acl, device: object | null, service: object | null, path: string, address: string, agent?: string | null) => boolean
     is_allowed_async: (self: Acl, device: object | null, service: object | null, path: string, address: string, agent?: string | null, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null) => void
@@ -1263,17 +1263,17 @@ export abstract class AclInterface {
     static name: string
 }
 export abstract class ContextClass {
-    /* Fields of GUPnP.ContextClass */
+    /* Fields of GUPnP-1.2.GUPnP.ContextClass */
     parent_class: GSSDP.ClientClass
     static name: string
 }
 export abstract class ContextManagerClass {
-    /* Fields of GUPnP.ContextManagerClass */
+    /* Fields of GUPnP-1.2.GUPnP.ContextManagerClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
 export abstract class ControlPointClass {
-    /* Fields of GUPnP.ControlPointClass */
+    /* Fields of GUPnP-1.2.GUPnP.ControlPointClass */
     parent_class: GSSDP.ResourceBrowserClass
     device_proxy_available: (control_point: ControlPoint, proxy: DeviceProxy) => void
     device_proxy_unavailable: (control_point: ControlPoint, proxy: DeviceProxy) => void
@@ -1282,32 +1282,32 @@ export abstract class ControlPointClass {
     static name: string
 }
 export abstract class DeviceClass {
-    /* Fields of GUPnP.DeviceClass */
+    /* Fields of GUPnP-1.2.GUPnP.DeviceClass */
     parent_class: DeviceInfoClass
     static name: string
 }
 export abstract class DeviceInfoClass {
-    /* Fields of GUPnP.DeviceInfoClass */
+    /* Fields of GUPnP-1.2.GUPnP.DeviceInfoClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
 export abstract class DeviceProxyClass {
-    /* Fields of GUPnP.DeviceProxyClass */
+    /* Fields of GUPnP-1.2.GUPnP.DeviceProxyClass */
     parent_class: DeviceInfoClass
     static name: string
 }
 export abstract class ResourceFactoryClass {
-    /* Fields of GUPnP.ResourceFactoryClass */
+    /* Fields of GUPnP-1.2.GUPnP.ResourceFactoryClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
 export abstract class RootDeviceClass {
-    /* Fields of GUPnP.RootDeviceClass */
+    /* Fields of GUPnP-1.2.GUPnP.RootDeviceClass */
     parent_class: DeviceClass
     static name: string
 }
 export class ServiceAction {
-    /* Methods of GUPnP.ServiceAction */
+    /* Methods of GUPnP-1.2.GUPnP.ServiceAction */
     get_argument_count(): number
     get_value(argument: string, type: GObject.Type): any
     get_locales(): string[]
@@ -1321,7 +1321,7 @@ export class ServiceAction {
     static name: string
 }
 export class ServiceActionArgInfo {
-    /* Fields of GUPnP.ServiceActionArgInfo */
+    /* Fields of GUPnP-1.2.GUPnP.ServiceActionArgInfo */
     name: string
     direction: ServiceActionArgDirection
     related_state_variable: string
@@ -1329,30 +1329,30 @@ export class ServiceActionArgInfo {
     static name: string
 }
 export class ServiceActionInfo {
-    /* Fields of GUPnP.ServiceActionInfo */
+    /* Fields of GUPnP-1.2.GUPnP.ServiceActionInfo */
     name: string
     arguments_: ServiceActionArgInfo[]
     static name: string
 }
 export abstract class ServiceClass {
-    /* Fields of GUPnP.ServiceClass */
+    /* Fields of GUPnP-1.2.GUPnP.ServiceClass */
     parent_class: ServiceInfoClass
     action_invoked: (service: Service, action: ServiceAction) => void
     query_variable: (service: Service, variable: string, value: any) => void
     static name: string
 }
 export abstract class ServiceInfoClass {
-    /* Fields of GUPnP.ServiceInfoClass */
+    /* Fields of GUPnP-1.2.GUPnP.ServiceInfoClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
 export abstract class ServiceIntrospectionClass {
-    /* Fields of GUPnP.ServiceIntrospectionClass */
+    /* Fields of GUPnP-1.2.GUPnP.ServiceIntrospectionClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
 export class ServiceProxyAction {
-    /* Methods of GUPnP.ServiceProxyAction */
+    /* Methods of GUPnP-1.2.GUPnP.ServiceProxyAction */
     get_result_hash(out_hash: GLib.HashTable): [ /* returnType */ boolean, /* out_hash */ GLib.HashTable ]
     get_result_list(out_names: string[], out_types: GObject.Type[]): [ /* returnType */ boolean, /* out_values */ any[] ]
     ref(): ServiceProxyAction
@@ -1362,13 +1362,13 @@ export class ServiceProxyAction {
     static new_from_list(action: string, in_names: string[], in_values: any[]): ServiceProxyAction
 }
 export abstract class ServiceProxyClass {
-    /* Fields of GUPnP.ServiceProxyClass */
+    /* Fields of GUPnP-1.2.GUPnP.ServiceProxyClass */
     parent_class: ServiceInfoClass
     subscription_lost: (proxy: ServiceProxy, reason: GLib.Error) => void
     static name: string
 }
 export class ServiceStateVariableInfo {
-    /* Fields of GUPnP.ServiceStateVariableInfo */
+    /* Fields of GUPnP-1.2.GUPnP.ServiceStateVariableInfo */
     name: string
     send_events: boolean
     is_numeric: boolean
@@ -1381,12 +1381,12 @@ export class ServiceStateVariableInfo {
     static name: string
 }
 export abstract class WhiteListClass {
-    /* Fields of GUPnP.WhiteListClass */
+    /* Fields of GUPnP-1.2.GUPnP.WhiteListClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
 export abstract class XMLDocClass {
-    /* Fields of GUPnP.XMLDocClass */
+    /* Fields of GUPnP-1.2.GUPnP.XMLDocClass */
     parent_class: GObject.ObjectClass
     static name: string
 }

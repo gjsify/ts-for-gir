@@ -17,16 +17,16 @@ export const MINOR_VERSION: number
 export interface Resolver_ConstructProps extends Gio.Resolver_ConstructProps {
 }
 export class Resolver {
-    /* Fields of Gio.Resolver */
+    /* Fields of Gio-2.0.Gio.Resolver */
     parent_instance: GObject.Object
     priv: Gio.ResolverPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Uhm.Resolver */
+    /* Methods of Uhm-0.0.Uhm.Resolver */
     add_A(hostname: string, addr: string): boolean
     add_SRV(service: string, protocol: string, domain: string, addr: string, port: number): boolean
     reset(): void
-    /* Methods of Gio.Resolver */
+    /* Methods of Gio-2.0.Gio.Resolver */
     lookup_by_address(address: Gio.InetAddress, cancellable?: Gio.Cancellable | null): string
     lookup_by_address_async(address: Gio.InetAddress, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     lookup_by_address_finish(result: Gio.AsyncResult): string
@@ -43,7 +43,7 @@ export class Resolver {
     lookup_service_async(service: string, protocol: string, domain: string, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     lookup_service_finish(result: Gio.AsyncResult): Gio.SrvTarget[]
     set_default(): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -65,7 +65,7 @@ export class Resolver {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Gio.Resolver */
+    /* Virtual methods of Gio-2.0.Gio.Resolver */
     vfunc_lookup_by_address(address: Gio.InetAddress, cancellable?: Gio.Cancellable | null): string
     vfunc_lookup_by_address_async(address: Gio.InetAddress, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     vfunc_lookup_by_address_finish(result: Gio.AsyncResult): string
@@ -81,7 +81,7 @@ export class Resolver {
     vfunc_lookup_service_async(rrname: string, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     vfunc_lookup_service_finish(result: Gio.AsyncResult): Gio.SrvTarget[]
     vfunc_reload(): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -89,11 +89,11 @@ export class Resolver {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gio.Resolver */
+    /* Signals of Gio-2.0.Gio.Resolver */
     connect(sigName: "reload", callback: (($obj: Resolver) => void)): number
     connect_after(sigName: "reload", callback: (($obj: Resolver) => void)): number
     emit(sigName: "reload"): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Resolver, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Resolver, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -115,7 +115,7 @@ export interface Server_ConstructProps extends GObject.Object_ConstructProps {
     trace_directory?: Gio.File
 }
 export class Server {
-    /* Properties of Uhm.Server */
+    /* Properties of Uhm-0.0.Uhm.Server */
     readonly address: string
     enable_logging: boolean
     enable_online: boolean
@@ -123,9 +123,9 @@ export class Server {
     readonly resolver: Resolver
     tls_certificate: Gio.TlsCertificate
     trace_directory: Gio.File
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Uhm.Server */
+    /* Methods of Uhm-0.0.Uhm.Server */
     compare_messages_remove_filter(filter_id: number): void
     end_trace(): void
     filter_ignore_parameter_values(parameter_names: string[]): number
@@ -152,7 +152,7 @@ export class Server {
     start_trace_full(trace_file: Gio.File): void
     stop(): void
     unload_trace(): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -174,10 +174,10 @@ export class Server {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Uhm.Server */
+    /* Virtual methods of Uhm-0.0.Uhm.Server */
     vfunc_compare_messages(expected_message: Soup.Message, actual_message: Soup.Message, actual_client: Soup.ClientContext): boolean
     vfunc_handle_message(message: Soup.Message, client: Soup.ClientContext): boolean
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -185,14 +185,14 @@ export class Server {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Uhm.Server */
+    /* Signals of Uhm-0.0.Uhm.Server */
     connect(sigName: "compare-messages", callback: (($obj: Server, expected_message: Soup.Message, actual_message: Soup.Message, actual_client: Soup.ClientContext) => boolean)): number
     connect_after(sigName: "compare-messages", callback: (($obj: Server, expected_message: Soup.Message, actual_message: Soup.Message, actual_client: Soup.ClientContext) => boolean)): number
     emit(sigName: "compare-messages", expected_message: Soup.Message, actual_message: Soup.Message, actual_client: Soup.ClientContext): void
     connect(sigName: "handle-message", callback: (($obj: Server, message: Soup.Message, client: Soup.ClientContext) => boolean)): number
     connect_after(sigName: "handle-message", callback: (($obj: Server, message: Soup.Message, client: Soup.ClientContext) => boolean)): number
     emit(sigName: "handle-message", message: Soup.Message, client: Soup.ClientContext): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Server, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Server, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -230,7 +230,7 @@ export class ResolverPrivate {
     static name: string
 }
 export abstract class ServerClass {
-    /* Fields of Uhm.ServerClass */
+    /* Fields of Uhm-0.0.Uhm.ServerClass */
     handle_message: (self: Server, message: Soup.Message, client: Soup.ClientContext) => boolean
     compare_messages: (self: Server, expected_message: Soup.Message, actual_message: Soup.Message, actual_client: Soup.ClientContext) => boolean
     static name: string

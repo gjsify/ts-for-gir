@@ -21,9 +21,9 @@ export function getResource(): Gio.Resource
 export interface Device_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class Device {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Manette.Device */
+    /* Methods of Manette-0.2.Manette.Device */
     getName(): string
     hasInput(type: number, code: number): boolean
     hasRumble(): boolean
@@ -31,7 +31,7 @@ export class Device {
     removeUserMapping(): void
     rumble(strongMagnitude: number, weakMagnitude: number, milliseconds: number): boolean
     saveUserMapping(mappingString: string): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -53,58 +53,43 @@ export class Device {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Manette.Device */
+    /* Signals of Manette-0.2.Manette.Device */
     connect(sigName: "absolute-axis-event", callback: (($obj: Device, event: Event) => void)): number
-    connect_after(sigName: "absolute-axis-event", callback: (($obj: Device, event: Event) => void)): number
+    on(sigName: "absolute-axis-event", callback: (event: Event) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "absolute-axis-event", callback: (event: Event) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "absolute-axis-event", callback: (event: Event) => void): NodeJS.EventEmitter
     emit(sigName: "absolute-axis-event", event: Event): void
-    on(sigName: "absolute-axis-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "absolute-axis-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "absolute-axis-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "button-press-event", callback: (($obj: Device, event: Event) => void)): number
-    connect_after(sigName: "button-press-event", callback: (($obj: Device, event: Event) => void)): number
+    on(sigName: "button-press-event", callback: (event: Event) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "button-press-event", callback: (event: Event) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "button-press-event", callback: (event: Event) => void): NodeJS.EventEmitter
     emit(sigName: "button-press-event", event: Event): void
-    on(sigName: "button-press-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "button-press-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "button-press-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "button-release-event", callback: (($obj: Device, event: Event) => void)): number
-    connect_after(sigName: "button-release-event", callback: (($obj: Device, event: Event) => void)): number
+    on(sigName: "button-release-event", callback: (event: Event) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "button-release-event", callback: (event: Event) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "button-release-event", callback: (event: Event) => void): NodeJS.EventEmitter
     emit(sigName: "button-release-event", event: Event): void
-    on(sigName: "button-release-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "button-release-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "button-release-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "disconnected", callback: (($obj: Device) => void)): number
-    connect_after(sigName: "disconnected", callback: (($obj: Device) => void)): number
+    on(sigName: "disconnected", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "disconnected", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "disconnected", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "disconnected"): void
-    on(sigName: "disconnected", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "disconnected", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "disconnected", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "event", callback: (($obj: Device, event: Event) => void)): number
-    connect_after(sigName: "event", callback: (($obj: Device, event: Event) => void)): number
+    on(sigName: "event", callback: (event: Event) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "event", callback: (event: Event) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "event", callback: (event: Event) => void): NodeJS.EventEmitter
     emit(sigName: "event", event: Event): void
-    on(sigName: "event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "hat-axis-event", callback: (($obj: Device, event: Event) => void)): number
-    connect_after(sigName: "hat-axis-event", callback: (($obj: Device, event: Event) => void)): number
+    on(sigName: "hat-axis-event", callback: (event: Event) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "hat-axis-event", callback: (event: Event) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "hat-axis-event", callback: (event: Event) => void): NodeJS.EventEmitter
     emit(sigName: "hat-axis-event", event: Event): void
-    on(sigName: "hat-axis-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "hat-axis-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "hat-axis-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Device, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Device, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -120,11 +105,11 @@ export class Device {
 export interface Monitor_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class Monitor {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Manette.Monitor */
+    /* Methods of Manette-0.2.Manette.Monitor */
     iterate(): MonitorIter
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -146,34 +131,23 @@ export class Monitor {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Manette.Monitor */
+    /* Signals of Manette-0.2.Manette.Monitor */
     connect(sigName: "device-connected", callback: (($obj: Monitor, device: Device) => void)): number
-    connect_after(sigName: "device-connected", callback: (($obj: Monitor, device: Device) => void)): number
+    on(sigName: "device-connected", callback: (device: Device) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "device-connected", callback: (device: Device) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "device-connected", callback: (device: Device) => void): NodeJS.EventEmitter
     emit(sigName: "device-connected", device: Device): void
-    on(sigName: "device-connected", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "device-connected", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "device-connected", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "device-disconnected", callback: (($obj: Monitor, device: Device) => void)): number
-    connect_after(sigName: "device-disconnected", callback: (($obj: Monitor, device: Device) => void)): number
+    on(sigName: "device-disconnected", callback: (device: Device) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "device-disconnected", callback: (device: Device) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "device-disconnected", callback: (device: Device) => void): NodeJS.EventEmitter
     emit(sigName: "device-disconnected", device: Device): void
-    on(sigName: "device-disconnected", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "device-disconnected", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "device-disconnected", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Monitor, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Monitor, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -189,31 +163,31 @@ export class Monitor {
     static $gtype: GObject.Type
 }
 export abstract class DeviceClass {
-    /* Fields of Manette.DeviceClass */
+    /* Fields of Manette-0.2.Manette.DeviceClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
 export abstract class MonitorClass {
-    /* Fields of Manette.MonitorClass */
+    /* Fields of Manette-0.2.Manette.MonitorClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
 export class MonitorIter {
-    /* Methods of Manette.MonitorIter */
-    next(): [ /* returnType */ boolean, /* device */ Device | null ]
+    /* Methods of Manette-0.2.Manette.MonitorIter */
+    next(): { returnType: boolean, device: Device | null }
     static name: string
 }
 export class Event {
-    /* Methods of Manette.Event */
-    getAbsolute(): [ /* returnType */ boolean, /* axis */ number, /* value */ number ]
-    getButton(): [ /* returnType */ boolean, /* button */ number ]
+    /* Methods of Manette-0.2.Manette.Event */
+    getAbsolute(): { returnType: boolean, axis: number, value: number }
+    getButton(): { returnType: boolean, button: number }
     getDevice(): Device
     getEventType(): EventType
     getHardwareCode(): number
     getHardwareIndex(): number
     getHardwareType(): number
     getHardwareValue(): number
-    getHat(): [ /* returnType */ boolean, /* axis */ number, /* value */ number ]
+    getHat(): { returnType: boolean, axis: number, value: number }
     getTime(): number
     static name: string
 }

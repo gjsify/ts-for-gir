@@ -14,15 +14,15 @@ import type * as Gee from './Gee-0.8';
 export interface Connection_ConstructProps extends Vgda.GProvider_ConstructProps {
 }
 export class Connection {
-    /* Fields of Vgsl.Connection */
+    /* Fields of Vgsl-1.Vgsl.Connection */
     parent_instance: Vgda.GProvider
     priv: ConnectionPrivate
-    /* Fields of Vgda.GProvider */
+    /* Fields of Vgda-1.Vgda.GProvider */
     _provider: string
     _cnc_string: string
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -44,7 +44,7 @@ export class Connection {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Vgda.GProvider */
+    /* Virtual methods of Vgda-1.Vgda.GProvider */
     vfunc_close(_callback_?: Gio.AsyncReadyCallback | null): void
     vfunc_close_finish(_res_: Gio.AsyncResult): void
     vfunc_open(_callback_?: Gio.AsyncReadyCallback | null): void
@@ -69,7 +69,7 @@ export class Connection {
     vfunc_set_parameters(value: Vda.ConnectionParameters): void
     vfunc_get_is_opened(): boolean
     vfunc_get_connection_string(): string
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -77,7 +77,7 @@ export class Connection {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Connection, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Connection, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -93,7 +93,7 @@ export class Connection {
     static $gtype: GObject.Type
 }
 export abstract class ConnectionClass {
-    /* Fields of Vgsl.ConnectionClass */
+    /* Fields of Vgsl-1.Vgsl.ConnectionClass */
     parent_class: Vgda.GProviderClass
     static name: string
 }

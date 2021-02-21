@@ -78,30 +78,30 @@ export function vec4YAxis(): Vec4
 export function vec4ZAxis(): Vec4
 export function vec4Zero(): Vec4
 export class Box {
-    /* Methods of Graphene.Box */
+    /* Methods of Graphene-1.0.Graphene.Box */
     containsBox(b: Box): boolean
     containsPoint(point: Point3D): boolean
     equal(b: Box): boolean
-    expand(point: Point3D): /* res */ Box
-    expandScalar(scalar: number): /* res */ Box
-    expandVec3(vec: Vec3): /* res */ Box
+    expand(point: Point3D): { res: Box }
+    expandScalar(scalar: number): { res: Box }
+    expandVec3(vec: Vec3): { res: Box }
     free(): void
-    getBoundingSphere(): /* sphere */ Sphere
-    getCenter(): /* center */ Point3D
+    getBoundingSphere(): { sphere: Sphere }
+    getCenter(): { center: Point3D }
     getDepth(): number
     getHeight(): number
-    getMax(): /* max */ Point3D
-    getMin(): /* min */ Point3D
-    getSize(): /* size */ Vec3
-    getVertices(): /* vertices */ Vec3[]
+    getMax(): { max: Point3D }
+    getMin(): { min: Point3D }
+    getSize(): { size: Vec3 }
+    getVertices(): { vertices: Vec3[] }
     getWidth(): number
     init(min?: Point3D | null, max?: Point3D | null): Box
     initFromBox(src: Box): Box
     initFromPoints(points: Point3D[]): Box
     initFromVec3(min?: Vec3 | null, max?: Vec3 | null): Box
     initFromVectors(vectors: Vec3[]): Box
-    intersection(b: Box): [ /* returnType */ boolean, /* res */ Box | null ]
-    union(b: Box): /* res */ Box
+    intersection(b: Box): { returnType: boolean, res: Box | null }
+    union(b: Box): { res: Box }
     static name: string
     /* Static methods and pseudo-constructors */
     static alloc(): Box
@@ -113,7 +113,7 @@ export class Box {
     static zero(): Box
 }
 export class Euler {
-    /* Methods of Graphene.Euler */
+    /* Methods of Graphene-1.0.Graphene.Euler */
     equal(b: Euler): boolean
     free(): void
     getAlpha(): number
@@ -130,20 +130,20 @@ export class Euler {
     initFromRadians(x: number, y: number, z: number, order: EulerOrder): Euler
     initFromVec3(v: Vec3 | null, order: EulerOrder): Euler
     initWithOrder(x: number, y: number, z: number, order: EulerOrder): Euler
-    reorder(order: EulerOrder): /* res */ Euler
-    toMatrix(): /* res */ Matrix
-    toQuaternion(): /* res */ Quaternion
-    toVec3(): /* res */ Vec3
+    reorder(order: EulerOrder): { res: Euler }
+    toMatrix(): { res: Matrix }
+    toQuaternion(): { res: Quaternion }
+    toVec3(): { res: Vec3 }
     static name: string
     /* Static methods and pseudo-constructors */
     static alloc(): Euler
 }
 export class Frustum {
-    /* Methods of Graphene.Frustum */
+    /* Methods of Graphene-1.0.Graphene.Frustum */
     containsPoint(point: Point3D): boolean
     equal(b: Frustum): boolean
     free(): void
-    getPlanes(): /* planes */ Plane[]
+    getPlanes(): { planes: Plane[] }
     init(p0: Plane, p1: Plane, p2: Plane, p3: Plane, p4: Plane, p5: Plane): Frustum
     initFromFrustum(src: Frustum): Frustum
     initFromMatrix(matrix: Matrix): Frustum
@@ -154,13 +154,13 @@ export class Frustum {
     static alloc(): Frustum
 }
 export class Matrix {
-    /* Methods of Graphene.Matrix */
-    decompose(): [ /* returnType */ boolean, /* translate */ Vec3, /* scale */ Vec3, /* rotate */ Quaternion, /* shear */ Vec3, /* perspective */ Vec4 ]
+    /* Methods of Graphene-1.0.Graphene.Matrix */
+    decompose(): { returnType: boolean, translate: Vec3, scale: Vec3, rotate: Quaternion, shear: Vec3, perspective: Vec4 }
     determinant(): number
     equal(b: Matrix): boolean
     equalFast(b: Matrix): boolean
     free(): void
-    getRow(index: number): /* res */ Vec4
+    getRow(index: number): { res: Vec4 }
     getValue(row: number, col: number): number
     getXScale(): number
     getXTranslation(): number
@@ -181,20 +181,20 @@ export class Matrix {
     initScale(x: number, y: number, z: number): Matrix
     initSkew(xSkew: number, ySkew: number): Matrix
     initTranslate(p: Point3D): Matrix
-    interpolate(b: Matrix, factor: number): /* res */ Matrix
-    inverse(): [ /* returnType */ boolean, /* res */ Matrix ]
+    interpolate(b: Matrix, factor: number): { res: Matrix }
+    inverse(): { returnType: boolean, res: Matrix }
     is2d(): boolean
     isBackfaceVisible(): boolean
     isIdentity(): boolean
     isSingular(): boolean
-    multiply(b: Matrix): /* res */ Matrix
+    multiply(b: Matrix): { res: Matrix }
     near(b: Matrix, epsilon: number): boolean
-    normalize(): /* res */ Matrix
-    perspective(depth: number): /* res */ Matrix
+    normalize(): { res: Matrix }
+    perspective(depth: number): { res: Matrix }
     print(): void
-    projectPoint(p: Point): /* res */ Point
-    projectRect(r: Rect): /* res */ Quad
-    projectRectBounds(r: Rect): /* res */ Rect
+    projectPoint(p: Point): { res: Point }
+    projectRect(r: Rect): { res: Quad }
+    projectRectBounds(r: Rect): { res: Rect }
     rotate(angle: number, axis: Vec3): void
     rotateEuler(e: Euler): void
     rotateQuaternion(q: Quaternion): void
@@ -205,93 +205,93 @@ export class Matrix {
     skewXy(factor: number): void
     skewXz(factor: number): void
     skewYz(factor: number): void
-    to2d(): [ /* returnType */ boolean, /* xx */ number, /* yx */ number, /* xy */ number, /* yy */ number, /* x0 */ number, /* y0 */ number ]
-    toFloat(): /* v */ number[]
-    transformBounds(r: Rect): /* res */ Rect
-    transformBox(b: Box): /* res */ Box
-    transformPoint(p: Point): /* res */ Point
-    transformPoint3d(p: Point3D): /* res */ Point3D
-    transformRay(r: Ray): /* res */ Ray
-    transformRect(r: Rect): /* res */ Quad
-    transformSphere(s: Sphere): /* res */ Sphere
-    transformVec3(v: Vec3): /* res */ Vec3
-    transformVec4(v: Vec4): /* res */ Vec4
+    to2d(): { returnType: boolean, xx: number, yx: number, xy: number, yy: number, x0: number, y0: number }
+    toFloat(): { v: number[] }
+    transformBounds(r: Rect): { res: Rect }
+    transformBox(b: Box): { res: Box }
+    transformPoint(p: Point): { res: Point }
+    transformPoint3d(p: Point3D): { res: Point3D }
+    transformRay(r: Ray): { res: Ray }
+    transformRect(r: Rect): { res: Quad }
+    transformSphere(s: Sphere): { res: Sphere }
+    transformVec3(v: Vec3): { res: Vec3 }
+    transformVec4(v: Vec4): { res: Vec4 }
     translate(pos: Point3D): void
-    transpose(): /* res */ Matrix
-    unprojectPoint3d(modelview: Matrix, point: Point3D): /* res */ Point3D
-    untransformBounds(r: Rect, bounds: Rect): /* res */ Rect
-    untransformPoint(p: Point, bounds: Rect): [ /* returnType */ boolean, /* res */ Point ]
+    transpose(): { res: Matrix }
+    unprojectPoint3d(modelview: Matrix, point: Point3D): { res: Point3D }
+    untransformBounds(r: Rect, bounds: Rect): { res: Rect }
+    untransformPoint(p: Point, bounds: Rect): { returnType: boolean, res: Point }
     static name: string
     /* Static methods and pseudo-constructors */
     static alloc(): Matrix
 }
 export class Plane {
-    /* Methods of Graphene.Plane */
+    /* Methods of Graphene-1.0.Graphene.Plane */
     distance(point: Point3D): number
     equal(b: Plane): boolean
     free(): void
     getConstant(): number
-    getNormal(): /* normal */ Vec3
+    getNormal(): { normal: Vec3 }
     init(normal: Vec3 | null, constant: number): Plane
     initFromPlane(src: Plane): Plane
     initFromPoint(normal: Vec3, point: Point3D): Plane
     initFromPoints(a: Point3D, b: Point3D, c: Point3D): Plane
     initFromVec4(src: Vec4): Plane
-    negate(): /* res */ Plane
-    normalize(): /* res */ Plane
-    transform(matrix: Matrix, normalMatrix?: Matrix | null): /* res */ Plane
+    negate(): { res: Plane }
+    normalize(): { res: Plane }
+    transform(matrix: Matrix, normalMatrix?: Matrix | null): { res: Plane }
     static name: string
     /* Static methods and pseudo-constructors */
     static alloc(): Plane
 }
 export class Point {
-    /* Fields of Graphene.Point */
+    /* Fields of Graphene-1.0.Graphene.Point */
     x: number
     y: number
-    /* Methods of Graphene.Point */
-    distance(b: Point): [ /* returnType */ number, /* dX */ number | null, /* dY */ number | null ]
+    /* Methods of Graphene-1.0.Graphene.Point */
+    distance(b: Point): { returnType: number, dX: number | null, dY: number | null }
     equal(b: Point): boolean
     free(): void
     init(x: number, y: number): Point
     initFromPoint(src: Point): Point
     initFromVec2(src: Vec2): Point
-    interpolate(b: Point, factor: number): /* res */ Point
+    interpolate(b: Point, factor: number): { res: Point }
     near(b: Point, epsilon: number): boolean
-    toVec2(): /* v */ Vec2
+    toVec2(): { v: Vec2 }
     static name: string
     /* Static methods and pseudo-constructors */
     static alloc(): Point
     static zero(): Point
 }
 export class Point3D {
-    /* Fields of Graphene.Point3D */
+    /* Fields of Graphene-1.0.Graphene.Point3D */
     x: number
     y: number
     z: number
-    /* Methods of Graphene.Point3D */
-    cross(b: Point3D): /* res */ Point3D
-    distance(b: Point3D): [ /* returnType */ number, /* delta */ Vec3 | null ]
+    /* Methods of Graphene-1.0.Graphene.Point3D */
+    cross(b: Point3D): { res: Point3D }
+    distance(b: Point3D): { returnType: number, delta: Vec3 | null }
     dot(b: Point3D): number
     equal(b: Point3D): boolean
     free(): void
     init(x: number, y: number, z: number): Point3D
     initFromPoint(src: Point3D): Point3D
     initFromVec3(v: Vec3): Point3D
-    interpolate(b: Point3D, factor: number): /* res */ Point3D
+    interpolate(b: Point3D, factor: number): { res: Point3D }
     length(): number
     near(b: Point3D, epsilon: number): boolean
-    normalize(): /* res */ Point3D
-    normalizeViewport(viewport: Rect, zNear: number, zFar: number): /* res */ Point3D
-    scale(factor: number): /* res */ Point3D
-    toVec3(): /* v */ Vec3
+    normalize(): { res: Point3D }
+    normalizeViewport(viewport: Rect, zNear: number, zFar: number): { res: Point3D }
+    scale(factor: number): { res: Point3D }
+    toVec3(): { v: Vec3 }
     static name: string
     /* Static methods and pseudo-constructors */
     static alloc(): Point3D
     static zero(): Point3D
 }
 export class Quad {
-    /* Methods of Graphene.Quad */
-    bounds(): /* r */ Rect
+    /* Methods of Graphene-1.0.Graphene.Quad */
+    bounds(): { r: Rect }
     contains(p: Point): boolean
     free(): void
     getPoint(index: number): Point
@@ -303,8 +303,8 @@ export class Quad {
     static alloc(): Quad
 }
 export class Quaternion {
-    /* Methods of Graphene.Quaternion */
-    add(b: Quaternion): /* res */ Quaternion
+    /* Methods of Graphene-1.0.Graphene.Quaternion */
+    add(b: Quaternion): { res: Quaternion }
     dot(b: Quaternion): number
     equal(b: Quaternion): boolean
     free(): void
@@ -317,36 +317,36 @@ export class Quaternion {
     initFromRadians(radX: number, radY: number, radZ: number): Quaternion
     initFromVec4(src: Vec4): Quaternion
     initIdentity(): Quaternion
-    invert(): /* res */ Quaternion
-    multiply(b: Quaternion): /* res */ Quaternion
-    normalize(): /* res */ Quaternion
-    scale(factor: number): /* res */ Quaternion
-    slerp(b: Quaternion, factor: number): /* res */ Quaternion
-    toAngleVec3(): [ /* angle */ number, /* axis */ Vec3 ]
-    toAngles(): [ /* degX */ number | null, /* degY */ number | null, /* degZ */ number | null ]
-    toMatrix(): /* m */ Matrix
-    toRadians(): [ /* radX */ number | null, /* radY */ number | null, /* radZ */ number | null ]
-    toVec4(): /* res */ Vec4
+    invert(): { res: Quaternion }
+    multiply(b: Quaternion): { res: Quaternion }
+    normalize(): { res: Quaternion }
+    scale(factor: number): { res: Quaternion }
+    slerp(b: Quaternion, factor: number): { res: Quaternion }
+    toAngleVec3(): { angle: number, axis: Vec3 }
+    toAngles(): { degX: number | null, degY: number | null, degZ: number | null }
+    toMatrix(): { m: Matrix }
+    toRadians(): { radX: number | null, radY: number | null, radZ: number | null }
+    toVec4(): { res: Vec4 }
     static name: string
     /* Static methods and pseudo-constructors */
     static alloc(): Quaternion
 }
 export class Ray {
-    /* Methods of Graphene.Ray */
+    /* Methods of Graphene-1.0.Graphene.Ray */
     equal(b: Ray): boolean
     free(): void
-    getClosestPointToPoint(p: Point3D): /* res */ Point3D
-    getDirection(): /* direction */ Vec3
+    getClosestPointToPoint(p: Point3D): { res: Point3D }
+    getDirection(): { direction: Vec3 }
     getDistanceToPlane(p: Plane): number
     getDistanceToPoint(p: Point3D): number
-    getOrigin(): /* origin */ Point3D
-    getPositionAt(t: number): /* position */ Point3D
+    getOrigin(): { origin: Point3D }
+    getPositionAt(t: number): { position: Point3D }
     init(origin?: Point3D | null, direction?: Vec3 | null): Ray
     initFromRay(src: Ray): Ray
     initFromVec3(origin?: Vec3 | null, direction?: Vec3 | null): Ray
-    intersectBox(b: Box): [ /* returnType */ RayIntersectionKind, /* tOut */ number ]
-    intersectSphere(s: Sphere): [ /* returnType */ RayIntersectionKind, /* tOut */ number ]
-    intersectTriangle(t: Triangle): [ /* returnType */ RayIntersectionKind, /* tOut */ number ]
+    intersectBox(b: Box): { returnType: RayIntersectionKind, tOut: number }
+    intersectSphere(s: Sphere): { returnType: RayIntersectionKind, tOut: number }
+    intersectTriangle(t: Triangle): { returnType: RayIntersectionKind, tOut: number }
     intersectsBox(b: Box): boolean
     intersectsSphere(s: Sphere): boolean
     intersectsTriangle(t: Triangle): boolean
@@ -355,41 +355,41 @@ export class Ray {
     static alloc(): Ray
 }
 export class Rect {
-    /* Fields of Graphene.Rect */
+    /* Fields of Graphene-1.0.Graphene.Rect */
     origin: Point
     size: Size
-    /* Methods of Graphene.Rect */
+    /* Methods of Graphene-1.0.Graphene.Rect */
     containsPoint(p: Point): boolean
     containsRect(b: Rect): boolean
     equal(b: Rect): boolean
-    expand(p: Point): /* res */ Rect
+    expand(p: Point): { res: Rect }
     free(): void
     getArea(): number
-    getBottomLeft(): /* p */ Point
-    getBottomRight(): /* p */ Point
-    getCenter(): /* p */ Point
+    getBottomLeft(): { p: Point }
+    getBottomRight(): { p: Point }
+    getCenter(): { p: Point }
     getHeight(): number
-    getTopLeft(): /* p */ Point
-    getTopRight(): /* p */ Point
-    getVertices(): /* vertices */ Vec2[]
+    getTopLeft(): { p: Point }
+    getTopRight(): { p: Point }
+    getVertices(): { vertices: Vec2[] }
     getWidth(): number
     getX(): number
     getY(): number
     init(x: number, y: number, width: number, height: number): Rect
     initFromRect(src: Rect): Rect
     inset(dX: number, dY: number): Rect
-    insetR(dX: number, dY: number): /* res */ Rect
-    interpolate(b: Rect, factor: number): /* res */ Rect
-    intersection(b: Rect): [ /* returnType */ boolean, /* res */ Rect | null ]
+    insetR(dX: number, dY: number): { res: Rect }
+    interpolate(b: Rect, factor: number): { res: Rect }
+    intersection(b: Rect): { returnType: boolean, res: Rect | null }
     normalize(): Rect
-    normalizeR(): /* res */ Rect
+    normalizeR(): { res: Rect }
     offset(dX: number, dY: number): Rect
-    offsetR(dX: number, dY: number): /* res */ Rect
-    round(): /* res */ Rect
-    roundExtents(): /* res */ Rect
+    offsetR(dX: number, dY: number): { res: Rect }
+    round(): { res: Rect }
+    roundExtents(): { res: Rect }
     roundToPixel(): Rect
-    scale(sH: number, sV: number): /* res */ Rect
-    union(b: Rect): /* res */ Rect
+    scale(sH: number, sV: number): { res: Rect }
+    union(b: Rect): { res: Rect }
     static name: string
     /* Static methods and pseudo-constructors */
     static alloc(): Rect
@@ -402,53 +402,53 @@ export class Simd4X4F {
     static name: string
 }
 export class Size {
-    /* Fields of Graphene.Size */
+    /* Fields of Graphene-1.0.Graphene.Size */
     width: number
     height: number
-    /* Methods of Graphene.Size */
+    /* Methods of Graphene-1.0.Graphene.Size */
     equal(b: Size): boolean
     free(): void
     init(width: number, height: number): Size
     initFromSize(src: Size): Size
-    interpolate(b: Size, factor: number): /* res */ Size
-    scale(factor: number): /* res */ Size
+    interpolate(b: Size, factor: number): { res: Size }
+    scale(factor: number): { res: Size }
     static name: string
     /* Static methods and pseudo-constructors */
     static alloc(): Size
     static zero(): Size
 }
 export class Sphere {
-    /* Methods of Graphene.Sphere */
+    /* Methods of Graphene-1.0.Graphene.Sphere */
     containsPoint(point: Point3D): boolean
     distance(point: Point3D): number
     equal(b: Sphere): boolean
     free(): void
-    getBoundingBox(): /* box */ Box
-    getCenter(): /* center */ Point3D
+    getBoundingBox(): { box: Box }
+    getCenter(): { center: Point3D }
     getRadius(): number
     init(center: Point3D | null, radius: number): Sphere
     initFromPoints(points: Point3D[], center?: Point3D | null): Sphere
     initFromVectors(vectors: Vec3[], center?: Point3D | null): Sphere
     isEmpty(): boolean
-    translate(point: Point3D): /* res */ Sphere
+    translate(point: Point3D): { res: Sphere }
     static name: string
     /* Static methods and pseudo-constructors */
     static alloc(): Sphere
 }
 export class Triangle {
-    /* Methods of Graphene.Triangle */
+    /* Methods of Graphene-1.0.Graphene.Triangle */
     containsPoint(p: Point3D): boolean
     equal(b: Triangle): boolean
     free(): void
     getArea(): number
-    getBarycoords(p?: Point3D | null): [ /* returnType */ boolean, /* res */ Vec2 ]
-    getBoundingBox(): /* res */ Box
-    getMidpoint(): /* res */ Point3D
-    getNormal(): /* res */ Vec3
-    getPlane(): /* res */ Plane
-    getPoints(): [ /* a */ Point3D | null, /* b */ Point3D | null, /* c */ Point3D | null ]
-    getUv(p: Point3D | null, uvA: Vec2, uvB: Vec2, uvC: Vec2): [ /* returnType */ boolean, /* res */ Vec2 ]
-    getVertices(): [ /* a */ Vec3 | null, /* b */ Vec3 | null, /* c */ Vec3 | null ]
+    getBarycoords(p?: Point3D | null): { returnType: boolean, res: Vec2 }
+    getBoundingBox(): { res: Box }
+    getMidpoint(): { res: Point3D }
+    getNormal(): { res: Vec3 }
+    getPlane(): { res: Plane }
+    getPoints(): { a: Point3D | null, b: Point3D | null, c: Point3D | null }
+    getUv(p: Point3D | null, uvA: Vec2, uvB: Vec2, uvC: Vec2): { returnType: boolean, res: Vec2 }
+    getVertices(): { a: Vec3 | null, b: Vec3 | null, c: Vec3 | null }
     initFromFloat(a: number[], b: number[], c: number[]): Triangle
     initFromPoint3d(a?: Point3D | null, b?: Point3D | null, c?: Point3D | null): Triangle
     initFromVec3(a?: Vec3 | null, b?: Vec3 | null, c?: Vec3 | null): Triangle
@@ -457,9 +457,9 @@ export class Triangle {
     static alloc(): Triangle
 }
 export class Vec2 {
-    /* Methods of Graphene.Vec2 */
-    add(b: Vec2): /* res */ Vec2
-    divide(b: Vec2): /* res */ Vec2
+    /* Methods of Graphene-1.0.Graphene.Vec2 */
+    add(b: Vec2): { res: Vec2 }
+    divide(b: Vec2): { res: Vec2 }
     dot(b: Vec2): number
     equal(v2: Vec2): boolean
     free(): void
@@ -468,17 +468,17 @@ export class Vec2 {
     init(x: number, y: number): Vec2
     initFromFloat(src: number[]): Vec2
     initFromVec2(src: Vec2): Vec2
-    interpolate(v2: Vec2, factor: number): /* res */ Vec2
+    interpolate(v2: Vec2, factor: number): { res: Vec2 }
     length(): number
-    max(b: Vec2): /* res */ Vec2
-    min(b: Vec2): /* res */ Vec2
-    multiply(b: Vec2): /* res */ Vec2
+    max(b: Vec2): { res: Vec2 }
+    min(b: Vec2): { res: Vec2 }
+    multiply(b: Vec2): { res: Vec2 }
     near(v2: Vec2, epsilon: number): boolean
-    negate(): /* res */ Vec2
-    normalize(): /* res */ Vec2
-    scale(factor: number): /* res */ Vec2
-    subtract(b: Vec2): /* res */ Vec2
-    toFloat(): /* dest */ number[]
+    negate(): { res: Vec2 }
+    normalize(): { res: Vec2 }
+    scale(factor: number): { res: Vec2 }
+    subtract(b: Vec2): { res: Vec2 }
+    toFloat(): { dest: number[] }
     static name: string
     /* Static methods and pseudo-constructors */
     static alloc(): Vec2
@@ -488,35 +488,35 @@ export class Vec2 {
     static zero(): Vec2
 }
 export class Vec3 {
-    /* Methods of Graphene.Vec3 */
-    add(b: Vec3): /* res */ Vec3
-    cross(b: Vec3): /* res */ Vec3
-    divide(b: Vec3): /* res */ Vec3
+    /* Methods of Graphene-1.0.Graphene.Vec3 */
+    add(b: Vec3): { res: Vec3 }
+    cross(b: Vec3): { res: Vec3 }
+    divide(b: Vec3): { res: Vec3 }
     dot(b: Vec3): number
     equal(v2: Vec3): boolean
     free(): void
     getX(): number
-    getXy(): /* res */ Vec2
-    getXy0(): /* res */ Vec3
-    getXyz0(): /* res */ Vec4
-    getXyz1(): /* res */ Vec4
-    getXyzw(w: number): /* res */ Vec4
+    getXy(): { res: Vec2 }
+    getXy0(): { res: Vec3 }
+    getXyz0(): { res: Vec4 }
+    getXyz1(): { res: Vec4 }
+    getXyzw(w: number): { res: Vec4 }
     getY(): number
     getZ(): number
     init(x: number, y: number, z: number): Vec3
     initFromFloat(src: number[]): Vec3
     initFromVec3(src: Vec3): Vec3
-    interpolate(v2: Vec3, factor: number): /* res */ Vec3
+    interpolate(v2: Vec3, factor: number): { res: Vec3 }
     length(): number
-    max(b: Vec3): /* res */ Vec3
-    min(b: Vec3): /* res */ Vec3
-    multiply(b: Vec3): /* res */ Vec3
+    max(b: Vec3): { res: Vec3 }
+    min(b: Vec3): { res: Vec3 }
+    multiply(b: Vec3): { res: Vec3 }
     near(v2: Vec3, epsilon: number): boolean
-    negate(): /* res */ Vec3
-    normalize(): /* res */ Vec3
-    scale(factor: number): /* res */ Vec3
-    subtract(b: Vec3): /* res */ Vec3
-    toFloat(): /* dest */ number[]
+    negate(): { res: Vec3 }
+    normalize(): { res: Vec3 }
+    scale(factor: number): { res: Vec3 }
+    subtract(b: Vec3): { res: Vec3 }
+    toFloat(): { dest: number[] }
     static name: string
     /* Static methods and pseudo-constructors */
     static alloc(): Vec3
@@ -527,16 +527,16 @@ export class Vec3 {
     static zero(): Vec3
 }
 export class Vec4 {
-    /* Methods of Graphene.Vec4 */
-    add(b: Vec4): /* res */ Vec4
-    divide(b: Vec4): /* res */ Vec4
+    /* Methods of Graphene-1.0.Graphene.Vec4 */
+    add(b: Vec4): { res: Vec4 }
+    divide(b: Vec4): { res: Vec4 }
     dot(b: Vec4): number
     equal(v2: Vec4): boolean
     free(): void
     getW(): number
     getX(): number
-    getXy(): /* res */ Vec2
-    getXyz(): /* res */ Vec3
+    getXy(): { res: Vec2 }
+    getXyz(): { res: Vec3 }
     getY(): number
     getZ(): number
     init(x: number, y: number, z: number, w: number): Vec4
@@ -544,17 +544,17 @@ export class Vec4 {
     initFromVec2(src: Vec2, z: number, w: number): Vec4
     initFromVec3(src: Vec3, w: number): Vec4
     initFromVec4(src: Vec4): Vec4
-    interpolate(v2: Vec4, factor: number): /* res */ Vec4
+    interpolate(v2: Vec4, factor: number): { res: Vec4 }
     length(): number
-    max(b: Vec4): /* res */ Vec4
-    min(b: Vec4): /* res */ Vec4
-    multiply(b: Vec4): /* res */ Vec4
+    max(b: Vec4): { res: Vec4 }
+    min(b: Vec4): { res: Vec4 }
+    multiply(b: Vec4): { res: Vec4 }
     near(v2: Vec4, epsilon: number): boolean
-    negate(): /* res */ Vec4
-    normalize(): /* res */ Vec4
-    scale(factor: number): /* res */ Vec4
-    subtract(b: Vec4): /* res */ Vec4
-    toFloat(): /* dest */ number[]
+    negate(): { res: Vec4 }
+    normalize(): { res: Vec4 }
+    scale(factor: number): { res: Vec4 }
+    subtract(b: Vec4): { res: Vec4 }
+    toFloat(): { dest: number[] }
     static name: string
     /* Static methods and pseudo-constructors */
     static alloc(): Vec4

@@ -36,11 +36,11 @@ export function implicit_authorization_from_string(string: string, out_implicit_
 export function implicit_authorization_to_string(implicit_authorization: ImplicitAuthorization): string
 export function subject_from_string(str: string): Subject
 export class Identity {
-    /* Methods of Polkit.Identity */
+    /* Methods of Polkit-1.0.Polkit.Identity */
     equal(b: Identity): boolean
     hash(): number
     to_string(): string
-    /* Virtual methods of Polkit.Identity */
+    /* Virtual methods of Polkit-1.0.Polkit.Identity */
     vfunc_equal(b: Identity): boolean
     vfunc_hash(): number
     vfunc_to_string(): string
@@ -49,14 +49,14 @@ export class Identity {
     static from_string(str: string): Identity | null
 }
 export class Subject {
-    /* Methods of Polkit.Subject */
+    /* Methods of Polkit-1.0.Polkit.Subject */
     equal(b: Subject): boolean
     exists(cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     exists_finish(res: Gio.AsyncResult): boolean
     exists_sync(cancellable?: Gio.Cancellable | null): boolean
     hash(): number
     to_string(): string
-    /* Virtual methods of Polkit.Subject */
+    /* Virtual methods of Polkit-1.0.Polkit.Subject */
     vfunc_equal(b: Subject): boolean
     vfunc_exists(cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     vfunc_exists_finish(res: Gio.AsyncResult): boolean
@@ -70,9 +70,9 @@ export class Subject {
 export interface ActionDescription_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class ActionDescription {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Polkit.ActionDescription */
+    /* Methods of Polkit-1.0.Polkit.ActionDescription */
     get_action_id(): string
     get_annotation(key: string): string | null
     get_annotation_keys(): string[]
@@ -84,7 +84,7 @@ export class ActionDescription {
     get_message(): string
     get_vendor_name(): string
     get_vendor_url(): string
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -106,7 +106,7 @@ export class ActionDescription {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -114,7 +114,7 @@ export class ActionDescription {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: ActionDescription, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: ActionDescription, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -130,14 +130,14 @@ export class ActionDescription {
 export interface Authority_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class Authority {
-    /* Properties of Polkit.Authority */
+    /* Properties of Polkit-1.0.Polkit.Authority */
     readonly backend_features: AuthorityFeatures
     readonly backend_name: string
     readonly backend_version: string
     readonly owner: string
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Polkit.Authority */
+    /* Methods of Polkit-1.0.Polkit.Authority */
     authentication_agent_response(cookie: string, identity: Identity, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     authentication_agent_response_finish(res: Gio.AsyncResult): boolean
     authentication_agent_response_sync(cookie: string, identity: Identity, cancellable?: Gio.Cancellable | null): boolean
@@ -169,7 +169,7 @@ export class Authority {
     unregister_authentication_agent(subject: Subject, object_path: string, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     unregister_authentication_agent_finish(res: Gio.AsyncResult): boolean
     unregister_authentication_agent_sync(subject: Subject, object_path: string, cancellable?: Gio.Cancellable | null): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -191,17 +191,17 @@ export class Authority {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of Gio.AsyncInitable */
+    /* Methods of Gio-2.0.Gio.AsyncInitable */
     init_async(io_priority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     init_finish(res: Gio.AsyncResult): boolean
     new_finish(res: Gio.AsyncResult): GObject.Object
-    /* Methods of Gio.Initable */
+    /* Methods of Gio-2.0.Gio.Initable */
     init(cancellable?: Gio.Cancellable | null): boolean
-    /* Virtual methods of Polkit.Authority */
+    /* Virtual methods of Polkit-1.0.Polkit.Authority */
     vfunc_init_async(io_priority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     vfunc_init_finish(res: Gio.AsyncResult): boolean
     vfunc_init(cancellable?: Gio.Cancellable | null): boolean
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -209,11 +209,11 @@ export class Authority {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Polkit.Authority */
+    /* Signals of Polkit-1.0.Polkit.Authority */
     connect(sigName: "changed", callback: (($obj: Authority) => void)): number
     connect_after(sigName: "changed", callback: (($obj: Authority) => void)): number
     emit(sigName: "changed"): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Authority, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Authority, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -244,16 +244,16 @@ export class Authority {
 export interface AuthorizationResult_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class AuthorizationResult {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Polkit.AuthorizationResult */
+    /* Methods of Polkit-1.0.Polkit.AuthorizationResult */
     get_details(): Details | null
     get_dismissed(): boolean
     get_is_authorized(): boolean
     get_is_challenge(): boolean
     get_retains_authorization(): boolean
     get_temporary_authorization_id(): string | null
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -275,7 +275,7 @@ export class AuthorizationResult {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -283,7 +283,7 @@ export class AuthorizationResult {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: AuthorizationResult, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: AuthorizationResult, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -301,13 +301,13 @@ export class AuthorizationResult {
 export interface Details_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class Details {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Polkit.Details */
+    /* Methods of Polkit-1.0.Polkit.Details */
     get_keys(): string[] | null
     insert(key: string, value?: string | null): void
     lookup(key: string): string | null
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -329,7 +329,7 @@ export class Details {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -337,7 +337,7 @@ export class Details {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Details, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Details, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -357,18 +357,18 @@ export interface Permission_ConstructProps extends Gio.Permission_ConstructProps
     subject?: Subject
 }
 export class Permission {
-    /* Properties of Gio.Permission */
+    /* Properties of Gio-2.0.Gio.Permission */
     readonly allowed: boolean
     readonly can_acquire: boolean
     readonly can_release: boolean
-    /* Fields of Gio.Permission */
+    /* Fields of Gio-2.0.Gio.Permission */
     parent_instance: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Polkit.Permission */
+    /* Methods of Polkit-1.0.Polkit.Permission */
     get_action_id(): string
     get_subject(): Subject
-    /* Methods of Gio.Permission */
+    /* Methods of Gio-2.0.Gio.Permission */
     acquire(cancellable?: Gio.Cancellable | null): boolean
     acquire_async(cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     acquire_finish(result: Gio.AsyncResult): boolean
@@ -379,7 +379,7 @@ export class Permission {
     release(cancellable?: Gio.Cancellable | null): boolean
     release_async(cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     release_finish(result: Gio.AsyncResult): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -401,24 +401,24 @@ export class Permission {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of Gio.AsyncInitable */
+    /* Methods of Gio-2.0.Gio.AsyncInitable */
     init_async(io_priority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     init_finish(res: Gio.AsyncResult): boolean
     new_finish(res: Gio.AsyncResult): GObject.Object
-    /* Methods of Gio.Initable */
+    /* Methods of Gio-2.0.Gio.Initable */
     init(cancellable?: Gio.Cancellable | null): boolean
-    /* Virtual methods of Polkit.Permission */
+    /* Virtual methods of Polkit-1.0.Polkit.Permission */
     vfunc_init_async(io_priority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     vfunc_init_finish(res: Gio.AsyncResult): boolean
     vfunc_init(cancellable?: Gio.Cancellable | null): boolean
-    /* Virtual methods of Gio.Permission */
+    /* Virtual methods of Gio-2.0.Gio.Permission */
     vfunc_acquire(cancellable?: Gio.Cancellable | null): boolean
     vfunc_acquire_async(cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     vfunc_acquire_finish(result: Gio.AsyncResult): boolean
     vfunc_release(cancellable?: Gio.Cancellable | null): boolean
     vfunc_release_async(cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     vfunc_release_finish(result: Gio.AsyncResult): boolean
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -426,7 +426,7 @@ export class Permission {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Permission, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Permission, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -454,16 +454,16 @@ export interface SystemBusName_ConstructProps extends GObject.Object_ConstructPr
     name?: string
 }
 export class SystemBusName {
-    /* Properties of Polkit.SystemBusName */
+    /* Properties of Polkit-1.0.Polkit.SystemBusName */
     name: string
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Polkit.SystemBusName */
+    /* Methods of Polkit-1.0.Polkit.SystemBusName */
     get_name(): string
     get_process_sync(cancellable?: Gio.Cancellable | null): Subject | null
     get_user_sync(cancellable?: Gio.Cancellable | null): UnixUser | null
     set_name(name: string): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -485,21 +485,21 @@ export class SystemBusName {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of Polkit.Subject */
+    /* Methods of Polkit-1.0.Polkit.Subject */
     equal(b: Subject): boolean
     exists(cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     exists_finish(res: Gio.AsyncResult): boolean
     exists_sync(cancellable?: Gio.Cancellable | null): boolean
     hash(): number
     to_string(): string
-    /* Virtual methods of Polkit.SystemBusName */
+    /* Virtual methods of Polkit-1.0.Polkit.SystemBusName */
     vfunc_equal(b: Subject): boolean
     vfunc_exists(cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     vfunc_exists_finish(res: Gio.AsyncResult): boolean
     vfunc_exists_sync(cancellable?: Gio.Cancellable | null): boolean
     vfunc_hash(): number
     vfunc_to_string(): string
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -507,7 +507,7 @@ export class SystemBusName {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: SystemBusName, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: SystemBusName, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -527,15 +527,15 @@ export class SystemBusName {
 export interface TemporaryAuthorization_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class TemporaryAuthorization {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Polkit.TemporaryAuthorization */
+    /* Methods of Polkit-1.0.Polkit.TemporaryAuthorization */
     get_action_id(): string
     get_id(): string
     get_subject(): Subject
     get_time_expires(): number
     get_time_obtained(): number
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -557,7 +557,7 @@ export class TemporaryAuthorization {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -565,7 +565,7 @@ export class TemporaryAuthorization {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: TemporaryAuthorization, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: TemporaryAuthorization, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -582,14 +582,14 @@ export interface UnixGroup_ConstructProps extends GObject.Object_ConstructProps 
     gid?: number
 }
 export class UnixGroup {
-    /* Properties of Polkit.UnixGroup */
+    /* Properties of Polkit-1.0.Polkit.UnixGroup */
     gid: number
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Polkit.UnixGroup */
+    /* Methods of Polkit-1.0.Polkit.UnixGroup */
     get_gid(): number
     set_gid(gid: number): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -611,15 +611,15 @@ export class UnixGroup {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of Polkit.Identity */
+    /* Methods of Polkit-1.0.Polkit.Identity */
     equal(b: Identity): boolean
     hash(): number
     to_string(): string
-    /* Virtual methods of Polkit.UnixGroup */
+    /* Virtual methods of Polkit-1.0.Polkit.UnixGroup */
     vfunc_equal(b: Identity): boolean
     vfunc_hash(): number
     vfunc_to_string(): string
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -627,7 +627,7 @@ export class UnixGroup {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: UnixGroup, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: UnixGroup, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -649,14 +649,14 @@ export interface UnixNetgroup_ConstructProps extends GObject.Object_ConstructPro
     name?: string
 }
 export class UnixNetgroup {
-    /* Properties of Polkit.UnixNetgroup */
+    /* Properties of Polkit-1.0.Polkit.UnixNetgroup */
     name: string
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Polkit.UnixNetgroup */
+    /* Methods of Polkit-1.0.Polkit.UnixNetgroup */
     get_name(): string
     set_name(name: string): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -678,15 +678,15 @@ export class UnixNetgroup {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of Polkit.Identity */
+    /* Methods of Polkit-1.0.Polkit.Identity */
     equal(b: Identity): boolean
     hash(): number
     to_string(): string
-    /* Virtual methods of Polkit.UnixNetgroup */
+    /* Virtual methods of Polkit-1.0.Polkit.UnixNetgroup */
     vfunc_equal(b: Identity): boolean
     vfunc_hash(): number
     vfunc_to_string(): string
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -694,7 +694,7 @@ export class UnixNetgroup {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: UnixNetgroup, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: UnixNetgroup, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -717,13 +717,13 @@ export interface UnixProcess_ConstructProps extends GObject.Object_ConstructProp
     uid?: number
 }
 export class UnixProcess {
-    /* Properties of Polkit.UnixProcess */
+    /* Properties of Polkit-1.0.Polkit.UnixProcess */
     pid: number
     start_time: number
     uid: number
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Polkit.UnixProcess */
+    /* Methods of Polkit-1.0.Polkit.UnixProcess */
     get_owner(): number
     get_pid(): number
     get_start_time(): number
@@ -731,7 +731,7 @@ export class UnixProcess {
     set_pid(pid: number): void
     set_start_time(start_time: number): void
     set_uid(uid: number): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -753,21 +753,21 @@ export class UnixProcess {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of Polkit.Subject */
+    /* Methods of Polkit-1.0.Polkit.Subject */
     equal(b: Subject): boolean
     exists(cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     exists_finish(res: Gio.AsyncResult): boolean
     exists_sync(cancellable?: Gio.Cancellable | null): boolean
     hash(): number
     to_string(): string
-    /* Virtual methods of Polkit.UnixProcess */
+    /* Virtual methods of Polkit-1.0.Polkit.UnixProcess */
     vfunc_equal(b: Subject): boolean
     vfunc_exists(cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     vfunc_exists_finish(res: Gio.AsyncResult): boolean
     vfunc_exists_sync(cancellable?: Gio.Cancellable | null): boolean
     vfunc_hash(): number
     vfunc_to_string(): string
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -775,7 +775,7 @@ export class UnixProcess {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: UnixProcess, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: UnixProcess, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -803,14 +803,14 @@ export interface UnixSession_ConstructProps extends GObject.Object_ConstructProp
     session_id?: string
 }
 export class UnixSession {
-    /* Properties of Polkit.UnixSession */
+    /* Properties of Polkit-1.0.Polkit.UnixSession */
     session_id: string
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Polkit.UnixSession */
+    /* Methods of Polkit-1.0.Polkit.UnixSession */
     get_session_id(): string
     set_session_id(session_id: string): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -832,20 +832,20 @@ export class UnixSession {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of Gio.AsyncInitable */
+    /* Methods of Gio-2.0.Gio.AsyncInitable */
     init_async(io_priority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     init_finish(res: Gio.AsyncResult): boolean
     new_finish(res: Gio.AsyncResult): GObject.Object
-    /* Methods of Gio.Initable */
+    /* Methods of Gio-2.0.Gio.Initable */
     init(cancellable?: Gio.Cancellable | null): boolean
-    /* Methods of Polkit.Subject */
+    /* Methods of Polkit-1.0.Polkit.Subject */
     equal(b: Subject): boolean
     exists(cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     exists_finish(res: Gio.AsyncResult): boolean
     exists_sync(cancellable?: Gio.Cancellable | null): boolean
     hash(): number
     to_string(): string
-    /* Virtual methods of Polkit.UnixSession */
+    /* Virtual methods of Polkit-1.0.Polkit.UnixSession */
     vfunc_init_async(io_priority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     vfunc_init_finish(res: Gio.AsyncResult): boolean
     vfunc_init(cancellable?: Gio.Cancellable | null): boolean
@@ -855,7 +855,7 @@ export class UnixSession {
     vfunc_exists_sync(cancellable?: Gio.Cancellable | null): boolean
     vfunc_hash(): number
     vfunc_to_string(): string
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -863,7 +863,7 @@ export class UnixSession {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: UnixSession, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: UnixSession, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -889,15 +889,15 @@ export interface UnixUser_ConstructProps extends GObject.Object_ConstructProps {
     uid?: number
 }
 export class UnixUser {
-    /* Properties of Polkit.UnixUser */
+    /* Properties of Polkit-1.0.Polkit.UnixUser */
     uid: number
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Polkit.UnixUser */
+    /* Methods of Polkit-1.0.Polkit.UnixUser */
     get_name(): string | null
     get_uid(): number
     set_uid(uid: number): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -919,15 +919,15 @@ export class UnixUser {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of Polkit.Identity */
+    /* Methods of Polkit-1.0.Polkit.Identity */
     equal(b: Identity): boolean
     hash(): number
     to_string(): string
-    /* Virtual methods of Polkit.UnixUser */
+    /* Virtual methods of Polkit-1.0.Polkit.UnixUser */
     vfunc_equal(b: Identity): boolean
     vfunc_hash(): number
     vfunc_to_string(): string
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -935,7 +935,7 @@ export class UnixUser {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: UnixUser, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: UnixUser, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -966,7 +966,7 @@ export abstract class DetailsClass {
     static name: string
 }
 export abstract class IdentityIface {
-    /* Fields of Polkit.IdentityIface */
+    /* Fields of Polkit-1.0.Polkit.IdentityIface */
     parent_iface: GObject.TypeInterface
     hash: (identity: Identity) => number
     equal: (a: Identity, b: Identity) => boolean
@@ -974,7 +974,7 @@ export abstract class IdentityIface {
     static name: string
 }
 export abstract class SubjectIface {
-    /* Fields of Polkit.SubjectIface */
+    /* Fields of Polkit-1.0.Polkit.SubjectIface */
     parent_iface: GObject.TypeInterface
     hash: (subject: Subject) => number
     equal: (a: Subject, b: Subject) => boolean

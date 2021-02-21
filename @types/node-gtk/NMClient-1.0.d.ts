@@ -377,7 +377,7 @@ export interface SecretAgentSaveSecretsFunc {
 export interface AccessPoint_ConstructProps extends Object_ConstructProps {
 }
 export class AccessPoint {
-    /* Properties of NMClient.AccessPoint */
+    /* Properties of NMClient-1.0.NMClient.AccessPoint */
     readonly bssid: string
     readonly flags: number
     readonly frequency: number
@@ -389,11 +389,11 @@ export class AccessPoint {
     readonly ssid: any
     readonly strength: number
     readonly wpaFlags: number
-    /* Fields of NMClient.AccessPoint */
+    /* Fields of NMClient-1.0.NMClient.AccessPoint */
     parent: Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of NMClient.AccessPoint */
+    /* Methods of NMClient-1.0.NMClient.AccessPoint */
     connectionValid(connection: NetworkManager.Connection): boolean
     filterConnections(connections: NetworkManager.Connection[]): NetworkManager.Connection[]
     getBssid(): string
@@ -407,10 +407,10 @@ export class AccessPoint {
     getSsid(): any[]
     getStrength(): number
     getWpaFlags(): NetworkManager.TODO_80211ApSecurityFlags
-    /* Methods of NMClient.Object */
+    /* Methods of NMClient-1.0.NMClient.Object */
     getConnection(): DBusGLib.Connection
     getPath(): string
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -432,39 +432,24 @@ export class AccessPoint {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of Gio.AsyncInitable */
+    /* Methods of Gio-2.0.Gio.AsyncInitable */
     initAsync(ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     initFinish(res: Gio.AsyncResult): boolean
     newFinish(res: Gio.AsyncResult): GObject.Object
-    /* Methods of Gio.Initable */
+    /* Methods of Gio-2.0.Gio.Initable */
     init(cancellable?: Gio.Cancellable | null): boolean
-    /* Virtual methods of NMClient.Object */
-    vfuncObjectCreationFailed(error: GLib.Error, failedPath: string): void
-    vfuncInitAsync(ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    vfuncInitFinish(res: Gio.AsyncResult): boolean
-    vfuncInit(cancellable?: Gio.Cancellable | null): boolean
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of NMClient.Object */
+    /* Signals of NMClient-1.0.NMClient.Object */
     connect(sigName: "object-creation-failed", callback: (($obj: AccessPoint, error?: object | null, failedPath?: object | null) => void)): number
-    connect_after(sigName: "object-creation-failed", callback: (($obj: AccessPoint, error?: object | null, failedPath?: object | null) => void)): number
+    on(sigName: "object-creation-failed", callback: (error?: object | null, failedPath?: object | null) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "object-creation-failed", callback: (error?: object | null, failedPath?: object | null) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "object-creation-failed", callback: (error?: object | null, failedPath?: object | null) => void): NodeJS.EventEmitter
     emit(sigName: "object-creation-failed", error?: object | null, failedPath?: object | null): void
-    on(sigName: "object-creation-failed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "object-creation-failed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "object-creation-failed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: AccessPoint, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: AccessPoint, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::bssid", callback: (($obj: AccessPoint, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::bssid", callback: (($obj: AccessPoint, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::bssid", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -537,7 +522,7 @@ export class AccessPoint {
 export interface ActiveConnection_ConstructProps extends Object_ConstructProps {
 }
 export class ActiveConnection {
-    /* Properties of NMClient.ActiveConnection */
+    /* Properties of NMClient-1.0.NMClient.ActiveConnection */
     readonly connection: string
     readonly "default": boolean
     readonly default6: boolean
@@ -553,11 +538,11 @@ export class ActiveConnection {
     readonly type: string
     readonly uuid: string
     readonly vpn: boolean
-    /* Fields of NMClient.ActiveConnection */
+    /* Fields of NMClient-1.0.NMClient.ActiveConnection */
     parent: Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of NMClient.ActiveConnection */
+    /* Methods of NMClient-1.0.NMClient.ActiveConnection */
     getConnection(): string
     getConnectionType(): string
     getDefault(): boolean
@@ -573,10 +558,10 @@ export class ActiveConnection {
     getState(): NetworkManager.ActiveConnectionState
     getUuid(): string
     getVpn(): boolean
-    /* Methods of NMClient.Object */
+    /* Methods of NMClient-1.0.NMClient.Object */
     getConnection(): DBusGLib.Connection
     getPath(): string
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -598,39 +583,24 @@ export class ActiveConnection {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of Gio.AsyncInitable */
+    /* Methods of Gio-2.0.Gio.AsyncInitable */
     initAsync(ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     initFinish(res: Gio.AsyncResult): boolean
     newFinish(res: Gio.AsyncResult): GObject.Object
-    /* Methods of Gio.Initable */
+    /* Methods of Gio-2.0.Gio.Initable */
     init(cancellable?: Gio.Cancellable | null): boolean
-    /* Virtual methods of NMClient.Object */
-    vfuncObjectCreationFailed(error: GLib.Error, failedPath: string): void
-    vfuncInitAsync(ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    vfuncInitFinish(res: Gio.AsyncResult): boolean
-    vfuncInit(cancellable?: Gio.Cancellable | null): boolean
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of NMClient.Object */
+    /* Signals of NMClient-1.0.NMClient.Object */
     connect(sigName: "object-creation-failed", callback: (($obj: ActiveConnection, error?: object | null, failedPath?: object | null) => void)): number
-    connect_after(sigName: "object-creation-failed", callback: (($obj: ActiveConnection, error?: object | null, failedPath?: object | null) => void)): number
+    on(sigName: "object-creation-failed", callback: (error?: object | null, failedPath?: object | null) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "object-creation-failed", callback: (error?: object | null, failedPath?: object | null) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "object-creation-failed", callback: (error?: object | null, failedPath?: object | null) => void): NodeJS.EventEmitter
     emit(sigName: "object-creation-failed", error?: object | null, failedPath?: object | null): void
-    on(sigName: "object-creation-failed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "object-creation-failed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "object-creation-failed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: ActiveConnection, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: ActiveConnection, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::connection", callback: (($obj: ActiveConnection, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::connection", callback: (($obj: ActiveConnection, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::connection", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -727,7 +697,7 @@ export interface Client_ConstructProps extends Object_ConstructProps {
     wwanEnabled?: boolean
 }
 export class Client {
-    /* Properties of NMClient.Client */
+    /* Properties of NMClient-1.0.NMClient.Client */
     readonly activatingConnection: ActiveConnection
     readonly activeConnections: object[]
     readonly allDevices: any
@@ -745,11 +715,11 @@ export class Client {
     readonly wirelessHardwareEnabled: boolean
     wwanEnabled: boolean
     readonly wwanHardwareEnabled: boolean
-    /* Fields of NMClient.Client */
+    /* Fields of NMClient-1.0.NMClient.Client */
     parent: Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of NMClient.Client */
+    /* Methods of NMClient-1.0.NMClient.Client */
     activateConnection(connection?: NetworkManager.Connection | null, device?: Device | null, specificObject?: string | null, callback?: ClientActivateFn | null): void
     addAndActivateConnection(partial: NetworkManager.Connection | null, device: Device, specificObject?: string | null, callback?: ClientAddActivateFn | null): void
     checkConnectivity(cancellable?: Gio.Cancellable | null): NetworkManager.ConnectivityState
@@ -783,10 +753,10 @@ export class Client {
     wwanGetEnabled(): boolean
     wwanHardwareGetEnabled(): boolean
     wwanSetEnabled(enabled: boolean): void
-    /* Methods of NMClient.Object */
+    /* Methods of NMClient-1.0.NMClient.Object */
     getConnection(): DBusGLib.Connection
     getPath(): string
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -808,74 +778,50 @@ export class Client {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of Gio.AsyncInitable */
+    /* Methods of Gio-2.0.Gio.AsyncInitable */
     initAsync(ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     initFinish(res: Gio.AsyncResult): boolean
     newFinish(res: Gio.AsyncResult): GObject.Object
-    /* Methods of Gio.Initable */
+    /* Methods of Gio-2.0.Gio.Initable */
     init(cancellable?: Gio.Cancellable | null): boolean
-    /* Virtual methods of NMClient.Client */
-    vfuncDeviceAdded(device: Device): void
-    vfuncDeviceRemoved(device: Device): void
-    vfuncPermissionChanged(permission: ClientPermission, result: ClientPermissionResult): void
-    /* Virtual methods of NMClient.Object */
-    vfuncObjectCreationFailed(error: GLib.Error, failedPath: string): void
-    vfuncInitAsync(ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    vfuncInitFinish(res: Gio.AsyncResult): boolean
-    vfuncInit(cancellable?: Gio.Cancellable | null): boolean
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of NMClient.Client */
+    /* Signals of NMClient-1.0.NMClient.Client */
     connect(sigName: "any-device-added", callback: (($obj: Client, device: Device) => void)): number
-    connect_after(sigName: "any-device-added", callback: (($obj: Client, device: Device) => void)): number
+    on(sigName: "any-device-added", callback: (device: Device) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "any-device-added", callback: (device: Device) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "any-device-added", callback: (device: Device) => void): NodeJS.EventEmitter
     emit(sigName: "any-device-added", device: Device): void
-    on(sigName: "any-device-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "any-device-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "any-device-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "any-device-removed", callback: (($obj: Client, device: Device) => void)): number
-    connect_after(sigName: "any-device-removed", callback: (($obj: Client, device: Device) => void)): number
+    on(sigName: "any-device-removed", callback: (device: Device) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "any-device-removed", callback: (device: Device) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "any-device-removed", callback: (device: Device) => void): NodeJS.EventEmitter
     emit(sigName: "any-device-removed", device: Device): void
-    on(sigName: "any-device-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "any-device-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "any-device-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "device-added", callback: (($obj: Client, device: Device) => void)): number
-    connect_after(sigName: "device-added", callback: (($obj: Client, device: Device) => void)): number
+    on(sigName: "device-added", callback: (device: Device) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "device-added", callback: (device: Device) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "device-added", callback: (device: Device) => void): NodeJS.EventEmitter
     emit(sigName: "device-added", device: Device): void
-    on(sigName: "device-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "device-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "device-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "device-removed", callback: (($obj: Client, device: Device) => void)): number
-    connect_after(sigName: "device-removed", callback: (($obj: Client, device: Device) => void)): number
+    on(sigName: "device-removed", callback: (device: Device) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "device-removed", callback: (device: Device) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "device-removed", callback: (device: Device) => void): NodeJS.EventEmitter
     emit(sigName: "device-removed", device: Device): void
-    on(sigName: "device-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "device-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "device-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "permission-changed", callback: (($obj: Client, permission: number, result: number) => void)): number
-    connect_after(sigName: "permission-changed", callback: (($obj: Client, permission: number, result: number) => void)): number
+    on(sigName: "permission-changed", callback: (permission: number, result: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "permission-changed", callback: (permission: number, result: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "permission-changed", callback: (permission: number, result: number) => void): NodeJS.EventEmitter
     emit(sigName: "permission-changed", permission: number, result: number): void
-    on(sigName: "permission-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "permission-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "permission-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of NMClient.Object */
+    /* Signals of NMClient-1.0.NMClient.Object */
     connect(sigName: "object-creation-failed", callback: (($obj: Client, error?: object | null, failedPath?: object | null) => void)): number
-    connect_after(sigName: "object-creation-failed", callback: (($obj: Client, error?: object | null, failedPath?: object | null) => void)): number
+    on(sigName: "object-creation-failed", callback: (error?: object | null, failedPath?: object | null) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "object-creation-failed", callback: (error?: object | null, failedPath?: object | null) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "object-creation-failed", callback: (error?: object | null, failedPath?: object | null) => void): NodeJS.EventEmitter
     emit(sigName: "object-creation-failed", error?: object | null, failedPath?: object | null): void
-    on(sigName: "object-creation-failed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "object-creation-failed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "object-creation-failed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Client, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Client, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::activating-connection", callback: (($obj: Client, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::activating-connection", callback: (($obj: Client, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::activating-connection", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -980,19 +926,19 @@ export class Client {
 export interface DHCP4Config_ConstructProps extends Object_ConstructProps {
 }
 export class DHCP4Config {
-    /* Properties of NMClient.DHCP4Config */
+    /* Properties of NMClient-1.0.NMClient.DHCP4Config */
     readonly options: GLib.HashTable
-    /* Fields of NMClient.DHCP4Config */
+    /* Fields of NMClient-1.0.NMClient.DHCP4Config */
     parent: Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of NMClient.DHCP4Config */
+    /* Methods of NMClient-1.0.NMClient.DHCP4Config */
     getOneOption(option: string): string
     getOptions(): GLib.HashTable
-    /* Methods of NMClient.Object */
+    /* Methods of NMClient-1.0.NMClient.Object */
     getConnection(): DBusGLib.Connection
     getPath(): string
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -1014,39 +960,24 @@ export class DHCP4Config {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of Gio.AsyncInitable */
+    /* Methods of Gio-2.0.Gio.AsyncInitable */
     initAsync(ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     initFinish(res: Gio.AsyncResult): boolean
     newFinish(res: Gio.AsyncResult): GObject.Object
-    /* Methods of Gio.Initable */
+    /* Methods of Gio-2.0.Gio.Initable */
     init(cancellable?: Gio.Cancellable | null): boolean
-    /* Virtual methods of NMClient.Object */
-    vfuncObjectCreationFailed(error: GLib.Error, failedPath: string): void
-    vfuncInitAsync(ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    vfuncInitFinish(res: Gio.AsyncResult): boolean
-    vfuncInit(cancellable?: Gio.Cancellable | null): boolean
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of NMClient.Object */
+    /* Signals of NMClient-1.0.NMClient.Object */
     connect(sigName: "object-creation-failed", callback: (($obj: DHCP4Config, error?: object | null, failedPath?: object | null) => void)): number
-    connect_after(sigName: "object-creation-failed", callback: (($obj: DHCP4Config, error?: object | null, failedPath?: object | null) => void)): number
+    on(sigName: "object-creation-failed", callback: (error?: object | null, failedPath?: object | null) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "object-creation-failed", callback: (error?: object | null, failedPath?: object | null) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "object-creation-failed", callback: (error?: object | null, failedPath?: object | null) => void): NodeJS.EventEmitter
     emit(sigName: "object-creation-failed", error?: object | null, failedPath?: object | null): void
-    on(sigName: "object-creation-failed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "object-creation-failed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "object-creation-failed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: DHCP4Config, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: DHCP4Config, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::options", callback: (($obj: DHCP4Config, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::options", callback: (($obj: DHCP4Config, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::options", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -1069,19 +1000,19 @@ export class DHCP4Config {
 export interface DHCP6Config_ConstructProps extends Object_ConstructProps {
 }
 export class DHCP6Config {
-    /* Properties of NMClient.DHCP6Config */
+    /* Properties of NMClient-1.0.NMClient.DHCP6Config */
     readonly options: GLib.HashTable
-    /* Fields of NMClient.DHCP6Config */
+    /* Fields of NMClient-1.0.NMClient.DHCP6Config */
     parent: Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of NMClient.DHCP6Config */
+    /* Methods of NMClient-1.0.NMClient.DHCP6Config */
     getOneOption(option: string): string
     getOptions(): GLib.HashTable
-    /* Methods of NMClient.Object */
+    /* Methods of NMClient-1.0.NMClient.Object */
     getConnection(): DBusGLib.Connection
     getPath(): string
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -1103,39 +1034,24 @@ export class DHCP6Config {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of Gio.AsyncInitable */
+    /* Methods of Gio-2.0.Gio.AsyncInitable */
     initAsync(ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     initFinish(res: Gio.AsyncResult): boolean
     newFinish(res: Gio.AsyncResult): GObject.Object
-    /* Methods of Gio.Initable */
+    /* Methods of Gio-2.0.Gio.Initable */
     init(cancellable?: Gio.Cancellable | null): boolean
-    /* Virtual methods of NMClient.Object */
-    vfuncObjectCreationFailed(error: GLib.Error, failedPath: string): void
-    vfuncInitAsync(ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    vfuncInitFinish(res: Gio.AsyncResult): boolean
-    vfuncInit(cancellable?: Gio.Cancellable | null): boolean
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of NMClient.Object */
+    /* Signals of NMClient-1.0.NMClient.Object */
     connect(sigName: "object-creation-failed", callback: (($obj: DHCP6Config, error?: object | null, failedPath?: object | null) => void)): number
-    connect_after(sigName: "object-creation-failed", callback: (($obj: DHCP6Config, error?: object | null, failedPath?: object | null) => void)): number
+    on(sigName: "object-creation-failed", callback: (error?: object | null, failedPath?: object | null) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "object-creation-failed", callback: (error?: object | null, failedPath?: object | null) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "object-creation-failed", callback: (error?: object | null, failedPath?: object | null) => void): NodeJS.EventEmitter
     emit(sigName: "object-creation-failed", error?: object | null, failedPath?: object | null): void
-    on(sigName: "object-creation-failed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "object-creation-failed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "object-creation-failed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: DHCP6Config, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: DHCP6Config, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::options", callback: (($obj: DHCP6Config, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::options", callback: (($obj: DHCP6Config, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::options", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -1159,7 +1075,7 @@ export interface Device_ConstructProps extends Object_ConstructProps {
     autoconnect?: boolean
 }
 export class Device {
-    /* Properties of NMClient.Device */
+    /* Properties of NMClient-1.0.NMClient.Device */
     readonly activeConnection: ActiveConnection
     autoconnect: boolean
     readonly availableConnections: any
@@ -1183,11 +1099,11 @@ export class Device {
     readonly state: number
     readonly udi: string
     readonly vendor: string
-    /* Fields of NMClient.Device */
+    /* Fields of NMClient-1.0.NMClient.Device */
     parent: Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of NMClient.Device */
+    /* Methods of NMClient-1.0.NMClient.Device */
     connectionCompatible(connection: NetworkManager.Connection): boolean
     connectionValid(connection: NetworkManager.Connection): boolean
     delete(callback?: DeviceCallbackFn | null): void
@@ -1216,7 +1132,7 @@ export class Device {
     getProduct(): string
     getSettingType(): GObject.Type
     getState(): NetworkManager.DeviceState
-    getStateReason(): [ /* returnType */ NetworkManager.DeviceState, /* reason */ NetworkManager.DeviceStateReason | null ]
+    getStateReason(): { returnType: NetworkManager.DeviceState, reason: NetworkManager.DeviceStateReason | null }
     getTypeDescription(): string
     getUdi(): string
     getVendor(): string
@@ -1224,10 +1140,10 @@ export class Device {
     isSoftware(): boolean
     setAutoconnect(autoconnect: boolean): void
     setManaged(managed: boolean): void
-    /* Methods of NMClient.Object */
+    /* Methods of NMClient-1.0.NMClient.Object */
     getConnection(): DBusGLib.Connection
     getPath(): string
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -1249,52 +1165,30 @@ export class Device {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of Gio.AsyncInitable */
+    /* Methods of Gio-2.0.Gio.AsyncInitable */
     initAsync(ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     initFinish(res: Gio.AsyncResult): boolean
     newFinish(res: Gio.AsyncResult): GObject.Object
-    /* Methods of Gio.Initable */
+    /* Methods of Gio-2.0.Gio.Initable */
     init(cancellable?: Gio.Cancellable | null): boolean
-    /* Virtual methods of NMClient.Device */
-    vfuncConnectionCompatible(connection: NetworkManager.Connection): boolean
-    vfuncGetHwAddress(): string
-    vfuncGetSettingType(): GObject.Type
-    vfuncGetTypeDescription(): string
-    vfuncStateChanged(newState: NetworkManager.DeviceState, oldState: NetworkManager.DeviceState, reason: NetworkManager.DeviceStateReason): void
-    /* Virtual methods of NMClient.Object */
-    vfuncObjectCreationFailed(error: GLib.Error, failedPath: string): void
-    vfuncInitAsync(ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    vfuncInitFinish(res: Gio.AsyncResult): boolean
-    vfuncInit(cancellable?: Gio.Cancellable | null): boolean
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of NMClient.Device */
+    /* Signals of NMClient-1.0.NMClient.Device */
     connect(sigName: "state-changed", callback: (($obj: Device, newState: number, oldState: number, reason: number) => void)): number
-    connect_after(sigName: "state-changed", callback: (($obj: Device, newState: number, oldState: number, reason: number) => void)): number
+    on(sigName: "state-changed", callback: (newState: number, oldState: number, reason: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "state-changed", callback: (newState: number, oldState: number, reason: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "state-changed", callback: (newState: number, oldState: number, reason: number) => void): NodeJS.EventEmitter
     emit(sigName: "state-changed", newState: number, oldState: number, reason: number): void
-    on(sigName: "state-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "state-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "state-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of NMClient.Object */
+    /* Signals of NMClient-1.0.NMClient.Object */
     connect(sigName: "object-creation-failed", callback: (($obj: Device, error?: object | null, failedPath?: object | null) => void)): number
-    connect_after(sigName: "object-creation-failed", callback: (($obj: Device, error?: object | null, failedPath?: object | null) => void)): number
+    on(sigName: "object-creation-failed", callback: (error?: object | null, failedPath?: object | null) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "object-creation-failed", callback: (error?: object | null, failedPath?: object | null) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "object-creation-failed", callback: (error?: object | null, failedPath?: object | null) => void): NodeJS.EventEmitter
     emit(sigName: "object-creation-failed", error?: object | null, failedPath?: object | null): void
-    on(sigName: "object-creation-failed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "object-creation-failed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "object-creation-failed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Device, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Device, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::active-connection", callback: (($obj: Device, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::active-connection", callback: (($obj: Device, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::active-connection", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -1428,9 +1322,9 @@ export class Device {
 export interface DeviceAdsl_ConstructProps extends Device_ConstructProps {
 }
 export class DeviceAdsl {
-    /* Properties of NMClient.DeviceAdsl */
+    /* Properties of NMClient-1.0.NMClient.DeviceAdsl */
     readonly carrier: boolean
-    /* Properties of NMClient.Device */
+    /* Properties of NMClient-1.0.NMClient.Device */
     readonly activeConnection: ActiveConnection
     autoconnect: boolean
     readonly availableConnections: any
@@ -1454,13 +1348,13 @@ export class DeviceAdsl {
     readonly state: number
     readonly udi: string
     readonly vendor: string
-    /* Fields of NMClient.DeviceAdsl */
+    /* Fields of NMClient-1.0.NMClient.DeviceAdsl */
     parent: Device
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of NMClient.DeviceAdsl */
+    /* Methods of NMClient-1.0.NMClient.DeviceAdsl */
     getCarrier(): boolean
-    /* Methods of NMClient.Device */
+    /* Methods of NMClient-1.0.NMClient.Device */
     connectionCompatible(connection: NetworkManager.Connection): boolean
     connectionValid(connection: NetworkManager.Connection): boolean
     delete(callback?: DeviceCallbackFn | null): void
@@ -1489,7 +1383,7 @@ export class DeviceAdsl {
     getProduct(): string
     getSettingType(): GObject.Type
     getState(): NetworkManager.DeviceState
-    getStateReason(): [ /* returnType */ NetworkManager.DeviceState, /* reason */ NetworkManager.DeviceStateReason | null ]
+    getStateReason(): { returnType: NetworkManager.DeviceState, reason: NetworkManager.DeviceStateReason | null }
     getTypeDescription(): string
     getUdi(): string
     getVendor(): string
@@ -1497,10 +1391,10 @@ export class DeviceAdsl {
     isSoftware(): boolean
     setAutoconnect(autoconnect: boolean): void
     setManaged(managed: boolean): void
-    /* Methods of NMClient.Object */
+    /* Methods of NMClient-1.0.NMClient.Object */
     getConnection(): DBusGLib.Connection
     getPath(): string
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -1522,52 +1416,30 @@ export class DeviceAdsl {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of Gio.AsyncInitable */
+    /* Methods of Gio-2.0.Gio.AsyncInitable */
     initAsync(ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     initFinish(res: Gio.AsyncResult): boolean
     newFinish(res: Gio.AsyncResult): GObject.Object
-    /* Methods of Gio.Initable */
+    /* Methods of Gio-2.0.Gio.Initable */
     init(cancellable?: Gio.Cancellable | null): boolean
-    /* Virtual methods of NMClient.Device */
-    vfuncConnectionCompatible(connection: NetworkManager.Connection): boolean
-    vfuncGetHwAddress(): string
-    vfuncGetSettingType(): GObject.Type
-    vfuncGetTypeDescription(): string
-    vfuncStateChanged(newState: NetworkManager.DeviceState, oldState: NetworkManager.DeviceState, reason: NetworkManager.DeviceStateReason): void
-    /* Virtual methods of NMClient.Object */
-    vfuncObjectCreationFailed(error: GLib.Error, failedPath: string): void
-    vfuncInitAsync(ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    vfuncInitFinish(res: Gio.AsyncResult): boolean
-    vfuncInit(cancellable?: Gio.Cancellable | null): boolean
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of NMClient.Device */
+    /* Signals of NMClient-1.0.NMClient.Device */
     connect(sigName: "state-changed", callback: (($obj: DeviceAdsl, newState: number, oldState: number, reason: number) => void)): number
-    connect_after(sigName: "state-changed", callback: (($obj: DeviceAdsl, newState: number, oldState: number, reason: number) => void)): number
+    on(sigName: "state-changed", callback: (newState: number, oldState: number, reason: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "state-changed", callback: (newState: number, oldState: number, reason: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "state-changed", callback: (newState: number, oldState: number, reason: number) => void): NodeJS.EventEmitter
     emit(sigName: "state-changed", newState: number, oldState: number, reason: number): void
-    on(sigName: "state-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "state-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "state-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of NMClient.Object */
+    /* Signals of NMClient-1.0.NMClient.Object */
     connect(sigName: "object-creation-failed", callback: (($obj: DeviceAdsl, error?: object | null, failedPath?: object | null) => void)): number
-    connect_after(sigName: "object-creation-failed", callback: (($obj: DeviceAdsl, error?: object | null, failedPath?: object | null) => void)): number
+    on(sigName: "object-creation-failed", callback: (error?: object | null, failedPath?: object | null) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "object-creation-failed", callback: (error?: object | null, failedPath?: object | null) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "object-creation-failed", callback: (error?: object | null, failedPath?: object | null) => void): NodeJS.EventEmitter
     emit(sigName: "object-creation-failed", error?: object | null, failedPath?: object | null): void
-    on(sigName: "object-creation-failed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "object-creation-failed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "object-creation-failed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: DeviceAdsl, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: DeviceAdsl, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::carrier", callback: (($obj: DeviceAdsl, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::carrier", callback: (($obj: DeviceAdsl, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::carrier", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -1705,11 +1577,11 @@ export class DeviceAdsl {
 export interface DeviceBond_ConstructProps extends Device_ConstructProps {
 }
 export class DeviceBond {
-    /* Properties of NMClient.DeviceBond */
+    /* Properties of NMClient-1.0.NMClient.DeviceBond */
     readonly carrier: boolean
     readonly hwAddress: string
     readonly slaves: any
-    /* Properties of NMClient.Device */
+    /* Properties of NMClient-1.0.NMClient.Device */
     readonly activeConnection: ActiveConnection
     autoconnect: boolean
     readonly availableConnections: any
@@ -1733,15 +1605,15 @@ export class DeviceBond {
     readonly state: number
     readonly udi: string
     readonly vendor: string
-    /* Fields of NMClient.DeviceBond */
+    /* Fields of NMClient-1.0.NMClient.DeviceBond */
     parent: Device
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of NMClient.DeviceBond */
+    /* Methods of NMClient-1.0.NMClient.DeviceBond */
     getCarrier(): boolean
     getHwAddress(): string
     getSlaves(): Device[]
-    /* Methods of NMClient.Device */
+    /* Methods of NMClient-1.0.NMClient.Device */
     connectionCompatible(connection: NetworkManager.Connection): boolean
     connectionValid(connection: NetworkManager.Connection): boolean
     delete(callback?: DeviceCallbackFn | null): void
@@ -1769,7 +1641,7 @@ export class DeviceBond {
     getProduct(): string
     getSettingType(): GObject.Type
     getState(): NetworkManager.DeviceState
-    getStateReason(): [ /* returnType */ NetworkManager.DeviceState, /* reason */ NetworkManager.DeviceStateReason | null ]
+    getStateReason(): { returnType: NetworkManager.DeviceState, reason: NetworkManager.DeviceStateReason | null }
     getTypeDescription(): string
     getUdi(): string
     getVendor(): string
@@ -1777,10 +1649,10 @@ export class DeviceBond {
     isSoftware(): boolean
     setAutoconnect(autoconnect: boolean): void
     setManaged(managed: boolean): void
-    /* Methods of NMClient.Object */
+    /* Methods of NMClient-1.0.NMClient.Object */
     getConnection(): DBusGLib.Connection
     getPath(): string
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -1802,52 +1674,30 @@ export class DeviceBond {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of Gio.AsyncInitable */
+    /* Methods of Gio-2.0.Gio.AsyncInitable */
     initAsync(ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     initFinish(res: Gio.AsyncResult): boolean
     newFinish(res: Gio.AsyncResult): GObject.Object
-    /* Methods of Gio.Initable */
+    /* Methods of Gio-2.0.Gio.Initable */
     init(cancellable?: Gio.Cancellable | null): boolean
-    /* Virtual methods of NMClient.Device */
-    vfuncConnectionCompatible(connection: NetworkManager.Connection): boolean
-    vfuncGetHwAddress(): string
-    vfuncGetSettingType(): GObject.Type
-    vfuncGetTypeDescription(): string
-    vfuncStateChanged(newState: NetworkManager.DeviceState, oldState: NetworkManager.DeviceState, reason: NetworkManager.DeviceStateReason): void
-    /* Virtual methods of NMClient.Object */
-    vfuncObjectCreationFailed(error: GLib.Error, failedPath: string): void
-    vfuncInitAsync(ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    vfuncInitFinish(res: Gio.AsyncResult): boolean
-    vfuncInit(cancellable?: Gio.Cancellable | null): boolean
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of NMClient.Device */
+    /* Signals of NMClient-1.0.NMClient.Device */
     connect(sigName: "state-changed", callback: (($obj: DeviceBond, newState: number, oldState: number, reason: number) => void)): number
-    connect_after(sigName: "state-changed", callback: (($obj: DeviceBond, newState: number, oldState: number, reason: number) => void)): number
+    on(sigName: "state-changed", callback: (newState: number, oldState: number, reason: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "state-changed", callback: (newState: number, oldState: number, reason: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "state-changed", callback: (newState: number, oldState: number, reason: number) => void): NodeJS.EventEmitter
     emit(sigName: "state-changed", newState: number, oldState: number, reason: number): void
-    on(sigName: "state-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "state-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "state-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of NMClient.Object */
+    /* Signals of NMClient-1.0.NMClient.Object */
     connect(sigName: "object-creation-failed", callback: (($obj: DeviceBond, error?: object | null, failedPath?: object | null) => void)): number
-    connect_after(sigName: "object-creation-failed", callback: (($obj: DeviceBond, error?: object | null, failedPath?: object | null) => void)): number
+    on(sigName: "object-creation-failed", callback: (error?: object | null, failedPath?: object | null) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "object-creation-failed", callback: (error?: object | null, failedPath?: object | null) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "object-creation-failed", callback: (error?: object | null, failedPath?: object | null) => void): NodeJS.EventEmitter
     emit(sigName: "object-creation-failed", error?: object | null, failedPath?: object | null): void
-    on(sigName: "object-creation-failed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "object-creation-failed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "object-creation-failed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: DeviceBond, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: DeviceBond, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::carrier", callback: (($obj: DeviceBond, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::carrier", callback: (($obj: DeviceBond, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::carrier", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -1995,11 +1845,11 @@ export class DeviceBond {
 export interface DeviceBridge_ConstructProps extends Device_ConstructProps {
 }
 export class DeviceBridge {
-    /* Properties of NMClient.DeviceBridge */
+    /* Properties of NMClient-1.0.NMClient.DeviceBridge */
     readonly carrier: boolean
     readonly hwAddress: string
     readonly slaves: any
-    /* Properties of NMClient.Device */
+    /* Properties of NMClient-1.0.NMClient.Device */
     readonly activeConnection: ActiveConnection
     autoconnect: boolean
     readonly availableConnections: any
@@ -2023,15 +1873,15 @@ export class DeviceBridge {
     readonly state: number
     readonly udi: string
     readonly vendor: string
-    /* Fields of NMClient.DeviceBridge */
+    /* Fields of NMClient-1.0.NMClient.DeviceBridge */
     parent: Device
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of NMClient.DeviceBridge */
+    /* Methods of NMClient-1.0.NMClient.DeviceBridge */
     getCarrier(): boolean
     getHwAddress(): string
     getSlaves(): Device[]
-    /* Methods of NMClient.Device */
+    /* Methods of NMClient-1.0.NMClient.Device */
     connectionCompatible(connection: NetworkManager.Connection): boolean
     connectionValid(connection: NetworkManager.Connection): boolean
     delete(callback?: DeviceCallbackFn | null): void
@@ -2059,7 +1909,7 @@ export class DeviceBridge {
     getProduct(): string
     getSettingType(): GObject.Type
     getState(): NetworkManager.DeviceState
-    getStateReason(): [ /* returnType */ NetworkManager.DeviceState, /* reason */ NetworkManager.DeviceStateReason | null ]
+    getStateReason(): { returnType: NetworkManager.DeviceState, reason: NetworkManager.DeviceStateReason | null }
     getTypeDescription(): string
     getUdi(): string
     getVendor(): string
@@ -2067,10 +1917,10 @@ export class DeviceBridge {
     isSoftware(): boolean
     setAutoconnect(autoconnect: boolean): void
     setManaged(managed: boolean): void
-    /* Methods of NMClient.Object */
+    /* Methods of NMClient-1.0.NMClient.Object */
     getConnection(): DBusGLib.Connection
     getPath(): string
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -2092,52 +1942,30 @@ export class DeviceBridge {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of Gio.AsyncInitable */
+    /* Methods of Gio-2.0.Gio.AsyncInitable */
     initAsync(ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     initFinish(res: Gio.AsyncResult): boolean
     newFinish(res: Gio.AsyncResult): GObject.Object
-    /* Methods of Gio.Initable */
+    /* Methods of Gio-2.0.Gio.Initable */
     init(cancellable?: Gio.Cancellable | null): boolean
-    /* Virtual methods of NMClient.Device */
-    vfuncConnectionCompatible(connection: NetworkManager.Connection): boolean
-    vfuncGetHwAddress(): string
-    vfuncGetSettingType(): GObject.Type
-    vfuncGetTypeDescription(): string
-    vfuncStateChanged(newState: NetworkManager.DeviceState, oldState: NetworkManager.DeviceState, reason: NetworkManager.DeviceStateReason): void
-    /* Virtual methods of NMClient.Object */
-    vfuncObjectCreationFailed(error: GLib.Error, failedPath: string): void
-    vfuncInitAsync(ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    vfuncInitFinish(res: Gio.AsyncResult): boolean
-    vfuncInit(cancellable?: Gio.Cancellable | null): boolean
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of NMClient.Device */
+    /* Signals of NMClient-1.0.NMClient.Device */
     connect(sigName: "state-changed", callback: (($obj: DeviceBridge, newState: number, oldState: number, reason: number) => void)): number
-    connect_after(sigName: "state-changed", callback: (($obj: DeviceBridge, newState: number, oldState: number, reason: number) => void)): number
+    on(sigName: "state-changed", callback: (newState: number, oldState: number, reason: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "state-changed", callback: (newState: number, oldState: number, reason: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "state-changed", callback: (newState: number, oldState: number, reason: number) => void): NodeJS.EventEmitter
     emit(sigName: "state-changed", newState: number, oldState: number, reason: number): void
-    on(sigName: "state-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "state-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "state-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of NMClient.Object */
+    /* Signals of NMClient-1.0.NMClient.Object */
     connect(sigName: "object-creation-failed", callback: (($obj: DeviceBridge, error?: object | null, failedPath?: object | null) => void)): number
-    connect_after(sigName: "object-creation-failed", callback: (($obj: DeviceBridge, error?: object | null, failedPath?: object | null) => void)): number
+    on(sigName: "object-creation-failed", callback: (error?: object | null, failedPath?: object | null) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "object-creation-failed", callback: (error?: object | null, failedPath?: object | null) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "object-creation-failed", callback: (error?: object | null, failedPath?: object | null) => void): NodeJS.EventEmitter
     emit(sigName: "object-creation-failed", error?: object | null, failedPath?: object | null): void
-    on(sigName: "object-creation-failed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "object-creation-failed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "object-creation-failed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: DeviceBridge, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: DeviceBridge, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::carrier", callback: (($obj: DeviceBridge, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::carrier", callback: (($obj: DeviceBridge, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::carrier", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -2285,11 +2113,11 @@ export class DeviceBridge {
 export interface DeviceBt_ConstructProps extends Device_ConstructProps {
 }
 export class DeviceBt {
-    /* Properties of NMClient.DeviceBt */
+    /* Properties of NMClient-1.0.NMClient.DeviceBt */
     readonly btCapabilities: number
     readonly hwAddress: string
     readonly name: string
-    /* Properties of NMClient.Device */
+    /* Properties of NMClient-1.0.NMClient.Device */
     readonly activeConnection: ActiveConnection
     autoconnect: boolean
     readonly availableConnections: any
@@ -2313,15 +2141,15 @@ export class DeviceBt {
     readonly state: number
     readonly udi: string
     readonly vendor: string
-    /* Fields of NMClient.DeviceBt */
+    /* Fields of NMClient-1.0.NMClient.DeviceBt */
     parent: Device
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of NMClient.DeviceBt */
+    /* Methods of NMClient-1.0.NMClient.DeviceBt */
     getCapabilities(): NetworkManager.BluetoothCapabilities
     getHwAddress(): string
     getName(): string
-    /* Methods of NMClient.Device */
+    /* Methods of NMClient-1.0.NMClient.Device */
     connectionCompatible(connection: NetworkManager.Connection): boolean
     connectionValid(connection: NetworkManager.Connection): boolean
     delete(callback?: DeviceCallbackFn | null): void
@@ -2349,7 +2177,7 @@ export class DeviceBt {
     getProduct(): string
     getSettingType(): GObject.Type
     getState(): NetworkManager.DeviceState
-    getStateReason(): [ /* returnType */ NetworkManager.DeviceState, /* reason */ NetworkManager.DeviceStateReason | null ]
+    getStateReason(): { returnType: NetworkManager.DeviceState, reason: NetworkManager.DeviceStateReason | null }
     getTypeDescription(): string
     getUdi(): string
     getVendor(): string
@@ -2357,10 +2185,10 @@ export class DeviceBt {
     isSoftware(): boolean
     setAutoconnect(autoconnect: boolean): void
     setManaged(managed: boolean): void
-    /* Methods of NMClient.Object */
+    /* Methods of NMClient-1.0.NMClient.Object */
     getConnection(): DBusGLib.Connection
     getPath(): string
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -2382,52 +2210,30 @@ export class DeviceBt {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of Gio.AsyncInitable */
+    /* Methods of Gio-2.0.Gio.AsyncInitable */
     initAsync(ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     initFinish(res: Gio.AsyncResult): boolean
     newFinish(res: Gio.AsyncResult): GObject.Object
-    /* Methods of Gio.Initable */
+    /* Methods of Gio-2.0.Gio.Initable */
     init(cancellable?: Gio.Cancellable | null): boolean
-    /* Virtual methods of NMClient.Device */
-    vfuncConnectionCompatible(connection: NetworkManager.Connection): boolean
-    vfuncGetHwAddress(): string
-    vfuncGetSettingType(): GObject.Type
-    vfuncGetTypeDescription(): string
-    vfuncStateChanged(newState: NetworkManager.DeviceState, oldState: NetworkManager.DeviceState, reason: NetworkManager.DeviceStateReason): void
-    /* Virtual methods of NMClient.Object */
-    vfuncObjectCreationFailed(error: GLib.Error, failedPath: string): void
-    vfuncInitAsync(ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    vfuncInitFinish(res: Gio.AsyncResult): boolean
-    vfuncInit(cancellable?: Gio.Cancellable | null): boolean
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of NMClient.Device */
+    /* Signals of NMClient-1.0.NMClient.Device */
     connect(sigName: "state-changed", callback: (($obj: DeviceBt, newState: number, oldState: number, reason: number) => void)): number
-    connect_after(sigName: "state-changed", callback: (($obj: DeviceBt, newState: number, oldState: number, reason: number) => void)): number
+    on(sigName: "state-changed", callback: (newState: number, oldState: number, reason: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "state-changed", callback: (newState: number, oldState: number, reason: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "state-changed", callback: (newState: number, oldState: number, reason: number) => void): NodeJS.EventEmitter
     emit(sigName: "state-changed", newState: number, oldState: number, reason: number): void
-    on(sigName: "state-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "state-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "state-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of NMClient.Object */
+    /* Signals of NMClient-1.0.NMClient.Object */
     connect(sigName: "object-creation-failed", callback: (($obj: DeviceBt, error?: object | null, failedPath?: object | null) => void)): number
-    connect_after(sigName: "object-creation-failed", callback: (($obj: DeviceBt, error?: object | null, failedPath?: object | null) => void)): number
+    on(sigName: "object-creation-failed", callback: (error?: object | null, failedPath?: object | null) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "object-creation-failed", callback: (error?: object | null, failedPath?: object | null) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "object-creation-failed", callback: (error?: object | null, failedPath?: object | null) => void): NodeJS.EventEmitter
     emit(sigName: "object-creation-failed", error?: object | null, failedPath?: object | null): void
-    on(sigName: "object-creation-failed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "object-creation-failed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "object-creation-failed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: DeviceBt, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: DeviceBt, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::bt-capabilities", callback: (($obj: DeviceBt, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::bt-capabilities", callback: (($obj: DeviceBt, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::bt-capabilities", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -2575,12 +2381,12 @@ export class DeviceBt {
 export interface DeviceEthernet_ConstructProps extends Device_ConstructProps {
 }
 export class DeviceEthernet {
-    /* Properties of NMClient.DeviceEthernet */
+    /* Properties of NMClient-1.0.NMClient.DeviceEthernet */
     readonly carrier: boolean
     readonly hwAddress: string
     readonly permHwAddress: string
     readonly speed: number
-    /* Properties of NMClient.Device */
+    /* Properties of NMClient-1.0.NMClient.Device */
     readonly activeConnection: ActiveConnection
     autoconnect: boolean
     readonly availableConnections: any
@@ -2604,16 +2410,16 @@ export class DeviceEthernet {
     readonly state: number
     readonly udi: string
     readonly vendor: string
-    /* Fields of NMClient.DeviceEthernet */
+    /* Fields of NMClient-1.0.NMClient.DeviceEthernet */
     parent: Device
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of NMClient.DeviceEthernet */
+    /* Methods of NMClient-1.0.NMClient.DeviceEthernet */
     getCarrier(): boolean
     getHwAddress(): string
     getPermanentHwAddress(): string
     getSpeed(): number
-    /* Methods of NMClient.Device */
+    /* Methods of NMClient-1.0.NMClient.Device */
     connectionCompatible(connection: NetworkManager.Connection): boolean
     connectionValid(connection: NetworkManager.Connection): boolean
     delete(callback?: DeviceCallbackFn | null): void
@@ -2641,7 +2447,7 @@ export class DeviceEthernet {
     getProduct(): string
     getSettingType(): GObject.Type
     getState(): NetworkManager.DeviceState
-    getStateReason(): [ /* returnType */ NetworkManager.DeviceState, /* reason */ NetworkManager.DeviceStateReason | null ]
+    getStateReason(): { returnType: NetworkManager.DeviceState, reason: NetworkManager.DeviceStateReason | null }
     getTypeDescription(): string
     getUdi(): string
     getVendor(): string
@@ -2649,10 +2455,10 @@ export class DeviceEthernet {
     isSoftware(): boolean
     setAutoconnect(autoconnect: boolean): void
     setManaged(managed: boolean): void
-    /* Methods of NMClient.Object */
+    /* Methods of NMClient-1.0.NMClient.Object */
     getConnection(): DBusGLib.Connection
     getPath(): string
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -2674,52 +2480,30 @@ export class DeviceEthernet {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of Gio.AsyncInitable */
+    /* Methods of Gio-2.0.Gio.AsyncInitable */
     initAsync(ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     initFinish(res: Gio.AsyncResult): boolean
     newFinish(res: Gio.AsyncResult): GObject.Object
-    /* Methods of Gio.Initable */
+    /* Methods of Gio-2.0.Gio.Initable */
     init(cancellable?: Gio.Cancellable | null): boolean
-    /* Virtual methods of NMClient.Device */
-    vfuncConnectionCompatible(connection: NetworkManager.Connection): boolean
-    vfuncGetHwAddress(): string
-    vfuncGetSettingType(): GObject.Type
-    vfuncGetTypeDescription(): string
-    vfuncStateChanged(newState: NetworkManager.DeviceState, oldState: NetworkManager.DeviceState, reason: NetworkManager.DeviceStateReason): void
-    /* Virtual methods of NMClient.Object */
-    vfuncObjectCreationFailed(error: GLib.Error, failedPath: string): void
-    vfuncInitAsync(ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    vfuncInitFinish(res: Gio.AsyncResult): boolean
-    vfuncInit(cancellable?: Gio.Cancellable | null): boolean
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of NMClient.Device */
+    /* Signals of NMClient-1.0.NMClient.Device */
     connect(sigName: "state-changed", callback: (($obj: DeviceEthernet, newState: number, oldState: number, reason: number) => void)): number
-    connect_after(sigName: "state-changed", callback: (($obj: DeviceEthernet, newState: number, oldState: number, reason: number) => void)): number
+    on(sigName: "state-changed", callback: (newState: number, oldState: number, reason: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "state-changed", callback: (newState: number, oldState: number, reason: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "state-changed", callback: (newState: number, oldState: number, reason: number) => void): NodeJS.EventEmitter
     emit(sigName: "state-changed", newState: number, oldState: number, reason: number): void
-    on(sigName: "state-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "state-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "state-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of NMClient.Object */
+    /* Signals of NMClient-1.0.NMClient.Object */
     connect(sigName: "object-creation-failed", callback: (($obj: DeviceEthernet, error?: object | null, failedPath?: object | null) => void)): number
-    connect_after(sigName: "object-creation-failed", callback: (($obj: DeviceEthernet, error?: object | null, failedPath?: object | null) => void)): number
+    on(sigName: "object-creation-failed", callback: (error?: object | null, failedPath?: object | null) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "object-creation-failed", callback: (error?: object | null, failedPath?: object | null) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "object-creation-failed", callback: (error?: object | null, failedPath?: object | null) => void): NodeJS.EventEmitter
     emit(sigName: "object-creation-failed", error?: object | null, failedPath?: object | null): void
-    on(sigName: "object-creation-failed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "object-creation-failed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "object-creation-failed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: DeviceEthernet, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: DeviceEthernet, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::carrier", callback: (($obj: DeviceEthernet, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::carrier", callback: (($obj: DeviceEthernet, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::carrier", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -2872,10 +2656,10 @@ export class DeviceEthernet {
 export interface DeviceGeneric_ConstructProps extends Device_ConstructProps {
 }
 export class DeviceGeneric {
-    /* Properties of NMClient.DeviceGeneric */
+    /* Properties of NMClient-1.0.NMClient.DeviceGeneric */
     readonly hwAddress: string
     readonly typeDescription: string
-    /* Properties of NMClient.Device */
+    /* Properties of NMClient-1.0.NMClient.Device */
     readonly activeConnection: ActiveConnection
     autoconnect: boolean
     readonly availableConnections: any
@@ -2899,13 +2683,13 @@ export class DeviceGeneric {
     readonly state: number
     readonly udi: string
     readonly vendor: string
-    /* Fields of NMClient.DeviceGeneric */
+    /* Fields of NMClient-1.0.NMClient.DeviceGeneric */
     parent: Device
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of NMClient.DeviceGeneric */
+    /* Methods of NMClient-1.0.NMClient.DeviceGeneric */
     getHwAddress(): string
-    /* Methods of NMClient.Device */
+    /* Methods of NMClient-1.0.NMClient.Device */
     connectionCompatible(connection: NetworkManager.Connection): boolean
     connectionValid(connection: NetworkManager.Connection): boolean
     delete(callback?: DeviceCallbackFn | null): void
@@ -2933,7 +2717,7 @@ export class DeviceGeneric {
     getProduct(): string
     getSettingType(): GObject.Type
     getState(): NetworkManager.DeviceState
-    getStateReason(): [ /* returnType */ NetworkManager.DeviceState, /* reason */ NetworkManager.DeviceStateReason | null ]
+    getStateReason(): { returnType: NetworkManager.DeviceState, reason: NetworkManager.DeviceStateReason | null }
     getTypeDescription(): string
     getUdi(): string
     getVendor(): string
@@ -2941,10 +2725,10 @@ export class DeviceGeneric {
     isSoftware(): boolean
     setAutoconnect(autoconnect: boolean): void
     setManaged(managed: boolean): void
-    /* Methods of NMClient.Object */
+    /* Methods of NMClient-1.0.NMClient.Object */
     getConnection(): DBusGLib.Connection
     getPath(): string
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -2966,52 +2750,30 @@ export class DeviceGeneric {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of Gio.AsyncInitable */
+    /* Methods of Gio-2.0.Gio.AsyncInitable */
     initAsync(ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     initFinish(res: Gio.AsyncResult): boolean
     newFinish(res: Gio.AsyncResult): GObject.Object
-    /* Methods of Gio.Initable */
+    /* Methods of Gio-2.0.Gio.Initable */
     init(cancellable?: Gio.Cancellable | null): boolean
-    /* Virtual methods of NMClient.Device */
-    vfuncConnectionCompatible(connection: NetworkManager.Connection): boolean
-    vfuncGetHwAddress(): string
-    vfuncGetSettingType(): GObject.Type
-    vfuncGetTypeDescription(): string
-    vfuncStateChanged(newState: NetworkManager.DeviceState, oldState: NetworkManager.DeviceState, reason: NetworkManager.DeviceStateReason): void
-    /* Virtual methods of NMClient.Object */
-    vfuncObjectCreationFailed(error: GLib.Error, failedPath: string): void
-    vfuncInitAsync(ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    vfuncInitFinish(res: Gio.AsyncResult): boolean
-    vfuncInit(cancellable?: Gio.Cancellable | null): boolean
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of NMClient.Device */
+    /* Signals of NMClient-1.0.NMClient.Device */
     connect(sigName: "state-changed", callback: (($obj: DeviceGeneric, newState: number, oldState: number, reason: number) => void)): number
-    connect_after(sigName: "state-changed", callback: (($obj: DeviceGeneric, newState: number, oldState: number, reason: number) => void)): number
+    on(sigName: "state-changed", callback: (newState: number, oldState: number, reason: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "state-changed", callback: (newState: number, oldState: number, reason: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "state-changed", callback: (newState: number, oldState: number, reason: number) => void): NodeJS.EventEmitter
     emit(sigName: "state-changed", newState: number, oldState: number, reason: number): void
-    on(sigName: "state-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "state-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "state-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of NMClient.Object */
+    /* Signals of NMClient-1.0.NMClient.Object */
     connect(sigName: "object-creation-failed", callback: (($obj: DeviceGeneric, error?: object | null, failedPath?: object | null) => void)): number
-    connect_after(sigName: "object-creation-failed", callback: (($obj: DeviceGeneric, error?: object | null, failedPath?: object | null) => void)): number
+    on(sigName: "object-creation-failed", callback: (error?: object | null, failedPath?: object | null) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "object-creation-failed", callback: (error?: object | null, failedPath?: object | null) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "object-creation-failed", callback: (error?: object | null, failedPath?: object | null) => void): NodeJS.EventEmitter
     emit(sigName: "object-creation-failed", error?: object | null, failedPath?: object | null): void
-    on(sigName: "object-creation-failed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "object-creation-failed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "object-creation-failed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: DeviceGeneric, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: DeviceGeneric, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::hw-address", callback: (($obj: DeviceGeneric, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::hw-address", callback: (($obj: DeviceGeneric, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::hw-address", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -3154,10 +2916,10 @@ export class DeviceGeneric {
 export interface DeviceInfiniband_ConstructProps extends Device_ConstructProps {
 }
 export class DeviceInfiniband {
-    /* Properties of NMClient.DeviceInfiniband */
+    /* Properties of NMClient-1.0.NMClient.DeviceInfiniband */
     readonly carrier: boolean
     readonly hwAddress: string
-    /* Properties of NMClient.Device */
+    /* Properties of NMClient-1.0.NMClient.Device */
     readonly activeConnection: ActiveConnection
     autoconnect: boolean
     readonly availableConnections: any
@@ -3181,14 +2943,14 @@ export class DeviceInfiniband {
     readonly state: number
     readonly udi: string
     readonly vendor: string
-    /* Fields of NMClient.DeviceInfiniband */
+    /* Fields of NMClient-1.0.NMClient.DeviceInfiniband */
     parent: Device
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of NMClient.DeviceInfiniband */
+    /* Methods of NMClient-1.0.NMClient.DeviceInfiniband */
     getCarrier(): boolean
     getHwAddress(): string
-    /* Methods of NMClient.Device */
+    /* Methods of NMClient-1.0.NMClient.Device */
     connectionCompatible(connection: NetworkManager.Connection): boolean
     connectionValid(connection: NetworkManager.Connection): boolean
     delete(callback?: DeviceCallbackFn | null): void
@@ -3216,7 +2978,7 @@ export class DeviceInfiniband {
     getProduct(): string
     getSettingType(): GObject.Type
     getState(): NetworkManager.DeviceState
-    getStateReason(): [ /* returnType */ NetworkManager.DeviceState, /* reason */ NetworkManager.DeviceStateReason | null ]
+    getStateReason(): { returnType: NetworkManager.DeviceState, reason: NetworkManager.DeviceStateReason | null }
     getTypeDescription(): string
     getUdi(): string
     getVendor(): string
@@ -3224,10 +2986,10 @@ export class DeviceInfiniband {
     isSoftware(): boolean
     setAutoconnect(autoconnect: boolean): void
     setManaged(managed: boolean): void
-    /* Methods of NMClient.Object */
+    /* Methods of NMClient-1.0.NMClient.Object */
     getConnection(): DBusGLib.Connection
     getPath(): string
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -3249,52 +3011,30 @@ export class DeviceInfiniband {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of Gio.AsyncInitable */
+    /* Methods of Gio-2.0.Gio.AsyncInitable */
     initAsync(ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     initFinish(res: Gio.AsyncResult): boolean
     newFinish(res: Gio.AsyncResult): GObject.Object
-    /* Methods of Gio.Initable */
+    /* Methods of Gio-2.0.Gio.Initable */
     init(cancellable?: Gio.Cancellable | null): boolean
-    /* Virtual methods of NMClient.Device */
-    vfuncConnectionCompatible(connection: NetworkManager.Connection): boolean
-    vfuncGetHwAddress(): string
-    vfuncGetSettingType(): GObject.Type
-    vfuncGetTypeDescription(): string
-    vfuncStateChanged(newState: NetworkManager.DeviceState, oldState: NetworkManager.DeviceState, reason: NetworkManager.DeviceStateReason): void
-    /* Virtual methods of NMClient.Object */
-    vfuncObjectCreationFailed(error: GLib.Error, failedPath: string): void
-    vfuncInitAsync(ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    vfuncInitFinish(res: Gio.AsyncResult): boolean
-    vfuncInit(cancellable?: Gio.Cancellable | null): boolean
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of NMClient.Device */
+    /* Signals of NMClient-1.0.NMClient.Device */
     connect(sigName: "state-changed", callback: (($obj: DeviceInfiniband, newState: number, oldState: number, reason: number) => void)): number
-    connect_after(sigName: "state-changed", callback: (($obj: DeviceInfiniband, newState: number, oldState: number, reason: number) => void)): number
+    on(sigName: "state-changed", callback: (newState: number, oldState: number, reason: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "state-changed", callback: (newState: number, oldState: number, reason: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "state-changed", callback: (newState: number, oldState: number, reason: number) => void): NodeJS.EventEmitter
     emit(sigName: "state-changed", newState: number, oldState: number, reason: number): void
-    on(sigName: "state-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "state-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "state-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of NMClient.Object */
+    /* Signals of NMClient-1.0.NMClient.Object */
     connect(sigName: "object-creation-failed", callback: (($obj: DeviceInfiniband, error?: object | null, failedPath?: object | null) => void)): number
-    connect_after(sigName: "object-creation-failed", callback: (($obj: DeviceInfiniband, error?: object | null, failedPath?: object | null) => void)): number
+    on(sigName: "object-creation-failed", callback: (error?: object | null, failedPath?: object | null) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "object-creation-failed", callback: (error?: object | null, failedPath?: object | null) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "object-creation-failed", callback: (error?: object | null, failedPath?: object | null) => void): NodeJS.EventEmitter
     emit(sigName: "object-creation-failed", error?: object | null, failedPath?: object | null): void
-    on(sigName: "object-creation-failed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "object-creation-failed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "object-creation-failed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: DeviceInfiniband, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: DeviceInfiniband, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::carrier", callback: (($obj: DeviceInfiniband, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::carrier", callback: (($obj: DeviceInfiniband, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::carrier", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -3437,10 +3177,10 @@ export class DeviceInfiniband {
 export interface DeviceModem_ConstructProps extends Device_ConstructProps {
 }
 export class DeviceModem {
-    /* Properties of NMClient.DeviceModem */
+    /* Properties of NMClient-1.0.NMClient.DeviceModem */
     readonly currentCapabilities: number
     readonly modemCapabilities: number
-    /* Properties of NMClient.Device */
+    /* Properties of NMClient-1.0.NMClient.Device */
     readonly activeConnection: ActiveConnection
     autoconnect: boolean
     readonly availableConnections: any
@@ -3464,14 +3204,14 @@ export class DeviceModem {
     readonly state: number
     readonly udi: string
     readonly vendor: string
-    /* Fields of NMClient.DeviceModem */
+    /* Fields of NMClient-1.0.NMClient.DeviceModem */
     parent: Device
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of NMClient.DeviceModem */
+    /* Methods of NMClient-1.0.NMClient.DeviceModem */
     getCurrentCapabilities(): NetworkManager.DeviceModemCapabilities
     getModemCapabilities(): NetworkManager.DeviceModemCapabilities
-    /* Methods of NMClient.Device */
+    /* Methods of NMClient-1.0.NMClient.Device */
     connectionCompatible(connection: NetworkManager.Connection): boolean
     connectionValid(connection: NetworkManager.Connection): boolean
     delete(callback?: DeviceCallbackFn | null): void
@@ -3500,7 +3240,7 @@ export class DeviceModem {
     getProduct(): string
     getSettingType(): GObject.Type
     getState(): NetworkManager.DeviceState
-    getStateReason(): [ /* returnType */ NetworkManager.DeviceState, /* reason */ NetworkManager.DeviceStateReason | null ]
+    getStateReason(): { returnType: NetworkManager.DeviceState, reason: NetworkManager.DeviceStateReason | null }
     getTypeDescription(): string
     getUdi(): string
     getVendor(): string
@@ -3508,10 +3248,10 @@ export class DeviceModem {
     isSoftware(): boolean
     setAutoconnect(autoconnect: boolean): void
     setManaged(managed: boolean): void
-    /* Methods of NMClient.Object */
+    /* Methods of NMClient-1.0.NMClient.Object */
     getConnection(): DBusGLib.Connection
     getPath(): string
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -3533,52 +3273,30 @@ export class DeviceModem {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of Gio.AsyncInitable */
+    /* Methods of Gio-2.0.Gio.AsyncInitable */
     initAsync(ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     initFinish(res: Gio.AsyncResult): boolean
     newFinish(res: Gio.AsyncResult): GObject.Object
-    /* Methods of Gio.Initable */
+    /* Methods of Gio-2.0.Gio.Initable */
     init(cancellable?: Gio.Cancellable | null): boolean
-    /* Virtual methods of NMClient.Device */
-    vfuncConnectionCompatible(connection: NetworkManager.Connection): boolean
-    vfuncGetHwAddress(): string
-    vfuncGetSettingType(): GObject.Type
-    vfuncGetTypeDescription(): string
-    vfuncStateChanged(newState: NetworkManager.DeviceState, oldState: NetworkManager.DeviceState, reason: NetworkManager.DeviceStateReason): void
-    /* Virtual methods of NMClient.Object */
-    vfuncObjectCreationFailed(error: GLib.Error, failedPath: string): void
-    vfuncInitAsync(ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    vfuncInitFinish(res: Gio.AsyncResult): boolean
-    vfuncInit(cancellable?: Gio.Cancellable | null): boolean
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of NMClient.Device */
+    /* Signals of NMClient-1.0.NMClient.Device */
     connect(sigName: "state-changed", callback: (($obj: DeviceModem, newState: number, oldState: number, reason: number) => void)): number
-    connect_after(sigName: "state-changed", callback: (($obj: DeviceModem, newState: number, oldState: number, reason: number) => void)): number
+    on(sigName: "state-changed", callback: (newState: number, oldState: number, reason: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "state-changed", callback: (newState: number, oldState: number, reason: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "state-changed", callback: (newState: number, oldState: number, reason: number) => void): NodeJS.EventEmitter
     emit(sigName: "state-changed", newState: number, oldState: number, reason: number): void
-    on(sigName: "state-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "state-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "state-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of NMClient.Object */
+    /* Signals of NMClient-1.0.NMClient.Object */
     connect(sigName: "object-creation-failed", callback: (($obj: DeviceModem, error?: object | null, failedPath?: object | null) => void)): number
-    connect_after(sigName: "object-creation-failed", callback: (($obj: DeviceModem, error?: object | null, failedPath?: object | null) => void)): number
+    on(sigName: "object-creation-failed", callback: (error?: object | null, failedPath?: object | null) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "object-creation-failed", callback: (error?: object | null, failedPath?: object | null) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "object-creation-failed", callback: (error?: object | null, failedPath?: object | null) => void): NodeJS.EventEmitter
     emit(sigName: "object-creation-failed", error?: object | null, failedPath?: object | null): void
-    on(sigName: "object-creation-failed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "object-creation-failed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "object-creation-failed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: DeviceModem, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: DeviceModem, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::current-capabilities", callback: (($obj: DeviceModem, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::current-capabilities", callback: (($obj: DeviceModem, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::current-capabilities", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -3719,11 +3437,11 @@ export class DeviceModem {
 export interface DeviceOlpcMesh_ConstructProps extends Device_ConstructProps {
 }
 export class DeviceOlpcMesh {
-    /* Properties of NMClient.DeviceOlpcMesh */
+    /* Properties of NMClient-1.0.NMClient.DeviceOlpcMesh */
     readonly activeChannel: number
     readonly companion: DeviceWifi
     readonly hwAddress: string
-    /* Properties of NMClient.Device */
+    /* Properties of NMClient-1.0.NMClient.Device */
     readonly activeConnection: ActiveConnection
     autoconnect: boolean
     readonly availableConnections: any
@@ -3747,15 +3465,15 @@ export class DeviceOlpcMesh {
     readonly state: number
     readonly udi: string
     readonly vendor: string
-    /* Fields of NMClient.DeviceOlpcMesh */
+    /* Fields of NMClient-1.0.NMClient.DeviceOlpcMesh */
     parent: Device
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of NMClient.DeviceOlpcMesh */
+    /* Methods of NMClient-1.0.NMClient.DeviceOlpcMesh */
     getActiveChannel(): number
     getCompanion(): DeviceWifi
     getHwAddress(): string
-    /* Methods of NMClient.Device */
+    /* Methods of NMClient-1.0.NMClient.Device */
     connectionCompatible(connection: NetworkManager.Connection): boolean
     connectionValid(connection: NetworkManager.Connection): boolean
     delete(callback?: DeviceCallbackFn | null): void
@@ -3783,7 +3501,7 @@ export class DeviceOlpcMesh {
     getProduct(): string
     getSettingType(): GObject.Type
     getState(): NetworkManager.DeviceState
-    getStateReason(): [ /* returnType */ NetworkManager.DeviceState, /* reason */ NetworkManager.DeviceStateReason | null ]
+    getStateReason(): { returnType: NetworkManager.DeviceState, reason: NetworkManager.DeviceStateReason | null }
     getTypeDescription(): string
     getUdi(): string
     getVendor(): string
@@ -3791,10 +3509,10 @@ export class DeviceOlpcMesh {
     isSoftware(): boolean
     setAutoconnect(autoconnect: boolean): void
     setManaged(managed: boolean): void
-    /* Methods of NMClient.Object */
+    /* Methods of NMClient-1.0.NMClient.Object */
     getConnection(): DBusGLib.Connection
     getPath(): string
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -3816,52 +3534,30 @@ export class DeviceOlpcMesh {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of Gio.AsyncInitable */
+    /* Methods of Gio-2.0.Gio.AsyncInitable */
     initAsync(ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     initFinish(res: Gio.AsyncResult): boolean
     newFinish(res: Gio.AsyncResult): GObject.Object
-    /* Methods of Gio.Initable */
+    /* Methods of Gio-2.0.Gio.Initable */
     init(cancellable?: Gio.Cancellable | null): boolean
-    /* Virtual methods of NMClient.Device */
-    vfuncConnectionCompatible(connection: NetworkManager.Connection): boolean
-    vfuncGetHwAddress(): string
-    vfuncGetSettingType(): GObject.Type
-    vfuncGetTypeDescription(): string
-    vfuncStateChanged(newState: NetworkManager.DeviceState, oldState: NetworkManager.DeviceState, reason: NetworkManager.DeviceStateReason): void
-    /* Virtual methods of NMClient.Object */
-    vfuncObjectCreationFailed(error: GLib.Error, failedPath: string): void
-    vfuncInitAsync(ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    vfuncInitFinish(res: Gio.AsyncResult): boolean
-    vfuncInit(cancellable?: Gio.Cancellable | null): boolean
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of NMClient.Device */
+    /* Signals of NMClient-1.0.NMClient.Device */
     connect(sigName: "state-changed", callback: (($obj: DeviceOlpcMesh, newState: number, oldState: number, reason: number) => void)): number
-    connect_after(sigName: "state-changed", callback: (($obj: DeviceOlpcMesh, newState: number, oldState: number, reason: number) => void)): number
+    on(sigName: "state-changed", callback: (newState: number, oldState: number, reason: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "state-changed", callback: (newState: number, oldState: number, reason: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "state-changed", callback: (newState: number, oldState: number, reason: number) => void): NodeJS.EventEmitter
     emit(sigName: "state-changed", newState: number, oldState: number, reason: number): void
-    on(sigName: "state-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "state-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "state-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of NMClient.Object */
+    /* Signals of NMClient-1.0.NMClient.Object */
     connect(sigName: "object-creation-failed", callback: (($obj: DeviceOlpcMesh, error?: object | null, failedPath?: object | null) => void)): number
-    connect_after(sigName: "object-creation-failed", callback: (($obj: DeviceOlpcMesh, error?: object | null, failedPath?: object | null) => void)): number
+    on(sigName: "object-creation-failed", callback: (error?: object | null, failedPath?: object | null) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "object-creation-failed", callback: (error?: object | null, failedPath?: object | null) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "object-creation-failed", callback: (error?: object | null, failedPath?: object | null) => void): NodeJS.EventEmitter
     emit(sigName: "object-creation-failed", error?: object | null, failedPath?: object | null): void
-    on(sigName: "object-creation-failed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "object-creation-failed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "object-creation-failed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: DeviceOlpcMesh, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: DeviceOlpcMesh, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::active-channel", callback: (($obj: DeviceOlpcMesh, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::active-channel", callback: (($obj: DeviceOlpcMesh, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::active-channel", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -4009,11 +3705,11 @@ export class DeviceOlpcMesh {
 export interface DeviceTeam_ConstructProps extends Device_ConstructProps {
 }
 export class DeviceTeam {
-    /* Properties of NMClient.DeviceTeam */
+    /* Properties of NMClient-1.0.NMClient.DeviceTeam */
     readonly carrier: boolean
     readonly hwAddress: string
     readonly slaves: any
-    /* Properties of NMClient.Device */
+    /* Properties of NMClient-1.0.NMClient.Device */
     readonly activeConnection: ActiveConnection
     autoconnect: boolean
     readonly availableConnections: any
@@ -4037,15 +3733,15 @@ export class DeviceTeam {
     readonly state: number
     readonly udi: string
     readonly vendor: string
-    /* Fields of NMClient.DeviceTeam */
+    /* Fields of NMClient-1.0.NMClient.DeviceTeam */
     parent: Device
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of NMClient.DeviceTeam */
+    /* Methods of NMClient-1.0.NMClient.DeviceTeam */
     getCarrier(): boolean
     getHwAddress(): string
     getSlaves(): Device[]
-    /* Methods of NMClient.Device */
+    /* Methods of NMClient-1.0.NMClient.Device */
     connectionCompatible(connection: NetworkManager.Connection): boolean
     connectionValid(connection: NetworkManager.Connection): boolean
     delete(callback?: DeviceCallbackFn | null): void
@@ -4073,7 +3769,7 @@ export class DeviceTeam {
     getProduct(): string
     getSettingType(): GObject.Type
     getState(): NetworkManager.DeviceState
-    getStateReason(): [ /* returnType */ NetworkManager.DeviceState, /* reason */ NetworkManager.DeviceStateReason | null ]
+    getStateReason(): { returnType: NetworkManager.DeviceState, reason: NetworkManager.DeviceStateReason | null }
     getTypeDescription(): string
     getUdi(): string
     getVendor(): string
@@ -4081,10 +3777,10 @@ export class DeviceTeam {
     isSoftware(): boolean
     setAutoconnect(autoconnect: boolean): void
     setManaged(managed: boolean): void
-    /* Methods of NMClient.Object */
+    /* Methods of NMClient-1.0.NMClient.Object */
     getConnection(): DBusGLib.Connection
     getPath(): string
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -4106,52 +3802,30 @@ export class DeviceTeam {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of Gio.AsyncInitable */
+    /* Methods of Gio-2.0.Gio.AsyncInitable */
     initAsync(ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     initFinish(res: Gio.AsyncResult): boolean
     newFinish(res: Gio.AsyncResult): GObject.Object
-    /* Methods of Gio.Initable */
+    /* Methods of Gio-2.0.Gio.Initable */
     init(cancellable?: Gio.Cancellable | null): boolean
-    /* Virtual methods of NMClient.Device */
-    vfuncConnectionCompatible(connection: NetworkManager.Connection): boolean
-    vfuncGetHwAddress(): string
-    vfuncGetSettingType(): GObject.Type
-    vfuncGetTypeDescription(): string
-    vfuncStateChanged(newState: NetworkManager.DeviceState, oldState: NetworkManager.DeviceState, reason: NetworkManager.DeviceStateReason): void
-    /* Virtual methods of NMClient.Object */
-    vfuncObjectCreationFailed(error: GLib.Error, failedPath: string): void
-    vfuncInitAsync(ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    vfuncInitFinish(res: Gio.AsyncResult): boolean
-    vfuncInit(cancellable?: Gio.Cancellable | null): boolean
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of NMClient.Device */
+    /* Signals of NMClient-1.0.NMClient.Device */
     connect(sigName: "state-changed", callback: (($obj: DeviceTeam, newState: number, oldState: number, reason: number) => void)): number
-    connect_after(sigName: "state-changed", callback: (($obj: DeviceTeam, newState: number, oldState: number, reason: number) => void)): number
+    on(sigName: "state-changed", callback: (newState: number, oldState: number, reason: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "state-changed", callback: (newState: number, oldState: number, reason: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "state-changed", callback: (newState: number, oldState: number, reason: number) => void): NodeJS.EventEmitter
     emit(sigName: "state-changed", newState: number, oldState: number, reason: number): void
-    on(sigName: "state-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "state-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "state-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of NMClient.Object */
+    /* Signals of NMClient-1.0.NMClient.Object */
     connect(sigName: "object-creation-failed", callback: (($obj: DeviceTeam, error?: object | null, failedPath?: object | null) => void)): number
-    connect_after(sigName: "object-creation-failed", callback: (($obj: DeviceTeam, error?: object | null, failedPath?: object | null) => void)): number
+    on(sigName: "object-creation-failed", callback: (error?: object | null, failedPath?: object | null) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "object-creation-failed", callback: (error?: object | null, failedPath?: object | null) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "object-creation-failed", callback: (error?: object | null, failedPath?: object | null) => void): NodeJS.EventEmitter
     emit(sigName: "object-creation-failed", error?: object | null, failedPath?: object | null): void
-    on(sigName: "object-creation-failed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "object-creation-failed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "object-creation-failed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: DeviceTeam, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: DeviceTeam, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::carrier", callback: (($obj: DeviceTeam, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::carrier", callback: (($obj: DeviceTeam, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::carrier", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -4299,12 +3973,12 @@ export class DeviceTeam {
 export interface DeviceVlan_ConstructProps extends Device_ConstructProps {
 }
 export class DeviceVlan {
-    /* Properties of NMClient.DeviceVlan */
+    /* Properties of NMClient-1.0.NMClient.DeviceVlan */
     readonly carrier: boolean
     readonly hwAddress: string
     readonly parent: Device
     readonly vlanId: number
-    /* Properties of NMClient.Device */
+    /* Properties of NMClient-1.0.NMClient.Device */
     readonly activeConnection: ActiveConnection
     autoconnect: boolean
     readonly availableConnections: any
@@ -4328,14 +4002,14 @@ export class DeviceVlan {
     readonly state: number
     readonly udi: string
     readonly vendor: string
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of NMClient.DeviceVlan */
+    /* Methods of NMClient-1.0.NMClient.DeviceVlan */
     getCarrier(): boolean
     getHwAddress(): string
     getParent(): Device
     getVlanId(): number
-    /* Methods of NMClient.Device */
+    /* Methods of NMClient-1.0.NMClient.Device */
     connectionCompatible(connection: NetworkManager.Connection): boolean
     connectionValid(connection: NetworkManager.Connection): boolean
     delete(callback?: DeviceCallbackFn | null): void
@@ -4363,7 +4037,7 @@ export class DeviceVlan {
     getProduct(): string
     getSettingType(): GObject.Type
     getState(): NetworkManager.DeviceState
-    getStateReason(): [ /* returnType */ NetworkManager.DeviceState, /* reason */ NetworkManager.DeviceStateReason | null ]
+    getStateReason(): { returnType: NetworkManager.DeviceState, reason: NetworkManager.DeviceStateReason | null }
     getTypeDescription(): string
     getUdi(): string
     getVendor(): string
@@ -4371,10 +4045,10 @@ export class DeviceVlan {
     isSoftware(): boolean
     setAutoconnect(autoconnect: boolean): void
     setManaged(managed: boolean): void
-    /* Methods of NMClient.Object */
+    /* Methods of NMClient-1.0.NMClient.Object */
     getConnection(): DBusGLib.Connection
     getPath(): string
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -4396,52 +4070,30 @@ export class DeviceVlan {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of Gio.AsyncInitable */
+    /* Methods of Gio-2.0.Gio.AsyncInitable */
     initAsync(ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     initFinish(res: Gio.AsyncResult): boolean
     newFinish(res: Gio.AsyncResult): GObject.Object
-    /* Methods of Gio.Initable */
+    /* Methods of Gio-2.0.Gio.Initable */
     init(cancellable?: Gio.Cancellable | null): boolean
-    /* Virtual methods of NMClient.Device */
-    vfuncConnectionCompatible(connection: NetworkManager.Connection): boolean
-    vfuncGetHwAddress(): string
-    vfuncGetSettingType(): GObject.Type
-    vfuncGetTypeDescription(): string
-    vfuncStateChanged(newState: NetworkManager.DeviceState, oldState: NetworkManager.DeviceState, reason: NetworkManager.DeviceStateReason): void
-    /* Virtual methods of NMClient.Object */
-    vfuncObjectCreationFailed(error: GLib.Error, failedPath: string): void
-    vfuncInitAsync(ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    vfuncInitFinish(res: Gio.AsyncResult): boolean
-    vfuncInit(cancellable?: Gio.Cancellable | null): boolean
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of NMClient.Device */
+    /* Signals of NMClient-1.0.NMClient.Device */
     connect(sigName: "state-changed", callback: (($obj: DeviceVlan, newState: number, oldState: number, reason: number) => void)): number
-    connect_after(sigName: "state-changed", callback: (($obj: DeviceVlan, newState: number, oldState: number, reason: number) => void)): number
+    on(sigName: "state-changed", callback: (newState: number, oldState: number, reason: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "state-changed", callback: (newState: number, oldState: number, reason: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "state-changed", callback: (newState: number, oldState: number, reason: number) => void): NodeJS.EventEmitter
     emit(sigName: "state-changed", newState: number, oldState: number, reason: number): void
-    on(sigName: "state-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "state-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "state-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of NMClient.Object */
+    /* Signals of NMClient-1.0.NMClient.Object */
     connect(sigName: "object-creation-failed", callback: (($obj: DeviceVlan, error?: object | null, failedPath?: object | null) => void)): number
-    connect_after(sigName: "object-creation-failed", callback: (($obj: DeviceVlan, error?: object | null, failedPath?: object | null) => void)): number
+    on(sigName: "object-creation-failed", callback: (error?: object | null, failedPath?: object | null) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "object-creation-failed", callback: (error?: object | null, failedPath?: object | null) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "object-creation-failed", callback: (error?: object | null, failedPath?: object | null) => void): NodeJS.EventEmitter
     emit(sigName: "object-creation-failed", error?: object | null, failedPath?: object | null): void
-    on(sigName: "object-creation-failed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "object-creation-failed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "object-creation-failed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: DeviceVlan, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: DeviceVlan, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::carrier", callback: (($obj: DeviceVlan, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::carrier", callback: (($obj: DeviceVlan, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::carrier", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -4594,7 +4246,7 @@ export class DeviceVlan {
 export interface DeviceWifi_ConstructProps extends Device_ConstructProps {
 }
 export class DeviceWifi {
-    /* Properties of NMClient.DeviceWifi */
+    /* Properties of NMClient-1.0.NMClient.DeviceWifi */
     readonly accessPoints: any
     readonly activeAccessPoint: AccessPoint
     readonly bitrate: number
@@ -4602,7 +4254,7 @@ export class DeviceWifi {
     readonly mode: number
     readonly permHwAddress: string
     readonly wirelessCapabilities: number
-    /* Properties of NMClient.Device */
+    /* Properties of NMClient-1.0.NMClient.Device */
     readonly activeConnection: ActiveConnection
     autoconnect: boolean
     readonly availableConnections: any
@@ -4626,11 +4278,11 @@ export class DeviceWifi {
     readonly state: number
     readonly udi: string
     readonly vendor: string
-    /* Fields of NMClient.DeviceWifi */
+    /* Fields of NMClient-1.0.NMClient.DeviceWifi */
     parent: Device
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of NMClient.DeviceWifi */
+    /* Methods of NMClient-1.0.NMClient.DeviceWifi */
     getAccessPointByPath(path: string): AccessPoint
     getAccessPoints(): AccessPoint[]
     getActiveAccessPoint(): AccessPoint
@@ -4640,7 +4292,7 @@ export class DeviceWifi {
     getMode(): NetworkManager.TODO_80211Mode
     getPermanentHwAddress(): string
     requestScanSimple(callback?: DeviceWifiRequestScanFn | null): void
-    /* Methods of NMClient.Device */
+    /* Methods of NMClient-1.0.NMClient.Device */
     connectionCompatible(connection: NetworkManager.Connection): boolean
     connectionValid(connection: NetworkManager.Connection): boolean
     delete(callback?: DeviceCallbackFn | null): void
@@ -4668,7 +4320,7 @@ export class DeviceWifi {
     getProduct(): string
     getSettingType(): GObject.Type
     getState(): NetworkManager.DeviceState
-    getStateReason(): [ /* returnType */ NetworkManager.DeviceState, /* reason */ NetworkManager.DeviceStateReason | null ]
+    getStateReason(): { returnType: NetworkManager.DeviceState, reason: NetworkManager.DeviceStateReason | null }
     getTypeDescription(): string
     getUdi(): string
     getVendor(): string
@@ -4676,10 +4328,10 @@ export class DeviceWifi {
     isSoftware(): boolean
     setAutoconnect(autoconnect: boolean): void
     setManaged(managed: boolean): void
-    /* Methods of NMClient.Object */
+    /* Methods of NMClient-1.0.NMClient.Object */
     getConnection(): DBusGLib.Connection
     getPath(): string
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -4701,68 +4353,41 @@ export class DeviceWifi {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of Gio.AsyncInitable */
+    /* Methods of Gio-2.0.Gio.AsyncInitable */
     initAsync(ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     initFinish(res: Gio.AsyncResult): boolean
     newFinish(res: Gio.AsyncResult): GObject.Object
-    /* Methods of Gio.Initable */
+    /* Methods of Gio-2.0.Gio.Initable */
     init(cancellable?: Gio.Cancellable | null): boolean
-    /* Virtual methods of NMClient.DeviceWifi */
-    vfuncAccessPointAdded(ap: AccessPoint): void
-    vfuncAccessPointRemoved(ap: AccessPoint): void
-    /* Virtual methods of NMClient.Device */
-    vfuncConnectionCompatible(connection: NetworkManager.Connection): boolean
-    vfuncGetHwAddress(): string
-    vfuncGetSettingType(): GObject.Type
-    vfuncGetTypeDescription(): string
-    vfuncStateChanged(newState: NetworkManager.DeviceState, oldState: NetworkManager.DeviceState, reason: NetworkManager.DeviceStateReason): void
-    /* Virtual methods of NMClient.Object */
-    vfuncObjectCreationFailed(error: GLib.Error, failedPath: string): void
-    vfuncInitAsync(ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    vfuncInitFinish(res: Gio.AsyncResult): boolean
-    vfuncInit(cancellable?: Gio.Cancellable | null): boolean
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of NMClient.DeviceWifi */
+    /* Signals of NMClient-1.0.NMClient.DeviceWifi */
     connect(sigName: "access-point-added", callback: (($obj: DeviceWifi, ap: GObject.Object) => void)): number
-    connect_after(sigName: "access-point-added", callback: (($obj: DeviceWifi, ap: GObject.Object) => void)): number
+    on(sigName: "access-point-added", callback: (ap: GObject.Object) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "access-point-added", callback: (ap: GObject.Object) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "access-point-added", callback: (ap: GObject.Object) => void): NodeJS.EventEmitter
     emit(sigName: "access-point-added", ap: GObject.Object): void
-    on(sigName: "access-point-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "access-point-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "access-point-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "access-point-removed", callback: (($obj: DeviceWifi, ap: GObject.Object) => void)): number
-    connect_after(sigName: "access-point-removed", callback: (($obj: DeviceWifi, ap: GObject.Object) => void)): number
+    on(sigName: "access-point-removed", callback: (ap: GObject.Object) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "access-point-removed", callback: (ap: GObject.Object) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "access-point-removed", callback: (ap: GObject.Object) => void): NodeJS.EventEmitter
     emit(sigName: "access-point-removed", ap: GObject.Object): void
-    on(sigName: "access-point-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "access-point-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "access-point-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of NMClient.Device */
+    /* Signals of NMClient-1.0.NMClient.Device */
     connect(sigName: "state-changed", callback: (($obj: DeviceWifi, newState: number, oldState: number, reason: number) => void)): number
-    connect_after(sigName: "state-changed", callback: (($obj: DeviceWifi, newState: number, oldState: number, reason: number) => void)): number
+    on(sigName: "state-changed", callback: (newState: number, oldState: number, reason: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "state-changed", callback: (newState: number, oldState: number, reason: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "state-changed", callback: (newState: number, oldState: number, reason: number) => void): NodeJS.EventEmitter
     emit(sigName: "state-changed", newState: number, oldState: number, reason: number): void
-    on(sigName: "state-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "state-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "state-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of NMClient.Object */
+    /* Signals of NMClient-1.0.NMClient.Object */
     connect(sigName: "object-creation-failed", callback: (($obj: DeviceWifi, error?: object | null, failedPath?: object | null) => void)): number
-    connect_after(sigName: "object-creation-failed", callback: (($obj: DeviceWifi, error?: object | null, failedPath?: object | null) => void)): number
+    on(sigName: "object-creation-failed", callback: (error?: object | null, failedPath?: object | null) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "object-creation-failed", callback: (error?: object | null, failedPath?: object | null) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "object-creation-failed", callback: (error?: object | null, failedPath?: object | null) => void): NodeJS.EventEmitter
     emit(sigName: "object-creation-failed", error?: object | null, failedPath?: object | null): void
-    on(sigName: "object-creation-failed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "object-creation-failed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "object-creation-failed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: DeviceWifi, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: DeviceWifi, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::access-points", callback: (($obj: DeviceWifi, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::access-points", callback: (($obj: DeviceWifi, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::access-points", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -4930,7 +4555,7 @@ export class DeviceWifi {
 export interface DeviceWimax_ConstructProps extends Device_ConstructProps {
 }
 export class DeviceWimax {
-    /* Properties of NMClient.DeviceWimax */
+    /* Properties of NMClient-1.0.NMClient.DeviceWimax */
     readonly activeNsp: WimaxNsp
     readonly bsid: string
     readonly centerFrequency: number
@@ -4939,7 +4564,7 @@ export class DeviceWimax {
     readonly nsps: any
     readonly rssi: number
     readonly txPower: number
-    /* Properties of NMClient.Device */
+    /* Properties of NMClient-1.0.NMClient.Device */
     readonly activeConnection: ActiveConnection
     autoconnect: boolean
     readonly availableConnections: any
@@ -4963,11 +4588,11 @@ export class DeviceWimax {
     readonly state: number
     readonly udi: string
     readonly vendor: string
-    /* Fields of NMClient.DeviceWimax */
+    /* Fields of NMClient-1.0.NMClient.DeviceWimax */
     parent: Device
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of NMClient.DeviceWimax */
+    /* Methods of NMClient-1.0.NMClient.DeviceWimax */
     getActiveNsp(): WimaxNsp
     getBsid(): string
     getCenterFrequency(): number
@@ -4977,7 +4602,7 @@ export class DeviceWimax {
     getNsps(): WimaxNsp[]
     getRssi(): number
     getTxPower(): number
-    /* Methods of NMClient.Device */
+    /* Methods of NMClient-1.0.NMClient.Device */
     connectionCompatible(connection: NetworkManager.Connection): boolean
     connectionValid(connection: NetworkManager.Connection): boolean
     delete(callback?: DeviceCallbackFn | null): void
@@ -5005,7 +4630,7 @@ export class DeviceWimax {
     getProduct(): string
     getSettingType(): GObject.Type
     getState(): NetworkManager.DeviceState
-    getStateReason(): [ /* returnType */ NetworkManager.DeviceState, /* reason */ NetworkManager.DeviceStateReason | null ]
+    getStateReason(): { returnType: NetworkManager.DeviceState, reason: NetworkManager.DeviceStateReason | null }
     getTypeDescription(): string
     getUdi(): string
     getVendor(): string
@@ -5013,10 +4638,10 @@ export class DeviceWimax {
     isSoftware(): boolean
     setAutoconnect(autoconnect: boolean): void
     setManaged(managed: boolean): void
-    /* Methods of NMClient.Object */
+    /* Methods of NMClient-1.0.NMClient.Object */
     getConnection(): DBusGLib.Connection
     getPath(): string
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -5038,68 +4663,41 @@ export class DeviceWimax {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of Gio.AsyncInitable */
+    /* Methods of Gio-2.0.Gio.AsyncInitable */
     initAsync(ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     initFinish(res: Gio.AsyncResult): boolean
     newFinish(res: Gio.AsyncResult): GObject.Object
-    /* Methods of Gio.Initable */
+    /* Methods of Gio-2.0.Gio.Initable */
     init(cancellable?: Gio.Cancellable | null): boolean
-    /* Virtual methods of NMClient.DeviceWimax */
-    vfuncNspAdded(nsp: WimaxNsp): void
-    vfuncNspRemoved(nsp: WimaxNsp): void
-    /* Virtual methods of NMClient.Device */
-    vfuncConnectionCompatible(connection: NetworkManager.Connection): boolean
-    vfuncGetHwAddress(): string
-    vfuncGetSettingType(): GObject.Type
-    vfuncGetTypeDescription(): string
-    vfuncStateChanged(newState: NetworkManager.DeviceState, oldState: NetworkManager.DeviceState, reason: NetworkManager.DeviceStateReason): void
-    /* Virtual methods of NMClient.Object */
-    vfuncObjectCreationFailed(error: GLib.Error, failedPath: string): void
-    vfuncInitAsync(ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    vfuncInitFinish(res: Gio.AsyncResult): boolean
-    vfuncInit(cancellable?: Gio.Cancellable | null): boolean
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of NMClient.DeviceWimax */
+    /* Signals of NMClient-1.0.NMClient.DeviceWimax */
     connect(sigName: "nsp-added", callback: (($obj: DeviceWimax, nsp: GObject.Object) => void)): number
-    connect_after(sigName: "nsp-added", callback: (($obj: DeviceWimax, nsp: GObject.Object) => void)): number
+    on(sigName: "nsp-added", callback: (nsp: GObject.Object) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "nsp-added", callback: (nsp: GObject.Object) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "nsp-added", callback: (nsp: GObject.Object) => void): NodeJS.EventEmitter
     emit(sigName: "nsp-added", nsp: GObject.Object): void
-    on(sigName: "nsp-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "nsp-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "nsp-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "nsp-removed", callback: (($obj: DeviceWimax, nsp: GObject.Object) => void)): number
-    connect_after(sigName: "nsp-removed", callback: (($obj: DeviceWimax, nsp: GObject.Object) => void)): number
+    on(sigName: "nsp-removed", callback: (nsp: GObject.Object) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "nsp-removed", callback: (nsp: GObject.Object) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "nsp-removed", callback: (nsp: GObject.Object) => void): NodeJS.EventEmitter
     emit(sigName: "nsp-removed", nsp: GObject.Object): void
-    on(sigName: "nsp-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "nsp-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "nsp-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of NMClient.Device */
+    /* Signals of NMClient-1.0.NMClient.Device */
     connect(sigName: "state-changed", callback: (($obj: DeviceWimax, newState: number, oldState: number, reason: number) => void)): number
-    connect_after(sigName: "state-changed", callback: (($obj: DeviceWimax, newState: number, oldState: number, reason: number) => void)): number
+    on(sigName: "state-changed", callback: (newState: number, oldState: number, reason: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "state-changed", callback: (newState: number, oldState: number, reason: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "state-changed", callback: (newState: number, oldState: number, reason: number) => void): NodeJS.EventEmitter
     emit(sigName: "state-changed", newState: number, oldState: number, reason: number): void
-    on(sigName: "state-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "state-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "state-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of NMClient.Object */
+    /* Signals of NMClient-1.0.NMClient.Object */
     connect(sigName: "object-creation-failed", callback: (($obj: DeviceWimax, error?: object | null, failedPath?: object | null) => void)): number
-    connect_after(sigName: "object-creation-failed", callback: (($obj: DeviceWimax, error?: object | null, failedPath?: object | null) => void)): number
+    on(sigName: "object-creation-failed", callback: (error?: object | null, failedPath?: object | null) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "object-creation-failed", callback: (error?: object | null, failedPath?: object | null) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "object-creation-failed", callback: (error?: object | null, failedPath?: object | null) => void): NodeJS.EventEmitter
     emit(sigName: "object-creation-failed", error?: object | null, failedPath?: object | null): void
-    on(sigName: "object-creation-failed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "object-creation-failed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "object-creation-failed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: DeviceWimax, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: DeviceWimax, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::active-nsp", callback: (($obj: DeviceWimax, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::active-nsp", callback: (($obj: DeviceWimax, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::active-nsp", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -5272,7 +4870,7 @@ export class DeviceWimax {
 export interface IP4Config_ConstructProps extends Object_ConstructProps {
 }
 export class IP4Config {
-    /* Properties of NMClient.IP4Config */
+    /* Properties of NMClient-1.0.NMClient.IP4Config */
     readonly addresses: object
     readonly domains: any
     readonly gateway: string
@@ -5280,11 +4878,11 @@ export class IP4Config {
     readonly routes: object
     readonly searches: any
     readonly winsServers: any
-    /* Fields of NMClient.IP4Config */
+    /* Fields of NMClient-1.0.NMClient.IP4Config */
     parent: Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of NMClient.IP4Config */
+    /* Methods of NMClient-1.0.NMClient.IP4Config */
     getAddresses(): NetworkManager.IP4Address[]
     getDomains(): string[]
     getGateway(): string
@@ -5292,10 +4890,10 @@ export class IP4Config {
     getRoutes(): NetworkManager.IP4Route[]
     getSearches(): string[]
     getWinsServers(): number[]
-    /* Methods of NMClient.Object */
+    /* Methods of NMClient-1.0.NMClient.Object */
     getConnection(): DBusGLib.Connection
     getPath(): string
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -5317,39 +4915,24 @@ export class IP4Config {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of Gio.AsyncInitable */
+    /* Methods of Gio-2.0.Gio.AsyncInitable */
     initAsync(ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     initFinish(res: Gio.AsyncResult): boolean
     newFinish(res: Gio.AsyncResult): GObject.Object
-    /* Methods of Gio.Initable */
+    /* Methods of Gio-2.0.Gio.Initable */
     init(cancellable?: Gio.Cancellable | null): boolean
-    /* Virtual methods of NMClient.Object */
-    vfuncObjectCreationFailed(error: GLib.Error, failedPath: string): void
-    vfuncInitAsync(ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    vfuncInitFinish(res: Gio.AsyncResult): boolean
-    vfuncInit(cancellable?: Gio.Cancellable | null): boolean
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of NMClient.Object */
+    /* Signals of NMClient-1.0.NMClient.Object */
     connect(sigName: "object-creation-failed", callback: (($obj: IP4Config, error?: object | null, failedPath?: object | null) => void)): number
-    connect_after(sigName: "object-creation-failed", callback: (($obj: IP4Config, error?: object | null, failedPath?: object | null) => void)): number
+    on(sigName: "object-creation-failed", callback: (error?: object | null, failedPath?: object | null) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "object-creation-failed", callback: (error?: object | null, failedPath?: object | null) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "object-creation-failed", callback: (error?: object | null, failedPath?: object | null) => void): NodeJS.EventEmitter
     emit(sigName: "object-creation-failed", error?: object | null, failedPath?: object | null): void
-    on(sigName: "object-creation-failed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "object-creation-failed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "object-creation-failed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: IP4Config, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: IP4Config, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::addresses", callback: (($obj: IP4Config, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::addresses", callback: (($obj: IP4Config, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::addresses", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -5402,18 +4985,18 @@ export class IP4Config {
 export interface IP6Config_ConstructProps extends Object_ConstructProps {
 }
 export class IP6Config {
-    /* Properties of NMClient.IP6Config */
+    /* Properties of NMClient-1.0.NMClient.IP6Config */
     readonly addresses: any
     readonly domains: any
     readonly gateway: string
     readonly nameservers: any
     readonly routes: any
     readonly searches: any
-    /* Fields of NMClient.IP6Config */
+    /* Fields of NMClient-1.0.NMClient.IP6Config */
     parent: Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of NMClient.IP6Config */
+    /* Methods of NMClient-1.0.NMClient.IP6Config */
     getAddresses(): NetworkManager.IP6Address[]
     getDomains(): string[]
     getGateway(): string
@@ -5421,10 +5004,10 @@ export class IP6Config {
     getNumNameservers(): number
     getRoutes(): NetworkManager.IP6Route[]
     getSearches(): string[]
-    /* Methods of NMClient.Object */
+    /* Methods of NMClient-1.0.NMClient.Object */
     getConnection(): DBusGLib.Connection
     getPath(): string
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -5446,39 +5029,24 @@ export class IP6Config {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of Gio.AsyncInitable */
+    /* Methods of Gio-2.0.Gio.AsyncInitable */
     initAsync(ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     initFinish(res: Gio.AsyncResult): boolean
     newFinish(res: Gio.AsyncResult): GObject.Object
-    /* Methods of Gio.Initable */
+    /* Methods of Gio-2.0.Gio.Initable */
     init(cancellable?: Gio.Cancellable | null): boolean
-    /* Virtual methods of NMClient.Object */
-    vfuncObjectCreationFailed(error: GLib.Error, failedPath: string): void
-    vfuncInitAsync(ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    vfuncInitFinish(res: Gio.AsyncResult): boolean
-    vfuncInit(cancellable?: Gio.Cancellable | null): boolean
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of NMClient.Object */
+    /* Signals of NMClient-1.0.NMClient.Object */
     connect(sigName: "object-creation-failed", callback: (($obj: IP6Config, error?: object | null, failedPath?: object | null) => void)): number
-    connect_after(sigName: "object-creation-failed", callback: (($obj: IP6Config, error?: object | null, failedPath?: object | null) => void)): number
+    on(sigName: "object-creation-failed", callback: (error?: object | null, failedPath?: object | null) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "object-creation-failed", callback: (error?: object | null, failedPath?: object | null) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "object-creation-failed", callback: (error?: object | null, failedPath?: object | null) => void): NodeJS.EventEmitter
     emit(sigName: "object-creation-failed", error?: object | null, failedPath?: object | null): void
-    on(sigName: "object-creation-failed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "object-creation-failed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "object-creation-failed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: IP6Config, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: IP6Config, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::addresses", callback: (($obj: IP6Config, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::addresses", callback: (($obj: IP6Config, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::addresses", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -5527,14 +5095,14 @@ export interface Object_ConstructProps extends GObject.Object_ConstructProps {
     dbusPath?: string
 }
 export class Object {
-    /* Fields of NMClient.Object */
+    /* Fields of NMClient-1.0.NMClient.Object */
     parent: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of NMClient.Object */
+    /* Methods of NMClient-1.0.NMClient.Object */
     getConnection(): DBusGLib.Connection
     getPath(): string
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -5556,39 +5124,24 @@ export class Object {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of Gio.AsyncInitable */
+    /* Methods of Gio-2.0.Gio.AsyncInitable */
     initAsync(ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     initFinish(res: Gio.AsyncResult): boolean
     newFinish(res: Gio.AsyncResult): GObject.Object
-    /* Methods of Gio.Initable */
+    /* Methods of Gio-2.0.Gio.Initable */
     init(cancellable?: Gio.Cancellable | null): boolean
-    /* Virtual methods of NMClient.Object */
-    vfuncObjectCreationFailed(error: GLib.Error, failedPath: string): void
-    vfuncInitAsync(ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    vfuncInitFinish(res: Gio.AsyncResult): boolean
-    vfuncInit(cancellable?: Gio.Cancellable | null): boolean
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of NMClient.Object */
+    /* Signals of NMClient-1.0.NMClient.Object */
     connect(sigName: "object-creation-failed", callback: (($obj: Object, error?: object | null, failedPath?: object | null) => void)): number
-    connect_after(sigName: "object-creation-failed", callback: (($obj: Object, error?: object | null, failedPath?: object | null) => void)): number
+    on(sigName: "object-creation-failed", callback: (error?: object | null, failedPath?: object | null) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "object-creation-failed", callback: (error?: object | null, failedPath?: object | null) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "object-creation-failed", callback: (error?: object | null, failedPath?: object | null) => void): NodeJS.EventEmitter
     emit(sigName: "object-creation-failed", error?: object | null, failedPath?: object | null): void
-    on(sigName: "object-creation-failed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "object-creation-failed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "object-creation-failed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Object, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Object, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -5608,22 +5161,22 @@ export interface RemoteConnection_ConstructProps extends NetworkManager.Connecti
     dbusPath?: string
 }
 export class RemoteConnection {
-    /* Properties of NMClient.RemoteConnection */
+    /* Properties of NMClient-1.0.NMClient.RemoteConnection */
     readonly unsaved: boolean
-    /* Properties of NetworkManager.Connection */
+    /* Properties of NetworkManager-1.0.NetworkManager.Connection */
     path: string
-    /* Fields of NMClient.RemoteConnection */
+    /* Fields of NMClient-1.0.NMClient.RemoteConnection */
     parent: NetworkManager.Connection
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of NMClient.RemoteConnection */
+    /* Methods of NMClient-1.0.NMClient.RemoteConnection */
     commitChanges(callback?: RemoteConnectionResultFunc | null): void
     commitChangesUnsaved(callback?: RemoteConnectionResultFunc | null): void
     delete(callback?: RemoteConnectionResultFunc | null): void
     getSecrets(settingName: string, callback: RemoteConnectionGetSecretsFunc): void
     getUnsaved(): boolean
     save(callback?: RemoteConnectionResultFunc | null): void
-    /* Methods of NetworkManager.Connection */
+    /* Methods of NetworkManager-1.0.NetworkManager.Connection */
     addSetting(setting: NetworkManager.Setting): void
     clearSecrets(): void
     clearSecretsWithFlags(func: NetworkManager.SettingClearSecretsWithFlagsFn): void
@@ -5668,8 +5221,8 @@ export class RemoteConnection {
     getVirtualDeviceDescription(): string
     getVirtualIfaceName(): string
     isType(type: string): boolean
-    needSecrets(): [ /* returnType */ string, /* hints */ string[] | null ]
-    normalize(parameters?: GLib.HashTable | null): [ /* returnType */ boolean, /* modified */ boolean | null ]
+    needSecrets(): { returnType: string, hints: string[] | null }
+    normalize(parameters?: GLib.HashTable | null): { returnType: boolean, modified: boolean | null }
     removeSetting(settingType: GObject.Type): void
     replaceSettings(newSettings: GLib.HashTable): boolean
     replaceSettingsFromConnection(newConnection: NetworkManager.Connection): boolean
@@ -5677,7 +5230,7 @@ export class RemoteConnection {
     toHash(flags: NetworkManager.SettingHashFlags): GLib.HashTable
     updateSecrets(settingName: string, secrets: GLib.HashTable): boolean
     verify(): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -5699,73 +5252,50 @@ export class RemoteConnection {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of Gio.AsyncInitable */
+    /* Methods of Gio-2.0.Gio.AsyncInitable */
     initAsync(ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     initFinish(res: Gio.AsyncResult): boolean
     newFinish(res: Gio.AsyncResult): GObject.Object
-    /* Methods of Gio.Initable */
+    /* Methods of Gio-2.0.Gio.Initable */
     init(cancellable?: Gio.Cancellable | null): boolean
-    /* Virtual methods of NMClient.RemoteConnection */
-    vfuncRemoved(): void
-    vfuncUpdated(newSettings: GLib.HashTable): void
-    vfuncInitAsync(ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    vfuncInitFinish(res: Gio.AsyncResult): boolean
-    vfuncInit(cancellable?: Gio.Cancellable | null): boolean
-    /* Virtual methods of NetworkManager.Connection */
-    vfuncSecretsUpdated(setting: string): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of NMClient.RemoteConnection */
+    /* Signals of NMClient-1.0.NMClient.RemoteConnection */
     connect(sigName: "removed", callback: (($obj: RemoteConnection) => void)): number
-    connect_after(sigName: "removed", callback: (($obj: RemoteConnection) => void)): number
+    on(sigName: "removed", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "removed", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "removed", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "removed"): void
-    on(sigName: "removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "updated", callback: (($obj: RemoteConnection) => void)): number
-    connect_after(sigName: "updated", callback: (($obj: RemoteConnection) => void)): number
+    on(sigName: "updated", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "updated", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "updated", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "updated"): void
-    on(sigName: "updated", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "updated", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "updated", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "visible", callback: (($obj: RemoteConnection, object: boolean) => void)): number
-    connect_after(sigName: "visible", callback: (($obj: RemoteConnection, object: boolean) => void)): number
+    on(sigName: "visible", callback: (object: boolean) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "visible", callback: (object: boolean) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "visible", callback: (object: boolean) => void): NodeJS.EventEmitter
     emit(sigName: "visible", object: boolean): void
-    on(sigName: "visible", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "visible", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "visible", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of NetworkManager.Connection */
+    /* Signals of NetworkManager-1.0.NetworkManager.Connection */
     connect(sigName: "changed", callback: (($obj: RemoteConnection) => void)): number
-    connect_after(sigName: "changed", callback: (($obj: RemoteConnection) => void)): number
+    on(sigName: "changed", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "changed", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "changed", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "changed"): void
-    on(sigName: "changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "secrets-cleared", callback: (($obj: RemoteConnection) => void)): number
-    connect_after(sigName: "secrets-cleared", callback: (($obj: RemoteConnection) => void)): number
+    on(sigName: "secrets-cleared", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "secrets-cleared", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "secrets-cleared", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "secrets-cleared"): void
-    on(sigName: "secrets-cleared", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "secrets-cleared", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "secrets-cleared", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "secrets-updated", callback: (($obj: RemoteConnection, settingName: string) => void)): number
-    connect_after(sigName: "secrets-updated", callback: (($obj: RemoteConnection, settingName: string) => void)): number
+    on(sigName: "secrets-updated", callback: (settingName: string) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "secrets-updated", callback: (settingName: string) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "secrets-updated", callback: (settingName: string) => void): NodeJS.EventEmitter
     emit(sigName: "secrets-updated", settingName: string): void
-    on(sigName: "secrets-updated", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "secrets-updated", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "secrets-updated", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: RemoteConnection, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: RemoteConnection, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::unsaved", callback: (($obj: RemoteConnection, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::unsaved", callback: (($obj: RemoteConnection, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::unsaved", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -5796,25 +5326,25 @@ export class RemoteConnection {
 export interface RemoteSettings_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class RemoteSettings {
-    /* Properties of NMClient.RemoteSettings */
+    /* Properties of NMClient-1.0.NMClient.RemoteSettings */
     readonly canModify: boolean
     readonly hostname: string
     readonly serviceRunning: boolean
-    /* Fields of NMClient.RemoteSettings */
+    /* Fields of NMClient-1.0.NMClient.RemoteSettings */
     parent: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of NMClient.RemoteSettings */
+    /* Methods of NMClient-1.0.NMClient.RemoteSettings */
     addConnection(connection: NetworkManager.Connection, callback: RemoteSettingsAddConnectionFunc): boolean
     addConnectionUnsaved(connection: NetworkManager.Connection, callback: RemoteSettingsAddConnectionFunc): boolean
     getConnectionById(id: string): RemoteConnection
     getConnectionByPath(path: string): RemoteConnection
     getConnectionByUuid(uuid: string): RemoteConnection
     listConnections(): RemoteConnection[]
-    loadConnections(filenames: string): [ /* returnType */ boolean, /* failures */ string ]
+    loadConnections(filenames: string): { returnType: boolean, failures: string }
     reloadConnections(): boolean
     saveHostname(hostname: string, callback?: RemoteSettingsSaveHostnameFunc | null): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -5836,46 +5366,29 @@ export class RemoteSettings {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of Gio.AsyncInitable */
+    /* Methods of Gio-2.0.Gio.AsyncInitable */
     initAsync(ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     initFinish(res: Gio.AsyncResult): boolean
     newFinish(res: Gio.AsyncResult): GObject.Object
-    /* Methods of Gio.Initable */
+    /* Methods of Gio-2.0.Gio.Initable */
     init(cancellable?: Gio.Cancellable | null): boolean
-    /* Virtual methods of NMClient.RemoteSettings */
-    vfuncConnectionsRead(): void
-    vfuncNewConnection(connection: RemoteConnection): void
-    vfuncInitAsync(ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    vfuncInitFinish(res: Gio.AsyncResult): boolean
-    vfuncInit(cancellable?: Gio.Cancellable | null): boolean
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of NMClient.RemoteSettings */
+    /* Signals of NMClient-1.0.NMClient.RemoteSettings */
     connect(sigName: "connections-read", callback: (($obj: RemoteSettings) => void)): number
-    connect_after(sigName: "connections-read", callback: (($obj: RemoteSettings) => void)): number
+    on(sigName: "connections-read", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "connections-read", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "connections-read", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "connections-read"): void
-    on(sigName: "connections-read", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "connections-read", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "connections-read", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "new-connection", callback: (($obj: RemoteSettings, object: GObject.Object) => void)): number
-    connect_after(sigName: "new-connection", callback: (($obj: RemoteSettings, object: GObject.Object) => void)): number
+    on(sigName: "new-connection", callback: (object: GObject.Object) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "new-connection", callback: (object: GObject.Object) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "new-connection", callback: (object: GObject.Object) => void): NodeJS.EventEmitter
     emit(sigName: "new-connection", object: GObject.Object): void
-    on(sigName: "new-connection", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "new-connection", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "new-connection", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: RemoteSettings, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: RemoteSettings, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::can-modify", callback: (($obj: RemoteSettings, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::can-modify", callback: (($obj: RemoteSettings, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::can-modify", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -5915,22 +5428,22 @@ export interface SecretAgent_ConstructProps extends GObject.Object_ConstructProp
     identifier?: string
 }
 export class SecretAgent {
-    /* Properties of NMClient.SecretAgent */
+    /* Properties of NMClient-1.0.NMClient.SecretAgent */
     autoRegister: boolean
     capabilities: SecretAgentCapabilities
     readonly registered: boolean
-    /* Fields of NMClient.SecretAgent */
+    /* Fields of NMClient-1.0.NMClient.SecretAgent */
     parent: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of NMClient.SecretAgent */
+    /* Methods of NMClient-1.0.NMClient.SecretAgent */
     deleteSecrets(connection: NetworkManager.Connection, callback: SecretAgentDeleteSecretsFunc): void
     getRegistered(): boolean
     getSecrets(connection: NetworkManager.Connection, settingName: string, hints: string[], flags: SecretAgentGetSecretsFlags, callback: SecretAgentGetSecretsFunc): void
     register(): boolean
     saveSecrets(connection: NetworkManager.Connection, callback: SecretAgentSaveSecretsFunc): void
     unregister(): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -5952,34 +5465,18 @@ export class SecretAgent {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of NMClient.SecretAgent */
-    vfuncCancelGetSecrets(connectionPath: string, settingName: string): void
-    vfuncDeleteSecrets(connection: NetworkManager.Connection, connectionPath: string, callback: SecretAgentDeleteSecretsFunc): void
-    vfuncGetSecrets(connection: NetworkManager.Connection, connectionPath: string, settingName: string, hints: string[], flags: SecretAgentGetSecretsFlags, callback: SecretAgentGetSecretsFunc): void
-    vfuncRegistrationResult(error: GLib.Error): void
-    vfuncSaveSecrets(connection: NetworkManager.Connection, connectionPath: string, callback: SecretAgentSaveSecretsFunc): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of NMClient.SecretAgent */
+    /* Signals of NMClient-1.0.NMClient.SecretAgent */
     connect(sigName: "registration-result", callback: (($obj: SecretAgent, error?: object | null) => void)): number
-    connect_after(sigName: "registration-result", callback: (($obj: SecretAgent, error?: object | null) => void)): number
+    on(sigName: "registration-result", callback: (error?: object | null) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "registration-result", callback: (error?: object | null) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "registration-result", callback: (error?: object | null) => void): NodeJS.EventEmitter
     emit(sigName: "registration-result", error?: object | null): void
-    on(sigName: "registration-result", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "registration-result", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "registration-result", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: SecretAgent, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: SecretAgent, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::auto-register", callback: (($obj: SecretAgent, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::auto-register", callback: (($obj: SecretAgent, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::auto-register", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -6010,10 +5507,10 @@ export class SecretAgent {
 export interface VPNConnection_ConstructProps extends ActiveConnection_ConstructProps {
 }
 export class VPNConnection {
-    /* Properties of NMClient.VPNConnection */
+    /* Properties of NMClient-1.0.NMClient.VPNConnection */
     readonly banner: string
     readonly vpnState: number
-    /* Properties of NMClient.ActiveConnection */
+    /* Properties of NMClient-1.0.NMClient.ActiveConnection */
     readonly connection: string
     readonly "default": boolean
     readonly default6: boolean
@@ -6029,14 +5526,14 @@ export class VPNConnection {
     readonly type: string
     readonly uuid: string
     readonly vpn: boolean
-    /* Fields of NMClient.VPNConnection */
+    /* Fields of NMClient-1.0.NMClient.VPNConnection */
     parent: ActiveConnection
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of NMClient.VPNConnection */
+    /* Methods of NMClient-1.0.NMClient.VPNConnection */
     getBanner(): string
     getVpnState(): NetworkManager.VPNConnectionState
-    /* Methods of NMClient.ActiveConnection */
+    /* Methods of NMClient-1.0.NMClient.ActiveConnection */
     getConnection(): string
     getConnectionType(): string
     getDefault(): boolean
@@ -6052,10 +5549,10 @@ export class VPNConnection {
     getState(): NetworkManager.ActiveConnectionState
     getUuid(): string
     getVpn(): boolean
-    /* Methods of NMClient.Object */
+    /* Methods of NMClient-1.0.NMClient.Object */
     getConnection(): DBusGLib.Connection
     getPath(): string
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -6077,48 +5574,30 @@ export class VPNConnection {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of Gio.AsyncInitable */
+    /* Methods of Gio-2.0.Gio.AsyncInitable */
     initAsync(ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     initFinish(res: Gio.AsyncResult): boolean
     newFinish(res: Gio.AsyncResult): GObject.Object
-    /* Methods of Gio.Initable */
+    /* Methods of Gio-2.0.Gio.Initable */
     init(cancellable?: Gio.Cancellable | null): boolean
-    /* Virtual methods of NMClient.VPNConnection */
-    vfuncVpnStateChanged(state: NetworkManager.VPNConnectionState, reason: NetworkManager.VPNConnectionStateReason): void
-    /* Virtual methods of NMClient.Object */
-    vfuncObjectCreationFailed(error: GLib.Error, failedPath: string): void
-    vfuncInitAsync(ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    vfuncInitFinish(res: Gio.AsyncResult): boolean
-    vfuncInit(cancellable?: Gio.Cancellable | null): boolean
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of NMClient.VPNConnection */
+    /* Signals of NMClient-1.0.NMClient.VPNConnection */
     connect(sigName: "vpn-state-changed", callback: (($obj: VPNConnection, object: number, p0: number) => void)): number
-    connect_after(sigName: "vpn-state-changed", callback: (($obj: VPNConnection, object: number, p0: number) => void)): number
+    on(sigName: "vpn-state-changed", callback: (object: number, p0: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "vpn-state-changed", callback: (object: number, p0: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "vpn-state-changed", callback: (object: number, p0: number) => void): NodeJS.EventEmitter
     emit(sigName: "vpn-state-changed", object: number, p0: number): void
-    on(sigName: "vpn-state-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "vpn-state-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "vpn-state-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of NMClient.Object */
+    /* Signals of NMClient-1.0.NMClient.Object */
     connect(sigName: "object-creation-failed", callback: (($obj: VPNConnection, error?: object | null, failedPath?: object | null) => void)): number
-    connect_after(sigName: "object-creation-failed", callback: (($obj: VPNConnection, error?: object | null, failedPath?: object | null) => void)): number
+    on(sigName: "object-creation-failed", callback: (error?: object | null, failedPath?: object | null) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "object-creation-failed", callback: (error?: object | null, failedPath?: object | null) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "object-creation-failed", callback: (error?: object | null, failedPath?: object | null) => void): NodeJS.EventEmitter
     emit(sigName: "object-creation-failed", error?: object | null, failedPath?: object | null): void
-    on(sigName: "object-creation-failed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "object-creation-failed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "object-creation-failed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: VPNConnection, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: VPNConnection, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::banner", callback: (($obj: VPNConnection, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::banner", callback: (($obj: VPNConnection, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::banner", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -6221,24 +5700,24 @@ export class VPNConnection {
 export interface WimaxNsp_ConstructProps extends Object_ConstructProps {
 }
 export class WimaxNsp {
-    /* Properties of NMClient.WimaxNsp */
+    /* Properties of NMClient-1.0.NMClient.WimaxNsp */
     readonly name: string
     readonly networkType: number
     readonly signalQuality: number
-    /* Fields of NMClient.WimaxNsp */
+    /* Fields of NMClient-1.0.NMClient.WimaxNsp */
     parent: Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of NMClient.WimaxNsp */
+    /* Methods of NMClient-1.0.NMClient.WimaxNsp */
     connectionValid(connection: NetworkManager.Connection): boolean
     filterConnections(connections: NetworkManager.Connection[]): NetworkManager.Connection[]
     getName(): string
     getNetworkType(): WimaxNspNetworkType
     getSignalQuality(): number
-    /* Methods of NMClient.Object */
+    /* Methods of NMClient-1.0.NMClient.Object */
     getConnection(): DBusGLib.Connection
     getPath(): string
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -6260,39 +5739,24 @@ export class WimaxNsp {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of Gio.AsyncInitable */
+    /* Methods of Gio-2.0.Gio.AsyncInitable */
     initAsync(ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     initFinish(res: Gio.AsyncResult): boolean
     newFinish(res: Gio.AsyncResult): GObject.Object
-    /* Methods of Gio.Initable */
+    /* Methods of Gio-2.0.Gio.Initable */
     init(cancellable?: Gio.Cancellable | null): boolean
-    /* Virtual methods of NMClient.Object */
-    vfuncObjectCreationFailed(error: GLib.Error, failedPath: string): void
-    vfuncInitAsync(ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    vfuncInitFinish(res: Gio.AsyncResult): boolean
-    vfuncInit(cancellable?: Gio.Cancellable | null): boolean
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of NMClient.Object */
+    /* Signals of NMClient-1.0.NMClient.Object */
     connect(sigName: "object-creation-failed", callback: (($obj: WimaxNsp, error?: object | null, failedPath?: object | null) => void)): number
-    connect_after(sigName: "object-creation-failed", callback: (($obj: WimaxNsp, error?: object | null, failedPath?: object | null) => void)): number
+    on(sigName: "object-creation-failed", callback: (error?: object | null, failedPath?: object | null) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "object-creation-failed", callback: (error?: object | null, failedPath?: object | null) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "object-creation-failed", callback: (error?: object | null, failedPath?: object | null) => void): NodeJS.EventEmitter
     emit(sigName: "object-creation-failed", error?: object | null, failedPath?: object | null): void
-    on(sigName: "object-creation-failed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "object-creation-failed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "object-creation-failed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: WimaxNsp, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: WimaxNsp, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::name", callback: (($obj: WimaxNsp, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::name", callback: (($obj: WimaxNsp, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::name", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -6323,17 +5787,17 @@ export class WimaxNsp {
     static $gtype: GObject.Type
 }
 export abstract class AccessPointClass {
-    /* Fields of NMClient.AccessPointClass */
+    /* Fields of NMClient-1.0.NMClient.AccessPointClass */
     parent: ObjectClass
     static name: string
 }
 export abstract class ActiveConnectionClass {
-    /* Fields of NMClient.ActiveConnectionClass */
+    /* Fields of NMClient-1.0.NMClient.ActiveConnectionClass */
     parent: ObjectClass
     static name: string
 }
 export abstract class ClientClass {
-    /* Fields of NMClient.ClientClass */
+    /* Fields of NMClient-1.0.NMClient.ClientClass */
     parent: ObjectClass
     deviceAdded: (client: Client, device: Device) => void
     deviceRemoved: (client: Client, device: Device) => void
@@ -6341,37 +5805,37 @@ export abstract class ClientClass {
     static name: string
 }
 export abstract class DHCP4ConfigClass {
-    /* Fields of NMClient.DHCP4ConfigClass */
+    /* Fields of NMClient-1.0.NMClient.DHCP4ConfigClass */
     parent: ObjectClass
     static name: string
 }
 export abstract class DHCP6ConfigClass {
-    /* Fields of NMClient.DHCP6ConfigClass */
+    /* Fields of NMClient-1.0.NMClient.DHCP6ConfigClass */
     parent: ObjectClass
     static name: string
 }
 export abstract class DeviceAdslClass {
-    /* Fields of NMClient.DeviceAdslClass */
+    /* Fields of NMClient-1.0.NMClient.DeviceAdslClass */
     parent: DeviceClass
     static name: string
 }
 export abstract class DeviceBondClass {
-    /* Fields of NMClient.DeviceBondClass */
+    /* Fields of NMClient-1.0.NMClient.DeviceBondClass */
     parent: DeviceClass
     static name: string
 }
 export abstract class DeviceBridgeClass {
-    /* Fields of NMClient.DeviceBridgeClass */
+    /* Fields of NMClient-1.0.NMClient.DeviceBridgeClass */
     parent: DeviceClass
     static name: string
 }
 export abstract class DeviceBtClass {
-    /* Fields of NMClient.DeviceBtClass */
+    /* Fields of NMClient-1.0.NMClient.DeviceBtClass */
     parent: DeviceClass
     static name: string
 }
 export abstract class DeviceClass {
-    /* Fields of NMClient.DeviceClass */
+    /* Fields of NMClient-1.0.NMClient.DeviceClass */
     parent: ObjectClass
     stateChanged: (device: Device, newState: NetworkManager.DeviceState, oldState: NetworkManager.DeviceState, reason: NetworkManager.DeviceStateReason) => void
     connectionCompatible: (device: Device, connection: NetworkManager.Connection) => boolean
@@ -6381,86 +5845,86 @@ export abstract class DeviceClass {
     static name: string
 }
 export abstract class DeviceEthernetClass {
-    /* Fields of NMClient.DeviceEthernetClass */
+    /* Fields of NMClient-1.0.NMClient.DeviceEthernetClass */
     parent: DeviceClass
     static name: string
 }
 export abstract class DeviceGenericClass {
-    /* Fields of NMClient.DeviceGenericClass */
+    /* Fields of NMClient-1.0.NMClient.DeviceGenericClass */
     parent: DeviceClass
     static name: string
 }
 export abstract class DeviceInfinibandClass {
-    /* Fields of NMClient.DeviceInfinibandClass */
+    /* Fields of NMClient-1.0.NMClient.DeviceInfinibandClass */
     parent: DeviceClass
     static name: string
 }
 export abstract class DeviceModemClass {
-    /* Fields of NMClient.DeviceModemClass */
+    /* Fields of NMClient-1.0.NMClient.DeviceModemClass */
     parent: DeviceClass
     static name: string
 }
 export abstract class DeviceOlpcMeshClass {
-    /* Fields of NMClient.DeviceOlpcMeshClass */
+    /* Fields of NMClient-1.0.NMClient.DeviceOlpcMeshClass */
     parent: DeviceClass
     static name: string
 }
 export abstract class DeviceTeamClass {
-    /* Fields of NMClient.DeviceTeamClass */
+    /* Fields of NMClient-1.0.NMClient.DeviceTeamClass */
     parent: DeviceClass
     static name: string
 }
 export abstract class DeviceVlanClass {
-    /* Fields of NMClient.DeviceVlanClass */
+    /* Fields of NMClient-1.0.NMClient.DeviceVlanClass */
     parent: DeviceClass
     static name: string
 }
 export abstract class DeviceWifiClass {
-    /* Fields of NMClient.DeviceWifiClass */
+    /* Fields of NMClient-1.0.NMClient.DeviceWifiClass */
     parent: DeviceClass
     accessPointAdded: (device: DeviceWifi, ap: AccessPoint) => void
     accessPointRemoved: (device: DeviceWifi, ap: AccessPoint) => void
     static name: string
 }
 export abstract class DeviceWimaxClass {
-    /* Fields of NMClient.DeviceWimaxClass */
+    /* Fields of NMClient-1.0.NMClient.DeviceWimaxClass */
     parent: DeviceClass
     nspAdded: (self: DeviceWimax, nsp: WimaxNsp) => void
     nspRemoved: (self: DeviceWimax, nsp: WimaxNsp) => void
     static name: string
 }
 export abstract class IP4ConfigClass {
-    /* Fields of NMClient.IP4ConfigClass */
+    /* Fields of NMClient-1.0.NMClient.IP4ConfigClass */
     parent: ObjectClass
     static name: string
 }
 export abstract class IP6ConfigClass {
-    /* Fields of NMClient.IP6ConfigClass */
+    /* Fields of NMClient-1.0.NMClient.IP6ConfigClass */
     parent: ObjectClass
     static name: string
 }
 export abstract class ObjectClass {
-    /* Fields of NMClient.ObjectClass */
+    /* Fields of NMClient-1.0.NMClient.ObjectClass */
     parent: GObject.ObjectClass
     objectCreationFailed: (masterObject: Object, error: GLib.Error, failedPath: string) => void
     static name: string
 }
 export abstract class RemoteConnectionClass {
-    /* Fields of NMClient.RemoteConnectionClass */
+    /* Fields of NMClient-1.0.NMClient.RemoteConnectionClass */
     parentClass: NetworkManager.ConnectionClass
     updated: (connection: RemoteConnection, newSettings: GLib.HashTable) => void
     removed: (connection: RemoteConnection) => void
     static name: string
 }
 export abstract class RemoteSettingsClass {
-    /* Fields of NMClient.RemoteSettingsClass */
+    /* Fields of NMClient-1.0.NMClient.RemoteSettingsClass */
     parent: GObject.ObjectClass
     newConnection: (settings: RemoteSettings, connection: RemoteConnection) => void
     connectionsRead: (settings: RemoteSettings) => void
     static name: string
 }
 export abstract class SecretAgentClass {
-    /* Fields of NMClient.SecretAgentClass */
+    /* Fields of NMClient-1.0.NMClient.SecretAgentClass */
     parent: GObject.ObjectClass
     getSecrets: (self: SecretAgent, connection: NetworkManager.Connection, connectionPath: string, settingName: string, hints: string[], flags: SecretAgentGetSecretsFlags, callback: SecretAgentGetSecretsFunc) => void
     cancelGetSecrets: (self: SecretAgent, connectionPath: string, settingName: string) => void
@@ -6470,13 +5934,13 @@ export abstract class SecretAgentClass {
     static name: string
 }
 export abstract class VPNConnectionClass {
-    /* Fields of NMClient.VPNConnectionClass */
+    /* Fields of NMClient-1.0.NMClient.VPNConnectionClass */
     parent: ActiveConnectionClass
     vpnStateChanged: (connection: VPNConnection, state: NetworkManager.VPNConnectionState, reason: NetworkManager.VPNConnectionStateReason) => void
     static name: string
 }
 export abstract class WimaxNspClass {
-    /* Fields of NMClient.WimaxNspClass */
+    /* Fields of NMClient-1.0.NMClient.WimaxNspClass */
     parent: ObjectClass
     static name: string
 }

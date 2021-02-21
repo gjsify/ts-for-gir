@@ -14,17 +14,17 @@ export interface Connection_ConstructProps extends GObject.Object_ConstructProps
     parameters?: Vda.ConnectionParameters
 }
 export class Connection {
-    /* Properties of Vda.Connection */
+    /* Properties of Vda-1.Vda.Connection */
     readonly status: Vda.ConnectionStatus
     parameters: Vda.ConnectionParameters
     readonly is_opened: boolean
     readonly connection_string: string
-    /* Fields of Vpg.Connection */
+    /* Fields of Vpg-1.Vpg.Connection */
     parent_instance: GObject.Object
     priv: ConnectionPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -46,7 +46,7 @@ export class Connection {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of Vda.Connection */
+    /* Methods of Vda-1.Vda.Connection */
     close(_callback_?: Gio.AsyncReadyCallback | null): void
     close_finish(_res_: Gio.AsyncResult): void
     open(_callback_?: Gio.AsyncReadyCallback | null): void
@@ -71,7 +71,7 @@ export class Connection {
     set_parameters(value: Vda.ConnectionParameters): void
     get_is_opened(): boolean
     get_connection_string(): string
-    /* Virtual methods of Vpg.Connection */
+    /* Virtual methods of Vpg-1.Vpg.Connection */
     vfunc_close(_callback_?: Gio.AsyncReadyCallback | null): void
     vfunc_close_finish(_res_: Gio.AsyncResult): void
     vfunc_open(_callback_?: Gio.AsyncReadyCallback | null): void
@@ -96,7 +96,7 @@ export class Connection {
     vfunc_set_parameters(value: Vda.ConnectionParameters): void
     vfunc_get_is_opened(): boolean
     vfunc_get_connection_string(): string
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -104,11 +104,11 @@ export class Connection {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Connection, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Connection, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    /* Signals of Vda.Connection */
+    /* Signals of Vda-1.Vda.Connection */
     connect(sigName: "closed", callback: (($obj: Connection) => void)): number
     connect_after(sigName: "closed", callback: (($obj: Connection) => void)): number
     emit(sigName: "closed"): void
@@ -147,7 +147,7 @@ export class Connection {
     static $gtype: GObject.Type
 }
 export abstract class ConnectionClass {
-    /* Fields of Vpg.ConnectionClass */
+    /* Fields of Vpg-1.Vpg.ConnectionClass */
     parent_class: GObject.ObjectClass
     static name: string
 }

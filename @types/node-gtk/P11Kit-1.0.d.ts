@@ -44,14 +44,14 @@ export interface pin_destroy_func {
     (data: object): void
 }
 export class Pin {
-    /* Methods of P11Kit.Pin */
+    /* Methods of P11Kit-1.0.P11Kit.Pin */
     getLength(): number
     getValue(length: number): number
     unref(): void
     static name: string
 }
 export class Uri {
-    /* Methods of P11Kit.Uri */
+    /* Methods of P11Kit-1.0.P11Kit.Uri */
     anyUnrecognized(): number
     clearAttributes(): void
     format(uriType: UriType, string: string): number

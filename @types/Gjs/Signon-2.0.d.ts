@@ -69,16 +69,16 @@ export function error_quark(): GLib.Quark
 export interface AuthService_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class AuthService {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Signon.AuthService */
+    /* Methods of Signon-2.0.Signon.AuthService */
     get_mechanisms(method: string, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     get_mechanisms_finish(result: Gio.AsyncResult): string[]
     get_mechanisms_sync(method: string, cancellable?: Gio.Cancellable | null): string[]
     get_methods(cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     get_methods_finish(result: Gio.AsyncResult): string[]
     get_methods_sync(cancellable?: Gio.Cancellable | null): string[]
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -100,7 +100,7 @@ export class AuthService {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -108,7 +108,7 @@ export class AuthService {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: AuthService, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: AuthService, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -126,14 +126,14 @@ export class AuthService {
 export interface AuthSession_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class AuthSession {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Signon.AuthSession */
+    /* Methods of Signon-2.0.Signon.AuthSession */
     cancel(): void
     get_method(): string
     process(session_data: GLib.Variant, mechanism: string, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     process_finish(res: Gio.AsyncResult): GLib.Variant
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -155,7 +155,7 @@ export class AuthSession {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -163,11 +163,11 @@ export class AuthSession {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Signon.AuthSession */
+    /* Signals of Signon-2.0.Signon.AuthSession */
     connect(sigName: "state-changed", callback: (($obj: AuthSession, state: number, message: string) => void)): number
     connect_after(sigName: "state-changed", callback: (($obj: AuthSession, state: number, message: string) => void)): number
     emit(sigName: "state-changed", state: number, message: string): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: AuthSession, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: AuthSession, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -186,9 +186,9 @@ export interface Identity_ConstructProps extends GObject.Object_ConstructProps {
     id?: number
 }
 export class Identity {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Signon.Identity */
+    /* Methods of Signon-2.0.Signon.Identity */
     create_session(method: string): AuthSession
     get_id(): number
     get_last_error(): GLib.Error
@@ -202,7 +202,7 @@ export class Identity {
     store_info_finish(res: Gio.AsyncResult): boolean
     verify_secret(secret: string, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     verify_secret_finish(res: Gio.AsyncResult): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -224,7 +224,7 @@ export class Identity {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -232,11 +232,11 @@ export class Identity {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Signon.Identity */
+    /* Signals of Signon-2.0.Signon.Identity */
     connect(sigName: "signed-out", callback: (($obj: Identity) => void)): number
     connect_after(sigName: "signed-out", callback: (($obj: Identity) => void)): number
     emit(sigName: "signed-out"): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Identity, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Identity, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -253,22 +253,22 @@ export class Identity {
     static $gtype: GObject.Type
 }
 export abstract class AuthServiceClass {
-    /* Fields of Signon.AuthServiceClass */
+    /* Fields of Signon-2.0.Signon.AuthServiceClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
 export abstract class AuthSessionClass {
-    /* Fields of Signon.AuthSessionClass */
+    /* Fields of Signon-2.0.Signon.AuthSessionClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
 export abstract class IdentityClass {
-    /* Fields of Signon.IdentityClass */
+    /* Fields of Signon-2.0.Signon.IdentityClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
 export class IdentityInfo {
-    /* Methods of Signon.IdentityInfo */
+    /* Methods of Signon-2.0.Signon.IdentityInfo */
     add_access_control(system_context: string, application_context: string): void
     copy(): IdentityInfo
     free(): void
@@ -295,7 +295,7 @@ export class IdentityInfo {
     static new(): IdentityInfo
 }
 export class SecurityContext {
-    /* Methods of Signon.SecurityContext */
+    /* Methods of Signon-2.0.Signon.SecurityContext */
     copy(): SecurityContext
     free(): void
     get_application_context(): string

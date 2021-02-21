@@ -87,13 +87,13 @@ export interface Template_ConstructProps extends GObject.Object_ConstructProps {
     locator?: TemplateLocator
 }
 export class Template {
-    /* Properties of Template.Template */
+    /* Properties of Template-1.0.Template.Template */
     locator: TemplateLocator
-    /* Fields of Template.Template */
+    /* Fields of Template-1.0.Template.Template */
     parent_instance: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Template.Template */
+    /* Methods of Template-1.0.Template.Template */
     expand(stream: Gio.OutputStream, scope?: Scope | null, cancellable?: Gio.Cancellable | null): boolean
     expand_string(scope?: Scope | null): string
     get_locator(): TemplateLocator
@@ -103,7 +103,7 @@ export class Template {
     parse_resource(path: string, cancellable?: Gio.Cancellable | null): boolean
     parse_string(input: string): boolean
     set_locator(locator: TemplateLocator): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -125,7 +125,7 @@ export class Template {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -133,7 +133,7 @@ export class Template {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Template, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Template, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -153,16 +153,16 @@ export class Template {
 export interface TemplateLocator_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class TemplateLocator {
-    /* Fields of Template.TemplateLocator */
+    /* Fields of Template-1.0.Template.TemplateLocator */
     parent_instance: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Template.TemplateLocator */
+    /* Methods of Template-1.0.Template.TemplateLocator */
     append_search_path(path: string): void
     get_search_path(): string[]
     locate(path: string): Gio.InputStream
     prepend_search_path(path: string): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -184,9 +184,9 @@ export class TemplateLocator {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Template.TemplateLocator */
+    /* Virtual methods of Template-1.0.Template.TemplateLocator */
     vfunc_locate(path: string): Gio.InputStream
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -194,7 +194,7 @@ export class TemplateLocator {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: TemplateLocator, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: TemplateLocator, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -210,7 +210,7 @@ export class TemplateLocator {
     static $gtype: GObject.Type
 }
 export class Scope {
-    /* Methods of Template.Scope */
+    /* Methods of Template-1.0.Template.Scope */
     get(name: string): Symbol
     new_with_parent(): Scope
     peek(name: string): Symbol | null
@@ -233,7 +233,7 @@ export class Scope {
     static new(): Scope
 }
 export class Symbol {
-    /* Methods of Template.Symbol */
+    /* Methods of Template-1.0.Template.Symbol */
     assign_boolean(v_bool: boolean): void
     assign_double(v_double: number): void
     assign_object(v_object?: GObject.Object | null): void
@@ -253,18 +253,18 @@ export class Symbol {
     static new(): Symbol
 }
 export abstract class TemplateClass {
-    /* Fields of Template.TemplateClass */
+    /* Fields of Template-1.0.Template.TemplateClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
 export abstract class TemplateLocatorClass {
-    /* Fields of Template.TemplateLocatorClass */
+    /* Fields of Template-1.0.Template.TemplateLocatorClass */
     parent_instance: GObject.ObjectClass
     locate: (self: TemplateLocator, path: string) => Gio.InputStream
     static name: string
 }
 export class Expr {
-    /* Methods of Template.Expr */
+    /* Methods of Template-1.0.Template.Expr */
     eval(scope: Scope, return_value: any): boolean
     new_getattr(attr: string): Expr
     new_gi_call(name: string, params: Expr): Expr

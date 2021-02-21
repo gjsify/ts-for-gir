@@ -23,7 +23,7 @@ export interface AppSink_ConstructProps extends GstBase.BaseSink_ConstructProps 
     wait_on_eos?: boolean
 }
 export class AppSink {
-    /* Properties of GstApp.AppSink */
+    /* Properties of GstApp-1.0.GstApp.AppSink */
     buffer_list: boolean
     caps: Gst.Caps
     drop: boolean
@@ -31,7 +31,7 @@ export class AppSink {
     readonly eos: boolean
     max_buffers: number
     wait_on_eos: boolean
-    /* Properties of GstBase.BaseSink */
+    /* Properties of GstBase-1.0.GstBase.BaseSink */
     async: boolean
     blocksize: number
     enable_last_sample: boolean
@@ -45,12 +45,12 @@ export class AppSink {
     sync: boolean
     throttle_time: number
     ts_offset: number
-    /* Properties of Gst.Object */
+    /* Properties of Gst-1.0.Gst.Object */
     name: string
     parent: Gst.Object
-    /* Fields of GstApp.AppSink */
+    /* Fields of GstApp-1.0.GstApp.AppSink */
     basesink: GstBase.BaseSink
-    /* Fields of GstBase.BaseSink */
+    /* Fields of GstBase-1.0.GstBase.BaseSink */
     element: Gst.Element
     sinkpad: Gst.Pad
     pad_mode: Gst.PadMode
@@ -64,7 +64,7 @@ export class AppSink {
     playing_async: boolean
     have_newsegment: boolean
     segment: Gst.Segment
-    /* Fields of Gst.Element */
+    /* Fields of Gst-1.0.Gst.Element */
     object: Gst.Object
     state_lock: GLib.RecMutex
     state_cond: GLib.Cond
@@ -86,12 +86,12 @@ export class AppSink {
     sinkpads: Gst.Pad[]
     pads_cookie: number
     contexts: Gst.Context[]
-    /* Fields of Gst.Object */
+    /* Fields of Gst-1.0.Gst.Object */
     lock: GLib.Mutex
     flags: number
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GstApp.AppSink */
+    /* Methods of GstApp-1.0.GstApp.AppSink */
     get_buffer_list_support(): boolean
     get_caps(): Gst.Caps
     get_drop(): boolean
@@ -109,7 +109,7 @@ export class AppSink {
     set_wait_on_eos(wait: boolean): void
     try_pull_preroll(timeout: Gst.ClockTime): Gst.Sample
     try_pull_sample(timeout: Gst.ClockTime): Gst.Sample
-    /* Methods of GstBase.BaseSink */
+    /* Methods of GstBase-1.0.GstBase.BaseSink */
     do_preroll(obj: Gst.MiniObject): Gst.FlowReturn
     get_blocksize(): number
     get_drop_out_of_segment(): boolean
@@ -142,7 +142,7 @@ export class AppSink {
     wait(time: Gst.ClockTime): [ /* returnType */ Gst.FlowReturn, /* jitter */ Gst.ClockTimeDiff | null ]
     wait_clock(time: Gst.ClockTime): [ /* returnType */ Gst.ClockReturn, /* jitter */ Gst.ClockTimeDiff | null ]
     wait_preroll(): Gst.FlowReturn
-    /* Methods of Gst.Element */
+    /* Methods of Gst-1.0.Gst.Element */
     abort_state(): void
     add_pad(pad: Gst.Pad): boolean
     add_property_deep_notify_watch(property_name: string | null, include_value: boolean): number
@@ -208,7 +208,7 @@ export class AppSink {
     sync_state_with_parent(): boolean
     unlink(dest: Gst.Element): void
     unlink_pads(srcpadname: string, dest: Gst.Element, destpadname: string): void
-    /* Methods of Gst.Object */
+    /* Methods of Gst-1.0.Gst.Object */
     add_control_binding(binding: Gst.ControlBinding): boolean
     default_error(error: GLib.Error, debug?: string | null): void
     get_control_binding(property_name: string): Gst.ControlBinding | null
@@ -233,7 +233,7 @@ export class AppSink {
     sync_values(timestamp: Gst.ClockTime): boolean
     unparent(): void
     unref(): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -254,12 +254,12 @@ export class AppSink {
     steal_qdata(quark: GLib.Quark): object | null
     thaw_notify(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of Gst.URIHandler */
+    /* Methods of Gst-1.0.Gst.URIHandler */
     get_protocols(): string[] | null
     get_uri(): string | null
     get_uri_type(): Gst.URIType
     set_uri(uri: string): boolean
-    /* Virtual methods of GstApp.AppSink */
+    /* Virtual methods of GstApp-1.0.GstApp.AppSink */
     vfunc_eos(): void
     vfunc_new_preroll(): Gst.FlowReturn
     vfunc_new_sample(): Gst.FlowReturn
@@ -269,7 +269,7 @@ export class AppSink {
     vfunc_try_pull_sample(timeout: Gst.ClockTime): Gst.Sample
     vfunc_get_uri(): string | null
     vfunc_set_uri(uri: string): boolean
-    /* Virtual methods of GstBase.BaseSink */
+    /* Virtual methods of GstBase-1.0.GstBase.BaseSink */
     vfunc_activate_pull(active: boolean): boolean
     vfunc_event(event: Gst.Event): boolean
     vfunc_fixate(caps: Gst.Caps): Gst.Caps
@@ -288,7 +288,7 @@ export class AppSink {
     vfunc_unlock(): boolean
     vfunc_unlock_stop(): boolean
     vfunc_wait_event(event: Gst.Event): Gst.FlowReturn
-    /* Virtual methods of Gst.Element */
+    /* Virtual methods of Gst-1.0.Gst.Element */
     vfunc_change_state(transition: Gst.StateChange): Gst.StateChangeReturn
     vfunc_get_state(timeout: Gst.ClockTime): [ /* returnType */ Gst.StateChangeReturn, /* state */ Gst.State | null, /* pending */ Gst.State | null ]
     vfunc_no_more_pads(): void
@@ -305,9 +305,9 @@ export class AppSink {
     vfunc_set_context(context: Gst.Context): void
     vfunc_set_state(state: Gst.State): Gst.StateChangeReturn
     vfunc_state_changed(oldstate: Gst.State, newstate: Gst.State, pending: Gst.State): void
-    /* Virtual methods of Gst.Object */
+    /* Virtual methods of Gst-1.0.Gst.Object */
     vfunc_deep_notify(orig: Gst.Object, pspec: GObject.ParamSpec): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -315,7 +315,7 @@ export class AppSink {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GstApp.AppSink */
+    /* Signals of GstApp-1.0.GstApp.AppSink */
     connect(sigName: "eos", callback: (($obj: AppSink) => void)): number
     connect_after(sigName: "eos", callback: (($obj: AppSink) => void)): number
     emit(sigName: "eos"): void
@@ -337,7 +337,7 @@ export class AppSink {
     connect(sigName: "try-pull-sample", callback: (($obj: AppSink, timeout: number) => Gst.Sample)): number
     connect_after(sigName: "try-pull-sample", callback: (($obj: AppSink, timeout: number) => Gst.Sample)): number
     emit(sigName: "try-pull-sample", timeout: number): void
-    /* Signals of Gst.Element */
+    /* Signals of Gst-1.0.Gst.Element */
     connect(sigName: "no-more-pads", callback: (($obj: AppSink) => void)): number
     connect_after(sigName: "no-more-pads", callback: (($obj: AppSink) => void)): number
     emit(sigName: "no-more-pads"): void
@@ -347,11 +347,11 @@ export class AppSink {
     connect(sigName: "pad-removed", callback: (($obj: AppSink, old_pad: Gst.Pad) => void)): number
     connect_after(sigName: "pad-removed", callback: (($obj: AppSink, old_pad: Gst.Pad) => void)): number
     emit(sigName: "pad-removed", old_pad: Gst.Pad): void
-    /* Signals of Gst.Object */
+    /* Signals of Gst-1.0.Gst.Object */
     connect(sigName: "deep-notify", callback: (($obj: AppSink, prop_object: Gst.Object, prop: GObject.ParamSpec) => void)): number
     connect_after(sigName: "deep-notify", callback: (($obj: AppSink, prop_object: Gst.Object, prop: GObject.ParamSpec) => void)): number
     emit(sigName: "deep-notify", prop_object: Gst.Object, prop: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: AppSink, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: AppSink, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -424,7 +424,7 @@ export interface AppSrc_ConstructProps extends GstBase.BaseSrc_ConstructProps {
     stream_type?: AppStreamType
 }
 export class AppSrc {
-    /* Properties of GstApp.AppSrc */
+    /* Properties of GstApp-1.0.GstApp.AppSrc */
     block: boolean
     caps: Gst.Caps
     readonly current_level_bytes: number
@@ -439,17 +439,17 @@ export class AppSrc {
     min_percent: number
     size: number
     stream_type: AppStreamType
-    /* Properties of GstBase.BaseSrc */
+    /* Properties of GstBase-1.0.GstBase.BaseSrc */
     blocksize: number
     do_timestamp: boolean
     num_buffers: number
     typefind: boolean
-    /* Properties of Gst.Object */
+    /* Properties of Gst-1.0.Gst.Object */
     name: string
     parent: Gst.Object
-    /* Fields of GstApp.AppSrc */
+    /* Fields of GstApp-1.0.GstApp.AppSrc */
     basesrc: GstBase.BaseSrc
-    /* Fields of GstBase.BaseSrc */
+    /* Fields of GstBase-1.0.GstBase.BaseSrc */
     element: Gst.Element
     srcpad: Gst.Pad
     live_lock: GLib.Mutex
@@ -464,7 +464,7 @@ export class AppSrc {
     running: boolean
     pending_seek: Gst.Event
     priv: GstBase.BaseSrcPrivate
-    /* Fields of Gst.Element */
+    /* Fields of Gst-1.0.Gst.Element */
     object: Gst.Object
     state_lock: GLib.RecMutex
     state_cond: GLib.Cond
@@ -486,12 +486,12 @@ export class AppSrc {
     sinkpads: Gst.Pad[]
     pads_cookie: number
     contexts: Gst.Context[]
-    /* Fields of Gst.Object */
+    /* Fields of Gst-1.0.Gst.Object */
     lock: GLib.Mutex
     flags: number
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GstApp.AppSrc */
+    /* Methods of GstApp-1.0.GstApp.AppSrc */
     end_of_stream(): Gst.FlowReturn
     get_caps(): Gst.Caps
     get_current_level_bytes(): number
@@ -511,7 +511,7 @@ export class AppSrc {
     set_max_bytes(max: number): void
     set_size(size: number): void
     set_stream_type(type: AppStreamType): void
-    /* Methods of GstBase.BaseSrc */
+    /* Methods of GstBase-1.0.GstBase.BaseSrc */
     get_allocator(): [ /* allocator */ Gst.Allocator | null, /* params */ Gst.AllocationParams | null ]
     get_blocksize(): number
     get_buffer_pool(): Gst.BufferPool | null
@@ -533,7 +533,7 @@ export class AppSrc {
     start_wait(): Gst.FlowReturn
     submit_buffer_list(buffer_list: Gst.BufferList): void
     wait_playing(): Gst.FlowReturn
-    /* Methods of Gst.Element */
+    /* Methods of Gst-1.0.Gst.Element */
     abort_state(): void
     add_pad(pad: Gst.Pad): boolean
     add_property_deep_notify_watch(property_name: string | null, include_value: boolean): number
@@ -599,7 +599,7 @@ export class AppSrc {
     sync_state_with_parent(): boolean
     unlink(dest: Gst.Element): void
     unlink_pads(srcpadname: string, dest: Gst.Element, destpadname: string): void
-    /* Methods of Gst.Object */
+    /* Methods of Gst-1.0.Gst.Object */
     add_control_binding(binding: Gst.ControlBinding): boolean
     default_error(error: GLib.Error, debug?: string | null): void
     get_control_binding(property_name: string): Gst.ControlBinding | null
@@ -624,7 +624,7 @@ export class AppSrc {
     sync_values(timestamp: Gst.ClockTime): boolean
     unparent(): void
     unref(): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -645,12 +645,12 @@ export class AppSrc {
     steal_qdata(quark: GLib.Quark): object | null
     thaw_notify(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of Gst.URIHandler */
+    /* Methods of Gst-1.0.Gst.URIHandler */
     get_protocols(): string[] | null
     get_uri(): string | null
     get_uri_type(): Gst.URIType
     set_uri(uri: string): boolean
-    /* Virtual methods of GstApp.AppSrc */
+    /* Virtual methods of GstApp-1.0.GstApp.AppSrc */
     vfunc_end_of_stream(): Gst.FlowReturn
     vfunc_enough_data(): void
     vfunc_need_data(length: number): void
@@ -660,7 +660,7 @@ export class AppSrc {
     vfunc_seek_data(offset: number): boolean
     vfunc_get_uri(): string | null
     vfunc_set_uri(uri: string): boolean
-    /* Virtual methods of GstBase.BaseSrc */
+    /* Virtual methods of GstBase-1.0.GstBase.BaseSrc */
     vfunc_alloc(offset: number, size: number, buf: Gst.Buffer): Gst.FlowReturn
     vfunc_create(offset: number, size: number): [ /* returnType */ Gst.FlowReturn, /* buf */ Gst.Buffer ]
     vfunc_decide_allocation(query: Gst.Query): boolean
@@ -680,7 +680,7 @@ export class AppSrc {
     vfunc_stop(): boolean
     vfunc_unlock(): boolean
     vfunc_unlock_stop(): boolean
-    /* Virtual methods of Gst.Element */
+    /* Virtual methods of Gst-1.0.Gst.Element */
     vfunc_change_state(transition: Gst.StateChange): Gst.StateChangeReturn
     vfunc_get_state(timeout: Gst.ClockTime): [ /* returnType */ Gst.StateChangeReturn, /* state */ Gst.State | null, /* pending */ Gst.State | null ]
     vfunc_no_more_pads(): void
@@ -697,9 +697,9 @@ export class AppSrc {
     vfunc_set_context(context: Gst.Context): void
     vfunc_set_state(state: Gst.State): Gst.StateChangeReturn
     vfunc_state_changed(oldstate: Gst.State, newstate: Gst.State, pending: Gst.State): void
-    /* Virtual methods of Gst.Object */
+    /* Virtual methods of Gst-1.0.Gst.Object */
     vfunc_deep_notify(orig: Gst.Object, pspec: GObject.ParamSpec): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -707,7 +707,7 @@ export class AppSrc {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GstApp.AppSrc */
+    /* Signals of GstApp-1.0.GstApp.AppSrc */
     connect(sigName: "end-of-stream", callback: (($obj: AppSrc) => Gst.FlowReturn)): number
     connect_after(sigName: "end-of-stream", callback: (($obj: AppSrc) => Gst.FlowReturn)): number
     emit(sigName: "end-of-stream"): void
@@ -729,7 +729,7 @@ export class AppSrc {
     connect(sigName: "seek-data", callback: (($obj: AppSrc, offset: number) => boolean)): number
     connect_after(sigName: "seek-data", callback: (($obj: AppSrc, offset: number) => boolean)): number
     emit(sigName: "seek-data", offset: number): void
-    /* Signals of Gst.Element */
+    /* Signals of Gst-1.0.Gst.Element */
     connect(sigName: "no-more-pads", callback: (($obj: AppSrc) => void)): number
     connect_after(sigName: "no-more-pads", callback: (($obj: AppSrc) => void)): number
     emit(sigName: "no-more-pads"): void
@@ -739,11 +739,11 @@ export class AppSrc {
     connect(sigName: "pad-removed", callback: (($obj: AppSrc, old_pad: Gst.Pad) => void)): number
     connect_after(sigName: "pad-removed", callback: (($obj: AppSrc, old_pad: Gst.Pad) => void)): number
     emit(sigName: "pad-removed", old_pad: Gst.Pad): void
-    /* Signals of Gst.Object */
+    /* Signals of Gst-1.0.Gst.Object */
     connect(sigName: "deep-notify", callback: (($obj: AppSrc, prop_object: Gst.Object, prop: GObject.ParamSpec) => void)): number
     connect_after(sigName: "deep-notify", callback: (($obj: AppSrc, prop_object: Gst.Object, prop: GObject.ParamSpec) => void)): number
     emit(sigName: "deep-notify", prop_object: Gst.Object, prop: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: AppSrc, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: AppSrc, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -797,14 +797,14 @@ export class AppSrc {
     static $gtype: GObject.Type
 }
 export class AppSinkCallbacks {
-    /* Fields of GstApp.AppSinkCallbacks */
+    /* Fields of GstApp-1.0.GstApp.AppSinkCallbacks */
     eos: (appsink: AppSink) => void
     new_preroll: (appsink: AppSink) => Gst.FlowReturn
     new_sample: (appsink: AppSink) => Gst.FlowReturn
     static name: string
 }
 export abstract class AppSinkClass {
-    /* Fields of GstApp.AppSinkClass */
+    /* Fields of GstApp-1.0.GstApp.AppSinkClass */
     basesink_class: GstBase.BaseSinkClass
     eos: (appsink: AppSink) => void
     new_preroll: (appsink: AppSink) => Gst.FlowReturn
@@ -819,14 +819,14 @@ export class AppSinkPrivate {
     static name: string
 }
 export class AppSrcCallbacks {
-    /* Fields of GstApp.AppSrcCallbacks */
+    /* Fields of GstApp-1.0.GstApp.AppSrcCallbacks */
     need_data: (src: AppSrc, length: number) => void
     enough_data: (src: AppSrc) => void
     seek_data: (src: AppSrc, offset: number) => boolean
     static name: string
 }
 export abstract class AppSrcClass {
-    /* Fields of GstApp.AppSrcClass */
+    /* Fields of GstApp-1.0.GstApp.AppSrcClass */
     basesrc_class: GstBase.BaseSrcClass
     need_data: (appsrc: AppSrc, length: number) => void
     enough_data: (appsrc: AppSrc) => void

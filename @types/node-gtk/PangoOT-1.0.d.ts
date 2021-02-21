@@ -29,16 +29,16 @@ export function tagToScript(scriptTag: Tag): Pango.Script
 export interface Info_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class Info {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of PangoOT.Info */
-    findFeature(tableType: TableType, featureTag: Tag, scriptIndex: number, languageIndex: number): [ /* returnType */ boolean, /* featureIndex */ number | null ]
-    findLanguage(tableType: TableType, scriptIndex: number, languageTag: Tag): [ /* returnType */ boolean, /* languageIndex */ number | null, /* requiredFeatureIndex */ number | null ]
-    findScript(tableType: TableType, scriptTag: Tag): [ /* returnType */ boolean, /* scriptIndex */ number | null ]
+    /* Methods of PangoOT-1.0.PangoOT.Info */
+    findFeature(tableType: TableType, featureTag: Tag, scriptIndex: number, languageIndex: number): { returnType: boolean, featureIndex: number | null }
+    findLanguage(tableType: TableType, scriptIndex: number, languageTag: Tag): { returnType: boolean, languageIndex: number | null, requiredFeatureIndex: number | null }
+    findScript(tableType: TableType, scriptTag: Tag): { returnType: boolean, scriptIndex: number | null }
     listFeatures(tableType: TableType, tag: Tag, scriptIndex: number, languageIndex: number): Tag
     listLanguages(tableType: TableType, scriptIndex: number, languageTag: Tag): Tag
     listScripts(tableType: TableType): Tag
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -60,21 +60,12 @@ export class Info {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Info, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Info, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -92,16 +83,16 @@ export class Info {
 export interface Ruleset_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class Ruleset {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of PangoOT.Ruleset */
+    /* Methods of PangoOT-1.0.PangoOT.Ruleset */
     addFeature(tableType: TableType, featureIndex: number, propertyBit: number): void
-    getFeatureCount(): [ /* returnType */ number, /* nGsubFeatures */ number | null, /* nGposFeatures */ number | null ]
+    getFeatureCount(): { returnType: number, nGsubFeatures: number | null, nGposFeatures: number | null }
     maybeAddFeature(tableType: TableType, featureTag: Tag, propertyBit: number): boolean
     maybeAddFeatures(tableType: TableType, features: FeatureMap, nFeatures: number): number
     position(buffer: Buffer): void
     substitute(buffer: Buffer): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -123,21 +114,12 @@ export class Ruleset {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Ruleset, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Ruleset, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -156,11 +138,11 @@ export class Ruleset {
     static $gtype: GObject.Type
 }
 export class Buffer {
-    /* Methods of PangoOT.Buffer */
+    /* Methods of PangoOT-1.0.PangoOT.Buffer */
     addGlyph(glyph: number, properties: number, cluster: number): void
     clear(): void
     destroy(): void
-    getGlyphs(): /* glyphs */ Glyph[] | null
+    getGlyphs(): { glyphs: Glyph[] | null }
     output(glyphs: Pango.GlyphString): void
     setRtl(rtl: boolean): void
     setZeroWidthMarks(zeroWidthMarks: boolean): void
@@ -171,13 +153,13 @@ export class Buffer {
     static new(font: PangoFc.Font): Buffer
 }
 export class FeatureMap {
-    /* Fields of PangoOT.FeatureMap */
+    /* Fields of PangoOT-1.0.PangoOT.FeatureMap */
     featureName: number[]
     propertyBit: number
     static name: string
 }
 export class Glyph {
-    /* Fields of PangoOT.Glyph */
+    /* Fields of PangoOT-1.0.PangoOT.Glyph */
     glyph: number
     properties: number
     cluster: number
@@ -187,7 +169,7 @@ export class Glyph {
     static name: string
 }
 export class RulesetDescription {
-    /* Fields of PangoOT.RulesetDescription */
+    /* Fields of PangoOT-1.0.PangoOT.RulesetDescription */
     script: Pango.Script
     language: Pango.Language
     staticGsubFeatures: FeatureMap
@@ -196,7 +178,7 @@ export class RulesetDescription {
     nStaticGposFeatures: number
     otherFeatures: FeatureMap
     nOtherFeatures: number
-    /* Methods of PangoOT.RulesetDescription */
+    /* Methods of PangoOT-1.0.PangoOT.RulesetDescription */
     copy(): RulesetDescription
     equal(desc2: RulesetDescription): boolean
     free(): void

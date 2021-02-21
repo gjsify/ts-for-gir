@@ -39,7 +39,7 @@ export function init(argv?: string[] | null): [ /* returnType */ Clutter.InitErr
 export function init_with_args(argv: string[] | null, parameter_string: string, entries: GLib.OptionEntry, translation_domain: string): [ /* returnType */ Clutter.InitError, /* argv */ string[] | null ]
 export function player_class_init(object_class: GObject.ObjectClass): void
 export class Player {
-    /* Properties of ClutterGst.Player */
+    /* Properties of ClutterGst-2.0.ClutterGst.Player */
     audio_stream: number
     readonly audio_streams: object
     readonly idle: boolean
@@ -48,7 +48,7 @@ export class Player {
     subtitle_track: number
     readonly subtitle_tracks: object
     user_agent: string
-    /* Properties of Clutter.Media */
+    /* Properties of Clutter-1.0.Clutter.Media */
     audio_volume: number
     readonly buffer_fill: number
     readonly can_seek: boolean
@@ -58,7 +58,7 @@ export class Player {
     subtitle_font_name: string
     subtitle_uri: string
     uri: string
-    /* Methods of ClutterGst.Player */
+    /* Methods of ClutterGst-2.0.ClutterGst.Player */
     deinit(): void
     get_audio_stream(): number
     get_audio_streams(): string[]
@@ -76,7 +76,7 @@ export class Player {
     set_seek_flags(flags: SeekFlags): void
     set_subtitle_track(index_: number): void
     set_user_agent(user_agent: string): void
-    /* Methods of Clutter.Media */
+    /* Methods of Clutter-1.0.Clutter.Media */
     get_audio_volume(): number
     get_buffer_fill(): number
     get_can_seek(): boolean
@@ -93,7 +93,7 @@ export class Player {
     set_subtitle_font_name(font_name: string): void
     set_subtitle_uri(uri: string): void
     set_uri(uri: string): void
-    /* Virtual methods of ClutterGst.Player */
+    /* Virtual methods of ClutterGst-2.0.ClutterGst.Player */
     vfunc_download_buffering(start: number, stop: number): void
     vfunc_get_audio_stream(): number
     vfunc_get_audio_streams(): string[]
@@ -110,14 +110,14 @@ export class Player {
     vfunc_set_seek_flags(flags: SeekFlags): void
     vfunc_set_subtitle_track(index_: number): void
     vfunc_set_user_agent(user_agent: string): void
-    /* Virtual methods of Clutter.Media */
+    /* Virtual methods of Clutter-1.0.Clutter.Media */
     vfunc_eos(): void
     vfunc_error(error: GLib.Error): void
-    /* Signals of ClutterGst.Player */
+    /* Signals of ClutterGst-2.0.ClutterGst.Player */
     connect(sigName: "download-buffering", callback: (($obj: Player, start: number, stop: number) => void)): number
     connect_after(sigName: "download-buffering", callback: (($obj: Player, start: number, stop: number) => void)): number
     emit(sigName: "download-buffering", start: number, stop: number): void
-    /* Signals of Clutter.Media */
+    /* Signals of Clutter-1.0.Clutter.Media */
     connect(sigName: "eos", callback: (($obj: Player) => void)): number
     connect_after(sigName: "eos", callback: (($obj: Player) => void)): number
     emit(sigName: "eos"): void
@@ -133,10 +133,10 @@ export interface VideoSink_ConstructProps extends GstBase.BaseSink_ConstructProp
     update_priority?: number
 }
 export class VideoSink {
-    /* Properties of ClutterGst.VideoSink */
+    /* Properties of ClutterGst-2.0.ClutterGst.VideoSink */
     texture: Clutter.Texture
     update_priority: number
-    /* Properties of GstBase.BaseSink */
+    /* Properties of GstBase-1.0.GstBase.BaseSink */
     async: boolean
     blocksize: number
     enable_last_sample: boolean
@@ -150,10 +150,10 @@ export class VideoSink {
     sync: boolean
     throttle_time: number
     ts_offset: number
-    /* Properties of Gst.Object */
+    /* Properties of Gst-1.0.Gst.Object */
     name: string
     parent: Gst.Object
-    /* Fields of GstBase.BaseSink */
+    /* Fields of GstBase-1.0.GstBase.BaseSink */
     element: Gst.Element
     sinkpad: Gst.Pad
     pad_mode: Gst.PadMode
@@ -168,7 +168,7 @@ export class VideoSink {
     playing_async: boolean
     have_newsegment: boolean
     segment: Gst.Segment
-    /* Fields of Gst.Element */
+    /* Fields of Gst-1.0.Gst.Element */
     object: Gst.Object
     state_lock: GLib.RecMutex
     state_cond: GLib.Cond
@@ -190,12 +190,12 @@ export class VideoSink {
     sinkpads: Gst.Pad[]
     pads_cookie: number
     contexts: Gst.Context[]
-    /* Fields of Gst.Object */
+    /* Fields of Gst-1.0.Gst.Object */
     lock: GLib.Mutex
     flags: number
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GstBase.BaseSink */
+    /* Methods of GstBase-1.0.GstBase.BaseSink */
     do_preroll(obj: Gst.MiniObject): Gst.FlowReturn
     get_blocksize(): number
     get_drop_out_of_segment(): boolean
@@ -228,7 +228,7 @@ export class VideoSink {
     wait(time: Gst.ClockTime): [ /* returnType */ Gst.FlowReturn, /* jitter */ Gst.ClockTimeDiff | null ]
     wait_clock(time: Gst.ClockTime): [ /* returnType */ Gst.ClockReturn, /* jitter */ Gst.ClockTimeDiff | null ]
     wait_preroll(): Gst.FlowReturn
-    /* Methods of Gst.Element */
+    /* Methods of Gst-1.0.Gst.Element */
     abort_state(): void
     add_pad(pad: Gst.Pad): boolean
     add_property_deep_notify_watch(property_name: string | null, include_value: boolean): number
@@ -294,7 +294,7 @@ export class VideoSink {
     sync_state_with_parent(): boolean
     unlink(dest: Gst.Element): void
     unlink_pads(srcpadname: string, dest: Gst.Element, destpadname: string): void
-    /* Methods of Gst.Object */
+    /* Methods of Gst-1.0.Gst.Object */
     add_control_binding(binding: Gst.ControlBinding): boolean
     default_error(error: GLib.Error, debug?: string | null): void
     get_control_binding(property_name: string): Gst.ControlBinding | null
@@ -319,7 +319,7 @@ export class VideoSink {
     sync_values(timestamp: Gst.ClockTime): boolean
     unparent(): void
     unref(): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -340,16 +340,16 @@ export class VideoSink {
     steal_qdata(quark: GLib.Quark): object | null
     thaw_notify(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of GstVideo.Navigation */
+    /* Methods of GstVideo-1.0.GstVideo.Navigation */
     send_command(command: GstVideo.NavigationCommand): void
     send_event(structure: Gst.Structure): void
     send_key_event(event: string, key: string): void
     send_mouse_event(event: string, button: number, x: number, y: number): void
     send_mouse_scroll_event(x: number, y: number, delta_x: number, delta_y: number): void
-    /* Virtual methods of ClutterGst.VideoSink */
+    /* Virtual methods of ClutterGst-2.0.ClutterGst.VideoSink */
     vfunc_send_event(structure: Gst.Structure): void
     vfunc_send_event(event: Gst.Event): boolean
-    /* Virtual methods of GstBase.BaseSink */
+    /* Virtual methods of GstBase-1.0.GstBase.BaseSink */
     vfunc_activate_pull(active: boolean): boolean
     vfunc_event(event: Gst.Event): boolean
     vfunc_fixate(caps: Gst.Caps): Gst.Caps
@@ -368,7 +368,7 @@ export class VideoSink {
     vfunc_unlock(): boolean
     vfunc_unlock_stop(): boolean
     vfunc_wait_event(event: Gst.Event): Gst.FlowReturn
-    /* Virtual methods of Gst.Element */
+    /* Virtual methods of Gst-1.0.Gst.Element */
     vfunc_change_state(transition: Gst.StateChange): Gst.StateChangeReturn
     vfunc_get_state(timeout: Gst.ClockTime): [ /* returnType */ Gst.StateChangeReturn, /* state */ Gst.State | null, /* pending */ Gst.State | null ]
     vfunc_no_more_pads(): void
@@ -385,9 +385,9 @@ export class VideoSink {
     vfunc_set_context(context: Gst.Context): void
     vfunc_set_state(state: Gst.State): Gst.StateChangeReturn
     vfunc_state_changed(oldstate: Gst.State, newstate: Gst.State, pending: Gst.State): void
-    /* Virtual methods of Gst.Object */
+    /* Virtual methods of Gst-1.0.Gst.Object */
     vfunc_deep_notify(orig: Gst.Object, pspec: GObject.ParamSpec): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -395,7 +395,7 @@ export class VideoSink {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gst.Element */
+    /* Signals of Gst-1.0.Gst.Element */
     connect(sigName: "no-more-pads", callback: (($obj: VideoSink) => void)): number
     connect_after(sigName: "no-more-pads", callback: (($obj: VideoSink) => void)): number
     emit(sigName: "no-more-pads"): void
@@ -405,11 +405,11 @@ export class VideoSink {
     connect(sigName: "pad-removed", callback: (($obj: VideoSink, old_pad: Gst.Pad) => void)): number
     connect_after(sigName: "pad-removed", callback: (($obj: VideoSink, old_pad: Gst.Pad) => void)): number
     emit(sigName: "pad-removed", old_pad: Gst.Pad): void
-    /* Signals of Gst.Object */
+    /* Signals of Gst-1.0.Gst.Object */
     connect(sigName: "deep-notify", callback: (($obj: VideoSink, prop_object: Gst.Object, prop: GObject.ParamSpec) => void)): number
     connect_after(sigName: "deep-notify", callback: (($obj: VideoSink, prop_object: Gst.Object, prop: GObject.ParamSpec) => void)): number
     emit(sigName: "deep-notify", prop_object: Gst.Object, prop: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: VideoSink, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: VideoSink, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -494,9 +494,9 @@ export interface VideoTexture_ConstructProps extends Clutter.Texture_ConstructPr
     user_agent?: string
 }
 export class VideoTexture {
-    /* Properties of ClutterGst.VideoTexture */
+    /* Properties of ClutterGst-2.0.ClutterGst.VideoTexture */
     pixel_aspect_ratio: Gst.Fraction
-    /* Properties of Clutter.Texture */
+    /* Properties of Clutter-1.0.Clutter.Texture */
     filename: string
     filter_quality: Clutter.TextureQuality
     keep_aspect_ratio: boolean
@@ -508,7 +508,7 @@ export class VideoTexture {
     repeat_y: boolean
     sync_size: boolean
     readonly tile_waste: number
-    /* Properties of Clutter.Actor */
+    /* Properties of Clutter-1.0.Clutter.Actor */
     actions: Clutter.Action
     readonly allocation: Clutter.ActorBox
     anchor_gravity: Clutter.Gravity
@@ -591,7 +591,7 @@ export class VideoTexture {
     y_align: Clutter.ActorAlign
     y_expand: boolean
     z_position: number
-    /* Properties of Clutter.Media */
+    /* Properties of Clutter-1.0.Clutter.Media */
     audio_volume: number
     readonly buffer_fill: number
     readonly can_seek: boolean
@@ -601,7 +601,7 @@ export class VideoTexture {
     subtitle_font_name: string
     subtitle_uri: string
     uri: string
-    /* Properties of ClutterGst.Player */
+    /* Properties of ClutterGst-2.0.ClutterGst.Player */
     audio_stream: number
     readonly audio_streams: object
     readonly idle: boolean
@@ -610,11 +610,11 @@ export class VideoTexture {
     subtitle_track: number
     readonly subtitle_tracks: object
     user_agent: string
-    /* Fields of Clutter.Actor */
+    /* Fields of Clutter-1.0.Clutter.Actor */
     flags: number
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     g_type_instance: GObject.TypeInstance
-    /* Methods of ClutterGst.VideoTexture */
+    /* Methods of ClutterGst-2.0.ClutterGst.VideoTexture */
     get_audio_stream(): number
     get_audio_streams(): Gst.TagList[]
     get_buffering_mode(): BufferingMode
@@ -630,7 +630,7 @@ export class VideoTexture {
     set_seek_flags(flags: SeekFlags): void
     set_subtitle_track(index_: number): void
     set_user_agent(user_agent: string): void
-    /* Methods of Clutter.Texture */
+    /* Methods of Clutter-1.0.Clutter.Texture */
     get_base_size(): [ /* width */ number, /* height */ number ]
     get_cogl_material(): Cogl.Handle
     get_cogl_texture(): Cogl.Handle
@@ -656,7 +656,7 @@ export class VideoTexture {
     set_pick_with_alpha(pick_with_alpha: boolean): void
     set_repeat(repeat_x: boolean, repeat_y: boolean): void
     set_sync_size(sync_size: boolean): void
-    /* Methods of Clutter.Actor */
+    /* Methods of Clutter-1.0.Clutter.Actor */
     add_action(action: Clutter.Action): void
     add_action_with_name(name: string, action: Clutter.Action): void
     add_child(child: Clutter.Actor): void
@@ -892,7 +892,7 @@ export class VideoTexture {
     unparent(): void
     unrealize(): void
     unset_flags(flags: Clutter.ActorFlags): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -914,13 +914,13 @@ export class VideoTexture {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of Clutter.Animatable */
+    /* Methods of Clutter-1.0.Clutter.Animatable */
     animate_property(animation: Clutter.Animation, property_name: string, initial_value: any, final_value: any, progress: number, value: any): boolean
     find_property(property_name: string): GObject.ParamSpec
     get_initial_state(property_name: string, value: any): void
     interpolate_value(property_name: string, interval: Clutter.Interval, progress: number): [ /* returnType */ boolean, /* value */ any ]
     set_final_state(property_name: string, value: any): void
-    /* Methods of Clutter.Container */
+    /* Methods of Clutter-1.0.Clutter.Container */
     add_actor(actor: Clutter.Actor): void
     child_get_property(child: Clutter.Actor, property: string, value: any): void
     child_notify(child: Clutter.Actor, pspec: GObject.ParamSpec): void
@@ -935,7 +935,7 @@ export class VideoTexture {
     raise_child(actor: Clutter.Actor, sibling?: Clutter.Actor | null): void
     remove_actor(actor: Clutter.Actor): void
     sort_depth_order(): void
-    /* Methods of Clutter.Media */
+    /* Methods of Clutter-1.0.Clutter.Media */
     get_audio_volume(): number
     get_buffer_fill(): number
     get_can_seek(): boolean
@@ -952,19 +952,19 @@ export class VideoTexture {
     set_subtitle_font_name(font_name: string): void
     set_subtitle_uri(uri: string): void
     set_uri(uri: string): void
-    /* Methods of Clutter.Scriptable */
+    /* Methods of Clutter-1.0.Clutter.Scriptable */
     get_id(): string
     parse_custom_node(script: Clutter.Script, value: any, name: string, node: Json.Node): boolean
     set_custom_property(script: Clutter.Script, name: string, value: any): void
     set_id(id_: string): void
-    /* Methods of ClutterGst.Player */
+    /* Methods of ClutterGst-2.0.ClutterGst.Player */
     deinit(): void
     get_audio_streams(): string[]
     get_idle(): boolean
     get_in_seek(): boolean
     get_subtitle_tracks(): string[]
     init(): boolean
-    /* Virtual methods of ClutterGst.VideoTexture */
+    /* Virtual methods of ClutterGst-2.0.ClutterGst.VideoTexture */
     vfunc_animate_property(animation: Clutter.Animation, property_name: string, initial_value: any, final_value: any, progress: number, value: any): boolean
     vfunc_find_property(property_name: string): GObject.ParamSpec
     vfunc_get_initial_state(property_name: string, value: any): void
@@ -1005,11 +1005,11 @@ export class VideoTexture {
     vfunc_set_seek_flags(flags: SeekFlags): void
     vfunc_set_subtitle_track(index_: number): void
     vfunc_set_user_agent(user_agent: string): void
-    /* Virtual methods of Clutter.Texture */
+    /* Virtual methods of Clutter-1.0.Clutter.Texture */
     vfunc_load_finished(error: GLib.Error): void
     vfunc_pixbuf_change(): void
     vfunc_size_change(width: number, height: number): void
-    /* Virtual methods of Clutter.Actor */
+    /* Virtual methods of Clutter-1.0.Clutter.Actor */
     vfunc_allocate(box: Clutter.ActorBox, flags: Clutter.AllocationFlags): void
     vfunc_apply_transform(matrix: Clutter.Matrix): void
     vfunc_button_press_event(event: Clutter.ButtonEvent): boolean
@@ -1045,7 +1045,7 @@ export class VideoTexture {
     vfunc_touch_event(event: Clutter.TouchEvent): boolean
     vfunc_unmap(): void
     vfunc_unrealize(): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -1053,7 +1053,7 @@ export class VideoTexture {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Clutter.Texture */
+    /* Signals of Clutter-1.0.Clutter.Texture */
     connect(sigName: "load-finished", callback: (($obj: VideoTexture, error: GLib.Error) => void)): number
     connect_after(sigName: "load-finished", callback: (($obj: VideoTexture, error: GLib.Error) => void)): number
     emit(sigName: "load-finished", error: GLib.Error): void
@@ -1063,7 +1063,7 @@ export class VideoTexture {
     connect(sigName: "size-change", callback: (($obj: VideoTexture, width: number, height: number) => void)): number
     connect_after(sigName: "size-change", callback: (($obj: VideoTexture, width: number, height: number) => void)): number
     emit(sigName: "size-change", width: number, height: number): void
-    /* Signals of Clutter.Actor */
+    /* Signals of Clutter-1.0.Clutter.Actor */
     connect(sigName: "allocation-changed", callback: (($obj: VideoTexture, box: Clutter.ActorBox, flags: Clutter.AllocationFlags) => void)): number
     connect_after(sigName: "allocation-changed", callback: (($obj: VideoTexture, box: Clutter.ActorBox, flags: Clutter.AllocationFlags) => void)): number
     emit(sigName: "allocation-changed", box: Clutter.ActorBox, flags: Clutter.AllocationFlags): void
@@ -1142,11 +1142,11 @@ export class VideoTexture {
     connect(sigName: "unrealize", callback: (($obj: VideoTexture) => void)): number
     connect_after(sigName: "unrealize", callback: (($obj: VideoTexture) => void)): number
     emit(sigName: "unrealize"): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: VideoTexture, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: VideoTexture, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    /* Signals of Clutter.Container */
+    /* Signals of Clutter-1.0.Clutter.Container */
     connect(sigName: "actor-added", callback: (($obj: VideoTexture, actor: Clutter.Actor) => void)): number
     connect_after(sigName: "actor-added", callback: (($obj: VideoTexture, actor: Clutter.Actor) => void)): number
     emit(sigName: "actor-added", actor: Clutter.Actor): void
@@ -1156,14 +1156,14 @@ export class VideoTexture {
     connect(sigName: "child-notify", callback: (($obj: VideoTexture, actor: Clutter.Actor, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "child-notify", callback: (($obj: VideoTexture, actor: Clutter.Actor, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "child-notify", actor: Clutter.Actor, pspec: GObject.ParamSpec): void
-    /* Signals of Clutter.Media */
+    /* Signals of Clutter-1.0.Clutter.Media */
     connect(sigName: "eos", callback: (($obj: VideoTexture) => void)): number
     connect_after(sigName: "eos", callback: (($obj: VideoTexture) => void)): number
     emit(sigName: "eos"): void
     connect(sigName: "error", callback: (($obj: VideoTexture, error: GLib.Error) => void)): number
     connect_after(sigName: "error", callback: (($obj: VideoTexture, error: GLib.Error) => void)): number
     emit(sigName: "error", error: GLib.Error): void
-    /* Signals of ClutterGst.Player */
+    /* Signals of ClutterGst-2.0.ClutterGst.Player */
     connect(sigName: "download-buffering", callback: (($obj: VideoTexture, start: number, stop: number) => void)): number
     connect_after(sigName: "download-buffering", callback: (($obj: VideoTexture, start: number, stop: number) => void)): number
     emit(sigName: "download-buffering", start: number, stop: number): void
@@ -1404,7 +1404,7 @@ export class VideoTexture {
     static $gtype: GObject.Type
 }
 export abstract class PlayerIface {
-    /* Fields of ClutterGst.PlayerIface */
+    /* Fields of ClutterGst-2.0.ClutterGst.PlayerIface */
     get_pipeline: (player: Player) => Gst.Element
     get_user_agent: (player: Player) => string
     set_user_agent: (player: Player, user_agent: string) => void

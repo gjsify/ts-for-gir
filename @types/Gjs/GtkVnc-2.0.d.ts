@@ -38,16 +38,16 @@ export interface CairoFramebuffer_ConstructProps extends GVnc.BaseFramebuffer_Co
     surface?: object
 }
 export class CairoFramebuffer {
-    /* Properties of GVnc.BaseFramebuffer */
+    /* Properties of GVnc-1.0.GVnc.BaseFramebuffer */
     color_map: GVnc.ColorMap
-    /* Fields of GtkVnc.CairoFramebuffer */
+    /* Fields of GtkVnc-2.0.GtkVnc.CairoFramebuffer */
     parent: GVnc.BaseFramebuffer
     priv: CairoFramebufferPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GtkVnc.CairoFramebuffer */
+    /* Methods of GtkVnc-2.0.GtkVnc.CairoFramebuffer */
     get_surface(): cairo.Surface
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -69,7 +69,7 @@ export class CairoFramebuffer {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of GVnc.Framebuffer */
+    /* Methods of GVnc-1.0.GVnc.Framebuffer */
     blt(src: number, rowstride: number, x: number, y: number, width: number, height: number): void
     copyrect(srcx: number, srcy: number, dstx: number, dsty: number, width: number, height: number): void
     fill(src: Uint8Array[], x: number, y: number, width: number, height: number): void
@@ -83,7 +83,7 @@ export class CairoFramebuffer {
     rgb24_blt(src: Uint8Array[], rowstride: number, x: number, y: number, width: number, height: number): void
     set_color_map(map: GVnc.ColorMap): void
     set_pixel_at(src: Uint8Array[], x: number, y: number): void
-    /* Virtual methods of GtkVnc.CairoFramebuffer */
+    /* Virtual methods of GtkVnc-2.0.GtkVnc.CairoFramebuffer */
     vfunc_blt(src: number, rowstride: number, x: number, y: number, width: number, height: number): void
     vfunc_copyrect(srcx: number, srcy: number, dstx: number, dsty: number, width: number, height: number): void
     vfunc_fill(src: Uint8Array[], x: number, y: number, width: number, height: number): void
@@ -97,7 +97,7 @@ export class CairoFramebuffer {
     vfunc_rgb24_blt(src: Uint8Array[], rowstride: number, x: number, y: number, width: number, height: number): void
     vfunc_set_color_map(map: GVnc.ColorMap): void
     vfunc_set_pixel_at(src: Uint8Array[], x: number, y: number): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -105,7 +105,7 @@ export class CairoFramebuffer {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: CairoFramebuffer, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: CairoFramebuffer, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -138,7 +138,7 @@ export interface Display_ConstructProps extends Gtk.DrawingArea_ConstructProps {
     smoothing?: boolean
 }
 export class Display {
-    /* Properties of GtkVnc.Display */
+    /* Properties of GtkVnc-2.0.GtkVnc.Display */
     allow_resize: boolean
     readonly connection: GVnc.Connection
     depth: DisplayDepthColor
@@ -155,7 +155,7 @@ export class Display {
     shared_flag: boolean
     smoothing: boolean
     readonly width: number
-    /* Properties of Gtk.Widget */
+    /* Properties of Gtk-3.0.Gtk.Widget */
     app_paintable: boolean
     can_default: boolean
     can_focus: boolean
@@ -194,15 +194,15 @@ export class Display {
     visible: boolean
     width_request: number
     readonly window: Gdk.Window
-    /* Fields of GtkVnc.Display */
+    /* Fields of GtkVnc-2.0.GtkVnc.Display */
     priv: DisplayPrivate
-    /* Fields of Gtk.DrawingArea */
+    /* Fields of Gtk-3.0.Gtk.DrawingArea */
     widget: Gtk.Widget
-    /* Fields of Gtk.Widget */
+    /* Fields of Gtk-3.0.Gtk.Widget */
     parent_instance: GObject.InitiallyUnowned
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GtkVnc.Display */
+    /* Methods of GtkVnc-2.0.GtkVnc.Display */
     client_cut_text(text: string): void
     close(): void
     force_grab(enable: boolean): void
@@ -246,7 +246,7 @@ export class Display {
     set_scaling(enable: boolean): boolean
     set_shared_flag(shared: boolean): void
     set_smoothing(enable: boolean): void
-    /* Methods of Gtk.Widget */
+    /* Methods of Gtk-3.0.Gtk.Widget */
     activate(): boolean
     add_accelerator(accel_signal: string, accel_group: Gtk.AccelGroup, accel_key: number, accel_mods: Gdk.ModifierType, accel_flags: Gtk.AccelFlags): void
     add_device_events(device: Gdk.Device, events: Gdk.EventMask): void
@@ -504,7 +504,7 @@ export class Display {
     unrealize(): void
     unregister_window(window: Gdk.Window): void
     unset_state_flags(flags: Gtk.StateFlags): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -526,7 +526,7 @@ export class Display {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of Gtk.Buildable */
+    /* Methods of Gtk-3.0.Gtk.Buildable */
     add_child(builder: Gtk.Builder, child: GObject.Object, type?: string | null): void
     construct_child(builder: Gtk.Builder, name: string): GObject.Object
     custom_finished(builder: Gtk.Builder, child: GObject.Object | null, tagname: string, data?: object | null): void
@@ -535,7 +535,7 @@ export class Display {
     get_internal_child(builder: Gtk.Builder, childname: string): GObject.Object
     parser_finished(builder: Gtk.Builder): void
     set_buildable_property(builder: Gtk.Builder, name: string, value: any): void
-    /* Virtual methods of GtkVnc.Display */
+    /* Virtual methods of GtkVnc-2.0.GtkVnc.Display */
     vfunc_vnc_auth_credential(credList: GObject.ValueArray): void
     vfunc_vnc_connected(): void
     vfunc_vnc_disconnected(): void
@@ -550,7 +550,7 @@ export class Display {
     vfunc_parser_finished(builder: Gtk.Builder): void
     vfunc_set_buildable_property(builder: Gtk.Builder, name: string, value: any): void
     vfunc_set_name(name: string): void
-    /* Virtual methods of Gtk.Widget */
+    /* Virtual methods of Gtk-3.0.Gtk.Widget */
     vfunc_adjust_baseline_allocation(baseline: number): void
     vfunc_adjust_baseline_request(minimum_baseline: number, natural_baseline: number): void
     vfunc_adjust_size_allocation(orientation: Gtk.Orientation, minimum_size: number, natural_size: number, allocated_pos: number, allocated_size: number): void
@@ -633,7 +633,7 @@ export class Display {
     vfunc_unrealize(): void
     vfunc_visibility_notify_event(event: Gdk.EventVisibility): boolean
     vfunc_window_state_event(event: Gdk.EventWindowState): boolean
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -641,7 +641,7 @@ export class Display {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GtkVnc.Display */
+    /* Signals of GtkVnc-2.0.GtkVnc.Display */
     connect(sigName: "vnc-auth-credential", callback: (($obj: Display, object: GObject.ValueArray) => void)): number
     connect_after(sigName: "vnc-auth-credential", callback: (($obj: Display, object: GObject.ValueArray) => void)): number
     emit(sigName: "vnc-auth-credential", object: GObject.ValueArray): void
@@ -693,7 +693,7 @@ export class Display {
     connect(sigName: "vnc-server-cut-text", callback: (($obj: Display, object: string) => void)): number
     connect_after(sigName: "vnc-server-cut-text", callback: (($obj: Display, object: string) => void)): number
     emit(sigName: "vnc-server-cut-text", object: string): void
-    /* Signals of Gtk.Widget */
+    /* Signals of Gtk-3.0.Gtk.Widget */
     connect(sigName: "accel-closures-changed", callback: (($obj: Display) => void)): number
     connect_after(sigName: "accel-closures-changed", callback: (($obj: Display) => void)): number
     emit(sigName: "accel-closures-changed"): void
@@ -901,7 +901,7 @@ export class Display {
     connect(sigName: "window-state-event", callback: (($obj: Display, event: Gdk.EventWindowState) => boolean)): number
     connect_after(sigName: "window-state-event", callback: (($obj: Display, event: Gdk.EventWindowState) => boolean)): number
     emit(sigName: "window-state-event", event: Gdk.EventWindowState): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Display, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Display, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -1027,7 +1027,7 @@ export class Display {
     static $gtype: GObject.Type
 }
 export abstract class CairoFramebufferClass {
-    /* Fields of GtkVnc.CairoFramebufferClass */
+    /* Fields of GtkVnc-2.0.GtkVnc.CairoFramebufferClass */
     parent_class: GVnc.BaseFramebufferClass
     _vnc_reserved: object[]
     static name: string
@@ -1036,7 +1036,7 @@ export class CairoFramebufferPrivate {
     static name: string
 }
 export abstract class DisplayClass {
-    /* Fields of GtkVnc.DisplayClass */
+    /* Fields of GtkVnc-2.0.GtkVnc.DisplayClass */
     parent_class: Gtk.DrawingAreaClass
     vnc_connected: (display: Display) => void
     vnc_initialized: (display: Display) => void
@@ -1048,10 +1048,10 @@ export class DisplayPrivate {
     static name: string
 }
 export class GrabSequence {
-    /* Fields of GtkVnc.GrabSequence */
+    /* Fields of GtkVnc-2.0.GtkVnc.GrabSequence */
     nkeysyms: number
     keysyms: number
-    /* Methods of GtkVnc.GrabSequence */
+    /* Methods of GtkVnc-2.0.GtkVnc.GrabSequence */
     as_string(): string
     copy(): GrabSequence
     free(): void

@@ -31,24 +31,24 @@ export function x11_set_sm_client_id(sm_client_id?: string | null): void
 export interface X11AppLaunchContext_ConstructProps extends Gdk.AppLaunchContext_ConstructProps {
 }
 export class X11AppLaunchContext {
-    /* Fields of Gio.AppLaunchContext */
+    /* Fields of Gio-2.0.Gio.AppLaunchContext */
     parent_instance: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Gdk.AppLaunchContext */
+    /* Methods of Gdk-4.0.Gdk.AppLaunchContext */
     get_display(): Gdk.Display
     set_desktop(desktop: number): void
     set_icon(icon?: Gio.Icon | null): void
     set_icon_name(icon_name?: string | null): void
     set_timestamp(timestamp: number): void
-    /* Methods of Gio.AppLaunchContext */
+    /* Methods of Gio-2.0.Gio.AppLaunchContext */
     get_display(info: Gio.AppInfo, files: Gio.File[]): string | null
     get_environment(): string[]
     get_startup_notify_id(info: Gio.AppInfo, files: Gio.File[]): string | null
     launch_failed(startup_notify_id: string): void
     setenv(variable: string, value: string): void
     unsetenv(variable: string): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -70,12 +70,12 @@ export class X11AppLaunchContext {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Gio.AppLaunchContext */
+    /* Virtual methods of Gio-2.0.Gio.AppLaunchContext */
     vfunc_get_display(info: Gio.AppInfo, files: Gio.File[]): string | null
     vfunc_get_startup_notify_id(info: Gio.AppInfo, files: Gio.File[]): string | null
     vfunc_launch_failed(startup_notify_id: string): void
     vfunc_launched(info: Gio.AppInfo, platform_data: GLib.Variant): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -83,14 +83,14 @@ export class X11AppLaunchContext {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gio.AppLaunchContext */
+    /* Signals of Gio-2.0.Gio.AppLaunchContext */
     connect(sigName: "launch-failed", callback: (($obj: X11AppLaunchContext, startup_notify_id: string) => void)): number
     connect_after(sigName: "launch-failed", callback: (($obj: X11AppLaunchContext, startup_notify_id: string) => void)): number
     emit(sigName: "launch-failed", startup_notify_id: string): void
     connect(sigName: "launched", callback: (($obj: X11AppLaunchContext, info: Gio.AppInfo, platform_data: GLib.Variant) => void)): number
     connect_after(sigName: "launched", callback: (($obj: X11AppLaunchContext, info: Gio.AppInfo, platform_data: GLib.Variant) => void)): number
     emit(sigName: "launched", info: Gio.AppInfo, platform_data: GLib.Variant): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: X11AppLaunchContext, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: X11AppLaunchContext, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -110,9 +110,9 @@ export interface X11DeviceManagerXI2_ConstructProps extends GObject.Object_Const
     opcode?: number
 }
 export class X11DeviceManagerXI2 {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -134,7 +134,7 @@ export class X11DeviceManagerXI2 {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -142,7 +142,7 @@ export class X11DeviceManagerXI2 {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: X11DeviceManagerXI2, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: X11DeviceManagerXI2, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -159,7 +159,7 @@ export interface X11DeviceXI2_ConstructProps extends Gdk.Device_ConstructProps {
     device_id?: number
 }
 export class X11DeviceXI2 {
-    /* Properties of Gdk.Device */
+    /* Properties of Gdk-4.0.Gdk.Device */
     readonly caps_lock_state: boolean
     readonly direction: Pango.Direction
     readonly has_bidi_layouts: boolean
@@ -169,9 +169,9 @@ export class X11DeviceXI2 {
     readonly scroll_lock_state: boolean
     seat: Gdk.Seat
     readonly tool: Gdk.DeviceTool
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Gdk.Device */
+    /* Methods of Gdk-4.0.Gdk.Device */
     get_caps_lock_state(): boolean
     get_device_tool(): Gdk.DeviceTool
     get_direction(): Pango.Direction
@@ -187,7 +187,7 @@ export class X11DeviceXI2 {
     get_source(): Gdk.InputSource
     get_surface_at_position(): [ /* returnType */ Gdk.Surface | null, /* win_x */ number | null, /* win_y */ number | null ]
     get_vendor_id(): string | null
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -209,7 +209,7 @@ export class X11DeviceXI2 {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -217,14 +217,14 @@ export class X11DeviceXI2 {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gdk.Device */
+    /* Signals of Gdk-4.0.Gdk.Device */
     connect(sigName: "changed", callback: (($obj: X11DeviceXI2) => void)): number
     connect_after(sigName: "changed", callback: (($obj: X11DeviceXI2) => void)): number
     emit(sigName: "changed"): void
     connect(sigName: "tool-changed", callback: (($obj: X11DeviceXI2, tool: Gdk.DeviceTool) => void)): number
     connect_after(sigName: "tool-changed", callback: (($obj: X11DeviceXI2, tool: Gdk.DeviceTool) => void)): number
     emit(sigName: "tool-changed", tool: Gdk.DeviceTool): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: X11DeviceXI2, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: X11DeviceXI2, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -258,13 +258,13 @@ export class X11DeviceXI2 {
 export interface X11Display_ConstructProps extends Gdk.Display_ConstructProps {
 }
 export class X11Display {
-    /* Properties of Gdk.Display */
+    /* Properties of Gdk-4.0.Gdk.Display */
     readonly composited: boolean
     readonly input_shapes: boolean
     readonly rgba: boolean
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GdkX11.X11Display */
+    /* Methods of GdkX11-4.0.GdkX11.X11Display */
     error_trap_pop(): number
     error_trap_pop_ignored(): void
     error_trap_push(): void
@@ -286,7 +286,7 @@ export class X11Display {
     text_property_to_text_list(encoding: string, format: number, text: number, length: number, list: string): number
     ungrab(): void
     utf8_to_compound_text(str: string): [ /* returnType */ boolean, /* encoding */ string, /* format */ number, /* ctext */ Uint8Array[] ]
-    /* Methods of Gdk.Display */
+    /* Methods of Gdk-4.0.Gdk.Display */
     beep(): void
     close(): void
     device_is_grabbed(device: Gdk.Device): boolean
@@ -311,7 +311,7 @@ export class X11Display {
     supports_input_shapes(): boolean
     sync(): void
     translate_key(keycode: number, state: Gdk.ModifierType, group: number): [ /* returnType */ boolean, /* keyval */ number | null, /* effective_group */ number | null, /* level */ number | null, /* consumed */ Gdk.ModifierType | null ]
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -333,7 +333,7 @@ export class X11Display {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -341,11 +341,11 @@ export class X11Display {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GdkX11.X11Display */
+    /* Signals of GdkX11-4.0.GdkX11.X11Display */
     connect(sigName: "xevent", callback: (($obj: X11Display, xevent?: object | null) => boolean)): number
     connect_after(sigName: "xevent", callback: (($obj: X11Display, xevent?: object | null) => boolean)): number
     emit(sigName: "xevent", xevent?: object | null): void
-    /* Signals of Gdk.Display */
+    /* Signals of Gdk-4.0.Gdk.Display */
     connect(sigName: "closed", callback: (($obj: X11Display, is_error: boolean) => void)): number
     connect_after(sigName: "closed", callback: (($obj: X11Display, is_error: boolean) => void)): number
     emit(sigName: "closed", is_error: boolean): void
@@ -361,7 +361,7 @@ export class X11Display {
     connect(sigName: "setting-changed", callback: (($obj: X11Display, setting: string) => void)): number
     connect_after(sigName: "setting-changed", callback: (($obj: X11Display, setting: string) => void)): number
     emit(sigName: "setting-changed", setting: string): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: X11Display, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: X11Display, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -387,13 +387,13 @@ export class X11Display {
 export interface X11Drag_ConstructProps extends Gdk.Drag_ConstructProps {
 }
 export class X11Drag {
-    /* Properties of Gdk.Drag */
+    /* Properties of Gdk-4.0.Gdk.Drag */
     actions: Gdk.DragAction
     readonly display: Gdk.Display
     selected_action: Gdk.DragAction
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Gdk.Drag */
+    /* Methods of Gdk-4.0.Gdk.Drag */
     drop_done(success: boolean): void
     get_actions(): Gdk.DragAction
     get_content(): Gdk.ContentProvider
@@ -404,7 +404,7 @@ export class X11Drag {
     get_selected_action(): Gdk.DragAction
     get_surface(): Gdk.Surface
     set_hotspot(hot_x: number, hot_y: number): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -426,7 +426,7 @@ export class X11Drag {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -434,7 +434,7 @@ export class X11Drag {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gdk.Drag */
+    /* Signals of Gdk-4.0.Gdk.Drag */
     connect(sigName: "cancel", callback: (($obj: X11Drag, reason: Gdk.DragCancelReason) => void)): number
     connect_after(sigName: "cancel", callback: (($obj: X11Drag, reason: Gdk.DragCancelReason) => void)): number
     emit(sigName: "cancel", reason: Gdk.DragCancelReason): void
@@ -444,7 +444,7 @@ export class X11Drag {
     connect(sigName: "drop-performed", callback: (($obj: X11Drag) => void)): number
     connect_after(sigName: "drop-performed", callback: (($obj: X11Drag) => void)): number
     emit(sigName: "drop-performed"): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: X11Drag, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: X11Drag, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -466,11 +466,11 @@ export class X11Drag {
 export interface X11GLContext_ConstructProps extends Gdk.GLContext_ConstructProps {
 }
 export class X11GLContext {
-    /* Properties of Gdk.DrawContext */
+    /* Properties of Gdk-4.0.Gdk.DrawContext */
     readonly display: Gdk.Display
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Gdk.GLContext */
+    /* Methods of Gdk-4.0.Gdk.GLContext */
     get_debug_enabled(): boolean
     get_display(): Gdk.Display | null
     get_forward_compatible(): boolean
@@ -486,12 +486,12 @@ export class X11GLContext {
     set_forward_compatible(compatible: boolean): void
     set_required_version(major: number, minor: number): void
     set_use_es(use_es: number): void
-    /* Methods of Gdk.DrawContext */
+    /* Methods of Gdk-4.0.Gdk.DrawContext */
     begin_frame(region: cairo.Region): void
     end_frame(): void
     get_frame_region(): cairo.Region | null
     is_in_frame(): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -513,7 +513,7 @@ export class X11GLContext {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -521,7 +521,7 @@ export class X11GLContext {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: X11GLContext, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: X11GLContext, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -539,7 +539,7 @@ export class X11GLContext {
 export interface X11Monitor_ConstructProps extends Gdk.Monitor_ConstructProps {
 }
 export class X11Monitor {
-    /* Properties of Gdk.Monitor */
+    /* Properties of Gdk-4.0.Gdk.Monitor */
     readonly connector: string
     readonly geometry: Gdk.Rectangle
     readonly height_mm: number
@@ -550,12 +550,12 @@ export class X11Monitor {
     readonly subpixel_layout: Gdk.SubpixelLayout
     readonly valid: boolean
     readonly width_mm: number
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GdkX11.X11Monitor */
+    /* Methods of GdkX11-4.0.GdkX11.X11Monitor */
     get_output(): xlib.XID
     get_workarea(): /* workarea */ Gdk.Rectangle
-    /* Methods of Gdk.Monitor */
+    /* Methods of Gdk-4.0.Gdk.Monitor */
     get_connector(): string | null
     get_display(): Gdk.Display
     get_geometry(): /* geometry */ Gdk.Rectangle
@@ -567,7 +567,7 @@ export class X11Monitor {
     get_subpixel_layout(): Gdk.SubpixelLayout
     get_width_mm(): number
     is_valid(): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -589,7 +589,7 @@ export class X11Monitor {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -597,11 +597,11 @@ export class X11Monitor {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gdk.Monitor */
+    /* Signals of Gdk-4.0.Gdk.Monitor */
     connect(sigName: "invalidate", callback: (($obj: X11Monitor) => void)): number
     connect_after(sigName: "invalidate", callback: (($obj: X11Monitor) => void)): number
     emit(sigName: "invalidate"): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: X11Monitor, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: X11Monitor, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -637,9 +637,9 @@ export class X11Monitor {
 export interface X11Screen_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class X11Screen {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GdkX11.X11Screen */
+    /* Methods of GdkX11-4.0.GdkX11.X11Screen */
     get_current_desktop(): number
     get_monitor_output(monitor_num: number): xlib.XID
     get_number_of_desktops(): number
@@ -647,7 +647,7 @@ export class X11Screen {
     get_window_manager_name(): string
     get_xscreen(): xlib.Screen
     supports_net_wm_hint(property_name: string): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -669,7 +669,7 @@ export class X11Screen {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -677,11 +677,11 @@ export class X11Screen {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GdkX11.X11Screen */
+    /* Signals of GdkX11-4.0.GdkX11.X11Screen */
     connect(sigName: "window-manager-changed", callback: (($obj: X11Screen) => void)): number
     connect_after(sigName: "window-manager-changed", callback: (($obj: X11Screen) => void)): number
     emit(sigName: "window-manager-changed"): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: X11Screen, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: X11Screen, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -697,15 +697,15 @@ export class X11Screen {
 export interface X11Surface_ConstructProps extends Gdk.Surface_ConstructProps {
 }
 export class X11Surface {
-    /* Properties of Gdk.Surface */
+    /* Properties of Gdk-4.0.Gdk.Surface */
     cursor: Gdk.Cursor
     readonly height: number
     readonly mapped: boolean
     readonly scale_factor: number
     readonly width: number
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GdkX11.X11Surface */
+    /* Methods of GdkX11-4.0.GdkX11.X11Surface */
     get_desktop(): number
     get_group(): Gdk.Surface
     get_xid(): xlib.Window
@@ -719,7 +719,7 @@ export class X11Surface {
     set_urgency_hint(urgent: boolean): void
     set_user_time(timestamp: number): void
     set_utf8_property(name: string, value?: string | null): void
-    /* Methods of Gdk.Surface */
+    /* Methods of Gdk-4.0.Gdk.Surface */
     beep(): void
     create_cairo_context(): Gdk.CairoContext
     create_gl_context(): Gdk.GLContext
@@ -744,7 +744,7 @@ export class X11Surface {
     set_input_region(region: cairo.Region): void
     set_opaque_region(region?: cairo.Region | null): void
     translate_coordinates(to: Gdk.Surface, x: number, y: number): [ /* returnType */ boolean, /* x */ number, /* y */ number ]
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -766,7 +766,7 @@ export class X11Surface {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -774,7 +774,7 @@ export class X11Surface {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gdk.Surface */
+    /* Signals of Gdk-4.0.Gdk.Surface */
     connect(sigName: "enter-monitor", callback: (($obj: X11Surface, monitor: Gdk.Monitor) => void)): number
     connect_after(sigName: "enter-monitor", callback: (($obj: X11Surface, monitor: Gdk.Monitor) => void)): number
     emit(sigName: "enter-monitor", monitor: Gdk.Monitor): void
@@ -790,7 +790,7 @@ export class X11Surface {
     connect(sigName: "render", callback: (($obj: X11Surface, region: cairo.Region) => boolean)): number
     connect_after(sigName: "render", callback: (($obj: X11Surface, region: cairo.Region) => boolean)): number
     emit(sigName: "render", region: cairo.Region): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: X11Surface, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: X11Surface, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void

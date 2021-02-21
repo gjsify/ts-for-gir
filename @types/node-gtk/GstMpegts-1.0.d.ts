@@ -679,14 +679,14 @@ export interface PacketizeFunc {
     (section: Section): boolean
 }
 export class AtscEIT {
-    /* Fields of GstMpegts.AtscEIT */
+    /* Fields of GstMpegts-1.0.GstMpegts.AtscEIT */
     sourceId: number
     protocolVersion: number
     events: AtscEITEvent[]
     static name: string
 }
 export class AtscEITEvent {
-    /* Fields of GstMpegts.AtscEITEvent */
+    /* Fields of GstMpegts-1.0.GstMpegts.AtscEITEvent */
     eventId: number
     startTime: number
     etmLocation: number
@@ -696,7 +696,7 @@ export class AtscEITEvent {
     static name: string
 }
 export class AtscETT {
-    /* Fields of GstMpegts.AtscETT */
+    /* Fields of GstMpegts-1.0.GstMpegts.AtscETT */
     ettTableIdExtension: number
     protocolVersion: number
     etmId: number
@@ -704,7 +704,7 @@ export class AtscETT {
     static name: string
 }
 export class AtscMGT {
-    /* Fields of GstMpegts.AtscMGT */
+    /* Fields of GstMpegts-1.0.GstMpegts.AtscMGT */
     protocolVersion: number
     tablesDefined: number
     tables: AtscMGTTable[]
@@ -716,7 +716,7 @@ export class AtscMGT {
     static new(): AtscMGT
 }
 export class AtscMGTTable {
-    /* Fields of GstMpegts.AtscMGTTable */
+    /* Fields of GstMpegts-1.0.GstMpegts.AtscMGTTable */
     tableType: number
     pid: number
     versionNumber: number
@@ -725,13 +725,13 @@ export class AtscMGTTable {
     static name: string
 }
 export class AtscMultString {
-    /* Fields of GstMpegts.AtscMultString */
+    /* Fields of GstMpegts-1.0.GstMpegts.AtscMultString */
     iso639Langcode: number[]
     segments: AtscStringSegment[]
     static name: string
 }
 export class AtscRRT {
-    /* Fields of GstMpegts.AtscRRT */
+    /* Fields of GstMpegts-1.0.GstMpegts.AtscRRT */
     protocolVersion: number
     names: AtscMultString[]
     dimensionsDefined: number
@@ -744,7 +744,7 @@ export class AtscRRT {
     static new(): AtscRRT
 }
 export class AtscRRTDimension {
-    /* Fields of GstMpegts.AtscRRTDimension */
+    /* Fields of GstMpegts-1.0.GstMpegts.AtscRRTDimension */
     names: AtscMultString[]
     graduatedScale: boolean
     valuesDefined: number
@@ -756,7 +756,7 @@ export class AtscRRTDimension {
     static new(): AtscRRTDimension
 }
 export class AtscRRTDimensionValue {
-    /* Fields of GstMpegts.AtscRRTDimensionValue */
+    /* Fields of GstMpegts-1.0.GstMpegts.AtscRRTDimensionValue */
     abbrevRatings: AtscMultString[]
     ratings: AtscMultString[]
     static name: string
@@ -766,7 +766,7 @@ export class AtscRRTDimensionValue {
     static new(): AtscRRTDimensionValue
 }
 export class AtscSTT {
-    /* Fields of GstMpegts.AtscSTT */
+    /* Fields of GstMpegts-1.0.GstMpegts.AtscSTT */
     protocolVersion: number
     systemTime: number
     gpsUtcOffset: number
@@ -775,7 +775,7 @@ export class AtscSTT {
     dsHour: number
     descriptors: Descriptor[]
     utcDatetime: Gst.DateTime
-    /* Methods of GstMpegts.AtscSTT */
+    /* Methods of GstMpegts-1.0.GstMpegts.AtscSTT */
     getDatetimeUtc(): Gst.DateTime
     static name: string
     static new(): AtscSTT
@@ -784,19 +784,19 @@ export class AtscSTT {
     static new(): AtscSTT
 }
 export class AtscStringSegment {
-    /* Fields of GstMpegts.AtscStringSegment */
+    /* Fields of GstMpegts-1.0.GstMpegts.AtscStringSegment */
     compressionType: number
     mode: number
     compressedDataSize: number
     compressedData: number
     cachedString: string
-    /* Methods of GstMpegts.AtscStringSegment */
+    /* Methods of GstMpegts-1.0.GstMpegts.AtscStringSegment */
     getString(): string
     setString(string: string, compressionType: number, mode: number): boolean
     static name: string
 }
 export class AtscVCT {
-    /* Fields of GstMpegts.AtscVCT */
+    /* Fields of GstMpegts-1.0.GstMpegts.AtscVCT */
     transportStreamId: number
     protocolVersion: number
     sources: AtscVCTSource[]
@@ -804,7 +804,7 @@ export class AtscVCT {
     static name: string
 }
 export class AtscVCTSource {
-    /* Fields of GstMpegts.AtscVCTSource */
+    /* Fields of GstMpegts-1.0.GstMpegts.AtscVCTSource */
     shortName: string
     majorChannelNumber: number
     minorChannelNumber: number
@@ -824,7 +824,7 @@ export class AtscVCTSource {
     static name: string
 }
 export class AudioPreselectionDescriptor {
-    /* Fields of GstMpegts.AudioPreselectionDescriptor */
+    /* Fields of GstMpegts-1.0.GstMpegts.AudioPreselectionDescriptor */
     preselectionId: number
     audioRenderingIndication: number
     audioDescription: boolean
@@ -840,31 +840,31 @@ export class AudioPreselectionDescriptor {
     static name: string
 }
 export class BAT {
-    /* Fields of GstMpegts.BAT */
+    /* Fields of GstMpegts-1.0.GstMpegts.BAT */
     descriptors: Descriptor[]
     streams: BATStream[]
     static name: string
 }
 export class BATStream {
-    /* Fields of GstMpegts.BATStream */
+    /* Fields of GstMpegts-1.0.GstMpegts.BATStream */
     transportStreamId: number
     originalNetworkId: number
     descriptors: object[]
     static name: string
 }
 export class CableDeliverySystemDescriptor {
-    /* Fields of GstMpegts.CableDeliverySystemDescriptor */
+    /* Fields of GstMpegts-1.0.GstMpegts.CableDeliverySystemDescriptor */
     frequency: number
     outerFec: CableOuterFECScheme
     modulation: ModulationType
     symbolRate: number
     fecInner: DVBCodeRate
-    /* Methods of GstMpegts.CableDeliverySystemDescriptor */
+    /* Methods of GstMpegts-1.0.GstMpegts.CableDeliverySystemDescriptor */
     free(): void
     static name: string
 }
 export class ComponentDescriptor {
-    /* Fields of GstMpegts.ComponentDescriptor */
+    /* Fields of GstMpegts-1.0.GstMpegts.ComponentDescriptor */
     streamContent: number
     componentType: number
     componentTag: number
@@ -873,21 +873,21 @@ export class ComponentDescriptor {
     static name: string
 }
 export class Content {
-    /* Fields of GstMpegts.Content */
+    /* Fields of GstMpegts-1.0.GstMpegts.Content */
     contentNibble1: ContentNibbleHi
     contentNibble2: number
     userByte: number
     static name: string
 }
 export class DVBLinkageDescriptor {
-    /* Fields of GstMpegts.DVBLinkageDescriptor */
+    /* Fields of GstMpegts-1.0.GstMpegts.DVBLinkageDescriptor */
     transportStreamId: number
     originalNetworkId: number
     serviceId: number
     linkageType: DVBLinkageType
     privateDataLength: number
     privateDataBytes: number
-    /* Methods of GstMpegts.DVBLinkageDescriptor */
+    /* Methods of GstMpegts-1.0.GstMpegts.DVBLinkageDescriptor */
     free(): void
     getEvent(): DVBLinkageEvent
     getExtendedEvent(): DVBLinkageExtendedEvent[]
@@ -895,14 +895,14 @@ export class DVBLinkageDescriptor {
     static name: string
 }
 export class DVBLinkageEvent {
-    /* Fields of GstMpegts.DVBLinkageEvent */
+    /* Fields of GstMpegts-1.0.GstMpegts.DVBLinkageEvent */
     targetEventId: number
     targetListed: boolean
     eventSimulcast: boolean
     static name: string
 }
 export class DVBLinkageExtendedEvent {
-    /* Fields of GstMpegts.DVBLinkageExtendedEvent */
+    /* Fields of GstMpegts-1.0.GstMpegts.DVBLinkageExtendedEvent */
     targetEventId: number
     targetListed: boolean
     eventSimulcast: boolean
@@ -917,7 +917,7 @@ export class DVBLinkageExtendedEvent {
     static name: string
 }
 export class DVBLinkageMobileHandOver {
-    /* Fields of GstMpegts.DVBLinkageMobileHandOver */
+    /* Fields of GstMpegts-1.0.GstMpegts.DVBLinkageMobileHandOver */
     handOverType: DVBLinkageHandOverType
     originType: boolean
     networkId: number
@@ -925,74 +925,74 @@ export class DVBLinkageMobileHandOver {
     static name: string
 }
 export class DVBParentalRatingItem {
-    /* Fields of GstMpegts.DVBParentalRatingItem */
+    /* Fields of GstMpegts-1.0.GstMpegts.DVBParentalRatingItem */
     countryCode: string
     rating: number
     static name: string
 }
 export class DVBServiceListItem {
-    /* Fields of GstMpegts.DVBServiceListItem */
+    /* Fields of GstMpegts-1.0.GstMpegts.DVBServiceListItem */
     serviceId: number
     type: DVBServiceType
     static name: string
 }
 export class DataBroadcastDescriptor {
-    /* Fields of GstMpegts.DataBroadcastDescriptor */
+    /* Fields of GstMpegts-1.0.GstMpegts.DataBroadcastDescriptor */
     dataBroadcastId: number
     componentTag: number
     length: number
     selectorBytes: number
     languageCode: string
     text: string
-    /* Methods of GstMpegts.DataBroadcastDescriptor */
+    /* Methods of GstMpegts-1.0.GstMpegts.DataBroadcastDescriptor */
     free(): void
     static name: string
 }
 export class Descriptor {
-    /* Fields of GstMpegts.Descriptor */
+    /* Fields of GstMpegts-1.0.GstMpegts.Descriptor */
     tag: number
     tagExtension: number
     length: number
     data: number
-    /* Methods of GstMpegts.Descriptor */
+    /* Methods of GstMpegts-1.0.GstMpegts.Descriptor */
     free(): void
-    parseAudioPreselectionList(): [ /* returnType */ boolean, /* list */ AudioPreselectionDescriptor[] ]
-    parseCa(): [ /* returnType */ boolean, /* caSystemId */ number, /* caPid */ number, /* privateData */ any[] | null ]
-    parseCableDeliverySystem(): [ /* returnType */ boolean, /* res */ CableDeliverySystemDescriptor ]
-    parseDvbBouquetName(): [ /* returnType */ boolean, /* bouquetName */ string | null ]
-    parseDvbCaIdentifier(): [ /* returnType */ boolean, /* list */ number[] ]
-    parseDvbComponent(): [ /* returnType */ boolean, /* res */ ComponentDescriptor ]
-    parseDvbContent(): [ /* returnType */ boolean, /* content */ Content[] ]
-    parseDvbDataBroadcast(): [ /* returnType */ boolean, /* res */ DataBroadcastDescriptor ]
-    parseDvbDataBroadcastId(): [ /* returnType */ boolean, /* dataBroadcastId */ number, /* idSelectorBytes */ any[] ]
-    parseDvbExtendedEvent(): [ /* returnType */ boolean, /* res */ ExtendedEventDescriptor ]
-    parseDvbFrequencyList(): [ /* returnType */ boolean, /* offset */ boolean, /* list */ number[] ]
-    parseDvbLinkage(): [ /* returnType */ boolean, /* res */ DVBLinkageDescriptor ]
-    parseDvbMultilingualBouquetName(): [ /* returnType */ boolean, /* bouquetNameItems */ DvbMultilingualBouquetNameItem[] ]
-    parseDvbMultilingualComponent(): [ /* returnType */ boolean, /* componentTag */ number, /* componentDescriptionItems */ DvbMultilingualComponentItem[] ]
-    parseDvbMultilingualNetworkName(): [ /* returnType */ boolean, /* networkNameItems */ DvbMultilingualNetworkNameItem[] ]
-    parseDvbMultilingualServiceName(): [ /* returnType */ boolean, /* serviceNameItems */ DvbMultilingualServiceNameItem[] ]
-    parseDvbNetworkName(): [ /* returnType */ boolean, /* name */ string ]
-    parseDvbParentalRating(): [ /* returnType */ boolean, /* rating */ DVBParentalRatingItem[] ]
-    parseDvbPrivateDataSpecifier(): [ /* returnType */ boolean, /* privateDataSpecifier */ number, /* privateData */ any[] | null ]
-    parseDvbScrambling(): [ /* returnType */ boolean, /* scramblingMode */ DVBScramblingModeType ]
-    parseDvbService(): [ /* returnType */ boolean, /* serviceType */ DVBServiceType | null, /* serviceName */ string | null, /* providerName */ string | null ]
-    parseDvbServiceList(): [ /* returnType */ boolean, /* list */ DVBServiceListItem[] ]
-    parseDvbShortEvent(): [ /* returnType */ boolean, /* languageCode */ string | null, /* eventName */ string | null, /* text */ string | null ]
-    parseDvbStreamIdentifier(): [ /* returnType */ boolean, /* componentTag */ number ]
-    parseDvbStuffing(): [ /* returnType */ boolean, /* stuffingBytes */ number ]
-    parseDvbSubtitlingIdx(idx: number): [ /* returnType */ boolean, /* lang */ string, /* type */ number | null, /* compositionPageId */ number | null, /* ancillaryPageId */ number | null ]
+    parseAudioPreselectionList(): { returnType: boolean, list: AudioPreselectionDescriptor[] }
+    parseCa(): { returnType: boolean, caSystemId: number, caPid: number, privateData: any[] | null }
+    parseCableDeliverySystem(): { returnType: boolean, res: CableDeliverySystemDescriptor }
+    parseDvbBouquetName(): { returnType: boolean, bouquetName: string | null }
+    parseDvbCaIdentifier(): { returnType: boolean, list: number[] }
+    parseDvbComponent(): { returnType: boolean, res: ComponentDescriptor }
+    parseDvbContent(): { returnType: boolean, content: Content[] }
+    parseDvbDataBroadcast(): { returnType: boolean, res: DataBroadcastDescriptor }
+    parseDvbDataBroadcastId(): { returnType: boolean, dataBroadcastId: number, idSelectorBytes: any[] }
+    parseDvbExtendedEvent(): { returnType: boolean, res: ExtendedEventDescriptor }
+    parseDvbFrequencyList(): { returnType: boolean, offset: boolean, list: number[] }
+    parseDvbLinkage(): { returnType: boolean, res: DVBLinkageDescriptor }
+    parseDvbMultilingualBouquetName(): { returnType: boolean, bouquetNameItems: DvbMultilingualBouquetNameItem[] }
+    parseDvbMultilingualComponent(): { returnType: boolean, componentTag: number, componentDescriptionItems: DvbMultilingualComponentItem[] }
+    parseDvbMultilingualNetworkName(): { returnType: boolean, networkNameItems: DvbMultilingualNetworkNameItem[] }
+    parseDvbMultilingualServiceName(): { returnType: boolean, serviceNameItems: DvbMultilingualServiceNameItem[] }
+    parseDvbNetworkName(): { returnType: boolean, name: string }
+    parseDvbParentalRating(): { returnType: boolean, rating: DVBParentalRatingItem[] }
+    parseDvbPrivateDataSpecifier(): { returnType: boolean, privateDataSpecifier: number, privateData: any[] | null }
+    parseDvbScrambling(): { returnType: boolean, scramblingMode: DVBScramblingModeType }
+    parseDvbService(): { returnType: boolean, serviceType: DVBServiceType | null, serviceName: string | null, providerName: string | null }
+    parseDvbServiceList(): { returnType: boolean, list: DVBServiceListItem[] }
+    parseDvbShortEvent(): { returnType: boolean, languageCode: string | null, eventName: string | null, text: string | null }
+    parseDvbStreamIdentifier(): { returnType: boolean, componentTag: number }
+    parseDvbStuffing(): { returnType: boolean, stuffingBytes: number }
+    parseDvbSubtitlingIdx(idx: number): { returnType: boolean, lang: string, type: number | null, compositionPageId: number | null, ancillaryPageId: number | null }
     parseDvbSubtitlingNb(): number
-    parseDvbT2DeliverySystem(): [ /* returnType */ boolean, /* res */ T2DeliverySystemDescriptor ]
-    parseDvbTeletextIdx(idx: number): [ /* returnType */ boolean, /* languageCode */ string | null, /* teletextType */ DVBTeletextType | null, /* magazineNumber */ number | null, /* pageNumber */ number | null ]
+    parseDvbT2DeliverySystem(): { returnType: boolean, res: T2DeliverySystemDescriptor }
+    parseDvbTeletextIdx(idx: number): { returnType: boolean, languageCode: string | null, teletextType: DVBTeletextType | null, magazineNumber: number | null, pageNumber: number | null }
     parseDvbTeletextNb(): number
-    parseIso639Language(): [ /* returnType */ boolean, /* res */ ISO639LanguageDescriptor ]
-    parseIso639LanguageIdx(idx: number): [ /* returnType */ boolean, /* lang */ string, /* audioType */ Iso639AudioType | null ]
+    parseIso639Language(): { returnType: boolean, res: ISO639LanguageDescriptor }
+    parseIso639LanguageIdx(idx: number): { returnType: boolean, lang: string, audioType: Iso639AudioType | null }
     parseIso639LanguageNb(): number
-    parseLogicalChannel(): [ /* returnType */ boolean, /* res */ LogicalChannelDescriptor ]
-    parseRegistration(): [ /* returnType */ boolean, /* registrationId */ number, /* additionalInfo */ any[] | null ]
-    parseSatelliteDeliverySystem(): [ /* returnType */ boolean, /* res */ SatelliteDeliverySystemDescriptor ]
-    parseTerrestrialDeliverySystem(): [ /* returnType */ boolean, /* res */ TerrestrialDeliverySystemDescriptor ]
+    parseLogicalChannel(): { returnType: boolean, res: LogicalChannelDescriptor }
+    parseRegistration(): { returnType: boolean, registrationId: number, additionalInfo: any[] | null }
+    parseSatelliteDeliverySystem(): { returnType: boolean, res: SatelliteDeliverySystemDescriptor }
+    parseTerrestrialDeliverySystem(): { returnType: boolean, res: TerrestrialDeliverySystemDescriptor }
     static name: string
     /* Static methods and pseudo-constructors */
     static fromCustom(tag: number, data: any[]): Descriptor
@@ -1006,32 +1006,32 @@ export class Descriptor {
     static parseAudioPreselectionFree(source: AudioPreselectionDescriptor): void
 }
 export class DvbMultilingualBouquetNameItem {
-    /* Fields of GstMpegts.DvbMultilingualBouquetNameItem */
+    /* Fields of GstMpegts-1.0.GstMpegts.DvbMultilingualBouquetNameItem */
     languageCode: string
     bouquetName: string
     static name: string
 }
 export class DvbMultilingualComponentItem {
-    /* Fields of GstMpegts.DvbMultilingualComponentItem */
+    /* Fields of GstMpegts-1.0.GstMpegts.DvbMultilingualComponentItem */
     languageCode: string
     description: string
     static name: string
 }
 export class DvbMultilingualNetworkNameItem {
-    /* Fields of GstMpegts.DvbMultilingualNetworkNameItem */
+    /* Fields of GstMpegts-1.0.GstMpegts.DvbMultilingualNetworkNameItem */
     languageCode: string
     networkName: string
     static name: string
 }
 export class DvbMultilingualServiceNameItem {
-    /* Fields of GstMpegts.DvbMultilingualServiceNameItem */
+    /* Fields of GstMpegts-1.0.GstMpegts.DvbMultilingualServiceNameItem */
     languageCode: string
     providerName: string
     serviceName: string
     static name: string
 }
 export class EIT {
-    /* Fields of GstMpegts.EIT */
+    /* Fields of GstMpegts-1.0.GstMpegts.EIT */
     transportStreamId: number
     originalNetworkId: number
     segmentLastSectionNumber: number
@@ -1042,7 +1042,7 @@ export class EIT {
     static name: string
 }
 export class EITEvent {
-    /* Fields of GstMpegts.EITEvent */
+    /* Fields of GstMpegts-1.0.GstMpegts.EITEvent */
     eventId: number
     startTime: Gst.DateTime
     duration: number
@@ -1052,46 +1052,46 @@ export class EITEvent {
     static name: string
 }
 export class ExtendedEventDescriptor {
-    /* Fields of GstMpegts.ExtendedEventDescriptor */
+    /* Fields of GstMpegts-1.0.GstMpegts.ExtendedEventDescriptor */
     descriptorNumber: number
     lastDescriptorNumber: number
     languageCode: string
     items: ExtendedEventItem[]
     text: string
-    /* Methods of GstMpegts.ExtendedEventDescriptor */
+    /* Methods of GstMpegts-1.0.GstMpegts.ExtendedEventDescriptor */
     free(): void
     static name: string
 }
 export class ExtendedEventItem {
-    /* Fields of GstMpegts.ExtendedEventItem */
+    /* Fields of GstMpegts-1.0.GstMpegts.ExtendedEventItem */
     itemDescription: string
     item: string
     static name: string
 }
 export class ISO639LanguageDescriptor {
-    /* Fields of GstMpegts.ISO639LanguageDescriptor */
+    /* Fields of GstMpegts-1.0.GstMpegts.ISO639LanguageDescriptor */
     nbLanguage: number
     language: string[]
     audioType: Iso639AudioType[]
-    /* Methods of GstMpegts.ISO639LanguageDescriptor */
+    /* Methods of GstMpegts-1.0.GstMpegts.ISO639LanguageDescriptor */
     descriptorFree(): void
     static name: string
 }
 export class LogicalChannel {
-    /* Fields of GstMpegts.LogicalChannel */
+    /* Fields of GstMpegts-1.0.GstMpegts.LogicalChannel */
     serviceId: number
     visibleService: boolean
     logicalChannelNumber: number
     static name: string
 }
 export class LogicalChannelDescriptor {
-    /* Fields of GstMpegts.LogicalChannelDescriptor */
+    /* Fields of GstMpegts-1.0.GstMpegts.LogicalChannelDescriptor */
     nbChannels: number
     channels: LogicalChannel[]
     static name: string
 }
 export class NIT {
-    /* Fields of GstMpegts.NIT */
+    /* Fields of GstMpegts-1.0.GstMpegts.NIT */
     actualNetwork: boolean
     networkId: number
     descriptors: Descriptor[]
@@ -1103,7 +1103,7 @@ export class NIT {
     static new(): NIT
 }
 export class NITStream {
-    /* Fields of GstMpegts.NITStream */
+    /* Fields of GstMpegts-1.0.GstMpegts.NITStream */
     transportStreamId: number
     originalNetworkId: number
     descriptors: Descriptor[]
@@ -1114,7 +1114,7 @@ export class NITStream {
     static new(): NITStream
 }
 export class PMT {
-    /* Fields of GstMpegts.PMT */
+    /* Fields of GstMpegts-1.0.GstMpegts.PMT */
     pcrPid: number
     programNumber: number
     descriptors: Descriptor[]
@@ -1126,7 +1126,7 @@ export class PMT {
     static new(): PMT
 }
 export class PMTStream {
-    /* Fields of GstMpegts.PMTStream */
+    /* Fields of GstMpegts-1.0.GstMpegts.PMTStream */
     streamType: number
     pid: number
     descriptors: Descriptor[]
@@ -1137,7 +1137,7 @@ export class PMTStream {
     static new(): PMTStream
 }
 export class PatProgram {
-    /* Fields of GstMpegts.PatProgram */
+    /* Fields of GstMpegts-1.0.GstMpegts.PatProgram */
     programNumber: number
     networkOrProgramMapPID: number
     static name: string
@@ -1147,7 +1147,7 @@ export class PatProgram {
     static new(): PatProgram
 }
 export class SCTESIT {
-    /* Fields of GstMpegts.SCTESIT */
+    /* Fields of GstMpegts-1.0.GstMpegts.SCTESIT */
     encryptedPacket: boolean
     encryptionAlgorithm: number
     ptsAdjustment: number
@@ -1166,7 +1166,7 @@ export class SCTESIT {
     static new(): SCTESIT
 }
 export class SCTESpliceEvent {
-    /* Fields of GstMpegts.SCTESpliceEvent */
+    /* Fields of GstMpegts-1.0.GstMpegts.SCTESpliceEvent */
     insertEvent: boolean
     spliceEventId: number
     spliceEventCancelIndicator: boolean
@@ -1188,7 +1188,7 @@ export class SCTESpliceEvent {
     static new(): SCTESpliceEvent
 }
 export class SDT {
-    /* Fields of GstMpegts.SDT */
+    /* Fields of GstMpegts-1.0.GstMpegts.SDT */
     originalNetworkId: number
     actualTs: boolean
     transportStreamId: number
@@ -1200,7 +1200,7 @@ export class SDT {
     static new(): SDT
 }
 export class SDTService {
-    /* Fields of GstMpegts.SDTService */
+    /* Fields of GstMpegts-1.0.GstMpegts.SDTService */
     serviceId: number
     eITScheduleFlag: boolean
     eITPresentFollowingFlag: boolean
@@ -1214,20 +1214,20 @@ export class SDTService {
     static new(): SDTService
 }
 export class SIT {
-    /* Fields of GstMpegts.SIT */
+    /* Fields of GstMpegts-1.0.GstMpegts.SIT */
     descriptors: Descriptor[]
     services: SITService[]
     static name: string
 }
 export class SITService {
-    /* Fields of GstMpegts.SITService */
+    /* Fields of GstMpegts-1.0.GstMpegts.SITService */
     serviceId: number
     runningStatus: RunningStatus
     descriptors: Descriptor[]
     static name: string
 }
 export class SatelliteDeliverySystemDescriptor {
-    /* Fields of GstMpegts.SatelliteDeliverySystemDescriptor */
+    /* Fields of GstMpegts-1.0.GstMpegts.SatelliteDeliverySystemDescriptor */
     frequency: number
     orbitalPosition: number
     westEast: boolean
@@ -1240,7 +1240,7 @@ export class SatelliteDeliverySystemDescriptor {
     static name: string
 }
 export class Section {
-    /* Fields of GstMpegts.Section */
+    /* Fields of GstMpegts-1.0.GstMpegts.Section */
     sectionType: SectionType
     pid: number
     tableId: number
@@ -1250,7 +1250,7 @@ export class Section {
     sectionNumber: number
     lastSectionNumber: number
     crc: number
-    /* Methods of GstMpegts.Section */
+    /* Methods of GstMpegts-1.0.GstMpegts.Section */
     getAtscCvct(): AtscVCT
     getAtscEit(): AtscEIT
     getAtscEtt(): AtscETT
@@ -1271,7 +1271,7 @@ export class Section {
     getTdt(): Gst.DateTime
     getTot(): TOT
     getTsdt(): Descriptor[]
-    packetize(): [ /* returnType */ number, /* outputSize */ number ]
+    packetize(): { returnType: number, outputSize: number }
     sendEvent(element: Gst.Element): boolean
     static name: string
     static new(pid: number, data: any[]): Section
@@ -1288,20 +1288,20 @@ export class Section {
     static fromSdt(sdt: SDT): Section
 }
 export class T2DeliverySystemCell {
-    /* Fields of GstMpegts.T2DeliverySystemCell */
+    /* Fields of GstMpegts-1.0.GstMpegts.T2DeliverySystemCell */
     cellId: number
     centreFrequencies: number[]
     subCells: T2DeliverySystemCellExtension[]
     static name: string
 }
 export class T2DeliverySystemCellExtension {
-    /* Fields of GstMpegts.T2DeliverySystemCellExtension */
+    /* Fields of GstMpegts-1.0.GstMpegts.T2DeliverySystemCellExtension */
     cellIdExtension: number
     transposerFrequency: number
     static name: string
 }
 export class T2DeliverySystemDescriptor {
-    /* Fields of GstMpegts.T2DeliverySystemDescriptor */
+    /* Fields of GstMpegts-1.0.GstMpegts.T2DeliverySystemDescriptor */
     plpId: number
     t2SystemId: number
     sisoMiso: number
@@ -1311,18 +1311,18 @@ export class T2DeliverySystemDescriptor {
     otherFrequency: boolean
     tfs: boolean
     cells: T2DeliverySystemCell[]
-    /* Methods of GstMpegts.T2DeliverySystemDescriptor */
+    /* Methods of GstMpegts-1.0.GstMpegts.T2DeliverySystemDescriptor */
     free(): void
     static name: string
 }
 export class TOT {
-    /* Fields of GstMpegts.TOT */
+    /* Fields of GstMpegts-1.0.GstMpegts.TOT */
     utcTime: Gst.DateTime
     descriptors: Descriptor[]
     static name: string
 }
 export class TerrestrialDeliverySystemDescriptor {
-    /* Fields of GstMpegts.TerrestrialDeliverySystemDescriptor */
+    /* Fields of GstMpegts-1.0.GstMpegts.TerrestrialDeliverySystemDescriptor */
     frequency: number
     bandwidth: number
     priority: boolean

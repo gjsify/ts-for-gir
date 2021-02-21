@@ -16,17 +16,17 @@ export interface Connection_ConstructProps extends GObject.Object_ConstructProps
     parameters?: Vda.ConnectionParameters
 }
 export class Connection {
-    /* Properties of Vda.Connection */
+    /* Properties of Vda-1.Vda.Connection */
     readonly status: Vda.ConnectionStatus
     parameters: Vda.ConnectionParameters
     readonly isOpened: boolean
     readonly connectionString: string
-    /* Fields of Vpg.Connection */
+    /* Fields of Vpg-1.Vpg.Connection */
     parentInstance: GObject.Object
     priv: ConnectionPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -48,7 +48,7 @@ export class Connection {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of Vda.Connection */
+    /* Methods of Vda-1.Vda.Connection */
     close(callback?: Gio.AsyncReadyCallback | null): void
     closeFinish(res: Gio.AsyncResult): void
     open(callback?: Gio.AsyncReadyCallback | null): void
@@ -73,83 +73,43 @@ export class Connection {
     setParameters(value: Vda.ConnectionParameters): void
     getIsOpened(): boolean
     getConnectionString(): string
-    /* Virtual methods of Vpg.Connection */
-    vfuncClose(callback?: Gio.AsyncReadyCallback | null): void
-    vfuncCloseFinish(res: Gio.AsyncResult): void
-    vfuncOpen(callback?: Gio.AsyncReadyCallback | null): void
-    vfuncOpenFinish(res: Gio.AsyncResult): Vda.ConnectionStatus
-    vfuncOpenFromString(cncString: string, callback?: Gio.AsyncReadyCallback | null): void
-    vfuncOpenFromStringFinish(res: Gio.AsyncResult): Vda.ConnectionStatus
-    vfuncAddSavepoint(name?: string | null): boolean
-    vfuncDeleteSavepoint(name?: string | null): boolean
-    vfuncRollbackSavepoint(name?: string | null): boolean
-    vfuncBeginTransaction(name?: string | null): boolean
-    vfuncCommitTransaction(name?: string | null): boolean
-    vfuncRollbackTransaction(name?: string | null): boolean
-    vfuncParseString(sql: string): Vda.Query
-    vfuncParseStringPrepared(name: string | null, sql: string): Vda.PreparedQuery | null
-    vfuncGetPreparedQuery(name: string): Vda.PreparedQuery | null
-    vfuncQueryFromCommand(cmd: Vda.SqlCommand, name?: string | null): Vda.PreparedQuery | null
-    vfuncValueToQuotedString(v: Vda.SqlValue): string
-    vfuncCurrentUser(): Vda.Role | null
-    vfuncLocale(category: string): string
-    vfuncGetStatus(): Vda.ConnectionStatus
-    vfuncGetParameters(): Vda.ConnectionParameters
-    vfuncSetParameters(value: Vda.ConnectionParameters): void
-    vfuncGetIsOpened(): boolean
-    vfuncGetConnectionString(): string
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Connection, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Connection, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of Vda.Connection */
+    /* Signals of Vda-1.Vda.Connection */
     connect(sigName: "closed", callback: (($obj: Connection) => void)): number
-    connect_after(sigName: "closed", callback: (($obj: Connection) => void)): number
+    on(sigName: "closed", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "closed", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "closed", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "closed"): void
-    on(sigName: "closed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "closed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "closed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "opened", callback: (($obj: Connection) => void)): number
-    connect_after(sigName: "opened", callback: (($obj: Connection) => void)): number
+    on(sigName: "opened", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "opened", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "opened", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "opened"): void
-    on(sigName: "opened", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "opened", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "opened", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "closing", callback: (($obj: Connection) => void)): number
-    connect_after(sigName: "closing", callback: (($obj: Connection) => void)): number
+    on(sigName: "closing", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "closing", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "closing", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "closing"): void
-    on(sigName: "closing", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "closing", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "closing", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "canceled", callback: (($obj: Connection, message: string) => void)): number
-    connect_after(sigName: "canceled", callback: (($obj: Connection, message: string) => void)): number
+    on(sigName: "canceled", callback: (message: string) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "canceled", callback: (message: string) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "canceled", callback: (message: string) => void): NodeJS.EventEmitter
     emit(sigName: "canceled", message: string): void
-    on(sigName: "canceled", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "canceled", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "canceled", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "timeout", callback: (($obj: Connection) => void)): number
-    connect_after(sigName: "timeout", callback: (($obj: Connection) => void)): number
+    on(sigName: "timeout", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "timeout", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "timeout", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "timeout"): void
-    on(sigName: "timeout", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "timeout", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "timeout", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "disconnected", callback: (($obj: Connection) => void)): number
-    connect_after(sigName: "disconnected", callback: (($obj: Connection) => void)): number
+    on(sigName: "disconnected", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "disconnected", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "disconnected", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "disconnected"): void
-    on(sigName: "disconnected", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "disconnected", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "disconnected", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::status", callback: (($obj: Connection, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::status", callback: (($obj: Connection, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::status", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -185,7 +145,7 @@ export class Connection {
     static $gtype: GObject.Type
 }
 export abstract class ConnectionClass {
-    /* Fields of Vpg.ConnectionClass */
+    /* Fields of Vpg-1.Vpg.ConnectionClass */
     parentClass: GObject.ObjectClass
     static name: string
 }

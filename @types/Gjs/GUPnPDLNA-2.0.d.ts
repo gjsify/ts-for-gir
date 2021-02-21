@@ -14,12 +14,12 @@ export enum ValueState {
 export interface AudioInformation_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class AudioInformation {
-    /* Fields of GUPnPDLNA.AudioInformation */
+    /* Fields of GUPnPDLNA-2.0.GUPnPDLNA.AudioInformation */
     parent: GObject.Object
     priv: AudioInformationPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -41,7 +41,7 @@ export class AudioInformation {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -49,7 +49,7 @@ export class AudioInformation {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: AudioInformation, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: AudioInformation, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -65,12 +65,12 @@ export class AudioInformation {
 export interface ContainerInformation_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class ContainerInformation {
-    /* Fields of GUPnPDLNA.ContainerInformation */
+    /* Fields of GUPnPDLNA-2.0.GUPnPDLNA.ContainerInformation */
     parent: GObject.Object
     priv: ContainerInformationPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -92,7 +92,7 @@ export class ContainerInformation {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -100,7 +100,7 @@ export class ContainerInformation {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: ContainerInformation, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: ContainerInformation, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -116,12 +116,12 @@ export class ContainerInformation {
 export interface ImageInformation_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class ImageInformation {
-    /* Fields of GUPnPDLNA.ImageInformation */
+    /* Fields of GUPnPDLNA-2.0.GUPnPDLNA.ImageInformation */
     parent: GObject.Object
     priv: ImageInformationPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -143,7 +143,7 @@ export class ImageInformation {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -151,7 +151,7 @@ export class ImageInformation {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: ImageInformation, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: ImageInformation, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -168,24 +168,24 @@ export interface Information_ConstructProps extends GObject.Object_ConstructProp
     uri?: string
 }
 export class Information {
-    /* Properties of GUPnPDLNA.Information */
+    /* Properties of GUPnPDLNA-2.0.GUPnPDLNA.Information */
     readonly audio_information: AudioInformation
     readonly container_information: ContainerInformation
     readonly image_information: ImageInformation
     readonly video_information: VideoInformation
-    /* Fields of GUPnPDLNA.Information */
+    /* Fields of GUPnPDLNA-2.0.GUPnPDLNA.Information */
     parent: GObject.Object
     priv: InformationPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GUPnPDLNA.Information */
+    /* Methods of GUPnPDLNA-2.0.GUPnPDLNA.Information */
     get_audio_information(): AudioInformation
     get_container_information(): ContainerInformation
     get_image_information(): ImageInformation
     get_profile_name(): string
     get_uri(): string
     get_video_information(): VideoInformation
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -207,13 +207,13 @@ export class Information {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GUPnPDLNA.Information */
+    /* Virtual methods of GUPnPDLNA-2.0.GUPnPDLNA.Information */
     vfunc_get_audio_information(): AudioInformation
     vfunc_get_container_information(): ContainerInformation
     vfunc_get_image_information(): ImageInformation
     vfunc_get_profile_name(): string
     vfunc_get_video_information(): VideoInformation
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -221,7 +221,7 @@ export class Information {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Information, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Information, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -252,12 +252,12 @@ export interface Profile_ConstructProps extends GObject.Object_ConstructProps {
     video_restrictions?: object
 }
 export class Profile {
-    /* Fields of GUPnPDLNA.Profile */
+    /* Fields of GUPnPDLNA-2.0.GUPnPDLNA.Profile */
     parent: GObject.Object
     priv: ProfilePrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GUPnPDLNA.Profile */
+    /* Methods of GUPnPDLNA-2.0.GUPnPDLNA.Profile */
     get_audio_restrictions(): Restriction[]
     get_container_restrictions(): Restriction[]
     get_extended(): boolean
@@ -265,7 +265,7 @@ export class Profile {
     get_mime(): string
     get_name(): string
     get_video_restrictions(): Restriction[]
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -287,7 +287,7 @@ export class Profile {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -295,7 +295,7 @@ export class Profile {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Profile, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Profile, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -313,12 +313,12 @@ export interface ProfileGuesser_ConstructProps extends GObject.Object_ConstructP
     relaxed_mode?: boolean
 }
 export class ProfileGuesser {
-    /* Fields of GUPnPDLNA.ProfileGuesser */
+    /* Fields of GUPnPDLNA-2.0.GUPnPDLNA.ProfileGuesser */
     parent: GObject.Object
     priv: ProfileGuesserPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GUPnPDLNA.ProfileGuesser */
+    /* Methods of GUPnPDLNA-2.0.GUPnPDLNA.ProfileGuesser */
     get_extended_mode(): boolean
     get_profile(name: string): Profile
     get_relaxed_mode(): boolean
@@ -326,7 +326,7 @@ export class ProfileGuesser {
     guess_profile_from_info(info: Information): Profile
     guess_profile_sync(uri: string, timeout_in_ms: number): [ /* returnType */ Profile, /* dlna_info */ Information | null ]
     list_profiles(): Profile[]
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -348,7 +348,7 @@ export class ProfileGuesser {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -356,11 +356,11 @@ export class ProfileGuesser {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GUPnPDLNA.ProfileGuesser */
+    /* Signals of GUPnPDLNA-2.0.GUPnPDLNA.ProfileGuesser */
     connect(sigName: "done", callback: (($obj: ProfileGuesser, info: Information, dlna?: Profile | null, error?: GLib.Error | null) => void)): number
     connect_after(sigName: "done", callback: (($obj: ProfileGuesser, info: Information, dlna?: Profile | null, error?: GLib.Error | null) => void)): number
     emit(sigName: "done", info: Information, dlna?: Profile | null, error?: GLib.Error | null): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: ProfileGuesser, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: ProfileGuesser, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -379,12 +379,12 @@ export class ProfileGuesser {
 export interface VideoInformation_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class VideoInformation {
-    /* Fields of GUPnPDLNA.VideoInformation */
+    /* Fields of GUPnPDLNA-2.0.GUPnPDLNA.VideoInformation */
     parent: GObject.Object
     priv: VideoInformationPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -406,7 +406,7 @@ export class VideoInformation {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -414,7 +414,7 @@ export class VideoInformation {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: VideoInformation, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: VideoInformation, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -428,7 +428,7 @@ export class VideoInformation {
     static $gtype: GObject.Type
 }
 export abstract class AudioInformationClass {
-    /* Fields of GUPnPDLNA.AudioInformationClass */
+    /* Fields of GUPnPDLNA-2.0.GUPnPDLNA.AudioInformationClass */
     parent_class: GObject.ObjectClass
     _reserved: object[]
     static name: string
@@ -437,13 +437,13 @@ export class AudioInformationPrivate {
     static name: string
 }
 export class BoolValue {
-    /* Fields of GUPnPDLNA.BoolValue */
+    /* Fields of GUPnPDLNA-2.0.GUPnPDLNA.BoolValue */
     value: boolean
     state: ValueState
     static name: string
 }
 export abstract class ContainerInformationClass {
-    /* Fields of GUPnPDLNA.ContainerInformationClass */
+    /* Fields of GUPnPDLNA-2.0.GUPnPDLNA.ContainerInformationClass */
     parent_class: GObject.ObjectClass
     _reserved: object[]
     static name: string
@@ -452,7 +452,7 @@ export class ContainerInformationPrivate {
     static name: string
 }
 export class Fraction {
-    /* Methods of GUPnPDLNA.Fraction */
+    /* Methods of GUPnPDLNA-2.0.GUPnPDLNA.Fraction */
     copy(): Fraction
     free(): void
     get_denominator(): number
@@ -460,7 +460,7 @@ export class Fraction {
     static name: string
 }
 export class FractionRange {
-    /* Methods of GUPnPDLNA.FractionRange */
+    /* Methods of GUPnPDLNA-2.0.GUPnPDLNA.FractionRange */
     copy(): FractionRange
     free(): void
     get_max(): Fraction
@@ -468,14 +468,14 @@ export class FractionRange {
     static name: string
 }
 export class FractionValue {
-    /* Fields of GUPnPDLNA.FractionValue */
+    /* Fields of GUPnPDLNA-2.0.GUPnPDLNA.FractionValue */
     numerator: number
     denominator: number
     state: ValueState
     static name: string
 }
 export abstract class ImageInformationClass {
-    /* Fields of GUPnPDLNA.ImageInformationClass */
+    /* Fields of GUPnPDLNA-2.0.GUPnPDLNA.ImageInformationClass */
     parent_class: GObject.ObjectClass
     _reserved: object[]
     static name: string
@@ -484,7 +484,7 @@ export class ImageInformationPrivate {
     static name: string
 }
 export abstract class InformationClass {
-    /* Fields of GUPnPDLNA.InformationClass */
+    /* Fields of GUPnPDLNA-2.0.GUPnPDLNA.InformationClass */
     parent_class: GObject.ObjectClass
     get_audio_information: (info: Information) => AudioInformation
     get_container_information: (info: Information) => ContainerInformation
@@ -498,7 +498,7 @@ export class InformationPrivate {
     static name: string
 }
 export class IntRange {
-    /* Methods of GUPnPDLNA.IntRange */
+    /* Methods of GUPnPDLNA-2.0.GUPnPDLNA.IntRange */
     copy(): IntRange
     free(): void
     get_max(): number
@@ -506,18 +506,18 @@ export class IntRange {
     static name: string
 }
 export class IntValue {
-    /* Fields of GUPnPDLNA.IntValue */
+    /* Fields of GUPnPDLNA-2.0.GUPnPDLNA.IntValue */
     value: number
     state: ValueState
     static name: string
 }
 export abstract class ProfileClass {
-    /* Fields of GUPnPDLNA.ProfileClass */
+    /* Fields of GUPnPDLNA-2.0.GUPnPDLNA.ProfileClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
 export abstract class ProfileGuesserClass {
-    /* Fields of GUPnPDLNA.ProfileGuesserClass */
+    /* Fields of GUPnPDLNA-2.0.GUPnPDLNA.ProfileGuesserClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
@@ -528,7 +528,7 @@ export class ProfilePrivate {
     static name: string
 }
 export class Restriction {
-    /* Methods of GUPnPDLNA.Restriction */
+    /* Methods of GUPnPDLNA-2.0.GUPnPDLNA.Restriction */
     copy(): Restriction
     free(): void
     get_entries(): GLib.HashTable
@@ -538,13 +538,13 @@ export class Restriction {
     static name: string
 }
 export class StringValue {
-    /* Fields of GUPnPDLNA.StringValue */
+    /* Fields of GUPnPDLNA-2.0.GUPnPDLNA.StringValue */
     value: string
     state: ValueState
     static name: string
 }
 export class ValueList {
-    /* Methods of GUPnPDLNA.ValueList */
+    /* Methods of GUPnPDLNA-2.0.GUPnPDLNA.ValueList */
     copy(): ValueList
     free(): void
     get_g_values(): any[]
@@ -553,7 +553,7 @@ export class ValueList {
     static name: string
 }
 export abstract class VideoInformationClass {
-    /* Fields of GUPnPDLNA.VideoInformationClass */
+    /* Fields of GUPnPDLNA-2.0.GUPnPDLNA.VideoInformationClass */
     parent_class: GObject.ObjectClass
     _reserved: object[]
     static name: string

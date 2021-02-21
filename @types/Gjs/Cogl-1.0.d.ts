@@ -371,7 +371,7 @@ export interface FuncPtr {
     (): void
 }
 export class Texture {
-    /* Methods of Cogl.Texture */
+    /* Methods of Cogl-1.0.Cogl.Texture */
     allocate(): Bool
     get_components(): TextureComponents
     get_data(format: PixelFormat, rowstride: number, data: number): number
@@ -393,7 +393,7 @@ export class Bitmap {
     static get_size_from_file(filename: string): [ /* returnType */ Bool, /* width */ number, /* height */ number ]
 }
 export class Fixed {
-    /* Methods of Cogl.Fixed */
+    /* Methods of Cogl-1.0.Cogl.Fixed */
     pow2(): number
     static name: string
     /* Static methods and pseudo-constructors */
@@ -408,7 +408,7 @@ export class Offscreen {
     static unref(offscreen?: object | null): void
 }
 export class Color {
-    /* Methods of Cogl.Color */
+    /* Methods of Cogl-1.0.Cogl.Color */
     copy(): Color
     free(): void
     get_alpha(): number
@@ -455,7 +455,7 @@ export class Euler {
     static name: string
 }
 export class Material {
-    /* Methods of Cogl.Material */
+    /* Methods of Cogl-1.0.Cogl.Material */
     get_ambient(ambient: Color): void
     get_color(): /* color */ Color
     get_diffuse(diffuse: Color): void
@@ -501,7 +501,7 @@ export class Material {
     static unref(material: Handle): void
 }
 export class MaterialLayer {
-    /* Methods of Cogl.MaterialLayer */
+    /* Methods of Cogl-1.0.Cogl.MaterialLayer */
     get_mag_filter(): MaterialFilter
     get_min_filter(): MaterialFilter
     get_texture(): Handle
@@ -512,7 +512,7 @@ export class MaterialLayer {
     static name: string
 }
 export class Matrix {
-    /* Fields of Cogl.Matrix */
+    /* Fields of Cogl-1.0.Cogl.Matrix */
     xx: number
     yx: number
     zx: number
@@ -529,7 +529,7 @@ export class Matrix {
     yw: number
     zw: number
     ww: number
-    /* Methods of Cogl.Matrix */
+    /* Methods of Cogl-1.0.Cogl.Matrix */
     copy(): Matrix
     free(): void
     frustum(left: number, right: number, bottom: number, top: number, z_near: number, z_far: number): void
@@ -556,7 +556,7 @@ export class Quaternion {
     static name: string
 }
 export class TextureVertex {
-    /* Fields of Cogl.TextureVertex */
+    /* Fields of Cogl-1.0.Cogl.TextureVertex */
     x: number
     y: number
     z: number
@@ -566,17 +566,17 @@ export class TextureVertex {
     static name: string
 }
 export class _ColorSizeCheck {
-    /* Fields of Cogl._ColorSizeCheck */
+    /* Fields of Cogl-1.0.Cogl._ColorSizeCheck */
     compile_time_assert_CoglColor_size: number[]
     static name: string
 }
 export class _MatrixSizeCheck {
-    /* Fields of Cogl._MatrixSizeCheck */
+    /* Fields of Cogl-1.0.Cogl._MatrixSizeCheck */
     compile_time_assert_CoglMatrix_size: number[]
     static name: string
 }
 export class _TextureVertexSizeCheck {
-    /* Fields of Cogl._TextureVertexSizeCheck */
+    /* Fields of Cogl-1.0.Cogl._TextureVertexSizeCheck */
     compile_time_assert_CoglTextureVertex_size: number[]
     static name: string
 }

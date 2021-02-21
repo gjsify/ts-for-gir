@@ -219,9 +219,9 @@ export function manifestation_for_uri(uri: string): string | null
 export interface RemoteRegistry_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class RemoteRegistry {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Zeitgeist.RemoteRegistry */
+    /* Methods of Zeitgeist-2.0.Zeitgeist.RemoteRegistry */
     get_data_sources(cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
     get_data_sources_finish(_res_: Gio.AsyncResult): GLib.Variant
     register_data_source(unique_id: string, name: string, description: string, event_templates: GLib.Variant, cancellable?: Gio.Cancellable | null, sender?: any | null, _callback_?: Gio.AsyncReadyCallback | null): void
@@ -230,7 +230,7 @@ export class RemoteRegistry {
     set_data_source_enabled_finish(_res_: Gio.AsyncResult): void
     get_data_source_from_id(unique_id: string, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
     get_data_source_from_id_finish(_res_: Gio.AsyncResult): GLib.Variant
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -252,7 +252,7 @@ export class RemoteRegistry {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Zeitgeist.RemoteRegistry */
+    /* Virtual methods of Zeitgeist-2.0.Zeitgeist.RemoteRegistry */
     vfunc_get_data_sources(cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
     vfunc_get_data_sources_finish(_res_: Gio.AsyncResult): GLib.Variant
     vfunc_register_data_source(unique_id: string, name: string, description: string, event_templates: GLib.Variant, cancellable?: Gio.Cancellable | null, sender?: any | null, _callback_?: Gio.AsyncReadyCallback | null): void
@@ -261,7 +261,7 @@ export class RemoteRegistry {
     vfunc_set_data_source_enabled_finish(_res_: Gio.AsyncResult): void
     vfunc_get_data_source_from_id(unique_id: string, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
     vfunc_get_data_source_from_id_finish(_res_: Gio.AsyncResult): GLib.Variant
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -269,7 +269,7 @@ export class RemoteRegistry {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Zeitgeist.RemoteRegistry */
+    /* Signals of Zeitgeist-2.0.Zeitgeist.RemoteRegistry */
     connect(sigName: "data-source-disconnected", callback: (($obj: RemoteRegistry, data_source: GLib.Variant) => void)): number
     connect_after(sigName: "data-source-disconnected", callback: (($obj: RemoteRegistry, data_source: GLib.Variant) => void)): number
     emit(sigName: "data-source-disconnected", data_source: GLib.Variant): void
@@ -279,7 +279,7 @@ export class RemoteRegistry {
     connect(sigName: "data-source-registered", callback: (($obj: RemoteRegistry, data_source: GLib.Variant) => void)): number
     connect_after(sigName: "data-source-registered", callback: (($obj: RemoteRegistry, data_source: GLib.Variant) => void)): number
     emit(sigName: "data-source-registered", data_source: GLib.Variant): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: RemoteRegistry, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: RemoteRegistry, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -295,9 +295,9 @@ export class RemoteRegistry {
 export interface RemoteLog_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class RemoteLog {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Zeitgeist.RemoteLog */
+    /* Methods of Zeitgeist-2.0.Zeitgeist.RemoteLog */
     delete_events(event_ids: number[], cancellable?: Gio.Cancellable | null, sender?: any | null, _callback_?: Gio.AsyncReadyCallback | null): void
     delete_events_finish(_res_: Gio.AsyncResult): GLib.Variant
     find_event_ids(time_range: GLib.Variant, event_templates: GLib.Variant, storage_state: number, num_events: number, result_type: number, cancellable?: Gio.Cancellable | null, sender?: any | null, _callback_?: Gio.AsyncReadyCallback | null): void
@@ -319,7 +319,7 @@ export class RemoteLog {
     get_extensions(): string[]
     get_version(): /* result */ VersionStruct
     get_datapath(): string
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -341,7 +341,7 @@ export class RemoteLog {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Zeitgeist.RemoteLog */
+    /* Virtual methods of Zeitgeist-2.0.Zeitgeist.RemoteLog */
     vfunc_delete_events(event_ids: number[], cancellable?: Gio.Cancellable | null, sender?: any | null, _callback_?: Gio.AsyncReadyCallback | null): void
     vfunc_delete_events_finish(_res_: Gio.AsyncResult): GLib.Variant
     vfunc_find_event_ids(time_range: GLib.Variant, event_templates: GLib.Variant, storage_state: number, num_events: number, result_type: number, cancellable?: Gio.Cancellable | null, sender?: any | null, _callback_?: Gio.AsyncReadyCallback | null): void
@@ -363,7 +363,7 @@ export class RemoteLog {
     vfunc_get_extensions(): string[]
     vfunc_get_version(): /* result */ VersionStruct
     vfunc_get_datapath(): string
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -371,7 +371,7 @@ export class RemoteLog {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: RemoteLog, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: RemoteLog, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -387,14 +387,14 @@ export class RemoteLog {
 export interface RemoteMonitor_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class RemoteMonitor {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Zeitgeist.RemoteMonitor */
+    /* Methods of Zeitgeist-2.0.Zeitgeist.RemoteMonitor */
     notify_insert(time_range: GLib.Variant, events: GLib.Variant, _callback_?: Gio.AsyncReadyCallback | null): void
     notify_insert_finish(_res_: Gio.AsyncResult): void
     notify_delete(time_range: GLib.Variant, event_ids: number[], _callback_?: Gio.AsyncReadyCallback | null): void
     notify_delete_finish(_res_: Gio.AsyncResult): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -416,12 +416,12 @@ export class RemoteMonitor {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Zeitgeist.RemoteMonitor */
+    /* Virtual methods of Zeitgeist-2.0.Zeitgeist.RemoteMonitor */
     vfunc_notify_insert(time_range: GLib.Variant, events: GLib.Variant, _callback_?: Gio.AsyncReadyCallback | null): void
     vfunc_notify_insert_finish(_res_: Gio.AsyncResult): void
     vfunc_notify_delete(time_range: GLib.Variant, event_ids: number[], _callback_?: Gio.AsyncReadyCallback | null): void
     vfunc_notify_delete_finish(_res_: Gio.AsyncResult): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -429,7 +429,7 @@ export class RemoteMonitor {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: RemoteMonitor, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: RemoteMonitor, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -445,14 +445,14 @@ export class RemoteMonitor {
 export interface RemoteSimpleIndexer_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class RemoteSimpleIndexer {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Zeitgeist.RemoteSimpleIndexer */
+    /* Methods of Zeitgeist-2.0.Zeitgeist.RemoteSimpleIndexer */
     search(query_string: string, time_range: GLib.Variant, filter_templates: GLib.Variant, offset: number, count: number, result_type: number, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
     search_finish(_res_: Gio.AsyncResult): [ /* events */ GLib.Variant, /* matches */ number ]
     search_with_relevancies(query_string: string, time_range: GLib.Variant, filter_templates: GLib.Variant, storage_state: number, offset: number, count: number, result_type: number, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
     search_with_relevancies_finish(_res_: Gio.AsyncResult): [ /* events */ GLib.Variant, /* relevancies */ number[], /* matches */ number ]
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -474,12 +474,12 @@ export class RemoteSimpleIndexer {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Zeitgeist.RemoteSimpleIndexer */
+    /* Virtual methods of Zeitgeist-2.0.Zeitgeist.RemoteSimpleIndexer */
     vfunc_search(query_string: string, time_range: GLib.Variant, filter_templates: GLib.Variant, offset: number, count: number, result_type: number, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
     vfunc_search_finish(_res_: Gio.AsyncResult): [ /* events */ GLib.Variant, /* matches */ number ]
     vfunc_search_with_relevancies(query_string: string, time_range: GLib.Variant, filter_templates: GLib.Variant, storage_state: number, offset: number, count: number, result_type: number, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
     vfunc_search_with_relevancies_finish(_res_: Gio.AsyncResult): [ /* events */ GLib.Variant, /* relevancies */ number[], /* matches */ number ]
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -487,7 +487,7 @@ export class RemoteSimpleIndexer {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: RemoteSimpleIndexer, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: RemoteSimpleIndexer, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -503,11 +503,11 @@ export class RemoteSimpleIndexer {
 export interface NetworkManagerDBus_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class NetworkManagerDBus {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Zeitgeist.NetworkManagerDBus */
+    /* Methods of Zeitgeist-2.0.Zeitgeist.NetworkManagerDBus */
     state(): number
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -529,9 +529,9 @@ export class NetworkManagerDBus {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Zeitgeist.NetworkManagerDBus */
+    /* Virtual methods of Zeitgeist-2.0.Zeitgeist.NetworkManagerDBus */
     vfunc_state(): number
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -539,11 +539,11 @@ export class NetworkManagerDBus {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Zeitgeist.NetworkManagerDBus */
+    /* Signals of Zeitgeist-2.0.Zeitgeist.NetworkManagerDBus */
     connect(sigName: "state-changed", callback: (($obj: NetworkManagerDBus, state: number) => void)): number
     connect_after(sigName: "state-changed", callback: (($obj: NetworkManagerDBus, state: number) => void)): number
     emit(sigName: "state-changed", state: number): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: NetworkManagerDBus, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: NetworkManagerDBus, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -559,11 +559,11 @@ export class NetworkManagerDBus {
 export interface ConnmanManagerDBus_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class ConnmanManagerDBus {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Zeitgeist.ConnmanManagerDBus */
+    /* Methods of Zeitgeist-2.0.Zeitgeist.ConnmanManagerDBus */
     get_state(): string
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -585,9 +585,9 @@ export class ConnmanManagerDBus {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Zeitgeist.ConnmanManagerDBus */
+    /* Virtual methods of Zeitgeist-2.0.Zeitgeist.ConnmanManagerDBus */
     vfunc_get_state(): string
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -595,11 +595,11 @@ export class ConnmanManagerDBus {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Zeitgeist.ConnmanManagerDBus */
+    /* Signals of Zeitgeist-2.0.Zeitgeist.ConnmanManagerDBus */
     connect(sigName: "state-changed", callback: (($obj: ConnmanManagerDBus, state: string) => void)): number
     connect_after(sigName: "state-changed", callback: (($obj: ConnmanManagerDBus, state: string) => void)): number
     emit(sigName: "state-changed", state: string): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: ConnmanManagerDBus, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: ConnmanManagerDBus, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -615,9 +615,9 @@ export class ConnmanManagerDBus {
 export interface ResultSet_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class ResultSet {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Zeitgeist.ResultSet */
+    /* Methods of Zeitgeist-2.0.Zeitgeist.ResultSet */
     size(): number
     estimated_matches(): number
     next_value(): Event | null
@@ -625,7 +625,7 @@ export class ResultSet {
     tell(): number
     reset(): void
     iterator(): ResultSet
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -647,14 +647,14 @@ export class ResultSet {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Zeitgeist.ResultSet */
+    /* Virtual methods of Zeitgeist-2.0.Zeitgeist.ResultSet */
     vfunc_size(): number
     vfunc_estimated_matches(): number
     vfunc_next_value(): Event | null
     vfunc_has_next(): boolean
     vfunc_tell(): number
     vfunc_reset(): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -662,7 +662,7 @@ export class ResultSet {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: ResultSet, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: ResultSet, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -678,12 +678,12 @@ export class ResultSet {
 export interface DataSourceRegistry_ConstructProps extends QueuedProxyWrapper_ConstructProps {
 }
 export class DataSourceRegistry {
-    /* Properties of Zeitgeist.QueuedProxyWrapper */
+    /* Properties of Zeitgeist-2.0.Zeitgeist.QueuedProxyWrapper */
     proxy_created: boolean
     is_connected: boolean
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Zeitgeist.DataSourceRegistry */
+    /* Methods of Zeitgeist-2.0.Zeitgeist.DataSourceRegistry */
     get_data_sources(cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
     get_data_sources_finish(_res_: Gio.AsyncResult): DataSource[]
     get_data_source_from_id(unique_id: string, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
@@ -692,7 +692,7 @@ export class DataSourceRegistry {
     register_data_source_finish(_res_: Gio.AsyncResult): boolean
     set_data_source_enabled(unique_id: string, enabled: boolean, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
     set_data_source_enabled_finish(_res_: Gio.AsyncResult): void
-    /* Methods of Zeitgeist.QueuedProxyWrapper */
+    /* Methods of Zeitgeist-2.0.Zeitgeist.QueuedProxyWrapper */
     proxy_acquired(proxy: GObject.Object): void
     proxy_unavailable(err: Gio.IOErrorEnum): void
     process_queued_methods(): void
@@ -703,7 +703,7 @@ export class DataSourceRegistry {
     wait_for_proxy_finish(_res_: Gio.AsyncResult): void
     get_proxy_created(): boolean
     get_is_connected(): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -725,10 +725,10 @@ export class DataSourceRegistry {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Zeitgeist.QueuedProxyWrapper */
+    /* Virtual methods of Zeitgeist-2.0.Zeitgeist.QueuedProxyWrapper */
     vfunc_on_connection_established(): void
     vfunc_on_connection_lost(): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -736,7 +736,7 @@ export class DataSourceRegistry {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Zeitgeist.DataSourceRegistry */
+    /* Signals of Zeitgeist-2.0.Zeitgeist.DataSourceRegistry */
     connect(sigName: "source-disconnected", callback: (($obj: DataSourceRegistry, data_source: DataSource) => void)): number
     connect_after(sigName: "source-disconnected", callback: (($obj: DataSourceRegistry, data_source: DataSource) => void)): number
     emit(sigName: "source-disconnected", data_source: DataSource): void
@@ -746,7 +746,7 @@ export class DataSourceRegistry {
     connect(sigName: "source-registered", callback: (($obj: DataSourceRegistry, data_source: DataSource) => void)): number
     connect_after(sigName: "source-registered", callback: (($obj: DataSourceRegistry, data_source: DataSource) => void)): number
     emit(sigName: "source-registered", data_source: DataSource): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: DataSourceRegistry, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: DataSourceRegistry, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -768,17 +768,17 @@ export class DataSourceRegistry {
 export interface Index_ConstructProps extends QueuedProxyWrapper_ConstructProps {
 }
 export class Index {
-    /* Properties of Zeitgeist.QueuedProxyWrapper */
+    /* Properties of Zeitgeist-2.0.Zeitgeist.QueuedProxyWrapper */
     proxy_created: boolean
     is_connected: boolean
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Zeitgeist.Index */
+    /* Methods of Zeitgeist-2.0.Zeitgeist.Index */
     search(query: string, time_range: TimeRange, event_templates: Event[], offset: number, num_events: number, result_type: ResultType, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
     search_finish(_res_: Gio.AsyncResult): ResultSet
     search_with_relevancies(query: string, time_range: TimeRange, event_templates: Event[], storage_state: StorageState, offset: number, num_events: number, result_type: ResultType, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
     search_with_relevancies_finish(_res_: Gio.AsyncResult): [ /* returnType */ ResultSet, /* relevancies */ number[] ]
-    /* Methods of Zeitgeist.QueuedProxyWrapper */
+    /* Methods of Zeitgeist-2.0.Zeitgeist.QueuedProxyWrapper */
     proxy_acquired(proxy: GObject.Object): void
     proxy_unavailable(err: Gio.IOErrorEnum): void
     process_queued_methods(): void
@@ -789,7 +789,7 @@ export class Index {
     wait_for_proxy_finish(_res_: Gio.AsyncResult): void
     get_proxy_created(): boolean
     get_is_connected(): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -811,10 +811,10 @@ export class Index {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Zeitgeist.QueuedProxyWrapper */
+    /* Virtual methods of Zeitgeist-2.0.Zeitgeist.QueuedProxyWrapper */
     vfunc_on_connection_established(): void
     vfunc_on_connection_lost(): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -822,7 +822,7 @@ export class Index {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Index, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Index, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -844,12 +844,12 @@ export class Index {
 export interface Log_ConstructProps extends QueuedProxyWrapper_ConstructProps {
 }
 export class Log {
-    /* Properties of Zeitgeist.QueuedProxyWrapper */
+    /* Properties of Zeitgeist-2.0.Zeitgeist.QueuedProxyWrapper */
     proxy_created: boolean
     is_connected: boolean
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Zeitgeist.Log */
+    /* Methods of Zeitgeist-2.0.Zeitgeist.Log */
     insert_event(event: Event, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
     insert_event_finish(_res_: Gio.AsyncResult): number[]
     insert_events(events: Event[], cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
@@ -873,7 +873,7 @@ export class Log {
     get_version(): [ /* major */ number, /* minor */ number, /* micro */ number ]
     get_extensions(): string[]
     datapath(): string
-    /* Methods of Zeitgeist.QueuedProxyWrapper */
+    /* Methods of Zeitgeist-2.0.Zeitgeist.QueuedProxyWrapper */
     proxy_acquired(proxy: GObject.Object): void
     proxy_unavailable(err: Gio.IOErrorEnum): void
     process_queued_methods(): void
@@ -884,7 +884,7 @@ export class Log {
     wait_for_proxy_finish(_res_: Gio.AsyncResult): void
     get_proxy_created(): boolean
     get_is_connected(): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -906,10 +906,10 @@ export class Log {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Zeitgeist.QueuedProxyWrapper */
+    /* Virtual methods of Zeitgeist-2.0.Zeitgeist.QueuedProxyWrapper */
     vfunc_on_connection_established(): void
     vfunc_on_connection_lost(): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -917,7 +917,7 @@ export class Log {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Log, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Log, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -942,19 +942,19 @@ export interface Monitor_ConstructProps extends GObject.Object_ConstructProps {
     event_templates?: Event[]
 }
 export class Monitor {
-    /* Properties of Zeitgeist.Monitor */
+    /* Properties of Zeitgeist-2.0.Zeitgeist.Monitor */
     time_range: TimeRange
     event_templates: Event[]
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Zeitgeist.Monitor */
+    /* Methods of Zeitgeist-2.0.Zeitgeist.Monitor */
     get_templates(): Event[]
     get_path(): string
     get_time_range(): TimeRange
     set_time_range(value: TimeRange): void
     get_event_templates(): Event[]
     set_event_templates(value: Event[]): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -976,17 +976,17 @@ export class Monitor {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of Zeitgeist.RemoteMonitor */
+    /* Methods of Zeitgeist-2.0.Zeitgeist.RemoteMonitor */
     notify_insert(time_range: GLib.Variant, events: GLib.Variant, _callback_?: Gio.AsyncReadyCallback | null): void
     notify_insert_finish(_res_: Gio.AsyncResult): void
     notify_delete(time_range: GLib.Variant, event_ids: number[], _callback_?: Gio.AsyncReadyCallback | null): void
     notify_delete_finish(_res_: Gio.AsyncResult): void
-    /* Virtual methods of Zeitgeist.Monitor */
+    /* Virtual methods of Zeitgeist-2.0.Zeitgeist.Monitor */
     vfunc_notify_insert(time_range: GLib.Variant, events: GLib.Variant, _callback_?: Gio.AsyncReadyCallback | null): void
     vfunc_notify_insert_finish(_res_: Gio.AsyncResult): void
     vfunc_notify_delete(time_range: GLib.Variant, event_ids: number[], _callback_?: Gio.AsyncReadyCallback | null): void
     vfunc_notify_delete_finish(_res_: Gio.AsyncResult): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -994,14 +994,14 @@ export class Monitor {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Zeitgeist.Monitor */
+    /* Signals of Zeitgeist-2.0.Zeitgeist.Monitor */
     connect(sigName: "events-inserted", callback: (($obj: Monitor, time_range: TimeRange, events: ResultSet) => void)): number
     connect_after(sigName: "events-inserted", callback: (($obj: Monitor, time_range: TimeRange, events: ResultSet) => void)): number
     emit(sigName: "events-inserted", time_range: TimeRange, events: ResultSet): void
     connect(sigName: "events-deleted", callback: (($obj: Monitor, time_range: TimeRange, event_ids: number[]) => void)): number
     connect_after(sigName: "events-deleted", callback: (($obj: Monitor, time_range: TimeRange, event_ids: number[]) => void)): number
     emit(sigName: "events-deleted", time_range: TimeRange, event_ids: number[]): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Monitor, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Monitor, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -1025,12 +1025,12 @@ export interface QueuedProxyWrapper_ConstructProps extends GObject.Object_Constr
     is_connected?: boolean
 }
 export class QueuedProxyWrapper {
-    /* Properties of Zeitgeist.QueuedProxyWrapper */
+    /* Properties of Zeitgeist-2.0.Zeitgeist.QueuedProxyWrapper */
     proxy_created: boolean
     is_connected: boolean
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Zeitgeist.QueuedProxyWrapper */
+    /* Methods of Zeitgeist-2.0.Zeitgeist.QueuedProxyWrapper */
     proxy_acquired(proxy: GObject.Object): void
     proxy_unavailable(err: Gio.IOErrorEnum): void
     process_queued_methods(): void
@@ -1041,7 +1041,7 @@ export class QueuedProxyWrapper {
     wait_for_proxy_finish(_res_: Gio.AsyncResult): void
     get_proxy_created(): boolean
     get_is_connected(): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -1063,10 +1063,10 @@ export class QueuedProxyWrapper {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Zeitgeist.QueuedProxyWrapper */
+    /* Virtual methods of Zeitgeist-2.0.Zeitgeist.QueuedProxyWrapper */
     vfunc_on_connection_established(): void
     vfunc_on_connection_lost(): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -1074,7 +1074,7 @@ export class QueuedProxyWrapper {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: QueuedProxyWrapper, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: QueuedProxyWrapper, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -1092,9 +1092,9 @@ export class QueuedProxyWrapper {
     static $gtype: GObject.Type
 }
 export class QueuedProxyWrapperQueuedMethod {
-    /* Fields of Zeitgeist.QueuedProxyWrapperQueuedMethod */
+    /* Fields of Zeitgeist-2.0.Zeitgeist.QueuedProxyWrapperQueuedMethod */
     ref_count: number
-    /* Methods of Zeitgeist.QueuedProxyWrapperQueuedMethod */
+    /* Methods of Zeitgeist-2.0.Zeitgeist.QueuedProxyWrapperQueuedMethod */
     get_queued_method(): [ /* returnType */ GLib.SourceFunc, /* result_target */ object | null ]
     static name: string
     static new(callback: GLib.SourceFunc): QueuedProxyWrapperQueuedMethod
@@ -1112,7 +1112,7 @@ export interface DataSource_ConstructProps extends GObject.Object_ConstructProps
     timestamp?: number
 }
 export class DataSource {
-    /* Properties of Zeitgeist.DataSource */
+    /* Properties of Zeitgeist-2.0.Zeitgeist.DataSource */
     unique_id: string
     name: string
     description: string
@@ -1120,9 +1120,9 @@ export class DataSource {
     enabled: boolean
     running: boolean
     timestamp: number
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Zeitgeist.DataSource */
+    /* Methods of Zeitgeist-2.0.Zeitgeist.DataSource */
     to_variant(): GLib.Variant
     get_unique_id(): string
     set_unique_id(value: string): void
@@ -1138,7 +1138,7 @@ export class DataSource {
     set_running(value: boolean): void
     get_timestamp(): number
     set_timestamp(value: number): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -1160,7 +1160,7 @@ export class DataSource {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -1168,7 +1168,7 @@ export class DataSource {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: DataSource, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: DataSource, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -1210,7 +1210,7 @@ export interface Event_ConstructProps extends GObject.Object_ConstructProps {
     payload?: Uint8Array
 }
 export class Event {
-    /* Properties of Zeitgeist.Event */
+    /* Properties of Zeitgeist-2.0.Zeitgeist.Event */
     id: number
     timestamp: number
     origin: string
@@ -1219,9 +1219,9 @@ export class Event {
     manifestation: string
     subjects: Subject[]
     payload: Uint8Array
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Zeitgeist.Event */
+    /* Methods of Zeitgeist-2.0.Zeitgeist.Event */
     get_subject(index: number): Subject
     num_subjects(): number
     add_subject(subject: Subject): void
@@ -1246,7 +1246,7 @@ export class Event {
     set_subjects(value: Subject[]): void
     get_payload(): Uint8Array | null
     set_payload(value?: Uint8Array | null): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -1268,7 +1268,7 @@ export class Event {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -1276,7 +1276,7 @@ export class Event {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Event, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Event, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -1320,7 +1320,7 @@ export interface Subject_ConstructProps extends GObject.Object_ConstructProps {
     manifestation?: string
 }
 export class Subject {
-    /* Properties of Zeitgeist.Subject */
+    /* Properties of Zeitgeist-2.0.Zeitgeist.Subject */
     uri: string
     origin: string
     text: string
@@ -1330,9 +1330,9 @@ export class Subject {
     mimetype: string
     interpretation: string
     manifestation: string
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Zeitgeist.Subject */
+    /* Methods of Zeitgeist-2.0.Zeitgeist.Subject */
     to_variant(): GLib.Variant
     matches_template(template_subject: Subject): boolean
     get_uri(): string | null
@@ -1353,7 +1353,7 @@ export class Subject {
     set_interpretation(value?: string | null): void
     get_manifestation(): string | null
     set_manifestation(value?: string | null): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -1375,7 +1375,7 @@ export class Subject {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -1383,7 +1383,7 @@ export class Subject {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Subject, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Subject, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -1424,17 +1424,17 @@ export interface TimeRange_ConstructProps extends GObject.Object_ConstructProps 
     end?: number
 }
 export class TimeRange {
-    /* Properties of Zeitgeist.TimeRange */
+    /* Properties of Zeitgeist-2.0.Zeitgeist.TimeRange */
     start: number
     end: number
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Zeitgeist.TimeRange */
+    /* Methods of Zeitgeist-2.0.Zeitgeist.TimeRange */
     to_variant(): GLib.Variant
     intersect(time_range: TimeRange): TimeRange | null
     get_start(): number
     get_end(): number
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -1456,7 +1456,7 @@ export class TimeRange {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -1464,7 +1464,7 @@ export class TimeRange {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: TimeRange, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: TimeRange, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -1490,9 +1490,9 @@ export class TimeRange {
 export interface SimpleResultSet_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class SimpleResultSet {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -1514,7 +1514,7 @@ export class SimpleResultSet {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of Zeitgeist.ResultSet */
+    /* Methods of Zeitgeist-2.0.Zeitgeist.ResultSet */
     size(): number
     estimated_matches(): number
     next_value(): Event | null
@@ -1522,14 +1522,14 @@ export class SimpleResultSet {
     tell(): number
     reset(): void
     iterator(): ResultSet
-    /* Virtual methods of Zeitgeist.SimpleResultSet */
+    /* Virtual methods of Zeitgeist-2.0.Zeitgeist.SimpleResultSet */
     vfunc_size(): number
     vfunc_estimated_matches(): number
     vfunc_next_value(): Event | null
     vfunc_has_next(): boolean
     vfunc_tell(): number
     vfunc_reset(): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -1537,7 +1537,7 @@ export class SimpleResultSet {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: SimpleResultSet, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: SimpleResultSet, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -1578,7 +1578,7 @@ export class MonitorPrivate {
     static name: string
 }
 export abstract class QueuedProxyWrapperClass {
-    /* Fields of Zeitgeist.QueuedProxyWrapperClass */
+    /* Fields of Zeitgeist-2.0.Zeitgeist.QueuedProxyWrapperClass */
     on_connection_established: () => void
     on_connection_lost: () => void
     static name: string
@@ -1623,7 +1623,7 @@ export class SimpleResultSetPrivate {
     static name: string
 }
 export abstract class RemoteRegistryIface {
-    /* Fields of Zeitgeist.RemoteRegistryIface */
+    /* Fields of Zeitgeist-2.0.Zeitgeist.RemoteRegistryIface */
     get_data_sources: (cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null) => void
     get_data_sources_finish: (_res_: Gio.AsyncResult) => GLib.Variant
     register_data_source: (unique_id: string, name: string, description: string, event_templates: GLib.Variant, cancellable?: Gio.Cancellable | null, sender?: any | null, _callback_?: Gio.AsyncReadyCallback | null) => void
@@ -1635,7 +1635,7 @@ export abstract class RemoteRegistryIface {
     static name: string
 }
 export abstract class RemoteLogIface {
-    /* Fields of Zeitgeist.RemoteLogIface */
+    /* Fields of Zeitgeist-2.0.Zeitgeist.RemoteLogIface */
     delete_events: (event_ids: number[], cancellable?: Gio.Cancellable | null, sender?: any | null, _callback_?: Gio.AsyncReadyCallback | null) => void
     delete_events_finish: (_res_: Gio.AsyncResult) => GLib.Variant
     find_event_ids: (time_range: GLib.Variant, event_templates: GLib.Variant, storage_state: number, num_events: number, result_type: number, cancellable?: Gio.Cancellable | null, sender?: any | null, _callback_?: Gio.AsyncReadyCallback | null) => void
@@ -1660,7 +1660,7 @@ export abstract class RemoteLogIface {
     static name: string
 }
 export abstract class RemoteMonitorIface {
-    /* Fields of Zeitgeist.RemoteMonitorIface */
+    /* Fields of Zeitgeist-2.0.Zeitgeist.RemoteMonitorIface */
     notify_insert: (time_range: GLib.Variant, events: GLib.Variant, _callback_?: Gio.AsyncReadyCallback | null) => void
     notify_insert_finish: (_res_: Gio.AsyncResult) => void
     notify_delete: (time_range: GLib.Variant, event_ids: number[], _callback_?: Gio.AsyncReadyCallback | null) => void
@@ -1668,7 +1668,7 @@ export abstract class RemoteMonitorIface {
     static name: string
 }
 export abstract class RemoteSimpleIndexerIface {
-    /* Fields of Zeitgeist.RemoteSimpleIndexerIface */
+    /* Fields of Zeitgeist-2.0.Zeitgeist.RemoteSimpleIndexerIface */
     search: (query_string: string, time_range: GLib.Variant, filter_templates: GLib.Variant, offset: number, count: number, result_type: number, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null) => void
     search_finish: (_res_: Gio.AsyncResult) => [ /* events */ GLib.Variant, /* matches */ number ]
     search_with_relevancies: (query_string: string, time_range: GLib.Variant, filter_templates: GLib.Variant, storage_state: number, offset: number, count: number, result_type: number, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null) => void
@@ -1676,17 +1676,17 @@ export abstract class RemoteSimpleIndexerIface {
     static name: string
 }
 export abstract class NetworkManagerDBusIface {
-    /* Fields of Zeitgeist.NetworkManagerDBusIface */
+    /* Fields of Zeitgeist-2.0.Zeitgeist.NetworkManagerDBusIface */
     state: () => number
     static name: string
 }
 export abstract class ConnmanManagerDBusIface {
-    /* Fields of Zeitgeist.ConnmanManagerDBusIface */
+    /* Fields of Zeitgeist-2.0.Zeitgeist.ConnmanManagerDBusIface */
     get_state: () => string
     static name: string
 }
 export abstract class ResultSetIface {
-    /* Fields of Zeitgeist.ResultSetIface */
+    /* Fields of Zeitgeist-2.0.Zeitgeist.ResultSetIface */
     size: () => number
     estimated_matches: () => number
     next_value: () => Event | null
@@ -1696,7 +1696,7 @@ export abstract class ResultSetIface {
     static name: string
 }
 export class VersionStruct {
-    /* Fields of Zeitgeist.VersionStruct */
+    /* Fields of Zeitgeist-2.0.Zeitgeist.VersionStruct */
     major: number
     minor: number
     micro: number

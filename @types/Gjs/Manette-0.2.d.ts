@@ -19,9 +19,9 @@ export function get_resource(): Gio.Resource
 export interface Device_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class Device {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Manette.Device */
+    /* Methods of Manette-0.2.Manette.Device */
     get_name(): string
     has_input(type: number, code: number): boolean
     has_rumble(): boolean
@@ -29,7 +29,7 @@ export class Device {
     remove_user_mapping(): void
     rumble(strong_magnitude: number, weak_magnitude: number, milliseconds: number): boolean
     save_user_mapping(mapping_string: string): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -51,7 +51,7 @@ export class Device {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -59,7 +59,7 @@ export class Device {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Manette.Device */
+    /* Signals of Manette-0.2.Manette.Device */
     connect(sigName: "absolute-axis-event", callback: (($obj: Device, event: Event) => void)): number
     connect_after(sigName: "absolute-axis-event", callback: (($obj: Device, event: Event) => void)): number
     emit(sigName: "absolute-axis-event", event: Event): void
@@ -78,7 +78,7 @@ export class Device {
     connect(sigName: "hat-axis-event", callback: (($obj: Device, event: Event) => void)): number
     connect_after(sigName: "hat-axis-event", callback: (($obj: Device, event: Event) => void)): number
     emit(sigName: "hat-axis-event", event: Event): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Device, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Device, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -94,11 +94,11 @@ export class Device {
 export interface Monitor_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class Monitor {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Manette.Monitor */
+    /* Methods of Manette-0.2.Manette.Monitor */
     iterate(): MonitorIter
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -120,7 +120,7 @@ export class Monitor {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -128,14 +128,14 @@ export class Monitor {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Manette.Monitor */
+    /* Signals of Manette-0.2.Manette.Monitor */
     connect(sigName: "device-connected", callback: (($obj: Monitor, device: Device) => void)): number
     connect_after(sigName: "device-connected", callback: (($obj: Monitor, device: Device) => void)): number
     emit(sigName: "device-connected", device: Device): void
     connect(sigName: "device-disconnected", callback: (($obj: Monitor, device: Device) => void)): number
     connect_after(sigName: "device-disconnected", callback: (($obj: Monitor, device: Device) => void)): number
     emit(sigName: "device-disconnected", device: Device): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Monitor, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Monitor, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -151,22 +151,22 @@ export class Monitor {
     static $gtype: GObject.Type
 }
 export abstract class DeviceClass {
-    /* Fields of Manette.DeviceClass */
+    /* Fields of Manette-0.2.Manette.DeviceClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
 export abstract class MonitorClass {
-    /* Fields of Manette.MonitorClass */
+    /* Fields of Manette-0.2.Manette.MonitorClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
 export class MonitorIter {
-    /* Methods of Manette.MonitorIter */
+    /* Methods of Manette-0.2.Manette.MonitorIter */
     next(): [ /* returnType */ boolean, /* device */ Device | null ]
     static name: string
 }
 export class Event {
-    /* Methods of Manette.Event */
+    /* Methods of Manette-0.2.Manette.Event */
     get_absolute(): [ /* returnType */ boolean, /* axis */ number, /* value */ number ]
     get_button(): [ /* returnType */ boolean, /* button */ number ]
     get_device(): Device

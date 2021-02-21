@@ -179,33 +179,27 @@ export function thumbnailInit(): void
 export function thumbnailLoad(image: Image): GdkPixbuf.Pixbuf
 export function ucErrorQuark(): GLib.Quark
 export class ApplicationActivatable {
-    /* Methods of Eog.ApplicationActivatable */
+    /* Methods of Eog-3.0.Eog.ApplicationActivatable */
     activate(): void
     deactivate(): void
-    /* Virtual methods of Eog.ApplicationActivatable */
-    vfuncActivate(): void
-    vfuncDeactivate(): void
     static name: string
 }
 export class WindowActivatable {
-    /* Methods of Eog.WindowActivatable */
+    /* Methods of Eog-3.0.Eog.WindowActivatable */
     activate(): void
     deactivate(): void
-    /* Virtual methods of Eog.WindowActivatable */
-    vfuncActivate(): void
-    vfuncDeactivate(): void
     static name: string
 }
 export interface Application_ConstructProps extends Gtk.Application_ConstructProps {
 }
 export class Application {
-    /* Properties of Gtk.Application */
+    /* Properties of Gtk-3.0.Gtk.Application */
     readonly activeWindow: Gtk.Window
     appMenu: Gio.MenuModel
     menubar: Gio.MenuModel
     registerSession: boolean
     readonly screensaverActive: boolean
-    /* Properties of Gio.Application */
+    /* Properties of Gio-2.0.Gio.Application */
     actionGroup: Gio.ActionGroup
     applicationId: string
     flags: Gio.ApplicationFlags
@@ -214,20 +208,20 @@ export class Application {
     readonly isRegistered: boolean
     readonly isRemote: boolean
     resourceBasePath: string
-    /* Fields of Eog.Application */
+    /* Fields of Eog-3.0.Eog.Application */
     baseInstance: Gtk.Application
     priv: ApplicationPrivate
-    /* Fields of Gtk.Application */
+    /* Fields of Gtk-3.0.Gtk.Application */
     parent: Gio.Application
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Eog.Application */
+    /* Methods of Eog-3.0.Eog.Application */
     closeAllWindows(): boolean
     openFileList(fileList: Gio.File[], timestamp: number, flags: StartupFlags): boolean
     openUriList(uriList: string[], timestamp: number, flags: StartupFlags): boolean
     openUris(uris: string, timestamp: number, flags: StartupFlags): boolean
     openWindow(timestamp: number, flags: StartupFlags): boolean
-    /* Methods of Gtk.Application */
+    /* Methods of Gtk-3.0.Gtk.Application */
     addAccelerator(accelerator: string, actionName: string, parameter?: GLib.Variant | null): void
     addWindow(window: Gtk.Window): void
     getAccelsForAction(detailedActionName: string): string[]
@@ -248,7 +242,7 @@ export class Application {
     setAppMenu(appMenu?: Gio.MenuModel | null): void
     setMenubar(menubar?: Gio.MenuModel | null): void
     uninhibit(cookie: number): void
-    /* Methods of Gio.Application */
+    /* Methods of Gio-2.0.Gio.Application */
     activate(): void
     addMainOption(longName: string, shortName: number, flags: GLib.OptionFlags, arg: GLib.OptionArg, description: string, argDescription?: string | null): void
     addMainOptionEntries(entries: GLib.OptionEntry[]): void
@@ -283,7 +277,7 @@ export class Application {
     unbindBusyProperty(object: GObject.Object, property: string): void
     unmarkBusy(): void
     withdrawNotification(id: string): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -305,7 +299,7 @@ export class Application {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of Gio.ActionGroup */
+    /* Methods of Gio-2.0.Gio.ActionGroup */
     actionAdded(actionName: string): void
     actionEnabledChanged(actionName: string, enabled: boolean): void
     actionRemoved(actionName: string): void
@@ -319,150 +313,91 @@ export class Application {
     getActionStateType(actionName: string): GLib.VariantType | null
     hasAction(actionName: string): boolean
     listActions(): string[]
-    queryAction(actionName: string): [ /* returnType */ boolean, /* enabled */ boolean, /* parameterType */ GLib.VariantType | null, /* stateType */ GLib.VariantType | null, /* stateHint */ GLib.Variant | null, /* state */ GLib.Variant | null ]
-    /* Methods of Gio.ActionMap */
+    queryAction(actionName: string): { returnType: boolean, enabled: boolean, parameterType: GLib.VariantType | null, stateType: GLib.VariantType | null, stateHint: GLib.Variant | null, state: GLib.Variant | null }
+    /* Methods of Gio-2.0.Gio.ActionMap */
     addAction(action: Gio.Action): void
     addActionEntries(entries: Gio.ActionEntry[], userData?: object | null): void
     lookupAction(actionName: string): Gio.Action | null
     removeAction(actionName: string): void
-    /* Virtual methods of Gtk.Application */
-    vfuncWindowAdded(window: Gtk.Window): void
-    vfuncWindowRemoved(window: Gtk.Window): void
-    vfuncActionAdded(actionName: string): void
-    vfuncActionEnabledChanged(actionName: string, enabled: boolean): void
-    vfuncActionRemoved(actionName: string): void
-    vfuncActionStateChanged(actionName: string, state: GLib.Variant): void
-    vfuncActivateAction(actionName: string, parameter?: GLib.Variant | null): void
-    vfuncChangeActionState(actionName: string, value: GLib.Variant): void
-    vfuncGetActionEnabled(actionName: string): boolean
-    vfuncGetActionParameterType(actionName: string): GLib.VariantType | null
-    vfuncGetActionState(actionName: string): GLib.Variant | null
-    vfuncGetActionStateHint(actionName: string): GLib.Variant | null
-    vfuncGetActionStateType(actionName: string): GLib.VariantType | null
-    vfuncHasAction(actionName: string): boolean
-    vfuncListActions(): string[]
-    vfuncQueryAction(actionName: string): [ /* returnType */ boolean, /* enabled */ boolean, /* parameterType */ GLib.VariantType | null, /* stateType */ GLib.VariantType | null, /* stateHint */ GLib.Variant | null, /* state */ GLib.Variant | null ]
-    vfuncAddAction(action: Gio.Action): void
-    vfuncLookupAction(actionName: string): Gio.Action | null
-    vfuncRemoveAction(actionName: string): void
-    /* Virtual methods of Gio.Application */
-    vfuncActivate(): void
-    vfuncAddPlatformData(builder: GLib.VariantBuilder): void
-    vfuncAfterEmit(platformData: GLib.Variant): void
-    vfuncBeforeEmit(platformData: GLib.Variant): void
-    vfuncCommandLine(commandLine: Gio.ApplicationCommandLine): number
-    vfuncDbusRegister(connection: Gio.DBusConnection, objectPath: string): boolean
-    vfuncDbusUnregister(connection: Gio.DBusConnection, objectPath: string): void
-    vfuncHandleLocalOptions(options: GLib.VariantDict): number
-    vfuncLocalCommandLine(arguments_: string[]): [ /* returnType */ boolean, /* arguments_ */ string[], /* exitStatus */ number ]
-    vfuncNameLost(): boolean
-    vfuncOpen(files: Gio.File[], hint: string): void
-    vfuncQuitMainloop(): void
-    vfuncRunMainloop(): void
-    vfuncShutdown(): void
-    vfuncStartup(): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gtk.Application */
+    /* Signals of Gtk-3.0.Gtk.Application */
     connect(sigName: "query-end", callback: (($obj: Application) => void)): number
-    connect_after(sigName: "query-end", callback: (($obj: Application) => void)): number
+    on(sigName: "query-end", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "query-end", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "query-end", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "query-end"): void
-    on(sigName: "query-end", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "query-end", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "query-end", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "window-added", callback: (($obj: Application, window: Gtk.Window) => void)): number
-    connect_after(sigName: "window-added", callback: (($obj: Application, window: Gtk.Window) => void)): number
+    on(sigName: "window-added", callback: (window: Gtk.Window) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "window-added", callback: (window: Gtk.Window) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "window-added", callback: (window: Gtk.Window) => void): NodeJS.EventEmitter
     emit(sigName: "window-added", window: Gtk.Window): void
-    on(sigName: "window-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "window-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "window-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "window-removed", callback: (($obj: Application, window: Gtk.Window) => void)): number
-    connect_after(sigName: "window-removed", callback: (($obj: Application, window: Gtk.Window) => void)): number
+    on(sigName: "window-removed", callback: (window: Gtk.Window) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "window-removed", callback: (window: Gtk.Window) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "window-removed", callback: (window: Gtk.Window) => void): NodeJS.EventEmitter
     emit(sigName: "window-removed", window: Gtk.Window): void
-    on(sigName: "window-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "window-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "window-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of Gio.Application */
+    /* Signals of Gio-2.0.Gio.Application */
     connect(sigName: "activate", callback: (($obj: Application) => void)): number
-    connect_after(sigName: "activate", callback: (($obj: Application) => void)): number
+    on(sigName: "activate", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "activate", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "activate", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "activate"): void
-    on(sigName: "activate", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "activate", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "activate", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "command-line", callback: (($obj: Application, commandLine: Gio.ApplicationCommandLine) => number)): number
-    connect_after(sigName: "command-line", callback: (($obj: Application, commandLine: Gio.ApplicationCommandLine) => number)): number
+    on(sigName: "command-line", callback: (commandLine: Gio.ApplicationCommandLine) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "command-line", callback: (commandLine: Gio.ApplicationCommandLine) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "command-line", callback: (commandLine: Gio.ApplicationCommandLine) => void): NodeJS.EventEmitter
     emit(sigName: "command-line", commandLine: Gio.ApplicationCommandLine): void
-    on(sigName: "command-line", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "command-line", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "command-line", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "handle-local-options", callback: (($obj: Application, options: GLib.VariantDict) => number)): number
-    connect_after(sigName: "handle-local-options", callback: (($obj: Application, options: GLib.VariantDict) => number)): number
+    on(sigName: "handle-local-options", callback: (options: GLib.VariantDict) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-local-options", callback: (options: GLib.VariantDict) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-local-options", callback: (options: GLib.VariantDict) => void): NodeJS.EventEmitter
     emit(sigName: "handle-local-options", options: GLib.VariantDict): void
-    on(sigName: "handle-local-options", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-local-options", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-local-options", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "name-lost", callback: (($obj: Application) => boolean)): number
-    connect_after(sigName: "name-lost", callback: (($obj: Application) => boolean)): number
+    on(sigName: "name-lost", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "name-lost", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "name-lost", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "name-lost"): void
-    on(sigName: "name-lost", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "name-lost", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "name-lost", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "open", callback: (($obj: Application, files: Gio.File[], hint: string) => void)): number
-    connect_after(sigName: "open", callback: (($obj: Application, files: Gio.File[], hint: string) => void)): number
+    on(sigName: "open", callback: (files: Gio.File[], hint: string) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "open", callback: (files: Gio.File[], hint: string) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "open", callback: (files: Gio.File[], hint: string) => void): NodeJS.EventEmitter
     emit(sigName: "open", files: Gio.File[], hint: string): void
-    on(sigName: "open", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "open", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "open", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "shutdown", callback: (($obj: Application) => void)): number
-    connect_after(sigName: "shutdown", callback: (($obj: Application) => void)): number
+    on(sigName: "shutdown", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "shutdown", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "shutdown", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "shutdown"): void
-    on(sigName: "shutdown", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "shutdown", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "shutdown", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "startup", callback: (($obj: Application) => void)): number
-    connect_after(sigName: "startup", callback: (($obj: Application) => void)): number
+    on(sigName: "startup", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "startup", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "startup", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "startup"): void
-    on(sigName: "startup", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "startup", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "startup", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Application, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Application, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of Gio.ActionGroup */
+    /* Signals of Gio-2.0.Gio.ActionGroup */
     connect(sigName: "action-added", callback: (($obj: Application, actionName: string) => void)): number
-    connect_after(sigName: "action-added", callback: (($obj: Application, actionName: string) => void)): number
+    on(sigName: "action-added", callback: (actionName: string) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "action-added", callback: (actionName: string) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "action-added", callback: (actionName: string) => void): NodeJS.EventEmitter
     emit(sigName: "action-added", actionName: string): void
-    on(sigName: "action-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "action-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "action-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "action-enabled-changed", callback: (($obj: Application, actionName: string, enabled: boolean) => void)): number
-    connect_after(sigName: "action-enabled-changed", callback: (($obj: Application, actionName: string, enabled: boolean) => void)): number
+    on(sigName: "action-enabled-changed", callback: (actionName: string, enabled: boolean) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "action-enabled-changed", callback: (actionName: string, enabled: boolean) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "action-enabled-changed", callback: (actionName: string, enabled: boolean) => void): NodeJS.EventEmitter
     emit(sigName: "action-enabled-changed", actionName: string, enabled: boolean): void
-    on(sigName: "action-enabled-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "action-enabled-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "action-enabled-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "action-removed", callback: (($obj: Application, actionName: string) => void)): number
-    connect_after(sigName: "action-removed", callback: (($obj: Application, actionName: string) => void)): number
+    on(sigName: "action-removed", callback: (actionName: string) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "action-removed", callback: (actionName: string) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "action-removed", callback: (actionName: string) => void): NodeJS.EventEmitter
     emit(sigName: "action-removed", actionName: string): void
-    on(sigName: "action-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "action-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "action-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "action-state-changed", callback: (($obj: Application, actionName: string, value: GLib.Variant) => void)): number
-    connect_after(sigName: "action-state-changed", callback: (($obj: Application, actionName: string, value: GLib.Variant) => void)): number
+    on(sigName: "action-state-changed", callback: (actionName: string, value: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "action-state-changed", callback: (actionName: string, value: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "action-state-changed", callback: (actionName: string, value: GLib.Variant) => void): NodeJS.EventEmitter
     emit(sigName: "action-state-changed", actionName: string, value: GLib.Variant): void
-    on(sigName: "action-state-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "action-state-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "action-state-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::active-window", callback: (($obj: Application, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::active-window", callback: (($obj: Application, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::active-window", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -547,14 +482,14 @@ export interface ClipboardHandler_ConstructProps extends GObject.InitiallyUnowne
     uri?: string
 }
 export class ClipboardHandler {
-    /* Fields of Eog.ClipboardHandler */
+    /* Fields of Eog-3.0.Eog.ClipboardHandler */
     parent: GObject.Object
     priv: ClipboardHandlerPrivate
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Eog.ClipboardHandler */
+    /* Methods of Eog-3.0.Eog.ClipboardHandler */
     copyToClipboard(clipboard: Gtk.Clipboard): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -576,21 +511,12 @@ export class ClipboardHandler {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: ClipboardHandler, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: ClipboardHandler, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -619,7 +545,7 @@ export interface FileChooser_ConstructProps extends Gtk.FileChooserDialog_Constr
     usePreviewLabel?: boolean
 }
 export class FileChooser {
-    /* Properties of Gtk.Window */
+    /* Properties of Gtk-3.0.Gtk.Window */
     acceptFocus: boolean
     application: Gtk.Application
     attachedTo: Gtk.Widget
@@ -652,11 +578,11 @@ export class FileChooser {
     typeHint: Gdk.WindowTypeHint
     urgencyHint: boolean
     windowPosition: Gtk.WindowPosition
-    /* Properties of Gtk.Container */
+    /* Properties of Gtk-3.0.Gtk.Container */
     borderWidth: number
     child: Gtk.Widget
     resizeMode: Gtk.ResizeMode
-    /* Properties of Gtk.Widget */
+    /* Properties of Gtk-3.0.Gtk.Widget */
     appPaintable: boolean
     canDefault: boolean
     canFocus: boolean
@@ -696,7 +622,7 @@ export class FileChooser {
     visible: boolean
     widthRequest: number
     readonly window: Gdk.Window
-    /* Properties of Gtk.FileChooser */
+    /* Properties of Gtk-3.0.Gtk.FileChooser */
     action: Gtk.FileChooserAction
     createFolders: boolean
     doOverwriteConfirmation: boolean
@@ -708,21 +634,21 @@ export class FileChooser {
     selectMultiple: boolean
     showHidden: boolean
     usePreviewLabel: boolean
-    /* Fields of Eog.FileChooser */
+    /* Fields of Eog-3.0.Eog.FileChooser */
     priv: FileChooserPrivate
-    /* Fields of Gtk.FileChooserDialog */
+    /* Fields of Gtk-3.0.Gtk.FileChooserDialog */
     parentInstance: Gtk.Dialog
-    /* Fields of Gtk.Window */
+    /* Fields of Gtk-3.0.Gtk.Window */
     bin: Gtk.Bin
-    /* Fields of Gtk.Bin */
+    /* Fields of Gtk-3.0.Gtk.Bin */
     container: Gtk.Container
-    /* Fields of Gtk.Container */
+    /* Fields of Gtk-3.0.Gtk.Container */
     widget: Gtk.Widget
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Eog.FileChooser */
+    /* Methods of Eog-3.0.Eog.FileChooser */
     getFormat(): GdkPixbuf.PixbufFormat
-    /* Methods of Gtk.Dialog */
+    /* Methods of Gtk-3.0.Gtk.Dialog */
     addActionWidget(child: Gtk.Widget, responseId: number): void
     addButton(buttonText: string, responseId: number): Gtk.Widget
     getActionArea(): Gtk.Box
@@ -735,7 +661,7 @@ export class FileChooser {
     setAlternativeButtonOrderFromArray(newOrder: number[]): void
     setDefaultResponse(responseId: number): void
     setResponseSensitive(responseId: number, setting: boolean): void
-    /* Methods of Gtk.Window */
+    /* Methods of Gtk-3.0.Gtk.Window */
     activateDefault(): boolean
     activateFocus(): boolean
     activateKey(event: Gdk.EventKey): boolean
@@ -751,7 +677,7 @@ export class FileChooser {
     getApplication(): Gtk.Application | null
     getAttachedTo(): Gtk.Widget | null
     getDecorated(): boolean
-    getDefaultSize(): [ /* width */ number | null, /* height */ number | null ]
+    getDefaultSize(): { width: number | null, height: number | null }
     getDefaultWidget(): Gtk.Widget | null
     getDeletable(): boolean
     getDestroyWithParent(): boolean
@@ -769,12 +695,12 @@ export class FileChooser {
     getMnemonicsVisible(): boolean
     getModal(): boolean
     getOpacity(): number
-    getPosition(): [ /* rootX */ number | null, /* rootY */ number | null ]
+    getPosition(): { rootX: number | null, rootY: number | null }
     getResizable(): boolean
-    getResizeGripArea(): [ /* returnType */ boolean, /* rect */ Gdk.Rectangle ]
+    getResizeGripArea(): { returnType: boolean, rect: Gdk.Rectangle }
     getRole(): string | null
     getScreen(): Gdk.Screen
-    getSize(): [ /* width */ number | null, /* height */ number | null ]
+    getSize(): { width: number | null, height: number | null }
     getSkipPagerHint(): boolean
     getSkipTaskbarHint(): boolean
     getTitle(): string | null
@@ -842,9 +768,9 @@ export class FileChooser {
     unfullscreen(): void
     unmaximize(): void
     unstick(): void
-    /* Methods of Gtk.Bin */
+    /* Methods of Gtk-3.0.Gtk.Bin */
     getChild(): Gtk.Widget | null
-    /* Methods of Gtk.Container */
+    /* Methods of Gtk-3.0.Gtk.Container */
     add(widget: Gtk.Widget): void
     checkResize(): void
     childGetProperty(child: Gtk.Widget, propertyName: string, value: any): void
@@ -855,7 +781,7 @@ export class FileChooser {
     foreach(callback: Gtk.Callback): void
     getBorderWidth(): number
     getChildren(): Gtk.Widget[]
-    getFocusChain(): [ /* returnType */ boolean, /* focusableWidgets */ Gtk.Widget[] ]
+    getFocusChain(): { returnType: boolean, focusableWidgets: Gtk.Widget[] }
     getFocusChild(): Gtk.Widget | null
     getFocusHadjustment(): Gtk.Adjustment | null
     getFocusVadjustment(): Gtk.Adjustment | null
@@ -872,7 +798,7 @@ export class FileChooser {
     setReallocateRedraws(needsRedraws: boolean): void
     setResizeMode(resizeMode: Gtk.ResizeMode): void
     unsetFocusChain(): void
-    /* Methods of Gtk.Widget */
+    /* Methods of Gtk-3.0.Gtk.Widget */
     activate(): boolean
     addAccelerator(accelSignal: string, accelGroup: Gtk.AccelGroup, accelKey: number, accelMods: Gdk.ModifierType, accelFlags: Gtk.AccelFlags): void
     addDeviceEvents(device: Gdk.Device, events: Gdk.EventMask): void
@@ -882,12 +808,12 @@ export class FileChooser {
     canActivateAccel(signalId: number): boolean
     childFocus(direction: Gtk.DirectionType): boolean
     childNotify(childProperty: string): void
-    classPath(): [ /* pathLength */ number | null, /* path */ string | null, /* pathReversed */ string | null ]
+    classPath(): { pathLength: number | null, path: string | null, pathReversed: string | null }
     computeExpand(orientation: Gtk.Orientation): boolean
     createPangoContext(): Pango.Context
     createPangoLayout(text?: string | null): Pango.Layout
     destroy(): void
-    destroyed(widgetPointer: Gtk.Widget): /* widgetPointer */ Gtk.Widget
+    destroyed(widgetPointer: Gtk.Widget): { widgetPointer: Gtk.Widget }
     deviceIsShadowed(device: Gdk.Device): boolean
     dragBegin(targets: Gtk.TargetList, actions: Gdk.DragAction, button: number, event?: Gdk.Event | null): Gdk.DragContext
     dragBeginWithCoordinates(targets: Gtk.TargetList, actions: Gdk.DragAction, button: number, event: Gdk.Event | null, x: number, y: number): Gdk.DragContext
@@ -926,16 +852,16 @@ export class FileChooser {
     getActionGroup(prefix: string): Gio.ActionGroup | null
     getAllocatedBaseline(): number
     getAllocatedHeight(): number
-    getAllocatedSize(): [ /* allocation */ Gtk.Allocation, /* baseline */ number | null ]
+    getAllocatedSize(): { allocation: Gtk.Allocation, baseline: number | null }
     getAllocatedWidth(): number
-    getAllocation(): /* allocation */ Gtk.Allocation
+    getAllocation(): { allocation: Gtk.Allocation }
     getAncestor(widgetType: GObject.Type): Gtk.Widget | null
     getAppPaintable(): boolean
     getCanDefault(): boolean
     getCanFocus(): boolean
-    getChildRequisition(): /* requisition */ Gtk.Requisition
+    getChildRequisition(): { requisition: Gtk.Requisition }
     getChildVisible(): boolean
-    getClip(): /* clip */ Gtk.Allocation
+    getClip(): { clip: Gtk.Allocation }
     getClipboard(selection: Gdk.Atom): Gtk.Clipboard
     getCompositeName(): string
     getDeviceEnabled(device: Gdk.Device): boolean
@@ -968,22 +894,22 @@ export class FileChooser {
     getParent(): Gtk.Widget | null
     getParentWindow(): Gdk.Window | null
     getPath(): Gtk.WidgetPath
-    getPointer(): [ /* x */ number | null, /* y */ number | null ]
-    getPreferredHeight(): [ /* minimumHeight */ number | null, /* naturalHeight */ number | null ]
-    getPreferredHeightAndBaselineForWidth(width: number): [ /* minimumHeight */ number | null, /* naturalHeight */ number | null, /* minimumBaseline */ number | null, /* naturalBaseline */ number | null ]
-    getPreferredHeightForWidth(width: number): [ /* minimumHeight */ number | null, /* naturalHeight */ number | null ]
-    getPreferredSize(): [ /* minimumSize */ Gtk.Requisition | null, /* naturalSize */ Gtk.Requisition | null ]
-    getPreferredWidth(): [ /* minimumWidth */ number | null, /* naturalWidth */ number | null ]
-    getPreferredWidthForHeight(height: number): [ /* minimumWidth */ number | null, /* naturalWidth */ number | null ]
+    getPointer(): { x: number | null, y: number | null }
+    getPreferredHeight(): { minimumHeight: number | null, naturalHeight: number | null }
+    getPreferredHeightAndBaselineForWidth(width: number): { minimumHeight: number | null, naturalHeight: number | null, minimumBaseline: number | null, naturalBaseline: number | null }
+    getPreferredHeightForWidth(width: number): { minimumHeight: number | null, naturalHeight: number | null }
+    getPreferredSize(): { minimumSize: Gtk.Requisition | null, naturalSize: Gtk.Requisition | null }
+    getPreferredWidth(): { minimumWidth: number | null, naturalWidth: number | null }
+    getPreferredWidthForHeight(height: number): { minimumWidth: number | null, naturalWidth: number | null }
     getRealized(): boolean
     getReceivesDefault(): boolean
     getRequestMode(): Gtk.SizeRequestMode
-    getRequisition(): /* requisition */ Gtk.Requisition
+    getRequisition(): { requisition: Gtk.Requisition }
     getRootWindow(): Gdk.Window
     getScaleFactor(): number
     getSensitive(): boolean
     getSettings(): Gtk.Settings
-    getSizeRequest(): [ /* width */ number | null, /* height */ number | null ]
+    getSizeRequest(): { width: number | null, height: number | null }
     getState(): Gtk.StateType
     getStateFlags(): Gtk.StateFlags
     getStyle(): Gtk.Style
@@ -1015,7 +941,7 @@ export class FileChooser {
     initTemplate(): void
     inputShapeCombineRegion(region?: cairo.Region | null): void
     insertActionGroup(name: string, group?: Gio.ActionGroup | null): void
-    intersect(area: Gdk.Rectangle): [ /* returnType */ boolean, /* intersection */ Gdk.Rectangle | null ]
+    intersect(area: Gdk.Rectangle): { returnType: boolean, intersection: Gdk.Rectangle | null }
     isAncestor(ancestor: Gtk.Widget): boolean
     isComposited(): boolean
     isDrawable(): boolean
@@ -1040,7 +966,7 @@ export class FileChooser {
     overrideCursor(cursor?: Gdk.RGBA | null, secondaryCursor?: Gdk.RGBA | null): void
     overrideFont(fontDesc?: Pango.FontDescription | null): void
     overrideSymbolicColor(name: string, color?: Gdk.RGBA | null): void
-    path(): [ /* pathLength */ number | null, /* path */ string | null, /* pathReversed */ string | null ]
+    path(): { pathLength: number | null, path: string | null, pathReversed: string | null }
     queueAllocate(): void
     queueComputeExpand(): void
     queueDraw(): void
@@ -1117,18 +1043,18 @@ export class FileChooser {
     showNow(): void
     sizeAllocate(allocation: Gtk.Allocation): void
     sizeAllocateWithBaseline(allocation: Gtk.Allocation, baseline: number): void
-    sizeRequest(): /* requisition */ Gtk.Requisition
+    sizeRequest(): { requisition: Gtk.Requisition }
     styleAttach(): void
     styleGetProperty(propertyName: string, value: any): void
     thawChildNotify(): void
-    translateCoordinates(destWidget: Gtk.Widget, srcX: number, srcY: number): [ /* returnType */ boolean, /* destX */ number | null, /* destY */ number | null ]
+    translateCoordinates(destWidget: Gtk.Widget, srcX: number, srcY: number): { returnType: boolean, destX: number | null, destY: number | null }
     triggerTooltipQuery(): void
     unmap(): void
     unparent(): void
     unrealize(): void
     unregisterWindow(window: Gdk.Window): void
     unsetStateFlags(flags: Gtk.StateFlags): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -1150,16 +1076,16 @@ export class FileChooser {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of Gtk.Buildable */
+    /* Methods of Gtk-3.0.Gtk.Buildable */
     addChild(builder: Gtk.Builder, child: GObject.Object, type?: string | null): void
     constructChild(builder: Gtk.Builder, name: string): GObject.Object
     customFinished(builder: Gtk.Builder, child: GObject.Object | null, tagname: string, data?: object | null): void
     customTagEnd(builder: Gtk.Builder, child: GObject.Object | null, tagname: string, data?: object | null): void
-    customTagStart(builder: Gtk.Builder, child: GObject.Object | null, tagname: string): [ /* returnType */ boolean, /* parser */ GLib.MarkupParser, /* data */ object | null ]
+    customTagStart(builder: Gtk.Builder, child: GObject.Object | null, tagname: string): { returnType: boolean, parser: GLib.MarkupParser, data: object | null }
     getInternalChild(builder: Gtk.Builder, childname: string): GObject.Object
     parserFinished(builder: Gtk.Builder): void
     setBuildableProperty(builder: Gtk.Builder, name: string, value: any): void
-    /* Methods of Gtk.FileChooser */
+    /* Methods of Gtk-3.0.Gtk.FileChooser */
     addChoice(id: string, label: string, options?: string[] | null, optionLabels?: string[] | null): void
     addFilter(filter: Gtk.FileFilter): void
     addShortcutFolder(folder: string): boolean
@@ -1223,650 +1149,442 @@ export class FileChooser {
     unselectFile(file: Gio.File): void
     unselectFilename(filename: string): void
     unselectUri(uri: string): void
-    /* Virtual methods of Gtk.FileChooserDialog */
-    vfuncAddChild(builder: Gtk.Builder, child: GObject.Object, type?: string | null): void
-    vfuncConstructChild(builder: Gtk.Builder, name: string): GObject.Object
-    vfuncCustomFinished(builder: Gtk.Builder, child: GObject.Object | null, tagname: string, data?: object | null): void
-    vfuncCustomTagEnd(builder: Gtk.Builder, child: GObject.Object | null, tagname: string, data?: object | null): void
-    vfuncCustomTagStart(builder: Gtk.Builder, child: GObject.Object | null, tagname: string): [ /* returnType */ boolean, /* parser */ GLib.MarkupParser, /* data */ object | null ]
-    vfuncGetInternalChild(builder: Gtk.Builder, childname: string): GObject.Object
-    vfuncGetName(): string
-    vfuncParserFinished(builder: Gtk.Builder): void
-    vfuncSetBuildableProperty(builder: Gtk.Builder, name: string, value: any): void
-    vfuncSetName(name: string): void
-    /* Virtual methods of Gtk.Dialog */
-    vfuncClose(): void
-    vfuncResponse(responseId: number): void
-    /* Virtual methods of Gtk.Window */
-    vfuncActivateDefault(): void
-    vfuncActivateFocus(): void
-    vfuncEnableDebugging(toggle: boolean): boolean
-    vfuncKeysChanged(): void
-    vfuncSetFocus(focus?: Gtk.Widget | null): void
-    /* Virtual methods of Gtk.Container */
-    vfuncAdd(widget: Gtk.Widget): void
-    vfuncCheckResize(): void
-    vfuncChildType(): GObject.Type
-    vfuncCompositeName(child: Gtk.Widget): string
-    vfuncForall(includeInternals: boolean, callback: Gtk.Callback): void
-    vfuncGetChildProperty(child: Gtk.Widget, propertyId: number, value: any, pspec: GObject.ParamSpec): void
-    vfuncGetPathForChild(child: Gtk.Widget): Gtk.WidgetPath
-    vfuncRemove(widget: Gtk.Widget): void
-    vfuncSetChildProperty(child: Gtk.Widget, propertyId: number, value: any, pspec: GObject.ParamSpec): void
-    vfuncSetFocusChild(child?: Gtk.Widget | null): void
-    /* Virtual methods of Gtk.Widget */
-    vfuncAdjustBaselineAllocation(baseline: number): void
-    vfuncAdjustBaselineRequest(minimumBaseline: number, naturalBaseline: number): void
-    vfuncAdjustSizeAllocation(orientation: Gtk.Orientation, minimumSize: number, naturalSize: number, allocatedPos: number, allocatedSize: number): void
-    vfuncAdjustSizeRequest(orientation: Gtk.Orientation, minimumSize: number, naturalSize: number): void
-    vfuncButtonPressEvent(event: Gdk.EventButton): boolean
-    vfuncButtonReleaseEvent(event: Gdk.EventButton): boolean
-    vfuncCanActivateAccel(signalId: number): boolean
-    vfuncChildNotify(childProperty: GObject.ParamSpec): void
-    vfuncCompositedChanged(): void
-    vfuncComputeExpand(hexpandP: boolean, vexpandP: boolean): void
-    vfuncConfigureEvent(event: Gdk.EventConfigure): boolean
-    vfuncDamageEvent(event: Gdk.EventExpose): boolean
-    vfuncDeleteEvent(event: Gdk.EventAny): boolean
-    vfuncDestroy(): void
-    vfuncDestroyEvent(event: Gdk.EventAny): boolean
-    vfuncDirectionChanged(previousDirection: Gtk.TextDirection): void
-    vfuncDispatchChildPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDragBegin(context: Gdk.DragContext): void
-    vfuncDragDataDelete(context: Gdk.DragContext): void
-    vfuncDragDataGet(context: Gdk.DragContext, selectionData: Gtk.SelectionData, info: number, time: number): void
-    vfuncDragDataReceived(context: Gdk.DragContext, x: number, y: number, selectionData: Gtk.SelectionData, info: number, time: number): void
-    vfuncDragDrop(context: Gdk.DragContext, x: number, y: number, time: number): boolean
-    vfuncDragEnd(context: Gdk.DragContext): void
-    vfuncDragFailed(context: Gdk.DragContext, result: Gtk.DragResult): boolean
-    vfuncDragLeave(context: Gdk.DragContext, time: number): void
-    vfuncDragMotion(context: Gdk.DragContext, x: number, y: number, time: number): boolean
-    vfuncDraw(cr: cairo.Context): boolean
-    vfuncEnterNotifyEvent(event: Gdk.EventCrossing): boolean
-    vfuncEvent(event: Gdk.Event): boolean
-    vfuncFocus(direction: Gtk.DirectionType): boolean
-    vfuncFocusInEvent(event: Gdk.EventFocus): boolean
-    vfuncFocusOutEvent(event: Gdk.EventFocus): boolean
-    vfuncGetAccessible(): Atk.Object
-    vfuncGetPreferredHeight(): [ /* minimumHeight */ number | null, /* naturalHeight */ number | null ]
-    vfuncGetPreferredHeightAndBaselineForWidth(width: number): [ /* minimumHeight */ number | null, /* naturalHeight */ number | null, /* minimumBaseline */ number | null, /* naturalBaseline */ number | null ]
-    vfuncGetPreferredHeightForWidth(width: number): [ /* minimumHeight */ number | null, /* naturalHeight */ number | null ]
-    vfuncGetPreferredWidth(): [ /* minimumWidth */ number | null, /* naturalWidth */ number | null ]
-    vfuncGetPreferredWidthForHeight(height: number): [ /* minimumWidth */ number | null, /* naturalWidth */ number | null ]
-    vfuncGetRequestMode(): Gtk.SizeRequestMode
-    vfuncGrabBrokenEvent(event: Gdk.EventGrabBroken): boolean
-    vfuncGrabFocus(): void
-    vfuncGrabNotify(wasGrabbed: boolean): void
-    vfuncHide(): void
-    vfuncHierarchyChanged(previousToplevel: Gtk.Widget): void
-    vfuncKeyPressEvent(event: Gdk.EventKey): boolean
-    vfuncKeyReleaseEvent(event: Gdk.EventKey): boolean
-    vfuncKeynavFailed(direction: Gtk.DirectionType): boolean
-    vfuncLeaveNotifyEvent(event: Gdk.EventCrossing): boolean
-    vfuncMap(): void
-    vfuncMapEvent(event: Gdk.EventAny): boolean
-    vfuncMnemonicActivate(groupCycling: boolean): boolean
-    vfuncMotionNotifyEvent(event: Gdk.EventMotion): boolean
-    vfuncMoveFocus(direction: Gtk.DirectionType): void
-    vfuncParentSet(previousParent: Gtk.Widget): void
-    vfuncPopupMenu(): boolean
-    vfuncPropertyNotifyEvent(event: Gdk.EventProperty): boolean
-    vfuncProximityInEvent(event: Gdk.EventProximity): boolean
-    vfuncProximityOutEvent(event: Gdk.EventProximity): boolean
-    vfuncQueryTooltip(x: number, y: number, keyboardTooltip: boolean, tooltip: Gtk.Tooltip): boolean
-    vfuncQueueDrawRegion(region: cairo.Region): void
-    vfuncRealize(): void
-    vfuncScreenChanged(previousScreen: Gdk.Screen): void
-    vfuncScrollEvent(event: Gdk.EventScroll): boolean
-    vfuncSelectionClearEvent(event: Gdk.EventSelection): boolean
-    vfuncSelectionGet(selectionData: Gtk.SelectionData, info: number, time: number): void
-    vfuncSelectionNotifyEvent(event: Gdk.EventSelection): boolean
-    vfuncSelectionReceived(selectionData: Gtk.SelectionData, time: number): void
-    vfuncSelectionRequestEvent(event: Gdk.EventSelection): boolean
-    vfuncShow(): void
-    vfuncShowAll(): void
-    vfuncShowHelp(helpType: Gtk.WidgetHelpType): boolean
-    vfuncSizeAllocate(allocation: Gtk.Allocation): void
-    vfuncStateChanged(previousState: Gtk.StateType): void
-    vfuncStateFlagsChanged(previousStateFlags: Gtk.StateFlags): void
-    vfuncStyleSet(previousStyle: Gtk.Style): void
-    vfuncStyleUpdated(): void
-    vfuncTouchEvent(event: Gdk.EventTouch): boolean
-    vfuncUnmap(): void
-    vfuncUnmapEvent(event: Gdk.EventAny): boolean
-    vfuncUnrealize(): void
-    vfuncVisibilityNotifyEvent(event: Gdk.EventVisibility): boolean
-    vfuncWindowStateEvent(event: Gdk.EventWindowState): boolean
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gtk.Dialog */
+    /* Signals of Gtk-3.0.Gtk.Dialog */
     connect(sigName: "close", callback: (($obj: FileChooser) => void)): number
-    connect_after(sigName: "close", callback: (($obj: FileChooser) => void)): number
+    on(sigName: "close", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "close", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "close", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "close"): void
-    on(sigName: "close", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "close", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "close", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "response", callback: (($obj: FileChooser, responseId: number) => void)): number
-    connect_after(sigName: "response", callback: (($obj: FileChooser, responseId: number) => void)): number
+    on(sigName: "response", callback: (responseId: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "response", callback: (responseId: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "response", callback: (responseId: number) => void): NodeJS.EventEmitter
     emit(sigName: "response", responseId: number): void
-    on(sigName: "response", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "response", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "response", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of Gtk.Window */
+    /* Signals of Gtk-3.0.Gtk.Window */
     connect(sigName: "activate-default", callback: (($obj: FileChooser) => void)): number
-    connect_after(sigName: "activate-default", callback: (($obj: FileChooser) => void)): number
+    on(sigName: "activate-default", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "activate-default", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "activate-default", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "activate-default"): void
-    on(sigName: "activate-default", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "activate-default", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "activate-default", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "activate-focus", callback: (($obj: FileChooser) => void)): number
-    connect_after(sigName: "activate-focus", callback: (($obj: FileChooser) => void)): number
+    on(sigName: "activate-focus", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "activate-focus", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "activate-focus", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "activate-focus"): void
-    on(sigName: "activate-focus", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "activate-focus", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "activate-focus", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "enable-debugging", callback: (($obj: FileChooser, toggle: boolean) => boolean)): number
-    connect_after(sigName: "enable-debugging", callback: (($obj: FileChooser, toggle: boolean) => boolean)): number
+    on(sigName: "enable-debugging", callback: (toggle: boolean) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "enable-debugging", callback: (toggle: boolean) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "enable-debugging", callback: (toggle: boolean) => void): NodeJS.EventEmitter
     emit(sigName: "enable-debugging", toggle: boolean): void
-    on(sigName: "enable-debugging", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "enable-debugging", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "enable-debugging", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "keys-changed", callback: (($obj: FileChooser) => void)): number
-    connect_after(sigName: "keys-changed", callback: (($obj: FileChooser) => void)): number
+    on(sigName: "keys-changed", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "keys-changed", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "keys-changed", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "keys-changed"): void
-    on(sigName: "keys-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "keys-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "keys-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "set-focus", callback: (($obj: FileChooser, widget?: Gtk.Widget | null) => void)): number
-    connect_after(sigName: "set-focus", callback: (($obj: FileChooser, widget?: Gtk.Widget | null) => void)): number
+    on(sigName: "set-focus", callback: (widget?: Gtk.Widget | null) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "set-focus", callback: (widget?: Gtk.Widget | null) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "set-focus", callback: (widget?: Gtk.Widget | null) => void): NodeJS.EventEmitter
     emit(sigName: "set-focus", widget?: Gtk.Widget | null): void
-    on(sigName: "set-focus", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "set-focus", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "set-focus", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of Gtk.Container */
+    /* Signals of Gtk-3.0.Gtk.Container */
     connect(sigName: "add", callback: (($obj: FileChooser, object: Gtk.Widget) => void)): number
-    connect_after(sigName: "add", callback: (($obj: FileChooser, object: Gtk.Widget) => void)): number
+    on(sigName: "add", callback: (object: Gtk.Widget) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "add", callback: (object: Gtk.Widget) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "add", callback: (object: Gtk.Widget) => void): NodeJS.EventEmitter
     emit(sigName: "add", object: Gtk.Widget): void
-    on(sigName: "add", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "add", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "add", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "check-resize", callback: (($obj: FileChooser) => void)): number
-    connect_after(sigName: "check-resize", callback: (($obj: FileChooser) => void)): number
+    on(sigName: "check-resize", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "check-resize", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "check-resize", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "check-resize"): void
-    on(sigName: "check-resize", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "check-resize", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "check-resize", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "remove", callback: (($obj: FileChooser, object: Gtk.Widget) => void)): number
-    connect_after(sigName: "remove", callback: (($obj: FileChooser, object: Gtk.Widget) => void)): number
+    on(sigName: "remove", callback: (object: Gtk.Widget) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "remove", callback: (object: Gtk.Widget) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "remove", callback: (object: Gtk.Widget) => void): NodeJS.EventEmitter
     emit(sigName: "remove", object: Gtk.Widget): void
-    on(sigName: "remove", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "remove", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "remove", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "set-focus-child", callback: (($obj: FileChooser, object: Gtk.Widget) => void)): number
-    connect_after(sigName: "set-focus-child", callback: (($obj: FileChooser, object: Gtk.Widget) => void)): number
+    on(sigName: "set-focus-child", callback: (object: Gtk.Widget) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "set-focus-child", callback: (object: Gtk.Widget) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "set-focus-child", callback: (object: Gtk.Widget) => void): NodeJS.EventEmitter
     emit(sigName: "set-focus-child", object: Gtk.Widget): void
-    on(sigName: "set-focus-child", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "set-focus-child", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "set-focus-child", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of Gtk.Widget */
+    /* Signals of Gtk-3.0.Gtk.Widget */
     connect(sigName: "accel-closures-changed", callback: (($obj: FileChooser) => void)): number
-    connect_after(sigName: "accel-closures-changed", callback: (($obj: FileChooser) => void)): number
+    on(sigName: "accel-closures-changed", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "accel-closures-changed", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "accel-closures-changed", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "accel-closures-changed"): void
-    on(sigName: "accel-closures-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "accel-closures-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "accel-closures-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "button-press-event", callback: (($obj: FileChooser, event: Gdk.EventButton) => boolean)): number
-    connect_after(sigName: "button-press-event", callback: (($obj: FileChooser, event: Gdk.EventButton) => boolean)): number
+    on(sigName: "button-press-event", callback: (event: Gdk.EventButton) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "button-press-event", callback: (event: Gdk.EventButton) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "button-press-event", callback: (event: Gdk.EventButton) => void): NodeJS.EventEmitter
     emit(sigName: "button-press-event", event: Gdk.EventButton): void
-    on(sigName: "button-press-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "button-press-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "button-press-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "button-release-event", callback: (($obj: FileChooser, event: Gdk.EventButton) => boolean)): number
-    connect_after(sigName: "button-release-event", callback: (($obj: FileChooser, event: Gdk.EventButton) => boolean)): number
+    on(sigName: "button-release-event", callback: (event: Gdk.EventButton) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "button-release-event", callback: (event: Gdk.EventButton) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "button-release-event", callback: (event: Gdk.EventButton) => void): NodeJS.EventEmitter
     emit(sigName: "button-release-event", event: Gdk.EventButton): void
-    on(sigName: "button-release-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "button-release-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "button-release-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "can-activate-accel", callback: (($obj: FileChooser, signalId: number) => boolean)): number
-    connect_after(sigName: "can-activate-accel", callback: (($obj: FileChooser, signalId: number) => boolean)): number
+    on(sigName: "can-activate-accel", callback: (signalId: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "can-activate-accel", callback: (signalId: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "can-activate-accel", callback: (signalId: number) => void): NodeJS.EventEmitter
     emit(sigName: "can-activate-accel", signalId: number): void
-    on(sigName: "can-activate-accel", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "can-activate-accel", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "can-activate-accel", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "child-notify", callback: (($obj: FileChooser, childProperty: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "child-notify", callback: (($obj: FileChooser, childProperty: GObject.ParamSpec) => void)): number
+    on(sigName: "child-notify", callback: (childProperty: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "child-notify", callback: (childProperty: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "child-notify", callback: (childProperty: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "child-notify", childProperty: GObject.ParamSpec): void
-    on(sigName: "child-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "child-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "child-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "composited-changed", callback: (($obj: FileChooser) => void)): number
-    connect_after(sigName: "composited-changed", callback: (($obj: FileChooser) => void)): number
+    on(sigName: "composited-changed", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "composited-changed", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "composited-changed", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "composited-changed"): void
-    on(sigName: "composited-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "composited-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "composited-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "configure-event", callback: (($obj: FileChooser, event: Gdk.EventConfigure) => boolean)): number
-    connect_after(sigName: "configure-event", callback: (($obj: FileChooser, event: Gdk.EventConfigure) => boolean)): number
+    on(sigName: "configure-event", callback: (event: Gdk.EventConfigure) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "configure-event", callback: (event: Gdk.EventConfigure) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "configure-event", callback: (event: Gdk.EventConfigure) => void): NodeJS.EventEmitter
     emit(sigName: "configure-event", event: Gdk.EventConfigure): void
-    on(sigName: "configure-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "configure-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "configure-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "damage-event", callback: (($obj: FileChooser, event: Gdk.EventExpose) => boolean)): number
-    connect_after(sigName: "damage-event", callback: (($obj: FileChooser, event: Gdk.EventExpose) => boolean)): number
+    on(sigName: "damage-event", callback: (event: Gdk.EventExpose) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "damage-event", callback: (event: Gdk.EventExpose) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "damage-event", callback: (event: Gdk.EventExpose) => void): NodeJS.EventEmitter
     emit(sigName: "damage-event", event: Gdk.EventExpose): void
-    on(sigName: "damage-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "damage-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "damage-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "delete-event", callback: (($obj: FileChooser, event: Gdk.Event) => boolean)): number
-    connect_after(sigName: "delete-event", callback: (($obj: FileChooser, event: Gdk.Event) => boolean)): number
+    on(sigName: "delete-event", callback: (event: Gdk.Event) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "delete-event", callback: (event: Gdk.Event) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "delete-event", callback: (event: Gdk.Event) => void): NodeJS.EventEmitter
     emit(sigName: "delete-event", event: Gdk.Event): void
-    on(sigName: "delete-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "delete-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "delete-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "destroy", callback: (($obj: FileChooser) => void)): number
-    connect_after(sigName: "destroy", callback: (($obj: FileChooser) => void)): number
+    on(sigName: "destroy", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "destroy", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "destroy", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "destroy"): void
-    on(sigName: "destroy", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "destroy", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "destroy", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "destroy-event", callback: (($obj: FileChooser, event: Gdk.Event) => boolean)): number
-    connect_after(sigName: "destroy-event", callback: (($obj: FileChooser, event: Gdk.Event) => boolean)): number
+    on(sigName: "destroy-event", callback: (event: Gdk.Event) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "destroy-event", callback: (event: Gdk.Event) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "destroy-event", callback: (event: Gdk.Event) => void): NodeJS.EventEmitter
     emit(sigName: "destroy-event", event: Gdk.Event): void
-    on(sigName: "destroy-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "destroy-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "destroy-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "direction-changed", callback: (($obj: FileChooser, previousDirection: Gtk.TextDirection) => void)): number
-    connect_after(sigName: "direction-changed", callback: (($obj: FileChooser, previousDirection: Gtk.TextDirection) => void)): number
+    on(sigName: "direction-changed", callback: (previousDirection: Gtk.TextDirection) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "direction-changed", callback: (previousDirection: Gtk.TextDirection) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "direction-changed", callback: (previousDirection: Gtk.TextDirection) => void): NodeJS.EventEmitter
     emit(sigName: "direction-changed", previousDirection: Gtk.TextDirection): void
-    on(sigName: "direction-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "direction-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "direction-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "drag-begin", callback: (($obj: FileChooser, context: Gdk.DragContext) => void)): number
-    connect_after(sigName: "drag-begin", callback: (($obj: FileChooser, context: Gdk.DragContext) => void)): number
+    on(sigName: "drag-begin", callback: (context: Gdk.DragContext) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "drag-begin", callback: (context: Gdk.DragContext) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "drag-begin", callback: (context: Gdk.DragContext) => void): NodeJS.EventEmitter
     emit(sigName: "drag-begin", context: Gdk.DragContext): void
-    on(sigName: "drag-begin", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "drag-begin", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "drag-begin", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "drag-data-delete", callback: (($obj: FileChooser, context: Gdk.DragContext) => void)): number
-    connect_after(sigName: "drag-data-delete", callback: (($obj: FileChooser, context: Gdk.DragContext) => void)): number
+    on(sigName: "drag-data-delete", callback: (context: Gdk.DragContext) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "drag-data-delete", callback: (context: Gdk.DragContext) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "drag-data-delete", callback: (context: Gdk.DragContext) => void): NodeJS.EventEmitter
     emit(sigName: "drag-data-delete", context: Gdk.DragContext): void
-    on(sigName: "drag-data-delete", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "drag-data-delete", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "drag-data-delete", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "drag-data-get", callback: (($obj: FileChooser, context: Gdk.DragContext, data: Gtk.SelectionData, info: number, time: number) => void)): number
-    connect_after(sigName: "drag-data-get", callback: (($obj: FileChooser, context: Gdk.DragContext, data: Gtk.SelectionData, info: number, time: number) => void)): number
+    on(sigName: "drag-data-get", callback: (context: Gdk.DragContext, data: Gtk.SelectionData, info: number, time: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "drag-data-get", callback: (context: Gdk.DragContext, data: Gtk.SelectionData, info: number, time: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "drag-data-get", callback: (context: Gdk.DragContext, data: Gtk.SelectionData, info: number, time: number) => void): NodeJS.EventEmitter
     emit(sigName: "drag-data-get", context: Gdk.DragContext, data: Gtk.SelectionData, info: number, time: number): void
-    on(sigName: "drag-data-get", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "drag-data-get", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "drag-data-get", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "drag-data-received", callback: (($obj: FileChooser, context: Gdk.DragContext, x: number, y: number, data: Gtk.SelectionData, info: number, time: number) => void)): number
-    connect_after(sigName: "drag-data-received", callback: (($obj: FileChooser, context: Gdk.DragContext, x: number, y: number, data: Gtk.SelectionData, info: number, time: number) => void)): number
+    on(sigName: "drag-data-received", callback: (context: Gdk.DragContext, x: number, y: number, data: Gtk.SelectionData, info: number, time: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "drag-data-received", callback: (context: Gdk.DragContext, x: number, y: number, data: Gtk.SelectionData, info: number, time: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "drag-data-received", callback: (context: Gdk.DragContext, x: number, y: number, data: Gtk.SelectionData, info: number, time: number) => void): NodeJS.EventEmitter
     emit(sigName: "drag-data-received", context: Gdk.DragContext, x: number, y: number, data: Gtk.SelectionData, info: number, time: number): void
-    on(sigName: "drag-data-received", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "drag-data-received", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "drag-data-received", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "drag-drop", callback: (($obj: FileChooser, context: Gdk.DragContext, x: number, y: number, time: number) => boolean)): number
-    connect_after(sigName: "drag-drop", callback: (($obj: FileChooser, context: Gdk.DragContext, x: number, y: number, time: number) => boolean)): number
+    on(sigName: "drag-drop", callback: (context: Gdk.DragContext, x: number, y: number, time: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "drag-drop", callback: (context: Gdk.DragContext, x: number, y: number, time: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "drag-drop", callback: (context: Gdk.DragContext, x: number, y: number, time: number) => void): NodeJS.EventEmitter
     emit(sigName: "drag-drop", context: Gdk.DragContext, x: number, y: number, time: number): void
-    on(sigName: "drag-drop", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "drag-drop", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "drag-drop", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "drag-end", callback: (($obj: FileChooser, context: Gdk.DragContext) => void)): number
-    connect_after(sigName: "drag-end", callback: (($obj: FileChooser, context: Gdk.DragContext) => void)): number
+    on(sigName: "drag-end", callback: (context: Gdk.DragContext) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "drag-end", callback: (context: Gdk.DragContext) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "drag-end", callback: (context: Gdk.DragContext) => void): NodeJS.EventEmitter
     emit(sigName: "drag-end", context: Gdk.DragContext): void
-    on(sigName: "drag-end", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "drag-end", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "drag-end", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "drag-failed", callback: (($obj: FileChooser, context: Gdk.DragContext, result: Gtk.DragResult) => boolean)): number
-    connect_after(sigName: "drag-failed", callback: (($obj: FileChooser, context: Gdk.DragContext, result: Gtk.DragResult) => boolean)): number
+    on(sigName: "drag-failed", callback: (context: Gdk.DragContext, result: Gtk.DragResult) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "drag-failed", callback: (context: Gdk.DragContext, result: Gtk.DragResult) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "drag-failed", callback: (context: Gdk.DragContext, result: Gtk.DragResult) => void): NodeJS.EventEmitter
     emit(sigName: "drag-failed", context: Gdk.DragContext, result: Gtk.DragResult): void
-    on(sigName: "drag-failed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "drag-failed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "drag-failed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "drag-leave", callback: (($obj: FileChooser, context: Gdk.DragContext, time: number) => void)): number
-    connect_after(sigName: "drag-leave", callback: (($obj: FileChooser, context: Gdk.DragContext, time: number) => void)): number
+    on(sigName: "drag-leave", callback: (context: Gdk.DragContext, time: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "drag-leave", callback: (context: Gdk.DragContext, time: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "drag-leave", callback: (context: Gdk.DragContext, time: number) => void): NodeJS.EventEmitter
     emit(sigName: "drag-leave", context: Gdk.DragContext, time: number): void
-    on(sigName: "drag-leave", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "drag-leave", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "drag-leave", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "drag-motion", callback: (($obj: FileChooser, context: Gdk.DragContext, x: number, y: number, time: number) => boolean)): number
-    connect_after(sigName: "drag-motion", callback: (($obj: FileChooser, context: Gdk.DragContext, x: number, y: number, time: number) => boolean)): number
+    on(sigName: "drag-motion", callback: (context: Gdk.DragContext, x: number, y: number, time: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "drag-motion", callback: (context: Gdk.DragContext, x: number, y: number, time: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "drag-motion", callback: (context: Gdk.DragContext, x: number, y: number, time: number) => void): NodeJS.EventEmitter
     emit(sigName: "drag-motion", context: Gdk.DragContext, x: number, y: number, time: number): void
-    on(sigName: "drag-motion", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "drag-motion", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "drag-motion", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "draw", callback: (($obj: FileChooser, cr: cairo.Context) => boolean)): number
-    connect_after(sigName: "draw", callback: (($obj: FileChooser, cr: cairo.Context) => boolean)): number
+    on(sigName: "draw", callback: (cr: cairo.Context) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "draw", callback: (cr: cairo.Context) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "draw", callback: (cr: cairo.Context) => void): NodeJS.EventEmitter
     emit(sigName: "draw", cr: cairo.Context): void
-    on(sigName: "draw", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "draw", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "draw", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "enter-notify-event", callback: (($obj: FileChooser, event: Gdk.EventCrossing) => boolean)): number
-    connect_after(sigName: "enter-notify-event", callback: (($obj: FileChooser, event: Gdk.EventCrossing) => boolean)): number
+    on(sigName: "enter-notify-event", callback: (event: Gdk.EventCrossing) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "enter-notify-event", callback: (event: Gdk.EventCrossing) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "enter-notify-event", callback: (event: Gdk.EventCrossing) => void): NodeJS.EventEmitter
     emit(sigName: "enter-notify-event", event: Gdk.EventCrossing): void
-    on(sigName: "enter-notify-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "enter-notify-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "enter-notify-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "event", callback: (($obj: FileChooser, event: Gdk.Event) => boolean)): number
-    connect_after(sigName: "event", callback: (($obj: FileChooser, event: Gdk.Event) => boolean)): number
+    on(sigName: "event", callback: (event: Gdk.Event) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "event", callback: (event: Gdk.Event) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "event", callback: (event: Gdk.Event) => void): NodeJS.EventEmitter
     emit(sigName: "event", event: Gdk.Event): void
-    on(sigName: "event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "event-after", callback: (($obj: FileChooser, event: Gdk.Event) => void)): number
-    connect_after(sigName: "event-after", callback: (($obj: FileChooser, event: Gdk.Event) => void)): number
+    on(sigName: "event-after", callback: (event: Gdk.Event) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "event-after", callback: (event: Gdk.Event) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "event-after", callback: (event: Gdk.Event) => void): NodeJS.EventEmitter
     emit(sigName: "event-after", event: Gdk.Event): void
-    on(sigName: "event-after", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "event-after", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "event-after", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "focus", callback: (($obj: FileChooser, direction: Gtk.DirectionType) => boolean)): number
-    connect_after(sigName: "focus", callback: (($obj: FileChooser, direction: Gtk.DirectionType) => boolean)): number
+    on(sigName: "focus", callback: (direction: Gtk.DirectionType) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "focus", callback: (direction: Gtk.DirectionType) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "focus", callback: (direction: Gtk.DirectionType) => void): NodeJS.EventEmitter
     emit(sigName: "focus", direction: Gtk.DirectionType): void
-    on(sigName: "focus", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "focus", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "focus", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "focus-in-event", callback: (($obj: FileChooser, event: Gdk.EventFocus) => boolean)): number
-    connect_after(sigName: "focus-in-event", callback: (($obj: FileChooser, event: Gdk.EventFocus) => boolean)): number
+    on(sigName: "focus-in-event", callback: (event: Gdk.EventFocus) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "focus-in-event", callback: (event: Gdk.EventFocus) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "focus-in-event", callback: (event: Gdk.EventFocus) => void): NodeJS.EventEmitter
     emit(sigName: "focus-in-event", event: Gdk.EventFocus): void
-    on(sigName: "focus-in-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "focus-in-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "focus-in-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "focus-out-event", callback: (($obj: FileChooser, event: Gdk.EventFocus) => boolean)): number
-    connect_after(sigName: "focus-out-event", callback: (($obj: FileChooser, event: Gdk.EventFocus) => boolean)): number
+    on(sigName: "focus-out-event", callback: (event: Gdk.EventFocus) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "focus-out-event", callback: (event: Gdk.EventFocus) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "focus-out-event", callback: (event: Gdk.EventFocus) => void): NodeJS.EventEmitter
     emit(sigName: "focus-out-event", event: Gdk.EventFocus): void
-    on(sigName: "focus-out-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "focus-out-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "focus-out-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "grab-broken-event", callback: (($obj: FileChooser, event: Gdk.EventGrabBroken) => boolean)): number
-    connect_after(sigName: "grab-broken-event", callback: (($obj: FileChooser, event: Gdk.EventGrabBroken) => boolean)): number
+    on(sigName: "grab-broken-event", callback: (event: Gdk.EventGrabBroken) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "grab-broken-event", callback: (event: Gdk.EventGrabBroken) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "grab-broken-event", callback: (event: Gdk.EventGrabBroken) => void): NodeJS.EventEmitter
     emit(sigName: "grab-broken-event", event: Gdk.EventGrabBroken): void
-    on(sigName: "grab-broken-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "grab-broken-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "grab-broken-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "grab-focus", callback: (($obj: FileChooser) => void)): number
-    connect_after(sigName: "grab-focus", callback: (($obj: FileChooser) => void)): number
+    on(sigName: "grab-focus", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "grab-focus", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "grab-focus", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "grab-focus"): void
-    on(sigName: "grab-focus", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "grab-focus", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "grab-focus", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "grab-notify", callback: (($obj: FileChooser, wasGrabbed: boolean) => void)): number
-    connect_after(sigName: "grab-notify", callback: (($obj: FileChooser, wasGrabbed: boolean) => void)): number
+    on(sigName: "grab-notify", callback: (wasGrabbed: boolean) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "grab-notify", callback: (wasGrabbed: boolean) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "grab-notify", callback: (wasGrabbed: boolean) => void): NodeJS.EventEmitter
     emit(sigName: "grab-notify", wasGrabbed: boolean): void
-    on(sigName: "grab-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "grab-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "grab-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "hide", callback: (($obj: FileChooser) => void)): number
-    connect_after(sigName: "hide", callback: (($obj: FileChooser) => void)): number
+    on(sigName: "hide", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "hide", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "hide", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "hide"): void
-    on(sigName: "hide", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "hide", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "hide", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "hierarchy-changed", callback: (($obj: FileChooser, previousToplevel?: Gtk.Widget | null) => void)): number
-    connect_after(sigName: "hierarchy-changed", callback: (($obj: FileChooser, previousToplevel?: Gtk.Widget | null) => void)): number
+    on(sigName: "hierarchy-changed", callback: (previousToplevel?: Gtk.Widget | null) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "hierarchy-changed", callback: (previousToplevel?: Gtk.Widget | null) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "hierarchy-changed", callback: (previousToplevel?: Gtk.Widget | null) => void): NodeJS.EventEmitter
     emit(sigName: "hierarchy-changed", previousToplevel?: Gtk.Widget | null): void
-    on(sigName: "hierarchy-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "hierarchy-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "hierarchy-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "key-press-event", callback: (($obj: FileChooser, event: Gdk.EventKey) => boolean)): number
-    connect_after(sigName: "key-press-event", callback: (($obj: FileChooser, event: Gdk.EventKey) => boolean)): number
+    on(sigName: "key-press-event", callback: (event: Gdk.EventKey) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "key-press-event", callback: (event: Gdk.EventKey) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "key-press-event", callback: (event: Gdk.EventKey) => void): NodeJS.EventEmitter
     emit(sigName: "key-press-event", event: Gdk.EventKey): void
-    on(sigName: "key-press-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "key-press-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "key-press-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "key-release-event", callback: (($obj: FileChooser, event: Gdk.EventKey) => boolean)): number
-    connect_after(sigName: "key-release-event", callback: (($obj: FileChooser, event: Gdk.EventKey) => boolean)): number
+    on(sigName: "key-release-event", callback: (event: Gdk.EventKey) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "key-release-event", callback: (event: Gdk.EventKey) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "key-release-event", callback: (event: Gdk.EventKey) => void): NodeJS.EventEmitter
     emit(sigName: "key-release-event", event: Gdk.EventKey): void
-    on(sigName: "key-release-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "key-release-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "key-release-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "keynav-failed", callback: (($obj: FileChooser, direction: Gtk.DirectionType) => boolean)): number
-    connect_after(sigName: "keynav-failed", callback: (($obj: FileChooser, direction: Gtk.DirectionType) => boolean)): number
+    on(sigName: "keynav-failed", callback: (direction: Gtk.DirectionType) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "keynav-failed", callback: (direction: Gtk.DirectionType) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "keynav-failed", callback: (direction: Gtk.DirectionType) => void): NodeJS.EventEmitter
     emit(sigName: "keynav-failed", direction: Gtk.DirectionType): void
-    on(sigName: "keynav-failed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "keynav-failed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "keynav-failed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "leave-notify-event", callback: (($obj: FileChooser, event: Gdk.EventCrossing) => boolean)): number
-    connect_after(sigName: "leave-notify-event", callback: (($obj: FileChooser, event: Gdk.EventCrossing) => boolean)): number
+    on(sigName: "leave-notify-event", callback: (event: Gdk.EventCrossing) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "leave-notify-event", callback: (event: Gdk.EventCrossing) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "leave-notify-event", callback: (event: Gdk.EventCrossing) => void): NodeJS.EventEmitter
     emit(sigName: "leave-notify-event", event: Gdk.EventCrossing): void
-    on(sigName: "leave-notify-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "leave-notify-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "leave-notify-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "map", callback: (($obj: FileChooser) => void)): number
-    connect_after(sigName: "map", callback: (($obj: FileChooser) => void)): number
+    on(sigName: "map", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "map", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "map", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "map"): void
-    on(sigName: "map", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "map", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "map", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "map-event", callback: (($obj: FileChooser, event: Gdk.EventAny) => boolean)): number
-    connect_after(sigName: "map-event", callback: (($obj: FileChooser, event: Gdk.EventAny) => boolean)): number
+    on(sigName: "map-event", callback: (event: Gdk.EventAny) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "map-event", callback: (event: Gdk.EventAny) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "map-event", callback: (event: Gdk.EventAny) => void): NodeJS.EventEmitter
     emit(sigName: "map-event", event: Gdk.EventAny): void
-    on(sigName: "map-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "map-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "map-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "mnemonic-activate", callback: (($obj: FileChooser, groupCycling: boolean) => boolean)): number
-    connect_after(sigName: "mnemonic-activate", callback: (($obj: FileChooser, groupCycling: boolean) => boolean)): number
+    on(sigName: "mnemonic-activate", callback: (groupCycling: boolean) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "mnemonic-activate", callback: (groupCycling: boolean) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "mnemonic-activate", callback: (groupCycling: boolean) => void): NodeJS.EventEmitter
     emit(sigName: "mnemonic-activate", groupCycling: boolean): void
-    on(sigName: "mnemonic-activate", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "mnemonic-activate", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "mnemonic-activate", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "motion-notify-event", callback: (($obj: FileChooser, event: Gdk.EventMotion) => boolean)): number
-    connect_after(sigName: "motion-notify-event", callback: (($obj: FileChooser, event: Gdk.EventMotion) => boolean)): number
+    on(sigName: "motion-notify-event", callback: (event: Gdk.EventMotion) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "motion-notify-event", callback: (event: Gdk.EventMotion) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "motion-notify-event", callback: (event: Gdk.EventMotion) => void): NodeJS.EventEmitter
     emit(sigName: "motion-notify-event", event: Gdk.EventMotion): void
-    on(sigName: "motion-notify-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "motion-notify-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "motion-notify-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "move-focus", callback: (($obj: FileChooser, direction: Gtk.DirectionType) => void)): number
-    connect_after(sigName: "move-focus", callback: (($obj: FileChooser, direction: Gtk.DirectionType) => void)): number
+    on(sigName: "move-focus", callback: (direction: Gtk.DirectionType) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "move-focus", callback: (direction: Gtk.DirectionType) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "move-focus", callback: (direction: Gtk.DirectionType) => void): NodeJS.EventEmitter
     emit(sigName: "move-focus", direction: Gtk.DirectionType): void
-    on(sigName: "move-focus", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "move-focus", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "move-focus", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "parent-set", callback: (($obj: FileChooser, oldParent?: Gtk.Widget | null) => void)): number
-    connect_after(sigName: "parent-set", callback: (($obj: FileChooser, oldParent?: Gtk.Widget | null) => void)): number
+    on(sigName: "parent-set", callback: (oldParent?: Gtk.Widget | null) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "parent-set", callback: (oldParent?: Gtk.Widget | null) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "parent-set", callback: (oldParent?: Gtk.Widget | null) => void): NodeJS.EventEmitter
     emit(sigName: "parent-set", oldParent?: Gtk.Widget | null): void
-    on(sigName: "parent-set", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "parent-set", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "parent-set", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "popup-menu", callback: (($obj: FileChooser) => boolean)): number
-    connect_after(sigName: "popup-menu", callback: (($obj: FileChooser) => boolean)): number
+    on(sigName: "popup-menu", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "popup-menu", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "popup-menu", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "popup-menu"): void
-    on(sigName: "popup-menu", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "popup-menu", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "popup-menu", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "property-notify-event", callback: (($obj: FileChooser, event: Gdk.EventProperty) => boolean)): number
-    connect_after(sigName: "property-notify-event", callback: (($obj: FileChooser, event: Gdk.EventProperty) => boolean)): number
+    on(sigName: "property-notify-event", callback: (event: Gdk.EventProperty) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "property-notify-event", callback: (event: Gdk.EventProperty) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "property-notify-event", callback: (event: Gdk.EventProperty) => void): NodeJS.EventEmitter
     emit(sigName: "property-notify-event", event: Gdk.EventProperty): void
-    on(sigName: "property-notify-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "property-notify-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "property-notify-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "proximity-in-event", callback: (($obj: FileChooser, event: Gdk.EventProximity) => boolean)): number
-    connect_after(sigName: "proximity-in-event", callback: (($obj: FileChooser, event: Gdk.EventProximity) => boolean)): number
+    on(sigName: "proximity-in-event", callback: (event: Gdk.EventProximity) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "proximity-in-event", callback: (event: Gdk.EventProximity) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "proximity-in-event", callback: (event: Gdk.EventProximity) => void): NodeJS.EventEmitter
     emit(sigName: "proximity-in-event", event: Gdk.EventProximity): void
-    on(sigName: "proximity-in-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "proximity-in-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "proximity-in-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "proximity-out-event", callback: (($obj: FileChooser, event: Gdk.EventProximity) => boolean)): number
-    connect_after(sigName: "proximity-out-event", callback: (($obj: FileChooser, event: Gdk.EventProximity) => boolean)): number
+    on(sigName: "proximity-out-event", callback: (event: Gdk.EventProximity) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "proximity-out-event", callback: (event: Gdk.EventProximity) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "proximity-out-event", callback: (event: Gdk.EventProximity) => void): NodeJS.EventEmitter
     emit(sigName: "proximity-out-event", event: Gdk.EventProximity): void
-    on(sigName: "proximity-out-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "proximity-out-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "proximity-out-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "query-tooltip", callback: (($obj: FileChooser, x: number, y: number, keyboardMode: boolean, tooltip: Gtk.Tooltip) => boolean)): number
-    connect_after(sigName: "query-tooltip", callback: (($obj: FileChooser, x: number, y: number, keyboardMode: boolean, tooltip: Gtk.Tooltip) => boolean)): number
+    on(sigName: "query-tooltip", callback: (x: number, y: number, keyboardMode: boolean, tooltip: Gtk.Tooltip) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "query-tooltip", callback: (x: number, y: number, keyboardMode: boolean, tooltip: Gtk.Tooltip) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "query-tooltip", callback: (x: number, y: number, keyboardMode: boolean, tooltip: Gtk.Tooltip) => void): NodeJS.EventEmitter
     emit(sigName: "query-tooltip", x: number, y: number, keyboardMode: boolean, tooltip: Gtk.Tooltip): void
-    on(sigName: "query-tooltip", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "query-tooltip", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "query-tooltip", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "realize", callback: (($obj: FileChooser) => void)): number
-    connect_after(sigName: "realize", callback: (($obj: FileChooser) => void)): number
+    on(sigName: "realize", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "realize", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "realize", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "realize"): void
-    on(sigName: "realize", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "realize", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "realize", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "screen-changed", callback: (($obj: FileChooser, previousScreen?: Gdk.Screen | null) => void)): number
-    connect_after(sigName: "screen-changed", callback: (($obj: FileChooser, previousScreen?: Gdk.Screen | null) => void)): number
+    on(sigName: "screen-changed", callback: (previousScreen?: Gdk.Screen | null) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "screen-changed", callback: (previousScreen?: Gdk.Screen | null) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "screen-changed", callback: (previousScreen?: Gdk.Screen | null) => void): NodeJS.EventEmitter
     emit(sigName: "screen-changed", previousScreen?: Gdk.Screen | null): void
-    on(sigName: "screen-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "screen-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "screen-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "scroll-event", callback: (($obj: FileChooser, event: Gdk.EventScroll) => boolean)): number
-    connect_after(sigName: "scroll-event", callback: (($obj: FileChooser, event: Gdk.EventScroll) => boolean)): number
+    on(sigName: "scroll-event", callback: (event: Gdk.EventScroll) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "scroll-event", callback: (event: Gdk.EventScroll) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "scroll-event", callback: (event: Gdk.EventScroll) => void): NodeJS.EventEmitter
     emit(sigName: "scroll-event", event: Gdk.EventScroll): void
-    on(sigName: "scroll-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "scroll-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "scroll-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "selection-clear-event", callback: (($obj: FileChooser, event: Gdk.EventSelection) => boolean)): number
-    connect_after(sigName: "selection-clear-event", callback: (($obj: FileChooser, event: Gdk.EventSelection) => boolean)): number
+    on(sigName: "selection-clear-event", callback: (event: Gdk.EventSelection) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "selection-clear-event", callback: (event: Gdk.EventSelection) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "selection-clear-event", callback: (event: Gdk.EventSelection) => void): NodeJS.EventEmitter
     emit(sigName: "selection-clear-event", event: Gdk.EventSelection): void
-    on(sigName: "selection-clear-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "selection-clear-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "selection-clear-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "selection-get", callback: (($obj: FileChooser, data: Gtk.SelectionData, info: number, time: number) => void)): number
-    connect_after(sigName: "selection-get", callback: (($obj: FileChooser, data: Gtk.SelectionData, info: number, time: number) => void)): number
+    on(sigName: "selection-get", callback: (data: Gtk.SelectionData, info: number, time: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "selection-get", callback: (data: Gtk.SelectionData, info: number, time: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "selection-get", callback: (data: Gtk.SelectionData, info: number, time: number) => void): NodeJS.EventEmitter
     emit(sigName: "selection-get", data: Gtk.SelectionData, info: number, time: number): void
-    on(sigName: "selection-get", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "selection-get", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "selection-get", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "selection-notify-event", callback: (($obj: FileChooser, event: Gdk.EventSelection) => boolean)): number
-    connect_after(sigName: "selection-notify-event", callback: (($obj: FileChooser, event: Gdk.EventSelection) => boolean)): number
+    on(sigName: "selection-notify-event", callback: (event: Gdk.EventSelection) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "selection-notify-event", callback: (event: Gdk.EventSelection) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "selection-notify-event", callback: (event: Gdk.EventSelection) => void): NodeJS.EventEmitter
     emit(sigName: "selection-notify-event", event: Gdk.EventSelection): void
-    on(sigName: "selection-notify-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "selection-notify-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "selection-notify-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "selection-received", callback: (($obj: FileChooser, data: Gtk.SelectionData, time: number) => void)): number
-    connect_after(sigName: "selection-received", callback: (($obj: FileChooser, data: Gtk.SelectionData, time: number) => void)): number
+    on(sigName: "selection-received", callback: (data: Gtk.SelectionData, time: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "selection-received", callback: (data: Gtk.SelectionData, time: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "selection-received", callback: (data: Gtk.SelectionData, time: number) => void): NodeJS.EventEmitter
     emit(sigName: "selection-received", data: Gtk.SelectionData, time: number): void
-    on(sigName: "selection-received", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "selection-received", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "selection-received", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "selection-request-event", callback: (($obj: FileChooser, event: Gdk.EventSelection) => boolean)): number
-    connect_after(sigName: "selection-request-event", callback: (($obj: FileChooser, event: Gdk.EventSelection) => boolean)): number
+    on(sigName: "selection-request-event", callback: (event: Gdk.EventSelection) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "selection-request-event", callback: (event: Gdk.EventSelection) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "selection-request-event", callback: (event: Gdk.EventSelection) => void): NodeJS.EventEmitter
     emit(sigName: "selection-request-event", event: Gdk.EventSelection): void
-    on(sigName: "selection-request-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "selection-request-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "selection-request-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "show", callback: (($obj: FileChooser) => void)): number
-    connect_after(sigName: "show", callback: (($obj: FileChooser) => void)): number
+    on(sigName: "show", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "show", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "show", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "show"): void
-    on(sigName: "show", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "show", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "show", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "show-help", callback: (($obj: FileChooser, helpType: Gtk.WidgetHelpType) => boolean)): number
-    connect_after(sigName: "show-help", callback: (($obj: FileChooser, helpType: Gtk.WidgetHelpType) => boolean)): number
+    on(sigName: "show-help", callback: (helpType: Gtk.WidgetHelpType) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "show-help", callback: (helpType: Gtk.WidgetHelpType) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "show-help", callback: (helpType: Gtk.WidgetHelpType) => void): NodeJS.EventEmitter
     emit(sigName: "show-help", helpType: Gtk.WidgetHelpType): void
-    on(sigName: "show-help", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "show-help", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "show-help", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "size-allocate", callback: (($obj: FileChooser, allocation: Gtk.Allocation) => void)): number
-    connect_after(sigName: "size-allocate", callback: (($obj: FileChooser, allocation: Gtk.Allocation) => void)): number
+    on(sigName: "size-allocate", callback: (allocation: Gtk.Allocation) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "size-allocate", callback: (allocation: Gtk.Allocation) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "size-allocate", callback: (allocation: Gtk.Allocation) => void): NodeJS.EventEmitter
     emit(sigName: "size-allocate", allocation: Gtk.Allocation): void
-    on(sigName: "size-allocate", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "size-allocate", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "size-allocate", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "state-changed", callback: (($obj: FileChooser, state: Gtk.StateType) => void)): number
-    connect_after(sigName: "state-changed", callback: (($obj: FileChooser, state: Gtk.StateType) => void)): number
+    on(sigName: "state-changed", callback: (state: Gtk.StateType) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "state-changed", callback: (state: Gtk.StateType) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "state-changed", callback: (state: Gtk.StateType) => void): NodeJS.EventEmitter
     emit(sigName: "state-changed", state: Gtk.StateType): void
-    on(sigName: "state-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "state-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "state-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "state-flags-changed", callback: (($obj: FileChooser, flags: Gtk.StateFlags) => void)): number
-    connect_after(sigName: "state-flags-changed", callback: (($obj: FileChooser, flags: Gtk.StateFlags) => void)): number
+    on(sigName: "state-flags-changed", callback: (flags: Gtk.StateFlags) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "state-flags-changed", callback: (flags: Gtk.StateFlags) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "state-flags-changed", callback: (flags: Gtk.StateFlags) => void): NodeJS.EventEmitter
     emit(sigName: "state-flags-changed", flags: Gtk.StateFlags): void
-    on(sigName: "state-flags-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "state-flags-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "state-flags-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "style-set", callback: (($obj: FileChooser, previousStyle?: Gtk.Style | null) => void)): number
-    connect_after(sigName: "style-set", callback: (($obj: FileChooser, previousStyle?: Gtk.Style | null) => void)): number
+    on(sigName: "style-set", callback: (previousStyle?: Gtk.Style | null) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "style-set", callback: (previousStyle?: Gtk.Style | null) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "style-set", callback: (previousStyle?: Gtk.Style | null) => void): NodeJS.EventEmitter
     emit(sigName: "style-set", previousStyle?: Gtk.Style | null): void
-    on(sigName: "style-set", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "style-set", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "style-set", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "style-updated", callback: (($obj: FileChooser) => void)): number
-    connect_after(sigName: "style-updated", callback: (($obj: FileChooser) => void)): number
+    on(sigName: "style-updated", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "style-updated", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "style-updated", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "style-updated"): void
-    on(sigName: "style-updated", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "style-updated", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "style-updated", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "touch-event", callback: (($obj: FileChooser, object: Gdk.Event) => boolean)): number
-    connect_after(sigName: "touch-event", callback: (($obj: FileChooser, object: Gdk.Event) => boolean)): number
+    on(sigName: "touch-event", callback: (object: Gdk.Event) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "touch-event", callback: (object: Gdk.Event) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "touch-event", callback: (object: Gdk.Event) => void): NodeJS.EventEmitter
     emit(sigName: "touch-event", object: Gdk.Event): void
-    on(sigName: "touch-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "touch-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "touch-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "unmap", callback: (($obj: FileChooser) => void)): number
-    connect_after(sigName: "unmap", callback: (($obj: FileChooser) => void)): number
+    on(sigName: "unmap", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "unmap", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "unmap", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "unmap"): void
-    on(sigName: "unmap", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "unmap", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "unmap", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "unmap-event", callback: (($obj: FileChooser, event: Gdk.EventAny) => boolean)): number
-    connect_after(sigName: "unmap-event", callback: (($obj: FileChooser, event: Gdk.EventAny) => boolean)): number
+    on(sigName: "unmap-event", callback: (event: Gdk.EventAny) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "unmap-event", callback: (event: Gdk.EventAny) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "unmap-event", callback: (event: Gdk.EventAny) => void): NodeJS.EventEmitter
     emit(sigName: "unmap-event", event: Gdk.EventAny): void
-    on(sigName: "unmap-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "unmap-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "unmap-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "unrealize", callback: (($obj: FileChooser) => void)): number
-    connect_after(sigName: "unrealize", callback: (($obj: FileChooser) => void)): number
+    on(sigName: "unrealize", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "unrealize", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "unrealize", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "unrealize"): void
-    on(sigName: "unrealize", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "unrealize", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "unrealize", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "visibility-notify-event", callback: (($obj: FileChooser, event: Gdk.EventVisibility) => boolean)): number
-    connect_after(sigName: "visibility-notify-event", callback: (($obj: FileChooser, event: Gdk.EventVisibility) => boolean)): number
+    on(sigName: "visibility-notify-event", callback: (event: Gdk.EventVisibility) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "visibility-notify-event", callback: (event: Gdk.EventVisibility) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "visibility-notify-event", callback: (event: Gdk.EventVisibility) => void): NodeJS.EventEmitter
     emit(sigName: "visibility-notify-event", event: Gdk.EventVisibility): void
-    on(sigName: "visibility-notify-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "visibility-notify-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "visibility-notify-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "window-state-event", callback: (($obj: FileChooser, event: Gdk.EventWindowState) => boolean)): number
-    connect_after(sigName: "window-state-event", callback: (($obj: FileChooser, event: Gdk.EventWindowState) => boolean)): number
+    on(sigName: "window-state-event", callback: (event: Gdk.EventWindowState) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "window-state-event", callback: (event: Gdk.EventWindowState) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "window-state-event", callback: (event: Gdk.EventWindowState) => void): NodeJS.EventEmitter
     emit(sigName: "window-state-event", event: Gdk.EventWindowState): void
-    on(sigName: "window-state-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "window-state-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "window-state-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: FileChooser, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: FileChooser, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of Gtk.FileChooser */
+    /* Signals of Gtk-3.0.Gtk.FileChooser */
     connect(sigName: "confirm-overwrite", callback: (($obj: FileChooser) => Gtk.FileChooserConfirmation)): number
-    connect_after(sigName: "confirm-overwrite", callback: (($obj: FileChooser) => Gtk.FileChooserConfirmation)): number
+    on(sigName: "confirm-overwrite", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "confirm-overwrite", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "confirm-overwrite", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "confirm-overwrite"): void
-    on(sigName: "confirm-overwrite", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "confirm-overwrite", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "confirm-overwrite", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "current-folder-changed", callback: (($obj: FileChooser) => void)): number
-    connect_after(sigName: "current-folder-changed", callback: (($obj: FileChooser) => void)): number
+    on(sigName: "current-folder-changed", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "current-folder-changed", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "current-folder-changed", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "current-folder-changed"): void
-    on(sigName: "current-folder-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "current-folder-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "current-folder-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "file-activated", callback: (($obj: FileChooser) => void)): number
-    connect_after(sigName: "file-activated", callback: (($obj: FileChooser) => void)): number
+    on(sigName: "file-activated", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "file-activated", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "file-activated", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "file-activated"): void
-    on(sigName: "file-activated", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "file-activated", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "file-activated", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "selection-changed", callback: (($obj: FileChooser) => void)): number
-    connect_after(sigName: "selection-changed", callback: (($obj: FileChooser) => void)): number
+    on(sigName: "selection-changed", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "selection-changed", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "selection-changed", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "selection-changed"): void
-    on(sigName: "selection-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "selection-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "selection-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "update-preview", callback: (($obj: FileChooser) => void)): number
-    connect_after(sigName: "update-preview", callback: (($obj: FileChooser) => void)): number
+    on(sigName: "update-preview", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "update-preview", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "update-preview", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "update-preview"): void
-    on(sigName: "update-preview", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "update-preview", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "update-preview", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::accept-focus", callback: (($obj: FileChooser, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::accept-focus", callback: (($obj: FileChooser, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::accept-focus", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -2311,12 +2029,12 @@ export class FileChooser {
 export interface Image_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class Image {
-    /* Fields of Eog.Image */
+    /* Fields of Eog-3.0.Eog.Image */
     parent: GObject.Object
     priv: ImagePrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Eog.Image */
+    /* Methods of Eog-3.0.Eog.Image */
     autorotate(): void
     cancelLoad(): void
     dataRef(): void
@@ -2350,7 +2068,7 @@ export class Image {
     startAnimation(): boolean
     transform(trans: Transform, job: Job): void
     undo(): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -2372,65 +2090,43 @@ export class Image {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of Eog.Image */
-    vfuncChanged(): void
-    vfuncFileChanged(): void
-    vfuncNextFrame(delay: number): void
-    vfuncSaveProgress(progress: number): void
-    vfuncSizePrepared(width: number, height: number): void
-    vfuncThumbnailChanged(): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Eog.Image */
+    /* Signals of Eog-3.0.Eog.Image */
     connect(sigName: "changed", callback: (($obj: Image) => void)): number
-    connect_after(sigName: "changed", callback: (($obj: Image) => void)): number
+    on(sigName: "changed", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "changed", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "changed", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "changed"): void
-    on(sigName: "changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "file-changed", callback: (($obj: Image) => void)): number
-    connect_after(sigName: "file-changed", callback: (($obj: Image) => void)): number
+    on(sigName: "file-changed", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "file-changed", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "file-changed", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "file-changed"): void
-    on(sigName: "file-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "file-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "file-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "next-frame", callback: (($obj: Image, delay: number) => void)): number
-    connect_after(sigName: "next-frame", callback: (($obj: Image, delay: number) => void)): number
+    on(sigName: "next-frame", callback: (delay: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "next-frame", callback: (delay: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "next-frame", callback: (delay: number) => void): NodeJS.EventEmitter
     emit(sigName: "next-frame", delay: number): void
-    on(sigName: "next-frame", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "next-frame", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "next-frame", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "save-progress", callback: (($obj: Image, object: number) => void)): number
-    connect_after(sigName: "save-progress", callback: (($obj: Image, object: number) => void)): number
+    on(sigName: "save-progress", callback: (object: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "save-progress", callback: (object: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "save-progress", callback: (object: number) => void): NodeJS.EventEmitter
     emit(sigName: "save-progress", object: number): void
-    on(sigName: "save-progress", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "save-progress", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "save-progress", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "size-prepared", callback: (($obj: Image, object: number, p0: number) => void)): number
-    connect_after(sigName: "size-prepared", callback: (($obj: Image, object: number, p0: number) => void)): number
+    on(sigName: "size-prepared", callback: (object: number, p0: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "size-prepared", callback: (object: number, p0: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "size-prepared", callback: (object: number, p0: number) => void): NodeJS.EventEmitter
     emit(sigName: "size-prepared", object: number, p0: number): void
-    on(sigName: "size-prepared", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "size-prepared", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "size-prepared", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "thumbnail-changed", callback: (($obj: Image) => void)): number
-    connect_after(sigName: "thumbnail-changed", callback: (($obj: Image) => void)): number
+    on(sigName: "thumbnail-changed", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "thumbnail-changed", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "thumbnail-changed", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "thumbnail-changed"): void
-    on(sigName: "thumbnail-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "thumbnail-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "thumbnail-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Image, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Image, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -2450,7 +2146,7 @@ export class Image {
 export interface ImageSaveInfo_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class ImageSaveInfo {
-    /* Fields of Eog.ImageSaveInfo */
+    /* Fields of Eog-3.0.Eog.ImageSaveInfo */
     parent: GObject.Object
     file: Gio.File
     format: string
@@ -2460,9 +2156,9 @@ export class ImageSaveInfo {
     modified: boolean
     overwrite: boolean
     jpegQuality: number
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -2484,21 +2180,12 @@ export class ImageSaveInfo {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: ImageSaveInfo, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: ImageSaveInfo, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -2518,7 +2205,7 @@ export class ImageSaveInfo {
 export interface Job_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class Job {
-    /* Fields of Eog.Job */
+    /* Fields of Eog-3.0.Eog.Job */
     parent: GObject.Object
     cancellable: Gio.Cancellable
     error: GLib.Error
@@ -2526,9 +2213,9 @@ export class Job {
     progress: number
     cancelled: boolean
     finished: boolean
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Eog.Job */
+    /* Methods of Eog-3.0.Eog.Job */
     cancel(): void
     getProgress(): number
     isCancelled(): boolean
@@ -2537,7 +2224,7 @@ export class Job {
     schedulerAddJob(): void
     schedulerAddJobWithPriority(priority: JobPriority): void
     setProgress(progress: number): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -2559,45 +2246,28 @@ export class Job {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of Eog.Job */
-    vfuncCancelled(): void
-    vfuncFinished(): void
-    vfuncProgress(progress: number): void
-    vfuncRun(): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Eog.Job */
+    /* Signals of Eog-3.0.Eog.Job */
     connect(sigName: "cancelled", callback: (($obj: Job) => void)): number
-    connect_after(sigName: "cancelled", callback: (($obj: Job) => void)): number
+    on(sigName: "cancelled", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "cancelled", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "cancelled", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "cancelled"): void
-    on(sigName: "cancelled", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "cancelled", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "cancelled", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "finished", callback: (($obj: Job) => void)): number
-    connect_after(sigName: "finished", callback: (($obj: Job) => void)): number
+    on(sigName: "finished", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "finished", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "finished", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "finished"): void
-    on(sigName: "finished", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "finished", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "finished", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "progress", callback: (($obj: Job, object: number) => void)): number
-    connect_after(sigName: "progress", callback: (($obj: Job, object: number) => void)): number
+    on(sigName: "progress", callback: (object: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "progress", callback: (object: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "progress", callback: (object: number) => void): NodeJS.EventEmitter
     emit(sigName: "progress", object: number): void
-    on(sigName: "progress", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "progress", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "progress", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Job, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Job, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -2615,21 +2285,21 @@ export class Job {
 export interface JobCopy_ConstructProps extends Job_ConstructProps {
 }
 export class JobCopy {
-    /* Fields of Eog.JobCopy */
+    /* Fields of Eog-3.0.Eog.JobCopy */
     parent: Job
     images: object[]
     destination: string
     currentPosition: number
-    /* Fields of Eog.Job */
+    /* Fields of Eog-3.0.Eog.Job */
     cancellable: Gio.Cancellable
     error: GLib.Error
     mutex: GLib.Mutex
     progress: number
     cancelled: boolean
     finished: boolean
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Eog.Job */
+    /* Methods of Eog-3.0.Eog.Job */
     cancel(): void
     getProgress(): number
     isCancelled(): boolean
@@ -2638,7 +2308,7 @@ export class JobCopy {
     schedulerAddJob(): void
     schedulerAddJobWithPriority(priority: JobPriority): void
     setProgress(progress: number): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -2660,45 +2330,28 @@ export class JobCopy {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of Eog.Job */
-    vfuncCancelled(): void
-    vfuncFinished(): void
-    vfuncProgress(progress: number): void
-    vfuncRun(): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Eog.Job */
+    /* Signals of Eog-3.0.Eog.Job */
     connect(sigName: "cancelled", callback: (($obj: JobCopy) => void)): number
-    connect_after(sigName: "cancelled", callback: (($obj: JobCopy) => void)): number
+    on(sigName: "cancelled", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "cancelled", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "cancelled", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "cancelled"): void
-    on(sigName: "cancelled", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "cancelled", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "cancelled", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "finished", callback: (($obj: JobCopy) => void)): number
-    connect_after(sigName: "finished", callback: (($obj: JobCopy) => void)): number
+    on(sigName: "finished", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "finished", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "finished", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "finished"): void
-    on(sigName: "finished", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "finished", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "finished", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "progress", callback: (($obj: JobCopy, object: number) => void)): number
-    connect_after(sigName: "progress", callback: (($obj: JobCopy, object: number) => void)): number
+    on(sigName: "progress", callback: (object: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "progress", callback: (object: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "progress", callback: (object: number) => void): NodeJS.EventEmitter
     emit(sigName: "progress", object: number): void
-    on(sigName: "progress", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "progress", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "progress", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: JobCopy, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: JobCopy, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -2716,20 +2369,20 @@ export class JobCopy {
 export interface JobLoad_ConstructProps extends Job_ConstructProps {
 }
 export class JobLoad {
-    /* Fields of Eog.JobLoad */
+    /* Fields of Eog-3.0.Eog.JobLoad */
     parent: Job
     image: Image
     data: ImageData
-    /* Fields of Eog.Job */
+    /* Fields of Eog-3.0.Eog.Job */
     cancellable: Gio.Cancellable
     error: GLib.Error
     mutex: GLib.Mutex
     progress: number
     cancelled: boolean
     finished: boolean
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Eog.Job */
+    /* Methods of Eog-3.0.Eog.Job */
     cancel(): void
     getProgress(): number
     isCancelled(): boolean
@@ -2738,7 +2391,7 @@ export class JobLoad {
     schedulerAddJob(): void
     schedulerAddJobWithPriority(priority: JobPriority): void
     setProgress(progress: number): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -2760,45 +2413,28 @@ export class JobLoad {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of Eog.Job */
-    vfuncCancelled(): void
-    vfuncFinished(): void
-    vfuncProgress(progress: number): void
-    vfuncRun(): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Eog.Job */
+    /* Signals of Eog-3.0.Eog.Job */
     connect(sigName: "cancelled", callback: (($obj: JobLoad) => void)): number
-    connect_after(sigName: "cancelled", callback: (($obj: JobLoad) => void)): number
+    on(sigName: "cancelled", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "cancelled", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "cancelled", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "cancelled"): void
-    on(sigName: "cancelled", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "cancelled", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "cancelled", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "finished", callback: (($obj: JobLoad) => void)): number
-    connect_after(sigName: "finished", callback: (($obj: JobLoad) => void)): number
+    on(sigName: "finished", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "finished", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "finished", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "finished"): void
-    on(sigName: "finished", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "finished", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "finished", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "progress", callback: (($obj: JobLoad, object: number) => void)): number
-    connect_after(sigName: "progress", callback: (($obj: JobLoad, object: number) => void)): number
+    on(sigName: "progress", callback: (object: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "progress", callback: (object: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "progress", callback: (object: number) => void): NodeJS.EventEmitter
     emit(sigName: "progress", object: number): void
-    on(sigName: "progress", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "progress", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "progress", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: JobLoad, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: JobLoad, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -2816,20 +2452,20 @@ export class JobLoad {
 export interface JobModel_ConstructProps extends Job_ConstructProps {
 }
 export class JobModel {
-    /* Fields of Eog.JobModel */
+    /* Fields of Eog-3.0.Eog.JobModel */
     parent: Job
     store: ListStore
     fileList: object[]
-    /* Fields of Eog.Job */
+    /* Fields of Eog-3.0.Eog.Job */
     cancellable: Gio.Cancellable
     error: GLib.Error
     mutex: GLib.Mutex
     progress: number
     cancelled: boolean
     finished: boolean
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Eog.Job */
+    /* Methods of Eog-3.0.Eog.Job */
     cancel(): void
     getProgress(): number
     isCancelled(): boolean
@@ -2838,7 +2474,7 @@ export class JobModel {
     schedulerAddJob(): void
     schedulerAddJobWithPriority(priority: JobPriority): void
     setProgress(progress: number): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -2860,45 +2496,28 @@ export class JobModel {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of Eog.Job */
-    vfuncCancelled(): void
-    vfuncFinished(): void
-    vfuncProgress(progress: number): void
-    vfuncRun(): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Eog.Job */
+    /* Signals of Eog-3.0.Eog.Job */
     connect(sigName: "cancelled", callback: (($obj: JobModel) => void)): number
-    connect_after(sigName: "cancelled", callback: (($obj: JobModel) => void)): number
+    on(sigName: "cancelled", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "cancelled", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "cancelled", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "cancelled"): void
-    on(sigName: "cancelled", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "cancelled", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "cancelled", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "finished", callback: (($obj: JobModel) => void)): number
-    connect_after(sigName: "finished", callback: (($obj: JobModel) => void)): number
+    on(sigName: "finished", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "finished", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "finished", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "finished"): void
-    on(sigName: "finished", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "finished", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "finished", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "progress", callback: (($obj: JobModel, object: number) => void)): number
-    connect_after(sigName: "progress", callback: (($obj: JobModel, object: number) => void)): number
+    on(sigName: "progress", callback: (object: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "progress", callback: (object: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "progress", callback: (object: number) => void): NodeJS.EventEmitter
     emit(sigName: "progress", object: number): void
-    on(sigName: "progress", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "progress", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "progress", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: JobModel, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: JobModel, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -2916,21 +2535,21 @@ export class JobModel {
 export interface JobSave_ConstructProps extends Job_ConstructProps {
 }
 export class JobSave {
-    /* Fields of Eog.JobSave */
+    /* Fields of Eog-3.0.Eog.JobSave */
     parent: Job
     images: object[]
     currentImage: Image
     currentPosition: number
-    /* Fields of Eog.Job */
+    /* Fields of Eog-3.0.Eog.Job */
     cancellable: Gio.Cancellable
     error: GLib.Error
     mutex: GLib.Mutex
     progress: number
     cancelled: boolean
     finished: boolean
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Eog.Job */
+    /* Methods of Eog-3.0.Eog.Job */
     cancel(): void
     getProgress(): number
     isCancelled(): boolean
@@ -2939,7 +2558,7 @@ export class JobSave {
     schedulerAddJob(): void
     schedulerAddJobWithPriority(priority: JobPriority): void
     setProgress(progress: number): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -2961,45 +2580,28 @@ export class JobSave {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of Eog.Job */
-    vfuncCancelled(): void
-    vfuncFinished(): void
-    vfuncProgress(progress: number): void
-    vfuncRun(): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Eog.Job */
+    /* Signals of Eog-3.0.Eog.Job */
     connect(sigName: "cancelled", callback: (($obj: JobSave) => void)): number
-    connect_after(sigName: "cancelled", callback: (($obj: JobSave) => void)): number
+    on(sigName: "cancelled", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "cancelled", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "cancelled", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "cancelled"): void
-    on(sigName: "cancelled", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "cancelled", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "cancelled", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "finished", callback: (($obj: JobSave) => void)): number
-    connect_after(sigName: "finished", callback: (($obj: JobSave) => void)): number
+    on(sigName: "finished", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "finished", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "finished", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "finished"): void
-    on(sigName: "finished", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "finished", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "finished", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "progress", callback: (($obj: JobSave, object: number) => void)): number
-    connect_after(sigName: "progress", callback: (($obj: JobSave, object: number) => void)): number
+    on(sigName: "progress", callback: (object: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "progress", callback: (object: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "progress", callback: (object: number) => void): NodeJS.EventEmitter
     emit(sigName: "progress", object: number): void
-    on(sigName: "progress", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "progress", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "progress", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: JobSave, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: JobSave, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -3017,24 +2619,24 @@ export class JobSave {
 export interface JobSaveAs_ConstructProps extends JobSave_ConstructProps {
 }
 export class JobSaveAs {
-    /* Fields of Eog.JobSaveAs */
+    /* Fields of Eog-3.0.Eog.JobSaveAs */
     parent: JobSave
     converter: URIConverter
     file: Gio.File
-    /* Fields of Eog.JobSave */
+    /* Fields of Eog-3.0.Eog.JobSave */
     images: object[]
     currentImage: Image
     currentPosition: number
-    /* Fields of Eog.Job */
+    /* Fields of Eog-3.0.Eog.Job */
     cancellable: Gio.Cancellable
     error: GLib.Error
     mutex: GLib.Mutex
     progress: number
     cancelled: boolean
     finished: boolean
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Eog.Job */
+    /* Methods of Eog-3.0.Eog.Job */
     cancel(): void
     getProgress(): number
     isCancelled(): boolean
@@ -3043,7 +2645,7 @@ export class JobSaveAs {
     schedulerAddJob(): void
     schedulerAddJobWithPriority(priority: JobPriority): void
     setProgress(progress: number): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -3065,45 +2667,28 @@ export class JobSaveAs {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of Eog.Job */
-    vfuncCancelled(): void
-    vfuncFinished(): void
-    vfuncProgress(progress: number): void
-    vfuncRun(): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Eog.Job */
+    /* Signals of Eog-3.0.Eog.Job */
     connect(sigName: "cancelled", callback: (($obj: JobSaveAs) => void)): number
-    connect_after(sigName: "cancelled", callback: (($obj: JobSaveAs) => void)): number
+    on(sigName: "cancelled", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "cancelled", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "cancelled", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "cancelled"): void
-    on(sigName: "cancelled", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "cancelled", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "cancelled", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "finished", callback: (($obj: JobSaveAs) => void)): number
-    connect_after(sigName: "finished", callback: (($obj: JobSaveAs) => void)): number
+    on(sigName: "finished", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "finished", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "finished", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "finished"): void
-    on(sigName: "finished", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "finished", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "finished", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "progress", callback: (($obj: JobSaveAs, object: number) => void)): number
-    connect_after(sigName: "progress", callback: (($obj: JobSaveAs, object: number) => void)): number
+    on(sigName: "progress", callback: (object: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "progress", callback: (object: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "progress", callback: (object: number) => void): NodeJS.EventEmitter
     emit(sigName: "progress", object: number): void
-    on(sigName: "progress", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "progress", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "progress", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: JobSaveAs, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: JobSaveAs, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -3122,20 +2707,20 @@ export class JobSaveAs {
 export interface JobThumbnail_ConstructProps extends Job_ConstructProps {
 }
 export class JobThumbnail {
-    /* Fields of Eog.JobThumbnail */
+    /* Fields of Eog-3.0.Eog.JobThumbnail */
     parent: Job
     image: Image
     thumbnail: GdkPixbuf.Pixbuf
-    /* Fields of Eog.Job */
+    /* Fields of Eog-3.0.Eog.Job */
     cancellable: Gio.Cancellable
     error: GLib.Error
     mutex: GLib.Mutex
     progress: number
     cancelled: boolean
     finished: boolean
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Eog.Job */
+    /* Methods of Eog-3.0.Eog.Job */
     cancel(): void
     getProgress(): number
     isCancelled(): boolean
@@ -3144,7 +2729,7 @@ export class JobThumbnail {
     schedulerAddJob(): void
     schedulerAddJobWithPriority(priority: JobPriority): void
     setProgress(progress: number): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -3166,45 +2751,28 @@ export class JobThumbnail {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of Eog.Job */
-    vfuncCancelled(): void
-    vfuncFinished(): void
-    vfuncProgress(progress: number): void
-    vfuncRun(): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Eog.Job */
+    /* Signals of Eog-3.0.Eog.Job */
     connect(sigName: "cancelled", callback: (($obj: JobThumbnail) => void)): number
-    connect_after(sigName: "cancelled", callback: (($obj: JobThumbnail) => void)): number
+    on(sigName: "cancelled", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "cancelled", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "cancelled", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "cancelled"): void
-    on(sigName: "cancelled", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "cancelled", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "cancelled", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "finished", callback: (($obj: JobThumbnail) => void)): number
-    connect_after(sigName: "finished", callback: (($obj: JobThumbnail) => void)): number
+    on(sigName: "finished", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "finished", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "finished", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "finished"): void
-    on(sigName: "finished", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "finished", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "finished", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "progress", callback: (($obj: JobThumbnail, object: number) => void)): number
-    connect_after(sigName: "progress", callback: (($obj: JobThumbnail, object: number) => void)): number
+    on(sigName: "progress", callback: (object: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "progress", callback: (object: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "progress", callback: (object: number) => void): NodeJS.EventEmitter
     emit(sigName: "progress", object: number): void
-    on(sigName: "progress", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "progress", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "progress", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: JobThumbnail, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: JobThumbnail, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -3222,20 +2790,20 @@ export class JobThumbnail {
 export interface JobTransform_ConstructProps extends Job_ConstructProps {
 }
 export class JobTransform {
-    /* Fields of Eog.JobTransform */
+    /* Fields of Eog-3.0.Eog.JobTransform */
     parent: Job
     images: object[]
     transform: Transform
-    /* Fields of Eog.Job */
+    /* Fields of Eog-3.0.Eog.Job */
     cancellable: Gio.Cancellable
     error: GLib.Error
     mutex: GLib.Mutex
     progress: number
     cancelled: boolean
     finished: boolean
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Eog.Job */
+    /* Methods of Eog-3.0.Eog.Job */
     cancel(): void
     getProgress(): number
     isCancelled(): boolean
@@ -3244,7 +2812,7 @@ export class JobTransform {
     schedulerAddJob(): void
     schedulerAddJobWithPriority(priority: JobPriority): void
     setProgress(progress: number): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -3266,45 +2834,28 @@ export class JobTransform {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of Eog.Job */
-    vfuncCancelled(): void
-    vfuncFinished(): void
-    vfuncProgress(progress: number): void
-    vfuncRun(): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Eog.Job */
+    /* Signals of Eog-3.0.Eog.Job */
     connect(sigName: "cancelled", callback: (($obj: JobTransform) => void)): number
-    connect_after(sigName: "cancelled", callback: (($obj: JobTransform) => void)): number
+    on(sigName: "cancelled", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "cancelled", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "cancelled", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "cancelled"): void
-    on(sigName: "cancelled", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "cancelled", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "cancelled", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "finished", callback: (($obj: JobTransform) => void)): number
-    connect_after(sigName: "finished", callback: (($obj: JobTransform) => void)): number
+    on(sigName: "finished", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "finished", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "finished", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "finished"): void
-    on(sigName: "finished", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "finished", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "finished", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "progress", callback: (($obj: JobTransform, object: number) => void)): number
-    connect_after(sigName: "progress", callback: (($obj: JobTransform, object: number) => void)): number
+    on(sigName: "progress", callback: (object: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "progress", callback: (object: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "progress", callback: (object: number) => void): NodeJS.EventEmitter
     emit(sigName: "progress", object: number): void
-    on(sigName: "progress", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "progress", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "progress", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: JobTransform, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: JobTransform, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -3322,12 +2873,12 @@ export class JobTransform {
 export interface ListStore_ConstructProps extends Gtk.ListStore_ConstructProps {
 }
 export class ListStore {
-    /* Fields of Eog.ListStore */
+    /* Fields of Eog-3.0.Eog.ListStore */
     parent: Gtk.ListStore
     priv: ListStorePrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Eog.ListStore */
+    /* Methods of Eog-3.0.Eog.ListStore */
     addFiles(fileList: Gio.File[]): void
     appendImage(image: Image): void
     getImageByPos(pos: number): Image
@@ -3339,24 +2890,24 @@ export class ListStore {
     thumbnailRefresh(iter: Gtk.TreeIter): void
     thumbnailSet(iter: Gtk.TreeIter): void
     thumbnailUnset(iter: Gtk.TreeIter): void
-    /* Methods of Gtk.ListStore */
-    append(): /* iter */ Gtk.TreeIter
+    /* Methods of Gtk-3.0.Gtk.ListStore */
+    append(): { iter: Gtk.TreeIter }
     clear(): void
-    insert(position: number): /* iter */ Gtk.TreeIter
-    insertAfter(sibling?: Gtk.TreeIter | null): /* iter */ Gtk.TreeIter
-    insertBefore(sibling?: Gtk.TreeIter | null): /* iter */ Gtk.TreeIter
-    insertWithValuesv(position: number, columns: number[], values: any[]): /* iter */ Gtk.TreeIter | null
+    insert(position: number): { iter: Gtk.TreeIter }
+    insertAfter(sibling?: Gtk.TreeIter | null): { iter: Gtk.TreeIter }
+    insertBefore(sibling?: Gtk.TreeIter | null): { iter: Gtk.TreeIter }
+    insertWithValuesv(position: number, columns: number[], values: any[]): { iter: Gtk.TreeIter | null }
     iterIsValid(iter: Gtk.TreeIter): boolean
     moveAfter(iter: Gtk.TreeIter, position?: Gtk.TreeIter | null): void
     moveBefore(iter: Gtk.TreeIter, position?: Gtk.TreeIter | null): void
-    prepend(): /* iter */ Gtk.TreeIter
+    prepend(): { iter: Gtk.TreeIter }
     remove(iter: Gtk.TreeIter): boolean
     reorder(newOrder: number[]): void
     setColumnTypes(types: GObject.Type[]): void
     setValue(iter: Gtk.TreeIter, column: number, value: any): void
     set(iter: Gtk.TreeIter, columns: number[], values: any[]): void
     swap(a: Gtk.TreeIter, b: Gtk.TreeIter): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -3378,42 +2929,42 @@ export class ListStore {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of Gtk.Buildable */
+    /* Methods of Gtk-3.0.Gtk.Buildable */
     addChild(builder: Gtk.Builder, child: GObject.Object, type?: string | null): void
     constructChild(builder: Gtk.Builder, name: string): GObject.Object
     customFinished(builder: Gtk.Builder, child: GObject.Object | null, tagname: string, data?: object | null): void
     customTagEnd(builder: Gtk.Builder, child: GObject.Object | null, tagname: string, data?: object | null): void
-    customTagStart(builder: Gtk.Builder, child: GObject.Object | null, tagname: string): [ /* returnType */ boolean, /* parser */ GLib.MarkupParser, /* data */ object | null ]
+    customTagStart(builder: Gtk.Builder, child: GObject.Object | null, tagname: string): { returnType: boolean, parser: GLib.MarkupParser, data: object | null }
     getInternalChild(builder: Gtk.Builder, childname: string): GObject.Object
     getName(): string
     parserFinished(builder: Gtk.Builder): void
     setBuildableProperty(builder: Gtk.Builder, name: string, value: any): void
     setName(name: string): void
-    /* Methods of Gtk.TreeDragDest */
+    /* Methods of Gtk-3.0.Gtk.TreeDragDest */
     dragDataReceived(dest: Gtk.TreePath, selectionData: Gtk.SelectionData): boolean
     rowDropPossible(destPath: Gtk.TreePath, selectionData: Gtk.SelectionData): boolean
-    /* Methods of Gtk.TreeDragSource */
+    /* Methods of Gtk-3.0.Gtk.TreeDragSource */
     dragDataDelete(path: Gtk.TreePath): boolean
     dragDataGet(path: Gtk.TreePath, selectionData: Gtk.SelectionData): boolean
     rowDraggable(path: Gtk.TreePath): boolean
-    /* Methods of Gtk.TreeModel */
+    /* Methods of Gtk-3.0.Gtk.TreeModel */
     filterNew(root?: Gtk.TreePath | null): Gtk.TreeModel
     foreach(func: Gtk.TreeModelForeachFunc): void
     getColumnType(index: number): GObject.Type
     getFlags(): Gtk.TreeModelFlags
-    getIter(path: Gtk.TreePath): [ /* returnType */ boolean, /* iter */ Gtk.TreeIter ]
-    getIterFirst(): [ /* returnType */ boolean, /* iter */ Gtk.TreeIter ]
-    getIterFromString(pathString: string): [ /* returnType */ boolean, /* iter */ Gtk.TreeIter ]
+    getIter(path: Gtk.TreePath): { returnType: boolean, iter: Gtk.TreeIter }
+    getIterFirst(): { returnType: boolean, iter: Gtk.TreeIter }
+    getIterFromString(pathString: string): { returnType: boolean, iter: Gtk.TreeIter }
     getNColumns(): number
     getPath(iter: Gtk.TreeIter): Gtk.TreePath
     getStringFromIter(iter: Gtk.TreeIter): string
-    getValue(iter: Gtk.TreeIter, column: number): /* value */ any
-    iterChildren(parent?: Gtk.TreeIter | null): [ /* returnType */ boolean, /* iter */ Gtk.TreeIter ]
+    getValue(iter: Gtk.TreeIter, column: number): { value: any }
+    iterChildren(parent?: Gtk.TreeIter | null): { returnType: boolean, iter: Gtk.TreeIter }
     iterHasChild(iter: Gtk.TreeIter): boolean
     iterNChildren(iter?: Gtk.TreeIter | null): number
     iterNext(iter: Gtk.TreeIter): boolean
-    iterNthChild(parent: Gtk.TreeIter | null, n: number): [ /* returnType */ boolean, /* iter */ Gtk.TreeIter ]
-    iterParent(child: Gtk.TreeIter): [ /* returnType */ boolean, /* iter */ Gtk.TreeIter ]
+    iterNthChild(parent: Gtk.TreeIter | null, n: number): { returnType: boolean, iter: Gtk.TreeIter }
+    iterParent(child: Gtk.TreeIter): { returnType: boolean, iter: Gtk.TreeIter }
     iterPrevious(iter: Gtk.TreeIter): boolean
     refNode(iter: Gtk.TreeIter): void
     rowChanged(path: Gtk.TreePath, iter: Gtk.TreeIter): void
@@ -3422,107 +2973,51 @@ export class ListStore {
     rowInserted(path: Gtk.TreePath, iter: Gtk.TreeIter): void
     rowsReordered(path: Gtk.TreePath, iter: Gtk.TreeIter | null, newOrder: number[]): void
     unrefNode(iter: Gtk.TreeIter): void
-    /* Methods of Gtk.TreeSortable */
-    getSortColumnId(): [ /* returnType */ boolean, /* sortColumnId */ number, /* order */ Gtk.SortType ]
+    /* Methods of Gtk-3.0.Gtk.TreeSortable */
+    getSortColumnId(): { returnType: boolean, sortColumnId: number, order: Gtk.SortType }
     hasDefaultSortFunc(): boolean
     setDefaultSortFunc(sortFunc: Gtk.TreeIterCompareFunc): void
     setSortColumnId(sortColumnId: number, order: Gtk.SortType): void
     setSortFunc(sortColumnId: number, sortFunc: Gtk.TreeIterCompareFunc): void
     sortColumnChanged(): void
-    /* Virtual methods of Eog.ListStore */
-    vfuncAddChild(builder: Gtk.Builder, child: GObject.Object, type?: string | null): void
-    vfuncConstructChild(builder: Gtk.Builder, name: string): GObject.Object
-    vfuncCustomFinished(builder: Gtk.Builder, child: GObject.Object | null, tagname: string, data?: object | null): void
-    vfuncCustomTagEnd(builder: Gtk.Builder, child: GObject.Object | null, tagname: string, data?: object | null): void
-    vfuncCustomTagStart(builder: Gtk.Builder, child: GObject.Object | null, tagname: string): [ /* returnType */ boolean, /* parser */ GLib.MarkupParser, /* data */ object | null ]
-    vfuncGetInternalChild(builder: Gtk.Builder, childname: string): GObject.Object
-    vfuncGetName(): string
-    vfuncParserFinished(builder: Gtk.Builder): void
-    vfuncSetBuildableProperty(builder: Gtk.Builder, name: string, value: any): void
-    vfuncSetName(name: string): void
-    vfuncDragDataReceived(dest: Gtk.TreePath, selectionData: Gtk.SelectionData): boolean
-    vfuncRowDropPossible(destPath: Gtk.TreePath, selectionData: Gtk.SelectionData): boolean
-    vfuncDragDataDelete(path: Gtk.TreePath): boolean
-    vfuncDragDataGet(path: Gtk.TreePath, selectionData: Gtk.SelectionData): boolean
-    vfuncRowDraggable(path: Gtk.TreePath): boolean
-    vfuncGetColumnType(index: number): GObject.Type
-    vfuncGetFlags(): Gtk.TreeModelFlags
-    vfuncGetIter(path: Gtk.TreePath): [ /* returnType */ boolean, /* iter */ Gtk.TreeIter ]
-    vfuncGetNColumns(): number
-    vfuncGetPath(iter: Gtk.TreeIter): Gtk.TreePath
-    vfuncGetValue(iter: Gtk.TreeIter, column: number): /* value */ any
-    vfuncIterChildren(parent?: Gtk.TreeIter | null): [ /* returnType */ boolean, /* iter */ Gtk.TreeIter ]
-    vfuncIterHasChild(iter: Gtk.TreeIter): boolean
-    vfuncIterNChildren(iter?: Gtk.TreeIter | null): number
-    vfuncIterNext(iter: Gtk.TreeIter): boolean
-    vfuncIterNthChild(parent: Gtk.TreeIter | null, n: number): [ /* returnType */ boolean, /* iter */ Gtk.TreeIter ]
-    vfuncIterParent(child: Gtk.TreeIter): [ /* returnType */ boolean, /* iter */ Gtk.TreeIter ]
-    vfuncIterPrevious(iter: Gtk.TreeIter): boolean
-    vfuncRefNode(iter: Gtk.TreeIter): void
-    vfuncRowChanged(path: Gtk.TreePath, iter: Gtk.TreeIter): void
-    vfuncRowDeleted(path: Gtk.TreePath): void
-    vfuncRowHasChildToggled(path: Gtk.TreePath, iter: Gtk.TreeIter): void
-    vfuncRowInserted(path: Gtk.TreePath, iter: Gtk.TreeIter): void
-    vfuncUnrefNode(iter: Gtk.TreeIter): void
-    vfuncGetSortColumnId(): [ /* returnType */ boolean, /* sortColumnId */ number, /* order */ Gtk.SortType ]
-    vfuncHasDefaultSortFunc(): boolean
-    vfuncSetDefaultSortFunc(sortFunc: Gtk.TreeIterCompareFunc): void
-    vfuncSetSortColumnId(sortColumnId: number, order: Gtk.SortType): void
-    vfuncSetSortFunc(sortColumnId: number, sortFunc: Gtk.TreeIterCompareFunc): void
-    vfuncSortColumnChanged(): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: ListStore, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: ListStore, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of Gtk.TreeModel */
+    /* Signals of Gtk-3.0.Gtk.TreeModel */
     connect(sigName: "row-changed", callback: (($obj: ListStore, path: Gtk.TreePath, iter: Gtk.TreeIter) => void)): number
-    connect_after(sigName: "row-changed", callback: (($obj: ListStore, path: Gtk.TreePath, iter: Gtk.TreeIter) => void)): number
+    on(sigName: "row-changed", callback: (path: Gtk.TreePath, iter: Gtk.TreeIter) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "row-changed", callback: (path: Gtk.TreePath, iter: Gtk.TreeIter) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "row-changed", callback: (path: Gtk.TreePath, iter: Gtk.TreeIter) => void): NodeJS.EventEmitter
     emit(sigName: "row-changed", path: Gtk.TreePath, iter: Gtk.TreeIter): void
-    on(sigName: "row-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "row-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "row-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "row-deleted", callback: (($obj: ListStore, path: Gtk.TreePath) => void)): number
-    connect_after(sigName: "row-deleted", callback: (($obj: ListStore, path: Gtk.TreePath) => void)): number
+    on(sigName: "row-deleted", callback: (path: Gtk.TreePath) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "row-deleted", callback: (path: Gtk.TreePath) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "row-deleted", callback: (path: Gtk.TreePath) => void): NodeJS.EventEmitter
     emit(sigName: "row-deleted", path: Gtk.TreePath): void
-    on(sigName: "row-deleted", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "row-deleted", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "row-deleted", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "row-has-child-toggled", callback: (($obj: ListStore, path: Gtk.TreePath, iter: Gtk.TreeIter) => void)): number
-    connect_after(sigName: "row-has-child-toggled", callback: (($obj: ListStore, path: Gtk.TreePath, iter: Gtk.TreeIter) => void)): number
+    on(sigName: "row-has-child-toggled", callback: (path: Gtk.TreePath, iter: Gtk.TreeIter) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "row-has-child-toggled", callback: (path: Gtk.TreePath, iter: Gtk.TreeIter) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "row-has-child-toggled", callback: (path: Gtk.TreePath, iter: Gtk.TreeIter) => void): NodeJS.EventEmitter
     emit(sigName: "row-has-child-toggled", path: Gtk.TreePath, iter: Gtk.TreeIter): void
-    on(sigName: "row-has-child-toggled", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "row-has-child-toggled", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "row-has-child-toggled", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "row-inserted", callback: (($obj: ListStore, path: Gtk.TreePath, iter: Gtk.TreeIter) => void)): number
-    connect_after(sigName: "row-inserted", callback: (($obj: ListStore, path: Gtk.TreePath, iter: Gtk.TreeIter) => void)): number
+    on(sigName: "row-inserted", callback: (path: Gtk.TreePath, iter: Gtk.TreeIter) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "row-inserted", callback: (path: Gtk.TreePath, iter: Gtk.TreeIter) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "row-inserted", callback: (path: Gtk.TreePath, iter: Gtk.TreeIter) => void): NodeJS.EventEmitter
     emit(sigName: "row-inserted", path: Gtk.TreePath, iter: Gtk.TreeIter): void
-    on(sigName: "row-inserted", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "row-inserted", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "row-inserted", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "rows-reordered", callback: (($obj: ListStore, path: Gtk.TreePath, iter: Gtk.TreeIter, newOrder?: object | null) => void)): number
-    connect_after(sigName: "rows-reordered", callback: (($obj: ListStore, path: Gtk.TreePath, iter: Gtk.TreeIter, newOrder?: object | null) => void)): number
+    on(sigName: "rows-reordered", callback: (path: Gtk.TreePath, iter: Gtk.TreeIter, newOrder?: object | null) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "rows-reordered", callback: (path: Gtk.TreePath, iter: Gtk.TreeIter, newOrder?: object | null) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "rows-reordered", callback: (path: Gtk.TreePath, iter: Gtk.TreeIter, newOrder?: object | null) => void): NodeJS.EventEmitter
     emit(sigName: "rows-reordered", path: Gtk.TreePath, iter: Gtk.TreeIter, newOrder?: object | null): void
-    on(sigName: "rows-reordered", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "rows-reordered", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "rows-reordered", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of Gtk.TreeSortable */
+    /* Signals of Gtk-3.0.Gtk.TreeSortable */
     connect(sigName: "sort-column-changed", callback: (($obj: ListStore) => void)): number
-    connect_after(sigName: "sort-column-changed", callback: (($obj: ListStore) => void)): number
+    on(sigName: "sort-column-changed", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "sort-column-changed", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "sort-column-changed", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "sort-column-changed"): void
-    on(sigName: "sort-column-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "sort-column-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "sort-column-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -3546,9 +3041,9 @@ export interface PropertiesDialog_ConstructProps extends Gtk.Dialog_ConstructPro
     thumbview?: ThumbView
 }
 export class PropertiesDialog {
-    /* Properties of Eog.PropertiesDialog */
+    /* Properties of Eog-3.0.Eog.PropertiesDialog */
     netbookMode: boolean
-    /* Properties of Gtk.Window */
+    /* Properties of Gtk-3.0.Gtk.Window */
     acceptFocus: boolean
     application: Gtk.Application
     attachedTo: Gtk.Widget
@@ -3581,11 +3076,11 @@ export class PropertiesDialog {
     typeHint: Gdk.WindowTypeHint
     urgencyHint: boolean
     windowPosition: Gtk.WindowPosition
-    /* Properties of Gtk.Container */
+    /* Properties of Gtk-3.0.Gtk.Container */
     borderWidth: number
     child: Gtk.Widget
     resizeMode: Gtk.ResizeMode
-    /* Properties of Gtk.Widget */
+    /* Properties of Gtk-3.0.Gtk.Widget */
     appPaintable: boolean
     canDefault: boolean
     canFocus: boolean
@@ -3625,24 +3120,24 @@ export class PropertiesDialog {
     visible: boolean
     widthRequest: number
     readonly window: Gdk.Window
-    /* Fields of Eog.PropertiesDialog */
+    /* Fields of Eog-3.0.Eog.PropertiesDialog */
     dialog: Gtk.Dialog
     priv: PropertiesDialogPrivate
-    /* Fields of Gtk.Window */
+    /* Fields of Gtk-3.0.Gtk.Window */
     bin: Gtk.Bin
-    /* Fields of Gtk.Bin */
+    /* Fields of Gtk-3.0.Gtk.Bin */
     container: Gtk.Container
-    /* Fields of Gtk.Container */
+    /* Fields of Gtk-3.0.Gtk.Container */
     widget: Gtk.Widget
-    /* Fields of Gtk.Widget */
+    /* Fields of Gtk-3.0.Gtk.Widget */
     parentInstance: GObject.InitiallyUnowned
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Eog.PropertiesDialog */
+    /* Methods of Eog-3.0.Eog.PropertiesDialog */
     setNetbookMode(enable: boolean): void
     setPage(page: PropertiesDialogPage): void
     update(image: Image): void
-    /* Methods of Gtk.Dialog */
+    /* Methods of Gtk-3.0.Gtk.Dialog */
     addActionWidget(child: Gtk.Widget, responseId: number): void
     addButton(buttonText: string, responseId: number): Gtk.Widget
     getActionArea(): Gtk.Box
@@ -3655,7 +3150,7 @@ export class PropertiesDialog {
     setAlternativeButtonOrderFromArray(newOrder: number[]): void
     setDefaultResponse(responseId: number): void
     setResponseSensitive(responseId: number, setting: boolean): void
-    /* Methods of Gtk.Window */
+    /* Methods of Gtk-3.0.Gtk.Window */
     activateDefault(): boolean
     activateFocus(): boolean
     activateKey(event: Gdk.EventKey): boolean
@@ -3671,7 +3166,7 @@ export class PropertiesDialog {
     getApplication(): Gtk.Application | null
     getAttachedTo(): Gtk.Widget | null
     getDecorated(): boolean
-    getDefaultSize(): [ /* width */ number | null, /* height */ number | null ]
+    getDefaultSize(): { width: number | null, height: number | null }
     getDefaultWidget(): Gtk.Widget | null
     getDeletable(): boolean
     getDestroyWithParent(): boolean
@@ -3689,12 +3184,12 @@ export class PropertiesDialog {
     getMnemonicsVisible(): boolean
     getModal(): boolean
     getOpacity(): number
-    getPosition(): [ /* rootX */ number | null, /* rootY */ number | null ]
+    getPosition(): { rootX: number | null, rootY: number | null }
     getResizable(): boolean
-    getResizeGripArea(): [ /* returnType */ boolean, /* rect */ Gdk.Rectangle ]
+    getResizeGripArea(): { returnType: boolean, rect: Gdk.Rectangle }
     getRole(): string | null
     getScreen(): Gdk.Screen
-    getSize(): [ /* width */ number | null, /* height */ number | null ]
+    getSize(): { width: number | null, height: number | null }
     getSkipPagerHint(): boolean
     getSkipTaskbarHint(): boolean
     getTitle(): string | null
@@ -3762,9 +3257,9 @@ export class PropertiesDialog {
     unfullscreen(): void
     unmaximize(): void
     unstick(): void
-    /* Methods of Gtk.Bin */
+    /* Methods of Gtk-3.0.Gtk.Bin */
     getChild(): Gtk.Widget | null
-    /* Methods of Gtk.Container */
+    /* Methods of Gtk-3.0.Gtk.Container */
     add(widget: Gtk.Widget): void
     checkResize(): void
     childGetProperty(child: Gtk.Widget, propertyName: string, value: any): void
@@ -3775,7 +3270,7 @@ export class PropertiesDialog {
     foreach(callback: Gtk.Callback): void
     getBorderWidth(): number
     getChildren(): Gtk.Widget[]
-    getFocusChain(): [ /* returnType */ boolean, /* focusableWidgets */ Gtk.Widget[] ]
+    getFocusChain(): { returnType: boolean, focusableWidgets: Gtk.Widget[] }
     getFocusChild(): Gtk.Widget | null
     getFocusHadjustment(): Gtk.Adjustment | null
     getFocusVadjustment(): Gtk.Adjustment | null
@@ -3792,7 +3287,7 @@ export class PropertiesDialog {
     setReallocateRedraws(needsRedraws: boolean): void
     setResizeMode(resizeMode: Gtk.ResizeMode): void
     unsetFocusChain(): void
-    /* Methods of Gtk.Widget */
+    /* Methods of Gtk-3.0.Gtk.Widget */
     activate(): boolean
     addAccelerator(accelSignal: string, accelGroup: Gtk.AccelGroup, accelKey: number, accelMods: Gdk.ModifierType, accelFlags: Gtk.AccelFlags): void
     addDeviceEvents(device: Gdk.Device, events: Gdk.EventMask): void
@@ -3802,12 +3297,12 @@ export class PropertiesDialog {
     canActivateAccel(signalId: number): boolean
     childFocus(direction: Gtk.DirectionType): boolean
     childNotify(childProperty: string): void
-    classPath(): [ /* pathLength */ number | null, /* path */ string | null, /* pathReversed */ string | null ]
+    classPath(): { pathLength: number | null, path: string | null, pathReversed: string | null }
     computeExpand(orientation: Gtk.Orientation): boolean
     createPangoContext(): Pango.Context
     createPangoLayout(text?: string | null): Pango.Layout
     destroy(): void
-    destroyed(widgetPointer: Gtk.Widget): /* widgetPointer */ Gtk.Widget
+    destroyed(widgetPointer: Gtk.Widget): { widgetPointer: Gtk.Widget }
     deviceIsShadowed(device: Gdk.Device): boolean
     dragBegin(targets: Gtk.TargetList, actions: Gdk.DragAction, button: number, event?: Gdk.Event | null): Gdk.DragContext
     dragBeginWithCoordinates(targets: Gtk.TargetList, actions: Gdk.DragAction, button: number, event: Gdk.Event | null, x: number, y: number): Gdk.DragContext
@@ -3846,16 +3341,16 @@ export class PropertiesDialog {
     getActionGroup(prefix: string): Gio.ActionGroup | null
     getAllocatedBaseline(): number
     getAllocatedHeight(): number
-    getAllocatedSize(): [ /* allocation */ Gtk.Allocation, /* baseline */ number | null ]
+    getAllocatedSize(): { allocation: Gtk.Allocation, baseline: number | null }
     getAllocatedWidth(): number
-    getAllocation(): /* allocation */ Gtk.Allocation
+    getAllocation(): { allocation: Gtk.Allocation }
     getAncestor(widgetType: GObject.Type): Gtk.Widget | null
     getAppPaintable(): boolean
     getCanDefault(): boolean
     getCanFocus(): boolean
-    getChildRequisition(): /* requisition */ Gtk.Requisition
+    getChildRequisition(): { requisition: Gtk.Requisition }
     getChildVisible(): boolean
-    getClip(): /* clip */ Gtk.Allocation
+    getClip(): { clip: Gtk.Allocation }
     getClipboard(selection: Gdk.Atom): Gtk.Clipboard
     getCompositeName(): string
     getDeviceEnabled(device: Gdk.Device): boolean
@@ -3888,22 +3383,22 @@ export class PropertiesDialog {
     getParent(): Gtk.Widget | null
     getParentWindow(): Gdk.Window | null
     getPath(): Gtk.WidgetPath
-    getPointer(): [ /* x */ number | null, /* y */ number | null ]
-    getPreferredHeight(): [ /* minimumHeight */ number | null, /* naturalHeight */ number | null ]
-    getPreferredHeightAndBaselineForWidth(width: number): [ /* minimumHeight */ number | null, /* naturalHeight */ number | null, /* minimumBaseline */ number | null, /* naturalBaseline */ number | null ]
-    getPreferredHeightForWidth(width: number): [ /* minimumHeight */ number | null, /* naturalHeight */ number | null ]
-    getPreferredSize(): [ /* minimumSize */ Gtk.Requisition | null, /* naturalSize */ Gtk.Requisition | null ]
-    getPreferredWidth(): [ /* minimumWidth */ number | null, /* naturalWidth */ number | null ]
-    getPreferredWidthForHeight(height: number): [ /* minimumWidth */ number | null, /* naturalWidth */ number | null ]
+    getPointer(): { x: number | null, y: number | null }
+    getPreferredHeight(): { minimumHeight: number | null, naturalHeight: number | null }
+    getPreferredHeightAndBaselineForWidth(width: number): { minimumHeight: number | null, naturalHeight: number | null, minimumBaseline: number | null, naturalBaseline: number | null }
+    getPreferredHeightForWidth(width: number): { minimumHeight: number | null, naturalHeight: number | null }
+    getPreferredSize(): { minimumSize: Gtk.Requisition | null, naturalSize: Gtk.Requisition | null }
+    getPreferredWidth(): { minimumWidth: number | null, naturalWidth: number | null }
+    getPreferredWidthForHeight(height: number): { minimumWidth: number | null, naturalWidth: number | null }
     getRealized(): boolean
     getReceivesDefault(): boolean
     getRequestMode(): Gtk.SizeRequestMode
-    getRequisition(): /* requisition */ Gtk.Requisition
+    getRequisition(): { requisition: Gtk.Requisition }
     getRootWindow(): Gdk.Window
     getScaleFactor(): number
     getSensitive(): boolean
     getSettings(): Gtk.Settings
-    getSizeRequest(): [ /* width */ number | null, /* height */ number | null ]
+    getSizeRequest(): { width: number | null, height: number | null }
     getState(): Gtk.StateType
     getStateFlags(): Gtk.StateFlags
     getStyle(): Gtk.Style
@@ -3935,7 +3430,7 @@ export class PropertiesDialog {
     initTemplate(): void
     inputShapeCombineRegion(region?: cairo.Region | null): void
     insertActionGroup(name: string, group?: Gio.ActionGroup | null): void
-    intersect(area: Gdk.Rectangle): [ /* returnType */ boolean, /* intersection */ Gdk.Rectangle | null ]
+    intersect(area: Gdk.Rectangle): { returnType: boolean, intersection: Gdk.Rectangle | null }
     isAncestor(ancestor: Gtk.Widget): boolean
     isComposited(): boolean
     isDrawable(): boolean
@@ -3960,7 +3455,7 @@ export class PropertiesDialog {
     overrideCursor(cursor?: Gdk.RGBA | null, secondaryCursor?: Gdk.RGBA | null): void
     overrideFont(fontDesc?: Pango.FontDescription | null): void
     overrideSymbolicColor(name: string, color?: Gdk.RGBA | null): void
-    path(): [ /* pathLength */ number | null, /* path */ string | null, /* pathReversed */ string | null ]
+    path(): { pathLength: number | null, path: string | null, pathReversed: string | null }
     queueAllocate(): void
     queueComputeExpand(): void
     queueDraw(): void
@@ -4037,18 +3532,18 @@ export class PropertiesDialog {
     showNow(): void
     sizeAllocate(allocation: Gtk.Allocation): void
     sizeAllocateWithBaseline(allocation: Gtk.Allocation, baseline: number): void
-    sizeRequest(): /* requisition */ Gtk.Requisition
+    sizeRequest(): { requisition: Gtk.Requisition }
     styleAttach(): void
     styleGetProperty(propertyName: string, value: any): void
     thawChildNotify(): void
-    translateCoordinates(destWidget: Gtk.Widget, srcX: number, srcY: number): [ /* returnType */ boolean, /* destX */ number | null, /* destY */ number | null ]
+    translateCoordinates(destWidget: Gtk.Widget, srcX: number, srcY: number): { returnType: boolean, destX: number | null, destY: number | null }
     triggerTooltipQuery(): void
     unmap(): void
     unparent(): void
     unrealize(): void
     unregisterWindow(window: Gdk.Window): void
     unsetStateFlags(flags: Gtk.StateFlags): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -4070,628 +3565,425 @@ export class PropertiesDialog {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of Gtk.Buildable */
+    /* Methods of Gtk-3.0.Gtk.Buildable */
     addChild(builder: Gtk.Builder, child: GObject.Object, type?: string | null): void
     constructChild(builder: Gtk.Builder, name: string): GObject.Object
     customFinished(builder: Gtk.Builder, child: GObject.Object | null, tagname: string, data?: object | null): void
     customTagEnd(builder: Gtk.Builder, child: GObject.Object | null, tagname: string, data?: object | null): void
-    customTagStart(builder: Gtk.Builder, child: GObject.Object | null, tagname: string): [ /* returnType */ boolean, /* parser */ GLib.MarkupParser, /* data */ object | null ]
+    customTagStart(builder: Gtk.Builder, child: GObject.Object | null, tagname: string): { returnType: boolean, parser: GLib.MarkupParser, data: object | null }
     getInternalChild(builder: Gtk.Builder, childname: string): GObject.Object
     parserFinished(builder: Gtk.Builder): void
     setBuildableProperty(builder: Gtk.Builder, name: string, value: any): void
-    /* Virtual methods of Eog.PropertiesDialog */
-    vfuncAddChild(builder: Gtk.Builder, child: GObject.Object, type?: string | null): void
-    vfuncConstructChild(builder: Gtk.Builder, name: string): GObject.Object
-    vfuncCustomFinished(builder: Gtk.Builder, child: GObject.Object | null, tagname: string, data?: object | null): void
-    vfuncCustomTagEnd(builder: Gtk.Builder, child: GObject.Object | null, tagname: string, data?: object | null): void
-    vfuncCustomTagStart(builder: Gtk.Builder, child: GObject.Object | null, tagname: string): [ /* returnType */ boolean, /* parser */ GLib.MarkupParser, /* data */ object | null ]
-    vfuncGetInternalChild(builder: Gtk.Builder, childname: string): GObject.Object
-    vfuncGetName(): string
-    vfuncParserFinished(builder: Gtk.Builder): void
-    vfuncSetBuildableProperty(builder: Gtk.Builder, name: string, value: any): void
-    vfuncSetName(name: string): void
-    /* Virtual methods of Gtk.Dialog */
-    vfuncClose(): void
-    vfuncResponse(responseId: number): void
-    /* Virtual methods of Gtk.Window */
-    vfuncActivateDefault(): void
-    vfuncActivateFocus(): void
-    vfuncEnableDebugging(toggle: boolean): boolean
-    vfuncKeysChanged(): void
-    vfuncSetFocus(focus?: Gtk.Widget | null): void
-    /* Virtual methods of Gtk.Container */
-    vfuncAdd(widget: Gtk.Widget): void
-    vfuncCheckResize(): void
-    vfuncChildType(): GObject.Type
-    vfuncCompositeName(child: Gtk.Widget): string
-    vfuncForall(includeInternals: boolean, callback: Gtk.Callback): void
-    vfuncGetChildProperty(child: Gtk.Widget, propertyId: number, value: any, pspec: GObject.ParamSpec): void
-    vfuncGetPathForChild(child: Gtk.Widget): Gtk.WidgetPath
-    vfuncRemove(widget: Gtk.Widget): void
-    vfuncSetChildProperty(child: Gtk.Widget, propertyId: number, value: any, pspec: GObject.ParamSpec): void
-    vfuncSetFocusChild(child?: Gtk.Widget | null): void
-    /* Virtual methods of Gtk.Widget */
-    vfuncAdjustBaselineAllocation(baseline: number): void
-    vfuncAdjustBaselineRequest(minimumBaseline: number, naturalBaseline: number): void
-    vfuncAdjustSizeAllocation(orientation: Gtk.Orientation, minimumSize: number, naturalSize: number, allocatedPos: number, allocatedSize: number): void
-    vfuncAdjustSizeRequest(orientation: Gtk.Orientation, minimumSize: number, naturalSize: number): void
-    vfuncButtonPressEvent(event: Gdk.EventButton): boolean
-    vfuncButtonReleaseEvent(event: Gdk.EventButton): boolean
-    vfuncCanActivateAccel(signalId: number): boolean
-    vfuncChildNotify(childProperty: GObject.ParamSpec): void
-    vfuncCompositedChanged(): void
-    vfuncComputeExpand(hexpandP: boolean, vexpandP: boolean): void
-    vfuncConfigureEvent(event: Gdk.EventConfigure): boolean
-    vfuncDamageEvent(event: Gdk.EventExpose): boolean
-    vfuncDeleteEvent(event: Gdk.EventAny): boolean
-    vfuncDestroy(): void
-    vfuncDestroyEvent(event: Gdk.EventAny): boolean
-    vfuncDirectionChanged(previousDirection: Gtk.TextDirection): void
-    vfuncDispatchChildPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDragBegin(context: Gdk.DragContext): void
-    vfuncDragDataDelete(context: Gdk.DragContext): void
-    vfuncDragDataGet(context: Gdk.DragContext, selectionData: Gtk.SelectionData, info: number, time: number): void
-    vfuncDragDataReceived(context: Gdk.DragContext, x: number, y: number, selectionData: Gtk.SelectionData, info: number, time: number): void
-    vfuncDragDrop(context: Gdk.DragContext, x: number, y: number, time: number): boolean
-    vfuncDragEnd(context: Gdk.DragContext): void
-    vfuncDragFailed(context: Gdk.DragContext, result: Gtk.DragResult): boolean
-    vfuncDragLeave(context: Gdk.DragContext, time: number): void
-    vfuncDragMotion(context: Gdk.DragContext, x: number, y: number, time: number): boolean
-    vfuncDraw(cr: cairo.Context): boolean
-    vfuncEnterNotifyEvent(event: Gdk.EventCrossing): boolean
-    vfuncEvent(event: Gdk.Event): boolean
-    vfuncFocus(direction: Gtk.DirectionType): boolean
-    vfuncFocusInEvent(event: Gdk.EventFocus): boolean
-    vfuncFocusOutEvent(event: Gdk.EventFocus): boolean
-    vfuncGetAccessible(): Atk.Object
-    vfuncGetPreferredHeight(): [ /* minimumHeight */ number | null, /* naturalHeight */ number | null ]
-    vfuncGetPreferredHeightAndBaselineForWidth(width: number): [ /* minimumHeight */ number | null, /* naturalHeight */ number | null, /* minimumBaseline */ number | null, /* naturalBaseline */ number | null ]
-    vfuncGetPreferredHeightForWidth(width: number): [ /* minimumHeight */ number | null, /* naturalHeight */ number | null ]
-    vfuncGetPreferredWidth(): [ /* minimumWidth */ number | null, /* naturalWidth */ number | null ]
-    vfuncGetPreferredWidthForHeight(height: number): [ /* minimumWidth */ number | null, /* naturalWidth */ number | null ]
-    vfuncGetRequestMode(): Gtk.SizeRequestMode
-    vfuncGrabBrokenEvent(event: Gdk.EventGrabBroken): boolean
-    vfuncGrabFocus(): void
-    vfuncGrabNotify(wasGrabbed: boolean): void
-    vfuncHide(): void
-    vfuncHierarchyChanged(previousToplevel: Gtk.Widget): void
-    vfuncKeyPressEvent(event: Gdk.EventKey): boolean
-    vfuncKeyReleaseEvent(event: Gdk.EventKey): boolean
-    vfuncKeynavFailed(direction: Gtk.DirectionType): boolean
-    vfuncLeaveNotifyEvent(event: Gdk.EventCrossing): boolean
-    vfuncMap(): void
-    vfuncMapEvent(event: Gdk.EventAny): boolean
-    vfuncMnemonicActivate(groupCycling: boolean): boolean
-    vfuncMotionNotifyEvent(event: Gdk.EventMotion): boolean
-    vfuncMoveFocus(direction: Gtk.DirectionType): void
-    vfuncParentSet(previousParent: Gtk.Widget): void
-    vfuncPopupMenu(): boolean
-    vfuncPropertyNotifyEvent(event: Gdk.EventProperty): boolean
-    vfuncProximityInEvent(event: Gdk.EventProximity): boolean
-    vfuncProximityOutEvent(event: Gdk.EventProximity): boolean
-    vfuncQueryTooltip(x: number, y: number, keyboardTooltip: boolean, tooltip: Gtk.Tooltip): boolean
-    vfuncQueueDrawRegion(region: cairo.Region): void
-    vfuncRealize(): void
-    vfuncScreenChanged(previousScreen: Gdk.Screen): void
-    vfuncScrollEvent(event: Gdk.EventScroll): boolean
-    vfuncSelectionClearEvent(event: Gdk.EventSelection): boolean
-    vfuncSelectionGet(selectionData: Gtk.SelectionData, info: number, time: number): void
-    vfuncSelectionNotifyEvent(event: Gdk.EventSelection): boolean
-    vfuncSelectionReceived(selectionData: Gtk.SelectionData, time: number): void
-    vfuncSelectionRequestEvent(event: Gdk.EventSelection): boolean
-    vfuncShow(): void
-    vfuncShowAll(): void
-    vfuncShowHelp(helpType: Gtk.WidgetHelpType): boolean
-    vfuncSizeAllocate(allocation: Gtk.Allocation): void
-    vfuncStateChanged(previousState: Gtk.StateType): void
-    vfuncStateFlagsChanged(previousStateFlags: Gtk.StateFlags): void
-    vfuncStyleSet(previousStyle: Gtk.Style): void
-    vfuncStyleUpdated(): void
-    vfuncTouchEvent(event: Gdk.EventTouch): boolean
-    vfuncUnmap(): void
-    vfuncUnmapEvent(event: Gdk.EventAny): boolean
-    vfuncUnrealize(): void
-    vfuncVisibilityNotifyEvent(event: Gdk.EventVisibility): boolean
-    vfuncWindowStateEvent(event: Gdk.EventWindowState): boolean
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gtk.Dialog */
+    /* Signals of Gtk-3.0.Gtk.Dialog */
     connect(sigName: "close", callback: (($obj: PropertiesDialog) => void)): number
-    connect_after(sigName: "close", callback: (($obj: PropertiesDialog) => void)): number
+    on(sigName: "close", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "close", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "close", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "close"): void
-    on(sigName: "close", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "close", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "close", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "response", callback: (($obj: PropertiesDialog, responseId: number) => void)): number
-    connect_after(sigName: "response", callback: (($obj: PropertiesDialog, responseId: number) => void)): number
+    on(sigName: "response", callback: (responseId: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "response", callback: (responseId: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "response", callback: (responseId: number) => void): NodeJS.EventEmitter
     emit(sigName: "response", responseId: number): void
-    on(sigName: "response", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "response", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "response", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of Gtk.Window */
+    /* Signals of Gtk-3.0.Gtk.Window */
     connect(sigName: "activate-default", callback: (($obj: PropertiesDialog) => void)): number
-    connect_after(sigName: "activate-default", callback: (($obj: PropertiesDialog) => void)): number
+    on(sigName: "activate-default", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "activate-default", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "activate-default", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "activate-default"): void
-    on(sigName: "activate-default", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "activate-default", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "activate-default", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "activate-focus", callback: (($obj: PropertiesDialog) => void)): number
-    connect_after(sigName: "activate-focus", callback: (($obj: PropertiesDialog) => void)): number
+    on(sigName: "activate-focus", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "activate-focus", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "activate-focus", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "activate-focus"): void
-    on(sigName: "activate-focus", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "activate-focus", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "activate-focus", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "enable-debugging", callback: (($obj: PropertiesDialog, toggle: boolean) => boolean)): number
-    connect_after(sigName: "enable-debugging", callback: (($obj: PropertiesDialog, toggle: boolean) => boolean)): number
+    on(sigName: "enable-debugging", callback: (toggle: boolean) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "enable-debugging", callback: (toggle: boolean) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "enable-debugging", callback: (toggle: boolean) => void): NodeJS.EventEmitter
     emit(sigName: "enable-debugging", toggle: boolean): void
-    on(sigName: "enable-debugging", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "enable-debugging", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "enable-debugging", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "keys-changed", callback: (($obj: PropertiesDialog) => void)): number
-    connect_after(sigName: "keys-changed", callback: (($obj: PropertiesDialog) => void)): number
+    on(sigName: "keys-changed", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "keys-changed", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "keys-changed", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "keys-changed"): void
-    on(sigName: "keys-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "keys-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "keys-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "set-focus", callback: (($obj: PropertiesDialog, widget?: Gtk.Widget | null) => void)): number
-    connect_after(sigName: "set-focus", callback: (($obj: PropertiesDialog, widget?: Gtk.Widget | null) => void)): number
+    on(sigName: "set-focus", callback: (widget?: Gtk.Widget | null) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "set-focus", callback: (widget?: Gtk.Widget | null) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "set-focus", callback: (widget?: Gtk.Widget | null) => void): NodeJS.EventEmitter
     emit(sigName: "set-focus", widget?: Gtk.Widget | null): void
-    on(sigName: "set-focus", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "set-focus", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "set-focus", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of Gtk.Container */
+    /* Signals of Gtk-3.0.Gtk.Container */
     connect(sigName: "add", callback: (($obj: PropertiesDialog, object: Gtk.Widget) => void)): number
-    connect_after(sigName: "add", callback: (($obj: PropertiesDialog, object: Gtk.Widget) => void)): number
+    on(sigName: "add", callback: (object: Gtk.Widget) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "add", callback: (object: Gtk.Widget) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "add", callback: (object: Gtk.Widget) => void): NodeJS.EventEmitter
     emit(sigName: "add", object: Gtk.Widget): void
-    on(sigName: "add", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "add", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "add", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "check-resize", callback: (($obj: PropertiesDialog) => void)): number
-    connect_after(sigName: "check-resize", callback: (($obj: PropertiesDialog) => void)): number
+    on(sigName: "check-resize", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "check-resize", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "check-resize", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "check-resize"): void
-    on(sigName: "check-resize", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "check-resize", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "check-resize", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "remove", callback: (($obj: PropertiesDialog, object: Gtk.Widget) => void)): number
-    connect_after(sigName: "remove", callback: (($obj: PropertiesDialog, object: Gtk.Widget) => void)): number
+    on(sigName: "remove", callback: (object: Gtk.Widget) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "remove", callback: (object: Gtk.Widget) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "remove", callback: (object: Gtk.Widget) => void): NodeJS.EventEmitter
     emit(sigName: "remove", object: Gtk.Widget): void
-    on(sigName: "remove", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "remove", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "remove", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "set-focus-child", callback: (($obj: PropertiesDialog, object: Gtk.Widget) => void)): number
-    connect_after(sigName: "set-focus-child", callback: (($obj: PropertiesDialog, object: Gtk.Widget) => void)): number
+    on(sigName: "set-focus-child", callback: (object: Gtk.Widget) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "set-focus-child", callback: (object: Gtk.Widget) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "set-focus-child", callback: (object: Gtk.Widget) => void): NodeJS.EventEmitter
     emit(sigName: "set-focus-child", object: Gtk.Widget): void
-    on(sigName: "set-focus-child", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "set-focus-child", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "set-focus-child", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of Gtk.Widget */
+    /* Signals of Gtk-3.0.Gtk.Widget */
     connect(sigName: "accel-closures-changed", callback: (($obj: PropertiesDialog) => void)): number
-    connect_after(sigName: "accel-closures-changed", callback: (($obj: PropertiesDialog) => void)): number
+    on(sigName: "accel-closures-changed", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "accel-closures-changed", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "accel-closures-changed", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "accel-closures-changed"): void
-    on(sigName: "accel-closures-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "accel-closures-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "accel-closures-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "button-press-event", callback: (($obj: PropertiesDialog, event: Gdk.EventButton) => boolean)): number
-    connect_after(sigName: "button-press-event", callback: (($obj: PropertiesDialog, event: Gdk.EventButton) => boolean)): number
+    on(sigName: "button-press-event", callback: (event: Gdk.EventButton) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "button-press-event", callback: (event: Gdk.EventButton) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "button-press-event", callback: (event: Gdk.EventButton) => void): NodeJS.EventEmitter
     emit(sigName: "button-press-event", event: Gdk.EventButton): void
-    on(sigName: "button-press-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "button-press-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "button-press-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "button-release-event", callback: (($obj: PropertiesDialog, event: Gdk.EventButton) => boolean)): number
-    connect_after(sigName: "button-release-event", callback: (($obj: PropertiesDialog, event: Gdk.EventButton) => boolean)): number
+    on(sigName: "button-release-event", callback: (event: Gdk.EventButton) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "button-release-event", callback: (event: Gdk.EventButton) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "button-release-event", callback: (event: Gdk.EventButton) => void): NodeJS.EventEmitter
     emit(sigName: "button-release-event", event: Gdk.EventButton): void
-    on(sigName: "button-release-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "button-release-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "button-release-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "can-activate-accel", callback: (($obj: PropertiesDialog, signalId: number) => boolean)): number
-    connect_after(sigName: "can-activate-accel", callback: (($obj: PropertiesDialog, signalId: number) => boolean)): number
+    on(sigName: "can-activate-accel", callback: (signalId: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "can-activate-accel", callback: (signalId: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "can-activate-accel", callback: (signalId: number) => void): NodeJS.EventEmitter
     emit(sigName: "can-activate-accel", signalId: number): void
-    on(sigName: "can-activate-accel", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "can-activate-accel", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "can-activate-accel", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "child-notify", callback: (($obj: PropertiesDialog, childProperty: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "child-notify", callback: (($obj: PropertiesDialog, childProperty: GObject.ParamSpec) => void)): number
+    on(sigName: "child-notify", callback: (childProperty: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "child-notify", callback: (childProperty: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "child-notify", callback: (childProperty: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "child-notify", childProperty: GObject.ParamSpec): void
-    on(sigName: "child-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "child-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "child-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "composited-changed", callback: (($obj: PropertiesDialog) => void)): number
-    connect_after(sigName: "composited-changed", callback: (($obj: PropertiesDialog) => void)): number
+    on(sigName: "composited-changed", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "composited-changed", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "composited-changed", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "composited-changed"): void
-    on(sigName: "composited-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "composited-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "composited-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "configure-event", callback: (($obj: PropertiesDialog, event: Gdk.EventConfigure) => boolean)): number
-    connect_after(sigName: "configure-event", callback: (($obj: PropertiesDialog, event: Gdk.EventConfigure) => boolean)): number
+    on(sigName: "configure-event", callback: (event: Gdk.EventConfigure) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "configure-event", callback: (event: Gdk.EventConfigure) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "configure-event", callback: (event: Gdk.EventConfigure) => void): NodeJS.EventEmitter
     emit(sigName: "configure-event", event: Gdk.EventConfigure): void
-    on(sigName: "configure-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "configure-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "configure-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "damage-event", callback: (($obj: PropertiesDialog, event: Gdk.EventExpose) => boolean)): number
-    connect_after(sigName: "damage-event", callback: (($obj: PropertiesDialog, event: Gdk.EventExpose) => boolean)): number
+    on(sigName: "damage-event", callback: (event: Gdk.EventExpose) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "damage-event", callback: (event: Gdk.EventExpose) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "damage-event", callback: (event: Gdk.EventExpose) => void): NodeJS.EventEmitter
     emit(sigName: "damage-event", event: Gdk.EventExpose): void
-    on(sigName: "damage-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "damage-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "damage-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "delete-event", callback: (($obj: PropertiesDialog, event: Gdk.Event) => boolean)): number
-    connect_after(sigName: "delete-event", callback: (($obj: PropertiesDialog, event: Gdk.Event) => boolean)): number
+    on(sigName: "delete-event", callback: (event: Gdk.Event) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "delete-event", callback: (event: Gdk.Event) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "delete-event", callback: (event: Gdk.Event) => void): NodeJS.EventEmitter
     emit(sigName: "delete-event", event: Gdk.Event): void
-    on(sigName: "delete-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "delete-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "delete-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "destroy", callback: (($obj: PropertiesDialog) => void)): number
-    connect_after(sigName: "destroy", callback: (($obj: PropertiesDialog) => void)): number
+    on(sigName: "destroy", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "destroy", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "destroy", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "destroy"): void
-    on(sigName: "destroy", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "destroy", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "destroy", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "destroy-event", callback: (($obj: PropertiesDialog, event: Gdk.Event) => boolean)): number
-    connect_after(sigName: "destroy-event", callback: (($obj: PropertiesDialog, event: Gdk.Event) => boolean)): number
+    on(sigName: "destroy-event", callback: (event: Gdk.Event) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "destroy-event", callback: (event: Gdk.Event) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "destroy-event", callback: (event: Gdk.Event) => void): NodeJS.EventEmitter
     emit(sigName: "destroy-event", event: Gdk.Event): void
-    on(sigName: "destroy-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "destroy-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "destroy-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "direction-changed", callback: (($obj: PropertiesDialog, previousDirection: Gtk.TextDirection) => void)): number
-    connect_after(sigName: "direction-changed", callback: (($obj: PropertiesDialog, previousDirection: Gtk.TextDirection) => void)): number
+    on(sigName: "direction-changed", callback: (previousDirection: Gtk.TextDirection) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "direction-changed", callback: (previousDirection: Gtk.TextDirection) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "direction-changed", callback: (previousDirection: Gtk.TextDirection) => void): NodeJS.EventEmitter
     emit(sigName: "direction-changed", previousDirection: Gtk.TextDirection): void
-    on(sigName: "direction-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "direction-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "direction-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "drag-begin", callback: (($obj: PropertiesDialog, context: Gdk.DragContext) => void)): number
-    connect_after(sigName: "drag-begin", callback: (($obj: PropertiesDialog, context: Gdk.DragContext) => void)): number
+    on(sigName: "drag-begin", callback: (context: Gdk.DragContext) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "drag-begin", callback: (context: Gdk.DragContext) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "drag-begin", callback: (context: Gdk.DragContext) => void): NodeJS.EventEmitter
     emit(sigName: "drag-begin", context: Gdk.DragContext): void
-    on(sigName: "drag-begin", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "drag-begin", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "drag-begin", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "drag-data-delete", callback: (($obj: PropertiesDialog, context: Gdk.DragContext) => void)): number
-    connect_after(sigName: "drag-data-delete", callback: (($obj: PropertiesDialog, context: Gdk.DragContext) => void)): number
+    on(sigName: "drag-data-delete", callback: (context: Gdk.DragContext) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "drag-data-delete", callback: (context: Gdk.DragContext) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "drag-data-delete", callback: (context: Gdk.DragContext) => void): NodeJS.EventEmitter
     emit(sigName: "drag-data-delete", context: Gdk.DragContext): void
-    on(sigName: "drag-data-delete", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "drag-data-delete", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "drag-data-delete", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "drag-data-get", callback: (($obj: PropertiesDialog, context: Gdk.DragContext, data: Gtk.SelectionData, info: number, time: number) => void)): number
-    connect_after(sigName: "drag-data-get", callback: (($obj: PropertiesDialog, context: Gdk.DragContext, data: Gtk.SelectionData, info: number, time: number) => void)): number
+    on(sigName: "drag-data-get", callback: (context: Gdk.DragContext, data: Gtk.SelectionData, info: number, time: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "drag-data-get", callback: (context: Gdk.DragContext, data: Gtk.SelectionData, info: number, time: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "drag-data-get", callback: (context: Gdk.DragContext, data: Gtk.SelectionData, info: number, time: number) => void): NodeJS.EventEmitter
     emit(sigName: "drag-data-get", context: Gdk.DragContext, data: Gtk.SelectionData, info: number, time: number): void
-    on(sigName: "drag-data-get", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "drag-data-get", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "drag-data-get", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "drag-data-received", callback: (($obj: PropertiesDialog, context: Gdk.DragContext, x: number, y: number, data: Gtk.SelectionData, info: number, time: number) => void)): number
-    connect_after(sigName: "drag-data-received", callback: (($obj: PropertiesDialog, context: Gdk.DragContext, x: number, y: number, data: Gtk.SelectionData, info: number, time: number) => void)): number
+    on(sigName: "drag-data-received", callback: (context: Gdk.DragContext, x: number, y: number, data: Gtk.SelectionData, info: number, time: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "drag-data-received", callback: (context: Gdk.DragContext, x: number, y: number, data: Gtk.SelectionData, info: number, time: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "drag-data-received", callback: (context: Gdk.DragContext, x: number, y: number, data: Gtk.SelectionData, info: number, time: number) => void): NodeJS.EventEmitter
     emit(sigName: "drag-data-received", context: Gdk.DragContext, x: number, y: number, data: Gtk.SelectionData, info: number, time: number): void
-    on(sigName: "drag-data-received", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "drag-data-received", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "drag-data-received", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "drag-drop", callback: (($obj: PropertiesDialog, context: Gdk.DragContext, x: number, y: number, time: number) => boolean)): number
-    connect_after(sigName: "drag-drop", callback: (($obj: PropertiesDialog, context: Gdk.DragContext, x: number, y: number, time: number) => boolean)): number
+    on(sigName: "drag-drop", callback: (context: Gdk.DragContext, x: number, y: number, time: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "drag-drop", callback: (context: Gdk.DragContext, x: number, y: number, time: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "drag-drop", callback: (context: Gdk.DragContext, x: number, y: number, time: number) => void): NodeJS.EventEmitter
     emit(sigName: "drag-drop", context: Gdk.DragContext, x: number, y: number, time: number): void
-    on(sigName: "drag-drop", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "drag-drop", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "drag-drop", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "drag-end", callback: (($obj: PropertiesDialog, context: Gdk.DragContext) => void)): number
-    connect_after(sigName: "drag-end", callback: (($obj: PropertiesDialog, context: Gdk.DragContext) => void)): number
+    on(sigName: "drag-end", callback: (context: Gdk.DragContext) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "drag-end", callback: (context: Gdk.DragContext) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "drag-end", callback: (context: Gdk.DragContext) => void): NodeJS.EventEmitter
     emit(sigName: "drag-end", context: Gdk.DragContext): void
-    on(sigName: "drag-end", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "drag-end", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "drag-end", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "drag-failed", callback: (($obj: PropertiesDialog, context: Gdk.DragContext, result: Gtk.DragResult) => boolean)): number
-    connect_after(sigName: "drag-failed", callback: (($obj: PropertiesDialog, context: Gdk.DragContext, result: Gtk.DragResult) => boolean)): number
+    on(sigName: "drag-failed", callback: (context: Gdk.DragContext, result: Gtk.DragResult) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "drag-failed", callback: (context: Gdk.DragContext, result: Gtk.DragResult) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "drag-failed", callback: (context: Gdk.DragContext, result: Gtk.DragResult) => void): NodeJS.EventEmitter
     emit(sigName: "drag-failed", context: Gdk.DragContext, result: Gtk.DragResult): void
-    on(sigName: "drag-failed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "drag-failed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "drag-failed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "drag-leave", callback: (($obj: PropertiesDialog, context: Gdk.DragContext, time: number) => void)): number
-    connect_after(sigName: "drag-leave", callback: (($obj: PropertiesDialog, context: Gdk.DragContext, time: number) => void)): number
+    on(sigName: "drag-leave", callback: (context: Gdk.DragContext, time: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "drag-leave", callback: (context: Gdk.DragContext, time: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "drag-leave", callback: (context: Gdk.DragContext, time: number) => void): NodeJS.EventEmitter
     emit(sigName: "drag-leave", context: Gdk.DragContext, time: number): void
-    on(sigName: "drag-leave", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "drag-leave", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "drag-leave", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "drag-motion", callback: (($obj: PropertiesDialog, context: Gdk.DragContext, x: number, y: number, time: number) => boolean)): number
-    connect_after(sigName: "drag-motion", callback: (($obj: PropertiesDialog, context: Gdk.DragContext, x: number, y: number, time: number) => boolean)): number
+    on(sigName: "drag-motion", callback: (context: Gdk.DragContext, x: number, y: number, time: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "drag-motion", callback: (context: Gdk.DragContext, x: number, y: number, time: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "drag-motion", callback: (context: Gdk.DragContext, x: number, y: number, time: number) => void): NodeJS.EventEmitter
     emit(sigName: "drag-motion", context: Gdk.DragContext, x: number, y: number, time: number): void
-    on(sigName: "drag-motion", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "drag-motion", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "drag-motion", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "draw", callback: (($obj: PropertiesDialog, cr: cairo.Context) => boolean)): number
-    connect_after(sigName: "draw", callback: (($obj: PropertiesDialog, cr: cairo.Context) => boolean)): number
+    on(sigName: "draw", callback: (cr: cairo.Context) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "draw", callback: (cr: cairo.Context) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "draw", callback: (cr: cairo.Context) => void): NodeJS.EventEmitter
     emit(sigName: "draw", cr: cairo.Context): void
-    on(sigName: "draw", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "draw", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "draw", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "enter-notify-event", callback: (($obj: PropertiesDialog, event: Gdk.EventCrossing) => boolean)): number
-    connect_after(sigName: "enter-notify-event", callback: (($obj: PropertiesDialog, event: Gdk.EventCrossing) => boolean)): number
+    on(sigName: "enter-notify-event", callback: (event: Gdk.EventCrossing) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "enter-notify-event", callback: (event: Gdk.EventCrossing) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "enter-notify-event", callback: (event: Gdk.EventCrossing) => void): NodeJS.EventEmitter
     emit(sigName: "enter-notify-event", event: Gdk.EventCrossing): void
-    on(sigName: "enter-notify-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "enter-notify-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "enter-notify-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "event", callback: (($obj: PropertiesDialog, event: Gdk.Event) => boolean)): number
-    connect_after(sigName: "event", callback: (($obj: PropertiesDialog, event: Gdk.Event) => boolean)): number
+    on(sigName: "event", callback: (event: Gdk.Event) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "event", callback: (event: Gdk.Event) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "event", callback: (event: Gdk.Event) => void): NodeJS.EventEmitter
     emit(sigName: "event", event: Gdk.Event): void
-    on(sigName: "event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "event-after", callback: (($obj: PropertiesDialog, event: Gdk.Event) => void)): number
-    connect_after(sigName: "event-after", callback: (($obj: PropertiesDialog, event: Gdk.Event) => void)): number
+    on(sigName: "event-after", callback: (event: Gdk.Event) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "event-after", callback: (event: Gdk.Event) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "event-after", callback: (event: Gdk.Event) => void): NodeJS.EventEmitter
     emit(sigName: "event-after", event: Gdk.Event): void
-    on(sigName: "event-after", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "event-after", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "event-after", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "focus", callback: (($obj: PropertiesDialog, direction: Gtk.DirectionType) => boolean)): number
-    connect_after(sigName: "focus", callback: (($obj: PropertiesDialog, direction: Gtk.DirectionType) => boolean)): number
+    on(sigName: "focus", callback: (direction: Gtk.DirectionType) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "focus", callback: (direction: Gtk.DirectionType) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "focus", callback: (direction: Gtk.DirectionType) => void): NodeJS.EventEmitter
     emit(sigName: "focus", direction: Gtk.DirectionType): void
-    on(sigName: "focus", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "focus", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "focus", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "focus-in-event", callback: (($obj: PropertiesDialog, event: Gdk.EventFocus) => boolean)): number
-    connect_after(sigName: "focus-in-event", callback: (($obj: PropertiesDialog, event: Gdk.EventFocus) => boolean)): number
+    on(sigName: "focus-in-event", callback: (event: Gdk.EventFocus) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "focus-in-event", callback: (event: Gdk.EventFocus) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "focus-in-event", callback: (event: Gdk.EventFocus) => void): NodeJS.EventEmitter
     emit(sigName: "focus-in-event", event: Gdk.EventFocus): void
-    on(sigName: "focus-in-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "focus-in-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "focus-in-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "focus-out-event", callback: (($obj: PropertiesDialog, event: Gdk.EventFocus) => boolean)): number
-    connect_after(sigName: "focus-out-event", callback: (($obj: PropertiesDialog, event: Gdk.EventFocus) => boolean)): number
+    on(sigName: "focus-out-event", callback: (event: Gdk.EventFocus) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "focus-out-event", callback: (event: Gdk.EventFocus) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "focus-out-event", callback: (event: Gdk.EventFocus) => void): NodeJS.EventEmitter
     emit(sigName: "focus-out-event", event: Gdk.EventFocus): void
-    on(sigName: "focus-out-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "focus-out-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "focus-out-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "grab-broken-event", callback: (($obj: PropertiesDialog, event: Gdk.EventGrabBroken) => boolean)): number
-    connect_after(sigName: "grab-broken-event", callback: (($obj: PropertiesDialog, event: Gdk.EventGrabBroken) => boolean)): number
+    on(sigName: "grab-broken-event", callback: (event: Gdk.EventGrabBroken) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "grab-broken-event", callback: (event: Gdk.EventGrabBroken) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "grab-broken-event", callback: (event: Gdk.EventGrabBroken) => void): NodeJS.EventEmitter
     emit(sigName: "grab-broken-event", event: Gdk.EventGrabBroken): void
-    on(sigName: "grab-broken-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "grab-broken-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "grab-broken-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "grab-focus", callback: (($obj: PropertiesDialog) => void)): number
-    connect_after(sigName: "grab-focus", callback: (($obj: PropertiesDialog) => void)): number
+    on(sigName: "grab-focus", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "grab-focus", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "grab-focus", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "grab-focus"): void
-    on(sigName: "grab-focus", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "grab-focus", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "grab-focus", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "grab-notify", callback: (($obj: PropertiesDialog, wasGrabbed: boolean) => void)): number
-    connect_after(sigName: "grab-notify", callback: (($obj: PropertiesDialog, wasGrabbed: boolean) => void)): number
+    on(sigName: "grab-notify", callback: (wasGrabbed: boolean) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "grab-notify", callback: (wasGrabbed: boolean) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "grab-notify", callback: (wasGrabbed: boolean) => void): NodeJS.EventEmitter
     emit(sigName: "grab-notify", wasGrabbed: boolean): void
-    on(sigName: "grab-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "grab-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "grab-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "hide", callback: (($obj: PropertiesDialog) => void)): number
-    connect_after(sigName: "hide", callback: (($obj: PropertiesDialog) => void)): number
+    on(sigName: "hide", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "hide", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "hide", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "hide"): void
-    on(sigName: "hide", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "hide", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "hide", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "hierarchy-changed", callback: (($obj: PropertiesDialog, previousToplevel?: Gtk.Widget | null) => void)): number
-    connect_after(sigName: "hierarchy-changed", callback: (($obj: PropertiesDialog, previousToplevel?: Gtk.Widget | null) => void)): number
+    on(sigName: "hierarchy-changed", callback: (previousToplevel?: Gtk.Widget | null) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "hierarchy-changed", callback: (previousToplevel?: Gtk.Widget | null) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "hierarchy-changed", callback: (previousToplevel?: Gtk.Widget | null) => void): NodeJS.EventEmitter
     emit(sigName: "hierarchy-changed", previousToplevel?: Gtk.Widget | null): void
-    on(sigName: "hierarchy-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "hierarchy-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "hierarchy-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "key-press-event", callback: (($obj: PropertiesDialog, event: Gdk.EventKey) => boolean)): number
-    connect_after(sigName: "key-press-event", callback: (($obj: PropertiesDialog, event: Gdk.EventKey) => boolean)): number
+    on(sigName: "key-press-event", callback: (event: Gdk.EventKey) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "key-press-event", callback: (event: Gdk.EventKey) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "key-press-event", callback: (event: Gdk.EventKey) => void): NodeJS.EventEmitter
     emit(sigName: "key-press-event", event: Gdk.EventKey): void
-    on(sigName: "key-press-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "key-press-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "key-press-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "key-release-event", callback: (($obj: PropertiesDialog, event: Gdk.EventKey) => boolean)): number
-    connect_after(sigName: "key-release-event", callback: (($obj: PropertiesDialog, event: Gdk.EventKey) => boolean)): number
+    on(sigName: "key-release-event", callback: (event: Gdk.EventKey) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "key-release-event", callback: (event: Gdk.EventKey) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "key-release-event", callback: (event: Gdk.EventKey) => void): NodeJS.EventEmitter
     emit(sigName: "key-release-event", event: Gdk.EventKey): void
-    on(sigName: "key-release-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "key-release-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "key-release-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "keynav-failed", callback: (($obj: PropertiesDialog, direction: Gtk.DirectionType) => boolean)): number
-    connect_after(sigName: "keynav-failed", callback: (($obj: PropertiesDialog, direction: Gtk.DirectionType) => boolean)): number
+    on(sigName: "keynav-failed", callback: (direction: Gtk.DirectionType) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "keynav-failed", callback: (direction: Gtk.DirectionType) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "keynav-failed", callback: (direction: Gtk.DirectionType) => void): NodeJS.EventEmitter
     emit(sigName: "keynav-failed", direction: Gtk.DirectionType): void
-    on(sigName: "keynav-failed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "keynav-failed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "keynav-failed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "leave-notify-event", callback: (($obj: PropertiesDialog, event: Gdk.EventCrossing) => boolean)): number
-    connect_after(sigName: "leave-notify-event", callback: (($obj: PropertiesDialog, event: Gdk.EventCrossing) => boolean)): number
+    on(sigName: "leave-notify-event", callback: (event: Gdk.EventCrossing) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "leave-notify-event", callback: (event: Gdk.EventCrossing) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "leave-notify-event", callback: (event: Gdk.EventCrossing) => void): NodeJS.EventEmitter
     emit(sigName: "leave-notify-event", event: Gdk.EventCrossing): void
-    on(sigName: "leave-notify-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "leave-notify-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "leave-notify-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "map", callback: (($obj: PropertiesDialog) => void)): number
-    connect_after(sigName: "map", callback: (($obj: PropertiesDialog) => void)): number
+    on(sigName: "map", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "map", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "map", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "map"): void
-    on(sigName: "map", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "map", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "map", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "map-event", callback: (($obj: PropertiesDialog, event: Gdk.EventAny) => boolean)): number
-    connect_after(sigName: "map-event", callback: (($obj: PropertiesDialog, event: Gdk.EventAny) => boolean)): number
+    on(sigName: "map-event", callback: (event: Gdk.EventAny) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "map-event", callback: (event: Gdk.EventAny) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "map-event", callback: (event: Gdk.EventAny) => void): NodeJS.EventEmitter
     emit(sigName: "map-event", event: Gdk.EventAny): void
-    on(sigName: "map-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "map-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "map-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "mnemonic-activate", callback: (($obj: PropertiesDialog, groupCycling: boolean) => boolean)): number
-    connect_after(sigName: "mnemonic-activate", callback: (($obj: PropertiesDialog, groupCycling: boolean) => boolean)): number
+    on(sigName: "mnemonic-activate", callback: (groupCycling: boolean) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "mnemonic-activate", callback: (groupCycling: boolean) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "mnemonic-activate", callback: (groupCycling: boolean) => void): NodeJS.EventEmitter
     emit(sigName: "mnemonic-activate", groupCycling: boolean): void
-    on(sigName: "mnemonic-activate", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "mnemonic-activate", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "mnemonic-activate", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "motion-notify-event", callback: (($obj: PropertiesDialog, event: Gdk.EventMotion) => boolean)): number
-    connect_after(sigName: "motion-notify-event", callback: (($obj: PropertiesDialog, event: Gdk.EventMotion) => boolean)): number
+    on(sigName: "motion-notify-event", callback: (event: Gdk.EventMotion) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "motion-notify-event", callback: (event: Gdk.EventMotion) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "motion-notify-event", callback: (event: Gdk.EventMotion) => void): NodeJS.EventEmitter
     emit(sigName: "motion-notify-event", event: Gdk.EventMotion): void
-    on(sigName: "motion-notify-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "motion-notify-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "motion-notify-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "move-focus", callback: (($obj: PropertiesDialog, direction: Gtk.DirectionType) => void)): number
-    connect_after(sigName: "move-focus", callback: (($obj: PropertiesDialog, direction: Gtk.DirectionType) => void)): number
+    on(sigName: "move-focus", callback: (direction: Gtk.DirectionType) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "move-focus", callback: (direction: Gtk.DirectionType) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "move-focus", callback: (direction: Gtk.DirectionType) => void): NodeJS.EventEmitter
     emit(sigName: "move-focus", direction: Gtk.DirectionType): void
-    on(sigName: "move-focus", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "move-focus", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "move-focus", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "parent-set", callback: (($obj: PropertiesDialog, oldParent?: Gtk.Widget | null) => void)): number
-    connect_after(sigName: "parent-set", callback: (($obj: PropertiesDialog, oldParent?: Gtk.Widget | null) => void)): number
+    on(sigName: "parent-set", callback: (oldParent?: Gtk.Widget | null) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "parent-set", callback: (oldParent?: Gtk.Widget | null) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "parent-set", callback: (oldParent?: Gtk.Widget | null) => void): NodeJS.EventEmitter
     emit(sigName: "parent-set", oldParent?: Gtk.Widget | null): void
-    on(sigName: "parent-set", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "parent-set", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "parent-set", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "popup-menu", callback: (($obj: PropertiesDialog) => boolean)): number
-    connect_after(sigName: "popup-menu", callback: (($obj: PropertiesDialog) => boolean)): number
+    on(sigName: "popup-menu", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "popup-menu", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "popup-menu", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "popup-menu"): void
-    on(sigName: "popup-menu", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "popup-menu", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "popup-menu", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "property-notify-event", callback: (($obj: PropertiesDialog, event: Gdk.EventProperty) => boolean)): number
-    connect_after(sigName: "property-notify-event", callback: (($obj: PropertiesDialog, event: Gdk.EventProperty) => boolean)): number
+    on(sigName: "property-notify-event", callback: (event: Gdk.EventProperty) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "property-notify-event", callback: (event: Gdk.EventProperty) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "property-notify-event", callback: (event: Gdk.EventProperty) => void): NodeJS.EventEmitter
     emit(sigName: "property-notify-event", event: Gdk.EventProperty): void
-    on(sigName: "property-notify-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "property-notify-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "property-notify-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "proximity-in-event", callback: (($obj: PropertiesDialog, event: Gdk.EventProximity) => boolean)): number
-    connect_after(sigName: "proximity-in-event", callback: (($obj: PropertiesDialog, event: Gdk.EventProximity) => boolean)): number
+    on(sigName: "proximity-in-event", callback: (event: Gdk.EventProximity) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "proximity-in-event", callback: (event: Gdk.EventProximity) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "proximity-in-event", callback: (event: Gdk.EventProximity) => void): NodeJS.EventEmitter
     emit(sigName: "proximity-in-event", event: Gdk.EventProximity): void
-    on(sigName: "proximity-in-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "proximity-in-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "proximity-in-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "proximity-out-event", callback: (($obj: PropertiesDialog, event: Gdk.EventProximity) => boolean)): number
-    connect_after(sigName: "proximity-out-event", callback: (($obj: PropertiesDialog, event: Gdk.EventProximity) => boolean)): number
+    on(sigName: "proximity-out-event", callback: (event: Gdk.EventProximity) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "proximity-out-event", callback: (event: Gdk.EventProximity) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "proximity-out-event", callback: (event: Gdk.EventProximity) => void): NodeJS.EventEmitter
     emit(sigName: "proximity-out-event", event: Gdk.EventProximity): void
-    on(sigName: "proximity-out-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "proximity-out-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "proximity-out-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "query-tooltip", callback: (($obj: PropertiesDialog, x: number, y: number, keyboardMode: boolean, tooltip: Gtk.Tooltip) => boolean)): number
-    connect_after(sigName: "query-tooltip", callback: (($obj: PropertiesDialog, x: number, y: number, keyboardMode: boolean, tooltip: Gtk.Tooltip) => boolean)): number
+    on(sigName: "query-tooltip", callback: (x: number, y: number, keyboardMode: boolean, tooltip: Gtk.Tooltip) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "query-tooltip", callback: (x: number, y: number, keyboardMode: boolean, tooltip: Gtk.Tooltip) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "query-tooltip", callback: (x: number, y: number, keyboardMode: boolean, tooltip: Gtk.Tooltip) => void): NodeJS.EventEmitter
     emit(sigName: "query-tooltip", x: number, y: number, keyboardMode: boolean, tooltip: Gtk.Tooltip): void
-    on(sigName: "query-tooltip", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "query-tooltip", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "query-tooltip", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "realize", callback: (($obj: PropertiesDialog) => void)): number
-    connect_after(sigName: "realize", callback: (($obj: PropertiesDialog) => void)): number
+    on(sigName: "realize", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "realize", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "realize", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "realize"): void
-    on(sigName: "realize", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "realize", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "realize", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "screen-changed", callback: (($obj: PropertiesDialog, previousScreen?: Gdk.Screen | null) => void)): number
-    connect_after(sigName: "screen-changed", callback: (($obj: PropertiesDialog, previousScreen?: Gdk.Screen | null) => void)): number
+    on(sigName: "screen-changed", callback: (previousScreen?: Gdk.Screen | null) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "screen-changed", callback: (previousScreen?: Gdk.Screen | null) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "screen-changed", callback: (previousScreen?: Gdk.Screen | null) => void): NodeJS.EventEmitter
     emit(sigName: "screen-changed", previousScreen?: Gdk.Screen | null): void
-    on(sigName: "screen-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "screen-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "screen-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "scroll-event", callback: (($obj: PropertiesDialog, event: Gdk.EventScroll) => boolean)): number
-    connect_after(sigName: "scroll-event", callback: (($obj: PropertiesDialog, event: Gdk.EventScroll) => boolean)): number
+    on(sigName: "scroll-event", callback: (event: Gdk.EventScroll) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "scroll-event", callback: (event: Gdk.EventScroll) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "scroll-event", callback: (event: Gdk.EventScroll) => void): NodeJS.EventEmitter
     emit(sigName: "scroll-event", event: Gdk.EventScroll): void
-    on(sigName: "scroll-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "scroll-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "scroll-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "selection-clear-event", callback: (($obj: PropertiesDialog, event: Gdk.EventSelection) => boolean)): number
-    connect_after(sigName: "selection-clear-event", callback: (($obj: PropertiesDialog, event: Gdk.EventSelection) => boolean)): number
+    on(sigName: "selection-clear-event", callback: (event: Gdk.EventSelection) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "selection-clear-event", callback: (event: Gdk.EventSelection) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "selection-clear-event", callback: (event: Gdk.EventSelection) => void): NodeJS.EventEmitter
     emit(sigName: "selection-clear-event", event: Gdk.EventSelection): void
-    on(sigName: "selection-clear-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "selection-clear-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "selection-clear-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "selection-get", callback: (($obj: PropertiesDialog, data: Gtk.SelectionData, info: number, time: number) => void)): number
-    connect_after(sigName: "selection-get", callback: (($obj: PropertiesDialog, data: Gtk.SelectionData, info: number, time: number) => void)): number
+    on(sigName: "selection-get", callback: (data: Gtk.SelectionData, info: number, time: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "selection-get", callback: (data: Gtk.SelectionData, info: number, time: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "selection-get", callback: (data: Gtk.SelectionData, info: number, time: number) => void): NodeJS.EventEmitter
     emit(sigName: "selection-get", data: Gtk.SelectionData, info: number, time: number): void
-    on(sigName: "selection-get", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "selection-get", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "selection-get", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "selection-notify-event", callback: (($obj: PropertiesDialog, event: Gdk.EventSelection) => boolean)): number
-    connect_after(sigName: "selection-notify-event", callback: (($obj: PropertiesDialog, event: Gdk.EventSelection) => boolean)): number
+    on(sigName: "selection-notify-event", callback: (event: Gdk.EventSelection) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "selection-notify-event", callback: (event: Gdk.EventSelection) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "selection-notify-event", callback: (event: Gdk.EventSelection) => void): NodeJS.EventEmitter
     emit(sigName: "selection-notify-event", event: Gdk.EventSelection): void
-    on(sigName: "selection-notify-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "selection-notify-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "selection-notify-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "selection-received", callback: (($obj: PropertiesDialog, data: Gtk.SelectionData, time: number) => void)): number
-    connect_after(sigName: "selection-received", callback: (($obj: PropertiesDialog, data: Gtk.SelectionData, time: number) => void)): number
+    on(sigName: "selection-received", callback: (data: Gtk.SelectionData, time: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "selection-received", callback: (data: Gtk.SelectionData, time: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "selection-received", callback: (data: Gtk.SelectionData, time: number) => void): NodeJS.EventEmitter
     emit(sigName: "selection-received", data: Gtk.SelectionData, time: number): void
-    on(sigName: "selection-received", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "selection-received", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "selection-received", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "selection-request-event", callback: (($obj: PropertiesDialog, event: Gdk.EventSelection) => boolean)): number
-    connect_after(sigName: "selection-request-event", callback: (($obj: PropertiesDialog, event: Gdk.EventSelection) => boolean)): number
+    on(sigName: "selection-request-event", callback: (event: Gdk.EventSelection) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "selection-request-event", callback: (event: Gdk.EventSelection) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "selection-request-event", callback: (event: Gdk.EventSelection) => void): NodeJS.EventEmitter
     emit(sigName: "selection-request-event", event: Gdk.EventSelection): void
-    on(sigName: "selection-request-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "selection-request-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "selection-request-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "show", callback: (($obj: PropertiesDialog) => void)): number
-    connect_after(sigName: "show", callback: (($obj: PropertiesDialog) => void)): number
+    on(sigName: "show", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "show", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "show", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "show"): void
-    on(sigName: "show", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "show", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "show", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "show-help", callback: (($obj: PropertiesDialog, helpType: Gtk.WidgetHelpType) => boolean)): number
-    connect_after(sigName: "show-help", callback: (($obj: PropertiesDialog, helpType: Gtk.WidgetHelpType) => boolean)): number
+    on(sigName: "show-help", callback: (helpType: Gtk.WidgetHelpType) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "show-help", callback: (helpType: Gtk.WidgetHelpType) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "show-help", callback: (helpType: Gtk.WidgetHelpType) => void): NodeJS.EventEmitter
     emit(sigName: "show-help", helpType: Gtk.WidgetHelpType): void
-    on(sigName: "show-help", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "show-help", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "show-help", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "size-allocate", callback: (($obj: PropertiesDialog, allocation: Gtk.Allocation) => void)): number
-    connect_after(sigName: "size-allocate", callback: (($obj: PropertiesDialog, allocation: Gtk.Allocation) => void)): number
+    on(sigName: "size-allocate", callback: (allocation: Gtk.Allocation) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "size-allocate", callback: (allocation: Gtk.Allocation) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "size-allocate", callback: (allocation: Gtk.Allocation) => void): NodeJS.EventEmitter
     emit(sigName: "size-allocate", allocation: Gtk.Allocation): void
-    on(sigName: "size-allocate", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "size-allocate", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "size-allocate", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "state-changed", callback: (($obj: PropertiesDialog, state: Gtk.StateType) => void)): number
-    connect_after(sigName: "state-changed", callback: (($obj: PropertiesDialog, state: Gtk.StateType) => void)): number
+    on(sigName: "state-changed", callback: (state: Gtk.StateType) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "state-changed", callback: (state: Gtk.StateType) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "state-changed", callback: (state: Gtk.StateType) => void): NodeJS.EventEmitter
     emit(sigName: "state-changed", state: Gtk.StateType): void
-    on(sigName: "state-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "state-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "state-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "state-flags-changed", callback: (($obj: PropertiesDialog, flags: Gtk.StateFlags) => void)): number
-    connect_after(sigName: "state-flags-changed", callback: (($obj: PropertiesDialog, flags: Gtk.StateFlags) => void)): number
+    on(sigName: "state-flags-changed", callback: (flags: Gtk.StateFlags) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "state-flags-changed", callback: (flags: Gtk.StateFlags) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "state-flags-changed", callback: (flags: Gtk.StateFlags) => void): NodeJS.EventEmitter
     emit(sigName: "state-flags-changed", flags: Gtk.StateFlags): void
-    on(sigName: "state-flags-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "state-flags-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "state-flags-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "style-set", callback: (($obj: PropertiesDialog, previousStyle?: Gtk.Style | null) => void)): number
-    connect_after(sigName: "style-set", callback: (($obj: PropertiesDialog, previousStyle?: Gtk.Style | null) => void)): number
+    on(sigName: "style-set", callback: (previousStyle?: Gtk.Style | null) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "style-set", callback: (previousStyle?: Gtk.Style | null) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "style-set", callback: (previousStyle?: Gtk.Style | null) => void): NodeJS.EventEmitter
     emit(sigName: "style-set", previousStyle?: Gtk.Style | null): void
-    on(sigName: "style-set", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "style-set", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "style-set", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "style-updated", callback: (($obj: PropertiesDialog) => void)): number
-    connect_after(sigName: "style-updated", callback: (($obj: PropertiesDialog) => void)): number
+    on(sigName: "style-updated", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "style-updated", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "style-updated", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "style-updated"): void
-    on(sigName: "style-updated", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "style-updated", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "style-updated", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "touch-event", callback: (($obj: PropertiesDialog, object: Gdk.Event) => boolean)): number
-    connect_after(sigName: "touch-event", callback: (($obj: PropertiesDialog, object: Gdk.Event) => boolean)): number
+    on(sigName: "touch-event", callback: (object: Gdk.Event) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "touch-event", callback: (object: Gdk.Event) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "touch-event", callback: (object: Gdk.Event) => void): NodeJS.EventEmitter
     emit(sigName: "touch-event", object: Gdk.Event): void
-    on(sigName: "touch-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "touch-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "touch-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "unmap", callback: (($obj: PropertiesDialog) => void)): number
-    connect_after(sigName: "unmap", callback: (($obj: PropertiesDialog) => void)): number
+    on(sigName: "unmap", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "unmap", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "unmap", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "unmap"): void
-    on(sigName: "unmap", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "unmap", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "unmap", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "unmap-event", callback: (($obj: PropertiesDialog, event: Gdk.EventAny) => boolean)): number
-    connect_after(sigName: "unmap-event", callback: (($obj: PropertiesDialog, event: Gdk.EventAny) => boolean)): number
+    on(sigName: "unmap-event", callback: (event: Gdk.EventAny) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "unmap-event", callback: (event: Gdk.EventAny) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "unmap-event", callback: (event: Gdk.EventAny) => void): NodeJS.EventEmitter
     emit(sigName: "unmap-event", event: Gdk.EventAny): void
-    on(sigName: "unmap-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "unmap-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "unmap-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "unrealize", callback: (($obj: PropertiesDialog) => void)): number
-    connect_after(sigName: "unrealize", callback: (($obj: PropertiesDialog) => void)): number
+    on(sigName: "unrealize", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "unrealize", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "unrealize", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "unrealize"): void
-    on(sigName: "unrealize", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "unrealize", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "unrealize", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "visibility-notify-event", callback: (($obj: PropertiesDialog, event: Gdk.EventVisibility) => boolean)): number
-    connect_after(sigName: "visibility-notify-event", callback: (($obj: PropertiesDialog, event: Gdk.EventVisibility) => boolean)): number
+    on(sigName: "visibility-notify-event", callback: (event: Gdk.EventVisibility) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "visibility-notify-event", callback: (event: Gdk.EventVisibility) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "visibility-notify-event", callback: (event: Gdk.EventVisibility) => void): NodeJS.EventEmitter
     emit(sigName: "visibility-notify-event", event: Gdk.EventVisibility): void
-    on(sigName: "visibility-notify-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "visibility-notify-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "visibility-notify-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "window-state-event", callback: (($obj: PropertiesDialog, event: Gdk.EventWindowState) => boolean)): number
-    connect_after(sigName: "window-state-event", callback: (($obj: PropertiesDialog, event: Gdk.EventWindowState) => boolean)): number
+    on(sigName: "window-state-event", callback: (event: Gdk.EventWindowState) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "window-state-event", callback: (event: Gdk.EventWindowState) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "window-state-event", callback: (event: Gdk.EventWindowState) => void): NodeJS.EventEmitter
     emit(sigName: "window-state-event", event: Gdk.EventWindowState): void
-    on(sigName: "window-state-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "window-state-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "window-state-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: PropertiesDialog, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: PropertiesDialog, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::netbook-mode", callback: (($obj: PropertiesDialog, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::netbook-mode", callback: (($obj: PropertiesDialog, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::netbook-mode", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -5097,7 +4389,7 @@ export interface ScrollView_ConstructProps extends Gtk.Grid_ConstructProps {
     orientation?: Gtk.Orientation
 }
 export class ScrollView {
-    /* Properties of Eog.ScrollView */
+    /* Properties of Eog-3.0.Eog.ScrollView */
     antialiasingIn: boolean
     antialiasingOut: boolean
     backgroundColor: Gdk.RGBA
@@ -5108,17 +4400,17 @@ export class ScrollView {
     useBackgroundColor: boolean
     zoomMode: ZoomMode
     zoomMultiplier: number
-    /* Properties of Gtk.Grid */
+    /* Properties of Gtk-3.0.Gtk.Grid */
     baselineRow: number
     columnHomogeneous: boolean
     columnSpacing: number
     rowHomogeneous: boolean
     rowSpacing: number
-    /* Properties of Gtk.Container */
+    /* Properties of Gtk-3.0.Gtk.Container */
     borderWidth: number
     child: Gtk.Widget
     resizeMode: Gtk.ResizeMode
-    /* Properties of Gtk.Widget */
+    /* Properties of Gtk-3.0.Gtk.Widget */
     appPaintable: boolean
     canDefault: boolean
     canFocus: boolean
@@ -5158,18 +4450,18 @@ export class ScrollView {
     visible: boolean
     widthRequest: number
     readonly window: Gdk.Window
-    /* Properties of Gtk.Orientable */
+    /* Properties of Gtk-3.0.Gtk.Orientable */
     orientation: Gtk.Orientation
-    /* Fields of Eog.ScrollView */
+    /* Fields of Eog-3.0.Eog.ScrollView */
     baseInstance: Gtk.Grid
     priv: ScrollViewPrivate
-    /* Fields of Gtk.Container */
+    /* Fields of Gtk-3.0.Gtk.Container */
     widget: Gtk.Widget
-    /* Fields of Gtk.Widget */
+    /* Fields of Gtk-3.0.Gtk.Widget */
     parentInstance: GObject.InitiallyUnowned
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Eog.ScrollView */
+    /* Methods of Eog-3.0.Eog.ScrollView */
     eventIsOverImage(ev: Gdk.Event): boolean
     getImage(): Image
     getZoom(): number
@@ -5195,7 +4487,7 @@ export class ScrollView {
     showCursor(): void
     zoomIn(smooth: boolean): void
     zoomOut(smooth: boolean): void
-    /* Methods of Gtk.Grid */
+    /* Methods of Gtk-3.0.Gtk.Grid */
     attach(child: Gtk.Widget, left: number, top: number, width: number, height: number): void
     attachNextTo(child: Gtk.Widget, sibling: Gtk.Widget | null, side: Gtk.PositionType, width: number, height: number): void
     getBaselineRow(): number
@@ -5216,7 +4508,7 @@ export class ScrollView {
     setRowBaselinePosition(row: number, pos: Gtk.BaselinePosition): void
     setRowHomogeneous(homogeneous: boolean): void
     setRowSpacing(spacing: number): void
-    /* Methods of Gtk.Container */
+    /* Methods of Gtk-3.0.Gtk.Container */
     add(widget: Gtk.Widget): void
     checkResize(): void
     childGetProperty(child: Gtk.Widget, propertyName: string, value: any): void
@@ -5227,7 +4519,7 @@ export class ScrollView {
     foreach(callback: Gtk.Callback): void
     getBorderWidth(): number
     getChildren(): Gtk.Widget[]
-    getFocusChain(): [ /* returnType */ boolean, /* focusableWidgets */ Gtk.Widget[] ]
+    getFocusChain(): { returnType: boolean, focusableWidgets: Gtk.Widget[] }
     getFocusChild(): Gtk.Widget | null
     getFocusHadjustment(): Gtk.Adjustment | null
     getFocusVadjustment(): Gtk.Adjustment | null
@@ -5244,7 +4536,7 @@ export class ScrollView {
     setReallocateRedraws(needsRedraws: boolean): void
     setResizeMode(resizeMode: Gtk.ResizeMode): void
     unsetFocusChain(): void
-    /* Methods of Gtk.Widget */
+    /* Methods of Gtk-3.0.Gtk.Widget */
     activate(): boolean
     addAccelerator(accelSignal: string, accelGroup: Gtk.AccelGroup, accelKey: number, accelMods: Gdk.ModifierType, accelFlags: Gtk.AccelFlags): void
     addDeviceEvents(device: Gdk.Device, events: Gdk.EventMask): void
@@ -5254,12 +4546,12 @@ export class ScrollView {
     canActivateAccel(signalId: number): boolean
     childFocus(direction: Gtk.DirectionType): boolean
     childNotify(childProperty: string): void
-    classPath(): [ /* pathLength */ number | null, /* path */ string | null, /* pathReversed */ string | null ]
+    classPath(): { pathLength: number | null, path: string | null, pathReversed: string | null }
     computeExpand(orientation: Gtk.Orientation): boolean
     createPangoContext(): Pango.Context
     createPangoLayout(text?: string | null): Pango.Layout
     destroy(): void
-    destroyed(widgetPointer: Gtk.Widget): /* widgetPointer */ Gtk.Widget
+    destroyed(widgetPointer: Gtk.Widget): { widgetPointer: Gtk.Widget }
     deviceIsShadowed(device: Gdk.Device): boolean
     dragBegin(targets: Gtk.TargetList, actions: Gdk.DragAction, button: number, event?: Gdk.Event | null): Gdk.DragContext
     dragBeginWithCoordinates(targets: Gtk.TargetList, actions: Gdk.DragAction, button: number, event: Gdk.Event | null, x: number, y: number): Gdk.DragContext
@@ -5298,16 +4590,16 @@ export class ScrollView {
     getActionGroup(prefix: string): Gio.ActionGroup | null
     getAllocatedBaseline(): number
     getAllocatedHeight(): number
-    getAllocatedSize(): [ /* allocation */ Gtk.Allocation, /* baseline */ number | null ]
+    getAllocatedSize(): { allocation: Gtk.Allocation, baseline: number | null }
     getAllocatedWidth(): number
-    getAllocation(): /* allocation */ Gtk.Allocation
+    getAllocation(): { allocation: Gtk.Allocation }
     getAncestor(widgetType: GObject.Type): Gtk.Widget | null
     getAppPaintable(): boolean
     getCanDefault(): boolean
     getCanFocus(): boolean
-    getChildRequisition(): /* requisition */ Gtk.Requisition
+    getChildRequisition(): { requisition: Gtk.Requisition }
     getChildVisible(): boolean
-    getClip(): /* clip */ Gtk.Allocation
+    getClip(): { clip: Gtk.Allocation }
     getClipboard(selection: Gdk.Atom): Gtk.Clipboard
     getCompositeName(): string
     getDeviceEnabled(device: Gdk.Device): boolean
@@ -5341,23 +4633,23 @@ export class ScrollView {
     getParent(): Gtk.Widget | null
     getParentWindow(): Gdk.Window | null
     getPath(): Gtk.WidgetPath
-    getPointer(): [ /* x */ number | null, /* y */ number | null ]
-    getPreferredHeight(): [ /* minimumHeight */ number | null, /* naturalHeight */ number | null ]
-    getPreferredHeightAndBaselineForWidth(width: number): [ /* minimumHeight */ number | null, /* naturalHeight */ number | null, /* minimumBaseline */ number | null, /* naturalBaseline */ number | null ]
-    getPreferredHeightForWidth(width: number): [ /* minimumHeight */ number | null, /* naturalHeight */ number | null ]
-    getPreferredSize(): [ /* minimumSize */ Gtk.Requisition | null, /* naturalSize */ Gtk.Requisition | null ]
-    getPreferredWidth(): [ /* minimumWidth */ number | null, /* naturalWidth */ number | null ]
-    getPreferredWidthForHeight(height: number): [ /* minimumWidth */ number | null, /* naturalWidth */ number | null ]
+    getPointer(): { x: number | null, y: number | null }
+    getPreferredHeight(): { minimumHeight: number | null, naturalHeight: number | null }
+    getPreferredHeightAndBaselineForWidth(width: number): { minimumHeight: number | null, naturalHeight: number | null, minimumBaseline: number | null, naturalBaseline: number | null }
+    getPreferredHeightForWidth(width: number): { minimumHeight: number | null, naturalHeight: number | null }
+    getPreferredSize(): { minimumSize: Gtk.Requisition | null, naturalSize: Gtk.Requisition | null }
+    getPreferredWidth(): { minimumWidth: number | null, naturalWidth: number | null }
+    getPreferredWidthForHeight(height: number): { minimumWidth: number | null, naturalWidth: number | null }
     getRealized(): boolean
     getReceivesDefault(): boolean
     getRequestMode(): Gtk.SizeRequestMode
-    getRequisition(): /* requisition */ Gtk.Requisition
+    getRequisition(): { requisition: Gtk.Requisition }
     getRootWindow(): Gdk.Window
     getScaleFactor(): number
     getScreen(): Gdk.Screen
     getSensitive(): boolean
     getSettings(): Gtk.Settings
-    getSizeRequest(): [ /* width */ number | null, /* height */ number | null ]
+    getSizeRequest(): { width: number | null, height: number | null }
     getState(): Gtk.StateType
     getStateFlags(): Gtk.StateFlags
     getStyle(): Gtk.Style
@@ -5389,7 +4681,7 @@ export class ScrollView {
     initTemplate(): void
     inputShapeCombineRegion(region?: cairo.Region | null): void
     insertActionGroup(name: string, group?: Gio.ActionGroup | null): void
-    intersect(area: Gdk.Rectangle): [ /* returnType */ boolean, /* intersection */ Gdk.Rectangle | null ]
+    intersect(area: Gdk.Rectangle): { returnType: boolean, intersection: Gdk.Rectangle | null }
     isAncestor(ancestor: Gtk.Widget): boolean
     isComposited(): boolean
     isDrawable(): boolean
@@ -5414,7 +4706,7 @@ export class ScrollView {
     overrideCursor(cursor?: Gdk.RGBA | null, secondaryCursor?: Gdk.RGBA | null): void
     overrideFont(fontDesc?: Pango.FontDescription | null): void
     overrideSymbolicColor(name: string, color?: Gdk.RGBA | null): void
-    path(): [ /* pathLength */ number | null, /* path */ string | null, /* pathReversed */ string | null ]
+    path(): { pathLength: number | null, path: string | null, pathReversed: string | null }
     queueAllocate(): void
     queueComputeExpand(): void
     queueDraw(): void
@@ -5492,18 +4784,18 @@ export class ScrollView {
     showNow(): void
     sizeAllocate(allocation: Gtk.Allocation): void
     sizeAllocateWithBaseline(allocation: Gtk.Allocation, baseline: number): void
-    sizeRequest(): /* requisition */ Gtk.Requisition
+    sizeRequest(): { requisition: Gtk.Requisition }
     styleAttach(): void
     styleGetProperty(propertyName: string, value: any): void
     thawChildNotify(): void
-    translateCoordinates(destWidget: Gtk.Widget, srcX: number, srcY: number): [ /* returnType */ boolean, /* destX */ number | null, /* destY */ number | null ]
+    translateCoordinates(destWidget: Gtk.Widget, srcX: number, srcY: number): { returnType: boolean, destX: number | null, destY: number | null }
     triggerTooltipQuery(): void
     unmap(): void
     unparent(): void
     unrealize(): void
     unregisterWindow(window: Gdk.Window): void
     unsetStateFlags(flags: Gtk.StateFlags): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -5525,607 +4817,412 @@ export class ScrollView {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of Gtk.Buildable */
+    /* Methods of Gtk-3.0.Gtk.Buildable */
     addChild(builder: Gtk.Builder, child: GObject.Object, type?: string | null): void
     constructChild(builder: Gtk.Builder, name: string): GObject.Object
     customFinished(builder: Gtk.Builder, child: GObject.Object | null, tagname: string, data?: object | null): void
     customTagEnd(builder: Gtk.Builder, child: GObject.Object | null, tagname: string, data?: object | null): void
-    customTagStart(builder: Gtk.Builder, child: GObject.Object | null, tagname: string): [ /* returnType */ boolean, /* parser */ GLib.MarkupParser, /* data */ object | null ]
+    customTagStart(builder: Gtk.Builder, child: GObject.Object | null, tagname: string): { returnType: boolean, parser: GLib.MarkupParser, data: object | null }
     getInternalChild(builder: Gtk.Builder, childname: string): GObject.Object
     parserFinished(builder: Gtk.Builder): void
     setBuildableProperty(builder: Gtk.Builder, name: string, value: any): void
-    /* Methods of Gtk.Orientable */
+    /* Methods of Gtk-3.0.Gtk.Orientable */
     getOrientation(): Gtk.Orientation
     setOrientation(orientation: Gtk.Orientation): void
-    /* Virtual methods of Eog.ScrollView */
-    vfuncNextImage(): void
-    vfuncPreviousImage(): void
-    vfuncRotationChanged(degrees: number): void
-    vfuncZoomChanged(zoom: number): void
-    vfuncAddChild(builder: Gtk.Builder, child: GObject.Object, type?: string | null): void
-    vfuncConstructChild(builder: Gtk.Builder, name: string): GObject.Object
-    vfuncCustomFinished(builder: Gtk.Builder, child: GObject.Object | null, tagname: string, data?: object | null): void
-    vfuncCustomTagEnd(builder: Gtk.Builder, child: GObject.Object | null, tagname: string, data?: object | null): void
-    vfuncCustomTagStart(builder: Gtk.Builder, child: GObject.Object | null, tagname: string): [ /* returnType */ boolean, /* parser */ GLib.MarkupParser, /* data */ object | null ]
-    vfuncGetInternalChild(builder: Gtk.Builder, childname: string): GObject.Object
-    vfuncGetName(): string
-    vfuncParserFinished(builder: Gtk.Builder): void
-    vfuncSetBuildableProperty(builder: Gtk.Builder, name: string, value: any): void
-    vfuncSetName(name: string): void
-    /* Virtual methods of Gtk.Container */
-    vfuncAdd(widget: Gtk.Widget): void
-    vfuncCheckResize(): void
-    vfuncChildType(): GObject.Type
-    vfuncCompositeName(child: Gtk.Widget): string
-    vfuncForall(includeInternals: boolean, callback: Gtk.Callback): void
-    vfuncGetChildProperty(child: Gtk.Widget, propertyId: number, value: any, pspec: GObject.ParamSpec): void
-    vfuncGetPathForChild(child: Gtk.Widget): Gtk.WidgetPath
-    vfuncRemove(widget: Gtk.Widget): void
-    vfuncSetChildProperty(child: Gtk.Widget, propertyId: number, value: any, pspec: GObject.ParamSpec): void
-    vfuncSetFocusChild(child?: Gtk.Widget | null): void
-    /* Virtual methods of Gtk.Widget */
-    vfuncAdjustBaselineAllocation(baseline: number): void
-    vfuncAdjustBaselineRequest(minimumBaseline: number, naturalBaseline: number): void
-    vfuncAdjustSizeAllocation(orientation: Gtk.Orientation, minimumSize: number, naturalSize: number, allocatedPos: number, allocatedSize: number): void
-    vfuncAdjustSizeRequest(orientation: Gtk.Orientation, minimumSize: number, naturalSize: number): void
-    vfuncButtonPressEvent(event: Gdk.EventButton): boolean
-    vfuncButtonReleaseEvent(event: Gdk.EventButton): boolean
-    vfuncCanActivateAccel(signalId: number): boolean
-    vfuncChildNotify(childProperty: GObject.ParamSpec): void
-    vfuncCompositedChanged(): void
-    vfuncComputeExpand(hexpandP: boolean, vexpandP: boolean): void
-    vfuncConfigureEvent(event: Gdk.EventConfigure): boolean
-    vfuncDamageEvent(event: Gdk.EventExpose): boolean
-    vfuncDeleteEvent(event: Gdk.EventAny): boolean
-    vfuncDestroy(): void
-    vfuncDestroyEvent(event: Gdk.EventAny): boolean
-    vfuncDirectionChanged(previousDirection: Gtk.TextDirection): void
-    vfuncDispatchChildPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDragBegin(context: Gdk.DragContext): void
-    vfuncDragDataDelete(context: Gdk.DragContext): void
-    vfuncDragDataGet(context: Gdk.DragContext, selectionData: Gtk.SelectionData, info: number, time: number): void
-    vfuncDragDataReceived(context: Gdk.DragContext, x: number, y: number, selectionData: Gtk.SelectionData, info: number, time: number): void
-    vfuncDragDrop(context: Gdk.DragContext, x: number, y: number, time: number): boolean
-    vfuncDragEnd(context: Gdk.DragContext): void
-    vfuncDragFailed(context: Gdk.DragContext, result: Gtk.DragResult): boolean
-    vfuncDragLeave(context: Gdk.DragContext, time: number): void
-    vfuncDragMotion(context: Gdk.DragContext, x: number, y: number, time: number): boolean
-    vfuncDraw(cr: cairo.Context): boolean
-    vfuncEnterNotifyEvent(event: Gdk.EventCrossing): boolean
-    vfuncEvent(event: Gdk.Event): boolean
-    vfuncFocus(direction: Gtk.DirectionType): boolean
-    vfuncFocusInEvent(event: Gdk.EventFocus): boolean
-    vfuncFocusOutEvent(event: Gdk.EventFocus): boolean
-    vfuncGetAccessible(): Atk.Object
-    vfuncGetPreferredHeight(): [ /* minimumHeight */ number | null, /* naturalHeight */ number | null ]
-    vfuncGetPreferredHeightAndBaselineForWidth(width: number): [ /* minimumHeight */ number | null, /* naturalHeight */ number | null, /* minimumBaseline */ number | null, /* naturalBaseline */ number | null ]
-    vfuncGetPreferredHeightForWidth(width: number): [ /* minimumHeight */ number | null, /* naturalHeight */ number | null ]
-    vfuncGetPreferredWidth(): [ /* minimumWidth */ number | null, /* naturalWidth */ number | null ]
-    vfuncGetPreferredWidthForHeight(height: number): [ /* minimumWidth */ number | null, /* naturalWidth */ number | null ]
-    vfuncGetRequestMode(): Gtk.SizeRequestMode
-    vfuncGrabBrokenEvent(event: Gdk.EventGrabBroken): boolean
-    vfuncGrabFocus(): void
-    vfuncGrabNotify(wasGrabbed: boolean): void
-    vfuncHide(): void
-    vfuncHierarchyChanged(previousToplevel: Gtk.Widget): void
-    vfuncKeyPressEvent(event: Gdk.EventKey): boolean
-    vfuncKeyReleaseEvent(event: Gdk.EventKey): boolean
-    vfuncKeynavFailed(direction: Gtk.DirectionType): boolean
-    vfuncLeaveNotifyEvent(event: Gdk.EventCrossing): boolean
-    vfuncMap(): void
-    vfuncMapEvent(event: Gdk.EventAny): boolean
-    vfuncMnemonicActivate(groupCycling: boolean): boolean
-    vfuncMotionNotifyEvent(event: Gdk.EventMotion): boolean
-    vfuncMoveFocus(direction: Gtk.DirectionType): void
-    vfuncParentSet(previousParent: Gtk.Widget): void
-    vfuncPopupMenu(): boolean
-    vfuncPropertyNotifyEvent(event: Gdk.EventProperty): boolean
-    vfuncProximityInEvent(event: Gdk.EventProximity): boolean
-    vfuncProximityOutEvent(event: Gdk.EventProximity): boolean
-    vfuncQueryTooltip(x: number, y: number, keyboardTooltip: boolean, tooltip: Gtk.Tooltip): boolean
-    vfuncQueueDrawRegion(region: cairo.Region): void
-    vfuncRealize(): void
-    vfuncScreenChanged(previousScreen: Gdk.Screen): void
-    vfuncScrollEvent(event: Gdk.EventScroll): boolean
-    vfuncSelectionClearEvent(event: Gdk.EventSelection): boolean
-    vfuncSelectionGet(selectionData: Gtk.SelectionData, info: number, time: number): void
-    vfuncSelectionNotifyEvent(event: Gdk.EventSelection): boolean
-    vfuncSelectionReceived(selectionData: Gtk.SelectionData, time: number): void
-    vfuncSelectionRequestEvent(event: Gdk.EventSelection): boolean
-    vfuncShow(): void
-    vfuncShowAll(): void
-    vfuncShowHelp(helpType: Gtk.WidgetHelpType): boolean
-    vfuncSizeAllocate(allocation: Gtk.Allocation): void
-    vfuncStateChanged(previousState: Gtk.StateType): void
-    vfuncStateFlagsChanged(previousStateFlags: Gtk.StateFlags): void
-    vfuncStyleSet(previousStyle: Gtk.Style): void
-    vfuncStyleUpdated(): void
-    vfuncTouchEvent(event: Gdk.EventTouch): boolean
-    vfuncUnmap(): void
-    vfuncUnmapEvent(event: Gdk.EventAny): boolean
-    vfuncUnrealize(): void
-    vfuncVisibilityNotifyEvent(event: Gdk.EventVisibility): boolean
-    vfuncWindowStateEvent(event: Gdk.EventWindowState): boolean
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Eog.ScrollView */
+    /* Signals of Eog-3.0.Eog.ScrollView */
     connect(sigName: "next-image", callback: (($obj: ScrollView) => void)): number
-    connect_after(sigName: "next-image", callback: (($obj: ScrollView) => void)): number
+    on(sigName: "next-image", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "next-image", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "next-image", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "next-image"): void
-    on(sigName: "next-image", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "next-image", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "next-image", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "previous-image", callback: (($obj: ScrollView) => void)): number
-    connect_after(sigName: "previous-image", callback: (($obj: ScrollView) => void)): number
+    on(sigName: "previous-image", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "previous-image", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "previous-image", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "previous-image"): void
-    on(sigName: "previous-image", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "previous-image", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "previous-image", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "rotation-changed", callback: (($obj: ScrollView, object: number) => void)): number
-    connect_after(sigName: "rotation-changed", callback: (($obj: ScrollView, object: number) => void)): number
+    on(sigName: "rotation-changed", callback: (object: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "rotation-changed", callback: (object: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "rotation-changed", callback: (object: number) => void): NodeJS.EventEmitter
     emit(sigName: "rotation-changed", object: number): void
-    on(sigName: "rotation-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "rotation-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "rotation-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "zoom-changed", callback: (($obj: ScrollView, object: number) => void)): number
-    connect_after(sigName: "zoom-changed", callback: (($obj: ScrollView, object: number) => void)): number
+    on(sigName: "zoom-changed", callback: (object: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "zoom-changed", callback: (object: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "zoom-changed", callback: (object: number) => void): NodeJS.EventEmitter
     emit(sigName: "zoom-changed", object: number): void
-    on(sigName: "zoom-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "zoom-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "zoom-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of Gtk.Container */
+    /* Signals of Gtk-3.0.Gtk.Container */
     connect(sigName: "add", callback: (($obj: ScrollView, object: Gtk.Widget) => void)): number
-    connect_after(sigName: "add", callback: (($obj: ScrollView, object: Gtk.Widget) => void)): number
+    on(sigName: "add", callback: (object: Gtk.Widget) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "add", callback: (object: Gtk.Widget) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "add", callback: (object: Gtk.Widget) => void): NodeJS.EventEmitter
     emit(sigName: "add", object: Gtk.Widget): void
-    on(sigName: "add", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "add", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "add", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "check-resize", callback: (($obj: ScrollView) => void)): number
-    connect_after(sigName: "check-resize", callback: (($obj: ScrollView) => void)): number
+    on(sigName: "check-resize", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "check-resize", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "check-resize", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "check-resize"): void
-    on(sigName: "check-resize", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "check-resize", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "check-resize", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "remove", callback: (($obj: ScrollView, object: Gtk.Widget) => void)): number
-    connect_after(sigName: "remove", callback: (($obj: ScrollView, object: Gtk.Widget) => void)): number
+    on(sigName: "remove", callback: (object: Gtk.Widget) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "remove", callback: (object: Gtk.Widget) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "remove", callback: (object: Gtk.Widget) => void): NodeJS.EventEmitter
     emit(sigName: "remove", object: Gtk.Widget): void
-    on(sigName: "remove", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "remove", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "remove", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "set-focus-child", callback: (($obj: ScrollView, object: Gtk.Widget) => void)): number
-    connect_after(sigName: "set-focus-child", callback: (($obj: ScrollView, object: Gtk.Widget) => void)): number
+    on(sigName: "set-focus-child", callback: (object: Gtk.Widget) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "set-focus-child", callback: (object: Gtk.Widget) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "set-focus-child", callback: (object: Gtk.Widget) => void): NodeJS.EventEmitter
     emit(sigName: "set-focus-child", object: Gtk.Widget): void
-    on(sigName: "set-focus-child", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "set-focus-child", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "set-focus-child", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of Gtk.Widget */
+    /* Signals of Gtk-3.0.Gtk.Widget */
     connect(sigName: "accel-closures-changed", callback: (($obj: ScrollView) => void)): number
-    connect_after(sigName: "accel-closures-changed", callback: (($obj: ScrollView) => void)): number
+    on(sigName: "accel-closures-changed", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "accel-closures-changed", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "accel-closures-changed", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "accel-closures-changed"): void
-    on(sigName: "accel-closures-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "accel-closures-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "accel-closures-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "button-press-event", callback: (($obj: ScrollView, event: Gdk.EventButton) => boolean)): number
-    connect_after(sigName: "button-press-event", callback: (($obj: ScrollView, event: Gdk.EventButton) => boolean)): number
+    on(sigName: "button-press-event", callback: (event: Gdk.EventButton) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "button-press-event", callback: (event: Gdk.EventButton) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "button-press-event", callback: (event: Gdk.EventButton) => void): NodeJS.EventEmitter
     emit(sigName: "button-press-event", event: Gdk.EventButton): void
-    on(sigName: "button-press-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "button-press-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "button-press-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "button-release-event", callback: (($obj: ScrollView, event: Gdk.EventButton) => boolean)): number
-    connect_after(sigName: "button-release-event", callback: (($obj: ScrollView, event: Gdk.EventButton) => boolean)): number
+    on(sigName: "button-release-event", callback: (event: Gdk.EventButton) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "button-release-event", callback: (event: Gdk.EventButton) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "button-release-event", callback: (event: Gdk.EventButton) => void): NodeJS.EventEmitter
     emit(sigName: "button-release-event", event: Gdk.EventButton): void
-    on(sigName: "button-release-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "button-release-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "button-release-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "can-activate-accel", callback: (($obj: ScrollView, signalId: number) => boolean)): number
-    connect_after(sigName: "can-activate-accel", callback: (($obj: ScrollView, signalId: number) => boolean)): number
+    on(sigName: "can-activate-accel", callback: (signalId: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "can-activate-accel", callback: (signalId: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "can-activate-accel", callback: (signalId: number) => void): NodeJS.EventEmitter
     emit(sigName: "can-activate-accel", signalId: number): void
-    on(sigName: "can-activate-accel", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "can-activate-accel", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "can-activate-accel", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "child-notify", callback: (($obj: ScrollView, childProperty: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "child-notify", callback: (($obj: ScrollView, childProperty: GObject.ParamSpec) => void)): number
+    on(sigName: "child-notify", callback: (childProperty: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "child-notify", callback: (childProperty: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "child-notify", callback: (childProperty: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "child-notify", childProperty: GObject.ParamSpec): void
-    on(sigName: "child-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "child-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "child-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "composited-changed", callback: (($obj: ScrollView) => void)): number
-    connect_after(sigName: "composited-changed", callback: (($obj: ScrollView) => void)): number
+    on(sigName: "composited-changed", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "composited-changed", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "composited-changed", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "composited-changed"): void
-    on(sigName: "composited-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "composited-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "composited-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "configure-event", callback: (($obj: ScrollView, event: Gdk.EventConfigure) => boolean)): number
-    connect_after(sigName: "configure-event", callback: (($obj: ScrollView, event: Gdk.EventConfigure) => boolean)): number
+    on(sigName: "configure-event", callback: (event: Gdk.EventConfigure) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "configure-event", callback: (event: Gdk.EventConfigure) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "configure-event", callback: (event: Gdk.EventConfigure) => void): NodeJS.EventEmitter
     emit(sigName: "configure-event", event: Gdk.EventConfigure): void
-    on(sigName: "configure-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "configure-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "configure-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "damage-event", callback: (($obj: ScrollView, event: Gdk.EventExpose) => boolean)): number
-    connect_after(sigName: "damage-event", callback: (($obj: ScrollView, event: Gdk.EventExpose) => boolean)): number
+    on(sigName: "damage-event", callback: (event: Gdk.EventExpose) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "damage-event", callback: (event: Gdk.EventExpose) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "damage-event", callback: (event: Gdk.EventExpose) => void): NodeJS.EventEmitter
     emit(sigName: "damage-event", event: Gdk.EventExpose): void
-    on(sigName: "damage-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "damage-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "damage-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "delete-event", callback: (($obj: ScrollView, event: Gdk.Event) => boolean)): number
-    connect_after(sigName: "delete-event", callback: (($obj: ScrollView, event: Gdk.Event) => boolean)): number
+    on(sigName: "delete-event", callback: (event: Gdk.Event) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "delete-event", callback: (event: Gdk.Event) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "delete-event", callback: (event: Gdk.Event) => void): NodeJS.EventEmitter
     emit(sigName: "delete-event", event: Gdk.Event): void
-    on(sigName: "delete-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "delete-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "delete-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "destroy", callback: (($obj: ScrollView) => void)): number
-    connect_after(sigName: "destroy", callback: (($obj: ScrollView) => void)): number
+    on(sigName: "destroy", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "destroy", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "destroy", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "destroy"): void
-    on(sigName: "destroy", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "destroy", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "destroy", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "destroy-event", callback: (($obj: ScrollView, event: Gdk.Event) => boolean)): number
-    connect_after(sigName: "destroy-event", callback: (($obj: ScrollView, event: Gdk.Event) => boolean)): number
+    on(sigName: "destroy-event", callback: (event: Gdk.Event) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "destroy-event", callback: (event: Gdk.Event) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "destroy-event", callback: (event: Gdk.Event) => void): NodeJS.EventEmitter
     emit(sigName: "destroy-event", event: Gdk.Event): void
-    on(sigName: "destroy-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "destroy-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "destroy-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "direction-changed", callback: (($obj: ScrollView, previousDirection: Gtk.TextDirection) => void)): number
-    connect_after(sigName: "direction-changed", callback: (($obj: ScrollView, previousDirection: Gtk.TextDirection) => void)): number
+    on(sigName: "direction-changed", callback: (previousDirection: Gtk.TextDirection) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "direction-changed", callback: (previousDirection: Gtk.TextDirection) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "direction-changed", callback: (previousDirection: Gtk.TextDirection) => void): NodeJS.EventEmitter
     emit(sigName: "direction-changed", previousDirection: Gtk.TextDirection): void
-    on(sigName: "direction-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "direction-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "direction-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "drag-begin", callback: (($obj: ScrollView, context: Gdk.DragContext) => void)): number
-    connect_after(sigName: "drag-begin", callback: (($obj: ScrollView, context: Gdk.DragContext) => void)): number
+    on(sigName: "drag-begin", callback: (context: Gdk.DragContext) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "drag-begin", callback: (context: Gdk.DragContext) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "drag-begin", callback: (context: Gdk.DragContext) => void): NodeJS.EventEmitter
     emit(sigName: "drag-begin", context: Gdk.DragContext): void
-    on(sigName: "drag-begin", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "drag-begin", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "drag-begin", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "drag-data-delete", callback: (($obj: ScrollView, context: Gdk.DragContext) => void)): number
-    connect_after(sigName: "drag-data-delete", callback: (($obj: ScrollView, context: Gdk.DragContext) => void)): number
+    on(sigName: "drag-data-delete", callback: (context: Gdk.DragContext) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "drag-data-delete", callback: (context: Gdk.DragContext) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "drag-data-delete", callback: (context: Gdk.DragContext) => void): NodeJS.EventEmitter
     emit(sigName: "drag-data-delete", context: Gdk.DragContext): void
-    on(sigName: "drag-data-delete", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "drag-data-delete", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "drag-data-delete", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "drag-data-get", callback: (($obj: ScrollView, context: Gdk.DragContext, data: Gtk.SelectionData, info: number, time: number) => void)): number
-    connect_after(sigName: "drag-data-get", callback: (($obj: ScrollView, context: Gdk.DragContext, data: Gtk.SelectionData, info: number, time: number) => void)): number
+    on(sigName: "drag-data-get", callback: (context: Gdk.DragContext, data: Gtk.SelectionData, info: number, time: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "drag-data-get", callback: (context: Gdk.DragContext, data: Gtk.SelectionData, info: number, time: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "drag-data-get", callback: (context: Gdk.DragContext, data: Gtk.SelectionData, info: number, time: number) => void): NodeJS.EventEmitter
     emit(sigName: "drag-data-get", context: Gdk.DragContext, data: Gtk.SelectionData, info: number, time: number): void
-    on(sigName: "drag-data-get", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "drag-data-get", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "drag-data-get", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "drag-data-received", callback: (($obj: ScrollView, context: Gdk.DragContext, x: number, y: number, data: Gtk.SelectionData, info: number, time: number) => void)): number
-    connect_after(sigName: "drag-data-received", callback: (($obj: ScrollView, context: Gdk.DragContext, x: number, y: number, data: Gtk.SelectionData, info: number, time: number) => void)): number
+    on(sigName: "drag-data-received", callback: (context: Gdk.DragContext, x: number, y: number, data: Gtk.SelectionData, info: number, time: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "drag-data-received", callback: (context: Gdk.DragContext, x: number, y: number, data: Gtk.SelectionData, info: number, time: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "drag-data-received", callback: (context: Gdk.DragContext, x: number, y: number, data: Gtk.SelectionData, info: number, time: number) => void): NodeJS.EventEmitter
     emit(sigName: "drag-data-received", context: Gdk.DragContext, x: number, y: number, data: Gtk.SelectionData, info: number, time: number): void
-    on(sigName: "drag-data-received", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "drag-data-received", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "drag-data-received", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "drag-drop", callback: (($obj: ScrollView, context: Gdk.DragContext, x: number, y: number, time: number) => boolean)): number
-    connect_after(sigName: "drag-drop", callback: (($obj: ScrollView, context: Gdk.DragContext, x: number, y: number, time: number) => boolean)): number
+    on(sigName: "drag-drop", callback: (context: Gdk.DragContext, x: number, y: number, time: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "drag-drop", callback: (context: Gdk.DragContext, x: number, y: number, time: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "drag-drop", callback: (context: Gdk.DragContext, x: number, y: number, time: number) => void): NodeJS.EventEmitter
     emit(sigName: "drag-drop", context: Gdk.DragContext, x: number, y: number, time: number): void
-    on(sigName: "drag-drop", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "drag-drop", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "drag-drop", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "drag-end", callback: (($obj: ScrollView, context: Gdk.DragContext) => void)): number
-    connect_after(sigName: "drag-end", callback: (($obj: ScrollView, context: Gdk.DragContext) => void)): number
+    on(sigName: "drag-end", callback: (context: Gdk.DragContext) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "drag-end", callback: (context: Gdk.DragContext) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "drag-end", callback: (context: Gdk.DragContext) => void): NodeJS.EventEmitter
     emit(sigName: "drag-end", context: Gdk.DragContext): void
-    on(sigName: "drag-end", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "drag-end", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "drag-end", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "drag-failed", callback: (($obj: ScrollView, context: Gdk.DragContext, result: Gtk.DragResult) => boolean)): number
-    connect_after(sigName: "drag-failed", callback: (($obj: ScrollView, context: Gdk.DragContext, result: Gtk.DragResult) => boolean)): number
+    on(sigName: "drag-failed", callback: (context: Gdk.DragContext, result: Gtk.DragResult) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "drag-failed", callback: (context: Gdk.DragContext, result: Gtk.DragResult) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "drag-failed", callback: (context: Gdk.DragContext, result: Gtk.DragResult) => void): NodeJS.EventEmitter
     emit(sigName: "drag-failed", context: Gdk.DragContext, result: Gtk.DragResult): void
-    on(sigName: "drag-failed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "drag-failed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "drag-failed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "drag-leave", callback: (($obj: ScrollView, context: Gdk.DragContext, time: number) => void)): number
-    connect_after(sigName: "drag-leave", callback: (($obj: ScrollView, context: Gdk.DragContext, time: number) => void)): number
+    on(sigName: "drag-leave", callback: (context: Gdk.DragContext, time: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "drag-leave", callback: (context: Gdk.DragContext, time: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "drag-leave", callback: (context: Gdk.DragContext, time: number) => void): NodeJS.EventEmitter
     emit(sigName: "drag-leave", context: Gdk.DragContext, time: number): void
-    on(sigName: "drag-leave", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "drag-leave", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "drag-leave", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "drag-motion", callback: (($obj: ScrollView, context: Gdk.DragContext, x: number, y: number, time: number) => boolean)): number
-    connect_after(sigName: "drag-motion", callback: (($obj: ScrollView, context: Gdk.DragContext, x: number, y: number, time: number) => boolean)): number
+    on(sigName: "drag-motion", callback: (context: Gdk.DragContext, x: number, y: number, time: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "drag-motion", callback: (context: Gdk.DragContext, x: number, y: number, time: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "drag-motion", callback: (context: Gdk.DragContext, x: number, y: number, time: number) => void): NodeJS.EventEmitter
     emit(sigName: "drag-motion", context: Gdk.DragContext, x: number, y: number, time: number): void
-    on(sigName: "drag-motion", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "drag-motion", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "drag-motion", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "draw", callback: (($obj: ScrollView, cr: cairo.Context) => boolean)): number
-    connect_after(sigName: "draw", callback: (($obj: ScrollView, cr: cairo.Context) => boolean)): number
+    on(sigName: "draw", callback: (cr: cairo.Context) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "draw", callback: (cr: cairo.Context) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "draw", callback: (cr: cairo.Context) => void): NodeJS.EventEmitter
     emit(sigName: "draw", cr: cairo.Context): void
-    on(sigName: "draw", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "draw", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "draw", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "enter-notify-event", callback: (($obj: ScrollView, event: Gdk.EventCrossing) => boolean)): number
-    connect_after(sigName: "enter-notify-event", callback: (($obj: ScrollView, event: Gdk.EventCrossing) => boolean)): number
+    on(sigName: "enter-notify-event", callback: (event: Gdk.EventCrossing) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "enter-notify-event", callback: (event: Gdk.EventCrossing) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "enter-notify-event", callback: (event: Gdk.EventCrossing) => void): NodeJS.EventEmitter
     emit(sigName: "enter-notify-event", event: Gdk.EventCrossing): void
-    on(sigName: "enter-notify-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "enter-notify-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "enter-notify-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "event", callback: (($obj: ScrollView, event: Gdk.Event) => boolean)): number
-    connect_after(sigName: "event", callback: (($obj: ScrollView, event: Gdk.Event) => boolean)): number
+    on(sigName: "event", callback: (event: Gdk.Event) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "event", callback: (event: Gdk.Event) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "event", callback: (event: Gdk.Event) => void): NodeJS.EventEmitter
     emit(sigName: "event", event: Gdk.Event): void
-    on(sigName: "event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "event-after", callback: (($obj: ScrollView, event: Gdk.Event) => void)): number
-    connect_after(sigName: "event-after", callback: (($obj: ScrollView, event: Gdk.Event) => void)): number
+    on(sigName: "event-after", callback: (event: Gdk.Event) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "event-after", callback: (event: Gdk.Event) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "event-after", callback: (event: Gdk.Event) => void): NodeJS.EventEmitter
     emit(sigName: "event-after", event: Gdk.Event): void
-    on(sigName: "event-after", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "event-after", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "event-after", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "focus", callback: (($obj: ScrollView, direction: Gtk.DirectionType) => boolean)): number
-    connect_after(sigName: "focus", callback: (($obj: ScrollView, direction: Gtk.DirectionType) => boolean)): number
+    on(sigName: "focus", callback: (direction: Gtk.DirectionType) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "focus", callback: (direction: Gtk.DirectionType) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "focus", callback: (direction: Gtk.DirectionType) => void): NodeJS.EventEmitter
     emit(sigName: "focus", direction: Gtk.DirectionType): void
-    on(sigName: "focus", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "focus", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "focus", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "focus-in-event", callback: (($obj: ScrollView, event: Gdk.EventFocus) => boolean)): number
-    connect_after(sigName: "focus-in-event", callback: (($obj: ScrollView, event: Gdk.EventFocus) => boolean)): number
+    on(sigName: "focus-in-event", callback: (event: Gdk.EventFocus) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "focus-in-event", callback: (event: Gdk.EventFocus) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "focus-in-event", callback: (event: Gdk.EventFocus) => void): NodeJS.EventEmitter
     emit(sigName: "focus-in-event", event: Gdk.EventFocus): void
-    on(sigName: "focus-in-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "focus-in-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "focus-in-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "focus-out-event", callback: (($obj: ScrollView, event: Gdk.EventFocus) => boolean)): number
-    connect_after(sigName: "focus-out-event", callback: (($obj: ScrollView, event: Gdk.EventFocus) => boolean)): number
+    on(sigName: "focus-out-event", callback: (event: Gdk.EventFocus) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "focus-out-event", callback: (event: Gdk.EventFocus) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "focus-out-event", callback: (event: Gdk.EventFocus) => void): NodeJS.EventEmitter
     emit(sigName: "focus-out-event", event: Gdk.EventFocus): void
-    on(sigName: "focus-out-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "focus-out-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "focus-out-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "grab-broken-event", callback: (($obj: ScrollView, event: Gdk.EventGrabBroken) => boolean)): number
-    connect_after(sigName: "grab-broken-event", callback: (($obj: ScrollView, event: Gdk.EventGrabBroken) => boolean)): number
+    on(sigName: "grab-broken-event", callback: (event: Gdk.EventGrabBroken) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "grab-broken-event", callback: (event: Gdk.EventGrabBroken) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "grab-broken-event", callback: (event: Gdk.EventGrabBroken) => void): NodeJS.EventEmitter
     emit(sigName: "grab-broken-event", event: Gdk.EventGrabBroken): void
-    on(sigName: "grab-broken-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "grab-broken-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "grab-broken-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "grab-focus", callback: (($obj: ScrollView) => void)): number
-    connect_after(sigName: "grab-focus", callback: (($obj: ScrollView) => void)): number
+    on(sigName: "grab-focus", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "grab-focus", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "grab-focus", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "grab-focus"): void
-    on(sigName: "grab-focus", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "grab-focus", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "grab-focus", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "grab-notify", callback: (($obj: ScrollView, wasGrabbed: boolean) => void)): number
-    connect_after(sigName: "grab-notify", callback: (($obj: ScrollView, wasGrabbed: boolean) => void)): number
+    on(sigName: "grab-notify", callback: (wasGrabbed: boolean) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "grab-notify", callback: (wasGrabbed: boolean) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "grab-notify", callback: (wasGrabbed: boolean) => void): NodeJS.EventEmitter
     emit(sigName: "grab-notify", wasGrabbed: boolean): void
-    on(sigName: "grab-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "grab-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "grab-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "hide", callback: (($obj: ScrollView) => void)): number
-    connect_after(sigName: "hide", callback: (($obj: ScrollView) => void)): number
+    on(sigName: "hide", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "hide", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "hide", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "hide"): void
-    on(sigName: "hide", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "hide", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "hide", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "hierarchy-changed", callback: (($obj: ScrollView, previousToplevel?: Gtk.Widget | null) => void)): number
-    connect_after(sigName: "hierarchy-changed", callback: (($obj: ScrollView, previousToplevel?: Gtk.Widget | null) => void)): number
+    on(sigName: "hierarchy-changed", callback: (previousToplevel?: Gtk.Widget | null) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "hierarchy-changed", callback: (previousToplevel?: Gtk.Widget | null) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "hierarchy-changed", callback: (previousToplevel?: Gtk.Widget | null) => void): NodeJS.EventEmitter
     emit(sigName: "hierarchy-changed", previousToplevel?: Gtk.Widget | null): void
-    on(sigName: "hierarchy-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "hierarchy-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "hierarchy-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "key-press-event", callback: (($obj: ScrollView, event: Gdk.EventKey) => boolean)): number
-    connect_after(sigName: "key-press-event", callback: (($obj: ScrollView, event: Gdk.EventKey) => boolean)): number
+    on(sigName: "key-press-event", callback: (event: Gdk.EventKey) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "key-press-event", callback: (event: Gdk.EventKey) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "key-press-event", callback: (event: Gdk.EventKey) => void): NodeJS.EventEmitter
     emit(sigName: "key-press-event", event: Gdk.EventKey): void
-    on(sigName: "key-press-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "key-press-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "key-press-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "key-release-event", callback: (($obj: ScrollView, event: Gdk.EventKey) => boolean)): number
-    connect_after(sigName: "key-release-event", callback: (($obj: ScrollView, event: Gdk.EventKey) => boolean)): number
+    on(sigName: "key-release-event", callback: (event: Gdk.EventKey) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "key-release-event", callback: (event: Gdk.EventKey) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "key-release-event", callback: (event: Gdk.EventKey) => void): NodeJS.EventEmitter
     emit(sigName: "key-release-event", event: Gdk.EventKey): void
-    on(sigName: "key-release-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "key-release-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "key-release-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "keynav-failed", callback: (($obj: ScrollView, direction: Gtk.DirectionType) => boolean)): number
-    connect_after(sigName: "keynav-failed", callback: (($obj: ScrollView, direction: Gtk.DirectionType) => boolean)): number
+    on(sigName: "keynav-failed", callback: (direction: Gtk.DirectionType) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "keynav-failed", callback: (direction: Gtk.DirectionType) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "keynav-failed", callback: (direction: Gtk.DirectionType) => void): NodeJS.EventEmitter
     emit(sigName: "keynav-failed", direction: Gtk.DirectionType): void
-    on(sigName: "keynav-failed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "keynav-failed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "keynav-failed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "leave-notify-event", callback: (($obj: ScrollView, event: Gdk.EventCrossing) => boolean)): number
-    connect_after(sigName: "leave-notify-event", callback: (($obj: ScrollView, event: Gdk.EventCrossing) => boolean)): number
+    on(sigName: "leave-notify-event", callback: (event: Gdk.EventCrossing) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "leave-notify-event", callback: (event: Gdk.EventCrossing) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "leave-notify-event", callback: (event: Gdk.EventCrossing) => void): NodeJS.EventEmitter
     emit(sigName: "leave-notify-event", event: Gdk.EventCrossing): void
-    on(sigName: "leave-notify-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "leave-notify-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "leave-notify-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "map", callback: (($obj: ScrollView) => void)): number
-    connect_after(sigName: "map", callback: (($obj: ScrollView) => void)): number
+    on(sigName: "map", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "map", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "map", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "map"): void
-    on(sigName: "map", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "map", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "map", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "map-event", callback: (($obj: ScrollView, event: Gdk.EventAny) => boolean)): number
-    connect_after(sigName: "map-event", callback: (($obj: ScrollView, event: Gdk.EventAny) => boolean)): number
+    on(sigName: "map-event", callback: (event: Gdk.EventAny) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "map-event", callback: (event: Gdk.EventAny) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "map-event", callback: (event: Gdk.EventAny) => void): NodeJS.EventEmitter
     emit(sigName: "map-event", event: Gdk.EventAny): void
-    on(sigName: "map-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "map-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "map-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "mnemonic-activate", callback: (($obj: ScrollView, groupCycling: boolean) => boolean)): number
-    connect_after(sigName: "mnemonic-activate", callback: (($obj: ScrollView, groupCycling: boolean) => boolean)): number
+    on(sigName: "mnemonic-activate", callback: (groupCycling: boolean) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "mnemonic-activate", callback: (groupCycling: boolean) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "mnemonic-activate", callback: (groupCycling: boolean) => void): NodeJS.EventEmitter
     emit(sigName: "mnemonic-activate", groupCycling: boolean): void
-    on(sigName: "mnemonic-activate", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "mnemonic-activate", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "mnemonic-activate", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "motion-notify-event", callback: (($obj: ScrollView, event: Gdk.EventMotion) => boolean)): number
-    connect_after(sigName: "motion-notify-event", callback: (($obj: ScrollView, event: Gdk.EventMotion) => boolean)): number
+    on(sigName: "motion-notify-event", callback: (event: Gdk.EventMotion) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "motion-notify-event", callback: (event: Gdk.EventMotion) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "motion-notify-event", callback: (event: Gdk.EventMotion) => void): NodeJS.EventEmitter
     emit(sigName: "motion-notify-event", event: Gdk.EventMotion): void
-    on(sigName: "motion-notify-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "motion-notify-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "motion-notify-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "move-focus", callback: (($obj: ScrollView, direction: Gtk.DirectionType) => void)): number
-    connect_after(sigName: "move-focus", callback: (($obj: ScrollView, direction: Gtk.DirectionType) => void)): number
+    on(sigName: "move-focus", callback: (direction: Gtk.DirectionType) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "move-focus", callback: (direction: Gtk.DirectionType) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "move-focus", callback: (direction: Gtk.DirectionType) => void): NodeJS.EventEmitter
     emit(sigName: "move-focus", direction: Gtk.DirectionType): void
-    on(sigName: "move-focus", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "move-focus", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "move-focus", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "parent-set", callback: (($obj: ScrollView, oldParent?: Gtk.Widget | null) => void)): number
-    connect_after(sigName: "parent-set", callback: (($obj: ScrollView, oldParent?: Gtk.Widget | null) => void)): number
+    on(sigName: "parent-set", callback: (oldParent?: Gtk.Widget | null) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "parent-set", callback: (oldParent?: Gtk.Widget | null) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "parent-set", callback: (oldParent?: Gtk.Widget | null) => void): NodeJS.EventEmitter
     emit(sigName: "parent-set", oldParent?: Gtk.Widget | null): void
-    on(sigName: "parent-set", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "parent-set", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "parent-set", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "popup-menu", callback: (($obj: ScrollView) => boolean)): number
-    connect_after(sigName: "popup-menu", callback: (($obj: ScrollView) => boolean)): number
+    on(sigName: "popup-menu", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "popup-menu", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "popup-menu", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "popup-menu"): void
-    on(sigName: "popup-menu", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "popup-menu", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "popup-menu", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "property-notify-event", callback: (($obj: ScrollView, event: Gdk.EventProperty) => boolean)): number
-    connect_after(sigName: "property-notify-event", callback: (($obj: ScrollView, event: Gdk.EventProperty) => boolean)): number
+    on(sigName: "property-notify-event", callback: (event: Gdk.EventProperty) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "property-notify-event", callback: (event: Gdk.EventProperty) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "property-notify-event", callback: (event: Gdk.EventProperty) => void): NodeJS.EventEmitter
     emit(sigName: "property-notify-event", event: Gdk.EventProperty): void
-    on(sigName: "property-notify-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "property-notify-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "property-notify-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "proximity-in-event", callback: (($obj: ScrollView, event: Gdk.EventProximity) => boolean)): number
-    connect_after(sigName: "proximity-in-event", callback: (($obj: ScrollView, event: Gdk.EventProximity) => boolean)): number
+    on(sigName: "proximity-in-event", callback: (event: Gdk.EventProximity) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "proximity-in-event", callback: (event: Gdk.EventProximity) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "proximity-in-event", callback: (event: Gdk.EventProximity) => void): NodeJS.EventEmitter
     emit(sigName: "proximity-in-event", event: Gdk.EventProximity): void
-    on(sigName: "proximity-in-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "proximity-in-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "proximity-in-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "proximity-out-event", callback: (($obj: ScrollView, event: Gdk.EventProximity) => boolean)): number
-    connect_after(sigName: "proximity-out-event", callback: (($obj: ScrollView, event: Gdk.EventProximity) => boolean)): number
+    on(sigName: "proximity-out-event", callback: (event: Gdk.EventProximity) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "proximity-out-event", callback: (event: Gdk.EventProximity) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "proximity-out-event", callback: (event: Gdk.EventProximity) => void): NodeJS.EventEmitter
     emit(sigName: "proximity-out-event", event: Gdk.EventProximity): void
-    on(sigName: "proximity-out-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "proximity-out-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "proximity-out-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "query-tooltip", callback: (($obj: ScrollView, x: number, y: number, keyboardMode: boolean, tooltip: Gtk.Tooltip) => boolean)): number
-    connect_after(sigName: "query-tooltip", callback: (($obj: ScrollView, x: number, y: number, keyboardMode: boolean, tooltip: Gtk.Tooltip) => boolean)): number
+    on(sigName: "query-tooltip", callback: (x: number, y: number, keyboardMode: boolean, tooltip: Gtk.Tooltip) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "query-tooltip", callback: (x: number, y: number, keyboardMode: boolean, tooltip: Gtk.Tooltip) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "query-tooltip", callback: (x: number, y: number, keyboardMode: boolean, tooltip: Gtk.Tooltip) => void): NodeJS.EventEmitter
     emit(sigName: "query-tooltip", x: number, y: number, keyboardMode: boolean, tooltip: Gtk.Tooltip): void
-    on(sigName: "query-tooltip", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "query-tooltip", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "query-tooltip", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "realize", callback: (($obj: ScrollView) => void)): number
-    connect_after(sigName: "realize", callback: (($obj: ScrollView) => void)): number
+    on(sigName: "realize", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "realize", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "realize", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "realize"): void
-    on(sigName: "realize", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "realize", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "realize", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "screen-changed", callback: (($obj: ScrollView, previousScreen?: Gdk.Screen | null) => void)): number
-    connect_after(sigName: "screen-changed", callback: (($obj: ScrollView, previousScreen?: Gdk.Screen | null) => void)): number
+    on(sigName: "screen-changed", callback: (previousScreen?: Gdk.Screen | null) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "screen-changed", callback: (previousScreen?: Gdk.Screen | null) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "screen-changed", callback: (previousScreen?: Gdk.Screen | null) => void): NodeJS.EventEmitter
     emit(sigName: "screen-changed", previousScreen?: Gdk.Screen | null): void
-    on(sigName: "screen-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "screen-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "screen-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "scroll-event", callback: (($obj: ScrollView, event: Gdk.EventScroll) => boolean)): number
-    connect_after(sigName: "scroll-event", callback: (($obj: ScrollView, event: Gdk.EventScroll) => boolean)): number
+    on(sigName: "scroll-event", callback: (event: Gdk.EventScroll) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "scroll-event", callback: (event: Gdk.EventScroll) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "scroll-event", callback: (event: Gdk.EventScroll) => void): NodeJS.EventEmitter
     emit(sigName: "scroll-event", event: Gdk.EventScroll): void
-    on(sigName: "scroll-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "scroll-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "scroll-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "selection-clear-event", callback: (($obj: ScrollView, event: Gdk.EventSelection) => boolean)): number
-    connect_after(sigName: "selection-clear-event", callback: (($obj: ScrollView, event: Gdk.EventSelection) => boolean)): number
+    on(sigName: "selection-clear-event", callback: (event: Gdk.EventSelection) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "selection-clear-event", callback: (event: Gdk.EventSelection) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "selection-clear-event", callback: (event: Gdk.EventSelection) => void): NodeJS.EventEmitter
     emit(sigName: "selection-clear-event", event: Gdk.EventSelection): void
-    on(sigName: "selection-clear-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "selection-clear-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "selection-clear-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "selection-get", callback: (($obj: ScrollView, data: Gtk.SelectionData, info: number, time: number) => void)): number
-    connect_after(sigName: "selection-get", callback: (($obj: ScrollView, data: Gtk.SelectionData, info: number, time: number) => void)): number
+    on(sigName: "selection-get", callback: (data: Gtk.SelectionData, info: number, time: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "selection-get", callback: (data: Gtk.SelectionData, info: number, time: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "selection-get", callback: (data: Gtk.SelectionData, info: number, time: number) => void): NodeJS.EventEmitter
     emit(sigName: "selection-get", data: Gtk.SelectionData, info: number, time: number): void
-    on(sigName: "selection-get", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "selection-get", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "selection-get", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "selection-notify-event", callback: (($obj: ScrollView, event: Gdk.EventSelection) => boolean)): number
-    connect_after(sigName: "selection-notify-event", callback: (($obj: ScrollView, event: Gdk.EventSelection) => boolean)): number
+    on(sigName: "selection-notify-event", callback: (event: Gdk.EventSelection) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "selection-notify-event", callback: (event: Gdk.EventSelection) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "selection-notify-event", callback: (event: Gdk.EventSelection) => void): NodeJS.EventEmitter
     emit(sigName: "selection-notify-event", event: Gdk.EventSelection): void
-    on(sigName: "selection-notify-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "selection-notify-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "selection-notify-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "selection-received", callback: (($obj: ScrollView, data: Gtk.SelectionData, time: number) => void)): number
-    connect_after(sigName: "selection-received", callback: (($obj: ScrollView, data: Gtk.SelectionData, time: number) => void)): number
+    on(sigName: "selection-received", callback: (data: Gtk.SelectionData, time: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "selection-received", callback: (data: Gtk.SelectionData, time: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "selection-received", callback: (data: Gtk.SelectionData, time: number) => void): NodeJS.EventEmitter
     emit(sigName: "selection-received", data: Gtk.SelectionData, time: number): void
-    on(sigName: "selection-received", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "selection-received", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "selection-received", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "selection-request-event", callback: (($obj: ScrollView, event: Gdk.EventSelection) => boolean)): number
-    connect_after(sigName: "selection-request-event", callback: (($obj: ScrollView, event: Gdk.EventSelection) => boolean)): number
+    on(sigName: "selection-request-event", callback: (event: Gdk.EventSelection) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "selection-request-event", callback: (event: Gdk.EventSelection) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "selection-request-event", callback: (event: Gdk.EventSelection) => void): NodeJS.EventEmitter
     emit(sigName: "selection-request-event", event: Gdk.EventSelection): void
-    on(sigName: "selection-request-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "selection-request-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "selection-request-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "show", callback: (($obj: ScrollView) => void)): number
-    connect_after(sigName: "show", callback: (($obj: ScrollView) => void)): number
+    on(sigName: "show", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "show", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "show", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "show"): void
-    on(sigName: "show", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "show", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "show", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "show-help", callback: (($obj: ScrollView, helpType: Gtk.WidgetHelpType) => boolean)): number
-    connect_after(sigName: "show-help", callback: (($obj: ScrollView, helpType: Gtk.WidgetHelpType) => boolean)): number
+    on(sigName: "show-help", callback: (helpType: Gtk.WidgetHelpType) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "show-help", callback: (helpType: Gtk.WidgetHelpType) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "show-help", callback: (helpType: Gtk.WidgetHelpType) => void): NodeJS.EventEmitter
     emit(sigName: "show-help", helpType: Gtk.WidgetHelpType): void
-    on(sigName: "show-help", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "show-help", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "show-help", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "size-allocate", callback: (($obj: ScrollView, allocation: Gtk.Allocation) => void)): number
-    connect_after(sigName: "size-allocate", callback: (($obj: ScrollView, allocation: Gtk.Allocation) => void)): number
+    on(sigName: "size-allocate", callback: (allocation: Gtk.Allocation) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "size-allocate", callback: (allocation: Gtk.Allocation) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "size-allocate", callback: (allocation: Gtk.Allocation) => void): NodeJS.EventEmitter
     emit(sigName: "size-allocate", allocation: Gtk.Allocation): void
-    on(sigName: "size-allocate", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "size-allocate", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "size-allocate", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "state-changed", callback: (($obj: ScrollView, state: Gtk.StateType) => void)): number
-    connect_after(sigName: "state-changed", callback: (($obj: ScrollView, state: Gtk.StateType) => void)): number
+    on(sigName: "state-changed", callback: (state: Gtk.StateType) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "state-changed", callback: (state: Gtk.StateType) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "state-changed", callback: (state: Gtk.StateType) => void): NodeJS.EventEmitter
     emit(sigName: "state-changed", state: Gtk.StateType): void
-    on(sigName: "state-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "state-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "state-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "state-flags-changed", callback: (($obj: ScrollView, flags: Gtk.StateFlags) => void)): number
-    connect_after(sigName: "state-flags-changed", callback: (($obj: ScrollView, flags: Gtk.StateFlags) => void)): number
+    on(sigName: "state-flags-changed", callback: (flags: Gtk.StateFlags) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "state-flags-changed", callback: (flags: Gtk.StateFlags) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "state-flags-changed", callback: (flags: Gtk.StateFlags) => void): NodeJS.EventEmitter
     emit(sigName: "state-flags-changed", flags: Gtk.StateFlags): void
-    on(sigName: "state-flags-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "state-flags-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "state-flags-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "style-set", callback: (($obj: ScrollView, previousStyle?: Gtk.Style | null) => void)): number
-    connect_after(sigName: "style-set", callback: (($obj: ScrollView, previousStyle?: Gtk.Style | null) => void)): number
+    on(sigName: "style-set", callback: (previousStyle?: Gtk.Style | null) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "style-set", callback: (previousStyle?: Gtk.Style | null) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "style-set", callback: (previousStyle?: Gtk.Style | null) => void): NodeJS.EventEmitter
     emit(sigName: "style-set", previousStyle?: Gtk.Style | null): void
-    on(sigName: "style-set", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "style-set", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "style-set", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "style-updated", callback: (($obj: ScrollView) => void)): number
-    connect_after(sigName: "style-updated", callback: (($obj: ScrollView) => void)): number
+    on(sigName: "style-updated", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "style-updated", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "style-updated", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "style-updated"): void
-    on(sigName: "style-updated", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "style-updated", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "style-updated", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "touch-event", callback: (($obj: ScrollView, object: Gdk.Event) => boolean)): number
-    connect_after(sigName: "touch-event", callback: (($obj: ScrollView, object: Gdk.Event) => boolean)): number
+    on(sigName: "touch-event", callback: (object: Gdk.Event) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "touch-event", callback: (object: Gdk.Event) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "touch-event", callback: (object: Gdk.Event) => void): NodeJS.EventEmitter
     emit(sigName: "touch-event", object: Gdk.Event): void
-    on(sigName: "touch-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "touch-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "touch-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "unmap", callback: (($obj: ScrollView) => void)): number
-    connect_after(sigName: "unmap", callback: (($obj: ScrollView) => void)): number
+    on(sigName: "unmap", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "unmap", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "unmap", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "unmap"): void
-    on(sigName: "unmap", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "unmap", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "unmap", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "unmap-event", callback: (($obj: ScrollView, event: Gdk.EventAny) => boolean)): number
-    connect_after(sigName: "unmap-event", callback: (($obj: ScrollView, event: Gdk.EventAny) => boolean)): number
+    on(sigName: "unmap-event", callback: (event: Gdk.EventAny) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "unmap-event", callback: (event: Gdk.EventAny) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "unmap-event", callback: (event: Gdk.EventAny) => void): NodeJS.EventEmitter
     emit(sigName: "unmap-event", event: Gdk.EventAny): void
-    on(sigName: "unmap-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "unmap-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "unmap-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "unrealize", callback: (($obj: ScrollView) => void)): number
-    connect_after(sigName: "unrealize", callback: (($obj: ScrollView) => void)): number
+    on(sigName: "unrealize", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "unrealize", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "unrealize", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "unrealize"): void
-    on(sigName: "unrealize", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "unrealize", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "unrealize", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "visibility-notify-event", callback: (($obj: ScrollView, event: Gdk.EventVisibility) => boolean)): number
-    connect_after(sigName: "visibility-notify-event", callback: (($obj: ScrollView, event: Gdk.EventVisibility) => boolean)): number
+    on(sigName: "visibility-notify-event", callback: (event: Gdk.EventVisibility) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "visibility-notify-event", callback: (event: Gdk.EventVisibility) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "visibility-notify-event", callback: (event: Gdk.EventVisibility) => void): NodeJS.EventEmitter
     emit(sigName: "visibility-notify-event", event: Gdk.EventVisibility): void
-    on(sigName: "visibility-notify-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "visibility-notify-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "visibility-notify-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "window-state-event", callback: (($obj: ScrollView, event: Gdk.EventWindowState) => boolean)): number
-    connect_after(sigName: "window-state-event", callback: (($obj: ScrollView, event: Gdk.EventWindowState) => boolean)): number
+    on(sigName: "window-state-event", callback: (event: Gdk.EventWindowState) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "window-state-event", callback: (event: Gdk.EventWindowState) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "window-state-event", callback: (event: Gdk.EventWindowState) => void): NodeJS.EventEmitter
     emit(sigName: "window-state-event", event: Gdk.EventWindowState): void
-    on(sigName: "window-state-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "window-state-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "window-state-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: ScrollView, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: ScrollView, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::antialiasing-in", callback: (($obj: ScrollView, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::antialiasing-in", callback: (($obj: ScrollView, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::antialiasing-in", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -6435,17 +5532,17 @@ export interface Sidebar_ConstructProps extends Gtk.Box_ConstructProps {
     orientation?: Gtk.Orientation
 }
 export class Sidebar {
-    /* Properties of Eog.Sidebar */
+    /* Properties of Eog-3.0.Eog.Sidebar */
     currentPage: Gtk.Widget
-    /* Properties of Gtk.Box */
+    /* Properties of Gtk-3.0.Gtk.Box */
     baselinePosition: Gtk.BaselinePosition
     homogeneous: boolean
     spacing: number
-    /* Properties of Gtk.Container */
+    /* Properties of Gtk-3.0.Gtk.Container */
     borderWidth: number
     child: Gtk.Widget
     resizeMode: Gtk.ResizeMode
-    /* Properties of Gtk.Widget */
+    /* Properties of Gtk-3.0.Gtk.Widget */
     appPaintable: boolean
     canDefault: boolean
     canFocus: boolean
@@ -6485,40 +5582,40 @@ export class Sidebar {
     visible: boolean
     widthRequest: number
     readonly window: Gdk.Window
-    /* Properties of Gtk.Orientable */
+    /* Properties of Gtk-3.0.Gtk.Orientable */
     orientation: Gtk.Orientation
-    /* Fields of Eog.Sidebar */
+    /* Fields of Eog-3.0.Eog.Sidebar */
     baseInstance: Gtk.Box
     priv: SidebarPrivate
-    /* Fields of Gtk.Box */
+    /* Fields of Gtk-3.0.Gtk.Box */
     container: Gtk.Container
-    /* Fields of Gtk.Container */
+    /* Fields of Gtk-3.0.Gtk.Container */
     widget: Gtk.Widget
-    /* Fields of Gtk.Widget */
+    /* Fields of Gtk-3.0.Gtk.Widget */
     parentInstance: GObject.InitiallyUnowned
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Eog.Sidebar */
+    /* Methods of Eog-3.0.Eog.Sidebar */
     addPage(title: string, mainWidget: Gtk.Widget): void
     getNPages(): number
     isEmpty(): boolean
     removePage(mainWidget: Gtk.Widget): void
     setPage(mainWidget: Gtk.Widget): void
-    /* Methods of Gtk.Box */
+    /* Methods of Gtk-3.0.Gtk.Box */
     getBaselinePosition(): Gtk.BaselinePosition
     getCenterWidget(): Gtk.Widget | null
     getHomogeneous(): boolean
     getSpacing(): number
     packEnd(child: Gtk.Widget, expand: boolean, fill: boolean, padding: number): void
     packStart(child: Gtk.Widget, expand: boolean, fill: boolean, padding: number): void
-    queryChildPacking(child: Gtk.Widget): [ /* expand */ boolean, /* fill */ boolean, /* padding */ number, /* packType */ Gtk.PackType ]
+    queryChildPacking(child: Gtk.Widget): { expand: boolean, fill: boolean, padding: number, packType: Gtk.PackType }
     reorderChild(child: Gtk.Widget, position: number): void
     setBaselinePosition(position: Gtk.BaselinePosition): void
     setCenterWidget(widget?: Gtk.Widget | null): void
     setChildPacking(child: Gtk.Widget, expand: boolean, fill: boolean, padding: number, packType: Gtk.PackType): void
     setHomogeneous(homogeneous: boolean): void
     setSpacing(spacing: number): void
-    /* Methods of Gtk.Container */
+    /* Methods of Gtk-3.0.Gtk.Container */
     add(widget: Gtk.Widget): void
     checkResize(): void
     childGetProperty(child: Gtk.Widget, propertyName: string, value: any): void
@@ -6529,7 +5626,7 @@ export class Sidebar {
     foreach(callback: Gtk.Callback): void
     getBorderWidth(): number
     getChildren(): Gtk.Widget[]
-    getFocusChain(): [ /* returnType */ boolean, /* focusableWidgets */ Gtk.Widget[] ]
+    getFocusChain(): { returnType: boolean, focusableWidgets: Gtk.Widget[] }
     getFocusChild(): Gtk.Widget | null
     getFocusHadjustment(): Gtk.Adjustment | null
     getFocusVadjustment(): Gtk.Adjustment | null
@@ -6546,7 +5643,7 @@ export class Sidebar {
     setReallocateRedraws(needsRedraws: boolean): void
     setResizeMode(resizeMode: Gtk.ResizeMode): void
     unsetFocusChain(): void
-    /* Methods of Gtk.Widget */
+    /* Methods of Gtk-3.0.Gtk.Widget */
     activate(): boolean
     addAccelerator(accelSignal: string, accelGroup: Gtk.AccelGroup, accelKey: number, accelMods: Gdk.ModifierType, accelFlags: Gtk.AccelFlags): void
     addDeviceEvents(device: Gdk.Device, events: Gdk.EventMask): void
@@ -6556,12 +5653,12 @@ export class Sidebar {
     canActivateAccel(signalId: number): boolean
     childFocus(direction: Gtk.DirectionType): boolean
     childNotify(childProperty: string): void
-    classPath(): [ /* pathLength */ number | null, /* path */ string | null, /* pathReversed */ string | null ]
+    classPath(): { pathLength: number | null, path: string | null, pathReversed: string | null }
     computeExpand(orientation: Gtk.Orientation): boolean
     createPangoContext(): Pango.Context
     createPangoLayout(text?: string | null): Pango.Layout
     destroy(): void
-    destroyed(widgetPointer: Gtk.Widget): /* widgetPointer */ Gtk.Widget
+    destroyed(widgetPointer: Gtk.Widget): { widgetPointer: Gtk.Widget }
     deviceIsShadowed(device: Gdk.Device): boolean
     dragBegin(targets: Gtk.TargetList, actions: Gdk.DragAction, button: number, event?: Gdk.Event | null): Gdk.DragContext
     dragBeginWithCoordinates(targets: Gtk.TargetList, actions: Gdk.DragAction, button: number, event: Gdk.Event | null, x: number, y: number): Gdk.DragContext
@@ -6600,16 +5697,16 @@ export class Sidebar {
     getActionGroup(prefix: string): Gio.ActionGroup | null
     getAllocatedBaseline(): number
     getAllocatedHeight(): number
-    getAllocatedSize(): [ /* allocation */ Gtk.Allocation, /* baseline */ number | null ]
+    getAllocatedSize(): { allocation: Gtk.Allocation, baseline: number | null }
     getAllocatedWidth(): number
-    getAllocation(): /* allocation */ Gtk.Allocation
+    getAllocation(): { allocation: Gtk.Allocation }
     getAncestor(widgetType: GObject.Type): Gtk.Widget | null
     getAppPaintable(): boolean
     getCanDefault(): boolean
     getCanFocus(): boolean
-    getChildRequisition(): /* requisition */ Gtk.Requisition
+    getChildRequisition(): { requisition: Gtk.Requisition }
     getChildVisible(): boolean
-    getClip(): /* clip */ Gtk.Allocation
+    getClip(): { clip: Gtk.Allocation }
     getClipboard(selection: Gdk.Atom): Gtk.Clipboard
     getCompositeName(): string
     getDeviceEnabled(device: Gdk.Device): boolean
@@ -6643,23 +5740,23 @@ export class Sidebar {
     getParent(): Gtk.Widget | null
     getParentWindow(): Gdk.Window | null
     getPath(): Gtk.WidgetPath
-    getPointer(): [ /* x */ number | null, /* y */ number | null ]
-    getPreferredHeight(): [ /* minimumHeight */ number | null, /* naturalHeight */ number | null ]
-    getPreferredHeightAndBaselineForWidth(width: number): [ /* minimumHeight */ number | null, /* naturalHeight */ number | null, /* minimumBaseline */ number | null, /* naturalBaseline */ number | null ]
-    getPreferredHeightForWidth(width: number): [ /* minimumHeight */ number | null, /* naturalHeight */ number | null ]
-    getPreferredSize(): [ /* minimumSize */ Gtk.Requisition | null, /* naturalSize */ Gtk.Requisition | null ]
-    getPreferredWidth(): [ /* minimumWidth */ number | null, /* naturalWidth */ number | null ]
-    getPreferredWidthForHeight(height: number): [ /* minimumWidth */ number | null, /* naturalWidth */ number | null ]
+    getPointer(): { x: number | null, y: number | null }
+    getPreferredHeight(): { minimumHeight: number | null, naturalHeight: number | null }
+    getPreferredHeightAndBaselineForWidth(width: number): { minimumHeight: number | null, naturalHeight: number | null, minimumBaseline: number | null, naturalBaseline: number | null }
+    getPreferredHeightForWidth(width: number): { minimumHeight: number | null, naturalHeight: number | null }
+    getPreferredSize(): { minimumSize: Gtk.Requisition | null, naturalSize: Gtk.Requisition | null }
+    getPreferredWidth(): { minimumWidth: number | null, naturalWidth: number | null }
+    getPreferredWidthForHeight(height: number): { minimumWidth: number | null, naturalWidth: number | null }
     getRealized(): boolean
     getReceivesDefault(): boolean
     getRequestMode(): Gtk.SizeRequestMode
-    getRequisition(): /* requisition */ Gtk.Requisition
+    getRequisition(): { requisition: Gtk.Requisition }
     getRootWindow(): Gdk.Window
     getScaleFactor(): number
     getScreen(): Gdk.Screen
     getSensitive(): boolean
     getSettings(): Gtk.Settings
-    getSizeRequest(): [ /* width */ number | null, /* height */ number | null ]
+    getSizeRequest(): { width: number | null, height: number | null }
     getState(): Gtk.StateType
     getStateFlags(): Gtk.StateFlags
     getStyle(): Gtk.Style
@@ -6691,7 +5788,7 @@ export class Sidebar {
     initTemplate(): void
     inputShapeCombineRegion(region?: cairo.Region | null): void
     insertActionGroup(name: string, group?: Gio.ActionGroup | null): void
-    intersect(area: Gdk.Rectangle): [ /* returnType */ boolean, /* intersection */ Gdk.Rectangle | null ]
+    intersect(area: Gdk.Rectangle): { returnType: boolean, intersection: Gdk.Rectangle | null }
     isAncestor(ancestor: Gtk.Widget): boolean
     isComposited(): boolean
     isDrawable(): boolean
@@ -6716,7 +5813,7 @@ export class Sidebar {
     overrideCursor(cursor?: Gdk.RGBA | null, secondaryCursor?: Gdk.RGBA | null): void
     overrideFont(fontDesc?: Pango.FontDescription | null): void
     overrideSymbolicColor(name: string, color?: Gdk.RGBA | null): void
-    path(): [ /* pathLength */ number | null, /* path */ string | null, /* pathReversed */ string | null ]
+    path(): { pathLength: number | null, path: string | null, pathReversed: string | null }
     queueAllocate(): void
     queueComputeExpand(): void
     queueDraw(): void
@@ -6794,18 +5891,18 @@ export class Sidebar {
     showNow(): void
     sizeAllocate(allocation: Gtk.Allocation): void
     sizeAllocateWithBaseline(allocation: Gtk.Allocation, baseline: number): void
-    sizeRequest(): /* requisition */ Gtk.Requisition
+    sizeRequest(): { requisition: Gtk.Requisition }
     styleAttach(): void
     styleGetProperty(propertyName: string, value: any): void
     thawChildNotify(): void
-    translateCoordinates(destWidget: Gtk.Widget, srcX: number, srcY: number): [ /* returnType */ boolean, /* destX */ number | null, /* destY */ number | null ]
+    translateCoordinates(destWidget: Gtk.Widget, srcX: number, srcY: number): { returnType: boolean, destX: number | null, destY: number | null }
     triggerTooltipQuery(): void
     unmap(): void
     unparent(): void
     unrealize(): void
     unregisterWindow(window: Gdk.Window): void
     unsetStateFlags(flags: Gtk.StateFlags): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -6827,593 +5924,402 @@ export class Sidebar {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of Gtk.Buildable */
+    /* Methods of Gtk-3.0.Gtk.Buildable */
     addChild(builder: Gtk.Builder, child: GObject.Object, type?: string | null): void
     constructChild(builder: Gtk.Builder, name: string): GObject.Object
     customFinished(builder: Gtk.Builder, child: GObject.Object | null, tagname: string, data?: object | null): void
     customTagEnd(builder: Gtk.Builder, child: GObject.Object | null, tagname: string, data?: object | null): void
-    customTagStart(builder: Gtk.Builder, child: GObject.Object | null, tagname: string): [ /* returnType */ boolean, /* parser */ GLib.MarkupParser, /* data */ object | null ]
+    customTagStart(builder: Gtk.Builder, child: GObject.Object | null, tagname: string): { returnType: boolean, parser: GLib.MarkupParser, data: object | null }
     getInternalChild(builder: Gtk.Builder, childname: string): GObject.Object
     parserFinished(builder: Gtk.Builder): void
     setBuildableProperty(builder: Gtk.Builder, name: string, value: any): void
-    /* Methods of Gtk.Orientable */
+    /* Methods of Gtk-3.0.Gtk.Orientable */
     getOrientation(): Gtk.Orientation
     setOrientation(orientation: Gtk.Orientation): void
-    /* Virtual methods of Eog.Sidebar */
-    vfuncPageAdded(mainWidget: Gtk.Widget): void
-    vfuncPageRemoved(mainWidget: Gtk.Widget): void
-    vfuncAddChild(builder: Gtk.Builder, child: GObject.Object, type?: string | null): void
-    vfuncConstructChild(builder: Gtk.Builder, name: string): GObject.Object
-    vfuncCustomFinished(builder: Gtk.Builder, child: GObject.Object | null, tagname: string, data?: object | null): void
-    vfuncCustomTagEnd(builder: Gtk.Builder, child: GObject.Object | null, tagname: string, data?: object | null): void
-    vfuncCustomTagStart(builder: Gtk.Builder, child: GObject.Object | null, tagname: string): [ /* returnType */ boolean, /* parser */ GLib.MarkupParser, /* data */ object | null ]
-    vfuncGetInternalChild(builder: Gtk.Builder, childname: string): GObject.Object
-    vfuncGetName(): string
-    vfuncParserFinished(builder: Gtk.Builder): void
-    vfuncSetBuildableProperty(builder: Gtk.Builder, name: string, value: any): void
-    vfuncSetName(name: string): void
-    /* Virtual methods of Gtk.Container */
-    vfuncAdd(widget: Gtk.Widget): void
-    vfuncCheckResize(): void
-    vfuncChildType(): GObject.Type
-    vfuncCompositeName(child: Gtk.Widget): string
-    vfuncForall(includeInternals: boolean, callback: Gtk.Callback): void
-    vfuncGetChildProperty(child: Gtk.Widget, propertyId: number, value: any, pspec: GObject.ParamSpec): void
-    vfuncGetPathForChild(child: Gtk.Widget): Gtk.WidgetPath
-    vfuncRemove(widget: Gtk.Widget): void
-    vfuncSetChildProperty(child: Gtk.Widget, propertyId: number, value: any, pspec: GObject.ParamSpec): void
-    vfuncSetFocusChild(child?: Gtk.Widget | null): void
-    /* Virtual methods of Gtk.Widget */
-    vfuncAdjustBaselineAllocation(baseline: number): void
-    vfuncAdjustBaselineRequest(minimumBaseline: number, naturalBaseline: number): void
-    vfuncAdjustSizeAllocation(orientation: Gtk.Orientation, minimumSize: number, naturalSize: number, allocatedPos: number, allocatedSize: number): void
-    vfuncAdjustSizeRequest(orientation: Gtk.Orientation, minimumSize: number, naturalSize: number): void
-    vfuncButtonPressEvent(event: Gdk.EventButton): boolean
-    vfuncButtonReleaseEvent(event: Gdk.EventButton): boolean
-    vfuncCanActivateAccel(signalId: number): boolean
-    vfuncChildNotify(childProperty: GObject.ParamSpec): void
-    vfuncCompositedChanged(): void
-    vfuncComputeExpand(hexpandP: boolean, vexpandP: boolean): void
-    vfuncConfigureEvent(event: Gdk.EventConfigure): boolean
-    vfuncDamageEvent(event: Gdk.EventExpose): boolean
-    vfuncDeleteEvent(event: Gdk.EventAny): boolean
-    vfuncDestroy(): void
-    vfuncDestroyEvent(event: Gdk.EventAny): boolean
-    vfuncDirectionChanged(previousDirection: Gtk.TextDirection): void
-    vfuncDispatchChildPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDragBegin(context: Gdk.DragContext): void
-    vfuncDragDataDelete(context: Gdk.DragContext): void
-    vfuncDragDataGet(context: Gdk.DragContext, selectionData: Gtk.SelectionData, info: number, time: number): void
-    vfuncDragDataReceived(context: Gdk.DragContext, x: number, y: number, selectionData: Gtk.SelectionData, info: number, time: number): void
-    vfuncDragDrop(context: Gdk.DragContext, x: number, y: number, time: number): boolean
-    vfuncDragEnd(context: Gdk.DragContext): void
-    vfuncDragFailed(context: Gdk.DragContext, result: Gtk.DragResult): boolean
-    vfuncDragLeave(context: Gdk.DragContext, time: number): void
-    vfuncDragMotion(context: Gdk.DragContext, x: number, y: number, time: number): boolean
-    vfuncDraw(cr: cairo.Context): boolean
-    vfuncEnterNotifyEvent(event: Gdk.EventCrossing): boolean
-    vfuncEvent(event: Gdk.Event): boolean
-    vfuncFocus(direction: Gtk.DirectionType): boolean
-    vfuncFocusInEvent(event: Gdk.EventFocus): boolean
-    vfuncFocusOutEvent(event: Gdk.EventFocus): boolean
-    vfuncGetAccessible(): Atk.Object
-    vfuncGetPreferredHeight(): [ /* minimumHeight */ number | null, /* naturalHeight */ number | null ]
-    vfuncGetPreferredHeightAndBaselineForWidth(width: number): [ /* minimumHeight */ number | null, /* naturalHeight */ number | null, /* minimumBaseline */ number | null, /* naturalBaseline */ number | null ]
-    vfuncGetPreferredHeightForWidth(width: number): [ /* minimumHeight */ number | null, /* naturalHeight */ number | null ]
-    vfuncGetPreferredWidth(): [ /* minimumWidth */ number | null, /* naturalWidth */ number | null ]
-    vfuncGetPreferredWidthForHeight(height: number): [ /* minimumWidth */ number | null, /* naturalWidth */ number | null ]
-    vfuncGetRequestMode(): Gtk.SizeRequestMode
-    vfuncGrabBrokenEvent(event: Gdk.EventGrabBroken): boolean
-    vfuncGrabFocus(): void
-    vfuncGrabNotify(wasGrabbed: boolean): void
-    vfuncHide(): void
-    vfuncHierarchyChanged(previousToplevel: Gtk.Widget): void
-    vfuncKeyPressEvent(event: Gdk.EventKey): boolean
-    vfuncKeyReleaseEvent(event: Gdk.EventKey): boolean
-    vfuncKeynavFailed(direction: Gtk.DirectionType): boolean
-    vfuncLeaveNotifyEvent(event: Gdk.EventCrossing): boolean
-    vfuncMap(): void
-    vfuncMapEvent(event: Gdk.EventAny): boolean
-    vfuncMnemonicActivate(groupCycling: boolean): boolean
-    vfuncMotionNotifyEvent(event: Gdk.EventMotion): boolean
-    vfuncMoveFocus(direction: Gtk.DirectionType): void
-    vfuncParentSet(previousParent: Gtk.Widget): void
-    vfuncPopupMenu(): boolean
-    vfuncPropertyNotifyEvent(event: Gdk.EventProperty): boolean
-    vfuncProximityInEvent(event: Gdk.EventProximity): boolean
-    vfuncProximityOutEvent(event: Gdk.EventProximity): boolean
-    vfuncQueryTooltip(x: number, y: number, keyboardTooltip: boolean, tooltip: Gtk.Tooltip): boolean
-    vfuncQueueDrawRegion(region: cairo.Region): void
-    vfuncRealize(): void
-    vfuncScreenChanged(previousScreen: Gdk.Screen): void
-    vfuncScrollEvent(event: Gdk.EventScroll): boolean
-    vfuncSelectionClearEvent(event: Gdk.EventSelection): boolean
-    vfuncSelectionGet(selectionData: Gtk.SelectionData, info: number, time: number): void
-    vfuncSelectionNotifyEvent(event: Gdk.EventSelection): boolean
-    vfuncSelectionReceived(selectionData: Gtk.SelectionData, time: number): void
-    vfuncSelectionRequestEvent(event: Gdk.EventSelection): boolean
-    vfuncShow(): void
-    vfuncShowAll(): void
-    vfuncShowHelp(helpType: Gtk.WidgetHelpType): boolean
-    vfuncSizeAllocate(allocation: Gtk.Allocation): void
-    vfuncStateChanged(previousState: Gtk.StateType): void
-    vfuncStateFlagsChanged(previousStateFlags: Gtk.StateFlags): void
-    vfuncStyleSet(previousStyle: Gtk.Style): void
-    vfuncStyleUpdated(): void
-    vfuncTouchEvent(event: Gdk.EventTouch): boolean
-    vfuncUnmap(): void
-    vfuncUnmapEvent(event: Gdk.EventAny): boolean
-    vfuncUnrealize(): void
-    vfuncVisibilityNotifyEvent(event: Gdk.EventVisibility): boolean
-    vfuncWindowStateEvent(event: Gdk.EventWindowState): boolean
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Eog.Sidebar */
+    /* Signals of Eog-3.0.Eog.Sidebar */
     connect(sigName: "page-added", callback: (($obj: Sidebar, object: Gtk.Widget) => void)): number
-    connect_after(sigName: "page-added", callback: (($obj: Sidebar, object: Gtk.Widget) => void)): number
+    on(sigName: "page-added", callback: (object: Gtk.Widget) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "page-added", callback: (object: Gtk.Widget) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "page-added", callback: (object: Gtk.Widget) => void): NodeJS.EventEmitter
     emit(sigName: "page-added", object: Gtk.Widget): void
-    on(sigName: "page-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "page-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "page-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "page-removed", callback: (($obj: Sidebar, object: Gtk.Widget) => void)): number
-    connect_after(sigName: "page-removed", callback: (($obj: Sidebar, object: Gtk.Widget) => void)): number
+    on(sigName: "page-removed", callback: (object: Gtk.Widget) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "page-removed", callback: (object: Gtk.Widget) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "page-removed", callback: (object: Gtk.Widget) => void): NodeJS.EventEmitter
     emit(sigName: "page-removed", object: Gtk.Widget): void
-    on(sigName: "page-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "page-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "page-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of Gtk.Container */
+    /* Signals of Gtk-3.0.Gtk.Container */
     connect(sigName: "add", callback: (($obj: Sidebar, object: Gtk.Widget) => void)): number
-    connect_after(sigName: "add", callback: (($obj: Sidebar, object: Gtk.Widget) => void)): number
+    on(sigName: "add", callback: (object: Gtk.Widget) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "add", callback: (object: Gtk.Widget) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "add", callback: (object: Gtk.Widget) => void): NodeJS.EventEmitter
     emit(sigName: "add", object: Gtk.Widget): void
-    on(sigName: "add", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "add", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "add", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "check-resize", callback: (($obj: Sidebar) => void)): number
-    connect_after(sigName: "check-resize", callback: (($obj: Sidebar) => void)): number
+    on(sigName: "check-resize", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "check-resize", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "check-resize", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "check-resize"): void
-    on(sigName: "check-resize", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "check-resize", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "check-resize", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "remove", callback: (($obj: Sidebar, object: Gtk.Widget) => void)): number
-    connect_after(sigName: "remove", callback: (($obj: Sidebar, object: Gtk.Widget) => void)): number
+    on(sigName: "remove", callback: (object: Gtk.Widget) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "remove", callback: (object: Gtk.Widget) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "remove", callback: (object: Gtk.Widget) => void): NodeJS.EventEmitter
     emit(sigName: "remove", object: Gtk.Widget): void
-    on(sigName: "remove", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "remove", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "remove", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "set-focus-child", callback: (($obj: Sidebar, object: Gtk.Widget) => void)): number
-    connect_after(sigName: "set-focus-child", callback: (($obj: Sidebar, object: Gtk.Widget) => void)): number
+    on(sigName: "set-focus-child", callback: (object: Gtk.Widget) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "set-focus-child", callback: (object: Gtk.Widget) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "set-focus-child", callback: (object: Gtk.Widget) => void): NodeJS.EventEmitter
     emit(sigName: "set-focus-child", object: Gtk.Widget): void
-    on(sigName: "set-focus-child", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "set-focus-child", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "set-focus-child", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of Gtk.Widget */
+    /* Signals of Gtk-3.0.Gtk.Widget */
     connect(sigName: "accel-closures-changed", callback: (($obj: Sidebar) => void)): number
-    connect_after(sigName: "accel-closures-changed", callback: (($obj: Sidebar) => void)): number
+    on(sigName: "accel-closures-changed", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "accel-closures-changed", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "accel-closures-changed", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "accel-closures-changed"): void
-    on(sigName: "accel-closures-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "accel-closures-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "accel-closures-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "button-press-event", callback: (($obj: Sidebar, event: Gdk.EventButton) => boolean)): number
-    connect_after(sigName: "button-press-event", callback: (($obj: Sidebar, event: Gdk.EventButton) => boolean)): number
+    on(sigName: "button-press-event", callback: (event: Gdk.EventButton) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "button-press-event", callback: (event: Gdk.EventButton) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "button-press-event", callback: (event: Gdk.EventButton) => void): NodeJS.EventEmitter
     emit(sigName: "button-press-event", event: Gdk.EventButton): void
-    on(sigName: "button-press-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "button-press-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "button-press-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "button-release-event", callback: (($obj: Sidebar, event: Gdk.EventButton) => boolean)): number
-    connect_after(sigName: "button-release-event", callback: (($obj: Sidebar, event: Gdk.EventButton) => boolean)): number
+    on(sigName: "button-release-event", callback: (event: Gdk.EventButton) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "button-release-event", callback: (event: Gdk.EventButton) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "button-release-event", callback: (event: Gdk.EventButton) => void): NodeJS.EventEmitter
     emit(sigName: "button-release-event", event: Gdk.EventButton): void
-    on(sigName: "button-release-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "button-release-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "button-release-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "can-activate-accel", callback: (($obj: Sidebar, signalId: number) => boolean)): number
-    connect_after(sigName: "can-activate-accel", callback: (($obj: Sidebar, signalId: number) => boolean)): number
+    on(sigName: "can-activate-accel", callback: (signalId: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "can-activate-accel", callback: (signalId: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "can-activate-accel", callback: (signalId: number) => void): NodeJS.EventEmitter
     emit(sigName: "can-activate-accel", signalId: number): void
-    on(sigName: "can-activate-accel", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "can-activate-accel", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "can-activate-accel", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "child-notify", callback: (($obj: Sidebar, childProperty: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "child-notify", callback: (($obj: Sidebar, childProperty: GObject.ParamSpec) => void)): number
+    on(sigName: "child-notify", callback: (childProperty: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "child-notify", callback: (childProperty: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "child-notify", callback: (childProperty: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "child-notify", childProperty: GObject.ParamSpec): void
-    on(sigName: "child-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "child-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "child-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "composited-changed", callback: (($obj: Sidebar) => void)): number
-    connect_after(sigName: "composited-changed", callback: (($obj: Sidebar) => void)): number
+    on(sigName: "composited-changed", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "composited-changed", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "composited-changed", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "composited-changed"): void
-    on(sigName: "composited-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "composited-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "composited-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "configure-event", callback: (($obj: Sidebar, event: Gdk.EventConfigure) => boolean)): number
-    connect_after(sigName: "configure-event", callback: (($obj: Sidebar, event: Gdk.EventConfigure) => boolean)): number
+    on(sigName: "configure-event", callback: (event: Gdk.EventConfigure) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "configure-event", callback: (event: Gdk.EventConfigure) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "configure-event", callback: (event: Gdk.EventConfigure) => void): NodeJS.EventEmitter
     emit(sigName: "configure-event", event: Gdk.EventConfigure): void
-    on(sigName: "configure-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "configure-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "configure-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "damage-event", callback: (($obj: Sidebar, event: Gdk.EventExpose) => boolean)): number
-    connect_after(sigName: "damage-event", callback: (($obj: Sidebar, event: Gdk.EventExpose) => boolean)): number
+    on(sigName: "damage-event", callback: (event: Gdk.EventExpose) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "damage-event", callback: (event: Gdk.EventExpose) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "damage-event", callback: (event: Gdk.EventExpose) => void): NodeJS.EventEmitter
     emit(sigName: "damage-event", event: Gdk.EventExpose): void
-    on(sigName: "damage-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "damage-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "damage-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "delete-event", callback: (($obj: Sidebar, event: Gdk.Event) => boolean)): number
-    connect_after(sigName: "delete-event", callback: (($obj: Sidebar, event: Gdk.Event) => boolean)): number
+    on(sigName: "delete-event", callback: (event: Gdk.Event) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "delete-event", callback: (event: Gdk.Event) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "delete-event", callback: (event: Gdk.Event) => void): NodeJS.EventEmitter
     emit(sigName: "delete-event", event: Gdk.Event): void
-    on(sigName: "delete-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "delete-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "delete-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "destroy", callback: (($obj: Sidebar) => void)): number
-    connect_after(sigName: "destroy", callback: (($obj: Sidebar) => void)): number
+    on(sigName: "destroy", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "destroy", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "destroy", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "destroy"): void
-    on(sigName: "destroy", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "destroy", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "destroy", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "destroy-event", callback: (($obj: Sidebar, event: Gdk.Event) => boolean)): number
-    connect_after(sigName: "destroy-event", callback: (($obj: Sidebar, event: Gdk.Event) => boolean)): number
+    on(sigName: "destroy-event", callback: (event: Gdk.Event) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "destroy-event", callback: (event: Gdk.Event) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "destroy-event", callback: (event: Gdk.Event) => void): NodeJS.EventEmitter
     emit(sigName: "destroy-event", event: Gdk.Event): void
-    on(sigName: "destroy-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "destroy-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "destroy-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "direction-changed", callback: (($obj: Sidebar, previousDirection: Gtk.TextDirection) => void)): number
-    connect_after(sigName: "direction-changed", callback: (($obj: Sidebar, previousDirection: Gtk.TextDirection) => void)): number
+    on(sigName: "direction-changed", callback: (previousDirection: Gtk.TextDirection) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "direction-changed", callback: (previousDirection: Gtk.TextDirection) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "direction-changed", callback: (previousDirection: Gtk.TextDirection) => void): NodeJS.EventEmitter
     emit(sigName: "direction-changed", previousDirection: Gtk.TextDirection): void
-    on(sigName: "direction-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "direction-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "direction-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "drag-begin", callback: (($obj: Sidebar, context: Gdk.DragContext) => void)): number
-    connect_after(sigName: "drag-begin", callback: (($obj: Sidebar, context: Gdk.DragContext) => void)): number
+    on(sigName: "drag-begin", callback: (context: Gdk.DragContext) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "drag-begin", callback: (context: Gdk.DragContext) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "drag-begin", callback: (context: Gdk.DragContext) => void): NodeJS.EventEmitter
     emit(sigName: "drag-begin", context: Gdk.DragContext): void
-    on(sigName: "drag-begin", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "drag-begin", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "drag-begin", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "drag-data-delete", callback: (($obj: Sidebar, context: Gdk.DragContext) => void)): number
-    connect_after(sigName: "drag-data-delete", callback: (($obj: Sidebar, context: Gdk.DragContext) => void)): number
+    on(sigName: "drag-data-delete", callback: (context: Gdk.DragContext) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "drag-data-delete", callback: (context: Gdk.DragContext) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "drag-data-delete", callback: (context: Gdk.DragContext) => void): NodeJS.EventEmitter
     emit(sigName: "drag-data-delete", context: Gdk.DragContext): void
-    on(sigName: "drag-data-delete", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "drag-data-delete", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "drag-data-delete", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "drag-data-get", callback: (($obj: Sidebar, context: Gdk.DragContext, data: Gtk.SelectionData, info: number, time: number) => void)): number
-    connect_after(sigName: "drag-data-get", callback: (($obj: Sidebar, context: Gdk.DragContext, data: Gtk.SelectionData, info: number, time: number) => void)): number
+    on(sigName: "drag-data-get", callback: (context: Gdk.DragContext, data: Gtk.SelectionData, info: number, time: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "drag-data-get", callback: (context: Gdk.DragContext, data: Gtk.SelectionData, info: number, time: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "drag-data-get", callback: (context: Gdk.DragContext, data: Gtk.SelectionData, info: number, time: number) => void): NodeJS.EventEmitter
     emit(sigName: "drag-data-get", context: Gdk.DragContext, data: Gtk.SelectionData, info: number, time: number): void
-    on(sigName: "drag-data-get", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "drag-data-get", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "drag-data-get", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "drag-data-received", callback: (($obj: Sidebar, context: Gdk.DragContext, x: number, y: number, data: Gtk.SelectionData, info: number, time: number) => void)): number
-    connect_after(sigName: "drag-data-received", callback: (($obj: Sidebar, context: Gdk.DragContext, x: number, y: number, data: Gtk.SelectionData, info: number, time: number) => void)): number
+    on(sigName: "drag-data-received", callback: (context: Gdk.DragContext, x: number, y: number, data: Gtk.SelectionData, info: number, time: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "drag-data-received", callback: (context: Gdk.DragContext, x: number, y: number, data: Gtk.SelectionData, info: number, time: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "drag-data-received", callback: (context: Gdk.DragContext, x: number, y: number, data: Gtk.SelectionData, info: number, time: number) => void): NodeJS.EventEmitter
     emit(sigName: "drag-data-received", context: Gdk.DragContext, x: number, y: number, data: Gtk.SelectionData, info: number, time: number): void
-    on(sigName: "drag-data-received", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "drag-data-received", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "drag-data-received", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "drag-drop", callback: (($obj: Sidebar, context: Gdk.DragContext, x: number, y: number, time: number) => boolean)): number
-    connect_after(sigName: "drag-drop", callback: (($obj: Sidebar, context: Gdk.DragContext, x: number, y: number, time: number) => boolean)): number
+    on(sigName: "drag-drop", callback: (context: Gdk.DragContext, x: number, y: number, time: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "drag-drop", callback: (context: Gdk.DragContext, x: number, y: number, time: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "drag-drop", callback: (context: Gdk.DragContext, x: number, y: number, time: number) => void): NodeJS.EventEmitter
     emit(sigName: "drag-drop", context: Gdk.DragContext, x: number, y: number, time: number): void
-    on(sigName: "drag-drop", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "drag-drop", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "drag-drop", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "drag-end", callback: (($obj: Sidebar, context: Gdk.DragContext) => void)): number
-    connect_after(sigName: "drag-end", callback: (($obj: Sidebar, context: Gdk.DragContext) => void)): number
+    on(sigName: "drag-end", callback: (context: Gdk.DragContext) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "drag-end", callback: (context: Gdk.DragContext) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "drag-end", callback: (context: Gdk.DragContext) => void): NodeJS.EventEmitter
     emit(sigName: "drag-end", context: Gdk.DragContext): void
-    on(sigName: "drag-end", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "drag-end", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "drag-end", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "drag-failed", callback: (($obj: Sidebar, context: Gdk.DragContext, result: Gtk.DragResult) => boolean)): number
-    connect_after(sigName: "drag-failed", callback: (($obj: Sidebar, context: Gdk.DragContext, result: Gtk.DragResult) => boolean)): number
+    on(sigName: "drag-failed", callback: (context: Gdk.DragContext, result: Gtk.DragResult) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "drag-failed", callback: (context: Gdk.DragContext, result: Gtk.DragResult) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "drag-failed", callback: (context: Gdk.DragContext, result: Gtk.DragResult) => void): NodeJS.EventEmitter
     emit(sigName: "drag-failed", context: Gdk.DragContext, result: Gtk.DragResult): void
-    on(sigName: "drag-failed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "drag-failed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "drag-failed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "drag-leave", callback: (($obj: Sidebar, context: Gdk.DragContext, time: number) => void)): number
-    connect_after(sigName: "drag-leave", callback: (($obj: Sidebar, context: Gdk.DragContext, time: number) => void)): number
+    on(sigName: "drag-leave", callback: (context: Gdk.DragContext, time: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "drag-leave", callback: (context: Gdk.DragContext, time: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "drag-leave", callback: (context: Gdk.DragContext, time: number) => void): NodeJS.EventEmitter
     emit(sigName: "drag-leave", context: Gdk.DragContext, time: number): void
-    on(sigName: "drag-leave", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "drag-leave", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "drag-leave", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "drag-motion", callback: (($obj: Sidebar, context: Gdk.DragContext, x: number, y: number, time: number) => boolean)): number
-    connect_after(sigName: "drag-motion", callback: (($obj: Sidebar, context: Gdk.DragContext, x: number, y: number, time: number) => boolean)): number
+    on(sigName: "drag-motion", callback: (context: Gdk.DragContext, x: number, y: number, time: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "drag-motion", callback: (context: Gdk.DragContext, x: number, y: number, time: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "drag-motion", callback: (context: Gdk.DragContext, x: number, y: number, time: number) => void): NodeJS.EventEmitter
     emit(sigName: "drag-motion", context: Gdk.DragContext, x: number, y: number, time: number): void
-    on(sigName: "drag-motion", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "drag-motion", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "drag-motion", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "draw", callback: (($obj: Sidebar, cr: cairo.Context) => boolean)): number
-    connect_after(sigName: "draw", callback: (($obj: Sidebar, cr: cairo.Context) => boolean)): number
+    on(sigName: "draw", callback: (cr: cairo.Context) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "draw", callback: (cr: cairo.Context) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "draw", callback: (cr: cairo.Context) => void): NodeJS.EventEmitter
     emit(sigName: "draw", cr: cairo.Context): void
-    on(sigName: "draw", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "draw", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "draw", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "enter-notify-event", callback: (($obj: Sidebar, event: Gdk.EventCrossing) => boolean)): number
-    connect_after(sigName: "enter-notify-event", callback: (($obj: Sidebar, event: Gdk.EventCrossing) => boolean)): number
+    on(sigName: "enter-notify-event", callback: (event: Gdk.EventCrossing) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "enter-notify-event", callback: (event: Gdk.EventCrossing) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "enter-notify-event", callback: (event: Gdk.EventCrossing) => void): NodeJS.EventEmitter
     emit(sigName: "enter-notify-event", event: Gdk.EventCrossing): void
-    on(sigName: "enter-notify-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "enter-notify-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "enter-notify-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "event", callback: (($obj: Sidebar, event: Gdk.Event) => boolean)): number
-    connect_after(sigName: "event", callback: (($obj: Sidebar, event: Gdk.Event) => boolean)): number
+    on(sigName: "event", callback: (event: Gdk.Event) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "event", callback: (event: Gdk.Event) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "event", callback: (event: Gdk.Event) => void): NodeJS.EventEmitter
     emit(sigName: "event", event: Gdk.Event): void
-    on(sigName: "event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "event-after", callback: (($obj: Sidebar, event: Gdk.Event) => void)): number
-    connect_after(sigName: "event-after", callback: (($obj: Sidebar, event: Gdk.Event) => void)): number
+    on(sigName: "event-after", callback: (event: Gdk.Event) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "event-after", callback: (event: Gdk.Event) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "event-after", callback: (event: Gdk.Event) => void): NodeJS.EventEmitter
     emit(sigName: "event-after", event: Gdk.Event): void
-    on(sigName: "event-after", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "event-after", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "event-after", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "focus", callback: (($obj: Sidebar, direction: Gtk.DirectionType) => boolean)): number
-    connect_after(sigName: "focus", callback: (($obj: Sidebar, direction: Gtk.DirectionType) => boolean)): number
+    on(sigName: "focus", callback: (direction: Gtk.DirectionType) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "focus", callback: (direction: Gtk.DirectionType) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "focus", callback: (direction: Gtk.DirectionType) => void): NodeJS.EventEmitter
     emit(sigName: "focus", direction: Gtk.DirectionType): void
-    on(sigName: "focus", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "focus", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "focus", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "focus-in-event", callback: (($obj: Sidebar, event: Gdk.EventFocus) => boolean)): number
-    connect_after(sigName: "focus-in-event", callback: (($obj: Sidebar, event: Gdk.EventFocus) => boolean)): number
+    on(sigName: "focus-in-event", callback: (event: Gdk.EventFocus) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "focus-in-event", callback: (event: Gdk.EventFocus) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "focus-in-event", callback: (event: Gdk.EventFocus) => void): NodeJS.EventEmitter
     emit(sigName: "focus-in-event", event: Gdk.EventFocus): void
-    on(sigName: "focus-in-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "focus-in-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "focus-in-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "focus-out-event", callback: (($obj: Sidebar, event: Gdk.EventFocus) => boolean)): number
-    connect_after(sigName: "focus-out-event", callback: (($obj: Sidebar, event: Gdk.EventFocus) => boolean)): number
+    on(sigName: "focus-out-event", callback: (event: Gdk.EventFocus) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "focus-out-event", callback: (event: Gdk.EventFocus) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "focus-out-event", callback: (event: Gdk.EventFocus) => void): NodeJS.EventEmitter
     emit(sigName: "focus-out-event", event: Gdk.EventFocus): void
-    on(sigName: "focus-out-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "focus-out-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "focus-out-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "grab-broken-event", callback: (($obj: Sidebar, event: Gdk.EventGrabBroken) => boolean)): number
-    connect_after(sigName: "grab-broken-event", callback: (($obj: Sidebar, event: Gdk.EventGrabBroken) => boolean)): number
+    on(sigName: "grab-broken-event", callback: (event: Gdk.EventGrabBroken) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "grab-broken-event", callback: (event: Gdk.EventGrabBroken) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "grab-broken-event", callback: (event: Gdk.EventGrabBroken) => void): NodeJS.EventEmitter
     emit(sigName: "grab-broken-event", event: Gdk.EventGrabBroken): void
-    on(sigName: "grab-broken-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "grab-broken-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "grab-broken-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "grab-focus", callback: (($obj: Sidebar) => void)): number
-    connect_after(sigName: "grab-focus", callback: (($obj: Sidebar) => void)): number
+    on(sigName: "grab-focus", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "grab-focus", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "grab-focus", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "grab-focus"): void
-    on(sigName: "grab-focus", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "grab-focus", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "grab-focus", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "grab-notify", callback: (($obj: Sidebar, wasGrabbed: boolean) => void)): number
-    connect_after(sigName: "grab-notify", callback: (($obj: Sidebar, wasGrabbed: boolean) => void)): number
+    on(sigName: "grab-notify", callback: (wasGrabbed: boolean) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "grab-notify", callback: (wasGrabbed: boolean) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "grab-notify", callback: (wasGrabbed: boolean) => void): NodeJS.EventEmitter
     emit(sigName: "grab-notify", wasGrabbed: boolean): void
-    on(sigName: "grab-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "grab-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "grab-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "hide", callback: (($obj: Sidebar) => void)): number
-    connect_after(sigName: "hide", callback: (($obj: Sidebar) => void)): number
+    on(sigName: "hide", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "hide", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "hide", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "hide"): void
-    on(sigName: "hide", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "hide", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "hide", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "hierarchy-changed", callback: (($obj: Sidebar, previousToplevel?: Gtk.Widget | null) => void)): number
-    connect_after(sigName: "hierarchy-changed", callback: (($obj: Sidebar, previousToplevel?: Gtk.Widget | null) => void)): number
+    on(sigName: "hierarchy-changed", callback: (previousToplevel?: Gtk.Widget | null) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "hierarchy-changed", callback: (previousToplevel?: Gtk.Widget | null) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "hierarchy-changed", callback: (previousToplevel?: Gtk.Widget | null) => void): NodeJS.EventEmitter
     emit(sigName: "hierarchy-changed", previousToplevel?: Gtk.Widget | null): void
-    on(sigName: "hierarchy-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "hierarchy-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "hierarchy-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "key-press-event", callback: (($obj: Sidebar, event: Gdk.EventKey) => boolean)): number
-    connect_after(sigName: "key-press-event", callback: (($obj: Sidebar, event: Gdk.EventKey) => boolean)): number
+    on(sigName: "key-press-event", callback: (event: Gdk.EventKey) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "key-press-event", callback: (event: Gdk.EventKey) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "key-press-event", callback: (event: Gdk.EventKey) => void): NodeJS.EventEmitter
     emit(sigName: "key-press-event", event: Gdk.EventKey): void
-    on(sigName: "key-press-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "key-press-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "key-press-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "key-release-event", callback: (($obj: Sidebar, event: Gdk.EventKey) => boolean)): number
-    connect_after(sigName: "key-release-event", callback: (($obj: Sidebar, event: Gdk.EventKey) => boolean)): number
+    on(sigName: "key-release-event", callback: (event: Gdk.EventKey) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "key-release-event", callback: (event: Gdk.EventKey) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "key-release-event", callback: (event: Gdk.EventKey) => void): NodeJS.EventEmitter
     emit(sigName: "key-release-event", event: Gdk.EventKey): void
-    on(sigName: "key-release-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "key-release-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "key-release-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "keynav-failed", callback: (($obj: Sidebar, direction: Gtk.DirectionType) => boolean)): number
-    connect_after(sigName: "keynav-failed", callback: (($obj: Sidebar, direction: Gtk.DirectionType) => boolean)): number
+    on(sigName: "keynav-failed", callback: (direction: Gtk.DirectionType) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "keynav-failed", callback: (direction: Gtk.DirectionType) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "keynav-failed", callback: (direction: Gtk.DirectionType) => void): NodeJS.EventEmitter
     emit(sigName: "keynav-failed", direction: Gtk.DirectionType): void
-    on(sigName: "keynav-failed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "keynav-failed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "keynav-failed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "leave-notify-event", callback: (($obj: Sidebar, event: Gdk.EventCrossing) => boolean)): number
-    connect_after(sigName: "leave-notify-event", callback: (($obj: Sidebar, event: Gdk.EventCrossing) => boolean)): number
+    on(sigName: "leave-notify-event", callback: (event: Gdk.EventCrossing) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "leave-notify-event", callback: (event: Gdk.EventCrossing) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "leave-notify-event", callback: (event: Gdk.EventCrossing) => void): NodeJS.EventEmitter
     emit(sigName: "leave-notify-event", event: Gdk.EventCrossing): void
-    on(sigName: "leave-notify-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "leave-notify-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "leave-notify-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "map", callback: (($obj: Sidebar) => void)): number
-    connect_after(sigName: "map", callback: (($obj: Sidebar) => void)): number
+    on(sigName: "map", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "map", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "map", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "map"): void
-    on(sigName: "map", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "map", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "map", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "map-event", callback: (($obj: Sidebar, event: Gdk.EventAny) => boolean)): number
-    connect_after(sigName: "map-event", callback: (($obj: Sidebar, event: Gdk.EventAny) => boolean)): number
+    on(sigName: "map-event", callback: (event: Gdk.EventAny) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "map-event", callback: (event: Gdk.EventAny) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "map-event", callback: (event: Gdk.EventAny) => void): NodeJS.EventEmitter
     emit(sigName: "map-event", event: Gdk.EventAny): void
-    on(sigName: "map-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "map-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "map-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "mnemonic-activate", callback: (($obj: Sidebar, groupCycling: boolean) => boolean)): number
-    connect_after(sigName: "mnemonic-activate", callback: (($obj: Sidebar, groupCycling: boolean) => boolean)): number
+    on(sigName: "mnemonic-activate", callback: (groupCycling: boolean) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "mnemonic-activate", callback: (groupCycling: boolean) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "mnemonic-activate", callback: (groupCycling: boolean) => void): NodeJS.EventEmitter
     emit(sigName: "mnemonic-activate", groupCycling: boolean): void
-    on(sigName: "mnemonic-activate", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "mnemonic-activate", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "mnemonic-activate", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "motion-notify-event", callback: (($obj: Sidebar, event: Gdk.EventMotion) => boolean)): number
-    connect_after(sigName: "motion-notify-event", callback: (($obj: Sidebar, event: Gdk.EventMotion) => boolean)): number
+    on(sigName: "motion-notify-event", callback: (event: Gdk.EventMotion) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "motion-notify-event", callback: (event: Gdk.EventMotion) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "motion-notify-event", callback: (event: Gdk.EventMotion) => void): NodeJS.EventEmitter
     emit(sigName: "motion-notify-event", event: Gdk.EventMotion): void
-    on(sigName: "motion-notify-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "motion-notify-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "motion-notify-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "move-focus", callback: (($obj: Sidebar, direction: Gtk.DirectionType) => void)): number
-    connect_after(sigName: "move-focus", callback: (($obj: Sidebar, direction: Gtk.DirectionType) => void)): number
+    on(sigName: "move-focus", callback: (direction: Gtk.DirectionType) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "move-focus", callback: (direction: Gtk.DirectionType) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "move-focus", callback: (direction: Gtk.DirectionType) => void): NodeJS.EventEmitter
     emit(sigName: "move-focus", direction: Gtk.DirectionType): void
-    on(sigName: "move-focus", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "move-focus", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "move-focus", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "parent-set", callback: (($obj: Sidebar, oldParent?: Gtk.Widget | null) => void)): number
-    connect_after(sigName: "parent-set", callback: (($obj: Sidebar, oldParent?: Gtk.Widget | null) => void)): number
+    on(sigName: "parent-set", callback: (oldParent?: Gtk.Widget | null) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "parent-set", callback: (oldParent?: Gtk.Widget | null) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "parent-set", callback: (oldParent?: Gtk.Widget | null) => void): NodeJS.EventEmitter
     emit(sigName: "parent-set", oldParent?: Gtk.Widget | null): void
-    on(sigName: "parent-set", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "parent-set", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "parent-set", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "popup-menu", callback: (($obj: Sidebar) => boolean)): number
-    connect_after(sigName: "popup-menu", callback: (($obj: Sidebar) => boolean)): number
+    on(sigName: "popup-menu", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "popup-menu", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "popup-menu", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "popup-menu"): void
-    on(sigName: "popup-menu", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "popup-menu", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "popup-menu", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "property-notify-event", callback: (($obj: Sidebar, event: Gdk.EventProperty) => boolean)): number
-    connect_after(sigName: "property-notify-event", callback: (($obj: Sidebar, event: Gdk.EventProperty) => boolean)): number
+    on(sigName: "property-notify-event", callback: (event: Gdk.EventProperty) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "property-notify-event", callback: (event: Gdk.EventProperty) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "property-notify-event", callback: (event: Gdk.EventProperty) => void): NodeJS.EventEmitter
     emit(sigName: "property-notify-event", event: Gdk.EventProperty): void
-    on(sigName: "property-notify-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "property-notify-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "property-notify-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "proximity-in-event", callback: (($obj: Sidebar, event: Gdk.EventProximity) => boolean)): number
-    connect_after(sigName: "proximity-in-event", callback: (($obj: Sidebar, event: Gdk.EventProximity) => boolean)): number
+    on(sigName: "proximity-in-event", callback: (event: Gdk.EventProximity) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "proximity-in-event", callback: (event: Gdk.EventProximity) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "proximity-in-event", callback: (event: Gdk.EventProximity) => void): NodeJS.EventEmitter
     emit(sigName: "proximity-in-event", event: Gdk.EventProximity): void
-    on(sigName: "proximity-in-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "proximity-in-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "proximity-in-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "proximity-out-event", callback: (($obj: Sidebar, event: Gdk.EventProximity) => boolean)): number
-    connect_after(sigName: "proximity-out-event", callback: (($obj: Sidebar, event: Gdk.EventProximity) => boolean)): number
+    on(sigName: "proximity-out-event", callback: (event: Gdk.EventProximity) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "proximity-out-event", callback: (event: Gdk.EventProximity) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "proximity-out-event", callback: (event: Gdk.EventProximity) => void): NodeJS.EventEmitter
     emit(sigName: "proximity-out-event", event: Gdk.EventProximity): void
-    on(sigName: "proximity-out-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "proximity-out-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "proximity-out-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "query-tooltip", callback: (($obj: Sidebar, x: number, y: number, keyboardMode: boolean, tooltip: Gtk.Tooltip) => boolean)): number
-    connect_after(sigName: "query-tooltip", callback: (($obj: Sidebar, x: number, y: number, keyboardMode: boolean, tooltip: Gtk.Tooltip) => boolean)): number
+    on(sigName: "query-tooltip", callback: (x: number, y: number, keyboardMode: boolean, tooltip: Gtk.Tooltip) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "query-tooltip", callback: (x: number, y: number, keyboardMode: boolean, tooltip: Gtk.Tooltip) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "query-tooltip", callback: (x: number, y: number, keyboardMode: boolean, tooltip: Gtk.Tooltip) => void): NodeJS.EventEmitter
     emit(sigName: "query-tooltip", x: number, y: number, keyboardMode: boolean, tooltip: Gtk.Tooltip): void
-    on(sigName: "query-tooltip", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "query-tooltip", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "query-tooltip", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "realize", callback: (($obj: Sidebar) => void)): number
-    connect_after(sigName: "realize", callback: (($obj: Sidebar) => void)): number
+    on(sigName: "realize", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "realize", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "realize", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "realize"): void
-    on(sigName: "realize", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "realize", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "realize", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "screen-changed", callback: (($obj: Sidebar, previousScreen?: Gdk.Screen | null) => void)): number
-    connect_after(sigName: "screen-changed", callback: (($obj: Sidebar, previousScreen?: Gdk.Screen | null) => void)): number
+    on(sigName: "screen-changed", callback: (previousScreen?: Gdk.Screen | null) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "screen-changed", callback: (previousScreen?: Gdk.Screen | null) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "screen-changed", callback: (previousScreen?: Gdk.Screen | null) => void): NodeJS.EventEmitter
     emit(sigName: "screen-changed", previousScreen?: Gdk.Screen | null): void
-    on(sigName: "screen-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "screen-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "screen-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "scroll-event", callback: (($obj: Sidebar, event: Gdk.EventScroll) => boolean)): number
-    connect_after(sigName: "scroll-event", callback: (($obj: Sidebar, event: Gdk.EventScroll) => boolean)): number
+    on(sigName: "scroll-event", callback: (event: Gdk.EventScroll) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "scroll-event", callback: (event: Gdk.EventScroll) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "scroll-event", callback: (event: Gdk.EventScroll) => void): NodeJS.EventEmitter
     emit(sigName: "scroll-event", event: Gdk.EventScroll): void
-    on(sigName: "scroll-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "scroll-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "scroll-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "selection-clear-event", callback: (($obj: Sidebar, event: Gdk.EventSelection) => boolean)): number
-    connect_after(sigName: "selection-clear-event", callback: (($obj: Sidebar, event: Gdk.EventSelection) => boolean)): number
+    on(sigName: "selection-clear-event", callback: (event: Gdk.EventSelection) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "selection-clear-event", callback: (event: Gdk.EventSelection) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "selection-clear-event", callback: (event: Gdk.EventSelection) => void): NodeJS.EventEmitter
     emit(sigName: "selection-clear-event", event: Gdk.EventSelection): void
-    on(sigName: "selection-clear-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "selection-clear-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "selection-clear-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "selection-get", callback: (($obj: Sidebar, data: Gtk.SelectionData, info: number, time: number) => void)): number
-    connect_after(sigName: "selection-get", callback: (($obj: Sidebar, data: Gtk.SelectionData, info: number, time: number) => void)): number
+    on(sigName: "selection-get", callback: (data: Gtk.SelectionData, info: number, time: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "selection-get", callback: (data: Gtk.SelectionData, info: number, time: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "selection-get", callback: (data: Gtk.SelectionData, info: number, time: number) => void): NodeJS.EventEmitter
     emit(sigName: "selection-get", data: Gtk.SelectionData, info: number, time: number): void
-    on(sigName: "selection-get", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "selection-get", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "selection-get", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "selection-notify-event", callback: (($obj: Sidebar, event: Gdk.EventSelection) => boolean)): number
-    connect_after(sigName: "selection-notify-event", callback: (($obj: Sidebar, event: Gdk.EventSelection) => boolean)): number
+    on(sigName: "selection-notify-event", callback: (event: Gdk.EventSelection) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "selection-notify-event", callback: (event: Gdk.EventSelection) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "selection-notify-event", callback: (event: Gdk.EventSelection) => void): NodeJS.EventEmitter
     emit(sigName: "selection-notify-event", event: Gdk.EventSelection): void
-    on(sigName: "selection-notify-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "selection-notify-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "selection-notify-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "selection-received", callback: (($obj: Sidebar, data: Gtk.SelectionData, time: number) => void)): number
-    connect_after(sigName: "selection-received", callback: (($obj: Sidebar, data: Gtk.SelectionData, time: number) => void)): number
+    on(sigName: "selection-received", callback: (data: Gtk.SelectionData, time: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "selection-received", callback: (data: Gtk.SelectionData, time: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "selection-received", callback: (data: Gtk.SelectionData, time: number) => void): NodeJS.EventEmitter
     emit(sigName: "selection-received", data: Gtk.SelectionData, time: number): void
-    on(sigName: "selection-received", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "selection-received", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "selection-received", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "selection-request-event", callback: (($obj: Sidebar, event: Gdk.EventSelection) => boolean)): number
-    connect_after(sigName: "selection-request-event", callback: (($obj: Sidebar, event: Gdk.EventSelection) => boolean)): number
+    on(sigName: "selection-request-event", callback: (event: Gdk.EventSelection) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "selection-request-event", callback: (event: Gdk.EventSelection) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "selection-request-event", callback: (event: Gdk.EventSelection) => void): NodeJS.EventEmitter
     emit(sigName: "selection-request-event", event: Gdk.EventSelection): void
-    on(sigName: "selection-request-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "selection-request-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "selection-request-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "show", callback: (($obj: Sidebar) => void)): number
-    connect_after(sigName: "show", callback: (($obj: Sidebar) => void)): number
+    on(sigName: "show", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "show", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "show", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "show"): void
-    on(sigName: "show", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "show", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "show", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "show-help", callback: (($obj: Sidebar, helpType: Gtk.WidgetHelpType) => boolean)): number
-    connect_after(sigName: "show-help", callback: (($obj: Sidebar, helpType: Gtk.WidgetHelpType) => boolean)): number
+    on(sigName: "show-help", callback: (helpType: Gtk.WidgetHelpType) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "show-help", callback: (helpType: Gtk.WidgetHelpType) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "show-help", callback: (helpType: Gtk.WidgetHelpType) => void): NodeJS.EventEmitter
     emit(sigName: "show-help", helpType: Gtk.WidgetHelpType): void
-    on(sigName: "show-help", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "show-help", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "show-help", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "size-allocate", callback: (($obj: Sidebar, allocation: Gtk.Allocation) => void)): number
-    connect_after(sigName: "size-allocate", callback: (($obj: Sidebar, allocation: Gtk.Allocation) => void)): number
+    on(sigName: "size-allocate", callback: (allocation: Gtk.Allocation) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "size-allocate", callback: (allocation: Gtk.Allocation) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "size-allocate", callback: (allocation: Gtk.Allocation) => void): NodeJS.EventEmitter
     emit(sigName: "size-allocate", allocation: Gtk.Allocation): void
-    on(sigName: "size-allocate", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "size-allocate", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "size-allocate", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "state-changed", callback: (($obj: Sidebar, state: Gtk.StateType) => void)): number
-    connect_after(sigName: "state-changed", callback: (($obj: Sidebar, state: Gtk.StateType) => void)): number
+    on(sigName: "state-changed", callback: (state: Gtk.StateType) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "state-changed", callback: (state: Gtk.StateType) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "state-changed", callback: (state: Gtk.StateType) => void): NodeJS.EventEmitter
     emit(sigName: "state-changed", state: Gtk.StateType): void
-    on(sigName: "state-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "state-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "state-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "state-flags-changed", callback: (($obj: Sidebar, flags: Gtk.StateFlags) => void)): number
-    connect_after(sigName: "state-flags-changed", callback: (($obj: Sidebar, flags: Gtk.StateFlags) => void)): number
+    on(sigName: "state-flags-changed", callback: (flags: Gtk.StateFlags) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "state-flags-changed", callback: (flags: Gtk.StateFlags) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "state-flags-changed", callback: (flags: Gtk.StateFlags) => void): NodeJS.EventEmitter
     emit(sigName: "state-flags-changed", flags: Gtk.StateFlags): void
-    on(sigName: "state-flags-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "state-flags-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "state-flags-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "style-set", callback: (($obj: Sidebar, previousStyle?: Gtk.Style | null) => void)): number
-    connect_after(sigName: "style-set", callback: (($obj: Sidebar, previousStyle?: Gtk.Style | null) => void)): number
+    on(sigName: "style-set", callback: (previousStyle?: Gtk.Style | null) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "style-set", callback: (previousStyle?: Gtk.Style | null) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "style-set", callback: (previousStyle?: Gtk.Style | null) => void): NodeJS.EventEmitter
     emit(sigName: "style-set", previousStyle?: Gtk.Style | null): void
-    on(sigName: "style-set", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "style-set", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "style-set", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "style-updated", callback: (($obj: Sidebar) => void)): number
-    connect_after(sigName: "style-updated", callback: (($obj: Sidebar) => void)): number
+    on(sigName: "style-updated", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "style-updated", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "style-updated", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "style-updated"): void
-    on(sigName: "style-updated", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "style-updated", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "style-updated", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "touch-event", callback: (($obj: Sidebar, object: Gdk.Event) => boolean)): number
-    connect_after(sigName: "touch-event", callback: (($obj: Sidebar, object: Gdk.Event) => boolean)): number
+    on(sigName: "touch-event", callback: (object: Gdk.Event) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "touch-event", callback: (object: Gdk.Event) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "touch-event", callback: (object: Gdk.Event) => void): NodeJS.EventEmitter
     emit(sigName: "touch-event", object: Gdk.Event): void
-    on(sigName: "touch-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "touch-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "touch-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "unmap", callback: (($obj: Sidebar) => void)): number
-    connect_after(sigName: "unmap", callback: (($obj: Sidebar) => void)): number
+    on(sigName: "unmap", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "unmap", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "unmap", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "unmap"): void
-    on(sigName: "unmap", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "unmap", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "unmap", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "unmap-event", callback: (($obj: Sidebar, event: Gdk.EventAny) => boolean)): number
-    connect_after(sigName: "unmap-event", callback: (($obj: Sidebar, event: Gdk.EventAny) => boolean)): number
+    on(sigName: "unmap-event", callback: (event: Gdk.EventAny) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "unmap-event", callback: (event: Gdk.EventAny) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "unmap-event", callback: (event: Gdk.EventAny) => void): NodeJS.EventEmitter
     emit(sigName: "unmap-event", event: Gdk.EventAny): void
-    on(sigName: "unmap-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "unmap-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "unmap-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "unrealize", callback: (($obj: Sidebar) => void)): number
-    connect_after(sigName: "unrealize", callback: (($obj: Sidebar) => void)): number
+    on(sigName: "unrealize", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "unrealize", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "unrealize", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "unrealize"): void
-    on(sigName: "unrealize", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "unrealize", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "unrealize", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "visibility-notify-event", callback: (($obj: Sidebar, event: Gdk.EventVisibility) => boolean)): number
-    connect_after(sigName: "visibility-notify-event", callback: (($obj: Sidebar, event: Gdk.EventVisibility) => boolean)): number
+    on(sigName: "visibility-notify-event", callback: (event: Gdk.EventVisibility) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "visibility-notify-event", callback: (event: Gdk.EventVisibility) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "visibility-notify-event", callback: (event: Gdk.EventVisibility) => void): NodeJS.EventEmitter
     emit(sigName: "visibility-notify-event", event: Gdk.EventVisibility): void
-    on(sigName: "visibility-notify-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "visibility-notify-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "visibility-notify-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "window-state-event", callback: (($obj: Sidebar, event: Gdk.EventWindowState) => boolean)): number
-    connect_after(sigName: "window-state-event", callback: (($obj: Sidebar, event: Gdk.EventWindowState) => boolean)): number
+    on(sigName: "window-state-event", callback: (event: Gdk.EventWindowState) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "window-state-event", callback: (event: Gdk.EventWindowState) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "window-state-event", callback: (event: Gdk.EventWindowState) => void): NodeJS.EventEmitter
     emit(sigName: "window-state-event", event: Gdk.EventWindowState): void
-    on(sigName: "window-state-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "window-state-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "window-state-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Sidebar, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Sidebar, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::current-page", callback: (($obj: Sidebar, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::current-page", callback: (($obj: Sidebar, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::current-page", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -7668,15 +6574,15 @@ export interface Statusbar_ConstructProps extends Gtk.Statusbar_ConstructProps {
     orientation?: Gtk.Orientation
 }
 export class Statusbar {
-    /* Properties of Gtk.Box */
+    /* Properties of Gtk-3.0.Gtk.Box */
     baselinePosition: Gtk.BaselinePosition
     homogeneous: boolean
     spacing: number
-    /* Properties of Gtk.Container */
+    /* Properties of Gtk-3.0.Gtk.Container */
     borderWidth: number
     child: Gtk.Widget
     resizeMode: Gtk.ResizeMode
-    /* Properties of Gtk.Widget */
+    /* Properties of Gtk-3.0.Gtk.Widget */
     appPaintable: boolean
     canDefault: boolean
     canFocus: boolean
@@ -7716,45 +6622,45 @@ export class Statusbar {
     visible: boolean
     widthRequest: number
     readonly window: Gdk.Window
-    /* Properties of Gtk.Orientable */
+    /* Properties of Gtk-3.0.Gtk.Orientable */
     orientation: Gtk.Orientation
-    /* Fields of Eog.Statusbar */
+    /* Fields of Eog-3.0.Eog.Statusbar */
     priv: StatusbarPrivate
-    /* Fields of Gtk.Statusbar */
+    /* Fields of Gtk-3.0.Gtk.Statusbar */
     parentWidget: Gtk.Box
-    /* Fields of Gtk.Box */
+    /* Fields of Gtk-3.0.Gtk.Box */
     container: Gtk.Container
-    /* Fields of Gtk.Container */
+    /* Fields of Gtk-3.0.Gtk.Container */
     widget: Gtk.Widget
-    /* Fields of Gtk.Widget */
+    /* Fields of Gtk-3.0.Gtk.Widget */
     parentInstance: GObject.InitiallyUnowned
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Eog.Statusbar */
+    /* Methods of Eog-3.0.Eog.Statusbar */
     setImageNumber(num: number, tot: number): void
     setProgress(progress: number): void
-    /* Methods of Gtk.Statusbar */
+    /* Methods of Gtk-3.0.Gtk.Statusbar */
     getContextId(contextDescription: string): number
     getMessageArea(): Gtk.Box
     pop(contextId: number): void
     push(contextId: number, text: string): number
     remove(contextId: number, messageId: number): void
     removeAll(contextId: number): void
-    /* Methods of Gtk.Box */
+    /* Methods of Gtk-3.0.Gtk.Box */
     getBaselinePosition(): Gtk.BaselinePosition
     getCenterWidget(): Gtk.Widget | null
     getHomogeneous(): boolean
     getSpacing(): number
     packEnd(child: Gtk.Widget, expand: boolean, fill: boolean, padding: number): void
     packStart(child: Gtk.Widget, expand: boolean, fill: boolean, padding: number): void
-    queryChildPacking(child: Gtk.Widget): [ /* expand */ boolean, /* fill */ boolean, /* padding */ number, /* packType */ Gtk.PackType ]
+    queryChildPacking(child: Gtk.Widget): { expand: boolean, fill: boolean, padding: number, packType: Gtk.PackType }
     reorderChild(child: Gtk.Widget, position: number): void
     setBaselinePosition(position: Gtk.BaselinePosition): void
     setCenterWidget(widget?: Gtk.Widget | null): void
     setChildPacking(child: Gtk.Widget, expand: boolean, fill: boolean, padding: number, packType: Gtk.PackType): void
     setHomogeneous(homogeneous: boolean): void
     setSpacing(spacing: number): void
-    /* Methods of Gtk.Container */
+    /* Methods of Gtk-3.0.Gtk.Container */
     add(widget: Gtk.Widget): void
     checkResize(): void
     childGetProperty(child: Gtk.Widget, propertyName: string, value: any): void
@@ -7765,7 +6671,7 @@ export class Statusbar {
     foreach(callback: Gtk.Callback): void
     getBorderWidth(): number
     getChildren(): Gtk.Widget[]
-    getFocusChain(): [ /* returnType */ boolean, /* focusableWidgets */ Gtk.Widget[] ]
+    getFocusChain(): { returnType: boolean, focusableWidgets: Gtk.Widget[] }
     getFocusChild(): Gtk.Widget | null
     getFocusHadjustment(): Gtk.Adjustment | null
     getFocusVadjustment(): Gtk.Adjustment | null
@@ -7782,7 +6688,7 @@ export class Statusbar {
     setReallocateRedraws(needsRedraws: boolean): void
     setResizeMode(resizeMode: Gtk.ResizeMode): void
     unsetFocusChain(): void
-    /* Methods of Gtk.Widget */
+    /* Methods of Gtk-3.0.Gtk.Widget */
     activate(): boolean
     addAccelerator(accelSignal: string, accelGroup: Gtk.AccelGroup, accelKey: number, accelMods: Gdk.ModifierType, accelFlags: Gtk.AccelFlags): void
     addDeviceEvents(device: Gdk.Device, events: Gdk.EventMask): void
@@ -7792,12 +6698,12 @@ export class Statusbar {
     canActivateAccel(signalId: number): boolean
     childFocus(direction: Gtk.DirectionType): boolean
     childNotify(childProperty: string): void
-    classPath(): [ /* pathLength */ number | null, /* path */ string | null, /* pathReversed */ string | null ]
+    classPath(): { pathLength: number | null, path: string | null, pathReversed: string | null }
     computeExpand(orientation: Gtk.Orientation): boolean
     createPangoContext(): Pango.Context
     createPangoLayout(text?: string | null): Pango.Layout
     destroy(): void
-    destroyed(widgetPointer: Gtk.Widget): /* widgetPointer */ Gtk.Widget
+    destroyed(widgetPointer: Gtk.Widget): { widgetPointer: Gtk.Widget }
     deviceIsShadowed(device: Gdk.Device): boolean
     dragBegin(targets: Gtk.TargetList, actions: Gdk.DragAction, button: number, event?: Gdk.Event | null): Gdk.DragContext
     dragBeginWithCoordinates(targets: Gtk.TargetList, actions: Gdk.DragAction, button: number, event: Gdk.Event | null, x: number, y: number): Gdk.DragContext
@@ -7836,16 +6742,16 @@ export class Statusbar {
     getActionGroup(prefix: string): Gio.ActionGroup | null
     getAllocatedBaseline(): number
     getAllocatedHeight(): number
-    getAllocatedSize(): [ /* allocation */ Gtk.Allocation, /* baseline */ number | null ]
+    getAllocatedSize(): { allocation: Gtk.Allocation, baseline: number | null }
     getAllocatedWidth(): number
-    getAllocation(): /* allocation */ Gtk.Allocation
+    getAllocation(): { allocation: Gtk.Allocation }
     getAncestor(widgetType: GObject.Type): Gtk.Widget | null
     getAppPaintable(): boolean
     getCanDefault(): boolean
     getCanFocus(): boolean
-    getChildRequisition(): /* requisition */ Gtk.Requisition
+    getChildRequisition(): { requisition: Gtk.Requisition }
     getChildVisible(): boolean
-    getClip(): /* clip */ Gtk.Allocation
+    getClip(): { clip: Gtk.Allocation }
     getClipboard(selection: Gdk.Atom): Gtk.Clipboard
     getCompositeName(): string
     getDeviceEnabled(device: Gdk.Device): boolean
@@ -7879,23 +6785,23 @@ export class Statusbar {
     getParent(): Gtk.Widget | null
     getParentWindow(): Gdk.Window | null
     getPath(): Gtk.WidgetPath
-    getPointer(): [ /* x */ number | null, /* y */ number | null ]
-    getPreferredHeight(): [ /* minimumHeight */ number | null, /* naturalHeight */ number | null ]
-    getPreferredHeightAndBaselineForWidth(width: number): [ /* minimumHeight */ number | null, /* naturalHeight */ number | null, /* minimumBaseline */ number | null, /* naturalBaseline */ number | null ]
-    getPreferredHeightForWidth(width: number): [ /* minimumHeight */ number | null, /* naturalHeight */ number | null ]
-    getPreferredSize(): [ /* minimumSize */ Gtk.Requisition | null, /* naturalSize */ Gtk.Requisition | null ]
-    getPreferredWidth(): [ /* minimumWidth */ number | null, /* naturalWidth */ number | null ]
-    getPreferredWidthForHeight(height: number): [ /* minimumWidth */ number | null, /* naturalWidth */ number | null ]
+    getPointer(): { x: number | null, y: number | null }
+    getPreferredHeight(): { minimumHeight: number | null, naturalHeight: number | null }
+    getPreferredHeightAndBaselineForWidth(width: number): { minimumHeight: number | null, naturalHeight: number | null, minimumBaseline: number | null, naturalBaseline: number | null }
+    getPreferredHeightForWidth(width: number): { minimumHeight: number | null, naturalHeight: number | null }
+    getPreferredSize(): { minimumSize: Gtk.Requisition | null, naturalSize: Gtk.Requisition | null }
+    getPreferredWidth(): { minimumWidth: number | null, naturalWidth: number | null }
+    getPreferredWidthForHeight(height: number): { minimumWidth: number | null, naturalWidth: number | null }
     getRealized(): boolean
     getReceivesDefault(): boolean
     getRequestMode(): Gtk.SizeRequestMode
-    getRequisition(): /* requisition */ Gtk.Requisition
+    getRequisition(): { requisition: Gtk.Requisition }
     getRootWindow(): Gdk.Window
     getScaleFactor(): number
     getScreen(): Gdk.Screen
     getSensitive(): boolean
     getSettings(): Gtk.Settings
-    getSizeRequest(): [ /* width */ number | null, /* height */ number | null ]
+    getSizeRequest(): { width: number | null, height: number | null }
     getState(): Gtk.StateType
     getStateFlags(): Gtk.StateFlags
     getStyle(): Gtk.Style
@@ -7927,7 +6833,7 @@ export class Statusbar {
     initTemplate(): void
     inputShapeCombineRegion(region?: cairo.Region | null): void
     insertActionGroup(name: string, group?: Gio.ActionGroup | null): void
-    intersect(area: Gdk.Rectangle): [ /* returnType */ boolean, /* intersection */ Gdk.Rectangle | null ]
+    intersect(area: Gdk.Rectangle): { returnType: boolean, intersection: Gdk.Rectangle | null }
     isAncestor(ancestor: Gtk.Widget): boolean
     isComposited(): boolean
     isDrawable(): boolean
@@ -7952,7 +6858,7 @@ export class Statusbar {
     overrideCursor(cursor?: Gdk.RGBA | null, secondaryCursor?: Gdk.RGBA | null): void
     overrideFont(fontDesc?: Pango.FontDescription | null): void
     overrideSymbolicColor(name: string, color?: Gdk.RGBA | null): void
-    path(): [ /* pathLength */ number | null, /* path */ string | null, /* pathReversed */ string | null ]
+    path(): { pathLength: number | null, path: string | null, pathReversed: string | null }
     queueAllocate(): void
     queueComputeExpand(): void
     queueDraw(): void
@@ -8030,18 +6936,18 @@ export class Statusbar {
     showNow(): void
     sizeAllocate(allocation: Gtk.Allocation): void
     sizeAllocateWithBaseline(allocation: Gtk.Allocation, baseline: number): void
-    sizeRequest(): /* requisition */ Gtk.Requisition
+    sizeRequest(): { requisition: Gtk.Requisition }
     styleAttach(): void
     styleGetProperty(propertyName: string, value: any): void
     thawChildNotify(): void
-    translateCoordinates(destWidget: Gtk.Widget, srcX: number, srcY: number): [ /* returnType */ boolean, /* destX */ number | null, /* destY */ number | null ]
+    translateCoordinates(destWidget: Gtk.Widget, srcX: number, srcY: number): { returnType: boolean, destX: number | null, destY: number | null }
     triggerTooltipQuery(): void
     unmap(): void
     unparent(): void
     unrealize(): void
     unregisterWindow(window: Gdk.Window): void
     unsetStateFlags(flags: Gtk.StateFlags): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -8063,594 +6969,402 @@ export class Statusbar {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of Gtk.Buildable */
+    /* Methods of Gtk-3.0.Gtk.Buildable */
     addChild(builder: Gtk.Builder, child: GObject.Object, type?: string | null): void
     constructChild(builder: Gtk.Builder, name: string): GObject.Object
     customFinished(builder: Gtk.Builder, child: GObject.Object | null, tagname: string, data?: object | null): void
     customTagEnd(builder: Gtk.Builder, child: GObject.Object | null, tagname: string, data?: object | null): void
-    customTagStart(builder: Gtk.Builder, child: GObject.Object | null, tagname: string): [ /* returnType */ boolean, /* parser */ GLib.MarkupParser, /* data */ object | null ]
+    customTagStart(builder: Gtk.Builder, child: GObject.Object | null, tagname: string): { returnType: boolean, parser: GLib.MarkupParser, data: object | null }
     getInternalChild(builder: Gtk.Builder, childname: string): GObject.Object
     parserFinished(builder: Gtk.Builder): void
     setBuildableProperty(builder: Gtk.Builder, name: string, value: any): void
-    /* Methods of Gtk.Orientable */
+    /* Methods of Gtk-3.0.Gtk.Orientable */
     getOrientation(): Gtk.Orientation
     setOrientation(orientation: Gtk.Orientation): void
-    /* Virtual methods of Eog.Statusbar */
-    vfuncAddChild(builder: Gtk.Builder, child: GObject.Object, type?: string | null): void
-    vfuncConstructChild(builder: Gtk.Builder, name: string): GObject.Object
-    vfuncCustomFinished(builder: Gtk.Builder, child: GObject.Object | null, tagname: string, data?: object | null): void
-    vfuncCustomTagEnd(builder: Gtk.Builder, child: GObject.Object | null, tagname: string, data?: object | null): void
-    vfuncCustomTagStart(builder: Gtk.Builder, child: GObject.Object | null, tagname: string): [ /* returnType */ boolean, /* parser */ GLib.MarkupParser, /* data */ object | null ]
-    vfuncGetInternalChild(builder: Gtk.Builder, childname: string): GObject.Object
-    vfuncGetName(): string
-    vfuncParserFinished(builder: Gtk.Builder): void
-    vfuncSetBuildableProperty(builder: Gtk.Builder, name: string, value: any): void
-    vfuncSetName(name: string): void
-    /* Virtual methods of Gtk.Statusbar */
-    vfuncTextPopped(contextId: number, text: string): void
-    vfuncTextPushed(contextId: number, text: string): void
-    /* Virtual methods of Gtk.Container */
-    vfuncAdd(widget: Gtk.Widget): void
-    vfuncCheckResize(): void
-    vfuncChildType(): GObject.Type
-    vfuncCompositeName(child: Gtk.Widget): string
-    vfuncForall(includeInternals: boolean, callback: Gtk.Callback): void
-    vfuncGetChildProperty(child: Gtk.Widget, propertyId: number, value: any, pspec: GObject.ParamSpec): void
-    vfuncGetPathForChild(child: Gtk.Widget): Gtk.WidgetPath
-    vfuncRemove(widget: Gtk.Widget): void
-    vfuncSetChildProperty(child: Gtk.Widget, propertyId: number, value: any, pspec: GObject.ParamSpec): void
-    vfuncSetFocusChild(child?: Gtk.Widget | null): void
-    /* Virtual methods of Gtk.Widget */
-    vfuncAdjustBaselineAllocation(baseline: number): void
-    vfuncAdjustBaselineRequest(minimumBaseline: number, naturalBaseline: number): void
-    vfuncAdjustSizeAllocation(orientation: Gtk.Orientation, minimumSize: number, naturalSize: number, allocatedPos: number, allocatedSize: number): void
-    vfuncAdjustSizeRequest(orientation: Gtk.Orientation, minimumSize: number, naturalSize: number): void
-    vfuncButtonPressEvent(event: Gdk.EventButton): boolean
-    vfuncButtonReleaseEvent(event: Gdk.EventButton): boolean
-    vfuncCanActivateAccel(signalId: number): boolean
-    vfuncChildNotify(childProperty: GObject.ParamSpec): void
-    vfuncCompositedChanged(): void
-    vfuncComputeExpand(hexpandP: boolean, vexpandP: boolean): void
-    vfuncConfigureEvent(event: Gdk.EventConfigure): boolean
-    vfuncDamageEvent(event: Gdk.EventExpose): boolean
-    vfuncDeleteEvent(event: Gdk.EventAny): boolean
-    vfuncDestroy(): void
-    vfuncDestroyEvent(event: Gdk.EventAny): boolean
-    vfuncDirectionChanged(previousDirection: Gtk.TextDirection): void
-    vfuncDispatchChildPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDragBegin(context: Gdk.DragContext): void
-    vfuncDragDataDelete(context: Gdk.DragContext): void
-    vfuncDragDataGet(context: Gdk.DragContext, selectionData: Gtk.SelectionData, info: number, time: number): void
-    vfuncDragDataReceived(context: Gdk.DragContext, x: number, y: number, selectionData: Gtk.SelectionData, info: number, time: number): void
-    vfuncDragDrop(context: Gdk.DragContext, x: number, y: number, time: number): boolean
-    vfuncDragEnd(context: Gdk.DragContext): void
-    vfuncDragFailed(context: Gdk.DragContext, result: Gtk.DragResult): boolean
-    vfuncDragLeave(context: Gdk.DragContext, time: number): void
-    vfuncDragMotion(context: Gdk.DragContext, x: number, y: number, time: number): boolean
-    vfuncDraw(cr: cairo.Context): boolean
-    vfuncEnterNotifyEvent(event: Gdk.EventCrossing): boolean
-    vfuncEvent(event: Gdk.Event): boolean
-    vfuncFocus(direction: Gtk.DirectionType): boolean
-    vfuncFocusInEvent(event: Gdk.EventFocus): boolean
-    vfuncFocusOutEvent(event: Gdk.EventFocus): boolean
-    vfuncGetAccessible(): Atk.Object
-    vfuncGetPreferredHeight(): [ /* minimumHeight */ number | null, /* naturalHeight */ number | null ]
-    vfuncGetPreferredHeightAndBaselineForWidth(width: number): [ /* minimumHeight */ number | null, /* naturalHeight */ number | null, /* minimumBaseline */ number | null, /* naturalBaseline */ number | null ]
-    vfuncGetPreferredHeightForWidth(width: number): [ /* minimumHeight */ number | null, /* naturalHeight */ number | null ]
-    vfuncGetPreferredWidth(): [ /* minimumWidth */ number | null, /* naturalWidth */ number | null ]
-    vfuncGetPreferredWidthForHeight(height: number): [ /* minimumWidth */ number | null, /* naturalWidth */ number | null ]
-    vfuncGetRequestMode(): Gtk.SizeRequestMode
-    vfuncGrabBrokenEvent(event: Gdk.EventGrabBroken): boolean
-    vfuncGrabFocus(): void
-    vfuncGrabNotify(wasGrabbed: boolean): void
-    vfuncHide(): void
-    vfuncHierarchyChanged(previousToplevel: Gtk.Widget): void
-    vfuncKeyPressEvent(event: Gdk.EventKey): boolean
-    vfuncKeyReleaseEvent(event: Gdk.EventKey): boolean
-    vfuncKeynavFailed(direction: Gtk.DirectionType): boolean
-    vfuncLeaveNotifyEvent(event: Gdk.EventCrossing): boolean
-    vfuncMap(): void
-    vfuncMapEvent(event: Gdk.EventAny): boolean
-    vfuncMnemonicActivate(groupCycling: boolean): boolean
-    vfuncMotionNotifyEvent(event: Gdk.EventMotion): boolean
-    vfuncMoveFocus(direction: Gtk.DirectionType): void
-    vfuncParentSet(previousParent: Gtk.Widget): void
-    vfuncPopupMenu(): boolean
-    vfuncPropertyNotifyEvent(event: Gdk.EventProperty): boolean
-    vfuncProximityInEvent(event: Gdk.EventProximity): boolean
-    vfuncProximityOutEvent(event: Gdk.EventProximity): boolean
-    vfuncQueryTooltip(x: number, y: number, keyboardTooltip: boolean, tooltip: Gtk.Tooltip): boolean
-    vfuncQueueDrawRegion(region: cairo.Region): void
-    vfuncRealize(): void
-    vfuncScreenChanged(previousScreen: Gdk.Screen): void
-    vfuncScrollEvent(event: Gdk.EventScroll): boolean
-    vfuncSelectionClearEvent(event: Gdk.EventSelection): boolean
-    vfuncSelectionGet(selectionData: Gtk.SelectionData, info: number, time: number): void
-    vfuncSelectionNotifyEvent(event: Gdk.EventSelection): boolean
-    vfuncSelectionReceived(selectionData: Gtk.SelectionData, time: number): void
-    vfuncSelectionRequestEvent(event: Gdk.EventSelection): boolean
-    vfuncShow(): void
-    vfuncShowAll(): void
-    vfuncShowHelp(helpType: Gtk.WidgetHelpType): boolean
-    vfuncSizeAllocate(allocation: Gtk.Allocation): void
-    vfuncStateChanged(previousState: Gtk.StateType): void
-    vfuncStateFlagsChanged(previousStateFlags: Gtk.StateFlags): void
-    vfuncStyleSet(previousStyle: Gtk.Style): void
-    vfuncStyleUpdated(): void
-    vfuncTouchEvent(event: Gdk.EventTouch): boolean
-    vfuncUnmap(): void
-    vfuncUnmapEvent(event: Gdk.EventAny): boolean
-    vfuncUnrealize(): void
-    vfuncVisibilityNotifyEvent(event: Gdk.EventVisibility): boolean
-    vfuncWindowStateEvent(event: Gdk.EventWindowState): boolean
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gtk.Statusbar */
+    /* Signals of Gtk-3.0.Gtk.Statusbar */
     connect(sigName: "text-popped", callback: (($obj: Statusbar, contextId: number, text: string) => void)): number
-    connect_after(sigName: "text-popped", callback: (($obj: Statusbar, contextId: number, text: string) => void)): number
+    on(sigName: "text-popped", callback: (contextId: number, text: string) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "text-popped", callback: (contextId: number, text: string) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "text-popped", callback: (contextId: number, text: string) => void): NodeJS.EventEmitter
     emit(sigName: "text-popped", contextId: number, text: string): void
-    on(sigName: "text-popped", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "text-popped", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "text-popped", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "text-pushed", callback: (($obj: Statusbar, contextId: number, text: string) => void)): number
-    connect_after(sigName: "text-pushed", callback: (($obj: Statusbar, contextId: number, text: string) => void)): number
+    on(sigName: "text-pushed", callback: (contextId: number, text: string) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "text-pushed", callback: (contextId: number, text: string) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "text-pushed", callback: (contextId: number, text: string) => void): NodeJS.EventEmitter
     emit(sigName: "text-pushed", contextId: number, text: string): void
-    on(sigName: "text-pushed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "text-pushed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "text-pushed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of Gtk.Container */
+    /* Signals of Gtk-3.0.Gtk.Container */
     connect(sigName: "add", callback: (($obj: Statusbar, object: Gtk.Widget) => void)): number
-    connect_after(sigName: "add", callback: (($obj: Statusbar, object: Gtk.Widget) => void)): number
+    on(sigName: "add", callback: (object: Gtk.Widget) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "add", callback: (object: Gtk.Widget) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "add", callback: (object: Gtk.Widget) => void): NodeJS.EventEmitter
     emit(sigName: "add", object: Gtk.Widget): void
-    on(sigName: "add", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "add", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "add", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "check-resize", callback: (($obj: Statusbar) => void)): number
-    connect_after(sigName: "check-resize", callback: (($obj: Statusbar) => void)): number
+    on(sigName: "check-resize", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "check-resize", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "check-resize", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "check-resize"): void
-    on(sigName: "check-resize", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "check-resize", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "check-resize", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "remove", callback: (($obj: Statusbar, object: Gtk.Widget) => void)): number
-    connect_after(sigName: "remove", callback: (($obj: Statusbar, object: Gtk.Widget) => void)): number
+    on(sigName: "remove", callback: (object: Gtk.Widget) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "remove", callback: (object: Gtk.Widget) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "remove", callback: (object: Gtk.Widget) => void): NodeJS.EventEmitter
     emit(sigName: "remove", object: Gtk.Widget): void
-    on(sigName: "remove", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "remove", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "remove", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "set-focus-child", callback: (($obj: Statusbar, object: Gtk.Widget) => void)): number
-    connect_after(sigName: "set-focus-child", callback: (($obj: Statusbar, object: Gtk.Widget) => void)): number
+    on(sigName: "set-focus-child", callback: (object: Gtk.Widget) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "set-focus-child", callback: (object: Gtk.Widget) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "set-focus-child", callback: (object: Gtk.Widget) => void): NodeJS.EventEmitter
     emit(sigName: "set-focus-child", object: Gtk.Widget): void
-    on(sigName: "set-focus-child", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "set-focus-child", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "set-focus-child", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of Gtk.Widget */
+    /* Signals of Gtk-3.0.Gtk.Widget */
     connect(sigName: "accel-closures-changed", callback: (($obj: Statusbar) => void)): number
-    connect_after(sigName: "accel-closures-changed", callback: (($obj: Statusbar) => void)): number
+    on(sigName: "accel-closures-changed", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "accel-closures-changed", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "accel-closures-changed", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "accel-closures-changed"): void
-    on(sigName: "accel-closures-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "accel-closures-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "accel-closures-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "button-press-event", callback: (($obj: Statusbar, event: Gdk.EventButton) => boolean)): number
-    connect_after(sigName: "button-press-event", callback: (($obj: Statusbar, event: Gdk.EventButton) => boolean)): number
+    on(sigName: "button-press-event", callback: (event: Gdk.EventButton) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "button-press-event", callback: (event: Gdk.EventButton) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "button-press-event", callback: (event: Gdk.EventButton) => void): NodeJS.EventEmitter
     emit(sigName: "button-press-event", event: Gdk.EventButton): void
-    on(sigName: "button-press-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "button-press-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "button-press-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "button-release-event", callback: (($obj: Statusbar, event: Gdk.EventButton) => boolean)): number
-    connect_after(sigName: "button-release-event", callback: (($obj: Statusbar, event: Gdk.EventButton) => boolean)): number
+    on(sigName: "button-release-event", callback: (event: Gdk.EventButton) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "button-release-event", callback: (event: Gdk.EventButton) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "button-release-event", callback: (event: Gdk.EventButton) => void): NodeJS.EventEmitter
     emit(sigName: "button-release-event", event: Gdk.EventButton): void
-    on(sigName: "button-release-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "button-release-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "button-release-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "can-activate-accel", callback: (($obj: Statusbar, signalId: number) => boolean)): number
-    connect_after(sigName: "can-activate-accel", callback: (($obj: Statusbar, signalId: number) => boolean)): number
+    on(sigName: "can-activate-accel", callback: (signalId: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "can-activate-accel", callback: (signalId: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "can-activate-accel", callback: (signalId: number) => void): NodeJS.EventEmitter
     emit(sigName: "can-activate-accel", signalId: number): void
-    on(sigName: "can-activate-accel", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "can-activate-accel", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "can-activate-accel", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "child-notify", callback: (($obj: Statusbar, childProperty: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "child-notify", callback: (($obj: Statusbar, childProperty: GObject.ParamSpec) => void)): number
+    on(sigName: "child-notify", callback: (childProperty: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "child-notify", callback: (childProperty: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "child-notify", callback: (childProperty: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "child-notify", childProperty: GObject.ParamSpec): void
-    on(sigName: "child-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "child-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "child-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "composited-changed", callback: (($obj: Statusbar) => void)): number
-    connect_after(sigName: "composited-changed", callback: (($obj: Statusbar) => void)): number
+    on(sigName: "composited-changed", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "composited-changed", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "composited-changed", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "composited-changed"): void
-    on(sigName: "composited-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "composited-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "composited-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "configure-event", callback: (($obj: Statusbar, event: Gdk.EventConfigure) => boolean)): number
-    connect_after(sigName: "configure-event", callback: (($obj: Statusbar, event: Gdk.EventConfigure) => boolean)): number
+    on(sigName: "configure-event", callback: (event: Gdk.EventConfigure) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "configure-event", callback: (event: Gdk.EventConfigure) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "configure-event", callback: (event: Gdk.EventConfigure) => void): NodeJS.EventEmitter
     emit(sigName: "configure-event", event: Gdk.EventConfigure): void
-    on(sigName: "configure-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "configure-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "configure-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "damage-event", callback: (($obj: Statusbar, event: Gdk.EventExpose) => boolean)): number
-    connect_after(sigName: "damage-event", callback: (($obj: Statusbar, event: Gdk.EventExpose) => boolean)): number
+    on(sigName: "damage-event", callback: (event: Gdk.EventExpose) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "damage-event", callback: (event: Gdk.EventExpose) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "damage-event", callback: (event: Gdk.EventExpose) => void): NodeJS.EventEmitter
     emit(sigName: "damage-event", event: Gdk.EventExpose): void
-    on(sigName: "damage-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "damage-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "damage-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "delete-event", callback: (($obj: Statusbar, event: Gdk.Event) => boolean)): number
-    connect_after(sigName: "delete-event", callback: (($obj: Statusbar, event: Gdk.Event) => boolean)): number
+    on(sigName: "delete-event", callback: (event: Gdk.Event) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "delete-event", callback: (event: Gdk.Event) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "delete-event", callback: (event: Gdk.Event) => void): NodeJS.EventEmitter
     emit(sigName: "delete-event", event: Gdk.Event): void
-    on(sigName: "delete-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "delete-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "delete-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "destroy", callback: (($obj: Statusbar) => void)): number
-    connect_after(sigName: "destroy", callback: (($obj: Statusbar) => void)): number
+    on(sigName: "destroy", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "destroy", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "destroy", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "destroy"): void
-    on(sigName: "destroy", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "destroy", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "destroy", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "destroy-event", callback: (($obj: Statusbar, event: Gdk.Event) => boolean)): number
-    connect_after(sigName: "destroy-event", callback: (($obj: Statusbar, event: Gdk.Event) => boolean)): number
+    on(sigName: "destroy-event", callback: (event: Gdk.Event) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "destroy-event", callback: (event: Gdk.Event) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "destroy-event", callback: (event: Gdk.Event) => void): NodeJS.EventEmitter
     emit(sigName: "destroy-event", event: Gdk.Event): void
-    on(sigName: "destroy-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "destroy-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "destroy-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "direction-changed", callback: (($obj: Statusbar, previousDirection: Gtk.TextDirection) => void)): number
-    connect_after(sigName: "direction-changed", callback: (($obj: Statusbar, previousDirection: Gtk.TextDirection) => void)): number
+    on(sigName: "direction-changed", callback: (previousDirection: Gtk.TextDirection) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "direction-changed", callback: (previousDirection: Gtk.TextDirection) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "direction-changed", callback: (previousDirection: Gtk.TextDirection) => void): NodeJS.EventEmitter
     emit(sigName: "direction-changed", previousDirection: Gtk.TextDirection): void
-    on(sigName: "direction-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "direction-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "direction-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "drag-begin", callback: (($obj: Statusbar, context: Gdk.DragContext) => void)): number
-    connect_after(sigName: "drag-begin", callback: (($obj: Statusbar, context: Gdk.DragContext) => void)): number
+    on(sigName: "drag-begin", callback: (context: Gdk.DragContext) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "drag-begin", callback: (context: Gdk.DragContext) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "drag-begin", callback: (context: Gdk.DragContext) => void): NodeJS.EventEmitter
     emit(sigName: "drag-begin", context: Gdk.DragContext): void
-    on(sigName: "drag-begin", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "drag-begin", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "drag-begin", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "drag-data-delete", callback: (($obj: Statusbar, context: Gdk.DragContext) => void)): number
-    connect_after(sigName: "drag-data-delete", callback: (($obj: Statusbar, context: Gdk.DragContext) => void)): number
+    on(sigName: "drag-data-delete", callback: (context: Gdk.DragContext) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "drag-data-delete", callback: (context: Gdk.DragContext) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "drag-data-delete", callback: (context: Gdk.DragContext) => void): NodeJS.EventEmitter
     emit(sigName: "drag-data-delete", context: Gdk.DragContext): void
-    on(sigName: "drag-data-delete", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "drag-data-delete", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "drag-data-delete", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "drag-data-get", callback: (($obj: Statusbar, context: Gdk.DragContext, data: Gtk.SelectionData, info: number, time: number) => void)): number
-    connect_after(sigName: "drag-data-get", callback: (($obj: Statusbar, context: Gdk.DragContext, data: Gtk.SelectionData, info: number, time: number) => void)): number
+    on(sigName: "drag-data-get", callback: (context: Gdk.DragContext, data: Gtk.SelectionData, info: number, time: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "drag-data-get", callback: (context: Gdk.DragContext, data: Gtk.SelectionData, info: number, time: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "drag-data-get", callback: (context: Gdk.DragContext, data: Gtk.SelectionData, info: number, time: number) => void): NodeJS.EventEmitter
     emit(sigName: "drag-data-get", context: Gdk.DragContext, data: Gtk.SelectionData, info: number, time: number): void
-    on(sigName: "drag-data-get", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "drag-data-get", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "drag-data-get", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "drag-data-received", callback: (($obj: Statusbar, context: Gdk.DragContext, x: number, y: number, data: Gtk.SelectionData, info: number, time: number) => void)): number
-    connect_after(sigName: "drag-data-received", callback: (($obj: Statusbar, context: Gdk.DragContext, x: number, y: number, data: Gtk.SelectionData, info: number, time: number) => void)): number
+    on(sigName: "drag-data-received", callback: (context: Gdk.DragContext, x: number, y: number, data: Gtk.SelectionData, info: number, time: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "drag-data-received", callback: (context: Gdk.DragContext, x: number, y: number, data: Gtk.SelectionData, info: number, time: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "drag-data-received", callback: (context: Gdk.DragContext, x: number, y: number, data: Gtk.SelectionData, info: number, time: number) => void): NodeJS.EventEmitter
     emit(sigName: "drag-data-received", context: Gdk.DragContext, x: number, y: number, data: Gtk.SelectionData, info: number, time: number): void
-    on(sigName: "drag-data-received", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "drag-data-received", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "drag-data-received", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "drag-drop", callback: (($obj: Statusbar, context: Gdk.DragContext, x: number, y: number, time: number) => boolean)): number
-    connect_after(sigName: "drag-drop", callback: (($obj: Statusbar, context: Gdk.DragContext, x: number, y: number, time: number) => boolean)): number
+    on(sigName: "drag-drop", callback: (context: Gdk.DragContext, x: number, y: number, time: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "drag-drop", callback: (context: Gdk.DragContext, x: number, y: number, time: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "drag-drop", callback: (context: Gdk.DragContext, x: number, y: number, time: number) => void): NodeJS.EventEmitter
     emit(sigName: "drag-drop", context: Gdk.DragContext, x: number, y: number, time: number): void
-    on(sigName: "drag-drop", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "drag-drop", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "drag-drop", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "drag-end", callback: (($obj: Statusbar, context: Gdk.DragContext) => void)): number
-    connect_after(sigName: "drag-end", callback: (($obj: Statusbar, context: Gdk.DragContext) => void)): number
+    on(sigName: "drag-end", callback: (context: Gdk.DragContext) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "drag-end", callback: (context: Gdk.DragContext) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "drag-end", callback: (context: Gdk.DragContext) => void): NodeJS.EventEmitter
     emit(sigName: "drag-end", context: Gdk.DragContext): void
-    on(sigName: "drag-end", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "drag-end", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "drag-end", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "drag-failed", callback: (($obj: Statusbar, context: Gdk.DragContext, result: Gtk.DragResult) => boolean)): number
-    connect_after(sigName: "drag-failed", callback: (($obj: Statusbar, context: Gdk.DragContext, result: Gtk.DragResult) => boolean)): number
+    on(sigName: "drag-failed", callback: (context: Gdk.DragContext, result: Gtk.DragResult) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "drag-failed", callback: (context: Gdk.DragContext, result: Gtk.DragResult) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "drag-failed", callback: (context: Gdk.DragContext, result: Gtk.DragResult) => void): NodeJS.EventEmitter
     emit(sigName: "drag-failed", context: Gdk.DragContext, result: Gtk.DragResult): void
-    on(sigName: "drag-failed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "drag-failed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "drag-failed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "drag-leave", callback: (($obj: Statusbar, context: Gdk.DragContext, time: number) => void)): number
-    connect_after(sigName: "drag-leave", callback: (($obj: Statusbar, context: Gdk.DragContext, time: number) => void)): number
+    on(sigName: "drag-leave", callback: (context: Gdk.DragContext, time: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "drag-leave", callback: (context: Gdk.DragContext, time: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "drag-leave", callback: (context: Gdk.DragContext, time: number) => void): NodeJS.EventEmitter
     emit(sigName: "drag-leave", context: Gdk.DragContext, time: number): void
-    on(sigName: "drag-leave", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "drag-leave", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "drag-leave", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "drag-motion", callback: (($obj: Statusbar, context: Gdk.DragContext, x: number, y: number, time: number) => boolean)): number
-    connect_after(sigName: "drag-motion", callback: (($obj: Statusbar, context: Gdk.DragContext, x: number, y: number, time: number) => boolean)): number
+    on(sigName: "drag-motion", callback: (context: Gdk.DragContext, x: number, y: number, time: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "drag-motion", callback: (context: Gdk.DragContext, x: number, y: number, time: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "drag-motion", callback: (context: Gdk.DragContext, x: number, y: number, time: number) => void): NodeJS.EventEmitter
     emit(sigName: "drag-motion", context: Gdk.DragContext, x: number, y: number, time: number): void
-    on(sigName: "drag-motion", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "drag-motion", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "drag-motion", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "draw", callback: (($obj: Statusbar, cr: cairo.Context) => boolean)): number
-    connect_after(sigName: "draw", callback: (($obj: Statusbar, cr: cairo.Context) => boolean)): number
+    on(sigName: "draw", callback: (cr: cairo.Context) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "draw", callback: (cr: cairo.Context) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "draw", callback: (cr: cairo.Context) => void): NodeJS.EventEmitter
     emit(sigName: "draw", cr: cairo.Context): void
-    on(sigName: "draw", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "draw", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "draw", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "enter-notify-event", callback: (($obj: Statusbar, event: Gdk.EventCrossing) => boolean)): number
-    connect_after(sigName: "enter-notify-event", callback: (($obj: Statusbar, event: Gdk.EventCrossing) => boolean)): number
+    on(sigName: "enter-notify-event", callback: (event: Gdk.EventCrossing) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "enter-notify-event", callback: (event: Gdk.EventCrossing) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "enter-notify-event", callback: (event: Gdk.EventCrossing) => void): NodeJS.EventEmitter
     emit(sigName: "enter-notify-event", event: Gdk.EventCrossing): void
-    on(sigName: "enter-notify-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "enter-notify-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "enter-notify-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "event", callback: (($obj: Statusbar, event: Gdk.Event) => boolean)): number
-    connect_after(sigName: "event", callback: (($obj: Statusbar, event: Gdk.Event) => boolean)): number
+    on(sigName: "event", callback: (event: Gdk.Event) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "event", callback: (event: Gdk.Event) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "event", callback: (event: Gdk.Event) => void): NodeJS.EventEmitter
     emit(sigName: "event", event: Gdk.Event): void
-    on(sigName: "event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "event-after", callback: (($obj: Statusbar, event: Gdk.Event) => void)): number
-    connect_after(sigName: "event-after", callback: (($obj: Statusbar, event: Gdk.Event) => void)): number
+    on(sigName: "event-after", callback: (event: Gdk.Event) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "event-after", callback: (event: Gdk.Event) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "event-after", callback: (event: Gdk.Event) => void): NodeJS.EventEmitter
     emit(sigName: "event-after", event: Gdk.Event): void
-    on(sigName: "event-after", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "event-after", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "event-after", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "focus", callback: (($obj: Statusbar, direction: Gtk.DirectionType) => boolean)): number
-    connect_after(sigName: "focus", callback: (($obj: Statusbar, direction: Gtk.DirectionType) => boolean)): number
+    on(sigName: "focus", callback: (direction: Gtk.DirectionType) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "focus", callback: (direction: Gtk.DirectionType) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "focus", callback: (direction: Gtk.DirectionType) => void): NodeJS.EventEmitter
     emit(sigName: "focus", direction: Gtk.DirectionType): void
-    on(sigName: "focus", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "focus", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "focus", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "focus-in-event", callback: (($obj: Statusbar, event: Gdk.EventFocus) => boolean)): number
-    connect_after(sigName: "focus-in-event", callback: (($obj: Statusbar, event: Gdk.EventFocus) => boolean)): number
+    on(sigName: "focus-in-event", callback: (event: Gdk.EventFocus) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "focus-in-event", callback: (event: Gdk.EventFocus) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "focus-in-event", callback: (event: Gdk.EventFocus) => void): NodeJS.EventEmitter
     emit(sigName: "focus-in-event", event: Gdk.EventFocus): void
-    on(sigName: "focus-in-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "focus-in-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "focus-in-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "focus-out-event", callback: (($obj: Statusbar, event: Gdk.EventFocus) => boolean)): number
-    connect_after(sigName: "focus-out-event", callback: (($obj: Statusbar, event: Gdk.EventFocus) => boolean)): number
+    on(sigName: "focus-out-event", callback: (event: Gdk.EventFocus) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "focus-out-event", callback: (event: Gdk.EventFocus) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "focus-out-event", callback: (event: Gdk.EventFocus) => void): NodeJS.EventEmitter
     emit(sigName: "focus-out-event", event: Gdk.EventFocus): void
-    on(sigName: "focus-out-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "focus-out-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "focus-out-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "grab-broken-event", callback: (($obj: Statusbar, event: Gdk.EventGrabBroken) => boolean)): number
-    connect_after(sigName: "grab-broken-event", callback: (($obj: Statusbar, event: Gdk.EventGrabBroken) => boolean)): number
+    on(sigName: "grab-broken-event", callback: (event: Gdk.EventGrabBroken) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "grab-broken-event", callback: (event: Gdk.EventGrabBroken) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "grab-broken-event", callback: (event: Gdk.EventGrabBroken) => void): NodeJS.EventEmitter
     emit(sigName: "grab-broken-event", event: Gdk.EventGrabBroken): void
-    on(sigName: "grab-broken-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "grab-broken-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "grab-broken-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "grab-focus", callback: (($obj: Statusbar) => void)): number
-    connect_after(sigName: "grab-focus", callback: (($obj: Statusbar) => void)): number
+    on(sigName: "grab-focus", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "grab-focus", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "grab-focus", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "grab-focus"): void
-    on(sigName: "grab-focus", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "grab-focus", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "grab-focus", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "grab-notify", callback: (($obj: Statusbar, wasGrabbed: boolean) => void)): number
-    connect_after(sigName: "grab-notify", callback: (($obj: Statusbar, wasGrabbed: boolean) => void)): number
+    on(sigName: "grab-notify", callback: (wasGrabbed: boolean) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "grab-notify", callback: (wasGrabbed: boolean) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "grab-notify", callback: (wasGrabbed: boolean) => void): NodeJS.EventEmitter
     emit(sigName: "grab-notify", wasGrabbed: boolean): void
-    on(sigName: "grab-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "grab-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "grab-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "hide", callback: (($obj: Statusbar) => void)): number
-    connect_after(sigName: "hide", callback: (($obj: Statusbar) => void)): number
+    on(sigName: "hide", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "hide", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "hide", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "hide"): void
-    on(sigName: "hide", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "hide", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "hide", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "hierarchy-changed", callback: (($obj: Statusbar, previousToplevel?: Gtk.Widget | null) => void)): number
-    connect_after(sigName: "hierarchy-changed", callback: (($obj: Statusbar, previousToplevel?: Gtk.Widget | null) => void)): number
+    on(sigName: "hierarchy-changed", callback: (previousToplevel?: Gtk.Widget | null) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "hierarchy-changed", callback: (previousToplevel?: Gtk.Widget | null) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "hierarchy-changed", callback: (previousToplevel?: Gtk.Widget | null) => void): NodeJS.EventEmitter
     emit(sigName: "hierarchy-changed", previousToplevel?: Gtk.Widget | null): void
-    on(sigName: "hierarchy-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "hierarchy-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "hierarchy-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "key-press-event", callback: (($obj: Statusbar, event: Gdk.EventKey) => boolean)): number
-    connect_after(sigName: "key-press-event", callback: (($obj: Statusbar, event: Gdk.EventKey) => boolean)): number
+    on(sigName: "key-press-event", callback: (event: Gdk.EventKey) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "key-press-event", callback: (event: Gdk.EventKey) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "key-press-event", callback: (event: Gdk.EventKey) => void): NodeJS.EventEmitter
     emit(sigName: "key-press-event", event: Gdk.EventKey): void
-    on(sigName: "key-press-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "key-press-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "key-press-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "key-release-event", callback: (($obj: Statusbar, event: Gdk.EventKey) => boolean)): number
-    connect_after(sigName: "key-release-event", callback: (($obj: Statusbar, event: Gdk.EventKey) => boolean)): number
+    on(sigName: "key-release-event", callback: (event: Gdk.EventKey) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "key-release-event", callback: (event: Gdk.EventKey) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "key-release-event", callback: (event: Gdk.EventKey) => void): NodeJS.EventEmitter
     emit(sigName: "key-release-event", event: Gdk.EventKey): void
-    on(sigName: "key-release-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "key-release-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "key-release-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "keynav-failed", callback: (($obj: Statusbar, direction: Gtk.DirectionType) => boolean)): number
-    connect_after(sigName: "keynav-failed", callback: (($obj: Statusbar, direction: Gtk.DirectionType) => boolean)): number
+    on(sigName: "keynav-failed", callback: (direction: Gtk.DirectionType) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "keynav-failed", callback: (direction: Gtk.DirectionType) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "keynav-failed", callback: (direction: Gtk.DirectionType) => void): NodeJS.EventEmitter
     emit(sigName: "keynav-failed", direction: Gtk.DirectionType): void
-    on(sigName: "keynav-failed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "keynav-failed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "keynav-failed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "leave-notify-event", callback: (($obj: Statusbar, event: Gdk.EventCrossing) => boolean)): number
-    connect_after(sigName: "leave-notify-event", callback: (($obj: Statusbar, event: Gdk.EventCrossing) => boolean)): number
+    on(sigName: "leave-notify-event", callback: (event: Gdk.EventCrossing) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "leave-notify-event", callback: (event: Gdk.EventCrossing) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "leave-notify-event", callback: (event: Gdk.EventCrossing) => void): NodeJS.EventEmitter
     emit(sigName: "leave-notify-event", event: Gdk.EventCrossing): void
-    on(sigName: "leave-notify-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "leave-notify-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "leave-notify-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "map", callback: (($obj: Statusbar) => void)): number
-    connect_after(sigName: "map", callback: (($obj: Statusbar) => void)): number
+    on(sigName: "map", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "map", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "map", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "map"): void
-    on(sigName: "map", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "map", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "map", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "map-event", callback: (($obj: Statusbar, event: Gdk.EventAny) => boolean)): number
-    connect_after(sigName: "map-event", callback: (($obj: Statusbar, event: Gdk.EventAny) => boolean)): number
+    on(sigName: "map-event", callback: (event: Gdk.EventAny) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "map-event", callback: (event: Gdk.EventAny) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "map-event", callback: (event: Gdk.EventAny) => void): NodeJS.EventEmitter
     emit(sigName: "map-event", event: Gdk.EventAny): void
-    on(sigName: "map-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "map-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "map-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "mnemonic-activate", callback: (($obj: Statusbar, groupCycling: boolean) => boolean)): number
-    connect_after(sigName: "mnemonic-activate", callback: (($obj: Statusbar, groupCycling: boolean) => boolean)): number
+    on(sigName: "mnemonic-activate", callback: (groupCycling: boolean) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "mnemonic-activate", callback: (groupCycling: boolean) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "mnemonic-activate", callback: (groupCycling: boolean) => void): NodeJS.EventEmitter
     emit(sigName: "mnemonic-activate", groupCycling: boolean): void
-    on(sigName: "mnemonic-activate", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "mnemonic-activate", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "mnemonic-activate", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "motion-notify-event", callback: (($obj: Statusbar, event: Gdk.EventMotion) => boolean)): number
-    connect_after(sigName: "motion-notify-event", callback: (($obj: Statusbar, event: Gdk.EventMotion) => boolean)): number
+    on(sigName: "motion-notify-event", callback: (event: Gdk.EventMotion) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "motion-notify-event", callback: (event: Gdk.EventMotion) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "motion-notify-event", callback: (event: Gdk.EventMotion) => void): NodeJS.EventEmitter
     emit(sigName: "motion-notify-event", event: Gdk.EventMotion): void
-    on(sigName: "motion-notify-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "motion-notify-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "motion-notify-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "move-focus", callback: (($obj: Statusbar, direction: Gtk.DirectionType) => void)): number
-    connect_after(sigName: "move-focus", callback: (($obj: Statusbar, direction: Gtk.DirectionType) => void)): number
+    on(sigName: "move-focus", callback: (direction: Gtk.DirectionType) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "move-focus", callback: (direction: Gtk.DirectionType) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "move-focus", callback: (direction: Gtk.DirectionType) => void): NodeJS.EventEmitter
     emit(sigName: "move-focus", direction: Gtk.DirectionType): void
-    on(sigName: "move-focus", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "move-focus", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "move-focus", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "parent-set", callback: (($obj: Statusbar, oldParent?: Gtk.Widget | null) => void)): number
-    connect_after(sigName: "parent-set", callback: (($obj: Statusbar, oldParent?: Gtk.Widget | null) => void)): number
+    on(sigName: "parent-set", callback: (oldParent?: Gtk.Widget | null) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "parent-set", callback: (oldParent?: Gtk.Widget | null) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "parent-set", callback: (oldParent?: Gtk.Widget | null) => void): NodeJS.EventEmitter
     emit(sigName: "parent-set", oldParent?: Gtk.Widget | null): void
-    on(sigName: "parent-set", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "parent-set", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "parent-set", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "popup-menu", callback: (($obj: Statusbar) => boolean)): number
-    connect_after(sigName: "popup-menu", callback: (($obj: Statusbar) => boolean)): number
+    on(sigName: "popup-menu", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "popup-menu", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "popup-menu", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "popup-menu"): void
-    on(sigName: "popup-menu", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "popup-menu", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "popup-menu", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "property-notify-event", callback: (($obj: Statusbar, event: Gdk.EventProperty) => boolean)): number
-    connect_after(sigName: "property-notify-event", callback: (($obj: Statusbar, event: Gdk.EventProperty) => boolean)): number
+    on(sigName: "property-notify-event", callback: (event: Gdk.EventProperty) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "property-notify-event", callback: (event: Gdk.EventProperty) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "property-notify-event", callback: (event: Gdk.EventProperty) => void): NodeJS.EventEmitter
     emit(sigName: "property-notify-event", event: Gdk.EventProperty): void
-    on(sigName: "property-notify-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "property-notify-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "property-notify-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "proximity-in-event", callback: (($obj: Statusbar, event: Gdk.EventProximity) => boolean)): number
-    connect_after(sigName: "proximity-in-event", callback: (($obj: Statusbar, event: Gdk.EventProximity) => boolean)): number
+    on(sigName: "proximity-in-event", callback: (event: Gdk.EventProximity) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "proximity-in-event", callback: (event: Gdk.EventProximity) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "proximity-in-event", callback: (event: Gdk.EventProximity) => void): NodeJS.EventEmitter
     emit(sigName: "proximity-in-event", event: Gdk.EventProximity): void
-    on(sigName: "proximity-in-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "proximity-in-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "proximity-in-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "proximity-out-event", callback: (($obj: Statusbar, event: Gdk.EventProximity) => boolean)): number
-    connect_after(sigName: "proximity-out-event", callback: (($obj: Statusbar, event: Gdk.EventProximity) => boolean)): number
+    on(sigName: "proximity-out-event", callback: (event: Gdk.EventProximity) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "proximity-out-event", callback: (event: Gdk.EventProximity) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "proximity-out-event", callback: (event: Gdk.EventProximity) => void): NodeJS.EventEmitter
     emit(sigName: "proximity-out-event", event: Gdk.EventProximity): void
-    on(sigName: "proximity-out-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "proximity-out-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "proximity-out-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "query-tooltip", callback: (($obj: Statusbar, x: number, y: number, keyboardMode: boolean, tooltip: Gtk.Tooltip) => boolean)): number
-    connect_after(sigName: "query-tooltip", callback: (($obj: Statusbar, x: number, y: number, keyboardMode: boolean, tooltip: Gtk.Tooltip) => boolean)): number
+    on(sigName: "query-tooltip", callback: (x: number, y: number, keyboardMode: boolean, tooltip: Gtk.Tooltip) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "query-tooltip", callback: (x: number, y: number, keyboardMode: boolean, tooltip: Gtk.Tooltip) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "query-tooltip", callback: (x: number, y: number, keyboardMode: boolean, tooltip: Gtk.Tooltip) => void): NodeJS.EventEmitter
     emit(sigName: "query-tooltip", x: number, y: number, keyboardMode: boolean, tooltip: Gtk.Tooltip): void
-    on(sigName: "query-tooltip", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "query-tooltip", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "query-tooltip", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "realize", callback: (($obj: Statusbar) => void)): number
-    connect_after(sigName: "realize", callback: (($obj: Statusbar) => void)): number
+    on(sigName: "realize", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "realize", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "realize", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "realize"): void
-    on(sigName: "realize", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "realize", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "realize", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "screen-changed", callback: (($obj: Statusbar, previousScreen?: Gdk.Screen | null) => void)): number
-    connect_after(sigName: "screen-changed", callback: (($obj: Statusbar, previousScreen?: Gdk.Screen | null) => void)): number
+    on(sigName: "screen-changed", callback: (previousScreen?: Gdk.Screen | null) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "screen-changed", callback: (previousScreen?: Gdk.Screen | null) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "screen-changed", callback: (previousScreen?: Gdk.Screen | null) => void): NodeJS.EventEmitter
     emit(sigName: "screen-changed", previousScreen?: Gdk.Screen | null): void
-    on(sigName: "screen-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "screen-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "screen-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "scroll-event", callback: (($obj: Statusbar, event: Gdk.EventScroll) => boolean)): number
-    connect_after(sigName: "scroll-event", callback: (($obj: Statusbar, event: Gdk.EventScroll) => boolean)): number
+    on(sigName: "scroll-event", callback: (event: Gdk.EventScroll) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "scroll-event", callback: (event: Gdk.EventScroll) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "scroll-event", callback: (event: Gdk.EventScroll) => void): NodeJS.EventEmitter
     emit(sigName: "scroll-event", event: Gdk.EventScroll): void
-    on(sigName: "scroll-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "scroll-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "scroll-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "selection-clear-event", callback: (($obj: Statusbar, event: Gdk.EventSelection) => boolean)): number
-    connect_after(sigName: "selection-clear-event", callback: (($obj: Statusbar, event: Gdk.EventSelection) => boolean)): number
+    on(sigName: "selection-clear-event", callback: (event: Gdk.EventSelection) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "selection-clear-event", callback: (event: Gdk.EventSelection) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "selection-clear-event", callback: (event: Gdk.EventSelection) => void): NodeJS.EventEmitter
     emit(sigName: "selection-clear-event", event: Gdk.EventSelection): void
-    on(sigName: "selection-clear-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "selection-clear-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "selection-clear-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "selection-get", callback: (($obj: Statusbar, data: Gtk.SelectionData, info: number, time: number) => void)): number
-    connect_after(sigName: "selection-get", callback: (($obj: Statusbar, data: Gtk.SelectionData, info: number, time: number) => void)): number
+    on(sigName: "selection-get", callback: (data: Gtk.SelectionData, info: number, time: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "selection-get", callback: (data: Gtk.SelectionData, info: number, time: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "selection-get", callback: (data: Gtk.SelectionData, info: number, time: number) => void): NodeJS.EventEmitter
     emit(sigName: "selection-get", data: Gtk.SelectionData, info: number, time: number): void
-    on(sigName: "selection-get", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "selection-get", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "selection-get", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "selection-notify-event", callback: (($obj: Statusbar, event: Gdk.EventSelection) => boolean)): number
-    connect_after(sigName: "selection-notify-event", callback: (($obj: Statusbar, event: Gdk.EventSelection) => boolean)): number
+    on(sigName: "selection-notify-event", callback: (event: Gdk.EventSelection) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "selection-notify-event", callback: (event: Gdk.EventSelection) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "selection-notify-event", callback: (event: Gdk.EventSelection) => void): NodeJS.EventEmitter
     emit(sigName: "selection-notify-event", event: Gdk.EventSelection): void
-    on(sigName: "selection-notify-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "selection-notify-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "selection-notify-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "selection-received", callback: (($obj: Statusbar, data: Gtk.SelectionData, time: number) => void)): number
-    connect_after(sigName: "selection-received", callback: (($obj: Statusbar, data: Gtk.SelectionData, time: number) => void)): number
+    on(sigName: "selection-received", callback: (data: Gtk.SelectionData, time: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "selection-received", callback: (data: Gtk.SelectionData, time: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "selection-received", callback: (data: Gtk.SelectionData, time: number) => void): NodeJS.EventEmitter
     emit(sigName: "selection-received", data: Gtk.SelectionData, time: number): void
-    on(sigName: "selection-received", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "selection-received", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "selection-received", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "selection-request-event", callback: (($obj: Statusbar, event: Gdk.EventSelection) => boolean)): number
-    connect_after(sigName: "selection-request-event", callback: (($obj: Statusbar, event: Gdk.EventSelection) => boolean)): number
+    on(sigName: "selection-request-event", callback: (event: Gdk.EventSelection) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "selection-request-event", callback: (event: Gdk.EventSelection) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "selection-request-event", callback: (event: Gdk.EventSelection) => void): NodeJS.EventEmitter
     emit(sigName: "selection-request-event", event: Gdk.EventSelection): void
-    on(sigName: "selection-request-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "selection-request-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "selection-request-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "show", callback: (($obj: Statusbar) => void)): number
-    connect_after(sigName: "show", callback: (($obj: Statusbar) => void)): number
+    on(sigName: "show", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "show", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "show", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "show"): void
-    on(sigName: "show", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "show", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "show", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "show-help", callback: (($obj: Statusbar, helpType: Gtk.WidgetHelpType) => boolean)): number
-    connect_after(sigName: "show-help", callback: (($obj: Statusbar, helpType: Gtk.WidgetHelpType) => boolean)): number
+    on(sigName: "show-help", callback: (helpType: Gtk.WidgetHelpType) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "show-help", callback: (helpType: Gtk.WidgetHelpType) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "show-help", callback: (helpType: Gtk.WidgetHelpType) => void): NodeJS.EventEmitter
     emit(sigName: "show-help", helpType: Gtk.WidgetHelpType): void
-    on(sigName: "show-help", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "show-help", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "show-help", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "size-allocate", callback: (($obj: Statusbar, allocation: Gtk.Allocation) => void)): number
-    connect_after(sigName: "size-allocate", callback: (($obj: Statusbar, allocation: Gtk.Allocation) => void)): number
+    on(sigName: "size-allocate", callback: (allocation: Gtk.Allocation) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "size-allocate", callback: (allocation: Gtk.Allocation) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "size-allocate", callback: (allocation: Gtk.Allocation) => void): NodeJS.EventEmitter
     emit(sigName: "size-allocate", allocation: Gtk.Allocation): void
-    on(sigName: "size-allocate", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "size-allocate", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "size-allocate", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "state-changed", callback: (($obj: Statusbar, state: Gtk.StateType) => void)): number
-    connect_after(sigName: "state-changed", callback: (($obj: Statusbar, state: Gtk.StateType) => void)): number
+    on(sigName: "state-changed", callback: (state: Gtk.StateType) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "state-changed", callback: (state: Gtk.StateType) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "state-changed", callback: (state: Gtk.StateType) => void): NodeJS.EventEmitter
     emit(sigName: "state-changed", state: Gtk.StateType): void
-    on(sigName: "state-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "state-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "state-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "state-flags-changed", callback: (($obj: Statusbar, flags: Gtk.StateFlags) => void)): number
-    connect_after(sigName: "state-flags-changed", callback: (($obj: Statusbar, flags: Gtk.StateFlags) => void)): number
+    on(sigName: "state-flags-changed", callback: (flags: Gtk.StateFlags) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "state-flags-changed", callback: (flags: Gtk.StateFlags) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "state-flags-changed", callback: (flags: Gtk.StateFlags) => void): NodeJS.EventEmitter
     emit(sigName: "state-flags-changed", flags: Gtk.StateFlags): void
-    on(sigName: "state-flags-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "state-flags-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "state-flags-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "style-set", callback: (($obj: Statusbar, previousStyle?: Gtk.Style | null) => void)): number
-    connect_after(sigName: "style-set", callback: (($obj: Statusbar, previousStyle?: Gtk.Style | null) => void)): number
+    on(sigName: "style-set", callback: (previousStyle?: Gtk.Style | null) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "style-set", callback: (previousStyle?: Gtk.Style | null) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "style-set", callback: (previousStyle?: Gtk.Style | null) => void): NodeJS.EventEmitter
     emit(sigName: "style-set", previousStyle?: Gtk.Style | null): void
-    on(sigName: "style-set", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "style-set", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "style-set", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "style-updated", callback: (($obj: Statusbar) => void)): number
-    connect_after(sigName: "style-updated", callback: (($obj: Statusbar) => void)): number
+    on(sigName: "style-updated", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "style-updated", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "style-updated", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "style-updated"): void
-    on(sigName: "style-updated", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "style-updated", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "style-updated", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "touch-event", callback: (($obj: Statusbar, object: Gdk.Event) => boolean)): number
-    connect_after(sigName: "touch-event", callback: (($obj: Statusbar, object: Gdk.Event) => boolean)): number
+    on(sigName: "touch-event", callback: (object: Gdk.Event) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "touch-event", callback: (object: Gdk.Event) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "touch-event", callback: (object: Gdk.Event) => void): NodeJS.EventEmitter
     emit(sigName: "touch-event", object: Gdk.Event): void
-    on(sigName: "touch-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "touch-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "touch-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "unmap", callback: (($obj: Statusbar) => void)): number
-    connect_after(sigName: "unmap", callback: (($obj: Statusbar) => void)): number
+    on(sigName: "unmap", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "unmap", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "unmap", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "unmap"): void
-    on(sigName: "unmap", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "unmap", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "unmap", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "unmap-event", callback: (($obj: Statusbar, event: Gdk.EventAny) => boolean)): number
-    connect_after(sigName: "unmap-event", callback: (($obj: Statusbar, event: Gdk.EventAny) => boolean)): number
+    on(sigName: "unmap-event", callback: (event: Gdk.EventAny) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "unmap-event", callback: (event: Gdk.EventAny) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "unmap-event", callback: (event: Gdk.EventAny) => void): NodeJS.EventEmitter
     emit(sigName: "unmap-event", event: Gdk.EventAny): void
-    on(sigName: "unmap-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "unmap-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "unmap-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "unrealize", callback: (($obj: Statusbar) => void)): number
-    connect_after(sigName: "unrealize", callback: (($obj: Statusbar) => void)): number
+    on(sigName: "unrealize", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "unrealize", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "unrealize", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "unrealize"): void
-    on(sigName: "unrealize", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "unrealize", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "unrealize", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "visibility-notify-event", callback: (($obj: Statusbar, event: Gdk.EventVisibility) => boolean)): number
-    connect_after(sigName: "visibility-notify-event", callback: (($obj: Statusbar, event: Gdk.EventVisibility) => boolean)): number
+    on(sigName: "visibility-notify-event", callback: (event: Gdk.EventVisibility) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "visibility-notify-event", callback: (event: Gdk.EventVisibility) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "visibility-notify-event", callback: (event: Gdk.EventVisibility) => void): NodeJS.EventEmitter
     emit(sigName: "visibility-notify-event", event: Gdk.EventVisibility): void
-    on(sigName: "visibility-notify-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "visibility-notify-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "visibility-notify-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "window-state-event", callback: (($obj: Statusbar, event: Gdk.EventWindowState) => boolean)): number
-    connect_after(sigName: "window-state-event", callback: (($obj: Statusbar, event: Gdk.EventWindowState) => boolean)): number
+    on(sigName: "window-state-event", callback: (event: Gdk.EventWindowState) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "window-state-event", callback: (event: Gdk.EventWindowState) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "window-state-event", callback: (event: Gdk.EventWindowState) => void): NodeJS.EventEmitter
     emit(sigName: "window-state-event", event: Gdk.EventWindowState): void
-    on(sigName: "window-state-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "window-state-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "window-state-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Statusbar, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Statusbar, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::baseline-position", callback: (($obj: Statusbar, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::baseline-position", callback: (($obj: Statusbar, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::baseline-position", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -8903,18 +7617,18 @@ export interface ThumbNav_ConstructProps extends Gtk.Box_ConstructProps {
     orientation?: Gtk.Orientation
 }
 export class ThumbNav {
-    /* Properties of Eog.ThumbNav */
+    /* Properties of Eog-3.0.Eog.ThumbNav */
     mode: number
     showButtons: boolean
-    /* Properties of Gtk.Box */
+    /* Properties of Gtk-3.0.Gtk.Box */
     baselinePosition: Gtk.BaselinePosition
     homogeneous: boolean
     spacing: number
-    /* Properties of Gtk.Container */
+    /* Properties of Gtk-3.0.Gtk.Container */
     borderWidth: number
     child: Gtk.Widget
     resizeMode: Gtk.ResizeMode
-    /* Properties of Gtk.Widget */
+    /* Properties of Gtk-3.0.Gtk.Widget */
     appPaintable: boolean
     canDefault: boolean
     canFocus: boolean
@@ -8954,39 +7668,39 @@ export class ThumbNav {
     visible: boolean
     widthRequest: number
     readonly window: Gdk.Window
-    /* Properties of Gtk.Orientable */
+    /* Properties of Gtk-3.0.Gtk.Orientable */
     orientation: Gtk.Orientation
-    /* Fields of Eog.ThumbNav */
+    /* Fields of Eog-3.0.Eog.ThumbNav */
     baseInstance: Gtk.Box
     priv: ThumbNavPrivate
-    /* Fields of Gtk.Box */
+    /* Fields of Gtk-3.0.Gtk.Box */
     container: Gtk.Container
-    /* Fields of Gtk.Container */
+    /* Fields of Gtk-3.0.Gtk.Container */
     widget: Gtk.Widget
-    /* Fields of Gtk.Widget */
+    /* Fields of Gtk-3.0.Gtk.Widget */
     parentInstance: GObject.InitiallyUnowned
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Eog.ThumbNav */
+    /* Methods of Eog-3.0.Eog.ThumbNav */
     getMode(): ThumbNavMode
     getShowButtons(): boolean
     setMode(mode: ThumbNavMode): void
     setShowButtons(showButtons: boolean): void
-    /* Methods of Gtk.Box */
+    /* Methods of Gtk-3.0.Gtk.Box */
     getBaselinePosition(): Gtk.BaselinePosition
     getCenterWidget(): Gtk.Widget | null
     getHomogeneous(): boolean
     getSpacing(): number
     packEnd(child: Gtk.Widget, expand: boolean, fill: boolean, padding: number): void
     packStart(child: Gtk.Widget, expand: boolean, fill: boolean, padding: number): void
-    queryChildPacking(child: Gtk.Widget): [ /* expand */ boolean, /* fill */ boolean, /* padding */ number, /* packType */ Gtk.PackType ]
+    queryChildPacking(child: Gtk.Widget): { expand: boolean, fill: boolean, padding: number, packType: Gtk.PackType }
     reorderChild(child: Gtk.Widget, position: number): void
     setBaselinePosition(position: Gtk.BaselinePosition): void
     setCenterWidget(widget?: Gtk.Widget | null): void
     setChildPacking(child: Gtk.Widget, expand: boolean, fill: boolean, padding: number, packType: Gtk.PackType): void
     setHomogeneous(homogeneous: boolean): void
     setSpacing(spacing: number): void
-    /* Methods of Gtk.Container */
+    /* Methods of Gtk-3.0.Gtk.Container */
     add(widget: Gtk.Widget): void
     checkResize(): void
     childGetProperty(child: Gtk.Widget, propertyName: string, value: any): void
@@ -8997,7 +7711,7 @@ export class ThumbNav {
     foreach(callback: Gtk.Callback): void
     getBorderWidth(): number
     getChildren(): Gtk.Widget[]
-    getFocusChain(): [ /* returnType */ boolean, /* focusableWidgets */ Gtk.Widget[] ]
+    getFocusChain(): { returnType: boolean, focusableWidgets: Gtk.Widget[] }
     getFocusChild(): Gtk.Widget | null
     getFocusHadjustment(): Gtk.Adjustment | null
     getFocusVadjustment(): Gtk.Adjustment | null
@@ -9014,7 +7728,7 @@ export class ThumbNav {
     setReallocateRedraws(needsRedraws: boolean): void
     setResizeMode(resizeMode: Gtk.ResizeMode): void
     unsetFocusChain(): void
-    /* Methods of Gtk.Widget */
+    /* Methods of Gtk-3.0.Gtk.Widget */
     activate(): boolean
     addAccelerator(accelSignal: string, accelGroup: Gtk.AccelGroup, accelKey: number, accelMods: Gdk.ModifierType, accelFlags: Gtk.AccelFlags): void
     addDeviceEvents(device: Gdk.Device, events: Gdk.EventMask): void
@@ -9024,12 +7738,12 @@ export class ThumbNav {
     canActivateAccel(signalId: number): boolean
     childFocus(direction: Gtk.DirectionType): boolean
     childNotify(childProperty: string): void
-    classPath(): [ /* pathLength */ number | null, /* path */ string | null, /* pathReversed */ string | null ]
+    classPath(): { pathLength: number | null, path: string | null, pathReversed: string | null }
     computeExpand(orientation: Gtk.Orientation): boolean
     createPangoContext(): Pango.Context
     createPangoLayout(text?: string | null): Pango.Layout
     destroy(): void
-    destroyed(widgetPointer: Gtk.Widget): /* widgetPointer */ Gtk.Widget
+    destroyed(widgetPointer: Gtk.Widget): { widgetPointer: Gtk.Widget }
     deviceIsShadowed(device: Gdk.Device): boolean
     dragBegin(targets: Gtk.TargetList, actions: Gdk.DragAction, button: number, event?: Gdk.Event | null): Gdk.DragContext
     dragBeginWithCoordinates(targets: Gtk.TargetList, actions: Gdk.DragAction, button: number, event: Gdk.Event | null, x: number, y: number): Gdk.DragContext
@@ -9068,16 +7782,16 @@ export class ThumbNav {
     getActionGroup(prefix: string): Gio.ActionGroup | null
     getAllocatedBaseline(): number
     getAllocatedHeight(): number
-    getAllocatedSize(): [ /* allocation */ Gtk.Allocation, /* baseline */ number | null ]
+    getAllocatedSize(): { allocation: Gtk.Allocation, baseline: number | null }
     getAllocatedWidth(): number
-    getAllocation(): /* allocation */ Gtk.Allocation
+    getAllocation(): { allocation: Gtk.Allocation }
     getAncestor(widgetType: GObject.Type): Gtk.Widget | null
     getAppPaintable(): boolean
     getCanDefault(): boolean
     getCanFocus(): boolean
-    getChildRequisition(): /* requisition */ Gtk.Requisition
+    getChildRequisition(): { requisition: Gtk.Requisition }
     getChildVisible(): boolean
-    getClip(): /* clip */ Gtk.Allocation
+    getClip(): { clip: Gtk.Allocation }
     getClipboard(selection: Gdk.Atom): Gtk.Clipboard
     getCompositeName(): string
     getDeviceEnabled(device: Gdk.Device): boolean
@@ -9111,23 +7825,23 @@ export class ThumbNav {
     getParent(): Gtk.Widget | null
     getParentWindow(): Gdk.Window | null
     getPath(): Gtk.WidgetPath
-    getPointer(): [ /* x */ number | null, /* y */ number | null ]
-    getPreferredHeight(): [ /* minimumHeight */ number | null, /* naturalHeight */ number | null ]
-    getPreferredHeightAndBaselineForWidth(width: number): [ /* minimumHeight */ number | null, /* naturalHeight */ number | null, /* minimumBaseline */ number | null, /* naturalBaseline */ number | null ]
-    getPreferredHeightForWidth(width: number): [ /* minimumHeight */ number | null, /* naturalHeight */ number | null ]
-    getPreferredSize(): [ /* minimumSize */ Gtk.Requisition | null, /* naturalSize */ Gtk.Requisition | null ]
-    getPreferredWidth(): [ /* minimumWidth */ number | null, /* naturalWidth */ number | null ]
-    getPreferredWidthForHeight(height: number): [ /* minimumWidth */ number | null, /* naturalWidth */ number | null ]
+    getPointer(): { x: number | null, y: number | null }
+    getPreferredHeight(): { minimumHeight: number | null, naturalHeight: number | null }
+    getPreferredHeightAndBaselineForWidth(width: number): { minimumHeight: number | null, naturalHeight: number | null, minimumBaseline: number | null, naturalBaseline: number | null }
+    getPreferredHeightForWidth(width: number): { minimumHeight: number | null, naturalHeight: number | null }
+    getPreferredSize(): { minimumSize: Gtk.Requisition | null, naturalSize: Gtk.Requisition | null }
+    getPreferredWidth(): { minimumWidth: number | null, naturalWidth: number | null }
+    getPreferredWidthForHeight(height: number): { minimumWidth: number | null, naturalWidth: number | null }
     getRealized(): boolean
     getReceivesDefault(): boolean
     getRequestMode(): Gtk.SizeRequestMode
-    getRequisition(): /* requisition */ Gtk.Requisition
+    getRequisition(): { requisition: Gtk.Requisition }
     getRootWindow(): Gdk.Window
     getScaleFactor(): number
     getScreen(): Gdk.Screen
     getSensitive(): boolean
     getSettings(): Gtk.Settings
-    getSizeRequest(): [ /* width */ number | null, /* height */ number | null ]
+    getSizeRequest(): { width: number | null, height: number | null }
     getState(): Gtk.StateType
     getStateFlags(): Gtk.StateFlags
     getStyle(): Gtk.Style
@@ -9159,7 +7873,7 @@ export class ThumbNav {
     initTemplate(): void
     inputShapeCombineRegion(region?: cairo.Region | null): void
     insertActionGroup(name: string, group?: Gio.ActionGroup | null): void
-    intersect(area: Gdk.Rectangle): [ /* returnType */ boolean, /* intersection */ Gdk.Rectangle | null ]
+    intersect(area: Gdk.Rectangle): { returnType: boolean, intersection: Gdk.Rectangle | null }
     isAncestor(ancestor: Gtk.Widget): boolean
     isComposited(): boolean
     isDrawable(): boolean
@@ -9184,7 +7898,7 @@ export class ThumbNav {
     overrideCursor(cursor?: Gdk.RGBA | null, secondaryCursor?: Gdk.RGBA | null): void
     overrideFont(fontDesc?: Pango.FontDescription | null): void
     overrideSymbolicColor(name: string, color?: Gdk.RGBA | null): void
-    path(): [ /* pathLength */ number | null, /* path */ string | null, /* pathReversed */ string | null ]
+    path(): { pathLength: number | null, path: string | null, pathReversed: string | null }
     queueAllocate(): void
     queueComputeExpand(): void
     queueDraw(): void
@@ -9262,18 +7976,18 @@ export class ThumbNav {
     showNow(): void
     sizeAllocate(allocation: Gtk.Allocation): void
     sizeAllocateWithBaseline(allocation: Gtk.Allocation, baseline: number): void
-    sizeRequest(): /* requisition */ Gtk.Requisition
+    sizeRequest(): { requisition: Gtk.Requisition }
     styleAttach(): void
     styleGetProperty(propertyName: string, value: any): void
     thawChildNotify(): void
-    translateCoordinates(destWidget: Gtk.Widget, srcX: number, srcY: number): [ /* returnType */ boolean, /* destX */ number | null, /* destY */ number | null ]
+    translateCoordinates(destWidget: Gtk.Widget, srcX: number, srcY: number): { returnType: boolean, destX: number | null, destY: number | null }
     triggerTooltipQuery(): void
     unmap(): void
     unparent(): void
     unrealize(): void
     unregisterWindow(window: Gdk.Window): void
     unsetStateFlags(flags: Gtk.StateFlags): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -9295,578 +8009,391 @@ export class ThumbNav {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of Gtk.Buildable */
+    /* Methods of Gtk-3.0.Gtk.Buildable */
     addChild(builder: Gtk.Builder, child: GObject.Object, type?: string | null): void
     constructChild(builder: Gtk.Builder, name: string): GObject.Object
     customFinished(builder: Gtk.Builder, child: GObject.Object | null, tagname: string, data?: object | null): void
     customTagEnd(builder: Gtk.Builder, child: GObject.Object | null, tagname: string, data?: object | null): void
-    customTagStart(builder: Gtk.Builder, child: GObject.Object | null, tagname: string): [ /* returnType */ boolean, /* parser */ GLib.MarkupParser, /* data */ object | null ]
+    customTagStart(builder: Gtk.Builder, child: GObject.Object | null, tagname: string): { returnType: boolean, parser: GLib.MarkupParser, data: object | null }
     getInternalChild(builder: Gtk.Builder, childname: string): GObject.Object
     parserFinished(builder: Gtk.Builder): void
     setBuildableProperty(builder: Gtk.Builder, name: string, value: any): void
-    /* Methods of Gtk.Orientable */
+    /* Methods of Gtk-3.0.Gtk.Orientable */
     getOrientation(): Gtk.Orientation
     setOrientation(orientation: Gtk.Orientation): void
-    /* Virtual methods of Eog.ThumbNav */
-    vfuncAddChild(builder: Gtk.Builder, child: GObject.Object, type?: string | null): void
-    vfuncConstructChild(builder: Gtk.Builder, name: string): GObject.Object
-    vfuncCustomFinished(builder: Gtk.Builder, child: GObject.Object | null, tagname: string, data?: object | null): void
-    vfuncCustomTagEnd(builder: Gtk.Builder, child: GObject.Object | null, tagname: string, data?: object | null): void
-    vfuncCustomTagStart(builder: Gtk.Builder, child: GObject.Object | null, tagname: string): [ /* returnType */ boolean, /* parser */ GLib.MarkupParser, /* data */ object | null ]
-    vfuncGetInternalChild(builder: Gtk.Builder, childname: string): GObject.Object
-    vfuncGetName(): string
-    vfuncParserFinished(builder: Gtk.Builder): void
-    vfuncSetBuildableProperty(builder: Gtk.Builder, name: string, value: any): void
-    vfuncSetName(name: string): void
-    /* Virtual methods of Gtk.Container */
-    vfuncAdd(widget: Gtk.Widget): void
-    vfuncCheckResize(): void
-    vfuncChildType(): GObject.Type
-    vfuncCompositeName(child: Gtk.Widget): string
-    vfuncForall(includeInternals: boolean, callback: Gtk.Callback): void
-    vfuncGetChildProperty(child: Gtk.Widget, propertyId: number, value: any, pspec: GObject.ParamSpec): void
-    vfuncGetPathForChild(child: Gtk.Widget): Gtk.WidgetPath
-    vfuncRemove(widget: Gtk.Widget): void
-    vfuncSetChildProperty(child: Gtk.Widget, propertyId: number, value: any, pspec: GObject.ParamSpec): void
-    vfuncSetFocusChild(child?: Gtk.Widget | null): void
-    /* Virtual methods of Gtk.Widget */
-    vfuncAdjustBaselineAllocation(baseline: number): void
-    vfuncAdjustBaselineRequest(minimumBaseline: number, naturalBaseline: number): void
-    vfuncAdjustSizeAllocation(orientation: Gtk.Orientation, minimumSize: number, naturalSize: number, allocatedPos: number, allocatedSize: number): void
-    vfuncAdjustSizeRequest(orientation: Gtk.Orientation, minimumSize: number, naturalSize: number): void
-    vfuncButtonPressEvent(event: Gdk.EventButton): boolean
-    vfuncButtonReleaseEvent(event: Gdk.EventButton): boolean
-    vfuncCanActivateAccel(signalId: number): boolean
-    vfuncChildNotify(childProperty: GObject.ParamSpec): void
-    vfuncCompositedChanged(): void
-    vfuncComputeExpand(hexpandP: boolean, vexpandP: boolean): void
-    vfuncConfigureEvent(event: Gdk.EventConfigure): boolean
-    vfuncDamageEvent(event: Gdk.EventExpose): boolean
-    vfuncDeleteEvent(event: Gdk.EventAny): boolean
-    vfuncDestroy(): void
-    vfuncDestroyEvent(event: Gdk.EventAny): boolean
-    vfuncDirectionChanged(previousDirection: Gtk.TextDirection): void
-    vfuncDispatchChildPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDragBegin(context: Gdk.DragContext): void
-    vfuncDragDataDelete(context: Gdk.DragContext): void
-    vfuncDragDataGet(context: Gdk.DragContext, selectionData: Gtk.SelectionData, info: number, time: number): void
-    vfuncDragDataReceived(context: Gdk.DragContext, x: number, y: number, selectionData: Gtk.SelectionData, info: number, time: number): void
-    vfuncDragDrop(context: Gdk.DragContext, x: number, y: number, time: number): boolean
-    vfuncDragEnd(context: Gdk.DragContext): void
-    vfuncDragFailed(context: Gdk.DragContext, result: Gtk.DragResult): boolean
-    vfuncDragLeave(context: Gdk.DragContext, time: number): void
-    vfuncDragMotion(context: Gdk.DragContext, x: number, y: number, time: number): boolean
-    vfuncDraw(cr: cairo.Context): boolean
-    vfuncEnterNotifyEvent(event: Gdk.EventCrossing): boolean
-    vfuncEvent(event: Gdk.Event): boolean
-    vfuncFocus(direction: Gtk.DirectionType): boolean
-    vfuncFocusInEvent(event: Gdk.EventFocus): boolean
-    vfuncFocusOutEvent(event: Gdk.EventFocus): boolean
-    vfuncGetAccessible(): Atk.Object
-    vfuncGetPreferredHeight(): [ /* minimumHeight */ number | null, /* naturalHeight */ number | null ]
-    vfuncGetPreferredHeightAndBaselineForWidth(width: number): [ /* minimumHeight */ number | null, /* naturalHeight */ number | null, /* minimumBaseline */ number | null, /* naturalBaseline */ number | null ]
-    vfuncGetPreferredHeightForWidth(width: number): [ /* minimumHeight */ number | null, /* naturalHeight */ number | null ]
-    vfuncGetPreferredWidth(): [ /* minimumWidth */ number | null, /* naturalWidth */ number | null ]
-    vfuncGetPreferredWidthForHeight(height: number): [ /* minimumWidth */ number | null, /* naturalWidth */ number | null ]
-    vfuncGetRequestMode(): Gtk.SizeRequestMode
-    vfuncGrabBrokenEvent(event: Gdk.EventGrabBroken): boolean
-    vfuncGrabFocus(): void
-    vfuncGrabNotify(wasGrabbed: boolean): void
-    vfuncHide(): void
-    vfuncHierarchyChanged(previousToplevel: Gtk.Widget): void
-    vfuncKeyPressEvent(event: Gdk.EventKey): boolean
-    vfuncKeyReleaseEvent(event: Gdk.EventKey): boolean
-    vfuncKeynavFailed(direction: Gtk.DirectionType): boolean
-    vfuncLeaveNotifyEvent(event: Gdk.EventCrossing): boolean
-    vfuncMap(): void
-    vfuncMapEvent(event: Gdk.EventAny): boolean
-    vfuncMnemonicActivate(groupCycling: boolean): boolean
-    vfuncMotionNotifyEvent(event: Gdk.EventMotion): boolean
-    vfuncMoveFocus(direction: Gtk.DirectionType): void
-    vfuncParentSet(previousParent: Gtk.Widget): void
-    vfuncPopupMenu(): boolean
-    vfuncPropertyNotifyEvent(event: Gdk.EventProperty): boolean
-    vfuncProximityInEvent(event: Gdk.EventProximity): boolean
-    vfuncProximityOutEvent(event: Gdk.EventProximity): boolean
-    vfuncQueryTooltip(x: number, y: number, keyboardTooltip: boolean, tooltip: Gtk.Tooltip): boolean
-    vfuncQueueDrawRegion(region: cairo.Region): void
-    vfuncRealize(): void
-    vfuncScreenChanged(previousScreen: Gdk.Screen): void
-    vfuncScrollEvent(event: Gdk.EventScroll): boolean
-    vfuncSelectionClearEvent(event: Gdk.EventSelection): boolean
-    vfuncSelectionGet(selectionData: Gtk.SelectionData, info: number, time: number): void
-    vfuncSelectionNotifyEvent(event: Gdk.EventSelection): boolean
-    vfuncSelectionReceived(selectionData: Gtk.SelectionData, time: number): void
-    vfuncSelectionRequestEvent(event: Gdk.EventSelection): boolean
-    vfuncShow(): void
-    vfuncShowAll(): void
-    vfuncShowHelp(helpType: Gtk.WidgetHelpType): boolean
-    vfuncSizeAllocate(allocation: Gtk.Allocation): void
-    vfuncStateChanged(previousState: Gtk.StateType): void
-    vfuncStateFlagsChanged(previousStateFlags: Gtk.StateFlags): void
-    vfuncStyleSet(previousStyle: Gtk.Style): void
-    vfuncStyleUpdated(): void
-    vfuncTouchEvent(event: Gdk.EventTouch): boolean
-    vfuncUnmap(): void
-    vfuncUnmapEvent(event: Gdk.EventAny): boolean
-    vfuncUnrealize(): void
-    vfuncVisibilityNotifyEvent(event: Gdk.EventVisibility): boolean
-    vfuncWindowStateEvent(event: Gdk.EventWindowState): boolean
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gtk.Container */
+    /* Signals of Gtk-3.0.Gtk.Container */
     connect(sigName: "add", callback: (($obj: ThumbNav, object: Gtk.Widget) => void)): number
-    connect_after(sigName: "add", callback: (($obj: ThumbNav, object: Gtk.Widget) => void)): number
+    on(sigName: "add", callback: (object: Gtk.Widget) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "add", callback: (object: Gtk.Widget) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "add", callback: (object: Gtk.Widget) => void): NodeJS.EventEmitter
     emit(sigName: "add", object: Gtk.Widget): void
-    on(sigName: "add", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "add", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "add", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "check-resize", callback: (($obj: ThumbNav) => void)): number
-    connect_after(sigName: "check-resize", callback: (($obj: ThumbNav) => void)): number
+    on(sigName: "check-resize", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "check-resize", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "check-resize", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "check-resize"): void
-    on(sigName: "check-resize", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "check-resize", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "check-resize", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "remove", callback: (($obj: ThumbNav, object: Gtk.Widget) => void)): number
-    connect_after(sigName: "remove", callback: (($obj: ThumbNav, object: Gtk.Widget) => void)): number
+    on(sigName: "remove", callback: (object: Gtk.Widget) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "remove", callback: (object: Gtk.Widget) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "remove", callback: (object: Gtk.Widget) => void): NodeJS.EventEmitter
     emit(sigName: "remove", object: Gtk.Widget): void
-    on(sigName: "remove", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "remove", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "remove", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "set-focus-child", callback: (($obj: ThumbNav, object: Gtk.Widget) => void)): number
-    connect_after(sigName: "set-focus-child", callback: (($obj: ThumbNav, object: Gtk.Widget) => void)): number
+    on(sigName: "set-focus-child", callback: (object: Gtk.Widget) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "set-focus-child", callback: (object: Gtk.Widget) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "set-focus-child", callback: (object: Gtk.Widget) => void): NodeJS.EventEmitter
     emit(sigName: "set-focus-child", object: Gtk.Widget): void
-    on(sigName: "set-focus-child", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "set-focus-child", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "set-focus-child", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of Gtk.Widget */
+    /* Signals of Gtk-3.0.Gtk.Widget */
     connect(sigName: "accel-closures-changed", callback: (($obj: ThumbNav) => void)): number
-    connect_after(sigName: "accel-closures-changed", callback: (($obj: ThumbNav) => void)): number
+    on(sigName: "accel-closures-changed", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "accel-closures-changed", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "accel-closures-changed", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "accel-closures-changed"): void
-    on(sigName: "accel-closures-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "accel-closures-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "accel-closures-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "button-press-event", callback: (($obj: ThumbNav, event: Gdk.EventButton) => boolean)): number
-    connect_after(sigName: "button-press-event", callback: (($obj: ThumbNav, event: Gdk.EventButton) => boolean)): number
+    on(sigName: "button-press-event", callback: (event: Gdk.EventButton) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "button-press-event", callback: (event: Gdk.EventButton) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "button-press-event", callback: (event: Gdk.EventButton) => void): NodeJS.EventEmitter
     emit(sigName: "button-press-event", event: Gdk.EventButton): void
-    on(sigName: "button-press-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "button-press-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "button-press-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "button-release-event", callback: (($obj: ThumbNav, event: Gdk.EventButton) => boolean)): number
-    connect_after(sigName: "button-release-event", callback: (($obj: ThumbNav, event: Gdk.EventButton) => boolean)): number
+    on(sigName: "button-release-event", callback: (event: Gdk.EventButton) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "button-release-event", callback: (event: Gdk.EventButton) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "button-release-event", callback: (event: Gdk.EventButton) => void): NodeJS.EventEmitter
     emit(sigName: "button-release-event", event: Gdk.EventButton): void
-    on(sigName: "button-release-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "button-release-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "button-release-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "can-activate-accel", callback: (($obj: ThumbNav, signalId: number) => boolean)): number
-    connect_after(sigName: "can-activate-accel", callback: (($obj: ThumbNav, signalId: number) => boolean)): number
+    on(sigName: "can-activate-accel", callback: (signalId: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "can-activate-accel", callback: (signalId: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "can-activate-accel", callback: (signalId: number) => void): NodeJS.EventEmitter
     emit(sigName: "can-activate-accel", signalId: number): void
-    on(sigName: "can-activate-accel", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "can-activate-accel", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "can-activate-accel", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "child-notify", callback: (($obj: ThumbNav, childProperty: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "child-notify", callback: (($obj: ThumbNav, childProperty: GObject.ParamSpec) => void)): number
+    on(sigName: "child-notify", callback: (childProperty: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "child-notify", callback: (childProperty: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "child-notify", callback: (childProperty: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "child-notify", childProperty: GObject.ParamSpec): void
-    on(sigName: "child-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "child-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "child-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "composited-changed", callback: (($obj: ThumbNav) => void)): number
-    connect_after(sigName: "composited-changed", callback: (($obj: ThumbNav) => void)): number
+    on(sigName: "composited-changed", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "composited-changed", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "composited-changed", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "composited-changed"): void
-    on(sigName: "composited-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "composited-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "composited-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "configure-event", callback: (($obj: ThumbNav, event: Gdk.EventConfigure) => boolean)): number
-    connect_after(sigName: "configure-event", callback: (($obj: ThumbNav, event: Gdk.EventConfigure) => boolean)): number
+    on(sigName: "configure-event", callback: (event: Gdk.EventConfigure) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "configure-event", callback: (event: Gdk.EventConfigure) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "configure-event", callback: (event: Gdk.EventConfigure) => void): NodeJS.EventEmitter
     emit(sigName: "configure-event", event: Gdk.EventConfigure): void
-    on(sigName: "configure-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "configure-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "configure-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "damage-event", callback: (($obj: ThumbNav, event: Gdk.EventExpose) => boolean)): number
-    connect_after(sigName: "damage-event", callback: (($obj: ThumbNav, event: Gdk.EventExpose) => boolean)): number
+    on(sigName: "damage-event", callback: (event: Gdk.EventExpose) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "damage-event", callback: (event: Gdk.EventExpose) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "damage-event", callback: (event: Gdk.EventExpose) => void): NodeJS.EventEmitter
     emit(sigName: "damage-event", event: Gdk.EventExpose): void
-    on(sigName: "damage-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "damage-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "damage-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "delete-event", callback: (($obj: ThumbNav, event: Gdk.Event) => boolean)): number
-    connect_after(sigName: "delete-event", callback: (($obj: ThumbNav, event: Gdk.Event) => boolean)): number
+    on(sigName: "delete-event", callback: (event: Gdk.Event) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "delete-event", callback: (event: Gdk.Event) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "delete-event", callback: (event: Gdk.Event) => void): NodeJS.EventEmitter
     emit(sigName: "delete-event", event: Gdk.Event): void
-    on(sigName: "delete-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "delete-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "delete-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "destroy", callback: (($obj: ThumbNav) => void)): number
-    connect_after(sigName: "destroy", callback: (($obj: ThumbNav) => void)): number
+    on(sigName: "destroy", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "destroy", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "destroy", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "destroy"): void
-    on(sigName: "destroy", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "destroy", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "destroy", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "destroy-event", callback: (($obj: ThumbNav, event: Gdk.Event) => boolean)): number
-    connect_after(sigName: "destroy-event", callback: (($obj: ThumbNav, event: Gdk.Event) => boolean)): number
+    on(sigName: "destroy-event", callback: (event: Gdk.Event) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "destroy-event", callback: (event: Gdk.Event) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "destroy-event", callback: (event: Gdk.Event) => void): NodeJS.EventEmitter
     emit(sigName: "destroy-event", event: Gdk.Event): void
-    on(sigName: "destroy-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "destroy-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "destroy-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "direction-changed", callback: (($obj: ThumbNav, previousDirection: Gtk.TextDirection) => void)): number
-    connect_after(sigName: "direction-changed", callback: (($obj: ThumbNav, previousDirection: Gtk.TextDirection) => void)): number
+    on(sigName: "direction-changed", callback: (previousDirection: Gtk.TextDirection) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "direction-changed", callback: (previousDirection: Gtk.TextDirection) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "direction-changed", callback: (previousDirection: Gtk.TextDirection) => void): NodeJS.EventEmitter
     emit(sigName: "direction-changed", previousDirection: Gtk.TextDirection): void
-    on(sigName: "direction-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "direction-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "direction-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "drag-begin", callback: (($obj: ThumbNav, context: Gdk.DragContext) => void)): number
-    connect_after(sigName: "drag-begin", callback: (($obj: ThumbNav, context: Gdk.DragContext) => void)): number
+    on(sigName: "drag-begin", callback: (context: Gdk.DragContext) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "drag-begin", callback: (context: Gdk.DragContext) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "drag-begin", callback: (context: Gdk.DragContext) => void): NodeJS.EventEmitter
     emit(sigName: "drag-begin", context: Gdk.DragContext): void
-    on(sigName: "drag-begin", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "drag-begin", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "drag-begin", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "drag-data-delete", callback: (($obj: ThumbNav, context: Gdk.DragContext) => void)): number
-    connect_after(sigName: "drag-data-delete", callback: (($obj: ThumbNav, context: Gdk.DragContext) => void)): number
+    on(sigName: "drag-data-delete", callback: (context: Gdk.DragContext) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "drag-data-delete", callback: (context: Gdk.DragContext) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "drag-data-delete", callback: (context: Gdk.DragContext) => void): NodeJS.EventEmitter
     emit(sigName: "drag-data-delete", context: Gdk.DragContext): void
-    on(sigName: "drag-data-delete", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "drag-data-delete", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "drag-data-delete", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "drag-data-get", callback: (($obj: ThumbNav, context: Gdk.DragContext, data: Gtk.SelectionData, info: number, time: number) => void)): number
-    connect_after(sigName: "drag-data-get", callback: (($obj: ThumbNav, context: Gdk.DragContext, data: Gtk.SelectionData, info: number, time: number) => void)): number
+    on(sigName: "drag-data-get", callback: (context: Gdk.DragContext, data: Gtk.SelectionData, info: number, time: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "drag-data-get", callback: (context: Gdk.DragContext, data: Gtk.SelectionData, info: number, time: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "drag-data-get", callback: (context: Gdk.DragContext, data: Gtk.SelectionData, info: number, time: number) => void): NodeJS.EventEmitter
     emit(sigName: "drag-data-get", context: Gdk.DragContext, data: Gtk.SelectionData, info: number, time: number): void
-    on(sigName: "drag-data-get", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "drag-data-get", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "drag-data-get", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "drag-data-received", callback: (($obj: ThumbNav, context: Gdk.DragContext, x: number, y: number, data: Gtk.SelectionData, info: number, time: number) => void)): number
-    connect_after(sigName: "drag-data-received", callback: (($obj: ThumbNav, context: Gdk.DragContext, x: number, y: number, data: Gtk.SelectionData, info: number, time: number) => void)): number
+    on(sigName: "drag-data-received", callback: (context: Gdk.DragContext, x: number, y: number, data: Gtk.SelectionData, info: number, time: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "drag-data-received", callback: (context: Gdk.DragContext, x: number, y: number, data: Gtk.SelectionData, info: number, time: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "drag-data-received", callback: (context: Gdk.DragContext, x: number, y: number, data: Gtk.SelectionData, info: number, time: number) => void): NodeJS.EventEmitter
     emit(sigName: "drag-data-received", context: Gdk.DragContext, x: number, y: number, data: Gtk.SelectionData, info: number, time: number): void
-    on(sigName: "drag-data-received", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "drag-data-received", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "drag-data-received", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "drag-drop", callback: (($obj: ThumbNav, context: Gdk.DragContext, x: number, y: number, time: number) => boolean)): number
-    connect_after(sigName: "drag-drop", callback: (($obj: ThumbNav, context: Gdk.DragContext, x: number, y: number, time: number) => boolean)): number
+    on(sigName: "drag-drop", callback: (context: Gdk.DragContext, x: number, y: number, time: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "drag-drop", callback: (context: Gdk.DragContext, x: number, y: number, time: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "drag-drop", callback: (context: Gdk.DragContext, x: number, y: number, time: number) => void): NodeJS.EventEmitter
     emit(sigName: "drag-drop", context: Gdk.DragContext, x: number, y: number, time: number): void
-    on(sigName: "drag-drop", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "drag-drop", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "drag-drop", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "drag-end", callback: (($obj: ThumbNav, context: Gdk.DragContext) => void)): number
-    connect_after(sigName: "drag-end", callback: (($obj: ThumbNav, context: Gdk.DragContext) => void)): number
+    on(sigName: "drag-end", callback: (context: Gdk.DragContext) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "drag-end", callback: (context: Gdk.DragContext) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "drag-end", callback: (context: Gdk.DragContext) => void): NodeJS.EventEmitter
     emit(sigName: "drag-end", context: Gdk.DragContext): void
-    on(sigName: "drag-end", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "drag-end", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "drag-end", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "drag-failed", callback: (($obj: ThumbNav, context: Gdk.DragContext, result: Gtk.DragResult) => boolean)): number
-    connect_after(sigName: "drag-failed", callback: (($obj: ThumbNav, context: Gdk.DragContext, result: Gtk.DragResult) => boolean)): number
+    on(sigName: "drag-failed", callback: (context: Gdk.DragContext, result: Gtk.DragResult) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "drag-failed", callback: (context: Gdk.DragContext, result: Gtk.DragResult) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "drag-failed", callback: (context: Gdk.DragContext, result: Gtk.DragResult) => void): NodeJS.EventEmitter
     emit(sigName: "drag-failed", context: Gdk.DragContext, result: Gtk.DragResult): void
-    on(sigName: "drag-failed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "drag-failed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "drag-failed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "drag-leave", callback: (($obj: ThumbNav, context: Gdk.DragContext, time: number) => void)): number
-    connect_after(sigName: "drag-leave", callback: (($obj: ThumbNav, context: Gdk.DragContext, time: number) => void)): number
+    on(sigName: "drag-leave", callback: (context: Gdk.DragContext, time: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "drag-leave", callback: (context: Gdk.DragContext, time: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "drag-leave", callback: (context: Gdk.DragContext, time: number) => void): NodeJS.EventEmitter
     emit(sigName: "drag-leave", context: Gdk.DragContext, time: number): void
-    on(sigName: "drag-leave", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "drag-leave", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "drag-leave", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "drag-motion", callback: (($obj: ThumbNav, context: Gdk.DragContext, x: number, y: number, time: number) => boolean)): number
-    connect_after(sigName: "drag-motion", callback: (($obj: ThumbNav, context: Gdk.DragContext, x: number, y: number, time: number) => boolean)): number
+    on(sigName: "drag-motion", callback: (context: Gdk.DragContext, x: number, y: number, time: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "drag-motion", callback: (context: Gdk.DragContext, x: number, y: number, time: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "drag-motion", callback: (context: Gdk.DragContext, x: number, y: number, time: number) => void): NodeJS.EventEmitter
     emit(sigName: "drag-motion", context: Gdk.DragContext, x: number, y: number, time: number): void
-    on(sigName: "drag-motion", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "drag-motion", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "drag-motion", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "draw", callback: (($obj: ThumbNav, cr: cairo.Context) => boolean)): number
-    connect_after(sigName: "draw", callback: (($obj: ThumbNav, cr: cairo.Context) => boolean)): number
+    on(sigName: "draw", callback: (cr: cairo.Context) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "draw", callback: (cr: cairo.Context) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "draw", callback: (cr: cairo.Context) => void): NodeJS.EventEmitter
     emit(sigName: "draw", cr: cairo.Context): void
-    on(sigName: "draw", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "draw", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "draw", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "enter-notify-event", callback: (($obj: ThumbNav, event: Gdk.EventCrossing) => boolean)): number
-    connect_after(sigName: "enter-notify-event", callback: (($obj: ThumbNav, event: Gdk.EventCrossing) => boolean)): number
+    on(sigName: "enter-notify-event", callback: (event: Gdk.EventCrossing) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "enter-notify-event", callback: (event: Gdk.EventCrossing) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "enter-notify-event", callback: (event: Gdk.EventCrossing) => void): NodeJS.EventEmitter
     emit(sigName: "enter-notify-event", event: Gdk.EventCrossing): void
-    on(sigName: "enter-notify-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "enter-notify-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "enter-notify-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "event", callback: (($obj: ThumbNav, event: Gdk.Event) => boolean)): number
-    connect_after(sigName: "event", callback: (($obj: ThumbNav, event: Gdk.Event) => boolean)): number
+    on(sigName: "event", callback: (event: Gdk.Event) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "event", callback: (event: Gdk.Event) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "event", callback: (event: Gdk.Event) => void): NodeJS.EventEmitter
     emit(sigName: "event", event: Gdk.Event): void
-    on(sigName: "event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "event-after", callback: (($obj: ThumbNav, event: Gdk.Event) => void)): number
-    connect_after(sigName: "event-after", callback: (($obj: ThumbNav, event: Gdk.Event) => void)): number
+    on(sigName: "event-after", callback: (event: Gdk.Event) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "event-after", callback: (event: Gdk.Event) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "event-after", callback: (event: Gdk.Event) => void): NodeJS.EventEmitter
     emit(sigName: "event-after", event: Gdk.Event): void
-    on(sigName: "event-after", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "event-after", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "event-after", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "focus", callback: (($obj: ThumbNav, direction: Gtk.DirectionType) => boolean)): number
-    connect_after(sigName: "focus", callback: (($obj: ThumbNav, direction: Gtk.DirectionType) => boolean)): number
+    on(sigName: "focus", callback: (direction: Gtk.DirectionType) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "focus", callback: (direction: Gtk.DirectionType) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "focus", callback: (direction: Gtk.DirectionType) => void): NodeJS.EventEmitter
     emit(sigName: "focus", direction: Gtk.DirectionType): void
-    on(sigName: "focus", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "focus", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "focus", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "focus-in-event", callback: (($obj: ThumbNav, event: Gdk.EventFocus) => boolean)): number
-    connect_after(sigName: "focus-in-event", callback: (($obj: ThumbNav, event: Gdk.EventFocus) => boolean)): number
+    on(sigName: "focus-in-event", callback: (event: Gdk.EventFocus) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "focus-in-event", callback: (event: Gdk.EventFocus) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "focus-in-event", callback: (event: Gdk.EventFocus) => void): NodeJS.EventEmitter
     emit(sigName: "focus-in-event", event: Gdk.EventFocus): void
-    on(sigName: "focus-in-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "focus-in-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "focus-in-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "focus-out-event", callback: (($obj: ThumbNav, event: Gdk.EventFocus) => boolean)): number
-    connect_after(sigName: "focus-out-event", callback: (($obj: ThumbNav, event: Gdk.EventFocus) => boolean)): number
+    on(sigName: "focus-out-event", callback: (event: Gdk.EventFocus) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "focus-out-event", callback: (event: Gdk.EventFocus) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "focus-out-event", callback: (event: Gdk.EventFocus) => void): NodeJS.EventEmitter
     emit(sigName: "focus-out-event", event: Gdk.EventFocus): void
-    on(sigName: "focus-out-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "focus-out-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "focus-out-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "grab-broken-event", callback: (($obj: ThumbNav, event: Gdk.EventGrabBroken) => boolean)): number
-    connect_after(sigName: "grab-broken-event", callback: (($obj: ThumbNav, event: Gdk.EventGrabBroken) => boolean)): number
+    on(sigName: "grab-broken-event", callback: (event: Gdk.EventGrabBroken) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "grab-broken-event", callback: (event: Gdk.EventGrabBroken) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "grab-broken-event", callback: (event: Gdk.EventGrabBroken) => void): NodeJS.EventEmitter
     emit(sigName: "grab-broken-event", event: Gdk.EventGrabBroken): void
-    on(sigName: "grab-broken-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "grab-broken-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "grab-broken-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "grab-focus", callback: (($obj: ThumbNav) => void)): number
-    connect_after(sigName: "grab-focus", callback: (($obj: ThumbNav) => void)): number
+    on(sigName: "grab-focus", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "grab-focus", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "grab-focus", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "grab-focus"): void
-    on(sigName: "grab-focus", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "grab-focus", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "grab-focus", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "grab-notify", callback: (($obj: ThumbNav, wasGrabbed: boolean) => void)): number
-    connect_after(sigName: "grab-notify", callback: (($obj: ThumbNav, wasGrabbed: boolean) => void)): number
+    on(sigName: "grab-notify", callback: (wasGrabbed: boolean) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "grab-notify", callback: (wasGrabbed: boolean) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "grab-notify", callback: (wasGrabbed: boolean) => void): NodeJS.EventEmitter
     emit(sigName: "grab-notify", wasGrabbed: boolean): void
-    on(sigName: "grab-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "grab-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "grab-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "hide", callback: (($obj: ThumbNav) => void)): number
-    connect_after(sigName: "hide", callback: (($obj: ThumbNav) => void)): number
+    on(sigName: "hide", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "hide", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "hide", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "hide"): void
-    on(sigName: "hide", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "hide", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "hide", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "hierarchy-changed", callback: (($obj: ThumbNav, previousToplevel?: Gtk.Widget | null) => void)): number
-    connect_after(sigName: "hierarchy-changed", callback: (($obj: ThumbNav, previousToplevel?: Gtk.Widget | null) => void)): number
+    on(sigName: "hierarchy-changed", callback: (previousToplevel?: Gtk.Widget | null) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "hierarchy-changed", callback: (previousToplevel?: Gtk.Widget | null) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "hierarchy-changed", callback: (previousToplevel?: Gtk.Widget | null) => void): NodeJS.EventEmitter
     emit(sigName: "hierarchy-changed", previousToplevel?: Gtk.Widget | null): void
-    on(sigName: "hierarchy-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "hierarchy-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "hierarchy-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "key-press-event", callback: (($obj: ThumbNav, event: Gdk.EventKey) => boolean)): number
-    connect_after(sigName: "key-press-event", callback: (($obj: ThumbNav, event: Gdk.EventKey) => boolean)): number
+    on(sigName: "key-press-event", callback: (event: Gdk.EventKey) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "key-press-event", callback: (event: Gdk.EventKey) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "key-press-event", callback: (event: Gdk.EventKey) => void): NodeJS.EventEmitter
     emit(sigName: "key-press-event", event: Gdk.EventKey): void
-    on(sigName: "key-press-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "key-press-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "key-press-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "key-release-event", callback: (($obj: ThumbNav, event: Gdk.EventKey) => boolean)): number
-    connect_after(sigName: "key-release-event", callback: (($obj: ThumbNav, event: Gdk.EventKey) => boolean)): number
+    on(sigName: "key-release-event", callback: (event: Gdk.EventKey) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "key-release-event", callback: (event: Gdk.EventKey) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "key-release-event", callback: (event: Gdk.EventKey) => void): NodeJS.EventEmitter
     emit(sigName: "key-release-event", event: Gdk.EventKey): void
-    on(sigName: "key-release-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "key-release-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "key-release-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "keynav-failed", callback: (($obj: ThumbNav, direction: Gtk.DirectionType) => boolean)): number
-    connect_after(sigName: "keynav-failed", callback: (($obj: ThumbNav, direction: Gtk.DirectionType) => boolean)): number
+    on(sigName: "keynav-failed", callback: (direction: Gtk.DirectionType) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "keynav-failed", callback: (direction: Gtk.DirectionType) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "keynav-failed", callback: (direction: Gtk.DirectionType) => void): NodeJS.EventEmitter
     emit(sigName: "keynav-failed", direction: Gtk.DirectionType): void
-    on(sigName: "keynav-failed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "keynav-failed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "keynav-failed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "leave-notify-event", callback: (($obj: ThumbNav, event: Gdk.EventCrossing) => boolean)): number
-    connect_after(sigName: "leave-notify-event", callback: (($obj: ThumbNav, event: Gdk.EventCrossing) => boolean)): number
+    on(sigName: "leave-notify-event", callback: (event: Gdk.EventCrossing) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "leave-notify-event", callback: (event: Gdk.EventCrossing) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "leave-notify-event", callback: (event: Gdk.EventCrossing) => void): NodeJS.EventEmitter
     emit(sigName: "leave-notify-event", event: Gdk.EventCrossing): void
-    on(sigName: "leave-notify-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "leave-notify-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "leave-notify-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "map", callback: (($obj: ThumbNav) => void)): number
-    connect_after(sigName: "map", callback: (($obj: ThumbNav) => void)): number
+    on(sigName: "map", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "map", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "map", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "map"): void
-    on(sigName: "map", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "map", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "map", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "map-event", callback: (($obj: ThumbNav, event: Gdk.EventAny) => boolean)): number
-    connect_after(sigName: "map-event", callback: (($obj: ThumbNav, event: Gdk.EventAny) => boolean)): number
+    on(sigName: "map-event", callback: (event: Gdk.EventAny) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "map-event", callback: (event: Gdk.EventAny) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "map-event", callback: (event: Gdk.EventAny) => void): NodeJS.EventEmitter
     emit(sigName: "map-event", event: Gdk.EventAny): void
-    on(sigName: "map-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "map-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "map-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "mnemonic-activate", callback: (($obj: ThumbNav, groupCycling: boolean) => boolean)): number
-    connect_after(sigName: "mnemonic-activate", callback: (($obj: ThumbNav, groupCycling: boolean) => boolean)): number
+    on(sigName: "mnemonic-activate", callback: (groupCycling: boolean) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "mnemonic-activate", callback: (groupCycling: boolean) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "mnemonic-activate", callback: (groupCycling: boolean) => void): NodeJS.EventEmitter
     emit(sigName: "mnemonic-activate", groupCycling: boolean): void
-    on(sigName: "mnemonic-activate", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "mnemonic-activate", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "mnemonic-activate", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "motion-notify-event", callback: (($obj: ThumbNav, event: Gdk.EventMotion) => boolean)): number
-    connect_after(sigName: "motion-notify-event", callback: (($obj: ThumbNav, event: Gdk.EventMotion) => boolean)): number
+    on(sigName: "motion-notify-event", callback: (event: Gdk.EventMotion) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "motion-notify-event", callback: (event: Gdk.EventMotion) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "motion-notify-event", callback: (event: Gdk.EventMotion) => void): NodeJS.EventEmitter
     emit(sigName: "motion-notify-event", event: Gdk.EventMotion): void
-    on(sigName: "motion-notify-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "motion-notify-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "motion-notify-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "move-focus", callback: (($obj: ThumbNav, direction: Gtk.DirectionType) => void)): number
-    connect_after(sigName: "move-focus", callback: (($obj: ThumbNav, direction: Gtk.DirectionType) => void)): number
+    on(sigName: "move-focus", callback: (direction: Gtk.DirectionType) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "move-focus", callback: (direction: Gtk.DirectionType) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "move-focus", callback: (direction: Gtk.DirectionType) => void): NodeJS.EventEmitter
     emit(sigName: "move-focus", direction: Gtk.DirectionType): void
-    on(sigName: "move-focus", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "move-focus", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "move-focus", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "parent-set", callback: (($obj: ThumbNav, oldParent?: Gtk.Widget | null) => void)): number
-    connect_after(sigName: "parent-set", callback: (($obj: ThumbNav, oldParent?: Gtk.Widget | null) => void)): number
+    on(sigName: "parent-set", callback: (oldParent?: Gtk.Widget | null) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "parent-set", callback: (oldParent?: Gtk.Widget | null) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "parent-set", callback: (oldParent?: Gtk.Widget | null) => void): NodeJS.EventEmitter
     emit(sigName: "parent-set", oldParent?: Gtk.Widget | null): void
-    on(sigName: "parent-set", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "parent-set", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "parent-set", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "popup-menu", callback: (($obj: ThumbNav) => boolean)): number
-    connect_after(sigName: "popup-menu", callback: (($obj: ThumbNav) => boolean)): number
+    on(sigName: "popup-menu", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "popup-menu", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "popup-menu", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "popup-menu"): void
-    on(sigName: "popup-menu", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "popup-menu", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "popup-menu", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "property-notify-event", callback: (($obj: ThumbNav, event: Gdk.EventProperty) => boolean)): number
-    connect_after(sigName: "property-notify-event", callback: (($obj: ThumbNav, event: Gdk.EventProperty) => boolean)): number
+    on(sigName: "property-notify-event", callback: (event: Gdk.EventProperty) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "property-notify-event", callback: (event: Gdk.EventProperty) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "property-notify-event", callback: (event: Gdk.EventProperty) => void): NodeJS.EventEmitter
     emit(sigName: "property-notify-event", event: Gdk.EventProperty): void
-    on(sigName: "property-notify-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "property-notify-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "property-notify-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "proximity-in-event", callback: (($obj: ThumbNav, event: Gdk.EventProximity) => boolean)): number
-    connect_after(sigName: "proximity-in-event", callback: (($obj: ThumbNav, event: Gdk.EventProximity) => boolean)): number
+    on(sigName: "proximity-in-event", callback: (event: Gdk.EventProximity) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "proximity-in-event", callback: (event: Gdk.EventProximity) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "proximity-in-event", callback: (event: Gdk.EventProximity) => void): NodeJS.EventEmitter
     emit(sigName: "proximity-in-event", event: Gdk.EventProximity): void
-    on(sigName: "proximity-in-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "proximity-in-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "proximity-in-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "proximity-out-event", callback: (($obj: ThumbNav, event: Gdk.EventProximity) => boolean)): number
-    connect_after(sigName: "proximity-out-event", callback: (($obj: ThumbNav, event: Gdk.EventProximity) => boolean)): number
+    on(sigName: "proximity-out-event", callback: (event: Gdk.EventProximity) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "proximity-out-event", callback: (event: Gdk.EventProximity) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "proximity-out-event", callback: (event: Gdk.EventProximity) => void): NodeJS.EventEmitter
     emit(sigName: "proximity-out-event", event: Gdk.EventProximity): void
-    on(sigName: "proximity-out-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "proximity-out-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "proximity-out-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "query-tooltip", callback: (($obj: ThumbNav, x: number, y: number, keyboardMode: boolean, tooltip: Gtk.Tooltip) => boolean)): number
-    connect_after(sigName: "query-tooltip", callback: (($obj: ThumbNav, x: number, y: number, keyboardMode: boolean, tooltip: Gtk.Tooltip) => boolean)): number
+    on(sigName: "query-tooltip", callback: (x: number, y: number, keyboardMode: boolean, tooltip: Gtk.Tooltip) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "query-tooltip", callback: (x: number, y: number, keyboardMode: boolean, tooltip: Gtk.Tooltip) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "query-tooltip", callback: (x: number, y: number, keyboardMode: boolean, tooltip: Gtk.Tooltip) => void): NodeJS.EventEmitter
     emit(sigName: "query-tooltip", x: number, y: number, keyboardMode: boolean, tooltip: Gtk.Tooltip): void
-    on(sigName: "query-tooltip", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "query-tooltip", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "query-tooltip", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "realize", callback: (($obj: ThumbNav) => void)): number
-    connect_after(sigName: "realize", callback: (($obj: ThumbNav) => void)): number
+    on(sigName: "realize", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "realize", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "realize", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "realize"): void
-    on(sigName: "realize", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "realize", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "realize", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "screen-changed", callback: (($obj: ThumbNav, previousScreen?: Gdk.Screen | null) => void)): number
-    connect_after(sigName: "screen-changed", callback: (($obj: ThumbNav, previousScreen?: Gdk.Screen | null) => void)): number
+    on(sigName: "screen-changed", callback: (previousScreen?: Gdk.Screen | null) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "screen-changed", callback: (previousScreen?: Gdk.Screen | null) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "screen-changed", callback: (previousScreen?: Gdk.Screen | null) => void): NodeJS.EventEmitter
     emit(sigName: "screen-changed", previousScreen?: Gdk.Screen | null): void
-    on(sigName: "screen-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "screen-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "screen-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "scroll-event", callback: (($obj: ThumbNav, event: Gdk.EventScroll) => boolean)): number
-    connect_after(sigName: "scroll-event", callback: (($obj: ThumbNav, event: Gdk.EventScroll) => boolean)): number
+    on(sigName: "scroll-event", callback: (event: Gdk.EventScroll) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "scroll-event", callback: (event: Gdk.EventScroll) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "scroll-event", callback: (event: Gdk.EventScroll) => void): NodeJS.EventEmitter
     emit(sigName: "scroll-event", event: Gdk.EventScroll): void
-    on(sigName: "scroll-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "scroll-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "scroll-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "selection-clear-event", callback: (($obj: ThumbNav, event: Gdk.EventSelection) => boolean)): number
-    connect_after(sigName: "selection-clear-event", callback: (($obj: ThumbNav, event: Gdk.EventSelection) => boolean)): number
+    on(sigName: "selection-clear-event", callback: (event: Gdk.EventSelection) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "selection-clear-event", callback: (event: Gdk.EventSelection) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "selection-clear-event", callback: (event: Gdk.EventSelection) => void): NodeJS.EventEmitter
     emit(sigName: "selection-clear-event", event: Gdk.EventSelection): void
-    on(sigName: "selection-clear-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "selection-clear-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "selection-clear-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "selection-get", callback: (($obj: ThumbNav, data: Gtk.SelectionData, info: number, time: number) => void)): number
-    connect_after(sigName: "selection-get", callback: (($obj: ThumbNav, data: Gtk.SelectionData, info: number, time: number) => void)): number
+    on(sigName: "selection-get", callback: (data: Gtk.SelectionData, info: number, time: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "selection-get", callback: (data: Gtk.SelectionData, info: number, time: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "selection-get", callback: (data: Gtk.SelectionData, info: number, time: number) => void): NodeJS.EventEmitter
     emit(sigName: "selection-get", data: Gtk.SelectionData, info: number, time: number): void
-    on(sigName: "selection-get", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "selection-get", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "selection-get", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "selection-notify-event", callback: (($obj: ThumbNav, event: Gdk.EventSelection) => boolean)): number
-    connect_after(sigName: "selection-notify-event", callback: (($obj: ThumbNav, event: Gdk.EventSelection) => boolean)): number
+    on(sigName: "selection-notify-event", callback: (event: Gdk.EventSelection) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "selection-notify-event", callback: (event: Gdk.EventSelection) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "selection-notify-event", callback: (event: Gdk.EventSelection) => void): NodeJS.EventEmitter
     emit(sigName: "selection-notify-event", event: Gdk.EventSelection): void
-    on(sigName: "selection-notify-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "selection-notify-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "selection-notify-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "selection-received", callback: (($obj: ThumbNav, data: Gtk.SelectionData, time: number) => void)): number
-    connect_after(sigName: "selection-received", callback: (($obj: ThumbNav, data: Gtk.SelectionData, time: number) => void)): number
+    on(sigName: "selection-received", callback: (data: Gtk.SelectionData, time: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "selection-received", callback: (data: Gtk.SelectionData, time: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "selection-received", callback: (data: Gtk.SelectionData, time: number) => void): NodeJS.EventEmitter
     emit(sigName: "selection-received", data: Gtk.SelectionData, time: number): void
-    on(sigName: "selection-received", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "selection-received", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "selection-received", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "selection-request-event", callback: (($obj: ThumbNav, event: Gdk.EventSelection) => boolean)): number
-    connect_after(sigName: "selection-request-event", callback: (($obj: ThumbNav, event: Gdk.EventSelection) => boolean)): number
+    on(sigName: "selection-request-event", callback: (event: Gdk.EventSelection) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "selection-request-event", callback: (event: Gdk.EventSelection) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "selection-request-event", callback: (event: Gdk.EventSelection) => void): NodeJS.EventEmitter
     emit(sigName: "selection-request-event", event: Gdk.EventSelection): void
-    on(sigName: "selection-request-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "selection-request-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "selection-request-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "show", callback: (($obj: ThumbNav) => void)): number
-    connect_after(sigName: "show", callback: (($obj: ThumbNav) => void)): number
+    on(sigName: "show", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "show", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "show", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "show"): void
-    on(sigName: "show", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "show", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "show", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "show-help", callback: (($obj: ThumbNav, helpType: Gtk.WidgetHelpType) => boolean)): number
-    connect_after(sigName: "show-help", callback: (($obj: ThumbNav, helpType: Gtk.WidgetHelpType) => boolean)): number
+    on(sigName: "show-help", callback: (helpType: Gtk.WidgetHelpType) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "show-help", callback: (helpType: Gtk.WidgetHelpType) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "show-help", callback: (helpType: Gtk.WidgetHelpType) => void): NodeJS.EventEmitter
     emit(sigName: "show-help", helpType: Gtk.WidgetHelpType): void
-    on(sigName: "show-help", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "show-help", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "show-help", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "size-allocate", callback: (($obj: ThumbNav, allocation: Gtk.Allocation) => void)): number
-    connect_after(sigName: "size-allocate", callback: (($obj: ThumbNav, allocation: Gtk.Allocation) => void)): number
+    on(sigName: "size-allocate", callback: (allocation: Gtk.Allocation) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "size-allocate", callback: (allocation: Gtk.Allocation) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "size-allocate", callback: (allocation: Gtk.Allocation) => void): NodeJS.EventEmitter
     emit(sigName: "size-allocate", allocation: Gtk.Allocation): void
-    on(sigName: "size-allocate", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "size-allocate", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "size-allocate", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "state-changed", callback: (($obj: ThumbNav, state: Gtk.StateType) => void)): number
-    connect_after(sigName: "state-changed", callback: (($obj: ThumbNav, state: Gtk.StateType) => void)): number
+    on(sigName: "state-changed", callback: (state: Gtk.StateType) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "state-changed", callback: (state: Gtk.StateType) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "state-changed", callback: (state: Gtk.StateType) => void): NodeJS.EventEmitter
     emit(sigName: "state-changed", state: Gtk.StateType): void
-    on(sigName: "state-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "state-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "state-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "state-flags-changed", callback: (($obj: ThumbNav, flags: Gtk.StateFlags) => void)): number
-    connect_after(sigName: "state-flags-changed", callback: (($obj: ThumbNav, flags: Gtk.StateFlags) => void)): number
+    on(sigName: "state-flags-changed", callback: (flags: Gtk.StateFlags) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "state-flags-changed", callback: (flags: Gtk.StateFlags) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "state-flags-changed", callback: (flags: Gtk.StateFlags) => void): NodeJS.EventEmitter
     emit(sigName: "state-flags-changed", flags: Gtk.StateFlags): void
-    on(sigName: "state-flags-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "state-flags-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "state-flags-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "style-set", callback: (($obj: ThumbNav, previousStyle?: Gtk.Style | null) => void)): number
-    connect_after(sigName: "style-set", callback: (($obj: ThumbNav, previousStyle?: Gtk.Style | null) => void)): number
+    on(sigName: "style-set", callback: (previousStyle?: Gtk.Style | null) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "style-set", callback: (previousStyle?: Gtk.Style | null) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "style-set", callback: (previousStyle?: Gtk.Style | null) => void): NodeJS.EventEmitter
     emit(sigName: "style-set", previousStyle?: Gtk.Style | null): void
-    on(sigName: "style-set", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "style-set", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "style-set", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "style-updated", callback: (($obj: ThumbNav) => void)): number
-    connect_after(sigName: "style-updated", callback: (($obj: ThumbNav) => void)): number
+    on(sigName: "style-updated", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "style-updated", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "style-updated", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "style-updated"): void
-    on(sigName: "style-updated", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "style-updated", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "style-updated", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "touch-event", callback: (($obj: ThumbNav, object: Gdk.Event) => boolean)): number
-    connect_after(sigName: "touch-event", callback: (($obj: ThumbNav, object: Gdk.Event) => boolean)): number
+    on(sigName: "touch-event", callback: (object: Gdk.Event) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "touch-event", callback: (object: Gdk.Event) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "touch-event", callback: (object: Gdk.Event) => void): NodeJS.EventEmitter
     emit(sigName: "touch-event", object: Gdk.Event): void
-    on(sigName: "touch-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "touch-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "touch-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "unmap", callback: (($obj: ThumbNav) => void)): number
-    connect_after(sigName: "unmap", callback: (($obj: ThumbNav) => void)): number
+    on(sigName: "unmap", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "unmap", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "unmap", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "unmap"): void
-    on(sigName: "unmap", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "unmap", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "unmap", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "unmap-event", callback: (($obj: ThumbNav, event: Gdk.EventAny) => boolean)): number
-    connect_after(sigName: "unmap-event", callback: (($obj: ThumbNav, event: Gdk.EventAny) => boolean)): number
+    on(sigName: "unmap-event", callback: (event: Gdk.EventAny) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "unmap-event", callback: (event: Gdk.EventAny) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "unmap-event", callback: (event: Gdk.EventAny) => void): NodeJS.EventEmitter
     emit(sigName: "unmap-event", event: Gdk.EventAny): void
-    on(sigName: "unmap-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "unmap-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "unmap-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "unrealize", callback: (($obj: ThumbNav) => void)): number
-    connect_after(sigName: "unrealize", callback: (($obj: ThumbNav) => void)): number
+    on(sigName: "unrealize", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "unrealize", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "unrealize", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "unrealize"): void
-    on(sigName: "unrealize", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "unrealize", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "unrealize", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "visibility-notify-event", callback: (($obj: ThumbNav, event: Gdk.EventVisibility) => boolean)): number
-    connect_after(sigName: "visibility-notify-event", callback: (($obj: ThumbNav, event: Gdk.EventVisibility) => boolean)): number
+    on(sigName: "visibility-notify-event", callback: (event: Gdk.EventVisibility) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "visibility-notify-event", callback: (event: Gdk.EventVisibility) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "visibility-notify-event", callback: (event: Gdk.EventVisibility) => void): NodeJS.EventEmitter
     emit(sigName: "visibility-notify-event", event: Gdk.EventVisibility): void
-    on(sigName: "visibility-notify-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "visibility-notify-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "visibility-notify-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "window-state-event", callback: (($obj: ThumbNav, event: Gdk.EventWindowState) => boolean)): number
-    connect_after(sigName: "window-state-event", callback: (($obj: ThumbNav, event: Gdk.EventWindowState) => boolean)): number
+    on(sigName: "window-state-event", callback: (event: Gdk.EventWindowState) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "window-state-event", callback: (event: Gdk.EventWindowState) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "window-state-event", callback: (event: Gdk.EventWindowState) => void): NodeJS.EventEmitter
     emit(sigName: "window-state-event", event: Gdk.EventWindowState): void
-    on(sigName: "window-state-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "window-state-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "window-state-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: ThumbNav, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: ThumbNav, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::mode", callback: (($obj: ThumbNav, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::mode", callback: (($obj: ThumbNav, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::mode", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -10130,7 +8657,7 @@ export interface ThumbView_ConstructProps extends Gtk.IconView_ConstructProps {
     vscrollPolicy?: Gtk.ScrollablePolicy
 }
 export class ThumbView {
-    /* Properties of Gtk.IconView */
+    /* Properties of Gtk-3.0.Gtk.IconView */
     activateOnSingleClick: boolean
     columnSpacing: number
     columns: number
@@ -10147,11 +8674,11 @@ export class ThumbView {
     spacing: number
     textColumn: number
     tooltipColumn: number
-    /* Properties of Gtk.Container */
+    /* Properties of Gtk-3.0.Gtk.Container */
     borderWidth: number
     child: Gtk.Widget
     resizeMode: Gtk.ResizeMode
-    /* Properties of Gtk.Widget */
+    /* Properties of Gtk-3.0.Gtk.Widget */
     appPaintable: boolean
     canDefault: boolean
     canFocus: boolean
@@ -10190,23 +8717,23 @@ export class ThumbView {
     visible: boolean
     widthRequest: number
     readonly window: Gdk.Window
-    /* Properties of Gtk.Orientable */
+    /* Properties of Gtk-3.0.Gtk.Orientable */
     orientation: Gtk.Orientation
-    /* Properties of Gtk.Scrollable */
+    /* Properties of Gtk-3.0.Gtk.Scrollable */
     hadjustment: Gtk.Adjustment
     hscrollPolicy: Gtk.ScrollablePolicy
     vadjustment: Gtk.Adjustment
     vscrollPolicy: Gtk.ScrollablePolicy
-    /* Fields of Eog.ThumbView */
+    /* Fields of Eog-3.0.Eog.ThumbView */
     iconView: Gtk.IconView
     priv: ThumbViewPrivate
-    /* Fields of Gtk.Container */
+    /* Fields of Gtk-3.0.Gtk.Container */
     widget: Gtk.Widget
-    /* Fields of Gtk.Widget */
+    /* Fields of Gtk-3.0.Gtk.Widget */
     parentInstance: GObject.InitiallyUnowned
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Eog.ThumbView */
+    /* Methods of Eog-3.0.Eog.ThumbView */
     getFirstSelectedImage(): Image
     getNSelected(): number
     getSelectedImages(): Image[]
@@ -10215,19 +8742,19 @@ export class ThumbView {
     setItemHeight(height: number): void
     setModel(store: ListStore): void
     setThumbnailPopup(menu: Gtk.Menu): void
-    /* Methods of Gtk.IconView */
-    convertWidgetToBinWindowCoords(wx: number, wy: number): [ /* bx */ number, /* by */ number ]
+    /* Methods of Gtk-3.0.Gtk.IconView */
+    convertWidgetToBinWindowCoords(wx: number, wy: number): { bx: number, by: number }
     createDragIcon(path: Gtk.TreePath): cairo.Surface
     enableModelDragDest(targets: Gtk.TargetEntry[], actions: Gdk.DragAction): void
     enableModelDragSource(startButtonMask: Gdk.ModifierType, targets: Gtk.TargetEntry[], actions: Gdk.DragAction): void
     getActivateOnSingleClick(): boolean
-    getCellRect(path: Gtk.TreePath, cell?: Gtk.CellRenderer | null): [ /* returnType */ boolean, /* rect */ Gdk.Rectangle ]
+    getCellRect(path: Gtk.TreePath, cell?: Gtk.CellRenderer | null): { returnType: boolean, rect: Gdk.Rectangle }
     getColumnSpacing(): number
     getColumns(): number
-    getCursor(): [ /* returnType */ boolean, /* path */ Gtk.TreePath | null, /* cell */ Gtk.CellRenderer | null ]
-    getDestItemAtPos(dragX: number, dragY: number): [ /* returnType */ boolean, /* path */ Gtk.TreePath | null, /* pos */ Gtk.IconViewDropPosition | null ]
-    getDragDestItem(): [ /* path */ Gtk.TreePath | null, /* pos */ Gtk.IconViewDropPosition | null ]
-    getItemAtPos(x: number, y: number): [ /* returnType */ boolean, /* path */ Gtk.TreePath | null, /* cell */ Gtk.CellRenderer | null ]
+    getCursor(): { returnType: boolean, path: Gtk.TreePath | null, cell: Gtk.CellRenderer | null }
+    getDestItemAtPos(dragX: number, dragY: number): { returnType: boolean, path: Gtk.TreePath | null, pos: Gtk.IconViewDropPosition | null }
+    getDragDestItem(): { path: Gtk.TreePath | null, pos: Gtk.IconViewDropPosition | null }
+    getItemAtPos(x: number, y: number): { returnType: boolean, path: Gtk.TreePath | null, cell: Gtk.CellRenderer | null }
     getItemColumn(path: Gtk.TreePath): number
     getItemOrientation(): Gtk.Orientation
     getItemPadding(): number
@@ -10245,8 +8772,8 @@ export class ThumbView {
     getSpacing(): number
     getTextColumn(): number
     getTooltipColumn(): number
-    getTooltipContext(x: number, y: number, keyboardTip: boolean): [ /* returnType */ boolean, /* x */ number, /* y */ number, /* model */ Gtk.TreeModel | null, /* path */ Gtk.TreePath | null, /* iter */ Gtk.TreeIter | null ]
-    getVisibleRange(): [ /* returnType */ boolean, /* startPath */ Gtk.TreePath | null, /* endPath */ Gtk.TreePath | null ]
+    getTooltipContext(x: number, y: number, keyboardTip: boolean): { returnType: boolean, x: number, y: number, model: Gtk.TreeModel | null, path: Gtk.TreePath | null, iter: Gtk.TreeIter | null }
+    getVisibleRange(): { returnType: boolean, startPath: Gtk.TreePath | null, endPath: Gtk.TreePath | null }
     itemActivated(path: Gtk.TreePath): void
     pathIsSelected(path: Gtk.TreePath): boolean
     scrollToPath(path: Gtk.TreePath, useAlign: boolean, rowAlign: number, colAlign: number): void
@@ -10277,7 +8804,7 @@ export class ThumbView {
     unselectPath(path: Gtk.TreePath): void
     unsetModelDragDest(): void
     unsetModelDragSource(): void
-    /* Methods of Gtk.Container */
+    /* Methods of Gtk-3.0.Gtk.Container */
     add(widget: Gtk.Widget): void
     checkResize(): void
     childGetProperty(child: Gtk.Widget, propertyName: string, value: any): void
@@ -10288,7 +8815,7 @@ export class ThumbView {
     foreach(callback: Gtk.Callback): void
     getBorderWidth(): number
     getChildren(): Gtk.Widget[]
-    getFocusChain(): [ /* returnType */ boolean, /* focusableWidgets */ Gtk.Widget[] ]
+    getFocusChain(): { returnType: boolean, focusableWidgets: Gtk.Widget[] }
     getFocusChild(): Gtk.Widget | null
     getFocusHadjustment(): Gtk.Adjustment | null
     getFocusVadjustment(): Gtk.Adjustment | null
@@ -10305,7 +8832,7 @@ export class ThumbView {
     setReallocateRedraws(needsRedraws: boolean): void
     setResizeMode(resizeMode: Gtk.ResizeMode): void
     unsetFocusChain(): void
-    /* Methods of Gtk.Widget */
+    /* Methods of Gtk-3.0.Gtk.Widget */
     activate(): boolean
     addAccelerator(accelSignal: string, accelGroup: Gtk.AccelGroup, accelKey: number, accelMods: Gdk.ModifierType, accelFlags: Gtk.AccelFlags): void
     addDeviceEvents(device: Gdk.Device, events: Gdk.EventMask): void
@@ -10315,12 +8842,12 @@ export class ThumbView {
     canActivateAccel(signalId: number): boolean
     childFocus(direction: Gtk.DirectionType): boolean
     childNotify(childProperty: string): void
-    classPath(): [ /* pathLength */ number | null, /* path */ string | null, /* pathReversed */ string | null ]
+    classPath(): { pathLength: number | null, path: string | null, pathReversed: string | null }
     computeExpand(orientation: Gtk.Orientation): boolean
     createPangoContext(): Pango.Context
     createPangoLayout(text?: string | null): Pango.Layout
     destroy(): void
-    destroyed(widgetPointer: Gtk.Widget): /* widgetPointer */ Gtk.Widget
+    destroyed(widgetPointer: Gtk.Widget): { widgetPointer: Gtk.Widget }
     deviceIsShadowed(device: Gdk.Device): boolean
     dragBegin(targets: Gtk.TargetList, actions: Gdk.DragAction, button: number, event?: Gdk.Event | null): Gdk.DragContext
     dragBeginWithCoordinates(targets: Gtk.TargetList, actions: Gdk.DragAction, button: number, event: Gdk.Event | null, x: number, y: number): Gdk.DragContext
@@ -10359,16 +8886,16 @@ export class ThumbView {
     getActionGroup(prefix: string): Gio.ActionGroup | null
     getAllocatedBaseline(): number
     getAllocatedHeight(): number
-    getAllocatedSize(): [ /* allocation */ Gtk.Allocation, /* baseline */ number | null ]
+    getAllocatedSize(): { allocation: Gtk.Allocation, baseline: number | null }
     getAllocatedWidth(): number
-    getAllocation(): /* allocation */ Gtk.Allocation
+    getAllocation(): { allocation: Gtk.Allocation }
     getAncestor(widgetType: GObject.Type): Gtk.Widget | null
     getAppPaintable(): boolean
     getCanDefault(): boolean
     getCanFocus(): boolean
-    getChildRequisition(): /* requisition */ Gtk.Requisition
+    getChildRequisition(): { requisition: Gtk.Requisition }
     getChildVisible(): boolean
-    getClip(): /* clip */ Gtk.Allocation
+    getClip(): { clip: Gtk.Allocation }
     getClipboard(selection: Gdk.Atom): Gtk.Clipboard
     getCompositeName(): string
     getDeviceEnabled(device: Gdk.Device): boolean
@@ -10402,23 +8929,23 @@ export class ThumbView {
     getParent(): Gtk.Widget | null
     getParentWindow(): Gdk.Window | null
     getPath(): Gtk.WidgetPath
-    getPointer(): [ /* x */ number | null, /* y */ number | null ]
-    getPreferredHeight(): [ /* minimumHeight */ number | null, /* naturalHeight */ number | null ]
-    getPreferredHeightAndBaselineForWidth(width: number): [ /* minimumHeight */ number | null, /* naturalHeight */ number | null, /* minimumBaseline */ number | null, /* naturalBaseline */ number | null ]
-    getPreferredHeightForWidth(width: number): [ /* minimumHeight */ number | null, /* naturalHeight */ number | null ]
-    getPreferredSize(): [ /* minimumSize */ Gtk.Requisition | null, /* naturalSize */ Gtk.Requisition | null ]
-    getPreferredWidth(): [ /* minimumWidth */ number | null, /* naturalWidth */ number | null ]
-    getPreferredWidthForHeight(height: number): [ /* minimumWidth */ number | null, /* naturalWidth */ number | null ]
+    getPointer(): { x: number | null, y: number | null }
+    getPreferredHeight(): { minimumHeight: number | null, naturalHeight: number | null }
+    getPreferredHeightAndBaselineForWidth(width: number): { minimumHeight: number | null, naturalHeight: number | null, minimumBaseline: number | null, naturalBaseline: number | null }
+    getPreferredHeightForWidth(width: number): { minimumHeight: number | null, naturalHeight: number | null }
+    getPreferredSize(): { minimumSize: Gtk.Requisition | null, naturalSize: Gtk.Requisition | null }
+    getPreferredWidth(): { minimumWidth: number | null, naturalWidth: number | null }
+    getPreferredWidthForHeight(height: number): { minimumWidth: number | null, naturalWidth: number | null }
     getRealized(): boolean
     getReceivesDefault(): boolean
     getRequestMode(): Gtk.SizeRequestMode
-    getRequisition(): /* requisition */ Gtk.Requisition
+    getRequisition(): { requisition: Gtk.Requisition }
     getRootWindow(): Gdk.Window
     getScaleFactor(): number
     getScreen(): Gdk.Screen
     getSensitive(): boolean
     getSettings(): Gtk.Settings
-    getSizeRequest(): [ /* width */ number | null, /* height */ number | null ]
+    getSizeRequest(): { width: number | null, height: number | null }
     getState(): Gtk.StateType
     getStateFlags(): Gtk.StateFlags
     getStyle(): Gtk.Style
@@ -10450,7 +8977,7 @@ export class ThumbView {
     initTemplate(): void
     inputShapeCombineRegion(region?: cairo.Region | null): void
     insertActionGroup(name: string, group?: Gio.ActionGroup | null): void
-    intersect(area: Gdk.Rectangle): [ /* returnType */ boolean, /* intersection */ Gdk.Rectangle | null ]
+    intersect(area: Gdk.Rectangle): { returnType: boolean, intersection: Gdk.Rectangle | null }
     isAncestor(ancestor: Gtk.Widget): boolean
     isComposited(): boolean
     isDrawable(): boolean
@@ -10475,7 +9002,7 @@ export class ThumbView {
     overrideCursor(cursor?: Gdk.RGBA | null, secondaryCursor?: Gdk.RGBA | null): void
     overrideFont(fontDesc?: Pango.FontDescription | null): void
     overrideSymbolicColor(name: string, color?: Gdk.RGBA | null): void
-    path(): [ /* pathLength */ number | null, /* path */ string | null, /* pathReversed */ string | null ]
+    path(): { pathLength: number | null, path: string | null, pathReversed: string | null }
     queueAllocate(): void
     queueComputeExpand(): void
     queueDraw(): void
@@ -10553,18 +9080,18 @@ export class ThumbView {
     showNow(): void
     sizeAllocate(allocation: Gtk.Allocation): void
     sizeAllocateWithBaseline(allocation: Gtk.Allocation, baseline: number): void
-    sizeRequest(): /* requisition */ Gtk.Requisition
+    sizeRequest(): { requisition: Gtk.Requisition }
     styleAttach(): void
     styleGetProperty(propertyName: string, value: any): void
     thawChildNotify(): void
-    translateCoordinates(destWidget: Gtk.Widget, srcX: number, srcY: number): [ /* returnType */ boolean, /* destX */ number | null, /* destY */ number | null ]
+    translateCoordinates(destWidget: Gtk.Widget, srcX: number, srcY: number): { returnType: boolean, destX: number | null, destY: number | null }
     triggerTooltipQuery(): void
     unmap(): void
     unparent(): void
     unrealize(): void
     unregisterWindow(window: Gdk.Window): void
     unsetStateFlags(flags: Gtk.StateFlags): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -10586,16 +9113,16 @@ export class ThumbView {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of Gtk.Buildable */
+    /* Methods of Gtk-3.0.Gtk.Buildable */
     addChild(builder: Gtk.Builder, child: GObject.Object, type?: string | null): void
     constructChild(builder: Gtk.Builder, name: string): GObject.Object
     customFinished(builder: Gtk.Builder, child: GObject.Object | null, tagname: string, data?: object | null): void
     customTagEnd(builder: Gtk.Builder, child: GObject.Object | null, tagname: string, data?: object | null): void
-    customTagStart(builder: Gtk.Builder, child: GObject.Object | null, tagname: string): [ /* returnType */ boolean, /* parser */ GLib.MarkupParser, /* data */ object | null ]
+    customTagStart(builder: Gtk.Builder, child: GObject.Object | null, tagname: string): { returnType: boolean, parser: GLib.MarkupParser, data: object | null }
     getInternalChild(builder: Gtk.Builder, childname: string): GObject.Object
     parserFinished(builder: Gtk.Builder): void
     setBuildableProperty(builder: Gtk.Builder, name: string, value: any): void
-    /* Methods of Gtk.CellLayout */
+    /* Methods of Gtk-3.0.Gtk.CellLayout */
     addAttribute(cell: Gtk.CellRenderer, attribute: string, column: number): void
     clear(): void
     clearAttributes(cell: Gtk.CellRenderer): void
@@ -10605,11 +9132,11 @@ export class ThumbView {
     packStart(cell: Gtk.CellRenderer, expand: boolean): void
     reorder(cell: Gtk.CellRenderer, position: number): void
     setCellDataFunc(cell: Gtk.CellRenderer, func: Gtk.CellLayoutDataFunc | null): void
-    /* Methods of Gtk.Orientable */
+    /* Methods of Gtk-3.0.Gtk.Orientable */
     getOrientation(): Gtk.Orientation
     setOrientation(orientation: Gtk.Orientation): void
-    /* Methods of Gtk.Scrollable */
-    getBorder(): [ /* returnType */ boolean, /* border */ Gtk.Border ]
+    /* Methods of Gtk-3.0.Gtk.Scrollable */
+    getBorder(): { returnType: boolean, border: Gtk.Border }
     getHadjustment(): Gtk.Adjustment
     getHscrollPolicy(): Gtk.ScrollablePolicy
     getVadjustment(): Gtk.Adjustment
@@ -10618,634 +9145,420 @@ export class ThumbView {
     setHscrollPolicy(policy: Gtk.ScrollablePolicy): void
     setVadjustment(vadjustment?: Gtk.Adjustment | null): void
     setVscrollPolicy(policy: Gtk.ScrollablePolicy): void
-    /* Virtual methods of Eog.ThumbView */
-    vfuncAddChild(builder: Gtk.Builder, child: GObject.Object, type?: string | null): void
-    vfuncConstructChild(builder: Gtk.Builder, name: string): GObject.Object
-    vfuncCustomFinished(builder: Gtk.Builder, child: GObject.Object | null, tagname: string, data?: object | null): void
-    vfuncCustomTagEnd(builder: Gtk.Builder, child: GObject.Object | null, tagname: string, data?: object | null): void
-    vfuncCustomTagStart(builder: Gtk.Builder, child: GObject.Object | null, tagname: string): [ /* returnType */ boolean, /* parser */ GLib.MarkupParser, /* data */ object | null ]
-    vfuncGetInternalChild(builder: Gtk.Builder, childname: string): GObject.Object
-    vfuncGetName(): string
-    vfuncParserFinished(builder: Gtk.Builder): void
-    vfuncSetBuildableProperty(builder: Gtk.Builder, name: string, value: any): void
-    vfuncSetName(name: string): void
-    vfuncAddAttribute(cell: Gtk.CellRenderer, attribute: string, column: number): void
-    vfuncClear(): void
-    vfuncClearAttributes(cell: Gtk.CellRenderer): void
-    vfuncGetArea(): Gtk.CellArea | null
-    vfuncGetCells(): Gtk.CellRenderer[]
-    vfuncPackEnd(cell: Gtk.CellRenderer, expand: boolean): void
-    vfuncPackStart(cell: Gtk.CellRenderer, expand: boolean): void
-    vfuncReorder(cell: Gtk.CellRenderer, position: number): void
-    vfuncSetCellDataFunc(cell: Gtk.CellRenderer, func: Gtk.CellLayoutDataFunc | null): void
-    vfuncGetBorder(): [ /* returnType */ boolean, /* border */ Gtk.Border ]
-    /* Virtual methods of Gtk.IconView */
-    vfuncActivateCursorItem(): boolean
-    vfuncItemActivated(path: Gtk.TreePath): void
-    vfuncMoveCursor(step: Gtk.MovementStep, count: number): boolean
-    vfuncSelectAll(): void
-    vfuncSelectCursorItem(): void
-    vfuncSelectionChanged(): void
-    vfuncToggleCursorItem(): void
-    vfuncUnselectAll(): void
-    /* Virtual methods of Gtk.Container */
-    vfuncAdd(widget: Gtk.Widget): void
-    vfuncCheckResize(): void
-    vfuncChildType(): GObject.Type
-    vfuncCompositeName(child: Gtk.Widget): string
-    vfuncForall(includeInternals: boolean, callback: Gtk.Callback): void
-    vfuncGetChildProperty(child: Gtk.Widget, propertyId: number, value: any, pspec: GObject.ParamSpec): void
-    vfuncGetPathForChild(child: Gtk.Widget): Gtk.WidgetPath
-    vfuncRemove(widget: Gtk.Widget): void
-    vfuncSetChildProperty(child: Gtk.Widget, propertyId: number, value: any, pspec: GObject.ParamSpec): void
-    vfuncSetFocusChild(child?: Gtk.Widget | null): void
-    /* Virtual methods of Gtk.Widget */
-    vfuncAdjustBaselineAllocation(baseline: number): void
-    vfuncAdjustBaselineRequest(minimumBaseline: number, naturalBaseline: number): void
-    vfuncAdjustSizeAllocation(orientation: Gtk.Orientation, minimumSize: number, naturalSize: number, allocatedPos: number, allocatedSize: number): void
-    vfuncAdjustSizeRequest(orientation: Gtk.Orientation, minimumSize: number, naturalSize: number): void
-    vfuncButtonPressEvent(event: Gdk.EventButton): boolean
-    vfuncButtonReleaseEvent(event: Gdk.EventButton): boolean
-    vfuncCanActivateAccel(signalId: number): boolean
-    vfuncChildNotify(childProperty: GObject.ParamSpec): void
-    vfuncCompositedChanged(): void
-    vfuncComputeExpand(hexpandP: boolean, vexpandP: boolean): void
-    vfuncConfigureEvent(event: Gdk.EventConfigure): boolean
-    vfuncDamageEvent(event: Gdk.EventExpose): boolean
-    vfuncDeleteEvent(event: Gdk.EventAny): boolean
-    vfuncDestroy(): void
-    vfuncDestroyEvent(event: Gdk.EventAny): boolean
-    vfuncDirectionChanged(previousDirection: Gtk.TextDirection): void
-    vfuncDispatchChildPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDragBegin(context: Gdk.DragContext): void
-    vfuncDragDataDelete(context: Gdk.DragContext): void
-    vfuncDragDataGet(context: Gdk.DragContext, selectionData: Gtk.SelectionData, info: number, time: number): void
-    vfuncDragDataReceived(context: Gdk.DragContext, x: number, y: number, selectionData: Gtk.SelectionData, info: number, time: number): void
-    vfuncDragDrop(context: Gdk.DragContext, x: number, y: number, time: number): boolean
-    vfuncDragEnd(context: Gdk.DragContext): void
-    vfuncDragFailed(context: Gdk.DragContext, result: Gtk.DragResult): boolean
-    vfuncDragLeave(context: Gdk.DragContext, time: number): void
-    vfuncDragMotion(context: Gdk.DragContext, x: number, y: number, time: number): boolean
-    vfuncDraw(cr: cairo.Context): boolean
-    vfuncEnterNotifyEvent(event: Gdk.EventCrossing): boolean
-    vfuncEvent(event: Gdk.Event): boolean
-    vfuncFocus(direction: Gtk.DirectionType): boolean
-    vfuncFocusInEvent(event: Gdk.EventFocus): boolean
-    vfuncFocusOutEvent(event: Gdk.EventFocus): boolean
-    vfuncGetAccessible(): Atk.Object
-    vfuncGetPreferredHeight(): [ /* minimumHeight */ number | null, /* naturalHeight */ number | null ]
-    vfuncGetPreferredHeightAndBaselineForWidth(width: number): [ /* minimumHeight */ number | null, /* naturalHeight */ number | null, /* minimumBaseline */ number | null, /* naturalBaseline */ number | null ]
-    vfuncGetPreferredHeightForWidth(width: number): [ /* minimumHeight */ number | null, /* naturalHeight */ number | null ]
-    vfuncGetPreferredWidth(): [ /* minimumWidth */ number | null, /* naturalWidth */ number | null ]
-    vfuncGetPreferredWidthForHeight(height: number): [ /* minimumWidth */ number | null, /* naturalWidth */ number | null ]
-    vfuncGetRequestMode(): Gtk.SizeRequestMode
-    vfuncGrabBrokenEvent(event: Gdk.EventGrabBroken): boolean
-    vfuncGrabFocus(): void
-    vfuncGrabNotify(wasGrabbed: boolean): void
-    vfuncHide(): void
-    vfuncHierarchyChanged(previousToplevel: Gtk.Widget): void
-    vfuncKeyPressEvent(event: Gdk.EventKey): boolean
-    vfuncKeyReleaseEvent(event: Gdk.EventKey): boolean
-    vfuncKeynavFailed(direction: Gtk.DirectionType): boolean
-    vfuncLeaveNotifyEvent(event: Gdk.EventCrossing): boolean
-    vfuncMap(): void
-    vfuncMapEvent(event: Gdk.EventAny): boolean
-    vfuncMnemonicActivate(groupCycling: boolean): boolean
-    vfuncMotionNotifyEvent(event: Gdk.EventMotion): boolean
-    vfuncMoveFocus(direction: Gtk.DirectionType): void
-    vfuncParentSet(previousParent: Gtk.Widget): void
-    vfuncPopupMenu(): boolean
-    vfuncPropertyNotifyEvent(event: Gdk.EventProperty): boolean
-    vfuncProximityInEvent(event: Gdk.EventProximity): boolean
-    vfuncProximityOutEvent(event: Gdk.EventProximity): boolean
-    vfuncQueryTooltip(x: number, y: number, keyboardTooltip: boolean, tooltip: Gtk.Tooltip): boolean
-    vfuncQueueDrawRegion(region: cairo.Region): void
-    vfuncRealize(): void
-    vfuncScreenChanged(previousScreen: Gdk.Screen): void
-    vfuncScrollEvent(event: Gdk.EventScroll): boolean
-    vfuncSelectionClearEvent(event: Gdk.EventSelection): boolean
-    vfuncSelectionGet(selectionData: Gtk.SelectionData, info: number, time: number): void
-    vfuncSelectionNotifyEvent(event: Gdk.EventSelection): boolean
-    vfuncSelectionReceived(selectionData: Gtk.SelectionData, time: number): void
-    vfuncSelectionRequestEvent(event: Gdk.EventSelection): boolean
-    vfuncShow(): void
-    vfuncShowAll(): void
-    vfuncShowHelp(helpType: Gtk.WidgetHelpType): boolean
-    vfuncSizeAllocate(allocation: Gtk.Allocation): void
-    vfuncStateChanged(previousState: Gtk.StateType): void
-    vfuncStateFlagsChanged(previousStateFlags: Gtk.StateFlags): void
-    vfuncStyleSet(previousStyle: Gtk.Style): void
-    vfuncStyleUpdated(): void
-    vfuncTouchEvent(event: Gdk.EventTouch): boolean
-    vfuncUnmap(): void
-    vfuncUnmapEvent(event: Gdk.EventAny): boolean
-    vfuncUnrealize(): void
-    vfuncVisibilityNotifyEvent(event: Gdk.EventVisibility): boolean
-    vfuncWindowStateEvent(event: Gdk.EventWindowState): boolean
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gtk.IconView */
+    /* Signals of Gtk-3.0.Gtk.IconView */
     connect(sigName: "activate-cursor-item", callback: (($obj: ThumbView) => boolean)): number
-    connect_after(sigName: "activate-cursor-item", callback: (($obj: ThumbView) => boolean)): number
+    on(sigName: "activate-cursor-item", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "activate-cursor-item", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "activate-cursor-item", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "activate-cursor-item"): void
-    on(sigName: "activate-cursor-item", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "activate-cursor-item", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "activate-cursor-item", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "item-activated", callback: (($obj: ThumbView, path: Gtk.TreePath) => void)): number
-    connect_after(sigName: "item-activated", callback: (($obj: ThumbView, path: Gtk.TreePath) => void)): number
+    on(sigName: "item-activated", callback: (path: Gtk.TreePath) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "item-activated", callback: (path: Gtk.TreePath) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "item-activated", callback: (path: Gtk.TreePath) => void): NodeJS.EventEmitter
     emit(sigName: "item-activated", path: Gtk.TreePath): void
-    on(sigName: "item-activated", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "item-activated", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "item-activated", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "move-cursor", callback: (($obj: ThumbView, step: Gtk.MovementStep, count: number) => boolean)): number
-    connect_after(sigName: "move-cursor", callback: (($obj: ThumbView, step: Gtk.MovementStep, count: number) => boolean)): number
+    on(sigName: "move-cursor", callback: (step: Gtk.MovementStep, count: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "move-cursor", callback: (step: Gtk.MovementStep, count: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "move-cursor", callback: (step: Gtk.MovementStep, count: number) => void): NodeJS.EventEmitter
     emit(sigName: "move-cursor", step: Gtk.MovementStep, count: number): void
-    on(sigName: "move-cursor", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "move-cursor", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "move-cursor", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "select-all", callback: (($obj: ThumbView) => void)): number
-    connect_after(sigName: "select-all", callback: (($obj: ThumbView) => void)): number
+    on(sigName: "select-all", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "select-all", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "select-all", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "select-all"): void
-    on(sigName: "select-all", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "select-all", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "select-all", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "select-cursor-item", callback: (($obj: ThumbView) => void)): number
-    connect_after(sigName: "select-cursor-item", callback: (($obj: ThumbView) => void)): number
+    on(sigName: "select-cursor-item", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "select-cursor-item", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "select-cursor-item", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "select-cursor-item"): void
-    on(sigName: "select-cursor-item", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "select-cursor-item", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "select-cursor-item", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "selection-changed", callback: (($obj: ThumbView) => void)): number
-    connect_after(sigName: "selection-changed", callback: (($obj: ThumbView) => void)): number
+    on(sigName: "selection-changed", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "selection-changed", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "selection-changed", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "selection-changed"): void
-    on(sigName: "selection-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "selection-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "selection-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "toggle-cursor-item", callback: (($obj: ThumbView) => void)): number
-    connect_after(sigName: "toggle-cursor-item", callback: (($obj: ThumbView) => void)): number
+    on(sigName: "toggle-cursor-item", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "toggle-cursor-item", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "toggle-cursor-item", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "toggle-cursor-item"): void
-    on(sigName: "toggle-cursor-item", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "toggle-cursor-item", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "toggle-cursor-item", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "unselect-all", callback: (($obj: ThumbView) => void)): number
-    connect_after(sigName: "unselect-all", callback: (($obj: ThumbView) => void)): number
+    on(sigName: "unselect-all", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "unselect-all", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "unselect-all", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "unselect-all"): void
-    on(sigName: "unselect-all", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "unselect-all", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "unselect-all", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of Gtk.Container */
+    /* Signals of Gtk-3.0.Gtk.Container */
     connect(sigName: "add", callback: (($obj: ThumbView, object: Gtk.Widget) => void)): number
-    connect_after(sigName: "add", callback: (($obj: ThumbView, object: Gtk.Widget) => void)): number
+    on(sigName: "add", callback: (object: Gtk.Widget) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "add", callback: (object: Gtk.Widget) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "add", callback: (object: Gtk.Widget) => void): NodeJS.EventEmitter
     emit(sigName: "add", object: Gtk.Widget): void
-    on(sigName: "add", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "add", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "add", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "check-resize", callback: (($obj: ThumbView) => void)): number
-    connect_after(sigName: "check-resize", callback: (($obj: ThumbView) => void)): number
+    on(sigName: "check-resize", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "check-resize", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "check-resize", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "check-resize"): void
-    on(sigName: "check-resize", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "check-resize", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "check-resize", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "remove", callback: (($obj: ThumbView, object: Gtk.Widget) => void)): number
-    connect_after(sigName: "remove", callback: (($obj: ThumbView, object: Gtk.Widget) => void)): number
+    on(sigName: "remove", callback: (object: Gtk.Widget) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "remove", callback: (object: Gtk.Widget) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "remove", callback: (object: Gtk.Widget) => void): NodeJS.EventEmitter
     emit(sigName: "remove", object: Gtk.Widget): void
-    on(sigName: "remove", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "remove", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "remove", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "set-focus-child", callback: (($obj: ThumbView, object: Gtk.Widget) => void)): number
-    connect_after(sigName: "set-focus-child", callback: (($obj: ThumbView, object: Gtk.Widget) => void)): number
+    on(sigName: "set-focus-child", callback: (object: Gtk.Widget) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "set-focus-child", callback: (object: Gtk.Widget) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "set-focus-child", callback: (object: Gtk.Widget) => void): NodeJS.EventEmitter
     emit(sigName: "set-focus-child", object: Gtk.Widget): void
-    on(sigName: "set-focus-child", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "set-focus-child", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "set-focus-child", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of Gtk.Widget */
+    /* Signals of Gtk-3.0.Gtk.Widget */
     connect(sigName: "accel-closures-changed", callback: (($obj: ThumbView) => void)): number
-    connect_after(sigName: "accel-closures-changed", callback: (($obj: ThumbView) => void)): number
+    on(sigName: "accel-closures-changed", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "accel-closures-changed", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "accel-closures-changed", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "accel-closures-changed"): void
-    on(sigName: "accel-closures-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "accel-closures-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "accel-closures-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "button-press-event", callback: (($obj: ThumbView, event: Gdk.EventButton) => boolean)): number
-    connect_after(sigName: "button-press-event", callback: (($obj: ThumbView, event: Gdk.EventButton) => boolean)): number
+    on(sigName: "button-press-event", callback: (event: Gdk.EventButton) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "button-press-event", callback: (event: Gdk.EventButton) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "button-press-event", callback: (event: Gdk.EventButton) => void): NodeJS.EventEmitter
     emit(sigName: "button-press-event", event: Gdk.EventButton): void
-    on(sigName: "button-press-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "button-press-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "button-press-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "button-release-event", callback: (($obj: ThumbView, event: Gdk.EventButton) => boolean)): number
-    connect_after(sigName: "button-release-event", callback: (($obj: ThumbView, event: Gdk.EventButton) => boolean)): number
+    on(sigName: "button-release-event", callback: (event: Gdk.EventButton) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "button-release-event", callback: (event: Gdk.EventButton) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "button-release-event", callback: (event: Gdk.EventButton) => void): NodeJS.EventEmitter
     emit(sigName: "button-release-event", event: Gdk.EventButton): void
-    on(sigName: "button-release-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "button-release-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "button-release-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "can-activate-accel", callback: (($obj: ThumbView, signalId: number) => boolean)): number
-    connect_after(sigName: "can-activate-accel", callback: (($obj: ThumbView, signalId: number) => boolean)): number
+    on(sigName: "can-activate-accel", callback: (signalId: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "can-activate-accel", callback: (signalId: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "can-activate-accel", callback: (signalId: number) => void): NodeJS.EventEmitter
     emit(sigName: "can-activate-accel", signalId: number): void
-    on(sigName: "can-activate-accel", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "can-activate-accel", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "can-activate-accel", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "child-notify", callback: (($obj: ThumbView, childProperty: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "child-notify", callback: (($obj: ThumbView, childProperty: GObject.ParamSpec) => void)): number
+    on(sigName: "child-notify", callback: (childProperty: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "child-notify", callback: (childProperty: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "child-notify", callback: (childProperty: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "child-notify", childProperty: GObject.ParamSpec): void
-    on(sigName: "child-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "child-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "child-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "composited-changed", callback: (($obj: ThumbView) => void)): number
-    connect_after(sigName: "composited-changed", callback: (($obj: ThumbView) => void)): number
+    on(sigName: "composited-changed", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "composited-changed", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "composited-changed", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "composited-changed"): void
-    on(sigName: "composited-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "composited-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "composited-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "configure-event", callback: (($obj: ThumbView, event: Gdk.EventConfigure) => boolean)): number
-    connect_after(sigName: "configure-event", callback: (($obj: ThumbView, event: Gdk.EventConfigure) => boolean)): number
+    on(sigName: "configure-event", callback: (event: Gdk.EventConfigure) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "configure-event", callback: (event: Gdk.EventConfigure) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "configure-event", callback: (event: Gdk.EventConfigure) => void): NodeJS.EventEmitter
     emit(sigName: "configure-event", event: Gdk.EventConfigure): void
-    on(sigName: "configure-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "configure-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "configure-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "damage-event", callback: (($obj: ThumbView, event: Gdk.EventExpose) => boolean)): number
-    connect_after(sigName: "damage-event", callback: (($obj: ThumbView, event: Gdk.EventExpose) => boolean)): number
+    on(sigName: "damage-event", callback: (event: Gdk.EventExpose) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "damage-event", callback: (event: Gdk.EventExpose) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "damage-event", callback: (event: Gdk.EventExpose) => void): NodeJS.EventEmitter
     emit(sigName: "damage-event", event: Gdk.EventExpose): void
-    on(sigName: "damage-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "damage-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "damage-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "delete-event", callback: (($obj: ThumbView, event: Gdk.Event) => boolean)): number
-    connect_after(sigName: "delete-event", callback: (($obj: ThumbView, event: Gdk.Event) => boolean)): number
+    on(sigName: "delete-event", callback: (event: Gdk.Event) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "delete-event", callback: (event: Gdk.Event) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "delete-event", callback: (event: Gdk.Event) => void): NodeJS.EventEmitter
     emit(sigName: "delete-event", event: Gdk.Event): void
-    on(sigName: "delete-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "delete-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "delete-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "destroy", callback: (($obj: ThumbView) => void)): number
-    connect_after(sigName: "destroy", callback: (($obj: ThumbView) => void)): number
+    on(sigName: "destroy", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "destroy", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "destroy", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "destroy"): void
-    on(sigName: "destroy", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "destroy", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "destroy", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "destroy-event", callback: (($obj: ThumbView, event: Gdk.Event) => boolean)): number
-    connect_after(sigName: "destroy-event", callback: (($obj: ThumbView, event: Gdk.Event) => boolean)): number
+    on(sigName: "destroy-event", callback: (event: Gdk.Event) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "destroy-event", callback: (event: Gdk.Event) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "destroy-event", callback: (event: Gdk.Event) => void): NodeJS.EventEmitter
     emit(sigName: "destroy-event", event: Gdk.Event): void
-    on(sigName: "destroy-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "destroy-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "destroy-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "direction-changed", callback: (($obj: ThumbView, previousDirection: Gtk.TextDirection) => void)): number
-    connect_after(sigName: "direction-changed", callback: (($obj: ThumbView, previousDirection: Gtk.TextDirection) => void)): number
+    on(sigName: "direction-changed", callback: (previousDirection: Gtk.TextDirection) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "direction-changed", callback: (previousDirection: Gtk.TextDirection) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "direction-changed", callback: (previousDirection: Gtk.TextDirection) => void): NodeJS.EventEmitter
     emit(sigName: "direction-changed", previousDirection: Gtk.TextDirection): void
-    on(sigName: "direction-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "direction-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "direction-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "drag-begin", callback: (($obj: ThumbView, context: Gdk.DragContext) => void)): number
-    connect_after(sigName: "drag-begin", callback: (($obj: ThumbView, context: Gdk.DragContext) => void)): number
+    on(sigName: "drag-begin", callback: (context: Gdk.DragContext) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "drag-begin", callback: (context: Gdk.DragContext) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "drag-begin", callback: (context: Gdk.DragContext) => void): NodeJS.EventEmitter
     emit(sigName: "drag-begin", context: Gdk.DragContext): void
-    on(sigName: "drag-begin", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "drag-begin", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "drag-begin", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "drag-data-delete", callback: (($obj: ThumbView, context: Gdk.DragContext) => void)): number
-    connect_after(sigName: "drag-data-delete", callback: (($obj: ThumbView, context: Gdk.DragContext) => void)): number
+    on(sigName: "drag-data-delete", callback: (context: Gdk.DragContext) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "drag-data-delete", callback: (context: Gdk.DragContext) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "drag-data-delete", callback: (context: Gdk.DragContext) => void): NodeJS.EventEmitter
     emit(sigName: "drag-data-delete", context: Gdk.DragContext): void
-    on(sigName: "drag-data-delete", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "drag-data-delete", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "drag-data-delete", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "drag-data-get", callback: (($obj: ThumbView, context: Gdk.DragContext, data: Gtk.SelectionData, info: number, time: number) => void)): number
-    connect_after(sigName: "drag-data-get", callback: (($obj: ThumbView, context: Gdk.DragContext, data: Gtk.SelectionData, info: number, time: number) => void)): number
+    on(sigName: "drag-data-get", callback: (context: Gdk.DragContext, data: Gtk.SelectionData, info: number, time: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "drag-data-get", callback: (context: Gdk.DragContext, data: Gtk.SelectionData, info: number, time: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "drag-data-get", callback: (context: Gdk.DragContext, data: Gtk.SelectionData, info: number, time: number) => void): NodeJS.EventEmitter
     emit(sigName: "drag-data-get", context: Gdk.DragContext, data: Gtk.SelectionData, info: number, time: number): void
-    on(sigName: "drag-data-get", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "drag-data-get", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "drag-data-get", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "drag-data-received", callback: (($obj: ThumbView, context: Gdk.DragContext, x: number, y: number, data: Gtk.SelectionData, info: number, time: number) => void)): number
-    connect_after(sigName: "drag-data-received", callback: (($obj: ThumbView, context: Gdk.DragContext, x: number, y: number, data: Gtk.SelectionData, info: number, time: number) => void)): number
+    on(sigName: "drag-data-received", callback: (context: Gdk.DragContext, x: number, y: number, data: Gtk.SelectionData, info: number, time: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "drag-data-received", callback: (context: Gdk.DragContext, x: number, y: number, data: Gtk.SelectionData, info: number, time: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "drag-data-received", callback: (context: Gdk.DragContext, x: number, y: number, data: Gtk.SelectionData, info: number, time: number) => void): NodeJS.EventEmitter
     emit(sigName: "drag-data-received", context: Gdk.DragContext, x: number, y: number, data: Gtk.SelectionData, info: number, time: number): void
-    on(sigName: "drag-data-received", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "drag-data-received", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "drag-data-received", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "drag-drop", callback: (($obj: ThumbView, context: Gdk.DragContext, x: number, y: number, time: number) => boolean)): number
-    connect_after(sigName: "drag-drop", callback: (($obj: ThumbView, context: Gdk.DragContext, x: number, y: number, time: number) => boolean)): number
+    on(sigName: "drag-drop", callback: (context: Gdk.DragContext, x: number, y: number, time: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "drag-drop", callback: (context: Gdk.DragContext, x: number, y: number, time: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "drag-drop", callback: (context: Gdk.DragContext, x: number, y: number, time: number) => void): NodeJS.EventEmitter
     emit(sigName: "drag-drop", context: Gdk.DragContext, x: number, y: number, time: number): void
-    on(sigName: "drag-drop", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "drag-drop", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "drag-drop", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "drag-end", callback: (($obj: ThumbView, context: Gdk.DragContext) => void)): number
-    connect_after(sigName: "drag-end", callback: (($obj: ThumbView, context: Gdk.DragContext) => void)): number
+    on(sigName: "drag-end", callback: (context: Gdk.DragContext) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "drag-end", callback: (context: Gdk.DragContext) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "drag-end", callback: (context: Gdk.DragContext) => void): NodeJS.EventEmitter
     emit(sigName: "drag-end", context: Gdk.DragContext): void
-    on(sigName: "drag-end", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "drag-end", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "drag-end", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "drag-failed", callback: (($obj: ThumbView, context: Gdk.DragContext, result: Gtk.DragResult) => boolean)): number
-    connect_after(sigName: "drag-failed", callback: (($obj: ThumbView, context: Gdk.DragContext, result: Gtk.DragResult) => boolean)): number
+    on(sigName: "drag-failed", callback: (context: Gdk.DragContext, result: Gtk.DragResult) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "drag-failed", callback: (context: Gdk.DragContext, result: Gtk.DragResult) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "drag-failed", callback: (context: Gdk.DragContext, result: Gtk.DragResult) => void): NodeJS.EventEmitter
     emit(sigName: "drag-failed", context: Gdk.DragContext, result: Gtk.DragResult): void
-    on(sigName: "drag-failed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "drag-failed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "drag-failed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "drag-leave", callback: (($obj: ThumbView, context: Gdk.DragContext, time: number) => void)): number
-    connect_after(sigName: "drag-leave", callback: (($obj: ThumbView, context: Gdk.DragContext, time: number) => void)): number
+    on(sigName: "drag-leave", callback: (context: Gdk.DragContext, time: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "drag-leave", callback: (context: Gdk.DragContext, time: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "drag-leave", callback: (context: Gdk.DragContext, time: number) => void): NodeJS.EventEmitter
     emit(sigName: "drag-leave", context: Gdk.DragContext, time: number): void
-    on(sigName: "drag-leave", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "drag-leave", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "drag-leave", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "drag-motion", callback: (($obj: ThumbView, context: Gdk.DragContext, x: number, y: number, time: number) => boolean)): number
-    connect_after(sigName: "drag-motion", callback: (($obj: ThumbView, context: Gdk.DragContext, x: number, y: number, time: number) => boolean)): number
+    on(sigName: "drag-motion", callback: (context: Gdk.DragContext, x: number, y: number, time: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "drag-motion", callback: (context: Gdk.DragContext, x: number, y: number, time: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "drag-motion", callback: (context: Gdk.DragContext, x: number, y: number, time: number) => void): NodeJS.EventEmitter
     emit(sigName: "drag-motion", context: Gdk.DragContext, x: number, y: number, time: number): void
-    on(sigName: "drag-motion", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "drag-motion", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "drag-motion", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "draw", callback: (($obj: ThumbView, cr: cairo.Context) => boolean)): number
-    connect_after(sigName: "draw", callback: (($obj: ThumbView, cr: cairo.Context) => boolean)): number
+    on(sigName: "draw", callback: (cr: cairo.Context) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "draw", callback: (cr: cairo.Context) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "draw", callback: (cr: cairo.Context) => void): NodeJS.EventEmitter
     emit(sigName: "draw", cr: cairo.Context): void
-    on(sigName: "draw", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "draw", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "draw", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "enter-notify-event", callback: (($obj: ThumbView, event: Gdk.EventCrossing) => boolean)): number
-    connect_after(sigName: "enter-notify-event", callback: (($obj: ThumbView, event: Gdk.EventCrossing) => boolean)): number
+    on(sigName: "enter-notify-event", callback: (event: Gdk.EventCrossing) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "enter-notify-event", callback: (event: Gdk.EventCrossing) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "enter-notify-event", callback: (event: Gdk.EventCrossing) => void): NodeJS.EventEmitter
     emit(sigName: "enter-notify-event", event: Gdk.EventCrossing): void
-    on(sigName: "enter-notify-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "enter-notify-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "enter-notify-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "event", callback: (($obj: ThumbView, event: Gdk.Event) => boolean)): number
-    connect_after(sigName: "event", callback: (($obj: ThumbView, event: Gdk.Event) => boolean)): number
+    on(sigName: "event", callback: (event: Gdk.Event) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "event", callback: (event: Gdk.Event) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "event", callback: (event: Gdk.Event) => void): NodeJS.EventEmitter
     emit(sigName: "event", event: Gdk.Event): void
-    on(sigName: "event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "event-after", callback: (($obj: ThumbView, event: Gdk.Event) => void)): number
-    connect_after(sigName: "event-after", callback: (($obj: ThumbView, event: Gdk.Event) => void)): number
+    on(sigName: "event-after", callback: (event: Gdk.Event) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "event-after", callback: (event: Gdk.Event) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "event-after", callback: (event: Gdk.Event) => void): NodeJS.EventEmitter
     emit(sigName: "event-after", event: Gdk.Event): void
-    on(sigName: "event-after", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "event-after", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "event-after", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "focus", callback: (($obj: ThumbView, direction: Gtk.DirectionType) => boolean)): number
-    connect_after(sigName: "focus", callback: (($obj: ThumbView, direction: Gtk.DirectionType) => boolean)): number
+    on(sigName: "focus", callback: (direction: Gtk.DirectionType) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "focus", callback: (direction: Gtk.DirectionType) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "focus", callback: (direction: Gtk.DirectionType) => void): NodeJS.EventEmitter
     emit(sigName: "focus", direction: Gtk.DirectionType): void
-    on(sigName: "focus", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "focus", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "focus", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "focus-in-event", callback: (($obj: ThumbView, event: Gdk.EventFocus) => boolean)): number
-    connect_after(sigName: "focus-in-event", callback: (($obj: ThumbView, event: Gdk.EventFocus) => boolean)): number
+    on(sigName: "focus-in-event", callback: (event: Gdk.EventFocus) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "focus-in-event", callback: (event: Gdk.EventFocus) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "focus-in-event", callback: (event: Gdk.EventFocus) => void): NodeJS.EventEmitter
     emit(sigName: "focus-in-event", event: Gdk.EventFocus): void
-    on(sigName: "focus-in-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "focus-in-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "focus-in-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "focus-out-event", callback: (($obj: ThumbView, event: Gdk.EventFocus) => boolean)): number
-    connect_after(sigName: "focus-out-event", callback: (($obj: ThumbView, event: Gdk.EventFocus) => boolean)): number
+    on(sigName: "focus-out-event", callback: (event: Gdk.EventFocus) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "focus-out-event", callback: (event: Gdk.EventFocus) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "focus-out-event", callback: (event: Gdk.EventFocus) => void): NodeJS.EventEmitter
     emit(sigName: "focus-out-event", event: Gdk.EventFocus): void
-    on(sigName: "focus-out-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "focus-out-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "focus-out-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "grab-broken-event", callback: (($obj: ThumbView, event: Gdk.EventGrabBroken) => boolean)): number
-    connect_after(sigName: "grab-broken-event", callback: (($obj: ThumbView, event: Gdk.EventGrabBroken) => boolean)): number
+    on(sigName: "grab-broken-event", callback: (event: Gdk.EventGrabBroken) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "grab-broken-event", callback: (event: Gdk.EventGrabBroken) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "grab-broken-event", callback: (event: Gdk.EventGrabBroken) => void): NodeJS.EventEmitter
     emit(sigName: "grab-broken-event", event: Gdk.EventGrabBroken): void
-    on(sigName: "grab-broken-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "grab-broken-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "grab-broken-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "grab-focus", callback: (($obj: ThumbView) => void)): number
-    connect_after(sigName: "grab-focus", callback: (($obj: ThumbView) => void)): number
+    on(sigName: "grab-focus", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "grab-focus", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "grab-focus", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "grab-focus"): void
-    on(sigName: "grab-focus", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "grab-focus", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "grab-focus", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "grab-notify", callback: (($obj: ThumbView, wasGrabbed: boolean) => void)): number
-    connect_after(sigName: "grab-notify", callback: (($obj: ThumbView, wasGrabbed: boolean) => void)): number
+    on(sigName: "grab-notify", callback: (wasGrabbed: boolean) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "grab-notify", callback: (wasGrabbed: boolean) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "grab-notify", callback: (wasGrabbed: boolean) => void): NodeJS.EventEmitter
     emit(sigName: "grab-notify", wasGrabbed: boolean): void
-    on(sigName: "grab-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "grab-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "grab-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "hide", callback: (($obj: ThumbView) => void)): number
-    connect_after(sigName: "hide", callback: (($obj: ThumbView) => void)): number
+    on(sigName: "hide", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "hide", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "hide", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "hide"): void
-    on(sigName: "hide", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "hide", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "hide", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "hierarchy-changed", callback: (($obj: ThumbView, previousToplevel?: Gtk.Widget | null) => void)): number
-    connect_after(sigName: "hierarchy-changed", callback: (($obj: ThumbView, previousToplevel?: Gtk.Widget | null) => void)): number
+    on(sigName: "hierarchy-changed", callback: (previousToplevel?: Gtk.Widget | null) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "hierarchy-changed", callback: (previousToplevel?: Gtk.Widget | null) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "hierarchy-changed", callback: (previousToplevel?: Gtk.Widget | null) => void): NodeJS.EventEmitter
     emit(sigName: "hierarchy-changed", previousToplevel?: Gtk.Widget | null): void
-    on(sigName: "hierarchy-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "hierarchy-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "hierarchy-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "key-press-event", callback: (($obj: ThumbView, event: Gdk.EventKey) => boolean)): number
-    connect_after(sigName: "key-press-event", callback: (($obj: ThumbView, event: Gdk.EventKey) => boolean)): number
+    on(sigName: "key-press-event", callback: (event: Gdk.EventKey) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "key-press-event", callback: (event: Gdk.EventKey) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "key-press-event", callback: (event: Gdk.EventKey) => void): NodeJS.EventEmitter
     emit(sigName: "key-press-event", event: Gdk.EventKey): void
-    on(sigName: "key-press-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "key-press-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "key-press-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "key-release-event", callback: (($obj: ThumbView, event: Gdk.EventKey) => boolean)): number
-    connect_after(sigName: "key-release-event", callback: (($obj: ThumbView, event: Gdk.EventKey) => boolean)): number
+    on(sigName: "key-release-event", callback: (event: Gdk.EventKey) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "key-release-event", callback: (event: Gdk.EventKey) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "key-release-event", callback: (event: Gdk.EventKey) => void): NodeJS.EventEmitter
     emit(sigName: "key-release-event", event: Gdk.EventKey): void
-    on(sigName: "key-release-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "key-release-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "key-release-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "keynav-failed", callback: (($obj: ThumbView, direction: Gtk.DirectionType) => boolean)): number
-    connect_after(sigName: "keynav-failed", callback: (($obj: ThumbView, direction: Gtk.DirectionType) => boolean)): number
+    on(sigName: "keynav-failed", callback: (direction: Gtk.DirectionType) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "keynav-failed", callback: (direction: Gtk.DirectionType) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "keynav-failed", callback: (direction: Gtk.DirectionType) => void): NodeJS.EventEmitter
     emit(sigName: "keynav-failed", direction: Gtk.DirectionType): void
-    on(sigName: "keynav-failed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "keynav-failed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "keynav-failed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "leave-notify-event", callback: (($obj: ThumbView, event: Gdk.EventCrossing) => boolean)): number
-    connect_after(sigName: "leave-notify-event", callback: (($obj: ThumbView, event: Gdk.EventCrossing) => boolean)): number
+    on(sigName: "leave-notify-event", callback: (event: Gdk.EventCrossing) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "leave-notify-event", callback: (event: Gdk.EventCrossing) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "leave-notify-event", callback: (event: Gdk.EventCrossing) => void): NodeJS.EventEmitter
     emit(sigName: "leave-notify-event", event: Gdk.EventCrossing): void
-    on(sigName: "leave-notify-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "leave-notify-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "leave-notify-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "map", callback: (($obj: ThumbView) => void)): number
-    connect_after(sigName: "map", callback: (($obj: ThumbView) => void)): number
+    on(sigName: "map", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "map", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "map", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "map"): void
-    on(sigName: "map", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "map", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "map", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "map-event", callback: (($obj: ThumbView, event: Gdk.EventAny) => boolean)): number
-    connect_after(sigName: "map-event", callback: (($obj: ThumbView, event: Gdk.EventAny) => boolean)): number
+    on(sigName: "map-event", callback: (event: Gdk.EventAny) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "map-event", callback: (event: Gdk.EventAny) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "map-event", callback: (event: Gdk.EventAny) => void): NodeJS.EventEmitter
     emit(sigName: "map-event", event: Gdk.EventAny): void
-    on(sigName: "map-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "map-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "map-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "mnemonic-activate", callback: (($obj: ThumbView, groupCycling: boolean) => boolean)): number
-    connect_after(sigName: "mnemonic-activate", callback: (($obj: ThumbView, groupCycling: boolean) => boolean)): number
+    on(sigName: "mnemonic-activate", callback: (groupCycling: boolean) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "mnemonic-activate", callback: (groupCycling: boolean) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "mnemonic-activate", callback: (groupCycling: boolean) => void): NodeJS.EventEmitter
     emit(sigName: "mnemonic-activate", groupCycling: boolean): void
-    on(sigName: "mnemonic-activate", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "mnemonic-activate", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "mnemonic-activate", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "motion-notify-event", callback: (($obj: ThumbView, event: Gdk.EventMotion) => boolean)): number
-    connect_after(sigName: "motion-notify-event", callback: (($obj: ThumbView, event: Gdk.EventMotion) => boolean)): number
+    on(sigName: "motion-notify-event", callback: (event: Gdk.EventMotion) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "motion-notify-event", callback: (event: Gdk.EventMotion) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "motion-notify-event", callback: (event: Gdk.EventMotion) => void): NodeJS.EventEmitter
     emit(sigName: "motion-notify-event", event: Gdk.EventMotion): void
-    on(sigName: "motion-notify-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "motion-notify-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "motion-notify-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "move-focus", callback: (($obj: ThumbView, direction: Gtk.DirectionType) => void)): number
-    connect_after(sigName: "move-focus", callback: (($obj: ThumbView, direction: Gtk.DirectionType) => void)): number
+    on(sigName: "move-focus", callback: (direction: Gtk.DirectionType) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "move-focus", callback: (direction: Gtk.DirectionType) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "move-focus", callback: (direction: Gtk.DirectionType) => void): NodeJS.EventEmitter
     emit(sigName: "move-focus", direction: Gtk.DirectionType): void
-    on(sigName: "move-focus", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "move-focus", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "move-focus", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "parent-set", callback: (($obj: ThumbView, oldParent?: Gtk.Widget | null) => void)): number
-    connect_after(sigName: "parent-set", callback: (($obj: ThumbView, oldParent?: Gtk.Widget | null) => void)): number
+    on(sigName: "parent-set", callback: (oldParent?: Gtk.Widget | null) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "parent-set", callback: (oldParent?: Gtk.Widget | null) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "parent-set", callback: (oldParent?: Gtk.Widget | null) => void): NodeJS.EventEmitter
     emit(sigName: "parent-set", oldParent?: Gtk.Widget | null): void
-    on(sigName: "parent-set", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "parent-set", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "parent-set", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "popup-menu", callback: (($obj: ThumbView) => boolean)): number
-    connect_after(sigName: "popup-menu", callback: (($obj: ThumbView) => boolean)): number
+    on(sigName: "popup-menu", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "popup-menu", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "popup-menu", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "popup-menu"): void
-    on(sigName: "popup-menu", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "popup-menu", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "popup-menu", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "property-notify-event", callback: (($obj: ThumbView, event: Gdk.EventProperty) => boolean)): number
-    connect_after(sigName: "property-notify-event", callback: (($obj: ThumbView, event: Gdk.EventProperty) => boolean)): number
+    on(sigName: "property-notify-event", callback: (event: Gdk.EventProperty) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "property-notify-event", callback: (event: Gdk.EventProperty) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "property-notify-event", callback: (event: Gdk.EventProperty) => void): NodeJS.EventEmitter
     emit(sigName: "property-notify-event", event: Gdk.EventProperty): void
-    on(sigName: "property-notify-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "property-notify-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "property-notify-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "proximity-in-event", callback: (($obj: ThumbView, event: Gdk.EventProximity) => boolean)): number
-    connect_after(sigName: "proximity-in-event", callback: (($obj: ThumbView, event: Gdk.EventProximity) => boolean)): number
+    on(sigName: "proximity-in-event", callback: (event: Gdk.EventProximity) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "proximity-in-event", callback: (event: Gdk.EventProximity) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "proximity-in-event", callback: (event: Gdk.EventProximity) => void): NodeJS.EventEmitter
     emit(sigName: "proximity-in-event", event: Gdk.EventProximity): void
-    on(sigName: "proximity-in-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "proximity-in-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "proximity-in-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "proximity-out-event", callback: (($obj: ThumbView, event: Gdk.EventProximity) => boolean)): number
-    connect_after(sigName: "proximity-out-event", callback: (($obj: ThumbView, event: Gdk.EventProximity) => boolean)): number
+    on(sigName: "proximity-out-event", callback: (event: Gdk.EventProximity) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "proximity-out-event", callback: (event: Gdk.EventProximity) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "proximity-out-event", callback: (event: Gdk.EventProximity) => void): NodeJS.EventEmitter
     emit(sigName: "proximity-out-event", event: Gdk.EventProximity): void
-    on(sigName: "proximity-out-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "proximity-out-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "proximity-out-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "query-tooltip", callback: (($obj: ThumbView, x: number, y: number, keyboardMode: boolean, tooltip: Gtk.Tooltip) => boolean)): number
-    connect_after(sigName: "query-tooltip", callback: (($obj: ThumbView, x: number, y: number, keyboardMode: boolean, tooltip: Gtk.Tooltip) => boolean)): number
+    on(sigName: "query-tooltip", callback: (x: number, y: number, keyboardMode: boolean, tooltip: Gtk.Tooltip) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "query-tooltip", callback: (x: number, y: number, keyboardMode: boolean, tooltip: Gtk.Tooltip) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "query-tooltip", callback: (x: number, y: number, keyboardMode: boolean, tooltip: Gtk.Tooltip) => void): NodeJS.EventEmitter
     emit(sigName: "query-tooltip", x: number, y: number, keyboardMode: boolean, tooltip: Gtk.Tooltip): void
-    on(sigName: "query-tooltip", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "query-tooltip", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "query-tooltip", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "realize", callback: (($obj: ThumbView) => void)): number
-    connect_after(sigName: "realize", callback: (($obj: ThumbView) => void)): number
+    on(sigName: "realize", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "realize", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "realize", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "realize"): void
-    on(sigName: "realize", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "realize", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "realize", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "screen-changed", callback: (($obj: ThumbView, previousScreen?: Gdk.Screen | null) => void)): number
-    connect_after(sigName: "screen-changed", callback: (($obj: ThumbView, previousScreen?: Gdk.Screen | null) => void)): number
+    on(sigName: "screen-changed", callback: (previousScreen?: Gdk.Screen | null) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "screen-changed", callback: (previousScreen?: Gdk.Screen | null) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "screen-changed", callback: (previousScreen?: Gdk.Screen | null) => void): NodeJS.EventEmitter
     emit(sigName: "screen-changed", previousScreen?: Gdk.Screen | null): void
-    on(sigName: "screen-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "screen-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "screen-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "scroll-event", callback: (($obj: ThumbView, event: Gdk.EventScroll) => boolean)): number
-    connect_after(sigName: "scroll-event", callback: (($obj: ThumbView, event: Gdk.EventScroll) => boolean)): number
+    on(sigName: "scroll-event", callback: (event: Gdk.EventScroll) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "scroll-event", callback: (event: Gdk.EventScroll) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "scroll-event", callback: (event: Gdk.EventScroll) => void): NodeJS.EventEmitter
     emit(sigName: "scroll-event", event: Gdk.EventScroll): void
-    on(sigName: "scroll-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "scroll-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "scroll-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "selection-clear-event", callback: (($obj: ThumbView, event: Gdk.EventSelection) => boolean)): number
-    connect_after(sigName: "selection-clear-event", callback: (($obj: ThumbView, event: Gdk.EventSelection) => boolean)): number
+    on(sigName: "selection-clear-event", callback: (event: Gdk.EventSelection) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "selection-clear-event", callback: (event: Gdk.EventSelection) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "selection-clear-event", callback: (event: Gdk.EventSelection) => void): NodeJS.EventEmitter
     emit(sigName: "selection-clear-event", event: Gdk.EventSelection): void
-    on(sigName: "selection-clear-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "selection-clear-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "selection-clear-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "selection-get", callback: (($obj: ThumbView, data: Gtk.SelectionData, info: number, time: number) => void)): number
-    connect_after(sigName: "selection-get", callback: (($obj: ThumbView, data: Gtk.SelectionData, info: number, time: number) => void)): number
+    on(sigName: "selection-get", callback: (data: Gtk.SelectionData, info: number, time: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "selection-get", callback: (data: Gtk.SelectionData, info: number, time: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "selection-get", callback: (data: Gtk.SelectionData, info: number, time: number) => void): NodeJS.EventEmitter
     emit(sigName: "selection-get", data: Gtk.SelectionData, info: number, time: number): void
-    on(sigName: "selection-get", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "selection-get", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "selection-get", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "selection-notify-event", callback: (($obj: ThumbView, event: Gdk.EventSelection) => boolean)): number
-    connect_after(sigName: "selection-notify-event", callback: (($obj: ThumbView, event: Gdk.EventSelection) => boolean)): number
+    on(sigName: "selection-notify-event", callback: (event: Gdk.EventSelection) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "selection-notify-event", callback: (event: Gdk.EventSelection) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "selection-notify-event", callback: (event: Gdk.EventSelection) => void): NodeJS.EventEmitter
     emit(sigName: "selection-notify-event", event: Gdk.EventSelection): void
-    on(sigName: "selection-notify-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "selection-notify-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "selection-notify-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "selection-received", callback: (($obj: ThumbView, data: Gtk.SelectionData, time: number) => void)): number
-    connect_after(sigName: "selection-received", callback: (($obj: ThumbView, data: Gtk.SelectionData, time: number) => void)): number
+    on(sigName: "selection-received", callback: (data: Gtk.SelectionData, time: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "selection-received", callback: (data: Gtk.SelectionData, time: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "selection-received", callback: (data: Gtk.SelectionData, time: number) => void): NodeJS.EventEmitter
     emit(sigName: "selection-received", data: Gtk.SelectionData, time: number): void
-    on(sigName: "selection-received", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "selection-received", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "selection-received", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "selection-request-event", callback: (($obj: ThumbView, event: Gdk.EventSelection) => boolean)): number
-    connect_after(sigName: "selection-request-event", callback: (($obj: ThumbView, event: Gdk.EventSelection) => boolean)): number
+    on(sigName: "selection-request-event", callback: (event: Gdk.EventSelection) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "selection-request-event", callback: (event: Gdk.EventSelection) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "selection-request-event", callback: (event: Gdk.EventSelection) => void): NodeJS.EventEmitter
     emit(sigName: "selection-request-event", event: Gdk.EventSelection): void
-    on(sigName: "selection-request-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "selection-request-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "selection-request-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "show", callback: (($obj: ThumbView) => void)): number
-    connect_after(sigName: "show", callback: (($obj: ThumbView) => void)): number
+    on(sigName: "show", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "show", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "show", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "show"): void
-    on(sigName: "show", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "show", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "show", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "show-help", callback: (($obj: ThumbView, helpType: Gtk.WidgetHelpType) => boolean)): number
-    connect_after(sigName: "show-help", callback: (($obj: ThumbView, helpType: Gtk.WidgetHelpType) => boolean)): number
+    on(sigName: "show-help", callback: (helpType: Gtk.WidgetHelpType) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "show-help", callback: (helpType: Gtk.WidgetHelpType) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "show-help", callback: (helpType: Gtk.WidgetHelpType) => void): NodeJS.EventEmitter
     emit(sigName: "show-help", helpType: Gtk.WidgetHelpType): void
-    on(sigName: "show-help", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "show-help", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "show-help", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "size-allocate", callback: (($obj: ThumbView, allocation: Gtk.Allocation) => void)): number
-    connect_after(sigName: "size-allocate", callback: (($obj: ThumbView, allocation: Gtk.Allocation) => void)): number
+    on(sigName: "size-allocate", callback: (allocation: Gtk.Allocation) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "size-allocate", callback: (allocation: Gtk.Allocation) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "size-allocate", callback: (allocation: Gtk.Allocation) => void): NodeJS.EventEmitter
     emit(sigName: "size-allocate", allocation: Gtk.Allocation): void
-    on(sigName: "size-allocate", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "size-allocate", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "size-allocate", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "state-changed", callback: (($obj: ThumbView, state: Gtk.StateType) => void)): number
-    connect_after(sigName: "state-changed", callback: (($obj: ThumbView, state: Gtk.StateType) => void)): number
+    on(sigName: "state-changed", callback: (state: Gtk.StateType) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "state-changed", callback: (state: Gtk.StateType) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "state-changed", callback: (state: Gtk.StateType) => void): NodeJS.EventEmitter
     emit(sigName: "state-changed", state: Gtk.StateType): void
-    on(sigName: "state-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "state-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "state-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "state-flags-changed", callback: (($obj: ThumbView, flags: Gtk.StateFlags) => void)): number
-    connect_after(sigName: "state-flags-changed", callback: (($obj: ThumbView, flags: Gtk.StateFlags) => void)): number
+    on(sigName: "state-flags-changed", callback: (flags: Gtk.StateFlags) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "state-flags-changed", callback: (flags: Gtk.StateFlags) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "state-flags-changed", callback: (flags: Gtk.StateFlags) => void): NodeJS.EventEmitter
     emit(sigName: "state-flags-changed", flags: Gtk.StateFlags): void
-    on(sigName: "state-flags-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "state-flags-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "state-flags-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "style-set", callback: (($obj: ThumbView, previousStyle?: Gtk.Style | null) => void)): number
-    connect_after(sigName: "style-set", callback: (($obj: ThumbView, previousStyle?: Gtk.Style | null) => void)): number
+    on(sigName: "style-set", callback: (previousStyle?: Gtk.Style | null) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "style-set", callback: (previousStyle?: Gtk.Style | null) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "style-set", callback: (previousStyle?: Gtk.Style | null) => void): NodeJS.EventEmitter
     emit(sigName: "style-set", previousStyle?: Gtk.Style | null): void
-    on(sigName: "style-set", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "style-set", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "style-set", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "style-updated", callback: (($obj: ThumbView) => void)): number
-    connect_after(sigName: "style-updated", callback: (($obj: ThumbView) => void)): number
+    on(sigName: "style-updated", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "style-updated", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "style-updated", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "style-updated"): void
-    on(sigName: "style-updated", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "style-updated", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "style-updated", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "touch-event", callback: (($obj: ThumbView, object: Gdk.Event) => boolean)): number
-    connect_after(sigName: "touch-event", callback: (($obj: ThumbView, object: Gdk.Event) => boolean)): number
+    on(sigName: "touch-event", callback: (object: Gdk.Event) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "touch-event", callback: (object: Gdk.Event) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "touch-event", callback: (object: Gdk.Event) => void): NodeJS.EventEmitter
     emit(sigName: "touch-event", object: Gdk.Event): void
-    on(sigName: "touch-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "touch-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "touch-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "unmap", callback: (($obj: ThumbView) => void)): number
-    connect_after(sigName: "unmap", callback: (($obj: ThumbView) => void)): number
+    on(sigName: "unmap", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "unmap", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "unmap", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "unmap"): void
-    on(sigName: "unmap", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "unmap", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "unmap", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "unmap-event", callback: (($obj: ThumbView, event: Gdk.EventAny) => boolean)): number
-    connect_after(sigName: "unmap-event", callback: (($obj: ThumbView, event: Gdk.EventAny) => boolean)): number
+    on(sigName: "unmap-event", callback: (event: Gdk.EventAny) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "unmap-event", callback: (event: Gdk.EventAny) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "unmap-event", callback: (event: Gdk.EventAny) => void): NodeJS.EventEmitter
     emit(sigName: "unmap-event", event: Gdk.EventAny): void
-    on(sigName: "unmap-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "unmap-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "unmap-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "unrealize", callback: (($obj: ThumbView) => void)): number
-    connect_after(sigName: "unrealize", callback: (($obj: ThumbView) => void)): number
+    on(sigName: "unrealize", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "unrealize", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "unrealize", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "unrealize"): void
-    on(sigName: "unrealize", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "unrealize", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "unrealize", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "visibility-notify-event", callback: (($obj: ThumbView, event: Gdk.EventVisibility) => boolean)): number
-    connect_after(sigName: "visibility-notify-event", callback: (($obj: ThumbView, event: Gdk.EventVisibility) => boolean)): number
+    on(sigName: "visibility-notify-event", callback: (event: Gdk.EventVisibility) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "visibility-notify-event", callback: (event: Gdk.EventVisibility) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "visibility-notify-event", callback: (event: Gdk.EventVisibility) => void): NodeJS.EventEmitter
     emit(sigName: "visibility-notify-event", event: Gdk.EventVisibility): void
-    on(sigName: "visibility-notify-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "visibility-notify-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "visibility-notify-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "window-state-event", callback: (($obj: ThumbView, event: Gdk.EventWindowState) => boolean)): number
-    connect_after(sigName: "window-state-event", callback: (($obj: ThumbView, event: Gdk.EventWindowState) => boolean)): number
+    on(sigName: "window-state-event", callback: (event: Gdk.EventWindowState) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "window-state-event", callback: (event: Gdk.EventWindowState) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "window-state-event", callback: (event: Gdk.EventWindowState) => void): NodeJS.EventEmitter
     emit(sigName: "window-state-event", event: Gdk.EventWindowState): void
-    on(sigName: "window-state-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "window-state-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "window-state-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: ThumbView, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: ThumbView, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::activate-on-single-click", callback: (($obj: ThumbView, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::activate-on-single-click", callback: (($obj: ThumbView, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::activate-on-single-click", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -11573,19 +9886,19 @@ export class ThumbView {
 export interface Transform_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class Transform {
-    /* Fields of Eog.Transform */
+    /* Fields of Eog-3.0.Eog.Transform */
     parent: GObject.Object
     priv: TransformPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Eog.Transform */
+    /* Methods of Eog-3.0.Eog.Transform */
     apply(pixbuf: GdkPixbuf.Pixbuf, job: Job): GdkPixbuf.Pixbuf
     compose(compose: Transform): Transform
     getAffine(affine: cairo.Matrix): boolean
     getTransformType(): TransformType
     isIdentity(): boolean
     reverse(): Transform
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -11607,21 +9920,12 @@ export class Transform {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Transform, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Transform, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -11647,23 +9951,23 @@ export interface URIConverter_ConstructProps extends GObject.Object_ConstructPro
     spaceCharacter?: number
 }
 export class URIConverter {
-    /* Properties of Eog.URIConverter */
+    /* Properties of Eog-3.0.Eog.URIConverter */
     convertSpaces: boolean
     counterNDigits: number
     counterStart: number
     nImages: number
     spaceCharacter: number
-    /* Fields of Eog.URIConverter */
+    /* Fields of Eog-3.0.Eog.URIConverter */
     parent: GObject.Object
     priv: URIConverterPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Eog.URIConverter */
+    /* Methods of Eog-3.0.Eog.URIConverter */
     check(imgList: Gio.File[]): boolean
     do(image: Image, file: Gio.File, format: GdkPixbuf.PixbufFormat): boolean
     printList(): void
     requiresExif(): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -11685,21 +9989,12 @@ export class URIConverter {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: URIConverter, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: URIConverter, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::convert-spaces", callback: (($obj: URIConverter, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::convert-spaces", callback: (($obj: URIConverter, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::convert-spaces", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -11746,12 +10041,12 @@ export interface Window_ConstructProps extends Gtk.ApplicationWindow_ConstructPr
     startupFlags?: StartupFlags
 }
 export class Window {
-    /* Properties of Eog.Window */
+    /* Properties of Eog-3.0.Eog.Window */
     galleryPosition: WindowGalleryPos
     galleryResizable: boolean
-    /* Properties of Gtk.ApplicationWindow */
+    /* Properties of Gtk-3.0.Gtk.ApplicationWindow */
     showMenubar: boolean
-    /* Properties of Gtk.Window */
+    /* Properties of Gtk-3.0.Gtk.Window */
     acceptFocus: boolean
     application: Gtk.Application
     attachedTo: Gtk.Widget
@@ -11784,11 +10079,11 @@ export class Window {
     typeHint: Gdk.WindowTypeHint
     urgencyHint: boolean
     windowPosition: Gtk.WindowPosition
-    /* Properties of Gtk.Container */
+    /* Properties of Gtk-3.0.Gtk.Container */
     borderWidth: number
     child: Gtk.Widget
     resizeMode: Gtk.ResizeMode
-    /* Properties of Gtk.Widget */
+    /* Properties of Gtk-3.0.Gtk.Widget */
     appPaintable: boolean
     canDefault: boolean
     canFocus: boolean
@@ -11828,20 +10123,20 @@ export class Window {
     visible: boolean
     widthRequest: number
     readonly window: Gdk.Window
-    /* Fields of Eog.Window */
+    /* Fields of Eog-3.0.Eog.Window */
     win: Gtk.ApplicationWindow
     priv: WindowPrivate
-    /* Fields of Gtk.ApplicationWindow */
+    /* Fields of Gtk-3.0.Gtk.ApplicationWindow */
     parentInstance: Gtk.Window
-    /* Fields of Gtk.Window */
+    /* Fields of Gtk-3.0.Gtk.Window */
     bin: Gtk.Bin
-    /* Fields of Gtk.Bin */
+    /* Fields of Gtk-3.0.Gtk.Bin */
     container: Gtk.Container
-    /* Fields of Gtk.Container */
+    /* Fields of Gtk-3.0.Gtk.Container */
     widget: Gtk.Widget
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Eog.Window */
+    /* Methods of Eog-3.0.Eog.Window */
     close(): void
     getGearMenuSection(id: string): Gio.Menu
     getImage(): Image
@@ -11860,13 +10155,13 @@ export class Window {
     setMode(mode: WindowMode): void
     showAboutDialog(): void
     showPreferencesDialog(): void
-    /* Methods of Gtk.ApplicationWindow */
+    /* Methods of Gtk-3.0.Gtk.ApplicationWindow */
     getHelpOverlay(): Gtk.ShortcutsWindow | null
     getId(): number
     getShowMenubar(): boolean
     setHelpOverlay(helpOverlay?: Gtk.ShortcutsWindow | null): void
     setShowMenubar(showMenubar: boolean): void
-    /* Methods of Gtk.Window */
+    /* Methods of Gtk-3.0.Gtk.Window */
     activateDefault(): boolean
     activateFocus(): boolean
     activateKey(event: Gdk.EventKey): boolean
@@ -11881,7 +10176,7 @@ export class Window {
     getApplication(): Gtk.Application | null
     getAttachedTo(): Gtk.Widget | null
     getDecorated(): boolean
-    getDefaultSize(): [ /* width */ number | null, /* height */ number | null ]
+    getDefaultSize(): { width: number | null, height: number | null }
     getDefaultWidget(): Gtk.Widget | null
     getDeletable(): boolean
     getDestroyWithParent(): boolean
@@ -11899,12 +10194,12 @@ export class Window {
     getMnemonicsVisible(): boolean
     getModal(): boolean
     getOpacity(): number
-    getPosition(): [ /* rootX */ number | null, /* rootY */ number | null ]
+    getPosition(): { rootX: number | null, rootY: number | null }
     getResizable(): boolean
-    getResizeGripArea(): [ /* returnType */ boolean, /* rect */ Gdk.Rectangle ]
+    getResizeGripArea(): { returnType: boolean, rect: Gdk.Rectangle }
     getRole(): string | null
     getScreen(): Gdk.Screen
-    getSize(): [ /* width */ number | null, /* height */ number | null ]
+    getSize(): { width: number | null, height: number | null }
     getSkipPagerHint(): boolean
     getSkipTaskbarHint(): boolean
     getTitle(): string | null
@@ -11972,9 +10267,9 @@ export class Window {
     unfullscreen(): void
     unmaximize(): void
     unstick(): void
-    /* Methods of Gtk.Bin */
+    /* Methods of Gtk-3.0.Gtk.Bin */
     getChild(): Gtk.Widget | null
-    /* Methods of Gtk.Container */
+    /* Methods of Gtk-3.0.Gtk.Container */
     add(widget: Gtk.Widget): void
     checkResize(): void
     childGetProperty(child: Gtk.Widget, propertyName: string, value: any): void
@@ -11985,7 +10280,7 @@ export class Window {
     foreach(callback: Gtk.Callback): void
     getBorderWidth(): number
     getChildren(): Gtk.Widget[]
-    getFocusChain(): [ /* returnType */ boolean, /* focusableWidgets */ Gtk.Widget[] ]
+    getFocusChain(): { returnType: boolean, focusableWidgets: Gtk.Widget[] }
     getFocusChild(): Gtk.Widget | null
     getFocusHadjustment(): Gtk.Adjustment | null
     getFocusVadjustment(): Gtk.Adjustment | null
@@ -12002,7 +10297,7 @@ export class Window {
     setReallocateRedraws(needsRedraws: boolean): void
     setResizeMode(resizeMode: Gtk.ResizeMode): void
     unsetFocusChain(): void
-    /* Methods of Gtk.Widget */
+    /* Methods of Gtk-3.0.Gtk.Widget */
     activate(): boolean
     addAccelerator(accelSignal: string, accelGroup: Gtk.AccelGroup, accelKey: number, accelMods: Gdk.ModifierType, accelFlags: Gtk.AccelFlags): void
     addDeviceEvents(device: Gdk.Device, events: Gdk.EventMask): void
@@ -12012,12 +10307,12 @@ export class Window {
     canActivateAccel(signalId: number): boolean
     childFocus(direction: Gtk.DirectionType): boolean
     childNotify(childProperty: string): void
-    classPath(): [ /* pathLength */ number | null, /* path */ string | null, /* pathReversed */ string | null ]
+    classPath(): { pathLength: number | null, path: string | null, pathReversed: string | null }
     computeExpand(orientation: Gtk.Orientation): boolean
     createPangoContext(): Pango.Context
     createPangoLayout(text?: string | null): Pango.Layout
     destroy(): void
-    destroyed(widgetPointer: Gtk.Widget): /* widgetPointer */ Gtk.Widget
+    destroyed(widgetPointer: Gtk.Widget): { widgetPointer: Gtk.Widget }
     deviceIsShadowed(device: Gdk.Device): boolean
     dragBegin(targets: Gtk.TargetList, actions: Gdk.DragAction, button: number, event?: Gdk.Event | null): Gdk.DragContext
     dragBeginWithCoordinates(targets: Gtk.TargetList, actions: Gdk.DragAction, button: number, event: Gdk.Event | null, x: number, y: number): Gdk.DragContext
@@ -12056,16 +10351,16 @@ export class Window {
     getActionGroup(prefix: string): Gio.ActionGroup | null
     getAllocatedBaseline(): number
     getAllocatedHeight(): number
-    getAllocatedSize(): [ /* allocation */ Gtk.Allocation, /* baseline */ number | null ]
+    getAllocatedSize(): { allocation: Gtk.Allocation, baseline: number | null }
     getAllocatedWidth(): number
-    getAllocation(): /* allocation */ Gtk.Allocation
+    getAllocation(): { allocation: Gtk.Allocation }
     getAncestor(widgetType: GObject.Type): Gtk.Widget | null
     getAppPaintable(): boolean
     getCanDefault(): boolean
     getCanFocus(): boolean
-    getChildRequisition(): /* requisition */ Gtk.Requisition
+    getChildRequisition(): { requisition: Gtk.Requisition }
     getChildVisible(): boolean
-    getClip(): /* clip */ Gtk.Allocation
+    getClip(): { clip: Gtk.Allocation }
     getClipboard(selection: Gdk.Atom): Gtk.Clipboard
     getCompositeName(): string
     getDeviceEnabled(device: Gdk.Device): boolean
@@ -12098,22 +10393,22 @@ export class Window {
     getParent(): Gtk.Widget | null
     getParentWindow(): Gdk.Window | null
     getPath(): Gtk.WidgetPath
-    getPointer(): [ /* x */ number | null, /* y */ number | null ]
-    getPreferredHeight(): [ /* minimumHeight */ number | null, /* naturalHeight */ number | null ]
-    getPreferredHeightAndBaselineForWidth(width: number): [ /* minimumHeight */ number | null, /* naturalHeight */ number | null, /* minimumBaseline */ number | null, /* naturalBaseline */ number | null ]
-    getPreferredHeightForWidth(width: number): [ /* minimumHeight */ number | null, /* naturalHeight */ number | null ]
-    getPreferredSize(): [ /* minimumSize */ Gtk.Requisition | null, /* naturalSize */ Gtk.Requisition | null ]
-    getPreferredWidth(): [ /* minimumWidth */ number | null, /* naturalWidth */ number | null ]
-    getPreferredWidthForHeight(height: number): [ /* minimumWidth */ number | null, /* naturalWidth */ number | null ]
+    getPointer(): { x: number | null, y: number | null }
+    getPreferredHeight(): { minimumHeight: number | null, naturalHeight: number | null }
+    getPreferredHeightAndBaselineForWidth(width: number): { minimumHeight: number | null, naturalHeight: number | null, minimumBaseline: number | null, naturalBaseline: number | null }
+    getPreferredHeightForWidth(width: number): { minimumHeight: number | null, naturalHeight: number | null }
+    getPreferredSize(): { minimumSize: Gtk.Requisition | null, naturalSize: Gtk.Requisition | null }
+    getPreferredWidth(): { minimumWidth: number | null, naturalWidth: number | null }
+    getPreferredWidthForHeight(height: number): { minimumWidth: number | null, naturalWidth: number | null }
     getRealized(): boolean
     getReceivesDefault(): boolean
     getRequestMode(): Gtk.SizeRequestMode
-    getRequisition(): /* requisition */ Gtk.Requisition
+    getRequisition(): { requisition: Gtk.Requisition }
     getRootWindow(): Gdk.Window
     getScaleFactor(): number
     getSensitive(): boolean
     getSettings(): Gtk.Settings
-    getSizeRequest(): [ /* width */ number | null, /* height */ number | null ]
+    getSizeRequest(): { width: number | null, height: number | null }
     getState(): Gtk.StateType
     getStateFlags(): Gtk.StateFlags
     getStyle(): Gtk.Style
@@ -12145,7 +10440,7 @@ export class Window {
     initTemplate(): void
     inputShapeCombineRegion(region?: cairo.Region | null): void
     insertActionGroup(name: string, group?: Gio.ActionGroup | null): void
-    intersect(area: Gdk.Rectangle): [ /* returnType */ boolean, /* intersection */ Gdk.Rectangle | null ]
+    intersect(area: Gdk.Rectangle): { returnType: boolean, intersection: Gdk.Rectangle | null }
     isAncestor(ancestor: Gtk.Widget): boolean
     isComposited(): boolean
     isDrawable(): boolean
@@ -12170,7 +10465,7 @@ export class Window {
     overrideCursor(cursor?: Gdk.RGBA | null, secondaryCursor?: Gdk.RGBA | null): void
     overrideFont(fontDesc?: Pango.FontDescription | null): void
     overrideSymbolicColor(name: string, color?: Gdk.RGBA | null): void
-    path(): [ /* pathLength */ number | null, /* path */ string | null, /* pathReversed */ string | null ]
+    path(): { pathLength: number | null, path: string | null, pathReversed: string | null }
     queueAllocate(): void
     queueComputeExpand(): void
     queueDraw(): void
@@ -12247,18 +10542,18 @@ export class Window {
     showNow(): void
     sizeAllocate(allocation: Gtk.Allocation): void
     sizeAllocateWithBaseline(allocation: Gtk.Allocation, baseline: number): void
-    sizeRequest(): /* requisition */ Gtk.Requisition
+    sizeRequest(): { requisition: Gtk.Requisition }
     styleAttach(): void
     styleGetProperty(propertyName: string, value: any): void
     thawChildNotify(): void
-    translateCoordinates(destWidget: Gtk.Widget, srcX: number, srcY: number): [ /* returnType */ boolean, /* destX */ number | null, /* destY */ number | null ]
+    translateCoordinates(destWidget: Gtk.Widget, srcX: number, srcY: number): { returnType: boolean, destX: number | null, destY: number | null }
     triggerTooltipQuery(): void
     unmap(): void
     unparent(): void
     unrealize(): void
     unregisterWindow(window: Gdk.Window): void
     unsetStateFlags(flags: Gtk.StateFlags): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -12280,7 +10575,7 @@ export class Window {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of Gio.ActionGroup */
+    /* Methods of Gio-2.0.Gio.ActionGroup */
     actionAdded(actionName: string): void
     actionEnabledChanged(actionName: string, enabled: boolean): void
     actionRemoved(actionName: string): void
@@ -12294,669 +10589,447 @@ export class Window {
     getActionStateType(actionName: string): GLib.VariantType | null
     hasAction(actionName: string): boolean
     listActions(): string[]
-    queryAction(actionName: string): [ /* returnType */ boolean, /* enabled */ boolean, /* parameterType */ GLib.VariantType | null, /* stateType */ GLib.VariantType | null, /* stateHint */ GLib.Variant | null, /* state */ GLib.Variant | null ]
-    /* Methods of Gio.ActionMap */
+    queryAction(actionName: string): { returnType: boolean, enabled: boolean, parameterType: GLib.VariantType | null, stateType: GLib.VariantType | null, stateHint: GLib.Variant | null, state: GLib.Variant | null }
+    /* Methods of Gio-2.0.Gio.ActionMap */
     addAction(action: Gio.Action): void
     addActionEntries(entries: Gio.ActionEntry[], userData?: object | null): void
     lookupAction(actionName: string): Gio.Action | null
     removeAction(actionName: string): void
-    /* Methods of Gtk.Buildable */
+    /* Methods of Gtk-3.0.Gtk.Buildable */
     addChild(builder: Gtk.Builder, child: GObject.Object, type?: string | null): void
     constructChild(builder: Gtk.Builder, name: string): GObject.Object
     customFinished(builder: Gtk.Builder, child: GObject.Object | null, tagname: string, data?: object | null): void
     customTagEnd(builder: Gtk.Builder, child: GObject.Object | null, tagname: string, data?: object | null): void
-    customTagStart(builder: Gtk.Builder, child: GObject.Object | null, tagname: string): [ /* returnType */ boolean, /* parser */ GLib.MarkupParser, /* data */ object | null ]
+    customTagStart(builder: Gtk.Builder, child: GObject.Object | null, tagname: string): { returnType: boolean, parser: GLib.MarkupParser, data: object | null }
     getInternalChild(builder: Gtk.Builder, childname: string): GObject.Object
     parserFinished(builder: Gtk.Builder): void
     setBuildableProperty(builder: Gtk.Builder, name: string, value: any): void
-    /* Virtual methods of Eog.Window */
-    vfuncPrepared(): void
-    vfuncAddChild(builder: Gtk.Builder, child: GObject.Object, type?: string | null): void
-    vfuncConstructChild(builder: Gtk.Builder, name: string): GObject.Object
-    vfuncCustomFinished(builder: Gtk.Builder, child: GObject.Object | null, tagname: string, data?: object | null): void
-    vfuncCustomTagEnd(builder: Gtk.Builder, child: GObject.Object | null, tagname: string, data?: object | null): void
-    vfuncCustomTagStart(builder: Gtk.Builder, child: GObject.Object | null, tagname: string): [ /* returnType */ boolean, /* parser */ GLib.MarkupParser, /* data */ object | null ]
-    vfuncGetInternalChild(builder: Gtk.Builder, childname: string): GObject.Object
-    vfuncGetName(): string
-    vfuncParserFinished(builder: Gtk.Builder): void
-    vfuncSetBuildableProperty(builder: Gtk.Builder, name: string, value: any): void
-    vfuncSetName(name: string): void
-    /* Virtual methods of Gtk.ApplicationWindow */
-    vfuncActionAdded(actionName: string): void
-    vfuncActionEnabledChanged(actionName: string, enabled: boolean): void
-    vfuncActionRemoved(actionName: string): void
-    vfuncActionStateChanged(actionName: string, state: GLib.Variant): void
-    vfuncActivateAction(actionName: string, parameter?: GLib.Variant | null): void
-    vfuncChangeActionState(actionName: string, value: GLib.Variant): void
-    vfuncGetActionEnabled(actionName: string): boolean
-    vfuncGetActionParameterType(actionName: string): GLib.VariantType | null
-    vfuncGetActionState(actionName: string): GLib.Variant | null
-    vfuncGetActionStateHint(actionName: string): GLib.Variant | null
-    vfuncGetActionStateType(actionName: string): GLib.VariantType | null
-    vfuncHasAction(actionName: string): boolean
-    vfuncListActions(): string[]
-    vfuncQueryAction(actionName: string): [ /* returnType */ boolean, /* enabled */ boolean, /* parameterType */ GLib.VariantType | null, /* stateType */ GLib.VariantType | null, /* stateHint */ GLib.Variant | null, /* state */ GLib.Variant | null ]
-    vfuncAddAction(action: Gio.Action): void
-    vfuncLookupAction(actionName: string): Gio.Action | null
-    vfuncRemoveAction(actionName: string): void
-    /* Virtual methods of Gtk.Window */
-    vfuncActivateDefault(): void
-    vfuncActivateFocus(): void
-    vfuncEnableDebugging(toggle: boolean): boolean
-    vfuncKeysChanged(): void
-    vfuncSetFocus(focus?: Gtk.Widget | null): void
-    /* Virtual methods of Gtk.Container */
-    vfuncAdd(widget: Gtk.Widget): void
-    vfuncCheckResize(): void
-    vfuncChildType(): GObject.Type
-    vfuncCompositeName(child: Gtk.Widget): string
-    vfuncForall(includeInternals: boolean, callback: Gtk.Callback): void
-    vfuncGetChildProperty(child: Gtk.Widget, propertyId: number, value: any, pspec: GObject.ParamSpec): void
-    vfuncGetPathForChild(child: Gtk.Widget): Gtk.WidgetPath
-    vfuncRemove(widget: Gtk.Widget): void
-    vfuncSetChildProperty(child: Gtk.Widget, propertyId: number, value: any, pspec: GObject.ParamSpec): void
-    vfuncSetFocusChild(child?: Gtk.Widget | null): void
-    /* Virtual methods of Gtk.Widget */
-    vfuncAdjustBaselineAllocation(baseline: number): void
-    vfuncAdjustBaselineRequest(minimumBaseline: number, naturalBaseline: number): void
-    vfuncAdjustSizeAllocation(orientation: Gtk.Orientation, minimumSize: number, naturalSize: number, allocatedPos: number, allocatedSize: number): void
-    vfuncAdjustSizeRequest(orientation: Gtk.Orientation, minimumSize: number, naturalSize: number): void
-    vfuncButtonPressEvent(event: Gdk.EventButton): boolean
-    vfuncButtonReleaseEvent(event: Gdk.EventButton): boolean
-    vfuncCanActivateAccel(signalId: number): boolean
-    vfuncChildNotify(childProperty: GObject.ParamSpec): void
-    vfuncCompositedChanged(): void
-    vfuncComputeExpand(hexpandP: boolean, vexpandP: boolean): void
-    vfuncConfigureEvent(event: Gdk.EventConfigure): boolean
-    vfuncDamageEvent(event: Gdk.EventExpose): boolean
-    vfuncDeleteEvent(event: Gdk.EventAny): boolean
-    vfuncDestroy(): void
-    vfuncDestroyEvent(event: Gdk.EventAny): boolean
-    vfuncDirectionChanged(previousDirection: Gtk.TextDirection): void
-    vfuncDispatchChildPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDragBegin(context: Gdk.DragContext): void
-    vfuncDragDataDelete(context: Gdk.DragContext): void
-    vfuncDragDataGet(context: Gdk.DragContext, selectionData: Gtk.SelectionData, info: number, time: number): void
-    vfuncDragDataReceived(context: Gdk.DragContext, x: number, y: number, selectionData: Gtk.SelectionData, info: number, time: number): void
-    vfuncDragDrop(context: Gdk.DragContext, x: number, y: number, time: number): boolean
-    vfuncDragEnd(context: Gdk.DragContext): void
-    vfuncDragFailed(context: Gdk.DragContext, result: Gtk.DragResult): boolean
-    vfuncDragLeave(context: Gdk.DragContext, time: number): void
-    vfuncDragMotion(context: Gdk.DragContext, x: number, y: number, time: number): boolean
-    vfuncDraw(cr: cairo.Context): boolean
-    vfuncEnterNotifyEvent(event: Gdk.EventCrossing): boolean
-    vfuncEvent(event: Gdk.Event): boolean
-    vfuncFocus(direction: Gtk.DirectionType): boolean
-    vfuncFocusInEvent(event: Gdk.EventFocus): boolean
-    vfuncFocusOutEvent(event: Gdk.EventFocus): boolean
-    vfuncGetAccessible(): Atk.Object
-    vfuncGetPreferredHeight(): [ /* minimumHeight */ number | null, /* naturalHeight */ number | null ]
-    vfuncGetPreferredHeightAndBaselineForWidth(width: number): [ /* minimumHeight */ number | null, /* naturalHeight */ number | null, /* minimumBaseline */ number | null, /* naturalBaseline */ number | null ]
-    vfuncGetPreferredHeightForWidth(width: number): [ /* minimumHeight */ number | null, /* naturalHeight */ number | null ]
-    vfuncGetPreferredWidth(): [ /* minimumWidth */ number | null, /* naturalWidth */ number | null ]
-    vfuncGetPreferredWidthForHeight(height: number): [ /* minimumWidth */ number | null, /* naturalWidth */ number | null ]
-    vfuncGetRequestMode(): Gtk.SizeRequestMode
-    vfuncGrabBrokenEvent(event: Gdk.EventGrabBroken): boolean
-    vfuncGrabFocus(): void
-    vfuncGrabNotify(wasGrabbed: boolean): void
-    vfuncHide(): void
-    vfuncHierarchyChanged(previousToplevel: Gtk.Widget): void
-    vfuncKeyPressEvent(event: Gdk.EventKey): boolean
-    vfuncKeyReleaseEvent(event: Gdk.EventKey): boolean
-    vfuncKeynavFailed(direction: Gtk.DirectionType): boolean
-    vfuncLeaveNotifyEvent(event: Gdk.EventCrossing): boolean
-    vfuncMap(): void
-    vfuncMapEvent(event: Gdk.EventAny): boolean
-    vfuncMnemonicActivate(groupCycling: boolean): boolean
-    vfuncMotionNotifyEvent(event: Gdk.EventMotion): boolean
-    vfuncMoveFocus(direction: Gtk.DirectionType): void
-    vfuncParentSet(previousParent: Gtk.Widget): void
-    vfuncPopupMenu(): boolean
-    vfuncPropertyNotifyEvent(event: Gdk.EventProperty): boolean
-    vfuncProximityInEvent(event: Gdk.EventProximity): boolean
-    vfuncProximityOutEvent(event: Gdk.EventProximity): boolean
-    vfuncQueryTooltip(x: number, y: number, keyboardTooltip: boolean, tooltip: Gtk.Tooltip): boolean
-    vfuncQueueDrawRegion(region: cairo.Region): void
-    vfuncRealize(): void
-    vfuncScreenChanged(previousScreen: Gdk.Screen): void
-    vfuncScrollEvent(event: Gdk.EventScroll): boolean
-    vfuncSelectionClearEvent(event: Gdk.EventSelection): boolean
-    vfuncSelectionGet(selectionData: Gtk.SelectionData, info: number, time: number): void
-    vfuncSelectionNotifyEvent(event: Gdk.EventSelection): boolean
-    vfuncSelectionReceived(selectionData: Gtk.SelectionData, time: number): void
-    vfuncSelectionRequestEvent(event: Gdk.EventSelection): boolean
-    vfuncShow(): void
-    vfuncShowAll(): void
-    vfuncShowHelp(helpType: Gtk.WidgetHelpType): boolean
-    vfuncSizeAllocate(allocation: Gtk.Allocation): void
-    vfuncStateChanged(previousState: Gtk.StateType): void
-    vfuncStateFlagsChanged(previousStateFlags: Gtk.StateFlags): void
-    vfuncStyleSet(previousStyle: Gtk.Style): void
-    vfuncStyleUpdated(): void
-    vfuncTouchEvent(event: Gdk.EventTouch): boolean
-    vfuncUnmap(): void
-    vfuncUnmapEvent(event: Gdk.EventAny): boolean
-    vfuncUnrealize(): void
-    vfuncVisibilityNotifyEvent(event: Gdk.EventVisibility): boolean
-    vfuncWindowStateEvent(event: Gdk.EventWindowState): boolean
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Eog.Window */
+    /* Signals of Eog-3.0.Eog.Window */
     connect(sigName: "prepared", callback: (($obj: Window) => void)): number
-    connect_after(sigName: "prepared", callback: (($obj: Window) => void)): number
+    on(sigName: "prepared", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "prepared", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "prepared", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "prepared"): void
-    on(sigName: "prepared", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "prepared", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "prepared", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of Gtk.Window */
+    /* Signals of Gtk-3.0.Gtk.Window */
     connect(sigName: "activate-default", callback: (($obj: Window) => void)): number
-    connect_after(sigName: "activate-default", callback: (($obj: Window) => void)): number
+    on(sigName: "activate-default", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "activate-default", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "activate-default", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "activate-default"): void
-    on(sigName: "activate-default", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "activate-default", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "activate-default", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "activate-focus", callback: (($obj: Window) => void)): number
-    connect_after(sigName: "activate-focus", callback: (($obj: Window) => void)): number
+    on(sigName: "activate-focus", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "activate-focus", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "activate-focus", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "activate-focus"): void
-    on(sigName: "activate-focus", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "activate-focus", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "activate-focus", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "enable-debugging", callback: (($obj: Window, toggle: boolean) => boolean)): number
-    connect_after(sigName: "enable-debugging", callback: (($obj: Window, toggle: boolean) => boolean)): number
+    on(sigName: "enable-debugging", callback: (toggle: boolean) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "enable-debugging", callback: (toggle: boolean) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "enable-debugging", callback: (toggle: boolean) => void): NodeJS.EventEmitter
     emit(sigName: "enable-debugging", toggle: boolean): void
-    on(sigName: "enable-debugging", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "enable-debugging", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "enable-debugging", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "keys-changed", callback: (($obj: Window) => void)): number
-    connect_after(sigName: "keys-changed", callback: (($obj: Window) => void)): number
+    on(sigName: "keys-changed", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "keys-changed", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "keys-changed", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "keys-changed"): void
-    on(sigName: "keys-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "keys-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "keys-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "set-focus", callback: (($obj: Window, widget?: Gtk.Widget | null) => void)): number
-    connect_after(sigName: "set-focus", callback: (($obj: Window, widget?: Gtk.Widget | null) => void)): number
+    on(sigName: "set-focus", callback: (widget?: Gtk.Widget | null) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "set-focus", callback: (widget?: Gtk.Widget | null) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "set-focus", callback: (widget?: Gtk.Widget | null) => void): NodeJS.EventEmitter
     emit(sigName: "set-focus", widget?: Gtk.Widget | null): void
-    on(sigName: "set-focus", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "set-focus", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "set-focus", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of Gtk.Container */
+    /* Signals of Gtk-3.0.Gtk.Container */
     connect(sigName: "add", callback: (($obj: Window, object: Gtk.Widget) => void)): number
-    connect_after(sigName: "add", callback: (($obj: Window, object: Gtk.Widget) => void)): number
+    on(sigName: "add", callback: (object: Gtk.Widget) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "add", callback: (object: Gtk.Widget) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "add", callback: (object: Gtk.Widget) => void): NodeJS.EventEmitter
     emit(sigName: "add", object: Gtk.Widget): void
-    on(sigName: "add", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "add", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "add", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "check-resize", callback: (($obj: Window) => void)): number
-    connect_after(sigName: "check-resize", callback: (($obj: Window) => void)): number
+    on(sigName: "check-resize", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "check-resize", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "check-resize", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "check-resize"): void
-    on(sigName: "check-resize", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "check-resize", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "check-resize", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "remove", callback: (($obj: Window, object: Gtk.Widget) => void)): number
-    connect_after(sigName: "remove", callback: (($obj: Window, object: Gtk.Widget) => void)): number
+    on(sigName: "remove", callback: (object: Gtk.Widget) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "remove", callback: (object: Gtk.Widget) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "remove", callback: (object: Gtk.Widget) => void): NodeJS.EventEmitter
     emit(sigName: "remove", object: Gtk.Widget): void
-    on(sigName: "remove", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "remove", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "remove", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "set-focus-child", callback: (($obj: Window, object: Gtk.Widget) => void)): number
-    connect_after(sigName: "set-focus-child", callback: (($obj: Window, object: Gtk.Widget) => void)): number
+    on(sigName: "set-focus-child", callback: (object: Gtk.Widget) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "set-focus-child", callback: (object: Gtk.Widget) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "set-focus-child", callback: (object: Gtk.Widget) => void): NodeJS.EventEmitter
     emit(sigName: "set-focus-child", object: Gtk.Widget): void
-    on(sigName: "set-focus-child", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "set-focus-child", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "set-focus-child", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of Gtk.Widget */
+    /* Signals of Gtk-3.0.Gtk.Widget */
     connect(sigName: "accel-closures-changed", callback: (($obj: Window) => void)): number
-    connect_after(sigName: "accel-closures-changed", callback: (($obj: Window) => void)): number
+    on(sigName: "accel-closures-changed", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "accel-closures-changed", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "accel-closures-changed", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "accel-closures-changed"): void
-    on(sigName: "accel-closures-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "accel-closures-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "accel-closures-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "button-press-event", callback: (($obj: Window, event: Gdk.EventButton) => boolean)): number
-    connect_after(sigName: "button-press-event", callback: (($obj: Window, event: Gdk.EventButton) => boolean)): number
+    on(sigName: "button-press-event", callback: (event: Gdk.EventButton) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "button-press-event", callback: (event: Gdk.EventButton) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "button-press-event", callback: (event: Gdk.EventButton) => void): NodeJS.EventEmitter
     emit(sigName: "button-press-event", event: Gdk.EventButton): void
-    on(sigName: "button-press-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "button-press-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "button-press-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "button-release-event", callback: (($obj: Window, event: Gdk.EventButton) => boolean)): number
-    connect_after(sigName: "button-release-event", callback: (($obj: Window, event: Gdk.EventButton) => boolean)): number
+    on(sigName: "button-release-event", callback: (event: Gdk.EventButton) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "button-release-event", callback: (event: Gdk.EventButton) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "button-release-event", callback: (event: Gdk.EventButton) => void): NodeJS.EventEmitter
     emit(sigName: "button-release-event", event: Gdk.EventButton): void
-    on(sigName: "button-release-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "button-release-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "button-release-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "can-activate-accel", callback: (($obj: Window, signalId: number) => boolean)): number
-    connect_after(sigName: "can-activate-accel", callback: (($obj: Window, signalId: number) => boolean)): number
+    on(sigName: "can-activate-accel", callback: (signalId: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "can-activate-accel", callback: (signalId: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "can-activate-accel", callback: (signalId: number) => void): NodeJS.EventEmitter
     emit(sigName: "can-activate-accel", signalId: number): void
-    on(sigName: "can-activate-accel", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "can-activate-accel", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "can-activate-accel", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "child-notify", callback: (($obj: Window, childProperty: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "child-notify", callback: (($obj: Window, childProperty: GObject.ParamSpec) => void)): number
+    on(sigName: "child-notify", callback: (childProperty: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "child-notify", callback: (childProperty: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "child-notify", callback: (childProperty: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "child-notify", childProperty: GObject.ParamSpec): void
-    on(sigName: "child-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "child-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "child-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "composited-changed", callback: (($obj: Window) => void)): number
-    connect_after(sigName: "composited-changed", callback: (($obj: Window) => void)): number
+    on(sigName: "composited-changed", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "composited-changed", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "composited-changed", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "composited-changed"): void
-    on(sigName: "composited-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "composited-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "composited-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "configure-event", callback: (($obj: Window, event: Gdk.EventConfigure) => boolean)): number
-    connect_after(sigName: "configure-event", callback: (($obj: Window, event: Gdk.EventConfigure) => boolean)): number
+    on(sigName: "configure-event", callback: (event: Gdk.EventConfigure) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "configure-event", callback: (event: Gdk.EventConfigure) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "configure-event", callback: (event: Gdk.EventConfigure) => void): NodeJS.EventEmitter
     emit(sigName: "configure-event", event: Gdk.EventConfigure): void
-    on(sigName: "configure-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "configure-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "configure-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "damage-event", callback: (($obj: Window, event: Gdk.EventExpose) => boolean)): number
-    connect_after(sigName: "damage-event", callback: (($obj: Window, event: Gdk.EventExpose) => boolean)): number
+    on(sigName: "damage-event", callback: (event: Gdk.EventExpose) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "damage-event", callback: (event: Gdk.EventExpose) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "damage-event", callback: (event: Gdk.EventExpose) => void): NodeJS.EventEmitter
     emit(sigName: "damage-event", event: Gdk.EventExpose): void
-    on(sigName: "damage-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "damage-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "damage-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "delete-event", callback: (($obj: Window, event: Gdk.Event) => boolean)): number
-    connect_after(sigName: "delete-event", callback: (($obj: Window, event: Gdk.Event) => boolean)): number
+    on(sigName: "delete-event", callback: (event: Gdk.Event) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "delete-event", callback: (event: Gdk.Event) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "delete-event", callback: (event: Gdk.Event) => void): NodeJS.EventEmitter
     emit(sigName: "delete-event", event: Gdk.Event): void
-    on(sigName: "delete-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "delete-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "delete-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "destroy", callback: (($obj: Window) => void)): number
-    connect_after(sigName: "destroy", callback: (($obj: Window) => void)): number
+    on(sigName: "destroy", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "destroy", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "destroy", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "destroy"): void
-    on(sigName: "destroy", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "destroy", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "destroy", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "destroy-event", callback: (($obj: Window, event: Gdk.Event) => boolean)): number
-    connect_after(sigName: "destroy-event", callback: (($obj: Window, event: Gdk.Event) => boolean)): number
+    on(sigName: "destroy-event", callback: (event: Gdk.Event) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "destroy-event", callback: (event: Gdk.Event) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "destroy-event", callback: (event: Gdk.Event) => void): NodeJS.EventEmitter
     emit(sigName: "destroy-event", event: Gdk.Event): void
-    on(sigName: "destroy-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "destroy-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "destroy-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "direction-changed", callback: (($obj: Window, previousDirection: Gtk.TextDirection) => void)): number
-    connect_after(sigName: "direction-changed", callback: (($obj: Window, previousDirection: Gtk.TextDirection) => void)): number
+    on(sigName: "direction-changed", callback: (previousDirection: Gtk.TextDirection) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "direction-changed", callback: (previousDirection: Gtk.TextDirection) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "direction-changed", callback: (previousDirection: Gtk.TextDirection) => void): NodeJS.EventEmitter
     emit(sigName: "direction-changed", previousDirection: Gtk.TextDirection): void
-    on(sigName: "direction-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "direction-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "direction-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "drag-begin", callback: (($obj: Window, context: Gdk.DragContext) => void)): number
-    connect_after(sigName: "drag-begin", callback: (($obj: Window, context: Gdk.DragContext) => void)): number
+    on(sigName: "drag-begin", callback: (context: Gdk.DragContext) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "drag-begin", callback: (context: Gdk.DragContext) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "drag-begin", callback: (context: Gdk.DragContext) => void): NodeJS.EventEmitter
     emit(sigName: "drag-begin", context: Gdk.DragContext): void
-    on(sigName: "drag-begin", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "drag-begin", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "drag-begin", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "drag-data-delete", callback: (($obj: Window, context: Gdk.DragContext) => void)): number
-    connect_after(sigName: "drag-data-delete", callback: (($obj: Window, context: Gdk.DragContext) => void)): number
+    on(sigName: "drag-data-delete", callback: (context: Gdk.DragContext) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "drag-data-delete", callback: (context: Gdk.DragContext) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "drag-data-delete", callback: (context: Gdk.DragContext) => void): NodeJS.EventEmitter
     emit(sigName: "drag-data-delete", context: Gdk.DragContext): void
-    on(sigName: "drag-data-delete", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "drag-data-delete", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "drag-data-delete", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "drag-data-get", callback: (($obj: Window, context: Gdk.DragContext, data: Gtk.SelectionData, info: number, time: number) => void)): number
-    connect_after(sigName: "drag-data-get", callback: (($obj: Window, context: Gdk.DragContext, data: Gtk.SelectionData, info: number, time: number) => void)): number
+    on(sigName: "drag-data-get", callback: (context: Gdk.DragContext, data: Gtk.SelectionData, info: number, time: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "drag-data-get", callback: (context: Gdk.DragContext, data: Gtk.SelectionData, info: number, time: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "drag-data-get", callback: (context: Gdk.DragContext, data: Gtk.SelectionData, info: number, time: number) => void): NodeJS.EventEmitter
     emit(sigName: "drag-data-get", context: Gdk.DragContext, data: Gtk.SelectionData, info: number, time: number): void
-    on(sigName: "drag-data-get", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "drag-data-get", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "drag-data-get", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "drag-data-received", callback: (($obj: Window, context: Gdk.DragContext, x: number, y: number, data: Gtk.SelectionData, info: number, time: number) => void)): number
-    connect_after(sigName: "drag-data-received", callback: (($obj: Window, context: Gdk.DragContext, x: number, y: number, data: Gtk.SelectionData, info: number, time: number) => void)): number
+    on(sigName: "drag-data-received", callback: (context: Gdk.DragContext, x: number, y: number, data: Gtk.SelectionData, info: number, time: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "drag-data-received", callback: (context: Gdk.DragContext, x: number, y: number, data: Gtk.SelectionData, info: number, time: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "drag-data-received", callback: (context: Gdk.DragContext, x: number, y: number, data: Gtk.SelectionData, info: number, time: number) => void): NodeJS.EventEmitter
     emit(sigName: "drag-data-received", context: Gdk.DragContext, x: number, y: number, data: Gtk.SelectionData, info: number, time: number): void
-    on(sigName: "drag-data-received", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "drag-data-received", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "drag-data-received", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "drag-drop", callback: (($obj: Window, context: Gdk.DragContext, x: number, y: number, time: number) => boolean)): number
-    connect_after(sigName: "drag-drop", callback: (($obj: Window, context: Gdk.DragContext, x: number, y: number, time: number) => boolean)): number
+    on(sigName: "drag-drop", callback: (context: Gdk.DragContext, x: number, y: number, time: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "drag-drop", callback: (context: Gdk.DragContext, x: number, y: number, time: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "drag-drop", callback: (context: Gdk.DragContext, x: number, y: number, time: number) => void): NodeJS.EventEmitter
     emit(sigName: "drag-drop", context: Gdk.DragContext, x: number, y: number, time: number): void
-    on(sigName: "drag-drop", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "drag-drop", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "drag-drop", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "drag-end", callback: (($obj: Window, context: Gdk.DragContext) => void)): number
-    connect_after(sigName: "drag-end", callback: (($obj: Window, context: Gdk.DragContext) => void)): number
+    on(sigName: "drag-end", callback: (context: Gdk.DragContext) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "drag-end", callback: (context: Gdk.DragContext) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "drag-end", callback: (context: Gdk.DragContext) => void): NodeJS.EventEmitter
     emit(sigName: "drag-end", context: Gdk.DragContext): void
-    on(sigName: "drag-end", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "drag-end", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "drag-end", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "drag-failed", callback: (($obj: Window, context: Gdk.DragContext, result: Gtk.DragResult) => boolean)): number
-    connect_after(sigName: "drag-failed", callback: (($obj: Window, context: Gdk.DragContext, result: Gtk.DragResult) => boolean)): number
+    on(sigName: "drag-failed", callback: (context: Gdk.DragContext, result: Gtk.DragResult) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "drag-failed", callback: (context: Gdk.DragContext, result: Gtk.DragResult) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "drag-failed", callback: (context: Gdk.DragContext, result: Gtk.DragResult) => void): NodeJS.EventEmitter
     emit(sigName: "drag-failed", context: Gdk.DragContext, result: Gtk.DragResult): void
-    on(sigName: "drag-failed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "drag-failed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "drag-failed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "drag-leave", callback: (($obj: Window, context: Gdk.DragContext, time: number) => void)): number
-    connect_after(sigName: "drag-leave", callback: (($obj: Window, context: Gdk.DragContext, time: number) => void)): number
+    on(sigName: "drag-leave", callback: (context: Gdk.DragContext, time: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "drag-leave", callback: (context: Gdk.DragContext, time: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "drag-leave", callback: (context: Gdk.DragContext, time: number) => void): NodeJS.EventEmitter
     emit(sigName: "drag-leave", context: Gdk.DragContext, time: number): void
-    on(sigName: "drag-leave", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "drag-leave", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "drag-leave", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "drag-motion", callback: (($obj: Window, context: Gdk.DragContext, x: number, y: number, time: number) => boolean)): number
-    connect_after(sigName: "drag-motion", callback: (($obj: Window, context: Gdk.DragContext, x: number, y: number, time: number) => boolean)): number
+    on(sigName: "drag-motion", callback: (context: Gdk.DragContext, x: number, y: number, time: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "drag-motion", callback: (context: Gdk.DragContext, x: number, y: number, time: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "drag-motion", callback: (context: Gdk.DragContext, x: number, y: number, time: number) => void): NodeJS.EventEmitter
     emit(sigName: "drag-motion", context: Gdk.DragContext, x: number, y: number, time: number): void
-    on(sigName: "drag-motion", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "drag-motion", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "drag-motion", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "draw", callback: (($obj: Window, cr: cairo.Context) => boolean)): number
-    connect_after(sigName: "draw", callback: (($obj: Window, cr: cairo.Context) => boolean)): number
+    on(sigName: "draw", callback: (cr: cairo.Context) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "draw", callback: (cr: cairo.Context) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "draw", callback: (cr: cairo.Context) => void): NodeJS.EventEmitter
     emit(sigName: "draw", cr: cairo.Context): void
-    on(sigName: "draw", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "draw", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "draw", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "enter-notify-event", callback: (($obj: Window, event: Gdk.EventCrossing) => boolean)): number
-    connect_after(sigName: "enter-notify-event", callback: (($obj: Window, event: Gdk.EventCrossing) => boolean)): number
+    on(sigName: "enter-notify-event", callback: (event: Gdk.EventCrossing) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "enter-notify-event", callback: (event: Gdk.EventCrossing) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "enter-notify-event", callback: (event: Gdk.EventCrossing) => void): NodeJS.EventEmitter
     emit(sigName: "enter-notify-event", event: Gdk.EventCrossing): void
-    on(sigName: "enter-notify-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "enter-notify-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "enter-notify-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "event", callback: (($obj: Window, event: Gdk.Event) => boolean)): number
-    connect_after(sigName: "event", callback: (($obj: Window, event: Gdk.Event) => boolean)): number
+    on(sigName: "event", callback: (event: Gdk.Event) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "event", callback: (event: Gdk.Event) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "event", callback: (event: Gdk.Event) => void): NodeJS.EventEmitter
     emit(sigName: "event", event: Gdk.Event): void
-    on(sigName: "event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "event-after", callback: (($obj: Window, event: Gdk.Event) => void)): number
-    connect_after(sigName: "event-after", callback: (($obj: Window, event: Gdk.Event) => void)): number
+    on(sigName: "event-after", callback: (event: Gdk.Event) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "event-after", callback: (event: Gdk.Event) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "event-after", callback: (event: Gdk.Event) => void): NodeJS.EventEmitter
     emit(sigName: "event-after", event: Gdk.Event): void
-    on(sigName: "event-after", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "event-after", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "event-after", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "focus", callback: (($obj: Window, direction: Gtk.DirectionType) => boolean)): number
-    connect_after(sigName: "focus", callback: (($obj: Window, direction: Gtk.DirectionType) => boolean)): number
+    on(sigName: "focus", callback: (direction: Gtk.DirectionType) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "focus", callback: (direction: Gtk.DirectionType) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "focus", callback: (direction: Gtk.DirectionType) => void): NodeJS.EventEmitter
     emit(sigName: "focus", direction: Gtk.DirectionType): void
-    on(sigName: "focus", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "focus", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "focus", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "focus-in-event", callback: (($obj: Window, event: Gdk.EventFocus) => boolean)): number
-    connect_after(sigName: "focus-in-event", callback: (($obj: Window, event: Gdk.EventFocus) => boolean)): number
+    on(sigName: "focus-in-event", callback: (event: Gdk.EventFocus) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "focus-in-event", callback: (event: Gdk.EventFocus) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "focus-in-event", callback: (event: Gdk.EventFocus) => void): NodeJS.EventEmitter
     emit(sigName: "focus-in-event", event: Gdk.EventFocus): void
-    on(sigName: "focus-in-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "focus-in-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "focus-in-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "focus-out-event", callback: (($obj: Window, event: Gdk.EventFocus) => boolean)): number
-    connect_after(sigName: "focus-out-event", callback: (($obj: Window, event: Gdk.EventFocus) => boolean)): number
+    on(sigName: "focus-out-event", callback: (event: Gdk.EventFocus) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "focus-out-event", callback: (event: Gdk.EventFocus) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "focus-out-event", callback: (event: Gdk.EventFocus) => void): NodeJS.EventEmitter
     emit(sigName: "focus-out-event", event: Gdk.EventFocus): void
-    on(sigName: "focus-out-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "focus-out-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "focus-out-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "grab-broken-event", callback: (($obj: Window, event: Gdk.EventGrabBroken) => boolean)): number
-    connect_after(sigName: "grab-broken-event", callback: (($obj: Window, event: Gdk.EventGrabBroken) => boolean)): number
+    on(sigName: "grab-broken-event", callback: (event: Gdk.EventGrabBroken) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "grab-broken-event", callback: (event: Gdk.EventGrabBroken) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "grab-broken-event", callback: (event: Gdk.EventGrabBroken) => void): NodeJS.EventEmitter
     emit(sigName: "grab-broken-event", event: Gdk.EventGrabBroken): void
-    on(sigName: "grab-broken-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "grab-broken-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "grab-broken-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "grab-focus", callback: (($obj: Window) => void)): number
-    connect_after(sigName: "grab-focus", callback: (($obj: Window) => void)): number
+    on(sigName: "grab-focus", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "grab-focus", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "grab-focus", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "grab-focus"): void
-    on(sigName: "grab-focus", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "grab-focus", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "grab-focus", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "grab-notify", callback: (($obj: Window, wasGrabbed: boolean) => void)): number
-    connect_after(sigName: "grab-notify", callback: (($obj: Window, wasGrabbed: boolean) => void)): number
+    on(sigName: "grab-notify", callback: (wasGrabbed: boolean) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "grab-notify", callback: (wasGrabbed: boolean) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "grab-notify", callback: (wasGrabbed: boolean) => void): NodeJS.EventEmitter
     emit(sigName: "grab-notify", wasGrabbed: boolean): void
-    on(sigName: "grab-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "grab-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "grab-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "hide", callback: (($obj: Window) => void)): number
-    connect_after(sigName: "hide", callback: (($obj: Window) => void)): number
+    on(sigName: "hide", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "hide", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "hide", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "hide"): void
-    on(sigName: "hide", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "hide", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "hide", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "hierarchy-changed", callback: (($obj: Window, previousToplevel?: Gtk.Widget | null) => void)): number
-    connect_after(sigName: "hierarchy-changed", callback: (($obj: Window, previousToplevel?: Gtk.Widget | null) => void)): number
+    on(sigName: "hierarchy-changed", callback: (previousToplevel?: Gtk.Widget | null) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "hierarchy-changed", callback: (previousToplevel?: Gtk.Widget | null) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "hierarchy-changed", callback: (previousToplevel?: Gtk.Widget | null) => void): NodeJS.EventEmitter
     emit(sigName: "hierarchy-changed", previousToplevel?: Gtk.Widget | null): void
-    on(sigName: "hierarchy-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "hierarchy-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "hierarchy-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "key-press-event", callback: (($obj: Window, event: Gdk.EventKey) => boolean)): number
-    connect_after(sigName: "key-press-event", callback: (($obj: Window, event: Gdk.EventKey) => boolean)): number
+    on(sigName: "key-press-event", callback: (event: Gdk.EventKey) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "key-press-event", callback: (event: Gdk.EventKey) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "key-press-event", callback: (event: Gdk.EventKey) => void): NodeJS.EventEmitter
     emit(sigName: "key-press-event", event: Gdk.EventKey): void
-    on(sigName: "key-press-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "key-press-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "key-press-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "key-release-event", callback: (($obj: Window, event: Gdk.EventKey) => boolean)): number
-    connect_after(sigName: "key-release-event", callback: (($obj: Window, event: Gdk.EventKey) => boolean)): number
+    on(sigName: "key-release-event", callback: (event: Gdk.EventKey) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "key-release-event", callback: (event: Gdk.EventKey) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "key-release-event", callback: (event: Gdk.EventKey) => void): NodeJS.EventEmitter
     emit(sigName: "key-release-event", event: Gdk.EventKey): void
-    on(sigName: "key-release-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "key-release-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "key-release-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "keynav-failed", callback: (($obj: Window, direction: Gtk.DirectionType) => boolean)): number
-    connect_after(sigName: "keynav-failed", callback: (($obj: Window, direction: Gtk.DirectionType) => boolean)): number
+    on(sigName: "keynav-failed", callback: (direction: Gtk.DirectionType) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "keynav-failed", callback: (direction: Gtk.DirectionType) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "keynav-failed", callback: (direction: Gtk.DirectionType) => void): NodeJS.EventEmitter
     emit(sigName: "keynav-failed", direction: Gtk.DirectionType): void
-    on(sigName: "keynav-failed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "keynav-failed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "keynav-failed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "leave-notify-event", callback: (($obj: Window, event: Gdk.EventCrossing) => boolean)): number
-    connect_after(sigName: "leave-notify-event", callback: (($obj: Window, event: Gdk.EventCrossing) => boolean)): number
+    on(sigName: "leave-notify-event", callback: (event: Gdk.EventCrossing) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "leave-notify-event", callback: (event: Gdk.EventCrossing) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "leave-notify-event", callback: (event: Gdk.EventCrossing) => void): NodeJS.EventEmitter
     emit(sigName: "leave-notify-event", event: Gdk.EventCrossing): void
-    on(sigName: "leave-notify-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "leave-notify-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "leave-notify-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "map", callback: (($obj: Window) => void)): number
-    connect_after(sigName: "map", callback: (($obj: Window) => void)): number
+    on(sigName: "map", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "map", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "map", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "map"): void
-    on(sigName: "map", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "map", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "map", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "map-event", callback: (($obj: Window, event: Gdk.EventAny) => boolean)): number
-    connect_after(sigName: "map-event", callback: (($obj: Window, event: Gdk.EventAny) => boolean)): number
+    on(sigName: "map-event", callback: (event: Gdk.EventAny) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "map-event", callback: (event: Gdk.EventAny) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "map-event", callback: (event: Gdk.EventAny) => void): NodeJS.EventEmitter
     emit(sigName: "map-event", event: Gdk.EventAny): void
-    on(sigName: "map-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "map-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "map-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "mnemonic-activate", callback: (($obj: Window, groupCycling: boolean) => boolean)): number
-    connect_after(sigName: "mnemonic-activate", callback: (($obj: Window, groupCycling: boolean) => boolean)): number
+    on(sigName: "mnemonic-activate", callback: (groupCycling: boolean) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "mnemonic-activate", callback: (groupCycling: boolean) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "mnemonic-activate", callback: (groupCycling: boolean) => void): NodeJS.EventEmitter
     emit(sigName: "mnemonic-activate", groupCycling: boolean): void
-    on(sigName: "mnemonic-activate", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "mnemonic-activate", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "mnemonic-activate", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "motion-notify-event", callback: (($obj: Window, event: Gdk.EventMotion) => boolean)): number
-    connect_after(sigName: "motion-notify-event", callback: (($obj: Window, event: Gdk.EventMotion) => boolean)): number
+    on(sigName: "motion-notify-event", callback: (event: Gdk.EventMotion) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "motion-notify-event", callback: (event: Gdk.EventMotion) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "motion-notify-event", callback: (event: Gdk.EventMotion) => void): NodeJS.EventEmitter
     emit(sigName: "motion-notify-event", event: Gdk.EventMotion): void
-    on(sigName: "motion-notify-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "motion-notify-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "motion-notify-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "move-focus", callback: (($obj: Window, direction: Gtk.DirectionType) => void)): number
-    connect_after(sigName: "move-focus", callback: (($obj: Window, direction: Gtk.DirectionType) => void)): number
+    on(sigName: "move-focus", callback: (direction: Gtk.DirectionType) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "move-focus", callback: (direction: Gtk.DirectionType) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "move-focus", callback: (direction: Gtk.DirectionType) => void): NodeJS.EventEmitter
     emit(sigName: "move-focus", direction: Gtk.DirectionType): void
-    on(sigName: "move-focus", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "move-focus", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "move-focus", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "parent-set", callback: (($obj: Window, oldParent?: Gtk.Widget | null) => void)): number
-    connect_after(sigName: "parent-set", callback: (($obj: Window, oldParent?: Gtk.Widget | null) => void)): number
+    on(sigName: "parent-set", callback: (oldParent?: Gtk.Widget | null) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "parent-set", callback: (oldParent?: Gtk.Widget | null) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "parent-set", callback: (oldParent?: Gtk.Widget | null) => void): NodeJS.EventEmitter
     emit(sigName: "parent-set", oldParent?: Gtk.Widget | null): void
-    on(sigName: "parent-set", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "parent-set", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "parent-set", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "popup-menu", callback: (($obj: Window) => boolean)): number
-    connect_after(sigName: "popup-menu", callback: (($obj: Window) => boolean)): number
+    on(sigName: "popup-menu", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "popup-menu", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "popup-menu", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "popup-menu"): void
-    on(sigName: "popup-menu", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "popup-menu", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "popup-menu", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "property-notify-event", callback: (($obj: Window, event: Gdk.EventProperty) => boolean)): number
-    connect_after(sigName: "property-notify-event", callback: (($obj: Window, event: Gdk.EventProperty) => boolean)): number
+    on(sigName: "property-notify-event", callback: (event: Gdk.EventProperty) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "property-notify-event", callback: (event: Gdk.EventProperty) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "property-notify-event", callback: (event: Gdk.EventProperty) => void): NodeJS.EventEmitter
     emit(sigName: "property-notify-event", event: Gdk.EventProperty): void
-    on(sigName: "property-notify-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "property-notify-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "property-notify-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "proximity-in-event", callback: (($obj: Window, event: Gdk.EventProximity) => boolean)): number
-    connect_after(sigName: "proximity-in-event", callback: (($obj: Window, event: Gdk.EventProximity) => boolean)): number
+    on(sigName: "proximity-in-event", callback: (event: Gdk.EventProximity) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "proximity-in-event", callback: (event: Gdk.EventProximity) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "proximity-in-event", callback: (event: Gdk.EventProximity) => void): NodeJS.EventEmitter
     emit(sigName: "proximity-in-event", event: Gdk.EventProximity): void
-    on(sigName: "proximity-in-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "proximity-in-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "proximity-in-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "proximity-out-event", callback: (($obj: Window, event: Gdk.EventProximity) => boolean)): number
-    connect_after(sigName: "proximity-out-event", callback: (($obj: Window, event: Gdk.EventProximity) => boolean)): number
+    on(sigName: "proximity-out-event", callback: (event: Gdk.EventProximity) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "proximity-out-event", callback: (event: Gdk.EventProximity) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "proximity-out-event", callback: (event: Gdk.EventProximity) => void): NodeJS.EventEmitter
     emit(sigName: "proximity-out-event", event: Gdk.EventProximity): void
-    on(sigName: "proximity-out-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "proximity-out-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "proximity-out-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "query-tooltip", callback: (($obj: Window, x: number, y: number, keyboardMode: boolean, tooltip: Gtk.Tooltip) => boolean)): number
-    connect_after(sigName: "query-tooltip", callback: (($obj: Window, x: number, y: number, keyboardMode: boolean, tooltip: Gtk.Tooltip) => boolean)): number
+    on(sigName: "query-tooltip", callback: (x: number, y: number, keyboardMode: boolean, tooltip: Gtk.Tooltip) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "query-tooltip", callback: (x: number, y: number, keyboardMode: boolean, tooltip: Gtk.Tooltip) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "query-tooltip", callback: (x: number, y: number, keyboardMode: boolean, tooltip: Gtk.Tooltip) => void): NodeJS.EventEmitter
     emit(sigName: "query-tooltip", x: number, y: number, keyboardMode: boolean, tooltip: Gtk.Tooltip): void
-    on(sigName: "query-tooltip", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "query-tooltip", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "query-tooltip", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "realize", callback: (($obj: Window) => void)): number
-    connect_after(sigName: "realize", callback: (($obj: Window) => void)): number
+    on(sigName: "realize", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "realize", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "realize", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "realize"): void
-    on(sigName: "realize", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "realize", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "realize", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "screen-changed", callback: (($obj: Window, previousScreen?: Gdk.Screen | null) => void)): number
-    connect_after(sigName: "screen-changed", callback: (($obj: Window, previousScreen?: Gdk.Screen | null) => void)): number
+    on(sigName: "screen-changed", callback: (previousScreen?: Gdk.Screen | null) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "screen-changed", callback: (previousScreen?: Gdk.Screen | null) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "screen-changed", callback: (previousScreen?: Gdk.Screen | null) => void): NodeJS.EventEmitter
     emit(sigName: "screen-changed", previousScreen?: Gdk.Screen | null): void
-    on(sigName: "screen-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "screen-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "screen-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "scroll-event", callback: (($obj: Window, event: Gdk.EventScroll) => boolean)): number
-    connect_after(sigName: "scroll-event", callback: (($obj: Window, event: Gdk.EventScroll) => boolean)): number
+    on(sigName: "scroll-event", callback: (event: Gdk.EventScroll) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "scroll-event", callback: (event: Gdk.EventScroll) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "scroll-event", callback: (event: Gdk.EventScroll) => void): NodeJS.EventEmitter
     emit(sigName: "scroll-event", event: Gdk.EventScroll): void
-    on(sigName: "scroll-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "scroll-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "scroll-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "selection-clear-event", callback: (($obj: Window, event: Gdk.EventSelection) => boolean)): number
-    connect_after(sigName: "selection-clear-event", callback: (($obj: Window, event: Gdk.EventSelection) => boolean)): number
+    on(sigName: "selection-clear-event", callback: (event: Gdk.EventSelection) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "selection-clear-event", callback: (event: Gdk.EventSelection) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "selection-clear-event", callback: (event: Gdk.EventSelection) => void): NodeJS.EventEmitter
     emit(sigName: "selection-clear-event", event: Gdk.EventSelection): void
-    on(sigName: "selection-clear-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "selection-clear-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "selection-clear-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "selection-get", callback: (($obj: Window, data: Gtk.SelectionData, info: number, time: number) => void)): number
-    connect_after(sigName: "selection-get", callback: (($obj: Window, data: Gtk.SelectionData, info: number, time: number) => void)): number
+    on(sigName: "selection-get", callback: (data: Gtk.SelectionData, info: number, time: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "selection-get", callback: (data: Gtk.SelectionData, info: number, time: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "selection-get", callback: (data: Gtk.SelectionData, info: number, time: number) => void): NodeJS.EventEmitter
     emit(sigName: "selection-get", data: Gtk.SelectionData, info: number, time: number): void
-    on(sigName: "selection-get", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "selection-get", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "selection-get", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "selection-notify-event", callback: (($obj: Window, event: Gdk.EventSelection) => boolean)): number
-    connect_after(sigName: "selection-notify-event", callback: (($obj: Window, event: Gdk.EventSelection) => boolean)): number
+    on(sigName: "selection-notify-event", callback: (event: Gdk.EventSelection) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "selection-notify-event", callback: (event: Gdk.EventSelection) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "selection-notify-event", callback: (event: Gdk.EventSelection) => void): NodeJS.EventEmitter
     emit(sigName: "selection-notify-event", event: Gdk.EventSelection): void
-    on(sigName: "selection-notify-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "selection-notify-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "selection-notify-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "selection-received", callback: (($obj: Window, data: Gtk.SelectionData, time: number) => void)): number
-    connect_after(sigName: "selection-received", callback: (($obj: Window, data: Gtk.SelectionData, time: number) => void)): number
+    on(sigName: "selection-received", callback: (data: Gtk.SelectionData, time: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "selection-received", callback: (data: Gtk.SelectionData, time: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "selection-received", callback: (data: Gtk.SelectionData, time: number) => void): NodeJS.EventEmitter
     emit(sigName: "selection-received", data: Gtk.SelectionData, time: number): void
-    on(sigName: "selection-received", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "selection-received", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "selection-received", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "selection-request-event", callback: (($obj: Window, event: Gdk.EventSelection) => boolean)): number
-    connect_after(sigName: "selection-request-event", callback: (($obj: Window, event: Gdk.EventSelection) => boolean)): number
+    on(sigName: "selection-request-event", callback: (event: Gdk.EventSelection) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "selection-request-event", callback: (event: Gdk.EventSelection) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "selection-request-event", callback: (event: Gdk.EventSelection) => void): NodeJS.EventEmitter
     emit(sigName: "selection-request-event", event: Gdk.EventSelection): void
-    on(sigName: "selection-request-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "selection-request-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "selection-request-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "show", callback: (($obj: Window) => void)): number
-    connect_after(sigName: "show", callback: (($obj: Window) => void)): number
+    on(sigName: "show", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "show", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "show", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "show"): void
-    on(sigName: "show", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "show", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "show", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "show-help", callback: (($obj: Window, helpType: Gtk.WidgetHelpType) => boolean)): number
-    connect_after(sigName: "show-help", callback: (($obj: Window, helpType: Gtk.WidgetHelpType) => boolean)): number
+    on(sigName: "show-help", callback: (helpType: Gtk.WidgetHelpType) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "show-help", callback: (helpType: Gtk.WidgetHelpType) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "show-help", callback: (helpType: Gtk.WidgetHelpType) => void): NodeJS.EventEmitter
     emit(sigName: "show-help", helpType: Gtk.WidgetHelpType): void
-    on(sigName: "show-help", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "show-help", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "show-help", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "size-allocate", callback: (($obj: Window, allocation: Gtk.Allocation) => void)): number
-    connect_after(sigName: "size-allocate", callback: (($obj: Window, allocation: Gtk.Allocation) => void)): number
+    on(sigName: "size-allocate", callback: (allocation: Gtk.Allocation) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "size-allocate", callback: (allocation: Gtk.Allocation) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "size-allocate", callback: (allocation: Gtk.Allocation) => void): NodeJS.EventEmitter
     emit(sigName: "size-allocate", allocation: Gtk.Allocation): void
-    on(sigName: "size-allocate", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "size-allocate", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "size-allocate", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "state-changed", callback: (($obj: Window, state: Gtk.StateType) => void)): number
-    connect_after(sigName: "state-changed", callback: (($obj: Window, state: Gtk.StateType) => void)): number
+    on(sigName: "state-changed", callback: (state: Gtk.StateType) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "state-changed", callback: (state: Gtk.StateType) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "state-changed", callback: (state: Gtk.StateType) => void): NodeJS.EventEmitter
     emit(sigName: "state-changed", state: Gtk.StateType): void
-    on(sigName: "state-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "state-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "state-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "state-flags-changed", callback: (($obj: Window, flags: Gtk.StateFlags) => void)): number
-    connect_after(sigName: "state-flags-changed", callback: (($obj: Window, flags: Gtk.StateFlags) => void)): number
+    on(sigName: "state-flags-changed", callback: (flags: Gtk.StateFlags) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "state-flags-changed", callback: (flags: Gtk.StateFlags) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "state-flags-changed", callback: (flags: Gtk.StateFlags) => void): NodeJS.EventEmitter
     emit(sigName: "state-flags-changed", flags: Gtk.StateFlags): void
-    on(sigName: "state-flags-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "state-flags-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "state-flags-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "style-set", callback: (($obj: Window, previousStyle?: Gtk.Style | null) => void)): number
-    connect_after(sigName: "style-set", callback: (($obj: Window, previousStyle?: Gtk.Style | null) => void)): number
+    on(sigName: "style-set", callback: (previousStyle?: Gtk.Style | null) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "style-set", callback: (previousStyle?: Gtk.Style | null) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "style-set", callback: (previousStyle?: Gtk.Style | null) => void): NodeJS.EventEmitter
     emit(sigName: "style-set", previousStyle?: Gtk.Style | null): void
-    on(sigName: "style-set", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "style-set", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "style-set", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "style-updated", callback: (($obj: Window) => void)): number
-    connect_after(sigName: "style-updated", callback: (($obj: Window) => void)): number
+    on(sigName: "style-updated", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "style-updated", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "style-updated", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "style-updated"): void
-    on(sigName: "style-updated", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "style-updated", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "style-updated", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "touch-event", callback: (($obj: Window, object: Gdk.Event) => boolean)): number
-    connect_after(sigName: "touch-event", callback: (($obj: Window, object: Gdk.Event) => boolean)): number
+    on(sigName: "touch-event", callback: (object: Gdk.Event) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "touch-event", callback: (object: Gdk.Event) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "touch-event", callback: (object: Gdk.Event) => void): NodeJS.EventEmitter
     emit(sigName: "touch-event", object: Gdk.Event): void
-    on(sigName: "touch-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "touch-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "touch-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "unmap", callback: (($obj: Window) => void)): number
-    connect_after(sigName: "unmap", callback: (($obj: Window) => void)): number
+    on(sigName: "unmap", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "unmap", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "unmap", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "unmap"): void
-    on(sigName: "unmap", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "unmap", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "unmap", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "unmap-event", callback: (($obj: Window, event: Gdk.EventAny) => boolean)): number
-    connect_after(sigName: "unmap-event", callback: (($obj: Window, event: Gdk.EventAny) => boolean)): number
+    on(sigName: "unmap-event", callback: (event: Gdk.EventAny) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "unmap-event", callback: (event: Gdk.EventAny) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "unmap-event", callback: (event: Gdk.EventAny) => void): NodeJS.EventEmitter
     emit(sigName: "unmap-event", event: Gdk.EventAny): void
-    on(sigName: "unmap-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "unmap-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "unmap-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "unrealize", callback: (($obj: Window) => void)): number
-    connect_after(sigName: "unrealize", callback: (($obj: Window) => void)): number
+    on(sigName: "unrealize", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "unrealize", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "unrealize", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "unrealize"): void
-    on(sigName: "unrealize", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "unrealize", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "unrealize", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "visibility-notify-event", callback: (($obj: Window, event: Gdk.EventVisibility) => boolean)): number
-    connect_after(sigName: "visibility-notify-event", callback: (($obj: Window, event: Gdk.EventVisibility) => boolean)): number
+    on(sigName: "visibility-notify-event", callback: (event: Gdk.EventVisibility) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "visibility-notify-event", callback: (event: Gdk.EventVisibility) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "visibility-notify-event", callback: (event: Gdk.EventVisibility) => void): NodeJS.EventEmitter
     emit(sigName: "visibility-notify-event", event: Gdk.EventVisibility): void
-    on(sigName: "visibility-notify-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "visibility-notify-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "visibility-notify-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "window-state-event", callback: (($obj: Window, event: Gdk.EventWindowState) => boolean)): number
-    connect_after(sigName: "window-state-event", callback: (($obj: Window, event: Gdk.EventWindowState) => boolean)): number
+    on(sigName: "window-state-event", callback: (event: Gdk.EventWindowState) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "window-state-event", callback: (event: Gdk.EventWindowState) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "window-state-event", callback: (event: Gdk.EventWindowState) => void): NodeJS.EventEmitter
     emit(sigName: "window-state-event", event: Gdk.EventWindowState): void
-    on(sigName: "window-state-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "window-state-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "window-state-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Window, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Window, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of Gio.ActionGroup */
+    /* Signals of Gio-2.0.Gio.ActionGroup */
     connect(sigName: "action-added", callback: (($obj: Window, actionName: string) => void)): number
-    connect_after(sigName: "action-added", callback: (($obj: Window, actionName: string) => void)): number
+    on(sigName: "action-added", callback: (actionName: string) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "action-added", callback: (actionName: string) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "action-added", callback: (actionName: string) => void): NodeJS.EventEmitter
     emit(sigName: "action-added", actionName: string): void
-    on(sigName: "action-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "action-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "action-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "action-enabled-changed", callback: (($obj: Window, actionName: string, enabled: boolean) => void)): number
-    connect_after(sigName: "action-enabled-changed", callback: (($obj: Window, actionName: string, enabled: boolean) => void)): number
+    on(sigName: "action-enabled-changed", callback: (actionName: string, enabled: boolean) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "action-enabled-changed", callback: (actionName: string, enabled: boolean) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "action-enabled-changed", callback: (actionName: string, enabled: boolean) => void): NodeJS.EventEmitter
     emit(sigName: "action-enabled-changed", actionName: string, enabled: boolean): void
-    on(sigName: "action-enabled-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "action-enabled-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "action-enabled-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "action-removed", callback: (($obj: Window, actionName: string) => void)): number
-    connect_after(sigName: "action-removed", callback: (($obj: Window, actionName: string) => void)): number
+    on(sigName: "action-removed", callback: (actionName: string) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "action-removed", callback: (actionName: string) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "action-removed", callback: (actionName: string) => void): NodeJS.EventEmitter
     emit(sigName: "action-removed", actionName: string): void
-    on(sigName: "action-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "action-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "action-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "action-state-changed", callback: (($obj: Window, actionName: string, value: GLib.Variant) => void)): number
-    connect_after(sigName: "action-state-changed", callback: (($obj: Window, actionName: string, value: GLib.Variant) => void)): number
+    on(sigName: "action-state-changed", callback: (actionName: string, value: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "action-state-changed", callback: (actionName: string, value: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "action-state-changed", callback: (actionName: string, value: GLib.Variant) => void): NodeJS.EventEmitter
     emit(sigName: "action-state-changed", actionName: string, value: GLib.Variant): void
-    on(sigName: "action-state-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "action-state-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "action-state-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::gallery-position", callback: (($obj: Window, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::gallery-position", callback: (($obj: Window, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::gallery-position", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -13359,14 +11432,14 @@ export class Window {
     static $gtype: GObject.Type
 }
 export abstract class ApplicationActivatableInterface {
-    /* Fields of Eog.ApplicationActivatableInterface */
+    /* Fields of Eog-3.0.Eog.ApplicationActivatableInterface */
     gIface: GObject.TypeInterface
     activate: (activatable: ApplicationActivatable) => void
     deactivate: (activatable: ApplicationActivatable) => void
     static name: string
 }
 export abstract class ApplicationClass {
-    /* Fields of Eog.ApplicationClass */
+    /* Fields of Eog-3.0.Eog.ApplicationClass */
     parentClass: Gtk.ApplicationClass
     static name: string
 }
@@ -13374,7 +11447,7 @@ export class ApplicationPrivate {
     static name: string
 }
 export abstract class ClipboardHandlerClass {
-    /* Fields of Eog.ClipboardHandlerClass */
+    /* Fields of Eog-3.0.Eog.ClipboardHandlerClass */
     parentKlass: GObject.ObjectClass
     static name: string
 }
@@ -13382,7 +11455,7 @@ export class ClipboardHandlerPrivate {
     static name: string
 }
 export abstract class FileChooserClass {
-    /* Fields of Eog.FileChooserClass */
+    /* Fields of Eog-3.0.Eog.FileChooserClass */
     parentClass: Gtk.FileChooserDialogClass
     static name: string
 }
@@ -13390,7 +11463,7 @@ export class FileChooserPrivate {
     static name: string
 }
 export abstract class ImageClass {
-    /* Fields of Eog.ImageClass */
+    /* Fields of Eog-3.0.Eog.ImageClass */
     parentClass: GObject.ObjectClass
     changed: (img: Image) => void
     sizePrepared: (img: Image, width: number, height: number) => void
@@ -13404,12 +11477,12 @@ export class ImagePrivate {
     static name: string
 }
 export abstract class ImageSaveInfoClass {
-    /* Fields of Eog.ImageSaveInfoClass */
+    /* Fields of Eog-3.0.Eog.ImageSaveInfoClass */
     parentKlass: GObject.ObjectClass
     static name: string
 }
 export abstract class JobClass {
-    /* Fields of Eog.JobClass */
+    /* Fields of Eog-3.0.Eog.JobClass */
     parentClass: GObject.ObjectClass
     run: (job: Job) => void
     progress: (job: Job, progress: number) => void
@@ -13418,42 +11491,42 @@ export abstract class JobClass {
     static name: string
 }
 export abstract class JobCopyClass {
-    /* Fields of Eog.JobCopyClass */
+    /* Fields of Eog-3.0.Eog.JobCopyClass */
     parentClass: JobClass
     static name: string
 }
 export abstract class JobLoadClass {
-    /* Fields of Eog.JobLoadClass */
+    /* Fields of Eog-3.0.Eog.JobLoadClass */
     parentClass: JobClass
     static name: string
 }
 export abstract class JobModelClass {
-    /* Fields of Eog.JobModelClass */
+    /* Fields of Eog-3.0.Eog.JobModelClass */
     parentClass: JobClass
     static name: string
 }
 export abstract class JobSaveAsClass {
-    /* Fields of Eog.JobSaveAsClass */
+    /* Fields of Eog-3.0.Eog.JobSaveAsClass */
     parent: JobSaveClass
     static name: string
 }
 export abstract class JobSaveClass {
-    /* Fields of Eog.JobSaveClass */
+    /* Fields of Eog-3.0.Eog.JobSaveClass */
     parentClass: JobClass
     static name: string
 }
 export abstract class JobThumbnailClass {
-    /* Fields of Eog.JobThumbnailClass */
+    /* Fields of Eog-3.0.Eog.JobThumbnailClass */
     parentClass: JobClass
     static name: string
 }
 export abstract class JobTransformClass {
-    /* Fields of Eog.JobTransformClass */
+    /* Fields of Eog-3.0.Eog.JobTransformClass */
     parentClass: JobClass
     static name: string
 }
 export abstract class ListStoreClass {
-    /* Fields of Eog.ListStoreClass */
+    /* Fields of Eog-3.0.Eog.ListStoreClass */
     parentClass: Gtk.ListStoreClass
     static name: string
 }
@@ -13461,7 +11534,7 @@ export class ListStorePrivate {
     static name: string
 }
 export abstract class PropertiesDialogClass {
-    /* Fields of Eog.PropertiesDialogClass */
+    /* Fields of Eog-3.0.Eog.PropertiesDialogClass */
     parentClass: Gtk.DialogClass
     static name: string
 }
@@ -13469,7 +11542,7 @@ export class PropertiesDialogPrivate {
     static name: string
 }
 export abstract class ScrollViewClass {
-    /* Fields of Eog.ScrollViewClass */
+    /* Fields of Eog-3.0.Eog.ScrollViewClass */
     parentClass: Gtk.GridClass
     zoomChanged: (view: ScrollView, zoom: number) => void
     rotationChanged: (view: ScrollView, degrees: number) => void
@@ -13481,7 +11554,7 @@ export class ScrollViewPrivate {
     static name: string
 }
 export abstract class SidebarClass {
-    /* Fields of Eog.SidebarClass */
+    /* Fields of Eog-3.0.Eog.SidebarClass */
     baseClass: Gtk.BoxClass
     pageAdded: (eogSidebar: Sidebar, mainWidget: Gtk.Widget) => void
     pageRemoved: (eogSidebar: Sidebar, mainWidget: Gtk.Widget) => void
@@ -13491,7 +11564,7 @@ export class SidebarPrivate {
     static name: string
 }
 export abstract class StatusbarClass {
-    /* Fields of Eog.StatusbarClass */
+    /* Fields of Eog-3.0.Eog.StatusbarClass */
     parentClass: Gtk.StatusbarClass
     static name: string
 }
@@ -13499,7 +11572,7 @@ export class StatusbarPrivate {
     static name: string
 }
 export abstract class ThumbNavClass {
-    /* Fields of Eog.ThumbNavClass */
+    /* Fields of Eog-3.0.Eog.ThumbNavClass */
     parentClass: Gtk.BoxClass
     static name: string
 }
@@ -13507,7 +11580,7 @@ export class ThumbNavPrivate {
     static name: string
 }
 export abstract class ThumbViewClass {
-    /* Fields of Eog.ThumbViewClass */
+    /* Fields of Eog-3.0.Eog.ThumbViewClass */
     iconViewClass: Gtk.IconViewClass
     static name: string
 }
@@ -13515,7 +11588,7 @@ export class ThumbViewPrivate {
     static name: string
 }
 export abstract class TransformClass {
-    /* Fields of Eog.TransformClass */
+    /* Fields of Eog-3.0.Eog.TransformClass */
     parentKlass: GObject.ObjectClass
     static name: string
 }
@@ -13523,14 +11596,14 @@ export class TransformPrivate {
     static name: string
 }
 export class UCInfo {
-    /* Fields of Eog.UCInfo */
+    /* Fields of Eog-3.0.Eog.UCInfo */
     description: string
     rep: string
     reqExif: boolean
     static name: string
 }
 export abstract class URIConverterClass {
-    /* Fields of Eog.URIConverterClass */
+    /* Fields of Eog-3.0.Eog.URIConverterClass */
     parentKlass: GObject.ObjectClass
     static name: string
 }
@@ -13538,14 +11611,14 @@ export class URIConverterPrivate {
     static name: string
 }
 export abstract class WindowActivatableInterface {
-    /* Fields of Eog.WindowActivatableInterface */
+    /* Fields of Eog-3.0.Eog.WindowActivatableInterface */
     gIface: GObject.TypeInterface
     activate: (activatable: WindowActivatable) => void
     deactivate: (activatable: WindowActivatable) => void
     static name: string
 }
 export abstract class WindowClass {
-    /* Fields of Eog.WindowClass */
+    /* Fields of Eog-3.0.Eog.WindowClass */
     parentClass: Gtk.ApplicationWindowClass
     prepared: (window: Window) => void
     static name: string

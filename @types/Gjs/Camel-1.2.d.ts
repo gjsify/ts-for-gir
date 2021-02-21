@@ -842,12 +842,12 @@ export interface UrlScanFunc {
     (in_: string, pos: string, inend: string, match: UrlMatch): boolean
 }
 export class JunkFilter {
-    /* Methods of Camel.JunkFilter */
+    /* Methods of Camel-1.2.Camel.JunkFilter */
     classify(message: MimeMessage, cancellable?: Gio.Cancellable | null): JunkStatus
     learn_junk(message: MimeMessage, cancellable?: Gio.Cancellable | null): boolean
     learn_not_junk(message: MimeMessage, cancellable?: Gio.Cancellable | null): boolean
     synchronize(cancellable?: Gio.Cancellable | null): boolean
-    /* Virtual methods of Camel.JunkFilter */
+    /* Virtual methods of Camel-1.2.Camel.JunkFilter */
     vfunc_classify(message: MimeMessage, cancellable?: Gio.Cancellable | null): JunkStatus
     vfunc_learn_junk(message: MimeMessage, cancellable?: Gio.Cancellable | null): boolean
     vfunc_learn_not_junk(message: MimeMessage, cancellable?: Gio.Cancellable | null): boolean
@@ -858,23 +858,23 @@ export interface NetworkService_ConstructProps extends Service_ConstructProps {
     connectable?: Gio.SocketConnectable
 }
 export class NetworkService {
-    /* Properties of Camel.NetworkService */
+    /* Properties of Camel-1.2.Camel.NetworkService */
     connectable: Gio.SocketConnectable
     readonly host_reachable: boolean
-    /* Properties of Camel.Service */
+    /* Properties of Camel-1.2.Camel.Service */
     readonly connection_status: ServiceConnectionStatus
     display_name: string
     password: string
     proxy_resolver: Gio.ProxyResolver
     settings: Settings
-    /* Properties of Camel.Object */
+    /* Properties of Camel-1.2.Camel.Object */
     state_filename: string
-    /* Fields of Camel.Service */
+    /* Fields of Camel-1.2.Camel.Service */
     parent: Object
     priv: ServicePrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Camel.NetworkService */
+    /* Methods of Camel-1.2.Camel.NetworkService */
     can_reach(cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     can_reach_finish(result: Gio.AsyncResult): boolean
     can_reach_sync(cancellable?: Gio.Cancellable | null): boolean
@@ -885,7 +885,7 @@ export class NetworkService {
     ref_connectable(): Gio.SocketConnectable
     set_connectable(connectable: Gio.SocketConnectable): void
     starttls(base_stream: Gio.IOStream): Gio.IOStream
-    /* Methods of Camel.Service */
+    /* Methods of Camel-1.2.Camel.Service */
     authenticate(mechanism: string | null, io_priority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     authenticate_finish(result: Gio.AsyncResult): AuthenticationResult
     authenticate_sync(mechanism?: string | null, cancellable?: Gio.Cancellable | null): AuthenticationResult
@@ -918,12 +918,12 @@ export class NetworkService {
     set_password(password: string): void
     set_proxy_resolver(proxy_resolver: Gio.ProxyResolver): void
     set_settings(settings: Settings): void
-    /* Methods of Camel.Object */
+    /* Methods of Camel-1.2.Camel.Object */
     get_state_filename(): string
     set_state_filename(state_filename: string): void
     state_read(): number
     state_write(): number
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -945,22 +945,22 @@ export class NetworkService {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Camel.NetworkService */
+    /* Virtual methods of Camel-1.2.Camel.NetworkService */
     vfunc_connect_sync(cancellable?: Gio.Cancellable | null): Gio.IOStream
     vfunc_connect_sync(cancellable?: Gio.Cancellable | null): boolean
     vfunc_get_default_port(method: NetworkSecurityMethod): number
     vfunc_get_service_name(method: NetworkSecurityMethod): string
-    /* Virtual methods of Camel.Service */
+    /* Virtual methods of Camel-1.2.Camel.Service */
     vfunc_authenticate_sync(mechanism?: string | null, cancellable?: Gio.Cancellable | null): AuthenticationResult
     vfunc_connect_sync(cancellable?: Gio.Cancellable | null): boolean
     vfunc_disconnect_sync(clean: boolean, cancellable?: Gio.Cancellable | null): boolean
     vfunc_get_name(brief: boolean): string
     vfunc_query_auth_types_sync(cancellable?: Gio.Cancellable | null): ServiceAuthType[]
     vfunc_init(cancellable?: Gio.Cancellable | null): boolean
-    /* Virtual methods of Camel.Object */
+    /* Virtual methods of Camel-1.2.Camel.Object */
     vfunc_state_read(fp?: object | null): number
     vfunc_state_write(fp?: object | null): number
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -968,7 +968,7 @@ export class NetworkService {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: NetworkService, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: NetworkService, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -1005,15 +1005,15 @@ export interface NetworkSettings_ConstructProps extends Settings_ConstructProps 
     user?: string
 }
 export class NetworkSettings {
-    /* Properties of Camel.NetworkSettings */
+    /* Properties of Camel-1.2.Camel.NetworkSettings */
     auth_mechanism: string
     host: string
     port: number
     security_method: NetworkSecurityMethod
     user: string
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Camel.NetworkSettings */
+    /* Methods of Camel-1.2.Camel.NetworkSettings */
     dup_auth_mechanism(): string
     dup_host(): string
     dup_host_ensure_ascii(): string
@@ -1028,10 +1028,10 @@ export class NetworkSettings {
     set_port(port: number): void
     set_security_method(method: NetworkSecurityMethod): void
     set_user(user: string): void
-    /* Methods of Camel.Settings */
+    /* Methods of Camel-1.2.Camel.Settings */
     clone(): Settings
     equal(settings_b: Settings): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -1053,10 +1053,10 @@ export class NetworkSettings {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Camel.Settings */
+    /* Virtual methods of Camel-1.2.Camel.Settings */
     vfunc_clone(): Settings
     vfunc_equal(settings_b: Settings): boolean
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -1064,7 +1064,7 @@ export class NetworkSettings {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: NetworkSettings, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: NetworkSettings, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -1090,20 +1090,20 @@ export class NetworkSettings {
 export interface Subscribable_ConstructProps extends Store_ConstructProps {
 }
 export class Subscribable {
-    /* Properties of Camel.Service */
+    /* Properties of Camel-1.2.Camel.Service */
     readonly connection_status: ServiceConnectionStatus
     display_name: string
     password: string
     proxy_resolver: Gio.ProxyResolver
     settings: Settings
-    /* Properties of Camel.Object */
+    /* Properties of Camel-1.2.Camel.Object */
     state_filename: string
-    /* Fields of Camel.Store */
+    /* Fields of Camel-1.2.Camel.Store */
     parent: Service
     priv: StorePrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Camel.Subscribable */
+    /* Methods of Camel-1.2.Camel.Subscribable */
     folder_is_subscribed(folder_name: string): boolean
     folder_subscribed(folder_info: FolderInfo): void
     folder_unsubscribed(folder_info: FolderInfo): void
@@ -1113,7 +1113,7 @@ export class Subscribable {
     unsubscribe_folder(folder_name: string, io_priority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     unsubscribe_folder_finish(result: Gio.AsyncResult): boolean
     unsubscribe_folder_sync(folder_name: string, cancellable?: Gio.Cancellable | null): boolean
-    /* Methods of Camel.Store */
+    /* Methods of Camel-1.2.Camel.Store */
     can_refresh_folder(info: FolderInfo): boolean
     create_folder(parent_name: string | null, folder_name: string, io_priority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     create_folder_finish(result: Gio.AsyncResult): FolderInfo | null
@@ -1160,7 +1160,7 @@ export class Subscribable {
     synchronize(expunge: boolean, io_priority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     synchronize_finish(result: Gio.AsyncResult): boolean
     synchronize_sync(expunge: boolean, cancellable?: Gio.Cancellable | null): boolean
-    /* Methods of Camel.Service */
+    /* Methods of Camel-1.2.Camel.Service */
     authenticate(mechanism: string | null, io_priority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     authenticate_finish(result: Gio.AsyncResult): AuthenticationResult
     authenticate_sync(mechanism?: string | null, cancellable?: Gio.Cancellable | null): AuthenticationResult
@@ -1193,12 +1193,12 @@ export class Subscribable {
     set_password(password: string): void
     set_proxy_resolver(proxy_resolver: Gio.ProxyResolver): void
     set_settings(settings: Settings): void
-    /* Methods of Camel.Object */
+    /* Methods of Camel-1.2.Camel.Object */
     get_state_filename(): string
     set_state_filename(state_filename: string): void
     state_read(): number
     state_write(): number
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -1220,13 +1220,13 @@ export class Subscribable {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Camel.Subscribable */
+    /* Virtual methods of Camel-1.2.Camel.Subscribable */
     vfunc_folder_is_subscribed(folder_name: string): boolean
     vfunc_folder_subscribed(folder_info: FolderInfo): void
     vfunc_folder_unsubscribed(folder_info: FolderInfo): void
     vfunc_subscribe_folder_sync(folder_name: string, cancellable?: Gio.Cancellable | null): boolean
     vfunc_unsubscribe_folder_sync(folder_name: string, cancellable?: Gio.Cancellable | null): boolean
-    /* Virtual methods of Camel.Store */
+    /* Virtual methods of Camel-1.2.Camel.Store */
     vfunc_can_refresh_folder(info: FolderInfo): boolean
     vfunc_create_folder_sync(parent_name: string | null, folder_name: string, cancellable?: Gio.Cancellable | null): FolderInfo | null
     vfunc_delete_folder_sync(folder_name: string, cancellable?: Gio.Cancellable | null): boolean
@@ -1244,17 +1244,17 @@ export class Subscribable {
     vfunc_initial_setup_sync(cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* out_save_setup */ GLib.HashTable ]
     vfunc_rename_folder_sync(old_name: string, new_name: string, cancellable?: Gio.Cancellable | null): boolean
     vfunc_synchronize_sync(expunge: boolean, cancellable?: Gio.Cancellable | null): boolean
-    /* Virtual methods of Camel.Service */
+    /* Virtual methods of Camel-1.2.Camel.Service */
     vfunc_authenticate_sync(mechanism?: string | null, cancellable?: Gio.Cancellable | null): AuthenticationResult
     vfunc_connect_sync(cancellable?: Gio.Cancellable | null): boolean
     vfunc_disconnect_sync(clean: boolean, cancellable?: Gio.Cancellable | null): boolean
     vfunc_get_name(brief: boolean): string
     vfunc_query_auth_types_sync(cancellable?: Gio.Cancellable | null): ServiceAuthType[]
     vfunc_init(cancellable?: Gio.Cancellable | null): boolean
-    /* Virtual methods of Camel.Object */
+    /* Virtual methods of Camel-1.2.Camel.Object */
     vfunc_state_read(fp?: object | null): number
     vfunc_state_write(fp?: object | null): number
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -1262,14 +1262,14 @@ export class Subscribable {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Camel.Subscribable */
+    /* Signals of Camel-1.2.Camel.Subscribable */
     connect(sigName: "folder-subscribed", callback: (($obj: Subscribable, object: FolderInfo) => void)): number
     connect_after(sigName: "folder-subscribed", callback: (($obj: Subscribable, object: FolderInfo) => void)): number
     emit(sigName: "folder-subscribed", object: FolderInfo): void
     connect(sigName: "folder-unsubscribed", callback: (($obj: Subscribable, object: FolderInfo) => void)): number
     connect_after(sigName: "folder-unsubscribed", callback: (($obj: Subscribable, object: FolderInfo) => void)): number
     emit(sigName: "folder-unsubscribed", object: FolderInfo): void
-    /* Signals of Camel.Store */
+    /* Signals of Camel-1.2.Camel.Store */
     connect(sigName: "folder-created", callback: (($obj: Subscribable, object: FolderInfo) => void)): number
     connect_after(sigName: "folder-created", callback: (($obj: Subscribable, object: FolderInfo) => void)): number
     emit(sigName: "folder-created", object: FolderInfo): void
@@ -1285,7 +1285,7 @@ export class Subscribable {
     connect(sigName: "folder-renamed", callback: (($obj: Subscribable, object: string, p0: FolderInfo) => void)): number
     connect_after(sigName: "folder-renamed", callback: (($obj: Subscribable, object: string, p0: FolderInfo) => void)): number
     emit(sigName: "folder-renamed", object: string, p0: FolderInfo): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Subscribable, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Subscribable, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -1313,12 +1313,12 @@ export class Subscribable {
 export interface Address_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class Address {
-    /* Fields of Camel.Address */
+    /* Fields of Camel-1.2.Camel.Address */
     parent: GObject.Object
     priv: AddressPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Camel.Address */
+    /* Methods of Camel-1.2.Camel.Address */
     cat(source: Address): number
     copy(source: Address): number
     decode(raw: string): number
@@ -1328,7 +1328,7 @@ export class Address {
     new_clone(): Address
     remove(index: number): void
     unformat(raw: string): number
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -1350,7 +1350,7 @@ export class Address {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Camel.Address */
+    /* Virtual methods of Camel-1.2.Camel.Address */
     vfunc_cat(source: Address): number
     vfunc_decode(raw: string): number
     vfunc_encode(): string
@@ -1358,7 +1358,7 @@ export class Address {
     vfunc_length(): number
     vfunc_remove(index: number): void
     vfunc_unformat(raw: string): number
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -1366,7 +1366,7 @@ export class Address {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Address, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Address, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -1384,12 +1384,12 @@ export class Address {
 export interface BlockFile_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class BlockFile {
-    /* Fields of Camel.BlockFile */
+    /* Fields of Camel-1.2.Camel.BlockFile */
     parent: GObject.Object
     priv: BlockFilePrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Camel.BlockFile */
+    /* Methods of Camel-1.2.Camel.BlockFile */
     attach_block(bl: Block): void
     delete(): number
     detach_block(bl: Block): void
@@ -1403,7 +1403,7 @@ export class BlockFile {
     sync_block(bl: Block): number
     touch_block(bl: Block): void
     unref_block(bl: Block): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -1425,10 +1425,10 @@ export class BlockFile {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Camel.BlockFile */
+    /* Virtual methods of Camel-1.2.Camel.BlockFile */
     vfunc_init_root(): number
     vfunc_validate_root(): number
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -1436,7 +1436,7 @@ export class BlockFile {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: BlockFile, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: BlockFile, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -1454,12 +1454,12 @@ export class BlockFile {
 export interface CertDB_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class CertDB {
-    /* Fields of Camel.CertDB */
+    /* Fields of Camel-1.2.Camel.CertDB */
     parent: GObject.Object
     priv: CertDBPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Camel.CertDB */
+    /* Methods of Camel-1.2.Camel.CertDB */
     clear(): void
     get_host(hostname: string, fingerprint: string): Cert | null
     list_certs(): Cert[]
@@ -1470,7 +1470,7 @@ export class CertDB {
     set_default(): void
     set_filename(filename: string): void
     touch(): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -1492,12 +1492,12 @@ export class CertDB {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Camel.CertDB */
+    /* Virtual methods of Camel-1.2.Camel.CertDB */
     vfunc_cert_load(istream?: object | null): Cert
     vfunc_cert_save(cert: Cert, ostream?: object | null): number
     vfunc_header_load(istream?: object | null): number
     vfunc_header_save(ostream?: object | null): number
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -1505,7 +1505,7 @@ export class CertDB {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: CertDB, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: CertDB, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -1525,12 +1525,12 @@ export interface CipherContext_ConstructProps extends GObject.Object_ConstructPr
     session?: Session
 }
 export class CipherContext {
-    /* Fields of Camel.CipherContext */
+    /* Fields of Camel-1.2.Camel.CipherContext */
     parent: GObject.Object
     priv: CipherContextPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Camel.CipherContext */
+    /* Methods of Camel-1.2.Camel.CipherContext */
     decrypt(ipart: MimePart, opart: MimePart, io_priority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     decrypt_finish(result: Gio.AsyncResult): CipherValidity
     decrypt_sync(ipart: MimePart, opart: MimePart, cancellable?: Gio.Cancellable | null): CipherValidity
@@ -1546,7 +1546,7 @@ export class CipherContext {
     verify(ipart: MimePart, io_priority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     verify_finish(result: Gio.AsyncResult): CipherValidity
     verify_sync(ipart: MimePart, cancellable?: Gio.Cancellable | null): CipherValidity
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -1568,14 +1568,14 @@ export class CipherContext {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Camel.CipherContext */
+    /* Virtual methods of Camel-1.2.Camel.CipherContext */
     vfunc_decrypt_sync(ipart: MimePart, opart: MimePart, cancellable?: Gio.Cancellable | null): CipherValidity
     vfunc_encrypt_sync(userid: string, recipients: string[], ipart: MimePart, opart: MimePart, cancellable?: Gio.Cancellable | null): boolean
     vfunc_hash_to_id(hash: CipherHash): string
     vfunc_id_to_hash(id: string): CipherHash
     vfunc_sign_sync(userid: string, hash: CipherHash, ipart: MimePart, opart: MimePart, cancellable?: Gio.Cancellable | null): boolean
     vfunc_verify_sync(ipart: MimePart, cancellable?: Gio.Cancellable | null): CipherValidity
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -1583,7 +1583,7 @@ export class CipherContext {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: CipherContext, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: CipherContext, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -1601,9 +1601,9 @@ export class CipherContext {
 export interface DB_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class DB {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Camel.DB */
+    /* Methods of Camel-1.2.Camel.DB */
     abort_transaction(): number
     add_to_transaction(query: string): number
     begin_transaction(): number
@@ -1640,7 +1640,7 @@ export class DB {
     transaction_command(qry_list: string[]): number
     write_folder_info_record(record: FIRecord): number
     write_message_info_record(folder_name: string, record: MIRecord): number
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -1662,7 +1662,7 @@ export class DB {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -1670,7 +1670,7 @@ export class DB {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: DB, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: DB, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -1696,15 +1696,15 @@ export interface DataCache_ConstructProps extends GObject.Object_ConstructProps 
     path?: string
 }
 export class DataCache {
-    /* Properties of Camel.DataCache */
+    /* Properties of Camel-1.2.Camel.DataCache */
     expire_enabled: boolean
     path: string
-    /* Fields of Camel.DataCache */
+    /* Fields of Camel-1.2.Camel.DataCache */
     parent: GObject.Object
     priv: DataCachePrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Camel.DataCache */
+    /* Methods of Camel-1.2.Camel.DataCache */
     add(path: string, key: string): Gio.IOStream
     clear(path: string): void
     foreach_remove(path: string, func: DataCacheRemoveFunc): void
@@ -1717,7 +1717,7 @@ export class DataCache {
     set_expire_age(when: number): void
     set_expire_enabled(expire_enabled: boolean): void
     set_path(path: string): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -1739,7 +1739,7 @@ export class DataCache {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -1747,7 +1747,7 @@ export class DataCache {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: DataCache, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: DataCache, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -1769,12 +1769,12 @@ export class DataCache {
 export interface DataWrapper_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class DataWrapper {
-    /* Fields of Camel.DataWrapper */
+    /* Fields of Camel-1.2.Camel.DataWrapper */
     parent: GObject.Object
     priv: DataWrapperPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Camel.DataWrapper */
+    /* Methods of Camel-1.2.Camel.DataWrapper */
     calculate_decoded_size_sync(cancellable?: Gio.Cancellable | null): number
     calculate_size_sync(cancellable?: Gio.Cancellable | null): number
     construct_from_input_stream(input_stream: Gio.InputStream, io_priority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
@@ -1805,7 +1805,7 @@ export class DataWrapper {
     write_to_stream(stream: Stream, io_priority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     write_to_stream_finish(result: Gio.AsyncResult): number
     write_to_stream_sync(stream: Stream, cancellable?: Gio.Cancellable | null): number
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -1827,7 +1827,7 @@ export class DataWrapper {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Camel.DataWrapper */
+    /* Virtual methods of Camel-1.2.Camel.DataWrapper */
     vfunc_construct_from_input_stream_sync(input_stream: Gio.InputStream, cancellable?: Gio.Cancellable | null): boolean
     vfunc_construct_from_stream_sync(stream: Stream, cancellable?: Gio.Cancellable | null): boolean
     vfunc_decode_to_output_stream_sync(output_stream: Gio.OutputStream, cancellable?: Gio.Cancellable | null): number
@@ -1839,7 +1839,7 @@ export class DataWrapper {
     vfunc_set_mime_type_field(mime_type?: ContentType | null): void
     vfunc_write_to_output_stream_sync(output_stream: Gio.OutputStream, cancellable?: Gio.Cancellable | null): number
     vfunc_write_to_stream_sync(stream: Stream, cancellable?: Gio.Cancellable | null): number
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -1847,7 +1847,7 @@ export class DataWrapper {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: DataWrapper, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: DataWrapper, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -1865,12 +1865,12 @@ export class DataWrapper {
 export interface FilterDriver_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class FilterDriver {
-    /* Fields of Camel.FilterDriver */
+    /* Fields of Camel-1.2.Camel.FilterDriver */
     parent: GObject.Object
     priv: FilterDriverPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Camel.FilterDriver */
+    /* Methods of Camel-1.2.Camel.FilterDriver */
     add_rule(name: string, match: string, action: string): void
     filter_folder(folder: Folder, cache: UIDCache, uids: string[], remove: boolean, cancellable?: Gio.Cancellable | null): number
     filter_mbox(mbox: string, original_source_url?: string | null, cancellable?: Gio.Cancellable | null): number
@@ -1883,7 +1883,7 @@ export class FilterDriver {
     set_shell_func(func: FilterShellFunc): void
     set_status_func(func: FilterStatusFunc): void
     set_system_beep_func(func: FilterSystemBeepFunc): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -1905,7 +1905,7 @@ export class FilterDriver {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -1913,7 +1913,7 @@ export class FilterDriver {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: FilterDriver, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: FilterDriver, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -1932,23 +1932,23 @@ export interface FilterInputStream_ConstructProps extends Gio.FilterInputStream_
     filter?: MimeFilter
 }
 export class FilterInputStream {
-    /* Properties of Gio.FilterInputStream */
+    /* Properties of Gio-2.0.Gio.FilterInputStream */
     close_base_stream: boolean
-    /* Fields of Camel.FilterInputStream */
+    /* Fields of Camel-1.2.Camel.FilterInputStream */
     parent: Gio.FilterInputStream
     priv: FilterInputStreamPrivate
-    /* Fields of Gio.FilterInputStream */
+    /* Fields of Gio-2.0.Gio.FilterInputStream */
     parent_instance: Gio.InputStream
     base_stream: Gio.InputStream
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Camel.FilterInputStream */
+    /* Methods of Camel-1.2.Camel.FilterInputStream */
     get_filter(): MimeFilter
-    /* Methods of Gio.FilterInputStream */
+    /* Methods of Gio-2.0.Gio.FilterInputStream */
     get_base_stream(): Gio.InputStream
     get_close_base_stream(): boolean
     set_close_base_stream(close_base: boolean): void
-    /* Methods of Gio.InputStream */
+    /* Methods of Gio-2.0.Gio.InputStream */
     clear_pending(): void
     close(cancellable?: Gio.Cancellable | null): boolean
     close_async(io_priority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
@@ -1968,7 +1968,7 @@ export class FilterInputStream {
     skip(count: number, cancellable?: Gio.Cancellable | null): number
     skip_async(count: number, io_priority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     skip_finish(result: Gio.AsyncResult): number
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -1990,7 +1990,7 @@ export class FilterInputStream {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Gio.InputStream */
+    /* Virtual methods of Gio-2.0.Gio.InputStream */
     vfunc_close_async(io_priority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     vfunc_close_finish(result: Gio.AsyncResult): boolean
     vfunc_close_fn(cancellable?: Gio.Cancellable | null): boolean
@@ -2000,7 +2000,7 @@ export class FilterInputStream {
     vfunc_skip(count: number, cancellable?: Gio.Cancellable | null): number
     vfunc_skip_async(count: number, io_priority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     vfunc_skip_finish(result: Gio.AsyncResult): number
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -2008,7 +2008,7 @@ export class FilterInputStream {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: FilterInputStream, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: FilterInputStream, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -2029,21 +2029,21 @@ export interface FilterOutputStream_ConstructProps extends Gio.FilterOutputStrea
     filter?: MimeFilter
 }
 export class FilterOutputStream {
-    /* Fields of Camel.FilterOutputStream */
+    /* Fields of Camel-1.2.Camel.FilterOutputStream */
     parent: Gio.FilterOutputStream
     priv: FilterOutputStreamPrivate
-    /* Fields of Gio.FilterOutputStream */
+    /* Fields of Gio-2.0.Gio.FilterOutputStream */
     parent_instance: Gio.OutputStream
     base_stream: Gio.OutputStream
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Camel.FilterOutputStream */
+    /* Methods of Camel-1.2.Camel.FilterOutputStream */
     get_filter(): MimeFilter
-    /* Methods of Gio.FilterOutputStream */
+    /* Methods of Gio-2.0.Gio.FilterOutputStream */
     get_base_stream(): Gio.OutputStream
     get_close_base_stream(): boolean
     set_close_base_stream(close_base: boolean): void
-    /* Methods of Gio.OutputStream */
+    /* Methods of Gio-2.0.Gio.OutputStream */
     clear_pending(): void
     close(cancellable?: Gio.Cancellable | null): boolean
     close_async(io_priority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
@@ -2073,7 +2073,7 @@ export class FilterOutputStream {
     writev_all_finish(result: Gio.AsyncResult): [ /* returnType */ boolean, /* bytes_written */ number | null ]
     writev_async(vectors: Gio.OutputVector[], io_priority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     writev_finish(result: Gio.AsyncResult): [ /* returnType */ boolean, /* bytes_written */ number | null ]
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -2095,7 +2095,7 @@ export class FilterOutputStream {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Gio.OutputStream */
+    /* Virtual methods of Gio-2.0.Gio.OutputStream */
     vfunc_close_async(io_priority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     vfunc_close_finish(result: Gio.AsyncResult): boolean
     vfunc_close_fn(cancellable?: Gio.Cancellable | null): boolean
@@ -2111,7 +2111,7 @@ export class FilterOutputStream {
     vfunc_writev_async(vectors: Gio.OutputVector[], io_priority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     vfunc_writev_finish(result: Gio.AsyncResult): [ /* returnType */ boolean, /* bytes_written */ number | null ]
     vfunc_writev_fn(vectors: Gio.OutputVector[], cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* bytes_written */ number | null ]
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -2119,7 +2119,7 @@ export class FilterOutputStream {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: FilterOutputStream, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: FilterOutputStream, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -2143,20 +2143,20 @@ export interface Folder_ConstructProps extends Object_ConstructProps {
     parent_store?: Store
 }
 export class Folder {
-    /* Properties of Camel.Folder */
+    /* Properties of Camel-1.2.Camel.Folder */
     description: string
     display_name: string
     full_name: string
     mark_seen: ThreeState
     mark_seen_timeout: number
-    /* Properties of Camel.Object */
+    /* Properties of Camel-1.2.Camel.Object */
     state_filename: string
-    /* Fields of Camel.Folder */
+    /* Fields of Camel-1.2.Camel.Folder */
     parent: Object
     priv: FolderPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Camel.Folder */
+    /* Methods of Camel-1.2.Camel.Folder */
     append_message(message: MimeMessage, info: MessageInfo, io_priority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     append_message_finish(result: Gio.AsyncResult, appended_uid: string): boolean
     append_message_sync(message: MimeMessage, info: MessageInfo, appended_uid: string, cancellable?: Gio.Cancellable | null): boolean
@@ -2240,12 +2240,12 @@ export class Folder {
     transfer_messages_to_finish(result: Gio.AsyncResult): [ /* returnType */ boolean, /* transferred_uids */ string[] ]
     transfer_messages_to_sync(message_uids: string[], destination: Folder, delete_originals: boolean, cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* transferred_uids */ string[] ]
     unlock(): void
-    /* Methods of Camel.Object */
+    /* Methods of Camel-1.2.Camel.Object */
     get_state_filename(): string
     set_state_filename(state_filename: string): void
     state_read(): number
     state_write(): number
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -2267,7 +2267,7 @@ export class Folder {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Camel.Folder */
+    /* Virtual methods of Camel-1.2.Camel.Folder */
     vfunc_append_message_sync(message: MimeMessage, info: MessageInfo, appended_uid: string, cancellable?: Gio.Cancellable | null): boolean
     vfunc_changed(changes: FolderChangeInfo): void
     vfunc_cmp_uids(uid1: string, uid2: string): number
@@ -2309,10 +2309,10 @@ export class Folder {
     vfunc_synchronize_sync(expunge: boolean, cancellable?: Gio.Cancellable | null): boolean
     vfunc_thaw(): void
     vfunc_transfer_messages_to_sync(message_uids: string[], destination: Folder, delete_originals: boolean, cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* transferred_uids */ string[] ]
-    /* Virtual methods of Camel.Object */
+    /* Virtual methods of Camel-1.2.Camel.Object */
     vfunc_state_read(fp?: object | null): number
     vfunc_state_write(fp?: object | null): number
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -2320,7 +2320,7 @@ export class Folder {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Camel.Folder */
+    /* Signals of Camel-1.2.Camel.Folder */
     connect(sigName: "changed", callback: (($obj: Folder, changes: FolderChangeInfo) => void)): number
     connect_after(sigName: "changed", callback: (($obj: Folder, changes: FolderChangeInfo) => void)): number
     emit(sigName: "changed", changes: FolderChangeInfo): void
@@ -2330,7 +2330,7 @@ export class Folder {
     connect(sigName: "renamed", callback: (($obj: Folder, old_name: string) => void)): number
     connect_after(sigName: "renamed", callback: (($obj: Folder, old_name: string) => void)): number
     emit(sigName: "renamed", old_name: string): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Folder, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Folder, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -2360,12 +2360,12 @@ export class Folder {
 export interface FolderSearch_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class FolderSearch {
-    /* Fields of Camel.FolderSearch */
+    /* Fields of Camel-1.2.Camel.FolderSearch */
     parent: GObject.Object
     priv: FolderSearchPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Camel.FolderSearch */
+    /* Methods of Camel-1.2.Camel.FolderSearch */
     count(expr: string, cancellable?: Gio.Cancellable | null): number
     free_result(result?: string[] | null): void
     get_current_message_info(): MessageInfo | null
@@ -2381,7 +2381,7 @@ export class FolderSearch {
     set_only_cached_messages(only_cached_messages: boolean): void
     set_summary(summary: string[]): void
     take_current_message_info(info?: MessageInfo | null): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -2403,7 +2403,7 @@ export class FolderSearch {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -2411,7 +2411,7 @@ export class FolderSearch {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: FolderSearch, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: FolderSearch, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -2434,19 +2434,19 @@ export interface FolderSummary_ConstructProps extends GObject.Object_ConstructPr
     folder?: Folder
 }
 export class FolderSummary {
-    /* Properties of Camel.FolderSummary */
+    /* Properties of Camel-1.2.Camel.FolderSummary */
     readonly deleted_count: number
     readonly junk_count: number
     readonly junk_not_deleted_count: number
     readonly saved_count: number
     readonly unread_count: number
     readonly visible_count: number
-    /* Fields of Camel.FolderSummary */
+    /* Fields of Camel-1.2.Camel.FolderSummary */
     parent: GObject.Object
     priv: FolderSummaryPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Camel.FolderSummary */
+    /* Methods of Camel-1.2.Camel.FolderSummary */
     add(info: MessageInfo, force_keep_uid: boolean): void
     check_uid(uid: string): boolean
     clear(): boolean
@@ -2491,7 +2491,7 @@ export class FolderSummary {
     set_version(version: number): void
     touch(): void
     unlock(): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -2513,7 +2513,7 @@ export class FolderSummary {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Camel.FolderSummary */
+    /* Virtual methods of Camel-1.2.Camel.FolderSummary */
     vfunc_message_info_from_uid(uid: string): MessageInfo | null
     vfunc_message_info_new_from_headers(headers: NameValueArray): MessageInfo
     vfunc_message_info_new_from_message(message: MimeMessage): MessageInfo
@@ -2522,7 +2522,7 @@ export class FolderSummary {
     vfunc_prepare_fetch_all(): void
     vfunc_summary_header_load(fir?: object | null): boolean
     vfunc_summary_header_save(): object | null
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -2530,11 +2530,11 @@ export class FolderSummary {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Camel.FolderSummary */
+    /* Signals of Camel-1.2.Camel.FolderSummary */
     connect(sigName: "changed", callback: (($obj: FolderSummary) => void)): number
     connect_after(sigName: "changed", callback: (($obj: FolderSummary) => void)): number
     emit(sigName: "changed"): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: FolderSummary, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: FolderSummary, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -2567,20 +2567,20 @@ export interface GpgContext_ConstructProps extends CipherContext_ConstructProps 
     prefer_inline?: boolean
 }
 export class GpgContext {
-    /* Properties of Camel.GpgContext */
+    /* Properties of Camel-1.2.Camel.GpgContext */
     always_trust: boolean
     prefer_inline: boolean
-    /* Fields of Camel.GpgContext */
+    /* Fields of Camel-1.2.Camel.GpgContext */
     parent: CipherContext
     priv: GpgContextPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Camel.GpgContext */
+    /* Methods of Camel-1.2.Camel.GpgContext */
     get_always_trust(): boolean
     get_prefer_inline(): boolean
     set_always_trust(always_trust: boolean): void
     set_prefer_inline(prefer_inline: boolean): void
-    /* Methods of Camel.CipherContext */
+    /* Methods of Camel-1.2.Camel.CipherContext */
     decrypt(ipart: MimePart, opart: MimePart, io_priority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     decrypt_finish(result: Gio.AsyncResult): CipherValidity
     decrypt_sync(ipart: MimePart, opart: MimePart, cancellable?: Gio.Cancellable | null): CipherValidity
@@ -2596,7 +2596,7 @@ export class GpgContext {
     verify(ipart: MimePart, io_priority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     verify_finish(result: Gio.AsyncResult): CipherValidity
     verify_sync(ipart: MimePart, cancellable?: Gio.Cancellable | null): CipherValidity
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -2618,14 +2618,14 @@ export class GpgContext {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Camel.CipherContext */
+    /* Virtual methods of Camel-1.2.Camel.CipherContext */
     vfunc_decrypt_sync(ipart: MimePart, opart: MimePart, cancellable?: Gio.Cancellable | null): CipherValidity
     vfunc_encrypt_sync(userid: string, recipients: string[], ipart: MimePart, opart: MimePart, cancellable?: Gio.Cancellable | null): boolean
     vfunc_hash_to_id(hash: CipherHash): string
     vfunc_id_to_hash(id: string): CipherHash
     vfunc_sign_sync(userid: string, hash: CipherHash, ipart: MimePart, opart: MimePart, cancellable?: Gio.Cancellable | null): boolean
     vfunc_verify_sync(ipart: MimePart, cancellable?: Gio.Cancellable | null): CipherValidity
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -2633,7 +2633,7 @@ export class GpgContext {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: GpgContext, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: GpgContext, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -2655,19 +2655,19 @@ export class GpgContext {
 export interface HTMLParser_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class HTMLParser {
-    /* Fields of Camel.HTMLParser */
+    /* Fields of Camel-1.2.Camel.HTMLParser */
     parent: GObject.Object
     priv: HTMLParserPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Camel.HTMLParser */
+    /* Methods of Camel-1.2.Camel.HTMLParser */
     attr(name: string): string
     attr_list(values?: string[] | null): [ /* returnType */ string[], /* values */ string[] | null ]
     left(lenp: number): string
     set_data(start: string, len: number, last: number): void
     step(datap: string, lenp: number): HTMLParserState
     tag(): string
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -2689,7 +2689,7 @@ export class HTMLParser {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -2697,7 +2697,7 @@ export class HTMLParser {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: HTMLParser, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: HTMLParser, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -2715,7 +2715,7 @@ export class HTMLParser {
 export interface Index_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class Index {
-    /* Fields of Camel.Index */
+    /* Fields of Camel-1.2.Camel.Index */
     parent: GObject.Object
     priv: IndexPrivate
     path: string
@@ -2724,9 +2724,9 @@ export class Index {
     state: number
     normalize: IndexNorm
     normalize_data: object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Camel.Index */
+    /* Methods of Camel-1.2.Camel.Index */
     add_name(name: string): IndexName | null
     compress(): number
     construct(path: string, flags: number): void
@@ -2740,7 +2740,7 @@ export class Index {
     sync(): number
     words(): IndexCursor | null
     write_name(idn: IndexName): number
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -2762,7 +2762,7 @@ export class Index {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Camel.Index */
+    /* Virtual methods of Camel-1.2.Camel.Index */
     vfunc_add_name(name: string): IndexName | null
     vfunc_compress(): number
     vfunc_delete_(): number
@@ -2774,7 +2774,7 @@ export class Index {
     vfunc_sync(): number
     vfunc_words(): IndexCursor | null
     vfunc_write_name(idn: IndexName): number
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -2782,7 +2782,7 @@ export class Index {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Index, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Index, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -2798,15 +2798,15 @@ export class Index {
 export interface IndexCursor_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class IndexCursor {
-    /* Fields of Camel.IndexCursor */
+    /* Fields of Camel-1.2.Camel.IndexCursor */
     parent: GObject.Object
     priv: IndexCursorPrivate
     index: Index
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Camel.IndexCursor */
+    /* Methods of Camel-1.2.Camel.IndexCursor */
     next(): string
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -2828,9 +2828,9 @@ export class IndexCursor {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Camel.IndexCursor */
+    /* Virtual methods of Camel-1.2.Camel.IndexCursor */
     vfunc_next(): string
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -2838,7 +2838,7 @@ export class IndexCursor {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: IndexCursor, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: IndexCursor, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -2854,19 +2854,19 @@ export class IndexCursor {
 export interface IndexName_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class IndexName {
-    /* Fields of Camel.IndexName */
+    /* Fields of Camel-1.2.Camel.IndexName */
     parent: GObject.Object
     priv: IndexNamePrivate
     index: Index
     name: string
     buffer: Uint8Array[]
     words: GLib.HashTable
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Camel.IndexName */
+    /* Methods of Camel-1.2.Camel.IndexName */
     add_buffer(buffer: string, len: number): number
     add_word(word: string): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -2888,10 +2888,10 @@ export class IndexName {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Camel.IndexName */
+    /* Virtual methods of Camel-1.2.Camel.IndexName */
     vfunc_add_buffer(buffer: string, len: number): number
     vfunc_add_word(word: string): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -2899,7 +2899,7 @@ export class IndexName {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: IndexName, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: IndexName, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -2915,18 +2915,18 @@ export class IndexName {
 export interface InternetAddress_ConstructProps extends Address_ConstructProps {
 }
 export class InternetAddress {
-    /* Fields of Camel.InternetAddress */
+    /* Fields of Camel-1.2.Camel.InternetAddress */
     parent: Address
     priv: InternetAddressPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Camel.InternetAddress */
+    /* Methods of Camel-1.2.Camel.InternetAddress */
     add(name: string, address: string): number
     ensure_ascii_domains(): void
     find_address(address: string): [ /* returnType */ number, /* namep */ string | null ]
     find_name(name: string): [ /* returnType */ number, /* addressp */ string | null ]
     get(index: number): [ /* returnType */ boolean, /* namep */ string | null, /* addressp */ string | null ]
-    /* Methods of Camel.Address */
+    /* Methods of Camel-1.2.Camel.Address */
     cat(source: Address): number
     copy(source: Address): number
     decode(raw: string): number
@@ -2936,7 +2936,7 @@ export class InternetAddress {
     new_clone(): Address
     remove(index: number): void
     unformat(raw: string): number
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -2958,7 +2958,7 @@ export class InternetAddress {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Camel.Address */
+    /* Virtual methods of Camel-1.2.Camel.Address */
     vfunc_cat(source: Address): number
     vfunc_decode(raw: string): number
     vfunc_encode(): string
@@ -2966,7 +2966,7 @@ export class InternetAddress {
     vfunc_length(): number
     vfunc_remove(index: number): void
     vfunc_unformat(raw: string): number
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -2974,7 +2974,7 @@ export class InternetAddress {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: InternetAddress, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: InternetAddress, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -2994,17 +2994,17 @@ export class InternetAddress {
 export interface KeyFile_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class KeyFile {
-    /* Fields of Camel.KeyFile */
+    /* Fields of Camel-1.2.Camel.KeyFile */
     parent: GObject.Object
     priv: KeyFilePrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Camel.KeyFile */
+    /* Methods of Camel-1.2.Camel.KeyFile */
     delete(): number
     read(start: _block_t, records?: _key_t[] | null): number
     rename(path: string): number
     write(parent: _block_t, records: _key_t[]): number
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -3026,7 +3026,7 @@ export class KeyFile {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -3034,7 +3034,7 @@ export class KeyFile {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: KeyFile, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: KeyFile, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -3052,19 +3052,19 @@ export class KeyFile {
 export interface KeyTable_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class KeyTable {
-    /* Fields of Camel.KeyTable */
+    /* Fields of Camel-1.2.Camel.KeyTable */
     parent: GObject.Object
     priv: KeyTablePrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Camel.KeyTable */
+    /* Methods of Camel-1.2.Camel.KeyTable */
     add(key: string, data: _block_t, flags: number): _key_t
     lookup(keyid: _key_t, key: string, flags: number): _block_t
     next(next: _key_t, keyp: string, flagsp: number, datap: _block_t): _key_t
     set_data(keyid: _key_t, data: _block_t): boolean
     set_flags(keyid: _key_t, flags: number, set: number): boolean
     sync(): number
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -3086,7 +3086,7 @@ export class KeyTable {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -3094,7 +3094,7 @@ export class KeyTable {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: KeyTable, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: KeyTable, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -3116,17 +3116,17 @@ export interface LocalSettings_ConstructProps extends StoreSettings_ConstructPro
     path?: string
 }
 export class LocalSettings {
-    /* Properties of Camel.LocalSettings */
+    /* Properties of Camel-1.2.Camel.LocalSettings */
     filter_all: boolean
     filter_junk: boolean
     maildir_alt_flag_sep: boolean
     path: string
-    /* Properties of Camel.StoreSettings */
+    /* Properties of Camel-1.2.Camel.StoreSettings */
     filter_inbox: boolean
     store_changes_interval: number
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Camel.LocalSettings */
+    /* Methods of Camel-1.2.Camel.LocalSettings */
     dup_path(): string
     get_filter_all(): boolean
     get_filter_junk(): boolean
@@ -3136,15 +3136,15 @@ export class LocalSettings {
     set_filter_junk(filter_junk: boolean): void
     set_maildir_alt_flag_sep(maildir_alt_flag_sep: boolean): void
     set_path(path: string): void
-    /* Methods of Camel.StoreSettings */
+    /* Methods of Camel-1.2.Camel.StoreSettings */
     get_filter_inbox(): boolean
     get_store_changes_interval(): number
     set_filter_inbox(filter_inbox: boolean): void
     set_store_changes_interval(interval: number): void
-    /* Methods of Camel.Settings */
+    /* Methods of Camel-1.2.Camel.Settings */
     clone(): Settings
     equal(settings_b: Settings): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -3166,10 +3166,10 @@ export class LocalSettings {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Camel.Settings */
+    /* Virtual methods of Camel-1.2.Camel.Settings */
     vfunc_clone(): Settings
     vfunc_equal(settings_b: Settings): boolean
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -3177,7 +3177,7 @@ export class LocalSettings {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: LocalSettings, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: LocalSettings, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -3206,14 +3206,14 @@ export interface Medium_ConstructProps extends DataWrapper_ConstructProps {
     content?: DataWrapper
 }
 export class Medium {
-    /* Properties of Camel.Medium */
+    /* Properties of Camel-1.2.Camel.Medium */
     content: DataWrapper
-    /* Fields of Camel.Medium */
+    /* Fields of Camel-1.2.Camel.Medium */
     parent: DataWrapper
     priv: MediumPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Camel.Medium */
+    /* Methods of Camel-1.2.Camel.Medium */
     add_header(name: string, value: string): void
     dup_headers(): NameValueArray
     get_content(): DataWrapper | null
@@ -3222,7 +3222,7 @@ export class Medium {
     remove_header(name: string): void
     set_content(content: DataWrapper): void
     set_header(name: string, value: string): void
-    /* Methods of Camel.DataWrapper */
+    /* Methods of Camel-1.2.Camel.DataWrapper */
     calculate_decoded_size_sync(cancellable?: Gio.Cancellable | null): number
     calculate_size_sync(cancellable?: Gio.Cancellable | null): number
     construct_from_input_stream(input_stream: Gio.InputStream, io_priority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
@@ -3253,7 +3253,7 @@ export class Medium {
     write_to_stream(stream: Stream, io_priority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     write_to_stream_finish(result: Gio.AsyncResult): number
     write_to_stream_sync(stream: Stream, cancellable?: Gio.Cancellable | null): number
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -3275,7 +3275,7 @@ export class Medium {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Camel.Medium */
+    /* Virtual methods of Camel-1.2.Camel.Medium */
     vfunc_add_header(name: string, value: string): void
     vfunc_dup_headers(): NameValueArray
     vfunc_get_content(): DataWrapper | null
@@ -3284,7 +3284,7 @@ export class Medium {
     vfunc_remove_header(name: string): void
     vfunc_set_content(content: DataWrapper): void
     vfunc_set_header(name: string, value: string): void
-    /* Virtual methods of Camel.DataWrapper */
+    /* Virtual methods of Camel-1.2.Camel.DataWrapper */
     vfunc_construct_from_input_stream_sync(input_stream: Gio.InputStream, cancellable?: Gio.Cancellable | null): boolean
     vfunc_construct_from_stream_sync(stream: Stream, cancellable?: Gio.Cancellable | null): boolean
     vfunc_decode_to_output_stream_sync(output_stream: Gio.OutputStream, cancellable?: Gio.Cancellable | null): number
@@ -3296,7 +3296,7 @@ export class Medium {
     vfunc_set_mime_type_field(mime_type?: ContentType | null): void
     vfunc_write_to_output_stream_sync(output_stream: Gio.OutputStream, cancellable?: Gio.Cancellable | null): number
     vfunc_write_to_stream_sync(stream: Stream, cancellable?: Gio.Cancellable | null): number
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -3304,7 +3304,7 @@ export class Medium {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Medium, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Medium, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -3341,7 +3341,7 @@ export interface MessageInfo_ConstructProps extends GObject.Object_ConstructProp
     user_tags?: NameValueArray
 }
 export class MessageInfo {
-    /* Properties of Camel.MessageInfo */
+    /* Properties of Camel-1.2.Camel.MessageInfo */
     abort_notifications: boolean
     cc: string
     date_received: number
@@ -3361,12 +3361,12 @@ export class MessageInfo {
     uid: string
     user_flags: NamedFlags
     user_tags: NameValueArray
-    /* Fields of Camel.MessageInfo */
+    /* Fields of Camel-1.2.Camel.MessageInfo */
     parent: GObject.Object
     priv: MessageInfoPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Camel.MessageInfo */
+    /* Methods of Camel-1.2.Camel.MessageInfo */
     clone(assign_summary?: FolderSummary | null): MessageInfo
     dump(): void
     dup_headers(): NameValueArray | null
@@ -3424,7 +3424,7 @@ export class MessageInfo {
     take_user_flags(user_flags?: NamedFlags | null): boolean
     take_user_tags(user_tags?: NameValueArray | null): boolean
     thaw_notifications(): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -3446,7 +3446,7 @@ export class MessageInfo {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Camel.MessageInfo */
+    /* Virtual methods of Camel-1.2.Camel.MessageInfo */
     vfunc_clone(assign_summary?: FolderSummary | null): MessageInfo
     vfunc_dup_user_flags(): NamedFlags
     vfunc_dup_user_tags(): NameValueArray | null
@@ -3484,7 +3484,7 @@ export class MessageInfo {
     vfunc_take_references(references?: number[] | null): boolean
     vfunc_take_user_flags(user_flags?: NamedFlags | null): boolean
     vfunc_take_user_tags(user_tags?: NameValueArray | null): boolean
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -3492,7 +3492,7 @@ export class MessageInfo {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: MessageInfo, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: MessageInfo, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -3549,7 +3549,7 @@ export class MessageInfo {
 export interface MessageInfoBase_ConstructProps extends MessageInfo_ConstructProps {
 }
 export class MessageInfoBase {
-    /* Properties of Camel.MessageInfo */
+    /* Properties of Camel-1.2.Camel.MessageInfo */
     abort_notifications: boolean
     cc: string
     date_received: number
@@ -3569,12 +3569,12 @@ export class MessageInfoBase {
     uid: string
     user_flags: NamedFlags
     user_tags: NameValueArray
-    /* Fields of Camel.MessageInfoBase */
+    /* Fields of Camel-1.2.Camel.MessageInfoBase */
     parent: MessageInfo
     priv: MessageInfoBasePrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Camel.MessageInfo */
+    /* Methods of Camel-1.2.Camel.MessageInfo */
     clone(assign_summary?: FolderSummary | null): MessageInfo
     dump(): void
     dup_headers(): NameValueArray | null
@@ -3632,7 +3632,7 @@ export class MessageInfoBase {
     take_user_flags(user_flags?: NamedFlags | null): boolean
     take_user_tags(user_tags?: NameValueArray | null): boolean
     thaw_notifications(): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -3654,7 +3654,7 @@ export class MessageInfoBase {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Camel.MessageInfo */
+    /* Virtual methods of Camel-1.2.Camel.MessageInfo */
     vfunc_clone(assign_summary?: FolderSummary | null): MessageInfo
     vfunc_dup_user_flags(): NamedFlags
     vfunc_dup_user_tags(): NameValueArray | null
@@ -3692,7 +3692,7 @@ export class MessageInfoBase {
     vfunc_take_references(references?: number[] | null): boolean
     vfunc_take_user_flags(user_flags?: NamedFlags | null): boolean
     vfunc_take_user_tags(user_tags?: NameValueArray | null): boolean
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -3700,7 +3700,7 @@ export class MessageInfoBase {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: MessageInfoBase, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: MessageInfoBase, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -3754,7 +3754,7 @@ export class MessageInfoBase {
 export interface MimeFilter_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class MimeFilter {
-    /* Fields of Camel.MimeFilter */
+    /* Fields of Camel-1.2.Camel.MimeFilter */
     parent: GObject.Object
     priv: MimeFilterPrivate
     outreal: string
@@ -3765,15 +3765,15 @@ export class MimeFilter {
     backbuf: string
     backsize: number
     backlen: number
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Camel.MimeFilter */
+    /* Methods of Camel-1.2.Camel.MimeFilter */
     backup(data: Uint8Array[]): void
     complete(in_: Uint8Array[], prespace: number): [ /* out */ Uint8Array[], /* outprespace */ number ]
     filter(in_: Uint8Array[], prespace: number): [ /* out */ Uint8Array[], /* outprespace */ number ]
     reset(): void
     set_size(size: number, keep: number): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -3795,11 +3795,11 @@ export class MimeFilter {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Camel.MimeFilter */
+    /* Virtual methods of Camel-1.2.Camel.MimeFilter */
     vfunc_complete(in_: Uint8Array[], prespace: number): [ /* out */ Uint8Array[], /* outprespace */ number ]
     vfunc_filter(in_: Uint8Array[], prespace: number): [ /* out */ Uint8Array[], /* outprespace */ number ]
     vfunc_reset(): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -3807,7 +3807,7 @@ export class MimeFilter {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: MimeFilter, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: MimeFilter, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -3825,10 +3825,10 @@ export class MimeFilter {
 export interface MimeFilterBasic_ConstructProps extends MimeFilter_ConstructProps {
 }
 export class MimeFilterBasic {
-    /* Fields of Camel.MimeFilterBasic */
+    /* Fields of Camel-1.2.Camel.MimeFilterBasic */
     parent: MimeFilter
     priv: MimeFilterBasicPrivate
-    /* Fields of Camel.MimeFilter */
+    /* Fields of Camel-1.2.Camel.MimeFilter */
     outreal: string
     outbuf: string
     outptr: string
@@ -3837,15 +3837,15 @@ export class MimeFilterBasic {
     backbuf: string
     backsize: number
     backlen: number
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Camel.MimeFilter */
+    /* Methods of Camel-1.2.Camel.MimeFilter */
     backup(data: Uint8Array[]): void
     complete(in_: Uint8Array[], prespace: number): [ /* out */ Uint8Array[], /* outprespace */ number ]
     filter(in_: Uint8Array[], prespace: number): [ /* out */ Uint8Array[], /* outprespace */ number ]
     reset(): void
     set_size(size: number, keep: number): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -3867,11 +3867,11 @@ export class MimeFilterBasic {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Camel.MimeFilter */
+    /* Virtual methods of Camel-1.2.Camel.MimeFilter */
     vfunc_complete(in_: Uint8Array[], prespace: number): [ /* out */ Uint8Array[], /* outprespace */ number ]
     vfunc_filter(in_: Uint8Array[], prespace: number): [ /* out */ Uint8Array[], /* outprespace */ number ]
     vfunc_reset(): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -3879,7 +3879,7 @@ export class MimeFilterBasic {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: MimeFilterBasic, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: MimeFilterBasic, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -3898,10 +3898,10 @@ export class MimeFilterBasic {
 export interface MimeFilterBestenc_ConstructProps extends MimeFilter_ConstructProps {
 }
 export class MimeFilterBestenc {
-    /* Fields of Camel.MimeFilterBestenc */
+    /* Fields of Camel-1.2.Camel.MimeFilterBestenc */
     parent: MimeFilter
     priv: MimeFilterBestencPrivate
-    /* Fields of Camel.MimeFilter */
+    /* Fields of Camel-1.2.Camel.MimeFilter */
     outreal: string
     outbuf: string
     outptr: string
@@ -3910,19 +3910,19 @@ export class MimeFilterBestenc {
     backbuf: string
     backsize: number
     backlen: number
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Camel.MimeFilterBestenc */
+    /* Methods of Camel-1.2.Camel.MimeFilterBestenc */
     get_best_charset(): string
     get_best_encoding(required: BestencEncoding): TransferEncoding
     set_flags(flags: number): void
-    /* Methods of Camel.MimeFilter */
+    /* Methods of Camel-1.2.Camel.MimeFilter */
     backup(data: Uint8Array[]): void
     complete(in_: Uint8Array[], prespace: number): [ /* out */ Uint8Array[], /* outprespace */ number ]
     filter(in_: Uint8Array[], prespace: number): [ /* out */ Uint8Array[], /* outprespace */ number ]
     reset(): void
     set_size(size: number, keep: number): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -3944,11 +3944,11 @@ export class MimeFilterBestenc {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Camel.MimeFilter */
+    /* Virtual methods of Camel-1.2.Camel.MimeFilter */
     vfunc_complete(in_: Uint8Array[], prespace: number): [ /* out */ Uint8Array[], /* outprespace */ number ]
     vfunc_filter(in_: Uint8Array[], prespace: number): [ /* out */ Uint8Array[], /* outprespace */ number ]
     vfunc_reset(): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -3956,7 +3956,7 @@ export class MimeFilterBestenc {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: MimeFilterBestenc, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: MimeFilterBestenc, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -3975,10 +3975,10 @@ export class MimeFilterBestenc {
 export interface MimeFilterCRLF_ConstructProps extends MimeFilter_ConstructProps {
 }
 export class MimeFilterCRLF {
-    /* Fields of Camel.MimeFilterCRLF */
+    /* Fields of Camel-1.2.Camel.MimeFilterCRLF */
     parent: MimeFilter
     priv: MimeFilterCRLFPrivate
-    /* Fields of Camel.MimeFilter */
+    /* Fields of Camel-1.2.Camel.MimeFilter */
     outreal: string
     outbuf: string
     outptr: string
@@ -3987,15 +3987,15 @@ export class MimeFilterCRLF {
     backbuf: string
     backsize: number
     backlen: number
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Camel.MimeFilter */
+    /* Methods of Camel-1.2.Camel.MimeFilter */
     backup(data: Uint8Array[]): void
     complete(in_: Uint8Array[], prespace: number): [ /* out */ Uint8Array[], /* outprespace */ number ]
     filter(in_: Uint8Array[], prespace: number): [ /* out */ Uint8Array[], /* outprespace */ number ]
     reset(): void
     set_size(size: number, keep: number): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -4017,11 +4017,11 @@ export class MimeFilterCRLF {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Camel.MimeFilter */
+    /* Virtual methods of Camel-1.2.Camel.MimeFilter */
     vfunc_complete(in_: Uint8Array[], prespace: number): [ /* out */ Uint8Array[], /* outprespace */ number ]
     vfunc_filter(in_: Uint8Array[], prespace: number): [ /* out */ Uint8Array[], /* outprespace */ number ]
     vfunc_reset(): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -4029,7 +4029,7 @@ export class MimeFilterCRLF {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: MimeFilterCRLF, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: MimeFilterCRLF, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -4048,10 +4048,10 @@ export class MimeFilterCRLF {
 export interface MimeFilterCanon_ConstructProps extends MimeFilter_ConstructProps {
 }
 export class MimeFilterCanon {
-    /* Fields of Camel.MimeFilterCanon */
+    /* Fields of Camel-1.2.Camel.MimeFilterCanon */
     parent: MimeFilter
     priv: MimeFilterCanonPrivate
-    /* Fields of Camel.MimeFilter */
+    /* Fields of Camel-1.2.Camel.MimeFilter */
     outreal: string
     outbuf: string
     outptr: string
@@ -4060,15 +4060,15 @@ export class MimeFilterCanon {
     backbuf: string
     backsize: number
     backlen: number
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Camel.MimeFilter */
+    /* Methods of Camel-1.2.Camel.MimeFilter */
     backup(data: Uint8Array[]): void
     complete(in_: Uint8Array[], prespace: number): [ /* out */ Uint8Array[], /* outprespace */ number ]
     filter(in_: Uint8Array[], prespace: number): [ /* out */ Uint8Array[], /* outprespace */ number ]
     reset(): void
     set_size(size: number, keep: number): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -4090,11 +4090,11 @@ export class MimeFilterCanon {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Camel.MimeFilter */
+    /* Virtual methods of Camel-1.2.Camel.MimeFilter */
     vfunc_complete(in_: Uint8Array[], prespace: number): [ /* out */ Uint8Array[], /* outprespace */ number ]
     vfunc_filter(in_: Uint8Array[], prespace: number): [ /* out */ Uint8Array[], /* outprespace */ number ]
     vfunc_reset(): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -4102,7 +4102,7 @@ export class MimeFilterCanon {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: MimeFilterCanon, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: MimeFilterCanon, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -4121,10 +4121,10 @@ export class MimeFilterCanon {
 export interface MimeFilterCharset_ConstructProps extends MimeFilter_ConstructProps {
 }
 export class MimeFilterCharset {
-    /* Fields of Camel.MimeFilterCharset */
+    /* Fields of Camel-1.2.Camel.MimeFilterCharset */
     parent: MimeFilter
     priv: MimeFilterCharsetPrivate
-    /* Fields of Camel.MimeFilter */
+    /* Fields of Camel-1.2.Camel.MimeFilter */
     outreal: string
     outbuf: string
     outptr: string
@@ -4133,15 +4133,15 @@ export class MimeFilterCharset {
     backbuf: string
     backsize: number
     backlen: number
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Camel.MimeFilter */
+    /* Methods of Camel-1.2.Camel.MimeFilter */
     backup(data: Uint8Array[]): void
     complete(in_: Uint8Array[], prespace: number): [ /* out */ Uint8Array[], /* outprespace */ number ]
     filter(in_: Uint8Array[], prespace: number): [ /* out */ Uint8Array[], /* outprespace */ number ]
     reset(): void
     set_size(size: number, keep: number): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -4163,11 +4163,11 @@ export class MimeFilterCharset {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Camel.MimeFilter */
+    /* Virtual methods of Camel-1.2.Camel.MimeFilter */
     vfunc_complete(in_: Uint8Array[], prespace: number): [ /* out */ Uint8Array[], /* outprespace */ number ]
     vfunc_filter(in_: Uint8Array[], prespace: number): [ /* out */ Uint8Array[], /* outprespace */ number ]
     vfunc_reset(): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -4175,7 +4175,7 @@ export class MimeFilterCharset {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: MimeFilterCharset, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: MimeFilterCharset, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -4194,10 +4194,10 @@ export class MimeFilterCharset {
 export interface MimeFilterEnriched_ConstructProps extends MimeFilter_ConstructProps {
 }
 export class MimeFilterEnriched {
-    /* Fields of Camel.MimeFilterEnriched */
+    /* Fields of Camel-1.2.Camel.MimeFilterEnriched */
     parent: MimeFilter
     priv: MimeFilterEnrichedPrivate
-    /* Fields of Camel.MimeFilter */
+    /* Fields of Camel-1.2.Camel.MimeFilter */
     outreal: string
     outbuf: string
     outptr: string
@@ -4206,15 +4206,15 @@ export class MimeFilterEnriched {
     backbuf: string
     backsize: number
     backlen: number
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Camel.MimeFilter */
+    /* Methods of Camel-1.2.Camel.MimeFilter */
     backup(data: Uint8Array[]): void
     complete(in_: Uint8Array[], prespace: number): [ /* out */ Uint8Array[], /* outprespace */ number ]
     filter(in_: Uint8Array[], prespace: number): [ /* out */ Uint8Array[], /* outprespace */ number ]
     reset(): void
     set_size(size: number, keep: number): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -4236,11 +4236,11 @@ export class MimeFilterEnriched {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Camel.MimeFilter */
+    /* Virtual methods of Camel-1.2.Camel.MimeFilter */
     vfunc_complete(in_: Uint8Array[], prespace: number): [ /* out */ Uint8Array[], /* outprespace */ number ]
     vfunc_filter(in_: Uint8Array[], prespace: number): [ /* out */ Uint8Array[], /* outprespace */ number ]
     vfunc_reset(): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -4248,7 +4248,7 @@ export class MimeFilterEnriched {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: MimeFilterEnriched, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: MimeFilterEnriched, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -4267,10 +4267,10 @@ export class MimeFilterEnriched {
 export interface MimeFilterFrom_ConstructProps extends MimeFilter_ConstructProps {
 }
 export class MimeFilterFrom {
-    /* Fields of Camel.MimeFilterFrom */
+    /* Fields of Camel-1.2.Camel.MimeFilterFrom */
     parent: MimeFilter
     priv: MimeFilterFromPrivate
-    /* Fields of Camel.MimeFilter */
+    /* Fields of Camel-1.2.Camel.MimeFilter */
     outreal: string
     outbuf: string
     outptr: string
@@ -4279,15 +4279,15 @@ export class MimeFilterFrom {
     backbuf: string
     backsize: number
     backlen: number
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Camel.MimeFilter */
+    /* Methods of Camel-1.2.Camel.MimeFilter */
     backup(data: Uint8Array[]): void
     complete(in_: Uint8Array[], prespace: number): [ /* out */ Uint8Array[], /* outprespace */ number ]
     filter(in_: Uint8Array[], prespace: number): [ /* out */ Uint8Array[], /* outprespace */ number ]
     reset(): void
     set_size(size: number, keep: number): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -4309,11 +4309,11 @@ export class MimeFilterFrom {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Camel.MimeFilter */
+    /* Virtual methods of Camel-1.2.Camel.MimeFilter */
     vfunc_complete(in_: Uint8Array[], prespace: number): [ /* out */ Uint8Array[], /* outprespace */ number ]
     vfunc_filter(in_: Uint8Array[], prespace: number): [ /* out */ Uint8Array[], /* outprespace */ number ]
     vfunc_reset(): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -4321,7 +4321,7 @@ export class MimeFilterFrom {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: MimeFilterFrom, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: MimeFilterFrom, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -4339,10 +4339,10 @@ export class MimeFilterFrom {
 export interface MimeFilterGZip_ConstructProps extends MimeFilter_ConstructProps {
 }
 export class MimeFilterGZip {
-    /* Fields of Camel.MimeFilterGZip */
+    /* Fields of Camel-1.2.Camel.MimeFilterGZip */
     parent: MimeFilter
     priv: MimeFilterGZipPrivate
-    /* Fields of Camel.MimeFilter */
+    /* Fields of Camel-1.2.Camel.MimeFilter */
     outreal: string
     outbuf: string
     outptr: string
@@ -4351,15 +4351,15 @@ export class MimeFilterGZip {
     backbuf: string
     backsize: number
     backlen: number
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Camel.MimeFilter */
+    /* Methods of Camel-1.2.Camel.MimeFilter */
     backup(data: Uint8Array[]): void
     complete(in_: Uint8Array[], prespace: number): [ /* out */ Uint8Array[], /* outprespace */ number ]
     filter(in_: Uint8Array[], prespace: number): [ /* out */ Uint8Array[], /* outprespace */ number ]
     reset(): void
     set_size(size: number, keep: number): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -4381,11 +4381,11 @@ export class MimeFilterGZip {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Camel.MimeFilter */
+    /* Virtual methods of Camel-1.2.Camel.MimeFilter */
     vfunc_complete(in_: Uint8Array[], prespace: number): [ /* out */ Uint8Array[], /* outprespace */ number ]
     vfunc_filter(in_: Uint8Array[], prespace: number): [ /* out */ Uint8Array[], /* outprespace */ number ]
     vfunc_reset(): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -4393,7 +4393,7 @@ export class MimeFilterGZip {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: MimeFilterGZip, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: MimeFilterGZip, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -4412,10 +4412,10 @@ export class MimeFilterGZip {
 export interface MimeFilterHTML_ConstructProps extends MimeFilter_ConstructProps {
 }
 export class MimeFilterHTML {
-    /* Fields of Camel.MimeFilterHTML */
+    /* Fields of Camel-1.2.Camel.MimeFilterHTML */
     parent: MimeFilter
     priv: MimeFilterHTMLPrivate
-    /* Fields of Camel.MimeFilter */
+    /* Fields of Camel-1.2.Camel.MimeFilter */
     outreal: string
     outbuf: string
     outptr: string
@@ -4424,15 +4424,15 @@ export class MimeFilterHTML {
     backbuf: string
     backsize: number
     backlen: number
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Camel.MimeFilter */
+    /* Methods of Camel-1.2.Camel.MimeFilter */
     backup(data: Uint8Array[]): void
     complete(in_: Uint8Array[], prespace: number): [ /* out */ Uint8Array[], /* outprespace */ number ]
     filter(in_: Uint8Array[], prespace: number): [ /* out */ Uint8Array[], /* outprespace */ number ]
     reset(): void
     set_size(size: number, keep: number): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -4454,11 +4454,11 @@ export class MimeFilterHTML {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Camel.MimeFilter */
+    /* Virtual methods of Camel-1.2.Camel.MimeFilter */
     vfunc_complete(in_: Uint8Array[], prespace: number): [ /* out */ Uint8Array[], /* outprespace */ number ]
     vfunc_filter(in_: Uint8Array[], prespace: number): [ /* out */ Uint8Array[], /* outprespace */ number ]
     vfunc_reset(): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -4466,7 +4466,7 @@ export class MimeFilterHTML {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: MimeFilterHTML, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: MimeFilterHTML, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -4484,10 +4484,10 @@ export class MimeFilterHTML {
 export interface MimeFilterIndex_ConstructProps extends MimeFilter_ConstructProps {
 }
 export class MimeFilterIndex {
-    /* Fields of Camel.MimeFilterIndex */
+    /* Fields of Camel-1.2.Camel.MimeFilterIndex */
     parent: MimeFilter
     priv: MimeFilterIndexPrivate
-    /* Fields of Camel.MimeFilter */
+    /* Fields of Camel-1.2.Camel.MimeFilter */
     outreal: string
     outbuf: string
     outptr: string
@@ -4496,18 +4496,18 @@ export class MimeFilterIndex {
     backbuf: string
     backsize: number
     backlen: number
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Camel.MimeFilterIndex */
+    /* Methods of Camel-1.2.Camel.MimeFilterIndex */
     set_index(index: Index): void
     set_name(name: IndexName): void
-    /* Methods of Camel.MimeFilter */
+    /* Methods of Camel-1.2.Camel.MimeFilter */
     backup(data: Uint8Array[]): void
     complete(in_: Uint8Array[], prespace: number): [ /* out */ Uint8Array[], /* outprespace */ number ]
     filter(in_: Uint8Array[], prespace: number): [ /* out */ Uint8Array[], /* outprespace */ number ]
     reset(): void
     set_size(size: number, keep: number): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -4529,11 +4529,11 @@ export class MimeFilterIndex {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Camel.MimeFilter */
+    /* Virtual methods of Camel-1.2.Camel.MimeFilter */
     vfunc_complete(in_: Uint8Array[], prespace: number): [ /* out */ Uint8Array[], /* outprespace */ number ]
     vfunc_filter(in_: Uint8Array[], prespace: number): [ /* out */ Uint8Array[], /* outprespace */ number ]
     vfunc_reset(): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -4541,7 +4541,7 @@ export class MimeFilterIndex {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: MimeFilterIndex, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: MimeFilterIndex, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -4560,10 +4560,10 @@ export class MimeFilterIndex {
 export interface MimeFilterLinewrap_ConstructProps extends MimeFilter_ConstructProps {
 }
 export class MimeFilterLinewrap {
-    /* Fields of Camel.MimeFilterLinewrap */
+    /* Fields of Camel-1.2.Camel.MimeFilterLinewrap */
     parent: MimeFilter
     priv: MimeFilterLinewrapPrivate
-    /* Fields of Camel.MimeFilter */
+    /* Fields of Camel-1.2.Camel.MimeFilter */
     outreal: string
     outbuf: string
     outptr: string
@@ -4572,15 +4572,15 @@ export class MimeFilterLinewrap {
     backbuf: string
     backsize: number
     backlen: number
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Camel.MimeFilter */
+    /* Methods of Camel-1.2.Camel.MimeFilter */
     backup(data: Uint8Array[]): void
     complete(in_: Uint8Array[], prespace: number): [ /* out */ Uint8Array[], /* outprespace */ number ]
     filter(in_: Uint8Array[], prespace: number): [ /* out */ Uint8Array[], /* outprespace */ number ]
     reset(): void
     set_size(size: number, keep: number): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -4602,11 +4602,11 @@ export class MimeFilterLinewrap {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Camel.MimeFilter */
+    /* Virtual methods of Camel-1.2.Camel.MimeFilter */
     vfunc_complete(in_: Uint8Array[], prespace: number): [ /* out */ Uint8Array[], /* outprespace */ number ]
     vfunc_filter(in_: Uint8Array[], prespace: number): [ /* out */ Uint8Array[], /* outprespace */ number ]
     vfunc_reset(): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -4614,7 +4614,7 @@ export class MimeFilterLinewrap {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: MimeFilterLinewrap, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: MimeFilterLinewrap, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -4633,10 +4633,10 @@ export class MimeFilterLinewrap {
 export interface MimeFilterPgp_ConstructProps extends MimeFilter_ConstructProps {
 }
 export class MimeFilterPgp {
-    /* Fields of Camel.MimeFilterPgp */
+    /* Fields of Camel-1.2.Camel.MimeFilterPgp */
     parent: MimeFilter
     priv: MimeFilterPgpPrivate
-    /* Fields of Camel.MimeFilter */
+    /* Fields of Camel-1.2.Camel.MimeFilter */
     outreal: string
     outbuf: string
     outptr: string
@@ -4645,15 +4645,15 @@ export class MimeFilterPgp {
     backbuf: string
     backsize: number
     backlen: number
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Camel.MimeFilter */
+    /* Methods of Camel-1.2.Camel.MimeFilter */
     backup(data: Uint8Array[]): void
     complete(in_: Uint8Array[], prespace: number): [ /* out */ Uint8Array[], /* outprespace */ number ]
     filter(in_: Uint8Array[], prespace: number): [ /* out */ Uint8Array[], /* outprespace */ number ]
     reset(): void
     set_size(size: number, keep: number): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -4675,11 +4675,11 @@ export class MimeFilterPgp {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Camel.MimeFilter */
+    /* Virtual methods of Camel-1.2.Camel.MimeFilter */
     vfunc_complete(in_: Uint8Array[], prespace: number): [ /* out */ Uint8Array[], /* outprespace */ number ]
     vfunc_filter(in_: Uint8Array[], prespace: number): [ /* out */ Uint8Array[], /* outprespace */ number ]
     vfunc_reset(): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -4687,7 +4687,7 @@ export class MimeFilterPgp {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: MimeFilterPgp, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: MimeFilterPgp, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -4705,7 +4705,7 @@ export class MimeFilterPgp {
 export interface MimeFilterProgress_ConstructProps extends MimeFilter_ConstructProps {
 }
 export class MimeFilterProgress {
-    /* Fields of Camel.MimeFilter */
+    /* Fields of Camel-1.2.Camel.MimeFilter */
     parent: GObject.Object
     priv: MimeFilterPrivate
     outreal: string
@@ -4716,15 +4716,15 @@ export class MimeFilterProgress {
     backbuf: string
     backsize: number
     backlen: number
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Camel.MimeFilter */
+    /* Methods of Camel-1.2.Camel.MimeFilter */
     backup(data: Uint8Array[]): void
     complete(in_: Uint8Array[], prespace: number): [ /* out */ Uint8Array[], /* outprespace */ number ]
     filter(in_: Uint8Array[], prespace: number): [ /* out */ Uint8Array[], /* outprespace */ number ]
     reset(): void
     set_size(size: number, keep: number): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -4746,11 +4746,11 @@ export class MimeFilterProgress {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Camel.MimeFilter */
+    /* Virtual methods of Camel-1.2.Camel.MimeFilter */
     vfunc_complete(in_: Uint8Array[], prespace: number): [ /* out */ Uint8Array[], /* outprespace */ number ]
     vfunc_filter(in_: Uint8Array[], prespace: number): [ /* out */ Uint8Array[], /* outprespace */ number ]
     vfunc_reset(): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -4758,7 +4758,7 @@ export class MimeFilterProgress {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: MimeFilterProgress, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: MimeFilterProgress, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -4777,10 +4777,10 @@ export class MimeFilterProgress {
 export interface MimeFilterToHTML_ConstructProps extends MimeFilter_ConstructProps {
 }
 export class MimeFilterToHTML {
-    /* Fields of Camel.MimeFilterToHTML */
+    /* Fields of Camel-1.2.Camel.MimeFilterToHTML */
     parent: MimeFilter
     priv: MimeFilterToHTMLPrivate
-    /* Fields of Camel.MimeFilter */
+    /* Fields of Camel-1.2.Camel.MimeFilter */
     outreal: string
     outbuf: string
     outptr: string
@@ -4789,15 +4789,15 @@ export class MimeFilterToHTML {
     backbuf: string
     backsize: number
     backlen: number
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Camel.MimeFilter */
+    /* Methods of Camel-1.2.Camel.MimeFilter */
     backup(data: Uint8Array[]): void
     complete(in_: Uint8Array[], prespace: number): [ /* out */ Uint8Array[], /* outprespace */ number ]
     filter(in_: Uint8Array[], prespace: number): [ /* out */ Uint8Array[], /* outprespace */ number ]
     reset(): void
     set_size(size: number, keep: number): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -4819,11 +4819,11 @@ export class MimeFilterToHTML {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Camel.MimeFilter */
+    /* Virtual methods of Camel-1.2.Camel.MimeFilter */
     vfunc_complete(in_: Uint8Array[], prespace: number): [ /* out */ Uint8Array[], /* outprespace */ number ]
     vfunc_filter(in_: Uint8Array[], prespace: number): [ /* out */ Uint8Array[], /* outprespace */ number ]
     vfunc_reset(): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -4831,7 +4831,7 @@ export class MimeFilterToHTML {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: MimeFilterToHTML, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: MimeFilterToHTML, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -4850,10 +4850,10 @@ export class MimeFilterToHTML {
 export interface MimeFilterWindows_ConstructProps extends MimeFilter_ConstructProps {
 }
 export class MimeFilterWindows {
-    /* Fields of Camel.MimeFilterWindows */
+    /* Fields of Camel-1.2.Camel.MimeFilterWindows */
     parent: MimeFilter
     priv: MimeFilterWindowsPrivate
-    /* Fields of Camel.MimeFilter */
+    /* Fields of Camel-1.2.Camel.MimeFilter */
     outreal: string
     outbuf: string
     outptr: string
@@ -4862,18 +4862,18 @@ export class MimeFilterWindows {
     backbuf: string
     backsize: number
     backlen: number
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Camel.MimeFilterWindows */
+    /* Methods of Camel-1.2.Camel.MimeFilterWindows */
     is_windows_charset(): boolean
     real_charset(): string
-    /* Methods of Camel.MimeFilter */
+    /* Methods of Camel-1.2.Camel.MimeFilter */
     backup(data: Uint8Array[]): void
     complete(in_: Uint8Array[], prespace: number): [ /* out */ Uint8Array[], /* outprespace */ number ]
     filter(in_: Uint8Array[], prespace: number): [ /* out */ Uint8Array[], /* outprespace */ number ]
     reset(): void
     set_size(size: number, keep: number): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -4895,11 +4895,11 @@ export class MimeFilterWindows {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Camel.MimeFilter */
+    /* Virtual methods of Camel-1.2.Camel.MimeFilter */
     vfunc_complete(in_: Uint8Array[], prespace: number): [ /* out */ Uint8Array[], /* outprespace */ number ]
     vfunc_filter(in_: Uint8Array[], prespace: number): [ /* out */ Uint8Array[], /* outprespace */ number ]
     vfunc_reset(): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -4907,7 +4907,7 @@ export class MimeFilterWindows {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: MimeFilterWindows, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: MimeFilterWindows, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -4926,10 +4926,10 @@ export class MimeFilterWindows {
 export interface MimeFilterYenc_ConstructProps extends MimeFilter_ConstructProps {
 }
 export class MimeFilterYenc {
-    /* Fields of Camel.MimeFilterYenc */
+    /* Fields of Camel-1.2.Camel.MimeFilterYenc */
     parent: MimeFilter
     priv: MimeFilterYencPrivate
-    /* Fields of Camel.MimeFilter */
+    /* Fields of Camel-1.2.Camel.MimeFilter */
     outreal: string
     outbuf: string
     outptr: string
@@ -4938,20 +4938,20 @@ export class MimeFilterYenc {
     backbuf: string
     backsize: number
     backlen: number
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Camel.MimeFilterYenc */
+    /* Methods of Camel-1.2.Camel.MimeFilterYenc */
     get_crc(): number
     get_pcrc(): number
     set_crc(crc: number): void
     set_state(state: number): void
-    /* Methods of Camel.MimeFilter */
+    /* Methods of Camel-1.2.Camel.MimeFilter */
     backup(data: Uint8Array[]): void
     complete(in_: Uint8Array[], prespace: number): [ /* out */ Uint8Array[], /* outprespace */ number ]
     filter(in_: Uint8Array[], prespace: number): [ /* out */ Uint8Array[], /* outprespace */ number ]
     reset(): void
     set_size(size: number, keep: number): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -4973,11 +4973,11 @@ export class MimeFilterYenc {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Camel.MimeFilter */
+    /* Virtual methods of Camel-1.2.Camel.MimeFilter */
     vfunc_complete(in_: Uint8Array[], prespace: number): [ /* out */ Uint8Array[], /* outprespace */ number ]
     vfunc_filter(in_: Uint8Array[], prespace: number): [ /* out */ Uint8Array[], /* outprespace */ number ]
     vfunc_reset(): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -4985,7 +4985,7 @@ export class MimeFilterYenc {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: MimeFilterYenc, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: MimeFilterYenc, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -5004,19 +5004,19 @@ export class MimeFilterYenc {
 export interface MimeMessage_ConstructProps extends MimePart_ConstructProps {
 }
 export class MimeMessage {
-    /* Properties of Camel.MimePart */
+    /* Properties of Camel-1.2.Camel.MimePart */
     content_id: string
     content_md5: string
     description: string
     disposition: string
-    /* Properties of Camel.Medium */
+    /* Properties of Camel-1.2.Camel.Medium */
     content: DataWrapper
-    /* Fields of Camel.MimeMessage */
+    /* Fields of Camel-1.2.Camel.MimeMessage */
     parent: MimePart
     priv: MimeMessagePrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Camel.MimeMessage */
+    /* Methods of Camel-1.2.Camel.MimeMessage */
     build_mbox_from(): string
     dump(body: number): void
     encode_8bit_parts(): void
@@ -5040,7 +5040,7 @@ export class MimeMessage {
     set_reply_to(reply_to?: InternetAddress | null): void
     set_source(source_uid?: string | null): void
     set_subject(subject?: string | null): void
-    /* Methods of Camel.MimePart */
+    /* Methods of Camel-1.2.Camel.MimePart */
     construct_content_from_parser(mp: MimeParser, cancellable?: Gio.Cancellable | null): boolean
     construct_from_parser(parser: MimeParser, io_priority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     construct_from_parser_finish(result: Gio.AsyncResult): boolean
@@ -5065,7 +5065,7 @@ export class MimeMessage {
     set_disposition(disposition: string): void
     set_encoding(encoding: TransferEncoding): void
     set_filename(filename: string): void
-    /* Methods of Camel.Medium */
+    /* Methods of Camel-1.2.Camel.Medium */
     add_header(name: string, value: string): void
     dup_headers(): NameValueArray
     get_content(): DataWrapper | null
@@ -5074,7 +5074,7 @@ export class MimeMessage {
     remove_header(name: string): void
     set_content(content: DataWrapper): void
     set_header(name: string, value: string): void
-    /* Methods of Camel.DataWrapper */
+    /* Methods of Camel-1.2.Camel.DataWrapper */
     calculate_decoded_size_sync(cancellable?: Gio.Cancellable | null): number
     calculate_size_sync(cancellable?: Gio.Cancellable | null): number
     construct_from_input_stream(input_stream: Gio.InputStream, io_priority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
@@ -5103,7 +5103,7 @@ export class MimeMessage {
     write_to_stream(stream: Stream, io_priority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     write_to_stream_finish(result: Gio.AsyncResult): number
     write_to_stream_sync(stream: Stream, cancellable?: Gio.Cancellable | null): number
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -5125,9 +5125,9 @@ export class MimeMessage {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Camel.MimePart */
+    /* Virtual methods of Camel-1.2.Camel.MimePart */
     vfunc_construct_from_parser_sync(parser: MimeParser, cancellable?: Gio.Cancellable | null): boolean
-    /* Virtual methods of Camel.Medium */
+    /* Virtual methods of Camel-1.2.Camel.Medium */
     vfunc_add_header(name: string, value: string): void
     vfunc_dup_headers(): NameValueArray
     vfunc_get_content(): DataWrapper | null
@@ -5136,7 +5136,7 @@ export class MimeMessage {
     vfunc_remove_header(name: string): void
     vfunc_set_content(content: DataWrapper): void
     vfunc_set_header(name: string, value: string): void
-    /* Virtual methods of Camel.DataWrapper */
+    /* Virtual methods of Camel-1.2.Camel.DataWrapper */
     vfunc_construct_from_input_stream_sync(input_stream: Gio.InputStream, cancellable?: Gio.Cancellable | null): boolean
     vfunc_construct_from_stream_sync(stream: Stream, cancellable?: Gio.Cancellable | null): boolean
     vfunc_decode_to_output_stream_sync(output_stream: Gio.OutputStream, cancellable?: Gio.Cancellable | null): number
@@ -5148,7 +5148,7 @@ export class MimeMessage {
     vfunc_set_mime_type_field(mime_type?: ContentType | null): void
     vfunc_write_to_output_stream_sync(output_stream: Gio.OutputStream, cancellable?: Gio.Cancellable | null): number
     vfunc_write_to_stream_sync(stream: Stream, cancellable?: Gio.Cancellable | null): number
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -5156,7 +5156,7 @@ export class MimeMessage {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: MimeMessage, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: MimeMessage, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -5184,12 +5184,12 @@ export class MimeMessage {
 export interface MimeParser_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class MimeParser {
-    /* Fields of Camel.MimeParser */
+    /* Fields of Camel-1.2.Camel.MimeParser */
     parent: GObject.Object
     priv: MimeParserPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Camel.MimeParser */
+    /* Methods of Camel-1.2.Camel.MimeParser */
     content_type(): ContentType
     drop_step(): void
     dup_headers(): NameValueArray
@@ -5218,7 +5218,7 @@ export class MimeParser {
     tell_start_from(): number
     tell_start_headers(): number
     unstep(): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -5240,11 +5240,11 @@ export class MimeParser {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Camel.MimeParser */
+    /* Virtual methods of Camel-1.2.Camel.MimeParser */
     vfunc_content(): void
     vfunc_message(headers?: object | null): void
     vfunc_part(): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -5252,7 +5252,7 @@ export class MimeParser {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: MimeParser, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: MimeParser, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -5274,19 +5274,19 @@ export interface MimePart_ConstructProps extends Medium_ConstructProps {
     disposition?: string
 }
 export class MimePart {
-    /* Properties of Camel.MimePart */
+    /* Properties of Camel-1.2.Camel.MimePart */
     content_id: string
     content_md5: string
     description: string
     disposition: string
-    /* Properties of Camel.Medium */
+    /* Properties of Camel-1.2.Camel.Medium */
     content: DataWrapper
-    /* Fields of Camel.MimePart */
+    /* Fields of Camel-1.2.Camel.MimePart */
     parent: Medium
     priv: MimePartPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Camel.MimePart */
+    /* Methods of Camel-1.2.Camel.MimePart */
     construct_content_from_parser(mp: MimeParser, cancellable?: Gio.Cancellable | null): boolean
     construct_from_parser(parser: MimeParser, io_priority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     construct_from_parser_finish(result: Gio.AsyncResult): boolean
@@ -5311,7 +5311,7 @@ export class MimePart {
     set_disposition(disposition: string): void
     set_encoding(encoding: TransferEncoding): void
     set_filename(filename: string): void
-    /* Methods of Camel.Medium */
+    /* Methods of Camel-1.2.Camel.Medium */
     add_header(name: string, value: string): void
     dup_headers(): NameValueArray
     get_content(): DataWrapper | null
@@ -5320,7 +5320,7 @@ export class MimePart {
     remove_header(name: string): void
     set_content(content: DataWrapper): void
     set_header(name: string, value: string): void
-    /* Methods of Camel.DataWrapper */
+    /* Methods of Camel-1.2.Camel.DataWrapper */
     calculate_decoded_size_sync(cancellable?: Gio.Cancellable | null): number
     calculate_size_sync(cancellable?: Gio.Cancellable | null): number
     construct_from_input_stream(input_stream: Gio.InputStream, io_priority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
@@ -5349,7 +5349,7 @@ export class MimePart {
     write_to_stream(stream: Stream, io_priority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     write_to_stream_finish(result: Gio.AsyncResult): number
     write_to_stream_sync(stream: Stream, cancellable?: Gio.Cancellable | null): number
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -5371,9 +5371,9 @@ export class MimePart {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Camel.MimePart */
+    /* Virtual methods of Camel-1.2.Camel.MimePart */
     vfunc_construct_from_parser_sync(parser: MimeParser, cancellable?: Gio.Cancellable | null): boolean
-    /* Virtual methods of Camel.Medium */
+    /* Virtual methods of Camel-1.2.Camel.Medium */
     vfunc_add_header(name: string, value: string): void
     vfunc_dup_headers(): NameValueArray
     vfunc_get_content(): DataWrapper | null
@@ -5382,7 +5382,7 @@ export class MimePart {
     vfunc_remove_header(name: string): void
     vfunc_set_content(content: DataWrapper): void
     vfunc_set_header(name: string, value: string): void
-    /* Virtual methods of Camel.DataWrapper */
+    /* Virtual methods of Camel-1.2.Camel.DataWrapper */
     vfunc_construct_from_input_stream_sync(input_stream: Gio.InputStream, cancellable?: Gio.Cancellable | null): boolean
     vfunc_construct_from_stream_sync(stream: Stream, cancellable?: Gio.Cancellable | null): boolean
     vfunc_decode_to_output_stream_sync(output_stream: Gio.OutputStream, cancellable?: Gio.Cancellable | null): number
@@ -5394,7 +5394,7 @@ export class MimePart {
     vfunc_set_mime_type_field(mime_type?: ContentType | null): void
     vfunc_write_to_output_stream_sync(output_stream: Gio.OutputStream, cancellable?: Gio.Cancellable | null): number
     vfunc_write_to_stream_sync(stream: Stream, cancellable?: Gio.Cancellable | null): number
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -5402,7 +5402,7 @@ export class MimePart {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: MimePart, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: MimePart, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -5430,12 +5430,12 @@ export class MimePart {
 export interface Multipart_ConstructProps extends DataWrapper_ConstructProps {
 }
 export class Multipart {
-    /* Fields of Camel.Multipart */
+    /* Fields of Camel-1.2.Camel.Multipart */
     parent: DataWrapper
     priv: MultipartPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Camel.Multipart */
+    /* Methods of Camel-1.2.Camel.Multipart */
     add_part(part: MimePart): void
     construct_from_parser(parser: MimeParser): number
     get_boundary(): string
@@ -5446,7 +5446,7 @@ export class Multipart {
     set_boundary(boundary?: string | null): void
     set_postface(postface: string): void
     set_preface(preface: string): void
-    /* Methods of Camel.DataWrapper */
+    /* Methods of Camel-1.2.Camel.DataWrapper */
     calculate_decoded_size_sync(cancellable?: Gio.Cancellable | null): number
     calculate_size_sync(cancellable?: Gio.Cancellable | null): number
     construct_from_input_stream(input_stream: Gio.InputStream, io_priority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
@@ -5477,7 +5477,7 @@ export class Multipart {
     write_to_stream(stream: Stream, io_priority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     write_to_stream_finish(result: Gio.AsyncResult): number
     write_to_stream_sync(stream: Stream, cancellable?: Gio.Cancellable | null): number
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -5499,14 +5499,14 @@ export class Multipart {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Camel.Multipart */
+    /* Virtual methods of Camel-1.2.Camel.Multipart */
     vfunc_add_part(part: MimePart): void
     vfunc_construct_from_parser(parser: MimeParser): number
     vfunc_get_boundary(): string
     vfunc_get_number(): number
     vfunc_get_part(index: number): MimePart
     vfunc_set_boundary(boundary?: string | null): void
-    /* Virtual methods of Camel.DataWrapper */
+    /* Virtual methods of Camel-1.2.Camel.DataWrapper */
     vfunc_construct_from_input_stream_sync(input_stream: Gio.InputStream, cancellable?: Gio.Cancellable | null): boolean
     vfunc_construct_from_stream_sync(stream: Stream, cancellable?: Gio.Cancellable | null): boolean
     vfunc_decode_to_output_stream_sync(output_stream: Gio.OutputStream, cancellable?: Gio.Cancellable | null): number
@@ -5518,7 +5518,7 @@ export class Multipart {
     vfunc_set_mime_type_field(mime_type?: ContentType | null): void
     vfunc_write_to_output_stream_sync(output_stream: Gio.OutputStream, cancellable?: Gio.Cancellable | null): number
     vfunc_write_to_stream_sync(stream: Stream, cancellable?: Gio.Cancellable | null): number
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -5526,7 +5526,7 @@ export class Multipart {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Multipart, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Multipart, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -5544,12 +5544,12 @@ export class Multipart {
 export interface MultipartEncrypted_ConstructProps extends Multipart_ConstructProps {
 }
 export class MultipartEncrypted {
-    /* Fields of Camel.MultipartEncrypted */
+    /* Fields of Camel-1.2.Camel.MultipartEncrypted */
     parent: Multipart
     priv: MultipartEncryptedPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Camel.Multipart */
+    /* Methods of Camel-1.2.Camel.Multipart */
     add_part(part: MimePart): void
     construct_from_parser(parser: MimeParser): number
     get_boundary(): string
@@ -5560,7 +5560,7 @@ export class MultipartEncrypted {
     set_boundary(boundary?: string | null): void
     set_postface(postface: string): void
     set_preface(preface: string): void
-    /* Methods of Camel.DataWrapper */
+    /* Methods of Camel-1.2.Camel.DataWrapper */
     calculate_decoded_size_sync(cancellable?: Gio.Cancellable | null): number
     calculate_size_sync(cancellable?: Gio.Cancellable | null): number
     construct_from_input_stream(input_stream: Gio.InputStream, io_priority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
@@ -5591,7 +5591,7 @@ export class MultipartEncrypted {
     write_to_stream(stream: Stream, io_priority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     write_to_stream_finish(result: Gio.AsyncResult): number
     write_to_stream_sync(stream: Stream, cancellable?: Gio.Cancellable | null): number
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -5613,14 +5613,14 @@ export class MultipartEncrypted {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Camel.Multipart */
+    /* Virtual methods of Camel-1.2.Camel.Multipart */
     vfunc_add_part(part: MimePart): void
     vfunc_construct_from_parser(parser: MimeParser): number
     vfunc_get_boundary(): string
     vfunc_get_number(): number
     vfunc_get_part(index: number): MimePart
     vfunc_set_boundary(boundary?: string | null): void
-    /* Virtual methods of Camel.DataWrapper */
+    /* Virtual methods of Camel-1.2.Camel.DataWrapper */
     vfunc_construct_from_input_stream_sync(input_stream: Gio.InputStream, cancellable?: Gio.Cancellable | null): boolean
     vfunc_construct_from_stream_sync(stream: Stream, cancellable?: Gio.Cancellable | null): boolean
     vfunc_decode_to_output_stream_sync(output_stream: Gio.OutputStream, cancellable?: Gio.Cancellable | null): number
@@ -5632,7 +5632,7 @@ export class MultipartEncrypted {
     vfunc_set_mime_type_field(mime_type?: ContentType | null): void
     vfunc_write_to_output_stream_sync(output_stream: Gio.OutputStream, cancellable?: Gio.Cancellable | null): number
     vfunc_write_to_stream_sync(stream: Stream, cancellable?: Gio.Cancellable | null): number
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -5640,7 +5640,7 @@ export class MultipartEncrypted {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: MultipartEncrypted, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: MultipartEncrypted, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -5658,16 +5658,16 @@ export class MultipartEncrypted {
 export interface MultipartSigned_ConstructProps extends Multipart_ConstructProps {
 }
 export class MultipartSigned {
-    /* Fields of Camel.MultipartSigned */
+    /* Fields of Camel-1.2.Camel.MultipartSigned */
     parent: Multipart
     priv: MultipartSignedPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Camel.MultipartSigned */
+    /* Methods of Camel-1.2.Camel.MultipartSigned */
     get_content_stream(): Stream
     set_content_stream(content_stream: Stream): void
     set_signature(signature: MimePart): void
-    /* Methods of Camel.Multipart */
+    /* Methods of Camel-1.2.Camel.Multipart */
     add_part(part: MimePart): void
     construct_from_parser(parser: MimeParser): number
     get_boundary(): string
@@ -5678,7 +5678,7 @@ export class MultipartSigned {
     set_boundary(boundary?: string | null): void
     set_postface(postface: string): void
     set_preface(preface: string): void
-    /* Methods of Camel.DataWrapper */
+    /* Methods of Camel-1.2.Camel.DataWrapper */
     calculate_decoded_size_sync(cancellable?: Gio.Cancellable | null): number
     calculate_size_sync(cancellable?: Gio.Cancellable | null): number
     construct_from_input_stream(input_stream: Gio.InputStream, io_priority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
@@ -5709,7 +5709,7 @@ export class MultipartSigned {
     write_to_stream(stream: Stream, io_priority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     write_to_stream_finish(result: Gio.AsyncResult): number
     write_to_stream_sync(stream: Stream, cancellable?: Gio.Cancellable | null): number
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -5731,14 +5731,14 @@ export class MultipartSigned {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Camel.Multipart */
+    /* Virtual methods of Camel-1.2.Camel.Multipart */
     vfunc_add_part(part: MimePart): void
     vfunc_construct_from_parser(parser: MimeParser): number
     vfunc_get_boundary(): string
     vfunc_get_number(): number
     vfunc_get_part(index: number): MimePart
     vfunc_set_boundary(boundary?: string | null): void
-    /* Virtual methods of Camel.DataWrapper */
+    /* Virtual methods of Camel-1.2.Camel.DataWrapper */
     vfunc_construct_from_input_stream_sync(input_stream: Gio.InputStream, cancellable?: Gio.Cancellable | null): boolean
     vfunc_construct_from_stream_sync(stream: Stream, cancellable?: Gio.Cancellable | null): boolean
     vfunc_decode_to_output_stream_sync(output_stream: Gio.OutputStream, cancellable?: Gio.Cancellable | null): number
@@ -5750,7 +5750,7 @@ export class MultipartSigned {
     vfunc_set_mime_type_field(mime_type?: ContentType | null): void
     vfunc_write_to_output_stream_sync(output_stream: Gio.OutputStream, cancellable?: Gio.Cancellable | null): number
     vfunc_write_to_stream_sync(stream: Stream, cancellable?: Gio.Cancellable | null): number
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -5758,7 +5758,7 @@ export class MultipartSigned {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: MultipartSigned, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: MultipartSigned, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -5776,15 +5776,15 @@ export class MultipartSigned {
 export interface NNTPAddress_ConstructProps extends Address_ConstructProps {
 }
 export class NNTPAddress {
-    /* Fields of Camel.NNTPAddress */
+    /* Fields of Camel-1.2.Camel.NNTPAddress */
     parent: Address
     priv: NNTPAddressPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Camel.NNTPAddress */
+    /* Methods of Camel-1.2.Camel.NNTPAddress */
     add(name: string): number
     get(index: number, namep: string): boolean
-    /* Methods of Camel.Address */
+    /* Methods of Camel-1.2.Camel.Address */
     cat(source: Address): number
     copy(source: Address): number
     decode(raw: string): number
@@ -5794,7 +5794,7 @@ export class NNTPAddress {
     new_clone(): Address
     remove(index: number): void
     unformat(raw: string): number
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -5816,7 +5816,7 @@ export class NNTPAddress {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Camel.Address */
+    /* Virtual methods of Camel-1.2.Camel.Address */
     vfunc_cat(source: Address): number
     vfunc_decode(raw: string): number
     vfunc_encode(): string
@@ -5824,7 +5824,7 @@ export class NNTPAddress {
     vfunc_length(): number
     vfunc_remove(index: number): void
     vfunc_unformat(raw: string): number
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -5832,7 +5832,7 @@ export class NNTPAddress {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: NNTPAddress, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: NNTPAddress, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -5850,17 +5850,17 @@ export class NNTPAddress {
 export interface NullOutputStream_ConstructProps extends Gio.OutputStream_ConstructProps {
 }
 export class NullOutputStream {
-    /* Fields of Camel.NullOutputStream */
+    /* Fields of Camel-1.2.Camel.NullOutputStream */
     parent: Gio.OutputStream
     priv: NullOutputStreamPrivate
-    /* Fields of Gio.OutputStream */
+    /* Fields of Gio-2.0.Gio.OutputStream */
     parent_instance: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Camel.NullOutputStream */
+    /* Methods of Camel-1.2.Camel.NullOutputStream */
     get_bytes_written(): number
     get_ends_with_crlf(): boolean
-    /* Methods of Gio.OutputStream */
+    /* Methods of Gio-2.0.Gio.OutputStream */
     clear_pending(): void
     close(cancellable?: Gio.Cancellable | null): boolean
     close_async(io_priority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
@@ -5890,7 +5890,7 @@ export class NullOutputStream {
     writev_all_finish(result: Gio.AsyncResult): [ /* returnType */ boolean, /* bytes_written */ number | null ]
     writev_async(vectors: Gio.OutputVector[], io_priority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     writev_finish(result: Gio.AsyncResult): [ /* returnType */ boolean, /* bytes_written */ number | null ]
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -5912,7 +5912,7 @@ export class NullOutputStream {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Gio.OutputStream */
+    /* Virtual methods of Gio-2.0.Gio.OutputStream */
     vfunc_close_async(io_priority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     vfunc_close_finish(result: Gio.AsyncResult): boolean
     vfunc_close_fn(cancellable?: Gio.Cancellable | null): boolean
@@ -5928,7 +5928,7 @@ export class NullOutputStream {
     vfunc_writev_async(vectors: Gio.OutputVector[], io_priority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     vfunc_writev_finish(result: Gio.AsyncResult): [ /* returnType */ boolean, /* bytes_written */ number | null ]
     vfunc_writev_fn(vectors: Gio.OutputVector[], cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* bytes_written */ number | null ]
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -5936,7 +5936,7 @@ export class NullOutputStream {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: NullOutputStream, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: NullOutputStream, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -5955,19 +5955,19 @@ export interface Object_ConstructProps extends GObject.Object_ConstructProps {
     state_filename?: string
 }
 export class Object {
-    /* Properties of Camel.Object */
+    /* Properties of Camel-1.2.Camel.Object */
     state_filename: string
-    /* Fields of Camel.Object */
+    /* Fields of Camel-1.2.Camel.Object */
     parent: GObject.Object
     priv: ObjectPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Camel.Object */
+    /* Methods of Camel-1.2.Camel.Object */
     get_state_filename(): string
     set_state_filename(state_filename: string): void
     state_read(): number
     state_write(): number
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -5989,10 +5989,10 @@ export class Object {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Camel.Object */
+    /* Virtual methods of Camel-1.2.Camel.Object */
     vfunc_state_read(fp?: object | null): number
     vfunc_state_write(fp?: object | null): number
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -6000,7 +6000,7 @@ export class Object {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Object, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Object, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -6019,29 +6019,29 @@ export interface OfflineFolder_ConstructProps extends Folder_ConstructProps {
     offline_sync?: ThreeState
 }
 export class OfflineFolder {
-    /* Properties of Camel.OfflineFolder */
+    /* Properties of Camel-1.2.Camel.OfflineFolder */
     offline_sync: ThreeState
-    /* Properties of Camel.Folder */
+    /* Properties of Camel-1.2.Camel.Folder */
     description: string
     display_name: string
     full_name: string
     mark_seen: ThreeState
     mark_seen_timeout: number
-    /* Properties of Camel.Object */
+    /* Properties of Camel-1.2.Camel.Object */
     state_filename: string
-    /* Fields of Camel.OfflineFolder */
+    /* Fields of Camel-1.2.Camel.OfflineFolder */
     parent: Folder
     priv: OfflineFolderPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Camel.OfflineFolder */
+    /* Methods of Camel-1.2.Camel.OfflineFolder */
     can_downsync(): boolean
     downsync(expression: string, io_priority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     downsync_finish(result: Gio.AsyncResult): boolean
     downsync_sync(expression: string, cancellable?: Gio.Cancellable | null): boolean
     get_offline_sync(): ThreeState
     set_offline_sync(offline_sync: ThreeState): void
-    /* Methods of Camel.Folder */
+    /* Methods of Camel-1.2.Camel.Folder */
     append_message(message: MimeMessage, info: MessageInfo, io_priority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     append_message_finish(result: Gio.AsyncResult, appended_uid: string): boolean
     append_message_sync(message: MimeMessage, info: MessageInfo, appended_uid: string, cancellable?: Gio.Cancellable | null): boolean
@@ -6125,12 +6125,12 @@ export class OfflineFolder {
     transfer_messages_to_finish(result: Gio.AsyncResult): [ /* returnType */ boolean, /* transferred_uids */ string[] ]
     transfer_messages_to_sync(message_uids: string[], destination: Folder, delete_originals: boolean, cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* transferred_uids */ string[] ]
     unlock(): void
-    /* Methods of Camel.Object */
+    /* Methods of Camel-1.2.Camel.Object */
     get_state_filename(): string
     set_state_filename(state_filename: string): void
     state_read(): number
     state_write(): number
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -6152,9 +6152,9 @@ export class OfflineFolder {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Camel.OfflineFolder */
+    /* Virtual methods of Camel-1.2.Camel.OfflineFolder */
     vfunc_downsync_sync(expression: string, cancellable?: Gio.Cancellable | null): boolean
-    /* Virtual methods of Camel.Folder */
+    /* Virtual methods of Camel-1.2.Camel.Folder */
     vfunc_append_message_sync(message: MimeMessage, info: MessageInfo, appended_uid: string, cancellable?: Gio.Cancellable | null): boolean
     vfunc_changed(changes: FolderChangeInfo): void
     vfunc_cmp_uids(uid1: string, uid2: string): number
@@ -6196,10 +6196,10 @@ export class OfflineFolder {
     vfunc_synchronize_sync(expunge: boolean, cancellable?: Gio.Cancellable | null): boolean
     vfunc_thaw(): void
     vfunc_transfer_messages_to_sync(message_uids: string[], destination: Folder, delete_originals: boolean, cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* transferred_uids */ string[] ]
-    /* Virtual methods of Camel.Object */
+    /* Virtual methods of Camel-1.2.Camel.Object */
     vfunc_state_read(fp?: object | null): number
     vfunc_state_write(fp?: object | null): number
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -6207,7 +6207,7 @@ export class OfflineFolder {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Camel.Folder */
+    /* Signals of Camel-1.2.Camel.Folder */
     connect(sigName: "changed", callback: (($obj: OfflineFolder, changes: FolderChangeInfo) => void)): number
     connect_after(sigName: "changed", callback: (($obj: OfflineFolder, changes: FolderChangeInfo) => void)): number
     emit(sigName: "changed", changes: FolderChangeInfo): void
@@ -6217,7 +6217,7 @@ export class OfflineFolder {
     connect(sigName: "renamed", callback: (($obj: OfflineFolder, old_name: string) => void)): number
     connect_after(sigName: "renamed", callback: (($obj: OfflineFolder, old_name: string) => void)): number
     emit(sigName: "renamed", old_name: string): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: OfflineFolder, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: OfflineFolder, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -6251,17 +6251,17 @@ export interface OfflineSettings_ConstructProps extends StoreSettings_ConstructP
     stay_synchronized?: boolean
 }
 export class OfflineSettings {
-    /* Properties of Camel.OfflineSettings */
+    /* Properties of Camel-1.2.Camel.OfflineSettings */
     limit_by_age: boolean
     limit_unit: TimeUnit
     limit_value: number
     stay_synchronized: boolean
-    /* Properties of Camel.StoreSettings */
+    /* Properties of Camel-1.2.Camel.StoreSettings */
     filter_inbox: boolean
     store_changes_interval: number
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Camel.OfflineSettings */
+    /* Methods of Camel-1.2.Camel.OfflineSettings */
     get_limit_by_age(): boolean
     get_limit_unit(): TimeUnit
     get_limit_value(): number
@@ -6272,13 +6272,13 @@ export class OfflineSettings {
     set_limit_value(limit_value: boolean): void
     set_stay_synchronized(stay_synchronized: boolean): void
     set_store_changes_interval(interval: number): void
-    /* Methods of Camel.StoreSettings */
+    /* Methods of Camel-1.2.Camel.StoreSettings */
     get_filter_inbox(): boolean
     set_filter_inbox(filter_inbox: boolean): void
-    /* Methods of Camel.Settings */
+    /* Methods of Camel-1.2.Camel.Settings */
     clone(): Settings
     equal(settings_b: Settings): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -6300,10 +6300,10 @@ export class OfflineSettings {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Camel.Settings */
+    /* Virtual methods of Camel-1.2.Camel.Settings */
     vfunc_clone(): Settings
     vfunc_equal(settings_b: Settings): boolean
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -6311,7 +6311,7 @@ export class OfflineSettings {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: OfflineSettings, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: OfflineSettings, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -6339,22 +6339,22 @@ export class OfflineSettings {
 export interface OfflineStore_ConstructProps extends Store_ConstructProps {
 }
 export class OfflineStore {
-    /* Properties of Camel.OfflineStore */
+    /* Properties of Camel-1.2.Camel.OfflineStore */
     readonly online: boolean
-    /* Properties of Camel.Service */
+    /* Properties of Camel-1.2.Camel.Service */
     readonly connection_status: ServiceConnectionStatus
     display_name: string
     password: string
     proxy_resolver: Gio.ProxyResolver
     settings: Settings
-    /* Properties of Camel.Object */
+    /* Properties of Camel-1.2.Camel.Object */
     state_filename: string
-    /* Fields of Camel.OfflineStore */
+    /* Fields of Camel-1.2.Camel.OfflineStore */
     parent: Store
     priv: OfflineStorePrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Camel.OfflineStore */
+    /* Methods of Camel-1.2.Camel.OfflineStore */
     dup_downsync_folders(): Folder[]
     get_online(): boolean
     prepare_for_offline_sync(cancellable?: Gio.Cancellable | null): boolean
@@ -6362,7 +6362,7 @@ export class OfflineStore {
     set_online(online: boolean, io_priority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     set_online_finish(result: Gio.AsyncResult): boolean
     set_online_sync(online: boolean, cancellable?: Gio.Cancellable | null): boolean
-    /* Methods of Camel.Store */
+    /* Methods of Camel-1.2.Camel.Store */
     can_refresh_folder(info: FolderInfo): boolean
     create_folder(parent_name: string | null, folder_name: string, io_priority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     create_folder_finish(result: Gio.AsyncResult): FolderInfo | null
@@ -6409,7 +6409,7 @@ export class OfflineStore {
     synchronize(expunge: boolean, io_priority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     synchronize_finish(result: Gio.AsyncResult): boolean
     synchronize_sync(expunge: boolean, cancellable?: Gio.Cancellable | null): boolean
-    /* Methods of Camel.Service */
+    /* Methods of Camel-1.2.Camel.Service */
     authenticate(mechanism: string | null, io_priority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     authenticate_finish(result: Gio.AsyncResult): AuthenticationResult
     authenticate_sync(mechanism?: string | null, cancellable?: Gio.Cancellable | null): AuthenticationResult
@@ -6442,12 +6442,12 @@ export class OfflineStore {
     set_password(password: string): void
     set_proxy_resolver(proxy_resolver: Gio.ProxyResolver): void
     set_settings(settings: Settings): void
-    /* Methods of Camel.Object */
+    /* Methods of Camel-1.2.Camel.Object */
     get_state_filename(): string
     set_state_filename(state_filename: string): void
     state_read(): number
     state_write(): number
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -6469,11 +6469,11 @@ export class OfflineStore {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of Gio.Initable */
+    /* Methods of Gio-2.0.Gio.Initable */
     init(cancellable?: Gio.Cancellable | null): boolean
-    /* Virtual methods of Camel.OfflineStore */
+    /* Virtual methods of Camel-1.2.Camel.OfflineStore */
     vfunc_dup_downsync_folders(): Folder[]
-    /* Virtual methods of Camel.Store */
+    /* Virtual methods of Camel-1.2.Camel.Store */
     vfunc_can_refresh_folder(info: FolderInfo): boolean
     vfunc_create_folder_sync(parent_name: string | null, folder_name: string, cancellable?: Gio.Cancellable | null): FolderInfo | null
     vfunc_delete_folder_sync(folder_name: string, cancellable?: Gio.Cancellable | null): boolean
@@ -6491,17 +6491,17 @@ export class OfflineStore {
     vfunc_initial_setup_sync(cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* out_save_setup */ GLib.HashTable ]
     vfunc_rename_folder_sync(old_name: string, new_name: string, cancellable?: Gio.Cancellable | null): boolean
     vfunc_synchronize_sync(expunge: boolean, cancellable?: Gio.Cancellable | null): boolean
-    /* Virtual methods of Camel.Service */
+    /* Virtual methods of Camel-1.2.Camel.Service */
     vfunc_authenticate_sync(mechanism?: string | null, cancellable?: Gio.Cancellable | null): AuthenticationResult
     vfunc_connect_sync(cancellable?: Gio.Cancellable | null): boolean
     vfunc_disconnect_sync(clean: boolean, cancellable?: Gio.Cancellable | null): boolean
     vfunc_get_name(brief: boolean): string
     vfunc_query_auth_types_sync(cancellable?: Gio.Cancellable | null): ServiceAuthType[]
     vfunc_init(cancellable?: Gio.Cancellable | null): boolean
-    /* Virtual methods of Camel.Object */
+    /* Virtual methods of Camel-1.2.Camel.Object */
     vfunc_state_read(fp?: object | null): number
     vfunc_state_write(fp?: object | null): number
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -6509,7 +6509,7 @@ export class OfflineStore {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Camel.Store */
+    /* Signals of Camel-1.2.Camel.Store */
     connect(sigName: "folder-created", callback: (($obj: OfflineStore, object: FolderInfo) => void)): number
     connect_after(sigName: "folder-created", callback: (($obj: OfflineStore, object: FolderInfo) => void)): number
     emit(sigName: "folder-created", object: FolderInfo): void
@@ -6525,7 +6525,7 @@ export class OfflineStore {
     connect(sigName: "folder-renamed", callback: (($obj: OfflineStore, object: string, p0: FolderInfo) => void)): number
     connect_after(sigName: "folder-renamed", callback: (($obj: OfflineStore, object: string, p0: FolderInfo) => void)): number
     emit(sigName: "folder-renamed", object: string, p0: FolderInfo): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: OfflineStore, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: OfflineStore, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -6555,14 +6555,14 @@ export class OfflineStore {
 export interface Operation_ConstructProps extends Gio.Cancellable_ConstructProps {
 }
 export class Operation {
-    /* Fields of Camel.Operation */
+    /* Fields of Camel-1.2.Camel.Operation */
     parent: Gio.Cancellable
     priv: OperationPrivate
-    /* Fields of Gio.Cancellable */
+    /* Fields of Gio-2.0.Gio.Cancellable */
     parent_instance: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Gio.Cancellable */
+    /* Methods of Gio-2.0.Gio.Cancellable */
     cancel(): void
     connect(callback: GObject.Callback): number
     disconnect(handler_id: number): void
@@ -6575,7 +6575,7 @@ export class Operation {
     reset(): void
     set_error_if_cancelled(): boolean
     source_new(): GLib.Source
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -6597,11 +6597,11 @@ export class Operation {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Camel.Operation */
+    /* Virtual methods of Camel-1.2.Camel.Operation */
     vfunc_status(what: string, pc: number): void
-    /* Virtual methods of Gio.Cancellable */
+    /* Virtual methods of Gio-2.0.Gio.Cancellable */
     vfunc_cancelled(): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -6609,7 +6609,7 @@ export class Operation {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Camel.Operation */
+    /* Signals of Camel-1.2.Camel.Operation */
     connect(sigName: "pop-message", callback: (($obj: Operation) => void)): number
     connect_after(sigName: "pop-message", callback: (($obj: Operation) => void)): number
     emit(sigName: "pop-message"): void
@@ -6622,11 +6622,11 @@ export class Operation {
     connect(sigName: "status", callback: (($obj: Operation, object: string, p0: number) => void)): number
     connect_after(sigName: "status", callback: (($obj: Operation, object: string, p0: number) => void)): number
     emit(sigName: "status", object: string, p0: number): void
-    /* Signals of Gio.Cancellable */
+    /* Signals of Gio-2.0.Gio.Cancellable */
     connect(sigName: "cancelled", callback: (($obj: Operation) => void)): number
     connect_after(sigName: "cancelled", callback: (($obj: Operation) => void)): number
     emit(sigName: "cancelled"): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Operation, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Operation, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -6648,17 +6648,17 @@ export class Operation {
 export interface PartitionTable_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class PartitionTable {
-    /* Fields of Camel.PartitionTable */
+    /* Fields of Camel-1.2.Camel.PartitionTable */
     parent: GObject.Object
     priv: PartitionTablePrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Camel.PartitionTable */
+    /* Methods of Camel-1.2.Camel.PartitionTable */
     add(key: string, keyid: _key_t): number
     lookup(key: string): _key_t
     remove(key: string): boolean
     sync(): number
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -6680,7 +6680,7 @@ export class PartitionTable {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -6688,7 +6688,7 @@ export class PartitionTable {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: PartitionTable, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: PartitionTable, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -6706,9 +6706,9 @@ export class PartitionTable {
 export interface SExp_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class SExp {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Camel.SExp */
+    /* Methods of Camel-1.2.Camel.SExp */
     add_variable(scope: number, name: string, value: SExpTerm): void
     error(): string | null
     evaluate_occur_times(start: number, end: number): boolean
@@ -6719,7 +6719,7 @@ export class SExp {
     result_free(result?: SExpResult | null): void
     resultv_free(argv: SExpResult[]): void
     set_scope(scope: number): number
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -6741,7 +6741,7 @@ export class SExp {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -6749,7 +6749,7 @@ export class SExp {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: SExp, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: SExp, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -6770,16 +6770,16 @@ export class SExp {
 export interface SMIMEContext_ConstructProps extends CipherContext_ConstructProps {
 }
 export class SMIMEContext {
-    /* Fields of Camel.SMIMEContext */
+    /* Fields of Camel-1.2.Camel.SMIMEContext */
     parent: CipherContext
     priv: SMIMEContextPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Camel.SMIMEContext */
+    /* Methods of Camel-1.2.Camel.SMIMEContext */
     describe_part(part?: object | null): number
     set_encrypt_key(use: boolean, key: string): void
     set_sign_mode(type: SMIMESign): void
-    /* Methods of Camel.CipherContext */
+    /* Methods of Camel-1.2.Camel.CipherContext */
     decrypt(ipart: MimePart, opart: MimePart, io_priority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     decrypt_finish(result: Gio.AsyncResult): CipherValidity
     decrypt_sync(ipart: MimePart, opart: MimePart, cancellable?: Gio.Cancellable | null): CipherValidity
@@ -6795,7 +6795,7 @@ export class SMIMEContext {
     verify(ipart: MimePart, io_priority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     verify_finish(result: Gio.AsyncResult): CipherValidity
     verify_sync(ipart: MimePart, cancellable?: Gio.Cancellable | null): CipherValidity
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -6817,14 +6817,14 @@ export class SMIMEContext {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Camel.CipherContext */
+    /* Virtual methods of Camel-1.2.Camel.CipherContext */
     vfunc_decrypt_sync(ipart: MimePart, opart: MimePart, cancellable?: Gio.Cancellable | null): CipherValidity
     vfunc_encrypt_sync(userid: string, recipients: string[], ipart: MimePart, opart: MimePart, cancellable?: Gio.Cancellable | null): boolean
     vfunc_hash_to_id(hash: CipherHash): string
     vfunc_id_to_hash(id: string): CipherHash
     vfunc_sign_sync(userid: string, hash: CipherHash, ipart: MimePart, opart: MimePart, cancellable?: Gio.Cancellable | null): boolean
     vfunc_verify_sync(ipart: MimePart, cancellable?: Gio.Cancellable | null): CipherValidity
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -6832,7 +6832,7 @@ export class SMIMEContext {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: SMIMEContext, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: SMIMEContext, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -6854,14 +6854,14 @@ export interface Sasl_ConstructProps extends GObject.Object_ConstructProps {
     service_name?: string
 }
 export class Sasl {
-    /* Properties of Camel.Sasl */
+    /* Properties of Camel-1.2.Camel.Sasl */
     authenticated: boolean
-    /* Fields of Camel.Sasl */
+    /* Fields of Camel-1.2.Camel.Sasl */
     parent: GObject.Object
     priv: SaslPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Camel.Sasl */
+    /* Methods of Camel-1.2.Camel.Sasl */
     challenge(token: Uint8Array[], io_priority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     challenge_base64(token: string, io_priority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     challenge_base64_finish(result: Gio.AsyncResult): string
@@ -6876,7 +6876,7 @@ export class Sasl {
     try_empty_password(io_priority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     try_empty_password_finish(result: Gio.AsyncResult): boolean
     try_empty_password_sync(cancellable?: Gio.Cancellable | null): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -6898,10 +6898,10 @@ export class Sasl {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Camel.Sasl */
+    /* Virtual methods of Camel-1.2.Camel.Sasl */
     vfunc_challenge_sync(token: Uint8Array[], cancellable?: Gio.Cancellable | null): Uint8Array[]
     vfunc_try_empty_password_sync(cancellable?: Gio.Cancellable | null): boolean
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -6909,7 +6909,7 @@ export class Sasl {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Sasl, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Sasl, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -6932,14 +6932,14 @@ export class Sasl {
 export interface SaslAnonymous_ConstructProps extends Sasl_ConstructProps {
 }
 export class SaslAnonymous {
-    /* Properties of Camel.Sasl */
+    /* Properties of Camel-1.2.Camel.Sasl */
     authenticated: boolean
-    /* Fields of Camel.SaslAnonymous */
+    /* Fields of Camel-1.2.Camel.SaslAnonymous */
     parent: Sasl
     priv: SaslAnonymousPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Camel.Sasl */
+    /* Methods of Camel-1.2.Camel.Sasl */
     challenge(token: Uint8Array[], io_priority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     challenge_base64(token: string, io_priority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     challenge_base64_finish(result: Gio.AsyncResult): string
@@ -6954,7 +6954,7 @@ export class SaslAnonymous {
     try_empty_password(io_priority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     try_empty_password_finish(result: Gio.AsyncResult): boolean
     try_empty_password_sync(cancellable?: Gio.Cancellable | null): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -6976,10 +6976,10 @@ export class SaslAnonymous {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Camel.Sasl */
+    /* Virtual methods of Camel-1.2.Camel.Sasl */
     vfunc_challenge_sync(token: Uint8Array[], cancellable?: Gio.Cancellable | null): Uint8Array[]
     vfunc_try_empty_password_sync(cancellable?: Gio.Cancellable | null): boolean
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -6987,7 +6987,7 @@ export class SaslAnonymous {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: SaslAnonymous, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: SaslAnonymous, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -7008,14 +7008,14 @@ export class SaslAnonymous {
 export interface SaslCramMd5_ConstructProps extends Sasl_ConstructProps {
 }
 export class SaslCramMd5 {
-    /* Properties of Camel.Sasl */
+    /* Properties of Camel-1.2.Camel.Sasl */
     authenticated: boolean
-    /* Fields of Camel.SaslCramMd5 */
+    /* Fields of Camel-1.2.Camel.SaslCramMd5 */
     parent: Sasl
     priv: SaslCramMd5Private
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Camel.Sasl */
+    /* Methods of Camel-1.2.Camel.Sasl */
     challenge(token: Uint8Array[], io_priority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     challenge_base64(token: string, io_priority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     challenge_base64_finish(result: Gio.AsyncResult): string
@@ -7030,7 +7030,7 @@ export class SaslCramMd5 {
     try_empty_password(io_priority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     try_empty_password_finish(result: Gio.AsyncResult): boolean
     try_empty_password_sync(cancellable?: Gio.Cancellable | null): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -7052,10 +7052,10 @@ export class SaslCramMd5 {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Camel.Sasl */
+    /* Virtual methods of Camel-1.2.Camel.Sasl */
     vfunc_challenge_sync(token: Uint8Array[], cancellable?: Gio.Cancellable | null): Uint8Array[]
     vfunc_try_empty_password_sync(cancellable?: Gio.Cancellable | null): boolean
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -7063,7 +7063,7 @@ export class SaslCramMd5 {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: SaslCramMd5, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: SaslCramMd5, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -7081,14 +7081,14 @@ export class SaslCramMd5 {
 export interface SaslDigestMd5_ConstructProps extends Sasl_ConstructProps {
 }
 export class SaslDigestMd5 {
-    /* Properties of Camel.Sasl */
+    /* Properties of Camel-1.2.Camel.Sasl */
     authenticated: boolean
-    /* Fields of Camel.SaslDigestMd5 */
+    /* Fields of Camel-1.2.Camel.SaslDigestMd5 */
     parent: Sasl
     priv: SaslDigestMd5Private
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Camel.Sasl */
+    /* Methods of Camel-1.2.Camel.Sasl */
     challenge(token: Uint8Array[], io_priority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     challenge_base64(token: string, io_priority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     challenge_base64_finish(result: Gio.AsyncResult): string
@@ -7103,7 +7103,7 @@ export class SaslDigestMd5 {
     try_empty_password(io_priority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     try_empty_password_finish(result: Gio.AsyncResult): boolean
     try_empty_password_sync(cancellable?: Gio.Cancellable | null): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -7125,10 +7125,10 @@ export class SaslDigestMd5 {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Camel.Sasl */
+    /* Virtual methods of Camel-1.2.Camel.Sasl */
     vfunc_challenge_sync(token: Uint8Array[], cancellable?: Gio.Cancellable | null): Uint8Array[]
     vfunc_try_empty_password_sync(cancellable?: Gio.Cancellable | null): boolean
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -7136,7 +7136,7 @@ export class SaslDigestMd5 {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: SaslDigestMd5, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: SaslDigestMd5, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -7154,16 +7154,16 @@ export class SaslDigestMd5 {
 export interface SaslGssapi_ConstructProps extends Sasl_ConstructProps {
 }
 export class SaslGssapi {
-    /* Properties of Camel.Sasl */
+    /* Properties of Camel-1.2.Camel.Sasl */
     authenticated: boolean
-    /* Fields of Camel.SaslGssapi */
+    /* Fields of Camel-1.2.Camel.SaslGssapi */
     parent: Sasl
     priv: SaslGssapiPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Camel.SaslGssapi */
+    /* Methods of Camel-1.2.Camel.SaslGssapi */
     override_host_and_user(override_host?: string | null, override_user?: string | null): void
-    /* Methods of Camel.Sasl */
+    /* Methods of Camel-1.2.Camel.Sasl */
     challenge(token: Uint8Array[], io_priority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     challenge_base64(token: string, io_priority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     challenge_base64_finish(result: Gio.AsyncResult): string
@@ -7178,7 +7178,7 @@ export class SaslGssapi {
     try_empty_password(io_priority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     try_empty_password_finish(result: Gio.AsyncResult): boolean
     try_empty_password_sync(cancellable?: Gio.Cancellable | null): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -7200,10 +7200,10 @@ export class SaslGssapi {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Camel.Sasl */
+    /* Virtual methods of Camel-1.2.Camel.Sasl */
     vfunc_challenge_sync(token: Uint8Array[], cancellable?: Gio.Cancellable | null): Uint8Array[]
     vfunc_try_empty_password_sync(cancellable?: Gio.Cancellable | null): boolean
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -7211,7 +7211,7 @@ export class SaslGssapi {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: SaslGssapi, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: SaslGssapi, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -7231,14 +7231,14 @@ export class SaslGssapi {
 export interface SaslLogin_ConstructProps extends Sasl_ConstructProps {
 }
 export class SaslLogin {
-    /* Properties of Camel.Sasl */
+    /* Properties of Camel-1.2.Camel.Sasl */
     authenticated: boolean
-    /* Fields of Camel.SaslLogin */
+    /* Fields of Camel-1.2.Camel.SaslLogin */
     parent: Sasl
     priv: SaslLoginPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Camel.Sasl */
+    /* Methods of Camel-1.2.Camel.Sasl */
     challenge(token: Uint8Array[], io_priority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     challenge_base64(token: string, io_priority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     challenge_base64_finish(result: Gio.AsyncResult): string
@@ -7253,7 +7253,7 @@ export class SaslLogin {
     try_empty_password(io_priority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     try_empty_password_finish(result: Gio.AsyncResult): boolean
     try_empty_password_sync(cancellable?: Gio.Cancellable | null): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -7275,10 +7275,10 @@ export class SaslLogin {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Camel.Sasl */
+    /* Virtual methods of Camel-1.2.Camel.Sasl */
     vfunc_challenge_sync(token: Uint8Array[], cancellable?: Gio.Cancellable | null): Uint8Array[]
     vfunc_try_empty_password_sync(cancellable?: Gio.Cancellable | null): boolean
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -7286,7 +7286,7 @@ export class SaslLogin {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: SaslLogin, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: SaslLogin, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -7304,14 +7304,14 @@ export class SaslLogin {
 export interface SaslNTLM_ConstructProps extends Sasl_ConstructProps {
 }
 export class SaslNTLM {
-    /* Properties of Camel.Sasl */
+    /* Properties of Camel-1.2.Camel.Sasl */
     authenticated: boolean
-    /* Fields of Camel.SaslNTLM */
+    /* Fields of Camel-1.2.Camel.SaslNTLM */
     parent: Sasl
     priv: SaslNTLMPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Camel.Sasl */
+    /* Methods of Camel-1.2.Camel.Sasl */
     challenge(token: Uint8Array[], io_priority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     challenge_base64(token: string, io_priority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     challenge_base64_finish(result: Gio.AsyncResult): string
@@ -7326,7 +7326,7 @@ export class SaslNTLM {
     try_empty_password(io_priority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     try_empty_password_finish(result: Gio.AsyncResult): boolean
     try_empty_password_sync(cancellable?: Gio.Cancellable | null): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -7348,10 +7348,10 @@ export class SaslNTLM {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Camel.Sasl */
+    /* Virtual methods of Camel-1.2.Camel.Sasl */
     vfunc_challenge_sync(token: Uint8Array[], cancellable?: Gio.Cancellable | null): Uint8Array[]
     vfunc_try_empty_password_sync(cancellable?: Gio.Cancellable | null): boolean
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -7359,7 +7359,7 @@ export class SaslNTLM {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: SaslNTLM, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: SaslNTLM, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -7377,14 +7377,14 @@ export class SaslNTLM {
 export interface SaslPOPB4SMTP_ConstructProps extends Sasl_ConstructProps {
 }
 export class SaslPOPB4SMTP {
-    /* Properties of Camel.Sasl */
+    /* Properties of Camel-1.2.Camel.Sasl */
     authenticated: boolean
-    /* Fields of Camel.SaslPOPB4SMTP */
+    /* Fields of Camel-1.2.Camel.SaslPOPB4SMTP */
     parent: Sasl
     priv: SaslPOPB4SMTPPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Camel.Sasl */
+    /* Methods of Camel-1.2.Camel.Sasl */
     challenge(token: Uint8Array[], io_priority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     challenge_base64(token: string, io_priority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     challenge_base64_finish(result: Gio.AsyncResult): string
@@ -7399,7 +7399,7 @@ export class SaslPOPB4SMTP {
     try_empty_password(io_priority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     try_empty_password_finish(result: Gio.AsyncResult): boolean
     try_empty_password_sync(cancellable?: Gio.Cancellable | null): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -7421,10 +7421,10 @@ export class SaslPOPB4SMTP {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Camel.Sasl */
+    /* Virtual methods of Camel-1.2.Camel.Sasl */
     vfunc_challenge_sync(token: Uint8Array[], cancellable?: Gio.Cancellable | null): Uint8Array[]
     vfunc_try_empty_password_sync(cancellable?: Gio.Cancellable | null): boolean
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -7432,7 +7432,7 @@ export class SaslPOPB4SMTP {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: SaslPOPB4SMTP, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: SaslPOPB4SMTP, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -7450,14 +7450,14 @@ export class SaslPOPB4SMTP {
 export interface SaslPlain_ConstructProps extends Sasl_ConstructProps {
 }
 export class SaslPlain {
-    /* Properties of Camel.Sasl */
+    /* Properties of Camel-1.2.Camel.Sasl */
     authenticated: boolean
-    /* Fields of Camel.SaslPlain */
+    /* Fields of Camel-1.2.Camel.SaslPlain */
     parent: Sasl
     priv: SaslPlainPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Camel.Sasl */
+    /* Methods of Camel-1.2.Camel.Sasl */
     challenge(token: Uint8Array[], io_priority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     challenge_base64(token: string, io_priority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     challenge_base64_finish(result: Gio.AsyncResult): string
@@ -7472,7 +7472,7 @@ export class SaslPlain {
     try_empty_password(io_priority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     try_empty_password_finish(result: Gio.AsyncResult): boolean
     try_empty_password_sync(cancellable?: Gio.Cancellable | null): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -7494,10 +7494,10 @@ export class SaslPlain {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Camel.Sasl */
+    /* Virtual methods of Camel-1.2.Camel.Sasl */
     vfunc_challenge_sync(token: Uint8Array[], cancellable?: Gio.Cancellable | null): Uint8Array[]
     vfunc_try_empty_password_sync(cancellable?: Gio.Cancellable | null): boolean
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -7505,7 +7505,7 @@ export class SaslPlain {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: SaslPlain, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: SaslPlain, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -7523,14 +7523,14 @@ export class SaslPlain {
 export interface SaslXOAuth2_ConstructProps extends Sasl_ConstructProps {
 }
 export class SaslXOAuth2 {
-    /* Properties of Camel.Sasl */
+    /* Properties of Camel-1.2.Camel.Sasl */
     authenticated: boolean
-    /* Fields of Camel.SaslXOAuth2 */
+    /* Fields of Camel-1.2.Camel.SaslXOAuth2 */
     parent: Sasl
     priv: SaslXOAuth2Private
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Camel.Sasl */
+    /* Methods of Camel-1.2.Camel.Sasl */
     challenge(token: Uint8Array[], io_priority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     challenge_base64(token: string, io_priority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     challenge_base64_finish(result: Gio.AsyncResult): string
@@ -7545,7 +7545,7 @@ export class SaslXOAuth2 {
     try_empty_password(io_priority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     try_empty_password_finish(result: Gio.AsyncResult): boolean
     try_empty_password_sync(cancellable?: Gio.Cancellable | null): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -7567,10 +7567,10 @@ export class SaslXOAuth2 {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Camel.Sasl */
+    /* Virtual methods of Camel-1.2.Camel.Sasl */
     vfunc_challenge_sync(token: Uint8Array[], cancellable?: Gio.Cancellable | null): Uint8Array[]
     vfunc_try_empty_password_sync(cancellable?: Gio.Cancellable | null): boolean
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -7578,7 +7578,7 @@ export class SaslXOAuth2 {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: SaslXOAuth2, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: SaslXOAuth2, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -7596,14 +7596,14 @@ export class SaslXOAuth2 {
 export interface SaslXOAuth2Google_ConstructProps extends SaslXOAuth2_ConstructProps {
 }
 export class SaslXOAuth2Google {
-    /* Properties of Camel.Sasl */
+    /* Properties of Camel-1.2.Camel.Sasl */
     authenticated: boolean
-    /* Fields of Camel.SaslXOAuth2Google */
+    /* Fields of Camel-1.2.Camel.SaslXOAuth2Google */
     parent: SaslXOAuth2
     priv: SaslXOAuth2GooglePrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Camel.Sasl */
+    /* Methods of Camel-1.2.Camel.Sasl */
     challenge(token: Uint8Array[], io_priority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     challenge_base64(token: string, io_priority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     challenge_base64_finish(result: Gio.AsyncResult): string
@@ -7618,7 +7618,7 @@ export class SaslXOAuth2Google {
     try_empty_password(io_priority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     try_empty_password_finish(result: Gio.AsyncResult): boolean
     try_empty_password_sync(cancellable?: Gio.Cancellable | null): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -7640,10 +7640,10 @@ export class SaslXOAuth2Google {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Camel.Sasl */
+    /* Virtual methods of Camel-1.2.Camel.Sasl */
     vfunc_challenge_sync(token: Uint8Array[], cancellable?: Gio.Cancellable | null): Uint8Array[]
     vfunc_try_empty_password_sync(cancellable?: Gio.Cancellable | null): boolean
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -7651,7 +7651,7 @@ export class SaslXOAuth2Google {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: SaslXOAuth2Google, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: SaslXOAuth2Google, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -7669,14 +7669,14 @@ export class SaslXOAuth2Google {
 export interface SaslXOAuth2Outlook_ConstructProps extends SaslXOAuth2_ConstructProps {
 }
 export class SaslXOAuth2Outlook {
-    /* Properties of Camel.Sasl */
+    /* Properties of Camel-1.2.Camel.Sasl */
     authenticated: boolean
-    /* Fields of Camel.SaslXOAuth2Outlook */
+    /* Fields of Camel-1.2.Camel.SaslXOAuth2Outlook */
     parent: SaslXOAuth2
     priv: SaslXOAuth2OutlookPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Camel.Sasl */
+    /* Methods of Camel-1.2.Camel.Sasl */
     challenge(token: Uint8Array[], io_priority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     challenge_base64(token: string, io_priority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     challenge_base64_finish(result: Gio.AsyncResult): string
@@ -7691,7 +7691,7 @@ export class SaslXOAuth2Outlook {
     try_empty_password(io_priority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     try_empty_password_finish(result: Gio.AsyncResult): boolean
     try_empty_password_sync(cancellable?: Gio.Cancellable | null): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -7713,10 +7713,10 @@ export class SaslXOAuth2Outlook {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Camel.Sasl */
+    /* Virtual methods of Camel-1.2.Camel.Sasl */
     vfunc_challenge_sync(token: Uint8Array[], cancellable?: Gio.Cancellable | null): Uint8Array[]
     vfunc_try_empty_password_sync(cancellable?: Gio.Cancellable | null): boolean
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -7724,7 +7724,7 @@ export class SaslXOAuth2Outlook {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: SaslXOAuth2Outlook, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: SaslXOAuth2Outlook, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -7749,20 +7749,20 @@ export interface Service_ConstructProps extends Object_ConstructProps {
     uid?: string
 }
 export class Service {
-    /* Properties of Camel.Service */
+    /* Properties of Camel-1.2.Camel.Service */
     readonly connection_status: ServiceConnectionStatus
     display_name: string
     password: string
     proxy_resolver: Gio.ProxyResolver
     settings: Settings
-    /* Properties of Camel.Object */
+    /* Properties of Camel-1.2.Camel.Object */
     state_filename: string
-    /* Fields of Camel.Service */
+    /* Fields of Camel-1.2.Camel.Service */
     parent: Object
     priv: ServicePrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Camel.Service */
+    /* Methods of Camel-1.2.Camel.Service */
     authenticate(mechanism: string | null, io_priority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     authenticate_finish(result: Gio.AsyncResult): AuthenticationResult
     authenticate_sync(mechanism?: string | null, cancellable?: Gio.Cancellable | null): AuthenticationResult
@@ -7795,12 +7795,12 @@ export class Service {
     set_password(password: string): void
     set_proxy_resolver(proxy_resolver: Gio.ProxyResolver): void
     set_settings(settings: Settings): void
-    /* Methods of Camel.Object */
+    /* Methods of Camel-1.2.Camel.Object */
     get_state_filename(): string
     set_state_filename(state_filename: string): void
     state_read(): number
     state_write(): number
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -7822,19 +7822,19 @@ export class Service {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of Gio.Initable */
+    /* Methods of Gio-2.0.Gio.Initable */
     init(cancellable?: Gio.Cancellable | null): boolean
-    /* Virtual methods of Camel.Service */
+    /* Virtual methods of Camel-1.2.Camel.Service */
     vfunc_authenticate_sync(mechanism?: string | null, cancellable?: Gio.Cancellable | null): AuthenticationResult
     vfunc_connect_sync(cancellable?: Gio.Cancellable | null): boolean
     vfunc_disconnect_sync(clean: boolean, cancellable?: Gio.Cancellable | null): boolean
     vfunc_get_name(brief: boolean): string
     vfunc_query_auth_types_sync(cancellable?: Gio.Cancellable | null): ServiceAuthType[]
     vfunc_init(cancellable?: Gio.Cancellable | null): boolean
-    /* Virtual methods of Camel.Object */
+    /* Virtual methods of Camel-1.2.Camel.Object */
     vfunc_state_read(fp?: object | null): number
     vfunc_state_write(fp?: object | null): number
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -7842,7 +7842,7 @@ export class Service {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Service, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Service, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -7877,19 +7877,19 @@ export interface Session_ConstructProps extends GObject.Object_ConstructProps {
     user_data_dir?: string
 }
 export class Session {
-    /* Properties of Camel.Session */
+    /* Properties of Camel-1.2.Camel.Session */
     junk_filter: JunkFilter
     readonly main_context: GLib.MainContext
     network_monitor: Gio.NetworkMonitor
     online: boolean
     user_cache_dir: string
     user_data_dir: string
-    /* Fields of Camel.Session */
+    /* Fields of Camel-1.2.Camel.Session */
     parent: GObject.Object
     priv: SessionPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Camel.Session */
+    /* Methods of Camel-1.2.Camel.Session */
     add_service(uid: string, protocol: string, type: ProviderType): Service
     authenticate(service: Service, mechanism: string | null, io_priority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     authenticate_finish(result: Gio.AsyncResult): boolean
@@ -7923,7 +7923,7 @@ export class Session {
     submit_job(description: string, callback: SessionCallback): void
     trust_prompt(service: Service, certificate: Gio.TlsCertificate, errors: Gio.TlsCertificateFlags): CertTrust
     user_alert(service: Service, type: SessionAlertType, message: string): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -7945,7 +7945,7 @@ export class Session {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Camel.Session */
+    /* Virtual methods of Camel-1.2.Camel.Session */
     vfunc_add_service(uid: string, protocol: string, type: ProviderType): Service
     vfunc_authenticate_sync(service: Service, mechanism?: string | null, cancellable?: Gio.Cancellable | null): boolean
     vfunc_forget_password(service: Service, item: string): boolean
@@ -7960,7 +7960,7 @@ export class Session {
     vfunc_remove_service(service: Service): void
     vfunc_trust_prompt(service: Service, certificate: Gio.TlsCertificate, errors: Gio.TlsCertificateFlags): CertTrust
     vfunc_user_alert(service: Service, type: SessionAlertType, message: string): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -7968,7 +7968,7 @@ export class Session {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Camel.Session */
+    /* Signals of Camel-1.2.Camel.Session */
     connect(sigName: "job-finished", callback: (($obj: Session, object: Gio.Cancellable | null, p0: GLib.Error) => void)): number
     connect_after(sigName: "job-finished", callback: (($obj: Session, object: Gio.Cancellable | null, p0: GLib.Error) => void)): number
     emit(sigName: "job-finished", object: Gio.Cancellable | null, p0: GLib.Error): void
@@ -7978,7 +7978,7 @@ export class Session {
     connect(sigName: "user-alert", callback: (($obj: Session, service: Service, type: SessionAlertType, message: string) => void)): number
     connect_after(sigName: "user-alert", callback: (($obj: Session, service: Service, type: SessionAlertType, message: string) => void)): number
     emit(sigName: "user-alert", service: Service, type: SessionAlertType, message: string): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Session, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Session, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -8006,12 +8006,12 @@ export class Session {
 export interface Settings_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class Settings {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Camel.Settings */
+    /* Methods of Camel-1.2.Camel.Settings */
     clone(): Settings
     equal(settings_b: Settings): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -8033,10 +8033,10 @@ export class Settings {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Camel.Settings */
+    /* Virtual methods of Camel-1.2.Camel.Settings */
     vfunc_clone(): Settings
     vfunc_equal(settings_b: Settings): boolean
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -8044,7 +8044,7 @@ export class Settings {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Settings, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Settings, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -8062,20 +8062,20 @@ export class Settings {
 export interface Store_ConstructProps extends Service_ConstructProps {
 }
 export class Store {
-    /* Properties of Camel.Service */
+    /* Properties of Camel-1.2.Camel.Service */
     readonly connection_status: ServiceConnectionStatus
     display_name: string
     password: string
     proxy_resolver: Gio.ProxyResolver
     settings: Settings
-    /* Properties of Camel.Object */
+    /* Properties of Camel-1.2.Camel.Object */
     state_filename: string
-    /* Fields of Camel.Store */
+    /* Fields of Camel-1.2.Camel.Store */
     parent: Service
     priv: StorePrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Camel.Store */
+    /* Methods of Camel-1.2.Camel.Store */
     can_refresh_folder(info: FolderInfo): boolean
     create_folder(parent_name: string | null, folder_name: string, io_priority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     create_folder_finish(result: Gio.AsyncResult): FolderInfo | null
@@ -8122,7 +8122,7 @@ export class Store {
     synchronize(expunge: boolean, io_priority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     synchronize_finish(result: Gio.AsyncResult): boolean
     synchronize_sync(expunge: boolean, cancellable?: Gio.Cancellable | null): boolean
-    /* Methods of Camel.Service */
+    /* Methods of Camel-1.2.Camel.Service */
     authenticate(mechanism: string | null, io_priority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     authenticate_finish(result: Gio.AsyncResult): AuthenticationResult
     authenticate_sync(mechanism?: string | null, cancellable?: Gio.Cancellable | null): AuthenticationResult
@@ -8155,12 +8155,12 @@ export class Store {
     set_password(password: string): void
     set_proxy_resolver(proxy_resolver: Gio.ProxyResolver): void
     set_settings(settings: Settings): void
-    /* Methods of Camel.Object */
+    /* Methods of Camel-1.2.Camel.Object */
     get_state_filename(): string
     set_state_filename(state_filename: string): void
     state_read(): number
     state_write(): number
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -8182,9 +8182,9 @@ export class Store {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of Gio.Initable */
+    /* Methods of Gio-2.0.Gio.Initable */
     init(cancellable?: Gio.Cancellable | null): boolean
-    /* Virtual methods of Camel.Store */
+    /* Virtual methods of Camel-1.2.Camel.Store */
     vfunc_can_refresh_folder(info: FolderInfo): boolean
     vfunc_create_folder_sync(parent_name: string | null, folder_name: string, cancellable?: Gio.Cancellable | null): FolderInfo | null
     vfunc_delete_folder_sync(folder_name: string, cancellable?: Gio.Cancellable | null): boolean
@@ -8202,17 +8202,17 @@ export class Store {
     vfunc_initial_setup_sync(cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* out_save_setup */ GLib.HashTable ]
     vfunc_rename_folder_sync(old_name: string, new_name: string, cancellable?: Gio.Cancellable | null): boolean
     vfunc_synchronize_sync(expunge: boolean, cancellable?: Gio.Cancellable | null): boolean
-    /* Virtual methods of Camel.Service */
+    /* Virtual methods of Camel-1.2.Camel.Service */
     vfunc_authenticate_sync(mechanism?: string | null, cancellable?: Gio.Cancellable | null): AuthenticationResult
     vfunc_connect_sync(cancellable?: Gio.Cancellable | null): boolean
     vfunc_disconnect_sync(clean: boolean, cancellable?: Gio.Cancellable | null): boolean
     vfunc_get_name(brief: boolean): string
     vfunc_query_auth_types_sync(cancellable?: Gio.Cancellable | null): ServiceAuthType[]
     vfunc_init(cancellable?: Gio.Cancellable | null): boolean
-    /* Virtual methods of Camel.Object */
+    /* Virtual methods of Camel-1.2.Camel.Object */
     vfunc_state_read(fp?: object | null): number
     vfunc_state_write(fp?: object | null): number
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -8220,7 +8220,7 @@ export class Store {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Camel.Store */
+    /* Signals of Camel-1.2.Camel.Store */
     connect(sigName: "folder-created", callback: (($obj: Store, object: FolderInfo) => void)): number
     connect_after(sigName: "folder-created", callback: (($obj: Store, object: FolderInfo) => void)): number
     emit(sigName: "folder-created", object: FolderInfo): void
@@ -8236,7 +8236,7 @@ export class Store {
     connect(sigName: "folder-renamed", callback: (($obj: Store, object: string, p0: FolderInfo) => void)): number
     connect_after(sigName: "folder-renamed", callback: (($obj: Store, object: string, p0: FolderInfo) => void)): number
     emit(sigName: "folder-renamed", object: string, p0: FolderInfo): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Store, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Store, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -8266,20 +8266,20 @@ export interface StoreSettings_ConstructProps extends Settings_ConstructProps {
     store_changes_interval?: number
 }
 export class StoreSettings {
-    /* Properties of Camel.StoreSettings */
+    /* Properties of Camel-1.2.Camel.StoreSettings */
     filter_inbox: boolean
     store_changes_interval: number
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Camel.StoreSettings */
+    /* Methods of Camel-1.2.Camel.StoreSettings */
     get_filter_inbox(): boolean
     get_store_changes_interval(): number
     set_filter_inbox(filter_inbox: boolean): void
     set_store_changes_interval(interval: number): void
-    /* Methods of Camel.Settings */
+    /* Methods of Camel-1.2.Camel.Settings */
     clone(): Settings
     equal(settings_b: Settings): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -8301,10 +8301,10 @@ export class StoreSettings {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Camel.Settings */
+    /* Virtual methods of Camel-1.2.Camel.Settings */
     vfunc_clone(): Settings
     vfunc_equal(settings_b: Settings): boolean
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -8312,7 +8312,7 @@ export class StoreSettings {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: StoreSettings, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: StoreSettings, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -8332,12 +8332,12 @@ export class StoreSettings {
 export interface StoreSummary_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class StoreSummary {
-    /* Fields of Camel.StoreSummary */
+    /* Fields of Camel-1.2.Camel.StoreSummary */
     parent: GObject.Object
     priv: StoreSummaryPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Camel.StoreSummary */
+    /* Methods of Camel-1.2.Camel.StoreSummary */
     add(info: StoreInfo): void
     array(): StoreInfo[]
     array_free(array: StoreInfo[]): void
@@ -8352,7 +8352,7 @@ export class StoreSummary {
     set_filename(filename: string): void
     sort(compare_func: GLib.CompareDataFunc): void
     touch(): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -8374,13 +8374,13 @@ export class StoreSummary {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Camel.StoreSummary */
+    /* Virtual methods of Camel-1.2.Camel.StoreSummary */
     vfunc_store_info_free(info: StoreInfo): void
     vfunc_store_info_save(file: object | null, info: StoreInfo): number
     vfunc_store_info_set_string(info: StoreInfo, type: number, value: string): void
     vfunc_summary_header_load(file?: object | null): number
     vfunc_summary_header_save(file?: object | null): number
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -8388,7 +8388,7 @@ export class StoreSummary {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: StoreSummary, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: StoreSummary, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -8407,14 +8407,14 @@ export interface Stream_ConstructProps extends GObject.Object_ConstructProps {
     base_stream?: Gio.IOStream
 }
 export class Stream {
-    /* Properties of Camel.Stream */
+    /* Properties of Camel-1.2.Camel.Stream */
     base_stream: Gio.IOStream
-    /* Fields of Camel.Stream */
+    /* Fields of Camel-1.2.Camel.Stream */
     parent: GObject.Object
     priv: StreamPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Camel.Stream */
+    /* Methods of Camel-1.2.Camel.Stream */
     close(cancellable?: Gio.Cancellable | null): number
     eos(): boolean
     flush(cancellable?: Gio.Cancellable | null): number
@@ -8424,7 +8424,7 @@ export class Stream {
     write(buffer: number[], cancellable?: Gio.Cancellable | null): number
     write_string(string: string, cancellable?: Gio.Cancellable | null): number
     write_to_stream(output_stream: Stream, cancellable?: Gio.Cancellable | null): number
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -8446,13 +8446,13 @@ export class Stream {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of Gio.Seekable */
+    /* Methods of Gio-2.0.Gio.Seekable */
     can_seek(): boolean
     can_truncate(): boolean
     seek(offset: number, type: GLib.SeekType, cancellable?: Gio.Cancellable | null): boolean
     tell(): number
     truncate(offset: number, cancellable?: Gio.Cancellable | null): boolean
-    /* Virtual methods of Camel.Stream */
+    /* Virtual methods of Camel-1.2.Camel.Stream */
     vfunc_close(cancellable?: Gio.Cancellable | null): number
     vfunc_eos(): boolean
     vfunc_flush(cancellable?: Gio.Cancellable | null): number
@@ -8463,7 +8463,7 @@ export class Stream {
     vfunc_seek(offset: number, type: GLib.SeekType, cancellable?: Gio.Cancellable | null): boolean
     vfunc_tell(): number
     vfunc_truncate_fn(offset: number, cancellable?: Gio.Cancellable | null): boolean
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -8471,7 +8471,7 @@ export class Stream {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Stream, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Stream, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -8491,18 +8491,18 @@ export class Stream {
 export interface StreamBuffer_ConstructProps extends Stream_ConstructProps {
 }
 export class StreamBuffer {
-    /* Properties of Camel.Stream */
+    /* Properties of Camel-1.2.Camel.Stream */
     base_stream: Gio.IOStream
-    /* Fields of Camel.StreamBuffer */
+    /* Fields of Camel-1.2.Camel.StreamBuffer */
     parent: Stream
     priv: StreamBufferPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Camel.StreamBuffer */
+    /* Methods of Camel-1.2.Camel.StreamBuffer */
     discard_cache(): void
     gets(buf: number[], cancellable?: Gio.Cancellable | null): number
     read_line(cancellable?: Gio.Cancellable | null): string | null
-    /* Methods of Camel.Stream */
+    /* Methods of Camel-1.2.Camel.Stream */
     close(cancellable?: Gio.Cancellable | null): number
     eos(): boolean
     flush(cancellable?: Gio.Cancellable | null): number
@@ -8512,7 +8512,7 @@ export class StreamBuffer {
     write(buffer: number[], cancellable?: Gio.Cancellable | null): number
     write_string(string: string, cancellable?: Gio.Cancellable | null): number
     write_to_stream(output_stream: Stream, cancellable?: Gio.Cancellable | null): number
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -8534,16 +8534,16 @@ export class StreamBuffer {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of Gio.Seekable */
+    /* Methods of Gio-2.0.Gio.Seekable */
     can_seek(): boolean
     can_truncate(): boolean
     seek(offset: number, type: GLib.SeekType, cancellable?: Gio.Cancellable | null): boolean
     tell(): number
     truncate(offset: number, cancellable?: Gio.Cancellable | null): boolean
-    /* Virtual methods of Camel.StreamBuffer */
+    /* Virtual methods of Camel-1.2.Camel.StreamBuffer */
     vfunc_init(stream: Stream, mode: StreamBufferMode): void
     vfunc_init_vbuf(stream: Stream, mode: StreamBufferMode, buf: string, size: number): void
-    /* Virtual methods of Camel.Stream */
+    /* Virtual methods of Camel-1.2.Camel.Stream */
     vfunc_close(cancellable?: Gio.Cancellable | null): number
     vfunc_eos(): boolean
     vfunc_flush(cancellable?: Gio.Cancellable | null): number
@@ -8554,7 +8554,7 @@ export class StreamBuffer {
     vfunc_seek(offset: number, type: GLib.SeekType, cancellable?: Gio.Cancellable | null): boolean
     vfunc_tell(): number
     vfunc_truncate_fn(offset: number, cancellable?: Gio.Cancellable | null): boolean
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -8562,7 +8562,7 @@ export class StreamBuffer {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: StreamBuffer, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: StreamBuffer, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -8583,18 +8583,18 @@ export class StreamBuffer {
 export interface StreamFilter_ConstructProps extends Stream_ConstructProps {
 }
 export class StreamFilter {
-    /* Properties of Camel.Stream */
+    /* Properties of Camel-1.2.Camel.Stream */
     base_stream: Gio.IOStream
-    /* Fields of Camel.StreamFilter */
+    /* Fields of Camel-1.2.Camel.StreamFilter */
     parent: Stream
     priv: StreamFilterPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Camel.StreamFilter */
+    /* Methods of Camel-1.2.Camel.StreamFilter */
     add(filter: MimeFilter): number
     get_source(): Stream
     remove(id: number): void
-    /* Methods of Camel.Stream */
+    /* Methods of Camel-1.2.Camel.Stream */
     close(cancellable?: Gio.Cancellable | null): number
     eos(): boolean
     flush(cancellable?: Gio.Cancellable | null): number
@@ -8604,7 +8604,7 @@ export class StreamFilter {
     write(buffer: number[], cancellable?: Gio.Cancellable | null): number
     write_string(string: string, cancellable?: Gio.Cancellable | null): number
     write_to_stream(output_stream: Stream, cancellable?: Gio.Cancellable | null): number
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -8626,13 +8626,13 @@ export class StreamFilter {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of Gio.Seekable */
+    /* Methods of Gio-2.0.Gio.Seekable */
     can_seek(): boolean
     can_truncate(): boolean
     seek(offset: number, type: GLib.SeekType, cancellable?: Gio.Cancellable | null): boolean
     tell(): number
     truncate(offset: number, cancellable?: Gio.Cancellable | null): boolean
-    /* Virtual methods of Camel.Stream */
+    /* Virtual methods of Camel-1.2.Camel.Stream */
     vfunc_close(cancellable?: Gio.Cancellable | null): number
     vfunc_eos(): boolean
     vfunc_flush(cancellable?: Gio.Cancellable | null): number
@@ -8643,7 +8643,7 @@ export class StreamFilter {
     vfunc_seek(offset: number, type: GLib.SeekType, cancellable?: Gio.Cancellable | null): boolean
     vfunc_tell(): number
     vfunc_truncate_fn(offset: number, cancellable?: Gio.Cancellable | null): boolean
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -8651,7 +8651,7 @@ export class StreamFilter {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: StreamFilter, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: StreamFilter, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -8672,16 +8672,16 @@ export class StreamFilter {
 export interface StreamFs_ConstructProps extends Stream_ConstructProps {
 }
 export class StreamFs {
-    /* Properties of Camel.Stream */
+    /* Properties of Camel-1.2.Camel.Stream */
     base_stream: Gio.IOStream
-    /* Fields of Camel.StreamFs */
+    /* Fields of Camel-1.2.Camel.StreamFs */
     parent: Stream
     priv: StreamFsPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Camel.StreamFs */
+    /* Methods of Camel-1.2.Camel.StreamFs */
     get_fd(): number
-    /* Methods of Camel.Stream */
+    /* Methods of Camel-1.2.Camel.Stream */
     close(cancellable?: Gio.Cancellable | null): number
     eos(): boolean
     flush(cancellable?: Gio.Cancellable | null): number
@@ -8691,7 +8691,7 @@ export class StreamFs {
     write(buffer: number[], cancellable?: Gio.Cancellable | null): number
     write_string(string: string, cancellable?: Gio.Cancellable | null): number
     write_to_stream(output_stream: Stream, cancellable?: Gio.Cancellable | null): number
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -8713,13 +8713,13 @@ export class StreamFs {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of Gio.Seekable */
+    /* Methods of Gio-2.0.Gio.Seekable */
     can_seek(): boolean
     can_truncate(): boolean
     seek(offset: number, type: GLib.SeekType, cancellable?: Gio.Cancellable | null): boolean
     tell(): number
     truncate(offset: number, cancellable?: Gio.Cancellable | null): boolean
-    /* Virtual methods of Camel.Stream */
+    /* Virtual methods of Camel-1.2.Camel.Stream */
     vfunc_close(cancellable?: Gio.Cancellable | null): number
     vfunc_eos(): boolean
     vfunc_flush(cancellable?: Gio.Cancellable | null): number
@@ -8730,7 +8730,7 @@ export class StreamFs {
     vfunc_seek(offset: number, type: GLib.SeekType, cancellable?: Gio.Cancellable | null): boolean
     vfunc_tell(): number
     vfunc_truncate_fn(offset: number, cancellable?: Gio.Cancellable | null): boolean
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -8738,7 +8738,7 @@ export class StreamFs {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: StreamFs, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: StreamFs, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -8759,19 +8759,19 @@ export class StreamFs {
 export interface StreamMem_ConstructProps extends Stream_ConstructProps {
 }
 export class StreamMem {
-    /* Properties of Camel.Stream */
+    /* Properties of Camel-1.2.Camel.Stream */
     base_stream: Gio.IOStream
-    /* Fields of Camel.StreamMem */
+    /* Fields of Camel-1.2.Camel.StreamMem */
     parent: Stream
     priv: StreamMemPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Camel.StreamMem */
+    /* Methods of Camel-1.2.Camel.StreamMem */
     get_byte_array(): Uint8Array[]
     set_buffer(buffer: Uint8Array[]): void
     set_byte_array(buffer: Uint8Array[]): void
     set_secure(): void
-    /* Methods of Camel.Stream */
+    /* Methods of Camel-1.2.Camel.Stream */
     close(cancellable?: Gio.Cancellable | null): number
     eos(): boolean
     flush(cancellable?: Gio.Cancellable | null): number
@@ -8781,7 +8781,7 @@ export class StreamMem {
     write(buffer: number[], cancellable?: Gio.Cancellable | null): number
     write_string(string: string, cancellable?: Gio.Cancellable | null): number
     write_to_stream(output_stream: Stream, cancellable?: Gio.Cancellable | null): number
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -8803,13 +8803,13 @@ export class StreamMem {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of Gio.Seekable */
+    /* Methods of Gio-2.0.Gio.Seekable */
     can_seek(): boolean
     can_truncate(): boolean
     seek(offset: number, type: GLib.SeekType, cancellable?: Gio.Cancellable | null): boolean
     tell(): number
     truncate(offset: number, cancellable?: Gio.Cancellable | null): boolean
-    /* Virtual methods of Camel.Stream */
+    /* Virtual methods of Camel-1.2.Camel.Stream */
     vfunc_close(cancellable?: Gio.Cancellable | null): number
     vfunc_eos(): boolean
     vfunc_flush(cancellable?: Gio.Cancellable | null): number
@@ -8820,7 +8820,7 @@ export class StreamMem {
     vfunc_seek(offset: number, type: GLib.SeekType, cancellable?: Gio.Cancellable | null): boolean
     vfunc_tell(): number
     vfunc_truncate_fn(offset: number, cancellable?: Gio.Cancellable | null): boolean
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -8828,7 +8828,7 @@ export class StreamMem {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: StreamMem, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: StreamMem, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -8851,17 +8851,17 @@ export class StreamMem {
 export interface StreamNull_ConstructProps extends Stream_ConstructProps {
 }
 export class StreamNull {
-    /* Properties of Camel.Stream */
+    /* Properties of Camel-1.2.Camel.Stream */
     base_stream: Gio.IOStream
-    /* Fields of Camel.StreamNull */
+    /* Fields of Camel-1.2.Camel.StreamNull */
     parent: Stream
     priv: StreamNullPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Camel.StreamNull */
+    /* Methods of Camel-1.2.Camel.StreamNull */
     get_bytes_written(): number
     get_ends_with_crlf(): boolean
-    /* Methods of Camel.Stream */
+    /* Methods of Camel-1.2.Camel.Stream */
     close(cancellable?: Gio.Cancellable | null): number
     eos(): boolean
     flush(cancellable?: Gio.Cancellable | null): number
@@ -8871,7 +8871,7 @@ export class StreamNull {
     write(buffer: number[], cancellable?: Gio.Cancellable | null): number
     write_string(string: string, cancellable?: Gio.Cancellable | null): number
     write_to_stream(output_stream: Stream, cancellable?: Gio.Cancellable | null): number
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -8893,13 +8893,13 @@ export class StreamNull {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of Gio.Seekable */
+    /* Methods of Gio-2.0.Gio.Seekable */
     can_seek(): boolean
     can_truncate(): boolean
     seek(offset: number, type: GLib.SeekType, cancellable?: Gio.Cancellable | null): boolean
     tell(): number
     truncate(offset: number, cancellable?: Gio.Cancellable | null): boolean
-    /* Virtual methods of Camel.Stream */
+    /* Virtual methods of Camel-1.2.Camel.Stream */
     vfunc_close(cancellable?: Gio.Cancellable | null): number
     vfunc_eos(): boolean
     vfunc_flush(cancellable?: Gio.Cancellable | null): number
@@ -8910,7 +8910,7 @@ export class StreamNull {
     vfunc_seek(offset: number, type: GLib.SeekType, cancellable?: Gio.Cancellable | null): boolean
     vfunc_tell(): number
     vfunc_truncate_fn(offset: number, cancellable?: Gio.Cancellable | null): boolean
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -8918,7 +8918,7 @@ export class StreamNull {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: StreamNull, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: StreamNull, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -8939,16 +8939,16 @@ export class StreamNull {
 export interface StreamProcess_ConstructProps extends Stream_ConstructProps {
 }
 export class StreamProcess {
-    /* Properties of Camel.Stream */
+    /* Properties of Camel-1.2.Camel.Stream */
     base_stream: Gio.IOStream
-    /* Fields of Camel.StreamProcess */
+    /* Fields of Camel-1.2.Camel.StreamProcess */
     parent: Stream
     priv: StreamProcessPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Camel.StreamProcess */
+    /* Methods of Camel-1.2.Camel.StreamProcess */
     connect(command: string, env: string): number
-    /* Methods of Camel.Stream */
+    /* Methods of Camel-1.2.Camel.Stream */
     close(cancellable?: Gio.Cancellable | null): number
     eos(): boolean
     flush(cancellable?: Gio.Cancellable | null): number
@@ -8958,7 +8958,7 @@ export class StreamProcess {
     write(buffer: number[], cancellable?: Gio.Cancellable | null): number
     write_string(string: string, cancellable?: Gio.Cancellable | null): number
     write_to_stream(output_stream: Stream, cancellable?: Gio.Cancellable | null): number
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -8980,13 +8980,13 @@ export class StreamProcess {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of Gio.Seekable */
+    /* Methods of Gio-2.0.Gio.Seekable */
     can_seek(): boolean
     can_truncate(): boolean
     seek(offset: number, type: GLib.SeekType, cancellable?: Gio.Cancellable | null): boolean
     tell(): number
     truncate(offset: number, cancellable?: Gio.Cancellable | null): boolean
-    /* Virtual methods of Camel.Stream */
+    /* Virtual methods of Camel-1.2.Camel.Stream */
     vfunc_close(cancellable?: Gio.Cancellable | null): number
     vfunc_eos(): boolean
     vfunc_flush(cancellable?: Gio.Cancellable | null): number
@@ -8997,7 +8997,7 @@ export class StreamProcess {
     vfunc_seek(offset: number, type: GLib.SeekType, cancellable?: Gio.Cancellable | null): boolean
     vfunc_tell(): number
     vfunc_truncate_fn(offset: number, cancellable?: Gio.Cancellable | null): boolean
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -9005,7 +9005,7 @@ export class StreamProcess {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: StreamProcess, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: StreamProcess, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -9026,23 +9026,23 @@ export class StreamProcess {
 export interface TextIndex_ConstructProps extends Index_ConstructProps {
 }
 export class TextIndex {
-    /* Fields of Camel.TextIndex */
+    /* Fields of Camel-1.2.Camel.TextIndex */
     parent: Index
     priv: TextIndexPrivate
-    /* Fields of Camel.Index */
+    /* Fields of Camel-1.2.Camel.Index */
     path: string
     version: number
     flags: number
     state: number
     normalize: IndexNorm
     normalize_data: object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Camel.TextIndex */
+    /* Methods of Camel-1.2.Camel.TextIndex */
     dump(): void
     info(): void
     validate(): void
-    /* Methods of Camel.Index */
+    /* Methods of Camel-1.2.Camel.Index */
     add_name(name: string): IndexName | null
     compress(): number
     construct(path: string, flags: number): void
@@ -9056,7 +9056,7 @@ export class TextIndex {
     sync(): number
     words(): IndexCursor | null
     write_name(idn: IndexName): number
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -9078,7 +9078,7 @@ export class TextIndex {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Camel.Index */
+    /* Virtual methods of Camel-1.2.Camel.Index */
     vfunc_add_name(name: string): IndexName | null
     vfunc_compress(): number
     vfunc_delete_(): number
@@ -9090,7 +9090,7 @@ export class TextIndex {
     vfunc_sync(): number
     vfunc_words(): IndexCursor | null
     vfunc_write_name(idn: IndexName): number
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -9098,7 +9098,7 @@ export class TextIndex {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: TextIndex, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: TextIndex, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -9119,16 +9119,16 @@ export class TextIndex {
 export interface TextIndexCursor_ConstructProps extends IndexCursor_ConstructProps {
 }
 export class TextIndexCursor {
-    /* Fields of Camel.TextIndexCursor */
+    /* Fields of Camel-1.2.Camel.TextIndexCursor */
     parent: IndexCursor
     priv: TextIndexCursorPrivate
-    /* Fields of Camel.IndexCursor */
+    /* Fields of Camel-1.2.Camel.IndexCursor */
     index: Index
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Camel.IndexCursor */
+    /* Methods of Camel-1.2.Camel.IndexCursor */
     next(): string
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -9150,9 +9150,9 @@ export class TextIndexCursor {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Camel.IndexCursor */
+    /* Virtual methods of Camel-1.2.Camel.IndexCursor */
     vfunc_next(): string
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -9160,7 +9160,7 @@ export class TextIndexCursor {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: TextIndexCursor, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: TextIndexCursor, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -9176,16 +9176,16 @@ export class TextIndexCursor {
 export interface TextIndexKeyCursor_ConstructProps extends IndexCursor_ConstructProps {
 }
 export class TextIndexKeyCursor {
-    /* Fields of Camel.TextIndexKeyCursor */
+    /* Fields of Camel-1.2.Camel.TextIndexKeyCursor */
     parent: IndexCursor
     priv: TextIndexKeyCursorPrivate
-    /* Fields of Camel.IndexCursor */
+    /* Fields of Camel-1.2.Camel.IndexCursor */
     index: Index
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Camel.IndexCursor */
+    /* Methods of Camel-1.2.Camel.IndexCursor */
     next(): string
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -9207,9 +9207,9 @@ export class TextIndexKeyCursor {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Camel.IndexCursor */
+    /* Virtual methods of Camel-1.2.Camel.IndexCursor */
     vfunc_next(): string
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -9217,7 +9217,7 @@ export class TextIndexKeyCursor {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: TextIndexKeyCursor, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: TextIndexKeyCursor, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -9233,20 +9233,20 @@ export class TextIndexKeyCursor {
 export interface TextIndexName_ConstructProps extends IndexName_ConstructProps {
 }
 export class TextIndexName {
-    /* Fields of Camel.TextIndexName */
+    /* Fields of Camel-1.2.Camel.TextIndexName */
     parent: IndexName
     priv: TextIndexNamePrivate
-    /* Fields of Camel.IndexName */
+    /* Fields of Camel-1.2.Camel.IndexName */
     index: Index
     name: string
     buffer: Uint8Array[]
     words: GLib.HashTable
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Camel.IndexName */
+    /* Methods of Camel-1.2.Camel.IndexName */
     add_buffer(buffer: string, len: number): number
     add_word(word: string): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -9268,10 +9268,10 @@ export class TextIndexName {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Camel.IndexName */
+    /* Virtual methods of Camel-1.2.Camel.IndexName */
     vfunc_add_buffer(buffer: string, len: number): number
     vfunc_add_word(word: string): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -9279,7 +9279,7 @@ export class TextIndexName {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: TextIndexName, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: TextIndexName, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -9295,24 +9295,24 @@ export class TextIndexName {
 export interface Transport_ConstructProps extends Service_ConstructProps {
 }
 export class Transport {
-    /* Properties of Camel.Service */
+    /* Properties of Camel-1.2.Camel.Service */
     readonly connection_status: ServiceConnectionStatus
     display_name: string
     password: string
     proxy_resolver: Gio.ProxyResolver
     settings: Settings
-    /* Properties of Camel.Object */
+    /* Properties of Camel-1.2.Camel.Object */
     state_filename: string
-    /* Fields of Camel.Transport */
+    /* Fields of Camel-1.2.Camel.Transport */
     parent: Service
     priv: TransportPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Camel.Transport */
+    /* Methods of Camel-1.2.Camel.Transport */
     send_to(message: MimeMessage, from: Address, recipients: Address, io_priority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     send_to_finish(result: Gio.AsyncResult): [ /* returnType */ boolean, /* out_sent_message_saved */ boolean ]
     send_to_sync(message: MimeMessage, from: Address, recipients: Address, cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* out_sent_message_saved */ boolean ]
-    /* Methods of Camel.Service */
+    /* Methods of Camel-1.2.Camel.Service */
     authenticate(mechanism: string | null, io_priority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     authenticate_finish(result: Gio.AsyncResult): AuthenticationResult
     authenticate_sync(mechanism?: string | null, cancellable?: Gio.Cancellable | null): AuthenticationResult
@@ -9345,12 +9345,12 @@ export class Transport {
     set_password(password: string): void
     set_proxy_resolver(proxy_resolver: Gio.ProxyResolver): void
     set_settings(settings: Settings): void
-    /* Methods of Camel.Object */
+    /* Methods of Camel-1.2.Camel.Object */
     get_state_filename(): string
     set_state_filename(state_filename: string): void
     state_read(): number
     state_write(): number
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -9372,21 +9372,21 @@ export class Transport {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of Gio.Initable */
+    /* Methods of Gio-2.0.Gio.Initable */
     init(cancellable?: Gio.Cancellable | null): boolean
-    /* Virtual methods of Camel.Transport */
+    /* Virtual methods of Camel-1.2.Camel.Transport */
     vfunc_send_to_sync(message: MimeMessage, from: Address, recipients: Address, cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* out_sent_message_saved */ boolean ]
-    /* Virtual methods of Camel.Service */
+    /* Virtual methods of Camel-1.2.Camel.Service */
     vfunc_authenticate_sync(mechanism?: string | null, cancellable?: Gio.Cancellable | null): AuthenticationResult
     vfunc_connect_sync(cancellable?: Gio.Cancellable | null): boolean
     vfunc_disconnect_sync(clean: boolean, cancellable?: Gio.Cancellable | null): boolean
     vfunc_get_name(brief: boolean): string
     vfunc_query_auth_types_sync(cancellable?: Gio.Cancellable | null): ServiceAuthType[]
     vfunc_init(cancellable?: Gio.Cancellable | null): boolean
-    /* Virtual methods of Camel.Object */
+    /* Virtual methods of Camel-1.2.Camel.Object */
     vfunc_state_read(fp?: object | null): number
     vfunc_state_write(fp?: object | null): number
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -9394,7 +9394,7 @@ export class Transport {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Transport, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Transport, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -9422,24 +9422,24 @@ export class Transport {
 export interface VTrashFolder_ConstructProps extends VeeFolder_ConstructProps {
 }
 export class VTrashFolder {
-    /* Properties of Camel.VeeFolder */
+    /* Properties of Camel-1.2.Camel.VeeFolder */
     auto_update: boolean
-    /* Properties of Camel.Folder */
+    /* Properties of Camel-1.2.Camel.Folder */
     description: string
     display_name: string
     full_name: string
     mark_seen: ThreeState
     mark_seen_timeout: number
-    /* Properties of Camel.Object */
+    /* Properties of Camel-1.2.Camel.Object */
     state_filename: string
-    /* Fields of Camel.VTrashFolder */
+    /* Fields of Camel-1.2.Camel.VTrashFolder */
     parent: VeeFolder
     priv: VTrashFolderPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Camel.VTrashFolder */
+    /* Methods of Camel-1.2.Camel.VTrashFolder */
     get_folder_type(): VTrashFolderType
-    /* Methods of Camel.VeeFolder */
+    /* Methods of Camel-1.2.Camel.VeeFolder */
     add_folder(subfolder: Folder, cancellable?: Gio.Cancellable | null): void
     add_vuid(mi_data?: object | null, changes?: FolderChangeInfo | null): void
     construct(flags: number): void
@@ -9458,7 +9458,7 @@ export class VTrashFolder {
     set_auto_update(auto_update: boolean): void
     set_expression(expression: string): void
     set_folders(folders: Folder[], cancellable?: Gio.Cancellable | null): void
-    /* Methods of Camel.Folder */
+    /* Methods of Camel-1.2.Camel.Folder */
     append_message(message: MimeMessage, info: MessageInfo, io_priority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     append_message_finish(result: Gio.AsyncResult, appended_uid: string): boolean
     append_message_sync(message: MimeMessage, info: MessageInfo, appended_uid: string, cancellable?: Gio.Cancellable | null): boolean
@@ -9541,12 +9541,12 @@ export class VTrashFolder {
     transfer_messages_to_finish(result: Gio.AsyncResult): [ /* returnType */ boolean, /* transferred_uids */ string[] ]
     transfer_messages_to_sync(message_uids: string[], destination: Folder, delete_originals: boolean, cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* transferred_uids */ string[] ]
     unlock(): void
-    /* Methods of Camel.Object */
+    /* Methods of Camel-1.2.Camel.Object */
     get_state_filename(): string
     set_state_filename(state_filename: string): void
     state_read(): number
     state_write(): number
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -9568,13 +9568,13 @@ export class VTrashFolder {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Camel.VeeFolder */
+    /* Virtual methods of Camel-1.2.Camel.VeeFolder */
     vfunc_add_folder(subfolder: Folder, cancellable?: Gio.Cancellable | null): void
     vfunc_folder_changed(subfolder: Folder, changes: FolderChangeInfo): void
     vfunc_rebuild_folder(subfolder: Folder, cancellable?: Gio.Cancellable | null): void
     vfunc_remove_folder(subfolder: Folder, cancellable?: Gio.Cancellable | null): void
     vfunc_set_expression(expression: string): void
-    /* Virtual methods of Camel.Folder */
+    /* Virtual methods of Camel-1.2.Camel.Folder */
     vfunc_append_message_sync(message: MimeMessage, info: MessageInfo, appended_uid: string, cancellable?: Gio.Cancellable | null): boolean
     vfunc_changed(changes: FolderChangeInfo): void
     vfunc_cmp_uids(uid1: string, uid2: string): number
@@ -9616,10 +9616,10 @@ export class VTrashFolder {
     vfunc_synchronize_sync(expunge: boolean, cancellable?: Gio.Cancellable | null): boolean
     vfunc_thaw(): void
     vfunc_transfer_messages_to_sync(message_uids: string[], destination: Folder, delete_originals: boolean, cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* transferred_uids */ string[] ]
-    /* Virtual methods of Camel.Object */
+    /* Virtual methods of Camel-1.2.Camel.Object */
     vfunc_state_read(fp?: object | null): number
     vfunc_state_write(fp?: object | null): number
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -9627,7 +9627,7 @@ export class VTrashFolder {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Camel.Folder */
+    /* Signals of Camel-1.2.Camel.Folder */
     connect(sigName: "changed", callback: (($obj: VTrashFolder, changes: FolderChangeInfo) => void)): number
     connect_after(sigName: "changed", callback: (($obj: VTrashFolder, changes: FolderChangeInfo) => void)): number
     emit(sigName: "changed", changes: FolderChangeInfo): void
@@ -9637,7 +9637,7 @@ export class VTrashFolder {
     connect(sigName: "renamed", callback: (($obj: VTrashFolder, old_name: string) => void)): number
     connect_after(sigName: "renamed", callback: (($obj: VTrashFolder, old_name: string) => void)): number
     emit(sigName: "renamed", old_name: string): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: VTrashFolder, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: VTrashFolder, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -9670,9 +9670,9 @@ export class VTrashFolder {
 export interface VeeDataCache_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class VeeDataCache {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Camel.VeeDataCache */
+    /* Methods of Camel-1.2.Camel.VeeDataCache */
     add_subfolder(subfolder: Folder): void
     contains_message_info_data(folder: Folder, orig_message_uid: string): boolean
     foreach_message_info_data(fromfolder: Folder, func: ForeachInfoData): void
@@ -9681,7 +9681,7 @@ export class VeeDataCache {
     get_subfolder_data(folder: Folder): VeeSubfolderData
     remove_message_info_data(mi_data: VeeMessageInfoData): void
     remove_subfolder(subfolder: Folder): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -9703,7 +9703,7 @@ export class VeeDataCache {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -9711,7 +9711,7 @@ export class VeeDataCache {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: VeeDataCache, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: VeeDataCache, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -9730,22 +9730,22 @@ export interface VeeFolder_ConstructProps extends Folder_ConstructProps {
     auto_update?: boolean
 }
 export class VeeFolder {
-    /* Properties of Camel.VeeFolder */
+    /* Properties of Camel-1.2.Camel.VeeFolder */
     auto_update: boolean
-    /* Properties of Camel.Folder */
+    /* Properties of Camel-1.2.Camel.Folder */
     description: string
     display_name: string
     full_name: string
     mark_seen: ThreeState
     mark_seen_timeout: number
-    /* Properties of Camel.Object */
+    /* Properties of Camel-1.2.Camel.Object */
     state_filename: string
-    /* Fields of Camel.VeeFolder */
+    /* Fields of Camel-1.2.Camel.VeeFolder */
     parent: Folder
     priv: VeeFolderPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Camel.VeeFolder */
+    /* Methods of Camel-1.2.Camel.VeeFolder */
     add_folder(subfolder: Folder, cancellable?: Gio.Cancellable | null): void
     add_vuid(mi_data?: object | null, changes?: FolderChangeInfo | null): void
     construct(flags: number): void
@@ -9764,7 +9764,7 @@ export class VeeFolder {
     set_auto_update(auto_update: boolean): void
     set_expression(expression: string): void
     set_folders(folders: Folder[], cancellable?: Gio.Cancellable | null): void
-    /* Methods of Camel.Folder */
+    /* Methods of Camel-1.2.Camel.Folder */
     append_message(message: MimeMessage, info: MessageInfo, io_priority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     append_message_finish(result: Gio.AsyncResult, appended_uid: string): boolean
     append_message_sync(message: MimeMessage, info: MessageInfo, appended_uid: string, cancellable?: Gio.Cancellable | null): boolean
@@ -9847,12 +9847,12 @@ export class VeeFolder {
     transfer_messages_to_finish(result: Gio.AsyncResult): [ /* returnType */ boolean, /* transferred_uids */ string[] ]
     transfer_messages_to_sync(message_uids: string[], destination: Folder, delete_originals: boolean, cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* transferred_uids */ string[] ]
     unlock(): void
-    /* Methods of Camel.Object */
+    /* Methods of Camel-1.2.Camel.Object */
     get_state_filename(): string
     set_state_filename(state_filename: string): void
     state_read(): number
     state_write(): number
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -9874,13 +9874,13 @@ export class VeeFolder {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Camel.VeeFolder */
+    /* Virtual methods of Camel-1.2.Camel.VeeFolder */
     vfunc_add_folder(subfolder: Folder, cancellable?: Gio.Cancellable | null): void
     vfunc_folder_changed(subfolder: Folder, changes: FolderChangeInfo): void
     vfunc_rebuild_folder(subfolder: Folder, cancellable?: Gio.Cancellable | null): void
     vfunc_remove_folder(subfolder: Folder, cancellable?: Gio.Cancellable | null): void
     vfunc_set_expression(expression: string): void
-    /* Virtual methods of Camel.Folder */
+    /* Virtual methods of Camel-1.2.Camel.Folder */
     vfunc_append_message_sync(message: MimeMessage, info: MessageInfo, appended_uid: string, cancellable?: Gio.Cancellable | null): boolean
     vfunc_changed(changes: FolderChangeInfo): void
     vfunc_cmp_uids(uid1: string, uid2: string): number
@@ -9922,10 +9922,10 @@ export class VeeFolder {
     vfunc_synchronize_sync(expunge: boolean, cancellable?: Gio.Cancellable | null): boolean
     vfunc_thaw(): void
     vfunc_transfer_messages_to_sync(message_uids: string[], destination: Folder, delete_originals: boolean, cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* transferred_uids */ string[] ]
-    /* Virtual methods of Camel.Object */
+    /* Virtual methods of Camel-1.2.Camel.Object */
     vfunc_state_read(fp?: object | null): number
     vfunc_state_write(fp?: object | null): number
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -9933,7 +9933,7 @@ export class VeeFolder {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Camel.Folder */
+    /* Signals of Camel-1.2.Camel.Folder */
     connect(sigName: "changed", callback: (($obj: VeeFolder, changes: FolderChangeInfo) => void)): number
     connect_after(sigName: "changed", callback: (($obj: VeeFolder, changes: FolderChangeInfo) => void)): number
     emit(sigName: "changed", changes: FolderChangeInfo): void
@@ -9943,7 +9943,7 @@ export class VeeFolder {
     connect(sigName: "renamed", callback: (($obj: VeeFolder, old_name: string) => void)): number
     connect_after(sigName: "renamed", callback: (($obj: VeeFolder, old_name: string) => void)): number
     emit(sigName: "renamed", old_name: string): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: VeeFolder, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: VeeFolder, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -9975,7 +9975,7 @@ export class VeeFolder {
 export interface VeeMessageInfo_ConstructProps extends MessageInfo_ConstructProps {
 }
 export class VeeMessageInfo {
-    /* Properties of Camel.MessageInfo */
+    /* Properties of Camel-1.2.Camel.MessageInfo */
     abort_notifications: boolean
     cc: string
     date_received: number
@@ -9995,15 +9995,15 @@ export class VeeMessageInfo {
     uid: string
     user_flags: NamedFlags
     user_tags: NameValueArray
-    /* Fields of Camel.VeeMessageInfo */
+    /* Fields of Camel-1.2.Camel.VeeMessageInfo */
     parent: MessageInfo
     priv: VeeMessageInfoPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Camel.VeeMessageInfo */
+    /* Methods of Camel-1.2.Camel.VeeMessageInfo */
     get_original_folder(): Folder
     get_original_summary(): FolderSummary
-    /* Methods of Camel.MessageInfo */
+    /* Methods of Camel-1.2.Camel.MessageInfo */
     clone(assign_summary?: FolderSummary | null): MessageInfo
     dump(): void
     dup_headers(): NameValueArray | null
@@ -10061,7 +10061,7 @@ export class VeeMessageInfo {
     take_user_flags(user_flags?: NamedFlags | null): boolean
     take_user_tags(user_tags?: NameValueArray | null): boolean
     thaw_notifications(): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -10083,7 +10083,7 @@ export class VeeMessageInfo {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Camel.MessageInfo */
+    /* Virtual methods of Camel-1.2.Camel.MessageInfo */
     vfunc_clone(assign_summary?: FolderSummary | null): MessageInfo
     vfunc_dup_user_flags(): NamedFlags
     vfunc_dup_user_tags(): NameValueArray | null
@@ -10121,7 +10121,7 @@ export class VeeMessageInfo {
     vfunc_take_references(references?: number[] | null): boolean
     vfunc_take_user_flags(user_flags?: NamedFlags | null): boolean
     vfunc_take_user_tags(user_tags?: NameValueArray | null): boolean
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -10129,7 +10129,7 @@ export class VeeMessageInfo {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: VeeMessageInfo, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: VeeMessageInfo, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -10186,13 +10186,13 @@ export class VeeMessageInfo {
 export interface VeeMessageInfoData_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class VeeMessageInfoData {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Camel.VeeMessageInfoData */
+    /* Methods of Camel-1.2.Camel.VeeMessageInfoData */
     get_orig_message_uid(): string
     get_subfolder_data(): VeeSubfolderData
     get_vee_message_uid(): string
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -10214,7 +10214,7 @@ export class VeeMessageInfoData {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -10222,7 +10222,7 @@ export class VeeMessageInfoData {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: VeeMessageInfoData, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: VeeMessageInfoData, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -10241,22 +10241,22 @@ export interface VeeStore_ConstructProps extends Store_ConstructProps {
     unmatched_enabled?: boolean
 }
 export class VeeStore {
-    /* Properties of Camel.VeeStore */
+    /* Properties of Camel-1.2.Camel.VeeStore */
     unmatched_enabled: boolean
-    /* Properties of Camel.Service */
+    /* Properties of Camel-1.2.Camel.Service */
     readonly connection_status: ServiceConnectionStatus
     display_name: string
     password: string
     proxy_resolver: Gio.ProxyResolver
     settings: Settings
-    /* Properties of Camel.Object */
+    /* Properties of Camel-1.2.Camel.Object */
     state_filename: string
-    /* Fields of Camel.VeeStore */
+    /* Fields of Camel-1.2.Camel.VeeStore */
     parent: Store
     priv: VeeStorePrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Camel.VeeStore */
+    /* Methods of Camel-1.2.Camel.VeeStore */
     get_unmatched_enabled(): boolean
     get_unmatched_folder(): object | null
     get_vee_data_cache(): VeeFolder
@@ -10266,7 +10266,7 @@ export class VeeStore {
     note_vuid_used(mi_data: VeeMessageInfoData, used_by: VeeFolder): void
     rebuild_unmatched_folder(cancellable?: Gio.Cancellable | null): void
     set_unmatched_enabled(is_enabled: boolean): void
-    /* Methods of Camel.Store */
+    /* Methods of Camel-1.2.Camel.Store */
     can_refresh_folder(info: FolderInfo): boolean
     create_folder(parent_name: string | null, folder_name: string, io_priority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     create_folder_finish(result: Gio.AsyncResult): FolderInfo | null
@@ -10313,7 +10313,7 @@ export class VeeStore {
     synchronize(expunge: boolean, io_priority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     synchronize_finish(result: Gio.AsyncResult): boolean
     synchronize_sync(expunge: boolean, cancellable?: Gio.Cancellable | null): boolean
-    /* Methods of Camel.Service */
+    /* Methods of Camel-1.2.Camel.Service */
     authenticate(mechanism: string | null, io_priority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     authenticate_finish(result: Gio.AsyncResult): AuthenticationResult
     authenticate_sync(mechanism?: string | null, cancellable?: Gio.Cancellable | null): AuthenticationResult
@@ -10346,12 +10346,12 @@ export class VeeStore {
     set_password(password: string): void
     set_proxy_resolver(proxy_resolver: Gio.ProxyResolver): void
     set_settings(settings: Settings): void
-    /* Methods of Camel.Object */
+    /* Methods of Camel-1.2.Camel.Object */
     get_state_filename(): string
     set_state_filename(state_filename: string): void
     state_read(): number
     state_write(): number
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -10373,9 +10373,9 @@ export class VeeStore {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of Gio.Initable */
+    /* Methods of Gio-2.0.Gio.Initable */
     init(cancellable?: Gio.Cancellable | null): boolean
-    /* Virtual methods of Camel.Store */
+    /* Virtual methods of Camel-1.2.Camel.Store */
     vfunc_can_refresh_folder(info: FolderInfo): boolean
     vfunc_create_folder_sync(parent_name: string | null, folder_name: string, cancellable?: Gio.Cancellable | null): FolderInfo | null
     vfunc_delete_folder_sync(folder_name: string, cancellable?: Gio.Cancellable | null): boolean
@@ -10393,17 +10393,17 @@ export class VeeStore {
     vfunc_initial_setup_sync(cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* out_save_setup */ GLib.HashTable ]
     vfunc_rename_folder_sync(old_name: string, new_name: string, cancellable?: Gio.Cancellable | null): boolean
     vfunc_synchronize_sync(expunge: boolean, cancellable?: Gio.Cancellable | null): boolean
-    /* Virtual methods of Camel.Service */
+    /* Virtual methods of Camel-1.2.Camel.Service */
     vfunc_authenticate_sync(mechanism?: string | null, cancellable?: Gio.Cancellable | null): AuthenticationResult
     vfunc_connect_sync(cancellable?: Gio.Cancellable | null): boolean
     vfunc_disconnect_sync(clean: boolean, cancellable?: Gio.Cancellable | null): boolean
     vfunc_get_name(brief: boolean): string
     vfunc_query_auth_types_sync(cancellable?: Gio.Cancellable | null): ServiceAuthType[]
     vfunc_init(cancellable?: Gio.Cancellable | null): boolean
-    /* Virtual methods of Camel.Object */
+    /* Virtual methods of Camel-1.2.Camel.Object */
     vfunc_state_read(fp?: object | null): number
     vfunc_state_write(fp?: object | null): number
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -10411,7 +10411,7 @@ export class VeeStore {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Camel.Store */
+    /* Signals of Camel-1.2.Camel.Store */
     connect(sigName: "folder-created", callback: (($obj: VeeStore, object: FolderInfo) => void)): number
     connect_after(sigName: "folder-created", callback: (($obj: VeeStore, object: FolderInfo) => void)): number
     emit(sigName: "folder-created", object: FolderInfo): void
@@ -10427,7 +10427,7 @@ export class VeeStore {
     connect(sigName: "folder-renamed", callback: (($obj: VeeStore, object: string, p0: FolderInfo) => void)): number
     connect_after(sigName: "folder-renamed", callback: (($obj: VeeStore, object: string, p0: FolderInfo) => void)): number
     emit(sigName: "folder-renamed", object: string, p0: FolderInfo): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: VeeStore, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: VeeStore, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -10459,12 +10459,12 @@ export class VeeStore {
 export interface VeeSubfolderData_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class VeeSubfolderData {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Camel.VeeSubfolderData */
+    /* Methods of Camel-1.2.Camel.VeeSubfolderData */
     get_folder(): Folder
     get_folder_id(): string
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -10486,7 +10486,7 @@ export class VeeSubfolderData {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -10494,7 +10494,7 @@ export class VeeSubfolderData {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: VeeSubfolderData, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: VeeSubfolderData, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -10512,24 +10512,24 @@ export class VeeSubfolderData {
 export interface VeeSummary_ConstructProps extends FolderSummary_ConstructProps {
 }
 export class VeeSummary {
-    /* Properties of Camel.FolderSummary */
+    /* Properties of Camel-1.2.Camel.FolderSummary */
     readonly deleted_count: number
     readonly junk_count: number
     readonly junk_not_deleted_count: number
     readonly saved_count: number
     readonly unread_count: number
     readonly visible_count: number
-    /* Fields of Camel.VeeSummary */
+    /* Fields of Camel-1.2.Camel.VeeSummary */
     parent: FolderSummary
     priv: VeeSummaryPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Camel.VeeSummary */
+    /* Methods of Camel-1.2.Camel.VeeSummary */
     add(mi_data: VeeMessageInfoData): VeeMessageInfo
     get_uids_for_subfolder(subfolder: Folder): GLib.HashTable
     remove(vuid: string, subfolder: Folder): void
     replace_flags(uid: string): void
-    /* Methods of Camel.FolderSummary */
+    /* Methods of Camel-1.2.Camel.FolderSummary */
     add(info: MessageInfo, force_keep_uid: boolean): void
     check_uid(uid: string): boolean
     clear(): boolean
@@ -10574,7 +10574,7 @@ export class VeeSummary {
     set_version(version: number): void
     touch(): void
     unlock(): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -10596,7 +10596,7 @@ export class VeeSummary {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Camel.FolderSummary */
+    /* Virtual methods of Camel-1.2.Camel.FolderSummary */
     vfunc_message_info_from_uid(uid: string): MessageInfo | null
     vfunc_message_info_new_from_headers(headers: NameValueArray): MessageInfo
     vfunc_message_info_new_from_message(message: MimeMessage): MessageInfo
@@ -10605,7 +10605,7 @@ export class VeeSummary {
     vfunc_prepare_fetch_all(): void
     vfunc_summary_header_load(fir?: object | null): boolean
     vfunc_summary_header_save(): object | null
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -10613,11 +10613,11 @@ export class VeeSummary {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Camel.FolderSummary */
+    /* Signals of Camel-1.2.Camel.FolderSummary */
     connect(sigName: "changed", callback: (($obj: VeeSummary) => void)): number
     connect_after(sigName: "changed", callback: (($obj: VeeSummary) => void)): number
     emit(sigName: "changed"): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: VeeSummary, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: VeeSummary, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -10645,7 +10645,7 @@ export class VeeSummary {
     static $gtype: GObject.Type
 }
 export abstract class AddressClass {
-    /* Fields of Camel.AddressClass */
+    /* Fields of Camel-1.2.Camel.AddressClass */
     parent_class: GObject.ObjectClass
     length: (addr: Address) => number
     decode: (addr: Address, raw: string) => number
@@ -10664,7 +10664,7 @@ export class AsyncClosure {
     static name: string
 }
 export class Block {
-    /* Fields of Camel.Block */
+    /* Fields of Camel-1.2.Camel.Block */
     id: _block_t
     flags: BlockFlags
     refcount: number
@@ -10673,7 +10673,7 @@ export class Block {
     static name: string
 }
 export abstract class BlockFileClass {
-    /* Fields of Camel.BlockFileClass */
+    /* Fields of Camel-1.2.Camel.BlockFileClass */
     parent_class: GObject.ObjectClass
     validate_root: (bs: BlockFile) => number
     init_root: (bs: BlockFile) => number
@@ -10684,7 +10684,7 @@ export class BlockFilePrivate {
     static name: string
 }
 export class BlockRoot {
-    /* Fields of Camel.BlockRoot */
+    /* Fields of Camel-1.2.Camel.BlockRoot */
     version: number[]
     flags: number
     block_size: number
@@ -10693,7 +10693,7 @@ export class BlockRoot {
     static name: string
 }
 export class Cert {
-    /* Fields of Camel.Cert */
+    /* Fields of Camel-1.2.Camel.Cert */
     refcount: number
     issuer: string
     subject: string
@@ -10701,7 +10701,7 @@ export class Cert {
     fingerprint: string
     trust: CertTrust
     rawcert: GLib.Bytes
-    /* Methods of Camel.Cert */
+    /* Methods of Camel-1.2.Camel.Cert */
     load_cert_file(): boolean
     ref(): Cert
     save_cert_file(der_data: Uint8Array[]): boolean
@@ -10713,7 +10713,7 @@ export class Cert {
     static new(): Cert
 }
 export abstract class CertDBClass {
-    /* Fields of Camel.CertDBClass */
+    /* Fields of Camel-1.2.Camel.CertDBClass */
     parent_class: GObject.ObjectClass
     header_load: (certdb: CertDB, istream?: object | null) => number
     header_save: (certdb: CertDB, ostream?: object | null) => number
@@ -10726,10 +10726,10 @@ export class CertDBPrivate {
     static name: string
 }
 export class Charset {
-    /* Fields of Camel.Charset */
+    /* Fields of Camel-1.2.Camel.Charset */
     mask: number
     level: number
-    /* Methods of Camel.Charset */
+    /* Methods of Camel-1.2.Camel.Charset */
     best_name(): string
     init(): void
     step(in_: number[]): void
@@ -10739,7 +10739,7 @@ export class Charset {
     static iso_to_windows(isocharset: string): string
 }
 export class CipherCertInfo {
-    /* Fields of Camel.CipherCertInfo */
+    /* Fields of Camel-1.2.Camel.CipherCertInfo */
     name: string
     email: string
     cert_data: object
@@ -10749,7 +10749,7 @@ export class CipherCertInfo {
     static name: string
 }
 export class CipherCertInfoProperty {
-    /* Fields of Camel.CipherCertInfoProperty */
+    /* Fields of Camel-1.2.Camel.CipherCertInfoProperty */
     name: string
     value: object
     value_free: GLib.DestroyNotify
@@ -10757,7 +10757,7 @@ export class CipherCertInfoProperty {
     static name: string
 }
 export abstract class CipherContextClass {
-    /* Fields of Camel.CipherContextClass */
+    /* Fields of Camel-1.2.Camel.CipherContextClass */
     parent_class: GObject.ObjectClass
     sign_protocol: string
     encrypt_protocol: string
@@ -10775,11 +10775,11 @@ export class CipherContextPrivate {
     static name: string
 }
 export class CipherValidity {
-    /* Fields of Camel.CipherValidity */
+    /* Fields of Camel-1.2.Camel.CipherValidity */
     children: GLib.Queue
     sign: object
     encrypt: object
-    /* Methods of Camel.CipherValidity */
+    /* Methods of Camel-1.2.Camel.CipherValidity */
     add_certinfo(mode: CipherValidityMode, name: string, email: string): number
     add_certinfo_ex(mode: CipherValidityMode, name: string, email: string, cert_data?: object | null, cert_data_clone?: CipherCloneFunc | null): number
     clear(): void
@@ -10800,11 +10800,11 @@ export class CipherValidity {
     static new(): CipherValidity
 }
 export class ContentDisposition {
-    /* Fields of Camel.ContentDisposition */
+    /* Fields of Camel-1.2.Camel.ContentDisposition */
     disposition: string
     params: object
     refcount: number
-    /* Methods of Camel.ContentDisposition */
+    /* Methods of Camel-1.2.Camel.ContentDisposition */
     format(): string
     is_attachment(content_type: ContentType): boolean
     is_attachment_ex(content_type: ContentType, parent_content_type: ContentType): boolean
@@ -10818,12 +10818,12 @@ export class ContentDisposition {
     static decode(in_: string): ContentDisposition
 }
 export class ContentType {
-    /* Fields of Camel.ContentType */
+    /* Fields of Camel-1.2.Camel.ContentType */
     type: string
     subtype: string
     params: object
     refcount: number
-    /* Methods of Camel.ContentType */
+    /* Methods of Camel-1.2.Camel.ContentType */
     dump(): void
     format(): string
     is(type: string, subtype: string): boolean
@@ -10846,7 +10846,7 @@ export class DBPrivate {
     static name: string
 }
 export abstract class DataCacheClass {
-    /* Fields of Camel.DataCacheClass */
+    /* Fields of Camel-1.2.Camel.DataCacheClass */
     parent_class: GObject.ObjectClass
     reserved: object[]
     static name: string
@@ -10855,7 +10855,7 @@ export class DataCachePrivate {
     static name: string
 }
 export abstract class DataWrapperClass {
-    /* Fields of Camel.DataWrapperClass */
+    /* Fields of Camel-1.2.Camel.DataWrapperClass */
     parent_class: GObject.ObjectClass
     set_mime_type: (data_wrapper: DataWrapper, mime_type: string) => void
     get_mime_type: (data_wrapper: DataWrapper) => string
@@ -10875,7 +10875,7 @@ export class DataWrapperPrivate {
     static name: string
 }
 export class FIRecord {
-    /* Fields of Camel.FIRecord */
+    /* Fields of Camel-1.2.Camel.FIRecord */
     folder_name: string
     version: number
     flags: number
@@ -10891,7 +10891,7 @@ export class FIRecord {
     static name: string
 }
 export abstract class FilterDriverClass {
-    /* Fields of Camel.FilterDriverClass */
+    /* Fields of Camel-1.2.Camel.FilterDriverClass */
     parent_class: GObject.ObjectClass
     reserved: object[]
     static name: string
@@ -10900,7 +10900,7 @@ export class FilterDriverPrivate {
     static name: string
 }
 export abstract class FilterInputStreamClass {
-    /* Fields of Camel.FilterInputStreamClass */
+    /* Fields of Camel-1.2.Camel.FilterInputStreamClass */
     parent_class: Gio.FilterInputStreamClass
     reserved: object[]
     static name: string
@@ -10909,7 +10909,7 @@ export class FilterInputStreamPrivate {
     static name: string
 }
 export abstract class FilterOutputStreamClass {
-    /* Fields of Camel.FilterOutputStreamClass */
+    /* Fields of Camel-1.2.Camel.FilterOutputStreamClass */
     parent_class: Gio.FilterOutputStreamClass
     reserved: object[]
     static name: string
@@ -10918,12 +10918,12 @@ export class FilterOutputStreamPrivate {
     static name: string
 }
 export class FolderChangeInfo {
-    /* Fields of Camel.FolderChangeInfo */
+    /* Fields of Camel-1.2.Camel.FolderChangeInfo */
     uid_added: object[]
     uid_removed: object[]
     uid_changed: object[]
     uid_recent: object[]
-    /* Methods of Camel.FolderChangeInfo */
+    /* Methods of Camel-1.2.Camel.FolderChangeInfo */
     add_source(uid: string): void
     add_source_list(list: string[]): void
     add_uid(uid: string): void
@@ -10952,7 +10952,7 @@ export class FolderChangeInfoPrivate {
     static name: string
 }
 export abstract class FolderClass {
-    /* Fields of Camel.FolderClass */
+    /* Fields of Camel-1.2.Camel.FolderClass */
     parent_class: ObjectClass
     get_message_count: (folder: Folder) => number
     get_permanent_flags: (folder: Folder) => number
@@ -11000,7 +11000,7 @@ export abstract class FolderClass {
     static name: string
 }
 export class FolderInfo {
-    /* Fields of Camel.FolderInfo */
+    /* Fields of Camel-1.2.Camel.FolderInfo */
     next: object
     parent: object
     child: object
@@ -11009,7 +11009,7 @@ export class FolderInfo {
     flags: FolderInfoFlags
     unread: number
     total: number
-    /* Methods of Camel.FolderInfo */
+    /* Methods of Camel-1.2.Camel.FolderInfo */
     clone(): FolderInfo
     free(): void
     static name: string
@@ -11023,12 +11023,12 @@ export class FolderPrivate {
     static name: string
 }
 export class FolderQuotaInfo {
-    /* Fields of Camel.FolderQuotaInfo */
+    /* Fields of Camel-1.2.Camel.FolderQuotaInfo */
     name: string
     used: number
     total: number
     next: object
-    /* Methods of Camel.FolderQuotaInfo */
+    /* Methods of Camel-1.2.Camel.FolderQuotaInfo */
     clone(): FolderQuotaInfo
     free(): void
     static name: string
@@ -11038,7 +11038,7 @@ export class FolderQuotaInfo {
     static new(name: string, used: number, total: number): FolderQuotaInfo
 }
 export abstract class FolderSearchClass {
-    /* Fields of Camel.FolderSearchClass */
+    /* Fields of Camel-1.2.Camel.FolderSearchClass */
     parent_class: GObject.ObjectClass
     reserved: object[]
     static name: string
@@ -11047,7 +11047,7 @@ export class FolderSearchPrivate {
     static name: string
 }
 export abstract class FolderSummaryClass {
-    /* Fields of Camel.FolderSummaryClass */
+    /* Fields of Camel-1.2.Camel.FolderSummaryClass */
     parent_class: GObject.ObjectClass
     message_info_type: GObject.Type
     collate: string
@@ -11067,14 +11067,14 @@ export class FolderSummaryPrivate {
     static name: string
 }
 export class FolderThread {
-    /* Fields of Camel.FolderThread */
+    /* Fields of Camel-1.2.Camel.FolderThread */
     refcount: number
     subject: number
     tree: object
     node_chunks: MemChunk
     folder: Folder
     summary: object[]
-    /* Methods of Camel.FolderThread */
+    /* Methods of Camel-1.2.Camel.FolderThread */
     apply(uids: string[]): void
     ref(): FolderThread
     unref(): void
@@ -11085,7 +11085,7 @@ export class FolderThread {
     static new(folder: Folder, uids: string[], thread_subject: boolean): FolderThread
 }
 export class FolderThreadNode {
-    /* Fields of Camel.FolderThreadNode */
+    /* Fields of Camel-1.2.Camel.FolderThreadNode */
     next: object
     parent: object
     child: object
@@ -11096,7 +11096,7 @@ export class FolderThreadNode {
     static name: string
 }
 export abstract class GpgContextClass {
-    /* Fields of Camel.GpgContextClass */
+    /* Fields of Camel-1.2.Camel.GpgContextClass */
     parent_class: CipherContextClass
     reserved: object[]
     static name: string
@@ -11105,7 +11105,7 @@ export class GpgContextPrivate {
     static name: string
 }
 export abstract class HTMLParserClass {
-    /* Fields of Camel.HTMLParserClass */
+    /* Fields of Camel-1.2.Camel.HTMLParserClass */
     parent_class: GObject.ObjectClass
     reserved: object[]
     static name: string
@@ -11114,12 +11114,12 @@ export class HTMLParserPrivate {
     static name: string
 }
 export class HeaderAddress {
-    /* Fields of Camel.HeaderAddress */
+    /* Fields of Camel-1.2.Camel.HeaderAddress */
     next: object
     type: HeaderAddressType
     name: string
     refcount: number
-    /* Methods of Camel.HeaderAddress */
+    /* Methods of Camel-1.2.Camel.HeaderAddress */
     add_member(member: HeaderAddress): void
     ref(): HeaderAddress
     set_addr(addr: string): void
@@ -11142,7 +11142,7 @@ export class HeaderAddress {
     static list_format(addrlist: HeaderAddress[]): string
 }
 export class HeaderParam {
-    /* Fields of Camel.HeaderParam */
+    /* Fields of Camel-1.2.Camel.HeaderParam */
     next: object
     name: string
     value: string
@@ -11154,7 +11154,7 @@ export class HeaderParam {
     static list_free(params?: object | null): void
 }
 export abstract class IndexClass {
-    /* Fields of Camel.IndexClass */
+    /* Fields of Camel-1.2.Camel.IndexClass */
     parent_class: GObject.ObjectClass
     sync: (index: Index) => number
     compress: (index: Index) => number
@@ -11170,7 +11170,7 @@ export abstract class IndexClass {
     static name: string
 }
 export abstract class IndexCursorClass {
-    /* Fields of Camel.IndexCursorClass */
+    /* Fields of Camel-1.2.Camel.IndexCursorClass */
     parent: GObject.ObjectClass
     next: (idc: IndexCursor) => string
     reserved: object[]
@@ -11180,7 +11180,7 @@ export class IndexCursorPrivate {
     static name: string
 }
 export abstract class IndexNameClass {
-    /* Fields of Camel.IndexNameClass */
+    /* Fields of Camel-1.2.Camel.IndexNameClass */
     parent: GObject.ObjectClass
     add_word: (name: IndexName, word: string) => void
     add_buffer: (name: IndexName, buffer: string, len: number) => number
@@ -11193,7 +11193,7 @@ export class IndexPrivate {
     static name: string
 }
 export abstract class InternetAddressClass {
-    /* Fields of Camel.InternetAddressClass */
+    /* Fields of Camel-1.2.Camel.InternetAddressClass */
     parent_class: AddressClass
     reserved: object[]
     static name: string
@@ -11202,7 +11202,7 @@ export class InternetAddressPrivate {
     static name: string
 }
 export abstract class JunkFilterInterface {
-    /* Fields of Camel.JunkFilterInterface */
+    /* Fields of Camel-1.2.Camel.JunkFilterInterface */
     parent_interface: GObject.TypeInterface
     classify: (junk_filter: JunkFilter, message: MimeMessage, cancellable?: Gio.Cancellable | null) => JunkStatus
     learn_junk: (junk_filter: JunkFilter, message: MimeMessage, cancellable?: Gio.Cancellable | null) => boolean
@@ -11212,13 +11212,13 @@ export abstract class JunkFilterInterface {
     static name: string
 }
 export class KeyBlock {
-    /* Fields of Camel.KeyBlock */
+    /* Fields of Camel-1.2.Camel.KeyBlock */
     next: _block_t
     used: number
     static name: string
 }
 export abstract class KeyFileClass {
-    /* Fields of Camel.KeyFileClass */
+    /* Fields of Camel-1.2.Camel.KeyFileClass */
     parent_class: GObject.ObjectClass
     reserved: object[]
     static name: string
@@ -11227,14 +11227,14 @@ export class KeyFilePrivate {
     static name: string
 }
 export class KeyRootBlock {
-    /* Fields of Camel.KeyRootBlock */
+    /* Fields of Camel-1.2.Camel.KeyRootBlock */
     first: _block_t
     last: _block_t
     free: _key_t
     static name: string
 }
 export abstract class KeyTableClass {
-    /* Fields of Camel.KeyTableClass */
+    /* Fields of Camel-1.2.Camel.KeyTableClass */
     parent: GObject.ObjectClass
     reserved: object[]
     static name: string
@@ -11249,7 +11249,7 @@ export class LocalSettingsPrivate {
     static name: string
 }
 export class MIRecord {
-    /* Fields of Camel.MIRecord */
+    /* Fields of Camel-1.2.Camel.MIRecord */
     uid: string
     flags: number
     msg_type: number
@@ -11279,7 +11279,7 @@ export class MIRecord {
     static name: string
 }
 export abstract class MediumClass {
-    /* Fields of Camel.MediumClass */
+    /* Fields of Camel-1.2.Camel.MediumClass */
     parent_class: DataWrapperClass
     add_header: (medium: Medium, name: string, value: string) => void
     set_header: (medium: Medium, name: string, value: string) => void
@@ -11302,7 +11302,7 @@ export class MemPool {
     static name: string
 }
 export class MessageContentInfo {
-    /* Fields of Camel.MessageContentInfo */
+    /* Fields of Camel-1.2.Camel.MessageContentInfo */
     next: MessageContentInfo
     childs: MessageContentInfo
     parent: MessageContentInfo
@@ -11312,7 +11312,7 @@ export class MessageContentInfo {
     description: string
     encoding: string
     size: number
-    /* Methods of Camel.MessageContentInfo */
+    /* Methods of Camel-1.2.Camel.MessageContentInfo */
     copy(): MessageContentInfo
     dump(depth: number): void
     free(): void
@@ -11327,7 +11327,7 @@ export class MessageContentInfo {
     static new_from_parser(parser: MimeParser): MessageContentInfo
 }
 export abstract class MessageInfoBaseClass {
-    /* Fields of Camel.MessageInfoBaseClass */
+    /* Fields of Camel-1.2.Camel.MessageInfoBaseClass */
     parent_class: MessageInfoClass
     reserved: object[]
     static name: string
@@ -11336,7 +11336,7 @@ export class MessageInfoBasePrivate {
     static name: string
 }
 export abstract class MessageInfoClass {
-    /* Fields of Camel.MessageInfoClass */
+    /* Fields of Camel-1.2.Camel.MessageInfoClass */
     parent_class: GObject.ObjectClass
     clone: (mi: MessageInfo, assign_summary?: FolderSummary | null) => MessageInfo
     load: (mi: MessageInfo, record: MIRecord | null, bdata_ptr: string) => boolean
@@ -11382,7 +11382,7 @@ export class MessageInfoPrivate {
     static name: string
 }
 export abstract class MimeFilterBasicClass {
-    /* Fields of Camel.MimeFilterBasicClass */
+    /* Fields of Camel-1.2.Camel.MimeFilterBasicClass */
     parent_class: MimeFilterClass
     reserved: object[]
     static name: string
@@ -11391,7 +11391,7 @@ export class MimeFilterBasicPrivate {
     static name: string
 }
 export abstract class MimeFilterBestencClass {
-    /* Fields of Camel.MimeFilterBestencClass */
+    /* Fields of Camel-1.2.Camel.MimeFilterBestencClass */
     parent_class: MimeFilterClass
     reserved: object[]
     static name: string
@@ -11400,7 +11400,7 @@ export class MimeFilterBestencPrivate {
     static name: string
 }
 export abstract class MimeFilterCRLFClass {
-    /* Fields of Camel.MimeFilterCRLFClass */
+    /* Fields of Camel-1.2.Camel.MimeFilterCRLFClass */
     parent_class: MimeFilterClass
     reserved: object[]
     static name: string
@@ -11409,7 +11409,7 @@ export class MimeFilterCRLFPrivate {
     static name: string
 }
 export abstract class MimeFilterCanonClass {
-    /* Fields of Camel.MimeFilterCanonClass */
+    /* Fields of Camel-1.2.Camel.MimeFilterCanonClass */
     parent_class: MimeFilterClass
     reserved: object[]
     static name: string
@@ -11418,7 +11418,7 @@ export class MimeFilterCanonPrivate {
     static name: string
 }
 export abstract class MimeFilterCharsetClass {
-    /* Fields of Camel.MimeFilterCharsetClass */
+    /* Fields of Camel-1.2.Camel.MimeFilterCharsetClass */
     parent_class: MimeFilterClass
     reserved: object[]
     static name: string
@@ -11427,7 +11427,7 @@ export class MimeFilterCharsetPrivate {
     static name: string
 }
 export abstract class MimeFilterClass {
-    /* Fields of Camel.MimeFilterClass */
+    /* Fields of Camel-1.2.Camel.MimeFilterClass */
     parent_class: GObject.ObjectClass
     filter: (filter: MimeFilter, in_: Uint8Array[], prespace: number) => [ /* out */ Uint8Array[], /* outprespace */ number ]
     complete: (filter: MimeFilter, in_: Uint8Array[], prespace: number) => [ /* out */ Uint8Array[], /* outprespace */ number ]
@@ -11436,7 +11436,7 @@ export abstract class MimeFilterClass {
     static name: string
 }
 export abstract class MimeFilterEnrichedClass {
-    /* Fields of Camel.MimeFilterEnrichedClass */
+    /* Fields of Camel-1.2.Camel.MimeFilterEnrichedClass */
     parent_class: MimeFilterClass
     reserved: object[]
     static name: string
@@ -11445,7 +11445,7 @@ export class MimeFilterEnrichedPrivate {
     static name: string
 }
 export abstract class MimeFilterFromClass {
-    /* Fields of Camel.MimeFilterFromClass */
+    /* Fields of Camel-1.2.Camel.MimeFilterFromClass */
     parent_class: MimeFilterClass
     reserved: object[]
     static name: string
@@ -11454,7 +11454,7 @@ export class MimeFilterFromPrivate {
     static name: string
 }
 export abstract class MimeFilterGZipClass {
-    /* Fields of Camel.MimeFilterGZipClass */
+    /* Fields of Camel-1.2.Camel.MimeFilterGZipClass */
     parent_class: MimeFilterClass
     reserved: object[]
     static name: string
@@ -11463,7 +11463,7 @@ export class MimeFilterGZipPrivate {
     static name: string
 }
 export abstract class MimeFilterHTMLClass {
-    /* Fields of Camel.MimeFilterHTMLClass */
+    /* Fields of Camel-1.2.Camel.MimeFilterHTMLClass */
     parent_class: MimeFilterClass
     reserved: object[]
     static name: string
@@ -11472,7 +11472,7 @@ export class MimeFilterHTMLPrivate {
     static name: string
 }
 export abstract class MimeFilterIndexClass {
-    /* Fields of Camel.MimeFilterIndexClass */
+    /* Fields of Camel-1.2.Camel.MimeFilterIndexClass */
     parent_class: MimeFilterClass
     reserved: object[]
     static name: string
@@ -11481,7 +11481,7 @@ export class MimeFilterIndexPrivate {
     static name: string
 }
 export abstract class MimeFilterLinewrapClass {
-    /* Fields of Camel.MimeFilterLinewrapClass */
+    /* Fields of Camel-1.2.Camel.MimeFilterLinewrapClass */
     parent_class: MimeFilterClass
     reserved: object[]
     static name: string
@@ -11490,7 +11490,7 @@ export class MimeFilterLinewrapPrivate {
     static name: string
 }
 export abstract class MimeFilterPgpClass {
-    /* Fields of Camel.MimeFilterPgpClass */
+    /* Fields of Camel-1.2.Camel.MimeFilterPgpClass */
     parent_class: MimeFilterClass
     reserved: object[]
     static name: string
@@ -11502,7 +11502,7 @@ export class MimeFilterPrivate {
     static name: string
 }
 export abstract class MimeFilterProgressClass {
-    /* Fields of Camel.MimeFilterProgressClass */
+    /* Fields of Camel-1.2.Camel.MimeFilterProgressClass */
     parent_class: MimeFilterClass
     reserved: object[]
     static name: string
@@ -11511,7 +11511,7 @@ export class MimeFilterProgressPrivate {
     static name: string
 }
 export abstract class MimeFilterToHTMLClass {
-    /* Fields of Camel.MimeFilterToHTMLClass */
+    /* Fields of Camel-1.2.Camel.MimeFilterToHTMLClass */
     parent_class: MimeFilterClass
     reserved: object[]
     static name: string
@@ -11520,7 +11520,7 @@ export class MimeFilterToHTMLPrivate {
     static name: string
 }
 export abstract class MimeFilterWindowsClass {
-    /* Fields of Camel.MimeFilterWindowsClass */
+    /* Fields of Camel-1.2.Camel.MimeFilterWindowsClass */
     parent_class: MimeFilterClass
     reserved: object[]
     static name: string
@@ -11529,7 +11529,7 @@ export class MimeFilterWindowsPrivate {
     static name: string
 }
 export abstract class MimeFilterYencClass {
-    /* Fields of Camel.MimeFilterYencClass */
+    /* Fields of Camel-1.2.Camel.MimeFilterYencClass */
     parent_class: MimeFilterClass
     reserved: object[]
     static name: string
@@ -11538,7 +11538,7 @@ export class MimeFilterYencPrivate {
     static name: string
 }
 export abstract class MimeMessageClass {
-    /* Fields of Camel.MimeMessageClass */
+    /* Fields of Camel-1.2.Camel.MimeMessageClass */
     parent_class: MimePartClass
     reserved: object[]
     static name: string
@@ -11547,7 +11547,7 @@ export class MimeMessagePrivate {
     static name: string
 }
 export abstract class MimeParserClass {
-    /* Fields of Camel.MimeParserClass */
+    /* Fields of Camel-1.2.Camel.MimeParserClass */
     parent_class: GObject.ObjectClass
     message: (parser: MimeParser, headers?: object | null) => void
     part: (parser: MimeParser) => void
@@ -11559,7 +11559,7 @@ export class MimeParserPrivate {
     static name: string
 }
 export abstract class MimePartClass {
-    /* Fields of Camel.MimePartClass */
+    /* Fields of Camel-1.2.Camel.MimePartClass */
     parent_class: MediumClass
     construct_from_parser_sync: (mime_part: MimePart, parser: MimeParser, cancellable?: Gio.Cancellable | null) => boolean
     reserved: object[]
@@ -11569,7 +11569,7 @@ export class MimePartPrivate {
     static name: string
 }
 export class Msg {
-    /* Fields of Camel.Msg */
+    /* Fields of Camel-1.2.Camel.Msg */
     reply_port: MsgPort
     static name: string
 }
@@ -11577,7 +11577,7 @@ export class MsgPort {
     static name: string
 }
 export abstract class MultipartClass {
-    /* Fields of Camel.MultipartClass */
+    /* Fields of Camel-1.2.Camel.MultipartClass */
     parent_class: DataWrapperClass
     add_part: (multipart: Multipart, part: MimePart) => void
     get_part: (multipart: Multipart, index: number) => MimePart
@@ -11589,7 +11589,7 @@ export abstract class MultipartClass {
     static name: string
 }
 export abstract class MultipartEncryptedClass {
-    /* Fields of Camel.MultipartEncryptedClass */
+    /* Fields of Camel-1.2.Camel.MultipartEncryptedClass */
     parent_class: MultipartClass
     reserved: object[]
     static name: string
@@ -11601,7 +11601,7 @@ export class MultipartPrivate {
     static name: string
 }
 export abstract class MultipartSignedClass {
-    /* Fields of Camel.MultipartSignedClass */
+    /* Fields of Camel-1.2.Camel.MultipartSignedClass */
     parent_class: MultipartClass
     reserved: object[]
     static name: string
@@ -11610,7 +11610,7 @@ export class MultipartSignedPrivate {
     static name: string
 }
 export abstract class NNTPAddressClass {
-    /* Fields of Camel.NNTPAddressClass */
+    /* Fields of Camel-1.2.Camel.NNTPAddressClass */
     parent_class: AddressClass
     reserved: object[]
     static name: string
@@ -11619,7 +11619,7 @@ export class NNTPAddressPrivate {
     static name: string
 }
 export class NameValueArray {
-    /* Methods of Camel.NameValueArray */
+    /* Methods of Camel-1.2.Camel.NameValueArray */
     append(name: string, value: string): void
     clear(): void
     copy(): NameValueArray
@@ -11644,7 +11644,7 @@ export class NameValueArray {
     static new_sized(reserve_size: number): NameValueArray
 }
 export class NamedFlags {
-    /* Methods of Camel.NamedFlags */
+    /* Methods of Camel-1.2.Camel.NamedFlags */
     clear(): void
     contains(name: string): boolean
     copy(): NamedFlags
@@ -11662,7 +11662,7 @@ export class NamedFlags {
     static new_sized(reserve_size: number): NamedFlags
 }
 export abstract class NetworkServiceInterface {
-    /* Fields of Camel.NetworkServiceInterface */
+    /* Fields of Camel-1.2.Camel.NetworkServiceInterface */
     parent_interface: GObject.TypeInterface
     get_service_name: (service: NetworkService, method: NetworkSecurityMethod) => string
     get_default_port: (service: NetworkService, method: NetworkSecurityMethod) => number
@@ -11671,13 +11671,13 @@ export abstract class NetworkServiceInterface {
     static name: string
 }
 export abstract class NetworkSettingsInterface {
-    /* Fields of Camel.NetworkSettingsInterface */
+    /* Fields of Camel-1.2.Camel.NetworkSettingsInterface */
     parent_interface: GObject.TypeInterface
     reserved: object[]
     static name: string
 }
 export abstract class NullOutputStreamClass {
-    /* Fields of Camel.NullOutputStreamClass */
+    /* Fields of Camel-1.2.Camel.NullOutputStreamClass */
     parent_class: Gio.OutputStreamClass
     reserved: object[]
     static name: string
@@ -11686,7 +11686,7 @@ export class NullOutputStreamPrivate {
     static name: string
 }
 export class ObjectBag {
-    /* Methods of Camel.ObjectBag */
+    /* Methods of Camel-1.2.Camel.ObjectBag */
     abort(key?: object | null): void
     add(key?: object | null, object?: object | null): void
     destroy(): void
@@ -11699,7 +11699,7 @@ export class ObjectBag {
     static name: string
 }
 export abstract class ObjectClass {
-    /* Fields of Camel.ObjectClass */
+    /* Fields of Camel-1.2.Camel.ObjectClass */
     parent_class: GObject.ObjectClass
     state_read: (object: Object, fp?: object | null) => number
     state_write: (object: Object, fp?: object | null) => number
@@ -11710,7 +11710,7 @@ export class ObjectPrivate {
     static name: string
 }
 export abstract class OfflineFolderClass {
-    /* Fields of Camel.OfflineFolderClass */
+    /* Fields of Camel-1.2.Camel.OfflineFolderClass */
     parent_class: FolderClass
     downsync_sync: (folder: OfflineFolder, expression: string, cancellable?: Gio.Cancellable | null) => boolean
     reserved: object[]
@@ -11720,7 +11720,7 @@ export class OfflineFolderPrivate {
     static name: string
 }
 export abstract class OfflineSettingsClass {
-    /* Fields of Camel.OfflineSettingsClass */
+    /* Fields of Camel-1.2.Camel.OfflineSettingsClass */
     parent_class: StoreSettingsClass
     reserved: object[]
     static name: string
@@ -11729,7 +11729,7 @@ export class OfflineSettingsPrivate {
     static name: string
 }
 export abstract class OfflineStoreClass {
-    /* Fields of Camel.OfflineStoreClass */
+    /* Fields of Camel-1.2.Camel.OfflineStoreClass */
     parent_class: StoreClass
     dup_downsync_folders: (store: OfflineStore) => Folder[]
     reserved: object[]
@@ -11739,7 +11739,7 @@ export class OfflineStorePrivate {
     static name: string
 }
 export abstract class OperationClass {
-    /* Fields of Camel.OperationClass */
+    /* Fields of Camel-1.2.Camel.OperationClass */
     parent_class: Gio.CancellableClass
     status: (operation: Operation, what: string, pc: number) => void
     reserved: object[]
@@ -11749,32 +11749,32 @@ export class OperationPrivate {
     static name: string
 }
 export class PartitionKey {
-    /* Fields of Camel.PartitionKey */
+    /* Fields of Camel-1.2.Camel.PartitionKey */
     hashid: _hash_t
     keyid: _key_t
     static name: string
 }
 export class PartitionKeyBlock {
-    /* Fields of Camel.PartitionKeyBlock */
+    /* Fields of Camel-1.2.Camel.PartitionKeyBlock */
     used: number
     keys: object[]
     static name: string
 }
 export class PartitionMap {
-    /* Fields of Camel.PartitionMap */
+    /* Fields of Camel-1.2.Camel.PartitionMap */
     hashid: _hash_t
     blockid: _block_t
     static name: string
 }
 export class PartitionMapBlock {
-    /* Fields of Camel.PartitionMapBlock */
+    /* Fields of Camel-1.2.Camel.PartitionMapBlock */
     next: _block_t
     used: number
     partition: object[]
     static name: string
 }
 export abstract class PartitionTableClass {
-    /* Fields of Camel.PartitionTableClass */
+    /* Fields of Camel-1.2.Camel.PartitionTableClass */
     parent: GObject.ObjectClass
     reserved: object[]
     static name: string
@@ -11783,7 +11783,7 @@ export class PartitionTablePrivate {
     static name: string
 }
 export class Provider {
-    /* Fields of Camel.Provider */
+    /* Fields of Camel-1.2.Camel.Provider */
     protocol: string
     name: string
     description: string
@@ -11799,7 +11799,7 @@ export class Provider {
     url_equal: GLib.EqualFunc
     translation_domain: string
     priv: object
-    /* Methods of Camel.Provider */
+    /* Methods of Camel-1.2.Camel.Provider */
     register(): void
     static name: string
     /* Static methods and pseudo-constructors */
@@ -11809,7 +11809,7 @@ export class Provider {
     static load(path: string): boolean
 }
 export class ProviderConfEntry {
-    /* Fields of Camel.ProviderConfEntry */
+    /* Fields of Camel-1.2.Camel.ProviderConfEntry */
     type: ProviderConfType
     name: string
     depname: string
@@ -11818,7 +11818,7 @@ export class ProviderConfEntry {
     static name: string
 }
 export class ProviderModule {
-    /* Fields of Camel.ProviderModule */
+    /* Fields of Camel-1.2.Camel.ProviderModule */
     path: string
     types: object[]
     loaded: number
@@ -11827,14 +11827,14 @@ export class ProviderModule {
     static init(): void
 }
 export class ProviderPortEntry {
-    /* Fields of Camel.ProviderPortEntry */
+    /* Fields of Camel-1.2.Camel.ProviderPortEntry */
     port: number
     desc: string
     is_ssl: boolean
     static name: string
 }
 export abstract class SExpClass {
-    /* Fields of Camel.SExpClass */
+    /* Fields of Camel-1.2.Camel.SExpClass */
     parent_class: GObject.ObjectClass
     reserved: object[]
     static name: string
@@ -11843,7 +11843,7 @@ export class SExpPrivate {
     static name: string
 }
 export class SExpResult {
-    /* Fields of Camel.SExpResult */
+    /* Fields of Camel-1.2.Camel.SExpResult */
     type: SExpResultType
     time_generator: boolean
     occuring_start: number
@@ -11851,19 +11851,19 @@ export class SExpResult {
     static name: string
 }
 export class SExpSymbol {
-    /* Fields of Camel.SExpSymbol */
+    /* Fields of Camel-1.2.Camel.SExpSymbol */
     type: number
     name: string
     data: object
     static name: string
 }
 export class SExpTerm {
-    /* Fields of Camel.SExpTerm */
+    /* Fields of Camel-1.2.Camel.SExpTerm */
     type: SExpTermType
     static name: string
 }
 export abstract class SMIMEContextClass {
-    /* Fields of Camel.SMIMEContextClass */
+    /* Fields of Camel-1.2.Camel.SMIMEContextClass */
     parent_class: CipherContextClass
     reserved: object[]
     static name: string
@@ -11872,7 +11872,7 @@ export class SMIMEContextPrivate {
     static name: string
 }
 export abstract class SaslAnonymousClass {
-    /* Fields of Camel.SaslAnonymousClass */
+    /* Fields of Camel-1.2.Camel.SaslAnonymousClass */
     parent_class: SaslClass
     reserved: object[]
     static name: string
@@ -11881,7 +11881,7 @@ export class SaslAnonymousPrivate {
     static name: string
 }
 export abstract class SaslClass {
-    /* Fields of Camel.SaslClass */
+    /* Fields of Camel-1.2.Camel.SaslClass */
     parent_class: GObject.ObjectClass
     auth_type: ServiceAuthType
     try_empty_password_sync: (sasl: Sasl, cancellable?: Gio.Cancellable | null) => boolean
@@ -11890,7 +11890,7 @@ export abstract class SaslClass {
     static name: string
 }
 export abstract class SaslCramMd5Class {
-    /* Fields of Camel.SaslCramMd5Class */
+    /* Fields of Camel-1.2.Camel.SaslCramMd5Class */
     parent_class: SaslClass
     reserved: object[]
     static name: string
@@ -11899,7 +11899,7 @@ export class SaslCramMd5Private {
     static name: string
 }
 export abstract class SaslDigestMd5Class {
-    /* Fields of Camel.SaslDigestMd5Class */
+    /* Fields of Camel-1.2.Camel.SaslDigestMd5Class */
     parent_class: SaslClass
     reserved: object[]
     static name: string
@@ -11908,7 +11908,7 @@ export class SaslDigestMd5Private {
     static name: string
 }
 export abstract class SaslGssapiClass {
-    /* Fields of Camel.SaslGssapiClass */
+    /* Fields of Camel-1.2.Camel.SaslGssapiClass */
     parent_class: SaslClass
     reserved: object[]
     static name: string
@@ -11917,7 +11917,7 @@ export class SaslGssapiPrivate {
     static name: string
 }
 export abstract class SaslLoginClass {
-    /* Fields of Camel.SaslLoginClass */
+    /* Fields of Camel-1.2.Camel.SaslLoginClass */
     parent_class: SaslClass
     reserved: object[]
     static name: string
@@ -11926,7 +11926,7 @@ export class SaslLoginPrivate {
     static name: string
 }
 export abstract class SaslNTLMClass {
-    /* Fields of Camel.SaslNTLMClass */
+    /* Fields of Camel-1.2.Camel.SaslNTLMClass */
     parent_class: SaslClass
     reserved: object[]
     static name: string
@@ -11935,7 +11935,7 @@ export class SaslNTLMPrivate {
     static name: string
 }
 export abstract class SaslPOPB4SMTPClass {
-    /* Fields of Camel.SaslPOPB4SMTPClass */
+    /* Fields of Camel-1.2.Camel.SaslPOPB4SMTPClass */
     parent_class: SaslClass
     reserved: object[]
     static name: string
@@ -11944,7 +11944,7 @@ export class SaslPOPB4SMTPPrivate {
     static name: string
 }
 export abstract class SaslPlainClass {
-    /* Fields of Camel.SaslPlainClass */
+    /* Fields of Camel-1.2.Camel.SaslPlainClass */
     parent_class: SaslClass
     reserved: object[]
     static name: string
@@ -11956,12 +11956,12 @@ export class SaslPrivate {
     static name: string
 }
 export abstract class SaslXOAuth2Class {
-    /* Fields of Camel.SaslXOAuth2Class */
+    /* Fields of Camel-1.2.Camel.SaslXOAuth2Class */
     parent_class: SaslClass
     static name: string
 }
 export abstract class SaslXOAuth2GoogleClass {
-    /* Fields of Camel.SaslXOAuth2GoogleClass */
+    /* Fields of Camel-1.2.Camel.SaslXOAuth2GoogleClass */
     parent_class: SaslXOAuth2Class
     static name: string
 }
@@ -11969,7 +11969,7 @@ export class SaslXOAuth2GooglePrivate {
     static name: string
 }
 export abstract class SaslXOAuth2OutlookClass {
-    /* Fields of Camel.SaslXOAuth2OutlookClass */
+    /* Fields of Camel-1.2.Camel.SaslXOAuth2OutlookClass */
     parent_class: SaslXOAuth2Class
     static name: string
 }
@@ -11980,18 +11980,18 @@ export class SaslXOAuth2Private {
     static name: string
 }
 export class ServiceAuthType {
-    /* Fields of Camel.ServiceAuthType */
+    /* Fields of Camel-1.2.Camel.ServiceAuthType */
     name: string
     description: string
     authproto: string
     need_password: boolean
-    /* Methods of Camel.ServiceAuthType */
+    /* Methods of Camel-1.2.Camel.ServiceAuthType */
     copy(): ServiceAuthType
     free(): void
     static name: string
 }
 export abstract class ServiceClass {
-    /* Fields of Camel.ServiceClass */
+    /* Fields of Camel-1.2.Camel.ServiceClass */
     parent_class: ObjectClass
     settings_type: GObject.Type
     get_name: (service: Service, brief: boolean) => string
@@ -12006,7 +12006,7 @@ export class ServicePrivate {
     static name: string
 }
 export abstract class SessionClass {
-    /* Fields of Camel.SessionClass */
+    /* Fields of Camel-1.2.Camel.SessionClass */
     parent_class: GObject.ObjectClass
     add_service: (session: Session, uid: string, protocol: string, type: ProviderType) => Service
     remove_service: (session: Session, service: Service) => void
@@ -12030,12 +12030,12 @@ export class SessionPrivate {
     static name: string
 }
 export abstract class SettingsClass {
-    /* Fields of Camel.SettingsClass */
+    /* Fields of Camel-1.2.Camel.SettingsClass */
     parent_class: GObject.ObjectClass
     clone: (settings: Settings) => Settings
     equal: (settings_a: Settings, settings_b: Settings) => boolean
     reserved: object[]
-    /* Methods of Camel.SettingsClass */
+    /* Methods of Camel-1.2.Camel.SettingsClass */
     list_settings(settings_class: Settings | Function | GObject.Type, n_settings: number): GObject.ParamSpec
     static name: string
 }
@@ -12043,7 +12043,7 @@ export class SettingsPrivate {
     static name: string
 }
 export abstract class StoreClass {
-    /* Fields of Camel.StoreClass */
+    /* Fields of Camel-1.2.Camel.StoreClass */
     parent_class: ServiceClass
     hash_folder_name: GLib.HashFunc
     equal_folder_name: GLib.EqualFunc
@@ -12069,7 +12069,7 @@ export abstract class StoreClass {
     static name: string
 }
 export class StoreInfo {
-    /* Fields of Camel.StoreInfo */
+    /* Fields of Camel-1.2.Camel.StoreInfo */
     refcount: number
     path: string
     flags: number
@@ -12084,7 +12084,7 @@ export class StorePrivate {
     static name: string
 }
 export abstract class StoreSettingsClass {
-    /* Fields of Camel.StoreSettingsClass */
+    /* Fields of Camel-1.2.Camel.StoreSettingsClass */
     parent_class: SettingsClass
     reserved: object[]
     static name: string
@@ -12093,7 +12093,7 @@ export class StoreSettingsPrivate {
     static name: string
 }
 export abstract class StoreSummaryClass {
-    /* Fields of Camel.StoreSummaryClass */
+    /* Fields of Camel-1.2.Camel.StoreSummaryClass */
     parent_class: GObject.ObjectClass
     store_info_size: number
     summary_header_load: (summary: StoreSummary, file?: object | null) => number
@@ -12108,7 +12108,7 @@ export class StoreSummaryPrivate {
     static name: string
 }
 export abstract class StreamBufferClass {
-    /* Fields of Camel.StreamBufferClass */
+    /* Fields of Camel-1.2.Camel.StreamBufferClass */
     parent_class: StreamClass
     init: (stream_buffer: StreamBuffer, stream: Stream, mode: StreamBufferMode) => void
     init_vbuf: (stream_buffer: StreamBuffer, stream: Stream, mode: StreamBufferMode, buf: string, size: number) => void
@@ -12119,7 +12119,7 @@ export class StreamBufferPrivate {
     static name: string
 }
 export abstract class StreamClass {
-    /* Fields of Camel.StreamClass */
+    /* Fields of Camel-1.2.Camel.StreamClass */
     parent_class: GObject.ObjectClass
     read: (stream: Stream, buffer: number[], cancellable?: Gio.Cancellable | null) => number
     write: (stream: Stream, buffer: number[], cancellable?: Gio.Cancellable | null) => number
@@ -12130,7 +12130,7 @@ export abstract class StreamClass {
     static name: string
 }
 export abstract class StreamFilterClass {
-    /* Fields of Camel.StreamFilterClass */
+    /* Fields of Camel-1.2.Camel.StreamFilterClass */
     parent_class: StreamClass
     reserved: object[]
     static name: string
@@ -12139,7 +12139,7 @@ export class StreamFilterPrivate {
     static name: string
 }
 export abstract class StreamFsClass {
-    /* Fields of Camel.StreamFsClass */
+    /* Fields of Camel-1.2.Camel.StreamFsClass */
     parent_class: StreamClass
     reserved: object[]
     static name: string
@@ -12148,7 +12148,7 @@ export class StreamFsPrivate {
     static name: string
 }
 export abstract class StreamMemClass {
-    /* Fields of Camel.StreamMemClass */
+    /* Fields of Camel-1.2.Camel.StreamMemClass */
     parent_class: StreamClass
     reserved: object[]
     static name: string
@@ -12157,7 +12157,7 @@ export class StreamMemPrivate {
     static name: string
 }
 export abstract class StreamNullClass {
-    /* Fields of Camel.StreamNullClass */
+    /* Fields of Camel-1.2.Camel.StreamNullClass */
     parent_class: StreamClass
     reserved: object[]
     static name: string
@@ -12169,7 +12169,7 @@ export class StreamPrivate {
     static name: string
 }
 export abstract class StreamProcessClass {
-    /* Fields of Camel.StreamProcessClass */
+    /* Fields of Camel-1.2.Camel.StreamProcessClass */
     parent_class: StreamClass
     reserved: object[]
     static name: string
@@ -12178,7 +12178,7 @@ export class StreamProcessPrivate {
     static name: string
 }
 export abstract class SubscribableInterface {
-    /* Fields of Camel.SubscribableInterface */
+    /* Fields of Camel-1.2.Camel.SubscribableInterface */
     parent_interface: GObject.TypeInterface
     folder_is_subscribed: (subscribable: Subscribable, folder_name: string) => boolean
     subscribe_folder_sync: (subscribable: Subscribable, folder_name: string, cancellable?: Gio.Cancellable | null) => boolean
@@ -12193,13 +12193,13 @@ export class SummaryMessageID {
     static name: string
 }
 export abstract class TextIndexClass {
-    /* Fields of Camel.TextIndexClass */
+    /* Fields of Camel-1.2.Camel.TextIndexClass */
     parent_class: IndexClass
     reserved: object[]
     static name: string
 }
 export abstract class TextIndexCursorClass {
-    /* Fields of Camel.TextIndexCursorClass */
+    /* Fields of Camel-1.2.Camel.TextIndexCursorClass */
     parent_class: IndexCursorClass
     reserved: object[]
     static name: string
@@ -12208,7 +12208,7 @@ export class TextIndexCursorPrivate {
     static name: string
 }
 export abstract class TextIndexKeyCursorClass {
-    /* Fields of Camel.TextIndexKeyCursorClass */
+    /* Fields of Camel-1.2.Camel.TextIndexKeyCursorClass */
     parent_class: IndexCursorClass
     reserved: object[]
     static name: string
@@ -12217,7 +12217,7 @@ export class TextIndexKeyCursorPrivate {
     static name: string
 }
 export abstract class TextIndexNameClass {
-    /* Fields of Camel.TextIndexNameClass */
+    /* Fields of Camel-1.2.Camel.TextIndexNameClass */
     parent_class: IndexNameClass
     reserved: object[]
     static name: string
@@ -12229,7 +12229,7 @@ export class TextIndexPrivate {
     static name: string
 }
 export abstract class TransportClass {
-    /* Fields of Camel.TransportClass */
+    /* Fields of Camel-1.2.Camel.TransportClass */
     parent_class: ServiceClass
     send_to_sync: (transport: Transport, message: MimeMessage, from: Address, recipients: Address, cancellable?: Gio.Cancellable | null) => [ /* returnType */ boolean, /* out_sent_message_saved */ boolean ]
     reserved: object[]
@@ -12242,14 +12242,14 @@ export class Trie {
     static name: string
 }
 export class UIDCache {
-    /* Fields of Camel.UIDCache */
+    /* Fields of Camel-1.2.Camel.UIDCache */
     filename: string
     uids: GLib.HashTable
     level: number
     expired: number
     size: number
     fd: number
-    /* Methods of Camel.UIDCache */
+    /* Methods of Camel-1.2.Camel.UIDCache */
     destroy(): void
     get_new_uids(uids: string[]): string[]
     save(): boolean
@@ -12259,7 +12259,7 @@ export class UIDCache {
     static free_uids(uids: string[]): void
 }
 export class URL {
-    /* Fields of Camel.URL */
+    /* Fields of Camel-1.2.Camel.URL */
     protocol: string
     user: string
     authmech: string
@@ -12269,7 +12269,7 @@ export class URL {
     params: GLib.Data
     query: string
     fragment: string
-    /* Methods of Camel.URL */
+    /* Methods of Camel-1.2.Camel.URL */
     copy(): URL
     equal(u2: URL): boolean
     free(): void
@@ -12302,7 +12302,7 @@ export class URL {
     static web_start(in_: string, pos: string, inend: string, match: UrlMatch): boolean
 }
 export class UrlMatch {
-    /* Fields of Camel.UrlMatch */
+    /* Fields of Camel-1.2.Camel.UrlMatch */
     pattern: string
     prefix: string
     um_so: number
@@ -12310,7 +12310,7 @@ export class UrlMatch {
     static name: string
 }
 export class UrlPattern {
-    /* Fields of Camel.UrlPattern */
+    /* Fields of Camel-1.2.Camel.UrlPattern */
     pattern: string
     prefix: string
     start: UrlScanFunc
@@ -12321,7 +12321,7 @@ export class UrlScanner {
     static name: string
 }
 export abstract class VTrashFolderClass {
-    /* Fields of Camel.VTrashFolderClass */
+    /* Fields of Camel-1.2.Camel.VTrashFolderClass */
     parent_class: VeeFolderClass
     reserved: object[]
     static name: string
@@ -12330,7 +12330,7 @@ export class VTrashFolderPrivate {
     static name: string
 }
 export abstract class VeeDataCacheClass {
-    /* Fields of Camel.VeeDataCacheClass */
+    /* Fields of Camel-1.2.Camel.VeeDataCacheClass */
     parent_class: GObject.ObjectClass
     reserved: object[]
     static name: string
@@ -12339,7 +12339,7 @@ export class VeeDataCachePrivate {
     static name: string
 }
 export abstract class VeeFolderClass {
-    /* Fields of Camel.VeeFolderClass */
+    /* Fields of Camel-1.2.Camel.VeeFolderClass */
     parent_class: FolderClass
     add_folder: (vfolder: VeeFolder, subfolder: Folder, cancellable?: Gio.Cancellable | null) => void
     remove_folder: (vfolder: VeeFolder, subfolder: Folder, cancellable?: Gio.Cancellable | null) => void
@@ -12353,13 +12353,13 @@ export class VeeFolderPrivate {
     static name: string
 }
 export abstract class VeeMessageInfoClass {
-    /* Fields of Camel.VeeMessageInfoClass */
+    /* Fields of Camel-1.2.Camel.VeeMessageInfoClass */
     parent_class: MessageInfoClass
     reserved: object[]
     static name: string
 }
 export abstract class VeeMessageInfoDataClass {
-    /* Fields of Camel.VeeMessageInfoDataClass */
+    /* Fields of Camel-1.2.Camel.VeeMessageInfoDataClass */
     parent_class: GObject.ObjectClass
     reserved: object[]
     static name: string
@@ -12371,7 +12371,7 @@ export class VeeMessageInfoPrivate {
     static name: string
 }
 export abstract class VeeStoreClass {
-    /* Fields of Camel.VeeStoreClass */
+    /* Fields of Camel-1.2.Camel.VeeStoreClass */
     parent_class: StoreClass
     reserved: object[]
     static name: string
@@ -12380,7 +12380,7 @@ export class VeeStorePrivate {
     static name: string
 }
 export abstract class VeeSubfolderDataClass {
-    /* Fields of Camel.VeeSubfolderDataClass */
+    /* Fields of Camel-1.2.Camel.VeeSubfolderDataClass */
     parent_class: GObject.ObjectClass
     reserved: object[]
     static name: string
@@ -12389,7 +12389,7 @@ export class VeeSubfolderDataPrivate {
     static name: string
 }
 export abstract class VeeSummaryClass {
-    /* Fields of Camel.VeeSummaryClass */
+    /* Fields of Camel-1.2.Camel.VeeSummaryClass */
     parent_class: FolderSummaryClass
     reserved: object[]
     static name: string
@@ -12398,7 +12398,7 @@ export class VeeSummaryPrivate {
     static name: string
 }
 export class WeakRefGroup {
-    /* Methods of Camel.WeakRefGroup */
+    /* Methods of Camel-1.2.Camel.WeakRefGroup */
     get(): object | null
     ref(): WeakRefGroup
     set(object?: object | null): void
@@ -12410,14 +12410,14 @@ export class WeakRefGroup {
     static new(): WeakRefGroup
 }
 export class _KeyKey {
-    /* Fields of Camel._KeyKey */
+    /* Fields of Camel-1.2.Camel._KeyKey */
     data: _block_t
     offset: number
     flags: number
     static name: string
 }
 export class _LockHelperMsg {
-    /* Fields of Camel._LockHelperMsg */
+    /* Fields of Camel-1.2.Camel._LockHelperMsg */
     magic: number
     seq: number
     id: number
@@ -12425,27 +12425,27 @@ export class _LockHelperMsg {
     static name: string
 }
 export class __search_word {
-    /* Fields of Camel.__search_word */
+    /* Fields of Camel-1.2.Camel.__search_word */
     type: _search_word_t
     word: string
     static name: string
 }
 export class __search_words {
-    /* Fields of Camel.__search_words */
+    /* Fields of Camel-1.2.Camel.__search_words */
     len: number
     type: _search_word_t
     words: object
     static name: string
 }
 export class _encrypt {
-    /* Fields of Camel._encrypt */
+    /* Fields of Camel-1.2.Camel._encrypt */
     status: CipherValidityEncrypt
     description: string
     encrypters: GLib.Queue
     static name: string
 }
 export class _sign {
-    /* Fields of Camel._sign */
+    /* Fields of Camel-1.2.Camel._sign */
     status: CipherValiditySign
     description: string
     signers: GLib.Queue

@@ -25,15 +25,15 @@ export const H265_DPB_MAX_SIZE: number
 export interface H264Decoder_ConstructProps extends GstVideo.VideoDecoder_ConstructProps {
 }
 export class H264Decoder {
-    /* Properties of GstVideo.VideoDecoder */
+    /* Properties of GstVideo-1.0.GstVideo.VideoDecoder */
     discard_corrupted_frames: boolean
     max_errors: number
     min_force_key_unit_interval: number
     qos: boolean
-    /* Properties of Gst.Object */
+    /* Properties of Gst-1.0.Gst.Object */
     name: string
     parent: Gst.Object
-    /* Fields of Gst.Element */
+    /* Fields of Gst-1.0.Gst.Element */
     object: Gst.Object
     state_lock: GLib.RecMutex
     state_cond: GLib.Cond
@@ -55,15 +55,15 @@ export class H264Decoder {
     sinkpads: Gst.Pad[]
     pads_cookie: number
     contexts: Gst.Context[]
-    /* Fields of Gst.Object */
+    /* Fields of Gst-1.0.Gst.Object */
     lock: GLib.Mutex
     flags: number
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GstCodecs.H264Decoder */
+    /* Methods of GstCodecs-1.0.GstCodecs.H264Decoder */
     get_picture(system_frame_number: number): H264Picture
     set_process_ref_pic_lists(process: boolean): void
-    /* Methods of GstVideo.VideoDecoder */
+    /* Methods of GstVideo-1.0.GstVideo.VideoDecoder */
     add_to_frame(n_bytes: number): void
     allocate_output_buffer(): Gst.Buffer
     allocate_output_frame(frame: GstVideo.VideoCodecFrame): Gst.FlowReturn
@@ -100,7 +100,7 @@ export class H264Decoder {
     set_output_state(fmt: GstVideo.VideoFormat, width: number, height: number, reference?: GstVideo.VideoCodecState | null): GstVideo.VideoCodecState
     set_packetized(packetized: boolean): void
     set_use_default_pad_acceptcaps(use: boolean): void
-    /* Methods of Gst.Element */
+    /* Methods of Gst-1.0.Gst.Element */
     abort_state(): void
     add_pad(pad: Gst.Pad): boolean
     add_property_deep_notify_watch(property_name: string | null, include_value: boolean): number
@@ -166,7 +166,7 @@ export class H264Decoder {
     sync_state_with_parent(): boolean
     unlink(dest: Gst.Element): void
     unlink_pads(srcpadname: string, dest: Gst.Element, destpadname: string): void
-    /* Methods of Gst.Object */
+    /* Methods of Gst-1.0.Gst.Object */
     add_control_binding(binding: Gst.ControlBinding): boolean
     default_error(error: GLib.Error, debug?: string | null): void
     get_control_binding(property_name: string): Gst.ControlBinding | null
@@ -191,7 +191,7 @@ export class H264Decoder {
     sync_values(timestamp: Gst.ClockTime): boolean
     unparent(): void
     unref(): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -212,7 +212,7 @@ export class H264Decoder {
     steal_qdata(quark: GLib.Quark): object | null
     thaw_notify(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GstCodecs.H264Decoder */
+    /* Virtual methods of GstCodecs-1.0.GstCodecs.H264Decoder */
     vfunc_decode_slice(picture: H264Picture, slice: H264Slice, ref_pic_list0: H264Picture[], ref_pic_list1: H264Picture[]): boolean
     vfunc_end_picture(picture: H264Picture): boolean
     vfunc_get_preferred_output_delay(live: boolean): number
@@ -220,7 +220,7 @@ export class H264Decoder {
     vfunc_new_picture(frame: GstVideo.VideoCodecFrame, picture: H264Picture): boolean
     vfunc_output_picture(frame: GstVideo.VideoCodecFrame, picture: H264Picture): Gst.FlowReturn
     vfunc_start_picture(picture: H264Picture, slice: H264Slice, dpb: H264Dpb): boolean
-    /* Virtual methods of GstVideo.VideoDecoder */
+    /* Virtual methods of GstVideo-1.0.GstVideo.VideoDecoder */
     vfunc_close(): boolean
     vfunc_decide_allocation(query: Gst.Query): boolean
     vfunc_drain(): Gst.FlowReturn
@@ -241,7 +241,7 @@ export class H264Decoder {
     vfunc_start(): boolean
     vfunc_stop(): boolean
     vfunc_transform_meta(frame: GstVideo.VideoCodecFrame, meta: Gst.Meta): boolean
-    /* Virtual methods of Gst.Element */
+    /* Virtual methods of Gst-1.0.Gst.Element */
     vfunc_change_state(transition: Gst.StateChange): Gst.StateChangeReturn
     vfunc_get_state(timeout: Gst.ClockTime): [ /* returnType */ Gst.StateChangeReturn, /* state */ Gst.State | null, /* pending */ Gst.State | null ]
     vfunc_no_more_pads(): void
@@ -258,9 +258,9 @@ export class H264Decoder {
     vfunc_set_context(context: Gst.Context): void
     vfunc_set_state(state: Gst.State): Gst.StateChangeReturn
     vfunc_state_changed(oldstate: Gst.State, newstate: Gst.State, pending: Gst.State): void
-    /* Virtual methods of Gst.Object */
+    /* Virtual methods of Gst-1.0.Gst.Object */
     vfunc_deep_notify(orig: Gst.Object, pspec: GObject.ParamSpec): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -268,7 +268,7 @@ export class H264Decoder {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gst.Element */
+    /* Signals of Gst-1.0.Gst.Element */
     connect(sigName: "no-more-pads", callback: (($obj: H264Decoder) => void)): number
     connect_after(sigName: "no-more-pads", callback: (($obj: H264Decoder) => void)): number
     emit(sigName: "no-more-pads"): void
@@ -278,11 +278,11 @@ export class H264Decoder {
     connect(sigName: "pad-removed", callback: (($obj: H264Decoder, old_pad: Gst.Pad) => void)): number
     connect_after(sigName: "pad-removed", callback: (($obj: H264Decoder, old_pad: Gst.Pad) => void)): number
     emit(sigName: "pad-removed", old_pad: Gst.Pad): void
-    /* Signals of Gst.Object */
+    /* Signals of Gst-1.0.Gst.Object */
     connect(sigName: "deep-notify", callback: (($obj: H264Decoder, prop_object: Gst.Object, prop: GObject.ParamSpec) => void)): number
     connect_after(sigName: "deep-notify", callback: (($obj: H264Decoder, prop_object: Gst.Object, prop: GObject.ParamSpec) => void)): number
     emit(sigName: "deep-notify", prop_object: Gst.Object, prop: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: H264Decoder, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: H264Decoder, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -310,15 +310,15 @@ export class H264Decoder {
 export interface H265Decoder_ConstructProps extends GstVideo.VideoDecoder_ConstructProps {
 }
 export class H265Decoder {
-    /* Properties of GstVideo.VideoDecoder */
+    /* Properties of GstVideo-1.0.GstVideo.VideoDecoder */
     discard_corrupted_frames: boolean
     max_errors: number
     min_force_key_unit_interval: number
     qos: boolean
-    /* Properties of Gst.Object */
+    /* Properties of Gst-1.0.Gst.Object */
     name: string
     parent: Gst.Object
-    /* Fields of Gst.Element */
+    /* Fields of Gst-1.0.Gst.Element */
     object: Gst.Object
     state_lock: GLib.RecMutex
     state_cond: GLib.Cond
@@ -340,15 +340,15 @@ export class H265Decoder {
     sinkpads: Gst.Pad[]
     pads_cookie: number
     contexts: Gst.Context[]
-    /* Fields of Gst.Object */
+    /* Fields of Gst-1.0.Gst.Object */
     lock: GLib.Mutex
     flags: number
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GstCodecs.H265Decoder */
+    /* Methods of GstCodecs-1.0.GstCodecs.H265Decoder */
     get_picture(system_frame_number: number): H265Picture
     set_process_ref_pic_lists(process: boolean): void
-    /* Methods of GstVideo.VideoDecoder */
+    /* Methods of GstVideo-1.0.GstVideo.VideoDecoder */
     add_to_frame(n_bytes: number): void
     allocate_output_buffer(): Gst.Buffer
     allocate_output_frame(frame: GstVideo.VideoCodecFrame): Gst.FlowReturn
@@ -385,7 +385,7 @@ export class H265Decoder {
     set_output_state(fmt: GstVideo.VideoFormat, width: number, height: number, reference?: GstVideo.VideoCodecState | null): GstVideo.VideoCodecState
     set_packetized(packetized: boolean): void
     set_use_default_pad_acceptcaps(use: boolean): void
-    /* Methods of Gst.Element */
+    /* Methods of Gst-1.0.Gst.Element */
     abort_state(): void
     add_pad(pad: Gst.Pad): boolean
     add_property_deep_notify_watch(property_name: string | null, include_value: boolean): number
@@ -451,7 +451,7 @@ export class H265Decoder {
     sync_state_with_parent(): boolean
     unlink(dest: Gst.Element): void
     unlink_pads(srcpadname: string, dest: Gst.Element, destpadname: string): void
-    /* Methods of Gst.Object */
+    /* Methods of Gst-1.0.Gst.Object */
     add_control_binding(binding: Gst.ControlBinding): boolean
     default_error(error: GLib.Error, debug?: string | null): void
     get_control_binding(property_name: string): Gst.ControlBinding | null
@@ -476,7 +476,7 @@ export class H265Decoder {
     sync_values(timestamp: Gst.ClockTime): boolean
     unparent(): void
     unref(): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -497,12 +497,12 @@ export class H265Decoder {
     steal_qdata(quark: GLib.Quark): object | null
     thaw_notify(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GstCodecs.H265Decoder */
+    /* Virtual methods of GstCodecs-1.0.GstCodecs.H265Decoder */
     vfunc_end_picture(picture: H265Picture): boolean
     vfunc_new_picture(frame: GstVideo.VideoCodecFrame, picture: H265Picture): boolean
     vfunc_output_picture(frame: GstVideo.VideoCodecFrame, picture: H265Picture): Gst.FlowReturn
     vfunc_start_picture(picture: H265Picture, slice: H265Slice, dpb: H265Dpb): boolean
-    /* Virtual methods of GstVideo.VideoDecoder */
+    /* Virtual methods of GstVideo-1.0.GstVideo.VideoDecoder */
     vfunc_close(): boolean
     vfunc_decide_allocation(query: Gst.Query): boolean
     vfunc_drain(): Gst.FlowReturn
@@ -523,7 +523,7 @@ export class H265Decoder {
     vfunc_start(): boolean
     vfunc_stop(): boolean
     vfunc_transform_meta(frame: GstVideo.VideoCodecFrame, meta: Gst.Meta): boolean
-    /* Virtual methods of Gst.Element */
+    /* Virtual methods of Gst-1.0.Gst.Element */
     vfunc_change_state(transition: Gst.StateChange): Gst.StateChangeReturn
     vfunc_get_state(timeout: Gst.ClockTime): [ /* returnType */ Gst.StateChangeReturn, /* state */ Gst.State | null, /* pending */ Gst.State | null ]
     vfunc_no_more_pads(): void
@@ -540,9 +540,9 @@ export class H265Decoder {
     vfunc_set_context(context: Gst.Context): void
     vfunc_set_state(state: Gst.State): Gst.StateChangeReturn
     vfunc_state_changed(oldstate: Gst.State, newstate: Gst.State, pending: Gst.State): void
-    /* Virtual methods of Gst.Object */
+    /* Virtual methods of Gst-1.0.Gst.Object */
     vfunc_deep_notify(orig: Gst.Object, pspec: GObject.ParamSpec): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -550,7 +550,7 @@ export class H265Decoder {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gst.Element */
+    /* Signals of Gst-1.0.Gst.Element */
     connect(sigName: "no-more-pads", callback: (($obj: H265Decoder) => void)): number
     connect_after(sigName: "no-more-pads", callback: (($obj: H265Decoder) => void)): number
     emit(sigName: "no-more-pads"): void
@@ -560,11 +560,11 @@ export class H265Decoder {
     connect(sigName: "pad-removed", callback: (($obj: H265Decoder, old_pad: Gst.Pad) => void)): number
     connect_after(sigName: "pad-removed", callback: (($obj: H265Decoder, old_pad: Gst.Pad) => void)): number
     emit(sigName: "pad-removed", old_pad: Gst.Pad): void
-    /* Signals of Gst.Object */
+    /* Signals of Gst-1.0.Gst.Object */
     connect(sigName: "deep-notify", callback: (($obj: H265Decoder, prop_object: Gst.Object, prop: GObject.ParamSpec) => void)): number
     connect_after(sigName: "deep-notify", callback: (($obj: H265Decoder, prop_object: Gst.Object, prop: GObject.ParamSpec) => void)): number
     emit(sigName: "deep-notify", prop_object: Gst.Object, prop: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: H265Decoder, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: H265Decoder, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -592,15 +592,15 @@ export class H265Decoder {
 export interface Mpeg2Decoder_ConstructProps extends GstVideo.VideoDecoder_ConstructProps {
 }
 export class Mpeg2Decoder {
-    /* Properties of GstVideo.VideoDecoder */
+    /* Properties of GstVideo-1.0.GstVideo.VideoDecoder */
     discard_corrupted_frames: boolean
     max_errors: number
     min_force_key_unit_interval: number
     qos: boolean
-    /* Properties of Gst.Object */
+    /* Properties of Gst-1.0.Gst.Object */
     name: string
     parent: Gst.Object
-    /* Fields of Gst.Element */
+    /* Fields of Gst-1.0.Gst.Element */
     object: Gst.Object
     state_lock: GLib.RecMutex
     state_cond: GLib.Cond
@@ -622,12 +622,12 @@ export class Mpeg2Decoder {
     sinkpads: Gst.Pad[]
     pads_cookie: number
     contexts: Gst.Context[]
-    /* Fields of Gst.Object */
+    /* Fields of Gst-1.0.Gst.Object */
     lock: GLib.Mutex
     flags: number
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GstVideo.VideoDecoder */
+    /* Methods of GstVideo-1.0.GstVideo.VideoDecoder */
     add_to_frame(n_bytes: number): void
     allocate_output_buffer(): Gst.Buffer
     allocate_output_frame(frame: GstVideo.VideoCodecFrame): Gst.FlowReturn
@@ -664,7 +664,7 @@ export class Mpeg2Decoder {
     set_output_state(fmt: GstVideo.VideoFormat, width: number, height: number, reference?: GstVideo.VideoCodecState | null): GstVideo.VideoCodecState
     set_packetized(packetized: boolean): void
     set_use_default_pad_acceptcaps(use: boolean): void
-    /* Methods of Gst.Element */
+    /* Methods of Gst-1.0.Gst.Element */
     abort_state(): void
     add_pad(pad: Gst.Pad): boolean
     add_property_deep_notify_watch(property_name: string | null, include_value: boolean): number
@@ -730,7 +730,7 @@ export class Mpeg2Decoder {
     sync_state_with_parent(): boolean
     unlink(dest: Gst.Element): void
     unlink_pads(srcpadname: string, dest: Gst.Element, destpadname: string): void
-    /* Methods of Gst.Object */
+    /* Methods of Gst-1.0.Gst.Object */
     add_control_binding(binding: Gst.ControlBinding): boolean
     default_error(error: GLib.Error, debug?: string | null): void
     get_control_binding(property_name: string): Gst.ControlBinding | null
@@ -755,7 +755,7 @@ export class Mpeg2Decoder {
     sync_values(timestamp: Gst.ClockTime): boolean
     unparent(): void
     unref(): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -776,14 +776,14 @@ export class Mpeg2Decoder {
     steal_qdata(quark: GLib.Quark): object | null
     thaw_notify(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GstCodecs.Mpeg2Decoder */
+    /* Virtual methods of GstCodecs-1.0.GstCodecs.Mpeg2Decoder */
     vfunc_decode_slice(picture: Mpeg2Picture, slice: Mpeg2Slice): boolean
     vfunc_end_picture(picture: Mpeg2Picture): boolean
     vfunc_new_field_picture(first_field: Mpeg2Picture, second_field: Mpeg2Picture): boolean
     vfunc_new_picture(frame: GstVideo.VideoCodecFrame, picture: Mpeg2Picture): boolean
     vfunc_output_picture(frame: GstVideo.VideoCodecFrame, picture: Mpeg2Picture): Gst.FlowReturn
     vfunc_start_picture(picture: Mpeg2Picture, slice: Mpeg2Slice, prev_picture: Mpeg2Picture, next_picture: Mpeg2Picture): boolean
-    /* Virtual methods of GstVideo.VideoDecoder */
+    /* Virtual methods of GstVideo-1.0.GstVideo.VideoDecoder */
     vfunc_close(): boolean
     vfunc_decide_allocation(query: Gst.Query): boolean
     vfunc_drain(): Gst.FlowReturn
@@ -804,7 +804,7 @@ export class Mpeg2Decoder {
     vfunc_start(): boolean
     vfunc_stop(): boolean
     vfunc_transform_meta(frame: GstVideo.VideoCodecFrame, meta: Gst.Meta): boolean
-    /* Virtual methods of Gst.Element */
+    /* Virtual methods of Gst-1.0.Gst.Element */
     vfunc_change_state(transition: Gst.StateChange): Gst.StateChangeReturn
     vfunc_get_state(timeout: Gst.ClockTime): [ /* returnType */ Gst.StateChangeReturn, /* state */ Gst.State | null, /* pending */ Gst.State | null ]
     vfunc_no_more_pads(): void
@@ -821,9 +821,9 @@ export class Mpeg2Decoder {
     vfunc_set_context(context: Gst.Context): void
     vfunc_set_state(state: Gst.State): Gst.StateChangeReturn
     vfunc_state_changed(oldstate: Gst.State, newstate: Gst.State, pending: Gst.State): void
-    /* Virtual methods of Gst.Object */
+    /* Virtual methods of Gst-1.0.Gst.Object */
     vfunc_deep_notify(orig: Gst.Object, pspec: GObject.ParamSpec): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -831,7 +831,7 @@ export class Mpeg2Decoder {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gst.Element */
+    /* Signals of Gst-1.0.Gst.Element */
     connect(sigName: "no-more-pads", callback: (($obj: Mpeg2Decoder) => void)): number
     connect_after(sigName: "no-more-pads", callback: (($obj: Mpeg2Decoder) => void)): number
     emit(sigName: "no-more-pads"): void
@@ -841,11 +841,11 @@ export class Mpeg2Decoder {
     connect(sigName: "pad-removed", callback: (($obj: Mpeg2Decoder, old_pad: Gst.Pad) => void)): number
     connect_after(sigName: "pad-removed", callback: (($obj: Mpeg2Decoder, old_pad: Gst.Pad) => void)): number
     emit(sigName: "pad-removed", old_pad: Gst.Pad): void
-    /* Signals of Gst.Object */
+    /* Signals of Gst-1.0.Gst.Object */
     connect(sigName: "deep-notify", callback: (($obj: Mpeg2Decoder, prop_object: Gst.Object, prop: GObject.ParamSpec) => void)): number
     connect_after(sigName: "deep-notify", callback: (($obj: Mpeg2Decoder, prop_object: Gst.Object, prop: GObject.ParamSpec) => void)): number
     emit(sigName: "deep-notify", prop_object: Gst.Object, prop: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Mpeg2Decoder, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Mpeg2Decoder, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -873,15 +873,15 @@ export class Mpeg2Decoder {
 export interface Vp8Decoder_ConstructProps extends GstVideo.VideoDecoder_ConstructProps {
 }
 export class Vp8Decoder {
-    /* Properties of GstVideo.VideoDecoder */
+    /* Properties of GstVideo-1.0.GstVideo.VideoDecoder */
     discard_corrupted_frames: boolean
     max_errors: number
     min_force_key_unit_interval: number
     qos: boolean
-    /* Properties of Gst.Object */
+    /* Properties of Gst-1.0.Gst.Object */
     name: string
     parent: Gst.Object
-    /* Fields of Gst.Element */
+    /* Fields of Gst-1.0.Gst.Element */
     object: Gst.Object
     state_lock: GLib.RecMutex
     state_cond: GLib.Cond
@@ -903,12 +903,12 @@ export class Vp8Decoder {
     sinkpads: Gst.Pad[]
     pads_cookie: number
     contexts: Gst.Context[]
-    /* Fields of Gst.Object */
+    /* Fields of Gst-1.0.Gst.Object */
     lock: GLib.Mutex
     flags: number
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GstVideo.VideoDecoder */
+    /* Methods of GstVideo-1.0.GstVideo.VideoDecoder */
     add_to_frame(n_bytes: number): void
     allocate_output_buffer(): Gst.Buffer
     allocate_output_frame(frame: GstVideo.VideoCodecFrame): Gst.FlowReturn
@@ -945,7 +945,7 @@ export class Vp8Decoder {
     set_output_state(fmt: GstVideo.VideoFormat, width: number, height: number, reference?: GstVideo.VideoCodecState | null): GstVideo.VideoCodecState
     set_packetized(packetized: boolean): void
     set_use_default_pad_acceptcaps(use: boolean): void
-    /* Methods of Gst.Element */
+    /* Methods of Gst-1.0.Gst.Element */
     abort_state(): void
     add_pad(pad: Gst.Pad): boolean
     add_property_deep_notify_watch(property_name: string | null, include_value: boolean): number
@@ -1011,7 +1011,7 @@ export class Vp8Decoder {
     sync_state_with_parent(): boolean
     unlink(dest: Gst.Element): void
     unlink_pads(srcpadname: string, dest: Gst.Element, destpadname: string): void
-    /* Methods of Gst.Object */
+    /* Methods of Gst-1.0.Gst.Object */
     add_control_binding(binding: Gst.ControlBinding): boolean
     default_error(error: GLib.Error, debug?: string | null): void
     get_control_binding(property_name: string): Gst.ControlBinding | null
@@ -1036,7 +1036,7 @@ export class Vp8Decoder {
     sync_values(timestamp: Gst.ClockTime): boolean
     unparent(): void
     unref(): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -1057,12 +1057,12 @@ export class Vp8Decoder {
     steal_qdata(quark: GLib.Quark): object | null
     thaw_notify(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GstCodecs.Vp8Decoder */
+    /* Virtual methods of GstCodecs-1.0.GstCodecs.Vp8Decoder */
     vfunc_end_picture(picture: Vp8Picture): boolean
     vfunc_new_picture(frame: GstVideo.VideoCodecFrame, picture: Vp8Picture): boolean
     vfunc_output_picture(frame: GstVideo.VideoCodecFrame, picture: Vp8Picture): Gst.FlowReturn
     vfunc_start_picture(picture: Vp8Picture): boolean
-    /* Virtual methods of GstVideo.VideoDecoder */
+    /* Virtual methods of GstVideo-1.0.GstVideo.VideoDecoder */
     vfunc_close(): boolean
     vfunc_decide_allocation(query: Gst.Query): boolean
     vfunc_drain(): Gst.FlowReturn
@@ -1083,7 +1083,7 @@ export class Vp8Decoder {
     vfunc_start(): boolean
     vfunc_stop(): boolean
     vfunc_transform_meta(frame: GstVideo.VideoCodecFrame, meta: Gst.Meta): boolean
-    /* Virtual methods of Gst.Element */
+    /* Virtual methods of Gst-1.0.Gst.Element */
     vfunc_change_state(transition: Gst.StateChange): Gst.StateChangeReturn
     vfunc_get_state(timeout: Gst.ClockTime): [ /* returnType */ Gst.StateChangeReturn, /* state */ Gst.State | null, /* pending */ Gst.State | null ]
     vfunc_no_more_pads(): void
@@ -1100,9 +1100,9 @@ export class Vp8Decoder {
     vfunc_set_context(context: Gst.Context): void
     vfunc_set_state(state: Gst.State): Gst.StateChangeReturn
     vfunc_state_changed(oldstate: Gst.State, newstate: Gst.State, pending: Gst.State): void
-    /* Virtual methods of Gst.Object */
+    /* Virtual methods of Gst-1.0.Gst.Object */
     vfunc_deep_notify(orig: Gst.Object, pspec: GObject.ParamSpec): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -1110,7 +1110,7 @@ export class Vp8Decoder {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gst.Element */
+    /* Signals of Gst-1.0.Gst.Element */
     connect(sigName: "no-more-pads", callback: (($obj: Vp8Decoder) => void)): number
     connect_after(sigName: "no-more-pads", callback: (($obj: Vp8Decoder) => void)): number
     emit(sigName: "no-more-pads"): void
@@ -1120,11 +1120,11 @@ export class Vp8Decoder {
     connect(sigName: "pad-removed", callback: (($obj: Vp8Decoder, old_pad: Gst.Pad) => void)): number
     connect_after(sigName: "pad-removed", callback: (($obj: Vp8Decoder, old_pad: Gst.Pad) => void)): number
     emit(sigName: "pad-removed", old_pad: Gst.Pad): void
-    /* Signals of Gst.Object */
+    /* Signals of Gst-1.0.Gst.Object */
     connect(sigName: "deep-notify", callback: (($obj: Vp8Decoder, prop_object: Gst.Object, prop: GObject.ParamSpec) => void)): number
     connect_after(sigName: "deep-notify", callback: (($obj: Vp8Decoder, prop_object: Gst.Object, prop: GObject.ParamSpec) => void)): number
     emit(sigName: "deep-notify", prop_object: Gst.Object, prop: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Vp8Decoder, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Vp8Decoder, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -1152,15 +1152,15 @@ export class Vp8Decoder {
 export interface Vp9Decoder_ConstructProps extends GstVideo.VideoDecoder_ConstructProps {
 }
 export class Vp9Decoder {
-    /* Properties of GstVideo.VideoDecoder */
+    /* Properties of GstVideo-1.0.GstVideo.VideoDecoder */
     discard_corrupted_frames: boolean
     max_errors: number
     min_force_key_unit_interval: number
     qos: boolean
-    /* Properties of Gst.Object */
+    /* Properties of Gst-1.0.Gst.Object */
     name: string
     parent: Gst.Object
-    /* Fields of Gst.Element */
+    /* Fields of Gst-1.0.Gst.Element */
     object: Gst.Object
     state_lock: GLib.RecMutex
     state_cond: GLib.Cond
@@ -1182,12 +1182,12 @@ export class Vp9Decoder {
     sinkpads: Gst.Pad[]
     pads_cookie: number
     contexts: Gst.Context[]
-    /* Fields of Gst.Object */
+    /* Fields of Gst-1.0.Gst.Object */
     lock: GLib.Mutex
     flags: number
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GstVideo.VideoDecoder */
+    /* Methods of GstVideo-1.0.GstVideo.VideoDecoder */
     add_to_frame(n_bytes: number): void
     allocate_output_buffer(): Gst.Buffer
     allocate_output_frame(frame: GstVideo.VideoCodecFrame): Gst.FlowReturn
@@ -1224,7 +1224,7 @@ export class Vp9Decoder {
     set_output_state(fmt: GstVideo.VideoFormat, width: number, height: number, reference?: GstVideo.VideoCodecState | null): GstVideo.VideoCodecState
     set_packetized(packetized: boolean): void
     set_use_default_pad_acceptcaps(use: boolean): void
-    /* Methods of Gst.Element */
+    /* Methods of Gst-1.0.Gst.Element */
     abort_state(): void
     add_pad(pad: Gst.Pad): boolean
     add_property_deep_notify_watch(property_name: string | null, include_value: boolean): number
@@ -1290,7 +1290,7 @@ export class Vp9Decoder {
     sync_state_with_parent(): boolean
     unlink(dest: Gst.Element): void
     unlink_pads(srcpadname: string, dest: Gst.Element, destpadname: string): void
-    /* Methods of Gst.Object */
+    /* Methods of Gst-1.0.Gst.Object */
     add_control_binding(binding: Gst.ControlBinding): boolean
     default_error(error: GLib.Error, debug?: string | null): void
     get_control_binding(property_name: string): Gst.ControlBinding | null
@@ -1315,7 +1315,7 @@ export class Vp9Decoder {
     sync_values(timestamp: Gst.ClockTime): boolean
     unparent(): void
     unref(): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -1336,14 +1336,14 @@ export class Vp9Decoder {
     steal_qdata(quark: GLib.Quark): object | null
     thaw_notify(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GstCodecs.Vp9Decoder */
+    /* Virtual methods of GstCodecs-1.0.GstCodecs.Vp9Decoder */
     vfunc_decode_picture(picture: Vp9Picture, dpb: Vp9Dpb): boolean
     vfunc_duplicate_picture(picture: Vp9Picture): Vp9Picture
     vfunc_end_picture(picture: Vp9Picture): boolean
     vfunc_new_picture(frame: GstVideo.VideoCodecFrame, picture: Vp9Picture): boolean
     vfunc_output_picture(frame: GstVideo.VideoCodecFrame, picture: Vp9Picture): Gst.FlowReturn
     vfunc_start_picture(picture: Vp9Picture): boolean
-    /* Virtual methods of GstVideo.VideoDecoder */
+    /* Virtual methods of GstVideo-1.0.GstVideo.VideoDecoder */
     vfunc_close(): boolean
     vfunc_decide_allocation(query: Gst.Query): boolean
     vfunc_drain(): Gst.FlowReturn
@@ -1364,7 +1364,7 @@ export class Vp9Decoder {
     vfunc_start(): boolean
     vfunc_stop(): boolean
     vfunc_transform_meta(frame: GstVideo.VideoCodecFrame, meta: Gst.Meta): boolean
-    /* Virtual methods of Gst.Element */
+    /* Virtual methods of Gst-1.0.Gst.Element */
     vfunc_change_state(transition: Gst.StateChange): Gst.StateChangeReturn
     vfunc_get_state(timeout: Gst.ClockTime): [ /* returnType */ Gst.StateChangeReturn, /* state */ Gst.State | null, /* pending */ Gst.State | null ]
     vfunc_no_more_pads(): void
@@ -1381,9 +1381,9 @@ export class Vp9Decoder {
     vfunc_set_context(context: Gst.Context): void
     vfunc_set_state(state: Gst.State): Gst.StateChangeReturn
     vfunc_state_changed(oldstate: Gst.State, newstate: Gst.State, pending: Gst.State): void
-    /* Virtual methods of Gst.Object */
+    /* Virtual methods of Gst-1.0.Gst.Object */
     vfunc_deep_notify(orig: Gst.Object, pspec: GObject.ParamSpec): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -1391,7 +1391,7 @@ export class Vp9Decoder {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gst.Element */
+    /* Signals of Gst-1.0.Gst.Element */
     connect(sigName: "no-more-pads", callback: (($obj: Vp9Decoder) => void)): number
     connect_after(sigName: "no-more-pads", callback: (($obj: Vp9Decoder) => void)): number
     emit(sigName: "no-more-pads"): void
@@ -1401,11 +1401,11 @@ export class Vp9Decoder {
     connect(sigName: "pad-removed", callback: (($obj: Vp9Decoder, old_pad: Gst.Pad) => void)): number
     connect_after(sigName: "pad-removed", callback: (($obj: Vp9Decoder, old_pad: Gst.Pad) => void)): number
     emit(sigName: "pad-removed", old_pad: Gst.Pad): void
-    /* Signals of Gst.Object */
+    /* Signals of Gst-1.0.Gst.Object */
     connect(sigName: "deep-notify", callback: (($obj: Vp9Decoder, prop_object: Gst.Object, prop: GObject.ParamSpec) => void)): number
     connect_after(sigName: "deep-notify", callback: (($obj: Vp9Decoder, prop_object: Gst.Object, prop: GObject.ParamSpec) => void)): number
     emit(sigName: "deep-notify", prop_object: Gst.Object, prop: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Vp9Decoder, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Vp9Decoder, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -1431,7 +1431,7 @@ export class Vp9Decoder {
     static $gtype: GObject.Type
 }
 export abstract class H264DecoderClass {
-    /* Fields of GstCodecs.H264DecoderClass */
+    /* Fields of GstCodecs-1.0.GstCodecs.H264DecoderClass */
     parent_class: GstVideo.VideoDecoderClass
     new_picture: (decoder: H264Decoder, frame: GstVideo.VideoCodecFrame, picture: H264Picture) => boolean
     new_field_picture: (decoder: H264Decoder, first_field: H264Picture, second_field: H264Picture) => boolean
@@ -1446,7 +1446,7 @@ export class H264DecoderPrivate {
     static name: string
 }
 export class H264Dpb {
-    /* Methods of GstCodecs.H264Dpb */
+    /* Methods of GstCodecs-1.0.GstCodecs.H264Dpb */
     add(picture: H264Picture): void
     bump(drain: boolean): H264Picture | null
     clear(): void
@@ -1470,7 +1470,7 @@ export class H264Dpb {
     static name: string
 }
 export class H264Picture {
-    /* Methods of GstCodecs.H264Picture */
+    /* Methods of GstCodecs-1.0.GstCodecs.H264Picture */
     get_user_data(): object | null
     set_reference(reference: H264PictureReference, other_field: boolean): void
     set_user_data(notify: GLib.DestroyNotify): void
@@ -1484,7 +1484,7 @@ export class H264Slice {
     static name: string
 }
 export abstract class H265DecoderClass {
-    /* Fields of GstCodecs.H265DecoderClass */
+    /* Fields of GstCodecs-1.0.GstCodecs.H265DecoderClass */
     parent_class: GstVideo.VideoDecoderClass
     new_picture: (decoder: H265Decoder, frame: GstVideo.VideoCodecFrame, picture: H265Picture) => boolean
     start_picture: (decoder: H265Decoder, picture: H265Picture, slice: H265Slice, dpb: H265Dpb) => boolean
@@ -1496,7 +1496,7 @@ export class H265DecoderPrivate {
     static name: string
 }
 export class H265Dpb {
-    /* Methods of GstCodecs.H265Dpb */
+    /* Methods of GstCodecs-1.0.GstCodecs.H265Dpb */
     add(picture: H265Picture): void
     bump(drain: boolean): H265Picture | null
     clear(): void
@@ -1518,7 +1518,7 @@ export class H265Dpb {
     static name: string
 }
 export class H265Picture {
-    /* Methods of GstCodecs.H265Picture */
+    /* Methods of GstCodecs-1.0.GstCodecs.H265Picture */
     get_user_data(): object | null
     set_user_data(notify: GLib.DestroyNotify): void
     static name: string
@@ -1531,7 +1531,7 @@ export class H265Slice {
     static name: string
 }
 export abstract class Mpeg2DecoderClass {
-    /* Fields of GstCodecs.Mpeg2DecoderClass */
+    /* Fields of GstCodecs-1.0.GstCodecs.Mpeg2DecoderClass */
     parent_class: GstVideo.VideoDecoderClass
     new_picture: (decoder: Mpeg2Decoder, frame: GstVideo.VideoCodecFrame, picture: Mpeg2Picture) => boolean
     new_field_picture: (decoder: Mpeg2Decoder, first_field: Mpeg2Picture, second_field: Mpeg2Picture) => boolean
@@ -1545,7 +1545,7 @@ export class Mpeg2DecoderPrivate {
     static name: string
 }
 export class Mpeg2Dpb {
-    /* Methods of GstCodecs.Mpeg2Dpb */
+    /* Methods of GstCodecs-1.0.GstCodecs.Mpeg2Dpb */
     add(picture: Mpeg2Picture): void
     bump(): Mpeg2Picture | null
     clear(): void
@@ -1555,7 +1555,7 @@ export class Mpeg2Dpb {
     static name: string
 }
 export class Mpeg2Picture {
-    /* Methods of GstCodecs.Mpeg2Picture */
+    /* Methods of GstCodecs-1.0.GstCodecs.Mpeg2Picture */
     get_user_data(): object | null
     set_user_data(notify: GLib.DestroyNotify): void
     static name: string
@@ -1568,7 +1568,7 @@ export class Mpeg2Slice {
     static name: string
 }
 export abstract class Vp8DecoderClass {
-    /* Fields of GstCodecs.Vp8DecoderClass */
+    /* Fields of GstCodecs-1.0.GstCodecs.Vp8DecoderClass */
     parent_class: GstVideo.VideoDecoderClass
     new_picture: (decoder: Vp8Decoder, frame: GstVideo.VideoCodecFrame, picture: Vp8Picture) => boolean
     start_picture: (decoder: Vp8Decoder, picture: Vp8Picture) => boolean
@@ -1580,7 +1580,7 @@ export class Vp8DecoderPrivate {
     static name: string
 }
 export class Vp8Picture {
-    /* Fields of GstCodecs.Vp8Picture */
+    /* Fields of GstCodecs-1.0.GstCodecs.Vp8Picture */
     parent: Gst.MiniObject
     pts: Gst.ClockTime
     system_frame_number: number
@@ -1588,7 +1588,7 @@ export class Vp8Picture {
     size: number
     user_data: object
     notify: GLib.DestroyNotify
-    /* Methods of GstCodecs.Vp8Picture */
+    /* Methods of GstCodecs-1.0.GstCodecs.Vp8Picture */
     get_user_data(): object | null
     set_user_data(notify: GLib.DestroyNotify): void
     static name: string
@@ -1598,7 +1598,7 @@ export class Vp8Picture {
     static new(): Vp8Picture
 }
 export abstract class Vp9DecoderClass {
-    /* Fields of GstCodecs.Vp9DecoderClass */
+    /* Fields of GstCodecs-1.0.GstCodecs.Vp9DecoderClass */
     parent_class: GstVideo.VideoDecoderClass
     new_picture: (decoder: Vp9Decoder, frame: GstVideo.VideoCodecFrame, picture: Vp9Picture) => boolean
     duplicate_picture: (decoder: Vp9Decoder, picture: Vp9Picture) => Vp9Picture
@@ -1612,16 +1612,16 @@ export class Vp9DecoderPrivate {
     static name: string
 }
 export class Vp9Dpb {
-    /* Fields of GstCodecs.Vp9Dpb */
+    /* Fields of GstCodecs-1.0.GstCodecs.Vp9Dpb */
     pic_list: Vp9Picture[]
-    /* Methods of GstCodecs.Vp9Dpb */
+    /* Methods of GstCodecs-1.0.GstCodecs.Vp9Dpb */
     add(picture: Vp9Picture): void
     clear(): void
     free(): void
     static name: string
 }
 export class Vp9Picture {
-    /* Methods of GstCodecs.Vp9Picture */
+    /* Methods of GstCodecs-1.0.GstCodecs.Vp9Picture */
     get_user_data(): object | null
     set_user_data(notify: GLib.DestroyNotify): void
     static name: string

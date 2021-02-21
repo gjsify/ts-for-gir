@@ -106,7 +106,7 @@ export interface RawGridFormatFunc {
 export interface DataEntry_ConstructProps extends Gtk.Widget_ConstructProps {
 }
 export class DataEntry {
-    /* Properties of Gtk.Widget */
+    /* Properties of Gtk-3.0.Gtk.Widget */
     app_paintable: boolean
     can_default: boolean
     can_focus: boolean
@@ -146,11 +146,11 @@ export class DataEntry {
     visible: boolean
     width_request: number
     readonly window: Gdk.Window
-    /* Fields of Gtk.Widget */
+    /* Fields of Gtk-3.0.Gtk.Widget */
     parent_instance: GObject.InitiallyUnowned
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Gdaui.DataEntry */
+    /* Methods of Gdaui-6.0.Gdaui.DataEntry */
     get_attributes(): Gda.ValueAttribute
     get_editable(): boolean
     get_handler(): Gda.DataHandler
@@ -167,7 +167,7 @@ export class DataEntry {
     set_value(value?: any | null): void
     set_value_type(type: GObject.Type): void
     validate(): boolean
-    /* Methods of Gtk.Widget */
+    /* Methods of Gtk-3.0.Gtk.Widget */
     activate(): boolean
     add_accelerator(accel_signal: string, accel_group: Gtk.AccelGroup, accel_key: number, accel_mods: Gdk.ModifierType, accel_flags: Gtk.AccelFlags): void
     add_device_events(device: Gdk.Device, events: Gdk.EventMask): void
@@ -425,7 +425,7 @@ export class DataEntry {
     unrealize(): void
     unregister_window(window: Gdk.Window): void
     unset_state_flags(flags: Gtk.StateFlags): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -447,7 +447,7 @@ export class DataEntry {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Gdaui.DataEntry */
+    /* Virtual methods of Gdaui-6.0.Gdaui.DataEntry */
     vfunc_can_expand(horiz: boolean): boolean
     vfunc_contents_activated(): void
     vfunc_contents_modified(): void
@@ -468,7 +468,7 @@ export class DataEntry {
     vfunc_set_value_type(type: GObject.Type): void
     vfunc_status_changed(): void
     vfunc_validate(): boolean
-    /* Virtual methods of Gtk.Widget */
+    /* Virtual methods of Gtk-3.0.Gtk.Widget */
     vfunc_adjust_baseline_allocation(baseline: number): void
     vfunc_adjust_baseline_request(minimum_baseline: number, natural_baseline: number): void
     vfunc_adjust_size_allocation(orientation: Gtk.Orientation, minimum_size: number, natural_size: number, allocated_pos: number, allocated_size: number): void
@@ -551,7 +551,7 @@ export class DataEntry {
     vfunc_unrealize(): void
     vfunc_visibility_notify_event(event: Gdk.EventVisibility): boolean
     vfunc_window_state_event(event: Gdk.EventWindowState): boolean
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -559,7 +559,7 @@ export class DataEntry {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gdaui.DataEntry */
+    /* Signals of Gdaui-6.0.Gdaui.DataEntry */
     connect(sigName: "contents-activated", callback: (($obj: DataEntry) => void)): number
     connect_after(sigName: "contents-activated", callback: (($obj: DataEntry) => void)): number
     emit(sigName: "contents-activated"): void
@@ -572,7 +572,7 @@ export class DataEntry {
     connect(sigName: "status-changed", callback: (($obj: DataEntry) => void)): number
     connect_after(sigName: "status-changed", callback: (($obj: DataEntry) => void)): number
     emit(sigName: "status-changed"): void
-    /* Signals of Gtk.Widget */
+    /* Signals of Gtk-3.0.Gtk.Widget */
     connect(sigName: "accel-closures-changed", callback: (($obj: DataEntry) => void)): number
     connect_after(sigName: "accel-closures-changed", callback: (($obj: DataEntry) => void)): number
     emit(sigName: "accel-closures-changed"): void
@@ -780,7 +780,7 @@ export class DataEntry {
     connect(sigName: "window-state-event", callback: (($obj: DataEntry, event: Gdk.EventWindowState) => boolean)): number
     connect_after(sigName: "window-state-event", callback: (($obj: DataEntry, event: Gdk.EventWindowState) => boolean)): number
     emit(sigName: "window-state-event", event: Gdk.EventWindowState): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: DataEntry, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: DataEntry, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -876,7 +876,7 @@ export class DataEntry {
 export interface DataProxy_ConstructProps extends Gtk.Widget_ConstructProps {
 }
 export class DataProxy {
-    /* Properties of Gtk.Widget */
+    /* Properties of Gtk-3.0.Gtk.Widget */
     app_paintable: boolean
     can_default: boolean
     can_focus: boolean
@@ -916,18 +916,18 @@ export class DataProxy {
     visible: boolean
     width_request: number
     readonly window: Gdk.Window
-    /* Fields of Gtk.Widget */
+    /* Fields of Gtk-3.0.Gtk.Widget */
     parent_instance: GObject.InitiallyUnowned
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Gdaui.DataProxy */
+    /* Methods of Gdaui-6.0.Gdaui.DataProxy */
     column_set_editable(column: number, editable: boolean): void
     get_proxy(): Gda.DataProxy
     get_write_mode(): DataProxyWriteMode
     perform_action(action: Action): void
     set_write_mode(mode: DataProxyWriteMode): boolean
     supports_action(action: Action): boolean
-    /* Methods of Gtk.Widget */
+    /* Methods of Gtk-3.0.Gtk.Widget */
     activate(): boolean
     add_accelerator(accel_signal: string, accel_group: Gtk.AccelGroup, accel_key: number, accel_mods: Gdk.ModifierType, accel_flags: Gtk.AccelFlags): void
     add_device_events(device: Gdk.Device, events: Gdk.EventMask): void
@@ -1186,7 +1186,7 @@ export class DataProxy {
     unrealize(): void
     unregister_window(window: Gdk.Window): void
     unset_state_flags(flags: Gtk.StateFlags): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -1208,7 +1208,7 @@ export class DataProxy {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Gdaui.DataProxy */
+    /* Virtual methods of Gdaui-6.0.Gdaui.DataProxy */
     vfunc_get_proxy(): Gda.DataProxy
     vfunc_get_write_mode(): DataProxyWriteMode
     vfunc_perform_action(action: Action): void
@@ -1216,7 +1216,7 @@ export class DataProxy {
     vfunc_set_column_editable(column: number, editable: boolean): void
     vfunc_set_write_mode(mode: DataProxyWriteMode): boolean
     vfunc_supports_action(action: Action): boolean
-    /* Virtual methods of Gtk.Widget */
+    /* Virtual methods of Gtk-3.0.Gtk.Widget */
     vfunc_adjust_baseline_allocation(baseline: number): void
     vfunc_adjust_baseline_request(minimum_baseline: number, natural_baseline: number): void
     vfunc_adjust_size_allocation(orientation: Gtk.Orientation, minimum_size: number, natural_size: number, allocated_pos: number, allocated_size: number): void
@@ -1299,7 +1299,7 @@ export class DataProxy {
     vfunc_unrealize(): void
     vfunc_visibility_notify_event(event: Gdk.EventVisibility): boolean
     vfunc_window_state_event(event: Gdk.EventWindowState): boolean
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -1307,11 +1307,11 @@ export class DataProxy {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gdaui.DataProxy */
+    /* Signals of Gdaui-6.0.Gdaui.DataProxy */
     connect(sigName: "proxy-changed", callback: (($obj: DataProxy, arg1: Gda.DataProxy) => void)): number
     connect_after(sigName: "proxy-changed", callback: (($obj: DataProxy, arg1: Gda.DataProxy) => void)): number
     emit(sigName: "proxy-changed", arg1: Gda.DataProxy): void
-    /* Signals of Gtk.Widget */
+    /* Signals of Gtk-3.0.Gtk.Widget */
     connect(sigName: "accel-closures-changed", callback: (($obj: DataProxy) => void)): number
     connect_after(sigName: "accel-closures-changed", callback: (($obj: DataProxy) => void)): number
     emit(sigName: "accel-closures-changed"): void
@@ -1519,7 +1519,7 @@ export class DataProxy {
     connect(sigName: "window-state-event", callback: (($obj: DataProxy, event: Gdk.EventWindowState) => boolean)): number
     connect_after(sigName: "window-state-event", callback: (($obj: DataProxy, event: Gdk.EventWindowState) => boolean)): number
     emit(sigName: "window-state-event", event: Gdk.EventWindowState): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: DataProxy, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: DataProxy, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -1611,7 +1611,7 @@ export class DataProxy {
     static $gtype: GObject.Type
 }
 export class DataSelector {
-    /* Methods of Gdaui.DataSelector */
+    /* Methods of Gdaui-6.0.Gdaui.DataSelector */
     get_data_set(): Gda.DataModelIter
     get_model(): Gda.DataModel
     get_selected_rows(): number[]
@@ -1619,7 +1619,7 @@ export class DataSelector {
     set_column_visible(column: number, visible: boolean): void
     set_model(model: Gda.DataModel): void
     unselect_row(row: number): void
-    /* Virtual methods of Gdaui.DataSelector */
+    /* Virtual methods of Gdaui-6.0.Gdaui.DataSelector */
     vfunc_get_data_set(): Gda.DataModelIter
     vfunc_get_model(): Gda.DataModel
     vfunc_get_selected_rows(): number[]
@@ -1628,7 +1628,7 @@ export class DataSelector {
     vfunc_set_column_visible(column: number, visible: boolean): void
     vfunc_set_model(model: Gda.DataModel): void
     vfunc_unselect_row(row: number): void
-    /* Signals of Gdaui.DataSelector */
+    /* Signals of Gdaui-6.0.Gdaui.DataSelector */
     connect(sigName: "selection-changed", callback: (($obj: DataSelector) => void)): number
     connect_after(sigName: "selection-changed", callback: (($obj: DataSelector) => void)): number
     emit(sigName: "selection-changed"): void
@@ -1641,20 +1641,20 @@ export interface BasicForm_ConstructProps extends Gtk.Box_ConstructProps {
     orientation?: Gtk.Orientation
 }
 export class BasicForm {
-    /* Properties of Gdaui.BasicForm */
+    /* Properties of Gdaui-6.0.Gdaui.BasicForm */
     readonly can_expand_v: boolean
     entries_auto_default: boolean
     paramlist: object
     xml_layout: object
-    /* Properties of Gtk.Box */
+    /* Properties of Gtk-3.0.Gtk.Box */
     baseline_position: Gtk.BaselinePosition
     homogeneous: boolean
     spacing: number
-    /* Properties of Gtk.Container */
+    /* Properties of Gtk-3.0.Gtk.Container */
     border_width: number
     child: Gtk.Widget
     resize_mode: Gtk.ResizeMode
-    /* Properties of Gtk.Widget */
+    /* Properties of Gtk-3.0.Gtk.Widget */
     app_paintable: boolean
     can_default: boolean
     can_focus: boolean
@@ -1694,17 +1694,17 @@ export class BasicForm {
     visible: boolean
     width_request: number
     readonly window: Gdk.Window
-    /* Properties of Gtk.Orientable */
+    /* Properties of Gtk-3.0.Gtk.Orientable */
     orientation: Gtk.Orientation
-    /* Fields of Gdaui.BasicForm */
+    /* Fields of Gdaui-6.0.Gdaui.BasicForm */
     parent_instance: Gtk.Box
-    /* Fields of Gtk.Box */
+    /* Fields of Gtk-3.0.Gtk.Box */
     container: Gtk.Container
-    /* Fields of Gtk.Container */
+    /* Fields of Gtk-3.0.Gtk.Container */
     widget: Gtk.Widget
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Gdaui.BasicForm */
+    /* Methods of Gdaui-6.0.Gdaui.BasicForm */
     add_to_size_group(size_group: Gtk.SizeGroup, part: BasicFormPart): void
     entry_grab_focus(holder?: Gda.Holder | null): void
     entry_set_editable(holder: Gda.Holder | null, editable: boolean): void
@@ -1722,7 +1722,7 @@ export class BasicForm {
     set_layout_from_file(file_name: string, form_name: string): void
     set_unknown_color(red: number, green: number, blue: number, alpha: number): void
     update_data_set(): void
-    /* Methods of Gtk.Box */
+    /* Methods of Gtk-3.0.Gtk.Box */
     get_baseline_position(): Gtk.BaselinePosition
     get_center_widget(): Gtk.Widget | null
     get_homogeneous(): boolean
@@ -1736,7 +1736,7 @@ export class BasicForm {
     set_child_packing(child: Gtk.Widget, expand: boolean, fill: boolean, padding: number, pack_type: Gtk.PackType): void
     set_homogeneous(homogeneous: boolean): void
     set_spacing(spacing: number): void
-    /* Methods of Gtk.Container */
+    /* Methods of Gtk-3.0.Gtk.Container */
     add(widget: Gtk.Widget): void
     check_resize(): void
     child_get_property(child: Gtk.Widget, property_name: string, value: any): void
@@ -1764,7 +1764,7 @@ export class BasicForm {
     set_reallocate_redraws(needs_redraws: boolean): void
     set_resize_mode(resize_mode: Gtk.ResizeMode): void
     unset_focus_chain(): void
-    /* Methods of Gtk.Widget */
+    /* Methods of Gtk-3.0.Gtk.Widget */
     activate(): boolean
     add_accelerator(accel_signal: string, accel_group: Gtk.AccelGroup, accel_key: number, accel_mods: Gdk.ModifierType, accel_flags: Gtk.AccelFlags): void
     add_device_events(device: Gdk.Device, events: Gdk.EventMask): void
@@ -2023,7 +2023,7 @@ export class BasicForm {
     unrealize(): void
     unregister_window(window: Gdk.Window): void
     unset_state_flags(flags: Gtk.StateFlags): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -2045,7 +2045,7 @@ export class BasicForm {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of Gtk.Buildable */
+    /* Methods of Gtk-3.0.Gtk.Buildable */
     add_child(builder: Gtk.Builder, child: GObject.Object, type?: string | null): void
     construct_child(builder: Gtk.Builder, name: string): GObject.Object
     custom_finished(builder: Gtk.Builder, child: GObject.Object | null, tagname: string, data?: object | null): void
@@ -2054,10 +2054,10 @@ export class BasicForm {
     get_internal_child(builder: Gtk.Builder, childname: string): GObject.Object
     parser_finished(builder: Gtk.Builder): void
     set_buildable_property(builder: Gtk.Builder, name: string, value: any): void
-    /* Methods of Gtk.Orientable */
+    /* Methods of Gtk-3.0.Gtk.Orientable */
     get_orientation(): Gtk.Orientation
     set_orientation(orientation: Gtk.Orientation): void
-    /* Virtual methods of Gdaui.BasicForm */
+    /* Virtual methods of Gdaui-6.0.Gdaui.BasicForm */
     vfunc_activated(): void
     vfunc_holder_changed(holder: Gda.Holder, is_user_action: boolean): void
     vfunc_layout_changed(): void
@@ -2071,7 +2071,7 @@ export class BasicForm {
     vfunc_parser_finished(builder: Gtk.Builder): void
     vfunc_set_buildable_property(builder: Gtk.Builder, name: string, value: any): void
     vfunc_set_name(name: string): void
-    /* Virtual methods of Gtk.Container */
+    /* Virtual methods of Gtk-3.0.Gtk.Container */
     vfunc_add(widget: Gtk.Widget): void
     vfunc_check_resize(): void
     vfunc_child_type(): GObject.Type
@@ -2082,7 +2082,7 @@ export class BasicForm {
     vfunc_remove(widget: Gtk.Widget): void
     vfunc_set_child_property(child: Gtk.Widget, property_id: number, value: any, pspec: GObject.ParamSpec): void
     vfunc_set_focus_child(child?: Gtk.Widget | null): void
-    /* Virtual methods of Gtk.Widget */
+    /* Virtual methods of Gtk-3.0.Gtk.Widget */
     vfunc_adjust_baseline_allocation(baseline: number): void
     vfunc_adjust_baseline_request(minimum_baseline: number, natural_baseline: number): void
     vfunc_adjust_size_allocation(orientation: Gtk.Orientation, minimum_size: number, natural_size: number, allocated_pos: number, allocated_size: number): void
@@ -2165,7 +2165,7 @@ export class BasicForm {
     vfunc_unrealize(): void
     vfunc_visibility_notify_event(event: Gdk.EventVisibility): boolean
     vfunc_window_state_event(event: Gdk.EventWindowState): boolean
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -2173,7 +2173,7 @@ export class BasicForm {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gdaui.BasicForm */
+    /* Signals of Gdaui-6.0.Gdaui.BasicForm */
     connect(sigName: "activated", callback: (($obj: BasicForm) => void)): number
     connect_after(sigName: "activated", callback: (($obj: BasicForm) => void)): number
     emit(sigName: "activated"): void
@@ -2186,7 +2186,7 @@ export class BasicForm {
     connect(sigName: "populate-popup", callback: (($obj: BasicForm, menu: Gtk.Menu) => void)): number
     connect_after(sigName: "populate-popup", callback: (($obj: BasicForm, menu: Gtk.Menu) => void)): number
     emit(sigName: "populate-popup", menu: Gtk.Menu): void
-    /* Signals of Gtk.Container */
+    /* Signals of Gtk-3.0.Gtk.Container */
     connect(sigName: "add", callback: (($obj: BasicForm, object: Gtk.Widget) => void)): number
     connect_after(sigName: "add", callback: (($obj: BasicForm, object: Gtk.Widget) => void)): number
     emit(sigName: "add", object: Gtk.Widget): void
@@ -2199,7 +2199,7 @@ export class BasicForm {
     connect(sigName: "set-focus-child", callback: (($obj: BasicForm, object: Gtk.Widget) => void)): number
     connect_after(sigName: "set-focus-child", callback: (($obj: BasicForm, object: Gtk.Widget) => void)): number
     emit(sigName: "set-focus-child", object: Gtk.Widget): void
-    /* Signals of Gtk.Widget */
+    /* Signals of Gtk-3.0.Gtk.Widget */
     connect(sigName: "accel-closures-changed", callback: (($obj: BasicForm) => void)): number
     connect_after(sigName: "accel-closures-changed", callback: (($obj: BasicForm) => void)): number
     emit(sigName: "accel-closures-changed"): void
@@ -2407,7 +2407,7 @@ export class BasicForm {
     connect(sigName: "window-state-event", callback: (($obj: BasicForm, event: Gdk.EventWindowState) => boolean)): number
     connect_after(sigName: "window-state-event", callback: (($obj: BasicForm, event: Gdk.EventWindowState) => boolean)): number
     emit(sigName: "window-state-event", event: Gdk.EventWindowState): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: BasicForm, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: BasicForm, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -2533,21 +2533,21 @@ export interface Cloud_ConstructProps extends Gtk.Box_ConstructProps {
     orientation?: Gtk.Orientation
 }
 export class Cloud {
-    /* Properties of Gdaui.Cloud */
+    /* Properties of Gdaui-6.0.Gdaui.Cloud */
     label_column: number
     max_scale: number
     min_scale: number
     model: Gda.DataModel
     weight_column: number
-    /* Properties of Gtk.Box */
+    /* Properties of Gtk-3.0.Gtk.Box */
     baseline_position: Gtk.BaselinePosition
     homogeneous: boolean
     spacing: number
-    /* Properties of Gtk.Container */
+    /* Properties of Gtk-3.0.Gtk.Container */
     border_width: number
     child: Gtk.Widget
     resize_mode: Gtk.ResizeMode
-    /* Properties of Gtk.Widget */
+    /* Properties of Gtk-3.0.Gtk.Widget */
     app_paintable: boolean
     can_default: boolean
     can_focus: boolean
@@ -2587,22 +2587,22 @@ export class Cloud {
     visible: boolean
     width_request: number
     readonly window: Gdk.Window
-    /* Properties of Gtk.Orientable */
+    /* Properties of Gtk-3.0.Gtk.Orientable */
     orientation: Gtk.Orientation
-    /* Fields of Gdaui.Cloud */
+    /* Fields of Gdaui-6.0.Gdaui.Cloud */
     parent_instance: Gtk.Box
-    /* Fields of Gtk.Box */
+    /* Fields of Gtk-3.0.Gtk.Box */
     container: Gtk.Container
-    /* Fields of Gtk.Container */
+    /* Fields of Gtk-3.0.Gtk.Container */
     widget: Gtk.Widget
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Gdaui.Cloud */
+    /* Methods of Gdaui-6.0.Gdaui.Cloud */
     create_filter_widget(): Gtk.Widget
     filter(filter?: string | null): void
     set_selection_mode(mode: Gtk.SelectionMode): void
     set_weight_func(func?: CloudWeightFunc | null): void
-    /* Methods of Gtk.Box */
+    /* Methods of Gtk-3.0.Gtk.Box */
     get_baseline_position(): Gtk.BaselinePosition
     get_center_widget(): Gtk.Widget | null
     get_homogeneous(): boolean
@@ -2616,7 +2616,7 @@ export class Cloud {
     set_child_packing(child: Gtk.Widget, expand: boolean, fill: boolean, padding: number, pack_type: Gtk.PackType): void
     set_homogeneous(homogeneous: boolean): void
     set_spacing(spacing: number): void
-    /* Methods of Gtk.Container */
+    /* Methods of Gtk-3.0.Gtk.Container */
     add(widget: Gtk.Widget): void
     check_resize(): void
     child_get_property(child: Gtk.Widget, property_name: string, value: any): void
@@ -2644,7 +2644,7 @@ export class Cloud {
     set_reallocate_redraws(needs_redraws: boolean): void
     set_resize_mode(resize_mode: Gtk.ResizeMode): void
     unset_focus_chain(): void
-    /* Methods of Gtk.Widget */
+    /* Methods of Gtk-3.0.Gtk.Widget */
     activate(): boolean
     add_accelerator(accel_signal: string, accel_group: Gtk.AccelGroup, accel_key: number, accel_mods: Gdk.ModifierType, accel_flags: Gtk.AccelFlags): void
     add_device_events(device: Gdk.Device, events: Gdk.EventMask): void
@@ -2903,7 +2903,7 @@ export class Cloud {
     unrealize(): void
     unregister_window(window: Gdk.Window): void
     unset_state_flags(flags: Gtk.StateFlags): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -2925,7 +2925,7 @@ export class Cloud {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of Gdaui.DataSelector */
+    /* Methods of Gdaui-6.0.Gdaui.DataSelector */
     get_data_set(): Gda.DataModelIter
     get_model(): Gda.DataModel
     get_selected_rows(): number[]
@@ -2933,7 +2933,7 @@ export class Cloud {
     set_column_visible(column: number, visible: boolean): void
     set_model(model: Gda.DataModel): void
     unselect_row(row: number): void
-    /* Methods of Gtk.Buildable */
+    /* Methods of Gtk-3.0.Gtk.Buildable */
     add_child(builder: Gtk.Builder, child: GObject.Object, type?: string | null): void
     construct_child(builder: Gtk.Builder, name: string): GObject.Object
     custom_finished(builder: Gtk.Builder, child: GObject.Object | null, tagname: string, data?: object | null): void
@@ -2942,10 +2942,10 @@ export class Cloud {
     get_internal_child(builder: Gtk.Builder, childname: string): GObject.Object
     parser_finished(builder: Gtk.Builder): void
     set_buildable_property(builder: Gtk.Builder, name: string, value: any): void
-    /* Methods of Gtk.Orientable */
+    /* Methods of Gtk-3.0.Gtk.Orientable */
     get_orientation(): Gtk.Orientation
     set_orientation(orientation: Gtk.Orientation): void
-    /* Virtual methods of Gdaui.Cloud */
+    /* Virtual methods of Gdaui-6.0.Gdaui.Cloud */
     vfunc_activate(row: number): void
     vfunc_get_data_set(): Gda.DataModelIter
     vfunc_get_model(): Gda.DataModel
@@ -2965,7 +2965,7 @@ export class Cloud {
     vfunc_parser_finished(builder: Gtk.Builder): void
     vfunc_set_buildable_property(builder: Gtk.Builder, name: string, value: any): void
     vfunc_set_name(name: string): void
-    /* Virtual methods of Gtk.Container */
+    /* Virtual methods of Gtk-3.0.Gtk.Container */
     vfunc_add(widget: Gtk.Widget): void
     vfunc_check_resize(): void
     vfunc_child_type(): GObject.Type
@@ -2976,7 +2976,7 @@ export class Cloud {
     vfunc_remove(widget: Gtk.Widget): void
     vfunc_set_child_property(child: Gtk.Widget, property_id: number, value: any, pspec: GObject.ParamSpec): void
     vfunc_set_focus_child(child?: Gtk.Widget | null): void
-    /* Virtual methods of Gtk.Widget */
+    /* Virtual methods of Gtk-3.0.Gtk.Widget */
     vfunc_adjust_baseline_allocation(baseline: number): void
     vfunc_adjust_baseline_request(minimum_baseline: number, natural_baseline: number): void
     vfunc_adjust_size_allocation(orientation: Gtk.Orientation, minimum_size: number, natural_size: number, allocated_pos: number, allocated_size: number): void
@@ -3059,7 +3059,7 @@ export class Cloud {
     vfunc_unrealize(): void
     vfunc_visibility_notify_event(event: Gdk.EventVisibility): boolean
     vfunc_window_state_event(event: Gdk.EventWindowState): boolean
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -3067,11 +3067,11 @@ export class Cloud {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gdaui.Cloud */
+    /* Signals of Gdaui-6.0.Gdaui.Cloud */
     connect(sigName: "activate", callback: (($obj: Cloud, object: number) => void)): number
     connect_after(sigName: "activate", callback: (($obj: Cloud, object: number) => void)): number
     emit(sigName: "activate", object: number): void
-    /* Signals of Gtk.Container */
+    /* Signals of Gtk-3.0.Gtk.Container */
     connect(sigName: "add", callback: (($obj: Cloud, object: Gtk.Widget) => void)): number
     connect_after(sigName: "add", callback: (($obj: Cloud, object: Gtk.Widget) => void)): number
     emit(sigName: "add", object: Gtk.Widget): void
@@ -3084,7 +3084,7 @@ export class Cloud {
     connect(sigName: "set-focus-child", callback: (($obj: Cloud, object: Gtk.Widget) => void)): number
     connect_after(sigName: "set-focus-child", callback: (($obj: Cloud, object: Gtk.Widget) => void)): number
     emit(sigName: "set-focus-child", object: Gtk.Widget): void
-    /* Signals of Gtk.Widget */
+    /* Signals of Gtk-3.0.Gtk.Widget */
     connect(sigName: "accel-closures-changed", callback: (($obj: Cloud) => void)): number
     connect_after(sigName: "accel-closures-changed", callback: (($obj: Cloud) => void)): number
     emit(sigName: "accel-closures-changed"): void
@@ -3292,11 +3292,11 @@ export class Cloud {
     connect(sigName: "window-state-event", callback: (($obj: Cloud, event: Gdk.EventWindowState) => boolean)): number
     connect_after(sigName: "window-state-event", callback: (($obj: Cloud, event: Gdk.EventWindowState) => boolean)): number
     emit(sigName: "window-state-event", event: Gdk.EventWindowState): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Cloud, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Cloud, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    /* Signals of Gdaui.DataSelector */
+    /* Signals of Gdaui-6.0.Gdaui.DataSelector */
     connect(sigName: "selection-changed", callback: (($obj: Cloud) => void)): number
     connect_after(sigName: "selection-changed", callback: (($obj: Cloud) => void)): number
     emit(sigName: "selection-changed"): void
@@ -3420,10 +3420,10 @@ export interface Combo_ConstructProps extends Gtk.ComboBox_ConstructProps {
     editing_canceled?: boolean
 }
 export class Combo {
-    /* Properties of Gdaui.Combo */
+    /* Properties of Gdaui-6.0.Gdaui.Combo */
     as_list: boolean
     model: Gda.DataModel
-    /* Properties of Gtk.ComboBox */
+    /* Properties of Gtk-3.0.Gtk.ComboBox */
     active: number
     active_id: string
     add_tearoffs: boolean
@@ -3437,11 +3437,11 @@ export class Combo {
     row_span_column: number
     tearoff_title: string
     wrap_width: number
-    /* Properties of Gtk.Container */
+    /* Properties of Gtk-3.0.Gtk.Container */
     border_width: number
     child: Gtk.Widget
     resize_mode: Gtk.ResizeMode
-    /* Properties of Gtk.Widget */
+    /* Properties of Gtk-3.0.Gtk.Widget */
     app_paintable: boolean
     can_default: boolean
     can_focus: boolean
@@ -3481,21 +3481,21 @@ export class Combo {
     visible: boolean
     width_request: number
     readonly window: Gdk.Window
-    /* Properties of Gtk.CellEditable */
+    /* Properties of Gtk-3.0.Gtk.CellEditable */
     editing_canceled: boolean
-    /* Fields of Gdaui.Combo */
+    /* Fields of Gdaui-6.0.Gdaui.Combo */
     parent_instance: Gtk.ComboBox
-    /* Fields of Gtk.Bin */
+    /* Fields of Gtk-3.0.Gtk.Bin */
     container: Gtk.Container
-    /* Fields of Gtk.Container */
+    /* Fields of Gtk-3.0.Gtk.Container */
     widget: Gtk.Widget
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Gdaui.Combo */
+    /* Methods of Gdaui-6.0.Gdaui.Combo */
     add_null(add_null: boolean): void
     is_null_selected(): boolean
     set_data(model: Gda.DataModel, cols_index: number[]): void
-    /* Methods of Gtk.ComboBox */
+    /* Methods of Gtk-3.0.Gtk.ComboBox */
     get_active(): number
     get_active_id(): string | null
     get_active_iter(): [ /* returnType */ boolean, /* iter */ Gtk.TreeIter ]
@@ -3530,9 +3530,9 @@ export class Combo {
     set_row_span_column(row_span: number): void
     set_title(title: string): void
     set_wrap_width(width: number): void
-    /* Methods of Gtk.Bin */
+    /* Methods of Gtk-3.0.Gtk.Bin */
     get_child(): Gtk.Widget | null
-    /* Methods of Gtk.Container */
+    /* Methods of Gtk-3.0.Gtk.Container */
     add(widget: Gtk.Widget): void
     check_resize(): void
     child_get_property(child: Gtk.Widget, property_name: string, value: any): void
@@ -3560,7 +3560,7 @@ export class Combo {
     set_reallocate_redraws(needs_redraws: boolean): void
     set_resize_mode(resize_mode: Gtk.ResizeMode): void
     unset_focus_chain(): void
-    /* Methods of Gtk.Widget */
+    /* Methods of Gtk-3.0.Gtk.Widget */
     activate(): boolean
     add_accelerator(accel_signal: string, accel_group: Gtk.AccelGroup, accel_key: number, accel_mods: Gdk.ModifierType, accel_flags: Gtk.AccelFlags): void
     add_device_events(device: Gdk.Device, events: Gdk.EventMask): void
@@ -3817,7 +3817,7 @@ export class Combo {
     unrealize(): void
     unregister_window(window: Gdk.Window): void
     unset_state_flags(flags: Gtk.StateFlags): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -3839,7 +3839,7 @@ export class Combo {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of Gdaui.DataSelector */
+    /* Methods of Gdaui-6.0.Gdaui.DataSelector */
     get_data_set(): Gda.DataModelIter
     get_model(): Gda.DataModel
     get_selected_rows(): number[]
@@ -3847,7 +3847,7 @@ export class Combo {
     set_column_visible(column: number, visible: boolean): void
     set_model(model: Gda.DataModel): void
     unselect_row(row: number): void
-    /* Methods of Gtk.Buildable */
+    /* Methods of Gtk-3.0.Gtk.Buildable */
     add_child(builder: Gtk.Builder, child: GObject.Object, type?: string | null): void
     construct_child(builder: Gtk.Builder, name: string): GObject.Object
     custom_finished(builder: Gtk.Builder, child: GObject.Object | null, tagname: string, data?: object | null): void
@@ -3856,11 +3856,11 @@ export class Combo {
     get_internal_child(builder: Gtk.Builder, childname: string): GObject.Object
     parser_finished(builder: Gtk.Builder): void
     set_buildable_property(builder: Gtk.Builder, name: string, value: any): void
-    /* Methods of Gtk.CellEditable */
+    /* Methods of Gtk-3.0.Gtk.CellEditable */
     editing_done(): void
     remove_widget(): void
     start_editing(event?: Gdk.Event | null): void
-    /* Methods of Gtk.CellLayout */
+    /* Methods of Gtk-3.0.Gtk.CellLayout */
     add_attribute(cell: Gtk.CellRenderer, attribute: string, column: number): void
     clear(): void
     clear_attributes(cell: Gtk.CellRenderer): void
@@ -3870,7 +3870,7 @@ export class Combo {
     pack_start(cell: Gtk.CellRenderer, expand: boolean): void
     reorder(cell: Gtk.CellRenderer, position: number): void
     set_cell_data_func(cell: Gtk.CellRenderer, func: Gtk.CellLayoutDataFunc | null): void
-    /* Virtual methods of Gdaui.Combo */
+    /* Virtual methods of Gdaui-6.0.Gdaui.Combo */
     vfunc_get_data_set(): Gda.DataModelIter
     vfunc_get_model(): Gda.DataModel
     vfunc_get_selected_rows(): number[]
@@ -3901,10 +3901,10 @@ export class Combo {
     vfunc_pack_start(cell: Gtk.CellRenderer, expand: boolean): void
     vfunc_reorder(cell: Gtk.CellRenderer, position: number): void
     vfunc_set_cell_data_func(cell: Gtk.CellRenderer, func: Gtk.CellLayoutDataFunc | null): void
-    /* Virtual methods of Gtk.ComboBox */
+    /* Virtual methods of Gtk-3.0.Gtk.ComboBox */
     vfunc_changed(): void
     vfunc_format_entry_text(path: string): string
-    /* Virtual methods of Gtk.Container */
+    /* Virtual methods of Gtk-3.0.Gtk.Container */
     vfunc_add(widget: Gtk.Widget): void
     vfunc_check_resize(): void
     vfunc_child_type(): GObject.Type
@@ -3915,7 +3915,7 @@ export class Combo {
     vfunc_remove(widget: Gtk.Widget): void
     vfunc_set_child_property(child: Gtk.Widget, property_id: number, value: any, pspec: GObject.ParamSpec): void
     vfunc_set_focus_child(child?: Gtk.Widget | null): void
-    /* Virtual methods of Gtk.Widget */
+    /* Virtual methods of Gtk-3.0.Gtk.Widget */
     vfunc_adjust_baseline_allocation(baseline: number): void
     vfunc_adjust_baseline_request(minimum_baseline: number, natural_baseline: number): void
     vfunc_adjust_size_allocation(orientation: Gtk.Orientation, minimum_size: number, natural_size: number, allocated_pos: number, allocated_size: number): void
@@ -3998,7 +3998,7 @@ export class Combo {
     vfunc_unrealize(): void
     vfunc_visibility_notify_event(event: Gdk.EventVisibility): boolean
     vfunc_window_state_event(event: Gdk.EventWindowState): boolean
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -4006,7 +4006,7 @@ export class Combo {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gtk.ComboBox */
+    /* Signals of Gtk-3.0.Gtk.ComboBox */
     connect(sigName: "changed", callback: (($obj: Combo) => void)): number
     connect_after(sigName: "changed", callback: (($obj: Combo) => void)): number
     emit(sigName: "changed"): void
@@ -4022,7 +4022,7 @@ export class Combo {
     connect(sigName: "popup", callback: (($obj: Combo) => void)): number
     connect_after(sigName: "popup", callback: (($obj: Combo) => void)): number
     emit(sigName: "popup"): void
-    /* Signals of Gtk.Container */
+    /* Signals of Gtk-3.0.Gtk.Container */
     connect(sigName: "add", callback: (($obj: Combo, object: Gtk.Widget) => void)): number
     connect_after(sigName: "add", callback: (($obj: Combo, object: Gtk.Widget) => void)): number
     emit(sigName: "add", object: Gtk.Widget): void
@@ -4035,7 +4035,7 @@ export class Combo {
     connect(sigName: "set-focus-child", callback: (($obj: Combo, object: Gtk.Widget) => void)): number
     connect_after(sigName: "set-focus-child", callback: (($obj: Combo, object: Gtk.Widget) => void)): number
     emit(sigName: "set-focus-child", object: Gtk.Widget): void
-    /* Signals of Gtk.Widget */
+    /* Signals of Gtk-3.0.Gtk.Widget */
     connect(sigName: "accel-closures-changed", callback: (($obj: Combo) => void)): number
     connect_after(sigName: "accel-closures-changed", callback: (($obj: Combo) => void)): number
     emit(sigName: "accel-closures-changed"): void
@@ -4243,15 +4243,15 @@ export class Combo {
     connect(sigName: "window-state-event", callback: (($obj: Combo, event: Gdk.EventWindowState) => boolean)): number
     connect_after(sigName: "window-state-event", callback: (($obj: Combo, event: Gdk.EventWindowState) => boolean)): number
     emit(sigName: "window-state-event", event: Gdk.EventWindowState): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Combo, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Combo, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    /* Signals of Gdaui.DataSelector */
+    /* Signals of Gdaui-6.0.Gdaui.DataSelector */
     connect(sigName: "selection-changed", callback: (($obj: Combo) => void)): number
     connect_after(sigName: "selection-changed", callback: (($obj: Combo) => void)): number
     emit(sigName: "selection-changed"): void
-    /* Signals of Gtk.CellEditable */
+    /* Signals of Gtk-3.0.Gtk.CellEditable */
     connect(sigName: "editing-done", callback: (($obj: Combo) => void)): number
     connect_after(sigName: "editing-done", callback: (($obj: Combo) => void)): number
     emit(sigName: "editing-done"): void
@@ -4395,11 +4395,11 @@ export interface DataCellRendererBin_ConstructProps extends Gtk.CellRendererPixb
     value?: any
 }
 export class DataCellRendererBin {
-    /* Properties of Gdaui.DataCellRendererBin */
+    /* Properties of Gdaui-6.0.Gdaui.DataCellRendererBin */
     editable: boolean
     to_be_deleted: boolean
     value: any
-    /* Properties of Gtk.CellRendererPixbuf */
+    /* Properties of Gtk-3.0.Gtk.CellRendererPixbuf */
     follow_state: boolean
     gicon: Gio.Icon
     icon_name: string
@@ -4410,7 +4410,7 @@ export class DataCellRendererBin {
     stock_id: string
     stock_size: number
     surface: cairo.Surface
-    /* Properties of Gtk.CellRenderer */
+    /* Properties of Gtk-3.0.Gtk.CellRenderer */
     cell_background: string
     cell_background_gdk: Gdk.Color
     cell_background_rgba: Gdk.RGBA
@@ -4427,13 +4427,13 @@ export class DataCellRendererBin {
     xpad: number
     yalign: number
     ypad: number
-    /* Fields of Gdaui.DataCellRendererBin */
+    /* Fields of Gdaui-6.0.Gdaui.DataCellRendererBin */
     parent_instance: Gtk.CellRendererPixbuf
-    /* Fields of Gtk.CellRendererPixbuf */
+    /* Fields of Gtk-3.0.Gtk.CellRendererPixbuf */
     parent: Gtk.CellRenderer
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Gtk.CellRenderer */
+    /* Methods of Gtk-3.0.Gtk.CellRenderer */
     activate(event: Gdk.Event, widget: Gtk.Widget, path: string, background_area: Gdk.Rectangle, cell_area: Gdk.Rectangle, flags: Gtk.CellRendererState): boolean
     get_aligned_area(widget: Gtk.Widget, flags: Gtk.CellRendererState, cell_area: Gdk.Rectangle): /* aligned_area */ Gdk.Rectangle
     get_alignment(): [ /* xalign */ number | null, /* yalign */ number | null ]
@@ -4458,7 +4458,7 @@ export class DataCellRendererBin {
     set_visible(visible: boolean): void
     start_editing(event: Gdk.Event | null, widget: Gtk.Widget, path: string, background_area: Gdk.Rectangle, cell_area: Gdk.Rectangle, flags: Gtk.CellRendererState): Gtk.CellEditable | null
     stop_editing(canceled: boolean): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -4480,9 +4480,9 @@ export class DataCellRendererBin {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Gdaui.DataCellRendererBin */
+    /* Virtual methods of Gdaui-6.0.Gdaui.DataCellRendererBin */
     vfunc_changed(path: string, new_value: any): void
-    /* Virtual methods of Gtk.CellRenderer */
+    /* Virtual methods of Gtk-3.0.Gtk.CellRenderer */
     vfunc_activate(event: Gdk.Event, widget: Gtk.Widget, path: string, background_area: Gdk.Rectangle, cell_area: Gdk.Rectangle, flags: Gtk.CellRendererState): boolean
     vfunc_editing_canceled(): void
     vfunc_editing_started(editable: Gtk.CellEditable, path: string): void
@@ -4495,7 +4495,7 @@ export class DataCellRendererBin {
     vfunc_get_size(widget: Gtk.Widget, cell_area?: Gdk.Rectangle | null): [ /* x_offset */ number | null, /* y_offset */ number | null, /* width */ number | null, /* height */ number | null ]
     vfunc_render(cr: cairo.Context, widget: Gtk.Widget, background_area: Gdk.Rectangle, cell_area: Gdk.Rectangle, flags: Gtk.CellRendererState): void
     vfunc_start_editing(event: Gdk.Event | null, widget: Gtk.Widget, path: string, background_area: Gdk.Rectangle, cell_area: Gdk.Rectangle, flags: Gtk.CellRendererState): Gtk.CellEditable | null
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -4503,18 +4503,18 @@ export class DataCellRendererBin {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gdaui.DataCellRendererBin */
+    /* Signals of Gdaui-6.0.Gdaui.DataCellRendererBin */
     connect(sigName: "changed", callback: (($obj: DataCellRendererBin, object: string, p0: any) => void)): number
     connect_after(sigName: "changed", callback: (($obj: DataCellRendererBin, object: string, p0: any) => void)): number
     emit(sigName: "changed", object: string, p0: any): void
-    /* Signals of Gtk.CellRenderer */
+    /* Signals of Gtk-3.0.Gtk.CellRenderer */
     connect(sigName: "editing-canceled", callback: (($obj: DataCellRendererBin) => void)): number
     connect_after(sigName: "editing-canceled", callback: (($obj: DataCellRendererBin) => void)): number
     emit(sigName: "editing-canceled"): void
     connect(sigName: "editing-started", callback: (($obj: DataCellRendererBin, editable: Gtk.CellEditable, path: string) => void)): number
     connect_after(sigName: "editing-started", callback: (($obj: DataCellRendererBin, editable: Gtk.CellEditable, path: string) => void)): number
     emit(sigName: "editing-started", editable: Gtk.CellEditable, path: string): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: DataCellRendererBin, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: DataCellRendererBin, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -4596,17 +4596,17 @@ export interface DataCellRendererBoolean_ConstructProps extends Gtk.CellRenderer
     value?: any
 }
 export class DataCellRendererBoolean {
-    /* Properties of Gdaui.DataCellRendererBoolean */
+    /* Properties of Gdaui-6.0.Gdaui.DataCellRendererBoolean */
     editable: boolean
     to_be_deleted: boolean
     value: any
-    /* Properties of Gtk.CellRendererToggle */
+    /* Properties of Gtk-3.0.Gtk.CellRendererToggle */
     activatable: boolean
     active: boolean
     inconsistent: boolean
     indicator_size: number
     radio: boolean
-    /* Properties of Gtk.CellRenderer */
+    /* Properties of Gtk-3.0.Gtk.CellRenderer */
     cell_background: string
     cell_background_gdk: Gdk.Color
     cell_background_rgba: Gdk.RGBA
@@ -4623,20 +4623,20 @@ export class DataCellRendererBoolean {
     xpad: number
     yalign: number
     ypad: number
-    /* Fields of Gdaui.DataCellRendererBoolean */
+    /* Fields of Gdaui-6.0.Gdaui.DataCellRendererBoolean */
     parent_instance: Gtk.CellRendererToggle
-    /* Fields of Gtk.CellRendererToggle */
+    /* Fields of Gtk-3.0.Gtk.CellRendererToggle */
     parent: Gtk.CellRenderer
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Gtk.CellRendererToggle */
+    /* Methods of Gtk-3.0.Gtk.CellRendererToggle */
     get_activatable(): boolean
     get_active(): boolean
     get_radio(): boolean
     set_activatable(setting: boolean): void
     set_active(setting: boolean): void
     set_radio(radio: boolean): void
-    /* Methods of Gtk.CellRenderer */
+    /* Methods of Gtk-3.0.Gtk.CellRenderer */
     activate(event: Gdk.Event, widget: Gtk.Widget, path: string, background_area: Gdk.Rectangle, cell_area: Gdk.Rectangle, flags: Gtk.CellRendererState): boolean
     get_aligned_area(widget: Gtk.Widget, flags: Gtk.CellRendererState, cell_area: Gdk.Rectangle): /* aligned_area */ Gdk.Rectangle
     get_alignment(): [ /* xalign */ number | null, /* yalign */ number | null ]
@@ -4661,7 +4661,7 @@ export class DataCellRendererBoolean {
     set_visible(visible: boolean): void
     start_editing(event: Gdk.Event | null, widget: Gtk.Widget, path: string, background_area: Gdk.Rectangle, cell_area: Gdk.Rectangle, flags: Gtk.CellRendererState): Gtk.CellEditable | null
     stop_editing(canceled: boolean): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -4683,11 +4683,11 @@ export class DataCellRendererBoolean {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Gdaui.DataCellRendererBoolean */
+    /* Virtual methods of Gdaui-6.0.Gdaui.DataCellRendererBoolean */
     vfunc_changed(path: string, new_value: any): void
-    /* Virtual methods of Gtk.CellRendererToggle */
+    /* Virtual methods of Gtk-3.0.Gtk.CellRendererToggle */
     vfunc_toggled(path: string): void
-    /* Virtual methods of Gtk.CellRenderer */
+    /* Virtual methods of Gtk-3.0.Gtk.CellRenderer */
     vfunc_activate(event: Gdk.Event, widget: Gtk.Widget, path: string, background_area: Gdk.Rectangle, cell_area: Gdk.Rectangle, flags: Gtk.CellRendererState): boolean
     vfunc_editing_canceled(): void
     vfunc_editing_started(editable: Gtk.CellEditable, path: string): void
@@ -4700,7 +4700,7 @@ export class DataCellRendererBoolean {
     vfunc_get_size(widget: Gtk.Widget, cell_area?: Gdk.Rectangle | null): [ /* x_offset */ number | null, /* y_offset */ number | null, /* width */ number | null, /* height */ number | null ]
     vfunc_render(cr: cairo.Context, widget: Gtk.Widget, background_area: Gdk.Rectangle, cell_area: Gdk.Rectangle, flags: Gtk.CellRendererState): void
     vfunc_start_editing(event: Gdk.Event | null, widget: Gtk.Widget, path: string, background_area: Gdk.Rectangle, cell_area: Gdk.Rectangle, flags: Gtk.CellRendererState): Gtk.CellEditable | null
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -4708,22 +4708,22 @@ export class DataCellRendererBoolean {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gdaui.DataCellRendererBoolean */
+    /* Signals of Gdaui-6.0.Gdaui.DataCellRendererBoolean */
     connect(sigName: "changed", callback: (($obj: DataCellRendererBoolean, object: string, p0: any) => void)): number
     connect_after(sigName: "changed", callback: (($obj: DataCellRendererBoolean, object: string, p0: any) => void)): number
     emit(sigName: "changed", object: string, p0: any): void
-    /* Signals of Gtk.CellRendererToggle */
+    /* Signals of Gtk-3.0.Gtk.CellRendererToggle */
     connect(sigName: "toggled", callback: (($obj: DataCellRendererBoolean, path: string) => void)): number
     connect_after(sigName: "toggled", callback: (($obj: DataCellRendererBoolean, path: string) => void)): number
     emit(sigName: "toggled", path: string): void
-    /* Signals of Gtk.CellRenderer */
+    /* Signals of Gtk-3.0.Gtk.CellRenderer */
     connect(sigName: "editing-canceled", callback: (($obj: DataCellRendererBoolean) => void)): number
     connect_after(sigName: "editing-canceled", callback: (($obj: DataCellRendererBoolean) => void)): number
     emit(sigName: "editing-canceled"): void
     connect(sigName: "editing-started", callback: (($obj: DataCellRendererBoolean, editable: Gtk.CellEditable, path: string) => void)): number
     connect_after(sigName: "editing-started", callback: (($obj: DataCellRendererBoolean, editable: Gtk.CellEditable, path: string) => void)): number
     emit(sigName: "editing-started", editable: Gtk.CellEditable, path: string): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: DataCellRendererBoolean, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: DataCellRendererBoolean, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -4797,13 +4797,13 @@ export interface DataCellRendererCombo_ConstructProps extends Gtk.CellRendererTe
     values_display?: object
 }
 export class DataCellRendererCombo {
-    /* Properties of Gdaui.DataCellRendererCombo */
+    /* Properties of Gdaui-6.0.Gdaui.DataCellRendererCombo */
     set_default_if_invalid: boolean
     show_expander: boolean
     to_be_deleted: boolean
     values: object
     values_display: object
-    /* Properties of Gtk.CellRendererText */
+    /* Properties of Gtk-3.0.Gtk.CellRendererText */
     align_set: boolean
     alignment: Pango.Alignment
     attributes: Pango.AttrList
@@ -4852,7 +4852,7 @@ export class DataCellRendererCombo {
     width_chars: number
     wrap_mode: Pango.WrapMode
     wrap_width: number
-    /* Properties of Gtk.CellRenderer */
+    /* Properties of Gtk-3.0.Gtk.CellRenderer */
     cell_background: string
     cell_background_gdk: Gdk.Color
     cell_background_rgba: Gdk.RGBA
@@ -4869,15 +4869,15 @@ export class DataCellRendererCombo {
     xpad: number
     yalign: number
     ypad: number
-    /* Fields of Gdaui.DataCellRendererCombo */
+    /* Fields of Gdaui-6.0.Gdaui.DataCellRendererCombo */
     parent_instance: Gtk.CellRendererText
-    /* Fields of Gtk.CellRendererText */
+    /* Fields of Gtk-3.0.Gtk.CellRendererText */
     parent: Gtk.CellRenderer
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Gtk.CellRendererText */
+    /* Methods of Gtk-3.0.Gtk.CellRendererText */
     set_fixed_height_from_font(number_of_rows: number): void
-    /* Methods of Gtk.CellRenderer */
+    /* Methods of Gtk-3.0.Gtk.CellRenderer */
     activate(event: Gdk.Event, widget: Gtk.Widget, path: string, background_area: Gdk.Rectangle, cell_area: Gdk.Rectangle, flags: Gtk.CellRendererState): boolean
     get_aligned_area(widget: Gtk.Widget, flags: Gtk.CellRendererState, cell_area: Gdk.Rectangle): /* aligned_area */ Gdk.Rectangle
     get_alignment(): [ /* xalign */ number | null, /* yalign */ number | null ]
@@ -4902,7 +4902,7 @@ export class DataCellRendererCombo {
     set_visible(visible: boolean): void
     start_editing(event: Gdk.Event | null, widget: Gtk.Widget, path: string, background_area: Gdk.Rectangle, cell_area: Gdk.Rectangle, flags: Gtk.CellRendererState): Gtk.CellEditable | null
     stop_editing(canceled: boolean): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -4924,9 +4924,9 @@ export class DataCellRendererCombo {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Gtk.CellRendererText */
+    /* Virtual methods of Gtk-3.0.Gtk.CellRendererText */
     vfunc_edited(path: string, new_text: string): void
-    /* Virtual methods of Gtk.CellRenderer */
+    /* Virtual methods of Gtk-3.0.Gtk.CellRenderer */
     vfunc_activate(event: Gdk.Event, widget: Gtk.Widget, path: string, background_area: Gdk.Rectangle, cell_area: Gdk.Rectangle, flags: Gtk.CellRendererState): boolean
     vfunc_editing_canceled(): void
     vfunc_editing_started(editable: Gtk.CellEditable, path: string): void
@@ -4939,7 +4939,7 @@ export class DataCellRendererCombo {
     vfunc_get_size(widget: Gtk.Widget, cell_area?: Gdk.Rectangle | null): [ /* x_offset */ number | null, /* y_offset */ number | null, /* width */ number | null, /* height */ number | null ]
     vfunc_render(cr: cairo.Context, widget: Gtk.Widget, background_area: Gdk.Rectangle, cell_area: Gdk.Rectangle, flags: Gtk.CellRendererState): void
     vfunc_start_editing(event: Gdk.Event | null, widget: Gtk.Widget, path: string, background_area: Gdk.Rectangle, cell_area: Gdk.Rectangle, flags: Gtk.CellRendererState): Gtk.CellEditable | null
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -4947,22 +4947,22 @@ export class DataCellRendererCombo {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gdaui.DataCellRendererCombo */
+    /* Signals of Gdaui-6.0.Gdaui.DataCellRendererCombo */
     connect(sigName: "changed", callback: (($obj: DataCellRendererCombo, object: string, p0?: object | null, p1?: object | null) => void)): number
     connect_after(sigName: "changed", callback: (($obj: DataCellRendererCombo, object: string, p0?: object | null, p1?: object | null) => void)): number
     emit(sigName: "changed", object: string, p0?: object | null, p1?: object | null): void
-    /* Signals of Gtk.CellRendererText */
+    /* Signals of Gtk-3.0.Gtk.CellRendererText */
     connect(sigName: "edited", callback: (($obj: DataCellRendererCombo, path: string, new_text: string) => void)): number
     connect_after(sigName: "edited", callback: (($obj: DataCellRendererCombo, path: string, new_text: string) => void)): number
     emit(sigName: "edited", path: string, new_text: string): void
-    /* Signals of Gtk.CellRenderer */
+    /* Signals of Gtk-3.0.Gtk.CellRenderer */
     connect(sigName: "editing-canceled", callback: (($obj: DataCellRendererCombo) => void)): number
     connect_after(sigName: "editing-canceled", callback: (($obj: DataCellRendererCombo) => void)): number
     emit(sigName: "editing-canceled"): void
     connect(sigName: "editing-started", callback: (($obj: DataCellRendererCombo, editable: Gtk.CellEditable, path: string) => void)): number
     connect_after(sigName: "editing-started", callback: (($obj: DataCellRendererCombo, editable: Gtk.CellEditable, path: string) => void)): number
     emit(sigName: "editing-started", editable: Gtk.CellEditable, path: string): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: DataCellRendererCombo, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: DataCellRendererCombo, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -5124,10 +5124,10 @@ export interface DataCellRendererInfo_ConstructProps extends Gtk.CellRenderer_Co
     to_be_deleted?: boolean
 }
 export class DataCellRendererInfo {
-    /* Properties of Gdaui.DataCellRendererInfo */
+    /* Properties of Gdaui-6.0.Gdaui.DataCellRendererInfo */
     editable: boolean
     to_be_deleted: boolean
-    /* Properties of Gtk.CellRenderer */
+    /* Properties of Gtk-3.0.Gtk.CellRenderer */
     cell_background: string
     cell_background_gdk: Gdk.Color
     cell_background_rgba: Gdk.RGBA
@@ -5144,11 +5144,11 @@ export class DataCellRendererInfo {
     xpad: number
     yalign: number
     ypad: number
-    /* Fields of Gdaui.DataCellRendererInfo */
+    /* Fields of Gdaui-6.0.Gdaui.DataCellRendererInfo */
     parent_instance: Gtk.CellRenderer
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Gtk.CellRenderer */
+    /* Methods of Gtk-3.0.Gtk.CellRenderer */
     activate(event: Gdk.Event, widget: Gtk.Widget, path: string, background_area: Gdk.Rectangle, cell_area: Gdk.Rectangle, flags: Gtk.CellRendererState): boolean
     get_aligned_area(widget: Gtk.Widget, flags: Gtk.CellRendererState, cell_area: Gdk.Rectangle): /* aligned_area */ Gdk.Rectangle
     get_alignment(): [ /* xalign */ number | null, /* yalign */ number | null ]
@@ -5173,7 +5173,7 @@ export class DataCellRendererInfo {
     set_visible(visible: boolean): void
     start_editing(event: Gdk.Event | null, widget: Gtk.Widget, path: string, background_area: Gdk.Rectangle, cell_area: Gdk.Rectangle, flags: Gtk.CellRendererState): Gtk.CellEditable | null
     stop_editing(canceled: boolean): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -5195,9 +5195,9 @@ export class DataCellRendererInfo {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Gdaui.DataCellRendererInfo */
+    /* Virtual methods of Gdaui-6.0.Gdaui.DataCellRendererInfo */
     vfunc_status_changed(path: string, requested_action: Gda.ValueAttribute): void
-    /* Virtual methods of Gtk.CellRenderer */
+    /* Virtual methods of Gtk-3.0.Gtk.CellRenderer */
     vfunc_activate(event: Gdk.Event, widget: Gtk.Widget, path: string, background_area: Gdk.Rectangle, cell_area: Gdk.Rectangle, flags: Gtk.CellRendererState): boolean
     vfunc_editing_canceled(): void
     vfunc_editing_started(editable: Gtk.CellEditable, path: string): void
@@ -5210,7 +5210,7 @@ export class DataCellRendererInfo {
     vfunc_get_size(widget: Gtk.Widget, cell_area?: Gdk.Rectangle | null): [ /* x_offset */ number | null, /* y_offset */ number | null, /* width */ number | null, /* height */ number | null ]
     vfunc_render(cr: cairo.Context, widget: Gtk.Widget, background_area: Gdk.Rectangle, cell_area: Gdk.Rectangle, flags: Gtk.CellRendererState): void
     vfunc_start_editing(event: Gdk.Event | null, widget: Gtk.Widget, path: string, background_area: Gdk.Rectangle, cell_area: Gdk.Rectangle, flags: Gtk.CellRendererState): Gtk.CellEditable | null
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -5218,18 +5218,18 @@ export class DataCellRendererInfo {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gdaui.DataCellRendererInfo */
+    /* Signals of Gdaui-6.0.Gdaui.DataCellRendererInfo */
     connect(sigName: "status-changed", callback: (($obj: DataCellRendererInfo, path: string, requested_action: Gda.ValueAttribute) => void)): number
     connect_after(sigName: "status-changed", callback: (($obj: DataCellRendererInfo, path: string, requested_action: Gda.ValueAttribute) => void)): number
     emit(sigName: "status-changed", path: string, requested_action: Gda.ValueAttribute): void
-    /* Signals of Gtk.CellRenderer */
+    /* Signals of Gtk-3.0.Gtk.CellRenderer */
     connect(sigName: "editing-canceled", callback: (($obj: DataCellRendererInfo) => void)): number
     connect_after(sigName: "editing-canceled", callback: (($obj: DataCellRendererInfo) => void)): number
     emit(sigName: "editing-canceled"): void
     connect(sigName: "editing-started", callback: (($obj: DataCellRendererInfo, editable: Gtk.CellEditable, path: string) => void)): number
     connect_after(sigName: "editing-started", callback: (($obj: DataCellRendererInfo, editable: Gtk.CellEditable, path: string) => void)): number
     emit(sigName: "editing-started", editable: Gtk.CellEditable, path: string): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: DataCellRendererInfo, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: DataCellRendererInfo, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -5288,11 +5288,11 @@ export interface DataCellRendererTextual_ConstructProps extends Gtk.CellRenderer
     value?: object
 }
 export class DataCellRendererTextual {
-    /* Properties of Gdaui.DataCellRendererTextual */
+    /* Properties of Gdaui-6.0.Gdaui.DataCellRendererTextual */
     options: string
     to_be_deleted: boolean
     value: object
-    /* Properties of Gtk.CellRendererText */
+    /* Properties of Gtk-3.0.Gtk.CellRendererText */
     align_set: boolean
     alignment: Pango.Alignment
     attributes: Pango.AttrList
@@ -5341,7 +5341,7 @@ export class DataCellRendererTextual {
     width_chars: number
     wrap_mode: Pango.WrapMode
     wrap_width: number
-    /* Properties of Gtk.CellRenderer */
+    /* Properties of Gtk-3.0.Gtk.CellRenderer */
     cell_background: string
     cell_background_gdk: Gdk.Color
     cell_background_rgba: Gdk.RGBA
@@ -5358,15 +5358,15 @@ export class DataCellRendererTextual {
     xpad: number
     yalign: number
     ypad: number
-    /* Fields of Gdaui.DataCellRendererTextual */
+    /* Fields of Gdaui-6.0.Gdaui.DataCellRendererTextual */
     parent_instance: Gtk.CellRendererText
-    /* Fields of Gtk.CellRendererText */
+    /* Fields of Gtk-3.0.Gtk.CellRendererText */
     parent: Gtk.CellRenderer
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Gtk.CellRendererText */
+    /* Methods of Gtk-3.0.Gtk.CellRendererText */
     set_fixed_height_from_font(number_of_rows: number): void
-    /* Methods of Gtk.CellRenderer */
+    /* Methods of Gtk-3.0.Gtk.CellRenderer */
     activate(event: Gdk.Event, widget: Gtk.Widget, path: string, background_area: Gdk.Rectangle, cell_area: Gdk.Rectangle, flags: Gtk.CellRendererState): boolean
     get_aligned_area(widget: Gtk.Widget, flags: Gtk.CellRendererState, cell_area: Gdk.Rectangle): /* aligned_area */ Gdk.Rectangle
     get_alignment(): [ /* xalign */ number | null, /* yalign */ number | null ]
@@ -5391,7 +5391,7 @@ export class DataCellRendererTextual {
     set_visible(visible: boolean): void
     start_editing(event: Gdk.Event | null, widget: Gtk.Widget, path: string, background_area: Gdk.Rectangle, cell_area: Gdk.Rectangle, flags: Gtk.CellRendererState): Gtk.CellEditable | null
     stop_editing(canceled: boolean): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -5413,11 +5413,11 @@ export class DataCellRendererTextual {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Gdaui.DataCellRendererTextual */
+    /* Virtual methods of Gdaui-6.0.Gdaui.DataCellRendererTextual */
     vfunc_changed(path: string, new_value: any): void
-    /* Virtual methods of Gtk.CellRendererText */
+    /* Virtual methods of Gtk-3.0.Gtk.CellRendererText */
     vfunc_edited(path: string, new_text: string): void
-    /* Virtual methods of Gtk.CellRenderer */
+    /* Virtual methods of Gtk-3.0.Gtk.CellRenderer */
     vfunc_activate(event: Gdk.Event, widget: Gtk.Widget, path: string, background_area: Gdk.Rectangle, cell_area: Gdk.Rectangle, flags: Gtk.CellRendererState): boolean
     vfunc_editing_canceled(): void
     vfunc_editing_started(editable: Gtk.CellEditable, path: string): void
@@ -5430,7 +5430,7 @@ export class DataCellRendererTextual {
     vfunc_get_size(widget: Gtk.Widget, cell_area?: Gdk.Rectangle | null): [ /* x_offset */ number | null, /* y_offset */ number | null, /* width */ number | null, /* height */ number | null ]
     vfunc_render(cr: cairo.Context, widget: Gtk.Widget, background_area: Gdk.Rectangle, cell_area: Gdk.Rectangle, flags: Gtk.CellRendererState): void
     vfunc_start_editing(event: Gdk.Event | null, widget: Gtk.Widget, path: string, background_area: Gdk.Rectangle, cell_area: Gdk.Rectangle, flags: Gtk.CellRendererState): Gtk.CellEditable | null
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -5438,22 +5438,22 @@ export class DataCellRendererTextual {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gdaui.DataCellRendererTextual */
+    /* Signals of Gdaui-6.0.Gdaui.DataCellRendererTextual */
     connect(sigName: "changed", callback: (($obj: DataCellRendererTextual, object: string, p0: any) => void)): number
     connect_after(sigName: "changed", callback: (($obj: DataCellRendererTextual, object: string, p0: any) => void)): number
     emit(sigName: "changed", object: string, p0: any): void
-    /* Signals of Gtk.CellRendererText */
+    /* Signals of Gtk-3.0.Gtk.CellRendererText */
     connect(sigName: "edited", callback: (($obj: DataCellRendererTextual, path: string, new_text: string) => void)): number
     connect_after(sigName: "edited", callback: (($obj: DataCellRendererTextual, path: string, new_text: string) => void)): number
     emit(sigName: "edited", path: string, new_text: string): void
-    /* Signals of Gtk.CellRenderer */
+    /* Signals of Gtk-3.0.Gtk.CellRenderer */
     connect(sigName: "editing-canceled", callback: (($obj: DataCellRendererTextual) => void)): number
     connect_after(sigName: "editing-canceled", callback: (($obj: DataCellRendererTextual) => void)): number
     emit(sigName: "editing-canceled"): void
     connect(sigName: "editing-started", callback: (($obj: DataCellRendererTextual, editable: Gtk.CellEditable, path: string) => void)): number
     connect_after(sigName: "editing-started", callback: (($obj: DataCellRendererTextual, editable: Gtk.CellEditable, path: string) => void)): number
     emit(sigName: "editing-started", editable: Gtk.CellEditable, path: string): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: DataCellRendererTextual, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: DataCellRendererTextual, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -5608,17 +5608,17 @@ export interface DataFilter_ConstructProps extends Gtk.Box_ConstructProps {
     orientation?: Gtk.Orientation
 }
 export class DataFilter {
-    /* Properties of Gdaui.DataFilter */
+    /* Properties of Gdaui-6.0.Gdaui.DataFilter */
     data_widget: DataProxy
-    /* Properties of Gtk.Box */
+    /* Properties of Gtk-3.0.Gtk.Box */
     baseline_position: Gtk.BaselinePosition
     homogeneous: boolean
     spacing: number
-    /* Properties of Gtk.Container */
+    /* Properties of Gtk-3.0.Gtk.Container */
     border_width: number
     child: Gtk.Widget
     resize_mode: Gtk.ResizeMode
-    /* Properties of Gtk.Widget */
+    /* Properties of Gtk-3.0.Gtk.Widget */
     app_paintable: boolean
     can_default: boolean
     can_focus: boolean
@@ -5658,17 +5658,17 @@ export class DataFilter {
     visible: boolean
     width_request: number
     readonly window: Gdk.Window
-    /* Properties of Gtk.Orientable */
+    /* Properties of Gtk-3.0.Gtk.Orientable */
     orientation: Gtk.Orientation
-    /* Fields of Gdaui.DataFilter */
+    /* Fields of Gdaui-6.0.Gdaui.DataFilter */
     parent_instance: Gtk.Box
-    /* Fields of Gtk.Box */
+    /* Fields of Gtk-3.0.Gtk.Box */
     container: Gtk.Container
-    /* Fields of Gtk.Container */
+    /* Fields of Gtk-3.0.Gtk.Container */
     widget: Gtk.Widget
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Gtk.Box */
+    /* Methods of Gtk-3.0.Gtk.Box */
     get_baseline_position(): Gtk.BaselinePosition
     get_center_widget(): Gtk.Widget | null
     get_homogeneous(): boolean
@@ -5682,7 +5682,7 @@ export class DataFilter {
     set_child_packing(child: Gtk.Widget, expand: boolean, fill: boolean, padding: number, pack_type: Gtk.PackType): void
     set_homogeneous(homogeneous: boolean): void
     set_spacing(spacing: number): void
-    /* Methods of Gtk.Container */
+    /* Methods of Gtk-3.0.Gtk.Container */
     add(widget: Gtk.Widget): void
     check_resize(): void
     child_get_property(child: Gtk.Widget, property_name: string, value: any): void
@@ -5710,7 +5710,7 @@ export class DataFilter {
     set_reallocate_redraws(needs_redraws: boolean): void
     set_resize_mode(resize_mode: Gtk.ResizeMode): void
     unset_focus_chain(): void
-    /* Methods of Gtk.Widget */
+    /* Methods of Gtk-3.0.Gtk.Widget */
     activate(): boolean
     add_accelerator(accel_signal: string, accel_group: Gtk.AccelGroup, accel_key: number, accel_mods: Gdk.ModifierType, accel_flags: Gtk.AccelFlags): void
     add_device_events(device: Gdk.Device, events: Gdk.EventMask): void
@@ -5969,7 +5969,7 @@ export class DataFilter {
     unrealize(): void
     unregister_window(window: Gdk.Window): void
     unset_state_flags(flags: Gtk.StateFlags): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -5991,7 +5991,7 @@ export class DataFilter {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of Gtk.Buildable */
+    /* Methods of Gtk-3.0.Gtk.Buildable */
     add_child(builder: Gtk.Builder, child: GObject.Object, type?: string | null): void
     construct_child(builder: Gtk.Builder, name: string): GObject.Object
     custom_finished(builder: Gtk.Builder, child: GObject.Object | null, tagname: string, data?: object | null): void
@@ -6000,10 +6000,10 @@ export class DataFilter {
     get_internal_child(builder: Gtk.Builder, childname: string): GObject.Object
     parser_finished(builder: Gtk.Builder): void
     set_buildable_property(builder: Gtk.Builder, name: string, value: any): void
-    /* Methods of Gtk.Orientable */
+    /* Methods of Gtk-3.0.Gtk.Orientable */
     get_orientation(): Gtk.Orientation
     set_orientation(orientation: Gtk.Orientation): void
-    /* Virtual methods of Gdaui.DataFilter */
+    /* Virtual methods of Gdaui-6.0.Gdaui.DataFilter */
     vfunc_add_child(builder: Gtk.Builder, child: GObject.Object, type?: string | null): void
     vfunc_construct_child(builder: Gtk.Builder, name: string): GObject.Object
     vfunc_custom_finished(builder: Gtk.Builder, child: GObject.Object | null, tagname: string, data?: object | null): void
@@ -6014,7 +6014,7 @@ export class DataFilter {
     vfunc_parser_finished(builder: Gtk.Builder): void
     vfunc_set_buildable_property(builder: Gtk.Builder, name: string, value: any): void
     vfunc_set_name(name: string): void
-    /* Virtual methods of Gtk.Container */
+    /* Virtual methods of Gtk-3.0.Gtk.Container */
     vfunc_add(widget: Gtk.Widget): void
     vfunc_check_resize(): void
     vfunc_child_type(): GObject.Type
@@ -6025,7 +6025,7 @@ export class DataFilter {
     vfunc_remove(widget: Gtk.Widget): void
     vfunc_set_child_property(child: Gtk.Widget, property_id: number, value: any, pspec: GObject.ParamSpec): void
     vfunc_set_focus_child(child?: Gtk.Widget | null): void
-    /* Virtual methods of Gtk.Widget */
+    /* Virtual methods of Gtk-3.0.Gtk.Widget */
     vfunc_adjust_baseline_allocation(baseline: number): void
     vfunc_adjust_baseline_request(minimum_baseline: number, natural_baseline: number): void
     vfunc_adjust_size_allocation(orientation: Gtk.Orientation, minimum_size: number, natural_size: number, allocated_pos: number, allocated_size: number): void
@@ -6108,7 +6108,7 @@ export class DataFilter {
     vfunc_unrealize(): void
     vfunc_visibility_notify_event(event: Gdk.EventVisibility): boolean
     vfunc_window_state_event(event: Gdk.EventWindowState): boolean
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -6116,7 +6116,7 @@ export class DataFilter {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gtk.Container */
+    /* Signals of Gtk-3.0.Gtk.Container */
     connect(sigName: "add", callback: (($obj: DataFilter, object: Gtk.Widget) => void)): number
     connect_after(sigName: "add", callback: (($obj: DataFilter, object: Gtk.Widget) => void)): number
     emit(sigName: "add", object: Gtk.Widget): void
@@ -6129,7 +6129,7 @@ export class DataFilter {
     connect(sigName: "set-focus-child", callback: (($obj: DataFilter, object: Gtk.Widget) => void)): number
     connect_after(sigName: "set-focus-child", callback: (($obj: DataFilter, object: Gtk.Widget) => void)): number
     emit(sigName: "set-focus-child", object: Gtk.Widget): void
-    /* Signals of Gtk.Widget */
+    /* Signals of Gtk-3.0.Gtk.Widget */
     connect(sigName: "accel-closures-changed", callback: (($obj: DataFilter) => void)): number
     connect_after(sigName: "accel-closures-changed", callback: (($obj: DataFilter) => void)): number
     emit(sigName: "accel-closures-changed"): void
@@ -6337,7 +6337,7 @@ export class DataFilter {
     connect(sigName: "window-state-event", callback: (($obj: DataFilter, event: Gdk.EventWindowState) => boolean)): number
     connect_after(sigName: "window-state-event", callback: (($obj: DataFilter, event: Gdk.EventWindowState) => boolean)): number
     emit(sigName: "window-state-event", event: Gdk.EventWindowState): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: DataFilter, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: DataFilter, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -6452,18 +6452,18 @@ export interface DataProxyInfo_ConstructProps extends Gtk.Toolbar_ConstructProps
     orientation?: Gtk.Orientation
 }
 export class DataProxyInfo {
-    /* Properties of Gdaui.DataProxyInfo */
+    /* Properties of Gdaui-6.0.Gdaui.DataProxyInfo */
     data_proxy: DataProxy
-    /* Properties of Gtk.Toolbar */
+    /* Properties of Gtk-3.0.Gtk.Toolbar */
     icon_size: Gtk.IconSize
     icon_size_set: boolean
     show_arrow: boolean
     toolbar_style: Gtk.ToolbarStyle
-    /* Properties of Gtk.Container */
+    /* Properties of Gtk-3.0.Gtk.Container */
     border_width: number
     child: Gtk.Widget
     resize_mode: Gtk.ResizeMode
-    /* Properties of Gtk.Widget */
+    /* Properties of Gtk-3.0.Gtk.Widget */
     app_paintable: boolean
     can_default: boolean
     can_focus: boolean
@@ -6503,20 +6503,20 @@ export class DataProxyInfo {
     visible: boolean
     width_request: number
     readonly window: Gdk.Window
-    /* Properties of Gtk.Orientable */
+    /* Properties of Gtk-3.0.Gtk.Orientable */
     orientation: Gtk.Orientation
-    /* Fields of Gdaui.DataProxyInfo */
+    /* Fields of Gdaui-6.0.Gdaui.DataProxyInfo */
     parent_instance: Gtk.Toolbar
-    /* Fields of Gtk.Toolbar */
+    /* Fields of Gtk-3.0.Gtk.Toolbar */
     container: Gtk.Container
     priv: Gtk.ToolbarPrivate
-    /* Fields of Gtk.Container */
+    /* Fields of Gtk-3.0.Gtk.Container */
     widget: Gtk.Widget
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Gdaui.DataProxyInfo */
+    /* Methods of Gdaui-6.0.Gdaui.DataProxyInfo */
     get_item(action: Action): Gtk.ToolItem
-    /* Methods of Gtk.Toolbar */
+    /* Methods of Gtk-3.0.Gtk.Toolbar */
     get_drop_index(x: number, y: number): number
     get_icon_size(): Gtk.IconSize
     get_item_index(item: Gtk.ToolItem): number
@@ -6532,7 +6532,7 @@ export class DataProxyInfo {
     set_style(style: Gtk.ToolbarStyle): void
     unset_icon_size(): void
     unset_style(): void
-    /* Methods of Gtk.Container */
+    /* Methods of Gtk-3.0.Gtk.Container */
     add(widget: Gtk.Widget): void
     check_resize(): void
     child_get_property(child: Gtk.Widget, property_name: string, value: any): void
@@ -6560,7 +6560,7 @@ export class DataProxyInfo {
     set_reallocate_redraws(needs_redraws: boolean): void
     set_resize_mode(resize_mode: Gtk.ResizeMode): void
     unset_focus_chain(): void
-    /* Methods of Gtk.Widget */
+    /* Methods of Gtk-3.0.Gtk.Widget */
     activate(): boolean
     add_accelerator(accel_signal: string, accel_group: Gtk.AccelGroup, accel_key: number, accel_mods: Gdk.ModifierType, accel_flags: Gtk.AccelFlags): void
     add_device_events(device: Gdk.Device, events: Gdk.EventMask): void
@@ -6819,7 +6819,7 @@ export class DataProxyInfo {
     unrealize(): void
     unregister_window(window: Gdk.Window): void
     unset_state_flags(flags: Gtk.StateFlags): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -6841,7 +6841,7 @@ export class DataProxyInfo {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of Gtk.Buildable */
+    /* Methods of Gtk-3.0.Gtk.Buildable */
     add_child(builder: Gtk.Builder, child: GObject.Object, type?: string | null): void
     construct_child(builder: Gtk.Builder, name: string): GObject.Object
     custom_finished(builder: Gtk.Builder, child: GObject.Object | null, tagname: string, data?: object | null): void
@@ -6850,10 +6850,10 @@ export class DataProxyInfo {
     get_internal_child(builder: Gtk.Builder, childname: string): GObject.Object
     parser_finished(builder: Gtk.Builder): void
     set_buildable_property(builder: Gtk.Builder, name: string, value: any): void
-    /* Methods of Gtk.Orientable */
+    /* Methods of Gtk-3.0.Gtk.Orientable */
     get_orientation(): Gtk.Orientation
     set_orientation(orientation: Gtk.Orientation): void
-    /* Methods of Gtk.ToolShell */
+    /* Methods of Gtk-3.0.Gtk.ToolShell */
     get_ellipsize_mode(): Pango.EllipsizeMode
     get_icon_size(): number
     get_style(): Gtk.ToolbarStyle
@@ -6861,7 +6861,7 @@ export class DataProxyInfo {
     get_text_orientation(): Gtk.Orientation
     get_text_size_group(): Gtk.SizeGroup
     rebuild_menu(): void
-    /* Virtual methods of Gdaui.DataProxyInfo */
+    /* Virtual methods of Gdaui-6.0.Gdaui.DataProxyInfo */
     vfunc_add_child(builder: Gtk.Builder, child: GObject.Object, type?: string | null): void
     vfunc_construct_child(builder: Gtk.Builder, name: string): GObject.Object
     vfunc_custom_finished(builder: Gtk.Builder, child: GObject.Object | null, tagname: string, data?: object | null): void
@@ -6881,11 +6881,11 @@ export class DataProxyInfo {
     vfunc_get_text_orientation(): Gtk.Orientation
     vfunc_get_text_size_group(): Gtk.SizeGroup
     vfunc_rebuild_menu(): void
-    /* Virtual methods of Gtk.Toolbar */
+    /* Virtual methods of Gtk-3.0.Gtk.Toolbar */
     vfunc_orientation_changed(orientation: Gtk.Orientation): void
     vfunc_popup_context_menu(x: number, y: number, button_number: number): boolean
     vfunc_style_changed(style: Gtk.ToolbarStyle): void
-    /* Virtual methods of Gtk.Container */
+    /* Virtual methods of Gtk-3.0.Gtk.Container */
     vfunc_add(widget: Gtk.Widget): void
     vfunc_check_resize(): void
     vfunc_child_type(): GObject.Type
@@ -6896,7 +6896,7 @@ export class DataProxyInfo {
     vfunc_remove(widget: Gtk.Widget): void
     vfunc_set_child_property(child: Gtk.Widget, property_id: number, value: any, pspec: GObject.ParamSpec): void
     vfunc_set_focus_child(child?: Gtk.Widget | null): void
-    /* Virtual methods of Gtk.Widget */
+    /* Virtual methods of Gtk-3.0.Gtk.Widget */
     vfunc_adjust_baseline_allocation(baseline: number): void
     vfunc_adjust_baseline_request(minimum_baseline: number, natural_baseline: number): void
     vfunc_adjust_size_allocation(orientation: Gtk.Orientation, minimum_size: number, natural_size: number, allocated_pos: number, allocated_size: number): void
@@ -6979,7 +6979,7 @@ export class DataProxyInfo {
     vfunc_unrealize(): void
     vfunc_visibility_notify_event(event: Gdk.EventVisibility): boolean
     vfunc_window_state_event(event: Gdk.EventWindowState): boolean
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -6987,7 +6987,7 @@ export class DataProxyInfo {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gtk.Toolbar */
+    /* Signals of Gtk-3.0.Gtk.Toolbar */
     connect(sigName: "focus-home-or-end", callback: (($obj: DataProxyInfo, focus_home: boolean) => boolean)): number
     connect_after(sigName: "focus-home-or-end", callback: (($obj: DataProxyInfo, focus_home: boolean) => boolean)): number
     emit(sigName: "focus-home-or-end", focus_home: boolean): void
@@ -7000,7 +7000,7 @@ export class DataProxyInfo {
     connect(sigName: "style-changed", callback: (($obj: DataProxyInfo, style: Gtk.ToolbarStyle) => void)): number
     connect_after(sigName: "style-changed", callback: (($obj: DataProxyInfo, style: Gtk.ToolbarStyle) => void)): number
     emit(sigName: "style-changed", style: Gtk.ToolbarStyle): void
-    /* Signals of Gtk.Container */
+    /* Signals of Gtk-3.0.Gtk.Container */
     connect(sigName: "add", callback: (($obj: DataProxyInfo, object: Gtk.Widget) => void)): number
     connect_after(sigName: "add", callback: (($obj: DataProxyInfo, object: Gtk.Widget) => void)): number
     emit(sigName: "add", object: Gtk.Widget): void
@@ -7013,7 +7013,7 @@ export class DataProxyInfo {
     connect(sigName: "set-focus-child", callback: (($obj: DataProxyInfo, object: Gtk.Widget) => void)): number
     connect_after(sigName: "set-focus-child", callback: (($obj: DataProxyInfo, object: Gtk.Widget) => void)): number
     emit(sigName: "set-focus-child", object: Gtk.Widget): void
-    /* Signals of Gtk.Widget */
+    /* Signals of Gtk-3.0.Gtk.Widget */
     connect(sigName: "accel-closures-changed", callback: (($obj: DataProxyInfo) => void)): number
     connect_after(sigName: "accel-closures-changed", callback: (($obj: DataProxyInfo) => void)): number
     emit(sigName: "accel-closures-changed"): void
@@ -7221,7 +7221,7 @@ export class DataProxyInfo {
     connect(sigName: "window-state-event", callback: (($obj: DataProxyInfo, event: Gdk.EventWindowState) => boolean)): number
     connect_after(sigName: "window-state-event", callback: (($obj: DataProxyInfo, event: Gdk.EventWindowState) => boolean)): number
     emit(sigName: "window-state-event", event: Gdk.EventWindowState): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: DataProxyInfo, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: DataProxyInfo, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -7338,14 +7338,14 @@ export interface DataStore_ConstructProps extends GObject.Object_ConstructProps 
     prepend_null_entry?: boolean
 }
 export class DataStore {
-    /* Properties of Gdaui.DataStore */
+    /* Properties of Gdaui-6.0.Gdaui.DataStore */
     prepend_null_entry: boolean
     readonly proxy: object
-    /* Fields of Gdaui.DataStore */
+    /* Fields of Gdaui-6.0.Gdaui.DataStore */
     parent_instance: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Gdaui.DataStore */
+    /* Methods of Gdaui-6.0.Gdaui.DataStore */
     append(iter: Gtk.TreeIter): boolean
     delete(iter: Gtk.TreeIter): void
     get_iter_from_values(values: any[], cols_index: number): [ /* returnType */ boolean, /* iter */ Gtk.TreeIter ]
@@ -7353,7 +7353,7 @@ export class DataStore {
     get_row_from_iter(iter: Gtk.TreeIter): number
     set_value(iter: Gtk.TreeIter, col: number, value: any): boolean
     undelete(iter: Gtk.TreeIter): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -7375,7 +7375,7 @@ export class DataStore {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of Gtk.TreeModel */
+    /* Methods of Gtk-3.0.Gtk.TreeModel */
     filter_new(root?: Gtk.TreePath | null): Gtk.TreeModel
     foreach(func: Gtk.TreeModelForeachFunc): void
     get_column_type(index_: number): GObject.Type
@@ -7401,7 +7401,7 @@ export class DataStore {
     row_inserted(path: Gtk.TreePath, iter: Gtk.TreeIter): void
     rows_reordered(path: Gtk.TreePath, iter: Gtk.TreeIter | null, new_order: number[]): void
     unref_node(iter: Gtk.TreeIter): void
-    /* Virtual methods of Gdaui.DataStore */
+    /* Virtual methods of Gdaui-6.0.Gdaui.DataStore */
     vfunc_get_column_type(index_: number): GObject.Type
     vfunc_get_flags(): Gtk.TreeModelFlags
     vfunc_get_iter(path: Gtk.TreePath): [ /* returnType */ boolean, /* iter */ Gtk.TreeIter ]
@@ -7421,7 +7421,7 @@ export class DataStore {
     vfunc_row_has_child_toggled(path: Gtk.TreePath, iter: Gtk.TreeIter): void
     vfunc_row_inserted(path: Gtk.TreePath, iter: Gtk.TreeIter): void
     vfunc_unref_node(iter: Gtk.TreeIter): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -7429,11 +7429,11 @@ export class DataStore {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: DataStore, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: DataStore, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    /* Signals of Gtk.TreeModel */
+    /* Signals of Gtk-3.0.Gtk.TreeModel */
     connect(sigName: "row-changed", callback: (($obj: DataStore, path: Gtk.TreePath, iter: Gtk.TreeIter) => void)): number
     connect_after(sigName: "row-changed", callback: (($obj: DataStore, path: Gtk.TreePath, iter: Gtk.TreeIter) => void)): number
     emit(sigName: "row-changed", path: Gtk.TreePath, iter: Gtk.TreeIter): void
@@ -7468,10 +7468,10 @@ export interface Entry_ConstructProps extends Gtk.Entry_ConstructProps {
     editing_canceled?: boolean
 }
 export class Entry {
-    /* Properties of Gdaui.Entry */
+    /* Properties of Gdaui-6.0.Gdaui.Entry */
     prefix: string
     suffix: string
-    /* Properties of Gtk.Entry */
+    /* Properties of Gtk-3.0.Gtk.Entry */
     activates_default: boolean
     attributes: Pango.AttrList
     buffer: Gtk.EntryBuffer
@@ -7523,7 +7523,7 @@ export class Entry {
     visibility: boolean
     width_chars: number
     xalign: number
-    /* Properties of Gtk.Widget */
+    /* Properties of Gtk-3.0.Gtk.Widget */
     app_paintable: boolean
     can_default: boolean
     can_focus: boolean
@@ -7563,20 +7563,20 @@ export class Entry {
     visible: boolean
     width_request: number
     readonly window: Gdk.Window
-    /* Properties of Gtk.CellEditable */
+    /* Properties of Gtk-3.0.Gtk.CellEditable */
     editing_canceled: boolean
-    /* Fields of Gdaui.Entry */
+    /* Fields of Gdaui-6.0.Gdaui.Entry */
     parent_instance: Gtk.Entry
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Gdaui.Entry */
+    /* Methods of Gdaui-6.0.Gdaui.Entry */
     get_text(): string
     set_max_length(max: number): void
     set_prefix(prefix: string): void
     set_suffix(suffix: string): void
     set_text(text?: string | null): void
     set_width_chars(max_width: number): void
-    /* Methods of Gtk.Entry */
+    /* Methods of Gtk-3.0.Gtk.Entry */
     get_activates_default(): boolean
     get_alignment(): number
     get_attributes(): Pango.AttrList | null
@@ -7649,7 +7649,7 @@ export class Entry {
     set_width_chars(n_chars: number): void
     text_index_to_layout_index(text_index: number): number
     unset_invisible_char(): void
-    /* Methods of Gtk.Widget */
+    /* Methods of Gtk-3.0.Gtk.Widget */
     activate(): boolean
     add_accelerator(accel_signal: string, accel_group: Gtk.AccelGroup, accel_key: number, accel_mods: Gdk.ModifierType, accel_flags: Gtk.AccelFlags): void
     add_device_events(device: Gdk.Device, events: Gdk.EventMask): void
@@ -7908,7 +7908,7 @@ export class Entry {
     unrealize(): void
     unregister_window(window: Gdk.Window): void
     unset_state_flags(flags: Gtk.StateFlags): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -7930,7 +7930,7 @@ export class Entry {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of Gtk.Buildable */
+    /* Methods of Gtk-3.0.Gtk.Buildable */
     add_child(builder: Gtk.Builder, child: GObject.Object, type?: string | null): void
     construct_child(builder: Gtk.Builder, name: string): GObject.Object
     custom_finished(builder: Gtk.Builder, child: GObject.Object | null, tagname: string, data?: object | null): void
@@ -7939,11 +7939,11 @@ export class Entry {
     get_internal_child(builder: Gtk.Builder, childname: string): GObject.Object
     parser_finished(builder: Gtk.Builder): void
     set_buildable_property(builder: Gtk.Builder, name: string, value: any): void
-    /* Methods of Gtk.CellEditable */
+    /* Methods of Gtk-3.0.Gtk.CellEditable */
     editing_done(): void
     remove_widget(): void
     start_editing(event?: Gdk.Event | null): void
-    /* Methods of Gtk.Editable */
+    /* Methods of Gtk-3.0.Gtk.Editable */
     copy_clipboard(): void
     cut_clipboard(): void
     delete_selection(): void
@@ -7957,7 +7957,7 @@ export class Entry {
     select_region(start_pos: number, end_pos: number): void
     set_editable(is_editable: boolean): void
     set_position(position: number): void
-    /* Virtual methods of Gdaui.Entry */
+    /* Virtual methods of Gdaui-6.0.Gdaui.Entry */
     vfunc_assume_delete(virt_start_pos: number, virt_end_pos: number, offset: number): void
     vfunc_assume_insert(text: string, text_length: number, virt_pos: number, offset: number): void
     vfunc_get_empty_text(): string
@@ -7984,7 +7984,7 @@ export class Entry {
     vfunc_insert_text(new_text: string, new_text_length: number, position: number): /* position */ number
     vfunc_set_position(position: number): void
     vfunc_set_selection_bounds(start_pos: number, end_pos: number): void
-    /* Virtual methods of Gtk.Entry */
+    /* Virtual methods of Gtk-3.0.Gtk.Entry */
     vfunc_activate(): void
     vfunc_backspace(): void
     vfunc_copy_clipboard(): void
@@ -7998,7 +7998,7 @@ export class Entry {
     vfunc_paste_clipboard(): void
     vfunc_populate_popup(popup: Gtk.Widget): void
     vfunc_toggle_overwrite(): void
-    /* Virtual methods of Gtk.Widget */
+    /* Virtual methods of Gtk-3.0.Gtk.Widget */
     vfunc_adjust_baseline_allocation(baseline: number): void
     vfunc_adjust_baseline_request(minimum_baseline: number, natural_baseline: number): void
     vfunc_adjust_size_allocation(orientation: Gtk.Orientation, minimum_size: number, natural_size: number, allocated_pos: number, allocated_size: number): void
@@ -8081,7 +8081,7 @@ export class Entry {
     vfunc_unrealize(): void
     vfunc_visibility_notify_event(event: Gdk.EventVisibility): boolean
     vfunc_window_state_event(event: Gdk.EventWindowState): boolean
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -8089,7 +8089,7 @@ export class Entry {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gtk.Entry */
+    /* Signals of Gtk-3.0.Gtk.Entry */
     connect(sigName: "activate", callback: (($obj: Entry) => void)): number
     connect_after(sigName: "activate", callback: (($obj: Entry) => void)): number
     emit(sigName: "activate"): void
@@ -8132,7 +8132,7 @@ export class Entry {
     connect(sigName: "toggle-overwrite", callback: (($obj: Entry) => void)): number
     connect_after(sigName: "toggle-overwrite", callback: (($obj: Entry) => void)): number
     emit(sigName: "toggle-overwrite"): void
-    /* Signals of Gtk.Widget */
+    /* Signals of Gtk-3.0.Gtk.Widget */
     connect(sigName: "accel-closures-changed", callback: (($obj: Entry) => void)): number
     connect_after(sigName: "accel-closures-changed", callback: (($obj: Entry) => void)): number
     emit(sigName: "accel-closures-changed"): void
@@ -8340,18 +8340,18 @@ export class Entry {
     connect(sigName: "window-state-event", callback: (($obj: Entry, event: Gdk.EventWindowState) => boolean)): number
     connect_after(sigName: "window-state-event", callback: (($obj: Entry, event: Gdk.EventWindowState) => boolean)): number
     emit(sigName: "window-state-event", event: Gdk.EventWindowState): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Entry, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Entry, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    /* Signals of Gtk.CellEditable */
+    /* Signals of Gtk-3.0.Gtk.CellEditable */
     connect(sigName: "editing-done", callback: (($obj: Entry) => void)): number
     connect_after(sigName: "editing-done", callback: (($obj: Entry) => void)): number
     emit(sigName: "editing-done"): void
     connect(sigName: "remove-widget", callback: (($obj: Entry) => void)): number
     connect_after(sigName: "remove-widget", callback: (($obj: Entry) => void)): number
     emit(sigName: "remove-widget"): void
-    /* Signals of Gtk.Editable */
+    /* Signals of Gtk-3.0.Gtk.Editable */
     connect(sigName: "changed", callback: (($obj: Entry) => void)): number
     connect_after(sigName: "changed", callback: (($obj: Entry) => void)): number
     emit(sigName: "changed"): void
@@ -8563,20 +8563,20 @@ export interface EntryBin_ConstructProps extends EntryWrapper_ConstructProps {
     orientation?: Gtk.Orientation
 }
 export class EntryBin {
-    /* Properties of Gdaui.EntryWrapper */
+    /* Properties of Gdaui-6.0.Gdaui.EntryWrapper */
     set_default_if_invalid: boolean
-    /* Properties of Gdaui.EntryShell */
+    /* Properties of Gdaui-6.0.Gdaui.EntryShell */
     handler: Gda.DataHandler
     is_cell_renderer: boolean
-    /* Properties of Gtk.Box */
+    /* Properties of Gtk-3.0.Gtk.Box */
     baseline_position: Gtk.BaselinePosition
     homogeneous: boolean
     spacing: number
-    /* Properties of Gtk.Container */
+    /* Properties of Gtk-3.0.Gtk.Container */
     border_width: number
     child: Gtk.Widget
     resize_mode: Gtk.ResizeMode
-    /* Properties of Gtk.Widget */
+    /* Properties of Gtk-3.0.Gtk.Widget */
     app_paintable: boolean
     can_default: boolean
     can_focus: boolean
@@ -8616,23 +8616,23 @@ export class EntryBin {
     visible: boolean
     width_request: number
     readonly window: Gdk.Window
-    /* Properties of Gtk.Orientable */
+    /* Properties of Gtk-3.0.Gtk.Orientable */
     orientation: Gtk.Orientation
-    /* Fields of Gdaui.EntryBin */
+    /* Fields of Gdaui-6.0.Gdaui.EntryBin */
     parent_instance: EntryWrapper
-    /* Fields of Gtk.Box */
+    /* Fields of Gtk-3.0.Gtk.Box */
     container: Gtk.Container
-    /* Fields of Gtk.Container */
+    /* Fields of Gtk-3.0.Gtk.Container */
     widget: Gtk.Widget
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Gdaui.EntryWrapper */
+    /* Methods of Gdaui-6.0.Gdaui.EntryWrapper */
     contents_activated(): void
     contents_changed(): void
-    /* Methods of Gdaui.EntryShell */
+    /* Methods of Gdaui-6.0.Gdaui.EntryShell */
     pack_entry(entry: Gtk.Widget): void
     set_invalid_color(red: number, green: number, blue: number, alpha: number): void
-    /* Methods of Gtk.Box */
+    /* Methods of Gtk-3.0.Gtk.Box */
     get_baseline_position(): Gtk.BaselinePosition
     get_center_widget(): Gtk.Widget | null
     get_homogeneous(): boolean
@@ -8646,7 +8646,7 @@ export class EntryBin {
     set_child_packing(child: Gtk.Widget, expand: boolean, fill: boolean, padding: number, pack_type: Gtk.PackType): void
     set_homogeneous(homogeneous: boolean): void
     set_spacing(spacing: number): void
-    /* Methods of Gtk.Container */
+    /* Methods of Gtk-3.0.Gtk.Container */
     add(widget: Gtk.Widget): void
     check_resize(): void
     child_get_property(child: Gtk.Widget, property_name: string, value: any): void
@@ -8674,7 +8674,7 @@ export class EntryBin {
     set_reallocate_redraws(needs_redraws: boolean): void
     set_resize_mode(resize_mode: Gtk.ResizeMode): void
     unset_focus_chain(): void
-    /* Methods of Gtk.Widget */
+    /* Methods of Gtk-3.0.Gtk.Widget */
     activate(): boolean
     add_accelerator(accel_signal: string, accel_group: Gtk.AccelGroup, accel_key: number, accel_mods: Gdk.ModifierType, accel_flags: Gtk.AccelFlags): void
     add_device_events(device: Gdk.Device, events: Gdk.EventMask): void
@@ -8933,7 +8933,7 @@ export class EntryBin {
     unrealize(): void
     unregister_window(window: Gdk.Window): void
     unset_state_flags(flags: Gtk.StateFlags): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -8955,7 +8955,7 @@ export class EntryBin {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of Gdaui.DataEntry */
+    /* Methods of Gdaui-6.0.Gdaui.DataEntry */
     get_attributes(): Gda.ValueAttribute
     get_editable(): boolean
     get_handler(): Gda.DataHandler
@@ -8971,7 +8971,7 @@ export class EntryBin {
     set_value(value?: any | null): void
     set_value_type(type: GObject.Type): void
     validate(): boolean
-    /* Methods of Gtk.Buildable */
+    /* Methods of Gtk-3.0.Gtk.Buildable */
     add_child(builder: Gtk.Builder, child: GObject.Object, type?: string | null): void
     construct_child(builder: Gtk.Builder, name: string): GObject.Object
     custom_finished(builder: Gtk.Builder, child: GObject.Object | null, tagname: string, data?: object | null): void
@@ -8980,10 +8980,10 @@ export class EntryBin {
     get_internal_child(builder: Gtk.Builder, childname: string): GObject.Object
     parser_finished(builder: Gtk.Builder): void
     set_buildable_property(builder: Gtk.Builder, name: string, value: any): void
-    /* Methods of Gtk.Orientable */
+    /* Methods of Gtk-3.0.Gtk.Orientable */
     get_orientation(): Gtk.Orientation
     set_orientation(orientation: Gtk.Orientation): void
-    /* Virtual methods of Gdaui.EntryWrapper */
+    /* Virtual methods of Gdaui-6.0.Gdaui.EntryWrapper */
     vfunc_can_expand(horiz: boolean): boolean
     vfunc_grab_focus(): void
     vfunc_is_valid(): boolean
@@ -9009,7 +9009,7 @@ export class EntryBin {
     vfunc_set_value_type(type: GObject.Type): void
     vfunc_status_changed(): void
     vfunc_validate(): boolean
-    /* Virtual methods of Gdaui.EntryShell */
+    /* Virtual methods of Gdaui-6.0.Gdaui.EntryShell */
     vfunc_add_child(builder: Gtk.Builder, child: GObject.Object, type?: string | null): void
     vfunc_construct_child(builder: Gtk.Builder, name: string): GObject.Object
     vfunc_custom_finished(builder: Gtk.Builder, child: GObject.Object | null, tagname: string, data?: object | null): void
@@ -9020,7 +9020,7 @@ export class EntryBin {
     vfunc_parser_finished(builder: Gtk.Builder): void
     vfunc_set_buildable_property(builder: Gtk.Builder, name: string, value: any): void
     vfunc_set_name(name: string): void
-    /* Virtual methods of Gtk.Container */
+    /* Virtual methods of Gtk-3.0.Gtk.Container */
     vfunc_add(widget: Gtk.Widget): void
     vfunc_check_resize(): void
     vfunc_child_type(): GObject.Type
@@ -9031,7 +9031,7 @@ export class EntryBin {
     vfunc_remove(widget: Gtk.Widget): void
     vfunc_set_child_property(child: Gtk.Widget, property_id: number, value: any, pspec: GObject.ParamSpec): void
     vfunc_set_focus_child(child?: Gtk.Widget | null): void
-    /* Virtual methods of Gtk.Widget */
+    /* Virtual methods of Gtk-3.0.Gtk.Widget */
     vfunc_adjust_baseline_allocation(baseline: number): void
     vfunc_adjust_baseline_request(minimum_baseline: number, natural_baseline: number): void
     vfunc_adjust_size_allocation(orientation: Gtk.Orientation, minimum_size: number, natural_size: number, allocated_pos: number, allocated_size: number): void
@@ -9114,7 +9114,7 @@ export class EntryBin {
     vfunc_unrealize(): void
     vfunc_visibility_notify_event(event: Gdk.EventVisibility): boolean
     vfunc_window_state_event(event: Gdk.EventWindowState): boolean
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -9122,7 +9122,7 @@ export class EntryBin {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gtk.Container */
+    /* Signals of Gtk-3.0.Gtk.Container */
     connect(sigName: "add", callback: (($obj: EntryBin, object: Gtk.Widget) => void)): number
     connect_after(sigName: "add", callback: (($obj: EntryBin, object: Gtk.Widget) => void)): number
     emit(sigName: "add", object: Gtk.Widget): void
@@ -9135,7 +9135,7 @@ export class EntryBin {
     connect(sigName: "set-focus-child", callback: (($obj: EntryBin, object: Gtk.Widget) => void)): number
     connect_after(sigName: "set-focus-child", callback: (($obj: EntryBin, object: Gtk.Widget) => void)): number
     emit(sigName: "set-focus-child", object: Gtk.Widget): void
-    /* Signals of Gtk.Widget */
+    /* Signals of Gtk-3.0.Gtk.Widget */
     connect(sigName: "accel-closures-changed", callback: (($obj: EntryBin) => void)): number
     connect_after(sigName: "accel-closures-changed", callback: (($obj: EntryBin) => void)): number
     emit(sigName: "accel-closures-changed"): void
@@ -9343,11 +9343,11 @@ export class EntryBin {
     connect(sigName: "window-state-event", callback: (($obj: EntryBin, event: Gdk.EventWindowState) => boolean)): number
     connect_after(sigName: "window-state-event", callback: (($obj: EntryBin, event: Gdk.EventWindowState) => boolean)): number
     emit(sigName: "window-state-event", event: Gdk.EventWindowState): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: EntryBin, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: EntryBin, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    /* Signals of Gdaui.DataEntry */
+    /* Signals of Gdaui-6.0.Gdaui.DataEntry */
     connect(sigName: "contents-activated", callback: (($obj: EntryBin) => void)): number
     connect_after(sigName: "contents-activated", callback: (($obj: EntryBin) => void)): number
     emit(sigName: "contents-activated"): void
@@ -9474,20 +9474,20 @@ export interface EntryBoolean_ConstructProps extends EntryWrapper_ConstructProps
     orientation?: Gtk.Orientation
 }
 export class EntryBoolean {
-    /* Properties of Gdaui.EntryWrapper */
+    /* Properties of Gdaui-6.0.Gdaui.EntryWrapper */
     set_default_if_invalid: boolean
-    /* Properties of Gdaui.EntryShell */
+    /* Properties of Gdaui-6.0.Gdaui.EntryShell */
     handler: Gda.DataHandler
     is_cell_renderer: boolean
-    /* Properties of Gtk.Box */
+    /* Properties of Gtk-3.0.Gtk.Box */
     baseline_position: Gtk.BaselinePosition
     homogeneous: boolean
     spacing: number
-    /* Properties of Gtk.Container */
+    /* Properties of Gtk-3.0.Gtk.Container */
     border_width: number
     child: Gtk.Widget
     resize_mode: Gtk.ResizeMode
-    /* Properties of Gtk.Widget */
+    /* Properties of Gtk-3.0.Gtk.Widget */
     app_paintable: boolean
     can_default: boolean
     can_focus: boolean
@@ -9527,23 +9527,23 @@ export class EntryBoolean {
     visible: boolean
     width_request: number
     readonly window: Gdk.Window
-    /* Properties of Gtk.Orientable */
+    /* Properties of Gtk-3.0.Gtk.Orientable */
     orientation: Gtk.Orientation
-    /* Fields of Gdaui.EntryBoolean */
+    /* Fields of Gdaui-6.0.Gdaui.EntryBoolean */
     parent_instance: EntryWrapper
-    /* Fields of Gtk.Box */
+    /* Fields of Gtk-3.0.Gtk.Box */
     container: Gtk.Container
-    /* Fields of Gtk.Container */
+    /* Fields of Gtk-3.0.Gtk.Container */
     widget: Gtk.Widget
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Gdaui.EntryWrapper */
+    /* Methods of Gdaui-6.0.Gdaui.EntryWrapper */
     contents_activated(): void
     contents_changed(): void
-    /* Methods of Gdaui.EntryShell */
+    /* Methods of Gdaui-6.0.Gdaui.EntryShell */
     pack_entry(entry: Gtk.Widget): void
     set_invalid_color(red: number, green: number, blue: number, alpha: number): void
-    /* Methods of Gtk.Box */
+    /* Methods of Gtk-3.0.Gtk.Box */
     get_baseline_position(): Gtk.BaselinePosition
     get_center_widget(): Gtk.Widget | null
     get_homogeneous(): boolean
@@ -9557,7 +9557,7 @@ export class EntryBoolean {
     set_child_packing(child: Gtk.Widget, expand: boolean, fill: boolean, padding: number, pack_type: Gtk.PackType): void
     set_homogeneous(homogeneous: boolean): void
     set_spacing(spacing: number): void
-    /* Methods of Gtk.Container */
+    /* Methods of Gtk-3.0.Gtk.Container */
     add(widget: Gtk.Widget): void
     check_resize(): void
     child_get_property(child: Gtk.Widget, property_name: string, value: any): void
@@ -9585,7 +9585,7 @@ export class EntryBoolean {
     set_reallocate_redraws(needs_redraws: boolean): void
     set_resize_mode(resize_mode: Gtk.ResizeMode): void
     unset_focus_chain(): void
-    /* Methods of Gtk.Widget */
+    /* Methods of Gtk-3.0.Gtk.Widget */
     activate(): boolean
     add_accelerator(accel_signal: string, accel_group: Gtk.AccelGroup, accel_key: number, accel_mods: Gdk.ModifierType, accel_flags: Gtk.AccelFlags): void
     add_device_events(device: Gdk.Device, events: Gdk.EventMask): void
@@ -9844,7 +9844,7 @@ export class EntryBoolean {
     unrealize(): void
     unregister_window(window: Gdk.Window): void
     unset_state_flags(flags: Gtk.StateFlags): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -9866,7 +9866,7 @@ export class EntryBoolean {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of Gdaui.DataEntry */
+    /* Methods of Gdaui-6.0.Gdaui.DataEntry */
     get_attributes(): Gda.ValueAttribute
     get_editable(): boolean
     get_handler(): Gda.DataHandler
@@ -9882,7 +9882,7 @@ export class EntryBoolean {
     set_value(value?: any | null): void
     set_value_type(type: GObject.Type): void
     validate(): boolean
-    /* Methods of Gtk.Buildable */
+    /* Methods of Gtk-3.0.Gtk.Buildable */
     add_child(builder: Gtk.Builder, child: GObject.Object, type?: string | null): void
     construct_child(builder: Gtk.Builder, name: string): GObject.Object
     custom_finished(builder: Gtk.Builder, child: GObject.Object | null, tagname: string, data?: object | null): void
@@ -9891,10 +9891,10 @@ export class EntryBoolean {
     get_internal_child(builder: Gtk.Builder, childname: string): GObject.Object
     parser_finished(builder: Gtk.Builder): void
     set_buildable_property(builder: Gtk.Builder, name: string, value: any): void
-    /* Methods of Gtk.Orientable */
+    /* Methods of Gtk-3.0.Gtk.Orientable */
     get_orientation(): Gtk.Orientation
     set_orientation(orientation: Gtk.Orientation): void
-    /* Virtual methods of Gdaui.EntryWrapper */
+    /* Virtual methods of Gdaui-6.0.Gdaui.EntryWrapper */
     vfunc_can_expand(horiz: boolean): boolean
     vfunc_grab_focus(): void
     vfunc_is_valid(): boolean
@@ -9920,7 +9920,7 @@ export class EntryBoolean {
     vfunc_set_value_type(type: GObject.Type): void
     vfunc_status_changed(): void
     vfunc_validate(): boolean
-    /* Virtual methods of Gdaui.EntryShell */
+    /* Virtual methods of Gdaui-6.0.Gdaui.EntryShell */
     vfunc_add_child(builder: Gtk.Builder, child: GObject.Object, type?: string | null): void
     vfunc_construct_child(builder: Gtk.Builder, name: string): GObject.Object
     vfunc_custom_finished(builder: Gtk.Builder, child: GObject.Object | null, tagname: string, data?: object | null): void
@@ -9931,7 +9931,7 @@ export class EntryBoolean {
     vfunc_parser_finished(builder: Gtk.Builder): void
     vfunc_set_buildable_property(builder: Gtk.Builder, name: string, value: any): void
     vfunc_set_name(name: string): void
-    /* Virtual methods of Gtk.Container */
+    /* Virtual methods of Gtk-3.0.Gtk.Container */
     vfunc_add(widget: Gtk.Widget): void
     vfunc_check_resize(): void
     vfunc_child_type(): GObject.Type
@@ -9942,7 +9942,7 @@ export class EntryBoolean {
     vfunc_remove(widget: Gtk.Widget): void
     vfunc_set_child_property(child: Gtk.Widget, property_id: number, value: any, pspec: GObject.ParamSpec): void
     vfunc_set_focus_child(child?: Gtk.Widget | null): void
-    /* Virtual methods of Gtk.Widget */
+    /* Virtual methods of Gtk-3.0.Gtk.Widget */
     vfunc_adjust_baseline_allocation(baseline: number): void
     vfunc_adjust_baseline_request(minimum_baseline: number, natural_baseline: number): void
     vfunc_adjust_size_allocation(orientation: Gtk.Orientation, minimum_size: number, natural_size: number, allocated_pos: number, allocated_size: number): void
@@ -10025,7 +10025,7 @@ export class EntryBoolean {
     vfunc_unrealize(): void
     vfunc_visibility_notify_event(event: Gdk.EventVisibility): boolean
     vfunc_window_state_event(event: Gdk.EventWindowState): boolean
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -10033,7 +10033,7 @@ export class EntryBoolean {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gtk.Container */
+    /* Signals of Gtk-3.0.Gtk.Container */
     connect(sigName: "add", callback: (($obj: EntryBoolean, object: Gtk.Widget) => void)): number
     connect_after(sigName: "add", callback: (($obj: EntryBoolean, object: Gtk.Widget) => void)): number
     emit(sigName: "add", object: Gtk.Widget): void
@@ -10046,7 +10046,7 @@ export class EntryBoolean {
     connect(sigName: "set-focus-child", callback: (($obj: EntryBoolean, object: Gtk.Widget) => void)): number
     connect_after(sigName: "set-focus-child", callback: (($obj: EntryBoolean, object: Gtk.Widget) => void)): number
     emit(sigName: "set-focus-child", object: Gtk.Widget): void
-    /* Signals of Gtk.Widget */
+    /* Signals of Gtk-3.0.Gtk.Widget */
     connect(sigName: "accel-closures-changed", callback: (($obj: EntryBoolean) => void)): number
     connect_after(sigName: "accel-closures-changed", callback: (($obj: EntryBoolean) => void)): number
     emit(sigName: "accel-closures-changed"): void
@@ -10254,11 +10254,11 @@ export class EntryBoolean {
     connect(sigName: "window-state-event", callback: (($obj: EntryBoolean, event: Gdk.EventWindowState) => boolean)): number
     connect_after(sigName: "window-state-event", callback: (($obj: EntryBoolean, event: Gdk.EventWindowState) => boolean)): number
     emit(sigName: "window-state-event", event: Gdk.EventWindowState): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: EntryBoolean, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: EntryBoolean, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    /* Signals of Gdaui.DataEntry */
+    /* Signals of Gdaui-6.0.Gdaui.DataEntry */
     connect(sigName: "contents-activated", callback: (($obj: EntryBoolean) => void)): number
     connect_after(sigName: "contents-activated", callback: (($obj: EntryBoolean) => void)): number
     emit(sigName: "contents-activated"): void
@@ -10386,20 +10386,20 @@ export interface EntryCombo_ConstructProps extends EntryShell_ConstructProps {
     orientation?: Gtk.Orientation
 }
 export class EntryCombo {
-    /* Properties of Gdaui.EntryCombo */
+    /* Properties of Gdaui-6.0.Gdaui.EntryCombo */
     set_default_if_invalid: boolean
-    /* Properties of Gdaui.EntryShell */
+    /* Properties of Gdaui-6.0.Gdaui.EntryShell */
     handler: Gda.DataHandler
     is_cell_renderer: boolean
-    /* Properties of Gtk.Box */
+    /* Properties of Gtk-3.0.Gtk.Box */
     baseline_position: Gtk.BaselinePosition
     homogeneous: boolean
     spacing: number
-    /* Properties of Gtk.Container */
+    /* Properties of Gtk-3.0.Gtk.Container */
     border_width: number
     child: Gtk.Widget
     resize_mode: Gtk.ResizeMode
-    /* Properties of Gtk.Widget */
+    /* Properties of Gtk-3.0.Gtk.Widget */
     app_paintable: boolean
     can_default: boolean
     can_focus: boolean
@@ -10439,27 +10439,27 @@ export class EntryCombo {
     visible: boolean
     width_request: number
     readonly window: Gdk.Window
-    /* Properties of Gtk.Orientable */
+    /* Properties of Gtk-3.0.Gtk.Orientable */
     orientation: Gtk.Orientation
-    /* Fields of Gdaui.EntryCombo */
+    /* Fields of Gdaui-6.0.Gdaui.EntryCombo */
     parent_instance: EntryShell
-    /* Fields of Gtk.Box */
+    /* Fields of Gtk-3.0.Gtk.Box */
     container: Gtk.Container
-    /* Fields of Gtk.Container */
+    /* Fields of Gtk-3.0.Gtk.Container */
     widget: Gtk.Widget
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Gdaui.EntryCombo */
+    /* Methods of Gdaui-6.0.Gdaui.EntryCombo */
     get_all_values(): any[]
     get_reference_values(): any[]
     get_values(): any[]
     set_default_values(values: any[]): void
     set_reference_values(values: any[]): void
     set_values(values?: any[] | null): boolean
-    /* Methods of Gdaui.EntryShell */
+    /* Methods of Gdaui-6.0.Gdaui.EntryShell */
     pack_entry(entry: Gtk.Widget): void
     set_invalid_color(red: number, green: number, blue: number, alpha: number): void
-    /* Methods of Gtk.Box */
+    /* Methods of Gtk-3.0.Gtk.Box */
     get_baseline_position(): Gtk.BaselinePosition
     get_center_widget(): Gtk.Widget | null
     get_homogeneous(): boolean
@@ -10473,7 +10473,7 @@ export class EntryCombo {
     set_child_packing(child: Gtk.Widget, expand: boolean, fill: boolean, padding: number, pack_type: Gtk.PackType): void
     set_homogeneous(homogeneous: boolean): void
     set_spacing(spacing: number): void
-    /* Methods of Gtk.Container */
+    /* Methods of Gtk-3.0.Gtk.Container */
     add(widget: Gtk.Widget): void
     check_resize(): void
     child_get_property(child: Gtk.Widget, property_name: string, value: any): void
@@ -10501,7 +10501,7 @@ export class EntryCombo {
     set_reallocate_redraws(needs_redraws: boolean): void
     set_resize_mode(resize_mode: Gtk.ResizeMode): void
     unset_focus_chain(): void
-    /* Methods of Gtk.Widget */
+    /* Methods of Gtk-3.0.Gtk.Widget */
     activate(): boolean
     add_accelerator(accel_signal: string, accel_group: Gtk.AccelGroup, accel_key: number, accel_mods: Gdk.ModifierType, accel_flags: Gtk.AccelFlags): void
     add_device_events(device: Gdk.Device, events: Gdk.EventMask): void
@@ -10760,7 +10760,7 @@ export class EntryCombo {
     unrealize(): void
     unregister_window(window: Gdk.Window): void
     unset_state_flags(flags: Gtk.StateFlags): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -10782,7 +10782,7 @@ export class EntryCombo {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of Gdaui.DataEntry */
+    /* Methods of Gdaui-6.0.Gdaui.DataEntry */
     get_attributes(): Gda.ValueAttribute
     get_editable(): boolean
     get_handler(): Gda.DataHandler
@@ -10798,7 +10798,7 @@ export class EntryCombo {
     set_value(value?: any | null): void
     set_value_type(type: GObject.Type): void
     validate(): boolean
-    /* Methods of Gtk.Buildable */
+    /* Methods of Gtk-3.0.Gtk.Buildable */
     add_child(builder: Gtk.Builder, child: GObject.Object, type?: string | null): void
     construct_child(builder: Gtk.Builder, name: string): GObject.Object
     custom_finished(builder: Gtk.Builder, child: GObject.Object | null, tagname: string, data?: object | null): void
@@ -10807,10 +10807,10 @@ export class EntryCombo {
     get_internal_child(builder: Gtk.Builder, childname: string): GObject.Object
     parser_finished(builder: Gtk.Builder): void
     set_buildable_property(builder: Gtk.Builder, name: string, value: any): void
-    /* Methods of Gtk.Orientable */
+    /* Methods of Gtk-3.0.Gtk.Orientable */
     get_orientation(): Gtk.Orientation
     set_orientation(orientation: Gtk.Orientation): void
-    /* Virtual methods of Gdaui.EntryCombo */
+    /* Virtual methods of Gdaui-6.0.Gdaui.EntryCombo */
     vfunc_can_expand(horiz: boolean): boolean
     vfunc_contents_activated(): void
     vfunc_contents_modified(): void
@@ -10831,7 +10831,7 @@ export class EntryCombo {
     vfunc_set_value_type(type: GObject.Type): void
     vfunc_status_changed(): void
     vfunc_validate(): boolean
-    /* Virtual methods of Gdaui.EntryShell */
+    /* Virtual methods of Gdaui-6.0.Gdaui.EntryShell */
     vfunc_add_child(builder: Gtk.Builder, child: GObject.Object, type?: string | null): void
     vfunc_construct_child(builder: Gtk.Builder, name: string): GObject.Object
     vfunc_custom_finished(builder: Gtk.Builder, child: GObject.Object | null, tagname: string, data?: object | null): void
@@ -10842,7 +10842,7 @@ export class EntryCombo {
     vfunc_parser_finished(builder: Gtk.Builder): void
     vfunc_set_buildable_property(builder: Gtk.Builder, name: string, value: any): void
     vfunc_set_name(name: string): void
-    /* Virtual methods of Gtk.Container */
+    /* Virtual methods of Gtk-3.0.Gtk.Container */
     vfunc_add(widget: Gtk.Widget): void
     vfunc_check_resize(): void
     vfunc_child_type(): GObject.Type
@@ -10853,7 +10853,7 @@ export class EntryCombo {
     vfunc_remove(widget: Gtk.Widget): void
     vfunc_set_child_property(child: Gtk.Widget, property_id: number, value: any, pspec: GObject.ParamSpec): void
     vfunc_set_focus_child(child?: Gtk.Widget | null): void
-    /* Virtual methods of Gtk.Widget */
+    /* Virtual methods of Gtk-3.0.Gtk.Widget */
     vfunc_adjust_baseline_allocation(baseline: number): void
     vfunc_adjust_baseline_request(minimum_baseline: number, natural_baseline: number): void
     vfunc_adjust_size_allocation(orientation: Gtk.Orientation, minimum_size: number, natural_size: number, allocated_pos: number, allocated_size: number): void
@@ -10936,7 +10936,7 @@ export class EntryCombo {
     vfunc_unrealize(): void
     vfunc_visibility_notify_event(event: Gdk.EventVisibility): boolean
     vfunc_window_state_event(event: Gdk.EventWindowState): boolean
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -10944,7 +10944,7 @@ export class EntryCombo {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gtk.Container */
+    /* Signals of Gtk-3.0.Gtk.Container */
     connect(sigName: "add", callback: (($obj: EntryCombo, object: Gtk.Widget) => void)): number
     connect_after(sigName: "add", callback: (($obj: EntryCombo, object: Gtk.Widget) => void)): number
     emit(sigName: "add", object: Gtk.Widget): void
@@ -10957,7 +10957,7 @@ export class EntryCombo {
     connect(sigName: "set-focus-child", callback: (($obj: EntryCombo, object: Gtk.Widget) => void)): number
     connect_after(sigName: "set-focus-child", callback: (($obj: EntryCombo, object: Gtk.Widget) => void)): number
     emit(sigName: "set-focus-child", object: Gtk.Widget): void
-    /* Signals of Gtk.Widget */
+    /* Signals of Gtk-3.0.Gtk.Widget */
     connect(sigName: "accel-closures-changed", callback: (($obj: EntryCombo) => void)): number
     connect_after(sigName: "accel-closures-changed", callback: (($obj: EntryCombo) => void)): number
     emit(sigName: "accel-closures-changed"): void
@@ -11165,11 +11165,11 @@ export class EntryCombo {
     connect(sigName: "window-state-event", callback: (($obj: EntryCombo, event: Gdk.EventWindowState) => boolean)): number
     connect_after(sigName: "window-state-event", callback: (($obj: EntryCombo, event: Gdk.EventWindowState) => boolean)): number
     emit(sigName: "window-state-event", event: Gdk.EventWindowState): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: EntryCombo, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: EntryCombo, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    /* Signals of Gdaui.DataEntry */
+    /* Signals of Gdaui-6.0.Gdaui.DataEntry */
     connect(sigName: "contents-activated", callback: (($obj: EntryCombo) => void)): number
     connect_after(sigName: "contents-activated", callback: (($obj: EntryCombo) => void)): number
     emit(sigName: "contents-activated"): void
@@ -11299,23 +11299,23 @@ export interface EntryCommonTime_ConstructProps extends EntryWrapper_ConstructPr
     orientation?: Gtk.Orientation
 }
 export class EntryCommonTime {
-    /* Properties of Gdaui.EntryCommonTime */
+    /* Properties of Gdaui-6.0.Gdaui.EntryCommonTime */
     editing_canceled: boolean
     type: GObject.Type
-    /* Properties of Gdaui.EntryWrapper */
+    /* Properties of Gdaui-6.0.Gdaui.EntryWrapper */
     set_default_if_invalid: boolean
-    /* Properties of Gdaui.EntryShell */
+    /* Properties of Gdaui-6.0.Gdaui.EntryShell */
     handler: Gda.DataHandler
     is_cell_renderer: boolean
-    /* Properties of Gtk.Box */
+    /* Properties of Gtk-3.0.Gtk.Box */
     baseline_position: Gtk.BaselinePosition
     homogeneous: boolean
     spacing: number
-    /* Properties of Gtk.Container */
+    /* Properties of Gtk-3.0.Gtk.Container */
     border_width: number
     child: Gtk.Widget
     resize_mode: Gtk.ResizeMode
-    /* Properties of Gtk.Widget */
+    /* Properties of Gtk-3.0.Gtk.Widget */
     app_paintable: boolean
     can_default: boolean
     can_focus: boolean
@@ -11355,23 +11355,23 @@ export class EntryCommonTime {
     visible: boolean
     width_request: number
     readonly window: Gdk.Window
-    /* Properties of Gtk.Orientable */
+    /* Properties of Gtk-3.0.Gtk.Orientable */
     orientation: Gtk.Orientation
-    /* Fields of Gdaui.EntryCommonTime */
+    /* Fields of Gdaui-6.0.Gdaui.EntryCommonTime */
     parent_instance: EntryWrapper
-    /* Fields of Gtk.Box */
+    /* Fields of Gtk-3.0.Gtk.Box */
     container: Gtk.Container
-    /* Fields of Gtk.Container */
+    /* Fields of Gtk-3.0.Gtk.Container */
     widget: Gtk.Widget
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Gdaui.EntryWrapper */
+    /* Methods of Gdaui-6.0.Gdaui.EntryWrapper */
     contents_activated(): void
     contents_changed(): void
-    /* Methods of Gdaui.EntryShell */
+    /* Methods of Gdaui-6.0.Gdaui.EntryShell */
     pack_entry(entry: Gtk.Widget): void
     set_invalid_color(red: number, green: number, blue: number, alpha: number): void
-    /* Methods of Gtk.Box */
+    /* Methods of Gtk-3.0.Gtk.Box */
     get_baseline_position(): Gtk.BaselinePosition
     get_center_widget(): Gtk.Widget | null
     get_homogeneous(): boolean
@@ -11385,7 +11385,7 @@ export class EntryCommonTime {
     set_child_packing(child: Gtk.Widget, expand: boolean, fill: boolean, padding: number, pack_type: Gtk.PackType): void
     set_homogeneous(homogeneous: boolean): void
     set_spacing(spacing: number): void
-    /* Methods of Gtk.Container */
+    /* Methods of Gtk-3.0.Gtk.Container */
     add(widget: Gtk.Widget): void
     check_resize(): void
     child_get_property(child: Gtk.Widget, property_name: string, value: any): void
@@ -11413,7 +11413,7 @@ export class EntryCommonTime {
     set_reallocate_redraws(needs_redraws: boolean): void
     set_resize_mode(resize_mode: Gtk.ResizeMode): void
     unset_focus_chain(): void
-    /* Methods of Gtk.Widget */
+    /* Methods of Gtk-3.0.Gtk.Widget */
     activate(): boolean
     add_accelerator(accel_signal: string, accel_group: Gtk.AccelGroup, accel_key: number, accel_mods: Gdk.ModifierType, accel_flags: Gtk.AccelFlags): void
     add_device_events(device: Gdk.Device, events: Gdk.EventMask): void
@@ -11672,7 +11672,7 @@ export class EntryCommonTime {
     unrealize(): void
     unregister_window(window: Gdk.Window): void
     unset_state_flags(flags: Gtk.StateFlags): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -11694,7 +11694,7 @@ export class EntryCommonTime {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of Gdaui.DataEntry */
+    /* Methods of Gdaui-6.0.Gdaui.DataEntry */
     get_attributes(): Gda.ValueAttribute
     get_editable(): boolean
     get_handler(): Gda.DataHandler
@@ -11710,7 +11710,7 @@ export class EntryCommonTime {
     set_value(value?: any | null): void
     set_value_type(type: GObject.Type): void
     validate(): boolean
-    /* Methods of Gtk.Buildable */
+    /* Methods of Gtk-3.0.Gtk.Buildable */
     add_child(builder: Gtk.Builder, child: GObject.Object, type?: string | null): void
     construct_child(builder: Gtk.Builder, name: string): GObject.Object
     custom_finished(builder: Gtk.Builder, child: GObject.Object | null, tagname: string, data?: object | null): void
@@ -11719,18 +11719,18 @@ export class EntryCommonTime {
     get_internal_child(builder: Gtk.Builder, childname: string): GObject.Object
     parser_finished(builder: Gtk.Builder): void
     set_buildable_property(builder: Gtk.Builder, name: string, value: any): void
-    /* Methods of Gtk.CellEditable */
+    /* Methods of Gtk-3.0.Gtk.CellEditable */
     editing_done(): void
     remove_widget(): void
     start_editing(event?: Gdk.Event | null): void
-    /* Methods of Gtk.Orientable */
+    /* Methods of Gtk-3.0.Gtk.Orientable */
     get_orientation(): Gtk.Orientation
     set_orientation(orientation: Gtk.Orientation): void
-    /* Virtual methods of Gdaui.EntryCommonTime */
+    /* Virtual methods of Gdaui-6.0.Gdaui.EntryCommonTime */
     vfunc_editing_done(): void
     vfunc_remove_widget(): void
     vfunc_start_editing(event?: Gdk.Event | null): void
-    /* Virtual methods of Gdaui.EntryWrapper */
+    /* Virtual methods of Gdaui-6.0.Gdaui.EntryWrapper */
     vfunc_can_expand(horiz: boolean): boolean
     vfunc_grab_focus(): void
     vfunc_is_valid(): boolean
@@ -11756,7 +11756,7 @@ export class EntryCommonTime {
     vfunc_set_value_type(type: GObject.Type): void
     vfunc_status_changed(): void
     vfunc_validate(): boolean
-    /* Virtual methods of Gdaui.EntryShell */
+    /* Virtual methods of Gdaui-6.0.Gdaui.EntryShell */
     vfunc_add_child(builder: Gtk.Builder, child: GObject.Object, type?: string | null): void
     vfunc_construct_child(builder: Gtk.Builder, name: string): GObject.Object
     vfunc_custom_finished(builder: Gtk.Builder, child: GObject.Object | null, tagname: string, data?: object | null): void
@@ -11767,7 +11767,7 @@ export class EntryCommonTime {
     vfunc_parser_finished(builder: Gtk.Builder): void
     vfunc_set_buildable_property(builder: Gtk.Builder, name: string, value: any): void
     vfunc_set_name(name: string): void
-    /* Virtual methods of Gtk.Container */
+    /* Virtual methods of Gtk-3.0.Gtk.Container */
     vfunc_add(widget: Gtk.Widget): void
     vfunc_check_resize(): void
     vfunc_child_type(): GObject.Type
@@ -11778,7 +11778,7 @@ export class EntryCommonTime {
     vfunc_remove(widget: Gtk.Widget): void
     vfunc_set_child_property(child: Gtk.Widget, property_id: number, value: any, pspec: GObject.ParamSpec): void
     vfunc_set_focus_child(child?: Gtk.Widget | null): void
-    /* Virtual methods of Gtk.Widget */
+    /* Virtual methods of Gtk-3.0.Gtk.Widget */
     vfunc_adjust_baseline_allocation(baseline: number): void
     vfunc_adjust_baseline_request(minimum_baseline: number, natural_baseline: number): void
     vfunc_adjust_size_allocation(orientation: Gtk.Orientation, minimum_size: number, natural_size: number, allocated_pos: number, allocated_size: number): void
@@ -11861,7 +11861,7 @@ export class EntryCommonTime {
     vfunc_unrealize(): void
     vfunc_visibility_notify_event(event: Gdk.EventVisibility): boolean
     vfunc_window_state_event(event: Gdk.EventWindowState): boolean
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -11869,7 +11869,7 @@ export class EntryCommonTime {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gtk.Container */
+    /* Signals of Gtk-3.0.Gtk.Container */
     connect(sigName: "add", callback: (($obj: EntryCommonTime, object: Gtk.Widget) => void)): number
     connect_after(sigName: "add", callback: (($obj: EntryCommonTime, object: Gtk.Widget) => void)): number
     emit(sigName: "add", object: Gtk.Widget): void
@@ -11882,7 +11882,7 @@ export class EntryCommonTime {
     connect(sigName: "set-focus-child", callback: (($obj: EntryCommonTime, object: Gtk.Widget) => void)): number
     connect_after(sigName: "set-focus-child", callback: (($obj: EntryCommonTime, object: Gtk.Widget) => void)): number
     emit(sigName: "set-focus-child", object: Gtk.Widget): void
-    /* Signals of Gtk.Widget */
+    /* Signals of Gtk-3.0.Gtk.Widget */
     connect(sigName: "accel-closures-changed", callback: (($obj: EntryCommonTime) => void)): number
     connect_after(sigName: "accel-closures-changed", callback: (($obj: EntryCommonTime) => void)): number
     emit(sigName: "accel-closures-changed"): void
@@ -12090,11 +12090,11 @@ export class EntryCommonTime {
     connect(sigName: "window-state-event", callback: (($obj: EntryCommonTime, event: Gdk.EventWindowState) => boolean)): number
     connect_after(sigName: "window-state-event", callback: (($obj: EntryCommonTime, event: Gdk.EventWindowState) => boolean)): number
     emit(sigName: "window-state-event", event: Gdk.EventWindowState): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: EntryCommonTime, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: EntryCommonTime, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    /* Signals of Gdaui.DataEntry */
+    /* Signals of Gdaui-6.0.Gdaui.DataEntry */
     connect(sigName: "contents-activated", callback: (($obj: EntryCommonTime) => void)): number
     connect_after(sigName: "contents-activated", callback: (($obj: EntryCommonTime) => void)): number
     emit(sigName: "contents-activated"): void
@@ -12107,7 +12107,7 @@ export class EntryCommonTime {
     connect(sigName: "status-changed", callback: (($obj: EntryCommonTime) => void)): number
     connect_after(sigName: "status-changed", callback: (($obj: EntryCommonTime) => void)): number
     emit(sigName: "status-changed"): void
-    /* Signals of Gtk.CellEditable */
+    /* Signals of Gtk-3.0.Gtk.CellEditable */
     connect(sigName: "editing-done", callback: (($obj: EntryCommonTime) => void)): number
     connect_after(sigName: "editing-done", callback: (($obj: EntryCommonTime) => void)): number
     emit(sigName: "editing-done"): void
@@ -12230,23 +12230,23 @@ export interface EntryDate_ConstructProps extends EntryCommonTime_ConstructProps
     orientation?: Gtk.Orientation
 }
 export class EntryDate {
-    /* Properties of Gdaui.EntryCommonTime */
+    /* Properties of Gdaui-6.0.Gdaui.EntryCommonTime */
     editing_canceled: boolean
     type: GObject.Type
-    /* Properties of Gdaui.EntryWrapper */
+    /* Properties of Gdaui-6.0.Gdaui.EntryWrapper */
     set_default_if_invalid: boolean
-    /* Properties of Gdaui.EntryShell */
+    /* Properties of Gdaui-6.0.Gdaui.EntryShell */
     handler: Gda.DataHandler
     is_cell_renderer: boolean
-    /* Properties of Gtk.Box */
+    /* Properties of Gtk-3.0.Gtk.Box */
     baseline_position: Gtk.BaselinePosition
     homogeneous: boolean
     spacing: number
-    /* Properties of Gtk.Container */
+    /* Properties of Gtk-3.0.Gtk.Container */
     border_width: number
     child: Gtk.Widget
     resize_mode: Gtk.ResizeMode
-    /* Properties of Gtk.Widget */
+    /* Properties of Gtk-3.0.Gtk.Widget */
     app_paintable: boolean
     can_default: boolean
     can_focus: boolean
@@ -12286,23 +12286,23 @@ export class EntryDate {
     visible: boolean
     width_request: number
     readonly window: Gdk.Window
-    /* Properties of Gtk.Orientable */
+    /* Properties of Gtk-3.0.Gtk.Orientable */
     orientation: Gtk.Orientation
-    /* Fields of Gdaui.EntryDate */
+    /* Fields of Gdaui-6.0.Gdaui.EntryDate */
     parent_instance: EntryCommonTime
-    /* Fields of Gtk.Box */
+    /* Fields of Gtk-3.0.Gtk.Box */
     container: Gtk.Container
-    /* Fields of Gtk.Container */
+    /* Fields of Gtk-3.0.Gtk.Container */
     widget: Gtk.Widget
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Gdaui.EntryWrapper */
+    /* Methods of Gdaui-6.0.Gdaui.EntryWrapper */
     contents_activated(): void
     contents_changed(): void
-    /* Methods of Gdaui.EntryShell */
+    /* Methods of Gdaui-6.0.Gdaui.EntryShell */
     pack_entry(entry: Gtk.Widget): void
     set_invalid_color(red: number, green: number, blue: number, alpha: number): void
-    /* Methods of Gtk.Box */
+    /* Methods of Gtk-3.0.Gtk.Box */
     get_baseline_position(): Gtk.BaselinePosition
     get_center_widget(): Gtk.Widget | null
     get_homogeneous(): boolean
@@ -12316,7 +12316,7 @@ export class EntryDate {
     set_child_packing(child: Gtk.Widget, expand: boolean, fill: boolean, padding: number, pack_type: Gtk.PackType): void
     set_homogeneous(homogeneous: boolean): void
     set_spacing(spacing: number): void
-    /* Methods of Gtk.Container */
+    /* Methods of Gtk-3.0.Gtk.Container */
     add(widget: Gtk.Widget): void
     check_resize(): void
     child_get_property(child: Gtk.Widget, property_name: string, value: any): void
@@ -12344,7 +12344,7 @@ export class EntryDate {
     set_reallocate_redraws(needs_redraws: boolean): void
     set_resize_mode(resize_mode: Gtk.ResizeMode): void
     unset_focus_chain(): void
-    /* Methods of Gtk.Widget */
+    /* Methods of Gtk-3.0.Gtk.Widget */
     activate(): boolean
     add_accelerator(accel_signal: string, accel_group: Gtk.AccelGroup, accel_key: number, accel_mods: Gdk.ModifierType, accel_flags: Gtk.AccelFlags): void
     add_device_events(device: Gdk.Device, events: Gdk.EventMask): void
@@ -12603,7 +12603,7 @@ export class EntryDate {
     unrealize(): void
     unregister_window(window: Gdk.Window): void
     unset_state_flags(flags: Gtk.StateFlags): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -12625,7 +12625,7 @@ export class EntryDate {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of Gdaui.DataEntry */
+    /* Methods of Gdaui-6.0.Gdaui.DataEntry */
     get_attributes(): Gda.ValueAttribute
     get_editable(): boolean
     get_handler(): Gda.DataHandler
@@ -12641,7 +12641,7 @@ export class EntryDate {
     set_value(value?: any | null): void
     set_value_type(type: GObject.Type): void
     validate(): boolean
-    /* Methods of Gtk.Buildable */
+    /* Methods of Gtk-3.0.Gtk.Buildable */
     add_child(builder: Gtk.Builder, child: GObject.Object, type?: string | null): void
     construct_child(builder: Gtk.Builder, name: string): GObject.Object
     custom_finished(builder: Gtk.Builder, child: GObject.Object | null, tagname: string, data?: object | null): void
@@ -12650,18 +12650,18 @@ export class EntryDate {
     get_internal_child(builder: Gtk.Builder, childname: string): GObject.Object
     parser_finished(builder: Gtk.Builder): void
     set_buildable_property(builder: Gtk.Builder, name: string, value: any): void
-    /* Methods of Gtk.CellEditable */
+    /* Methods of Gtk-3.0.Gtk.CellEditable */
     editing_done(): void
     remove_widget(): void
     start_editing(event?: Gdk.Event | null): void
-    /* Methods of Gtk.Orientable */
+    /* Methods of Gtk-3.0.Gtk.Orientable */
     get_orientation(): Gtk.Orientation
     set_orientation(orientation: Gtk.Orientation): void
-    /* Virtual methods of Gdaui.EntryCommonTime */
+    /* Virtual methods of Gdaui-6.0.Gdaui.EntryCommonTime */
     vfunc_editing_done(): void
     vfunc_remove_widget(): void
     vfunc_start_editing(event?: Gdk.Event | null): void
-    /* Virtual methods of Gdaui.EntryWrapper */
+    /* Virtual methods of Gdaui-6.0.Gdaui.EntryWrapper */
     vfunc_can_expand(horiz: boolean): boolean
     vfunc_grab_focus(): void
     vfunc_is_valid(): boolean
@@ -12687,7 +12687,7 @@ export class EntryDate {
     vfunc_set_value_type(type: GObject.Type): void
     vfunc_status_changed(): void
     vfunc_validate(): boolean
-    /* Virtual methods of Gdaui.EntryShell */
+    /* Virtual methods of Gdaui-6.0.Gdaui.EntryShell */
     vfunc_add_child(builder: Gtk.Builder, child: GObject.Object, type?: string | null): void
     vfunc_construct_child(builder: Gtk.Builder, name: string): GObject.Object
     vfunc_custom_finished(builder: Gtk.Builder, child: GObject.Object | null, tagname: string, data?: object | null): void
@@ -12698,7 +12698,7 @@ export class EntryDate {
     vfunc_parser_finished(builder: Gtk.Builder): void
     vfunc_set_buildable_property(builder: Gtk.Builder, name: string, value: any): void
     vfunc_set_name(name: string): void
-    /* Virtual methods of Gtk.Container */
+    /* Virtual methods of Gtk-3.0.Gtk.Container */
     vfunc_add(widget: Gtk.Widget): void
     vfunc_check_resize(): void
     vfunc_child_type(): GObject.Type
@@ -12709,7 +12709,7 @@ export class EntryDate {
     vfunc_remove(widget: Gtk.Widget): void
     vfunc_set_child_property(child: Gtk.Widget, property_id: number, value: any, pspec: GObject.ParamSpec): void
     vfunc_set_focus_child(child?: Gtk.Widget | null): void
-    /* Virtual methods of Gtk.Widget */
+    /* Virtual methods of Gtk-3.0.Gtk.Widget */
     vfunc_adjust_baseline_allocation(baseline: number): void
     vfunc_adjust_baseline_request(minimum_baseline: number, natural_baseline: number): void
     vfunc_adjust_size_allocation(orientation: Gtk.Orientation, minimum_size: number, natural_size: number, allocated_pos: number, allocated_size: number): void
@@ -12792,7 +12792,7 @@ export class EntryDate {
     vfunc_unrealize(): void
     vfunc_visibility_notify_event(event: Gdk.EventVisibility): boolean
     vfunc_window_state_event(event: Gdk.EventWindowState): boolean
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -12800,7 +12800,7 @@ export class EntryDate {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gtk.Container */
+    /* Signals of Gtk-3.0.Gtk.Container */
     connect(sigName: "add", callback: (($obj: EntryDate, object: Gtk.Widget) => void)): number
     connect_after(sigName: "add", callback: (($obj: EntryDate, object: Gtk.Widget) => void)): number
     emit(sigName: "add", object: Gtk.Widget): void
@@ -12813,7 +12813,7 @@ export class EntryDate {
     connect(sigName: "set-focus-child", callback: (($obj: EntryDate, object: Gtk.Widget) => void)): number
     connect_after(sigName: "set-focus-child", callback: (($obj: EntryDate, object: Gtk.Widget) => void)): number
     emit(sigName: "set-focus-child", object: Gtk.Widget): void
-    /* Signals of Gtk.Widget */
+    /* Signals of Gtk-3.0.Gtk.Widget */
     connect(sigName: "accel-closures-changed", callback: (($obj: EntryDate) => void)): number
     connect_after(sigName: "accel-closures-changed", callback: (($obj: EntryDate) => void)): number
     emit(sigName: "accel-closures-changed"): void
@@ -13021,11 +13021,11 @@ export class EntryDate {
     connect(sigName: "window-state-event", callback: (($obj: EntryDate, event: Gdk.EventWindowState) => boolean)): number
     connect_after(sigName: "window-state-event", callback: (($obj: EntryDate, event: Gdk.EventWindowState) => boolean)): number
     emit(sigName: "window-state-event", event: Gdk.EventWindowState): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: EntryDate, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: EntryDate, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    /* Signals of Gdaui.DataEntry */
+    /* Signals of Gdaui-6.0.Gdaui.DataEntry */
     connect(sigName: "contents-activated", callback: (($obj: EntryDate) => void)): number
     connect_after(sigName: "contents-activated", callback: (($obj: EntryDate) => void)): number
     emit(sigName: "contents-activated"): void
@@ -13038,7 +13038,7 @@ export class EntryDate {
     connect(sigName: "status-changed", callback: (($obj: EntryDate) => void)): number
     connect_after(sigName: "status-changed", callback: (($obj: EntryDate) => void)): number
     emit(sigName: "status-changed"): void
-    /* Signals of Gtk.CellEditable */
+    /* Signals of Gtk-3.0.Gtk.CellEditable */
     connect(sigName: "editing-done", callback: (($obj: EntryDate) => void)): number
     connect_after(sigName: "editing-done", callback: (($obj: EntryDate) => void)): number
     emit(sigName: "editing-done"): void
@@ -13163,20 +13163,20 @@ export interface EntryNone_ConstructProps extends EntryWrapper_ConstructProps {
     orientation?: Gtk.Orientation
 }
 export class EntryNone {
-    /* Properties of Gdaui.EntryWrapper */
+    /* Properties of Gdaui-6.0.Gdaui.EntryWrapper */
     set_default_if_invalid: boolean
-    /* Properties of Gdaui.EntryShell */
+    /* Properties of Gdaui-6.0.Gdaui.EntryShell */
     handler: Gda.DataHandler
     is_cell_renderer: boolean
-    /* Properties of Gtk.Box */
+    /* Properties of Gtk-3.0.Gtk.Box */
     baseline_position: Gtk.BaselinePosition
     homogeneous: boolean
     spacing: number
-    /* Properties of Gtk.Container */
+    /* Properties of Gtk-3.0.Gtk.Container */
     border_width: number
     child: Gtk.Widget
     resize_mode: Gtk.ResizeMode
-    /* Properties of Gtk.Widget */
+    /* Properties of Gtk-3.0.Gtk.Widget */
     app_paintable: boolean
     can_default: boolean
     can_focus: boolean
@@ -13216,23 +13216,23 @@ export class EntryNone {
     visible: boolean
     width_request: number
     readonly window: Gdk.Window
-    /* Properties of Gtk.Orientable */
+    /* Properties of Gtk-3.0.Gtk.Orientable */
     orientation: Gtk.Orientation
-    /* Fields of Gdaui.EntryNone */
+    /* Fields of Gdaui-6.0.Gdaui.EntryNone */
     parent_instance: EntryWrapper
-    /* Fields of Gtk.Box */
+    /* Fields of Gtk-3.0.Gtk.Box */
     container: Gtk.Container
-    /* Fields of Gtk.Container */
+    /* Fields of Gtk-3.0.Gtk.Container */
     widget: Gtk.Widget
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Gdaui.EntryWrapper */
+    /* Methods of Gdaui-6.0.Gdaui.EntryWrapper */
     contents_activated(): void
     contents_changed(): void
-    /* Methods of Gdaui.EntryShell */
+    /* Methods of Gdaui-6.0.Gdaui.EntryShell */
     pack_entry(entry: Gtk.Widget): void
     set_invalid_color(red: number, green: number, blue: number, alpha: number): void
-    /* Methods of Gtk.Box */
+    /* Methods of Gtk-3.0.Gtk.Box */
     get_baseline_position(): Gtk.BaselinePosition
     get_center_widget(): Gtk.Widget | null
     get_homogeneous(): boolean
@@ -13246,7 +13246,7 @@ export class EntryNone {
     set_child_packing(child: Gtk.Widget, expand: boolean, fill: boolean, padding: number, pack_type: Gtk.PackType): void
     set_homogeneous(homogeneous: boolean): void
     set_spacing(spacing: number): void
-    /* Methods of Gtk.Container */
+    /* Methods of Gtk-3.0.Gtk.Container */
     add(widget: Gtk.Widget): void
     check_resize(): void
     child_get_property(child: Gtk.Widget, property_name: string, value: any): void
@@ -13274,7 +13274,7 @@ export class EntryNone {
     set_reallocate_redraws(needs_redraws: boolean): void
     set_resize_mode(resize_mode: Gtk.ResizeMode): void
     unset_focus_chain(): void
-    /* Methods of Gtk.Widget */
+    /* Methods of Gtk-3.0.Gtk.Widget */
     activate(): boolean
     add_accelerator(accel_signal: string, accel_group: Gtk.AccelGroup, accel_key: number, accel_mods: Gdk.ModifierType, accel_flags: Gtk.AccelFlags): void
     add_device_events(device: Gdk.Device, events: Gdk.EventMask): void
@@ -13533,7 +13533,7 @@ export class EntryNone {
     unrealize(): void
     unregister_window(window: Gdk.Window): void
     unset_state_flags(flags: Gtk.StateFlags): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -13555,7 +13555,7 @@ export class EntryNone {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of Gdaui.DataEntry */
+    /* Methods of Gdaui-6.0.Gdaui.DataEntry */
     get_attributes(): Gda.ValueAttribute
     get_editable(): boolean
     get_handler(): Gda.DataHandler
@@ -13571,7 +13571,7 @@ export class EntryNone {
     set_value(value?: any | null): void
     set_value_type(type: GObject.Type): void
     validate(): boolean
-    /* Methods of Gtk.Buildable */
+    /* Methods of Gtk-3.0.Gtk.Buildable */
     add_child(builder: Gtk.Builder, child: GObject.Object, type?: string | null): void
     construct_child(builder: Gtk.Builder, name: string): GObject.Object
     custom_finished(builder: Gtk.Builder, child: GObject.Object | null, tagname: string, data?: object | null): void
@@ -13580,10 +13580,10 @@ export class EntryNone {
     get_internal_child(builder: Gtk.Builder, childname: string): GObject.Object
     parser_finished(builder: Gtk.Builder): void
     set_buildable_property(builder: Gtk.Builder, name: string, value: any): void
-    /* Methods of Gtk.Orientable */
+    /* Methods of Gtk-3.0.Gtk.Orientable */
     get_orientation(): Gtk.Orientation
     set_orientation(orientation: Gtk.Orientation): void
-    /* Virtual methods of Gdaui.EntryWrapper */
+    /* Virtual methods of Gdaui-6.0.Gdaui.EntryWrapper */
     vfunc_can_expand(horiz: boolean): boolean
     vfunc_grab_focus(): void
     vfunc_is_valid(): boolean
@@ -13609,7 +13609,7 @@ export class EntryNone {
     vfunc_set_value_type(type: GObject.Type): void
     vfunc_status_changed(): void
     vfunc_validate(): boolean
-    /* Virtual methods of Gdaui.EntryShell */
+    /* Virtual methods of Gdaui-6.0.Gdaui.EntryShell */
     vfunc_add_child(builder: Gtk.Builder, child: GObject.Object, type?: string | null): void
     vfunc_construct_child(builder: Gtk.Builder, name: string): GObject.Object
     vfunc_custom_finished(builder: Gtk.Builder, child: GObject.Object | null, tagname: string, data?: object | null): void
@@ -13620,7 +13620,7 @@ export class EntryNone {
     vfunc_parser_finished(builder: Gtk.Builder): void
     vfunc_set_buildable_property(builder: Gtk.Builder, name: string, value: any): void
     vfunc_set_name(name: string): void
-    /* Virtual methods of Gtk.Container */
+    /* Virtual methods of Gtk-3.0.Gtk.Container */
     vfunc_add(widget: Gtk.Widget): void
     vfunc_check_resize(): void
     vfunc_child_type(): GObject.Type
@@ -13631,7 +13631,7 @@ export class EntryNone {
     vfunc_remove(widget: Gtk.Widget): void
     vfunc_set_child_property(child: Gtk.Widget, property_id: number, value: any, pspec: GObject.ParamSpec): void
     vfunc_set_focus_child(child?: Gtk.Widget | null): void
-    /* Virtual methods of Gtk.Widget */
+    /* Virtual methods of Gtk-3.0.Gtk.Widget */
     vfunc_adjust_baseline_allocation(baseline: number): void
     vfunc_adjust_baseline_request(minimum_baseline: number, natural_baseline: number): void
     vfunc_adjust_size_allocation(orientation: Gtk.Orientation, minimum_size: number, natural_size: number, allocated_pos: number, allocated_size: number): void
@@ -13714,7 +13714,7 @@ export class EntryNone {
     vfunc_unrealize(): void
     vfunc_visibility_notify_event(event: Gdk.EventVisibility): boolean
     vfunc_window_state_event(event: Gdk.EventWindowState): boolean
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -13722,7 +13722,7 @@ export class EntryNone {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gtk.Container */
+    /* Signals of Gtk-3.0.Gtk.Container */
     connect(sigName: "add", callback: (($obj: EntryNone, object: Gtk.Widget) => void)): number
     connect_after(sigName: "add", callback: (($obj: EntryNone, object: Gtk.Widget) => void)): number
     emit(sigName: "add", object: Gtk.Widget): void
@@ -13735,7 +13735,7 @@ export class EntryNone {
     connect(sigName: "set-focus-child", callback: (($obj: EntryNone, object: Gtk.Widget) => void)): number
     connect_after(sigName: "set-focus-child", callback: (($obj: EntryNone, object: Gtk.Widget) => void)): number
     emit(sigName: "set-focus-child", object: Gtk.Widget): void
-    /* Signals of Gtk.Widget */
+    /* Signals of Gtk-3.0.Gtk.Widget */
     connect(sigName: "accel-closures-changed", callback: (($obj: EntryNone) => void)): number
     connect_after(sigName: "accel-closures-changed", callback: (($obj: EntryNone) => void)): number
     emit(sigName: "accel-closures-changed"): void
@@ -13943,11 +13943,11 @@ export class EntryNone {
     connect(sigName: "window-state-event", callback: (($obj: EntryNone, event: Gdk.EventWindowState) => boolean)): number
     connect_after(sigName: "window-state-event", callback: (($obj: EntryNone, event: Gdk.EventWindowState) => boolean)): number
     emit(sigName: "window-state-event", event: Gdk.EventWindowState): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: EntryNone, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: EntryNone, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    /* Signals of Gdaui.DataEntry */
+    /* Signals of Gdaui-6.0.Gdaui.DataEntry */
     connect(sigName: "contents-activated", callback: (($obj: EntryNone) => void)): number
     connect_after(sigName: "contents-activated", callback: (($obj: EntryNone) => void)): number
     emit(sigName: "contents-activated"): void
@@ -14076,23 +14076,23 @@ export interface EntryNumber_ConstructProps extends EntryWrapper_ConstructProps 
     orientation?: Gtk.Orientation
 }
 export class EntryNumber {
-    /* Properties of Gdaui.EntryNumber */
+    /* Properties of Gdaui-6.0.Gdaui.EntryNumber */
     editing_canceled: boolean
     options: string
-    /* Properties of Gdaui.EntryWrapper */
+    /* Properties of Gdaui-6.0.Gdaui.EntryWrapper */
     set_default_if_invalid: boolean
-    /* Properties of Gdaui.EntryShell */
+    /* Properties of Gdaui-6.0.Gdaui.EntryShell */
     handler: Gda.DataHandler
     is_cell_renderer: boolean
-    /* Properties of Gtk.Box */
+    /* Properties of Gtk-3.0.Gtk.Box */
     baseline_position: Gtk.BaselinePosition
     homogeneous: boolean
     spacing: number
-    /* Properties of Gtk.Container */
+    /* Properties of Gtk-3.0.Gtk.Container */
     border_width: number
     child: Gtk.Widget
     resize_mode: Gtk.ResizeMode
-    /* Properties of Gtk.Widget */
+    /* Properties of Gtk-3.0.Gtk.Widget */
     app_paintable: boolean
     can_default: boolean
     can_focus: boolean
@@ -14132,23 +14132,23 @@ export class EntryNumber {
     visible: boolean
     width_request: number
     readonly window: Gdk.Window
-    /* Properties of Gtk.Orientable */
+    /* Properties of Gtk-3.0.Gtk.Orientable */
     orientation: Gtk.Orientation
-    /* Fields of Gdaui.EntryNumber */
+    /* Fields of Gdaui-6.0.Gdaui.EntryNumber */
     parent_instance: EntryWrapper
-    /* Fields of Gtk.Box */
+    /* Fields of Gtk-3.0.Gtk.Box */
     container: Gtk.Container
-    /* Fields of Gtk.Container */
+    /* Fields of Gtk-3.0.Gtk.Container */
     widget: Gtk.Widget
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Gdaui.EntryWrapper */
+    /* Methods of Gdaui-6.0.Gdaui.EntryWrapper */
     contents_activated(): void
     contents_changed(): void
-    /* Methods of Gdaui.EntryShell */
+    /* Methods of Gdaui-6.0.Gdaui.EntryShell */
     pack_entry(entry: Gtk.Widget): void
     set_invalid_color(red: number, green: number, blue: number, alpha: number): void
-    /* Methods of Gtk.Box */
+    /* Methods of Gtk-3.0.Gtk.Box */
     get_baseline_position(): Gtk.BaselinePosition
     get_center_widget(): Gtk.Widget | null
     get_homogeneous(): boolean
@@ -14162,7 +14162,7 @@ export class EntryNumber {
     set_child_packing(child: Gtk.Widget, expand: boolean, fill: boolean, padding: number, pack_type: Gtk.PackType): void
     set_homogeneous(homogeneous: boolean): void
     set_spacing(spacing: number): void
-    /* Methods of Gtk.Container */
+    /* Methods of Gtk-3.0.Gtk.Container */
     add(widget: Gtk.Widget): void
     check_resize(): void
     child_get_property(child: Gtk.Widget, property_name: string, value: any): void
@@ -14190,7 +14190,7 @@ export class EntryNumber {
     set_reallocate_redraws(needs_redraws: boolean): void
     set_resize_mode(resize_mode: Gtk.ResizeMode): void
     unset_focus_chain(): void
-    /* Methods of Gtk.Widget */
+    /* Methods of Gtk-3.0.Gtk.Widget */
     activate(): boolean
     add_accelerator(accel_signal: string, accel_group: Gtk.AccelGroup, accel_key: number, accel_mods: Gdk.ModifierType, accel_flags: Gtk.AccelFlags): void
     add_device_events(device: Gdk.Device, events: Gdk.EventMask): void
@@ -14449,7 +14449,7 @@ export class EntryNumber {
     unrealize(): void
     unregister_window(window: Gdk.Window): void
     unset_state_flags(flags: Gtk.StateFlags): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -14471,7 +14471,7 @@ export class EntryNumber {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of Gdaui.DataEntry */
+    /* Methods of Gdaui-6.0.Gdaui.DataEntry */
     get_attributes(): Gda.ValueAttribute
     get_editable(): boolean
     get_handler(): Gda.DataHandler
@@ -14487,7 +14487,7 @@ export class EntryNumber {
     set_value(value?: any | null): void
     set_value_type(type: GObject.Type): void
     validate(): boolean
-    /* Methods of Gtk.Buildable */
+    /* Methods of Gtk-3.0.Gtk.Buildable */
     add_child(builder: Gtk.Builder, child: GObject.Object, type?: string | null): void
     construct_child(builder: Gtk.Builder, name: string): GObject.Object
     custom_finished(builder: Gtk.Builder, child: GObject.Object | null, tagname: string, data?: object | null): void
@@ -14496,18 +14496,18 @@ export class EntryNumber {
     get_internal_child(builder: Gtk.Builder, childname: string): GObject.Object
     parser_finished(builder: Gtk.Builder): void
     set_buildable_property(builder: Gtk.Builder, name: string, value: any): void
-    /* Methods of Gtk.CellEditable */
+    /* Methods of Gtk-3.0.Gtk.CellEditable */
     editing_done(): void
     remove_widget(): void
     start_editing(event?: Gdk.Event | null): void
-    /* Methods of Gtk.Orientable */
+    /* Methods of Gtk-3.0.Gtk.Orientable */
     get_orientation(): Gtk.Orientation
     set_orientation(orientation: Gtk.Orientation): void
-    /* Virtual methods of Gdaui.EntryNumber */
+    /* Virtual methods of Gdaui-6.0.Gdaui.EntryNumber */
     vfunc_editing_done(): void
     vfunc_remove_widget(): void
     vfunc_start_editing(event?: Gdk.Event | null): void
-    /* Virtual methods of Gdaui.EntryWrapper */
+    /* Virtual methods of Gdaui-6.0.Gdaui.EntryWrapper */
     vfunc_can_expand(horiz: boolean): boolean
     vfunc_grab_focus(): void
     vfunc_is_valid(): boolean
@@ -14533,7 +14533,7 @@ export class EntryNumber {
     vfunc_set_value_type(type: GObject.Type): void
     vfunc_status_changed(): void
     vfunc_validate(): boolean
-    /* Virtual methods of Gdaui.EntryShell */
+    /* Virtual methods of Gdaui-6.0.Gdaui.EntryShell */
     vfunc_add_child(builder: Gtk.Builder, child: GObject.Object, type?: string | null): void
     vfunc_construct_child(builder: Gtk.Builder, name: string): GObject.Object
     vfunc_custom_finished(builder: Gtk.Builder, child: GObject.Object | null, tagname: string, data?: object | null): void
@@ -14544,7 +14544,7 @@ export class EntryNumber {
     vfunc_parser_finished(builder: Gtk.Builder): void
     vfunc_set_buildable_property(builder: Gtk.Builder, name: string, value: any): void
     vfunc_set_name(name: string): void
-    /* Virtual methods of Gtk.Container */
+    /* Virtual methods of Gtk-3.0.Gtk.Container */
     vfunc_add(widget: Gtk.Widget): void
     vfunc_check_resize(): void
     vfunc_child_type(): GObject.Type
@@ -14555,7 +14555,7 @@ export class EntryNumber {
     vfunc_remove(widget: Gtk.Widget): void
     vfunc_set_child_property(child: Gtk.Widget, property_id: number, value: any, pspec: GObject.ParamSpec): void
     vfunc_set_focus_child(child?: Gtk.Widget | null): void
-    /* Virtual methods of Gtk.Widget */
+    /* Virtual methods of Gtk-3.0.Gtk.Widget */
     vfunc_adjust_baseline_allocation(baseline: number): void
     vfunc_adjust_baseline_request(minimum_baseline: number, natural_baseline: number): void
     vfunc_adjust_size_allocation(orientation: Gtk.Orientation, minimum_size: number, natural_size: number, allocated_pos: number, allocated_size: number): void
@@ -14638,7 +14638,7 @@ export class EntryNumber {
     vfunc_unrealize(): void
     vfunc_visibility_notify_event(event: Gdk.EventVisibility): boolean
     vfunc_window_state_event(event: Gdk.EventWindowState): boolean
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -14646,7 +14646,7 @@ export class EntryNumber {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gtk.Container */
+    /* Signals of Gtk-3.0.Gtk.Container */
     connect(sigName: "add", callback: (($obj: EntryNumber, object: Gtk.Widget) => void)): number
     connect_after(sigName: "add", callback: (($obj: EntryNumber, object: Gtk.Widget) => void)): number
     emit(sigName: "add", object: Gtk.Widget): void
@@ -14659,7 +14659,7 @@ export class EntryNumber {
     connect(sigName: "set-focus-child", callback: (($obj: EntryNumber, object: Gtk.Widget) => void)): number
     connect_after(sigName: "set-focus-child", callback: (($obj: EntryNumber, object: Gtk.Widget) => void)): number
     emit(sigName: "set-focus-child", object: Gtk.Widget): void
-    /* Signals of Gtk.Widget */
+    /* Signals of Gtk-3.0.Gtk.Widget */
     connect(sigName: "accel-closures-changed", callback: (($obj: EntryNumber) => void)): number
     connect_after(sigName: "accel-closures-changed", callback: (($obj: EntryNumber) => void)): number
     emit(sigName: "accel-closures-changed"): void
@@ -14867,11 +14867,11 @@ export class EntryNumber {
     connect(sigName: "window-state-event", callback: (($obj: EntryNumber, event: Gdk.EventWindowState) => boolean)): number
     connect_after(sigName: "window-state-event", callback: (($obj: EntryNumber, event: Gdk.EventWindowState) => boolean)): number
     emit(sigName: "window-state-event", event: Gdk.EventWindowState): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: EntryNumber, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: EntryNumber, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    /* Signals of Gdaui.DataEntry */
+    /* Signals of Gdaui-6.0.Gdaui.DataEntry */
     connect(sigName: "contents-activated", callback: (($obj: EntryNumber) => void)): number
     connect_after(sigName: "contents-activated", callback: (($obj: EntryNumber) => void)): number
     emit(sigName: "contents-activated"): void
@@ -14884,7 +14884,7 @@ export class EntryNumber {
     connect(sigName: "status-changed", callback: (($obj: EntryNumber) => void)): number
     connect_after(sigName: "status-changed", callback: (($obj: EntryNumber) => void)): number
     emit(sigName: "status-changed"): void
-    /* Signals of Gtk.CellEditable */
+    /* Signals of Gtk-3.0.Gtk.CellEditable */
     connect(sigName: "editing-done", callback: (($obj: EntryNumber) => void)): number
     connect_after(sigName: "editing-done", callback: (($obj: EntryNumber) => void)): number
     emit(sigName: "editing-done"): void
@@ -15012,18 +15012,18 @@ export interface EntryShell_ConstructProps extends Gtk.Box_ConstructProps {
     orientation?: Gtk.Orientation
 }
 export class EntryShell {
-    /* Properties of Gdaui.EntryShell */
+    /* Properties of Gdaui-6.0.Gdaui.EntryShell */
     handler: Gda.DataHandler
     is_cell_renderer: boolean
-    /* Properties of Gtk.Box */
+    /* Properties of Gtk-3.0.Gtk.Box */
     baseline_position: Gtk.BaselinePosition
     homogeneous: boolean
     spacing: number
-    /* Properties of Gtk.Container */
+    /* Properties of Gtk-3.0.Gtk.Container */
     border_width: number
     child: Gtk.Widget
     resize_mode: Gtk.ResizeMode
-    /* Properties of Gtk.Widget */
+    /* Properties of Gtk-3.0.Gtk.Widget */
     app_paintable: boolean
     can_default: boolean
     can_focus: boolean
@@ -15063,20 +15063,20 @@ export class EntryShell {
     visible: boolean
     width_request: number
     readonly window: Gdk.Window
-    /* Properties of Gtk.Orientable */
+    /* Properties of Gtk-3.0.Gtk.Orientable */
     orientation: Gtk.Orientation
-    /* Fields of Gdaui.EntryShell */
+    /* Fields of Gdaui-6.0.Gdaui.EntryShell */
     parent_instance: Gtk.Box
-    /* Fields of Gtk.Box */
+    /* Fields of Gtk-3.0.Gtk.Box */
     container: Gtk.Container
-    /* Fields of Gtk.Container */
+    /* Fields of Gtk-3.0.Gtk.Container */
     widget: Gtk.Widget
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Gdaui.EntryShell */
+    /* Methods of Gdaui-6.0.Gdaui.EntryShell */
     pack_entry(entry: Gtk.Widget): void
     set_invalid_color(red: number, green: number, blue: number, alpha: number): void
-    /* Methods of Gtk.Box */
+    /* Methods of Gtk-3.0.Gtk.Box */
     get_baseline_position(): Gtk.BaselinePosition
     get_center_widget(): Gtk.Widget | null
     get_homogeneous(): boolean
@@ -15090,7 +15090,7 @@ export class EntryShell {
     set_child_packing(child: Gtk.Widget, expand: boolean, fill: boolean, padding: number, pack_type: Gtk.PackType): void
     set_homogeneous(homogeneous: boolean): void
     set_spacing(spacing: number): void
-    /* Methods of Gtk.Container */
+    /* Methods of Gtk-3.0.Gtk.Container */
     add(widget: Gtk.Widget): void
     check_resize(): void
     child_get_property(child: Gtk.Widget, property_name: string, value: any): void
@@ -15118,7 +15118,7 @@ export class EntryShell {
     set_reallocate_redraws(needs_redraws: boolean): void
     set_resize_mode(resize_mode: Gtk.ResizeMode): void
     unset_focus_chain(): void
-    /* Methods of Gtk.Widget */
+    /* Methods of Gtk-3.0.Gtk.Widget */
     activate(): boolean
     add_accelerator(accel_signal: string, accel_group: Gtk.AccelGroup, accel_key: number, accel_mods: Gdk.ModifierType, accel_flags: Gtk.AccelFlags): void
     add_device_events(device: Gdk.Device, events: Gdk.EventMask): void
@@ -15377,7 +15377,7 @@ export class EntryShell {
     unrealize(): void
     unregister_window(window: Gdk.Window): void
     unset_state_flags(flags: Gtk.StateFlags): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -15399,7 +15399,7 @@ export class EntryShell {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of Gtk.Buildable */
+    /* Methods of Gtk-3.0.Gtk.Buildable */
     add_child(builder: Gtk.Builder, child: GObject.Object, type?: string | null): void
     construct_child(builder: Gtk.Builder, name: string): GObject.Object
     custom_finished(builder: Gtk.Builder, child: GObject.Object | null, tagname: string, data?: object | null): void
@@ -15408,10 +15408,10 @@ export class EntryShell {
     get_internal_child(builder: Gtk.Builder, childname: string): GObject.Object
     parser_finished(builder: Gtk.Builder): void
     set_buildable_property(builder: Gtk.Builder, name: string, value: any): void
-    /* Methods of Gtk.Orientable */
+    /* Methods of Gtk-3.0.Gtk.Orientable */
     get_orientation(): Gtk.Orientation
     set_orientation(orientation: Gtk.Orientation): void
-    /* Virtual methods of Gdaui.EntryShell */
+    /* Virtual methods of Gdaui-6.0.Gdaui.EntryShell */
     vfunc_add_child(builder: Gtk.Builder, child: GObject.Object, type?: string | null): void
     vfunc_construct_child(builder: Gtk.Builder, name: string): GObject.Object
     vfunc_custom_finished(builder: Gtk.Builder, child: GObject.Object | null, tagname: string, data?: object | null): void
@@ -15422,7 +15422,7 @@ export class EntryShell {
     vfunc_parser_finished(builder: Gtk.Builder): void
     vfunc_set_buildable_property(builder: Gtk.Builder, name: string, value: any): void
     vfunc_set_name(name: string): void
-    /* Virtual methods of Gtk.Container */
+    /* Virtual methods of Gtk-3.0.Gtk.Container */
     vfunc_add(widget: Gtk.Widget): void
     vfunc_check_resize(): void
     vfunc_child_type(): GObject.Type
@@ -15433,7 +15433,7 @@ export class EntryShell {
     vfunc_remove(widget: Gtk.Widget): void
     vfunc_set_child_property(child: Gtk.Widget, property_id: number, value: any, pspec: GObject.ParamSpec): void
     vfunc_set_focus_child(child?: Gtk.Widget | null): void
-    /* Virtual methods of Gtk.Widget */
+    /* Virtual methods of Gtk-3.0.Gtk.Widget */
     vfunc_adjust_baseline_allocation(baseline: number): void
     vfunc_adjust_baseline_request(minimum_baseline: number, natural_baseline: number): void
     vfunc_adjust_size_allocation(orientation: Gtk.Orientation, minimum_size: number, natural_size: number, allocated_pos: number, allocated_size: number): void
@@ -15516,7 +15516,7 @@ export class EntryShell {
     vfunc_unrealize(): void
     vfunc_visibility_notify_event(event: Gdk.EventVisibility): boolean
     vfunc_window_state_event(event: Gdk.EventWindowState): boolean
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -15524,7 +15524,7 @@ export class EntryShell {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gtk.Container */
+    /* Signals of Gtk-3.0.Gtk.Container */
     connect(sigName: "add", callback: (($obj: EntryShell, object: Gtk.Widget) => void)): number
     connect_after(sigName: "add", callback: (($obj: EntryShell, object: Gtk.Widget) => void)): number
     emit(sigName: "add", object: Gtk.Widget): void
@@ -15537,7 +15537,7 @@ export class EntryShell {
     connect(sigName: "set-focus-child", callback: (($obj: EntryShell, object: Gtk.Widget) => void)): number
     connect_after(sigName: "set-focus-child", callback: (($obj: EntryShell, object: Gtk.Widget) => void)): number
     emit(sigName: "set-focus-child", object: Gtk.Widget): void
-    /* Signals of Gtk.Widget */
+    /* Signals of Gtk-3.0.Gtk.Widget */
     connect(sigName: "accel-closures-changed", callback: (($obj: EntryShell) => void)): number
     connect_after(sigName: "accel-closures-changed", callback: (($obj: EntryShell) => void)): number
     emit(sigName: "accel-closures-changed"): void
@@ -15745,7 +15745,7 @@ export class EntryShell {
     connect(sigName: "window-state-event", callback: (($obj: EntryShell, event: Gdk.EventWindowState) => boolean)): number
     connect_after(sigName: "window-state-event", callback: (($obj: EntryShell, event: Gdk.EventWindowState) => boolean)): number
     emit(sigName: "window-state-event", event: Gdk.EventWindowState): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: EntryShell, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: EntryShell, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -15861,24 +15861,24 @@ export interface EntryString_ConstructProps extends EntryWrapper_ConstructProps 
     orientation?: Gtk.Orientation
 }
 export class EntryString {
-    /* Properties of Gdaui.EntryString */
+    /* Properties of Gdaui-6.0.Gdaui.EntryString */
     editing_canceled: boolean
     multiline: boolean
     options: string
-    /* Properties of Gdaui.EntryWrapper */
+    /* Properties of Gdaui-6.0.Gdaui.EntryWrapper */
     set_default_if_invalid: boolean
-    /* Properties of Gdaui.EntryShell */
+    /* Properties of Gdaui-6.0.Gdaui.EntryShell */
     handler: Gda.DataHandler
     is_cell_renderer: boolean
-    /* Properties of Gtk.Box */
+    /* Properties of Gtk-3.0.Gtk.Box */
     baseline_position: Gtk.BaselinePosition
     homogeneous: boolean
     spacing: number
-    /* Properties of Gtk.Container */
+    /* Properties of Gtk-3.0.Gtk.Container */
     border_width: number
     child: Gtk.Widget
     resize_mode: Gtk.ResizeMode
-    /* Properties of Gtk.Widget */
+    /* Properties of Gtk-3.0.Gtk.Widget */
     app_paintable: boolean
     can_default: boolean
     can_focus: boolean
@@ -15918,23 +15918,23 @@ export class EntryString {
     visible: boolean
     width_request: number
     readonly window: Gdk.Window
-    /* Properties of Gtk.Orientable */
+    /* Properties of Gtk-3.0.Gtk.Orientable */
     orientation: Gtk.Orientation
-    /* Fields of Gdaui.EntryString */
+    /* Fields of Gdaui-6.0.Gdaui.EntryString */
     parent_instance: EntryWrapper
-    /* Fields of Gtk.Box */
+    /* Fields of Gtk-3.0.Gtk.Box */
     container: Gtk.Container
-    /* Fields of Gtk.Container */
+    /* Fields of Gtk-3.0.Gtk.Container */
     widget: Gtk.Widget
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Gdaui.EntryWrapper */
+    /* Methods of Gdaui-6.0.Gdaui.EntryWrapper */
     contents_activated(): void
     contents_changed(): void
-    /* Methods of Gdaui.EntryShell */
+    /* Methods of Gdaui-6.0.Gdaui.EntryShell */
     pack_entry(entry: Gtk.Widget): void
     set_invalid_color(red: number, green: number, blue: number, alpha: number): void
-    /* Methods of Gtk.Box */
+    /* Methods of Gtk-3.0.Gtk.Box */
     get_baseline_position(): Gtk.BaselinePosition
     get_center_widget(): Gtk.Widget | null
     get_homogeneous(): boolean
@@ -15948,7 +15948,7 @@ export class EntryString {
     set_child_packing(child: Gtk.Widget, expand: boolean, fill: boolean, padding: number, pack_type: Gtk.PackType): void
     set_homogeneous(homogeneous: boolean): void
     set_spacing(spacing: number): void
-    /* Methods of Gtk.Container */
+    /* Methods of Gtk-3.0.Gtk.Container */
     add(widget: Gtk.Widget): void
     check_resize(): void
     child_get_property(child: Gtk.Widget, property_name: string, value: any): void
@@ -15976,7 +15976,7 @@ export class EntryString {
     set_reallocate_redraws(needs_redraws: boolean): void
     set_resize_mode(resize_mode: Gtk.ResizeMode): void
     unset_focus_chain(): void
-    /* Methods of Gtk.Widget */
+    /* Methods of Gtk-3.0.Gtk.Widget */
     activate(): boolean
     add_accelerator(accel_signal: string, accel_group: Gtk.AccelGroup, accel_key: number, accel_mods: Gdk.ModifierType, accel_flags: Gtk.AccelFlags): void
     add_device_events(device: Gdk.Device, events: Gdk.EventMask): void
@@ -16235,7 +16235,7 @@ export class EntryString {
     unrealize(): void
     unregister_window(window: Gdk.Window): void
     unset_state_flags(flags: Gtk.StateFlags): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -16257,7 +16257,7 @@ export class EntryString {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of Gdaui.DataEntry */
+    /* Methods of Gdaui-6.0.Gdaui.DataEntry */
     get_attributes(): Gda.ValueAttribute
     get_editable(): boolean
     get_handler(): Gda.DataHandler
@@ -16273,7 +16273,7 @@ export class EntryString {
     set_value(value?: any | null): void
     set_value_type(type: GObject.Type): void
     validate(): boolean
-    /* Methods of Gtk.Buildable */
+    /* Methods of Gtk-3.0.Gtk.Buildable */
     add_child(builder: Gtk.Builder, child: GObject.Object, type?: string | null): void
     construct_child(builder: Gtk.Builder, name: string): GObject.Object
     custom_finished(builder: Gtk.Builder, child: GObject.Object | null, tagname: string, data?: object | null): void
@@ -16282,18 +16282,18 @@ export class EntryString {
     get_internal_child(builder: Gtk.Builder, childname: string): GObject.Object
     parser_finished(builder: Gtk.Builder): void
     set_buildable_property(builder: Gtk.Builder, name: string, value: any): void
-    /* Methods of Gtk.CellEditable */
+    /* Methods of Gtk-3.0.Gtk.CellEditable */
     editing_done(): void
     remove_widget(): void
     start_editing(event?: Gdk.Event | null): void
-    /* Methods of Gtk.Orientable */
+    /* Methods of Gtk-3.0.Gtk.Orientable */
     get_orientation(): Gtk.Orientation
     set_orientation(orientation: Gtk.Orientation): void
-    /* Virtual methods of Gdaui.EntryString */
+    /* Virtual methods of Gdaui-6.0.Gdaui.EntryString */
     vfunc_editing_done(): void
     vfunc_remove_widget(): void
     vfunc_start_editing(event?: Gdk.Event | null): void
-    /* Virtual methods of Gdaui.EntryWrapper */
+    /* Virtual methods of Gdaui-6.0.Gdaui.EntryWrapper */
     vfunc_can_expand(horiz: boolean): boolean
     vfunc_grab_focus(): void
     vfunc_is_valid(): boolean
@@ -16319,7 +16319,7 @@ export class EntryString {
     vfunc_set_value_type(type: GObject.Type): void
     vfunc_status_changed(): void
     vfunc_validate(): boolean
-    /* Virtual methods of Gdaui.EntryShell */
+    /* Virtual methods of Gdaui-6.0.Gdaui.EntryShell */
     vfunc_add_child(builder: Gtk.Builder, child: GObject.Object, type?: string | null): void
     vfunc_construct_child(builder: Gtk.Builder, name: string): GObject.Object
     vfunc_custom_finished(builder: Gtk.Builder, child: GObject.Object | null, tagname: string, data?: object | null): void
@@ -16330,7 +16330,7 @@ export class EntryString {
     vfunc_parser_finished(builder: Gtk.Builder): void
     vfunc_set_buildable_property(builder: Gtk.Builder, name: string, value: any): void
     vfunc_set_name(name: string): void
-    /* Virtual methods of Gtk.Container */
+    /* Virtual methods of Gtk-3.0.Gtk.Container */
     vfunc_add(widget: Gtk.Widget): void
     vfunc_check_resize(): void
     vfunc_child_type(): GObject.Type
@@ -16341,7 +16341,7 @@ export class EntryString {
     vfunc_remove(widget: Gtk.Widget): void
     vfunc_set_child_property(child: Gtk.Widget, property_id: number, value: any, pspec: GObject.ParamSpec): void
     vfunc_set_focus_child(child?: Gtk.Widget | null): void
-    /* Virtual methods of Gtk.Widget */
+    /* Virtual methods of Gtk-3.0.Gtk.Widget */
     vfunc_adjust_baseline_allocation(baseline: number): void
     vfunc_adjust_baseline_request(minimum_baseline: number, natural_baseline: number): void
     vfunc_adjust_size_allocation(orientation: Gtk.Orientation, minimum_size: number, natural_size: number, allocated_pos: number, allocated_size: number): void
@@ -16424,7 +16424,7 @@ export class EntryString {
     vfunc_unrealize(): void
     vfunc_visibility_notify_event(event: Gdk.EventVisibility): boolean
     vfunc_window_state_event(event: Gdk.EventWindowState): boolean
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -16432,7 +16432,7 @@ export class EntryString {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gtk.Container */
+    /* Signals of Gtk-3.0.Gtk.Container */
     connect(sigName: "add", callback: (($obj: EntryString, object: Gtk.Widget) => void)): number
     connect_after(sigName: "add", callback: (($obj: EntryString, object: Gtk.Widget) => void)): number
     emit(sigName: "add", object: Gtk.Widget): void
@@ -16445,7 +16445,7 @@ export class EntryString {
     connect(sigName: "set-focus-child", callback: (($obj: EntryString, object: Gtk.Widget) => void)): number
     connect_after(sigName: "set-focus-child", callback: (($obj: EntryString, object: Gtk.Widget) => void)): number
     emit(sigName: "set-focus-child", object: Gtk.Widget): void
-    /* Signals of Gtk.Widget */
+    /* Signals of Gtk-3.0.Gtk.Widget */
     connect(sigName: "accel-closures-changed", callback: (($obj: EntryString) => void)): number
     connect_after(sigName: "accel-closures-changed", callback: (($obj: EntryString) => void)): number
     emit(sigName: "accel-closures-changed"): void
@@ -16653,11 +16653,11 @@ export class EntryString {
     connect(sigName: "window-state-event", callback: (($obj: EntryString, event: Gdk.EventWindowState) => boolean)): number
     connect_after(sigName: "window-state-event", callback: (($obj: EntryString, event: Gdk.EventWindowState) => boolean)): number
     emit(sigName: "window-state-event", event: Gdk.EventWindowState): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: EntryString, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: EntryString, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    /* Signals of Gdaui.DataEntry */
+    /* Signals of Gdaui-6.0.Gdaui.DataEntry */
     connect(sigName: "contents-activated", callback: (($obj: EntryString) => void)): number
     connect_after(sigName: "contents-activated", callback: (($obj: EntryString) => void)): number
     emit(sigName: "contents-activated"): void
@@ -16670,7 +16670,7 @@ export class EntryString {
     connect(sigName: "status-changed", callback: (($obj: EntryString) => void)): number
     connect_after(sigName: "status-changed", callback: (($obj: EntryString) => void)): number
     emit(sigName: "status-changed"): void
-    /* Signals of Gtk.CellEditable */
+    /* Signals of Gtk-3.0.Gtk.CellEditable */
     connect(sigName: "editing-done", callback: (($obj: EntryString) => void)): number
     connect_after(sigName: "editing-done", callback: (($obj: EntryString) => void)): number
     emit(sigName: "editing-done"): void
@@ -16798,23 +16798,23 @@ export interface EntryTime_ConstructProps extends EntryCommonTime_ConstructProps
     orientation?: Gtk.Orientation
 }
 export class EntryTime {
-    /* Properties of Gdaui.EntryCommonTime */
+    /* Properties of Gdaui-6.0.Gdaui.EntryCommonTime */
     editing_canceled: boolean
     type: GObject.Type
-    /* Properties of Gdaui.EntryWrapper */
+    /* Properties of Gdaui-6.0.Gdaui.EntryWrapper */
     set_default_if_invalid: boolean
-    /* Properties of Gdaui.EntryShell */
+    /* Properties of Gdaui-6.0.Gdaui.EntryShell */
     handler: Gda.DataHandler
     is_cell_renderer: boolean
-    /* Properties of Gtk.Box */
+    /* Properties of Gtk-3.0.Gtk.Box */
     baseline_position: Gtk.BaselinePosition
     homogeneous: boolean
     spacing: number
-    /* Properties of Gtk.Container */
+    /* Properties of Gtk-3.0.Gtk.Container */
     border_width: number
     child: Gtk.Widget
     resize_mode: Gtk.ResizeMode
-    /* Properties of Gtk.Widget */
+    /* Properties of Gtk-3.0.Gtk.Widget */
     app_paintable: boolean
     can_default: boolean
     can_focus: boolean
@@ -16854,23 +16854,23 @@ export class EntryTime {
     visible: boolean
     width_request: number
     readonly window: Gdk.Window
-    /* Properties of Gtk.Orientable */
+    /* Properties of Gtk-3.0.Gtk.Orientable */
     orientation: Gtk.Orientation
-    /* Fields of Gdaui.EntryTime */
+    /* Fields of Gdaui-6.0.Gdaui.EntryTime */
     parent_instance: EntryCommonTime
-    /* Fields of Gtk.Box */
+    /* Fields of Gtk-3.0.Gtk.Box */
     container: Gtk.Container
-    /* Fields of Gtk.Container */
+    /* Fields of Gtk-3.0.Gtk.Container */
     widget: Gtk.Widget
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Gdaui.EntryWrapper */
+    /* Methods of Gdaui-6.0.Gdaui.EntryWrapper */
     contents_activated(): void
     contents_changed(): void
-    /* Methods of Gdaui.EntryShell */
+    /* Methods of Gdaui-6.0.Gdaui.EntryShell */
     pack_entry(entry: Gtk.Widget): void
     set_invalid_color(red: number, green: number, blue: number, alpha: number): void
-    /* Methods of Gtk.Box */
+    /* Methods of Gtk-3.0.Gtk.Box */
     get_baseline_position(): Gtk.BaselinePosition
     get_center_widget(): Gtk.Widget | null
     get_homogeneous(): boolean
@@ -16884,7 +16884,7 @@ export class EntryTime {
     set_child_packing(child: Gtk.Widget, expand: boolean, fill: boolean, padding: number, pack_type: Gtk.PackType): void
     set_homogeneous(homogeneous: boolean): void
     set_spacing(spacing: number): void
-    /* Methods of Gtk.Container */
+    /* Methods of Gtk-3.0.Gtk.Container */
     add(widget: Gtk.Widget): void
     check_resize(): void
     child_get_property(child: Gtk.Widget, property_name: string, value: any): void
@@ -16912,7 +16912,7 @@ export class EntryTime {
     set_reallocate_redraws(needs_redraws: boolean): void
     set_resize_mode(resize_mode: Gtk.ResizeMode): void
     unset_focus_chain(): void
-    /* Methods of Gtk.Widget */
+    /* Methods of Gtk-3.0.Gtk.Widget */
     activate(): boolean
     add_accelerator(accel_signal: string, accel_group: Gtk.AccelGroup, accel_key: number, accel_mods: Gdk.ModifierType, accel_flags: Gtk.AccelFlags): void
     add_device_events(device: Gdk.Device, events: Gdk.EventMask): void
@@ -17171,7 +17171,7 @@ export class EntryTime {
     unrealize(): void
     unregister_window(window: Gdk.Window): void
     unset_state_flags(flags: Gtk.StateFlags): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -17193,7 +17193,7 @@ export class EntryTime {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of Gdaui.DataEntry */
+    /* Methods of Gdaui-6.0.Gdaui.DataEntry */
     get_attributes(): Gda.ValueAttribute
     get_editable(): boolean
     get_handler(): Gda.DataHandler
@@ -17209,7 +17209,7 @@ export class EntryTime {
     set_value(value?: any | null): void
     set_value_type(type: GObject.Type): void
     validate(): boolean
-    /* Methods of Gtk.Buildable */
+    /* Methods of Gtk-3.0.Gtk.Buildable */
     add_child(builder: Gtk.Builder, child: GObject.Object, type?: string | null): void
     construct_child(builder: Gtk.Builder, name: string): GObject.Object
     custom_finished(builder: Gtk.Builder, child: GObject.Object | null, tagname: string, data?: object | null): void
@@ -17218,18 +17218,18 @@ export class EntryTime {
     get_internal_child(builder: Gtk.Builder, childname: string): GObject.Object
     parser_finished(builder: Gtk.Builder): void
     set_buildable_property(builder: Gtk.Builder, name: string, value: any): void
-    /* Methods of Gtk.CellEditable */
+    /* Methods of Gtk-3.0.Gtk.CellEditable */
     editing_done(): void
     remove_widget(): void
     start_editing(event?: Gdk.Event | null): void
-    /* Methods of Gtk.Orientable */
+    /* Methods of Gtk-3.0.Gtk.Orientable */
     get_orientation(): Gtk.Orientation
     set_orientation(orientation: Gtk.Orientation): void
-    /* Virtual methods of Gdaui.EntryCommonTime */
+    /* Virtual methods of Gdaui-6.0.Gdaui.EntryCommonTime */
     vfunc_editing_done(): void
     vfunc_remove_widget(): void
     vfunc_start_editing(event?: Gdk.Event | null): void
-    /* Virtual methods of Gdaui.EntryWrapper */
+    /* Virtual methods of Gdaui-6.0.Gdaui.EntryWrapper */
     vfunc_can_expand(horiz: boolean): boolean
     vfunc_grab_focus(): void
     vfunc_is_valid(): boolean
@@ -17255,7 +17255,7 @@ export class EntryTime {
     vfunc_set_value_type(type: GObject.Type): void
     vfunc_status_changed(): void
     vfunc_validate(): boolean
-    /* Virtual methods of Gdaui.EntryShell */
+    /* Virtual methods of Gdaui-6.0.Gdaui.EntryShell */
     vfunc_add_child(builder: Gtk.Builder, child: GObject.Object, type?: string | null): void
     vfunc_construct_child(builder: Gtk.Builder, name: string): GObject.Object
     vfunc_custom_finished(builder: Gtk.Builder, child: GObject.Object | null, tagname: string, data?: object | null): void
@@ -17266,7 +17266,7 @@ export class EntryTime {
     vfunc_parser_finished(builder: Gtk.Builder): void
     vfunc_set_buildable_property(builder: Gtk.Builder, name: string, value: any): void
     vfunc_set_name(name: string): void
-    /* Virtual methods of Gtk.Container */
+    /* Virtual methods of Gtk-3.0.Gtk.Container */
     vfunc_add(widget: Gtk.Widget): void
     vfunc_check_resize(): void
     vfunc_child_type(): GObject.Type
@@ -17277,7 +17277,7 @@ export class EntryTime {
     vfunc_remove(widget: Gtk.Widget): void
     vfunc_set_child_property(child: Gtk.Widget, property_id: number, value: any, pspec: GObject.ParamSpec): void
     vfunc_set_focus_child(child?: Gtk.Widget | null): void
-    /* Virtual methods of Gtk.Widget */
+    /* Virtual methods of Gtk-3.0.Gtk.Widget */
     vfunc_adjust_baseline_allocation(baseline: number): void
     vfunc_adjust_baseline_request(minimum_baseline: number, natural_baseline: number): void
     vfunc_adjust_size_allocation(orientation: Gtk.Orientation, minimum_size: number, natural_size: number, allocated_pos: number, allocated_size: number): void
@@ -17360,7 +17360,7 @@ export class EntryTime {
     vfunc_unrealize(): void
     vfunc_visibility_notify_event(event: Gdk.EventVisibility): boolean
     vfunc_window_state_event(event: Gdk.EventWindowState): boolean
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -17368,7 +17368,7 @@ export class EntryTime {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gtk.Container */
+    /* Signals of Gtk-3.0.Gtk.Container */
     connect(sigName: "add", callback: (($obj: EntryTime, object: Gtk.Widget) => void)): number
     connect_after(sigName: "add", callback: (($obj: EntryTime, object: Gtk.Widget) => void)): number
     emit(sigName: "add", object: Gtk.Widget): void
@@ -17381,7 +17381,7 @@ export class EntryTime {
     connect(sigName: "set-focus-child", callback: (($obj: EntryTime, object: Gtk.Widget) => void)): number
     connect_after(sigName: "set-focus-child", callback: (($obj: EntryTime, object: Gtk.Widget) => void)): number
     emit(sigName: "set-focus-child", object: Gtk.Widget): void
-    /* Signals of Gtk.Widget */
+    /* Signals of Gtk-3.0.Gtk.Widget */
     connect(sigName: "accel-closures-changed", callback: (($obj: EntryTime) => void)): number
     connect_after(sigName: "accel-closures-changed", callback: (($obj: EntryTime) => void)): number
     emit(sigName: "accel-closures-changed"): void
@@ -17589,11 +17589,11 @@ export class EntryTime {
     connect(sigName: "window-state-event", callback: (($obj: EntryTime, event: Gdk.EventWindowState) => boolean)): number
     connect_after(sigName: "window-state-event", callback: (($obj: EntryTime, event: Gdk.EventWindowState) => boolean)): number
     emit(sigName: "window-state-event", event: Gdk.EventWindowState): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: EntryTime, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: EntryTime, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    /* Signals of Gdaui.DataEntry */
+    /* Signals of Gdaui-6.0.Gdaui.DataEntry */
     connect(sigName: "contents-activated", callback: (($obj: EntryTime) => void)): number
     connect_after(sigName: "contents-activated", callback: (($obj: EntryTime) => void)): number
     emit(sigName: "contents-activated"): void
@@ -17606,7 +17606,7 @@ export class EntryTime {
     connect(sigName: "status-changed", callback: (($obj: EntryTime) => void)): number
     connect_after(sigName: "status-changed", callback: (($obj: EntryTime) => void)): number
     emit(sigName: "status-changed"): void
-    /* Signals of Gtk.CellEditable */
+    /* Signals of Gtk-3.0.Gtk.CellEditable */
     connect(sigName: "editing-done", callback: (($obj: EntryTime) => void)): number
     connect_after(sigName: "editing-done", callback: (($obj: EntryTime) => void)): number
     emit(sigName: "editing-done"): void
@@ -17732,23 +17732,23 @@ export interface EntryTimestamp_ConstructProps extends EntryCommonTime_Construct
     orientation?: Gtk.Orientation
 }
 export class EntryTimestamp {
-    /* Properties of Gdaui.EntryCommonTime */
+    /* Properties of Gdaui-6.0.Gdaui.EntryCommonTime */
     editing_canceled: boolean
     type: GObject.Type
-    /* Properties of Gdaui.EntryWrapper */
+    /* Properties of Gdaui-6.0.Gdaui.EntryWrapper */
     set_default_if_invalid: boolean
-    /* Properties of Gdaui.EntryShell */
+    /* Properties of Gdaui-6.0.Gdaui.EntryShell */
     handler: Gda.DataHandler
     is_cell_renderer: boolean
-    /* Properties of Gtk.Box */
+    /* Properties of Gtk-3.0.Gtk.Box */
     baseline_position: Gtk.BaselinePosition
     homogeneous: boolean
     spacing: number
-    /* Properties of Gtk.Container */
+    /* Properties of Gtk-3.0.Gtk.Container */
     border_width: number
     child: Gtk.Widget
     resize_mode: Gtk.ResizeMode
-    /* Properties of Gtk.Widget */
+    /* Properties of Gtk-3.0.Gtk.Widget */
     app_paintable: boolean
     can_default: boolean
     can_focus: boolean
@@ -17788,23 +17788,23 @@ export class EntryTimestamp {
     visible: boolean
     width_request: number
     readonly window: Gdk.Window
-    /* Properties of Gtk.Orientable */
+    /* Properties of Gtk-3.0.Gtk.Orientable */
     orientation: Gtk.Orientation
-    /* Fields of Gdaui.EntryTimestamp */
+    /* Fields of Gdaui-6.0.Gdaui.EntryTimestamp */
     parent_instance: EntryCommonTime
-    /* Fields of Gtk.Box */
+    /* Fields of Gtk-3.0.Gtk.Box */
     container: Gtk.Container
-    /* Fields of Gtk.Container */
+    /* Fields of Gtk-3.0.Gtk.Container */
     widget: Gtk.Widget
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Gdaui.EntryWrapper */
+    /* Methods of Gdaui-6.0.Gdaui.EntryWrapper */
     contents_activated(): void
     contents_changed(): void
-    /* Methods of Gdaui.EntryShell */
+    /* Methods of Gdaui-6.0.Gdaui.EntryShell */
     pack_entry(entry: Gtk.Widget): void
     set_invalid_color(red: number, green: number, blue: number, alpha: number): void
-    /* Methods of Gtk.Box */
+    /* Methods of Gtk-3.0.Gtk.Box */
     get_baseline_position(): Gtk.BaselinePosition
     get_center_widget(): Gtk.Widget | null
     get_homogeneous(): boolean
@@ -17818,7 +17818,7 @@ export class EntryTimestamp {
     set_child_packing(child: Gtk.Widget, expand: boolean, fill: boolean, padding: number, pack_type: Gtk.PackType): void
     set_homogeneous(homogeneous: boolean): void
     set_spacing(spacing: number): void
-    /* Methods of Gtk.Container */
+    /* Methods of Gtk-3.0.Gtk.Container */
     add(widget: Gtk.Widget): void
     check_resize(): void
     child_get_property(child: Gtk.Widget, property_name: string, value: any): void
@@ -17846,7 +17846,7 @@ export class EntryTimestamp {
     set_reallocate_redraws(needs_redraws: boolean): void
     set_resize_mode(resize_mode: Gtk.ResizeMode): void
     unset_focus_chain(): void
-    /* Methods of Gtk.Widget */
+    /* Methods of Gtk-3.0.Gtk.Widget */
     activate(): boolean
     add_accelerator(accel_signal: string, accel_group: Gtk.AccelGroup, accel_key: number, accel_mods: Gdk.ModifierType, accel_flags: Gtk.AccelFlags): void
     add_device_events(device: Gdk.Device, events: Gdk.EventMask): void
@@ -18105,7 +18105,7 @@ export class EntryTimestamp {
     unrealize(): void
     unregister_window(window: Gdk.Window): void
     unset_state_flags(flags: Gtk.StateFlags): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -18127,7 +18127,7 @@ export class EntryTimestamp {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of Gdaui.DataEntry */
+    /* Methods of Gdaui-6.0.Gdaui.DataEntry */
     get_attributes(): Gda.ValueAttribute
     get_editable(): boolean
     get_handler(): Gda.DataHandler
@@ -18143,7 +18143,7 @@ export class EntryTimestamp {
     set_value(value?: any | null): void
     set_value_type(type: GObject.Type): void
     validate(): boolean
-    /* Methods of Gtk.Buildable */
+    /* Methods of Gtk-3.0.Gtk.Buildable */
     add_child(builder: Gtk.Builder, child: GObject.Object, type?: string | null): void
     construct_child(builder: Gtk.Builder, name: string): GObject.Object
     custom_finished(builder: Gtk.Builder, child: GObject.Object | null, tagname: string, data?: object | null): void
@@ -18152,18 +18152,18 @@ export class EntryTimestamp {
     get_internal_child(builder: Gtk.Builder, childname: string): GObject.Object
     parser_finished(builder: Gtk.Builder): void
     set_buildable_property(builder: Gtk.Builder, name: string, value: any): void
-    /* Methods of Gtk.CellEditable */
+    /* Methods of Gtk-3.0.Gtk.CellEditable */
     editing_done(): void
     remove_widget(): void
     start_editing(event?: Gdk.Event | null): void
-    /* Methods of Gtk.Orientable */
+    /* Methods of Gtk-3.0.Gtk.Orientable */
     get_orientation(): Gtk.Orientation
     set_orientation(orientation: Gtk.Orientation): void
-    /* Virtual methods of Gdaui.EntryCommonTime */
+    /* Virtual methods of Gdaui-6.0.Gdaui.EntryCommonTime */
     vfunc_editing_done(): void
     vfunc_remove_widget(): void
     vfunc_start_editing(event?: Gdk.Event | null): void
-    /* Virtual methods of Gdaui.EntryWrapper */
+    /* Virtual methods of Gdaui-6.0.Gdaui.EntryWrapper */
     vfunc_can_expand(horiz: boolean): boolean
     vfunc_grab_focus(): void
     vfunc_is_valid(): boolean
@@ -18189,7 +18189,7 @@ export class EntryTimestamp {
     vfunc_set_value_type(type: GObject.Type): void
     vfunc_status_changed(): void
     vfunc_validate(): boolean
-    /* Virtual methods of Gdaui.EntryShell */
+    /* Virtual methods of Gdaui-6.0.Gdaui.EntryShell */
     vfunc_add_child(builder: Gtk.Builder, child: GObject.Object, type?: string | null): void
     vfunc_construct_child(builder: Gtk.Builder, name: string): GObject.Object
     vfunc_custom_finished(builder: Gtk.Builder, child: GObject.Object | null, tagname: string, data?: object | null): void
@@ -18200,7 +18200,7 @@ export class EntryTimestamp {
     vfunc_parser_finished(builder: Gtk.Builder): void
     vfunc_set_buildable_property(builder: Gtk.Builder, name: string, value: any): void
     vfunc_set_name(name: string): void
-    /* Virtual methods of Gtk.Container */
+    /* Virtual methods of Gtk-3.0.Gtk.Container */
     vfunc_add(widget: Gtk.Widget): void
     vfunc_check_resize(): void
     vfunc_child_type(): GObject.Type
@@ -18211,7 +18211,7 @@ export class EntryTimestamp {
     vfunc_remove(widget: Gtk.Widget): void
     vfunc_set_child_property(child: Gtk.Widget, property_id: number, value: any, pspec: GObject.ParamSpec): void
     vfunc_set_focus_child(child?: Gtk.Widget | null): void
-    /* Virtual methods of Gtk.Widget */
+    /* Virtual methods of Gtk-3.0.Gtk.Widget */
     vfunc_adjust_baseline_allocation(baseline: number): void
     vfunc_adjust_baseline_request(minimum_baseline: number, natural_baseline: number): void
     vfunc_adjust_size_allocation(orientation: Gtk.Orientation, minimum_size: number, natural_size: number, allocated_pos: number, allocated_size: number): void
@@ -18294,7 +18294,7 @@ export class EntryTimestamp {
     vfunc_unrealize(): void
     vfunc_visibility_notify_event(event: Gdk.EventVisibility): boolean
     vfunc_window_state_event(event: Gdk.EventWindowState): boolean
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -18302,7 +18302,7 @@ export class EntryTimestamp {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gtk.Container */
+    /* Signals of Gtk-3.0.Gtk.Container */
     connect(sigName: "add", callback: (($obj: EntryTimestamp, object: Gtk.Widget) => void)): number
     connect_after(sigName: "add", callback: (($obj: EntryTimestamp, object: Gtk.Widget) => void)): number
     emit(sigName: "add", object: Gtk.Widget): void
@@ -18315,7 +18315,7 @@ export class EntryTimestamp {
     connect(sigName: "set-focus-child", callback: (($obj: EntryTimestamp, object: Gtk.Widget) => void)): number
     connect_after(sigName: "set-focus-child", callback: (($obj: EntryTimestamp, object: Gtk.Widget) => void)): number
     emit(sigName: "set-focus-child", object: Gtk.Widget): void
-    /* Signals of Gtk.Widget */
+    /* Signals of Gtk-3.0.Gtk.Widget */
     connect(sigName: "accel-closures-changed", callback: (($obj: EntryTimestamp) => void)): number
     connect_after(sigName: "accel-closures-changed", callback: (($obj: EntryTimestamp) => void)): number
     emit(sigName: "accel-closures-changed"): void
@@ -18523,11 +18523,11 @@ export class EntryTimestamp {
     connect(sigName: "window-state-event", callback: (($obj: EntryTimestamp, event: Gdk.EventWindowState) => boolean)): number
     connect_after(sigName: "window-state-event", callback: (($obj: EntryTimestamp, event: Gdk.EventWindowState) => boolean)): number
     emit(sigName: "window-state-event", event: Gdk.EventWindowState): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: EntryTimestamp, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: EntryTimestamp, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    /* Signals of Gdaui.DataEntry */
+    /* Signals of Gdaui-6.0.Gdaui.DataEntry */
     connect(sigName: "contents-activated", callback: (($obj: EntryTimestamp) => void)): number
     connect_after(sigName: "contents-activated", callback: (($obj: EntryTimestamp) => void)): number
     emit(sigName: "contents-activated"): void
@@ -18540,7 +18540,7 @@ export class EntryTimestamp {
     connect(sigName: "status-changed", callback: (($obj: EntryTimestamp) => void)): number
     connect_after(sigName: "status-changed", callback: (($obj: EntryTimestamp) => void)): number
     emit(sigName: "status-changed"): void
-    /* Signals of Gtk.CellEditable */
+    /* Signals of Gtk-3.0.Gtk.CellEditable */
     connect(sigName: "editing-done", callback: (($obj: EntryTimestamp) => void)): number
     connect_after(sigName: "editing-done", callback: (($obj: EntryTimestamp) => void)): number
     emit(sigName: "editing-done"): void
@@ -18666,20 +18666,20 @@ export interface EntryWrapper_ConstructProps extends EntryShell_ConstructProps {
     orientation?: Gtk.Orientation
 }
 export class EntryWrapper {
-    /* Properties of Gdaui.EntryWrapper */
+    /* Properties of Gdaui-6.0.Gdaui.EntryWrapper */
     set_default_if_invalid: boolean
-    /* Properties of Gdaui.EntryShell */
+    /* Properties of Gdaui-6.0.Gdaui.EntryShell */
     handler: Gda.DataHandler
     is_cell_renderer: boolean
-    /* Properties of Gtk.Box */
+    /* Properties of Gtk-3.0.Gtk.Box */
     baseline_position: Gtk.BaselinePosition
     homogeneous: boolean
     spacing: number
-    /* Properties of Gtk.Container */
+    /* Properties of Gtk-3.0.Gtk.Container */
     border_width: number
     child: Gtk.Widget
     resize_mode: Gtk.ResizeMode
-    /* Properties of Gtk.Widget */
+    /* Properties of Gtk-3.0.Gtk.Widget */
     app_paintable: boolean
     can_default: boolean
     can_focus: boolean
@@ -18719,23 +18719,23 @@ export class EntryWrapper {
     visible: boolean
     width_request: number
     readonly window: Gdk.Window
-    /* Properties of Gtk.Orientable */
+    /* Properties of Gtk-3.0.Gtk.Orientable */
     orientation: Gtk.Orientation
-    /* Fields of Gdaui.EntryWrapper */
+    /* Fields of Gdaui-6.0.Gdaui.EntryWrapper */
     parent_instance: EntryShell
-    /* Fields of Gtk.Box */
+    /* Fields of Gtk-3.0.Gtk.Box */
     container: Gtk.Container
-    /* Fields of Gtk.Container */
+    /* Fields of Gtk-3.0.Gtk.Container */
     widget: Gtk.Widget
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Gdaui.EntryWrapper */
+    /* Methods of Gdaui-6.0.Gdaui.EntryWrapper */
     contents_activated(): void
     contents_changed(): void
-    /* Methods of Gdaui.EntryShell */
+    /* Methods of Gdaui-6.0.Gdaui.EntryShell */
     pack_entry(entry: Gtk.Widget): void
     set_invalid_color(red: number, green: number, blue: number, alpha: number): void
-    /* Methods of Gtk.Box */
+    /* Methods of Gtk-3.0.Gtk.Box */
     get_baseline_position(): Gtk.BaselinePosition
     get_center_widget(): Gtk.Widget | null
     get_homogeneous(): boolean
@@ -18749,7 +18749,7 @@ export class EntryWrapper {
     set_child_packing(child: Gtk.Widget, expand: boolean, fill: boolean, padding: number, pack_type: Gtk.PackType): void
     set_homogeneous(homogeneous: boolean): void
     set_spacing(spacing: number): void
-    /* Methods of Gtk.Container */
+    /* Methods of Gtk-3.0.Gtk.Container */
     add(widget: Gtk.Widget): void
     check_resize(): void
     child_get_property(child: Gtk.Widget, property_name: string, value: any): void
@@ -18777,7 +18777,7 @@ export class EntryWrapper {
     set_reallocate_redraws(needs_redraws: boolean): void
     set_resize_mode(resize_mode: Gtk.ResizeMode): void
     unset_focus_chain(): void
-    /* Methods of Gtk.Widget */
+    /* Methods of Gtk-3.0.Gtk.Widget */
     activate(): boolean
     add_accelerator(accel_signal: string, accel_group: Gtk.AccelGroup, accel_key: number, accel_mods: Gdk.ModifierType, accel_flags: Gtk.AccelFlags): void
     add_device_events(device: Gdk.Device, events: Gdk.EventMask): void
@@ -19036,7 +19036,7 @@ export class EntryWrapper {
     unrealize(): void
     unregister_window(window: Gdk.Window): void
     unset_state_flags(flags: Gtk.StateFlags): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -19058,7 +19058,7 @@ export class EntryWrapper {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of Gdaui.DataEntry */
+    /* Methods of Gdaui-6.0.Gdaui.DataEntry */
     get_attributes(): Gda.ValueAttribute
     get_editable(): boolean
     get_handler(): Gda.DataHandler
@@ -19074,7 +19074,7 @@ export class EntryWrapper {
     set_value(value?: any | null): void
     set_value_type(type: GObject.Type): void
     validate(): boolean
-    /* Methods of Gtk.Buildable */
+    /* Methods of Gtk-3.0.Gtk.Buildable */
     add_child(builder: Gtk.Builder, child: GObject.Object, type?: string | null): void
     construct_child(builder: Gtk.Builder, name: string): GObject.Object
     custom_finished(builder: Gtk.Builder, child: GObject.Object | null, tagname: string, data?: object | null): void
@@ -19083,10 +19083,10 @@ export class EntryWrapper {
     get_internal_child(builder: Gtk.Builder, childname: string): GObject.Object
     parser_finished(builder: Gtk.Builder): void
     set_buildable_property(builder: Gtk.Builder, name: string, value: any): void
-    /* Methods of Gtk.Orientable */
+    /* Methods of Gtk-3.0.Gtk.Orientable */
     get_orientation(): Gtk.Orientation
     set_orientation(orientation: Gtk.Orientation): void
-    /* Virtual methods of Gdaui.EntryWrapper */
+    /* Virtual methods of Gdaui-6.0.Gdaui.EntryWrapper */
     vfunc_can_expand(horiz: boolean): boolean
     vfunc_grab_focus(): void
     vfunc_is_valid(): boolean
@@ -19112,7 +19112,7 @@ export class EntryWrapper {
     vfunc_set_value_type(type: GObject.Type): void
     vfunc_status_changed(): void
     vfunc_validate(): boolean
-    /* Virtual methods of Gdaui.EntryShell */
+    /* Virtual methods of Gdaui-6.0.Gdaui.EntryShell */
     vfunc_add_child(builder: Gtk.Builder, child: GObject.Object, type?: string | null): void
     vfunc_construct_child(builder: Gtk.Builder, name: string): GObject.Object
     vfunc_custom_finished(builder: Gtk.Builder, child: GObject.Object | null, tagname: string, data?: object | null): void
@@ -19123,7 +19123,7 @@ export class EntryWrapper {
     vfunc_parser_finished(builder: Gtk.Builder): void
     vfunc_set_buildable_property(builder: Gtk.Builder, name: string, value: any): void
     vfunc_set_name(name: string): void
-    /* Virtual methods of Gtk.Container */
+    /* Virtual methods of Gtk-3.0.Gtk.Container */
     vfunc_add(widget: Gtk.Widget): void
     vfunc_check_resize(): void
     vfunc_child_type(): GObject.Type
@@ -19134,7 +19134,7 @@ export class EntryWrapper {
     vfunc_remove(widget: Gtk.Widget): void
     vfunc_set_child_property(child: Gtk.Widget, property_id: number, value: any, pspec: GObject.ParamSpec): void
     vfunc_set_focus_child(child?: Gtk.Widget | null): void
-    /* Virtual methods of Gtk.Widget */
+    /* Virtual methods of Gtk-3.0.Gtk.Widget */
     vfunc_adjust_baseline_allocation(baseline: number): void
     vfunc_adjust_baseline_request(minimum_baseline: number, natural_baseline: number): void
     vfunc_adjust_size_allocation(orientation: Gtk.Orientation, minimum_size: number, natural_size: number, allocated_pos: number, allocated_size: number): void
@@ -19217,7 +19217,7 @@ export class EntryWrapper {
     vfunc_unrealize(): void
     vfunc_visibility_notify_event(event: Gdk.EventVisibility): boolean
     vfunc_window_state_event(event: Gdk.EventWindowState): boolean
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -19225,7 +19225,7 @@ export class EntryWrapper {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gtk.Container */
+    /* Signals of Gtk-3.0.Gtk.Container */
     connect(sigName: "add", callback: (($obj: EntryWrapper, object: Gtk.Widget) => void)): number
     connect_after(sigName: "add", callback: (($obj: EntryWrapper, object: Gtk.Widget) => void)): number
     emit(sigName: "add", object: Gtk.Widget): void
@@ -19238,7 +19238,7 @@ export class EntryWrapper {
     connect(sigName: "set-focus-child", callback: (($obj: EntryWrapper, object: Gtk.Widget) => void)): number
     connect_after(sigName: "set-focus-child", callback: (($obj: EntryWrapper, object: Gtk.Widget) => void)): number
     emit(sigName: "set-focus-child", object: Gtk.Widget): void
-    /* Signals of Gtk.Widget */
+    /* Signals of Gtk-3.0.Gtk.Widget */
     connect(sigName: "accel-closures-changed", callback: (($obj: EntryWrapper) => void)): number
     connect_after(sigName: "accel-closures-changed", callback: (($obj: EntryWrapper) => void)): number
     emit(sigName: "accel-closures-changed"): void
@@ -19446,11 +19446,11 @@ export class EntryWrapper {
     connect(sigName: "window-state-event", callback: (($obj: EntryWrapper, event: Gdk.EventWindowState) => boolean)): number
     connect_after(sigName: "window-state-event", callback: (($obj: EntryWrapper, event: Gdk.EventWindowState) => boolean)): number
     emit(sigName: "window-state-event", event: Gdk.EventWindowState): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: EntryWrapper, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: EntryWrapper, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    /* Signals of Gdaui.DataEntry */
+    /* Signals of Gdaui-6.0.Gdaui.DataEntry */
     connect(sigName: "contents-activated", callback: (($obj: EntryWrapper) => void)): number
     connect_after(sigName: "contents-activated", callback: (($obj: EntryWrapper) => void)): number
     emit(sigName: "contents-activated"): void
@@ -19577,18 +19577,18 @@ export interface Form_ConstructProps extends Gtk.Box_ConstructProps {
     orientation?: Gtk.Orientation
 }
 export class Form {
-    /* Properties of Gdaui.Form */
+    /* Properties of Gdaui-6.0.Gdaui.Form */
     readonly info: DataProxyInfo
     readonly raw_form: RawForm
-    /* Properties of Gtk.Box */
+    /* Properties of Gtk-3.0.Gtk.Box */
     baseline_position: Gtk.BaselinePosition
     homogeneous: boolean
     spacing: number
-    /* Properties of Gtk.Container */
+    /* Properties of Gtk-3.0.Gtk.Container */
     border_width: number
     child: Gtk.Widget
     resize_mode: Gtk.ResizeMode
-    /* Properties of Gtk.Widget */
+    /* Properties of Gtk-3.0.Gtk.Widget */
     app_paintable: boolean
     can_default: boolean
     can_focus: boolean
@@ -19628,17 +19628,17 @@ export class Form {
     visible: boolean
     width_request: number
     readonly window: Gdk.Window
-    /* Properties of Gtk.Orientable */
+    /* Properties of Gtk-3.0.Gtk.Orientable */
     orientation: Gtk.Orientation
-    /* Fields of Gdaui.Form */
+    /* Fields of Gdaui-6.0.Gdaui.Form */
     parent_instance: Gtk.Box
-    /* Fields of Gtk.Box */
+    /* Fields of Gtk-3.0.Gtk.Box */
     container: Gtk.Container
-    /* Fields of Gtk.Container */
+    /* Fields of Gtk-3.0.Gtk.Container */
     widget: Gtk.Widget
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Gtk.Box */
+    /* Methods of Gtk-3.0.Gtk.Box */
     get_baseline_position(): Gtk.BaselinePosition
     get_center_widget(): Gtk.Widget | null
     get_homogeneous(): boolean
@@ -19652,7 +19652,7 @@ export class Form {
     set_child_packing(child: Gtk.Widget, expand: boolean, fill: boolean, padding: number, pack_type: Gtk.PackType): void
     set_homogeneous(homogeneous: boolean): void
     set_spacing(spacing: number): void
-    /* Methods of Gtk.Container */
+    /* Methods of Gtk-3.0.Gtk.Container */
     add(widget: Gtk.Widget): void
     check_resize(): void
     child_get_property(child: Gtk.Widget, property_name: string, value: any): void
@@ -19680,7 +19680,7 @@ export class Form {
     set_reallocate_redraws(needs_redraws: boolean): void
     set_resize_mode(resize_mode: Gtk.ResizeMode): void
     unset_focus_chain(): void
-    /* Methods of Gtk.Widget */
+    /* Methods of Gtk-3.0.Gtk.Widget */
     activate(): boolean
     add_accelerator(accel_signal: string, accel_group: Gtk.AccelGroup, accel_key: number, accel_mods: Gdk.ModifierType, accel_flags: Gtk.AccelFlags): void
     add_device_events(device: Gdk.Device, events: Gdk.EventMask): void
@@ -19939,7 +19939,7 @@ export class Form {
     unrealize(): void
     unregister_window(window: Gdk.Window): void
     unset_state_flags(flags: Gtk.StateFlags): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -19961,14 +19961,14 @@ export class Form {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of Gdaui.DataProxy */
+    /* Methods of Gdaui-6.0.Gdaui.DataProxy */
     column_set_editable(column: number, editable: boolean): void
     get_proxy(): Gda.DataProxy
     get_write_mode(): DataProxyWriteMode
     perform_action(action: Action): void
     set_write_mode(mode: DataProxyWriteMode): boolean
     supports_action(action: Action): boolean
-    /* Methods of Gdaui.DataSelector */
+    /* Methods of Gdaui-6.0.Gdaui.DataSelector */
     get_data_set(): Gda.DataModelIter
     get_model(): Gda.DataModel
     get_selected_rows(): number[]
@@ -19976,7 +19976,7 @@ export class Form {
     set_column_visible(column: number, visible: boolean): void
     set_model(model: Gda.DataModel): void
     unselect_row(row: number): void
-    /* Methods of Gtk.Buildable */
+    /* Methods of Gtk-3.0.Gtk.Buildable */
     add_child(builder: Gtk.Builder, child: GObject.Object, type?: string | null): void
     construct_child(builder: Gtk.Builder, name: string): GObject.Object
     custom_finished(builder: Gtk.Builder, child: GObject.Object | null, tagname: string, data?: object | null): void
@@ -19985,10 +19985,10 @@ export class Form {
     get_internal_child(builder: Gtk.Builder, childname: string): GObject.Object
     parser_finished(builder: Gtk.Builder): void
     set_buildable_property(builder: Gtk.Builder, name: string, value: any): void
-    /* Methods of Gtk.Orientable */
+    /* Methods of Gtk-3.0.Gtk.Orientable */
     get_orientation(): Gtk.Orientation
     set_orientation(orientation: Gtk.Orientation): void
-    /* Virtual methods of Gdaui.Form */
+    /* Virtual methods of Gdaui-6.0.Gdaui.Form */
     vfunc_get_proxy(): Gda.DataProxy
     vfunc_get_write_mode(): DataProxyWriteMode
     vfunc_perform_action(action: Action): void
@@ -20014,7 +20014,7 @@ export class Form {
     vfunc_parser_finished(builder: Gtk.Builder): void
     vfunc_set_buildable_property(builder: Gtk.Builder, name: string, value: any): void
     vfunc_set_name(name: string): void
-    /* Virtual methods of Gtk.Container */
+    /* Virtual methods of Gtk-3.0.Gtk.Container */
     vfunc_add(widget: Gtk.Widget): void
     vfunc_check_resize(): void
     vfunc_child_type(): GObject.Type
@@ -20025,7 +20025,7 @@ export class Form {
     vfunc_remove(widget: Gtk.Widget): void
     vfunc_set_child_property(child: Gtk.Widget, property_id: number, value: any, pspec: GObject.ParamSpec): void
     vfunc_set_focus_child(child?: Gtk.Widget | null): void
-    /* Virtual methods of Gtk.Widget */
+    /* Virtual methods of Gtk-3.0.Gtk.Widget */
     vfunc_adjust_baseline_allocation(baseline: number): void
     vfunc_adjust_baseline_request(minimum_baseline: number, natural_baseline: number): void
     vfunc_adjust_size_allocation(orientation: Gtk.Orientation, minimum_size: number, natural_size: number, allocated_pos: number, allocated_size: number): void
@@ -20108,7 +20108,7 @@ export class Form {
     vfunc_unrealize(): void
     vfunc_visibility_notify_event(event: Gdk.EventVisibility): boolean
     vfunc_window_state_event(event: Gdk.EventWindowState): boolean
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -20116,7 +20116,7 @@ export class Form {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gtk.Container */
+    /* Signals of Gtk-3.0.Gtk.Container */
     connect(sigName: "add", callback: (($obj: Form, object: Gtk.Widget) => void)): number
     connect_after(sigName: "add", callback: (($obj: Form, object: Gtk.Widget) => void)): number
     emit(sigName: "add", object: Gtk.Widget): void
@@ -20129,7 +20129,7 @@ export class Form {
     connect(sigName: "set-focus-child", callback: (($obj: Form, object: Gtk.Widget) => void)): number
     connect_after(sigName: "set-focus-child", callback: (($obj: Form, object: Gtk.Widget) => void)): number
     emit(sigName: "set-focus-child", object: Gtk.Widget): void
-    /* Signals of Gtk.Widget */
+    /* Signals of Gtk-3.0.Gtk.Widget */
     connect(sigName: "accel-closures-changed", callback: (($obj: Form) => void)): number
     connect_after(sigName: "accel-closures-changed", callback: (($obj: Form) => void)): number
     emit(sigName: "accel-closures-changed"): void
@@ -20337,15 +20337,15 @@ export class Form {
     connect(sigName: "window-state-event", callback: (($obj: Form, event: Gdk.EventWindowState) => boolean)): number
     connect_after(sigName: "window-state-event", callback: (($obj: Form, event: Gdk.EventWindowState) => boolean)): number
     emit(sigName: "window-state-event", event: Gdk.EventWindowState): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Form, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Form, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    /* Signals of Gdaui.DataProxy */
+    /* Signals of Gdaui-6.0.Gdaui.DataProxy */
     connect(sigName: "proxy-changed", callback: (($obj: Form, arg1: Gda.DataProxy) => void)): number
     connect_after(sigName: "proxy-changed", callback: (($obj: Form, arg1: Gda.DataProxy) => void)): number
     emit(sigName: "proxy-changed", arg1: Gda.DataProxy): void
-    /* Signals of Gdaui.DataSelector */
+    /* Signals of Gdaui-6.0.Gdaui.DataSelector */
     connect(sigName: "selection-changed", callback: (($obj: Form) => void)): number
     connect_after(sigName: "selection-changed", callback: (($obj: Form) => void)): number
     emit(sigName: "selection-changed"): void
@@ -20463,13 +20463,13 @@ export interface FormattedEntry_ConstructProps extends Entry_ConstructProps {
     editing_canceled?: boolean
 }
 export class FormattedEntry {
-    /* Properties of Gdaui.FormattedEntry */
+    /* Properties of Gdaui-6.0.Gdaui.FormattedEntry */
     format: string
     mask: string
-    /* Properties of Gdaui.Entry */
+    /* Properties of Gdaui-6.0.Gdaui.Entry */
     prefix: string
     suffix: string
-    /* Properties of Gtk.Entry */
+    /* Properties of Gtk-3.0.Gtk.Entry */
     activates_default: boolean
     attributes: Pango.AttrList
     buffer: Gtk.EntryBuffer
@@ -20521,7 +20521,7 @@ export class FormattedEntry {
     visibility: boolean
     width_chars: number
     xalign: number
-    /* Properties of Gtk.Widget */
+    /* Properties of Gtk-3.0.Gtk.Widget */
     app_paintable: boolean
     can_default: boolean
     can_focus: boolean
@@ -20561,22 +20561,22 @@ export class FormattedEntry {
     visible: boolean
     width_request: number
     readonly window: Gdk.Window
-    /* Properties of Gtk.CellEditable */
+    /* Properties of Gtk-3.0.Gtk.CellEditable */
     editing_canceled: boolean
-    /* Fields of Gdaui.FormattedEntry */
+    /* Fields of Gdaui-6.0.Gdaui.FormattedEntry */
     parent_instance: Entry
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Gdaui.FormattedEntry */
+    /* Methods of Gdaui-6.0.Gdaui.FormattedEntry */
     get_text(): string
     set_insert_func(insert_func?: FormattedEntryInsertFunc | null): void
-    /* Methods of Gdaui.Entry */
+    /* Methods of Gdaui-6.0.Gdaui.Entry */
     set_max_length(max: number): void
     set_prefix(prefix: string): void
     set_suffix(suffix: string): void
     set_text(text?: string | null): void
     set_width_chars(max_width: number): void
-    /* Methods of Gtk.Entry */
+    /* Methods of Gtk-3.0.Gtk.Entry */
     get_activates_default(): boolean
     get_alignment(): number
     get_attributes(): Pango.AttrList | null
@@ -20649,7 +20649,7 @@ export class FormattedEntry {
     set_width_chars(n_chars: number): void
     text_index_to_layout_index(text_index: number): number
     unset_invisible_char(): void
-    /* Methods of Gtk.Widget */
+    /* Methods of Gtk-3.0.Gtk.Widget */
     activate(): boolean
     add_accelerator(accel_signal: string, accel_group: Gtk.AccelGroup, accel_key: number, accel_mods: Gdk.ModifierType, accel_flags: Gtk.AccelFlags): void
     add_device_events(device: Gdk.Device, events: Gdk.EventMask): void
@@ -20908,7 +20908,7 @@ export class FormattedEntry {
     unrealize(): void
     unregister_window(window: Gdk.Window): void
     unset_state_flags(flags: Gtk.StateFlags): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -20930,7 +20930,7 @@ export class FormattedEntry {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of Gtk.Buildable */
+    /* Methods of Gtk-3.0.Gtk.Buildable */
     add_child(builder: Gtk.Builder, child: GObject.Object, type?: string | null): void
     construct_child(builder: Gtk.Builder, name: string): GObject.Object
     custom_finished(builder: Gtk.Builder, child: GObject.Object | null, tagname: string, data?: object | null): void
@@ -20939,11 +20939,11 @@ export class FormattedEntry {
     get_internal_child(builder: Gtk.Builder, childname: string): GObject.Object
     parser_finished(builder: Gtk.Builder): void
     set_buildable_property(builder: Gtk.Builder, name: string, value: any): void
-    /* Methods of Gtk.CellEditable */
+    /* Methods of Gtk-3.0.Gtk.CellEditable */
     editing_done(): void
     remove_widget(): void
     start_editing(event?: Gdk.Event | null): void
-    /* Methods of Gtk.Editable */
+    /* Methods of Gtk-3.0.Gtk.Editable */
     copy_clipboard(): void
     cut_clipboard(): void
     delete_selection(): void
@@ -20957,7 +20957,7 @@ export class FormattedEntry {
     select_region(start_pos: number, end_pos: number): void
     set_editable(is_editable: boolean): void
     set_position(position: number): void
-    /* Virtual methods of Gdaui.Entry */
+    /* Virtual methods of Gdaui-6.0.Gdaui.Entry */
     vfunc_assume_delete(virt_start_pos: number, virt_end_pos: number, offset: number): void
     vfunc_assume_insert(text: string, text_length: number, virt_pos: number, offset: number): void
     vfunc_get_empty_text(): string
@@ -20984,7 +20984,7 @@ export class FormattedEntry {
     vfunc_insert_text(new_text: string, new_text_length: number, position: number): /* position */ number
     vfunc_set_position(position: number): void
     vfunc_set_selection_bounds(start_pos: number, end_pos: number): void
-    /* Virtual methods of Gtk.Entry */
+    /* Virtual methods of Gtk-3.0.Gtk.Entry */
     vfunc_activate(): void
     vfunc_backspace(): void
     vfunc_copy_clipboard(): void
@@ -20998,7 +20998,7 @@ export class FormattedEntry {
     vfunc_paste_clipboard(): void
     vfunc_populate_popup(popup: Gtk.Widget): void
     vfunc_toggle_overwrite(): void
-    /* Virtual methods of Gtk.Widget */
+    /* Virtual methods of Gtk-3.0.Gtk.Widget */
     vfunc_adjust_baseline_allocation(baseline: number): void
     vfunc_adjust_baseline_request(minimum_baseline: number, natural_baseline: number): void
     vfunc_adjust_size_allocation(orientation: Gtk.Orientation, minimum_size: number, natural_size: number, allocated_pos: number, allocated_size: number): void
@@ -21081,7 +21081,7 @@ export class FormattedEntry {
     vfunc_unrealize(): void
     vfunc_visibility_notify_event(event: Gdk.EventVisibility): boolean
     vfunc_window_state_event(event: Gdk.EventWindowState): boolean
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -21089,7 +21089,7 @@ export class FormattedEntry {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gtk.Entry */
+    /* Signals of Gtk-3.0.Gtk.Entry */
     connect(sigName: "activate", callback: (($obj: FormattedEntry) => void)): number
     connect_after(sigName: "activate", callback: (($obj: FormattedEntry) => void)): number
     emit(sigName: "activate"): void
@@ -21132,7 +21132,7 @@ export class FormattedEntry {
     connect(sigName: "toggle-overwrite", callback: (($obj: FormattedEntry) => void)): number
     connect_after(sigName: "toggle-overwrite", callback: (($obj: FormattedEntry) => void)): number
     emit(sigName: "toggle-overwrite"): void
-    /* Signals of Gtk.Widget */
+    /* Signals of Gtk-3.0.Gtk.Widget */
     connect(sigName: "accel-closures-changed", callback: (($obj: FormattedEntry) => void)): number
     connect_after(sigName: "accel-closures-changed", callback: (($obj: FormattedEntry) => void)): number
     emit(sigName: "accel-closures-changed"): void
@@ -21340,18 +21340,18 @@ export class FormattedEntry {
     connect(sigName: "window-state-event", callback: (($obj: FormattedEntry, event: Gdk.EventWindowState) => boolean)): number
     connect_after(sigName: "window-state-event", callback: (($obj: FormattedEntry, event: Gdk.EventWindowState) => boolean)): number
     emit(sigName: "window-state-event", event: Gdk.EventWindowState): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: FormattedEntry, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: FormattedEntry, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    /* Signals of Gtk.CellEditable */
+    /* Signals of Gtk-3.0.Gtk.CellEditable */
     connect(sigName: "editing-done", callback: (($obj: FormattedEntry) => void)): number
     connect_after(sigName: "editing-done", callback: (($obj: FormattedEntry) => void)): number
     emit(sigName: "editing-done"): void
     connect(sigName: "remove-widget", callback: (($obj: FormattedEntry) => void)): number
     connect_after(sigName: "remove-widget", callback: (($obj: FormattedEntry) => void)): number
     emit(sigName: "remove-widget"): void
-    /* Signals of Gtk.Editable */
+    /* Signals of Gtk-3.0.Gtk.Editable */
     connect(sigName: "changed", callback: (($obj: FormattedEntry) => void)): number
     connect_after(sigName: "changed", callback: (($obj: FormattedEntry) => void)): number
     emit(sigName: "changed"): void
@@ -21569,19 +21569,19 @@ export interface Grid_ConstructProps extends Gtk.Box_ConstructProps {
     orientation?: Gtk.Orientation
 }
 export class Grid {
-    /* Properties of Gdaui.Grid */
+    /* Properties of Gdaui-6.0.Gdaui.Grid */
     readonly info: DataProxyInfo
     model: Gda.DataModel
     readonly raw_grid: RawGrid
-    /* Properties of Gtk.Box */
+    /* Properties of Gtk-3.0.Gtk.Box */
     baseline_position: Gtk.BaselinePosition
     homogeneous: boolean
     spacing: number
-    /* Properties of Gtk.Container */
+    /* Properties of Gtk-3.0.Gtk.Container */
     border_width: number
     child: Gtk.Widget
     resize_mode: Gtk.ResizeMode
-    /* Properties of Gtk.Widget */
+    /* Properties of Gtk-3.0.Gtk.Widget */
     app_paintable: boolean
     can_default: boolean
     can_focus: boolean
@@ -21621,19 +21621,19 @@ export class Grid {
     visible: boolean
     width_request: number
     readonly window: Gdk.Window
-    /* Properties of Gtk.Orientable */
+    /* Properties of Gtk-3.0.Gtk.Orientable */
     orientation: Gtk.Orientation
-    /* Fields of Gdaui.Grid */
+    /* Fields of Gdaui-6.0.Gdaui.Grid */
     parent_instance: Gtk.Box
-    /* Fields of Gtk.Box */
+    /* Fields of Gtk-3.0.Gtk.Box */
     container: Gtk.Container
-    /* Fields of Gtk.Container */
+    /* Fields of Gtk-3.0.Gtk.Container */
     widget: Gtk.Widget
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Gdaui.Grid */
+    /* Methods of Gdaui-6.0.Gdaui.Grid */
     set_sample_size(sample_size: number): void
-    /* Methods of Gtk.Box */
+    /* Methods of Gtk-3.0.Gtk.Box */
     get_baseline_position(): Gtk.BaselinePosition
     get_center_widget(): Gtk.Widget | null
     get_homogeneous(): boolean
@@ -21647,7 +21647,7 @@ export class Grid {
     set_child_packing(child: Gtk.Widget, expand: boolean, fill: boolean, padding: number, pack_type: Gtk.PackType): void
     set_homogeneous(homogeneous: boolean): void
     set_spacing(spacing: number): void
-    /* Methods of Gtk.Container */
+    /* Methods of Gtk-3.0.Gtk.Container */
     add(widget: Gtk.Widget): void
     check_resize(): void
     child_get_property(child: Gtk.Widget, property_name: string, value: any): void
@@ -21675,7 +21675,7 @@ export class Grid {
     set_reallocate_redraws(needs_redraws: boolean): void
     set_resize_mode(resize_mode: Gtk.ResizeMode): void
     unset_focus_chain(): void
-    /* Methods of Gtk.Widget */
+    /* Methods of Gtk-3.0.Gtk.Widget */
     activate(): boolean
     add_accelerator(accel_signal: string, accel_group: Gtk.AccelGroup, accel_key: number, accel_mods: Gdk.ModifierType, accel_flags: Gtk.AccelFlags): void
     add_device_events(device: Gdk.Device, events: Gdk.EventMask): void
@@ -21934,7 +21934,7 @@ export class Grid {
     unrealize(): void
     unregister_window(window: Gdk.Window): void
     unset_state_flags(flags: Gtk.StateFlags): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -21956,14 +21956,14 @@ export class Grid {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of Gdaui.DataProxy */
+    /* Methods of Gdaui-6.0.Gdaui.DataProxy */
     column_set_editable(column: number, editable: boolean): void
     get_proxy(): Gda.DataProxy
     get_write_mode(): DataProxyWriteMode
     perform_action(action: Action): void
     set_write_mode(mode: DataProxyWriteMode): boolean
     supports_action(action: Action): boolean
-    /* Methods of Gdaui.DataSelector */
+    /* Methods of Gdaui-6.0.Gdaui.DataSelector */
     get_data_set(): Gda.DataModelIter
     get_model(): Gda.DataModel
     get_selected_rows(): number[]
@@ -21971,7 +21971,7 @@ export class Grid {
     set_column_visible(column: number, visible: boolean): void
     set_model(model: Gda.DataModel): void
     unselect_row(row: number): void
-    /* Methods of Gtk.Buildable */
+    /* Methods of Gtk-3.0.Gtk.Buildable */
     add_child(builder: Gtk.Builder, child: GObject.Object, type?: string | null): void
     construct_child(builder: Gtk.Builder, name: string): GObject.Object
     custom_finished(builder: Gtk.Builder, child: GObject.Object | null, tagname: string, data?: object | null): void
@@ -21980,10 +21980,10 @@ export class Grid {
     get_internal_child(builder: Gtk.Builder, childname: string): GObject.Object
     parser_finished(builder: Gtk.Builder): void
     set_buildable_property(builder: Gtk.Builder, name: string, value: any): void
-    /* Methods of Gtk.Orientable */
+    /* Methods of Gtk-3.0.Gtk.Orientable */
     get_orientation(): Gtk.Orientation
     set_orientation(orientation: Gtk.Orientation): void
-    /* Virtual methods of Gdaui.Grid */
+    /* Virtual methods of Gdaui-6.0.Gdaui.Grid */
     vfunc_get_proxy(): Gda.DataProxy
     vfunc_get_write_mode(): DataProxyWriteMode
     vfunc_perform_action(action: Action): void
@@ -22009,7 +22009,7 @@ export class Grid {
     vfunc_parser_finished(builder: Gtk.Builder): void
     vfunc_set_buildable_property(builder: Gtk.Builder, name: string, value: any): void
     vfunc_set_name(name: string): void
-    /* Virtual methods of Gtk.Container */
+    /* Virtual methods of Gtk-3.0.Gtk.Container */
     vfunc_add(widget: Gtk.Widget): void
     vfunc_check_resize(): void
     vfunc_child_type(): GObject.Type
@@ -22020,7 +22020,7 @@ export class Grid {
     vfunc_remove(widget: Gtk.Widget): void
     vfunc_set_child_property(child: Gtk.Widget, property_id: number, value: any, pspec: GObject.ParamSpec): void
     vfunc_set_focus_child(child?: Gtk.Widget | null): void
-    /* Virtual methods of Gtk.Widget */
+    /* Virtual methods of Gtk-3.0.Gtk.Widget */
     vfunc_adjust_baseline_allocation(baseline: number): void
     vfunc_adjust_baseline_request(minimum_baseline: number, natural_baseline: number): void
     vfunc_adjust_size_allocation(orientation: Gtk.Orientation, minimum_size: number, natural_size: number, allocated_pos: number, allocated_size: number): void
@@ -22103,7 +22103,7 @@ export class Grid {
     vfunc_unrealize(): void
     vfunc_visibility_notify_event(event: Gdk.EventVisibility): boolean
     vfunc_window_state_event(event: Gdk.EventWindowState): boolean
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -22111,7 +22111,7 @@ export class Grid {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gtk.Container */
+    /* Signals of Gtk-3.0.Gtk.Container */
     connect(sigName: "add", callback: (($obj: Grid, object: Gtk.Widget) => void)): number
     connect_after(sigName: "add", callback: (($obj: Grid, object: Gtk.Widget) => void)): number
     emit(sigName: "add", object: Gtk.Widget): void
@@ -22124,7 +22124,7 @@ export class Grid {
     connect(sigName: "set-focus-child", callback: (($obj: Grid, object: Gtk.Widget) => void)): number
     connect_after(sigName: "set-focus-child", callback: (($obj: Grid, object: Gtk.Widget) => void)): number
     emit(sigName: "set-focus-child", object: Gtk.Widget): void
-    /* Signals of Gtk.Widget */
+    /* Signals of Gtk-3.0.Gtk.Widget */
     connect(sigName: "accel-closures-changed", callback: (($obj: Grid) => void)): number
     connect_after(sigName: "accel-closures-changed", callback: (($obj: Grid) => void)): number
     emit(sigName: "accel-closures-changed"): void
@@ -22332,15 +22332,15 @@ export class Grid {
     connect(sigName: "window-state-event", callback: (($obj: Grid, event: Gdk.EventWindowState) => boolean)): number
     connect_after(sigName: "window-state-event", callback: (($obj: Grid, event: Gdk.EventWindowState) => boolean)): number
     emit(sigName: "window-state-event", event: Gdk.EventWindowState): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Grid, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Grid, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    /* Signals of Gdaui.DataProxy */
+    /* Signals of Gdaui-6.0.Gdaui.DataProxy */
     connect(sigName: "proxy-changed", callback: (($obj: Grid, arg1: Gda.DataProxy) => void)): number
     connect_after(sigName: "proxy-changed", callback: (($obj: Grid, arg1: Gda.DataProxy) => void)): number
     emit(sigName: "proxy-changed", arg1: Gda.DataProxy): void
-    /* Signals of Gdaui.DataSelector */
+    /* Signals of Gdaui-6.0.Gdaui.DataSelector */
     connect(sigName: "selection-changed", callback: (($obj: Grid) => void)): number
     connect_after(sigName: "selection-changed", callback: (($obj: Grid) => void)): number
     emit(sigName: "selection-changed"): void
@@ -22459,18 +22459,18 @@ export interface Login_ConstructProps extends Gtk.Box_ConstructProps {
     orientation?: Gtk.Orientation
 }
 export class Login {
-    /* Properties of Gdaui.Login */
+    /* Properties of Gdaui-6.0.Gdaui.Login */
     dsn: string
     readonly valid: boolean
-    /* Properties of Gtk.Box */
+    /* Properties of Gtk-3.0.Gtk.Box */
     baseline_position: Gtk.BaselinePosition
     homogeneous: boolean
     spacing: number
-    /* Properties of Gtk.Container */
+    /* Properties of Gtk-3.0.Gtk.Container */
     border_width: number
     child: Gtk.Widget
     resize_mode: Gtk.ResizeMode
-    /* Properties of Gtk.Widget */
+    /* Properties of Gtk-3.0.Gtk.Widget */
     app_paintable: boolean
     can_default: boolean
     can_focus: boolean
@@ -22510,22 +22510,22 @@ export class Login {
     visible: boolean
     width_request: number
     readonly window: Gdk.Window
-    /* Properties of Gtk.Orientable */
+    /* Properties of Gtk-3.0.Gtk.Orientable */
     orientation: Gtk.Orientation
-    /* Fields of Gdaui.Login */
+    /* Fields of Gdaui-6.0.Gdaui.Login */
     parent_instance: Gtk.Box
-    /* Fields of Gtk.Box */
+    /* Fields of Gtk-3.0.Gtk.Box */
     container: Gtk.Container
-    /* Fields of Gtk.Container */
+    /* Fields of Gtk-3.0.Gtk.Container */
     widget: Gtk.Widget
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Gdaui.Login */
+    /* Methods of Gdaui-6.0.Gdaui.Login */
     get_connection_information(): Gda.DsnInfo
     set_connection_information(cinfo: Gda.DsnInfo): void
     set_dsn(dsn?: string | null): void
     set_mode(mode: LoginMode): void
-    /* Methods of Gtk.Box */
+    /* Methods of Gtk-3.0.Gtk.Box */
     get_baseline_position(): Gtk.BaselinePosition
     get_center_widget(): Gtk.Widget | null
     get_homogeneous(): boolean
@@ -22539,7 +22539,7 @@ export class Login {
     set_child_packing(child: Gtk.Widget, expand: boolean, fill: boolean, padding: number, pack_type: Gtk.PackType): void
     set_homogeneous(homogeneous: boolean): void
     set_spacing(spacing: number): void
-    /* Methods of Gtk.Container */
+    /* Methods of Gtk-3.0.Gtk.Container */
     add(widget: Gtk.Widget): void
     check_resize(): void
     child_get_property(child: Gtk.Widget, property_name: string, value: any): void
@@ -22567,7 +22567,7 @@ export class Login {
     set_reallocate_redraws(needs_redraws: boolean): void
     set_resize_mode(resize_mode: Gtk.ResizeMode): void
     unset_focus_chain(): void
-    /* Methods of Gtk.Widget */
+    /* Methods of Gtk-3.0.Gtk.Widget */
     activate(): boolean
     add_accelerator(accel_signal: string, accel_group: Gtk.AccelGroup, accel_key: number, accel_mods: Gdk.ModifierType, accel_flags: Gtk.AccelFlags): void
     add_device_events(device: Gdk.Device, events: Gdk.EventMask): void
@@ -22826,7 +22826,7 @@ export class Login {
     unrealize(): void
     unregister_window(window: Gdk.Window): void
     unset_state_flags(flags: Gtk.StateFlags): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -22848,7 +22848,7 @@ export class Login {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of Gtk.Buildable */
+    /* Methods of Gtk-3.0.Gtk.Buildable */
     add_child(builder: Gtk.Builder, child: GObject.Object, type?: string | null): void
     construct_child(builder: Gtk.Builder, name: string): GObject.Object
     custom_finished(builder: Gtk.Builder, child: GObject.Object | null, tagname: string, data?: object | null): void
@@ -22857,10 +22857,10 @@ export class Login {
     get_internal_child(builder: Gtk.Builder, childname: string): GObject.Object
     parser_finished(builder: Gtk.Builder): void
     set_buildable_property(builder: Gtk.Builder, name: string, value: any): void
-    /* Methods of Gtk.Orientable */
+    /* Methods of Gtk-3.0.Gtk.Orientable */
     get_orientation(): Gtk.Orientation
     set_orientation(orientation: Gtk.Orientation): void
-    /* Virtual methods of Gdaui.Login */
+    /* Virtual methods of Gdaui-6.0.Gdaui.Login */
     vfunc_changed(is_valid: boolean): void
     vfunc_add_child(builder: Gtk.Builder, child: GObject.Object, type?: string | null): void
     vfunc_construct_child(builder: Gtk.Builder, name: string): GObject.Object
@@ -22872,7 +22872,7 @@ export class Login {
     vfunc_parser_finished(builder: Gtk.Builder): void
     vfunc_set_buildable_property(builder: Gtk.Builder, name: string, value: any): void
     vfunc_set_name(name: string): void
-    /* Virtual methods of Gtk.Container */
+    /* Virtual methods of Gtk-3.0.Gtk.Container */
     vfunc_add(widget: Gtk.Widget): void
     vfunc_check_resize(): void
     vfunc_child_type(): GObject.Type
@@ -22883,7 +22883,7 @@ export class Login {
     vfunc_remove(widget: Gtk.Widget): void
     vfunc_set_child_property(child: Gtk.Widget, property_id: number, value: any, pspec: GObject.ParamSpec): void
     vfunc_set_focus_child(child?: Gtk.Widget | null): void
-    /* Virtual methods of Gtk.Widget */
+    /* Virtual methods of Gtk-3.0.Gtk.Widget */
     vfunc_adjust_baseline_allocation(baseline: number): void
     vfunc_adjust_baseline_request(minimum_baseline: number, natural_baseline: number): void
     vfunc_adjust_size_allocation(orientation: Gtk.Orientation, minimum_size: number, natural_size: number, allocated_pos: number, allocated_size: number): void
@@ -22966,7 +22966,7 @@ export class Login {
     vfunc_unrealize(): void
     vfunc_visibility_notify_event(event: Gdk.EventVisibility): boolean
     vfunc_window_state_event(event: Gdk.EventWindowState): boolean
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -22974,11 +22974,11 @@ export class Login {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gdaui.Login */
+    /* Signals of Gdaui-6.0.Gdaui.Login */
     connect(sigName: "changed", callback: (($obj: Login, object: boolean) => void)): number
     connect_after(sigName: "changed", callback: (($obj: Login, object: boolean) => void)): number
     emit(sigName: "changed", object: boolean): void
-    /* Signals of Gtk.Container */
+    /* Signals of Gtk-3.0.Gtk.Container */
     connect(sigName: "add", callback: (($obj: Login, object: Gtk.Widget) => void)): number
     connect_after(sigName: "add", callback: (($obj: Login, object: Gtk.Widget) => void)): number
     emit(sigName: "add", object: Gtk.Widget): void
@@ -22991,7 +22991,7 @@ export class Login {
     connect(sigName: "set-focus-child", callback: (($obj: Login, object: Gtk.Widget) => void)): number
     connect_after(sigName: "set-focus-child", callback: (($obj: Login, object: Gtk.Widget) => void)): number
     emit(sigName: "set-focus-child", object: Gtk.Widget): void
-    /* Signals of Gtk.Widget */
+    /* Signals of Gtk-3.0.Gtk.Widget */
     connect(sigName: "accel-closures-changed", callback: (($obj: Login) => void)): number
     connect_after(sigName: "accel-closures-changed", callback: (($obj: Login) => void)): number
     emit(sigName: "accel-closures-changed"): void
@@ -23199,7 +23199,7 @@ export class Login {
     connect(sigName: "window-state-event", callback: (($obj: Login, event: Gdk.EventWindowState) => boolean)): number
     connect_after(sigName: "window-state-event", callback: (($obj: Login, event: Gdk.EventWindowState) => boolean)): number
     emit(sigName: "window-state-event", event: Gdk.EventWindowState): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Login, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Login, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -23319,15 +23319,15 @@ export interface NumericEntry_ConstructProps extends Entry_ConstructProps {
     editing_canceled?: boolean
 }
 export class NumericEntry {
-    /* Properties of Gdaui.NumericEntry */
+    /* Properties of Gdaui-6.0.Gdaui.NumericEntry */
     decimal_sep: number
     n_decimals: number
     thousands_sep: number
     type: GObject.Type
-    /* Properties of Gdaui.Entry */
+    /* Properties of Gdaui-6.0.Gdaui.Entry */
     prefix: string
     suffix: string
-    /* Properties of Gtk.Entry */
+    /* Properties of Gtk-3.0.Gtk.Entry */
     activates_default: boolean
     attributes: Pango.AttrList
     buffer: Gtk.EntryBuffer
@@ -23379,7 +23379,7 @@ export class NumericEntry {
     visibility: boolean
     width_chars: number
     xalign: number
-    /* Properties of Gtk.Widget */
+    /* Properties of Gtk-3.0.Gtk.Widget */
     app_paintable: boolean
     can_default: boolean
     can_focus: boolean
@@ -23419,22 +23419,22 @@ export class NumericEntry {
     visible: boolean
     width_request: number
     readonly window: Gdk.Window
-    /* Properties of Gtk.CellEditable */
+    /* Properties of Gtk-3.0.Gtk.CellEditable */
     editing_canceled: boolean
-    /* Fields of Gdaui.NumericEntry */
+    /* Fields of Gdaui-6.0.Gdaui.NumericEntry */
     parent_instance: Entry
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Gdaui.NumericEntry */
+    /* Methods of Gdaui-6.0.Gdaui.NumericEntry */
     get_value(): any
-    /* Methods of Gdaui.Entry */
+    /* Methods of Gdaui-6.0.Gdaui.Entry */
     get_text(): string
     set_max_length(max: number): void
     set_prefix(prefix: string): void
     set_suffix(suffix: string): void
     set_text(text?: string | null): void
     set_width_chars(max_width: number): void
-    /* Methods of Gtk.Entry */
+    /* Methods of Gtk-3.0.Gtk.Entry */
     get_activates_default(): boolean
     get_alignment(): number
     get_attributes(): Pango.AttrList | null
@@ -23507,7 +23507,7 @@ export class NumericEntry {
     set_width_chars(n_chars: number): void
     text_index_to_layout_index(text_index: number): number
     unset_invisible_char(): void
-    /* Methods of Gtk.Widget */
+    /* Methods of Gtk-3.0.Gtk.Widget */
     activate(): boolean
     add_accelerator(accel_signal: string, accel_group: Gtk.AccelGroup, accel_key: number, accel_mods: Gdk.ModifierType, accel_flags: Gtk.AccelFlags): void
     add_device_events(device: Gdk.Device, events: Gdk.EventMask): void
@@ -23766,7 +23766,7 @@ export class NumericEntry {
     unrealize(): void
     unregister_window(window: Gdk.Window): void
     unset_state_flags(flags: Gtk.StateFlags): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -23788,7 +23788,7 @@ export class NumericEntry {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of Gtk.Buildable */
+    /* Methods of Gtk-3.0.Gtk.Buildable */
     add_child(builder: Gtk.Builder, child: GObject.Object, type?: string | null): void
     construct_child(builder: Gtk.Builder, name: string): GObject.Object
     custom_finished(builder: Gtk.Builder, child: GObject.Object | null, tagname: string, data?: object | null): void
@@ -23797,11 +23797,11 @@ export class NumericEntry {
     get_internal_child(builder: Gtk.Builder, childname: string): GObject.Object
     parser_finished(builder: Gtk.Builder): void
     set_buildable_property(builder: Gtk.Builder, name: string, value: any): void
-    /* Methods of Gtk.CellEditable */
+    /* Methods of Gtk-3.0.Gtk.CellEditable */
     editing_done(): void
     remove_widget(): void
     start_editing(event?: Gdk.Event | null): void
-    /* Methods of Gtk.Editable */
+    /* Methods of Gtk-3.0.Gtk.Editable */
     copy_clipboard(): void
     cut_clipboard(): void
     delete_selection(): void
@@ -23815,7 +23815,7 @@ export class NumericEntry {
     select_region(start_pos: number, end_pos: number): void
     set_editable(is_editable: boolean): void
     set_position(position: number): void
-    /* Virtual methods of Gdaui.Entry */
+    /* Virtual methods of Gdaui-6.0.Gdaui.Entry */
     vfunc_assume_delete(virt_start_pos: number, virt_end_pos: number, offset: number): void
     vfunc_assume_insert(text: string, text_length: number, virt_pos: number, offset: number): void
     vfunc_get_empty_text(): string
@@ -23842,7 +23842,7 @@ export class NumericEntry {
     vfunc_insert_text(new_text: string, new_text_length: number, position: number): /* position */ number
     vfunc_set_position(position: number): void
     vfunc_set_selection_bounds(start_pos: number, end_pos: number): void
-    /* Virtual methods of Gtk.Entry */
+    /* Virtual methods of Gtk-3.0.Gtk.Entry */
     vfunc_activate(): void
     vfunc_backspace(): void
     vfunc_copy_clipboard(): void
@@ -23856,7 +23856,7 @@ export class NumericEntry {
     vfunc_paste_clipboard(): void
     vfunc_populate_popup(popup: Gtk.Widget): void
     vfunc_toggle_overwrite(): void
-    /* Virtual methods of Gtk.Widget */
+    /* Virtual methods of Gtk-3.0.Gtk.Widget */
     vfunc_adjust_baseline_allocation(baseline: number): void
     vfunc_adjust_baseline_request(minimum_baseline: number, natural_baseline: number): void
     vfunc_adjust_size_allocation(orientation: Gtk.Orientation, minimum_size: number, natural_size: number, allocated_pos: number, allocated_size: number): void
@@ -23939,7 +23939,7 @@ export class NumericEntry {
     vfunc_unrealize(): void
     vfunc_visibility_notify_event(event: Gdk.EventVisibility): boolean
     vfunc_window_state_event(event: Gdk.EventWindowState): boolean
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -23947,7 +23947,7 @@ export class NumericEntry {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gtk.Entry */
+    /* Signals of Gtk-3.0.Gtk.Entry */
     connect(sigName: "activate", callback: (($obj: NumericEntry) => void)): number
     connect_after(sigName: "activate", callback: (($obj: NumericEntry) => void)): number
     emit(sigName: "activate"): void
@@ -23990,7 +23990,7 @@ export class NumericEntry {
     connect(sigName: "toggle-overwrite", callback: (($obj: NumericEntry) => void)): number
     connect_after(sigName: "toggle-overwrite", callback: (($obj: NumericEntry) => void)): number
     emit(sigName: "toggle-overwrite"): void
-    /* Signals of Gtk.Widget */
+    /* Signals of Gtk-3.0.Gtk.Widget */
     connect(sigName: "accel-closures-changed", callback: (($obj: NumericEntry) => void)): number
     connect_after(sigName: "accel-closures-changed", callback: (($obj: NumericEntry) => void)): number
     emit(sigName: "accel-closures-changed"): void
@@ -24198,18 +24198,18 @@ export class NumericEntry {
     connect(sigName: "window-state-event", callback: (($obj: NumericEntry, event: Gdk.EventWindowState) => boolean)): number
     connect_after(sigName: "window-state-event", callback: (($obj: NumericEntry, event: Gdk.EventWindowState) => boolean)): number
     emit(sigName: "window-state-event", event: Gdk.EventWindowState): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: NumericEntry, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: NumericEntry, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    /* Signals of Gtk.CellEditable */
+    /* Signals of Gtk-3.0.Gtk.CellEditable */
     connect(sigName: "editing-done", callback: (($obj: NumericEntry) => void)): number
     connect_after(sigName: "editing-done", callback: (($obj: NumericEntry) => void)): number
     emit(sigName: "editing-done"): void
     connect(sigName: "remove-widget", callback: (($obj: NumericEntry) => void)): number
     connect_after(sigName: "remove-widget", callback: (($obj: NumericEntry) => void)): number
     emit(sigName: "remove-widget"): void
-    /* Signals of Gtk.Editable */
+    /* Signals of Gtk-3.0.Gtk.Editable */
     connect(sigName: "changed", callback: (($obj: NumericEntry) => void)): number
     connect_after(sigName: "changed", callback: (($obj: NumericEntry) => void)): number
     emit(sigName: "changed"): void
@@ -24430,10 +24430,10 @@ export interface ProviderSelector_ConstructProps extends Combo_ConstructProps {
     editing_canceled?: boolean
 }
 export class ProviderSelector {
-    /* Properties of Gdaui.Combo */
+    /* Properties of Gdaui-6.0.Gdaui.Combo */
     as_list: boolean
     model: Gda.DataModel
-    /* Properties of Gtk.ComboBox */
+    /* Properties of Gtk-3.0.Gtk.ComboBox */
     active: number
     active_id: string
     add_tearoffs: boolean
@@ -24447,11 +24447,11 @@ export class ProviderSelector {
     row_span_column: number
     tearoff_title: string
     wrap_width: number
-    /* Properties of Gtk.Container */
+    /* Properties of Gtk-3.0.Gtk.Container */
     border_width: number
     child: Gtk.Widget
     resize_mode: Gtk.ResizeMode
-    /* Properties of Gtk.Widget */
+    /* Properties of Gtk-3.0.Gtk.Widget */
     app_paintable: boolean
     can_default: boolean
     can_focus: boolean
@@ -24491,25 +24491,25 @@ export class ProviderSelector {
     visible: boolean
     width_request: number
     readonly window: Gdk.Window
-    /* Properties of Gtk.CellEditable */
+    /* Properties of Gtk-3.0.Gtk.CellEditable */
     editing_canceled: boolean
-    /* Fields of Gdaui.ProviderSelector */
+    /* Fields of Gdaui-6.0.Gdaui.ProviderSelector */
     parent_instance: Combo
-    /* Fields of Gtk.Bin */
+    /* Fields of Gtk-3.0.Gtk.Bin */
     container: Gtk.Container
-    /* Fields of Gtk.Container */
+    /* Fields of Gtk-3.0.Gtk.Container */
     widget: Gtk.Widget
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Gdaui.ProviderSelector */
+    /* Methods of Gdaui-6.0.Gdaui.ProviderSelector */
     get_provider(): string
     get_provider_obj(): Gda.ServerProvider
     set_provider(provider?: string | null): boolean
-    /* Methods of Gdaui.Combo */
+    /* Methods of Gdaui-6.0.Gdaui.Combo */
     add_null(add_null: boolean): void
     is_null_selected(): boolean
     set_data(model: Gda.DataModel, cols_index: number[]): void
-    /* Methods of Gtk.ComboBox */
+    /* Methods of Gtk-3.0.Gtk.ComboBox */
     get_active(): number
     get_active_id(): string | null
     get_active_iter(): [ /* returnType */ boolean, /* iter */ Gtk.TreeIter ]
@@ -24544,9 +24544,9 @@ export class ProviderSelector {
     set_row_span_column(row_span: number): void
     set_title(title: string): void
     set_wrap_width(width: number): void
-    /* Methods of Gtk.Bin */
+    /* Methods of Gtk-3.0.Gtk.Bin */
     get_child(): Gtk.Widget | null
-    /* Methods of Gtk.Container */
+    /* Methods of Gtk-3.0.Gtk.Container */
     add(widget: Gtk.Widget): void
     check_resize(): void
     child_get_property(child: Gtk.Widget, property_name: string, value: any): void
@@ -24574,7 +24574,7 @@ export class ProviderSelector {
     set_reallocate_redraws(needs_redraws: boolean): void
     set_resize_mode(resize_mode: Gtk.ResizeMode): void
     unset_focus_chain(): void
-    /* Methods of Gtk.Widget */
+    /* Methods of Gtk-3.0.Gtk.Widget */
     activate(): boolean
     add_accelerator(accel_signal: string, accel_group: Gtk.AccelGroup, accel_key: number, accel_mods: Gdk.ModifierType, accel_flags: Gtk.AccelFlags): void
     add_device_events(device: Gdk.Device, events: Gdk.EventMask): void
@@ -24831,7 +24831,7 @@ export class ProviderSelector {
     unrealize(): void
     unregister_window(window: Gdk.Window): void
     unset_state_flags(flags: Gtk.StateFlags): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -24853,7 +24853,7 @@ export class ProviderSelector {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of Gdaui.DataSelector */
+    /* Methods of Gdaui-6.0.Gdaui.DataSelector */
     get_data_set(): Gda.DataModelIter
     get_model(): Gda.DataModel
     get_selected_rows(): number[]
@@ -24861,7 +24861,7 @@ export class ProviderSelector {
     set_column_visible(column: number, visible: boolean): void
     set_model(model: Gda.DataModel): void
     unselect_row(row: number): void
-    /* Methods of Gtk.Buildable */
+    /* Methods of Gtk-3.0.Gtk.Buildable */
     add_child(builder: Gtk.Builder, child: GObject.Object, type?: string | null): void
     construct_child(builder: Gtk.Builder, name: string): GObject.Object
     custom_finished(builder: Gtk.Builder, child: GObject.Object | null, tagname: string, data?: object | null): void
@@ -24870,11 +24870,11 @@ export class ProviderSelector {
     get_internal_child(builder: Gtk.Builder, childname: string): GObject.Object
     parser_finished(builder: Gtk.Builder): void
     set_buildable_property(builder: Gtk.Builder, name: string, value: any): void
-    /* Methods of Gtk.CellEditable */
+    /* Methods of Gtk-3.0.Gtk.CellEditable */
     editing_done(): void
     remove_widget(): void
     start_editing(event?: Gdk.Event | null): void
-    /* Methods of Gtk.CellLayout */
+    /* Methods of Gtk-3.0.Gtk.CellLayout */
     add_attribute(cell: Gtk.CellRenderer, attribute: string, column: number): void
     clear(): void
     clear_attributes(cell: Gtk.CellRenderer): void
@@ -24884,7 +24884,7 @@ export class ProviderSelector {
     pack_start(cell: Gtk.CellRenderer, expand: boolean): void
     reorder(cell: Gtk.CellRenderer, position: number): void
     set_cell_data_func(cell: Gtk.CellRenderer, func: Gtk.CellLayoutDataFunc | null): void
-    /* Virtual methods of Gdaui.Combo */
+    /* Virtual methods of Gdaui-6.0.Gdaui.Combo */
     vfunc_get_data_set(): Gda.DataModelIter
     vfunc_get_model(): Gda.DataModel
     vfunc_get_selected_rows(): number[]
@@ -24915,10 +24915,10 @@ export class ProviderSelector {
     vfunc_pack_start(cell: Gtk.CellRenderer, expand: boolean): void
     vfunc_reorder(cell: Gtk.CellRenderer, position: number): void
     vfunc_set_cell_data_func(cell: Gtk.CellRenderer, func: Gtk.CellLayoutDataFunc | null): void
-    /* Virtual methods of Gtk.ComboBox */
+    /* Virtual methods of Gtk-3.0.Gtk.ComboBox */
     vfunc_changed(): void
     vfunc_format_entry_text(path: string): string
-    /* Virtual methods of Gtk.Container */
+    /* Virtual methods of Gtk-3.0.Gtk.Container */
     vfunc_add(widget: Gtk.Widget): void
     vfunc_check_resize(): void
     vfunc_child_type(): GObject.Type
@@ -24929,7 +24929,7 @@ export class ProviderSelector {
     vfunc_remove(widget: Gtk.Widget): void
     vfunc_set_child_property(child: Gtk.Widget, property_id: number, value: any, pspec: GObject.ParamSpec): void
     vfunc_set_focus_child(child?: Gtk.Widget | null): void
-    /* Virtual methods of Gtk.Widget */
+    /* Virtual methods of Gtk-3.0.Gtk.Widget */
     vfunc_adjust_baseline_allocation(baseline: number): void
     vfunc_adjust_baseline_request(minimum_baseline: number, natural_baseline: number): void
     vfunc_adjust_size_allocation(orientation: Gtk.Orientation, minimum_size: number, natural_size: number, allocated_pos: number, allocated_size: number): void
@@ -25012,7 +25012,7 @@ export class ProviderSelector {
     vfunc_unrealize(): void
     vfunc_visibility_notify_event(event: Gdk.EventVisibility): boolean
     vfunc_window_state_event(event: Gdk.EventWindowState): boolean
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -25020,7 +25020,7 @@ export class ProviderSelector {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gtk.ComboBox */
+    /* Signals of Gtk-3.0.Gtk.ComboBox */
     connect(sigName: "changed", callback: (($obj: ProviderSelector) => void)): number
     connect_after(sigName: "changed", callback: (($obj: ProviderSelector) => void)): number
     emit(sigName: "changed"): void
@@ -25036,7 +25036,7 @@ export class ProviderSelector {
     connect(sigName: "popup", callback: (($obj: ProviderSelector) => void)): number
     connect_after(sigName: "popup", callback: (($obj: ProviderSelector) => void)): number
     emit(sigName: "popup"): void
-    /* Signals of Gtk.Container */
+    /* Signals of Gtk-3.0.Gtk.Container */
     connect(sigName: "add", callback: (($obj: ProviderSelector, object: Gtk.Widget) => void)): number
     connect_after(sigName: "add", callback: (($obj: ProviderSelector, object: Gtk.Widget) => void)): number
     emit(sigName: "add", object: Gtk.Widget): void
@@ -25049,7 +25049,7 @@ export class ProviderSelector {
     connect(sigName: "set-focus-child", callback: (($obj: ProviderSelector, object: Gtk.Widget) => void)): number
     connect_after(sigName: "set-focus-child", callback: (($obj: ProviderSelector, object: Gtk.Widget) => void)): number
     emit(sigName: "set-focus-child", object: Gtk.Widget): void
-    /* Signals of Gtk.Widget */
+    /* Signals of Gtk-3.0.Gtk.Widget */
     connect(sigName: "accel-closures-changed", callback: (($obj: ProviderSelector) => void)): number
     connect_after(sigName: "accel-closures-changed", callback: (($obj: ProviderSelector) => void)): number
     emit(sigName: "accel-closures-changed"): void
@@ -25257,15 +25257,15 @@ export class ProviderSelector {
     connect(sigName: "window-state-event", callback: (($obj: ProviderSelector, event: Gdk.EventWindowState) => boolean)): number
     connect_after(sigName: "window-state-event", callback: (($obj: ProviderSelector, event: Gdk.EventWindowState) => boolean)): number
     emit(sigName: "window-state-event", event: Gdk.EventWindowState): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: ProviderSelector, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: ProviderSelector, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    /* Signals of Gdaui.DataSelector */
+    /* Signals of Gdaui-6.0.Gdaui.DataSelector */
     connect(sigName: "selection-changed", callback: (($obj: ProviderSelector) => void)): number
     connect_after(sigName: "selection-changed", callback: (($obj: ProviderSelector) => void)): number
     emit(sigName: "selection-changed"): void
-    /* Signals of Gtk.CellEditable */
+    /* Signals of Gtk-3.0.Gtk.CellEditable */
     connect(sigName: "editing-done", callback: (($obj: ProviderSelector) => void)): number
     connect_after(sigName: "editing-done", callback: (($obj: ProviderSelector) => void)): number
     emit(sigName: "editing-done"): void
@@ -25406,22 +25406,22 @@ export interface RawForm_ConstructProps extends BasicForm_ConstructProps {
     orientation?: Gtk.Orientation
 }
 export class RawForm {
-    /* Properties of Gdaui.RawForm */
+    /* Properties of Gdaui-6.0.Gdaui.RawForm */
     model: Gda.DataModel
-    /* Properties of Gdaui.BasicForm */
+    /* Properties of Gdaui-6.0.Gdaui.BasicForm */
     readonly can_expand_v: boolean
     entries_auto_default: boolean
     paramlist: object
     xml_layout: object
-    /* Properties of Gtk.Box */
+    /* Properties of Gtk-3.0.Gtk.Box */
     baseline_position: Gtk.BaselinePosition
     homogeneous: boolean
     spacing: number
-    /* Properties of Gtk.Container */
+    /* Properties of Gtk-3.0.Gtk.Container */
     border_width: number
     child: Gtk.Widget
     resize_mode: Gtk.ResizeMode
-    /* Properties of Gtk.Widget */
+    /* Properties of Gtk-3.0.Gtk.Widget */
     app_paintable: boolean
     can_default: boolean
     can_focus: boolean
@@ -25461,17 +25461,17 @@ export class RawForm {
     visible: boolean
     width_request: number
     readonly window: Gdk.Window
-    /* Properties of Gtk.Orientable */
+    /* Properties of Gtk-3.0.Gtk.Orientable */
     orientation: Gtk.Orientation
-    /* Fields of Gdaui.RawForm */
+    /* Fields of Gdaui-6.0.Gdaui.RawForm */
     parent_instance: BasicForm
-    /* Fields of Gtk.Box */
+    /* Fields of Gtk-3.0.Gtk.Box */
     container: Gtk.Container
-    /* Fields of Gtk.Container */
+    /* Fields of Gtk-3.0.Gtk.Container */
     widget: Gtk.Widget
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Gdaui.BasicForm */
+    /* Methods of Gdaui-6.0.Gdaui.BasicForm */
     add_to_size_group(size_group: Gtk.SizeGroup, part: BasicFormPart): void
     entry_grab_focus(holder?: Gda.Holder | null): void
     entry_set_editable(holder: Gda.Holder | null, editable: boolean): void
@@ -25489,7 +25489,7 @@ export class RawForm {
     set_layout_from_file(file_name: string, form_name: string): void
     set_unknown_color(red: number, green: number, blue: number, alpha: number): void
     update_data_set(): void
-    /* Methods of Gtk.Box */
+    /* Methods of Gtk-3.0.Gtk.Box */
     get_baseline_position(): Gtk.BaselinePosition
     get_center_widget(): Gtk.Widget | null
     get_homogeneous(): boolean
@@ -25503,7 +25503,7 @@ export class RawForm {
     set_child_packing(child: Gtk.Widget, expand: boolean, fill: boolean, padding: number, pack_type: Gtk.PackType): void
     set_homogeneous(homogeneous: boolean): void
     set_spacing(spacing: number): void
-    /* Methods of Gtk.Container */
+    /* Methods of Gtk-3.0.Gtk.Container */
     add(widget: Gtk.Widget): void
     check_resize(): void
     child_get_property(child: Gtk.Widget, property_name: string, value: any): void
@@ -25531,7 +25531,7 @@ export class RawForm {
     set_reallocate_redraws(needs_redraws: boolean): void
     set_resize_mode(resize_mode: Gtk.ResizeMode): void
     unset_focus_chain(): void
-    /* Methods of Gtk.Widget */
+    /* Methods of Gtk-3.0.Gtk.Widget */
     activate(): boolean
     add_accelerator(accel_signal: string, accel_group: Gtk.AccelGroup, accel_key: number, accel_mods: Gdk.ModifierType, accel_flags: Gtk.AccelFlags): void
     add_device_events(device: Gdk.Device, events: Gdk.EventMask): void
@@ -25790,7 +25790,7 @@ export class RawForm {
     unrealize(): void
     unregister_window(window: Gdk.Window): void
     unset_state_flags(flags: Gtk.StateFlags): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -25812,14 +25812,14 @@ export class RawForm {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of Gdaui.DataProxy */
+    /* Methods of Gdaui-6.0.Gdaui.DataProxy */
     column_set_editable(column: number, editable: boolean): void
     get_proxy(): Gda.DataProxy
     get_write_mode(): DataProxyWriteMode
     perform_action(action: Action): void
     set_write_mode(mode: DataProxyWriteMode): boolean
     supports_action(action: Action): boolean
-    /* Methods of Gdaui.DataSelector */
+    /* Methods of Gdaui-6.0.Gdaui.DataSelector */
     get_data_set(): Gda.DataModelIter
     get_model(): Gda.DataModel
     get_selected_rows(): number[]
@@ -25827,7 +25827,7 @@ export class RawForm {
     set_column_visible(column: number, visible: boolean): void
     set_model(model: Gda.DataModel): void
     unselect_row(row: number): void
-    /* Methods of Gtk.Buildable */
+    /* Methods of Gtk-3.0.Gtk.Buildable */
     add_child(builder: Gtk.Builder, child: GObject.Object, type?: string | null): void
     construct_child(builder: Gtk.Builder, name: string): GObject.Object
     custom_finished(builder: Gtk.Builder, child: GObject.Object | null, tagname: string, data?: object | null): void
@@ -25836,10 +25836,10 @@ export class RawForm {
     get_internal_child(builder: Gtk.Builder, childname: string): GObject.Object
     parser_finished(builder: Gtk.Builder): void
     set_buildable_property(builder: Gtk.Builder, name: string, value: any): void
-    /* Methods of Gtk.Orientable */
+    /* Methods of Gtk-3.0.Gtk.Orientable */
     get_orientation(): Gtk.Orientation
     set_orientation(orientation: Gtk.Orientation): void
-    /* Virtual methods of Gdaui.RawForm */
+    /* Virtual methods of Gdaui-6.0.Gdaui.RawForm */
     vfunc_get_proxy(): Gda.DataProxy
     vfunc_get_write_mode(): DataProxyWriteMode
     vfunc_perform_action(action: Action): void
@@ -25855,7 +25855,7 @@ export class RawForm {
     vfunc_set_column_visible(column: number, visible: boolean): void
     vfunc_set_model(model: Gda.DataModel): void
     vfunc_unselect_row(row: number): void
-    /* Virtual methods of Gdaui.BasicForm */
+    /* Virtual methods of Gdaui-6.0.Gdaui.BasicForm */
     vfunc_activated(): void
     vfunc_holder_changed(holder: Gda.Holder, is_user_action: boolean): void
     vfunc_layout_changed(): void
@@ -25869,7 +25869,7 @@ export class RawForm {
     vfunc_parser_finished(builder: Gtk.Builder): void
     vfunc_set_buildable_property(builder: Gtk.Builder, name: string, value: any): void
     vfunc_set_name(name: string): void
-    /* Virtual methods of Gtk.Container */
+    /* Virtual methods of Gtk-3.0.Gtk.Container */
     vfunc_add(widget: Gtk.Widget): void
     vfunc_check_resize(): void
     vfunc_child_type(): GObject.Type
@@ -25880,7 +25880,7 @@ export class RawForm {
     vfunc_remove(widget: Gtk.Widget): void
     vfunc_set_child_property(child: Gtk.Widget, property_id: number, value: any, pspec: GObject.ParamSpec): void
     vfunc_set_focus_child(child?: Gtk.Widget | null): void
-    /* Virtual methods of Gtk.Widget */
+    /* Virtual methods of Gtk-3.0.Gtk.Widget */
     vfunc_adjust_baseline_allocation(baseline: number): void
     vfunc_adjust_baseline_request(minimum_baseline: number, natural_baseline: number): void
     vfunc_adjust_size_allocation(orientation: Gtk.Orientation, minimum_size: number, natural_size: number, allocated_pos: number, allocated_size: number): void
@@ -25963,7 +25963,7 @@ export class RawForm {
     vfunc_unrealize(): void
     vfunc_visibility_notify_event(event: Gdk.EventVisibility): boolean
     vfunc_window_state_event(event: Gdk.EventWindowState): boolean
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -25971,7 +25971,7 @@ export class RawForm {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gdaui.BasicForm */
+    /* Signals of Gdaui-6.0.Gdaui.BasicForm */
     connect(sigName: "activated", callback: (($obj: RawForm) => void)): number
     connect_after(sigName: "activated", callback: (($obj: RawForm) => void)): number
     emit(sigName: "activated"): void
@@ -25984,7 +25984,7 @@ export class RawForm {
     connect(sigName: "populate-popup", callback: (($obj: RawForm, menu: Gtk.Menu) => void)): number
     connect_after(sigName: "populate-popup", callback: (($obj: RawForm, menu: Gtk.Menu) => void)): number
     emit(sigName: "populate-popup", menu: Gtk.Menu): void
-    /* Signals of Gtk.Container */
+    /* Signals of Gtk-3.0.Gtk.Container */
     connect(sigName: "add", callback: (($obj: RawForm, object: Gtk.Widget) => void)): number
     connect_after(sigName: "add", callback: (($obj: RawForm, object: Gtk.Widget) => void)): number
     emit(sigName: "add", object: Gtk.Widget): void
@@ -25997,7 +25997,7 @@ export class RawForm {
     connect(sigName: "set-focus-child", callback: (($obj: RawForm, object: Gtk.Widget) => void)): number
     connect_after(sigName: "set-focus-child", callback: (($obj: RawForm, object: Gtk.Widget) => void)): number
     emit(sigName: "set-focus-child", object: Gtk.Widget): void
-    /* Signals of Gtk.Widget */
+    /* Signals of Gtk-3.0.Gtk.Widget */
     connect(sigName: "accel-closures-changed", callback: (($obj: RawForm) => void)): number
     connect_after(sigName: "accel-closures-changed", callback: (($obj: RawForm) => void)): number
     emit(sigName: "accel-closures-changed"): void
@@ -26205,15 +26205,15 @@ export class RawForm {
     connect(sigName: "window-state-event", callback: (($obj: RawForm, event: Gdk.EventWindowState) => boolean)): number
     connect_after(sigName: "window-state-event", callback: (($obj: RawForm, event: Gdk.EventWindowState) => boolean)): number
     emit(sigName: "window-state-event", event: Gdk.EventWindowState): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: RawForm, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: RawForm, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    /* Signals of Gdaui.DataProxy */
+    /* Signals of Gdaui-6.0.Gdaui.DataProxy */
     connect(sigName: "proxy-changed", callback: (($obj: RawForm, arg1: Gda.DataProxy) => void)): number
     connect_after(sigName: "proxy-changed", callback: (($obj: RawForm, arg1: Gda.DataProxy) => void)): number
     emit(sigName: "proxy-changed", arg1: Gda.DataProxy): void
-    /* Signals of Gdaui.DataSelector */
+    /* Signals of Gdaui-6.0.Gdaui.DataSelector */
     connect(sigName: "selection-changed", callback: (($obj: RawForm) => void)): number
     connect_after(sigName: "selection-changed", callback: (($obj: RawForm) => void)): number
     emit(sigName: "selection-changed"): void
@@ -26342,11 +26342,11 @@ export interface RawGrid_ConstructProps extends Gtk.TreeView_ConstructProps {
     vscroll_policy?: Gtk.ScrollablePolicy
 }
 export class RawGrid {
-    /* Properties of Gdaui.RawGrid */
+    /* Properties of Gdaui-6.0.Gdaui.RawGrid */
     info_cell_visible: boolean
     model: Gda.DataModel
     xml_layout: object
-    /* Properties of Gtk.TreeView */
+    /* Properties of Gtk-3.0.Gtk.TreeView */
     activate_on_single_click: boolean
     enable_grid_lines: Gtk.TreeViewGridLines
     enable_search: boolean
@@ -26364,11 +26364,11 @@ export class RawGrid {
     search_column: number
     show_expanders: boolean
     tooltip_column: number
-    /* Properties of Gtk.Container */
+    /* Properties of Gtk-3.0.Gtk.Container */
     border_width: number
     child: Gtk.Widget
     resize_mode: Gtk.ResizeMode
-    /* Properties of Gtk.Widget */
+    /* Properties of Gtk-3.0.Gtk.Widget */
     app_paintable: boolean
     can_default: boolean
     can_focus: boolean
@@ -26408,24 +26408,24 @@ export class RawGrid {
     visible: boolean
     width_request: number
     readonly window: Gdk.Window
-    /* Properties of Gtk.Scrollable */
+    /* Properties of Gtk-3.0.Gtk.Scrollable */
     hadjustment: Gtk.Adjustment
     hscroll_policy: Gtk.ScrollablePolicy
     vadjustment: Gtk.Adjustment
     vscroll_policy: Gtk.ScrollablePolicy
-    /* Fields of Gdaui.RawGrid */
+    /* Fields of Gdaui-6.0.Gdaui.RawGrid */
     parent_instance: Gtk.TreeView
-    /* Fields of Gtk.Container */
+    /* Fields of Gtk-3.0.Gtk.Container */
     widget: Gtk.Widget
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Gdaui.RawGrid */
+    /* Methods of Gdaui-6.0.Gdaui.RawGrid */
     add_formatting_function(func: RawGridFormatFunc): void
     remove_formatting_function(func: RawGridFormatFunc): void
     set_layout_from_file(file_name: string, grid_name: string): void
     set_sample_size(sample_size: number): void
     set_sample_start(sample_start: number): void
-    /* Methods of Gtk.TreeView */
+    /* Methods of Gtk-3.0.Gtk.TreeView */
     append_column(column: Gtk.TreeViewColumn): number
     collapse_all(): void
     collapse_row(path: Gtk.TreePath): boolean
@@ -26521,7 +26521,7 @@ export class RawGrid {
     set_vadjustment(adjustment?: Gtk.Adjustment | null): void
     unset_rows_drag_dest(): void
     unset_rows_drag_source(): void
-    /* Methods of Gtk.Container */
+    /* Methods of Gtk-3.0.Gtk.Container */
     add(widget: Gtk.Widget): void
     check_resize(): void
     child_get_property(child: Gtk.Widget, property_name: string, value: any): void
@@ -26549,7 +26549,7 @@ export class RawGrid {
     set_reallocate_redraws(needs_redraws: boolean): void
     set_resize_mode(resize_mode: Gtk.ResizeMode): void
     unset_focus_chain(): void
-    /* Methods of Gtk.Widget */
+    /* Methods of Gtk-3.0.Gtk.Widget */
     activate(): boolean
     add_accelerator(accel_signal: string, accel_group: Gtk.AccelGroup, accel_key: number, accel_mods: Gdk.ModifierType, accel_flags: Gtk.AccelFlags): void
     add_device_events(device: Gdk.Device, events: Gdk.EventMask): void
@@ -26808,7 +26808,7 @@ export class RawGrid {
     unrealize(): void
     unregister_window(window: Gdk.Window): void
     unset_state_flags(flags: Gtk.StateFlags): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -26830,14 +26830,14 @@ export class RawGrid {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of Gdaui.DataProxy */
+    /* Methods of Gdaui-6.0.Gdaui.DataProxy */
     column_set_editable(column: number, editable: boolean): void
     get_proxy(): Gda.DataProxy
     get_write_mode(): DataProxyWriteMode
     perform_action(action: Action): void
     set_write_mode(mode: DataProxyWriteMode): boolean
     supports_action(action: Action): boolean
-    /* Methods of Gdaui.DataSelector */
+    /* Methods of Gdaui-6.0.Gdaui.DataSelector */
     get_data_set(): Gda.DataModelIter
     get_model(): Gda.DataModel
     get_selected_rows(): number[]
@@ -26845,7 +26845,7 @@ export class RawGrid {
     set_column_visible(column: number, visible: boolean): void
     set_model(model: Gda.DataModel): void
     unselect_row(row: number): void
-    /* Methods of Gtk.Buildable */
+    /* Methods of Gtk-3.0.Gtk.Buildable */
     add_child(builder: Gtk.Builder, child: GObject.Object, type?: string | null): void
     construct_child(builder: Gtk.Builder, name: string): GObject.Object
     custom_finished(builder: Gtk.Builder, child: GObject.Object | null, tagname: string, data?: object | null): void
@@ -26854,7 +26854,7 @@ export class RawGrid {
     get_internal_child(builder: Gtk.Builder, childname: string): GObject.Object
     parser_finished(builder: Gtk.Builder): void
     set_buildable_property(builder: Gtk.Builder, name: string, value: any): void
-    /* Methods of Gtk.Scrollable */
+    /* Methods of Gtk-3.0.Gtk.Scrollable */
     get_border(): [ /* returnType */ boolean, /* border */ Gtk.Border ]
     get_hscroll_policy(): Gtk.ScrollablePolicy
     get_vscroll_policy(): Gtk.ScrollablePolicy
@@ -26862,7 +26862,7 @@ export class RawGrid {
     set_hscroll_policy(policy: Gtk.ScrollablePolicy): void
     set_vadjustment(vadjustment?: Gtk.Adjustment | null): void
     set_vscroll_policy(policy: Gtk.ScrollablePolicy): void
-    /* Virtual methods of Gdaui.RawGrid */
+    /* Virtual methods of Gdaui-6.0.Gdaui.RawGrid */
     vfunc_double_clicked(row: number): void
     vfunc_populate_popup(menu: Gtk.Menu): void
     vfunc_get_proxy(): Gda.DataProxy
@@ -26891,7 +26891,7 @@ export class RawGrid {
     vfunc_set_buildable_property(builder: Gtk.Builder, name: string, value: any): void
     vfunc_set_name(name: string): void
     vfunc_get_border(): [ /* returnType */ boolean, /* border */ Gtk.Border ]
-    /* Virtual methods of Gtk.TreeView */
+    /* Virtual methods of Gtk-3.0.Gtk.TreeView */
     vfunc_columns_changed(): void
     vfunc_cursor_changed(): void
     vfunc_expand_collapse_cursor_row(logical: boolean, expand: boolean, open_all: boolean): boolean
@@ -26907,7 +26907,7 @@ export class RawGrid {
     vfunc_test_expand_row(iter: Gtk.TreeIter, path: Gtk.TreePath): boolean
     vfunc_toggle_cursor_row(): boolean
     vfunc_unselect_all(): boolean
-    /* Virtual methods of Gtk.Container */
+    /* Virtual methods of Gtk-3.0.Gtk.Container */
     vfunc_add(widget: Gtk.Widget): void
     vfunc_check_resize(): void
     vfunc_child_type(): GObject.Type
@@ -26918,7 +26918,7 @@ export class RawGrid {
     vfunc_remove(widget: Gtk.Widget): void
     vfunc_set_child_property(child: Gtk.Widget, property_id: number, value: any, pspec: GObject.ParamSpec): void
     vfunc_set_focus_child(child?: Gtk.Widget | null): void
-    /* Virtual methods of Gtk.Widget */
+    /* Virtual methods of Gtk-3.0.Gtk.Widget */
     vfunc_adjust_baseline_allocation(baseline: number): void
     vfunc_adjust_baseline_request(minimum_baseline: number, natural_baseline: number): void
     vfunc_adjust_size_allocation(orientation: Gtk.Orientation, minimum_size: number, natural_size: number, allocated_pos: number, allocated_size: number): void
@@ -27001,7 +27001,7 @@ export class RawGrid {
     vfunc_unrealize(): void
     vfunc_visibility_notify_event(event: Gdk.EventVisibility): boolean
     vfunc_window_state_event(event: Gdk.EventWindowState): boolean
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -27009,14 +27009,14 @@ export class RawGrid {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gdaui.RawGrid */
+    /* Signals of Gdaui-6.0.Gdaui.RawGrid */
     connect(sigName: "double-clicked", callback: (($obj: RawGrid, row: number) => void)): number
     connect_after(sigName: "double-clicked", callback: (($obj: RawGrid, row: number) => void)): number
     emit(sigName: "double-clicked", row: number): void
     connect(sigName: "populate-popup", callback: (($obj: RawGrid, menu: Gtk.Menu) => void)): number
     connect_after(sigName: "populate-popup", callback: (($obj: RawGrid, menu: Gtk.Menu) => void)): number
     emit(sigName: "populate-popup", menu: Gtk.Menu): void
-    /* Signals of Gtk.TreeView */
+    /* Signals of Gtk-3.0.Gtk.TreeView */
     connect(sigName: "columns-changed", callback: (($obj: RawGrid) => void)): number
     connect_after(sigName: "columns-changed", callback: (($obj: RawGrid) => void)): number
     emit(sigName: "columns-changed"): void
@@ -27062,7 +27062,7 @@ export class RawGrid {
     connect(sigName: "unselect-all", callback: (($obj: RawGrid) => boolean)): number
     connect_after(sigName: "unselect-all", callback: (($obj: RawGrid) => boolean)): number
     emit(sigName: "unselect-all"): void
-    /* Signals of Gtk.Container */
+    /* Signals of Gtk-3.0.Gtk.Container */
     connect(sigName: "add", callback: (($obj: RawGrid, object: Gtk.Widget) => void)): number
     connect_after(sigName: "add", callback: (($obj: RawGrid, object: Gtk.Widget) => void)): number
     emit(sigName: "add", object: Gtk.Widget): void
@@ -27075,7 +27075,7 @@ export class RawGrid {
     connect(sigName: "set-focus-child", callback: (($obj: RawGrid, object: Gtk.Widget) => void)): number
     connect_after(sigName: "set-focus-child", callback: (($obj: RawGrid, object: Gtk.Widget) => void)): number
     emit(sigName: "set-focus-child", object: Gtk.Widget): void
-    /* Signals of Gtk.Widget */
+    /* Signals of Gtk-3.0.Gtk.Widget */
     connect(sigName: "accel-closures-changed", callback: (($obj: RawGrid) => void)): number
     connect_after(sigName: "accel-closures-changed", callback: (($obj: RawGrid) => void)): number
     emit(sigName: "accel-closures-changed"): void
@@ -27283,15 +27283,15 @@ export class RawGrid {
     connect(sigName: "window-state-event", callback: (($obj: RawGrid, event: Gdk.EventWindowState) => boolean)): number
     connect_after(sigName: "window-state-event", callback: (($obj: RawGrid, event: Gdk.EventWindowState) => boolean)): number
     emit(sigName: "window-state-event", event: Gdk.EventWindowState): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: RawGrid, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: RawGrid, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    /* Signals of Gdaui.DataProxy */
+    /* Signals of Gdaui-6.0.Gdaui.DataProxy */
     connect(sigName: "proxy-changed", callback: (($obj: RawGrid, arg1: Gda.DataProxy) => void)): number
     connect_after(sigName: "proxy-changed", callback: (($obj: RawGrid, arg1: Gda.DataProxy) => void)): number
     emit(sigName: "proxy-changed", arg1: Gda.DataProxy): void
-    /* Signals of Gdaui.DataSelector */
+    /* Signals of Gdaui-6.0.Gdaui.DataSelector */
     connect(sigName: "selection-changed", callback: (($obj: RawGrid) => void)): number
     connect_after(sigName: "selection-changed", callback: (($obj: RawGrid) => void)): number
     emit(sigName: "selection-changed"): void
@@ -27446,20 +27446,20 @@ export interface RtEditor_ConstructProps extends Gtk.Box_ConstructProps {
     orientation?: Gtk.Orientation
 }
 export class RtEditor {
-    /* Properties of Gdaui.RtEditor */
+    /* Properties of Gdaui-6.0.Gdaui.RtEditor */
     readonly buffer: Gtk.TextBuffer
     in_scrolled_window: boolean
     no_background: boolean
     show_markup: boolean
-    /* Properties of Gtk.Box */
+    /* Properties of Gtk-3.0.Gtk.Box */
     baseline_position: Gtk.BaselinePosition
     homogeneous: boolean
     spacing: number
-    /* Properties of Gtk.Container */
+    /* Properties of Gtk-3.0.Gtk.Container */
     border_width: number
     child: Gtk.Widget
     resize_mode: Gtk.ResizeMode
-    /* Properties of Gtk.Widget */
+    /* Properties of Gtk-3.0.Gtk.Widget */
     app_paintable: boolean
     can_default: boolean
     can_focus: boolean
@@ -27499,21 +27499,21 @@ export class RtEditor {
     visible: boolean
     width_request: number
     readonly window: Gdk.Window
-    /* Properties of Gtk.Orientable */
+    /* Properties of Gtk-3.0.Gtk.Orientable */
     orientation: Gtk.Orientation
-    /* Fields of Gdaui.RtEditor */
+    /* Fields of Gdaui-6.0.Gdaui.RtEditor */
     parent_instance: Gtk.Box
-    /* Fields of Gtk.Box */
+    /* Fields of Gtk-3.0.Gtk.Box */
     container: Gtk.Container
-    /* Fields of Gtk.Container */
+    /* Fields of Gtk-3.0.Gtk.Container */
     widget: Gtk.Widget
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Gdaui.RtEditor */
+    /* Methods of Gdaui-6.0.Gdaui.RtEditor */
     get_contents(): string
     set_contents(markup: string, length: number): void
     set_editable(editable: boolean): void
-    /* Methods of Gtk.Box */
+    /* Methods of Gtk-3.0.Gtk.Box */
     get_baseline_position(): Gtk.BaselinePosition
     get_center_widget(): Gtk.Widget | null
     get_homogeneous(): boolean
@@ -27527,7 +27527,7 @@ export class RtEditor {
     set_child_packing(child: Gtk.Widget, expand: boolean, fill: boolean, padding: number, pack_type: Gtk.PackType): void
     set_homogeneous(homogeneous: boolean): void
     set_spacing(spacing: number): void
-    /* Methods of Gtk.Container */
+    /* Methods of Gtk-3.0.Gtk.Container */
     add(widget: Gtk.Widget): void
     check_resize(): void
     child_get_property(child: Gtk.Widget, property_name: string, value: any): void
@@ -27555,7 +27555,7 @@ export class RtEditor {
     set_reallocate_redraws(needs_redraws: boolean): void
     set_resize_mode(resize_mode: Gtk.ResizeMode): void
     unset_focus_chain(): void
-    /* Methods of Gtk.Widget */
+    /* Methods of Gtk-3.0.Gtk.Widget */
     activate(): boolean
     add_accelerator(accel_signal: string, accel_group: Gtk.AccelGroup, accel_key: number, accel_mods: Gdk.ModifierType, accel_flags: Gtk.AccelFlags): void
     add_device_events(device: Gdk.Device, events: Gdk.EventMask): void
@@ -27814,7 +27814,7 @@ export class RtEditor {
     unrealize(): void
     unregister_window(window: Gdk.Window): void
     unset_state_flags(flags: Gtk.StateFlags): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -27836,7 +27836,7 @@ export class RtEditor {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of Gtk.Buildable */
+    /* Methods of Gtk-3.0.Gtk.Buildable */
     add_child(builder: Gtk.Builder, child: GObject.Object, type?: string | null): void
     construct_child(builder: Gtk.Builder, name: string): GObject.Object
     custom_finished(builder: Gtk.Builder, child: GObject.Object | null, tagname: string, data?: object | null): void
@@ -27845,10 +27845,10 @@ export class RtEditor {
     get_internal_child(builder: Gtk.Builder, childname: string): GObject.Object
     parser_finished(builder: Gtk.Builder): void
     set_buildable_property(builder: Gtk.Builder, name: string, value: any): void
-    /* Methods of Gtk.Orientable */
+    /* Methods of Gtk-3.0.Gtk.Orientable */
     get_orientation(): Gtk.Orientation
     set_orientation(orientation: Gtk.Orientation): void
-    /* Virtual methods of Gdaui.RtEditor */
+    /* Virtual methods of Gdaui-6.0.Gdaui.RtEditor */
     vfunc_changed(): void
     vfunc_add_child(builder: Gtk.Builder, child: GObject.Object, type?: string | null): void
     vfunc_construct_child(builder: Gtk.Builder, name: string): GObject.Object
@@ -27860,7 +27860,7 @@ export class RtEditor {
     vfunc_parser_finished(builder: Gtk.Builder): void
     vfunc_set_buildable_property(builder: Gtk.Builder, name: string, value: any): void
     vfunc_set_name(name: string): void
-    /* Virtual methods of Gtk.Container */
+    /* Virtual methods of Gtk-3.0.Gtk.Container */
     vfunc_add(widget: Gtk.Widget): void
     vfunc_check_resize(): void
     vfunc_child_type(): GObject.Type
@@ -27871,7 +27871,7 @@ export class RtEditor {
     vfunc_remove(widget: Gtk.Widget): void
     vfunc_set_child_property(child: Gtk.Widget, property_id: number, value: any, pspec: GObject.ParamSpec): void
     vfunc_set_focus_child(child?: Gtk.Widget | null): void
-    /* Virtual methods of Gtk.Widget */
+    /* Virtual methods of Gtk-3.0.Gtk.Widget */
     vfunc_adjust_baseline_allocation(baseline: number): void
     vfunc_adjust_baseline_request(minimum_baseline: number, natural_baseline: number): void
     vfunc_adjust_size_allocation(orientation: Gtk.Orientation, minimum_size: number, natural_size: number, allocated_pos: number, allocated_size: number): void
@@ -27954,7 +27954,7 @@ export class RtEditor {
     vfunc_unrealize(): void
     vfunc_visibility_notify_event(event: Gdk.EventVisibility): boolean
     vfunc_window_state_event(event: Gdk.EventWindowState): boolean
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -27962,11 +27962,11 @@ export class RtEditor {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gdaui.RtEditor */
+    /* Signals of Gdaui-6.0.Gdaui.RtEditor */
     connect(sigName: "changed", callback: (($obj: RtEditor) => void)): number
     connect_after(sigName: "changed", callback: (($obj: RtEditor) => void)): number
     emit(sigName: "changed"): void
-    /* Signals of Gtk.Container */
+    /* Signals of Gtk-3.0.Gtk.Container */
     connect(sigName: "add", callback: (($obj: RtEditor, object: Gtk.Widget) => void)): number
     connect_after(sigName: "add", callback: (($obj: RtEditor, object: Gtk.Widget) => void)): number
     emit(sigName: "add", object: Gtk.Widget): void
@@ -27979,7 +27979,7 @@ export class RtEditor {
     connect(sigName: "set-focus-child", callback: (($obj: RtEditor, object: Gtk.Widget) => void)): number
     connect_after(sigName: "set-focus-child", callback: (($obj: RtEditor, object: Gtk.Widget) => void)): number
     emit(sigName: "set-focus-child", object: Gtk.Widget): void
-    /* Signals of Gtk.Widget */
+    /* Signals of Gtk-3.0.Gtk.Widget */
     connect(sigName: "accel-closures-changed", callback: (($obj: RtEditor) => void)): number
     connect_after(sigName: "accel-closures-changed", callback: (($obj: RtEditor) => void)): number
     emit(sigName: "accel-closures-changed"): void
@@ -28187,7 +28187,7 @@ export class RtEditor {
     connect(sigName: "window-state-event", callback: (($obj: RtEditor, event: Gdk.EventWindowState) => boolean)): number
     connect_after(sigName: "window-state-event", callback: (($obj: RtEditor, event: Gdk.EventWindowState) => boolean)): number
     emit(sigName: "window-state-event", event: Gdk.EventWindowState): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: RtEditor, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: RtEditor, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -28310,17 +28310,17 @@ export interface ServerOperation_ConstructProps extends Gtk.Box_ConstructProps {
     orientation?: Gtk.Orientation
 }
 export class ServerOperation {
-    /* Properties of Gdaui.ServerOperation */
+    /* Properties of Gdaui-6.0.Gdaui.ServerOperation */
     hide_single_header: boolean
-    /* Properties of Gtk.Box */
+    /* Properties of Gtk-3.0.Gtk.Box */
     baseline_position: Gtk.BaselinePosition
     homogeneous: boolean
     spacing: number
-    /* Properties of Gtk.Container */
+    /* Properties of Gtk-3.0.Gtk.Container */
     border_width: number
     child: Gtk.Widget
     resize_mode: Gtk.ResizeMode
-    /* Properties of Gtk.Widget */
+    /* Properties of Gtk-3.0.Gtk.Widget */
     app_paintable: boolean
     can_default: boolean
     can_focus: boolean
@@ -28360,19 +28360,19 @@ export class ServerOperation {
     visible: boolean
     width_request: number
     readonly window: Gdk.Window
-    /* Properties of Gtk.Orientable */
+    /* Properties of Gtk-3.0.Gtk.Orientable */
     orientation: Gtk.Orientation
-    /* Fields of Gdaui.ServerOperation */
+    /* Fields of Gdaui-6.0.Gdaui.ServerOperation */
     parent_instance: Gtk.Box
-    /* Fields of Gtk.Box */
+    /* Fields of Gtk-3.0.Gtk.Box */
     container: Gtk.Container
-    /* Fields of Gtk.Container */
+    /* Fields of Gtk-3.0.Gtk.Container */
     widget: Gtk.Widget
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Gdaui.ServerOperation */
+    /* Methods of Gdaui-6.0.Gdaui.ServerOperation */
     update_parameters(): void
-    /* Methods of Gtk.Box */
+    /* Methods of Gtk-3.0.Gtk.Box */
     get_baseline_position(): Gtk.BaselinePosition
     get_center_widget(): Gtk.Widget | null
     get_homogeneous(): boolean
@@ -28386,7 +28386,7 @@ export class ServerOperation {
     set_child_packing(child: Gtk.Widget, expand: boolean, fill: boolean, padding: number, pack_type: Gtk.PackType): void
     set_homogeneous(homogeneous: boolean): void
     set_spacing(spacing: number): void
-    /* Methods of Gtk.Container */
+    /* Methods of Gtk-3.0.Gtk.Container */
     add(widget: Gtk.Widget): void
     check_resize(): void
     child_get_property(child: Gtk.Widget, property_name: string, value: any): void
@@ -28414,7 +28414,7 @@ export class ServerOperation {
     set_reallocate_redraws(needs_redraws: boolean): void
     set_resize_mode(resize_mode: Gtk.ResizeMode): void
     unset_focus_chain(): void
-    /* Methods of Gtk.Widget */
+    /* Methods of Gtk-3.0.Gtk.Widget */
     activate(): boolean
     add_accelerator(accel_signal: string, accel_group: Gtk.AccelGroup, accel_key: number, accel_mods: Gdk.ModifierType, accel_flags: Gtk.AccelFlags): void
     add_device_events(device: Gdk.Device, events: Gdk.EventMask): void
@@ -28673,7 +28673,7 @@ export class ServerOperation {
     unrealize(): void
     unregister_window(window: Gdk.Window): void
     unset_state_flags(flags: Gtk.StateFlags): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -28695,7 +28695,7 @@ export class ServerOperation {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of Gtk.Buildable */
+    /* Methods of Gtk-3.0.Gtk.Buildable */
     add_child(builder: Gtk.Builder, child: GObject.Object, type?: string | null): void
     construct_child(builder: Gtk.Builder, name: string): GObject.Object
     custom_finished(builder: Gtk.Builder, child: GObject.Object | null, tagname: string, data?: object | null): void
@@ -28704,10 +28704,10 @@ export class ServerOperation {
     get_internal_child(builder: Gtk.Builder, childname: string): GObject.Object
     parser_finished(builder: Gtk.Builder): void
     set_buildable_property(builder: Gtk.Builder, name: string, value: any): void
-    /* Methods of Gtk.Orientable */
+    /* Methods of Gtk-3.0.Gtk.Orientable */
     get_orientation(): Gtk.Orientation
     set_orientation(orientation: Gtk.Orientation): void
-    /* Virtual methods of Gdaui.ServerOperation */
+    /* Virtual methods of Gdaui-6.0.Gdaui.ServerOperation */
     vfunc_add_child(builder: Gtk.Builder, child: GObject.Object, type?: string | null): void
     vfunc_construct_child(builder: Gtk.Builder, name: string): GObject.Object
     vfunc_custom_finished(builder: Gtk.Builder, child: GObject.Object | null, tagname: string, data?: object | null): void
@@ -28718,7 +28718,7 @@ export class ServerOperation {
     vfunc_parser_finished(builder: Gtk.Builder): void
     vfunc_set_buildable_property(builder: Gtk.Builder, name: string, value: any): void
     vfunc_set_name(name: string): void
-    /* Virtual methods of Gtk.Container */
+    /* Virtual methods of Gtk-3.0.Gtk.Container */
     vfunc_add(widget: Gtk.Widget): void
     vfunc_check_resize(): void
     vfunc_child_type(): GObject.Type
@@ -28729,7 +28729,7 @@ export class ServerOperation {
     vfunc_remove(widget: Gtk.Widget): void
     vfunc_set_child_property(child: Gtk.Widget, property_id: number, value: any, pspec: GObject.ParamSpec): void
     vfunc_set_focus_child(child?: Gtk.Widget | null): void
-    /* Virtual methods of Gtk.Widget */
+    /* Virtual methods of Gtk-3.0.Gtk.Widget */
     vfunc_adjust_baseline_allocation(baseline: number): void
     vfunc_adjust_baseline_request(minimum_baseline: number, natural_baseline: number): void
     vfunc_adjust_size_allocation(orientation: Gtk.Orientation, minimum_size: number, natural_size: number, allocated_pos: number, allocated_size: number): void
@@ -28812,7 +28812,7 @@ export class ServerOperation {
     vfunc_unrealize(): void
     vfunc_visibility_notify_event(event: Gdk.EventVisibility): boolean
     vfunc_window_state_event(event: Gdk.EventWindowState): boolean
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -28820,7 +28820,7 @@ export class ServerOperation {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gtk.Container */
+    /* Signals of Gtk-3.0.Gtk.Container */
     connect(sigName: "add", callback: (($obj: ServerOperation, object: Gtk.Widget) => void)): number
     connect_after(sigName: "add", callback: (($obj: ServerOperation, object: Gtk.Widget) => void)): number
     emit(sigName: "add", object: Gtk.Widget): void
@@ -28833,7 +28833,7 @@ export class ServerOperation {
     connect(sigName: "set-focus-child", callback: (($obj: ServerOperation, object: Gtk.Widget) => void)): number
     connect_after(sigName: "set-focus-child", callback: (($obj: ServerOperation, object: Gtk.Widget) => void)): number
     emit(sigName: "set-focus-child", object: Gtk.Widget): void
-    /* Signals of Gtk.Widget */
+    /* Signals of Gtk-3.0.Gtk.Widget */
     connect(sigName: "accel-closures-changed", callback: (($obj: ServerOperation) => void)): number
     connect_after(sigName: "accel-closures-changed", callback: (($obj: ServerOperation) => void)): number
     emit(sigName: "accel-closures-changed"): void
@@ -29041,7 +29041,7 @@ export class ServerOperation {
     connect(sigName: "window-state-event", callback: (($obj: ServerOperation, event: Gdk.EventWindowState) => boolean)): number
     connect_after(sigName: "window-state-event", callback: (($obj: ServerOperation, event: Gdk.EventWindowState) => boolean)): number
     emit(sigName: "window-state-event", event: Gdk.EventWindowState): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: ServerOperation, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: ServerOperation, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -29156,15 +29156,15 @@ export interface Set_ConstructProps extends GObject.Object_ConstructProps {
     set?: Gda.Set
 }
 export class Set {
-    /* Fields of Gdaui.Set */
+    /* Fields of Gdaui-6.0.Gdaui.Set */
     parent_instance: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Gdaui.Set */
+    /* Methods of Gdaui-6.0.Gdaui.Set */
     get_group(holder: Gda.Holder): SetGroup
     get_groups(): SetGroup[]
     get_sources(): SetSource[]
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -29186,10 +29186,10 @@ export class Set {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Gdaui.Set */
+    /* Virtual methods of Gdaui-6.0.Gdaui.Set */
     vfunc_public_data_changed(): void
     vfunc_source_model_changed(source: SetSource): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -29197,14 +29197,14 @@ export class Set {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gdaui.Set */
+    /* Signals of Gdaui-6.0.Gdaui.Set */
     connect(sigName: "public-data-changed", callback: (($obj: Set) => void)): number
     connect_after(sigName: "public-data-changed", callback: (($obj: Set) => void)): number
     emit(sigName: "public-data-changed"): void
     connect(sigName: "source-model-changed", callback: (($obj: Set, source: SetSource) => void)): number
     connect_after(sigName: "source-model-changed", callback: (($obj: Set, source: SetSource) => void)): number
     emit(sigName: "source-model-changed", source: SetSource): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Set, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Set, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -29223,14 +29223,14 @@ export interface TreeStore_ConstructProps extends GObject.Object_ConstructProps 
     tree?: Gda.Tree
 }
 export class TreeStore {
-    /* Fields of Gdaui.TreeStore */
+    /* Fields of Gdaui-6.0.Gdaui.TreeStore */
     parent_instance: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Gdaui.TreeStore */
+    /* Methods of Gdaui-6.0.Gdaui.TreeStore */
     get_iter_from_node(iter: Gtk.TreeIter, node: Gda.TreeNode): boolean
     get_node(iter: Gtk.TreeIter): Gda.TreeNode
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -29252,14 +29252,14 @@ export class TreeStore {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of Gtk.TreeDragDest */
+    /* Methods of Gtk-3.0.Gtk.TreeDragDest */
     drag_data_received(dest: Gtk.TreePath, selection_data: Gtk.SelectionData): boolean
     row_drop_possible(dest_path: Gtk.TreePath, selection_data: Gtk.SelectionData): boolean
-    /* Methods of Gtk.TreeDragSource */
+    /* Methods of Gtk-3.0.Gtk.TreeDragSource */
     drag_data_delete(path: Gtk.TreePath): boolean
     drag_data_get(path: Gtk.TreePath, selection_data: Gtk.SelectionData): boolean
     row_draggable(path: Gtk.TreePath): boolean
-    /* Methods of Gtk.TreeModel */
+    /* Methods of Gtk-3.0.Gtk.TreeModel */
     filter_new(root?: Gtk.TreePath | null): Gtk.TreeModel
     foreach(func: Gtk.TreeModelForeachFunc): void
     get_column_type(index_: number): GObject.Type
@@ -29285,7 +29285,7 @@ export class TreeStore {
     row_inserted(path: Gtk.TreePath, iter: Gtk.TreeIter): void
     rows_reordered(path: Gtk.TreePath, iter: Gtk.TreeIter | null, new_order: number[]): void
     unref_node(iter: Gtk.TreeIter): void
-    /* Virtual methods of Gdaui.TreeStore */
+    /* Virtual methods of Gdaui-6.0.Gdaui.TreeStore */
     vfunc_drag_can_drag(path: string): boolean
     vfunc_drag_can_drop(path: string, selection_data: Gtk.SelectionData): boolean
     vfunc_drag_delete(path: string): boolean
@@ -29315,7 +29315,7 @@ export class TreeStore {
     vfunc_row_has_child_toggled(path: Gtk.TreePath, iter: Gtk.TreeIter): void
     vfunc_row_inserted(path: Gtk.TreePath, iter: Gtk.TreeIter): void
     vfunc_unref_node(iter: Gtk.TreeIter): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -29323,7 +29323,7 @@ export class TreeStore {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gdaui.TreeStore */
+    /* Signals of Gdaui-6.0.Gdaui.TreeStore */
     connect(sigName: "drag-can-drag", callback: (($obj: TreeStore, object: string) => boolean)): number
     connect_after(sigName: "drag-can-drag", callback: (($obj: TreeStore, object: string) => boolean)): number
     emit(sigName: "drag-can-drag", object: string): void
@@ -29339,11 +29339,11 @@ export class TreeStore {
     connect(sigName: "drag-get", callback: (($obj: TreeStore, object: string, p0?: object | null) => boolean)): number
     connect_after(sigName: "drag-get", callback: (($obj: TreeStore, object: string, p0?: object | null) => boolean)): number
     emit(sigName: "drag-get", object: string, p0?: object | null): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: TreeStore, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: TreeStore, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    /* Signals of Gtk.TreeModel */
+    /* Signals of Gtk-3.0.Gtk.TreeModel */
     connect(sigName: "row-changed", callback: (($obj: TreeStore, path: Gtk.TreePath, iter: Gtk.TreeIter) => void)): number
     connect_after(sigName: "row-changed", callback: (($obj: TreeStore, path: Gtk.TreePath, iter: Gtk.TreeIter) => void)): number
     emit(sigName: "row-changed", path: Gtk.TreePath, iter: Gtk.TreeIter): void
@@ -29371,7 +29371,7 @@ export class TreeStore {
     static $gtype: GObject.Type
 }
 export abstract class BasicFormClass {
-    /* Fields of Gdaui.BasicFormClass */
+    /* Fields of Gdaui-6.0.Gdaui.BasicFormClass */
     parent_class: Gtk.BoxClass
     holder_changed: (form: BasicForm, holder: Gda.Holder, is_user_action: boolean) => void
     activated: (form: BasicForm) => void
@@ -29379,49 +29379,49 @@ export abstract class BasicFormClass {
     static name: string
 }
 export abstract class CloudClass {
-    /* Fields of Gdaui.CloudClass */
+    /* Fields of Gdaui-6.0.Gdaui.CloudClass */
     parent_class: Gtk.BoxClass
     activate: (cloud: Cloud, row: number) => void
     padding: object[]
     static name: string
 }
 export abstract class ComboClass {
-    /* Fields of Gdaui.ComboClass */
+    /* Fields of Gdaui-6.0.Gdaui.ComboClass */
     parent_class: Gtk.ComboBoxClass
     padding: object[]
     static name: string
 }
 export abstract class DataCellRendererBinClass {
-    /* Fields of Gdaui.DataCellRendererBinClass */
+    /* Fields of Gdaui-6.0.Gdaui.DataCellRendererBinClass */
     parent_class: Gtk.CellRendererPixbufClass
     changed: (cell_renderer: DataCellRendererBin, path: string, new_value: any) => void
     static name: string
 }
 export abstract class DataCellRendererBooleanClass {
-    /* Fields of Gdaui.DataCellRendererBooleanClass */
+    /* Fields of Gdaui-6.0.Gdaui.DataCellRendererBooleanClass */
     parent_class: Gtk.CellRendererToggleClass
     changed: (cell_renderer: DataCellRendererBoolean, path: string, new_value: any) => void
     static name: string
 }
 export abstract class DataCellRendererComboClass {
-    /* Fields of Gdaui.DataCellRendererComboClass */
+    /* Fields of Gdaui-6.0.Gdaui.DataCellRendererComboClass */
     parent_class: Gtk.CellRendererTextClass
     static name: string
 }
 export abstract class DataCellRendererInfoClass {
-    /* Fields of Gdaui.DataCellRendererInfoClass */
+    /* Fields of Gdaui-6.0.Gdaui.DataCellRendererInfoClass */
     parent_class: Gtk.CellRendererClass
     status_changed: (cell_renderer_info: DataCellRendererInfo, path: string, requested_action: Gda.ValueAttribute) => void
     static name: string
 }
 export abstract class DataCellRendererTextualClass {
-    /* Fields of Gdaui.DataCellRendererTextualClass */
+    /* Fields of Gdaui-6.0.Gdaui.DataCellRendererTextualClass */
     parent_class: Gtk.CellRendererTextClass
     changed: (cell_renderer_textual: DataCellRendererTextual, path: string, new_value: any) => void
     static name: string
 }
 export abstract class DataEntryInterface {
-    /* Fields of Gdaui.DataEntryInterface */
+    /* Fields of Gdaui-6.0.Gdaui.DataEntryInterface */
     g_iface: GObject.TypeInterface
     contents_modified: (de: DataEntry) => void
     contents_activated: (de: DataEntry) => void
@@ -29446,19 +29446,19 @@ export abstract class DataEntryInterface {
     static name: string
 }
 export abstract class DataFilterClass {
-    /* Fields of Gdaui.DataFilterClass */
+    /* Fields of Gdaui-6.0.Gdaui.DataFilterClass */
     parent_class: Gtk.BoxClass
     padding: object[]
     static name: string
 }
 export abstract class DataProxyInfoClass {
-    /* Fields of Gdaui.DataProxyInfoClass */
+    /* Fields of Gdaui-6.0.Gdaui.DataProxyInfoClass */
     parent_class: Gtk.ToolbarClass
     padding: object[]
     static name: string
 }
 export abstract class DataProxyInterface {
-    /* Fields of Gdaui.DataProxyInterface */
+    /* Fields of Gdaui-6.0.Gdaui.DataProxyInterface */
     g_iface: GObject.TypeInterface
     get_proxy: (iface: DataProxy) => Gda.DataProxy
     set_column_editable: (iface: DataProxy, column: number, editable: boolean) => void
@@ -29470,7 +29470,7 @@ export abstract class DataProxyInterface {
     static name: string
 }
 export abstract class DataSelectorInterface {
-    /* Fields of Gdaui.DataSelectorInterface */
+    /* Fields of Gdaui-6.0.Gdaui.DataSelectorInterface */
     g_iface: GObject.TypeInterface
     get_model: (iface: DataSelector) => Gda.DataModel
     set_model: (iface: DataSelector, model: Gda.DataModel) => void
@@ -29484,23 +29484,23 @@ export abstract class DataSelectorInterface {
     static name: string
 }
 export abstract class DataStoreClass {
-    /* Fields of Gdaui.DataStoreClass */
+    /* Fields of Gdaui-6.0.Gdaui.DataStoreClass */
     parent_class: GObject.ObjectClass
     padding: object[]
     static name: string
 }
 export abstract class EntryBinClass {
-    /* Fields of Gdaui.EntryBinClass */
+    /* Fields of Gdaui-6.0.Gdaui.EntryBinClass */
     parent_class: EntryWrapperClass
     static name: string
 }
 export abstract class EntryBooleanClass {
-    /* Fields of Gdaui.EntryBooleanClass */
+    /* Fields of Gdaui-6.0.Gdaui.EntryBooleanClass */
     parent_class: EntryWrapperClass
     static name: string
 }
 export abstract class EntryClass {
-    /* Fields of Gdaui.EntryClass */
+    /* Fields of Gdaui-6.0.Gdaui.EntryClass */
     parent_class: Gtk.EntryClass
     get_empty_text: (entry: Entry) => string
     assume_insert: (entry: Entry, text: string, text_length: number, virt_pos: number, offset: number) => void
@@ -29508,52 +29508,52 @@ export abstract class EntryClass {
     static name: string
 }
 export abstract class EntryComboClass {
-    /* Fields of Gdaui.EntryComboClass */
+    /* Fields of Gdaui-6.0.Gdaui.EntryComboClass */
     parent_class: EntryShellClass
     static name: string
 }
 export abstract class EntryCommonTimeClass {
-    /* Fields of Gdaui.EntryCommonTimeClass */
+    /* Fields of Gdaui-6.0.Gdaui.EntryCommonTimeClass */
     parent_class: EntryWrapperClass
     static name: string
 }
 export abstract class EntryDateClass {
-    /* Fields of Gdaui.EntryDateClass */
+    /* Fields of Gdaui-6.0.Gdaui.EntryDateClass */
     parent_class: EntryCommonTimeClass
     static name: string
 }
 export abstract class EntryNoneClass {
-    /* Fields of Gdaui.EntryNoneClass */
+    /* Fields of Gdaui-6.0.Gdaui.EntryNoneClass */
     parent_class: EntryWrapperClass
     static name: string
 }
 export abstract class EntryNumberClass {
-    /* Fields of Gdaui.EntryNumberClass */
+    /* Fields of Gdaui-6.0.Gdaui.EntryNumberClass */
     parent_class: EntryWrapperClass
     static name: string
 }
 export abstract class EntryShellClass {
-    /* Fields of Gdaui.EntryShellClass */
+    /* Fields of Gdaui-6.0.Gdaui.EntryShellClass */
     parent_class: Gtk.BoxClass
     static name: string
 }
 export abstract class EntryStringClass {
-    /* Fields of Gdaui.EntryStringClass */
+    /* Fields of Gdaui-6.0.Gdaui.EntryStringClass */
     parent_class: EntryWrapperClass
     static name: string
 }
 export abstract class EntryTimeClass {
-    /* Fields of Gdaui.EntryTimeClass */
+    /* Fields of Gdaui-6.0.Gdaui.EntryTimeClass */
     parent_class: EntryCommonTimeClass
     static name: string
 }
 export abstract class EntryTimestampClass {
-    /* Fields of Gdaui.EntryTimestampClass */
+    /* Fields of Gdaui-6.0.Gdaui.EntryTimestampClass */
     parent_class: EntryCommonTimeClass
     static name: string
 }
 export abstract class EntryWrapperClass {
-    /* Fields of Gdaui.EntryWrapperClass */
+    /* Fields of Gdaui-6.0.Gdaui.EntryWrapperClass */
     parent_class: EntryShellClass
     real_set_value: (wrapper: EntryWrapper, value: any) => void
     real_get_value: (wrapper: EntryWrapper) => any
@@ -29566,88 +29566,88 @@ export abstract class EntryWrapperClass {
     static name: string
 }
 export abstract class FormClass {
-    /* Fields of Gdaui.FormClass */
+    /* Fields of Gdaui-6.0.Gdaui.FormClass */
     parent_class: Gtk.BoxClass
     static name: string
 }
 export abstract class FormattedEntryClass {
-    /* Fields of Gdaui.FormattedEntryClass */
+    /* Fields of Gdaui-6.0.Gdaui.FormattedEntryClass */
     parent_class: EntryClass
     static name: string
 }
 export abstract class GridClass {
-    /* Fields of Gdaui.GridClass */
+    /* Fields of Gdaui-6.0.Gdaui.GridClass */
     parent_class: Gtk.BoxClass
     padding: object[]
     static name: string
 }
 export abstract class LoginClass {
-    /* Fields of Gdaui.LoginClass */
+    /* Fields of Gdaui-6.0.Gdaui.LoginClass */
     parent_class: Gtk.BoxClass
     changed: (login: Login, is_valid: boolean) => void
     padding: object[]
     static name: string
 }
 export abstract class NumericEntryClass {
-    /* Fields of Gdaui.NumericEntryClass */
+    /* Fields of Gdaui-6.0.Gdaui.NumericEntryClass */
     parent_class: EntryClass
     static name: string
 }
 export class Plugin {
-    /* Fields of Gdaui.Plugin */
+    /* Fields of Gdaui-6.0.Gdaui.Plugin */
     plugin_name: string
     plugin_descr: string
     plugin_file: string
     nb_g_types: number
     valid_g_types: GObject.Type
     options_xml_spec: string
-    /* Methods of Gdaui.Plugin */
+    /* Methods of Gdaui-6.0.Gdaui.Plugin */
     declare(): void
     static name: string
     /* Static methods and pseudo-constructors */
     static error_quark(): GLib.Quark
 }
 export abstract class ProviderSelectorClass {
-    /* Fields of Gdaui.ProviderSelectorClass */
+    /* Fields of Gdaui-6.0.Gdaui.ProviderSelectorClass */
     parent_class: ComboClass
     padding: object[]
     static name: string
 }
 export abstract class RawFormClass {
-    /* Fields of Gdaui.RawFormClass */
+    /* Fields of Gdaui-6.0.Gdaui.RawFormClass */
     parent_class: BasicFormClass
     padding: object[]
     static name: string
 }
 export abstract class RawGridClass {
-    /* Fields of Gdaui.RawGridClass */
+    /* Fields of Gdaui-6.0.Gdaui.RawGridClass */
     parent_class: Gtk.TreeViewClass
     double_clicked: (grid: RawGrid, row: number) => void
     populate_popup: (grid: RawGrid, menu: Gtk.Menu) => void
     static name: string
 }
 export abstract class RtEditorClass {
-    /* Fields of Gdaui.RtEditorClass */
+    /* Fields of Gdaui-6.0.Gdaui.RtEditorClass */
     parent_class: Gtk.BoxClass
     changed: (editor: RtEditor) => void
     padding: object[]
     static name: string
 }
 export abstract class ServerOperationClass {
-    /* Fields of Gdaui.ServerOperationClass */
+    /* Fields of Gdaui-6.0.Gdaui.ServerOperationClass */
     parent_class: Gtk.BoxClass
     padding: object[]
     static name: string
 }
 export abstract class SetClass {
-    /* Fields of Gdaui.SetClass */
+    /* Fields of Gdaui-6.0.Gdaui.SetClass */
     parent_class: GObject.ObjectClass
     public_data_changed: (set: Set) => void
     source_model_changed: (set: Set, source: SetSource) => void
     static name: string
 }
 export class SetGroup {
-    /* Methods of Gdaui.SetGroup */
+    /* Methods of Gdaui-6.0.Gdaui.SetGroup */
     copy(): SetGroup
     free(): void
     get_group(): Gda.SetGroup
@@ -29661,7 +29661,7 @@ export class SetGroup {
     static new(group: Gda.SetGroup): SetGroup
 }
 export class SetSource {
-    /* Methods of Gdaui.SetSource */
+    /* Methods of Gdaui-6.0.Gdaui.SetSource */
     copy(): SetSource
     free(): void
     get_ref_columns(): number[]
@@ -29679,7 +29679,7 @@ export class SetSource {
     static new(source: Gda.SetSource): SetSource
 }
 export abstract class TreeStoreClass {
-    /* Fields of Gdaui.TreeStoreClass */
+    /* Fields of Gdaui-6.0.Gdaui.TreeStoreClass */
     parent_class: GObject.ObjectClass
     drag_can_drag: (store: TreeStore, path: string) => boolean
     drag_get: (store: TreeStore, path: string, selection_data: Gtk.SelectionData) => boolean

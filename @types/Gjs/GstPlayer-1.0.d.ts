@@ -43,7 +43,7 @@ export interface PlayerSignalDispatcherFunc {
     (data?: object | null): void
 }
 export class PlayerSignalDispatcher {
-    /* Virtual methods of GstPlayer.PlayerSignalDispatcher */
+    /* Virtual methods of GstPlayer-1.0.GstPlayer.PlayerSignalDispatcher */
     vfunc_dispatch(player: Player, emitter: PlayerSignalDispatcherFunc): void
     static name: string
 }
@@ -64,7 +64,7 @@ export interface Player_ConstructProps extends Gst.Object_ConstructProps {
     volume?: number
 }
 export class Player {
-    /* Properties of GstPlayer.Player */
+    /* Properties of GstPlayer-1.0.GstPlayer.Player */
     audio_video_offset: number
     readonly current_audio_track: PlayerAudioInfo
     readonly current_subtitle_track: PlayerSubtitleInfo
@@ -81,16 +81,16 @@ export class Player {
     video_multiview_flags: GstVideo.VideoMultiviewFlags
     video_multiview_mode: GstVideo.VideoMultiviewFramePacking
     volume: number
-    /* Properties of Gst.Object */
+    /* Properties of Gst-1.0.Gst.Object */
     name: string
     parent: Gst.Object
-    /* Fields of Gst.Object */
+    /* Fields of Gst-1.0.Gst.Object */
     object: GObject.InitiallyUnowned
     lock: GLib.Mutex
     flags: number
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GstPlayer.Player */
+    /* Methods of GstPlayer-1.0.GstPlayer.Player */
     get_audio_video_offset(): number
     get_color_balance(type: PlayerColorBalanceType): number
     get_config(): Gst.Structure
@@ -135,7 +135,7 @@ export class Player {
     set_visualization_enabled(enabled: boolean): void
     set_volume(val: number): void
     stop(): void
-    /* Methods of Gst.Object */
+    /* Methods of Gst-1.0.Gst.Object */
     add_control_binding(binding: Gst.ControlBinding): boolean
     default_error(error: GLib.Error, debug?: string | null): void
     get_control_binding(property_name: string): Gst.ControlBinding | null
@@ -160,7 +160,7 @@ export class Player {
     sync_values(timestamp: Gst.ClockTime): boolean
     unparent(): void
     unref(): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -181,9 +181,9 @@ export class Player {
     steal_qdata(quark: GLib.Quark): object | null
     thaw_notify(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Gst.Object */
+    /* Virtual methods of Gst-1.0.Gst.Object */
     vfunc_deep_notify(orig: Gst.Object, pspec: GObject.ParamSpec): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -191,7 +191,7 @@ export class Player {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GstPlayer.Player */
+    /* Signals of GstPlayer-1.0.GstPlayer.Player */
     connect(sigName: "buffering", callback: (($obj: Player, object: number) => void)): number
     connect_after(sigName: "buffering", callback: (($obj: Player, object: number) => void)): number
     emit(sigName: "buffering", object: number): void
@@ -231,11 +231,11 @@ export class Player {
     connect(sigName: "warning", callback: (($obj: Player, object: GLib.Error) => void)): number
     connect_after(sigName: "warning", callback: (($obj: Player, object: GLib.Error) => void)): number
     emit(sigName: "warning", object: GLib.Error): void
-    /* Signals of Gst.Object */
+    /* Signals of Gst-1.0.Gst.Object */
     connect(sigName: "deep-notify", callback: (($obj: Player, prop_object: Gst.Object, prop: GObject.ParamSpec) => void)): number
     connect_after(sigName: "deep-notify", callback: (($obj: Player, prop_object: Gst.Object, prop: GObject.ParamSpec) => void)): number
     emit(sigName: "deep-notify", prop_object: Gst.Object, prop: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Player, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Player, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -300,21 +300,21 @@ export class Player {
 export interface PlayerAudioInfo_ConstructProps extends PlayerStreamInfo_ConstructProps {
 }
 export class PlayerAudioInfo {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GstPlayer.PlayerAudioInfo */
+    /* Methods of GstPlayer-1.0.GstPlayer.PlayerAudioInfo */
     get_bitrate(): number
     get_channels(): number
     get_language(): string
     get_max_bitrate(): number
     get_sample_rate(): number
-    /* Methods of GstPlayer.PlayerStreamInfo */
+    /* Methods of GstPlayer-1.0.GstPlayer.PlayerStreamInfo */
     get_caps(): Gst.Caps
     get_codec(): string
     get_index(): number
     get_stream_type(): string
     get_tags(): Gst.TagList
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -336,7 +336,7 @@ export class PlayerAudioInfo {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -344,7 +344,7 @@ export class PlayerAudioInfo {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: PlayerAudioInfo, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: PlayerAudioInfo, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -361,9 +361,9 @@ export interface PlayerGMainContextSignalDispatcher_ConstructProps extends GObje
     application_context?: GLib.MainContext
 }
 export class PlayerGMainContextSignalDispatcher {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -385,9 +385,9 @@ export class PlayerGMainContextSignalDispatcher {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GstPlayer.PlayerGMainContextSignalDispatcher */
+    /* Virtual methods of GstPlayer-1.0.GstPlayer.PlayerGMainContextSignalDispatcher */
     vfunc_dispatch(player: Player, emitter: PlayerSignalDispatcherFunc): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -395,7 +395,7 @@ export class PlayerGMainContextSignalDispatcher {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: PlayerGMainContextSignalDispatcher, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: PlayerGMainContextSignalDispatcher, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -411,9 +411,9 @@ export class PlayerGMainContextSignalDispatcher {
 export interface PlayerMediaInfo_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class PlayerMediaInfo {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GstPlayer.PlayerMediaInfo */
+    /* Methods of GstPlayer-1.0.GstPlayer.PlayerMediaInfo */
     get_audio_streams(): PlayerAudioInfo[]
     get_container_format(): string
     get_duration(): Gst.ClockTime
@@ -430,7 +430,7 @@ export class PlayerMediaInfo {
     get_video_streams(): PlayerVideoInfo[]
     is_live(): boolean
     is_seekable(): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -452,7 +452,7 @@ export class PlayerMediaInfo {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -460,7 +460,7 @@ export class PlayerMediaInfo {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: PlayerMediaInfo, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: PlayerMediaInfo, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -476,15 +476,15 @@ export class PlayerMediaInfo {
 export interface PlayerStreamInfo_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class PlayerStreamInfo {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GstPlayer.PlayerStreamInfo */
+    /* Methods of GstPlayer-1.0.GstPlayer.PlayerStreamInfo */
     get_caps(): Gst.Caps
     get_codec(): string
     get_index(): number
     get_stream_type(): string
     get_tags(): Gst.TagList
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -506,7 +506,7 @@ export class PlayerStreamInfo {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -514,7 +514,7 @@ export class PlayerStreamInfo {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: PlayerStreamInfo, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: PlayerStreamInfo, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -530,17 +530,17 @@ export class PlayerStreamInfo {
 export interface PlayerSubtitleInfo_ConstructProps extends PlayerStreamInfo_ConstructProps {
 }
 export class PlayerSubtitleInfo {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GstPlayer.PlayerSubtitleInfo */
+    /* Methods of GstPlayer-1.0.GstPlayer.PlayerSubtitleInfo */
     get_language(): string
-    /* Methods of GstPlayer.PlayerStreamInfo */
+    /* Methods of GstPlayer-1.0.GstPlayer.PlayerStreamInfo */
     get_caps(): Gst.Caps
     get_codec(): string
     get_index(): number
     get_stream_type(): string
     get_tags(): Gst.TagList
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -562,7 +562,7 @@ export class PlayerSubtitleInfo {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -570,7 +570,7 @@ export class PlayerSubtitleInfo {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: PlayerSubtitleInfo, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: PlayerSubtitleInfo, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -586,22 +586,22 @@ export class PlayerSubtitleInfo {
 export interface PlayerVideoInfo_ConstructProps extends PlayerStreamInfo_ConstructProps {
 }
 export class PlayerVideoInfo {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GstPlayer.PlayerVideoInfo */
+    /* Methods of GstPlayer-1.0.GstPlayer.PlayerVideoInfo */
     get_bitrate(): number
     get_framerate(): [ /* fps_n */ number, /* fps_d */ number ]
     get_height(): number
     get_max_bitrate(): number
     get_pixel_aspect_ratio(): [ /* par_n */ number, /* par_d */ number ]
     get_width(): number
-    /* Methods of GstPlayer.PlayerStreamInfo */
+    /* Methods of GstPlayer-1.0.GstPlayer.PlayerStreamInfo */
     get_caps(): Gst.Caps
     get_codec(): string
     get_index(): number
     get_stream_type(): string
     get_tags(): Gst.TagList
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -623,7 +623,7 @@ export class PlayerVideoInfo {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -631,7 +631,7 @@ export class PlayerVideoInfo {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: PlayerVideoInfo, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: PlayerVideoInfo, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -649,18 +649,18 @@ export interface PlayerVideoOverlayVideoRenderer_ConstructProps extends GObject.
     window_handle?: object
 }
 export class PlayerVideoOverlayVideoRenderer {
-    /* Properties of GstPlayer.PlayerVideoOverlayVideoRenderer */
+    /* Properties of GstPlayer-1.0.GstPlayer.PlayerVideoOverlayVideoRenderer */
     video_sink: Gst.Element
     window_handle: object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GstPlayer.PlayerVideoOverlayVideoRenderer */
+    /* Methods of GstPlayer-1.0.GstPlayer.PlayerVideoOverlayVideoRenderer */
     expose(): void
     get_render_rectangle(): [ /* x */ number | null, /* y */ number | null, /* width */ number | null, /* height */ number | null ]
     get_window_handle(): object | null
     set_render_rectangle(x: number, y: number, width: number, height: number): void
     set_window_handle(window_handle?: object | null): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -682,7 +682,7 @@ export class PlayerVideoOverlayVideoRenderer {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -690,7 +690,7 @@ export class PlayerVideoOverlayVideoRenderer {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: PlayerVideoOverlayVideoRenderer, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: PlayerVideoOverlayVideoRenderer, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -722,7 +722,7 @@ export abstract class PlayerMediaInfoClass {
     static name: string
 }
 export abstract class PlayerSignalDispatcherInterface {
-    /* Fields of GstPlayer.PlayerSignalDispatcherInterface */
+    /* Fields of GstPlayer-1.0.GstPlayer.PlayerSignalDispatcherInterface */
     parent_iface: GObject.TypeInterface
     dispatch: (self: PlayerSignalDispatcher, player: Player, emitter: PlayerSignalDispatcherFunc) => void
     static name: string
@@ -740,15 +740,15 @@ export abstract class PlayerVideoOverlayVideoRendererClass {
     static name: string
 }
 export abstract class PlayerVideoRendererInterface {
-    /* Fields of GstPlayer.PlayerVideoRendererInterface */
+    /* Fields of GstPlayer-1.0.GstPlayer.PlayerVideoRendererInterface */
     parent_iface: GObject.TypeInterface
     static name: string
 }
 export class PlayerVisualization {
-    /* Fields of GstPlayer.PlayerVisualization */
+    /* Fields of GstPlayer-1.0.GstPlayer.PlayerVisualization */
     name: string
     description: string
-    /* Methods of GstPlayer.PlayerVisualization */
+    /* Methods of GstPlayer-1.0.GstPlayer.PlayerVisualization */
     copy(): PlayerVisualization
     free(): void
     static name: string

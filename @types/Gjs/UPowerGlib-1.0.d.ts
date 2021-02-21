@@ -61,12 +61,12 @@ export function device_glue_override_properties(klass: GObject.ObjectClass, prop
 export function wakeups_glue_interface_info(): Gio.DBusInterfaceInfo
 export function wakeups_glue_override_properties(klass: GObject.ObjectClass, property_id_begin: number): number
 export class ClientGlue {
-    /* Properties of UPowerGlib.ClientGlue */
+    /* Properties of UPowerGlib-1.0.UPowerGlib.ClientGlue */
     daemon_version: string
     lid_is_closed: boolean
     lid_is_present: boolean
     on_battery: boolean
-    /* Methods of UPowerGlib.ClientGlue */
+    /* Methods of UPowerGlib-1.0.UPowerGlib.ClientGlue */
     call_enumerate_devices(cancellable: Gio.Cancellable | null, callback: Gio.AsyncReadyCallback | null): void
     call_enumerate_devices_finish(res: Gio.AsyncResult): [ /* returnType */ boolean, /* out_devices */ string ]
     call_enumerate_devices_sync(cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* out_devices */ string ]
@@ -81,13 +81,13 @@ export class ClientGlue {
     complete_get_display_device(invocation: Gio.DBusMethodInvocation, device: string): void
     emit_device_added(arg_device: string): void
     emit_device_removed(arg_device: string): void
-    /* Virtual methods of UPowerGlib.ClientGlue */
+    /* Virtual methods of UPowerGlib-1.0.UPowerGlib.ClientGlue */
     vfunc_device_added(arg_device: string): void
     vfunc_device_removed(arg_device: string): void
     vfunc_handle_enumerate_devices(invocation: Gio.DBusMethodInvocation): boolean
     vfunc_handle_get_critical_action(invocation: Gio.DBusMethodInvocation): boolean
     vfunc_handle_get_display_device(invocation: Gio.DBusMethodInvocation): boolean
-    /* Signals of UPowerGlib.ClientGlue */
+    /* Signals of UPowerGlib-1.0.UPowerGlib.ClientGlue */
     connect(sigName: "device-added", callback: (($obj: ClientGlue, arg_device: string) => void)): number
     connect_after(sigName: "device-added", callback: (($obj: ClientGlue, arg_device: string) => void)): number
     emit(sigName: "device-added", arg_device: string): void
@@ -109,7 +109,7 @@ export class ClientGlue {
     static override_properties(klass: GObject.ObjectClass, property_id_begin: number): number
 }
 export class DeviceGlue {
-    /* Properties of UPowerGlib.DeviceGlue */
+    /* Properties of UPowerGlib-1.0.UPowerGlib.DeviceGlue */
     capacity: number
     energy: number
     energy_empty: number
@@ -138,7 +138,7 @@ export class DeviceGlue {
     vendor: string
     voltage: number
     warning_level: number
-    /* Methods of UPowerGlib.DeviceGlue */
+    /* Methods of UPowerGlib-1.0.UPowerGlib.DeviceGlue */
     call_get_history(arg_type: string, arg_timespan: number, arg_resolution: number, cancellable: Gio.Cancellable | null, callback: Gio.AsyncReadyCallback | null): void
     call_get_history_finish(res: Gio.AsyncResult): [ /* returnType */ boolean, /* out_data */ GLib.Variant ]
     call_get_history_sync(arg_type: string, arg_timespan: number, arg_resolution: number, cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* out_data */ GLib.Variant ]
@@ -151,11 +151,11 @@ export class DeviceGlue {
     complete_get_history(invocation: Gio.DBusMethodInvocation, data: GLib.Variant): void
     complete_get_statistics(invocation: Gio.DBusMethodInvocation, data: GLib.Variant): void
     complete_refresh(invocation: Gio.DBusMethodInvocation): void
-    /* Virtual methods of UPowerGlib.DeviceGlue */
+    /* Virtual methods of UPowerGlib-1.0.UPowerGlib.DeviceGlue */
     vfunc_handle_get_history(invocation: Gio.DBusMethodInvocation, arg_type: string, arg_timespan: number, arg_resolution: number): boolean
     vfunc_handle_get_statistics(invocation: Gio.DBusMethodInvocation, arg_type: string): boolean
     vfunc_handle_refresh(invocation: Gio.DBusMethodInvocation): boolean
-    /* Signals of UPowerGlib.DeviceGlue */
+    /* Signals of UPowerGlib-1.0.UPowerGlib.DeviceGlue */
     connect(sigName: "handle-get-history", callback: (($obj: DeviceGlue, invocation: Gio.DBusMethodInvocation, arg_type: string, arg_timespan: number, arg_resolution: number) => boolean)): number
     connect_after(sigName: "handle-get-history", callback: (($obj: DeviceGlue, invocation: Gio.DBusMethodInvocation, arg_type: string, arg_timespan: number, arg_resolution: number) => boolean)): number
     emit(sigName: "handle-get-history", invocation: Gio.DBusMethodInvocation, arg_type: string, arg_timespan: number, arg_resolution: number): void
@@ -171,9 +171,9 @@ export class DeviceGlue {
     static override_properties(klass: GObject.ObjectClass, property_id_begin: number): number
 }
 export class WakeupsGlue {
-    /* Properties of UPowerGlib.WakeupsGlue */
+    /* Properties of UPowerGlib-1.0.UPowerGlib.WakeupsGlue */
     has_capability: boolean
-    /* Methods of UPowerGlib.WakeupsGlue */
+    /* Methods of UPowerGlib-1.0.UPowerGlib.WakeupsGlue */
     call_get_data(cancellable: Gio.Cancellable | null, callback: Gio.AsyncReadyCallback | null): void
     call_get_data_finish(res: Gio.AsyncResult): [ /* returnType */ boolean, /* out_data */ GLib.Variant ]
     call_get_data_sync(cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* out_data */ GLib.Variant ]
@@ -184,12 +184,12 @@ export class WakeupsGlue {
     complete_get_total(invocation: Gio.DBusMethodInvocation, value: number): void
     emit_data_changed(): void
     emit_total_changed(arg_value: number): void
-    /* Virtual methods of UPowerGlib.WakeupsGlue */
+    /* Virtual methods of UPowerGlib-1.0.UPowerGlib.WakeupsGlue */
     vfunc_data_changed(): void
     vfunc_handle_get_data(invocation: Gio.DBusMethodInvocation): boolean
     vfunc_handle_get_total(invocation: Gio.DBusMethodInvocation): boolean
     vfunc_total_changed(arg_value: number): void
-    /* Signals of UPowerGlib.WakeupsGlue */
+    /* Signals of UPowerGlib-1.0.UPowerGlib.WakeupsGlue */
     connect(sigName: "data-changed", callback: (($obj: WakeupsGlue) => void)): number
     connect_after(sigName: "data-changed", callback: (($obj: WakeupsGlue) => void)): number
     emit(sigName: "data-changed"): void
@@ -210,17 +210,17 @@ export class WakeupsGlue {
 export interface Client_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class Client {
-    /* Properties of UPowerGlib.Client */
+    /* Properties of UPowerGlib-1.0.UPowerGlib.Client */
     readonly daemon_version: string
     readonly lid_is_closed: boolean
     readonly lid_is_present: boolean
     readonly on_battery: boolean
-    /* Fields of UPowerGlib.Client */
+    /* Fields of UPowerGlib-1.0.UPowerGlib.Client */
     parent: GObject.Object
     priv: ClientPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of UPowerGlib.Client */
+    /* Methods of UPowerGlib-1.0.UPowerGlib.Client */
     get_critical_action(): string
     get_daemon_version(): string
     get_devices(): Device[]
@@ -228,7 +228,7 @@ export class Client {
     get_lid_is_closed(): boolean
     get_lid_is_present(): boolean
     get_on_battery(): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -250,10 +250,10 @@ export class Client {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of UPowerGlib.Client */
+    /* Virtual methods of UPowerGlib-1.0.UPowerGlib.Client */
     vfunc_device_added(device: Device): void
     vfunc_device_removed(object_path: string): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -261,14 +261,14 @@ export class Client {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of UPowerGlib.Client */
+    /* Signals of UPowerGlib-1.0.UPowerGlib.Client */
     connect(sigName: "device-added", callback: (($obj: Client, device: Device) => void)): number
     connect_after(sigName: "device-added", callback: (($obj: Client, device: Device) => void)): number
     emit(sigName: "device-added", device: Device): void
     connect(sigName: "device-removed", callback: (($obj: Client, object_path: string) => void)): number
     connect_after(sigName: "device-removed", callback: (($obj: Client, object_path: string) => void)): number
     emit(sigName: "device-removed", object_path: string): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Client, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Client, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -298,18 +298,18 @@ export interface ClientGlueProxy_ConstructProps extends Gio.DBusProxy_ConstructP
     on_battery?: boolean
 }
 export class ClientGlueProxy {
-    /* Properties of Gio.DBusProxy */
+    /* Properties of Gio-2.0.Gio.DBusProxy */
     g_default_timeout: number
     g_interface_info: Gio.DBusInterfaceInfo
     readonly g_name_owner: string
-    /* Properties of UPowerGlib.ClientGlue */
+    /* Properties of UPowerGlib-1.0.UPowerGlib.ClientGlue */
     daemon_version: string
     lid_is_closed: boolean
     lid_is_present: boolean
     on_battery: boolean
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Gio.DBusProxy */
+    /* Methods of Gio-2.0.Gio.DBusProxy */
     call(method_name: string, parameters: GLib.Variant | null, flags: Gio.DBusCallFlags, timeout_msec: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     call_finish(res: Gio.AsyncResult): GLib.Variant
     call_sync(method_name: string, parameters: GLib.Variant | null, flags: Gio.DBusCallFlags, timeout_msec: number, cancellable?: Gio.Cancellable | null): GLib.Variant
@@ -329,7 +329,7 @@ export class ClientGlueProxy {
     set_cached_property(property_name: string, value?: GLib.Variant | null): void
     set_default_timeout(timeout_msec: number): void
     set_interface_info(info?: Gio.DBusInterfaceInfo | null): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -351,17 +351,17 @@ export class ClientGlueProxy {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of Gio.AsyncInitable */
+    /* Methods of Gio-2.0.Gio.AsyncInitable */
     init_async(io_priority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     init_finish(res: Gio.AsyncResult): boolean
     new_finish(res: Gio.AsyncResult): GObject.Object
-    /* Methods of Gio.DBusInterface */
+    /* Methods of Gio-2.0.Gio.DBusInterface */
     get_object(): Gio.DBusObject | null
     get_info(): Gio.DBusInterfaceInfo
     set_object(object?: Gio.DBusObject | null): void
-    /* Methods of Gio.Initable */
+    /* Methods of Gio-2.0.Gio.Initable */
     init(cancellable?: Gio.Cancellable | null): boolean
-    /* Methods of UPowerGlib.ClientGlue */
+    /* Methods of UPowerGlib-1.0.UPowerGlib.ClientGlue */
     call_enumerate_devices(cancellable: Gio.Cancellable | null, callback: Gio.AsyncReadyCallback | null): void
     call_enumerate_devices_finish(res: Gio.AsyncResult): [ /* returnType */ boolean, /* out_devices */ string ]
     call_enumerate_devices_sync(cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* out_devices */ string ]
@@ -376,7 +376,7 @@ export class ClientGlueProxy {
     complete_get_display_device(invocation: Gio.DBusMethodInvocation, device: string): void
     emit_device_added(arg_device: string): void
     emit_device_removed(arg_device: string): void
-    /* Virtual methods of UPowerGlib.ClientGlueProxy */
+    /* Virtual methods of UPowerGlib-1.0.UPowerGlib.ClientGlueProxy */
     vfunc_init_async(io_priority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     vfunc_init_finish(res: Gio.AsyncResult): boolean
     vfunc_dup_object(): Gio.DBusObject | null
@@ -388,10 +388,10 @@ export class ClientGlueProxy {
     vfunc_handle_enumerate_devices(invocation: Gio.DBusMethodInvocation): boolean
     vfunc_handle_get_critical_action(invocation: Gio.DBusMethodInvocation): boolean
     vfunc_handle_get_display_device(invocation: Gio.DBusMethodInvocation): boolean
-    /* Virtual methods of Gio.DBusProxy */
+    /* Virtual methods of Gio-2.0.Gio.DBusProxy */
     vfunc_g_properties_changed(changed_properties: GLib.Variant, invalidated_properties: string): void
     vfunc_g_signal(sender_name: string, signal_name: string, parameters: GLib.Variant): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -399,18 +399,18 @@ export class ClientGlueProxy {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gio.DBusProxy */
+    /* Signals of Gio-2.0.Gio.DBusProxy */
     connect(sigName: "g-properties-changed", callback: (($obj: ClientGlueProxy, changed_properties: GLib.Variant, invalidated_properties: string[]) => void)): number
     connect_after(sigName: "g-properties-changed", callback: (($obj: ClientGlueProxy, changed_properties: GLib.Variant, invalidated_properties: string[]) => void)): number
     emit(sigName: "g-properties-changed", changed_properties: GLib.Variant, invalidated_properties: string[]): void
     connect(sigName: "g-signal", callback: (($obj: ClientGlueProxy, sender_name: string | null, signal_name: string, parameters: GLib.Variant) => void)): number
     connect_after(sigName: "g-signal", callback: (($obj: ClientGlueProxy, sender_name: string | null, signal_name: string, parameters: GLib.Variant) => void)): number
     emit(sigName: "g-signal", sender_name: string | null, signal_name: string, parameters: GLib.Variant): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: ClientGlueProxy, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: ClientGlueProxy, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    /* Signals of UPowerGlib.ClientGlue */
+    /* Signals of UPowerGlib-1.0.UPowerGlib.ClientGlue */
     connect(sigName: "device-added", callback: (($obj: ClientGlueProxy, arg_device: string) => void)): number
     connect_after(sigName: "device-added", callback: (($obj: ClientGlueProxy, arg_device: string) => void)): number
     emit(sigName: "device-added", arg_device: string): void
@@ -469,16 +469,16 @@ export interface ClientGlueSkeleton_ConstructProps extends Gio.DBusInterfaceSkel
     on_battery?: boolean
 }
 export class ClientGlueSkeleton {
-    /* Properties of Gio.DBusInterfaceSkeleton */
+    /* Properties of Gio-2.0.Gio.DBusInterfaceSkeleton */
     g_flags: Gio.DBusInterfaceSkeletonFlags
-    /* Properties of UPowerGlib.ClientGlue */
+    /* Properties of UPowerGlib-1.0.UPowerGlib.ClientGlue */
     daemon_version: string
     lid_is_closed: boolean
     lid_is_present: boolean
     on_battery: boolean
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Gio.DBusInterfaceSkeleton */
+    /* Methods of Gio-2.0.Gio.DBusInterfaceSkeleton */
     export(connection: Gio.DBusConnection, object_path: string): boolean
     flush(): void
     get_connection(): Gio.DBusConnection | null
@@ -491,7 +491,7 @@ export class ClientGlueSkeleton {
     set_flags(flags: Gio.DBusInterfaceSkeletonFlags): void
     unexport(): void
     unexport_from_connection(connection: Gio.DBusConnection): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -513,10 +513,10 @@ export class ClientGlueSkeleton {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of Gio.DBusInterface */
+    /* Methods of Gio-2.0.Gio.DBusInterface */
     get_object(): Gio.DBusObject | null
     set_object(object?: Gio.DBusObject | null): void
-    /* Methods of UPowerGlib.ClientGlue */
+    /* Methods of UPowerGlib-1.0.UPowerGlib.ClientGlue */
     call_enumerate_devices(cancellable: Gio.Cancellable | null, callback: Gio.AsyncReadyCallback | null): void
     call_enumerate_devices_finish(res: Gio.AsyncResult): [ /* returnType */ boolean, /* out_devices */ string ]
     call_enumerate_devices_sync(cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* out_devices */ string ]
@@ -531,7 +531,7 @@ export class ClientGlueSkeleton {
     complete_get_display_device(invocation: Gio.DBusMethodInvocation, device: string): void
     emit_device_added(arg_device: string): void
     emit_device_removed(arg_device: string): void
-    /* Virtual methods of UPowerGlib.ClientGlueSkeleton */
+    /* Virtual methods of UPowerGlib-1.0.UPowerGlib.ClientGlueSkeleton */
     vfunc_dup_object(): Gio.DBusObject | null
     vfunc_get_info(): Gio.DBusInterfaceInfo
     vfunc_set_object(object?: Gio.DBusObject | null): void
@@ -540,12 +540,12 @@ export class ClientGlueSkeleton {
     vfunc_handle_enumerate_devices(invocation: Gio.DBusMethodInvocation): boolean
     vfunc_handle_get_critical_action(invocation: Gio.DBusMethodInvocation): boolean
     vfunc_handle_get_display_device(invocation: Gio.DBusMethodInvocation): boolean
-    /* Virtual methods of Gio.DBusInterfaceSkeleton */
+    /* Virtual methods of Gio-2.0.Gio.DBusInterfaceSkeleton */
     vfunc_flush(): void
     vfunc_g_authorize_method(invocation: Gio.DBusMethodInvocation): boolean
     vfunc_get_info(): Gio.DBusInterfaceInfo
     vfunc_get_properties(): GLib.Variant
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -553,15 +553,15 @@ export class ClientGlueSkeleton {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gio.DBusInterfaceSkeleton */
+    /* Signals of Gio-2.0.Gio.DBusInterfaceSkeleton */
     connect(sigName: "g-authorize-method", callback: (($obj: ClientGlueSkeleton, invocation: Gio.DBusMethodInvocation) => boolean)): number
     connect_after(sigName: "g-authorize-method", callback: (($obj: ClientGlueSkeleton, invocation: Gio.DBusMethodInvocation) => boolean)): number
     emit(sigName: "g-authorize-method", invocation: Gio.DBusMethodInvocation): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: ClientGlueSkeleton, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: ClientGlueSkeleton, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    /* Signals of UPowerGlib.ClientGlue */
+    /* Signals of UPowerGlib-1.0.UPowerGlib.ClientGlue */
     connect(sigName: "device-added", callback: (($obj: ClientGlueSkeleton, arg_device: string) => void)): number
     connect_after(sigName: "device-added", callback: (($obj: ClientGlueSkeleton, arg_device: string) => void)): number
     emit(sigName: "device-added", arg_device: string): void
@@ -631,7 +631,7 @@ export interface Device_ConstructProps extends GObject.Object_ConstructProps {
     warning_level?: number
 }
 export class Device {
-    /* Properties of UPowerGlib.Device */
+    /* Properties of UPowerGlib-1.0.UPowerGlib.Device */
     capacity: number
     energy: number
     energy_empty: number
@@ -660,19 +660,19 @@ export class Device {
     vendor: string
     voltage: number
     warning_level: number
-    /* Fields of UPowerGlib.Device */
+    /* Fields of UPowerGlib-1.0.UPowerGlib.Device */
     parent: GObject.Object
     priv: DevicePrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of UPowerGlib.Device */
+    /* Methods of UPowerGlib-1.0.UPowerGlib.Device */
     get_history_sync(type: string, timespec: number, resolution: number, cancellable?: Gio.Cancellable | null): HistoryItem[]
     get_object_path(): string
     get_statistics_sync(type: string, cancellable?: Gio.Cancellable | null): StatsItem[]
     refresh_sync(cancellable?: Gio.Cancellable | null): boolean
     set_object_path_sync(object_path: string, cancellable?: Gio.Cancellable | null): boolean
     to_text(): string
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -694,7 +694,7 @@ export class Device {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -702,7 +702,7 @@ export class Device {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Device, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Device, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -812,11 +812,11 @@ export interface DeviceGlueProxy_ConstructProps extends Gio.DBusProxy_ConstructP
     warning_level?: number
 }
 export class DeviceGlueProxy {
-    /* Properties of Gio.DBusProxy */
+    /* Properties of Gio-2.0.Gio.DBusProxy */
     g_default_timeout: number
     g_interface_info: Gio.DBusInterfaceInfo
     readonly g_name_owner: string
-    /* Properties of UPowerGlib.DeviceGlue */
+    /* Properties of UPowerGlib-1.0.UPowerGlib.DeviceGlue */
     capacity: number
     energy: number
     energy_empty: number
@@ -845,9 +845,9 @@ export class DeviceGlueProxy {
     vendor: string
     voltage: number
     warning_level: number
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Gio.DBusProxy */
+    /* Methods of Gio-2.0.Gio.DBusProxy */
     call(method_name: string, parameters: GLib.Variant | null, flags: Gio.DBusCallFlags, timeout_msec: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     call_finish(res: Gio.AsyncResult): GLib.Variant
     call_sync(method_name: string, parameters: GLib.Variant | null, flags: Gio.DBusCallFlags, timeout_msec: number, cancellable?: Gio.Cancellable | null): GLib.Variant
@@ -867,7 +867,7 @@ export class DeviceGlueProxy {
     set_cached_property(property_name: string, value?: GLib.Variant | null): void
     set_default_timeout(timeout_msec: number): void
     set_interface_info(info?: Gio.DBusInterfaceInfo | null): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -889,17 +889,17 @@ export class DeviceGlueProxy {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of Gio.AsyncInitable */
+    /* Methods of Gio-2.0.Gio.AsyncInitable */
     init_async(io_priority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     init_finish(res: Gio.AsyncResult): boolean
     new_finish(res: Gio.AsyncResult): GObject.Object
-    /* Methods of Gio.DBusInterface */
+    /* Methods of Gio-2.0.Gio.DBusInterface */
     get_object(): Gio.DBusObject | null
     get_info(): Gio.DBusInterfaceInfo
     set_object(object?: Gio.DBusObject | null): void
-    /* Methods of Gio.Initable */
+    /* Methods of Gio-2.0.Gio.Initable */
     init(cancellable?: Gio.Cancellable | null): boolean
-    /* Methods of UPowerGlib.DeviceGlue */
+    /* Methods of UPowerGlib-1.0.UPowerGlib.DeviceGlue */
     call_get_history(arg_type: string, arg_timespan: number, arg_resolution: number, cancellable: Gio.Cancellable | null, callback: Gio.AsyncReadyCallback | null): void
     call_get_history_finish(res: Gio.AsyncResult): [ /* returnType */ boolean, /* out_data */ GLib.Variant ]
     call_get_history_sync(arg_type: string, arg_timespan: number, arg_resolution: number, cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* out_data */ GLib.Variant ]
@@ -912,7 +912,7 @@ export class DeviceGlueProxy {
     complete_get_history(invocation: Gio.DBusMethodInvocation, data: GLib.Variant): void
     complete_get_statistics(invocation: Gio.DBusMethodInvocation, data: GLib.Variant): void
     complete_refresh(invocation: Gio.DBusMethodInvocation): void
-    /* Virtual methods of UPowerGlib.DeviceGlueProxy */
+    /* Virtual methods of UPowerGlib-1.0.UPowerGlib.DeviceGlueProxy */
     vfunc_init_async(io_priority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     vfunc_init_finish(res: Gio.AsyncResult): boolean
     vfunc_dup_object(): Gio.DBusObject | null
@@ -922,10 +922,10 @@ export class DeviceGlueProxy {
     vfunc_handle_get_history(invocation: Gio.DBusMethodInvocation, arg_type: string, arg_timespan: number, arg_resolution: number): boolean
     vfunc_handle_get_statistics(invocation: Gio.DBusMethodInvocation, arg_type: string): boolean
     vfunc_handle_refresh(invocation: Gio.DBusMethodInvocation): boolean
-    /* Virtual methods of Gio.DBusProxy */
+    /* Virtual methods of Gio-2.0.Gio.DBusProxy */
     vfunc_g_properties_changed(changed_properties: GLib.Variant, invalidated_properties: string): void
     vfunc_g_signal(sender_name: string, signal_name: string, parameters: GLib.Variant): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -933,18 +933,18 @@ export class DeviceGlueProxy {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gio.DBusProxy */
+    /* Signals of Gio-2.0.Gio.DBusProxy */
     connect(sigName: "g-properties-changed", callback: (($obj: DeviceGlueProxy, changed_properties: GLib.Variant, invalidated_properties: string[]) => void)): number
     connect_after(sigName: "g-properties-changed", callback: (($obj: DeviceGlueProxy, changed_properties: GLib.Variant, invalidated_properties: string[]) => void)): number
     emit(sigName: "g-properties-changed", changed_properties: GLib.Variant, invalidated_properties: string[]): void
     connect(sigName: "g-signal", callback: (($obj: DeviceGlueProxy, sender_name: string | null, signal_name: string, parameters: GLib.Variant) => void)): number
     connect_after(sigName: "g-signal", callback: (($obj: DeviceGlueProxy, sender_name: string | null, signal_name: string, parameters: GLib.Variant) => void)): number
     emit(sigName: "g-signal", sender_name: string | null, signal_name: string, parameters: GLib.Variant): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: DeviceGlueProxy, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: DeviceGlueProxy, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    /* Signals of UPowerGlib.DeviceGlue */
+    /* Signals of UPowerGlib-1.0.UPowerGlib.DeviceGlue */
     connect(sigName: "handle-get-history", callback: (($obj: DeviceGlueProxy, invocation: Gio.DBusMethodInvocation, arg_type: string, arg_timespan: number, arg_resolution: number) => boolean)): number
     connect_after(sigName: "handle-get-history", callback: (($obj: DeviceGlueProxy, invocation: Gio.DBusMethodInvocation, arg_type: string, arg_timespan: number, arg_resolution: number) => boolean)): number
     emit(sigName: "handle-get-history", invocation: Gio.DBusMethodInvocation, arg_type: string, arg_timespan: number, arg_resolution: number): void
@@ -1069,9 +1069,9 @@ export interface DeviceGlueSkeleton_ConstructProps extends Gio.DBusInterfaceSkel
     warning_level?: number
 }
 export class DeviceGlueSkeleton {
-    /* Properties of Gio.DBusInterfaceSkeleton */
+    /* Properties of Gio-2.0.Gio.DBusInterfaceSkeleton */
     g_flags: Gio.DBusInterfaceSkeletonFlags
-    /* Properties of UPowerGlib.DeviceGlue */
+    /* Properties of UPowerGlib-1.0.UPowerGlib.DeviceGlue */
     capacity: number
     energy: number
     energy_empty: number
@@ -1100,9 +1100,9 @@ export class DeviceGlueSkeleton {
     vendor: string
     voltage: number
     warning_level: number
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Gio.DBusInterfaceSkeleton */
+    /* Methods of Gio-2.0.Gio.DBusInterfaceSkeleton */
     export(connection: Gio.DBusConnection, object_path: string): boolean
     flush(): void
     get_connection(): Gio.DBusConnection | null
@@ -1115,7 +1115,7 @@ export class DeviceGlueSkeleton {
     set_flags(flags: Gio.DBusInterfaceSkeletonFlags): void
     unexport(): void
     unexport_from_connection(connection: Gio.DBusConnection): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -1137,10 +1137,10 @@ export class DeviceGlueSkeleton {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of Gio.DBusInterface */
+    /* Methods of Gio-2.0.Gio.DBusInterface */
     get_object(): Gio.DBusObject | null
     set_object(object?: Gio.DBusObject | null): void
-    /* Methods of UPowerGlib.DeviceGlue */
+    /* Methods of UPowerGlib-1.0.UPowerGlib.DeviceGlue */
     call_get_history(arg_type: string, arg_timespan: number, arg_resolution: number, cancellable: Gio.Cancellable | null, callback: Gio.AsyncReadyCallback | null): void
     call_get_history_finish(res: Gio.AsyncResult): [ /* returnType */ boolean, /* out_data */ GLib.Variant ]
     call_get_history_sync(arg_type: string, arg_timespan: number, arg_resolution: number, cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* out_data */ GLib.Variant ]
@@ -1153,19 +1153,19 @@ export class DeviceGlueSkeleton {
     complete_get_history(invocation: Gio.DBusMethodInvocation, data: GLib.Variant): void
     complete_get_statistics(invocation: Gio.DBusMethodInvocation, data: GLib.Variant): void
     complete_refresh(invocation: Gio.DBusMethodInvocation): void
-    /* Virtual methods of UPowerGlib.DeviceGlueSkeleton */
+    /* Virtual methods of UPowerGlib-1.0.UPowerGlib.DeviceGlueSkeleton */
     vfunc_dup_object(): Gio.DBusObject | null
     vfunc_get_info(): Gio.DBusInterfaceInfo
     vfunc_set_object(object?: Gio.DBusObject | null): void
     vfunc_handle_get_history(invocation: Gio.DBusMethodInvocation, arg_type: string, arg_timespan: number, arg_resolution: number): boolean
     vfunc_handle_get_statistics(invocation: Gio.DBusMethodInvocation, arg_type: string): boolean
     vfunc_handle_refresh(invocation: Gio.DBusMethodInvocation): boolean
-    /* Virtual methods of Gio.DBusInterfaceSkeleton */
+    /* Virtual methods of Gio-2.0.Gio.DBusInterfaceSkeleton */
     vfunc_flush(): void
     vfunc_g_authorize_method(invocation: Gio.DBusMethodInvocation): boolean
     vfunc_get_info(): Gio.DBusInterfaceInfo
     vfunc_get_properties(): GLib.Variant
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -1173,15 +1173,15 @@ export class DeviceGlueSkeleton {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gio.DBusInterfaceSkeleton */
+    /* Signals of Gio-2.0.Gio.DBusInterfaceSkeleton */
     connect(sigName: "g-authorize-method", callback: (($obj: DeviceGlueSkeleton, invocation: Gio.DBusMethodInvocation) => boolean)): number
     connect_after(sigName: "g-authorize-method", callback: (($obj: DeviceGlueSkeleton, invocation: Gio.DBusMethodInvocation) => boolean)): number
     emit(sigName: "g-authorize-method", invocation: Gio.DBusMethodInvocation): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: DeviceGlueSkeleton, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: DeviceGlueSkeleton, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    /* Signals of UPowerGlib.DeviceGlue */
+    /* Signals of UPowerGlib-1.0.UPowerGlib.DeviceGlue */
     connect(sigName: "handle-get-history", callback: (($obj: DeviceGlueSkeleton, invocation: Gio.DBusMethodInvocation, arg_type: string, arg_timespan: number, arg_resolution: number) => boolean)): number
     connect_after(sigName: "handle-get-history", callback: (($obj: DeviceGlueSkeleton, invocation: Gio.DBusMethodInvocation, arg_type: string, arg_timespan: number, arg_resolution: number) => boolean)): number
     emit(sigName: "handle-get-history", invocation: Gio.DBusMethodInvocation, arg_type: string, arg_timespan: number, arg_resolution: number): void
@@ -1268,16 +1268,16 @@ export interface HistoryItem_ConstructProps extends GObject.Object_ConstructProp
     value?: number
 }
 export class HistoryItem {
-    /* Properties of UPowerGlib.HistoryItem */
+    /* Properties of UPowerGlib-1.0.UPowerGlib.HistoryItem */
     state: number
     time: number
     value: number
-    /* Fields of UPowerGlib.HistoryItem */
+    /* Fields of UPowerGlib-1.0.UPowerGlib.HistoryItem */
     parent: GObject.Object
     priv: HistoryItemPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of UPowerGlib.HistoryItem */
+    /* Methods of UPowerGlib-1.0.UPowerGlib.HistoryItem */
     get_state(): DeviceState
     get_time(): number
     get_value(): number
@@ -1287,7 +1287,7 @@ export class HistoryItem {
     set_time_to_present(): void
     set_value(value: number): void
     to_string(): string
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -1309,7 +1309,7 @@ export class HistoryItem {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -1317,7 +1317,7 @@ export class HistoryItem {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: HistoryItem, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: HistoryItem, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -1343,20 +1343,20 @@ export interface StatsItem_ConstructProps extends GObject.Object_ConstructProps 
     value?: number
 }
 export class StatsItem {
-    /* Properties of UPowerGlib.StatsItem */
+    /* Properties of UPowerGlib-1.0.UPowerGlib.StatsItem */
     accuracy: number
     value: number
-    /* Fields of UPowerGlib.StatsItem */
+    /* Fields of UPowerGlib-1.0.UPowerGlib.StatsItem */
     parent: GObject.Object
     priv: StatsItemPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of UPowerGlib.StatsItem */
+    /* Methods of UPowerGlib-1.0.UPowerGlib.StatsItem */
     get_accuracy(): number
     get_value(): number
     set_accuracy(accuracy: number): void
     set_value(value: number): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -1378,7 +1378,7 @@ export class StatsItem {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -1386,7 +1386,7 @@ export class StatsItem {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: StatsItem, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: StatsItem, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -1414,19 +1414,19 @@ export interface WakeupItem_ConstructProps extends GObject.Object_ConstructProps
     value?: number
 }
 export class WakeupItem {
-    /* Properties of UPowerGlib.WakeupItem */
+    /* Properties of UPowerGlib-1.0.UPowerGlib.WakeupItem */
     cmdline: string
     details: string
     id: number
     is_userspace: boolean
     old: number
     value: number
-    /* Fields of UPowerGlib.WakeupItem */
+    /* Fields of UPowerGlib-1.0.UPowerGlib.WakeupItem */
     parent: GObject.Object
     priv: WakeupItemPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of UPowerGlib.WakeupItem */
+    /* Methods of UPowerGlib-1.0.UPowerGlib.WakeupItem */
     get_cmdline(): string
     get_details(): string
     get_id(): number
@@ -1439,7 +1439,7 @@ export class WakeupItem {
     set_is_userspace(is_userspace: boolean): void
     set_old(old: number): void
     set_value(value: number): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -1461,7 +1461,7 @@ export class WakeupItem {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -1469,7 +1469,7 @@ export class WakeupItem {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: WakeupItem, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: WakeupItem, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -1499,17 +1499,17 @@ export class WakeupItem {
 export interface Wakeups_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class Wakeups {
-    /* Fields of UPowerGlib.Wakeups */
+    /* Fields of UPowerGlib-1.0.UPowerGlib.Wakeups */
     parent: GObject.Object
     priv: WakeupsPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of UPowerGlib.Wakeups */
+    /* Methods of UPowerGlib-1.0.UPowerGlib.Wakeups */
     get_data_sync(cancellable?: Gio.Cancellable | null): WakeupItem[]
     get_has_capability(): boolean
     get_properties_sync(cancellable?: Gio.Cancellable | null): boolean
     get_total_sync(cancellable?: Gio.Cancellable | null): number
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -1531,10 +1531,10 @@ export class Wakeups {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of UPowerGlib.Wakeups */
+    /* Virtual methods of UPowerGlib-1.0.UPowerGlib.Wakeups */
     vfunc_data_changed(): void
     vfunc_total_changed(value: number): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -1542,14 +1542,14 @@ export class Wakeups {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of UPowerGlib.Wakeups */
+    /* Signals of UPowerGlib-1.0.UPowerGlib.Wakeups */
     connect(sigName: "data-changed", callback: (($obj: Wakeups) => void)): number
     connect_after(sigName: "data-changed", callback: (($obj: Wakeups) => void)): number
     emit(sigName: "data-changed"): void
     connect(sigName: "total-changed", callback: (($obj: Wakeups, object: number) => void)): number
     connect_after(sigName: "total-changed", callback: (($obj: Wakeups, object: number) => void)): number
     emit(sigName: "total-changed", object: number): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Wakeups, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Wakeups, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -1568,15 +1568,15 @@ export interface WakeupsGlueProxy_ConstructProps extends Gio.DBusProxy_Construct
     has_capability?: boolean
 }
 export class WakeupsGlueProxy {
-    /* Properties of Gio.DBusProxy */
+    /* Properties of Gio-2.0.Gio.DBusProxy */
     g_default_timeout: number
     g_interface_info: Gio.DBusInterfaceInfo
     readonly g_name_owner: string
-    /* Properties of UPowerGlib.WakeupsGlue */
+    /* Properties of UPowerGlib-1.0.UPowerGlib.WakeupsGlue */
     has_capability: boolean
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Gio.DBusProxy */
+    /* Methods of Gio-2.0.Gio.DBusProxy */
     call(method_name: string, parameters: GLib.Variant | null, flags: Gio.DBusCallFlags, timeout_msec: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     call_finish(res: Gio.AsyncResult): GLib.Variant
     call_sync(method_name: string, parameters: GLib.Variant | null, flags: Gio.DBusCallFlags, timeout_msec: number, cancellable?: Gio.Cancellable | null): GLib.Variant
@@ -1596,7 +1596,7 @@ export class WakeupsGlueProxy {
     set_cached_property(property_name: string, value?: GLib.Variant | null): void
     set_default_timeout(timeout_msec: number): void
     set_interface_info(info?: Gio.DBusInterfaceInfo | null): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -1618,17 +1618,17 @@ export class WakeupsGlueProxy {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of Gio.AsyncInitable */
+    /* Methods of Gio-2.0.Gio.AsyncInitable */
     init_async(io_priority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     init_finish(res: Gio.AsyncResult): boolean
     new_finish(res: Gio.AsyncResult): GObject.Object
-    /* Methods of Gio.DBusInterface */
+    /* Methods of Gio-2.0.Gio.DBusInterface */
     get_object(): Gio.DBusObject | null
     get_info(): Gio.DBusInterfaceInfo
     set_object(object?: Gio.DBusObject | null): void
-    /* Methods of Gio.Initable */
+    /* Methods of Gio-2.0.Gio.Initable */
     init(cancellable?: Gio.Cancellable | null): boolean
-    /* Methods of UPowerGlib.WakeupsGlue */
+    /* Methods of UPowerGlib-1.0.UPowerGlib.WakeupsGlue */
     call_get_data(cancellable: Gio.Cancellable | null, callback: Gio.AsyncReadyCallback | null): void
     call_get_data_finish(res: Gio.AsyncResult): [ /* returnType */ boolean, /* out_data */ GLib.Variant ]
     call_get_data_sync(cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* out_data */ GLib.Variant ]
@@ -1639,7 +1639,7 @@ export class WakeupsGlueProxy {
     complete_get_total(invocation: Gio.DBusMethodInvocation, value: number): void
     emit_data_changed(): void
     emit_total_changed(arg_value: number): void
-    /* Virtual methods of UPowerGlib.WakeupsGlueProxy */
+    /* Virtual methods of UPowerGlib-1.0.UPowerGlib.WakeupsGlueProxy */
     vfunc_init_async(io_priority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     vfunc_init_finish(res: Gio.AsyncResult): boolean
     vfunc_dup_object(): Gio.DBusObject | null
@@ -1650,10 +1650,10 @@ export class WakeupsGlueProxy {
     vfunc_handle_get_data(invocation: Gio.DBusMethodInvocation): boolean
     vfunc_handle_get_total(invocation: Gio.DBusMethodInvocation): boolean
     vfunc_total_changed(arg_value: number): void
-    /* Virtual methods of Gio.DBusProxy */
+    /* Virtual methods of Gio-2.0.Gio.DBusProxy */
     vfunc_g_properties_changed(changed_properties: GLib.Variant, invalidated_properties: string): void
     vfunc_g_signal(sender_name: string, signal_name: string, parameters: GLib.Variant): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -1661,18 +1661,18 @@ export class WakeupsGlueProxy {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gio.DBusProxy */
+    /* Signals of Gio-2.0.Gio.DBusProxy */
     connect(sigName: "g-properties-changed", callback: (($obj: WakeupsGlueProxy, changed_properties: GLib.Variant, invalidated_properties: string[]) => void)): number
     connect_after(sigName: "g-properties-changed", callback: (($obj: WakeupsGlueProxy, changed_properties: GLib.Variant, invalidated_properties: string[]) => void)): number
     emit(sigName: "g-properties-changed", changed_properties: GLib.Variant, invalidated_properties: string[]): void
     connect(sigName: "g-signal", callback: (($obj: WakeupsGlueProxy, sender_name: string | null, signal_name: string, parameters: GLib.Variant) => void)): number
     connect_after(sigName: "g-signal", callback: (($obj: WakeupsGlueProxy, sender_name: string | null, signal_name: string, parameters: GLib.Variant) => void)): number
     emit(sigName: "g-signal", sender_name: string | null, signal_name: string, parameters: GLib.Variant): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: WakeupsGlueProxy, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: WakeupsGlueProxy, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    /* Signals of UPowerGlib.WakeupsGlue */
+    /* Signals of UPowerGlib-1.0.UPowerGlib.WakeupsGlue */
     connect(sigName: "data-changed", callback: (($obj: WakeupsGlueProxy) => void)): number
     connect_after(sigName: "data-changed", callback: (($obj: WakeupsGlueProxy) => void)): number
     emit(sigName: "data-changed"): void
@@ -1719,13 +1719,13 @@ export interface WakeupsGlueSkeleton_ConstructProps extends Gio.DBusInterfaceSke
     has_capability?: boolean
 }
 export class WakeupsGlueSkeleton {
-    /* Properties of Gio.DBusInterfaceSkeleton */
+    /* Properties of Gio-2.0.Gio.DBusInterfaceSkeleton */
     g_flags: Gio.DBusInterfaceSkeletonFlags
-    /* Properties of UPowerGlib.WakeupsGlue */
+    /* Properties of UPowerGlib-1.0.UPowerGlib.WakeupsGlue */
     has_capability: boolean
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Gio.DBusInterfaceSkeleton */
+    /* Methods of Gio-2.0.Gio.DBusInterfaceSkeleton */
     export(connection: Gio.DBusConnection, object_path: string): boolean
     flush(): void
     get_connection(): Gio.DBusConnection | null
@@ -1738,7 +1738,7 @@ export class WakeupsGlueSkeleton {
     set_flags(flags: Gio.DBusInterfaceSkeletonFlags): void
     unexport(): void
     unexport_from_connection(connection: Gio.DBusConnection): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -1760,10 +1760,10 @@ export class WakeupsGlueSkeleton {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of Gio.DBusInterface */
+    /* Methods of Gio-2.0.Gio.DBusInterface */
     get_object(): Gio.DBusObject | null
     set_object(object?: Gio.DBusObject | null): void
-    /* Methods of UPowerGlib.WakeupsGlue */
+    /* Methods of UPowerGlib-1.0.UPowerGlib.WakeupsGlue */
     call_get_data(cancellable: Gio.Cancellable | null, callback: Gio.AsyncReadyCallback | null): void
     call_get_data_finish(res: Gio.AsyncResult): [ /* returnType */ boolean, /* out_data */ GLib.Variant ]
     call_get_data_sync(cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* out_data */ GLib.Variant ]
@@ -1774,7 +1774,7 @@ export class WakeupsGlueSkeleton {
     complete_get_total(invocation: Gio.DBusMethodInvocation, value: number): void
     emit_data_changed(): void
     emit_total_changed(arg_value: number): void
-    /* Virtual methods of UPowerGlib.WakeupsGlueSkeleton */
+    /* Virtual methods of UPowerGlib-1.0.UPowerGlib.WakeupsGlueSkeleton */
     vfunc_dup_object(): Gio.DBusObject | null
     vfunc_get_info(): Gio.DBusInterfaceInfo
     vfunc_set_object(object?: Gio.DBusObject | null): void
@@ -1782,12 +1782,12 @@ export class WakeupsGlueSkeleton {
     vfunc_handle_get_data(invocation: Gio.DBusMethodInvocation): boolean
     vfunc_handle_get_total(invocation: Gio.DBusMethodInvocation): boolean
     vfunc_total_changed(arg_value: number): void
-    /* Virtual methods of Gio.DBusInterfaceSkeleton */
+    /* Virtual methods of Gio-2.0.Gio.DBusInterfaceSkeleton */
     vfunc_flush(): void
     vfunc_g_authorize_method(invocation: Gio.DBusMethodInvocation): boolean
     vfunc_get_info(): Gio.DBusInterfaceInfo
     vfunc_get_properties(): GLib.Variant
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -1795,15 +1795,15 @@ export class WakeupsGlueSkeleton {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gio.DBusInterfaceSkeleton */
+    /* Signals of Gio-2.0.Gio.DBusInterfaceSkeleton */
     connect(sigName: "g-authorize-method", callback: (($obj: WakeupsGlueSkeleton, invocation: Gio.DBusMethodInvocation) => boolean)): number
     connect_after(sigName: "g-authorize-method", callback: (($obj: WakeupsGlueSkeleton, invocation: Gio.DBusMethodInvocation) => boolean)): number
     emit(sigName: "g-authorize-method", invocation: Gio.DBusMethodInvocation): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: WakeupsGlueSkeleton, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: WakeupsGlueSkeleton, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    /* Signals of UPowerGlib.WakeupsGlue */
+    /* Signals of UPowerGlib-1.0.UPowerGlib.WakeupsGlue */
     connect(sigName: "data-changed", callback: (($obj: WakeupsGlueSkeleton) => void)): number
     connect_after(sigName: "data-changed", callback: (($obj: WakeupsGlueSkeleton) => void)): number
     emit(sigName: "data-changed"): void
@@ -1834,14 +1834,14 @@ export class WakeupsGlueSkeleton {
     static $gtype: GObject.Type
 }
 export abstract class ClientClass {
-    /* Fields of UPowerGlib.ClientClass */
+    /* Fields of UPowerGlib-1.0.UPowerGlib.ClientClass */
     parent_class: GObject.ObjectClass
     device_added: (client: Client, device: Device) => void
     device_removed: (client: Client, object_path: string) => void
     static name: string
 }
 export abstract class ClientGlueIface {
-    /* Fields of UPowerGlib.ClientGlueIface */
+    /* Fields of UPowerGlib-1.0.UPowerGlib.ClientGlueIface */
     parent_iface: GObject.TypeInterface
     handle_enumerate_devices: (object: ClientGlue, invocation: Gio.DBusMethodInvocation) => boolean
     handle_get_critical_action: (object: ClientGlue, invocation: Gio.DBusMethodInvocation) => boolean
@@ -1855,7 +1855,7 @@ export abstract class ClientGlueIface {
     static name: string
 }
 export abstract class ClientGlueProxyClass {
-    /* Fields of UPowerGlib.ClientGlueProxyClass */
+    /* Fields of UPowerGlib-1.0.UPowerGlib.ClientGlueProxyClass */
     parent_class: Gio.DBusProxyClass
     static name: string
 }
@@ -1863,7 +1863,7 @@ export class ClientGlueProxyPrivate {
     static name: string
 }
 export abstract class ClientGlueSkeletonClass {
-    /* Fields of UPowerGlib.ClientGlueSkeletonClass */
+    /* Fields of UPowerGlib-1.0.UPowerGlib.ClientGlueSkeletonClass */
     parent_class: Gio.DBusInterfaceSkeletonClass
     static name: string
 }
@@ -1874,12 +1874,12 @@ export class ClientPrivate {
     static name: string
 }
 export abstract class DeviceClass {
-    /* Fields of UPowerGlib.DeviceClass */
+    /* Fields of UPowerGlib-1.0.UPowerGlib.DeviceClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
 export abstract class DeviceGlueIface {
-    /* Fields of UPowerGlib.DeviceGlueIface */
+    /* Fields of UPowerGlib-1.0.UPowerGlib.DeviceGlueIface */
     parent_iface: GObject.TypeInterface
     handle_get_history: (object: DeviceGlue, invocation: Gio.DBusMethodInvocation, arg_type: string, arg_timespan: number, arg_resolution: number) => boolean
     handle_get_statistics: (object: DeviceGlue, invocation: Gio.DBusMethodInvocation, arg_type: string) => boolean
@@ -1915,7 +1915,7 @@ export abstract class DeviceGlueIface {
     static name: string
 }
 export abstract class DeviceGlueProxyClass {
-    /* Fields of UPowerGlib.DeviceGlueProxyClass */
+    /* Fields of UPowerGlib-1.0.UPowerGlib.DeviceGlueProxyClass */
     parent_class: Gio.DBusProxyClass
     static name: string
 }
@@ -1923,7 +1923,7 @@ export class DeviceGlueProxyPrivate {
     static name: string
 }
 export abstract class DeviceGlueSkeletonClass {
-    /* Fields of UPowerGlib.DeviceGlueSkeletonClass */
+    /* Fields of UPowerGlib-1.0.UPowerGlib.DeviceGlueSkeletonClass */
     parent_class: Gio.DBusInterfaceSkeletonClass
     static name: string
 }
@@ -1934,7 +1934,7 @@ export class DevicePrivate {
     static name: string
 }
 export abstract class HistoryItemClass {
-    /* Fields of UPowerGlib.HistoryItemClass */
+    /* Fields of UPowerGlib-1.0.UPowerGlib.HistoryItemClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
@@ -1942,7 +1942,7 @@ export class HistoryItemPrivate {
     static name: string
 }
 export abstract class StatsItemClass {
-    /* Fields of UPowerGlib.StatsItemClass */
+    /* Fields of UPowerGlib-1.0.UPowerGlib.StatsItemClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
@@ -1950,7 +1950,7 @@ export class StatsItemPrivate {
     static name: string
 }
 export abstract class WakeupItemClass {
-    /* Fields of UPowerGlib.WakeupItemClass */
+    /* Fields of UPowerGlib-1.0.UPowerGlib.WakeupItemClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
@@ -1958,14 +1958,14 @@ export class WakeupItemPrivate {
     static name: string
 }
 export abstract class WakeupsClass {
-    /* Fields of UPowerGlib.WakeupsClass */
+    /* Fields of UPowerGlib-1.0.UPowerGlib.WakeupsClass */
     parent_class: GObject.ObjectClass
     data_changed: (wakeups: Wakeups) => void
     total_changed: (wakeups: Wakeups, value: number) => void
     static name: string
 }
 export abstract class WakeupsGlueIface {
-    /* Fields of UPowerGlib.WakeupsGlueIface */
+    /* Fields of UPowerGlib-1.0.UPowerGlib.WakeupsGlueIface */
     parent_iface: GObject.TypeInterface
     handle_get_data: (object: WakeupsGlue, invocation: Gio.DBusMethodInvocation) => boolean
     handle_get_total: (object: WakeupsGlue, invocation: Gio.DBusMethodInvocation) => boolean
@@ -1975,7 +1975,7 @@ export abstract class WakeupsGlueIface {
     static name: string
 }
 export abstract class WakeupsGlueProxyClass {
-    /* Fields of UPowerGlib.WakeupsGlueProxyClass */
+    /* Fields of UPowerGlib-1.0.UPowerGlib.WakeupsGlueProxyClass */
     parent_class: Gio.DBusProxyClass
     static name: string
 }
@@ -1983,7 +1983,7 @@ export class WakeupsGlueProxyPrivate {
     static name: string
 }
 export abstract class WakeupsGlueSkeletonClass {
-    /* Fields of UPowerGlib.WakeupsGlueSkeletonClass */
+    /* Fields of UPowerGlib-1.0.UPowerGlib.WakeupsGlueSkeletonClass */
     parent_class: Gio.DBusInterfaceSkeletonClass
     static name: string
 }

@@ -127,14 +127,14 @@ export interface MetaObject_ConstructProps extends GObject.Object_ConstructProps
     connection?: Connection
 }
 export class MetaObject {
-    /* Properties of Vda.MetaObject */
+    /* Properties of Vda-1.Vda.MetaObject */
     connection: Connection
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Vda.MetaObject */
+    /* Methods of Vda-1.Vda.MetaObject */
     get_connection(): Connection
     set_connection(value: Connection): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -156,10 +156,10 @@ export class MetaObject {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Vda.MetaObject */
+    /* Virtual methods of Vda-1.Vda.MetaObject */
     vfunc_get_connection(): Connection
     vfunc_set_connection(value: Connection): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -167,7 +167,7 @@ export class MetaObject {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: MetaObject, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: MetaObject, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -186,14 +186,14 @@ export interface MetaNamedObject_ConstructProps extends GObject.Object_Construct
     name?: string
 }
 export class MetaNamedObject {
-    /* Properties of Vda.MetaNamedObject */
+    /* Properties of Vda-1.Vda.MetaNamedObject */
     name: string
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Vda.MetaNamedObject */
+    /* Methods of Vda-1.Vda.MetaNamedObject */
     get_name(): string
     set_name(value: string): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -215,10 +215,10 @@ export class MetaNamedObject {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Vda.MetaNamedObject */
+    /* Virtual methods of Vda-1.Vda.MetaNamedObject */
     vfunc_get_name(): string
     vfunc_set_name(value: string): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -226,7 +226,7 @@ export class MetaNamedObject {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: MetaNamedObject, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: MetaNamedObject, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -244,15 +244,15 @@ export class MetaNamedObject {
 export interface ColumnModel_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class ColumnModel {
-    /* Properties of Vda.ColumnModel */
+    /* Properties of Vda-1.Vda.ColumnModel */
     readonly name: string
     readonly data_type: GObject.Type
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Vda.ColumnModel */
+    /* Methods of Vda-1.Vda.ColumnModel */
     get_name(): string
     get_data_type(): GObject.Type
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -274,10 +274,10 @@ export class ColumnModel {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Vda.ColumnModel */
+    /* Virtual methods of Vda-1.Vda.ColumnModel */
     vfunc_get_name(): string
     vfunc_get_data_type(): GObject.Type
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -285,7 +285,7 @@ export class ColumnModel {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: ColumnModel, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: ColumnModel, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -306,14 +306,14 @@ export interface Connection_ConstructProps extends GObject.Object_ConstructProps
     parameters?: ConnectionParameters
 }
 export class Connection {
-    /* Properties of Vda.Connection */
+    /* Properties of Vda-1.Vda.Connection */
     readonly status: ConnectionStatus
     parameters: ConnectionParameters
     readonly is_opened: boolean
     readonly connection_string: string
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Vda.Connection */
+    /* Methods of Vda-1.Vda.Connection */
     close(_callback_?: Gio.AsyncReadyCallback | null): void
     close_finish(_res_: Gio.AsyncResult): void
     open(_callback_?: Gio.AsyncReadyCallback | null): void
@@ -338,7 +338,7 @@ export class Connection {
     set_parameters(value: ConnectionParameters): void
     get_is_opened(): boolean
     get_connection_string(): string
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -360,7 +360,7 @@ export class Connection {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Vda.Connection */
+    /* Virtual methods of Vda-1.Vda.Connection */
     vfunc_close(_callback_?: Gio.AsyncReadyCallback | null): void
     vfunc_close_finish(_res_: Gio.AsyncResult): void
     vfunc_open(_callback_?: Gio.AsyncReadyCallback | null): void
@@ -385,7 +385,7 @@ export class Connection {
     vfunc_set_parameters(value: ConnectionParameters): void
     vfunc_get_is_opened(): boolean
     vfunc_get_connection_string(): string
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -393,7 +393,7 @@ export class Connection {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Vda.Connection */
+    /* Signals of Vda-1.Vda.Connection */
     connect(sigName: "closed", callback: (($obj: Connection) => void)): number
     connect_after(sigName: "closed", callback: (($obj: Connection) => void)): number
     emit(sigName: "closed"): void
@@ -412,7 +412,7 @@ export class Connection {
     connect(sigName: "disconnected", callback: (($obj: Connection) => void)): number
     connect_after(sigName: "disconnected", callback: (($obj: Connection) => void)): number
     emit(sigName: "disconnected"): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Connection, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Connection, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -439,13 +439,13 @@ export interface DataObject_ConstructProps extends GObject.Object_ConstructProps
     cancellable?: Gio.Cancellable
 }
 export class DataObject {
-    /* Properties of Vda.DataObject */
+    /* Properties of Vda-1.Vda.DataObject */
     database_connection: Connection
     database_table_name: string
     cancellable: Gio.Cancellable
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Vda.DataObject */
+    /* Methods of Vda-1.Vda.DataObject */
     update_data_from_db(_callback_?: Gio.AsyncReadyCallback | null): void
     update_data_from_db_finish(_res_: Gio.AsyncResult): void
     update_data_from_db_pkey(_callback_?: Gio.AsyncReadyCallback | null): void
@@ -473,7 +473,7 @@ export class DataObject {
     set_database_table_name(value: string): void
     get_cancellable(): Gio.Cancellable
     set_cancellable(value: Gio.Cancellable): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -495,7 +495,7 @@ export class DataObject {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Vda.DataObject */
+    /* Virtual methods of Vda-1.Vda.DataObject */
     vfunc_update_data_from_db(_callback_?: Gio.AsyncReadyCallback | null): void
     vfunc_update_data_from_db_finish(_res_: Gio.AsyncResult): void
     vfunc_update_data_from_db_pkey(_callback_?: Gio.AsyncReadyCallback | null): void
@@ -523,7 +523,7 @@ export class DataObject {
     vfunc_set_database_table_name(value: string): void
     vfunc_get_cancellable(): Gio.Cancellable
     vfunc_set_cancellable(value: Gio.Cancellable): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -531,7 +531,7 @@ export class DataObject {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: DataObject, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: DataObject, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -561,16 +561,16 @@ export interface DataCollection_ConstructProps extends GObject.Object_ConstructP
     cancellable?: Gio.Cancellable
 }
 export class DataCollection {
-    /* Properties of Vda.DataCollection */
+    /* Properties of Vda-1.Vda.DataCollection */
     database_connection: Connection
     readonly parent_property: string
     readonly parent: DataObject
     readonly object_type: GObject.Type
     readonly ref_field: string
     cancellable: Gio.Cancellable
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Vda.DataCollection */
+    /* Methods of Vda-1.Vda.DataCollection */
     get_objects(_callback_?: Gio.AsyncReadyCallback | null): void
     get_objects_finish(_res_: Gio.AsyncResult): TableModel
     get_database_connection(): Connection
@@ -581,7 +581,7 @@ export class DataCollection {
     get_ref_field(): string
     get_cancellable(): Gio.Cancellable
     set_cancellable(value: Gio.Cancellable): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -603,7 +603,7 @@ export class DataCollection {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Vda.DataCollection */
+    /* Virtual methods of Vda-1.Vda.DataCollection */
     vfunc_get_objects(_callback_?: Gio.AsyncReadyCallback | null): void
     vfunc_get_objects_finish(_res_: Gio.AsyncResult): TableModel
     vfunc_get_database_connection(): Connection
@@ -614,7 +614,7 @@ export class DataCollection {
     vfunc_get_ref_field(): string
     vfunc_get_cancellable(): Gio.Cancellable
     vfunc_set_cancellable(value: Gio.Cancellable): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -622,7 +622,7 @@ export class DataCollection {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: DataCollection, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: DataCollection, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -650,13 +650,13 @@ export class DataCollection {
 export interface HashModel_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class HashModel {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Vda.HashModel */
+    /* Methods of Vda-1.Vda.HashModel */
     add(object: GObject.Object): void
     find(key: GObject.Object): GObject.Object | null
     remove(object: GObject.Object): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -678,11 +678,11 @@ export class HashModel {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Vda.HashModel */
+    /* Virtual methods of Vda-1.Vda.HashModel */
     vfunc_add(object: GObject.Object): void
     vfunc_find(key: GObject.Object): GObject.Object | null
     vfunc_remove(object: GObject.Object): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -690,7 +690,7 @@ export class HashModel {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: HashModel, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: HashModel, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -706,15 +706,15 @@ export class HashModel {
 export interface Inserted_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class Inserted {
-    /* Properties of Vda.Inserted */
+    /* Properties of Vda-1.Vda.Inserted */
     readonly number: number
     readonly last_inserted: RowModel
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Vda.Inserted */
+    /* Methods of Vda-1.Vda.Inserted */
     get_number(): number
     get_last_inserted(): RowModel
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -736,10 +736,10 @@ export class Inserted {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Vda.Inserted */
+    /* Virtual methods of Vda-1.Vda.Inserted */
     vfunc_get_number(): number
     vfunc_get_last_inserted(): RowModel
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -747,7 +747,7 @@ export class Inserted {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Inserted, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Inserted, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -767,13 +767,13 @@ export class Inserted {
 export interface ParsedQuery_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class ParsedQuery {
-    /* Properties of Vda.ParsedQuery */
+    /* Properties of Vda-1.Vda.ParsedQuery */
     readonly command: SqlCommand
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Vda.ParsedQuery */
+    /* Methods of Vda-1.Vda.ParsedQuery */
     get_command(): SqlCommand
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -795,9 +795,9 @@ export class ParsedQuery {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Vda.ParsedQuery */
+    /* Virtual methods of Vda-1.Vda.ParsedQuery */
     vfunc_get_command(): SqlCommand
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -805,7 +805,7 @@ export class ParsedQuery {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: ParsedQuery, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: ParsedQuery, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -823,15 +823,15 @@ export class ParsedQuery {
 export interface PreparedQuery_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class PreparedQuery {
-    /* Properties of Vda.PreparedQuery */
+    /* Properties of Vda-1.Vda.PreparedQuery */
     readonly name: string
     readonly parameters: SqlParameters
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Vda.PreparedQuery */
+    /* Methods of Vda-1.Vda.PreparedQuery */
     get_name(): string
     get_parameters(): SqlParameters
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -853,10 +853,10 @@ export class PreparedQuery {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Vda.PreparedQuery */
+    /* Virtual methods of Vda-1.Vda.PreparedQuery */
     vfunc_get_name(): string
     vfunc_get_parameters(): SqlParameters
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -864,7 +864,7 @@ export class PreparedQuery {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: PreparedQuery, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: PreparedQuery, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -884,12 +884,12 @@ export class PreparedQuery {
 export interface Query_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class Query {
-    /* Properties of Vda.Query */
+    /* Properties of Vda-1.Vda.Query */
     readonly sql: string
     readonly connection: Connection
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Vda.Query */
+    /* Methods of Vda-1.Vda.Query */
     execute(cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
     execute_finish(_res_: Gio.AsyncResult): Result | null
     cancel(_callback_?: Gio.AsyncReadyCallback | null): void
@@ -897,7 +897,7 @@ export class Query {
     render_sql(): string
     get_sql(): string
     get_connection(): Connection
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -919,7 +919,7 @@ export class Query {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Vda.Query */
+    /* Virtual methods of Vda-1.Vda.Query */
     vfunc_execute(cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
     vfunc_execute_finish(_res_: Gio.AsyncResult): Result | null
     vfunc_cancel(_callback_?: Gio.AsyncReadyCallback | null): void
@@ -927,7 +927,7 @@ export class Query {
     vfunc_render_sql(): string
     vfunc_get_sql(): string
     vfunc_get_connection(): Connection
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -935,7 +935,7 @@ export class Query {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Query, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Query, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -955,9 +955,9 @@ export class Query {
 export interface Result_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class Result {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -979,7 +979,7 @@ export class Result {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -987,7 +987,7 @@ export class Result {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Result, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Result, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -1003,11 +1003,11 @@ export class Result {
 export interface Role_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class Role {
-    /* Properties of Vda.Role */
+    /* Properties of Vda-1.Vda.Role */
     readonly connection: Connection
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Vda.Role */
+    /* Methods of Vda-1.Vda.Role */
     name(_callback_?: Gio.AsyncReadyCallback | null): void
     name_finish(_res_: Gio.AsyncResult): string
     membership(_callback_?: Gio.AsyncReadyCallback | null): void
@@ -1017,7 +1017,7 @@ export class Role {
     change_privilages(object: MetaObject, grant: RoleGrant, _callback_?: Gio.AsyncReadyCallback | null): void
     change_privilages_finish(_res_: Gio.AsyncResult): void
     get_connection(): Connection
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -1039,7 +1039,7 @@ export class Role {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Vda.Role */
+    /* Virtual methods of Vda-1.Vda.Role */
     vfunc_name(_callback_?: Gio.AsyncReadyCallback | null): void
     vfunc_name_finish(_res_: Gio.AsyncResult): string
     vfunc_membership(_callback_?: Gio.AsyncReadyCallback | null): void
@@ -1049,7 +1049,7 @@ export class Role {
     vfunc_change_privilages(object: MetaObject, grant: RoleGrant, _callback_?: Gio.AsyncReadyCallback | null): void
     vfunc_change_privilages_finish(_res_: Gio.AsyncResult): void
     vfunc_get_connection(): Connection
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -1057,7 +1057,7 @@ export class Role {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Role, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Role, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -1075,11 +1075,11 @@ export class Role {
 export interface RowModel_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class RowModel {
-    /* Properties of Vda.RowModel */
+    /* Properties of Vda-1.Vda.RowModel */
     readonly n_columns: number
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Vda.RowModel */
+    /* Methods of Vda-1.Vda.RowModel */
     get_column(name: string): ColumnModel | null
     get_column_at(col: number): ColumnModel | null
     get_value(name: string): SqlValue | null
@@ -1087,7 +1087,7 @@ export class RowModel {
     get_string(name: string): string | null
     get_string_at(col: number): string | null
     get_n_columns(): number
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -1109,7 +1109,7 @@ export class RowModel {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Vda.RowModel */
+    /* Virtual methods of Vda-1.Vda.RowModel */
     vfunc_get_column(name: string): ColumnModel | null
     vfunc_get_column_at(col: number): ColumnModel | null
     vfunc_get_value(name: string): SqlValue | null
@@ -1117,7 +1117,7 @@ export class RowModel {
     vfunc_get_string(name: string): string | null
     vfunc_get_string_at(col: number): string | null
     vfunc_get_n_columns(): number
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -1125,7 +1125,7 @@ export class RowModel {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: RowModel, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: RowModel, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -1143,13 +1143,13 @@ export class RowModel {
 export interface SqlAffectedRows_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class SqlAffectedRows {
-    /* Properties of Vda.SqlAffectedRows */
+    /* Properties of Vda-1.Vda.SqlAffectedRows */
     readonly number: number
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Vda.SqlAffectedRows */
+    /* Methods of Vda-1.Vda.SqlAffectedRows */
     get_number(): number
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -1171,9 +1171,9 @@ export class SqlAffectedRows {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Vda.SqlAffectedRows */
+    /* Virtual methods of Vda-1.Vda.SqlAffectedRows */
     vfunc_get_number(): number
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -1181,7 +1181,7 @@ export class SqlAffectedRows {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: SqlAffectedRows, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: SqlAffectedRows, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -1199,13 +1199,13 @@ export class SqlAffectedRows {
 export interface SqlCommand_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class SqlCommand {
-    /* Properties of Vda.SqlCommand */
+    /* Properties of Vda-1.Vda.SqlCommand */
     readonly connection: Connection
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Vda.SqlCommand */
+    /* Methods of Vda-1.Vda.SqlCommand */
     get_connection(): Connection
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -1227,9 +1227,9 @@ export class SqlCommand {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Vda.SqlCommand */
+    /* Virtual methods of Vda-1.Vda.SqlCommand */
     vfunc_get_connection(): Connection
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -1237,7 +1237,7 @@ export class SqlCommand {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: SqlCommand, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: SqlCommand, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -1255,13 +1255,13 @@ export class SqlCommand {
 export interface SqlCommandConditional_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class SqlCommandConditional {
-    /* Properties of Vda.SqlCommandConditional */
+    /* Properties of Vda-1.Vda.SqlCommandConditional */
     readonly condition: SqlExpression
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Vda.SqlCommandConditional */
+    /* Methods of Vda-1.Vda.SqlCommandConditional */
     get_condition(): SqlExpression
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -1283,9 +1283,9 @@ export class SqlCommandConditional {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Vda.SqlCommandConditional */
+    /* Virtual methods of Vda-1.Vda.SqlCommandConditional */
     vfunc_get_condition(): SqlExpression
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -1293,7 +1293,7 @@ export class SqlCommandConditional {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: SqlCommandConditional, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: SqlCommandConditional, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -1311,13 +1311,13 @@ export class SqlCommandConditional {
 export interface SqlCommandDelete_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class SqlCommandDelete {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Vda.SqlCommandDelete */
+    /* Methods of Vda-1.Vda.SqlCommandDelete */
     stringify(): string
     to_query(name?: string | null): Query
     parse(sql: string): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -1339,11 +1339,11 @@ export class SqlCommandDelete {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Vda.SqlCommandDelete */
+    /* Virtual methods of Vda-1.Vda.SqlCommandDelete */
     vfunc_stringify(): string
     vfunc_to_query(name?: string | null): Query
     vfunc_parse(sql: string): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -1351,7 +1351,7 @@ export class SqlCommandDelete {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: SqlCommandDelete, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: SqlCommandDelete, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -1367,13 +1367,13 @@ export class SqlCommandDelete {
 export interface SqlCommandInsert_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class SqlCommandInsert {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Vda.SqlCommandInsert */
+    /* Methods of Vda-1.Vda.SqlCommandInsert */
     stringify(): string
     to_query(name?: string | null): Query
     parse(sql: string): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -1395,11 +1395,11 @@ export class SqlCommandInsert {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Vda.SqlCommandInsert */
+    /* Virtual methods of Vda-1.Vda.SqlCommandInsert */
     vfunc_stringify(): string
     vfunc_to_query(name?: string | null): Query
     vfunc_parse(sql: string): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -1407,7 +1407,7 @@ export class SqlCommandInsert {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: SqlCommandInsert, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: SqlCommandInsert, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -1423,12 +1423,12 @@ export class SqlCommandInsert {
 export interface SqlCommandModification_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class SqlCommandModification {
-    /* Properties of Vda.SqlCommandModification */
+    /* Properties of Vda-1.Vda.SqlCommandModification */
     readonly fields: HashModel
     readonly values: HashModel
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Vda.SqlCommandModification */
+    /* Methods of Vda-1.Vda.SqlCommandModification */
     add_field_value(name: string, val?: any | null): void
     add_field(name: string): void
     add_value(val?: any | null): void
@@ -1436,7 +1436,7 @@ export class SqlCommandModification {
     add_parameter(par: string, gtype: GObject.Type): void
     get_fields(): HashModel
     get_values(): HashModel
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -1458,7 +1458,7 @@ export class SqlCommandModification {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Vda.SqlCommandModification */
+    /* Virtual methods of Vda-1.Vda.SqlCommandModification */
     vfunc_add_field_value(name: string, val?: any | null): void
     vfunc_add_field(name: string): void
     vfunc_add_value(val?: any | null): void
@@ -1466,7 +1466,7 @@ export class SqlCommandModification {
     vfunc_add_parameter(par: string, gtype: GObject.Type): void
     vfunc_get_fields(): HashModel
     vfunc_get_values(): HashModel
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -1474,7 +1474,7 @@ export class SqlCommandModification {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: SqlCommandModification, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: SqlCommandModification, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -1494,13 +1494,13 @@ export class SqlCommandModification {
 export interface SqlCommandParametrized_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class SqlCommandParametrized {
-    /* Properties of Vda.SqlCommandParametrized */
+    /* Properties of Vda-1.Vda.SqlCommandParametrized */
     readonly parameters: SqlParameters
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Vda.SqlCommandParametrized */
+    /* Methods of Vda-1.Vda.SqlCommandParametrized */
     get_parameters(): SqlParameters
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -1522,9 +1522,9 @@ export class SqlCommandParametrized {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Vda.SqlCommandParametrized */
+    /* Virtual methods of Vda-1.Vda.SqlCommandParametrized */
     vfunc_get_parameters(): SqlParameters
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -1532,7 +1532,7 @@ export class SqlCommandParametrized {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: SqlCommandParametrized, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: SqlCommandParametrized, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -1550,12 +1550,12 @@ export class SqlCommandParametrized {
 export interface SqlCommandSelect_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class SqlCommandSelect {
-    /* Properties of Vda.SqlCommandSelect */
+    /* Properties of Vda-1.Vda.SqlCommandSelect */
     readonly fields: HashModel
     readonly tables: HashModel
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Vda.SqlCommandSelect */
+    /* Methods of Vda-1.Vda.SqlCommandSelect */
     add_field(field: string, table_ref?: string | null, alias?: string | null): void
     add_table(name: string, allias?: string | null): void
     add_value_field(val: any, allias?: string | null): void
@@ -1565,7 +1565,7 @@ export class SqlCommandSelect {
     parse(sql: string): void
     get_fields(): HashModel
     get_tables(): HashModel
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -1587,7 +1587,7 @@ export class SqlCommandSelect {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Vda.SqlCommandSelect */
+    /* Virtual methods of Vda-1.Vda.SqlCommandSelect */
     vfunc_add_field(field: string, table_ref?: string | null, alias?: string | null): void
     vfunc_add_table(name: string, allias?: string | null): void
     vfunc_add_value_field(val: any, allias?: string | null): void
@@ -1597,7 +1597,7 @@ export class SqlCommandSelect {
     vfunc_parse(sql: string): void
     vfunc_get_fields(): HashModel
     vfunc_get_tables(): HashModel
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -1605,7 +1605,7 @@ export class SqlCommandSelect {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: SqlCommandSelect, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: SqlCommandSelect, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -1627,17 +1627,17 @@ export interface SqlCommandTableRelated_ConstructProps extends GObject.Object_Co
     allias?: string
 }
 export class SqlCommandTableRelated {
-    /* Properties of Vda.SqlCommandTableRelated */
+    /* Properties of Vda-1.Vda.SqlCommandTableRelated */
     table: string
     allias: string
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Vda.SqlCommandTableRelated */
+    /* Methods of Vda-1.Vda.SqlCommandTableRelated */
     get_table(): string
     set_table(value: string): void
     get_allias(): string
     set_allias(value: string): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -1659,12 +1659,12 @@ export class SqlCommandTableRelated {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Vda.SqlCommandTableRelated */
+    /* Virtual methods of Vda-1.Vda.SqlCommandTableRelated */
     vfunc_get_table(): string
     vfunc_set_table(value: string): void
     vfunc_get_allias(): string
     vfunc_set_allias(value: string): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -1672,7 +1672,7 @@ export class SqlCommandTableRelated {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: SqlCommandTableRelated, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: SqlCommandTableRelated, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -1692,13 +1692,13 @@ export class SqlCommandTableRelated {
 export interface SqlCommandUpdate_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class SqlCommandUpdate {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Vda.SqlCommandUpdate */
+    /* Methods of Vda-1.Vda.SqlCommandUpdate */
     stringify(): string
     to_query(name?: string | null): Query
     parse(sql: string): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -1720,11 +1720,11 @@ export class SqlCommandUpdate {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Vda.SqlCommandUpdate */
+    /* Virtual methods of Vda-1.Vda.SqlCommandUpdate */
     vfunc_stringify(): string
     vfunc_to_query(name?: string | null): Query
     vfunc_parse(sql: string): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -1732,7 +1732,7 @@ export class SqlCommandUpdate {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: SqlCommandUpdate, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: SqlCommandUpdate, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -1748,14 +1748,14 @@ export class SqlCommandUpdate {
 export interface SqlExpression_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class SqlExpression {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Vda.SqlExpression */
+    /* Methods of Vda-1.Vda.SqlExpression */
     add_expression(exp: SqlExpression): void
     remove_expression(exp: SqlExpression): void
     to_string(): string
     add_math_expression(str: string, cnc: Connection): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -1777,12 +1777,12 @@ export class SqlExpression {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Vda.SqlExpression */
+    /* Virtual methods of Vda-1.Vda.SqlExpression */
     vfunc_add_expression(exp: SqlExpression): void
     vfunc_remove_expression(exp: SqlExpression): void
     vfunc_to_string(): string
     vfunc_add_math_expression(str: string, cnc: Connection): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -1790,7 +1790,7 @@ export class SqlExpression {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: SqlExpression, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: SqlExpression, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -1811,20 +1811,20 @@ export interface SqlExpressionField_ConstructProps extends GObject.Object_Constr
     allias?: string
 }
 export class SqlExpressionField {
-    /* Properties of Vda.SqlExpressionField */
+    /* Properties of Vda-1.Vda.SqlExpressionField */
     table_ref: string
     name: string
     allias: string
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Vda.SqlExpressionField */
+    /* Methods of Vda-1.Vda.SqlExpressionField */
     get_table_ref(): string
     set_table_ref(value: string): void
     get_name(): string
     set_name(value: string): void
     get_allias(): string | null
     set_allias(value?: string | null): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -1846,14 +1846,14 @@ export class SqlExpressionField {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Vda.SqlExpressionField */
+    /* Virtual methods of Vda-1.Vda.SqlExpressionField */
     vfunc_get_table_ref(): string
     vfunc_set_table_ref(value: string): void
     vfunc_get_name(): string
     vfunc_set_name(value: string): void
     vfunc_get_allias(): string | null
     vfunc_set_allias(value?: string | null): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -1861,7 +1861,7 @@ export class SqlExpressionField {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: SqlExpressionField, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: SqlExpressionField, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -1883,11 +1883,11 @@ export class SqlExpressionField {
 export interface SqlExpressionOperator_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class SqlExpressionOperator {
-    /* Properties of Vda.SqlExpressionOperator */
+    /* Properties of Vda-1.Vda.SqlExpressionOperator */
     readonly operator_type: SqlExpressionOperatorType
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Vda.SqlExpressionOperator */
+    /* Methods of Vda-1.Vda.SqlExpressionOperator */
     create_field_expression(name: string): SqlExpressionField
     create_value_expression(val: any | null, cnc: Connection): SqlExpressionValue
     create_parameter_expression(name: string, gtype: GObject.Type): SqlExpressionValueParameter
@@ -1924,7 +1924,7 @@ export class SqlExpressionOperator {
     add_is_distinct_from_operator(exp1: SqlExpression, exp2: SqlExpression): SqlExpressionOperator
     add_is_not_distinct_from_operator(exp1: SqlExpression, exp2: SqlExpression): SqlExpressionOperator
     get_operator_type(): SqlExpressionOperatorType
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -1946,7 +1946,7 @@ export class SqlExpressionOperator {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Vda.SqlExpressionOperator */
+    /* Virtual methods of Vda-1.Vda.SqlExpressionOperator */
     vfunc_create_field_expression(name: string): SqlExpressionField
     vfunc_create_value_expression(val: any | null, cnc: Connection): SqlExpressionValue
     vfunc_create_parameter_expression(name: string, gtype: GObject.Type): SqlExpressionValueParameter
@@ -1983,7 +1983,7 @@ export class SqlExpressionOperator {
     vfunc_add_is_distinct_from_operator(exp1: SqlExpression, exp2: SqlExpression): SqlExpressionOperator
     vfunc_add_is_not_distinct_from_operator(exp1: SqlExpression, exp2: SqlExpression): SqlExpressionOperator
     vfunc_get_operator_type(): SqlExpressionOperatorType
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -1991,7 +1991,7 @@ export class SqlExpressionOperator {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: SqlExpressionOperator, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: SqlExpressionOperator, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -2009,9 +2009,9 @@ export class SqlExpressionOperator {
 export interface SqlExpressionOperatorGroup_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class SqlExpressionOperatorGroup {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -2033,7 +2033,7 @@ export class SqlExpressionOperatorGroup {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -2041,7 +2041,7 @@ export class SqlExpressionOperatorGroup {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: SqlExpressionOperatorGroup, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: SqlExpressionOperatorGroup, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -2057,9 +2057,9 @@ export class SqlExpressionOperatorGroup {
 export interface SqlExpressionOperatorMultiterm_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class SqlExpressionOperatorMultiterm {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -2081,7 +2081,7 @@ export class SqlExpressionOperatorMultiterm {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -2089,7 +2089,7 @@ export class SqlExpressionOperatorMultiterm {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: SqlExpressionOperatorMultiterm, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: SqlExpressionOperatorMultiterm, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -2105,9 +2105,9 @@ export class SqlExpressionOperatorMultiterm {
 export interface SqlExpressionOperatorAnd_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class SqlExpressionOperatorAnd {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -2129,7 +2129,7 @@ export class SqlExpressionOperatorAnd {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -2137,7 +2137,7 @@ export class SqlExpressionOperatorAnd {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: SqlExpressionOperatorAnd, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: SqlExpressionOperatorAnd, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -2153,9 +2153,9 @@ export class SqlExpressionOperatorAnd {
 export interface SqlExpressionOperatorOr_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class SqlExpressionOperatorOr {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -2177,7 +2177,7 @@ export class SqlExpressionOperatorOr {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -2185,7 +2185,7 @@ export class SqlExpressionOperatorOr {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: SqlExpressionOperatorOr, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: SqlExpressionOperatorOr, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -2201,9 +2201,9 @@ export class SqlExpressionOperatorOr {
 export interface SqlExpressionOperatorBinaryterm_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class SqlExpressionOperatorBinaryterm {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -2225,7 +2225,7 @@ export class SqlExpressionOperatorBinaryterm {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -2233,7 +2233,7 @@ export class SqlExpressionOperatorBinaryterm {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: SqlExpressionOperatorBinaryterm, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: SqlExpressionOperatorBinaryterm, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -2249,9 +2249,9 @@ export class SqlExpressionOperatorBinaryterm {
 export interface SqlExpressionOperatorEq_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class SqlExpressionOperatorEq {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -2273,7 +2273,7 @@ export class SqlExpressionOperatorEq {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -2281,7 +2281,7 @@ export class SqlExpressionOperatorEq {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: SqlExpressionOperatorEq, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: SqlExpressionOperatorEq, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -2297,9 +2297,9 @@ export class SqlExpressionOperatorEq {
 export interface SqlExpressionOperatorNotEq_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class SqlExpressionOperatorNotEq {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -2321,7 +2321,7 @@ export class SqlExpressionOperatorNotEq {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -2329,7 +2329,7 @@ export class SqlExpressionOperatorNotEq {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: SqlExpressionOperatorNotEq, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: SqlExpressionOperatorNotEq, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -2345,9 +2345,9 @@ export class SqlExpressionOperatorNotEq {
 export interface SqlExpressionOperatorDiff_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class SqlExpressionOperatorDiff {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -2369,7 +2369,7 @@ export class SqlExpressionOperatorDiff {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -2377,7 +2377,7 @@ export class SqlExpressionOperatorDiff {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: SqlExpressionOperatorDiff, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: SqlExpressionOperatorDiff, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -2393,9 +2393,9 @@ export class SqlExpressionOperatorDiff {
 export interface SqlExpressionOperatorGt_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class SqlExpressionOperatorGt {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -2417,7 +2417,7 @@ export class SqlExpressionOperatorGt {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -2425,7 +2425,7 @@ export class SqlExpressionOperatorGt {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: SqlExpressionOperatorGt, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: SqlExpressionOperatorGt, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -2441,9 +2441,9 @@ export class SqlExpressionOperatorGt {
 export interface SqlExpressionOperatorLt_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class SqlExpressionOperatorLt {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -2465,7 +2465,7 @@ export class SqlExpressionOperatorLt {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -2473,7 +2473,7 @@ export class SqlExpressionOperatorLt {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: SqlExpressionOperatorLt, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: SqlExpressionOperatorLt, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -2489,9 +2489,9 @@ export class SqlExpressionOperatorLt {
 export interface SqlExpressionOperatorGeq_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class SqlExpressionOperatorGeq {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -2513,7 +2513,7 @@ export class SqlExpressionOperatorGeq {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -2521,7 +2521,7 @@ export class SqlExpressionOperatorGeq {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: SqlExpressionOperatorGeq, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: SqlExpressionOperatorGeq, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -2537,9 +2537,9 @@ export class SqlExpressionOperatorGeq {
 export interface SqlExpressionOperatorLeq_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class SqlExpressionOperatorLeq {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -2561,7 +2561,7 @@ export class SqlExpressionOperatorLeq {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -2569,7 +2569,7 @@ export class SqlExpressionOperatorLeq {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: SqlExpressionOperatorLeq, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: SqlExpressionOperatorLeq, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -2585,9 +2585,9 @@ export class SqlExpressionOperatorLeq {
 export interface SqlExpressionOperatorRegexp_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class SqlExpressionOperatorRegexp {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -2609,7 +2609,7 @@ export class SqlExpressionOperatorRegexp {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -2617,7 +2617,7 @@ export class SqlExpressionOperatorRegexp {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: SqlExpressionOperatorRegexp, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: SqlExpressionOperatorRegexp, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -2633,9 +2633,9 @@ export class SqlExpressionOperatorRegexp {
 export interface SqlExpressionOperatorStar_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class SqlExpressionOperatorStar {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -2657,7 +2657,7 @@ export class SqlExpressionOperatorStar {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -2665,7 +2665,7 @@ export class SqlExpressionOperatorStar {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: SqlExpressionOperatorStar, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: SqlExpressionOperatorStar, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -2681,9 +2681,9 @@ export class SqlExpressionOperatorStar {
 export interface SqlExpressionOperatorDiv_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class SqlExpressionOperatorDiv {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -2705,7 +2705,7 @@ export class SqlExpressionOperatorDiv {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -2713,7 +2713,7 @@ export class SqlExpressionOperatorDiv {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: SqlExpressionOperatorDiv, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: SqlExpressionOperatorDiv, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -2729,9 +2729,9 @@ export class SqlExpressionOperatorDiv {
 export interface SqlExpressionOperatorIn_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class SqlExpressionOperatorIn {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -2753,7 +2753,7 @@ export class SqlExpressionOperatorIn {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -2761,7 +2761,7 @@ export class SqlExpressionOperatorIn {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: SqlExpressionOperatorIn, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: SqlExpressionOperatorIn, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -2777,9 +2777,9 @@ export class SqlExpressionOperatorIn {
 export interface SqlExpressionOperatorNotIn_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class SqlExpressionOperatorNotIn {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -2801,7 +2801,7 @@ export class SqlExpressionOperatorNotIn {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -2809,7 +2809,7 @@ export class SqlExpressionOperatorNotIn {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: SqlExpressionOperatorNotIn, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: SqlExpressionOperatorNotIn, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -2825,9 +2825,9 @@ export class SqlExpressionOperatorNotIn {
 export interface SqlExpressionOperatorConcatenate_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class SqlExpressionOperatorConcatenate {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -2849,7 +2849,7 @@ export class SqlExpressionOperatorConcatenate {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -2857,7 +2857,7 @@ export class SqlExpressionOperatorConcatenate {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: SqlExpressionOperatorConcatenate, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: SqlExpressionOperatorConcatenate, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -2873,9 +2873,9 @@ export class SqlExpressionOperatorConcatenate {
 export interface SqlExpressionOperatorSimilarTo_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class SqlExpressionOperatorSimilarTo {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -2897,7 +2897,7 @@ export class SqlExpressionOperatorSimilarTo {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -2905,7 +2905,7 @@ export class SqlExpressionOperatorSimilarTo {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: SqlExpressionOperatorSimilarTo, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: SqlExpressionOperatorSimilarTo, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -2921,9 +2921,9 @@ export class SqlExpressionOperatorSimilarTo {
 export interface SqlExpressionOperatorLike_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class SqlExpressionOperatorLike {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -2945,7 +2945,7 @@ export class SqlExpressionOperatorLike {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -2953,7 +2953,7 @@ export class SqlExpressionOperatorLike {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: SqlExpressionOperatorLike, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: SqlExpressionOperatorLike, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -2969,9 +2969,9 @@ export class SqlExpressionOperatorLike {
 export interface SqlExpressionOperatorIlike_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class SqlExpressionOperatorIlike {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -2993,7 +2993,7 @@ export class SqlExpressionOperatorIlike {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -3001,7 +3001,7 @@ export class SqlExpressionOperatorIlike {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: SqlExpressionOperatorIlike, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: SqlExpressionOperatorIlike, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -3017,9 +3017,9 @@ export class SqlExpressionOperatorIlike {
 export interface SqlExpressionOperatorBinaryUnaryterm_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class SqlExpressionOperatorBinaryUnaryterm {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -3041,7 +3041,7 @@ export class SqlExpressionOperatorBinaryUnaryterm {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -3049,7 +3049,7 @@ export class SqlExpressionOperatorBinaryUnaryterm {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: SqlExpressionOperatorBinaryUnaryterm, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: SqlExpressionOperatorBinaryUnaryterm, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -3065,9 +3065,9 @@ export class SqlExpressionOperatorBinaryUnaryterm {
 export interface SqlExpressionOperatorMinus_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class SqlExpressionOperatorMinus {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -3089,7 +3089,7 @@ export class SqlExpressionOperatorMinus {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -3097,7 +3097,7 @@ export class SqlExpressionOperatorMinus {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: SqlExpressionOperatorMinus, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: SqlExpressionOperatorMinus, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -3113,9 +3113,9 @@ export class SqlExpressionOperatorMinus {
 export interface SqlExpressionOperatorPlus_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class SqlExpressionOperatorPlus {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -3137,7 +3137,7 @@ export class SqlExpressionOperatorPlus {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -3145,7 +3145,7 @@ export class SqlExpressionOperatorPlus {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: SqlExpressionOperatorPlus, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: SqlExpressionOperatorPlus, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -3161,9 +3161,9 @@ export class SqlExpressionOperatorPlus {
 export interface SqlExpressionOperatorInitialUnaryterm_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class SqlExpressionOperatorInitialUnaryterm {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -3185,7 +3185,7 @@ export class SqlExpressionOperatorInitialUnaryterm {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -3193,7 +3193,7 @@ export class SqlExpressionOperatorInitialUnaryterm {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: SqlExpressionOperatorInitialUnaryterm, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: SqlExpressionOperatorInitialUnaryterm, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -3209,9 +3209,9 @@ export class SqlExpressionOperatorInitialUnaryterm {
 export interface SqlExpressionOperatorNot_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class SqlExpressionOperatorNot {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -3233,7 +3233,7 @@ export class SqlExpressionOperatorNot {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -3241,7 +3241,7 @@ export class SqlExpressionOperatorNot {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: SqlExpressionOperatorNot, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: SqlExpressionOperatorNot, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -3257,9 +3257,9 @@ export class SqlExpressionOperatorNot {
 export interface SqlExpressionOperatorFinalUnaryterm_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class SqlExpressionOperatorFinalUnaryterm {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -3281,7 +3281,7 @@ export class SqlExpressionOperatorFinalUnaryterm {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -3289,7 +3289,7 @@ export class SqlExpressionOperatorFinalUnaryterm {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: SqlExpressionOperatorFinalUnaryterm, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: SqlExpressionOperatorFinalUnaryterm, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -3305,9 +3305,9 @@ export class SqlExpressionOperatorFinalUnaryterm {
 export interface SqlExpressionOperatorIs_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class SqlExpressionOperatorIs {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -3329,7 +3329,7 @@ export class SqlExpressionOperatorIs {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -3337,7 +3337,7 @@ export class SqlExpressionOperatorIs {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: SqlExpressionOperatorIs, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: SqlExpressionOperatorIs, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -3353,9 +3353,9 @@ export class SqlExpressionOperatorIs {
 export interface SqlExpressionOperatorIsNot_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class SqlExpressionOperatorIsNot {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -3377,7 +3377,7 @@ export class SqlExpressionOperatorIsNot {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -3385,7 +3385,7 @@ export class SqlExpressionOperatorIsNot {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: SqlExpressionOperatorIsNot, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: SqlExpressionOperatorIsNot, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -3401,9 +3401,9 @@ export class SqlExpressionOperatorIsNot {
 export interface SqlExpressionOperatorIsNull_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class SqlExpressionOperatorIsNull {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -3425,7 +3425,7 @@ export class SqlExpressionOperatorIsNull {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -3433,7 +3433,7 @@ export class SqlExpressionOperatorIsNull {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: SqlExpressionOperatorIsNull, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: SqlExpressionOperatorIsNull, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -3449,9 +3449,9 @@ export class SqlExpressionOperatorIsNull {
 export interface SqlExpressionOperatorIsNotNull_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class SqlExpressionOperatorIsNotNull {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -3473,7 +3473,7 @@ export class SqlExpressionOperatorIsNotNull {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -3481,7 +3481,7 @@ export class SqlExpressionOperatorIsNotNull {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: SqlExpressionOperatorIsNotNull, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: SqlExpressionOperatorIsNotNull, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -3497,9 +3497,9 @@ export class SqlExpressionOperatorIsNotNull {
 export interface SqlExpressionOperatorIsTrue_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class SqlExpressionOperatorIsTrue {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -3521,7 +3521,7 @@ export class SqlExpressionOperatorIsTrue {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -3529,7 +3529,7 @@ export class SqlExpressionOperatorIsTrue {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: SqlExpressionOperatorIsTrue, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: SqlExpressionOperatorIsTrue, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -3545,9 +3545,9 @@ export class SqlExpressionOperatorIsTrue {
 export interface SqlExpressionOperatorIsNotTrue_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class SqlExpressionOperatorIsNotTrue {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -3569,7 +3569,7 @@ export class SqlExpressionOperatorIsNotTrue {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -3577,7 +3577,7 @@ export class SqlExpressionOperatorIsNotTrue {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: SqlExpressionOperatorIsNotTrue, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: SqlExpressionOperatorIsNotTrue, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -3593,9 +3593,9 @@ export class SqlExpressionOperatorIsNotTrue {
 export interface SqlExpressionOperatorIsFalse_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class SqlExpressionOperatorIsFalse {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -3617,7 +3617,7 @@ export class SqlExpressionOperatorIsFalse {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -3625,7 +3625,7 @@ export class SqlExpressionOperatorIsFalse {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: SqlExpressionOperatorIsFalse, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: SqlExpressionOperatorIsFalse, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -3641,9 +3641,9 @@ export class SqlExpressionOperatorIsFalse {
 export interface SqlExpressionOperatorIsNotFalse_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class SqlExpressionOperatorIsNotFalse {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -3665,7 +3665,7 @@ export class SqlExpressionOperatorIsNotFalse {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -3673,7 +3673,7 @@ export class SqlExpressionOperatorIsNotFalse {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: SqlExpressionOperatorIsNotFalse, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: SqlExpressionOperatorIsNotFalse, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -3689,9 +3689,9 @@ export class SqlExpressionOperatorIsNotFalse {
 export interface SqlExpressionOperatorIsUnknown_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class SqlExpressionOperatorIsUnknown {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -3713,7 +3713,7 @@ export class SqlExpressionOperatorIsUnknown {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -3721,7 +3721,7 @@ export class SqlExpressionOperatorIsUnknown {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: SqlExpressionOperatorIsUnknown, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: SqlExpressionOperatorIsUnknown, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -3737,9 +3737,9 @@ export class SqlExpressionOperatorIsUnknown {
 export interface SqlExpressionOperatorIsNotUnknown_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class SqlExpressionOperatorIsNotUnknown {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -3761,7 +3761,7 @@ export class SqlExpressionOperatorIsNotUnknown {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -3769,7 +3769,7 @@ export class SqlExpressionOperatorIsNotUnknown {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: SqlExpressionOperatorIsNotUnknown, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: SqlExpressionOperatorIsNotUnknown, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -3785,9 +3785,9 @@ export class SqlExpressionOperatorIsNotUnknown {
 export interface SqlExpressionOperatorIsDistinct_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class SqlExpressionOperatorIsDistinct {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -3809,7 +3809,7 @@ export class SqlExpressionOperatorIsDistinct {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -3817,7 +3817,7 @@ export class SqlExpressionOperatorIsDistinct {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: SqlExpressionOperatorIsDistinct, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: SqlExpressionOperatorIsDistinct, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -3833,9 +3833,9 @@ export class SqlExpressionOperatorIsDistinct {
 export interface SqlExpressionOperatorIsNotDistinct_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class SqlExpressionOperatorIsNotDistinct {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -3857,7 +3857,7 @@ export class SqlExpressionOperatorIsNotDistinct {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -3865,7 +3865,7 @@ export class SqlExpressionOperatorIsNotDistinct {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: SqlExpressionOperatorIsNotDistinct, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: SqlExpressionOperatorIsNotDistinct, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -3881,9 +3881,9 @@ export class SqlExpressionOperatorIsNotDistinct {
 export interface SqlExpressionOperatorIsDistinctFrom_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class SqlExpressionOperatorIsDistinctFrom {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -3905,7 +3905,7 @@ export class SqlExpressionOperatorIsDistinctFrom {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -3913,7 +3913,7 @@ export class SqlExpressionOperatorIsDistinctFrom {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: SqlExpressionOperatorIsDistinctFrom, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: SqlExpressionOperatorIsDistinctFrom, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -3929,9 +3929,9 @@ export class SqlExpressionOperatorIsDistinctFrom {
 export interface SqlExpressionOperatorIsNotDistinctFrom_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class SqlExpressionOperatorIsNotDistinctFrom {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -3953,7 +3953,7 @@ export class SqlExpressionOperatorIsNotDistinctFrom {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -3961,7 +3961,7 @@ export class SqlExpressionOperatorIsNotDistinctFrom {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: SqlExpressionOperatorIsNotDistinctFrom, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: SqlExpressionOperatorIsNotDistinctFrom, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -3977,9 +3977,9 @@ export class SqlExpressionOperatorIsNotDistinctFrom {
 export interface SqlExpressionOperatorThreeterm_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class SqlExpressionOperatorThreeterm {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -4001,7 +4001,7 @@ export class SqlExpressionOperatorThreeterm {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -4009,7 +4009,7 @@ export class SqlExpressionOperatorThreeterm {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: SqlExpressionOperatorThreeterm, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: SqlExpressionOperatorThreeterm, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -4025,9 +4025,9 @@ export class SqlExpressionOperatorThreeterm {
 export interface SqlExpressionOperatorBetween_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class SqlExpressionOperatorBetween {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -4049,7 +4049,7 @@ export class SqlExpressionOperatorBetween {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -4057,7 +4057,7 @@ export class SqlExpressionOperatorBetween {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: SqlExpressionOperatorBetween, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: SqlExpressionOperatorBetween, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -4073,9 +4073,9 @@ export class SqlExpressionOperatorBetween {
 export interface SqlExpressionOperatorNotBetween_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class SqlExpressionOperatorNotBetween {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -4097,7 +4097,7 @@ export class SqlExpressionOperatorNotBetween {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -4105,7 +4105,7 @@ export class SqlExpressionOperatorNotBetween {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: SqlExpressionOperatorNotBetween, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: SqlExpressionOperatorNotBetween, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -4121,9 +4121,9 @@ export class SqlExpressionOperatorNotBetween {
 export interface SqlExpressionOperatorBetweenSymmetric_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class SqlExpressionOperatorBetweenSymmetric {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -4145,7 +4145,7 @@ export class SqlExpressionOperatorBetweenSymmetric {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -4153,7 +4153,7 @@ export class SqlExpressionOperatorBetweenSymmetric {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: SqlExpressionOperatorBetweenSymmetric, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: SqlExpressionOperatorBetweenSymmetric, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -4169,9 +4169,9 @@ export class SqlExpressionOperatorBetweenSymmetric {
 export interface SqlExpressionOperatorNotBetweenSymmetric_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class SqlExpressionOperatorNotBetweenSymmetric {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -4193,7 +4193,7 @@ export class SqlExpressionOperatorNotBetweenSymmetric {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -4201,7 +4201,7 @@ export class SqlExpressionOperatorNotBetweenSymmetric {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: SqlExpressionOperatorNotBetweenSymmetric, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: SqlExpressionOperatorNotBetweenSymmetric, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -4219,18 +4219,18 @@ export interface SqlExpressionValue_ConstructProps extends GObject.Object_Constr
     value?: SqlValue
 }
 export class SqlExpressionValue {
-    /* Properties of Vda.SqlExpressionValue */
+    /* Properties of Vda-1.Vda.SqlExpressionValue */
     connection: Connection
     value: SqlValue
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Vda.SqlExpressionValue */
+    /* Methods of Vda-1.Vda.SqlExpressionValue */
     set_math_expression_value(str: string): void
     get_connection(): Connection | null
     set_connection(value?: Connection | null): void
     get_value(): SqlValue
     set_value(value: SqlValue): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -4252,13 +4252,13 @@ export class SqlExpressionValue {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Vda.SqlExpressionValue */
+    /* Virtual methods of Vda-1.Vda.SqlExpressionValue */
     vfunc_set_math_expression_value(str: string): void
     vfunc_get_connection(): Connection | null
     vfunc_set_connection(value?: Connection | null): void
     vfunc_get_value(): SqlValue
     vfunc_set_value(value: SqlValue): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -4266,7 +4266,7 @@ export class SqlExpressionValue {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: SqlExpressionValue, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: SqlExpressionValue, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -4289,13 +4289,13 @@ export interface SqlExpressionValueParameter_ConstructProps extends GObject.Obje
     gtype?: GObject.Type
 }
 export class SqlExpressionValueParameter {
-    /* Properties of Vda.SqlExpressionValueParameter */
+    /* Properties of Vda-1.Vda.SqlExpressionValueParameter */
     parameters: SqlParameters
     name: string
     gtype: GObject.Type
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Vda.SqlExpressionValueParameter */
+    /* Methods of Vda-1.Vda.SqlExpressionValueParameter */
     parse(str: string): void
     get_parameters(): SqlParameters
     set_parameters(value: SqlParameters): void
@@ -4303,7 +4303,7 @@ export class SqlExpressionValueParameter {
     set_name(value: string): void
     get_gtype(): GObject.Type
     set_gtype(value: GObject.Type): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -4325,7 +4325,7 @@ export class SqlExpressionValueParameter {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Vda.SqlExpressionValueParameter */
+    /* Virtual methods of Vda-1.Vda.SqlExpressionValueParameter */
     vfunc_parse(str: string): void
     vfunc_get_parameters(): SqlParameters
     vfunc_set_parameters(value: SqlParameters): void
@@ -4333,7 +4333,7 @@ export class SqlExpressionValueParameter {
     vfunc_set_name(value: string): void
     vfunc_get_gtype(): GObject.Type
     vfunc_set_gtype(value: GObject.Type): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -4341,7 +4341,7 @@ export class SqlExpressionValueParameter {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: SqlExpressionValueParameter, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: SqlExpressionValueParameter, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -4365,14 +4365,14 @@ export class SqlExpressionValueParameter {
 export interface SqlParameters_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class SqlParameters {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Vda.SqlParameters */
+    /* Methods of Vda-1.Vda.SqlParameters */
     set_value(name: string, val: any): void
     get_value(name: string): any | null
     set_sql_value(name: string, val: SqlValue): void
     get_sql_value(name: string): SqlValue
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -4394,12 +4394,12 @@ export class SqlParameters {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Vda.SqlParameters */
+    /* Virtual methods of Vda-1.Vda.SqlParameters */
     vfunc_set_value(name: string, val: any): void
     vfunc_get_value(name: string): any | null
     vfunc_set_sql_value(name: string, val: SqlValue): void
     vfunc_get_sql_value(name: string): SqlValue
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -4407,7 +4407,7 @@ export class SqlParameters {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: SqlParameters, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: SqlParameters, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -4423,11 +4423,11 @@ export class SqlParameters {
 export interface SqlParser_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class SqlParser {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Vda.SqlParser */
+    /* Methods of Vda-1.Vda.SqlParser */
     parse(str: string, cnc: Connection): SqlCommandParametrized
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -4449,9 +4449,9 @@ export class SqlParser {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Vda.SqlParser */
+    /* Virtual methods of Vda-1.Vda.SqlParser */
     vfunc_parse(str: string, cnc: Connection): SqlCommandParametrized
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -4459,7 +4459,7 @@ export class SqlParser {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: SqlParser, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: SqlParser, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -4477,17 +4477,17 @@ export interface SqlTableReference_ConstructProps extends GObject.Object_Constru
     allias?: string
 }
 export class SqlTableReference {
-    /* Properties of Vda.SqlTableReference */
+    /* Properties of Vda-1.Vda.SqlTableReference */
     name: string
     allias: string
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Vda.SqlTableReference */
+    /* Methods of Vda-1.Vda.SqlTableReference */
     get_name(): string
     set_name(value: string): void
     get_allias(): string | null
     set_allias(value?: string | null): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -4509,12 +4509,12 @@ export class SqlTableReference {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Vda.SqlTableReference */
+    /* Virtual methods of Vda-1.Vda.SqlTableReference */
     vfunc_get_name(): string
     vfunc_set_name(value: string): void
     vfunc_get_allias(): string | null
     vfunc_set_allias(value?: string | null): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -4522,7 +4522,7 @@ export class SqlTableReference {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: SqlTableReference, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: SqlTableReference, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -4542,11 +4542,11 @@ export class SqlTableReference {
 export interface Stringifiable_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class Stringifiable {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Vda.Stringifiable */
+    /* Methods of Vda-1.Vda.Stringifiable */
     to_string(): string
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -4568,9 +4568,9 @@ export class Stringifiable {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Vda.Stringifiable */
+    /* Virtual methods of Vda-1.Vda.Stringifiable */
     vfunc_to_string(): string
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -4578,7 +4578,7 @@ export class Stringifiable {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Stringifiable, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Stringifiable, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -4594,11 +4594,11 @@ export class Stringifiable {
 export interface SqlValue_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class SqlValue {
-    /* Properties of Vda.SqlValue */
+    /* Properties of Vda-1.Vda.SqlValue */
     readonly name: string
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Vda.SqlValue */
+    /* Methods of Vda-1.Vda.SqlValue */
     parse(str: string): boolean
     from_value(val: any): boolean
     cast(type: GObject.Type): SqlValue | null
@@ -4607,7 +4607,7 @@ export class SqlValue {
     to_string_quoted(): string
     to_sql_expression(): string
     get_name(): string
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -4629,7 +4629,7 @@ export class SqlValue {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Vda.SqlValue */
+    /* Virtual methods of Vda-1.Vda.SqlValue */
     vfunc_parse(str: string): boolean
     vfunc_from_value(val: any): boolean
     vfunc_cast(type: GObject.Type): SqlValue | null
@@ -4638,7 +4638,7 @@ export class SqlValue {
     vfunc_to_string_quoted(): string
     vfunc_to_sql_expression(): string
     vfunc_get_name(): string
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -4646,7 +4646,7 @@ export class SqlValue {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: SqlValue, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: SqlValue, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -4667,9 +4667,9 @@ export class SqlValue {
 export interface SqlValueNull_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class SqlValueNull {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -4691,7 +4691,7 @@ export class SqlValueNull {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -4699,7 +4699,7 @@ export class SqlValueNull {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: SqlValueNull, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: SqlValueNull, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -4715,9 +4715,9 @@ export class SqlValueNull {
 export interface SqlValueBool_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class SqlValueBool {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -4739,7 +4739,7 @@ export class SqlValueBool {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -4747,7 +4747,7 @@ export class SqlValueBool {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: SqlValueBool, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: SqlValueBool, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -4763,9 +4763,9 @@ export class SqlValueBool {
 export interface SqlValueBit_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class SqlValueBit {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -4787,7 +4787,7 @@ export class SqlValueBit {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -4795,7 +4795,7 @@ export class SqlValueBit {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: SqlValueBit, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: SqlValueBit, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -4811,9 +4811,9 @@ export class SqlValueBit {
 export interface SqlValueString_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class SqlValueString {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -4835,7 +4835,7 @@ export class SqlValueString {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -4843,7 +4843,7 @@ export class SqlValueString {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: SqlValueString, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: SqlValueString, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -4859,9 +4859,9 @@ export class SqlValueString {
 export interface SqlValueText_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class SqlValueText {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -4883,7 +4883,7 @@ export class SqlValueText {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -4891,7 +4891,7 @@ export class SqlValueText {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: SqlValueText, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: SqlValueText, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -4907,9 +4907,9 @@ export class SqlValueText {
 export interface SqlValueName_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class SqlValueName {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -4931,7 +4931,7 @@ export class SqlValueName {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -4939,7 +4939,7 @@ export class SqlValueName {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: SqlValueName, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: SqlValueName, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -4955,9 +4955,9 @@ export class SqlValueName {
 export interface SqlValueInteger_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class SqlValueInteger {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -4979,7 +4979,7 @@ export class SqlValueInteger {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -4987,7 +4987,7 @@ export class SqlValueInteger {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: SqlValueInteger, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: SqlValueInteger, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -5003,9 +5003,9 @@ export class SqlValueInteger {
 export interface SqlValueInt2_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class SqlValueInt2 {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -5027,7 +5027,7 @@ export class SqlValueInt2 {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -5035,7 +5035,7 @@ export class SqlValueInt2 {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: SqlValueInt2, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: SqlValueInt2, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -5051,9 +5051,9 @@ export class SqlValueInt2 {
 export interface SqlValueInt4_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class SqlValueInt4 {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -5075,7 +5075,7 @@ export class SqlValueInt4 {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -5083,7 +5083,7 @@ export class SqlValueInt4 {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: SqlValueInt4, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: SqlValueInt4, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -5099,9 +5099,9 @@ export class SqlValueInt4 {
 export interface SqlValueInt8_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class SqlValueInt8 {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -5123,7 +5123,7 @@ export class SqlValueInt8 {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -5131,7 +5131,7 @@ export class SqlValueInt8 {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: SqlValueInt8, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: SqlValueInt8, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -5147,9 +5147,9 @@ export class SqlValueInt8 {
 export interface SqlValueInt16_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class SqlValueInt16 {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -5171,7 +5171,7 @@ export class SqlValueInt16 {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -5179,7 +5179,7 @@ export class SqlValueInt16 {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: SqlValueInt16, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: SqlValueInt16, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -5195,9 +5195,9 @@ export class SqlValueInt16 {
 export interface SqlValueInt32_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class SqlValueInt32 {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -5219,7 +5219,7 @@ export class SqlValueInt32 {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -5227,7 +5227,7 @@ export class SqlValueInt32 {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: SqlValueInt32, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: SqlValueInt32, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -5243,9 +5243,9 @@ export class SqlValueInt32 {
 export interface SqlValueInt64_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class SqlValueInt64 {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -5267,7 +5267,7 @@ export class SqlValueInt64 {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -5275,7 +5275,7 @@ export class SqlValueInt64 {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: SqlValueInt64, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: SqlValueInt64, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -5291,9 +5291,9 @@ export class SqlValueInt64 {
 export interface SqlValueOid_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class SqlValueOid {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -5315,7 +5315,7 @@ export class SqlValueOid {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -5323,7 +5323,7 @@ export class SqlValueOid {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: SqlValueOid, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: SqlValueOid, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -5339,9 +5339,9 @@ export class SqlValueOid {
 export interface SqlValueNumeric_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class SqlValueNumeric {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Vda.SqlValueNumeric */
+    /* Methods of Vda-1.Vda.SqlValueNumeric */
     set_precision(p: number): void
     get_precision(): number
     format(str: string): string
@@ -5351,7 +5351,7 @@ export class SqlValueNumeric {
     set_real(r: number): void
     get_imaginary(): number
     set_imaginary(img: number): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -5373,7 +5373,7 @@ export class SqlValueNumeric {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Vda.SqlValueNumeric */
+    /* Virtual methods of Vda-1.Vda.SqlValueNumeric */
     vfunc_set_precision(p: number): void
     vfunc_get_precision(): number
     vfunc_format(str: string): string
@@ -5383,7 +5383,7 @@ export class SqlValueNumeric {
     vfunc_set_real(r: number): void
     vfunc_get_imaginary(): number
     vfunc_set_imaginary(img: number): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -5391,7 +5391,7 @@ export class SqlValueNumeric {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: SqlValueNumeric, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: SqlValueNumeric, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -5407,11 +5407,11 @@ export class SqlValueNumeric {
 export interface SqlValueFloat_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class SqlValueFloat {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Vda.SqlValueFloat */
+    /* Methods of Vda-1.Vda.SqlValueFloat */
     get_float(): number
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -5433,9 +5433,9 @@ export class SqlValueFloat {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Vda.SqlValueFloat */
+    /* Virtual methods of Vda-1.Vda.SqlValueFloat */
     vfunc_get_float(): number
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -5443,7 +5443,7 @@ export class SqlValueFloat {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: SqlValueFloat, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: SqlValueFloat, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -5459,9 +5459,9 @@ export class SqlValueFloat {
 export interface SqlValueDouble_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class SqlValueDouble {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -5483,7 +5483,7 @@ export class SqlValueDouble {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -5491,7 +5491,7 @@ export class SqlValueDouble {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: SqlValueDouble, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: SqlValueDouble, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -5507,14 +5507,14 @@ export class SqlValueDouble {
 export interface SqlValueMoney_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class SqlValueMoney {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Vda.SqlValueMoney */
+    /* Methods of Vda-1.Vda.SqlValueMoney */
     locale(): string
     int_locale(): string
     get_int_precision(): number
     set_int_precision(p: number): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -5536,12 +5536,12 @@ export class SqlValueMoney {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Vda.SqlValueMoney */
+    /* Virtual methods of Vda-1.Vda.SqlValueMoney */
     vfunc_locale(): string
     vfunc_int_locale(): string
     vfunc_get_int_precision(): number
     vfunc_set_int_precision(p: number): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -5549,7 +5549,7 @@ export class SqlValueMoney {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: SqlValueMoney, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: SqlValueMoney, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -5565,12 +5565,12 @@ export class SqlValueMoney {
 export interface SqlValueDate_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class SqlValueDate {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Vda.SqlValueDate */
+    /* Methods of Vda-1.Vda.SqlValueDate */
     get_date(): /* result */ GLib.Date
     set_date(ts: GLib.Date): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -5592,10 +5592,10 @@ export class SqlValueDate {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Vda.SqlValueDate */
+    /* Virtual methods of Vda-1.Vda.SqlValueDate */
     vfunc_get_date(): /* result */ GLib.Date
     vfunc_set_date(ts: GLib.Date): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -5603,7 +5603,7 @@ export class SqlValueDate {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: SqlValueDate, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: SqlValueDate, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -5619,9 +5619,9 @@ export class SqlValueDate {
 export interface SqlValueTimestamp_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class SqlValueTimestamp {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Vda.SqlValueTimestamp */
+    /* Methods of Vda-1.Vda.SqlValueTimestamp */
     format_local(): string
     format_utc(): string
     format_locale(): string
@@ -5632,7 +5632,7 @@ export class SqlValueTimestamp {
     format_time_local_ntz(): string
     get_timestamp(): GLib.DateTime
     set_timestamp(ts: GLib.DateTime): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -5654,7 +5654,7 @@ export class SqlValueTimestamp {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Vda.SqlValueTimestamp */
+    /* Virtual methods of Vda-1.Vda.SqlValueTimestamp */
     vfunc_format_local(): string
     vfunc_format_utc(): string
     vfunc_format_locale(): string
@@ -5665,7 +5665,7 @@ export class SqlValueTimestamp {
     vfunc_format_time_local_ntz(): string
     vfunc_get_timestamp(): GLib.DateTime
     vfunc_set_timestamp(ts: GLib.DateTime): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -5673,7 +5673,7 @@ export class SqlValueTimestamp {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: SqlValueTimestamp, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: SqlValueTimestamp, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -5689,9 +5689,9 @@ export class SqlValueTimestamp {
 export interface SqlValueTimestampNtz_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class SqlValueTimestampNtz {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -5713,7 +5713,7 @@ export class SqlValueTimestampNtz {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -5721,7 +5721,7 @@ export class SqlValueTimestampNtz {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: SqlValueTimestampNtz, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: SqlValueTimestampNtz, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -5737,9 +5737,9 @@ export class SqlValueTimestampNtz {
 export interface SqlValueTime_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class SqlValueTime {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -5761,7 +5761,7 @@ export class SqlValueTime {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -5769,7 +5769,7 @@ export class SqlValueTime {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: SqlValueTime, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: SqlValueTime, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -5785,9 +5785,9 @@ export class SqlValueTime {
 export interface SqlValueTimeNtz_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class SqlValueTimeNtz {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -5809,7 +5809,7 @@ export class SqlValueTimeNtz {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -5817,7 +5817,7 @@ export class SqlValueTimeNtz {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: SqlValueTimeNtz, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: SqlValueTimeNtz, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -5833,9 +5833,9 @@ export class SqlValueTimeNtz {
 export interface SqlValueBinary_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class SqlValueBinary {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -5857,7 +5857,7 @@ export class SqlValueBinary {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -5865,7 +5865,7 @@ export class SqlValueBinary {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: SqlValueBinary, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: SqlValueBinary, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -5881,12 +5881,12 @@ export class SqlValueBinary {
 export interface SqlValueBlob_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class SqlValueBlob {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Vda.SqlValueBlob */
+    /* Methods of Vda-1.Vda.SqlValueBlob */
     save(file: Gio.File): void
     load(file: Gio.File): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -5908,10 +5908,10 @@ export class SqlValueBlob {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Vda.SqlValueBlob */
+    /* Virtual methods of Vda-1.Vda.SqlValueBlob */
     vfunc_save(file: Gio.File): void
     vfunc_load(file: Gio.File): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -5919,7 +5919,7 @@ export class SqlValueBlob {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: SqlValueBlob, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: SqlValueBlob, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -5937,17 +5937,17 @@ export interface SqlValueGeometricPoint_ConstructProps extends GObject.Object_Co
     y?: number
 }
 export class SqlValueGeometricPoint {
-    /* Properties of Vda.SqlValueGeometricPoint */
+    /* Properties of Vda-1.Vda.SqlValueGeometricPoint */
     x: number
     y: number
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Vda.SqlValueGeometricPoint */
+    /* Methods of Vda-1.Vda.SqlValueGeometricPoint */
     get_x(): number
     set_x(value: number): void
     get_y(): number
     set_y(value: number): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -5969,12 +5969,12 @@ export class SqlValueGeometricPoint {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Vda.SqlValueGeometricPoint */
+    /* Virtual methods of Vda-1.Vda.SqlValueGeometricPoint */
     vfunc_get_x(): number
     vfunc_set_x(value: number): void
     vfunc_get_y(): number
     vfunc_set_y(value: number): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -5982,7 +5982,7 @@ export class SqlValueGeometricPoint {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: SqlValueGeometricPoint, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: SqlValueGeometricPoint, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -6003,14 +6003,14 @@ export interface SqlValueMathExp_ConstructProps extends GObject.Object_Construct
     math?: GCalc.MathEquationManager
 }
 export class SqlValueMathExp {
-    /* Properties of Vda.SqlValueMathExp */
+    /* Properties of Vda-1.Vda.SqlValueMathExp */
     math: GCalc.MathEquationManager
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Vda.SqlValueMathExp */
+    /* Methods of Vda-1.Vda.SqlValueMathExp */
     get_math(): GCalc.MathEquationManager
     set_math(value: GCalc.MathEquationManager): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -6032,10 +6032,10 @@ export class SqlValueMathExp {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Vda.SqlValueMathExp */
+    /* Virtual methods of Vda-1.Vda.SqlValueMathExp */
     vfunc_get_math(): GCalc.MathEquationManager
     vfunc_set_math(value: GCalc.MathEquationManager): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -6043,7 +6043,7 @@ export class SqlValueMathExp {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: SqlValueMathExp, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: SqlValueMathExp, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -6061,9 +6061,9 @@ export class SqlValueMathExp {
 export interface TableModel_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class TableModel {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -6085,7 +6085,7 @@ export class TableModel {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -6093,7 +6093,7 @@ export class TableModel {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: TableModel, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: TableModel, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -6109,14 +6109,14 @@ export class TableModel {
 export interface AffectedRows_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class AffectedRows {
-    /* Properties of Vda.SqlAffectedRows */
+    /* Properties of Vda-1.Vda.SqlAffectedRows */
     readonly number: number
-    /* Fields of Vda.AffectedRows */
+    /* Fields of Vda-1.Vda.AffectedRows */
     parent_instance: GObject.Object
     priv: AffectedRowsPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -6138,11 +6138,11 @@ export class AffectedRows {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of Vda.SqlAffectedRows */
+    /* Methods of Vda-1.Vda.SqlAffectedRows */
     get_number(): number
-    /* Virtual methods of Vda.AffectedRows */
+    /* Virtual methods of Vda-1.Vda.AffectedRows */
     vfunc_get_number(): number
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -6150,7 +6150,7 @@ export class AffectedRows {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: AffectedRows, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: AffectedRows, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -6172,21 +6172,21 @@ export interface CommandDelete_ConstructProps extends GObject.Object_ConstructPr
     allias?: string
 }
 export class CommandDelete {
-    /* Properties of Vda.SqlCommand */
+    /* Properties of Vda-1.Vda.SqlCommand */
     readonly connection: Connection
-    /* Properties of Vda.SqlCommandTableRelated */
+    /* Properties of Vda-1.Vda.SqlCommandTableRelated */
     table: string
     allias: string
-    /* Properties of Vda.SqlCommandConditional */
+    /* Properties of Vda-1.Vda.SqlCommandConditional */
     readonly condition: SqlExpression
-    /* Properties of Vda.SqlCommandParametrized */
+    /* Properties of Vda-1.Vda.SqlCommandParametrized */
     readonly parameters: SqlParameters
-    /* Fields of Vda.CommandDelete */
+    /* Fields of Vda-1.Vda.CommandDelete */
     parent_instance: GObject.Object
     priv: CommandDeletePrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -6208,24 +6208,24 @@ export class CommandDelete {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of Vda.SqlCommand */
+    /* Methods of Vda-1.Vda.SqlCommand */
     get_connection(): Connection
-    /* Methods of Vda.SqlCommandTableRelated */
+    /* Methods of Vda-1.Vda.SqlCommandTableRelated */
     get_table(): string
     set_table(value: string): void
     get_allias(): string
     set_allias(value: string): void
-    /* Methods of Vda.SqlCommandConditional */
+    /* Methods of Vda-1.Vda.SqlCommandConditional */
     get_condition(): SqlExpression
-    /* Methods of Vda.Stringifiable */
+    /* Methods of Vda-1.Vda.Stringifiable */
     to_string(): string
-    /* Methods of Vda.SqlCommandParametrized */
+    /* Methods of Vda-1.Vda.SqlCommandParametrized */
     get_parameters(): SqlParameters
-    /* Methods of Vda.SqlCommandDelete */
+    /* Methods of Vda-1.Vda.SqlCommandDelete */
     stringify(): string
     to_query(name?: string | null): Query
     parse(sql: string): void
-    /* Virtual methods of Vda.CommandDelete */
+    /* Virtual methods of Vda-1.Vda.CommandDelete */
     vfunc_get_connection(): Connection
     vfunc_get_table(): string
     vfunc_set_table(value: string): void
@@ -6237,7 +6237,7 @@ export class CommandDelete {
     vfunc_stringify(): string
     vfunc_to_query(name?: string | null): Query
     vfunc_parse(sql: string): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -6245,7 +6245,7 @@ export class CommandDelete {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: CommandDelete, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: CommandDelete, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -6273,12 +6273,12 @@ export class CommandDelete {
 export interface CommandInsert_ConstructProps extends CommandModification_ConstructProps {
 }
 export class CommandInsert {
-    /* Fields of Vda.CommandInsert */
+    /* Fields of Vda-1.Vda.CommandInsert */
     parent_instance: CommandModification
     priv: CommandInsertPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -6300,18 +6300,18 @@ export class CommandInsert {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of Vda.Stringifiable */
+    /* Methods of Vda-1.Vda.Stringifiable */
     to_string(): string
-    /* Methods of Vda.SqlCommandInsert */
+    /* Methods of Vda-1.Vda.SqlCommandInsert */
     stringify(): string
     to_query(name?: string | null): Query
     parse(sql: string): void
-    /* Virtual methods of Vda.CommandInsert */
+    /* Virtual methods of Vda-1.Vda.CommandInsert */
     vfunc_to_string(): string
     vfunc_stringify(): string
     vfunc_to_query(name?: string | null): Query
     vfunc_parse(sql: string): void
-    /* Virtual methods of Vda.CommandModification */
+    /* Virtual methods of Vda-1.Vda.CommandModification */
     vfunc_get_connection(): Connection
     vfunc_get_table(): string
     vfunc_set_table(value: string): void
@@ -6325,7 +6325,7 @@ export class CommandInsert {
     vfunc_get_fields(): HashModel
     vfunc_get_values(): HashModel
     vfunc_get_parameters(): SqlParameters
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -6333,7 +6333,7 @@ export class CommandInsert {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: CommandInsert, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: CommandInsert, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -6353,22 +6353,22 @@ export interface CommandModification_ConstructProps extends GObject.Object_Const
     allias?: string
 }
 export class CommandModification {
-    /* Properties of Vda.SqlCommand */
+    /* Properties of Vda-1.Vda.SqlCommand */
     readonly connection: Connection
-    /* Properties of Vda.SqlCommandTableRelated */
+    /* Properties of Vda-1.Vda.SqlCommandTableRelated */
     table: string
     allias: string
-    /* Properties of Vda.SqlCommandModification */
+    /* Properties of Vda-1.Vda.SqlCommandModification */
     readonly fields: HashModel
     readonly values: HashModel
-    /* Properties of Vda.SqlCommandParametrized */
+    /* Properties of Vda-1.Vda.SqlCommandParametrized */
     readonly parameters: SqlParameters
-    /* Fields of Vda.CommandModification */
+    /* Fields of Vda-1.Vda.CommandModification */
     parent_instance: GObject.Object
     priv: CommandModificationPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -6390,14 +6390,14 @@ export class CommandModification {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of Vda.SqlCommand */
+    /* Methods of Vda-1.Vda.SqlCommand */
     get_connection(): Connection
-    /* Methods of Vda.SqlCommandTableRelated */
+    /* Methods of Vda-1.Vda.SqlCommandTableRelated */
     get_table(): string
     set_table(value: string): void
     get_allias(): string
     set_allias(value: string): void
-    /* Methods of Vda.SqlCommandModification */
+    /* Methods of Vda-1.Vda.SqlCommandModification */
     add_field_value(name: string, val?: any | null): void
     add_field(name: string): void
     add_value(val?: any | null): void
@@ -6405,9 +6405,9 @@ export class CommandModification {
     add_parameter(par: string, gtype: GObject.Type): void
     get_fields(): HashModel
     get_values(): HashModel
-    /* Methods of Vda.SqlCommandParametrized */
+    /* Methods of Vda-1.Vda.SqlCommandParametrized */
     get_parameters(): SqlParameters
-    /* Virtual methods of Vda.CommandModification */
+    /* Virtual methods of Vda-1.Vda.CommandModification */
     vfunc_get_connection(): Connection
     vfunc_get_table(): string
     vfunc_set_table(value: string): void
@@ -6421,7 +6421,7 @@ export class CommandModification {
     vfunc_get_fields(): HashModel
     vfunc_get_values(): HashModel
     vfunc_get_parameters(): SqlParameters
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -6429,7 +6429,7 @@ export class CommandModification {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: CommandModification, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: CommandModification, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -6459,21 +6459,21 @@ export class CommandModification {
 export interface CommandSelect_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class CommandSelect {
-    /* Properties of Vda.SqlCommand */
+    /* Properties of Vda-1.Vda.SqlCommand */
     readonly connection: Connection
-    /* Properties of Vda.SqlCommandConditional */
+    /* Properties of Vda-1.Vda.SqlCommandConditional */
     readonly condition: SqlExpression
-    /* Properties of Vda.SqlCommandParametrized */
+    /* Properties of Vda-1.Vda.SqlCommandParametrized */
     readonly parameters: SqlParameters
-    /* Properties of Vda.SqlCommandSelect */
+    /* Properties of Vda-1.Vda.SqlCommandSelect */
     readonly fields: HashModel
     readonly tables: HashModel
-    /* Fields of Vda.CommandSelect */
+    /* Fields of Vda-1.Vda.CommandSelect */
     parent_instance: GObject.Object
     priv: CommandSelectPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -6495,15 +6495,15 @@ export class CommandSelect {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of Vda.SqlCommand */
+    /* Methods of Vda-1.Vda.SqlCommand */
     get_connection(): Connection
-    /* Methods of Vda.SqlCommandConditional */
+    /* Methods of Vda-1.Vda.SqlCommandConditional */
     get_condition(): SqlExpression
-    /* Methods of Vda.Stringifiable */
+    /* Methods of Vda-1.Vda.Stringifiable */
     to_string(): string
-    /* Methods of Vda.SqlCommandParametrized */
+    /* Methods of Vda-1.Vda.SqlCommandParametrized */
     get_parameters(): SqlParameters
-    /* Methods of Vda.SqlCommandSelect */
+    /* Methods of Vda-1.Vda.SqlCommandSelect */
     add_field(field: string, table_ref?: string | null, alias?: string | null): void
     add_table(name: string, allias?: string | null): void
     add_value_field(val: any, allias?: string | null): void
@@ -6513,7 +6513,7 @@ export class CommandSelect {
     parse(sql: string): void
     get_fields(): HashModel
     get_tables(): HashModel
-    /* Virtual methods of Vda.CommandSelect */
+    /* Virtual methods of Vda-1.Vda.CommandSelect */
     vfunc_get_connection(): Connection
     vfunc_get_condition(): SqlExpression
     vfunc_to_string(): string
@@ -6527,7 +6527,7 @@ export class CommandSelect {
     vfunc_parse(sql: string): void
     vfunc_get_fields(): HashModel
     vfunc_get_tables(): HashModel
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -6535,7 +6535,7 @@ export class CommandSelect {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: CommandSelect, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: CommandSelect, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -6563,14 +6563,14 @@ export class CommandSelect {
 export interface CommandUpdate_ConstructProps extends CommandModification_ConstructProps {
 }
 export class CommandUpdate {
-    /* Properties of Vda.SqlCommandConditional */
+    /* Properties of Vda-1.Vda.SqlCommandConditional */
     readonly condition: SqlExpression
-    /* Fields of Vda.CommandUpdate */
+    /* Fields of Vda-1.Vda.CommandUpdate */
     parent_instance: CommandModification
     priv: CommandUpdatePrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -6592,21 +6592,21 @@ export class CommandUpdate {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of Vda.SqlCommandConditional */
+    /* Methods of Vda-1.Vda.SqlCommandConditional */
     get_condition(): SqlExpression
-    /* Methods of Vda.Stringifiable */
+    /* Methods of Vda-1.Vda.Stringifiable */
     to_string(): string
-    /* Methods of Vda.SqlCommandUpdate */
+    /* Methods of Vda-1.Vda.SqlCommandUpdate */
     stringify(): string
     to_query(name?: string | null): Query
     parse(sql: string): void
-    /* Virtual methods of Vda.CommandUpdate */
+    /* Virtual methods of Vda-1.Vda.CommandUpdate */
     vfunc_get_condition(): SqlExpression
     vfunc_to_string(): string
     vfunc_stringify(): string
     vfunc_to_query(name?: string | null): Query
     vfunc_parse(sql: string): void
-    /* Virtual methods of Vda.CommandModification */
+    /* Virtual methods of Vda-1.Vda.CommandModification */
     vfunc_get_connection(): Connection
     vfunc_get_table(): string
     vfunc_set_table(value: string): void
@@ -6620,7 +6620,7 @@ export class CommandUpdate {
     vfunc_get_fields(): HashModel
     vfunc_get_values(): HashModel
     vfunc_get_parameters(): SqlParameters
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -6628,7 +6628,7 @@ export class CommandUpdate {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: CommandUpdate, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: CommandUpdate, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -6650,20 +6650,20 @@ export interface ConnectionParameter_ConstructProps extends GObject.Object_Const
     value?: string
 }
 export class ConnectionParameter {
-    /* Properties of Vda.ConnectionParameter */
+    /* Properties of Vda-1.Vda.ConnectionParameter */
     name: string
     value: string
-    /* Fields of Vda.ConnectionParameter */
+    /* Fields of Vda-1.Vda.ConnectionParameter */
     parent_instance: GObject.Object
     priv: ConnectionParameterPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Vda.ConnectionParameter */
+    /* Methods of Vda-1.Vda.ConnectionParameter */
     get_name(): string
     set_name(value: string): void
     get_value(): string
     set_value(value: string): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -6685,7 +6685,7 @@ export class ConnectionParameter {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -6693,7 +6693,7 @@ export class ConnectionParameter {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: ConnectionParameter, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: ConnectionParameter, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -6715,20 +6715,20 @@ export class ConnectionParameter {
 export interface ConnectionParameterDbName_ConstructProps extends ConnectionParameter_ConstructProps {
 }
 export class ConnectionParameterDbName {
-    /* Properties of Vda.ConnectionParameter */
+    /* Properties of Vda-1.Vda.ConnectionParameter */
     name: string
     value: string
-    /* Fields of Vda.ConnectionParameterDbName */
+    /* Fields of Vda-1.Vda.ConnectionParameterDbName */
     parent_instance: ConnectionParameter
     priv: ConnectionParameterDbNamePrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Vda.ConnectionParameter */
+    /* Methods of Vda-1.Vda.ConnectionParameter */
     get_name(): string
     set_name(value: string): void
     get_value(): string
     set_value(value: string): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -6750,7 +6750,7 @@ export class ConnectionParameterDbName {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -6758,7 +6758,7 @@ export class ConnectionParameterDbName {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: ConnectionParameterDbName, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: ConnectionParameterDbName, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -6780,20 +6780,20 @@ export class ConnectionParameterDbName {
 export interface ConnectionParameterHost_ConstructProps extends ConnectionParameter_ConstructProps {
 }
 export class ConnectionParameterHost {
-    /* Properties of Vda.ConnectionParameter */
+    /* Properties of Vda-1.Vda.ConnectionParameter */
     name: string
     value: string
-    /* Fields of Vda.ConnectionParameterHost */
+    /* Fields of Vda-1.Vda.ConnectionParameterHost */
     parent_instance: ConnectionParameter
     priv: ConnectionParameterHostPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Vda.ConnectionParameter */
+    /* Methods of Vda-1.Vda.ConnectionParameter */
     get_name(): string
     set_name(value: string): void
     get_value(): string
     set_value(value: string): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -6815,7 +6815,7 @@ export class ConnectionParameterHost {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -6823,7 +6823,7 @@ export class ConnectionParameterHost {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: ConnectionParameterHost, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: ConnectionParameterHost, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -6845,20 +6845,20 @@ export class ConnectionParameterHost {
 export interface ConnectionParameterPort_ConstructProps extends ConnectionParameter_ConstructProps {
 }
 export class ConnectionParameterPort {
-    /* Properties of Vda.ConnectionParameter */
+    /* Properties of Vda-1.Vda.ConnectionParameter */
     name: string
     value: string
-    /* Fields of Vda.ConnectionParameterPort */
+    /* Fields of Vda-1.Vda.ConnectionParameterPort */
     parent_instance: ConnectionParameter
     priv: ConnectionParameterPortPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Vda.ConnectionParameter */
+    /* Methods of Vda-1.Vda.ConnectionParameter */
     get_name(): string
     set_name(value: string): void
     get_value(): string
     set_value(value: string): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -6880,7 +6880,7 @@ export class ConnectionParameterPort {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -6888,7 +6888,7 @@ export class ConnectionParameterPort {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: ConnectionParameterPort, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: ConnectionParameterPort, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -6910,20 +6910,20 @@ export class ConnectionParameterPort {
 export interface ConnectionParameterUserName_ConstructProps extends ConnectionParameter_ConstructProps {
 }
 export class ConnectionParameterUserName {
-    /* Properties of Vda.ConnectionParameter */
+    /* Properties of Vda-1.Vda.ConnectionParameter */
     name: string
     value: string
-    /* Fields of Vda.ConnectionParameterUserName */
+    /* Fields of Vda-1.Vda.ConnectionParameterUserName */
     parent_instance: ConnectionParameter
     priv: ConnectionParameterUserNamePrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Vda.ConnectionParameter */
+    /* Methods of Vda-1.Vda.ConnectionParameter */
     get_name(): string
     set_name(value: string): void
     get_value(): string
     set_value(value: string): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -6945,7 +6945,7 @@ export class ConnectionParameterUserName {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -6953,7 +6953,7 @@ export class ConnectionParameterUserName {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: ConnectionParameterUserName, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: ConnectionParameterUserName, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -6975,20 +6975,20 @@ export class ConnectionParameterUserName {
 export interface ConnectionParameterPassword_ConstructProps extends ConnectionParameter_ConstructProps {
 }
 export class ConnectionParameterPassword {
-    /* Properties of Vda.ConnectionParameter */
+    /* Properties of Vda-1.Vda.ConnectionParameter */
     name: string
     value: string
-    /* Fields of Vda.ConnectionParameterPassword */
+    /* Fields of Vda-1.Vda.ConnectionParameterPassword */
     parent_instance: ConnectionParameter
     priv: ConnectionParameterPasswordPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Vda.ConnectionParameter */
+    /* Methods of Vda-1.Vda.ConnectionParameter */
     get_name(): string
     set_name(value: string): void
     get_value(): string
     set_value(value: string): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -7010,7 +7010,7 @@ export class ConnectionParameterPassword {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -7018,7 +7018,7 @@ export class ConnectionParameterPassword {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: ConnectionParameterPassword, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: ConnectionParameterPassword, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -7040,26 +7040,26 @@ export class ConnectionParameterPassword {
 export interface ConnectionParameters_ConstructProps extends Gee.HashMap_ConstructProps {
 }
 export class ConnectionParameters {
-    /* Properties of Gee.AbstractMap */
+    /* Properties of Gee-0.8.Gee.AbstractMap */
     readonly size: number
     readonly read_only: boolean
     readonly keys: Gee.Set
     readonly values: Gee.Collection
     readonly entries: Gee.Set
     readonly read_only_view: Gee.Map
-    /* Fields of Vda.ConnectionParameters */
+    /* Fields of Vda-1.Vda.ConnectionParameters */
     parent_instance: Gee.HashMap
     priv: ConnectionParametersPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Vda.ConnectionParameters */
+    /* Methods of Vda-1.Vda.ConnectionParameters */
     parse(cnstring: string): void
     to_string(): string
-    /* Methods of Gee.HashMap */
+    /* Methods of Gee-0.8.Gee.HashMap */
     get_key_hash_func(): [ /* returnType */ Gee.HashDataFunc, /* result_target */ object | null ]
     get_key_equal_func(): [ /* returnType */ Gee.EqualDataFunc, /* result_target */ object | null ]
     get_value_equal_func(): [ /* returnType */ Gee.EqualDataFunc, /* result_target */ object | null ]
-    /* Methods of Gee.AbstractMap */
+    /* Methods of Gee-0.8.Gee.AbstractMap */
     has_key(key?: object | null): boolean
     has(key?: object | null, value?: object | null): boolean
     get(key?: object | null): object | null
@@ -7085,7 +7085,7 @@ export class ConnectionParameters {
     get_values(): Gee.Collection
     get_entries(): Gee.Set
     get_read_only_view(): Gee.Map
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -7107,9 +7107,9 @@ export class ConnectionParameters {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Vda.ConnectionParameters */
+    /* Virtual methods of Vda-1.Vda.ConnectionParameters */
     vfunc_parse(cnstring: string): void
-    /* Virtual methods of Gee.AbstractMap */
+    /* Virtual methods of Gee-0.8.Gee.AbstractMap */
     vfunc_has_key(key?: object | null): boolean
     vfunc_has(key?: object | null, value?: object | null): boolean
     vfunc_get(key?: object | null): object | null
@@ -7154,7 +7154,7 @@ export class ConnectionParameters {
     vfunc_unset_all(map: Gee.Map): boolean
     vfunc_has_all(map: Gee.Map): boolean
     vfunc_get_is_empty(): boolean
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -7162,7 +7162,7 @@ export class ConnectionParameters {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: ConnectionParameters, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: ConnectionParameters, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -7193,24 +7193,24 @@ export class ConnectionParameters {
 export interface Expression_ConstructProps extends Gee.ArrayList_ConstructProps {
 }
 export class Expression {
-    /* Properties of Gee.AbstractBidirList */
+    /* Properties of Gee-0.8.Gee.AbstractBidirList */
     readonly read_only_view: Gee.BidirList
-    /* Properties of Gee.AbstractCollection */
+    /* Properties of Gee-0.8.Gee.AbstractCollection */
     readonly size: number
     readonly read_only: boolean
-    /* Fields of Vda.Expression */
+    /* Fields of Vda-1.Vda.Expression */
     parent_instance: Gee.ArrayList
     priv: ExpressionPrivate
-    /* Fields of Gee.ArrayList */
+    /* Fields of Gee-0.8.Gee.ArrayList */
     _items: object[]
     _items_length1: number
     _size: number
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Gee.ArrayList */
+    /* Methods of Gee-0.8.Gee.ArrayList */
     add_all(collection: Gee.Collection): boolean
     get_equal_func(): [ /* returnType */ Gee.EqualDataFunc, /* result_target */ object | null ]
-    /* Methods of Gee.AbstractBidirList */
+    /* Methods of Gee-0.8.Gee.AbstractBidirList */
     bidir_list_iterator(): Gee.BidirListIterator
     reserved0(): void
     reserved1(): void
@@ -7223,7 +7223,7 @@ export class Expression {
     reserved8(): void
     reserved9(): void
     get_read_only_view(): Gee.BidirList
-    /* Methods of Gee.AbstractList */
+    /* Methods of Gee-0.8.Gee.AbstractList */
     list_iterator(): Gee.ListIterator
     get(index: number): object | null
     set(index: number, item?: object | null): void
@@ -7232,7 +7232,7 @@ export class Expression {
     remove_at(index: number): object | null
     slice(start: number, stop: number): Gee.List | null
     get_read_only_view(): Gee.List
-    /* Methods of Gee.AbstractCollection */
+    /* Methods of Gee-0.8.Gee.AbstractCollection */
     contains(item?: object | null): boolean
     add(item?: object | null): boolean
     remove(item?: object | null): boolean
@@ -7242,7 +7242,7 @@ export class Expression {
     get_size(): number
     get_read_only(): boolean
     get_read_only_view(): Gee.Collection
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -7264,17 +7264,17 @@ export class Expression {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of Gio.ListModel */
+    /* Methods of Gio-2.0.Gio.ListModel */
     get_item_type(): GObject.Type
     get_n_items(): number
     get_item(position: number): GObject.Object | null
     items_changed(position: number, removed: number, added: number): void
-    /* Methods of Vda.SqlExpression */
+    /* Methods of Vda-1.Vda.SqlExpression */
     add_expression(exp: SqlExpression): void
     remove_expression(exp: SqlExpression): void
     to_string(): string
     add_math_expression(str: string, cnc: Connection): void
-    /* Virtual methods of Vda.Expression */
+    /* Virtual methods of Vda-1.Vda.Expression */
     vfunc_get_item(position: number): GObject.Object | null
     vfunc_get_item_type(): GObject.Type
     vfunc_get_n_items(): number
@@ -7285,11 +7285,11 @@ export class Expression {
     vfunc_get_read_only_view(): Gee.BidirList
     vfunc_get_read_only_view(): Gee.List
     vfunc_get_read_only_view(): Gee.Collection
-    /* Virtual methods of Gee.ArrayList */
+    /* Virtual methods of Gee-0.8.Gee.ArrayList */
     vfunc_get_read_only_view(): Gee.BidirList
     vfunc_get_read_only_view(): Gee.List
     vfunc_get_read_only_view(): Gee.Collection
-    /* Virtual methods of Gee.AbstractBidirList */
+    /* Virtual methods of Gee-0.8.Gee.AbstractBidirList */
     vfunc_bidir_list_iterator(): Gee.BidirListIterator
     vfunc_reserved0(): void
     vfunc_reserved1(): void
@@ -7304,7 +7304,7 @@ export class Expression {
     vfunc_get_read_only_view(): Gee.BidirList
     vfunc_get_read_only_view(): Gee.List
     vfunc_get_read_only_view(): Gee.Collection
-    /* Virtual methods of Gee.AbstractList */
+    /* Virtual methods of Gee-0.8.Gee.AbstractList */
     vfunc_list_iterator(): Gee.ListIterator
     vfunc_get(index: number): object | null
     vfunc_set(index: number, item?: object | null): void
@@ -7328,7 +7328,7 @@ export class Expression {
     vfunc_last(): object | null
     vfunc_insert_all(index: number, collection: Gee.Collection): void
     vfunc_sort(compare_func: GLib.CompareDataFunc | null): void
-    /* Virtual methods of Gee.AbstractCollection */
+    /* Virtual methods of Gee-0.8.Gee.AbstractCollection */
     vfunc_contains(item?: object | null): boolean
     vfunc_add(item?: object | null): boolean
     vfunc_remove(item?: object | null): boolean
@@ -7375,7 +7375,7 @@ export class Expression {
     vfunc_contains_all_iterator(iter: Gee.Iterator): boolean
     vfunc_remove_all_iterator(iter: Gee.Iterator): boolean
     vfunc_get_is_empty(): boolean
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -7383,11 +7383,11 @@ export class Expression {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Expression, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Expression, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    /* Signals of Gio.ListModel */
+    /* Signals of Gio-2.0.Gio.ListModel */
     connect(sigName: "items-changed", callback: (($obj: Expression, position: number, removed: number, added: number) => void)): number
     connect_after(sigName: "items-changed", callback: (($obj: Expression, position: number, removed: number, added: number) => void)): number
     emit(sigName: "items-changed", position: number, removed: number, added: number): void
@@ -7416,28 +7416,28 @@ export interface ExpressionField_ConstructProps extends Expression_ConstructProp
     allias?: string
 }
 export class ExpressionField {
-    /* Properties of Gee.AbstractBidirList */
+    /* Properties of Gee-0.8.Gee.AbstractBidirList */
     readonly read_only_view: Gee.BidirList
-    /* Properties of Gee.AbstractCollection */
+    /* Properties of Gee-0.8.Gee.AbstractCollection */
     readonly size: number
     readonly read_only: boolean
-    /* Properties of Vda.SqlExpressionField */
+    /* Properties of Vda-1.Vda.SqlExpressionField */
     table_ref: string
     name: string
     allias: string
-    /* Fields of Vda.ExpressionField */
+    /* Fields of Vda-1.Vda.ExpressionField */
     parent_instance: Expression
     priv: ExpressionFieldPrivate
-    /* Fields of Gee.ArrayList */
+    /* Fields of Gee-0.8.Gee.ArrayList */
     _items: object[]
     _items_length1: number
     _size: number
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Gee.ArrayList */
+    /* Methods of Gee-0.8.Gee.ArrayList */
     add_all(collection: Gee.Collection): boolean
     get_equal_func(): [ /* returnType */ Gee.EqualDataFunc, /* result_target */ object | null ]
-    /* Methods of Gee.AbstractBidirList */
+    /* Methods of Gee-0.8.Gee.AbstractBidirList */
     bidir_list_iterator(): Gee.BidirListIterator
     reserved0(): void
     reserved1(): void
@@ -7450,7 +7450,7 @@ export class ExpressionField {
     reserved8(): void
     reserved9(): void
     get_read_only_view(): Gee.BidirList
-    /* Methods of Gee.AbstractList */
+    /* Methods of Gee-0.8.Gee.AbstractList */
     list_iterator(): Gee.ListIterator
     get(index: number): object | null
     set(index: number, item?: object | null): void
@@ -7459,7 +7459,7 @@ export class ExpressionField {
     remove_at(index: number): object | null
     slice(start: number, stop: number): Gee.List | null
     get_read_only_view(): Gee.List
-    /* Methods of Gee.AbstractCollection */
+    /* Methods of Gee-0.8.Gee.AbstractCollection */
     contains(item?: object | null): boolean
     add(item?: object | null): boolean
     remove(item?: object | null): boolean
@@ -7469,7 +7469,7 @@ export class ExpressionField {
     get_size(): number
     get_read_only(): boolean
     get_read_only_view(): Gee.Collection
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -7491,14 +7491,14 @@ export class ExpressionField {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of Vda.SqlExpressionField */
+    /* Methods of Vda-1.Vda.SqlExpressionField */
     get_table_ref(): string
     set_table_ref(value: string): void
     get_name(): string
     set_name(value: string): void
     get_allias(): string | null
     set_allias(value?: string | null): void
-    /* Virtual methods of Vda.ExpressionField */
+    /* Virtual methods of Vda-1.Vda.ExpressionField */
     vfunc_get_table_ref(): string
     vfunc_set_table_ref(value: string): void
     vfunc_get_name(): string
@@ -7508,7 +7508,7 @@ export class ExpressionField {
     vfunc_get_read_only_view(): Gee.BidirList
     vfunc_get_read_only_view(): Gee.List
     vfunc_get_read_only_view(): Gee.Collection
-    /* Virtual methods of Vda.Expression */
+    /* Virtual methods of Vda-1.Vda.Expression */
     vfunc_get_item(position: number): GObject.Object | null
     vfunc_get_item_type(): GObject.Type
     vfunc_get_n_items(): number
@@ -7519,11 +7519,11 @@ export class ExpressionField {
     vfunc_get_read_only_view(): Gee.BidirList
     vfunc_get_read_only_view(): Gee.List
     vfunc_get_read_only_view(): Gee.Collection
-    /* Virtual methods of Gee.ArrayList */
+    /* Virtual methods of Gee-0.8.Gee.ArrayList */
     vfunc_get_read_only_view(): Gee.BidirList
     vfunc_get_read_only_view(): Gee.List
     vfunc_get_read_only_view(): Gee.Collection
-    /* Virtual methods of Gee.AbstractBidirList */
+    /* Virtual methods of Gee-0.8.Gee.AbstractBidirList */
     vfunc_bidir_list_iterator(): Gee.BidirListIterator
     vfunc_reserved0(): void
     vfunc_reserved1(): void
@@ -7538,7 +7538,7 @@ export class ExpressionField {
     vfunc_get_read_only_view(): Gee.BidirList
     vfunc_get_read_only_view(): Gee.List
     vfunc_get_read_only_view(): Gee.Collection
-    /* Virtual methods of Gee.AbstractList */
+    /* Virtual methods of Gee-0.8.Gee.AbstractList */
     vfunc_list_iterator(): Gee.ListIterator
     vfunc_get(index: number): object | null
     vfunc_set(index: number, item?: object | null): void
@@ -7562,7 +7562,7 @@ export class ExpressionField {
     vfunc_last(): object | null
     vfunc_insert_all(index: number, collection: Gee.Collection): void
     vfunc_sort(compare_func: GLib.CompareDataFunc | null): void
-    /* Virtual methods of Gee.AbstractCollection */
+    /* Virtual methods of Gee-0.8.Gee.AbstractCollection */
     vfunc_contains(item?: object | null): boolean
     vfunc_add(item?: object | null): boolean
     vfunc_remove(item?: object | null): boolean
@@ -7609,7 +7609,7 @@ export class ExpressionField {
     vfunc_contains_all_iterator(iter: Gee.Iterator): boolean
     vfunc_remove_all_iterator(iter: Gee.Iterator): boolean
     vfunc_get_is_empty(): boolean
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -7617,7 +7617,7 @@ export class ExpressionField {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: ExpressionField, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: ExpressionField, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -7648,27 +7648,27 @@ export class ExpressionField {
 export interface ExpressionOperator_ConstructProps extends Expression_ConstructProps {
 }
 export class ExpressionOperator {
-    /* Properties of Gee.AbstractBidirList */
+    /* Properties of Gee-0.8.Gee.AbstractBidirList */
     readonly read_only_view: Gee.BidirList
-    /* Properties of Gee.AbstractCollection */
+    /* Properties of Gee-0.8.Gee.AbstractCollection */
     readonly size: number
     readonly read_only: boolean
-    /* Properties of Vda.SqlExpressionOperator */
+    /* Properties of Vda-1.Vda.SqlExpressionOperator */
     readonly operator_type: SqlExpressionOperatorType
-    /* Fields of Vda.ExpressionOperator */
+    /* Fields of Vda-1.Vda.ExpressionOperator */
     parent_instance: Expression
     priv: ExpressionOperatorPrivate
     _operator_type: SqlExpressionOperatorType
-    /* Fields of Gee.ArrayList */
+    /* Fields of Gee-0.8.Gee.ArrayList */
     _items: object[]
     _items_length1: number
     _size: number
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Gee.ArrayList */
+    /* Methods of Gee-0.8.Gee.ArrayList */
     add_all(collection: Gee.Collection): boolean
     get_equal_func(): [ /* returnType */ Gee.EqualDataFunc, /* result_target */ object | null ]
-    /* Methods of Gee.AbstractBidirList */
+    /* Methods of Gee-0.8.Gee.AbstractBidirList */
     bidir_list_iterator(): Gee.BidirListIterator
     reserved0(): void
     reserved1(): void
@@ -7681,7 +7681,7 @@ export class ExpressionOperator {
     reserved8(): void
     reserved9(): void
     get_read_only_view(): Gee.BidirList
-    /* Methods of Gee.AbstractList */
+    /* Methods of Gee-0.8.Gee.AbstractList */
     list_iterator(): Gee.ListIterator
     get(index: number): object | null
     set(index: number, item?: object | null): void
@@ -7690,7 +7690,7 @@ export class ExpressionOperator {
     remove_at(index: number): object | null
     slice(start: number, stop: number): Gee.List | null
     get_read_only_view(): Gee.List
-    /* Methods of Gee.AbstractCollection */
+    /* Methods of Gee-0.8.Gee.AbstractCollection */
     contains(item?: object | null): boolean
     add(item?: object | null): boolean
     remove(item?: object | null): boolean
@@ -7700,7 +7700,7 @@ export class ExpressionOperator {
     get_size(): number
     get_read_only(): boolean
     get_read_only_view(): Gee.Collection
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -7722,7 +7722,7 @@ export class ExpressionOperator {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of Vda.SqlExpressionOperator */
+    /* Methods of Vda-1.Vda.SqlExpressionOperator */
     create_field_expression(name: string): SqlExpressionField
     create_value_expression(val: any | null, cnc: Connection): SqlExpressionValue
     create_parameter_expression(name: string, gtype: GObject.Type): SqlExpressionValueParameter
@@ -7759,7 +7759,7 @@ export class ExpressionOperator {
     add_is_distinct_from_operator(exp1: SqlExpression, exp2: SqlExpression): SqlExpressionOperator
     add_is_not_distinct_from_operator(exp1: SqlExpression, exp2: SqlExpression): SqlExpressionOperator
     get_operator_type(): SqlExpressionOperatorType
-    /* Virtual methods of Vda.ExpressionOperator */
+    /* Virtual methods of Vda-1.Vda.ExpressionOperator */
     vfunc_create_field_expression(name: string): SqlExpressionField
     vfunc_create_value_expression(val: any | null, cnc: Connection): SqlExpressionValue
     vfunc_create_parameter_expression(name: string, gtype: GObject.Type): SqlExpressionValueParameter
@@ -7799,7 +7799,7 @@ export class ExpressionOperator {
     vfunc_get_read_only_view(): Gee.BidirList
     vfunc_get_read_only_view(): Gee.List
     vfunc_get_read_only_view(): Gee.Collection
-    /* Virtual methods of Vda.Expression */
+    /* Virtual methods of Vda-1.Vda.Expression */
     vfunc_get_item(position: number): GObject.Object | null
     vfunc_get_item_type(): GObject.Type
     vfunc_get_n_items(): number
@@ -7810,11 +7810,11 @@ export class ExpressionOperator {
     vfunc_get_read_only_view(): Gee.BidirList
     vfunc_get_read_only_view(): Gee.List
     vfunc_get_read_only_view(): Gee.Collection
-    /* Virtual methods of Gee.ArrayList */
+    /* Virtual methods of Gee-0.8.Gee.ArrayList */
     vfunc_get_read_only_view(): Gee.BidirList
     vfunc_get_read_only_view(): Gee.List
     vfunc_get_read_only_view(): Gee.Collection
-    /* Virtual methods of Gee.AbstractBidirList */
+    /* Virtual methods of Gee-0.8.Gee.AbstractBidirList */
     vfunc_bidir_list_iterator(): Gee.BidirListIterator
     vfunc_reserved0(): void
     vfunc_reserved1(): void
@@ -7829,7 +7829,7 @@ export class ExpressionOperator {
     vfunc_get_read_only_view(): Gee.BidirList
     vfunc_get_read_only_view(): Gee.List
     vfunc_get_read_only_view(): Gee.Collection
-    /* Virtual methods of Gee.AbstractList */
+    /* Virtual methods of Gee-0.8.Gee.AbstractList */
     vfunc_list_iterator(): Gee.ListIterator
     vfunc_get(index: number): object | null
     vfunc_set(index: number, item?: object | null): void
@@ -7853,7 +7853,7 @@ export class ExpressionOperator {
     vfunc_last(): object | null
     vfunc_insert_all(index: number, collection: Gee.Collection): void
     vfunc_sort(compare_func: GLib.CompareDataFunc | null): void
-    /* Virtual methods of Gee.AbstractCollection */
+    /* Virtual methods of Gee-0.8.Gee.AbstractCollection */
     vfunc_contains(item?: object | null): boolean
     vfunc_add(item?: object | null): boolean
     vfunc_remove(item?: object | null): boolean
@@ -7900,7 +7900,7 @@ export class ExpressionOperator {
     vfunc_contains_all_iterator(iter: Gee.Iterator): boolean
     vfunc_remove_all_iterator(iter: Gee.Iterator): boolean
     vfunc_get_is_empty(): boolean
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -7908,7 +7908,7 @@ export class ExpressionOperator {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: ExpressionOperator, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: ExpressionOperator, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -7935,26 +7935,26 @@ export class ExpressionOperator {
 export interface ExpressionOperatorGroup_ConstructProps extends ExpressionOperator_ConstructProps {
 }
 export class ExpressionOperatorGroup {
-    /* Properties of Gee.AbstractBidirList */
+    /* Properties of Gee-0.8.Gee.AbstractBidirList */
     readonly read_only_view: Gee.BidirList
-    /* Properties of Gee.AbstractCollection */
+    /* Properties of Gee-0.8.Gee.AbstractCollection */
     readonly size: number
     readonly read_only: boolean
-    /* Fields of Vda.ExpressionOperatorGroup */
+    /* Fields of Vda-1.Vda.ExpressionOperatorGroup */
     parent_instance: ExpressionOperator
     priv: ExpressionOperatorGroupPrivate
-    /* Fields of Vda.ExpressionOperator */
+    /* Fields of Vda-1.Vda.ExpressionOperator */
     _operator_type: SqlExpressionOperatorType
-    /* Fields of Gee.ArrayList */
+    /* Fields of Gee-0.8.Gee.ArrayList */
     _items: object[]
     _items_length1: number
     _size: number
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Gee.ArrayList */
+    /* Methods of Gee-0.8.Gee.ArrayList */
     add_all(collection: Gee.Collection): boolean
     get_equal_func(): [ /* returnType */ Gee.EqualDataFunc, /* result_target */ object | null ]
-    /* Methods of Gee.AbstractBidirList */
+    /* Methods of Gee-0.8.Gee.AbstractBidirList */
     bidir_list_iterator(): Gee.BidirListIterator
     reserved0(): void
     reserved1(): void
@@ -7967,7 +7967,7 @@ export class ExpressionOperatorGroup {
     reserved8(): void
     reserved9(): void
     get_read_only_view(): Gee.BidirList
-    /* Methods of Gee.AbstractList */
+    /* Methods of Gee-0.8.Gee.AbstractList */
     list_iterator(): Gee.ListIterator
     get(index: number): object | null
     set(index: number, item?: object | null): void
@@ -7976,7 +7976,7 @@ export class ExpressionOperatorGroup {
     remove_at(index: number): object | null
     slice(start: number, stop: number): Gee.List | null
     get_read_only_view(): Gee.List
-    /* Methods of Gee.AbstractCollection */
+    /* Methods of Gee-0.8.Gee.AbstractCollection */
     contains(item?: object | null): boolean
     add(item?: object | null): boolean
     remove(item?: object | null): boolean
@@ -7986,7 +7986,7 @@ export class ExpressionOperatorGroup {
     get_size(): number
     get_read_only(): boolean
     get_read_only_view(): Gee.Collection
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -8008,11 +8008,11 @@ export class ExpressionOperatorGroup {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Vda.ExpressionOperatorGroup */
+    /* Virtual methods of Vda-1.Vda.ExpressionOperatorGroup */
     vfunc_get_read_only_view(): Gee.BidirList
     vfunc_get_read_only_view(): Gee.List
     vfunc_get_read_only_view(): Gee.Collection
-    /* Virtual methods of Vda.ExpressionOperator */
+    /* Virtual methods of Vda-1.Vda.ExpressionOperator */
     vfunc_create_field_expression(name: string): SqlExpressionField
     vfunc_create_value_expression(val: any | null, cnc: Connection): SqlExpressionValue
     vfunc_create_parameter_expression(name: string, gtype: GObject.Type): SqlExpressionValueParameter
@@ -8052,7 +8052,7 @@ export class ExpressionOperatorGroup {
     vfunc_get_read_only_view(): Gee.BidirList
     vfunc_get_read_only_view(): Gee.List
     vfunc_get_read_only_view(): Gee.Collection
-    /* Virtual methods of Vda.Expression */
+    /* Virtual methods of Vda-1.Vda.Expression */
     vfunc_get_item(position: number): GObject.Object | null
     vfunc_get_item_type(): GObject.Type
     vfunc_get_n_items(): number
@@ -8063,11 +8063,11 @@ export class ExpressionOperatorGroup {
     vfunc_get_read_only_view(): Gee.BidirList
     vfunc_get_read_only_view(): Gee.List
     vfunc_get_read_only_view(): Gee.Collection
-    /* Virtual methods of Gee.ArrayList */
+    /* Virtual methods of Gee-0.8.Gee.ArrayList */
     vfunc_get_read_only_view(): Gee.BidirList
     vfunc_get_read_only_view(): Gee.List
     vfunc_get_read_only_view(): Gee.Collection
-    /* Virtual methods of Gee.AbstractBidirList */
+    /* Virtual methods of Gee-0.8.Gee.AbstractBidirList */
     vfunc_bidir_list_iterator(): Gee.BidirListIterator
     vfunc_reserved0(): void
     vfunc_reserved1(): void
@@ -8082,7 +8082,7 @@ export class ExpressionOperatorGroup {
     vfunc_get_read_only_view(): Gee.BidirList
     vfunc_get_read_only_view(): Gee.List
     vfunc_get_read_only_view(): Gee.Collection
-    /* Virtual methods of Gee.AbstractList */
+    /* Virtual methods of Gee-0.8.Gee.AbstractList */
     vfunc_list_iterator(): Gee.ListIterator
     vfunc_get(index: number): object | null
     vfunc_set(index: number, item?: object | null): void
@@ -8106,7 +8106,7 @@ export class ExpressionOperatorGroup {
     vfunc_last(): object | null
     vfunc_insert_all(index: number, collection: Gee.Collection): void
     vfunc_sort(compare_func: GLib.CompareDataFunc | null): void
-    /* Virtual methods of Gee.AbstractCollection */
+    /* Virtual methods of Gee-0.8.Gee.AbstractCollection */
     vfunc_contains(item?: object | null): boolean
     vfunc_add(item?: object | null): boolean
     vfunc_remove(item?: object | null): boolean
@@ -8153,7 +8153,7 @@ export class ExpressionOperatorGroup {
     vfunc_contains_all_iterator(iter: Gee.Iterator): boolean
     vfunc_remove_all_iterator(iter: Gee.Iterator): boolean
     vfunc_get_is_empty(): boolean
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -8161,7 +8161,7 @@ export class ExpressionOperatorGroup {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: ExpressionOperatorGroup, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: ExpressionOperatorGroup, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -8186,27 +8186,27 @@ export class ExpressionOperatorGroup {
 export interface ExpressionOperatorMultiterm_ConstructProps extends ExpressionOperator_ConstructProps {
 }
 export class ExpressionOperatorMultiterm {
-    /* Properties of Gee.AbstractBidirList */
+    /* Properties of Gee-0.8.Gee.AbstractBidirList */
     readonly read_only_view: Gee.BidirList
-    /* Properties of Gee.AbstractCollection */
+    /* Properties of Gee-0.8.Gee.AbstractCollection */
     readonly size: number
     readonly read_only: boolean
-    /* Fields of Vda.ExpressionOperatorMultiterm */
+    /* Fields of Vda-1.Vda.ExpressionOperatorMultiterm */
     parent_instance: ExpressionOperator
     priv: ExpressionOperatorMultitermPrivate
     _operator_name: string
-    /* Fields of Vda.ExpressionOperator */
+    /* Fields of Vda-1.Vda.ExpressionOperator */
     _operator_type: SqlExpressionOperatorType
-    /* Fields of Gee.ArrayList */
+    /* Fields of Gee-0.8.Gee.ArrayList */
     _items: object[]
     _items_length1: number
     _size: number
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Gee.ArrayList */
+    /* Methods of Gee-0.8.Gee.ArrayList */
     add_all(collection: Gee.Collection): boolean
     get_equal_func(): [ /* returnType */ Gee.EqualDataFunc, /* result_target */ object | null ]
-    /* Methods of Gee.AbstractBidirList */
+    /* Methods of Gee-0.8.Gee.AbstractBidirList */
     bidir_list_iterator(): Gee.BidirListIterator
     reserved0(): void
     reserved1(): void
@@ -8219,7 +8219,7 @@ export class ExpressionOperatorMultiterm {
     reserved8(): void
     reserved9(): void
     get_read_only_view(): Gee.BidirList
-    /* Methods of Gee.AbstractList */
+    /* Methods of Gee-0.8.Gee.AbstractList */
     list_iterator(): Gee.ListIterator
     get(index: number): object | null
     set(index: number, item?: object | null): void
@@ -8228,7 +8228,7 @@ export class ExpressionOperatorMultiterm {
     remove_at(index: number): object | null
     slice(start: number, stop: number): Gee.List | null
     get_read_only_view(): Gee.List
-    /* Methods of Gee.AbstractCollection */
+    /* Methods of Gee-0.8.Gee.AbstractCollection */
     contains(item?: object | null): boolean
     add(item?: object | null): boolean
     remove(item?: object | null): boolean
@@ -8238,7 +8238,7 @@ export class ExpressionOperatorMultiterm {
     get_size(): number
     get_read_only(): boolean
     get_read_only_view(): Gee.Collection
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -8260,11 +8260,11 @@ export class ExpressionOperatorMultiterm {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Vda.ExpressionOperatorMultiterm */
+    /* Virtual methods of Vda-1.Vda.ExpressionOperatorMultiterm */
     vfunc_get_read_only_view(): Gee.BidirList
     vfunc_get_read_only_view(): Gee.List
     vfunc_get_read_only_view(): Gee.Collection
-    /* Virtual methods of Vda.ExpressionOperator */
+    /* Virtual methods of Vda-1.Vda.ExpressionOperator */
     vfunc_create_field_expression(name: string): SqlExpressionField
     vfunc_create_value_expression(val: any | null, cnc: Connection): SqlExpressionValue
     vfunc_create_parameter_expression(name: string, gtype: GObject.Type): SqlExpressionValueParameter
@@ -8304,7 +8304,7 @@ export class ExpressionOperatorMultiterm {
     vfunc_get_read_only_view(): Gee.BidirList
     vfunc_get_read_only_view(): Gee.List
     vfunc_get_read_only_view(): Gee.Collection
-    /* Virtual methods of Vda.Expression */
+    /* Virtual methods of Vda-1.Vda.Expression */
     vfunc_get_item(position: number): GObject.Object | null
     vfunc_get_item_type(): GObject.Type
     vfunc_get_n_items(): number
@@ -8315,11 +8315,11 @@ export class ExpressionOperatorMultiterm {
     vfunc_get_read_only_view(): Gee.BidirList
     vfunc_get_read_only_view(): Gee.List
     vfunc_get_read_only_view(): Gee.Collection
-    /* Virtual methods of Gee.ArrayList */
+    /* Virtual methods of Gee-0.8.Gee.ArrayList */
     vfunc_get_read_only_view(): Gee.BidirList
     vfunc_get_read_only_view(): Gee.List
     vfunc_get_read_only_view(): Gee.Collection
-    /* Virtual methods of Gee.AbstractBidirList */
+    /* Virtual methods of Gee-0.8.Gee.AbstractBidirList */
     vfunc_bidir_list_iterator(): Gee.BidirListIterator
     vfunc_reserved0(): void
     vfunc_reserved1(): void
@@ -8334,7 +8334,7 @@ export class ExpressionOperatorMultiterm {
     vfunc_get_read_only_view(): Gee.BidirList
     vfunc_get_read_only_view(): Gee.List
     vfunc_get_read_only_view(): Gee.Collection
-    /* Virtual methods of Gee.AbstractList */
+    /* Virtual methods of Gee-0.8.Gee.AbstractList */
     vfunc_list_iterator(): Gee.ListIterator
     vfunc_get(index: number): object | null
     vfunc_set(index: number, item?: object | null): void
@@ -8358,7 +8358,7 @@ export class ExpressionOperatorMultiterm {
     vfunc_last(): object | null
     vfunc_insert_all(index: number, collection: Gee.Collection): void
     vfunc_sort(compare_func: GLib.CompareDataFunc | null): void
-    /* Virtual methods of Gee.AbstractCollection */
+    /* Virtual methods of Gee-0.8.Gee.AbstractCollection */
     vfunc_contains(item?: object | null): boolean
     vfunc_add(item?: object | null): boolean
     vfunc_remove(item?: object | null): boolean
@@ -8405,7 +8405,7 @@ export class ExpressionOperatorMultiterm {
     vfunc_contains_all_iterator(iter: Gee.Iterator): boolean
     vfunc_remove_all_iterator(iter: Gee.Iterator): boolean
     vfunc_get_is_empty(): boolean
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -8413,7 +8413,7 @@ export class ExpressionOperatorMultiterm {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: ExpressionOperatorMultiterm, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: ExpressionOperatorMultiterm, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -8438,28 +8438,28 @@ export class ExpressionOperatorMultiterm {
 export interface ExpressionOperatorAnd_ConstructProps extends ExpressionOperatorMultiterm_ConstructProps {
 }
 export class ExpressionOperatorAnd {
-    /* Properties of Gee.AbstractBidirList */
+    /* Properties of Gee-0.8.Gee.AbstractBidirList */
     readonly read_only_view: Gee.BidirList
-    /* Properties of Gee.AbstractCollection */
+    /* Properties of Gee-0.8.Gee.AbstractCollection */
     readonly size: number
     readonly read_only: boolean
-    /* Fields of Vda.ExpressionOperatorAnd */
+    /* Fields of Vda-1.Vda.ExpressionOperatorAnd */
     parent_instance: ExpressionOperatorMultiterm
     priv: ExpressionOperatorAndPrivate
-    /* Fields of Vda.ExpressionOperatorMultiterm */
+    /* Fields of Vda-1.Vda.ExpressionOperatorMultiterm */
     _operator_name: string
-    /* Fields of Vda.ExpressionOperator */
+    /* Fields of Vda-1.Vda.ExpressionOperator */
     _operator_type: SqlExpressionOperatorType
-    /* Fields of Gee.ArrayList */
+    /* Fields of Gee-0.8.Gee.ArrayList */
     _items: object[]
     _items_length1: number
     _size: number
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Gee.ArrayList */
+    /* Methods of Gee-0.8.Gee.ArrayList */
     add_all(collection: Gee.Collection): boolean
     get_equal_func(): [ /* returnType */ Gee.EqualDataFunc, /* result_target */ object | null ]
-    /* Methods of Gee.AbstractBidirList */
+    /* Methods of Gee-0.8.Gee.AbstractBidirList */
     bidir_list_iterator(): Gee.BidirListIterator
     reserved0(): void
     reserved1(): void
@@ -8472,7 +8472,7 @@ export class ExpressionOperatorAnd {
     reserved8(): void
     reserved9(): void
     get_read_only_view(): Gee.BidirList
-    /* Methods of Gee.AbstractList */
+    /* Methods of Gee-0.8.Gee.AbstractList */
     list_iterator(): Gee.ListIterator
     get(index: number): object | null
     set(index: number, item?: object | null): void
@@ -8481,7 +8481,7 @@ export class ExpressionOperatorAnd {
     remove_at(index: number): object | null
     slice(start: number, stop: number): Gee.List | null
     get_read_only_view(): Gee.List
-    /* Methods of Gee.AbstractCollection */
+    /* Methods of Gee-0.8.Gee.AbstractCollection */
     contains(item?: object | null): boolean
     add(item?: object | null): boolean
     remove(item?: object | null): boolean
@@ -8491,7 +8491,7 @@ export class ExpressionOperatorAnd {
     get_size(): number
     get_read_only(): boolean
     get_read_only_view(): Gee.Collection
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -8513,15 +8513,15 @@ export class ExpressionOperatorAnd {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Vda.ExpressionOperatorAnd */
+    /* Virtual methods of Vda-1.Vda.ExpressionOperatorAnd */
     vfunc_get_read_only_view(): Gee.BidirList
     vfunc_get_read_only_view(): Gee.List
     vfunc_get_read_only_view(): Gee.Collection
-    /* Virtual methods of Vda.ExpressionOperatorMultiterm */
+    /* Virtual methods of Vda-1.Vda.ExpressionOperatorMultiterm */
     vfunc_get_read_only_view(): Gee.BidirList
     vfunc_get_read_only_view(): Gee.List
     vfunc_get_read_only_view(): Gee.Collection
-    /* Virtual methods of Vda.ExpressionOperator */
+    /* Virtual methods of Vda-1.Vda.ExpressionOperator */
     vfunc_create_field_expression(name: string): SqlExpressionField
     vfunc_create_value_expression(val: any | null, cnc: Connection): SqlExpressionValue
     vfunc_create_parameter_expression(name: string, gtype: GObject.Type): SqlExpressionValueParameter
@@ -8561,7 +8561,7 @@ export class ExpressionOperatorAnd {
     vfunc_get_read_only_view(): Gee.BidirList
     vfunc_get_read_only_view(): Gee.List
     vfunc_get_read_only_view(): Gee.Collection
-    /* Virtual methods of Vda.Expression */
+    /* Virtual methods of Vda-1.Vda.Expression */
     vfunc_get_item(position: number): GObject.Object | null
     vfunc_get_item_type(): GObject.Type
     vfunc_get_n_items(): number
@@ -8572,11 +8572,11 @@ export class ExpressionOperatorAnd {
     vfunc_get_read_only_view(): Gee.BidirList
     vfunc_get_read_only_view(): Gee.List
     vfunc_get_read_only_view(): Gee.Collection
-    /* Virtual methods of Gee.ArrayList */
+    /* Virtual methods of Gee-0.8.Gee.ArrayList */
     vfunc_get_read_only_view(): Gee.BidirList
     vfunc_get_read_only_view(): Gee.List
     vfunc_get_read_only_view(): Gee.Collection
-    /* Virtual methods of Gee.AbstractBidirList */
+    /* Virtual methods of Gee-0.8.Gee.AbstractBidirList */
     vfunc_bidir_list_iterator(): Gee.BidirListIterator
     vfunc_reserved0(): void
     vfunc_reserved1(): void
@@ -8591,7 +8591,7 @@ export class ExpressionOperatorAnd {
     vfunc_get_read_only_view(): Gee.BidirList
     vfunc_get_read_only_view(): Gee.List
     vfunc_get_read_only_view(): Gee.Collection
-    /* Virtual methods of Gee.AbstractList */
+    /* Virtual methods of Gee-0.8.Gee.AbstractList */
     vfunc_list_iterator(): Gee.ListIterator
     vfunc_get(index: number): object | null
     vfunc_set(index: number, item?: object | null): void
@@ -8615,7 +8615,7 @@ export class ExpressionOperatorAnd {
     vfunc_last(): object | null
     vfunc_insert_all(index: number, collection: Gee.Collection): void
     vfunc_sort(compare_func: GLib.CompareDataFunc | null): void
-    /* Virtual methods of Gee.AbstractCollection */
+    /* Virtual methods of Gee-0.8.Gee.AbstractCollection */
     vfunc_contains(item?: object | null): boolean
     vfunc_add(item?: object | null): boolean
     vfunc_remove(item?: object | null): boolean
@@ -8662,7 +8662,7 @@ export class ExpressionOperatorAnd {
     vfunc_contains_all_iterator(iter: Gee.Iterator): boolean
     vfunc_remove_all_iterator(iter: Gee.Iterator): boolean
     vfunc_get_is_empty(): boolean
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -8670,7 +8670,7 @@ export class ExpressionOperatorAnd {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: ExpressionOperatorAnd, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: ExpressionOperatorAnd, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -8695,28 +8695,28 @@ export class ExpressionOperatorAnd {
 export interface ExpressionOperatorOr_ConstructProps extends ExpressionOperatorMultiterm_ConstructProps {
 }
 export class ExpressionOperatorOr {
-    /* Properties of Gee.AbstractBidirList */
+    /* Properties of Gee-0.8.Gee.AbstractBidirList */
     readonly read_only_view: Gee.BidirList
-    /* Properties of Gee.AbstractCollection */
+    /* Properties of Gee-0.8.Gee.AbstractCollection */
     readonly size: number
     readonly read_only: boolean
-    /* Fields of Vda.ExpressionOperatorOr */
+    /* Fields of Vda-1.Vda.ExpressionOperatorOr */
     parent_instance: ExpressionOperatorMultiterm
     priv: ExpressionOperatorOrPrivate
-    /* Fields of Vda.ExpressionOperatorMultiterm */
+    /* Fields of Vda-1.Vda.ExpressionOperatorMultiterm */
     _operator_name: string
-    /* Fields of Vda.ExpressionOperator */
+    /* Fields of Vda-1.Vda.ExpressionOperator */
     _operator_type: SqlExpressionOperatorType
-    /* Fields of Gee.ArrayList */
+    /* Fields of Gee-0.8.Gee.ArrayList */
     _items: object[]
     _items_length1: number
     _size: number
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Gee.ArrayList */
+    /* Methods of Gee-0.8.Gee.ArrayList */
     add_all(collection: Gee.Collection): boolean
     get_equal_func(): [ /* returnType */ Gee.EqualDataFunc, /* result_target */ object | null ]
-    /* Methods of Gee.AbstractBidirList */
+    /* Methods of Gee-0.8.Gee.AbstractBidirList */
     bidir_list_iterator(): Gee.BidirListIterator
     reserved0(): void
     reserved1(): void
@@ -8729,7 +8729,7 @@ export class ExpressionOperatorOr {
     reserved8(): void
     reserved9(): void
     get_read_only_view(): Gee.BidirList
-    /* Methods of Gee.AbstractList */
+    /* Methods of Gee-0.8.Gee.AbstractList */
     list_iterator(): Gee.ListIterator
     get(index: number): object | null
     set(index: number, item?: object | null): void
@@ -8738,7 +8738,7 @@ export class ExpressionOperatorOr {
     remove_at(index: number): object | null
     slice(start: number, stop: number): Gee.List | null
     get_read_only_view(): Gee.List
-    /* Methods of Gee.AbstractCollection */
+    /* Methods of Gee-0.8.Gee.AbstractCollection */
     contains(item?: object | null): boolean
     add(item?: object | null): boolean
     remove(item?: object | null): boolean
@@ -8748,7 +8748,7 @@ export class ExpressionOperatorOr {
     get_size(): number
     get_read_only(): boolean
     get_read_only_view(): Gee.Collection
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -8770,15 +8770,15 @@ export class ExpressionOperatorOr {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Vda.ExpressionOperatorOr */
+    /* Virtual methods of Vda-1.Vda.ExpressionOperatorOr */
     vfunc_get_read_only_view(): Gee.BidirList
     vfunc_get_read_only_view(): Gee.List
     vfunc_get_read_only_view(): Gee.Collection
-    /* Virtual methods of Vda.ExpressionOperatorMultiterm */
+    /* Virtual methods of Vda-1.Vda.ExpressionOperatorMultiterm */
     vfunc_get_read_only_view(): Gee.BidirList
     vfunc_get_read_only_view(): Gee.List
     vfunc_get_read_only_view(): Gee.Collection
-    /* Virtual methods of Vda.ExpressionOperator */
+    /* Virtual methods of Vda-1.Vda.ExpressionOperator */
     vfunc_create_field_expression(name: string): SqlExpressionField
     vfunc_create_value_expression(val: any | null, cnc: Connection): SqlExpressionValue
     vfunc_create_parameter_expression(name: string, gtype: GObject.Type): SqlExpressionValueParameter
@@ -8818,7 +8818,7 @@ export class ExpressionOperatorOr {
     vfunc_get_read_only_view(): Gee.BidirList
     vfunc_get_read_only_view(): Gee.List
     vfunc_get_read_only_view(): Gee.Collection
-    /* Virtual methods of Vda.Expression */
+    /* Virtual methods of Vda-1.Vda.Expression */
     vfunc_get_item(position: number): GObject.Object | null
     vfunc_get_item_type(): GObject.Type
     vfunc_get_n_items(): number
@@ -8829,11 +8829,11 @@ export class ExpressionOperatorOr {
     vfunc_get_read_only_view(): Gee.BidirList
     vfunc_get_read_only_view(): Gee.List
     vfunc_get_read_only_view(): Gee.Collection
-    /* Virtual methods of Gee.ArrayList */
+    /* Virtual methods of Gee-0.8.Gee.ArrayList */
     vfunc_get_read_only_view(): Gee.BidirList
     vfunc_get_read_only_view(): Gee.List
     vfunc_get_read_only_view(): Gee.Collection
-    /* Virtual methods of Gee.AbstractBidirList */
+    /* Virtual methods of Gee-0.8.Gee.AbstractBidirList */
     vfunc_bidir_list_iterator(): Gee.BidirListIterator
     vfunc_reserved0(): void
     vfunc_reserved1(): void
@@ -8848,7 +8848,7 @@ export class ExpressionOperatorOr {
     vfunc_get_read_only_view(): Gee.BidirList
     vfunc_get_read_only_view(): Gee.List
     vfunc_get_read_only_view(): Gee.Collection
-    /* Virtual methods of Gee.AbstractList */
+    /* Virtual methods of Gee-0.8.Gee.AbstractList */
     vfunc_list_iterator(): Gee.ListIterator
     vfunc_get(index: number): object | null
     vfunc_set(index: number, item?: object | null): void
@@ -8872,7 +8872,7 @@ export class ExpressionOperatorOr {
     vfunc_last(): object | null
     vfunc_insert_all(index: number, collection: Gee.Collection): void
     vfunc_sort(compare_func: GLib.CompareDataFunc | null): void
-    /* Virtual methods of Gee.AbstractCollection */
+    /* Virtual methods of Gee-0.8.Gee.AbstractCollection */
     vfunc_contains(item?: object | null): boolean
     vfunc_add(item?: object | null): boolean
     vfunc_remove(item?: object | null): boolean
@@ -8919,7 +8919,7 @@ export class ExpressionOperatorOr {
     vfunc_contains_all_iterator(iter: Gee.Iterator): boolean
     vfunc_remove_all_iterator(iter: Gee.Iterator): boolean
     vfunc_get_is_empty(): boolean
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -8927,7 +8927,7 @@ export class ExpressionOperatorOr {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: ExpressionOperatorOr, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: ExpressionOperatorOr, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -8952,27 +8952,27 @@ export class ExpressionOperatorOr {
 export interface ExpressionOperatorBinaryterm_ConstructProps extends ExpressionOperator_ConstructProps {
 }
 export class ExpressionOperatorBinaryterm {
-    /* Properties of Gee.AbstractBidirList */
+    /* Properties of Gee-0.8.Gee.AbstractBidirList */
     readonly read_only_view: Gee.BidirList
-    /* Properties of Gee.AbstractCollection */
+    /* Properties of Gee-0.8.Gee.AbstractCollection */
     readonly size: number
     readonly read_only: boolean
-    /* Fields of Vda.ExpressionOperatorBinaryterm */
+    /* Fields of Vda-1.Vda.ExpressionOperatorBinaryterm */
     parent_instance: ExpressionOperator
     priv: ExpressionOperatorBinarytermPrivate
     _operator_name: string
-    /* Fields of Vda.ExpressionOperator */
+    /* Fields of Vda-1.Vda.ExpressionOperator */
     _operator_type: SqlExpressionOperatorType
-    /* Fields of Gee.ArrayList */
+    /* Fields of Gee-0.8.Gee.ArrayList */
     _items: object[]
     _items_length1: number
     _size: number
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Gee.ArrayList */
+    /* Methods of Gee-0.8.Gee.ArrayList */
     add_all(collection: Gee.Collection): boolean
     get_equal_func(): [ /* returnType */ Gee.EqualDataFunc, /* result_target */ object | null ]
-    /* Methods of Gee.AbstractBidirList */
+    /* Methods of Gee-0.8.Gee.AbstractBidirList */
     bidir_list_iterator(): Gee.BidirListIterator
     reserved0(): void
     reserved1(): void
@@ -8985,7 +8985,7 @@ export class ExpressionOperatorBinaryterm {
     reserved8(): void
     reserved9(): void
     get_read_only_view(): Gee.BidirList
-    /* Methods of Gee.AbstractList */
+    /* Methods of Gee-0.8.Gee.AbstractList */
     list_iterator(): Gee.ListIterator
     get(index: number): object | null
     set(index: number, item?: object | null): void
@@ -8994,7 +8994,7 @@ export class ExpressionOperatorBinaryterm {
     remove_at(index: number): object | null
     slice(start: number, stop: number): Gee.List | null
     get_read_only_view(): Gee.List
-    /* Methods of Gee.AbstractCollection */
+    /* Methods of Gee-0.8.Gee.AbstractCollection */
     contains(item?: object | null): boolean
     add(item?: object | null): boolean
     remove(item?: object | null): boolean
@@ -9004,7 +9004,7 @@ export class ExpressionOperatorBinaryterm {
     get_size(): number
     get_read_only(): boolean
     get_read_only_view(): Gee.Collection
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -9026,11 +9026,11 @@ export class ExpressionOperatorBinaryterm {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Vda.ExpressionOperatorBinaryterm */
+    /* Virtual methods of Vda-1.Vda.ExpressionOperatorBinaryterm */
     vfunc_get_read_only_view(): Gee.BidirList
     vfunc_get_read_only_view(): Gee.List
     vfunc_get_read_only_view(): Gee.Collection
-    /* Virtual methods of Vda.ExpressionOperator */
+    /* Virtual methods of Vda-1.Vda.ExpressionOperator */
     vfunc_create_field_expression(name: string): SqlExpressionField
     vfunc_create_value_expression(val: any | null, cnc: Connection): SqlExpressionValue
     vfunc_create_parameter_expression(name: string, gtype: GObject.Type): SqlExpressionValueParameter
@@ -9070,7 +9070,7 @@ export class ExpressionOperatorBinaryterm {
     vfunc_get_read_only_view(): Gee.BidirList
     vfunc_get_read_only_view(): Gee.List
     vfunc_get_read_only_view(): Gee.Collection
-    /* Virtual methods of Vda.Expression */
+    /* Virtual methods of Vda-1.Vda.Expression */
     vfunc_get_item(position: number): GObject.Object | null
     vfunc_get_item_type(): GObject.Type
     vfunc_get_n_items(): number
@@ -9081,11 +9081,11 @@ export class ExpressionOperatorBinaryterm {
     vfunc_get_read_only_view(): Gee.BidirList
     vfunc_get_read_only_view(): Gee.List
     vfunc_get_read_only_view(): Gee.Collection
-    /* Virtual methods of Gee.ArrayList */
+    /* Virtual methods of Gee-0.8.Gee.ArrayList */
     vfunc_get_read_only_view(): Gee.BidirList
     vfunc_get_read_only_view(): Gee.List
     vfunc_get_read_only_view(): Gee.Collection
-    /* Virtual methods of Gee.AbstractBidirList */
+    /* Virtual methods of Gee-0.8.Gee.AbstractBidirList */
     vfunc_bidir_list_iterator(): Gee.BidirListIterator
     vfunc_reserved0(): void
     vfunc_reserved1(): void
@@ -9100,7 +9100,7 @@ export class ExpressionOperatorBinaryterm {
     vfunc_get_read_only_view(): Gee.BidirList
     vfunc_get_read_only_view(): Gee.List
     vfunc_get_read_only_view(): Gee.Collection
-    /* Virtual methods of Gee.AbstractList */
+    /* Virtual methods of Gee-0.8.Gee.AbstractList */
     vfunc_list_iterator(): Gee.ListIterator
     vfunc_get(index: number): object | null
     vfunc_set(index: number, item?: object | null): void
@@ -9124,7 +9124,7 @@ export class ExpressionOperatorBinaryterm {
     vfunc_last(): object | null
     vfunc_insert_all(index: number, collection: Gee.Collection): void
     vfunc_sort(compare_func: GLib.CompareDataFunc | null): void
-    /* Virtual methods of Gee.AbstractCollection */
+    /* Virtual methods of Gee-0.8.Gee.AbstractCollection */
     vfunc_contains(item?: object | null): boolean
     vfunc_add(item?: object | null): boolean
     vfunc_remove(item?: object | null): boolean
@@ -9171,7 +9171,7 @@ export class ExpressionOperatorBinaryterm {
     vfunc_contains_all_iterator(iter: Gee.Iterator): boolean
     vfunc_remove_all_iterator(iter: Gee.Iterator): boolean
     vfunc_get_is_empty(): boolean
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -9179,7 +9179,7 @@ export class ExpressionOperatorBinaryterm {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: ExpressionOperatorBinaryterm, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: ExpressionOperatorBinaryterm, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -9204,28 +9204,28 @@ export class ExpressionOperatorBinaryterm {
 export interface ExpressionOperatorEq_ConstructProps extends ExpressionOperatorBinaryterm_ConstructProps {
 }
 export class ExpressionOperatorEq {
-    /* Properties of Gee.AbstractBidirList */
+    /* Properties of Gee-0.8.Gee.AbstractBidirList */
     readonly read_only_view: Gee.BidirList
-    /* Properties of Gee.AbstractCollection */
+    /* Properties of Gee-0.8.Gee.AbstractCollection */
     readonly size: number
     readonly read_only: boolean
-    /* Fields of Vda.ExpressionOperatorEq */
+    /* Fields of Vda-1.Vda.ExpressionOperatorEq */
     parent_instance: ExpressionOperatorBinaryterm
     priv: ExpressionOperatorEqPrivate
-    /* Fields of Vda.ExpressionOperatorBinaryterm */
+    /* Fields of Vda-1.Vda.ExpressionOperatorBinaryterm */
     _operator_name: string
-    /* Fields of Vda.ExpressionOperator */
+    /* Fields of Vda-1.Vda.ExpressionOperator */
     _operator_type: SqlExpressionOperatorType
-    /* Fields of Gee.ArrayList */
+    /* Fields of Gee-0.8.Gee.ArrayList */
     _items: object[]
     _items_length1: number
     _size: number
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Gee.ArrayList */
+    /* Methods of Gee-0.8.Gee.ArrayList */
     add_all(collection: Gee.Collection): boolean
     get_equal_func(): [ /* returnType */ Gee.EqualDataFunc, /* result_target */ object | null ]
-    /* Methods of Gee.AbstractBidirList */
+    /* Methods of Gee-0.8.Gee.AbstractBidirList */
     bidir_list_iterator(): Gee.BidirListIterator
     reserved0(): void
     reserved1(): void
@@ -9238,7 +9238,7 @@ export class ExpressionOperatorEq {
     reserved8(): void
     reserved9(): void
     get_read_only_view(): Gee.BidirList
-    /* Methods of Gee.AbstractList */
+    /* Methods of Gee-0.8.Gee.AbstractList */
     list_iterator(): Gee.ListIterator
     get(index: number): object | null
     set(index: number, item?: object | null): void
@@ -9247,7 +9247,7 @@ export class ExpressionOperatorEq {
     remove_at(index: number): object | null
     slice(start: number, stop: number): Gee.List | null
     get_read_only_view(): Gee.List
-    /* Methods of Gee.AbstractCollection */
+    /* Methods of Gee-0.8.Gee.AbstractCollection */
     contains(item?: object | null): boolean
     add(item?: object | null): boolean
     remove(item?: object | null): boolean
@@ -9257,7 +9257,7 @@ export class ExpressionOperatorEq {
     get_size(): number
     get_read_only(): boolean
     get_read_only_view(): Gee.Collection
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -9279,15 +9279,15 @@ export class ExpressionOperatorEq {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Vda.ExpressionOperatorEq */
+    /* Virtual methods of Vda-1.Vda.ExpressionOperatorEq */
     vfunc_get_read_only_view(): Gee.BidirList
     vfunc_get_read_only_view(): Gee.List
     vfunc_get_read_only_view(): Gee.Collection
-    /* Virtual methods of Vda.ExpressionOperatorBinaryterm */
+    /* Virtual methods of Vda-1.Vda.ExpressionOperatorBinaryterm */
     vfunc_get_read_only_view(): Gee.BidirList
     vfunc_get_read_only_view(): Gee.List
     vfunc_get_read_only_view(): Gee.Collection
-    /* Virtual methods of Vda.ExpressionOperator */
+    /* Virtual methods of Vda-1.Vda.ExpressionOperator */
     vfunc_create_field_expression(name: string): SqlExpressionField
     vfunc_create_value_expression(val: any | null, cnc: Connection): SqlExpressionValue
     vfunc_create_parameter_expression(name: string, gtype: GObject.Type): SqlExpressionValueParameter
@@ -9327,7 +9327,7 @@ export class ExpressionOperatorEq {
     vfunc_get_read_only_view(): Gee.BidirList
     vfunc_get_read_only_view(): Gee.List
     vfunc_get_read_only_view(): Gee.Collection
-    /* Virtual methods of Vda.Expression */
+    /* Virtual methods of Vda-1.Vda.Expression */
     vfunc_get_item(position: number): GObject.Object | null
     vfunc_get_item_type(): GObject.Type
     vfunc_get_n_items(): number
@@ -9338,11 +9338,11 @@ export class ExpressionOperatorEq {
     vfunc_get_read_only_view(): Gee.BidirList
     vfunc_get_read_only_view(): Gee.List
     vfunc_get_read_only_view(): Gee.Collection
-    /* Virtual methods of Gee.ArrayList */
+    /* Virtual methods of Gee-0.8.Gee.ArrayList */
     vfunc_get_read_only_view(): Gee.BidirList
     vfunc_get_read_only_view(): Gee.List
     vfunc_get_read_only_view(): Gee.Collection
-    /* Virtual methods of Gee.AbstractBidirList */
+    /* Virtual methods of Gee-0.8.Gee.AbstractBidirList */
     vfunc_bidir_list_iterator(): Gee.BidirListIterator
     vfunc_reserved0(): void
     vfunc_reserved1(): void
@@ -9357,7 +9357,7 @@ export class ExpressionOperatorEq {
     vfunc_get_read_only_view(): Gee.BidirList
     vfunc_get_read_only_view(): Gee.List
     vfunc_get_read_only_view(): Gee.Collection
-    /* Virtual methods of Gee.AbstractList */
+    /* Virtual methods of Gee-0.8.Gee.AbstractList */
     vfunc_list_iterator(): Gee.ListIterator
     vfunc_get(index: number): object | null
     vfunc_set(index: number, item?: object | null): void
@@ -9381,7 +9381,7 @@ export class ExpressionOperatorEq {
     vfunc_last(): object | null
     vfunc_insert_all(index: number, collection: Gee.Collection): void
     vfunc_sort(compare_func: GLib.CompareDataFunc | null): void
-    /* Virtual methods of Gee.AbstractCollection */
+    /* Virtual methods of Gee-0.8.Gee.AbstractCollection */
     vfunc_contains(item?: object | null): boolean
     vfunc_add(item?: object | null): boolean
     vfunc_remove(item?: object | null): boolean
@@ -9428,7 +9428,7 @@ export class ExpressionOperatorEq {
     vfunc_contains_all_iterator(iter: Gee.Iterator): boolean
     vfunc_remove_all_iterator(iter: Gee.Iterator): boolean
     vfunc_get_is_empty(): boolean
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -9436,7 +9436,7 @@ export class ExpressionOperatorEq {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: ExpressionOperatorEq, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: ExpressionOperatorEq, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -9461,28 +9461,28 @@ export class ExpressionOperatorEq {
 export interface ExpressionOperatorNotEq_ConstructProps extends ExpressionOperatorBinaryterm_ConstructProps {
 }
 export class ExpressionOperatorNotEq {
-    /* Properties of Gee.AbstractBidirList */
+    /* Properties of Gee-0.8.Gee.AbstractBidirList */
     readonly read_only_view: Gee.BidirList
-    /* Properties of Gee.AbstractCollection */
+    /* Properties of Gee-0.8.Gee.AbstractCollection */
     readonly size: number
     readonly read_only: boolean
-    /* Fields of Vda.ExpressionOperatorNotEq */
+    /* Fields of Vda-1.Vda.ExpressionOperatorNotEq */
     parent_instance: ExpressionOperatorBinaryterm
     priv: ExpressionOperatorNotEqPrivate
-    /* Fields of Vda.ExpressionOperatorBinaryterm */
+    /* Fields of Vda-1.Vda.ExpressionOperatorBinaryterm */
     _operator_name: string
-    /* Fields of Vda.ExpressionOperator */
+    /* Fields of Vda-1.Vda.ExpressionOperator */
     _operator_type: SqlExpressionOperatorType
-    /* Fields of Gee.ArrayList */
+    /* Fields of Gee-0.8.Gee.ArrayList */
     _items: object[]
     _items_length1: number
     _size: number
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Gee.ArrayList */
+    /* Methods of Gee-0.8.Gee.ArrayList */
     add_all(collection: Gee.Collection): boolean
     get_equal_func(): [ /* returnType */ Gee.EqualDataFunc, /* result_target */ object | null ]
-    /* Methods of Gee.AbstractBidirList */
+    /* Methods of Gee-0.8.Gee.AbstractBidirList */
     bidir_list_iterator(): Gee.BidirListIterator
     reserved0(): void
     reserved1(): void
@@ -9495,7 +9495,7 @@ export class ExpressionOperatorNotEq {
     reserved8(): void
     reserved9(): void
     get_read_only_view(): Gee.BidirList
-    /* Methods of Gee.AbstractList */
+    /* Methods of Gee-0.8.Gee.AbstractList */
     list_iterator(): Gee.ListIterator
     get(index: number): object | null
     set(index: number, item?: object | null): void
@@ -9504,7 +9504,7 @@ export class ExpressionOperatorNotEq {
     remove_at(index: number): object | null
     slice(start: number, stop: number): Gee.List | null
     get_read_only_view(): Gee.List
-    /* Methods of Gee.AbstractCollection */
+    /* Methods of Gee-0.8.Gee.AbstractCollection */
     contains(item?: object | null): boolean
     add(item?: object | null): boolean
     remove(item?: object | null): boolean
@@ -9514,7 +9514,7 @@ export class ExpressionOperatorNotEq {
     get_size(): number
     get_read_only(): boolean
     get_read_only_view(): Gee.Collection
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -9536,15 +9536,15 @@ export class ExpressionOperatorNotEq {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Vda.ExpressionOperatorNotEq */
+    /* Virtual methods of Vda-1.Vda.ExpressionOperatorNotEq */
     vfunc_get_read_only_view(): Gee.BidirList
     vfunc_get_read_only_view(): Gee.List
     vfunc_get_read_only_view(): Gee.Collection
-    /* Virtual methods of Vda.ExpressionOperatorBinaryterm */
+    /* Virtual methods of Vda-1.Vda.ExpressionOperatorBinaryterm */
     vfunc_get_read_only_view(): Gee.BidirList
     vfunc_get_read_only_view(): Gee.List
     vfunc_get_read_only_view(): Gee.Collection
-    /* Virtual methods of Vda.ExpressionOperator */
+    /* Virtual methods of Vda-1.Vda.ExpressionOperator */
     vfunc_create_field_expression(name: string): SqlExpressionField
     vfunc_create_value_expression(val: any | null, cnc: Connection): SqlExpressionValue
     vfunc_create_parameter_expression(name: string, gtype: GObject.Type): SqlExpressionValueParameter
@@ -9584,7 +9584,7 @@ export class ExpressionOperatorNotEq {
     vfunc_get_read_only_view(): Gee.BidirList
     vfunc_get_read_only_view(): Gee.List
     vfunc_get_read_only_view(): Gee.Collection
-    /* Virtual methods of Vda.Expression */
+    /* Virtual methods of Vda-1.Vda.Expression */
     vfunc_get_item(position: number): GObject.Object | null
     vfunc_get_item_type(): GObject.Type
     vfunc_get_n_items(): number
@@ -9595,11 +9595,11 @@ export class ExpressionOperatorNotEq {
     vfunc_get_read_only_view(): Gee.BidirList
     vfunc_get_read_only_view(): Gee.List
     vfunc_get_read_only_view(): Gee.Collection
-    /* Virtual methods of Gee.ArrayList */
+    /* Virtual methods of Gee-0.8.Gee.ArrayList */
     vfunc_get_read_only_view(): Gee.BidirList
     vfunc_get_read_only_view(): Gee.List
     vfunc_get_read_only_view(): Gee.Collection
-    /* Virtual methods of Gee.AbstractBidirList */
+    /* Virtual methods of Gee-0.8.Gee.AbstractBidirList */
     vfunc_bidir_list_iterator(): Gee.BidirListIterator
     vfunc_reserved0(): void
     vfunc_reserved1(): void
@@ -9614,7 +9614,7 @@ export class ExpressionOperatorNotEq {
     vfunc_get_read_only_view(): Gee.BidirList
     vfunc_get_read_only_view(): Gee.List
     vfunc_get_read_only_view(): Gee.Collection
-    /* Virtual methods of Gee.AbstractList */
+    /* Virtual methods of Gee-0.8.Gee.AbstractList */
     vfunc_list_iterator(): Gee.ListIterator
     vfunc_get(index: number): object | null
     vfunc_set(index: number, item?: object | null): void
@@ -9638,7 +9638,7 @@ export class ExpressionOperatorNotEq {
     vfunc_last(): object | null
     vfunc_insert_all(index: number, collection: Gee.Collection): void
     vfunc_sort(compare_func: GLib.CompareDataFunc | null): void
-    /* Virtual methods of Gee.AbstractCollection */
+    /* Virtual methods of Gee-0.8.Gee.AbstractCollection */
     vfunc_contains(item?: object | null): boolean
     vfunc_add(item?: object | null): boolean
     vfunc_remove(item?: object | null): boolean
@@ -9685,7 +9685,7 @@ export class ExpressionOperatorNotEq {
     vfunc_contains_all_iterator(iter: Gee.Iterator): boolean
     vfunc_remove_all_iterator(iter: Gee.Iterator): boolean
     vfunc_get_is_empty(): boolean
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -9693,7 +9693,7 @@ export class ExpressionOperatorNotEq {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: ExpressionOperatorNotEq, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: ExpressionOperatorNotEq, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -9718,28 +9718,28 @@ export class ExpressionOperatorNotEq {
 export interface ExpressionOperatorDiff_ConstructProps extends ExpressionOperatorBinaryterm_ConstructProps {
 }
 export class ExpressionOperatorDiff {
-    /* Properties of Gee.AbstractBidirList */
+    /* Properties of Gee-0.8.Gee.AbstractBidirList */
     readonly read_only_view: Gee.BidirList
-    /* Properties of Gee.AbstractCollection */
+    /* Properties of Gee-0.8.Gee.AbstractCollection */
     readonly size: number
     readonly read_only: boolean
-    /* Fields of Vda.ExpressionOperatorDiff */
+    /* Fields of Vda-1.Vda.ExpressionOperatorDiff */
     parent_instance: ExpressionOperatorBinaryterm
     priv: ExpressionOperatorDiffPrivate
-    /* Fields of Vda.ExpressionOperatorBinaryterm */
+    /* Fields of Vda-1.Vda.ExpressionOperatorBinaryterm */
     _operator_name: string
-    /* Fields of Vda.ExpressionOperator */
+    /* Fields of Vda-1.Vda.ExpressionOperator */
     _operator_type: SqlExpressionOperatorType
-    /* Fields of Gee.ArrayList */
+    /* Fields of Gee-0.8.Gee.ArrayList */
     _items: object[]
     _items_length1: number
     _size: number
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Gee.ArrayList */
+    /* Methods of Gee-0.8.Gee.ArrayList */
     add_all(collection: Gee.Collection): boolean
     get_equal_func(): [ /* returnType */ Gee.EqualDataFunc, /* result_target */ object | null ]
-    /* Methods of Gee.AbstractBidirList */
+    /* Methods of Gee-0.8.Gee.AbstractBidirList */
     bidir_list_iterator(): Gee.BidirListIterator
     reserved0(): void
     reserved1(): void
@@ -9752,7 +9752,7 @@ export class ExpressionOperatorDiff {
     reserved8(): void
     reserved9(): void
     get_read_only_view(): Gee.BidirList
-    /* Methods of Gee.AbstractList */
+    /* Methods of Gee-0.8.Gee.AbstractList */
     list_iterator(): Gee.ListIterator
     get(index: number): object | null
     set(index: number, item?: object | null): void
@@ -9761,7 +9761,7 @@ export class ExpressionOperatorDiff {
     remove_at(index: number): object | null
     slice(start: number, stop: number): Gee.List | null
     get_read_only_view(): Gee.List
-    /* Methods of Gee.AbstractCollection */
+    /* Methods of Gee-0.8.Gee.AbstractCollection */
     contains(item?: object | null): boolean
     add(item?: object | null): boolean
     remove(item?: object | null): boolean
@@ -9771,7 +9771,7 @@ export class ExpressionOperatorDiff {
     get_size(): number
     get_read_only(): boolean
     get_read_only_view(): Gee.Collection
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -9793,15 +9793,15 @@ export class ExpressionOperatorDiff {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Vda.ExpressionOperatorDiff */
+    /* Virtual methods of Vda-1.Vda.ExpressionOperatorDiff */
     vfunc_get_read_only_view(): Gee.BidirList
     vfunc_get_read_only_view(): Gee.List
     vfunc_get_read_only_view(): Gee.Collection
-    /* Virtual methods of Vda.ExpressionOperatorBinaryterm */
+    /* Virtual methods of Vda-1.Vda.ExpressionOperatorBinaryterm */
     vfunc_get_read_only_view(): Gee.BidirList
     vfunc_get_read_only_view(): Gee.List
     vfunc_get_read_only_view(): Gee.Collection
-    /* Virtual methods of Vda.ExpressionOperator */
+    /* Virtual methods of Vda-1.Vda.ExpressionOperator */
     vfunc_create_field_expression(name: string): SqlExpressionField
     vfunc_create_value_expression(val: any | null, cnc: Connection): SqlExpressionValue
     vfunc_create_parameter_expression(name: string, gtype: GObject.Type): SqlExpressionValueParameter
@@ -9841,7 +9841,7 @@ export class ExpressionOperatorDiff {
     vfunc_get_read_only_view(): Gee.BidirList
     vfunc_get_read_only_view(): Gee.List
     vfunc_get_read_only_view(): Gee.Collection
-    /* Virtual methods of Vda.Expression */
+    /* Virtual methods of Vda-1.Vda.Expression */
     vfunc_get_item(position: number): GObject.Object | null
     vfunc_get_item_type(): GObject.Type
     vfunc_get_n_items(): number
@@ -9852,11 +9852,11 @@ export class ExpressionOperatorDiff {
     vfunc_get_read_only_view(): Gee.BidirList
     vfunc_get_read_only_view(): Gee.List
     vfunc_get_read_only_view(): Gee.Collection
-    /* Virtual methods of Gee.ArrayList */
+    /* Virtual methods of Gee-0.8.Gee.ArrayList */
     vfunc_get_read_only_view(): Gee.BidirList
     vfunc_get_read_only_view(): Gee.List
     vfunc_get_read_only_view(): Gee.Collection
-    /* Virtual methods of Gee.AbstractBidirList */
+    /* Virtual methods of Gee-0.8.Gee.AbstractBidirList */
     vfunc_bidir_list_iterator(): Gee.BidirListIterator
     vfunc_reserved0(): void
     vfunc_reserved1(): void
@@ -9871,7 +9871,7 @@ export class ExpressionOperatorDiff {
     vfunc_get_read_only_view(): Gee.BidirList
     vfunc_get_read_only_view(): Gee.List
     vfunc_get_read_only_view(): Gee.Collection
-    /* Virtual methods of Gee.AbstractList */
+    /* Virtual methods of Gee-0.8.Gee.AbstractList */
     vfunc_list_iterator(): Gee.ListIterator
     vfunc_get(index: number): object | null
     vfunc_set(index: number, item?: object | null): void
@@ -9895,7 +9895,7 @@ export class ExpressionOperatorDiff {
     vfunc_last(): object | null
     vfunc_insert_all(index: number, collection: Gee.Collection): void
     vfunc_sort(compare_func: GLib.CompareDataFunc | null): void
-    /* Virtual methods of Gee.AbstractCollection */
+    /* Virtual methods of Gee-0.8.Gee.AbstractCollection */
     vfunc_contains(item?: object | null): boolean
     vfunc_add(item?: object | null): boolean
     vfunc_remove(item?: object | null): boolean
@@ -9942,7 +9942,7 @@ export class ExpressionOperatorDiff {
     vfunc_contains_all_iterator(iter: Gee.Iterator): boolean
     vfunc_remove_all_iterator(iter: Gee.Iterator): boolean
     vfunc_get_is_empty(): boolean
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -9950,7 +9950,7 @@ export class ExpressionOperatorDiff {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: ExpressionOperatorDiff, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: ExpressionOperatorDiff, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -9975,28 +9975,28 @@ export class ExpressionOperatorDiff {
 export interface ExpressionOperatorGt_ConstructProps extends ExpressionOperatorBinaryterm_ConstructProps {
 }
 export class ExpressionOperatorGt {
-    /* Properties of Gee.AbstractBidirList */
+    /* Properties of Gee-0.8.Gee.AbstractBidirList */
     readonly read_only_view: Gee.BidirList
-    /* Properties of Gee.AbstractCollection */
+    /* Properties of Gee-0.8.Gee.AbstractCollection */
     readonly size: number
     readonly read_only: boolean
-    /* Fields of Vda.ExpressionOperatorGt */
+    /* Fields of Vda-1.Vda.ExpressionOperatorGt */
     parent_instance: ExpressionOperatorBinaryterm
     priv: ExpressionOperatorGtPrivate
-    /* Fields of Vda.ExpressionOperatorBinaryterm */
+    /* Fields of Vda-1.Vda.ExpressionOperatorBinaryterm */
     _operator_name: string
-    /* Fields of Vda.ExpressionOperator */
+    /* Fields of Vda-1.Vda.ExpressionOperator */
     _operator_type: SqlExpressionOperatorType
-    /* Fields of Gee.ArrayList */
+    /* Fields of Gee-0.8.Gee.ArrayList */
     _items: object[]
     _items_length1: number
     _size: number
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Gee.ArrayList */
+    /* Methods of Gee-0.8.Gee.ArrayList */
     add_all(collection: Gee.Collection): boolean
     get_equal_func(): [ /* returnType */ Gee.EqualDataFunc, /* result_target */ object | null ]
-    /* Methods of Gee.AbstractBidirList */
+    /* Methods of Gee-0.8.Gee.AbstractBidirList */
     bidir_list_iterator(): Gee.BidirListIterator
     reserved0(): void
     reserved1(): void
@@ -10009,7 +10009,7 @@ export class ExpressionOperatorGt {
     reserved8(): void
     reserved9(): void
     get_read_only_view(): Gee.BidirList
-    /* Methods of Gee.AbstractList */
+    /* Methods of Gee-0.8.Gee.AbstractList */
     list_iterator(): Gee.ListIterator
     get(index: number): object | null
     set(index: number, item?: object | null): void
@@ -10018,7 +10018,7 @@ export class ExpressionOperatorGt {
     remove_at(index: number): object | null
     slice(start: number, stop: number): Gee.List | null
     get_read_only_view(): Gee.List
-    /* Methods of Gee.AbstractCollection */
+    /* Methods of Gee-0.8.Gee.AbstractCollection */
     contains(item?: object | null): boolean
     add(item?: object | null): boolean
     remove(item?: object | null): boolean
@@ -10028,7 +10028,7 @@ export class ExpressionOperatorGt {
     get_size(): number
     get_read_only(): boolean
     get_read_only_view(): Gee.Collection
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -10050,15 +10050,15 @@ export class ExpressionOperatorGt {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Vda.ExpressionOperatorGt */
+    /* Virtual methods of Vda-1.Vda.ExpressionOperatorGt */
     vfunc_get_read_only_view(): Gee.BidirList
     vfunc_get_read_only_view(): Gee.List
     vfunc_get_read_only_view(): Gee.Collection
-    /* Virtual methods of Vda.ExpressionOperatorBinaryterm */
+    /* Virtual methods of Vda-1.Vda.ExpressionOperatorBinaryterm */
     vfunc_get_read_only_view(): Gee.BidirList
     vfunc_get_read_only_view(): Gee.List
     vfunc_get_read_only_view(): Gee.Collection
-    /* Virtual methods of Vda.ExpressionOperator */
+    /* Virtual methods of Vda-1.Vda.ExpressionOperator */
     vfunc_create_field_expression(name: string): SqlExpressionField
     vfunc_create_value_expression(val: any | null, cnc: Connection): SqlExpressionValue
     vfunc_create_parameter_expression(name: string, gtype: GObject.Type): SqlExpressionValueParameter
@@ -10098,7 +10098,7 @@ export class ExpressionOperatorGt {
     vfunc_get_read_only_view(): Gee.BidirList
     vfunc_get_read_only_view(): Gee.List
     vfunc_get_read_only_view(): Gee.Collection
-    /* Virtual methods of Vda.Expression */
+    /* Virtual methods of Vda-1.Vda.Expression */
     vfunc_get_item(position: number): GObject.Object | null
     vfunc_get_item_type(): GObject.Type
     vfunc_get_n_items(): number
@@ -10109,11 +10109,11 @@ export class ExpressionOperatorGt {
     vfunc_get_read_only_view(): Gee.BidirList
     vfunc_get_read_only_view(): Gee.List
     vfunc_get_read_only_view(): Gee.Collection
-    /* Virtual methods of Gee.ArrayList */
+    /* Virtual methods of Gee-0.8.Gee.ArrayList */
     vfunc_get_read_only_view(): Gee.BidirList
     vfunc_get_read_only_view(): Gee.List
     vfunc_get_read_only_view(): Gee.Collection
-    /* Virtual methods of Gee.AbstractBidirList */
+    /* Virtual methods of Gee-0.8.Gee.AbstractBidirList */
     vfunc_bidir_list_iterator(): Gee.BidirListIterator
     vfunc_reserved0(): void
     vfunc_reserved1(): void
@@ -10128,7 +10128,7 @@ export class ExpressionOperatorGt {
     vfunc_get_read_only_view(): Gee.BidirList
     vfunc_get_read_only_view(): Gee.List
     vfunc_get_read_only_view(): Gee.Collection
-    /* Virtual methods of Gee.AbstractList */
+    /* Virtual methods of Gee-0.8.Gee.AbstractList */
     vfunc_list_iterator(): Gee.ListIterator
     vfunc_get(index: number): object | null
     vfunc_set(index: number, item?: object | null): void
@@ -10152,7 +10152,7 @@ export class ExpressionOperatorGt {
     vfunc_last(): object | null
     vfunc_insert_all(index: number, collection: Gee.Collection): void
     vfunc_sort(compare_func: GLib.CompareDataFunc | null): void
-    /* Virtual methods of Gee.AbstractCollection */
+    /* Virtual methods of Gee-0.8.Gee.AbstractCollection */
     vfunc_contains(item?: object | null): boolean
     vfunc_add(item?: object | null): boolean
     vfunc_remove(item?: object | null): boolean
@@ -10199,7 +10199,7 @@ export class ExpressionOperatorGt {
     vfunc_contains_all_iterator(iter: Gee.Iterator): boolean
     vfunc_remove_all_iterator(iter: Gee.Iterator): boolean
     vfunc_get_is_empty(): boolean
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -10207,7 +10207,7 @@ export class ExpressionOperatorGt {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: ExpressionOperatorGt, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: ExpressionOperatorGt, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -10232,28 +10232,28 @@ export class ExpressionOperatorGt {
 export interface ExpressionOperatorLt_ConstructProps extends ExpressionOperatorBinaryterm_ConstructProps {
 }
 export class ExpressionOperatorLt {
-    /* Properties of Gee.AbstractBidirList */
+    /* Properties of Gee-0.8.Gee.AbstractBidirList */
     readonly read_only_view: Gee.BidirList
-    /* Properties of Gee.AbstractCollection */
+    /* Properties of Gee-0.8.Gee.AbstractCollection */
     readonly size: number
     readonly read_only: boolean
-    /* Fields of Vda.ExpressionOperatorLt */
+    /* Fields of Vda-1.Vda.ExpressionOperatorLt */
     parent_instance: ExpressionOperatorBinaryterm
     priv: ExpressionOperatorLtPrivate
-    /* Fields of Vda.ExpressionOperatorBinaryterm */
+    /* Fields of Vda-1.Vda.ExpressionOperatorBinaryterm */
     _operator_name: string
-    /* Fields of Vda.ExpressionOperator */
+    /* Fields of Vda-1.Vda.ExpressionOperator */
     _operator_type: SqlExpressionOperatorType
-    /* Fields of Gee.ArrayList */
+    /* Fields of Gee-0.8.Gee.ArrayList */
     _items: object[]
     _items_length1: number
     _size: number
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Gee.ArrayList */
+    /* Methods of Gee-0.8.Gee.ArrayList */
     add_all(collection: Gee.Collection): boolean
     get_equal_func(): [ /* returnType */ Gee.EqualDataFunc, /* result_target */ object | null ]
-    /* Methods of Gee.AbstractBidirList */
+    /* Methods of Gee-0.8.Gee.AbstractBidirList */
     bidir_list_iterator(): Gee.BidirListIterator
     reserved0(): void
     reserved1(): void
@@ -10266,7 +10266,7 @@ export class ExpressionOperatorLt {
     reserved8(): void
     reserved9(): void
     get_read_only_view(): Gee.BidirList
-    /* Methods of Gee.AbstractList */
+    /* Methods of Gee-0.8.Gee.AbstractList */
     list_iterator(): Gee.ListIterator
     get(index: number): object | null
     set(index: number, item?: object | null): void
@@ -10275,7 +10275,7 @@ export class ExpressionOperatorLt {
     remove_at(index: number): object | null
     slice(start: number, stop: number): Gee.List | null
     get_read_only_view(): Gee.List
-    /* Methods of Gee.AbstractCollection */
+    /* Methods of Gee-0.8.Gee.AbstractCollection */
     contains(item?: object | null): boolean
     add(item?: object | null): boolean
     remove(item?: object | null): boolean
@@ -10285,7 +10285,7 @@ export class ExpressionOperatorLt {
     get_size(): number
     get_read_only(): boolean
     get_read_only_view(): Gee.Collection
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -10307,15 +10307,15 @@ export class ExpressionOperatorLt {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Vda.ExpressionOperatorLt */
+    /* Virtual methods of Vda-1.Vda.ExpressionOperatorLt */
     vfunc_get_read_only_view(): Gee.BidirList
     vfunc_get_read_only_view(): Gee.List
     vfunc_get_read_only_view(): Gee.Collection
-    /* Virtual methods of Vda.ExpressionOperatorBinaryterm */
+    /* Virtual methods of Vda-1.Vda.ExpressionOperatorBinaryterm */
     vfunc_get_read_only_view(): Gee.BidirList
     vfunc_get_read_only_view(): Gee.List
     vfunc_get_read_only_view(): Gee.Collection
-    /* Virtual methods of Vda.ExpressionOperator */
+    /* Virtual methods of Vda-1.Vda.ExpressionOperator */
     vfunc_create_field_expression(name: string): SqlExpressionField
     vfunc_create_value_expression(val: any | null, cnc: Connection): SqlExpressionValue
     vfunc_create_parameter_expression(name: string, gtype: GObject.Type): SqlExpressionValueParameter
@@ -10355,7 +10355,7 @@ export class ExpressionOperatorLt {
     vfunc_get_read_only_view(): Gee.BidirList
     vfunc_get_read_only_view(): Gee.List
     vfunc_get_read_only_view(): Gee.Collection
-    /* Virtual methods of Vda.Expression */
+    /* Virtual methods of Vda-1.Vda.Expression */
     vfunc_get_item(position: number): GObject.Object | null
     vfunc_get_item_type(): GObject.Type
     vfunc_get_n_items(): number
@@ -10366,11 +10366,11 @@ export class ExpressionOperatorLt {
     vfunc_get_read_only_view(): Gee.BidirList
     vfunc_get_read_only_view(): Gee.List
     vfunc_get_read_only_view(): Gee.Collection
-    /* Virtual methods of Gee.ArrayList */
+    /* Virtual methods of Gee-0.8.Gee.ArrayList */
     vfunc_get_read_only_view(): Gee.BidirList
     vfunc_get_read_only_view(): Gee.List
     vfunc_get_read_only_view(): Gee.Collection
-    /* Virtual methods of Gee.AbstractBidirList */
+    /* Virtual methods of Gee-0.8.Gee.AbstractBidirList */
     vfunc_bidir_list_iterator(): Gee.BidirListIterator
     vfunc_reserved0(): void
     vfunc_reserved1(): void
@@ -10385,7 +10385,7 @@ export class ExpressionOperatorLt {
     vfunc_get_read_only_view(): Gee.BidirList
     vfunc_get_read_only_view(): Gee.List
     vfunc_get_read_only_view(): Gee.Collection
-    /* Virtual methods of Gee.AbstractList */
+    /* Virtual methods of Gee-0.8.Gee.AbstractList */
     vfunc_list_iterator(): Gee.ListIterator
     vfunc_get(index: number): object | null
     vfunc_set(index: number, item?: object | null): void
@@ -10409,7 +10409,7 @@ export class ExpressionOperatorLt {
     vfunc_last(): object | null
     vfunc_insert_all(index: number, collection: Gee.Collection): void
     vfunc_sort(compare_func: GLib.CompareDataFunc | null): void
-    /* Virtual methods of Gee.AbstractCollection */
+    /* Virtual methods of Gee-0.8.Gee.AbstractCollection */
     vfunc_contains(item?: object | null): boolean
     vfunc_add(item?: object | null): boolean
     vfunc_remove(item?: object | null): boolean
@@ -10456,7 +10456,7 @@ export class ExpressionOperatorLt {
     vfunc_contains_all_iterator(iter: Gee.Iterator): boolean
     vfunc_remove_all_iterator(iter: Gee.Iterator): boolean
     vfunc_get_is_empty(): boolean
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -10464,7 +10464,7 @@ export class ExpressionOperatorLt {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: ExpressionOperatorLt, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: ExpressionOperatorLt, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -10489,28 +10489,28 @@ export class ExpressionOperatorLt {
 export interface ExpressionOperatorGeq_ConstructProps extends ExpressionOperatorBinaryterm_ConstructProps {
 }
 export class ExpressionOperatorGeq {
-    /* Properties of Gee.AbstractBidirList */
+    /* Properties of Gee-0.8.Gee.AbstractBidirList */
     readonly read_only_view: Gee.BidirList
-    /* Properties of Gee.AbstractCollection */
+    /* Properties of Gee-0.8.Gee.AbstractCollection */
     readonly size: number
     readonly read_only: boolean
-    /* Fields of Vda.ExpressionOperatorGeq */
+    /* Fields of Vda-1.Vda.ExpressionOperatorGeq */
     parent_instance: ExpressionOperatorBinaryterm
     priv: ExpressionOperatorGeqPrivate
-    /* Fields of Vda.ExpressionOperatorBinaryterm */
+    /* Fields of Vda-1.Vda.ExpressionOperatorBinaryterm */
     _operator_name: string
-    /* Fields of Vda.ExpressionOperator */
+    /* Fields of Vda-1.Vda.ExpressionOperator */
     _operator_type: SqlExpressionOperatorType
-    /* Fields of Gee.ArrayList */
+    /* Fields of Gee-0.8.Gee.ArrayList */
     _items: object[]
     _items_length1: number
     _size: number
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Gee.ArrayList */
+    /* Methods of Gee-0.8.Gee.ArrayList */
     add_all(collection: Gee.Collection): boolean
     get_equal_func(): [ /* returnType */ Gee.EqualDataFunc, /* result_target */ object | null ]
-    /* Methods of Gee.AbstractBidirList */
+    /* Methods of Gee-0.8.Gee.AbstractBidirList */
     bidir_list_iterator(): Gee.BidirListIterator
     reserved0(): void
     reserved1(): void
@@ -10523,7 +10523,7 @@ export class ExpressionOperatorGeq {
     reserved8(): void
     reserved9(): void
     get_read_only_view(): Gee.BidirList
-    /* Methods of Gee.AbstractList */
+    /* Methods of Gee-0.8.Gee.AbstractList */
     list_iterator(): Gee.ListIterator
     get(index: number): object | null
     set(index: number, item?: object | null): void
@@ -10532,7 +10532,7 @@ export class ExpressionOperatorGeq {
     remove_at(index: number): object | null
     slice(start: number, stop: number): Gee.List | null
     get_read_only_view(): Gee.List
-    /* Methods of Gee.AbstractCollection */
+    /* Methods of Gee-0.8.Gee.AbstractCollection */
     contains(item?: object | null): boolean
     add(item?: object | null): boolean
     remove(item?: object | null): boolean
@@ -10542,7 +10542,7 @@ export class ExpressionOperatorGeq {
     get_size(): number
     get_read_only(): boolean
     get_read_only_view(): Gee.Collection
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -10564,15 +10564,15 @@ export class ExpressionOperatorGeq {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Vda.ExpressionOperatorGeq */
+    /* Virtual methods of Vda-1.Vda.ExpressionOperatorGeq */
     vfunc_get_read_only_view(): Gee.BidirList
     vfunc_get_read_only_view(): Gee.List
     vfunc_get_read_only_view(): Gee.Collection
-    /* Virtual methods of Vda.ExpressionOperatorBinaryterm */
+    /* Virtual methods of Vda-1.Vda.ExpressionOperatorBinaryterm */
     vfunc_get_read_only_view(): Gee.BidirList
     vfunc_get_read_only_view(): Gee.List
     vfunc_get_read_only_view(): Gee.Collection
-    /* Virtual methods of Vda.ExpressionOperator */
+    /* Virtual methods of Vda-1.Vda.ExpressionOperator */
     vfunc_create_field_expression(name: string): SqlExpressionField
     vfunc_create_value_expression(val: any | null, cnc: Connection): SqlExpressionValue
     vfunc_create_parameter_expression(name: string, gtype: GObject.Type): SqlExpressionValueParameter
@@ -10612,7 +10612,7 @@ export class ExpressionOperatorGeq {
     vfunc_get_read_only_view(): Gee.BidirList
     vfunc_get_read_only_view(): Gee.List
     vfunc_get_read_only_view(): Gee.Collection
-    /* Virtual methods of Vda.Expression */
+    /* Virtual methods of Vda-1.Vda.Expression */
     vfunc_get_item(position: number): GObject.Object | null
     vfunc_get_item_type(): GObject.Type
     vfunc_get_n_items(): number
@@ -10623,11 +10623,11 @@ export class ExpressionOperatorGeq {
     vfunc_get_read_only_view(): Gee.BidirList
     vfunc_get_read_only_view(): Gee.List
     vfunc_get_read_only_view(): Gee.Collection
-    /* Virtual methods of Gee.ArrayList */
+    /* Virtual methods of Gee-0.8.Gee.ArrayList */
     vfunc_get_read_only_view(): Gee.BidirList
     vfunc_get_read_only_view(): Gee.List
     vfunc_get_read_only_view(): Gee.Collection
-    /* Virtual methods of Gee.AbstractBidirList */
+    /* Virtual methods of Gee-0.8.Gee.AbstractBidirList */
     vfunc_bidir_list_iterator(): Gee.BidirListIterator
     vfunc_reserved0(): void
     vfunc_reserved1(): void
@@ -10642,7 +10642,7 @@ export class ExpressionOperatorGeq {
     vfunc_get_read_only_view(): Gee.BidirList
     vfunc_get_read_only_view(): Gee.List
     vfunc_get_read_only_view(): Gee.Collection
-    /* Virtual methods of Gee.AbstractList */
+    /* Virtual methods of Gee-0.8.Gee.AbstractList */
     vfunc_list_iterator(): Gee.ListIterator
     vfunc_get(index: number): object | null
     vfunc_set(index: number, item?: object | null): void
@@ -10666,7 +10666,7 @@ export class ExpressionOperatorGeq {
     vfunc_last(): object | null
     vfunc_insert_all(index: number, collection: Gee.Collection): void
     vfunc_sort(compare_func: GLib.CompareDataFunc | null): void
-    /* Virtual methods of Gee.AbstractCollection */
+    /* Virtual methods of Gee-0.8.Gee.AbstractCollection */
     vfunc_contains(item?: object | null): boolean
     vfunc_add(item?: object | null): boolean
     vfunc_remove(item?: object | null): boolean
@@ -10713,7 +10713,7 @@ export class ExpressionOperatorGeq {
     vfunc_contains_all_iterator(iter: Gee.Iterator): boolean
     vfunc_remove_all_iterator(iter: Gee.Iterator): boolean
     vfunc_get_is_empty(): boolean
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -10721,7 +10721,7 @@ export class ExpressionOperatorGeq {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: ExpressionOperatorGeq, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: ExpressionOperatorGeq, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -10746,28 +10746,28 @@ export class ExpressionOperatorGeq {
 export interface ExpressionOperatorLeq_ConstructProps extends ExpressionOperatorBinaryterm_ConstructProps {
 }
 export class ExpressionOperatorLeq {
-    /* Properties of Gee.AbstractBidirList */
+    /* Properties of Gee-0.8.Gee.AbstractBidirList */
     readonly read_only_view: Gee.BidirList
-    /* Properties of Gee.AbstractCollection */
+    /* Properties of Gee-0.8.Gee.AbstractCollection */
     readonly size: number
     readonly read_only: boolean
-    /* Fields of Vda.ExpressionOperatorLeq */
+    /* Fields of Vda-1.Vda.ExpressionOperatorLeq */
     parent_instance: ExpressionOperatorBinaryterm
     priv: ExpressionOperatorLeqPrivate
-    /* Fields of Vda.ExpressionOperatorBinaryterm */
+    /* Fields of Vda-1.Vda.ExpressionOperatorBinaryterm */
     _operator_name: string
-    /* Fields of Vda.ExpressionOperator */
+    /* Fields of Vda-1.Vda.ExpressionOperator */
     _operator_type: SqlExpressionOperatorType
-    /* Fields of Gee.ArrayList */
+    /* Fields of Gee-0.8.Gee.ArrayList */
     _items: object[]
     _items_length1: number
     _size: number
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Gee.ArrayList */
+    /* Methods of Gee-0.8.Gee.ArrayList */
     add_all(collection: Gee.Collection): boolean
     get_equal_func(): [ /* returnType */ Gee.EqualDataFunc, /* result_target */ object | null ]
-    /* Methods of Gee.AbstractBidirList */
+    /* Methods of Gee-0.8.Gee.AbstractBidirList */
     bidir_list_iterator(): Gee.BidirListIterator
     reserved0(): void
     reserved1(): void
@@ -10780,7 +10780,7 @@ export class ExpressionOperatorLeq {
     reserved8(): void
     reserved9(): void
     get_read_only_view(): Gee.BidirList
-    /* Methods of Gee.AbstractList */
+    /* Methods of Gee-0.8.Gee.AbstractList */
     list_iterator(): Gee.ListIterator
     get(index: number): object | null
     set(index: number, item?: object | null): void
@@ -10789,7 +10789,7 @@ export class ExpressionOperatorLeq {
     remove_at(index: number): object | null
     slice(start: number, stop: number): Gee.List | null
     get_read_only_view(): Gee.List
-    /* Methods of Gee.AbstractCollection */
+    /* Methods of Gee-0.8.Gee.AbstractCollection */
     contains(item?: object | null): boolean
     add(item?: object | null): boolean
     remove(item?: object | null): boolean
@@ -10799,7 +10799,7 @@ export class ExpressionOperatorLeq {
     get_size(): number
     get_read_only(): boolean
     get_read_only_view(): Gee.Collection
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -10821,15 +10821,15 @@ export class ExpressionOperatorLeq {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Vda.ExpressionOperatorLeq */
+    /* Virtual methods of Vda-1.Vda.ExpressionOperatorLeq */
     vfunc_get_read_only_view(): Gee.BidirList
     vfunc_get_read_only_view(): Gee.List
     vfunc_get_read_only_view(): Gee.Collection
-    /* Virtual methods of Vda.ExpressionOperatorBinaryterm */
+    /* Virtual methods of Vda-1.Vda.ExpressionOperatorBinaryterm */
     vfunc_get_read_only_view(): Gee.BidirList
     vfunc_get_read_only_view(): Gee.List
     vfunc_get_read_only_view(): Gee.Collection
-    /* Virtual methods of Vda.ExpressionOperator */
+    /* Virtual methods of Vda-1.Vda.ExpressionOperator */
     vfunc_create_field_expression(name: string): SqlExpressionField
     vfunc_create_value_expression(val: any | null, cnc: Connection): SqlExpressionValue
     vfunc_create_parameter_expression(name: string, gtype: GObject.Type): SqlExpressionValueParameter
@@ -10869,7 +10869,7 @@ export class ExpressionOperatorLeq {
     vfunc_get_read_only_view(): Gee.BidirList
     vfunc_get_read_only_view(): Gee.List
     vfunc_get_read_only_view(): Gee.Collection
-    /* Virtual methods of Vda.Expression */
+    /* Virtual methods of Vda-1.Vda.Expression */
     vfunc_get_item(position: number): GObject.Object | null
     vfunc_get_item_type(): GObject.Type
     vfunc_get_n_items(): number
@@ -10880,11 +10880,11 @@ export class ExpressionOperatorLeq {
     vfunc_get_read_only_view(): Gee.BidirList
     vfunc_get_read_only_view(): Gee.List
     vfunc_get_read_only_view(): Gee.Collection
-    /* Virtual methods of Gee.ArrayList */
+    /* Virtual methods of Gee-0.8.Gee.ArrayList */
     vfunc_get_read_only_view(): Gee.BidirList
     vfunc_get_read_only_view(): Gee.List
     vfunc_get_read_only_view(): Gee.Collection
-    /* Virtual methods of Gee.AbstractBidirList */
+    /* Virtual methods of Gee-0.8.Gee.AbstractBidirList */
     vfunc_bidir_list_iterator(): Gee.BidirListIterator
     vfunc_reserved0(): void
     vfunc_reserved1(): void
@@ -10899,7 +10899,7 @@ export class ExpressionOperatorLeq {
     vfunc_get_read_only_view(): Gee.BidirList
     vfunc_get_read_only_view(): Gee.List
     vfunc_get_read_only_view(): Gee.Collection
-    /* Virtual methods of Gee.AbstractList */
+    /* Virtual methods of Gee-0.8.Gee.AbstractList */
     vfunc_list_iterator(): Gee.ListIterator
     vfunc_get(index: number): object | null
     vfunc_set(index: number, item?: object | null): void
@@ -10923,7 +10923,7 @@ export class ExpressionOperatorLeq {
     vfunc_last(): object | null
     vfunc_insert_all(index: number, collection: Gee.Collection): void
     vfunc_sort(compare_func: GLib.CompareDataFunc | null): void
-    /* Virtual methods of Gee.AbstractCollection */
+    /* Virtual methods of Gee-0.8.Gee.AbstractCollection */
     vfunc_contains(item?: object | null): boolean
     vfunc_add(item?: object | null): boolean
     vfunc_remove(item?: object | null): boolean
@@ -10970,7 +10970,7 @@ export class ExpressionOperatorLeq {
     vfunc_contains_all_iterator(iter: Gee.Iterator): boolean
     vfunc_remove_all_iterator(iter: Gee.Iterator): boolean
     vfunc_get_is_empty(): boolean
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -10978,7 +10978,7 @@ export class ExpressionOperatorLeq {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: ExpressionOperatorLeq, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: ExpressionOperatorLeq, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -11003,28 +11003,28 @@ export class ExpressionOperatorLeq {
 export interface ExpressionOperatorRegexp_ConstructProps extends ExpressionOperatorBinaryterm_ConstructProps {
 }
 export class ExpressionOperatorRegexp {
-    /* Properties of Gee.AbstractBidirList */
+    /* Properties of Gee-0.8.Gee.AbstractBidirList */
     readonly read_only_view: Gee.BidirList
-    /* Properties of Gee.AbstractCollection */
+    /* Properties of Gee-0.8.Gee.AbstractCollection */
     readonly size: number
     readonly read_only: boolean
-    /* Fields of Vda.ExpressionOperatorRegexp */
+    /* Fields of Vda-1.Vda.ExpressionOperatorRegexp */
     parent_instance: ExpressionOperatorBinaryterm
     priv: ExpressionOperatorRegexpPrivate
-    /* Fields of Vda.ExpressionOperatorBinaryterm */
+    /* Fields of Vda-1.Vda.ExpressionOperatorBinaryterm */
     _operator_name: string
-    /* Fields of Vda.ExpressionOperator */
+    /* Fields of Vda-1.Vda.ExpressionOperator */
     _operator_type: SqlExpressionOperatorType
-    /* Fields of Gee.ArrayList */
+    /* Fields of Gee-0.8.Gee.ArrayList */
     _items: object[]
     _items_length1: number
     _size: number
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Gee.ArrayList */
+    /* Methods of Gee-0.8.Gee.ArrayList */
     add_all(collection: Gee.Collection): boolean
     get_equal_func(): [ /* returnType */ Gee.EqualDataFunc, /* result_target */ object | null ]
-    /* Methods of Gee.AbstractBidirList */
+    /* Methods of Gee-0.8.Gee.AbstractBidirList */
     bidir_list_iterator(): Gee.BidirListIterator
     reserved0(): void
     reserved1(): void
@@ -11037,7 +11037,7 @@ export class ExpressionOperatorRegexp {
     reserved8(): void
     reserved9(): void
     get_read_only_view(): Gee.BidirList
-    /* Methods of Gee.AbstractList */
+    /* Methods of Gee-0.8.Gee.AbstractList */
     list_iterator(): Gee.ListIterator
     get(index: number): object | null
     set(index: number, item?: object | null): void
@@ -11046,7 +11046,7 @@ export class ExpressionOperatorRegexp {
     remove_at(index: number): object | null
     slice(start: number, stop: number): Gee.List | null
     get_read_only_view(): Gee.List
-    /* Methods of Gee.AbstractCollection */
+    /* Methods of Gee-0.8.Gee.AbstractCollection */
     contains(item?: object | null): boolean
     add(item?: object | null): boolean
     remove(item?: object | null): boolean
@@ -11056,7 +11056,7 @@ export class ExpressionOperatorRegexp {
     get_size(): number
     get_read_only(): boolean
     get_read_only_view(): Gee.Collection
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -11078,15 +11078,15 @@ export class ExpressionOperatorRegexp {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Vda.ExpressionOperatorRegexp */
+    /* Virtual methods of Vda-1.Vda.ExpressionOperatorRegexp */
     vfunc_get_read_only_view(): Gee.BidirList
     vfunc_get_read_only_view(): Gee.List
     vfunc_get_read_only_view(): Gee.Collection
-    /* Virtual methods of Vda.ExpressionOperatorBinaryterm */
+    /* Virtual methods of Vda-1.Vda.ExpressionOperatorBinaryterm */
     vfunc_get_read_only_view(): Gee.BidirList
     vfunc_get_read_only_view(): Gee.List
     vfunc_get_read_only_view(): Gee.Collection
-    /* Virtual methods of Vda.ExpressionOperator */
+    /* Virtual methods of Vda-1.Vda.ExpressionOperator */
     vfunc_create_field_expression(name: string): SqlExpressionField
     vfunc_create_value_expression(val: any | null, cnc: Connection): SqlExpressionValue
     vfunc_create_parameter_expression(name: string, gtype: GObject.Type): SqlExpressionValueParameter
@@ -11126,7 +11126,7 @@ export class ExpressionOperatorRegexp {
     vfunc_get_read_only_view(): Gee.BidirList
     vfunc_get_read_only_view(): Gee.List
     vfunc_get_read_only_view(): Gee.Collection
-    /* Virtual methods of Vda.Expression */
+    /* Virtual methods of Vda-1.Vda.Expression */
     vfunc_get_item(position: number): GObject.Object | null
     vfunc_get_item_type(): GObject.Type
     vfunc_get_n_items(): number
@@ -11137,11 +11137,11 @@ export class ExpressionOperatorRegexp {
     vfunc_get_read_only_view(): Gee.BidirList
     vfunc_get_read_only_view(): Gee.List
     vfunc_get_read_only_view(): Gee.Collection
-    /* Virtual methods of Gee.ArrayList */
+    /* Virtual methods of Gee-0.8.Gee.ArrayList */
     vfunc_get_read_only_view(): Gee.BidirList
     vfunc_get_read_only_view(): Gee.List
     vfunc_get_read_only_view(): Gee.Collection
-    /* Virtual methods of Gee.AbstractBidirList */
+    /* Virtual methods of Gee-0.8.Gee.AbstractBidirList */
     vfunc_bidir_list_iterator(): Gee.BidirListIterator
     vfunc_reserved0(): void
     vfunc_reserved1(): void
@@ -11156,7 +11156,7 @@ export class ExpressionOperatorRegexp {
     vfunc_get_read_only_view(): Gee.BidirList
     vfunc_get_read_only_view(): Gee.List
     vfunc_get_read_only_view(): Gee.Collection
-    /* Virtual methods of Gee.AbstractList */
+    /* Virtual methods of Gee-0.8.Gee.AbstractList */
     vfunc_list_iterator(): Gee.ListIterator
     vfunc_get(index: number): object | null
     vfunc_set(index: number, item?: object | null): void
@@ -11180,7 +11180,7 @@ export class ExpressionOperatorRegexp {
     vfunc_last(): object | null
     vfunc_insert_all(index: number, collection: Gee.Collection): void
     vfunc_sort(compare_func: GLib.CompareDataFunc | null): void
-    /* Virtual methods of Gee.AbstractCollection */
+    /* Virtual methods of Gee-0.8.Gee.AbstractCollection */
     vfunc_contains(item?: object | null): boolean
     vfunc_add(item?: object | null): boolean
     vfunc_remove(item?: object | null): boolean
@@ -11227,7 +11227,7 @@ export class ExpressionOperatorRegexp {
     vfunc_contains_all_iterator(iter: Gee.Iterator): boolean
     vfunc_remove_all_iterator(iter: Gee.Iterator): boolean
     vfunc_get_is_empty(): boolean
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -11235,7 +11235,7 @@ export class ExpressionOperatorRegexp {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: ExpressionOperatorRegexp, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: ExpressionOperatorRegexp, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -11260,28 +11260,28 @@ export class ExpressionOperatorRegexp {
 export interface ExpressionOperatorStar_ConstructProps extends ExpressionOperatorBinaryterm_ConstructProps {
 }
 export class ExpressionOperatorStar {
-    /* Properties of Gee.AbstractBidirList */
+    /* Properties of Gee-0.8.Gee.AbstractBidirList */
     readonly read_only_view: Gee.BidirList
-    /* Properties of Gee.AbstractCollection */
+    /* Properties of Gee-0.8.Gee.AbstractCollection */
     readonly size: number
     readonly read_only: boolean
-    /* Fields of Vda.ExpressionOperatorStar */
+    /* Fields of Vda-1.Vda.ExpressionOperatorStar */
     parent_instance: ExpressionOperatorBinaryterm
     priv: ExpressionOperatorStarPrivate
-    /* Fields of Vda.ExpressionOperatorBinaryterm */
+    /* Fields of Vda-1.Vda.ExpressionOperatorBinaryterm */
     _operator_name: string
-    /* Fields of Vda.ExpressionOperator */
+    /* Fields of Vda-1.Vda.ExpressionOperator */
     _operator_type: SqlExpressionOperatorType
-    /* Fields of Gee.ArrayList */
+    /* Fields of Gee-0.8.Gee.ArrayList */
     _items: object[]
     _items_length1: number
     _size: number
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Gee.ArrayList */
+    /* Methods of Gee-0.8.Gee.ArrayList */
     add_all(collection: Gee.Collection): boolean
     get_equal_func(): [ /* returnType */ Gee.EqualDataFunc, /* result_target */ object | null ]
-    /* Methods of Gee.AbstractBidirList */
+    /* Methods of Gee-0.8.Gee.AbstractBidirList */
     bidir_list_iterator(): Gee.BidirListIterator
     reserved0(): void
     reserved1(): void
@@ -11294,7 +11294,7 @@ export class ExpressionOperatorStar {
     reserved8(): void
     reserved9(): void
     get_read_only_view(): Gee.BidirList
-    /* Methods of Gee.AbstractList */
+    /* Methods of Gee-0.8.Gee.AbstractList */
     list_iterator(): Gee.ListIterator
     get(index: number): object | null
     set(index: number, item?: object | null): void
@@ -11303,7 +11303,7 @@ export class ExpressionOperatorStar {
     remove_at(index: number): object | null
     slice(start: number, stop: number): Gee.List | null
     get_read_only_view(): Gee.List
-    /* Methods of Gee.AbstractCollection */
+    /* Methods of Gee-0.8.Gee.AbstractCollection */
     contains(item?: object | null): boolean
     add(item?: object | null): boolean
     remove(item?: object | null): boolean
@@ -11313,7 +11313,7 @@ export class ExpressionOperatorStar {
     get_size(): number
     get_read_only(): boolean
     get_read_only_view(): Gee.Collection
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -11335,15 +11335,15 @@ export class ExpressionOperatorStar {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Vda.ExpressionOperatorStar */
+    /* Virtual methods of Vda-1.Vda.ExpressionOperatorStar */
     vfunc_get_read_only_view(): Gee.BidirList
     vfunc_get_read_only_view(): Gee.List
     vfunc_get_read_only_view(): Gee.Collection
-    /* Virtual methods of Vda.ExpressionOperatorBinaryterm */
+    /* Virtual methods of Vda-1.Vda.ExpressionOperatorBinaryterm */
     vfunc_get_read_only_view(): Gee.BidirList
     vfunc_get_read_only_view(): Gee.List
     vfunc_get_read_only_view(): Gee.Collection
-    /* Virtual methods of Vda.ExpressionOperator */
+    /* Virtual methods of Vda-1.Vda.ExpressionOperator */
     vfunc_create_field_expression(name: string): SqlExpressionField
     vfunc_create_value_expression(val: any | null, cnc: Connection): SqlExpressionValue
     vfunc_create_parameter_expression(name: string, gtype: GObject.Type): SqlExpressionValueParameter
@@ -11383,7 +11383,7 @@ export class ExpressionOperatorStar {
     vfunc_get_read_only_view(): Gee.BidirList
     vfunc_get_read_only_view(): Gee.List
     vfunc_get_read_only_view(): Gee.Collection
-    /* Virtual methods of Vda.Expression */
+    /* Virtual methods of Vda-1.Vda.Expression */
     vfunc_get_item(position: number): GObject.Object | null
     vfunc_get_item_type(): GObject.Type
     vfunc_get_n_items(): number
@@ -11394,11 +11394,11 @@ export class ExpressionOperatorStar {
     vfunc_get_read_only_view(): Gee.BidirList
     vfunc_get_read_only_view(): Gee.List
     vfunc_get_read_only_view(): Gee.Collection
-    /* Virtual methods of Gee.ArrayList */
+    /* Virtual methods of Gee-0.8.Gee.ArrayList */
     vfunc_get_read_only_view(): Gee.BidirList
     vfunc_get_read_only_view(): Gee.List
     vfunc_get_read_only_view(): Gee.Collection
-    /* Virtual methods of Gee.AbstractBidirList */
+    /* Virtual methods of Gee-0.8.Gee.AbstractBidirList */
     vfunc_bidir_list_iterator(): Gee.BidirListIterator
     vfunc_reserved0(): void
     vfunc_reserved1(): void
@@ -11413,7 +11413,7 @@ export class ExpressionOperatorStar {
     vfunc_get_read_only_view(): Gee.BidirList
     vfunc_get_read_only_view(): Gee.List
     vfunc_get_read_only_view(): Gee.Collection
-    /* Virtual methods of Gee.AbstractList */
+    /* Virtual methods of Gee-0.8.Gee.AbstractList */
     vfunc_list_iterator(): Gee.ListIterator
     vfunc_get(index: number): object | null
     vfunc_set(index: number, item?: object | null): void
@@ -11437,7 +11437,7 @@ export class ExpressionOperatorStar {
     vfunc_last(): object | null
     vfunc_insert_all(index: number, collection: Gee.Collection): void
     vfunc_sort(compare_func: GLib.CompareDataFunc | null): void
-    /* Virtual methods of Gee.AbstractCollection */
+    /* Virtual methods of Gee-0.8.Gee.AbstractCollection */
     vfunc_contains(item?: object | null): boolean
     vfunc_add(item?: object | null): boolean
     vfunc_remove(item?: object | null): boolean
@@ -11484,7 +11484,7 @@ export class ExpressionOperatorStar {
     vfunc_contains_all_iterator(iter: Gee.Iterator): boolean
     vfunc_remove_all_iterator(iter: Gee.Iterator): boolean
     vfunc_get_is_empty(): boolean
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -11492,7 +11492,7 @@ export class ExpressionOperatorStar {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: ExpressionOperatorStar, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: ExpressionOperatorStar, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -11517,28 +11517,28 @@ export class ExpressionOperatorStar {
 export interface ExpressionOperatorDiv_ConstructProps extends ExpressionOperatorBinaryterm_ConstructProps {
 }
 export class ExpressionOperatorDiv {
-    /* Properties of Gee.AbstractBidirList */
+    /* Properties of Gee-0.8.Gee.AbstractBidirList */
     readonly read_only_view: Gee.BidirList
-    /* Properties of Gee.AbstractCollection */
+    /* Properties of Gee-0.8.Gee.AbstractCollection */
     readonly size: number
     readonly read_only: boolean
-    /* Fields of Vda.ExpressionOperatorDiv */
+    /* Fields of Vda-1.Vda.ExpressionOperatorDiv */
     parent_instance: ExpressionOperatorBinaryterm
     priv: ExpressionOperatorDivPrivate
-    /* Fields of Vda.ExpressionOperatorBinaryterm */
+    /* Fields of Vda-1.Vda.ExpressionOperatorBinaryterm */
     _operator_name: string
-    /* Fields of Vda.ExpressionOperator */
+    /* Fields of Vda-1.Vda.ExpressionOperator */
     _operator_type: SqlExpressionOperatorType
-    /* Fields of Gee.ArrayList */
+    /* Fields of Gee-0.8.Gee.ArrayList */
     _items: object[]
     _items_length1: number
     _size: number
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Gee.ArrayList */
+    /* Methods of Gee-0.8.Gee.ArrayList */
     add_all(collection: Gee.Collection): boolean
     get_equal_func(): [ /* returnType */ Gee.EqualDataFunc, /* result_target */ object | null ]
-    /* Methods of Gee.AbstractBidirList */
+    /* Methods of Gee-0.8.Gee.AbstractBidirList */
     bidir_list_iterator(): Gee.BidirListIterator
     reserved0(): void
     reserved1(): void
@@ -11551,7 +11551,7 @@ export class ExpressionOperatorDiv {
     reserved8(): void
     reserved9(): void
     get_read_only_view(): Gee.BidirList
-    /* Methods of Gee.AbstractList */
+    /* Methods of Gee-0.8.Gee.AbstractList */
     list_iterator(): Gee.ListIterator
     get(index: number): object | null
     set(index: number, item?: object | null): void
@@ -11560,7 +11560,7 @@ export class ExpressionOperatorDiv {
     remove_at(index: number): object | null
     slice(start: number, stop: number): Gee.List | null
     get_read_only_view(): Gee.List
-    /* Methods of Gee.AbstractCollection */
+    /* Methods of Gee-0.8.Gee.AbstractCollection */
     contains(item?: object | null): boolean
     add(item?: object | null): boolean
     remove(item?: object | null): boolean
@@ -11570,7 +11570,7 @@ export class ExpressionOperatorDiv {
     get_size(): number
     get_read_only(): boolean
     get_read_only_view(): Gee.Collection
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -11592,15 +11592,15 @@ export class ExpressionOperatorDiv {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Vda.ExpressionOperatorDiv */
+    /* Virtual methods of Vda-1.Vda.ExpressionOperatorDiv */
     vfunc_get_read_only_view(): Gee.BidirList
     vfunc_get_read_only_view(): Gee.List
     vfunc_get_read_only_view(): Gee.Collection
-    /* Virtual methods of Vda.ExpressionOperatorBinaryterm */
+    /* Virtual methods of Vda-1.Vda.ExpressionOperatorBinaryterm */
     vfunc_get_read_only_view(): Gee.BidirList
     vfunc_get_read_only_view(): Gee.List
     vfunc_get_read_only_view(): Gee.Collection
-    /* Virtual methods of Vda.ExpressionOperator */
+    /* Virtual methods of Vda-1.Vda.ExpressionOperator */
     vfunc_create_field_expression(name: string): SqlExpressionField
     vfunc_create_value_expression(val: any | null, cnc: Connection): SqlExpressionValue
     vfunc_create_parameter_expression(name: string, gtype: GObject.Type): SqlExpressionValueParameter
@@ -11640,7 +11640,7 @@ export class ExpressionOperatorDiv {
     vfunc_get_read_only_view(): Gee.BidirList
     vfunc_get_read_only_view(): Gee.List
     vfunc_get_read_only_view(): Gee.Collection
-    /* Virtual methods of Vda.Expression */
+    /* Virtual methods of Vda-1.Vda.Expression */
     vfunc_get_item(position: number): GObject.Object | null
     vfunc_get_item_type(): GObject.Type
     vfunc_get_n_items(): number
@@ -11651,11 +11651,11 @@ export class ExpressionOperatorDiv {
     vfunc_get_read_only_view(): Gee.BidirList
     vfunc_get_read_only_view(): Gee.List
     vfunc_get_read_only_view(): Gee.Collection
-    /* Virtual methods of Gee.ArrayList */
+    /* Virtual methods of Gee-0.8.Gee.ArrayList */
     vfunc_get_read_only_view(): Gee.BidirList
     vfunc_get_read_only_view(): Gee.List
     vfunc_get_read_only_view(): Gee.Collection
-    /* Virtual methods of Gee.AbstractBidirList */
+    /* Virtual methods of Gee-0.8.Gee.AbstractBidirList */
     vfunc_bidir_list_iterator(): Gee.BidirListIterator
     vfunc_reserved0(): void
     vfunc_reserved1(): void
@@ -11670,7 +11670,7 @@ export class ExpressionOperatorDiv {
     vfunc_get_read_only_view(): Gee.BidirList
     vfunc_get_read_only_view(): Gee.List
     vfunc_get_read_only_view(): Gee.Collection
-    /* Virtual methods of Gee.AbstractList */
+    /* Virtual methods of Gee-0.8.Gee.AbstractList */
     vfunc_list_iterator(): Gee.ListIterator
     vfunc_get(index: number): object | null
     vfunc_set(index: number, item?: object | null): void
@@ -11694,7 +11694,7 @@ export class ExpressionOperatorDiv {
     vfunc_last(): object | null
     vfunc_insert_all(index: number, collection: Gee.Collection): void
     vfunc_sort(compare_func: GLib.CompareDataFunc | null): void
-    /* Virtual methods of Gee.AbstractCollection */
+    /* Virtual methods of Gee-0.8.Gee.AbstractCollection */
     vfunc_contains(item?: object | null): boolean
     vfunc_add(item?: object | null): boolean
     vfunc_remove(item?: object | null): boolean
@@ -11741,7 +11741,7 @@ export class ExpressionOperatorDiv {
     vfunc_contains_all_iterator(iter: Gee.Iterator): boolean
     vfunc_remove_all_iterator(iter: Gee.Iterator): boolean
     vfunc_get_is_empty(): boolean
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -11749,7 +11749,7 @@ export class ExpressionOperatorDiv {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: ExpressionOperatorDiv, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: ExpressionOperatorDiv, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -11774,28 +11774,28 @@ export class ExpressionOperatorDiv {
 export interface ExpressionOperatorIn_ConstructProps extends ExpressionOperatorBinaryterm_ConstructProps {
 }
 export class ExpressionOperatorIn {
-    /* Properties of Gee.AbstractBidirList */
+    /* Properties of Gee-0.8.Gee.AbstractBidirList */
     readonly read_only_view: Gee.BidirList
-    /* Properties of Gee.AbstractCollection */
+    /* Properties of Gee-0.8.Gee.AbstractCollection */
     readonly size: number
     readonly read_only: boolean
-    /* Fields of Vda.ExpressionOperatorIn */
+    /* Fields of Vda-1.Vda.ExpressionOperatorIn */
     parent_instance: ExpressionOperatorBinaryterm
     priv: ExpressionOperatorInPrivate
-    /* Fields of Vda.ExpressionOperatorBinaryterm */
+    /* Fields of Vda-1.Vda.ExpressionOperatorBinaryterm */
     _operator_name: string
-    /* Fields of Vda.ExpressionOperator */
+    /* Fields of Vda-1.Vda.ExpressionOperator */
     _operator_type: SqlExpressionOperatorType
-    /* Fields of Gee.ArrayList */
+    /* Fields of Gee-0.8.Gee.ArrayList */
     _items: object[]
     _items_length1: number
     _size: number
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Gee.ArrayList */
+    /* Methods of Gee-0.8.Gee.ArrayList */
     add_all(collection: Gee.Collection): boolean
     get_equal_func(): [ /* returnType */ Gee.EqualDataFunc, /* result_target */ object | null ]
-    /* Methods of Gee.AbstractBidirList */
+    /* Methods of Gee-0.8.Gee.AbstractBidirList */
     bidir_list_iterator(): Gee.BidirListIterator
     reserved0(): void
     reserved1(): void
@@ -11808,7 +11808,7 @@ export class ExpressionOperatorIn {
     reserved8(): void
     reserved9(): void
     get_read_only_view(): Gee.BidirList
-    /* Methods of Gee.AbstractList */
+    /* Methods of Gee-0.8.Gee.AbstractList */
     list_iterator(): Gee.ListIterator
     get(index: number): object | null
     set(index: number, item?: object | null): void
@@ -11817,7 +11817,7 @@ export class ExpressionOperatorIn {
     remove_at(index: number): object | null
     slice(start: number, stop: number): Gee.List | null
     get_read_only_view(): Gee.List
-    /* Methods of Gee.AbstractCollection */
+    /* Methods of Gee-0.8.Gee.AbstractCollection */
     contains(item?: object | null): boolean
     add(item?: object | null): boolean
     remove(item?: object | null): boolean
@@ -11827,7 +11827,7 @@ export class ExpressionOperatorIn {
     get_size(): number
     get_read_only(): boolean
     get_read_only_view(): Gee.Collection
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -11849,15 +11849,15 @@ export class ExpressionOperatorIn {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Vda.ExpressionOperatorIn */
+    /* Virtual methods of Vda-1.Vda.ExpressionOperatorIn */
     vfunc_get_read_only_view(): Gee.BidirList
     vfunc_get_read_only_view(): Gee.List
     vfunc_get_read_only_view(): Gee.Collection
-    /* Virtual methods of Vda.ExpressionOperatorBinaryterm */
+    /* Virtual methods of Vda-1.Vda.ExpressionOperatorBinaryterm */
     vfunc_get_read_only_view(): Gee.BidirList
     vfunc_get_read_only_view(): Gee.List
     vfunc_get_read_only_view(): Gee.Collection
-    /* Virtual methods of Vda.ExpressionOperator */
+    /* Virtual methods of Vda-1.Vda.ExpressionOperator */
     vfunc_create_field_expression(name: string): SqlExpressionField
     vfunc_create_value_expression(val: any | null, cnc: Connection): SqlExpressionValue
     vfunc_create_parameter_expression(name: string, gtype: GObject.Type): SqlExpressionValueParameter
@@ -11897,7 +11897,7 @@ export class ExpressionOperatorIn {
     vfunc_get_read_only_view(): Gee.BidirList
     vfunc_get_read_only_view(): Gee.List
     vfunc_get_read_only_view(): Gee.Collection
-    /* Virtual methods of Vda.Expression */
+    /* Virtual methods of Vda-1.Vda.Expression */
     vfunc_get_item(position: number): GObject.Object | null
     vfunc_get_item_type(): GObject.Type
     vfunc_get_n_items(): number
@@ -11908,11 +11908,11 @@ export class ExpressionOperatorIn {
     vfunc_get_read_only_view(): Gee.BidirList
     vfunc_get_read_only_view(): Gee.List
     vfunc_get_read_only_view(): Gee.Collection
-    /* Virtual methods of Gee.ArrayList */
+    /* Virtual methods of Gee-0.8.Gee.ArrayList */
     vfunc_get_read_only_view(): Gee.BidirList
     vfunc_get_read_only_view(): Gee.List
     vfunc_get_read_only_view(): Gee.Collection
-    /* Virtual methods of Gee.AbstractBidirList */
+    /* Virtual methods of Gee-0.8.Gee.AbstractBidirList */
     vfunc_bidir_list_iterator(): Gee.BidirListIterator
     vfunc_reserved0(): void
     vfunc_reserved1(): void
@@ -11927,7 +11927,7 @@ export class ExpressionOperatorIn {
     vfunc_get_read_only_view(): Gee.BidirList
     vfunc_get_read_only_view(): Gee.List
     vfunc_get_read_only_view(): Gee.Collection
-    /* Virtual methods of Gee.AbstractList */
+    /* Virtual methods of Gee-0.8.Gee.AbstractList */
     vfunc_list_iterator(): Gee.ListIterator
     vfunc_get(index: number): object | null
     vfunc_set(index: number, item?: object | null): void
@@ -11951,7 +11951,7 @@ export class ExpressionOperatorIn {
     vfunc_last(): object | null
     vfunc_insert_all(index: number, collection: Gee.Collection): void
     vfunc_sort(compare_func: GLib.CompareDataFunc | null): void
-    /* Virtual methods of Gee.AbstractCollection */
+    /* Virtual methods of Gee-0.8.Gee.AbstractCollection */
     vfunc_contains(item?: object | null): boolean
     vfunc_add(item?: object | null): boolean
     vfunc_remove(item?: object | null): boolean
@@ -11998,7 +11998,7 @@ export class ExpressionOperatorIn {
     vfunc_contains_all_iterator(iter: Gee.Iterator): boolean
     vfunc_remove_all_iterator(iter: Gee.Iterator): boolean
     vfunc_get_is_empty(): boolean
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -12006,7 +12006,7 @@ export class ExpressionOperatorIn {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: ExpressionOperatorIn, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: ExpressionOperatorIn, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -12031,28 +12031,28 @@ export class ExpressionOperatorIn {
 export interface ExpressionOperatorNotIn_ConstructProps extends ExpressionOperatorBinaryterm_ConstructProps {
 }
 export class ExpressionOperatorNotIn {
-    /* Properties of Gee.AbstractBidirList */
+    /* Properties of Gee-0.8.Gee.AbstractBidirList */
     readonly read_only_view: Gee.BidirList
-    /* Properties of Gee.AbstractCollection */
+    /* Properties of Gee-0.8.Gee.AbstractCollection */
     readonly size: number
     readonly read_only: boolean
-    /* Fields of Vda.ExpressionOperatorNotIn */
+    /* Fields of Vda-1.Vda.ExpressionOperatorNotIn */
     parent_instance: ExpressionOperatorBinaryterm
     priv: ExpressionOperatorNotInPrivate
-    /* Fields of Vda.ExpressionOperatorBinaryterm */
+    /* Fields of Vda-1.Vda.ExpressionOperatorBinaryterm */
     _operator_name: string
-    /* Fields of Vda.ExpressionOperator */
+    /* Fields of Vda-1.Vda.ExpressionOperator */
     _operator_type: SqlExpressionOperatorType
-    /* Fields of Gee.ArrayList */
+    /* Fields of Gee-0.8.Gee.ArrayList */
     _items: object[]
     _items_length1: number
     _size: number
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Gee.ArrayList */
+    /* Methods of Gee-0.8.Gee.ArrayList */
     add_all(collection: Gee.Collection): boolean
     get_equal_func(): [ /* returnType */ Gee.EqualDataFunc, /* result_target */ object | null ]
-    /* Methods of Gee.AbstractBidirList */
+    /* Methods of Gee-0.8.Gee.AbstractBidirList */
     bidir_list_iterator(): Gee.BidirListIterator
     reserved0(): void
     reserved1(): void
@@ -12065,7 +12065,7 @@ export class ExpressionOperatorNotIn {
     reserved8(): void
     reserved9(): void
     get_read_only_view(): Gee.BidirList
-    /* Methods of Gee.AbstractList */
+    /* Methods of Gee-0.8.Gee.AbstractList */
     list_iterator(): Gee.ListIterator
     get(index: number): object | null
     set(index: number, item?: object | null): void
@@ -12074,7 +12074,7 @@ export class ExpressionOperatorNotIn {
     remove_at(index: number): object | null
     slice(start: number, stop: number): Gee.List | null
     get_read_only_view(): Gee.List
-    /* Methods of Gee.AbstractCollection */
+    /* Methods of Gee-0.8.Gee.AbstractCollection */
     contains(item?: object | null): boolean
     add(item?: object | null): boolean
     remove(item?: object | null): boolean
@@ -12084,7 +12084,7 @@ export class ExpressionOperatorNotIn {
     get_size(): number
     get_read_only(): boolean
     get_read_only_view(): Gee.Collection
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -12106,15 +12106,15 @@ export class ExpressionOperatorNotIn {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Vda.ExpressionOperatorNotIn */
+    /* Virtual methods of Vda-1.Vda.ExpressionOperatorNotIn */
     vfunc_get_read_only_view(): Gee.BidirList
     vfunc_get_read_only_view(): Gee.List
     vfunc_get_read_only_view(): Gee.Collection
-    /* Virtual methods of Vda.ExpressionOperatorBinaryterm */
+    /* Virtual methods of Vda-1.Vda.ExpressionOperatorBinaryterm */
     vfunc_get_read_only_view(): Gee.BidirList
     vfunc_get_read_only_view(): Gee.List
     vfunc_get_read_only_view(): Gee.Collection
-    /* Virtual methods of Vda.ExpressionOperator */
+    /* Virtual methods of Vda-1.Vda.ExpressionOperator */
     vfunc_create_field_expression(name: string): SqlExpressionField
     vfunc_create_value_expression(val: any | null, cnc: Connection): SqlExpressionValue
     vfunc_create_parameter_expression(name: string, gtype: GObject.Type): SqlExpressionValueParameter
@@ -12154,7 +12154,7 @@ export class ExpressionOperatorNotIn {
     vfunc_get_read_only_view(): Gee.BidirList
     vfunc_get_read_only_view(): Gee.List
     vfunc_get_read_only_view(): Gee.Collection
-    /* Virtual methods of Vda.Expression */
+    /* Virtual methods of Vda-1.Vda.Expression */
     vfunc_get_item(position: number): GObject.Object | null
     vfunc_get_item_type(): GObject.Type
     vfunc_get_n_items(): number
@@ -12165,11 +12165,11 @@ export class ExpressionOperatorNotIn {
     vfunc_get_read_only_view(): Gee.BidirList
     vfunc_get_read_only_view(): Gee.List
     vfunc_get_read_only_view(): Gee.Collection
-    /* Virtual methods of Gee.ArrayList */
+    /* Virtual methods of Gee-0.8.Gee.ArrayList */
     vfunc_get_read_only_view(): Gee.BidirList
     vfunc_get_read_only_view(): Gee.List
     vfunc_get_read_only_view(): Gee.Collection
-    /* Virtual methods of Gee.AbstractBidirList */
+    /* Virtual methods of Gee-0.8.Gee.AbstractBidirList */
     vfunc_bidir_list_iterator(): Gee.BidirListIterator
     vfunc_reserved0(): void
     vfunc_reserved1(): void
@@ -12184,7 +12184,7 @@ export class ExpressionOperatorNotIn {
     vfunc_get_read_only_view(): Gee.BidirList
     vfunc_get_read_only_view(): Gee.List
     vfunc_get_read_only_view(): Gee.Collection
-    /* Virtual methods of Gee.AbstractList */
+    /* Virtual methods of Gee-0.8.Gee.AbstractList */
     vfunc_list_iterator(): Gee.ListIterator
     vfunc_get(index: number): object | null
     vfunc_set(index: number, item?: object | null): void
@@ -12208,7 +12208,7 @@ export class ExpressionOperatorNotIn {
     vfunc_last(): object | null
     vfunc_insert_all(index: number, collection: Gee.Collection): void
     vfunc_sort(compare_func: GLib.CompareDataFunc | null): void
-    /* Virtual methods of Gee.AbstractCollection */
+    /* Virtual methods of Gee-0.8.Gee.AbstractCollection */
     vfunc_contains(item?: object | null): boolean
     vfunc_add(item?: object | null): boolean
     vfunc_remove(item?: object | null): boolean
@@ -12255,7 +12255,7 @@ export class ExpressionOperatorNotIn {
     vfunc_contains_all_iterator(iter: Gee.Iterator): boolean
     vfunc_remove_all_iterator(iter: Gee.Iterator): boolean
     vfunc_get_is_empty(): boolean
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -12263,7 +12263,7 @@ export class ExpressionOperatorNotIn {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: ExpressionOperatorNotIn, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: ExpressionOperatorNotIn, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -12288,28 +12288,28 @@ export class ExpressionOperatorNotIn {
 export interface ExpressionOperatorConcatenate_ConstructProps extends ExpressionOperatorBinaryterm_ConstructProps {
 }
 export class ExpressionOperatorConcatenate {
-    /* Properties of Gee.AbstractBidirList */
+    /* Properties of Gee-0.8.Gee.AbstractBidirList */
     readonly read_only_view: Gee.BidirList
-    /* Properties of Gee.AbstractCollection */
+    /* Properties of Gee-0.8.Gee.AbstractCollection */
     readonly size: number
     readonly read_only: boolean
-    /* Fields of Vda.ExpressionOperatorConcatenate */
+    /* Fields of Vda-1.Vda.ExpressionOperatorConcatenate */
     parent_instance: ExpressionOperatorBinaryterm
     priv: ExpressionOperatorConcatenatePrivate
-    /* Fields of Vda.ExpressionOperatorBinaryterm */
+    /* Fields of Vda-1.Vda.ExpressionOperatorBinaryterm */
     _operator_name: string
-    /* Fields of Vda.ExpressionOperator */
+    /* Fields of Vda-1.Vda.ExpressionOperator */
     _operator_type: SqlExpressionOperatorType
-    /* Fields of Gee.ArrayList */
+    /* Fields of Gee-0.8.Gee.ArrayList */
     _items: object[]
     _items_length1: number
     _size: number
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Gee.ArrayList */
+    /* Methods of Gee-0.8.Gee.ArrayList */
     add_all(collection: Gee.Collection): boolean
     get_equal_func(): [ /* returnType */ Gee.EqualDataFunc, /* result_target */ object | null ]
-    /* Methods of Gee.AbstractBidirList */
+    /* Methods of Gee-0.8.Gee.AbstractBidirList */
     bidir_list_iterator(): Gee.BidirListIterator
     reserved0(): void
     reserved1(): void
@@ -12322,7 +12322,7 @@ export class ExpressionOperatorConcatenate {
     reserved8(): void
     reserved9(): void
     get_read_only_view(): Gee.BidirList
-    /* Methods of Gee.AbstractList */
+    /* Methods of Gee-0.8.Gee.AbstractList */
     list_iterator(): Gee.ListIterator
     get(index: number): object | null
     set(index: number, item?: object | null): void
@@ -12331,7 +12331,7 @@ export class ExpressionOperatorConcatenate {
     remove_at(index: number): object | null
     slice(start: number, stop: number): Gee.List | null
     get_read_only_view(): Gee.List
-    /* Methods of Gee.AbstractCollection */
+    /* Methods of Gee-0.8.Gee.AbstractCollection */
     contains(item?: object | null): boolean
     add(item?: object | null): boolean
     remove(item?: object | null): boolean
@@ -12341,7 +12341,7 @@ export class ExpressionOperatorConcatenate {
     get_size(): number
     get_read_only(): boolean
     get_read_only_view(): Gee.Collection
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -12363,15 +12363,15 @@ export class ExpressionOperatorConcatenate {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Vda.ExpressionOperatorConcatenate */
+    /* Virtual methods of Vda-1.Vda.ExpressionOperatorConcatenate */
     vfunc_get_read_only_view(): Gee.BidirList
     vfunc_get_read_only_view(): Gee.List
     vfunc_get_read_only_view(): Gee.Collection
-    /* Virtual methods of Vda.ExpressionOperatorBinaryterm */
+    /* Virtual methods of Vda-1.Vda.ExpressionOperatorBinaryterm */
     vfunc_get_read_only_view(): Gee.BidirList
     vfunc_get_read_only_view(): Gee.List
     vfunc_get_read_only_view(): Gee.Collection
-    /* Virtual methods of Vda.ExpressionOperator */
+    /* Virtual methods of Vda-1.Vda.ExpressionOperator */
     vfunc_create_field_expression(name: string): SqlExpressionField
     vfunc_create_value_expression(val: any | null, cnc: Connection): SqlExpressionValue
     vfunc_create_parameter_expression(name: string, gtype: GObject.Type): SqlExpressionValueParameter
@@ -12411,7 +12411,7 @@ export class ExpressionOperatorConcatenate {
     vfunc_get_read_only_view(): Gee.BidirList
     vfunc_get_read_only_view(): Gee.List
     vfunc_get_read_only_view(): Gee.Collection
-    /* Virtual methods of Vda.Expression */
+    /* Virtual methods of Vda-1.Vda.Expression */
     vfunc_get_item(position: number): GObject.Object | null
     vfunc_get_item_type(): GObject.Type
     vfunc_get_n_items(): number
@@ -12422,11 +12422,11 @@ export class ExpressionOperatorConcatenate {
     vfunc_get_read_only_view(): Gee.BidirList
     vfunc_get_read_only_view(): Gee.List
     vfunc_get_read_only_view(): Gee.Collection
-    /* Virtual methods of Gee.ArrayList */
+    /* Virtual methods of Gee-0.8.Gee.ArrayList */
     vfunc_get_read_only_view(): Gee.BidirList
     vfunc_get_read_only_view(): Gee.List
     vfunc_get_read_only_view(): Gee.Collection
-    /* Virtual methods of Gee.AbstractBidirList */
+    /* Virtual methods of Gee-0.8.Gee.AbstractBidirList */
     vfunc_bidir_list_iterator(): Gee.BidirListIterator
     vfunc_reserved0(): void
     vfunc_reserved1(): void
@@ -12441,7 +12441,7 @@ export class ExpressionOperatorConcatenate {
     vfunc_get_read_only_view(): Gee.BidirList
     vfunc_get_read_only_view(): Gee.List
     vfunc_get_read_only_view(): Gee.Collection
-    /* Virtual methods of Gee.AbstractList */
+    /* Virtual methods of Gee-0.8.Gee.AbstractList */
     vfunc_list_iterator(): Gee.ListIterator
     vfunc_get(index: number): object | null
     vfunc_set(index: number, item?: object | null): void
@@ -12465,7 +12465,7 @@ export class ExpressionOperatorConcatenate {
     vfunc_last(): object | null
     vfunc_insert_all(index: number, collection: Gee.Collection): void
     vfunc_sort(compare_func: GLib.CompareDataFunc | null): void
-    /* Virtual methods of Gee.AbstractCollection */
+    /* Virtual methods of Gee-0.8.Gee.AbstractCollection */
     vfunc_contains(item?: object | null): boolean
     vfunc_add(item?: object | null): boolean
     vfunc_remove(item?: object | null): boolean
@@ -12512,7 +12512,7 @@ export class ExpressionOperatorConcatenate {
     vfunc_contains_all_iterator(iter: Gee.Iterator): boolean
     vfunc_remove_all_iterator(iter: Gee.Iterator): boolean
     vfunc_get_is_empty(): boolean
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -12520,7 +12520,7 @@ export class ExpressionOperatorConcatenate {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: ExpressionOperatorConcatenate, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: ExpressionOperatorConcatenate, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -12545,28 +12545,28 @@ export class ExpressionOperatorConcatenate {
 export interface ExpressionOperatorSimilarTo_ConstructProps extends ExpressionOperatorBinaryterm_ConstructProps {
 }
 export class ExpressionOperatorSimilarTo {
-    /* Properties of Gee.AbstractBidirList */
+    /* Properties of Gee-0.8.Gee.AbstractBidirList */
     readonly read_only_view: Gee.BidirList
-    /* Properties of Gee.AbstractCollection */
+    /* Properties of Gee-0.8.Gee.AbstractCollection */
     readonly size: number
     readonly read_only: boolean
-    /* Fields of Vda.ExpressionOperatorSimilarTo */
+    /* Fields of Vda-1.Vda.ExpressionOperatorSimilarTo */
     parent_instance: ExpressionOperatorBinaryterm
     priv: ExpressionOperatorSimilarToPrivate
-    /* Fields of Vda.ExpressionOperatorBinaryterm */
+    /* Fields of Vda-1.Vda.ExpressionOperatorBinaryterm */
     _operator_name: string
-    /* Fields of Vda.ExpressionOperator */
+    /* Fields of Vda-1.Vda.ExpressionOperator */
     _operator_type: SqlExpressionOperatorType
-    /* Fields of Gee.ArrayList */
+    /* Fields of Gee-0.8.Gee.ArrayList */
     _items: object[]
     _items_length1: number
     _size: number
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Gee.ArrayList */
+    /* Methods of Gee-0.8.Gee.ArrayList */
     add_all(collection: Gee.Collection): boolean
     get_equal_func(): [ /* returnType */ Gee.EqualDataFunc, /* result_target */ object | null ]
-    /* Methods of Gee.AbstractBidirList */
+    /* Methods of Gee-0.8.Gee.AbstractBidirList */
     bidir_list_iterator(): Gee.BidirListIterator
     reserved0(): void
     reserved1(): void
@@ -12579,7 +12579,7 @@ export class ExpressionOperatorSimilarTo {
     reserved8(): void
     reserved9(): void
     get_read_only_view(): Gee.BidirList
-    /* Methods of Gee.AbstractList */
+    /* Methods of Gee-0.8.Gee.AbstractList */
     list_iterator(): Gee.ListIterator
     get(index: number): object | null
     set(index: number, item?: object | null): void
@@ -12588,7 +12588,7 @@ export class ExpressionOperatorSimilarTo {
     remove_at(index: number): object | null
     slice(start: number, stop: number): Gee.List | null
     get_read_only_view(): Gee.List
-    /* Methods of Gee.AbstractCollection */
+    /* Methods of Gee-0.8.Gee.AbstractCollection */
     contains(item?: object | null): boolean
     add(item?: object | null): boolean
     remove(item?: object | null): boolean
@@ -12598,7 +12598,7 @@ export class ExpressionOperatorSimilarTo {
     get_size(): number
     get_read_only(): boolean
     get_read_only_view(): Gee.Collection
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -12620,15 +12620,15 @@ export class ExpressionOperatorSimilarTo {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Vda.ExpressionOperatorSimilarTo */
+    /* Virtual methods of Vda-1.Vda.ExpressionOperatorSimilarTo */
     vfunc_get_read_only_view(): Gee.BidirList
     vfunc_get_read_only_view(): Gee.List
     vfunc_get_read_only_view(): Gee.Collection
-    /* Virtual methods of Vda.ExpressionOperatorBinaryterm */
+    /* Virtual methods of Vda-1.Vda.ExpressionOperatorBinaryterm */
     vfunc_get_read_only_view(): Gee.BidirList
     vfunc_get_read_only_view(): Gee.List
     vfunc_get_read_only_view(): Gee.Collection
-    /* Virtual methods of Vda.ExpressionOperator */
+    /* Virtual methods of Vda-1.Vda.ExpressionOperator */
     vfunc_create_field_expression(name: string): SqlExpressionField
     vfunc_create_value_expression(val: any | null, cnc: Connection): SqlExpressionValue
     vfunc_create_parameter_expression(name: string, gtype: GObject.Type): SqlExpressionValueParameter
@@ -12668,7 +12668,7 @@ export class ExpressionOperatorSimilarTo {
     vfunc_get_read_only_view(): Gee.BidirList
     vfunc_get_read_only_view(): Gee.List
     vfunc_get_read_only_view(): Gee.Collection
-    /* Virtual methods of Vda.Expression */
+    /* Virtual methods of Vda-1.Vda.Expression */
     vfunc_get_item(position: number): GObject.Object | null
     vfunc_get_item_type(): GObject.Type
     vfunc_get_n_items(): number
@@ -12679,11 +12679,11 @@ export class ExpressionOperatorSimilarTo {
     vfunc_get_read_only_view(): Gee.BidirList
     vfunc_get_read_only_view(): Gee.List
     vfunc_get_read_only_view(): Gee.Collection
-    /* Virtual methods of Gee.ArrayList */
+    /* Virtual methods of Gee-0.8.Gee.ArrayList */
     vfunc_get_read_only_view(): Gee.BidirList
     vfunc_get_read_only_view(): Gee.List
     vfunc_get_read_only_view(): Gee.Collection
-    /* Virtual methods of Gee.AbstractBidirList */
+    /* Virtual methods of Gee-0.8.Gee.AbstractBidirList */
     vfunc_bidir_list_iterator(): Gee.BidirListIterator
     vfunc_reserved0(): void
     vfunc_reserved1(): void
@@ -12698,7 +12698,7 @@ export class ExpressionOperatorSimilarTo {
     vfunc_get_read_only_view(): Gee.BidirList
     vfunc_get_read_only_view(): Gee.List
     vfunc_get_read_only_view(): Gee.Collection
-    /* Virtual methods of Gee.AbstractList */
+    /* Virtual methods of Gee-0.8.Gee.AbstractList */
     vfunc_list_iterator(): Gee.ListIterator
     vfunc_get(index: number): object | null
     vfunc_set(index: number, item?: object | null): void
@@ -12722,7 +12722,7 @@ export class ExpressionOperatorSimilarTo {
     vfunc_last(): object | null
     vfunc_insert_all(index: number, collection: Gee.Collection): void
     vfunc_sort(compare_func: GLib.CompareDataFunc | null): void
-    /* Virtual methods of Gee.AbstractCollection */
+    /* Virtual methods of Gee-0.8.Gee.AbstractCollection */
     vfunc_contains(item?: object | null): boolean
     vfunc_add(item?: object | null): boolean
     vfunc_remove(item?: object | null): boolean
@@ -12769,7 +12769,7 @@ export class ExpressionOperatorSimilarTo {
     vfunc_contains_all_iterator(iter: Gee.Iterator): boolean
     vfunc_remove_all_iterator(iter: Gee.Iterator): boolean
     vfunc_get_is_empty(): boolean
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -12777,7 +12777,7 @@ export class ExpressionOperatorSimilarTo {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: ExpressionOperatorSimilarTo, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: ExpressionOperatorSimilarTo, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -12802,28 +12802,28 @@ export class ExpressionOperatorSimilarTo {
 export interface ExpressionOperatorLike_ConstructProps extends ExpressionOperatorBinaryterm_ConstructProps {
 }
 export class ExpressionOperatorLike {
-    /* Properties of Gee.AbstractBidirList */
+    /* Properties of Gee-0.8.Gee.AbstractBidirList */
     readonly read_only_view: Gee.BidirList
-    /* Properties of Gee.AbstractCollection */
+    /* Properties of Gee-0.8.Gee.AbstractCollection */
     readonly size: number
     readonly read_only: boolean
-    /* Fields of Vda.ExpressionOperatorLike */
+    /* Fields of Vda-1.Vda.ExpressionOperatorLike */
     parent_instance: ExpressionOperatorBinaryterm
     priv: ExpressionOperatorLikePrivate
-    /* Fields of Vda.ExpressionOperatorBinaryterm */
+    /* Fields of Vda-1.Vda.ExpressionOperatorBinaryterm */
     _operator_name: string
-    /* Fields of Vda.ExpressionOperator */
+    /* Fields of Vda-1.Vda.ExpressionOperator */
     _operator_type: SqlExpressionOperatorType
-    /* Fields of Gee.ArrayList */
+    /* Fields of Gee-0.8.Gee.ArrayList */
     _items: object[]
     _items_length1: number
     _size: number
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Gee.ArrayList */
+    /* Methods of Gee-0.8.Gee.ArrayList */
     add_all(collection: Gee.Collection): boolean
     get_equal_func(): [ /* returnType */ Gee.EqualDataFunc, /* result_target */ object | null ]
-    /* Methods of Gee.AbstractBidirList */
+    /* Methods of Gee-0.8.Gee.AbstractBidirList */
     bidir_list_iterator(): Gee.BidirListIterator
     reserved0(): void
     reserved1(): void
@@ -12836,7 +12836,7 @@ export class ExpressionOperatorLike {
     reserved8(): void
     reserved9(): void
     get_read_only_view(): Gee.BidirList
-    /* Methods of Gee.AbstractList */
+    /* Methods of Gee-0.8.Gee.AbstractList */
     list_iterator(): Gee.ListIterator
     get(index: number): object | null
     set(index: number, item?: object | null): void
@@ -12845,7 +12845,7 @@ export class ExpressionOperatorLike {
     remove_at(index: number): object | null
     slice(start: number, stop: number): Gee.List | null
     get_read_only_view(): Gee.List
-    /* Methods of Gee.AbstractCollection */
+    /* Methods of Gee-0.8.Gee.AbstractCollection */
     contains(item?: object | null): boolean
     add(item?: object | null): boolean
     remove(item?: object | null): boolean
@@ -12855,7 +12855,7 @@ export class ExpressionOperatorLike {
     get_size(): number
     get_read_only(): boolean
     get_read_only_view(): Gee.Collection
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -12877,15 +12877,15 @@ export class ExpressionOperatorLike {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Vda.ExpressionOperatorLike */
+    /* Virtual methods of Vda-1.Vda.ExpressionOperatorLike */
     vfunc_get_read_only_view(): Gee.BidirList
     vfunc_get_read_only_view(): Gee.List
     vfunc_get_read_only_view(): Gee.Collection
-    /* Virtual methods of Vda.ExpressionOperatorBinaryterm */
+    /* Virtual methods of Vda-1.Vda.ExpressionOperatorBinaryterm */
     vfunc_get_read_only_view(): Gee.BidirList
     vfunc_get_read_only_view(): Gee.List
     vfunc_get_read_only_view(): Gee.Collection
-    /* Virtual methods of Vda.ExpressionOperator */
+    /* Virtual methods of Vda-1.Vda.ExpressionOperator */
     vfunc_create_field_expression(name: string): SqlExpressionField
     vfunc_create_value_expression(val: any | null, cnc: Connection): SqlExpressionValue
     vfunc_create_parameter_expression(name: string, gtype: GObject.Type): SqlExpressionValueParameter
@@ -12925,7 +12925,7 @@ export class ExpressionOperatorLike {
     vfunc_get_read_only_view(): Gee.BidirList
     vfunc_get_read_only_view(): Gee.List
     vfunc_get_read_only_view(): Gee.Collection
-    /* Virtual methods of Vda.Expression */
+    /* Virtual methods of Vda-1.Vda.Expression */
     vfunc_get_item(position: number): GObject.Object | null
     vfunc_get_item_type(): GObject.Type
     vfunc_get_n_items(): number
@@ -12936,11 +12936,11 @@ export class ExpressionOperatorLike {
     vfunc_get_read_only_view(): Gee.BidirList
     vfunc_get_read_only_view(): Gee.List
     vfunc_get_read_only_view(): Gee.Collection
-    /* Virtual methods of Gee.ArrayList */
+    /* Virtual methods of Gee-0.8.Gee.ArrayList */
     vfunc_get_read_only_view(): Gee.BidirList
     vfunc_get_read_only_view(): Gee.List
     vfunc_get_read_only_view(): Gee.Collection
-    /* Virtual methods of Gee.AbstractBidirList */
+    /* Virtual methods of Gee-0.8.Gee.AbstractBidirList */
     vfunc_bidir_list_iterator(): Gee.BidirListIterator
     vfunc_reserved0(): void
     vfunc_reserved1(): void
@@ -12955,7 +12955,7 @@ export class ExpressionOperatorLike {
     vfunc_get_read_only_view(): Gee.BidirList
     vfunc_get_read_only_view(): Gee.List
     vfunc_get_read_only_view(): Gee.Collection
-    /* Virtual methods of Gee.AbstractList */
+    /* Virtual methods of Gee-0.8.Gee.AbstractList */
     vfunc_list_iterator(): Gee.ListIterator
     vfunc_get(index: number): object | null
     vfunc_set(index: number, item?: object | null): void
@@ -12979,7 +12979,7 @@ export class ExpressionOperatorLike {
     vfunc_last(): object | null
     vfunc_insert_all(index: number, collection: Gee.Collection): void
     vfunc_sort(compare_func: GLib.CompareDataFunc | null): void
-    /* Virtual methods of Gee.AbstractCollection */
+    /* Virtual methods of Gee-0.8.Gee.AbstractCollection */
     vfunc_contains(item?: object | null): boolean
     vfunc_add(item?: object | null): boolean
     vfunc_remove(item?: object | null): boolean
@@ -13026,7 +13026,7 @@ export class ExpressionOperatorLike {
     vfunc_contains_all_iterator(iter: Gee.Iterator): boolean
     vfunc_remove_all_iterator(iter: Gee.Iterator): boolean
     vfunc_get_is_empty(): boolean
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -13034,7 +13034,7 @@ export class ExpressionOperatorLike {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: ExpressionOperatorLike, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: ExpressionOperatorLike, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -13059,28 +13059,28 @@ export class ExpressionOperatorLike {
 export interface ExpressionOperatorIlike_ConstructProps extends ExpressionOperatorBinaryterm_ConstructProps {
 }
 export class ExpressionOperatorIlike {
-    /* Properties of Gee.AbstractBidirList */
+    /* Properties of Gee-0.8.Gee.AbstractBidirList */
     readonly read_only_view: Gee.BidirList
-    /* Properties of Gee.AbstractCollection */
+    /* Properties of Gee-0.8.Gee.AbstractCollection */
     readonly size: number
     readonly read_only: boolean
-    /* Fields of Vda.ExpressionOperatorIlike */
+    /* Fields of Vda-1.Vda.ExpressionOperatorIlike */
     parent_instance: ExpressionOperatorBinaryterm
     priv: ExpressionOperatorIlikePrivate
-    /* Fields of Vda.ExpressionOperatorBinaryterm */
+    /* Fields of Vda-1.Vda.ExpressionOperatorBinaryterm */
     _operator_name: string
-    /* Fields of Vda.ExpressionOperator */
+    /* Fields of Vda-1.Vda.ExpressionOperator */
     _operator_type: SqlExpressionOperatorType
-    /* Fields of Gee.ArrayList */
+    /* Fields of Gee-0.8.Gee.ArrayList */
     _items: object[]
     _items_length1: number
     _size: number
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Gee.ArrayList */
+    /* Methods of Gee-0.8.Gee.ArrayList */
     add_all(collection: Gee.Collection): boolean
     get_equal_func(): [ /* returnType */ Gee.EqualDataFunc, /* result_target */ object | null ]
-    /* Methods of Gee.AbstractBidirList */
+    /* Methods of Gee-0.8.Gee.AbstractBidirList */
     bidir_list_iterator(): Gee.BidirListIterator
     reserved0(): void
     reserved1(): void
@@ -13093,7 +13093,7 @@ export class ExpressionOperatorIlike {
     reserved8(): void
     reserved9(): void
     get_read_only_view(): Gee.BidirList
-    /* Methods of Gee.AbstractList */
+    /* Methods of Gee-0.8.Gee.AbstractList */
     list_iterator(): Gee.ListIterator
     get(index: number): object | null
     set(index: number, item?: object | null): void
@@ -13102,7 +13102,7 @@ export class ExpressionOperatorIlike {
     remove_at(index: number): object | null
     slice(start: number, stop: number): Gee.List | null
     get_read_only_view(): Gee.List
-    /* Methods of Gee.AbstractCollection */
+    /* Methods of Gee-0.8.Gee.AbstractCollection */
     contains(item?: object | null): boolean
     add(item?: object | null): boolean
     remove(item?: object | null): boolean
@@ -13112,7 +13112,7 @@ export class ExpressionOperatorIlike {
     get_size(): number
     get_read_only(): boolean
     get_read_only_view(): Gee.Collection
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -13134,15 +13134,15 @@ export class ExpressionOperatorIlike {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Vda.ExpressionOperatorIlike */
+    /* Virtual methods of Vda-1.Vda.ExpressionOperatorIlike */
     vfunc_get_read_only_view(): Gee.BidirList
     vfunc_get_read_only_view(): Gee.List
     vfunc_get_read_only_view(): Gee.Collection
-    /* Virtual methods of Vda.ExpressionOperatorBinaryterm */
+    /* Virtual methods of Vda-1.Vda.ExpressionOperatorBinaryterm */
     vfunc_get_read_only_view(): Gee.BidirList
     vfunc_get_read_only_view(): Gee.List
     vfunc_get_read_only_view(): Gee.Collection
-    /* Virtual methods of Vda.ExpressionOperator */
+    /* Virtual methods of Vda-1.Vda.ExpressionOperator */
     vfunc_create_field_expression(name: string): SqlExpressionField
     vfunc_create_value_expression(val: any | null, cnc: Connection): SqlExpressionValue
     vfunc_create_parameter_expression(name: string, gtype: GObject.Type): SqlExpressionValueParameter
@@ -13182,7 +13182,7 @@ export class ExpressionOperatorIlike {
     vfunc_get_read_only_view(): Gee.BidirList
     vfunc_get_read_only_view(): Gee.List
     vfunc_get_read_only_view(): Gee.Collection
-    /* Virtual methods of Vda.Expression */
+    /* Virtual methods of Vda-1.Vda.Expression */
     vfunc_get_item(position: number): GObject.Object | null
     vfunc_get_item_type(): GObject.Type
     vfunc_get_n_items(): number
@@ -13193,11 +13193,11 @@ export class ExpressionOperatorIlike {
     vfunc_get_read_only_view(): Gee.BidirList
     vfunc_get_read_only_view(): Gee.List
     vfunc_get_read_only_view(): Gee.Collection
-    /* Virtual methods of Gee.ArrayList */
+    /* Virtual methods of Gee-0.8.Gee.ArrayList */
     vfunc_get_read_only_view(): Gee.BidirList
     vfunc_get_read_only_view(): Gee.List
     vfunc_get_read_only_view(): Gee.Collection
-    /* Virtual methods of Gee.AbstractBidirList */
+    /* Virtual methods of Gee-0.8.Gee.AbstractBidirList */
     vfunc_bidir_list_iterator(): Gee.BidirListIterator
     vfunc_reserved0(): void
     vfunc_reserved1(): void
@@ -13212,7 +13212,7 @@ export class ExpressionOperatorIlike {
     vfunc_get_read_only_view(): Gee.BidirList
     vfunc_get_read_only_view(): Gee.List
     vfunc_get_read_only_view(): Gee.Collection
-    /* Virtual methods of Gee.AbstractList */
+    /* Virtual methods of Gee-0.8.Gee.AbstractList */
     vfunc_list_iterator(): Gee.ListIterator
     vfunc_get(index: number): object | null
     vfunc_set(index: number, item?: object | null): void
@@ -13236,7 +13236,7 @@ export class ExpressionOperatorIlike {
     vfunc_last(): object | null
     vfunc_insert_all(index: number, collection: Gee.Collection): void
     vfunc_sort(compare_func: GLib.CompareDataFunc | null): void
-    /* Virtual methods of Gee.AbstractCollection */
+    /* Virtual methods of Gee-0.8.Gee.AbstractCollection */
     vfunc_contains(item?: object | null): boolean
     vfunc_add(item?: object | null): boolean
     vfunc_remove(item?: object | null): boolean
@@ -13283,7 +13283,7 @@ export class ExpressionOperatorIlike {
     vfunc_contains_all_iterator(iter: Gee.Iterator): boolean
     vfunc_remove_all_iterator(iter: Gee.Iterator): boolean
     vfunc_get_is_empty(): boolean
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -13291,7 +13291,7 @@ export class ExpressionOperatorIlike {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: ExpressionOperatorIlike, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: ExpressionOperatorIlike, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -13316,27 +13316,27 @@ export class ExpressionOperatorIlike {
 export interface ExpressionOperatorBinaryUnaryterm_ConstructProps extends ExpressionOperator_ConstructProps {
 }
 export class ExpressionOperatorBinaryUnaryterm {
-    /* Properties of Gee.AbstractBidirList */
+    /* Properties of Gee-0.8.Gee.AbstractBidirList */
     readonly read_only_view: Gee.BidirList
-    /* Properties of Gee.AbstractCollection */
+    /* Properties of Gee-0.8.Gee.AbstractCollection */
     readonly size: number
     readonly read_only: boolean
-    /* Fields of Vda.ExpressionOperatorBinaryUnaryterm */
+    /* Fields of Vda-1.Vda.ExpressionOperatorBinaryUnaryterm */
     parent_instance: ExpressionOperator
     priv: ExpressionOperatorBinaryUnarytermPrivate
     _operator_name: string
-    /* Fields of Vda.ExpressionOperator */
+    /* Fields of Vda-1.Vda.ExpressionOperator */
     _operator_type: SqlExpressionOperatorType
-    /* Fields of Gee.ArrayList */
+    /* Fields of Gee-0.8.Gee.ArrayList */
     _items: object[]
     _items_length1: number
     _size: number
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Gee.ArrayList */
+    /* Methods of Gee-0.8.Gee.ArrayList */
     add_all(collection: Gee.Collection): boolean
     get_equal_func(): [ /* returnType */ Gee.EqualDataFunc, /* result_target */ object | null ]
-    /* Methods of Gee.AbstractBidirList */
+    /* Methods of Gee-0.8.Gee.AbstractBidirList */
     bidir_list_iterator(): Gee.BidirListIterator
     reserved0(): void
     reserved1(): void
@@ -13349,7 +13349,7 @@ export class ExpressionOperatorBinaryUnaryterm {
     reserved8(): void
     reserved9(): void
     get_read_only_view(): Gee.BidirList
-    /* Methods of Gee.AbstractList */
+    /* Methods of Gee-0.8.Gee.AbstractList */
     list_iterator(): Gee.ListIterator
     get(index: number): object | null
     set(index: number, item?: object | null): void
@@ -13358,7 +13358,7 @@ export class ExpressionOperatorBinaryUnaryterm {
     remove_at(index: number): object | null
     slice(start: number, stop: number): Gee.List | null
     get_read_only_view(): Gee.List
-    /* Methods of Gee.AbstractCollection */
+    /* Methods of Gee-0.8.Gee.AbstractCollection */
     contains(item?: object | null): boolean
     add(item?: object | null): boolean
     remove(item?: object | null): boolean
@@ -13368,7 +13368,7 @@ export class ExpressionOperatorBinaryUnaryterm {
     get_size(): number
     get_read_only(): boolean
     get_read_only_view(): Gee.Collection
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -13390,11 +13390,11 @@ export class ExpressionOperatorBinaryUnaryterm {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Vda.ExpressionOperatorBinaryUnaryterm */
+    /* Virtual methods of Vda-1.Vda.ExpressionOperatorBinaryUnaryterm */
     vfunc_get_read_only_view(): Gee.BidirList
     vfunc_get_read_only_view(): Gee.List
     vfunc_get_read_only_view(): Gee.Collection
-    /* Virtual methods of Vda.ExpressionOperator */
+    /* Virtual methods of Vda-1.Vda.ExpressionOperator */
     vfunc_create_field_expression(name: string): SqlExpressionField
     vfunc_create_value_expression(val: any | null, cnc: Connection): SqlExpressionValue
     vfunc_create_parameter_expression(name: string, gtype: GObject.Type): SqlExpressionValueParameter
@@ -13434,7 +13434,7 @@ export class ExpressionOperatorBinaryUnaryterm {
     vfunc_get_read_only_view(): Gee.BidirList
     vfunc_get_read_only_view(): Gee.List
     vfunc_get_read_only_view(): Gee.Collection
-    /* Virtual methods of Vda.Expression */
+    /* Virtual methods of Vda-1.Vda.Expression */
     vfunc_get_item(position: number): GObject.Object | null
     vfunc_get_item_type(): GObject.Type
     vfunc_get_n_items(): number
@@ -13445,11 +13445,11 @@ export class ExpressionOperatorBinaryUnaryterm {
     vfunc_get_read_only_view(): Gee.BidirList
     vfunc_get_read_only_view(): Gee.List
     vfunc_get_read_only_view(): Gee.Collection
-    /* Virtual methods of Gee.ArrayList */
+    /* Virtual methods of Gee-0.8.Gee.ArrayList */
     vfunc_get_read_only_view(): Gee.BidirList
     vfunc_get_read_only_view(): Gee.List
     vfunc_get_read_only_view(): Gee.Collection
-    /* Virtual methods of Gee.AbstractBidirList */
+    /* Virtual methods of Gee-0.8.Gee.AbstractBidirList */
     vfunc_bidir_list_iterator(): Gee.BidirListIterator
     vfunc_reserved0(): void
     vfunc_reserved1(): void
@@ -13464,7 +13464,7 @@ export class ExpressionOperatorBinaryUnaryterm {
     vfunc_get_read_only_view(): Gee.BidirList
     vfunc_get_read_only_view(): Gee.List
     vfunc_get_read_only_view(): Gee.Collection
-    /* Virtual methods of Gee.AbstractList */
+    /* Virtual methods of Gee-0.8.Gee.AbstractList */
     vfunc_list_iterator(): Gee.ListIterator
     vfunc_get(index: number): object | null
     vfunc_set(index: number, item?: object | null): void
@@ -13488,7 +13488,7 @@ export class ExpressionOperatorBinaryUnaryterm {
     vfunc_last(): object | null
     vfunc_insert_all(index: number, collection: Gee.Collection): void
     vfunc_sort(compare_func: GLib.CompareDataFunc | null): void
-    /* Virtual methods of Gee.AbstractCollection */
+    /* Virtual methods of Gee-0.8.Gee.AbstractCollection */
     vfunc_contains(item?: object | null): boolean
     vfunc_add(item?: object | null): boolean
     vfunc_remove(item?: object | null): boolean
@@ -13535,7 +13535,7 @@ export class ExpressionOperatorBinaryUnaryterm {
     vfunc_contains_all_iterator(iter: Gee.Iterator): boolean
     vfunc_remove_all_iterator(iter: Gee.Iterator): boolean
     vfunc_get_is_empty(): boolean
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -13543,7 +13543,7 @@ export class ExpressionOperatorBinaryUnaryterm {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: ExpressionOperatorBinaryUnaryterm, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: ExpressionOperatorBinaryUnaryterm, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -13568,28 +13568,28 @@ export class ExpressionOperatorBinaryUnaryterm {
 export interface ExpressionOperatorMinus_ConstructProps extends ExpressionOperatorBinaryUnaryterm_ConstructProps {
 }
 export class ExpressionOperatorMinus {
-    /* Properties of Gee.AbstractBidirList */
+    /* Properties of Gee-0.8.Gee.AbstractBidirList */
     readonly read_only_view: Gee.BidirList
-    /* Properties of Gee.AbstractCollection */
+    /* Properties of Gee-0.8.Gee.AbstractCollection */
     readonly size: number
     readonly read_only: boolean
-    /* Fields of Vda.ExpressionOperatorMinus */
+    /* Fields of Vda-1.Vda.ExpressionOperatorMinus */
     parent_instance: ExpressionOperatorBinaryUnaryterm
     priv: ExpressionOperatorMinusPrivate
-    /* Fields of Vda.ExpressionOperatorBinaryUnaryterm */
+    /* Fields of Vda-1.Vda.ExpressionOperatorBinaryUnaryterm */
     _operator_name: string
-    /* Fields of Vda.ExpressionOperator */
+    /* Fields of Vda-1.Vda.ExpressionOperator */
     _operator_type: SqlExpressionOperatorType
-    /* Fields of Gee.ArrayList */
+    /* Fields of Gee-0.8.Gee.ArrayList */
     _items: object[]
     _items_length1: number
     _size: number
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Gee.ArrayList */
+    /* Methods of Gee-0.8.Gee.ArrayList */
     add_all(collection: Gee.Collection): boolean
     get_equal_func(): [ /* returnType */ Gee.EqualDataFunc, /* result_target */ object | null ]
-    /* Methods of Gee.AbstractBidirList */
+    /* Methods of Gee-0.8.Gee.AbstractBidirList */
     bidir_list_iterator(): Gee.BidirListIterator
     reserved0(): void
     reserved1(): void
@@ -13602,7 +13602,7 @@ export class ExpressionOperatorMinus {
     reserved8(): void
     reserved9(): void
     get_read_only_view(): Gee.BidirList
-    /* Methods of Gee.AbstractList */
+    /* Methods of Gee-0.8.Gee.AbstractList */
     list_iterator(): Gee.ListIterator
     get(index: number): object | null
     set(index: number, item?: object | null): void
@@ -13611,7 +13611,7 @@ export class ExpressionOperatorMinus {
     remove_at(index: number): object | null
     slice(start: number, stop: number): Gee.List | null
     get_read_only_view(): Gee.List
-    /* Methods of Gee.AbstractCollection */
+    /* Methods of Gee-0.8.Gee.AbstractCollection */
     contains(item?: object | null): boolean
     add(item?: object | null): boolean
     remove(item?: object | null): boolean
@@ -13621,7 +13621,7 @@ export class ExpressionOperatorMinus {
     get_size(): number
     get_read_only(): boolean
     get_read_only_view(): Gee.Collection
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -13643,15 +13643,15 @@ export class ExpressionOperatorMinus {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Vda.ExpressionOperatorMinus */
+    /* Virtual methods of Vda-1.Vda.ExpressionOperatorMinus */
     vfunc_get_read_only_view(): Gee.BidirList
     vfunc_get_read_only_view(): Gee.List
     vfunc_get_read_only_view(): Gee.Collection
-    /* Virtual methods of Vda.ExpressionOperatorBinaryUnaryterm */
+    /* Virtual methods of Vda-1.Vda.ExpressionOperatorBinaryUnaryterm */
     vfunc_get_read_only_view(): Gee.BidirList
     vfunc_get_read_only_view(): Gee.List
     vfunc_get_read_only_view(): Gee.Collection
-    /* Virtual methods of Vda.ExpressionOperator */
+    /* Virtual methods of Vda-1.Vda.ExpressionOperator */
     vfunc_create_field_expression(name: string): SqlExpressionField
     vfunc_create_value_expression(val: any | null, cnc: Connection): SqlExpressionValue
     vfunc_create_parameter_expression(name: string, gtype: GObject.Type): SqlExpressionValueParameter
@@ -13691,7 +13691,7 @@ export class ExpressionOperatorMinus {
     vfunc_get_read_only_view(): Gee.BidirList
     vfunc_get_read_only_view(): Gee.List
     vfunc_get_read_only_view(): Gee.Collection
-    /* Virtual methods of Vda.Expression */
+    /* Virtual methods of Vda-1.Vda.Expression */
     vfunc_get_item(position: number): GObject.Object | null
     vfunc_get_item_type(): GObject.Type
     vfunc_get_n_items(): number
@@ -13702,11 +13702,11 @@ export class ExpressionOperatorMinus {
     vfunc_get_read_only_view(): Gee.BidirList
     vfunc_get_read_only_view(): Gee.List
     vfunc_get_read_only_view(): Gee.Collection
-    /* Virtual methods of Gee.ArrayList */
+    /* Virtual methods of Gee-0.8.Gee.ArrayList */
     vfunc_get_read_only_view(): Gee.BidirList
     vfunc_get_read_only_view(): Gee.List
     vfunc_get_read_only_view(): Gee.Collection
-    /* Virtual methods of Gee.AbstractBidirList */
+    /* Virtual methods of Gee-0.8.Gee.AbstractBidirList */
     vfunc_bidir_list_iterator(): Gee.BidirListIterator
     vfunc_reserved0(): void
     vfunc_reserved1(): void
@@ -13721,7 +13721,7 @@ export class ExpressionOperatorMinus {
     vfunc_get_read_only_view(): Gee.BidirList
     vfunc_get_read_only_view(): Gee.List
     vfunc_get_read_only_view(): Gee.Collection
-    /* Virtual methods of Gee.AbstractList */
+    /* Virtual methods of Gee-0.8.Gee.AbstractList */
     vfunc_list_iterator(): Gee.ListIterator
     vfunc_get(index: number): object | null
     vfunc_set(index: number, item?: object | null): void
@@ -13745,7 +13745,7 @@ export class ExpressionOperatorMinus {
     vfunc_last(): object | null
     vfunc_insert_all(index: number, collection: Gee.Collection): void
     vfunc_sort(compare_func: GLib.CompareDataFunc | null): void
-    /* Virtual methods of Gee.AbstractCollection */
+    /* Virtual methods of Gee-0.8.Gee.AbstractCollection */
     vfunc_contains(item?: object | null): boolean
     vfunc_add(item?: object | null): boolean
     vfunc_remove(item?: object | null): boolean
@@ -13792,7 +13792,7 @@ export class ExpressionOperatorMinus {
     vfunc_contains_all_iterator(iter: Gee.Iterator): boolean
     vfunc_remove_all_iterator(iter: Gee.Iterator): boolean
     vfunc_get_is_empty(): boolean
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -13800,7 +13800,7 @@ export class ExpressionOperatorMinus {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: ExpressionOperatorMinus, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: ExpressionOperatorMinus, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -13825,28 +13825,28 @@ export class ExpressionOperatorMinus {
 export interface ExpressionOperatorPlus_ConstructProps extends ExpressionOperatorBinaryUnaryterm_ConstructProps {
 }
 export class ExpressionOperatorPlus {
-    /* Properties of Gee.AbstractBidirList */
+    /* Properties of Gee-0.8.Gee.AbstractBidirList */
     readonly read_only_view: Gee.BidirList
-    /* Properties of Gee.AbstractCollection */
+    /* Properties of Gee-0.8.Gee.AbstractCollection */
     readonly size: number
     readonly read_only: boolean
-    /* Fields of Vda.ExpressionOperatorPlus */
+    /* Fields of Vda-1.Vda.ExpressionOperatorPlus */
     parent_instance: ExpressionOperatorBinaryUnaryterm
     priv: ExpressionOperatorPlusPrivate
-    /* Fields of Vda.ExpressionOperatorBinaryUnaryterm */
+    /* Fields of Vda-1.Vda.ExpressionOperatorBinaryUnaryterm */
     _operator_name: string
-    /* Fields of Vda.ExpressionOperator */
+    /* Fields of Vda-1.Vda.ExpressionOperator */
     _operator_type: SqlExpressionOperatorType
-    /* Fields of Gee.ArrayList */
+    /* Fields of Gee-0.8.Gee.ArrayList */
     _items: object[]
     _items_length1: number
     _size: number
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Gee.ArrayList */
+    /* Methods of Gee-0.8.Gee.ArrayList */
     add_all(collection: Gee.Collection): boolean
     get_equal_func(): [ /* returnType */ Gee.EqualDataFunc, /* result_target */ object | null ]
-    /* Methods of Gee.AbstractBidirList */
+    /* Methods of Gee-0.8.Gee.AbstractBidirList */
     bidir_list_iterator(): Gee.BidirListIterator
     reserved0(): void
     reserved1(): void
@@ -13859,7 +13859,7 @@ export class ExpressionOperatorPlus {
     reserved8(): void
     reserved9(): void
     get_read_only_view(): Gee.BidirList
-    /* Methods of Gee.AbstractList */
+    /* Methods of Gee-0.8.Gee.AbstractList */
     list_iterator(): Gee.ListIterator
     get(index: number): object | null
     set(index: number, item?: object | null): void
@@ -13868,7 +13868,7 @@ export class ExpressionOperatorPlus {
     remove_at(index: number): object | null
     slice(start: number, stop: number): Gee.List | null
     get_read_only_view(): Gee.List
-    /* Methods of Gee.AbstractCollection */
+    /* Methods of Gee-0.8.Gee.AbstractCollection */
     contains(item?: object | null): boolean
     add(item?: object | null): boolean
     remove(item?: object | null): boolean
@@ -13878,7 +13878,7 @@ export class ExpressionOperatorPlus {
     get_size(): number
     get_read_only(): boolean
     get_read_only_view(): Gee.Collection
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -13900,15 +13900,15 @@ export class ExpressionOperatorPlus {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Vda.ExpressionOperatorPlus */
+    /* Virtual methods of Vda-1.Vda.ExpressionOperatorPlus */
     vfunc_get_read_only_view(): Gee.BidirList
     vfunc_get_read_only_view(): Gee.List
     vfunc_get_read_only_view(): Gee.Collection
-    /* Virtual methods of Vda.ExpressionOperatorBinaryUnaryterm */
+    /* Virtual methods of Vda-1.Vda.ExpressionOperatorBinaryUnaryterm */
     vfunc_get_read_only_view(): Gee.BidirList
     vfunc_get_read_only_view(): Gee.List
     vfunc_get_read_only_view(): Gee.Collection
-    /* Virtual methods of Vda.ExpressionOperator */
+    /* Virtual methods of Vda-1.Vda.ExpressionOperator */
     vfunc_create_field_expression(name: string): SqlExpressionField
     vfunc_create_value_expression(val: any | null, cnc: Connection): SqlExpressionValue
     vfunc_create_parameter_expression(name: string, gtype: GObject.Type): SqlExpressionValueParameter
@@ -13948,7 +13948,7 @@ export class ExpressionOperatorPlus {
     vfunc_get_read_only_view(): Gee.BidirList
     vfunc_get_read_only_view(): Gee.List
     vfunc_get_read_only_view(): Gee.Collection
-    /* Virtual methods of Vda.Expression */
+    /* Virtual methods of Vda-1.Vda.Expression */
     vfunc_get_item(position: number): GObject.Object | null
     vfunc_get_item_type(): GObject.Type
     vfunc_get_n_items(): number
@@ -13959,11 +13959,11 @@ export class ExpressionOperatorPlus {
     vfunc_get_read_only_view(): Gee.BidirList
     vfunc_get_read_only_view(): Gee.List
     vfunc_get_read_only_view(): Gee.Collection
-    /* Virtual methods of Gee.ArrayList */
+    /* Virtual methods of Gee-0.8.Gee.ArrayList */
     vfunc_get_read_only_view(): Gee.BidirList
     vfunc_get_read_only_view(): Gee.List
     vfunc_get_read_only_view(): Gee.Collection
-    /* Virtual methods of Gee.AbstractBidirList */
+    /* Virtual methods of Gee-0.8.Gee.AbstractBidirList */
     vfunc_bidir_list_iterator(): Gee.BidirListIterator
     vfunc_reserved0(): void
     vfunc_reserved1(): void
@@ -13978,7 +13978,7 @@ export class ExpressionOperatorPlus {
     vfunc_get_read_only_view(): Gee.BidirList
     vfunc_get_read_only_view(): Gee.List
     vfunc_get_read_only_view(): Gee.Collection
-    /* Virtual methods of Gee.AbstractList */
+    /* Virtual methods of Gee-0.8.Gee.AbstractList */
     vfunc_list_iterator(): Gee.ListIterator
     vfunc_get(index: number): object | null
     vfunc_set(index: number, item?: object | null): void
@@ -14002,7 +14002,7 @@ export class ExpressionOperatorPlus {
     vfunc_last(): object | null
     vfunc_insert_all(index: number, collection: Gee.Collection): void
     vfunc_sort(compare_func: GLib.CompareDataFunc | null): void
-    /* Virtual methods of Gee.AbstractCollection */
+    /* Virtual methods of Gee-0.8.Gee.AbstractCollection */
     vfunc_contains(item?: object | null): boolean
     vfunc_add(item?: object | null): boolean
     vfunc_remove(item?: object | null): boolean
@@ -14049,7 +14049,7 @@ export class ExpressionOperatorPlus {
     vfunc_contains_all_iterator(iter: Gee.Iterator): boolean
     vfunc_remove_all_iterator(iter: Gee.Iterator): boolean
     vfunc_get_is_empty(): boolean
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -14057,7 +14057,7 @@ export class ExpressionOperatorPlus {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: ExpressionOperatorPlus, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: ExpressionOperatorPlus, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -14082,27 +14082,27 @@ export class ExpressionOperatorPlus {
 export interface ExpressionOperatorInitialUnaryterm_ConstructProps extends ExpressionOperator_ConstructProps {
 }
 export class ExpressionOperatorInitialUnaryterm {
-    /* Properties of Gee.AbstractBidirList */
+    /* Properties of Gee-0.8.Gee.AbstractBidirList */
     readonly read_only_view: Gee.BidirList
-    /* Properties of Gee.AbstractCollection */
+    /* Properties of Gee-0.8.Gee.AbstractCollection */
     readonly size: number
     readonly read_only: boolean
-    /* Fields of Vda.ExpressionOperatorInitialUnaryterm */
+    /* Fields of Vda-1.Vda.ExpressionOperatorInitialUnaryterm */
     parent_instance: ExpressionOperator
     priv: ExpressionOperatorInitialUnarytermPrivate
     _operator_name: string
-    /* Fields of Vda.ExpressionOperator */
+    /* Fields of Vda-1.Vda.ExpressionOperator */
     _operator_type: SqlExpressionOperatorType
-    /* Fields of Gee.ArrayList */
+    /* Fields of Gee-0.8.Gee.ArrayList */
     _items: object[]
     _items_length1: number
     _size: number
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Gee.ArrayList */
+    /* Methods of Gee-0.8.Gee.ArrayList */
     add_all(collection: Gee.Collection): boolean
     get_equal_func(): [ /* returnType */ Gee.EqualDataFunc, /* result_target */ object | null ]
-    /* Methods of Gee.AbstractBidirList */
+    /* Methods of Gee-0.8.Gee.AbstractBidirList */
     bidir_list_iterator(): Gee.BidirListIterator
     reserved0(): void
     reserved1(): void
@@ -14115,7 +14115,7 @@ export class ExpressionOperatorInitialUnaryterm {
     reserved8(): void
     reserved9(): void
     get_read_only_view(): Gee.BidirList
-    /* Methods of Gee.AbstractList */
+    /* Methods of Gee-0.8.Gee.AbstractList */
     list_iterator(): Gee.ListIterator
     get(index: number): object | null
     set(index: number, item?: object | null): void
@@ -14124,7 +14124,7 @@ export class ExpressionOperatorInitialUnaryterm {
     remove_at(index: number): object | null
     slice(start: number, stop: number): Gee.List | null
     get_read_only_view(): Gee.List
-    /* Methods of Gee.AbstractCollection */
+    /* Methods of Gee-0.8.Gee.AbstractCollection */
     contains(item?: object | null): boolean
     add(item?: object | null): boolean
     remove(item?: object | null): boolean
@@ -14134,7 +14134,7 @@ export class ExpressionOperatorInitialUnaryterm {
     get_size(): number
     get_read_only(): boolean
     get_read_only_view(): Gee.Collection
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -14156,11 +14156,11 @@ export class ExpressionOperatorInitialUnaryterm {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Vda.ExpressionOperatorInitialUnaryterm */
+    /* Virtual methods of Vda-1.Vda.ExpressionOperatorInitialUnaryterm */
     vfunc_get_read_only_view(): Gee.BidirList
     vfunc_get_read_only_view(): Gee.List
     vfunc_get_read_only_view(): Gee.Collection
-    /* Virtual methods of Vda.ExpressionOperator */
+    /* Virtual methods of Vda-1.Vda.ExpressionOperator */
     vfunc_create_field_expression(name: string): SqlExpressionField
     vfunc_create_value_expression(val: any | null, cnc: Connection): SqlExpressionValue
     vfunc_create_parameter_expression(name: string, gtype: GObject.Type): SqlExpressionValueParameter
@@ -14200,7 +14200,7 @@ export class ExpressionOperatorInitialUnaryterm {
     vfunc_get_read_only_view(): Gee.BidirList
     vfunc_get_read_only_view(): Gee.List
     vfunc_get_read_only_view(): Gee.Collection
-    /* Virtual methods of Vda.Expression */
+    /* Virtual methods of Vda-1.Vda.Expression */
     vfunc_get_item(position: number): GObject.Object | null
     vfunc_get_item_type(): GObject.Type
     vfunc_get_n_items(): number
@@ -14211,11 +14211,11 @@ export class ExpressionOperatorInitialUnaryterm {
     vfunc_get_read_only_view(): Gee.BidirList
     vfunc_get_read_only_view(): Gee.List
     vfunc_get_read_only_view(): Gee.Collection
-    /* Virtual methods of Gee.ArrayList */
+    /* Virtual methods of Gee-0.8.Gee.ArrayList */
     vfunc_get_read_only_view(): Gee.BidirList
     vfunc_get_read_only_view(): Gee.List
     vfunc_get_read_only_view(): Gee.Collection
-    /* Virtual methods of Gee.AbstractBidirList */
+    /* Virtual methods of Gee-0.8.Gee.AbstractBidirList */
     vfunc_bidir_list_iterator(): Gee.BidirListIterator
     vfunc_reserved0(): void
     vfunc_reserved1(): void
@@ -14230,7 +14230,7 @@ export class ExpressionOperatorInitialUnaryterm {
     vfunc_get_read_only_view(): Gee.BidirList
     vfunc_get_read_only_view(): Gee.List
     vfunc_get_read_only_view(): Gee.Collection
-    /* Virtual methods of Gee.AbstractList */
+    /* Virtual methods of Gee-0.8.Gee.AbstractList */
     vfunc_list_iterator(): Gee.ListIterator
     vfunc_get(index: number): object | null
     vfunc_set(index: number, item?: object | null): void
@@ -14254,7 +14254,7 @@ export class ExpressionOperatorInitialUnaryterm {
     vfunc_last(): object | null
     vfunc_insert_all(index: number, collection: Gee.Collection): void
     vfunc_sort(compare_func: GLib.CompareDataFunc | null): void
-    /* Virtual methods of Gee.AbstractCollection */
+    /* Virtual methods of Gee-0.8.Gee.AbstractCollection */
     vfunc_contains(item?: object | null): boolean
     vfunc_add(item?: object | null): boolean
     vfunc_remove(item?: object | null): boolean
@@ -14301,7 +14301,7 @@ export class ExpressionOperatorInitialUnaryterm {
     vfunc_contains_all_iterator(iter: Gee.Iterator): boolean
     vfunc_remove_all_iterator(iter: Gee.Iterator): boolean
     vfunc_get_is_empty(): boolean
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -14309,7 +14309,7 @@ export class ExpressionOperatorInitialUnaryterm {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: ExpressionOperatorInitialUnaryterm, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: ExpressionOperatorInitialUnaryterm, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -14334,28 +14334,28 @@ export class ExpressionOperatorInitialUnaryterm {
 export interface ExpressionOperatorNot_ConstructProps extends ExpressionOperatorInitialUnaryterm_ConstructProps {
 }
 export class ExpressionOperatorNot {
-    /* Properties of Gee.AbstractBidirList */
+    /* Properties of Gee-0.8.Gee.AbstractBidirList */
     readonly read_only_view: Gee.BidirList
-    /* Properties of Gee.AbstractCollection */
+    /* Properties of Gee-0.8.Gee.AbstractCollection */
     readonly size: number
     readonly read_only: boolean
-    /* Fields of Vda.ExpressionOperatorNot */
+    /* Fields of Vda-1.Vda.ExpressionOperatorNot */
     parent_instance: ExpressionOperatorInitialUnaryterm
     priv: ExpressionOperatorNotPrivate
-    /* Fields of Vda.ExpressionOperatorInitialUnaryterm */
+    /* Fields of Vda-1.Vda.ExpressionOperatorInitialUnaryterm */
     _operator_name: string
-    /* Fields of Vda.ExpressionOperator */
+    /* Fields of Vda-1.Vda.ExpressionOperator */
     _operator_type: SqlExpressionOperatorType
-    /* Fields of Gee.ArrayList */
+    /* Fields of Gee-0.8.Gee.ArrayList */
     _items: object[]
     _items_length1: number
     _size: number
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Gee.ArrayList */
+    /* Methods of Gee-0.8.Gee.ArrayList */
     add_all(collection: Gee.Collection): boolean
     get_equal_func(): [ /* returnType */ Gee.EqualDataFunc, /* result_target */ object | null ]
-    /* Methods of Gee.AbstractBidirList */
+    /* Methods of Gee-0.8.Gee.AbstractBidirList */
     bidir_list_iterator(): Gee.BidirListIterator
     reserved0(): void
     reserved1(): void
@@ -14368,7 +14368,7 @@ export class ExpressionOperatorNot {
     reserved8(): void
     reserved9(): void
     get_read_only_view(): Gee.BidirList
-    /* Methods of Gee.AbstractList */
+    /* Methods of Gee-0.8.Gee.AbstractList */
     list_iterator(): Gee.ListIterator
     get(index: number): object | null
     set(index: number, item?: object | null): void
@@ -14377,7 +14377,7 @@ export class ExpressionOperatorNot {
     remove_at(index: number): object | null
     slice(start: number, stop: number): Gee.List | null
     get_read_only_view(): Gee.List
-    /* Methods of Gee.AbstractCollection */
+    /* Methods of Gee-0.8.Gee.AbstractCollection */
     contains(item?: object | null): boolean
     add(item?: object | null): boolean
     remove(item?: object | null): boolean
@@ -14387,7 +14387,7 @@ export class ExpressionOperatorNot {
     get_size(): number
     get_read_only(): boolean
     get_read_only_view(): Gee.Collection
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -14409,15 +14409,15 @@ export class ExpressionOperatorNot {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Vda.ExpressionOperatorNot */
+    /* Virtual methods of Vda-1.Vda.ExpressionOperatorNot */
     vfunc_get_read_only_view(): Gee.BidirList
     vfunc_get_read_only_view(): Gee.List
     vfunc_get_read_only_view(): Gee.Collection
-    /* Virtual methods of Vda.ExpressionOperatorInitialUnaryterm */
+    /* Virtual methods of Vda-1.Vda.ExpressionOperatorInitialUnaryterm */
     vfunc_get_read_only_view(): Gee.BidirList
     vfunc_get_read_only_view(): Gee.List
     vfunc_get_read_only_view(): Gee.Collection
-    /* Virtual methods of Vda.ExpressionOperator */
+    /* Virtual methods of Vda-1.Vda.ExpressionOperator */
     vfunc_create_field_expression(name: string): SqlExpressionField
     vfunc_create_value_expression(val: any | null, cnc: Connection): SqlExpressionValue
     vfunc_create_parameter_expression(name: string, gtype: GObject.Type): SqlExpressionValueParameter
@@ -14457,7 +14457,7 @@ export class ExpressionOperatorNot {
     vfunc_get_read_only_view(): Gee.BidirList
     vfunc_get_read_only_view(): Gee.List
     vfunc_get_read_only_view(): Gee.Collection
-    /* Virtual methods of Vda.Expression */
+    /* Virtual methods of Vda-1.Vda.Expression */
     vfunc_get_item(position: number): GObject.Object | null
     vfunc_get_item_type(): GObject.Type
     vfunc_get_n_items(): number
@@ -14468,11 +14468,11 @@ export class ExpressionOperatorNot {
     vfunc_get_read_only_view(): Gee.BidirList
     vfunc_get_read_only_view(): Gee.List
     vfunc_get_read_only_view(): Gee.Collection
-    /* Virtual methods of Gee.ArrayList */
+    /* Virtual methods of Gee-0.8.Gee.ArrayList */
     vfunc_get_read_only_view(): Gee.BidirList
     vfunc_get_read_only_view(): Gee.List
     vfunc_get_read_only_view(): Gee.Collection
-    /* Virtual methods of Gee.AbstractBidirList */
+    /* Virtual methods of Gee-0.8.Gee.AbstractBidirList */
     vfunc_bidir_list_iterator(): Gee.BidirListIterator
     vfunc_reserved0(): void
     vfunc_reserved1(): void
@@ -14487,7 +14487,7 @@ export class ExpressionOperatorNot {
     vfunc_get_read_only_view(): Gee.BidirList
     vfunc_get_read_only_view(): Gee.List
     vfunc_get_read_only_view(): Gee.Collection
-    /* Virtual methods of Gee.AbstractList */
+    /* Virtual methods of Gee-0.8.Gee.AbstractList */
     vfunc_list_iterator(): Gee.ListIterator
     vfunc_get(index: number): object | null
     vfunc_set(index: number, item?: object | null): void
@@ -14511,7 +14511,7 @@ export class ExpressionOperatorNot {
     vfunc_last(): object | null
     vfunc_insert_all(index: number, collection: Gee.Collection): void
     vfunc_sort(compare_func: GLib.CompareDataFunc | null): void
-    /* Virtual methods of Gee.AbstractCollection */
+    /* Virtual methods of Gee-0.8.Gee.AbstractCollection */
     vfunc_contains(item?: object | null): boolean
     vfunc_add(item?: object | null): boolean
     vfunc_remove(item?: object | null): boolean
@@ -14558,7 +14558,7 @@ export class ExpressionOperatorNot {
     vfunc_contains_all_iterator(iter: Gee.Iterator): boolean
     vfunc_remove_all_iterator(iter: Gee.Iterator): boolean
     vfunc_get_is_empty(): boolean
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -14566,7 +14566,7 @@ export class ExpressionOperatorNot {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: ExpressionOperatorNot, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: ExpressionOperatorNot, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -14591,27 +14591,27 @@ export class ExpressionOperatorNot {
 export interface ExpressionOperatorFinalUnaryterm_ConstructProps extends ExpressionOperator_ConstructProps {
 }
 export class ExpressionOperatorFinalUnaryterm {
-    /* Properties of Gee.AbstractBidirList */
+    /* Properties of Gee-0.8.Gee.AbstractBidirList */
     readonly read_only_view: Gee.BidirList
-    /* Properties of Gee.AbstractCollection */
+    /* Properties of Gee-0.8.Gee.AbstractCollection */
     readonly size: number
     readonly read_only: boolean
-    /* Fields of Vda.ExpressionOperatorFinalUnaryterm */
+    /* Fields of Vda-1.Vda.ExpressionOperatorFinalUnaryterm */
     parent_instance: ExpressionOperator
     priv: ExpressionOperatorFinalUnarytermPrivate
     _operator_name: string
-    /* Fields of Vda.ExpressionOperator */
+    /* Fields of Vda-1.Vda.ExpressionOperator */
     _operator_type: SqlExpressionOperatorType
-    /* Fields of Gee.ArrayList */
+    /* Fields of Gee-0.8.Gee.ArrayList */
     _items: object[]
     _items_length1: number
     _size: number
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Gee.ArrayList */
+    /* Methods of Gee-0.8.Gee.ArrayList */
     add_all(collection: Gee.Collection): boolean
     get_equal_func(): [ /* returnType */ Gee.EqualDataFunc, /* result_target */ object | null ]
-    /* Methods of Gee.AbstractBidirList */
+    /* Methods of Gee-0.8.Gee.AbstractBidirList */
     bidir_list_iterator(): Gee.BidirListIterator
     reserved0(): void
     reserved1(): void
@@ -14624,7 +14624,7 @@ export class ExpressionOperatorFinalUnaryterm {
     reserved8(): void
     reserved9(): void
     get_read_only_view(): Gee.BidirList
-    /* Methods of Gee.AbstractList */
+    /* Methods of Gee-0.8.Gee.AbstractList */
     list_iterator(): Gee.ListIterator
     get(index: number): object | null
     set(index: number, item?: object | null): void
@@ -14633,7 +14633,7 @@ export class ExpressionOperatorFinalUnaryterm {
     remove_at(index: number): object | null
     slice(start: number, stop: number): Gee.List | null
     get_read_only_view(): Gee.List
-    /* Methods of Gee.AbstractCollection */
+    /* Methods of Gee-0.8.Gee.AbstractCollection */
     contains(item?: object | null): boolean
     add(item?: object | null): boolean
     remove(item?: object | null): boolean
@@ -14643,7 +14643,7 @@ export class ExpressionOperatorFinalUnaryterm {
     get_size(): number
     get_read_only(): boolean
     get_read_only_view(): Gee.Collection
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -14665,11 +14665,11 @@ export class ExpressionOperatorFinalUnaryterm {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Vda.ExpressionOperatorFinalUnaryterm */
+    /* Virtual methods of Vda-1.Vda.ExpressionOperatorFinalUnaryterm */
     vfunc_get_read_only_view(): Gee.BidirList
     vfunc_get_read_only_view(): Gee.List
     vfunc_get_read_only_view(): Gee.Collection
-    /* Virtual methods of Vda.ExpressionOperator */
+    /* Virtual methods of Vda-1.Vda.ExpressionOperator */
     vfunc_create_field_expression(name: string): SqlExpressionField
     vfunc_create_value_expression(val: any | null, cnc: Connection): SqlExpressionValue
     vfunc_create_parameter_expression(name: string, gtype: GObject.Type): SqlExpressionValueParameter
@@ -14709,7 +14709,7 @@ export class ExpressionOperatorFinalUnaryterm {
     vfunc_get_read_only_view(): Gee.BidirList
     vfunc_get_read_only_view(): Gee.List
     vfunc_get_read_only_view(): Gee.Collection
-    /* Virtual methods of Vda.Expression */
+    /* Virtual methods of Vda-1.Vda.Expression */
     vfunc_get_item(position: number): GObject.Object | null
     vfunc_get_item_type(): GObject.Type
     vfunc_get_n_items(): number
@@ -14720,11 +14720,11 @@ export class ExpressionOperatorFinalUnaryterm {
     vfunc_get_read_only_view(): Gee.BidirList
     vfunc_get_read_only_view(): Gee.List
     vfunc_get_read_only_view(): Gee.Collection
-    /* Virtual methods of Gee.ArrayList */
+    /* Virtual methods of Gee-0.8.Gee.ArrayList */
     vfunc_get_read_only_view(): Gee.BidirList
     vfunc_get_read_only_view(): Gee.List
     vfunc_get_read_only_view(): Gee.Collection
-    /* Virtual methods of Gee.AbstractBidirList */
+    /* Virtual methods of Gee-0.8.Gee.AbstractBidirList */
     vfunc_bidir_list_iterator(): Gee.BidirListIterator
     vfunc_reserved0(): void
     vfunc_reserved1(): void
@@ -14739,7 +14739,7 @@ export class ExpressionOperatorFinalUnaryterm {
     vfunc_get_read_only_view(): Gee.BidirList
     vfunc_get_read_only_view(): Gee.List
     vfunc_get_read_only_view(): Gee.Collection
-    /* Virtual methods of Gee.AbstractList */
+    /* Virtual methods of Gee-0.8.Gee.AbstractList */
     vfunc_list_iterator(): Gee.ListIterator
     vfunc_get(index: number): object | null
     vfunc_set(index: number, item?: object | null): void
@@ -14763,7 +14763,7 @@ export class ExpressionOperatorFinalUnaryterm {
     vfunc_last(): object | null
     vfunc_insert_all(index: number, collection: Gee.Collection): void
     vfunc_sort(compare_func: GLib.CompareDataFunc | null): void
-    /* Virtual methods of Gee.AbstractCollection */
+    /* Virtual methods of Gee-0.8.Gee.AbstractCollection */
     vfunc_contains(item?: object | null): boolean
     vfunc_add(item?: object | null): boolean
     vfunc_remove(item?: object | null): boolean
@@ -14810,7 +14810,7 @@ export class ExpressionOperatorFinalUnaryterm {
     vfunc_contains_all_iterator(iter: Gee.Iterator): boolean
     vfunc_remove_all_iterator(iter: Gee.Iterator): boolean
     vfunc_get_is_empty(): boolean
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -14818,7 +14818,7 @@ export class ExpressionOperatorFinalUnaryterm {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: ExpressionOperatorFinalUnaryterm, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: ExpressionOperatorFinalUnaryterm, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -14843,28 +14843,28 @@ export class ExpressionOperatorFinalUnaryterm {
 export interface ExpressionOperatorIs_ConstructProps extends ExpressionOperatorFinalUnaryterm_ConstructProps {
 }
 export class ExpressionOperatorIs {
-    /* Properties of Gee.AbstractBidirList */
+    /* Properties of Gee-0.8.Gee.AbstractBidirList */
     readonly read_only_view: Gee.BidirList
-    /* Properties of Gee.AbstractCollection */
+    /* Properties of Gee-0.8.Gee.AbstractCollection */
     readonly size: number
     readonly read_only: boolean
-    /* Fields of Vda.ExpressionOperatorIs */
+    /* Fields of Vda-1.Vda.ExpressionOperatorIs */
     parent_instance: ExpressionOperatorFinalUnaryterm
     priv: ExpressionOperatorIsPrivate
-    /* Fields of Vda.ExpressionOperatorFinalUnaryterm */
+    /* Fields of Vda-1.Vda.ExpressionOperatorFinalUnaryterm */
     _operator_name: string
-    /* Fields of Vda.ExpressionOperator */
+    /* Fields of Vda-1.Vda.ExpressionOperator */
     _operator_type: SqlExpressionOperatorType
-    /* Fields of Gee.ArrayList */
+    /* Fields of Gee-0.8.Gee.ArrayList */
     _items: object[]
     _items_length1: number
     _size: number
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Gee.ArrayList */
+    /* Methods of Gee-0.8.Gee.ArrayList */
     add_all(collection: Gee.Collection): boolean
     get_equal_func(): [ /* returnType */ Gee.EqualDataFunc, /* result_target */ object | null ]
-    /* Methods of Gee.AbstractBidirList */
+    /* Methods of Gee-0.8.Gee.AbstractBidirList */
     bidir_list_iterator(): Gee.BidirListIterator
     reserved0(): void
     reserved1(): void
@@ -14877,7 +14877,7 @@ export class ExpressionOperatorIs {
     reserved8(): void
     reserved9(): void
     get_read_only_view(): Gee.BidirList
-    /* Methods of Gee.AbstractList */
+    /* Methods of Gee-0.8.Gee.AbstractList */
     list_iterator(): Gee.ListIterator
     get(index: number): object | null
     set(index: number, item?: object | null): void
@@ -14886,7 +14886,7 @@ export class ExpressionOperatorIs {
     remove_at(index: number): object | null
     slice(start: number, stop: number): Gee.List | null
     get_read_only_view(): Gee.List
-    /* Methods of Gee.AbstractCollection */
+    /* Methods of Gee-0.8.Gee.AbstractCollection */
     contains(item?: object | null): boolean
     add(item?: object | null): boolean
     remove(item?: object | null): boolean
@@ -14896,7 +14896,7 @@ export class ExpressionOperatorIs {
     get_size(): number
     get_read_only(): boolean
     get_read_only_view(): Gee.Collection
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -14918,15 +14918,15 @@ export class ExpressionOperatorIs {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Vda.ExpressionOperatorIs */
+    /* Virtual methods of Vda-1.Vda.ExpressionOperatorIs */
     vfunc_get_read_only_view(): Gee.BidirList
     vfunc_get_read_only_view(): Gee.List
     vfunc_get_read_only_view(): Gee.Collection
-    /* Virtual methods of Vda.ExpressionOperatorFinalUnaryterm */
+    /* Virtual methods of Vda-1.Vda.ExpressionOperatorFinalUnaryterm */
     vfunc_get_read_only_view(): Gee.BidirList
     vfunc_get_read_only_view(): Gee.List
     vfunc_get_read_only_view(): Gee.Collection
-    /* Virtual methods of Vda.ExpressionOperator */
+    /* Virtual methods of Vda-1.Vda.ExpressionOperator */
     vfunc_create_field_expression(name: string): SqlExpressionField
     vfunc_create_value_expression(val: any | null, cnc: Connection): SqlExpressionValue
     vfunc_create_parameter_expression(name: string, gtype: GObject.Type): SqlExpressionValueParameter
@@ -14966,7 +14966,7 @@ export class ExpressionOperatorIs {
     vfunc_get_read_only_view(): Gee.BidirList
     vfunc_get_read_only_view(): Gee.List
     vfunc_get_read_only_view(): Gee.Collection
-    /* Virtual methods of Vda.Expression */
+    /* Virtual methods of Vda-1.Vda.Expression */
     vfunc_get_item(position: number): GObject.Object | null
     vfunc_get_item_type(): GObject.Type
     vfunc_get_n_items(): number
@@ -14977,11 +14977,11 @@ export class ExpressionOperatorIs {
     vfunc_get_read_only_view(): Gee.BidirList
     vfunc_get_read_only_view(): Gee.List
     vfunc_get_read_only_view(): Gee.Collection
-    /* Virtual methods of Gee.ArrayList */
+    /* Virtual methods of Gee-0.8.Gee.ArrayList */
     vfunc_get_read_only_view(): Gee.BidirList
     vfunc_get_read_only_view(): Gee.List
     vfunc_get_read_only_view(): Gee.Collection
-    /* Virtual methods of Gee.AbstractBidirList */
+    /* Virtual methods of Gee-0.8.Gee.AbstractBidirList */
     vfunc_bidir_list_iterator(): Gee.BidirListIterator
     vfunc_reserved0(): void
     vfunc_reserved1(): void
@@ -14996,7 +14996,7 @@ export class ExpressionOperatorIs {
     vfunc_get_read_only_view(): Gee.BidirList
     vfunc_get_read_only_view(): Gee.List
     vfunc_get_read_only_view(): Gee.Collection
-    /* Virtual methods of Gee.AbstractList */
+    /* Virtual methods of Gee-0.8.Gee.AbstractList */
     vfunc_list_iterator(): Gee.ListIterator
     vfunc_get(index: number): object | null
     vfunc_set(index: number, item?: object | null): void
@@ -15020,7 +15020,7 @@ export class ExpressionOperatorIs {
     vfunc_last(): object | null
     vfunc_insert_all(index: number, collection: Gee.Collection): void
     vfunc_sort(compare_func: GLib.CompareDataFunc | null): void
-    /* Virtual methods of Gee.AbstractCollection */
+    /* Virtual methods of Gee-0.8.Gee.AbstractCollection */
     vfunc_contains(item?: object | null): boolean
     vfunc_add(item?: object | null): boolean
     vfunc_remove(item?: object | null): boolean
@@ -15067,7 +15067,7 @@ export class ExpressionOperatorIs {
     vfunc_contains_all_iterator(iter: Gee.Iterator): boolean
     vfunc_remove_all_iterator(iter: Gee.Iterator): boolean
     vfunc_get_is_empty(): boolean
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -15075,7 +15075,7 @@ export class ExpressionOperatorIs {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: ExpressionOperatorIs, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: ExpressionOperatorIs, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -15100,28 +15100,28 @@ export class ExpressionOperatorIs {
 export interface ExpressionOperatorIsNot_ConstructProps extends ExpressionOperatorIs_ConstructProps {
 }
 export class ExpressionOperatorIsNot {
-    /* Properties of Gee.AbstractBidirList */
+    /* Properties of Gee-0.8.Gee.AbstractBidirList */
     readonly read_only_view: Gee.BidirList
-    /* Properties of Gee.AbstractCollection */
+    /* Properties of Gee-0.8.Gee.AbstractCollection */
     readonly size: number
     readonly read_only: boolean
-    /* Fields of Vda.ExpressionOperatorIsNot */
+    /* Fields of Vda-1.Vda.ExpressionOperatorIsNot */
     parent_instance: ExpressionOperatorIs
     priv: ExpressionOperatorIsNotPrivate
-    /* Fields of Vda.ExpressionOperatorFinalUnaryterm */
+    /* Fields of Vda-1.Vda.ExpressionOperatorFinalUnaryterm */
     _operator_name: string
-    /* Fields of Vda.ExpressionOperator */
+    /* Fields of Vda-1.Vda.ExpressionOperator */
     _operator_type: SqlExpressionOperatorType
-    /* Fields of Gee.ArrayList */
+    /* Fields of Gee-0.8.Gee.ArrayList */
     _items: object[]
     _items_length1: number
     _size: number
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Gee.ArrayList */
+    /* Methods of Gee-0.8.Gee.ArrayList */
     add_all(collection: Gee.Collection): boolean
     get_equal_func(): [ /* returnType */ Gee.EqualDataFunc, /* result_target */ object | null ]
-    /* Methods of Gee.AbstractBidirList */
+    /* Methods of Gee-0.8.Gee.AbstractBidirList */
     bidir_list_iterator(): Gee.BidirListIterator
     reserved0(): void
     reserved1(): void
@@ -15134,7 +15134,7 @@ export class ExpressionOperatorIsNot {
     reserved8(): void
     reserved9(): void
     get_read_only_view(): Gee.BidirList
-    /* Methods of Gee.AbstractList */
+    /* Methods of Gee-0.8.Gee.AbstractList */
     list_iterator(): Gee.ListIterator
     get(index: number): object | null
     set(index: number, item?: object | null): void
@@ -15143,7 +15143,7 @@ export class ExpressionOperatorIsNot {
     remove_at(index: number): object | null
     slice(start: number, stop: number): Gee.List | null
     get_read_only_view(): Gee.List
-    /* Methods of Gee.AbstractCollection */
+    /* Methods of Gee-0.8.Gee.AbstractCollection */
     contains(item?: object | null): boolean
     add(item?: object | null): boolean
     remove(item?: object | null): boolean
@@ -15153,7 +15153,7 @@ export class ExpressionOperatorIsNot {
     get_size(): number
     get_read_only(): boolean
     get_read_only_view(): Gee.Collection
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -15175,19 +15175,19 @@ export class ExpressionOperatorIsNot {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Vda.ExpressionOperatorIsNot */
+    /* Virtual methods of Vda-1.Vda.ExpressionOperatorIsNot */
     vfunc_get_read_only_view(): Gee.BidirList
     vfunc_get_read_only_view(): Gee.List
     vfunc_get_read_only_view(): Gee.Collection
-    /* Virtual methods of Vda.ExpressionOperatorIs */
+    /* Virtual methods of Vda-1.Vda.ExpressionOperatorIs */
     vfunc_get_read_only_view(): Gee.BidirList
     vfunc_get_read_only_view(): Gee.List
     vfunc_get_read_only_view(): Gee.Collection
-    /* Virtual methods of Vda.ExpressionOperatorFinalUnaryterm */
+    /* Virtual methods of Vda-1.Vda.ExpressionOperatorFinalUnaryterm */
     vfunc_get_read_only_view(): Gee.BidirList
     vfunc_get_read_only_view(): Gee.List
     vfunc_get_read_only_view(): Gee.Collection
-    /* Virtual methods of Vda.ExpressionOperator */
+    /* Virtual methods of Vda-1.Vda.ExpressionOperator */
     vfunc_create_field_expression(name: string): SqlExpressionField
     vfunc_create_value_expression(val: any | null, cnc: Connection): SqlExpressionValue
     vfunc_create_parameter_expression(name: string, gtype: GObject.Type): SqlExpressionValueParameter
@@ -15227,7 +15227,7 @@ export class ExpressionOperatorIsNot {
     vfunc_get_read_only_view(): Gee.BidirList
     vfunc_get_read_only_view(): Gee.List
     vfunc_get_read_only_view(): Gee.Collection
-    /* Virtual methods of Vda.Expression */
+    /* Virtual methods of Vda-1.Vda.Expression */
     vfunc_get_item(position: number): GObject.Object | null
     vfunc_get_item_type(): GObject.Type
     vfunc_get_n_items(): number
@@ -15238,11 +15238,11 @@ export class ExpressionOperatorIsNot {
     vfunc_get_read_only_view(): Gee.BidirList
     vfunc_get_read_only_view(): Gee.List
     vfunc_get_read_only_view(): Gee.Collection
-    /* Virtual methods of Gee.ArrayList */
+    /* Virtual methods of Gee-0.8.Gee.ArrayList */
     vfunc_get_read_only_view(): Gee.BidirList
     vfunc_get_read_only_view(): Gee.List
     vfunc_get_read_only_view(): Gee.Collection
-    /* Virtual methods of Gee.AbstractBidirList */
+    /* Virtual methods of Gee-0.8.Gee.AbstractBidirList */
     vfunc_bidir_list_iterator(): Gee.BidirListIterator
     vfunc_reserved0(): void
     vfunc_reserved1(): void
@@ -15257,7 +15257,7 @@ export class ExpressionOperatorIsNot {
     vfunc_get_read_only_view(): Gee.BidirList
     vfunc_get_read_only_view(): Gee.List
     vfunc_get_read_only_view(): Gee.Collection
-    /* Virtual methods of Gee.AbstractList */
+    /* Virtual methods of Gee-0.8.Gee.AbstractList */
     vfunc_list_iterator(): Gee.ListIterator
     vfunc_get(index: number): object | null
     vfunc_set(index: number, item?: object | null): void
@@ -15281,7 +15281,7 @@ export class ExpressionOperatorIsNot {
     vfunc_last(): object | null
     vfunc_insert_all(index: number, collection: Gee.Collection): void
     vfunc_sort(compare_func: GLib.CompareDataFunc | null): void
-    /* Virtual methods of Gee.AbstractCollection */
+    /* Virtual methods of Gee-0.8.Gee.AbstractCollection */
     vfunc_contains(item?: object | null): boolean
     vfunc_add(item?: object | null): boolean
     vfunc_remove(item?: object | null): boolean
@@ -15328,7 +15328,7 @@ export class ExpressionOperatorIsNot {
     vfunc_contains_all_iterator(iter: Gee.Iterator): boolean
     vfunc_remove_all_iterator(iter: Gee.Iterator): boolean
     vfunc_get_is_empty(): boolean
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -15336,7 +15336,7 @@ export class ExpressionOperatorIsNot {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: ExpressionOperatorIsNot, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: ExpressionOperatorIsNot, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -15361,28 +15361,28 @@ export class ExpressionOperatorIsNot {
 export interface ExpressionOperatorIsNull_ConstructProps extends ExpressionOperatorIs_ConstructProps {
 }
 export class ExpressionOperatorIsNull {
-    /* Properties of Gee.AbstractBidirList */
+    /* Properties of Gee-0.8.Gee.AbstractBidirList */
     readonly read_only_view: Gee.BidirList
-    /* Properties of Gee.AbstractCollection */
+    /* Properties of Gee-0.8.Gee.AbstractCollection */
     readonly size: number
     readonly read_only: boolean
-    /* Fields of Vda.ExpressionOperatorIsNull */
+    /* Fields of Vda-1.Vda.ExpressionOperatorIsNull */
     parent_instance: ExpressionOperatorIs
     priv: ExpressionOperatorIsNullPrivate
-    /* Fields of Vda.ExpressionOperatorFinalUnaryterm */
+    /* Fields of Vda-1.Vda.ExpressionOperatorFinalUnaryterm */
     _operator_name: string
-    /* Fields of Vda.ExpressionOperator */
+    /* Fields of Vda-1.Vda.ExpressionOperator */
     _operator_type: SqlExpressionOperatorType
-    /* Fields of Gee.ArrayList */
+    /* Fields of Gee-0.8.Gee.ArrayList */
     _items: object[]
     _items_length1: number
     _size: number
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Gee.ArrayList */
+    /* Methods of Gee-0.8.Gee.ArrayList */
     add_all(collection: Gee.Collection): boolean
     get_equal_func(): [ /* returnType */ Gee.EqualDataFunc, /* result_target */ object | null ]
-    /* Methods of Gee.AbstractBidirList */
+    /* Methods of Gee-0.8.Gee.AbstractBidirList */
     bidir_list_iterator(): Gee.BidirListIterator
     reserved0(): void
     reserved1(): void
@@ -15395,7 +15395,7 @@ export class ExpressionOperatorIsNull {
     reserved8(): void
     reserved9(): void
     get_read_only_view(): Gee.BidirList
-    /* Methods of Gee.AbstractList */
+    /* Methods of Gee-0.8.Gee.AbstractList */
     list_iterator(): Gee.ListIterator
     get(index: number): object | null
     set(index: number, item?: object | null): void
@@ -15404,7 +15404,7 @@ export class ExpressionOperatorIsNull {
     remove_at(index: number): object | null
     slice(start: number, stop: number): Gee.List | null
     get_read_only_view(): Gee.List
-    /* Methods of Gee.AbstractCollection */
+    /* Methods of Gee-0.8.Gee.AbstractCollection */
     contains(item?: object | null): boolean
     add(item?: object | null): boolean
     remove(item?: object | null): boolean
@@ -15414,7 +15414,7 @@ export class ExpressionOperatorIsNull {
     get_size(): number
     get_read_only(): boolean
     get_read_only_view(): Gee.Collection
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -15436,19 +15436,19 @@ export class ExpressionOperatorIsNull {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Vda.ExpressionOperatorIsNull */
+    /* Virtual methods of Vda-1.Vda.ExpressionOperatorIsNull */
     vfunc_get_read_only_view(): Gee.BidirList
     vfunc_get_read_only_view(): Gee.List
     vfunc_get_read_only_view(): Gee.Collection
-    /* Virtual methods of Vda.ExpressionOperatorIs */
+    /* Virtual methods of Vda-1.Vda.ExpressionOperatorIs */
     vfunc_get_read_only_view(): Gee.BidirList
     vfunc_get_read_only_view(): Gee.List
     vfunc_get_read_only_view(): Gee.Collection
-    /* Virtual methods of Vda.ExpressionOperatorFinalUnaryterm */
+    /* Virtual methods of Vda-1.Vda.ExpressionOperatorFinalUnaryterm */
     vfunc_get_read_only_view(): Gee.BidirList
     vfunc_get_read_only_view(): Gee.List
     vfunc_get_read_only_view(): Gee.Collection
-    /* Virtual methods of Vda.ExpressionOperator */
+    /* Virtual methods of Vda-1.Vda.ExpressionOperator */
     vfunc_create_field_expression(name: string): SqlExpressionField
     vfunc_create_value_expression(val: any | null, cnc: Connection): SqlExpressionValue
     vfunc_create_parameter_expression(name: string, gtype: GObject.Type): SqlExpressionValueParameter
@@ -15488,7 +15488,7 @@ export class ExpressionOperatorIsNull {
     vfunc_get_read_only_view(): Gee.BidirList
     vfunc_get_read_only_view(): Gee.List
     vfunc_get_read_only_view(): Gee.Collection
-    /* Virtual methods of Vda.Expression */
+    /* Virtual methods of Vda-1.Vda.Expression */
     vfunc_get_item(position: number): GObject.Object | null
     vfunc_get_item_type(): GObject.Type
     vfunc_get_n_items(): number
@@ -15499,11 +15499,11 @@ export class ExpressionOperatorIsNull {
     vfunc_get_read_only_view(): Gee.BidirList
     vfunc_get_read_only_view(): Gee.List
     vfunc_get_read_only_view(): Gee.Collection
-    /* Virtual methods of Gee.ArrayList */
+    /* Virtual methods of Gee-0.8.Gee.ArrayList */
     vfunc_get_read_only_view(): Gee.BidirList
     vfunc_get_read_only_view(): Gee.List
     vfunc_get_read_only_view(): Gee.Collection
-    /* Virtual methods of Gee.AbstractBidirList */
+    /* Virtual methods of Gee-0.8.Gee.AbstractBidirList */
     vfunc_bidir_list_iterator(): Gee.BidirListIterator
     vfunc_reserved0(): void
     vfunc_reserved1(): void
@@ -15518,7 +15518,7 @@ export class ExpressionOperatorIsNull {
     vfunc_get_read_only_view(): Gee.BidirList
     vfunc_get_read_only_view(): Gee.List
     vfunc_get_read_only_view(): Gee.Collection
-    /* Virtual methods of Gee.AbstractList */
+    /* Virtual methods of Gee-0.8.Gee.AbstractList */
     vfunc_list_iterator(): Gee.ListIterator
     vfunc_get(index: number): object | null
     vfunc_set(index: number, item?: object | null): void
@@ -15542,7 +15542,7 @@ export class ExpressionOperatorIsNull {
     vfunc_last(): object | null
     vfunc_insert_all(index: number, collection: Gee.Collection): void
     vfunc_sort(compare_func: GLib.CompareDataFunc | null): void
-    /* Virtual methods of Gee.AbstractCollection */
+    /* Virtual methods of Gee-0.8.Gee.AbstractCollection */
     vfunc_contains(item?: object | null): boolean
     vfunc_add(item?: object | null): boolean
     vfunc_remove(item?: object | null): boolean
@@ -15589,7 +15589,7 @@ export class ExpressionOperatorIsNull {
     vfunc_contains_all_iterator(iter: Gee.Iterator): boolean
     vfunc_remove_all_iterator(iter: Gee.Iterator): boolean
     vfunc_get_is_empty(): boolean
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -15597,7 +15597,7 @@ export class ExpressionOperatorIsNull {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: ExpressionOperatorIsNull, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: ExpressionOperatorIsNull, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -15622,28 +15622,28 @@ export class ExpressionOperatorIsNull {
 export interface ExpressionOperatorIsNotNull_ConstructProps extends ExpressionOperatorIsNot_ConstructProps {
 }
 export class ExpressionOperatorIsNotNull {
-    /* Properties of Gee.AbstractBidirList */
+    /* Properties of Gee-0.8.Gee.AbstractBidirList */
     readonly read_only_view: Gee.BidirList
-    /* Properties of Gee.AbstractCollection */
+    /* Properties of Gee-0.8.Gee.AbstractCollection */
     readonly size: number
     readonly read_only: boolean
-    /* Fields of Vda.ExpressionOperatorIsNotNull */
+    /* Fields of Vda-1.Vda.ExpressionOperatorIsNotNull */
     parent_instance: ExpressionOperatorIsNot
     priv: ExpressionOperatorIsNotNullPrivate
-    /* Fields of Vda.ExpressionOperatorFinalUnaryterm */
+    /* Fields of Vda-1.Vda.ExpressionOperatorFinalUnaryterm */
     _operator_name: string
-    /* Fields of Vda.ExpressionOperator */
+    /* Fields of Vda-1.Vda.ExpressionOperator */
     _operator_type: SqlExpressionOperatorType
-    /* Fields of Gee.ArrayList */
+    /* Fields of Gee-0.8.Gee.ArrayList */
     _items: object[]
     _items_length1: number
     _size: number
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Gee.ArrayList */
+    /* Methods of Gee-0.8.Gee.ArrayList */
     add_all(collection: Gee.Collection): boolean
     get_equal_func(): [ /* returnType */ Gee.EqualDataFunc, /* result_target */ object | null ]
-    /* Methods of Gee.AbstractBidirList */
+    /* Methods of Gee-0.8.Gee.AbstractBidirList */
     bidir_list_iterator(): Gee.BidirListIterator
     reserved0(): void
     reserved1(): void
@@ -15656,7 +15656,7 @@ export class ExpressionOperatorIsNotNull {
     reserved8(): void
     reserved9(): void
     get_read_only_view(): Gee.BidirList
-    /* Methods of Gee.AbstractList */
+    /* Methods of Gee-0.8.Gee.AbstractList */
     list_iterator(): Gee.ListIterator
     get(index: number): object | null
     set(index: number, item?: object | null): void
@@ -15665,7 +15665,7 @@ export class ExpressionOperatorIsNotNull {
     remove_at(index: number): object | null
     slice(start: number, stop: number): Gee.List | null
     get_read_only_view(): Gee.List
-    /* Methods of Gee.AbstractCollection */
+    /* Methods of Gee-0.8.Gee.AbstractCollection */
     contains(item?: object | null): boolean
     add(item?: object | null): boolean
     remove(item?: object | null): boolean
@@ -15675,7 +15675,7 @@ export class ExpressionOperatorIsNotNull {
     get_size(): number
     get_read_only(): boolean
     get_read_only_view(): Gee.Collection
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -15697,23 +15697,23 @@ export class ExpressionOperatorIsNotNull {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Vda.ExpressionOperatorIsNotNull */
+    /* Virtual methods of Vda-1.Vda.ExpressionOperatorIsNotNull */
     vfunc_get_read_only_view(): Gee.BidirList
     vfunc_get_read_only_view(): Gee.List
     vfunc_get_read_only_view(): Gee.Collection
-    /* Virtual methods of Vda.ExpressionOperatorIsNot */
+    /* Virtual methods of Vda-1.Vda.ExpressionOperatorIsNot */
     vfunc_get_read_only_view(): Gee.BidirList
     vfunc_get_read_only_view(): Gee.List
     vfunc_get_read_only_view(): Gee.Collection
-    /* Virtual methods of Vda.ExpressionOperatorIs */
+    /* Virtual methods of Vda-1.Vda.ExpressionOperatorIs */
     vfunc_get_read_only_view(): Gee.BidirList
     vfunc_get_read_only_view(): Gee.List
     vfunc_get_read_only_view(): Gee.Collection
-    /* Virtual methods of Vda.ExpressionOperatorFinalUnaryterm */
+    /* Virtual methods of Vda-1.Vda.ExpressionOperatorFinalUnaryterm */
     vfunc_get_read_only_view(): Gee.BidirList
     vfunc_get_read_only_view(): Gee.List
     vfunc_get_read_only_view(): Gee.Collection
-    /* Virtual methods of Vda.ExpressionOperator */
+    /* Virtual methods of Vda-1.Vda.ExpressionOperator */
     vfunc_create_field_expression(name: string): SqlExpressionField
     vfunc_create_value_expression(val: any | null, cnc: Connection): SqlExpressionValue
     vfunc_create_parameter_expression(name: string, gtype: GObject.Type): SqlExpressionValueParameter
@@ -15753,7 +15753,7 @@ export class ExpressionOperatorIsNotNull {
     vfunc_get_read_only_view(): Gee.BidirList
     vfunc_get_read_only_view(): Gee.List
     vfunc_get_read_only_view(): Gee.Collection
-    /* Virtual methods of Vda.Expression */
+    /* Virtual methods of Vda-1.Vda.Expression */
     vfunc_get_item(position: number): GObject.Object | null
     vfunc_get_item_type(): GObject.Type
     vfunc_get_n_items(): number
@@ -15764,11 +15764,11 @@ export class ExpressionOperatorIsNotNull {
     vfunc_get_read_only_view(): Gee.BidirList
     vfunc_get_read_only_view(): Gee.List
     vfunc_get_read_only_view(): Gee.Collection
-    /* Virtual methods of Gee.ArrayList */
+    /* Virtual methods of Gee-0.8.Gee.ArrayList */
     vfunc_get_read_only_view(): Gee.BidirList
     vfunc_get_read_only_view(): Gee.List
     vfunc_get_read_only_view(): Gee.Collection
-    /* Virtual methods of Gee.AbstractBidirList */
+    /* Virtual methods of Gee-0.8.Gee.AbstractBidirList */
     vfunc_bidir_list_iterator(): Gee.BidirListIterator
     vfunc_reserved0(): void
     vfunc_reserved1(): void
@@ -15783,7 +15783,7 @@ export class ExpressionOperatorIsNotNull {
     vfunc_get_read_only_view(): Gee.BidirList
     vfunc_get_read_only_view(): Gee.List
     vfunc_get_read_only_view(): Gee.Collection
-    /* Virtual methods of Gee.AbstractList */
+    /* Virtual methods of Gee-0.8.Gee.AbstractList */
     vfunc_list_iterator(): Gee.ListIterator
     vfunc_get(index: number): object | null
     vfunc_set(index: number, item?: object | null): void
@@ -15807,7 +15807,7 @@ export class ExpressionOperatorIsNotNull {
     vfunc_last(): object | null
     vfunc_insert_all(index: number, collection: Gee.Collection): void
     vfunc_sort(compare_func: GLib.CompareDataFunc | null): void
-    /* Virtual methods of Gee.AbstractCollection */
+    /* Virtual methods of Gee-0.8.Gee.AbstractCollection */
     vfunc_contains(item?: object | null): boolean
     vfunc_add(item?: object | null): boolean
     vfunc_remove(item?: object | null): boolean
@@ -15854,7 +15854,7 @@ export class ExpressionOperatorIsNotNull {
     vfunc_contains_all_iterator(iter: Gee.Iterator): boolean
     vfunc_remove_all_iterator(iter: Gee.Iterator): boolean
     vfunc_get_is_empty(): boolean
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -15862,7 +15862,7 @@ export class ExpressionOperatorIsNotNull {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: ExpressionOperatorIsNotNull, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: ExpressionOperatorIsNotNull, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -15887,28 +15887,28 @@ export class ExpressionOperatorIsNotNull {
 export interface ExpressionOperatorIsTrue_ConstructProps extends ExpressionOperatorIs_ConstructProps {
 }
 export class ExpressionOperatorIsTrue {
-    /* Properties of Gee.AbstractBidirList */
+    /* Properties of Gee-0.8.Gee.AbstractBidirList */
     readonly read_only_view: Gee.BidirList
-    /* Properties of Gee.AbstractCollection */
+    /* Properties of Gee-0.8.Gee.AbstractCollection */
     readonly size: number
     readonly read_only: boolean
-    /* Fields of Vda.ExpressionOperatorIsTrue */
+    /* Fields of Vda-1.Vda.ExpressionOperatorIsTrue */
     parent_instance: ExpressionOperatorIs
     priv: ExpressionOperatorIsTruePrivate
-    /* Fields of Vda.ExpressionOperatorFinalUnaryterm */
+    /* Fields of Vda-1.Vda.ExpressionOperatorFinalUnaryterm */
     _operator_name: string
-    /* Fields of Vda.ExpressionOperator */
+    /* Fields of Vda-1.Vda.ExpressionOperator */
     _operator_type: SqlExpressionOperatorType
-    /* Fields of Gee.ArrayList */
+    /* Fields of Gee-0.8.Gee.ArrayList */
     _items: object[]
     _items_length1: number
     _size: number
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Gee.ArrayList */
+    /* Methods of Gee-0.8.Gee.ArrayList */
     add_all(collection: Gee.Collection): boolean
     get_equal_func(): [ /* returnType */ Gee.EqualDataFunc, /* result_target */ object | null ]
-    /* Methods of Gee.AbstractBidirList */
+    /* Methods of Gee-0.8.Gee.AbstractBidirList */
     bidir_list_iterator(): Gee.BidirListIterator
     reserved0(): void
     reserved1(): void
@@ -15921,7 +15921,7 @@ export class ExpressionOperatorIsTrue {
     reserved8(): void
     reserved9(): void
     get_read_only_view(): Gee.BidirList
-    /* Methods of Gee.AbstractList */
+    /* Methods of Gee-0.8.Gee.AbstractList */
     list_iterator(): Gee.ListIterator
     get(index: number): object | null
     set(index: number, item?: object | null): void
@@ -15930,7 +15930,7 @@ export class ExpressionOperatorIsTrue {
     remove_at(index: number): object | null
     slice(start: number, stop: number): Gee.List | null
     get_read_only_view(): Gee.List
-    /* Methods of Gee.AbstractCollection */
+    /* Methods of Gee-0.8.Gee.AbstractCollection */
     contains(item?: object | null): boolean
     add(item?: object | null): boolean
     remove(item?: object | null): boolean
@@ -15940,7 +15940,7 @@ export class ExpressionOperatorIsTrue {
     get_size(): number
     get_read_only(): boolean
     get_read_only_view(): Gee.Collection
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -15962,19 +15962,19 @@ export class ExpressionOperatorIsTrue {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Vda.ExpressionOperatorIsTrue */
+    /* Virtual methods of Vda-1.Vda.ExpressionOperatorIsTrue */
     vfunc_get_read_only_view(): Gee.BidirList
     vfunc_get_read_only_view(): Gee.List
     vfunc_get_read_only_view(): Gee.Collection
-    /* Virtual methods of Vda.ExpressionOperatorIs */
+    /* Virtual methods of Vda-1.Vda.ExpressionOperatorIs */
     vfunc_get_read_only_view(): Gee.BidirList
     vfunc_get_read_only_view(): Gee.List
     vfunc_get_read_only_view(): Gee.Collection
-    /* Virtual methods of Vda.ExpressionOperatorFinalUnaryterm */
+    /* Virtual methods of Vda-1.Vda.ExpressionOperatorFinalUnaryterm */
     vfunc_get_read_only_view(): Gee.BidirList
     vfunc_get_read_only_view(): Gee.List
     vfunc_get_read_only_view(): Gee.Collection
-    /* Virtual methods of Vda.ExpressionOperator */
+    /* Virtual methods of Vda-1.Vda.ExpressionOperator */
     vfunc_create_field_expression(name: string): SqlExpressionField
     vfunc_create_value_expression(val: any | null, cnc: Connection): SqlExpressionValue
     vfunc_create_parameter_expression(name: string, gtype: GObject.Type): SqlExpressionValueParameter
@@ -16014,7 +16014,7 @@ export class ExpressionOperatorIsTrue {
     vfunc_get_read_only_view(): Gee.BidirList
     vfunc_get_read_only_view(): Gee.List
     vfunc_get_read_only_view(): Gee.Collection
-    /* Virtual methods of Vda.Expression */
+    /* Virtual methods of Vda-1.Vda.Expression */
     vfunc_get_item(position: number): GObject.Object | null
     vfunc_get_item_type(): GObject.Type
     vfunc_get_n_items(): number
@@ -16025,11 +16025,11 @@ export class ExpressionOperatorIsTrue {
     vfunc_get_read_only_view(): Gee.BidirList
     vfunc_get_read_only_view(): Gee.List
     vfunc_get_read_only_view(): Gee.Collection
-    /* Virtual methods of Gee.ArrayList */
+    /* Virtual methods of Gee-0.8.Gee.ArrayList */
     vfunc_get_read_only_view(): Gee.BidirList
     vfunc_get_read_only_view(): Gee.List
     vfunc_get_read_only_view(): Gee.Collection
-    /* Virtual methods of Gee.AbstractBidirList */
+    /* Virtual methods of Gee-0.8.Gee.AbstractBidirList */
     vfunc_bidir_list_iterator(): Gee.BidirListIterator
     vfunc_reserved0(): void
     vfunc_reserved1(): void
@@ -16044,7 +16044,7 @@ export class ExpressionOperatorIsTrue {
     vfunc_get_read_only_view(): Gee.BidirList
     vfunc_get_read_only_view(): Gee.List
     vfunc_get_read_only_view(): Gee.Collection
-    /* Virtual methods of Gee.AbstractList */
+    /* Virtual methods of Gee-0.8.Gee.AbstractList */
     vfunc_list_iterator(): Gee.ListIterator
     vfunc_get(index: number): object | null
     vfunc_set(index: number, item?: object | null): void
@@ -16068,7 +16068,7 @@ export class ExpressionOperatorIsTrue {
     vfunc_last(): object | null
     vfunc_insert_all(index: number, collection: Gee.Collection): void
     vfunc_sort(compare_func: GLib.CompareDataFunc | null): void
-    /* Virtual methods of Gee.AbstractCollection */
+    /* Virtual methods of Gee-0.8.Gee.AbstractCollection */
     vfunc_contains(item?: object | null): boolean
     vfunc_add(item?: object | null): boolean
     vfunc_remove(item?: object | null): boolean
@@ -16115,7 +16115,7 @@ export class ExpressionOperatorIsTrue {
     vfunc_contains_all_iterator(iter: Gee.Iterator): boolean
     vfunc_remove_all_iterator(iter: Gee.Iterator): boolean
     vfunc_get_is_empty(): boolean
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -16123,7 +16123,7 @@ export class ExpressionOperatorIsTrue {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: ExpressionOperatorIsTrue, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: ExpressionOperatorIsTrue, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -16148,28 +16148,28 @@ export class ExpressionOperatorIsTrue {
 export interface ExpressionOperatorIsNotTrue_ConstructProps extends ExpressionOperatorIsNot_ConstructProps {
 }
 export class ExpressionOperatorIsNotTrue {
-    /* Properties of Gee.AbstractBidirList */
+    /* Properties of Gee-0.8.Gee.AbstractBidirList */
     readonly read_only_view: Gee.BidirList
-    /* Properties of Gee.AbstractCollection */
+    /* Properties of Gee-0.8.Gee.AbstractCollection */
     readonly size: number
     readonly read_only: boolean
-    /* Fields of Vda.ExpressionOperatorIsNotTrue */
+    /* Fields of Vda-1.Vda.ExpressionOperatorIsNotTrue */
     parent_instance: ExpressionOperatorIsNot
     priv: ExpressionOperatorIsNotTruePrivate
-    /* Fields of Vda.ExpressionOperatorFinalUnaryterm */
+    /* Fields of Vda-1.Vda.ExpressionOperatorFinalUnaryterm */
     _operator_name: string
-    /* Fields of Vda.ExpressionOperator */
+    /* Fields of Vda-1.Vda.ExpressionOperator */
     _operator_type: SqlExpressionOperatorType
-    /* Fields of Gee.ArrayList */
+    /* Fields of Gee-0.8.Gee.ArrayList */
     _items: object[]
     _items_length1: number
     _size: number
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Gee.ArrayList */
+    /* Methods of Gee-0.8.Gee.ArrayList */
     add_all(collection: Gee.Collection): boolean
     get_equal_func(): [ /* returnType */ Gee.EqualDataFunc, /* result_target */ object | null ]
-    /* Methods of Gee.AbstractBidirList */
+    /* Methods of Gee-0.8.Gee.AbstractBidirList */
     bidir_list_iterator(): Gee.BidirListIterator
     reserved0(): void
     reserved1(): void
@@ -16182,7 +16182,7 @@ export class ExpressionOperatorIsNotTrue {
     reserved8(): void
     reserved9(): void
     get_read_only_view(): Gee.BidirList
-    /* Methods of Gee.AbstractList */
+    /* Methods of Gee-0.8.Gee.AbstractList */
     list_iterator(): Gee.ListIterator
     get(index: number): object | null
     set(index: number, item?: object | null): void
@@ -16191,7 +16191,7 @@ export class ExpressionOperatorIsNotTrue {
     remove_at(index: number): object | null
     slice(start: number, stop: number): Gee.List | null
     get_read_only_view(): Gee.List
-    /* Methods of Gee.AbstractCollection */
+    /* Methods of Gee-0.8.Gee.AbstractCollection */
     contains(item?: object | null): boolean
     add(item?: object | null): boolean
     remove(item?: object | null): boolean
@@ -16201,7 +16201,7 @@ export class ExpressionOperatorIsNotTrue {
     get_size(): number
     get_read_only(): boolean
     get_read_only_view(): Gee.Collection
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -16223,23 +16223,23 @@ export class ExpressionOperatorIsNotTrue {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Vda.ExpressionOperatorIsNotTrue */
+    /* Virtual methods of Vda-1.Vda.ExpressionOperatorIsNotTrue */
     vfunc_get_read_only_view(): Gee.BidirList
     vfunc_get_read_only_view(): Gee.List
     vfunc_get_read_only_view(): Gee.Collection
-    /* Virtual methods of Vda.ExpressionOperatorIsNot */
+    /* Virtual methods of Vda-1.Vda.ExpressionOperatorIsNot */
     vfunc_get_read_only_view(): Gee.BidirList
     vfunc_get_read_only_view(): Gee.List
     vfunc_get_read_only_view(): Gee.Collection
-    /* Virtual methods of Vda.ExpressionOperatorIs */
+    /* Virtual methods of Vda-1.Vda.ExpressionOperatorIs */
     vfunc_get_read_only_view(): Gee.BidirList
     vfunc_get_read_only_view(): Gee.List
     vfunc_get_read_only_view(): Gee.Collection
-    /* Virtual methods of Vda.ExpressionOperatorFinalUnaryterm */
+    /* Virtual methods of Vda-1.Vda.ExpressionOperatorFinalUnaryterm */
     vfunc_get_read_only_view(): Gee.BidirList
     vfunc_get_read_only_view(): Gee.List
     vfunc_get_read_only_view(): Gee.Collection
-    /* Virtual methods of Vda.ExpressionOperator */
+    /* Virtual methods of Vda-1.Vda.ExpressionOperator */
     vfunc_create_field_expression(name: string): SqlExpressionField
     vfunc_create_value_expression(val: any | null, cnc: Connection): SqlExpressionValue
     vfunc_create_parameter_expression(name: string, gtype: GObject.Type): SqlExpressionValueParameter
@@ -16279,7 +16279,7 @@ export class ExpressionOperatorIsNotTrue {
     vfunc_get_read_only_view(): Gee.BidirList
     vfunc_get_read_only_view(): Gee.List
     vfunc_get_read_only_view(): Gee.Collection
-    /* Virtual methods of Vda.Expression */
+    /* Virtual methods of Vda-1.Vda.Expression */
     vfunc_get_item(position: number): GObject.Object | null
     vfunc_get_item_type(): GObject.Type
     vfunc_get_n_items(): number
@@ -16290,11 +16290,11 @@ export class ExpressionOperatorIsNotTrue {
     vfunc_get_read_only_view(): Gee.BidirList
     vfunc_get_read_only_view(): Gee.List
     vfunc_get_read_only_view(): Gee.Collection
-    /* Virtual methods of Gee.ArrayList */
+    /* Virtual methods of Gee-0.8.Gee.ArrayList */
     vfunc_get_read_only_view(): Gee.BidirList
     vfunc_get_read_only_view(): Gee.List
     vfunc_get_read_only_view(): Gee.Collection
-    /* Virtual methods of Gee.AbstractBidirList */
+    /* Virtual methods of Gee-0.8.Gee.AbstractBidirList */
     vfunc_bidir_list_iterator(): Gee.BidirListIterator
     vfunc_reserved0(): void
     vfunc_reserved1(): void
@@ -16309,7 +16309,7 @@ export class ExpressionOperatorIsNotTrue {
     vfunc_get_read_only_view(): Gee.BidirList
     vfunc_get_read_only_view(): Gee.List
     vfunc_get_read_only_view(): Gee.Collection
-    /* Virtual methods of Gee.AbstractList */
+    /* Virtual methods of Gee-0.8.Gee.AbstractList */
     vfunc_list_iterator(): Gee.ListIterator
     vfunc_get(index: number): object | null
     vfunc_set(index: number, item?: object | null): void
@@ -16333,7 +16333,7 @@ export class ExpressionOperatorIsNotTrue {
     vfunc_last(): object | null
     vfunc_insert_all(index: number, collection: Gee.Collection): void
     vfunc_sort(compare_func: GLib.CompareDataFunc | null): void
-    /* Virtual methods of Gee.AbstractCollection */
+    /* Virtual methods of Gee-0.8.Gee.AbstractCollection */
     vfunc_contains(item?: object | null): boolean
     vfunc_add(item?: object | null): boolean
     vfunc_remove(item?: object | null): boolean
@@ -16380,7 +16380,7 @@ export class ExpressionOperatorIsNotTrue {
     vfunc_contains_all_iterator(iter: Gee.Iterator): boolean
     vfunc_remove_all_iterator(iter: Gee.Iterator): boolean
     vfunc_get_is_empty(): boolean
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -16388,7 +16388,7 @@ export class ExpressionOperatorIsNotTrue {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: ExpressionOperatorIsNotTrue, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: ExpressionOperatorIsNotTrue, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -16413,28 +16413,28 @@ export class ExpressionOperatorIsNotTrue {
 export interface ExpressionOperatorIsFalse_ConstructProps extends ExpressionOperatorIs_ConstructProps {
 }
 export class ExpressionOperatorIsFalse {
-    /* Properties of Gee.AbstractBidirList */
+    /* Properties of Gee-0.8.Gee.AbstractBidirList */
     readonly read_only_view: Gee.BidirList
-    /* Properties of Gee.AbstractCollection */
+    /* Properties of Gee-0.8.Gee.AbstractCollection */
     readonly size: number
     readonly read_only: boolean
-    /* Fields of Vda.ExpressionOperatorIsFalse */
+    /* Fields of Vda-1.Vda.ExpressionOperatorIsFalse */
     parent_instance: ExpressionOperatorIs
     priv: ExpressionOperatorIsFalsePrivate
-    /* Fields of Vda.ExpressionOperatorFinalUnaryterm */
+    /* Fields of Vda-1.Vda.ExpressionOperatorFinalUnaryterm */
     _operator_name: string
-    /* Fields of Vda.ExpressionOperator */
+    /* Fields of Vda-1.Vda.ExpressionOperator */
     _operator_type: SqlExpressionOperatorType
-    /* Fields of Gee.ArrayList */
+    /* Fields of Gee-0.8.Gee.ArrayList */
     _items: object[]
     _items_length1: number
     _size: number
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Gee.ArrayList */
+    /* Methods of Gee-0.8.Gee.ArrayList */
     add_all(collection: Gee.Collection): boolean
     get_equal_func(): [ /* returnType */ Gee.EqualDataFunc, /* result_target */ object | null ]
-    /* Methods of Gee.AbstractBidirList */
+    /* Methods of Gee-0.8.Gee.AbstractBidirList */
     bidir_list_iterator(): Gee.BidirListIterator
     reserved0(): void
     reserved1(): void
@@ -16447,7 +16447,7 @@ export class ExpressionOperatorIsFalse {
     reserved8(): void
     reserved9(): void
     get_read_only_view(): Gee.BidirList
-    /* Methods of Gee.AbstractList */
+    /* Methods of Gee-0.8.Gee.AbstractList */
     list_iterator(): Gee.ListIterator
     get(index: number): object | null
     set(index: number, item?: object | null): void
@@ -16456,7 +16456,7 @@ export class ExpressionOperatorIsFalse {
     remove_at(index: number): object | null
     slice(start: number, stop: number): Gee.List | null
     get_read_only_view(): Gee.List
-    /* Methods of Gee.AbstractCollection */
+    /* Methods of Gee-0.8.Gee.AbstractCollection */
     contains(item?: object | null): boolean
     add(item?: object | null): boolean
     remove(item?: object | null): boolean
@@ -16466,7 +16466,7 @@ export class ExpressionOperatorIsFalse {
     get_size(): number
     get_read_only(): boolean
     get_read_only_view(): Gee.Collection
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -16488,19 +16488,19 @@ export class ExpressionOperatorIsFalse {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Vda.ExpressionOperatorIsFalse */
+    /* Virtual methods of Vda-1.Vda.ExpressionOperatorIsFalse */
     vfunc_get_read_only_view(): Gee.BidirList
     vfunc_get_read_only_view(): Gee.List
     vfunc_get_read_only_view(): Gee.Collection
-    /* Virtual methods of Vda.ExpressionOperatorIs */
+    /* Virtual methods of Vda-1.Vda.ExpressionOperatorIs */
     vfunc_get_read_only_view(): Gee.BidirList
     vfunc_get_read_only_view(): Gee.List
     vfunc_get_read_only_view(): Gee.Collection
-    /* Virtual methods of Vda.ExpressionOperatorFinalUnaryterm */
+    /* Virtual methods of Vda-1.Vda.ExpressionOperatorFinalUnaryterm */
     vfunc_get_read_only_view(): Gee.BidirList
     vfunc_get_read_only_view(): Gee.List
     vfunc_get_read_only_view(): Gee.Collection
-    /* Virtual methods of Vda.ExpressionOperator */
+    /* Virtual methods of Vda-1.Vda.ExpressionOperator */
     vfunc_create_field_expression(name: string): SqlExpressionField
     vfunc_create_value_expression(val: any | null, cnc: Connection): SqlExpressionValue
     vfunc_create_parameter_expression(name: string, gtype: GObject.Type): SqlExpressionValueParameter
@@ -16540,7 +16540,7 @@ export class ExpressionOperatorIsFalse {
     vfunc_get_read_only_view(): Gee.BidirList
     vfunc_get_read_only_view(): Gee.List
     vfunc_get_read_only_view(): Gee.Collection
-    /* Virtual methods of Vda.Expression */
+    /* Virtual methods of Vda-1.Vda.Expression */
     vfunc_get_item(position: number): GObject.Object | null
     vfunc_get_item_type(): GObject.Type
     vfunc_get_n_items(): number
@@ -16551,11 +16551,11 @@ export class ExpressionOperatorIsFalse {
     vfunc_get_read_only_view(): Gee.BidirList
     vfunc_get_read_only_view(): Gee.List
     vfunc_get_read_only_view(): Gee.Collection
-    /* Virtual methods of Gee.ArrayList */
+    /* Virtual methods of Gee-0.8.Gee.ArrayList */
     vfunc_get_read_only_view(): Gee.BidirList
     vfunc_get_read_only_view(): Gee.List
     vfunc_get_read_only_view(): Gee.Collection
-    /* Virtual methods of Gee.AbstractBidirList */
+    /* Virtual methods of Gee-0.8.Gee.AbstractBidirList */
     vfunc_bidir_list_iterator(): Gee.BidirListIterator
     vfunc_reserved0(): void
     vfunc_reserved1(): void
@@ -16570,7 +16570,7 @@ export class ExpressionOperatorIsFalse {
     vfunc_get_read_only_view(): Gee.BidirList
     vfunc_get_read_only_view(): Gee.List
     vfunc_get_read_only_view(): Gee.Collection
-    /* Virtual methods of Gee.AbstractList */
+    /* Virtual methods of Gee-0.8.Gee.AbstractList */
     vfunc_list_iterator(): Gee.ListIterator
     vfunc_get(index: number): object | null
     vfunc_set(index: number, item?: object | null): void
@@ -16594,7 +16594,7 @@ export class ExpressionOperatorIsFalse {
     vfunc_last(): object | null
     vfunc_insert_all(index: number, collection: Gee.Collection): void
     vfunc_sort(compare_func: GLib.CompareDataFunc | null): void
-    /* Virtual methods of Gee.AbstractCollection */
+    /* Virtual methods of Gee-0.8.Gee.AbstractCollection */
     vfunc_contains(item?: object | null): boolean
     vfunc_add(item?: object | null): boolean
     vfunc_remove(item?: object | null): boolean
@@ -16641,7 +16641,7 @@ export class ExpressionOperatorIsFalse {
     vfunc_contains_all_iterator(iter: Gee.Iterator): boolean
     vfunc_remove_all_iterator(iter: Gee.Iterator): boolean
     vfunc_get_is_empty(): boolean
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -16649,7 +16649,7 @@ export class ExpressionOperatorIsFalse {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: ExpressionOperatorIsFalse, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: ExpressionOperatorIsFalse, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -16674,28 +16674,28 @@ export class ExpressionOperatorIsFalse {
 export interface ExpressionOperatorIsNotFalse_ConstructProps extends ExpressionOperatorIsNot_ConstructProps {
 }
 export class ExpressionOperatorIsNotFalse {
-    /* Properties of Gee.AbstractBidirList */
+    /* Properties of Gee-0.8.Gee.AbstractBidirList */
     readonly read_only_view: Gee.BidirList
-    /* Properties of Gee.AbstractCollection */
+    /* Properties of Gee-0.8.Gee.AbstractCollection */
     readonly size: number
     readonly read_only: boolean
-    /* Fields of Vda.ExpressionOperatorIsNotFalse */
+    /* Fields of Vda-1.Vda.ExpressionOperatorIsNotFalse */
     parent_instance: ExpressionOperatorIsNot
     priv: ExpressionOperatorIsNotFalsePrivate
-    /* Fields of Vda.ExpressionOperatorFinalUnaryterm */
+    /* Fields of Vda-1.Vda.ExpressionOperatorFinalUnaryterm */
     _operator_name: string
-    /* Fields of Vda.ExpressionOperator */
+    /* Fields of Vda-1.Vda.ExpressionOperator */
     _operator_type: SqlExpressionOperatorType
-    /* Fields of Gee.ArrayList */
+    /* Fields of Gee-0.8.Gee.ArrayList */
     _items: object[]
     _items_length1: number
     _size: number
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Gee.ArrayList */
+    /* Methods of Gee-0.8.Gee.ArrayList */
     add_all(collection: Gee.Collection): boolean
     get_equal_func(): [ /* returnType */ Gee.EqualDataFunc, /* result_target */ object | null ]
-    /* Methods of Gee.AbstractBidirList */
+    /* Methods of Gee-0.8.Gee.AbstractBidirList */
     bidir_list_iterator(): Gee.BidirListIterator
     reserved0(): void
     reserved1(): void
@@ -16708,7 +16708,7 @@ export class ExpressionOperatorIsNotFalse {
     reserved8(): void
     reserved9(): void
     get_read_only_view(): Gee.BidirList
-    /* Methods of Gee.AbstractList */
+    /* Methods of Gee-0.8.Gee.AbstractList */
     list_iterator(): Gee.ListIterator
     get(index: number): object | null
     set(index: number, item?: object | null): void
@@ -16717,7 +16717,7 @@ export class ExpressionOperatorIsNotFalse {
     remove_at(index: number): object | null
     slice(start: number, stop: number): Gee.List | null
     get_read_only_view(): Gee.List
-    /* Methods of Gee.AbstractCollection */
+    /* Methods of Gee-0.8.Gee.AbstractCollection */
     contains(item?: object | null): boolean
     add(item?: object | null): boolean
     remove(item?: object | null): boolean
@@ -16727,7 +16727,7 @@ export class ExpressionOperatorIsNotFalse {
     get_size(): number
     get_read_only(): boolean
     get_read_only_view(): Gee.Collection
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -16749,23 +16749,23 @@ export class ExpressionOperatorIsNotFalse {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Vda.ExpressionOperatorIsNotFalse */
+    /* Virtual methods of Vda-1.Vda.ExpressionOperatorIsNotFalse */
     vfunc_get_read_only_view(): Gee.BidirList
     vfunc_get_read_only_view(): Gee.List
     vfunc_get_read_only_view(): Gee.Collection
-    /* Virtual methods of Vda.ExpressionOperatorIsNot */
+    /* Virtual methods of Vda-1.Vda.ExpressionOperatorIsNot */
     vfunc_get_read_only_view(): Gee.BidirList
     vfunc_get_read_only_view(): Gee.List
     vfunc_get_read_only_view(): Gee.Collection
-    /* Virtual methods of Vda.ExpressionOperatorIs */
+    /* Virtual methods of Vda-1.Vda.ExpressionOperatorIs */
     vfunc_get_read_only_view(): Gee.BidirList
     vfunc_get_read_only_view(): Gee.List
     vfunc_get_read_only_view(): Gee.Collection
-    /* Virtual methods of Vda.ExpressionOperatorFinalUnaryterm */
+    /* Virtual methods of Vda-1.Vda.ExpressionOperatorFinalUnaryterm */
     vfunc_get_read_only_view(): Gee.BidirList
     vfunc_get_read_only_view(): Gee.List
     vfunc_get_read_only_view(): Gee.Collection
-    /* Virtual methods of Vda.ExpressionOperator */
+    /* Virtual methods of Vda-1.Vda.ExpressionOperator */
     vfunc_create_field_expression(name: string): SqlExpressionField
     vfunc_create_value_expression(val: any | null, cnc: Connection): SqlExpressionValue
     vfunc_create_parameter_expression(name: string, gtype: GObject.Type): SqlExpressionValueParameter
@@ -16805,7 +16805,7 @@ export class ExpressionOperatorIsNotFalse {
     vfunc_get_read_only_view(): Gee.BidirList
     vfunc_get_read_only_view(): Gee.List
     vfunc_get_read_only_view(): Gee.Collection
-    /* Virtual methods of Vda.Expression */
+    /* Virtual methods of Vda-1.Vda.Expression */
     vfunc_get_item(position: number): GObject.Object | null
     vfunc_get_item_type(): GObject.Type
     vfunc_get_n_items(): number
@@ -16816,11 +16816,11 @@ export class ExpressionOperatorIsNotFalse {
     vfunc_get_read_only_view(): Gee.BidirList
     vfunc_get_read_only_view(): Gee.List
     vfunc_get_read_only_view(): Gee.Collection
-    /* Virtual methods of Gee.ArrayList */
+    /* Virtual methods of Gee-0.8.Gee.ArrayList */
     vfunc_get_read_only_view(): Gee.BidirList
     vfunc_get_read_only_view(): Gee.List
     vfunc_get_read_only_view(): Gee.Collection
-    /* Virtual methods of Gee.AbstractBidirList */
+    /* Virtual methods of Gee-0.8.Gee.AbstractBidirList */
     vfunc_bidir_list_iterator(): Gee.BidirListIterator
     vfunc_reserved0(): void
     vfunc_reserved1(): void
@@ -16835,7 +16835,7 @@ export class ExpressionOperatorIsNotFalse {
     vfunc_get_read_only_view(): Gee.BidirList
     vfunc_get_read_only_view(): Gee.List
     vfunc_get_read_only_view(): Gee.Collection
-    /* Virtual methods of Gee.AbstractList */
+    /* Virtual methods of Gee-0.8.Gee.AbstractList */
     vfunc_list_iterator(): Gee.ListIterator
     vfunc_get(index: number): object | null
     vfunc_set(index: number, item?: object | null): void
@@ -16859,7 +16859,7 @@ export class ExpressionOperatorIsNotFalse {
     vfunc_last(): object | null
     vfunc_insert_all(index: number, collection: Gee.Collection): void
     vfunc_sort(compare_func: GLib.CompareDataFunc | null): void
-    /* Virtual methods of Gee.AbstractCollection */
+    /* Virtual methods of Gee-0.8.Gee.AbstractCollection */
     vfunc_contains(item?: object | null): boolean
     vfunc_add(item?: object | null): boolean
     vfunc_remove(item?: object | null): boolean
@@ -16906,7 +16906,7 @@ export class ExpressionOperatorIsNotFalse {
     vfunc_contains_all_iterator(iter: Gee.Iterator): boolean
     vfunc_remove_all_iterator(iter: Gee.Iterator): boolean
     vfunc_get_is_empty(): boolean
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -16914,7 +16914,7 @@ export class ExpressionOperatorIsNotFalse {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: ExpressionOperatorIsNotFalse, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: ExpressionOperatorIsNotFalse, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -16939,28 +16939,28 @@ export class ExpressionOperatorIsNotFalse {
 export interface ExpressionOperatorIsNotUnknown_ConstructProps extends ExpressionOperatorIsNot_ConstructProps {
 }
 export class ExpressionOperatorIsNotUnknown {
-    /* Properties of Gee.AbstractBidirList */
+    /* Properties of Gee-0.8.Gee.AbstractBidirList */
     readonly read_only_view: Gee.BidirList
-    /* Properties of Gee.AbstractCollection */
+    /* Properties of Gee-0.8.Gee.AbstractCollection */
     readonly size: number
     readonly read_only: boolean
-    /* Fields of Vda.ExpressionOperatorIsNotUnknown */
+    /* Fields of Vda-1.Vda.ExpressionOperatorIsNotUnknown */
     parent_instance: ExpressionOperatorIsNot
     priv: ExpressionOperatorIsNotUnknownPrivate
-    /* Fields of Vda.ExpressionOperatorFinalUnaryterm */
+    /* Fields of Vda-1.Vda.ExpressionOperatorFinalUnaryterm */
     _operator_name: string
-    /* Fields of Vda.ExpressionOperator */
+    /* Fields of Vda-1.Vda.ExpressionOperator */
     _operator_type: SqlExpressionOperatorType
-    /* Fields of Gee.ArrayList */
+    /* Fields of Gee-0.8.Gee.ArrayList */
     _items: object[]
     _items_length1: number
     _size: number
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Gee.ArrayList */
+    /* Methods of Gee-0.8.Gee.ArrayList */
     add_all(collection: Gee.Collection): boolean
     get_equal_func(): [ /* returnType */ Gee.EqualDataFunc, /* result_target */ object | null ]
-    /* Methods of Gee.AbstractBidirList */
+    /* Methods of Gee-0.8.Gee.AbstractBidirList */
     bidir_list_iterator(): Gee.BidirListIterator
     reserved0(): void
     reserved1(): void
@@ -16973,7 +16973,7 @@ export class ExpressionOperatorIsNotUnknown {
     reserved8(): void
     reserved9(): void
     get_read_only_view(): Gee.BidirList
-    /* Methods of Gee.AbstractList */
+    /* Methods of Gee-0.8.Gee.AbstractList */
     list_iterator(): Gee.ListIterator
     get(index: number): object | null
     set(index: number, item?: object | null): void
@@ -16982,7 +16982,7 @@ export class ExpressionOperatorIsNotUnknown {
     remove_at(index: number): object | null
     slice(start: number, stop: number): Gee.List | null
     get_read_only_view(): Gee.List
-    /* Methods of Gee.AbstractCollection */
+    /* Methods of Gee-0.8.Gee.AbstractCollection */
     contains(item?: object | null): boolean
     add(item?: object | null): boolean
     remove(item?: object | null): boolean
@@ -16992,7 +16992,7 @@ export class ExpressionOperatorIsNotUnknown {
     get_size(): number
     get_read_only(): boolean
     get_read_only_view(): Gee.Collection
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -17014,23 +17014,23 @@ export class ExpressionOperatorIsNotUnknown {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Vda.ExpressionOperatorIsNotUnknown */
+    /* Virtual methods of Vda-1.Vda.ExpressionOperatorIsNotUnknown */
     vfunc_get_read_only_view(): Gee.BidirList
     vfunc_get_read_only_view(): Gee.List
     vfunc_get_read_only_view(): Gee.Collection
-    /* Virtual methods of Vda.ExpressionOperatorIsNot */
+    /* Virtual methods of Vda-1.Vda.ExpressionOperatorIsNot */
     vfunc_get_read_only_view(): Gee.BidirList
     vfunc_get_read_only_view(): Gee.List
     vfunc_get_read_only_view(): Gee.Collection
-    /* Virtual methods of Vda.ExpressionOperatorIs */
+    /* Virtual methods of Vda-1.Vda.ExpressionOperatorIs */
     vfunc_get_read_only_view(): Gee.BidirList
     vfunc_get_read_only_view(): Gee.List
     vfunc_get_read_only_view(): Gee.Collection
-    /* Virtual methods of Vda.ExpressionOperatorFinalUnaryterm */
+    /* Virtual methods of Vda-1.Vda.ExpressionOperatorFinalUnaryterm */
     vfunc_get_read_only_view(): Gee.BidirList
     vfunc_get_read_only_view(): Gee.List
     vfunc_get_read_only_view(): Gee.Collection
-    /* Virtual methods of Vda.ExpressionOperator */
+    /* Virtual methods of Vda-1.Vda.ExpressionOperator */
     vfunc_create_field_expression(name: string): SqlExpressionField
     vfunc_create_value_expression(val: any | null, cnc: Connection): SqlExpressionValue
     vfunc_create_parameter_expression(name: string, gtype: GObject.Type): SqlExpressionValueParameter
@@ -17070,7 +17070,7 @@ export class ExpressionOperatorIsNotUnknown {
     vfunc_get_read_only_view(): Gee.BidirList
     vfunc_get_read_only_view(): Gee.List
     vfunc_get_read_only_view(): Gee.Collection
-    /* Virtual methods of Vda.Expression */
+    /* Virtual methods of Vda-1.Vda.Expression */
     vfunc_get_item(position: number): GObject.Object | null
     vfunc_get_item_type(): GObject.Type
     vfunc_get_n_items(): number
@@ -17081,11 +17081,11 @@ export class ExpressionOperatorIsNotUnknown {
     vfunc_get_read_only_view(): Gee.BidirList
     vfunc_get_read_only_view(): Gee.List
     vfunc_get_read_only_view(): Gee.Collection
-    /* Virtual methods of Gee.ArrayList */
+    /* Virtual methods of Gee-0.8.Gee.ArrayList */
     vfunc_get_read_only_view(): Gee.BidirList
     vfunc_get_read_only_view(): Gee.List
     vfunc_get_read_only_view(): Gee.Collection
-    /* Virtual methods of Gee.AbstractBidirList */
+    /* Virtual methods of Gee-0.8.Gee.AbstractBidirList */
     vfunc_bidir_list_iterator(): Gee.BidirListIterator
     vfunc_reserved0(): void
     vfunc_reserved1(): void
@@ -17100,7 +17100,7 @@ export class ExpressionOperatorIsNotUnknown {
     vfunc_get_read_only_view(): Gee.BidirList
     vfunc_get_read_only_view(): Gee.List
     vfunc_get_read_only_view(): Gee.Collection
-    /* Virtual methods of Gee.AbstractList */
+    /* Virtual methods of Gee-0.8.Gee.AbstractList */
     vfunc_list_iterator(): Gee.ListIterator
     vfunc_get(index: number): object | null
     vfunc_set(index: number, item?: object | null): void
@@ -17124,7 +17124,7 @@ export class ExpressionOperatorIsNotUnknown {
     vfunc_last(): object | null
     vfunc_insert_all(index: number, collection: Gee.Collection): void
     vfunc_sort(compare_func: GLib.CompareDataFunc | null): void
-    /* Virtual methods of Gee.AbstractCollection */
+    /* Virtual methods of Gee-0.8.Gee.AbstractCollection */
     vfunc_contains(item?: object | null): boolean
     vfunc_add(item?: object | null): boolean
     vfunc_remove(item?: object | null): boolean
@@ -17171,7 +17171,7 @@ export class ExpressionOperatorIsNotUnknown {
     vfunc_contains_all_iterator(iter: Gee.Iterator): boolean
     vfunc_remove_all_iterator(iter: Gee.Iterator): boolean
     vfunc_get_is_empty(): boolean
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -17179,7 +17179,7 @@ export class ExpressionOperatorIsNotUnknown {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: ExpressionOperatorIsNotUnknown, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: ExpressionOperatorIsNotUnknown, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -17204,28 +17204,28 @@ export class ExpressionOperatorIsNotUnknown {
 export interface ExpressionOperatorIsUnknown_ConstructProps extends ExpressionOperatorIs_ConstructProps {
 }
 export class ExpressionOperatorIsUnknown {
-    /* Properties of Gee.AbstractBidirList */
+    /* Properties of Gee-0.8.Gee.AbstractBidirList */
     readonly read_only_view: Gee.BidirList
-    /* Properties of Gee.AbstractCollection */
+    /* Properties of Gee-0.8.Gee.AbstractCollection */
     readonly size: number
     readonly read_only: boolean
-    /* Fields of Vda.ExpressionOperatorIsUnknown */
+    /* Fields of Vda-1.Vda.ExpressionOperatorIsUnknown */
     parent_instance: ExpressionOperatorIs
     priv: ExpressionOperatorIsUnknownPrivate
-    /* Fields of Vda.ExpressionOperatorFinalUnaryterm */
+    /* Fields of Vda-1.Vda.ExpressionOperatorFinalUnaryterm */
     _operator_name: string
-    /* Fields of Vda.ExpressionOperator */
+    /* Fields of Vda-1.Vda.ExpressionOperator */
     _operator_type: SqlExpressionOperatorType
-    /* Fields of Gee.ArrayList */
+    /* Fields of Gee-0.8.Gee.ArrayList */
     _items: object[]
     _items_length1: number
     _size: number
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Gee.ArrayList */
+    /* Methods of Gee-0.8.Gee.ArrayList */
     add_all(collection: Gee.Collection): boolean
     get_equal_func(): [ /* returnType */ Gee.EqualDataFunc, /* result_target */ object | null ]
-    /* Methods of Gee.AbstractBidirList */
+    /* Methods of Gee-0.8.Gee.AbstractBidirList */
     bidir_list_iterator(): Gee.BidirListIterator
     reserved0(): void
     reserved1(): void
@@ -17238,7 +17238,7 @@ export class ExpressionOperatorIsUnknown {
     reserved8(): void
     reserved9(): void
     get_read_only_view(): Gee.BidirList
-    /* Methods of Gee.AbstractList */
+    /* Methods of Gee-0.8.Gee.AbstractList */
     list_iterator(): Gee.ListIterator
     get(index: number): object | null
     set(index: number, item?: object | null): void
@@ -17247,7 +17247,7 @@ export class ExpressionOperatorIsUnknown {
     remove_at(index: number): object | null
     slice(start: number, stop: number): Gee.List | null
     get_read_only_view(): Gee.List
-    /* Methods of Gee.AbstractCollection */
+    /* Methods of Gee-0.8.Gee.AbstractCollection */
     contains(item?: object | null): boolean
     add(item?: object | null): boolean
     remove(item?: object | null): boolean
@@ -17257,7 +17257,7 @@ export class ExpressionOperatorIsUnknown {
     get_size(): number
     get_read_only(): boolean
     get_read_only_view(): Gee.Collection
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -17279,19 +17279,19 @@ export class ExpressionOperatorIsUnknown {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Vda.ExpressionOperatorIsUnknown */
+    /* Virtual methods of Vda-1.Vda.ExpressionOperatorIsUnknown */
     vfunc_get_read_only_view(): Gee.BidirList
     vfunc_get_read_only_view(): Gee.List
     vfunc_get_read_only_view(): Gee.Collection
-    /* Virtual methods of Vda.ExpressionOperatorIs */
+    /* Virtual methods of Vda-1.Vda.ExpressionOperatorIs */
     vfunc_get_read_only_view(): Gee.BidirList
     vfunc_get_read_only_view(): Gee.List
     vfunc_get_read_only_view(): Gee.Collection
-    /* Virtual methods of Vda.ExpressionOperatorFinalUnaryterm */
+    /* Virtual methods of Vda-1.Vda.ExpressionOperatorFinalUnaryterm */
     vfunc_get_read_only_view(): Gee.BidirList
     vfunc_get_read_only_view(): Gee.List
     vfunc_get_read_only_view(): Gee.Collection
-    /* Virtual methods of Vda.ExpressionOperator */
+    /* Virtual methods of Vda-1.Vda.ExpressionOperator */
     vfunc_create_field_expression(name: string): SqlExpressionField
     vfunc_create_value_expression(val: any | null, cnc: Connection): SqlExpressionValue
     vfunc_create_parameter_expression(name: string, gtype: GObject.Type): SqlExpressionValueParameter
@@ -17331,7 +17331,7 @@ export class ExpressionOperatorIsUnknown {
     vfunc_get_read_only_view(): Gee.BidirList
     vfunc_get_read_only_view(): Gee.List
     vfunc_get_read_only_view(): Gee.Collection
-    /* Virtual methods of Vda.Expression */
+    /* Virtual methods of Vda-1.Vda.Expression */
     vfunc_get_item(position: number): GObject.Object | null
     vfunc_get_item_type(): GObject.Type
     vfunc_get_n_items(): number
@@ -17342,11 +17342,11 @@ export class ExpressionOperatorIsUnknown {
     vfunc_get_read_only_view(): Gee.BidirList
     vfunc_get_read_only_view(): Gee.List
     vfunc_get_read_only_view(): Gee.Collection
-    /* Virtual methods of Gee.ArrayList */
+    /* Virtual methods of Gee-0.8.Gee.ArrayList */
     vfunc_get_read_only_view(): Gee.BidirList
     vfunc_get_read_only_view(): Gee.List
     vfunc_get_read_only_view(): Gee.Collection
-    /* Virtual methods of Gee.AbstractBidirList */
+    /* Virtual methods of Gee-0.8.Gee.AbstractBidirList */
     vfunc_bidir_list_iterator(): Gee.BidirListIterator
     vfunc_reserved0(): void
     vfunc_reserved1(): void
@@ -17361,7 +17361,7 @@ export class ExpressionOperatorIsUnknown {
     vfunc_get_read_only_view(): Gee.BidirList
     vfunc_get_read_only_view(): Gee.List
     vfunc_get_read_only_view(): Gee.Collection
-    /* Virtual methods of Gee.AbstractList */
+    /* Virtual methods of Gee-0.8.Gee.AbstractList */
     vfunc_list_iterator(): Gee.ListIterator
     vfunc_get(index: number): object | null
     vfunc_set(index: number, item?: object | null): void
@@ -17385,7 +17385,7 @@ export class ExpressionOperatorIsUnknown {
     vfunc_last(): object | null
     vfunc_insert_all(index: number, collection: Gee.Collection): void
     vfunc_sort(compare_func: GLib.CompareDataFunc | null): void
-    /* Virtual methods of Gee.AbstractCollection */
+    /* Virtual methods of Gee-0.8.Gee.AbstractCollection */
     vfunc_contains(item?: object | null): boolean
     vfunc_add(item?: object | null): boolean
     vfunc_remove(item?: object | null): boolean
@@ -17432,7 +17432,7 @@ export class ExpressionOperatorIsUnknown {
     vfunc_contains_all_iterator(iter: Gee.Iterator): boolean
     vfunc_remove_all_iterator(iter: Gee.Iterator): boolean
     vfunc_get_is_empty(): boolean
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -17440,7 +17440,7 @@ export class ExpressionOperatorIsUnknown {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: ExpressionOperatorIsUnknown, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: ExpressionOperatorIsUnknown, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -17465,28 +17465,28 @@ export class ExpressionOperatorIsUnknown {
 export interface ExpressionOperatorIsDistinct_ConstructProps extends ExpressionOperatorIs_ConstructProps {
 }
 export class ExpressionOperatorIsDistinct {
-    /* Properties of Gee.AbstractBidirList */
+    /* Properties of Gee-0.8.Gee.AbstractBidirList */
     readonly read_only_view: Gee.BidirList
-    /* Properties of Gee.AbstractCollection */
+    /* Properties of Gee-0.8.Gee.AbstractCollection */
     readonly size: number
     readonly read_only: boolean
-    /* Fields of Vda.ExpressionOperatorIsDistinct */
+    /* Fields of Vda-1.Vda.ExpressionOperatorIsDistinct */
     parent_instance: ExpressionOperatorIs
     priv: ExpressionOperatorIsDistinctPrivate
-    /* Fields of Vda.ExpressionOperatorFinalUnaryterm */
+    /* Fields of Vda-1.Vda.ExpressionOperatorFinalUnaryterm */
     _operator_name: string
-    /* Fields of Vda.ExpressionOperator */
+    /* Fields of Vda-1.Vda.ExpressionOperator */
     _operator_type: SqlExpressionOperatorType
-    /* Fields of Gee.ArrayList */
+    /* Fields of Gee-0.8.Gee.ArrayList */
     _items: object[]
     _items_length1: number
     _size: number
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Gee.ArrayList */
+    /* Methods of Gee-0.8.Gee.ArrayList */
     add_all(collection: Gee.Collection): boolean
     get_equal_func(): [ /* returnType */ Gee.EqualDataFunc, /* result_target */ object | null ]
-    /* Methods of Gee.AbstractBidirList */
+    /* Methods of Gee-0.8.Gee.AbstractBidirList */
     bidir_list_iterator(): Gee.BidirListIterator
     reserved0(): void
     reserved1(): void
@@ -17499,7 +17499,7 @@ export class ExpressionOperatorIsDistinct {
     reserved8(): void
     reserved9(): void
     get_read_only_view(): Gee.BidirList
-    /* Methods of Gee.AbstractList */
+    /* Methods of Gee-0.8.Gee.AbstractList */
     list_iterator(): Gee.ListIterator
     get(index: number): object | null
     set(index: number, item?: object | null): void
@@ -17508,7 +17508,7 @@ export class ExpressionOperatorIsDistinct {
     remove_at(index: number): object | null
     slice(start: number, stop: number): Gee.List | null
     get_read_only_view(): Gee.List
-    /* Methods of Gee.AbstractCollection */
+    /* Methods of Gee-0.8.Gee.AbstractCollection */
     contains(item?: object | null): boolean
     add(item?: object | null): boolean
     remove(item?: object | null): boolean
@@ -17518,7 +17518,7 @@ export class ExpressionOperatorIsDistinct {
     get_size(): number
     get_read_only(): boolean
     get_read_only_view(): Gee.Collection
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -17540,19 +17540,19 @@ export class ExpressionOperatorIsDistinct {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Vda.ExpressionOperatorIsDistinct */
+    /* Virtual methods of Vda-1.Vda.ExpressionOperatorIsDistinct */
     vfunc_get_read_only_view(): Gee.BidirList
     vfunc_get_read_only_view(): Gee.List
     vfunc_get_read_only_view(): Gee.Collection
-    /* Virtual methods of Vda.ExpressionOperatorIs */
+    /* Virtual methods of Vda-1.Vda.ExpressionOperatorIs */
     vfunc_get_read_only_view(): Gee.BidirList
     vfunc_get_read_only_view(): Gee.List
     vfunc_get_read_only_view(): Gee.Collection
-    /* Virtual methods of Vda.ExpressionOperatorFinalUnaryterm */
+    /* Virtual methods of Vda-1.Vda.ExpressionOperatorFinalUnaryterm */
     vfunc_get_read_only_view(): Gee.BidirList
     vfunc_get_read_only_view(): Gee.List
     vfunc_get_read_only_view(): Gee.Collection
-    /* Virtual methods of Vda.ExpressionOperator */
+    /* Virtual methods of Vda-1.Vda.ExpressionOperator */
     vfunc_create_field_expression(name: string): SqlExpressionField
     vfunc_create_value_expression(val: any | null, cnc: Connection): SqlExpressionValue
     vfunc_create_parameter_expression(name: string, gtype: GObject.Type): SqlExpressionValueParameter
@@ -17592,7 +17592,7 @@ export class ExpressionOperatorIsDistinct {
     vfunc_get_read_only_view(): Gee.BidirList
     vfunc_get_read_only_view(): Gee.List
     vfunc_get_read_only_view(): Gee.Collection
-    /* Virtual methods of Vda.Expression */
+    /* Virtual methods of Vda-1.Vda.Expression */
     vfunc_get_item(position: number): GObject.Object | null
     vfunc_get_item_type(): GObject.Type
     vfunc_get_n_items(): number
@@ -17603,11 +17603,11 @@ export class ExpressionOperatorIsDistinct {
     vfunc_get_read_only_view(): Gee.BidirList
     vfunc_get_read_only_view(): Gee.List
     vfunc_get_read_only_view(): Gee.Collection
-    /* Virtual methods of Gee.ArrayList */
+    /* Virtual methods of Gee-0.8.Gee.ArrayList */
     vfunc_get_read_only_view(): Gee.BidirList
     vfunc_get_read_only_view(): Gee.List
     vfunc_get_read_only_view(): Gee.Collection
-    /* Virtual methods of Gee.AbstractBidirList */
+    /* Virtual methods of Gee-0.8.Gee.AbstractBidirList */
     vfunc_bidir_list_iterator(): Gee.BidirListIterator
     vfunc_reserved0(): void
     vfunc_reserved1(): void
@@ -17622,7 +17622,7 @@ export class ExpressionOperatorIsDistinct {
     vfunc_get_read_only_view(): Gee.BidirList
     vfunc_get_read_only_view(): Gee.List
     vfunc_get_read_only_view(): Gee.Collection
-    /* Virtual methods of Gee.AbstractList */
+    /* Virtual methods of Gee-0.8.Gee.AbstractList */
     vfunc_list_iterator(): Gee.ListIterator
     vfunc_get(index: number): object | null
     vfunc_set(index: number, item?: object | null): void
@@ -17646,7 +17646,7 @@ export class ExpressionOperatorIsDistinct {
     vfunc_last(): object | null
     vfunc_insert_all(index: number, collection: Gee.Collection): void
     vfunc_sort(compare_func: GLib.CompareDataFunc | null): void
-    /* Virtual methods of Gee.AbstractCollection */
+    /* Virtual methods of Gee-0.8.Gee.AbstractCollection */
     vfunc_contains(item?: object | null): boolean
     vfunc_add(item?: object | null): boolean
     vfunc_remove(item?: object | null): boolean
@@ -17693,7 +17693,7 @@ export class ExpressionOperatorIsDistinct {
     vfunc_contains_all_iterator(iter: Gee.Iterator): boolean
     vfunc_remove_all_iterator(iter: Gee.Iterator): boolean
     vfunc_get_is_empty(): boolean
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -17701,7 +17701,7 @@ export class ExpressionOperatorIsDistinct {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: ExpressionOperatorIsDistinct, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: ExpressionOperatorIsDistinct, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -17726,28 +17726,28 @@ export class ExpressionOperatorIsDistinct {
 export interface ExpressionOperatorIsNotDistinct_ConstructProps extends ExpressionOperatorIsNot_ConstructProps {
 }
 export class ExpressionOperatorIsNotDistinct {
-    /* Properties of Gee.AbstractBidirList */
+    /* Properties of Gee-0.8.Gee.AbstractBidirList */
     readonly read_only_view: Gee.BidirList
-    /* Properties of Gee.AbstractCollection */
+    /* Properties of Gee-0.8.Gee.AbstractCollection */
     readonly size: number
     readonly read_only: boolean
-    /* Fields of Vda.ExpressionOperatorIsNotDistinct */
+    /* Fields of Vda-1.Vda.ExpressionOperatorIsNotDistinct */
     parent_instance: ExpressionOperatorIsNot
     priv: ExpressionOperatorIsNotDistinctPrivate
-    /* Fields of Vda.ExpressionOperatorFinalUnaryterm */
+    /* Fields of Vda-1.Vda.ExpressionOperatorFinalUnaryterm */
     _operator_name: string
-    /* Fields of Vda.ExpressionOperator */
+    /* Fields of Vda-1.Vda.ExpressionOperator */
     _operator_type: SqlExpressionOperatorType
-    /* Fields of Gee.ArrayList */
+    /* Fields of Gee-0.8.Gee.ArrayList */
     _items: object[]
     _items_length1: number
     _size: number
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Gee.ArrayList */
+    /* Methods of Gee-0.8.Gee.ArrayList */
     add_all(collection: Gee.Collection): boolean
     get_equal_func(): [ /* returnType */ Gee.EqualDataFunc, /* result_target */ object | null ]
-    /* Methods of Gee.AbstractBidirList */
+    /* Methods of Gee-0.8.Gee.AbstractBidirList */
     bidir_list_iterator(): Gee.BidirListIterator
     reserved0(): void
     reserved1(): void
@@ -17760,7 +17760,7 @@ export class ExpressionOperatorIsNotDistinct {
     reserved8(): void
     reserved9(): void
     get_read_only_view(): Gee.BidirList
-    /* Methods of Gee.AbstractList */
+    /* Methods of Gee-0.8.Gee.AbstractList */
     list_iterator(): Gee.ListIterator
     get(index: number): object | null
     set(index: number, item?: object | null): void
@@ -17769,7 +17769,7 @@ export class ExpressionOperatorIsNotDistinct {
     remove_at(index: number): object | null
     slice(start: number, stop: number): Gee.List | null
     get_read_only_view(): Gee.List
-    /* Methods of Gee.AbstractCollection */
+    /* Methods of Gee-0.8.Gee.AbstractCollection */
     contains(item?: object | null): boolean
     add(item?: object | null): boolean
     remove(item?: object | null): boolean
@@ -17779,7 +17779,7 @@ export class ExpressionOperatorIsNotDistinct {
     get_size(): number
     get_read_only(): boolean
     get_read_only_view(): Gee.Collection
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -17801,23 +17801,23 @@ export class ExpressionOperatorIsNotDistinct {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Vda.ExpressionOperatorIsNotDistinct */
+    /* Virtual methods of Vda-1.Vda.ExpressionOperatorIsNotDistinct */
     vfunc_get_read_only_view(): Gee.BidirList
     vfunc_get_read_only_view(): Gee.List
     vfunc_get_read_only_view(): Gee.Collection
-    /* Virtual methods of Vda.ExpressionOperatorIsNot */
+    /* Virtual methods of Vda-1.Vda.ExpressionOperatorIsNot */
     vfunc_get_read_only_view(): Gee.BidirList
     vfunc_get_read_only_view(): Gee.List
     vfunc_get_read_only_view(): Gee.Collection
-    /* Virtual methods of Vda.ExpressionOperatorIs */
+    /* Virtual methods of Vda-1.Vda.ExpressionOperatorIs */
     vfunc_get_read_only_view(): Gee.BidirList
     vfunc_get_read_only_view(): Gee.List
     vfunc_get_read_only_view(): Gee.Collection
-    /* Virtual methods of Vda.ExpressionOperatorFinalUnaryterm */
+    /* Virtual methods of Vda-1.Vda.ExpressionOperatorFinalUnaryterm */
     vfunc_get_read_only_view(): Gee.BidirList
     vfunc_get_read_only_view(): Gee.List
     vfunc_get_read_only_view(): Gee.Collection
-    /* Virtual methods of Vda.ExpressionOperator */
+    /* Virtual methods of Vda-1.Vda.ExpressionOperator */
     vfunc_create_field_expression(name: string): SqlExpressionField
     vfunc_create_value_expression(val: any | null, cnc: Connection): SqlExpressionValue
     vfunc_create_parameter_expression(name: string, gtype: GObject.Type): SqlExpressionValueParameter
@@ -17857,7 +17857,7 @@ export class ExpressionOperatorIsNotDistinct {
     vfunc_get_read_only_view(): Gee.BidirList
     vfunc_get_read_only_view(): Gee.List
     vfunc_get_read_only_view(): Gee.Collection
-    /* Virtual methods of Vda.Expression */
+    /* Virtual methods of Vda-1.Vda.Expression */
     vfunc_get_item(position: number): GObject.Object | null
     vfunc_get_item_type(): GObject.Type
     vfunc_get_n_items(): number
@@ -17868,11 +17868,11 @@ export class ExpressionOperatorIsNotDistinct {
     vfunc_get_read_only_view(): Gee.BidirList
     vfunc_get_read_only_view(): Gee.List
     vfunc_get_read_only_view(): Gee.Collection
-    /* Virtual methods of Gee.ArrayList */
+    /* Virtual methods of Gee-0.8.Gee.ArrayList */
     vfunc_get_read_only_view(): Gee.BidirList
     vfunc_get_read_only_view(): Gee.List
     vfunc_get_read_only_view(): Gee.Collection
-    /* Virtual methods of Gee.AbstractBidirList */
+    /* Virtual methods of Gee-0.8.Gee.AbstractBidirList */
     vfunc_bidir_list_iterator(): Gee.BidirListIterator
     vfunc_reserved0(): void
     vfunc_reserved1(): void
@@ -17887,7 +17887,7 @@ export class ExpressionOperatorIsNotDistinct {
     vfunc_get_read_only_view(): Gee.BidirList
     vfunc_get_read_only_view(): Gee.List
     vfunc_get_read_only_view(): Gee.Collection
-    /* Virtual methods of Gee.AbstractList */
+    /* Virtual methods of Gee-0.8.Gee.AbstractList */
     vfunc_list_iterator(): Gee.ListIterator
     vfunc_get(index: number): object | null
     vfunc_set(index: number, item?: object | null): void
@@ -17911,7 +17911,7 @@ export class ExpressionOperatorIsNotDistinct {
     vfunc_last(): object | null
     vfunc_insert_all(index: number, collection: Gee.Collection): void
     vfunc_sort(compare_func: GLib.CompareDataFunc | null): void
-    /* Virtual methods of Gee.AbstractCollection */
+    /* Virtual methods of Gee-0.8.Gee.AbstractCollection */
     vfunc_contains(item?: object | null): boolean
     vfunc_add(item?: object | null): boolean
     vfunc_remove(item?: object | null): boolean
@@ -17958,7 +17958,7 @@ export class ExpressionOperatorIsNotDistinct {
     vfunc_contains_all_iterator(iter: Gee.Iterator): boolean
     vfunc_remove_all_iterator(iter: Gee.Iterator): boolean
     vfunc_get_is_empty(): boolean
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -17966,7 +17966,7 @@ export class ExpressionOperatorIsNotDistinct {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: ExpressionOperatorIsNotDistinct, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: ExpressionOperatorIsNotDistinct, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -17991,28 +17991,28 @@ export class ExpressionOperatorIsNotDistinct {
 export interface ExpressionOperatorIsDistinctFrom_ConstructProps extends ExpressionOperatorIsDistinct_ConstructProps {
 }
 export class ExpressionOperatorIsDistinctFrom {
-    /* Properties of Gee.AbstractBidirList */
+    /* Properties of Gee-0.8.Gee.AbstractBidirList */
     readonly read_only_view: Gee.BidirList
-    /* Properties of Gee.AbstractCollection */
+    /* Properties of Gee-0.8.Gee.AbstractCollection */
     readonly size: number
     readonly read_only: boolean
-    /* Fields of Vda.ExpressionOperatorIsDistinctFrom */
+    /* Fields of Vda-1.Vda.ExpressionOperatorIsDistinctFrom */
     parent_instance: ExpressionOperatorIsDistinct
     priv: ExpressionOperatorIsDistinctFromPrivate
-    /* Fields of Vda.ExpressionOperatorFinalUnaryterm */
+    /* Fields of Vda-1.Vda.ExpressionOperatorFinalUnaryterm */
     _operator_name: string
-    /* Fields of Vda.ExpressionOperator */
+    /* Fields of Vda-1.Vda.ExpressionOperator */
     _operator_type: SqlExpressionOperatorType
-    /* Fields of Gee.ArrayList */
+    /* Fields of Gee-0.8.Gee.ArrayList */
     _items: object[]
     _items_length1: number
     _size: number
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Gee.ArrayList */
+    /* Methods of Gee-0.8.Gee.ArrayList */
     add_all(collection: Gee.Collection): boolean
     get_equal_func(): [ /* returnType */ Gee.EqualDataFunc, /* result_target */ object | null ]
-    /* Methods of Gee.AbstractBidirList */
+    /* Methods of Gee-0.8.Gee.AbstractBidirList */
     bidir_list_iterator(): Gee.BidirListIterator
     reserved0(): void
     reserved1(): void
@@ -18025,7 +18025,7 @@ export class ExpressionOperatorIsDistinctFrom {
     reserved8(): void
     reserved9(): void
     get_read_only_view(): Gee.BidirList
-    /* Methods of Gee.AbstractList */
+    /* Methods of Gee-0.8.Gee.AbstractList */
     list_iterator(): Gee.ListIterator
     get(index: number): object | null
     set(index: number, item?: object | null): void
@@ -18034,7 +18034,7 @@ export class ExpressionOperatorIsDistinctFrom {
     remove_at(index: number): object | null
     slice(start: number, stop: number): Gee.List | null
     get_read_only_view(): Gee.List
-    /* Methods of Gee.AbstractCollection */
+    /* Methods of Gee-0.8.Gee.AbstractCollection */
     contains(item?: object | null): boolean
     add(item?: object | null): boolean
     remove(item?: object | null): boolean
@@ -18044,7 +18044,7 @@ export class ExpressionOperatorIsDistinctFrom {
     get_size(): number
     get_read_only(): boolean
     get_read_only_view(): Gee.Collection
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -18066,23 +18066,23 @@ export class ExpressionOperatorIsDistinctFrom {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Vda.ExpressionOperatorIsDistinctFrom */
+    /* Virtual methods of Vda-1.Vda.ExpressionOperatorIsDistinctFrom */
     vfunc_get_read_only_view(): Gee.BidirList
     vfunc_get_read_only_view(): Gee.List
     vfunc_get_read_only_view(): Gee.Collection
-    /* Virtual methods of Vda.ExpressionOperatorIsDistinct */
+    /* Virtual methods of Vda-1.Vda.ExpressionOperatorIsDistinct */
     vfunc_get_read_only_view(): Gee.BidirList
     vfunc_get_read_only_view(): Gee.List
     vfunc_get_read_only_view(): Gee.Collection
-    /* Virtual methods of Vda.ExpressionOperatorIs */
+    /* Virtual methods of Vda-1.Vda.ExpressionOperatorIs */
     vfunc_get_read_only_view(): Gee.BidirList
     vfunc_get_read_only_view(): Gee.List
     vfunc_get_read_only_view(): Gee.Collection
-    /* Virtual methods of Vda.ExpressionOperatorFinalUnaryterm */
+    /* Virtual methods of Vda-1.Vda.ExpressionOperatorFinalUnaryterm */
     vfunc_get_read_only_view(): Gee.BidirList
     vfunc_get_read_only_view(): Gee.List
     vfunc_get_read_only_view(): Gee.Collection
-    /* Virtual methods of Vda.ExpressionOperator */
+    /* Virtual methods of Vda-1.Vda.ExpressionOperator */
     vfunc_create_field_expression(name: string): SqlExpressionField
     vfunc_create_value_expression(val: any | null, cnc: Connection): SqlExpressionValue
     vfunc_create_parameter_expression(name: string, gtype: GObject.Type): SqlExpressionValueParameter
@@ -18122,7 +18122,7 @@ export class ExpressionOperatorIsDistinctFrom {
     vfunc_get_read_only_view(): Gee.BidirList
     vfunc_get_read_only_view(): Gee.List
     vfunc_get_read_only_view(): Gee.Collection
-    /* Virtual methods of Vda.Expression */
+    /* Virtual methods of Vda-1.Vda.Expression */
     vfunc_get_item(position: number): GObject.Object | null
     vfunc_get_item_type(): GObject.Type
     vfunc_get_n_items(): number
@@ -18133,11 +18133,11 @@ export class ExpressionOperatorIsDistinctFrom {
     vfunc_get_read_only_view(): Gee.BidirList
     vfunc_get_read_only_view(): Gee.List
     vfunc_get_read_only_view(): Gee.Collection
-    /* Virtual methods of Gee.ArrayList */
+    /* Virtual methods of Gee-0.8.Gee.ArrayList */
     vfunc_get_read_only_view(): Gee.BidirList
     vfunc_get_read_only_view(): Gee.List
     vfunc_get_read_only_view(): Gee.Collection
-    /* Virtual methods of Gee.AbstractBidirList */
+    /* Virtual methods of Gee-0.8.Gee.AbstractBidirList */
     vfunc_bidir_list_iterator(): Gee.BidirListIterator
     vfunc_reserved0(): void
     vfunc_reserved1(): void
@@ -18152,7 +18152,7 @@ export class ExpressionOperatorIsDistinctFrom {
     vfunc_get_read_only_view(): Gee.BidirList
     vfunc_get_read_only_view(): Gee.List
     vfunc_get_read_only_view(): Gee.Collection
-    /* Virtual methods of Gee.AbstractList */
+    /* Virtual methods of Gee-0.8.Gee.AbstractList */
     vfunc_list_iterator(): Gee.ListIterator
     vfunc_get(index: number): object | null
     vfunc_set(index: number, item?: object | null): void
@@ -18176,7 +18176,7 @@ export class ExpressionOperatorIsDistinctFrom {
     vfunc_last(): object | null
     vfunc_insert_all(index: number, collection: Gee.Collection): void
     vfunc_sort(compare_func: GLib.CompareDataFunc | null): void
-    /* Virtual methods of Gee.AbstractCollection */
+    /* Virtual methods of Gee-0.8.Gee.AbstractCollection */
     vfunc_contains(item?: object | null): boolean
     vfunc_add(item?: object | null): boolean
     vfunc_remove(item?: object | null): boolean
@@ -18223,7 +18223,7 @@ export class ExpressionOperatorIsDistinctFrom {
     vfunc_contains_all_iterator(iter: Gee.Iterator): boolean
     vfunc_remove_all_iterator(iter: Gee.Iterator): boolean
     vfunc_get_is_empty(): boolean
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -18231,7 +18231,7 @@ export class ExpressionOperatorIsDistinctFrom {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: ExpressionOperatorIsDistinctFrom, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: ExpressionOperatorIsDistinctFrom, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -18256,28 +18256,28 @@ export class ExpressionOperatorIsDistinctFrom {
 export interface ExpressionOperatorIsNotDistinctFrom_ConstructProps extends ExpressionOperatorIsNotDistinct_ConstructProps {
 }
 export class ExpressionOperatorIsNotDistinctFrom {
-    /* Properties of Gee.AbstractBidirList */
+    /* Properties of Gee-0.8.Gee.AbstractBidirList */
     readonly read_only_view: Gee.BidirList
-    /* Properties of Gee.AbstractCollection */
+    /* Properties of Gee-0.8.Gee.AbstractCollection */
     readonly size: number
     readonly read_only: boolean
-    /* Fields of Vda.ExpressionOperatorIsNotDistinctFrom */
+    /* Fields of Vda-1.Vda.ExpressionOperatorIsNotDistinctFrom */
     parent_instance: ExpressionOperatorIsNotDistinct
     priv: ExpressionOperatorIsNotDistinctFromPrivate
-    /* Fields of Vda.ExpressionOperatorFinalUnaryterm */
+    /* Fields of Vda-1.Vda.ExpressionOperatorFinalUnaryterm */
     _operator_name: string
-    /* Fields of Vda.ExpressionOperator */
+    /* Fields of Vda-1.Vda.ExpressionOperator */
     _operator_type: SqlExpressionOperatorType
-    /* Fields of Gee.ArrayList */
+    /* Fields of Gee-0.8.Gee.ArrayList */
     _items: object[]
     _items_length1: number
     _size: number
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Gee.ArrayList */
+    /* Methods of Gee-0.8.Gee.ArrayList */
     add_all(collection: Gee.Collection): boolean
     get_equal_func(): [ /* returnType */ Gee.EqualDataFunc, /* result_target */ object | null ]
-    /* Methods of Gee.AbstractBidirList */
+    /* Methods of Gee-0.8.Gee.AbstractBidirList */
     bidir_list_iterator(): Gee.BidirListIterator
     reserved0(): void
     reserved1(): void
@@ -18290,7 +18290,7 @@ export class ExpressionOperatorIsNotDistinctFrom {
     reserved8(): void
     reserved9(): void
     get_read_only_view(): Gee.BidirList
-    /* Methods of Gee.AbstractList */
+    /* Methods of Gee-0.8.Gee.AbstractList */
     list_iterator(): Gee.ListIterator
     get(index: number): object | null
     set(index: number, item?: object | null): void
@@ -18299,7 +18299,7 @@ export class ExpressionOperatorIsNotDistinctFrom {
     remove_at(index: number): object | null
     slice(start: number, stop: number): Gee.List | null
     get_read_only_view(): Gee.List
-    /* Methods of Gee.AbstractCollection */
+    /* Methods of Gee-0.8.Gee.AbstractCollection */
     contains(item?: object | null): boolean
     add(item?: object | null): boolean
     remove(item?: object | null): boolean
@@ -18309,7 +18309,7 @@ export class ExpressionOperatorIsNotDistinctFrom {
     get_size(): number
     get_read_only(): boolean
     get_read_only_view(): Gee.Collection
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -18331,27 +18331,27 @@ export class ExpressionOperatorIsNotDistinctFrom {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Vda.ExpressionOperatorIsNotDistinctFrom */
+    /* Virtual methods of Vda-1.Vda.ExpressionOperatorIsNotDistinctFrom */
     vfunc_get_read_only_view(): Gee.BidirList
     vfunc_get_read_only_view(): Gee.List
     vfunc_get_read_only_view(): Gee.Collection
-    /* Virtual methods of Vda.ExpressionOperatorIsNotDistinct */
+    /* Virtual methods of Vda-1.Vda.ExpressionOperatorIsNotDistinct */
     vfunc_get_read_only_view(): Gee.BidirList
     vfunc_get_read_only_view(): Gee.List
     vfunc_get_read_only_view(): Gee.Collection
-    /* Virtual methods of Vda.ExpressionOperatorIsNot */
+    /* Virtual methods of Vda-1.Vda.ExpressionOperatorIsNot */
     vfunc_get_read_only_view(): Gee.BidirList
     vfunc_get_read_only_view(): Gee.List
     vfunc_get_read_only_view(): Gee.Collection
-    /* Virtual methods of Vda.ExpressionOperatorIs */
+    /* Virtual methods of Vda-1.Vda.ExpressionOperatorIs */
     vfunc_get_read_only_view(): Gee.BidirList
     vfunc_get_read_only_view(): Gee.List
     vfunc_get_read_only_view(): Gee.Collection
-    /* Virtual methods of Vda.ExpressionOperatorFinalUnaryterm */
+    /* Virtual methods of Vda-1.Vda.ExpressionOperatorFinalUnaryterm */
     vfunc_get_read_only_view(): Gee.BidirList
     vfunc_get_read_only_view(): Gee.List
     vfunc_get_read_only_view(): Gee.Collection
-    /* Virtual methods of Vda.ExpressionOperator */
+    /* Virtual methods of Vda-1.Vda.ExpressionOperator */
     vfunc_create_field_expression(name: string): SqlExpressionField
     vfunc_create_value_expression(val: any | null, cnc: Connection): SqlExpressionValue
     vfunc_create_parameter_expression(name: string, gtype: GObject.Type): SqlExpressionValueParameter
@@ -18391,7 +18391,7 @@ export class ExpressionOperatorIsNotDistinctFrom {
     vfunc_get_read_only_view(): Gee.BidirList
     vfunc_get_read_only_view(): Gee.List
     vfunc_get_read_only_view(): Gee.Collection
-    /* Virtual methods of Vda.Expression */
+    /* Virtual methods of Vda-1.Vda.Expression */
     vfunc_get_item(position: number): GObject.Object | null
     vfunc_get_item_type(): GObject.Type
     vfunc_get_n_items(): number
@@ -18402,11 +18402,11 @@ export class ExpressionOperatorIsNotDistinctFrom {
     vfunc_get_read_only_view(): Gee.BidirList
     vfunc_get_read_only_view(): Gee.List
     vfunc_get_read_only_view(): Gee.Collection
-    /* Virtual methods of Gee.ArrayList */
+    /* Virtual methods of Gee-0.8.Gee.ArrayList */
     vfunc_get_read_only_view(): Gee.BidirList
     vfunc_get_read_only_view(): Gee.List
     vfunc_get_read_only_view(): Gee.Collection
-    /* Virtual methods of Gee.AbstractBidirList */
+    /* Virtual methods of Gee-0.8.Gee.AbstractBidirList */
     vfunc_bidir_list_iterator(): Gee.BidirListIterator
     vfunc_reserved0(): void
     vfunc_reserved1(): void
@@ -18421,7 +18421,7 @@ export class ExpressionOperatorIsNotDistinctFrom {
     vfunc_get_read_only_view(): Gee.BidirList
     vfunc_get_read_only_view(): Gee.List
     vfunc_get_read_only_view(): Gee.Collection
-    /* Virtual methods of Gee.AbstractList */
+    /* Virtual methods of Gee-0.8.Gee.AbstractList */
     vfunc_list_iterator(): Gee.ListIterator
     vfunc_get(index: number): object | null
     vfunc_set(index: number, item?: object | null): void
@@ -18445,7 +18445,7 @@ export class ExpressionOperatorIsNotDistinctFrom {
     vfunc_last(): object | null
     vfunc_insert_all(index: number, collection: Gee.Collection): void
     vfunc_sort(compare_func: GLib.CompareDataFunc | null): void
-    /* Virtual methods of Gee.AbstractCollection */
+    /* Virtual methods of Gee-0.8.Gee.AbstractCollection */
     vfunc_contains(item?: object | null): boolean
     vfunc_add(item?: object | null): boolean
     vfunc_remove(item?: object | null): boolean
@@ -18492,7 +18492,7 @@ export class ExpressionOperatorIsNotDistinctFrom {
     vfunc_contains_all_iterator(iter: Gee.Iterator): boolean
     vfunc_remove_all_iterator(iter: Gee.Iterator): boolean
     vfunc_get_is_empty(): boolean
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -18500,7 +18500,7 @@ export class ExpressionOperatorIsNotDistinctFrom {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: ExpressionOperatorIsNotDistinctFrom, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: ExpressionOperatorIsNotDistinctFrom, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -18525,28 +18525,28 @@ export class ExpressionOperatorIsNotDistinctFrom {
 export interface ExpressionOperatorThreeterm_ConstructProps extends ExpressionOperator_ConstructProps {
 }
 export class ExpressionOperatorThreeterm {
-    /* Properties of Gee.AbstractBidirList */
+    /* Properties of Gee-0.8.Gee.AbstractBidirList */
     readonly read_only_view: Gee.BidirList
-    /* Properties of Gee.AbstractCollection */
+    /* Properties of Gee-0.8.Gee.AbstractCollection */
     readonly size: number
     readonly read_only: boolean
-    /* Fields of Vda.ExpressionOperatorThreeterm */
+    /* Fields of Vda-1.Vda.ExpressionOperatorThreeterm */
     parent_instance: ExpressionOperator
     priv: ExpressionOperatorThreetermPrivate
     _operator_name: string
     _operator2_name: string
-    /* Fields of Vda.ExpressionOperator */
+    /* Fields of Vda-1.Vda.ExpressionOperator */
     _operator_type: SqlExpressionOperatorType
-    /* Fields of Gee.ArrayList */
+    /* Fields of Gee-0.8.Gee.ArrayList */
     _items: object[]
     _items_length1: number
     _size: number
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Gee.ArrayList */
+    /* Methods of Gee-0.8.Gee.ArrayList */
     add_all(collection: Gee.Collection): boolean
     get_equal_func(): [ /* returnType */ Gee.EqualDataFunc, /* result_target */ object | null ]
-    /* Methods of Gee.AbstractBidirList */
+    /* Methods of Gee-0.8.Gee.AbstractBidirList */
     bidir_list_iterator(): Gee.BidirListIterator
     reserved0(): void
     reserved1(): void
@@ -18559,7 +18559,7 @@ export class ExpressionOperatorThreeterm {
     reserved8(): void
     reserved9(): void
     get_read_only_view(): Gee.BidirList
-    /* Methods of Gee.AbstractList */
+    /* Methods of Gee-0.8.Gee.AbstractList */
     list_iterator(): Gee.ListIterator
     get(index: number): object | null
     set(index: number, item?: object | null): void
@@ -18568,7 +18568,7 @@ export class ExpressionOperatorThreeterm {
     remove_at(index: number): object | null
     slice(start: number, stop: number): Gee.List | null
     get_read_only_view(): Gee.List
-    /* Methods of Gee.AbstractCollection */
+    /* Methods of Gee-0.8.Gee.AbstractCollection */
     contains(item?: object | null): boolean
     add(item?: object | null): boolean
     remove(item?: object | null): boolean
@@ -18578,7 +18578,7 @@ export class ExpressionOperatorThreeterm {
     get_size(): number
     get_read_only(): boolean
     get_read_only_view(): Gee.Collection
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -18600,11 +18600,11 @@ export class ExpressionOperatorThreeterm {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Vda.ExpressionOperatorThreeterm */
+    /* Virtual methods of Vda-1.Vda.ExpressionOperatorThreeterm */
     vfunc_get_read_only_view(): Gee.BidirList
     vfunc_get_read_only_view(): Gee.List
     vfunc_get_read_only_view(): Gee.Collection
-    /* Virtual methods of Vda.ExpressionOperator */
+    /* Virtual methods of Vda-1.Vda.ExpressionOperator */
     vfunc_create_field_expression(name: string): SqlExpressionField
     vfunc_create_value_expression(val: any | null, cnc: Connection): SqlExpressionValue
     vfunc_create_parameter_expression(name: string, gtype: GObject.Type): SqlExpressionValueParameter
@@ -18644,7 +18644,7 @@ export class ExpressionOperatorThreeterm {
     vfunc_get_read_only_view(): Gee.BidirList
     vfunc_get_read_only_view(): Gee.List
     vfunc_get_read_only_view(): Gee.Collection
-    /* Virtual methods of Vda.Expression */
+    /* Virtual methods of Vda-1.Vda.Expression */
     vfunc_get_item(position: number): GObject.Object | null
     vfunc_get_item_type(): GObject.Type
     vfunc_get_n_items(): number
@@ -18655,11 +18655,11 @@ export class ExpressionOperatorThreeterm {
     vfunc_get_read_only_view(): Gee.BidirList
     vfunc_get_read_only_view(): Gee.List
     vfunc_get_read_only_view(): Gee.Collection
-    /* Virtual methods of Gee.ArrayList */
+    /* Virtual methods of Gee-0.8.Gee.ArrayList */
     vfunc_get_read_only_view(): Gee.BidirList
     vfunc_get_read_only_view(): Gee.List
     vfunc_get_read_only_view(): Gee.Collection
-    /* Virtual methods of Gee.AbstractBidirList */
+    /* Virtual methods of Gee-0.8.Gee.AbstractBidirList */
     vfunc_bidir_list_iterator(): Gee.BidirListIterator
     vfunc_reserved0(): void
     vfunc_reserved1(): void
@@ -18674,7 +18674,7 @@ export class ExpressionOperatorThreeterm {
     vfunc_get_read_only_view(): Gee.BidirList
     vfunc_get_read_only_view(): Gee.List
     vfunc_get_read_only_view(): Gee.Collection
-    /* Virtual methods of Gee.AbstractList */
+    /* Virtual methods of Gee-0.8.Gee.AbstractList */
     vfunc_list_iterator(): Gee.ListIterator
     vfunc_get(index: number): object | null
     vfunc_set(index: number, item?: object | null): void
@@ -18698,7 +18698,7 @@ export class ExpressionOperatorThreeterm {
     vfunc_last(): object | null
     vfunc_insert_all(index: number, collection: Gee.Collection): void
     vfunc_sort(compare_func: GLib.CompareDataFunc | null): void
-    /* Virtual methods of Gee.AbstractCollection */
+    /* Virtual methods of Gee-0.8.Gee.AbstractCollection */
     vfunc_contains(item?: object | null): boolean
     vfunc_add(item?: object | null): boolean
     vfunc_remove(item?: object | null): boolean
@@ -18745,7 +18745,7 @@ export class ExpressionOperatorThreeterm {
     vfunc_contains_all_iterator(iter: Gee.Iterator): boolean
     vfunc_remove_all_iterator(iter: Gee.Iterator): boolean
     vfunc_get_is_empty(): boolean
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -18753,7 +18753,7 @@ export class ExpressionOperatorThreeterm {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: ExpressionOperatorThreeterm, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: ExpressionOperatorThreeterm, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -18778,29 +18778,29 @@ export class ExpressionOperatorThreeterm {
 export interface ExpressionOperatorBetween_ConstructProps extends ExpressionOperatorThreeterm_ConstructProps {
 }
 export class ExpressionOperatorBetween {
-    /* Properties of Gee.AbstractBidirList */
+    /* Properties of Gee-0.8.Gee.AbstractBidirList */
     readonly read_only_view: Gee.BidirList
-    /* Properties of Gee.AbstractCollection */
+    /* Properties of Gee-0.8.Gee.AbstractCollection */
     readonly size: number
     readonly read_only: boolean
-    /* Fields of Vda.ExpressionOperatorBetween */
+    /* Fields of Vda-1.Vda.ExpressionOperatorBetween */
     parent_instance: ExpressionOperatorThreeterm
     priv: ExpressionOperatorBetweenPrivate
-    /* Fields of Vda.ExpressionOperatorThreeterm */
+    /* Fields of Vda-1.Vda.ExpressionOperatorThreeterm */
     _operator_name: string
     _operator2_name: string
-    /* Fields of Vda.ExpressionOperator */
+    /* Fields of Vda-1.Vda.ExpressionOperator */
     _operator_type: SqlExpressionOperatorType
-    /* Fields of Gee.ArrayList */
+    /* Fields of Gee-0.8.Gee.ArrayList */
     _items: object[]
     _items_length1: number
     _size: number
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Gee.ArrayList */
+    /* Methods of Gee-0.8.Gee.ArrayList */
     add_all(collection: Gee.Collection): boolean
     get_equal_func(): [ /* returnType */ Gee.EqualDataFunc, /* result_target */ object | null ]
-    /* Methods of Gee.AbstractBidirList */
+    /* Methods of Gee-0.8.Gee.AbstractBidirList */
     bidir_list_iterator(): Gee.BidirListIterator
     reserved0(): void
     reserved1(): void
@@ -18813,7 +18813,7 @@ export class ExpressionOperatorBetween {
     reserved8(): void
     reserved9(): void
     get_read_only_view(): Gee.BidirList
-    /* Methods of Gee.AbstractList */
+    /* Methods of Gee-0.8.Gee.AbstractList */
     list_iterator(): Gee.ListIterator
     get(index: number): object | null
     set(index: number, item?: object | null): void
@@ -18822,7 +18822,7 @@ export class ExpressionOperatorBetween {
     remove_at(index: number): object | null
     slice(start: number, stop: number): Gee.List | null
     get_read_only_view(): Gee.List
-    /* Methods of Gee.AbstractCollection */
+    /* Methods of Gee-0.8.Gee.AbstractCollection */
     contains(item?: object | null): boolean
     add(item?: object | null): boolean
     remove(item?: object | null): boolean
@@ -18832,7 +18832,7 @@ export class ExpressionOperatorBetween {
     get_size(): number
     get_read_only(): boolean
     get_read_only_view(): Gee.Collection
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -18854,15 +18854,15 @@ export class ExpressionOperatorBetween {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Vda.ExpressionOperatorBetween */
+    /* Virtual methods of Vda-1.Vda.ExpressionOperatorBetween */
     vfunc_get_read_only_view(): Gee.BidirList
     vfunc_get_read_only_view(): Gee.List
     vfunc_get_read_only_view(): Gee.Collection
-    /* Virtual methods of Vda.ExpressionOperatorThreeterm */
+    /* Virtual methods of Vda-1.Vda.ExpressionOperatorThreeterm */
     vfunc_get_read_only_view(): Gee.BidirList
     vfunc_get_read_only_view(): Gee.List
     vfunc_get_read_only_view(): Gee.Collection
-    /* Virtual methods of Vda.ExpressionOperator */
+    /* Virtual methods of Vda-1.Vda.ExpressionOperator */
     vfunc_create_field_expression(name: string): SqlExpressionField
     vfunc_create_value_expression(val: any | null, cnc: Connection): SqlExpressionValue
     vfunc_create_parameter_expression(name: string, gtype: GObject.Type): SqlExpressionValueParameter
@@ -18902,7 +18902,7 @@ export class ExpressionOperatorBetween {
     vfunc_get_read_only_view(): Gee.BidirList
     vfunc_get_read_only_view(): Gee.List
     vfunc_get_read_only_view(): Gee.Collection
-    /* Virtual methods of Vda.Expression */
+    /* Virtual methods of Vda-1.Vda.Expression */
     vfunc_get_item(position: number): GObject.Object | null
     vfunc_get_item_type(): GObject.Type
     vfunc_get_n_items(): number
@@ -18913,11 +18913,11 @@ export class ExpressionOperatorBetween {
     vfunc_get_read_only_view(): Gee.BidirList
     vfunc_get_read_only_view(): Gee.List
     vfunc_get_read_only_view(): Gee.Collection
-    /* Virtual methods of Gee.ArrayList */
+    /* Virtual methods of Gee-0.8.Gee.ArrayList */
     vfunc_get_read_only_view(): Gee.BidirList
     vfunc_get_read_only_view(): Gee.List
     vfunc_get_read_only_view(): Gee.Collection
-    /* Virtual methods of Gee.AbstractBidirList */
+    /* Virtual methods of Gee-0.8.Gee.AbstractBidirList */
     vfunc_bidir_list_iterator(): Gee.BidirListIterator
     vfunc_reserved0(): void
     vfunc_reserved1(): void
@@ -18932,7 +18932,7 @@ export class ExpressionOperatorBetween {
     vfunc_get_read_only_view(): Gee.BidirList
     vfunc_get_read_only_view(): Gee.List
     vfunc_get_read_only_view(): Gee.Collection
-    /* Virtual methods of Gee.AbstractList */
+    /* Virtual methods of Gee-0.8.Gee.AbstractList */
     vfunc_list_iterator(): Gee.ListIterator
     vfunc_get(index: number): object | null
     vfunc_set(index: number, item?: object | null): void
@@ -18956,7 +18956,7 @@ export class ExpressionOperatorBetween {
     vfunc_last(): object | null
     vfunc_insert_all(index: number, collection: Gee.Collection): void
     vfunc_sort(compare_func: GLib.CompareDataFunc | null): void
-    /* Virtual methods of Gee.AbstractCollection */
+    /* Virtual methods of Gee-0.8.Gee.AbstractCollection */
     vfunc_contains(item?: object | null): boolean
     vfunc_add(item?: object | null): boolean
     vfunc_remove(item?: object | null): boolean
@@ -19003,7 +19003,7 @@ export class ExpressionOperatorBetween {
     vfunc_contains_all_iterator(iter: Gee.Iterator): boolean
     vfunc_remove_all_iterator(iter: Gee.Iterator): boolean
     vfunc_get_is_empty(): boolean
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -19011,7 +19011,7 @@ export class ExpressionOperatorBetween {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: ExpressionOperatorBetween, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: ExpressionOperatorBetween, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -19036,29 +19036,29 @@ export class ExpressionOperatorBetween {
 export interface ExpressionOperatorNotBetween_ConstructProps extends ExpressionOperatorThreeterm_ConstructProps {
 }
 export class ExpressionOperatorNotBetween {
-    /* Properties of Gee.AbstractBidirList */
+    /* Properties of Gee-0.8.Gee.AbstractBidirList */
     readonly read_only_view: Gee.BidirList
-    /* Properties of Gee.AbstractCollection */
+    /* Properties of Gee-0.8.Gee.AbstractCollection */
     readonly size: number
     readonly read_only: boolean
-    /* Fields of Vda.ExpressionOperatorNotBetween */
+    /* Fields of Vda-1.Vda.ExpressionOperatorNotBetween */
     parent_instance: ExpressionOperatorThreeterm
     priv: ExpressionOperatorNotBetweenPrivate
-    /* Fields of Vda.ExpressionOperatorThreeterm */
+    /* Fields of Vda-1.Vda.ExpressionOperatorThreeterm */
     _operator_name: string
     _operator2_name: string
-    /* Fields of Vda.ExpressionOperator */
+    /* Fields of Vda-1.Vda.ExpressionOperator */
     _operator_type: SqlExpressionOperatorType
-    /* Fields of Gee.ArrayList */
+    /* Fields of Gee-0.8.Gee.ArrayList */
     _items: object[]
     _items_length1: number
     _size: number
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Gee.ArrayList */
+    /* Methods of Gee-0.8.Gee.ArrayList */
     add_all(collection: Gee.Collection): boolean
     get_equal_func(): [ /* returnType */ Gee.EqualDataFunc, /* result_target */ object | null ]
-    /* Methods of Gee.AbstractBidirList */
+    /* Methods of Gee-0.8.Gee.AbstractBidirList */
     bidir_list_iterator(): Gee.BidirListIterator
     reserved0(): void
     reserved1(): void
@@ -19071,7 +19071,7 @@ export class ExpressionOperatorNotBetween {
     reserved8(): void
     reserved9(): void
     get_read_only_view(): Gee.BidirList
-    /* Methods of Gee.AbstractList */
+    /* Methods of Gee-0.8.Gee.AbstractList */
     list_iterator(): Gee.ListIterator
     get(index: number): object | null
     set(index: number, item?: object | null): void
@@ -19080,7 +19080,7 @@ export class ExpressionOperatorNotBetween {
     remove_at(index: number): object | null
     slice(start: number, stop: number): Gee.List | null
     get_read_only_view(): Gee.List
-    /* Methods of Gee.AbstractCollection */
+    /* Methods of Gee-0.8.Gee.AbstractCollection */
     contains(item?: object | null): boolean
     add(item?: object | null): boolean
     remove(item?: object | null): boolean
@@ -19090,7 +19090,7 @@ export class ExpressionOperatorNotBetween {
     get_size(): number
     get_read_only(): boolean
     get_read_only_view(): Gee.Collection
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -19112,15 +19112,15 @@ export class ExpressionOperatorNotBetween {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Vda.ExpressionOperatorNotBetween */
+    /* Virtual methods of Vda-1.Vda.ExpressionOperatorNotBetween */
     vfunc_get_read_only_view(): Gee.BidirList
     vfunc_get_read_only_view(): Gee.List
     vfunc_get_read_only_view(): Gee.Collection
-    /* Virtual methods of Vda.ExpressionOperatorThreeterm */
+    /* Virtual methods of Vda-1.Vda.ExpressionOperatorThreeterm */
     vfunc_get_read_only_view(): Gee.BidirList
     vfunc_get_read_only_view(): Gee.List
     vfunc_get_read_only_view(): Gee.Collection
-    /* Virtual methods of Vda.ExpressionOperator */
+    /* Virtual methods of Vda-1.Vda.ExpressionOperator */
     vfunc_create_field_expression(name: string): SqlExpressionField
     vfunc_create_value_expression(val: any | null, cnc: Connection): SqlExpressionValue
     vfunc_create_parameter_expression(name: string, gtype: GObject.Type): SqlExpressionValueParameter
@@ -19160,7 +19160,7 @@ export class ExpressionOperatorNotBetween {
     vfunc_get_read_only_view(): Gee.BidirList
     vfunc_get_read_only_view(): Gee.List
     vfunc_get_read_only_view(): Gee.Collection
-    /* Virtual methods of Vda.Expression */
+    /* Virtual methods of Vda-1.Vda.Expression */
     vfunc_get_item(position: number): GObject.Object | null
     vfunc_get_item_type(): GObject.Type
     vfunc_get_n_items(): number
@@ -19171,11 +19171,11 @@ export class ExpressionOperatorNotBetween {
     vfunc_get_read_only_view(): Gee.BidirList
     vfunc_get_read_only_view(): Gee.List
     vfunc_get_read_only_view(): Gee.Collection
-    /* Virtual methods of Gee.ArrayList */
+    /* Virtual methods of Gee-0.8.Gee.ArrayList */
     vfunc_get_read_only_view(): Gee.BidirList
     vfunc_get_read_only_view(): Gee.List
     vfunc_get_read_only_view(): Gee.Collection
-    /* Virtual methods of Gee.AbstractBidirList */
+    /* Virtual methods of Gee-0.8.Gee.AbstractBidirList */
     vfunc_bidir_list_iterator(): Gee.BidirListIterator
     vfunc_reserved0(): void
     vfunc_reserved1(): void
@@ -19190,7 +19190,7 @@ export class ExpressionOperatorNotBetween {
     vfunc_get_read_only_view(): Gee.BidirList
     vfunc_get_read_only_view(): Gee.List
     vfunc_get_read_only_view(): Gee.Collection
-    /* Virtual methods of Gee.AbstractList */
+    /* Virtual methods of Gee-0.8.Gee.AbstractList */
     vfunc_list_iterator(): Gee.ListIterator
     vfunc_get(index: number): object | null
     vfunc_set(index: number, item?: object | null): void
@@ -19214,7 +19214,7 @@ export class ExpressionOperatorNotBetween {
     vfunc_last(): object | null
     vfunc_insert_all(index: number, collection: Gee.Collection): void
     vfunc_sort(compare_func: GLib.CompareDataFunc | null): void
-    /* Virtual methods of Gee.AbstractCollection */
+    /* Virtual methods of Gee-0.8.Gee.AbstractCollection */
     vfunc_contains(item?: object | null): boolean
     vfunc_add(item?: object | null): boolean
     vfunc_remove(item?: object | null): boolean
@@ -19261,7 +19261,7 @@ export class ExpressionOperatorNotBetween {
     vfunc_contains_all_iterator(iter: Gee.Iterator): boolean
     vfunc_remove_all_iterator(iter: Gee.Iterator): boolean
     vfunc_get_is_empty(): boolean
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -19269,7 +19269,7 @@ export class ExpressionOperatorNotBetween {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: ExpressionOperatorNotBetween, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: ExpressionOperatorNotBetween, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -19294,29 +19294,29 @@ export class ExpressionOperatorNotBetween {
 export interface ExpressionOperatorBetweenSymmetric_ConstructProps extends ExpressionOperatorThreeterm_ConstructProps {
 }
 export class ExpressionOperatorBetweenSymmetric {
-    /* Properties of Gee.AbstractBidirList */
+    /* Properties of Gee-0.8.Gee.AbstractBidirList */
     readonly read_only_view: Gee.BidirList
-    /* Properties of Gee.AbstractCollection */
+    /* Properties of Gee-0.8.Gee.AbstractCollection */
     readonly size: number
     readonly read_only: boolean
-    /* Fields of Vda.ExpressionOperatorBetweenSymmetric */
+    /* Fields of Vda-1.Vda.ExpressionOperatorBetweenSymmetric */
     parent_instance: ExpressionOperatorThreeterm
     priv: ExpressionOperatorBetweenSymmetricPrivate
-    /* Fields of Vda.ExpressionOperatorThreeterm */
+    /* Fields of Vda-1.Vda.ExpressionOperatorThreeterm */
     _operator_name: string
     _operator2_name: string
-    /* Fields of Vda.ExpressionOperator */
+    /* Fields of Vda-1.Vda.ExpressionOperator */
     _operator_type: SqlExpressionOperatorType
-    /* Fields of Gee.ArrayList */
+    /* Fields of Gee-0.8.Gee.ArrayList */
     _items: object[]
     _items_length1: number
     _size: number
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Gee.ArrayList */
+    /* Methods of Gee-0.8.Gee.ArrayList */
     add_all(collection: Gee.Collection): boolean
     get_equal_func(): [ /* returnType */ Gee.EqualDataFunc, /* result_target */ object | null ]
-    /* Methods of Gee.AbstractBidirList */
+    /* Methods of Gee-0.8.Gee.AbstractBidirList */
     bidir_list_iterator(): Gee.BidirListIterator
     reserved0(): void
     reserved1(): void
@@ -19329,7 +19329,7 @@ export class ExpressionOperatorBetweenSymmetric {
     reserved8(): void
     reserved9(): void
     get_read_only_view(): Gee.BidirList
-    /* Methods of Gee.AbstractList */
+    /* Methods of Gee-0.8.Gee.AbstractList */
     list_iterator(): Gee.ListIterator
     get(index: number): object | null
     set(index: number, item?: object | null): void
@@ -19338,7 +19338,7 @@ export class ExpressionOperatorBetweenSymmetric {
     remove_at(index: number): object | null
     slice(start: number, stop: number): Gee.List | null
     get_read_only_view(): Gee.List
-    /* Methods of Gee.AbstractCollection */
+    /* Methods of Gee-0.8.Gee.AbstractCollection */
     contains(item?: object | null): boolean
     add(item?: object | null): boolean
     remove(item?: object | null): boolean
@@ -19348,7 +19348,7 @@ export class ExpressionOperatorBetweenSymmetric {
     get_size(): number
     get_read_only(): boolean
     get_read_only_view(): Gee.Collection
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -19370,15 +19370,15 @@ export class ExpressionOperatorBetweenSymmetric {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Vda.ExpressionOperatorBetweenSymmetric */
+    /* Virtual methods of Vda-1.Vda.ExpressionOperatorBetweenSymmetric */
     vfunc_get_read_only_view(): Gee.BidirList
     vfunc_get_read_only_view(): Gee.List
     vfunc_get_read_only_view(): Gee.Collection
-    /* Virtual methods of Vda.ExpressionOperatorThreeterm */
+    /* Virtual methods of Vda-1.Vda.ExpressionOperatorThreeterm */
     vfunc_get_read_only_view(): Gee.BidirList
     vfunc_get_read_only_view(): Gee.List
     vfunc_get_read_only_view(): Gee.Collection
-    /* Virtual methods of Vda.ExpressionOperator */
+    /* Virtual methods of Vda-1.Vda.ExpressionOperator */
     vfunc_create_field_expression(name: string): SqlExpressionField
     vfunc_create_value_expression(val: any | null, cnc: Connection): SqlExpressionValue
     vfunc_create_parameter_expression(name: string, gtype: GObject.Type): SqlExpressionValueParameter
@@ -19418,7 +19418,7 @@ export class ExpressionOperatorBetweenSymmetric {
     vfunc_get_read_only_view(): Gee.BidirList
     vfunc_get_read_only_view(): Gee.List
     vfunc_get_read_only_view(): Gee.Collection
-    /* Virtual methods of Vda.Expression */
+    /* Virtual methods of Vda-1.Vda.Expression */
     vfunc_get_item(position: number): GObject.Object | null
     vfunc_get_item_type(): GObject.Type
     vfunc_get_n_items(): number
@@ -19429,11 +19429,11 @@ export class ExpressionOperatorBetweenSymmetric {
     vfunc_get_read_only_view(): Gee.BidirList
     vfunc_get_read_only_view(): Gee.List
     vfunc_get_read_only_view(): Gee.Collection
-    /* Virtual methods of Gee.ArrayList */
+    /* Virtual methods of Gee-0.8.Gee.ArrayList */
     vfunc_get_read_only_view(): Gee.BidirList
     vfunc_get_read_only_view(): Gee.List
     vfunc_get_read_only_view(): Gee.Collection
-    /* Virtual methods of Gee.AbstractBidirList */
+    /* Virtual methods of Gee-0.8.Gee.AbstractBidirList */
     vfunc_bidir_list_iterator(): Gee.BidirListIterator
     vfunc_reserved0(): void
     vfunc_reserved1(): void
@@ -19448,7 +19448,7 @@ export class ExpressionOperatorBetweenSymmetric {
     vfunc_get_read_only_view(): Gee.BidirList
     vfunc_get_read_only_view(): Gee.List
     vfunc_get_read_only_view(): Gee.Collection
-    /* Virtual methods of Gee.AbstractList */
+    /* Virtual methods of Gee-0.8.Gee.AbstractList */
     vfunc_list_iterator(): Gee.ListIterator
     vfunc_get(index: number): object | null
     vfunc_set(index: number, item?: object | null): void
@@ -19472,7 +19472,7 @@ export class ExpressionOperatorBetweenSymmetric {
     vfunc_last(): object | null
     vfunc_insert_all(index: number, collection: Gee.Collection): void
     vfunc_sort(compare_func: GLib.CompareDataFunc | null): void
-    /* Virtual methods of Gee.AbstractCollection */
+    /* Virtual methods of Gee-0.8.Gee.AbstractCollection */
     vfunc_contains(item?: object | null): boolean
     vfunc_add(item?: object | null): boolean
     vfunc_remove(item?: object | null): boolean
@@ -19519,7 +19519,7 @@ export class ExpressionOperatorBetweenSymmetric {
     vfunc_contains_all_iterator(iter: Gee.Iterator): boolean
     vfunc_remove_all_iterator(iter: Gee.Iterator): boolean
     vfunc_get_is_empty(): boolean
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -19527,7 +19527,7 @@ export class ExpressionOperatorBetweenSymmetric {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: ExpressionOperatorBetweenSymmetric, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: ExpressionOperatorBetweenSymmetric, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -19552,29 +19552,29 @@ export class ExpressionOperatorBetweenSymmetric {
 export interface ExpressionOperatorNotBetweenSymmetric_ConstructProps extends ExpressionOperatorThreeterm_ConstructProps {
 }
 export class ExpressionOperatorNotBetweenSymmetric {
-    /* Properties of Gee.AbstractBidirList */
+    /* Properties of Gee-0.8.Gee.AbstractBidirList */
     readonly read_only_view: Gee.BidirList
-    /* Properties of Gee.AbstractCollection */
+    /* Properties of Gee-0.8.Gee.AbstractCollection */
     readonly size: number
     readonly read_only: boolean
-    /* Fields of Vda.ExpressionOperatorNotBetweenSymmetric */
+    /* Fields of Vda-1.Vda.ExpressionOperatorNotBetweenSymmetric */
     parent_instance: ExpressionOperatorThreeterm
     priv: ExpressionOperatorNotBetweenSymmetricPrivate
-    /* Fields of Vda.ExpressionOperatorThreeterm */
+    /* Fields of Vda-1.Vda.ExpressionOperatorThreeterm */
     _operator_name: string
     _operator2_name: string
-    /* Fields of Vda.ExpressionOperator */
+    /* Fields of Vda-1.Vda.ExpressionOperator */
     _operator_type: SqlExpressionOperatorType
-    /* Fields of Gee.ArrayList */
+    /* Fields of Gee-0.8.Gee.ArrayList */
     _items: object[]
     _items_length1: number
     _size: number
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Gee.ArrayList */
+    /* Methods of Gee-0.8.Gee.ArrayList */
     add_all(collection: Gee.Collection): boolean
     get_equal_func(): [ /* returnType */ Gee.EqualDataFunc, /* result_target */ object | null ]
-    /* Methods of Gee.AbstractBidirList */
+    /* Methods of Gee-0.8.Gee.AbstractBidirList */
     bidir_list_iterator(): Gee.BidirListIterator
     reserved0(): void
     reserved1(): void
@@ -19587,7 +19587,7 @@ export class ExpressionOperatorNotBetweenSymmetric {
     reserved8(): void
     reserved9(): void
     get_read_only_view(): Gee.BidirList
-    /* Methods of Gee.AbstractList */
+    /* Methods of Gee-0.8.Gee.AbstractList */
     list_iterator(): Gee.ListIterator
     get(index: number): object | null
     set(index: number, item?: object | null): void
@@ -19596,7 +19596,7 @@ export class ExpressionOperatorNotBetweenSymmetric {
     remove_at(index: number): object | null
     slice(start: number, stop: number): Gee.List | null
     get_read_only_view(): Gee.List
-    /* Methods of Gee.AbstractCollection */
+    /* Methods of Gee-0.8.Gee.AbstractCollection */
     contains(item?: object | null): boolean
     add(item?: object | null): boolean
     remove(item?: object | null): boolean
@@ -19606,7 +19606,7 @@ export class ExpressionOperatorNotBetweenSymmetric {
     get_size(): number
     get_read_only(): boolean
     get_read_only_view(): Gee.Collection
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -19628,15 +19628,15 @@ export class ExpressionOperatorNotBetweenSymmetric {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Vda.ExpressionOperatorNotBetweenSymmetric */
+    /* Virtual methods of Vda-1.Vda.ExpressionOperatorNotBetweenSymmetric */
     vfunc_get_read_only_view(): Gee.BidirList
     vfunc_get_read_only_view(): Gee.List
     vfunc_get_read_only_view(): Gee.Collection
-    /* Virtual methods of Vda.ExpressionOperatorThreeterm */
+    /* Virtual methods of Vda-1.Vda.ExpressionOperatorThreeterm */
     vfunc_get_read_only_view(): Gee.BidirList
     vfunc_get_read_only_view(): Gee.List
     vfunc_get_read_only_view(): Gee.Collection
-    /* Virtual methods of Vda.ExpressionOperator */
+    /* Virtual methods of Vda-1.Vda.ExpressionOperator */
     vfunc_create_field_expression(name: string): SqlExpressionField
     vfunc_create_value_expression(val: any | null, cnc: Connection): SqlExpressionValue
     vfunc_create_parameter_expression(name: string, gtype: GObject.Type): SqlExpressionValueParameter
@@ -19676,7 +19676,7 @@ export class ExpressionOperatorNotBetweenSymmetric {
     vfunc_get_read_only_view(): Gee.BidirList
     vfunc_get_read_only_view(): Gee.List
     vfunc_get_read_only_view(): Gee.Collection
-    /* Virtual methods of Vda.Expression */
+    /* Virtual methods of Vda-1.Vda.Expression */
     vfunc_get_item(position: number): GObject.Object | null
     vfunc_get_item_type(): GObject.Type
     vfunc_get_n_items(): number
@@ -19687,11 +19687,11 @@ export class ExpressionOperatorNotBetweenSymmetric {
     vfunc_get_read_only_view(): Gee.BidirList
     vfunc_get_read_only_view(): Gee.List
     vfunc_get_read_only_view(): Gee.Collection
-    /* Virtual methods of Gee.ArrayList */
+    /* Virtual methods of Gee-0.8.Gee.ArrayList */
     vfunc_get_read_only_view(): Gee.BidirList
     vfunc_get_read_only_view(): Gee.List
     vfunc_get_read_only_view(): Gee.Collection
-    /* Virtual methods of Gee.AbstractBidirList */
+    /* Virtual methods of Gee-0.8.Gee.AbstractBidirList */
     vfunc_bidir_list_iterator(): Gee.BidirListIterator
     vfunc_reserved0(): void
     vfunc_reserved1(): void
@@ -19706,7 +19706,7 @@ export class ExpressionOperatorNotBetweenSymmetric {
     vfunc_get_read_only_view(): Gee.BidirList
     vfunc_get_read_only_view(): Gee.List
     vfunc_get_read_only_view(): Gee.Collection
-    /* Virtual methods of Gee.AbstractList */
+    /* Virtual methods of Gee-0.8.Gee.AbstractList */
     vfunc_list_iterator(): Gee.ListIterator
     vfunc_get(index: number): object | null
     vfunc_set(index: number, item?: object | null): void
@@ -19730,7 +19730,7 @@ export class ExpressionOperatorNotBetweenSymmetric {
     vfunc_last(): object | null
     vfunc_insert_all(index: number, collection: Gee.Collection): void
     vfunc_sort(compare_func: GLib.CompareDataFunc | null): void
-    /* Virtual methods of Gee.AbstractCollection */
+    /* Virtual methods of Gee-0.8.Gee.AbstractCollection */
     vfunc_contains(item?: object | null): boolean
     vfunc_add(item?: object | null): boolean
     vfunc_remove(item?: object | null): boolean
@@ -19777,7 +19777,7 @@ export class ExpressionOperatorNotBetweenSymmetric {
     vfunc_contains_all_iterator(iter: Gee.Iterator): boolean
     vfunc_remove_all_iterator(iter: Gee.Iterator): boolean
     vfunc_get_is_empty(): boolean
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -19785,7 +19785,7 @@ export class ExpressionOperatorNotBetweenSymmetric {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: ExpressionOperatorNotBetweenSymmetric, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: ExpressionOperatorNotBetweenSymmetric, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -19812,27 +19812,27 @@ export interface ExpressionValue_ConstructProps extends Expression_ConstructProp
     value?: SqlValue
 }
 export class ExpressionValue {
-    /* Properties of Gee.AbstractBidirList */
+    /* Properties of Gee-0.8.Gee.AbstractBidirList */
     readonly read_only_view: Gee.BidirList
-    /* Properties of Gee.AbstractCollection */
+    /* Properties of Gee-0.8.Gee.AbstractCollection */
     readonly size: number
     readonly read_only: boolean
-    /* Properties of Vda.SqlExpressionValue */
+    /* Properties of Vda-1.Vda.SqlExpressionValue */
     connection: Connection
     value: SqlValue
-    /* Fields of Vda.ExpressionValue */
+    /* Fields of Vda-1.Vda.ExpressionValue */
     parent_instance: Expression
     priv: ExpressionValuePrivate
-    /* Fields of Gee.ArrayList */
+    /* Fields of Gee-0.8.Gee.ArrayList */
     _items: object[]
     _items_length1: number
     _size: number
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Gee.ArrayList */
+    /* Methods of Gee-0.8.Gee.ArrayList */
     add_all(collection: Gee.Collection): boolean
     get_equal_func(): [ /* returnType */ Gee.EqualDataFunc, /* result_target */ object | null ]
-    /* Methods of Gee.AbstractBidirList */
+    /* Methods of Gee-0.8.Gee.AbstractBidirList */
     bidir_list_iterator(): Gee.BidirListIterator
     reserved0(): void
     reserved1(): void
@@ -19845,7 +19845,7 @@ export class ExpressionValue {
     reserved8(): void
     reserved9(): void
     get_read_only_view(): Gee.BidirList
-    /* Methods of Gee.AbstractList */
+    /* Methods of Gee-0.8.Gee.AbstractList */
     list_iterator(): Gee.ListIterator
     get(index: number): object | null
     set(index: number, item?: object | null): void
@@ -19854,7 +19854,7 @@ export class ExpressionValue {
     remove_at(index: number): object | null
     slice(start: number, stop: number): Gee.List | null
     get_read_only_view(): Gee.List
-    /* Methods of Gee.AbstractCollection */
+    /* Methods of Gee-0.8.Gee.AbstractCollection */
     contains(item?: object | null): boolean
     add(item?: object | null): boolean
     remove(item?: object | null): boolean
@@ -19864,7 +19864,7 @@ export class ExpressionValue {
     get_size(): number
     get_read_only(): boolean
     get_read_only_view(): Gee.Collection
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -19886,13 +19886,13 @@ export class ExpressionValue {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of Vda.SqlExpressionValue */
+    /* Methods of Vda-1.Vda.SqlExpressionValue */
     set_math_expression_value(str: string): void
     get_connection(): Connection | null
     set_connection(value?: Connection | null): void
     get_value(): SqlValue
     set_value(value: SqlValue): void
-    /* Virtual methods of Vda.ExpressionValue */
+    /* Virtual methods of Vda-1.Vda.ExpressionValue */
     vfunc_set_math_expression_value(str: string): void
     vfunc_get_connection(): Connection | null
     vfunc_set_connection(value?: Connection | null): void
@@ -19901,7 +19901,7 @@ export class ExpressionValue {
     vfunc_get_read_only_view(): Gee.BidirList
     vfunc_get_read_only_view(): Gee.List
     vfunc_get_read_only_view(): Gee.Collection
-    /* Virtual methods of Vda.Expression */
+    /* Virtual methods of Vda-1.Vda.Expression */
     vfunc_get_item(position: number): GObject.Object | null
     vfunc_get_item_type(): GObject.Type
     vfunc_get_n_items(): number
@@ -19912,11 +19912,11 @@ export class ExpressionValue {
     vfunc_get_read_only_view(): Gee.BidirList
     vfunc_get_read_only_view(): Gee.List
     vfunc_get_read_only_view(): Gee.Collection
-    /* Virtual methods of Gee.ArrayList */
+    /* Virtual methods of Gee-0.8.Gee.ArrayList */
     vfunc_get_read_only_view(): Gee.BidirList
     vfunc_get_read_only_view(): Gee.List
     vfunc_get_read_only_view(): Gee.Collection
-    /* Virtual methods of Gee.AbstractBidirList */
+    /* Virtual methods of Gee-0.8.Gee.AbstractBidirList */
     vfunc_bidir_list_iterator(): Gee.BidirListIterator
     vfunc_reserved0(): void
     vfunc_reserved1(): void
@@ -19931,7 +19931,7 @@ export class ExpressionValue {
     vfunc_get_read_only_view(): Gee.BidirList
     vfunc_get_read_only_view(): Gee.List
     vfunc_get_read_only_view(): Gee.Collection
-    /* Virtual methods of Gee.AbstractList */
+    /* Virtual methods of Gee-0.8.Gee.AbstractList */
     vfunc_list_iterator(): Gee.ListIterator
     vfunc_get(index: number): object | null
     vfunc_set(index: number, item?: object | null): void
@@ -19955,7 +19955,7 @@ export class ExpressionValue {
     vfunc_last(): object | null
     vfunc_insert_all(index: number, collection: Gee.Collection): void
     vfunc_sort(compare_func: GLib.CompareDataFunc | null): void
-    /* Virtual methods of Gee.AbstractCollection */
+    /* Virtual methods of Gee-0.8.Gee.AbstractCollection */
     vfunc_contains(item?: object | null): boolean
     vfunc_add(item?: object | null): boolean
     vfunc_remove(item?: object | null): boolean
@@ -20002,7 +20002,7 @@ export class ExpressionValue {
     vfunc_contains_all_iterator(iter: Gee.Iterator): boolean
     vfunc_remove_all_iterator(iter: Gee.Iterator): boolean
     vfunc_get_is_empty(): boolean
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -20010,7 +20010,7 @@ export class ExpressionValue {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: ExpressionValue, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: ExpressionValue, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -20042,28 +20042,28 @@ export interface ExpressionValueParameter_ConstructProps extends ExpressionValue
     gtype?: GObject.Type
 }
 export class ExpressionValueParameter {
-    /* Properties of Gee.AbstractBidirList */
+    /* Properties of Gee-0.8.Gee.AbstractBidirList */
     readonly read_only_view: Gee.BidirList
-    /* Properties of Gee.AbstractCollection */
+    /* Properties of Gee-0.8.Gee.AbstractCollection */
     readonly size: number
     readonly read_only: boolean
-    /* Properties of Vda.SqlExpressionValueParameter */
+    /* Properties of Vda-1.Vda.SqlExpressionValueParameter */
     parameters: SqlParameters
     name: string
     gtype: GObject.Type
-    /* Fields of Vda.ExpressionValueParameter */
+    /* Fields of Vda-1.Vda.ExpressionValueParameter */
     parent_instance: ExpressionValue
     priv: ExpressionValueParameterPrivate
-    /* Fields of Gee.ArrayList */
+    /* Fields of Gee-0.8.Gee.ArrayList */
     _items: object[]
     _items_length1: number
     _size: number
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Gee.ArrayList */
+    /* Methods of Gee-0.8.Gee.ArrayList */
     add_all(collection: Gee.Collection): boolean
     get_equal_func(): [ /* returnType */ Gee.EqualDataFunc, /* result_target */ object | null ]
-    /* Methods of Gee.AbstractBidirList */
+    /* Methods of Gee-0.8.Gee.AbstractBidirList */
     bidir_list_iterator(): Gee.BidirListIterator
     reserved0(): void
     reserved1(): void
@@ -20076,7 +20076,7 @@ export class ExpressionValueParameter {
     reserved8(): void
     reserved9(): void
     get_read_only_view(): Gee.BidirList
-    /* Methods of Gee.AbstractList */
+    /* Methods of Gee-0.8.Gee.AbstractList */
     list_iterator(): Gee.ListIterator
     get(index: number): object | null
     set(index: number, item?: object | null): void
@@ -20085,7 +20085,7 @@ export class ExpressionValueParameter {
     remove_at(index: number): object | null
     slice(start: number, stop: number): Gee.List | null
     get_read_only_view(): Gee.List
-    /* Methods of Gee.AbstractCollection */
+    /* Methods of Gee-0.8.Gee.AbstractCollection */
     contains(item?: object | null): boolean
     add(item?: object | null): boolean
     remove(item?: object | null): boolean
@@ -20095,7 +20095,7 @@ export class ExpressionValueParameter {
     get_size(): number
     get_read_only(): boolean
     get_read_only_view(): Gee.Collection
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -20117,7 +20117,7 @@ export class ExpressionValueParameter {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of Vda.SqlExpressionValueParameter */
+    /* Methods of Vda-1.Vda.SqlExpressionValueParameter */
     parse(str: string): void
     get_parameters(): SqlParameters
     set_parameters(value: SqlParameters): void
@@ -20125,7 +20125,7 @@ export class ExpressionValueParameter {
     set_name(value: string): void
     get_gtype(): GObject.Type
     set_gtype(value: GObject.Type): void
-    /* Virtual methods of Vda.ExpressionValueParameter */
+    /* Virtual methods of Vda-1.Vda.ExpressionValueParameter */
     vfunc_parse(str: string): void
     vfunc_get_parameters(): SqlParameters
     vfunc_set_parameters(value: SqlParameters): void
@@ -20136,7 +20136,7 @@ export class ExpressionValueParameter {
     vfunc_get_read_only_view(): Gee.BidirList
     vfunc_get_read_only_view(): Gee.List
     vfunc_get_read_only_view(): Gee.Collection
-    /* Virtual methods of Vda.ExpressionValue */
+    /* Virtual methods of Vda-1.Vda.ExpressionValue */
     vfunc_set_math_expression_value(str: string): void
     vfunc_get_connection(): Connection | null
     vfunc_set_connection(value?: Connection | null): void
@@ -20145,7 +20145,7 @@ export class ExpressionValueParameter {
     vfunc_get_read_only_view(): Gee.BidirList
     vfunc_get_read_only_view(): Gee.List
     vfunc_get_read_only_view(): Gee.Collection
-    /* Virtual methods of Vda.Expression */
+    /* Virtual methods of Vda-1.Vda.Expression */
     vfunc_get_item(position: number): GObject.Object | null
     vfunc_get_item_type(): GObject.Type
     vfunc_get_n_items(): number
@@ -20156,11 +20156,11 @@ export class ExpressionValueParameter {
     vfunc_get_read_only_view(): Gee.BidirList
     vfunc_get_read_only_view(): Gee.List
     vfunc_get_read_only_view(): Gee.Collection
-    /* Virtual methods of Gee.ArrayList */
+    /* Virtual methods of Gee-0.8.Gee.ArrayList */
     vfunc_get_read_only_view(): Gee.BidirList
     vfunc_get_read_only_view(): Gee.List
     vfunc_get_read_only_view(): Gee.Collection
-    /* Virtual methods of Gee.AbstractBidirList */
+    /* Virtual methods of Gee-0.8.Gee.AbstractBidirList */
     vfunc_bidir_list_iterator(): Gee.BidirListIterator
     vfunc_reserved0(): void
     vfunc_reserved1(): void
@@ -20175,7 +20175,7 @@ export class ExpressionValueParameter {
     vfunc_get_read_only_view(): Gee.BidirList
     vfunc_get_read_only_view(): Gee.List
     vfunc_get_read_only_view(): Gee.Collection
-    /* Virtual methods of Gee.AbstractList */
+    /* Virtual methods of Gee-0.8.Gee.AbstractList */
     vfunc_list_iterator(): Gee.ListIterator
     vfunc_get(index: number): object | null
     vfunc_set(index: number, item?: object | null): void
@@ -20199,7 +20199,7 @@ export class ExpressionValueParameter {
     vfunc_last(): object | null
     vfunc_insert_all(index: number, collection: Gee.Collection): void
     vfunc_sort(compare_func: GLib.CompareDataFunc | null): void
-    /* Virtual methods of Gee.AbstractCollection */
+    /* Virtual methods of Gee-0.8.Gee.AbstractCollection */
     vfunc_contains(item?: object | null): boolean
     vfunc_add(item?: object | null): boolean
     vfunc_remove(item?: object | null): boolean
@@ -20246,7 +20246,7 @@ export class ExpressionValueParameter {
     vfunc_contains_all_iterator(iter: Gee.Iterator): boolean
     vfunc_remove_all_iterator(iter: Gee.Iterator): boolean
     vfunc_get_is_empty(): boolean
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -20254,7 +20254,7 @@ export class ExpressionValueParameter {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: ExpressionValueParameter, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: ExpressionValueParameter, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -20286,24 +20286,24 @@ export class ExpressionValueParameter {
 export interface HashList_ConstructProps extends Gee.ArrayList_ConstructProps {
 }
 export class HashList {
-    /* Properties of Gee.AbstractBidirList */
+    /* Properties of Gee-0.8.Gee.AbstractBidirList */
     readonly read_only_view: Gee.BidirList
-    /* Properties of Gee.AbstractCollection */
+    /* Properties of Gee-0.8.Gee.AbstractCollection */
     readonly size: number
     readonly read_only: boolean
-    /* Fields of Vda.HashList */
+    /* Fields of Vda-1.Vda.HashList */
     parent_instance: Gee.ArrayList
     priv: HashListPrivate
-    /* Fields of Gee.ArrayList */
+    /* Fields of Gee-0.8.Gee.ArrayList */
     _items: object[]
     _items_length1: number
     _size: number
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Gee.ArrayList */
+    /* Methods of Gee-0.8.Gee.ArrayList */
     add_all(collection: Gee.Collection): boolean
     get_equal_func(): [ /* returnType */ Gee.EqualDataFunc, /* result_target */ object | null ]
-    /* Methods of Gee.AbstractBidirList */
+    /* Methods of Gee-0.8.Gee.AbstractBidirList */
     bidir_list_iterator(): Gee.BidirListIterator
     reserved0(): void
     reserved1(): void
@@ -20316,7 +20316,7 @@ export class HashList {
     reserved8(): void
     reserved9(): void
     get_read_only_view(): Gee.BidirList
-    /* Methods of Gee.AbstractList */
+    /* Methods of Gee-0.8.Gee.AbstractList */
     list_iterator(): Gee.ListIterator
     get(index: number): object | null
     set(index: number, item?: object | null): void
@@ -20325,7 +20325,7 @@ export class HashList {
     remove_at(index: number): object | null
     slice(start: number, stop: number): Gee.List | null
     get_read_only_view(): Gee.List
-    /* Methods of Gee.AbstractCollection */
+    /* Methods of Gee-0.8.Gee.AbstractCollection */
     contains(item?: object | null): boolean
     add(item?: object | null): boolean
     remove(item?: object | null): boolean
@@ -20335,7 +20335,7 @@ export class HashList {
     get_size(): number
     get_read_only(): boolean
     get_read_only_view(): Gee.Collection
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -20357,16 +20357,16 @@ export class HashList {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of Gio.ListModel */
+    /* Methods of Gio-2.0.Gio.ListModel */
     get_item_type(): GObject.Type
     get_n_items(): number
     get_item(position: number): GObject.Object | null
     items_changed(position: number, removed: number, added: number): void
-    /* Methods of Vda.HashModel */
+    /* Methods of Vda-1.Vda.HashModel */
     add(object: GObject.Object): void
     find(key: GObject.Object): GObject.Object | null
     remove(object: GObject.Object): void
-    /* Virtual methods of Vda.HashList */
+    /* Virtual methods of Vda-1.Vda.HashList */
     vfunc_get_item(position: number): GObject.Object | null
     vfunc_get_item_type(): GObject.Type
     vfunc_get_n_items(): number
@@ -20378,11 +20378,11 @@ export class HashList {
     vfunc_get_read_only_view(): Gee.BidirList
     vfunc_get_read_only_view(): Gee.List
     vfunc_get_read_only_view(): Gee.Collection
-    /* Virtual methods of Gee.ArrayList */
+    /* Virtual methods of Gee-0.8.Gee.ArrayList */
     vfunc_get_read_only_view(): Gee.BidirList
     vfunc_get_read_only_view(): Gee.List
     vfunc_get_read_only_view(): Gee.Collection
-    /* Virtual methods of Gee.AbstractBidirList */
+    /* Virtual methods of Gee-0.8.Gee.AbstractBidirList */
     vfunc_bidir_list_iterator(): Gee.BidirListIterator
     vfunc_reserved0(): void
     vfunc_reserved1(): void
@@ -20397,7 +20397,7 @@ export class HashList {
     vfunc_get_read_only_view(): Gee.BidirList
     vfunc_get_read_only_view(): Gee.List
     vfunc_get_read_only_view(): Gee.Collection
-    /* Virtual methods of Gee.AbstractList */
+    /* Virtual methods of Gee-0.8.Gee.AbstractList */
     vfunc_list_iterator(): Gee.ListIterator
     vfunc_get(index: number): object | null
     vfunc_set(index: number, item?: object | null): void
@@ -20421,7 +20421,7 @@ export class HashList {
     vfunc_last(): object | null
     vfunc_insert_all(index: number, collection: Gee.Collection): void
     vfunc_sort(compare_func: GLib.CompareDataFunc | null): void
-    /* Virtual methods of Gee.AbstractCollection */
+    /* Virtual methods of Gee-0.8.Gee.AbstractCollection */
     vfunc_contains(item?: object | null): boolean
     vfunc_add(item?: object | null): boolean
     vfunc_remove(item?: object | null): boolean
@@ -20468,7 +20468,7 @@ export class HashList {
     vfunc_contains_all_iterator(iter: Gee.Iterator): boolean
     vfunc_remove_all_iterator(iter: Gee.Iterator): boolean
     vfunc_get_is_empty(): boolean
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -20476,11 +20476,11 @@ export class HashList {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: HashList, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: HashList, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    /* Signals of Gio.ListModel */
+    /* Signals of Gio-2.0.Gio.ListModel */
     connect(sigName: "items-changed", callback: (($obj: HashList, position: number, removed: number, added: number) => void)): number
     connect_after(sigName: "items-changed", callback: (($obj: HashList, position: number, removed: number, added: number) => void)): number
     emit(sigName: "items-changed", position: number, removed: number, added: number): void
@@ -20506,20 +20506,20 @@ export interface InvalidQuery_ConstructProps extends GObject.Object_ConstructPro
     message?: string
 }
 export class InvalidQuery {
-    /* Properties of Vda.InvalidQuery */
+    /* Properties of Vda-1.Vda.InvalidQuery */
     message: string
-    /* Properties of Vda.Query */
+    /* Properties of Vda-1.Vda.Query */
     readonly sql: string
     readonly connection: Connection
-    /* Fields of Vda.InvalidQuery */
+    /* Fields of Vda-1.Vda.InvalidQuery */
     parent_instance: GObject.Object
     priv: InvalidQueryPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Vda.InvalidQuery */
+    /* Methods of Vda-1.Vda.InvalidQuery */
     get_message(): string
     set_message(value: string): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -20541,7 +20541,7 @@ export class InvalidQuery {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of Vda.Query */
+    /* Methods of Vda-1.Vda.Query */
     execute(cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
     execute_finish(_res_: Gio.AsyncResult): Result | null
     cancel(_callback_?: Gio.AsyncReadyCallback | null): void
@@ -20549,7 +20549,7 @@ export class InvalidQuery {
     render_sql(): string
     get_sql(): string
     get_connection(): Connection
-    /* Virtual methods of Vda.InvalidQuery */
+    /* Virtual methods of Vda-1.Vda.InvalidQuery */
     vfunc_execute(cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
     vfunc_execute_finish(_res_: Gio.AsyncResult): Result | null
     vfunc_cancel(_callback_?: Gio.AsyncReadyCallback | null): void
@@ -20557,7 +20557,7 @@ export class InvalidQuery {
     vfunc_render_sql(): string
     vfunc_get_sql(): string
     vfunc_get_connection(): Connection
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -20565,7 +20565,7 @@ export class InvalidQuery {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: InvalidQuery, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: InvalidQuery, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -20589,20 +20589,20 @@ export class InvalidQuery {
 export interface InvalidPreparedQuery_ConstructProps extends InvalidQuery_ConstructProps {
 }
 export class InvalidPreparedQuery {
-    /* Properties of Vda.InvalidQuery */
+    /* Properties of Vda-1.Vda.InvalidQuery */
     message: string
-    /* Properties of Vda.PreparedQuery */
+    /* Properties of Vda-1.Vda.PreparedQuery */
     readonly name: string
     readonly parameters: SqlParameters
-    /* Fields of Vda.InvalidPreparedQuery */
+    /* Fields of Vda-1.Vda.InvalidPreparedQuery */
     parent_instance: InvalidQuery
     priv: InvalidPreparedQueryPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Vda.InvalidQuery */
+    /* Methods of Vda-1.Vda.InvalidQuery */
     get_message(): string
     set_message(value: string): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -20624,13 +20624,13 @@ export class InvalidPreparedQuery {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of Vda.PreparedQuery */
+    /* Methods of Vda-1.Vda.PreparedQuery */
     get_name(): string
     get_parameters(): SqlParameters
-    /* Virtual methods of Vda.InvalidPreparedQuery */
+    /* Virtual methods of Vda-1.Vda.InvalidPreparedQuery */
     vfunc_get_name(): string
     vfunc_get_parameters(): SqlParameters
-    /* Virtual methods of Vda.InvalidQuery */
+    /* Virtual methods of Vda-1.Vda.InvalidQuery */
     vfunc_execute(cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
     vfunc_execute_finish(_res_: Gio.AsyncResult): Result | null
     vfunc_cancel(_callback_?: Gio.AsyncReadyCallback | null): void
@@ -20638,7 +20638,7 @@ export class InvalidPreparedQuery {
     vfunc_render_sql(): string
     vfunc_get_sql(): string
     vfunc_get_connection(): Connection
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -20646,7 +20646,7 @@ export class InvalidPreparedQuery {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: InvalidPreparedQuery, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: InvalidPreparedQuery, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -20671,17 +20671,17 @@ export interface InvalidResult_ConstructProps extends GObject.Object_ConstructPr
     message?: string
 }
 export class InvalidResult {
-    /* Properties of Vda.InvalidResult */
+    /* Properties of Vda-1.Vda.InvalidResult */
     message: string
-    /* Fields of Vda.InvalidResult */
+    /* Fields of Vda-1.Vda.InvalidResult */
     parent_instance: GObject.Object
     priv: InvalidResultPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Vda.InvalidResult */
+    /* Methods of Vda-1.Vda.InvalidResult */
     get_message(): string
     set_message(value: string): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -20703,7 +20703,7 @@ export class InvalidResult {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -20711,7 +20711,7 @@ export class InvalidResult {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: InvalidResult, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: InvalidResult, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -20731,23 +20731,23 @@ export class InvalidResult {
 export interface Parameters_ConstructProps extends Gee.HashMap_ConstructProps {
 }
 export class Parameters {
-    /* Properties of Gee.AbstractMap */
+    /* Properties of Gee-0.8.Gee.AbstractMap */
     readonly size: number
     readonly read_only: boolean
     readonly keys: Gee.Set
     readonly values: Gee.Collection
     readonly entries: Gee.Set
     readonly read_only_view: Gee.Map
-    /* Fields of Vda.Parameters */
+    /* Fields of Vda-1.Vda.Parameters */
     parent_instance: Gee.HashMap
     priv: ParametersPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Gee.HashMap */
+    /* Methods of Gee-0.8.Gee.HashMap */
     get_key_hash_func(): [ /* returnType */ Gee.HashDataFunc, /* result_target */ object | null ]
     get_key_equal_func(): [ /* returnType */ Gee.EqualDataFunc, /* result_target */ object | null ]
     get_value_equal_func(): [ /* returnType */ Gee.EqualDataFunc, /* result_target */ object | null ]
-    /* Methods of Gee.AbstractMap */
+    /* Methods of Gee-0.8.Gee.AbstractMap */
     has_key(key?: object | null): boolean
     has(key?: object | null, value?: object | null): boolean
     get(key?: object | null): object | null
@@ -20773,7 +20773,7 @@ export class Parameters {
     get_values(): Gee.Collection
     get_entries(): Gee.Set
     get_read_only_view(): Gee.Map
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -20795,17 +20795,17 @@ export class Parameters {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of Vda.SqlParameters */
+    /* Methods of Vda-1.Vda.SqlParameters */
     set_value(name: string, val: any): void
     get_value(name: string): any | null
     set_sql_value(name: string, val: SqlValue): void
     get_sql_value(name: string): SqlValue
-    /* Virtual methods of Vda.Parameters */
+    /* Virtual methods of Vda-1.Vda.Parameters */
     vfunc_set_value(name: string, val: any): void
     vfunc_get_value(name: string): any | null
     vfunc_set_sql_value(name: string, val: SqlValue): void
     vfunc_get_sql_value(name: string): SqlValue
-    /* Virtual methods of Gee.AbstractMap */
+    /* Virtual methods of Gee-0.8.Gee.AbstractMap */
     vfunc_has_key(key?: object | null): boolean
     vfunc_has(key?: object | null, value?: object | null): boolean
     vfunc_get(key?: object | null): object | null
@@ -20850,7 +20850,7 @@ export class Parameters {
     vfunc_unset_all(map: Gee.Map): boolean
     vfunc_has_all(map: Gee.Map): boolean
     vfunc_get_is_empty(): boolean
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -20858,7 +20858,7 @@ export class Parameters {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Parameters, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Parameters, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -20889,12 +20889,12 @@ export class Parameters {
 export interface Parser_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class Parser {
-    /* Fields of Vda.Parser */
+    /* Fields of Vda-1.Vda.Parser */
     parent_instance: GObject.Object
     priv: ParserPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -20916,11 +20916,11 @@ export class Parser {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of Vda.SqlParser */
+    /* Methods of Vda-1.Vda.SqlParser */
     parse(str: string, cnc: Connection): SqlCommandParametrized
-    /* Virtual methods of Vda.Parser */
+    /* Virtual methods of Vda-1.Vda.Parser */
     vfunc_parse(str: string, cnc: Connection): SqlCommandParametrized
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -20928,7 +20928,7 @@ export class Parser {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Parser, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Parser, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -20948,15 +20948,15 @@ export interface TableReference_ConstructProps extends GObject.Object_ConstructP
     allias?: string
 }
 export class TableReference {
-    /* Properties of Vda.SqlTableReference */
+    /* Properties of Vda-1.Vda.SqlTableReference */
     name: string
     allias: string
-    /* Fields of Vda.TableReference */
+    /* Fields of Vda-1.Vda.TableReference */
     parent_instance: GObject.Object
     priv: TableReferencePrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -20978,17 +20978,17 @@ export class TableReference {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of Vda.SqlTableReference */
+    /* Methods of Vda-1.Vda.SqlTableReference */
     get_name(): string
     set_name(value: string): void
     get_allias(): string | null
     set_allias(value?: string | null): void
-    /* Virtual methods of Vda.TableReference */
+    /* Virtual methods of Vda-1.Vda.TableReference */
     vfunc_get_name(): string
     vfunc_set_name(value: string): void
     vfunc_get_allias(): string | null
     vfunc_set_allias(value?: string | null): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -20996,7 +20996,7 @@ export class TableReference {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: TableReference, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: TableReference, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -21018,18 +21018,18 @@ export class TableReference {
 export interface Value_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class Value {
-    /* Properties of Vda.SqlValue */
+    /* Properties of Vda-1.Vda.SqlValue */
     readonly name: string
-    /* Fields of Vda.Value */
+    /* Fields of Vda-1.Vda.Value */
     parent_instance: GObject.Object
     priv: ValuePrivate
     _name: string
     _val: any
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Vda.Value */
+    /* Methods of Vda-1.Vda.Value */
     force_value(val: any): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -21051,9 +21051,9 @@ export class Value {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of Vda.Stringifiable */
+    /* Methods of Vda-1.Vda.Stringifiable */
     to_string(): string
-    /* Methods of Vda.SqlValue */
+    /* Methods of Vda-1.Vda.SqlValue */
     parse(str: string): boolean
     from_value(val: any): boolean
     cast(type: GObject.Type): SqlValue | null
@@ -21062,7 +21062,7 @@ export class Value {
     to_string_quoted(): string
     to_sql_expression(): string
     get_name(): string
-    /* Virtual methods of Vda.Value */
+    /* Virtual methods of Vda-1.Vda.Value */
     vfunc_force_value(val: any): boolean
     vfunc_to_string(): string
     vfunc_parse(str: string): boolean
@@ -21073,7 +21073,7 @@ export class Value {
     vfunc_to_string_quoted(): string
     vfunc_to_sql_expression(): string
     vfunc_get_name(): string
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -21081,7 +21081,7 @@ export class Value {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Value, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Value, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -21103,17 +21103,17 @@ export class Value {
 export interface ValueNull_ConstructProps extends Value_ConstructProps {
 }
 export class ValueNull {
-    /* Fields of Vda.ValueNull */
+    /* Fields of Vda-1.Vda.ValueNull */
     parent_instance: Value
     priv: ValueNullPrivate
-    /* Fields of Vda.Value */
+    /* Fields of Vda-1.Vda.Value */
     _name: string
     _val: any
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Vda.Value */
+    /* Methods of Vda-1.Vda.Value */
     force_value(val: any): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -21135,7 +21135,7 @@ export class ValueNull {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Vda.Value */
+    /* Virtual methods of Vda-1.Vda.Value */
     vfunc_force_value(val: any): boolean
     vfunc_to_string(): string
     vfunc_parse(str: string): boolean
@@ -21146,7 +21146,7 @@ export class ValueNull {
     vfunc_to_string_quoted(): string
     vfunc_to_sql_expression(): string
     vfunc_get_name(): string
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -21154,7 +21154,7 @@ export class ValueNull {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: ValueNull, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: ValueNull, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -21172,17 +21172,17 @@ export class ValueNull {
 export interface ValueString_ConstructProps extends Value_ConstructProps {
 }
 export class ValueString {
-    /* Fields of Vda.ValueString */
+    /* Fields of Vda-1.Vda.ValueString */
     parent_instance: Value
     priv: ValueStringPrivate
-    /* Fields of Vda.Value */
+    /* Fields of Vda-1.Vda.Value */
     _name: string
     _val: any
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Vda.Value */
+    /* Methods of Vda-1.Vda.Value */
     force_value(val: any): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -21204,7 +21204,7 @@ export class ValueString {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Vda.Value */
+    /* Virtual methods of Vda-1.Vda.Value */
     vfunc_force_value(val: any): boolean
     vfunc_to_string(): string
     vfunc_parse(str: string): boolean
@@ -21215,7 +21215,7 @@ export class ValueString {
     vfunc_to_string_quoted(): string
     vfunc_to_sql_expression(): string
     vfunc_get_name(): string
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -21223,7 +21223,7 @@ export class ValueString {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: ValueString, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: ValueString, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -21241,17 +21241,17 @@ export class ValueString {
 export interface ValueText_ConstructProps extends ValueString_ConstructProps {
 }
 export class ValueText {
-    /* Fields of Vda.ValueText */
+    /* Fields of Vda-1.Vda.ValueText */
     parent_instance: ValueString
     priv: ValueTextPrivate
-    /* Fields of Vda.Value */
+    /* Fields of Vda-1.Vda.Value */
     _name: string
     _val: any
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Vda.Value */
+    /* Methods of Vda-1.Vda.Value */
     force_value(val: any): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -21273,7 +21273,7 @@ export class ValueText {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Vda.Value */
+    /* Virtual methods of Vda-1.Vda.Value */
     vfunc_force_value(val: any): boolean
     vfunc_to_string(): string
     vfunc_parse(str: string): boolean
@@ -21284,7 +21284,7 @@ export class ValueText {
     vfunc_to_string_quoted(): string
     vfunc_to_sql_expression(): string
     vfunc_get_name(): string
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -21292,7 +21292,7 @@ export class ValueText {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: ValueText, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: ValueText, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -21310,17 +21310,17 @@ export class ValueText {
 export interface ValueName_ConstructProps extends ValueString_ConstructProps {
 }
 export class ValueName {
-    /* Fields of Vda.ValueName */
+    /* Fields of Vda-1.Vda.ValueName */
     parent_instance: ValueString
     priv: ValueNamePrivate
-    /* Fields of Vda.Value */
+    /* Fields of Vda-1.Vda.Value */
     _name: string
     _val: any
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Vda.Value */
+    /* Methods of Vda-1.Vda.Value */
     force_value(val: any): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -21342,7 +21342,7 @@ export class ValueName {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Vda.Value */
+    /* Virtual methods of Vda-1.Vda.Value */
     vfunc_force_value(val: any): boolean
     vfunc_to_string(): string
     vfunc_parse(str: string): boolean
@@ -21353,7 +21353,7 @@ export class ValueName {
     vfunc_to_string_quoted(): string
     vfunc_to_sql_expression(): string
     vfunc_get_name(): string
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -21361,7 +21361,7 @@ export class ValueName {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: ValueName, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: ValueName, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -21379,17 +21379,17 @@ export class ValueName {
 export interface ValueBool_ConstructProps extends Value_ConstructProps {
 }
 export class ValueBool {
-    /* Fields of Vda.ValueBool */
+    /* Fields of Vda-1.Vda.ValueBool */
     parent_instance: Value
     priv: ValueBoolPrivate
-    /* Fields of Vda.Value */
+    /* Fields of Vda-1.Vda.Value */
     _name: string
     _val: any
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Vda.Value */
+    /* Methods of Vda-1.Vda.Value */
     force_value(val: any): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -21411,7 +21411,7 @@ export class ValueBool {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Vda.Value */
+    /* Virtual methods of Vda-1.Vda.Value */
     vfunc_force_value(val: any): boolean
     vfunc_to_string(): string
     vfunc_parse(str: string): boolean
@@ -21422,7 +21422,7 @@ export class ValueBool {
     vfunc_to_string_quoted(): string
     vfunc_to_sql_expression(): string
     vfunc_get_name(): string
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -21430,7 +21430,7 @@ export class ValueBool {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: ValueBool, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: ValueBool, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -21448,17 +21448,17 @@ export class ValueBool {
 export interface ValueBit_ConstructProps extends ValueBool_ConstructProps {
 }
 export class ValueBit {
-    /* Fields of Vda.ValueBit */
+    /* Fields of Vda-1.Vda.ValueBit */
     parent_instance: ValueBool
     priv: ValueBitPrivate
-    /* Fields of Vda.Value */
+    /* Fields of Vda-1.Vda.Value */
     _name: string
     _val: any
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Vda.Value */
+    /* Methods of Vda-1.Vda.Value */
     force_value(val: any): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -21480,7 +21480,7 @@ export class ValueBit {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Vda.Value */
+    /* Virtual methods of Vda-1.Vda.Value */
     vfunc_force_value(val: any): boolean
     vfunc_to_string(): string
     vfunc_parse(str: string): boolean
@@ -21491,7 +21491,7 @@ export class ValueBit {
     vfunc_to_string_quoted(): string
     vfunc_to_sql_expression(): string
     vfunc_get_name(): string
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -21499,7 +21499,7 @@ export class ValueBit {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: ValueBit, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: ValueBit, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -21517,19 +21517,19 @@ export class ValueBit {
 export interface ValueInteger_ConstructProps extends Value_ConstructProps {
 }
 export class ValueInteger {
-    /* Properties of Vda.SqlValue */
+    /* Properties of Vda-1.Vda.SqlValue */
     readonly name: string
-    /* Fields of Vda.ValueInteger */
+    /* Fields of Vda-1.Vda.ValueInteger */
     parent_instance: Value
     priv: ValueIntegerPrivate
-    /* Fields of Vda.Value */
+    /* Fields of Vda-1.Vda.Value */
     _name: string
     _val: any
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Vda.Value */
+    /* Methods of Vda-1.Vda.Value */
     force_value(val: any): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -21551,7 +21551,7 @@ export class ValueInteger {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of Vda.SqlValue */
+    /* Methods of Vda-1.Vda.SqlValue */
     parse(str: string): boolean
     from_value(val: any): boolean
     cast(type: GObject.Type): SqlValue | null
@@ -21560,7 +21560,7 @@ export class ValueInteger {
     to_string_quoted(): string
     to_sql_expression(): string
     get_name(): string
-    /* Virtual methods of Vda.Value */
+    /* Virtual methods of Vda-1.Vda.Value */
     vfunc_force_value(val: any): boolean
     vfunc_to_string(): string
     vfunc_parse(str: string): boolean
@@ -21571,7 +21571,7 @@ export class ValueInteger {
     vfunc_to_string_quoted(): string
     vfunc_to_sql_expression(): string
     vfunc_get_name(): string
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -21579,7 +21579,7 @@ export class ValueInteger {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: ValueInteger, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: ValueInteger, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -21599,17 +21599,17 @@ export class ValueInteger {
 export interface ValueInt2_ConstructProps extends ValueInteger_ConstructProps {
 }
 export class ValueInt2 {
-    /* Fields of Vda.ValueInt2 */
+    /* Fields of Vda-1.Vda.ValueInt2 */
     parent_instance: ValueInteger
     priv: ValueInt2Private
-    /* Fields of Vda.Value */
+    /* Fields of Vda-1.Vda.Value */
     _name: string
     _val: any
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Vda.Value */
+    /* Methods of Vda-1.Vda.Value */
     force_value(val: any): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -21631,7 +21631,7 @@ export class ValueInt2 {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Vda.Value */
+    /* Virtual methods of Vda-1.Vda.Value */
     vfunc_force_value(val: any): boolean
     vfunc_to_string(): string
     vfunc_parse(str: string): boolean
@@ -21642,7 +21642,7 @@ export class ValueInt2 {
     vfunc_to_string_quoted(): string
     vfunc_to_sql_expression(): string
     vfunc_get_name(): string
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -21650,7 +21650,7 @@ export class ValueInt2 {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: ValueInt2, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: ValueInt2, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -21668,17 +21668,17 @@ export class ValueInt2 {
 export interface ValueInt4_ConstructProps extends ValueInteger_ConstructProps {
 }
 export class ValueInt4 {
-    /* Fields of Vda.ValueInt4 */
+    /* Fields of Vda-1.Vda.ValueInt4 */
     parent_instance: ValueInteger
     priv: ValueInt4Private
-    /* Fields of Vda.Value */
+    /* Fields of Vda-1.Vda.Value */
     _name: string
     _val: any
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Vda.Value */
+    /* Methods of Vda-1.Vda.Value */
     force_value(val: any): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -21700,7 +21700,7 @@ export class ValueInt4 {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Vda.Value */
+    /* Virtual methods of Vda-1.Vda.Value */
     vfunc_force_value(val: any): boolean
     vfunc_to_string(): string
     vfunc_parse(str: string): boolean
@@ -21711,7 +21711,7 @@ export class ValueInt4 {
     vfunc_to_string_quoted(): string
     vfunc_to_sql_expression(): string
     vfunc_get_name(): string
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -21719,7 +21719,7 @@ export class ValueInt4 {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: ValueInt4, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: ValueInt4, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -21737,17 +21737,17 @@ export class ValueInt4 {
 export interface ValueInt8_ConstructProps extends ValueInteger_ConstructProps {
 }
 export class ValueInt8 {
-    /* Fields of Vda.ValueInt8 */
+    /* Fields of Vda-1.Vda.ValueInt8 */
     parent_instance: ValueInteger
     priv: ValueInt8Private
-    /* Fields of Vda.Value */
+    /* Fields of Vda-1.Vda.Value */
     _name: string
     _val: any
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Vda.Value */
+    /* Methods of Vda-1.Vda.Value */
     force_value(val: any): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -21769,7 +21769,7 @@ export class ValueInt8 {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Vda.Value */
+    /* Virtual methods of Vda-1.Vda.Value */
     vfunc_force_value(val: any): boolean
     vfunc_to_string(): string
     vfunc_parse(str: string): boolean
@@ -21780,7 +21780,7 @@ export class ValueInt8 {
     vfunc_to_string_quoted(): string
     vfunc_to_sql_expression(): string
     vfunc_get_name(): string
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -21788,7 +21788,7 @@ export class ValueInt8 {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: ValueInt8, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: ValueInt8, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -21806,17 +21806,17 @@ export class ValueInt8 {
 export interface ValueInt16_ConstructProps extends ValueInteger_ConstructProps {
 }
 export class ValueInt16 {
-    /* Fields of Vda.ValueInt16 */
+    /* Fields of Vda-1.Vda.ValueInt16 */
     parent_instance: ValueInteger
     priv: ValueInt16Private
-    /* Fields of Vda.Value */
+    /* Fields of Vda-1.Vda.Value */
     _name: string
     _val: any
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Vda.Value */
+    /* Methods of Vda-1.Vda.Value */
     force_value(val: any): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -21838,7 +21838,7 @@ export class ValueInt16 {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Vda.Value */
+    /* Virtual methods of Vda-1.Vda.Value */
     vfunc_force_value(val: any): boolean
     vfunc_to_string(): string
     vfunc_parse(str: string): boolean
@@ -21849,7 +21849,7 @@ export class ValueInt16 {
     vfunc_to_string_quoted(): string
     vfunc_to_sql_expression(): string
     vfunc_get_name(): string
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -21857,7 +21857,7 @@ export class ValueInt16 {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: ValueInt16, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: ValueInt16, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -21875,17 +21875,17 @@ export class ValueInt16 {
 export interface ValueInt32_ConstructProps extends ValueInteger_ConstructProps {
 }
 export class ValueInt32 {
-    /* Fields of Vda.ValueInt32 */
+    /* Fields of Vda-1.Vda.ValueInt32 */
     parent_instance: ValueInteger
     priv: ValueInt32Private
-    /* Fields of Vda.Value */
+    /* Fields of Vda-1.Vda.Value */
     _name: string
     _val: any
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Vda.Value */
+    /* Methods of Vda-1.Vda.Value */
     force_value(val: any): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -21907,7 +21907,7 @@ export class ValueInt32 {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Vda.Value */
+    /* Virtual methods of Vda-1.Vda.Value */
     vfunc_force_value(val: any): boolean
     vfunc_to_string(): string
     vfunc_parse(str: string): boolean
@@ -21918,7 +21918,7 @@ export class ValueInt32 {
     vfunc_to_string_quoted(): string
     vfunc_to_sql_expression(): string
     vfunc_get_name(): string
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -21926,7 +21926,7 @@ export class ValueInt32 {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: ValueInt32, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: ValueInt32, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -21944,17 +21944,17 @@ export class ValueInt32 {
 export interface ValueInt64_ConstructProps extends ValueInteger_ConstructProps {
 }
 export class ValueInt64 {
-    /* Fields of Vda.ValueInt64 */
+    /* Fields of Vda-1.Vda.ValueInt64 */
     parent_instance: ValueInteger
     priv: ValueInt64Private
-    /* Fields of Vda.Value */
+    /* Fields of Vda-1.Vda.Value */
     _name: string
     _val: any
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Vda.Value */
+    /* Methods of Vda-1.Vda.Value */
     force_value(val: any): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -21976,7 +21976,7 @@ export class ValueInt64 {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Vda.Value */
+    /* Virtual methods of Vda-1.Vda.Value */
     vfunc_force_value(val: any): boolean
     vfunc_to_string(): string
     vfunc_parse(str: string): boolean
@@ -21987,7 +21987,7 @@ export class ValueInt64 {
     vfunc_to_string_quoted(): string
     vfunc_to_sql_expression(): string
     vfunc_get_name(): string
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -21995,7 +21995,7 @@ export class ValueInt64 {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: ValueInt64, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: ValueInt64, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -22013,17 +22013,17 @@ export class ValueInt64 {
 export interface ValueOid_ConstructProps extends ValueInteger_ConstructProps {
 }
 export class ValueOid {
-    /* Fields of Vda.ValueOid */
+    /* Fields of Vda-1.Vda.ValueOid */
     parent_instance: ValueInteger
     priv: ValueOidPrivate
-    /* Fields of Vda.Value */
+    /* Fields of Vda-1.Vda.Value */
     _name: string
     _val: any
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Vda.Value */
+    /* Methods of Vda-1.Vda.Value */
     force_value(val: any): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -22045,7 +22045,7 @@ export class ValueOid {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Vda.Value */
+    /* Virtual methods of Vda-1.Vda.Value */
     vfunc_force_value(val: any): boolean
     vfunc_to_string(): string
     vfunc_parse(str: string): boolean
@@ -22056,7 +22056,7 @@ export class ValueOid {
     vfunc_to_string_quoted(): string
     vfunc_to_sql_expression(): string
     vfunc_get_name(): string
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -22064,7 +22064,7 @@ export class ValueOid {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: ValueOid, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: ValueOid, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -22082,17 +22082,17 @@ export class ValueOid {
 export interface ValueNumeric_ConstructProps extends Value_ConstructProps {
 }
 export class ValueNumeric {
-    /* Fields of Vda.ValueNumeric */
+    /* Fields of Vda-1.Vda.ValueNumeric */
     parent_instance: Value
     priv: ValueNumericPrivate
-    /* Fields of Vda.Value */
+    /* Fields of Vda-1.Vda.Value */
     _name: string
     _val: any
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Vda.Value */
+    /* Methods of Vda-1.Vda.Value */
     force_value(val: any): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -22114,7 +22114,7 @@ export class ValueNumeric {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of Vda.SqlValueNumeric */
+    /* Methods of Vda-1.Vda.SqlValueNumeric */
     set_precision(p: number): void
     get_precision(): number
     format(str: string): string
@@ -22124,7 +22124,7 @@ export class ValueNumeric {
     set_real(r: number): void
     get_imaginary(): number
     set_imaginary(img: number): void
-    /* Virtual methods of Vda.ValueNumeric */
+    /* Virtual methods of Vda-1.Vda.ValueNumeric */
     vfunc_set_precision(p: number): void
     vfunc_get_precision(): number
     vfunc_format(str: string): string
@@ -22134,7 +22134,7 @@ export class ValueNumeric {
     vfunc_set_real(r: number): void
     vfunc_get_imaginary(): number
     vfunc_set_imaginary(img: number): void
-    /* Virtual methods of Vda.Value */
+    /* Virtual methods of Vda-1.Vda.Value */
     vfunc_force_value(val: any): boolean
     vfunc_to_string(): string
     vfunc_parse(str: string): boolean
@@ -22145,7 +22145,7 @@ export class ValueNumeric {
     vfunc_to_string_quoted(): string
     vfunc_to_sql_expression(): string
     vfunc_get_name(): string
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -22153,7 +22153,7 @@ export class ValueNumeric {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: ValueNumeric, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: ValueNumeric, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -22171,17 +22171,17 @@ export class ValueNumeric {
 export interface ValueFloat_ConstructProps extends ValueNumeric_ConstructProps {
 }
 export class ValueFloat {
-    /* Fields of Vda.ValueFloat */
+    /* Fields of Vda-1.Vda.ValueFloat */
     parent_instance: ValueNumeric
     priv: ValueFloatPrivate
-    /* Fields of Vda.Value */
+    /* Fields of Vda-1.Vda.Value */
     _name: string
     _val: any
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Vda.Value */
+    /* Methods of Vda-1.Vda.Value */
     force_value(val: any): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -22203,11 +22203,11 @@ export class ValueFloat {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of Vda.SqlValueFloat */
+    /* Methods of Vda-1.Vda.SqlValueFloat */
     get_float(): number
-    /* Virtual methods of Vda.ValueFloat */
+    /* Virtual methods of Vda-1.Vda.ValueFloat */
     vfunc_get_float(): number
-    /* Virtual methods of Vda.ValueNumeric */
+    /* Virtual methods of Vda-1.Vda.ValueNumeric */
     vfunc_set_precision(p: number): void
     vfunc_get_precision(): number
     vfunc_format(str: string): string
@@ -22217,7 +22217,7 @@ export class ValueFloat {
     vfunc_set_real(r: number): void
     vfunc_get_imaginary(): number
     vfunc_set_imaginary(img: number): void
-    /* Virtual methods of Vda.Value */
+    /* Virtual methods of Vda-1.Vda.Value */
     vfunc_force_value(val: any): boolean
     vfunc_to_string(): string
     vfunc_parse(str: string): boolean
@@ -22228,7 +22228,7 @@ export class ValueFloat {
     vfunc_to_string_quoted(): string
     vfunc_to_sql_expression(): string
     vfunc_get_name(): string
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -22236,7 +22236,7 @@ export class ValueFloat {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: ValueFloat, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: ValueFloat, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -22254,17 +22254,17 @@ export class ValueFloat {
 export interface ValueDouble_ConstructProps extends ValueNumeric_ConstructProps {
 }
 export class ValueDouble {
-    /* Fields of Vda.ValueDouble */
+    /* Fields of Vda-1.Vda.ValueDouble */
     parent_instance: ValueNumeric
     priv: ValueDoublePrivate
-    /* Fields of Vda.Value */
+    /* Fields of Vda-1.Vda.Value */
     _name: string
     _val: any
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Vda.Value */
+    /* Methods of Vda-1.Vda.Value */
     force_value(val: any): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -22286,7 +22286,7 @@ export class ValueDouble {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Vda.ValueNumeric */
+    /* Virtual methods of Vda-1.Vda.ValueNumeric */
     vfunc_set_precision(p: number): void
     vfunc_get_precision(): number
     vfunc_format(str: string): string
@@ -22296,7 +22296,7 @@ export class ValueDouble {
     vfunc_set_real(r: number): void
     vfunc_get_imaginary(): number
     vfunc_set_imaginary(img: number): void
-    /* Virtual methods of Vda.Value */
+    /* Virtual methods of Vda-1.Vda.Value */
     vfunc_force_value(val: any): boolean
     vfunc_to_string(): string
     vfunc_parse(str: string): boolean
@@ -22307,7 +22307,7 @@ export class ValueDouble {
     vfunc_to_string_quoted(): string
     vfunc_to_sql_expression(): string
     vfunc_get_name(): string
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -22315,7 +22315,7 @@ export class ValueDouble {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: ValueDouble, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: ValueDouble, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -22333,17 +22333,17 @@ export class ValueDouble {
 export interface ValueMoney_ConstructProps extends ValueNumeric_ConstructProps {
 }
 export class ValueMoney {
-    /* Fields of Vda.ValueMoney */
+    /* Fields of Vda-1.Vda.ValueMoney */
     parent_instance: ValueNumeric
     priv: ValueMoneyPrivate
-    /* Fields of Vda.Value */
+    /* Fields of Vda-1.Vda.Value */
     _name: string
     _val: any
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Vda.Value */
+    /* Methods of Vda-1.Vda.Value */
     force_value(val: any): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -22365,17 +22365,17 @@ export class ValueMoney {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of Vda.SqlValueMoney */
+    /* Methods of Vda-1.Vda.SqlValueMoney */
     locale(): string
     int_locale(): string
     get_int_precision(): number
     set_int_precision(p: number): void
-    /* Virtual methods of Vda.ValueMoney */
+    /* Virtual methods of Vda-1.Vda.ValueMoney */
     vfunc_locale(): string
     vfunc_int_locale(): string
     vfunc_get_int_precision(): number
     vfunc_set_int_precision(p: number): void
-    /* Virtual methods of Vda.ValueNumeric */
+    /* Virtual methods of Vda-1.Vda.ValueNumeric */
     vfunc_set_precision(p: number): void
     vfunc_get_precision(): number
     vfunc_format(str: string): string
@@ -22385,7 +22385,7 @@ export class ValueMoney {
     vfunc_set_real(r: number): void
     vfunc_get_imaginary(): number
     vfunc_set_imaginary(img: number): void
-    /* Virtual methods of Vda.Value */
+    /* Virtual methods of Vda-1.Vda.Value */
     vfunc_force_value(val: any): boolean
     vfunc_to_string(): string
     vfunc_parse(str: string): boolean
@@ -22396,7 +22396,7 @@ export class ValueMoney {
     vfunc_to_string_quoted(): string
     vfunc_to_sql_expression(): string
     vfunc_get_name(): string
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -22404,7 +22404,7 @@ export class ValueMoney {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: ValueMoney, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: ValueMoney, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -22422,18 +22422,18 @@ export class ValueMoney {
 export interface ValueTimestamp_ConstructProps extends Value_ConstructProps {
 }
 export class ValueTimestamp {
-    /* Fields of Vda.ValueTimestamp */
+    /* Fields of Vda-1.Vda.ValueTimestamp */
     parent_instance: Value
     priv: ValueTimestampPrivate
     dt: GLib.DateTime
-    /* Fields of Vda.Value */
+    /* Fields of Vda-1.Vda.Value */
     _name: string
     _val: any
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Vda.Value */
+    /* Methods of Vda-1.Vda.Value */
     force_value(val: any): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -22455,7 +22455,7 @@ export class ValueTimestamp {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of Vda.SqlValueTimestamp */
+    /* Methods of Vda-1.Vda.SqlValueTimestamp */
     format_local(): string
     format_utc(): string
     format_locale(): string
@@ -22466,7 +22466,7 @@ export class ValueTimestamp {
     format_time_local_ntz(): string
     get_timestamp(): GLib.DateTime
     set_timestamp(ts: GLib.DateTime): void
-    /* Virtual methods of Vda.ValueTimestamp */
+    /* Virtual methods of Vda-1.Vda.ValueTimestamp */
     vfunc_format_local(): string
     vfunc_format_utc(): string
     vfunc_format_locale(): string
@@ -22477,7 +22477,7 @@ export class ValueTimestamp {
     vfunc_format_time_local_ntz(): string
     vfunc_get_timestamp(): GLib.DateTime
     vfunc_set_timestamp(ts: GLib.DateTime): void
-    /* Virtual methods of Vda.Value */
+    /* Virtual methods of Vda-1.Vda.Value */
     vfunc_force_value(val: any): boolean
     vfunc_to_string(): string
     vfunc_parse(str: string): boolean
@@ -22488,7 +22488,7 @@ export class ValueTimestamp {
     vfunc_to_string_quoted(): string
     vfunc_to_sql_expression(): string
     vfunc_get_name(): string
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -22496,7 +22496,7 @@ export class ValueTimestamp {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: ValueTimestamp, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: ValueTimestamp, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -22514,19 +22514,19 @@ export class ValueTimestamp {
 export interface ValueTimestampNtz_ConstructProps extends ValueTimestamp_ConstructProps {
 }
 export class ValueTimestampNtz {
-    /* Fields of Vda.ValueTimestampNtz */
+    /* Fields of Vda-1.Vda.ValueTimestampNtz */
     parent_instance: ValueTimestamp
     priv: ValueTimestampNtzPrivate
-    /* Fields of Vda.ValueTimestamp */
+    /* Fields of Vda-1.Vda.ValueTimestamp */
     dt: GLib.DateTime
-    /* Fields of Vda.Value */
+    /* Fields of Vda-1.Vda.Value */
     _name: string
     _val: any
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Vda.Value */
+    /* Methods of Vda-1.Vda.Value */
     force_value(val: any): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -22548,7 +22548,7 @@ export class ValueTimestampNtz {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Vda.ValueTimestamp */
+    /* Virtual methods of Vda-1.Vda.ValueTimestamp */
     vfunc_format_local(): string
     vfunc_format_utc(): string
     vfunc_format_locale(): string
@@ -22559,7 +22559,7 @@ export class ValueTimestampNtz {
     vfunc_format_time_local_ntz(): string
     vfunc_get_timestamp(): GLib.DateTime
     vfunc_set_timestamp(ts: GLib.DateTime): void
-    /* Virtual methods of Vda.Value */
+    /* Virtual methods of Vda-1.Vda.Value */
     vfunc_force_value(val: any): boolean
     vfunc_to_string(): string
     vfunc_parse(str: string): boolean
@@ -22570,7 +22570,7 @@ export class ValueTimestampNtz {
     vfunc_to_string_quoted(): string
     vfunc_to_sql_expression(): string
     vfunc_get_name(): string
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -22578,7 +22578,7 @@ export class ValueTimestampNtz {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: ValueTimestampNtz, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: ValueTimestampNtz, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -22596,19 +22596,19 @@ export class ValueTimestampNtz {
 export interface ValueTime_ConstructProps extends ValueTimestamp_ConstructProps {
 }
 export class ValueTime {
-    /* Fields of Vda.ValueTime */
+    /* Fields of Vda-1.Vda.ValueTime */
     parent_instance: ValueTimestamp
     priv: ValueTimePrivate
-    /* Fields of Vda.ValueTimestamp */
+    /* Fields of Vda-1.Vda.ValueTimestamp */
     dt: GLib.DateTime
-    /* Fields of Vda.Value */
+    /* Fields of Vda-1.Vda.Value */
     _name: string
     _val: any
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Vda.Value */
+    /* Methods of Vda-1.Vda.Value */
     force_value(val: any): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -22630,7 +22630,7 @@ export class ValueTime {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Vda.ValueTimestamp */
+    /* Virtual methods of Vda-1.Vda.ValueTimestamp */
     vfunc_format_local(): string
     vfunc_format_utc(): string
     vfunc_format_locale(): string
@@ -22641,7 +22641,7 @@ export class ValueTime {
     vfunc_format_time_local_ntz(): string
     vfunc_get_timestamp(): GLib.DateTime
     vfunc_set_timestamp(ts: GLib.DateTime): void
-    /* Virtual methods of Vda.Value */
+    /* Virtual methods of Vda-1.Vda.Value */
     vfunc_force_value(val: any): boolean
     vfunc_to_string(): string
     vfunc_parse(str: string): boolean
@@ -22652,7 +22652,7 @@ export class ValueTime {
     vfunc_to_string_quoted(): string
     vfunc_to_sql_expression(): string
     vfunc_get_name(): string
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -22660,7 +22660,7 @@ export class ValueTime {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: ValueTime, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: ValueTime, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -22678,19 +22678,19 @@ export class ValueTime {
 export interface ValueTimeNtz_ConstructProps extends ValueTimestamp_ConstructProps {
 }
 export class ValueTimeNtz {
-    /* Fields of Vda.ValueTimeNtz */
+    /* Fields of Vda-1.Vda.ValueTimeNtz */
     parent_instance: ValueTimestamp
     priv: ValueTimeNtzPrivate
-    /* Fields of Vda.ValueTimestamp */
+    /* Fields of Vda-1.Vda.ValueTimestamp */
     dt: GLib.DateTime
-    /* Fields of Vda.Value */
+    /* Fields of Vda-1.Vda.Value */
     _name: string
     _val: any
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Vda.Value */
+    /* Methods of Vda-1.Vda.Value */
     force_value(val: any): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -22712,7 +22712,7 @@ export class ValueTimeNtz {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Vda.ValueTimestamp */
+    /* Virtual methods of Vda-1.Vda.ValueTimestamp */
     vfunc_format_local(): string
     vfunc_format_utc(): string
     vfunc_format_locale(): string
@@ -22723,7 +22723,7 @@ export class ValueTimeNtz {
     vfunc_format_time_local_ntz(): string
     vfunc_get_timestamp(): GLib.DateTime
     vfunc_set_timestamp(ts: GLib.DateTime): void
-    /* Virtual methods of Vda.Value */
+    /* Virtual methods of Vda-1.Vda.Value */
     vfunc_force_value(val: any): boolean
     vfunc_to_string(): string
     vfunc_parse(str: string): boolean
@@ -22734,7 +22734,7 @@ export class ValueTimeNtz {
     vfunc_to_string_quoted(): string
     vfunc_to_sql_expression(): string
     vfunc_get_name(): string
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -22742,7 +22742,7 @@ export class ValueTimeNtz {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: ValueTimeNtz, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: ValueTimeNtz, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -22760,18 +22760,18 @@ export class ValueTimeNtz {
 export interface ValueDate_ConstructProps extends Value_ConstructProps {
 }
 export class ValueDate {
-    /* Fields of Vda.ValueDate */
+    /* Fields of Vda-1.Vda.ValueDate */
     parent_instance: Value
     priv: ValueDatePrivate
     d: GLib.Date
-    /* Fields of Vda.Value */
+    /* Fields of Vda-1.Vda.Value */
     _name: string
     _val: any
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Vda.Value */
+    /* Methods of Vda-1.Vda.Value */
     force_value(val: any): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -22793,13 +22793,13 @@ export class ValueDate {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of Vda.SqlValueDate */
+    /* Methods of Vda-1.Vda.SqlValueDate */
     get_date(): /* result */ GLib.Date
     set_date(ts: GLib.Date): void
-    /* Virtual methods of Vda.ValueDate */
+    /* Virtual methods of Vda-1.Vda.ValueDate */
     vfunc_get_date(): /* result */ GLib.Date
     vfunc_set_date(ts: GLib.Date): void
-    /* Virtual methods of Vda.Value */
+    /* Virtual methods of Vda-1.Vda.Value */
     vfunc_force_value(val: any): boolean
     vfunc_to_string(): string
     vfunc_parse(str: string): boolean
@@ -22810,7 +22810,7 @@ export class ValueDate {
     vfunc_to_string_quoted(): string
     vfunc_to_sql_expression(): string
     vfunc_get_name(): string
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -22818,7 +22818,7 @@ export class ValueDate {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: ValueDate, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: ValueDate, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -22837,16 +22837,16 @@ export interface ValueMathExp_ConstructProps extends GObject.Object_ConstructPro
     math?: GCalc.MathEquationManager
 }
 export class ValueMathExp {
-    /* Properties of Vda.SqlValue */
+    /* Properties of Vda-1.Vda.SqlValue */
     readonly name: string
-    /* Properties of Vda.SqlValueMathExp */
+    /* Properties of Vda-1.Vda.SqlValueMathExp */
     math: GCalc.MathEquationManager
-    /* Fields of Vda.ValueMathExp */
+    /* Fields of Vda-1.Vda.ValueMathExp */
     parent_instance: GObject.Object
     priv: ValueMathExpPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -22868,9 +22868,9 @@ export class ValueMathExp {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of Vda.Stringifiable */
+    /* Methods of Vda-1.Vda.Stringifiable */
     to_string(): string
-    /* Methods of Vda.SqlValue */
+    /* Methods of Vda-1.Vda.SqlValue */
     parse(str: string): boolean
     from_value(val: any): boolean
     cast(type: GObject.Type): SqlValue | null
@@ -22879,10 +22879,10 @@ export class ValueMathExp {
     to_string_quoted(): string
     to_sql_expression(): string
     get_name(): string
-    /* Methods of Vda.SqlValueMathExp */
+    /* Methods of Vda-1.Vda.SqlValueMathExp */
     get_math(): GCalc.MathEquationManager
     set_math(value: GCalc.MathEquationManager): void
-    /* Virtual methods of Vda.ValueMathExp */
+    /* Virtual methods of Vda-1.Vda.ValueMathExp */
     vfunc_to_string(): string
     vfunc_parse(str: string): boolean
     vfunc_from_value(val: any): boolean
@@ -22894,7 +22894,7 @@ export class ValueMathExp {
     vfunc_get_name(): string
     vfunc_get_math(): GCalc.MathEquationManager
     vfunc_set_math(value: GCalc.MathEquationManager): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -22902,7 +22902,7 @@ export class ValueMathExp {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: ValueMathExp, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: ValueMathExp, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -22924,7 +22924,7 @@ export class ValueMathExp {
     static $gtype: GObject.Type
 }
 export abstract class AffectedRowsClass {
-    /* Fields of Vda.AffectedRowsClass */
+    /* Fields of Vda-1.Vda.AffectedRowsClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
@@ -22932,7 +22932,7 @@ export class AffectedRowsPrivate {
     static name: string
 }
 export abstract class CommandDeleteClass {
-    /* Fields of Vda.CommandDeleteClass */
+    /* Fields of Vda-1.Vda.CommandDeleteClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
@@ -22940,7 +22940,7 @@ export class CommandDeletePrivate {
     static name: string
 }
 export abstract class CommandInsertClass {
-    /* Fields of Vda.CommandInsertClass */
+    /* Fields of Vda-1.Vda.CommandInsertClass */
     parent_class: CommandModificationClass
     static name: string
 }
@@ -22948,7 +22948,7 @@ export class CommandInsertPrivate {
     static name: string
 }
 export abstract class CommandModificationClass {
-    /* Fields of Vda.CommandModificationClass */
+    /* Fields of Vda-1.Vda.CommandModificationClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
@@ -22956,7 +22956,7 @@ export class CommandModificationPrivate {
     static name: string
 }
 export abstract class CommandSelectClass {
-    /* Fields of Vda.CommandSelectClass */
+    /* Fields of Vda-1.Vda.CommandSelectClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
@@ -22964,7 +22964,7 @@ export class CommandSelectPrivate {
     static name: string
 }
 export abstract class CommandUpdateClass {
-    /* Fields of Vda.CommandUpdateClass */
+    /* Fields of Vda-1.Vda.CommandUpdateClass */
     parent_class: CommandModificationClass
     static name: string
 }
@@ -22972,7 +22972,7 @@ export class CommandUpdatePrivate {
     static name: string
 }
 export abstract class ConnectionParameterClass {
-    /* Fields of Vda.ConnectionParameterClass */
+    /* Fields of Vda-1.Vda.ConnectionParameterClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
@@ -22980,7 +22980,7 @@ export class ConnectionParameterPrivate {
     static name: string
 }
 export abstract class ConnectionParameterDbNameClass {
-    /* Fields of Vda.ConnectionParameterDbNameClass */
+    /* Fields of Vda-1.Vda.ConnectionParameterDbNameClass */
     parent_class: ConnectionParameterClass
     static name: string
 }
@@ -22988,7 +22988,7 @@ export class ConnectionParameterDbNamePrivate {
     static name: string
 }
 export abstract class ConnectionParameterHostClass {
-    /* Fields of Vda.ConnectionParameterHostClass */
+    /* Fields of Vda-1.Vda.ConnectionParameterHostClass */
     parent_class: ConnectionParameterClass
     static name: string
 }
@@ -22996,7 +22996,7 @@ export class ConnectionParameterHostPrivate {
     static name: string
 }
 export abstract class ConnectionParameterPortClass {
-    /* Fields of Vda.ConnectionParameterPortClass */
+    /* Fields of Vda-1.Vda.ConnectionParameterPortClass */
     parent_class: ConnectionParameterClass
     static name: string
 }
@@ -23004,7 +23004,7 @@ export class ConnectionParameterPortPrivate {
     static name: string
 }
 export abstract class ConnectionParameterUserNameClass {
-    /* Fields of Vda.ConnectionParameterUserNameClass */
+    /* Fields of Vda-1.Vda.ConnectionParameterUserNameClass */
     parent_class: ConnectionParameterClass
     static name: string
 }
@@ -23012,7 +23012,7 @@ export class ConnectionParameterUserNamePrivate {
     static name: string
 }
 export abstract class ConnectionParameterPasswordClass {
-    /* Fields of Vda.ConnectionParameterPasswordClass */
+    /* Fields of Vda-1.Vda.ConnectionParameterPasswordClass */
     parent_class: ConnectionParameterClass
     static name: string
 }
@@ -23020,7 +23020,7 @@ export class ConnectionParameterPasswordPrivate {
     static name: string
 }
 export abstract class ConnectionParametersClass {
-    /* Fields of Vda.ConnectionParametersClass */
+    /* Fields of Vda-1.Vda.ConnectionParametersClass */
     parent_class: Gee.HashMapClass
     parse: (self: ConnectionParameters, cnstring: string) => void
     static name: string
@@ -23029,7 +23029,7 @@ export class ConnectionParametersPrivate {
     static name: string
 }
 export abstract class ExpressionClass {
-    /* Fields of Vda.ExpressionClass */
+    /* Fields of Vda-1.Vda.ExpressionClass */
     parent_class: Gee.ArrayListClass
     to_string: (self: Expression) => string
     static name: string
@@ -23038,7 +23038,7 @@ export class ExpressionPrivate {
     static name: string
 }
 export abstract class ExpressionFieldClass {
-    /* Fields of Vda.ExpressionFieldClass */
+    /* Fields of Vda-1.Vda.ExpressionFieldClass */
     parent_class: ExpressionClass
     static name: string
 }
@@ -23046,7 +23046,7 @@ export class ExpressionFieldPrivate {
     static name: string
 }
 export abstract class ExpressionOperatorClass {
-    /* Fields of Vda.ExpressionOperatorClass */
+    /* Fields of Vda-1.Vda.ExpressionOperatorClass */
     parent_class: ExpressionClass
     static name: string
 }
@@ -23054,7 +23054,7 @@ export class ExpressionOperatorPrivate {
     static name: string
 }
 export abstract class ExpressionOperatorGroupClass {
-    /* Fields of Vda.ExpressionOperatorGroupClass */
+    /* Fields of Vda-1.Vda.ExpressionOperatorGroupClass */
     parent_class: ExpressionOperatorClass
     static name: string
 }
@@ -23062,7 +23062,7 @@ export class ExpressionOperatorGroupPrivate {
     static name: string
 }
 export abstract class ExpressionOperatorMultitermClass {
-    /* Fields of Vda.ExpressionOperatorMultitermClass */
+    /* Fields of Vda-1.Vda.ExpressionOperatorMultitermClass */
     parent_class: ExpressionOperatorClass
     static name: string
 }
@@ -23070,7 +23070,7 @@ export class ExpressionOperatorMultitermPrivate {
     static name: string
 }
 export abstract class ExpressionOperatorAndClass {
-    /* Fields of Vda.ExpressionOperatorAndClass */
+    /* Fields of Vda-1.Vda.ExpressionOperatorAndClass */
     parent_class: ExpressionOperatorMultitermClass
     static name: string
 }
@@ -23078,7 +23078,7 @@ export class ExpressionOperatorAndPrivate {
     static name: string
 }
 export abstract class ExpressionOperatorOrClass {
-    /* Fields of Vda.ExpressionOperatorOrClass */
+    /* Fields of Vda-1.Vda.ExpressionOperatorOrClass */
     parent_class: ExpressionOperatorMultitermClass
     static name: string
 }
@@ -23086,7 +23086,7 @@ export class ExpressionOperatorOrPrivate {
     static name: string
 }
 export abstract class ExpressionOperatorBinarytermClass {
-    /* Fields of Vda.ExpressionOperatorBinarytermClass */
+    /* Fields of Vda-1.Vda.ExpressionOperatorBinarytermClass */
     parent_class: ExpressionOperatorClass
     static name: string
 }
@@ -23094,7 +23094,7 @@ export class ExpressionOperatorBinarytermPrivate {
     static name: string
 }
 export abstract class ExpressionOperatorEqClass {
-    /* Fields of Vda.ExpressionOperatorEqClass */
+    /* Fields of Vda-1.Vda.ExpressionOperatorEqClass */
     parent_class: ExpressionOperatorBinarytermClass
     static name: string
 }
@@ -23102,7 +23102,7 @@ export class ExpressionOperatorEqPrivate {
     static name: string
 }
 export abstract class ExpressionOperatorNotEqClass {
-    /* Fields of Vda.ExpressionOperatorNotEqClass */
+    /* Fields of Vda-1.Vda.ExpressionOperatorNotEqClass */
     parent_class: ExpressionOperatorBinarytermClass
     static name: string
 }
@@ -23110,7 +23110,7 @@ export class ExpressionOperatorNotEqPrivate {
     static name: string
 }
 export abstract class ExpressionOperatorDiffClass {
-    /* Fields of Vda.ExpressionOperatorDiffClass */
+    /* Fields of Vda-1.Vda.ExpressionOperatorDiffClass */
     parent_class: ExpressionOperatorBinarytermClass
     static name: string
 }
@@ -23118,7 +23118,7 @@ export class ExpressionOperatorDiffPrivate {
     static name: string
 }
 export abstract class ExpressionOperatorGtClass {
-    /* Fields of Vda.ExpressionOperatorGtClass */
+    /* Fields of Vda-1.Vda.ExpressionOperatorGtClass */
     parent_class: ExpressionOperatorBinarytermClass
     static name: string
 }
@@ -23126,7 +23126,7 @@ export class ExpressionOperatorGtPrivate {
     static name: string
 }
 export abstract class ExpressionOperatorLtClass {
-    /* Fields of Vda.ExpressionOperatorLtClass */
+    /* Fields of Vda-1.Vda.ExpressionOperatorLtClass */
     parent_class: ExpressionOperatorBinarytermClass
     static name: string
 }
@@ -23134,7 +23134,7 @@ export class ExpressionOperatorLtPrivate {
     static name: string
 }
 export abstract class ExpressionOperatorGeqClass {
-    /* Fields of Vda.ExpressionOperatorGeqClass */
+    /* Fields of Vda-1.Vda.ExpressionOperatorGeqClass */
     parent_class: ExpressionOperatorBinarytermClass
     static name: string
 }
@@ -23142,7 +23142,7 @@ export class ExpressionOperatorGeqPrivate {
     static name: string
 }
 export abstract class ExpressionOperatorLeqClass {
-    /* Fields of Vda.ExpressionOperatorLeqClass */
+    /* Fields of Vda-1.Vda.ExpressionOperatorLeqClass */
     parent_class: ExpressionOperatorBinarytermClass
     static name: string
 }
@@ -23150,7 +23150,7 @@ export class ExpressionOperatorLeqPrivate {
     static name: string
 }
 export abstract class ExpressionOperatorRegexpClass {
-    /* Fields of Vda.ExpressionOperatorRegexpClass */
+    /* Fields of Vda-1.Vda.ExpressionOperatorRegexpClass */
     parent_class: ExpressionOperatorBinarytermClass
     static name: string
 }
@@ -23158,7 +23158,7 @@ export class ExpressionOperatorRegexpPrivate {
     static name: string
 }
 export abstract class ExpressionOperatorStarClass {
-    /* Fields of Vda.ExpressionOperatorStarClass */
+    /* Fields of Vda-1.Vda.ExpressionOperatorStarClass */
     parent_class: ExpressionOperatorBinarytermClass
     static name: string
 }
@@ -23166,7 +23166,7 @@ export class ExpressionOperatorStarPrivate {
     static name: string
 }
 export abstract class ExpressionOperatorDivClass {
-    /* Fields of Vda.ExpressionOperatorDivClass */
+    /* Fields of Vda-1.Vda.ExpressionOperatorDivClass */
     parent_class: ExpressionOperatorBinarytermClass
     static name: string
 }
@@ -23174,7 +23174,7 @@ export class ExpressionOperatorDivPrivate {
     static name: string
 }
 export abstract class ExpressionOperatorInClass {
-    /* Fields of Vda.ExpressionOperatorInClass */
+    /* Fields of Vda-1.Vda.ExpressionOperatorInClass */
     parent_class: ExpressionOperatorBinarytermClass
     static name: string
 }
@@ -23182,7 +23182,7 @@ export class ExpressionOperatorInPrivate {
     static name: string
 }
 export abstract class ExpressionOperatorNotInClass {
-    /* Fields of Vda.ExpressionOperatorNotInClass */
+    /* Fields of Vda-1.Vda.ExpressionOperatorNotInClass */
     parent_class: ExpressionOperatorBinarytermClass
     static name: string
 }
@@ -23190,7 +23190,7 @@ export class ExpressionOperatorNotInPrivate {
     static name: string
 }
 export abstract class ExpressionOperatorConcatenateClass {
-    /* Fields of Vda.ExpressionOperatorConcatenateClass */
+    /* Fields of Vda-1.Vda.ExpressionOperatorConcatenateClass */
     parent_class: ExpressionOperatorBinarytermClass
     static name: string
 }
@@ -23198,7 +23198,7 @@ export class ExpressionOperatorConcatenatePrivate {
     static name: string
 }
 export abstract class ExpressionOperatorSimilarToClass {
-    /* Fields of Vda.ExpressionOperatorSimilarToClass */
+    /* Fields of Vda-1.Vda.ExpressionOperatorSimilarToClass */
     parent_class: ExpressionOperatorBinarytermClass
     static name: string
 }
@@ -23206,7 +23206,7 @@ export class ExpressionOperatorSimilarToPrivate {
     static name: string
 }
 export abstract class ExpressionOperatorLikeClass {
-    /* Fields of Vda.ExpressionOperatorLikeClass */
+    /* Fields of Vda-1.Vda.ExpressionOperatorLikeClass */
     parent_class: ExpressionOperatorBinarytermClass
     static name: string
 }
@@ -23214,7 +23214,7 @@ export class ExpressionOperatorLikePrivate {
     static name: string
 }
 export abstract class ExpressionOperatorIlikeClass {
-    /* Fields of Vda.ExpressionOperatorIlikeClass */
+    /* Fields of Vda-1.Vda.ExpressionOperatorIlikeClass */
     parent_class: ExpressionOperatorBinarytermClass
     static name: string
 }
@@ -23222,7 +23222,7 @@ export class ExpressionOperatorIlikePrivate {
     static name: string
 }
 export abstract class ExpressionOperatorBinaryUnarytermClass {
-    /* Fields of Vda.ExpressionOperatorBinaryUnarytermClass */
+    /* Fields of Vda-1.Vda.ExpressionOperatorBinaryUnarytermClass */
     parent_class: ExpressionOperatorClass
     static name: string
 }
@@ -23230,7 +23230,7 @@ export class ExpressionOperatorBinaryUnarytermPrivate {
     static name: string
 }
 export abstract class ExpressionOperatorMinusClass {
-    /* Fields of Vda.ExpressionOperatorMinusClass */
+    /* Fields of Vda-1.Vda.ExpressionOperatorMinusClass */
     parent_class: ExpressionOperatorBinaryUnarytermClass
     static name: string
 }
@@ -23238,7 +23238,7 @@ export class ExpressionOperatorMinusPrivate {
     static name: string
 }
 export abstract class ExpressionOperatorPlusClass {
-    /* Fields of Vda.ExpressionOperatorPlusClass */
+    /* Fields of Vda-1.Vda.ExpressionOperatorPlusClass */
     parent_class: ExpressionOperatorBinaryUnarytermClass
     static name: string
 }
@@ -23246,7 +23246,7 @@ export class ExpressionOperatorPlusPrivate {
     static name: string
 }
 export abstract class ExpressionOperatorInitialUnarytermClass {
-    /* Fields of Vda.ExpressionOperatorInitialUnarytermClass */
+    /* Fields of Vda-1.Vda.ExpressionOperatorInitialUnarytermClass */
     parent_class: ExpressionOperatorClass
     static name: string
 }
@@ -23254,7 +23254,7 @@ export class ExpressionOperatorInitialUnarytermPrivate {
     static name: string
 }
 export abstract class ExpressionOperatorNotClass {
-    /* Fields of Vda.ExpressionOperatorNotClass */
+    /* Fields of Vda-1.Vda.ExpressionOperatorNotClass */
     parent_class: ExpressionOperatorInitialUnarytermClass
     static name: string
 }
@@ -23262,7 +23262,7 @@ export class ExpressionOperatorNotPrivate {
     static name: string
 }
 export abstract class ExpressionOperatorFinalUnarytermClass {
-    /* Fields of Vda.ExpressionOperatorFinalUnarytermClass */
+    /* Fields of Vda-1.Vda.ExpressionOperatorFinalUnarytermClass */
     parent_class: ExpressionOperatorClass
     static name: string
 }
@@ -23270,7 +23270,7 @@ export class ExpressionOperatorFinalUnarytermPrivate {
     static name: string
 }
 export abstract class ExpressionOperatorIsClass {
-    /* Fields of Vda.ExpressionOperatorIsClass */
+    /* Fields of Vda-1.Vda.ExpressionOperatorIsClass */
     parent_class: ExpressionOperatorFinalUnarytermClass
     static name: string
 }
@@ -23278,7 +23278,7 @@ export class ExpressionOperatorIsPrivate {
     static name: string
 }
 export abstract class ExpressionOperatorIsNotClass {
-    /* Fields of Vda.ExpressionOperatorIsNotClass */
+    /* Fields of Vda-1.Vda.ExpressionOperatorIsNotClass */
     parent_class: ExpressionOperatorIsClass
     static name: string
 }
@@ -23286,7 +23286,7 @@ export class ExpressionOperatorIsNotPrivate {
     static name: string
 }
 export abstract class ExpressionOperatorIsNullClass {
-    /* Fields of Vda.ExpressionOperatorIsNullClass */
+    /* Fields of Vda-1.Vda.ExpressionOperatorIsNullClass */
     parent_class: ExpressionOperatorIsClass
     static name: string
 }
@@ -23294,7 +23294,7 @@ export class ExpressionOperatorIsNullPrivate {
     static name: string
 }
 export abstract class ExpressionOperatorIsNotNullClass {
-    /* Fields of Vda.ExpressionOperatorIsNotNullClass */
+    /* Fields of Vda-1.Vda.ExpressionOperatorIsNotNullClass */
     parent_class: ExpressionOperatorIsNotClass
     static name: string
 }
@@ -23302,7 +23302,7 @@ export class ExpressionOperatorIsNotNullPrivate {
     static name: string
 }
 export abstract class ExpressionOperatorIsTrueClass {
-    /* Fields of Vda.ExpressionOperatorIsTrueClass */
+    /* Fields of Vda-1.Vda.ExpressionOperatorIsTrueClass */
     parent_class: ExpressionOperatorIsClass
     static name: string
 }
@@ -23310,7 +23310,7 @@ export class ExpressionOperatorIsTruePrivate {
     static name: string
 }
 export abstract class ExpressionOperatorIsNotTrueClass {
-    /* Fields of Vda.ExpressionOperatorIsNotTrueClass */
+    /* Fields of Vda-1.Vda.ExpressionOperatorIsNotTrueClass */
     parent_class: ExpressionOperatorIsNotClass
     static name: string
 }
@@ -23318,7 +23318,7 @@ export class ExpressionOperatorIsNotTruePrivate {
     static name: string
 }
 export abstract class ExpressionOperatorIsFalseClass {
-    /* Fields of Vda.ExpressionOperatorIsFalseClass */
+    /* Fields of Vda-1.Vda.ExpressionOperatorIsFalseClass */
     parent_class: ExpressionOperatorIsClass
     static name: string
 }
@@ -23326,7 +23326,7 @@ export class ExpressionOperatorIsFalsePrivate {
     static name: string
 }
 export abstract class ExpressionOperatorIsNotFalseClass {
-    /* Fields of Vda.ExpressionOperatorIsNotFalseClass */
+    /* Fields of Vda-1.Vda.ExpressionOperatorIsNotFalseClass */
     parent_class: ExpressionOperatorIsNotClass
     static name: string
 }
@@ -23334,7 +23334,7 @@ export class ExpressionOperatorIsNotFalsePrivate {
     static name: string
 }
 export abstract class ExpressionOperatorIsNotUnknownClass {
-    /* Fields of Vda.ExpressionOperatorIsNotUnknownClass */
+    /* Fields of Vda-1.Vda.ExpressionOperatorIsNotUnknownClass */
     parent_class: ExpressionOperatorIsNotClass
     static name: string
 }
@@ -23342,7 +23342,7 @@ export class ExpressionOperatorIsNotUnknownPrivate {
     static name: string
 }
 export abstract class ExpressionOperatorIsUnknownClass {
-    /* Fields of Vda.ExpressionOperatorIsUnknownClass */
+    /* Fields of Vda-1.Vda.ExpressionOperatorIsUnknownClass */
     parent_class: ExpressionOperatorIsClass
     static name: string
 }
@@ -23350,7 +23350,7 @@ export class ExpressionOperatorIsUnknownPrivate {
     static name: string
 }
 export abstract class ExpressionOperatorIsDistinctClass {
-    /* Fields of Vda.ExpressionOperatorIsDistinctClass */
+    /* Fields of Vda-1.Vda.ExpressionOperatorIsDistinctClass */
     parent_class: ExpressionOperatorIsClass
     static name: string
 }
@@ -23358,7 +23358,7 @@ export class ExpressionOperatorIsDistinctPrivate {
     static name: string
 }
 export abstract class ExpressionOperatorIsNotDistinctClass {
-    /* Fields of Vda.ExpressionOperatorIsNotDistinctClass */
+    /* Fields of Vda-1.Vda.ExpressionOperatorIsNotDistinctClass */
     parent_class: ExpressionOperatorIsNotClass
     static name: string
 }
@@ -23366,7 +23366,7 @@ export class ExpressionOperatorIsNotDistinctPrivate {
     static name: string
 }
 export abstract class ExpressionOperatorIsDistinctFromClass {
-    /* Fields of Vda.ExpressionOperatorIsDistinctFromClass */
+    /* Fields of Vda-1.Vda.ExpressionOperatorIsDistinctFromClass */
     parent_class: ExpressionOperatorIsDistinctClass
     static name: string
 }
@@ -23374,7 +23374,7 @@ export class ExpressionOperatorIsDistinctFromPrivate {
     static name: string
 }
 export abstract class ExpressionOperatorIsNotDistinctFromClass {
-    /* Fields of Vda.ExpressionOperatorIsNotDistinctFromClass */
+    /* Fields of Vda-1.Vda.ExpressionOperatorIsNotDistinctFromClass */
     parent_class: ExpressionOperatorIsNotDistinctClass
     static name: string
 }
@@ -23382,7 +23382,7 @@ export class ExpressionOperatorIsNotDistinctFromPrivate {
     static name: string
 }
 export abstract class ExpressionOperatorThreetermClass {
-    /* Fields of Vda.ExpressionOperatorThreetermClass */
+    /* Fields of Vda-1.Vda.ExpressionOperatorThreetermClass */
     parent_class: ExpressionOperatorClass
     static name: string
 }
@@ -23390,7 +23390,7 @@ export class ExpressionOperatorThreetermPrivate {
     static name: string
 }
 export abstract class ExpressionOperatorBetweenClass {
-    /* Fields of Vda.ExpressionOperatorBetweenClass */
+    /* Fields of Vda-1.Vda.ExpressionOperatorBetweenClass */
     parent_class: ExpressionOperatorThreetermClass
     static name: string
 }
@@ -23398,7 +23398,7 @@ export class ExpressionOperatorBetweenPrivate {
     static name: string
 }
 export abstract class ExpressionOperatorNotBetweenClass {
-    /* Fields of Vda.ExpressionOperatorNotBetweenClass */
+    /* Fields of Vda-1.Vda.ExpressionOperatorNotBetweenClass */
     parent_class: ExpressionOperatorThreetermClass
     static name: string
 }
@@ -23406,7 +23406,7 @@ export class ExpressionOperatorNotBetweenPrivate {
     static name: string
 }
 export abstract class ExpressionOperatorBetweenSymmetricClass {
-    /* Fields of Vda.ExpressionOperatorBetweenSymmetricClass */
+    /* Fields of Vda-1.Vda.ExpressionOperatorBetweenSymmetricClass */
     parent_class: ExpressionOperatorThreetermClass
     static name: string
 }
@@ -23414,7 +23414,7 @@ export class ExpressionOperatorBetweenSymmetricPrivate {
     static name: string
 }
 export abstract class ExpressionOperatorNotBetweenSymmetricClass {
-    /* Fields of Vda.ExpressionOperatorNotBetweenSymmetricClass */
+    /* Fields of Vda-1.Vda.ExpressionOperatorNotBetweenSymmetricClass */
     parent_class: ExpressionOperatorThreetermClass
     static name: string
 }
@@ -23422,7 +23422,7 @@ export class ExpressionOperatorNotBetweenSymmetricPrivate {
     static name: string
 }
 export abstract class ExpressionValueClass {
-    /* Fields of Vda.ExpressionValueClass */
+    /* Fields of Vda-1.Vda.ExpressionValueClass */
     parent_class: ExpressionClass
     static name: string
 }
@@ -23430,7 +23430,7 @@ export class ExpressionValuePrivate {
     static name: string
 }
 export abstract class ExpressionValueParameterClass {
-    /* Fields of Vda.ExpressionValueParameterClass */
+    /* Fields of Vda-1.Vda.ExpressionValueParameterClass */
     parent_class: ExpressionValueClass
     static name: string
 }
@@ -23438,7 +23438,7 @@ export class ExpressionValueParameterPrivate {
     static name: string
 }
 export abstract class HashListClass {
-    /* Fields of Vda.HashListClass */
+    /* Fields of Vda-1.Vda.HashListClass */
     parent_class: Gee.ArrayListClass
     static name: string
 }
@@ -23446,7 +23446,7 @@ export class HashListPrivate {
     static name: string
 }
 export abstract class InvalidQueryClass {
-    /* Fields of Vda.InvalidQueryClass */
+    /* Fields of Vda-1.Vda.InvalidQueryClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
@@ -23454,7 +23454,7 @@ export class InvalidQueryPrivate {
     static name: string
 }
 export abstract class InvalidPreparedQueryClass {
-    /* Fields of Vda.InvalidPreparedQueryClass */
+    /* Fields of Vda-1.Vda.InvalidPreparedQueryClass */
     parent_class: InvalidQueryClass
     static name: string
 }
@@ -23462,7 +23462,7 @@ export class InvalidPreparedQueryPrivate {
     static name: string
 }
 export abstract class InvalidResultClass {
-    /* Fields of Vda.InvalidResultClass */
+    /* Fields of Vda-1.Vda.InvalidResultClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
@@ -23470,7 +23470,7 @@ export class InvalidResultPrivate {
     static name: string
 }
 export abstract class ParametersClass {
-    /* Fields of Vda.ParametersClass */
+    /* Fields of Vda-1.Vda.ParametersClass */
     parent_class: Gee.HashMapClass
     static name: string
 }
@@ -23478,7 +23478,7 @@ export class ParametersPrivate {
     static name: string
 }
 export abstract class ParserClass {
-    /* Fields of Vda.ParserClass */
+    /* Fields of Vda-1.Vda.ParserClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
@@ -23486,7 +23486,7 @@ export class ParserPrivate {
     static name: string
 }
 export abstract class TableReferenceClass {
-    /* Fields of Vda.TableReferenceClass */
+    /* Fields of Vda-1.Vda.TableReferenceClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
@@ -23494,7 +23494,7 @@ export class TableReferencePrivate {
     static name: string
 }
 export abstract class ValueClass {
-    /* Fields of Vda.ValueClass */
+    /* Fields of Vda-1.Vda.ValueClass */
     parent_class: GObject.ObjectClass
     force_value: (self: Value, val: any) => boolean
     from_value: (self: Value, val: any) => boolean
@@ -23511,7 +23511,7 @@ export class ValuePrivate {
     static name: string
 }
 export abstract class ValueNullClass {
-    /* Fields of Vda.ValueNullClass */
+    /* Fields of Vda-1.Vda.ValueNullClass */
     parent_class: ValueClass
     static name: string
 }
@@ -23519,7 +23519,7 @@ export class ValueNullPrivate {
     static name: string
 }
 export abstract class ValueStringClass {
-    /* Fields of Vda.ValueStringClass */
+    /* Fields of Vda-1.Vda.ValueStringClass */
     parent_class: ValueClass
     static name: string
 }
@@ -23527,7 +23527,7 @@ export class ValueStringPrivate {
     static name: string
 }
 export abstract class ValueTextClass {
-    /* Fields of Vda.ValueTextClass */
+    /* Fields of Vda-1.Vda.ValueTextClass */
     parent_class: ValueStringClass
     static name: string
 }
@@ -23535,7 +23535,7 @@ export class ValueTextPrivate {
     static name: string
 }
 export abstract class ValueNameClass {
-    /* Fields of Vda.ValueNameClass */
+    /* Fields of Vda-1.Vda.ValueNameClass */
     parent_class: ValueStringClass
     static name: string
 }
@@ -23543,7 +23543,7 @@ export class ValueNamePrivate {
     static name: string
 }
 export abstract class ValueBoolClass {
-    /* Fields of Vda.ValueBoolClass */
+    /* Fields of Vda-1.Vda.ValueBoolClass */
     parent_class: ValueClass
     static name: string
 }
@@ -23551,7 +23551,7 @@ export class ValueBoolPrivate {
     static name: string
 }
 export abstract class ValueBitClass {
-    /* Fields of Vda.ValueBitClass */
+    /* Fields of Vda-1.Vda.ValueBitClass */
     parent_class: ValueBoolClass
     static name: string
 }
@@ -23559,7 +23559,7 @@ export class ValueBitPrivate {
     static name: string
 }
 export abstract class ValueIntegerClass {
-    /* Fields of Vda.ValueIntegerClass */
+    /* Fields of Vda-1.Vda.ValueIntegerClass */
     parent_class: ValueClass
     static name: string
 }
@@ -23567,7 +23567,7 @@ export class ValueIntegerPrivate {
     static name: string
 }
 export abstract class ValueInt2Class {
-    /* Fields of Vda.ValueInt2Class */
+    /* Fields of Vda-1.Vda.ValueInt2Class */
     parent_class: ValueIntegerClass
     static name: string
 }
@@ -23575,7 +23575,7 @@ export class ValueInt2Private {
     static name: string
 }
 export abstract class ValueInt4Class {
-    /* Fields of Vda.ValueInt4Class */
+    /* Fields of Vda-1.Vda.ValueInt4Class */
     parent_class: ValueIntegerClass
     static name: string
 }
@@ -23583,7 +23583,7 @@ export class ValueInt4Private {
     static name: string
 }
 export abstract class ValueInt8Class {
-    /* Fields of Vda.ValueInt8Class */
+    /* Fields of Vda-1.Vda.ValueInt8Class */
     parent_class: ValueIntegerClass
     static name: string
 }
@@ -23591,7 +23591,7 @@ export class ValueInt8Private {
     static name: string
 }
 export abstract class ValueInt16Class {
-    /* Fields of Vda.ValueInt16Class */
+    /* Fields of Vda-1.Vda.ValueInt16Class */
     parent_class: ValueIntegerClass
     static name: string
 }
@@ -23599,7 +23599,7 @@ export class ValueInt16Private {
     static name: string
 }
 export abstract class ValueInt32Class {
-    /* Fields of Vda.ValueInt32Class */
+    /* Fields of Vda-1.Vda.ValueInt32Class */
     parent_class: ValueIntegerClass
     static name: string
 }
@@ -23607,7 +23607,7 @@ export class ValueInt32Private {
     static name: string
 }
 export abstract class ValueInt64Class {
-    /* Fields of Vda.ValueInt64Class */
+    /* Fields of Vda-1.Vda.ValueInt64Class */
     parent_class: ValueIntegerClass
     static name: string
 }
@@ -23615,7 +23615,7 @@ export class ValueInt64Private {
     static name: string
 }
 export abstract class ValueOidClass {
-    /* Fields of Vda.ValueOidClass */
+    /* Fields of Vda-1.Vda.ValueOidClass */
     parent_class: ValueIntegerClass
     static name: string
 }
@@ -23623,7 +23623,7 @@ export class ValueOidPrivate {
     static name: string
 }
 export abstract class ValueNumericClass {
-    /* Fields of Vda.ValueNumericClass */
+    /* Fields of Vda-1.Vda.ValueNumericClass */
     parent_class: ValueClass
     format: (self: ValueNumeric, str: string) => string
     static name: string
@@ -23632,7 +23632,7 @@ export class ValueNumericPrivate {
     static name: string
 }
 export abstract class ValueFloatClass {
-    /* Fields of Vda.ValueFloatClass */
+    /* Fields of Vda-1.Vda.ValueFloatClass */
     parent_class: ValueNumericClass
     static name: string
 }
@@ -23640,7 +23640,7 @@ export class ValueFloatPrivate {
     static name: string
 }
 export abstract class ValueDoubleClass {
-    /* Fields of Vda.ValueDoubleClass */
+    /* Fields of Vda-1.Vda.ValueDoubleClass */
     parent_class: ValueNumericClass
     static name: string
 }
@@ -23648,7 +23648,7 @@ export class ValueDoublePrivate {
     static name: string
 }
 export abstract class ValueMoneyClass {
-    /* Fields of Vda.ValueMoneyClass */
+    /* Fields of Vda-1.Vda.ValueMoneyClass */
     parent_class: ValueNumericClass
     static name: string
 }
@@ -23656,7 +23656,7 @@ export class ValueMoneyPrivate {
     static name: string
 }
 export abstract class ValueTimestampClass {
-    /* Fields of Vda.ValueTimestampClass */
+    /* Fields of Vda-1.Vda.ValueTimestampClass */
     parent_class: ValueClass
     format_local: (self: ValueTimestamp) => string
     format_utc: (self: ValueTimestamp) => string
@@ -23667,7 +23667,7 @@ export class ValueTimestampPrivate {
     static name: string
 }
 export abstract class ValueTimestampNtzClass {
-    /* Fields of Vda.ValueTimestampNtzClass */
+    /* Fields of Vda-1.Vda.ValueTimestampNtzClass */
     parent_class: ValueTimestampClass
     static name: string
 }
@@ -23675,7 +23675,7 @@ export class ValueTimestampNtzPrivate {
     static name: string
 }
 export abstract class ValueTimeClass {
-    /* Fields of Vda.ValueTimeClass */
+    /* Fields of Vda-1.Vda.ValueTimeClass */
     parent_class: ValueTimestampClass
     static name: string
 }
@@ -23683,7 +23683,7 @@ export class ValueTimePrivate {
     static name: string
 }
 export abstract class ValueTimeNtzClass {
-    /* Fields of Vda.ValueTimeNtzClass */
+    /* Fields of Vda-1.Vda.ValueTimeNtzClass */
     parent_class: ValueTimestampClass
     static name: string
 }
@@ -23691,7 +23691,7 @@ export class ValueTimeNtzPrivate {
     static name: string
 }
 export abstract class ValueDateClass {
-    /* Fields of Vda.ValueDateClass */
+    /* Fields of Vda-1.Vda.ValueDateClass */
     parent_class: ValueClass
     static name: string
 }
@@ -23699,7 +23699,7 @@ export class ValueDatePrivate {
     static name: string
 }
 export abstract class ValueMathExpClass {
-    /* Fields of Vda.ValueMathExpClass */
+    /* Fields of Vda-1.Vda.ValueMathExpClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
@@ -23707,28 +23707,28 @@ export class ValueMathExpPrivate {
     static name: string
 }
 export abstract class MetaObjectIface {
-    /* Fields of Vda.MetaObjectIface */
+    /* Fields of Vda-1.Vda.MetaObjectIface */
     parent_iface: GObject.TypeInterface
     get_connection: (self: MetaObject) => Connection
     set_connection: (self: MetaObject, value: Connection) => void
     static name: string
 }
 export abstract class MetaNamedObjectIface {
-    /* Fields of Vda.MetaNamedObjectIface */
+    /* Fields of Vda-1.Vda.MetaNamedObjectIface */
     parent_iface: GObject.TypeInterface
     get_name: (self: MetaNamedObject) => string
     set_name: (self: MetaNamedObject, value: string) => void
     static name: string
 }
 export abstract class ColumnModelIface {
-    /* Fields of Vda.ColumnModelIface */
+    /* Fields of Vda-1.Vda.ColumnModelIface */
     parent_iface: GObject.TypeInterface
     get_name: (self: ColumnModel) => string
     get_data_type: (self: ColumnModel) => GObject.Type
     static name: string
 }
 export abstract class ConnectionIface {
-    /* Fields of Vda.ConnectionIface */
+    /* Fields of Vda-1.Vda.ConnectionIface */
     parent_iface: GObject.TypeInterface
     close: (self: Connection, _callback_?: Gio.AsyncReadyCallback | null) => void
     close_finish: (self: Connection, _res_: Gio.AsyncResult) => void
@@ -23757,7 +23757,7 @@ export abstract class ConnectionIface {
     static name: string
 }
 export abstract class DataObjectIface {
-    /* Fields of Vda.DataObjectIface */
+    /* Fields of Vda-1.Vda.DataObjectIface */
     parent_iface: GObject.TypeInterface
     update_data_from_db: (self: DataObject, _callback_?: Gio.AsyncReadyCallback | null) => void
     update_data_from_db_finish: (self: DataObject, _res_: Gio.AsyncResult) => void
@@ -23789,7 +23789,7 @@ export abstract class DataObjectIface {
     static name: string
 }
 export abstract class DataCollectionIface {
-    /* Fields of Vda.DataCollectionIface */
+    /* Fields of Vda-1.Vda.DataCollectionIface */
     parent_iface: GObject.TypeInterface
     get_objects: (self: DataCollection, _callback_?: Gio.AsyncReadyCallback | null) => void
     get_objects_finish: (self: DataCollection, _res_: Gio.AsyncResult) => TableModel
@@ -23804,7 +23804,7 @@ export abstract class DataCollectionIface {
     static name: string
 }
 export abstract class HashModelIface {
-    /* Fields of Vda.HashModelIface */
+    /* Fields of Vda-1.Vda.HashModelIface */
     parent_iface: GObject.TypeInterface
     add: (self: HashModel, object: GObject.Object) => void
     find: (self: HashModel, key: GObject.Object) => GObject.Object | null
@@ -23812,27 +23812,27 @@ export abstract class HashModelIface {
     static name: string
 }
 export abstract class InsertedIface {
-    /* Fields of Vda.InsertedIface */
+    /* Fields of Vda-1.Vda.InsertedIface */
     parent_iface: GObject.TypeInterface
     get_number: (self: Inserted) => number
     get_last_inserted: (self: Inserted) => RowModel
     static name: string
 }
 export abstract class ParsedQueryIface {
-    /* Fields of Vda.ParsedQueryIface */
+    /* Fields of Vda-1.Vda.ParsedQueryIface */
     parent_iface: GObject.TypeInterface
     get_command: (self: ParsedQuery) => SqlCommand
     static name: string
 }
 export abstract class PreparedQueryIface {
-    /* Fields of Vda.PreparedQueryIface */
+    /* Fields of Vda-1.Vda.PreparedQueryIface */
     parent_iface: GObject.TypeInterface
     get_name: (self: PreparedQuery) => string
     get_parameters: (self: PreparedQuery) => SqlParameters
     static name: string
 }
 export abstract class QueryIface {
-    /* Fields of Vda.QueryIface */
+    /* Fields of Vda-1.Vda.QueryIface */
     parent_iface: GObject.TypeInterface
     execute: (self: Query, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null) => void
     execute_finish: (self: Query, _res_: Gio.AsyncResult) => Result | null
@@ -23844,12 +23844,12 @@ export abstract class QueryIface {
     static name: string
 }
 export abstract class ResultIface {
-    /* Fields of Vda.ResultIface */
+    /* Fields of Vda-1.Vda.ResultIface */
     parent_iface: GObject.TypeInterface
     static name: string
 }
 export abstract class RoleIface {
-    /* Fields of Vda.RoleIface */
+    /* Fields of Vda-1.Vda.RoleIface */
     parent_iface: GObject.TypeInterface
     name: (self: Role, _callback_?: Gio.AsyncReadyCallback | null) => void
     name_finish: (self: Role, _res_: Gio.AsyncResult) => string
@@ -23863,7 +23863,7 @@ export abstract class RoleIface {
     static name: string
 }
 export abstract class RowModelIface {
-    /* Fields of Vda.RowModelIface */
+    /* Fields of Vda-1.Vda.RowModelIface */
     parent_iface: GObject.TypeInterface
     get_column: (self: RowModel, name: string) => ColumnModel | null
     get_column_at: (self: RowModel, col: number) => ColumnModel | null
@@ -23875,25 +23875,25 @@ export abstract class RowModelIface {
     static name: string
 }
 export abstract class SqlAffectedRowsIface {
-    /* Fields of Vda.SqlAffectedRowsIface */
+    /* Fields of Vda-1.Vda.SqlAffectedRowsIface */
     parent_iface: GObject.TypeInterface
     get_number: (self: SqlAffectedRows) => number
     static name: string
 }
 export abstract class SqlCommandIface {
-    /* Fields of Vda.SqlCommandIface */
+    /* Fields of Vda-1.Vda.SqlCommandIface */
     parent_iface: GObject.TypeInterface
     get_connection: (self: SqlCommand) => Connection
     static name: string
 }
 export abstract class SqlCommandConditionalIface {
-    /* Fields of Vda.SqlCommandConditionalIface */
+    /* Fields of Vda-1.Vda.SqlCommandConditionalIface */
     parent_iface: GObject.TypeInterface
     get_condition: (self: SqlCommandConditional) => SqlExpression
     static name: string
 }
 export abstract class SqlCommandDeleteIface {
-    /* Fields of Vda.SqlCommandDeleteIface */
+    /* Fields of Vda-1.Vda.SqlCommandDeleteIface */
     parent_iface: GObject.TypeInterface
     stringify: (self: SqlCommandDelete) => string
     to_query: (self: SqlCommandDelete, name?: string | null) => Query
@@ -23901,7 +23901,7 @@ export abstract class SqlCommandDeleteIface {
     static name: string
 }
 export abstract class SqlCommandInsertIface {
-    /* Fields of Vda.SqlCommandInsertIface */
+    /* Fields of Vda-1.Vda.SqlCommandInsertIface */
     parent_iface: GObject.TypeInterface
     stringify: (self: SqlCommandInsert) => string
     to_query: (self: SqlCommandInsert, name?: string | null) => Query
@@ -23909,7 +23909,7 @@ export abstract class SqlCommandInsertIface {
     static name: string
 }
 export abstract class SqlCommandModificationIface {
-    /* Fields of Vda.SqlCommandModificationIface */
+    /* Fields of Vda-1.Vda.SqlCommandModificationIface */
     parent_iface: GObject.TypeInterface
     add_field_value: (self: SqlCommandModification, name: string, val?: any | null) => void
     add_field: (self: SqlCommandModification, name: string) => void
@@ -23921,13 +23921,13 @@ export abstract class SqlCommandModificationIface {
     static name: string
 }
 export abstract class SqlCommandParametrizedIface {
-    /* Fields of Vda.SqlCommandParametrizedIface */
+    /* Fields of Vda-1.Vda.SqlCommandParametrizedIface */
     parent_iface: GObject.TypeInterface
     get_parameters: (self: SqlCommandParametrized) => SqlParameters
     static name: string
 }
 export abstract class SqlCommandSelectIface {
-    /* Fields of Vda.SqlCommandSelectIface */
+    /* Fields of Vda-1.Vda.SqlCommandSelectIface */
     parent_iface: GObject.TypeInterface
     add_field: (self: SqlCommandSelect, field: string, table_ref?: string | null, alias?: string | null) => void
     add_table: (self: SqlCommandSelect, name: string, allias?: string | null) => void
@@ -23941,7 +23941,7 @@ export abstract class SqlCommandSelectIface {
     static name: string
 }
 export abstract class SqlCommandTableRelatedIface {
-    /* Fields of Vda.SqlCommandTableRelatedIface */
+    /* Fields of Vda-1.Vda.SqlCommandTableRelatedIface */
     parent_iface: GObject.TypeInterface
     get_table: (self: SqlCommandTableRelated) => string
     set_table: (self: SqlCommandTableRelated, value: string) => void
@@ -23950,7 +23950,7 @@ export abstract class SqlCommandTableRelatedIface {
     static name: string
 }
 export abstract class SqlCommandUpdateIface {
-    /* Fields of Vda.SqlCommandUpdateIface */
+    /* Fields of Vda-1.Vda.SqlCommandUpdateIface */
     parent_iface: GObject.TypeInterface
     stringify: (self: SqlCommandUpdate) => string
     to_query: (self: SqlCommandUpdate, name?: string | null) => Query
@@ -23958,7 +23958,7 @@ export abstract class SqlCommandUpdateIface {
     static name: string
 }
 export abstract class SqlExpressionIface {
-    /* Fields of Vda.SqlExpressionIface */
+    /* Fields of Vda-1.Vda.SqlExpressionIface */
     parent_iface: GObject.TypeInterface
     add_expression: (self: SqlExpression, exp: SqlExpression) => void
     remove_expression: (self: SqlExpression, exp: SqlExpression) => void
@@ -23967,7 +23967,7 @@ export abstract class SqlExpressionIface {
     static name: string
 }
 export abstract class SqlExpressionFieldIface {
-    /* Fields of Vda.SqlExpressionFieldIface */
+    /* Fields of Vda-1.Vda.SqlExpressionFieldIface */
     parent_iface: GObject.TypeInterface
     get_table_ref: (self: SqlExpressionField) => string
     set_table_ref: (self: SqlExpressionField, value: string) => void
@@ -23978,7 +23978,7 @@ export abstract class SqlExpressionFieldIface {
     static name: string
 }
 export abstract class SqlExpressionOperatorIface {
-    /* Fields of Vda.SqlExpressionOperatorIface */
+    /* Fields of Vda-1.Vda.SqlExpressionOperatorIface */
     parent_iface: GObject.TypeInterface
     create_field_expression: (self: SqlExpressionOperator, name: string) => SqlExpressionField
     create_value_expression: (self: SqlExpressionOperator, val: any | null, cnc: Connection) => SqlExpressionValue
@@ -24019,237 +24019,237 @@ export abstract class SqlExpressionOperatorIface {
     static name: string
 }
 export abstract class SqlExpressionOperatorGroupIface {
-    /* Fields of Vda.SqlExpressionOperatorGroupIface */
+    /* Fields of Vda-1.Vda.SqlExpressionOperatorGroupIface */
     parent_iface: GObject.TypeInterface
     static name: string
 }
 export abstract class SqlExpressionOperatorMultitermIface {
-    /* Fields of Vda.SqlExpressionOperatorMultitermIface */
+    /* Fields of Vda-1.Vda.SqlExpressionOperatorMultitermIface */
     parent_iface: GObject.TypeInterface
     static name: string
 }
 export abstract class SqlExpressionOperatorAndIface {
-    /* Fields of Vda.SqlExpressionOperatorAndIface */
+    /* Fields of Vda-1.Vda.SqlExpressionOperatorAndIface */
     parent_iface: GObject.TypeInterface
     static name: string
 }
 export abstract class SqlExpressionOperatorOrIface {
-    /* Fields of Vda.SqlExpressionOperatorOrIface */
+    /* Fields of Vda-1.Vda.SqlExpressionOperatorOrIface */
     parent_iface: GObject.TypeInterface
     static name: string
 }
 export abstract class SqlExpressionOperatorBinarytermIface {
-    /* Fields of Vda.SqlExpressionOperatorBinarytermIface */
+    /* Fields of Vda-1.Vda.SqlExpressionOperatorBinarytermIface */
     parent_iface: GObject.TypeInterface
     static name: string
 }
 export abstract class SqlExpressionOperatorEqIface {
-    /* Fields of Vda.SqlExpressionOperatorEqIface */
+    /* Fields of Vda-1.Vda.SqlExpressionOperatorEqIface */
     parent_iface: GObject.TypeInterface
     static name: string
 }
 export abstract class SqlExpressionOperatorNotEqIface {
-    /* Fields of Vda.SqlExpressionOperatorNotEqIface */
+    /* Fields of Vda-1.Vda.SqlExpressionOperatorNotEqIface */
     parent_iface: GObject.TypeInterface
     static name: string
 }
 export abstract class SqlExpressionOperatorDiffIface {
-    /* Fields of Vda.SqlExpressionOperatorDiffIface */
+    /* Fields of Vda-1.Vda.SqlExpressionOperatorDiffIface */
     parent_iface: GObject.TypeInterface
     static name: string
 }
 export abstract class SqlExpressionOperatorGtIface {
-    /* Fields of Vda.SqlExpressionOperatorGtIface */
+    /* Fields of Vda-1.Vda.SqlExpressionOperatorGtIface */
     parent_iface: GObject.TypeInterface
     static name: string
 }
 export abstract class SqlExpressionOperatorLtIface {
-    /* Fields of Vda.SqlExpressionOperatorLtIface */
+    /* Fields of Vda-1.Vda.SqlExpressionOperatorLtIface */
     parent_iface: GObject.TypeInterface
     static name: string
 }
 export abstract class SqlExpressionOperatorGeqIface {
-    /* Fields of Vda.SqlExpressionOperatorGeqIface */
+    /* Fields of Vda-1.Vda.SqlExpressionOperatorGeqIface */
     parent_iface: GObject.TypeInterface
     static name: string
 }
 export abstract class SqlExpressionOperatorLeqIface {
-    /* Fields of Vda.SqlExpressionOperatorLeqIface */
+    /* Fields of Vda-1.Vda.SqlExpressionOperatorLeqIface */
     parent_iface: GObject.TypeInterface
     static name: string
 }
 export abstract class SqlExpressionOperatorRegexpIface {
-    /* Fields of Vda.SqlExpressionOperatorRegexpIface */
+    /* Fields of Vda-1.Vda.SqlExpressionOperatorRegexpIface */
     parent_iface: GObject.TypeInterface
     static name: string
 }
 export abstract class SqlExpressionOperatorStarIface {
-    /* Fields of Vda.SqlExpressionOperatorStarIface */
+    /* Fields of Vda-1.Vda.SqlExpressionOperatorStarIface */
     parent_iface: GObject.TypeInterface
     static name: string
 }
 export abstract class SqlExpressionOperatorDivIface {
-    /* Fields of Vda.SqlExpressionOperatorDivIface */
+    /* Fields of Vda-1.Vda.SqlExpressionOperatorDivIface */
     parent_iface: GObject.TypeInterface
     static name: string
 }
 export abstract class SqlExpressionOperatorInIface {
-    /* Fields of Vda.SqlExpressionOperatorInIface */
+    /* Fields of Vda-1.Vda.SqlExpressionOperatorInIface */
     parent_iface: GObject.TypeInterface
     static name: string
 }
 export abstract class SqlExpressionOperatorNotInIface {
-    /* Fields of Vda.SqlExpressionOperatorNotInIface */
+    /* Fields of Vda-1.Vda.SqlExpressionOperatorNotInIface */
     parent_iface: GObject.TypeInterface
     static name: string
 }
 export abstract class SqlExpressionOperatorConcatenateIface {
-    /* Fields of Vda.SqlExpressionOperatorConcatenateIface */
+    /* Fields of Vda-1.Vda.SqlExpressionOperatorConcatenateIface */
     parent_iface: GObject.TypeInterface
     static name: string
 }
 export abstract class SqlExpressionOperatorSimilarToIface {
-    /* Fields of Vda.SqlExpressionOperatorSimilarToIface */
+    /* Fields of Vda-1.Vda.SqlExpressionOperatorSimilarToIface */
     parent_iface: GObject.TypeInterface
     static name: string
 }
 export abstract class SqlExpressionOperatorLikeIface {
-    /* Fields of Vda.SqlExpressionOperatorLikeIface */
+    /* Fields of Vda-1.Vda.SqlExpressionOperatorLikeIface */
     parent_iface: GObject.TypeInterface
     static name: string
 }
 export abstract class SqlExpressionOperatorIlikeIface {
-    /* Fields of Vda.SqlExpressionOperatorIlikeIface */
+    /* Fields of Vda-1.Vda.SqlExpressionOperatorIlikeIface */
     parent_iface: GObject.TypeInterface
     static name: string
 }
 export abstract class SqlExpressionOperatorBinaryUnarytermIface {
-    /* Fields of Vda.SqlExpressionOperatorBinaryUnarytermIface */
+    /* Fields of Vda-1.Vda.SqlExpressionOperatorBinaryUnarytermIface */
     parent_iface: GObject.TypeInterface
     static name: string
 }
 export abstract class SqlExpressionOperatorMinusIface {
-    /* Fields of Vda.SqlExpressionOperatorMinusIface */
+    /* Fields of Vda-1.Vda.SqlExpressionOperatorMinusIface */
     parent_iface: GObject.TypeInterface
     static name: string
 }
 export abstract class SqlExpressionOperatorPlusIface {
-    /* Fields of Vda.SqlExpressionOperatorPlusIface */
+    /* Fields of Vda-1.Vda.SqlExpressionOperatorPlusIface */
     parent_iface: GObject.TypeInterface
     static name: string
 }
 export abstract class SqlExpressionOperatorInitialUnarytermIface {
-    /* Fields of Vda.SqlExpressionOperatorInitialUnarytermIface */
+    /* Fields of Vda-1.Vda.SqlExpressionOperatorInitialUnarytermIface */
     parent_iface: GObject.TypeInterface
     static name: string
 }
 export abstract class SqlExpressionOperatorNotIface {
-    /* Fields of Vda.SqlExpressionOperatorNotIface */
+    /* Fields of Vda-1.Vda.SqlExpressionOperatorNotIface */
     parent_iface: GObject.TypeInterface
     static name: string
 }
 export abstract class SqlExpressionOperatorFinalUnarytermIface {
-    /* Fields of Vda.SqlExpressionOperatorFinalUnarytermIface */
+    /* Fields of Vda-1.Vda.SqlExpressionOperatorFinalUnarytermIface */
     parent_iface: GObject.TypeInterface
     static name: string
 }
 export abstract class SqlExpressionOperatorIsIface {
-    /* Fields of Vda.SqlExpressionOperatorIsIface */
+    /* Fields of Vda-1.Vda.SqlExpressionOperatorIsIface */
     parent_iface: GObject.TypeInterface
     static name: string
 }
 export abstract class SqlExpressionOperatorIsNotIface {
-    /* Fields of Vda.SqlExpressionOperatorIsNotIface */
+    /* Fields of Vda-1.Vda.SqlExpressionOperatorIsNotIface */
     parent_iface: GObject.TypeInterface
     static name: string
 }
 export abstract class SqlExpressionOperatorIsNullIface {
-    /* Fields of Vda.SqlExpressionOperatorIsNullIface */
+    /* Fields of Vda-1.Vda.SqlExpressionOperatorIsNullIface */
     parent_iface: GObject.TypeInterface
     static name: string
 }
 export abstract class SqlExpressionOperatorIsNotNullIface {
-    /* Fields of Vda.SqlExpressionOperatorIsNotNullIface */
+    /* Fields of Vda-1.Vda.SqlExpressionOperatorIsNotNullIface */
     parent_iface: GObject.TypeInterface
     static name: string
 }
 export abstract class SqlExpressionOperatorIsTrueIface {
-    /* Fields of Vda.SqlExpressionOperatorIsTrueIface */
+    /* Fields of Vda-1.Vda.SqlExpressionOperatorIsTrueIface */
     parent_iface: GObject.TypeInterface
     static name: string
 }
 export abstract class SqlExpressionOperatorIsNotTrueIface {
-    /* Fields of Vda.SqlExpressionOperatorIsNotTrueIface */
+    /* Fields of Vda-1.Vda.SqlExpressionOperatorIsNotTrueIface */
     parent_iface: GObject.TypeInterface
     static name: string
 }
 export abstract class SqlExpressionOperatorIsFalseIface {
-    /* Fields of Vda.SqlExpressionOperatorIsFalseIface */
+    /* Fields of Vda-1.Vda.SqlExpressionOperatorIsFalseIface */
     parent_iface: GObject.TypeInterface
     static name: string
 }
 export abstract class SqlExpressionOperatorIsNotFalseIface {
-    /* Fields of Vda.SqlExpressionOperatorIsNotFalseIface */
+    /* Fields of Vda-1.Vda.SqlExpressionOperatorIsNotFalseIface */
     parent_iface: GObject.TypeInterface
     static name: string
 }
 export abstract class SqlExpressionOperatorIsUnknownIface {
-    /* Fields of Vda.SqlExpressionOperatorIsUnknownIface */
+    /* Fields of Vda-1.Vda.SqlExpressionOperatorIsUnknownIface */
     parent_iface: GObject.TypeInterface
     static name: string
 }
 export abstract class SqlExpressionOperatorIsNotUnknownIface {
-    /* Fields of Vda.SqlExpressionOperatorIsNotUnknownIface */
+    /* Fields of Vda-1.Vda.SqlExpressionOperatorIsNotUnknownIface */
     parent_iface: GObject.TypeInterface
     static name: string
 }
 export abstract class SqlExpressionOperatorIsDistinctIface {
-    /* Fields of Vda.SqlExpressionOperatorIsDistinctIface */
+    /* Fields of Vda-1.Vda.SqlExpressionOperatorIsDistinctIface */
     parent_iface: GObject.TypeInterface
     static name: string
 }
 export abstract class SqlExpressionOperatorIsNotDistinctIface {
-    /* Fields of Vda.SqlExpressionOperatorIsNotDistinctIface */
+    /* Fields of Vda-1.Vda.SqlExpressionOperatorIsNotDistinctIface */
     parent_iface: GObject.TypeInterface
     static name: string
 }
 export abstract class SqlExpressionOperatorIsDistinctFromIface {
-    /* Fields of Vda.SqlExpressionOperatorIsDistinctFromIface */
+    /* Fields of Vda-1.Vda.SqlExpressionOperatorIsDistinctFromIface */
     parent_iface: GObject.TypeInterface
     static name: string
 }
 export abstract class SqlExpressionOperatorIsNotDistinctFromIface {
-    /* Fields of Vda.SqlExpressionOperatorIsNotDistinctFromIface */
+    /* Fields of Vda-1.Vda.SqlExpressionOperatorIsNotDistinctFromIface */
     parent_iface: GObject.TypeInterface
     static name: string
 }
 export abstract class SqlExpressionOperatorThreetermIface {
-    /* Fields of Vda.SqlExpressionOperatorThreetermIface */
+    /* Fields of Vda-1.Vda.SqlExpressionOperatorThreetermIface */
     parent_iface: GObject.TypeInterface
     static name: string
 }
 export abstract class SqlExpressionOperatorBetweenIface {
-    /* Fields of Vda.SqlExpressionOperatorBetweenIface */
+    /* Fields of Vda-1.Vda.SqlExpressionOperatorBetweenIface */
     parent_iface: GObject.TypeInterface
     static name: string
 }
 export abstract class SqlExpressionOperatorNotBetweenIface {
-    /* Fields of Vda.SqlExpressionOperatorNotBetweenIface */
+    /* Fields of Vda-1.Vda.SqlExpressionOperatorNotBetweenIface */
     parent_iface: GObject.TypeInterface
     static name: string
 }
 export abstract class SqlExpressionOperatorBetweenSymmetricIface {
-    /* Fields of Vda.SqlExpressionOperatorBetweenSymmetricIface */
+    /* Fields of Vda-1.Vda.SqlExpressionOperatorBetweenSymmetricIface */
     parent_iface: GObject.TypeInterface
     static name: string
 }
 export abstract class SqlExpressionOperatorNotBetweenSymmetricIface {
-    /* Fields of Vda.SqlExpressionOperatorNotBetweenSymmetricIface */
+    /* Fields of Vda-1.Vda.SqlExpressionOperatorNotBetweenSymmetricIface */
     parent_iface: GObject.TypeInterface
     static name: string
 }
 export abstract class SqlExpressionValueIface {
-    /* Fields of Vda.SqlExpressionValueIface */
+    /* Fields of Vda-1.Vda.SqlExpressionValueIface */
     parent_iface: GObject.TypeInterface
     set_math_expression_value: (self: SqlExpressionValue, str: string) => void
     get_connection: (self: SqlExpressionValue) => Connection | null
@@ -24259,7 +24259,7 @@ export abstract class SqlExpressionValueIface {
     static name: string
 }
 export abstract class SqlExpressionValueParameterIface {
-    /* Fields of Vda.SqlExpressionValueParameterIface */
+    /* Fields of Vda-1.Vda.SqlExpressionValueParameterIface */
     parent_iface: GObject.TypeInterface
     parse: (self: SqlExpressionValueParameter, str: string) => void
     get_parameters: (self: SqlExpressionValueParameter) => SqlParameters
@@ -24271,7 +24271,7 @@ export abstract class SqlExpressionValueParameterIface {
     static name: string
 }
 export abstract class SqlParametersIface {
-    /* Fields of Vda.SqlParametersIface */
+    /* Fields of Vda-1.Vda.SqlParametersIface */
     parent_iface: GObject.TypeInterface
     set_value: (self: SqlParameters, name: string, val: any) => void
     get_value: (self: SqlParameters, name: string) => any | null
@@ -24280,13 +24280,13 @@ export abstract class SqlParametersIface {
     static name: string
 }
 export abstract class SqlParserIface {
-    /* Fields of Vda.SqlParserIface */
+    /* Fields of Vda-1.Vda.SqlParserIface */
     parent_iface: GObject.TypeInterface
     parse: (self: SqlParser, str: string, cnc: Connection) => SqlCommandParametrized
     static name: string
 }
 export abstract class SqlTableReferenceIface {
-    /* Fields of Vda.SqlTableReferenceIface */
+    /* Fields of Vda-1.Vda.SqlTableReferenceIface */
     parent_iface: GObject.TypeInterface
     get_name: (self: SqlTableReference) => string
     set_name: (self: SqlTableReference, value: string) => void
@@ -24295,13 +24295,13 @@ export abstract class SqlTableReferenceIface {
     static name: string
 }
 export abstract class StringifiableIface {
-    /* Fields of Vda.StringifiableIface */
+    /* Fields of Vda-1.Vda.StringifiableIface */
     parent_iface: GObject.TypeInterface
     to_string: (self: Stringifiable) => string
     static name: string
 }
 export abstract class SqlValueIface {
-    /* Fields of Vda.SqlValueIface */
+    /* Fields of Vda-1.Vda.SqlValueIface */
     parent_iface: GObject.TypeInterface
     parse: (self: SqlValue, str: string) => boolean
     from_value: (self: SqlValue, val: any) => boolean
@@ -24314,77 +24314,77 @@ export abstract class SqlValueIface {
     static name: string
 }
 export abstract class SqlValueNullIface {
-    /* Fields of Vda.SqlValueNullIface */
+    /* Fields of Vda-1.Vda.SqlValueNullIface */
     parent_iface: GObject.TypeInterface
     static name: string
 }
 export abstract class SqlValueBoolIface {
-    /* Fields of Vda.SqlValueBoolIface */
+    /* Fields of Vda-1.Vda.SqlValueBoolIface */
     parent_iface: GObject.TypeInterface
     static name: string
 }
 export abstract class SqlValueBitIface {
-    /* Fields of Vda.SqlValueBitIface */
+    /* Fields of Vda-1.Vda.SqlValueBitIface */
     parent_iface: GObject.TypeInterface
     static name: string
 }
 export abstract class SqlValueStringIface {
-    /* Fields of Vda.SqlValueStringIface */
+    /* Fields of Vda-1.Vda.SqlValueStringIface */
     parent_iface: GObject.TypeInterface
     static name: string
 }
 export abstract class SqlValueTextIface {
-    /* Fields of Vda.SqlValueTextIface */
+    /* Fields of Vda-1.Vda.SqlValueTextIface */
     parent_iface: GObject.TypeInterface
     static name: string
 }
 export abstract class SqlValueNameIface {
-    /* Fields of Vda.SqlValueNameIface */
+    /* Fields of Vda-1.Vda.SqlValueNameIface */
     parent_iface: GObject.TypeInterface
     static name: string
 }
 export abstract class SqlValueIntegerIface {
-    /* Fields of Vda.SqlValueIntegerIface */
+    /* Fields of Vda-1.Vda.SqlValueIntegerIface */
     parent_iface: GObject.TypeInterface
     static name: string
 }
 export abstract class SqlValueInt2Iface {
-    /* Fields of Vda.SqlValueInt2Iface */
+    /* Fields of Vda-1.Vda.SqlValueInt2Iface */
     parent_iface: GObject.TypeInterface
     static name: string
 }
 export abstract class SqlValueInt4Iface {
-    /* Fields of Vda.SqlValueInt4Iface */
+    /* Fields of Vda-1.Vda.SqlValueInt4Iface */
     parent_iface: GObject.TypeInterface
     static name: string
 }
 export abstract class SqlValueInt8Iface {
-    /* Fields of Vda.SqlValueInt8Iface */
+    /* Fields of Vda-1.Vda.SqlValueInt8Iface */
     parent_iface: GObject.TypeInterface
     static name: string
 }
 export abstract class SqlValueInt16Iface {
-    /* Fields of Vda.SqlValueInt16Iface */
+    /* Fields of Vda-1.Vda.SqlValueInt16Iface */
     parent_iface: GObject.TypeInterface
     static name: string
 }
 export abstract class SqlValueInt32Iface {
-    /* Fields of Vda.SqlValueInt32Iface */
+    /* Fields of Vda-1.Vda.SqlValueInt32Iface */
     parent_iface: GObject.TypeInterface
     static name: string
 }
 export abstract class SqlValueInt64Iface {
-    /* Fields of Vda.SqlValueInt64Iface */
+    /* Fields of Vda-1.Vda.SqlValueInt64Iface */
     parent_iface: GObject.TypeInterface
     static name: string
 }
 export abstract class SqlValueOidIface {
-    /* Fields of Vda.SqlValueOidIface */
+    /* Fields of Vda-1.Vda.SqlValueOidIface */
     parent_iface: GObject.TypeInterface
     static name: string
 }
 export abstract class SqlValueNumericIface {
-    /* Fields of Vda.SqlValueNumericIface */
+    /* Fields of Vda-1.Vda.SqlValueNumericIface */
     parent_iface: GObject.TypeInterface
     set_precision: (self: SqlValueNumeric, p: number) => void
     get_precision: (self: SqlValueNumeric) => number
@@ -24398,18 +24398,18 @@ export abstract class SqlValueNumericIface {
     static name: string
 }
 export abstract class SqlValueFloatIface {
-    /* Fields of Vda.SqlValueFloatIface */
+    /* Fields of Vda-1.Vda.SqlValueFloatIface */
     parent_iface: GObject.TypeInterface
     get_float: (self: SqlValueFloat) => number
     static name: string
 }
 export abstract class SqlValueDoubleIface {
-    /* Fields of Vda.SqlValueDoubleIface */
+    /* Fields of Vda-1.Vda.SqlValueDoubleIface */
     parent_iface: GObject.TypeInterface
     static name: string
 }
 export abstract class SqlValueMoneyIface {
-    /* Fields of Vda.SqlValueMoneyIface */
+    /* Fields of Vda-1.Vda.SqlValueMoneyIface */
     parent_iface: GObject.TypeInterface
     locale: (self: SqlValueMoney) => string
     int_locale: (self: SqlValueMoney) => string
@@ -24418,14 +24418,14 @@ export abstract class SqlValueMoneyIface {
     static name: string
 }
 export abstract class SqlValueDateIface {
-    /* Fields of Vda.SqlValueDateIface */
+    /* Fields of Vda-1.Vda.SqlValueDateIface */
     parent_iface: GObject.TypeInterface
     get_date: (self: SqlValueDate) => /* result */ GLib.Date
     set_date: (self: SqlValueDate, ts: GLib.Date) => void
     static name: string
 }
 export abstract class SqlValueTimestampIface {
-    /* Fields of Vda.SqlValueTimestampIface */
+    /* Fields of Vda-1.Vda.SqlValueTimestampIface */
     parent_iface: GObject.TypeInterface
     format_local: (self: SqlValueTimestamp) => string
     format_utc: (self: SqlValueTimestamp) => string
@@ -24440,34 +24440,34 @@ export abstract class SqlValueTimestampIface {
     static name: string
 }
 export abstract class SqlValueTimestampNtzIface {
-    /* Fields of Vda.SqlValueTimestampNtzIface */
+    /* Fields of Vda-1.Vda.SqlValueTimestampNtzIface */
     parent_iface: GObject.TypeInterface
     static name: string
 }
 export abstract class SqlValueTimeIface {
-    /* Fields of Vda.SqlValueTimeIface */
+    /* Fields of Vda-1.Vda.SqlValueTimeIface */
     parent_iface: GObject.TypeInterface
     static name: string
 }
 export abstract class SqlValueTimeNtzIface {
-    /* Fields of Vda.SqlValueTimeNtzIface */
+    /* Fields of Vda-1.Vda.SqlValueTimeNtzIface */
     parent_iface: GObject.TypeInterface
     static name: string
 }
 export abstract class SqlValueBinaryIface {
-    /* Fields of Vda.SqlValueBinaryIface */
+    /* Fields of Vda-1.Vda.SqlValueBinaryIface */
     parent_iface: GObject.TypeInterface
     static name: string
 }
 export abstract class SqlValueBlobIface {
-    /* Fields of Vda.SqlValueBlobIface */
+    /* Fields of Vda-1.Vda.SqlValueBlobIface */
     parent_iface: GObject.TypeInterface
     save: (self: SqlValueBlob, file: Gio.File) => void
     load: (self: SqlValueBlob, file: Gio.File) => void
     static name: string
 }
 export abstract class SqlValueGeometricPointIface {
-    /* Fields of Vda.SqlValueGeometricPointIface */
+    /* Fields of Vda-1.Vda.SqlValueGeometricPointIface */
     parent_iface: GObject.TypeInterface
     get_x: (self: SqlValueGeometricPoint) => number
     set_x: (self: SqlValueGeometricPoint, value: number) => void
@@ -24476,14 +24476,14 @@ export abstract class SqlValueGeometricPointIface {
     static name: string
 }
 export abstract class SqlValueMathExpIface {
-    /* Fields of Vda.SqlValueMathExpIface */
+    /* Fields of Vda-1.Vda.SqlValueMathExpIface */
     parent_iface: GObject.TypeInterface
     get_math: (self: SqlValueMathExp) => GCalc.MathEquationManager
     set_math: (self: SqlValueMathExp, value: GCalc.MathEquationManager) => void
     static name: string
 }
 export abstract class TableModelIface {
-    /* Fields of Vda.TableModelIface */
+    /* Fields of Vda-1.Vda.TableModelIface */
     parent_iface: GObject.TypeInterface
     static name: string
 }

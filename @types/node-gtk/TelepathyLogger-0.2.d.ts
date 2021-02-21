@@ -34,23 +34,23 @@ export interface CallEvent_ConstructProps extends Event_ConstructProps {
     endReason?: number
 }
 export class CallEvent {
-    /* Properties of TelepathyLogger.Event */
+    /* Properties of TelepathyLogger-0.2.TelepathyLogger.Event */
     readonly accountPath: string
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of TelepathyLogger.CallEvent */
+    /* Methods of TelepathyLogger-0.2.TelepathyLogger.CallEvent */
     getDetailedEndReason(): string
     getDuration(): GLib.TimeSpan
     getEndActor(): Entity
     getEndReason(): TelepathyGLib.CallStateChangeReason
-    /* Methods of TelepathyLogger.Event */
+    /* Methods of TelepathyLogger-0.2.TelepathyLogger.Event */
     equal(data: Event): boolean
     getAccount(): TelepathyGLib.Account
     getAccountPath(): string
     getReceiver(): Entity
     getSender(): Entity
     getTimestamp(): number
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -72,21 +72,12 @@ export class CallEvent {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: CallEvent, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: CallEvent, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::account-path", callback: (($obj: CallEvent, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::account-path", callback: (($obj: CallEvent, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::account-path", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -111,17 +102,17 @@ export interface Entity_ConstructProps extends GObject.Object_ConstructProps {
     type?: number
 }
 export class Entity {
-    /* Fields of TelepathyLogger.Entity */
+    /* Fields of TelepathyLogger-0.2.TelepathyLogger.Entity */
     parent: GObject.Object
     priv: EntityPriv
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of TelepathyLogger.Entity */
+    /* Methods of TelepathyLogger-0.2.TelepathyLogger.Entity */
     getAlias(): string
     getAvatarToken(): string
     getEntityType(): EntityType
     getIdentifier(): string
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -143,21 +134,12 @@ export class Entity {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Entity, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Entity, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -182,18 +164,18 @@ export interface Event_ConstructProps extends GObject.Object_ConstructProps {
     timestamp?: number
 }
 export class Event {
-    /* Properties of TelepathyLogger.Event */
+    /* Properties of TelepathyLogger-0.2.TelepathyLogger.Event */
     readonly accountPath: string
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of TelepathyLogger.Event */
+    /* Methods of TelepathyLogger-0.2.TelepathyLogger.Event */
     equal(data: Event): boolean
     getAccount(): TelepathyGLib.Account
     getAccountPath(): string
     getReceiver(): Entity
     getSender(): Entity
     getTimestamp(): number
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -215,21 +197,12 @@ export class Event {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Event, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Event, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::account-path", callback: (($obj: Event, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::account-path", callback: (($obj: Event, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::account-path", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -250,28 +223,28 @@ export class Event {
 export interface LogManager_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class LogManager {
-    /* Fields of TelepathyLogger.LogManager */
+    /* Fields of TelepathyLogger-0.2.TelepathyLogger.LogManager */
     parent: GObject.Object
     priv: object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of TelepathyLogger.LogManager */
+    /* Methods of TelepathyLogger-0.2.TelepathyLogger.LogManager */
     disableForEntity(account: TelepathyGLib.Account, entity: Entity): void
     enableForEntity(account: TelepathyGLib.Account, entity: Entity): void
     exists(account: TelepathyGLib.Account, target: Entity, typeMask: number): boolean
     getDatesAsync(account: TelepathyGLib.Account, target: Entity, typeMask: number, callback?: Gio.AsyncReadyCallback | null): void
-    getDatesFinish(result: Gio.AsyncResult): [ /* returnType */ boolean, /* dates */ GLib.Date[] ]
+    getDatesFinish(result: Gio.AsyncResult): { returnType: boolean, dates: GLib.Date[] }
     getEntitiesAsync(account: TelepathyGLib.Account, callback?: Gio.AsyncReadyCallback | null): void
-    getEntitiesFinish(result: Gio.AsyncResult): [ /* returnType */ boolean, /* entities */ Entity[] ]
+    getEntitiesFinish(result: Gio.AsyncResult): { returnType: boolean, entities: Entity[] }
     getEventsForDateAsync(account: TelepathyGLib.Account, target: Entity, typeMask: number, date: GLib.Date, callback?: Gio.AsyncReadyCallback | null): void
-    getEventsForDateFinish(result: Gio.AsyncResult): [ /* returnType */ boolean, /* events */ Event[] ]
+    getEventsForDateFinish(result: Gio.AsyncResult): { returnType: boolean, events: Event[] }
     getFilteredEventsAsync(account: TelepathyGLib.Account, target: Entity, typeMask: number, numEvents: number, filter?: LogEventFilter | null, callback?: Gio.AsyncReadyCallback | null): void
-    getFilteredEventsFinish(result: Gio.AsyncResult): [ /* returnType */ boolean, /* events */ Event[] ]
+    getFilteredEventsFinish(result: Gio.AsyncResult): { returnType: boolean, events: Event[] }
     isDisabledForEntity(account: TelepathyGLib.Account, entity: Entity): boolean
     searchAsync(text: string, typeMask: number, callback?: Gio.AsyncReadyCallback | null): void
-    searchFinish(result: Gio.AsyncResult): [ /* returnType */ boolean, /* hits */ LogSearchHit[] ]
+    searchFinish(result: Gio.AsyncResult): { returnType: boolean, hits: LogSearchHit[] }
     walkFilteredEvents(account: TelepathyGLib.Account, target: Entity, typeMask: number, filter?: LogEventFilter | null): LogWalker
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -293,21 +266,12 @@ export class LogManager {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: LogManager, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: LogManager, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -328,19 +292,19 @@ export interface LogWalker_ConstructProps extends GObject.Object_ConstructProps 
     filterData?: object
 }
 export class LogWalker {
-    /* Fields of TelepathyLogger.LogWalker */
+    /* Fields of TelepathyLogger-0.2.TelepathyLogger.LogWalker */
     parentInstance: GObject.Object
     priv: LogWalkerPriv
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of TelepathyLogger.LogWalker */
+    /* Methods of TelepathyLogger-0.2.TelepathyLogger.LogWalker */
     getEventsAsync(numEvents: number, callback?: Gio.AsyncReadyCallback | null): void
-    getEventsFinish(result: Gio.AsyncResult): [ /* returnType */ boolean, /* events */ Event[] ]
+    getEventsFinish(result: Gio.AsyncResult): { returnType: boolean, events: Event[] }
     isEnd(): boolean
     isStart(): boolean
     rewindAsync(numEvents: number, callback?: Gio.AsyncReadyCallback | null): void
     rewindFinish(result: Gio.AsyncResult): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -362,21 +326,12 @@ export class LogWalker {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: LogWalker, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: LogWalker, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -397,25 +352,25 @@ export interface TextEvent_ConstructProps extends Event_ConstructProps {
     supersedesToken?: string
 }
 export class TextEvent {
-    /* Properties of TelepathyLogger.Event */
+    /* Properties of TelepathyLogger-0.2.TelepathyLogger.Event */
     readonly accountPath: string
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of TelepathyLogger.TextEvent */
+    /* Methods of TelepathyLogger-0.2.TelepathyLogger.TextEvent */
     getEditTimestamp(): number
     getMessage(): string
     getMessageToken(): string
     getMessageType(): TelepathyGLib.ChannelTextMessageType
     getSupersedes(): TextEvent[]
     getSupersedesToken(): string
-    /* Methods of TelepathyLogger.Event */
+    /* Methods of TelepathyLogger-0.2.TelepathyLogger.Event */
     equal(data: Event): boolean
     getAccount(): TelepathyGLib.Account
     getAccountPath(): string
     getReceiver(): Entity
     getSender(): Entity
     getTimestamp(): number
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -437,21 +392,12 @@ export class TextEvent {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: TextEvent, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: TextEvent, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::account-path", callback: (($obj: TextEvent, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::account-path", callback: (($obj: TextEvent, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::account-path", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -485,12 +431,12 @@ export class EventPriv {
     static name: string
 }
 export abstract class LogManagerClass {
-    /* Fields of TelepathyLogger.LogManagerClass */
+    /* Fields of TelepathyLogger-0.2.TelepathyLogger.LogManagerClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
 export class LogSearchHit {
-    /* Fields of TelepathyLogger.LogSearchHit */
+    /* Fields of TelepathyLogger-0.2.TelepathyLogger.LogSearchHit */
     account: TelepathyGLib.Account
     target: Entity
     date: GLib.Date

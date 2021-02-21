@@ -41,14 +41,14 @@ export const VERSION: number
 export const VERSION_HEX: number
 export const VERSION_S: string
 export function createVideoSink(): Gst.Element
-export function init(argv?: string[] | null): [ /* returnType */ Clutter.InitError, /* argv */ string[] | null ]
-export function initWithArgs(argv: string[] | null, parameterString: string, entries: GLib.OptionEntry, translationDomain: string): [ /* returnType */ Clutter.InitError, /* argv */ string[] | null ]
+export function init(argv?: string[] | null): { returnType: Clutter.InitError, argv: string[] | null }
+export function initWithArgs(argv: string[] | null, parameterString: string, entries: GLib.OptionEntry, translationDomain: string): { returnType: Clutter.InitError, argv: string[] | null }
 export class Player {
-    /* Properties of ClutterGst.Player */
+    /* Properties of ClutterGst-3.0.ClutterGst.Player */
     audioVolume: number
     readonly idle: boolean
     playing: boolean
-    /* Methods of ClutterGst.Player */
+    /* Methods of ClutterGst-3.0.ClutterGst.Player */
     getAudioVolume(): number
     getFrame(): Frame
     getIdle(): boolean
@@ -57,51 +57,32 @@ export class Player {
     getVideoSink(): VideoSink
     setAudioVolume(volume: number): void
     setPlaying(playing: boolean): void
-    /* Virtual methods of ClutterGst.Player */
-    vfuncEos(): void
-    vfuncError(error: GLib.Error): void
-    vfuncGetAudioVolume(): number
-    vfuncGetFrame(): Frame
-    vfuncGetIdle(): boolean
-    vfuncGetPipeline(): Gst.Element
-    vfuncGetPlaying(): boolean
-    vfuncGetVideoSink(): VideoSink
-    vfuncNewFrame(frame: Frame): void
-    vfuncReady(): void
-    vfuncSetAudioVolume(volume: number): void
-    vfuncSetPlaying(playing: boolean): void
-    vfuncSizeChange(width: number, height: number): void
-    /* Signals of ClutterGst.Player */
+    /* Signals of ClutterGst-3.0.ClutterGst.Player */
     connect(sigName: "eos", callback: (($obj: Player) => void)): number
-    connect_after(sigName: "eos", callback: (($obj: Player) => void)): number
+    on(sigName: "eos", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "eos", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "eos", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "eos"): void
-    on(sigName: "eos", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "eos", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "eos", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "error", callback: (($obj: Player, error: GLib.Error) => void)): number
-    connect_after(sigName: "error", callback: (($obj: Player, error: GLib.Error) => void)): number
+    on(sigName: "error", callback: (error: GLib.Error) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "error", callback: (error: GLib.Error) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "error", callback: (error: GLib.Error) => void): NodeJS.EventEmitter
     emit(sigName: "error", error: GLib.Error): void
-    on(sigName: "error", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "error", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "error", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "new-frame", callback: (($obj: Player, frame: Frame) => void)): number
-    connect_after(sigName: "new-frame", callback: (($obj: Player, frame: Frame) => void)): number
+    on(sigName: "new-frame", callback: (frame: Frame) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "new-frame", callback: (frame: Frame) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "new-frame", callback: (frame: Frame) => void): NodeJS.EventEmitter
     emit(sigName: "new-frame", frame: Frame): void
-    on(sigName: "new-frame", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "new-frame", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "new-frame", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "ready", callback: (($obj: Player) => void)): number
-    connect_after(sigName: "ready", callback: (($obj: Player) => void)): number
+    on(sigName: "ready", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "ready", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "ready", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "ready"): void
-    on(sigName: "ready", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "ready", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "ready", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "size-change", callback: (($obj: Player, width: number, height: number) => void)): number
-    connect_after(sigName: "size-change", callback: (($obj: Player, width: number, height: number) => void)): number
+    on(sigName: "size-change", callback: (width: number, height: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "size-change", callback: (width: number, height: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "size-change", callback: (width: number, height: number) => void): NodeJS.EventEmitter
     emit(sigName: "size-change", width: number, height: number): void
-    on(sigName: "size-change", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "size-change", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "size-change", callback: (...args: any[]) => void): NodeJS.EventEmitter
     static name: string
 }
 export interface Aspectratio_ConstructProps extends Content_ConstructProps {
@@ -109,18 +90,18 @@ export interface Aspectratio_ConstructProps extends Content_ConstructProps {
     paintBorders?: boolean
 }
 export class Aspectratio {
-    /* Properties of ClutterGst.Aspectratio */
+    /* Properties of ClutterGst-3.0.ClutterGst.Aspectratio */
     fillAllocation: boolean
     paintBorders: boolean
-    /* Properties of ClutterGst.Content */
+    /* Properties of ClutterGst-3.0.ClutterGst.Content */
     frame: Frame
     paintFrame: boolean
     paintOverlays: boolean
     player: GObject.Object
     sink: VideoSink
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of ClutterGst.Content */
+    /* Methods of ClutterGst-3.0.ClutterGst.Content */
     getFrame(): Frame
     getOverlays(): Overlays
     getPlayer(): Player
@@ -128,7 +109,7 @@ export class Aspectratio {
     setFrame(frame: Frame): void
     setPlayer(player: Player): void
     setSink(sink: VideoSink): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -150,51 +131,32 @@ export class Aspectratio {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of Clutter.Content */
-    getPreferredSize(): [ /* returnType */ boolean, /* width */ number, /* height */ number ]
+    /* Methods of Clutter-1.0.Clutter.Content */
+    getPreferredSize(): { returnType: boolean, width: number, height: number }
     invalidate(): void
-    /* Virtual methods of ClutterGst.Content */
-    vfuncHasPaintingContent(): boolean
-    vfuncAttached(actor: Clutter.Actor): void
-    vfuncDetached(actor: Clutter.Actor): void
-    vfuncGetPreferredSize(): [ /* returnType */ boolean, /* width */ number, /* height */ number ]
-    vfuncInvalidate(): void
-    vfuncPaintContent(actor: Clutter.Actor, node: Clutter.PaintNode): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of ClutterGst.Content */
+    /* Signals of ClutterGst-3.0.ClutterGst.Content */
     connect(sigName: "size-change", callback: (($obj: Aspectratio, width: number, height: number) => void)): number
-    connect_after(sigName: "size-change", callback: (($obj: Aspectratio, width: number, height: number) => void)): number
+    on(sigName: "size-change", callback: (width: number, height: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "size-change", callback: (width: number, height: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "size-change", callback: (width: number, height: number) => void): NodeJS.EventEmitter
     emit(sigName: "size-change", width: number, height: number): void
-    on(sigName: "size-change", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "size-change", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "size-change", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Aspectratio, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Aspectratio, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of Clutter.Content */
+    /* Signals of Clutter-1.0.Clutter.Content */
     connect(sigName: "attached", callback: (($obj: Aspectratio, actor: Clutter.Actor) => void)): number
-    connect_after(sigName: "attached", callback: (($obj: Aspectratio, actor: Clutter.Actor) => void)): number
+    on(sigName: "attached", callback: (actor: Clutter.Actor) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "attached", callback: (actor: Clutter.Actor) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "attached", callback: (actor: Clutter.Actor) => void): NodeJS.EventEmitter
     emit(sigName: "attached", actor: Clutter.Actor): void
-    on(sigName: "attached", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "attached", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "attached", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "detached", callback: (($obj: Aspectratio, actor: Clutter.Actor) => void)): number
-    connect_after(sigName: "detached", callback: (($obj: Aspectratio, actor: Clutter.Actor) => void)): number
+    on(sigName: "detached", callback: (actor: Clutter.Actor) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "detached", callback: (actor: Clutter.Actor) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "detached", callback: (actor: Clutter.Actor) => void): NodeJS.EventEmitter
     emit(sigName: "detached", actor: Clutter.Actor): void
-    on(sigName: "detached", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "detached", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "detached", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::fill-allocation", callback: (($obj: Aspectratio, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::fill-allocation", callback: (($obj: Aspectratio, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::fill-allocation", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -248,15 +210,15 @@ export interface Camera_ConstructProps extends GObject.Object_ConstructProps {
     playing?: boolean
 }
 export class Camera {
-    /* Properties of ClutterGst.Camera */
+    /* Properties of ClutterGst-3.0.ClutterGst.Camera */
     device: CameraDevice
-    /* Properties of ClutterGst.Player */
+    /* Properties of ClutterGst-3.0.ClutterGst.Player */
     audioVolume: number
     readonly idle: boolean
     playing: boolean
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of ClutterGst.Camera */
+    /* Methods of ClutterGst-3.0.ClutterGst.Camera */
     getBrightness(curValue: number): boolean
     getBrightnessRange(minValue: number, maxValue: number, defaultValue: number): boolean
     getCameraDevice(): CameraDevice
@@ -290,7 +252,7 @@ export class Camera {
     supportsGammaCorrection(): boolean
     takePhoto(filename: string): boolean
     takePhotoPixbuf(): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -312,7 +274,7 @@ export class Camera {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of ClutterGst.Player */
+    /* Methods of ClutterGst-3.0.ClutterGst.Player */
     getAudioVolume(): number
     getFrame(): Frame
     getIdle(): boolean
@@ -321,95 +283,59 @@ export class Camera {
     getVideoSink(): VideoSink
     setAudioVolume(volume: number): void
     setPlaying(playing: boolean): void
-    /* Virtual methods of ClutterGst.Camera */
-    vfuncPhotoSaved(): void
-    vfuncPhotoTaken(pixbuf: GdkPixbuf.Pixbuf): void
-    vfuncReadyForCapture(ready: boolean): void
-    vfuncVideoSaved(): void
-    vfuncEos(): void
-    vfuncError(error: GLib.Error): void
-    vfuncGetAudioVolume(): number
-    vfuncGetFrame(): Frame
-    vfuncGetIdle(): boolean
-    vfuncGetPipeline(): Gst.Element
-    vfuncGetPlaying(): boolean
-    vfuncGetVideoSink(): VideoSink
-    vfuncNewFrame(frame: Frame): void
-    vfuncReady(): void
-    vfuncSetAudioVolume(volume: number): void
-    vfuncSetPlaying(playing: boolean): void
-    vfuncSizeChange(width: number, height: number): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of ClutterGst.Camera */
+    /* Signals of ClutterGst-3.0.ClutterGst.Camera */
     connect(sigName: "photo-saved", callback: (($obj: Camera) => void)): number
-    connect_after(sigName: "photo-saved", callback: (($obj: Camera) => void)): number
+    on(sigName: "photo-saved", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "photo-saved", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "photo-saved", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "photo-saved"): void
-    on(sigName: "photo-saved", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "photo-saved", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "photo-saved", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "photo-taken", callback: (($obj: Camera, pixbuf: GdkPixbuf.Pixbuf) => void)): number
-    connect_after(sigName: "photo-taken", callback: (($obj: Camera, pixbuf: GdkPixbuf.Pixbuf) => void)): number
+    on(sigName: "photo-taken", callback: (pixbuf: GdkPixbuf.Pixbuf) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "photo-taken", callback: (pixbuf: GdkPixbuf.Pixbuf) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "photo-taken", callback: (pixbuf: GdkPixbuf.Pixbuf) => void): NodeJS.EventEmitter
     emit(sigName: "photo-taken", pixbuf: GdkPixbuf.Pixbuf): void
-    on(sigName: "photo-taken", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "photo-taken", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "photo-taken", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "ready-for-capture", callback: (($obj: Camera, ready: boolean) => void)): number
-    connect_after(sigName: "ready-for-capture", callback: (($obj: Camera, ready: boolean) => void)): number
+    on(sigName: "ready-for-capture", callback: (ready: boolean) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "ready-for-capture", callback: (ready: boolean) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "ready-for-capture", callback: (ready: boolean) => void): NodeJS.EventEmitter
     emit(sigName: "ready-for-capture", ready: boolean): void
-    on(sigName: "ready-for-capture", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "ready-for-capture", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "ready-for-capture", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "video-saved", callback: (($obj: Camera) => void)): number
-    connect_after(sigName: "video-saved", callback: (($obj: Camera) => void)): number
+    on(sigName: "video-saved", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "video-saved", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "video-saved", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "video-saved"): void
-    on(sigName: "video-saved", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "video-saved", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "video-saved", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Camera, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Camera, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of ClutterGst.Player */
+    /* Signals of ClutterGst-3.0.ClutterGst.Player */
     connect(sigName: "eos", callback: (($obj: Camera) => void)): number
-    connect_after(sigName: "eos", callback: (($obj: Camera) => void)): number
+    on(sigName: "eos", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "eos", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "eos", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "eos"): void
-    on(sigName: "eos", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "eos", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "eos", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "error", callback: (($obj: Camera, error: GLib.Error) => void)): number
-    connect_after(sigName: "error", callback: (($obj: Camera, error: GLib.Error) => void)): number
+    on(sigName: "error", callback: (error: GLib.Error) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "error", callback: (error: GLib.Error) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "error", callback: (error: GLib.Error) => void): NodeJS.EventEmitter
     emit(sigName: "error", error: GLib.Error): void
-    on(sigName: "error", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "error", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "error", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "new-frame", callback: (($obj: Camera, frame: Frame) => void)): number
-    connect_after(sigName: "new-frame", callback: (($obj: Camera, frame: Frame) => void)): number
+    on(sigName: "new-frame", callback: (frame: Frame) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "new-frame", callback: (frame: Frame) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "new-frame", callback: (frame: Frame) => void): NodeJS.EventEmitter
     emit(sigName: "new-frame", frame: Frame): void
-    on(sigName: "new-frame", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "new-frame", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "new-frame", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "ready", callback: (($obj: Camera) => void)): number
-    connect_after(sigName: "ready", callback: (($obj: Camera) => void)): number
+    on(sigName: "ready", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "ready", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "ready", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "ready"): void
-    on(sigName: "ready", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "ready", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "ready", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "size-change", callback: (($obj: Camera, width: number, height: number) => void)): number
-    connect_after(sigName: "size-change", callback: (($obj: Camera, width: number, height: number) => void)): number
+    on(sigName: "size-change", callback: (width: number, height: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "size-change", callback: (width: number, height: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "size-change", callback: (width: number, height: number) => void): NodeJS.EventEmitter
     emit(sigName: "size-change", width: number, height: number): void
-    on(sigName: "size-change", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "size-change", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "size-change", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::device", callback: (($obj: Camera, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::device", callback: (($obj: Camera, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::device", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -450,15 +376,15 @@ export interface CameraDevice_ConstructProps extends GObject.Object_ConstructPro
     node?: string
 }
 export class CameraDevice {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of ClutterGst.CameraDevice */
-    getCaptureResolution(): [ /* width */ number, /* height */ number ]
+    /* Methods of ClutterGst-3.0.ClutterGst.CameraDevice */
+    getCaptureResolution(): { width: number, height: number }
     getName(): string
     getNode(): string
     getSupportedResolutions(): VideoResolution[]
     setCaptureResolution(width: number, height: number): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -480,30 +406,18 @@ export class CameraDevice {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of ClutterGst.CameraDevice */
-    vfuncCaptureResolutionChanged(width: number, height: number): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of ClutterGst.CameraDevice */
+    /* Signals of ClutterGst-3.0.ClutterGst.CameraDevice */
     connect(sigName: "capture-resolution-changed", callback: (($obj: CameraDevice, width: number, height: number) => void)): number
-    connect_after(sigName: "capture-resolution-changed", callback: (($obj: CameraDevice, width: number, height: number) => void)): number
+    on(sigName: "capture-resolution-changed", callback: (width: number, height: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "capture-resolution-changed", callback: (width: number, height: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "capture-resolution-changed", callback: (width: number, height: number) => void): NodeJS.EventEmitter
     emit(sigName: "capture-resolution-changed", width: number, height: number): void
-    on(sigName: "capture-resolution-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "capture-resolution-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "capture-resolution-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: CameraDevice, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: CameraDevice, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -519,11 +433,11 @@ export class CameraDevice {
 export interface CameraManager_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class CameraManager {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of ClutterGst.CameraManager */
+    /* Methods of ClutterGst-3.0.ClutterGst.CameraManager */
     getCameraDevices(): CameraDevice[]
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -545,34 +459,23 @@ export class CameraManager {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of ClutterGst.CameraManager */
+    /* Signals of ClutterGst-3.0.ClutterGst.CameraManager */
     connect(sigName: "camera-added", callback: (($obj: CameraManager, cameraDevice: CameraDevice) => void)): number
-    connect_after(sigName: "camera-added", callback: (($obj: CameraManager, cameraDevice: CameraDevice) => void)): number
+    on(sigName: "camera-added", callback: (cameraDevice: CameraDevice) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "camera-added", callback: (cameraDevice: CameraDevice) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "camera-added", callback: (cameraDevice: CameraDevice) => void): NodeJS.EventEmitter
     emit(sigName: "camera-added", cameraDevice: CameraDevice): void
-    on(sigName: "camera-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "camera-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "camera-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "camera-removed", callback: (($obj: CameraManager, cameraDevice: CameraDevice) => void)): number
-    connect_after(sigName: "camera-removed", callback: (($obj: CameraManager, cameraDevice: CameraDevice) => void)): number
+    on(sigName: "camera-removed", callback: (cameraDevice: CameraDevice) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "camera-removed", callback: (cameraDevice: CameraDevice) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "camera-removed", callback: (cameraDevice: CameraDevice) => void): NodeJS.EventEmitter
     emit(sigName: "camera-removed", cameraDevice: CameraDevice): void
-    on(sigName: "camera-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "camera-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "camera-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: CameraManager, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: CameraManager, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -595,15 +498,15 @@ export interface Content_ConstructProps extends GObject.Object_ConstructProps {
     sink?: VideoSink
 }
 export class Content {
-    /* Properties of ClutterGst.Content */
+    /* Properties of ClutterGst-3.0.ClutterGst.Content */
     frame: Frame
     paintFrame: boolean
     paintOverlays: boolean
     player: GObject.Object
     sink: VideoSink
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of ClutterGst.Content */
+    /* Methods of ClutterGst-3.0.ClutterGst.Content */
     getFrame(): Frame
     getOverlays(): Overlays
     getPlayer(): Player
@@ -611,7 +514,7 @@ export class Content {
     setFrame(frame: Frame): void
     setPlayer(player: Player): void
     setSink(sink: VideoSink): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -633,51 +536,32 @@ export class Content {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of Clutter.Content */
-    getPreferredSize(): [ /* returnType */ boolean, /* width */ number, /* height */ number ]
+    /* Methods of Clutter-1.0.Clutter.Content */
+    getPreferredSize(): { returnType: boolean, width: number, height: number }
     invalidate(): void
-    /* Virtual methods of ClutterGst.Content */
-    vfuncHasPaintingContent(): boolean
-    vfuncAttached(actor: Clutter.Actor): void
-    vfuncDetached(actor: Clutter.Actor): void
-    vfuncGetPreferredSize(): [ /* returnType */ boolean, /* width */ number, /* height */ number ]
-    vfuncInvalidate(): void
-    vfuncPaintContent(actor: Clutter.Actor, node: Clutter.PaintNode): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of ClutterGst.Content */
+    /* Signals of ClutterGst-3.0.ClutterGst.Content */
     connect(sigName: "size-change", callback: (($obj: Content, width: number, height: number) => void)): number
-    connect_after(sigName: "size-change", callback: (($obj: Content, width: number, height: number) => void)): number
+    on(sigName: "size-change", callback: (width: number, height: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "size-change", callback: (width: number, height: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "size-change", callback: (width: number, height: number) => void): NodeJS.EventEmitter
     emit(sigName: "size-change", width: number, height: number): void
-    on(sigName: "size-change", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "size-change", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "size-change", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Content, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Content, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of Clutter.Content */
+    /* Signals of Clutter-1.0.Clutter.Content */
     connect(sigName: "attached", callback: (($obj: Content, actor: Clutter.Actor) => void)): number
-    connect_after(sigName: "attached", callback: (($obj: Content, actor: Clutter.Actor) => void)): number
+    on(sigName: "attached", callback: (actor: Clutter.Actor) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "attached", callback: (actor: Clutter.Actor) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "attached", callback: (actor: Clutter.Actor) => void): NodeJS.EventEmitter
     emit(sigName: "attached", actor: Clutter.Actor): void
-    on(sigName: "attached", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "attached", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "attached", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "detached", callback: (($obj: Content, actor: Clutter.Actor) => void)): number
-    connect_after(sigName: "detached", callback: (($obj: Content, actor: Clutter.Actor) => void)): number
+    on(sigName: "detached", callback: (actor: Clutter.Actor) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "detached", callback: (actor: Clutter.Actor) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "detached", callback: (actor: Clutter.Actor) => void): NodeJS.EventEmitter
     emit(sigName: "detached", actor: Clutter.Actor): void
-    on(sigName: "detached", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "detached", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "detached", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::frame", callback: (($obj: Content, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::frame", callback: (($obj: Content, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::frame", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -724,20 +608,20 @@ export interface Crop_ConstructProps extends Content_ConstructProps {
     paintBorders?: boolean
 }
 export class Crop {
-    /* Properties of ClutterGst.Crop */
+    /* Properties of ClutterGst-3.0.ClutterGst.Crop */
     cullBackface: boolean
     inputRegion: Box
     outputRegion: Box
     paintBorders: boolean
-    /* Properties of ClutterGst.Content */
+    /* Properties of ClutterGst-3.0.ClutterGst.Content */
     frame: Frame
     paintFrame: boolean
     paintOverlays: boolean
     player: GObject.Object
     sink: VideoSink
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of ClutterGst.Content */
+    /* Methods of ClutterGst-3.0.ClutterGst.Content */
     getFrame(): Frame
     getOverlays(): Overlays
     getPlayer(): Player
@@ -745,7 +629,7 @@ export class Crop {
     setFrame(frame: Frame): void
     setPlayer(player: Player): void
     setSink(sink: VideoSink): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -767,51 +651,32 @@ export class Crop {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of Clutter.Content */
-    getPreferredSize(): [ /* returnType */ boolean, /* width */ number, /* height */ number ]
+    /* Methods of Clutter-1.0.Clutter.Content */
+    getPreferredSize(): { returnType: boolean, width: number, height: number }
     invalidate(): void
-    /* Virtual methods of ClutterGst.Content */
-    vfuncHasPaintingContent(): boolean
-    vfuncAttached(actor: Clutter.Actor): void
-    vfuncDetached(actor: Clutter.Actor): void
-    vfuncGetPreferredSize(): [ /* returnType */ boolean, /* width */ number, /* height */ number ]
-    vfuncInvalidate(): void
-    vfuncPaintContent(actor: Clutter.Actor, node: Clutter.PaintNode): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of ClutterGst.Content */
+    /* Signals of ClutterGst-3.0.ClutterGst.Content */
     connect(sigName: "size-change", callback: (($obj: Crop, width: number, height: number) => void)): number
-    connect_after(sigName: "size-change", callback: (($obj: Crop, width: number, height: number) => void)): number
+    on(sigName: "size-change", callback: (width: number, height: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "size-change", callback: (width: number, height: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "size-change", callback: (width: number, height: number) => void): NodeJS.EventEmitter
     emit(sigName: "size-change", width: number, height: number): void
-    on(sigName: "size-change", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "size-change", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "size-change", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Crop, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Crop, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of Clutter.Content */
+    /* Signals of Clutter-1.0.Clutter.Content */
     connect(sigName: "attached", callback: (($obj: Crop, actor: Clutter.Actor) => void)): number
-    connect_after(sigName: "attached", callback: (($obj: Crop, actor: Clutter.Actor) => void)): number
+    on(sigName: "attached", callback: (actor: Clutter.Actor) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "attached", callback: (actor: Clutter.Actor) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "attached", callback: (actor: Clutter.Actor) => void): NodeJS.EventEmitter
     emit(sigName: "attached", actor: Clutter.Actor): void
-    on(sigName: "attached", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "attached", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "attached", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "detached", callback: (($obj: Crop, actor: Clutter.Actor) => void)): number
-    connect_after(sigName: "detached", callback: (($obj: Crop, actor: Clutter.Actor) => void)): number
+    on(sigName: "detached", callback: (actor: Clutter.Actor) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "detached", callback: (actor: Clutter.Actor) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "detached", callback: (actor: Clutter.Actor) => void): NodeJS.EventEmitter
     emit(sigName: "detached", actor: Clutter.Actor): void
-    on(sigName: "detached", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "detached", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "detached", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::cull-backface", callback: (($obj: Crop, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::cull-backface", callback: (($obj: Crop, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::cull-backface", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -884,7 +749,7 @@ export interface Playback_ConstructProps extends GObject.Object_ConstructProps {
     playing?: boolean
 }
 export class Playback {
-    /* Properties of ClutterGst.Playback */
+    /* Properties of ClutterGst-3.0.ClutterGst.Playback */
     audioStream: number
     readonly audioStreams: object
     readonly bufferFill: number
@@ -899,16 +764,16 @@ export class Playback {
     subtitleUri: string
     uri: string
     userAgent: string
-    /* Properties of ClutterGst.Player */
+    /* Properties of ClutterGst-3.0.ClutterGst.Player */
     audioVolume: number
     readonly idle: boolean
     playing: boolean
-    /* Fields of ClutterGst.Playback */
+    /* Fields of ClutterGst-3.0.ClutterGst.Playback */
     parent: GObject.Object
     priv: PlaybackPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of ClutterGst.Playback */
+    /* Methods of ClutterGst-3.0.ClutterGst.Playback */
     getAudioStream(): number
     getAudioStreams(): string[]
     getBufferDuration(): number
@@ -939,7 +804,7 @@ export class Playback {
     setSubtitleUri(uri: string): void
     setUri(uri: string): void
     setUserAgent(userAgent: string): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -961,7 +826,7 @@ export class Playback {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of ClutterGst.Player */
+    /* Methods of ClutterGst-3.0.ClutterGst.Player */
     getAudioVolume(): number
     getFrame(): Frame
     getIdle(): boolean
@@ -970,74 +835,44 @@ export class Playback {
     getVideoSink(): VideoSink
     setAudioVolume(volume: number): void
     setPlaying(playing: boolean): void
-    /* Virtual methods of ClutterGst.Playback */
-    vfuncShouldBuffer(query: Gst.Query): boolean
-    vfuncEos(): void
-    vfuncError(error: GLib.Error): void
-    vfuncGetAudioVolume(): number
-    vfuncGetFrame(): Frame
-    vfuncGetIdle(): boolean
-    vfuncGetPipeline(): Gst.Element
-    vfuncGetPlaying(): boolean
-    vfuncGetVideoSink(): VideoSink
-    vfuncNewFrame(frame: Frame): void
-    vfuncReady(): void
-    vfuncSetAudioVolume(volume: number): void
-    vfuncSetPlaying(playing: boolean): void
-    vfuncSizeChange(width: number, height: number): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of ClutterGst.Playback */
+    /* Signals of ClutterGst-3.0.ClutterGst.Playback */
     connect(sigName: "should-buffer", callback: (($obj: Playback, query: Gst.Query) => boolean)): number
-    connect_after(sigName: "should-buffer", callback: (($obj: Playback, query: Gst.Query) => boolean)): number
+    on(sigName: "should-buffer", callback: (query: Gst.Query) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "should-buffer", callback: (query: Gst.Query) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "should-buffer", callback: (query: Gst.Query) => void): NodeJS.EventEmitter
     emit(sigName: "should-buffer", query: Gst.Query): void
-    on(sigName: "should-buffer", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "should-buffer", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "should-buffer", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Playback, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Playback, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of ClutterGst.Player */
+    /* Signals of ClutterGst-3.0.ClutterGst.Player */
     connect(sigName: "eos", callback: (($obj: Playback) => void)): number
-    connect_after(sigName: "eos", callback: (($obj: Playback) => void)): number
+    on(sigName: "eos", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "eos", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "eos", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "eos"): void
-    on(sigName: "eos", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "eos", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "eos", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "error", callback: (($obj: Playback, error: GLib.Error) => void)): number
-    connect_after(sigName: "error", callback: (($obj: Playback, error: GLib.Error) => void)): number
+    on(sigName: "error", callback: (error: GLib.Error) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "error", callback: (error: GLib.Error) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "error", callback: (error: GLib.Error) => void): NodeJS.EventEmitter
     emit(sigName: "error", error: GLib.Error): void
-    on(sigName: "error", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "error", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "error", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "new-frame", callback: (($obj: Playback, frame: Frame) => void)): number
-    connect_after(sigName: "new-frame", callback: (($obj: Playback, frame: Frame) => void)): number
+    on(sigName: "new-frame", callback: (frame: Frame) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "new-frame", callback: (frame: Frame) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "new-frame", callback: (frame: Frame) => void): NodeJS.EventEmitter
     emit(sigName: "new-frame", frame: Frame): void
-    on(sigName: "new-frame", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "new-frame", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "new-frame", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "ready", callback: (($obj: Playback) => void)): number
-    connect_after(sigName: "ready", callback: (($obj: Playback) => void)): number
+    on(sigName: "ready", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "ready", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "ready", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "ready"): void
-    on(sigName: "ready", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "ready", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "ready", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "size-change", callback: (($obj: Playback, width: number, height: number) => void)): number
-    connect_after(sigName: "size-change", callback: (($obj: Playback, width: number, height: number) => void)): number
+    on(sigName: "size-change", callback: (width: number, height: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "size-change", callback: (width: number, height: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "size-change", callback: (width: number, height: number) => void): NodeJS.EventEmitter
     emit(sigName: "size-change", width: number, height: number): void
-    on(sigName: "size-change", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "size-change", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "size-change", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::audio-stream", callback: (($obj: Playback, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::audio-stream", callback: (($obj: Playback, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::audio-stream", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -1141,11 +976,11 @@ export interface VideoSink_ConstructProps extends GstVideo.VideoSink_ConstructPr
     updatePriority?: number
 }
 export class VideoSink {
-    /* Properties of ClutterGst.VideoSink */
+    /* Properties of ClutterGst-3.0.ClutterGst.VideoSink */
     updatePriority: number
-    /* Properties of GstVideo.VideoSink */
+    /* Properties of GstVideo-1.0.GstVideo.VideoSink */
     showPrerollFrame: boolean
-    /* Properties of GstBase.BaseSink */
+    /* Properties of GstBase-1.0.GstBase.BaseSink */
     async: boolean
     blocksize: number
     enableLastSample: boolean
@@ -1159,14 +994,14 @@ export class VideoSink {
     sync: boolean
     throttleTime: number
     tsOffset: number
-    /* Properties of Gst.Object */
+    /* Properties of Gst-1.0.Gst.Object */
     name: string
     parent: Gst.Object
-    /* Fields of GstVideo.VideoSink */
+    /* Fields of GstVideo-1.0.GstVideo.VideoSink */
     element: GstBase.BaseSink
     width: number
     height: number
-    /* Fields of GstBase.BaseSink */
+    /* Fields of GstBase-1.0.GstBase.BaseSink */
     sinkpad: Gst.Pad
     padMode: Gst.PadMode
     offset: number
@@ -1180,7 +1015,7 @@ export class VideoSink {
     playingAsync: boolean
     haveNewsegment: boolean
     segment: Gst.Segment
-    /* Fields of Gst.Element */
+    /* Fields of Gst-1.0.Gst.Element */
     object: Gst.Object
     stateLock: GLib.RecMutex
     stateCond: GLib.Cond
@@ -1202,16 +1037,16 @@ export class VideoSink {
     sinkpads: Gst.Pad[]
     padsCookie: number
     contexts: Gst.Context[]
-    /* Fields of Gst.Object */
+    /* Fields of Gst-1.0.Gst.Object */
     lock: GLib.Mutex
     flags: number
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of ClutterGst.VideoSink */
+    /* Methods of ClutterGst-3.0.ClutterGst.VideoSink */
     getFrame(): Frame
     getOverlays(): Overlays
     isReady(): boolean
-    /* Methods of GstBase.BaseSink */
+    /* Methods of GstBase-1.0.GstBase.BaseSink */
     doPreroll(obj: Gst.MiniObject): Gst.FlowReturn
     getBlocksize(): number
     getDropOutOfSegment(): boolean
@@ -1228,7 +1063,7 @@ export class VideoSink {
     isAsyncEnabled(): boolean
     isLastSampleEnabled(): boolean
     isQosEnabled(): boolean
-    queryLatency(): [ /* returnType */ boolean, /* live */ boolean | null, /* upstreamLive */ boolean | null, /* minLatency */ Gst.ClockTime | null, /* maxLatency */ Gst.ClockTime | null ]
+    queryLatency(): { returnType: boolean, live: boolean | null, upstreamLive: boolean | null, minLatency: Gst.ClockTime | null, maxLatency: Gst.ClockTime | null }
     setAsyncEnabled(enabled: boolean): void
     setBlocksize(blocksize: number): void
     setDropOutOfSegment(dropOutOfSegment: boolean): void
@@ -1241,10 +1076,10 @@ export class VideoSink {
     setSync(sync: boolean): void
     setThrottleTime(throttle: number): void
     setTsOffset(offset: Gst.ClockTimeDiff): void
-    wait(time: Gst.ClockTime): [ /* returnType */ Gst.FlowReturn, /* jitter */ Gst.ClockTimeDiff | null ]
-    waitClock(time: Gst.ClockTime): [ /* returnType */ Gst.ClockReturn, /* jitter */ Gst.ClockTimeDiff | null ]
+    wait(time: Gst.ClockTime): { returnType: Gst.FlowReturn, jitter: Gst.ClockTimeDiff | null }
+    waitClock(time: Gst.ClockTime): { returnType: Gst.ClockReturn, jitter: Gst.ClockTimeDiff | null }
     waitPreroll(): Gst.FlowReturn
-    /* Methods of Gst.Element */
+    /* Methods of Gst-1.0.Gst.Element */
     abortState(): void
     addPad(pad: Gst.Pad): boolean
     addPropertyDeepNotifyWatch(propertyName: string | null, includeValue: boolean): number
@@ -1272,7 +1107,7 @@ export class VideoSink {
     getPadTemplateList(): Gst.PadTemplate[]
     getRequestPad(name: string): Gst.Pad | null
     getStartTime(): Gst.ClockTime
-    getState(timeout: Gst.ClockTime): [ /* returnType */ Gst.StateChangeReturn, /* state */ Gst.State | null, /* pending */ Gst.State | null ]
+    getState(timeout: Gst.ClockTime): { returnType: Gst.StateChangeReturn, state: Gst.State | null, pending: Gst.State | null }
     getStaticPad(name: string): Gst.Pad | null
     isLockedState(): boolean
     iteratePads(): Gst.Iterator
@@ -1290,9 +1125,9 @@ export class VideoSink {
     postMessage(message: Gst.Message): boolean
     provideClock(): Gst.Clock | null
     query(query: Gst.Query): boolean
-    queryConvert(srcFormat: Gst.Format, srcVal: number, destFormat: Gst.Format): [ /* returnType */ boolean, /* destVal */ number ]
-    queryDuration(format: Gst.Format): [ /* returnType */ boolean, /* duration */ number | null ]
-    queryPosition(format: Gst.Format): [ /* returnType */ boolean, /* cur */ number | null ]
+    queryConvert(srcFormat: Gst.Format, srcVal: number, destFormat: Gst.Format): { returnType: boolean, destVal: number }
+    queryDuration(format: Gst.Format): { returnType: boolean, duration: number | null }
+    queryPosition(format: Gst.Format): { returnType: boolean, cur: number | null }
     releaseRequestPad(pad: Gst.Pad): void
     removePad(pad: Gst.Pad): boolean
     removePropertyNotifyWatch(watchId: number): void
@@ -1310,7 +1145,7 @@ export class VideoSink {
     syncStateWithParent(): boolean
     unlink(dest: Gst.Element): void
     unlinkPads(srcpadname: string, dest: Gst.Element, destpadname: string): void
-    /* Methods of Gst.Object */
+    /* Methods of Gst-1.0.Gst.Object */
     addControlBinding(binding: Gst.ControlBinding): boolean
     defaultError(error: GLib.Error, debug?: string | null): void
     getControlBinding(propertyName: string): Gst.ControlBinding | null
@@ -1335,7 +1170,7 @@ export class VideoSink {
     syncValues(timestamp: Gst.ClockTime): boolean
     unparent(): void
     unref(): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -1356,137 +1191,68 @@ export class VideoSink {
     stealQdata(quark: GLib.Quark): object | null
     thawNotify(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of GstVideo.ColorBalance */
+    /* Methods of GstVideo-1.0.GstVideo.ColorBalance */
     getBalanceType(): GstVideo.ColorBalanceType
     getValue(channel: GstVideo.ColorBalanceChannel): number
     listChannels(): GstVideo.ColorBalanceChannel[]
     setValue(channel: GstVideo.ColorBalanceChannel, value: number): void
     valueChanged(channel: GstVideo.ColorBalanceChannel, value: number): void
-    /* Methods of GstVideo.Navigation */
+    /* Methods of GstVideo-1.0.GstVideo.Navigation */
     sendCommand(command: GstVideo.NavigationCommand): void
     sendEvent(structure: Gst.Structure): void
     sendKeyEvent(event: string, key: string): void
     sendMouseEvent(event: string, button: number, x: number, y: number): void
     sendMouseScrollEvent(x: number, y: number, deltaX: number, deltaY: number): void
-    /* Virtual methods of ClutterGst.VideoSink */
-    vfuncNewFrame(): void
-    vfuncNewOverlays(): void
-    vfuncPipelineReady(): void
-    vfuncGetBalanceType(): GstVideo.ColorBalanceType
-    vfuncGetValue(channel: GstVideo.ColorBalanceChannel): number
-    vfuncListChannels(): GstVideo.ColorBalanceChannel[]
-    vfuncSetValue(channel: GstVideo.ColorBalanceChannel, value: number): void
-    vfuncValueChanged(channel: GstVideo.ColorBalanceChannel, value: number): void
-    vfuncSendEvent(structure: Gst.Structure): void
-    vfuncSendEvent(event: Gst.Event): boolean
-    /* Virtual methods of GstVideo.VideoSink */
-    vfuncSetInfo(caps: Gst.Caps, info: GstVideo.VideoInfo): boolean
-    vfuncShowFrame(buf: Gst.Buffer): Gst.FlowReturn
-    /* Virtual methods of GstBase.BaseSink */
-    vfuncActivatePull(active: boolean): boolean
-    vfuncEvent(event: Gst.Event): boolean
-    vfuncFixate(caps: Gst.Caps): Gst.Caps
-    vfuncGetCaps(filter: Gst.Caps): Gst.Caps
-    vfuncGetTimes(buffer: Gst.Buffer, start: Gst.ClockTime, end: Gst.ClockTime): void
-    vfuncPrepare(buffer: Gst.Buffer): Gst.FlowReturn
-    vfuncPrepareList(bufferList: Gst.BufferList): Gst.FlowReturn
-    vfuncPreroll(buffer: Gst.Buffer): Gst.FlowReturn
-    vfuncProposeAllocation(query: Gst.Query): boolean
-    vfuncQuery(query: Gst.Query): boolean
-    vfuncRender(buffer: Gst.Buffer): Gst.FlowReturn
-    vfuncRenderList(bufferList: Gst.BufferList): Gst.FlowReturn
-    vfuncSetCaps(caps: Gst.Caps): boolean
-    vfuncStart(): boolean
-    vfuncStop(): boolean
-    vfuncUnlock(): boolean
-    vfuncUnlockStop(): boolean
-    vfuncWaitEvent(event: Gst.Event): Gst.FlowReturn
-    /* Virtual methods of Gst.Element */
-    vfuncChangeState(transition: Gst.StateChange): Gst.StateChangeReturn
-    vfuncGetState(timeout: Gst.ClockTime): [ /* returnType */ Gst.StateChangeReturn, /* state */ Gst.State | null, /* pending */ Gst.State | null ]
-    vfuncNoMorePads(): void
-    vfuncPadAdded(pad: Gst.Pad): void
-    vfuncPadRemoved(pad: Gst.Pad): void
-    vfuncPostMessage(message: Gst.Message): boolean
-    vfuncProvideClock(): Gst.Clock | null
-    vfuncQuery(query: Gst.Query): boolean
-    vfuncReleasePad(pad: Gst.Pad): void
-    vfuncRequestNewPad(templ: Gst.PadTemplate, name?: string | null, caps?: Gst.Caps | null): Gst.Pad | null
-    vfuncSendEvent(event: Gst.Event): boolean
-    vfuncSetBus(bus?: Gst.Bus | null): void
-    vfuncSetClock(clock?: Gst.Clock | null): boolean
-    vfuncSetContext(context: Gst.Context): void
-    vfuncSetState(state: Gst.State): Gst.StateChangeReturn
-    vfuncStateChanged(oldstate: Gst.State, newstate: Gst.State, pending: Gst.State): void
-    /* Virtual methods of Gst.Object */
-    vfuncDeepNotify(orig: Gst.Object, pspec: GObject.ParamSpec): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of ClutterGst.VideoSink */
+    /* Signals of ClutterGst-3.0.ClutterGst.VideoSink */
     connect(sigName: "new-frame", callback: (($obj: VideoSink) => void)): number
-    connect_after(sigName: "new-frame", callback: (($obj: VideoSink) => void)): number
+    on(sigName: "new-frame", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "new-frame", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "new-frame", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "new-frame"): void
-    on(sigName: "new-frame", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "new-frame", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "new-frame", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "new-overlays", callback: (($obj: VideoSink) => void)): number
-    connect_after(sigName: "new-overlays", callback: (($obj: VideoSink) => void)): number
+    on(sigName: "new-overlays", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "new-overlays", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "new-overlays", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "new-overlays"): void
-    on(sigName: "new-overlays", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "new-overlays", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "new-overlays", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "pipeline-ready", callback: (($obj: VideoSink) => void)): number
-    connect_after(sigName: "pipeline-ready", callback: (($obj: VideoSink) => void)): number
+    on(sigName: "pipeline-ready", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "pipeline-ready", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "pipeline-ready", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "pipeline-ready"): void
-    on(sigName: "pipeline-ready", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "pipeline-ready", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "pipeline-ready", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of Gst.Element */
+    /* Signals of Gst-1.0.Gst.Element */
     connect(sigName: "no-more-pads", callback: (($obj: VideoSink) => void)): number
-    connect_after(sigName: "no-more-pads", callback: (($obj: VideoSink) => void)): number
+    on(sigName: "no-more-pads", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "no-more-pads", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "no-more-pads", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "no-more-pads"): void
-    on(sigName: "no-more-pads", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "no-more-pads", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "no-more-pads", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "pad-added", callback: (($obj: VideoSink, newPad: Gst.Pad) => void)): number
-    connect_after(sigName: "pad-added", callback: (($obj: VideoSink, newPad: Gst.Pad) => void)): number
+    on(sigName: "pad-added", callback: (newPad: Gst.Pad) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "pad-added", callback: (newPad: Gst.Pad) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "pad-added", callback: (newPad: Gst.Pad) => void): NodeJS.EventEmitter
     emit(sigName: "pad-added", newPad: Gst.Pad): void
-    on(sigName: "pad-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "pad-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "pad-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "pad-removed", callback: (($obj: VideoSink, oldPad: Gst.Pad) => void)): number
-    connect_after(sigName: "pad-removed", callback: (($obj: VideoSink, oldPad: Gst.Pad) => void)): number
+    on(sigName: "pad-removed", callback: (oldPad: Gst.Pad) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "pad-removed", callback: (oldPad: Gst.Pad) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "pad-removed", callback: (oldPad: Gst.Pad) => void): NodeJS.EventEmitter
     emit(sigName: "pad-removed", oldPad: Gst.Pad): void
-    on(sigName: "pad-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "pad-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "pad-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of Gst.Object */
+    /* Signals of Gst-1.0.Gst.Object */
     connect(sigName: "deep-notify", callback: (($obj: VideoSink, propObject: Gst.Object, prop: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "deep-notify", callback: (($obj: VideoSink, propObject: Gst.Object, prop: GObject.ParamSpec) => void)): number
+    on(sigName: "deep-notify", callback: (propObject: Gst.Object, prop: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "deep-notify", callback: (propObject: Gst.Object, prop: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "deep-notify", callback: (propObject: Gst.Object, prop: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "deep-notify", propObject: Gst.Object, prop: GObject.ParamSpec): void
-    on(sigName: "deep-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "deep-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "deep-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: VideoSink, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: VideoSink, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GstVideo.ColorBalance */
+    /* Signals of GstVideo-1.0.GstVideo.ColorBalance */
     connect(sigName: "value-changed", callback: (($obj: VideoSink, channel: GstVideo.ColorBalanceChannel, value: number) => void)): number
-    connect_after(sigName: "value-changed", callback: (($obj: VideoSink, channel: GstVideo.ColorBalanceChannel, value: number) => void)): number
+    on(sigName: "value-changed", callback: (channel: GstVideo.ColorBalanceChannel, value: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "value-changed", callback: (channel: GstVideo.ColorBalanceChannel, value: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "value-changed", callback: (channel: GstVideo.ColorBalanceChannel, value: number) => void): NodeJS.EventEmitter
     emit(sigName: "value-changed", channel: GstVideo.ColorBalanceChannel, value: number): void
-    on(sigName: "value-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "value-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "value-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::update-priority", callback: (($obj: VideoSink, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::update-priority", callback: (($obj: VideoSink, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::update-priority", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -1585,25 +1351,25 @@ export class VideoSink {
     /* Static methods and pseudo-constructors */
     static new(): VideoSink
     static eventGetType(event: Gst.Event): GstVideo.NavigationEventType
-    static eventParseCommand(event: Gst.Event): [ /* returnType */ boolean, /* command */ GstVideo.NavigationCommand | null ]
-    static eventParseKeyEvent(event: Gst.Event): [ /* returnType */ boolean, /* key */ string | null ]
-    static eventParseMouseButtonEvent(event: Gst.Event): [ /* returnType */ boolean, /* button */ number | null, /* x */ number | null, /* y */ number | null ]
-    static eventParseMouseMoveEvent(event: Gst.Event): [ /* returnType */ boolean, /* x */ number | null, /* y */ number | null ]
-    static eventParseMouseScrollEvent(event: Gst.Event): [ /* returnType */ boolean, /* x */ number | null, /* y */ number | null, /* deltaX */ number | null, /* deltaY */ number | null ]
+    static eventParseCommand(event: Gst.Event): { returnType: boolean, command: GstVideo.NavigationCommand | null }
+    static eventParseKeyEvent(event: Gst.Event): { returnType: boolean, key: string | null }
+    static eventParseMouseButtonEvent(event: Gst.Event): { returnType: boolean, button: number | null, x: number | null, y: number | null }
+    static eventParseMouseMoveEvent(event: Gst.Event): { returnType: boolean, x: number | null, y: number | null }
+    static eventParseMouseScrollEvent(event: Gst.Event): { returnType: boolean, x: number | null, y: number | null, deltaX: number | null, deltaY: number | null }
     static messageGetType(message: Gst.Message): GstVideo.NavigationMessageType
     static messageNewAnglesChanged(src: Gst.Object, curAngle: number, nAngles: number): Gst.Message
     static messageNewCommandsChanged(src: Gst.Object): Gst.Message
     static messageNewEvent(src: Gst.Object, event: Gst.Event): Gst.Message
     static messageNewMouseOver(src: Gst.Object, active: boolean): Gst.Message
-    static messageParseAnglesChanged(message: Gst.Message): [ /* returnType */ boolean, /* curAngle */ number | null, /* nAngles */ number | null ]
-    static messageParseEvent(message: Gst.Message): [ /* returnType */ boolean, /* event */ Gst.Event | null ]
-    static messageParseMouseOver(message: Gst.Message): [ /* returnType */ boolean, /* active */ boolean | null ]
+    static messageParseAnglesChanged(message: Gst.Message): { returnType: boolean, curAngle: number | null, nAngles: number | null }
+    static messageParseEvent(message: Gst.Message): { returnType: boolean, event: Gst.Event | null }
+    static messageParseMouseOver(message: Gst.Message): { returnType: boolean, active: boolean | null }
     static queryGetType(query: Gst.Query): GstVideo.NavigationQueryType
     static queryNewAngles(): Gst.Query
     static queryNewCommands(): Gst.Query
-    static queryParseAngles(query: Gst.Query): [ /* returnType */ boolean, /* curAngle */ number | null, /* nAngles */ number | null ]
-    static queryParseCommandsLength(query: Gst.Query): [ /* returnType */ boolean, /* nCmds */ number | null ]
-    static queryParseCommandsNth(query: Gst.Query, nth: number): [ /* returnType */ boolean, /* cmd */ GstVideo.NavigationCommand | null ]
+    static queryParseAngles(query: Gst.Query): { returnType: boolean, curAngle: number | null, nAngles: number | null }
+    static queryParseCommandsLength(query: Gst.Query): { returnType: boolean, nCmds: number | null }
+    static queryParseCommandsNth(query: Gst.Query, nth: number): { returnType: boolean, cmd: GstVideo.NavigationCommand | null }
     static querySetAngles(query: Gst.Query, curAngle: number, nAngles: number): void
     static querySetCommandsv(query: Gst.Query, cmds: GstVideo.NavigationCommand[]): void
     static $gtype: GObject.Type
@@ -1615,18 +1381,18 @@ export class AspectratioPrivate {
     static name: string
 }
 export class Box {
-    /* Fields of ClutterGst.Box */
+    /* Fields of ClutterGst-3.0.ClutterGst.Box */
     x1: number
     y1: number
     x2: number
     y2: number
-    /* Methods of ClutterGst.Box */
+    /* Methods of ClutterGst-3.0.ClutterGst.Box */
     getHeight(): number
     getWidth(): number
     static name: string
 }
 export abstract class CameraClass {
-    /* Fields of ClutterGst.CameraClass */
+    /* Fields of ClutterGst-3.0.ClutterGst.CameraClass */
     readyForCapture: (self: Camera, ready: boolean) => void
     photoSaved: (self: Camera) => void
     photoTaken: (self: Camera, pixbuf: GdkPixbuf.Pixbuf) => void
@@ -1634,7 +1400,7 @@ export abstract class CameraClass {
     static name: string
 }
 export abstract class CameraDeviceClass {
-    /* Fields of ClutterGst.CameraDeviceClass */
+    /* Fields of ClutterGst-3.0.ClutterGst.CameraDeviceClass */
     captureResolutionChanged: (device: CameraDevice, width: number, height: number) => void
     static name: string
 }
@@ -1651,7 +1417,7 @@ export class CameraPrivate {
     static name: string
 }
 export abstract class ContentClass {
-    /* Fields of ClutterGst.ContentClass */
+    /* Fields of ClutterGst-3.0.ClutterGst.ContentClass */
     hasPaintingContent: (self: Content) => boolean
     static name: string
 }
@@ -1665,22 +1431,22 @@ export class CropPrivate {
     static name: string
 }
 export class Frame {
-    /* Fields of ClutterGst.Frame */
+    /* Fields of ClutterGst-3.0.ClutterGst.Frame */
     resolution: VideoResolution
     static name: string
 }
 export class Overlay {
-    /* Fields of ClutterGst.Overlay */
+    /* Fields of ClutterGst-3.0.ClutterGst.Overlay */
     position: Box
     static name: string
 }
 export class Overlays {
-    /* Fields of ClutterGst.Overlays */
+    /* Fields of ClutterGst-3.0.ClutterGst.Overlays */
     overlays: object[]
     static name: string
 }
 export abstract class PlaybackClass {
-    /* Fields of ClutterGst.PlaybackClass */
+    /* Fields of ClutterGst-3.0.ClutterGst.PlaybackClass */
     shouldBuffer: (self: Playback, query: Gst.Query) => boolean
     static name: string
 }
@@ -1688,7 +1454,7 @@ export class PlaybackPrivate {
     static name: string
 }
 export abstract class PlayerIface {
-    /* Fields of ClutterGst.PlayerIface */
+    /* Fields of ClutterGst-3.0.ClutterGst.PlayerIface */
     getFrame: (self: Player) => Frame
     getPipeline: (self: Player) => Gst.Element
     getVideoSink: (self: Player) => VideoSink
@@ -1708,7 +1474,7 @@ export class PlayerIfacePrivate {
     static name: string
 }
 export class VideoResolution {
-    /* Fields of ClutterGst.VideoResolution */
+    /* Fields of ClutterGst-3.0.ClutterGst.VideoResolution */
     width: number
     height: number
     parN: number
@@ -1716,7 +1482,7 @@ export class VideoResolution {
     static name: string
 }
 export abstract class VideoSinkClass {
-    /* Fields of ClutterGst.VideoSinkClass */
+    /* Fields of ClutterGst-3.0.ClutterGst.VideoSinkClass */
     newFrame: (sink: VideoSink) => void
     pipelineReady: (sink: VideoSink) => void
     newOverlays: (sink: VideoSink) => void

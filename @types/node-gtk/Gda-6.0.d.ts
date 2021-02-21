@@ -643,7 +643,7 @@ export const SQLSTATE_NO_ERROR: string
 export const TIMEZONE_INVALID: number
 export function alphanumToText(text: string): string | null
 export function completionListGet(cnc: Connection, sql: string, start: number, end: number): string[] | null
-export function computeDmlStatements(cnc: Connection, selectStmt: Statement, requirePk: boolean): [ /* returnType */ boolean, /* insertStmt */ Statement | null, /* updateStmt */ Statement | null, /* deleteStmt */ Statement | null ]
+export function computeDmlStatements(cnc: Connection, selectStmt: Statement, requirePk: boolean): { returnType: boolean, insertStmt: Statement | null, updateStmt: Statement | null, deleteStmt: Statement | null }
 export function computeSelectStatementFromUpdate(updateStmt: Statement): SqlStatement | null
 export function computeUniqueTableRowCondition(stsel: SqlStatementSelect, mtable: MetaTable, requirePk: boolean): SqlExpr | null
 export function computeUniqueTableRowConditionWithCnc(cnc: Connection | null, stsel: SqlStatementSelect, mtable: MetaTable, requirePk: boolean): SqlExpr | null
@@ -667,8 +667,8 @@ export function parseFormattedTimestamp(value: string, first: GLib.DateDMY, seco
 export function parseIso8601Date(gdate: GLib.Date, value: string): boolean
 export function parseIso8601Time(value: string): Time
 export function providerMetaErrorQuark(): GLib.Quark
-export function rewriteSqlStatementForNullParameters(sqlst: SqlStatement, params: Set): [ /* returnType */ SqlStatement | null, /* outModified */ boolean | null ]
-export function rewriteStatementForNullParameters(stmt: Statement, params: Set): [ /* returnType */ boolean, /* outStmt */ Statement | null ]
+export function rewriteSqlStatementForNullParameters(sqlst: SqlStatement, params: Set): { returnType: SqlStatement | null, outModified: boolean | null }
+export function rewriteStatementForNullParameters(stmt: Statement, params: Set): { returnType: boolean, outStmt: Statement | null }
 export function rfc1738Decode(string: string): boolean
 export function rfc1738Encode(string: string): string | null
 export function selectAlterSelectForEmpty(stmt: Statement): Statement
@@ -756,7 +756,7 @@ export interface WorkerFunc {
     (): object | null
 }
 export class DataHandler {
-    /* Methods of Gda.DataHandler */
+    /* Methods of Gda-6.0.Gda.DataHandler */
     acceptsGType(type: GObject.Type): boolean
     getDescr(): string
     getSaneInitValue(type: GObject.Type): any | null
@@ -764,20 +764,12 @@ export class DataHandler {
     getStrFromValue(value?: any | null): string
     getValueFromSql(sql: string | null, type: GObject.Type): any
     getValueFromStr(str: string | null, type: GObject.Type): any
-    /* Virtual methods of Gda.DataHandler */
-    vfuncAcceptsGType(type: GObject.Type): boolean
-    vfuncGetDescr(): string
-    vfuncGetSaneInitValue(type: GObject.Type): any | null
-    vfuncGetSqlFromValue(value?: any | null): string
-    vfuncGetStrFromValue(value?: any | null): string
-    vfuncGetValueFromSql(sql: string | null, type: GObject.Type): any
-    vfuncGetValueFromStr(str: string | null, type: GObject.Type): any
     static name: string
     /* Static methods and pseudo-constructors */
     static getDefault(forType: GObject.Type): DataHandler
 }
 export class DataModel {
-    /* Methods of Gda.DataModel */
+    /* Methods of Gda-6.0.Gda.DataModel */
     addDataFromXmlNode(node: libxml2.NodePtr): boolean
     appendRow(): number
     appendValues(values?: any[] | null): number
@@ -819,82 +811,65 @@ export class DataModel {
     setValueAt(col: number, row: number, value: any): boolean
     setValues(row: number, values?: any[] | null): boolean
     thaw(): void
-    /* Signals of Gda.DataModel */
+    /* Signals of Gda-6.0.Gda.DataModel */
     connect(sigName: "access-changed", callback: (($obj: DataModel) => void)): number
-    connect_after(sigName: "access-changed", callback: (($obj: DataModel) => void)): number
+    on(sigName: "access-changed", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "access-changed", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "access-changed", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "access-changed"): void
-    on(sigName: "access-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "access-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "access-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "changed", callback: (($obj: DataModel) => void)): number
-    connect_after(sigName: "changed", callback: (($obj: DataModel) => void)): number
+    on(sigName: "changed", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "changed", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "changed", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "changed"): void
-    on(sigName: "changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "reset", callback: (($obj: DataModel) => void)): number
-    connect_after(sigName: "reset", callback: (($obj: DataModel) => void)): number
+    on(sigName: "reset", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "reset", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "reset", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "reset"): void
-    on(sigName: "reset", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "reset", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "reset", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "row-inserted", callback: (($obj: DataModel, row: number) => void)): number
-    connect_after(sigName: "row-inserted", callback: (($obj: DataModel, row: number) => void)): number
+    on(sigName: "row-inserted", callback: (row: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "row-inserted", callback: (row: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "row-inserted", callback: (row: number) => void): NodeJS.EventEmitter
     emit(sigName: "row-inserted", row: number): void
-    on(sigName: "row-inserted", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "row-inserted", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "row-inserted", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "row-removed", callback: (($obj: DataModel, row: number) => void)): number
-    connect_after(sigName: "row-removed", callback: (($obj: DataModel, row: number) => void)): number
+    on(sigName: "row-removed", callback: (row: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "row-removed", callback: (row: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "row-removed", callback: (row: number) => void): NodeJS.EventEmitter
     emit(sigName: "row-removed", row: number): void
-    on(sigName: "row-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "row-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "row-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "row-updated", callback: (($obj: DataModel, row: number) => void)): number
-    connect_after(sigName: "row-updated", callback: (($obj: DataModel, row: number) => void)): number
+    on(sigName: "row-updated", callback: (row: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "row-updated", callback: (row: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "row-updated", callback: (row: number) => void): NodeJS.EventEmitter
     emit(sigName: "row-updated", row: number): void
-    on(sigName: "row-updated", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "row-updated", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "row-updated", callback: (...args: any[]) => void): NodeJS.EventEmitter
     static name: string
     /* Static methods and pseudo-constructors */
     static errorQuark(): GLib.Quark
 }
 export class DbBuildable {
-    /* Methods of Gda.DbBuildable */
+    /* Methods of Gda-6.0.Gda.DbBuildable */
     parseNode(node: libxml2.NodePtr): boolean
     writeNode(node: libxml2.NodePtr): boolean
-    /* Virtual methods of Gda.DbBuildable */
-    vfuncParseNode(node: libxml2.NodePtr): boolean
-    vfuncWriteNode(node: libxml2.NodePtr): boolean
     static name: string
 }
 export class DdlModifiable {
-    /* Methods of Gda.DdlModifiable */
+    /* Methods of Gda-6.0.Gda.DdlModifiable */
     create(cnc: Connection, userData?: object | null): boolean
     drop(cnc: Connection, userData?: object | null): boolean
     rename(cnc: Connection, userData?: object | null): boolean
-    /* Virtual methods of Gda.DdlModifiable */
-    vfuncCreate(cnc: Connection): boolean
-    vfuncDrop(cnc: Connection): boolean
-    vfuncRename(cnc: Connection): boolean
     static name: string
     /* Static methods and pseudo-constructors */
     static errorQuark(): GLib.Quark
 }
 export class Lockable {
-    /* Methods of Gda.Lockable */
+    /* Methods of Gda-6.0.Gda.Lockable */
     lock(): void
     trylock(): boolean
     unlock(): void
-    /* Virtual methods of Gda.Lockable */
-    vfuncLock(): void
-    vfuncTrylock(): boolean
-    vfuncUnlock(): void
     static name: string
 }
 export class Provider {
-    /* Methods of Gda.Provider */
+    /* Methods of Gda-6.0.Gda.Provider */
     addSavepoint(cnc: Connection, name: string): boolean
     beginTransaction(cnc: Connection, name: string, level: TransactionIsolation): boolean
     closeConnection(cnc: Connection): boolean
@@ -920,44 +895,14 @@ export class Provider {
     statementExecute(cnc: Connection, stmt: Statement, params: Set, modelUsage: StatementModelUsage, colTypes: GObject.Type, lastInsertedRow: Set): GObject.Object
     statementPrepare(cnc: Connection, stmt: Statement): boolean
     statementRewrite(cnc: Connection, stmt: Statement, params: Set): SqlStatement
-    statementToSql(cnc: Connection, stmt: Statement, params: Set | null, flags: StatementSqlFlag): [ /* returnType */ string, /* paramsUsed */ Holder[] | null ]
+    statementToSql(cnc: Connection, stmt: Statement, params: Set | null, flags: StatementSqlFlag): { returnType: string, paramsUsed: Holder[] | null }
     supportsFeature(cnc: Connection, feature: ConnectionFeature): boolean
     supportsOperation(cnc: Connection, type: ServerOperationType, options: Set): boolean
     unescapeString(cnc: Connection, str: string): string
-    /* Virtual methods of Gda.Provider */
-    vfuncAddSavepoint(cnc: Connection, name: string): boolean
-    vfuncBeginTransaction(cnc: Connection, name: string, level: TransactionIsolation): boolean
-    vfuncCloseConnection(cnc: Connection): boolean
-    vfuncCommitTransaction(cnc: Connection, name: string): boolean
-    vfuncCreateConnection(): Connection
-    vfuncCreateOperation(cnc: Connection, type: ServerOperationType, options: Set): ServerOperation
-    vfuncCreateParser(cnc: Connection): SqlParser
-    vfuncDeleteSavepoint(cnc: Connection, name: string): boolean
-    vfuncEscapeString(cnc: Connection, str: string): string
-    vfuncGetDataHandler(cnc: Connection, gType: GObject.Type, dbmsType: string): DataHandler
-    vfuncGetDefDbmsType(cnc: Connection, gType: GObject.Type): string
-    vfuncGetLastInserted(cnc: Connection): Set
-    vfuncGetName(): string
-    vfuncGetServerVersion(cnc: Connection): string
-    vfuncGetVersion(): string
-    vfuncIdentifierQuote(cnc: Connection | null, id: string, forMetaStore: boolean, forceQuotes: boolean): string
-    vfuncOpenConnection(cnc: Connection, params: QuarkList, auth: QuarkList): boolean
-    vfuncPerformOperation(cnc: Connection, op: ServerOperation): boolean
-    vfuncPrepareConnection(cnc: Connection, params: QuarkList, auth: QuarkList): boolean
-    vfuncRenderOperation(cnc: Connection, op: ServerOperation): string
-    vfuncRollbackSavepoint(cnc: Connection, name: string): boolean
-    vfuncRollbackTransaction(cnc: Connection, name: string): boolean
-    vfuncStatementExecute(cnc: Connection, stmt: Statement, params: Set, modelUsage: StatementModelUsage, colTypes: GObject.Type, lastInsertedRow: Set): GObject.Object
-    vfuncStatementPrepare(cnc: Connection, stmt: Statement): boolean
-    vfuncStatementRewrite(cnc: Connection, stmt: Statement, params: Set): SqlStatement
-    vfuncStatementToSql(cnc: Connection, stmt: Statement, params: Set | null, flags: StatementSqlFlag): [ /* returnType */ string, /* paramsUsed */ Holder[] | null ]
-    vfuncSupportsFeature(cnc: Connection, feature: ConnectionFeature): boolean
-    vfuncSupportsOperation(cnc: Connection, type: ServerOperationType, options: Set): boolean
-    vfuncUnescapeString(cnc: Connection, str: string): string
     static name: string
 }
 export class ProviderMeta {
-    /* Methods of Gda.ProviderMeta */
+    /* Methods of Gda-6.0.Gda.ProviderMeta */
     btypes(): DataModel
     characterSet(chsetCatalog: string, chsetSchema: string, chsetNameN: string): Row
     characterSets(): DataModel
@@ -1015,61 +960,6 @@ export class ProviderMeta {
     viewColumns(viewCatalog: string, viewSchema: string, viewName: string): DataModel
     views(): DataModel
     viewsColumns(): DataModel
-    /* Virtual methods of Gda.ProviderMeta */
-    vfuncBtypes(): DataModel
-    vfuncCharacterSet(chsetCatalog: string, chsetSchema: string, chsetNameN: string): Row
-    vfuncCharacterSets(): DataModel
-    vfuncCheckColumn(tableCatalog: string, tableSchema: string, tableName: string, constraintName: string): Row
-    vfuncCheckColumns(): DataModel
-    vfuncCollation(collationCatalog: string, collationSchema: string, collationNameN: string): Row
-    vfuncCollations(): DataModel
-    vfuncColumns(): DataModel
-    vfuncConstraintRef(tableCatalog: string, tableSchema: string, tableName: string, constraintName: string): Row
-    vfuncConstraintTable(tableCatalog: string, tableSchema: string, tableName: string, constraintNameN: string): Row
-    vfuncConstraintsRef(): DataModel
-    vfuncConstraintsRefTable(tableCatalog: string, tableSchema: string, tableName: string): DataModel
-    vfuncConstraintsTable(tableCatalog: string, tableSchema: string, tableName: string): DataModel
-    vfuncConstraintsTables(): DataModel
-    vfuncDomain(domainCatalog: string, domainSchema: string): Row
-    vfuncDomainConstraint(domainCatalog: string, domainSchema: string, domainName: string, constraintName: string): Row
-    vfuncDomainConstraints(domainCatalog: string, domainSchema: string, domainName: string): DataModel
-    vfuncDomains(): DataModel
-    vfuncDomainsConstraints(): DataModel
-    vfuncElementType(specificName: string): Row
-    vfuncElementTypes(): DataModel
-    vfuncEnumType(udtCatalog: string, udtSchema: string, udtName: string): Row
-    vfuncEnumsType(): DataModel
-    vfuncIndexCol(tableCatalog: string, tableSchema: string, tableName: string, indexName: string): Row
-    vfuncIndexCols(): DataModel
-    vfuncIndexTable(tableCatalog: string, tableSchema: string, tableName: string, indexNameN: string): Row
-    vfuncIndexesTable(tableCatalog: string, tableSchema: string, tableName: string): DataModel
-    vfuncIndexesTables(): DataModel
-    vfuncKeyColumn(tableCatalog: string, tableSchema: string, tableName: string, constraintName: string): Row
-    vfuncKeyColumns(): DataModel
-    vfuncRoutine(routineCatalog: string, routineSchema: string, routineNameN: string): Row
-    vfuncRoutineCol(routCatalog: string, routSchema: string, routName: string): Row
-    vfuncRoutinePars(routCatalog: string, routSchema: string, routName: string): Row
-    vfuncRoutines(): DataModel
-    vfuncRoutinesCol(): DataModel
-    vfuncRoutinesPars(): DataModel
-    vfuncSchemata(catalogName: string, schemaNameN: string): Row
-    vfuncSchematas(): DataModel
-    vfuncTable(tableCatalog: string, tableSchema: string, tableNameN: string): Row
-    vfuncTableColumn(tableCatalog: string, tableSchema: string, tableName: string, columnName: string): Row
-    vfuncTableColumns(tableCatalog: string, tableSchema: string, tableName: string): DataModel
-    vfuncTables(): DataModel
-    vfuncTablesColumns(): DataModel
-    vfuncTrigger(tableCatalog: string, tableSchema: string, tableName: string): Row
-    vfuncTriggers(): DataModel
-    vfuncUdt(udtCatalog: string, udtSchema: string): Row
-    vfuncUdtCol(udtCatalog: string, udtSchema: string, udtName: string): Row
-    vfuncUdtCols(): DataModel
-    vfuncUdts(): DataModel
-    vfuncView(viewCatalog: string, viewSchema: string, viewNameN: string): Row
-    vfuncViewColumn(viewCatalog: string, viewSchema: string, viewName: string, columnName: string): Row
-    vfuncViewColumns(viewCatalog: string, viewSchema: string, viewName: string): DataModel
-    vfuncViews(): DataModel
-    vfuncViewsColumns(): DataModel
     static name: string
     /* Static methods and pseudo-constructors */
     static errorQuark(): GLib.Quark
@@ -1077,18 +967,18 @@ export class ProviderMeta {
 export interface Batch_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class Batch {
-    /* Fields of Gda.Batch */
+    /* Fields of Gda-6.0.Gda.Batch */
     parentInstance: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Gda.Batch */
+    /* Methods of Gda-6.0.Gda.Batch */
     addStatement(stmt: Statement): void
     copy(): Batch
-    getParameters(): [ /* returnType */ boolean, /* outParams */ Set | null ]
+    getParameters(): { returnType: boolean, outParams: Set | null }
     getStatements(): Statement[]
     removeStatement(stmt: Statement): void
     serialize(): string
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -1110,30 +1000,18 @@ export class Batch {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of Gda.Batch */
-    vfuncChanged(changedStmt: Statement): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gda.Batch */
+    /* Signals of Gda-6.0.Gda.Batch */
     connect(sigName: "changed", callback: (($obj: Batch, changedStmt: GObject.Object) => void)): number
-    connect_after(sigName: "changed", callback: (($obj: Batch, changedStmt: GObject.Object) => void)): number
+    on(sigName: "changed", callback: (changedStmt: GObject.Object) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "changed", callback: (changedStmt: GObject.Object) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "changed", callback: (changedStmt: GObject.Object) => void): NodeJS.EventEmitter
     emit(sigName: "changed", changedStmt: GObject.Object): void
-    on(sigName: "changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Batch, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Batch, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -1153,17 +1031,17 @@ export interface BlobOp_ConstructProps extends GObject.Object_ConstructProps {
     connection?: Connection
 }
 export class BlobOp {
-    /* Fields of Gda.BlobOp */
+    /* Fields of Gda-6.0.Gda.BlobOp */
     parentInstance: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Gda.BlobOp */
+    /* Methods of Gda-6.0.Gda.BlobOp */
     getLength(): number
     read(blob: Blob, offset: number, size: number): number
     readAll(blob: Blob): boolean
     write(blob: Blob, offset: number): number
     writeAll(blob: Blob): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -1185,21 +1063,12 @@ export class BlobOp {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: BlobOp, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: BlobOp, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -1218,15 +1087,15 @@ export interface Column_ConstructProps extends GObject.Object_ConstructProps {
     name?: string
 }
 export class Column {
-    /* Properties of Gda.Column */
+    /* Properties of Gda-6.0.Gda.Column */
     desc: string
     id: string
     name: string
-    /* Fields of Gda.Column */
+    /* Fields of Gda-6.0.Gda.Column */
     parentInstance: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Gda.Column */
+    /* Methods of Gda-6.0.Gda.Column */
     copy(): Column
     getAllowNull(): boolean
     getAutoIncrement(): boolean
@@ -1244,7 +1113,7 @@ export class Column {
     setGType(type: GObject.Type): void
     setName(name: string): void
     setPosition(position: number): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -1266,37 +1135,23 @@ export class Column {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of Gda.Column */
-    vfuncGTypeChanged(oldType: GObject.Type, newType: GObject.Type): void
-    vfuncNameChanged(oldName: string): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gda.Column */
+    /* Signals of Gda-6.0.Gda.Column */
     connect(sigName: "g-type-changed", callback: (($obj: Column, oldType: GObject.Type, newType: GObject.Type) => void)): number
-    connect_after(sigName: "g-type-changed", callback: (($obj: Column, oldType: GObject.Type, newType: GObject.Type) => void)): number
+    on(sigName: "g-type-changed", callback: (oldType: GObject.Type, newType: GObject.Type) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "g-type-changed", callback: (oldType: GObject.Type, newType: GObject.Type) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "g-type-changed", callback: (oldType: GObject.Type, newType: GObject.Type) => void): NodeJS.EventEmitter
     emit(sigName: "g-type-changed", oldType: GObject.Type, newType: GObject.Type): void
-    on(sigName: "g-type-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "g-type-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "g-type-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "name-changed", callback: (($obj: Column, oldName: string) => void)): number
-    connect_after(sigName: "name-changed", callback: (($obj: Column, oldName: string) => void)): number
+    on(sigName: "name-changed", callback: (oldName: string) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "name-changed", callback: (oldName: string) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "name-changed", callback: (oldName: string) => void): NodeJS.EventEmitter
     emit(sigName: "name-changed", oldName: string): void
-    on(sigName: "name-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "name-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "name-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Column, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Column, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::desc", callback: (($obj: Column, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::desc", callback: (($obj: Column, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::desc", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -1331,14 +1186,14 @@ export interface Config_ConstructProps extends GObject.Object_ConstructProps {
     userFilename?: string
 }
 export class Config {
-    /* Properties of Gda.Config */
+    /* Properties of Gda-6.0.Gda.Config */
     systemFilename: string
     userFilename: string
-    /* Fields of Gda.Config */
+    /* Fields of Gda-6.0.Gda.Config */
     parentInstance: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -1360,51 +1215,33 @@ export class Config {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of Gda.Config */
-    vfuncDsnAdded(newDsn: DsnInfo): void
-    vfuncDsnChanged(dsn: DsnInfo): void
-    vfuncDsnRemoved(oldDsn: DsnInfo): void
-    vfuncDsnToBeRemoved(oldDsn: DsnInfo): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gda.Config */
+    /* Signals of Gda-6.0.Gda.Config */
     connect(sigName: "dsn-added", callback: (($obj: Config, newDsn?: object | null) => void)): number
-    connect_after(sigName: "dsn-added", callback: (($obj: Config, newDsn?: object | null) => void)): number
+    on(sigName: "dsn-added", callback: (newDsn?: object | null) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "dsn-added", callback: (newDsn?: object | null) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "dsn-added", callback: (newDsn?: object | null) => void): NodeJS.EventEmitter
     emit(sigName: "dsn-added", newDsn?: object | null): void
-    on(sigName: "dsn-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "dsn-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "dsn-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "dsn-changed", callback: (($obj: Config, dsn?: object | null) => void)): number
-    connect_after(sigName: "dsn-changed", callback: (($obj: Config, dsn?: object | null) => void)): number
+    on(sigName: "dsn-changed", callback: (dsn?: object | null) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "dsn-changed", callback: (dsn?: object | null) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "dsn-changed", callback: (dsn?: object | null) => void): NodeJS.EventEmitter
     emit(sigName: "dsn-changed", dsn?: object | null): void
-    on(sigName: "dsn-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "dsn-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "dsn-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "dsn-removed", callback: (($obj: Config, oldDsn?: object | null) => void)): number
-    connect_after(sigName: "dsn-removed", callback: (($obj: Config, oldDsn?: object | null) => void)): number
+    on(sigName: "dsn-removed", callback: (oldDsn?: object | null) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "dsn-removed", callback: (oldDsn?: object | null) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "dsn-removed", callback: (oldDsn?: object | null) => void): NodeJS.EventEmitter
     emit(sigName: "dsn-removed", oldDsn?: object | null): void
-    on(sigName: "dsn-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "dsn-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "dsn-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "dsn-to-be-removed", callback: (($obj: Config, oldDsn?: object | null) => void)): number
-    connect_after(sigName: "dsn-to-be-removed", callback: (($obj: Config, oldDsn?: object | null) => void)): number
+    on(sigName: "dsn-to-be-removed", callback: (oldDsn?: object | null) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "dsn-to-be-removed", callback: (oldDsn?: object | null) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "dsn-to-be-removed", callback: (oldDsn?: object | null) => void): NodeJS.EventEmitter
     emit(sigName: "dsn-to-be-removed", oldDsn?: object | null): void
-    on(sigName: "dsn-to-be-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "dsn-to-be-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "dsn-to-be-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Config, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Config, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::system-filename", callback: (($obj: Config, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::system-filename", callback: (($obj: Config, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::system-filename", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -1453,7 +1290,7 @@ export interface Connection_ConstructProps extends GObject.Object_ConstructProps
     provider?: ServerProvider
 }
 export class Connection {
-    /* Properties of Gda.Connection */
+    /* Properties of Gda-6.0.Gda.Connection */
     authString: string
     cncString: string
     dsn: string
@@ -1462,11 +1299,11 @@ export class Connection {
     executionTimer: boolean
     metaStore: MetaStore
     provider: ServerProvider
-    /* Fields of Gda.Connection */
+    /* Fields of Gda-6.0.Gda.Connection */
     parentInstance: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Gda.Connection */
+    /* Methods of Gda-6.0.Gda.Connection */
     addEvent(event: ConnectionEvent): void
     addPreparedStatement(gdaStmt: Statement, preparedStmt: PStmt): void
     addSavepoint(name?: string | null): boolean
@@ -1485,7 +1322,7 @@ export class Connection {
     executeSelectCommand(sql: string): DataModel
     getAuthentication(): string
     getCncString(): string
-    getDateFormat(): [ /* returnType */ boolean, /* outFirst */ GLib.DateDMY | null, /* outSecond */ GLib.DateDMY | null, /* outThird */ GLib.DateDMY | null, /* outSep */ string | null ]
+    getDateFormat(): { returnType: boolean, outFirst: GLib.DateDMY | null, outSecond: GLib.DateDMY | null, outThird: GLib.DateDMY | null, outSep: string | null }
     getDsn(): string
     getEvents(): ConnectionEvent[]
     getMainContext(thread?: GLib.Thread | null): GLib.MainContext
@@ -1513,7 +1350,7 @@ export class Connection {
     open(): boolean
     openAsync(callback: ConnectionOpenFunc): number
     operationGetSqlIdentifierAtPath(op: ServerOperation, path: string): string | null
-    parseSqlString(sql: string): [ /* returnType */ Statement, /* params */ Set | null ]
+    parseSqlString(sql: string): { returnType: Statement, params: Set | null }
     performOperation(op: ServerOperation): boolean
     pointAvailableEvent(type: ConnectionEventType): ConnectionEvent
     prepareOperationCreateTable(tableName: string, arguments_: ServerOperationCreateTableArg[]): ServerOperation | null
@@ -1523,17 +1360,17 @@ export class Connection {
     rollbackSavepoint(name?: string | null): boolean
     rollbackTransaction(name?: string | null): boolean
     setMainContext(thread?: GLib.Thread | null, context?: GLib.MainContext | null): void
-    statementExecute(stmt: Statement, params: Set | null, modelUsage: StatementModelUsage): [ /* returnType */ GObject.Object, /* lastInsertRow */ Set | null ]
-    statementExecuteNonSelect(stmt: Statement, params?: Set | null): [ /* returnType */ number, /* lastInsertRow */ Set | null ]
+    statementExecute(stmt: Statement, params: Set | null, modelUsage: StatementModelUsage): { returnType: GObject.Object, lastInsertRow: Set | null }
+    statementExecuteNonSelect(stmt: Statement, params?: Set | null): { returnType: number, lastInsertRow: Set | null }
     statementExecuteSelect(stmt: Statement, params?: Set | null): DataModel
     statementExecuteSelectFull(stmt: Statement, params: Set | null, modelUsage: StatementModelUsage, colTypes?: GObject.Type[] | null): DataModel
     statementPrepare(stmt: Statement): boolean
-    statementToSql(stmt: Statement, params: Set | null, flags: StatementSqlFlag): [ /* returnType */ string, /* paramsUsed */ Holder[] | null ]
+    statementToSql(stmt: Statement, params: Set | null, flags: StatementSqlFlag): { returnType: string, paramsUsed: Holder[] | null }
     supportsFeature(feature: ConnectionFeature): boolean
     updateMetaStore(context?: MetaContext | null): boolean
     updateRowInTableV(table: string, conditionColumnName: string, conditionValue: any, colNames: string[], values: any[]): boolean
     valueToSqlString(from: any): string
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -1555,72 +1392,47 @@ export class Connection {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of Gda.Lockable */
+    /* Methods of Gda-6.0.Gda.Lockable */
     lock(): void
     trylock(): boolean
     unlock(): void
-    /* Virtual methods of Gda.Connection */
-    vfuncClosed(): void
-    vfuncDsnChanged(): void
-    vfuncError(error: ConnectionEvent): void
-    vfuncOpened(): void
-    vfuncStatusChanged(status: ConnectionStatus): void
-    vfuncTransactionStatusChanged(): void
-    vfuncLock(): void
-    vfuncTrylock(): boolean
-    vfuncUnlock(): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gda.Connection */
+    /* Signals of Gda-6.0.Gda.Connection */
     connect(sigName: "closed", callback: (($obj: Connection) => void)): number
-    connect_after(sigName: "closed", callback: (($obj: Connection) => void)): number
+    on(sigName: "closed", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "closed", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "closed", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "closed"): void
-    on(sigName: "closed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "closed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "closed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "dsn-changed", callback: (($obj: Connection) => void)): number
-    connect_after(sigName: "dsn-changed", callback: (($obj: Connection) => void)): number
+    on(sigName: "dsn-changed", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "dsn-changed", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "dsn-changed", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "dsn-changed"): void
-    on(sigName: "dsn-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "dsn-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "dsn-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "error", callback: (($obj: Connection, event: ConnectionEvent) => void)): number
-    connect_after(sigName: "error", callback: (($obj: Connection, event: ConnectionEvent) => void)): number
+    on(sigName: "error", callback: (event: ConnectionEvent) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "error", callback: (event: ConnectionEvent) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "error", callback: (event: ConnectionEvent) => void): NodeJS.EventEmitter
     emit(sigName: "error", event: ConnectionEvent): void
-    on(sigName: "error", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "error", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "error", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "opened", callback: (($obj: Connection) => void)): number
-    connect_after(sigName: "opened", callback: (($obj: Connection) => void)): number
+    on(sigName: "opened", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "opened", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "opened", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "opened"): void
-    on(sigName: "opened", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "opened", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "opened", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "status-changed", callback: (($obj: Connection, status: ConnectionStatus) => void)): number
-    connect_after(sigName: "status-changed", callback: (($obj: Connection, status: ConnectionStatus) => void)): number
+    on(sigName: "status-changed", callback: (status: ConnectionStatus) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "status-changed", callback: (status: ConnectionStatus) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "status-changed", callback: (status: ConnectionStatus) => void): NodeJS.EventEmitter
     emit(sigName: "status-changed", status: ConnectionStatus): void
-    on(sigName: "status-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "status-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "status-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "transaction-status-changed", callback: (($obj: Connection) => void)): number
-    connect_after(sigName: "transaction-status-changed", callback: (($obj: Connection) => void)): number
+    on(sigName: "transaction-status-changed", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "transaction-status-changed", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "transaction-status-changed", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "transaction-status-changed"): void
-    on(sigName: "transaction-status-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "transaction-status-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "transaction-status-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Connection, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Connection, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::auth-string", callback: (($obj: Connection, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::auth-string", callback: (($obj: Connection, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::auth-string", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -1681,20 +1493,20 @@ export class Connection {
     static openFromDsnName(dsnName: string, authString: string | null, options: ConnectionOptions): Connection
     static openFromString(providerName: string | null, cncString: string, authString: string | null, options: ConnectionOptions): Connection
     static openSqlite(directory: string | null, filename: string, autoUnlink: boolean): Connection
-    static stringSplit(string: string): [ /* outCncParams */ string, /* outProvider */ string, /* outUsername */ string, /* outPassword */ string ]
+    static stringSplit(string: string): { outCncParams: string, outProvider: string, outUsername: string, outPassword: string }
     static $gtype: GObject.Type
 }
 export interface ConnectionEvent_ConstructProps extends GObject.Object_ConstructProps {
     type?: number
 }
 export class ConnectionEvent {
-    /* Properties of Gda.ConnectionEvent */
+    /* Properties of Gda-6.0.Gda.ConnectionEvent */
     type: number
-    /* Fields of Gda.ConnectionEvent */
+    /* Fields of Gda-6.0.Gda.ConnectionEvent */
     parentInstance: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Gda.ConnectionEvent */
+    /* Methods of Gda-6.0.Gda.ConnectionEvent */
     getCode(): number
     getDescription(): string
     getEventType(): ConnectionEventType
@@ -1707,7 +1519,7 @@ export class ConnectionEvent {
     setGdaCode(code: ConnectionEventCode): void
     setSource(source: string): void
     setSqlstate(sqlstate: string): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -1729,21 +1541,12 @@ export class ConnectionEvent {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: ConnectionEvent, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: ConnectionEvent, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::type", callback: (($obj: ConnectionEvent, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::type", callback: (($obj: ConnectionEvent, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::type", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -1765,13 +1568,13 @@ export interface DataAccessWrapper_ConstructProps extends GObject.Object_Constru
     model?: DataModel
 }
 export class DataAccessWrapper {
-    /* Fields of Gda.DataAccessWrapper */
+    /* Fields of Gda-6.0.Gda.DataAccessWrapper */
     parentInstance: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Gda.DataAccessWrapper */
+    /* Methods of Gda-6.0.Gda.DataAccessWrapper */
     setMapping(mapping: number[] | null): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -1793,7 +1596,7 @@ export class DataAccessWrapper {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of Gda.DataModel */
+    /* Methods of Gda-6.0.Gda.DataModel */
     addDataFromXmlNode(node: libxml2.NodePtr): boolean
     appendRow(): number
     appendValues(values?: any[] | null): number
@@ -1835,58 +1638,43 @@ export class DataAccessWrapper {
     setValueAt(col: number, row: number, value: any): boolean
     setValues(row: number, values?: any[] | null): boolean
     thaw(): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: DataAccessWrapper, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: DataAccessWrapper, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of Gda.DataModel */
+    /* Signals of Gda-6.0.Gda.DataModel */
     connect(sigName: "access-changed", callback: (($obj: DataAccessWrapper) => void)): number
-    connect_after(sigName: "access-changed", callback: (($obj: DataAccessWrapper) => void)): number
+    on(sigName: "access-changed", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "access-changed", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "access-changed", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "access-changed"): void
-    on(sigName: "access-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "access-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "access-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "changed", callback: (($obj: DataAccessWrapper) => void)): number
-    connect_after(sigName: "changed", callback: (($obj: DataAccessWrapper) => void)): number
+    on(sigName: "changed", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "changed", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "changed", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "changed"): void
-    on(sigName: "changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "reset", callback: (($obj: DataAccessWrapper) => void)): number
-    connect_after(sigName: "reset", callback: (($obj: DataAccessWrapper) => void)): number
+    on(sigName: "reset", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "reset", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "reset", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "reset"): void
-    on(sigName: "reset", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "reset", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "reset", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "row-inserted", callback: (($obj: DataAccessWrapper, row: number) => void)): number
-    connect_after(sigName: "row-inserted", callback: (($obj: DataAccessWrapper, row: number) => void)): number
+    on(sigName: "row-inserted", callback: (row: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "row-inserted", callback: (row: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "row-inserted", callback: (row: number) => void): NodeJS.EventEmitter
     emit(sigName: "row-inserted", row: number): void
-    on(sigName: "row-inserted", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "row-inserted", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "row-inserted", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "row-removed", callback: (($obj: DataAccessWrapper, row: number) => void)): number
-    connect_after(sigName: "row-removed", callback: (($obj: DataAccessWrapper, row: number) => void)): number
+    on(sigName: "row-removed", callback: (row: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "row-removed", callback: (row: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "row-removed", callback: (row: number) => void): NodeJS.EventEmitter
     emit(sigName: "row-removed", row: number): void
-    on(sigName: "row-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "row-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "row-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "row-updated", callback: (($obj: DataAccessWrapper, row: number) => void)): number
-    connect_after(sigName: "row-updated", callback: (($obj: DataAccessWrapper, row: number) => void)): number
+    on(sigName: "row-updated", callback: (row: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "row-updated", callback: (row: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "row-updated", callback: (row: number) => void): NodeJS.EventEmitter
     emit(sigName: "row-updated", row: number): void
-    on(sigName: "row-updated", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "row-updated", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "row-updated", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -1906,19 +1694,19 @@ export interface DataComparator_ConstructProps extends GObject.Object_ConstructP
     oldModel?: DataModel
 }
 export class DataComparator {
-    /* Properties of Gda.DataComparator */
+    /* Properties of Gda-6.0.Gda.DataComparator */
     newModel: DataModel
     oldModel: DataModel
-    /* Fields of Gda.DataComparator */
+    /* Fields of Gda-6.0.Gda.DataComparator */
     parentInstance: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Gda.DataComparator */
+    /* Methods of Gda-6.0.Gda.DataComparator */
     computeDiff(): boolean
     getDiff(pos: number): Diff
     getNDiffs(): number
     setKeyColumns(colNumbers: number[]): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -1940,30 +1728,18 @@ export class DataComparator {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of Gda.DataComparator */
-    vfuncDiffComputed(diff: Diff): boolean
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gda.DataComparator */
+    /* Signals of Gda-6.0.Gda.DataComparator */
     connect(sigName: "diff-computed", callback: (($obj: DataComparator, object?: object | null) => boolean)): number
-    connect_after(sigName: "diff-computed", callback: (($obj: DataComparator, object?: object | null) => boolean)): number
+    on(sigName: "diff-computed", callback: (object?: object | null) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "diff-computed", callback: (object?: object | null) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "diff-computed", callback: (object?: object | null) => void): NodeJS.EventEmitter
     emit(sigName: "diff-computed", object?: object | null): void
-    on(sigName: "diff-computed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "diff-computed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "diff-computed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: DataComparator, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: DataComparator, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::new-model", callback: (($obj: DataComparator, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::new-model", callback: (($obj: DataComparator, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::new-model", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -1994,18 +1770,18 @@ export interface DataModelArray_ConstructProps extends GObject.Object_ConstructP
     readOnly?: boolean
 }
 export class DataModelArray {
-    /* Properties of Gda.DataModelArray */
+    /* Properties of Gda-6.0.Gda.DataModelArray */
     nColumns: number
     readOnly: boolean
-    /* Fields of Gda.DataModelArray */
+    /* Fields of Gda-6.0.Gda.DataModelArray */
     parentInstance: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Gda.DataModelArray */
+    /* Methods of Gda-6.0.Gda.DataModelArray */
     clear(): void
     getRow(row: number): Row
     setNColumns(cols: number): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -2027,7 +1803,7 @@ export class DataModelArray {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of Gda.DataModel */
+    /* Methods of Gda-6.0.Gda.DataModel */
     addDataFromXmlNode(node: libxml2.NodePtr): boolean
     appendRow(): number
     appendValues(values?: any[] | null): number
@@ -2069,58 +1845,43 @@ export class DataModelArray {
     setValueAt(col: number, row: number, value: any): boolean
     setValues(row: number, values?: any[] | null): boolean
     thaw(): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: DataModelArray, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: DataModelArray, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of Gda.DataModel */
+    /* Signals of Gda-6.0.Gda.DataModel */
     connect(sigName: "access-changed", callback: (($obj: DataModelArray) => void)): number
-    connect_after(sigName: "access-changed", callback: (($obj: DataModelArray) => void)): number
+    on(sigName: "access-changed", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "access-changed", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "access-changed", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "access-changed"): void
-    on(sigName: "access-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "access-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "access-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "changed", callback: (($obj: DataModelArray) => void)): number
-    connect_after(sigName: "changed", callback: (($obj: DataModelArray) => void)): number
+    on(sigName: "changed", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "changed", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "changed", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "changed"): void
-    on(sigName: "changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "reset", callback: (($obj: DataModelArray) => void)): number
-    connect_after(sigName: "reset", callback: (($obj: DataModelArray) => void)): number
+    on(sigName: "reset", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "reset", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "reset", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "reset"): void
-    on(sigName: "reset", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "reset", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "reset", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "row-inserted", callback: (($obj: DataModelArray, row: number) => void)): number
-    connect_after(sigName: "row-inserted", callback: (($obj: DataModelArray, row: number) => void)): number
+    on(sigName: "row-inserted", callback: (row: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "row-inserted", callback: (row: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "row-inserted", callback: (row: number) => void): NodeJS.EventEmitter
     emit(sigName: "row-inserted", row: number): void
-    on(sigName: "row-inserted", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "row-inserted", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "row-inserted", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "row-removed", callback: (($obj: DataModelArray, row: number) => void)): number
-    connect_after(sigName: "row-removed", callback: (($obj: DataModelArray, row: number) => void)): number
+    on(sigName: "row-removed", callback: (row: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "row-removed", callback: (row: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "row-removed", callback: (row: number) => void): NodeJS.EventEmitter
     emit(sigName: "row-removed", row: number): void
-    on(sigName: "row-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "row-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "row-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "row-updated", callback: (($obj: DataModelArray, row: number) => void)): number
-    connect_after(sigName: "row-updated", callback: (($obj: DataModelArray, row: number) => void)): number
+    on(sigName: "row-updated", callback: (row: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "row-updated", callback: (row: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "row-updated", callback: (row: number) => void): NodeJS.EventEmitter
     emit(sigName: "row-updated", row: number): void
-    on(sigName: "row-updated", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "row-updated", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "row-updated", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::n-columns", callback: (($obj: DataModelArray, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::n-columns", callback: (($obj: DataModelArray, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::n-columns", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -2150,14 +1911,14 @@ export interface DataModelDir_ConstructProps extends GObject.Object_ConstructPro
     basedir?: string
 }
 export class DataModelDir {
-    /* Fields of Gda.DataModelDir */
+    /* Fields of Gda-6.0.Gda.DataModelDir */
     parentInstance: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Gda.DataModelDir */
+    /* Methods of Gda-6.0.Gda.DataModelDir */
     cleanErrors(): void
     getErrors(): GLib.Error[]
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -2179,7 +1940,7 @@ export class DataModelDir {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of Gda.DataModel */
+    /* Methods of Gda-6.0.Gda.DataModel */
     addDataFromXmlNode(node: libxml2.NodePtr): boolean
     appendRow(): number
     appendValues(values?: any[] | null): number
@@ -2221,58 +1982,43 @@ export class DataModelDir {
     setValueAt(col: number, row: number, value: any): boolean
     setValues(row: number, values?: any[] | null): boolean
     thaw(): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: DataModelDir, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: DataModelDir, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of Gda.DataModel */
+    /* Signals of Gda-6.0.Gda.DataModel */
     connect(sigName: "access-changed", callback: (($obj: DataModelDir) => void)): number
-    connect_after(sigName: "access-changed", callback: (($obj: DataModelDir) => void)): number
+    on(sigName: "access-changed", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "access-changed", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "access-changed", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "access-changed"): void
-    on(sigName: "access-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "access-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "access-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "changed", callback: (($obj: DataModelDir) => void)): number
-    connect_after(sigName: "changed", callback: (($obj: DataModelDir) => void)): number
+    on(sigName: "changed", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "changed", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "changed", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "changed"): void
-    on(sigName: "changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "reset", callback: (($obj: DataModelDir) => void)): number
-    connect_after(sigName: "reset", callback: (($obj: DataModelDir) => void)): number
+    on(sigName: "reset", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "reset", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "reset", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "reset"): void
-    on(sigName: "reset", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "reset", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "reset", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "row-inserted", callback: (($obj: DataModelDir, row: number) => void)): number
-    connect_after(sigName: "row-inserted", callback: (($obj: DataModelDir, row: number) => void)): number
+    on(sigName: "row-inserted", callback: (row: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "row-inserted", callback: (row: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "row-inserted", callback: (row: number) => void): NodeJS.EventEmitter
     emit(sigName: "row-inserted", row: number): void
-    on(sigName: "row-inserted", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "row-inserted", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "row-inserted", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "row-removed", callback: (($obj: DataModelDir, row: number) => void)): number
-    connect_after(sigName: "row-removed", callback: (($obj: DataModelDir, row: number) => void)): number
+    on(sigName: "row-removed", callback: (row: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "row-removed", callback: (row: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "row-removed", callback: (row: number) => void): NodeJS.EventEmitter
     emit(sigName: "row-removed", row: number): void
-    on(sigName: "row-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "row-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "row-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "row-updated", callback: (($obj: DataModelDir, row: number) => void)): number
-    connect_after(sigName: "row-updated", callback: (($obj: DataModelDir, row: number) => void)): number
+    on(sigName: "row-updated", callback: (row: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "row-updated", callback: (row: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "row-updated", callback: (row: number) => void): NodeJS.EventEmitter
     emit(sigName: "row-updated", row: number): void
-    on(sigName: "row-updated", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "row-updated", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "row-updated", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -2296,16 +2042,16 @@ export interface DataModelImport_ConstructProps extends GObject.Object_Construct
     xmlNode?: object
 }
 export class DataModelImport {
-    /* Properties of Gda.DataModelImport */
+    /* Properties of Gda-6.0.Gda.DataModelImport */
     strict: boolean
-    /* Fields of Gda.DataModelImport */
+    /* Fields of Gda-6.0.Gda.DataModelImport */
     parentInstance: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Gda.DataModelImport */
+    /* Methods of Gda-6.0.Gda.DataModelImport */
     cleanErrors(): void
     getErrors(): GLib.Error[]
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -2327,7 +2073,7 @@ export class DataModelImport {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of Gda.DataModel */
+    /* Methods of Gda-6.0.Gda.DataModel */
     addDataFromXmlNode(node: libxml2.NodePtr): boolean
     appendRow(): number
     appendValues(values?: any[] | null): number
@@ -2369,58 +2115,43 @@ export class DataModelImport {
     setValueAt(col: number, row: number, value: any): boolean
     setValues(row: number, values?: any[] | null): boolean
     thaw(): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: DataModelImport, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: DataModelImport, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of Gda.DataModel */
+    /* Signals of Gda-6.0.Gda.DataModel */
     connect(sigName: "access-changed", callback: (($obj: DataModelImport) => void)): number
-    connect_after(sigName: "access-changed", callback: (($obj: DataModelImport) => void)): number
+    on(sigName: "access-changed", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "access-changed", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "access-changed", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "access-changed"): void
-    on(sigName: "access-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "access-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "access-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "changed", callback: (($obj: DataModelImport) => void)): number
-    connect_after(sigName: "changed", callback: (($obj: DataModelImport) => void)): number
+    on(sigName: "changed", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "changed", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "changed", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "changed"): void
-    on(sigName: "changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "reset", callback: (($obj: DataModelImport) => void)): number
-    connect_after(sigName: "reset", callback: (($obj: DataModelImport) => void)): number
+    on(sigName: "reset", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "reset", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "reset", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "reset"): void
-    on(sigName: "reset", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "reset", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "reset", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "row-inserted", callback: (($obj: DataModelImport, row: number) => void)): number
-    connect_after(sigName: "row-inserted", callback: (($obj: DataModelImport, row: number) => void)): number
+    on(sigName: "row-inserted", callback: (row: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "row-inserted", callback: (row: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "row-inserted", callback: (row: number) => void): NodeJS.EventEmitter
     emit(sigName: "row-inserted", row: number): void
-    on(sigName: "row-inserted", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "row-inserted", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "row-inserted", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "row-removed", callback: (($obj: DataModelImport, row: number) => void)): number
-    connect_after(sigName: "row-removed", callback: (($obj: DataModelImport, row: number) => void)): number
+    on(sigName: "row-removed", callback: (row: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "row-removed", callback: (row: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "row-removed", callback: (row: number) => void): NodeJS.EventEmitter
     emit(sigName: "row-removed", row: number): void
-    on(sigName: "row-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "row-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "row-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "row-updated", callback: (($obj: DataModelImport, row: number) => void)): number
-    connect_after(sigName: "row-updated", callback: (($obj: DataModelImport, row: number) => void)): number
+    on(sigName: "row-updated", callback: (row: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "row-updated", callback: (row: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "row-updated", callback: (row: number) => void): NodeJS.EventEmitter
     emit(sigName: "row-updated", row: number): void
-    on(sigName: "row-updated", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "row-updated", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "row-updated", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::strict", callback: (($obj: DataModelImport, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::strict", callback: (($obj: DataModelImport, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::strict", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -2446,20 +2177,20 @@ export class DataModelImport {
 export interface DataModelImportIter_ConstructProps extends DataModelIter_ConstructProps {
 }
 export class DataModelImportIter {
-    /* Properties of Gda.DataModelIter */
+    /* Properties of Gda-6.0.Gda.DataModelIter */
     currentRow: number
     dataModel: DataModel
     updateModel: boolean
-    /* Properties of Gda.Set */
+    /* Properties of Gda-6.0.Gda.Set */
     description: string
     id: string
     name: string
     validateChanges: boolean
-    /* Fields of Gda.DataModelImportIter */
+    /* Fields of Gda-6.0.Gda.DataModelImportIter */
     parentInstance: DataModelIter
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Gda.DataModelIter */
+    /* Methods of Gda-6.0.Gda.DataModelIter */
     getHolderForField(col: number): Holder
     getRow(): number
     getValueAt(col: number): any | null
@@ -2471,7 +2202,7 @@ export class DataModelImportIter {
     movePrev(): boolean
     moveToRow(row: number): boolean
     setValueAt(col: number, value: any): boolean
-    /* Methods of Gda.Set */
+    /* Methods of Gda-6.0.Gda.Set */
     addHolder(holder: Holder): boolean
     copy(): Set
     getGroup(holder: Holder): SetGroup
@@ -2488,7 +2219,7 @@ export class DataModelImportIter {
     mergeWithSet(setToMerge: Set): void
     removeHolder(holder: Holder): void
     replaceSourceModel(source: SetSource, model: DataModel): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -2510,92 +2241,59 @@ export class DataModelImportIter {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of Gda.DataModelIter */
-    vfuncEndOfData(): void
-    vfuncMoveNext(): boolean
-    vfuncMovePrev(): boolean
-    vfuncMoveToRow(row: number): boolean
-    vfuncRowChanged(row: number): void
-    vfuncSetValueAt(col: number, value: any): boolean
-    /* Virtual methods of Gda.Set */
-    vfuncHolderAttrChanged(holder: Holder, attrName: string, attrValue: any): void
-    vfuncHolderChanged(holder: Holder): void
-    vfuncHolderTypeSet(holder: Holder): void
-    vfuncPublicDataChanged(): void
-    vfuncSourceModelChanged(source: SetSource): void
-    vfuncValidateHolderChange(holder: Holder, newValue: any): GLib.Error
-    vfuncValidateSet(): GLib.Error
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gda.DataModelIter */
+    /* Signals of Gda-6.0.Gda.DataModelIter */
     connect(sigName: "end-of-data", callback: (($obj: DataModelImportIter) => void)): number
-    connect_after(sigName: "end-of-data", callback: (($obj: DataModelImportIter) => void)): number
+    on(sigName: "end-of-data", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "end-of-data", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "end-of-data", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "end-of-data"): void
-    on(sigName: "end-of-data", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "end-of-data", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "end-of-data", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "row-changed", callback: (($obj: DataModelImportIter, row: number) => void)): number
-    connect_after(sigName: "row-changed", callback: (($obj: DataModelImportIter, row: number) => void)): number
+    on(sigName: "row-changed", callback: (row: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "row-changed", callback: (row: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "row-changed", callback: (row: number) => void): NodeJS.EventEmitter
     emit(sigName: "row-changed", row: number): void
-    on(sigName: "row-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "row-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "row-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of Gda.Set */
+    /* Signals of Gda-6.0.Gda.Set */
     connect(sigName: "holder-attr-changed", callback: (($obj: DataModelImportIter, holder: Holder, attrName: string, attrValue: any) => void)): number
-    connect_after(sigName: "holder-attr-changed", callback: (($obj: DataModelImportIter, holder: Holder, attrName: string, attrValue: any) => void)): number
+    on(sigName: "holder-attr-changed", callback: (holder: Holder, attrName: string, attrValue: any) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "holder-attr-changed", callback: (holder: Holder, attrName: string, attrValue: any) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "holder-attr-changed", callback: (holder: Holder, attrName: string, attrValue: any) => void): NodeJS.EventEmitter
     emit(sigName: "holder-attr-changed", holder: Holder, attrName: string, attrValue: any): void
-    on(sigName: "holder-attr-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "holder-attr-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "holder-attr-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "holder-changed", callback: (($obj: DataModelImportIter, object: Holder) => void)): number
-    connect_after(sigName: "holder-changed", callback: (($obj: DataModelImportIter, object: Holder) => void)): number
+    on(sigName: "holder-changed", callback: (object: Holder) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "holder-changed", callback: (object: Holder) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "holder-changed", callback: (object: Holder) => void): NodeJS.EventEmitter
     emit(sigName: "holder-changed", object: Holder): void
-    on(sigName: "holder-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "holder-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "holder-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "holder-type-set", callback: (($obj: DataModelImportIter, holder: Holder) => void)): number
-    connect_after(sigName: "holder-type-set", callback: (($obj: DataModelImportIter, holder: Holder) => void)): number
+    on(sigName: "holder-type-set", callback: (holder: Holder) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "holder-type-set", callback: (holder: Holder) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "holder-type-set", callback: (holder: Holder) => void): NodeJS.EventEmitter
     emit(sigName: "holder-type-set", holder: Holder): void
-    on(sigName: "holder-type-set", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "holder-type-set", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "holder-type-set", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "public-data-changed", callback: (($obj: DataModelImportIter) => void)): number
-    connect_after(sigName: "public-data-changed", callback: (($obj: DataModelImportIter) => void)): number
+    on(sigName: "public-data-changed", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "public-data-changed", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "public-data-changed", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "public-data-changed"): void
-    on(sigName: "public-data-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "public-data-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "public-data-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "source-model-changed", callback: (($obj: DataModelImportIter, source?: object | null) => void)): number
-    connect_after(sigName: "source-model-changed", callback: (($obj: DataModelImportIter, source?: object | null) => void)): number
+    on(sigName: "source-model-changed", callback: (source?: object | null) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "source-model-changed", callback: (source?: object | null) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "source-model-changed", callback: (source?: object | null) => void): NodeJS.EventEmitter
     emit(sigName: "source-model-changed", source?: object | null): void
-    on(sigName: "source-model-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "source-model-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "source-model-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "validate-holder-change", callback: (($obj: DataModelImportIter, holder: Holder, newValue: any) => GLib.Error)): number
-    connect_after(sigName: "validate-holder-change", callback: (($obj: DataModelImportIter, holder: Holder, newValue: any) => GLib.Error)): number
+    on(sigName: "validate-holder-change", callback: (holder: Holder, newValue: any) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "validate-holder-change", callback: (holder: Holder, newValue: any) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "validate-holder-change", callback: (holder: Holder, newValue: any) => void): NodeJS.EventEmitter
     emit(sigName: "validate-holder-change", holder: Holder, newValue: any): void
-    on(sigName: "validate-holder-change", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "validate-holder-change", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "validate-holder-change", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "validate-set", callback: (($obj: DataModelImportIter) => GLib.Error)): number
-    connect_after(sigName: "validate-set", callback: (($obj: DataModelImportIter) => GLib.Error)): number
+    on(sigName: "validate-set", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "validate-set", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "validate-set", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "validate-set"): void
-    on(sigName: "validate-set", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "validate-set", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "validate-set", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: DataModelImportIter, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: DataModelImportIter, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::current-row", callback: (($obj: DataModelImportIter, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::current-row", callback: (($obj: DataModelImportIter, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::current-row", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -2649,20 +2347,20 @@ export interface DataModelIter_ConstructProps extends Set_ConstructProps {
     updateModel?: boolean
 }
 export class DataModelIter {
-    /* Properties of Gda.DataModelIter */
+    /* Properties of Gda-6.0.Gda.DataModelIter */
     currentRow: number
     dataModel: DataModel
     updateModel: boolean
-    /* Properties of Gda.Set */
+    /* Properties of Gda-6.0.Gda.Set */
     description: string
     id: string
     name: string
     validateChanges: boolean
-    /* Fields of Gda.DataModelIter */
+    /* Fields of Gda-6.0.Gda.DataModelIter */
     parentInstance: Set
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Gda.DataModelIter */
+    /* Methods of Gda-6.0.Gda.DataModelIter */
     getHolderForField(col: number): Holder
     getRow(): number
     getValueAt(col: number): any | null
@@ -2674,7 +2372,7 @@ export class DataModelIter {
     movePrev(): boolean
     moveToRow(row: number): boolean
     setValueAt(col: number, value: any): boolean
-    /* Methods of Gda.Set */
+    /* Methods of Gda-6.0.Gda.Set */
     addHolder(holder: Holder): boolean
     copy(): Set
     getGroup(holder: Holder): SetGroup
@@ -2691,7 +2389,7 @@ export class DataModelIter {
     mergeWithSet(setToMerge: Set): void
     removeHolder(holder: Holder): void
     replaceSourceModel(source: SetSource, model: DataModel): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -2713,92 +2411,59 @@ export class DataModelIter {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of Gda.DataModelIter */
-    vfuncEndOfData(): void
-    vfuncMoveNext(): boolean
-    vfuncMovePrev(): boolean
-    vfuncMoveToRow(row: number): boolean
-    vfuncRowChanged(row: number): void
-    vfuncSetValueAt(col: number, value: any): boolean
-    /* Virtual methods of Gda.Set */
-    vfuncHolderAttrChanged(holder: Holder, attrName: string, attrValue: any): void
-    vfuncHolderChanged(holder: Holder): void
-    vfuncHolderTypeSet(holder: Holder): void
-    vfuncPublicDataChanged(): void
-    vfuncSourceModelChanged(source: SetSource): void
-    vfuncValidateHolderChange(holder: Holder, newValue: any): GLib.Error
-    vfuncValidateSet(): GLib.Error
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gda.DataModelIter */
+    /* Signals of Gda-6.0.Gda.DataModelIter */
     connect(sigName: "end-of-data", callback: (($obj: DataModelIter) => void)): number
-    connect_after(sigName: "end-of-data", callback: (($obj: DataModelIter) => void)): number
+    on(sigName: "end-of-data", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "end-of-data", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "end-of-data", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "end-of-data"): void
-    on(sigName: "end-of-data", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "end-of-data", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "end-of-data", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "row-changed", callback: (($obj: DataModelIter, row: number) => void)): number
-    connect_after(sigName: "row-changed", callback: (($obj: DataModelIter, row: number) => void)): number
+    on(sigName: "row-changed", callback: (row: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "row-changed", callback: (row: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "row-changed", callback: (row: number) => void): NodeJS.EventEmitter
     emit(sigName: "row-changed", row: number): void
-    on(sigName: "row-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "row-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "row-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of Gda.Set */
+    /* Signals of Gda-6.0.Gda.Set */
     connect(sigName: "holder-attr-changed", callback: (($obj: DataModelIter, holder: Holder, attrName: string, attrValue: any) => void)): number
-    connect_after(sigName: "holder-attr-changed", callback: (($obj: DataModelIter, holder: Holder, attrName: string, attrValue: any) => void)): number
+    on(sigName: "holder-attr-changed", callback: (holder: Holder, attrName: string, attrValue: any) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "holder-attr-changed", callback: (holder: Holder, attrName: string, attrValue: any) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "holder-attr-changed", callback: (holder: Holder, attrName: string, attrValue: any) => void): NodeJS.EventEmitter
     emit(sigName: "holder-attr-changed", holder: Holder, attrName: string, attrValue: any): void
-    on(sigName: "holder-attr-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "holder-attr-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "holder-attr-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "holder-changed", callback: (($obj: DataModelIter, object: Holder) => void)): number
-    connect_after(sigName: "holder-changed", callback: (($obj: DataModelIter, object: Holder) => void)): number
+    on(sigName: "holder-changed", callback: (object: Holder) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "holder-changed", callback: (object: Holder) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "holder-changed", callback: (object: Holder) => void): NodeJS.EventEmitter
     emit(sigName: "holder-changed", object: Holder): void
-    on(sigName: "holder-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "holder-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "holder-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "holder-type-set", callback: (($obj: DataModelIter, holder: Holder) => void)): number
-    connect_after(sigName: "holder-type-set", callback: (($obj: DataModelIter, holder: Holder) => void)): number
+    on(sigName: "holder-type-set", callback: (holder: Holder) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "holder-type-set", callback: (holder: Holder) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "holder-type-set", callback: (holder: Holder) => void): NodeJS.EventEmitter
     emit(sigName: "holder-type-set", holder: Holder): void
-    on(sigName: "holder-type-set", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "holder-type-set", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "holder-type-set", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "public-data-changed", callback: (($obj: DataModelIter) => void)): number
-    connect_after(sigName: "public-data-changed", callback: (($obj: DataModelIter) => void)): number
+    on(sigName: "public-data-changed", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "public-data-changed", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "public-data-changed", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "public-data-changed"): void
-    on(sigName: "public-data-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "public-data-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "public-data-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "source-model-changed", callback: (($obj: DataModelIter, source?: object | null) => void)): number
-    connect_after(sigName: "source-model-changed", callback: (($obj: DataModelIter, source?: object | null) => void)): number
+    on(sigName: "source-model-changed", callback: (source?: object | null) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "source-model-changed", callback: (source?: object | null) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "source-model-changed", callback: (source?: object | null) => void): NodeJS.EventEmitter
     emit(sigName: "source-model-changed", source?: object | null): void
-    on(sigName: "source-model-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "source-model-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "source-model-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "validate-holder-change", callback: (($obj: DataModelIter, holder: Holder, newValue: any) => GLib.Error)): number
-    connect_after(sigName: "validate-holder-change", callback: (($obj: DataModelIter, holder: Holder, newValue: any) => GLib.Error)): number
+    on(sigName: "validate-holder-change", callback: (holder: Holder, newValue: any) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "validate-holder-change", callback: (holder: Holder, newValue: any) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "validate-holder-change", callback: (holder: Holder, newValue: any) => void): NodeJS.EventEmitter
     emit(sigName: "validate-holder-change", holder: Holder, newValue: any): void
-    on(sigName: "validate-holder-change", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "validate-holder-change", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "validate-holder-change", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "validate-set", callback: (($obj: DataModelIter) => GLib.Error)): number
-    connect_after(sigName: "validate-set", callback: (($obj: DataModelIter) => GLib.Error)): number
+    on(sigName: "validate-set", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "validate-set", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "validate-set", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "validate-set"): void
-    on(sigName: "validate-set", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "validate-set", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "validate-set", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: DataModelIter, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: DataModelIter, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::current-row", callback: (($obj: DataModelIter, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::current-row", callback: (($obj: DataModelIter, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::current-row", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -2851,17 +2516,17 @@ export class DataModelIter {
 export interface DataModelSelect_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class DataModelSelect {
-    /* Properties of Gda.DataModelSelect */
+    /* Properties of Gda-6.0.Gda.DataModelSelect */
     readonly valid: boolean
-    /* Fields of Gda.DataModelSelect */
+    /* Fields of Gda-6.0.Gda.DataModelSelect */
     parentInstance: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Gda.DataModelSelect */
+    /* Methods of Gda-6.0.Gda.DataModelSelect */
     getParameters(): Set
     isValid(): boolean
     setParameters(params: Set): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -2883,7 +2548,7 @@ export class DataModelSelect {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of Gda.DataModel */
+    /* Methods of Gda-6.0.Gda.DataModel */
     addDataFromXmlNode(node: libxml2.NodePtr): boolean
     appendRow(): number
     appendValues(values?: any[] | null): number
@@ -2925,67 +2590,49 @@ export class DataModelSelect {
     setValueAt(col: number, row: number, value: any): boolean
     setValues(row: number, values?: any[] | null): boolean
     thaw(): void
-    /* Virtual methods of Gda.DataModelSelect */
-    vfuncUpdated(): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gda.DataModelSelect */
+    /* Signals of Gda-6.0.Gda.DataModelSelect */
     connect(sigName: "updated", callback: (($obj: DataModelSelect) => void)): number
-    connect_after(sigName: "updated", callback: (($obj: DataModelSelect) => void)): number
+    on(sigName: "updated", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "updated", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "updated", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "updated"): void
-    on(sigName: "updated", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "updated", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "updated", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: DataModelSelect, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: DataModelSelect, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of Gda.DataModel */
+    /* Signals of Gda-6.0.Gda.DataModel */
     connect(sigName: "access-changed", callback: (($obj: DataModelSelect) => void)): number
-    connect_after(sigName: "access-changed", callback: (($obj: DataModelSelect) => void)): number
+    on(sigName: "access-changed", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "access-changed", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "access-changed", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "access-changed"): void
-    on(sigName: "access-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "access-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "access-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "changed", callback: (($obj: DataModelSelect) => void)): number
-    connect_after(sigName: "changed", callback: (($obj: DataModelSelect) => void)): number
+    on(sigName: "changed", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "changed", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "changed", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "changed"): void
-    on(sigName: "changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "reset", callback: (($obj: DataModelSelect) => void)): number
-    connect_after(sigName: "reset", callback: (($obj: DataModelSelect) => void)): number
+    on(sigName: "reset", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "reset", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "reset", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "reset"): void
-    on(sigName: "reset", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "reset", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "reset", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "row-inserted", callback: (($obj: DataModelSelect, row: number) => void)): number
-    connect_after(sigName: "row-inserted", callback: (($obj: DataModelSelect, row: number) => void)): number
+    on(sigName: "row-inserted", callback: (row: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "row-inserted", callback: (row: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "row-inserted", callback: (row: number) => void): NodeJS.EventEmitter
     emit(sigName: "row-inserted", row: number): void
-    on(sigName: "row-inserted", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "row-inserted", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "row-inserted", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "row-removed", callback: (($obj: DataModelSelect, row: number) => void)): number
-    connect_after(sigName: "row-removed", callback: (($obj: DataModelSelect, row: number) => void)): number
+    on(sigName: "row-removed", callback: (row: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "row-removed", callback: (row: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "row-removed", callback: (row: number) => void): NodeJS.EventEmitter
     emit(sigName: "row-removed", row: number): void
-    on(sigName: "row-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "row-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "row-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "row-updated", callback: (($obj: DataModelSelect, row: number) => void)): number
-    connect_after(sigName: "row-updated", callback: (($obj: DataModelSelect, row: number) => void)): number
+    on(sigName: "row-updated", callback: (row: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "row-updated", callback: (row: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "row-updated", callback: (row: number) => void): NodeJS.EventEmitter
     emit(sigName: "row-updated", row: number): void
-    on(sigName: "row-updated", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "row-updated", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "row-updated", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::valid", callback: (($obj: DataModelSelect, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::valid", callback: (($obj: DataModelSelect, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::valid", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -3011,17 +2658,17 @@ export interface DataPivot_ConstructProps extends GObject.Object_ConstructProps 
     model?: DataModel
 }
 export class DataPivot {
-    /* Properties of Gda.DataPivot */
+    /* Properties of Gda-6.0.Gda.DataPivot */
     model: DataModel
-    /* Fields of Gda.DataPivot */
+    /* Fields of Gda-6.0.Gda.DataPivot */
     parentInstance: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Gda.DataPivot */
+    /* Methods of Gda-6.0.Gda.DataPivot */
     addData(aggregateType: DataPivotAggregate, field: string, alias?: string | null): boolean
     addField(fieldType: DataPivotFieldType, field: string, alias?: string | null): boolean
     populate(): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -3043,7 +2690,7 @@ export class DataPivot {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of Gda.DataModel */
+    /* Methods of Gda-6.0.Gda.DataModel */
     addDataFromXmlNode(node: libxml2.NodePtr): boolean
     appendRow(): number
     appendValues(values?: any[] | null): number
@@ -3085,58 +2732,43 @@ export class DataPivot {
     setValueAt(col: number, row: number, value: any): boolean
     setValues(row: number, values?: any[] | null): boolean
     thaw(): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: DataPivot, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: DataPivot, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of Gda.DataModel */
+    /* Signals of Gda-6.0.Gda.DataModel */
     connect(sigName: "access-changed", callback: (($obj: DataPivot) => void)): number
-    connect_after(sigName: "access-changed", callback: (($obj: DataPivot) => void)): number
+    on(sigName: "access-changed", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "access-changed", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "access-changed", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "access-changed"): void
-    on(sigName: "access-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "access-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "access-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "changed", callback: (($obj: DataPivot) => void)): number
-    connect_after(sigName: "changed", callback: (($obj: DataPivot) => void)): number
+    on(sigName: "changed", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "changed", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "changed", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "changed"): void
-    on(sigName: "changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "reset", callback: (($obj: DataPivot) => void)): number
-    connect_after(sigName: "reset", callback: (($obj: DataPivot) => void)): number
+    on(sigName: "reset", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "reset", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "reset", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "reset"): void
-    on(sigName: "reset", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "reset", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "reset", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "row-inserted", callback: (($obj: DataPivot, row: number) => void)): number
-    connect_after(sigName: "row-inserted", callback: (($obj: DataPivot, row: number) => void)): number
+    on(sigName: "row-inserted", callback: (row: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "row-inserted", callback: (row: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "row-inserted", callback: (row: number) => void): NodeJS.EventEmitter
     emit(sigName: "row-inserted", row: number): void
-    on(sigName: "row-inserted", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "row-inserted", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "row-inserted", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "row-removed", callback: (($obj: DataPivot, row: number) => void)): number
-    connect_after(sigName: "row-removed", callback: (($obj: DataPivot, row: number) => void)): number
+    on(sigName: "row-removed", callback: (row: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "row-removed", callback: (row: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "row-removed", callback: (row: number) => void): NodeJS.EventEmitter
     emit(sigName: "row-removed", row: number): void
-    on(sigName: "row-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "row-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "row-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "row-updated", callback: (($obj: DataPivot, row: number) => void)): number
-    connect_after(sigName: "row-updated", callback: (($obj: DataPivot, row: number) => void)): number
+    on(sigName: "row-updated", callback: (row: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "row-updated", callback: (row: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "row-updated", callback: (row: number) => void): NodeJS.EventEmitter
     emit(sigName: "row-updated", row: number): void
-    on(sigName: "row-updated", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "row-updated", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "row-updated", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::model", callback: (($obj: DataPivot, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::model", callback: (($obj: DataPivot, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::model", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -3164,17 +2796,17 @@ export interface DataProxy_ConstructProps extends GObject.Object_ConstructProps 
     sampleSize?: number
 }
 export class DataProxy {
-    /* Properties of Gda.DataProxy */
+    /* Properties of Gda-6.0.Gda.DataProxy */
     cacheChanges: boolean
     deferSync: boolean
     model: DataModel
     prependNullEntry: boolean
     sampleSize: number
-    /* Fields of Gda.DataProxy */
+    /* Fields of Gda-6.0.Gda.DataProxy */
     parentInstance: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Gda.DataProxy */
+    /* Methods of Gda-6.0.Gda.DataProxy */
     alterValueAttributes(proxyRow: number, col: number, alterFlags: ValueAttribute): void
     applyAllChanges(): boolean
     applyRowChanges(proxyRow: number): boolean
@@ -3204,7 +2836,7 @@ export class DataProxy {
     setSampleSize(sampleSize: number): void
     setSampleStart(sampleStart: number): void
     undelete(proxyRow: number): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -3226,7 +2858,7 @@ export class DataProxy {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of Gda.DataModel */
+    /* Methods of Gda-6.0.Gda.DataModel */
     addDataFromXmlNode(node: libxml2.NodePtr): boolean
     appendRow(): number
     appendValues(values?: any[] | null): number
@@ -3268,102 +2900,74 @@ export class DataProxy {
     setValueAt(col: number, row: number, value: any): boolean
     setValues(row: number, values?: any[] | null): boolean
     thaw(): void
-    /* Virtual methods of Gda.DataProxy */
-    vfuncFilterChanged(): void
-    vfuncRowChangesApplied(row: number, proxiedRow: number): void
-    vfuncRowDeleteChanged(row: number, toBeDeleted: boolean): void
-    vfuncSampleChanged(sampleStart: number, sampleEnd: number): void
-    vfuncSampleSizeChanged(sampleSize: number): void
-    vfuncValidateRowChanges(row: number, proxiedRow: number): GLib.Error
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gda.DataProxy */
+    /* Signals of Gda-6.0.Gda.DataProxy */
     connect(sigName: "filter-changed", callback: (($obj: DataProxy) => void)): number
-    connect_after(sigName: "filter-changed", callback: (($obj: DataProxy) => void)): number
+    on(sigName: "filter-changed", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "filter-changed", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "filter-changed", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "filter-changed"): void
-    on(sigName: "filter-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "filter-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "filter-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "row-changes-applied", callback: (($obj: DataProxy, row: number, proxiedRow: number) => void)): number
-    connect_after(sigName: "row-changes-applied", callback: (($obj: DataProxy, row: number, proxiedRow: number) => void)): number
+    on(sigName: "row-changes-applied", callback: (row: number, proxiedRow: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "row-changes-applied", callback: (row: number, proxiedRow: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "row-changes-applied", callback: (row: number, proxiedRow: number) => void): NodeJS.EventEmitter
     emit(sigName: "row-changes-applied", row: number, proxiedRow: number): void
-    on(sigName: "row-changes-applied", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "row-changes-applied", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "row-changes-applied", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "row-delete-changed", callback: (($obj: DataProxy, row: number, toBeDeleted: boolean) => void)): number
-    connect_after(sigName: "row-delete-changed", callback: (($obj: DataProxy, row: number, toBeDeleted: boolean) => void)): number
+    on(sigName: "row-delete-changed", callback: (row: number, toBeDeleted: boolean) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "row-delete-changed", callback: (row: number, toBeDeleted: boolean) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "row-delete-changed", callback: (row: number, toBeDeleted: boolean) => void): NodeJS.EventEmitter
     emit(sigName: "row-delete-changed", row: number, toBeDeleted: boolean): void
-    on(sigName: "row-delete-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "row-delete-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "row-delete-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "sample-changed", callback: (($obj: DataProxy, sampleStart: number, sampleEnd: number) => void)): number
-    connect_after(sigName: "sample-changed", callback: (($obj: DataProxy, sampleStart: number, sampleEnd: number) => void)): number
+    on(sigName: "sample-changed", callback: (sampleStart: number, sampleEnd: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "sample-changed", callback: (sampleStart: number, sampleEnd: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "sample-changed", callback: (sampleStart: number, sampleEnd: number) => void): NodeJS.EventEmitter
     emit(sigName: "sample-changed", sampleStart: number, sampleEnd: number): void
-    on(sigName: "sample-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "sample-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "sample-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "sample-size-changed", callback: (($obj: DataProxy, sampleSize: number) => void)): number
-    connect_after(sigName: "sample-size-changed", callback: (($obj: DataProxy, sampleSize: number) => void)): number
+    on(sigName: "sample-size-changed", callback: (sampleSize: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "sample-size-changed", callback: (sampleSize: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "sample-size-changed", callback: (sampleSize: number) => void): NodeJS.EventEmitter
     emit(sigName: "sample-size-changed", sampleSize: number): void
-    on(sigName: "sample-size-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "sample-size-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "sample-size-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "validate-row-changes", callback: (($obj: DataProxy, row: number, proxiedRow: number) => GLib.Error)): number
-    connect_after(sigName: "validate-row-changes", callback: (($obj: DataProxy, row: number, proxiedRow: number) => GLib.Error)): number
+    on(sigName: "validate-row-changes", callback: (row: number, proxiedRow: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "validate-row-changes", callback: (row: number, proxiedRow: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "validate-row-changes", callback: (row: number, proxiedRow: number) => void): NodeJS.EventEmitter
     emit(sigName: "validate-row-changes", row: number, proxiedRow: number): void
-    on(sigName: "validate-row-changes", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "validate-row-changes", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "validate-row-changes", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: DataProxy, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: DataProxy, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of Gda.DataModel */
+    /* Signals of Gda-6.0.Gda.DataModel */
     connect(sigName: "access-changed", callback: (($obj: DataProxy) => void)): number
-    connect_after(sigName: "access-changed", callback: (($obj: DataProxy) => void)): number
+    on(sigName: "access-changed", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "access-changed", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "access-changed", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "access-changed"): void
-    on(sigName: "access-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "access-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "access-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "changed", callback: (($obj: DataProxy) => void)): number
-    connect_after(sigName: "changed", callback: (($obj: DataProxy) => void)): number
+    on(sigName: "changed", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "changed", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "changed", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "changed"): void
-    on(sigName: "changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "reset", callback: (($obj: DataProxy) => void)): number
-    connect_after(sigName: "reset", callback: (($obj: DataProxy) => void)): number
+    on(sigName: "reset", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "reset", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "reset", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "reset"): void
-    on(sigName: "reset", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "reset", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "reset", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "row-inserted", callback: (($obj: DataProxy, row: number) => void)): number
-    connect_after(sigName: "row-inserted", callback: (($obj: DataProxy, row: number) => void)): number
+    on(sigName: "row-inserted", callback: (row: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "row-inserted", callback: (row: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "row-inserted", callback: (row: number) => void): NodeJS.EventEmitter
     emit(sigName: "row-inserted", row: number): void
-    on(sigName: "row-inserted", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "row-inserted", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "row-inserted", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "row-removed", callback: (($obj: DataProxy, row: number) => void)): number
-    connect_after(sigName: "row-removed", callback: (($obj: DataProxy, row: number) => void)): number
+    on(sigName: "row-removed", callback: (row: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "row-removed", callback: (row: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "row-removed", callback: (row: number) => void): NodeJS.EventEmitter
     emit(sigName: "row-removed", row: number): void
-    on(sigName: "row-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "row-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "row-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "row-updated", callback: (($obj: DataProxy, row: number) => void)): number
-    connect_after(sigName: "row-updated", callback: (($obj: DataProxy, row: number) => void)): number
+    on(sigName: "row-updated", callback: (row: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "row-updated", callback: (row: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "row-updated", callback: (row: number) => void): NodeJS.EventEmitter
     emit(sigName: "row-updated", row: number): void
-    on(sigName: "row-updated", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "row-updated", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "row-updated", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::cache-changes", callback: (($obj: DataProxy, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::cache-changes", callback: (($obj: DataProxy, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::cache-changes", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -3417,7 +3021,7 @@ export interface DataSelect_ConstructProps extends GObject.Object_ConstructProps
     updateStmt?: Statement
 }
 export class DataSelect {
-    /* Properties of Gda.DataSelect */
+    /* Properties of Gda-6.0.Gda.DataSelect */
     deleteStmt: Statement
     executionDelay: number
     insertStmt: Statement
@@ -3425,11 +3029,11 @@ export class DataSelect {
     readonly selectStmt: Statement
     storeAllRows: boolean
     updateStmt: Statement
-    /* Fields of Gda.DataSelect */
+    /* Fields of Gda-6.0.Gda.DataSelect */
     parentInstance: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Gda.DataSelect */
+    /* Methods of Gda-6.0.Gda.DataSelect */
     computeColumnsAttributes(): boolean
     computeModificationStatements(): boolean
     computeModificationStatementsExt(condType: DataSelectConditionType): boolean
@@ -3444,7 +3048,7 @@ export class DataSelect {
     setModificationStatementSql(sql: string): boolean
     setRowSelectionCondition(expr: SqlExpr): boolean
     setRowSelectionConditionSql(sqlWhere: string): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -3466,7 +3070,7 @@ export class DataSelect {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of Gda.DataModel */
+    /* Methods of Gda-6.0.Gda.DataModel */
     addDataFromXmlNode(node: libxml2.NodePtr): boolean
     appendRow(): number
     appendValues(values?: any[] | null): number
@@ -3508,65 +3112,43 @@ export class DataSelect {
     setValueAt(col: number, row: number, value: any): boolean
     setValues(row: number, values?: any[] | null): boolean
     thaw(): void
-    /* Virtual methods of Gda.DataSelect */
-    vfuncFetchAt(prow: Row, rownum: number): boolean
-    vfuncFetchNbRows(): number
-    vfuncFetchNext(prow: Row, rownum: number): boolean
-    vfuncFetchPrev(prow: Row, rownum: number): boolean
-    vfuncFetchRandom(prow: Row, rownum: number): boolean
-    vfuncStoreAll(): boolean
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: DataSelect, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: DataSelect, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of Gda.DataModel */
+    /* Signals of Gda-6.0.Gda.DataModel */
     connect(sigName: "access-changed", callback: (($obj: DataSelect) => void)): number
-    connect_after(sigName: "access-changed", callback: (($obj: DataSelect) => void)): number
+    on(sigName: "access-changed", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "access-changed", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "access-changed", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "access-changed"): void
-    on(sigName: "access-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "access-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "access-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "changed", callback: (($obj: DataSelect) => void)): number
-    connect_after(sigName: "changed", callback: (($obj: DataSelect) => void)): number
+    on(sigName: "changed", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "changed", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "changed", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "changed"): void
-    on(sigName: "changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "reset", callback: (($obj: DataSelect) => void)): number
-    connect_after(sigName: "reset", callback: (($obj: DataSelect) => void)): number
+    on(sigName: "reset", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "reset", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "reset", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "reset"): void
-    on(sigName: "reset", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "reset", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "reset", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "row-inserted", callback: (($obj: DataSelect, row: number) => void)): number
-    connect_after(sigName: "row-inserted", callback: (($obj: DataSelect, row: number) => void)): number
+    on(sigName: "row-inserted", callback: (row: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "row-inserted", callback: (row: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "row-inserted", callback: (row: number) => void): NodeJS.EventEmitter
     emit(sigName: "row-inserted", row: number): void
-    on(sigName: "row-inserted", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "row-inserted", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "row-inserted", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "row-removed", callback: (($obj: DataSelect, row: number) => void)): number
-    connect_after(sigName: "row-removed", callback: (($obj: DataSelect, row: number) => void)): number
+    on(sigName: "row-removed", callback: (row: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "row-removed", callback: (row: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "row-removed", callback: (row: number) => void): NodeJS.EventEmitter
     emit(sigName: "row-removed", row: number): void
-    on(sigName: "row-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "row-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "row-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "row-updated", callback: (($obj: DataSelect, row: number) => void)): number
-    connect_after(sigName: "row-updated", callback: (($obj: DataSelect, row: number) => void)): number
+    on(sigName: "row-updated", callback: (row: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "row-updated", callback: (row: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "row-updated", callback: (row: number) => void): NodeJS.EventEmitter
     emit(sigName: "row-updated", row: number): void
-    on(sigName: "row-updated", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "row-updated", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "row-updated", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::delete-stmt", callback: (($obj: DataSelect, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::delete-stmt", callback: (($obj: DataSelect, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::delete-stmt", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -3619,20 +3201,20 @@ export class DataSelect {
 export interface DataSelectIter_ConstructProps extends DataModelIter_ConstructProps {
 }
 export class DataSelectIter {
-    /* Properties of Gda.DataModelIter */
+    /* Properties of Gda-6.0.Gda.DataModelIter */
     currentRow: number
     dataModel: DataModel
     updateModel: boolean
-    /* Properties of Gda.Set */
+    /* Properties of Gda-6.0.Gda.Set */
     description: string
     id: string
     name: string
     validateChanges: boolean
-    /* Fields of Gda.DataSelectIter */
+    /* Fields of Gda-6.0.Gda.DataSelectIter */
     parentInstance: DataModelIter
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Gda.DataModelIter */
+    /* Methods of Gda-6.0.Gda.DataModelIter */
     getHolderForField(col: number): Holder
     getRow(): number
     getValueAt(col: number): any | null
@@ -3644,7 +3226,7 @@ export class DataSelectIter {
     movePrev(): boolean
     moveToRow(row: number): boolean
     setValueAt(col: number, value: any): boolean
-    /* Methods of Gda.Set */
+    /* Methods of Gda-6.0.Gda.Set */
     addHolder(holder: Holder): boolean
     copy(): Set
     getGroup(holder: Holder): SetGroup
@@ -3661,7 +3243,7 @@ export class DataSelectIter {
     mergeWithSet(setToMerge: Set): void
     removeHolder(holder: Holder): void
     replaceSourceModel(source: SetSource, model: DataModel): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -3683,92 +3265,59 @@ export class DataSelectIter {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of Gda.DataModelIter */
-    vfuncEndOfData(): void
-    vfuncMoveNext(): boolean
-    vfuncMovePrev(): boolean
-    vfuncMoveToRow(row: number): boolean
-    vfuncRowChanged(row: number): void
-    vfuncSetValueAt(col: number, value: any): boolean
-    /* Virtual methods of Gda.Set */
-    vfuncHolderAttrChanged(holder: Holder, attrName: string, attrValue: any): void
-    vfuncHolderChanged(holder: Holder): void
-    vfuncHolderTypeSet(holder: Holder): void
-    vfuncPublicDataChanged(): void
-    vfuncSourceModelChanged(source: SetSource): void
-    vfuncValidateHolderChange(holder: Holder, newValue: any): GLib.Error
-    vfuncValidateSet(): GLib.Error
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gda.DataModelIter */
+    /* Signals of Gda-6.0.Gda.DataModelIter */
     connect(sigName: "end-of-data", callback: (($obj: DataSelectIter) => void)): number
-    connect_after(sigName: "end-of-data", callback: (($obj: DataSelectIter) => void)): number
+    on(sigName: "end-of-data", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "end-of-data", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "end-of-data", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "end-of-data"): void
-    on(sigName: "end-of-data", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "end-of-data", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "end-of-data", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "row-changed", callback: (($obj: DataSelectIter, row: number) => void)): number
-    connect_after(sigName: "row-changed", callback: (($obj: DataSelectIter, row: number) => void)): number
+    on(sigName: "row-changed", callback: (row: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "row-changed", callback: (row: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "row-changed", callback: (row: number) => void): NodeJS.EventEmitter
     emit(sigName: "row-changed", row: number): void
-    on(sigName: "row-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "row-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "row-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of Gda.Set */
+    /* Signals of Gda-6.0.Gda.Set */
     connect(sigName: "holder-attr-changed", callback: (($obj: DataSelectIter, holder: Holder, attrName: string, attrValue: any) => void)): number
-    connect_after(sigName: "holder-attr-changed", callback: (($obj: DataSelectIter, holder: Holder, attrName: string, attrValue: any) => void)): number
+    on(sigName: "holder-attr-changed", callback: (holder: Holder, attrName: string, attrValue: any) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "holder-attr-changed", callback: (holder: Holder, attrName: string, attrValue: any) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "holder-attr-changed", callback: (holder: Holder, attrName: string, attrValue: any) => void): NodeJS.EventEmitter
     emit(sigName: "holder-attr-changed", holder: Holder, attrName: string, attrValue: any): void
-    on(sigName: "holder-attr-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "holder-attr-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "holder-attr-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "holder-changed", callback: (($obj: DataSelectIter, object: Holder) => void)): number
-    connect_after(sigName: "holder-changed", callback: (($obj: DataSelectIter, object: Holder) => void)): number
+    on(sigName: "holder-changed", callback: (object: Holder) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "holder-changed", callback: (object: Holder) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "holder-changed", callback: (object: Holder) => void): NodeJS.EventEmitter
     emit(sigName: "holder-changed", object: Holder): void
-    on(sigName: "holder-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "holder-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "holder-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "holder-type-set", callback: (($obj: DataSelectIter, holder: Holder) => void)): number
-    connect_after(sigName: "holder-type-set", callback: (($obj: DataSelectIter, holder: Holder) => void)): number
+    on(sigName: "holder-type-set", callback: (holder: Holder) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "holder-type-set", callback: (holder: Holder) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "holder-type-set", callback: (holder: Holder) => void): NodeJS.EventEmitter
     emit(sigName: "holder-type-set", holder: Holder): void
-    on(sigName: "holder-type-set", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "holder-type-set", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "holder-type-set", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "public-data-changed", callback: (($obj: DataSelectIter) => void)): number
-    connect_after(sigName: "public-data-changed", callback: (($obj: DataSelectIter) => void)): number
+    on(sigName: "public-data-changed", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "public-data-changed", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "public-data-changed", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "public-data-changed"): void
-    on(sigName: "public-data-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "public-data-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "public-data-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "source-model-changed", callback: (($obj: DataSelectIter, source?: object | null) => void)): number
-    connect_after(sigName: "source-model-changed", callback: (($obj: DataSelectIter, source?: object | null) => void)): number
+    on(sigName: "source-model-changed", callback: (source?: object | null) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "source-model-changed", callback: (source?: object | null) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "source-model-changed", callback: (source?: object | null) => void): NodeJS.EventEmitter
     emit(sigName: "source-model-changed", source?: object | null): void
-    on(sigName: "source-model-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "source-model-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "source-model-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "validate-holder-change", callback: (($obj: DataSelectIter, holder: Holder, newValue: any) => GLib.Error)): number
-    connect_after(sigName: "validate-holder-change", callback: (($obj: DataSelectIter, holder: Holder, newValue: any) => GLib.Error)): number
+    on(sigName: "validate-holder-change", callback: (holder: Holder, newValue: any) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "validate-holder-change", callback: (holder: Holder, newValue: any) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "validate-holder-change", callback: (holder: Holder, newValue: any) => void): NodeJS.EventEmitter
     emit(sigName: "validate-holder-change", holder: Holder, newValue: any): void
-    on(sigName: "validate-holder-change", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "validate-holder-change", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "validate-holder-change", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "validate-set", callback: (($obj: DataSelectIter) => GLib.Error)): number
-    connect_after(sigName: "validate-set", callback: (($obj: DataSelectIter) => GLib.Error)): number
+    on(sigName: "validate-set", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "validate-set", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "validate-set", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "validate-set"): void
-    on(sigName: "validate-set", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "validate-set", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "validate-set", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: DataSelectIter, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: DataSelectIter, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::current-row", callback: (($obj: DataSelectIter, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::current-row", callback: (($obj: DataSelectIter, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::current-row", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -3819,11 +3368,11 @@ export class DataSelectIter {
 export interface DbBase_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class DbBase {
-    /* Fields of Gda.DbBase */
+    /* Fields of Gda-6.0.Gda.DbBase */
     parentInstance: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Gda.DbBase */
+    /* Methods of Gda-6.0.Gda.DbBase */
     compare(b: DbBase): number
     getCatalog(): string
     getFullName(): string
@@ -3833,7 +3382,7 @@ export class DbBase {
     setName(name: string): void
     setNames(catalog: string | null, schema: string | null, name: string): void
     setSchema(schema: string): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -3855,21 +3404,12 @@ export class DbBase {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: DbBase, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: DbBase, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -3889,14 +3429,14 @@ export interface DbCatalog_ConstructProps extends GObject.Object_ConstructProps 
     schemaName?: string
 }
 export class DbCatalog {
-    /* Properties of Gda.DbCatalog */
+    /* Properties of Gda-6.0.Gda.DbCatalog */
     connection: Connection
     schemaName: string
-    /* Fields of Gda.DbCatalog */
+    /* Fields of Gda-6.0.Gda.DbCatalog */
     parentInstance: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Gda.DbCatalog */
+    /* Methods of Gda-6.0.Gda.DbCatalog */
     appendTable(table: DbTable): void
     appendView(view: DbView): void
     getTables(): DbTable[]
@@ -3907,7 +3447,7 @@ export class DbCatalog {
     performOperation(): boolean
     writeToFile(file: Gio.File): boolean
     writeToPath(path: string): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -3929,21 +3469,12 @@ export class DbCatalog {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: DbCatalog, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: DbCatalog, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::connection", callback: (($obj: DbCatalog, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::connection", callback: (($obj: DbCatalog, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::connection", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -3984,7 +3515,7 @@ export interface DbColumn_ConstructProps extends GObject.Object_ConstructProps {
     unique?: boolean
 }
 export class DbColumn {
-    /* Properties of Gda.DbColumn */
+    /* Properties of Gda-6.0.Gda.DbColumn */
     autoinc: boolean
     check: string
     comment: string
@@ -3996,11 +3527,11 @@ export class DbColumn {
     size: number
     table: DbTable
     unique: boolean
-    /* Fields of Gda.DbColumn */
+    /* Fields of Gda-6.0.Gda.DbColumn */
     parentInstance: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Gda.DbColumn */
+    /* Methods of Gda-6.0.Gda.DbColumn */
     getAutoinc(): boolean
     getCheck(): string
     getComment(): string
@@ -4026,7 +3557,7 @@ export class DbColumn {
     setSize(size: number): void
     setType(type: GObject.Type): void
     setUnique(unique: boolean): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -4048,34 +3579,19 @@ export class DbColumn {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of Gda.DbBuildable */
+    /* Methods of Gda-6.0.Gda.DbBuildable */
     parseNode(node: libxml2.NodePtr): boolean
     writeNode(node: libxml2.NodePtr): boolean
-    /* Methods of Gda.DdlModifiable */
+    /* Methods of Gda-6.0.Gda.DdlModifiable */
     create(cnc: Connection, userData?: object | null): boolean
     drop(cnc: Connection, userData?: object | null): boolean
     rename(cnc: Connection, userData?: object | null): boolean
-    /* Virtual methods of Gda.DbColumn */
-    vfuncParseNode(node: libxml2.NodePtr): boolean
-    vfuncWriteNode(node: libxml2.NodePtr): boolean
-    vfuncCreate(cnc: Connection): boolean
-    vfuncDrop(cnc: Connection): boolean
-    vfuncRename(cnc: Connection): boolean
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: DbColumn, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: DbColumn, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::autoinc", callback: (($obj: DbColumn, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::autoinc", callback: (($obj: DbColumn, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::autoinc", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -4149,11 +3665,11 @@ export class DbColumn {
 export interface DbFkey_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class DbFkey {
-    /* Fields of Gda.DbFkey */
+    /* Fields of Gda-6.0.Gda.DbFkey */
     parentInstance: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Gda.DbFkey */
+    /* Methods of Gda-6.0.Gda.DbFkey */
     getFieldName(): string[]
     getOndelete(): string
     getOndeleteId(): DbFkeyReferenceAction
@@ -4166,7 +3682,7 @@ export class DbFkey {
     setOndelete(id: DbFkeyReferenceAction): void
     setOnupdate(id: DbFkeyReferenceAction): void
     setRefTable(rtable: string): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -4188,27 +3704,15 @@ export class DbFkey {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of Gda.DbBuildable */
+    /* Methods of Gda-6.0.Gda.DbBuildable */
     parseNode(node: libxml2.NodePtr): boolean
     writeNode(node: libxml2.NodePtr): boolean
-    /* Virtual methods of Gda.DbFkey */
-    vfuncParseNode(node: libxml2.NodePtr): boolean
-    vfuncWriteNode(node: libxml2.NodePtr): boolean
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: DbFkey, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: DbFkey, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -4227,19 +3731,19 @@ export interface DbIndex_ConstructProps extends DbBase_ConstructProps {
     table?: DbTable
 }
 export class DbIndex {
-    /* Properties of Gda.DbIndex */
+    /* Properties of Gda-6.0.Gda.DbIndex */
     table: DbTable
-    /* Fields of Gda.DbIndex */
+    /* Fields of Gda-6.0.Gda.DbIndex */
     parentInstance: DbBase
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Gda.DbIndex */
+    /* Methods of Gda-6.0.Gda.DbIndex */
     appendField(field: DbIndexField): void
     getFields(): DbIndexField[] | null
     getUnique(): boolean
     removeField(name: string): void
     setUnique(val: boolean): void
-    /* Methods of Gda.DbBase */
+    /* Methods of Gda-6.0.Gda.DbBase */
     compare(b: DbBase): number
     getCatalog(): string
     getFullName(): string
@@ -4249,7 +3753,7 @@ export class DbIndex {
     setName(name: string): void
     setNames(catalog: string | null, schema: string | null, name: string): void
     setSchema(schema: string): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -4271,29 +3775,16 @@ export class DbIndex {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of Gda.DdlModifiable */
+    /* Methods of Gda-6.0.Gda.DdlModifiable */
     create(cnc: Connection, userData?: object | null): boolean
     drop(cnc: Connection, userData?: object | null): boolean
     rename(cnc: Connection, userData?: object | null): boolean
-    /* Virtual methods of Gda.DbIndex */
-    vfuncCreate(cnc: Connection): boolean
-    vfuncDrop(cnc: Connection): boolean
-    vfuncRename(cnc: Connection): boolean
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: DbIndex, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: DbIndex, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::table", callback: (($obj: DbIndex, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::table", callback: (($obj: DbIndex, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::table", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -4317,11 +3808,11 @@ export class DbIndex {
 export interface DbIndexField_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class DbIndexField {
-    /* Fields of Gda.DbIndexField */
+    /* Fields of Gda-6.0.Gda.DbIndexField */
     parentInstance: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Gda.DbIndexField */
+    /* Methods of Gda-6.0.Gda.DbIndexField */
     getCollate(): string
     getColumn(): DbColumn
     getSortOrder(): DbIndexSortOrder
@@ -4329,7 +3820,7 @@ export class DbIndexField {
     setCollate(collate: string): void
     setColumn(column: DbColumn): void
     setSortOrder(sorder: DbIndexSortOrder): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -4351,21 +3842,12 @@ export class DbIndexField {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: DbIndexField, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: DbIndexField, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -4385,14 +3867,14 @@ export interface DbTable_ConstructProps extends DbBase_ConstructProps {
     istemp?: string
 }
 export class DbTable {
-    /* Properties of Gda.DbTable */
+    /* Properties of Gda-6.0.Gda.DbTable */
     comment: string
     istemp: string
-    /* Fields of Gda.DbTable */
+    /* Fields of Gda-6.0.Gda.DbTable */
     parentInstance: DbBase
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Gda.DbTable */
+    /* Methods of Gda-6.0.Gda.DbTable */
     appendColumn(column: DbColumn): void
     appendConstraint(constr: string): void
     appendFkey(fkey: DbFkey): void
@@ -4403,7 +3885,7 @@ export class DbTable {
     prepareCreate(op: ServerOperation, ifnotexists: boolean): boolean
     setIsTemp(istemp: boolean): void
     update(obj: MetaTable, cnc: Connection): boolean
-    /* Methods of Gda.DbBase */
+    /* Methods of Gda-6.0.Gda.DbBase */
     compare(b: DbBase): number
     getCatalog(): string
     getFullName(): string
@@ -4413,7 +3895,7 @@ export class DbTable {
     setName(name: string): void
     setNames(catalog: string | null, schema: string | null, name: string): void
     setSchema(schema: string): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -4435,34 +3917,19 @@ export class DbTable {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of Gda.DbBuildable */
+    /* Methods of Gda-6.0.Gda.DbBuildable */
     parseNode(node: libxml2.NodePtr): boolean
     writeNode(node: libxml2.NodePtr): boolean
-    /* Methods of Gda.DdlModifiable */
+    /* Methods of Gda-6.0.Gda.DdlModifiable */
     create(cnc: Connection, userData?: object | null): boolean
     drop(cnc: Connection, userData?: object | null): boolean
     rename(cnc: Connection, userData?: object | null): boolean
-    /* Virtual methods of Gda.DbTable */
-    vfuncParseNode(node: libxml2.NodePtr): boolean
-    vfuncWriteNode(node: libxml2.NodePtr): boolean
-    vfuncCreate(cnc: Connection): boolean
-    vfuncDrop(cnc: Connection): boolean
-    vfuncRename(cnc: Connection): boolean
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: DbTable, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: DbTable, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::comment", callback: (($obj: DbTable, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::comment", callback: (($obj: DbTable, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::comment", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -4495,16 +3962,16 @@ export interface DbView_ConstructProps extends DbBase_ConstructProps {
     replace?: boolean
 }
 export class DbView {
-    /* Properties of Gda.DbView */
+    /* Properties of Gda-6.0.Gda.DbView */
     defstring: string
     ifnoexist: boolean
     istemp: boolean
     replace: boolean
-    /* Fields of Gda.DbView */
+    /* Fields of Gda-6.0.Gda.DbView */
     parentInstance: DbBase
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Gda.DbView */
+    /* Methods of Gda-6.0.Gda.DbView */
     getDefstring(): string
     getIfnoexist(): boolean
     getIstemp(): boolean
@@ -4514,7 +3981,7 @@ export class DbView {
     setIfnoexist(noexist: boolean): void
     setIstemp(temp: boolean): void
     setReplace(replace: boolean): void
-    /* Methods of Gda.DbBase */
+    /* Methods of Gda-6.0.Gda.DbBase */
     compare(b: DbBase): number
     getCatalog(): string
     getFullName(): string
@@ -4524,7 +3991,7 @@ export class DbView {
     setName(name: string): void
     setNames(catalog: string | null, schema: string | null, name: string): void
     setSchema(schema: string): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -4546,34 +4013,19 @@ export class DbView {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of Gda.DbBuildable */
+    /* Methods of Gda-6.0.Gda.DbBuildable */
     parseNode(node: libxml2.NodePtr): boolean
     writeNode(node: libxml2.NodePtr): boolean
-    /* Methods of Gda.DdlModifiable */
+    /* Methods of Gda-6.0.Gda.DdlModifiable */
     create(cnc: Connection, userData?: object | null): boolean
     drop(cnc: Connection, userData?: object | null): boolean
     rename(cnc: Connection, userData?: object | null): boolean
-    /* Virtual methods of Gda.DbView */
-    vfuncParseNode(node: libxml2.NodePtr): boolean
-    vfuncWriteNode(node: libxml2.NodePtr): boolean
-    vfuncCreate(cnc: Connection): boolean
-    vfuncDrop(cnc: Connection): boolean
-    vfuncRename(cnc: Connection): boolean
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: DbView, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: DbView, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::defstring", callback: (($obj: DbView, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::defstring", callback: (($obj: DbView, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::defstring", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -4612,9 +4064,9 @@ export class DbView {
 export interface HandlerBin_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class HandlerBin {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -4636,7 +4088,7 @@ export class HandlerBin {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of Gda.DataHandler */
+    /* Methods of Gda-6.0.Gda.DataHandler */
     acceptsGType(type: GObject.Type): boolean
     getDescr(): string
     getSaneInitValue(type: GObject.Type): any | null
@@ -4644,29 +4096,12 @@ export class HandlerBin {
     getStrFromValue(value?: any | null): string
     getValueFromSql(sql: string | null, type: GObject.Type): any
     getValueFromStr(str: string | null, type: GObject.Type): any
-    /* Virtual methods of Gda.HandlerBin */
-    vfuncAcceptsGType(type: GObject.Type): boolean
-    vfuncGetDescr(): string
-    vfuncGetSaneInitValue(type: GObject.Type): any | null
-    vfuncGetSqlFromValue(value?: any | null): string
-    vfuncGetStrFromValue(value?: any | null): string
-    vfuncGetValueFromSql(sql: string | null, type: GObject.Type): any
-    vfuncGetValueFromStr(str: string | null, type: GObject.Type): any
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: HandlerBin, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: HandlerBin, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -4685,9 +4120,9 @@ export class HandlerBin {
 export interface HandlerBoolean_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class HandlerBoolean {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -4709,7 +4144,7 @@ export class HandlerBoolean {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of Gda.DataHandler */
+    /* Methods of Gda-6.0.Gda.DataHandler */
     acceptsGType(type: GObject.Type): boolean
     getDescr(): string
     getSaneInitValue(type: GObject.Type): any | null
@@ -4717,29 +4152,12 @@ export class HandlerBoolean {
     getStrFromValue(value?: any | null): string
     getValueFromSql(sql: string | null, type: GObject.Type): any
     getValueFromStr(str: string | null, type: GObject.Type): any
-    /* Virtual methods of Gda.HandlerBoolean */
-    vfuncAcceptsGType(type: GObject.Type): boolean
-    vfuncGetDescr(): string
-    vfuncGetSaneInitValue(type: GObject.Type): any | null
-    vfuncGetSqlFromValue(value?: any | null): string
-    vfuncGetStrFromValue(value?: any | null): string
-    vfuncGetValueFromSql(sql: string | null, type: GObject.Type): any
-    vfuncGetValueFromStr(str: string | null, type: GObject.Type): any
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: HandlerBoolean, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: HandlerBoolean, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -4758,9 +4176,9 @@ export class HandlerBoolean {
 export interface HandlerNumerical_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class HandlerNumerical {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -4782,7 +4200,7 @@ export class HandlerNumerical {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of Gda.DataHandler */
+    /* Methods of Gda-6.0.Gda.DataHandler */
     acceptsGType(type: GObject.Type): boolean
     getDescr(): string
     getSaneInitValue(type: GObject.Type): any | null
@@ -4790,29 +4208,12 @@ export class HandlerNumerical {
     getStrFromValue(value?: any | null): string
     getValueFromSql(sql: string | null, type: GObject.Type): any
     getValueFromStr(str: string | null, type: GObject.Type): any
-    /* Virtual methods of Gda.HandlerNumerical */
-    vfuncAcceptsGType(type: GObject.Type): boolean
-    vfuncGetDescr(): string
-    vfuncGetSaneInitValue(type: GObject.Type): any | null
-    vfuncGetSqlFromValue(value?: any | null): string
-    vfuncGetStrFromValue(value?: any | null): string
-    vfuncGetValueFromSql(sql: string | null, type: GObject.Type): any
-    vfuncGetValueFromStr(str: string | null, type: GObject.Type): any
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: HandlerNumerical, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: HandlerNumerical, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -4831,9 +4232,9 @@ export class HandlerNumerical {
 export interface HandlerString_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class HandlerString {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -4855,7 +4256,7 @@ export class HandlerString {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of Gda.DataHandler */
+    /* Methods of Gda-6.0.Gda.DataHandler */
     acceptsGType(type: GObject.Type): boolean
     getDescr(): string
     getSaneInitValue(type: GObject.Type): any | null
@@ -4863,29 +4264,12 @@ export class HandlerString {
     getStrFromValue(value?: any | null): string
     getValueFromSql(sql: string | null, type: GObject.Type): any
     getValueFromStr(str: string | null, type: GObject.Type): any
-    /* Virtual methods of Gda.HandlerString */
-    vfuncAcceptsGType(type: GObject.Type): boolean
-    vfuncGetDescr(): string
-    vfuncGetSaneInitValue(type: GObject.Type): any | null
-    vfuncGetSqlFromValue(value?: any | null): string
-    vfuncGetStrFromValue(value?: any | null): string
-    vfuncGetValueFromSql(sql: string | null, type: GObject.Type): any
-    vfuncGetValueFromStr(str: string | null, type: GObject.Type): any
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: HandlerString, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: HandlerString, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -4905,11 +4289,11 @@ export class HandlerString {
 export interface HandlerText_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class HandlerText {
-    /* Fields of Gda.HandlerText */
+    /* Fields of Gda-6.0.Gda.HandlerText */
     parentInstance: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -4931,7 +4315,7 @@ export class HandlerText {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of Gda.DataHandler */
+    /* Methods of Gda-6.0.Gda.DataHandler */
     acceptsGType(type: GObject.Type): boolean
     getDescr(): string
     getSaneInitValue(type: GObject.Type): any | null
@@ -4939,29 +4323,12 @@ export class HandlerText {
     getStrFromValue(value?: any | null): string
     getValueFromSql(sql: string | null, type: GObject.Type): any
     getValueFromStr(str: string | null, type: GObject.Type): any
-    /* Virtual methods of Gda.HandlerText */
-    vfuncAcceptsGType(type: GObject.Type): boolean
-    vfuncGetDescr(): string
-    vfuncGetSaneInitValue(type: GObject.Type): any | null
-    vfuncGetSqlFromValue(value?: any | null): string
-    vfuncGetStrFromValue(value?: any | null): string
-    vfuncGetValueFromSql(sql: string | null, type: GObject.Type): any
-    vfuncGetValueFromStr(str: string | null, type: GObject.Type): any
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: HandlerText, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: HandlerText, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -4980,15 +4347,15 @@ export class HandlerText {
 export interface HandlerTime_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class HandlerTime {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Gda.HandlerTime */
+    /* Methods of Gda-6.0.Gda.HandlerTime */
     getFormat(type: GObject.Type): string
     getHint(type: GObject.Type): string
     getNoLocaleStrFromValue(value: any): string
     setSqlSpec(first: GLib.DateDMY, sec: GLib.DateDMY, third: GLib.DateDMY, separator: number, twodigitsYears: boolean): void
     setStrSpec(first: GLib.DateDMY, sec: GLib.DateDMY, third: GLib.DateDMY, separator: number, twodigitsYears: boolean): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -5010,7 +4377,7 @@ export class HandlerTime {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of Gda.DataHandler */
+    /* Methods of Gda-6.0.Gda.DataHandler */
     acceptsGType(type: GObject.Type): boolean
     getDescr(): string
     getSaneInitValue(type: GObject.Type): any | null
@@ -5018,29 +4385,12 @@ export class HandlerTime {
     getStrFromValue(value?: any | null): string
     getValueFromSql(sql: string | null, type: GObject.Type): any
     getValueFromStr(str: string | null, type: GObject.Type): any
-    /* Virtual methods of Gda.HandlerTime */
-    vfuncAcceptsGType(type: GObject.Type): boolean
-    vfuncGetDescr(): string
-    vfuncGetSaneInitValue(type: GObject.Type): any | null
-    vfuncGetSqlFromValue(value?: any | null): string
-    vfuncGetStrFromValue(value?: any | null): string
-    vfuncGetValueFromSql(sql: string | null, type: GObject.Type): any
-    vfuncGetValueFromStr(str: string | null, type: GObject.Type): any
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: HandlerTime, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: HandlerTime, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -5060,9 +4410,9 @@ export class HandlerTime {
 export interface HandlerType_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class HandlerType {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -5084,7 +4434,7 @@ export class HandlerType {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of Gda.DataHandler */
+    /* Methods of Gda-6.0.Gda.DataHandler */
     acceptsGType(type: GObject.Type): boolean
     getDescr(): string
     getSaneInitValue(type: GObject.Type): any | null
@@ -5092,29 +4442,12 @@ export class HandlerType {
     getStrFromValue(value?: any | null): string
     getValueFromSql(sql: string | null, type: GObject.Type): any
     getValueFromStr(str: string | null, type: GObject.Type): any
-    /* Virtual methods of Gda.HandlerType */
-    vfuncAcceptsGType(type: GObject.Type): boolean
-    vfuncGetDescr(): string
-    vfuncGetSaneInitValue(type: GObject.Type): any | null
-    vfuncGetSqlFromValue(value?: any | null): string
-    vfuncGetStrFromValue(value?: any | null): string
-    vfuncGetValueFromSql(sql: string | null, type: GObject.Type): any
-    vfuncGetValueFromStr(str: string | null, type: GObject.Type): any
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: HandlerType, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: HandlerType, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -5144,7 +4477,7 @@ export interface Holder_ConstructProps extends GObject.Object_ConstructProps {
     validateChanges?: boolean
 }
 export class Holder {
-    /* Properties of Gda.Holder */
+    /* Properties of Gda-6.0.Gda.Holder */
     description: string
     fullBind: Holder
     gType: GObject.Type
@@ -5156,11 +4489,11 @@ export class Holder {
     sourceColumn: number
     sourceModel: DataModel
     validateChanges: boolean
-    /* Fields of Gda.Holder */
+    /* Fields of Gda-6.0.Gda.Holder */
     parentInstance: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Gda.Holder */
+    /* Methods of Gda-6.0.Gda.Holder */
     copy(): Holder
     forceInvalid(): void
     forceInvalidE(error?: GLib.Error | null): void
@@ -5185,7 +4518,7 @@ export class Holder {
     takeStaticValue(value: any, valueChanged: boolean): any
     takeValue(value: any): boolean
     valueIsDefault(): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -5207,58 +4540,37 @@ export class Holder {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of Gda.Lockable */
+    /* Methods of Gda-6.0.Gda.Lockable */
     lock(): void
     trylock(): boolean
     unlock(): void
-    /* Virtual methods of Gda.Holder */
-    vfuncChanged(): void
-    vfuncSourceChanged(): void
-    vfuncToDefault(): void
-    vfuncValidateChange(newValue: any): GLib.Error
-    vfuncLock(): void
-    vfuncTrylock(): boolean
-    vfuncUnlock(): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gda.Holder */
+    /* Signals of Gda-6.0.Gda.Holder */
     connect(sigName: "changed", callback: (($obj: Holder) => void)): number
-    connect_after(sigName: "changed", callback: (($obj: Holder) => void)): number
+    on(sigName: "changed", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "changed", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "changed", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "changed"): void
-    on(sigName: "changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "source-changed", callback: (($obj: Holder) => void)): number
-    connect_after(sigName: "source-changed", callback: (($obj: Holder) => void)): number
+    on(sigName: "source-changed", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "source-changed", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "source-changed", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "source-changed"): void
-    on(sigName: "source-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "source-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "source-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "to-default", callback: (($obj: Holder) => void)): number
-    connect_after(sigName: "to-default", callback: (($obj: Holder) => void)): number
+    on(sigName: "to-default", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "to-default", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "to-default", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "to-default"): void
-    on(sigName: "to-default", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "to-default", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "to-default", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "validate-change", callback: (($obj: Holder, newValue: any) => GLib.Error)): number
-    connect_after(sigName: "validate-change", callback: (($obj: Holder, newValue: any) => GLib.Error)): number
+    on(sigName: "validate-change", callback: (newValue: any) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "validate-change", callback: (newValue: any) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "validate-change", callback: (newValue: any) => void): NodeJS.EventEmitter
     emit(sigName: "validate-change", newValue: any): void
-    on(sigName: "validate-change", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "validate-change", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "validate-change", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Holder, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Holder, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::description", callback: (($obj: Holder, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::description", callback: (($obj: Holder, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::description", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -5336,16 +4648,16 @@ export interface MetaStore_ConstructProps extends GObject.Object_ConstructProps 
     schema?: string
 }
 export class MetaStore {
-    /* Fields of Gda.MetaStore */
+    /* Fields of Gda-6.0.Gda.MetaStore */
     parentInstance: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Gda.MetaStore */
+    /* Methods of Gda-6.0.Gda.MetaStore */
     createModifyDataModel(tableName: string): DataModel
     createStruct(features: MetaStructFeature): MetaStruct
     declareForeignKey(mstruct: MetaStruct | null, fkName: string, catalog: string | null, schema: string | null, table: string, refCatalog: string | null, refSchema: string | null, refTable: string, colnames: string[], refColnames: string[]): boolean
     extract(selectSql: string, vars?: GLib.HashTable | null): DataModel
-    getAttributeValue(attName: string): [ /* returnType */ boolean, /* attValue */ string ]
+    getAttributeValue(attName: string): { returnType: boolean, attValue: string }
     getInternalConnection(): Connection
     getVersion(): number
     modify(tableName: string, newData: DataModel | null, condition: string | null, valueNames: string[], values: any[]): boolean
@@ -5359,7 +4671,7 @@ export class MetaStore {
     setIdentifiersStyle(style: SqlIdentifierStyle): void
     setReservedKeywordsFunc(func?: SqlReservedKeywordsFunc | null): void
     undeclareForeignKey(mstruct: MetaStruct | null, fkName: string, catalog: string | null, schema: string | null, table: string, refCatalog: string | null, refSchema: string | null, refTable: string): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -5381,43 +4693,28 @@ export class MetaStore {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of Gda.MetaStore */
-    vfuncMetaReset(): void
-    vfuncSuggestUpdate(suggest: MetaContext): GLib.Error
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gda.MetaStore */
+    /* Signals of Gda-6.0.Gda.MetaStore */
     connect(sigName: "meta-changed", callback: (($obj: MetaStore, changes: MetaStoreChange[]) => void)): number
-    connect_after(sigName: "meta-changed", callback: (($obj: MetaStore, changes: MetaStoreChange[]) => void)): number
+    on(sigName: "meta-changed", callback: (changes: MetaStoreChange[]) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "meta-changed", callback: (changes: MetaStoreChange[]) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "meta-changed", callback: (changes: MetaStoreChange[]) => void): NodeJS.EventEmitter
     emit(sigName: "meta-changed", changes: MetaStoreChange[]): void
-    on(sigName: "meta-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "meta-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "meta-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "meta-reset", callback: (($obj: MetaStore) => void)): number
-    connect_after(sigName: "meta-reset", callback: (($obj: MetaStore) => void)): number
+    on(sigName: "meta-reset", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "meta-reset", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "meta-reset", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "meta-reset"): void
-    on(sigName: "meta-reset", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "meta-reset", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "meta-reset", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "suggest-update", callback: (($obj: MetaStore, suggest: MetaContext) => GLib.Error)): number
-    connect_after(sigName: "suggest-update", callback: (($obj: MetaStore, suggest: MetaContext) => GLib.Error)): number
+    on(sigName: "suggest-update", callback: (suggest: MetaContext) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "suggest-update", callback: (suggest: MetaContext) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "suggest-update", callback: (suggest: MetaContext) => void): NodeJS.EventEmitter
     emit(sigName: "suggest-update", suggest: MetaContext): void
-    on(sigName: "suggest-update", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "suggest-update", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "suggest-update", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: MetaStore, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: MetaStore, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -5440,11 +4737,11 @@ export interface MetaStruct_ConstructProps extends GObject.Object_ConstructProps
     metaStore?: MetaStore
 }
 export class MetaStruct {
-    /* Fields of Gda.MetaStruct */
+    /* Fields of Gda-6.0.Gda.MetaStruct */
     parentInstance: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Gda.MetaStruct */
+    /* Methods of Gda-6.0.Gda.MetaStruct */
     complement(type: MetaDbObjectType, catalog: any | null, schema: any | null, name: any): MetaDbObject | null
     complementAll(): boolean
     complementDefault(): boolean
@@ -5456,7 +4753,7 @@ export class MetaStruct {
     getTableColumn(table: MetaTable, colName: any): MetaTableColumn | null
     loadFromXmlFile(catalog: string | null, schema: string | null, xmlSpecFile: string): boolean
     sortDbObjects(sortType: MetaSortType): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -5478,21 +4775,12 @@ export class MetaStruct {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: MetaStruct, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: MetaStruct, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -5510,11 +4798,11 @@ export class MetaStruct {
 export interface PStmt_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class PStmt {
-    /* Fields of Gda.PStmt */
+    /* Fields of Gda-6.0.Gda.PStmt */
     parentInstance: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Gda.PStmt */
+    /* Methods of Gda-6.0.Gda.PStmt */
     copyContents(dest: PStmt): void
     getGdaStatement(): Statement
     getNcols(): number
@@ -5527,7 +4815,7 @@ export class PStmt {
     setParamIds(params: string[]): void
     setSql(sql: string): void
     setTmplColumns(columns: Column[]): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -5549,21 +4837,12 @@ export class PStmt {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: PStmt, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: PStmt, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -5580,15 +4859,15 @@ export interface RepetitiveStatement_ConstructProps extends GObject.Object_Const
     statement?: Statement
 }
 export class RepetitiveStatement {
-    /* Fields of Gda.RepetitiveStatement */
+    /* Fields of Gda-6.0.Gda.RepetitiveStatement */
     parentInstance: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Gda.RepetitiveStatement */
+    /* Methods of Gda-6.0.Gda.RepetitiveStatement */
     appendSet(values: Set, makeCopy: boolean): boolean
     getAllSets(): Set[]
     getTemplateSet(set: Set): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -5610,21 +4889,12 @@ export class RepetitiveStatement {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: RepetitiveStatement, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: RepetitiveStatement, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -5645,18 +4915,18 @@ export interface Row_ConstructProps extends GObject.Object_ConstructProps {
     nbValues?: number
 }
 export class Row {
-    /* Fields of Gda.Row */
+    /* Fields of Gda-6.0.Gda.Row */
     parentInstance: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Gda.Row */
+    /* Methods of Gda-6.0.Gda.Row */
     getLength(): number
     getValue(num: number): any | null
     invalidateValue(value: any): void
     invalidateValueE(value: any, error?: GLib.Error | null): void
     valueIsValid(value: any): boolean
     valueIsValidE(value: any): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -5678,21 +4948,12 @@ export class Row {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Row, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Row, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -5716,11 +4977,11 @@ export interface ServerOperation_ConstructProps extends GObject.Object_Construct
     specResource?: string
 }
 export class ServerOperation {
-    /* Fields of Gda.ServerOperation */
+    /* Fields of Gda-6.0.Gda.ServerOperation */
     parentInstance: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Gda.ServerOperation */
+    /* Methods of Gda-6.0.Gda.ServerOperation */
     addItemToSequence(seqPath: string): number
     delItemFromSequence(itemPath: string): boolean
     getNodeParent(path: string): string
@@ -5743,7 +5004,7 @@ export class ServerOperation {
     render(): string | null
     saveDataToXmlString(): string
     setValueAt(value: string | null, path: string): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -5765,37 +5026,23 @@ export class ServerOperation {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of Gda.ServerOperation */
-    vfuncSeqItemAdded(seqPath: string, itemIndex: number): void
-    vfuncSeqItemRemove(seqPath: string, itemIndex: number): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gda.ServerOperation */
+    /* Signals of Gda-6.0.Gda.ServerOperation */
     connect(sigName: "sequence-item-added", callback: (($obj: ServerOperation, seqPath: string, itemIndex: number) => void)): number
-    connect_after(sigName: "sequence-item-added", callback: (($obj: ServerOperation, seqPath: string, itemIndex: number) => void)): number
+    on(sigName: "sequence-item-added", callback: (seqPath: string, itemIndex: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "sequence-item-added", callback: (seqPath: string, itemIndex: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "sequence-item-added", callback: (seqPath: string, itemIndex: number) => void): NodeJS.EventEmitter
     emit(sigName: "sequence-item-added", seqPath: string, itemIndex: number): void
-    on(sigName: "sequence-item-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "sequence-item-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "sequence-item-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "sequence-item-remove", callback: (($obj: ServerOperation, seqPath: string, itemIndex: number) => void)): number
-    connect_after(sigName: "sequence-item-remove", callback: (($obj: ServerOperation, seqPath: string, itemIndex: number) => void)): number
+    on(sigName: "sequence-item-remove", callback: (seqPath: string, itemIndex: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "sequence-item-remove", callback: (seqPath: string, itemIndex: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "sequence-item-remove", callback: (seqPath: string, itemIndex: number) => void): NodeJS.EventEmitter
     emit(sigName: "sequence-item-remove", seqPath: string, itemIndex: number): void
-    on(sigName: "sequence-item-remove", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "sequence-item-remove", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "sequence-item-remove", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: ServerOperation, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: ServerOperation, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -5818,11 +5065,11 @@ export class ServerOperation {
 export interface ServerProvider_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class ServerProvider {
-    /* Fields of Gda.ServerProvider */
+    /* Fields of Gda-6.0.Gda.ServerProvider */
     parentInstance: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Gda.ServerProvider */
+    /* Methods of Gda-6.0.Gda.ServerProvider */
     createOperation(cnc: Connection | null, type: ServerOperationType, options?: Set | null): ServerOperation | null
     createParser(cnc?: Connection | null): SqlParser
     escapeString(cnc: Connection | null, str: string): string
@@ -5844,7 +5091,7 @@ export class ServerProvider {
     supportsOperation(cnc: Connection | null, type: ServerOperationType, options?: Set | null): boolean
     unescapeString(cnc: Connection | null, str: string): string
     valueToSqlString(cnc: Connection | null, from: any): string
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -5866,29 +5113,16 @@ export class ServerProvider {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of Gda.Lockable */
+    /* Methods of Gda-6.0.Gda.Lockable */
     lock(): void
     trylock(): boolean
     unlock(): void
-    /* Virtual methods of Gda.ServerProvider */
-    vfuncLock(): void
-    vfuncTrylock(): boolean
-    vfuncUnlock(): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: ServerProvider, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: ServerProvider, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -5915,16 +5149,16 @@ export interface Set_ConstructProps extends GObject.Object_ConstructProps {
     validateChanges?: boolean
 }
 export class Set {
-    /* Properties of Gda.Set */
+    /* Properties of Gda-6.0.Gda.Set */
     description: string
     id: string
     name: string
     validateChanges: boolean
-    /* Fields of Gda.Set */
+    /* Fields of Gda-6.0.Gda.Set */
     parentInstance: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Gda.Set */
+    /* Methods of Gda-6.0.Gda.Set */
     addHolder(holder: Holder): boolean
     copy(): Set
     getGroup(holder: Holder): SetGroup
@@ -5942,7 +5176,7 @@ export class Set {
     mergeWithSet(setToMerge: Set): void
     removeHolder(holder: Holder): void
     replaceSourceModel(source: SetSource, model: DataModel): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -5964,72 +5198,48 @@ export class Set {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of Gda.Set */
-    vfuncHolderAttrChanged(holder: Holder, attrName: string, attrValue: any): void
-    vfuncHolderChanged(holder: Holder): void
-    vfuncHolderTypeSet(holder: Holder): void
-    vfuncPublicDataChanged(): void
-    vfuncSourceModelChanged(source: SetSource): void
-    vfuncValidateHolderChange(holder: Holder, newValue: any): GLib.Error
-    vfuncValidateSet(): GLib.Error
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gda.Set */
+    /* Signals of Gda-6.0.Gda.Set */
     connect(sigName: "holder-attr-changed", callback: (($obj: Set, holder: Holder, attrName: string, attrValue: any) => void)): number
-    connect_after(sigName: "holder-attr-changed", callback: (($obj: Set, holder: Holder, attrName: string, attrValue: any) => void)): number
+    on(sigName: "holder-attr-changed", callback: (holder: Holder, attrName: string, attrValue: any) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "holder-attr-changed", callback: (holder: Holder, attrName: string, attrValue: any) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "holder-attr-changed", callback: (holder: Holder, attrName: string, attrValue: any) => void): NodeJS.EventEmitter
     emit(sigName: "holder-attr-changed", holder: Holder, attrName: string, attrValue: any): void
-    on(sigName: "holder-attr-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "holder-attr-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "holder-attr-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "holder-changed", callback: (($obj: Set, object: Holder) => void)): number
-    connect_after(sigName: "holder-changed", callback: (($obj: Set, object: Holder) => void)): number
+    on(sigName: "holder-changed", callback: (object: Holder) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "holder-changed", callback: (object: Holder) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "holder-changed", callback: (object: Holder) => void): NodeJS.EventEmitter
     emit(sigName: "holder-changed", object: Holder): void
-    on(sigName: "holder-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "holder-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "holder-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "holder-type-set", callback: (($obj: Set, holder: Holder) => void)): number
-    connect_after(sigName: "holder-type-set", callback: (($obj: Set, holder: Holder) => void)): number
+    on(sigName: "holder-type-set", callback: (holder: Holder) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "holder-type-set", callback: (holder: Holder) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "holder-type-set", callback: (holder: Holder) => void): NodeJS.EventEmitter
     emit(sigName: "holder-type-set", holder: Holder): void
-    on(sigName: "holder-type-set", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "holder-type-set", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "holder-type-set", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "public-data-changed", callback: (($obj: Set) => void)): number
-    connect_after(sigName: "public-data-changed", callback: (($obj: Set) => void)): number
+    on(sigName: "public-data-changed", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "public-data-changed", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "public-data-changed", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "public-data-changed"): void
-    on(sigName: "public-data-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "public-data-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "public-data-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "source-model-changed", callback: (($obj: Set, source?: object | null) => void)): number
-    connect_after(sigName: "source-model-changed", callback: (($obj: Set, source?: object | null) => void)): number
+    on(sigName: "source-model-changed", callback: (source?: object | null) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "source-model-changed", callback: (source?: object | null) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "source-model-changed", callback: (source?: object | null) => void): NodeJS.EventEmitter
     emit(sigName: "source-model-changed", source?: object | null): void
-    on(sigName: "source-model-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "source-model-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "source-model-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "validate-holder-change", callback: (($obj: Set, holder: Holder, newValue: any) => GLib.Error)): number
-    connect_after(sigName: "validate-holder-change", callback: (($obj: Set, holder: Holder, newValue: any) => GLib.Error)): number
+    on(sigName: "validate-holder-change", callback: (holder: Holder, newValue: any) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "validate-holder-change", callback: (holder: Holder, newValue: any) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "validate-holder-change", callback: (holder: Holder, newValue: any) => void): NodeJS.EventEmitter
     emit(sigName: "validate-holder-change", holder: Holder, newValue: any): void
-    on(sigName: "validate-holder-change", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "validate-holder-change", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "validate-holder-change", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "validate-set", callback: (($obj: Set) => GLib.Error)): number
-    connect_after(sigName: "validate-set", callback: (($obj: Set) => GLib.Error)): number
+    on(sigName: "validate-set", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "validate-set", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "validate-set", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "validate-set"): void
-    on(sigName: "validate-set", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "validate-set", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "validate-set", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Set, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Set, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::description", callback: (($obj: Set, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::description", callback: (($obj: Set, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::description", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -6074,11 +5284,11 @@ export class Short {
 export interface SqlBuilder_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class SqlBuilder {
-    /* Fields of Gda.SqlBuilder */
+    /* Fields of Gda-6.0.Gda.SqlBuilder */
     parentInstance: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Gda.SqlBuilder */
+    /* Methods of Gda-6.0.Gda.SqlBuilder */
     addCase(testExpr: SqlBuilderId, elseExpr: SqlBuilderId, whenArray: SqlBuilderId[], thenArray: SqlBuilderId[]): SqlBuilderId
     addCond(op: SqlOperatorType, op1: SqlBuilderId, op2: SqlBuilderId, op3: SqlBuilderId): SqlBuilderId
     addCondV(op: SqlOperatorType, opIds: SqlBuilderId[]): SqlBuilderId
@@ -6110,7 +5320,7 @@ export class SqlBuilder {
     selectSetLimit(limitCountExprId: SqlBuilderId, limitOffsetExprId: SqlBuilderId): void
     setTable(tableName: string): void
     setWhere(condId: SqlBuilderId): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -6132,21 +5342,12 @@ export class SqlBuilder {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: SqlBuilder, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: SqlBuilder, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -6168,23 +5369,23 @@ export interface SqlParser_ConstructProps extends GObject.Object_ConstructProps 
     tokenizerFlavour?: number
 }
 export class SqlParser {
-    /* Properties of Gda.SqlParser */
+    /* Properties of Gda-6.0.Gda.SqlParser */
     readonly columnError: number
     debug: boolean
     readonly lineError: number
     mode: number
     tokenizerFlavour: number
-    /* Fields of Gda.SqlParser */
+    /* Fields of Gda-6.0.Gda.SqlParser */
     parentInstance: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Gda.SqlParser */
+    /* Methods of Gda-6.0.Gda.SqlParser */
     parseFileAsBatch(filename: string): Batch | null
-    parseString(sql: string): [ /* returnType */ Statement | null, /* remain */ string | null ]
-    parseStringAsBatch(sql: string): [ /* returnType */ Batch | null, /* remain */ string | null ]
+    parseString(sql: string): { returnType: Statement | null, remain: string | null }
+    parseStringAsBatch(sql: string): { returnType: Batch | null, remain: string | null }
     setOverflowError(): void
     setSyntaxError(): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -6206,29 +5407,16 @@ export class SqlParser {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of Gda.Lockable */
+    /* Methods of Gda-6.0.Gda.Lockable */
     lock(): void
     trylock(): boolean
     unlock(): void
-    /* Virtual methods of Gda.SqlParser */
-    vfuncLock(): void
-    vfuncTrylock(): boolean
-    vfuncUnlock(): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: SqlParser, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: SqlParser, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::column-error", callback: (($obj: SqlParser, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::column-error", callback: (($obj: SqlParser, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::column-error", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -6273,24 +5461,24 @@ export interface Statement_ConstructProps extends GObject.Object_ConstructProps 
     structure?: SqlStatement
 }
 export class Statement {
-    /* Properties of Gda.Statement */
+    /* Properties of Gda-6.0.Gda.Statement */
     structure: SqlStatement
-    /* Fields of Gda.Statement */
+    /* Fields of Gda-6.0.Gda.Statement */
     parentInstance: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Gda.Statement */
+    /* Methods of Gda-6.0.Gda.Statement */
     checkStructure(): boolean
     checkValidity(cnc?: Connection | null): boolean
     copy(): Statement
-    getParameters(): [ /* returnType */ boolean, /* outParams */ Set | null ]
+    getParameters(): { returnType: boolean, outParams: Set | null }
     getStatementType(): SqlStatementType
     isUseless(): boolean
     normalize(cnc: Connection): boolean
     rewriteForDefaultValues(params: Set, remove: boolean): SqlStatement | null
     serialize(): string
-    toSqlExtended(cnc: Connection | null, params: Set | null, flags: StatementSqlFlag): [ /* returnType */ string, /* paramsUsed */ Holder[] | null ]
-    /* Methods of GObject.Object */
+    toSqlExtended(cnc: Connection | null, params: Set | null, flags: StatementSqlFlag): { returnType: string, paramsUsed: Holder[] | null }
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -6312,37 +5500,23 @@ export class Statement {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of Gda.Statement */
-    vfuncChecked(cnc: Connection, checked: boolean): void
-    vfuncReset(): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gda.Statement */
+    /* Signals of Gda-6.0.Gda.Statement */
     connect(sigName: "checked", callback: (($obj: Statement, cnc: Connection, checked: boolean) => void)): number
-    connect_after(sigName: "checked", callback: (($obj: Statement, cnc: Connection, checked: boolean) => void)): number
+    on(sigName: "checked", callback: (cnc: Connection, checked: boolean) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "checked", callback: (cnc: Connection, checked: boolean) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "checked", callback: (cnc: Connection, checked: boolean) => void): NodeJS.EventEmitter
     emit(sigName: "checked", cnc: Connection, checked: boolean): void
-    on(sigName: "checked", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "checked", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "checked", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "reset", callback: (($obj: Statement) => void)): number
-    connect_after(sigName: "reset", callback: (($obj: Statement) => void)): number
+    on(sigName: "reset", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "reset", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "reset", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "reset"): void
-    on(sigName: "reset", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "reset", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "reset", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Statement, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Statement, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::structure", callback: (($obj: Statement, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::structure", callback: (($obj: Statement, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::structure", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -6366,11 +5540,11 @@ export class Statement {
 export interface TransactionStatus_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class TransactionStatus {
-    /* Fields of Gda.TransactionStatus */
+    /* Fields of Gda-6.0.Gda.TransactionStatus */
     parentInstance: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Gda.TransactionStatus */
+    /* Methods of Gda-6.0.Gda.TransactionStatus */
     addEventSql(sql: string, connEvent: ConnectionEvent): TransactionStatusEvent
     addEventSub(subTrans: TransactionStatus): TransactionStatusEvent
     addEventSvp(svpName: string): TransactionStatusEvent
@@ -6381,7 +5555,7 @@ export class TransactionStatus {
     getState(): TransactionStatusState
     setIsolationLevel(il: TransactionIsolation): void
     setState(state: TransactionStatusState): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -6403,21 +5577,12 @@ export class TransactionStatus {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: TransactionStatus, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: TransactionStatus, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -6435,13 +5600,13 @@ export class TransactionStatus {
 export interface Tree_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class Tree {
-    /* Properties of Gda.Tree */
+    /* Properties of Gda-6.0.Gda.Tree */
     readonly isList: boolean
-    /* Fields of Gda.Tree */
+    /* Fields of Gda-6.0.Gda.Tree */
     parentInstance: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Gda.Tree */
+    /* Methods of Gda-6.0.Gda.Tree */
     addManager(manager: TreeManager): void
     clean(): void
     dump(node?: TreeNode | null, stream?: object | null): void
@@ -6453,7 +5618,7 @@ export class Tree {
     updateAll(): boolean
     updateChildren(node?: TreeNode | null): boolean
     updatePart(node: TreeNode): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -6475,51 +5640,33 @@ export class Tree {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of Gda.Tree */
-    vfuncNodeChanged(node: TreeNode): void
-    vfuncNodeDeleted(nodePath: string): void
-    vfuncNodeHasChildToggled(node: TreeNode): void
-    vfuncNodeInserted(node: TreeNode): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gda.Tree */
+    /* Signals of Gda-6.0.Gda.Tree */
     connect(sigName: "node-changed", callback: (($obj: Tree, node: TreeNode) => void)): number
-    connect_after(sigName: "node-changed", callback: (($obj: Tree, node: TreeNode) => void)): number
+    on(sigName: "node-changed", callback: (node: TreeNode) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "node-changed", callback: (node: TreeNode) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "node-changed", callback: (node: TreeNode) => void): NodeJS.EventEmitter
     emit(sigName: "node-changed", node: TreeNode): void
-    on(sigName: "node-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "node-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "node-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "node-deleted", callback: (($obj: Tree, nodePath: string) => void)): number
-    connect_after(sigName: "node-deleted", callback: (($obj: Tree, nodePath: string) => void)): number
+    on(sigName: "node-deleted", callback: (nodePath: string) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "node-deleted", callback: (nodePath: string) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "node-deleted", callback: (nodePath: string) => void): NodeJS.EventEmitter
     emit(sigName: "node-deleted", nodePath: string): void
-    on(sigName: "node-deleted", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "node-deleted", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "node-deleted", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "node-has-child-toggled", callback: (($obj: Tree, node: TreeNode) => void)): number
-    connect_after(sigName: "node-has-child-toggled", callback: (($obj: Tree, node: TreeNode) => void)): number
+    on(sigName: "node-has-child-toggled", callback: (node: TreeNode) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "node-has-child-toggled", callback: (node: TreeNode) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "node-has-child-toggled", callback: (node: TreeNode) => void): NodeJS.EventEmitter
     emit(sigName: "node-has-child-toggled", node: TreeNode): void
-    on(sigName: "node-has-child-toggled", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "node-has-child-toggled", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "node-has-child-toggled", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "node-inserted", callback: (($obj: Tree, node: TreeNode) => void)): number
-    connect_after(sigName: "node-inserted", callback: (($obj: Tree, node: TreeNode) => void)): number
+    on(sigName: "node-inserted", callback: (node: TreeNode) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "node-inserted", callback: (node: TreeNode) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "node-inserted", callback: (node: TreeNode) => void): NodeJS.EventEmitter
     emit(sigName: "node-inserted", node: TreeNode): void
-    on(sigName: "node-inserted", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "node-inserted", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "node-inserted", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Tree, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Tree, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::is-list", callback: (($obj: Tree, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::is-list", callback: (($obj: Tree, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::is-list", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -6545,20 +5692,20 @@ export interface TreeManager_ConstructProps extends GObject.Object_ConstructProp
     recursive?: boolean
 }
 export class TreeManager {
-    /* Properties of Gda.TreeManager */
+    /* Properties of Gda-6.0.Gda.TreeManager */
     func: TreeManagerNodesFunc
     recursive: boolean
-    /* Fields of Gda.TreeManager */
+    /* Fields of Gda-6.0.Gda.TreeManager */
     parentInstance: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Gda.TreeManager */
+    /* Methods of Gda-6.0.Gda.TreeManager */
     addManager(sub: TreeManager): void
     addNewNodeAttribute(attribute: string, value?: any | null): void
     createNode(parent?: TreeNode | null, name?: string | null): TreeNode
     getManagers(): TreeManager[]
     setNodeCreateFunc(func?: TreeManagerNodeFunc | null): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -6580,21 +5727,12 @@ export class TreeManager {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: TreeManager, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: TreeManager, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::func", callback: (($obj: TreeManager, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::func", callback: (($obj: TreeManager, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::func", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -6627,20 +5765,20 @@ export interface TreeMgrColumns_ConstructProps extends TreeManager_ConstructProp
     tableName?: string
 }
 export class TreeMgrColumns {
-    /* Properties of Gda.TreeManager */
+    /* Properties of Gda-6.0.Gda.TreeManager */
     func: TreeManagerNodesFunc
     recursive: boolean
-    /* Fields of Gda.TreeMgrColumns */
+    /* Fields of Gda-6.0.Gda.TreeMgrColumns */
     parentInstance: TreeManager
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Gda.TreeManager */
+    /* Methods of Gda-6.0.Gda.TreeManager */
     addManager(sub: TreeManager): void
     addNewNodeAttribute(attribute: string, value?: any | null): void
     createNode(parent?: TreeNode | null, name?: string | null): TreeNode
     getManagers(): TreeManager[]
     setNodeCreateFunc(func?: TreeManagerNodeFunc | null): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -6662,21 +5800,12 @@ export class TreeMgrColumns {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: TreeMgrColumns, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: TreeMgrColumns, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::func", callback: (($obj: TreeMgrColumns, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::func", callback: (($obj: TreeMgrColumns, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::func", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -6705,20 +5834,20 @@ export interface TreeMgrLabel_ConstructProps extends TreeManager_ConstructProps 
     label?: string
 }
 export class TreeMgrLabel {
-    /* Properties of Gda.TreeManager */
+    /* Properties of Gda-6.0.Gda.TreeManager */
     func: TreeManagerNodesFunc
     recursive: boolean
-    /* Fields of Gda.TreeMgrLabel */
+    /* Fields of Gda-6.0.Gda.TreeMgrLabel */
     parentInstance: TreeManager
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Gda.TreeManager */
+    /* Methods of Gda-6.0.Gda.TreeManager */
     addManager(sub: TreeManager): void
     addNewNodeAttribute(attribute: string, value?: any | null): void
     createNode(parent?: TreeNode | null, name?: string | null): TreeNode
     getManagers(): TreeManager[]
     setNodeCreateFunc(func?: TreeManagerNodeFunc | null): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -6740,21 +5869,12 @@ export class TreeMgrLabel {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: TreeMgrLabel, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: TreeMgrLabel, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::func", callback: (($obj: TreeMgrLabel, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::func", callback: (($obj: TreeMgrLabel, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::func", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -6784,20 +5904,20 @@ export interface TreeMgrSchemas_ConstructProps extends TreeManager_ConstructProp
     metaStore?: MetaStore
 }
 export class TreeMgrSchemas {
-    /* Properties of Gda.TreeManager */
+    /* Properties of Gda-6.0.Gda.TreeManager */
     func: TreeManagerNodesFunc
     recursive: boolean
-    /* Fields of Gda.TreeMgrSchemas */
+    /* Fields of Gda-6.0.Gda.TreeMgrSchemas */
     parentInstance: TreeManager
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Gda.TreeManager */
+    /* Methods of Gda-6.0.Gda.TreeManager */
     addManager(sub: TreeManager): void
     addNewNodeAttribute(attribute: string, value?: any | null): void
     createNode(parent?: TreeNode | null, name?: string | null): TreeNode
     getManagers(): TreeManager[]
     setNodeCreateFunc(func?: TreeManagerNodeFunc | null): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -6819,21 +5939,12 @@ export class TreeMgrSchemas {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: TreeMgrSchemas, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: TreeMgrSchemas, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::func", callback: (($obj: TreeMgrSchemas, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::func", callback: (($obj: TreeMgrSchemas, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::func", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -6864,20 +5975,20 @@ export interface TreeMgrSelect_ConstructProps extends TreeManager_ConstructProps
     statement?: Statement
 }
 export class TreeMgrSelect {
-    /* Properties of Gda.TreeManager */
+    /* Properties of Gda-6.0.Gda.TreeManager */
     func: TreeManagerNodesFunc
     recursive: boolean
-    /* Fields of Gda.TreeMgrSelect */
+    /* Fields of Gda-6.0.Gda.TreeMgrSelect */
     parentInstance: TreeManager
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Gda.TreeManager */
+    /* Methods of Gda-6.0.Gda.TreeManager */
     addManager(sub: TreeManager): void
     addNewNodeAttribute(attribute: string, value?: any | null): void
     createNode(parent?: TreeNode | null, name?: string | null): TreeNode
     getManagers(): TreeManager[]
     setNodeCreateFunc(func?: TreeManagerNodeFunc | null): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -6899,21 +6010,12 @@ export class TreeMgrSelect {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: TreeMgrSelect, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: TreeMgrSelect, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::func", callback: (($obj: TreeMgrSelect, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::func", callback: (($obj: TreeMgrSelect, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::func", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -6944,20 +6046,20 @@ export interface TreeMgrTables_ConstructProps extends TreeManager_ConstructProps
     schema?: string
 }
 export class TreeMgrTables {
-    /* Properties of Gda.TreeManager */
+    /* Properties of Gda-6.0.Gda.TreeManager */
     func: TreeManagerNodesFunc
     recursive: boolean
-    /* Fields of Gda.TreeMgrTables */
+    /* Fields of Gda-6.0.Gda.TreeMgrTables */
     parentInstance: TreeManager
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Gda.TreeManager */
+    /* Methods of Gda-6.0.Gda.TreeManager */
     addManager(sub: TreeManager): void
     addNewNodeAttribute(attribute: string, value?: any | null): void
     createNode(parent?: TreeNode | null, name?: string | null): TreeNode
     getManagers(): TreeManager[]
     setNodeCreateFunc(func?: TreeManagerNodeFunc | null): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -6979,21 +6081,12 @@ export class TreeMgrTables {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: TreeMgrTables, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: TreeMgrTables, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::func", callback: (($obj: TreeMgrTables, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::func", callback: (($obj: TreeMgrTables, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::func", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -7022,13 +6115,13 @@ export interface TreeNode_ConstructProps extends GObject.Object_ConstructProps {
     name?: string
 }
 export class TreeNode {
-    /* Properties of Gda.TreeNode */
+    /* Properties of Gda-6.0.Gda.TreeNode */
     name: string
-    /* Fields of Gda.TreeNode */
+    /* Fields of Gda-6.0.Gda.TreeNode */
     parentInstance: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Gda.TreeNode */
+    /* Methods of Gda-6.0.Gda.TreeNode */
     fetchAttribute(attribute: string): any
     getChildIndex(index: number): TreeNode
     getChildName(name: string): TreeNode
@@ -7036,7 +6129,7 @@ export class TreeNode {
     getNodeAttribute(attribute: string): any
     getParent(): TreeNode
     setNodeAttribute(attribute: string, value: any | null, destroy: GLib.DestroyNotify): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -7058,53 +6151,33 @@ export class TreeNode {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of Gda.TreeNode */
-    vfuncDumpChildren(prefix: string, inString: GLib.String): void
-    vfuncDumpHeader(): string
-    vfuncNodeChanged(node: TreeNode): void
-    vfuncNodeDeleted(relativePath: string): void
-    vfuncNodeHasChildToggled(node: TreeNode): void
-    vfuncNodeInserted(node: TreeNode): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gda.TreeNode */
+    /* Signals of Gda-6.0.Gda.TreeNode */
     connect(sigName: "node-changed", callback: (($obj: TreeNode, node: TreeNode) => void)): number
-    connect_after(sigName: "node-changed", callback: (($obj: TreeNode, node: TreeNode) => void)): number
+    on(sigName: "node-changed", callback: (node: TreeNode) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "node-changed", callback: (node: TreeNode) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "node-changed", callback: (node: TreeNode) => void): NodeJS.EventEmitter
     emit(sigName: "node-changed", node: TreeNode): void
-    on(sigName: "node-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "node-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "node-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "node-deleted", callback: (($obj: TreeNode, relativePath: string) => void)): number
-    connect_after(sigName: "node-deleted", callback: (($obj: TreeNode, relativePath: string) => void)): number
+    on(sigName: "node-deleted", callback: (relativePath: string) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "node-deleted", callback: (relativePath: string) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "node-deleted", callback: (relativePath: string) => void): NodeJS.EventEmitter
     emit(sigName: "node-deleted", relativePath: string): void
-    on(sigName: "node-deleted", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "node-deleted", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "node-deleted", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "node-has-child-toggled", callback: (($obj: TreeNode, node: TreeNode) => void)): number
-    connect_after(sigName: "node-has-child-toggled", callback: (($obj: TreeNode, node: TreeNode) => void)): number
+    on(sigName: "node-has-child-toggled", callback: (node: TreeNode) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "node-has-child-toggled", callback: (node: TreeNode) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "node-has-child-toggled", callback: (node: TreeNode) => void): NodeJS.EventEmitter
     emit(sigName: "node-has-child-toggled", node: TreeNode): void
-    on(sigName: "node-has-child-toggled", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "node-has-child-toggled", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "node-has-child-toggled", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "node-inserted", callback: (($obj: TreeNode, node: TreeNode) => void)): number
-    connect_after(sigName: "node-inserted", callback: (($obj: TreeNode, node: TreeNode) => void)): number
+    on(sigName: "node-inserted", callback: (node: TreeNode) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "node-inserted", callback: (node: TreeNode) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "node-inserted", callback: (node: TreeNode) => void): NodeJS.EventEmitter
     emit(sigName: "node-inserted", node: TreeNode): void
-    on(sigName: "node-inserted", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "node-inserted", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "node-inserted", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: TreeNode, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: TreeNode, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::name", callback: (($obj: TreeNode, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::name", callback: (($obj: TreeNode, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::name", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -7133,18 +6206,18 @@ export interface XaTransaction_ConstructProps extends GObject.Object_ConstructPr
     transactionId?: string
 }
 export class XaTransaction {
-    /* Fields of Gda.XaTransaction */
+    /* Fields of Gda-6.0.Gda.XaTransaction */
     parentInstance: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Gda.XaTransaction */
+    /* Methods of Gda-6.0.Gda.XaTransaction */
     begin(): boolean
-    commit(): [ /* returnType */ boolean, /* cncToRecover */ Connection[] | null ]
-    commitRecovered(): [ /* returnType */ boolean, /* cncToRecover */ Connection[] | null ]
+    commit(): { returnType: boolean, cncToRecover: Connection[] | null }
+    commitRecovered(): { returnType: boolean, cncToRecover: Connection[] | null }
     registerConnection(cnc: Connection, branch: string): boolean
     rollback(): boolean
     unregisterConnection(cnc: Connection): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -7166,21 +6239,12 @@ export class XaTransaction {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: XaTransaction, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: XaTransaction, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -7198,13 +6262,13 @@ export class XaTransaction {
     static $gtype: GObject.Type
 }
 export abstract class BatchClass {
-    /* Fields of Gda.BatchClass */
+    /* Fields of Gda-6.0.Gda.BatchClass */
     parentClass: GObject.ObjectClass
     changed: (batch: Batch, changedStmt: Statement) => void
     static name: string
 }
 export class Binary {
-    /* Methods of Gda.Binary */
+    /* Methods of Gda-6.0.Gda.Binary */
     copy(): Binary
     free(): void
     getData(): object | null
@@ -7220,7 +6284,7 @@ export class Binary {
     static new(): Binary
 }
 export class Blob {
-    /* Methods of Gda.Blob */
+    /* Methods of Gda-6.0.Gda.Blob */
     copy(): Blob
     free(): void
     getBinary(): Binary
@@ -7234,14 +6298,14 @@ export class Blob {
     static new(): Blob
 }
 export abstract class BlobOpClass {
-    /* Fields of Gda.BlobOpClass */
+    /* Fields of Gda-6.0.Gda.BlobOpClass */
     parentClass: GObject.ObjectClass
     functions: object
     padding: object[]
     static name: string
 }
 export class BlobOpFunctions {
-    /* Fields of Gda.BlobOpFunctions */
+    /* Fields of Gda-6.0.Gda.BlobOpFunctions */
     getLength: (op: BlobOp) => number
     read: (op: BlobOp, blob: Blob, offset: number, size: number) => number
     write: (op: BlobOp, blob: Blob, offset: number) => number
@@ -7249,14 +6313,14 @@ export class BlobOpFunctions {
     static name: string
 }
 export abstract class ColumnClass {
-    /* Fields of Gda.ColumnClass */
+    /* Fields of Gda-6.0.Gda.ColumnClass */
     parentClass: GObject.ObjectClass
     nameChanged: (column: Column, oldName: string) => void
     gTypeChanged: (column: Column, oldType: GObject.Type, newType: GObject.Type) => void
     static name: string
 }
 export abstract class ConfigClass {
-    /* Fields of Gda.ConfigClass */
+    /* Fields of Gda-6.0.Gda.ConfigClass */
     parentClass: GObject.ObjectClass
     dsnAdded: (conf: Config, newDsn: DsnInfo) => void
     dsnToBeRemoved: (conf: Config, oldDsn: DsnInfo) => void
@@ -7265,7 +6329,7 @@ export abstract class ConfigClass {
     static name: string
 }
 export abstract class ConnectionClass {
-    /* Fields of Gda.ConnectionClass */
+    /* Fields of Gda-6.0.Gda.ConnectionClass */
     objectClass: GObject.ObjectClass
     statusChanged: (obj: Connection, status: ConnectionStatus) => void
     error: (cnc: Connection, error: ConnectionEvent) => void
@@ -7276,24 +6340,24 @@ export abstract class ConnectionClass {
     static name: string
 }
 export abstract class ConnectionEventClass {
-    /* Fields of Gda.ConnectionEventClass */
+    /* Fields of Gda-6.0.Gda.ConnectionEventClass */
     parentClass: GObject.ObjectClass
     padding: object[]
     static name: string
 }
 export abstract class DataAccessWrapperClass {
-    /* Fields of Gda.DataAccessWrapperClass */
+    /* Fields of Gda-6.0.Gda.DataAccessWrapperClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
 export abstract class DataComparatorClass {
-    /* Fields of Gda.DataComparatorClass */
+    /* Fields of Gda-6.0.Gda.DataComparatorClass */
     parentClass: GObject.ObjectClass
     diffComputed: (comp: DataComparator, diff: Diff) => boolean
     static name: string
 }
 export abstract class DataHandlerInterface {
-    /* Fields of Gda.DataHandlerInterface */
+    /* Fields of Gda-6.0.Gda.DataHandlerInterface */
     gIface: GObject.TypeInterface
     getSqlFromValue: (dh: DataHandler, value?: any | null) => string
     getStrFromValue: (dh: DataHandler, value?: any | null) => string
@@ -7305,12 +6369,12 @@ export abstract class DataHandlerInterface {
     static name: string
 }
 export abstract class DataModelArrayClass {
-    /* Fields of Gda.DataModelArrayClass */
+    /* Fields of Gda-6.0.Gda.DataModelArrayClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
 export abstract class DataModelDirClass {
-    /* Fields of Gda.DataModelDirClass */
+    /* Fields of Gda-6.0.Gda.DataModelDirClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
@@ -7318,17 +6382,17 @@ export abstract class DataModelIface {
     static name: string
 }
 export abstract class DataModelImportClass {
-    /* Fields of Gda.DataModelImportClass */
+    /* Fields of Gda-6.0.Gda.DataModelImportClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
 export abstract class DataModelImportIterClass {
-    /* Fields of Gda.DataModelImportIterClass */
+    /* Fields of Gda-6.0.Gda.DataModelImportIterClass */
     parentClass: DataModelIterClass
     static name: string
 }
 export class DataModelInterface {
-    /* Fields of Gda.DataModelInterface */
+    /* Fields of Gda-6.0.Gda.DataModelInterface */
     gIface: GObject.TypeInterface
     getNRows: (model: DataModel) => number
     getNColumns: (model: DataModel) => number
@@ -7352,7 +6416,7 @@ export class DataModelInterface {
     static name: string
 }
 export abstract class DataModelIterClass {
-    /* Fields of Gda.DataModelIterClass */
+    /* Fields of Gda-6.0.Gda.DataModelIterClass */
     parentClass: SetClass
     moveToRow: (iter: DataModelIter, row: number) => boolean
     moveNext: (iter: DataModelIter) => boolean
@@ -7363,18 +6427,18 @@ export abstract class DataModelIterClass {
     static name: string
 }
 export abstract class DataModelSelectClass {
-    /* Fields of Gda.DataModelSelectClass */
+    /* Fields of Gda-6.0.Gda.DataModelSelectClass */
     parentClass: GObject.ObjectClass
     updated: (model: DataModelSelect) => void
     static name: string
 }
 export abstract class DataPivotClass {
-    /* Fields of Gda.DataPivotClass */
+    /* Fields of Gda-6.0.Gda.DataPivotClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
 export abstract class DataProxyClass {
-    /* Fields of Gda.DataProxyClass */
+    /* Fields of Gda-6.0.Gda.DataProxyClass */
     parentClass: GObject.ObjectClass
     rowDeleteChanged: (proxy: DataProxy, row: number, toBeDeleted: boolean) => void
     sampleSizeChanged: (proxy: DataProxy, sampleSize: number) => void
@@ -7385,7 +6449,7 @@ export abstract class DataProxyClass {
     static name: string
 }
 export abstract class DataSelectClass {
-    /* Fields of Gda.DataSelectClass */
+    /* Fields of Gda-6.0.Gda.DataSelectClass */
     parentClass: GObject.ObjectClass
     fetchNbRows: (model: DataSelect) => number
     fetchRandom: (model: DataSelect, prow: Row, rownum: number) => boolean
@@ -7396,59 +6460,59 @@ export abstract class DataSelectClass {
     static name: string
 }
 export abstract class DataSelectIterClass {
-    /* Fields of Gda.DataSelectIterClass */
+    /* Fields of Gda-6.0.Gda.DataSelectIterClass */
     parentClass: DataModelIterClass
     static name: string
 }
 export abstract class DbBaseClass {
-    /* Fields of Gda.DbBaseClass */
+    /* Fields of Gda-6.0.Gda.DbBaseClass */
     parent: GObject.ObjectClass
     static name: string
 }
 export abstract class DbBuildableInterface {
-    /* Fields of Gda.DbBuildableInterface */
+    /* Fields of Gda-6.0.Gda.DbBuildableInterface */
     parentIface: GObject.TypeInterface
     parseNode: (self: DbBuildable, node: libxml2.NodePtr) => boolean
     writeNode: (self: DbBuildable, node: libxml2.NodePtr) => boolean
     static name: string
 }
 export abstract class DbCatalogClass {
-    /* Fields of Gda.DbCatalogClass */
+    /* Fields of Gda-6.0.Gda.DbCatalogClass */
     parent: GObject.ObjectClass
     static name: string
 }
 export abstract class DbColumnClass {
-    /* Fields of Gda.DbColumnClass */
+    /* Fields of Gda-6.0.Gda.DbColumnClass */
     parent: GObject.ObjectClass
     static name: string
 }
 export abstract class DbFkeyClass {
-    /* Fields of Gda.DbFkeyClass */
+    /* Fields of Gda-6.0.Gda.DbFkeyClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
 export abstract class DbIndexClass {
-    /* Fields of Gda.DbIndexClass */
+    /* Fields of Gda-6.0.Gda.DbIndexClass */
     parentClass: DbBaseClass
     static name: string
 }
 export abstract class DbIndexFieldClass {
-    /* Fields of Gda.DbIndexFieldClass */
+    /* Fields of Gda-6.0.Gda.DbIndexFieldClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
 export abstract class DbTableClass {
-    /* Fields of Gda.DbTableClass */
+    /* Fields of Gda-6.0.Gda.DbTableClass */
     parentClass: DbBaseClass
     static name: string
 }
 export abstract class DbViewClass {
-    /* Fields of Gda.DbViewClass */
+    /* Fields of Gda-6.0.Gda.DbViewClass */
     parentClass: DbBaseClass
     static name: string
 }
 export abstract class DdlModifiableInterface {
-    /* Fields of Gda.DdlModifiableInterface */
+    /* Fields of Gda-6.0.Gda.DdlModifiableInterface */
     parentIface: GObject.TypeInterface
     create: (self: DdlModifiable, cnc: Connection) => boolean
     drop: (self: DdlModifiable, cnc: Connection) => boolean
@@ -7456,7 +6520,7 @@ export abstract class DdlModifiableInterface {
     static name: string
 }
 export class Diff {
-    /* Fields of Gda.Diff */
+    /* Fields of Gda-6.0.Gda.Diff */
     type: DiffType
     oldRow: number
     newRow: number
@@ -7464,14 +6528,14 @@ export class Diff {
     static name: string
 }
 export class DsnInfo {
-    /* Fields of Gda.DsnInfo */
+    /* Fields of Gda-6.0.Gda.DsnInfo */
     name: string
     provider: string
     description: string
     cncString: string
     authString: string
     isSystem: boolean
-    /* Methods of Gda.DsnInfo */
+    /* Methods of Gda-6.0.Gda.DsnInfo */
     copy(): DsnInfo
     equal(dsn2?: DsnInfo | null): boolean
     free(): void
@@ -7482,7 +6546,7 @@ export class DsnInfo {
     static new(): DsnInfo
 }
 export class GeometricPoint {
-    /* Methods of Gda.GeometricPoint */
+    /* Methods of Gda-6.0.Gda.GeometricPoint */
     copy(): GeometricPoint
     free(): void
     getX(): number
@@ -7496,42 +6560,42 @@ export class GeometricPoint {
     static new(): GeometricPoint
 }
 export abstract class HandlerBinClass {
-    /* Fields of Gda.HandlerBinClass */
+    /* Fields of Gda-6.0.Gda.HandlerBinClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
 export abstract class HandlerBooleanClass {
-    /* Fields of Gda.HandlerBooleanClass */
+    /* Fields of Gda-6.0.Gda.HandlerBooleanClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
 export abstract class HandlerNumericalClass {
-    /* Fields of Gda.HandlerNumericalClass */
+    /* Fields of Gda-6.0.Gda.HandlerNumericalClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
 export abstract class HandlerStringClass {
-    /* Fields of Gda.HandlerStringClass */
+    /* Fields of Gda-6.0.Gda.HandlerStringClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
 export abstract class HandlerTextClass {
-    /* Fields of Gda.HandlerTextClass */
+    /* Fields of Gda-6.0.Gda.HandlerTextClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
 export abstract class HandlerTimeClass {
-    /* Fields of Gda.HandlerTimeClass */
+    /* Fields of Gda-6.0.Gda.HandlerTimeClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
 export abstract class HandlerTypeClass {
-    /* Fields of Gda.HandlerTypeClass */
+    /* Fields of Gda-6.0.Gda.HandlerTypeClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
 export abstract class HolderClass {
-    /* Fields of Gda.HolderClass */
+    /* Fields of Gda-6.0.Gda.HolderClass */
     parentClass: GObject.ObjectClass
     changed: (holder: Holder) => void
     sourceChanged: (holder: Holder) => void
@@ -7540,7 +6604,7 @@ export abstract class HolderClass {
     static name: string
 }
 export abstract class LockableInterface {
-    /* Fields of Gda.LockableInterface */
+    /* Fields of Gda-6.0.Gda.LockableInterface */
     gIface: GObject.TypeInterface
     lock: (lockable: Lockable) => void
     trylock: (lockable: Lockable) => boolean
@@ -7548,13 +6612,13 @@ export abstract class LockableInterface {
     static name: string
 }
 export class MetaContext {
-    /* Fields of Gda.MetaContext */
+    /* Fields of Gda-6.0.Gda.MetaContext */
     tableName: string
     size: number
     columnNames: string[]
     columnValues: any[]
     columns: GLib.HashTable
-    /* Methods of Gda.MetaContext */
+    /* Methods of Gda-6.0.Gda.MetaContext */
     copy(): MetaContext
     free(): void
     getNColumns(): number
@@ -7570,7 +6634,7 @@ export class MetaContext {
     static new(): MetaContext
 }
 export class MetaDbObject {
-    /* Fields of Gda.MetaDbObject */
+    /* Fields of Gda-6.0.Gda.MetaDbObject */
     objType: MetaDbObjectType
     outdated: boolean
     objCatalog: string
@@ -7583,7 +6647,7 @@ export class MetaDbObject {
     static name: string
 }
 export class MetaStoreChange {
-    /* Methods of Gda.MetaStoreChange */
+    /* Methods of Gda-6.0.Gda.MetaStoreChange */
     copy(): MetaStoreChange
     free(): void
     getChangeType(): MetaStoreChangeType
@@ -7598,19 +6662,19 @@ export class MetaStoreChange {
     static new(): MetaStoreChange
 }
 export abstract class MetaStoreClass {
-    /* Fields of Gda.MetaStoreClass */
+    /* Fields of Gda-6.0.Gda.MetaStoreClass */
     parentClass: GObject.ObjectClass
     metaReset: (store: MetaStore) => void
     suggestUpdate: (store: MetaStore, suggest: MetaContext) => GLib.Error
     static name: string
 }
 export abstract class MetaStructClass {
-    /* Fields of Gda.MetaStructClass */
+    /* Fields of Gda-6.0.Gda.MetaStructClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
 export class MetaTable {
-    /* Fields of Gda.MetaTable */
+    /* Fields of Gda-6.0.Gda.MetaTable */
     columns: MetaTableColumn[]
     pkColsArray: number
     pkColsNb: number
@@ -7619,7 +6683,7 @@ export class MetaTable {
     static name: string
 }
 export class MetaTableColumn {
-    /* Fields of Gda.MetaTableColumn */
+    /* Fields of Gda-6.0.Gda.MetaTableColumn */
     columnName: string
     columnType: string
     gtype: GObject.Type
@@ -7631,7 +6695,7 @@ export class MetaTableColumn {
     static name: string
 }
 export class MetaTableForeignKey {
-    /* Fields of Gda.MetaTableForeignKey */
+    /* Fields of Gda-6.0.Gda.MetaTableForeignKey */
     metaTable: MetaDbObject
     dependOn: MetaDbObject
     colsNb: number
@@ -7643,14 +6707,14 @@ export class MetaTableForeignKey {
     static name: string
 }
 export class MetaView {
-    /* Fields of Gda.MetaView */
+    /* Fields of Gda-6.0.Gda.MetaView */
     table: MetaTable
     viewDef: string
     isUpdatable: boolean
     static name: string
 }
 export class Numeric {
-    /* Methods of Gda.Numeric */
+    /* Methods of Gda-6.0.Gda.Numeric */
     copy(): Numeric
     free(): void
     getDouble(): number
@@ -7668,12 +6732,12 @@ export class Numeric {
     static new(): Numeric
 }
 export abstract class PStmtClass {
-    /* Fields of Gda.PStmtClass */
+    /* Fields of Gda-6.0.Gda.PStmtClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
 export class ProviderInfo {
-    /* Fields of Gda.ProviderInfo */
+    /* Fields of Gda-6.0.Gda.ProviderInfo */
     id: string
     location: string
     description: string
@@ -7683,7 +6747,7 @@ export class ProviderInfo {
     static name: string
 }
 export abstract class ProviderInterface {
-    /* Fields of Gda.ProviderInterface */
+    /* Fields of Gda-6.0.Gda.ProviderInterface */
     gIface: GObject.TypeInterface
     getName: (provider: Provider) => string
     getVersion: (provider: Provider) => string
@@ -7696,7 +6760,7 @@ export abstract class ProviderInterface {
     supportsOperation: (provider: Provider, cnc: Connection, type: ServerOperationType, options: Set) => boolean
     createOperation: (provider: Provider, cnc: Connection, type: ServerOperationType, options: Set) => ServerOperation
     renderOperation: (provider: Provider, cnc: Connection, op: ServerOperation) => string
-    statementToSql: (provider: Provider, cnc: Connection, stmt: Statement, params: Set | null, flags: StatementSqlFlag) => [ /* returnType */ string, /* paramsUsed */ Holder[] | null ]
+    statementToSql: (provider: Provider, cnc: Connection, stmt: Statement, params: Set | null, flags: StatementSqlFlag) => { returnType: string, paramsUsed: Holder[] | null }
     identifierQuote: (provider: Provider, cnc: Connection | null, id: string, forMetaStore: boolean, forceQuotes: boolean) => string
     statementRewrite: (provider: Provider, cnc: Connection, stmt: Statement, params: Set) => SqlStatement
     openConnection: (provider: Provider, cnc: Connection, params: QuarkList, auth: QuarkList) => boolean
@@ -7718,7 +6782,7 @@ export abstract class ProviderInterface {
     static name: string
 }
 export abstract class ProviderMetaInterface {
-    /* Fields of Gda.ProviderMetaInterface */
+    /* Fields of Gda-6.0.Gda.ProviderMetaInterface */
     gIface: GObject.TypeInterface
     btypes: (prov: ProviderMeta) => DataModel
     udts: (prov: ProviderMeta) => DataModel
@@ -7778,7 +6842,7 @@ export abstract class ProviderMetaInterface {
     static name: string
 }
 export class QuarkList {
-    /* Methods of Gda.QuarkList */
+    /* Methods of Gda-6.0.Gda.QuarkList */
     addFromString(string: string, cleanup: boolean): void
     clear(): void
     copy(): QuarkList
@@ -7795,24 +6859,24 @@ export class QuarkList {
     static newFromString(string: string): QuarkList
 }
 export abstract class RepetitiveStatementClass {
-    /* Fields of Gda.RepetitiveStatementClass */
+    /* Fields of Gda-6.0.Gda.RepetitiveStatementClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
 export abstract class RowClass {
-    /* Fields of Gda.RowClass */
+    /* Fields of Gda-6.0.Gda.RowClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
 export abstract class ServerOperationClass {
-    /* Fields of Gda.ServerOperationClass */
+    /* Fields of Gda-6.0.Gda.ServerOperationClass */
     parentClass: GObject.ObjectClass
     seqItemAdded: (op: ServerOperation, seqPath: string, itemIndex: number) => void
     seqItemRemove: (op: ServerOperation, seqPath: string, itemIndex: number) => void
     static name: string
 }
 export class ServerOperationCreateTableArg {
-    /* Methods of Gda.ServerOperationCreateTableArg */
+    /* Methods of Gda-6.0.Gda.ServerOperationCreateTableArg */
     copy(): ServerOperationCreateTableArg
     free(): void
     getColumnName(): string
@@ -7836,7 +6900,7 @@ export class ServerOperationCreateTableArg {
     static new(): ServerOperationCreateTableArg
 }
 export class ServerOperationCreateTableArgFKeyRefField {
-    /* Methods of Gda.ServerOperationCreateTableArgFKeyRefField */
+    /* Methods of Gda-6.0.Gda.ServerOperationCreateTableArgFKeyRefField */
     copy(): ServerOperationCreateTableArgFKeyRefField
     free(): void
     getLocalField(): string
@@ -7850,7 +6914,7 @@ export class ServerOperationCreateTableArgFKeyRefField {
     static new(): ServerOperationCreateTableArgFKeyRefField
 }
 export class ServerOperationNode {
-    /* Fields of Gda.ServerOperationNode */
+    /* Fields of Gda-6.0.Gda.ServerOperationNode */
     type: ServerOperationNodeType
     status: ServerOperationNodeStatus
     plist: Set
@@ -7858,13 +6922,13 @@ export class ServerOperationNode {
     column: Column
     param: Holder
     priv: object
-    /* Methods of Gda.ServerOperationNode */
+    /* Methods of Gda-6.0.Gda.ServerOperationNode */
     copy(): ServerOperationNode
     free(): void
     static name: string
 }
 export class ServerProviderBase {
-    /* Fields of Gda.ServerProviderBase */
+    /* Fields of Gda-6.0.Gda.ServerProviderBase */
     getName: (provider: ServerProvider) => string
     getVersion: (provider: ServerProvider) => string
     getServerVersion: (provider: ServerProvider, cnc: Connection) => string
@@ -7891,13 +6955,13 @@ export class ServerProviderBase {
     static name: string
 }
 export abstract class ServerProviderClass {
-    /* Fields of Gda.ServerProviderClass */
+    /* Fields of Gda-6.0.Gda.ServerProviderClass */
     parentClass: GObject.ObjectClass
     functionsSets: object[]
     static name: string
 }
 export class ServerProviderConnectionData {
-    /* Fields of Gda.ServerProviderConnectionData */
+    /* Fields of Gda-6.0.Gda.ServerProviderConnectionData */
     worker: Worker
     providerDataDestroyFunc: GLib.DestroyNotify
     pad1: object
@@ -7905,14 +6969,14 @@ export class ServerProviderConnectionData {
     static name: string
 }
 export class ServerProviderHandlerInfo {
-    /* Fields of Gda.ServerProviderHandlerInfo */
+    /* Fields of Gda-6.0.Gda.ServerProviderHandlerInfo */
     cnc: Connection
     gType: GObject.Type
     dbmsType: string
     static name: string
 }
 export class ServerProviderMeta {
-    /* Fields of Gda.ServerProviderMeta */
+    /* Fields of Gda-6.0.Gda.ServerProviderMeta */
     udt: (prov: ServerProvider, cnc: Connection, meta: MetaStore, ctx: MetaContext, error: GLib.Error, udtCatalog: any, udtSchema: any) => boolean
     udtCols: (prov: ServerProvider, cnc: Connection, meta: MetaStore, ctx: MetaContext, error: GLib.Error, udtCatalog: any, udtSchema: any, udtName: any) => boolean
     enums: (prov: ServerProvider, cnc: Connection, meta: MetaStore, ctx: MetaContext, error: GLib.Error, udtCatalog: any, udtSchema: any, udtName: any) => boolean
@@ -7938,7 +7002,7 @@ export class ServerProviderMeta {
     static name: string
 }
 export class ServerProviderXa {
-    /* Fields of Gda.ServerProviderXa */
+    /* Fields of Gda-6.0.Gda.ServerProviderXa */
     xaStart: (prov: ServerProvider, cnc: Connection, trx: XaTransactionId) => boolean
     xaEnd: (prov: ServerProvider, cnc: Connection, trx: XaTransactionId) => boolean
     xaPrepare: (prov: ServerProvider, cnc: Connection, trx: XaTransactionId) => boolean
@@ -7947,7 +7011,7 @@ export class ServerProviderXa {
     static name: string
 }
 export abstract class SetClass {
-    /* Fields of Gda.SetClass */
+    /* Fields of Gda-6.0.Gda.SetClass */
     parentClass: GObject.ObjectClass
     validateHolderChange: (set: Set, holder: Holder, newValue: any) => GLib.Error
     validateSet: (set: Set) => GLib.Error
@@ -7959,7 +7023,7 @@ export abstract class SetClass {
     static name: string
 }
 export class SetGroup {
-    /* Methods of Gda.SetGroup */
+    /* Methods of Gda-6.0.Gda.SetGroup */
     addNode(node: SetNode): void
     copy(): SetGroup
     free(): void
@@ -7975,7 +7039,7 @@ export class SetGroup {
     static new(node: SetNode): SetGroup
 }
 export class SetNode {
-    /* Methods of Gda.SetNode */
+    /* Methods of Gda-6.0.Gda.SetNode */
     copy(): SetNode
     free(): void
     getDataModel(): DataModel
@@ -7991,7 +7055,7 @@ export class SetNode {
     static new(holder: Holder): SetNode
 }
 export class SetSource {
-    /* Methods of Gda.SetSource */
+    /* Methods of Gda-6.0.Gda.SetSource */
     addNode(node: SetNode): void
     copy(): SetSource
     free(): void
@@ -8006,27 +7070,27 @@ export class SetSource {
     static new(model: DataModel): SetSource
 }
 export class SqlAnyPart {
-    /* Fields of Gda.SqlAnyPart */
+    /* Fields of Gda-6.0.Gda.SqlAnyPart */
     type: SqlAnyPartType
     parent: SqlAnyPart
-    /* Methods of Gda.SqlAnyPart */
+    /* Methods of Gda-6.0.Gda.SqlAnyPart */
     checkStructure(): boolean
     foreach(func: SqlForeachFunc): boolean
     static name: string
 }
 export abstract class SqlBuilderClass {
-    /* Fields of Gda.SqlBuilderClass */
+    /* Fields of Gda-6.0.Gda.SqlBuilderClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
 export class SqlCase {
-    /* Fields of Gda.SqlCase */
+    /* Fields of Gda-6.0.Gda.SqlCase */
     any: SqlAnyPart
     baseExpr: SqlExpr
     whenExprList: object[]
     thenExprList: object[]
     elseExpr: SqlExpr
-    /* Methods of Gda.SqlCase */
+    /* Methods of Gda-6.0.Gda.SqlCase */
     copy(): SqlCase
     free(): void
     serialize(): string
@@ -8037,7 +7101,7 @@ export class SqlCase {
     static new(parent: SqlAnyPart): SqlCase
 }
 export class SqlExpr {
-    /* Fields of Gda.SqlExpr */
+    /* Fields of Gda-6.0.Gda.SqlExpr */
     any: SqlAnyPart
     value: any
     paramSpec: SqlParamSpec
@@ -8047,7 +7111,7 @@ export class SqlExpr {
     caseS: SqlCase
     castAs: string
     valueIsIdent: boolean
-    /* Methods of Gda.SqlExpr */
+    /* Methods of Gda-6.0.Gda.SqlExpr */
     copy(): SqlExpr
     free(): void
     serialize(): string
@@ -8059,11 +7123,11 @@ export class SqlExpr {
     static new(parent: SqlAnyPart): SqlExpr
 }
 export class SqlField {
-    /* Fields of Gda.SqlField */
+    /* Fields of Gda-6.0.Gda.SqlField */
     any: SqlAnyPart
     fieldName: string
     validityMetaTableColumn: MetaTableColumn
-    /* Methods of Gda.SqlField */
+    /* Methods of Gda-6.0.Gda.SqlField */
     copy(): SqlField
     free(): void
     serialize(): string
@@ -8075,11 +7139,11 @@ export class SqlField {
     static new(parent: SqlAnyPart): SqlField
 }
 export class SqlFunction {
-    /* Fields of Gda.SqlFunction */
+    /* Fields of Gda-6.0.Gda.SqlFunction */
     any: SqlAnyPart
     functionName: string
     argsList: object[]
-    /* Methods of Gda.SqlFunction */
+    /* Methods of Gda-6.0.Gda.SqlFunction */
     checkClean(): void
     copy(): SqlFunction
     free(): void
@@ -8093,11 +7157,11 @@ export class SqlFunction {
     static new(parent: SqlAnyPart): SqlFunction
 }
 export class SqlOperation {
-    /* Fields of Gda.SqlOperation */
+    /* Fields of Gda-6.0.Gda.SqlOperation */
     any: SqlAnyPart
     operatorType: SqlOperatorType
     operands: SqlExpr[]
-    /* Methods of Gda.SqlOperation */
+    /* Methods of Gda-6.0.Gda.SqlOperation */
     copy(): SqlOperation
     free(): void
     serialize(): string
@@ -8110,7 +7174,7 @@ export class SqlOperation {
     static operatorToString(op: SqlOperatorType): string
 }
 export class SqlParamSpec {
-    /* Fields of Gda.SqlParamSpec */
+    /* Fields of Gda-6.0.Gda.SqlParamSpec */
     name: string
     descr: string
     isParam: boolean
@@ -8119,7 +7183,7 @@ export class SqlParamSpec {
     validityMetaDict: object
     gdaReserved1: object
     gdaReserved2: object
-    /* Methods of Gda.SqlParamSpec */
+    /* Methods of Gda-6.0.Gda.SqlParamSpec */
     copy(): SqlParamSpec
     free(): void
     serialize(): string
@@ -8134,7 +7198,7 @@ export class SqlParamSpec {
     static new(simpleSpec: any): SqlParamSpec
 }
 export abstract class SqlParserClass {
-    /* Fields of Gda.SqlParserClass */
+    /* Fields of Gda-6.0.Gda.SqlParserClass */
     parentClass: GObject.ObjectClass
     delimAlloc: (f: object) => object
     delimFree: (d: object, f: object) => void
@@ -8149,13 +7213,13 @@ export abstract class SqlParserClass {
     static name: string
 }
 export class SqlParserIface {
-    /* Fields of Gda.SqlParserIface */
+    /* Fields of Gda-6.0.Gda.SqlParserIface */
     parser: SqlParser
     parsedStatement: SqlStatement
     static name: string
 }
 export class SqlSelectField {
-    /* Fields of Gda.SqlSelectField */
+    /* Fields of Gda-6.0.Gda.SqlSelectField */
     any: SqlAnyPart
     expr: SqlExpr
     fieldName: string
@@ -8163,7 +7227,7 @@ export class SqlSelectField {
     as: string
     validityMetaObject: MetaDbObject
     validityMetaTableColumn: MetaTableColumn
-    /* Methods of Gda.SqlSelectField */
+    /* Methods of Gda-6.0.Gda.SqlSelectField */
     copy(): SqlSelectField
     free(): void
     serialize(): string
@@ -8177,11 +7241,11 @@ export class SqlSelectField {
     static new(parent: SqlAnyPart): SqlSelectField
 }
 export class SqlSelectFrom {
-    /* Fields of Gda.SqlSelectFrom */
+    /* Fields of Gda-6.0.Gda.SqlSelectFrom */
     any: SqlAnyPart
     targets: SqlSelectTarget[]
     joins: SqlSelectJoin[]
-    /* Methods of Gda.SqlSelectFrom */
+    /* Methods of Gda-6.0.Gda.SqlSelectFrom */
     copy(): SqlSelectFrom
     free(): void
     serialize(): string
@@ -8194,13 +7258,13 @@ export class SqlSelectFrom {
     static new(parent: SqlAnyPart): SqlSelectFrom
 }
 export class SqlSelectJoin {
-    /* Fields of Gda.SqlSelectJoin */
+    /* Fields of Gda-6.0.Gda.SqlSelectJoin */
     any: SqlAnyPart
     type: SqlSelectJoinType
     position: number
     expr: SqlExpr
     use: object[]
-    /* Methods of Gda.SqlSelectJoin */
+    /* Methods of Gda-6.0.Gda.SqlSelectJoin */
     copy(): SqlSelectJoin
     free(): void
     serialize(): string
@@ -8212,12 +7276,12 @@ export class SqlSelectJoin {
     static typeToString(type: SqlSelectJoinType): string
 }
 export class SqlSelectOrder {
-    /* Fields of Gda.SqlSelectOrder */
+    /* Fields of Gda-6.0.Gda.SqlSelectOrder */
     any: SqlAnyPart
     expr: SqlExpr
     asc: boolean
     collationName: string
-    /* Methods of Gda.SqlSelectOrder */
+    /* Methods of Gda-6.0.Gda.SqlSelectOrder */
     copy(): SqlSelectOrder
     free(): void
     serialize(): string
@@ -8228,13 +7292,13 @@ export class SqlSelectOrder {
     static new(parent: SqlAnyPart): SqlSelectOrder
 }
 export class SqlSelectTarget {
-    /* Fields of Gda.SqlSelectTarget */
+    /* Fields of Gda-6.0.Gda.SqlSelectTarget */
     any: SqlAnyPart
     expr: SqlExpr
     tableName: string
     as: string
     validityMetaObject: MetaDbObject
-    /* Methods of Gda.SqlSelectTarget */
+    /* Methods of Gda-6.0.Gda.SqlSelectTarget */
     copy(): SqlSelectTarget
     free(): void
     serialize(): string
@@ -8248,12 +7312,12 @@ export class SqlSelectTarget {
     static new(parent: SqlAnyPart): SqlSelectTarget
 }
 export class SqlStatement {
-    /* Fields of Gda.SqlStatement */
+    /* Fields of Gda-6.0.Gda.SqlStatement */
     sql: string
     stmtType: SqlStatementType
     contents: object
     validityMetaStruct: MetaStruct
-    /* Methods of Gda.SqlStatement */
+    /* Methods of Gda-6.0.Gda.SqlStatement */
     checkClean(): void
     checkStructure(): boolean
     checkValidity(cnc?: Connection | null): boolean
@@ -8298,21 +7362,21 @@ export class SqlStatement {
     static typeToString(type: SqlStatementType): string
 }
 export class SqlStatementCheckValidityData {
-    /* Fields of Gda.SqlStatementCheckValidityData */
+    /* Fields of Gda-6.0.Gda.SqlStatementCheckValidityData */
     cnc: Connection
     store: MetaStore
     mstruct: MetaStruct
     static name: string
 }
 export class SqlStatementCompound {
-    /* Fields of Gda.SqlStatementCompound */
+    /* Fields of Gda-6.0.Gda.SqlStatementCompound */
     any: SqlAnyPart
     compoundType: SqlStatementCompoundType
     stmtList: object[]
     static name: string
 }
 export class SqlStatementContentsInfo {
-    /* Fields of Gda.SqlStatementContentsInfo */
+    /* Fields of Gda-6.0.Gda.SqlStatementContentsInfo */
     type: SqlStatementType
     name: string
     construct: () => object
@@ -8324,14 +7388,14 @@ export class SqlStatementContentsInfo {
     static name: string
 }
 export class SqlStatementDelete {
-    /* Fields of Gda.SqlStatementDelete */
+    /* Fields of Gda-6.0.Gda.SqlStatementDelete */
     any: SqlAnyPart
     table: SqlTable
     cond: SqlExpr
     static name: string
 }
 export class SqlStatementInsert {
-    /* Fields of Gda.SqlStatementInsert */
+    /* Fields of Gda-6.0.Gda.SqlStatementInsert */
     any: SqlAnyPart
     onConflict: string
     table: SqlTable
@@ -8341,7 +7405,7 @@ export class SqlStatementInsert {
     static name: string
 }
 export class SqlStatementSelect {
-    /* Fields of Gda.SqlStatementSelect */
+    /* Fields of Gda-6.0.Gda.SqlStatementSelect */
     any: SqlAnyPart
     distinct: boolean
     distinctExpr: SqlExpr
@@ -8356,7 +7420,7 @@ export class SqlStatementSelect {
     static name: string
 }
 export class SqlStatementTransaction {
-    /* Fields of Gda.SqlStatementTransaction */
+    /* Fields of Gda-6.0.Gda.SqlStatementTransaction */
     any: SqlAnyPart
     isolationLevel: TransactionIsolation
     transMode: string
@@ -8364,13 +7428,13 @@ export class SqlStatementTransaction {
     static name: string
 }
 export class SqlStatementUnknown {
-    /* Fields of Gda.SqlStatementUnknown */
+    /* Fields of Gda-6.0.Gda.SqlStatementUnknown */
     any: SqlAnyPart
     expressions: object[]
     static name: string
 }
 export class SqlStatementUpdate {
-    /* Fields of Gda.SqlStatementUpdate */
+    /* Fields of Gda-6.0.Gda.SqlStatementUpdate */
     any: SqlAnyPart
     onConflict: string
     table: SqlTable
@@ -8380,11 +7444,11 @@ export class SqlStatementUpdate {
     static name: string
 }
 export class SqlTable {
-    /* Fields of Gda.SqlTable */
+    /* Fields of Gda-6.0.Gda.SqlTable */
     any: SqlAnyPart
     tableName: string
     validityMetaObject: MetaDbObject
-    /* Methods of Gda.SqlTable */
+    /* Methods of Gda-6.0.Gda.SqlTable */
     copy(): SqlTable
     free(): void
     serialize(): string
@@ -8396,14 +7460,14 @@ export class SqlTable {
     static new(parent: SqlAnyPart): SqlTable
 }
 export abstract class StatementClass {
-    /* Fields of Gda.StatementClass */
+    /* Fields of Gda-6.0.Gda.StatementClass */
     parentClass: GObject.ObjectClass
     checked: (stmt: Statement, cnc: Connection, checked: boolean) => void
     reset: (stmt: Statement) => void
     static name: string
 }
 export class Text {
-    /* Methods of Gda.Text */
+    /* Methods of Gda-6.0.Gda.Text */
     free(): void
     getString(): string
     setString(str: string): void
@@ -8416,7 +7480,7 @@ export class Text {
     static toAlphanum(text: string): string
 }
 export class Time {
-    /* Methods of Gda.Time */
+    /* Methods of Gda-6.0.Gda.Time */
     copy(): Time
     free(): void
     getFraction(): number
@@ -8445,19 +7509,19 @@ export class Time {
     static newFromValues(hour: number, minute: number, second: number, fraction: number, timezone: number): Time
 }
 export abstract class TransactionStatusClass {
-    /* Fields of Gda.TransactionStatusClass */
+    /* Fields of Gda-6.0.Gda.TransactionStatusClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
 export class TransactionStatusEvent {
-    /* Fields of Gda.TransactionStatusEvent */
+    /* Fields of Gda-6.0.Gda.TransactionStatusEvent */
     trans: TransactionStatus
     type: TransactionStatusEventType
     connEvent: ConnectionEvent
     static name: string
 }
 export abstract class TreeClass {
-    /* Fields of Gda.TreeClass */
+    /* Fields of Gda-6.0.Gda.TreeClass */
     objectClass: GObject.ObjectClass
     nodeChanged: (tree: Tree, node: TreeNode) => void
     nodeInserted: (tree: Tree, node: TreeNode) => void
@@ -8466,37 +7530,37 @@ export abstract class TreeClass {
     static name: string
 }
 export abstract class TreeManagerClass {
-    /* Fields of Gda.TreeManagerClass */
+    /* Fields of Gda-6.0.Gda.TreeManagerClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
 export abstract class TreeMgrColumnsClass {
-    /* Fields of Gda.TreeMgrColumnsClass */
+    /* Fields of Gda-6.0.Gda.TreeMgrColumnsClass */
     objectClass: TreeManagerClass
     static name: string
 }
 export abstract class TreeMgrLabelClass {
-    /* Fields of Gda.TreeMgrLabelClass */
+    /* Fields of Gda-6.0.Gda.TreeMgrLabelClass */
     parentClass: TreeManagerClass
     static name: string
 }
 export abstract class TreeMgrSchemasClass {
-    /* Fields of Gda.TreeMgrSchemasClass */
+    /* Fields of Gda-6.0.Gda.TreeMgrSchemasClass */
     objectClass: TreeManagerClass
     static name: string
 }
 export abstract class TreeMgrSelectClass {
-    /* Fields of Gda.TreeMgrSelectClass */
+    /* Fields of Gda-6.0.Gda.TreeMgrSelectClass */
     objectClass: TreeManagerClass
     static name: string
 }
 export abstract class TreeMgrTablesClass {
-    /* Fields of Gda.TreeMgrTablesClass */
+    /* Fields of Gda-6.0.Gda.TreeMgrTablesClass */
     objectClass: TreeManagerClass
     static name: string
 }
 export abstract class TreeNodeClass {
-    /* Fields of Gda.TreeNodeClass */
+    /* Fields of Gda-6.0.Gda.TreeNodeClass */
     objectClass: GObject.ObjectClass
     nodeChanged: (reporting: TreeNode, node: TreeNode) => void
     nodeInserted: (reporting: TreeNode, node: TreeNode) => void
@@ -8507,7 +7571,7 @@ export abstract class TreeNodeClass {
     static name: string
 }
 export class Worker {
-    /* Methods of Gda.Worker */
+    /* Methods of Gda-6.0.Gda.Worker */
     cancelJob(jobId: number): boolean
     doJob(context: GLib.MainContext | null, timeoutMs: number, outResult: object | null, outJobId: number | null, func: WorkerFunc, dataDestroyFunc?: GLib.DestroyNotify | null): boolean
     fetchJobResult(jobId: number, outResult?: object | null): boolean
@@ -8528,17 +7592,17 @@ export class Worker {
     static newUnique(location: Worker, allowDestroy: boolean): Worker
 }
 export abstract class XaTransactionClass {
-    /* Fields of Gda.XaTransactionClass */
+    /* Fields of Gda-6.0.Gda.XaTransactionClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
 export class XaTransactionId {
-    /* Fields of Gda.XaTransactionId */
+    /* Fields of Gda-6.0.Gda.XaTransactionId */
     format: number
     gtridLength: number
     bqualLength: number
     data: number[]
-    /* Methods of Gda.XaTransactionId */
+    /* Methods of Gda-6.0.Gda.XaTransactionId */
     toString(): string
     static name: string
 }

@@ -134,29 +134,29 @@ export interface WebRTCDTLSTransport_ConstructProps extends Gst.Object_Construct
     session_id?: number
 }
 export class WebRTCDTLSTransport {
-    /* Properties of GstWebRTC.WebRTCDTLSTransport */
+    /* Properties of GstWebRTC-1.0.GstWebRTC.WebRTCDTLSTransport */
     certificate: string
     client: boolean
     readonly remote_certificate: string
     readonly state: WebRTCDTLSTransportState
     readonly transport: WebRTCICETransport
-    /* Properties of Gst.Object */
+    /* Properties of Gst-1.0.Gst.Object */
     name: string
     parent: Gst.Object
-    /* Fields of GstWebRTC.WebRTCDTLSTransport */
+    /* Fields of GstWebRTC-1.0.GstWebRTC.WebRTCDTLSTransport */
     session_id: number
     dtlssrtpenc: Gst.Element
     dtlssrtpdec: Gst.Element
     _padding: object[]
-    /* Fields of Gst.Object */
+    /* Fields of Gst-1.0.Gst.Object */
     object: GObject.InitiallyUnowned
     lock: GLib.Mutex
     flags: number
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GstWebRTC.WebRTCDTLSTransport */
+    /* Methods of GstWebRTC-1.0.GstWebRTC.WebRTCDTLSTransport */
     set_transport(ice: WebRTCICETransport): void
-    /* Methods of Gst.Object */
+    /* Methods of Gst-1.0.Gst.Object */
     add_control_binding(binding: Gst.ControlBinding): boolean
     default_error(error: GLib.Error, debug?: string | null): void
     get_control_binding(property_name: string): Gst.ControlBinding | null
@@ -181,7 +181,7 @@ export class WebRTCDTLSTransport {
     sync_values(timestamp: Gst.ClockTime): boolean
     unparent(): void
     unref(): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -202,9 +202,9 @@ export class WebRTCDTLSTransport {
     steal_qdata(quark: GLib.Quark): object | null
     thaw_notify(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Gst.Object */
+    /* Virtual methods of Gst-1.0.Gst.Object */
     vfunc_deep_notify(orig: Gst.Object, pspec: GObject.ParamSpec): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -212,11 +212,11 @@ export class WebRTCDTLSTransport {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gst.Object */
+    /* Signals of Gst-1.0.Gst.Object */
     connect(sigName: "deep-notify", callback: (($obj: WebRTCDTLSTransport, prop_object: Gst.Object, prop: GObject.ParamSpec) => void)): number
     connect_after(sigName: "deep-notify", callback: (($obj: WebRTCDTLSTransport, prop_object: Gst.Object, prop: GObject.ParamSpec) => void)): number
     emit(sigName: "deep-notify", prop_object: Gst.Object, prop: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: WebRTCDTLSTransport, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: WebRTCDTLSTransport, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -257,11 +257,11 @@ export interface WebRTCDataChannel_ConstructProps extends GObject.Object_Constru
     protocol?: string
 }
 export class WebRTCDataChannel {
-    /* Properties of GstWebRTC.WebRTCDataChannel */
+    /* Properties of GstWebRTC-1.0.GstWebRTC.WebRTCDataChannel */
     readonly buffered_amount: number
     buffered_amount_low_threshold: number
     readonly ready_state: WebRTCDataChannelState
-    /* Fields of GstWebRTC.WebRTCDataChannel */
+    /* Fields of GstWebRTC-1.0.GstWebRTC.WebRTCDataChannel */
     parent: GObject.Object
     lock: GLib.Mutex
     label: string
@@ -273,9 +273,9 @@ export class WebRTCDataChannel {
     id: number
     priority: WebRTCPriorityType
     _padding: object[]
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GstWebRTC.WebRTCDataChannel */
+    /* Methods of GstWebRTC-1.0.GstWebRTC.WebRTCDataChannel */
     close(): void
     on_buffered_amount_low(): void
     on_close(): void
@@ -285,7 +285,7 @@ export class WebRTCDataChannel {
     on_open(): void
     send_data(data?: GLib.Bytes | null): void
     send_string(str?: string | null): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -307,11 +307,11 @@ export class WebRTCDataChannel {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GstWebRTC.WebRTCDataChannel */
+    /* Virtual methods of GstWebRTC-1.0.GstWebRTC.WebRTCDataChannel */
     vfunc_close(): void
     vfunc_send_data(data?: GLib.Bytes | null): void
     vfunc_send_string(str?: string | null): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -319,7 +319,7 @@ export class WebRTCDataChannel {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GstWebRTC.WebRTCDataChannel */
+    /* Signals of GstWebRTC-1.0.GstWebRTC.WebRTCDataChannel */
     connect(sigName: "close", callback: (($obj: WebRTCDataChannel) => void)): number
     connect_after(sigName: "close", callback: (($obj: WebRTCDataChannel) => void)): number
     emit(sigName: "close"): void
@@ -347,7 +347,7 @@ export class WebRTCDataChannel {
     connect(sigName: "send-string", callback: (($obj: WebRTCDataChannel, data?: string | null) => void)): number
     connect_after(sigName: "send-string", callback: (($obj: WebRTCDataChannel, data?: string | null) => void)): number
     emit(sigName: "send-string", data?: string | null): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: WebRTCDataChannel, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: WebRTCDataChannel, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -370,30 +370,30 @@ export interface WebRTCICETransport_ConstructProps extends Gst.Object_ConstructP
     component?: WebRTCICEComponent
 }
 export class WebRTCICETransport {
-    /* Properties of GstWebRTC.WebRTCICETransport */
+    /* Properties of GstWebRTC-1.0.GstWebRTC.WebRTCICETransport */
     readonly gathering_state: WebRTCICEGatheringState
     readonly state: WebRTCICEConnectionState
-    /* Properties of Gst.Object */
+    /* Properties of Gst-1.0.Gst.Object */
     name: string
     parent: Gst.Object
-    /* Fields of GstWebRTC.WebRTCICETransport */
+    /* Fields of GstWebRTC-1.0.GstWebRTC.WebRTCICETransport */
     role: WebRTCICERole
     component: WebRTCICEComponent
     src: Gst.Element
     sink: Gst.Element
     _padding: object[]
-    /* Fields of Gst.Object */
+    /* Fields of Gst-1.0.Gst.Object */
     object: GObject.InitiallyUnowned
     lock: GLib.Mutex
     flags: number
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GstWebRTC.WebRTCICETransport */
+    /* Methods of GstWebRTC-1.0.GstWebRTC.WebRTCICETransport */
     connection_state_change(new_state: WebRTCICEConnectionState): void
     gathering_state_change(new_state: WebRTCICEGatheringState): void
     new_candidate(stream_id: number, component: WebRTCICEComponent, attr: string): void
     selected_pair_change(): void
-    /* Methods of Gst.Object */
+    /* Methods of Gst-1.0.Gst.Object */
     add_control_binding(binding: Gst.ControlBinding): boolean
     default_error(error: GLib.Error, debug?: string | null): void
     get_control_binding(property_name: string): Gst.ControlBinding | null
@@ -418,7 +418,7 @@ export class WebRTCICETransport {
     sync_values(timestamp: Gst.ClockTime): boolean
     unparent(): void
     unref(): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -439,11 +439,11 @@ export class WebRTCICETransport {
     steal_qdata(quark: GLib.Quark): object | null
     thaw_notify(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GstWebRTC.WebRTCICETransport */
+    /* Virtual methods of GstWebRTC-1.0.GstWebRTC.WebRTCICETransport */
     vfunc_gather_candidates(): boolean
-    /* Virtual methods of Gst.Object */
+    /* Virtual methods of Gst-1.0.Gst.Object */
     vfunc_deep_notify(orig: Gst.Object, pspec: GObject.ParamSpec): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -451,18 +451,18 @@ export class WebRTCICETransport {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GstWebRTC.WebRTCICETransport */
+    /* Signals of GstWebRTC-1.0.GstWebRTC.WebRTCICETransport */
     connect(sigName: "on-new-candidate", callback: (($obj: WebRTCICETransport, object: string) => void)): number
     connect_after(sigName: "on-new-candidate", callback: (($obj: WebRTCICETransport, object: string) => void)): number
     emit(sigName: "on-new-candidate", object: string): void
     connect(sigName: "on-selected-candidate-pair-change", callback: (($obj: WebRTCICETransport) => void)): number
     connect_after(sigName: "on-selected-candidate-pair-change", callback: (($obj: WebRTCICETransport) => void)): number
     emit(sigName: "on-selected-candidate-pair-change"): void
-    /* Signals of Gst.Object */
+    /* Signals of Gst-1.0.Gst.Object */
     connect(sigName: "deep-notify", callback: (($obj: WebRTCICETransport, prop_object: Gst.Object, prop: GObject.ParamSpec) => void)): number
     connect_after(sigName: "deep-notify", callback: (($obj: WebRTCICETransport, prop_object: Gst.Object, prop: GObject.ParamSpec) => void)): number
     emit(sigName: "deep-notify", prop_object: Gst.Object, prop: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: WebRTCICETransport, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: WebRTCICETransport, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -486,20 +486,20 @@ export class WebRTCICETransport {
 export interface WebRTCRTPReceiver_ConstructProps extends Gst.Object_ConstructProps {
 }
 export class WebRTCRTPReceiver {
-    /* Properties of GstWebRTC.WebRTCRTPReceiver */
+    /* Properties of GstWebRTC-1.0.GstWebRTC.WebRTCRTPReceiver */
     readonly transport: WebRTCDTLSTransport
-    /* Properties of Gst.Object */
+    /* Properties of Gst-1.0.Gst.Object */
     name: string
     parent: Gst.Object
-    /* Fields of GstWebRTC.WebRTCRTPReceiver */
+    /* Fields of GstWebRTC-1.0.GstWebRTC.WebRTCRTPReceiver */
     _padding: object[]
-    /* Fields of Gst.Object */
+    /* Fields of Gst-1.0.Gst.Object */
     object: GObject.InitiallyUnowned
     lock: GLib.Mutex
     flags: number
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Gst.Object */
+    /* Methods of Gst-1.0.Gst.Object */
     add_control_binding(binding: Gst.ControlBinding): boolean
     default_error(error: GLib.Error, debug?: string | null): void
     get_control_binding(property_name: string): Gst.ControlBinding | null
@@ -524,7 +524,7 @@ export class WebRTCRTPReceiver {
     sync_values(timestamp: Gst.ClockTime): boolean
     unparent(): void
     unref(): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -545,9 +545,9 @@ export class WebRTCRTPReceiver {
     steal_qdata(quark: GLib.Quark): object | null
     thaw_notify(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Gst.Object */
+    /* Virtual methods of Gst-1.0.Gst.Object */
     vfunc_deep_notify(orig: Gst.Object, pspec: GObject.ParamSpec): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -555,11 +555,11 @@ export class WebRTCRTPReceiver {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gst.Object */
+    /* Signals of Gst-1.0.Gst.Object */
     connect(sigName: "deep-notify", callback: (($obj: WebRTCRTPReceiver, prop_object: Gst.Object, prop: GObject.ParamSpec) => void)): number
     connect_after(sigName: "deep-notify", callback: (($obj: WebRTCRTPReceiver, prop_object: Gst.Object, prop: GObject.ParamSpec) => void)): number
     emit(sigName: "deep-notify", prop_object: Gst.Object, prop: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: WebRTCRTPReceiver, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: WebRTCRTPReceiver, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -584,24 +584,24 @@ export interface WebRTCRTPSender_ConstructProps extends Gst.Object_ConstructProp
     priority?: WebRTCPriorityType
 }
 export class WebRTCRTPSender {
-    /* Properties of GstWebRTC.WebRTCRTPSender */
+    /* Properties of GstWebRTC-1.0.GstWebRTC.WebRTCRTPSender */
     priority: WebRTCPriorityType
     readonly transport: WebRTCDTLSTransport
-    /* Properties of Gst.Object */
+    /* Properties of Gst-1.0.Gst.Object */
     name: string
     parent: Gst.Object
-    /* Fields of GstWebRTC.WebRTCRTPSender */
+    /* Fields of GstWebRTC-1.0.GstWebRTC.WebRTCRTPSender */
     send_encodings: object[]
     _padding: object[]
-    /* Fields of Gst.Object */
+    /* Fields of Gst-1.0.Gst.Object */
     object: GObject.InitiallyUnowned
     lock: GLib.Mutex
     flags: number
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GstWebRTC.WebRTCRTPSender */
+    /* Methods of GstWebRTC-1.0.GstWebRTC.WebRTCRTPSender */
     set_priority(priority: WebRTCPriorityType): void
-    /* Methods of Gst.Object */
+    /* Methods of Gst-1.0.Gst.Object */
     add_control_binding(binding: Gst.ControlBinding): boolean
     default_error(error: GLib.Error, debug?: string | null): void
     get_control_binding(property_name: string): Gst.ControlBinding | null
@@ -626,7 +626,7 @@ export class WebRTCRTPSender {
     sync_values(timestamp: Gst.ClockTime): boolean
     unparent(): void
     unref(): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -647,9 +647,9 @@ export class WebRTCRTPSender {
     steal_qdata(quark: GLib.Quark): object | null
     thaw_notify(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Gst.Object */
+    /* Virtual methods of Gst-1.0.Gst.Object */
     vfunc_deep_notify(orig: Gst.Object, pspec: GObject.ParamSpec): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -657,11 +657,11 @@ export class WebRTCRTPSender {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gst.Object */
+    /* Signals of Gst-1.0.Gst.Object */
     connect(sigName: "deep-notify", callback: (($obj: WebRTCRTPSender, prop_object: Gst.Object, prop: GObject.ParamSpec) => void)): number
     connect_after(sigName: "deep-notify", callback: (($obj: WebRTCRTPSender, prop_object: Gst.Object, prop: GObject.ParamSpec) => void)): number
     emit(sigName: "deep-notify", prop_object: Gst.Object, prop: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: WebRTCRTPSender, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: WebRTCRTPSender, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -691,12 +691,12 @@ export interface WebRTCRTPTransceiver_ConstructProps extends Gst.Object_Construc
     sender?: WebRTCRTPSender
 }
 export class WebRTCRTPTransceiver {
-    /* Properties of GstWebRTC.WebRTCRTPTransceiver */
+    /* Properties of GstWebRTC-1.0.GstWebRTC.WebRTCRTPTransceiver */
     direction: WebRTCRTPTransceiverDirection
-    /* Properties of Gst.Object */
+    /* Properties of Gst-1.0.Gst.Object */
     name: string
     parent: Gst.Object
-    /* Fields of GstWebRTC.WebRTCRTPTransceiver */
+    /* Fields of GstWebRTC-1.0.GstWebRTC.WebRTCRTPTransceiver */
     mline: number
     mid: string
     stopped: boolean
@@ -706,13 +706,13 @@ export class WebRTCRTPTransceiver {
     codec_preferences: Gst.Caps
     kind: WebRTCKind
     _padding: object[]
-    /* Fields of Gst.Object */
+    /* Fields of Gst-1.0.Gst.Object */
     object: GObject.InitiallyUnowned
     lock: GLib.Mutex
     flags: number
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Gst.Object */
+    /* Methods of Gst-1.0.Gst.Object */
     add_control_binding(binding: Gst.ControlBinding): boolean
     default_error(error: GLib.Error, debug?: string | null): void
     get_control_binding(property_name: string): Gst.ControlBinding | null
@@ -737,7 +737,7 @@ export class WebRTCRTPTransceiver {
     sync_values(timestamp: Gst.ClockTime): boolean
     unparent(): void
     unref(): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -758,9 +758,9 @@ export class WebRTCRTPTransceiver {
     steal_qdata(quark: GLib.Quark): object | null
     thaw_notify(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Gst.Object */
+    /* Virtual methods of Gst-1.0.Gst.Object */
     vfunc_deep_notify(orig: Gst.Object, pspec: GObject.ParamSpec): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -768,11 +768,11 @@ export class WebRTCRTPTransceiver {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gst.Object */
+    /* Signals of Gst-1.0.Gst.Object */
     connect(sigName: "deep-notify", callback: (($obj: WebRTCRTPTransceiver, prop_object: Gst.Object, prop: GObject.ParamSpec) => void)): number
     connect_after(sigName: "deep-notify", callback: (($obj: WebRTCRTPTransceiver, prop_object: Gst.Object, prop: GObject.ParamSpec) => void)): number
     emit(sigName: "deep-notify", prop_object: Gst.Object, prop: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: WebRTCRTPTransceiver, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: WebRTCRTPTransceiver, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -792,13 +792,13 @@ export class WebRTCRTPTransceiver {
     static $gtype: GObject.Type
 }
 export abstract class WebRTCDTLSTransportClass {
-    /* Fields of GstWebRTC.WebRTCDTLSTransportClass */
+    /* Fields of GstWebRTC-1.0.GstWebRTC.WebRTCDTLSTransportClass */
     parent_class: Gst.ObjectClass
     _padding: object[]
     static name: string
 }
 export abstract class WebRTCDataChannelClass {
-    /* Fields of GstWebRTC.WebRTCDataChannelClass */
+    /* Fields of GstWebRTC-1.0.GstWebRTC.WebRTCDataChannelClass */
     parent_class: GObject.ObjectClass
     send_data: (channel: WebRTCDataChannel, data?: GLib.Bytes | null) => void
     send_string: (channel: WebRTCDataChannel, str?: string | null) => void
@@ -807,35 +807,35 @@ export abstract class WebRTCDataChannelClass {
     static name: string
 }
 export abstract class WebRTCICETransportClass {
-    /* Fields of GstWebRTC.WebRTCICETransportClass */
+    /* Fields of GstWebRTC-1.0.GstWebRTC.WebRTCICETransportClass */
     parent_class: Gst.ObjectClass
     gather_candidates: (transport: WebRTCICETransport) => boolean
     _padding: object[]
     static name: string
 }
 export abstract class WebRTCRTPReceiverClass {
-    /* Fields of GstWebRTC.WebRTCRTPReceiverClass */
+    /* Fields of GstWebRTC-1.0.GstWebRTC.WebRTCRTPReceiverClass */
     parent_class: Gst.ObjectClass
     _padding: object[]
     static name: string
 }
 export abstract class WebRTCRTPSenderClass {
-    /* Fields of GstWebRTC.WebRTCRTPSenderClass */
+    /* Fields of GstWebRTC-1.0.GstWebRTC.WebRTCRTPSenderClass */
     parent_class: Gst.ObjectClass
     _padding: object[]
     static name: string
 }
 export abstract class WebRTCRTPTransceiverClass {
-    /* Fields of GstWebRTC.WebRTCRTPTransceiverClass */
+    /* Fields of GstWebRTC-1.0.GstWebRTC.WebRTCRTPTransceiverClass */
     parent_class: Gst.ObjectClass
     _padding: object[]
     static name: string
 }
 export class WebRTCSessionDescription {
-    /* Fields of GstWebRTC.WebRTCSessionDescription */
+    /* Fields of GstWebRTC-1.0.GstWebRTC.WebRTCSessionDescription */
     type: WebRTCSDPType
     sdp: GstSdp.SDPMessage
-    /* Methods of GstWebRTC.WebRTCSessionDescription */
+    /* Methods of GstWebRTC-1.0.GstWebRTC.WebRTCSessionDescription */
     copy(): WebRTCSessionDescription
     free(): void
     static name: string

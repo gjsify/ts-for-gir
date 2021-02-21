@@ -85,9 +85,9 @@ export interface Class_ConstructProps extends GObject.Object_ConstructProps {
     parent?: Class
 }
 export class Class {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of JavaScriptCore.Class */
+    /* Methods of JavaScriptCore-4.0.JavaScriptCore.Class */
     add_constructor_variadic(name: string | null, callback: GObject.Callback, return_type: GObject.Type): Value
     add_constructor(name: string | null, callback: GObject.Callback, return_type: GObject.Type, parameter_types?: GObject.Type[] | null): Value
     add_method_variadic(name: string, callback: GObject.Callback, return_type: GObject.Type): void
@@ -95,7 +95,7 @@ export class Class {
     add_property(name: string, property_type: GObject.Type, getter?: GObject.Callback | null, setter?: GObject.Callback | null): void
     get_name(): string
     get_parent(): Class
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -117,7 +117,7 @@ export class Class {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -125,7 +125,7 @@ export class Class {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Class, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Class, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -142,11 +142,11 @@ export interface Context_ConstructProps extends GObject.Object_ConstructProps {
     virtual_machine?: VirtualMachine
 }
 export class Context {
-    /* Fields of JavaScriptCore.Context */
+    /* Fields of JavaScriptCore-4.0.JavaScriptCore.Context */
     parent: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of JavaScriptCore.Context */
+    /* Methods of JavaScriptCore-4.0.JavaScriptCore.Context */
     check_syntax(code: string, length: number, mode: CheckSyntaxMode, uri: string, line_number: number): [ /* returnType */ CheckSyntaxResult, /* exception */ Exception | null ]
     clear_exception(): void
     evaluate(code: string, length: number): Value
@@ -163,7 +163,7 @@ export class Context {
     throw(error_message: string): void
     throw_exception(exception: Exception): void
     throw_with_name(error_name: string, error_message: string): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -185,7 +185,7 @@ export class Context {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -193,7 +193,7 @@ export class Context {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Context, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Context, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -213,11 +213,11 @@ export class Context {
 export interface Exception_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class Exception {
-    /* Fields of JavaScriptCore.Exception */
+    /* Fields of JavaScriptCore-4.0.JavaScriptCore.Exception */
     parent: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of JavaScriptCore.Exception */
+    /* Methods of JavaScriptCore-4.0.JavaScriptCore.Exception */
     get_backtrace_string(): string | null
     get_column_number(): number
     get_line_number(): number
@@ -226,7 +226,7 @@ export class Exception {
     get_source_uri(): string | null
     report(): string
     to_string(): string
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -248,7 +248,7 @@ export class Exception {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -256,7 +256,7 @@ export class Exception {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Exception, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Exception, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -276,11 +276,11 @@ export interface Value_ConstructProps extends GObject.Object_ConstructProps {
     context?: Context
 }
 export class Value {
-    /* Fields of JavaScriptCore.Value */
+    /* Fields of JavaScriptCore-4.0.JavaScriptCore.Value */
     parent: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of JavaScriptCore.Value */
+    /* Methods of JavaScriptCore-4.0.JavaScriptCore.Value */
     constructor_call(parameters?: Value[] | null): Value
     function_call(parameters?: Value[] | null): Value
     get_context(): Context
@@ -310,7 +310,7 @@ export class Value {
     to_json(indent: number): string
     to_string(): string
     to_string_as_bytes(): GLib.Bytes
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -332,7 +332,7 @@ export class Value {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -340,7 +340,7 @@ export class Value {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Value, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Value, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -369,11 +369,11 @@ export class Value {
 export interface VirtualMachine_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class VirtualMachine {
-    /* Fields of JavaScriptCore.VirtualMachine */
+    /* Fields of JavaScriptCore-4.0.JavaScriptCore.VirtualMachine */
     parent: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -395,7 +395,7 @@ export class VirtualMachine {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -403,7 +403,7 @@ export class VirtualMachine {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: VirtualMachine, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: VirtualMachine, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -422,13 +422,13 @@ export interface WeakValue_ConstructProps extends GObject.Object_ConstructProps 
     value?: Value
 }
 export class WeakValue {
-    /* Fields of JavaScriptCore.WeakValue */
+    /* Fields of JavaScriptCore-4.0.JavaScriptCore.WeakValue */
     parent: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of JavaScriptCore.WeakValue */
+    /* Methods of JavaScriptCore-4.0.JavaScriptCore.WeakValue */
     get_value(): Value
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -450,7 +450,7 @@ export class WeakValue {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -458,11 +458,11 @@ export class WeakValue {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of JavaScriptCore.WeakValue */
+    /* Signals of JavaScriptCore-4.0.JavaScriptCore.WeakValue */
     connect(sigName: "cleared", callback: (($obj: WeakValue) => void)): number
     connect_after(sigName: "cleared", callback: (($obj: WeakValue) => void)): number
     emit(sigName: "cleared"): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: WeakValue, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: WeakValue, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -481,7 +481,7 @@ export abstract class ClassClass {
     static name: string
 }
 export class ClassVTable {
-    /* Fields of JavaScriptCore.ClassVTable */
+    /* Fields of JavaScriptCore-4.0.JavaScriptCore.ClassVTable */
     get_property: ClassGetPropertyFunction
     set_property: ClassSetPropertyFunction
     has_property: ClassHasPropertyFunction
@@ -490,7 +490,7 @@ export class ClassVTable {
     static name: string
 }
 export abstract class ContextClass {
-    /* Fields of JavaScriptCore.ContextClass */
+    /* Fields of JavaScriptCore-4.0.JavaScriptCore.ContextClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
@@ -498,7 +498,7 @@ export class ContextPrivate {
     static name: string
 }
 export abstract class ExceptionClass {
-    /* Fields of JavaScriptCore.ExceptionClass */
+    /* Fields of JavaScriptCore-4.0.JavaScriptCore.ExceptionClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
@@ -506,7 +506,7 @@ export class ExceptionPrivate {
     static name: string
 }
 export abstract class ValueClass {
-    /* Fields of JavaScriptCore.ValueClass */
+    /* Fields of JavaScriptCore-4.0.JavaScriptCore.ValueClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
@@ -514,7 +514,7 @@ export class ValuePrivate {
     static name: string
 }
 export abstract class VirtualMachineClass {
-    /* Fields of JavaScriptCore.VirtualMachineClass */
+    /* Fields of JavaScriptCore-4.0.JavaScriptCore.VirtualMachineClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
@@ -522,7 +522,7 @@ export class VirtualMachinePrivate {
     static name: string
 }
 export abstract class WeakValueClass {
-    /* Fields of JavaScriptCore.WeakValueClass */
+    /* Fields of JavaScriptCore-4.0.JavaScriptCore.WeakValueClass */
     parent_class: GObject.ObjectClass
     static name: string
 }

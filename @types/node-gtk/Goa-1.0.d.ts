@@ -61,7 +61,7 @@ export function ticketingOverrideProperties(klass: GObject.ObjectClass, property
 export function todoInterfaceInfo(): Gio.DBusInterfaceInfo
 export function todoOverrideProperties(klass: GObject.ObjectClass, propertyIdBegin: number): number
 export class Account {
-    /* Properties of Goa.Account */
+    /* Properties of Goa-1.0.Goa.Account */
     attentionNeeded: boolean
     calendarDisabled: boolean
     chatDisabled: boolean
@@ -84,38 +84,33 @@ export class Account {
     readLaterDisabled: boolean
     ticketingDisabled: boolean
     todoDisabled: boolean
-    /* Methods of Goa.Account */
+    /* Methods of Goa-1.0.Goa.Account */
     callEnsureCredentials(cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    callEnsureCredentialsFinish(res: Gio.AsyncResult): [ /* returnType */ boolean, /* outExpiresIn */ number | null ]
-    callEnsureCredentialsSync(cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* outExpiresIn */ number | null ]
+    callEnsureCredentialsFinish(res: Gio.AsyncResult): { returnType: boolean, outExpiresIn: number | null }
+    callEnsureCredentialsSync(cancellable?: Gio.Cancellable | null): { returnType: boolean, outExpiresIn: number | null }
     callRemove(cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     callRemoveFinish(res: Gio.AsyncResult): boolean
     callRemoveSync(cancellable?: Gio.Cancellable | null): boolean
     completeEnsureCredentials(invocation: Gio.DBusMethodInvocation, expiresIn: number): void
     completeRemove(invocation: Gio.DBusMethodInvocation): void
-    /* Virtual methods of Goa.Account */
-    vfuncHandleEnsureCredentials(invocation: Gio.DBusMethodInvocation): boolean
-    vfuncHandleRemove(invocation: Gio.DBusMethodInvocation): boolean
-    /* Signals of Goa.Account */
+    /* Signals of Goa-1.0.Goa.Account */
     connect(sigName: "handle-ensure-credentials", callback: (($obj: Account, invocation: Gio.DBusMethodInvocation) => boolean)): number
-    connect_after(sigName: "handle-ensure-credentials", callback: (($obj: Account, invocation: Gio.DBusMethodInvocation) => boolean)): number
+    on(sigName: "handle-ensure-credentials", callback: (invocation: Gio.DBusMethodInvocation) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-ensure-credentials", callback: (invocation: Gio.DBusMethodInvocation) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-ensure-credentials", callback: (invocation: Gio.DBusMethodInvocation) => void): NodeJS.EventEmitter
     emit(sigName: "handle-ensure-credentials", invocation: Gio.DBusMethodInvocation): void
-    on(sigName: "handle-ensure-credentials", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-ensure-credentials", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-ensure-credentials", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "handle-remove", callback: (($obj: Account, invocation: Gio.DBusMethodInvocation) => boolean)): number
-    connect_after(sigName: "handle-remove", callback: (($obj: Account, invocation: Gio.DBusMethodInvocation) => boolean)): number
+    on(sigName: "handle-remove", callback: (invocation: Gio.DBusMethodInvocation) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-remove", callback: (invocation: Gio.DBusMethodInvocation) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-remove", callback: (invocation: Gio.DBusMethodInvocation) => void): NodeJS.EventEmitter
     emit(sigName: "handle-remove", invocation: Gio.DBusMethodInvocation): void
-    on(sigName: "handle-remove", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-remove", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-remove", callback: (...args: any[]) => void): NodeJS.EventEmitter
     static name: string
     /* Static methods and pseudo-constructors */
     static interfaceInfo(): Gio.DBusInterfaceInfo
     static overrideProperties(klass: GObject.ObjectClass, propertyIdBegin: number): number
 }
 export class Calendar {
-    /* Properties of Goa.Calendar */
+    /* Properties of Goa-1.0.Goa.Calendar */
     acceptSslErrors: boolean
     uri: string
     static name: string
@@ -130,7 +125,7 @@ export class Chat {
     static overrideProperties(klass: GObject.ObjectClass, propertyIdBegin: number): number
 }
 export class Contacts {
-    /* Properties of Goa.Contacts */
+    /* Properties of Goa-1.0.Goa.Contacts */
     acceptSslErrors: boolean
     uri: string
     static name: string
@@ -145,7 +140,7 @@ export class Documents {
     static overrideProperties(klass: GObject.ObjectClass, propertyIdBegin: number): number
 }
 export class Exchange {
-    /* Properties of Goa.Exchange */
+    /* Properties of Goa-1.0.Goa.Exchange */
     acceptSslErrors: boolean
     host: string
     static name: string
@@ -154,7 +149,7 @@ export class Exchange {
     static overrideProperties(klass: GObject.ObjectClass, propertyIdBegin: number): number
 }
 export class Files {
-    /* Properties of Goa.Files */
+    /* Properties of Goa-1.0.Goa.Files */
     acceptSslErrors: boolean
     uri: string
     static name: string
@@ -163,7 +158,7 @@ export class Files {
     static overrideProperties(klass: GObject.ObjectClass, propertyIdBegin: number): number
 }
 export class Mail {
-    /* Properties of Goa.Mail */
+    /* Properties of Goa-1.0.Goa.Mail */
     emailAddress: string
     imapAcceptSslErrors: boolean
     imapHost: string
@@ -188,31 +183,26 @@ export class Mail {
     static overrideProperties(klass: GObject.ObjectClass, propertyIdBegin: number): number
 }
 export class Manager {
-    /* Methods of Goa.Manager */
+    /* Methods of Goa-1.0.Goa.Manager */
     callAddAccount(argProvider: string, argIdentity: string, argPresentationIdentity: string, argCredentials: GLib.Variant, argDetails: GLib.Variant, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    callAddAccountFinish(res: Gio.AsyncResult): [ /* returnType */ boolean, /* outAccountObjectPath */ string | null ]
-    callAddAccountSync(argProvider: string, argIdentity: string, argPresentationIdentity: string, argCredentials: GLib.Variant, argDetails: GLib.Variant, cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* outAccountObjectPath */ string | null ]
+    callAddAccountFinish(res: Gio.AsyncResult): { returnType: boolean, outAccountObjectPath: string | null }
+    callAddAccountSync(argProvider: string, argIdentity: string, argPresentationIdentity: string, argCredentials: GLib.Variant, argDetails: GLib.Variant, cancellable?: Gio.Cancellable | null): { returnType: boolean, outAccountObjectPath: string | null }
     callIsSupportedProvider(argProviderType: string, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    callIsSupportedProviderFinish(res: Gio.AsyncResult): [ /* returnType */ boolean, /* outIsSupported */ boolean | null ]
-    callIsSupportedProviderSync(argProviderType: string, cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* outIsSupported */ boolean | null ]
+    callIsSupportedProviderFinish(res: Gio.AsyncResult): { returnType: boolean, outIsSupported: boolean | null }
+    callIsSupportedProviderSync(argProviderType: string, cancellable?: Gio.Cancellable | null): { returnType: boolean, outIsSupported: boolean | null }
     completeAddAccount(invocation: Gio.DBusMethodInvocation, accountObjectPath: string): void
     completeIsSupportedProvider(invocation: Gio.DBusMethodInvocation, isSupported: boolean): void
-    /* Virtual methods of Goa.Manager */
-    vfuncHandleAddAccount(invocation: Gio.DBusMethodInvocation, argProvider: string, argIdentity: string, argPresentationIdentity: string, argCredentials: GLib.Variant, argDetails: GLib.Variant): boolean
-    vfuncHandleIsSupportedProvider(invocation: Gio.DBusMethodInvocation, argProviderType: string): boolean
-    /* Signals of Goa.Manager */
+    /* Signals of Goa-1.0.Goa.Manager */
     connect(sigName: "handle-add-account", callback: (($obj: Manager, invocation: Gio.DBusMethodInvocation, argProvider: string, argIdentity: string, argPresentationIdentity: string, argCredentials: GLib.Variant, argDetails: GLib.Variant) => boolean)): number
-    connect_after(sigName: "handle-add-account", callback: (($obj: Manager, invocation: Gio.DBusMethodInvocation, argProvider: string, argIdentity: string, argPresentationIdentity: string, argCredentials: GLib.Variant, argDetails: GLib.Variant) => boolean)): number
+    on(sigName: "handle-add-account", callback: (invocation: Gio.DBusMethodInvocation, argProvider: string, argIdentity: string, argPresentationIdentity: string, argCredentials: GLib.Variant, argDetails: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-add-account", callback: (invocation: Gio.DBusMethodInvocation, argProvider: string, argIdentity: string, argPresentationIdentity: string, argCredentials: GLib.Variant, argDetails: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-add-account", callback: (invocation: Gio.DBusMethodInvocation, argProvider: string, argIdentity: string, argPresentationIdentity: string, argCredentials: GLib.Variant, argDetails: GLib.Variant) => void): NodeJS.EventEmitter
     emit(sigName: "handle-add-account", invocation: Gio.DBusMethodInvocation, argProvider: string, argIdentity: string, argPresentationIdentity: string, argCredentials: GLib.Variant, argDetails: GLib.Variant): void
-    on(sigName: "handle-add-account", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-add-account", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-add-account", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "handle-is-supported-provider", callback: (($obj: Manager, invocation: Gio.DBusMethodInvocation, argProviderType: string) => boolean)): number
-    connect_after(sigName: "handle-is-supported-provider", callback: (($obj: Manager, invocation: Gio.DBusMethodInvocation, argProviderType: string) => boolean)): number
+    on(sigName: "handle-is-supported-provider", callback: (invocation: Gio.DBusMethodInvocation, argProviderType: string) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-is-supported-provider", callback: (invocation: Gio.DBusMethodInvocation, argProviderType: string) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-is-supported-provider", callback: (invocation: Gio.DBusMethodInvocation, argProviderType: string) => void): NodeJS.EventEmitter
     emit(sigName: "handle-is-supported-provider", invocation: Gio.DBusMethodInvocation, argProviderType: string): void
-    on(sigName: "handle-is-supported-provider", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-is-supported-provider", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-is-supported-provider", callback: (...args: any[]) => void): NodeJS.EventEmitter
     static name: string
     /* Static methods and pseudo-constructors */
     static interfaceInfo(): Gio.DBusInterfaceInfo
@@ -225,7 +215,7 @@ export class Maps {
     static overrideProperties(klass: GObject.ObjectClass, propertyIdBegin: number): number
 }
 export class MediaServer {
-    /* Properties of Goa.MediaServer */
+    /* Properties of Goa-1.0.Goa.MediaServer */
     dlnaSupported: boolean
     udn: string
     static name: string
@@ -240,53 +230,47 @@ export class Music {
     static overrideProperties(klass: GObject.ObjectClass, propertyIdBegin: number): number
 }
 export class OAuth2Based {
-    /* Properties of Goa.OAuth2Based */
+    /* Properties of Goa-1.0.Goa.OAuth2Based */
     clientId: string
     clientSecret: string
-    /* Methods of Goa.OAuth2Based */
+    /* Methods of Goa-1.0.Goa.OAuth2Based */
     callGetAccessToken(cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    callGetAccessTokenFinish(res: Gio.AsyncResult): [ /* returnType */ boolean, /* outAccessToken */ string | null, /* outExpiresIn */ number | null ]
-    callGetAccessTokenSync(cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* outAccessToken */ string | null, /* outExpiresIn */ number | null ]
+    callGetAccessTokenFinish(res: Gio.AsyncResult): { returnType: boolean, outAccessToken: string | null, outExpiresIn: number | null }
+    callGetAccessTokenSync(cancellable?: Gio.Cancellable | null): { returnType: boolean, outAccessToken: string | null, outExpiresIn: number | null }
     completeGetAccessToken(invocation: Gio.DBusMethodInvocation, accessToken: string, expiresIn: number): void
-    /* Virtual methods of Goa.OAuth2Based */
-    vfuncHandleGetAccessToken(invocation: Gio.DBusMethodInvocation): boolean
-    /* Signals of Goa.OAuth2Based */
+    /* Signals of Goa-1.0.Goa.OAuth2Based */
     connect(sigName: "handle-get-access-token", callback: (($obj: OAuth2Based, invocation: Gio.DBusMethodInvocation) => boolean)): number
-    connect_after(sigName: "handle-get-access-token", callback: (($obj: OAuth2Based, invocation: Gio.DBusMethodInvocation) => boolean)): number
+    on(sigName: "handle-get-access-token", callback: (invocation: Gio.DBusMethodInvocation) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-get-access-token", callback: (invocation: Gio.DBusMethodInvocation) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-get-access-token", callback: (invocation: Gio.DBusMethodInvocation) => void): NodeJS.EventEmitter
     emit(sigName: "handle-get-access-token", invocation: Gio.DBusMethodInvocation): void
-    on(sigName: "handle-get-access-token", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-get-access-token", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-get-access-token", callback: (...args: any[]) => void): NodeJS.EventEmitter
     static name: string
     /* Static methods and pseudo-constructors */
     static interfaceInfo(): Gio.DBusInterfaceInfo
     static overrideProperties(klass: GObject.ObjectClass, propertyIdBegin: number): number
 }
 export class OAuthBased {
-    /* Properties of Goa.OAuthBased */
+    /* Properties of Goa-1.0.Goa.OAuthBased */
     consumerKey: string
     consumerSecret: string
-    /* Methods of Goa.OAuthBased */
+    /* Methods of Goa-1.0.Goa.OAuthBased */
     callGetAccessToken(cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    callGetAccessTokenFinish(res: Gio.AsyncResult): [ /* returnType */ boolean, /* outAccessToken */ string | null, /* outAccessTokenSecret */ string | null, /* outExpiresIn */ number | null ]
-    callGetAccessTokenSync(cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* outAccessToken */ string | null, /* outAccessTokenSecret */ string | null, /* outExpiresIn */ number | null ]
+    callGetAccessTokenFinish(res: Gio.AsyncResult): { returnType: boolean, outAccessToken: string | null, outAccessTokenSecret: string | null, outExpiresIn: number | null }
+    callGetAccessTokenSync(cancellable?: Gio.Cancellable | null): { returnType: boolean, outAccessToken: string | null, outAccessTokenSecret: string | null, outExpiresIn: number | null }
     completeGetAccessToken(invocation: Gio.DBusMethodInvocation, accessToken: string, accessTokenSecret: string, expiresIn: number): void
-    /* Virtual methods of Goa.OAuthBased */
-    vfuncHandleGetAccessToken(invocation: Gio.DBusMethodInvocation): boolean
-    /* Signals of Goa.OAuthBased */
+    /* Signals of Goa-1.0.Goa.OAuthBased */
     connect(sigName: "handle-get-access-token", callback: (($obj: OAuthBased, invocation: Gio.DBusMethodInvocation) => boolean)): number
-    connect_after(sigName: "handle-get-access-token", callback: (($obj: OAuthBased, invocation: Gio.DBusMethodInvocation) => boolean)): number
+    on(sigName: "handle-get-access-token", callback: (invocation: Gio.DBusMethodInvocation) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-get-access-token", callback: (invocation: Gio.DBusMethodInvocation) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-get-access-token", callback: (invocation: Gio.DBusMethodInvocation) => void): NodeJS.EventEmitter
     emit(sigName: "handle-get-access-token", invocation: Gio.DBusMethodInvocation): void
-    on(sigName: "handle-get-access-token", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-get-access-token", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-get-access-token", callback: (...args: any[]) => void): NodeJS.EventEmitter
     static name: string
     /* Static methods and pseudo-constructors */
     static interfaceInfo(): Gio.DBusInterfaceInfo
     static overrideProperties(klass: GObject.ObjectClass, propertyIdBegin: number): number
 }
 export class Object {
-    /* Properties of Goa.Object */
+    /* Properties of Goa-1.0.Goa.Object */
     account: Account
     calendar: Calendar
     chat: Chat
@@ -307,7 +291,7 @@ export class Object {
     readLater: ReadLater
     ticketing: Ticketing
     todo: Todo
-    /* Methods of Goa.Object */
+    /* Methods of Goa-1.0.Goa.Object */
     getAccount(): Account | null
     getCalendar(): Calendar | null
     getChat(): Chat | null
@@ -328,46 +312,35 @@ export class Object {
     getReadLater(): ReadLater | null
     getTicketing(): Ticketing | null
     getTodo(): Todo | null
-    /* Methods of Gio.DBusObject */
+    /* Methods of Gio-2.0.Gio.DBusObject */
     getInterface(interfaceName: string): Gio.DBusInterface | null
     getInterfaces(): Gio.DBusInterface[]
     getObjectPath(): string
-    /* Virtual methods of Gio.DBusObject */
-    vfuncGetInterface(interfaceName: string): Gio.DBusInterface | null
-    vfuncGetInterfaces(): Gio.DBusInterface[]
-    vfuncGetObjectPath(): string
-    vfuncInterfaceAdded(interface: Gio.DBusInterface): void
-    vfuncInterfaceRemoved(interface: Gio.DBusInterface): void
-    /* Signals of Gio.DBusObject */
+    /* Signals of Gio-2.0.Gio.DBusObject */
     connect(sigName: "interface-added", callback: (($obj: Object, interface: Gio.DBusInterface) => void)): number
-    connect_after(sigName: "interface-added", callback: (($obj: Object, interface: Gio.DBusInterface) => void)): number
+    on(sigName: "interface-added", callback: (interface: Gio.DBusInterface) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "interface-added", callback: (interface: Gio.DBusInterface) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "interface-added", callback: (interface: Gio.DBusInterface) => void): NodeJS.EventEmitter
     emit(sigName: "interface-added", interface: Gio.DBusInterface): void
-    on(sigName: "interface-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "interface-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "interface-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "interface-removed", callback: (($obj: Object, interface: Gio.DBusInterface) => void)): number
-    connect_after(sigName: "interface-removed", callback: (($obj: Object, interface: Gio.DBusInterface) => void)): number
+    on(sigName: "interface-removed", callback: (interface: Gio.DBusInterface) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "interface-removed", callback: (interface: Gio.DBusInterface) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "interface-removed", callback: (interface: Gio.DBusInterface) => void): NodeJS.EventEmitter
     emit(sigName: "interface-removed", interface: Gio.DBusInterface): void
-    on(sigName: "interface-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "interface-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "interface-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     static name: string
 }
 export class PasswordBased {
-    /* Methods of Goa.PasswordBased */
+    /* Methods of Goa-1.0.Goa.PasswordBased */
     callGetPassword(argId: string, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    callGetPasswordFinish(res: Gio.AsyncResult): [ /* returnType */ boolean, /* outPassword */ string | null ]
-    callGetPasswordSync(argId: string, cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* outPassword */ string | null ]
+    callGetPasswordFinish(res: Gio.AsyncResult): { returnType: boolean, outPassword: string | null }
+    callGetPasswordSync(argId: string, cancellable?: Gio.Cancellable | null): { returnType: boolean, outPassword: string | null }
     completeGetPassword(invocation: Gio.DBusMethodInvocation, password: string): void
-    /* Virtual methods of Goa.PasswordBased */
-    vfuncHandleGetPassword(invocation: Gio.DBusMethodInvocation, argId: string): boolean
-    /* Signals of Goa.PasswordBased */
+    /* Signals of Goa-1.0.Goa.PasswordBased */
     connect(sigName: "handle-get-password", callback: (($obj: PasswordBased, invocation: Gio.DBusMethodInvocation, argId: string) => boolean)): number
-    connect_after(sigName: "handle-get-password", callback: (($obj: PasswordBased, invocation: Gio.DBusMethodInvocation, argId: string) => boolean)): number
+    on(sigName: "handle-get-password", callback: (invocation: Gio.DBusMethodInvocation, argId: string) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-get-password", callback: (invocation: Gio.DBusMethodInvocation, argId: string) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-get-password", callback: (invocation: Gio.DBusMethodInvocation, argId: string) => void): NodeJS.EventEmitter
     emit(sigName: "handle-get-password", invocation: Gio.DBusMethodInvocation, argId: string): void
-    on(sigName: "handle-get-password", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-get-password", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-get-password", callback: (...args: any[]) => void): NodeJS.EventEmitter
     static name: string
     /* Static methods and pseudo-constructors */
     static interfaceInfo(): Gio.DBusInterfaceInfo
@@ -392,22 +365,19 @@ export class ReadLater {
     static overrideProperties(klass: GObject.ObjectClass, propertyIdBegin: number): number
 }
 export class Ticketing {
-    /* Properties of Goa.Ticketing */
+    /* Properties of Goa-1.0.Goa.Ticketing */
     details: GLib.Variant
-    /* Methods of Goa.Ticketing */
+    /* Methods of Goa-1.0.Goa.Ticketing */
     callGetTicket(cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     callGetTicketFinish(res: Gio.AsyncResult): boolean
     callGetTicketSync(cancellable?: Gio.Cancellable | null): boolean
     completeGetTicket(invocation: Gio.DBusMethodInvocation): void
-    /* Virtual methods of Goa.Ticketing */
-    vfuncHandleGetTicket(invocation: Gio.DBusMethodInvocation): boolean
-    /* Signals of Goa.Ticketing */
+    /* Signals of Goa-1.0.Goa.Ticketing */
     connect(sigName: "handle-get-ticket", callback: (($obj: Ticketing, invocation: Gio.DBusMethodInvocation) => boolean)): number
-    connect_after(sigName: "handle-get-ticket", callback: (($obj: Ticketing, invocation: Gio.DBusMethodInvocation) => boolean)): number
+    on(sigName: "handle-get-ticket", callback: (invocation: Gio.DBusMethodInvocation) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-get-ticket", callback: (invocation: Gio.DBusMethodInvocation) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-get-ticket", callback: (invocation: Gio.DBusMethodInvocation) => void): NodeJS.EventEmitter
     emit(sigName: "handle-get-ticket", invocation: Gio.DBusMethodInvocation): void
-    on(sigName: "handle-get-ticket", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-get-ticket", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-get-ticket", callback: (...args: any[]) => void): NodeJS.EventEmitter
     static name: string
     /* Static methods and pseudo-constructors */
     static interfaceInfo(): Gio.DBusInterfaceInfo
@@ -444,11 +414,11 @@ export interface AccountProxy_ConstructProps extends Gio.DBusProxy_ConstructProp
     todoDisabled?: boolean
 }
 export class AccountProxy {
-    /* Properties of Gio.DBusProxy */
+    /* Properties of Gio-2.0.Gio.DBusProxy */
     gDefaultTimeout: number
     gInterfaceInfo: Gio.DBusInterfaceInfo
     readonly gNameOwner: string
-    /* Properties of Goa.Account */
+    /* Properties of Goa-1.0.Goa.Account */
     attentionNeeded: boolean
     calendarDisabled: boolean
     chatDisabled: boolean
@@ -471,15 +441,15 @@ export class AccountProxy {
     readLaterDisabled: boolean
     ticketingDisabled: boolean
     todoDisabled: boolean
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Gio.DBusProxy */
+    /* Methods of Gio-2.0.Gio.DBusProxy */
     call(methodName: string, parameters: GLib.Variant | null, flags: Gio.DBusCallFlags, timeoutMsec: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     callFinish(res: Gio.AsyncResult): GLib.Variant
     callSync(methodName: string, parameters: GLib.Variant | null, flags: Gio.DBusCallFlags, timeoutMsec: number, cancellable?: Gio.Cancellable | null): GLib.Variant
     callWithUnixFdList(methodName: string, parameters: GLib.Variant | null, flags: Gio.DBusCallFlags, timeoutMsec: number, fdList?: Gio.UnixFDList | null, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    callWithUnixFdListFinish(res: Gio.AsyncResult): [ /* returnType */ GLib.Variant, /* outFdList */ Gio.UnixFDList | null ]
-    callWithUnixFdListSync(methodName: string, parameters: GLib.Variant | null, flags: Gio.DBusCallFlags, timeoutMsec: number, fdList?: Gio.UnixFDList | null, cancellable?: Gio.Cancellable | null): [ /* returnType */ GLib.Variant, /* outFdList */ Gio.UnixFDList | null ]
+    callWithUnixFdListFinish(res: Gio.AsyncResult): { returnType: GLib.Variant, outFdList: Gio.UnixFDList | null }
+    callWithUnixFdListSync(methodName: string, parameters: GLib.Variant | null, flags: Gio.DBusCallFlags, timeoutMsec: number, fdList?: Gio.UnixFDList | null, cancellable?: Gio.Cancellable | null): { returnType: GLib.Variant, outFdList: Gio.UnixFDList | null }
     getCachedProperty(propertyName: string): GLib.Variant | null
     getCachedPropertyNames(): string[] | null
     getConnection(): Gio.DBusConnection
@@ -493,7 +463,7 @@ export class AccountProxy {
     setCachedProperty(propertyName: string, value?: GLib.Variant | null): void
     setDefaultTimeout(timeoutMsec: number): void
     setInterfaceInfo(info?: Gio.DBusInterfaceInfo | null): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -515,78 +485,53 @@ export class AccountProxy {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of Gio.AsyncInitable */
+    /* Methods of Gio-2.0.Gio.AsyncInitable */
     initAsync(ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     initFinish(res: Gio.AsyncResult): boolean
     newFinish(res: Gio.AsyncResult): GObject.Object
-    /* Methods of Gio.DBusInterface */
+    /* Methods of Gio-2.0.Gio.DBusInterface */
     getObject(): Gio.DBusObject | null
     getInfo(): Gio.DBusInterfaceInfo
     setObject(object?: Gio.DBusObject | null): void
-    /* Methods of Gio.Initable */
+    /* Methods of Gio-2.0.Gio.Initable */
     init(cancellable?: Gio.Cancellable | null): boolean
-    /* Methods of Goa.Account */
+    /* Methods of Goa-1.0.Goa.Account */
     callEnsureCredentials(cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    callEnsureCredentialsFinish(res: Gio.AsyncResult): [ /* returnType */ boolean, /* outExpiresIn */ number | null ]
-    callEnsureCredentialsSync(cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* outExpiresIn */ number | null ]
+    callEnsureCredentialsFinish(res: Gio.AsyncResult): { returnType: boolean, outExpiresIn: number | null }
+    callEnsureCredentialsSync(cancellable?: Gio.Cancellable | null): { returnType: boolean, outExpiresIn: number | null }
     callRemove(cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     callRemoveFinish(res: Gio.AsyncResult): boolean
     callRemoveSync(cancellable?: Gio.Cancellable | null): boolean
     completeEnsureCredentials(invocation: Gio.DBusMethodInvocation, expiresIn: number): void
     completeRemove(invocation: Gio.DBusMethodInvocation): void
-    /* Virtual methods of Goa.AccountProxy */
-    vfuncInitAsync(ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    vfuncInitFinish(res: Gio.AsyncResult): boolean
-    vfuncDupObject(): Gio.DBusObject | null
-    vfuncGetInfo(): Gio.DBusInterfaceInfo
-    vfuncSetObject(object?: Gio.DBusObject | null): void
-    vfuncInit(cancellable?: Gio.Cancellable | null): boolean
-    vfuncHandleEnsureCredentials(invocation: Gio.DBusMethodInvocation): boolean
-    vfuncHandleRemove(invocation: Gio.DBusMethodInvocation): boolean
-    /* Virtual methods of Gio.DBusProxy */
-    vfuncGPropertiesChanged(changedProperties: GLib.Variant, invalidatedProperties: string): void
-    vfuncGSignal(senderName: string, signalName: string, parameters: GLib.Variant): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gio.DBusProxy */
+    /* Signals of Gio-2.0.Gio.DBusProxy */
     connect(sigName: "g-properties-changed", callback: (($obj: AccountProxy, changedProperties: GLib.Variant, invalidatedProperties: string[]) => void)): number
-    connect_after(sigName: "g-properties-changed", callback: (($obj: AccountProxy, changedProperties: GLib.Variant, invalidatedProperties: string[]) => void)): number
+    on(sigName: "g-properties-changed", callback: (changedProperties: GLib.Variant, invalidatedProperties: string[]) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "g-properties-changed", callback: (changedProperties: GLib.Variant, invalidatedProperties: string[]) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "g-properties-changed", callback: (changedProperties: GLib.Variant, invalidatedProperties: string[]) => void): NodeJS.EventEmitter
     emit(sigName: "g-properties-changed", changedProperties: GLib.Variant, invalidatedProperties: string[]): void
-    on(sigName: "g-properties-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "g-properties-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "g-properties-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "g-signal", callback: (($obj: AccountProxy, senderName: string | null, signalName: string, parameters: GLib.Variant) => void)): number
-    connect_after(sigName: "g-signal", callback: (($obj: AccountProxy, senderName: string | null, signalName: string, parameters: GLib.Variant) => void)): number
+    on(sigName: "g-signal", callback: (senderName: string | null, signalName: string, parameters: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "g-signal", callback: (senderName: string | null, signalName: string, parameters: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "g-signal", callback: (senderName: string | null, signalName: string, parameters: GLib.Variant) => void): NodeJS.EventEmitter
     emit(sigName: "g-signal", senderName: string | null, signalName: string, parameters: GLib.Variant): void
-    on(sigName: "g-signal", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "g-signal", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "g-signal", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: AccountProxy, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: AccountProxy, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of Goa.Account */
+    /* Signals of Goa-1.0.Goa.Account */
     connect(sigName: "handle-ensure-credentials", callback: (($obj: AccountProxy, invocation: Gio.DBusMethodInvocation) => boolean)): number
-    connect_after(sigName: "handle-ensure-credentials", callback: (($obj: AccountProxy, invocation: Gio.DBusMethodInvocation) => boolean)): number
+    on(sigName: "handle-ensure-credentials", callback: (invocation: Gio.DBusMethodInvocation) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-ensure-credentials", callback: (invocation: Gio.DBusMethodInvocation) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-ensure-credentials", callback: (invocation: Gio.DBusMethodInvocation) => void): NodeJS.EventEmitter
     emit(sigName: "handle-ensure-credentials", invocation: Gio.DBusMethodInvocation): void
-    on(sigName: "handle-ensure-credentials", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-ensure-credentials", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-ensure-credentials", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "handle-remove", callback: (($obj: AccountProxy, invocation: Gio.DBusMethodInvocation) => boolean)): number
-    connect_after(sigName: "handle-remove", callback: (($obj: AccountProxy, invocation: Gio.DBusMethodInvocation) => boolean)): number
+    on(sigName: "handle-remove", callback: (invocation: Gio.DBusMethodInvocation) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-remove", callback: (invocation: Gio.DBusMethodInvocation) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-remove", callback: (invocation: Gio.DBusMethodInvocation) => void): NodeJS.EventEmitter
     emit(sigName: "handle-remove", invocation: Gio.DBusMethodInvocation): void
-    on(sigName: "handle-remove", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-remove", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-remove", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::g-default-timeout", callback: (($obj: AccountProxy, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::g-default-timeout", callback: (($obj: AccountProxy, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::g-default-timeout", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -762,9 +707,9 @@ export interface AccountSkeleton_ConstructProps extends Gio.DBusInterfaceSkeleto
     todoDisabled?: boolean
 }
 export class AccountSkeleton {
-    /* Properties of Gio.DBusInterfaceSkeleton */
+    /* Properties of Gio-2.0.Gio.DBusInterfaceSkeleton */
     gFlags: Gio.DBusInterfaceSkeletonFlags
-    /* Properties of Goa.Account */
+    /* Properties of Goa-1.0.Goa.Account */
     attentionNeeded: boolean
     calendarDisabled: boolean
     chatDisabled: boolean
@@ -787,9 +732,9 @@ export class AccountSkeleton {
     readLaterDisabled: boolean
     ticketingDisabled: boolean
     todoDisabled: boolean
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Gio.DBusInterfaceSkeleton */
+    /* Methods of Gio-2.0.Gio.DBusInterfaceSkeleton */
     export(connection: Gio.DBusConnection, objectPath: string): boolean
     flush(): void
     getConnection(): Gio.DBusConnection | null
@@ -802,7 +747,7 @@ export class AccountSkeleton {
     setFlags(flags: Gio.DBusInterfaceSkeletonFlags): void
     unexport(): void
     unexportFromConnection(connection: Gio.DBusConnection): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -824,64 +769,41 @@ export class AccountSkeleton {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of Gio.DBusInterface */
+    /* Methods of Gio-2.0.Gio.DBusInterface */
     getObject(): Gio.DBusObject | null
     setObject(object?: Gio.DBusObject | null): void
-    /* Methods of Goa.Account */
+    /* Methods of Goa-1.0.Goa.Account */
     callEnsureCredentials(cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    callEnsureCredentialsFinish(res: Gio.AsyncResult): [ /* returnType */ boolean, /* outExpiresIn */ number | null ]
-    callEnsureCredentialsSync(cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* outExpiresIn */ number | null ]
+    callEnsureCredentialsFinish(res: Gio.AsyncResult): { returnType: boolean, outExpiresIn: number | null }
+    callEnsureCredentialsSync(cancellable?: Gio.Cancellable | null): { returnType: boolean, outExpiresIn: number | null }
     callRemove(cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     callRemoveFinish(res: Gio.AsyncResult): boolean
     callRemoveSync(cancellable?: Gio.Cancellable | null): boolean
     completeEnsureCredentials(invocation: Gio.DBusMethodInvocation, expiresIn: number): void
     completeRemove(invocation: Gio.DBusMethodInvocation): void
-    /* Virtual methods of Goa.AccountSkeleton */
-    vfuncDupObject(): Gio.DBusObject | null
-    vfuncGetInfo(): Gio.DBusInterfaceInfo
-    vfuncSetObject(object?: Gio.DBusObject | null): void
-    vfuncHandleEnsureCredentials(invocation: Gio.DBusMethodInvocation): boolean
-    vfuncHandleRemove(invocation: Gio.DBusMethodInvocation): boolean
-    /* Virtual methods of Gio.DBusInterfaceSkeleton */
-    vfuncFlush(): void
-    vfuncGAuthorizeMethod(invocation: Gio.DBusMethodInvocation): boolean
-    vfuncGetInfo(): Gio.DBusInterfaceInfo
-    vfuncGetProperties(): GLib.Variant
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gio.DBusInterfaceSkeleton */
+    /* Signals of Gio-2.0.Gio.DBusInterfaceSkeleton */
     connect(sigName: "g-authorize-method", callback: (($obj: AccountSkeleton, invocation: Gio.DBusMethodInvocation) => boolean)): number
-    connect_after(sigName: "g-authorize-method", callback: (($obj: AccountSkeleton, invocation: Gio.DBusMethodInvocation) => boolean)): number
+    on(sigName: "g-authorize-method", callback: (invocation: Gio.DBusMethodInvocation) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "g-authorize-method", callback: (invocation: Gio.DBusMethodInvocation) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "g-authorize-method", callback: (invocation: Gio.DBusMethodInvocation) => void): NodeJS.EventEmitter
     emit(sigName: "g-authorize-method", invocation: Gio.DBusMethodInvocation): void
-    on(sigName: "g-authorize-method", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "g-authorize-method", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "g-authorize-method", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: AccountSkeleton, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: AccountSkeleton, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of Goa.Account */
+    /* Signals of Goa-1.0.Goa.Account */
     connect(sigName: "handle-ensure-credentials", callback: (($obj: AccountSkeleton, invocation: Gio.DBusMethodInvocation) => boolean)): number
-    connect_after(sigName: "handle-ensure-credentials", callback: (($obj: AccountSkeleton, invocation: Gio.DBusMethodInvocation) => boolean)): number
+    on(sigName: "handle-ensure-credentials", callback: (invocation: Gio.DBusMethodInvocation) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-ensure-credentials", callback: (invocation: Gio.DBusMethodInvocation) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-ensure-credentials", callback: (invocation: Gio.DBusMethodInvocation) => void): NodeJS.EventEmitter
     emit(sigName: "handle-ensure-credentials", invocation: Gio.DBusMethodInvocation): void
-    on(sigName: "handle-ensure-credentials", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-ensure-credentials", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-ensure-credentials", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "handle-remove", callback: (($obj: AccountSkeleton, invocation: Gio.DBusMethodInvocation) => boolean)): number
-    connect_after(sigName: "handle-remove", callback: (($obj: AccountSkeleton, invocation: Gio.DBusMethodInvocation) => boolean)): number
+    on(sigName: "handle-remove", callback: (invocation: Gio.DBusMethodInvocation) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-remove", callback: (invocation: Gio.DBusMethodInvocation) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-remove", callback: (invocation: Gio.DBusMethodInvocation) => void): NodeJS.EventEmitter
     emit(sigName: "handle-remove", invocation: Gio.DBusMethodInvocation): void
-    on(sigName: "handle-remove", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-remove", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-remove", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::g-flags", callback: (($obj: AccountSkeleton, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::g-flags", callback: (($obj: AccountSkeleton, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::g-flags", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -1018,22 +940,22 @@ export interface CalendarProxy_ConstructProps extends Gio.DBusProxy_ConstructPro
     uri?: string
 }
 export class CalendarProxy {
-    /* Properties of Gio.DBusProxy */
+    /* Properties of Gio-2.0.Gio.DBusProxy */
     gDefaultTimeout: number
     gInterfaceInfo: Gio.DBusInterfaceInfo
     readonly gNameOwner: string
-    /* Properties of Goa.Calendar */
+    /* Properties of Goa-1.0.Goa.Calendar */
     acceptSslErrors: boolean
     uri: string
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Gio.DBusProxy */
+    /* Methods of Gio-2.0.Gio.DBusProxy */
     call(methodName: string, parameters: GLib.Variant | null, flags: Gio.DBusCallFlags, timeoutMsec: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     callFinish(res: Gio.AsyncResult): GLib.Variant
     callSync(methodName: string, parameters: GLib.Variant | null, flags: Gio.DBusCallFlags, timeoutMsec: number, cancellable?: Gio.Cancellable | null): GLib.Variant
     callWithUnixFdList(methodName: string, parameters: GLib.Variant | null, flags: Gio.DBusCallFlags, timeoutMsec: number, fdList?: Gio.UnixFDList | null, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    callWithUnixFdListFinish(res: Gio.AsyncResult): [ /* returnType */ GLib.Variant, /* outFdList */ Gio.UnixFDList | null ]
-    callWithUnixFdListSync(methodName: string, parameters: GLib.Variant | null, flags: Gio.DBusCallFlags, timeoutMsec: number, fdList?: Gio.UnixFDList | null, cancellable?: Gio.Cancellable | null): [ /* returnType */ GLib.Variant, /* outFdList */ Gio.UnixFDList | null ]
+    callWithUnixFdListFinish(res: Gio.AsyncResult): { returnType: GLib.Variant, outFdList: Gio.UnixFDList | null }
+    callWithUnixFdListSync(methodName: string, parameters: GLib.Variant | null, flags: Gio.DBusCallFlags, timeoutMsec: number, fdList?: Gio.UnixFDList | null, cancellable?: Gio.Cancellable | null): { returnType: GLib.Variant, outFdList: Gio.UnixFDList | null }
     getCachedProperty(propertyName: string): GLib.Variant | null
     getCachedPropertyNames(): string[] | null
     getConnection(): Gio.DBusConnection
@@ -1047,7 +969,7 @@ export class CalendarProxy {
     setCachedProperty(propertyName: string, value?: GLib.Variant | null): void
     setDefaultTimeout(timeoutMsec: number): void
     setInterfaceInfo(info?: Gio.DBusInterfaceInfo | null): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -1069,54 +991,33 @@ export class CalendarProxy {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of Gio.AsyncInitable */
+    /* Methods of Gio-2.0.Gio.AsyncInitable */
     initAsync(ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     initFinish(res: Gio.AsyncResult): boolean
     newFinish(res: Gio.AsyncResult): GObject.Object
-    /* Methods of Gio.DBusInterface */
+    /* Methods of Gio-2.0.Gio.DBusInterface */
     getObject(): Gio.DBusObject | null
     getInfo(): Gio.DBusInterfaceInfo
     setObject(object?: Gio.DBusObject | null): void
-    /* Methods of Gio.Initable */
+    /* Methods of Gio-2.0.Gio.Initable */
     init(cancellable?: Gio.Cancellable | null): boolean
-    /* Virtual methods of Goa.CalendarProxy */
-    vfuncInitAsync(ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    vfuncInitFinish(res: Gio.AsyncResult): boolean
-    vfuncDupObject(): Gio.DBusObject | null
-    vfuncGetInfo(): Gio.DBusInterfaceInfo
-    vfuncSetObject(object?: Gio.DBusObject | null): void
-    vfuncInit(cancellable?: Gio.Cancellable | null): boolean
-    /* Virtual methods of Gio.DBusProxy */
-    vfuncGPropertiesChanged(changedProperties: GLib.Variant, invalidatedProperties: string): void
-    vfuncGSignal(senderName: string, signalName: string, parameters: GLib.Variant): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gio.DBusProxy */
+    /* Signals of Gio-2.0.Gio.DBusProxy */
     connect(sigName: "g-properties-changed", callback: (($obj: CalendarProxy, changedProperties: GLib.Variant, invalidatedProperties: string[]) => void)): number
-    connect_after(sigName: "g-properties-changed", callback: (($obj: CalendarProxy, changedProperties: GLib.Variant, invalidatedProperties: string[]) => void)): number
+    on(sigName: "g-properties-changed", callback: (changedProperties: GLib.Variant, invalidatedProperties: string[]) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "g-properties-changed", callback: (changedProperties: GLib.Variant, invalidatedProperties: string[]) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "g-properties-changed", callback: (changedProperties: GLib.Variant, invalidatedProperties: string[]) => void): NodeJS.EventEmitter
     emit(sigName: "g-properties-changed", changedProperties: GLib.Variant, invalidatedProperties: string[]): void
-    on(sigName: "g-properties-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "g-properties-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "g-properties-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "g-signal", callback: (($obj: CalendarProxy, senderName: string | null, signalName: string, parameters: GLib.Variant) => void)): number
-    connect_after(sigName: "g-signal", callback: (($obj: CalendarProxy, senderName: string | null, signalName: string, parameters: GLib.Variant) => void)): number
+    on(sigName: "g-signal", callback: (senderName: string | null, signalName: string, parameters: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "g-signal", callback: (senderName: string | null, signalName: string, parameters: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "g-signal", callback: (senderName: string | null, signalName: string, parameters: GLib.Variant) => void): NodeJS.EventEmitter
     emit(sigName: "g-signal", senderName: string | null, signalName: string, parameters: GLib.Variant): void
-    on(sigName: "g-signal", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "g-signal", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "g-signal", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: CalendarProxy, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: CalendarProxy, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::g-default-timeout", callback: (($obj: CalendarProxy, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::g-default-timeout", callback: (($obj: CalendarProxy, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::g-default-timeout", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -1172,14 +1073,14 @@ export interface CalendarSkeleton_ConstructProps extends Gio.DBusInterfaceSkelet
     uri?: string
 }
 export class CalendarSkeleton {
-    /* Properties of Gio.DBusInterfaceSkeleton */
+    /* Properties of Gio-2.0.Gio.DBusInterfaceSkeleton */
     gFlags: Gio.DBusInterfaceSkeletonFlags
-    /* Properties of Goa.Calendar */
+    /* Properties of Goa-1.0.Goa.Calendar */
     acceptSslErrors: boolean
     uri: string
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Gio.DBusInterfaceSkeleton */
+    /* Methods of Gio-2.0.Gio.DBusInterfaceSkeleton */
     export(connection: Gio.DBusConnection, objectPath: string): boolean
     flush(): void
     getConnection(): Gio.DBusConnection | null
@@ -1192,7 +1093,7 @@ export class CalendarSkeleton {
     setFlags(flags: Gio.DBusInterfaceSkeletonFlags): void
     unexport(): void
     unexportFromConnection(connection: Gio.DBusConnection): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -1214,40 +1115,21 @@ export class CalendarSkeleton {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of Gio.DBusInterface */
+    /* Methods of Gio-2.0.Gio.DBusInterface */
     getObject(): Gio.DBusObject | null
     setObject(object?: Gio.DBusObject | null): void
-    /* Virtual methods of Goa.CalendarSkeleton */
-    vfuncDupObject(): Gio.DBusObject | null
-    vfuncGetInfo(): Gio.DBusInterfaceInfo
-    vfuncSetObject(object?: Gio.DBusObject | null): void
-    /* Virtual methods of Gio.DBusInterfaceSkeleton */
-    vfuncFlush(): void
-    vfuncGAuthorizeMethod(invocation: Gio.DBusMethodInvocation): boolean
-    vfuncGetInfo(): Gio.DBusInterfaceInfo
-    vfuncGetProperties(): GLib.Variant
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gio.DBusInterfaceSkeleton */
+    /* Signals of Gio-2.0.Gio.DBusInterfaceSkeleton */
     connect(sigName: "g-authorize-method", callback: (($obj: CalendarSkeleton, invocation: Gio.DBusMethodInvocation) => boolean)): number
-    connect_after(sigName: "g-authorize-method", callback: (($obj: CalendarSkeleton, invocation: Gio.DBusMethodInvocation) => boolean)): number
+    on(sigName: "g-authorize-method", callback: (invocation: Gio.DBusMethodInvocation) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "g-authorize-method", callback: (invocation: Gio.DBusMethodInvocation) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "g-authorize-method", callback: (invocation: Gio.DBusMethodInvocation) => void): NodeJS.EventEmitter
     emit(sigName: "g-authorize-method", invocation: Gio.DBusMethodInvocation): void
-    on(sigName: "g-authorize-method", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "g-authorize-method", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "g-authorize-method", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: CalendarSkeleton, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: CalendarSkeleton, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::g-flags", callback: (($obj: CalendarSkeleton, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::g-flags", callback: (($obj: CalendarSkeleton, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::g-flags", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -1282,19 +1164,19 @@ export class CalendarSkeleton {
 export interface ChatProxy_ConstructProps extends Gio.DBusProxy_ConstructProps {
 }
 export class ChatProxy {
-    /* Properties of Gio.DBusProxy */
+    /* Properties of Gio-2.0.Gio.DBusProxy */
     gDefaultTimeout: number
     gInterfaceInfo: Gio.DBusInterfaceInfo
     readonly gNameOwner: string
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Gio.DBusProxy */
+    /* Methods of Gio-2.0.Gio.DBusProxy */
     call(methodName: string, parameters: GLib.Variant | null, flags: Gio.DBusCallFlags, timeoutMsec: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     callFinish(res: Gio.AsyncResult): GLib.Variant
     callSync(methodName: string, parameters: GLib.Variant | null, flags: Gio.DBusCallFlags, timeoutMsec: number, cancellable?: Gio.Cancellable | null): GLib.Variant
     callWithUnixFdList(methodName: string, parameters: GLib.Variant | null, flags: Gio.DBusCallFlags, timeoutMsec: number, fdList?: Gio.UnixFDList | null, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    callWithUnixFdListFinish(res: Gio.AsyncResult): [ /* returnType */ GLib.Variant, /* outFdList */ Gio.UnixFDList | null ]
-    callWithUnixFdListSync(methodName: string, parameters: GLib.Variant | null, flags: Gio.DBusCallFlags, timeoutMsec: number, fdList?: Gio.UnixFDList | null, cancellable?: Gio.Cancellable | null): [ /* returnType */ GLib.Variant, /* outFdList */ Gio.UnixFDList | null ]
+    callWithUnixFdListFinish(res: Gio.AsyncResult): { returnType: GLib.Variant, outFdList: Gio.UnixFDList | null }
+    callWithUnixFdListSync(methodName: string, parameters: GLib.Variant | null, flags: Gio.DBusCallFlags, timeoutMsec: number, fdList?: Gio.UnixFDList | null, cancellable?: Gio.Cancellable | null): { returnType: GLib.Variant, outFdList: Gio.UnixFDList | null }
     getCachedProperty(propertyName: string): GLib.Variant | null
     getCachedPropertyNames(): string[] | null
     getConnection(): Gio.DBusConnection
@@ -1308,7 +1190,7 @@ export class ChatProxy {
     setCachedProperty(propertyName: string, value?: GLib.Variant | null): void
     setDefaultTimeout(timeoutMsec: number): void
     setInterfaceInfo(info?: Gio.DBusInterfaceInfo | null): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -1330,54 +1212,33 @@ export class ChatProxy {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of Gio.AsyncInitable */
+    /* Methods of Gio-2.0.Gio.AsyncInitable */
     initAsync(ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     initFinish(res: Gio.AsyncResult): boolean
     newFinish(res: Gio.AsyncResult): GObject.Object
-    /* Methods of Gio.DBusInterface */
+    /* Methods of Gio-2.0.Gio.DBusInterface */
     getObject(): Gio.DBusObject | null
     getInfo(): Gio.DBusInterfaceInfo
     setObject(object?: Gio.DBusObject | null): void
-    /* Methods of Gio.Initable */
+    /* Methods of Gio-2.0.Gio.Initable */
     init(cancellable?: Gio.Cancellable | null): boolean
-    /* Virtual methods of Goa.ChatProxy */
-    vfuncInitAsync(ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    vfuncInitFinish(res: Gio.AsyncResult): boolean
-    vfuncDupObject(): Gio.DBusObject | null
-    vfuncGetInfo(): Gio.DBusInterfaceInfo
-    vfuncSetObject(object?: Gio.DBusObject | null): void
-    vfuncInit(cancellable?: Gio.Cancellable | null): boolean
-    /* Virtual methods of Gio.DBusProxy */
-    vfuncGPropertiesChanged(changedProperties: GLib.Variant, invalidatedProperties: string): void
-    vfuncGSignal(senderName: string, signalName: string, parameters: GLib.Variant): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gio.DBusProxy */
+    /* Signals of Gio-2.0.Gio.DBusProxy */
     connect(sigName: "g-properties-changed", callback: (($obj: ChatProxy, changedProperties: GLib.Variant, invalidatedProperties: string[]) => void)): number
-    connect_after(sigName: "g-properties-changed", callback: (($obj: ChatProxy, changedProperties: GLib.Variant, invalidatedProperties: string[]) => void)): number
+    on(sigName: "g-properties-changed", callback: (changedProperties: GLib.Variant, invalidatedProperties: string[]) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "g-properties-changed", callback: (changedProperties: GLib.Variant, invalidatedProperties: string[]) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "g-properties-changed", callback: (changedProperties: GLib.Variant, invalidatedProperties: string[]) => void): NodeJS.EventEmitter
     emit(sigName: "g-properties-changed", changedProperties: GLib.Variant, invalidatedProperties: string[]): void
-    on(sigName: "g-properties-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "g-properties-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "g-properties-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "g-signal", callback: (($obj: ChatProxy, senderName: string | null, signalName: string, parameters: GLib.Variant) => void)): number
-    connect_after(sigName: "g-signal", callback: (($obj: ChatProxy, senderName: string | null, signalName: string, parameters: GLib.Variant) => void)): number
+    on(sigName: "g-signal", callback: (senderName: string | null, signalName: string, parameters: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "g-signal", callback: (senderName: string | null, signalName: string, parameters: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "g-signal", callback: (senderName: string | null, signalName: string, parameters: GLib.Variant) => void): NodeJS.EventEmitter
     emit(sigName: "g-signal", senderName: string | null, signalName: string, parameters: GLib.Variant): void
-    on(sigName: "g-signal", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "g-signal", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "g-signal", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: ChatProxy, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: ChatProxy, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::g-default-timeout", callback: (($obj: ChatProxy, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::g-default-timeout", callback: (($obj: ChatProxy, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::g-default-timeout", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -1421,11 +1282,11 @@ export class ChatProxy {
 export interface ChatSkeleton_ConstructProps extends Gio.DBusInterfaceSkeleton_ConstructProps {
 }
 export class ChatSkeleton {
-    /* Properties of Gio.DBusInterfaceSkeleton */
+    /* Properties of Gio-2.0.Gio.DBusInterfaceSkeleton */
     gFlags: Gio.DBusInterfaceSkeletonFlags
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Gio.DBusInterfaceSkeleton */
+    /* Methods of Gio-2.0.Gio.DBusInterfaceSkeleton */
     export(connection: Gio.DBusConnection, objectPath: string): boolean
     flush(): void
     getConnection(): Gio.DBusConnection | null
@@ -1438,7 +1299,7 @@ export class ChatSkeleton {
     setFlags(flags: Gio.DBusInterfaceSkeletonFlags): void
     unexport(): void
     unexportFromConnection(connection: Gio.DBusConnection): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -1460,40 +1321,21 @@ export class ChatSkeleton {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of Gio.DBusInterface */
+    /* Methods of Gio-2.0.Gio.DBusInterface */
     getObject(): Gio.DBusObject | null
     setObject(object?: Gio.DBusObject | null): void
-    /* Virtual methods of Goa.ChatSkeleton */
-    vfuncDupObject(): Gio.DBusObject | null
-    vfuncGetInfo(): Gio.DBusInterfaceInfo
-    vfuncSetObject(object?: Gio.DBusObject | null): void
-    /* Virtual methods of Gio.DBusInterfaceSkeleton */
-    vfuncFlush(): void
-    vfuncGAuthorizeMethod(invocation: Gio.DBusMethodInvocation): boolean
-    vfuncGetInfo(): Gio.DBusInterfaceInfo
-    vfuncGetProperties(): GLib.Variant
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gio.DBusInterfaceSkeleton */
+    /* Signals of Gio-2.0.Gio.DBusInterfaceSkeleton */
     connect(sigName: "g-authorize-method", callback: (($obj: ChatSkeleton, invocation: Gio.DBusMethodInvocation) => boolean)): number
-    connect_after(sigName: "g-authorize-method", callback: (($obj: ChatSkeleton, invocation: Gio.DBusMethodInvocation) => boolean)): number
+    on(sigName: "g-authorize-method", callback: (invocation: Gio.DBusMethodInvocation) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "g-authorize-method", callback: (invocation: Gio.DBusMethodInvocation) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "g-authorize-method", callback: (invocation: Gio.DBusMethodInvocation) => void): NodeJS.EventEmitter
     emit(sigName: "g-authorize-method", invocation: Gio.DBusMethodInvocation): void
-    on(sigName: "g-authorize-method", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "g-authorize-method", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "g-authorize-method", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: ChatSkeleton, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: ChatSkeleton, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::g-flags", callback: (($obj: ChatSkeleton, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::g-flags", callback: (($obj: ChatSkeleton, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::g-flags", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -1518,16 +1360,16 @@ export class ChatSkeleton {
 export interface Client_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class Client {
-    /* Properties of Goa.Client */
+    /* Properties of Goa-1.0.Goa.Client */
     readonly objectManager: Gio.DBusObjectManager
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Goa.Client */
+    /* Methods of Goa-1.0.Goa.Client */
     getAccounts(): Object[]
     getManager(): Manager | null
     getObjectManager(): Gio.DBusObjectManager
     lookupById(id: string): Object
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -1549,50 +1391,34 @@ export class Client {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of Gio.AsyncInitable */
+    /* Methods of Gio-2.0.Gio.AsyncInitable */
     initAsync(ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     initFinish(res: Gio.AsyncResult): boolean
     newFinish(res: Gio.AsyncResult): GObject.Object
-    /* Methods of Gio.Initable */
+    /* Methods of Gio-2.0.Gio.Initable */
     init(cancellable?: Gio.Cancellable | null): boolean
-    /* Virtual methods of Goa.Client */
-    vfuncInitAsync(ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    vfuncInitFinish(res: Gio.AsyncResult): boolean
-    vfuncInit(cancellable?: Gio.Cancellable | null): boolean
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Goa.Client */
+    /* Signals of Goa-1.0.Goa.Client */
     connect(sigName: "account-added", callback: (($obj: Client, object: Object) => void)): number
-    connect_after(sigName: "account-added", callback: (($obj: Client, object: Object) => void)): number
+    on(sigName: "account-added", callback: (object: Object) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "account-added", callback: (object: Object) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "account-added", callback: (object: Object) => void): NodeJS.EventEmitter
     emit(sigName: "account-added", object: Object): void
-    on(sigName: "account-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "account-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "account-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "account-changed", callback: (($obj: Client, object: Object) => void)): number
-    connect_after(sigName: "account-changed", callback: (($obj: Client, object: Object) => void)): number
+    on(sigName: "account-changed", callback: (object: Object) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "account-changed", callback: (object: Object) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "account-changed", callback: (object: Object) => void): NodeJS.EventEmitter
     emit(sigName: "account-changed", object: Object): void
-    on(sigName: "account-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "account-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "account-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "account-removed", callback: (($obj: Client, object: Object) => void)): number
-    connect_after(sigName: "account-removed", callback: (($obj: Client, object: Object) => void)): number
+    on(sigName: "account-removed", callback: (object: Object) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "account-removed", callback: (object: Object) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "account-removed", callback: (object: Object) => void): NodeJS.EventEmitter
     emit(sigName: "account-removed", object: Object): void
-    on(sigName: "account-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "account-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "account-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Client, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Client, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::object-manager", callback: (($obj: Client, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::object-manager", callback: (($obj: Client, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::object-manager", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -1620,22 +1446,22 @@ export interface ContactsProxy_ConstructProps extends Gio.DBusProxy_ConstructPro
     uri?: string
 }
 export class ContactsProxy {
-    /* Properties of Gio.DBusProxy */
+    /* Properties of Gio-2.0.Gio.DBusProxy */
     gDefaultTimeout: number
     gInterfaceInfo: Gio.DBusInterfaceInfo
     readonly gNameOwner: string
-    /* Properties of Goa.Contacts */
+    /* Properties of Goa-1.0.Goa.Contacts */
     acceptSslErrors: boolean
     uri: string
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Gio.DBusProxy */
+    /* Methods of Gio-2.0.Gio.DBusProxy */
     call(methodName: string, parameters: GLib.Variant | null, flags: Gio.DBusCallFlags, timeoutMsec: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     callFinish(res: Gio.AsyncResult): GLib.Variant
     callSync(methodName: string, parameters: GLib.Variant | null, flags: Gio.DBusCallFlags, timeoutMsec: number, cancellable?: Gio.Cancellable | null): GLib.Variant
     callWithUnixFdList(methodName: string, parameters: GLib.Variant | null, flags: Gio.DBusCallFlags, timeoutMsec: number, fdList?: Gio.UnixFDList | null, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    callWithUnixFdListFinish(res: Gio.AsyncResult): [ /* returnType */ GLib.Variant, /* outFdList */ Gio.UnixFDList | null ]
-    callWithUnixFdListSync(methodName: string, parameters: GLib.Variant | null, flags: Gio.DBusCallFlags, timeoutMsec: number, fdList?: Gio.UnixFDList | null, cancellable?: Gio.Cancellable | null): [ /* returnType */ GLib.Variant, /* outFdList */ Gio.UnixFDList | null ]
+    callWithUnixFdListFinish(res: Gio.AsyncResult): { returnType: GLib.Variant, outFdList: Gio.UnixFDList | null }
+    callWithUnixFdListSync(methodName: string, parameters: GLib.Variant | null, flags: Gio.DBusCallFlags, timeoutMsec: number, fdList?: Gio.UnixFDList | null, cancellable?: Gio.Cancellable | null): { returnType: GLib.Variant, outFdList: Gio.UnixFDList | null }
     getCachedProperty(propertyName: string): GLib.Variant | null
     getCachedPropertyNames(): string[] | null
     getConnection(): Gio.DBusConnection
@@ -1649,7 +1475,7 @@ export class ContactsProxy {
     setCachedProperty(propertyName: string, value?: GLib.Variant | null): void
     setDefaultTimeout(timeoutMsec: number): void
     setInterfaceInfo(info?: Gio.DBusInterfaceInfo | null): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -1671,54 +1497,33 @@ export class ContactsProxy {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of Gio.AsyncInitable */
+    /* Methods of Gio-2.0.Gio.AsyncInitable */
     initAsync(ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     initFinish(res: Gio.AsyncResult): boolean
     newFinish(res: Gio.AsyncResult): GObject.Object
-    /* Methods of Gio.DBusInterface */
+    /* Methods of Gio-2.0.Gio.DBusInterface */
     getObject(): Gio.DBusObject | null
     getInfo(): Gio.DBusInterfaceInfo
     setObject(object?: Gio.DBusObject | null): void
-    /* Methods of Gio.Initable */
+    /* Methods of Gio-2.0.Gio.Initable */
     init(cancellable?: Gio.Cancellable | null): boolean
-    /* Virtual methods of Goa.ContactsProxy */
-    vfuncInitAsync(ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    vfuncInitFinish(res: Gio.AsyncResult): boolean
-    vfuncDupObject(): Gio.DBusObject | null
-    vfuncGetInfo(): Gio.DBusInterfaceInfo
-    vfuncSetObject(object?: Gio.DBusObject | null): void
-    vfuncInit(cancellable?: Gio.Cancellable | null): boolean
-    /* Virtual methods of Gio.DBusProxy */
-    vfuncGPropertiesChanged(changedProperties: GLib.Variant, invalidatedProperties: string): void
-    vfuncGSignal(senderName: string, signalName: string, parameters: GLib.Variant): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gio.DBusProxy */
+    /* Signals of Gio-2.0.Gio.DBusProxy */
     connect(sigName: "g-properties-changed", callback: (($obj: ContactsProxy, changedProperties: GLib.Variant, invalidatedProperties: string[]) => void)): number
-    connect_after(sigName: "g-properties-changed", callback: (($obj: ContactsProxy, changedProperties: GLib.Variant, invalidatedProperties: string[]) => void)): number
+    on(sigName: "g-properties-changed", callback: (changedProperties: GLib.Variant, invalidatedProperties: string[]) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "g-properties-changed", callback: (changedProperties: GLib.Variant, invalidatedProperties: string[]) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "g-properties-changed", callback: (changedProperties: GLib.Variant, invalidatedProperties: string[]) => void): NodeJS.EventEmitter
     emit(sigName: "g-properties-changed", changedProperties: GLib.Variant, invalidatedProperties: string[]): void
-    on(sigName: "g-properties-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "g-properties-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "g-properties-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "g-signal", callback: (($obj: ContactsProxy, senderName: string | null, signalName: string, parameters: GLib.Variant) => void)): number
-    connect_after(sigName: "g-signal", callback: (($obj: ContactsProxy, senderName: string | null, signalName: string, parameters: GLib.Variant) => void)): number
+    on(sigName: "g-signal", callback: (senderName: string | null, signalName: string, parameters: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "g-signal", callback: (senderName: string | null, signalName: string, parameters: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "g-signal", callback: (senderName: string | null, signalName: string, parameters: GLib.Variant) => void): NodeJS.EventEmitter
     emit(sigName: "g-signal", senderName: string | null, signalName: string, parameters: GLib.Variant): void
-    on(sigName: "g-signal", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "g-signal", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "g-signal", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: ContactsProxy, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: ContactsProxy, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::g-default-timeout", callback: (($obj: ContactsProxy, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::g-default-timeout", callback: (($obj: ContactsProxy, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::g-default-timeout", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -1774,14 +1579,14 @@ export interface ContactsSkeleton_ConstructProps extends Gio.DBusInterfaceSkelet
     uri?: string
 }
 export class ContactsSkeleton {
-    /* Properties of Gio.DBusInterfaceSkeleton */
+    /* Properties of Gio-2.0.Gio.DBusInterfaceSkeleton */
     gFlags: Gio.DBusInterfaceSkeletonFlags
-    /* Properties of Goa.Contacts */
+    /* Properties of Goa-1.0.Goa.Contacts */
     acceptSslErrors: boolean
     uri: string
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Gio.DBusInterfaceSkeleton */
+    /* Methods of Gio-2.0.Gio.DBusInterfaceSkeleton */
     export(connection: Gio.DBusConnection, objectPath: string): boolean
     flush(): void
     getConnection(): Gio.DBusConnection | null
@@ -1794,7 +1599,7 @@ export class ContactsSkeleton {
     setFlags(flags: Gio.DBusInterfaceSkeletonFlags): void
     unexport(): void
     unexportFromConnection(connection: Gio.DBusConnection): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -1816,40 +1621,21 @@ export class ContactsSkeleton {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of Gio.DBusInterface */
+    /* Methods of Gio-2.0.Gio.DBusInterface */
     getObject(): Gio.DBusObject | null
     setObject(object?: Gio.DBusObject | null): void
-    /* Virtual methods of Goa.ContactsSkeleton */
-    vfuncDupObject(): Gio.DBusObject | null
-    vfuncGetInfo(): Gio.DBusInterfaceInfo
-    vfuncSetObject(object?: Gio.DBusObject | null): void
-    /* Virtual methods of Gio.DBusInterfaceSkeleton */
-    vfuncFlush(): void
-    vfuncGAuthorizeMethod(invocation: Gio.DBusMethodInvocation): boolean
-    vfuncGetInfo(): Gio.DBusInterfaceInfo
-    vfuncGetProperties(): GLib.Variant
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gio.DBusInterfaceSkeleton */
+    /* Signals of Gio-2.0.Gio.DBusInterfaceSkeleton */
     connect(sigName: "g-authorize-method", callback: (($obj: ContactsSkeleton, invocation: Gio.DBusMethodInvocation) => boolean)): number
-    connect_after(sigName: "g-authorize-method", callback: (($obj: ContactsSkeleton, invocation: Gio.DBusMethodInvocation) => boolean)): number
+    on(sigName: "g-authorize-method", callback: (invocation: Gio.DBusMethodInvocation) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "g-authorize-method", callback: (invocation: Gio.DBusMethodInvocation) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "g-authorize-method", callback: (invocation: Gio.DBusMethodInvocation) => void): NodeJS.EventEmitter
     emit(sigName: "g-authorize-method", invocation: Gio.DBusMethodInvocation): void
-    on(sigName: "g-authorize-method", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "g-authorize-method", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "g-authorize-method", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: ContactsSkeleton, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: ContactsSkeleton, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::g-flags", callback: (($obj: ContactsSkeleton, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::g-flags", callback: (($obj: ContactsSkeleton, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::g-flags", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -1884,19 +1670,19 @@ export class ContactsSkeleton {
 export interface DocumentsProxy_ConstructProps extends Gio.DBusProxy_ConstructProps {
 }
 export class DocumentsProxy {
-    /* Properties of Gio.DBusProxy */
+    /* Properties of Gio-2.0.Gio.DBusProxy */
     gDefaultTimeout: number
     gInterfaceInfo: Gio.DBusInterfaceInfo
     readonly gNameOwner: string
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Gio.DBusProxy */
+    /* Methods of Gio-2.0.Gio.DBusProxy */
     call(methodName: string, parameters: GLib.Variant | null, flags: Gio.DBusCallFlags, timeoutMsec: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     callFinish(res: Gio.AsyncResult): GLib.Variant
     callSync(methodName: string, parameters: GLib.Variant | null, flags: Gio.DBusCallFlags, timeoutMsec: number, cancellable?: Gio.Cancellable | null): GLib.Variant
     callWithUnixFdList(methodName: string, parameters: GLib.Variant | null, flags: Gio.DBusCallFlags, timeoutMsec: number, fdList?: Gio.UnixFDList | null, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    callWithUnixFdListFinish(res: Gio.AsyncResult): [ /* returnType */ GLib.Variant, /* outFdList */ Gio.UnixFDList | null ]
-    callWithUnixFdListSync(methodName: string, parameters: GLib.Variant | null, flags: Gio.DBusCallFlags, timeoutMsec: number, fdList?: Gio.UnixFDList | null, cancellable?: Gio.Cancellable | null): [ /* returnType */ GLib.Variant, /* outFdList */ Gio.UnixFDList | null ]
+    callWithUnixFdListFinish(res: Gio.AsyncResult): { returnType: GLib.Variant, outFdList: Gio.UnixFDList | null }
+    callWithUnixFdListSync(methodName: string, parameters: GLib.Variant | null, flags: Gio.DBusCallFlags, timeoutMsec: number, fdList?: Gio.UnixFDList | null, cancellable?: Gio.Cancellable | null): { returnType: GLib.Variant, outFdList: Gio.UnixFDList | null }
     getCachedProperty(propertyName: string): GLib.Variant | null
     getCachedPropertyNames(): string[] | null
     getConnection(): Gio.DBusConnection
@@ -1910,7 +1696,7 @@ export class DocumentsProxy {
     setCachedProperty(propertyName: string, value?: GLib.Variant | null): void
     setDefaultTimeout(timeoutMsec: number): void
     setInterfaceInfo(info?: Gio.DBusInterfaceInfo | null): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -1932,54 +1718,33 @@ export class DocumentsProxy {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of Gio.AsyncInitable */
+    /* Methods of Gio-2.0.Gio.AsyncInitable */
     initAsync(ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     initFinish(res: Gio.AsyncResult): boolean
     newFinish(res: Gio.AsyncResult): GObject.Object
-    /* Methods of Gio.DBusInterface */
+    /* Methods of Gio-2.0.Gio.DBusInterface */
     getObject(): Gio.DBusObject | null
     getInfo(): Gio.DBusInterfaceInfo
     setObject(object?: Gio.DBusObject | null): void
-    /* Methods of Gio.Initable */
+    /* Methods of Gio-2.0.Gio.Initable */
     init(cancellable?: Gio.Cancellable | null): boolean
-    /* Virtual methods of Goa.DocumentsProxy */
-    vfuncInitAsync(ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    vfuncInitFinish(res: Gio.AsyncResult): boolean
-    vfuncDupObject(): Gio.DBusObject | null
-    vfuncGetInfo(): Gio.DBusInterfaceInfo
-    vfuncSetObject(object?: Gio.DBusObject | null): void
-    vfuncInit(cancellable?: Gio.Cancellable | null): boolean
-    /* Virtual methods of Gio.DBusProxy */
-    vfuncGPropertiesChanged(changedProperties: GLib.Variant, invalidatedProperties: string): void
-    vfuncGSignal(senderName: string, signalName: string, parameters: GLib.Variant): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gio.DBusProxy */
+    /* Signals of Gio-2.0.Gio.DBusProxy */
     connect(sigName: "g-properties-changed", callback: (($obj: DocumentsProxy, changedProperties: GLib.Variant, invalidatedProperties: string[]) => void)): number
-    connect_after(sigName: "g-properties-changed", callback: (($obj: DocumentsProxy, changedProperties: GLib.Variant, invalidatedProperties: string[]) => void)): number
+    on(sigName: "g-properties-changed", callback: (changedProperties: GLib.Variant, invalidatedProperties: string[]) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "g-properties-changed", callback: (changedProperties: GLib.Variant, invalidatedProperties: string[]) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "g-properties-changed", callback: (changedProperties: GLib.Variant, invalidatedProperties: string[]) => void): NodeJS.EventEmitter
     emit(sigName: "g-properties-changed", changedProperties: GLib.Variant, invalidatedProperties: string[]): void
-    on(sigName: "g-properties-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "g-properties-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "g-properties-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "g-signal", callback: (($obj: DocumentsProxy, senderName: string | null, signalName: string, parameters: GLib.Variant) => void)): number
-    connect_after(sigName: "g-signal", callback: (($obj: DocumentsProxy, senderName: string | null, signalName: string, parameters: GLib.Variant) => void)): number
+    on(sigName: "g-signal", callback: (senderName: string | null, signalName: string, parameters: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "g-signal", callback: (senderName: string | null, signalName: string, parameters: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "g-signal", callback: (senderName: string | null, signalName: string, parameters: GLib.Variant) => void): NodeJS.EventEmitter
     emit(sigName: "g-signal", senderName: string | null, signalName: string, parameters: GLib.Variant): void
-    on(sigName: "g-signal", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "g-signal", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "g-signal", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: DocumentsProxy, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: DocumentsProxy, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::g-default-timeout", callback: (($obj: DocumentsProxy, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::g-default-timeout", callback: (($obj: DocumentsProxy, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::g-default-timeout", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -2023,11 +1788,11 @@ export class DocumentsProxy {
 export interface DocumentsSkeleton_ConstructProps extends Gio.DBusInterfaceSkeleton_ConstructProps {
 }
 export class DocumentsSkeleton {
-    /* Properties of Gio.DBusInterfaceSkeleton */
+    /* Properties of Gio-2.0.Gio.DBusInterfaceSkeleton */
     gFlags: Gio.DBusInterfaceSkeletonFlags
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Gio.DBusInterfaceSkeleton */
+    /* Methods of Gio-2.0.Gio.DBusInterfaceSkeleton */
     export(connection: Gio.DBusConnection, objectPath: string): boolean
     flush(): void
     getConnection(): Gio.DBusConnection | null
@@ -2040,7 +1805,7 @@ export class DocumentsSkeleton {
     setFlags(flags: Gio.DBusInterfaceSkeletonFlags): void
     unexport(): void
     unexportFromConnection(connection: Gio.DBusConnection): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -2062,40 +1827,21 @@ export class DocumentsSkeleton {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of Gio.DBusInterface */
+    /* Methods of Gio-2.0.Gio.DBusInterface */
     getObject(): Gio.DBusObject | null
     setObject(object?: Gio.DBusObject | null): void
-    /* Virtual methods of Goa.DocumentsSkeleton */
-    vfuncDupObject(): Gio.DBusObject | null
-    vfuncGetInfo(): Gio.DBusInterfaceInfo
-    vfuncSetObject(object?: Gio.DBusObject | null): void
-    /* Virtual methods of Gio.DBusInterfaceSkeleton */
-    vfuncFlush(): void
-    vfuncGAuthorizeMethod(invocation: Gio.DBusMethodInvocation): boolean
-    vfuncGetInfo(): Gio.DBusInterfaceInfo
-    vfuncGetProperties(): GLib.Variant
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gio.DBusInterfaceSkeleton */
+    /* Signals of Gio-2.0.Gio.DBusInterfaceSkeleton */
     connect(sigName: "g-authorize-method", callback: (($obj: DocumentsSkeleton, invocation: Gio.DBusMethodInvocation) => boolean)): number
-    connect_after(sigName: "g-authorize-method", callback: (($obj: DocumentsSkeleton, invocation: Gio.DBusMethodInvocation) => boolean)): number
+    on(sigName: "g-authorize-method", callback: (invocation: Gio.DBusMethodInvocation) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "g-authorize-method", callback: (invocation: Gio.DBusMethodInvocation) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "g-authorize-method", callback: (invocation: Gio.DBusMethodInvocation) => void): NodeJS.EventEmitter
     emit(sigName: "g-authorize-method", invocation: Gio.DBusMethodInvocation): void
-    on(sigName: "g-authorize-method", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "g-authorize-method", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "g-authorize-method", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: DocumentsSkeleton, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: DocumentsSkeleton, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::g-flags", callback: (($obj: DocumentsSkeleton, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::g-flags", callback: (($obj: DocumentsSkeleton, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::g-flags", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -2122,22 +1868,22 @@ export interface ExchangeProxy_ConstructProps extends Gio.DBusProxy_ConstructPro
     host?: string
 }
 export class ExchangeProxy {
-    /* Properties of Gio.DBusProxy */
+    /* Properties of Gio-2.0.Gio.DBusProxy */
     gDefaultTimeout: number
     gInterfaceInfo: Gio.DBusInterfaceInfo
     readonly gNameOwner: string
-    /* Properties of Goa.Exchange */
+    /* Properties of Goa-1.0.Goa.Exchange */
     acceptSslErrors: boolean
     host: string
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Gio.DBusProxy */
+    /* Methods of Gio-2.0.Gio.DBusProxy */
     call(methodName: string, parameters: GLib.Variant | null, flags: Gio.DBusCallFlags, timeoutMsec: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     callFinish(res: Gio.AsyncResult): GLib.Variant
     callSync(methodName: string, parameters: GLib.Variant | null, flags: Gio.DBusCallFlags, timeoutMsec: number, cancellable?: Gio.Cancellable | null): GLib.Variant
     callWithUnixFdList(methodName: string, parameters: GLib.Variant | null, flags: Gio.DBusCallFlags, timeoutMsec: number, fdList?: Gio.UnixFDList | null, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    callWithUnixFdListFinish(res: Gio.AsyncResult): [ /* returnType */ GLib.Variant, /* outFdList */ Gio.UnixFDList | null ]
-    callWithUnixFdListSync(methodName: string, parameters: GLib.Variant | null, flags: Gio.DBusCallFlags, timeoutMsec: number, fdList?: Gio.UnixFDList | null, cancellable?: Gio.Cancellable | null): [ /* returnType */ GLib.Variant, /* outFdList */ Gio.UnixFDList | null ]
+    callWithUnixFdListFinish(res: Gio.AsyncResult): { returnType: GLib.Variant, outFdList: Gio.UnixFDList | null }
+    callWithUnixFdListSync(methodName: string, parameters: GLib.Variant | null, flags: Gio.DBusCallFlags, timeoutMsec: number, fdList?: Gio.UnixFDList | null, cancellable?: Gio.Cancellable | null): { returnType: GLib.Variant, outFdList: Gio.UnixFDList | null }
     getCachedProperty(propertyName: string): GLib.Variant | null
     getCachedPropertyNames(): string[] | null
     getConnection(): Gio.DBusConnection
@@ -2151,7 +1897,7 @@ export class ExchangeProxy {
     setCachedProperty(propertyName: string, value?: GLib.Variant | null): void
     setDefaultTimeout(timeoutMsec: number): void
     setInterfaceInfo(info?: Gio.DBusInterfaceInfo | null): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -2173,54 +1919,33 @@ export class ExchangeProxy {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of Gio.AsyncInitable */
+    /* Methods of Gio-2.0.Gio.AsyncInitable */
     initAsync(ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     initFinish(res: Gio.AsyncResult): boolean
     newFinish(res: Gio.AsyncResult): GObject.Object
-    /* Methods of Gio.DBusInterface */
+    /* Methods of Gio-2.0.Gio.DBusInterface */
     getObject(): Gio.DBusObject | null
     getInfo(): Gio.DBusInterfaceInfo
     setObject(object?: Gio.DBusObject | null): void
-    /* Methods of Gio.Initable */
+    /* Methods of Gio-2.0.Gio.Initable */
     init(cancellable?: Gio.Cancellable | null): boolean
-    /* Virtual methods of Goa.ExchangeProxy */
-    vfuncInitAsync(ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    vfuncInitFinish(res: Gio.AsyncResult): boolean
-    vfuncDupObject(): Gio.DBusObject | null
-    vfuncGetInfo(): Gio.DBusInterfaceInfo
-    vfuncSetObject(object?: Gio.DBusObject | null): void
-    vfuncInit(cancellable?: Gio.Cancellable | null): boolean
-    /* Virtual methods of Gio.DBusProxy */
-    vfuncGPropertiesChanged(changedProperties: GLib.Variant, invalidatedProperties: string): void
-    vfuncGSignal(senderName: string, signalName: string, parameters: GLib.Variant): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gio.DBusProxy */
+    /* Signals of Gio-2.0.Gio.DBusProxy */
     connect(sigName: "g-properties-changed", callback: (($obj: ExchangeProxy, changedProperties: GLib.Variant, invalidatedProperties: string[]) => void)): number
-    connect_after(sigName: "g-properties-changed", callback: (($obj: ExchangeProxy, changedProperties: GLib.Variant, invalidatedProperties: string[]) => void)): number
+    on(sigName: "g-properties-changed", callback: (changedProperties: GLib.Variant, invalidatedProperties: string[]) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "g-properties-changed", callback: (changedProperties: GLib.Variant, invalidatedProperties: string[]) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "g-properties-changed", callback: (changedProperties: GLib.Variant, invalidatedProperties: string[]) => void): NodeJS.EventEmitter
     emit(sigName: "g-properties-changed", changedProperties: GLib.Variant, invalidatedProperties: string[]): void
-    on(sigName: "g-properties-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "g-properties-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "g-properties-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "g-signal", callback: (($obj: ExchangeProxy, senderName: string | null, signalName: string, parameters: GLib.Variant) => void)): number
-    connect_after(sigName: "g-signal", callback: (($obj: ExchangeProxy, senderName: string | null, signalName: string, parameters: GLib.Variant) => void)): number
+    on(sigName: "g-signal", callback: (senderName: string | null, signalName: string, parameters: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "g-signal", callback: (senderName: string | null, signalName: string, parameters: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "g-signal", callback: (senderName: string | null, signalName: string, parameters: GLib.Variant) => void): NodeJS.EventEmitter
     emit(sigName: "g-signal", senderName: string | null, signalName: string, parameters: GLib.Variant): void
-    on(sigName: "g-signal", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "g-signal", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "g-signal", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: ExchangeProxy, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: ExchangeProxy, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::g-default-timeout", callback: (($obj: ExchangeProxy, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::g-default-timeout", callback: (($obj: ExchangeProxy, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::g-default-timeout", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -2276,14 +2001,14 @@ export interface ExchangeSkeleton_ConstructProps extends Gio.DBusInterfaceSkelet
     host?: string
 }
 export class ExchangeSkeleton {
-    /* Properties of Gio.DBusInterfaceSkeleton */
+    /* Properties of Gio-2.0.Gio.DBusInterfaceSkeleton */
     gFlags: Gio.DBusInterfaceSkeletonFlags
-    /* Properties of Goa.Exchange */
+    /* Properties of Goa-1.0.Goa.Exchange */
     acceptSslErrors: boolean
     host: string
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Gio.DBusInterfaceSkeleton */
+    /* Methods of Gio-2.0.Gio.DBusInterfaceSkeleton */
     export(connection: Gio.DBusConnection, objectPath: string): boolean
     flush(): void
     getConnection(): Gio.DBusConnection | null
@@ -2296,7 +2021,7 @@ export class ExchangeSkeleton {
     setFlags(flags: Gio.DBusInterfaceSkeletonFlags): void
     unexport(): void
     unexportFromConnection(connection: Gio.DBusConnection): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -2318,40 +2043,21 @@ export class ExchangeSkeleton {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of Gio.DBusInterface */
+    /* Methods of Gio-2.0.Gio.DBusInterface */
     getObject(): Gio.DBusObject | null
     setObject(object?: Gio.DBusObject | null): void
-    /* Virtual methods of Goa.ExchangeSkeleton */
-    vfuncDupObject(): Gio.DBusObject | null
-    vfuncGetInfo(): Gio.DBusInterfaceInfo
-    vfuncSetObject(object?: Gio.DBusObject | null): void
-    /* Virtual methods of Gio.DBusInterfaceSkeleton */
-    vfuncFlush(): void
-    vfuncGAuthorizeMethod(invocation: Gio.DBusMethodInvocation): boolean
-    vfuncGetInfo(): Gio.DBusInterfaceInfo
-    vfuncGetProperties(): GLib.Variant
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gio.DBusInterfaceSkeleton */
+    /* Signals of Gio-2.0.Gio.DBusInterfaceSkeleton */
     connect(sigName: "g-authorize-method", callback: (($obj: ExchangeSkeleton, invocation: Gio.DBusMethodInvocation) => boolean)): number
-    connect_after(sigName: "g-authorize-method", callback: (($obj: ExchangeSkeleton, invocation: Gio.DBusMethodInvocation) => boolean)): number
+    on(sigName: "g-authorize-method", callback: (invocation: Gio.DBusMethodInvocation) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "g-authorize-method", callback: (invocation: Gio.DBusMethodInvocation) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "g-authorize-method", callback: (invocation: Gio.DBusMethodInvocation) => void): NodeJS.EventEmitter
     emit(sigName: "g-authorize-method", invocation: Gio.DBusMethodInvocation): void
-    on(sigName: "g-authorize-method", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "g-authorize-method", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "g-authorize-method", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: ExchangeSkeleton, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: ExchangeSkeleton, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::g-flags", callback: (($obj: ExchangeSkeleton, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::g-flags", callback: (($obj: ExchangeSkeleton, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::g-flags", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -2388,22 +2094,22 @@ export interface FilesProxy_ConstructProps extends Gio.DBusProxy_ConstructProps 
     uri?: string
 }
 export class FilesProxy {
-    /* Properties of Gio.DBusProxy */
+    /* Properties of Gio-2.0.Gio.DBusProxy */
     gDefaultTimeout: number
     gInterfaceInfo: Gio.DBusInterfaceInfo
     readonly gNameOwner: string
-    /* Properties of Goa.Files */
+    /* Properties of Goa-1.0.Goa.Files */
     acceptSslErrors: boolean
     uri: string
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Gio.DBusProxy */
+    /* Methods of Gio-2.0.Gio.DBusProxy */
     call(methodName: string, parameters: GLib.Variant | null, flags: Gio.DBusCallFlags, timeoutMsec: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     callFinish(res: Gio.AsyncResult): GLib.Variant
     callSync(methodName: string, parameters: GLib.Variant | null, flags: Gio.DBusCallFlags, timeoutMsec: number, cancellable?: Gio.Cancellable | null): GLib.Variant
     callWithUnixFdList(methodName: string, parameters: GLib.Variant | null, flags: Gio.DBusCallFlags, timeoutMsec: number, fdList?: Gio.UnixFDList | null, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    callWithUnixFdListFinish(res: Gio.AsyncResult): [ /* returnType */ GLib.Variant, /* outFdList */ Gio.UnixFDList | null ]
-    callWithUnixFdListSync(methodName: string, parameters: GLib.Variant | null, flags: Gio.DBusCallFlags, timeoutMsec: number, fdList?: Gio.UnixFDList | null, cancellable?: Gio.Cancellable | null): [ /* returnType */ GLib.Variant, /* outFdList */ Gio.UnixFDList | null ]
+    callWithUnixFdListFinish(res: Gio.AsyncResult): { returnType: GLib.Variant, outFdList: Gio.UnixFDList | null }
+    callWithUnixFdListSync(methodName: string, parameters: GLib.Variant | null, flags: Gio.DBusCallFlags, timeoutMsec: number, fdList?: Gio.UnixFDList | null, cancellable?: Gio.Cancellable | null): { returnType: GLib.Variant, outFdList: Gio.UnixFDList | null }
     getCachedProperty(propertyName: string): GLib.Variant | null
     getCachedPropertyNames(): string[] | null
     getConnection(): Gio.DBusConnection
@@ -2417,7 +2123,7 @@ export class FilesProxy {
     setCachedProperty(propertyName: string, value?: GLib.Variant | null): void
     setDefaultTimeout(timeoutMsec: number): void
     setInterfaceInfo(info?: Gio.DBusInterfaceInfo | null): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -2439,54 +2145,33 @@ export class FilesProxy {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of Gio.AsyncInitable */
+    /* Methods of Gio-2.0.Gio.AsyncInitable */
     initAsync(ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     initFinish(res: Gio.AsyncResult): boolean
     newFinish(res: Gio.AsyncResult): GObject.Object
-    /* Methods of Gio.DBusInterface */
+    /* Methods of Gio-2.0.Gio.DBusInterface */
     getObject(): Gio.DBusObject | null
     getInfo(): Gio.DBusInterfaceInfo
     setObject(object?: Gio.DBusObject | null): void
-    /* Methods of Gio.Initable */
+    /* Methods of Gio-2.0.Gio.Initable */
     init(cancellable?: Gio.Cancellable | null): boolean
-    /* Virtual methods of Goa.FilesProxy */
-    vfuncInitAsync(ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    vfuncInitFinish(res: Gio.AsyncResult): boolean
-    vfuncDupObject(): Gio.DBusObject | null
-    vfuncGetInfo(): Gio.DBusInterfaceInfo
-    vfuncSetObject(object?: Gio.DBusObject | null): void
-    vfuncInit(cancellable?: Gio.Cancellable | null): boolean
-    /* Virtual methods of Gio.DBusProxy */
-    vfuncGPropertiesChanged(changedProperties: GLib.Variant, invalidatedProperties: string): void
-    vfuncGSignal(senderName: string, signalName: string, parameters: GLib.Variant): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gio.DBusProxy */
+    /* Signals of Gio-2.0.Gio.DBusProxy */
     connect(sigName: "g-properties-changed", callback: (($obj: FilesProxy, changedProperties: GLib.Variant, invalidatedProperties: string[]) => void)): number
-    connect_after(sigName: "g-properties-changed", callback: (($obj: FilesProxy, changedProperties: GLib.Variant, invalidatedProperties: string[]) => void)): number
+    on(sigName: "g-properties-changed", callback: (changedProperties: GLib.Variant, invalidatedProperties: string[]) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "g-properties-changed", callback: (changedProperties: GLib.Variant, invalidatedProperties: string[]) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "g-properties-changed", callback: (changedProperties: GLib.Variant, invalidatedProperties: string[]) => void): NodeJS.EventEmitter
     emit(sigName: "g-properties-changed", changedProperties: GLib.Variant, invalidatedProperties: string[]): void
-    on(sigName: "g-properties-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "g-properties-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "g-properties-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "g-signal", callback: (($obj: FilesProxy, senderName: string | null, signalName: string, parameters: GLib.Variant) => void)): number
-    connect_after(sigName: "g-signal", callback: (($obj: FilesProxy, senderName: string | null, signalName: string, parameters: GLib.Variant) => void)): number
+    on(sigName: "g-signal", callback: (senderName: string | null, signalName: string, parameters: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "g-signal", callback: (senderName: string | null, signalName: string, parameters: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "g-signal", callback: (senderName: string | null, signalName: string, parameters: GLib.Variant) => void): NodeJS.EventEmitter
     emit(sigName: "g-signal", senderName: string | null, signalName: string, parameters: GLib.Variant): void
-    on(sigName: "g-signal", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "g-signal", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "g-signal", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: FilesProxy, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: FilesProxy, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::g-default-timeout", callback: (($obj: FilesProxy, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::g-default-timeout", callback: (($obj: FilesProxy, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::g-default-timeout", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -2542,14 +2227,14 @@ export interface FilesSkeleton_ConstructProps extends Gio.DBusInterfaceSkeleton_
     uri?: string
 }
 export class FilesSkeleton {
-    /* Properties of Gio.DBusInterfaceSkeleton */
+    /* Properties of Gio-2.0.Gio.DBusInterfaceSkeleton */
     gFlags: Gio.DBusInterfaceSkeletonFlags
-    /* Properties of Goa.Files */
+    /* Properties of Goa-1.0.Goa.Files */
     acceptSslErrors: boolean
     uri: string
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Gio.DBusInterfaceSkeleton */
+    /* Methods of Gio-2.0.Gio.DBusInterfaceSkeleton */
     export(connection: Gio.DBusConnection, objectPath: string): boolean
     flush(): void
     getConnection(): Gio.DBusConnection | null
@@ -2562,7 +2247,7 @@ export class FilesSkeleton {
     setFlags(flags: Gio.DBusInterfaceSkeletonFlags): void
     unexport(): void
     unexportFromConnection(connection: Gio.DBusConnection): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -2584,40 +2269,21 @@ export class FilesSkeleton {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of Gio.DBusInterface */
+    /* Methods of Gio-2.0.Gio.DBusInterface */
     getObject(): Gio.DBusObject | null
     setObject(object?: Gio.DBusObject | null): void
-    /* Virtual methods of Goa.FilesSkeleton */
-    vfuncDupObject(): Gio.DBusObject | null
-    vfuncGetInfo(): Gio.DBusInterfaceInfo
-    vfuncSetObject(object?: Gio.DBusObject | null): void
-    /* Virtual methods of Gio.DBusInterfaceSkeleton */
-    vfuncFlush(): void
-    vfuncGAuthorizeMethod(invocation: Gio.DBusMethodInvocation): boolean
-    vfuncGetInfo(): Gio.DBusInterfaceInfo
-    vfuncGetProperties(): GLib.Variant
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gio.DBusInterfaceSkeleton */
+    /* Signals of Gio-2.0.Gio.DBusInterfaceSkeleton */
     connect(sigName: "g-authorize-method", callback: (($obj: FilesSkeleton, invocation: Gio.DBusMethodInvocation) => boolean)): number
-    connect_after(sigName: "g-authorize-method", callback: (($obj: FilesSkeleton, invocation: Gio.DBusMethodInvocation) => boolean)): number
+    on(sigName: "g-authorize-method", callback: (invocation: Gio.DBusMethodInvocation) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "g-authorize-method", callback: (invocation: Gio.DBusMethodInvocation) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "g-authorize-method", callback: (invocation: Gio.DBusMethodInvocation) => void): NodeJS.EventEmitter
     emit(sigName: "g-authorize-method", invocation: Gio.DBusMethodInvocation): void
-    on(sigName: "g-authorize-method", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "g-authorize-method", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "g-authorize-method", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: FilesSkeleton, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: FilesSkeleton, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::g-flags", callback: (($obj: FilesSkeleton, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::g-flags", callback: (($obj: FilesSkeleton, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::g-flags", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -2670,11 +2336,11 @@ export interface MailProxy_ConstructProps extends Gio.DBusProxy_ConstructProps {
     smtpUserName?: string
 }
 export class MailProxy {
-    /* Properties of Gio.DBusProxy */
+    /* Properties of Gio-2.0.Gio.DBusProxy */
     gDefaultTimeout: number
     gInterfaceInfo: Gio.DBusInterfaceInfo
     readonly gNameOwner: string
-    /* Properties of Goa.Mail */
+    /* Properties of Goa-1.0.Goa.Mail */
     emailAddress: string
     imapAcceptSslErrors: boolean
     imapHost: string
@@ -2693,15 +2359,15 @@ export class MailProxy {
     smtpUseSsl: boolean
     smtpUseTls: boolean
     smtpUserName: string
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Gio.DBusProxy */
+    /* Methods of Gio-2.0.Gio.DBusProxy */
     call(methodName: string, parameters: GLib.Variant | null, flags: Gio.DBusCallFlags, timeoutMsec: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     callFinish(res: Gio.AsyncResult): GLib.Variant
     callSync(methodName: string, parameters: GLib.Variant | null, flags: Gio.DBusCallFlags, timeoutMsec: number, cancellable?: Gio.Cancellable | null): GLib.Variant
     callWithUnixFdList(methodName: string, parameters: GLib.Variant | null, flags: Gio.DBusCallFlags, timeoutMsec: number, fdList?: Gio.UnixFDList | null, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    callWithUnixFdListFinish(res: Gio.AsyncResult): [ /* returnType */ GLib.Variant, /* outFdList */ Gio.UnixFDList | null ]
-    callWithUnixFdListSync(methodName: string, parameters: GLib.Variant | null, flags: Gio.DBusCallFlags, timeoutMsec: number, fdList?: Gio.UnixFDList | null, cancellable?: Gio.Cancellable | null): [ /* returnType */ GLib.Variant, /* outFdList */ Gio.UnixFDList | null ]
+    callWithUnixFdListFinish(res: Gio.AsyncResult): { returnType: GLib.Variant, outFdList: Gio.UnixFDList | null }
+    callWithUnixFdListSync(methodName: string, parameters: GLib.Variant | null, flags: Gio.DBusCallFlags, timeoutMsec: number, fdList?: Gio.UnixFDList | null, cancellable?: Gio.Cancellable | null): { returnType: GLib.Variant, outFdList: Gio.UnixFDList | null }
     getCachedProperty(propertyName: string): GLib.Variant | null
     getCachedPropertyNames(): string[] | null
     getConnection(): Gio.DBusConnection
@@ -2715,7 +2381,7 @@ export class MailProxy {
     setCachedProperty(propertyName: string, value?: GLib.Variant | null): void
     setDefaultTimeout(timeoutMsec: number): void
     setInterfaceInfo(info?: Gio.DBusInterfaceInfo | null): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -2737,54 +2403,33 @@ export class MailProxy {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of Gio.AsyncInitable */
+    /* Methods of Gio-2.0.Gio.AsyncInitable */
     initAsync(ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     initFinish(res: Gio.AsyncResult): boolean
     newFinish(res: Gio.AsyncResult): GObject.Object
-    /* Methods of Gio.DBusInterface */
+    /* Methods of Gio-2.0.Gio.DBusInterface */
     getObject(): Gio.DBusObject | null
     getInfo(): Gio.DBusInterfaceInfo
     setObject(object?: Gio.DBusObject | null): void
-    /* Methods of Gio.Initable */
+    /* Methods of Gio-2.0.Gio.Initable */
     init(cancellable?: Gio.Cancellable | null): boolean
-    /* Virtual methods of Goa.MailProxy */
-    vfuncInitAsync(ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    vfuncInitFinish(res: Gio.AsyncResult): boolean
-    vfuncDupObject(): Gio.DBusObject | null
-    vfuncGetInfo(): Gio.DBusInterfaceInfo
-    vfuncSetObject(object?: Gio.DBusObject | null): void
-    vfuncInit(cancellable?: Gio.Cancellable | null): boolean
-    /* Virtual methods of Gio.DBusProxy */
-    vfuncGPropertiesChanged(changedProperties: GLib.Variant, invalidatedProperties: string): void
-    vfuncGSignal(senderName: string, signalName: string, parameters: GLib.Variant): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gio.DBusProxy */
+    /* Signals of Gio-2.0.Gio.DBusProxy */
     connect(sigName: "g-properties-changed", callback: (($obj: MailProxy, changedProperties: GLib.Variant, invalidatedProperties: string[]) => void)): number
-    connect_after(sigName: "g-properties-changed", callback: (($obj: MailProxy, changedProperties: GLib.Variant, invalidatedProperties: string[]) => void)): number
+    on(sigName: "g-properties-changed", callback: (changedProperties: GLib.Variant, invalidatedProperties: string[]) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "g-properties-changed", callback: (changedProperties: GLib.Variant, invalidatedProperties: string[]) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "g-properties-changed", callback: (changedProperties: GLib.Variant, invalidatedProperties: string[]) => void): NodeJS.EventEmitter
     emit(sigName: "g-properties-changed", changedProperties: GLib.Variant, invalidatedProperties: string[]): void
-    on(sigName: "g-properties-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "g-properties-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "g-properties-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "g-signal", callback: (($obj: MailProxy, senderName: string | null, signalName: string, parameters: GLib.Variant) => void)): number
-    connect_after(sigName: "g-signal", callback: (($obj: MailProxy, senderName: string | null, signalName: string, parameters: GLib.Variant) => void)): number
+    on(sigName: "g-signal", callback: (senderName: string | null, signalName: string, parameters: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "g-signal", callback: (senderName: string | null, signalName: string, parameters: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "g-signal", callback: (senderName: string | null, signalName: string, parameters: GLib.Variant) => void): NodeJS.EventEmitter
     emit(sigName: "g-signal", senderName: string | null, signalName: string, parameters: GLib.Variant): void
-    on(sigName: "g-signal", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "g-signal", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "g-signal", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: MailProxy, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: MailProxy, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::g-default-timeout", callback: (($obj: MailProxy, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::g-default-timeout", callback: (($obj: MailProxy, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::g-default-timeout", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -2936,9 +2581,9 @@ export interface MailSkeleton_ConstructProps extends Gio.DBusInterfaceSkeleton_C
     smtpUserName?: string
 }
 export class MailSkeleton {
-    /* Properties of Gio.DBusInterfaceSkeleton */
+    /* Properties of Gio-2.0.Gio.DBusInterfaceSkeleton */
     gFlags: Gio.DBusInterfaceSkeletonFlags
-    /* Properties of Goa.Mail */
+    /* Properties of Goa-1.0.Goa.Mail */
     emailAddress: string
     imapAcceptSslErrors: boolean
     imapHost: string
@@ -2957,9 +2602,9 @@ export class MailSkeleton {
     smtpUseSsl: boolean
     smtpUseTls: boolean
     smtpUserName: string
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Gio.DBusInterfaceSkeleton */
+    /* Methods of Gio-2.0.Gio.DBusInterfaceSkeleton */
     export(connection: Gio.DBusConnection, objectPath: string): boolean
     flush(): void
     getConnection(): Gio.DBusConnection | null
@@ -2972,7 +2617,7 @@ export class MailSkeleton {
     setFlags(flags: Gio.DBusInterfaceSkeletonFlags): void
     unexport(): void
     unexportFromConnection(connection: Gio.DBusConnection): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -2994,40 +2639,21 @@ export class MailSkeleton {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of Gio.DBusInterface */
+    /* Methods of Gio-2.0.Gio.DBusInterface */
     getObject(): Gio.DBusObject | null
     setObject(object?: Gio.DBusObject | null): void
-    /* Virtual methods of Goa.MailSkeleton */
-    vfuncDupObject(): Gio.DBusObject | null
-    vfuncGetInfo(): Gio.DBusInterfaceInfo
-    vfuncSetObject(object?: Gio.DBusObject | null): void
-    /* Virtual methods of Gio.DBusInterfaceSkeleton */
-    vfuncFlush(): void
-    vfuncGAuthorizeMethod(invocation: Gio.DBusMethodInvocation): boolean
-    vfuncGetInfo(): Gio.DBusInterfaceInfo
-    vfuncGetProperties(): GLib.Variant
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gio.DBusInterfaceSkeleton */
+    /* Signals of Gio-2.0.Gio.DBusInterfaceSkeleton */
     connect(sigName: "g-authorize-method", callback: (($obj: MailSkeleton, invocation: Gio.DBusMethodInvocation) => boolean)): number
-    connect_after(sigName: "g-authorize-method", callback: (($obj: MailSkeleton, invocation: Gio.DBusMethodInvocation) => boolean)): number
+    on(sigName: "g-authorize-method", callback: (invocation: Gio.DBusMethodInvocation) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "g-authorize-method", callback: (invocation: Gio.DBusMethodInvocation) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "g-authorize-method", callback: (invocation: Gio.DBusMethodInvocation) => void): NodeJS.EventEmitter
     emit(sigName: "g-authorize-method", invocation: Gio.DBusMethodInvocation): void
-    on(sigName: "g-authorize-method", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "g-authorize-method", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "g-authorize-method", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: MailSkeleton, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: MailSkeleton, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::g-flags", callback: (($obj: MailSkeleton, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::g-flags", callback: (($obj: MailSkeleton, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::g-flags", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -3142,19 +2768,19 @@ export class MailSkeleton {
 export interface ManagerProxy_ConstructProps extends Gio.DBusProxy_ConstructProps {
 }
 export class ManagerProxy {
-    /* Properties of Gio.DBusProxy */
+    /* Properties of Gio-2.0.Gio.DBusProxy */
     gDefaultTimeout: number
     gInterfaceInfo: Gio.DBusInterfaceInfo
     readonly gNameOwner: string
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Gio.DBusProxy */
+    /* Methods of Gio-2.0.Gio.DBusProxy */
     call(methodName: string, parameters: GLib.Variant | null, flags: Gio.DBusCallFlags, timeoutMsec: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     callFinish(res: Gio.AsyncResult): GLib.Variant
     callSync(methodName: string, parameters: GLib.Variant | null, flags: Gio.DBusCallFlags, timeoutMsec: number, cancellable?: Gio.Cancellable | null): GLib.Variant
     callWithUnixFdList(methodName: string, parameters: GLib.Variant | null, flags: Gio.DBusCallFlags, timeoutMsec: number, fdList?: Gio.UnixFDList | null, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    callWithUnixFdListFinish(res: Gio.AsyncResult): [ /* returnType */ GLib.Variant, /* outFdList */ Gio.UnixFDList | null ]
-    callWithUnixFdListSync(methodName: string, parameters: GLib.Variant | null, flags: Gio.DBusCallFlags, timeoutMsec: number, fdList?: Gio.UnixFDList | null, cancellable?: Gio.Cancellable | null): [ /* returnType */ GLib.Variant, /* outFdList */ Gio.UnixFDList | null ]
+    callWithUnixFdListFinish(res: Gio.AsyncResult): { returnType: GLib.Variant, outFdList: Gio.UnixFDList | null }
+    callWithUnixFdListSync(methodName: string, parameters: GLib.Variant | null, flags: Gio.DBusCallFlags, timeoutMsec: number, fdList?: Gio.UnixFDList | null, cancellable?: Gio.Cancellable | null): { returnType: GLib.Variant, outFdList: Gio.UnixFDList | null }
     getCachedProperty(propertyName: string): GLib.Variant | null
     getCachedPropertyNames(): string[] | null
     getConnection(): Gio.DBusConnection
@@ -3168,7 +2794,7 @@ export class ManagerProxy {
     setCachedProperty(propertyName: string, value?: GLib.Variant | null): void
     setDefaultTimeout(timeoutMsec: number): void
     setInterfaceInfo(info?: Gio.DBusInterfaceInfo | null): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -3190,78 +2816,53 @@ export class ManagerProxy {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of Gio.AsyncInitable */
+    /* Methods of Gio-2.0.Gio.AsyncInitable */
     initAsync(ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     initFinish(res: Gio.AsyncResult): boolean
     newFinish(res: Gio.AsyncResult): GObject.Object
-    /* Methods of Gio.DBusInterface */
+    /* Methods of Gio-2.0.Gio.DBusInterface */
     getObject(): Gio.DBusObject | null
     getInfo(): Gio.DBusInterfaceInfo
     setObject(object?: Gio.DBusObject | null): void
-    /* Methods of Gio.Initable */
+    /* Methods of Gio-2.0.Gio.Initable */
     init(cancellable?: Gio.Cancellable | null): boolean
-    /* Methods of Goa.Manager */
+    /* Methods of Goa-1.0.Goa.Manager */
     callAddAccount(argProvider: string, argIdentity: string, argPresentationIdentity: string, argCredentials: GLib.Variant, argDetails: GLib.Variant, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    callAddAccountFinish(res: Gio.AsyncResult): [ /* returnType */ boolean, /* outAccountObjectPath */ string | null ]
-    callAddAccountSync(argProvider: string, argIdentity: string, argPresentationIdentity: string, argCredentials: GLib.Variant, argDetails: GLib.Variant, cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* outAccountObjectPath */ string | null ]
+    callAddAccountFinish(res: Gio.AsyncResult): { returnType: boolean, outAccountObjectPath: string | null }
+    callAddAccountSync(argProvider: string, argIdentity: string, argPresentationIdentity: string, argCredentials: GLib.Variant, argDetails: GLib.Variant, cancellable?: Gio.Cancellable | null): { returnType: boolean, outAccountObjectPath: string | null }
     callIsSupportedProvider(argProviderType: string, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    callIsSupportedProviderFinish(res: Gio.AsyncResult): [ /* returnType */ boolean, /* outIsSupported */ boolean | null ]
-    callIsSupportedProviderSync(argProviderType: string, cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* outIsSupported */ boolean | null ]
+    callIsSupportedProviderFinish(res: Gio.AsyncResult): { returnType: boolean, outIsSupported: boolean | null }
+    callIsSupportedProviderSync(argProviderType: string, cancellable?: Gio.Cancellable | null): { returnType: boolean, outIsSupported: boolean | null }
     completeAddAccount(invocation: Gio.DBusMethodInvocation, accountObjectPath: string): void
     completeIsSupportedProvider(invocation: Gio.DBusMethodInvocation, isSupported: boolean): void
-    /* Virtual methods of Goa.ManagerProxy */
-    vfuncInitAsync(ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    vfuncInitFinish(res: Gio.AsyncResult): boolean
-    vfuncDupObject(): Gio.DBusObject | null
-    vfuncGetInfo(): Gio.DBusInterfaceInfo
-    vfuncSetObject(object?: Gio.DBusObject | null): void
-    vfuncInit(cancellable?: Gio.Cancellable | null): boolean
-    vfuncHandleAddAccount(invocation: Gio.DBusMethodInvocation, argProvider: string, argIdentity: string, argPresentationIdentity: string, argCredentials: GLib.Variant, argDetails: GLib.Variant): boolean
-    vfuncHandleIsSupportedProvider(invocation: Gio.DBusMethodInvocation, argProviderType: string): boolean
-    /* Virtual methods of Gio.DBusProxy */
-    vfuncGPropertiesChanged(changedProperties: GLib.Variant, invalidatedProperties: string): void
-    vfuncGSignal(senderName: string, signalName: string, parameters: GLib.Variant): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gio.DBusProxy */
+    /* Signals of Gio-2.0.Gio.DBusProxy */
     connect(sigName: "g-properties-changed", callback: (($obj: ManagerProxy, changedProperties: GLib.Variant, invalidatedProperties: string[]) => void)): number
-    connect_after(sigName: "g-properties-changed", callback: (($obj: ManagerProxy, changedProperties: GLib.Variant, invalidatedProperties: string[]) => void)): number
+    on(sigName: "g-properties-changed", callback: (changedProperties: GLib.Variant, invalidatedProperties: string[]) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "g-properties-changed", callback: (changedProperties: GLib.Variant, invalidatedProperties: string[]) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "g-properties-changed", callback: (changedProperties: GLib.Variant, invalidatedProperties: string[]) => void): NodeJS.EventEmitter
     emit(sigName: "g-properties-changed", changedProperties: GLib.Variant, invalidatedProperties: string[]): void
-    on(sigName: "g-properties-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "g-properties-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "g-properties-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "g-signal", callback: (($obj: ManagerProxy, senderName: string | null, signalName: string, parameters: GLib.Variant) => void)): number
-    connect_after(sigName: "g-signal", callback: (($obj: ManagerProxy, senderName: string | null, signalName: string, parameters: GLib.Variant) => void)): number
+    on(sigName: "g-signal", callback: (senderName: string | null, signalName: string, parameters: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "g-signal", callback: (senderName: string | null, signalName: string, parameters: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "g-signal", callback: (senderName: string | null, signalName: string, parameters: GLib.Variant) => void): NodeJS.EventEmitter
     emit(sigName: "g-signal", senderName: string | null, signalName: string, parameters: GLib.Variant): void
-    on(sigName: "g-signal", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "g-signal", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "g-signal", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: ManagerProxy, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: ManagerProxy, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of Goa.Manager */
+    /* Signals of Goa-1.0.Goa.Manager */
     connect(sigName: "handle-add-account", callback: (($obj: ManagerProxy, invocation: Gio.DBusMethodInvocation, argProvider: string, argIdentity: string, argPresentationIdentity: string, argCredentials: GLib.Variant, argDetails: GLib.Variant) => boolean)): number
-    connect_after(sigName: "handle-add-account", callback: (($obj: ManagerProxy, invocation: Gio.DBusMethodInvocation, argProvider: string, argIdentity: string, argPresentationIdentity: string, argCredentials: GLib.Variant, argDetails: GLib.Variant) => boolean)): number
+    on(sigName: "handle-add-account", callback: (invocation: Gio.DBusMethodInvocation, argProvider: string, argIdentity: string, argPresentationIdentity: string, argCredentials: GLib.Variant, argDetails: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-add-account", callback: (invocation: Gio.DBusMethodInvocation, argProvider: string, argIdentity: string, argPresentationIdentity: string, argCredentials: GLib.Variant, argDetails: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-add-account", callback: (invocation: Gio.DBusMethodInvocation, argProvider: string, argIdentity: string, argPresentationIdentity: string, argCredentials: GLib.Variant, argDetails: GLib.Variant) => void): NodeJS.EventEmitter
     emit(sigName: "handle-add-account", invocation: Gio.DBusMethodInvocation, argProvider: string, argIdentity: string, argPresentationIdentity: string, argCredentials: GLib.Variant, argDetails: GLib.Variant): void
-    on(sigName: "handle-add-account", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-add-account", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-add-account", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "handle-is-supported-provider", callback: (($obj: ManagerProxy, invocation: Gio.DBusMethodInvocation, argProviderType: string) => boolean)): number
-    connect_after(sigName: "handle-is-supported-provider", callback: (($obj: ManagerProxy, invocation: Gio.DBusMethodInvocation, argProviderType: string) => boolean)): number
+    on(sigName: "handle-is-supported-provider", callback: (invocation: Gio.DBusMethodInvocation, argProviderType: string) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-is-supported-provider", callback: (invocation: Gio.DBusMethodInvocation, argProviderType: string) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-is-supported-provider", callback: (invocation: Gio.DBusMethodInvocation, argProviderType: string) => void): NodeJS.EventEmitter
     emit(sigName: "handle-is-supported-provider", invocation: Gio.DBusMethodInvocation, argProviderType: string): void
-    on(sigName: "handle-is-supported-provider", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-is-supported-provider", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-is-supported-provider", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::g-default-timeout", callback: (($obj: ManagerProxy, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::g-default-timeout", callback: (($obj: ManagerProxy, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::g-default-timeout", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -3305,11 +2906,11 @@ export class ManagerProxy {
 export interface ManagerSkeleton_ConstructProps extends Gio.DBusInterfaceSkeleton_ConstructProps {
 }
 export class ManagerSkeleton {
-    /* Properties of Gio.DBusInterfaceSkeleton */
+    /* Properties of Gio-2.0.Gio.DBusInterfaceSkeleton */
     gFlags: Gio.DBusInterfaceSkeletonFlags
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Gio.DBusInterfaceSkeleton */
+    /* Methods of Gio-2.0.Gio.DBusInterfaceSkeleton */
     export(connection: Gio.DBusConnection, objectPath: string): boolean
     flush(): void
     getConnection(): Gio.DBusConnection | null
@@ -3322,7 +2923,7 @@ export class ManagerSkeleton {
     setFlags(flags: Gio.DBusInterfaceSkeletonFlags): void
     unexport(): void
     unexportFromConnection(connection: Gio.DBusConnection): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -3344,64 +2945,41 @@ export class ManagerSkeleton {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of Gio.DBusInterface */
+    /* Methods of Gio-2.0.Gio.DBusInterface */
     getObject(): Gio.DBusObject | null
     setObject(object?: Gio.DBusObject | null): void
-    /* Methods of Goa.Manager */
+    /* Methods of Goa-1.0.Goa.Manager */
     callAddAccount(argProvider: string, argIdentity: string, argPresentationIdentity: string, argCredentials: GLib.Variant, argDetails: GLib.Variant, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    callAddAccountFinish(res: Gio.AsyncResult): [ /* returnType */ boolean, /* outAccountObjectPath */ string | null ]
-    callAddAccountSync(argProvider: string, argIdentity: string, argPresentationIdentity: string, argCredentials: GLib.Variant, argDetails: GLib.Variant, cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* outAccountObjectPath */ string | null ]
+    callAddAccountFinish(res: Gio.AsyncResult): { returnType: boolean, outAccountObjectPath: string | null }
+    callAddAccountSync(argProvider: string, argIdentity: string, argPresentationIdentity: string, argCredentials: GLib.Variant, argDetails: GLib.Variant, cancellable?: Gio.Cancellable | null): { returnType: boolean, outAccountObjectPath: string | null }
     callIsSupportedProvider(argProviderType: string, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    callIsSupportedProviderFinish(res: Gio.AsyncResult): [ /* returnType */ boolean, /* outIsSupported */ boolean | null ]
-    callIsSupportedProviderSync(argProviderType: string, cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* outIsSupported */ boolean | null ]
+    callIsSupportedProviderFinish(res: Gio.AsyncResult): { returnType: boolean, outIsSupported: boolean | null }
+    callIsSupportedProviderSync(argProviderType: string, cancellable?: Gio.Cancellable | null): { returnType: boolean, outIsSupported: boolean | null }
     completeAddAccount(invocation: Gio.DBusMethodInvocation, accountObjectPath: string): void
     completeIsSupportedProvider(invocation: Gio.DBusMethodInvocation, isSupported: boolean): void
-    /* Virtual methods of Goa.ManagerSkeleton */
-    vfuncDupObject(): Gio.DBusObject | null
-    vfuncGetInfo(): Gio.DBusInterfaceInfo
-    vfuncSetObject(object?: Gio.DBusObject | null): void
-    vfuncHandleAddAccount(invocation: Gio.DBusMethodInvocation, argProvider: string, argIdentity: string, argPresentationIdentity: string, argCredentials: GLib.Variant, argDetails: GLib.Variant): boolean
-    vfuncHandleIsSupportedProvider(invocation: Gio.DBusMethodInvocation, argProviderType: string): boolean
-    /* Virtual methods of Gio.DBusInterfaceSkeleton */
-    vfuncFlush(): void
-    vfuncGAuthorizeMethod(invocation: Gio.DBusMethodInvocation): boolean
-    vfuncGetInfo(): Gio.DBusInterfaceInfo
-    vfuncGetProperties(): GLib.Variant
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gio.DBusInterfaceSkeleton */
+    /* Signals of Gio-2.0.Gio.DBusInterfaceSkeleton */
     connect(sigName: "g-authorize-method", callback: (($obj: ManagerSkeleton, invocation: Gio.DBusMethodInvocation) => boolean)): number
-    connect_after(sigName: "g-authorize-method", callback: (($obj: ManagerSkeleton, invocation: Gio.DBusMethodInvocation) => boolean)): number
+    on(sigName: "g-authorize-method", callback: (invocation: Gio.DBusMethodInvocation) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "g-authorize-method", callback: (invocation: Gio.DBusMethodInvocation) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "g-authorize-method", callback: (invocation: Gio.DBusMethodInvocation) => void): NodeJS.EventEmitter
     emit(sigName: "g-authorize-method", invocation: Gio.DBusMethodInvocation): void
-    on(sigName: "g-authorize-method", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "g-authorize-method", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "g-authorize-method", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: ManagerSkeleton, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: ManagerSkeleton, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of Goa.Manager */
+    /* Signals of Goa-1.0.Goa.Manager */
     connect(sigName: "handle-add-account", callback: (($obj: ManagerSkeleton, invocation: Gio.DBusMethodInvocation, argProvider: string, argIdentity: string, argPresentationIdentity: string, argCredentials: GLib.Variant, argDetails: GLib.Variant) => boolean)): number
-    connect_after(sigName: "handle-add-account", callback: (($obj: ManagerSkeleton, invocation: Gio.DBusMethodInvocation, argProvider: string, argIdentity: string, argPresentationIdentity: string, argCredentials: GLib.Variant, argDetails: GLib.Variant) => boolean)): number
+    on(sigName: "handle-add-account", callback: (invocation: Gio.DBusMethodInvocation, argProvider: string, argIdentity: string, argPresentationIdentity: string, argCredentials: GLib.Variant, argDetails: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-add-account", callback: (invocation: Gio.DBusMethodInvocation, argProvider: string, argIdentity: string, argPresentationIdentity: string, argCredentials: GLib.Variant, argDetails: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-add-account", callback: (invocation: Gio.DBusMethodInvocation, argProvider: string, argIdentity: string, argPresentationIdentity: string, argCredentials: GLib.Variant, argDetails: GLib.Variant) => void): NodeJS.EventEmitter
     emit(sigName: "handle-add-account", invocation: Gio.DBusMethodInvocation, argProvider: string, argIdentity: string, argPresentationIdentity: string, argCredentials: GLib.Variant, argDetails: GLib.Variant): void
-    on(sigName: "handle-add-account", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-add-account", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-add-account", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "handle-is-supported-provider", callback: (($obj: ManagerSkeleton, invocation: Gio.DBusMethodInvocation, argProviderType: string) => boolean)): number
-    connect_after(sigName: "handle-is-supported-provider", callback: (($obj: ManagerSkeleton, invocation: Gio.DBusMethodInvocation, argProviderType: string) => boolean)): number
+    on(sigName: "handle-is-supported-provider", callback: (invocation: Gio.DBusMethodInvocation, argProviderType: string) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-is-supported-provider", callback: (invocation: Gio.DBusMethodInvocation, argProviderType: string) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-is-supported-provider", callback: (invocation: Gio.DBusMethodInvocation, argProviderType: string) => void): NodeJS.EventEmitter
     emit(sigName: "handle-is-supported-provider", invocation: Gio.DBusMethodInvocation, argProviderType: string): void
-    on(sigName: "handle-is-supported-provider", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-is-supported-provider", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-is-supported-provider", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::g-flags", callback: (($obj: ManagerSkeleton, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::g-flags", callback: (($obj: ManagerSkeleton, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::g-flags", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -3426,19 +3004,19 @@ export class ManagerSkeleton {
 export interface MapsProxy_ConstructProps extends Gio.DBusProxy_ConstructProps {
 }
 export class MapsProxy {
-    /* Properties of Gio.DBusProxy */
+    /* Properties of Gio-2.0.Gio.DBusProxy */
     gDefaultTimeout: number
     gInterfaceInfo: Gio.DBusInterfaceInfo
     readonly gNameOwner: string
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Gio.DBusProxy */
+    /* Methods of Gio-2.0.Gio.DBusProxy */
     call(methodName: string, parameters: GLib.Variant | null, flags: Gio.DBusCallFlags, timeoutMsec: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     callFinish(res: Gio.AsyncResult): GLib.Variant
     callSync(methodName: string, parameters: GLib.Variant | null, flags: Gio.DBusCallFlags, timeoutMsec: number, cancellable?: Gio.Cancellable | null): GLib.Variant
     callWithUnixFdList(methodName: string, parameters: GLib.Variant | null, flags: Gio.DBusCallFlags, timeoutMsec: number, fdList?: Gio.UnixFDList | null, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    callWithUnixFdListFinish(res: Gio.AsyncResult): [ /* returnType */ GLib.Variant, /* outFdList */ Gio.UnixFDList | null ]
-    callWithUnixFdListSync(methodName: string, parameters: GLib.Variant | null, flags: Gio.DBusCallFlags, timeoutMsec: number, fdList?: Gio.UnixFDList | null, cancellable?: Gio.Cancellable | null): [ /* returnType */ GLib.Variant, /* outFdList */ Gio.UnixFDList | null ]
+    callWithUnixFdListFinish(res: Gio.AsyncResult): { returnType: GLib.Variant, outFdList: Gio.UnixFDList | null }
+    callWithUnixFdListSync(methodName: string, parameters: GLib.Variant | null, flags: Gio.DBusCallFlags, timeoutMsec: number, fdList?: Gio.UnixFDList | null, cancellable?: Gio.Cancellable | null): { returnType: GLib.Variant, outFdList: Gio.UnixFDList | null }
     getCachedProperty(propertyName: string): GLib.Variant | null
     getCachedPropertyNames(): string[] | null
     getConnection(): Gio.DBusConnection
@@ -3452,7 +3030,7 @@ export class MapsProxy {
     setCachedProperty(propertyName: string, value?: GLib.Variant | null): void
     setDefaultTimeout(timeoutMsec: number): void
     setInterfaceInfo(info?: Gio.DBusInterfaceInfo | null): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -3474,54 +3052,33 @@ export class MapsProxy {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of Gio.AsyncInitable */
+    /* Methods of Gio-2.0.Gio.AsyncInitable */
     initAsync(ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     initFinish(res: Gio.AsyncResult): boolean
     newFinish(res: Gio.AsyncResult): GObject.Object
-    /* Methods of Gio.DBusInterface */
+    /* Methods of Gio-2.0.Gio.DBusInterface */
     getObject(): Gio.DBusObject | null
     getInfo(): Gio.DBusInterfaceInfo
     setObject(object?: Gio.DBusObject | null): void
-    /* Methods of Gio.Initable */
+    /* Methods of Gio-2.0.Gio.Initable */
     init(cancellable?: Gio.Cancellable | null): boolean
-    /* Virtual methods of Goa.MapsProxy */
-    vfuncInitAsync(ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    vfuncInitFinish(res: Gio.AsyncResult): boolean
-    vfuncDupObject(): Gio.DBusObject | null
-    vfuncGetInfo(): Gio.DBusInterfaceInfo
-    vfuncSetObject(object?: Gio.DBusObject | null): void
-    vfuncInit(cancellable?: Gio.Cancellable | null): boolean
-    /* Virtual methods of Gio.DBusProxy */
-    vfuncGPropertiesChanged(changedProperties: GLib.Variant, invalidatedProperties: string): void
-    vfuncGSignal(senderName: string, signalName: string, parameters: GLib.Variant): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gio.DBusProxy */
+    /* Signals of Gio-2.0.Gio.DBusProxy */
     connect(sigName: "g-properties-changed", callback: (($obj: MapsProxy, changedProperties: GLib.Variant, invalidatedProperties: string[]) => void)): number
-    connect_after(sigName: "g-properties-changed", callback: (($obj: MapsProxy, changedProperties: GLib.Variant, invalidatedProperties: string[]) => void)): number
+    on(sigName: "g-properties-changed", callback: (changedProperties: GLib.Variant, invalidatedProperties: string[]) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "g-properties-changed", callback: (changedProperties: GLib.Variant, invalidatedProperties: string[]) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "g-properties-changed", callback: (changedProperties: GLib.Variant, invalidatedProperties: string[]) => void): NodeJS.EventEmitter
     emit(sigName: "g-properties-changed", changedProperties: GLib.Variant, invalidatedProperties: string[]): void
-    on(sigName: "g-properties-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "g-properties-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "g-properties-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "g-signal", callback: (($obj: MapsProxy, senderName: string | null, signalName: string, parameters: GLib.Variant) => void)): number
-    connect_after(sigName: "g-signal", callback: (($obj: MapsProxy, senderName: string | null, signalName: string, parameters: GLib.Variant) => void)): number
+    on(sigName: "g-signal", callback: (senderName: string | null, signalName: string, parameters: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "g-signal", callback: (senderName: string | null, signalName: string, parameters: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "g-signal", callback: (senderName: string | null, signalName: string, parameters: GLib.Variant) => void): NodeJS.EventEmitter
     emit(sigName: "g-signal", senderName: string | null, signalName: string, parameters: GLib.Variant): void
-    on(sigName: "g-signal", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "g-signal", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "g-signal", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: MapsProxy, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: MapsProxy, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::g-default-timeout", callback: (($obj: MapsProxy, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::g-default-timeout", callback: (($obj: MapsProxy, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::g-default-timeout", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -3565,11 +3122,11 @@ export class MapsProxy {
 export interface MapsSkeleton_ConstructProps extends Gio.DBusInterfaceSkeleton_ConstructProps {
 }
 export class MapsSkeleton {
-    /* Properties of Gio.DBusInterfaceSkeleton */
+    /* Properties of Gio-2.0.Gio.DBusInterfaceSkeleton */
     gFlags: Gio.DBusInterfaceSkeletonFlags
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Gio.DBusInterfaceSkeleton */
+    /* Methods of Gio-2.0.Gio.DBusInterfaceSkeleton */
     export(connection: Gio.DBusConnection, objectPath: string): boolean
     flush(): void
     getConnection(): Gio.DBusConnection | null
@@ -3582,7 +3139,7 @@ export class MapsSkeleton {
     setFlags(flags: Gio.DBusInterfaceSkeletonFlags): void
     unexport(): void
     unexportFromConnection(connection: Gio.DBusConnection): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -3604,40 +3161,21 @@ export class MapsSkeleton {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of Gio.DBusInterface */
+    /* Methods of Gio-2.0.Gio.DBusInterface */
     getObject(): Gio.DBusObject | null
     setObject(object?: Gio.DBusObject | null): void
-    /* Virtual methods of Goa.MapsSkeleton */
-    vfuncDupObject(): Gio.DBusObject | null
-    vfuncGetInfo(): Gio.DBusInterfaceInfo
-    vfuncSetObject(object?: Gio.DBusObject | null): void
-    /* Virtual methods of Gio.DBusInterfaceSkeleton */
-    vfuncFlush(): void
-    vfuncGAuthorizeMethod(invocation: Gio.DBusMethodInvocation): boolean
-    vfuncGetInfo(): Gio.DBusInterfaceInfo
-    vfuncGetProperties(): GLib.Variant
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gio.DBusInterfaceSkeleton */
+    /* Signals of Gio-2.0.Gio.DBusInterfaceSkeleton */
     connect(sigName: "g-authorize-method", callback: (($obj: MapsSkeleton, invocation: Gio.DBusMethodInvocation) => boolean)): number
-    connect_after(sigName: "g-authorize-method", callback: (($obj: MapsSkeleton, invocation: Gio.DBusMethodInvocation) => boolean)): number
+    on(sigName: "g-authorize-method", callback: (invocation: Gio.DBusMethodInvocation) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "g-authorize-method", callback: (invocation: Gio.DBusMethodInvocation) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "g-authorize-method", callback: (invocation: Gio.DBusMethodInvocation) => void): NodeJS.EventEmitter
     emit(sigName: "g-authorize-method", invocation: Gio.DBusMethodInvocation): void
-    on(sigName: "g-authorize-method", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "g-authorize-method", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "g-authorize-method", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: MapsSkeleton, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: MapsSkeleton, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::g-flags", callback: (($obj: MapsSkeleton, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::g-flags", callback: (($obj: MapsSkeleton, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::g-flags", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -3664,22 +3202,22 @@ export interface MediaServerProxy_ConstructProps extends Gio.DBusProxy_Construct
     udn?: string
 }
 export class MediaServerProxy {
-    /* Properties of Gio.DBusProxy */
+    /* Properties of Gio-2.0.Gio.DBusProxy */
     gDefaultTimeout: number
     gInterfaceInfo: Gio.DBusInterfaceInfo
     readonly gNameOwner: string
-    /* Properties of Goa.MediaServer */
+    /* Properties of Goa-1.0.Goa.MediaServer */
     dlnaSupported: boolean
     udn: string
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Gio.DBusProxy */
+    /* Methods of Gio-2.0.Gio.DBusProxy */
     call(methodName: string, parameters: GLib.Variant | null, flags: Gio.DBusCallFlags, timeoutMsec: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     callFinish(res: Gio.AsyncResult): GLib.Variant
     callSync(methodName: string, parameters: GLib.Variant | null, flags: Gio.DBusCallFlags, timeoutMsec: number, cancellable?: Gio.Cancellable | null): GLib.Variant
     callWithUnixFdList(methodName: string, parameters: GLib.Variant | null, flags: Gio.DBusCallFlags, timeoutMsec: number, fdList?: Gio.UnixFDList | null, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    callWithUnixFdListFinish(res: Gio.AsyncResult): [ /* returnType */ GLib.Variant, /* outFdList */ Gio.UnixFDList | null ]
-    callWithUnixFdListSync(methodName: string, parameters: GLib.Variant | null, flags: Gio.DBusCallFlags, timeoutMsec: number, fdList?: Gio.UnixFDList | null, cancellable?: Gio.Cancellable | null): [ /* returnType */ GLib.Variant, /* outFdList */ Gio.UnixFDList | null ]
+    callWithUnixFdListFinish(res: Gio.AsyncResult): { returnType: GLib.Variant, outFdList: Gio.UnixFDList | null }
+    callWithUnixFdListSync(methodName: string, parameters: GLib.Variant | null, flags: Gio.DBusCallFlags, timeoutMsec: number, fdList?: Gio.UnixFDList | null, cancellable?: Gio.Cancellable | null): { returnType: GLib.Variant, outFdList: Gio.UnixFDList | null }
     getCachedProperty(propertyName: string): GLib.Variant | null
     getCachedPropertyNames(): string[] | null
     getConnection(): Gio.DBusConnection
@@ -3693,7 +3231,7 @@ export class MediaServerProxy {
     setCachedProperty(propertyName: string, value?: GLib.Variant | null): void
     setDefaultTimeout(timeoutMsec: number): void
     setInterfaceInfo(info?: Gio.DBusInterfaceInfo | null): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -3715,54 +3253,33 @@ export class MediaServerProxy {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of Gio.AsyncInitable */
+    /* Methods of Gio-2.0.Gio.AsyncInitable */
     initAsync(ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     initFinish(res: Gio.AsyncResult): boolean
     newFinish(res: Gio.AsyncResult): GObject.Object
-    /* Methods of Gio.DBusInterface */
+    /* Methods of Gio-2.0.Gio.DBusInterface */
     getObject(): Gio.DBusObject | null
     getInfo(): Gio.DBusInterfaceInfo
     setObject(object?: Gio.DBusObject | null): void
-    /* Methods of Gio.Initable */
+    /* Methods of Gio-2.0.Gio.Initable */
     init(cancellable?: Gio.Cancellable | null): boolean
-    /* Virtual methods of Goa.MediaServerProxy */
-    vfuncInitAsync(ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    vfuncInitFinish(res: Gio.AsyncResult): boolean
-    vfuncDupObject(): Gio.DBusObject | null
-    vfuncGetInfo(): Gio.DBusInterfaceInfo
-    vfuncSetObject(object?: Gio.DBusObject | null): void
-    vfuncInit(cancellable?: Gio.Cancellable | null): boolean
-    /* Virtual methods of Gio.DBusProxy */
-    vfuncGPropertiesChanged(changedProperties: GLib.Variant, invalidatedProperties: string): void
-    vfuncGSignal(senderName: string, signalName: string, parameters: GLib.Variant): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gio.DBusProxy */
+    /* Signals of Gio-2.0.Gio.DBusProxy */
     connect(sigName: "g-properties-changed", callback: (($obj: MediaServerProxy, changedProperties: GLib.Variant, invalidatedProperties: string[]) => void)): number
-    connect_after(sigName: "g-properties-changed", callback: (($obj: MediaServerProxy, changedProperties: GLib.Variant, invalidatedProperties: string[]) => void)): number
+    on(sigName: "g-properties-changed", callback: (changedProperties: GLib.Variant, invalidatedProperties: string[]) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "g-properties-changed", callback: (changedProperties: GLib.Variant, invalidatedProperties: string[]) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "g-properties-changed", callback: (changedProperties: GLib.Variant, invalidatedProperties: string[]) => void): NodeJS.EventEmitter
     emit(sigName: "g-properties-changed", changedProperties: GLib.Variant, invalidatedProperties: string[]): void
-    on(sigName: "g-properties-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "g-properties-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "g-properties-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "g-signal", callback: (($obj: MediaServerProxy, senderName: string | null, signalName: string, parameters: GLib.Variant) => void)): number
-    connect_after(sigName: "g-signal", callback: (($obj: MediaServerProxy, senderName: string | null, signalName: string, parameters: GLib.Variant) => void)): number
+    on(sigName: "g-signal", callback: (senderName: string | null, signalName: string, parameters: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "g-signal", callback: (senderName: string | null, signalName: string, parameters: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "g-signal", callback: (senderName: string | null, signalName: string, parameters: GLib.Variant) => void): NodeJS.EventEmitter
     emit(sigName: "g-signal", senderName: string | null, signalName: string, parameters: GLib.Variant): void
-    on(sigName: "g-signal", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "g-signal", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "g-signal", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: MediaServerProxy, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: MediaServerProxy, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::g-default-timeout", callback: (($obj: MediaServerProxy, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::g-default-timeout", callback: (($obj: MediaServerProxy, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::g-default-timeout", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -3818,14 +3335,14 @@ export interface MediaServerSkeleton_ConstructProps extends Gio.DBusInterfaceSke
     udn?: string
 }
 export class MediaServerSkeleton {
-    /* Properties of Gio.DBusInterfaceSkeleton */
+    /* Properties of Gio-2.0.Gio.DBusInterfaceSkeleton */
     gFlags: Gio.DBusInterfaceSkeletonFlags
-    /* Properties of Goa.MediaServer */
+    /* Properties of Goa-1.0.Goa.MediaServer */
     dlnaSupported: boolean
     udn: string
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Gio.DBusInterfaceSkeleton */
+    /* Methods of Gio-2.0.Gio.DBusInterfaceSkeleton */
     export(connection: Gio.DBusConnection, objectPath: string): boolean
     flush(): void
     getConnection(): Gio.DBusConnection | null
@@ -3838,7 +3355,7 @@ export class MediaServerSkeleton {
     setFlags(flags: Gio.DBusInterfaceSkeletonFlags): void
     unexport(): void
     unexportFromConnection(connection: Gio.DBusConnection): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -3860,40 +3377,21 @@ export class MediaServerSkeleton {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of Gio.DBusInterface */
+    /* Methods of Gio-2.0.Gio.DBusInterface */
     getObject(): Gio.DBusObject | null
     setObject(object?: Gio.DBusObject | null): void
-    /* Virtual methods of Goa.MediaServerSkeleton */
-    vfuncDupObject(): Gio.DBusObject | null
-    vfuncGetInfo(): Gio.DBusInterfaceInfo
-    vfuncSetObject(object?: Gio.DBusObject | null): void
-    /* Virtual methods of Gio.DBusInterfaceSkeleton */
-    vfuncFlush(): void
-    vfuncGAuthorizeMethod(invocation: Gio.DBusMethodInvocation): boolean
-    vfuncGetInfo(): Gio.DBusInterfaceInfo
-    vfuncGetProperties(): GLib.Variant
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gio.DBusInterfaceSkeleton */
+    /* Signals of Gio-2.0.Gio.DBusInterfaceSkeleton */
     connect(sigName: "g-authorize-method", callback: (($obj: MediaServerSkeleton, invocation: Gio.DBusMethodInvocation) => boolean)): number
-    connect_after(sigName: "g-authorize-method", callback: (($obj: MediaServerSkeleton, invocation: Gio.DBusMethodInvocation) => boolean)): number
+    on(sigName: "g-authorize-method", callback: (invocation: Gio.DBusMethodInvocation) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "g-authorize-method", callback: (invocation: Gio.DBusMethodInvocation) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "g-authorize-method", callback: (invocation: Gio.DBusMethodInvocation) => void): NodeJS.EventEmitter
     emit(sigName: "g-authorize-method", invocation: Gio.DBusMethodInvocation): void
-    on(sigName: "g-authorize-method", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "g-authorize-method", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "g-authorize-method", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: MediaServerSkeleton, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: MediaServerSkeleton, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::g-flags", callback: (($obj: MediaServerSkeleton, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::g-flags", callback: (($obj: MediaServerSkeleton, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::g-flags", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -3928,19 +3426,19 @@ export class MediaServerSkeleton {
 export interface MusicProxy_ConstructProps extends Gio.DBusProxy_ConstructProps {
 }
 export class MusicProxy {
-    /* Properties of Gio.DBusProxy */
+    /* Properties of Gio-2.0.Gio.DBusProxy */
     gDefaultTimeout: number
     gInterfaceInfo: Gio.DBusInterfaceInfo
     readonly gNameOwner: string
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Gio.DBusProxy */
+    /* Methods of Gio-2.0.Gio.DBusProxy */
     call(methodName: string, parameters: GLib.Variant | null, flags: Gio.DBusCallFlags, timeoutMsec: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     callFinish(res: Gio.AsyncResult): GLib.Variant
     callSync(methodName: string, parameters: GLib.Variant | null, flags: Gio.DBusCallFlags, timeoutMsec: number, cancellable?: Gio.Cancellable | null): GLib.Variant
     callWithUnixFdList(methodName: string, parameters: GLib.Variant | null, flags: Gio.DBusCallFlags, timeoutMsec: number, fdList?: Gio.UnixFDList | null, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    callWithUnixFdListFinish(res: Gio.AsyncResult): [ /* returnType */ GLib.Variant, /* outFdList */ Gio.UnixFDList | null ]
-    callWithUnixFdListSync(methodName: string, parameters: GLib.Variant | null, flags: Gio.DBusCallFlags, timeoutMsec: number, fdList?: Gio.UnixFDList | null, cancellable?: Gio.Cancellable | null): [ /* returnType */ GLib.Variant, /* outFdList */ Gio.UnixFDList | null ]
+    callWithUnixFdListFinish(res: Gio.AsyncResult): { returnType: GLib.Variant, outFdList: Gio.UnixFDList | null }
+    callWithUnixFdListSync(methodName: string, parameters: GLib.Variant | null, flags: Gio.DBusCallFlags, timeoutMsec: number, fdList?: Gio.UnixFDList | null, cancellable?: Gio.Cancellable | null): { returnType: GLib.Variant, outFdList: Gio.UnixFDList | null }
     getCachedProperty(propertyName: string): GLib.Variant | null
     getCachedPropertyNames(): string[] | null
     getConnection(): Gio.DBusConnection
@@ -3954,7 +3452,7 @@ export class MusicProxy {
     setCachedProperty(propertyName: string, value?: GLib.Variant | null): void
     setDefaultTimeout(timeoutMsec: number): void
     setInterfaceInfo(info?: Gio.DBusInterfaceInfo | null): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -3976,54 +3474,33 @@ export class MusicProxy {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of Gio.AsyncInitable */
+    /* Methods of Gio-2.0.Gio.AsyncInitable */
     initAsync(ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     initFinish(res: Gio.AsyncResult): boolean
     newFinish(res: Gio.AsyncResult): GObject.Object
-    /* Methods of Gio.DBusInterface */
+    /* Methods of Gio-2.0.Gio.DBusInterface */
     getObject(): Gio.DBusObject | null
     getInfo(): Gio.DBusInterfaceInfo
     setObject(object?: Gio.DBusObject | null): void
-    /* Methods of Gio.Initable */
+    /* Methods of Gio-2.0.Gio.Initable */
     init(cancellable?: Gio.Cancellable | null): boolean
-    /* Virtual methods of Goa.MusicProxy */
-    vfuncInitAsync(ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    vfuncInitFinish(res: Gio.AsyncResult): boolean
-    vfuncDupObject(): Gio.DBusObject | null
-    vfuncGetInfo(): Gio.DBusInterfaceInfo
-    vfuncSetObject(object?: Gio.DBusObject | null): void
-    vfuncInit(cancellable?: Gio.Cancellable | null): boolean
-    /* Virtual methods of Gio.DBusProxy */
-    vfuncGPropertiesChanged(changedProperties: GLib.Variant, invalidatedProperties: string): void
-    vfuncGSignal(senderName: string, signalName: string, parameters: GLib.Variant): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gio.DBusProxy */
+    /* Signals of Gio-2.0.Gio.DBusProxy */
     connect(sigName: "g-properties-changed", callback: (($obj: MusicProxy, changedProperties: GLib.Variant, invalidatedProperties: string[]) => void)): number
-    connect_after(sigName: "g-properties-changed", callback: (($obj: MusicProxy, changedProperties: GLib.Variant, invalidatedProperties: string[]) => void)): number
+    on(sigName: "g-properties-changed", callback: (changedProperties: GLib.Variant, invalidatedProperties: string[]) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "g-properties-changed", callback: (changedProperties: GLib.Variant, invalidatedProperties: string[]) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "g-properties-changed", callback: (changedProperties: GLib.Variant, invalidatedProperties: string[]) => void): NodeJS.EventEmitter
     emit(sigName: "g-properties-changed", changedProperties: GLib.Variant, invalidatedProperties: string[]): void
-    on(sigName: "g-properties-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "g-properties-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "g-properties-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "g-signal", callback: (($obj: MusicProxy, senderName: string | null, signalName: string, parameters: GLib.Variant) => void)): number
-    connect_after(sigName: "g-signal", callback: (($obj: MusicProxy, senderName: string | null, signalName: string, parameters: GLib.Variant) => void)): number
+    on(sigName: "g-signal", callback: (senderName: string | null, signalName: string, parameters: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "g-signal", callback: (senderName: string | null, signalName: string, parameters: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "g-signal", callback: (senderName: string | null, signalName: string, parameters: GLib.Variant) => void): NodeJS.EventEmitter
     emit(sigName: "g-signal", senderName: string | null, signalName: string, parameters: GLib.Variant): void
-    on(sigName: "g-signal", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "g-signal", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "g-signal", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: MusicProxy, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: MusicProxy, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::g-default-timeout", callback: (($obj: MusicProxy, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::g-default-timeout", callback: (($obj: MusicProxy, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::g-default-timeout", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -4067,11 +3544,11 @@ export class MusicProxy {
 export interface MusicSkeleton_ConstructProps extends Gio.DBusInterfaceSkeleton_ConstructProps {
 }
 export class MusicSkeleton {
-    /* Properties of Gio.DBusInterfaceSkeleton */
+    /* Properties of Gio-2.0.Gio.DBusInterfaceSkeleton */
     gFlags: Gio.DBusInterfaceSkeletonFlags
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Gio.DBusInterfaceSkeleton */
+    /* Methods of Gio-2.0.Gio.DBusInterfaceSkeleton */
     export(connection: Gio.DBusConnection, objectPath: string): boolean
     flush(): void
     getConnection(): Gio.DBusConnection | null
@@ -4084,7 +3561,7 @@ export class MusicSkeleton {
     setFlags(flags: Gio.DBusInterfaceSkeletonFlags): void
     unexport(): void
     unexportFromConnection(connection: Gio.DBusConnection): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -4106,40 +3583,21 @@ export class MusicSkeleton {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of Gio.DBusInterface */
+    /* Methods of Gio-2.0.Gio.DBusInterface */
     getObject(): Gio.DBusObject | null
     setObject(object?: Gio.DBusObject | null): void
-    /* Virtual methods of Goa.MusicSkeleton */
-    vfuncDupObject(): Gio.DBusObject | null
-    vfuncGetInfo(): Gio.DBusInterfaceInfo
-    vfuncSetObject(object?: Gio.DBusObject | null): void
-    /* Virtual methods of Gio.DBusInterfaceSkeleton */
-    vfuncFlush(): void
-    vfuncGAuthorizeMethod(invocation: Gio.DBusMethodInvocation): boolean
-    vfuncGetInfo(): Gio.DBusInterfaceInfo
-    vfuncGetProperties(): GLib.Variant
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gio.DBusInterfaceSkeleton */
+    /* Signals of Gio-2.0.Gio.DBusInterfaceSkeleton */
     connect(sigName: "g-authorize-method", callback: (($obj: MusicSkeleton, invocation: Gio.DBusMethodInvocation) => boolean)): number
-    connect_after(sigName: "g-authorize-method", callback: (($obj: MusicSkeleton, invocation: Gio.DBusMethodInvocation) => boolean)): number
+    on(sigName: "g-authorize-method", callback: (invocation: Gio.DBusMethodInvocation) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "g-authorize-method", callback: (invocation: Gio.DBusMethodInvocation) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "g-authorize-method", callback: (invocation: Gio.DBusMethodInvocation) => void): NodeJS.EventEmitter
     emit(sigName: "g-authorize-method", invocation: Gio.DBusMethodInvocation): void
-    on(sigName: "g-authorize-method", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "g-authorize-method", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "g-authorize-method", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: MusicSkeleton, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: MusicSkeleton, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::g-flags", callback: (($obj: MusicSkeleton, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::g-flags", callback: (($obj: MusicSkeleton, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::g-flags", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -4166,22 +3624,22 @@ export interface OAuth2BasedProxy_ConstructProps extends Gio.DBusProxy_Construct
     clientSecret?: string
 }
 export class OAuth2BasedProxy {
-    /* Properties of Gio.DBusProxy */
+    /* Properties of Gio-2.0.Gio.DBusProxy */
     gDefaultTimeout: number
     gInterfaceInfo: Gio.DBusInterfaceInfo
     readonly gNameOwner: string
-    /* Properties of Goa.OAuth2Based */
+    /* Properties of Goa-1.0.Goa.OAuth2Based */
     clientId: string
     clientSecret: string
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Gio.DBusProxy */
+    /* Methods of Gio-2.0.Gio.DBusProxy */
     call(methodName: string, parameters: GLib.Variant | null, flags: Gio.DBusCallFlags, timeoutMsec: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     callFinish(res: Gio.AsyncResult): GLib.Variant
     callSync(methodName: string, parameters: GLib.Variant | null, flags: Gio.DBusCallFlags, timeoutMsec: number, cancellable?: Gio.Cancellable | null): GLib.Variant
     callWithUnixFdList(methodName: string, parameters: GLib.Variant | null, flags: Gio.DBusCallFlags, timeoutMsec: number, fdList?: Gio.UnixFDList | null, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    callWithUnixFdListFinish(res: Gio.AsyncResult): [ /* returnType */ GLib.Variant, /* outFdList */ Gio.UnixFDList | null ]
-    callWithUnixFdListSync(methodName: string, parameters: GLib.Variant | null, flags: Gio.DBusCallFlags, timeoutMsec: number, fdList?: Gio.UnixFDList | null, cancellable?: Gio.Cancellable | null): [ /* returnType */ GLib.Variant, /* outFdList */ Gio.UnixFDList | null ]
+    callWithUnixFdListFinish(res: Gio.AsyncResult): { returnType: GLib.Variant, outFdList: Gio.UnixFDList | null }
+    callWithUnixFdListSync(methodName: string, parameters: GLib.Variant | null, flags: Gio.DBusCallFlags, timeoutMsec: number, fdList?: Gio.UnixFDList | null, cancellable?: Gio.Cancellable | null): { returnType: GLib.Variant, outFdList: Gio.UnixFDList | null }
     getCachedProperty(propertyName: string): GLib.Variant | null
     getCachedPropertyNames(): string[] | null
     getConnection(): Gio.DBusConnection
@@ -4195,7 +3653,7 @@ export class OAuth2BasedProxy {
     setCachedProperty(propertyName: string, value?: GLib.Variant | null): void
     setDefaultTimeout(timeoutMsec: number): void
     setInterfaceInfo(info?: Gio.DBusInterfaceInfo | null): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -4217,67 +3675,44 @@ export class OAuth2BasedProxy {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of Gio.AsyncInitable */
+    /* Methods of Gio-2.0.Gio.AsyncInitable */
     initAsync(ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     initFinish(res: Gio.AsyncResult): boolean
     newFinish(res: Gio.AsyncResult): GObject.Object
-    /* Methods of Gio.DBusInterface */
+    /* Methods of Gio-2.0.Gio.DBusInterface */
     getObject(): Gio.DBusObject | null
     getInfo(): Gio.DBusInterfaceInfo
     setObject(object?: Gio.DBusObject | null): void
-    /* Methods of Gio.Initable */
+    /* Methods of Gio-2.0.Gio.Initable */
     init(cancellable?: Gio.Cancellable | null): boolean
-    /* Methods of Goa.OAuth2Based */
+    /* Methods of Goa-1.0.Goa.OAuth2Based */
     callGetAccessToken(cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    callGetAccessTokenFinish(res: Gio.AsyncResult): [ /* returnType */ boolean, /* outAccessToken */ string | null, /* outExpiresIn */ number | null ]
-    callGetAccessTokenSync(cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* outAccessToken */ string | null, /* outExpiresIn */ number | null ]
+    callGetAccessTokenFinish(res: Gio.AsyncResult): { returnType: boolean, outAccessToken: string | null, outExpiresIn: number | null }
+    callGetAccessTokenSync(cancellable?: Gio.Cancellable | null): { returnType: boolean, outAccessToken: string | null, outExpiresIn: number | null }
     completeGetAccessToken(invocation: Gio.DBusMethodInvocation, accessToken: string, expiresIn: number): void
-    /* Virtual methods of Goa.OAuth2BasedProxy */
-    vfuncInitAsync(ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    vfuncInitFinish(res: Gio.AsyncResult): boolean
-    vfuncDupObject(): Gio.DBusObject | null
-    vfuncGetInfo(): Gio.DBusInterfaceInfo
-    vfuncSetObject(object?: Gio.DBusObject | null): void
-    vfuncInit(cancellable?: Gio.Cancellable | null): boolean
-    vfuncHandleGetAccessToken(invocation: Gio.DBusMethodInvocation): boolean
-    /* Virtual methods of Gio.DBusProxy */
-    vfuncGPropertiesChanged(changedProperties: GLib.Variant, invalidatedProperties: string): void
-    vfuncGSignal(senderName: string, signalName: string, parameters: GLib.Variant): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gio.DBusProxy */
+    /* Signals of Gio-2.0.Gio.DBusProxy */
     connect(sigName: "g-properties-changed", callback: (($obj: OAuth2BasedProxy, changedProperties: GLib.Variant, invalidatedProperties: string[]) => void)): number
-    connect_after(sigName: "g-properties-changed", callback: (($obj: OAuth2BasedProxy, changedProperties: GLib.Variant, invalidatedProperties: string[]) => void)): number
+    on(sigName: "g-properties-changed", callback: (changedProperties: GLib.Variant, invalidatedProperties: string[]) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "g-properties-changed", callback: (changedProperties: GLib.Variant, invalidatedProperties: string[]) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "g-properties-changed", callback: (changedProperties: GLib.Variant, invalidatedProperties: string[]) => void): NodeJS.EventEmitter
     emit(sigName: "g-properties-changed", changedProperties: GLib.Variant, invalidatedProperties: string[]): void
-    on(sigName: "g-properties-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "g-properties-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "g-properties-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "g-signal", callback: (($obj: OAuth2BasedProxy, senderName: string | null, signalName: string, parameters: GLib.Variant) => void)): number
-    connect_after(sigName: "g-signal", callback: (($obj: OAuth2BasedProxy, senderName: string | null, signalName: string, parameters: GLib.Variant) => void)): number
+    on(sigName: "g-signal", callback: (senderName: string | null, signalName: string, parameters: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "g-signal", callback: (senderName: string | null, signalName: string, parameters: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "g-signal", callback: (senderName: string | null, signalName: string, parameters: GLib.Variant) => void): NodeJS.EventEmitter
     emit(sigName: "g-signal", senderName: string | null, signalName: string, parameters: GLib.Variant): void
-    on(sigName: "g-signal", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "g-signal", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "g-signal", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: OAuth2BasedProxy, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: OAuth2BasedProxy, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of Goa.OAuth2Based */
+    /* Signals of Goa-1.0.Goa.OAuth2Based */
     connect(sigName: "handle-get-access-token", callback: (($obj: OAuth2BasedProxy, invocation: Gio.DBusMethodInvocation) => boolean)): number
-    connect_after(sigName: "handle-get-access-token", callback: (($obj: OAuth2BasedProxy, invocation: Gio.DBusMethodInvocation) => boolean)): number
+    on(sigName: "handle-get-access-token", callback: (invocation: Gio.DBusMethodInvocation) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-get-access-token", callback: (invocation: Gio.DBusMethodInvocation) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-get-access-token", callback: (invocation: Gio.DBusMethodInvocation) => void): NodeJS.EventEmitter
     emit(sigName: "handle-get-access-token", invocation: Gio.DBusMethodInvocation): void
-    on(sigName: "handle-get-access-token", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-get-access-token", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-get-access-token", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::g-default-timeout", callback: (($obj: OAuth2BasedProxy, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::g-default-timeout", callback: (($obj: OAuth2BasedProxy, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::g-default-timeout", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -4333,14 +3768,14 @@ export interface OAuth2BasedSkeleton_ConstructProps extends Gio.DBusInterfaceSke
     clientSecret?: string
 }
 export class OAuth2BasedSkeleton {
-    /* Properties of Gio.DBusInterfaceSkeleton */
+    /* Properties of Gio-2.0.Gio.DBusInterfaceSkeleton */
     gFlags: Gio.DBusInterfaceSkeletonFlags
-    /* Properties of Goa.OAuth2Based */
+    /* Properties of Goa-1.0.Goa.OAuth2Based */
     clientId: string
     clientSecret: string
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Gio.DBusInterfaceSkeleton */
+    /* Methods of Gio-2.0.Gio.DBusInterfaceSkeleton */
     export(connection: Gio.DBusConnection, objectPath: string): boolean
     flush(): void
     getConnection(): Gio.DBusConnection | null
@@ -4353,7 +3788,7 @@ export class OAuth2BasedSkeleton {
     setFlags(flags: Gio.DBusInterfaceSkeletonFlags): void
     unexport(): void
     unexportFromConnection(connection: Gio.DBusConnection): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -4375,53 +3810,32 @@ export class OAuth2BasedSkeleton {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of Gio.DBusInterface */
+    /* Methods of Gio-2.0.Gio.DBusInterface */
     getObject(): Gio.DBusObject | null
     setObject(object?: Gio.DBusObject | null): void
-    /* Methods of Goa.OAuth2Based */
+    /* Methods of Goa-1.0.Goa.OAuth2Based */
     callGetAccessToken(cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    callGetAccessTokenFinish(res: Gio.AsyncResult): [ /* returnType */ boolean, /* outAccessToken */ string | null, /* outExpiresIn */ number | null ]
-    callGetAccessTokenSync(cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* outAccessToken */ string | null, /* outExpiresIn */ number | null ]
+    callGetAccessTokenFinish(res: Gio.AsyncResult): { returnType: boolean, outAccessToken: string | null, outExpiresIn: number | null }
+    callGetAccessTokenSync(cancellable?: Gio.Cancellable | null): { returnType: boolean, outAccessToken: string | null, outExpiresIn: number | null }
     completeGetAccessToken(invocation: Gio.DBusMethodInvocation, accessToken: string, expiresIn: number): void
-    /* Virtual methods of Goa.OAuth2BasedSkeleton */
-    vfuncDupObject(): Gio.DBusObject | null
-    vfuncGetInfo(): Gio.DBusInterfaceInfo
-    vfuncSetObject(object?: Gio.DBusObject | null): void
-    vfuncHandleGetAccessToken(invocation: Gio.DBusMethodInvocation): boolean
-    /* Virtual methods of Gio.DBusInterfaceSkeleton */
-    vfuncFlush(): void
-    vfuncGAuthorizeMethod(invocation: Gio.DBusMethodInvocation): boolean
-    vfuncGetInfo(): Gio.DBusInterfaceInfo
-    vfuncGetProperties(): GLib.Variant
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gio.DBusInterfaceSkeleton */
+    /* Signals of Gio-2.0.Gio.DBusInterfaceSkeleton */
     connect(sigName: "g-authorize-method", callback: (($obj: OAuth2BasedSkeleton, invocation: Gio.DBusMethodInvocation) => boolean)): number
-    connect_after(sigName: "g-authorize-method", callback: (($obj: OAuth2BasedSkeleton, invocation: Gio.DBusMethodInvocation) => boolean)): number
+    on(sigName: "g-authorize-method", callback: (invocation: Gio.DBusMethodInvocation) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "g-authorize-method", callback: (invocation: Gio.DBusMethodInvocation) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "g-authorize-method", callback: (invocation: Gio.DBusMethodInvocation) => void): NodeJS.EventEmitter
     emit(sigName: "g-authorize-method", invocation: Gio.DBusMethodInvocation): void
-    on(sigName: "g-authorize-method", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "g-authorize-method", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "g-authorize-method", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: OAuth2BasedSkeleton, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: OAuth2BasedSkeleton, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of Goa.OAuth2Based */
+    /* Signals of Goa-1.0.Goa.OAuth2Based */
     connect(sigName: "handle-get-access-token", callback: (($obj: OAuth2BasedSkeleton, invocation: Gio.DBusMethodInvocation) => boolean)): number
-    connect_after(sigName: "handle-get-access-token", callback: (($obj: OAuth2BasedSkeleton, invocation: Gio.DBusMethodInvocation) => boolean)): number
+    on(sigName: "handle-get-access-token", callback: (invocation: Gio.DBusMethodInvocation) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-get-access-token", callback: (invocation: Gio.DBusMethodInvocation) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-get-access-token", callback: (invocation: Gio.DBusMethodInvocation) => void): NodeJS.EventEmitter
     emit(sigName: "handle-get-access-token", invocation: Gio.DBusMethodInvocation): void
-    on(sigName: "handle-get-access-token", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-get-access-token", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-get-access-token", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::g-flags", callback: (($obj: OAuth2BasedSkeleton, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::g-flags", callback: (($obj: OAuth2BasedSkeleton, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::g-flags", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -4458,22 +3872,22 @@ export interface OAuthBasedProxy_ConstructProps extends Gio.DBusProxy_ConstructP
     consumerSecret?: string
 }
 export class OAuthBasedProxy {
-    /* Properties of Gio.DBusProxy */
+    /* Properties of Gio-2.0.Gio.DBusProxy */
     gDefaultTimeout: number
     gInterfaceInfo: Gio.DBusInterfaceInfo
     readonly gNameOwner: string
-    /* Properties of Goa.OAuthBased */
+    /* Properties of Goa-1.0.Goa.OAuthBased */
     consumerKey: string
     consumerSecret: string
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Gio.DBusProxy */
+    /* Methods of Gio-2.0.Gio.DBusProxy */
     call(methodName: string, parameters: GLib.Variant | null, flags: Gio.DBusCallFlags, timeoutMsec: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     callFinish(res: Gio.AsyncResult): GLib.Variant
     callSync(methodName: string, parameters: GLib.Variant | null, flags: Gio.DBusCallFlags, timeoutMsec: number, cancellable?: Gio.Cancellable | null): GLib.Variant
     callWithUnixFdList(methodName: string, parameters: GLib.Variant | null, flags: Gio.DBusCallFlags, timeoutMsec: number, fdList?: Gio.UnixFDList | null, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    callWithUnixFdListFinish(res: Gio.AsyncResult): [ /* returnType */ GLib.Variant, /* outFdList */ Gio.UnixFDList | null ]
-    callWithUnixFdListSync(methodName: string, parameters: GLib.Variant | null, flags: Gio.DBusCallFlags, timeoutMsec: number, fdList?: Gio.UnixFDList | null, cancellable?: Gio.Cancellable | null): [ /* returnType */ GLib.Variant, /* outFdList */ Gio.UnixFDList | null ]
+    callWithUnixFdListFinish(res: Gio.AsyncResult): { returnType: GLib.Variant, outFdList: Gio.UnixFDList | null }
+    callWithUnixFdListSync(methodName: string, parameters: GLib.Variant | null, flags: Gio.DBusCallFlags, timeoutMsec: number, fdList?: Gio.UnixFDList | null, cancellable?: Gio.Cancellable | null): { returnType: GLib.Variant, outFdList: Gio.UnixFDList | null }
     getCachedProperty(propertyName: string): GLib.Variant | null
     getCachedPropertyNames(): string[] | null
     getConnection(): Gio.DBusConnection
@@ -4487,7 +3901,7 @@ export class OAuthBasedProxy {
     setCachedProperty(propertyName: string, value?: GLib.Variant | null): void
     setDefaultTimeout(timeoutMsec: number): void
     setInterfaceInfo(info?: Gio.DBusInterfaceInfo | null): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -4509,67 +3923,44 @@ export class OAuthBasedProxy {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of Gio.AsyncInitable */
+    /* Methods of Gio-2.0.Gio.AsyncInitable */
     initAsync(ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     initFinish(res: Gio.AsyncResult): boolean
     newFinish(res: Gio.AsyncResult): GObject.Object
-    /* Methods of Gio.DBusInterface */
+    /* Methods of Gio-2.0.Gio.DBusInterface */
     getObject(): Gio.DBusObject | null
     getInfo(): Gio.DBusInterfaceInfo
     setObject(object?: Gio.DBusObject | null): void
-    /* Methods of Gio.Initable */
+    /* Methods of Gio-2.0.Gio.Initable */
     init(cancellable?: Gio.Cancellable | null): boolean
-    /* Methods of Goa.OAuthBased */
+    /* Methods of Goa-1.0.Goa.OAuthBased */
     callGetAccessToken(cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    callGetAccessTokenFinish(res: Gio.AsyncResult): [ /* returnType */ boolean, /* outAccessToken */ string | null, /* outAccessTokenSecret */ string | null, /* outExpiresIn */ number | null ]
-    callGetAccessTokenSync(cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* outAccessToken */ string | null, /* outAccessTokenSecret */ string | null, /* outExpiresIn */ number | null ]
+    callGetAccessTokenFinish(res: Gio.AsyncResult): { returnType: boolean, outAccessToken: string | null, outAccessTokenSecret: string | null, outExpiresIn: number | null }
+    callGetAccessTokenSync(cancellable?: Gio.Cancellable | null): { returnType: boolean, outAccessToken: string | null, outAccessTokenSecret: string | null, outExpiresIn: number | null }
     completeGetAccessToken(invocation: Gio.DBusMethodInvocation, accessToken: string, accessTokenSecret: string, expiresIn: number): void
-    /* Virtual methods of Goa.OAuthBasedProxy */
-    vfuncInitAsync(ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    vfuncInitFinish(res: Gio.AsyncResult): boolean
-    vfuncDupObject(): Gio.DBusObject | null
-    vfuncGetInfo(): Gio.DBusInterfaceInfo
-    vfuncSetObject(object?: Gio.DBusObject | null): void
-    vfuncInit(cancellable?: Gio.Cancellable | null): boolean
-    vfuncHandleGetAccessToken(invocation: Gio.DBusMethodInvocation): boolean
-    /* Virtual methods of Gio.DBusProxy */
-    vfuncGPropertiesChanged(changedProperties: GLib.Variant, invalidatedProperties: string): void
-    vfuncGSignal(senderName: string, signalName: string, parameters: GLib.Variant): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gio.DBusProxy */
+    /* Signals of Gio-2.0.Gio.DBusProxy */
     connect(sigName: "g-properties-changed", callback: (($obj: OAuthBasedProxy, changedProperties: GLib.Variant, invalidatedProperties: string[]) => void)): number
-    connect_after(sigName: "g-properties-changed", callback: (($obj: OAuthBasedProxy, changedProperties: GLib.Variant, invalidatedProperties: string[]) => void)): number
+    on(sigName: "g-properties-changed", callback: (changedProperties: GLib.Variant, invalidatedProperties: string[]) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "g-properties-changed", callback: (changedProperties: GLib.Variant, invalidatedProperties: string[]) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "g-properties-changed", callback: (changedProperties: GLib.Variant, invalidatedProperties: string[]) => void): NodeJS.EventEmitter
     emit(sigName: "g-properties-changed", changedProperties: GLib.Variant, invalidatedProperties: string[]): void
-    on(sigName: "g-properties-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "g-properties-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "g-properties-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "g-signal", callback: (($obj: OAuthBasedProxy, senderName: string | null, signalName: string, parameters: GLib.Variant) => void)): number
-    connect_after(sigName: "g-signal", callback: (($obj: OAuthBasedProxy, senderName: string | null, signalName: string, parameters: GLib.Variant) => void)): number
+    on(sigName: "g-signal", callback: (senderName: string | null, signalName: string, parameters: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "g-signal", callback: (senderName: string | null, signalName: string, parameters: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "g-signal", callback: (senderName: string | null, signalName: string, parameters: GLib.Variant) => void): NodeJS.EventEmitter
     emit(sigName: "g-signal", senderName: string | null, signalName: string, parameters: GLib.Variant): void
-    on(sigName: "g-signal", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "g-signal", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "g-signal", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: OAuthBasedProxy, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: OAuthBasedProxy, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of Goa.OAuthBased */
+    /* Signals of Goa-1.0.Goa.OAuthBased */
     connect(sigName: "handle-get-access-token", callback: (($obj: OAuthBasedProxy, invocation: Gio.DBusMethodInvocation) => boolean)): number
-    connect_after(sigName: "handle-get-access-token", callback: (($obj: OAuthBasedProxy, invocation: Gio.DBusMethodInvocation) => boolean)): number
+    on(sigName: "handle-get-access-token", callback: (invocation: Gio.DBusMethodInvocation) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-get-access-token", callback: (invocation: Gio.DBusMethodInvocation) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-get-access-token", callback: (invocation: Gio.DBusMethodInvocation) => void): NodeJS.EventEmitter
     emit(sigName: "handle-get-access-token", invocation: Gio.DBusMethodInvocation): void
-    on(sigName: "handle-get-access-token", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-get-access-token", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-get-access-token", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::g-default-timeout", callback: (($obj: OAuthBasedProxy, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::g-default-timeout", callback: (($obj: OAuthBasedProxy, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::g-default-timeout", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -4625,14 +4016,14 @@ export interface OAuthBasedSkeleton_ConstructProps extends Gio.DBusInterfaceSkel
     consumerSecret?: string
 }
 export class OAuthBasedSkeleton {
-    /* Properties of Gio.DBusInterfaceSkeleton */
+    /* Properties of Gio-2.0.Gio.DBusInterfaceSkeleton */
     gFlags: Gio.DBusInterfaceSkeletonFlags
-    /* Properties of Goa.OAuthBased */
+    /* Properties of Goa-1.0.Goa.OAuthBased */
     consumerKey: string
     consumerSecret: string
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Gio.DBusInterfaceSkeleton */
+    /* Methods of Gio-2.0.Gio.DBusInterfaceSkeleton */
     export(connection: Gio.DBusConnection, objectPath: string): boolean
     flush(): void
     getConnection(): Gio.DBusConnection | null
@@ -4645,7 +4036,7 @@ export class OAuthBasedSkeleton {
     setFlags(flags: Gio.DBusInterfaceSkeletonFlags): void
     unexport(): void
     unexportFromConnection(connection: Gio.DBusConnection): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -4667,53 +4058,32 @@ export class OAuthBasedSkeleton {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of Gio.DBusInterface */
+    /* Methods of Gio-2.0.Gio.DBusInterface */
     getObject(): Gio.DBusObject | null
     setObject(object?: Gio.DBusObject | null): void
-    /* Methods of Goa.OAuthBased */
+    /* Methods of Goa-1.0.Goa.OAuthBased */
     callGetAccessToken(cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    callGetAccessTokenFinish(res: Gio.AsyncResult): [ /* returnType */ boolean, /* outAccessToken */ string | null, /* outAccessTokenSecret */ string | null, /* outExpiresIn */ number | null ]
-    callGetAccessTokenSync(cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* outAccessToken */ string | null, /* outAccessTokenSecret */ string | null, /* outExpiresIn */ number | null ]
+    callGetAccessTokenFinish(res: Gio.AsyncResult): { returnType: boolean, outAccessToken: string | null, outAccessTokenSecret: string | null, outExpiresIn: number | null }
+    callGetAccessTokenSync(cancellable?: Gio.Cancellable | null): { returnType: boolean, outAccessToken: string | null, outAccessTokenSecret: string | null, outExpiresIn: number | null }
     completeGetAccessToken(invocation: Gio.DBusMethodInvocation, accessToken: string, accessTokenSecret: string, expiresIn: number): void
-    /* Virtual methods of Goa.OAuthBasedSkeleton */
-    vfuncDupObject(): Gio.DBusObject | null
-    vfuncGetInfo(): Gio.DBusInterfaceInfo
-    vfuncSetObject(object?: Gio.DBusObject | null): void
-    vfuncHandleGetAccessToken(invocation: Gio.DBusMethodInvocation): boolean
-    /* Virtual methods of Gio.DBusInterfaceSkeleton */
-    vfuncFlush(): void
-    vfuncGAuthorizeMethod(invocation: Gio.DBusMethodInvocation): boolean
-    vfuncGetInfo(): Gio.DBusInterfaceInfo
-    vfuncGetProperties(): GLib.Variant
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gio.DBusInterfaceSkeleton */
+    /* Signals of Gio-2.0.Gio.DBusInterfaceSkeleton */
     connect(sigName: "g-authorize-method", callback: (($obj: OAuthBasedSkeleton, invocation: Gio.DBusMethodInvocation) => boolean)): number
-    connect_after(sigName: "g-authorize-method", callback: (($obj: OAuthBasedSkeleton, invocation: Gio.DBusMethodInvocation) => boolean)): number
+    on(sigName: "g-authorize-method", callback: (invocation: Gio.DBusMethodInvocation) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "g-authorize-method", callback: (invocation: Gio.DBusMethodInvocation) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "g-authorize-method", callback: (invocation: Gio.DBusMethodInvocation) => void): NodeJS.EventEmitter
     emit(sigName: "g-authorize-method", invocation: Gio.DBusMethodInvocation): void
-    on(sigName: "g-authorize-method", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "g-authorize-method", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "g-authorize-method", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: OAuthBasedSkeleton, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: OAuthBasedSkeleton, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of Goa.OAuthBased */
+    /* Signals of Goa-1.0.Goa.OAuthBased */
     connect(sigName: "handle-get-access-token", callback: (($obj: OAuthBasedSkeleton, invocation: Gio.DBusMethodInvocation) => boolean)): number
-    connect_after(sigName: "handle-get-access-token", callback: (($obj: OAuthBasedSkeleton, invocation: Gio.DBusMethodInvocation) => boolean)): number
+    on(sigName: "handle-get-access-token", callback: (invocation: Gio.DBusMethodInvocation) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-get-access-token", callback: (invocation: Gio.DBusMethodInvocation) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-get-access-token", callback: (invocation: Gio.DBusMethodInvocation) => void): NodeJS.EventEmitter
     emit(sigName: "handle-get-access-token", invocation: Gio.DBusMethodInvocation): void
-    on(sigName: "handle-get-access-token", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-get-access-token", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-get-access-token", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::g-flags", callback: (($obj: OAuthBasedSkeleton, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::g-flags", callback: (($obj: OAuthBasedSkeleton, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::g-flags", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -4748,16 +4118,16 @@ export class OAuthBasedSkeleton {
 export interface ObjectManagerClient_ConstructProps extends Gio.DBusObjectManagerClient_ConstructProps {
 }
 export class ObjectManagerClient {
-    /* Properties of Gio.DBusObjectManagerClient */
+    /* Properties of Gio-2.0.Gio.DBusObjectManagerClient */
     readonly nameOwner: string
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Gio.DBusObjectManagerClient */
+    /* Methods of Gio-2.0.Gio.DBusObjectManagerClient */
     getConnection(): Gio.DBusConnection
     getFlags(): Gio.DBusObjectManagerClientFlags
     getName(): string
     getNameOwner(): string | null
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -4779,85 +4149,55 @@ export class ObjectManagerClient {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of Gio.AsyncInitable */
+    /* Methods of Gio-2.0.Gio.AsyncInitable */
     initAsync(ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     initFinish(res: Gio.AsyncResult): boolean
     newFinish(res: Gio.AsyncResult): GObject.Object
-    /* Methods of Gio.DBusObjectManager */
+    /* Methods of Gio-2.0.Gio.DBusObjectManager */
     getInterface(objectPath: string, interfaceName: string): Gio.DBusInterface
     getObject(objectPath: string): Gio.DBusObject
     getObjectPath(): string
     getObjects(): Gio.DBusObject[]
-    /* Methods of Gio.Initable */
+    /* Methods of Gio-2.0.Gio.Initable */
     init(cancellable?: Gio.Cancellable | null): boolean
-    /* Virtual methods of Goa.ObjectManagerClient */
-    vfuncInitAsync(ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    vfuncInitFinish(res: Gio.AsyncResult): boolean
-    vfuncGetInterface(objectPath: string, interfaceName: string): Gio.DBusInterface
-    vfuncGetObject(objectPath: string): Gio.DBusObject
-    vfuncGetObjectPath(): string
-    vfuncGetObjects(): Gio.DBusObject[]
-    vfuncInterfaceAdded(object: Gio.DBusObject, interface: Gio.DBusInterface): void
-    vfuncInterfaceRemoved(object: Gio.DBusObject, interface: Gio.DBusInterface): void
-    vfuncObjectAdded(object: Gio.DBusObject): void
-    vfuncObjectRemoved(object: Gio.DBusObject): void
-    vfuncInit(cancellable?: Gio.Cancellable | null): boolean
-    /* Virtual methods of Gio.DBusObjectManagerClient */
-    vfuncInterfaceProxyPropertiesChanged(objectProxy: Gio.DBusObjectProxy, interfaceProxy: Gio.DBusProxy, changedProperties: GLib.Variant, invalidatedProperties: string): void
-    vfuncInterfaceProxySignal(objectProxy: Gio.DBusObjectProxy, interfaceProxy: Gio.DBusProxy, senderName: string, signalName: string, parameters: GLib.Variant): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gio.DBusObjectManagerClient */
+    /* Signals of Gio-2.0.Gio.DBusObjectManagerClient */
     connect(sigName: "interface-proxy-properties-changed", callback: (($obj: ObjectManagerClient, objectProxy: Gio.DBusObjectProxy, interfaceProxy: Gio.DBusProxy, changedProperties: GLib.Variant, invalidatedProperties: string[]) => void)): number
-    connect_after(sigName: "interface-proxy-properties-changed", callback: (($obj: ObjectManagerClient, objectProxy: Gio.DBusObjectProxy, interfaceProxy: Gio.DBusProxy, changedProperties: GLib.Variant, invalidatedProperties: string[]) => void)): number
+    on(sigName: "interface-proxy-properties-changed", callback: (objectProxy: Gio.DBusObjectProxy, interfaceProxy: Gio.DBusProxy, changedProperties: GLib.Variant, invalidatedProperties: string[]) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "interface-proxy-properties-changed", callback: (objectProxy: Gio.DBusObjectProxy, interfaceProxy: Gio.DBusProxy, changedProperties: GLib.Variant, invalidatedProperties: string[]) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "interface-proxy-properties-changed", callback: (objectProxy: Gio.DBusObjectProxy, interfaceProxy: Gio.DBusProxy, changedProperties: GLib.Variant, invalidatedProperties: string[]) => void): NodeJS.EventEmitter
     emit(sigName: "interface-proxy-properties-changed", objectProxy: Gio.DBusObjectProxy, interfaceProxy: Gio.DBusProxy, changedProperties: GLib.Variant, invalidatedProperties: string[]): void
-    on(sigName: "interface-proxy-properties-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "interface-proxy-properties-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "interface-proxy-properties-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "interface-proxy-signal", callback: (($obj: ObjectManagerClient, objectProxy: Gio.DBusObjectProxy, interfaceProxy: Gio.DBusProxy, senderName: string, signalName: string, parameters: GLib.Variant) => void)): number
-    connect_after(sigName: "interface-proxy-signal", callback: (($obj: ObjectManagerClient, objectProxy: Gio.DBusObjectProxy, interfaceProxy: Gio.DBusProxy, senderName: string, signalName: string, parameters: GLib.Variant) => void)): number
+    on(sigName: "interface-proxy-signal", callback: (objectProxy: Gio.DBusObjectProxy, interfaceProxy: Gio.DBusProxy, senderName: string, signalName: string, parameters: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "interface-proxy-signal", callback: (objectProxy: Gio.DBusObjectProxy, interfaceProxy: Gio.DBusProxy, senderName: string, signalName: string, parameters: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "interface-proxy-signal", callback: (objectProxy: Gio.DBusObjectProxy, interfaceProxy: Gio.DBusProxy, senderName: string, signalName: string, parameters: GLib.Variant) => void): NodeJS.EventEmitter
     emit(sigName: "interface-proxy-signal", objectProxy: Gio.DBusObjectProxy, interfaceProxy: Gio.DBusProxy, senderName: string, signalName: string, parameters: GLib.Variant): void
-    on(sigName: "interface-proxy-signal", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "interface-proxy-signal", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "interface-proxy-signal", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: ObjectManagerClient, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: ObjectManagerClient, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of Gio.DBusObjectManager */
+    /* Signals of Gio-2.0.Gio.DBusObjectManager */
     connect(sigName: "interface-added", callback: (($obj: ObjectManagerClient, object: Gio.DBusObject, interface: Gio.DBusInterface) => void)): number
-    connect_after(sigName: "interface-added", callback: (($obj: ObjectManagerClient, object: Gio.DBusObject, interface: Gio.DBusInterface) => void)): number
+    on(sigName: "interface-added", callback: (object: Gio.DBusObject, interface: Gio.DBusInterface) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "interface-added", callback: (object: Gio.DBusObject, interface: Gio.DBusInterface) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "interface-added", callback: (object: Gio.DBusObject, interface: Gio.DBusInterface) => void): NodeJS.EventEmitter
     emit(sigName: "interface-added", object: Gio.DBusObject, interface: Gio.DBusInterface): void
-    on(sigName: "interface-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "interface-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "interface-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "interface-removed", callback: (($obj: ObjectManagerClient, object: Gio.DBusObject, interface: Gio.DBusInterface) => void)): number
-    connect_after(sigName: "interface-removed", callback: (($obj: ObjectManagerClient, object: Gio.DBusObject, interface: Gio.DBusInterface) => void)): number
+    on(sigName: "interface-removed", callback: (object: Gio.DBusObject, interface: Gio.DBusInterface) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "interface-removed", callback: (object: Gio.DBusObject, interface: Gio.DBusInterface) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "interface-removed", callback: (object: Gio.DBusObject, interface: Gio.DBusInterface) => void): NodeJS.EventEmitter
     emit(sigName: "interface-removed", object: Gio.DBusObject, interface: Gio.DBusInterface): void
-    on(sigName: "interface-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "interface-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "interface-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "object-added", callback: (($obj: ObjectManagerClient, object: Gio.DBusObject) => void)): number
-    connect_after(sigName: "object-added", callback: (($obj: ObjectManagerClient, object: Gio.DBusObject) => void)): number
+    on(sigName: "object-added", callback: (object: Gio.DBusObject) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "object-added", callback: (object: Gio.DBusObject) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "object-added", callback: (object: Gio.DBusObject) => void): NodeJS.EventEmitter
     emit(sigName: "object-added", object: Gio.DBusObject): void
-    on(sigName: "object-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "object-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "object-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "object-removed", callback: (($obj: ObjectManagerClient, object: Gio.DBusObject) => void)): number
-    connect_after(sigName: "object-removed", callback: (($obj: ObjectManagerClient, object: Gio.DBusObject) => void)): number
+    on(sigName: "object-removed", callback: (object: Gio.DBusObject) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "object-removed", callback: (object: Gio.DBusObject) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "object-removed", callback: (object: Gio.DBusObject) => void): NodeJS.EventEmitter
     emit(sigName: "object-removed", object: Gio.DBusObject): void
-    on(sigName: "object-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "object-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "object-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::name-owner", callback: (($obj: ObjectManagerClient, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::name-owner", callback: (($obj: ObjectManagerClient, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::name-owner", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -4910,7 +4250,7 @@ export interface ObjectProxy_ConstructProps extends Gio.DBusObjectProxy_Construc
     todo?: Todo
 }
 export class ObjectProxy {
-    /* Properties of Goa.Object */
+    /* Properties of Goa-1.0.Goa.Object */
     account: Account
     calendar: Calendar
     chat: Chat
@@ -4931,11 +4271,11 @@ export class ObjectProxy {
     readLater: ReadLater
     ticketing: Ticketing
     todo: Todo
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Gio.DBusObjectProxy */
+    /* Methods of Gio-2.0.Gio.DBusObjectProxy */
     getConnection(): Gio.DBusConnection
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -4957,11 +4297,11 @@ export class ObjectProxy {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of Gio.DBusObject */
+    /* Methods of Gio-2.0.Gio.DBusObject */
     getInterface(interfaceName: string): Gio.DBusInterface | null
     getInterfaces(): Gio.DBusInterface[]
     getObjectPath(): string
-    /* Methods of Goa.Object */
+    /* Methods of Goa-1.0.Goa.Object */
     getAccount(): Account | null
     getCalendar(): Calendar | null
     getChat(): Chat | null
@@ -4982,40 +4322,23 @@ export class ObjectProxy {
     getReadLater(): ReadLater | null
     getTicketing(): Ticketing | null
     getTodo(): Todo | null
-    /* Virtual methods of Goa.ObjectProxy */
-    vfuncGetInterface(interfaceName: string): Gio.DBusInterface | null
-    vfuncGetInterfaces(): Gio.DBusInterface[]
-    vfuncGetObjectPath(): string
-    vfuncInterfaceAdded(interface: Gio.DBusInterface): void
-    vfuncInterfaceRemoved(interface: Gio.DBusInterface): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: ObjectProxy, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: ObjectProxy, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of Gio.DBusObject */
+    /* Signals of Gio-2.0.Gio.DBusObject */
     connect(sigName: "interface-added", callback: (($obj: ObjectProxy, interface: Gio.DBusInterface) => void)): number
-    connect_after(sigName: "interface-added", callback: (($obj: ObjectProxy, interface: Gio.DBusInterface) => void)): number
+    on(sigName: "interface-added", callback: (interface: Gio.DBusInterface) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "interface-added", callback: (interface: Gio.DBusInterface) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "interface-added", callback: (interface: Gio.DBusInterface) => void): NodeJS.EventEmitter
     emit(sigName: "interface-added", interface: Gio.DBusInterface): void
-    on(sigName: "interface-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "interface-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "interface-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "interface-removed", callback: (($obj: ObjectProxy, interface: Gio.DBusInterface) => void)): number
-    connect_after(sigName: "interface-removed", callback: (($obj: ObjectProxy, interface: Gio.DBusInterface) => void)): number
+    on(sigName: "interface-removed", callback: (interface: Gio.DBusInterface) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "interface-removed", callback: (interface: Gio.DBusInterface) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "interface-removed", callback: (interface: Gio.DBusInterface) => void): NodeJS.EventEmitter
     emit(sigName: "interface-removed", interface: Gio.DBusInterface): void
-    on(sigName: "interface-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "interface-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "interface-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::account", callback: (($obj: ObjectProxy, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::account", callback: (($obj: ObjectProxy, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::account", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -5153,9 +4476,9 @@ export interface ObjectSkeleton_ConstructProps extends Gio.DBusObjectSkeleton_Co
     todo?: Todo
 }
 export class ObjectSkeleton {
-    /* Properties of Gio.DBusObjectSkeleton */
+    /* Properties of Gio-2.0.Gio.DBusObjectSkeleton */
     gObjectPath: string
-    /* Properties of Goa.Object */
+    /* Properties of Goa-1.0.Goa.Object */
     account: Account
     calendar: Calendar
     chat: Chat
@@ -5176,9 +4499,9 @@ export class ObjectSkeleton {
     readLater: ReadLater
     ticketing: Ticketing
     todo: Todo
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Goa.ObjectSkeleton */
+    /* Methods of Goa-1.0.Goa.ObjectSkeleton */
     setAccount(interface?: Account | null): void
     setCalendar(interface?: Calendar | null): void
     setChat(interface?: Chat | null): void
@@ -5199,13 +4522,13 @@ export class ObjectSkeleton {
     setReadLater(interface?: ReadLater | null): void
     setTicketing(interface?: Ticketing | null): void
     setTodo(interface?: Todo | null): void
-    /* Methods of Gio.DBusObjectSkeleton */
+    /* Methods of Gio-2.0.Gio.DBusObjectSkeleton */
     addInterface(interface: Gio.DBusInterfaceSkeleton): void
     flush(): void
     removeInterface(interface: Gio.DBusInterfaceSkeleton): void
     removeInterfaceByName(interfaceName: string): void
     setObjectPath(objectPath: string): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -5227,11 +4550,11 @@ export class ObjectSkeleton {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of Gio.DBusObject */
+    /* Methods of Gio-2.0.Gio.DBusObject */
     getInterface(interfaceName: string): Gio.DBusInterface | null
     getInterfaces(): Gio.DBusInterface[]
     getObjectPath(): string
-    /* Methods of Goa.Object */
+    /* Methods of Goa-1.0.Goa.Object */
     getAccount(): Account | null
     getCalendar(): Calendar | null
     getChat(): Chat | null
@@ -5252,49 +4575,29 @@ export class ObjectSkeleton {
     getReadLater(): ReadLater | null
     getTicketing(): Ticketing | null
     getTodo(): Todo | null
-    /* Virtual methods of Goa.ObjectSkeleton */
-    vfuncGetInterface(interfaceName: string): Gio.DBusInterface | null
-    vfuncGetInterfaces(): Gio.DBusInterface[]
-    vfuncGetObjectPath(): string
-    vfuncInterfaceAdded(interface: Gio.DBusInterface): void
-    vfuncInterfaceRemoved(interface: Gio.DBusInterface): void
-    /* Virtual methods of Gio.DBusObjectSkeleton */
-    vfuncAuthorizeMethod(interface: Gio.DBusInterfaceSkeleton, invocation: Gio.DBusMethodInvocation): boolean
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gio.DBusObjectSkeleton */
+    /* Signals of Gio-2.0.Gio.DBusObjectSkeleton */
     connect(sigName: "authorize-method", callback: (($obj: ObjectSkeleton, interface: Gio.DBusInterfaceSkeleton, invocation: Gio.DBusMethodInvocation) => boolean)): number
-    connect_after(sigName: "authorize-method", callback: (($obj: ObjectSkeleton, interface: Gio.DBusInterfaceSkeleton, invocation: Gio.DBusMethodInvocation) => boolean)): number
+    on(sigName: "authorize-method", callback: (interface: Gio.DBusInterfaceSkeleton, invocation: Gio.DBusMethodInvocation) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "authorize-method", callback: (interface: Gio.DBusInterfaceSkeleton, invocation: Gio.DBusMethodInvocation) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "authorize-method", callback: (interface: Gio.DBusInterfaceSkeleton, invocation: Gio.DBusMethodInvocation) => void): NodeJS.EventEmitter
     emit(sigName: "authorize-method", interface: Gio.DBusInterfaceSkeleton, invocation: Gio.DBusMethodInvocation): void
-    on(sigName: "authorize-method", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "authorize-method", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "authorize-method", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: ObjectSkeleton, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: ObjectSkeleton, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of Gio.DBusObject */
+    /* Signals of Gio-2.0.Gio.DBusObject */
     connect(sigName: "interface-added", callback: (($obj: ObjectSkeleton, interface: Gio.DBusInterface) => void)): number
-    connect_after(sigName: "interface-added", callback: (($obj: ObjectSkeleton, interface: Gio.DBusInterface) => void)): number
+    on(sigName: "interface-added", callback: (interface: Gio.DBusInterface) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "interface-added", callback: (interface: Gio.DBusInterface) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "interface-added", callback: (interface: Gio.DBusInterface) => void): NodeJS.EventEmitter
     emit(sigName: "interface-added", interface: Gio.DBusInterface): void
-    on(sigName: "interface-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "interface-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "interface-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "interface-removed", callback: (($obj: ObjectSkeleton, interface: Gio.DBusInterface) => void)): number
-    connect_after(sigName: "interface-removed", callback: (($obj: ObjectSkeleton, interface: Gio.DBusInterface) => void)): number
+    on(sigName: "interface-removed", callback: (interface: Gio.DBusInterface) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "interface-removed", callback: (interface: Gio.DBusInterface) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "interface-removed", callback: (interface: Gio.DBusInterface) => void): NodeJS.EventEmitter
     emit(sigName: "interface-removed", interface: Gio.DBusInterface): void
-    on(sigName: "interface-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "interface-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "interface-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::g-object-path", callback: (($obj: ObjectSkeleton, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::g-object-path", callback: (($obj: ObjectSkeleton, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::g-object-path", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -5417,19 +4720,19 @@ export class ObjectSkeleton {
 export interface PasswordBasedProxy_ConstructProps extends Gio.DBusProxy_ConstructProps {
 }
 export class PasswordBasedProxy {
-    /* Properties of Gio.DBusProxy */
+    /* Properties of Gio-2.0.Gio.DBusProxy */
     gDefaultTimeout: number
     gInterfaceInfo: Gio.DBusInterfaceInfo
     readonly gNameOwner: string
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Gio.DBusProxy */
+    /* Methods of Gio-2.0.Gio.DBusProxy */
     call(methodName: string, parameters: GLib.Variant | null, flags: Gio.DBusCallFlags, timeoutMsec: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     callFinish(res: Gio.AsyncResult): GLib.Variant
     callSync(methodName: string, parameters: GLib.Variant | null, flags: Gio.DBusCallFlags, timeoutMsec: number, cancellable?: Gio.Cancellable | null): GLib.Variant
     callWithUnixFdList(methodName: string, parameters: GLib.Variant | null, flags: Gio.DBusCallFlags, timeoutMsec: number, fdList?: Gio.UnixFDList | null, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    callWithUnixFdListFinish(res: Gio.AsyncResult): [ /* returnType */ GLib.Variant, /* outFdList */ Gio.UnixFDList | null ]
-    callWithUnixFdListSync(methodName: string, parameters: GLib.Variant | null, flags: Gio.DBusCallFlags, timeoutMsec: number, fdList?: Gio.UnixFDList | null, cancellable?: Gio.Cancellable | null): [ /* returnType */ GLib.Variant, /* outFdList */ Gio.UnixFDList | null ]
+    callWithUnixFdListFinish(res: Gio.AsyncResult): { returnType: GLib.Variant, outFdList: Gio.UnixFDList | null }
+    callWithUnixFdListSync(methodName: string, parameters: GLib.Variant | null, flags: Gio.DBusCallFlags, timeoutMsec: number, fdList?: Gio.UnixFDList | null, cancellable?: Gio.Cancellable | null): { returnType: GLib.Variant, outFdList: Gio.UnixFDList | null }
     getCachedProperty(propertyName: string): GLib.Variant | null
     getCachedPropertyNames(): string[] | null
     getConnection(): Gio.DBusConnection
@@ -5443,7 +4746,7 @@ export class PasswordBasedProxy {
     setCachedProperty(propertyName: string, value?: GLib.Variant | null): void
     setDefaultTimeout(timeoutMsec: number): void
     setInterfaceInfo(info?: Gio.DBusInterfaceInfo | null): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -5465,67 +4768,44 @@ export class PasswordBasedProxy {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of Gio.AsyncInitable */
+    /* Methods of Gio-2.0.Gio.AsyncInitable */
     initAsync(ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     initFinish(res: Gio.AsyncResult): boolean
     newFinish(res: Gio.AsyncResult): GObject.Object
-    /* Methods of Gio.DBusInterface */
+    /* Methods of Gio-2.0.Gio.DBusInterface */
     getObject(): Gio.DBusObject | null
     getInfo(): Gio.DBusInterfaceInfo
     setObject(object?: Gio.DBusObject | null): void
-    /* Methods of Gio.Initable */
+    /* Methods of Gio-2.0.Gio.Initable */
     init(cancellable?: Gio.Cancellable | null): boolean
-    /* Methods of Goa.PasswordBased */
+    /* Methods of Goa-1.0.Goa.PasswordBased */
     callGetPassword(argId: string, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    callGetPasswordFinish(res: Gio.AsyncResult): [ /* returnType */ boolean, /* outPassword */ string | null ]
-    callGetPasswordSync(argId: string, cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* outPassword */ string | null ]
+    callGetPasswordFinish(res: Gio.AsyncResult): { returnType: boolean, outPassword: string | null }
+    callGetPasswordSync(argId: string, cancellable?: Gio.Cancellable | null): { returnType: boolean, outPassword: string | null }
     completeGetPassword(invocation: Gio.DBusMethodInvocation, password: string): void
-    /* Virtual methods of Goa.PasswordBasedProxy */
-    vfuncInitAsync(ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    vfuncInitFinish(res: Gio.AsyncResult): boolean
-    vfuncDupObject(): Gio.DBusObject | null
-    vfuncGetInfo(): Gio.DBusInterfaceInfo
-    vfuncSetObject(object?: Gio.DBusObject | null): void
-    vfuncInit(cancellable?: Gio.Cancellable | null): boolean
-    vfuncHandleGetPassword(invocation: Gio.DBusMethodInvocation, argId: string): boolean
-    /* Virtual methods of Gio.DBusProxy */
-    vfuncGPropertiesChanged(changedProperties: GLib.Variant, invalidatedProperties: string): void
-    vfuncGSignal(senderName: string, signalName: string, parameters: GLib.Variant): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gio.DBusProxy */
+    /* Signals of Gio-2.0.Gio.DBusProxy */
     connect(sigName: "g-properties-changed", callback: (($obj: PasswordBasedProxy, changedProperties: GLib.Variant, invalidatedProperties: string[]) => void)): number
-    connect_after(sigName: "g-properties-changed", callback: (($obj: PasswordBasedProxy, changedProperties: GLib.Variant, invalidatedProperties: string[]) => void)): number
+    on(sigName: "g-properties-changed", callback: (changedProperties: GLib.Variant, invalidatedProperties: string[]) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "g-properties-changed", callback: (changedProperties: GLib.Variant, invalidatedProperties: string[]) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "g-properties-changed", callback: (changedProperties: GLib.Variant, invalidatedProperties: string[]) => void): NodeJS.EventEmitter
     emit(sigName: "g-properties-changed", changedProperties: GLib.Variant, invalidatedProperties: string[]): void
-    on(sigName: "g-properties-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "g-properties-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "g-properties-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "g-signal", callback: (($obj: PasswordBasedProxy, senderName: string | null, signalName: string, parameters: GLib.Variant) => void)): number
-    connect_after(sigName: "g-signal", callback: (($obj: PasswordBasedProxy, senderName: string | null, signalName: string, parameters: GLib.Variant) => void)): number
+    on(sigName: "g-signal", callback: (senderName: string | null, signalName: string, parameters: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "g-signal", callback: (senderName: string | null, signalName: string, parameters: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "g-signal", callback: (senderName: string | null, signalName: string, parameters: GLib.Variant) => void): NodeJS.EventEmitter
     emit(sigName: "g-signal", senderName: string | null, signalName: string, parameters: GLib.Variant): void
-    on(sigName: "g-signal", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "g-signal", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "g-signal", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: PasswordBasedProxy, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: PasswordBasedProxy, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of Goa.PasswordBased */
+    /* Signals of Goa-1.0.Goa.PasswordBased */
     connect(sigName: "handle-get-password", callback: (($obj: PasswordBasedProxy, invocation: Gio.DBusMethodInvocation, argId: string) => boolean)): number
-    connect_after(sigName: "handle-get-password", callback: (($obj: PasswordBasedProxy, invocation: Gio.DBusMethodInvocation, argId: string) => boolean)): number
+    on(sigName: "handle-get-password", callback: (invocation: Gio.DBusMethodInvocation, argId: string) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-get-password", callback: (invocation: Gio.DBusMethodInvocation, argId: string) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-get-password", callback: (invocation: Gio.DBusMethodInvocation, argId: string) => void): NodeJS.EventEmitter
     emit(sigName: "handle-get-password", invocation: Gio.DBusMethodInvocation, argId: string): void
-    on(sigName: "handle-get-password", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-get-password", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-get-password", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::g-default-timeout", callback: (($obj: PasswordBasedProxy, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::g-default-timeout", callback: (($obj: PasswordBasedProxy, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::g-default-timeout", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -5569,11 +4849,11 @@ export class PasswordBasedProxy {
 export interface PasswordBasedSkeleton_ConstructProps extends Gio.DBusInterfaceSkeleton_ConstructProps {
 }
 export class PasswordBasedSkeleton {
-    /* Properties of Gio.DBusInterfaceSkeleton */
+    /* Properties of Gio-2.0.Gio.DBusInterfaceSkeleton */
     gFlags: Gio.DBusInterfaceSkeletonFlags
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Gio.DBusInterfaceSkeleton */
+    /* Methods of Gio-2.0.Gio.DBusInterfaceSkeleton */
     export(connection: Gio.DBusConnection, objectPath: string): boolean
     flush(): void
     getConnection(): Gio.DBusConnection | null
@@ -5586,7 +4866,7 @@ export class PasswordBasedSkeleton {
     setFlags(flags: Gio.DBusInterfaceSkeletonFlags): void
     unexport(): void
     unexportFromConnection(connection: Gio.DBusConnection): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -5608,53 +4888,32 @@ export class PasswordBasedSkeleton {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of Gio.DBusInterface */
+    /* Methods of Gio-2.0.Gio.DBusInterface */
     getObject(): Gio.DBusObject | null
     setObject(object?: Gio.DBusObject | null): void
-    /* Methods of Goa.PasswordBased */
+    /* Methods of Goa-1.0.Goa.PasswordBased */
     callGetPassword(argId: string, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    callGetPasswordFinish(res: Gio.AsyncResult): [ /* returnType */ boolean, /* outPassword */ string | null ]
-    callGetPasswordSync(argId: string, cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* outPassword */ string | null ]
+    callGetPasswordFinish(res: Gio.AsyncResult): { returnType: boolean, outPassword: string | null }
+    callGetPasswordSync(argId: string, cancellable?: Gio.Cancellable | null): { returnType: boolean, outPassword: string | null }
     completeGetPassword(invocation: Gio.DBusMethodInvocation, password: string): void
-    /* Virtual methods of Goa.PasswordBasedSkeleton */
-    vfuncDupObject(): Gio.DBusObject | null
-    vfuncGetInfo(): Gio.DBusInterfaceInfo
-    vfuncSetObject(object?: Gio.DBusObject | null): void
-    vfuncHandleGetPassword(invocation: Gio.DBusMethodInvocation, argId: string): boolean
-    /* Virtual methods of Gio.DBusInterfaceSkeleton */
-    vfuncFlush(): void
-    vfuncGAuthorizeMethod(invocation: Gio.DBusMethodInvocation): boolean
-    vfuncGetInfo(): Gio.DBusInterfaceInfo
-    vfuncGetProperties(): GLib.Variant
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gio.DBusInterfaceSkeleton */
+    /* Signals of Gio-2.0.Gio.DBusInterfaceSkeleton */
     connect(sigName: "g-authorize-method", callback: (($obj: PasswordBasedSkeleton, invocation: Gio.DBusMethodInvocation) => boolean)): number
-    connect_after(sigName: "g-authorize-method", callback: (($obj: PasswordBasedSkeleton, invocation: Gio.DBusMethodInvocation) => boolean)): number
+    on(sigName: "g-authorize-method", callback: (invocation: Gio.DBusMethodInvocation) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "g-authorize-method", callback: (invocation: Gio.DBusMethodInvocation) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "g-authorize-method", callback: (invocation: Gio.DBusMethodInvocation) => void): NodeJS.EventEmitter
     emit(sigName: "g-authorize-method", invocation: Gio.DBusMethodInvocation): void
-    on(sigName: "g-authorize-method", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "g-authorize-method", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "g-authorize-method", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: PasswordBasedSkeleton, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: PasswordBasedSkeleton, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of Goa.PasswordBased */
+    /* Signals of Goa-1.0.Goa.PasswordBased */
     connect(sigName: "handle-get-password", callback: (($obj: PasswordBasedSkeleton, invocation: Gio.DBusMethodInvocation, argId: string) => boolean)): number
-    connect_after(sigName: "handle-get-password", callback: (($obj: PasswordBasedSkeleton, invocation: Gio.DBusMethodInvocation, argId: string) => boolean)): number
+    on(sigName: "handle-get-password", callback: (invocation: Gio.DBusMethodInvocation, argId: string) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-get-password", callback: (invocation: Gio.DBusMethodInvocation, argId: string) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-get-password", callback: (invocation: Gio.DBusMethodInvocation, argId: string) => void): NodeJS.EventEmitter
     emit(sigName: "handle-get-password", invocation: Gio.DBusMethodInvocation, argId: string): void
-    on(sigName: "handle-get-password", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-get-password", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-get-password", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::g-flags", callback: (($obj: PasswordBasedSkeleton, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::g-flags", callback: (($obj: PasswordBasedSkeleton, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::g-flags", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -5679,19 +4938,19 @@ export class PasswordBasedSkeleton {
 export interface PhotosProxy_ConstructProps extends Gio.DBusProxy_ConstructProps {
 }
 export class PhotosProxy {
-    /* Properties of Gio.DBusProxy */
+    /* Properties of Gio-2.0.Gio.DBusProxy */
     gDefaultTimeout: number
     gInterfaceInfo: Gio.DBusInterfaceInfo
     readonly gNameOwner: string
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Gio.DBusProxy */
+    /* Methods of Gio-2.0.Gio.DBusProxy */
     call(methodName: string, parameters: GLib.Variant | null, flags: Gio.DBusCallFlags, timeoutMsec: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     callFinish(res: Gio.AsyncResult): GLib.Variant
     callSync(methodName: string, parameters: GLib.Variant | null, flags: Gio.DBusCallFlags, timeoutMsec: number, cancellable?: Gio.Cancellable | null): GLib.Variant
     callWithUnixFdList(methodName: string, parameters: GLib.Variant | null, flags: Gio.DBusCallFlags, timeoutMsec: number, fdList?: Gio.UnixFDList | null, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    callWithUnixFdListFinish(res: Gio.AsyncResult): [ /* returnType */ GLib.Variant, /* outFdList */ Gio.UnixFDList | null ]
-    callWithUnixFdListSync(methodName: string, parameters: GLib.Variant | null, flags: Gio.DBusCallFlags, timeoutMsec: number, fdList?: Gio.UnixFDList | null, cancellable?: Gio.Cancellable | null): [ /* returnType */ GLib.Variant, /* outFdList */ Gio.UnixFDList | null ]
+    callWithUnixFdListFinish(res: Gio.AsyncResult): { returnType: GLib.Variant, outFdList: Gio.UnixFDList | null }
+    callWithUnixFdListSync(methodName: string, parameters: GLib.Variant | null, flags: Gio.DBusCallFlags, timeoutMsec: number, fdList?: Gio.UnixFDList | null, cancellable?: Gio.Cancellable | null): { returnType: GLib.Variant, outFdList: Gio.UnixFDList | null }
     getCachedProperty(propertyName: string): GLib.Variant | null
     getCachedPropertyNames(): string[] | null
     getConnection(): Gio.DBusConnection
@@ -5705,7 +4964,7 @@ export class PhotosProxy {
     setCachedProperty(propertyName: string, value?: GLib.Variant | null): void
     setDefaultTimeout(timeoutMsec: number): void
     setInterfaceInfo(info?: Gio.DBusInterfaceInfo | null): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -5727,54 +4986,33 @@ export class PhotosProxy {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of Gio.AsyncInitable */
+    /* Methods of Gio-2.0.Gio.AsyncInitable */
     initAsync(ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     initFinish(res: Gio.AsyncResult): boolean
     newFinish(res: Gio.AsyncResult): GObject.Object
-    /* Methods of Gio.DBusInterface */
+    /* Methods of Gio-2.0.Gio.DBusInterface */
     getObject(): Gio.DBusObject | null
     getInfo(): Gio.DBusInterfaceInfo
     setObject(object?: Gio.DBusObject | null): void
-    /* Methods of Gio.Initable */
+    /* Methods of Gio-2.0.Gio.Initable */
     init(cancellable?: Gio.Cancellable | null): boolean
-    /* Virtual methods of Goa.PhotosProxy */
-    vfuncInitAsync(ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    vfuncInitFinish(res: Gio.AsyncResult): boolean
-    vfuncDupObject(): Gio.DBusObject | null
-    vfuncGetInfo(): Gio.DBusInterfaceInfo
-    vfuncSetObject(object?: Gio.DBusObject | null): void
-    vfuncInit(cancellable?: Gio.Cancellable | null): boolean
-    /* Virtual methods of Gio.DBusProxy */
-    vfuncGPropertiesChanged(changedProperties: GLib.Variant, invalidatedProperties: string): void
-    vfuncGSignal(senderName: string, signalName: string, parameters: GLib.Variant): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gio.DBusProxy */
+    /* Signals of Gio-2.0.Gio.DBusProxy */
     connect(sigName: "g-properties-changed", callback: (($obj: PhotosProxy, changedProperties: GLib.Variant, invalidatedProperties: string[]) => void)): number
-    connect_after(sigName: "g-properties-changed", callback: (($obj: PhotosProxy, changedProperties: GLib.Variant, invalidatedProperties: string[]) => void)): number
+    on(sigName: "g-properties-changed", callback: (changedProperties: GLib.Variant, invalidatedProperties: string[]) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "g-properties-changed", callback: (changedProperties: GLib.Variant, invalidatedProperties: string[]) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "g-properties-changed", callback: (changedProperties: GLib.Variant, invalidatedProperties: string[]) => void): NodeJS.EventEmitter
     emit(sigName: "g-properties-changed", changedProperties: GLib.Variant, invalidatedProperties: string[]): void
-    on(sigName: "g-properties-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "g-properties-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "g-properties-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "g-signal", callback: (($obj: PhotosProxy, senderName: string | null, signalName: string, parameters: GLib.Variant) => void)): number
-    connect_after(sigName: "g-signal", callback: (($obj: PhotosProxy, senderName: string | null, signalName: string, parameters: GLib.Variant) => void)): number
+    on(sigName: "g-signal", callback: (senderName: string | null, signalName: string, parameters: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "g-signal", callback: (senderName: string | null, signalName: string, parameters: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "g-signal", callback: (senderName: string | null, signalName: string, parameters: GLib.Variant) => void): NodeJS.EventEmitter
     emit(sigName: "g-signal", senderName: string | null, signalName: string, parameters: GLib.Variant): void
-    on(sigName: "g-signal", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "g-signal", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "g-signal", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: PhotosProxy, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: PhotosProxy, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::g-default-timeout", callback: (($obj: PhotosProxy, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::g-default-timeout", callback: (($obj: PhotosProxy, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::g-default-timeout", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -5818,11 +5056,11 @@ export class PhotosProxy {
 export interface PhotosSkeleton_ConstructProps extends Gio.DBusInterfaceSkeleton_ConstructProps {
 }
 export class PhotosSkeleton {
-    /* Properties of Gio.DBusInterfaceSkeleton */
+    /* Properties of Gio-2.0.Gio.DBusInterfaceSkeleton */
     gFlags: Gio.DBusInterfaceSkeletonFlags
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Gio.DBusInterfaceSkeleton */
+    /* Methods of Gio-2.0.Gio.DBusInterfaceSkeleton */
     export(connection: Gio.DBusConnection, objectPath: string): boolean
     flush(): void
     getConnection(): Gio.DBusConnection | null
@@ -5835,7 +5073,7 @@ export class PhotosSkeleton {
     setFlags(flags: Gio.DBusInterfaceSkeletonFlags): void
     unexport(): void
     unexportFromConnection(connection: Gio.DBusConnection): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -5857,40 +5095,21 @@ export class PhotosSkeleton {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of Gio.DBusInterface */
+    /* Methods of Gio-2.0.Gio.DBusInterface */
     getObject(): Gio.DBusObject | null
     setObject(object?: Gio.DBusObject | null): void
-    /* Virtual methods of Goa.PhotosSkeleton */
-    vfuncDupObject(): Gio.DBusObject | null
-    vfuncGetInfo(): Gio.DBusInterfaceInfo
-    vfuncSetObject(object?: Gio.DBusObject | null): void
-    /* Virtual methods of Gio.DBusInterfaceSkeleton */
-    vfuncFlush(): void
-    vfuncGAuthorizeMethod(invocation: Gio.DBusMethodInvocation): boolean
-    vfuncGetInfo(): Gio.DBusInterfaceInfo
-    vfuncGetProperties(): GLib.Variant
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gio.DBusInterfaceSkeleton */
+    /* Signals of Gio-2.0.Gio.DBusInterfaceSkeleton */
     connect(sigName: "g-authorize-method", callback: (($obj: PhotosSkeleton, invocation: Gio.DBusMethodInvocation) => boolean)): number
-    connect_after(sigName: "g-authorize-method", callback: (($obj: PhotosSkeleton, invocation: Gio.DBusMethodInvocation) => boolean)): number
+    on(sigName: "g-authorize-method", callback: (invocation: Gio.DBusMethodInvocation) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "g-authorize-method", callback: (invocation: Gio.DBusMethodInvocation) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "g-authorize-method", callback: (invocation: Gio.DBusMethodInvocation) => void): NodeJS.EventEmitter
     emit(sigName: "g-authorize-method", invocation: Gio.DBusMethodInvocation): void
-    on(sigName: "g-authorize-method", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "g-authorize-method", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "g-authorize-method", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: PhotosSkeleton, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: PhotosSkeleton, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::g-flags", callback: (($obj: PhotosSkeleton, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::g-flags", callback: (($obj: PhotosSkeleton, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::g-flags", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -5915,19 +5134,19 @@ export class PhotosSkeleton {
 export interface PrintersProxy_ConstructProps extends Gio.DBusProxy_ConstructProps {
 }
 export class PrintersProxy {
-    /* Properties of Gio.DBusProxy */
+    /* Properties of Gio-2.0.Gio.DBusProxy */
     gDefaultTimeout: number
     gInterfaceInfo: Gio.DBusInterfaceInfo
     readonly gNameOwner: string
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Gio.DBusProxy */
+    /* Methods of Gio-2.0.Gio.DBusProxy */
     call(methodName: string, parameters: GLib.Variant | null, flags: Gio.DBusCallFlags, timeoutMsec: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     callFinish(res: Gio.AsyncResult): GLib.Variant
     callSync(methodName: string, parameters: GLib.Variant | null, flags: Gio.DBusCallFlags, timeoutMsec: number, cancellable?: Gio.Cancellable | null): GLib.Variant
     callWithUnixFdList(methodName: string, parameters: GLib.Variant | null, flags: Gio.DBusCallFlags, timeoutMsec: number, fdList?: Gio.UnixFDList | null, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    callWithUnixFdListFinish(res: Gio.AsyncResult): [ /* returnType */ GLib.Variant, /* outFdList */ Gio.UnixFDList | null ]
-    callWithUnixFdListSync(methodName: string, parameters: GLib.Variant | null, flags: Gio.DBusCallFlags, timeoutMsec: number, fdList?: Gio.UnixFDList | null, cancellable?: Gio.Cancellable | null): [ /* returnType */ GLib.Variant, /* outFdList */ Gio.UnixFDList | null ]
+    callWithUnixFdListFinish(res: Gio.AsyncResult): { returnType: GLib.Variant, outFdList: Gio.UnixFDList | null }
+    callWithUnixFdListSync(methodName: string, parameters: GLib.Variant | null, flags: Gio.DBusCallFlags, timeoutMsec: number, fdList?: Gio.UnixFDList | null, cancellable?: Gio.Cancellable | null): { returnType: GLib.Variant, outFdList: Gio.UnixFDList | null }
     getCachedProperty(propertyName: string): GLib.Variant | null
     getCachedPropertyNames(): string[] | null
     getConnection(): Gio.DBusConnection
@@ -5941,7 +5160,7 @@ export class PrintersProxy {
     setCachedProperty(propertyName: string, value?: GLib.Variant | null): void
     setDefaultTimeout(timeoutMsec: number): void
     setInterfaceInfo(info?: Gio.DBusInterfaceInfo | null): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -5963,54 +5182,33 @@ export class PrintersProxy {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of Gio.AsyncInitable */
+    /* Methods of Gio-2.0.Gio.AsyncInitable */
     initAsync(ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     initFinish(res: Gio.AsyncResult): boolean
     newFinish(res: Gio.AsyncResult): GObject.Object
-    /* Methods of Gio.DBusInterface */
+    /* Methods of Gio-2.0.Gio.DBusInterface */
     getObject(): Gio.DBusObject | null
     getInfo(): Gio.DBusInterfaceInfo
     setObject(object?: Gio.DBusObject | null): void
-    /* Methods of Gio.Initable */
+    /* Methods of Gio-2.0.Gio.Initable */
     init(cancellable?: Gio.Cancellable | null): boolean
-    /* Virtual methods of Goa.PrintersProxy */
-    vfuncInitAsync(ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    vfuncInitFinish(res: Gio.AsyncResult): boolean
-    vfuncDupObject(): Gio.DBusObject | null
-    vfuncGetInfo(): Gio.DBusInterfaceInfo
-    vfuncSetObject(object?: Gio.DBusObject | null): void
-    vfuncInit(cancellable?: Gio.Cancellable | null): boolean
-    /* Virtual methods of Gio.DBusProxy */
-    vfuncGPropertiesChanged(changedProperties: GLib.Variant, invalidatedProperties: string): void
-    vfuncGSignal(senderName: string, signalName: string, parameters: GLib.Variant): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gio.DBusProxy */
+    /* Signals of Gio-2.0.Gio.DBusProxy */
     connect(sigName: "g-properties-changed", callback: (($obj: PrintersProxy, changedProperties: GLib.Variant, invalidatedProperties: string[]) => void)): number
-    connect_after(sigName: "g-properties-changed", callback: (($obj: PrintersProxy, changedProperties: GLib.Variant, invalidatedProperties: string[]) => void)): number
+    on(sigName: "g-properties-changed", callback: (changedProperties: GLib.Variant, invalidatedProperties: string[]) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "g-properties-changed", callback: (changedProperties: GLib.Variant, invalidatedProperties: string[]) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "g-properties-changed", callback: (changedProperties: GLib.Variant, invalidatedProperties: string[]) => void): NodeJS.EventEmitter
     emit(sigName: "g-properties-changed", changedProperties: GLib.Variant, invalidatedProperties: string[]): void
-    on(sigName: "g-properties-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "g-properties-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "g-properties-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "g-signal", callback: (($obj: PrintersProxy, senderName: string | null, signalName: string, parameters: GLib.Variant) => void)): number
-    connect_after(sigName: "g-signal", callback: (($obj: PrintersProxy, senderName: string | null, signalName: string, parameters: GLib.Variant) => void)): number
+    on(sigName: "g-signal", callback: (senderName: string | null, signalName: string, parameters: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "g-signal", callback: (senderName: string | null, signalName: string, parameters: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "g-signal", callback: (senderName: string | null, signalName: string, parameters: GLib.Variant) => void): NodeJS.EventEmitter
     emit(sigName: "g-signal", senderName: string | null, signalName: string, parameters: GLib.Variant): void
-    on(sigName: "g-signal", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "g-signal", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "g-signal", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: PrintersProxy, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: PrintersProxy, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::g-default-timeout", callback: (($obj: PrintersProxy, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::g-default-timeout", callback: (($obj: PrintersProxy, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::g-default-timeout", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -6054,11 +5252,11 @@ export class PrintersProxy {
 export interface PrintersSkeleton_ConstructProps extends Gio.DBusInterfaceSkeleton_ConstructProps {
 }
 export class PrintersSkeleton {
-    /* Properties of Gio.DBusInterfaceSkeleton */
+    /* Properties of Gio-2.0.Gio.DBusInterfaceSkeleton */
     gFlags: Gio.DBusInterfaceSkeletonFlags
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Gio.DBusInterfaceSkeleton */
+    /* Methods of Gio-2.0.Gio.DBusInterfaceSkeleton */
     export(connection: Gio.DBusConnection, objectPath: string): boolean
     flush(): void
     getConnection(): Gio.DBusConnection | null
@@ -6071,7 +5269,7 @@ export class PrintersSkeleton {
     setFlags(flags: Gio.DBusInterfaceSkeletonFlags): void
     unexport(): void
     unexportFromConnection(connection: Gio.DBusConnection): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -6093,40 +5291,21 @@ export class PrintersSkeleton {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of Gio.DBusInterface */
+    /* Methods of Gio-2.0.Gio.DBusInterface */
     getObject(): Gio.DBusObject | null
     setObject(object?: Gio.DBusObject | null): void
-    /* Virtual methods of Goa.PrintersSkeleton */
-    vfuncDupObject(): Gio.DBusObject | null
-    vfuncGetInfo(): Gio.DBusInterfaceInfo
-    vfuncSetObject(object?: Gio.DBusObject | null): void
-    /* Virtual methods of Gio.DBusInterfaceSkeleton */
-    vfuncFlush(): void
-    vfuncGAuthorizeMethod(invocation: Gio.DBusMethodInvocation): boolean
-    vfuncGetInfo(): Gio.DBusInterfaceInfo
-    vfuncGetProperties(): GLib.Variant
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gio.DBusInterfaceSkeleton */
+    /* Signals of Gio-2.0.Gio.DBusInterfaceSkeleton */
     connect(sigName: "g-authorize-method", callback: (($obj: PrintersSkeleton, invocation: Gio.DBusMethodInvocation) => boolean)): number
-    connect_after(sigName: "g-authorize-method", callback: (($obj: PrintersSkeleton, invocation: Gio.DBusMethodInvocation) => boolean)): number
+    on(sigName: "g-authorize-method", callback: (invocation: Gio.DBusMethodInvocation) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "g-authorize-method", callback: (invocation: Gio.DBusMethodInvocation) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "g-authorize-method", callback: (invocation: Gio.DBusMethodInvocation) => void): NodeJS.EventEmitter
     emit(sigName: "g-authorize-method", invocation: Gio.DBusMethodInvocation): void
-    on(sigName: "g-authorize-method", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "g-authorize-method", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "g-authorize-method", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: PrintersSkeleton, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: PrintersSkeleton, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::g-flags", callback: (($obj: PrintersSkeleton, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::g-flags", callback: (($obj: PrintersSkeleton, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::g-flags", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -6151,19 +5330,19 @@ export class PrintersSkeleton {
 export interface ReadLaterProxy_ConstructProps extends Gio.DBusProxy_ConstructProps {
 }
 export class ReadLaterProxy {
-    /* Properties of Gio.DBusProxy */
+    /* Properties of Gio-2.0.Gio.DBusProxy */
     gDefaultTimeout: number
     gInterfaceInfo: Gio.DBusInterfaceInfo
     readonly gNameOwner: string
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Gio.DBusProxy */
+    /* Methods of Gio-2.0.Gio.DBusProxy */
     call(methodName: string, parameters: GLib.Variant | null, flags: Gio.DBusCallFlags, timeoutMsec: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     callFinish(res: Gio.AsyncResult): GLib.Variant
     callSync(methodName: string, parameters: GLib.Variant | null, flags: Gio.DBusCallFlags, timeoutMsec: number, cancellable?: Gio.Cancellable | null): GLib.Variant
     callWithUnixFdList(methodName: string, parameters: GLib.Variant | null, flags: Gio.DBusCallFlags, timeoutMsec: number, fdList?: Gio.UnixFDList | null, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    callWithUnixFdListFinish(res: Gio.AsyncResult): [ /* returnType */ GLib.Variant, /* outFdList */ Gio.UnixFDList | null ]
-    callWithUnixFdListSync(methodName: string, parameters: GLib.Variant | null, flags: Gio.DBusCallFlags, timeoutMsec: number, fdList?: Gio.UnixFDList | null, cancellable?: Gio.Cancellable | null): [ /* returnType */ GLib.Variant, /* outFdList */ Gio.UnixFDList | null ]
+    callWithUnixFdListFinish(res: Gio.AsyncResult): { returnType: GLib.Variant, outFdList: Gio.UnixFDList | null }
+    callWithUnixFdListSync(methodName: string, parameters: GLib.Variant | null, flags: Gio.DBusCallFlags, timeoutMsec: number, fdList?: Gio.UnixFDList | null, cancellable?: Gio.Cancellable | null): { returnType: GLib.Variant, outFdList: Gio.UnixFDList | null }
     getCachedProperty(propertyName: string): GLib.Variant | null
     getCachedPropertyNames(): string[] | null
     getConnection(): Gio.DBusConnection
@@ -6177,7 +5356,7 @@ export class ReadLaterProxy {
     setCachedProperty(propertyName: string, value?: GLib.Variant | null): void
     setDefaultTimeout(timeoutMsec: number): void
     setInterfaceInfo(info?: Gio.DBusInterfaceInfo | null): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -6199,54 +5378,33 @@ export class ReadLaterProxy {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of Gio.AsyncInitable */
+    /* Methods of Gio-2.0.Gio.AsyncInitable */
     initAsync(ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     initFinish(res: Gio.AsyncResult): boolean
     newFinish(res: Gio.AsyncResult): GObject.Object
-    /* Methods of Gio.DBusInterface */
+    /* Methods of Gio-2.0.Gio.DBusInterface */
     getObject(): Gio.DBusObject | null
     getInfo(): Gio.DBusInterfaceInfo
     setObject(object?: Gio.DBusObject | null): void
-    /* Methods of Gio.Initable */
+    /* Methods of Gio-2.0.Gio.Initable */
     init(cancellable?: Gio.Cancellable | null): boolean
-    /* Virtual methods of Goa.ReadLaterProxy */
-    vfuncInitAsync(ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    vfuncInitFinish(res: Gio.AsyncResult): boolean
-    vfuncDupObject(): Gio.DBusObject | null
-    vfuncGetInfo(): Gio.DBusInterfaceInfo
-    vfuncSetObject(object?: Gio.DBusObject | null): void
-    vfuncInit(cancellable?: Gio.Cancellable | null): boolean
-    /* Virtual methods of Gio.DBusProxy */
-    vfuncGPropertiesChanged(changedProperties: GLib.Variant, invalidatedProperties: string): void
-    vfuncGSignal(senderName: string, signalName: string, parameters: GLib.Variant): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gio.DBusProxy */
+    /* Signals of Gio-2.0.Gio.DBusProxy */
     connect(sigName: "g-properties-changed", callback: (($obj: ReadLaterProxy, changedProperties: GLib.Variant, invalidatedProperties: string[]) => void)): number
-    connect_after(sigName: "g-properties-changed", callback: (($obj: ReadLaterProxy, changedProperties: GLib.Variant, invalidatedProperties: string[]) => void)): number
+    on(sigName: "g-properties-changed", callback: (changedProperties: GLib.Variant, invalidatedProperties: string[]) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "g-properties-changed", callback: (changedProperties: GLib.Variant, invalidatedProperties: string[]) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "g-properties-changed", callback: (changedProperties: GLib.Variant, invalidatedProperties: string[]) => void): NodeJS.EventEmitter
     emit(sigName: "g-properties-changed", changedProperties: GLib.Variant, invalidatedProperties: string[]): void
-    on(sigName: "g-properties-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "g-properties-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "g-properties-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "g-signal", callback: (($obj: ReadLaterProxy, senderName: string | null, signalName: string, parameters: GLib.Variant) => void)): number
-    connect_after(sigName: "g-signal", callback: (($obj: ReadLaterProxy, senderName: string | null, signalName: string, parameters: GLib.Variant) => void)): number
+    on(sigName: "g-signal", callback: (senderName: string | null, signalName: string, parameters: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "g-signal", callback: (senderName: string | null, signalName: string, parameters: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "g-signal", callback: (senderName: string | null, signalName: string, parameters: GLib.Variant) => void): NodeJS.EventEmitter
     emit(sigName: "g-signal", senderName: string | null, signalName: string, parameters: GLib.Variant): void
-    on(sigName: "g-signal", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "g-signal", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "g-signal", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: ReadLaterProxy, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: ReadLaterProxy, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::g-default-timeout", callback: (($obj: ReadLaterProxy, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::g-default-timeout", callback: (($obj: ReadLaterProxy, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::g-default-timeout", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -6290,11 +5448,11 @@ export class ReadLaterProxy {
 export interface ReadLaterSkeleton_ConstructProps extends Gio.DBusInterfaceSkeleton_ConstructProps {
 }
 export class ReadLaterSkeleton {
-    /* Properties of Gio.DBusInterfaceSkeleton */
+    /* Properties of Gio-2.0.Gio.DBusInterfaceSkeleton */
     gFlags: Gio.DBusInterfaceSkeletonFlags
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Gio.DBusInterfaceSkeleton */
+    /* Methods of Gio-2.0.Gio.DBusInterfaceSkeleton */
     export(connection: Gio.DBusConnection, objectPath: string): boolean
     flush(): void
     getConnection(): Gio.DBusConnection | null
@@ -6307,7 +5465,7 @@ export class ReadLaterSkeleton {
     setFlags(flags: Gio.DBusInterfaceSkeletonFlags): void
     unexport(): void
     unexportFromConnection(connection: Gio.DBusConnection): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -6329,40 +5487,21 @@ export class ReadLaterSkeleton {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of Gio.DBusInterface */
+    /* Methods of Gio-2.0.Gio.DBusInterface */
     getObject(): Gio.DBusObject | null
     setObject(object?: Gio.DBusObject | null): void
-    /* Virtual methods of Goa.ReadLaterSkeleton */
-    vfuncDupObject(): Gio.DBusObject | null
-    vfuncGetInfo(): Gio.DBusInterfaceInfo
-    vfuncSetObject(object?: Gio.DBusObject | null): void
-    /* Virtual methods of Gio.DBusInterfaceSkeleton */
-    vfuncFlush(): void
-    vfuncGAuthorizeMethod(invocation: Gio.DBusMethodInvocation): boolean
-    vfuncGetInfo(): Gio.DBusInterfaceInfo
-    vfuncGetProperties(): GLib.Variant
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gio.DBusInterfaceSkeleton */
+    /* Signals of Gio-2.0.Gio.DBusInterfaceSkeleton */
     connect(sigName: "g-authorize-method", callback: (($obj: ReadLaterSkeleton, invocation: Gio.DBusMethodInvocation) => boolean)): number
-    connect_after(sigName: "g-authorize-method", callback: (($obj: ReadLaterSkeleton, invocation: Gio.DBusMethodInvocation) => boolean)): number
+    on(sigName: "g-authorize-method", callback: (invocation: Gio.DBusMethodInvocation) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "g-authorize-method", callback: (invocation: Gio.DBusMethodInvocation) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "g-authorize-method", callback: (invocation: Gio.DBusMethodInvocation) => void): NodeJS.EventEmitter
     emit(sigName: "g-authorize-method", invocation: Gio.DBusMethodInvocation): void
-    on(sigName: "g-authorize-method", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "g-authorize-method", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "g-authorize-method", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: ReadLaterSkeleton, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: ReadLaterSkeleton, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::g-flags", callback: (($obj: ReadLaterSkeleton, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::g-flags", callback: (($obj: ReadLaterSkeleton, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::g-flags", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -6388,21 +5527,21 @@ export interface TicketingProxy_ConstructProps extends Gio.DBusProxy_ConstructPr
     details?: GLib.Variant
 }
 export class TicketingProxy {
-    /* Properties of Gio.DBusProxy */
+    /* Properties of Gio-2.0.Gio.DBusProxy */
     gDefaultTimeout: number
     gInterfaceInfo: Gio.DBusInterfaceInfo
     readonly gNameOwner: string
-    /* Properties of Goa.Ticketing */
+    /* Properties of Goa-1.0.Goa.Ticketing */
     details: GLib.Variant
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Gio.DBusProxy */
+    /* Methods of Gio-2.0.Gio.DBusProxy */
     call(methodName: string, parameters: GLib.Variant | null, flags: Gio.DBusCallFlags, timeoutMsec: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     callFinish(res: Gio.AsyncResult): GLib.Variant
     callSync(methodName: string, parameters: GLib.Variant | null, flags: Gio.DBusCallFlags, timeoutMsec: number, cancellable?: Gio.Cancellable | null): GLib.Variant
     callWithUnixFdList(methodName: string, parameters: GLib.Variant | null, flags: Gio.DBusCallFlags, timeoutMsec: number, fdList?: Gio.UnixFDList | null, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    callWithUnixFdListFinish(res: Gio.AsyncResult): [ /* returnType */ GLib.Variant, /* outFdList */ Gio.UnixFDList | null ]
-    callWithUnixFdListSync(methodName: string, parameters: GLib.Variant | null, flags: Gio.DBusCallFlags, timeoutMsec: number, fdList?: Gio.UnixFDList | null, cancellable?: Gio.Cancellable | null): [ /* returnType */ GLib.Variant, /* outFdList */ Gio.UnixFDList | null ]
+    callWithUnixFdListFinish(res: Gio.AsyncResult): { returnType: GLib.Variant, outFdList: Gio.UnixFDList | null }
+    callWithUnixFdListSync(methodName: string, parameters: GLib.Variant | null, flags: Gio.DBusCallFlags, timeoutMsec: number, fdList?: Gio.UnixFDList | null, cancellable?: Gio.Cancellable | null): { returnType: GLib.Variant, outFdList: Gio.UnixFDList | null }
     getCachedProperty(propertyName: string): GLib.Variant | null
     getCachedPropertyNames(): string[] | null
     getConnection(): Gio.DBusConnection
@@ -6416,7 +5555,7 @@ export class TicketingProxy {
     setCachedProperty(propertyName: string, value?: GLib.Variant | null): void
     setDefaultTimeout(timeoutMsec: number): void
     setInterfaceInfo(info?: Gio.DBusInterfaceInfo | null): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -6438,67 +5577,44 @@ export class TicketingProxy {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of Gio.AsyncInitable */
+    /* Methods of Gio-2.0.Gio.AsyncInitable */
     initAsync(ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     initFinish(res: Gio.AsyncResult): boolean
     newFinish(res: Gio.AsyncResult): GObject.Object
-    /* Methods of Gio.DBusInterface */
+    /* Methods of Gio-2.0.Gio.DBusInterface */
     getObject(): Gio.DBusObject | null
     getInfo(): Gio.DBusInterfaceInfo
     setObject(object?: Gio.DBusObject | null): void
-    /* Methods of Gio.Initable */
+    /* Methods of Gio-2.0.Gio.Initable */
     init(cancellable?: Gio.Cancellable | null): boolean
-    /* Methods of Goa.Ticketing */
+    /* Methods of Goa-1.0.Goa.Ticketing */
     callGetTicket(cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     callGetTicketFinish(res: Gio.AsyncResult): boolean
     callGetTicketSync(cancellable?: Gio.Cancellable | null): boolean
     completeGetTicket(invocation: Gio.DBusMethodInvocation): void
-    /* Virtual methods of Goa.TicketingProxy */
-    vfuncInitAsync(ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    vfuncInitFinish(res: Gio.AsyncResult): boolean
-    vfuncDupObject(): Gio.DBusObject | null
-    vfuncGetInfo(): Gio.DBusInterfaceInfo
-    vfuncSetObject(object?: Gio.DBusObject | null): void
-    vfuncInit(cancellable?: Gio.Cancellable | null): boolean
-    vfuncHandleGetTicket(invocation: Gio.DBusMethodInvocation): boolean
-    /* Virtual methods of Gio.DBusProxy */
-    vfuncGPropertiesChanged(changedProperties: GLib.Variant, invalidatedProperties: string): void
-    vfuncGSignal(senderName: string, signalName: string, parameters: GLib.Variant): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gio.DBusProxy */
+    /* Signals of Gio-2.0.Gio.DBusProxy */
     connect(sigName: "g-properties-changed", callback: (($obj: TicketingProxy, changedProperties: GLib.Variant, invalidatedProperties: string[]) => void)): number
-    connect_after(sigName: "g-properties-changed", callback: (($obj: TicketingProxy, changedProperties: GLib.Variant, invalidatedProperties: string[]) => void)): number
+    on(sigName: "g-properties-changed", callback: (changedProperties: GLib.Variant, invalidatedProperties: string[]) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "g-properties-changed", callback: (changedProperties: GLib.Variant, invalidatedProperties: string[]) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "g-properties-changed", callback: (changedProperties: GLib.Variant, invalidatedProperties: string[]) => void): NodeJS.EventEmitter
     emit(sigName: "g-properties-changed", changedProperties: GLib.Variant, invalidatedProperties: string[]): void
-    on(sigName: "g-properties-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "g-properties-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "g-properties-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "g-signal", callback: (($obj: TicketingProxy, senderName: string | null, signalName: string, parameters: GLib.Variant) => void)): number
-    connect_after(sigName: "g-signal", callback: (($obj: TicketingProxy, senderName: string | null, signalName: string, parameters: GLib.Variant) => void)): number
+    on(sigName: "g-signal", callback: (senderName: string | null, signalName: string, parameters: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "g-signal", callback: (senderName: string | null, signalName: string, parameters: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "g-signal", callback: (senderName: string | null, signalName: string, parameters: GLib.Variant) => void): NodeJS.EventEmitter
     emit(sigName: "g-signal", senderName: string | null, signalName: string, parameters: GLib.Variant): void
-    on(sigName: "g-signal", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "g-signal", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "g-signal", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: TicketingProxy, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: TicketingProxy, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of Goa.Ticketing */
+    /* Signals of Goa-1.0.Goa.Ticketing */
     connect(sigName: "handle-get-ticket", callback: (($obj: TicketingProxy, invocation: Gio.DBusMethodInvocation) => boolean)): number
-    connect_after(sigName: "handle-get-ticket", callback: (($obj: TicketingProxy, invocation: Gio.DBusMethodInvocation) => boolean)): number
+    on(sigName: "handle-get-ticket", callback: (invocation: Gio.DBusMethodInvocation) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-get-ticket", callback: (invocation: Gio.DBusMethodInvocation) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-get-ticket", callback: (invocation: Gio.DBusMethodInvocation) => void): NodeJS.EventEmitter
     emit(sigName: "handle-get-ticket", invocation: Gio.DBusMethodInvocation): void
-    on(sigName: "handle-get-ticket", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-get-ticket", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-get-ticket", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::g-default-timeout", callback: (($obj: TicketingProxy, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::g-default-timeout", callback: (($obj: TicketingProxy, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::g-default-timeout", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -6548,13 +5664,13 @@ export interface TicketingSkeleton_ConstructProps extends Gio.DBusInterfaceSkele
     details?: GLib.Variant
 }
 export class TicketingSkeleton {
-    /* Properties of Gio.DBusInterfaceSkeleton */
+    /* Properties of Gio-2.0.Gio.DBusInterfaceSkeleton */
     gFlags: Gio.DBusInterfaceSkeletonFlags
-    /* Properties of Goa.Ticketing */
+    /* Properties of Goa-1.0.Goa.Ticketing */
     details: GLib.Variant
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Gio.DBusInterfaceSkeleton */
+    /* Methods of Gio-2.0.Gio.DBusInterfaceSkeleton */
     export(connection: Gio.DBusConnection, objectPath: string): boolean
     flush(): void
     getConnection(): Gio.DBusConnection | null
@@ -6567,7 +5683,7 @@ export class TicketingSkeleton {
     setFlags(flags: Gio.DBusInterfaceSkeletonFlags): void
     unexport(): void
     unexportFromConnection(connection: Gio.DBusConnection): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -6589,53 +5705,32 @@ export class TicketingSkeleton {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of Gio.DBusInterface */
+    /* Methods of Gio-2.0.Gio.DBusInterface */
     getObject(): Gio.DBusObject | null
     setObject(object?: Gio.DBusObject | null): void
-    /* Methods of Goa.Ticketing */
+    /* Methods of Goa-1.0.Goa.Ticketing */
     callGetTicket(cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     callGetTicketFinish(res: Gio.AsyncResult): boolean
     callGetTicketSync(cancellable?: Gio.Cancellable | null): boolean
     completeGetTicket(invocation: Gio.DBusMethodInvocation): void
-    /* Virtual methods of Goa.TicketingSkeleton */
-    vfuncDupObject(): Gio.DBusObject | null
-    vfuncGetInfo(): Gio.DBusInterfaceInfo
-    vfuncSetObject(object?: Gio.DBusObject | null): void
-    vfuncHandleGetTicket(invocation: Gio.DBusMethodInvocation): boolean
-    /* Virtual methods of Gio.DBusInterfaceSkeleton */
-    vfuncFlush(): void
-    vfuncGAuthorizeMethod(invocation: Gio.DBusMethodInvocation): boolean
-    vfuncGetInfo(): Gio.DBusInterfaceInfo
-    vfuncGetProperties(): GLib.Variant
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gio.DBusInterfaceSkeleton */
+    /* Signals of Gio-2.0.Gio.DBusInterfaceSkeleton */
     connect(sigName: "g-authorize-method", callback: (($obj: TicketingSkeleton, invocation: Gio.DBusMethodInvocation) => boolean)): number
-    connect_after(sigName: "g-authorize-method", callback: (($obj: TicketingSkeleton, invocation: Gio.DBusMethodInvocation) => boolean)): number
+    on(sigName: "g-authorize-method", callback: (invocation: Gio.DBusMethodInvocation) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "g-authorize-method", callback: (invocation: Gio.DBusMethodInvocation) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "g-authorize-method", callback: (invocation: Gio.DBusMethodInvocation) => void): NodeJS.EventEmitter
     emit(sigName: "g-authorize-method", invocation: Gio.DBusMethodInvocation): void
-    on(sigName: "g-authorize-method", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "g-authorize-method", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "g-authorize-method", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: TicketingSkeleton, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: TicketingSkeleton, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of Goa.Ticketing */
+    /* Signals of Goa-1.0.Goa.Ticketing */
     connect(sigName: "handle-get-ticket", callback: (($obj: TicketingSkeleton, invocation: Gio.DBusMethodInvocation) => boolean)): number
-    connect_after(sigName: "handle-get-ticket", callback: (($obj: TicketingSkeleton, invocation: Gio.DBusMethodInvocation) => boolean)): number
+    on(sigName: "handle-get-ticket", callback: (invocation: Gio.DBusMethodInvocation) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-get-ticket", callback: (invocation: Gio.DBusMethodInvocation) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-get-ticket", callback: (invocation: Gio.DBusMethodInvocation) => void): NodeJS.EventEmitter
     emit(sigName: "handle-get-ticket", invocation: Gio.DBusMethodInvocation): void
-    on(sigName: "handle-get-ticket", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-get-ticket", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-get-ticket", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::g-flags", callback: (($obj: TicketingSkeleton, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::g-flags", callback: (($obj: TicketingSkeleton, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::g-flags", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -6665,19 +5760,19 @@ export class TicketingSkeleton {
 export interface TodoProxy_ConstructProps extends Gio.DBusProxy_ConstructProps {
 }
 export class TodoProxy {
-    /* Properties of Gio.DBusProxy */
+    /* Properties of Gio-2.0.Gio.DBusProxy */
     gDefaultTimeout: number
     gInterfaceInfo: Gio.DBusInterfaceInfo
     readonly gNameOwner: string
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Gio.DBusProxy */
+    /* Methods of Gio-2.0.Gio.DBusProxy */
     call(methodName: string, parameters: GLib.Variant | null, flags: Gio.DBusCallFlags, timeoutMsec: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     callFinish(res: Gio.AsyncResult): GLib.Variant
     callSync(methodName: string, parameters: GLib.Variant | null, flags: Gio.DBusCallFlags, timeoutMsec: number, cancellable?: Gio.Cancellable | null): GLib.Variant
     callWithUnixFdList(methodName: string, parameters: GLib.Variant | null, flags: Gio.DBusCallFlags, timeoutMsec: number, fdList?: Gio.UnixFDList | null, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    callWithUnixFdListFinish(res: Gio.AsyncResult): [ /* returnType */ GLib.Variant, /* outFdList */ Gio.UnixFDList | null ]
-    callWithUnixFdListSync(methodName: string, parameters: GLib.Variant | null, flags: Gio.DBusCallFlags, timeoutMsec: number, fdList?: Gio.UnixFDList | null, cancellable?: Gio.Cancellable | null): [ /* returnType */ GLib.Variant, /* outFdList */ Gio.UnixFDList | null ]
+    callWithUnixFdListFinish(res: Gio.AsyncResult): { returnType: GLib.Variant, outFdList: Gio.UnixFDList | null }
+    callWithUnixFdListSync(methodName: string, parameters: GLib.Variant | null, flags: Gio.DBusCallFlags, timeoutMsec: number, fdList?: Gio.UnixFDList | null, cancellable?: Gio.Cancellable | null): { returnType: GLib.Variant, outFdList: Gio.UnixFDList | null }
     getCachedProperty(propertyName: string): GLib.Variant | null
     getCachedPropertyNames(): string[] | null
     getConnection(): Gio.DBusConnection
@@ -6691,7 +5786,7 @@ export class TodoProxy {
     setCachedProperty(propertyName: string, value?: GLib.Variant | null): void
     setDefaultTimeout(timeoutMsec: number): void
     setInterfaceInfo(info?: Gio.DBusInterfaceInfo | null): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -6713,54 +5808,33 @@ export class TodoProxy {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of Gio.AsyncInitable */
+    /* Methods of Gio-2.0.Gio.AsyncInitable */
     initAsync(ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     initFinish(res: Gio.AsyncResult): boolean
     newFinish(res: Gio.AsyncResult): GObject.Object
-    /* Methods of Gio.DBusInterface */
+    /* Methods of Gio-2.0.Gio.DBusInterface */
     getObject(): Gio.DBusObject | null
     getInfo(): Gio.DBusInterfaceInfo
     setObject(object?: Gio.DBusObject | null): void
-    /* Methods of Gio.Initable */
+    /* Methods of Gio-2.0.Gio.Initable */
     init(cancellable?: Gio.Cancellable | null): boolean
-    /* Virtual methods of Goa.TodoProxy */
-    vfuncInitAsync(ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    vfuncInitFinish(res: Gio.AsyncResult): boolean
-    vfuncDupObject(): Gio.DBusObject | null
-    vfuncGetInfo(): Gio.DBusInterfaceInfo
-    vfuncSetObject(object?: Gio.DBusObject | null): void
-    vfuncInit(cancellable?: Gio.Cancellable | null): boolean
-    /* Virtual methods of Gio.DBusProxy */
-    vfuncGPropertiesChanged(changedProperties: GLib.Variant, invalidatedProperties: string): void
-    vfuncGSignal(senderName: string, signalName: string, parameters: GLib.Variant): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gio.DBusProxy */
+    /* Signals of Gio-2.0.Gio.DBusProxy */
     connect(sigName: "g-properties-changed", callback: (($obj: TodoProxy, changedProperties: GLib.Variant, invalidatedProperties: string[]) => void)): number
-    connect_after(sigName: "g-properties-changed", callback: (($obj: TodoProxy, changedProperties: GLib.Variant, invalidatedProperties: string[]) => void)): number
+    on(sigName: "g-properties-changed", callback: (changedProperties: GLib.Variant, invalidatedProperties: string[]) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "g-properties-changed", callback: (changedProperties: GLib.Variant, invalidatedProperties: string[]) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "g-properties-changed", callback: (changedProperties: GLib.Variant, invalidatedProperties: string[]) => void): NodeJS.EventEmitter
     emit(sigName: "g-properties-changed", changedProperties: GLib.Variant, invalidatedProperties: string[]): void
-    on(sigName: "g-properties-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "g-properties-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "g-properties-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "g-signal", callback: (($obj: TodoProxy, senderName: string | null, signalName: string, parameters: GLib.Variant) => void)): number
-    connect_after(sigName: "g-signal", callback: (($obj: TodoProxy, senderName: string | null, signalName: string, parameters: GLib.Variant) => void)): number
+    on(sigName: "g-signal", callback: (senderName: string | null, signalName: string, parameters: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "g-signal", callback: (senderName: string | null, signalName: string, parameters: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "g-signal", callback: (senderName: string | null, signalName: string, parameters: GLib.Variant) => void): NodeJS.EventEmitter
     emit(sigName: "g-signal", senderName: string | null, signalName: string, parameters: GLib.Variant): void
-    on(sigName: "g-signal", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "g-signal", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "g-signal", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: TodoProxy, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: TodoProxy, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::g-default-timeout", callback: (($obj: TodoProxy, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::g-default-timeout", callback: (($obj: TodoProxy, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::g-default-timeout", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -6804,11 +5878,11 @@ export class TodoProxy {
 export interface TodoSkeleton_ConstructProps extends Gio.DBusInterfaceSkeleton_ConstructProps {
 }
 export class TodoSkeleton {
-    /* Properties of Gio.DBusInterfaceSkeleton */
+    /* Properties of Gio-2.0.Gio.DBusInterfaceSkeleton */
     gFlags: Gio.DBusInterfaceSkeletonFlags
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Gio.DBusInterfaceSkeleton */
+    /* Methods of Gio-2.0.Gio.DBusInterfaceSkeleton */
     export(connection: Gio.DBusConnection, objectPath: string): boolean
     flush(): void
     getConnection(): Gio.DBusConnection | null
@@ -6821,7 +5895,7 @@ export class TodoSkeleton {
     setFlags(flags: Gio.DBusInterfaceSkeletonFlags): void
     unexport(): void
     unexportFromConnection(connection: Gio.DBusConnection): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -6843,40 +5917,21 @@ export class TodoSkeleton {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of Gio.DBusInterface */
+    /* Methods of Gio-2.0.Gio.DBusInterface */
     getObject(): Gio.DBusObject | null
     setObject(object?: Gio.DBusObject | null): void
-    /* Virtual methods of Goa.TodoSkeleton */
-    vfuncDupObject(): Gio.DBusObject | null
-    vfuncGetInfo(): Gio.DBusInterfaceInfo
-    vfuncSetObject(object?: Gio.DBusObject | null): void
-    /* Virtual methods of Gio.DBusInterfaceSkeleton */
-    vfuncFlush(): void
-    vfuncGAuthorizeMethod(invocation: Gio.DBusMethodInvocation): boolean
-    vfuncGetInfo(): Gio.DBusInterfaceInfo
-    vfuncGetProperties(): GLib.Variant
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gio.DBusInterfaceSkeleton */
+    /* Signals of Gio-2.0.Gio.DBusInterfaceSkeleton */
     connect(sigName: "g-authorize-method", callback: (($obj: TodoSkeleton, invocation: Gio.DBusMethodInvocation) => boolean)): number
-    connect_after(sigName: "g-authorize-method", callback: (($obj: TodoSkeleton, invocation: Gio.DBusMethodInvocation) => boolean)): number
+    on(sigName: "g-authorize-method", callback: (invocation: Gio.DBusMethodInvocation) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "g-authorize-method", callback: (invocation: Gio.DBusMethodInvocation) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "g-authorize-method", callback: (invocation: Gio.DBusMethodInvocation) => void): NodeJS.EventEmitter
     emit(sigName: "g-authorize-method", invocation: Gio.DBusMethodInvocation): void
-    on(sigName: "g-authorize-method", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "g-authorize-method", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "g-authorize-method", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: TodoSkeleton, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: TodoSkeleton, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::g-flags", callback: (($obj: TodoSkeleton, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::g-flags", callback: (($obj: TodoSkeleton, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::g-flags", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -6899,7 +5954,7 @@ export class TodoSkeleton {
     static $gtype: GObject.Type
 }
 export abstract class AccountIface {
-    /* Fields of Goa.AccountIface */
+    /* Fields of Goa-1.0.Goa.AccountIface */
     parentIface: GObject.TypeInterface
     handleEnsureCredentials: (object: Account, invocation: Gio.DBusMethodInvocation) => boolean
     handleRemove: (object: Account, invocation: Gio.DBusMethodInvocation) => boolean
@@ -6928,7 +5983,7 @@ export abstract class AccountIface {
     static name: string
 }
 export abstract class AccountProxyClass {
-    /* Fields of Goa.AccountProxyClass */
+    /* Fields of Goa-1.0.Goa.AccountProxyClass */
     parentClass: Gio.DBusProxyClass
     static name: string
 }
@@ -6936,7 +5991,7 @@ export class AccountProxyPrivate {
     static name: string
 }
 export abstract class AccountSkeletonClass {
-    /* Fields of Goa.AccountSkeletonClass */
+    /* Fields of Goa-1.0.Goa.AccountSkeletonClass */
     parentClass: Gio.DBusInterfaceSkeletonClass
     static name: string
 }
@@ -6944,14 +5999,14 @@ export class AccountSkeletonPrivate {
     static name: string
 }
 export abstract class CalendarIface {
-    /* Fields of Goa.CalendarIface */
+    /* Fields of Goa-1.0.Goa.CalendarIface */
     parentIface: GObject.TypeInterface
     getAcceptSslErrors: (object: Calendar) => boolean
     getUri: (object: Calendar) => string | null
     static name: string
 }
 export abstract class CalendarProxyClass {
-    /* Fields of Goa.CalendarProxyClass */
+    /* Fields of Goa-1.0.Goa.CalendarProxyClass */
     parentClass: Gio.DBusProxyClass
     static name: string
 }
@@ -6959,7 +6014,7 @@ export class CalendarProxyPrivate {
     static name: string
 }
 export abstract class CalendarSkeletonClass {
-    /* Fields of Goa.CalendarSkeletonClass */
+    /* Fields of Goa-1.0.Goa.CalendarSkeletonClass */
     parentClass: Gio.DBusInterfaceSkeletonClass
     static name: string
 }
@@ -6967,12 +6022,12 @@ export class CalendarSkeletonPrivate {
     static name: string
 }
 export abstract class ChatIface {
-    /* Fields of Goa.ChatIface */
+    /* Fields of Goa-1.0.Goa.ChatIface */
     parentIface: GObject.TypeInterface
     static name: string
 }
 export abstract class ChatProxyClass {
-    /* Fields of Goa.ChatProxyClass */
+    /* Fields of Goa-1.0.Goa.ChatProxyClass */
     parentClass: Gio.DBusProxyClass
     static name: string
 }
@@ -6980,7 +6035,7 @@ export class ChatProxyPrivate {
     static name: string
 }
 export abstract class ChatSkeletonClass {
-    /* Fields of Goa.ChatSkeletonClass */
+    /* Fields of Goa-1.0.Goa.ChatSkeletonClass */
     parentClass: Gio.DBusInterfaceSkeletonClass
     static name: string
 }
@@ -6988,19 +6043,19 @@ export class ChatSkeletonPrivate {
     static name: string
 }
 export abstract class ClientClass {
-    /* Fields of Goa.ClientClass */
+    /* Fields of Goa-1.0.Goa.ClientClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
 export abstract class ContactsIface {
-    /* Fields of Goa.ContactsIface */
+    /* Fields of Goa-1.0.Goa.ContactsIface */
     parentIface: GObject.TypeInterface
     getAcceptSslErrors: (object: Contacts) => boolean
     getUri: (object: Contacts) => string | null
     static name: string
 }
 export abstract class ContactsProxyClass {
-    /* Fields of Goa.ContactsProxyClass */
+    /* Fields of Goa-1.0.Goa.ContactsProxyClass */
     parentClass: Gio.DBusProxyClass
     static name: string
 }
@@ -7008,7 +6063,7 @@ export class ContactsProxyPrivate {
     static name: string
 }
 export abstract class ContactsSkeletonClass {
-    /* Fields of Goa.ContactsSkeletonClass */
+    /* Fields of Goa-1.0.Goa.ContactsSkeletonClass */
     parentClass: Gio.DBusInterfaceSkeletonClass
     static name: string
 }
@@ -7016,12 +6071,12 @@ export class ContactsSkeletonPrivate {
     static name: string
 }
 export abstract class DocumentsIface {
-    /* Fields of Goa.DocumentsIface */
+    /* Fields of Goa-1.0.Goa.DocumentsIface */
     parentIface: GObject.TypeInterface
     static name: string
 }
 export abstract class DocumentsProxyClass {
-    /* Fields of Goa.DocumentsProxyClass */
+    /* Fields of Goa-1.0.Goa.DocumentsProxyClass */
     parentClass: Gio.DBusProxyClass
     static name: string
 }
@@ -7029,7 +6084,7 @@ export class DocumentsProxyPrivate {
     static name: string
 }
 export abstract class DocumentsSkeletonClass {
-    /* Fields of Goa.DocumentsSkeletonClass */
+    /* Fields of Goa-1.0.Goa.DocumentsSkeletonClass */
     parentClass: Gio.DBusInterfaceSkeletonClass
     static name: string
 }
@@ -7037,14 +6092,14 @@ export class DocumentsSkeletonPrivate {
     static name: string
 }
 export abstract class ExchangeIface {
-    /* Fields of Goa.ExchangeIface */
+    /* Fields of Goa-1.0.Goa.ExchangeIface */
     parentIface: GObject.TypeInterface
     getHost: (object: Exchange) => string | null
     getAcceptSslErrors: (object: Exchange) => boolean
     static name: string
 }
 export abstract class ExchangeProxyClass {
-    /* Fields of Goa.ExchangeProxyClass */
+    /* Fields of Goa-1.0.Goa.ExchangeProxyClass */
     parentClass: Gio.DBusProxyClass
     static name: string
 }
@@ -7052,7 +6107,7 @@ export class ExchangeProxyPrivate {
     static name: string
 }
 export abstract class ExchangeSkeletonClass {
-    /* Fields of Goa.ExchangeSkeletonClass */
+    /* Fields of Goa-1.0.Goa.ExchangeSkeletonClass */
     parentClass: Gio.DBusInterfaceSkeletonClass
     static name: string
 }
@@ -7060,14 +6115,14 @@ export class ExchangeSkeletonPrivate {
     static name: string
 }
 export abstract class FilesIface {
-    /* Fields of Goa.FilesIface */
+    /* Fields of Goa-1.0.Goa.FilesIface */
     parentIface: GObject.TypeInterface
     getAcceptSslErrors: (object: Files) => boolean
     getUri: (object: Files) => string | null
     static name: string
 }
 export abstract class FilesProxyClass {
-    /* Fields of Goa.FilesProxyClass */
+    /* Fields of Goa-1.0.Goa.FilesProxyClass */
     parentClass: Gio.DBusProxyClass
     static name: string
 }
@@ -7075,7 +6130,7 @@ export class FilesProxyPrivate {
     static name: string
 }
 export abstract class FilesSkeletonClass {
-    /* Fields of Goa.FilesSkeletonClass */
+    /* Fields of Goa-1.0.Goa.FilesSkeletonClass */
     parentClass: Gio.DBusInterfaceSkeletonClass
     static name: string
 }
@@ -7083,7 +6138,7 @@ export class FilesSkeletonPrivate {
     static name: string
 }
 export abstract class MailIface {
-    /* Fields of Goa.MailIface */
+    /* Fields of Goa-1.0.Goa.MailIface */
     parentIface: GObject.TypeInterface
     getEmailAddress: (object: Mail) => string | null
     getImapHost: (object: Mail) => string | null
@@ -7106,7 +6161,7 @@ export abstract class MailIface {
     static name: string
 }
 export abstract class MailProxyClass {
-    /* Fields of Goa.MailProxyClass */
+    /* Fields of Goa-1.0.Goa.MailProxyClass */
     parentClass: Gio.DBusProxyClass
     static name: string
 }
@@ -7114,7 +6169,7 @@ export class MailProxyPrivate {
     static name: string
 }
 export abstract class MailSkeletonClass {
-    /* Fields of Goa.MailSkeletonClass */
+    /* Fields of Goa-1.0.Goa.MailSkeletonClass */
     parentClass: Gio.DBusInterfaceSkeletonClass
     static name: string
 }
@@ -7122,14 +6177,14 @@ export class MailSkeletonPrivate {
     static name: string
 }
 export abstract class ManagerIface {
-    /* Fields of Goa.ManagerIface */
+    /* Fields of Goa-1.0.Goa.ManagerIface */
     parentIface: GObject.TypeInterface
     handleAddAccount: (object: Manager, invocation: Gio.DBusMethodInvocation, argProvider: string, argIdentity: string, argPresentationIdentity: string, argCredentials: GLib.Variant, argDetails: GLib.Variant) => boolean
     handleIsSupportedProvider: (object: Manager, invocation: Gio.DBusMethodInvocation, argProviderType: string) => boolean
     static name: string
 }
 export abstract class ManagerProxyClass {
-    /* Fields of Goa.ManagerProxyClass */
+    /* Fields of Goa-1.0.Goa.ManagerProxyClass */
     parentClass: Gio.DBusProxyClass
     static name: string
 }
@@ -7137,7 +6192,7 @@ export class ManagerProxyPrivate {
     static name: string
 }
 export abstract class ManagerSkeletonClass {
-    /* Fields of Goa.ManagerSkeletonClass */
+    /* Fields of Goa-1.0.Goa.ManagerSkeletonClass */
     parentClass: Gio.DBusInterfaceSkeletonClass
     static name: string
 }
@@ -7145,12 +6200,12 @@ export class ManagerSkeletonPrivate {
     static name: string
 }
 export abstract class MapsIface {
-    /* Fields of Goa.MapsIface */
+    /* Fields of Goa-1.0.Goa.MapsIface */
     parentIface: GObject.TypeInterface
     static name: string
 }
 export abstract class MapsProxyClass {
-    /* Fields of Goa.MapsProxyClass */
+    /* Fields of Goa-1.0.Goa.MapsProxyClass */
     parentClass: Gio.DBusProxyClass
     static name: string
 }
@@ -7158,7 +6213,7 @@ export class MapsProxyPrivate {
     static name: string
 }
 export abstract class MapsSkeletonClass {
-    /* Fields of Goa.MapsSkeletonClass */
+    /* Fields of Goa-1.0.Goa.MapsSkeletonClass */
     parentClass: Gio.DBusInterfaceSkeletonClass
     static name: string
 }
@@ -7166,14 +6221,14 @@ export class MapsSkeletonPrivate {
     static name: string
 }
 export abstract class MediaServerIface {
-    /* Fields of Goa.MediaServerIface */
+    /* Fields of Goa-1.0.Goa.MediaServerIface */
     parentIface: GObject.TypeInterface
     getDlnaSupported: (object: MediaServer) => boolean
     getUdn: (object: MediaServer) => string | null
     static name: string
 }
 export abstract class MediaServerProxyClass {
-    /* Fields of Goa.MediaServerProxyClass */
+    /* Fields of Goa-1.0.Goa.MediaServerProxyClass */
     parentClass: Gio.DBusProxyClass
     static name: string
 }
@@ -7181,7 +6236,7 @@ export class MediaServerProxyPrivate {
     static name: string
 }
 export abstract class MediaServerSkeletonClass {
-    /* Fields of Goa.MediaServerSkeletonClass */
+    /* Fields of Goa-1.0.Goa.MediaServerSkeletonClass */
     parentClass: Gio.DBusInterfaceSkeletonClass
     static name: string
 }
@@ -7189,12 +6244,12 @@ export class MediaServerSkeletonPrivate {
     static name: string
 }
 export abstract class MusicIface {
-    /* Fields of Goa.MusicIface */
+    /* Fields of Goa-1.0.Goa.MusicIface */
     parentIface: GObject.TypeInterface
     static name: string
 }
 export abstract class MusicProxyClass {
-    /* Fields of Goa.MusicProxyClass */
+    /* Fields of Goa-1.0.Goa.MusicProxyClass */
     parentClass: Gio.DBusProxyClass
     static name: string
 }
@@ -7202,7 +6257,7 @@ export class MusicProxyPrivate {
     static name: string
 }
 export abstract class MusicSkeletonClass {
-    /* Fields of Goa.MusicSkeletonClass */
+    /* Fields of Goa-1.0.Goa.MusicSkeletonClass */
     parentClass: Gio.DBusInterfaceSkeletonClass
     static name: string
 }
@@ -7210,7 +6265,7 @@ export class MusicSkeletonPrivate {
     static name: string
 }
 export abstract class OAuth2BasedIface {
-    /* Fields of Goa.OAuth2BasedIface */
+    /* Fields of Goa-1.0.Goa.OAuth2BasedIface */
     parentIface: GObject.TypeInterface
     handleGetAccessToken: (object: OAuth2Based, invocation: Gio.DBusMethodInvocation) => boolean
     getClientId: (object: OAuth2Based) => string | null
@@ -7218,7 +6273,7 @@ export abstract class OAuth2BasedIface {
     static name: string
 }
 export abstract class OAuth2BasedProxyClass {
-    /* Fields of Goa.OAuth2BasedProxyClass */
+    /* Fields of Goa-1.0.Goa.OAuth2BasedProxyClass */
     parentClass: Gio.DBusProxyClass
     static name: string
 }
@@ -7226,7 +6281,7 @@ export class OAuth2BasedProxyPrivate {
     static name: string
 }
 export abstract class OAuth2BasedSkeletonClass {
-    /* Fields of Goa.OAuth2BasedSkeletonClass */
+    /* Fields of Goa-1.0.Goa.OAuth2BasedSkeletonClass */
     parentClass: Gio.DBusInterfaceSkeletonClass
     static name: string
 }
@@ -7234,7 +6289,7 @@ export class OAuth2BasedSkeletonPrivate {
     static name: string
 }
 export abstract class OAuthBasedIface {
-    /* Fields of Goa.OAuthBasedIface */
+    /* Fields of Goa-1.0.Goa.OAuthBasedIface */
     parentIface: GObject.TypeInterface
     handleGetAccessToken: (object: OAuthBased, invocation: Gio.DBusMethodInvocation) => boolean
     getConsumerKey: (object: OAuthBased) => string | null
@@ -7242,7 +6297,7 @@ export abstract class OAuthBasedIface {
     static name: string
 }
 export abstract class OAuthBasedProxyClass {
-    /* Fields of Goa.OAuthBasedProxyClass */
+    /* Fields of Goa-1.0.Goa.OAuthBasedProxyClass */
     parentClass: Gio.DBusProxyClass
     static name: string
 }
@@ -7250,7 +6305,7 @@ export class OAuthBasedProxyPrivate {
     static name: string
 }
 export abstract class OAuthBasedSkeletonClass {
-    /* Fields of Goa.OAuthBasedSkeletonClass */
+    /* Fields of Goa-1.0.Goa.OAuthBasedSkeletonClass */
     parentClass: Gio.DBusInterfaceSkeletonClass
     static name: string
 }
@@ -7258,12 +6313,12 @@ export class OAuthBasedSkeletonPrivate {
     static name: string
 }
 export abstract class ObjectIface {
-    /* Fields of Goa.ObjectIface */
+    /* Fields of Goa-1.0.Goa.ObjectIface */
     parentIface: GObject.TypeInterface
     static name: string
 }
 export abstract class ObjectManagerClientClass {
-    /* Fields of Goa.ObjectManagerClientClass */
+    /* Fields of Goa-1.0.Goa.ObjectManagerClientClass */
     parentClass: Gio.DBusObjectManagerClientClass
     static name: string
 }
@@ -7271,7 +6326,7 @@ export class ObjectManagerClientPrivate {
     static name: string
 }
 export abstract class ObjectProxyClass {
-    /* Fields of Goa.ObjectProxyClass */
+    /* Fields of Goa-1.0.Goa.ObjectProxyClass */
     parentClass: Gio.DBusObjectProxyClass
     static name: string
 }
@@ -7279,7 +6334,7 @@ export class ObjectProxyPrivate {
     static name: string
 }
 export abstract class ObjectSkeletonClass {
-    /* Fields of Goa.ObjectSkeletonClass */
+    /* Fields of Goa-1.0.Goa.ObjectSkeletonClass */
     parentClass: Gio.DBusObjectSkeletonClass
     static name: string
 }
@@ -7287,13 +6342,13 @@ export class ObjectSkeletonPrivate {
     static name: string
 }
 export abstract class PasswordBasedIface {
-    /* Fields of Goa.PasswordBasedIface */
+    /* Fields of Goa-1.0.Goa.PasswordBasedIface */
     parentIface: GObject.TypeInterface
     handleGetPassword: (object: PasswordBased, invocation: Gio.DBusMethodInvocation, argId: string) => boolean
     static name: string
 }
 export abstract class PasswordBasedProxyClass {
-    /* Fields of Goa.PasswordBasedProxyClass */
+    /* Fields of Goa-1.0.Goa.PasswordBasedProxyClass */
     parentClass: Gio.DBusProxyClass
     static name: string
 }
@@ -7301,7 +6356,7 @@ export class PasswordBasedProxyPrivate {
     static name: string
 }
 export abstract class PasswordBasedSkeletonClass {
-    /* Fields of Goa.PasswordBasedSkeletonClass */
+    /* Fields of Goa-1.0.Goa.PasswordBasedSkeletonClass */
     parentClass: Gio.DBusInterfaceSkeletonClass
     static name: string
 }
@@ -7309,12 +6364,12 @@ export class PasswordBasedSkeletonPrivate {
     static name: string
 }
 export abstract class PhotosIface {
-    /* Fields of Goa.PhotosIface */
+    /* Fields of Goa-1.0.Goa.PhotosIface */
     parentIface: GObject.TypeInterface
     static name: string
 }
 export abstract class PhotosProxyClass {
-    /* Fields of Goa.PhotosProxyClass */
+    /* Fields of Goa-1.0.Goa.PhotosProxyClass */
     parentClass: Gio.DBusProxyClass
     static name: string
 }
@@ -7322,7 +6377,7 @@ export class PhotosProxyPrivate {
     static name: string
 }
 export abstract class PhotosSkeletonClass {
-    /* Fields of Goa.PhotosSkeletonClass */
+    /* Fields of Goa-1.0.Goa.PhotosSkeletonClass */
     parentClass: Gio.DBusInterfaceSkeletonClass
     static name: string
 }
@@ -7330,12 +6385,12 @@ export class PhotosSkeletonPrivate {
     static name: string
 }
 export abstract class PrintersIface {
-    /* Fields of Goa.PrintersIface */
+    /* Fields of Goa-1.0.Goa.PrintersIface */
     parentIface: GObject.TypeInterface
     static name: string
 }
 export abstract class PrintersProxyClass {
-    /* Fields of Goa.PrintersProxyClass */
+    /* Fields of Goa-1.0.Goa.PrintersProxyClass */
     parentClass: Gio.DBusProxyClass
     static name: string
 }
@@ -7343,7 +6398,7 @@ export class PrintersProxyPrivate {
     static name: string
 }
 export abstract class PrintersSkeletonClass {
-    /* Fields of Goa.PrintersSkeletonClass */
+    /* Fields of Goa-1.0.Goa.PrintersSkeletonClass */
     parentClass: Gio.DBusInterfaceSkeletonClass
     static name: string
 }
@@ -7351,12 +6406,12 @@ export class PrintersSkeletonPrivate {
     static name: string
 }
 export abstract class ReadLaterIface {
-    /* Fields of Goa.ReadLaterIface */
+    /* Fields of Goa-1.0.Goa.ReadLaterIface */
     parentIface: GObject.TypeInterface
     static name: string
 }
 export abstract class ReadLaterProxyClass {
-    /* Fields of Goa.ReadLaterProxyClass */
+    /* Fields of Goa-1.0.Goa.ReadLaterProxyClass */
     parentClass: Gio.DBusProxyClass
     static name: string
 }
@@ -7364,7 +6419,7 @@ export class ReadLaterProxyPrivate {
     static name: string
 }
 export abstract class ReadLaterSkeletonClass {
-    /* Fields of Goa.ReadLaterSkeletonClass */
+    /* Fields of Goa-1.0.Goa.ReadLaterSkeletonClass */
     parentClass: Gio.DBusInterfaceSkeletonClass
     static name: string
 }
@@ -7372,14 +6427,14 @@ export class ReadLaterSkeletonPrivate {
     static name: string
 }
 export abstract class TicketingIface {
-    /* Fields of Goa.TicketingIface */
+    /* Fields of Goa-1.0.Goa.TicketingIface */
     parentIface: GObject.TypeInterface
     handleGetTicket: (object: Ticketing, invocation: Gio.DBusMethodInvocation) => boolean
     getDetails: (object: Ticketing) => GLib.Variant | null
     static name: string
 }
 export abstract class TicketingProxyClass {
-    /* Fields of Goa.TicketingProxyClass */
+    /* Fields of Goa-1.0.Goa.TicketingProxyClass */
     parentClass: Gio.DBusProxyClass
     static name: string
 }
@@ -7387,7 +6442,7 @@ export class TicketingProxyPrivate {
     static name: string
 }
 export abstract class TicketingSkeletonClass {
-    /* Fields of Goa.TicketingSkeletonClass */
+    /* Fields of Goa-1.0.Goa.TicketingSkeletonClass */
     parentClass: Gio.DBusInterfaceSkeletonClass
     static name: string
 }
@@ -7395,12 +6450,12 @@ export class TicketingSkeletonPrivate {
     static name: string
 }
 export abstract class TodoIface {
-    /* Fields of Goa.TodoIface */
+    /* Fields of Goa-1.0.Goa.TodoIface */
     parentIface: GObject.TypeInterface
     static name: string
 }
 export abstract class TodoProxyClass {
-    /* Fields of Goa.TodoProxyClass */
+    /* Fields of Goa-1.0.Goa.TodoProxyClass */
     parentClass: Gio.DBusProxyClass
     static name: string
 }
@@ -7408,7 +6463,7 @@ export class TodoProxyPrivate {
     static name: string
 }
 export abstract class TodoSkeletonClass {
-    /* Fields of Goa.TodoSkeletonClass */
+    /* Fields of Goa-1.0.Goa.TodoSkeletonClass */
     parentClass: Gio.DBusInterfaceSkeletonClass
     static name: string
 }

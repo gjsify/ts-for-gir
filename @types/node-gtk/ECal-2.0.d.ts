@@ -199,8 +199,8 @@ export function utilConflictResolutionToOperationFlags(conflictResolution: EData
 export function utilConstructInstance(icalcomp: ICalGLib.Component, rid: ICalGLib.Time): ICalGLib.Component | null
 export function utilCopyTimezone(zone: ICalGLib.Timezone): ICalGLib.Timezone
 export function utilGenerateAlarmsForComp(comp: Component, start: number, end: number, omit: ComponentAlarmAction, resolveTzid: RecurResolveTimezoneCb, defaultTimezone: ICalGLib.Timezone): ComponentAlarms | null
-export function utilGenerateAlarmsForList(comps: Component[], start: number, end: number, omit: ComponentAlarmAction, resolveTzid: RecurResolveTimezoneCb, defaultTimezone: ICalGLib.Timezone): [ /* returnType */ number, /* compAlarms */ ComponentAlarms[] ]
-export function utilGetComponentOccurTimes(comp: Component, tzCb: RecurResolveTimezoneCb, defaultTimezone: ICalGLib.Timezone, kind: ICalGLib.ComponentKind): [ /* outStart */ number, /* outEnd */ number ]
+export function utilGenerateAlarmsForList(comps: Component[], start: number, end: number, omit: ComponentAlarmAction, resolveTzid: RecurResolveTimezoneCb, defaultTimezone: ICalGLib.Timezone): { returnType: number, compAlarms: ComponentAlarms[] }
+export function utilGetComponentOccurTimes(comp: Component, tzCb: RecurResolveTimezoneCb, defaultTimezone: ICalGLib.Timezone, kind: ICalGLib.ComponentKind): { outStart: number, outEnd: number }
 export function utilGetSystemTimezone(): ICalGLib.Timezone | null
 export function utilGetSystemTimezoneLocation(): string
 export function utilIcaltimeToTm(itt: ICalGLib.Time): object | null
@@ -241,20 +241,16 @@ export interface RecurResolveTimezoneCb {
     (tzid: string, cancellable?: Gio.Cancellable | null): ICalGLib.Timezone | null
 }
 export class TimezoneCache {
-    /* Methods of ECal.TimezoneCache */
+    /* Methods of ECal-2.0.ECal.TimezoneCache */
     addTimezone(zone: ICalGLib.Timezone): void
     getTimezone(tzid: string): ICalGLib.Timezone | null
     listTimezones(): ICalGLib.Timezone[]
-    /* Virtual methods of ECal.TimezoneCache */
-    vfuncTimezoneAdded(zone: ICalGLib.Timezone): void
-    vfuncTzcacheAddTimezone(zone: ICalGLib.Timezone): void
-    /* Signals of ECal.TimezoneCache */
+    /* Signals of ECal-2.0.ECal.TimezoneCache */
     connect(sigName: "timezone-added", callback: (($obj: TimezoneCache, zone: ICalGLib.Timezone) => void)): number
-    connect_after(sigName: "timezone-added", callback: (($obj: TimezoneCache, zone: ICalGLib.Timezone) => void)): number
+    on(sigName: "timezone-added", callback: (zone: ICalGLib.Timezone) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "timezone-added", callback: (zone: ICalGLib.Timezone) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "timezone-added", callback: (zone: ICalGLib.Timezone) => void): NodeJS.EventEmitter
     emit(sigName: "timezone-added", zone: ICalGLib.Timezone): void
-    on(sigName: "timezone-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "timezone-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "timezone-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
     static name: string
 }
 export interface Client_ConstructProps extends EDataServer.Client_ConstructProps {
@@ -262,17 +258,17 @@ export interface Client_ConstructProps extends EDataServer.Client_ConstructProps
     sourceType?: ClientSourceType
 }
 export class Client {
-    /* Properties of ECal.Client */
+    /* Properties of ECal-2.0.ECal.Client */
     defaultTimezone: ICalGLib.Timezone
-    /* Properties of EDataServer.Client */
+    /* Properties of EDataServer-1.2.EDataServer.Client */
     readonly capabilities: object
     readonly mainContext: GLib.MainContext
     online: boolean
     readonly opened: boolean
     readonly readonly: boolean
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of ECal.Client */
+    /* Methods of ECal-2.0.ECal.Client */
     addTimezone(zone: ICalGLib.Timezone, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     addTimezoneFinish(result: Gio.AsyncResult): boolean
     addTimezoneSync(zone: ICalGLib.Timezone, cancellable?: Gio.Cancellable | null): boolean
@@ -282,11 +278,11 @@ export class Client {
     checkRecurrencesNoMaster(): boolean
     checkSaveSchedules(): boolean
     createObject(icalcomp: ICalGLib.Component, opflags: OperationFlags, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    createObjectFinish(result: Gio.AsyncResult): [ /* returnType */ boolean, /* outUid */ string | null ]
-    createObjectSync(icalcomp: ICalGLib.Component, opflags: OperationFlags, cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* outUid */ string | null ]
+    createObjectFinish(result: Gio.AsyncResult): { returnType: boolean, outUid: string | null }
+    createObjectSync(icalcomp: ICalGLib.Component, opflags: OperationFlags, cancellable?: Gio.Cancellable | null): { returnType: boolean, outUid: string | null }
     createObjects(icalcomps: ICalGLib.Component[], opflags: OperationFlags, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    createObjectsFinish(result: Gio.AsyncResult): [ /* returnType */ boolean, /* outUids */ string[] | null ]
-    createObjectsSync(icalcomps: ICalGLib.Component[], opflags: OperationFlags, cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* outUids */ string[] | null ]
+    createObjectsFinish(result: Gio.AsyncResult): { returnType: boolean, outUids: string[] | null }
+    createObjectsSync(icalcomps: ICalGLib.Component[], opflags: OperationFlags, cancellable?: Gio.Cancellable | null): { returnType: boolean, outUids: string[] | null }
     discardAlarm(uid: string, rid: string, auid: string, opflags: OperationFlags, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     discardAlarmFinish(result: Gio.AsyncResult): boolean
     discardAlarmSync(uid: string, rid: string, auid: string, opflags: OperationFlags, cancellable?: Gio.Cancellable | null): boolean
@@ -295,36 +291,36 @@ export class Client {
     generateInstancesForObjectSync(icalcomp: ICalGLib.Component, start: number, end: number, cancellable: Gio.Cancellable | null, cb: RecurInstanceCb): void
     generateInstancesSync(start: number, end: number, cancellable: Gio.Cancellable | null, cb: RecurInstanceCb): void
     getAttachmentUris(uid: string, rid: string, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    getAttachmentUrisFinish(result: Gio.AsyncResult): [ /* returnType */ boolean, /* outAttachmentUris */ string[] ]
-    getAttachmentUrisSync(uid: string, rid: string, cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* outAttachmentUris */ string[] ]
+    getAttachmentUrisFinish(result: Gio.AsyncResult): { returnType: boolean, outAttachmentUris: string[] }
+    getAttachmentUrisSync(uid: string, rid: string, cancellable?: Gio.Cancellable | null): { returnType: boolean, outAttachmentUris: string[] }
     getComponentAsString(icalcomp: ICalGLib.Component): string
     getDefaultObject(cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    getDefaultObjectFinish(result: Gio.AsyncResult): [ /* returnType */ boolean, /* outIcalcomp */ ICalGLib.Component ]
-    getDefaultObjectSync(cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* outIcalcomp */ ICalGLib.Component ]
+    getDefaultObjectFinish(result: Gio.AsyncResult): { returnType: boolean, outIcalcomp: ICalGLib.Component }
+    getDefaultObjectSync(cancellable?: Gio.Cancellable | null): { returnType: boolean, outIcalcomp: ICalGLib.Component }
     getDefaultTimezone(): ICalGLib.Timezone
     getFreeBusy(start: number, end: number, users: string[], cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     getFreeBusyFinish(result: Gio.AsyncResult, outFreebusy: Component[]): boolean
     getFreeBusySync(start: number, end: number, users: string[], outFreebusy: Component[], cancellable?: Gio.Cancellable | null): boolean
     getLocalAttachmentStore(): string
     getObject(uid: string, rid: string, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    getObjectFinish(result: Gio.AsyncResult): [ /* returnType */ boolean, /* outIcalcomp */ ICalGLib.Component ]
+    getObjectFinish(result: Gio.AsyncResult): { returnType: boolean, outIcalcomp: ICalGLib.Component }
     getObjectList(sexp: string, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     getObjectListAsComps(sexp: string, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    getObjectListAsCompsFinish(result: Gio.AsyncResult): [ /* returnType */ boolean, /* outEcalcomps */ Component[] ]
-    getObjectListAsCompsSync(sexp: string, cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* outEcalcomps */ Component[] ]
-    getObjectListFinish(result: Gio.AsyncResult): [ /* returnType */ boolean, /* outIcalcomps */ ICalGLib.Component[] ]
-    getObjectListSync(sexp: string, cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* outIcalcomps */ ICalGLib.Component[] ]
-    getObjectSync(uid: string, rid: string, cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* outIcalcomp */ ICalGLib.Component ]
+    getObjectListAsCompsFinish(result: Gio.AsyncResult): { returnType: boolean, outEcalcomps: Component[] }
+    getObjectListAsCompsSync(sexp: string, cancellable?: Gio.Cancellable | null): { returnType: boolean, outEcalcomps: Component[] }
+    getObjectListFinish(result: Gio.AsyncResult): { returnType: boolean, outIcalcomps: ICalGLib.Component[] }
+    getObjectListSync(sexp: string, cancellable?: Gio.Cancellable | null): { returnType: boolean, outIcalcomps: ICalGLib.Component[] }
+    getObjectSync(uid: string, rid: string, cancellable?: Gio.Cancellable | null): { returnType: boolean, outIcalcomp: ICalGLib.Component }
     getObjectsForUid(uid: string, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    getObjectsForUidFinish(result: Gio.AsyncResult): [ /* returnType */ boolean, /* outEcalcomps */ Component[] ]
-    getObjectsForUidSync(uid: string, cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* outEcalcomps */ Component[] ]
+    getObjectsForUidFinish(result: Gio.AsyncResult): { returnType: boolean, outEcalcomps: Component[] }
+    getObjectsForUidSync(uid: string, cancellable?: Gio.Cancellable | null): { returnType: boolean, outEcalcomps: Component[] }
     getSourceType(): ClientSourceType
     getTimezone(tzid: string, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    getTimezoneFinish(result: Gio.AsyncResult): [ /* returnType */ boolean, /* outZone */ ICalGLib.Timezone ]
-    getTimezoneSync(tzid: string, cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* outZone */ ICalGLib.Timezone ]
+    getTimezoneFinish(result: Gio.AsyncResult): { returnType: boolean, outZone: ICalGLib.Timezone }
+    getTimezoneSync(tzid: string, cancellable?: Gio.Cancellable | null): { returnType: boolean, outZone: ICalGLib.Timezone }
     getView(sexp: string, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    getViewFinish(result: Gio.AsyncResult): [ /* returnType */ boolean, /* outView */ ClientView ]
-    getViewSync(sexp: string, cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* outView */ ClientView ]
+    getViewFinish(result: Gio.AsyncResult): { returnType: boolean, outView: ClientView }
+    getViewSync(sexp: string, cancellable?: Gio.Cancellable | null): { returnType: boolean, outView: ClientView }
     modifyObject(icalcomp: ICalGLib.Component, mod: ObjModType, opflags: OperationFlags, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     modifyObjectFinish(result: Gio.AsyncResult): boolean
     modifyObjectSync(icalcomp: ICalGLib.Component, mod: ObjModType, opflags: OperationFlags, cancellable?: Gio.Cancellable | null): boolean
@@ -341,17 +337,17 @@ export class Client {
     removeObjectsFinish(result: Gio.AsyncResult): boolean
     removeObjectsSync(ids: ComponentId[], mod: ObjModType, opflags: OperationFlags, cancellable?: Gio.Cancellable | null): boolean
     sendObjects(icalcomp: ICalGLib.Component, opflags: OperationFlags, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    sendObjectsFinish(result: Gio.AsyncResult): [ /* returnType */ boolean, /* outUsers */ string[], /* outModifiedIcalcomp */ ICalGLib.Component ]
-    sendObjectsSync(icalcomp: ICalGLib.Component, opflags: OperationFlags, cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* outUsers */ string[], /* outModifiedIcalcomp */ ICalGLib.Component ]
+    sendObjectsFinish(result: Gio.AsyncResult): { returnType: boolean, outUsers: string[], outModifiedIcalcomp: ICalGLib.Component }
+    sendObjectsSync(icalcomp: ICalGLib.Component, opflags: OperationFlags, cancellable?: Gio.Cancellable | null): { returnType: boolean, outUsers: string[], outModifiedIcalcomp: ICalGLib.Component }
     setDefaultTimezone(zone: ICalGLib.Timezone): void
-    /* Methods of EDataServer.Client */
+    /* Methods of EDataServer-1.2.EDataServer.Client */
     cancelAll(): void
     checkCapability(capability: string): boolean
     checkRefreshSupported(): boolean
     dupBusName(): string
     getBackendProperty(propName: string, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    getBackendPropertyFinish(result: Gio.AsyncResult): [ /* returnType */ boolean, /* propValue */ string ]
-    getBackendPropertySync(propName: string, cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* propValue */ string ]
+    getBackendPropertyFinish(result: Gio.AsyncResult): { returnType: boolean, propValue: string }
+    getBackendPropertySync(propName: string, cancellable?: Gio.Cancellable | null): { returnType: boolean, propValue: string }
     getCapabilities(): string[]
     getSource(): EDataServer.Source
     isOnline(): boolean
@@ -368,8 +364,8 @@ export class Client {
     removeFinish(result: Gio.AsyncResult): boolean
     removeSync(cancellable?: Gio.Cancellable | null): boolean
     retrieveCapabilities(cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    retrieveCapabilitiesFinish(result: Gio.AsyncResult): [ /* returnType */ boolean, /* capabilities */ string ]
-    retrieveCapabilitiesSync(cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* capabilities */ string ]
+    retrieveCapabilitiesFinish(result: Gio.AsyncResult): { returnType: boolean, capabilities: string }
+    retrieveCapabilitiesSync(cancellable?: Gio.Cancellable | null): { returnType: boolean, capabilities: string }
     retrieveProperties(cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     retrievePropertiesFinish(result: Gio.AsyncResult): boolean
     retrievePropertiesSync(cancellable?: Gio.Cancellable | null): boolean
@@ -381,7 +377,7 @@ export class Client {
     waitForConnected(timeoutSeconds: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     waitForConnectedFinish(result: Gio.AsyncResult): boolean
     waitForConnectedSync(timeoutSeconds: number, cancellable?: Gio.Cancellable | null): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -403,101 +399,55 @@ export class Client {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of ECal.TimezoneCache */
+    /* Methods of ECal-2.0.ECal.TimezoneCache */
     addTimezone(zone: ICalGLib.Timezone): void
     getTimezone(tzid: string): ICalGLib.Timezone | null
     listTimezones(): ICalGLib.Timezone[]
-    /* Methods of Gio.AsyncInitable */
+    /* Methods of Gio-2.0.Gio.AsyncInitable */
     initAsync(ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     initFinish(res: Gio.AsyncResult): boolean
     newFinish(res: Gio.AsyncResult): GObject.Object
-    /* Methods of Gio.Initable */
+    /* Methods of Gio-2.0.Gio.Initable */
     init(cancellable?: Gio.Cancellable | null): boolean
-    /* Virtual methods of ECal.Client */
-    vfuncTimezoneAdded(zone: ICalGLib.Timezone): void
-    vfuncTzcacheAddTimezone(zone: ICalGLib.Timezone): void
-    vfuncInitAsync(ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    vfuncInitFinish(res: Gio.AsyncResult): boolean
-    vfuncInit(cancellable?: Gio.Cancellable | null): boolean
-    /* Virtual methods of EDataServer.Client */
-    vfuncBackendDied(): void
-    vfuncBackendError(errorMsg: string): void
-    vfuncBackendPropertyChanged(propName: string, propValue: string): void
-    vfuncGetBackendProperty(propName: string, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    vfuncGetBackendPropertyFinish(result: Gio.AsyncResult): [ /* returnType */ boolean, /* propValue */ string ]
-    vfuncGetBackendPropertySync(propName: string, cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* propValue */ string ]
-    vfuncOpen(onlyIfExists: boolean, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    vfuncOpenFinish(result: Gio.AsyncResult): boolean
-    vfuncOpenSync(onlyIfExists: boolean, cancellable?: Gio.Cancellable | null): boolean
-    vfuncOpened(error: GLib.Error): void
-    vfuncRefresh(cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    vfuncRefreshFinish(result: Gio.AsyncResult): boolean
-    vfuncRefreshSync(cancellable?: Gio.Cancellable | null): boolean
-    vfuncRemove(cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    vfuncRemoveFinish(result: Gio.AsyncResult): boolean
-    vfuncRemoveSync(cancellable?: Gio.Cancellable | null): boolean
-    vfuncRetrieveCapabilities(cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    vfuncRetrieveCapabilitiesFinish(result: Gio.AsyncResult): [ /* returnType */ boolean, /* capabilities */ string ]
-    vfuncRetrieveCapabilitiesSync(cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* capabilities */ string ]
-    vfuncRetrievePropertiesSync(cancellable?: Gio.Cancellable | null): boolean
-    vfuncSetBackendProperty(propName: string, propValue: string, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    vfuncSetBackendPropertyFinish(result: Gio.AsyncResult): boolean
-    vfuncSetBackendPropertySync(propName: string, propValue: string, cancellable?: Gio.Cancellable | null): boolean
-    vfuncUnwrapDbusError(dbusError: GLib.Error): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of ECal.Client */
+    /* Signals of ECal-2.0.ECal.Client */
     connect(sigName: "free-busy-data", callback: (($obj: Client, object?: object | null) => void)): number
-    connect_after(sigName: "free-busy-data", callback: (($obj: Client, object?: object | null) => void)): number
+    on(sigName: "free-busy-data", callback: (object?: object | null) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "free-busy-data", callback: (object?: object | null) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "free-busy-data", callback: (object?: object | null) => void): NodeJS.EventEmitter
     emit(sigName: "free-busy-data", object?: object | null): void
-    on(sigName: "free-busy-data", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "free-busy-data", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "free-busy-data", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of EDataServer.Client */
+    /* Signals of EDataServer-1.2.EDataServer.Client */
     connect(sigName: "backend-died", callback: (($obj: Client) => void)): number
-    connect_after(sigName: "backend-died", callback: (($obj: Client) => void)): number
+    on(sigName: "backend-died", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "backend-died", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "backend-died", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "backend-died"): void
-    on(sigName: "backend-died", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "backend-died", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "backend-died", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "backend-error", callback: (($obj: Client, object: string) => void)): number
-    connect_after(sigName: "backend-error", callback: (($obj: Client, object: string) => void)): number
+    on(sigName: "backend-error", callback: (object: string) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "backend-error", callback: (object: string) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "backend-error", callback: (object: string) => void): NodeJS.EventEmitter
     emit(sigName: "backend-error", object: string): void
-    on(sigName: "backend-error", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "backend-error", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "backend-error", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "backend-property-changed", callback: (($obj: Client, object: string, p0: string) => void)): number
-    connect_after(sigName: "backend-property-changed", callback: (($obj: Client, object: string, p0: string) => void)): number
+    on(sigName: "backend-property-changed", callback: (object: string, p0: string) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "backend-property-changed", callback: (object: string, p0: string) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "backend-property-changed", callback: (object: string, p0: string) => void): NodeJS.EventEmitter
     emit(sigName: "backend-property-changed", object: string, p0: string): void
-    on(sigName: "backend-property-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "backend-property-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "backend-property-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "opened", callback: (($obj: Client, object: GLib.Error) => void)): number
-    connect_after(sigName: "opened", callback: (($obj: Client, object: GLib.Error) => void)): number
+    on(sigName: "opened", callback: (object: GLib.Error) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "opened", callback: (object: GLib.Error) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "opened", callback: (object: GLib.Error) => void): NodeJS.EventEmitter
     emit(sigName: "opened", object: GLib.Error): void
-    on(sigName: "opened", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "opened", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "opened", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Client, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Client, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of ECal.TimezoneCache */
+    /* Signals of ECal-2.0.ECal.TimezoneCache */
     connect(sigName: "timezone-added", callback: (($obj: Client, zone: ICalGLib.Timezone) => void)): number
-    connect_after(sigName: "timezone-added", callback: (($obj: Client, zone: ICalGLib.Timezone) => void)): number
+    on(sigName: "timezone-added", callback: (zone: ICalGLib.Timezone) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "timezone-added", callback: (zone: ICalGLib.Timezone) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "timezone-added", callback: (zone: ICalGLib.Timezone) => void): NodeJS.EventEmitter
     emit(sigName: "timezone-added", zone: ICalGLib.Timezone): void
-    on(sigName: "timezone-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "timezone-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "timezone-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::default-timezone", callback: (($obj: Client, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::default-timezone", callback: (($obj: Client, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::default-timezone", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -560,9 +510,9 @@ export interface ClientView_ConstructProps extends GObject.Object_ConstructProps
     objectPath?: string
 }
 export class ClientView {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of ECal.ClientView */
+    /* Methods of ECal-2.0.ECal.ClientView */
     getConnection(): Gio.DBusConnection
     getObjectPath(): string
     isRunning(): boolean
@@ -571,7 +521,7 @@ export class ClientView {
     setFlags(flags: ClientViewFlags): void
     start(): void
     stop(): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -593,58 +543,40 @@ export class ClientView {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of Gio.Initable */
+    /* Methods of Gio-2.0.Gio.Initable */
     init(cancellable?: Gio.Cancellable | null): boolean
-    /* Virtual methods of ECal.ClientView */
-    vfuncComplete(error: GLib.Error): void
-    vfuncProgress(percent: number, message: string): void
-    vfuncInit(cancellable?: Gio.Cancellable | null): boolean
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of ECal.ClientView */
+    /* Signals of ECal-2.0.ECal.ClientView */
     connect(sigName: "complete", callback: (($obj: ClientView, object: GLib.Error) => void)): number
-    connect_after(sigName: "complete", callback: (($obj: ClientView, object: GLib.Error) => void)): number
+    on(sigName: "complete", callback: (object: GLib.Error) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "complete", callback: (object: GLib.Error) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "complete", callback: (object: GLib.Error) => void): NodeJS.EventEmitter
     emit(sigName: "complete", object: GLib.Error): void
-    on(sigName: "complete", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "complete", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "complete", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "objects-added", callback: (($obj: ClientView, objects: ICalGLib.Component[]) => void)): number
-    connect_after(sigName: "objects-added", callback: (($obj: ClientView, objects: ICalGLib.Component[]) => void)): number
+    on(sigName: "objects-added", callback: (objects: ICalGLib.Component[]) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "objects-added", callback: (objects: ICalGLib.Component[]) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "objects-added", callback: (objects: ICalGLib.Component[]) => void): NodeJS.EventEmitter
     emit(sigName: "objects-added", objects: ICalGLib.Component[]): void
-    on(sigName: "objects-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "objects-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "objects-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "objects-modified", callback: (($obj: ClientView, objects: ICalGLib.Component[]) => void)): number
-    connect_after(sigName: "objects-modified", callback: (($obj: ClientView, objects: ICalGLib.Component[]) => void)): number
+    on(sigName: "objects-modified", callback: (objects: ICalGLib.Component[]) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "objects-modified", callback: (objects: ICalGLib.Component[]) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "objects-modified", callback: (objects: ICalGLib.Component[]) => void): NodeJS.EventEmitter
     emit(sigName: "objects-modified", objects: ICalGLib.Component[]): void
-    on(sigName: "objects-modified", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "objects-modified", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "objects-modified", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "objects-removed", callback: (($obj: ClientView, uids: ComponentId[]) => void)): number
-    connect_after(sigName: "objects-removed", callback: (($obj: ClientView, uids: ComponentId[]) => void)): number
+    on(sigName: "objects-removed", callback: (uids: ComponentId[]) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "objects-removed", callback: (uids: ComponentId[]) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "objects-removed", callback: (uids: ComponentId[]) => void): NodeJS.EventEmitter
     emit(sigName: "objects-removed", uids: ComponentId[]): void
-    on(sigName: "objects-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "objects-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "objects-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "progress", callback: (($obj: ClientView, object: number, p0: string) => void)): number
-    connect_after(sigName: "progress", callback: (($obj: ClientView, object: number, p0: string) => void)): number
+    on(sigName: "progress", callback: (object: number, p0: string) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "progress", callback: (object: number, p0: string) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "progress", callback: (object: number, p0: string) => void): NodeJS.EventEmitter
     emit(sigName: "progress", object: number, p0: string): void
-    on(sigName: "progress", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "progress", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "progress", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: ClientView, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: ClientView, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -662,9 +594,9 @@ export class ClientView {
 export interface Component_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class Component {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of ECal.Component */
+    /* Methods of ECal-2.0.ECal.Component */
     abortSequence(): void
     addAlarm(alarm: ComponentAlarm): void
     clone(): Component
@@ -758,7 +690,7 @@ export class Component {
     setUid(uid: string): void
     setUrl(url?: string | null): void
     stripErrors(): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -780,21 +712,12 @@ export class Component {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Component, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Component, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -818,12 +741,12 @@ export interface ReminderWatcher_ConstructProps extends GObject.Object_Construct
     timersEnabled?: boolean
 }
 export class ReminderWatcher {
-    /* Properties of ECal.ReminderWatcher */
+    /* Properties of ECal-2.0.ECal.ReminderWatcher */
     defaultZone: ICalGLib.Timezone
     timersEnabled: boolean
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of ECal.ReminderWatcher */
+    /* Methods of ECal-2.0.ECal.ReminderWatcher */
     describeData(rd: ReminderData, flags: number): string
     dismiss(rd: ReminderData, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     dismissAll(cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
@@ -841,7 +764,7 @@ export class ReminderWatcher {
     setTimersEnabled(enabled: boolean): void
     snooze(rd: ReminderData, until: number): void
     timerElapsed(): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -863,45 +786,28 @@ export class ReminderWatcher {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of ECal.ReminderWatcher */
-    vfuncCalClientConnect(source: EDataServer.Source, sourceType: ClientSourceType, waitForConnectedSeconds: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    vfuncChanged(): void
-    vfuncFormatTime(rd: ReminderData, itt: ICalGLib.Time, inoutBuffer: string, bufferSize: number): void
-    vfuncScheduleTimer(atTime: number): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of ECal.ReminderWatcher */
+    /* Signals of ECal-2.0.ECal.ReminderWatcher */
     connect(sigName: "changed", callback: (($obj: ReminderWatcher) => void)): number
-    connect_after(sigName: "changed", callback: (($obj: ReminderWatcher) => void)): number
+    on(sigName: "changed", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "changed", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "changed", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "changed"): void
-    on(sigName: "changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "format-time", callback: (($obj: ReminderWatcher, rd: ReminderData, itt: ICalGLib.Time, inoutBuffer: object | null, bufferSize: number) => void)): number
-    connect_after(sigName: "format-time", callback: (($obj: ReminderWatcher, rd: ReminderData, itt: ICalGLib.Time, inoutBuffer: object | null, bufferSize: number) => void)): number
+    on(sigName: "format-time", callback: (rd: ReminderData, itt: ICalGLib.Time, inoutBuffer: object | null, bufferSize: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "format-time", callback: (rd: ReminderData, itt: ICalGLib.Time, inoutBuffer: object | null, bufferSize: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "format-time", callback: (rd: ReminderData, itt: ICalGLib.Time, inoutBuffer: object | null, bufferSize: number) => void): NodeJS.EventEmitter
     emit(sigName: "format-time", rd: ReminderData, itt: ICalGLib.Time, inoutBuffer: object | null, bufferSize: number): void
-    on(sigName: "format-time", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "format-time", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "format-time", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "triggered", callback: (($obj: ReminderWatcher, reminders: ReminderData[], snoozed: boolean) => void)): number
-    connect_after(sigName: "triggered", callback: (($obj: ReminderWatcher, reminders: ReminderData[], snoozed: boolean) => void)): number
+    on(sigName: "triggered", callback: (reminders: ReminderData[], snoozed: boolean) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "triggered", callback: (reminders: ReminderData[], snoozed: boolean) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "triggered", callback: (reminders: ReminderData[], snoozed: boolean) => void): NodeJS.EventEmitter
     emit(sigName: "triggered", reminders: ReminderData[], snoozed: boolean): void
-    on(sigName: "triggered", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "triggered", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "triggered", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: ReminderWatcher, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: ReminderWatcher, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::default-zone", callback: (($obj: ReminderWatcher, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::default-zone", callback: (($obj: ReminderWatcher, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::default-zone", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -933,7 +839,7 @@ export class ClientPrivate {
     static name: string
 }
 export class ClientTzlookupICalCompData {
-    /* Methods of ECal.ClientTzlookupICalCompData */
+    /* Methods of ECal-2.0.ECal.ClientTzlookupICalCompData */
     copy(): ClientTzlookupICalCompData | null
     free(): void
     getIcalcomponent(): ICalGLib.Component
@@ -944,7 +850,7 @@ export class ClientTzlookupICalCompData {
     static new(icomp: ICalGLib.Component): ClientTzlookupICalCompData
 }
 export abstract class ClientViewClass {
-    /* Fields of ECal.ClientViewClass */
+    /* Fields of ECal-2.0.ECal.ClientViewClass */
     progress: (clientView: ClientView, percent: number, message: string) => void
     complete: (clientView: ClientView, error: GLib.Error) => void
     static name: string
@@ -953,7 +859,7 @@ export class ClientViewPrivate {
     static name: string
 }
 export class ComponentAlarm {
-    /* Methods of ECal.ComponentAlarm */
+    /* Methods of ECal-2.0.ECal.ComponentAlarm */
     copy(): ComponentAlarm
     fillComponent(component: ICalGLib.Component): void
     getAcknowledged(): ICalGLib.Time | null
@@ -988,7 +894,7 @@ export class ComponentAlarm {
     static newFromComponent(component: ICalGLib.Component): ComponentAlarm
 }
 export class ComponentAlarmInstance {
-    /* Methods of ECal.ComponentAlarmInstance */
+    /* Methods of ECal-2.0.ECal.ComponentAlarmInstance */
     copy(): ComponentAlarmInstance
     getOccurEnd(): number
     getOccurStart(): number
@@ -1005,7 +911,7 @@ export class ComponentAlarmInstance {
     static new(uid: string, instanceTime: number, occurStart: number, occurEnd: number): ComponentAlarmInstance
 }
 export class ComponentAlarmRepeat {
-    /* Methods of ECal.ComponentAlarmRepeat */
+    /* Methods of ECal-2.0.ECal.ComponentAlarmRepeat */
     copy(): ComponentAlarmRepeat
     getInterval(): ICalGLib.Duration
     getIntervalSeconds(): number
@@ -1021,9 +927,9 @@ export class ComponentAlarmRepeat {
     static newSeconds(repetitions: number, intervalSeconds: number): ComponentAlarmRepeat
 }
 export class ComponentAlarmTrigger {
-    /* Methods of ECal.ComponentAlarmTrigger */
+    /* Methods of ECal-2.0.ECal.ComponentAlarmTrigger */
     copy(): ComponentAlarmTrigger
-    fillProperty(property: ICalGLib.Property): /* property */ ICalGLib.Property
+    fillProperty(property: ICalGLib.Property): { property: ICalGLib.Property }
     getAbsoluteTime(): ICalGLib.Time | null
     getAsProperty(): ICalGLib.Property
     getDuration(): ICalGLib.Duration | null
@@ -1042,7 +948,7 @@ export class ComponentAlarmTrigger {
     static newRelative(kind: ComponentAlarmTriggerKind, duration: ICalGLib.Duration): ComponentAlarmTrigger
 }
 export class ComponentAlarms {
-    /* Methods of ECal.ComponentAlarms */
+    /* Methods of ECal-2.0.ECal.ComponentAlarms */
     addInstance(instance: ComponentAlarmInstance): void
     copy(): ComponentAlarms
     getComponent(): Component
@@ -1058,9 +964,9 @@ export class ComponentAlarms {
     static new(comp: Component): ComponentAlarms
 }
 export class ComponentAttendee {
-    /* Methods of ECal.ComponentAttendee */
+    /* Methods of ECal-2.0.ECal.ComponentAttendee */
     copy(): ComponentAttendee
-    fillProperty(property: ICalGLib.Property): /* property */ ICalGLib.Property
+    fillProperty(property: ICalGLib.Property): { property: ICalGLib.Property }
     getAsProperty(): ICalGLib.Property
     getCn(): string | null
     getCutype(): ICalGLib.ParameterCutype
@@ -1098,7 +1004,7 @@ export abstract class ComponentClass {
     static name: string
 }
 export class ComponentDateTime {
-    /* Methods of ECal.ComponentDateTime */
+    /* Methods of ECal-2.0.ECal.ComponentDateTime */
     copy(): ComponentDateTime
     getTzid(): string | null
     getValue(): ICalGLib.Time
@@ -1115,7 +1021,7 @@ export class ComponentDateTime {
     static newTake(value: ICalGLib.Time, tzid?: string | null): ComponentDateTime
 }
 export class ComponentId {
-    /* Methods of ECal.ComponentId */
+    /* Methods of ECal-2.0.ECal.ComponentId */
     copy(): ComponentId
     equal(id2: ComponentId): boolean
     getRid(): string | null
@@ -1131,9 +1037,9 @@ export class ComponentId {
     static newTake(uid: string, rid?: string | null): ComponentId
 }
 export class ComponentOrganizer {
-    /* Methods of ECal.ComponentOrganizer */
+    /* Methods of ECal-2.0.ECal.ComponentOrganizer */
     copy(): ComponentOrganizer
-    fillProperty(property: ICalGLib.Property): /* property */ ICalGLib.Property
+    fillProperty(property: ICalGLib.Property): { property: ICalGLib.Property }
     getAsProperty(): ICalGLib.Property
     getCn(): string | null
     getLanguage(): string | null
@@ -1154,7 +1060,7 @@ export class ComponentOrganizer {
     static newFull(value?: string | null, sentby?: string | null, cn?: string | null, language?: string | null): ComponentOrganizer
 }
 export class ComponentParameterBag {
-    /* Methods of ECal.ComponentParameterBag */
+    /* Methods of ECal-2.0.ECal.ComponentParameterBag */
     add(param: ICalGLib.Parameter): void
     assign(srcBag: ComponentParameterBag): void
     clear(): void
@@ -1175,7 +1081,7 @@ export class ComponentParameterBag {
     static newFromProperty(property: ICalGLib.Property): ComponentParameterBag
 }
 export class ComponentPeriod {
-    /* Methods of ECal.ComponentPeriod */
+    /* Methods of ECal-2.0.ECal.ComponentPeriod */
     copy(): ComponentPeriod
     getDuration(): ICalGLib.Duration
     getEnd(): ICalGLib.Time | null
@@ -1195,7 +1101,7 @@ export class ComponentPrivate {
     static name: string
 }
 export class ComponentPropertyBag {
-    /* Methods of ECal.ComponentPropertyBag */
+    /* Methods of ECal-2.0.ECal.ComponentPropertyBag */
     add(prop: ICalGLib.Property): void
     assign(srcBag: ComponentPropertyBag): void
     clear(): void
@@ -1216,7 +1122,7 @@ export class ComponentPropertyBag {
     static newFromComponent(component: ICalGLib.Component): ComponentPropertyBag
 }
 export class ComponentRange {
-    /* Methods of ECal.ComponentRange */
+    /* Methods of ECal-2.0.ECal.ComponentRange */
     copy(): ComponentRange
     getDatetime(): ComponentDateTime
     getKind(): ComponentRangeKind
@@ -1229,7 +1135,7 @@ export class ComponentRange {
     static new(kind: ComponentRangeKind, datetime: ComponentDateTime): ComponentRange
 }
 export class ComponentText {
-    /* Methods of ECal.ComponentText */
+    /* Methods of ECal-2.0.ECal.ComponentText */
     copy(): ComponentText
     getAltrep(): string
     getValue(): string
@@ -1242,7 +1148,7 @@ export class ComponentText {
     static new(value?: string | null, altrep?: string | null): ComponentText
 }
 export class ReminderData {
-    /* Methods of ECal.ReminderData */
+    /* Methods of ECal-2.0.ECal.ReminderData */
     copy(): ReminderData
     getComponent(): Component
     getInstance(): ComponentAlarmInstance
@@ -1258,7 +1164,7 @@ export class ReminderData {
     static free(rd?: object | null): void
 }
 export abstract class ReminderWatcherClass {
-    /* Fields of ECal.ReminderWatcherClass */
+    /* Fields of ECal-2.0.ECal.ReminderWatcherClass */
     parentClass: GObject.ObjectClass
     scheduleTimer: (watcher: ReminderWatcher, atTime: number) => void
     formatTime: (watcher: ReminderWatcher, rd: ReminderData, itt: ICalGLib.Time, inoutBuffer: string, bufferSize: number) => void
@@ -1271,7 +1177,7 @@ export class ReminderWatcherPrivate {
     static name: string
 }
 export abstract class TimezoneCacheInterface {
-    /* Fields of ECal.TimezoneCacheInterface */
+    /* Fields of ECal-2.0.ECal.TimezoneCacheInterface */
     tzcacheAddTimezone: (cache: TimezoneCache, zone: ICalGLib.Timezone) => void
     timezoneAdded: (cache: TimezoneCache, zone: ICalGLib.Timezone) => void
     reservedSignals: object[]

@@ -201,24 +201,24 @@ export function treeErrorQuark(): GLib.Quark
 export interface AvatarFormat_ConstructProps extends Entity_ConstructProps {
 }
 export class AvatarFormat {
-    /* Properties of Libosinfo.AvatarFormat */
+    /* Properties of Libosinfo-1.0.Libosinfo.AvatarFormat */
     readonly alpha: boolean
     readonly height: number
     readonly mimeTypes: string[]
     readonly width: number
-    /* Properties of Libosinfo.Entity */
+    /* Properties of Libosinfo-1.0.Libosinfo.Entity */
     id: string
-    /* Fields of Libosinfo.AvatarFormat */
+    /* Fields of Libosinfo-1.0.Libosinfo.AvatarFormat */
     parentInstance: Entity
     priv: AvatarFormatPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Libosinfo.AvatarFormat */
+    /* Methods of Libosinfo-1.0.Libosinfo.AvatarFormat */
     getAlpha(): boolean
     getHeight(): number
     getMimeTypes(): string[]
     getWidth(): number
-    /* Methods of Libosinfo.Entity */
+    /* Methods of Libosinfo-1.0.Libosinfo.Entity */
     addParam(key: string, value: string): void
     clearParam(key: string): void
     getId(): string
@@ -234,7 +234,7 @@ export class AvatarFormat {
     setParamBoolean(key: string, value: boolean): void
     setParamEnum(key: string, value: number, enumType: GObject.Type): void
     setParamInt64(key: string, value: number): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -256,21 +256,12 @@ export class AvatarFormat {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: AvatarFormat, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: AvatarFormat, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::alpha", callback: (($obj: AvatarFormat, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::alpha", callback: (($obj: AvatarFormat, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::alpha", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -313,18 +304,18 @@ export class AvatarFormat {
 export interface Datamap_ConstructProps extends Entity_ConstructProps {
 }
 export class Datamap {
-    /* Properties of Libosinfo.Entity */
+    /* Properties of Libosinfo-1.0.Libosinfo.Entity */
     id: string
-    /* Fields of Libosinfo.Datamap */
+    /* Fields of Libosinfo-1.0.Libosinfo.Datamap */
     parentInstance: Entity
     priv: DatamapPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Libosinfo.Datamap */
+    /* Methods of Libosinfo-1.0.Libosinfo.Datamap */
     insert(inval: string, outval: string): void
     lookup(inval: string): string
     reverseLookup(outval: string): string
-    /* Methods of Libosinfo.Entity */
+    /* Methods of Libosinfo-1.0.Libosinfo.Entity */
     addParam(key: string, value: string): void
     clearParam(key: string): void
     getId(): string
@@ -340,7 +331,7 @@ export class Datamap {
     setParamBoolean(key: string, value: boolean): void
     setParamEnum(key: string, value: number, enumType: GObject.Type): void
     setParamInt64(key: string, value: number): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -362,21 +353,12 @@ export class Datamap {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Datamap, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Datamap, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::id", callback: (($obj: Datamap, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::id", callback: (($obj: Datamap, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::id", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -399,12 +381,12 @@ export class Datamap {
 export interface DatamapList_ConstructProps extends List_ConstructProps {
 }
 export class DatamapList {
-    /* Fields of Libosinfo.DatamapList */
+    /* Fields of Libosinfo-1.0.Libosinfo.DatamapList */
     parentInstance: List
     priv: DatamapListPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Libosinfo.List */
+    /* Methods of Libosinfo-1.0.Libosinfo.List */
     add(entity: Entity): void
     addAll(source: List): void
     addFiltered(source: List, filter: Filter): void
@@ -419,7 +401,7 @@ export class DatamapList {
     newFiltered(filter: Filter): List
     newIntersection(sourceTwo: List): List
     newUnion(sourceTwo: List): List
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -441,21 +423,12 @@ export class DatamapList {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: DatamapList, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: DatamapList, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -473,12 +446,12 @@ export class DatamapList {
 export interface Db_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class Db {
-    /* Fields of Libosinfo.Db */
+    /* Fields of Libosinfo-1.0.Libosinfo.Db */
     parentInstance: GObject.Object
     priv: DbPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Libosinfo.Db */
+    /* Methods of Libosinfo-1.0.Libosinfo.Db */
     addDatamap(datamap: Datamap): void
     addDeployment(deployment: Deployment): void
     addDevice(device: Device): void
@@ -498,8 +471,8 @@ export class Db {
     getOsList(): OsList
     getPlatform(id: string): Platform
     getPlatformList(): PlatformList
-    guessOsFromMedia(media: Media): [ /* returnType */ Os, /* matchedMedia */ Media | null ]
-    guessOsFromTree(tree: Tree): [ /* returnType */ Os, /* matchedTree */ Tree | null ]
+    guessOsFromMedia(media: Media): { returnType: Os, matchedMedia: Media | null }
+    guessOsFromTree(tree: Tree): { returnType: Os, matchedTree: Tree | null }
     identifyMedia(media: Media): boolean
     identifyTree(tree: Tree): boolean
     uniqueValuesForOsRelationship(relshp: ProductRelationship): OsList
@@ -508,7 +481,7 @@ export class Db {
     uniqueValuesForPropertyInDevice(propName: string): string[]
     uniqueValuesForPropertyInOs(propName: string): string[]
     uniqueValuesForPropertyInPlatform(propName: string): string[]
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -530,21 +503,12 @@ export class Db {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Db, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Db, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -564,14 +528,14 @@ export interface Deployment_ConstructProps extends Entity_ConstructProps {
     platform?: Platform
 }
 export class Deployment {
-    /* Properties of Libosinfo.Entity */
+    /* Properties of Libosinfo-1.0.Libosinfo.Entity */
     id: string
-    /* Fields of Libosinfo.Deployment */
+    /* Fields of Libosinfo-1.0.Libosinfo.Deployment */
     parentInstance: Entity
     priv: DeploymentPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Libosinfo.Deployment */
+    /* Methods of Libosinfo-1.0.Libosinfo.Deployment */
     addDevice(dev: Device): DeviceLink
     getDeviceLinks(filter?: Filter | null): DeviceLinkList
     getDevices(filter?: Filter | null): DeviceList
@@ -579,7 +543,7 @@ export class Deployment {
     getPlatform(): Platform
     getPreferredDevice(filter?: Filter | null): Device
     getPreferredDeviceLink(filter?: Filter | null): DeviceLink
-    /* Methods of Libosinfo.Entity */
+    /* Methods of Libosinfo-1.0.Libosinfo.Entity */
     addParam(key: string, value: string): void
     clearParam(key: string): void
     getId(): string
@@ -595,7 +559,7 @@ export class Deployment {
     setParamBoolean(key: string, value: boolean): void
     setParamEnum(key: string, value: number, enumType: GObject.Type): void
     setParamInt64(key: string, value: number): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -617,21 +581,12 @@ export class Deployment {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Deployment, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Deployment, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::id", callback: (($obj: Deployment, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::id", callback: (($obj: Deployment, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::id", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -654,17 +609,17 @@ export class Deployment {
 export interface DeploymentList_ConstructProps extends List_ConstructProps {
 }
 export class DeploymentList {
-    /* Fields of Libosinfo.DeploymentList */
+    /* Fields of Libosinfo-1.0.Libosinfo.DeploymentList */
     parentInstance: List
     priv: DeploymentListPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Libosinfo.DeploymentList */
+    /* Methods of Libosinfo-1.0.Libosinfo.DeploymentList */
     newCopy(): DeploymentList
     newFiltered(filter: Filter): DeploymentList
     newIntersection(sourceTwo: DeploymentList): DeploymentList
     newUnion(sourceTwo: DeploymentList): DeploymentList
-    /* Methods of Libosinfo.List */
+    /* Methods of Libosinfo-1.0.Libosinfo.List */
     add(entity: Entity): void
     addAll(source: List): void
     addFiltered(source: List, filter: Filter): void
@@ -679,7 +634,7 @@ export class DeploymentList {
     newFiltered(filter: Filter): List
     newIntersection(sourceTwo: List): List
     newUnion(sourceTwo: List): List
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -701,21 +656,12 @@ export class DeploymentList {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: DeploymentList, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: DeploymentList, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -733,14 +679,14 @@ export class DeploymentList {
 export interface Device_ConstructProps extends Entity_ConstructProps {
 }
 export class Device {
-    /* Properties of Libosinfo.Entity */
+    /* Properties of Libosinfo-1.0.Libosinfo.Entity */
     id: string
-    /* Fields of Libosinfo.Device */
+    /* Fields of Libosinfo-1.0.Libosinfo.Device */
     parentInstance: Entity
     priv: DevicePrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Libosinfo.Device */
+    /* Methods of Libosinfo-1.0.Libosinfo.Device */
     getBusType(): string
     getClass(): string
     getName(): string
@@ -749,7 +695,7 @@ export class Device {
     getSubsystem(): string
     getVendor(): string
     getVendorId(): string
-    /* Methods of Libosinfo.Entity */
+    /* Methods of Libosinfo-1.0.Libosinfo.Entity */
     addParam(key: string, value: string): void
     clearParam(key: string): void
     getId(): string
@@ -765,7 +711,7 @@ export class Device {
     setParamBoolean(key: string, value: boolean): void
     setParamEnum(key: string, value: number, enumType: GObject.Type): void
     setParamInt64(key: string, value: number): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -787,21 +733,12 @@ export class Device {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Device, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Device, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::id", callback: (($obj: Device, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::id", callback: (($obj: Device, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::id", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -824,14 +761,14 @@ export class Device {
 export interface DeviceDriver_ConstructProps extends Entity_ConstructProps {
 }
 export class DeviceDriver {
-    /* Properties of Libosinfo.Entity */
+    /* Properties of Libosinfo-1.0.Libosinfo.Entity */
     id: string
-    /* Fields of Libosinfo.DeviceDriver */
+    /* Fields of Libosinfo-1.0.Libosinfo.DeviceDriver */
     parentInstance: Entity
     priv: DeviceDriverPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Libosinfo.DeviceDriver */
+    /* Methods of Libosinfo-1.0.Libosinfo.DeviceDriver */
     getArchitecture(): string
     getDevices(): DeviceList
     getFiles(): string[]
@@ -839,7 +776,7 @@ export class DeviceDriver {
     getPreInstallable(): boolean
     getPriority(): number
     getSigned(): boolean
-    /* Methods of Libosinfo.Entity */
+    /* Methods of Libosinfo-1.0.Libosinfo.Entity */
     addParam(key: string, value: string): void
     clearParam(key: string): void
     getId(): string
@@ -855,7 +792,7 @@ export class DeviceDriver {
     setParamBoolean(key: string, value: boolean): void
     setParamEnum(key: string, value: number, enumType: GObject.Type): void
     setParamInt64(key: string, value: number): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -877,21 +814,12 @@ export class DeviceDriver {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: DeviceDriver, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: DeviceDriver, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::id", callback: (($obj: DeviceDriver, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::id", callback: (($obj: DeviceDriver, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::id", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -912,12 +840,12 @@ export class DeviceDriver {
 export interface DeviceDriverList_ConstructProps extends List_ConstructProps {
 }
 export class DeviceDriverList {
-    /* Fields of Libosinfo.DeviceDriverList */
+    /* Fields of Libosinfo-1.0.Libosinfo.DeviceDriverList */
     parentInstance: List
     priv: DeviceDriverListPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Libosinfo.List */
+    /* Methods of Libosinfo-1.0.Libosinfo.List */
     add(entity: Entity): void
     addAll(source: List): void
     addFiltered(source: List, filter: Filter): void
@@ -932,7 +860,7 @@ export class DeviceDriverList {
     newFiltered(filter: Filter): List
     newIntersection(sourceTwo: List): List
     newUnion(sourceTwo: List): List
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -954,21 +882,12 @@ export class DeviceDriverList {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: DeviceDriverList, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: DeviceDriverList, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -987,17 +906,17 @@ export interface DeviceLink_ConstructProps extends Entity_ConstructProps {
     target?: Device
 }
 export class DeviceLink {
-    /* Properties of Libosinfo.Entity */
+    /* Properties of Libosinfo-1.0.Libosinfo.Entity */
     id: string
-    /* Fields of Libosinfo.DeviceLink */
+    /* Fields of Libosinfo-1.0.Libosinfo.DeviceLink */
     parentInstance: Entity
     priv: DeviceLinkPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Libosinfo.DeviceLink */
+    /* Methods of Libosinfo-1.0.Libosinfo.DeviceLink */
     getDriver(): string
     getTarget(): Device
-    /* Methods of Libosinfo.Entity */
+    /* Methods of Libosinfo-1.0.Libosinfo.Entity */
     addParam(key: string, value: string): void
     clearParam(key: string): void
     getId(): string
@@ -1013,7 +932,7 @@ export class DeviceLink {
     setParamBoolean(key: string, value: boolean): void
     setParamEnum(key: string, value: number, enumType: GObject.Type): void
     setParamInt64(key: string, value: number): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -1035,21 +954,12 @@ export class DeviceLink {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: DeviceLink, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: DeviceLink, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::id", callback: (($obj: DeviceLink, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::id", callback: (($obj: DeviceLink, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::id", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -1073,21 +983,21 @@ export interface DeviceLinkFilter_ConstructProps extends Filter_ConstructProps {
     targetFilter?: Filter
 }
 export class DeviceLinkFilter {
-    /* Fields of Libosinfo.DeviceLinkFilter */
+    /* Fields of Libosinfo-1.0.Libosinfo.DeviceLinkFilter */
     parentInstance: Filter
     priv: DeviceLinkFilterPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Libosinfo.DeviceLinkFilter */
+    /* Methods of Libosinfo-1.0.Libosinfo.DeviceLinkFilter */
     getTargetFilter(): Filter
-    /* Methods of Libosinfo.Filter */
+    /* Methods of Libosinfo-1.0.Libosinfo.Filter */
     addConstraint(propName: string, propVal: string): void
     clearConstraint(propName: string): void
     clearConstraints(): void
     getConstraintKeys(): string[]
     getConstraintValues(propName: string): string[]
     matches(entity: Entity): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -1109,23 +1019,12 @@ export class DeviceLinkFilter {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of Libosinfo.Filter */
-    vfuncMatches(entity: Entity): boolean
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: DeviceLinkFilter, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: DeviceLinkFilter, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -1144,18 +1043,18 @@ export class DeviceLinkFilter {
 export interface DeviceLinkList_ConstructProps extends List_ConstructProps {
 }
 export class DeviceLinkList {
-    /* Fields of Libosinfo.DeviceLinkList */
+    /* Fields of Libosinfo-1.0.Libosinfo.DeviceLinkList */
     parentInstance: List
     priv: DeviceLinkListPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Libosinfo.DeviceLinkList */
+    /* Methods of Libosinfo-1.0.Libosinfo.DeviceLinkList */
     getDevices(filter?: Filter | null): DeviceList
     newCopy(): DeviceLinkList
     newFiltered(filter: Filter): DeviceLinkList
     newIntersection(sourceTwo: DeviceLinkList): DeviceLinkList
     newUnion(sourceTwo: DeviceLinkList): DeviceLinkList
-    /* Methods of Libosinfo.List */
+    /* Methods of Libosinfo-1.0.Libosinfo.List */
     add(entity: Entity): void
     addAll(source: List): void
     addFiltered(source: List, filter: Filter): void
@@ -1170,7 +1069,7 @@ export class DeviceLinkList {
     newFiltered(filter: Filter): List
     newIntersection(sourceTwo: List): List
     newUnion(sourceTwo: List): List
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -1192,21 +1091,12 @@ export class DeviceLinkList {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: DeviceLinkList, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: DeviceLinkList, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -1224,17 +1114,17 @@ export class DeviceLinkList {
 export interface DeviceList_ConstructProps extends List_ConstructProps {
 }
 export class DeviceList {
-    /* Fields of Libosinfo.DeviceList */
+    /* Fields of Libosinfo-1.0.Libosinfo.DeviceList */
     parentInstance: List
     priv: DeviceListPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Libosinfo.DeviceList */
+    /* Methods of Libosinfo-1.0.Libosinfo.DeviceList */
     newCopy(): DeviceList
     newFiltered(filter: Filter): DeviceList
     newIntersection(sourceTwo: DeviceList): DeviceList
     newUnion(sourceTwo: DeviceList): DeviceList
-    /* Methods of Libosinfo.List */
+    /* Methods of Libosinfo-1.0.Libosinfo.List */
     add(entity: Entity): void
     addAll(source: List): void
     addFiltered(source: List, filter: Filter): void
@@ -1249,7 +1139,7 @@ export class DeviceList {
     newFiltered(filter: Filter): List
     newIntersection(sourceTwo: List): List
     newUnion(sourceTwo: List): List
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -1271,21 +1161,12 @@ export class DeviceList {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: DeviceList, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: DeviceList, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -1304,14 +1185,14 @@ export interface Entity_ConstructProps extends GObject.Object_ConstructProps {
     id?: string
 }
 export class Entity {
-    /* Properties of Libosinfo.Entity */
+    /* Properties of Libosinfo-1.0.Libosinfo.Entity */
     id: string
-    /* Fields of Libosinfo.Entity */
+    /* Fields of Libosinfo-1.0.Libosinfo.Entity */
     parentInstance: GObject.Object
     priv: EntityPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Libosinfo.Entity */
+    /* Methods of Libosinfo-1.0.Libosinfo.Entity */
     addParam(key: string, value: string): void
     clearParam(key: string): void
     getId(): string
@@ -1327,7 +1208,7 @@ export class Entity {
     setParamBoolean(key: string, value: boolean): void
     setParamEnum(key: string, value: number, enumType: GObject.Type): void
     setParamInt64(key: string, value: number): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -1349,21 +1230,12 @@ export class Entity {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Entity, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Entity, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::id", callback: (($obj: Entity, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::id", callback: (($obj: Entity, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::id", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -1384,19 +1256,19 @@ export class Entity {
 export interface Filter_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class Filter {
-    /* Fields of Libosinfo.Filter */
+    /* Fields of Libosinfo-1.0.Libosinfo.Filter */
     parentInstance: GObject.Object
     priv: FilterPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Libosinfo.Filter */
+    /* Methods of Libosinfo-1.0.Libosinfo.Filter */
     addConstraint(propName: string, propVal: string): void
     clearConstraint(propName: string): void
     clearConstraints(): void
     getConstraintKeys(): string[]
     getConstraintValues(propName: string): string[]
     matches(entity: Entity): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -1418,23 +1290,12 @@ export class Filter {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of Libosinfo.Filter */
-    vfuncMatches(entity: Entity): boolean
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Filter, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Filter, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -1454,21 +1315,21 @@ export interface Firmware_ConstructProps extends Entity_ConstructProps {
     type?: string
 }
 export class Firmware {
-    /* Properties of Libosinfo.Firmware */
+    /* Properties of Libosinfo-1.0.Libosinfo.Firmware */
     architecture: string
     type: string
-    /* Properties of Libosinfo.Entity */
+    /* Properties of Libosinfo-1.0.Libosinfo.Entity */
     id: string
-    /* Fields of Libosinfo.Firmware */
+    /* Fields of Libosinfo-1.0.Libosinfo.Firmware */
     parentInstance: Entity
     priv: FirmwarePrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Libosinfo.Firmware */
+    /* Methods of Libosinfo-1.0.Libosinfo.Firmware */
     getArchitecture(): string
     getFirmwareType(): string
     isSupported(): boolean
-    /* Methods of Libosinfo.Entity */
+    /* Methods of Libosinfo-1.0.Libosinfo.Entity */
     addParam(key: string, value: string): void
     clearParam(key: string): void
     getId(): string
@@ -1484,7 +1345,7 @@ export class Firmware {
     setParamBoolean(key: string, value: boolean): void
     setParamEnum(key: string, value: number, enumType: GObject.Type): void
     setParamInt64(key: string, value: number): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -1506,21 +1367,12 @@ export class Firmware {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Firmware, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Firmware, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::architecture", callback: (($obj: Firmware, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::architecture", callback: (($obj: Firmware, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::architecture", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -1553,12 +1405,12 @@ export class Firmware {
 export interface FirmwareList_ConstructProps extends List_ConstructProps {
 }
 export class FirmwareList {
-    /* Fields of Libosinfo.FirmwareList */
+    /* Fields of Libosinfo-1.0.Libosinfo.FirmwareList */
     parentInstance: List
     priv: FirmwareListPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Libosinfo.List */
+    /* Methods of Libosinfo-1.0.Libosinfo.List */
     add(entity: Entity): void
     addAll(source: List): void
     addFiltered(source: List, filter: Filter): void
@@ -1573,7 +1425,7 @@ export class FirmwareList {
     newFiltered(filter: Filter): List
     newIntersection(sourceTwo: List): List
     newUnion(sourceTwo: List): List
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -1595,21 +1447,12 @@ export class FirmwareList {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: FirmwareList, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: FirmwareList, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -1631,19 +1474,19 @@ export interface Image_ConstructProps extends Entity_ConstructProps {
     url?: string
 }
 export class Image {
-    /* Properties of Libosinfo.Image */
+    /* Properties of Libosinfo-1.0.Libosinfo.Image */
     architecture: string
     cloudInit: string
     format: string
     url: string
-    /* Properties of Libosinfo.Entity */
+    /* Properties of Libosinfo-1.0.Libosinfo.Entity */
     id: string
-    /* Fields of Libosinfo.Image */
+    /* Fields of Libosinfo-1.0.Libosinfo.Image */
     parentInstance: Entity
     priv: ImagePrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Libosinfo.Image */
+    /* Methods of Libosinfo-1.0.Libosinfo.Image */
     getArchitecture(): string
     getCloudInit(): boolean
     getFormat(): string
@@ -1651,7 +1494,7 @@ export class Image {
     getOsVariants(): OsVariantList
     getUrl(): string
     setOs(os: Os): void
-    /* Methods of Libosinfo.Entity */
+    /* Methods of Libosinfo-1.0.Libosinfo.Entity */
     addParam(key: string, value: string): void
     clearParam(key: string): void
     getId(): string
@@ -1667,7 +1510,7 @@ export class Image {
     setParamBoolean(key: string, value: boolean): void
     setParamEnum(key: string, value: number, enumType: GObject.Type): void
     setParamInt64(key: string, value: number): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -1689,21 +1532,12 @@ export class Image {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Image, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Image, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::architecture", callback: (($obj: Image, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::architecture", callback: (($obj: Image, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::architecture", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -1746,12 +1580,12 @@ export class Image {
 export interface ImageList_ConstructProps extends List_ConstructProps {
 }
 export class ImageList {
-    /* Fields of Libosinfo.ImageList */
+    /* Fields of Libosinfo-1.0.Libosinfo.ImageList */
     parentInstance: List
     priv: ImageListPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Libosinfo.List */
+    /* Methods of Libosinfo-1.0.Libosinfo.List */
     add(entity: Entity): void
     addAll(source: List): void
     addFiltered(source: List, filter: Filter): void
@@ -1766,7 +1600,7 @@ export class ImageList {
     newFiltered(filter: Filter): List
     newIntersection(sourceTwo: List): List
     newUnion(sourceTwo: List): List
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -1788,21 +1622,12 @@ export class ImageList {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: ImageList, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: ImageList, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -1820,14 +1645,14 @@ export class ImageList {
 export interface InstallConfig_ConstructProps extends Entity_ConstructProps {
 }
 export class InstallConfig {
-    /* Properties of Libosinfo.Entity */
+    /* Properties of Libosinfo-1.0.Libosinfo.Entity */
     id: string
-    /* Fields of Libosinfo.InstallConfig */
+    /* Fields of Libosinfo-1.0.Libosinfo.InstallConfig */
     parentInstance: Entity
     priv: InstallConfigPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Libosinfo.InstallConfig */
+    /* Methods of Libosinfo-1.0.Libosinfo.InstallConfig */
     getAdminPassword(): string
     getAvatarDisk(): string
     getAvatarLocation(): string
@@ -1876,7 +1701,7 @@ export class InstallConfig {
     setUserLogin(username: string): void
     setUserPassword(password: string): void
     setUserRealname(name: string): void
-    /* Methods of Libosinfo.Entity */
+    /* Methods of Libosinfo-1.0.Libosinfo.Entity */
     addParam(key: string, value: string): void
     clearParam(key: string): void
     getId(): string
@@ -1892,7 +1717,7 @@ export class InstallConfig {
     setParamBoolean(key: string, value: boolean): void
     setParamEnum(key: string, value: number, enumType: GObject.Type): void
     setParamInt64(key: string, value: number): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -1914,21 +1739,12 @@ export class InstallConfig {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: InstallConfig, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: InstallConfig, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::id", callback: (($obj: InstallConfig, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::id", callback: (($obj: InstallConfig, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::id", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -1953,24 +1769,24 @@ export interface InstallConfigParam_ConstructProps extends Entity_ConstructProps
     valueMap?: Datamap
 }
 export class InstallConfigParam {
-    /* Properties of Libosinfo.InstallConfigParam */
+    /* Properties of Libosinfo-1.0.Libosinfo.InstallConfigParam */
     readonly policy: InstallConfigParamPolicy
     valueMap: Datamap
-    /* Properties of Libosinfo.Entity */
+    /* Properties of Libosinfo-1.0.Libosinfo.Entity */
     id: string
-    /* Fields of Libosinfo.InstallConfigParam */
+    /* Fields of Libosinfo-1.0.Libosinfo.InstallConfigParam */
     parentInstance: Entity
     priv: InstallConfigParamPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Libosinfo.InstallConfigParam */
+    /* Methods of Libosinfo-1.0.Libosinfo.InstallConfigParam */
     getName(): string
     getPolicy(): InstallConfigParamPolicy
     getValueMap(): Datamap
     isOptional(): boolean
     isRequired(): boolean
     setValueMap(datamap: Datamap): void
-    /* Methods of Libosinfo.Entity */
+    /* Methods of Libosinfo-1.0.Libosinfo.Entity */
     addParam(key: string, value: string): void
     clearParam(key: string): void
     getId(): string
@@ -1986,7 +1802,7 @@ export class InstallConfigParam {
     setParamBoolean(key: string, value: boolean): void
     setParamEnum(key: string, value: number, enumType: GObject.Type): void
     setParamInt64(key: string, value: number): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -2008,21 +1824,12 @@ export class InstallConfigParam {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: InstallConfigParam, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: InstallConfigParam, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::policy", callback: (($obj: InstallConfigParam, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::policy", callback: (($obj: InstallConfigParam, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::policy", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -2055,12 +1862,12 @@ export class InstallConfigParam {
 export interface InstallConfigParamList_ConstructProps extends List_ConstructProps {
 }
 export class InstallConfigParamList {
-    /* Fields of Libosinfo.InstallConfigParamList */
+    /* Fields of Libosinfo-1.0.Libosinfo.InstallConfigParamList */
     parentInstance: List
     priv: InstallConfigParamListPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Libosinfo.List */
+    /* Methods of Libosinfo-1.0.Libosinfo.List */
     add(entity: Entity): void
     addAll(source: List): void
     addFiltered(source: List, filter: Filter): void
@@ -2075,7 +1882,7 @@ export class InstallConfigParamList {
     newFiltered(filter: Filter): List
     newIntersection(sourceTwo: List): List
     newUnion(sourceTwo: List): List
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -2097,21 +1904,12 @@ export class InstallConfigParamList {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: InstallConfigParamList, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: InstallConfigParamList, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -2133,20 +1931,20 @@ export interface InstallScript_ConstructProps extends Entity_ConstructProps {
     templateUri?: string
 }
 export class InstallScript {
-    /* Properties of Libosinfo.InstallScript */
+    /* Properties of Libosinfo-1.0.Libosinfo.InstallScript */
     readonly avatarFormat: AvatarFormat
     readonly installationSource: InstallScriptInstallationSource
     readonly pathFormat: PathFormat
     preferredInjectionMethod: InstallScriptInjectionMethod
     readonly productKeyFormat: string
-    /* Properties of Libosinfo.Entity */
+    /* Properties of Libosinfo-1.0.Libosinfo.Entity */
     id: string
-    /* Fields of Libosinfo.InstallScript */
+    /* Fields of Libosinfo-1.0.Libosinfo.InstallScript */
     parentInstance: Entity
     priv: InstallScriptPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Libosinfo.InstallScript */
+    /* Methods of Libosinfo-1.0.Libosinfo.InstallScript */
     generate(os: Os, config: InstallConfig, cancellable?: Gio.Cancellable | null): string
     generateAsync(os: Os, config: InstallConfig, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     generateCommandLine(os: Os, config: InstallConfig): string
@@ -2193,7 +1991,7 @@ export class InstallScript {
     setInstallationSource(source: InstallScriptInstallationSource): void
     setOutputPrefix(prefix: string): void
     setPreferredInjectionMethod(method: InstallScriptInjectionMethod): void
-    /* Methods of Libosinfo.Entity */
+    /* Methods of Libosinfo-1.0.Libosinfo.Entity */
     addParam(key: string, value: string): void
     clearParam(key: string): void
     getId(): string
@@ -2209,7 +2007,7 @@ export class InstallScript {
     setParamBoolean(key: string, value: boolean): void
     setParamEnum(key: string, value: number, enumType: GObject.Type): void
     setParamInt64(key: string, value: number): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -2231,21 +2029,12 @@ export class InstallScript {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: InstallScript, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: InstallScript, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::avatar-format", callback: (($obj: InstallScript, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::avatar-format", callback: (($obj: InstallScript, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::avatar-format", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -2295,17 +2084,17 @@ export class InstallScript {
 export interface InstallScriptList_ConstructProps extends List_ConstructProps {
 }
 export class InstallScriptList {
-    /* Fields of Libosinfo.InstallScriptList */
+    /* Fields of Libosinfo-1.0.Libosinfo.InstallScriptList */
     parentInstance: List
     priv: InstallScriptListPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Libosinfo.InstallScriptList */
+    /* Methods of Libosinfo-1.0.Libosinfo.InstallScriptList */
     newCopy(): InstallScriptList
     newFiltered(filter: Filter): InstallScriptList
     newIntersection(sourceTwo: InstallScriptList): InstallScriptList
     newUnion(sourceTwo: InstallScriptList): InstallScriptList
-    /* Methods of Libosinfo.List */
+    /* Methods of Libosinfo-1.0.Libosinfo.List */
     add(entity: Entity): void
     addAll(source: List): void
     addFiltered(source: List, filter: Filter): void
@@ -2320,7 +2109,7 @@ export class InstallScriptList {
     newFiltered(filter: Filter): List
     newIntersection(sourceTwo: List): List
     newUnion(sourceTwo: List): List
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -2342,21 +2131,12 @@ export class InstallScriptList {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: InstallScriptList, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: InstallScriptList, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -2375,12 +2155,12 @@ export interface List_ConstructProps extends GObject.Object_ConstructProps {
     elementType?: GObject.Type
 }
 export class List {
-    /* Fields of Libosinfo.List */
+    /* Fields of Libosinfo-1.0.Libosinfo.List */
     parentInstance: GObject.Object
     priv: ListPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Libosinfo.List */
+    /* Methods of Libosinfo-1.0.Libosinfo.List */
     add(entity: Entity): void
     addAll(source: List): void
     addFiltered(source: List, filter: Filter): void
@@ -2395,7 +2175,7 @@ export class List {
     newFiltered(filter: Filter): List
     newIntersection(sourceTwo: List): List
     newUnion(sourceTwo: List): List
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -2417,21 +2197,12 @@ export class List {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: List, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: List, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -2447,12 +2218,12 @@ export class List {
 export interface Loader_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class Loader {
-    /* Fields of Libosinfo.Loader */
+    /* Fields of Libosinfo-1.0.Libosinfo.Loader */
     parentInstance: GObject.Object
     priv: LoaderPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Libosinfo.Loader */
+    /* Methods of Libosinfo-1.0.Libosinfo.Loader */
     getDb(): Db
     processDefaultPath(): void
     processLocalPath(): void
@@ -2460,7 +2231,7 @@ export class Loader {
     processSystemPath(): void
     processUri(uri: string): void
     processUserPath(): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -2482,21 +2253,12 @@ export class Loader {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Loader, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Loader, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -2529,7 +2291,7 @@ export interface Media_ConstructProps extends Entity_ConstructProps {
     volumeSize?: number
 }
 export class Media {
-    /* Properties of Libosinfo.Media */
+    /* Properties of Libosinfo-1.0.Libosinfo.Media */
     applicationId: string
     architecture: string
     ejectAfterInstall: boolean
@@ -2546,14 +2308,14 @@ export class Media {
     url: string
     volumeId: string
     volumeSize: number
-    /* Properties of Libosinfo.Entity */
+    /* Properties of Libosinfo-1.0.Libosinfo.Entity */
     id: string
-    /* Fields of Libosinfo.Media */
+    /* Fields of Libosinfo-1.0.Libosinfo.Media */
     parentInstance: Entity
     priv: MediaPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Libosinfo.Media */
+    /* Methods of Libosinfo-1.0.Libosinfo.Media */
     addInstallScript(script: InstallScript): void
     getApplicationId(): string
     getArchitecture(): string
@@ -2574,7 +2336,7 @@ export class Media {
     getVolumeSize(): number
     isBootable(): boolean
     supportsInstallerScript(): boolean
-    /* Methods of Libosinfo.Entity */
+    /* Methods of Libosinfo-1.0.Libosinfo.Entity */
     addParam(key: string, value: string): void
     clearParam(key: string): void
     getId(): string
@@ -2590,7 +2352,7 @@ export class Media {
     setParamBoolean(key: string, value: boolean): void
     setParamEnum(key: string, value: number, enumType: GObject.Type): void
     setParamInt64(key: string, value: number): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -2612,21 +2374,12 @@ export class Media {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Media, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Media, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::application-id", callback: (($obj: Media, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::application-id", callback: (($obj: Media, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::application-id", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -2735,17 +2488,17 @@ export class Media {
 export interface MediaList_ConstructProps extends List_ConstructProps {
 }
 export class MediaList {
-    /* Fields of Libosinfo.MediaList */
+    /* Fields of Libosinfo-1.0.Libosinfo.MediaList */
     parentInstance: List
     priv: MediaListPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Libosinfo.MediaList */
+    /* Methods of Libosinfo-1.0.Libosinfo.MediaList */
     newCopy(): MediaList
     newFiltered(filter: Filter): MediaList
     newIntersection(sourceTwo: MediaList): MediaList
     newUnion(sourceTwo: MediaList): MediaList
-    /* Methods of Libosinfo.List */
+    /* Methods of Libosinfo-1.0.Libosinfo.List */
     add(entity: Entity): void
     addAll(source: List): void
     addFiltered(source: List, filter: Filter): void
@@ -2760,7 +2513,7 @@ export class MediaList {
     newFiltered(filter: Filter): List
     newIntersection(sourceTwo: List): List
     newUnion(sourceTwo: List): List
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -2782,21 +2535,12 @@ export class MediaList {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: MediaList, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: MediaList, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -2814,26 +2558,26 @@ export class MediaList {
 export interface Os_ConstructProps extends Product_ConstructProps {
 }
 export class Os {
-    /* Properties of Libosinfo.Os */
+    /* Properties of Libosinfo-1.0.Libosinfo.Os */
     readonly cloudImageUsername: string
     readonly distro: string
     readonly family: string
     readonly kernelUrlArgument: string
-    /* Properties of Libosinfo.Product */
+    /* Properties of Libosinfo-1.0.Libosinfo.Product */
     readonly codename: string
     readonly logo: string
     readonly name: string
     readonly shortId: string
     readonly vendor: string
     readonly version: string
-    /* Properties of Libosinfo.Entity */
+    /* Properties of Libosinfo-1.0.Libosinfo.Entity */
     id: string
-    /* Fields of Libosinfo.Os */
+    /* Fields of Libosinfo-1.0.Libosinfo.Os */
     parentInstance: Product
     priv: OsPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Libosinfo.Os */
+    /* Methods of Libosinfo-1.0.Libosinfo.Os */
     addDevice(dev: Device): DeviceLink
     addDeviceDriver(driver: DeviceDriver): void
     addFirmware(firmware: Firmware): void
@@ -2869,7 +2613,7 @@ export class Os {
     getReleaseStatus(): ReleaseStatus
     getTreeList(): TreeList
     getVariantList(): OsVariantList
-    /* Methods of Libosinfo.Product */
+    /* Methods of Libosinfo-1.0.Libosinfo.Product */
     addRelated(relshp: ProductRelationship, otherproduct: Product): void
     getCodename(): string
     getEolDate(): GLib.Date
@@ -2883,7 +2627,7 @@ export class Os {
     getShortIdList(): string[]
     getVendor(): string
     getVersion(): string
-    /* Methods of Libosinfo.Entity */
+    /* Methods of Libosinfo-1.0.Libosinfo.Entity */
     addParam(key: string, value: string): void
     clearParam(key: string): void
     getId(): string
@@ -2899,7 +2643,7 @@ export class Os {
     setParamBoolean(key: string, value: boolean): void
     setParamEnum(key: string, value: number, enumType: GObject.Type): void
     setParamInt64(key: string, value: number): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -2921,21 +2665,12 @@ export class Os {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Os, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Os, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::cloud-image-username", callback: (($obj: Os, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::cloud-image-username", callback: (($obj: Os, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::cloud-image-username", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -3008,22 +2743,22 @@ export class Os {
 export interface OsList_ConstructProps extends ProductList_ConstructProps {
 }
 export class OsList {
-    /* Fields of Libosinfo.OsList */
+    /* Fields of Libosinfo-1.0.Libosinfo.OsList */
     parentInstance: ProductList
     priv: OsListPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Libosinfo.OsList */
+    /* Methods of Libosinfo-1.0.Libosinfo.OsList */
     newCopy(): OsList
     newFiltered(filter: Filter): OsList
     newIntersection(sourceTwo: OsList): OsList
     newUnion(sourceTwo: OsList): OsList
-    /* Methods of Libosinfo.ProductList */
+    /* Methods of Libosinfo-1.0.Libosinfo.ProductList */
     newCopy(): ProductList
     newFiltered(filter: Filter): ProductList
     newIntersection(sourceTwo: ProductList): ProductList
     newUnion(sourceTwo: ProductList): ProductList
-    /* Methods of Libosinfo.List */
+    /* Methods of Libosinfo-1.0.Libosinfo.List */
     add(entity: Entity): void
     addAll(source: List): void
     addFiltered(source: List, filter: Filter): void
@@ -3038,7 +2773,7 @@ export class OsList {
     newFiltered(filter: Filter): List
     newIntersection(sourceTwo: List): List
     newUnion(sourceTwo: List): List
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -3060,21 +2795,12 @@ export class OsList {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: OsList, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: OsList, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -3093,18 +2819,18 @@ export interface OsVariant_ConstructProps extends Entity_ConstructProps {
     name?: string
 }
 export class OsVariant {
-    /* Properties of Libosinfo.OsVariant */
+    /* Properties of Libosinfo-1.0.Libosinfo.OsVariant */
     name: string
-    /* Properties of Libosinfo.Entity */
+    /* Properties of Libosinfo-1.0.Libosinfo.Entity */
     id: string
-    /* Fields of Libosinfo.OsVariant */
+    /* Fields of Libosinfo-1.0.Libosinfo.OsVariant */
     parentInstance: Entity
     priv: OsVariantPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Libosinfo.OsVariant */
+    /* Methods of Libosinfo-1.0.Libosinfo.OsVariant */
     getName(): string
-    /* Methods of Libosinfo.Entity */
+    /* Methods of Libosinfo-1.0.Libosinfo.Entity */
     addParam(key: string, value: string): void
     clearParam(key: string): void
     getId(): string
@@ -3120,7 +2846,7 @@ export class OsVariant {
     setParamBoolean(key: string, value: boolean): void
     setParamEnum(key: string, value: number, enumType: GObject.Type): void
     setParamInt64(key: string, value: number): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -3142,21 +2868,12 @@ export class OsVariant {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: OsVariant, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: OsVariant, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::name", callback: (($obj: OsVariant, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::name", callback: (($obj: OsVariant, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::name", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -3184,12 +2901,12 @@ export class OsVariant {
 export interface OsVariantList_ConstructProps extends List_ConstructProps {
 }
 export class OsVariantList {
-    /* Fields of Libosinfo.OsVariantList */
+    /* Fields of Libosinfo-1.0.Libosinfo.OsVariantList */
     parentInstance: List
     priv: OsVariantListPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Libosinfo.List */
+    /* Methods of Libosinfo-1.0.Libosinfo.List */
     add(entity: Entity): void
     addAll(source: List): void
     addFiltered(source: List, filter: Filter): void
@@ -3204,7 +2921,7 @@ export class OsVariantList {
     newFiltered(filter: Filter): List
     newIntersection(sourceTwo: List): List
     newUnion(sourceTwo: List): List
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -3226,21 +2943,12 @@ export class OsVariantList {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: OsVariantList, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: OsVariantList, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -3258,26 +2966,26 @@ export class OsVariantList {
 export interface Platform_ConstructProps extends Product_ConstructProps {
 }
 export class Platform {
-    /* Properties of Libosinfo.Product */
+    /* Properties of Libosinfo-1.0.Libosinfo.Product */
     readonly codename: string
     readonly logo: string
     readonly name: string
     readonly shortId: string
     readonly vendor: string
     readonly version: string
-    /* Properties of Libosinfo.Entity */
+    /* Properties of Libosinfo-1.0.Libosinfo.Entity */
     id: string
-    /* Fields of Libosinfo.Platform */
+    /* Fields of Libosinfo-1.0.Libosinfo.Platform */
     parentInstance: Product
     priv: PlatformPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Libosinfo.Platform */
+    /* Methods of Libosinfo-1.0.Libosinfo.Platform */
     addDevice(dev: Device): DeviceLink
     getAllDevices(filter?: Filter | null): DeviceList
     getDeviceLinks(filter?: Filter | null): DeviceLinkList
     getDevices(filter?: Filter | null): DeviceList
-    /* Methods of Libosinfo.Product */
+    /* Methods of Libosinfo-1.0.Libosinfo.Product */
     addRelated(relshp: ProductRelationship, otherproduct: Product): void
     getCodename(): string
     getEolDate(): GLib.Date
@@ -3291,7 +2999,7 @@ export class Platform {
     getShortIdList(): string[]
     getVendor(): string
     getVersion(): string
-    /* Methods of Libosinfo.Entity */
+    /* Methods of Libosinfo-1.0.Libosinfo.Entity */
     addParam(key: string, value: string): void
     clearParam(key: string): void
     getId(): string
@@ -3307,7 +3015,7 @@ export class Platform {
     setParamBoolean(key: string, value: boolean): void
     setParamEnum(key: string, value: number, enumType: GObject.Type): void
     setParamInt64(key: string, value: number): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -3329,21 +3037,12 @@ export class Platform {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Platform, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Platform, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::codename", callback: (($obj: Platform, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::codename", callback: (($obj: Platform, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::codename", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -3396,22 +3095,22 @@ export class Platform {
 export interface PlatformList_ConstructProps extends ProductList_ConstructProps {
 }
 export class PlatformList {
-    /* Fields of Libosinfo.PlatformList */
+    /* Fields of Libosinfo-1.0.Libosinfo.PlatformList */
     parentInstance: ProductList
     priv: PlatformListPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Libosinfo.PlatformList */
+    /* Methods of Libosinfo-1.0.Libosinfo.PlatformList */
     newCopy(): PlatformList
     newFiltered(filter: Filter): PlatformList
     newIntersection(sourceTwo: PlatformList): PlatformList
     newUnion(sourceTwo: PlatformList): PlatformList
-    /* Methods of Libosinfo.ProductList */
+    /* Methods of Libosinfo-1.0.Libosinfo.ProductList */
     newCopy(): ProductList
     newFiltered(filter: Filter): ProductList
     newIntersection(sourceTwo: ProductList): ProductList
     newUnion(sourceTwo: ProductList): ProductList
-    /* Methods of Libosinfo.List */
+    /* Methods of Libosinfo-1.0.Libosinfo.List */
     add(entity: Entity): void
     addAll(source: List): void
     addFiltered(source: List, filter: Filter): void
@@ -3426,7 +3125,7 @@ export class PlatformList {
     newFiltered(filter: Filter): List
     newIntersection(sourceTwo: List): List
     newUnion(sourceTwo: List): List
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -3448,21 +3147,12 @@ export class PlatformList {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: PlatformList, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: PlatformList, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -3480,21 +3170,21 @@ export class PlatformList {
 export interface Product_ConstructProps extends Entity_ConstructProps {
 }
 export class Product {
-    /* Properties of Libosinfo.Product */
+    /* Properties of Libosinfo-1.0.Libosinfo.Product */
     readonly codename: string
     readonly logo: string
     readonly name: string
     readonly shortId: string
     readonly vendor: string
     readonly version: string
-    /* Properties of Libosinfo.Entity */
+    /* Properties of Libosinfo-1.0.Libosinfo.Entity */
     id: string
-    /* Fields of Libosinfo.Product */
+    /* Fields of Libosinfo-1.0.Libosinfo.Product */
     parentInstance: Entity
     priv: ProductPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Libosinfo.Product */
+    /* Methods of Libosinfo-1.0.Libosinfo.Product */
     addRelated(relshp: ProductRelationship, otherproduct: Product): void
     getCodename(): string
     getEolDate(): GLib.Date
@@ -3508,7 +3198,7 @@ export class Product {
     getShortIdList(): string[]
     getVendor(): string
     getVersion(): string
-    /* Methods of Libosinfo.Entity */
+    /* Methods of Libosinfo-1.0.Libosinfo.Entity */
     addParam(key: string, value: string): void
     clearParam(key: string): void
     getId(): string
@@ -3524,7 +3214,7 @@ export class Product {
     setParamBoolean(key: string, value: boolean): void
     setParamEnum(key: string, value: number, enumType: GObject.Type): void
     setParamInt64(key: string, value: number): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -3546,21 +3236,12 @@ export class Product {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Product, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Product, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::codename", callback: (($obj: Product, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::codename", callback: (($obj: Product, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::codename", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -3611,25 +3292,25 @@ export class Product {
 export interface ProductFilter_ConstructProps extends Filter_ConstructProps {
 }
 export class ProductFilter {
-    /* Fields of Libosinfo.ProductFilter */
+    /* Fields of Libosinfo-1.0.Libosinfo.ProductFilter */
     parentInstance: Filter
     priv: ProductFilterPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Libosinfo.ProductFilter */
+    /* Methods of Libosinfo-1.0.Libosinfo.ProductFilter */
     addProductConstraint(relshp: ProductRelationship, product: Product): number
     addSupportDateConstraint(when: GLib.Date): void
     clearProductConstraint(relshp: ProductRelationship): void
     clearProductConstraints(): void
     getProductConstraintValues(relshp: ProductRelationship): Product[]
-    /* Methods of Libosinfo.Filter */
+    /* Methods of Libosinfo-1.0.Libosinfo.Filter */
     addConstraint(propName: string, propVal: string): void
     clearConstraint(propName: string): void
     clearConstraints(): void
     getConstraintKeys(): string[]
     getConstraintValues(propName: string): string[]
     matches(entity: Entity): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -3651,23 +3332,12 @@ export class ProductFilter {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of Libosinfo.Filter */
-    vfuncMatches(entity: Entity): boolean
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: ProductFilter, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: ProductFilter, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -3685,17 +3355,17 @@ export class ProductFilter {
 export interface ProductList_ConstructProps extends List_ConstructProps {
 }
 export class ProductList {
-    /* Fields of Libosinfo.ProductList */
+    /* Fields of Libosinfo-1.0.Libosinfo.ProductList */
     parentInstance: List
     priv: ProductListPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Libosinfo.ProductList */
+    /* Methods of Libosinfo-1.0.Libosinfo.ProductList */
     newCopy(): ProductList
     newFiltered(filter: Filter): ProductList
     newIntersection(sourceTwo: ProductList): ProductList
     newUnion(sourceTwo: ProductList): ProductList
-    /* Methods of Libosinfo.List */
+    /* Methods of Libosinfo-1.0.Libosinfo.List */
     add(entity: Entity): void
     addAll(source: List): void
     addFiltered(source: List, filter: Filter): void
@@ -3710,7 +3380,7 @@ export class ProductList {
     newFiltered(filter: Filter): List
     newIntersection(sourceTwo: List): List
     newUnion(sourceTwo: List): List
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -3732,21 +3402,12 @@ export class ProductList {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: ProductList, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: ProductList, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -3769,19 +3430,19 @@ export interface Resources_ConstructProps extends Entity_ConstructProps {
     storage?: number
 }
 export class Resources {
-    /* Properties of Libosinfo.Resources */
+    /* Properties of Libosinfo-1.0.Libosinfo.Resources */
     cpu: number
     nCpus: number
     ram: number
     storage: number
-    /* Properties of Libosinfo.Entity */
+    /* Properties of Libosinfo-1.0.Libosinfo.Entity */
     id: string
-    /* Fields of Libosinfo.Resources */
+    /* Fields of Libosinfo-1.0.Libosinfo.Resources */
     parentInstance: Entity
     priv: ResourcesPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Libosinfo.Resources */
+    /* Methods of Libosinfo-1.0.Libosinfo.Resources */
     getArchitecture(): string
     getCpu(): number
     getNCpus(): number
@@ -3791,7 +3452,7 @@ export class Resources {
     setNCpus(nCpus: number): void
     setRam(ram: number): void
     setStorage(storage: number): void
-    /* Methods of Libosinfo.Entity */
+    /* Methods of Libosinfo-1.0.Libosinfo.Entity */
     addParam(key: string, value: string): void
     clearParam(key: string): void
     getId(): string
@@ -3807,7 +3468,7 @@ export class Resources {
     setParamBoolean(key: string, value: boolean): void
     setParamEnum(key: string, value: number, enumType: GObject.Type): void
     setParamInt64(key: string, value: number): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -3829,21 +3490,12 @@ export class Resources {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Resources, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Resources, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::cpu", callback: (($obj: Resources, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::cpu", callback: (($obj: Resources, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::cpu", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -3886,17 +3538,17 @@ export class Resources {
 export interface ResourcesList_ConstructProps extends List_ConstructProps {
 }
 export class ResourcesList {
-    /* Fields of Libosinfo.ResourcesList */
+    /* Fields of Libosinfo-1.0.Libosinfo.ResourcesList */
     parentInstance: List
     priv: ResourcesListPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Libosinfo.ResourcesList */
+    /* Methods of Libosinfo-1.0.Libosinfo.ResourcesList */
     newCopy(): ResourcesList
     newFiltered(filter: Filter): ResourcesList
     newIntersection(sourceTwo: ResourcesList): ResourcesList
     newUnion(sourceTwo: ResourcesList): ResourcesList
-    /* Methods of Libosinfo.List */
+    /* Methods of Libosinfo-1.0.Libosinfo.List */
     add(entity: Entity): void
     addAll(source: List): void
     addFiltered(source: List, filter: Filter): void
@@ -3911,7 +3563,7 @@ export class ResourcesList {
     newFiltered(filter: Filter): List
     newIntersection(sourceTwo: List): List
     newUnion(sourceTwo: List): List
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -3933,21 +3585,12 @@ export class ResourcesList {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: ResourcesList, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: ResourcesList, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -3976,7 +3619,7 @@ export interface Tree_ConstructProps extends Entity_ConstructProps {
     url?: string
 }
 export class Tree {
-    /* Properties of Libosinfo.Tree */
+    /* Properties of Libosinfo-1.0.Libosinfo.Tree */
     architecture: string
     bootIsoPath: string
     hasTreeinfo: boolean
@@ -3988,14 +3631,14 @@ export class Tree {
     treeinfoVariant: string
     treeinfoVersion: string
     url: string
-    /* Properties of Libosinfo.Entity */
+    /* Properties of Libosinfo-1.0.Libosinfo.Entity */
     id: string
-    /* Fields of Libosinfo.Tree */
+    /* Fields of Libosinfo-1.0.Libosinfo.Tree */
     parentInstance: Entity
     priv: TreePrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Libosinfo.Tree */
+    /* Methods of Libosinfo-1.0.Libosinfo.Tree */
     getArchitecture(): string
     getBootIsoPath(): string
     getInitrdPath(): string
@@ -4008,7 +3651,7 @@ export class Tree {
     getTreeinfoVersion(): string
     getUrl(): string
     setOs(os: Os): void
-    /* Methods of Libosinfo.Entity */
+    /* Methods of Libosinfo-1.0.Libosinfo.Entity */
     addParam(key: string, value: string): void
     clearParam(key: string): void
     getId(): string
@@ -4024,7 +3667,7 @@ export class Tree {
     setParamBoolean(key: string, value: boolean): void
     setParamEnum(key: string, value: number, enumType: GObject.Type): void
     setParamInt64(key: string, value: number): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -4046,21 +3689,12 @@ export class Tree {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Tree, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Tree, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::architecture", callback: (($obj: Tree, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::architecture", callback: (($obj: Tree, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::architecture", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -4142,17 +3776,17 @@ export class Tree {
 export interface TreeList_ConstructProps extends List_ConstructProps {
 }
 export class TreeList {
-    /* Fields of Libosinfo.TreeList */
+    /* Fields of Libosinfo-1.0.Libosinfo.TreeList */
     parentInstance: List
     priv: TreeListPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Libosinfo.TreeList */
+    /* Methods of Libosinfo-1.0.Libosinfo.TreeList */
     newCopy(): TreeList
     newFiltered(filter: Filter): TreeList
     newIntersection(sourceTwo: TreeList): TreeList
     newUnion(sourceTwo: TreeList): TreeList
-    /* Methods of Libosinfo.List */
+    /* Methods of Libosinfo-1.0.Libosinfo.List */
     add(entity: Entity): void
     addAll(source: List): void
     addFiltered(source: List, filter: Filter): void
@@ -4167,7 +3801,7 @@ export class TreeList {
     newFiltered(filter: Filter): List
     newIntersection(sourceTwo: List): List
     newUnion(sourceTwo: List): List
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -4189,21 +3823,12 @@ export class TreeList {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: TreeList, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: TreeList, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -4219,7 +3844,7 @@ export class TreeList {
     static $gtype: GObject.Type
 }
 export abstract class AvatarFormatClass {
-    /* Fields of Libosinfo.AvatarFormatClass */
+    /* Fields of Libosinfo-1.0.Libosinfo.AvatarFormatClass */
     parentClass: EntityClass
     static name: string
 }
@@ -4227,12 +3852,12 @@ export class AvatarFormatPrivate {
     static name: string
 }
 export abstract class DatamapClass {
-    /* Fields of Libosinfo.DatamapClass */
+    /* Fields of Libosinfo-1.0.Libosinfo.DatamapClass */
     parentClass: EntityClass
     static name: string
 }
 export abstract class DatamapListClass {
-    /* Fields of Libosinfo.DatamapListClass */
+    /* Fields of Libosinfo-1.0.Libosinfo.DatamapListClass */
     parentClass: ListClass
     static name: string
 }
@@ -4243,7 +3868,7 @@ export class DatamapPrivate {
     static name: string
 }
 export abstract class DbClass {
-    /* Fields of Libosinfo.DbClass */
+    /* Fields of Libosinfo-1.0.Libosinfo.DbClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
@@ -4251,12 +3876,12 @@ export class DbPrivate {
     static name: string
 }
 export abstract class DeploymentClass {
-    /* Fields of Libosinfo.DeploymentClass */
+    /* Fields of Libosinfo-1.0.Libosinfo.DeploymentClass */
     parentClass: EntityClass
     static name: string
 }
 export abstract class DeploymentListClass {
-    /* Fields of Libosinfo.DeploymentListClass */
+    /* Fields of Libosinfo-1.0.Libosinfo.DeploymentListClass */
     parentClass: ListClass
     static name: string
 }
@@ -4267,17 +3892,17 @@ export class DeploymentPrivate {
     static name: string
 }
 export abstract class DeviceClass {
-    /* Fields of Libosinfo.DeviceClass */
+    /* Fields of Libosinfo-1.0.Libosinfo.DeviceClass */
     parentClass: EntityClass
     static name: string
 }
 export abstract class DeviceDriverClass {
-    /* Fields of Libosinfo.DeviceDriverClass */
+    /* Fields of Libosinfo-1.0.Libosinfo.DeviceDriverClass */
     parentClass: EntityClass
     static name: string
 }
 export abstract class DeviceDriverListClass {
-    /* Fields of Libosinfo.DeviceDriverListClass */
+    /* Fields of Libosinfo-1.0.Libosinfo.DeviceDriverListClass */
     parentClass: ListClass
     static name: string
 }
@@ -4288,12 +3913,12 @@ export class DeviceDriverPrivate {
     static name: string
 }
 export abstract class DeviceLinkClass {
-    /* Fields of Libosinfo.DeviceLinkClass */
+    /* Fields of Libosinfo-1.0.Libosinfo.DeviceLinkClass */
     parentClass: EntityClass
     static name: string
 }
 export abstract class DeviceLinkFilterClass {
-    /* Fields of Libosinfo.DeviceLinkFilterClass */
+    /* Fields of Libosinfo-1.0.Libosinfo.DeviceLinkFilterClass */
     parentClass: FilterClass
     static name: string
 }
@@ -4301,7 +3926,7 @@ export class DeviceLinkFilterPrivate {
     static name: string
 }
 export abstract class DeviceLinkListClass {
-    /* Fields of Libosinfo.DeviceLinkListClass */
+    /* Fields of Libosinfo-1.0.Libosinfo.DeviceLinkListClass */
     parentClass: ListClass
     static name: string
 }
@@ -4312,7 +3937,7 @@ export class DeviceLinkPrivate {
     static name: string
 }
 export abstract class DeviceListClass {
-    /* Fields of Libosinfo.DeviceListClass */
+    /* Fields of Libosinfo-1.0.Libosinfo.DeviceListClass */
     parentClass: ListClass
     static name: string
 }
@@ -4323,7 +3948,7 @@ export class DevicePrivate {
     static name: string
 }
 export abstract class EntityClass {
-    /* Fields of Libosinfo.EntityClass */
+    /* Fields of Libosinfo-1.0.Libosinfo.EntityClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
@@ -4331,7 +3956,7 @@ export class EntityPrivate {
     static name: string
 }
 export abstract class FilterClass {
-    /* Fields of Libosinfo.FilterClass */
+    /* Fields of Libosinfo-1.0.Libosinfo.FilterClass */
     parentClass: GObject.ObjectClass
     matches: (filter: Filter, entity: Entity) => boolean
     static name: string
@@ -4340,12 +3965,12 @@ export class FilterPrivate {
     static name: string
 }
 export abstract class FirmwareClass {
-    /* Fields of Libosinfo.FirmwareClass */
+    /* Fields of Libosinfo-1.0.Libosinfo.FirmwareClass */
     parentClass: EntityClass
     static name: string
 }
 export abstract class FirmwareListClass {
-    /* Fields of Libosinfo.FirmwareListClass */
+    /* Fields of Libosinfo-1.0.Libosinfo.FirmwareListClass */
     parentClass: ListClass
     static name: string
 }
@@ -4356,12 +3981,12 @@ export class FirmwarePrivate {
     static name: string
 }
 export abstract class ImageClass {
-    /* Fields of Libosinfo.ImageClass */
+    /* Fields of Libosinfo-1.0.Libosinfo.ImageClass */
     parentClass: EntityClass
     static name: string
 }
 export abstract class ImageListClass {
-    /* Fields of Libosinfo.ImageListClass */
+    /* Fields of Libosinfo-1.0.Libosinfo.ImageListClass */
     parentClass: ListClass
     static name: string
 }
@@ -4372,17 +3997,17 @@ export class ImagePrivate {
     static name: string
 }
 export abstract class InstallConfigClass {
-    /* Fields of Libosinfo.InstallConfigClass */
+    /* Fields of Libosinfo-1.0.Libosinfo.InstallConfigClass */
     parentClass: EntityClass
     static name: string
 }
 export abstract class InstallConfigParamClass {
-    /* Fields of Libosinfo.InstallConfigParamClass */
+    /* Fields of Libosinfo-1.0.Libosinfo.InstallConfigParamClass */
     parentClass: EntityClass
     static name: string
 }
 export abstract class InstallConfigParamListClass {
-    /* Fields of Libosinfo.InstallConfigParamListClass */
+    /* Fields of Libosinfo-1.0.Libosinfo.InstallConfigParamListClass */
     parentClass: ListClass
     static name: string
 }
@@ -4396,12 +4021,12 @@ export class InstallConfigPrivate {
     static name: string
 }
 export abstract class InstallScriptClass {
-    /* Fields of Libosinfo.InstallScriptClass */
+    /* Fields of Libosinfo-1.0.Libosinfo.InstallScriptClass */
     parentClass: EntityClass
     static name: string
 }
 export abstract class InstallScriptListClass {
-    /* Fields of Libosinfo.InstallScriptListClass */
+    /* Fields of Libosinfo-1.0.Libosinfo.InstallScriptListClass */
     parentClass: ListClass
     static name: string
 }
@@ -4412,7 +4037,7 @@ export class InstallScriptPrivate {
     static name: string
 }
 export abstract class ListClass {
-    /* Fields of Libosinfo.ListClass */
+    /* Fields of Libosinfo-1.0.Libosinfo.ListClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
@@ -4420,7 +4045,7 @@ export class ListPrivate {
     static name: string
 }
 export abstract class LoaderClass {
-    /* Fields of Libosinfo.LoaderClass */
+    /* Fields of Libosinfo-1.0.Libosinfo.LoaderClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
@@ -4428,12 +4053,12 @@ export class LoaderPrivate {
     static name: string
 }
 export abstract class MediaClass {
-    /* Fields of Libosinfo.MediaClass */
+    /* Fields of Libosinfo-1.0.Libosinfo.MediaClass */
     parentClass: EntityClass
     static name: string
 }
 export abstract class MediaListClass {
-    /* Fields of Libosinfo.MediaListClass */
+    /* Fields of Libosinfo-1.0.Libosinfo.MediaListClass */
     parentClass: ListClass
     static name: string
 }
@@ -4444,12 +4069,12 @@ export class MediaPrivate {
     static name: string
 }
 export abstract class OsClass {
-    /* Fields of Libosinfo.OsClass */
+    /* Fields of Libosinfo-1.0.Libosinfo.OsClass */
     parentClass: ProductClass
     static name: string
 }
 export abstract class OsListClass {
-    /* Fields of Libosinfo.OsListClass */
+    /* Fields of Libosinfo-1.0.Libosinfo.OsListClass */
     parentClass: ProductListClass
     static name: string
 }
@@ -4460,12 +4085,12 @@ export class OsPrivate {
     static name: string
 }
 export abstract class OsVariantClass {
-    /* Fields of Libosinfo.OsVariantClass */
+    /* Fields of Libosinfo-1.0.Libosinfo.OsVariantClass */
     parentClass: EntityClass
     static name: string
 }
 export abstract class OsVariantListClass {
-    /* Fields of Libosinfo.OsVariantListClass */
+    /* Fields of Libosinfo-1.0.Libosinfo.OsVariantListClass */
     parentClass: ListClass
     static name: string
 }
@@ -4476,12 +4101,12 @@ export class OsVariantPrivate {
     static name: string
 }
 export abstract class PlatformClass {
-    /* Fields of Libosinfo.PlatformClass */
+    /* Fields of Libosinfo-1.0.Libosinfo.PlatformClass */
     parentClass: ProductClass
     static name: string
 }
 export abstract class PlatformListClass {
-    /* Fields of Libosinfo.PlatformListClass */
+    /* Fields of Libosinfo-1.0.Libosinfo.PlatformListClass */
     parentClass: ProductListClass
     static name: string
 }
@@ -4492,12 +4117,12 @@ export class PlatformPrivate {
     static name: string
 }
 export abstract class ProductClass {
-    /* Fields of Libosinfo.ProductClass */
+    /* Fields of Libosinfo-1.0.Libosinfo.ProductClass */
     parentClass: EntityClass
     static name: string
 }
 export abstract class ProductFilterClass {
-    /* Fields of Libosinfo.ProductFilterClass */
+    /* Fields of Libosinfo-1.0.Libosinfo.ProductFilterClass */
     parentClass: FilterClass
     static name: string
 }
@@ -4505,7 +4130,7 @@ export class ProductFilterPrivate {
     static name: string
 }
 export abstract class ProductListClass {
-    /* Fields of Libosinfo.ProductListClass */
+    /* Fields of Libosinfo-1.0.Libosinfo.ProductListClass */
     parentClass: ListClass
     static name: string
 }
@@ -4516,12 +4141,12 @@ export class ProductPrivate {
     static name: string
 }
 export abstract class ResourcesClass {
-    /* Fields of Libosinfo.ResourcesClass */
+    /* Fields of Libosinfo-1.0.Libosinfo.ResourcesClass */
     parentClass: EntityClass
     static name: string
 }
 export abstract class ResourcesListClass {
-    /* Fields of Libosinfo.ResourcesListClass */
+    /* Fields of Libosinfo-1.0.Libosinfo.ResourcesListClass */
     parentClass: ListClass
     static name: string
 }
@@ -4532,12 +4157,12 @@ export class ResourcesPrivate {
     static name: string
 }
 export abstract class TreeClass {
-    /* Fields of Libosinfo.TreeClass */
+    /* Fields of Libosinfo-1.0.Libosinfo.TreeClass */
     parentClass: EntityClass
     static name: string
 }
 export abstract class TreeListClass {
-    /* Fields of Libosinfo.TreeListClass */
+    /* Fields of Libosinfo-1.0.Libosinfo.TreeListClass */
     parentClass: ListClass
     static name: string
 }

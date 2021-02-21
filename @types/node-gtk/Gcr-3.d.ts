@@ -148,7 +148,7 @@ export interface FilterCollectionFunc {
     (object: GObject.Object): boolean
 }
 export class Certificate {
-    /* Properties of Gcr.Certificate */
+    /* Properties of Gcr-3.Gcr.Certificate */
     readonly description: string
     readonly expiry: GLib.Date
     readonly icon: Gio.Icon
@@ -156,8 +156,8 @@ export class Certificate {
     readonly label: string
     readonly markup: string
     readonly subject: string
-    /* Methods of Gcr.Certificate */
-    getBasicConstraints(): [ /* returnType */ boolean, /* isCa */ boolean | null, /* pathLen */ number | null ]
+    /* Methods of Gcr-3.Gcr.Certificate */
+    getBasicConstraints(): { returnType: boolean, isCa: boolean | null, pathLen: number | null }
     getDerData(): any[]
     getExpiryDate(): GLib.Date
     getFingerprint(type: GLib.ChecksumType): any[]
@@ -179,62 +179,48 @@ export class Certificate {
     getSubjectRaw(): any[]
     isIssuer(issuer: Certificate): boolean
     mixinEmitNotify(): void
-    /* Methods of Gcr.Comparable */
+    /* Methods of Gcr-3.Gcr.Comparable */
     compare(other?: Comparable | null): number
-    /* Virtual methods of Gcr.Certificate */
-    vfuncGetDerData(): any[]
-    /* Virtual methods of Gcr.Comparable */
-    vfuncCompare(other?: Comparable | null): number
     static name: string
     /* Static methods and pseudo-constructors */
     static compare(first?: Comparable | null, other?: Comparable | null): number
 }
 export class Collection {
-    /* Methods of Gcr.Collection */
+    /* Methods of Gcr-3.Gcr.Collection */
     contains(object: GObject.Object): boolean
     emitAdded(object: GObject.Object): void
     emitRemoved(object: GObject.Object): void
     getLength(): number
     getObjects(): GObject.Object[]
-    /* Virtual methods of Gcr.Collection */
-    vfuncAdded(object: GObject.Object): void
-    vfuncContains(object: GObject.Object): boolean
-    vfuncGetLength(): number
-    vfuncGetObjects(): GObject.Object[]
-    vfuncRemoved(object: GObject.Object): void
-    /* Signals of Gcr.Collection */
+    /* Signals of Gcr-3.Gcr.Collection */
     connect(sigName: "added", callback: (($obj: Collection, object: GObject.Object) => void)): number
-    connect_after(sigName: "added", callback: (($obj: Collection, object: GObject.Object) => void)): number
+    on(sigName: "added", callback: (object: GObject.Object) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "added", callback: (object: GObject.Object) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "added", callback: (object: GObject.Object) => void): NodeJS.EventEmitter
     emit(sigName: "added", object: GObject.Object): void
-    on(sigName: "added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "added", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "removed", callback: (($obj: Collection, object: GObject.Object) => void)): number
-    connect_after(sigName: "removed", callback: (($obj: Collection, object: GObject.Object) => void)): number
+    on(sigName: "removed", callback: (object: GObject.Object) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "removed", callback: (object: GObject.Object) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "removed", callback: (object: GObject.Object) => void): NodeJS.EventEmitter
     emit(sigName: "removed", object: GObject.Object): void
-    on(sigName: "removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     static name: string
 }
 export class Comparable {
-    /* Methods of Gcr.Comparable */
+    /* Methods of Gcr-3.Gcr.Comparable */
     compare(other?: Comparable | null): number
-    /* Virtual methods of Gcr.Comparable */
-    vfuncCompare(other?: Comparable | null): number
     static name: string
 }
 export interface ImportInteraction_ConstructProps extends Gio.TlsInteraction_ConstructProps {
 }
 export class ImportInteraction {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Gcr.ImportInteraction */
+    /* Methods of Gcr-3.Gcr.ImportInteraction */
     supplement(builder: Gck.Builder, cancellable?: Gio.Cancellable | null): Gio.TlsInteractionResult
     supplementAsync(builder: Gck.Builder, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     supplementFinish(result: Gio.AsyncResult): Gio.TlsInteractionResult
     supplementPrep(builder: Gck.Builder): void
-    /* Methods of Gio.TlsInteraction */
+    /* Methods of Gio-2.0.Gio.TlsInteraction */
     askPassword(password: Gio.TlsPassword, cancellable?: Gio.Cancellable | null): Gio.TlsInteractionResult
     askPasswordAsync(password: Gio.TlsPassword, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     askPasswordFinish(result: Gio.AsyncResult): Gio.TlsInteractionResult
@@ -243,7 +229,7 @@ export class ImportInteraction {
     requestCertificate(connection: Gio.TlsConnection, flags: Gio.TlsCertificateRequestFlags, cancellable?: Gio.Cancellable | null): Gio.TlsInteractionResult
     requestCertificateAsync(connection: Gio.TlsConnection, flags: Gio.TlsCertificateRequestFlags, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     requestCertificateFinish(result: Gio.AsyncResult): Gio.TlsInteractionResult
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -265,33 +251,12 @@ export class ImportInteraction {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of Gcr.ImportInteraction */
-    vfuncSupplement(builder: Gck.Builder, cancellable?: Gio.Cancellable | null): Gio.TlsInteractionResult
-    vfuncSupplementAsync(builder: Gck.Builder, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    vfuncSupplementFinish(result: Gio.AsyncResult): Gio.TlsInteractionResult
-    vfuncSupplementPrep(builder: Gck.Builder): void
-    /* Virtual methods of Gio.TlsInteraction */
-    vfuncAskPassword(password: Gio.TlsPassword, cancellable?: Gio.Cancellable | null): Gio.TlsInteractionResult
-    vfuncAskPasswordAsync(password: Gio.TlsPassword, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    vfuncAskPasswordFinish(result: Gio.AsyncResult): Gio.TlsInteractionResult
-    vfuncRequestCertificate(connection: Gio.TlsConnection, flags: Gio.TlsCertificateRequestFlags, cancellable?: Gio.Cancellable | null): Gio.TlsInteractionResult
-    vfuncRequestCertificateAsync(connection: Gio.TlsConnection, flags: Gio.TlsCertificateRequestFlags, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    vfuncRequestCertificateFinish(result: Gio.AsyncResult): Gio.TlsInteractionResult
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: ImportInteraction, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: ImportInteraction, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -305,23 +270,18 @@ export class ImportInteraction {
     static $gtype: GObject.Type
 }
 export class Importer {
-    /* Properties of Gcr.Importer */
+    /* Properties of Gcr-3.Gcr.Importer */
     readonly icon: Gio.Icon
     interaction: Gio.TlsInteraction
     readonly label: string
     readonly uri: string
-    /* Methods of Gcr.Importer */
+    /* Methods of Gcr-3.Gcr.Importer */
     getInteraction(): Gio.TlsInteraction | null
     import(cancellable?: Gio.Cancellable | null): boolean
     importAsync(cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     importFinish(result: Gio.AsyncResult): boolean
     queueForParsed(parsed: Parsed): boolean
     setInteraction(interaction: Gio.TlsInteraction): void
-    /* Virtual methods of Gcr.Importer */
-    vfuncImportAsync(cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    vfuncImportFinish(result: Gio.AsyncResult): boolean
-    vfuncImportSync(cancellable?: Gio.Cancellable | null): boolean
-    vfuncQueueForParsed(parsed: Parsed): boolean
     static name: string
     /* Static methods and pseudo-constructors */
     static createForParsed(parsed: Parsed): Importer[]
@@ -330,7 +290,7 @@ export class Importer {
     static registerWellKnown(): void
 }
 export class Prompt {
-    /* Properties of Gcr.Prompt */
+    /* Properties of Gcr-3.Gcr.Prompt */
     callerWindow: string
     cancelLabel: string
     choiceChosen: boolean
@@ -342,7 +302,7 @@ export class Prompt {
     readonly passwordStrength: number
     title: string
     warning: string
-    /* Methods of Gcr.Prompt */
+    /* Methods of Gcr-3.Gcr.Prompt */
     close(): void
     confirm(cancellable?: Gio.Cancellable | null): PromptReply
     confirmAsync(cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
@@ -374,31 +334,24 @@ export class Prompt {
     setPasswordNew(newPassword: boolean): void
     setTitle(title: string): void
     setWarning(warning?: string | null): void
-    /* Virtual methods of Gcr.Prompt */
-    vfuncPromptClose(): void
-    vfuncPromptConfirmAsync(cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    vfuncPromptConfirmFinish(result: Gio.AsyncResult): PromptReply
-    vfuncPromptPasswordAsync(cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    vfuncPromptPasswordFinish(result: Gio.AsyncResult): string
-    /* Signals of Gcr.Prompt */
+    /* Signals of Gcr-3.Gcr.Prompt */
     connect(sigName: "prompt-close", callback: (($obj: Prompt) => void)): number
-    connect_after(sigName: "prompt-close", callback: (($obj: Prompt) => void)): number
+    on(sigName: "prompt-close", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "prompt-close", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "prompt-close", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "prompt-close"): void
-    on(sigName: "prompt-close", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "prompt-close", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "prompt-close", callback: (...args: any[]) => void): NodeJS.EventEmitter
     static name: string
 }
 export interface CertificateChain_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class CertificateChain {
-    /* Properties of Gcr.CertificateChain */
+    /* Properties of Gcr-3.Gcr.CertificateChain */
     readonly length: number
-    /* Fields of Gcr.CertificateChain */
+    /* Fields of Gcr-3.Gcr.CertificateChain */
     parent: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Gcr.CertificateChain */
+    /* Methods of Gcr-3.Gcr.CertificateChain */
     add(certificate: Certificate): void
     build(purpose: string, peer: string | null, flags: CertificateChainFlags, cancellable?: Gio.Cancellable | null): boolean
     buildAsync(purpose: string, peer: string | null, flags: CertificateChainFlags, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
@@ -408,7 +361,7 @@ export class CertificateChain {
     getEndpoint(): Certificate
     getLength(): number
     getStatus(): CertificateChainStatus
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -430,21 +383,12 @@ export class CertificateChain {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: CertificateChain, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: CertificateChain, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::length", callback: (($obj: CertificateChain, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::length", callback: (($obj: CertificateChain, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::length", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -468,9 +412,9 @@ export interface CertificateRequest_ConstructProps extends GObject.Object_Constr
     privateKey?: Gck.Object
 }
 export class CertificateRequest {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Gcr.CertificateRequest */
+    /* Methods of Gcr-3.Gcr.CertificateRequest */
     complete(cancellable?: Gio.Cancellable | null): boolean
     completeAsync(cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     completeFinish(result: Gio.AsyncResult): boolean
@@ -478,7 +422,7 @@ export class CertificateRequest {
     getFormat(): CertificateRequestFormat
     getPrivateKey(): Gck.Object
     setCn(cn: string): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -500,21 +444,12 @@ export class CertificateRequest {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: CertificateRequest, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: CertificateRequest, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -536,15 +471,15 @@ export interface FilterCollection_ConstructProps extends GObject.Object_Construc
     underlying?: Collection
 }
 export class FilterCollection {
-    /* Fields of Gcr.FilterCollection */
+    /* Fields of Gcr-3.Gcr.FilterCollection */
     parent: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Gcr.FilterCollection */
+    /* Methods of Gcr-3.Gcr.FilterCollection */
     getUnderlying(): Collection
     refilter(): void
     setCallback(callback: FilterCollectionFunc | null): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -566,46 +501,29 @@ export class FilterCollection {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of Gcr.Collection */
+    /* Methods of Gcr-3.Gcr.Collection */
     contains(object: GObject.Object): boolean
     emitAdded(object: GObject.Object): void
     emitRemoved(object: GObject.Object): void
     getLength(): number
     getObjects(): GObject.Object[]
-    /* Virtual methods of Gcr.FilterCollection */
-    vfuncAdded(object: GObject.Object): void
-    vfuncContains(object: GObject.Object): boolean
-    vfuncGetLength(): number
-    vfuncGetObjects(): GObject.Object[]
-    vfuncRemoved(object: GObject.Object): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: FilterCollection, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: FilterCollection, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of Gcr.Collection */
+    /* Signals of Gcr-3.Gcr.Collection */
     connect(sigName: "added", callback: (($obj: FilterCollection, object: GObject.Object) => void)): number
-    connect_after(sigName: "added", callback: (($obj: FilterCollection, object: GObject.Object) => void)): number
+    on(sigName: "added", callback: (object: GObject.Object) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "added", callback: (object: GObject.Object) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "added", callback: (object: GObject.Object) => void): NodeJS.EventEmitter
     emit(sigName: "added", object: GObject.Object): void
-    on(sigName: "added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "added", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "removed", callback: (($obj: FilterCollection, object: GObject.Object) => void)): number
-    connect_after(sigName: "removed", callback: (($obj: FilterCollection, object: GObject.Object) => void)): number
+    on(sigName: "removed", callback: (object: GObject.Object) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "removed", callback: (object: GObject.Object) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "removed", callback: (object: GObject.Object) => void): NodeJS.EventEmitter
     emit(sigName: "removed", object: GObject.Object): void
-    on(sigName: "removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -623,15 +541,15 @@ export class FilterCollection {
 export interface Parser_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class Parser {
-    /* Properties of Gcr.Parser */
+    /* Properties of Gcr-3.Gcr.Parser */
     readonly parsedAttributes: Gck.Attributes
     readonly parsedDescription: string
     readonly parsedLabel: string
-    /* Fields of Gcr.Parser */
+    /* Fields of Gcr-3.Gcr.Parser */
     parent: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Gcr.Parser */
+    /* Methods of Gcr-3.Gcr.Parser */
     addPassword(password?: string | null): void
     formatDisable(format: DataFormat): void
     formatEnable(format: DataFormat): void
@@ -650,7 +568,7 @@ export class Parser {
     parseStreamAsync(input: Gio.InputStream, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     parseStreamFinish(result: Gio.AsyncResult): boolean
     setFilename(filename?: string | null): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -672,37 +590,23 @@ export class Parser {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of Gcr.Parser */
-    vfuncAuthenticate(count: number): boolean
-    vfuncParsed(): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gcr.Parser */
+    /* Signals of Gcr-3.Gcr.Parser */
     connect(sigName: "authenticate", callback: (($obj: Parser, count: number) => boolean)): number
-    connect_after(sigName: "authenticate", callback: (($obj: Parser, count: number) => boolean)): number
+    on(sigName: "authenticate", callback: (count: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "authenticate", callback: (count: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "authenticate", callback: (count: number) => void): NodeJS.EventEmitter
     emit(sigName: "authenticate", count: number): void
-    on(sigName: "authenticate", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "authenticate", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "authenticate", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "parsed", callback: (($obj: Parser) => void)): number
-    connect_after(sigName: "parsed", callback: (($obj: Parser) => void)): number
+    on(sigName: "parsed", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "parsed", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "parsed", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "parsed"): void
-    on(sigName: "parsed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "parsed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "parsed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Parser, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Parser, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::parsed-attributes", callback: (($obj: Parser, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::parsed-attributes", callback: (($obj: Parser, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::parsed-attributes", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -736,7 +640,7 @@ export interface Pkcs11Certificate_ConstructProps extends Gck.Object_ConstructPr
     attributes?: Gck.Attributes
 }
 export class Pkcs11Certificate {
-    /* Properties of Gcr.Certificate */
+    /* Properties of Gcr-3.Gcr.Certificate */
     readonly description: string
     readonly expiry: GLib.Date
     readonly icon: Gio.Icon
@@ -744,13 +648,13 @@ export class Pkcs11Certificate {
     readonly label: string
     readonly markup: string
     readonly subject: string
-    /* Fields of Gcr.Pkcs11Certificate */
+    /* Fields of Gcr-3.Gcr.Pkcs11Certificate */
     parent: Gck.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Gcr.Pkcs11Certificate */
+    /* Methods of Gcr-3.Gcr.Pkcs11Certificate */
     getAttributes(): Gck.Attributes
-    /* Methods of Gck.Object */
+    /* Methods of Gck-1.Gck.Object */
     cacheLookup(attrTypes: number[], cancellable?: Gio.Cancellable | null): Gck.Attributes
     cacheLookupAsync(attrTypes: number[], cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     cacheLookupFinish(result: Gio.AsyncResult): Gck.Attributes
@@ -777,7 +681,7 @@ export class Pkcs11Certificate {
     setTemplate(attrType: number, attrs: Gck.Attributes, cancellable?: Gio.Cancellable | null): boolean
     setTemplateAsync(attrType: number, attrs: Gck.Attributes, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     setTemplateFinish(result: Gio.AsyncResult): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -799,8 +703,8 @@ export class Pkcs11Certificate {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of Gcr.Certificate */
-    getBasicConstraints(): [ /* returnType */ boolean, /* isCa */ boolean | null, /* pathLen */ number | null ]
+    /* Methods of Gcr-3.Gcr.Certificate */
+    getBasicConstraints(): { returnType: boolean, isCa: boolean | null, pathLen: number | null }
     getDerData(): any[]
     getExpiryDate(): GLib.Date
     getFingerprint(type: GLib.ChecksumType): any[]
@@ -822,26 +726,14 @@ export class Pkcs11Certificate {
     getSubjectRaw(): any[]
     isIssuer(issuer: Certificate): boolean
     mixinEmitNotify(): void
-    /* Methods of Gcr.Comparable */
+    /* Methods of Gcr-3.Gcr.Comparable */
     compare(other?: Comparable | null): number
-    /* Virtual methods of Gcr.Pkcs11Certificate */
-    vfuncGetDerData(): any[]
-    vfuncCompare(other?: Comparable | null): number
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Pkcs11Certificate, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Pkcs11Certificate, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::description", callback: (($obj: Pkcs11Certificate, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::description", callback: (($obj: Pkcs11Certificate, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::description", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -898,15 +790,15 @@ export interface SecretExchange_ConstructProps extends GObject.Object_ConstructP
     protocol?: string
 }
 export class SecretExchange {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Gcr.SecretExchange */
+    /* Methods of Gcr-3.Gcr.SecretExchange */
     begin(): string
     getProtocol(): string
     getSecret(): string[]
     receive(exchange: string): boolean
     send(secret: string | null, secretLen: number): string
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -928,24 +820,12 @@ export class SecretExchange {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of Gcr.SecretExchange */
-    vfuncDeriveTransportKey(peer: number, nPeer: number): boolean
-    vfuncGenerateExchangeKey(scheme: string, publicKey: number, nPublicKey: number): boolean
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: SecretExchange, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: SecretExchange, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -963,7 +843,7 @@ export class SecretExchange {
 export interface SimpleCertificate_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class SimpleCertificate {
-    /* Properties of Gcr.Certificate */
+    /* Properties of Gcr-3.Gcr.Certificate */
     readonly description: string
     readonly expiry: GLib.Date
     readonly icon: Gio.Icon
@@ -971,11 +851,11 @@ export class SimpleCertificate {
     readonly label: string
     readonly markup: string
     readonly subject: string
-    /* Fields of Gcr.SimpleCertificate */
+    /* Fields of Gcr-3.Gcr.SimpleCertificate */
     parent: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -997,8 +877,8 @@ export class SimpleCertificate {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of Gcr.Certificate */
-    getBasicConstraints(): [ /* returnType */ boolean, /* isCa */ boolean | null, /* pathLen */ number | null ]
+    /* Methods of Gcr-3.Gcr.Certificate */
+    getBasicConstraints(): { returnType: boolean, isCa: boolean | null, pathLen: number | null }
     getDerData(): any[]
     getExpiryDate(): GLib.Date
     getFingerprint(type: GLib.ChecksumType): any[]
@@ -1020,26 +900,14 @@ export class SimpleCertificate {
     getSubjectRaw(): any[]
     isIssuer(issuer: Certificate): boolean
     mixinEmitNotify(): void
-    /* Methods of Gcr.Comparable */
+    /* Methods of Gcr-3.Gcr.Comparable */
     compare(other?: Comparable | null): number
-    /* Virtual methods of Gcr.SimpleCertificate */
-    vfuncGetDerData(): any[]
-    vfuncCompare(other?: Comparable | null): number
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: SimpleCertificate, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: SimpleCertificate, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::description", callback: (($obj: SimpleCertificate, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::description", callback: (($obj: SimpleCertificate, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::description", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -1093,14 +961,14 @@ export class SimpleCertificate {
 export interface SimpleCollection_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class SimpleCollection {
-    /* Fields of Gcr.SimpleCollection */
+    /* Fields of Gcr-3.Gcr.SimpleCollection */
     parent: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Gcr.SimpleCollection */
+    /* Methods of Gcr-3.Gcr.SimpleCollection */
     add(object: GObject.Object): void
     remove(object: GObject.Object): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -1122,46 +990,29 @@ export class SimpleCollection {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of Gcr.Collection */
+    /* Methods of Gcr-3.Gcr.Collection */
     contains(object: GObject.Object): boolean
     emitAdded(object: GObject.Object): void
     emitRemoved(object: GObject.Object): void
     getLength(): number
     getObjects(): GObject.Object[]
-    /* Virtual methods of Gcr.SimpleCollection */
-    vfuncAdded(object: GObject.Object): void
-    vfuncContains(object: GObject.Object): boolean
-    vfuncGetLength(): number
-    vfuncGetObjects(): GObject.Object[]
-    vfuncRemoved(object: GObject.Object): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: SimpleCollection, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: SimpleCollection, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of Gcr.Collection */
+    /* Signals of Gcr-3.Gcr.Collection */
     connect(sigName: "added", callback: (($obj: SimpleCollection, object: GObject.Object) => void)): number
-    connect_after(sigName: "added", callback: (($obj: SimpleCollection, object: GObject.Object) => void)): number
+    on(sigName: "added", callback: (object: GObject.Object) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "added", callback: (object: GObject.Object) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "added", callback: (object: GObject.Object) => void): NodeJS.EventEmitter
     emit(sigName: "added", object: GObject.Object): void
-    on(sigName: "added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "added", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "removed", callback: (($obj: SimpleCollection, object: GObject.Object) => void)): number
-    connect_after(sigName: "removed", callback: (($obj: SimpleCollection, object: GObject.Object) => void)): number
+    on(sigName: "removed", callback: (object: GObject.Object) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "removed", callback: (object: GObject.Object) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "removed", callback: (object: GObject.Object) => void): NodeJS.EventEmitter
     emit(sigName: "removed", object: GObject.Object): void
-    on(sigName: "removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -1180,11 +1031,11 @@ export interface SshAskpass_ConstructProps extends GObject.Object_ConstructProps
     interaction?: Gio.TlsInteraction
 }
 export class SshAskpass {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Gcr.SshAskpass */
+    /* Methods of Gcr-3.Gcr.SshAskpass */
     getInteraction(): Gio.TlsInteraction
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -1206,21 +1057,12 @@ export class SshAskpass {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: SshAskpass, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: SshAskpass, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -1252,9 +1094,9 @@ export interface SystemPrompt_ConstructProps extends GObject.Object_ConstructPro
     warning?: string
 }
 export class SystemPrompt {
-    /* Properties of Gcr.SystemPrompt */
+    /* Properties of Gcr-3.Gcr.SystemPrompt */
     secretExchange: SecretExchange
-    /* Properties of Gcr.Prompt */
+    /* Properties of Gcr-3.Gcr.Prompt */
     callerWindow: string
     cancelLabel: string
     choiceChosen: boolean
@@ -1266,16 +1108,16 @@ export class SystemPrompt {
     readonly passwordStrength: number
     title: string
     warning: string
-    /* Fields of Gcr.SystemPrompt */
+    /* Fields of Gcr-3.Gcr.SystemPrompt */
     parent: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Gcr.SystemPrompt */
+    /* Methods of Gcr-3.Gcr.SystemPrompt */
     close(cancellable?: Gio.Cancellable | null): boolean
     closeAsync(cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     closeFinish(result: Gio.AsyncResult): boolean
     getSecretExchange(): SecretExchange
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -1297,7 +1139,7 @@ export class SystemPrompt {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of Gcr.Prompt */
+    /* Methods of Gcr-3.Gcr.Prompt */
     close(): void
     confirm(cancellable?: Gio.Cancellable | null): PromptReply
     confirmAsync(cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
@@ -1329,43 +1171,24 @@ export class SystemPrompt {
     setPasswordNew(newPassword: boolean): void
     setTitle(title: string): void
     setWarning(warning?: string | null): void
-    /* Methods of Gio.AsyncInitable */
+    /* Methods of Gio-2.0.Gio.AsyncInitable */
     initAsync(ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     initFinish(res: Gio.AsyncResult): boolean
     newFinish(res: Gio.AsyncResult): GObject.Object
-    /* Methods of Gio.Initable */
+    /* Methods of Gio-2.0.Gio.Initable */
     init(cancellable?: Gio.Cancellable | null): boolean
-    /* Virtual methods of Gcr.SystemPrompt */
-    vfuncPromptClose(): void
-    vfuncPromptConfirmAsync(cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    vfuncPromptConfirmFinish(result: Gio.AsyncResult): PromptReply
-    vfuncPromptPasswordAsync(cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    vfuncPromptPasswordFinish(result: Gio.AsyncResult): string
-    vfuncInitAsync(ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    vfuncInitFinish(res: Gio.AsyncResult): boolean
-    vfuncInit(cancellable?: Gio.Cancellable | null): boolean
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: SystemPrompt, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: SystemPrompt, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of Gcr.Prompt */
+    /* Signals of Gcr-3.Gcr.Prompt */
     connect(sigName: "prompt-close", callback: (($obj: SystemPrompt) => void)): number
-    connect_after(sigName: "prompt-close", callback: (($obj: SystemPrompt) => void)): number
+    on(sigName: "prompt-close", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "prompt-close", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "prompt-close", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "prompt-close"): void
-    on(sigName: "prompt-close", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "prompt-close", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "prompt-close", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::secret-exchange", callback: (($obj: SystemPrompt, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::secret-exchange", callback: (($obj: SystemPrompt, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::secret-exchange", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -1451,19 +1274,19 @@ export interface SystemPrompter_ConstructProps extends GObject.Object_ConstructP
     promptType?: GObject.Type
 }
 export class SystemPrompter {
-    /* Properties of Gcr.SystemPrompter */
+    /* Properties of Gcr-3.Gcr.SystemPrompter */
     readonly prompting: boolean
-    /* Fields of Gcr.SystemPrompter */
+    /* Fields of Gcr-3.Gcr.SystemPrompter */
     parent: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Gcr.SystemPrompter */
+    /* Methods of Gcr-3.Gcr.SystemPrompter */
     getMode(): SystemPrompterMode
     getPromptType(): GObject.Type
     getPrompting(): boolean
     register(connection: Gio.DBusConnection): void
     unregister(wait: boolean): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -1485,28 +1308,18 @@ export class SystemPrompter {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gcr.SystemPrompter */
+    /* Signals of Gcr-3.Gcr.SystemPrompter */
     connect(sigName: "new-prompt", callback: (($obj: SystemPrompter) => Prompt)): number
-    connect_after(sigName: "new-prompt", callback: (($obj: SystemPrompter) => Prompt)): number
+    on(sigName: "new-prompt", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "new-prompt", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "new-prompt", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "new-prompt"): void
-    on(sigName: "new-prompt", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "new-prompt", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "new-prompt", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: SystemPrompter, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: SystemPrompter, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::prompting", callback: (($obj: SystemPrompter, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::prompting", callback: (($obj: SystemPrompter, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::prompting", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -1529,18 +1342,18 @@ export class SystemPrompter {
 export interface UnionCollection_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class UnionCollection {
-    /* Fields of Gcr.UnionCollection */
+    /* Fields of Gcr-3.Gcr.UnionCollection */
     parent: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Gcr.UnionCollection */
+    /* Methods of Gcr-3.Gcr.UnionCollection */
     add(collection: Collection): void
     elements(): Collection[]
     have(collection: Collection): boolean
     remove(collection: Collection): void
     size(): number
     take(collection: Collection): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -1562,46 +1375,29 @@ export class UnionCollection {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of Gcr.Collection */
+    /* Methods of Gcr-3.Gcr.Collection */
     contains(object: GObject.Object): boolean
     emitAdded(object: GObject.Object): void
     emitRemoved(object: GObject.Object): void
     getLength(): number
     getObjects(): GObject.Object[]
-    /* Virtual methods of Gcr.UnionCollection */
-    vfuncAdded(object: GObject.Object): void
-    vfuncContains(object: GObject.Object): boolean
-    vfuncGetLength(): number
-    vfuncGetObjects(): GObject.Object[]
-    vfuncRemoved(object: GObject.Object): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: UnionCollection, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: UnionCollection, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of Gcr.Collection */
+    /* Signals of Gcr-3.Gcr.Collection */
     connect(sigName: "added", callback: (($obj: UnionCollection, object: GObject.Object) => void)): number
-    connect_after(sigName: "added", callback: (($obj: UnionCollection, object: GObject.Object) => void)): number
+    on(sigName: "added", callback: (object: GObject.Object) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "added", callback: (object: GObject.Object) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "added", callback: (object: GObject.Object) => void): NodeJS.EventEmitter
     emit(sigName: "added", object: GObject.Object): void
-    on(sigName: "added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "added", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "removed", callback: (($obj: UnionCollection, object: GObject.Object) => void)): number
-    connect_after(sigName: "removed", callback: (($obj: UnionCollection, object: GObject.Object) => void)): number
+    on(sigName: "removed", callback: (object: GObject.Object) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "removed", callback: (object: GObject.Object) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "removed", callback: (object: GObject.Object) => void): NodeJS.EventEmitter
     emit(sigName: "removed", object: GObject.Object): void
-    on(sigName: "removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -1617,7 +1413,7 @@ export class UnionCollection {
     static $gtype: GObject.Type
 }
 export abstract class CertificateChainClass {
-    /* Fields of Gcr.CertificateChainClass */
+    /* Fields of Gcr-3.Gcr.CertificateChainClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
@@ -1625,18 +1421,18 @@ export class CertificateChainPrivate {
     static name: string
 }
 export abstract class CertificateIface {
-    /* Fields of Gcr.CertificateIface */
+    /* Fields of Gcr-3.Gcr.CertificateIface */
     parent: GObject.TypeInterface
     getDerData: (self: Certificate) => any[]
     static name: string
 }
 export abstract class CertificateRequestClass {
-    /* Fields of Gcr.CertificateRequestClass */
+    /* Fields of Gcr-3.Gcr.CertificateRequestClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
 export abstract class CollectionIface {
-    /* Fields of Gcr.CollectionIface */
+    /* Fields of Gcr-3.Gcr.CollectionIface */
     parent: GObject.TypeInterface
     added: (self: Collection, object: GObject.Object) => void
     removed: (self: Collection, object: GObject.Object) => void
@@ -1646,7 +1442,7 @@ export abstract class CollectionIface {
     static name: string
 }
 export class Column {
-    /* Fields of Gcr.Column */
+    /* Fields of Gcr-3.Gcr.Column */
     propertyName: string
     propertyType: GObject.Type
     columnType: GObject.Type
@@ -1657,13 +1453,13 @@ export class Column {
     static name: string
 }
 export abstract class ComparableIface {
-    /* Fields of Gcr.ComparableIface */
+    /* Fields of Gcr-3.Gcr.ComparableIface */
     parent: GObject.TypeInterface
     compare: (self: Comparable, other?: Comparable | null) => number
     static name: string
 }
 export abstract class FilterCollectionClass {
-    /* Fields of Gcr.FilterCollectionClass */
+    /* Fields of Gcr-3.Gcr.FilterCollectionClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
@@ -1671,7 +1467,7 @@ export class FilterCollectionPrivate {
     static name: string
 }
 export abstract class ImportInteractionIface {
-    /* Fields of Gcr.ImportInteractionIface */
+    /* Fields of Gcr-3.Gcr.ImportInteractionIface */
     parent: GObject.TypeInterface
     supplementPrep: (interaction: ImportInteraction, builder: Gck.Builder) => void
     supplement: (interaction: ImportInteraction, builder: Gck.Builder, cancellable?: Gio.Cancellable | null) => Gio.TlsInteractionResult
@@ -1680,7 +1476,7 @@ export abstract class ImportInteractionIface {
     static name: string
 }
 export abstract class ImporterIface {
-    /* Fields of Gcr.ImporterIface */
+    /* Fields of Gcr-3.Gcr.ImporterIface */
     parent: GObject.TypeInterface
     queueForParsed: (importer: Importer, parsed: Parsed) => boolean
     importSync: (importer: Importer, cancellable?: Gio.Cancellable | null) => boolean
@@ -1689,7 +1485,7 @@ export abstract class ImporterIface {
     static name: string
 }
 export class Parsed {
-    /* Methods of Gcr.Parsed */
+    /* Methods of Gcr-3.Gcr.Parsed */
     getAttributes(): Gck.Attributes | null
     getBytes(): any
     getData(): any[] | null
@@ -1703,7 +1499,7 @@ export class Parsed {
     static unref(parsed?: object | null): void
 }
 export abstract class ParserClass {
-    /* Fields of Gcr.ParserClass */
+    /* Fields of Gcr-3.Gcr.ParserClass */
     parentClass: GObject.ObjectClass
     authenticate: (self: Parser, count: number) => boolean
     parsed: (self: Parser) => void
@@ -1719,7 +1515,7 @@ export class Pkcs11CertificatePrivate {
     static name: string
 }
 export abstract class PromptIface {
-    /* Fields of Gcr.PromptIface */
+    /* Fields of Gcr-3.Gcr.PromptIface */
     parentIface: GObject.TypeInterface
     promptPasswordAsync: (prompt: Prompt, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null) => void
     promptPasswordFinish: (prompt: Prompt, result: Gio.AsyncResult) => string
@@ -1729,7 +1525,7 @@ export abstract class PromptIface {
     static name: string
 }
 export abstract class SecretExchangeClass {
-    /* Fields of Gcr.SecretExchangeClass */
+    /* Fields of Gcr-3.Gcr.SecretExchangeClass */
     generateExchangeKey: (exchange: SecretExchange, scheme: string, publicKey: number, nPublicKey: number) => boolean
     deriveTransportKey: (exchange: SecretExchange, peer: number, nPeer: number) => boolean
     static name: string
@@ -1738,7 +1534,7 @@ export class SecretExchangePrivate {
     static name: string
 }
 export abstract class SimpleCertificateClass {
-    /* Fields of Gcr.SimpleCertificateClass */
+    /* Fields of Gcr-3.Gcr.SimpleCertificateClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
@@ -1746,7 +1542,7 @@ export class SimpleCertificatePrivate {
     static name: string
 }
 export abstract class SimpleCollectionClass {
-    /* Fields of Gcr.SimpleCollectionClass */
+    /* Fields of Gcr-3.Gcr.SimpleCollectionClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
@@ -1754,12 +1550,12 @@ export class SimpleCollectionPrivate {
     static name: string
 }
 export abstract class SshAskpassClass {
-    /* Fields of Gcr.SshAskpassClass */
+    /* Fields of Gcr-3.Gcr.SshAskpassClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
 export abstract class SystemPromptClass {
-    /* Fields of Gcr.SystemPromptClass */
+    /* Fields of Gcr-3.Gcr.SystemPromptClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
@@ -1767,7 +1563,7 @@ export class SystemPromptPrivate {
     static name: string
 }
 export abstract class SystemPrompterClass {
-    /* Fields of Gcr.SystemPrompterClass */
+    /* Fields of Gcr-3.Gcr.SystemPrompterClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
@@ -1775,7 +1571,7 @@ export class SystemPrompterPrivate {
     static name: string
 }
 export abstract class UnionCollectionClass {
-    /* Fields of Gcr.UnionCollectionClass */
+    /* Fields of Gcr-3.Gcr.UnionCollectionClass */
     parentClass: GObject.ObjectClass
     static name: string
 }

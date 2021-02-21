@@ -122,7 +122,7 @@ export function argInfoIsCallerAllocates(info: ArgInfo): boolean
 export function argInfoIsOptional(info: ArgInfo): boolean
 export function argInfoIsReturnValue(info: ArgInfo): boolean
 export function argInfoIsSkip(info: ArgInfo): boolean
-export function argInfoLoadType(info: ArgInfo): /* type */ TypeInfo
+export function argInfoLoadType(info: ArgInfo): { type: TypeInfo }
 export function argInfoMayBeNull(info: ArgInfo): boolean
 export function callableInfoCanThrowGerror(info: CallableInfo): boolean
 export function callableInfoGetArg(info: CallableInfo, n: number): ArgInfo
@@ -133,9 +133,9 @@ export function callableInfoGetReturnAttribute(info: CallableInfo, name: string)
 export function callableInfoGetReturnType(info: CallableInfo): TypeInfo
 export function callableInfoInvoke(info: CallableInfo, function_: object | null, inArgs: Argument[], outArgs: Argument[], returnValue: Argument, isMethod: boolean, throws: boolean): boolean
 export function callableInfoIsMethod(info: CallableInfo): boolean
-export function callableInfoIterateReturnAttributes(info: CallableInfo, iterator: AttributeIter): [ /* returnType */ boolean, /* iterator */ AttributeIter, /* name */ string, /* value */ string ]
-export function callableInfoLoadArg(info: CallableInfo, n: number): /* arg */ ArgInfo
-export function callableInfoLoadReturnType(info: CallableInfo): /* type */ TypeInfo
+export function callableInfoIterateReturnAttributes(info: CallableInfo, iterator: AttributeIter): { returnType: boolean, iterator: AttributeIter, name: string, value: string }
+export function callableInfoLoadArg(info: CallableInfo, n: number): { arg: ArgInfo }
+export function callableInfoLoadReturnType(info: CallableInfo): { type: TypeInfo }
 export function callableInfoMayReturnNull(info: CallableInfo): boolean
 export function callableInfoSkipReturn(info: CallableInfo): boolean
 export function cclosureMarshalGeneric(closure: Function, returnGvalue: any, nParamValues: number, paramValues: any, invocationHint?: object | null, marshalData?: object | null): void
@@ -177,10 +177,10 @@ export function interfaceInfoGetSignal(info: InterfaceInfo, n: number): SignalIn
 export function interfaceInfoGetVfunc(info: InterfaceInfo, n: number): VFuncInfo
 export function invokeErrorQuark(): GLib.Quark
 export function objectInfoFindMethod(info: ObjectInfo, name: string): FunctionInfo | null
-export function objectInfoFindMethodUsingInterfaces(info: ObjectInfo, name: string): [ /* returnType */ FunctionInfo | null, /* implementor */ ObjectInfo ]
+export function objectInfoFindMethodUsingInterfaces(info: ObjectInfo, name: string): { returnType: FunctionInfo | null, implementor: ObjectInfo }
 export function objectInfoFindSignal(info: ObjectInfo, name: string): SignalInfo | null
 export function objectInfoFindVfunc(info: ObjectInfo, name: string): VFuncInfo | null
-export function objectInfoFindVfuncUsingInterfaces(info: ObjectInfo, name: string): [ /* returnType */ VFuncInfo | null, /* implementor */ ObjectInfo ]
+export function objectInfoFindVfuncUsingInterfaces(info: ObjectInfo, name: string): { returnType: VFuncInfo | null, implementor: ObjectInfo }
 export function objectInfoGetAbstract(info: ObjectInfo): boolean
 export function objectInfoGetClassStruct(info: ObjectInfo): StructInfo | null
 export function objectInfoGetConstant(info: ObjectInfo, n: number): ConstantInfo
@@ -256,9 +256,9 @@ export function vfuncInfoGetSignal(info: VFuncInfo): SignalInfo
 export interface Repository_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class Repository {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GIRepository.Repository */
+    /* Methods of GIRepository-2.0.GIRepository.Repository */
     enumerateVersions(namespace: string): string[]
     findByErrorDomain(domain: GLib.Quark): EnumInfo
     findByGtype(gtype: GObject.Type): BaseInfo
@@ -269,7 +269,7 @@ export class Repository {
     getInfo(namespace: string, index: number): BaseInfo
     getLoadedNamespaces(): string[]
     getNInfos(namespace: string): number
-    getObjectGtypeInterfaces(gtype: GObject.Type): /* interfacesOut */ InterfaceInfo[]
+    getObjectGtypeInterfaces(gtype: GObject.Type): { interfacesOut: InterfaceInfo[] }
     getSharedLibrary(namespace: string): string | null
     getTypelibPath(namespace: string): string
     getVersion(namespace: string): string
@@ -277,7 +277,7 @@ export class Repository {
     loadTypelib(typelib: Typelib, flags: RepositoryLoadFlags): string
     require(namespace: string, version: string | null, flags: RepositoryLoadFlags): Typelib
     requirePrivate(typelibDir: string, namespace: string, version: string | null, flags: RepositoryLoadFlags): Typelib
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -299,21 +299,12 @@ export class Repository {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Repository, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Repository, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -338,7 +329,7 @@ export class AttributeIter {
     static name: string
 }
 export class BaseInfo {
-    /* Methods of GIRepository.BaseInfo */
+    /* Methods of GIRepository-2.0.GIRepository.BaseInfo */
     equal(info2: BaseInfo): boolean
     getAttribute(name: string): string
     getContainer(): BaseInfo
@@ -347,7 +338,7 @@ export class BaseInfo {
     getType(): InfoType
     getTypelib(): Typelib
     isDeprecated(): boolean
-    iterateAttributes(iterator: AttributeIter): [ /* returnType */ boolean, /* iterator */ AttributeIter, /* name */ string, /* value */ string ]
+    iterateAttributes(iterator: AttributeIter): { returnType: boolean, iterator: AttributeIter, name: string, value: string }
     static name: string
 }
 export abstract class RepositoryClass {
@@ -357,7 +348,7 @@ export class RepositoryPrivate {
     static name: string
 }
 export class Typelib {
-    /* Methods of GIRepository.Typelib */
+    /* Methods of GIRepository-2.0.GIRepository.Typelib */
     free(): void
     getNamespace(): string
     symbol(symbolName: string, symbol?: object | null): boolean
@@ -367,7 +358,7 @@ export class UnresolvedInfo {
     static name: string
 }
 export class Argument {
-    /* Fields of GIRepository.Argument */
+    /* Fields of GIRepository-2.0.GIRepository.Argument */
     vBoolean: boolean
     vInt8: number
     vUint8: number

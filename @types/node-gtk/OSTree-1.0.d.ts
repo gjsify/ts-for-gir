@@ -145,10 +145,10 @@ export function checksumB64FromBytes(csum: any[]): string
 export function checksumB64ToBytes(checksum: string): any[]
 export function checksumBytesPeek(bytes: GLib.Variant): any[]
 export function checksumBytesPeekValidate(bytes: GLib.Variant): any[]
-export function checksumFile(f: Gio.File, objtype: ObjectType, cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* outCsum */ any[] ]
+export function checksumFile(f: Gio.File, objtype: ObjectType, cancellable?: Gio.Cancellable | null): { returnType: boolean, outCsum: any[] }
 export function checksumFileAsync(f: Gio.File, objtype: ObjectType, ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-export function checksumFileAsyncFinish(f: Gio.File, result: Gio.AsyncResult): [ /* returnType */ boolean, /* outCsum */ any[] ]
-export function checksumFileFromInput(fileInfo: Gio.FileInfo, xattrs: GLib.Variant | null, in_: Gio.InputStream | null, objtype: ObjectType, cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* outCsum */ any[] ]
+export function checksumFileAsyncFinish(f: Gio.File, result: Gio.AsyncResult): { returnType: boolean, outCsum: any[] }
+export function checksumFileFromInput(fileInfo: Gio.FileInfo, xattrs: GLib.Variant | null, in_: Gio.InputStream | null, objtype: ObjectType, cancellable?: Gio.Cancellable | null): { returnType: boolean, outCsum: any[] }
 export function checksumFromBytes(csum: any[]): string
 export function checksumFromBytesV(csumV: GLib.Variant): string
 export function checksumInplaceToBytes(checksum: string, buf: number): void
@@ -158,23 +158,23 @@ export function cmdprivate(): CmdPrivateVTable
 export function cmpChecksumBytes(a: number, b: number): number
 export function commitGetParent(commitVariant: GLib.Variant): string
 export function commitGetTimestamp(commitVariant: GLib.Variant): number
-export function contentFileParse(compressed: boolean, contentPath: Gio.File, trusted: boolean, cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* outInput */ Gio.InputStream, /* outFileInfo */ Gio.FileInfo, /* outXattrs */ GLib.Variant ]
-export function contentFileParseAt(compressed: boolean, parentDfd: number, path: string, trusted: boolean, cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* outInput */ Gio.InputStream, /* outFileInfo */ Gio.FileInfo, /* outXattrs */ GLib.Variant ]
-export function contentStreamParse(compressed: boolean, input: Gio.InputStream, inputLength: number, trusted: boolean, cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* outInput */ Gio.InputStream, /* outFileInfo */ Gio.FileInfo, /* outXattrs */ GLib.Variant ]
+export function contentFileParse(compressed: boolean, contentPath: Gio.File, trusted: boolean, cancellable?: Gio.Cancellable | null): { returnType: boolean, outInput: Gio.InputStream, outFileInfo: Gio.FileInfo, outXattrs: GLib.Variant }
+export function contentFileParseAt(compressed: boolean, parentDfd: number, path: string, trusted: boolean, cancellable?: Gio.Cancellable | null): { returnType: boolean, outInput: Gio.InputStream, outFileInfo: Gio.FileInfo, outXattrs: GLib.Variant }
+export function contentStreamParse(compressed: boolean, input: Gio.InputStream, inputLength: number, trusted: boolean, cancellable?: Gio.Cancellable | null): { returnType: boolean, outInput: Gio.InputStream, outFileInfo: Gio.FileInfo, outXattrs: GLib.Variant }
 export function createDirectoryMetadata(dirInfo: Gio.FileInfo, xattrs?: GLib.Variant | null): GLib.Variant
 export function diffDirs(flags: DiffFlags, a: Gio.File, b: Gio.File, modified: DiffItem[], removed: Gio.File[], added: Gio.File[], cancellable?: Gio.Cancellable | null): boolean
 export function diffPrint(a: Gio.File, b: Gio.File, modified: DiffItem[], removed: Gio.File[], added: Gio.File[]): void
 export function hashObjectName(a?: object | null): number
 export function metadataVariantType(objtype: ObjectType): GLib.VariantType
-export function objectFromString(str: string): [ /* outChecksum */ string, /* outObjtype */ ObjectType ]
-export function objectNameDeserialize(variant: GLib.Variant): [ /* outChecksum */ string, /* outObjtype */ ObjectType ]
+export function objectFromString(str: string): { outChecksum: string, outObjtype: ObjectType }
+export function objectNameDeserialize(variant: GLib.Variant): { outChecksum: string, outObjtype: ObjectType }
 export function objectNameSerialize(checksum: string, objtype: ObjectType): GLib.Variant
 export function objectToString(checksum: string, objtype: ObjectType): string
 export function objectTypeFromString(str: string): ObjectType
 export function objectTypeToString(objtype: ObjectType): string
-export function parseRefspec(refspec: string): [ /* returnType */ boolean, /* outRemote */ string | null, /* outRef */ string | null ]
-export function rawFileToArchiveZ2Stream(input: Gio.InputStream, fileInfo: Gio.FileInfo, xattrs?: GLib.Variant | null, cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* outInput */ Gio.InputStream ]
-export function rawFileToContentStream(input: Gio.InputStream, fileInfo: Gio.FileInfo, xattrs?: GLib.Variant | null, cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* outInput */ Gio.InputStream, /* outLength */ number ]
+export function parseRefspec(refspec: string): { returnType: boolean, outRemote: string | null, outRef: string | null }
+export function rawFileToArchiveZ2Stream(input: Gio.InputStream, fileInfo: Gio.FileInfo, xattrs?: GLib.Variant | null, cancellable?: Gio.Cancellable | null): { returnType: boolean, outInput: Gio.InputStream }
+export function rawFileToContentStream(input: Gio.InputStream, fileInfo: Gio.FileInfo, xattrs?: GLib.Variant | null, cancellable?: Gio.Cancellable | null): { returnType: boolean, outInput: Gio.InputStream, outLength: number }
 export function repoCommitTraverseIterCleanup(p?: object | null): void
 export function validateChecksumString(sha256: string): boolean
 export function validateRev(rev: string): boolean
@@ -194,9 +194,9 @@ export interface RepoCommitModifierXattrCallback {
 export interface AsyncProgress_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class AsyncProgress {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of OSTree.AsyncProgress */
+    /* Methods of OSTree-1.0.OSTree.AsyncProgress */
     finish(): void
     getStatus(): string
     getUint(key: string): number
@@ -204,7 +204,7 @@ export class AsyncProgress {
     setStatus(status: string): void
     setUint(key: string, value: number): void
     setUint64(key: string, value: number): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -226,30 +226,18 @@ export class AsyncProgress {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of OSTree.AsyncProgress */
-    vfuncChanged(): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of OSTree.AsyncProgress */
+    /* Signals of OSTree-1.0.OSTree.AsyncProgress */
     connect(sigName: "changed", callback: (($obj: AsyncProgress) => void)): number
-    connect_after(sigName: "changed", callback: (($obj: AsyncProgress) => void)): number
+    on(sigName: "changed", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "changed", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "changed", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "changed"): void
-    on(sigName: "changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: AsyncProgress, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: AsyncProgress, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -268,9 +256,9 @@ export class AsyncProgress {
 export interface BootconfigParser_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class BootconfigParser {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of OSTree.BootconfigParser */
+    /* Methods of OSTree-1.0.OSTree.BootconfigParser */
     clone(): BootconfigParser
     get(key: string): string
     parse(path: Gio.File, cancellable?: Gio.Cancellable | null): boolean
@@ -278,7 +266,7 @@ export class BootconfigParser {
     set(key: string, value: string): void
     write(output: Gio.File, cancellable?: Gio.Cancellable | null): boolean
     writeAt(dfd: number, path: string, cancellable?: Gio.Cancellable | null): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -300,21 +288,12 @@ export class BootconfigParser {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: BootconfigParser, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: BootconfigParser, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -333,30 +312,30 @@ export interface ChecksumInputStream_ConstructProps extends Gio.FilterInputStrea
     checksum?: object
 }
 export class ChecksumInputStream {
-    /* Properties of Gio.FilterInputStream */
+    /* Properties of Gio-2.0.Gio.FilterInputStream */
     closeBaseStream: boolean
-    /* Fields of OSTree.ChecksumInputStream */
+    /* Fields of OSTree-1.0.OSTree.ChecksumInputStream */
     parentInstance: Gio.FilterInputStream
-    /* Fields of Gio.FilterInputStream */
+    /* Fields of Gio-2.0.Gio.FilterInputStream */
     baseStream: Gio.InputStream
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Gio.FilterInputStream */
+    /* Methods of Gio-2.0.Gio.FilterInputStream */
     getBaseStream(): Gio.InputStream
     getCloseBaseStream(): boolean
     setCloseBaseStream(closeBase: boolean): void
-    /* Methods of Gio.InputStream */
+    /* Methods of Gio-2.0.Gio.InputStream */
     clearPending(): void
     close(cancellable?: Gio.Cancellable | null): boolean
     closeAsync(ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     closeFinish(result: Gio.AsyncResult): boolean
     hasPending(): boolean
     isClosed(): boolean
-    read(cancellable?: Gio.Cancellable | null): [ /* returnType */ number, /* buffer */ any[] ]
-    readAll(cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* buffer */ any[], /* bytesRead */ number ]
-    readAllAsync(ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): /* buffer */ any[]
-    readAllFinish(result: Gio.AsyncResult): [ /* returnType */ boolean, /* bytesRead */ number ]
-    readAsync(ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): /* buffer */ any[]
+    read(cancellable?: Gio.Cancellable | null): { returnType: number, buffer: any[] }
+    readAll(cancellable?: Gio.Cancellable | null): { returnType: boolean, buffer: any[], bytesRead: number }
+    readAllAsync(ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): { buffer: any[] }
+    readAllFinish(result: Gio.AsyncResult): { returnType: boolean, bytesRead: number }
+    readAsync(ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): { buffer: any[] }
     readBytes(count: number, cancellable?: Gio.Cancellable | null): any
     readBytesAsync(count: number, ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     readBytesFinish(result: Gio.AsyncResult): any
@@ -365,7 +344,7 @@ export class ChecksumInputStream {
     skip(count: number, cancellable?: Gio.Cancellable | null): number
     skipAsync(count: number, ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     skipFinish(result: Gio.AsyncResult): number
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -387,31 +366,12 @@ export class ChecksumInputStream {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of Gio.InputStream */
-    vfuncCloseAsync(ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    vfuncCloseFinish(result: Gio.AsyncResult): boolean
-    vfuncCloseFn(cancellable?: Gio.Cancellable | null): boolean
-    vfuncReadAsync(ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): /* buffer */ any[] | null
-    vfuncReadFinish(result: Gio.AsyncResult): number
-    vfuncReadFn(buffer: object | null, count: number, cancellable?: Gio.Cancellable | null): number
-    vfuncSkip(count: number, cancellable?: Gio.Cancellable | null): number
-    vfuncSkipAsync(count: number, ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    vfuncSkipFinish(result: Gio.AsyncResult): number
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: ChecksumInputStream, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: ChecksumInputStream, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::close-base-stream", callback: (($obj: ChecksumInputStream, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::close-base-stream", callback: (($obj: ChecksumInputStream, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::close-base-stream", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -434,9 +394,9 @@ export class ChecksumInputStream {
 export interface Deployment_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class Deployment {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of OSTree.Deployment */
+    /* Methods of OSTree-1.0.OSTree.Deployment */
     clone(): Deployment
     equal(bp: Deployment): boolean
     getBootconfig(): BootconfigParser
@@ -453,7 +413,7 @@ export class Deployment {
     setBootserial(index: number): void
     setIndex(index: number): void
     setOrigin(origin: GLib.KeyFile): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -475,21 +435,12 @@ export class Deployment {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Deployment, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Deployment, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -509,17 +460,17 @@ export class Deployment {
 export interface GpgVerifyResult_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class GpgVerifyResult {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of OSTree.GpgVerifyResult */
+    /* Methods of OSTree-1.0.OSTree.GpgVerifyResult */
     countAll(): number
     countValid(): number
     describe(signatureIndex: number, outputBuffer: GLib.String, linePrefix: string | null, flags: GpgSignatureFormatFlags): void
     get(signatureIndex: number, attrs: GpgSignatureAttr[]): GLib.Variant
     getAll(signatureIndex: number): GLib.Variant
-    lookup(keyId: string): [ /* returnType */ boolean, /* outSignatureIndex */ number ]
+    lookup(keyId: string): { returnType: boolean, outSignatureIndex: number }
     requireValidSignature(): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -541,25 +492,14 @@ export class GpgVerifyResult {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of Gio.Initable */
+    /* Methods of Gio-2.0.Gio.Initable */
     init(cancellable?: Gio.Cancellable | null): boolean
-    /* Virtual methods of OSTree.GpgVerifyResult */
-    vfuncInit(cancellable?: Gio.Cancellable | null): boolean
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: GpgVerifyResult, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: GpgVerifyResult, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -578,11 +518,11 @@ export class GpgVerifyResult {
 export interface MutableTree_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class MutableTree {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of OSTree.MutableTree */
+    /* Methods of OSTree-1.0.OSTree.MutableTree */
     ensureDir(name: string, outSubdir: MutableTree): boolean
-    ensureParentDirs(splitPath: string[], metadataChecksum: string): [ /* returnType */ boolean, /* outParent */ MutableTree ]
+    ensureParentDirs(splitPath: string[], metadataChecksum: string): { returnType: boolean, outParent: MutableTree }
     getContentsChecksum(): string
     getFiles(): GLib.HashTable
     getMetadataChecksum(): string
@@ -591,8 +531,8 @@ export class MutableTree {
     replaceFile(name: string, checksum: string): boolean
     setContentsChecksum(checksum: string): void
     setMetadataChecksum(checksum: string): void
-    walk(splitPath: string[], start: number): [ /* returnType */ boolean, /* outSubdir */ MutableTree ]
-    /* Methods of GObject.Object */
+    walk(splitPath: string[], start: number): { returnType: boolean, outSubdir: MutableTree }
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -614,21 +554,12 @@ export class MutableTree {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: MutableTree, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: MutableTree, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -649,16 +580,16 @@ export interface Repo_ConstructProps extends GObject.Object_ConstructProps {
     sysrootPath?: Gio.File
 }
 export class Repo {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of OSTree.Repo */
+    /* Methods of OSTree-1.0.OSTree.Repo */
     abortTransaction(cancellable?: Gio.Cancellable | null): boolean
     addGpgSignatureSummary(keyId: string[], homedir?: string | null, cancellable?: Gio.Cancellable | null): boolean
     appendGpgSignature(commitChecksum: string, signatureBytes: any, cancellable?: Gio.Cancellable | null): boolean
     checkoutAt(options: RepoCheckoutAtOptions | null, destinationDfd: number, destinationPath: string, commit: string, cancellable?: Gio.Cancellable | null): boolean
     checkoutGc(cancellable?: Gio.Cancellable | null): boolean
     checkoutTree(mode: RepoCheckoutMode, overwriteMode: RepoCheckoutOverwriteMode, destination: Gio.File, source: RepoFile, sourceInfo: Gio.FileInfo, cancellable?: Gio.Cancellable | null): boolean
-    commitTransaction(cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* outStats */ RepoTransactionStats | null ]
+    commitTransaction(cancellable?: Gio.Cancellable | null): { returnType: boolean, outStats: RepoTransactionStats | null }
     copyConfig(): GLib.KeyFile
     create(mode: RepoMode, cancellable?: Gio.Cancellable | null): boolean
     deleteObject(objtype: ObjectType, sha256: string, cancellable?: Gio.Cancellable | null): boolean
@@ -668,49 +599,49 @@ export class Repo {
     getMode(): RepoMode
     getParent(): Repo
     getPath(): Gio.File
-    getRemoteBooleanOption(remoteName: string, optionName: string, defaultValue: boolean): [ /* returnType */ boolean, /* outValue */ boolean ]
-    getRemoteListOption(remoteName: string, optionName: string): [ /* returnType */ boolean, /* outValue */ string[] ]
-    getRemoteOption(remoteName: string, optionName: string, defaultValue?: string | null): [ /* returnType */ boolean, /* outValue */ string ]
+    getRemoteBooleanOption(remoteName: string, optionName: string, defaultValue: boolean): { returnType: boolean, outValue: boolean }
+    getRemoteListOption(remoteName: string, optionName: string): { returnType: boolean, outValue: string[] }
+    getRemoteOption(remoteName: string, optionName: string, defaultValue?: string | null): { returnType: boolean, outValue: string }
     gpgVerifyData(remoteName: string | null, data: any, signatures: any, keyringdir?: Gio.File | null, extraKeyring?: Gio.File | null, cancellable?: Gio.Cancellable | null): GpgVerifyResult
-    hasObject(objtype: ObjectType, checksum: string, cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* outHaveObject */ boolean ]
+    hasObject(objtype: ObjectType, checksum: string, cancellable?: Gio.Cancellable | null): { returnType: boolean, outHaveObject: boolean }
     importObjectFrom(source: Repo, objtype: ObjectType, checksum: string, cancellable?: Gio.Cancellable | null): boolean
     importObjectFromWithTrust(source: Repo, objtype: ObjectType, checksum: string, trusted: boolean, cancellable?: Gio.Cancellable | null): boolean
     isSystem(): boolean
     isWritable(): boolean
     listCommitObjectsStartingWith(start: string, outCommits: GLib.HashTable, cancellable?: Gio.Cancellable | null): boolean
-    listObjects(flags: RepoListObjectsFlags, cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* outObjects */ GLib.HashTable ]
-    listRefs(refspecPrefix?: string | null, cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* outAllRefs */ GLib.HashTable ]
-    listRefsExt(refspecPrefix: string | null, flags: RepoListRefsExtFlags, cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* outAllRefs */ GLib.HashTable ]
-    listStaticDeltaNames(cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* outDeltas */ string[] ]
-    loadCommit(checksum: string): [ /* returnType */ boolean, /* outCommit */ GLib.Variant | null, /* outState */ RepoCommitState | null ]
-    loadFile(checksum: string, cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* outInput */ Gio.InputStream | null, /* outFileInfo */ Gio.FileInfo | null, /* outXattrs */ GLib.Variant | null ]
-    loadObjectStream(objtype: ObjectType, checksum: string, cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* outInput */ Gio.InputStream, /* outSize */ number ]
-    loadVariant(objtype: ObjectType, sha256: string): [ /* returnType */ boolean, /* outVariant */ GLib.Variant ]
-    loadVariantIfExists(objtype: ObjectType, sha256: string): [ /* returnType */ boolean, /* outVariant */ GLib.Variant ]
+    listObjects(flags: RepoListObjectsFlags, cancellable?: Gio.Cancellable | null): { returnType: boolean, outObjects: GLib.HashTable }
+    listRefs(refspecPrefix?: string | null, cancellable?: Gio.Cancellable | null): { returnType: boolean, outAllRefs: GLib.HashTable }
+    listRefsExt(refspecPrefix: string | null, flags: RepoListRefsExtFlags, cancellable?: Gio.Cancellable | null): { returnType: boolean, outAllRefs: GLib.HashTable }
+    listStaticDeltaNames(cancellable?: Gio.Cancellable | null): { returnType: boolean, outDeltas: string[] }
+    loadCommit(checksum: string): { returnType: boolean, outCommit: GLib.Variant | null, outState: RepoCommitState | null }
+    loadFile(checksum: string, cancellable?: Gio.Cancellable | null): { returnType: boolean, outInput: Gio.InputStream | null, outFileInfo: Gio.FileInfo | null, outXattrs: GLib.Variant | null }
+    loadObjectStream(objtype: ObjectType, checksum: string, cancellable?: Gio.Cancellable | null): { returnType: boolean, outInput: Gio.InputStream, outSize: number }
+    loadVariant(objtype: ObjectType, sha256: string): { returnType: boolean, outVariant: GLib.Variant }
+    loadVariantIfExists(objtype: ObjectType, sha256: string): { returnType: boolean, outVariant: GLib.Variant }
     open(cancellable?: Gio.Cancellable | null): boolean
-    prepareTransaction(cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* outTransactionResume */ boolean | null ]
-    prune(flags: RepoPruneFlags, depth: number, cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* outObjectsTotal */ number, /* outObjectsPruned */ number, /* outPrunedObjectSizeTotal */ number ]
+    prepareTransaction(cancellable?: Gio.Cancellable | null): { returnType: boolean, outTransactionResume: boolean | null }
+    prune(flags: RepoPruneFlags, depth: number, cancellable?: Gio.Cancellable | null): { returnType: boolean, outObjectsTotal: number, outObjectsPruned: number, outPrunedObjectSizeTotal: number }
     pruneStaticDeltas(commit?: string | null, cancellable?: Gio.Cancellable | null): boolean
     pull(remoteName: string, refsToFetch: string[] | null, flags: RepoPullFlags, progress?: AsyncProgress | null, cancellable?: Gio.Cancellable | null): boolean
     pullOneDir(remoteName: string, dirToPull: string, refsToFetch: string[] | null, flags: RepoPullFlags, progress?: AsyncProgress | null, cancellable?: Gio.Cancellable | null): boolean
     pullWithOptions(remoteNameOrBaseurl: string, options: GLib.Variant, progress?: AsyncProgress | null, cancellable?: Gio.Cancellable | null): boolean
-    queryObjectStorageSize(objtype: ObjectType, sha256: string, cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* outSize */ number ]
-    readCommit(ref: string, cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* outRoot */ Gio.File, /* outCommit */ string ]
-    readCommitDetachedMetadata(checksum: string, cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* outMetadata */ GLib.Variant ]
+    queryObjectStorageSize(objtype: ObjectType, sha256: string, cancellable?: Gio.Cancellable | null): { returnType: boolean, outSize: number }
+    readCommit(ref: string, cancellable?: Gio.Cancellable | null): { returnType: boolean, outRoot: Gio.File, outCommit: string }
+    readCommitDetachedMetadata(checksum: string, cancellable?: Gio.Cancellable | null): { returnType: boolean, outMetadata: GLib.Variant }
     regenerateSummary(additionalMetadata?: GLib.Variant | null, cancellable?: Gio.Cancellable | null): boolean
     remoteAdd(name: string, url: string, options?: GLib.Variant | null, cancellable?: Gio.Cancellable | null): boolean
     remoteChange(sysroot: Gio.File | null, changeop: RepoRemoteChange, name: string, url: string, options?: GLib.Variant | null, cancellable?: Gio.Cancellable | null): boolean
     remoteDelete(name: string, cancellable?: Gio.Cancellable | null): boolean
     remoteFetchSummary(name: string, outSummary?: any | null, outSignatures?: any | null, cancellable?: Gio.Cancellable | null): boolean
     remoteFetchSummaryWithOptions(name: string, options?: GLib.Variant | null, outSummary?: any | null, outSignatures?: any | null, cancellable?: Gio.Cancellable | null): boolean
-    remoteGetGpgVerify(name: string): [ /* returnType */ boolean, /* outGpgVerify */ boolean | null ]
-    remoteGetGpgVerifySummary(name: string): [ /* returnType */ boolean, /* outGpgVerifySummary */ boolean | null ]
-    remoteGetUrl(name: string): [ /* returnType */ boolean, /* outUrl */ string | null ]
+    remoteGetGpgVerify(name: string): { returnType: boolean, outGpgVerify: boolean | null }
+    remoteGetGpgVerifySummary(name: string): { returnType: boolean, outGpgVerifySummary: boolean | null }
+    remoteGetUrl(name: string): { returnType: boolean, outUrl: string | null }
     remoteGpgImport(name: string, sourceStream?: Gio.InputStream | null, keyIds?: string[] | null, outImported?: number | null, cancellable?: Gio.Cancellable | null): boolean
     remoteList(): string[]
-    remoteListRefs(remoteName: string, cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* outAllRefs */ GLib.HashTable ]
-    resolveRev(refspec: string, allowNoent: boolean): [ /* returnType */ boolean, /* outRev */ string ]
-    resolveRevExt(refspec: string, allowNoent: boolean, flags: RepoResolveRevExtFlags): [ /* returnType */ boolean, /* outRev */ string ]
+    remoteListRefs(remoteName: string, cancellable?: Gio.Cancellable | null): { returnType: boolean, outAllRefs: GLib.HashTable }
+    resolveRev(refspec: string, allowNoent: boolean): { returnType: boolean, outRev: string }
+    resolveRevExt(refspec: string, allowNoent: boolean, flags: RepoResolveRevExtFlags): { returnType: boolean, outRev: string }
     scanHardlinks(cancellable?: Gio.Cancellable | null): boolean
     setCacheDir(dfd: number, path: string, cancellable?: Gio.Cancellable | null): boolean
     setDisableFsync(disableFsync: boolean): void
@@ -721,28 +652,28 @@ export class Repo {
     staticDeltaGenerate(opt: StaticDeltaGenerateOpt, from: string, to: string, metadata?: GLib.Variant | null, params?: GLib.Variant | null, cancellable?: Gio.Cancellable | null): boolean
     transactionSetRef(remote: string | null, ref: string, checksum: string): void
     transactionSetRefspec(refspec: string, checksum: string): void
-    traverseCommit(commitChecksum: string, maxdepth: number, cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* outReachable */ GLib.HashTable ]
+    traverseCommit(commitChecksum: string, maxdepth: number, cancellable?: Gio.Cancellable | null): { returnType: boolean, outReachable: GLib.HashTable }
     verifyCommit(commitChecksum: string, keyringdir?: Gio.File | null, extraKeyring?: Gio.File | null, cancellable?: Gio.Cancellable | null): boolean
     verifyCommitExt(commitChecksum: string, keyringdir?: Gio.File | null, extraKeyring?: Gio.File | null, cancellable?: Gio.Cancellable | null): GpgVerifyResult
     verifySummary(remoteName: string, summary: any, signatures: any, cancellable?: Gio.Cancellable | null): GpgVerifyResult
     writeArchiveToMtree(archive: Gio.File, mtree: MutableTree, modifier: RepoCommitModifier | null, autocreateParents: boolean, cancellable?: Gio.Cancellable | null): boolean
-    writeCommit(parent: string | null, subject: string | null, body: string | null, metadata: GLib.Variant | null, root: RepoFile, cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* outCommit */ string ]
+    writeCommit(parent: string | null, subject: string | null, body: string | null, metadata: GLib.Variant | null, root: RepoFile, cancellable?: Gio.Cancellable | null): { returnType: boolean, outCommit: string }
     writeCommitDetachedMetadata(checksum: string, metadata?: GLib.Variant | null, cancellable?: Gio.Cancellable | null): boolean
-    writeCommitWithTime(parent: string | null, subject: string | null, body: string | null, metadata: GLib.Variant | null, root: RepoFile, time: number, cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* outCommit */ string ]
+    writeCommitWithTime(parent: string | null, subject: string | null, body: string | null, metadata: GLib.Variant | null, root: RepoFile, time: number, cancellable?: Gio.Cancellable | null): { returnType: boolean, outCommit: string }
     writeConfig(newConfig: GLib.KeyFile): boolean
-    writeContent(expectedChecksum: string | null, objectInput: Gio.InputStream, length: number, cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* outCsum */ any[] | null ]
+    writeContent(expectedChecksum: string | null, objectInput: Gio.InputStream, length: number, cancellable?: Gio.Cancellable | null): { returnType: boolean, outCsum: any[] | null }
     writeContentAsync(expectedChecksum: string | null, object: Gio.InputStream, length: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    writeContentFinish(result: Gio.AsyncResult): [ /* returnType */ boolean, /* outCsum */ number ]
+    writeContentFinish(result: Gio.AsyncResult): { returnType: boolean, outCsum: number }
     writeContentTrusted(checksum: string, objectInput: Gio.InputStream, length: number, cancellable?: Gio.Cancellable | null): boolean
     writeDfdToMtree(dfd: number, path: string, mtree: MutableTree, modifier?: RepoCommitModifier | null, cancellable?: Gio.Cancellable | null): boolean
     writeDirectoryToMtree(dir: Gio.File, mtree: MutableTree, modifier?: RepoCommitModifier | null, cancellable?: Gio.Cancellable | null): boolean
-    writeMetadata(objtype: ObjectType, expectedChecksum: string | null, object: GLib.Variant, cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* outCsum */ any[] | null ]
+    writeMetadata(objtype: ObjectType, expectedChecksum: string | null, object: GLib.Variant, cancellable?: Gio.Cancellable | null): { returnType: boolean, outCsum: any[] | null }
     writeMetadataAsync(objtype: ObjectType, expectedChecksum: string | null, object: GLib.Variant, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     writeMetadataFinish(result: Gio.AsyncResult, outCsum: number): boolean
     writeMetadataStreamTrusted(objtype: ObjectType, checksum: string, objectInput: Gio.InputStream, length: number, cancellable?: Gio.Cancellable | null): boolean
     writeMetadataTrusted(objtype: ObjectType, checksum: string, variant: GLib.Variant, cancellable?: Gio.Cancellable | null): boolean
-    writeMtree(mtree: MutableTree, cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* outFile */ Gio.File ]
-    /* Methods of GObject.Object */
+    writeMtree(mtree: MutableTree, cancellable?: Gio.Cancellable | null): { returnType: boolean, outFile: Gio.File }
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -764,28 +695,18 @@ export class Repo {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of OSTree.Repo */
+    /* Signals of OSTree-1.0.OSTree.Repo */
     connect(sigName: "gpg-verify-result", callback: (($obj: Repo, checksum: string, result: GpgVerifyResult) => void)): number
-    connect_after(sigName: "gpg-verify-result", callback: (($obj: Repo, checksum: string, result: GpgVerifyResult) => void)): number
+    on(sigName: "gpg-verify-result", callback: (checksum: string, result: GpgVerifyResult) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "gpg-verify-result", callback: (checksum: string, result: GpgVerifyResult) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "gpg-verify-result", callback: (checksum: string, result: GpgVerifyResult) => void): NodeJS.EventEmitter
     emit(sigName: "gpg-verify-result", checksum: string, result: GpgVerifyResult): void
-    on(sigName: "gpg-verify-result", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "gpg-verify-result", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "gpg-verify-result", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Repo, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Repo, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -808,9 +729,9 @@ export class Repo {
 export interface RepoFile_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class RepoFile {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of OSTree.RepoFile */
+    /* Methods of OSTree-1.0.OSTree.RepoFile */
     ensureResolved(): boolean
     getChecksum(): string
     getRepo(): Repo
@@ -823,7 +744,7 @@ export class RepoFile {
     treeGetMetadataChecksum(): string
     treeQueryChild(n: number, attributes: string, flags: Gio.FileQueryInfoFlags, outInfo: Gio.FileInfo, cancellable?: Gio.Cancellable | null): boolean
     treeSetMetadata(checksum: string, metadata: GLib.Variant): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -845,7 +766,7 @@ export class RepoFile {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of Gio.File */
+    /* Methods of Gio-2.0.Gio.File */
     appendTo(flags: Gio.FileCreateFlags, cancellable?: Gio.Cancellable | null): Gio.FileOutputStream
     appendToAsync(flags: Gio.FileCreateFlags, ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     appendToFinish(res: Gio.AsyncResult): Gio.FileOutputStream
@@ -889,19 +810,19 @@ export class RepoFile {
     hasUriScheme(uriScheme: string): boolean
     hash(): number
     isNative(): boolean
-    loadBytes(cancellable?: Gio.Cancellable | null): [ /* returnType */ any, /* etagOut */ string | null ]
+    loadBytes(cancellable?: Gio.Cancellable | null): { returnType: any, etagOut: string | null }
     loadBytesAsync(cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    loadBytesFinish(result: Gio.AsyncResult): [ /* returnType */ any, /* etagOut */ string | null ]
-    loadContents(cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* contents */ any[], /* etagOut */ string | null ]
+    loadBytesFinish(result: Gio.AsyncResult): { returnType: any, etagOut: string | null }
+    loadContents(cancellable?: Gio.Cancellable | null): { returnType: boolean, contents: any[], etagOut: string | null }
     loadContentsAsync(cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    loadContentsFinish(res: Gio.AsyncResult): [ /* returnType */ boolean, /* contents */ any[], /* etagOut */ string | null ]
-    loadPartialContentsFinish(res: Gio.AsyncResult): [ /* returnType */ boolean, /* contents */ any[], /* etagOut */ string | null ]
+    loadContentsFinish(res: Gio.AsyncResult): { returnType: boolean, contents: any[], etagOut: string | null }
+    loadPartialContentsFinish(res: Gio.AsyncResult): { returnType: boolean, contents: any[], etagOut: string | null }
     makeDirectory(cancellable?: Gio.Cancellable | null): boolean
     makeDirectoryAsync(ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     makeDirectoryFinish(result: Gio.AsyncResult): boolean
     makeDirectoryWithParents(cancellable?: Gio.Cancellable | null): boolean
     makeSymbolicLink(symlinkValue: string, cancellable?: Gio.Cancellable | null): boolean
-    measureDiskUsageFinish(result: Gio.AsyncResult): [ /* returnType */ boolean, /* diskUsage */ number | null, /* numDirs */ number | null, /* numFiles */ number | null ]
+    measureDiskUsageFinish(result: Gio.AsyncResult): { returnType: boolean, diskUsage: number | null, numDirs: number | null, numFiles: number | null }
     monitor(flags: Gio.FileMonitorFlags, cancellable?: Gio.Cancellable | null): Gio.FileMonitor
     monitorDirectory(flags: Gio.FileMonitorFlags, cancellable?: Gio.Cancellable | null): Gio.FileMonitor
     monitorFile(flags: Gio.FileMonitorFlags, cancellable?: Gio.Cancellable | null): Gio.FileMonitor
@@ -934,10 +855,10 @@ export class RepoFile {
     readFinish(res: Gio.AsyncResult): Gio.FileInputStream
     replace(etag: string | null, makeBackup: boolean, flags: Gio.FileCreateFlags, cancellable?: Gio.Cancellable | null): Gio.FileOutputStream
     replaceAsync(etag: string | null, makeBackup: boolean, flags: Gio.FileCreateFlags, ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    replaceContents(contents: any[], etag: string | null, makeBackup: boolean, flags: Gio.FileCreateFlags, cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* newEtag */ string | null ]
+    replaceContents(contents: any[], etag: string | null, makeBackup: boolean, flags: Gio.FileCreateFlags, cancellable?: Gio.Cancellable | null): { returnType: boolean, newEtag: string | null }
     replaceContentsAsync(contents: any[], etag: string | null, makeBackup: boolean, flags: Gio.FileCreateFlags, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     replaceContentsBytesAsync(contents: any, etag: string | null, makeBackup: boolean, flags: Gio.FileCreateFlags, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    replaceContentsFinish(res: Gio.AsyncResult): [ /* returnType */ boolean, /* newEtag */ string | null ]
+    replaceContentsFinish(res: Gio.AsyncResult): { returnType: boolean, newEtag: string | null }
     replaceFinish(res: Gio.AsyncResult): Gio.FileOutputStream
     replaceReadwrite(etag: string | null, makeBackup: boolean, flags: Gio.FileCreateFlags, cancellable?: Gio.Cancellable | null): Gio.FileIOStream
     replaceReadwriteAsync(etag: string | null, makeBackup: boolean, flags: Gio.FileCreateFlags, ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
@@ -951,7 +872,7 @@ export class RepoFile {
     setAttributeUint32(attribute: string, value: number, flags: Gio.FileQueryInfoFlags, cancellable?: Gio.Cancellable | null): boolean
     setAttributeUint64(attribute: string, value: number, flags: Gio.FileQueryInfoFlags, cancellable?: Gio.Cancellable | null): boolean
     setAttributesAsync(info: Gio.FileInfo, flags: Gio.FileQueryInfoFlags, ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    setAttributesFinish(result: Gio.AsyncResult): [ /* returnType */ boolean, /* info */ Gio.FileInfo ]
+    setAttributesFinish(result: Gio.AsyncResult): { returnType: boolean, info: Gio.FileInfo }
     setAttributesFromInfo(info: Gio.FileInfo, flags: Gio.FileQueryInfoFlags, cancellable?: Gio.Cancellable | null): boolean
     setDisplayName(displayName: string, cancellable?: Gio.Cancellable | null): Gio.File
     setDisplayNameAsync(displayName: string, ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
@@ -968,114 +889,12 @@ export class RepoFile {
     unmountMountableFinish(result: Gio.AsyncResult): boolean
     unmountMountableWithOperation(flags: Gio.MountUnmountFlags, mountOperation?: Gio.MountOperation | null, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     unmountMountableWithOperationFinish(result: Gio.AsyncResult): boolean
-    /* Virtual methods of OSTree.RepoFile */
-    vfuncAppendTo(flags: Gio.FileCreateFlags, cancellable?: Gio.Cancellable | null): Gio.FileOutputStream
-    vfuncAppendToAsync(flags: Gio.FileCreateFlags, ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    vfuncAppendToFinish(res: Gio.AsyncResult): Gio.FileOutputStream
-    vfuncCopy(destination: Gio.File, flags: Gio.FileCopyFlags, cancellable?: Gio.Cancellable | null, progressCallback?: Gio.FileProgressCallback | null): boolean
-    vfuncCopyAsync(destination: Gio.File, flags: Gio.FileCopyFlags, ioPriority: number, cancellable?: Gio.Cancellable | null): void
-    vfuncCopyFinish(res: Gio.AsyncResult): boolean
-    vfuncCreate(flags: Gio.FileCreateFlags, cancellable?: Gio.Cancellable | null): Gio.FileOutputStream
-    vfuncCreateAsync(flags: Gio.FileCreateFlags, ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    vfuncCreateFinish(res: Gio.AsyncResult): Gio.FileOutputStream
-    vfuncCreateReadwrite(flags: Gio.FileCreateFlags, cancellable?: Gio.Cancellable | null): Gio.FileIOStream
-    vfuncCreateReadwriteAsync(flags: Gio.FileCreateFlags, ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    vfuncCreateReadwriteFinish(res: Gio.AsyncResult): Gio.FileIOStream
-    vfuncDeleteFile(cancellable?: Gio.Cancellable | null): boolean
-    vfuncDeleteFileAsync(ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    vfuncDeleteFileFinish(result: Gio.AsyncResult): boolean
-    vfuncDup(): Gio.File
-    vfuncEjectMountable(flags: Gio.MountUnmountFlags, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    vfuncEjectMountableFinish(result: Gio.AsyncResult): boolean
-    vfuncEjectMountableWithOperation(flags: Gio.MountUnmountFlags, mountOperation?: Gio.MountOperation | null, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    vfuncEjectMountableWithOperationFinish(result: Gio.AsyncResult): boolean
-    vfuncEnumerateChildren(attributes: string, flags: Gio.FileQueryInfoFlags, cancellable?: Gio.Cancellable | null): Gio.FileEnumerator
-    vfuncEnumerateChildrenAsync(attributes: string, flags: Gio.FileQueryInfoFlags, ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    vfuncEnumerateChildrenFinish(res: Gio.AsyncResult): Gio.FileEnumerator
-    vfuncEqual(file2: Gio.File): boolean
-    vfuncFindEnclosingMount(cancellable?: Gio.Cancellable | null): Gio.Mount
-    vfuncFindEnclosingMountAsync(ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    vfuncFindEnclosingMountFinish(res: Gio.AsyncResult): Gio.Mount
-    vfuncGetBasename(): string | null
-    vfuncGetChildForDisplayName(displayName: string): Gio.File
-    vfuncGetParent(): Gio.File | null
-    vfuncGetParseName(): string
-    vfuncGetPath(): string | null
-    vfuncGetRelativePath(descendant: Gio.File): string | null
-    vfuncGetUri(): string
-    vfuncGetUriScheme(): string | null
-    vfuncHasUriScheme(uriScheme: string): boolean
-    vfuncHash(): number
-    vfuncIsNative(): boolean
-    vfuncMakeDirectory(cancellable?: Gio.Cancellable | null): boolean
-    vfuncMakeDirectoryAsync(ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    vfuncMakeDirectoryFinish(result: Gio.AsyncResult): boolean
-    vfuncMakeSymbolicLink(symlinkValue: string, cancellable?: Gio.Cancellable | null): boolean
-    vfuncMeasureDiskUsageFinish(result: Gio.AsyncResult): [ /* returnType */ boolean, /* diskUsage */ number | null, /* numDirs */ number | null, /* numFiles */ number | null ]
-    vfuncMonitorDir(flags: Gio.FileMonitorFlags, cancellable?: Gio.Cancellable | null): Gio.FileMonitor
-    vfuncMonitorFile(flags: Gio.FileMonitorFlags, cancellable?: Gio.Cancellable | null): Gio.FileMonitor
-    vfuncMountEnclosingVolume(flags: Gio.MountMountFlags, mountOperation?: Gio.MountOperation | null, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    vfuncMountEnclosingVolumeFinish(result: Gio.AsyncResult): boolean
-    vfuncMountMountable(flags: Gio.MountMountFlags, mountOperation?: Gio.MountOperation | null, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    vfuncMountMountableFinish(result: Gio.AsyncResult): Gio.File
-    vfuncMove(destination: Gio.File, flags: Gio.FileCopyFlags, cancellable?: Gio.Cancellable | null, progressCallback?: Gio.FileProgressCallback | null): boolean
-    vfuncOpenReadwrite(cancellable?: Gio.Cancellable | null): Gio.FileIOStream
-    vfuncOpenReadwriteAsync(ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    vfuncOpenReadwriteFinish(res: Gio.AsyncResult): Gio.FileIOStream
-    vfuncPollMountable(cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    vfuncPollMountableFinish(result: Gio.AsyncResult): boolean
-    vfuncPrefixMatches(file: Gio.File): boolean
-    vfuncQueryFilesystemInfo(attributes: string, cancellable?: Gio.Cancellable | null): Gio.FileInfo
-    vfuncQueryFilesystemInfoAsync(attributes: string, ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    vfuncQueryFilesystemInfoFinish(res: Gio.AsyncResult): Gio.FileInfo
-    vfuncQueryInfo(attributes: string, flags: Gio.FileQueryInfoFlags, cancellable?: Gio.Cancellable | null): Gio.FileInfo
-    vfuncQueryInfoAsync(attributes: string, flags: Gio.FileQueryInfoFlags, ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    vfuncQueryInfoFinish(res: Gio.AsyncResult): Gio.FileInfo
-    vfuncQuerySettableAttributes(cancellable?: Gio.Cancellable | null): Gio.FileAttributeInfoList
-    vfuncQueryWritableNamespaces(cancellable?: Gio.Cancellable | null): Gio.FileAttributeInfoList
-    vfuncReadAsync(ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    vfuncReadFinish(res: Gio.AsyncResult): Gio.FileInputStream
-    vfuncReadFn(cancellable?: Gio.Cancellable | null): Gio.FileInputStream
-    vfuncReplace(etag: string | null, makeBackup: boolean, flags: Gio.FileCreateFlags, cancellable?: Gio.Cancellable | null): Gio.FileOutputStream
-    vfuncReplaceAsync(etag: string | null, makeBackup: boolean, flags: Gio.FileCreateFlags, ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    vfuncReplaceFinish(res: Gio.AsyncResult): Gio.FileOutputStream
-    vfuncReplaceReadwrite(etag: string | null, makeBackup: boolean, flags: Gio.FileCreateFlags, cancellable?: Gio.Cancellable | null): Gio.FileIOStream
-    vfuncReplaceReadwriteAsync(etag: string | null, makeBackup: boolean, flags: Gio.FileCreateFlags, ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    vfuncReplaceReadwriteFinish(res: Gio.AsyncResult): Gio.FileIOStream
-    vfuncResolveRelativePath(relativePath: string): Gio.File
-    vfuncSetAttribute(attribute: string, type: Gio.FileAttributeType, valueP: object | null, flags: Gio.FileQueryInfoFlags, cancellable?: Gio.Cancellable | null): boolean
-    vfuncSetAttributesAsync(info: Gio.FileInfo, flags: Gio.FileQueryInfoFlags, ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    vfuncSetAttributesFinish(result: Gio.AsyncResult): [ /* returnType */ boolean, /* info */ Gio.FileInfo ]
-    vfuncSetAttributesFromInfo(info: Gio.FileInfo, flags: Gio.FileQueryInfoFlags, cancellable?: Gio.Cancellable | null): boolean
-    vfuncSetDisplayName(displayName: string, cancellable?: Gio.Cancellable | null): Gio.File
-    vfuncSetDisplayNameAsync(displayName: string, ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    vfuncSetDisplayNameFinish(res: Gio.AsyncResult): Gio.File
-    vfuncStartMountable(flags: Gio.DriveStartFlags, startOperation?: Gio.MountOperation | null, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    vfuncStartMountableFinish(result: Gio.AsyncResult): boolean
-    vfuncStopMountable(flags: Gio.MountUnmountFlags, mountOperation?: Gio.MountOperation | null, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    vfuncStopMountableFinish(result: Gio.AsyncResult): boolean
-    vfuncTrash(cancellable?: Gio.Cancellable | null): boolean
-    vfuncTrashAsync(ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    vfuncTrashFinish(result: Gio.AsyncResult): boolean
-    vfuncUnmountMountable(flags: Gio.MountUnmountFlags, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    vfuncUnmountMountableFinish(result: Gio.AsyncResult): boolean
-    vfuncUnmountMountableWithOperation(flags: Gio.MountUnmountFlags, mountOperation?: Gio.MountOperation | null, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    vfuncUnmountMountableWithOperationFinish(result: Gio.AsyncResult): boolean
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: RepoFile, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: RepoFile, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -1091,7 +910,7 @@ export class RepoFile {
     static newForCommandlineArgAndCwd(arg: string, cwd: string): Gio.File
     static newForPath(path: string): Gio.File
     static newForUri(uri: string): Gio.File
-    static newTmp(tmpl?: string | null): [ /* returnType */ Gio.File, /* iostream */ Gio.FileIOStream ]
+    static newTmp(tmpl?: string | null): { returnType: Gio.File, iostream: Gio.FileIOStream }
     static parseName(parseName: string): Gio.File
     static $gtype: GObject.Type
 }
@@ -1099,16 +918,16 @@ export interface SePolicy_ConstructProps extends GObject.Object_ConstructProps {
     path?: Gio.File
 }
 export class SePolicy {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of OSTree.SePolicy */
+    /* Methods of OSTree-1.0.OSTree.SePolicy */
     getCsum(): string
-    getLabel(relpath: string, unixMode: number, cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* outLabel */ string | null ]
+    getLabel(relpath: string, unixMode: number, cancellable?: Gio.Cancellable | null): { returnType: boolean, outLabel: string | null }
     getName(): string
     getPath(): Gio.File
-    restorecon(path: string, info: Gio.FileInfo | null, target: Gio.File, flags: SePolicyRestoreconFlags, cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* outNewLabel */ string | null ]
+    restorecon(path: string, info: Gio.FileInfo | null, target: Gio.File, flags: SePolicyRestoreconFlags, cancellable?: Gio.Cancellable | null): { returnType: boolean, outNewLabel: string | null }
     setfscreatecon(path: string, mode: number): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -1130,25 +949,14 @@ export class SePolicy {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of Gio.Initable */
+    /* Methods of Gio-2.0.Gio.Initable */
     init(cancellable?: Gio.Cancellable | null): boolean
-    /* Virtual methods of OSTree.SePolicy */
-    vfuncInit(cancellable?: Gio.Cancellable | null): boolean
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: SePolicy, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: SePolicy, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -1169,11 +977,11 @@ export interface Sysroot_ConstructProps extends GObject.Object_ConstructProps {
     path?: Gio.File
 }
 export class Sysroot {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of OSTree.Sysroot */
+    /* Methods of OSTree-1.0.OSTree.Sysroot */
     cleanup(cancellable?: Gio.Cancellable | null): boolean
-    deployTree(osname: string | null, revision: string, origin?: GLib.KeyFile | null, providedMergeDeployment?: Deployment | null, overrideKernelArgv?: string[] | null, cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* outNewDeployment */ Deployment ]
+    deployTree(osname: string | null, revision: string, origin?: GLib.KeyFile | null, providedMergeDeployment?: Deployment | null, overrideKernelArgv?: string[] | null, cancellable?: Gio.Cancellable | null): { returnType: boolean, outNewDeployment: Deployment }
     deploymentSetKargs(deployment: Deployment, newKargs: string[], cancellable?: Gio.Cancellable | null): boolean
     deploymentSetMutable(deployment: Deployment, isMutable: boolean, cancellable?: Gio.Cancellable | null): boolean
     deploymentUnlock(deployment: Deployment, unlockedState: DeploymentUnlockedState, cancellable?: Gio.Cancellable | null): boolean
@@ -1186,7 +994,7 @@ export class Sysroot {
     getFd(): number
     getMergeDeployment(osname?: string | null): Deployment
     getPath(): Gio.File
-    getRepo(cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* outRepo */ Repo ]
+    getRepo(cancellable?: Gio.Cancellable | null): { returnType: boolean, outRepo: Repo }
     getSubbootversion(): number
     initOsname(osname: string, cancellable?: Gio.Cancellable | null): boolean
     load(cancellable?: Gio.Cancellable | null): boolean
@@ -1197,12 +1005,12 @@ export class Sysroot {
     originNewFromRefspec(refspec: string): GLib.KeyFile
     prepareCleanup(cancellable?: Gio.Cancellable | null): boolean
     simpleWriteDeployment(osname: string | null, newDeployment: Deployment, mergeDeployment: Deployment | null, flags: SysrootSimpleWriteDeploymentFlags, cancellable?: Gio.Cancellable | null): boolean
-    tryLock(): [ /* returnType */ boolean, /* outAcquired */ boolean ]
+    tryLock(): { returnType: boolean, outAcquired: boolean }
     unload(): void
     unlock(): void
     writeDeployments(newDeployments: Deployment[], cancellable?: Gio.Cancellable | null): boolean
     writeOriginFile(deployment: Deployment, newOrigin?: GLib.KeyFile | null, cancellable?: Gio.Cancellable | null): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -1224,21 +1032,12 @@ export class Sysroot {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Sysroot, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Sysroot, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -1261,17 +1060,17 @@ export interface SysrootUpgrader_ConstructProps extends GObject.Object_Construct
     sysroot?: Sysroot
 }
 export class SysrootUpgrader {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of OSTree.SysrootUpgrader */
+    /* Methods of OSTree-1.0.OSTree.SysrootUpgrader */
     deploy(cancellable?: Gio.Cancellable | null): boolean
     dupOrigin(): GLib.KeyFile
     getOrigin(): GLib.KeyFile
     getOriginDescription(): string
-    pull(flags: RepoPullFlags, upgraderFlags: SysrootUpgraderPullFlags, progress?: AsyncProgress | null, cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* outChanged */ boolean ]
+    pull(flags: RepoPullFlags, upgraderFlags: SysrootUpgraderPullFlags, progress?: AsyncProgress | null, cancellable?: Gio.Cancellable | null): { returnType: boolean, outChanged: boolean }
     pullOneDir(dirToPull: string, flags: RepoPullFlags, upgraderFlags: SysrootUpgraderPullFlags, progress: AsyncProgress, outChanged: boolean, cancellable?: Gio.Cancellable | null): boolean
     setOrigin(origin?: GLib.KeyFile | null, cancellable?: Gio.Cancellable | null): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -1293,25 +1092,14 @@ export class SysrootUpgrader {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of Gio.Initable */
+    /* Methods of Gio-2.0.Gio.Initable */
     init(cancellable?: Gio.Cancellable | null): boolean
-    /* Virtual methods of OSTree.SysrootUpgrader */
-    vfuncInit(cancellable?: Gio.Cancellable | null): boolean
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: SysrootUpgrader, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: SysrootUpgrader, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -1331,7 +1119,7 @@ export class SysrootUpgrader {
     static $gtype: GObject.Type
 }
 export abstract class AsyncProgressClass {
-    /* Fields of OSTree.AsyncProgressClass */
+    /* Fields of OSTree-1.0.OSTree.AsyncProgressClass */
     parentClass: GObject.ObjectClass
     changed: (self: AsyncProgress) => void
     static name: string
@@ -1343,7 +1131,7 @@ export class BootloaderGrub2 {
     static name: string
 }
 export class BootloaderInterface {
-    /* Fields of OSTree.BootloaderInterface */
+    /* Fields of OSTree-1.0.OSTree.BootloaderInterface */
     gIface: GObject.TypeInterface
     query: (bootloader: Bootloader, outIsActive: boolean, cancellable: Gio.Cancellable) => boolean
     getName: (self: Bootloader) => string
@@ -1358,7 +1146,7 @@ export class BootloaderUboot {
     static name: string
 }
 export abstract class ChecksumInputStreamClass {
-    /* Fields of OSTree.ChecksumInputStreamClass */
+    /* Fields of OSTree-1.0.OSTree.ChecksumInputStreamClass */
     parentClass: Gio.FilterInputStreamClass
     static name: string
 }
@@ -1366,7 +1154,7 @@ export class ChecksumInputStreamPrivate {
     static name: string
 }
 export class CmdPrivateVTable {
-    /* Fields of OSTree.CmdPrivateVTable */
+    /* Fields of OSTree-1.0.OSTree.CmdPrivateVTable */
     ostreeGenerateGrub2Config: (sysroot: Sysroot, bootversion: number, targetFd: number, cancellable: Gio.Cancellable) => boolean
     ostreeStaticDeltaDump: (repo: Repo, deltaId: string, cancellable: Gio.Cancellable) => boolean
     ostreeStaticDeltaQueryExists: (repo: Repo, deltaId: string, outExists: boolean, cancellable: Gio.Cancellable) => boolean
@@ -1374,7 +1162,7 @@ export class CmdPrivateVTable {
     static name: string
 }
 export class DiffItem {
-    /* Fields of OSTree.DiffItem */
+    /* Fields of OSTree-1.0.OSTree.DiffItem */
     refcount: number
     src: Gio.File
     target: Gio.File
@@ -1382,7 +1170,7 @@ export class DiffItem {
     targetInfo: Gio.FileInfo
     srcChecksum: string
     targetChecksum: string
-    /* Methods of OSTree.DiffItem */
+    /* Methods of OSTree-1.0.OSTree.DiffItem */
     ref(): DiffItem
     unref(): void
     static name: string
@@ -1391,12 +1179,12 @@ export class GpgVerifier {
     static name: string
 }
 export class LibarchiveInputStream {
-    /* Fields of OSTree.LibarchiveInputStream */
+    /* Fields of OSTree-1.0.OSTree.LibarchiveInputStream */
     parentInstance: Gio.InputStream
     static name: string
 }
 export class LibarchiveInputStreamClass {
-    /* Fields of OSTree.LibarchiveInputStreamClass */
+    /* Fields of OSTree-1.0.OSTree.LibarchiveInputStreamClass */
     parentClass: Gio.InputStreamClass
     static name: string
 }
@@ -1407,7 +1195,7 @@ export class LzmaCompressor {
     static name: string
 }
 export class LzmaCompressorClass {
-    /* Fields of OSTree.LzmaCompressorClass */
+    /* Fields of OSTree-1.0.OSTree.LzmaCompressorClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
@@ -1415,23 +1203,23 @@ export class LzmaDecompressor {
     static name: string
 }
 export class LzmaDecompressorClass {
-    /* Fields of OSTree.LzmaDecompressorClass */
+    /* Fields of OSTree-1.0.OSTree.LzmaDecompressorClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
 export abstract class MutableTreeClass {
-    /* Fields of OSTree.MutableTreeClass */
+    /* Fields of OSTree-1.0.OSTree.MutableTreeClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
 export class MutableTreeIter {
-    /* Fields of OSTree.MutableTreeIter */
+    /* Fields of OSTree-1.0.OSTree.MutableTreeIter */
     inFiles: boolean
     iter: GLib.HashTableIter
     static name: string
 }
 export class RepoCheckoutAtOptions {
-    /* Fields of OSTree.RepoCheckoutAtOptions */
+    /* Fields of OSTree-1.0.OSTree.RepoCheckoutAtOptions */
     mode: RepoCheckoutMode
     overwriteMode: RepoCheckoutOverwriteMode
     enableUncompressedCache: boolean
@@ -1446,7 +1234,7 @@ export class RepoCheckoutAtOptions {
     static name: string
 }
 export class RepoCheckoutOptions {
-    /* Fields of OSTree.RepoCheckoutOptions */
+    /* Fields of OSTree-1.0.OSTree.RepoCheckoutOptions */
     mode: RepoCheckoutMode
     overwriteMode: RepoCheckoutOverwriteMode
     enableUncompressedCache: number
@@ -1461,7 +1249,7 @@ export class RepoCheckoutOptions {
     static name: string
 }
 export class RepoCommitModifier {
-    /* Methods of OSTree.RepoCommitModifier */
+    /* Methods of OSTree-1.0.OSTree.RepoCommitModifier */
     ref(): RepoCommitModifier
     setDevinoCache(cache: RepoDevInoCache): void
     setSepolicy(sepolicy?: SePolicy | null): void
@@ -1474,14 +1262,14 @@ export class RepoCommitModifier {
     static new(flags: RepoCommitModifierFlags, commitFilter: RepoCommitFilter | null): RepoCommitModifier
 }
 export class RepoCommitTraverseIter {
-    /* Fields of OSTree.RepoCommitTraverseIter */
+    /* Fields of OSTree-1.0.OSTree.RepoCommitTraverseIter */
     initialized: boolean
     dummy: object[]
     dummyChecksumData: number[]
-    /* Methods of OSTree.RepoCommitTraverseIter */
+    /* Methods of OSTree-1.0.OSTree.RepoCommitTraverseIter */
     clear(): void
-    getDir(): [ /* outName */ string, /* outContentChecksum */ string, /* outMetaChecksum */ string ]
-    getFile(): [ /* outName */ string, /* outChecksum */ string ]
+    getDir(): { outName: string, outContentChecksum: string, outMetaChecksum: string }
+    getFile(): { outName: string, outChecksum: string }
     initCommit(repo: Repo, commit: GLib.Variant, flags: RepoCommitTraverseFlags): boolean
     initDirtree(repo: Repo, dirtree: GLib.Variant, flags: RepoCommitTraverseFlags): boolean
     next(cancellable?: Gio.Cancellable | null): RepoCommitIterResult
@@ -1490,7 +1278,7 @@ export class RepoCommitTraverseIter {
     static cleanup(p?: object | null): void
 }
 export class RepoDevInoCache {
-    /* Methods of OSTree.RepoDevInoCache */
+    /* Methods of OSTree-1.0.OSTree.RepoDevInoCache */
     ref(): RepoDevInoCache
     unref(): void
     static name: string
@@ -1500,7 +1288,7 @@ export class RepoDevInoCache {
     static new(): RepoDevInoCache
 }
 export class RepoExportArchiveOptions {
-    /* Fields of OSTree.RepoExportArchiveOptions */
+    /* Fields of OSTree-1.0.OSTree.RepoExportArchiveOptions */
     disableXattrs: number
     reserved: number
     timestampSecs: number
@@ -1510,7 +1298,7 @@ export class RepoExportArchiveOptions {
     static name: string
 }
 export abstract class RepoFileClass {
-    /* Fields of OSTree.RepoFileClass */
+    /* Fields of OSTree-1.0.OSTree.RepoFileClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
@@ -1518,12 +1306,12 @@ export class RepoFileEnumerator {
     static name: string
 }
 export class RepoFileEnumeratorClass {
-    /* Fields of OSTree.RepoFileEnumeratorClass */
+    /* Fields of OSTree-1.0.OSTree.RepoFileEnumeratorClass */
     parentClass: Gio.FileEnumeratorClass
     static name: string
 }
 export class RepoImportArchiveOptions {
-    /* Fields of OSTree.RepoImportArchiveOptions */
+    /* Fields of OSTree-1.0.OSTree.RepoImportArchiveOptions */
     ignoreUnsupportedContent: number
     autocreateParents: number
     useOstreeConvention: number
@@ -1534,7 +1322,7 @@ export class RepoImportArchiveOptions {
     static name: string
 }
 export class RepoTransactionStats {
-    /* Fields of OSTree.RepoTransactionStats */
+    /* Fields of OSTree-1.0.OSTree.RepoTransactionStats */
     metadataObjectsTotal: number
     metadataObjectsWritten: number
     contentObjectsTotal: number
@@ -1547,7 +1335,7 @@ export class RepoTransactionStats {
     static name: string
 }
 export class RollsumMatches {
-    /* Fields of OSTree.RollsumMatches */
+    /* Fields of OSTree-1.0.OSTree.RollsumMatches */
     fromRollsums: GLib.HashTable
     toRollsums: GLib.HashTable
     crcmatches: number

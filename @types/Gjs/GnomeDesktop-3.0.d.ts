@@ -77,9 +77,9 @@ export interface IdleMonitorWatchFunc {
 export interface BG_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class BG {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GnomeDesktop.BG */
+    /* Methods of GnomeDesktop-3.0.GnomeDesktop.BG */
     changes_with_time(): boolean
     create_frame_thumbnail(factory: DesktopThumbnailFactory, screen: Gdk.Screen, dest_width: number, dest_height: number, frame_num: number): GdkPixbuf.Pixbuf
     create_surface(window: Gdk.Window, width: number, height: number): cairo.Surface
@@ -96,7 +96,7 @@ export class BG {
     set_filename(filename: string): void
     set_placement(placement: GDesktopEnums.BackgroundStyle): void
     set_rgba(type: GDesktopEnums.BackgroundShading, primary: Gdk.RGBA, secondary: Gdk.RGBA): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -118,7 +118,7 @@ export class BG {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -126,14 +126,14 @@ export class BG {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GnomeDesktop.BG */
+    /* Signals of GnomeDesktop-3.0.GnomeDesktop.BG */
     connect(sigName: "changed", callback: (($obj: BG) => void)): number
     connect_after(sigName: "changed", callback: (($obj: BG) => void)): number
     emit(sigName: "changed"): void
     connect(sigName: "transitioned", callback: (($obj: BG) => void)): number
     connect_after(sigName: "transitioned", callback: (($obj: BG) => void)): number
     emit(sigName: "transitioned"): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: BG, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: BG, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -153,18 +153,18 @@ export interface BGCrossfade_ConstructProps extends GObject.Object_ConstructProp
     width?: number
 }
 export class BGCrossfade {
-    /* Fields of GnomeDesktop.BGCrossfade */
+    /* Fields of GnomeDesktop-3.0.GnomeDesktop.BGCrossfade */
     parent_object: GObject.Object
     priv: BGCrossfadePrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GnomeDesktop.BGCrossfade */
+    /* Methods of GnomeDesktop-3.0.GnomeDesktop.BGCrossfade */
     is_started(): boolean
     set_end_surface(surface: cairo.Surface): boolean
     set_start_surface(surface: cairo.Surface): boolean
     start(window: Gdk.Window): void
     stop(): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -186,9 +186,9 @@ export class BGCrossfade {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GnomeDesktop.BGCrossfade */
+    /* Virtual methods of GnomeDesktop-3.0.GnomeDesktop.BGCrossfade */
     vfunc_finished(window: Gdk.Window): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -196,11 +196,11 @@ export class BGCrossfade {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GnomeDesktop.BGCrossfade */
+    /* Signals of GnomeDesktop-3.0.GnomeDesktop.BGCrossfade */
     connect(sigName: "finished", callback: (($obj: BGCrossfade, window: GObject.Object) => void)): number
     connect_after(sigName: "finished", callback: (($obj: BGCrossfade, window: GObject.Object) => void)): number
     emit(sigName: "finished", window: GObject.Object): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: BGCrossfade, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: BGCrossfade, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -219,16 +219,16 @@ export interface BGSlideShow_ConstructProps extends GObject.Object_ConstructProp
     file?: Gio.File
 }
 export class BGSlideShow {
-    /* Properties of GnomeDesktop.BGSlideShow */
+    /* Properties of GnomeDesktop-3.0.GnomeDesktop.BGSlideShow */
     readonly has_multiple_sizes: boolean
     readonly start_time: number
     readonly total_duration: number
-    /* Fields of GnomeDesktop.BGSlideShow */
+    /* Fields of GnomeDesktop-3.0.GnomeDesktop.BGSlideShow */
     parent_object: GObject.Object
     priv: BGSlideShowPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GnomeDesktop.BGSlideShow */
+    /* Methods of GnomeDesktop-3.0.GnomeDesktop.BGSlideShow */
     get_current_slide(width: number, height: number): [ /* progress */ number | null, /* duration */ number | null, /* is_fixed */ boolean | null, /* file1 */ string | null, /* file2 */ string | null ]
     get_has_multiple_sizes(): boolean
     get_num_slides(): number
@@ -237,7 +237,7 @@ export class BGSlideShow {
     get_total_duration(): number
     load(): boolean
     load_async(cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -259,7 +259,7 @@ export class BGSlideShow {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -267,7 +267,7 @@ export class BGSlideShow {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: BGSlideShow, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: BGSlideShow, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -291,19 +291,19 @@ export class BGSlideShow {
 export interface DesktopThumbnailFactory_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class DesktopThumbnailFactory {
-    /* Fields of GnomeDesktop.DesktopThumbnailFactory */
+    /* Fields of GnomeDesktop-3.0.GnomeDesktop.DesktopThumbnailFactory */
     parent: GObject.Object
     priv: DesktopThumbnailFactoryPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GnomeDesktop.DesktopThumbnailFactory */
+    /* Methods of GnomeDesktop-3.0.GnomeDesktop.DesktopThumbnailFactory */
     can_thumbnail(uri: string, mime_type: string, mtime: number): boolean
     create_failed_thumbnail(uri: string, mtime: number): void
     generate_thumbnail(uri: string, mime_type: string): GdkPixbuf.Pixbuf
     has_valid_failed_thumbnail(uri: string, mtime: number): boolean
     lookup(uri: string, mtime: number): string
     save_thumbnail(thumbnail: GdkPixbuf.Pixbuf, uri: string, original_mtime: number): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -325,7 +325,7 @@ export class DesktopThumbnailFactory {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -333,7 +333,7 @@ export class DesktopThumbnailFactory {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: DesktopThumbnailFactory, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: DesktopThumbnailFactory, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -351,17 +351,17 @@ export class DesktopThumbnailFactory {
 export interface IdleMonitor_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class IdleMonitor {
-    /* Fields of GnomeDesktop.IdleMonitor */
+    /* Fields of GnomeDesktop-3.0.GnomeDesktop.IdleMonitor */
     parent: GObject.Object
     priv: IdleMonitorPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GnomeDesktop.IdleMonitor */
+    /* Methods of GnomeDesktop-3.0.GnomeDesktop.IdleMonitor */
     add_idle_watch(interval_msec: number, callback: IdleMonitorWatchFunc | null): number
     add_user_active_watch(callback: IdleMonitorWatchFunc | null): number
     get_idletime(): number
     remove_watch(id: number): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -383,11 +383,11 @@ export class IdleMonitor {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of Gio.Initable */
+    /* Methods of Gio-2.0.Gio.Initable */
     init(cancellable?: Gio.Cancellable | null): boolean
-    /* Virtual methods of GnomeDesktop.IdleMonitor */
+    /* Virtual methods of GnomeDesktop-3.0.GnomeDesktop.IdleMonitor */
     vfunc_init(cancellable?: Gio.Cancellable | null): boolean
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -395,7 +395,7 @@ export class IdleMonitor {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: IdleMonitor, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: IdleMonitor, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -414,14 +414,14 @@ export class IdleMonitor {
 export interface PnpIds_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class PnpIds {
-    /* Fields of GnomeDesktop.PnpIds */
+    /* Fields of GnomeDesktop-3.0.GnomeDesktop.PnpIds */
     parent: GObject.Object
     priv: PnpIdsPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GnomeDesktop.PnpIds */
+    /* Methods of GnomeDesktop-3.0.GnomeDesktop.PnpIds */
     get_pnp_id(pnp_id: string): string
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -443,7 +443,7 @@ export class PnpIds {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -451,7 +451,7 @@ export class PnpIds {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: PnpIds, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: PnpIds, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -470,11 +470,11 @@ export interface RRConfig_ConstructProps extends GObject.Object_ConstructProps {
     screen?: RRScreen
 }
 export class RRConfig {
-    /* Fields of GnomeDesktop.RRConfig */
+    /* Fields of GnomeDesktop-3.0.GnomeDesktop.RRConfig */
     parent: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GnomeDesktop.RRConfig */
+    /* Methods of GnomeDesktop-3.0.GnomeDesktop.RRConfig */
     applicable(screen: RRScreen): boolean
     apply(screen: RRScreen): boolean
     apply_persistent(screen: RRScreen): boolean
@@ -486,7 +486,7 @@ export class RRConfig {
     match(config2: RRConfig): boolean
     sanitize(): void
     set_clone(clone: boolean): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -508,7 +508,7 @@ export class RRConfig {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -516,7 +516,7 @@ export class RRConfig {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: RRConfig, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: RRConfig, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -534,11 +534,11 @@ export class RRConfig {
 export interface RROutputInfo_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class RROutputInfo {
-    /* Fields of GnomeDesktop.RROutputInfo */
+    /* Fields of GnomeDesktop-3.0.GnomeDesktop.RROutputInfo */
     parent: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GnomeDesktop.RROutputInfo */
+    /* Methods of GnomeDesktop-3.0.GnomeDesktop.RROutputInfo */
     get_aspect_ratio(): number
     get_display_name(): string
     get_geometry(): [ /* x */ number | null, /* y */ number | null, /* width */ number | null, /* height */ number | null ]
@@ -562,7 +562,7 @@ export class RROutputInfo {
     set_rotation(rotation: RRRotation): void
     set_underscanning(underscanning: boolean): void
     supports_rotation(rotation: RRRotation): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -584,7 +584,7 @@ export class RROutputInfo {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -592,7 +592,7 @@ export class RROutputInfo {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: RROutputInfo, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: RROutputInfo, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -610,14 +610,14 @@ export interface RRScreen_ConstructProps extends GObject.Object_ConstructProps {
     gdk_screen?: Gdk.Screen
 }
 export class RRScreen {
-    /* Properties of GnomeDesktop.RRScreen */
+    /* Properties of GnomeDesktop-3.0.GnomeDesktop.RRScreen */
     dpms_mode: RRDpmsModeType
-    /* Fields of GnomeDesktop.RRScreen */
+    /* Fields of GnomeDesktop-3.0.GnomeDesktop.RRScreen */
     parent: GObject.Object
     priv: RRScreenPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GnomeDesktop.RRScreen */
+    /* Methods of GnomeDesktop-3.0.GnomeDesktop.RRScreen */
     get_crtc_by_id(id: number): RRCrtc
     get_dpms_mode(): [ /* returnType */ boolean, /* mode */ RRDpmsMode ]
     get_output_by_id(id: number): RROutput
@@ -629,7 +629,7 @@ export class RRScreen {
     list_outputs(): RROutput[]
     refresh(): boolean
     set_dpms_mode(mode: RRDpmsMode): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -651,20 +651,20 @@ export class RRScreen {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of Gio.AsyncInitable */
+    /* Methods of Gio-2.0.Gio.AsyncInitable */
     init_async(io_priority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     init_finish(res: Gio.AsyncResult): boolean
     new_finish(res: Gio.AsyncResult): GObject.Object
-    /* Methods of Gio.Initable */
+    /* Methods of Gio-2.0.Gio.Initable */
     init(cancellable?: Gio.Cancellable | null): boolean
-    /* Virtual methods of GnomeDesktop.RRScreen */
+    /* Virtual methods of GnomeDesktop-3.0.GnomeDesktop.RRScreen */
     vfunc_changed(): void
     vfunc_output_connected(output: RROutput): void
     vfunc_output_disconnected(output: RROutput): void
     vfunc_init_async(io_priority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     vfunc_init_finish(res: Gio.AsyncResult): boolean
     vfunc_init(cancellable?: Gio.Cancellable | null): boolean
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -672,7 +672,7 @@ export class RRScreen {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GnomeDesktop.RRScreen */
+    /* Signals of GnomeDesktop-3.0.GnomeDesktop.RRScreen */
     connect(sigName: "changed", callback: (($obj: RRScreen) => void)): number
     connect_after(sigName: "changed", callback: (($obj: RRScreen) => void)): number
     emit(sigName: "changed"): void
@@ -682,7 +682,7 @@ export class RRScreen {
     connect(sigName: "output-disconnected", callback: (($obj: RRScreen, output?: object | null) => void)): number
     connect_after(sigName: "output-disconnected", callback: (($obj: RRScreen, output?: object | null) => void)): number
     emit(sigName: "output-disconnected", output?: object | null): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: RRScreen, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: RRScreen, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -707,20 +707,20 @@ export interface WallClock_ConstructProps extends GObject.Object_ConstructProps 
     time_only?: boolean
 }
 export class WallClock {
-    /* Properties of GnomeDesktop.WallClock */
+    /* Properties of GnomeDesktop-3.0.GnomeDesktop.WallClock */
     readonly clock: string
     time_only: boolean
     readonly timezone: GLib.TimeZone
-    /* Fields of GnomeDesktop.WallClock */
+    /* Fields of GnomeDesktop-3.0.GnomeDesktop.WallClock */
     parent_object: GObject.Object
     priv: WallClockPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GnomeDesktop.WallClock */
+    /* Methods of GnomeDesktop-3.0.GnomeDesktop.WallClock */
     get_clock(): string
     get_timezone(): GLib.TimeZone
     string_for_datetime(now: GLib.DateTime, clock_format: GDesktopEnums.ClockFormat, show_weekday: boolean, show_full_date: boolean, show_seconds: boolean): string
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -742,7 +742,7 @@ export class WallClock {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -750,7 +750,7 @@ export class WallClock {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: WallClock, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: WallClock, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -774,12 +774,12 @@ export class WallClock {
 export interface XkbInfo_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class XkbInfo {
-    /* Fields of GnomeDesktop.XkbInfo */
+    /* Fields of GnomeDesktop-3.0.GnomeDesktop.XkbInfo */
     parent_object: GObject.Object
     priv: XkbInfoPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GnomeDesktop.XkbInfo */
+    /* Methods of GnomeDesktop-3.0.GnomeDesktop.XkbInfo */
     description_for_group(group_id: string): string
     description_for_option(group_id: string, id: string): string
     get_all_layouts(): string[]
@@ -789,7 +789,7 @@ export class XkbInfo {
     get_layouts_for_country(country_code: string): string[]
     get_layouts_for_language(language_code: string): string[]
     get_options_for_group(group_id: string): string[]
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -811,7 +811,7 @@ export class XkbInfo {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -819,7 +819,7 @@ export class XkbInfo {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: XkbInfo, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: XkbInfo, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -838,7 +838,7 @@ export abstract class BGClass {
     static name: string
 }
 export abstract class BGCrossfadeClass {
-    /* Fields of GnomeDesktop.BGCrossfadeClass */
+    /* Fields of GnomeDesktop-3.0.GnomeDesktop.BGCrossfadeClass */
     parent_class: GObject.ObjectClass
     finished: (fade: BGCrossfade, window: Gdk.Window) => void
     static name: string
@@ -847,7 +847,7 @@ export class BGCrossfadePrivate {
     static name: string
 }
 export abstract class BGSlideShowClass {
-    /* Fields of GnomeDesktop.BGSlideShowClass */
+    /* Fields of GnomeDesktop-3.0.GnomeDesktop.BGSlideShowClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
@@ -855,7 +855,7 @@ export class BGSlideShowPrivate {
     static name: string
 }
 export abstract class DesktopThumbnailFactoryClass {
-    /* Fields of GnomeDesktop.DesktopThumbnailFactoryClass */
+    /* Fields of GnomeDesktop-3.0.GnomeDesktop.DesktopThumbnailFactoryClass */
     parent: GObject.ObjectClass
     static name: string
 }
@@ -863,7 +863,7 @@ export class DesktopThumbnailFactoryPrivate {
     static name: string
 }
 export abstract class IdleMonitorClass {
-    /* Fields of GnomeDesktop.IdleMonitorClass */
+    /* Fields of GnomeDesktop-3.0.GnomeDesktop.IdleMonitorClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
@@ -871,7 +871,7 @@ export class IdleMonitorPrivate {
     static name: string
 }
 export abstract class PnpIdsClass {
-    /* Fields of GnomeDesktop.PnpIdsClass */
+    /* Fields of GnomeDesktop-3.0.GnomeDesktop.PnpIdsClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
@@ -879,12 +879,12 @@ export class PnpIdsPrivate {
     static name: string
 }
 export class RRCTM {
-    /* Fields of GnomeDesktop.RRCTM */
+    /* Fields of GnomeDesktop-3.0.GnomeDesktop.RRCTM */
     matrix: number[]
     static name: string
 }
 export abstract class RRConfigClass {
-    /* Fields of GnomeDesktop.RRConfigClass */
+    /* Fields of GnomeDesktop-3.0.GnomeDesktop.RRConfigClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
@@ -892,7 +892,7 @@ export class RRConfigPrivate {
     static name: string
 }
 export class RRCrtc {
-    /* Methods of GnomeDesktop.RRCrtc */
+    /* Methods of GnomeDesktop-3.0.GnomeDesktop.RRCrtc */
     can_drive_output(output: RROutput): boolean
     get_current_mode(): RRMode
     get_current_rotation(): RRRotation
@@ -905,7 +905,7 @@ export class RRCrtc {
     static name: string
 }
 export class RRMode {
-    /* Methods of GnomeDesktop.RRMode */
+    /* Methods of GnomeDesktop-3.0.GnomeDesktop.RRMode */
     get_freq(): number
     get_freq_f(): number
     get_height(): number
@@ -916,7 +916,7 @@ export class RRMode {
     static name: string
 }
 export class RROutput {
-    /* Methods of GnomeDesktop.RROutput */
+    /* Methods of GnomeDesktop-3.0.GnomeDesktop.RROutput */
     can_clone(clone: RROutput): boolean
     get_backlight(): number
     get_crtc(): RRCrtc
@@ -943,7 +943,7 @@ export class RROutput {
     static name: string
 }
 export abstract class RROutputInfoClass {
-    /* Fields of GnomeDesktop.RROutputInfoClass */
+    /* Fields of GnomeDesktop-3.0.GnomeDesktop.RROutputInfoClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
@@ -951,7 +951,7 @@ export class RROutputInfoPrivate {
     static name: string
 }
 export abstract class RRScreenClass {
-    /* Fields of GnomeDesktop.RRScreenClass */
+    /* Fields of GnomeDesktop-3.0.GnomeDesktop.RRScreenClass */
     parent_class: GObject.ObjectClass
     changed: (screen: RRScreen) => void
     output_connected: (screen: RRScreen, output: RROutput) => void
@@ -962,7 +962,7 @@ export class RRScreenPrivate {
     static name: string
 }
 export abstract class WallClockClass {
-    /* Fields of GnomeDesktop.WallClockClass */
+    /* Fields of GnomeDesktop-3.0.GnomeDesktop.WallClockClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
@@ -970,7 +970,7 @@ export class WallClockPrivate {
     static name: string
 }
 export abstract class XkbInfoClass {
-    /* Fields of GnomeDesktop.XkbInfoClass */
+    /* Fields of GnomeDesktop-3.0.GnomeDesktop.XkbInfoClass */
     parent_class: GObject.ObjectClass
     static name: string
 }

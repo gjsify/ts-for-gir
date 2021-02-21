@@ -15,14 +15,14 @@ export interface Channel_ConstructProps extends GObject.Object_ConstructProps {
     channel?: TelepathyGLib.Channel
 }
 export class Channel {
-    /* Properties of TelepathyFarstream.Channel */
+    /* Properties of TelepathyFarstream-0.6.TelepathyFarstream.Channel */
     readonly fs_conferences: object[]
     readonly object_path: string
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of TelepathyFarstream.Channel */
+    /* Methods of TelepathyFarstream-0.6.TelepathyFarstream.Channel */
     bus_message(message: Gst.Message): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -44,14 +44,14 @@ export class Channel {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of Gio.AsyncInitable */
+    /* Methods of Gio-2.0.Gio.AsyncInitable */
     init_async(io_priority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     init_finish(res: Gio.AsyncResult): boolean
     new_finish(res: Gio.AsyncResult): GObject.Object
-    /* Virtual methods of TelepathyFarstream.Channel */
+    /* Virtual methods of TelepathyFarstream-0.6.TelepathyFarstream.Channel */
     vfunc_init_async(io_priority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     vfunc_init_finish(res: Gio.AsyncResult): boolean
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -59,7 +59,7 @@ export class Channel {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of TelepathyFarstream.Channel */
+    /* Signals of TelepathyFarstream-0.6.TelepathyFarstream.Channel */
     connect(sigName: "closed", callback: (($obj: Channel) => void)): number
     connect_after(sigName: "closed", callback: (($obj: Channel) => void)): number
     emit(sigName: "closed"): void
@@ -75,7 +75,7 @@ export class Channel {
     connect(sigName: "fs-conference-removed", callback: (($obj: Channel, conf: Farstream.Conference) => void)): number
     connect_after(sigName: "fs-conference-removed", callback: (($obj: Channel, conf: Farstream.Conference) => void)): number
     emit(sigName: "fs-conference-removed", conf: Farstream.Conference): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Channel, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Channel, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -99,21 +99,21 @@ export class Channel {
 export interface Content_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class Content {
-    /* Properties of TelepathyFarstream.Content */
+    /* Properties of TelepathyFarstream-0.6.TelepathyFarstream.Content */
     readonly fs_conference: Farstream.Conference
     readonly fs_session: Farstream.Session
     readonly media_type: Farstream.MediaType
     readonly object_path: string
     readonly sink_pad: Gst.Pad
     readonly tf_channel: Channel
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of TelepathyFarstream.Content */
+    /* Methods of TelepathyFarstream-0.6.TelepathyFarstream.Content */
     error(message: string): void
     iterate_src_pads(handles: number, handle_count: number): Gst.Iterator
     receiving_failed(handles: number, handle_count: number, message: string): void
     sending_failed(message: string): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -135,7 +135,7 @@ export class Content {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -143,7 +143,7 @@ export class Content {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of TelepathyFarstream.Content */
+    /* Signals of TelepathyFarstream-0.6.TelepathyFarstream.Content */
     connect(sigName: "restart-source", callback: (($obj: Content) => void)): number
     connect_after(sigName: "restart-source", callback: (($obj: Content) => void)): number
     emit(sigName: "restart-source"): void
@@ -162,7 +162,7 @@ export class Content {
     connect(sigName: "stop-sending", callback: (($obj: Content) => void)): number
     connect_after(sigName: "stop-sending", callback: (($obj: Content) => void)): number
     emit(sigName: "stop-sending"): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Content, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Content, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void

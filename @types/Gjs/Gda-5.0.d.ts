@@ -583,7 +583,7 @@ export interface ThreadWrapperVoidFunc {
     (arg?: object | null): void
 }
 export class DataHandler {
-    /* Methods of Gda.DataHandler */
+    /* Methods of Gda-5.0.Gda.DataHandler */
     accepts_g_type(type: GObject.Type): boolean
     get_descr(): string
     get_sane_init_value(type: GObject.Type): any | null
@@ -591,7 +591,7 @@ export class DataHandler {
     get_str_from_value(value?: any | null): string
     get_value_from_sql(sql: string | null, type: GObject.Type): any
     get_value_from_str(str: string | null, type: GObject.Type): any
-    /* Virtual methods of Gda.DataHandler */
+    /* Virtual methods of Gda-5.0.Gda.DataHandler */
     vfunc_accepts_g_type(type: GObject.Type): boolean
     vfunc_get_descr(): string
     vfunc_get_sane_init_value(type: GObject.Type): any | null
@@ -604,7 +604,7 @@ export class DataHandler {
     static get_default(for_type: GObject.Type): DataHandler
 }
 export class DataModel {
-    /* Methods of Gda.DataModel */
+    /* Methods of Gda-5.0.Gda.DataModel */
     add_data_from_xml_node(node: libxml2.NodePtr): boolean
     append_row(): number
     append_values(values?: any[] | null): number
@@ -648,7 +648,7 @@ export class DataModel {
     set_value_at(col: number, row: number, value: any): boolean
     set_values(row: number, values?: any[] | null): boolean
     thaw(): void
-    /* Virtual methods of Gda.DataModel */
+    /* Virtual methods of Gda-5.0.Gda.DataModel */
     vfunc_access_changed(): void
     vfunc_changed(): void
     vfunc_i_append_row(): number
@@ -676,7 +676,7 @@ export class DataModel {
     vfunc_row_inserted(row: number): void
     vfunc_row_removed(row: number): void
     vfunc_row_updated(row: number): void
-    /* Signals of Gda.DataModel */
+    /* Signals of Gda-5.0.Gda.DataModel */
     connect(sigName: "access-changed", callback: (($obj: DataModel) => void)): number
     connect_after(sigName: "access-changed", callback: (($obj: DataModel) => void)): number
     emit(sigName: "access-changed"): void
@@ -700,11 +700,11 @@ export class DataModel {
     static error_quark(): GLib.Quark
 }
 export class Lockable {
-    /* Methods of Gda.Lockable */
+    /* Methods of Gda-5.0.Gda.Lockable */
     lock(): void
     trylock(): boolean
     unlock(): void
-    /* Virtual methods of Gda.Lockable */
+    /* Virtual methods of Gda-5.0.Gda.Lockable */
     vfunc_i_lock(): void
     vfunc_i_trylock(): boolean
     vfunc_i_unlock(): void
@@ -713,19 +713,19 @@ export class Lockable {
 export interface Batch_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class Batch {
-    /* Fields of Gda.Batch */
+    /* Fields of Gda-5.0.Gda.Batch */
     object: GObject.Object
     priv: BatchPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Gda.Batch */
+    /* Methods of Gda-5.0.Gda.Batch */
     add_statement(stmt: Statement): void
     copy(): Batch
     get_parameters(): [ /* returnType */ boolean, /* out_params */ Set | null ]
     get_statements(): Statement[]
     remove_statement(stmt: Statement): void
     serialize(): string
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -747,9 +747,9 @@ export class Batch {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Gda.Batch */
+    /* Virtual methods of Gda-5.0.Gda.Batch */
     vfunc_changed(changed_stmt: Statement): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -757,11 +757,11 @@ export class Batch {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gda.Batch */
+    /* Signals of Gda-5.0.Gda.Batch */
     connect(sigName: "changed", callback: (($obj: Batch, changed_stmt: GObject.Object) => void)): number
     connect_after(sigName: "changed", callback: (($obj: Batch, changed_stmt: GObject.Object) => void)): number
     emit(sigName: "changed", changed_stmt: GObject.Object): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Batch, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Batch, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -780,18 +780,18 @@ export class Batch {
 export interface BlobOp_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class BlobOp {
-    /* Fields of Gda.BlobOp */
+    /* Fields of Gda-5.0.Gda.BlobOp */
     object: GObject.Object
     _gda_reserved1: object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Gda.BlobOp */
+    /* Methods of Gda-5.0.Gda.BlobOp */
     get_length(): number
     read(blob: Blob, offset: number, size: number): number
     read_all(blob: Blob): boolean
     write(blob: Blob, offset: number): number
     write_all(blob: Blob): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -813,12 +813,12 @@ export class BlobOp {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Gda.BlobOp */
+    /* Virtual methods of Gda-5.0.Gda.BlobOp */
     vfunc_get_length(): number
     vfunc_read(blob: Blob, offset: number, size: number): number
     vfunc_write(blob: Blob, offset: number): number
     vfunc_write_all(blob: Blob): boolean
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -826,7 +826,7 @@ export class BlobOp {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: BlobOp, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: BlobOp, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -843,14 +843,14 @@ export interface Column_ConstructProps extends GObject.Object_ConstructProps {
     id?: string
 }
 export class Column {
-    /* Properties of Gda.Column */
+    /* Properties of Gda-5.0.Gda.Column */
     id: string
-    /* Fields of Gda.Column */
+    /* Fields of Gda-5.0.Gda.Column */
     object: GObject.Object
     priv: ColumnPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Gda.Column */
+    /* Methods of Gda-5.0.Gda.Column */
     copy(): Column
     get_allow_null(): boolean
     get_attribute(attribute: string): any
@@ -870,7 +870,7 @@ export class Column {
     set_g_type(type: GObject.Type): void
     set_name(name: string): void
     set_position(position: number): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -892,10 +892,10 @@ export class Column {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Gda.Column */
+    /* Virtual methods of Gda-5.0.Gda.Column */
     vfunc_g_type_changed(old_type: GObject.Type, new_type: GObject.Type): void
     vfunc_name_changed(old_name: string): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -903,14 +903,14 @@ export class Column {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gda.Column */
+    /* Signals of Gda-5.0.Gda.Column */
     connect(sigName: "g-type-changed", callback: (($obj: Column, old_type: GObject.Type, new_type: GObject.Type) => void)): number
     connect_after(sigName: "g-type-changed", callback: (($obj: Column, old_type: GObject.Type, new_type: GObject.Type) => void)): number
     emit(sigName: "g-type-changed", old_type: GObject.Type, new_type: GObject.Type): void
     connect(sigName: "name-changed", callback: (($obj: Column, old_name: string) => void)): number
     connect_after(sigName: "name-changed", callback: (($obj: Column, old_name: string) => void)): number
     emit(sigName: "name-changed", old_name: string): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Column, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Column, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -932,15 +932,15 @@ export interface Config_ConstructProps extends GObject.Object_ConstructProps {
     user_filename?: string
 }
 export class Config {
-    /* Properties of Gda.Config */
+    /* Properties of Gda-5.0.Gda.Config */
     system_filename: string
     user_filename: string
-    /* Fields of Gda.Config */
+    /* Fields of Gda-5.0.Gda.Config */
     object: GObject.Object
     priv: ConfigPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -962,12 +962,12 @@ export class Config {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Gda.Config */
+    /* Virtual methods of Gda-5.0.Gda.Config */
     vfunc_dsn_added(new_dsn: DsnInfo): void
     vfunc_dsn_changed(dsn: DsnInfo): void
     vfunc_dsn_removed(old_dsn: DsnInfo): void
     vfunc_dsn_to_be_removed(old_dsn: DsnInfo): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -975,7 +975,7 @@ export class Config {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gda.Config */
+    /* Signals of Gda-5.0.Gda.Config */
     connect(sigName: "dsn-added", callback: (($obj: Config, new_dsn?: object | null) => void)): number
     connect_after(sigName: "dsn-added", callback: (($obj: Config, new_dsn?: object | null) => void)): number
     emit(sigName: "dsn-added", new_dsn?: object | null): void
@@ -988,7 +988,7 @@ export class Config {
     connect(sigName: "dsn-to-be-removed", callback: (($obj: Config, old_dsn?: object | null) => void)): number
     connect_after(sigName: "dsn-to-be-removed", callback: (($obj: Config, old_dsn?: object | null) => void)): number
     emit(sigName: "dsn-to-be-removed", old_dsn?: object | null): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Config, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Config, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -1034,7 +1034,7 @@ export interface Connection_ConstructProps extends GObject.Object_ConstructProps
     thread_owner?: object
 }
 export class Connection {
-    /* Properties of Gda.Connection */
+    /* Properties of Gda-5.0.Gda.Connection */
     auth_string: string
     cnc_string: string
     dsn: string
@@ -1046,12 +1046,12 @@ export class Connection {
     monitor_wrapped_in_mainloop: boolean
     provider: ServerProvider
     thread_owner: object
-    /* Fields of Gda.Connection */
+    /* Fields of Gda-5.0.Gda.Connection */
     object: GObject.Object
     priv: ConnectionPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Gda.Connection */
+    /* Methods of Gda-5.0.Gda.Connection */
     add_event(event: ConnectionEvent): void
     add_prepared_statement(gda_stmt: Statement, prepared_stmt: PStmt): void
     add_savepoint(name?: string | null): boolean
@@ -1103,7 +1103,7 @@ export class Connection {
     update_meta_store(context?: MetaContext | null): boolean
     update_row_in_table_v(table: string, condition_column_name: string, condition_value: any, col_names: string[], values: any[]): boolean
     value_to_sql_string(from: any): string
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -1125,11 +1125,11 @@ export class Connection {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of Gda.Lockable */
+    /* Methods of Gda-5.0.Gda.Lockable */
     lock(): void
     trylock(): boolean
     unlock(): void
-    /* Virtual methods of Gda.Connection */
+    /* Virtual methods of Gda-5.0.Gda.Connection */
     vfunc_conn_closed(): void
     vfunc_conn_opened(): void
     vfunc_conn_to_close(): void
@@ -1139,7 +1139,7 @@ export class Connection {
     vfunc_i_lock(): void
     vfunc_i_trylock(): boolean
     vfunc_i_unlock(): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -1147,7 +1147,7 @@ export class Connection {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gda.Connection */
+    /* Signals of Gda-5.0.Gda.Connection */
     connect(sigName: "conn-closed", callback: (($obj: Connection) => void)): number
     connect_after(sigName: "conn-closed", callback: (($obj: Connection) => void)): number
     emit(sigName: "conn-closed"): void
@@ -1166,7 +1166,7 @@ export class Connection {
     connect(sigName: "transaction-status-changed", callback: (($obj: Connection) => void)): number
     connect_after(sigName: "transaction-status-changed", callback: (($obj: Connection) => void)): number
     emit(sigName: "transaction-status-changed"): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Connection, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Connection, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -1213,14 +1213,14 @@ export interface ConnectionEvent_ConstructProps extends GObject.Object_Construct
     type?: number
 }
 export class ConnectionEvent {
-    /* Properties of Gda.ConnectionEvent */
+    /* Properties of Gda-5.0.Gda.ConnectionEvent */
     type: number
-    /* Fields of Gda.ConnectionEvent */
+    /* Fields of Gda-5.0.Gda.ConnectionEvent */
     object: GObject.Object
     priv: ConnectionEventPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Gda.ConnectionEvent */
+    /* Methods of Gda-5.0.Gda.ConnectionEvent */
     get_code(): number
     get_description(): string
     get_event_type(): ConnectionEventType
@@ -1233,7 +1233,7 @@ export class ConnectionEvent {
     set_gda_code(code: ConnectionEventCode): void
     set_source(source: string): void
     set_sqlstate(sqlstate: string): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -1255,7 +1255,7 @@ export class ConnectionEvent {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -1263,7 +1263,7 @@ export class ConnectionEvent {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: ConnectionEvent, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: ConnectionEvent, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -1282,14 +1282,14 @@ export interface DataAccessWrapper_ConstructProps extends GObject.Object_Constru
     model?: DataModel
 }
 export class DataAccessWrapper {
-    /* Fields of Gda.DataAccessWrapper */
+    /* Fields of Gda-5.0.Gda.DataAccessWrapper */
     object: GObject.Object
     priv: DataAccessWrapperPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Gda.DataAccessWrapper */
+    /* Methods of Gda-5.0.Gda.DataAccessWrapper */
     set_mapping(mapping: number[] | null): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -1311,7 +1311,7 @@ export class DataAccessWrapper {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of Gda.DataModel */
+    /* Methods of Gda-5.0.Gda.DataModel */
     add_data_from_xml_node(node: libxml2.NodePtr): boolean
     append_row(): number
     append_values(values?: any[] | null): number
@@ -1355,7 +1355,7 @@ export class DataAccessWrapper {
     set_value_at(col: number, row: number, value: any): boolean
     set_values(row: number, values?: any[] | null): boolean
     thaw(): void
-    /* Virtual methods of Gda.DataAccessWrapper */
+    /* Virtual methods of Gda-5.0.Gda.DataAccessWrapper */
     vfunc_access_changed(): void
     vfunc_changed(): void
     vfunc_i_append_row(): number
@@ -1383,7 +1383,7 @@ export class DataAccessWrapper {
     vfunc_row_inserted(row: number): void
     vfunc_row_removed(row: number): void
     vfunc_row_updated(row: number): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -1391,11 +1391,11 @@ export class DataAccessWrapper {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: DataAccessWrapper, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: DataAccessWrapper, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    /* Signals of Gda.DataModel */
+    /* Signals of Gda-5.0.Gda.DataModel */
     connect(sigName: "access-changed", callback: (($obj: DataAccessWrapper) => void)): number
     connect_after(sigName: "access-changed", callback: (($obj: DataAccessWrapper) => void)): number
     emit(sigName: "access-changed"): void
@@ -1430,20 +1430,20 @@ export interface DataComparator_ConstructProps extends GObject.Object_ConstructP
     old_model?: DataModel
 }
 export class DataComparator {
-    /* Properties of Gda.DataComparator */
+    /* Properties of Gda-5.0.Gda.DataComparator */
     new_model: DataModel
     old_model: DataModel
-    /* Fields of Gda.DataComparator */
+    /* Fields of Gda-5.0.Gda.DataComparator */
     object: GObject.Object
     priv: DataComparatorPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Gda.DataComparator */
+    /* Methods of Gda-5.0.Gda.DataComparator */
     compute_diff(): boolean
     get_diff(pos: number): Diff
     get_n_diffs(): number
     set_key_columns(col_numbers: number[]): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -1465,9 +1465,9 @@ export class DataComparator {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Gda.DataComparator */
+    /* Virtual methods of Gda-5.0.Gda.DataComparator */
     vfunc_diff_computed(diff: Diff): boolean
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -1475,11 +1475,11 @@ export class DataComparator {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gda.DataComparator */
+    /* Signals of Gda-5.0.Gda.DataComparator */
     connect(sigName: "diff-computed", callback: (($obj: DataComparator, object?: object | null) => boolean)): number
     connect_after(sigName: "diff-computed", callback: (($obj: DataComparator, object?: object | null) => boolean)): number
     emit(sigName: "diff-computed", object?: object | null): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: DataComparator, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: DataComparator, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -1504,19 +1504,19 @@ export interface DataModelArray_ConstructProps extends GObject.Object_ConstructP
     read_only?: boolean
 }
 export class DataModelArray {
-    /* Properties of Gda.DataModelArray */
+    /* Properties of Gda-5.0.Gda.DataModelArray */
     n_columns: number
     read_only: boolean
-    /* Fields of Gda.DataModelArray */
+    /* Fields of Gda-5.0.Gda.DataModelArray */
     object: GObject.Object
     priv: DataModelArrayPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Gda.DataModelArray */
+    /* Methods of Gda-5.0.Gda.DataModelArray */
     clear(): void
     get_row(row: number): Row
     set_n_columns(cols: number): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -1538,7 +1538,7 @@ export class DataModelArray {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of Gda.DataModel */
+    /* Methods of Gda-5.0.Gda.DataModel */
     add_data_from_xml_node(node: libxml2.NodePtr): boolean
     append_row(): number
     append_values(values?: any[] | null): number
@@ -1582,7 +1582,7 @@ export class DataModelArray {
     set_value_at(col: number, row: number, value: any): boolean
     set_values(row: number, values?: any[] | null): boolean
     thaw(): void
-    /* Virtual methods of Gda.DataModelArray */
+    /* Virtual methods of Gda-5.0.Gda.DataModelArray */
     vfunc_access_changed(): void
     vfunc_changed(): void
     vfunc_i_append_row(): number
@@ -1610,7 +1610,7 @@ export class DataModelArray {
     vfunc_row_inserted(row: number): void
     vfunc_row_removed(row: number): void
     vfunc_row_updated(row: number): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -1618,11 +1618,11 @@ export class DataModelArray {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: DataModelArray, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: DataModelArray, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    /* Signals of Gda.DataModel */
+    /* Signals of Gda-5.0.Gda.DataModel */
     connect(sigName: "access-changed", callback: (($obj: DataModelArray) => void)): number
     connect_after(sigName: "access-changed", callback: (($obj: DataModelArray) => void)): number
     emit(sigName: "access-changed"): void
@@ -1660,15 +1660,15 @@ export interface DataModelDir_ConstructProps extends GObject.Object_ConstructPro
     basedir?: string
 }
 export class DataModelDir {
-    /* Fields of Gda.DataModelDir */
+    /* Fields of Gda-5.0.Gda.DataModelDir */
     object: GObject.Object
     priv: DataModelDirPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Gda.DataModelDir */
+    /* Methods of Gda-5.0.Gda.DataModelDir */
     clean_errors(): void
     get_errors(): GLib.Error[]
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -1690,7 +1690,7 @@ export class DataModelDir {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of Gda.DataModel */
+    /* Methods of Gda-5.0.Gda.DataModel */
     add_data_from_xml_node(node: libxml2.NodePtr): boolean
     append_row(): number
     append_values(values?: any[] | null): number
@@ -1734,7 +1734,7 @@ export class DataModelDir {
     set_value_at(col: number, row: number, value: any): boolean
     set_values(row: number, values?: any[] | null): boolean
     thaw(): void
-    /* Virtual methods of Gda.DataModelDir */
+    /* Virtual methods of Gda-5.0.Gda.DataModelDir */
     vfunc_access_changed(): void
     vfunc_changed(): void
     vfunc_i_append_row(): number
@@ -1762,7 +1762,7 @@ export class DataModelDir {
     vfunc_row_inserted(row: number): void
     vfunc_row_removed(row: number): void
     vfunc_row_updated(row: number): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -1770,11 +1770,11 @@ export class DataModelDir {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: DataModelDir, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: DataModelDir, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    /* Signals of Gda.DataModel */
+    /* Signals of Gda-5.0.Gda.DataModel */
     connect(sigName: "access-changed", callback: (($obj: DataModelDir) => void)): number
     connect_after(sigName: "access-changed", callback: (($obj: DataModelDir) => void)): number
     emit(sigName: "access-changed"): void
@@ -1813,17 +1813,17 @@ export interface DataModelImport_ConstructProps extends GObject.Object_Construct
     xml_node?: object
 }
 export class DataModelImport {
-    /* Properties of Gda.DataModelImport */
+    /* Properties of Gda-5.0.Gda.DataModelImport */
     strict: boolean
-    /* Fields of Gda.DataModelImport */
+    /* Fields of Gda-5.0.Gda.DataModelImport */
     object: GObject.Object
     priv: DataModelImportPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Gda.DataModelImport */
+    /* Methods of Gda-5.0.Gda.DataModelImport */
     clean_errors(): void
     get_errors(): GLib.Error[]
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -1845,7 +1845,7 @@ export class DataModelImport {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of Gda.DataModel */
+    /* Methods of Gda-5.0.Gda.DataModel */
     add_data_from_xml_node(node: libxml2.NodePtr): boolean
     append_row(): number
     append_values(values?: any[] | null): number
@@ -1889,7 +1889,7 @@ export class DataModelImport {
     set_value_at(col: number, row: number, value: any): boolean
     set_values(row: number, values?: any[] | null): boolean
     thaw(): void
-    /* Virtual methods of Gda.DataModelImport */
+    /* Virtual methods of Gda-5.0.Gda.DataModelImport */
     vfunc_access_changed(): void
     vfunc_changed(): void
     vfunc_i_append_row(): number
@@ -1917,7 +1917,7 @@ export class DataModelImport {
     vfunc_row_inserted(row: number): void
     vfunc_row_removed(row: number): void
     vfunc_row_updated(row: number): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -1925,11 +1925,11 @@ export class DataModelImport {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: DataModelImport, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: DataModelImport, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    /* Signals of Gda.DataModel */
+    /* Signals of Gda-5.0.Gda.DataModel */
     connect(sigName: "access-changed", callback: (($obj: DataModelImport) => void)): number
     connect_after(sigName: "access-changed", callback: (($obj: DataModelImport) => void)): number
     emit(sigName: "access-changed"): void
@@ -1971,27 +1971,27 @@ export interface DataModelIter_ConstructProps extends Set_ConstructProps {
     update_model?: boolean
 }
 export class DataModelIter {
-    /* Properties of Gda.DataModelIter */
+    /* Properties of Gda-5.0.Gda.DataModelIter */
     current_row: number
     data_model: DataModel
     forced_model: DataModel
     update_model: boolean
-    /* Properties of Gda.Set */
+    /* Properties of Gda-5.0.Gda.Set */
     description: string
     id: string
     name: string
     validate_changes: boolean
-    /* Fields of Gda.DataModelIter */
+    /* Fields of Gda-5.0.Gda.DataModelIter */
     object: Set
     priv: DataModelIterPrivate
-    /* Fields of Gda.Set */
+    /* Fields of Gda-5.0.Gda.Set */
     holders: Holder[]
     nodes_list: SetNode[]
     sources_list: SetSource[]
     groups_list: SetGroup[]
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Gda.DataModelIter */
+    /* Methods of Gda-5.0.Gda.DataModelIter */
     get_column_for_param(param: Holder): number
     get_holder_for_field(col: number): Holder
     get_row(): number
@@ -2004,7 +2004,7 @@ export class DataModelIter {
     move_prev(): boolean
     move_to_row(row: number): boolean
     set_value_at(col: number, value: any): boolean
-    /* Methods of Gda.Set */
+    /* Methods of Gda-5.0.Gda.Set */
     add_holder(holder: Holder): boolean
     copy(): Set
     get_group(holder: Holder): SetGroup
@@ -2017,7 +2017,7 @@ export class DataModelIter {
     merge_with_set(set_to_merge: Set): void
     remove_holder(holder: Holder): void
     replace_source_model(source: SetSource, model: DataModel): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -2039,10 +2039,10 @@ export class DataModelIter {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Gda.DataModelIter */
+    /* Virtual methods of Gda-5.0.Gda.DataModelIter */
     vfunc_end_of_data(): void
     vfunc_row_changed(row: number): void
-    /* Virtual methods of Gda.Set */
+    /* Virtual methods of Gda-5.0.Gda.Set */
     vfunc_holder_attr_changed(holder: Holder, attr_name: string, attr_value: any): void
     vfunc_holder_changed(holder: Holder): void
     vfunc_holder_type_set(holder: Holder): void
@@ -2050,7 +2050,7 @@ export class DataModelIter {
     vfunc_source_model_changed(source: SetSource): void
     vfunc_validate_holder_change(holder: Holder, new_value: any): GLib.Error
     vfunc_validate_set(): GLib.Error
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -2058,14 +2058,14 @@ export class DataModelIter {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gda.DataModelIter */
+    /* Signals of Gda-5.0.Gda.DataModelIter */
     connect(sigName: "end-of-data", callback: (($obj: DataModelIter) => void)): number
     connect_after(sigName: "end-of-data", callback: (($obj: DataModelIter) => void)): number
     emit(sigName: "end-of-data"): void
     connect(sigName: "row-changed", callback: (($obj: DataModelIter, row: number) => void)): number
     connect_after(sigName: "row-changed", callback: (($obj: DataModelIter, row: number) => void)): number
     emit(sigName: "row-changed", row: number): void
-    /* Signals of Gda.Set */
+    /* Signals of Gda-5.0.Gda.Set */
     connect(sigName: "holder-attr-changed", callback: (($obj: DataModelIter, holder: Holder, attr_name: string, attr_value: any) => void)): number
     connect_after(sigName: "holder-attr-changed", callback: (($obj: DataModelIter, holder: Holder, attr_name: string, attr_value: any) => void)): number
     emit(sigName: "holder-attr-changed", holder: Holder, attr_name: string, attr_value: any): void
@@ -2087,7 +2087,7 @@ export class DataModelIter {
     connect(sigName: "validate-set", callback: (($obj: DataModelIter) => GLib.Error)): number
     connect_after(sigName: "validate-set", callback: (($obj: DataModelIter) => GLib.Error)): number
     emit(sigName: "validate-set"): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: DataModelIter, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: DataModelIter, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -2126,12 +2126,12 @@ export interface DataModelLdap_ConstructProps extends GObject.Object_ConstructPr
     scope?: number
 }
 export class DataModelLdap {
-    /* Fields of Gda.DataModelLdap */
+    /* Fields of Gda-5.0.Gda.DataModelLdap */
     object: GObject.Object
     priv: DataModelLdapPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -2153,7 +2153,7 @@ export class DataModelLdap {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of Gda.DataModel */
+    /* Methods of Gda-5.0.Gda.DataModel */
     add_data_from_xml_node(node: libxml2.NodePtr): boolean
     append_row(): number
     append_values(values?: any[] | null): number
@@ -2197,7 +2197,7 @@ export class DataModelLdap {
     set_value_at(col: number, row: number, value: any): boolean
     set_values(row: number, values?: any[] | null): boolean
     thaw(): void
-    /* Virtual methods of Gda.DataModelLdap */
+    /* Virtual methods of Gda-5.0.Gda.DataModelLdap */
     vfunc_access_changed(): void
     vfunc_changed(): void
     vfunc_i_append_row(): number
@@ -2225,7 +2225,7 @@ export class DataModelLdap {
     vfunc_row_inserted(row: number): void
     vfunc_row_removed(row: number): void
     vfunc_row_updated(row: number): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -2233,11 +2233,11 @@ export class DataModelLdap {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: DataModelLdap, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: DataModelLdap, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    /* Signals of Gda.DataModel */
+    /* Signals of Gda-5.0.Gda.DataModel */
     connect(sigName: "access-changed", callback: (($obj: DataModelLdap) => void)): number
     connect_after(sigName: "access-changed", callback: (($obj: DataModelLdap) => void)): number
     emit(sigName: "access-changed"): void
@@ -2273,18 +2273,18 @@ export interface DataPivot_ConstructProps extends GObject.Object_ConstructProps 
     model?: DataModel
 }
 export class DataPivot {
-    /* Properties of Gda.DataPivot */
+    /* Properties of Gda-5.0.Gda.DataPivot */
     model: DataModel
-    /* Fields of Gda.DataPivot */
+    /* Fields of Gda-5.0.Gda.DataPivot */
     object: GObject.Object
     priv: DataPivotPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Gda.DataPivot */
+    /* Methods of Gda-5.0.Gda.DataPivot */
     add_data(aggregate_type: DataPivotAggregate, field: string, alias?: string | null): boolean
     add_field(field_type: DataPivotFieldType, field: string, alias?: string | null): boolean
     populate(): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -2306,7 +2306,7 @@ export class DataPivot {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of Gda.DataModel */
+    /* Methods of Gda-5.0.Gda.DataModel */
     add_data_from_xml_node(node: libxml2.NodePtr): boolean
     append_row(): number
     append_values(values?: any[] | null): number
@@ -2350,7 +2350,7 @@ export class DataPivot {
     set_value_at(col: number, row: number, value: any): boolean
     set_values(row: number, values?: any[] | null): boolean
     thaw(): void
-    /* Virtual methods of Gda.DataPivot */
+    /* Virtual methods of Gda-5.0.Gda.DataPivot */
     vfunc_access_changed(): void
     vfunc_changed(): void
     vfunc_i_append_row(): number
@@ -2378,7 +2378,7 @@ export class DataPivot {
     vfunc_row_inserted(row: number): void
     vfunc_row_removed(row: number): void
     vfunc_row_updated(row: number): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -2386,11 +2386,11 @@ export class DataPivot {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: DataPivot, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: DataPivot, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    /* Signals of Gda.DataModel */
+    /* Signals of Gda-5.0.Gda.DataModel */
     connect(sigName: "access-changed", callback: (($obj: DataPivot) => void)): number
     connect_after(sigName: "access-changed", callback: (($obj: DataPivot) => void)): number
     emit(sigName: "access-changed"): void
@@ -2430,18 +2430,18 @@ export interface DataProxy_ConstructProps extends GObject.Object_ConstructProps 
     sample_size?: number
 }
 export class DataProxy {
-    /* Properties of Gda.DataProxy */
+    /* Properties of Gda-5.0.Gda.DataProxy */
     cache_changes: boolean
     defer_sync: boolean
     model: DataModel
     prepend_null_entry: boolean
     sample_size: number
-    /* Fields of Gda.DataProxy */
+    /* Fields of Gda-5.0.Gda.DataProxy */
     object: GObject.Object
     priv: DataProxyPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Gda.DataProxy */
+    /* Methods of Gda-5.0.Gda.DataProxy */
     alter_value_attributes(proxy_row: number, col: number, alter_flags: ValueAttribute): void
     apply_all_changes(): boolean
     apply_row_changes(proxy_row: number): boolean
@@ -2471,7 +2471,7 @@ export class DataProxy {
     set_sample_size(sample_size: number): void
     set_sample_start(sample_start: number): void
     undelete(proxy_row: number): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -2493,7 +2493,7 @@ export class DataProxy {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of Gda.DataModel */
+    /* Methods of Gda-5.0.Gda.DataModel */
     add_data_from_xml_node(node: libxml2.NodePtr): boolean
     append_row(): number
     append_values(values?: any[] | null): number
@@ -2537,7 +2537,7 @@ export class DataProxy {
     set_value_at(col: number, row: number, value: any): boolean
     set_values(row: number, values?: any[] | null): boolean
     thaw(): void
-    /* Virtual methods of Gda.DataProxy */
+    /* Virtual methods of Gda-5.0.Gda.DataProxy */
     vfunc_filter_changed(): void
     vfunc_row_changes_applied(row: number, proxied_row: number): void
     vfunc_row_delete_changed(row: number, to_be_deleted: boolean): void
@@ -2571,7 +2571,7 @@ export class DataProxy {
     vfunc_row_inserted(row: number): void
     vfunc_row_removed(row: number): void
     vfunc_row_updated(row: number): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -2579,7 +2579,7 @@ export class DataProxy {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gda.DataProxy */
+    /* Signals of Gda-5.0.Gda.DataProxy */
     connect(sigName: "filter-changed", callback: (($obj: DataProxy) => void)): number
     connect_after(sigName: "filter-changed", callback: (($obj: DataProxy) => void)): number
     emit(sigName: "filter-changed"): void
@@ -2598,11 +2598,11 @@ export class DataProxy {
     connect(sigName: "validate-row-changes", callback: (($obj: DataProxy, row: number, proxied_row: number) => GLib.Error)): number
     connect_after(sigName: "validate-row-changes", callback: (($obj: DataProxy, row: number, proxied_row: number) => GLib.Error)): number
     emit(sigName: "validate-row-changes", row: number, proxied_row: number): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: DataProxy, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: DataProxy, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    /* Signals of Gda.DataModel */
+    /* Signals of Gda-5.0.Gda.DataModel */
     connect(sigName: "access-changed", callback: (($obj: DataProxy) => void)): number
     connect_after(sigName: "access-changed", callback: (($obj: DataProxy) => void)): number
     emit(sigName: "access-changed"): void
@@ -2657,7 +2657,7 @@ export interface DataSelect_ConstructProps extends GObject.Object_ConstructProps
     update_stmt?: Statement
 }
 export class DataSelect {
-    /* Properties of Gda.DataSelect */
+    /* Properties of Gda-5.0.Gda.DataSelect */
     auto_reset: boolean
     delete_stmt: Statement
     execution_delay: number
@@ -2666,15 +2666,15 @@ export class DataSelect {
     readonly select_stmt: Statement
     store_all_rows: boolean
     update_stmt: Statement
-    /* Fields of Gda.DataSelect */
+    /* Fields of Gda-5.0.Gda.DataSelect */
     object: GObject.Object
     priv: DataSelectPrivate
     prep_stmt: PStmt
     nb_stored_rows: number
     advertized_nrows: number
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Gda.DataSelect */
+    /* Methods of Gda-5.0.Gda.DataSelect */
     compute_columns_attributes(): boolean
     compute_modification_statements(): boolean
     compute_modification_statements_ext(cond_type: DataSelectConditionType): boolean
@@ -2685,7 +2685,7 @@ export class DataSelect {
     set_modification_statement(mod_stmt: Statement): boolean
     set_modification_statement_sql(sql: string): boolean
     set_row_selection_condition_sql(sql_where: string): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -2707,7 +2707,7 @@ export class DataSelect {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of Gda.DataModel */
+    /* Methods of Gda-5.0.Gda.DataModel */
     add_data_from_xml_node(node: libxml2.NodePtr): boolean
     append_row(): number
     append_values(values?: any[] | null): number
@@ -2751,7 +2751,7 @@ export class DataSelect {
     set_value_at(col: number, row: number, value: any): boolean
     set_values(row: number, values?: any[] | null): boolean
     thaw(): void
-    /* Virtual methods of Gda.DataSelect */
+    /* Virtual methods of Gda-5.0.Gda.DataSelect */
     vfunc_fetch_at(prow: Row, rownum: number): boolean
     vfunc_fetch_nb_rows(): number
     vfunc_fetch_next(prow: Row, rownum: number): boolean
@@ -2785,7 +2785,7 @@ export class DataSelect {
     vfunc_row_inserted(row: number): void
     vfunc_row_removed(row: number): void
     vfunc_row_updated(row: number): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -2793,11 +2793,11 @@ export class DataSelect {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: DataSelect, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: DataSelect, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    /* Signals of Gda.DataModel */
+    /* Signals of Gda-5.0.Gda.DataModel */
     connect(sigName: "access-changed", callback: (($obj: DataSelect) => void)): number
     connect_after(sigName: "access-changed", callback: (($obj: DataSelect) => void)): number
     emit(sigName: "access-changed"): void
@@ -2846,12 +2846,12 @@ export class DataSelect {
 export interface HandlerBin_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class HandlerBin {
-    /* Fields of Gda.HandlerBin */
+    /* Fields of Gda-5.0.Gda.HandlerBin */
     object: GObject.Object
     priv: HandlerBinPriv
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -2873,7 +2873,7 @@ export class HandlerBin {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of Gda.DataHandler */
+    /* Methods of Gda-5.0.Gda.DataHandler */
     accepts_g_type(type: GObject.Type): boolean
     get_descr(): string
     get_sane_init_value(type: GObject.Type): any | null
@@ -2881,7 +2881,7 @@ export class HandlerBin {
     get_str_from_value(value?: any | null): string
     get_value_from_sql(sql: string | null, type: GObject.Type): any
     get_value_from_str(str: string | null, type: GObject.Type): any
-    /* Virtual methods of Gda.HandlerBin */
+    /* Virtual methods of Gda-5.0.Gda.HandlerBin */
     vfunc_accepts_g_type(type: GObject.Type): boolean
     vfunc_get_descr(): string
     vfunc_get_sane_init_value(type: GObject.Type): any | null
@@ -2889,7 +2889,7 @@ export class HandlerBin {
     vfunc_get_str_from_value(value?: any | null): string
     vfunc_get_value_from_sql(sql: string | null, type: GObject.Type): any
     vfunc_get_value_from_str(str: string | null, type: GObject.Type): any
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -2897,7 +2897,7 @@ export class HandlerBin {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: HandlerBin, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: HandlerBin, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -2915,12 +2915,12 @@ export class HandlerBin {
 export interface HandlerBoolean_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class HandlerBoolean {
-    /* Fields of Gda.HandlerBoolean */
+    /* Fields of Gda-5.0.Gda.HandlerBoolean */
     object: GObject.Object
     priv: HandlerBooleanPriv
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -2942,7 +2942,7 @@ export class HandlerBoolean {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of Gda.DataHandler */
+    /* Methods of Gda-5.0.Gda.DataHandler */
     accepts_g_type(type: GObject.Type): boolean
     get_descr(): string
     get_sane_init_value(type: GObject.Type): any | null
@@ -2950,7 +2950,7 @@ export class HandlerBoolean {
     get_str_from_value(value?: any | null): string
     get_value_from_sql(sql: string | null, type: GObject.Type): any
     get_value_from_str(str: string | null, type: GObject.Type): any
-    /* Virtual methods of Gda.HandlerBoolean */
+    /* Virtual methods of Gda-5.0.Gda.HandlerBoolean */
     vfunc_accepts_g_type(type: GObject.Type): boolean
     vfunc_get_descr(): string
     vfunc_get_sane_init_value(type: GObject.Type): any | null
@@ -2958,7 +2958,7 @@ export class HandlerBoolean {
     vfunc_get_str_from_value(value?: any | null): string
     vfunc_get_value_from_sql(sql: string | null, type: GObject.Type): any
     vfunc_get_value_from_str(str: string | null, type: GObject.Type): any
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -2966,7 +2966,7 @@ export class HandlerBoolean {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: HandlerBoolean, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: HandlerBoolean, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -2984,12 +2984,12 @@ export class HandlerBoolean {
 export interface HandlerNumerical_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class HandlerNumerical {
-    /* Fields of Gda.HandlerNumerical */
+    /* Fields of Gda-5.0.Gda.HandlerNumerical */
     object: GObject.Object
     priv: HandlerNumericalPriv
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -3011,7 +3011,7 @@ export class HandlerNumerical {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of Gda.DataHandler */
+    /* Methods of Gda-5.0.Gda.DataHandler */
     accepts_g_type(type: GObject.Type): boolean
     get_descr(): string
     get_sane_init_value(type: GObject.Type): any | null
@@ -3019,7 +3019,7 @@ export class HandlerNumerical {
     get_str_from_value(value?: any | null): string
     get_value_from_sql(sql: string | null, type: GObject.Type): any
     get_value_from_str(str: string | null, type: GObject.Type): any
-    /* Virtual methods of Gda.HandlerNumerical */
+    /* Virtual methods of Gda-5.0.Gda.HandlerNumerical */
     vfunc_accepts_g_type(type: GObject.Type): boolean
     vfunc_get_descr(): string
     vfunc_get_sane_init_value(type: GObject.Type): any | null
@@ -3027,7 +3027,7 @@ export class HandlerNumerical {
     vfunc_get_str_from_value(value?: any | null): string
     vfunc_get_value_from_sql(sql: string | null, type: GObject.Type): any
     vfunc_get_value_from_str(str: string | null, type: GObject.Type): any
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -3035,7 +3035,7 @@ export class HandlerNumerical {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: HandlerNumerical, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: HandlerNumerical, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -3053,12 +3053,12 @@ export class HandlerNumerical {
 export interface HandlerString_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class HandlerString {
-    /* Fields of Gda.HandlerString */
+    /* Fields of Gda-5.0.Gda.HandlerString */
     object: GObject.Object
     priv: HandlerStringPriv
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -3080,7 +3080,7 @@ export class HandlerString {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of Gda.DataHandler */
+    /* Methods of Gda-5.0.Gda.DataHandler */
     accepts_g_type(type: GObject.Type): boolean
     get_descr(): string
     get_sane_init_value(type: GObject.Type): any | null
@@ -3088,7 +3088,7 @@ export class HandlerString {
     get_str_from_value(value?: any | null): string
     get_value_from_sql(sql: string | null, type: GObject.Type): any
     get_value_from_str(str: string | null, type: GObject.Type): any
-    /* Virtual methods of Gda.HandlerString */
+    /* Virtual methods of Gda-5.0.Gda.HandlerString */
     vfunc_accepts_g_type(type: GObject.Type): boolean
     vfunc_get_descr(): string
     vfunc_get_sane_init_value(type: GObject.Type): any | null
@@ -3096,7 +3096,7 @@ export class HandlerString {
     vfunc_get_str_from_value(value?: any | null): string
     vfunc_get_value_from_sql(sql: string | null, type: GObject.Type): any
     vfunc_get_value_from_str(str: string | null, type: GObject.Type): any
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -3104,7 +3104,7 @@ export class HandlerString {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: HandlerString, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: HandlerString, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -3123,17 +3123,17 @@ export class HandlerString {
 export interface HandlerTime_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class HandlerTime {
-    /* Fields of Gda.HandlerTime */
+    /* Fields of Gda-5.0.Gda.HandlerTime */
     object: GObject.Object
     priv: HandlerTimePriv
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Gda.HandlerTime */
+    /* Methods of Gda-5.0.Gda.HandlerTime */
     get_format(type: GObject.Type): string
     get_no_locale_str_from_value(value: any): string
     set_sql_spec(first: GLib.DateDMY, sec: GLib.DateDMY, third: GLib.DateDMY, separator: number, twodigits_years: boolean): void
     set_str_spec(first: GLib.DateDMY, sec: GLib.DateDMY, third: GLib.DateDMY, separator: number, twodigits_years: boolean): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -3155,7 +3155,7 @@ export class HandlerTime {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of Gda.DataHandler */
+    /* Methods of Gda-5.0.Gda.DataHandler */
     accepts_g_type(type: GObject.Type): boolean
     get_descr(): string
     get_sane_init_value(type: GObject.Type): any | null
@@ -3163,7 +3163,7 @@ export class HandlerTime {
     get_str_from_value(value?: any | null): string
     get_value_from_sql(sql: string | null, type: GObject.Type): any
     get_value_from_str(str: string | null, type: GObject.Type): any
-    /* Virtual methods of Gda.HandlerTime */
+    /* Virtual methods of Gda-5.0.Gda.HandlerTime */
     vfunc_accepts_g_type(type: GObject.Type): boolean
     vfunc_get_descr(): string
     vfunc_get_sane_init_value(type: GObject.Type): any | null
@@ -3171,7 +3171,7 @@ export class HandlerTime {
     vfunc_get_str_from_value(value?: any | null): string
     vfunc_get_value_from_sql(sql: string | null, type: GObject.Type): any
     vfunc_get_value_from_str(str: string | null, type: GObject.Type): any
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -3179,7 +3179,7 @@ export class HandlerTime {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: HandlerTime, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: HandlerTime, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -3198,12 +3198,12 @@ export class HandlerTime {
 export interface HandlerType_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class HandlerType {
-    /* Fields of Gda.HandlerType */
+    /* Fields of Gda-5.0.Gda.HandlerType */
     object: GObject.Object
     priv: HandlerTypePriv
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -3225,7 +3225,7 @@ export class HandlerType {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of Gda.DataHandler */
+    /* Methods of Gda-5.0.Gda.DataHandler */
     accepts_g_type(type: GObject.Type): boolean
     get_descr(): string
     get_sane_init_value(type: GObject.Type): any | null
@@ -3233,7 +3233,7 @@ export class HandlerType {
     get_str_from_value(value?: any | null): string
     get_value_from_sql(sql: string | null, type: GObject.Type): any
     get_value_from_str(str: string | null, type: GObject.Type): any
-    /* Virtual methods of Gda.HandlerType */
+    /* Virtual methods of Gda-5.0.Gda.HandlerType */
     vfunc_accepts_g_type(type: GObject.Type): boolean
     vfunc_get_descr(): string
     vfunc_get_sane_init_value(type: GObject.Type): any | null
@@ -3241,7 +3241,7 @@ export class HandlerType {
     vfunc_get_str_from_value(value?: any | null): string
     vfunc_get_value_from_sql(sql: string | null, type: GObject.Type): any
     vfunc_get_value_from_str(str: string | null, type: GObject.Type): any
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -3249,7 +3249,7 @@ export class HandlerType {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: HandlerType, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: HandlerType, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -3277,7 +3277,7 @@ export interface Holder_ConstructProps extends GObject.Object_ConstructProps {
     validate_changes?: boolean
 }
 export class Holder {
-    /* Properties of Gda.Holder */
+    /* Properties of Gda-5.0.Gda.Holder */
     description: string
     full_bind: Holder
     g_type: GObject.Type
@@ -3288,12 +3288,12 @@ export class Holder {
     source_column: number
     source_model: DataModel
     validate_changes: boolean
-    /* Fields of Gda.Holder */
+    /* Fields of Gda-5.0.Gda.Holder */
     object: GObject.Object
     priv: HolderPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Gda.Holder */
+    /* Methods of Gda-5.0.Gda.Holder */
     copy(): Holder
     force_invalid(): void
     force_invalid_e(error?: GLib.Error | null): void
@@ -3320,7 +3320,7 @@ export class Holder {
     take_static_value(value: any, value_changed: boolean): any
     take_value(value: any): boolean
     value_is_default(): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -3342,11 +3342,11 @@ export class Holder {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of Gda.Lockable */
+    /* Methods of Gda-5.0.Gda.Lockable */
     lock(): void
     trylock(): boolean
     unlock(): void
-    /* Virtual methods of Gda.Holder */
+    /* Virtual methods of Gda-5.0.Gda.Holder */
     vfunc_att_changed(att_name: string, att_value: any): void
     vfunc_changed(): void
     vfunc_source_changed(): void
@@ -3354,7 +3354,7 @@ export class Holder {
     vfunc_i_lock(): void
     vfunc_i_trylock(): boolean
     vfunc_i_unlock(): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -3362,7 +3362,7 @@ export class Holder {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gda.Holder */
+    /* Signals of Gda-5.0.Gda.Holder */
     connect(sigName: "attribute-changed", callback: (($obj: Holder, att_name: string, att_value: any) => void)): number
     connect_after(sigName: "attribute-changed", callback: (($obj: Holder, att_name: string, att_value: any) => void)): number
     emit(sigName: "attribute-changed", att_name: string, att_value: any): void
@@ -3375,7 +3375,7 @@ export class Holder {
     connect(sigName: "validate-change", callback: (($obj: Holder, new_value: any) => GLib.Error)): number
     connect_after(sigName: "validate-change", callback: (($obj: Holder, new_value: any) => GLib.Error)): number
     emit(sigName: "validate-change", new_value: any): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Holder, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Holder, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -3418,12 +3418,12 @@ export interface MetaStore_ConstructProps extends GObject.Object_ConstructProps 
     schema?: string
 }
 export class MetaStore {
-    /* Fields of Gda.MetaStore */
+    /* Fields of Gda-5.0.Gda.MetaStore */
     object: GObject.Object
     priv: MetaStorePrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Gda.MetaStore */
+    /* Methods of Gda-5.0.Gda.MetaStore */
     create_modify_data_model(table_name: string): DataModel
     declare_foreign_key(mstruct: MetaStruct | null, fk_name: string, catalog: string | null, schema: string | null, table: string, ref_catalog: string | null, ref_schema: string | null, ref_table: string, colnames: string[], ref_colnames: string[]): boolean
     extract(select_sql: string, vars?: GLib.HashTable | null): DataModel
@@ -3441,7 +3441,7 @@ export class MetaStore {
     set_identifiers_style(style: SqlIdentifierStyle): void
     set_reserved_keywords_func(func?: SqlReservedKeywordsFunc | null): void
     undeclare_foreign_key(mstruct: MetaStruct | null, fk_name: string, catalog: string | null, schema: string | null, table: string, ref_catalog: string | null, ref_schema: string | null, ref_table: string): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -3463,10 +3463,10 @@ export class MetaStore {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Gda.MetaStore */
+    /* Virtual methods of Gda-5.0.Gda.MetaStore */
     vfunc_meta_reset(): void
     vfunc_suggest_update(suggest: MetaContext): GLib.Error
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -3474,7 +3474,7 @@ export class MetaStore {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gda.MetaStore */
+    /* Signals of Gda-5.0.Gda.MetaStore */
     connect(sigName: "meta-changed", callback: (($obj: MetaStore, changes: MetaStoreChange[]) => void)): number
     connect_after(sigName: "meta-changed", callback: (($obj: MetaStore, changes: MetaStoreChange[]) => void)): number
     emit(sigName: "meta-changed", changes: MetaStoreChange[]): void
@@ -3484,7 +3484,7 @@ export class MetaStore {
     connect(sigName: "suggest-update", callback: (($obj: MetaStore, suggest: MetaContext) => GLib.Error)): number
     connect_after(sigName: "suggest-update", callback: (($obj: MetaStore, suggest: MetaContext) => GLib.Error)): number
     emit(sigName: "suggest-update", suggest: MetaContext): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: MetaStore, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: MetaStore, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -3507,12 +3507,12 @@ export interface MetaStruct_ConstructProps extends GObject.Object_ConstructProps
     meta_store?: MetaStore
 }
 export class MetaStruct {
-    /* Fields of Gda.MetaStruct */
+    /* Fields of Gda-5.0.Gda.MetaStruct */
     object: GObject.Object
     priv: MetaStructPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Gda.MetaStruct */
+    /* Methods of Gda-5.0.Gda.MetaStruct */
     complement(type: MetaDbObjectType, catalog: any | null, schema: any | null, name: any): MetaDbObject
     complement_all(): boolean
     complement_default(): boolean
@@ -3523,7 +3523,7 @@ export class MetaStruct {
     get_db_object(catalog: any | null, schema: any | null, name: any): MetaDbObject
     load_from_xml_file(catalog: string | null, schema: string | null, xml_spec_file: string): boolean
     sort_db_objects(sort_type: MetaSortType): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -3545,7 +3545,7 @@ export class MetaStruct {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -3553,7 +3553,7 @@ export class MetaStruct {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: MetaStruct, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: MetaStruct, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -3572,7 +3572,7 @@ export class MetaStruct {
 export interface PStmt_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class PStmt {
-    /* Fields of Gda.PStmt */
+    /* Fields of Gda-5.0.Gda.PStmt */
     object: GObject.Object
     priv: PStmtPrivate
     sql: string
@@ -3580,13 +3580,13 @@ export class PStmt {
     ncols: number
     types: GObject.Type
     tmpl_columns: Column[]
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Gda.PStmt */
+    /* Methods of Gda-5.0.Gda.PStmt */
     copy_contents(dest: PStmt): void
     get_gda_statement(): Statement
     set_gda_statement(stmt?: Statement | null): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -3608,7 +3608,7 @@ export class PStmt {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -3616,7 +3616,7 @@ export class PStmt {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: PStmt, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: PStmt, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -3633,15 +3633,15 @@ export interface RepetitiveStatement_ConstructProps extends GObject.Object_Const
     statement?: Statement
 }
 export class RepetitiveStatement {
-    /* Fields of Gda.RepetitiveStatement */
+    /* Fields of Gda-5.0.Gda.RepetitiveStatement */
     parent_instance: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Gda.RepetitiveStatement */
+    /* Methods of Gda-5.0.Gda.RepetitiveStatement */
     append_set(values: Set, make_copy: boolean): boolean
     get_all_sets(): Set[]
     get_template_set(set: Set): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -3663,7 +3663,7 @@ export class RepetitiveStatement {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -3671,7 +3671,7 @@ export class RepetitiveStatement {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: RepetitiveStatement, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: RepetitiveStatement, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -3690,21 +3690,21 @@ export interface Row_ConstructProps extends GObject.Object_ConstructProps {
     nb_values?: number
 }
 export class Row {
-    /* Properties of Gda.Row */
+    /* Properties of Gda-5.0.Gda.Row */
     nb_values: number
-    /* Fields of Gda.Row */
+    /* Fields of Gda-5.0.Gda.Row */
     object: GObject.Object
     priv: RowPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Gda.Row */
+    /* Methods of Gda-5.0.Gda.Row */
     get_length(): number
     get_value(num: number): any | null
     invalidate_value(value: any): void
     invalidate_value_e(value: any, error?: GLib.Error | null): void
     value_is_valid(value: any): boolean
     value_is_valid_e(value: any): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -3726,7 +3726,7 @@ export class Row {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -3734,7 +3734,7 @@ export class Row {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Row, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Row, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -3758,12 +3758,12 @@ export interface ServerOperation_ConstructProps extends GObject.Object_Construct
     spec_filename?: string
 }
 export class ServerOperation {
-    /* Fields of Gda.ServerOperation */
+    /* Fields of Gda-5.0.Gda.ServerOperation */
     object: GObject.Object
     priv: ServerOperationPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Gda.ServerOperation */
+    /* Methods of Gda-5.0.Gda.ServerOperation */
     add_item_to_sequence(seq_path: string): number
     del_item_from_sequence(item_path: string): boolean
     get_node_parent(path: string): string
@@ -3785,7 +3785,7 @@ export class ServerOperation {
     perform_drop_database(provider?: string | null): boolean
     perform_drop_table(): boolean
     set_value_at(value: string | null, path: string): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -3807,10 +3807,10 @@ export class ServerOperation {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Gda.ServerOperation */
+    /* Virtual methods of Gda-5.0.Gda.ServerOperation */
     vfunc_seq_item_added(seq_path: string, item_index: number): void
     vfunc_seq_item_remove(seq_path: string, item_index: number): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -3818,14 +3818,14 @@ export class ServerOperation {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gda.ServerOperation */
+    /* Signals of Gda-5.0.Gda.ServerOperation */
     connect(sigName: "sequence-item-added", callback: (($obj: ServerOperation, seq_path: string, item_index: number) => void)): number
     connect_after(sigName: "sequence-item-added", callback: (($obj: ServerOperation, seq_path: string, item_index: number) => void)): number
     emit(sigName: "sequence-item-added", seq_path: string, item_index: number): void
     connect(sigName: "sequence-item-remove", callback: (($obj: ServerOperation, seq_path: string, item_index: number) => void)): number
     connect_after(sigName: "sequence-item-remove", callback: (($obj: ServerOperation, seq_path: string, item_index: number) => void)): number
     emit(sigName: "sequence-item-remove", seq_path: string, item_index: number): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: ServerOperation, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: ServerOperation, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -3849,12 +3849,12 @@ export class ServerOperation {
 export interface ServerProvider_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class ServerProvider {
-    /* Fields of Gda.ServerProvider */
+    /* Fields of Gda-5.0.Gda.ServerProvider */
     object: GObject.Object
     priv: ServerProviderPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Gda.ServerProvider */
+    /* Methods of Gda-5.0.Gda.ServerProvider */
     create_operation(cnc: Connection | null, type: ServerOperationType, options?: Set | null): ServerOperation | null
     create_parser(cnc?: Connection | null): SqlParser
     escape_string(cnc: Connection | null, str: string): string
@@ -3877,7 +3877,7 @@ export class ServerProvider {
     supports_operation(cnc: Connection | null, type: ServerOperationType, options?: Set | null): boolean
     unescape_string(cnc: Connection | null, str: string): string
     value_to_sql_string(cnc: Connection | null, from: any): string
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -3899,7 +3899,7 @@ export class ServerProvider {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Gda.ServerProvider */
+    /* Virtual methods of Gda-5.0.Gda.ServerProvider */
     vfunc_add_savepoint(cnc: Connection, name: string): boolean
     vfunc_begin_transaction(cnc: Connection, name: string, level: TransactionIsolation): boolean
     vfunc_cancel(cnc: Connection, task_id: number): boolean
@@ -3924,7 +3924,7 @@ export class ServerProvider {
     vfunc_supports_feature(cnc: Connection | null, feature: ConnectionFeature): boolean
     vfunc_supports_operation(cnc: Connection | null, type: ServerOperationType, options?: Set | null): boolean
     vfunc_unescape_string(cnc: Connection | null, str: string): string
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -3932,7 +3932,7 @@ export class ServerProvider {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: ServerProvider, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: ServerProvider, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -3956,21 +3956,21 @@ export interface Set_ConstructProps extends GObject.Object_ConstructProps {
     validate_changes?: boolean
 }
 export class Set {
-    /* Properties of Gda.Set */
+    /* Properties of Gda-5.0.Gda.Set */
     description: string
     id: string
     name: string
     validate_changes: boolean
-    /* Fields of Gda.Set */
+    /* Fields of Gda-5.0.Gda.Set */
     object: GObject.Object
     priv: SetPrivate
     holders: Holder[]
     nodes_list: SetNode[]
     sources_list: SetSource[]
     groups_list: SetGroup[]
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Gda.Set */
+    /* Methods of Gda-5.0.Gda.Set */
     add_holder(holder: Holder): boolean
     copy(): Set
     get_group(holder: Holder): SetGroup
@@ -3984,7 +3984,7 @@ export class Set {
     merge_with_set(set_to_merge: Set): void
     remove_holder(holder: Holder): void
     replace_source_model(source: SetSource, model: DataModel): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -4006,7 +4006,7 @@ export class Set {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Gda.Set */
+    /* Virtual methods of Gda-5.0.Gda.Set */
     vfunc_holder_attr_changed(holder: Holder, attr_name: string, attr_value: any): void
     vfunc_holder_changed(holder: Holder): void
     vfunc_holder_type_set(holder: Holder): void
@@ -4014,7 +4014,7 @@ export class Set {
     vfunc_source_model_changed(source: SetSource): void
     vfunc_validate_holder_change(holder: Holder, new_value: any): GLib.Error
     vfunc_validate_set(): GLib.Error
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -4022,7 +4022,7 @@ export class Set {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gda.Set */
+    /* Signals of Gda-5.0.Gda.Set */
     connect(sigName: "holder-attr-changed", callback: (($obj: Set, holder: Holder, attr_name: string, attr_value: any) => void)): number
     connect_after(sigName: "holder-attr-changed", callback: (($obj: Set, holder: Holder, attr_name: string, attr_value: any) => void)): number
     emit(sigName: "holder-attr-changed", holder: Holder, attr_name: string, attr_value: any): void
@@ -4044,7 +4044,7 @@ export class Set {
     connect(sigName: "validate-set", callback: (($obj: Set) => GLib.Error)): number
     connect_after(sigName: "validate-set", callback: (($obj: Set) => GLib.Error)): number
     emit(sigName: "validate-set"): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Set, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Set, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -4077,12 +4077,12 @@ export class Short {
 export interface SqlBuilder_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class SqlBuilder {
-    /* Fields of Gda.SqlBuilder */
+    /* Fields of Gda-5.0.Gda.SqlBuilder */
     object: GObject.Object
     priv: SqlBuilderPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Gda.SqlBuilder */
+    /* Methods of Gda-5.0.Gda.SqlBuilder */
     add_case(test_expr: SqlBuilderId, else_expr: SqlBuilderId, when_array: SqlBuilderId[], then_array: SqlBuilderId[]): SqlBuilderId
     add_cond(op: SqlOperatorType, op1: SqlBuilderId, op2: SqlBuilderId, op3: SqlBuilderId): SqlBuilderId
     add_cond_v(op: SqlOperatorType, op_ids: SqlBuilderId[]): SqlBuilderId
@@ -4108,7 +4108,7 @@ export class SqlBuilder {
     select_set_limit(limit_count_expr_id: SqlBuilderId, limit_offset_expr_id: SqlBuilderId): void
     set_table(table_name: string): void
     set_where(cond_id: SqlBuilderId): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -4130,7 +4130,7 @@ export class SqlBuilder {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -4138,7 +4138,7 @@ export class SqlBuilder {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: SqlBuilder, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: SqlBuilder, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -4159,23 +4159,23 @@ export interface SqlParser_ConstructProps extends GObject.Object_ConstructProps 
     tokenizer_flavour?: number
 }
 export class SqlParser {
-    /* Properties of Gda.SqlParser */
+    /* Properties of Gda-5.0.Gda.SqlParser */
     readonly column_error: number
     readonly line_error: number
     mode: number
     tokenizer_flavour: number
-    /* Fields of Gda.SqlParser */
+    /* Fields of Gda-5.0.Gda.SqlParser */
     object: GObject.Object
     priv: SqlParserPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Gda.SqlParser */
+    /* Methods of Gda-5.0.Gda.SqlParser */
     parse_file_as_batch(filename: string): Batch | null
     parse_string(sql: string): [ /* returnType */ Statement | null, /* remain */ string | null ]
     parse_string_as_batch(sql: string): [ /* returnType */ Batch | null, /* remain */ string | null ]
     set_overflow_error(): void
     set_syntax_error(): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -4197,15 +4197,15 @@ export class SqlParser {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of Gda.Lockable */
+    /* Methods of Gda-5.0.Gda.Lockable */
     lock(): void
     trylock(): boolean
     unlock(): void
-    /* Virtual methods of Gda.SqlParser */
+    /* Virtual methods of Gda-5.0.Gda.SqlParser */
     vfunc_i_lock(): void
     vfunc_i_trylock(): boolean
     vfunc_i_unlock(): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -4213,7 +4213,7 @@ export class SqlParser {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: SqlParser, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: SqlParser, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -4241,14 +4241,14 @@ export interface Statement_ConstructProps extends GObject.Object_ConstructProps 
     structure?: object
 }
 export class Statement {
-    /* Properties of Gda.Statement */
+    /* Properties of Gda-5.0.Gda.Statement */
     structure: object
-    /* Fields of Gda.Statement */
+    /* Fields of Gda-5.0.Gda.Statement */
     object: GObject.Object
     priv: StatementPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Gda.Statement */
+    /* Methods of Gda-5.0.Gda.Statement */
     check_structure(): boolean
     check_validity(cnc?: Connection | null): boolean
     copy(): Statement
@@ -4259,7 +4259,7 @@ export class Statement {
     serialize(): string
     to_sql_extended(cnc: Connection | null, params: Set | null, flags: StatementSqlFlag): [ /* returnType */ string, /* params_used */ Holder[] | null ]
     to_sql_real(context: SqlRenderingContext): string
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -4281,10 +4281,10 @@ export class Statement {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Gda.Statement */
+    /* Virtual methods of Gda-5.0.Gda.Statement */
     vfunc_checked(cnc: Connection, checked: boolean): void
     vfunc_reset(): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -4292,14 +4292,14 @@ export class Statement {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gda.Statement */
+    /* Signals of Gda-5.0.Gda.Statement */
     connect(sigName: "checked", callback: (($obj: Statement, object: Connection, p0: boolean) => void)): number
     connect_after(sigName: "checked", callback: (($obj: Statement, object: Connection, p0: boolean) => void)): number
     emit(sigName: "checked", object: Connection, p0: boolean): void
     connect(sigName: "reset", callback: (($obj: Statement) => void)): number
     connect_after(sigName: "reset", callback: (($obj: Statement) => void)): number
     emit(sigName: "reset"): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Statement, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Statement, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -4320,12 +4320,12 @@ export class Statement {
 export interface ThreadWrapper_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class ThreadWrapper {
-    /* Fields of Gda.ThreadWrapper */
+    /* Fields of Gda-5.0.Gda.ThreadWrapper */
     object: GObject.Object
     priv: ThreadWrapperPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Gda.ThreadWrapper */
+    /* Methods of Gda-5.0.Gda.ThreadWrapper */
     cancel(id: number): boolean
     connect_raw(instance: object | null, sig_name: string, private_thread: boolean, private_job: boolean, callback: ThreadWrapperCallback): number
     disconnect(id: number): void
@@ -4337,7 +4337,7 @@ export class ThreadWrapper {
     iterate(may_block: boolean): void
     steal_signal(id: number): void
     unset_io_channel(): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -4359,7 +4359,7 @@ export class ThreadWrapper {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -4367,7 +4367,7 @@ export class ThreadWrapper {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: ThreadWrapper, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: ThreadWrapper, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -4386,19 +4386,19 @@ export class ThreadWrapper {
 export interface TransactionStatus_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class TransactionStatus {
-    /* Fields of Gda.TransactionStatus */
+    /* Fields of Gda-5.0.Gda.TransactionStatus */
     object: GObject.Object
     name: string
     isolation_level: TransactionIsolation
     state: TransactionStatusState
     events: TransactionStatusEvent[]
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Gda.TransactionStatus */
+    /* Methods of Gda-5.0.Gda.TransactionStatus */
     find(str: string, destev: TransactionStatusEvent): TransactionStatus | null
     find_current(destev: TransactionStatusEvent, unnamed_only: boolean): TransactionStatus | null
     free_events(event: TransactionStatusEvent, free_after: boolean): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -4420,7 +4420,7 @@ export class TransactionStatus {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -4428,7 +4428,7 @@ export class TransactionStatus {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: TransactionStatus, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: TransactionStatus, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -4446,14 +4446,14 @@ export class TransactionStatus {
 export interface Tree_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class Tree {
-    /* Properties of Gda.Tree */
+    /* Properties of Gda-5.0.Gda.Tree */
     readonly is_list: boolean
-    /* Fields of Gda.Tree */
+    /* Fields of Gda-5.0.Gda.Tree */
     object: GObject.Object
     priv: TreePrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Gda.Tree */
+    /* Methods of Gda-5.0.Gda.Tree */
     add_manager(manager: TreeManager): void
     clean(): void
     dump(node?: TreeNode | null, stream?: object | null): void
@@ -4465,7 +4465,7 @@ export class Tree {
     update_all(): boolean
     update_children(node?: TreeNode | null): boolean
     update_part(node: TreeNode): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -4487,12 +4487,12 @@ export class Tree {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Gda.Tree */
+    /* Virtual methods of Gda-5.0.Gda.Tree */
     vfunc_node_changed(node: TreeNode): void
     vfunc_node_deleted(node_path: string): void
     vfunc_node_has_child_toggled(node: TreeNode): void
     vfunc_node_inserted(node: TreeNode): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -4500,7 +4500,7 @@ export class Tree {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gda.Tree */
+    /* Signals of Gda-5.0.Gda.Tree */
     connect(sigName: "node-changed", callback: (($obj: Tree, node: TreeNode) => void)): number
     connect_after(sigName: "node-changed", callback: (($obj: Tree, node: TreeNode) => void)): number
     emit(sigName: "node-changed", node: TreeNode): void
@@ -4513,7 +4513,7 @@ export class Tree {
     connect(sigName: "node-inserted", callback: (($obj: Tree, node: TreeNode) => void)): number
     connect_after(sigName: "node-inserted", callback: (($obj: Tree, node: TreeNode) => void)): number
     emit(sigName: "node-inserted", node: TreeNode): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Tree, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Tree, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -4536,20 +4536,20 @@ export interface TreeManager_ConstructProps extends GObject.Object_ConstructProp
     recursive?: boolean
 }
 export class TreeManager {
-    /* Properties of Gda.TreeManager */
+    /* Properties of Gda-5.0.Gda.TreeManager */
     func: object
     recursive: boolean
-    /* Fields of Gda.TreeManager */
+    /* Fields of Gda-5.0.Gda.TreeManager */
     object: GObject.Object
     priv: TreeManagerPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Gda.TreeManager */
+    /* Methods of Gda-5.0.Gda.TreeManager */
     add_manager(sub: TreeManager): void
     add_new_node_attribute(attribute: string, value?: any | null): void
     create_node(parent?: TreeNode | null, name?: string | null): TreeNode
     get_managers(): TreeManager[]
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -4571,7 +4571,7 @@ export class TreeManager {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -4579,7 +4579,7 @@ export class TreeManager {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: TreeManager, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: TreeManager, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -4605,20 +4605,20 @@ export interface TreeMgrColumns_ConstructProps extends TreeManager_ConstructProp
     table_name?: string
 }
 export class TreeMgrColumns {
-    /* Properties of Gda.TreeManager */
+    /* Properties of Gda-5.0.Gda.TreeManager */
     func: object
     recursive: boolean
-    /* Fields of Gda.TreeMgrColumns */
+    /* Fields of Gda-5.0.Gda.TreeMgrColumns */
     object: TreeManager
     priv: TreeMgrColumnsPriv
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Gda.TreeManager */
+    /* Methods of Gda-5.0.Gda.TreeManager */
     add_manager(sub: TreeManager): void
     add_new_node_attribute(attribute: string, value?: any | null): void
     create_node(parent?: TreeNode | null, name?: string | null): TreeNode
     get_managers(): TreeManager[]
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -4640,7 +4640,7 @@ export class TreeMgrColumns {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -4648,7 +4648,7 @@ export class TreeMgrColumns {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: TreeMgrColumns, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: TreeMgrColumns, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -4671,20 +4671,20 @@ export interface TreeMgrLabel_ConstructProps extends TreeManager_ConstructProps 
     label?: string
 }
 export class TreeMgrLabel {
-    /* Properties of Gda.TreeManager */
+    /* Properties of Gda-5.0.Gda.TreeManager */
     func: object
     recursive: boolean
-    /* Fields of Gda.TreeMgrLabel */
+    /* Fields of Gda-5.0.Gda.TreeMgrLabel */
     object: TreeManager
     priv: TreeMgrLabelPriv
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Gda.TreeManager */
+    /* Methods of Gda-5.0.Gda.TreeManager */
     add_manager(sub: TreeManager): void
     add_new_node_attribute(attribute: string, value?: any | null): void
     create_node(parent?: TreeNode | null, name?: string | null): TreeNode
     get_managers(): TreeManager[]
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -4706,7 +4706,7 @@ export class TreeMgrLabel {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -4714,7 +4714,7 @@ export class TreeMgrLabel {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: TreeMgrLabel, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: TreeMgrLabel, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -4737,20 +4737,20 @@ export interface TreeMgrLdap_ConstructProps extends TreeManager_ConstructProps {
     dn?: string
 }
 export class TreeMgrLdap {
-    /* Properties of Gda.TreeManager */
+    /* Properties of Gda-5.0.Gda.TreeManager */
     func: object
     recursive: boolean
-    /* Fields of Gda.TreeMgrLdap */
+    /* Fields of Gda-5.0.Gda.TreeMgrLdap */
     object: TreeManager
     priv: TreeMgrLdapPriv
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Gda.TreeManager */
+    /* Methods of Gda-5.0.Gda.TreeManager */
     add_manager(sub: TreeManager): void
     add_new_node_attribute(attribute: string, value?: any | null): void
     create_node(parent?: TreeNode | null, name?: string | null): TreeNode
     get_managers(): TreeManager[]
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -4772,7 +4772,7 @@ export class TreeMgrLdap {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -4780,7 +4780,7 @@ export class TreeMgrLdap {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: TreeMgrLdap, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: TreeMgrLdap, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -4804,20 +4804,20 @@ export interface TreeMgrSchemas_ConstructProps extends TreeManager_ConstructProp
     meta_store?: MetaStore
 }
 export class TreeMgrSchemas {
-    /* Properties of Gda.TreeManager */
+    /* Properties of Gda-5.0.Gda.TreeManager */
     func: object
     recursive: boolean
-    /* Fields of Gda.TreeMgrSchemas */
+    /* Fields of Gda-5.0.Gda.TreeMgrSchemas */
     object: TreeManager
     priv: TreeMgrSchemasPriv
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Gda.TreeManager */
+    /* Methods of Gda-5.0.Gda.TreeManager */
     add_manager(sub: TreeManager): void
     add_new_node_attribute(attribute: string, value?: any | null): void
     create_node(parent?: TreeNode | null, name?: string | null): TreeNode
     get_managers(): TreeManager[]
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -4839,7 +4839,7 @@ export class TreeMgrSchemas {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -4847,7 +4847,7 @@ export class TreeMgrSchemas {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: TreeMgrSchemas, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: TreeMgrSchemas, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -4872,20 +4872,20 @@ export interface TreeMgrSelect_ConstructProps extends TreeManager_ConstructProps
     statement?: Statement
 }
 export class TreeMgrSelect {
-    /* Properties of Gda.TreeManager */
+    /* Properties of Gda-5.0.Gda.TreeManager */
     func: object
     recursive: boolean
-    /* Fields of Gda.TreeMgrSelect */
+    /* Fields of Gda-5.0.Gda.TreeMgrSelect */
     object: TreeManager
     priv: TreeMgrSelectPriv
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Gda.TreeManager */
+    /* Methods of Gda-5.0.Gda.TreeManager */
     add_manager(sub: TreeManager): void
     add_new_node_attribute(attribute: string, value?: any | null): void
     create_node(parent?: TreeNode | null, name?: string | null): TreeNode
     get_managers(): TreeManager[]
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -4907,7 +4907,7 @@ export class TreeMgrSelect {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -4915,7 +4915,7 @@ export class TreeMgrSelect {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: TreeMgrSelect, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: TreeMgrSelect, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -4940,20 +4940,20 @@ export interface TreeMgrTables_ConstructProps extends TreeManager_ConstructProps
     schema?: string
 }
 export class TreeMgrTables {
-    /* Properties of Gda.TreeManager */
+    /* Properties of Gda-5.0.Gda.TreeManager */
     func: object
     recursive: boolean
-    /* Fields of Gda.TreeMgrTables */
+    /* Fields of Gda-5.0.Gda.TreeMgrTables */
     object: TreeManager
     priv: TreeMgrTablesPriv
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Gda.TreeManager */
+    /* Methods of Gda-5.0.Gda.TreeManager */
     add_manager(sub: TreeManager): void
     add_new_node_attribute(attribute: string, value?: any | null): void
     create_node(parent?: TreeNode | null, name?: string | null): TreeNode
     get_managers(): TreeManager[]
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -4975,7 +4975,7 @@ export class TreeMgrTables {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -4983,7 +4983,7 @@ export class TreeMgrTables {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: TreeMgrTables, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: TreeMgrTables, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -5006,14 +5006,14 @@ export interface TreeNode_ConstructProps extends GObject.Object_ConstructProps {
     name?: string
 }
 export class TreeNode {
-    /* Properties of Gda.TreeNode */
+    /* Properties of Gda-5.0.Gda.TreeNode */
     name: string
-    /* Fields of Gda.TreeNode */
+    /* Fields of Gda-5.0.Gda.TreeNode */
     object: GObject.Object
     priv: TreeNodePrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Gda.TreeNode */
+    /* Methods of Gda-5.0.Gda.TreeNode */
     fetch_attribute(attribute: string): any
     get_child_index(index: number): TreeNode
     get_child_name(name: string): TreeNode
@@ -5021,7 +5021,7 @@ export class TreeNode {
     get_node_attribute(attribute: string): any
     get_parent(): TreeNode
     set_node_attribute(attribute: string, value: any | null, destroy: GLib.DestroyNotify): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -5043,14 +5043,14 @@ export class TreeNode {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Gda.TreeNode */
+    /* Virtual methods of Gda-5.0.Gda.TreeNode */
     vfunc_dump_children(prefix: string, in_string: GLib.String): void
     vfunc_dump_header(): string
     vfunc_node_changed(node: TreeNode): void
     vfunc_node_deleted(relative_path: string): void
     vfunc_node_has_child_toggled(node: TreeNode): void
     vfunc_node_inserted(node: TreeNode): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -5058,7 +5058,7 @@ export class TreeNode {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gda.TreeNode */
+    /* Signals of Gda-5.0.Gda.TreeNode */
     connect(sigName: "node-changed", callback: (($obj: TreeNode, node: TreeNode) => void)): number
     connect_after(sigName: "node-changed", callback: (($obj: TreeNode, node: TreeNode) => void)): number
     emit(sigName: "node-changed", node: TreeNode): void
@@ -5071,7 +5071,7 @@ export class TreeNode {
     connect(sigName: "node-inserted", callback: (($obj: TreeNode, node: TreeNode) => void)): number
     connect_after(sigName: "node-inserted", callback: (($obj: TreeNode, node: TreeNode) => void)): number
     emit(sigName: "node-inserted", node: TreeNode): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: TreeNode, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: TreeNode, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -5097,19 +5097,19 @@ export interface XaTransaction_ConstructProps extends GObject.Object_ConstructPr
     transaction_id?: string
 }
 export class XaTransaction {
-    /* Fields of Gda.XaTransaction */
+    /* Fields of Gda-5.0.Gda.XaTransaction */
     object: GObject.Object
     priv: XaTransactionPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Gda.XaTransaction */
+    /* Methods of Gda-5.0.Gda.XaTransaction */
     begin(): boolean
     commit(): [ /* returnType */ boolean, /* cnc_to_recover */ Connection[] | null ]
     commit_recovered(): [ /* returnType */ boolean, /* cnc_to_recover */ Connection[] | null ]
     register_connection(cnc: Connection, branch: string): boolean
     rollback(): boolean
     unregister_connection(cnc: Connection): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -5131,7 +5131,7 @@ export class XaTransaction {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -5139,7 +5139,7 @@ export class XaTransaction {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: XaTransaction, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: XaTransaction, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -5156,7 +5156,7 @@ export class XaTransaction {
     static $gtype: GObject.Type
 }
 export class AttributesManager {
-    /* Methods of Gda.AttributesManager */
+    /* Methods of Gda-5.0.Gda.AttributesManager */
     clear(ptr?: object | null): void
     foreach(ptr: object | null, func: AttributesManagerFunc): void
     free(): void
@@ -5166,7 +5166,7 @@ export class AttributesManager {
     static name: string
 }
 export abstract class BatchClass {
-    /* Fields of Gda.BatchClass */
+    /* Fields of Gda-5.0.Gda.BatchClass */
     parent_class: GObject.ObjectClass
     changed: (batch: Batch, changed_stmt: Statement) => void
     static name: string
@@ -5175,10 +5175,10 @@ export class BatchPrivate {
     static name: string
 }
 export class Binary {
-    /* Fields of Gda.Binary */
+    /* Fields of Gda-5.0.Gda.Binary */
     data: Uint8Array[]
     binary_length: number
-    /* Methods of Gda.Binary */
+    /* Methods of Gda-5.0.Gda.Binary */
     to_string(maxlen: number): string
     static name: string
     /* Static methods and pseudo-constructors */
@@ -5186,10 +5186,10 @@ export class Binary {
     static free(boxed?: object | null): void
 }
 export class Blob {
-    /* Fields of Gda.Blob */
+    /* Fields of Gda-5.0.Gda.Blob */
     data: Binary
     op: BlobOp
-    /* Methods of Gda.Blob */
+    /* Methods of Gda-5.0.Gda.Blob */
     set_op(op?: BlobOp | null): void
     to_string(maxlen: number): string
     static name: string
@@ -5198,7 +5198,7 @@ export class Blob {
     static free(boxed?: object | null): void
 }
 export abstract class BlobOpClass {
-    /* Fields of Gda.BlobOpClass */
+    /* Fields of Gda-5.0.Gda.BlobOpClass */
     parent_class: GObject.ObjectClass
     get_length: (op: BlobOp) => number
     read: (op: BlobOp, blob: Blob, offset: number, size: number) => number
@@ -5207,7 +5207,7 @@ export abstract class BlobOpClass {
     static name: string
 }
 export abstract class ColumnClass {
-    /* Fields of Gda.ColumnClass */
+    /* Fields of Gda-5.0.Gda.ColumnClass */
     parent_class: GObject.ObjectClass
     name_changed: (column: Column, old_name: string) => void
     g_type_changed: (column: Column, old_type: GObject.Type, new_type: GObject.Type) => void
@@ -5217,7 +5217,7 @@ export class ColumnPrivate {
     static name: string
 }
 export abstract class ConfigClass {
-    /* Fields of Gda.ConfigClass */
+    /* Fields of Gda-5.0.Gda.ConfigClass */
     object_class: GObject.ObjectClass
     dsn_added: (conf: Config, new_dsn: DsnInfo) => void
     dsn_to_be_removed: (conf: Config, old_dsn: DsnInfo) => void
@@ -5229,7 +5229,7 @@ export class ConfigPrivate {
     static name: string
 }
 export abstract class ConnectionClass {
-    /* Fields of Gda.ConnectionClass */
+    /* Fields of Gda-5.0.Gda.ConnectionClass */
     object_class: GObject.ObjectClass
     error: (cnc: Connection, error: ConnectionEvent) => void
     conn_opened: (obj: Connection) => void
@@ -5240,7 +5240,7 @@ export abstract class ConnectionClass {
     static name: string
 }
 export abstract class ConnectionEventClass {
-    /* Fields of Gda.ConnectionEventClass */
+    /* Fields of Gda-5.0.Gda.ConnectionEventClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
@@ -5251,7 +5251,7 @@ export class ConnectionPrivate {
     static name: string
 }
 export abstract class DataAccessWrapperClass {
-    /* Fields of Gda.DataAccessWrapperClass */
+    /* Fields of Gda-5.0.Gda.DataAccessWrapperClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
@@ -5259,7 +5259,7 @@ export class DataAccessWrapperPrivate {
     static name: string
 }
 export abstract class DataComparatorClass {
-    /* Fields of Gda.DataComparatorClass */
+    /* Fields of Gda-5.0.Gda.DataComparatorClass */
     parent_class: GObject.ObjectClass
     diff_computed: (comp: DataComparator, diff: Diff) => boolean
     static name: string
@@ -5268,7 +5268,7 @@ export class DataComparatorPrivate {
     static name: string
 }
 export abstract class DataHandlerIface {
-    /* Fields of Gda.DataHandlerIface */
+    /* Fields of Gda-5.0.Gda.DataHandlerIface */
     g_iface: GObject.TypeInterface
     get_sql_from_value: (dh: DataHandler, value?: any | null) => string
     get_str_from_value: (dh: DataHandler, value?: any | null) => string
@@ -5280,7 +5280,7 @@ export abstract class DataHandlerIface {
     static name: string
 }
 export abstract class DataModelArrayClass {
-    /* Fields of Gda.DataModelArrayClass */
+    /* Fields of Gda-5.0.Gda.DataModelArrayClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
@@ -5288,7 +5288,7 @@ export class DataModelArrayPrivate {
     static name: string
 }
 export abstract class DataModelDirClass {
-    /* Fields of Gda.DataModelDirClass */
+    /* Fields of Gda-5.0.Gda.DataModelDirClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
@@ -5296,7 +5296,7 @@ export class DataModelDirPrivate {
     static name: string
 }
 export abstract class DataModelIface {
-    /* Fields of Gda.DataModelIface */
+    /* Fields of Gda-5.0.Gda.DataModelIface */
     g_iface: GObject.TypeInterface
     i_get_n_rows: (model: DataModel) => number
     i_get_n_columns: (model: DataModel) => number
@@ -5328,7 +5328,7 @@ export abstract class DataModelIface {
     static name: string
 }
 export abstract class DataModelImportClass {
-    /* Fields of Gda.DataModelImportClass */
+    /* Fields of Gda-5.0.Gda.DataModelImportClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
@@ -5336,7 +5336,7 @@ export class DataModelImportPrivate {
     static name: string
 }
 export abstract class DataModelIterClass {
-    /* Fields of Gda.DataModelIterClass */
+    /* Fields of Gda-5.0.Gda.DataModelIterClass */
     parent_class: SetClass
     row_changed: (iter: DataModelIter, row: number) => void
     end_of_data: (iter: DataModelIter) => void
@@ -5346,7 +5346,7 @@ export class DataModelIterPrivate {
     static name: string
 }
 export abstract class DataModelLdapClass {
-    /* Fields of Gda.DataModelLdapClass */
+    /* Fields of Gda-5.0.Gda.DataModelLdapClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
@@ -5354,7 +5354,7 @@ export class DataModelLdapPrivate {
     static name: string
 }
 export abstract class DataPivotClass {
-    /* Fields of Gda.DataPivotClass */
+    /* Fields of Gda-5.0.Gda.DataPivotClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
@@ -5362,7 +5362,7 @@ export class DataPivotPrivate {
     static name: string
 }
 export abstract class DataProxyClass {
-    /* Fields of Gda.DataProxyClass */
+    /* Fields of Gda-5.0.Gda.DataProxyClass */
     parent_class: GObject.ObjectClass
     row_delete_changed: (proxy: DataProxy, row: number, to_be_deleted: boolean) => void
     sample_size_changed: (proxy: DataProxy, sample_size: number) => void
@@ -5376,7 +5376,7 @@ export class DataProxyPrivate {
     static name: string
 }
 export abstract class DataSelectClass {
-    /* Fields of Gda.DataSelectClass */
+    /* Fields of Gda-5.0.Gda.DataSelectClass */
     parent_class: GObject.ObjectClass
     fetch_nb_rows: (model: DataSelect) => number
     fetch_random: (model: DataSelect, prow: Row, rownum: number) => boolean
@@ -5390,7 +5390,7 @@ export class DataSelectPrivate {
     static name: string
 }
 export class Diff {
-    /* Fields of Gda.Diff */
+    /* Fields of Gda-5.0.Gda.Diff */
     type: DiffType
     old_row: number
     new_row: number
@@ -5398,14 +5398,14 @@ export class Diff {
     static name: string
 }
 export class DsnInfo {
-    /* Fields of Gda.DsnInfo */
+    /* Fields of Gda-5.0.Gda.DsnInfo */
     name: string
     provider: string
     description: string
     cnc_string: string
     auth_string: string
     is_system: boolean
-    /* Methods of Gda.DsnInfo */
+    /* Methods of Gda-5.0.Gda.DsnInfo */
     copy(): DsnInfo
     free(): void
     static name: string
@@ -5415,7 +5415,7 @@ export class DsnInfo {
     static new(): DsnInfo
 }
 export class GeometricPoint {
-    /* Fields of Gda.GeometricPoint */
+    /* Fields of Gda-5.0.Gda.GeometricPoint */
     x: number
     y: number
     static name: string
@@ -5424,7 +5424,7 @@ export class GeometricPoint {
     static free(boxed?: object | null): void
 }
 export abstract class HandlerBinClass {
-    /* Fields of Gda.HandlerBinClass */
+    /* Fields of Gda-5.0.Gda.HandlerBinClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
@@ -5432,7 +5432,7 @@ export class HandlerBinPriv {
     static name: string
 }
 export abstract class HandlerBooleanClass {
-    /* Fields of Gda.HandlerBooleanClass */
+    /* Fields of Gda-5.0.Gda.HandlerBooleanClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
@@ -5440,7 +5440,7 @@ export class HandlerBooleanPriv {
     static name: string
 }
 export abstract class HandlerNumericalClass {
-    /* Fields of Gda.HandlerNumericalClass */
+    /* Fields of Gda-5.0.Gda.HandlerNumericalClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
@@ -5448,7 +5448,7 @@ export class HandlerNumericalPriv {
     static name: string
 }
 export abstract class HandlerStringClass {
-    /* Fields of Gda.HandlerStringClass */
+    /* Fields of Gda-5.0.Gda.HandlerStringClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
@@ -5456,7 +5456,7 @@ export class HandlerStringPriv {
     static name: string
 }
 export abstract class HandlerTimeClass {
-    /* Fields of Gda.HandlerTimeClass */
+    /* Fields of Gda-5.0.Gda.HandlerTimeClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
@@ -5464,7 +5464,7 @@ export class HandlerTimePriv {
     static name: string
 }
 export abstract class HandlerTypeClass {
-    /* Fields of Gda.HandlerTypeClass */
+    /* Fields of Gda-5.0.Gda.HandlerTypeClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
@@ -5472,7 +5472,7 @@ export class HandlerTypePriv {
     static name: string
 }
 export abstract class HolderClass {
-    /* Fields of Gda.HolderClass */
+    /* Fields of Gda-5.0.Gda.HolderClass */
     parent_class: GObject.ObjectClass
     changed: (holder: Holder) => void
     source_changed: (holder: Holder) => void
@@ -5484,7 +5484,7 @@ export class HolderPrivate {
     static name: string
 }
 export abstract class LockableIface {
-    /* Fields of Gda.LockableIface */
+    /* Fields of Gda-5.0.Gda.LockableIface */
     g_iface: GObject.TypeInterface
     i_lock: (lock: Lockable) => void
     i_trylock: (lock: Lockable) => boolean
@@ -5492,13 +5492,13 @@ export abstract class LockableIface {
     static name: string
 }
 export class MetaContext {
-    /* Fields of Gda.MetaContext */
+    /* Fields of Gda-5.0.Gda.MetaContext */
     table_name: string
     size: number
     column_names: string[]
     column_values: any[]
     columns: GLib.HashTable
-    /* Methods of Gda.MetaContext */
+    /* Methods of Gda-5.0.Gda.MetaContext */
     copy(): MetaContext
     free(): void
     get_table(): string
@@ -5512,7 +5512,7 @@ export class MetaContext {
     static new(): MetaContext
 }
 export class MetaDbObject {
-    /* Fields of Gda.MetaDbObject */
+    /* Fields of Gda-5.0.Gda.MetaDbObject */
     obj_type: MetaDbObjectType
     outdated: boolean
     obj_catalog: string
@@ -5525,14 +5525,14 @@ export class MetaDbObject {
     static name: string
 }
 export class MetaStoreChange {
-    /* Fields of Gda.MetaStoreChange */
+    /* Fields of Gda-5.0.Gda.MetaStoreChange */
     c_type: MetaStoreChangeType
     table_name: string
     keys: GLib.HashTable
     static name: string
 }
 export abstract class MetaStoreClass {
-    /* Fields of Gda.MetaStoreClass */
+    /* Fields of Gda-5.0.Gda.MetaStoreClass */
     parent_class: GObject.ObjectClass
     cpriv: MetaStoreClassPrivate
     meta_reset: (store: MetaStore) => void
@@ -5546,7 +5546,7 @@ export class MetaStorePrivate {
     static name: string
 }
 export abstract class MetaStructClass {
-    /* Fields of Gda.MetaStructClass */
+    /* Fields of Gda-5.0.Gda.MetaStructClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
@@ -5554,7 +5554,7 @@ export class MetaStructPrivate {
     static name: string
 }
 export class MetaTable {
-    /* Fields of Gda.MetaTable */
+    /* Fields of Gda-5.0.Gda.MetaTable */
     columns: MetaTableColumn[]
     pk_cols_array: number
     pk_cols_nb: number
@@ -5563,21 +5563,21 @@ export class MetaTable {
     static name: string
 }
 export class MetaTableColumn {
-    /* Fields of Gda.MetaTableColumn */
+    /* Fields of Gda-5.0.Gda.MetaTableColumn */
     column_name: string
     column_type: string
     gtype: GObject.Type
     pkey: boolean
     nullok: boolean
     default_value: string
-    /* Methods of Gda.MetaTableColumn */
+    /* Methods of Gda-5.0.Gda.MetaTableColumn */
     foreach_attribute(func: AttributesManagerFunc): void
     get_attribute(attribute: string): any
     set_attribute(attribute: string, value?: any | null, destroy?: GLib.DestroyNotify | null): void
     static name: string
 }
 export class MetaTableForeignKey {
-    /* Fields of Gda.MetaTableForeignKey */
+    /* Fields of Gda-5.0.Gda.MetaTableForeignKey */
     meta_table: MetaDbObject
     depend_on: MetaDbObject
     cols_nb: number
@@ -5589,18 +5589,18 @@ export class MetaTableForeignKey {
     static name: string
 }
 export class MetaView {
-    /* Fields of Gda.MetaView */
+    /* Fields of Gda-5.0.Gda.MetaView */
     table: MetaTable
     view_def: string
     is_updatable: boolean
     static name: string
 }
 export class Numeric {
-    /* Fields of Gda.Numeric */
+    /* Fields of Gda-5.0.Gda.Numeric */
     number: string
     precision: number
     width: number
-    /* Methods of Gda.Numeric */
+    /* Methods of Gda-5.0.Gda.Numeric */
     copy(): Numeric
     free(): void
     get_double(): number
@@ -5618,7 +5618,7 @@ export class Numeric {
     static new(): Numeric
 }
 export abstract class PStmtClass {
-    /* Fields of Gda.PStmtClass */
+    /* Fields of Gda-5.0.Gda.PStmtClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
@@ -5626,7 +5626,7 @@ export class PStmtPrivate {
     static name: string
 }
 export class ProviderInfo {
-    /* Fields of Gda.ProviderInfo */
+    /* Fields of Gda-5.0.Gda.ProviderInfo */
     id: string
     location: string
     description: string
@@ -5635,7 +5635,7 @@ export class ProviderInfo {
     static name: string
 }
 export class QuarkList {
-    /* Methods of Gda.QuarkList */
+    /* Methods of Gda-5.0.Gda.QuarkList */
     add_from_string(string: string, cleanup: boolean): void
     clear(): void
     copy(): QuarkList
@@ -5652,12 +5652,12 @@ export class QuarkList {
     static new_from_string(string: string): QuarkList
 }
 export abstract class RepetitiveStatementClass {
-    /* Fields of Gda.RepetitiveStatementClass */
+    /* Fields of Gda-5.0.Gda.RepetitiveStatementClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
 export abstract class RowClass {
-    /* Fields of Gda.RowClass */
+    /* Fields of Gda-5.0.Gda.RowClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
@@ -5665,14 +5665,14 @@ export class RowPrivate {
     static name: string
 }
 export abstract class ServerOperationClass {
-    /* Fields of Gda.ServerOperationClass */
+    /* Fields of Gda-5.0.Gda.ServerOperationClass */
     parent_class: GObject.ObjectClass
     seq_item_added: (op: ServerOperation, seq_path: string, item_index: number) => void
     seq_item_remove: (op: ServerOperation, seq_path: string, item_index: number) => void
     static name: string
 }
 export class ServerOperationNode {
-    /* Fields of Gda.ServerOperationNode */
+    /* Fields of Gda-5.0.Gda.ServerOperationNode */
     type: ServerOperationNodeType
     status: ServerOperationNodeStatus
     plist: Set
@@ -5686,7 +5686,7 @@ export class ServerOperationPrivate {
     static name: string
 }
 export abstract class ServerProviderClass {
-    /* Fields of Gda.ServerProviderClass */
+    /* Fields of Gda-5.0.Gda.ServerProviderClass */
     parent_class: GObject.ObjectClass
     limiting_thread: GLib.Thread
     get_name: (provider: ServerProvider) => string
@@ -5718,7 +5718,7 @@ export abstract class ServerProviderClass {
     static name: string
 }
 export class ServerProviderHandlerInfo {
-    /* Fields of Gda.ServerProviderHandlerInfo */
+    /* Fields of Gda-5.0.Gda.ServerProviderHandlerInfo */
     cnc: Connection
     g_type: GObject.Type
     dbms_type: string
@@ -5728,7 +5728,7 @@ export class ServerProviderInfo {
     static name: string
 }
 export class ServerProviderMeta {
-    /* Fields of Gda.ServerProviderMeta */
+    /* Fields of Gda-5.0.Gda.ServerProviderMeta */
     udt: (prov: ServerProvider, cnc: Connection, meta: MetaStore, ctx: MetaContext, error: GLib.Error, udt_catalog: any, udt_schema: any) => boolean
     udt_cols: (prov: ServerProvider, cnc: Connection, meta: MetaStore, ctx: MetaContext, error: GLib.Error, udt_catalog: any, udt_schema: any, udt_name: any) => boolean
     enums: (prov: ServerProvider, cnc: Connection, meta: MetaStore, ctx: MetaContext, error: GLib.Error, udt_catalog: any, udt_schema: any, udt_name: any) => boolean
@@ -5754,13 +5754,13 @@ export class ServerProviderMeta {
     static name: string
 }
 export class ServerProviderPrivate {
-    /* Fields of Gda.ServerProviderPrivate */
+    /* Fields of Gda-5.0.Gda.ServerProviderPrivate */
     data_handlers: GLib.HashTable
     parser: SqlParser
     static name: string
 }
 export class ServerProviderXa {
-    /* Fields of Gda.ServerProviderXa */
+    /* Fields of Gda-5.0.Gda.ServerProviderXa */
     xa_start: (prov: ServerProvider, cnc: Connection, trx: XaTransactionId) => boolean
     xa_end: (prov: ServerProvider, cnc: Connection, trx: XaTransactionId) => boolean
     xa_prepare: (prov: ServerProvider, cnc: Connection, trx: XaTransactionId) => boolean
@@ -5769,7 +5769,7 @@ export class ServerProviderXa {
     static name: string
 }
 export abstract class SetClass {
-    /* Fields of Gda.SetClass */
+    /* Fields of Gda-5.0.Gda.SetClass */
     parent_class: GObject.ObjectClass
     validate_holder_change: (set: Set, holder: Holder, new_value: any) => GLib.Error
     validate_set: (set: Set) => GLib.Error
@@ -5781,10 +5781,10 @@ export abstract class SetClass {
     static name: string
 }
 export class SetGroup {
-    /* Fields of Gda.SetGroup */
+    /* Fields of Gda-5.0.Gda.SetGroup */
     nodes: SetNode[]
     nodes_source: SetSource
-    /* Methods of Gda.SetGroup */
+    /* Methods of Gda-5.0.Gda.SetGroup */
     add_node(node: SetNode): void
     copy(): SetGroup
     free(): void
@@ -5800,11 +5800,11 @@ export class SetGroup {
     static new(node: SetNode): SetGroup
 }
 export class SetNode {
-    /* Fields of Gda.SetNode */
+    /* Fields of Gda-5.0.Gda.SetNode */
     holder: Holder
     source_model: DataModel
     source_column: number
-    /* Methods of Gda.SetNode */
+    /* Methods of Gda-5.0.Gda.SetNode */
     copy(): SetNode
     free(): void
     get_data_model(): DataModel
@@ -5823,10 +5823,10 @@ export class SetPrivate {
     static name: string
 }
 export class SetSource {
-    /* Fields of Gda.SetSource */
+    /* Fields of Gda-5.0.Gda.SetSource */
     data_model: DataModel
     nodes: SetNode[]
-    /* Methods of Gda.SetSource */
+    /* Methods of Gda-5.0.Gda.SetSource */
     add_node(node: SetNode): void
     copy(): SetSource
     free(): void
@@ -5841,15 +5841,15 @@ export class SetSource {
     static new(model: DataModel): SetSource
 }
 export class SqlAnyPart {
-    /* Fields of Gda.SqlAnyPart */
+    /* Fields of Gda-5.0.Gda.SqlAnyPart */
     type: any
     parent: any
-    /* Methods of Gda.SqlAnyPart */
+    /* Methods of Gda-5.0.Gda.SqlAnyPart */
     check_structure(): boolean
     static name: string
 }
 export abstract class SqlBuilderClass {
-    /* Fields of Gda.SqlBuilderClass */
+    /* Fields of Gda-5.0.Gda.SqlBuilderClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
@@ -5857,19 +5857,19 @@ export class SqlBuilderPrivate {
     static name: string
 }
 export class SqlCase {
-    /* Fields of Gda.SqlCase */
+    /* Fields of Gda-5.0.Gda.SqlCase */
     any: any
     base_expr: any
     when_expr_list: object[]
     then_expr_list: object[]
     else_expr: any
-    /* Methods of Gda.SqlCase */
+    /* Methods of Gda-5.0.Gda.SqlCase */
     free(): void
     serialize(): string
     static name: string
 }
 export class SqlExpr {
-    /* Fields of Gda.SqlExpr */
+    /* Fields of Gda-5.0.Gda.SqlExpr */
     any: any
     value: any
     param_spec: any
@@ -5879,29 +5879,29 @@ export class SqlExpr {
     case_s: any
     cast_as: string
     value_is_ident: boolean
-    /* Methods of Gda.SqlExpr */
+    /* Methods of Gda-5.0.Gda.SqlExpr */
     free(): void
     serialize(): string
     take_select(stmt: SqlStatement): void
     static name: string
 }
 export class SqlField {
-    /* Fields of Gda.SqlField */
+    /* Fields of Gda-5.0.Gda.SqlField */
     any: any
     field_name: string
     validity_meta_table_column: MetaTableColumn
-    /* Methods of Gda.SqlField */
+    /* Methods of Gda-5.0.Gda.SqlField */
     free(): void
     serialize(): string
     take_name(value: any): void
     static name: string
 }
 export class SqlFunction {
-    /* Fields of Gda.SqlFunction */
+    /* Fields of Gda-5.0.Gda.SqlFunction */
     any: any
     function_name: string
     args_list: object[]
-    /* Methods of Gda.SqlFunction */
+    /* Methods of Gda-5.0.Gda.SqlFunction */
     check_clean(): void
     free(): void
     serialize(): string
@@ -5910,11 +5910,11 @@ export class SqlFunction {
     static name: string
 }
 export class SqlOperation {
-    /* Fields of Gda.SqlOperation */
+    /* Fields of Gda-5.0.Gda.SqlOperation */
     any: any
     operator_type: SqlOperatorType
     operands: object[]
-    /* Methods of Gda.SqlOperation */
+    /* Methods of Gda-5.0.Gda.SqlOperation */
     free(): void
     serialize(): string
     static name: string
@@ -5923,7 +5923,7 @@ export class SqlOperation {
     static operator_to_string(op: SqlOperatorType): string
 }
 export abstract class SqlParserClass {
-    /* Fields of Gda.SqlParserClass */
+    /* Fields of Gda-5.0.Gda.SqlParserClass */
     parent_class: GObject.ObjectClass
     delim_alloc: (f: object) => object
     delim_free: (d: object, f: object) => void
@@ -5938,7 +5938,7 @@ export abstract class SqlParserClass {
     static name: string
 }
 export class SqlParserIface {
-    /* Fields of Gda.SqlParserIface */
+    /* Fields of Gda-5.0.Gda.SqlParserIface */
     parser: SqlParser
     parsed_statement: SqlStatement
     static name: string
@@ -5947,7 +5947,7 @@ export class SqlParserPrivate {
     static name: string
 }
 export class SqlRenderingContext {
-    /* Fields of Gda.SqlRenderingContext */
+    /* Fields of Gda-5.0.Gda.SqlRenderingContext */
     flags: StatementSqlFlag
     params: Set
     params_used: Holder[]
@@ -5957,7 +5957,7 @@ export class SqlRenderingContext {
     static name: string
 }
 export class SqlSelectField {
-    /* Fields of Gda.SqlSelectField */
+    /* Fields of Gda-5.0.Gda.SqlSelectField */
     any: any
     expr: any
     field_name: string
@@ -5965,7 +5965,7 @@ export class SqlSelectField {
     as: string
     validity_meta_object: MetaDbObject
     validity_meta_table_column: MetaTableColumn
-    /* Methods of Gda.SqlSelectField */
+    /* Methods of Gda-5.0.Gda.SqlSelectField */
     free(): void
     serialize(): string
     take_alias(alias: any): void
@@ -5973,23 +5973,23 @@ export class SqlSelectField {
     static name: string
 }
 export class SqlSelectFrom {
-    /* Fields of Gda.SqlSelectFrom */
+    /* Fields of Gda-5.0.Gda.SqlSelectFrom */
     any: any
     targets: any[]
     joins: any[]
-    /* Methods of Gda.SqlSelectFrom */
+    /* Methods of Gda-5.0.Gda.SqlSelectFrom */
     free(): void
     serialize(): string
     static name: string
 }
 export class SqlSelectJoin {
-    /* Fields of Gda.SqlSelectJoin */
+    /* Fields of Gda-5.0.Gda.SqlSelectJoin */
     any: any
     type: SqlSelectJoinType
     position: number
     expr: any
     use: object[]
-    /* Methods of Gda.SqlSelectJoin */
+    /* Methods of Gda-5.0.Gda.SqlSelectJoin */
     free(): void
     serialize(): string
     static name: string
@@ -5997,24 +5997,24 @@ export class SqlSelectJoin {
     static type_to_string(type: SqlSelectJoinType): string
 }
 export class SqlSelectOrder {
-    /* Fields of Gda.SqlSelectOrder */
+    /* Fields of Gda-5.0.Gda.SqlSelectOrder */
     any: any
     expr: any
     asc: boolean
     collation_name: string
-    /* Methods of Gda.SqlSelectOrder */
+    /* Methods of Gda-5.0.Gda.SqlSelectOrder */
     free(): void
     serialize(): string
     static name: string
 }
 export class SqlSelectTarget {
-    /* Fields of Gda.SqlSelectTarget */
+    /* Fields of Gda-5.0.Gda.SqlSelectTarget */
     any: any
     expr: any
     table_name: string
     as: string
     validity_meta_object: MetaDbObject
-    /* Methods of Gda.SqlSelectTarget */
+    /* Methods of Gda-5.0.Gda.SqlSelectTarget */
     free(): void
     serialize(): string
     take_alias(alias: any): void
@@ -6023,27 +6023,27 @@ export class SqlSelectTarget {
     static name: string
 }
 export class SqlStatement {
-    /* Methods of Gda.SqlStatement */
+    /* Methods of Gda-5.0.Gda.SqlStatement */
     compound_set_type(type: SqlStatementCompoundType): void
     compound_take_stmt(s: SqlStatement): void
     static name: string
 }
 export class SqlStatementCheckValidityData {
-    /* Fields of Gda.SqlStatementCheckValidityData */
+    /* Fields of Gda-5.0.Gda.SqlStatementCheckValidityData */
     cnc: Connection
     store: MetaStore
     mstruct: MetaStruct
     static name: string
 }
 export class SqlStatementCompound {
-    /* Fields of Gda.SqlStatementCompound */
+    /* Fields of Gda-5.0.Gda.SqlStatementCompound */
     any: any
     compound_type: SqlStatementCompoundType
     stmt_list: object[]
     static name: string
 }
 export class SqlStatementContentsInfo {
-    /* Fields of Gda.SqlStatementContentsInfo */
+    /* Fields of Gda-5.0.Gda.SqlStatementContentsInfo */
     type: SqlStatementType
     name: string
     construct: () => object
@@ -6073,18 +6073,18 @@ export class SqlStatementUpdate {
     static name: string
 }
 export class SqlTable {
-    /* Fields of Gda.SqlTable */
+    /* Fields of Gda-5.0.Gda.SqlTable */
     any: any
     table_name: string
     validity_meta_object: MetaDbObject
-    /* Methods of Gda.SqlTable */
+    /* Methods of Gda-5.0.Gda.SqlTable */
     free(): void
     serialize(): string
     take_name(value: any): void
     static name: string
 }
 export abstract class StatementClass {
-    /* Fields of Gda.StatementClass */
+    /* Fields of Gda-5.0.Gda.StatementClass */
     parent_class: GObject.ObjectClass
     checked: (stmt: Statement, cnc: Connection, checked: boolean) => void
     reset: (stmt: Statement) => void
@@ -6094,13 +6094,13 @@ export class StatementPrivate {
     static name: string
 }
 export class ThreadNotification {
-    /* Fields of Gda.ThreadNotification */
+    /* Fields of Gda-5.0.Gda.ThreadNotification */
     type: ThreadNotificationType
     job_id: number
     static name: string
 }
 export abstract class ThreadWrapperClass {
-    /* Fields of Gda.ThreadWrapperClass */
+    /* Fields of Gda-5.0.Gda.ThreadWrapperClass */
     object_class: GObject.ObjectClass
     static name: string
 }
@@ -6108,13 +6108,13 @@ export class ThreadWrapperPrivate {
     static name: string
 }
 export class Time {
-    /* Fields of Gda.Time */
+    /* Fields of Gda-5.0.Gda.Time */
     hour: number
     minute: number
     second: number
     fraction: number
     timezone: number
-    /* Methods of Gda.Time */
+    /* Methods of Gda-5.0.Gda.Time */
     change_timezone(ntz: number): void
     valid(): boolean
     static name: string
@@ -6123,7 +6123,7 @@ export class Time {
     static free(boxed?: object | null): void
 }
 export class Timestamp {
-    /* Fields of Gda.Timestamp */
+    /* Fields of Gda-5.0.Gda.Timestamp */
     year: number
     month: number
     day: number
@@ -6132,7 +6132,7 @@ export class Timestamp {
     second: number
     fraction: number
     timezone: number
-    /* Methods of Gda.Timestamp */
+    /* Methods of Gda-5.0.Gda.Timestamp */
     change_timezone(ntz: number): void
     valid(): boolean
     static name: string
@@ -6141,19 +6141,19 @@ export class Timestamp {
     static free(boxed?: object | null): void
 }
 export abstract class TransactionStatusClass {
-    /* Fields of Gda.TransactionStatusClass */
+    /* Fields of Gda-5.0.Gda.TransactionStatusClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
 export class TransactionStatusEvent {
-    /* Fields of Gda.TransactionStatusEvent */
+    /* Fields of Gda-5.0.Gda.TransactionStatusEvent */
     trans: TransactionStatus
     type: TransactionStatusEventType
     conn_event: ConnectionEvent
     static name: string
 }
 export abstract class TreeClass {
-    /* Fields of Gda.TreeClass */
+    /* Fields of Gda-5.0.Gda.TreeClass */
     object_class: GObject.ObjectClass
     node_changed: (tree: Tree, node: TreeNode) => void
     node_inserted: (tree: Tree, node: TreeNode) => void
@@ -6162,7 +6162,7 @@ export abstract class TreeClass {
     static name: string
 }
 export abstract class TreeManagerClass {
-    /* Fields of Gda.TreeManagerClass */
+    /* Fields of Gda-5.0.Gda.TreeManagerClass */
     object_class: GObject.ObjectClass
     static name: string
 }
@@ -6170,7 +6170,7 @@ export class TreeManagerPrivate {
     static name: string
 }
 export abstract class TreeMgrColumnsClass {
-    /* Fields of Gda.TreeMgrColumnsClass */
+    /* Fields of Gda-5.0.Gda.TreeMgrColumnsClass */
     object_class: TreeManagerClass
     static name: string
 }
@@ -6178,7 +6178,7 @@ export class TreeMgrColumnsPriv {
     static name: string
 }
 export abstract class TreeMgrLabelClass {
-    /* Fields of Gda.TreeMgrLabelClass */
+    /* Fields of Gda-5.0.Gda.TreeMgrLabelClass */
     object_class: TreeManagerClass
     static name: string
 }
@@ -6186,7 +6186,7 @@ export class TreeMgrLabelPriv {
     static name: string
 }
 export abstract class TreeMgrLdapClass {
-    /* Fields of Gda.TreeMgrLdapClass */
+    /* Fields of Gda-5.0.Gda.TreeMgrLdapClass */
     object_class: TreeManagerClass
     static name: string
 }
@@ -6194,7 +6194,7 @@ export class TreeMgrLdapPriv {
     static name: string
 }
 export abstract class TreeMgrSchemasClass {
-    /* Fields of Gda.TreeMgrSchemasClass */
+    /* Fields of Gda-5.0.Gda.TreeMgrSchemasClass */
     object_class: TreeManagerClass
     static name: string
 }
@@ -6202,7 +6202,7 @@ export class TreeMgrSchemasPriv {
     static name: string
 }
 export abstract class TreeMgrSelectClass {
-    /* Fields of Gda.TreeMgrSelectClass */
+    /* Fields of Gda-5.0.Gda.TreeMgrSelectClass */
     object_class: TreeManagerClass
     static name: string
 }
@@ -6210,7 +6210,7 @@ export class TreeMgrSelectPriv {
     static name: string
 }
 export abstract class TreeMgrTablesClass {
-    /* Fields of Gda.TreeMgrTablesClass */
+    /* Fields of Gda-5.0.Gda.TreeMgrTablesClass */
     object_class: TreeManagerClass
     static name: string
 }
@@ -6218,7 +6218,7 @@ export class TreeMgrTablesPriv {
     static name: string
 }
 export abstract class TreeNodeClass {
-    /* Fields of Gda.TreeNodeClass */
+    /* Fields of Gda-5.0.Gda.TreeNodeClass */
     object_class: GObject.ObjectClass
     node_changed: (reporting: TreeNode, node: TreeNode) => void
     node_inserted: (reporting: TreeNode, node: TreeNode) => void
@@ -6235,17 +6235,17 @@ export class TreePrivate {
     static name: string
 }
 export abstract class XaTransactionClass {
-    /* Fields of Gda.XaTransactionClass */
+    /* Fields of Gda-5.0.Gda.XaTransactionClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
 export class XaTransactionId {
-    /* Fields of Gda.XaTransactionId */
+    /* Fields of Gda-5.0.Gda.XaTransactionId */
     format: number
     gtrid_length: number
     bqual_length: number
     data: number[]
-    /* Methods of Gda.XaTransactionId */
+    /* Methods of Gda-5.0.Gda.XaTransactionId */
     to_string(): string
     static name: string
 }

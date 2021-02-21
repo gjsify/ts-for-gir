@@ -457,7 +457,7 @@ export interface WriteWidgetFunc {
 export interface Editable_ConstructProps extends Gtk.Widget_ConstructProps {
 }
 export class Editable {
-    /* Properties of Gtk.Widget */
+    /* Properties of Gtk-3.0.Gtk.Widget */
     app_paintable: boolean
     can_default: boolean
     can_focus: boolean
@@ -497,18 +497,18 @@ export class Editable {
     visible: boolean
     width_request: number
     readonly window: Gdk.Window
-    /* Fields of Gtk.Widget */
+    /* Fields of Gtk-3.0.Gtk.Widget */
     parent_instance: GObject.InitiallyUnowned
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Gladeui.Editable */
+    /* Methods of Gladeui-2.0.Gladeui.Editable */
     block(): void
     load(widget: Widget): void
     loaded_widget(): Widget | null
     loading(): boolean
     set_show_name(show_name: boolean): void
     unblock(): void
-    /* Methods of Gtk.Widget */
+    /* Methods of Gtk-3.0.Gtk.Widget */
     activate(): boolean
     add_accelerator(accel_signal: string, accel_group: Gtk.AccelGroup, accel_key: number, accel_mods: Gdk.ModifierType, accel_flags: Gtk.AccelFlags): void
     add_device_events(device: Gdk.Device, events: Gdk.EventMask): void
@@ -767,7 +767,7 @@ export class Editable {
     unrealize(): void
     unregister_window(window: Gdk.Window): void
     unset_state_flags(flags: Gtk.StateFlags): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -789,10 +789,10 @@ export class Editable {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Gladeui.Editable */
+    /* Virtual methods of Gladeui-2.0.Gladeui.Editable */
     vfunc_load(widget: Widget): void
     vfunc_set_show_name(show_name: boolean): void
-    /* Virtual methods of Gtk.Widget */
+    /* Virtual methods of Gtk-3.0.Gtk.Widget */
     vfunc_adjust_baseline_allocation(baseline: number): void
     vfunc_adjust_baseline_request(minimum_baseline: number, natural_baseline: number): void
     vfunc_adjust_size_allocation(orientation: Gtk.Orientation, minimum_size: number, natural_size: number, allocated_pos: number, allocated_size: number): void
@@ -875,7 +875,7 @@ export class Editable {
     vfunc_unrealize(): void
     vfunc_visibility_notify_event(event: Gdk.EventVisibility): boolean
     vfunc_window_state_event(event: Gdk.EventWindowState): boolean
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -883,7 +883,7 @@ export class Editable {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gtk.Widget */
+    /* Signals of Gtk-3.0.Gtk.Widget */
     connect(sigName: "accel-closures-changed", callback: (($obj: Editable) => void)): number
     connect_after(sigName: "accel-closures-changed", callback: (($obj: Editable) => void)): number
     emit(sigName: "accel-closures-changed"): void
@@ -1091,7 +1091,7 @@ export class Editable {
     connect(sigName: "window-state-event", callback: (($obj: Editable, event: Gdk.EventWindowState) => boolean)): number
     connect_after(sigName: "window-state-event", callback: (($obj: Editable, event: Gdk.EventWindowState) => boolean)): number
     emit(sigName: "window-state-event", event: Gdk.EventWindowState): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Editable, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Editable, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -1187,17 +1187,17 @@ export interface AdaptorChooser_ConstructProps extends Gtk.Box_ConstructProps {
     orientation?: Gtk.Orientation
 }
 export class AdaptorChooser {
-    /* Properties of Gladeui.AdaptorChooser */
+    /* Properties of Gladeui-2.0.Gladeui.AdaptorChooser */
     project: Project
-    /* Properties of Gtk.Box */
+    /* Properties of Gtk-3.0.Gtk.Box */
     baseline_position: Gtk.BaselinePosition
     homogeneous: boolean
     spacing: number
-    /* Properties of Gtk.Container */
+    /* Properties of Gtk-3.0.Gtk.Container */
     border_width: number
     child: Gtk.Widget
     resize_mode: Gtk.ResizeMode
-    /* Properties of Gtk.Widget */
+    /* Properties of Gtk-3.0.Gtk.Widget */
     app_paintable: boolean
     can_default: boolean
     can_focus: boolean
@@ -1237,20 +1237,20 @@ export class AdaptorChooser {
     visible: boolean
     width_request: number
     readonly window: Gdk.Window
-    /* Properties of Gtk.Orientable */
+    /* Properties of Gtk-3.0.Gtk.Orientable */
     orientation: Gtk.Orientation
-    /* Fields of Gtk.Box */
+    /* Fields of Gtk-3.0.Gtk.Box */
     container: Gtk.Container
-    /* Fields of Gtk.Container */
+    /* Fields of Gtk-3.0.Gtk.Container */
     widget: Gtk.Widget
-    /* Fields of Gtk.Widget */
+    /* Fields of Gtk-3.0.Gtk.Widget */
     parent_instance: GObject.InitiallyUnowned
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Gladeui.AdaptorChooser */
+    /* Methods of Gladeui-2.0.Gladeui.AdaptorChooser */
     get_project(): Project
     set_project(project: Project): void
-    /* Methods of Gtk.Box */
+    /* Methods of Gtk-3.0.Gtk.Box */
     get_baseline_position(): Gtk.BaselinePosition
     get_center_widget(): Gtk.Widget | null
     get_homogeneous(): boolean
@@ -1264,7 +1264,7 @@ export class AdaptorChooser {
     set_child_packing(child: Gtk.Widget, expand: boolean, fill: boolean, padding: number, pack_type: Gtk.PackType): void
     set_homogeneous(homogeneous: boolean): void
     set_spacing(spacing: number): void
-    /* Methods of Gtk.Container */
+    /* Methods of Gtk-3.0.Gtk.Container */
     add(widget: Gtk.Widget): void
     check_resize(): void
     child_get_property(child: Gtk.Widget, property_name: string, value: any): void
@@ -1292,7 +1292,7 @@ export class AdaptorChooser {
     set_reallocate_redraws(needs_redraws: boolean): void
     set_resize_mode(resize_mode: Gtk.ResizeMode): void
     unset_focus_chain(): void
-    /* Methods of Gtk.Widget */
+    /* Methods of Gtk-3.0.Gtk.Widget */
     activate(): boolean
     add_accelerator(accel_signal: string, accel_group: Gtk.AccelGroup, accel_key: number, accel_mods: Gdk.ModifierType, accel_flags: Gtk.AccelFlags): void
     add_device_events(device: Gdk.Device, events: Gdk.EventMask): void
@@ -1551,7 +1551,7 @@ export class AdaptorChooser {
     unrealize(): void
     unregister_window(window: Gdk.Window): void
     unset_state_flags(flags: Gtk.StateFlags): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -1573,7 +1573,7 @@ export class AdaptorChooser {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of Gtk.Buildable */
+    /* Methods of Gtk-3.0.Gtk.Buildable */
     add_child(builder: Gtk.Builder, child: GObject.Object, type?: string | null): void
     construct_child(builder: Gtk.Builder, name: string): GObject.Object
     custom_finished(builder: Gtk.Builder, child: GObject.Object | null, tagname: string, data?: object | null): void
@@ -1582,10 +1582,10 @@ export class AdaptorChooser {
     get_internal_child(builder: Gtk.Builder, childname: string): GObject.Object
     parser_finished(builder: Gtk.Builder): void
     set_buildable_property(builder: Gtk.Builder, name: string, value: any): void
-    /* Methods of Gtk.Orientable */
+    /* Methods of Gtk-3.0.Gtk.Orientable */
     get_orientation(): Gtk.Orientation
     set_orientation(orientation: Gtk.Orientation): void
-    /* Virtual methods of Gladeui.AdaptorChooser */
+    /* Virtual methods of Gladeui-2.0.Gladeui.AdaptorChooser */
     vfunc_add_child(builder: Gtk.Builder, child: GObject.Object, type?: string | null): void
     vfunc_construct_child(builder: Gtk.Builder, name: string): GObject.Object
     vfunc_custom_finished(builder: Gtk.Builder, child: GObject.Object | null, tagname: string, data?: object | null): void
@@ -1596,7 +1596,7 @@ export class AdaptorChooser {
     vfunc_parser_finished(builder: Gtk.Builder): void
     vfunc_set_buildable_property(builder: Gtk.Builder, name: string, value: any): void
     vfunc_set_name(name: string): void
-    /* Virtual methods of Gtk.Container */
+    /* Virtual methods of Gtk-3.0.Gtk.Container */
     vfunc_add(widget: Gtk.Widget): void
     vfunc_check_resize(): void
     vfunc_child_type(): GObject.Type
@@ -1607,7 +1607,7 @@ export class AdaptorChooser {
     vfunc_remove(widget: Gtk.Widget): void
     vfunc_set_child_property(child: Gtk.Widget, property_id: number, value: any, pspec: GObject.ParamSpec): void
     vfunc_set_focus_child(child?: Gtk.Widget | null): void
-    /* Virtual methods of Gtk.Widget */
+    /* Virtual methods of Gtk-3.0.Gtk.Widget */
     vfunc_adjust_baseline_allocation(baseline: number): void
     vfunc_adjust_baseline_request(minimum_baseline: number, natural_baseline: number): void
     vfunc_adjust_size_allocation(orientation: Gtk.Orientation, minimum_size: number, natural_size: number, allocated_pos: number, allocated_size: number): void
@@ -1690,7 +1690,7 @@ export class AdaptorChooser {
     vfunc_unrealize(): void
     vfunc_visibility_notify_event(event: Gdk.EventVisibility): boolean
     vfunc_window_state_event(event: Gdk.EventWindowState): boolean
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -1698,7 +1698,7 @@ export class AdaptorChooser {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gtk.Container */
+    /* Signals of Gtk-3.0.Gtk.Container */
     connect(sigName: "add", callback: (($obj: AdaptorChooser, object: Gtk.Widget) => void)): number
     connect_after(sigName: "add", callback: (($obj: AdaptorChooser, object: Gtk.Widget) => void)): number
     emit(sigName: "add", object: Gtk.Widget): void
@@ -1711,7 +1711,7 @@ export class AdaptorChooser {
     connect(sigName: "set-focus-child", callback: (($obj: AdaptorChooser, object: Gtk.Widget) => void)): number
     connect_after(sigName: "set-focus-child", callback: (($obj: AdaptorChooser, object: Gtk.Widget) => void)): number
     emit(sigName: "set-focus-child", object: Gtk.Widget): void
-    /* Signals of Gtk.Widget */
+    /* Signals of Gtk-3.0.Gtk.Widget */
     connect(sigName: "accel-closures-changed", callback: (($obj: AdaptorChooser) => void)): number
     connect_after(sigName: "accel-closures-changed", callback: (($obj: AdaptorChooser) => void)): number
     emit(sigName: "accel-closures-changed"): void
@@ -1919,7 +1919,7 @@ export class AdaptorChooser {
     connect(sigName: "window-state-event", callback: (($obj: AdaptorChooser, event: Gdk.EventWindowState) => boolean)): number
     connect_after(sigName: "window-state-event", callback: (($obj: AdaptorChooser, event: Gdk.EventWindowState) => boolean)): number
     emit(sigName: "window-state-event", event: Gdk.EventWindowState): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: AdaptorChooser, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: AdaptorChooser, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -2032,11 +2032,11 @@ export class AdaptorChooser {
 export interface App_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class App {
-    /* Fields of Gladeui.App */
+    /* Fields of Gladeui-2.0.Gladeui.App */
     parent_instance: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -2058,7 +2058,7 @@ export class App {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -2066,7 +2066,7 @@ export class App {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gladeui.App */
+    /* Signals of Gladeui-2.0.Gladeui.App */
     connect(sigName: "doc-search", callback: (($obj: App, arg1: string, arg2: string, arg3: string) => void)): number
     connect_after(sigName: "doc-search", callback: (($obj: App, arg1: string, arg2: string, arg3: string) => void)): number
     emit(sigName: "doc-search", arg1: string, arg2: string, arg3: string): void
@@ -2076,7 +2076,7 @@ export class App {
     connect(sigName: "widget-adaptor-registered", callback: (($obj: App, adaptor: GObject.Object) => void)): number
     connect_after(sigName: "widget-adaptor-registered", callback: (($obj: App, adaptor: GObject.Object) => void)): number
     emit(sigName: "widget-adaptor-registered", adaptor: GObject.Object): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: App, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: App, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -2120,17 +2120,17 @@ export interface BaseEditor_ConstructProps extends Gtk.Box_ConstructProps {
     orientation?: Gtk.Orientation
 }
 export class BaseEditor {
-    /* Properties of Gladeui.BaseEditor */
+    /* Properties of Gladeui-2.0.Gladeui.BaseEditor */
     container: GObject.Object
-    /* Properties of Gtk.Box */
+    /* Properties of Gtk-3.0.Gtk.Box */
     baseline_position: Gtk.BaselinePosition
     homogeneous: boolean
     spacing: number
-    /* Properties of Gtk.Container */
+    /* Properties of Gtk-3.0.Gtk.Container */
     border_width: number
     child: Gtk.Widget
     resize_mode: Gtk.ResizeMode
-    /* Properties of Gtk.Widget */
+    /* Properties of Gtk-3.0.Gtk.Widget */
     app_paintable: boolean
     can_default: boolean
     can_focus: boolean
@@ -2170,21 +2170,21 @@ export class BaseEditor {
     visible: boolean
     width_request: number
     readonly window: Gdk.Window
-    /* Properties of Gtk.Orientable */
+    /* Properties of Gtk-3.0.Gtk.Orientable */
     orientation: Gtk.Orientation
-    /* Fields of Gladeui.BaseEditor */
+    /* Fields of Gladeui-2.0.Gladeui.BaseEditor */
     parent_instance: Gtk.Box
-    /* Fields of Gtk.Container */
+    /* Fields of Gtk-3.0.Gtk.Container */
     widget: Gtk.Widget
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Gladeui.BaseEditor */
+    /* Methods of Gladeui-2.0.Gladeui.BaseEditor */
     add_default_properties(gchild: Widget): void
     add_editable(gchild: Widget, page: EditorPageType): void
     add_label(str: string): void
     pack_new_window(title: string, help_markup: string): Gtk.Widget
     set_show_signal_editor(val: boolean): void
-    /* Methods of Gtk.Box */
+    /* Methods of Gtk-3.0.Gtk.Box */
     get_baseline_position(): Gtk.BaselinePosition
     get_center_widget(): Gtk.Widget | null
     get_homogeneous(): boolean
@@ -2198,7 +2198,7 @@ export class BaseEditor {
     set_child_packing(child: Gtk.Widget, expand: boolean, fill: boolean, padding: number, pack_type: Gtk.PackType): void
     set_homogeneous(homogeneous: boolean): void
     set_spacing(spacing: number): void
-    /* Methods of Gtk.Container */
+    /* Methods of Gtk-3.0.Gtk.Container */
     add(widget: Gtk.Widget): void
     check_resize(): void
     child_get_property(child: Gtk.Widget, property_name: string, value: any): void
@@ -2226,7 +2226,7 @@ export class BaseEditor {
     set_reallocate_redraws(needs_redraws: boolean): void
     set_resize_mode(resize_mode: Gtk.ResizeMode): void
     unset_focus_chain(): void
-    /* Methods of Gtk.Widget */
+    /* Methods of Gtk-3.0.Gtk.Widget */
     activate(): boolean
     add_accelerator(accel_signal: string, accel_group: Gtk.AccelGroup, accel_key: number, accel_mods: Gdk.ModifierType, accel_flags: Gtk.AccelFlags): void
     add_device_events(device: Gdk.Device, events: Gdk.EventMask): void
@@ -2485,7 +2485,7 @@ export class BaseEditor {
     unrealize(): void
     unregister_window(window: Gdk.Window): void
     unset_state_flags(flags: Gtk.StateFlags): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -2507,7 +2507,7 @@ export class BaseEditor {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of Gtk.Buildable */
+    /* Methods of Gtk-3.0.Gtk.Buildable */
     add_child(builder: Gtk.Builder, child: GObject.Object, type?: string | null): void
     construct_child(builder: Gtk.Builder, name: string): GObject.Object
     custom_finished(builder: Gtk.Builder, child: GObject.Object | null, tagname: string, data?: object | null): void
@@ -2516,10 +2516,10 @@ export class BaseEditor {
     get_internal_child(builder: Gtk.Builder, childname: string): GObject.Object
     parser_finished(builder: Gtk.Builder): void
     set_buildable_property(builder: Gtk.Builder, name: string, value: any): void
-    /* Methods of Gtk.Orientable */
+    /* Methods of Gtk-3.0.Gtk.Orientable */
     get_orientation(): Gtk.Orientation
     set_orientation(orientation: Gtk.Orientation): void
-    /* Virtual methods of Gladeui.BaseEditor */
+    /* Virtual methods of Gladeui-2.0.Gladeui.BaseEditor */
     vfunc_change_type(gchild: Widget, type: GObject.Type): boolean
     vfunc_child_selected(gchild: Widget): void
     vfunc_delete_child(parent: Widget, gchild: Widget): boolean
@@ -2535,7 +2535,7 @@ export class BaseEditor {
     vfunc_parser_finished(builder: Gtk.Builder): void
     vfunc_set_buildable_property(builder: Gtk.Builder, name: string, value: any): void
     vfunc_set_name(name: string): void
-    /* Virtual methods of Gtk.Container */
+    /* Virtual methods of Gtk-3.0.Gtk.Container */
     vfunc_add(widget: Gtk.Widget): void
     vfunc_check_resize(): void
     vfunc_child_type(): GObject.Type
@@ -2546,7 +2546,7 @@ export class BaseEditor {
     vfunc_remove(widget: Gtk.Widget): void
     vfunc_set_child_property(child: Gtk.Widget, property_id: number, value: any, pspec: GObject.ParamSpec): void
     vfunc_set_focus_child(child?: Gtk.Widget | null): void
-    /* Virtual methods of Gtk.Widget */
+    /* Virtual methods of Gtk-3.0.Gtk.Widget */
     vfunc_adjust_baseline_allocation(baseline: number): void
     vfunc_adjust_baseline_request(minimum_baseline: number, natural_baseline: number): void
     vfunc_adjust_size_allocation(orientation: Gtk.Orientation, minimum_size: number, natural_size: number, allocated_pos: number, allocated_size: number): void
@@ -2629,7 +2629,7 @@ export class BaseEditor {
     vfunc_unrealize(): void
     vfunc_visibility_notify_event(event: Gdk.EventVisibility): boolean
     vfunc_window_state_event(event: Gdk.EventWindowState): boolean
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -2637,7 +2637,7 @@ export class BaseEditor {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gladeui.BaseEditor */
+    /* Signals of Gladeui-2.0.Gladeui.BaseEditor */
     connect(sigName: "build-child", callback: (($obj: BaseEditor, gparent: GObject.Object, type: GObject.Type) => GObject.Object | null)): number
     connect_after(sigName: "build-child", callback: (($obj: BaseEditor, gparent: GObject.Object, type: GObject.Type) => GObject.Object | null)): number
     emit(sigName: "build-child", gparent: GObject.Object, type: GObject.Type): void
@@ -2656,7 +2656,7 @@ export class BaseEditor {
     connect(sigName: "move-child", callback: (($obj: BaseEditor, gparent: GObject.Object, gchild: GObject.Object) => boolean)): number
     connect_after(sigName: "move-child", callback: (($obj: BaseEditor, gparent: GObject.Object, gchild: GObject.Object) => boolean)): number
     emit(sigName: "move-child", gparent: GObject.Object, gchild: GObject.Object): void
-    /* Signals of Gtk.Container */
+    /* Signals of Gtk-3.0.Gtk.Container */
     connect(sigName: "add", callback: (($obj: BaseEditor, object: Gtk.Widget) => void)): number
     connect_after(sigName: "add", callback: (($obj: BaseEditor, object: Gtk.Widget) => void)): number
     emit(sigName: "add", object: Gtk.Widget): void
@@ -2669,7 +2669,7 @@ export class BaseEditor {
     connect(sigName: "set-focus-child", callback: (($obj: BaseEditor, object: Gtk.Widget) => void)): number
     connect_after(sigName: "set-focus-child", callback: (($obj: BaseEditor, object: Gtk.Widget) => void)): number
     emit(sigName: "set-focus-child", object: Gtk.Widget): void
-    /* Signals of Gtk.Widget */
+    /* Signals of Gtk-3.0.Gtk.Widget */
     connect(sigName: "accel-closures-changed", callback: (($obj: BaseEditor) => void)): number
     connect_after(sigName: "accel-closures-changed", callback: (($obj: BaseEditor) => void)): number
     emit(sigName: "accel-closures-changed"): void
@@ -2877,7 +2877,7 @@ export class BaseEditor {
     connect(sigName: "window-state-event", callback: (($obj: BaseEditor, event: Gdk.EventWindowState) => boolean)): number
     connect_after(sigName: "window-state-event", callback: (($obj: BaseEditor, event: Gdk.EventWindowState) => boolean)): number
     emit(sigName: "window-state-event", event: Gdk.EventWindowState): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: BaseEditor, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: BaseEditor, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -2989,10 +2989,10 @@ export interface CellRendererIcon_ConstructProps extends Gtk.CellRendererPixbuf_
     active?: boolean
 }
 export class CellRendererIcon {
-    /* Properties of Gladeui.CellRendererIcon */
+    /* Properties of Gladeui-2.0.Gladeui.CellRendererIcon */
     activatable: boolean
     active: boolean
-    /* Properties of Gtk.CellRendererPixbuf */
+    /* Properties of Gtk-3.0.Gtk.CellRendererPixbuf */
     follow_state: boolean
     gicon: Gio.Icon
     icon_name: string
@@ -3003,7 +3003,7 @@ export class CellRendererIcon {
     stock_id: string
     stock_size: number
     surface: cairo.Surface
-    /* Properties of Gtk.CellRenderer */
+    /* Properties of Gtk-3.0.Gtk.CellRenderer */
     cell_background: string
     cell_background_gdk: Gdk.Color
     cell_background_rgba: Gdk.RGBA
@@ -3020,18 +3020,18 @@ export class CellRendererIcon {
     xpad: number
     yalign: number
     ypad: number
-    /* Fields of Gladeui.CellRendererIcon */
+    /* Fields of Gladeui-2.0.Gladeui.CellRendererIcon */
     parent_instance: Gtk.CellRendererPixbuf
-    /* Fields of Gtk.CellRendererPixbuf */
+    /* Fields of Gtk-3.0.Gtk.CellRendererPixbuf */
     parent: Gtk.CellRenderer
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Gladeui.CellRendererIcon */
+    /* Methods of Gladeui-2.0.Gladeui.CellRendererIcon */
     get_activatable(): boolean
     get_active(): boolean
     set_activatable(setting: boolean): void
     set_active(setting: boolean): void
-    /* Methods of Gtk.CellRenderer */
+    /* Methods of Gtk-3.0.Gtk.CellRenderer */
     activate(event: Gdk.Event, widget: Gtk.Widget, path: string, background_area: Gdk.Rectangle, cell_area: Gdk.Rectangle, flags: Gtk.CellRendererState): boolean
     get_aligned_area(widget: Gtk.Widget, flags: Gtk.CellRendererState, cell_area: Gdk.Rectangle): /* aligned_area */ Gdk.Rectangle
     get_alignment(): [ /* xalign */ number | null, /* yalign */ number | null ]
@@ -3056,7 +3056,7 @@ export class CellRendererIcon {
     set_visible(visible: boolean): void
     start_editing(event: Gdk.Event | null, widget: Gtk.Widget, path: string, background_area: Gdk.Rectangle, cell_area: Gdk.Rectangle, flags: Gtk.CellRendererState): Gtk.CellEditable | null
     stop_editing(canceled: boolean): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -3078,10 +3078,10 @@ export class CellRendererIcon {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Gladeui.CellRendererIcon */
+    /* Virtual methods of Gladeui-2.0.Gladeui.CellRendererIcon */
     vfunc_activate(path: string): void
     vfunc_activate(event: Gdk.Event, widget: Gtk.Widget, path: string, background_area: Gdk.Rectangle, cell_area: Gdk.Rectangle, flags: Gtk.CellRendererState): boolean
-    /* Virtual methods of Gtk.CellRenderer */
+    /* Virtual methods of Gtk-3.0.Gtk.CellRenderer */
     vfunc_activate(event: Gdk.Event, widget: Gtk.Widget, path: string, background_area: Gdk.Rectangle, cell_area: Gdk.Rectangle, flags: Gtk.CellRendererState): boolean
     vfunc_editing_canceled(): void
     vfunc_editing_started(editable: Gtk.CellEditable, path: string): void
@@ -3094,7 +3094,7 @@ export class CellRendererIcon {
     vfunc_get_size(widget: Gtk.Widget, cell_area?: Gdk.Rectangle | null): [ /* x_offset */ number | null, /* y_offset */ number | null, /* width */ number | null, /* height */ number | null ]
     vfunc_render(cr: cairo.Context, widget: Gtk.Widget, background_area: Gdk.Rectangle, cell_area: Gdk.Rectangle, flags: Gtk.CellRendererState): void
     vfunc_start_editing(event: Gdk.Event | null, widget: Gtk.Widget, path: string, background_area: Gdk.Rectangle, cell_area: Gdk.Rectangle, flags: Gtk.CellRendererState): Gtk.CellEditable | null
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -3102,18 +3102,18 @@ export class CellRendererIcon {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gladeui.CellRendererIcon */
+    /* Signals of Gladeui-2.0.Gladeui.CellRendererIcon */
     connect(sigName: "activate", callback: (($obj: CellRendererIcon, object: string) => void)): number
     connect_after(sigName: "activate", callback: (($obj: CellRendererIcon, object: string) => void)): number
     emit(sigName: "activate", object: string): void
-    /* Signals of Gtk.CellRenderer */
+    /* Signals of Gtk-3.0.Gtk.CellRenderer */
     connect(sigName: "editing-canceled", callback: (($obj: CellRendererIcon) => void)): number
     connect_after(sigName: "editing-canceled", callback: (($obj: CellRendererIcon) => void)): number
     emit(sigName: "editing-canceled"): void
     connect(sigName: "editing-started", callback: (($obj: CellRendererIcon, editable: Gtk.CellEditable, path: string) => void)): number
     connect_after(sigName: "editing-started", callback: (($obj: CellRendererIcon, editable: Gtk.CellEditable, path: string) => void)): number
     emit(sigName: "editing-started", editable: Gtk.CellEditable, path: string): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: CellRendererIcon, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: CellRendererIcon, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -3187,18 +3187,18 @@ export class CellRendererIcon {
 export interface Clipboard_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class Clipboard {
-    /* Properties of Gladeui.Clipboard */
+    /* Properties of Gladeui-2.0.Gladeui.Clipboard */
     readonly has_selection: boolean
-    /* Fields of Gladeui.Clipboard */
+    /* Fields of Gladeui-2.0.Gladeui.Clipboard */
     parent_instance: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Gladeui.Clipboard */
+    /* Methods of Gladeui-2.0.Gladeui.Clipboard */
     add(widgets: Widget[]): void
     clear(): void
     get_has_selection(): boolean
     widgets(): Widget[]
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -3220,7 +3220,7 @@ export class Clipboard {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -3228,7 +3228,7 @@ export class Clipboard {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Clipboard, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Clipboard, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -3248,18 +3248,18 @@ export class Clipboard {
 export interface Command_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class Command {
-    /* Fields of Gladeui.Command */
+    /* Fields of Gladeui-2.0.Gladeui.Command */
     parent_instance: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Gladeui.Command */
+    /* Methods of Gladeui-2.0.Gladeui.Command */
     collapse(other: Command): void
     description(): string
     execute(): boolean
     group_id(): number
     undo(): boolean
     unifies(other: Command): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -3281,12 +3281,12 @@ export class Command {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Gladeui.Command */
+    /* Virtual methods of Gladeui-2.0.Gladeui.Command */
     vfunc_collapse(other: Command): void
     vfunc_execute(): boolean
     vfunc_undo(): boolean
     vfunc_unifies(other: Command): boolean
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -3294,7 +3294,7 @@ export class Command {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Command, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Command, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -3336,15 +3336,15 @@ export interface DesignView_ConstructProps extends Gtk.Box_ConstructProps {
     orientation?: Gtk.Orientation
 }
 export class DesignView {
-    /* Properties of Gtk.Box */
+    /* Properties of Gtk-3.0.Gtk.Box */
     baseline_position: Gtk.BaselinePosition
     homogeneous: boolean
     spacing: number
-    /* Properties of Gtk.Container */
+    /* Properties of Gtk-3.0.Gtk.Container */
     border_width: number
     child: Gtk.Widget
     resize_mode: Gtk.ResizeMode
-    /* Properties of Gtk.Widget */
+    /* Properties of Gtk-3.0.Gtk.Widget */
     app_paintable: boolean
     can_default: boolean
     can_focus: boolean
@@ -3384,19 +3384,19 @@ export class DesignView {
     visible: boolean
     width_request: number
     readonly window: Gdk.Window
-    /* Properties of Gtk.Orientable */
+    /* Properties of Gtk-3.0.Gtk.Orientable */
     orientation: Gtk.Orientation
-    /* Fields of Gladeui.DesignView */
+    /* Fields of Gladeui-2.0.Gladeui.DesignView */
     parent_instance: Gtk.Box
-    /* Fields of Gtk.Box */
+    /* Fields of Gtk-3.0.Gtk.Box */
     container: Gtk.Container
-    /* Fields of Gtk.Container */
+    /* Fields of Gtk-3.0.Gtk.Container */
     widget: Gtk.Widget
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Gladeui.DesignView */
+    /* Methods of Gladeui-2.0.Gladeui.DesignView */
     get_project(): Project
-    /* Methods of Gtk.Box */
+    /* Methods of Gtk-3.0.Gtk.Box */
     get_baseline_position(): Gtk.BaselinePosition
     get_center_widget(): Gtk.Widget | null
     get_homogeneous(): boolean
@@ -3410,7 +3410,7 @@ export class DesignView {
     set_child_packing(child: Gtk.Widget, expand: boolean, fill: boolean, padding: number, pack_type: Gtk.PackType): void
     set_homogeneous(homogeneous: boolean): void
     set_spacing(spacing: number): void
-    /* Methods of Gtk.Container */
+    /* Methods of Gtk-3.0.Gtk.Container */
     add(widget: Gtk.Widget): void
     check_resize(): void
     child_get_property(child: Gtk.Widget, property_name: string, value: any): void
@@ -3438,7 +3438,7 @@ export class DesignView {
     set_reallocate_redraws(needs_redraws: boolean): void
     set_resize_mode(resize_mode: Gtk.ResizeMode): void
     unset_focus_chain(): void
-    /* Methods of Gtk.Widget */
+    /* Methods of Gtk-3.0.Gtk.Widget */
     activate(): boolean
     add_accelerator(accel_signal: string, accel_group: Gtk.AccelGroup, accel_key: number, accel_mods: Gdk.ModifierType, accel_flags: Gtk.AccelFlags): void
     add_device_events(device: Gdk.Device, events: Gdk.EventMask): void
@@ -3697,7 +3697,7 @@ export class DesignView {
     unrealize(): void
     unregister_window(window: Gdk.Window): void
     unset_state_flags(flags: Gtk.StateFlags): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -3719,7 +3719,7 @@ export class DesignView {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of Gtk.Buildable */
+    /* Methods of Gtk-3.0.Gtk.Buildable */
     add_child(builder: Gtk.Builder, child: GObject.Object, type?: string | null): void
     construct_child(builder: Gtk.Builder, name: string): GObject.Object
     custom_finished(builder: Gtk.Builder, child: GObject.Object | null, tagname: string, data?: object | null): void
@@ -3728,10 +3728,10 @@ export class DesignView {
     get_internal_child(builder: Gtk.Builder, childname: string): GObject.Object
     parser_finished(builder: Gtk.Builder): void
     set_buildable_property(builder: Gtk.Builder, name: string, value: any): void
-    /* Methods of Gtk.Orientable */
+    /* Methods of Gtk-3.0.Gtk.Orientable */
     get_orientation(): Gtk.Orientation
     set_orientation(orientation: Gtk.Orientation): void
-    /* Virtual methods of Gladeui.DesignView */
+    /* Virtual methods of Gladeui-2.0.Gladeui.DesignView */
     vfunc_add_child(builder: Gtk.Builder, child: GObject.Object, type?: string | null): void
     vfunc_construct_child(builder: Gtk.Builder, name: string): GObject.Object
     vfunc_custom_finished(builder: Gtk.Builder, child: GObject.Object | null, tagname: string, data?: object | null): void
@@ -3742,7 +3742,7 @@ export class DesignView {
     vfunc_parser_finished(builder: Gtk.Builder): void
     vfunc_set_buildable_property(builder: Gtk.Builder, name: string, value: any): void
     vfunc_set_name(name: string): void
-    /* Virtual methods of Gtk.Container */
+    /* Virtual methods of Gtk-3.0.Gtk.Container */
     vfunc_add(widget: Gtk.Widget): void
     vfunc_check_resize(): void
     vfunc_child_type(): GObject.Type
@@ -3753,7 +3753,7 @@ export class DesignView {
     vfunc_remove(widget: Gtk.Widget): void
     vfunc_set_child_property(child: Gtk.Widget, property_id: number, value: any, pspec: GObject.ParamSpec): void
     vfunc_set_focus_child(child?: Gtk.Widget | null): void
-    /* Virtual methods of Gtk.Widget */
+    /* Virtual methods of Gtk-3.0.Gtk.Widget */
     vfunc_adjust_baseline_allocation(baseline: number): void
     vfunc_adjust_baseline_request(minimum_baseline: number, natural_baseline: number): void
     vfunc_adjust_size_allocation(orientation: Gtk.Orientation, minimum_size: number, natural_size: number, allocated_pos: number, allocated_size: number): void
@@ -3836,7 +3836,7 @@ export class DesignView {
     vfunc_unrealize(): void
     vfunc_visibility_notify_event(event: Gdk.EventVisibility): boolean
     vfunc_window_state_event(event: Gdk.EventWindowState): boolean
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -3844,7 +3844,7 @@ export class DesignView {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gtk.Container */
+    /* Signals of Gtk-3.0.Gtk.Container */
     connect(sigName: "add", callback: (($obj: DesignView, object: Gtk.Widget) => void)): number
     connect_after(sigName: "add", callback: (($obj: DesignView, object: Gtk.Widget) => void)): number
     emit(sigName: "add", object: Gtk.Widget): void
@@ -3857,7 +3857,7 @@ export class DesignView {
     connect(sigName: "set-focus-child", callback: (($obj: DesignView, object: Gtk.Widget) => void)): number
     connect_after(sigName: "set-focus-child", callback: (($obj: DesignView, object: Gtk.Widget) => void)): number
     emit(sigName: "set-focus-child", object: Gtk.Widget): void
-    /* Signals of Gtk.Widget */
+    /* Signals of Gtk-3.0.Gtk.Widget */
     connect(sigName: "accel-closures-changed", callback: (($obj: DesignView) => void)): number
     connect_after(sigName: "accel-closures-changed", callback: (($obj: DesignView) => void)): number
     emit(sigName: "accel-closures-changed"): void
@@ -4065,7 +4065,7 @@ export class DesignView {
     connect(sigName: "window-state-event", callback: (($obj: DesignView, event: Gdk.EventWindowState) => boolean)): number
     connect_after(sigName: "window-state-event", callback: (($obj: DesignView, event: Gdk.EventWindowState) => boolean)): number
     emit(sigName: "window-state-event", event: Gdk.EventWindowState): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: DesignView, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: DesignView, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -4178,19 +4178,19 @@ export interface EPropBool_ConstructProps extends EditorProperty_ConstructProps 
     orientation?: Gtk.Orientation
 }
 export class EPropBool {
-    /* Properties of Gladeui.EditorProperty */
+    /* Properties of Gladeui-2.0.Gladeui.EditorProperty */
     custom_text: string
     disable_check: boolean
     use_command: boolean
-    /* Properties of Gtk.Box */
+    /* Properties of Gtk-3.0.Gtk.Box */
     baseline_position: Gtk.BaselinePosition
     homogeneous: boolean
     spacing: number
-    /* Properties of Gtk.Container */
+    /* Properties of Gtk-3.0.Gtk.Container */
     border_width: number
     child: Gtk.Widget
     resize_mode: Gtk.ResizeMode
-    /* Properties of Gtk.Widget */
+    /* Properties of Gtk-3.0.Gtk.Widget */
     app_paintable: boolean
     can_default: boolean
     can_focus: boolean
@@ -4230,17 +4230,17 @@ export class EPropBool {
     visible: boolean
     width_request: number
     readonly window: Gdk.Window
-    /* Properties of Gtk.Orientable */
+    /* Properties of Gtk-3.0.Gtk.Orientable */
     orientation: Gtk.Orientation
-    /* Fields of Gladeui.EditorProperty */
+    /* Fields of Gladeui-2.0.Gladeui.EditorProperty */
     parent_instance: Gtk.Box
-    /* Fields of Gtk.Box */
+    /* Fields of Gtk-3.0.Gtk.Box */
     container: Gtk.Container
-    /* Fields of Gtk.Container */
+    /* Fields of Gtk-3.0.Gtk.Container */
     widget: Gtk.Widget
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Gladeui.EditorProperty */
+    /* Methods of Gladeui-2.0.Gladeui.EditorProperty */
     commit(value: any): void
     commit_no_callback(value: any): void
     get_custom_text(): string
@@ -4253,7 +4253,7 @@ export class EPropBool {
     loading(): boolean
     set_custom_text(custom_text: string): void
     set_disable_check(disable_check: boolean): void
-    /* Methods of Gtk.Box */
+    /* Methods of Gtk-3.0.Gtk.Box */
     get_baseline_position(): Gtk.BaselinePosition
     get_center_widget(): Gtk.Widget | null
     get_homogeneous(): boolean
@@ -4267,7 +4267,7 @@ export class EPropBool {
     set_child_packing(child: Gtk.Widget, expand: boolean, fill: boolean, padding: number, pack_type: Gtk.PackType): void
     set_homogeneous(homogeneous: boolean): void
     set_spacing(spacing: number): void
-    /* Methods of Gtk.Container */
+    /* Methods of Gtk-3.0.Gtk.Container */
     add(widget: Gtk.Widget): void
     check_resize(): void
     child_get_property(child: Gtk.Widget, property_name: string, value: any): void
@@ -4295,7 +4295,7 @@ export class EPropBool {
     set_reallocate_redraws(needs_redraws: boolean): void
     set_resize_mode(resize_mode: Gtk.ResizeMode): void
     unset_focus_chain(): void
-    /* Methods of Gtk.Widget */
+    /* Methods of Gtk-3.0.Gtk.Widget */
     activate(): boolean
     add_accelerator(accel_signal: string, accel_group: Gtk.AccelGroup, accel_key: number, accel_mods: Gdk.ModifierType, accel_flags: Gtk.AccelFlags): void
     add_device_events(device: Gdk.Device, events: Gdk.EventMask): void
@@ -4554,7 +4554,7 @@ export class EPropBool {
     unrealize(): void
     unregister_window(window: Gdk.Window): void
     unset_state_flags(flags: Gtk.StateFlags): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -4576,13 +4576,13 @@ export class EPropBool {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of Gladeui.Editable */
+    /* Methods of Gladeui-2.0.Gladeui.Editable */
     block(): void
     load(widget: Widget): void
     loaded_widget(): Widget | null
     set_show_name(show_name: boolean): void
     unblock(): void
-    /* Methods of Gtk.Buildable */
+    /* Methods of Gtk-3.0.Gtk.Buildable */
     add_child(builder: Gtk.Builder, child: GObject.Object, type?: string | null): void
     construct_child(builder: Gtk.Builder, name: string): GObject.Object
     custom_finished(builder: Gtk.Builder, child: GObject.Object | null, tagname: string, data?: object | null): void
@@ -4591,13 +4591,13 @@ export class EPropBool {
     get_internal_child(builder: Gtk.Builder, childname: string): GObject.Object
     parser_finished(builder: Gtk.Builder): void
     set_buildable_property(builder: Gtk.Builder, name: string, value: any): void
-    /* Methods of Gtk.Orientable */
+    /* Methods of Gtk-3.0.Gtk.Orientable */
     get_orientation(): Gtk.Orientation
     set_orientation(orientation: Gtk.Orientation): void
-    /* Virtual methods of Gladeui.EPropBool */
+    /* Virtual methods of Gladeui-2.0.Gladeui.EPropBool */
     vfunc_load(property: Property): void
     vfunc_load(widget: Widget): void
-    /* Virtual methods of Gladeui.EditorProperty */
+    /* Virtual methods of Gladeui-2.0.Gladeui.EditorProperty */
     vfunc_changed(property: Property): object | null
     vfunc_commit(value: any): void
     vfunc_load(property: Property): void
@@ -4613,7 +4613,7 @@ export class EPropBool {
     vfunc_parser_finished(builder: Gtk.Builder): void
     vfunc_set_buildable_property(builder: Gtk.Builder, name: string, value: any): void
     vfunc_set_name(name: string): void
-    /* Virtual methods of Gtk.Container */
+    /* Virtual methods of Gtk-3.0.Gtk.Container */
     vfunc_add(widget: Gtk.Widget): void
     vfunc_check_resize(): void
     vfunc_child_type(): GObject.Type
@@ -4624,7 +4624,7 @@ export class EPropBool {
     vfunc_remove(widget: Gtk.Widget): void
     vfunc_set_child_property(child: Gtk.Widget, property_id: number, value: any, pspec: GObject.ParamSpec): void
     vfunc_set_focus_child(child?: Gtk.Widget | null): void
-    /* Virtual methods of Gtk.Widget */
+    /* Virtual methods of Gtk-3.0.Gtk.Widget */
     vfunc_adjust_baseline_allocation(baseline: number): void
     vfunc_adjust_baseline_request(minimum_baseline: number, natural_baseline: number): void
     vfunc_adjust_size_allocation(orientation: Gtk.Orientation, minimum_size: number, natural_size: number, allocated_pos: number, allocated_size: number): void
@@ -4707,7 +4707,7 @@ export class EPropBool {
     vfunc_unrealize(): void
     vfunc_visibility_notify_event(event: Gdk.EventVisibility): boolean
     vfunc_window_state_event(event: Gdk.EventWindowState): boolean
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -4715,14 +4715,14 @@ export class EPropBool {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gladeui.EditorProperty */
+    /* Signals of Gladeui-2.0.Gladeui.EditorProperty */
     connect(sigName: "commit", callback: (($obj: EPropBool, arg1?: object | null) => void)): number
     connect_after(sigName: "commit", callback: (($obj: EPropBool, arg1?: object | null) => void)): number
     emit(sigName: "commit", arg1?: object | null): void
     connect(sigName: "value-changed", callback: (($obj: EPropBool, arg1: Property) => void)): number
     connect_after(sigName: "value-changed", callback: (($obj: EPropBool, arg1: Property) => void)): number
     emit(sigName: "value-changed", arg1: Property): void
-    /* Signals of Gtk.Container */
+    /* Signals of Gtk-3.0.Gtk.Container */
     connect(sigName: "add", callback: (($obj: EPropBool, object: Gtk.Widget) => void)): number
     connect_after(sigName: "add", callback: (($obj: EPropBool, object: Gtk.Widget) => void)): number
     emit(sigName: "add", object: Gtk.Widget): void
@@ -4735,7 +4735,7 @@ export class EPropBool {
     connect(sigName: "set-focus-child", callback: (($obj: EPropBool, object: Gtk.Widget) => void)): number
     connect_after(sigName: "set-focus-child", callback: (($obj: EPropBool, object: Gtk.Widget) => void)): number
     emit(sigName: "set-focus-child", object: Gtk.Widget): void
-    /* Signals of Gtk.Widget */
+    /* Signals of Gtk-3.0.Gtk.Widget */
     connect(sigName: "accel-closures-changed", callback: (($obj: EPropBool) => void)): number
     connect_after(sigName: "accel-closures-changed", callback: (($obj: EPropBool) => void)): number
     emit(sigName: "accel-closures-changed"): void
@@ -4943,7 +4943,7 @@ export class EPropBool {
     connect(sigName: "window-state-event", callback: (($obj: EPropBool, event: Gdk.EventWindowState) => boolean)): number
     connect_after(sigName: "window-state-event", callback: (($obj: EPropBool, event: Gdk.EventWindowState) => boolean)): number
     emit(sigName: "window-state-event", event: Gdk.EventWindowState): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: EPropBool, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: EPropBool, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -5058,19 +5058,19 @@ export interface EPropCheck_ConstructProps extends EditorProperty_ConstructProps
     orientation?: Gtk.Orientation
 }
 export class EPropCheck {
-    /* Properties of Gladeui.EditorProperty */
+    /* Properties of Gladeui-2.0.Gladeui.EditorProperty */
     custom_text: string
     disable_check: boolean
     use_command: boolean
-    /* Properties of Gtk.Box */
+    /* Properties of Gtk-3.0.Gtk.Box */
     baseline_position: Gtk.BaselinePosition
     homogeneous: boolean
     spacing: number
-    /* Properties of Gtk.Container */
+    /* Properties of Gtk-3.0.Gtk.Container */
     border_width: number
     child: Gtk.Widget
     resize_mode: Gtk.ResizeMode
-    /* Properties of Gtk.Widget */
+    /* Properties of Gtk-3.0.Gtk.Widget */
     app_paintable: boolean
     can_default: boolean
     can_focus: boolean
@@ -5110,17 +5110,17 @@ export class EPropCheck {
     visible: boolean
     width_request: number
     readonly window: Gdk.Window
-    /* Properties of Gtk.Orientable */
+    /* Properties of Gtk-3.0.Gtk.Orientable */
     orientation: Gtk.Orientation
-    /* Fields of Gladeui.EditorProperty */
+    /* Fields of Gladeui-2.0.Gladeui.EditorProperty */
     parent_instance: Gtk.Box
-    /* Fields of Gtk.Box */
+    /* Fields of Gtk-3.0.Gtk.Box */
     container: Gtk.Container
-    /* Fields of Gtk.Container */
+    /* Fields of Gtk-3.0.Gtk.Container */
     widget: Gtk.Widget
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Gladeui.EditorProperty */
+    /* Methods of Gladeui-2.0.Gladeui.EditorProperty */
     commit(value: any): void
     commit_no_callback(value: any): void
     get_custom_text(): string
@@ -5133,7 +5133,7 @@ export class EPropCheck {
     loading(): boolean
     set_custom_text(custom_text: string): void
     set_disable_check(disable_check: boolean): void
-    /* Methods of Gtk.Box */
+    /* Methods of Gtk-3.0.Gtk.Box */
     get_baseline_position(): Gtk.BaselinePosition
     get_center_widget(): Gtk.Widget | null
     get_homogeneous(): boolean
@@ -5147,7 +5147,7 @@ export class EPropCheck {
     set_child_packing(child: Gtk.Widget, expand: boolean, fill: boolean, padding: number, pack_type: Gtk.PackType): void
     set_homogeneous(homogeneous: boolean): void
     set_spacing(spacing: number): void
-    /* Methods of Gtk.Container */
+    /* Methods of Gtk-3.0.Gtk.Container */
     add(widget: Gtk.Widget): void
     check_resize(): void
     child_get_property(child: Gtk.Widget, property_name: string, value: any): void
@@ -5175,7 +5175,7 @@ export class EPropCheck {
     set_reallocate_redraws(needs_redraws: boolean): void
     set_resize_mode(resize_mode: Gtk.ResizeMode): void
     unset_focus_chain(): void
-    /* Methods of Gtk.Widget */
+    /* Methods of Gtk-3.0.Gtk.Widget */
     activate(): boolean
     add_accelerator(accel_signal: string, accel_group: Gtk.AccelGroup, accel_key: number, accel_mods: Gdk.ModifierType, accel_flags: Gtk.AccelFlags): void
     add_device_events(device: Gdk.Device, events: Gdk.EventMask): void
@@ -5434,7 +5434,7 @@ export class EPropCheck {
     unrealize(): void
     unregister_window(window: Gdk.Window): void
     unset_state_flags(flags: Gtk.StateFlags): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -5456,13 +5456,13 @@ export class EPropCheck {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of Gladeui.Editable */
+    /* Methods of Gladeui-2.0.Gladeui.Editable */
     block(): void
     load(widget: Widget): void
     loaded_widget(): Widget | null
     set_show_name(show_name: boolean): void
     unblock(): void
-    /* Methods of Gtk.Buildable */
+    /* Methods of Gtk-3.0.Gtk.Buildable */
     add_child(builder: Gtk.Builder, child: GObject.Object, type?: string | null): void
     construct_child(builder: Gtk.Builder, name: string): GObject.Object
     custom_finished(builder: Gtk.Builder, child: GObject.Object | null, tagname: string, data?: object | null): void
@@ -5471,13 +5471,13 @@ export class EPropCheck {
     get_internal_child(builder: Gtk.Builder, childname: string): GObject.Object
     parser_finished(builder: Gtk.Builder): void
     set_buildable_property(builder: Gtk.Builder, name: string, value: any): void
-    /* Methods of Gtk.Orientable */
+    /* Methods of Gtk-3.0.Gtk.Orientable */
     get_orientation(): Gtk.Orientation
     set_orientation(orientation: Gtk.Orientation): void
-    /* Virtual methods of Gladeui.EPropCheck */
+    /* Virtual methods of Gladeui-2.0.Gladeui.EPropCheck */
     vfunc_load(property: Property): void
     vfunc_load(widget: Widget): void
-    /* Virtual methods of Gladeui.EditorProperty */
+    /* Virtual methods of Gladeui-2.0.Gladeui.EditorProperty */
     vfunc_changed(property: Property): object | null
     vfunc_commit(value: any): void
     vfunc_load(property: Property): void
@@ -5493,7 +5493,7 @@ export class EPropCheck {
     vfunc_parser_finished(builder: Gtk.Builder): void
     vfunc_set_buildable_property(builder: Gtk.Builder, name: string, value: any): void
     vfunc_set_name(name: string): void
-    /* Virtual methods of Gtk.Container */
+    /* Virtual methods of Gtk-3.0.Gtk.Container */
     vfunc_add(widget: Gtk.Widget): void
     vfunc_check_resize(): void
     vfunc_child_type(): GObject.Type
@@ -5504,7 +5504,7 @@ export class EPropCheck {
     vfunc_remove(widget: Gtk.Widget): void
     vfunc_set_child_property(child: Gtk.Widget, property_id: number, value: any, pspec: GObject.ParamSpec): void
     vfunc_set_focus_child(child?: Gtk.Widget | null): void
-    /* Virtual methods of Gtk.Widget */
+    /* Virtual methods of Gtk-3.0.Gtk.Widget */
     vfunc_adjust_baseline_allocation(baseline: number): void
     vfunc_adjust_baseline_request(minimum_baseline: number, natural_baseline: number): void
     vfunc_adjust_size_allocation(orientation: Gtk.Orientation, minimum_size: number, natural_size: number, allocated_pos: number, allocated_size: number): void
@@ -5587,7 +5587,7 @@ export class EPropCheck {
     vfunc_unrealize(): void
     vfunc_visibility_notify_event(event: Gdk.EventVisibility): boolean
     vfunc_window_state_event(event: Gdk.EventWindowState): boolean
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -5595,14 +5595,14 @@ export class EPropCheck {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gladeui.EditorProperty */
+    /* Signals of Gladeui-2.0.Gladeui.EditorProperty */
     connect(sigName: "commit", callback: (($obj: EPropCheck, arg1?: object | null) => void)): number
     connect_after(sigName: "commit", callback: (($obj: EPropCheck, arg1?: object | null) => void)): number
     emit(sigName: "commit", arg1?: object | null): void
     connect(sigName: "value-changed", callback: (($obj: EPropCheck, arg1: Property) => void)): number
     connect_after(sigName: "value-changed", callback: (($obj: EPropCheck, arg1: Property) => void)): number
     emit(sigName: "value-changed", arg1: Property): void
-    /* Signals of Gtk.Container */
+    /* Signals of Gtk-3.0.Gtk.Container */
     connect(sigName: "add", callback: (($obj: EPropCheck, object: Gtk.Widget) => void)): number
     connect_after(sigName: "add", callback: (($obj: EPropCheck, object: Gtk.Widget) => void)): number
     emit(sigName: "add", object: Gtk.Widget): void
@@ -5615,7 +5615,7 @@ export class EPropCheck {
     connect(sigName: "set-focus-child", callback: (($obj: EPropCheck, object: Gtk.Widget) => void)): number
     connect_after(sigName: "set-focus-child", callback: (($obj: EPropCheck, object: Gtk.Widget) => void)): number
     emit(sigName: "set-focus-child", object: Gtk.Widget): void
-    /* Signals of Gtk.Widget */
+    /* Signals of Gtk-3.0.Gtk.Widget */
     connect(sigName: "accel-closures-changed", callback: (($obj: EPropCheck) => void)): number
     connect_after(sigName: "accel-closures-changed", callback: (($obj: EPropCheck) => void)): number
     emit(sigName: "accel-closures-changed"): void
@@ -5823,7 +5823,7 @@ export class EPropCheck {
     connect(sigName: "window-state-event", callback: (($obj: EPropCheck, event: Gdk.EventWindowState) => boolean)): number
     connect_after(sigName: "window-state-event", callback: (($obj: EPropCheck, event: Gdk.EventWindowState) => boolean)): number
     emit(sigName: "window-state-event", event: Gdk.EventWindowState): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: EPropCheck, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: EPropCheck, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -5938,19 +5938,19 @@ export interface EPropColor_ConstructProps extends EditorProperty_ConstructProps
     orientation?: Gtk.Orientation
 }
 export class EPropColor {
-    /* Properties of Gladeui.EditorProperty */
+    /* Properties of Gladeui-2.0.Gladeui.EditorProperty */
     custom_text: string
     disable_check: boolean
     use_command: boolean
-    /* Properties of Gtk.Box */
+    /* Properties of Gtk-3.0.Gtk.Box */
     baseline_position: Gtk.BaselinePosition
     homogeneous: boolean
     spacing: number
-    /* Properties of Gtk.Container */
+    /* Properties of Gtk-3.0.Gtk.Container */
     border_width: number
     child: Gtk.Widget
     resize_mode: Gtk.ResizeMode
-    /* Properties of Gtk.Widget */
+    /* Properties of Gtk-3.0.Gtk.Widget */
     app_paintable: boolean
     can_default: boolean
     can_focus: boolean
@@ -5990,17 +5990,17 @@ export class EPropColor {
     visible: boolean
     width_request: number
     readonly window: Gdk.Window
-    /* Properties of Gtk.Orientable */
+    /* Properties of Gtk-3.0.Gtk.Orientable */
     orientation: Gtk.Orientation
-    /* Fields of Gladeui.EditorProperty */
+    /* Fields of Gladeui-2.0.Gladeui.EditorProperty */
     parent_instance: Gtk.Box
-    /* Fields of Gtk.Box */
+    /* Fields of Gtk-3.0.Gtk.Box */
     container: Gtk.Container
-    /* Fields of Gtk.Container */
+    /* Fields of Gtk-3.0.Gtk.Container */
     widget: Gtk.Widget
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Gladeui.EditorProperty */
+    /* Methods of Gladeui-2.0.Gladeui.EditorProperty */
     commit(value: any): void
     commit_no_callback(value: any): void
     get_custom_text(): string
@@ -6013,7 +6013,7 @@ export class EPropColor {
     loading(): boolean
     set_custom_text(custom_text: string): void
     set_disable_check(disable_check: boolean): void
-    /* Methods of Gtk.Box */
+    /* Methods of Gtk-3.0.Gtk.Box */
     get_baseline_position(): Gtk.BaselinePosition
     get_center_widget(): Gtk.Widget | null
     get_homogeneous(): boolean
@@ -6027,7 +6027,7 @@ export class EPropColor {
     set_child_packing(child: Gtk.Widget, expand: boolean, fill: boolean, padding: number, pack_type: Gtk.PackType): void
     set_homogeneous(homogeneous: boolean): void
     set_spacing(spacing: number): void
-    /* Methods of Gtk.Container */
+    /* Methods of Gtk-3.0.Gtk.Container */
     add(widget: Gtk.Widget): void
     check_resize(): void
     child_get_property(child: Gtk.Widget, property_name: string, value: any): void
@@ -6055,7 +6055,7 @@ export class EPropColor {
     set_reallocate_redraws(needs_redraws: boolean): void
     set_resize_mode(resize_mode: Gtk.ResizeMode): void
     unset_focus_chain(): void
-    /* Methods of Gtk.Widget */
+    /* Methods of Gtk-3.0.Gtk.Widget */
     activate(): boolean
     add_accelerator(accel_signal: string, accel_group: Gtk.AccelGroup, accel_key: number, accel_mods: Gdk.ModifierType, accel_flags: Gtk.AccelFlags): void
     add_device_events(device: Gdk.Device, events: Gdk.EventMask): void
@@ -6314,7 +6314,7 @@ export class EPropColor {
     unrealize(): void
     unregister_window(window: Gdk.Window): void
     unset_state_flags(flags: Gtk.StateFlags): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -6336,13 +6336,13 @@ export class EPropColor {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of Gladeui.Editable */
+    /* Methods of Gladeui-2.0.Gladeui.Editable */
     block(): void
     load(widget: Widget): void
     loaded_widget(): Widget | null
     set_show_name(show_name: boolean): void
     unblock(): void
-    /* Methods of Gtk.Buildable */
+    /* Methods of Gtk-3.0.Gtk.Buildable */
     add_child(builder: Gtk.Builder, child: GObject.Object, type?: string | null): void
     construct_child(builder: Gtk.Builder, name: string): GObject.Object
     custom_finished(builder: Gtk.Builder, child: GObject.Object | null, tagname: string, data?: object | null): void
@@ -6351,13 +6351,13 @@ export class EPropColor {
     get_internal_child(builder: Gtk.Builder, childname: string): GObject.Object
     parser_finished(builder: Gtk.Builder): void
     set_buildable_property(builder: Gtk.Builder, name: string, value: any): void
-    /* Methods of Gtk.Orientable */
+    /* Methods of Gtk-3.0.Gtk.Orientable */
     get_orientation(): Gtk.Orientation
     set_orientation(orientation: Gtk.Orientation): void
-    /* Virtual methods of Gladeui.EPropColor */
+    /* Virtual methods of Gladeui-2.0.Gladeui.EPropColor */
     vfunc_load(property: Property): void
     vfunc_load(widget: Widget): void
-    /* Virtual methods of Gladeui.EditorProperty */
+    /* Virtual methods of Gladeui-2.0.Gladeui.EditorProperty */
     vfunc_changed(property: Property): object | null
     vfunc_commit(value: any): void
     vfunc_load(property: Property): void
@@ -6373,7 +6373,7 @@ export class EPropColor {
     vfunc_parser_finished(builder: Gtk.Builder): void
     vfunc_set_buildable_property(builder: Gtk.Builder, name: string, value: any): void
     vfunc_set_name(name: string): void
-    /* Virtual methods of Gtk.Container */
+    /* Virtual methods of Gtk-3.0.Gtk.Container */
     vfunc_add(widget: Gtk.Widget): void
     vfunc_check_resize(): void
     vfunc_child_type(): GObject.Type
@@ -6384,7 +6384,7 @@ export class EPropColor {
     vfunc_remove(widget: Gtk.Widget): void
     vfunc_set_child_property(child: Gtk.Widget, property_id: number, value: any, pspec: GObject.ParamSpec): void
     vfunc_set_focus_child(child?: Gtk.Widget | null): void
-    /* Virtual methods of Gtk.Widget */
+    /* Virtual methods of Gtk-3.0.Gtk.Widget */
     vfunc_adjust_baseline_allocation(baseline: number): void
     vfunc_adjust_baseline_request(minimum_baseline: number, natural_baseline: number): void
     vfunc_adjust_size_allocation(orientation: Gtk.Orientation, minimum_size: number, natural_size: number, allocated_pos: number, allocated_size: number): void
@@ -6467,7 +6467,7 @@ export class EPropColor {
     vfunc_unrealize(): void
     vfunc_visibility_notify_event(event: Gdk.EventVisibility): boolean
     vfunc_window_state_event(event: Gdk.EventWindowState): boolean
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -6475,14 +6475,14 @@ export class EPropColor {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gladeui.EditorProperty */
+    /* Signals of Gladeui-2.0.Gladeui.EditorProperty */
     connect(sigName: "commit", callback: (($obj: EPropColor, arg1?: object | null) => void)): number
     connect_after(sigName: "commit", callback: (($obj: EPropColor, arg1?: object | null) => void)): number
     emit(sigName: "commit", arg1?: object | null): void
     connect(sigName: "value-changed", callback: (($obj: EPropColor, arg1: Property) => void)): number
     connect_after(sigName: "value-changed", callback: (($obj: EPropColor, arg1: Property) => void)): number
     emit(sigName: "value-changed", arg1: Property): void
-    /* Signals of Gtk.Container */
+    /* Signals of Gtk-3.0.Gtk.Container */
     connect(sigName: "add", callback: (($obj: EPropColor, object: Gtk.Widget) => void)): number
     connect_after(sigName: "add", callback: (($obj: EPropColor, object: Gtk.Widget) => void)): number
     emit(sigName: "add", object: Gtk.Widget): void
@@ -6495,7 +6495,7 @@ export class EPropColor {
     connect(sigName: "set-focus-child", callback: (($obj: EPropColor, object: Gtk.Widget) => void)): number
     connect_after(sigName: "set-focus-child", callback: (($obj: EPropColor, object: Gtk.Widget) => void)): number
     emit(sigName: "set-focus-child", object: Gtk.Widget): void
-    /* Signals of Gtk.Widget */
+    /* Signals of Gtk-3.0.Gtk.Widget */
     connect(sigName: "accel-closures-changed", callback: (($obj: EPropColor) => void)): number
     connect_after(sigName: "accel-closures-changed", callback: (($obj: EPropColor) => void)): number
     emit(sigName: "accel-closures-changed"): void
@@ -6703,7 +6703,7 @@ export class EPropColor {
     connect(sigName: "window-state-event", callback: (($obj: EPropColor, event: Gdk.EventWindowState) => boolean)): number
     connect_after(sigName: "window-state-event", callback: (($obj: EPropColor, event: Gdk.EventWindowState) => boolean)): number
     emit(sigName: "window-state-event", event: Gdk.EventWindowState): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: EPropColor, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: EPropColor, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -6818,19 +6818,19 @@ export interface EPropEnum_ConstructProps extends EditorProperty_ConstructProps 
     orientation?: Gtk.Orientation
 }
 export class EPropEnum {
-    /* Properties of Gladeui.EditorProperty */
+    /* Properties of Gladeui-2.0.Gladeui.EditorProperty */
     custom_text: string
     disable_check: boolean
     use_command: boolean
-    /* Properties of Gtk.Box */
+    /* Properties of Gtk-3.0.Gtk.Box */
     baseline_position: Gtk.BaselinePosition
     homogeneous: boolean
     spacing: number
-    /* Properties of Gtk.Container */
+    /* Properties of Gtk-3.0.Gtk.Container */
     border_width: number
     child: Gtk.Widget
     resize_mode: Gtk.ResizeMode
-    /* Properties of Gtk.Widget */
+    /* Properties of Gtk-3.0.Gtk.Widget */
     app_paintable: boolean
     can_default: boolean
     can_focus: boolean
@@ -6870,17 +6870,17 @@ export class EPropEnum {
     visible: boolean
     width_request: number
     readonly window: Gdk.Window
-    /* Properties of Gtk.Orientable */
+    /* Properties of Gtk-3.0.Gtk.Orientable */
     orientation: Gtk.Orientation
-    /* Fields of Gladeui.EditorProperty */
+    /* Fields of Gladeui-2.0.Gladeui.EditorProperty */
     parent_instance: Gtk.Box
-    /* Fields of Gtk.Box */
+    /* Fields of Gtk-3.0.Gtk.Box */
     container: Gtk.Container
-    /* Fields of Gtk.Container */
+    /* Fields of Gtk-3.0.Gtk.Container */
     widget: Gtk.Widget
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Gladeui.EditorProperty */
+    /* Methods of Gladeui-2.0.Gladeui.EditorProperty */
     commit(value: any): void
     commit_no_callback(value: any): void
     get_custom_text(): string
@@ -6893,7 +6893,7 @@ export class EPropEnum {
     loading(): boolean
     set_custom_text(custom_text: string): void
     set_disable_check(disable_check: boolean): void
-    /* Methods of Gtk.Box */
+    /* Methods of Gtk-3.0.Gtk.Box */
     get_baseline_position(): Gtk.BaselinePosition
     get_center_widget(): Gtk.Widget | null
     get_homogeneous(): boolean
@@ -6907,7 +6907,7 @@ export class EPropEnum {
     set_child_packing(child: Gtk.Widget, expand: boolean, fill: boolean, padding: number, pack_type: Gtk.PackType): void
     set_homogeneous(homogeneous: boolean): void
     set_spacing(spacing: number): void
-    /* Methods of Gtk.Container */
+    /* Methods of Gtk-3.0.Gtk.Container */
     add(widget: Gtk.Widget): void
     check_resize(): void
     child_get_property(child: Gtk.Widget, property_name: string, value: any): void
@@ -6935,7 +6935,7 @@ export class EPropEnum {
     set_reallocate_redraws(needs_redraws: boolean): void
     set_resize_mode(resize_mode: Gtk.ResizeMode): void
     unset_focus_chain(): void
-    /* Methods of Gtk.Widget */
+    /* Methods of Gtk-3.0.Gtk.Widget */
     activate(): boolean
     add_accelerator(accel_signal: string, accel_group: Gtk.AccelGroup, accel_key: number, accel_mods: Gdk.ModifierType, accel_flags: Gtk.AccelFlags): void
     add_device_events(device: Gdk.Device, events: Gdk.EventMask): void
@@ -7194,7 +7194,7 @@ export class EPropEnum {
     unrealize(): void
     unregister_window(window: Gdk.Window): void
     unset_state_flags(flags: Gtk.StateFlags): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -7216,13 +7216,13 @@ export class EPropEnum {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of Gladeui.Editable */
+    /* Methods of Gladeui-2.0.Gladeui.Editable */
     block(): void
     load(widget: Widget): void
     loaded_widget(): Widget | null
     set_show_name(show_name: boolean): void
     unblock(): void
-    /* Methods of Gtk.Buildable */
+    /* Methods of Gtk-3.0.Gtk.Buildable */
     add_child(builder: Gtk.Builder, child: GObject.Object, type?: string | null): void
     construct_child(builder: Gtk.Builder, name: string): GObject.Object
     custom_finished(builder: Gtk.Builder, child: GObject.Object | null, tagname: string, data?: object | null): void
@@ -7231,13 +7231,13 @@ export class EPropEnum {
     get_internal_child(builder: Gtk.Builder, childname: string): GObject.Object
     parser_finished(builder: Gtk.Builder): void
     set_buildable_property(builder: Gtk.Builder, name: string, value: any): void
-    /* Methods of Gtk.Orientable */
+    /* Methods of Gtk-3.0.Gtk.Orientable */
     get_orientation(): Gtk.Orientation
     set_orientation(orientation: Gtk.Orientation): void
-    /* Virtual methods of Gladeui.EPropEnum */
+    /* Virtual methods of Gladeui-2.0.Gladeui.EPropEnum */
     vfunc_load(property: Property): void
     vfunc_load(widget: Widget): void
-    /* Virtual methods of Gladeui.EditorProperty */
+    /* Virtual methods of Gladeui-2.0.Gladeui.EditorProperty */
     vfunc_changed(property: Property): object | null
     vfunc_commit(value: any): void
     vfunc_load(property: Property): void
@@ -7253,7 +7253,7 @@ export class EPropEnum {
     vfunc_parser_finished(builder: Gtk.Builder): void
     vfunc_set_buildable_property(builder: Gtk.Builder, name: string, value: any): void
     vfunc_set_name(name: string): void
-    /* Virtual methods of Gtk.Container */
+    /* Virtual methods of Gtk-3.0.Gtk.Container */
     vfunc_add(widget: Gtk.Widget): void
     vfunc_check_resize(): void
     vfunc_child_type(): GObject.Type
@@ -7264,7 +7264,7 @@ export class EPropEnum {
     vfunc_remove(widget: Gtk.Widget): void
     vfunc_set_child_property(child: Gtk.Widget, property_id: number, value: any, pspec: GObject.ParamSpec): void
     vfunc_set_focus_child(child?: Gtk.Widget | null): void
-    /* Virtual methods of Gtk.Widget */
+    /* Virtual methods of Gtk-3.0.Gtk.Widget */
     vfunc_adjust_baseline_allocation(baseline: number): void
     vfunc_adjust_baseline_request(minimum_baseline: number, natural_baseline: number): void
     vfunc_adjust_size_allocation(orientation: Gtk.Orientation, minimum_size: number, natural_size: number, allocated_pos: number, allocated_size: number): void
@@ -7347,7 +7347,7 @@ export class EPropEnum {
     vfunc_unrealize(): void
     vfunc_visibility_notify_event(event: Gdk.EventVisibility): boolean
     vfunc_window_state_event(event: Gdk.EventWindowState): boolean
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -7355,14 +7355,14 @@ export class EPropEnum {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gladeui.EditorProperty */
+    /* Signals of Gladeui-2.0.Gladeui.EditorProperty */
     connect(sigName: "commit", callback: (($obj: EPropEnum, arg1?: object | null) => void)): number
     connect_after(sigName: "commit", callback: (($obj: EPropEnum, arg1?: object | null) => void)): number
     emit(sigName: "commit", arg1?: object | null): void
     connect(sigName: "value-changed", callback: (($obj: EPropEnum, arg1: Property) => void)): number
     connect_after(sigName: "value-changed", callback: (($obj: EPropEnum, arg1: Property) => void)): number
     emit(sigName: "value-changed", arg1: Property): void
-    /* Signals of Gtk.Container */
+    /* Signals of Gtk-3.0.Gtk.Container */
     connect(sigName: "add", callback: (($obj: EPropEnum, object: Gtk.Widget) => void)): number
     connect_after(sigName: "add", callback: (($obj: EPropEnum, object: Gtk.Widget) => void)): number
     emit(sigName: "add", object: Gtk.Widget): void
@@ -7375,7 +7375,7 @@ export class EPropEnum {
     connect(sigName: "set-focus-child", callback: (($obj: EPropEnum, object: Gtk.Widget) => void)): number
     connect_after(sigName: "set-focus-child", callback: (($obj: EPropEnum, object: Gtk.Widget) => void)): number
     emit(sigName: "set-focus-child", object: Gtk.Widget): void
-    /* Signals of Gtk.Widget */
+    /* Signals of Gtk-3.0.Gtk.Widget */
     connect(sigName: "accel-closures-changed", callback: (($obj: EPropEnum) => void)): number
     connect_after(sigName: "accel-closures-changed", callback: (($obj: EPropEnum) => void)): number
     emit(sigName: "accel-closures-changed"): void
@@ -7583,7 +7583,7 @@ export class EPropEnum {
     connect(sigName: "window-state-event", callback: (($obj: EPropEnum, event: Gdk.EventWindowState) => boolean)): number
     connect_after(sigName: "window-state-event", callback: (($obj: EPropEnum, event: Gdk.EventWindowState) => boolean)): number
     emit(sigName: "window-state-event", event: Gdk.EventWindowState): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: EPropEnum, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: EPropEnum, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -7698,19 +7698,19 @@ export interface EPropFlags_ConstructProps extends EditorProperty_ConstructProps
     orientation?: Gtk.Orientation
 }
 export class EPropFlags {
-    /* Properties of Gladeui.EditorProperty */
+    /* Properties of Gladeui-2.0.Gladeui.EditorProperty */
     custom_text: string
     disable_check: boolean
     use_command: boolean
-    /* Properties of Gtk.Box */
+    /* Properties of Gtk-3.0.Gtk.Box */
     baseline_position: Gtk.BaselinePosition
     homogeneous: boolean
     spacing: number
-    /* Properties of Gtk.Container */
+    /* Properties of Gtk-3.0.Gtk.Container */
     border_width: number
     child: Gtk.Widget
     resize_mode: Gtk.ResizeMode
-    /* Properties of Gtk.Widget */
+    /* Properties of Gtk-3.0.Gtk.Widget */
     app_paintable: boolean
     can_default: boolean
     can_focus: boolean
@@ -7750,17 +7750,17 @@ export class EPropFlags {
     visible: boolean
     width_request: number
     readonly window: Gdk.Window
-    /* Properties of Gtk.Orientable */
+    /* Properties of Gtk-3.0.Gtk.Orientable */
     orientation: Gtk.Orientation
-    /* Fields of Gladeui.EditorProperty */
+    /* Fields of Gladeui-2.0.Gladeui.EditorProperty */
     parent_instance: Gtk.Box
-    /* Fields of Gtk.Box */
+    /* Fields of Gtk-3.0.Gtk.Box */
     container: Gtk.Container
-    /* Fields of Gtk.Container */
+    /* Fields of Gtk-3.0.Gtk.Container */
     widget: Gtk.Widget
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Gladeui.EditorProperty */
+    /* Methods of Gladeui-2.0.Gladeui.EditorProperty */
     commit(value: any): void
     commit_no_callback(value: any): void
     get_custom_text(): string
@@ -7773,7 +7773,7 @@ export class EPropFlags {
     loading(): boolean
     set_custom_text(custom_text: string): void
     set_disable_check(disable_check: boolean): void
-    /* Methods of Gtk.Box */
+    /* Methods of Gtk-3.0.Gtk.Box */
     get_baseline_position(): Gtk.BaselinePosition
     get_center_widget(): Gtk.Widget | null
     get_homogeneous(): boolean
@@ -7787,7 +7787,7 @@ export class EPropFlags {
     set_child_packing(child: Gtk.Widget, expand: boolean, fill: boolean, padding: number, pack_type: Gtk.PackType): void
     set_homogeneous(homogeneous: boolean): void
     set_spacing(spacing: number): void
-    /* Methods of Gtk.Container */
+    /* Methods of Gtk-3.0.Gtk.Container */
     add(widget: Gtk.Widget): void
     check_resize(): void
     child_get_property(child: Gtk.Widget, property_name: string, value: any): void
@@ -7815,7 +7815,7 @@ export class EPropFlags {
     set_reallocate_redraws(needs_redraws: boolean): void
     set_resize_mode(resize_mode: Gtk.ResizeMode): void
     unset_focus_chain(): void
-    /* Methods of Gtk.Widget */
+    /* Methods of Gtk-3.0.Gtk.Widget */
     activate(): boolean
     add_accelerator(accel_signal: string, accel_group: Gtk.AccelGroup, accel_key: number, accel_mods: Gdk.ModifierType, accel_flags: Gtk.AccelFlags): void
     add_device_events(device: Gdk.Device, events: Gdk.EventMask): void
@@ -8074,7 +8074,7 @@ export class EPropFlags {
     unrealize(): void
     unregister_window(window: Gdk.Window): void
     unset_state_flags(flags: Gtk.StateFlags): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -8096,13 +8096,13 @@ export class EPropFlags {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of Gladeui.Editable */
+    /* Methods of Gladeui-2.0.Gladeui.Editable */
     block(): void
     load(widget: Widget): void
     loaded_widget(): Widget | null
     set_show_name(show_name: boolean): void
     unblock(): void
-    /* Methods of Gtk.Buildable */
+    /* Methods of Gtk-3.0.Gtk.Buildable */
     add_child(builder: Gtk.Builder, child: GObject.Object, type?: string | null): void
     construct_child(builder: Gtk.Builder, name: string): GObject.Object
     custom_finished(builder: Gtk.Builder, child: GObject.Object | null, tagname: string, data?: object | null): void
@@ -8111,13 +8111,13 @@ export class EPropFlags {
     get_internal_child(builder: Gtk.Builder, childname: string): GObject.Object
     parser_finished(builder: Gtk.Builder): void
     set_buildable_property(builder: Gtk.Builder, name: string, value: any): void
-    /* Methods of Gtk.Orientable */
+    /* Methods of Gtk-3.0.Gtk.Orientable */
     get_orientation(): Gtk.Orientation
     set_orientation(orientation: Gtk.Orientation): void
-    /* Virtual methods of Gladeui.EPropFlags */
+    /* Virtual methods of Gladeui-2.0.Gladeui.EPropFlags */
     vfunc_load(property: Property): void
     vfunc_load(widget: Widget): void
-    /* Virtual methods of Gladeui.EditorProperty */
+    /* Virtual methods of Gladeui-2.0.Gladeui.EditorProperty */
     vfunc_changed(property: Property): object | null
     vfunc_commit(value: any): void
     vfunc_load(property: Property): void
@@ -8133,7 +8133,7 @@ export class EPropFlags {
     vfunc_parser_finished(builder: Gtk.Builder): void
     vfunc_set_buildable_property(builder: Gtk.Builder, name: string, value: any): void
     vfunc_set_name(name: string): void
-    /* Virtual methods of Gtk.Container */
+    /* Virtual methods of Gtk-3.0.Gtk.Container */
     vfunc_add(widget: Gtk.Widget): void
     vfunc_check_resize(): void
     vfunc_child_type(): GObject.Type
@@ -8144,7 +8144,7 @@ export class EPropFlags {
     vfunc_remove(widget: Gtk.Widget): void
     vfunc_set_child_property(child: Gtk.Widget, property_id: number, value: any, pspec: GObject.ParamSpec): void
     vfunc_set_focus_child(child?: Gtk.Widget | null): void
-    /* Virtual methods of Gtk.Widget */
+    /* Virtual methods of Gtk-3.0.Gtk.Widget */
     vfunc_adjust_baseline_allocation(baseline: number): void
     vfunc_adjust_baseline_request(minimum_baseline: number, natural_baseline: number): void
     vfunc_adjust_size_allocation(orientation: Gtk.Orientation, minimum_size: number, natural_size: number, allocated_pos: number, allocated_size: number): void
@@ -8227,7 +8227,7 @@ export class EPropFlags {
     vfunc_unrealize(): void
     vfunc_visibility_notify_event(event: Gdk.EventVisibility): boolean
     vfunc_window_state_event(event: Gdk.EventWindowState): boolean
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -8235,14 +8235,14 @@ export class EPropFlags {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gladeui.EditorProperty */
+    /* Signals of Gladeui-2.0.Gladeui.EditorProperty */
     connect(sigName: "commit", callback: (($obj: EPropFlags, arg1?: object | null) => void)): number
     connect_after(sigName: "commit", callback: (($obj: EPropFlags, arg1?: object | null) => void)): number
     emit(sigName: "commit", arg1?: object | null): void
     connect(sigName: "value-changed", callback: (($obj: EPropFlags, arg1: Property) => void)): number
     connect_after(sigName: "value-changed", callback: (($obj: EPropFlags, arg1: Property) => void)): number
     emit(sigName: "value-changed", arg1: Property): void
-    /* Signals of Gtk.Container */
+    /* Signals of Gtk-3.0.Gtk.Container */
     connect(sigName: "add", callback: (($obj: EPropFlags, object: Gtk.Widget) => void)): number
     connect_after(sigName: "add", callback: (($obj: EPropFlags, object: Gtk.Widget) => void)): number
     emit(sigName: "add", object: Gtk.Widget): void
@@ -8255,7 +8255,7 @@ export class EPropFlags {
     connect(sigName: "set-focus-child", callback: (($obj: EPropFlags, object: Gtk.Widget) => void)): number
     connect_after(sigName: "set-focus-child", callback: (($obj: EPropFlags, object: Gtk.Widget) => void)): number
     emit(sigName: "set-focus-child", object: Gtk.Widget): void
-    /* Signals of Gtk.Widget */
+    /* Signals of Gtk-3.0.Gtk.Widget */
     connect(sigName: "accel-closures-changed", callback: (($obj: EPropFlags) => void)): number
     connect_after(sigName: "accel-closures-changed", callback: (($obj: EPropFlags) => void)): number
     emit(sigName: "accel-closures-changed"): void
@@ -8463,7 +8463,7 @@ export class EPropFlags {
     connect(sigName: "window-state-event", callback: (($obj: EPropFlags, event: Gdk.EventWindowState) => boolean)): number
     connect_after(sigName: "window-state-event", callback: (($obj: EPropFlags, event: Gdk.EventWindowState) => boolean)): number
     emit(sigName: "window-state-event", event: Gdk.EventWindowState): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: EPropFlags, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: EPropFlags, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -8578,19 +8578,19 @@ export interface EPropNamedIcon_ConstructProps extends EditorProperty_ConstructP
     orientation?: Gtk.Orientation
 }
 export class EPropNamedIcon {
-    /* Properties of Gladeui.EditorProperty */
+    /* Properties of Gladeui-2.0.Gladeui.EditorProperty */
     custom_text: string
     disable_check: boolean
     use_command: boolean
-    /* Properties of Gtk.Box */
+    /* Properties of Gtk-3.0.Gtk.Box */
     baseline_position: Gtk.BaselinePosition
     homogeneous: boolean
     spacing: number
-    /* Properties of Gtk.Container */
+    /* Properties of Gtk-3.0.Gtk.Container */
     border_width: number
     child: Gtk.Widget
     resize_mode: Gtk.ResizeMode
-    /* Properties of Gtk.Widget */
+    /* Properties of Gtk-3.0.Gtk.Widget */
     app_paintable: boolean
     can_default: boolean
     can_focus: boolean
@@ -8630,17 +8630,17 @@ export class EPropNamedIcon {
     visible: boolean
     width_request: number
     readonly window: Gdk.Window
-    /* Properties of Gtk.Orientable */
+    /* Properties of Gtk-3.0.Gtk.Orientable */
     orientation: Gtk.Orientation
-    /* Fields of Gladeui.EditorProperty */
+    /* Fields of Gladeui-2.0.Gladeui.EditorProperty */
     parent_instance: Gtk.Box
-    /* Fields of Gtk.Box */
+    /* Fields of Gtk-3.0.Gtk.Box */
     container: Gtk.Container
-    /* Fields of Gtk.Container */
+    /* Fields of Gtk-3.0.Gtk.Container */
     widget: Gtk.Widget
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Gladeui.EditorProperty */
+    /* Methods of Gladeui-2.0.Gladeui.EditorProperty */
     commit(value: any): void
     commit_no_callback(value: any): void
     get_custom_text(): string
@@ -8653,7 +8653,7 @@ export class EPropNamedIcon {
     loading(): boolean
     set_custom_text(custom_text: string): void
     set_disable_check(disable_check: boolean): void
-    /* Methods of Gtk.Box */
+    /* Methods of Gtk-3.0.Gtk.Box */
     get_baseline_position(): Gtk.BaselinePosition
     get_center_widget(): Gtk.Widget | null
     get_homogeneous(): boolean
@@ -8667,7 +8667,7 @@ export class EPropNamedIcon {
     set_child_packing(child: Gtk.Widget, expand: boolean, fill: boolean, padding: number, pack_type: Gtk.PackType): void
     set_homogeneous(homogeneous: boolean): void
     set_spacing(spacing: number): void
-    /* Methods of Gtk.Container */
+    /* Methods of Gtk-3.0.Gtk.Container */
     add(widget: Gtk.Widget): void
     check_resize(): void
     child_get_property(child: Gtk.Widget, property_name: string, value: any): void
@@ -8695,7 +8695,7 @@ export class EPropNamedIcon {
     set_reallocate_redraws(needs_redraws: boolean): void
     set_resize_mode(resize_mode: Gtk.ResizeMode): void
     unset_focus_chain(): void
-    /* Methods of Gtk.Widget */
+    /* Methods of Gtk-3.0.Gtk.Widget */
     activate(): boolean
     add_accelerator(accel_signal: string, accel_group: Gtk.AccelGroup, accel_key: number, accel_mods: Gdk.ModifierType, accel_flags: Gtk.AccelFlags): void
     add_device_events(device: Gdk.Device, events: Gdk.EventMask): void
@@ -8954,7 +8954,7 @@ export class EPropNamedIcon {
     unrealize(): void
     unregister_window(window: Gdk.Window): void
     unset_state_flags(flags: Gtk.StateFlags): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -8976,13 +8976,13 @@ export class EPropNamedIcon {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of Gladeui.Editable */
+    /* Methods of Gladeui-2.0.Gladeui.Editable */
     block(): void
     load(widget: Widget): void
     loaded_widget(): Widget | null
     set_show_name(show_name: boolean): void
     unblock(): void
-    /* Methods of Gtk.Buildable */
+    /* Methods of Gtk-3.0.Gtk.Buildable */
     add_child(builder: Gtk.Builder, child: GObject.Object, type?: string | null): void
     construct_child(builder: Gtk.Builder, name: string): GObject.Object
     custom_finished(builder: Gtk.Builder, child: GObject.Object | null, tagname: string, data?: object | null): void
@@ -8991,13 +8991,13 @@ export class EPropNamedIcon {
     get_internal_child(builder: Gtk.Builder, childname: string): GObject.Object
     parser_finished(builder: Gtk.Builder): void
     set_buildable_property(builder: Gtk.Builder, name: string, value: any): void
-    /* Methods of Gtk.Orientable */
+    /* Methods of Gtk-3.0.Gtk.Orientable */
     get_orientation(): Gtk.Orientation
     set_orientation(orientation: Gtk.Orientation): void
-    /* Virtual methods of Gladeui.EPropNamedIcon */
+    /* Virtual methods of Gladeui-2.0.Gladeui.EPropNamedIcon */
     vfunc_load(property: Property): void
     vfunc_load(widget: Widget): void
-    /* Virtual methods of Gladeui.EditorProperty */
+    /* Virtual methods of Gladeui-2.0.Gladeui.EditorProperty */
     vfunc_changed(property: Property): object | null
     vfunc_commit(value: any): void
     vfunc_load(property: Property): void
@@ -9013,7 +9013,7 @@ export class EPropNamedIcon {
     vfunc_parser_finished(builder: Gtk.Builder): void
     vfunc_set_buildable_property(builder: Gtk.Builder, name: string, value: any): void
     vfunc_set_name(name: string): void
-    /* Virtual methods of Gtk.Container */
+    /* Virtual methods of Gtk-3.0.Gtk.Container */
     vfunc_add(widget: Gtk.Widget): void
     vfunc_check_resize(): void
     vfunc_child_type(): GObject.Type
@@ -9024,7 +9024,7 @@ export class EPropNamedIcon {
     vfunc_remove(widget: Gtk.Widget): void
     vfunc_set_child_property(child: Gtk.Widget, property_id: number, value: any, pspec: GObject.ParamSpec): void
     vfunc_set_focus_child(child?: Gtk.Widget | null): void
-    /* Virtual methods of Gtk.Widget */
+    /* Virtual methods of Gtk-3.0.Gtk.Widget */
     vfunc_adjust_baseline_allocation(baseline: number): void
     vfunc_adjust_baseline_request(minimum_baseline: number, natural_baseline: number): void
     vfunc_adjust_size_allocation(orientation: Gtk.Orientation, minimum_size: number, natural_size: number, allocated_pos: number, allocated_size: number): void
@@ -9107,7 +9107,7 @@ export class EPropNamedIcon {
     vfunc_unrealize(): void
     vfunc_visibility_notify_event(event: Gdk.EventVisibility): boolean
     vfunc_window_state_event(event: Gdk.EventWindowState): boolean
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -9115,14 +9115,14 @@ export class EPropNamedIcon {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gladeui.EditorProperty */
+    /* Signals of Gladeui-2.0.Gladeui.EditorProperty */
     connect(sigName: "commit", callback: (($obj: EPropNamedIcon, arg1?: object | null) => void)): number
     connect_after(sigName: "commit", callback: (($obj: EPropNamedIcon, arg1?: object | null) => void)): number
     emit(sigName: "commit", arg1?: object | null): void
     connect(sigName: "value-changed", callback: (($obj: EPropNamedIcon, arg1: Property) => void)): number
     connect_after(sigName: "value-changed", callback: (($obj: EPropNamedIcon, arg1: Property) => void)): number
     emit(sigName: "value-changed", arg1: Property): void
-    /* Signals of Gtk.Container */
+    /* Signals of Gtk-3.0.Gtk.Container */
     connect(sigName: "add", callback: (($obj: EPropNamedIcon, object: Gtk.Widget) => void)): number
     connect_after(sigName: "add", callback: (($obj: EPropNamedIcon, object: Gtk.Widget) => void)): number
     emit(sigName: "add", object: Gtk.Widget): void
@@ -9135,7 +9135,7 @@ export class EPropNamedIcon {
     connect(sigName: "set-focus-child", callback: (($obj: EPropNamedIcon, object: Gtk.Widget) => void)): number
     connect_after(sigName: "set-focus-child", callback: (($obj: EPropNamedIcon, object: Gtk.Widget) => void)): number
     emit(sigName: "set-focus-child", object: Gtk.Widget): void
-    /* Signals of Gtk.Widget */
+    /* Signals of Gtk-3.0.Gtk.Widget */
     connect(sigName: "accel-closures-changed", callback: (($obj: EPropNamedIcon) => void)): number
     connect_after(sigName: "accel-closures-changed", callback: (($obj: EPropNamedIcon) => void)): number
     emit(sigName: "accel-closures-changed"): void
@@ -9343,7 +9343,7 @@ export class EPropNamedIcon {
     connect(sigName: "window-state-event", callback: (($obj: EPropNamedIcon, event: Gdk.EventWindowState) => boolean)): number
     connect_after(sigName: "window-state-event", callback: (($obj: EPropNamedIcon, event: Gdk.EventWindowState) => boolean)): number
     emit(sigName: "window-state-event", event: Gdk.EventWindowState): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: EPropNamedIcon, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: EPropNamedIcon, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -9458,19 +9458,19 @@ export interface EPropNumeric_ConstructProps extends EditorProperty_ConstructPro
     orientation?: Gtk.Orientation
 }
 export class EPropNumeric {
-    /* Properties of Gladeui.EditorProperty */
+    /* Properties of Gladeui-2.0.Gladeui.EditorProperty */
     custom_text: string
     disable_check: boolean
     use_command: boolean
-    /* Properties of Gtk.Box */
+    /* Properties of Gtk-3.0.Gtk.Box */
     baseline_position: Gtk.BaselinePosition
     homogeneous: boolean
     spacing: number
-    /* Properties of Gtk.Container */
+    /* Properties of Gtk-3.0.Gtk.Container */
     border_width: number
     child: Gtk.Widget
     resize_mode: Gtk.ResizeMode
-    /* Properties of Gtk.Widget */
+    /* Properties of Gtk-3.0.Gtk.Widget */
     app_paintable: boolean
     can_default: boolean
     can_focus: boolean
@@ -9510,17 +9510,17 @@ export class EPropNumeric {
     visible: boolean
     width_request: number
     readonly window: Gdk.Window
-    /* Properties of Gtk.Orientable */
+    /* Properties of Gtk-3.0.Gtk.Orientable */
     orientation: Gtk.Orientation
-    /* Fields of Gladeui.EditorProperty */
+    /* Fields of Gladeui-2.0.Gladeui.EditorProperty */
     parent_instance: Gtk.Box
-    /* Fields of Gtk.Box */
+    /* Fields of Gtk-3.0.Gtk.Box */
     container: Gtk.Container
-    /* Fields of Gtk.Container */
+    /* Fields of Gtk-3.0.Gtk.Container */
     widget: Gtk.Widget
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Gladeui.EditorProperty */
+    /* Methods of Gladeui-2.0.Gladeui.EditorProperty */
     commit(value: any): void
     commit_no_callback(value: any): void
     get_custom_text(): string
@@ -9533,7 +9533,7 @@ export class EPropNumeric {
     loading(): boolean
     set_custom_text(custom_text: string): void
     set_disable_check(disable_check: boolean): void
-    /* Methods of Gtk.Box */
+    /* Methods of Gtk-3.0.Gtk.Box */
     get_baseline_position(): Gtk.BaselinePosition
     get_center_widget(): Gtk.Widget | null
     get_homogeneous(): boolean
@@ -9547,7 +9547,7 @@ export class EPropNumeric {
     set_child_packing(child: Gtk.Widget, expand: boolean, fill: boolean, padding: number, pack_type: Gtk.PackType): void
     set_homogeneous(homogeneous: boolean): void
     set_spacing(spacing: number): void
-    /* Methods of Gtk.Container */
+    /* Methods of Gtk-3.0.Gtk.Container */
     add(widget: Gtk.Widget): void
     check_resize(): void
     child_get_property(child: Gtk.Widget, property_name: string, value: any): void
@@ -9575,7 +9575,7 @@ export class EPropNumeric {
     set_reallocate_redraws(needs_redraws: boolean): void
     set_resize_mode(resize_mode: Gtk.ResizeMode): void
     unset_focus_chain(): void
-    /* Methods of Gtk.Widget */
+    /* Methods of Gtk-3.0.Gtk.Widget */
     activate(): boolean
     add_accelerator(accel_signal: string, accel_group: Gtk.AccelGroup, accel_key: number, accel_mods: Gdk.ModifierType, accel_flags: Gtk.AccelFlags): void
     add_device_events(device: Gdk.Device, events: Gdk.EventMask): void
@@ -9834,7 +9834,7 @@ export class EPropNumeric {
     unrealize(): void
     unregister_window(window: Gdk.Window): void
     unset_state_flags(flags: Gtk.StateFlags): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -9856,13 +9856,13 @@ export class EPropNumeric {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of Gladeui.Editable */
+    /* Methods of Gladeui-2.0.Gladeui.Editable */
     block(): void
     load(widget: Widget): void
     loaded_widget(): Widget | null
     set_show_name(show_name: boolean): void
     unblock(): void
-    /* Methods of Gtk.Buildable */
+    /* Methods of Gtk-3.0.Gtk.Buildable */
     add_child(builder: Gtk.Builder, child: GObject.Object, type?: string | null): void
     construct_child(builder: Gtk.Builder, name: string): GObject.Object
     custom_finished(builder: Gtk.Builder, child: GObject.Object | null, tagname: string, data?: object | null): void
@@ -9871,13 +9871,13 @@ export class EPropNumeric {
     get_internal_child(builder: Gtk.Builder, childname: string): GObject.Object
     parser_finished(builder: Gtk.Builder): void
     set_buildable_property(builder: Gtk.Builder, name: string, value: any): void
-    /* Methods of Gtk.Orientable */
+    /* Methods of Gtk-3.0.Gtk.Orientable */
     get_orientation(): Gtk.Orientation
     set_orientation(orientation: Gtk.Orientation): void
-    /* Virtual methods of Gladeui.EPropNumeric */
+    /* Virtual methods of Gladeui-2.0.Gladeui.EPropNumeric */
     vfunc_load(property: Property): void
     vfunc_load(widget: Widget): void
-    /* Virtual methods of Gladeui.EditorProperty */
+    /* Virtual methods of Gladeui-2.0.Gladeui.EditorProperty */
     vfunc_changed(property: Property): object | null
     vfunc_commit(value: any): void
     vfunc_load(property: Property): void
@@ -9893,7 +9893,7 @@ export class EPropNumeric {
     vfunc_parser_finished(builder: Gtk.Builder): void
     vfunc_set_buildable_property(builder: Gtk.Builder, name: string, value: any): void
     vfunc_set_name(name: string): void
-    /* Virtual methods of Gtk.Container */
+    /* Virtual methods of Gtk-3.0.Gtk.Container */
     vfunc_add(widget: Gtk.Widget): void
     vfunc_check_resize(): void
     vfunc_child_type(): GObject.Type
@@ -9904,7 +9904,7 @@ export class EPropNumeric {
     vfunc_remove(widget: Gtk.Widget): void
     vfunc_set_child_property(child: Gtk.Widget, property_id: number, value: any, pspec: GObject.ParamSpec): void
     vfunc_set_focus_child(child?: Gtk.Widget | null): void
-    /* Virtual methods of Gtk.Widget */
+    /* Virtual methods of Gtk-3.0.Gtk.Widget */
     vfunc_adjust_baseline_allocation(baseline: number): void
     vfunc_adjust_baseline_request(minimum_baseline: number, natural_baseline: number): void
     vfunc_adjust_size_allocation(orientation: Gtk.Orientation, minimum_size: number, natural_size: number, allocated_pos: number, allocated_size: number): void
@@ -9987,7 +9987,7 @@ export class EPropNumeric {
     vfunc_unrealize(): void
     vfunc_visibility_notify_event(event: Gdk.EventVisibility): boolean
     vfunc_window_state_event(event: Gdk.EventWindowState): boolean
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -9995,14 +9995,14 @@ export class EPropNumeric {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gladeui.EditorProperty */
+    /* Signals of Gladeui-2.0.Gladeui.EditorProperty */
     connect(sigName: "commit", callback: (($obj: EPropNumeric, arg1?: object | null) => void)): number
     connect_after(sigName: "commit", callback: (($obj: EPropNumeric, arg1?: object | null) => void)): number
     emit(sigName: "commit", arg1?: object | null): void
     connect(sigName: "value-changed", callback: (($obj: EPropNumeric, arg1: Property) => void)): number
     connect_after(sigName: "value-changed", callback: (($obj: EPropNumeric, arg1: Property) => void)): number
     emit(sigName: "value-changed", arg1: Property): void
-    /* Signals of Gtk.Container */
+    /* Signals of Gtk-3.0.Gtk.Container */
     connect(sigName: "add", callback: (($obj: EPropNumeric, object: Gtk.Widget) => void)): number
     connect_after(sigName: "add", callback: (($obj: EPropNumeric, object: Gtk.Widget) => void)): number
     emit(sigName: "add", object: Gtk.Widget): void
@@ -10015,7 +10015,7 @@ export class EPropNumeric {
     connect(sigName: "set-focus-child", callback: (($obj: EPropNumeric, object: Gtk.Widget) => void)): number
     connect_after(sigName: "set-focus-child", callback: (($obj: EPropNumeric, object: Gtk.Widget) => void)): number
     emit(sigName: "set-focus-child", object: Gtk.Widget): void
-    /* Signals of Gtk.Widget */
+    /* Signals of Gtk-3.0.Gtk.Widget */
     connect(sigName: "accel-closures-changed", callback: (($obj: EPropNumeric) => void)): number
     connect_after(sigName: "accel-closures-changed", callback: (($obj: EPropNumeric) => void)): number
     emit(sigName: "accel-closures-changed"): void
@@ -10223,7 +10223,7 @@ export class EPropNumeric {
     connect(sigName: "window-state-event", callback: (($obj: EPropNumeric, event: Gdk.EventWindowState) => boolean)): number
     connect_after(sigName: "window-state-event", callback: (($obj: EPropNumeric, event: Gdk.EventWindowState) => boolean)): number
     emit(sigName: "window-state-event", event: Gdk.EventWindowState): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: EPropNumeric, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: EPropNumeric, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -10338,19 +10338,19 @@ export interface EPropObject_ConstructProps extends EditorProperty_ConstructProp
     orientation?: Gtk.Orientation
 }
 export class EPropObject {
-    /* Properties of Gladeui.EditorProperty */
+    /* Properties of Gladeui-2.0.Gladeui.EditorProperty */
     custom_text: string
     disable_check: boolean
     use_command: boolean
-    /* Properties of Gtk.Box */
+    /* Properties of Gtk-3.0.Gtk.Box */
     baseline_position: Gtk.BaselinePosition
     homogeneous: boolean
     spacing: number
-    /* Properties of Gtk.Container */
+    /* Properties of Gtk-3.0.Gtk.Container */
     border_width: number
     child: Gtk.Widget
     resize_mode: Gtk.ResizeMode
-    /* Properties of Gtk.Widget */
+    /* Properties of Gtk-3.0.Gtk.Widget */
     app_paintable: boolean
     can_default: boolean
     can_focus: boolean
@@ -10390,17 +10390,17 @@ export class EPropObject {
     visible: boolean
     width_request: number
     readonly window: Gdk.Window
-    /* Properties of Gtk.Orientable */
+    /* Properties of Gtk-3.0.Gtk.Orientable */
     orientation: Gtk.Orientation
-    /* Fields of Gladeui.EditorProperty */
+    /* Fields of Gladeui-2.0.Gladeui.EditorProperty */
     parent_instance: Gtk.Box
-    /* Fields of Gtk.Box */
+    /* Fields of Gtk-3.0.Gtk.Box */
     container: Gtk.Container
-    /* Fields of Gtk.Container */
+    /* Fields of Gtk-3.0.Gtk.Container */
     widget: Gtk.Widget
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Gladeui.EditorProperty */
+    /* Methods of Gladeui-2.0.Gladeui.EditorProperty */
     commit(value: any): void
     commit_no_callback(value: any): void
     get_custom_text(): string
@@ -10413,7 +10413,7 @@ export class EPropObject {
     loading(): boolean
     set_custom_text(custom_text: string): void
     set_disable_check(disable_check: boolean): void
-    /* Methods of Gtk.Box */
+    /* Methods of Gtk-3.0.Gtk.Box */
     get_baseline_position(): Gtk.BaselinePosition
     get_center_widget(): Gtk.Widget | null
     get_homogeneous(): boolean
@@ -10427,7 +10427,7 @@ export class EPropObject {
     set_child_packing(child: Gtk.Widget, expand: boolean, fill: boolean, padding: number, pack_type: Gtk.PackType): void
     set_homogeneous(homogeneous: boolean): void
     set_spacing(spacing: number): void
-    /* Methods of Gtk.Container */
+    /* Methods of Gtk-3.0.Gtk.Container */
     add(widget: Gtk.Widget): void
     check_resize(): void
     child_get_property(child: Gtk.Widget, property_name: string, value: any): void
@@ -10455,7 +10455,7 @@ export class EPropObject {
     set_reallocate_redraws(needs_redraws: boolean): void
     set_resize_mode(resize_mode: Gtk.ResizeMode): void
     unset_focus_chain(): void
-    /* Methods of Gtk.Widget */
+    /* Methods of Gtk-3.0.Gtk.Widget */
     activate(): boolean
     add_accelerator(accel_signal: string, accel_group: Gtk.AccelGroup, accel_key: number, accel_mods: Gdk.ModifierType, accel_flags: Gtk.AccelFlags): void
     add_device_events(device: Gdk.Device, events: Gdk.EventMask): void
@@ -10714,7 +10714,7 @@ export class EPropObject {
     unrealize(): void
     unregister_window(window: Gdk.Window): void
     unset_state_flags(flags: Gtk.StateFlags): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -10736,13 +10736,13 @@ export class EPropObject {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of Gladeui.Editable */
+    /* Methods of Gladeui-2.0.Gladeui.Editable */
     block(): void
     load(widget: Widget): void
     loaded_widget(): Widget | null
     set_show_name(show_name: boolean): void
     unblock(): void
-    /* Methods of Gtk.Buildable */
+    /* Methods of Gtk-3.0.Gtk.Buildable */
     add_child(builder: Gtk.Builder, child: GObject.Object, type?: string | null): void
     construct_child(builder: Gtk.Builder, name: string): GObject.Object
     custom_finished(builder: Gtk.Builder, child: GObject.Object | null, tagname: string, data?: object | null): void
@@ -10751,13 +10751,13 @@ export class EPropObject {
     get_internal_child(builder: Gtk.Builder, childname: string): GObject.Object
     parser_finished(builder: Gtk.Builder): void
     set_buildable_property(builder: Gtk.Builder, name: string, value: any): void
-    /* Methods of Gtk.Orientable */
+    /* Methods of Gtk-3.0.Gtk.Orientable */
     get_orientation(): Gtk.Orientation
     set_orientation(orientation: Gtk.Orientation): void
-    /* Virtual methods of Gladeui.EPropObject */
+    /* Virtual methods of Gladeui-2.0.Gladeui.EPropObject */
     vfunc_load(property: Property): void
     vfunc_load(widget: Widget): void
-    /* Virtual methods of Gladeui.EditorProperty */
+    /* Virtual methods of Gladeui-2.0.Gladeui.EditorProperty */
     vfunc_changed(property: Property): object | null
     vfunc_commit(value: any): void
     vfunc_load(property: Property): void
@@ -10773,7 +10773,7 @@ export class EPropObject {
     vfunc_parser_finished(builder: Gtk.Builder): void
     vfunc_set_buildable_property(builder: Gtk.Builder, name: string, value: any): void
     vfunc_set_name(name: string): void
-    /* Virtual methods of Gtk.Container */
+    /* Virtual methods of Gtk-3.0.Gtk.Container */
     vfunc_add(widget: Gtk.Widget): void
     vfunc_check_resize(): void
     vfunc_child_type(): GObject.Type
@@ -10784,7 +10784,7 @@ export class EPropObject {
     vfunc_remove(widget: Gtk.Widget): void
     vfunc_set_child_property(child: Gtk.Widget, property_id: number, value: any, pspec: GObject.ParamSpec): void
     vfunc_set_focus_child(child?: Gtk.Widget | null): void
-    /* Virtual methods of Gtk.Widget */
+    /* Virtual methods of Gtk-3.0.Gtk.Widget */
     vfunc_adjust_baseline_allocation(baseline: number): void
     vfunc_adjust_baseline_request(minimum_baseline: number, natural_baseline: number): void
     vfunc_adjust_size_allocation(orientation: Gtk.Orientation, minimum_size: number, natural_size: number, allocated_pos: number, allocated_size: number): void
@@ -10867,7 +10867,7 @@ export class EPropObject {
     vfunc_unrealize(): void
     vfunc_visibility_notify_event(event: Gdk.EventVisibility): boolean
     vfunc_window_state_event(event: Gdk.EventWindowState): boolean
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -10875,14 +10875,14 @@ export class EPropObject {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gladeui.EditorProperty */
+    /* Signals of Gladeui-2.0.Gladeui.EditorProperty */
     connect(sigName: "commit", callback: (($obj: EPropObject, arg1?: object | null) => void)): number
     connect_after(sigName: "commit", callback: (($obj: EPropObject, arg1?: object | null) => void)): number
     emit(sigName: "commit", arg1?: object | null): void
     connect(sigName: "value-changed", callback: (($obj: EPropObject, arg1: Property) => void)): number
     connect_after(sigName: "value-changed", callback: (($obj: EPropObject, arg1: Property) => void)): number
     emit(sigName: "value-changed", arg1: Property): void
-    /* Signals of Gtk.Container */
+    /* Signals of Gtk-3.0.Gtk.Container */
     connect(sigName: "add", callback: (($obj: EPropObject, object: Gtk.Widget) => void)): number
     connect_after(sigName: "add", callback: (($obj: EPropObject, object: Gtk.Widget) => void)): number
     emit(sigName: "add", object: Gtk.Widget): void
@@ -10895,7 +10895,7 @@ export class EPropObject {
     connect(sigName: "set-focus-child", callback: (($obj: EPropObject, object: Gtk.Widget) => void)): number
     connect_after(sigName: "set-focus-child", callback: (($obj: EPropObject, object: Gtk.Widget) => void)): number
     emit(sigName: "set-focus-child", object: Gtk.Widget): void
-    /* Signals of Gtk.Widget */
+    /* Signals of Gtk-3.0.Gtk.Widget */
     connect(sigName: "accel-closures-changed", callback: (($obj: EPropObject) => void)): number
     connect_after(sigName: "accel-closures-changed", callback: (($obj: EPropObject) => void)): number
     emit(sigName: "accel-closures-changed"): void
@@ -11103,7 +11103,7 @@ export class EPropObject {
     connect(sigName: "window-state-event", callback: (($obj: EPropObject, event: Gdk.EventWindowState) => boolean)): number
     connect_after(sigName: "window-state-event", callback: (($obj: EPropObject, event: Gdk.EventWindowState) => boolean)): number
     emit(sigName: "window-state-event", event: Gdk.EventWindowState): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: EPropObject, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: EPropObject, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -11218,19 +11218,19 @@ export interface EPropObjects_ConstructProps extends EditorProperty_ConstructPro
     orientation?: Gtk.Orientation
 }
 export class EPropObjects {
-    /* Properties of Gladeui.EditorProperty */
+    /* Properties of Gladeui-2.0.Gladeui.EditorProperty */
     custom_text: string
     disable_check: boolean
     use_command: boolean
-    /* Properties of Gtk.Box */
+    /* Properties of Gtk-3.0.Gtk.Box */
     baseline_position: Gtk.BaselinePosition
     homogeneous: boolean
     spacing: number
-    /* Properties of Gtk.Container */
+    /* Properties of Gtk-3.0.Gtk.Container */
     border_width: number
     child: Gtk.Widget
     resize_mode: Gtk.ResizeMode
-    /* Properties of Gtk.Widget */
+    /* Properties of Gtk-3.0.Gtk.Widget */
     app_paintable: boolean
     can_default: boolean
     can_focus: boolean
@@ -11270,17 +11270,17 @@ export class EPropObjects {
     visible: boolean
     width_request: number
     readonly window: Gdk.Window
-    /* Properties of Gtk.Orientable */
+    /* Properties of Gtk-3.0.Gtk.Orientable */
     orientation: Gtk.Orientation
-    /* Fields of Gladeui.EditorProperty */
+    /* Fields of Gladeui-2.0.Gladeui.EditorProperty */
     parent_instance: Gtk.Box
-    /* Fields of Gtk.Box */
+    /* Fields of Gtk-3.0.Gtk.Box */
     container: Gtk.Container
-    /* Fields of Gtk.Container */
+    /* Fields of Gtk-3.0.Gtk.Container */
     widget: Gtk.Widget
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Gladeui.EditorProperty */
+    /* Methods of Gladeui-2.0.Gladeui.EditorProperty */
     commit(value: any): void
     commit_no_callback(value: any): void
     get_custom_text(): string
@@ -11293,7 +11293,7 @@ export class EPropObjects {
     loading(): boolean
     set_custom_text(custom_text: string): void
     set_disable_check(disable_check: boolean): void
-    /* Methods of Gtk.Box */
+    /* Methods of Gtk-3.0.Gtk.Box */
     get_baseline_position(): Gtk.BaselinePosition
     get_center_widget(): Gtk.Widget | null
     get_homogeneous(): boolean
@@ -11307,7 +11307,7 @@ export class EPropObjects {
     set_child_packing(child: Gtk.Widget, expand: boolean, fill: boolean, padding: number, pack_type: Gtk.PackType): void
     set_homogeneous(homogeneous: boolean): void
     set_spacing(spacing: number): void
-    /* Methods of Gtk.Container */
+    /* Methods of Gtk-3.0.Gtk.Container */
     add(widget: Gtk.Widget): void
     check_resize(): void
     child_get_property(child: Gtk.Widget, property_name: string, value: any): void
@@ -11335,7 +11335,7 @@ export class EPropObjects {
     set_reallocate_redraws(needs_redraws: boolean): void
     set_resize_mode(resize_mode: Gtk.ResizeMode): void
     unset_focus_chain(): void
-    /* Methods of Gtk.Widget */
+    /* Methods of Gtk-3.0.Gtk.Widget */
     activate(): boolean
     add_accelerator(accel_signal: string, accel_group: Gtk.AccelGroup, accel_key: number, accel_mods: Gdk.ModifierType, accel_flags: Gtk.AccelFlags): void
     add_device_events(device: Gdk.Device, events: Gdk.EventMask): void
@@ -11594,7 +11594,7 @@ export class EPropObjects {
     unrealize(): void
     unregister_window(window: Gdk.Window): void
     unset_state_flags(flags: Gtk.StateFlags): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -11616,13 +11616,13 @@ export class EPropObjects {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of Gladeui.Editable */
+    /* Methods of Gladeui-2.0.Gladeui.Editable */
     block(): void
     load(widget: Widget): void
     loaded_widget(): Widget | null
     set_show_name(show_name: boolean): void
     unblock(): void
-    /* Methods of Gtk.Buildable */
+    /* Methods of Gtk-3.0.Gtk.Buildable */
     add_child(builder: Gtk.Builder, child: GObject.Object, type?: string | null): void
     construct_child(builder: Gtk.Builder, name: string): GObject.Object
     custom_finished(builder: Gtk.Builder, child: GObject.Object | null, tagname: string, data?: object | null): void
@@ -11631,13 +11631,13 @@ export class EPropObjects {
     get_internal_child(builder: Gtk.Builder, childname: string): GObject.Object
     parser_finished(builder: Gtk.Builder): void
     set_buildable_property(builder: Gtk.Builder, name: string, value: any): void
-    /* Methods of Gtk.Orientable */
+    /* Methods of Gtk-3.0.Gtk.Orientable */
     get_orientation(): Gtk.Orientation
     set_orientation(orientation: Gtk.Orientation): void
-    /* Virtual methods of Gladeui.EPropObjects */
+    /* Virtual methods of Gladeui-2.0.Gladeui.EPropObjects */
     vfunc_load(property: Property): void
     vfunc_load(widget: Widget): void
-    /* Virtual methods of Gladeui.EditorProperty */
+    /* Virtual methods of Gladeui-2.0.Gladeui.EditorProperty */
     vfunc_changed(property: Property): object | null
     vfunc_commit(value: any): void
     vfunc_load(property: Property): void
@@ -11653,7 +11653,7 @@ export class EPropObjects {
     vfunc_parser_finished(builder: Gtk.Builder): void
     vfunc_set_buildable_property(builder: Gtk.Builder, name: string, value: any): void
     vfunc_set_name(name: string): void
-    /* Virtual methods of Gtk.Container */
+    /* Virtual methods of Gtk-3.0.Gtk.Container */
     vfunc_add(widget: Gtk.Widget): void
     vfunc_check_resize(): void
     vfunc_child_type(): GObject.Type
@@ -11664,7 +11664,7 @@ export class EPropObjects {
     vfunc_remove(widget: Gtk.Widget): void
     vfunc_set_child_property(child: Gtk.Widget, property_id: number, value: any, pspec: GObject.ParamSpec): void
     vfunc_set_focus_child(child?: Gtk.Widget | null): void
-    /* Virtual methods of Gtk.Widget */
+    /* Virtual methods of Gtk-3.0.Gtk.Widget */
     vfunc_adjust_baseline_allocation(baseline: number): void
     vfunc_adjust_baseline_request(minimum_baseline: number, natural_baseline: number): void
     vfunc_adjust_size_allocation(orientation: Gtk.Orientation, minimum_size: number, natural_size: number, allocated_pos: number, allocated_size: number): void
@@ -11747,7 +11747,7 @@ export class EPropObjects {
     vfunc_unrealize(): void
     vfunc_visibility_notify_event(event: Gdk.EventVisibility): boolean
     vfunc_window_state_event(event: Gdk.EventWindowState): boolean
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -11755,14 +11755,14 @@ export class EPropObjects {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gladeui.EditorProperty */
+    /* Signals of Gladeui-2.0.Gladeui.EditorProperty */
     connect(sigName: "commit", callback: (($obj: EPropObjects, arg1?: object | null) => void)): number
     connect_after(sigName: "commit", callback: (($obj: EPropObjects, arg1?: object | null) => void)): number
     emit(sigName: "commit", arg1?: object | null): void
     connect(sigName: "value-changed", callback: (($obj: EPropObjects, arg1: Property) => void)): number
     connect_after(sigName: "value-changed", callback: (($obj: EPropObjects, arg1: Property) => void)): number
     emit(sigName: "value-changed", arg1: Property): void
-    /* Signals of Gtk.Container */
+    /* Signals of Gtk-3.0.Gtk.Container */
     connect(sigName: "add", callback: (($obj: EPropObjects, object: Gtk.Widget) => void)): number
     connect_after(sigName: "add", callback: (($obj: EPropObjects, object: Gtk.Widget) => void)): number
     emit(sigName: "add", object: Gtk.Widget): void
@@ -11775,7 +11775,7 @@ export class EPropObjects {
     connect(sigName: "set-focus-child", callback: (($obj: EPropObjects, object: Gtk.Widget) => void)): number
     connect_after(sigName: "set-focus-child", callback: (($obj: EPropObjects, object: Gtk.Widget) => void)): number
     emit(sigName: "set-focus-child", object: Gtk.Widget): void
-    /* Signals of Gtk.Widget */
+    /* Signals of Gtk-3.0.Gtk.Widget */
     connect(sigName: "accel-closures-changed", callback: (($obj: EPropObjects) => void)): number
     connect_after(sigName: "accel-closures-changed", callback: (($obj: EPropObjects) => void)): number
     emit(sigName: "accel-closures-changed"): void
@@ -11983,7 +11983,7 @@ export class EPropObjects {
     connect(sigName: "window-state-event", callback: (($obj: EPropObjects, event: Gdk.EventWindowState) => boolean)): number
     connect_after(sigName: "window-state-event", callback: (($obj: EPropObjects, event: Gdk.EventWindowState) => boolean)): number
     emit(sigName: "window-state-event", event: Gdk.EventWindowState): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: EPropObjects, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: EPropObjects, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -12098,19 +12098,19 @@ export interface EPropText_ConstructProps extends EditorProperty_ConstructProps 
     orientation?: Gtk.Orientation
 }
 export class EPropText {
-    /* Properties of Gladeui.EditorProperty */
+    /* Properties of Gladeui-2.0.Gladeui.EditorProperty */
     custom_text: string
     disable_check: boolean
     use_command: boolean
-    /* Properties of Gtk.Box */
+    /* Properties of Gtk-3.0.Gtk.Box */
     baseline_position: Gtk.BaselinePosition
     homogeneous: boolean
     spacing: number
-    /* Properties of Gtk.Container */
+    /* Properties of Gtk-3.0.Gtk.Container */
     border_width: number
     child: Gtk.Widget
     resize_mode: Gtk.ResizeMode
-    /* Properties of Gtk.Widget */
+    /* Properties of Gtk-3.0.Gtk.Widget */
     app_paintable: boolean
     can_default: boolean
     can_focus: boolean
@@ -12150,17 +12150,17 @@ export class EPropText {
     visible: boolean
     width_request: number
     readonly window: Gdk.Window
-    /* Properties of Gtk.Orientable */
+    /* Properties of Gtk-3.0.Gtk.Orientable */
     orientation: Gtk.Orientation
-    /* Fields of Gladeui.EditorProperty */
+    /* Fields of Gladeui-2.0.Gladeui.EditorProperty */
     parent_instance: Gtk.Box
-    /* Fields of Gtk.Box */
+    /* Fields of Gtk-3.0.Gtk.Box */
     container: Gtk.Container
-    /* Fields of Gtk.Container */
+    /* Fields of Gtk-3.0.Gtk.Container */
     widget: Gtk.Widget
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Gladeui.EditorProperty */
+    /* Methods of Gladeui-2.0.Gladeui.EditorProperty */
     commit(value: any): void
     commit_no_callback(value: any): void
     get_custom_text(): string
@@ -12173,7 +12173,7 @@ export class EPropText {
     loading(): boolean
     set_custom_text(custom_text: string): void
     set_disable_check(disable_check: boolean): void
-    /* Methods of Gtk.Box */
+    /* Methods of Gtk-3.0.Gtk.Box */
     get_baseline_position(): Gtk.BaselinePosition
     get_center_widget(): Gtk.Widget | null
     get_homogeneous(): boolean
@@ -12187,7 +12187,7 @@ export class EPropText {
     set_child_packing(child: Gtk.Widget, expand: boolean, fill: boolean, padding: number, pack_type: Gtk.PackType): void
     set_homogeneous(homogeneous: boolean): void
     set_spacing(spacing: number): void
-    /* Methods of Gtk.Container */
+    /* Methods of Gtk-3.0.Gtk.Container */
     add(widget: Gtk.Widget): void
     check_resize(): void
     child_get_property(child: Gtk.Widget, property_name: string, value: any): void
@@ -12215,7 +12215,7 @@ export class EPropText {
     set_reallocate_redraws(needs_redraws: boolean): void
     set_resize_mode(resize_mode: Gtk.ResizeMode): void
     unset_focus_chain(): void
-    /* Methods of Gtk.Widget */
+    /* Methods of Gtk-3.0.Gtk.Widget */
     activate(): boolean
     add_accelerator(accel_signal: string, accel_group: Gtk.AccelGroup, accel_key: number, accel_mods: Gdk.ModifierType, accel_flags: Gtk.AccelFlags): void
     add_device_events(device: Gdk.Device, events: Gdk.EventMask): void
@@ -12474,7 +12474,7 @@ export class EPropText {
     unrealize(): void
     unregister_window(window: Gdk.Window): void
     unset_state_flags(flags: Gtk.StateFlags): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -12496,13 +12496,13 @@ export class EPropText {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of Gladeui.Editable */
+    /* Methods of Gladeui-2.0.Gladeui.Editable */
     block(): void
     load(widget: Widget): void
     loaded_widget(): Widget | null
     set_show_name(show_name: boolean): void
     unblock(): void
-    /* Methods of Gtk.Buildable */
+    /* Methods of Gtk-3.0.Gtk.Buildable */
     add_child(builder: Gtk.Builder, child: GObject.Object, type?: string | null): void
     construct_child(builder: Gtk.Builder, name: string): GObject.Object
     custom_finished(builder: Gtk.Builder, child: GObject.Object | null, tagname: string, data?: object | null): void
@@ -12511,13 +12511,13 @@ export class EPropText {
     get_internal_child(builder: Gtk.Builder, childname: string): GObject.Object
     parser_finished(builder: Gtk.Builder): void
     set_buildable_property(builder: Gtk.Builder, name: string, value: any): void
-    /* Methods of Gtk.Orientable */
+    /* Methods of Gtk-3.0.Gtk.Orientable */
     get_orientation(): Gtk.Orientation
     set_orientation(orientation: Gtk.Orientation): void
-    /* Virtual methods of Gladeui.EPropText */
+    /* Virtual methods of Gladeui-2.0.Gladeui.EPropText */
     vfunc_load(property: Property): void
     vfunc_load(widget: Widget): void
-    /* Virtual methods of Gladeui.EditorProperty */
+    /* Virtual methods of Gladeui-2.0.Gladeui.EditorProperty */
     vfunc_changed(property: Property): object | null
     vfunc_commit(value: any): void
     vfunc_load(property: Property): void
@@ -12533,7 +12533,7 @@ export class EPropText {
     vfunc_parser_finished(builder: Gtk.Builder): void
     vfunc_set_buildable_property(builder: Gtk.Builder, name: string, value: any): void
     vfunc_set_name(name: string): void
-    /* Virtual methods of Gtk.Container */
+    /* Virtual methods of Gtk-3.0.Gtk.Container */
     vfunc_add(widget: Gtk.Widget): void
     vfunc_check_resize(): void
     vfunc_child_type(): GObject.Type
@@ -12544,7 +12544,7 @@ export class EPropText {
     vfunc_remove(widget: Gtk.Widget): void
     vfunc_set_child_property(child: Gtk.Widget, property_id: number, value: any, pspec: GObject.ParamSpec): void
     vfunc_set_focus_child(child?: Gtk.Widget | null): void
-    /* Virtual methods of Gtk.Widget */
+    /* Virtual methods of Gtk-3.0.Gtk.Widget */
     vfunc_adjust_baseline_allocation(baseline: number): void
     vfunc_adjust_baseline_request(minimum_baseline: number, natural_baseline: number): void
     vfunc_adjust_size_allocation(orientation: Gtk.Orientation, minimum_size: number, natural_size: number, allocated_pos: number, allocated_size: number): void
@@ -12627,7 +12627,7 @@ export class EPropText {
     vfunc_unrealize(): void
     vfunc_visibility_notify_event(event: Gdk.EventVisibility): boolean
     vfunc_window_state_event(event: Gdk.EventWindowState): boolean
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -12635,14 +12635,14 @@ export class EPropText {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gladeui.EditorProperty */
+    /* Signals of Gladeui-2.0.Gladeui.EditorProperty */
     connect(sigName: "commit", callback: (($obj: EPropText, arg1?: object | null) => void)): number
     connect_after(sigName: "commit", callback: (($obj: EPropText, arg1?: object | null) => void)): number
     emit(sigName: "commit", arg1?: object | null): void
     connect(sigName: "value-changed", callback: (($obj: EPropText, arg1: Property) => void)): number
     connect_after(sigName: "value-changed", callback: (($obj: EPropText, arg1: Property) => void)): number
     emit(sigName: "value-changed", arg1: Property): void
-    /* Signals of Gtk.Container */
+    /* Signals of Gtk-3.0.Gtk.Container */
     connect(sigName: "add", callback: (($obj: EPropText, object: Gtk.Widget) => void)): number
     connect_after(sigName: "add", callback: (($obj: EPropText, object: Gtk.Widget) => void)): number
     emit(sigName: "add", object: Gtk.Widget): void
@@ -12655,7 +12655,7 @@ export class EPropText {
     connect(sigName: "set-focus-child", callback: (($obj: EPropText, object: Gtk.Widget) => void)): number
     connect_after(sigName: "set-focus-child", callback: (($obj: EPropText, object: Gtk.Widget) => void)): number
     emit(sigName: "set-focus-child", object: Gtk.Widget): void
-    /* Signals of Gtk.Widget */
+    /* Signals of Gtk-3.0.Gtk.Widget */
     connect(sigName: "accel-closures-changed", callback: (($obj: EPropText) => void)): number
     connect_after(sigName: "accel-closures-changed", callback: (($obj: EPropText) => void)): number
     emit(sigName: "accel-closures-changed"): void
@@ -12863,7 +12863,7 @@ export class EPropText {
     connect(sigName: "window-state-event", callback: (($obj: EPropText, event: Gdk.EventWindowState) => boolean)): number
     connect_after(sigName: "window-state-event", callback: (($obj: EPropText, event: Gdk.EventWindowState) => boolean)): number
     emit(sigName: "window-state-event", event: Gdk.EventWindowState): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: EPropText, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: EPropText, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -12978,19 +12978,19 @@ export interface EPropUnichar_ConstructProps extends EditorProperty_ConstructPro
     orientation?: Gtk.Orientation
 }
 export class EPropUnichar {
-    /* Properties of Gladeui.EditorProperty */
+    /* Properties of Gladeui-2.0.Gladeui.EditorProperty */
     custom_text: string
     disable_check: boolean
     use_command: boolean
-    /* Properties of Gtk.Box */
+    /* Properties of Gtk-3.0.Gtk.Box */
     baseline_position: Gtk.BaselinePosition
     homogeneous: boolean
     spacing: number
-    /* Properties of Gtk.Container */
+    /* Properties of Gtk-3.0.Gtk.Container */
     border_width: number
     child: Gtk.Widget
     resize_mode: Gtk.ResizeMode
-    /* Properties of Gtk.Widget */
+    /* Properties of Gtk-3.0.Gtk.Widget */
     app_paintable: boolean
     can_default: boolean
     can_focus: boolean
@@ -13030,17 +13030,17 @@ export class EPropUnichar {
     visible: boolean
     width_request: number
     readonly window: Gdk.Window
-    /* Properties of Gtk.Orientable */
+    /* Properties of Gtk-3.0.Gtk.Orientable */
     orientation: Gtk.Orientation
-    /* Fields of Gladeui.EditorProperty */
+    /* Fields of Gladeui-2.0.Gladeui.EditorProperty */
     parent_instance: Gtk.Box
-    /* Fields of Gtk.Box */
+    /* Fields of Gtk-3.0.Gtk.Box */
     container: Gtk.Container
-    /* Fields of Gtk.Container */
+    /* Fields of Gtk-3.0.Gtk.Container */
     widget: Gtk.Widget
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Gladeui.EditorProperty */
+    /* Methods of Gladeui-2.0.Gladeui.EditorProperty */
     commit(value: any): void
     commit_no_callback(value: any): void
     get_custom_text(): string
@@ -13053,7 +13053,7 @@ export class EPropUnichar {
     loading(): boolean
     set_custom_text(custom_text: string): void
     set_disable_check(disable_check: boolean): void
-    /* Methods of Gtk.Box */
+    /* Methods of Gtk-3.0.Gtk.Box */
     get_baseline_position(): Gtk.BaselinePosition
     get_center_widget(): Gtk.Widget | null
     get_homogeneous(): boolean
@@ -13067,7 +13067,7 @@ export class EPropUnichar {
     set_child_packing(child: Gtk.Widget, expand: boolean, fill: boolean, padding: number, pack_type: Gtk.PackType): void
     set_homogeneous(homogeneous: boolean): void
     set_spacing(spacing: number): void
-    /* Methods of Gtk.Container */
+    /* Methods of Gtk-3.0.Gtk.Container */
     add(widget: Gtk.Widget): void
     check_resize(): void
     child_get_property(child: Gtk.Widget, property_name: string, value: any): void
@@ -13095,7 +13095,7 @@ export class EPropUnichar {
     set_reallocate_redraws(needs_redraws: boolean): void
     set_resize_mode(resize_mode: Gtk.ResizeMode): void
     unset_focus_chain(): void
-    /* Methods of Gtk.Widget */
+    /* Methods of Gtk-3.0.Gtk.Widget */
     activate(): boolean
     add_accelerator(accel_signal: string, accel_group: Gtk.AccelGroup, accel_key: number, accel_mods: Gdk.ModifierType, accel_flags: Gtk.AccelFlags): void
     add_device_events(device: Gdk.Device, events: Gdk.EventMask): void
@@ -13354,7 +13354,7 @@ export class EPropUnichar {
     unrealize(): void
     unregister_window(window: Gdk.Window): void
     unset_state_flags(flags: Gtk.StateFlags): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -13376,13 +13376,13 @@ export class EPropUnichar {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of Gladeui.Editable */
+    /* Methods of Gladeui-2.0.Gladeui.Editable */
     block(): void
     load(widget: Widget): void
     loaded_widget(): Widget | null
     set_show_name(show_name: boolean): void
     unblock(): void
-    /* Methods of Gtk.Buildable */
+    /* Methods of Gtk-3.0.Gtk.Buildable */
     add_child(builder: Gtk.Builder, child: GObject.Object, type?: string | null): void
     construct_child(builder: Gtk.Builder, name: string): GObject.Object
     custom_finished(builder: Gtk.Builder, child: GObject.Object | null, tagname: string, data?: object | null): void
@@ -13391,13 +13391,13 @@ export class EPropUnichar {
     get_internal_child(builder: Gtk.Builder, childname: string): GObject.Object
     parser_finished(builder: Gtk.Builder): void
     set_buildable_property(builder: Gtk.Builder, name: string, value: any): void
-    /* Methods of Gtk.Orientable */
+    /* Methods of Gtk-3.0.Gtk.Orientable */
     get_orientation(): Gtk.Orientation
     set_orientation(orientation: Gtk.Orientation): void
-    /* Virtual methods of Gladeui.EPropUnichar */
+    /* Virtual methods of Gladeui-2.0.Gladeui.EPropUnichar */
     vfunc_load(property: Property): void
     vfunc_load(widget: Widget): void
-    /* Virtual methods of Gladeui.EditorProperty */
+    /* Virtual methods of Gladeui-2.0.Gladeui.EditorProperty */
     vfunc_changed(property: Property): object | null
     vfunc_commit(value: any): void
     vfunc_load(property: Property): void
@@ -13413,7 +13413,7 @@ export class EPropUnichar {
     vfunc_parser_finished(builder: Gtk.Builder): void
     vfunc_set_buildable_property(builder: Gtk.Builder, name: string, value: any): void
     vfunc_set_name(name: string): void
-    /* Virtual methods of Gtk.Container */
+    /* Virtual methods of Gtk-3.0.Gtk.Container */
     vfunc_add(widget: Gtk.Widget): void
     vfunc_check_resize(): void
     vfunc_child_type(): GObject.Type
@@ -13424,7 +13424,7 @@ export class EPropUnichar {
     vfunc_remove(widget: Gtk.Widget): void
     vfunc_set_child_property(child: Gtk.Widget, property_id: number, value: any, pspec: GObject.ParamSpec): void
     vfunc_set_focus_child(child?: Gtk.Widget | null): void
-    /* Virtual methods of Gtk.Widget */
+    /* Virtual methods of Gtk-3.0.Gtk.Widget */
     vfunc_adjust_baseline_allocation(baseline: number): void
     vfunc_adjust_baseline_request(minimum_baseline: number, natural_baseline: number): void
     vfunc_adjust_size_allocation(orientation: Gtk.Orientation, minimum_size: number, natural_size: number, allocated_pos: number, allocated_size: number): void
@@ -13507,7 +13507,7 @@ export class EPropUnichar {
     vfunc_unrealize(): void
     vfunc_visibility_notify_event(event: Gdk.EventVisibility): boolean
     vfunc_window_state_event(event: Gdk.EventWindowState): boolean
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -13515,14 +13515,14 @@ export class EPropUnichar {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gladeui.EditorProperty */
+    /* Signals of Gladeui-2.0.Gladeui.EditorProperty */
     connect(sigName: "commit", callback: (($obj: EPropUnichar, arg1?: object | null) => void)): number
     connect_after(sigName: "commit", callback: (($obj: EPropUnichar, arg1?: object | null) => void)): number
     emit(sigName: "commit", arg1?: object | null): void
     connect(sigName: "value-changed", callback: (($obj: EPropUnichar, arg1: Property) => void)): number
     connect_after(sigName: "value-changed", callback: (($obj: EPropUnichar, arg1: Property) => void)): number
     emit(sigName: "value-changed", arg1: Property): void
-    /* Signals of Gtk.Container */
+    /* Signals of Gtk-3.0.Gtk.Container */
     connect(sigName: "add", callback: (($obj: EPropUnichar, object: Gtk.Widget) => void)): number
     connect_after(sigName: "add", callback: (($obj: EPropUnichar, object: Gtk.Widget) => void)): number
     emit(sigName: "add", object: Gtk.Widget): void
@@ -13535,7 +13535,7 @@ export class EPropUnichar {
     connect(sigName: "set-focus-child", callback: (($obj: EPropUnichar, object: Gtk.Widget) => void)): number
     connect_after(sigName: "set-focus-child", callback: (($obj: EPropUnichar, object: Gtk.Widget) => void)): number
     emit(sigName: "set-focus-child", object: Gtk.Widget): void
-    /* Signals of Gtk.Widget */
+    /* Signals of Gtk-3.0.Gtk.Widget */
     connect(sigName: "accel-closures-changed", callback: (($obj: EPropUnichar) => void)): number
     connect_after(sigName: "accel-closures-changed", callback: (($obj: EPropUnichar) => void)): number
     emit(sigName: "accel-closures-changed"): void
@@ -13743,7 +13743,7 @@ export class EPropUnichar {
     connect(sigName: "window-state-event", callback: (($obj: EPropUnichar, event: Gdk.EventWindowState) => boolean)): number
     connect_after(sigName: "window-state-event", callback: (($obj: EPropUnichar, event: Gdk.EventWindowState) => boolean)): number
     emit(sigName: "window-state-event", event: Gdk.EventWindowState): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: EPropUnichar, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: EPropUnichar, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -13861,22 +13861,22 @@ export interface Editor_ConstructProps extends Gtk.Box_ConstructProps {
     orientation?: Gtk.Orientation
 }
 export class Editor {
-    /* Properties of Gladeui.Editor */
+    /* Properties of Gladeui-2.0.Gladeui.Editor */
     readonly class_field: string
     show_boder: boolean
     show_class_field: boolean
     readonly show_info: boolean
     readonly signal_editor: SignalEditor
     widget: Widget
-    /* Properties of Gtk.Box */
+    /* Properties of Gtk-3.0.Gtk.Box */
     baseline_position: Gtk.BaselinePosition
     homogeneous: boolean
     spacing: number
-    /* Properties of Gtk.Container */
+    /* Properties of Gtk-3.0.Gtk.Container */
     border_width: number
     child: Gtk.Widget
     resize_mode: Gtk.ResizeMode
-    /* Properties of Gtk.Widget */
+    /* Properties of Gtk-3.0.Gtk.Widget */
     app_paintable: boolean
     can_default: boolean
     can_focus: boolean
@@ -13916,19 +13916,19 @@ export class Editor {
     visible: boolean
     width_request: number
     readonly window: Gdk.Window
-    /* Properties of Gtk.Orientable */
+    /* Properties of Gtk-3.0.Gtk.Orientable */
     orientation: Gtk.Orientation
-    /* Fields of Gladeui.Editor */
+    /* Fields of Gladeui-2.0.Gladeui.Editor */
     parent_instance: Gtk.Box
-    /* Fields of Gtk.Box */
+    /* Fields of Gtk-3.0.Gtk.Box */
     container: Gtk.Container
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Gladeui.Editor */
+    /* Methods of Gladeui-2.0.Gladeui.Editor */
     hide_class_field(): void
     hide_info(): void
     load_widget(widget: Widget): void
-    /* Methods of Gtk.Box */
+    /* Methods of Gtk-3.0.Gtk.Box */
     get_baseline_position(): Gtk.BaselinePosition
     get_center_widget(): Gtk.Widget | null
     get_homogeneous(): boolean
@@ -13942,7 +13942,7 @@ export class Editor {
     set_child_packing(child: Gtk.Widget, expand: boolean, fill: boolean, padding: number, pack_type: Gtk.PackType): void
     set_homogeneous(homogeneous: boolean): void
     set_spacing(spacing: number): void
-    /* Methods of Gtk.Container */
+    /* Methods of Gtk-3.0.Gtk.Container */
     add(widget: Gtk.Widget): void
     check_resize(): void
     child_get_property(child: Gtk.Widget, property_name: string, value: any): void
@@ -13970,7 +13970,7 @@ export class Editor {
     set_reallocate_redraws(needs_redraws: boolean): void
     set_resize_mode(resize_mode: Gtk.ResizeMode): void
     unset_focus_chain(): void
-    /* Methods of Gtk.Widget */
+    /* Methods of Gtk-3.0.Gtk.Widget */
     activate(): boolean
     add_accelerator(accel_signal: string, accel_group: Gtk.AccelGroup, accel_key: number, accel_mods: Gdk.ModifierType, accel_flags: Gtk.AccelFlags): void
     add_device_events(device: Gdk.Device, events: Gdk.EventMask): void
@@ -14229,7 +14229,7 @@ export class Editor {
     unrealize(): void
     unregister_window(window: Gdk.Window): void
     unset_state_flags(flags: Gtk.StateFlags): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -14251,7 +14251,7 @@ export class Editor {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of Gtk.Buildable */
+    /* Methods of Gtk-3.0.Gtk.Buildable */
     add_child(builder: Gtk.Builder, child: GObject.Object, type?: string | null): void
     construct_child(builder: Gtk.Builder, name: string): GObject.Object
     custom_finished(builder: Gtk.Builder, child: GObject.Object | null, tagname: string, data?: object | null): void
@@ -14260,10 +14260,10 @@ export class Editor {
     get_internal_child(builder: Gtk.Builder, childname: string): GObject.Object
     parser_finished(builder: Gtk.Builder): void
     set_buildable_property(builder: Gtk.Builder, name: string, value: any): void
-    /* Methods of Gtk.Orientable */
+    /* Methods of Gtk-3.0.Gtk.Orientable */
     get_orientation(): Gtk.Orientation
     set_orientation(orientation: Gtk.Orientation): void
-    /* Virtual methods of Gladeui.Editor */
+    /* Virtual methods of Gladeui-2.0.Gladeui.Editor */
     vfunc_add_child(builder: Gtk.Builder, child: GObject.Object, type?: string | null): void
     vfunc_construct_child(builder: Gtk.Builder, name: string): GObject.Object
     vfunc_custom_finished(builder: Gtk.Builder, child: GObject.Object | null, tagname: string, data?: object | null): void
@@ -14274,7 +14274,7 @@ export class Editor {
     vfunc_parser_finished(builder: Gtk.Builder): void
     vfunc_set_buildable_property(builder: Gtk.Builder, name: string, value: any): void
     vfunc_set_name(name: string): void
-    /* Virtual methods of Gtk.Container */
+    /* Virtual methods of Gtk-3.0.Gtk.Container */
     vfunc_add(widget: Gtk.Widget): void
     vfunc_check_resize(): void
     vfunc_child_type(): GObject.Type
@@ -14285,7 +14285,7 @@ export class Editor {
     vfunc_remove(widget: Gtk.Widget): void
     vfunc_set_child_property(child: Gtk.Widget, property_id: number, value: any, pspec: GObject.ParamSpec): void
     vfunc_set_focus_child(child?: Gtk.Widget | null): void
-    /* Virtual methods of Gtk.Widget */
+    /* Virtual methods of Gtk-3.0.Gtk.Widget */
     vfunc_adjust_baseline_allocation(baseline: number): void
     vfunc_adjust_baseline_request(minimum_baseline: number, natural_baseline: number): void
     vfunc_adjust_size_allocation(orientation: Gtk.Orientation, minimum_size: number, natural_size: number, allocated_pos: number, allocated_size: number): void
@@ -14368,7 +14368,7 @@ export class Editor {
     vfunc_unrealize(): void
     vfunc_visibility_notify_event(event: Gdk.EventVisibility): boolean
     vfunc_window_state_event(event: Gdk.EventWindowState): boolean
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -14376,7 +14376,7 @@ export class Editor {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gtk.Container */
+    /* Signals of Gtk-3.0.Gtk.Container */
     connect(sigName: "add", callback: (($obj: Editor, object: Gtk.Widget) => void)): number
     connect_after(sigName: "add", callback: (($obj: Editor, object: Gtk.Widget) => void)): number
     emit(sigName: "add", object: Gtk.Widget): void
@@ -14389,7 +14389,7 @@ export class Editor {
     connect(sigName: "set-focus-child", callback: (($obj: Editor, object: Gtk.Widget) => void)): number
     connect_after(sigName: "set-focus-child", callback: (($obj: Editor, object: Gtk.Widget) => void)): number
     emit(sigName: "set-focus-child", object: Gtk.Widget): void
-    /* Signals of Gtk.Widget */
+    /* Signals of Gtk-3.0.Gtk.Widget */
     connect(sigName: "accel-closures-changed", callback: (($obj: Editor) => void)): number
     connect_after(sigName: "accel-closures-changed", callback: (($obj: Editor) => void)): number
     emit(sigName: "accel-closures-changed"): void
@@ -14597,7 +14597,7 @@ export class Editor {
     connect(sigName: "window-state-event", callback: (($obj: Editor, event: Gdk.EventWindowState) => boolean)): number
     connect_after(sigName: "window-state-event", callback: (($obj: Editor, event: Gdk.EventWindowState) => boolean)): number
     emit(sigName: "window-state-event", event: Gdk.EventWindowState): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Editor, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Editor, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -14728,19 +14728,19 @@ export interface EditorProperty_ConstructProps extends Gtk.Box_ConstructProps {
     orientation?: Gtk.Orientation
 }
 export class EditorProperty {
-    /* Properties of Gladeui.EditorProperty */
+    /* Properties of Gladeui-2.0.Gladeui.EditorProperty */
     custom_text: string
     disable_check: boolean
     use_command: boolean
-    /* Properties of Gtk.Box */
+    /* Properties of Gtk-3.0.Gtk.Box */
     baseline_position: Gtk.BaselinePosition
     homogeneous: boolean
     spacing: number
-    /* Properties of Gtk.Container */
+    /* Properties of Gtk-3.0.Gtk.Container */
     border_width: number
     child: Gtk.Widget
     resize_mode: Gtk.ResizeMode
-    /* Properties of Gtk.Widget */
+    /* Properties of Gtk-3.0.Gtk.Widget */
     app_paintable: boolean
     can_default: boolean
     can_focus: boolean
@@ -14780,17 +14780,17 @@ export class EditorProperty {
     visible: boolean
     width_request: number
     readonly window: Gdk.Window
-    /* Properties of Gtk.Orientable */
+    /* Properties of Gtk-3.0.Gtk.Orientable */
     orientation: Gtk.Orientation
-    /* Fields of Gladeui.EditorProperty */
+    /* Fields of Gladeui-2.0.Gladeui.EditorProperty */
     parent_instance: Gtk.Box
-    /* Fields of Gtk.Box */
+    /* Fields of Gtk-3.0.Gtk.Box */
     container: Gtk.Container
-    /* Fields of Gtk.Container */
+    /* Fields of Gtk-3.0.Gtk.Container */
     widget: Gtk.Widget
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Gladeui.EditorProperty */
+    /* Methods of Gladeui-2.0.Gladeui.EditorProperty */
     commit(value: any): void
     commit_no_callback(value: any): void
     get_custom_text(): string
@@ -14803,7 +14803,7 @@ export class EditorProperty {
     loading(): boolean
     set_custom_text(custom_text: string): void
     set_disable_check(disable_check: boolean): void
-    /* Methods of Gtk.Box */
+    /* Methods of Gtk-3.0.Gtk.Box */
     get_baseline_position(): Gtk.BaselinePosition
     get_center_widget(): Gtk.Widget | null
     get_homogeneous(): boolean
@@ -14817,7 +14817,7 @@ export class EditorProperty {
     set_child_packing(child: Gtk.Widget, expand: boolean, fill: boolean, padding: number, pack_type: Gtk.PackType): void
     set_homogeneous(homogeneous: boolean): void
     set_spacing(spacing: number): void
-    /* Methods of Gtk.Container */
+    /* Methods of Gtk-3.0.Gtk.Container */
     add(widget: Gtk.Widget): void
     check_resize(): void
     child_get_property(child: Gtk.Widget, property_name: string, value: any): void
@@ -14845,7 +14845,7 @@ export class EditorProperty {
     set_reallocate_redraws(needs_redraws: boolean): void
     set_resize_mode(resize_mode: Gtk.ResizeMode): void
     unset_focus_chain(): void
-    /* Methods of Gtk.Widget */
+    /* Methods of Gtk-3.0.Gtk.Widget */
     activate(): boolean
     add_accelerator(accel_signal: string, accel_group: Gtk.AccelGroup, accel_key: number, accel_mods: Gdk.ModifierType, accel_flags: Gtk.AccelFlags): void
     add_device_events(device: Gdk.Device, events: Gdk.EventMask): void
@@ -15104,7 +15104,7 @@ export class EditorProperty {
     unrealize(): void
     unregister_window(window: Gdk.Window): void
     unset_state_flags(flags: Gtk.StateFlags): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -15126,13 +15126,13 @@ export class EditorProperty {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of Gladeui.Editable */
+    /* Methods of Gladeui-2.0.Gladeui.Editable */
     block(): void
     load(widget: Widget): void
     loaded_widget(): Widget | null
     set_show_name(show_name: boolean): void
     unblock(): void
-    /* Methods of Gtk.Buildable */
+    /* Methods of Gtk-3.0.Gtk.Buildable */
     add_child(builder: Gtk.Builder, child: GObject.Object, type?: string | null): void
     construct_child(builder: Gtk.Builder, name: string): GObject.Object
     custom_finished(builder: Gtk.Builder, child: GObject.Object | null, tagname: string, data?: object | null): void
@@ -15141,10 +15141,10 @@ export class EditorProperty {
     get_internal_child(builder: Gtk.Builder, childname: string): GObject.Object
     parser_finished(builder: Gtk.Builder): void
     set_buildable_property(builder: Gtk.Builder, name: string, value: any): void
-    /* Methods of Gtk.Orientable */
+    /* Methods of Gtk-3.0.Gtk.Orientable */
     get_orientation(): Gtk.Orientation
     set_orientation(orientation: Gtk.Orientation): void
-    /* Virtual methods of Gladeui.EditorProperty */
+    /* Virtual methods of Gladeui-2.0.Gladeui.EditorProperty */
     vfunc_changed(property: Property): object | null
     vfunc_commit(value: any): void
     vfunc_load(property: Property): void
@@ -15160,7 +15160,7 @@ export class EditorProperty {
     vfunc_parser_finished(builder: Gtk.Builder): void
     vfunc_set_buildable_property(builder: Gtk.Builder, name: string, value: any): void
     vfunc_set_name(name: string): void
-    /* Virtual methods of Gtk.Container */
+    /* Virtual methods of Gtk-3.0.Gtk.Container */
     vfunc_add(widget: Gtk.Widget): void
     vfunc_check_resize(): void
     vfunc_child_type(): GObject.Type
@@ -15171,7 +15171,7 @@ export class EditorProperty {
     vfunc_remove(widget: Gtk.Widget): void
     vfunc_set_child_property(child: Gtk.Widget, property_id: number, value: any, pspec: GObject.ParamSpec): void
     vfunc_set_focus_child(child?: Gtk.Widget | null): void
-    /* Virtual methods of Gtk.Widget */
+    /* Virtual methods of Gtk-3.0.Gtk.Widget */
     vfunc_adjust_baseline_allocation(baseline: number): void
     vfunc_adjust_baseline_request(minimum_baseline: number, natural_baseline: number): void
     vfunc_adjust_size_allocation(orientation: Gtk.Orientation, minimum_size: number, natural_size: number, allocated_pos: number, allocated_size: number): void
@@ -15254,7 +15254,7 @@ export class EditorProperty {
     vfunc_unrealize(): void
     vfunc_visibility_notify_event(event: Gdk.EventVisibility): boolean
     vfunc_window_state_event(event: Gdk.EventWindowState): boolean
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -15262,14 +15262,14 @@ export class EditorProperty {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gladeui.EditorProperty */
+    /* Signals of Gladeui-2.0.Gladeui.EditorProperty */
     connect(sigName: "commit", callback: (($obj: EditorProperty, arg1?: object | null) => void)): number
     connect_after(sigName: "commit", callback: (($obj: EditorProperty, arg1?: object | null) => void)): number
     emit(sigName: "commit", arg1?: object | null): void
     connect(sigName: "value-changed", callback: (($obj: EditorProperty, arg1: Property) => void)): number
     connect_after(sigName: "value-changed", callback: (($obj: EditorProperty, arg1: Property) => void)): number
     emit(sigName: "value-changed", arg1: Property): void
-    /* Signals of Gtk.Container */
+    /* Signals of Gtk-3.0.Gtk.Container */
     connect(sigName: "add", callback: (($obj: EditorProperty, object: Gtk.Widget) => void)): number
     connect_after(sigName: "add", callback: (($obj: EditorProperty, object: Gtk.Widget) => void)): number
     emit(sigName: "add", object: Gtk.Widget): void
@@ -15282,7 +15282,7 @@ export class EditorProperty {
     connect(sigName: "set-focus-child", callback: (($obj: EditorProperty, object: Gtk.Widget) => void)): number
     connect_after(sigName: "set-focus-child", callback: (($obj: EditorProperty, object: Gtk.Widget) => void)): number
     emit(sigName: "set-focus-child", object: Gtk.Widget): void
-    /* Signals of Gtk.Widget */
+    /* Signals of Gtk-3.0.Gtk.Widget */
     connect(sigName: "accel-closures-changed", callback: (($obj: EditorProperty) => void)): number
     connect_after(sigName: "accel-closures-changed", callback: (($obj: EditorProperty) => void)): number
     emit(sigName: "accel-closures-changed"): void
@@ -15490,7 +15490,7 @@ export class EditorProperty {
     connect(sigName: "window-state-event", callback: (($obj: EditorProperty, event: Gdk.EventWindowState) => boolean)): number
     connect_after(sigName: "window-state-event", callback: (($obj: EditorProperty, event: Gdk.EventWindowState) => boolean)): number
     emit(sigName: "window-state-event", event: Gdk.EventWindowState): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: EditorProperty, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: EditorProperty, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -15609,15 +15609,15 @@ export interface EditorSkeleton_ConstructProps extends Gtk.Box_ConstructProps {
     orientation?: Gtk.Orientation
 }
 export class EditorSkeleton {
-    /* Properties of Gtk.Box */
+    /* Properties of Gtk-3.0.Gtk.Box */
     baseline_position: Gtk.BaselinePosition
     homogeneous: boolean
     spacing: number
-    /* Properties of Gtk.Container */
+    /* Properties of Gtk-3.0.Gtk.Container */
     border_width: number
     child: Gtk.Widget
     resize_mode: Gtk.ResizeMode
-    /* Properties of Gtk.Widget */
+    /* Properties of Gtk-3.0.Gtk.Widget */
     app_paintable: boolean
     can_default: boolean
     can_focus: boolean
@@ -15657,19 +15657,19 @@ export class EditorSkeleton {
     visible: boolean
     width_request: number
     readonly window: Gdk.Window
-    /* Properties of Gtk.Orientable */
+    /* Properties of Gtk-3.0.Gtk.Orientable */
     orientation: Gtk.Orientation
-    /* Fields of Gladeui.EditorSkeleton */
+    /* Fields of Gladeui-2.0.Gladeui.EditorSkeleton */
     parent_instance: Gtk.Box
-    /* Fields of Gtk.Box */
+    /* Fields of Gtk-3.0.Gtk.Box */
     container: Gtk.Container
-    /* Fields of Gtk.Container */
+    /* Fields of Gtk-3.0.Gtk.Container */
     widget: Gtk.Widget
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Gladeui.EditorSkeleton */
+    /* Methods of Gladeui-2.0.Gladeui.EditorSkeleton */
     add_editor(editor: Editable): void
-    /* Methods of Gtk.Box */
+    /* Methods of Gtk-3.0.Gtk.Box */
     get_baseline_position(): Gtk.BaselinePosition
     get_center_widget(): Gtk.Widget | null
     get_homogeneous(): boolean
@@ -15683,7 +15683,7 @@ export class EditorSkeleton {
     set_child_packing(child: Gtk.Widget, expand: boolean, fill: boolean, padding: number, pack_type: Gtk.PackType): void
     set_homogeneous(homogeneous: boolean): void
     set_spacing(spacing: number): void
-    /* Methods of Gtk.Container */
+    /* Methods of Gtk-3.0.Gtk.Container */
     add(widget: Gtk.Widget): void
     check_resize(): void
     child_get_property(child: Gtk.Widget, property_name: string, value: any): void
@@ -15711,7 +15711,7 @@ export class EditorSkeleton {
     set_reallocate_redraws(needs_redraws: boolean): void
     set_resize_mode(resize_mode: Gtk.ResizeMode): void
     unset_focus_chain(): void
-    /* Methods of Gtk.Widget */
+    /* Methods of Gtk-3.0.Gtk.Widget */
     activate(): boolean
     add_accelerator(accel_signal: string, accel_group: Gtk.AccelGroup, accel_key: number, accel_mods: Gdk.ModifierType, accel_flags: Gtk.AccelFlags): void
     add_device_events(device: Gdk.Device, events: Gdk.EventMask): void
@@ -15970,7 +15970,7 @@ export class EditorSkeleton {
     unrealize(): void
     unregister_window(window: Gdk.Window): void
     unset_state_flags(flags: Gtk.StateFlags): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -15992,14 +15992,14 @@ export class EditorSkeleton {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of Gladeui.Editable */
+    /* Methods of Gladeui-2.0.Gladeui.Editable */
     block(): void
     load(widget: Widget): void
     loaded_widget(): Widget | null
     loading(): boolean
     set_show_name(show_name: boolean): void
     unblock(): void
-    /* Methods of Gtk.Buildable */
+    /* Methods of Gtk-3.0.Gtk.Buildable */
     add_child(builder: Gtk.Builder, child: GObject.Object, type?: string | null): void
     construct_child(builder: Gtk.Builder, name: string): GObject.Object
     custom_finished(builder: Gtk.Builder, child: GObject.Object | null, tagname: string, data?: object | null): void
@@ -16008,10 +16008,10 @@ export class EditorSkeleton {
     get_internal_child(builder: Gtk.Builder, childname: string): GObject.Object
     parser_finished(builder: Gtk.Builder): void
     set_buildable_property(builder: Gtk.Builder, name: string, value: any): void
-    /* Methods of Gtk.Orientable */
+    /* Methods of Gtk-3.0.Gtk.Orientable */
     get_orientation(): Gtk.Orientation
     set_orientation(orientation: Gtk.Orientation): void
-    /* Virtual methods of Gladeui.EditorSkeleton */
+    /* Virtual methods of Gladeui-2.0.Gladeui.EditorSkeleton */
     vfunc_load(widget: Widget): void
     vfunc_set_show_name(show_name: boolean): void
     vfunc_add_child(builder: Gtk.Builder, child: GObject.Object, type?: string | null): void
@@ -16024,7 +16024,7 @@ export class EditorSkeleton {
     vfunc_parser_finished(builder: Gtk.Builder): void
     vfunc_set_buildable_property(builder: Gtk.Builder, name: string, value: any): void
     vfunc_set_name(name: string): void
-    /* Virtual methods of Gtk.Container */
+    /* Virtual methods of Gtk-3.0.Gtk.Container */
     vfunc_add(widget: Gtk.Widget): void
     vfunc_check_resize(): void
     vfunc_child_type(): GObject.Type
@@ -16035,7 +16035,7 @@ export class EditorSkeleton {
     vfunc_remove(widget: Gtk.Widget): void
     vfunc_set_child_property(child: Gtk.Widget, property_id: number, value: any, pspec: GObject.ParamSpec): void
     vfunc_set_focus_child(child?: Gtk.Widget | null): void
-    /* Virtual methods of Gtk.Widget */
+    /* Virtual methods of Gtk-3.0.Gtk.Widget */
     vfunc_adjust_baseline_allocation(baseline: number): void
     vfunc_adjust_baseline_request(minimum_baseline: number, natural_baseline: number): void
     vfunc_adjust_size_allocation(orientation: Gtk.Orientation, minimum_size: number, natural_size: number, allocated_pos: number, allocated_size: number): void
@@ -16118,7 +16118,7 @@ export class EditorSkeleton {
     vfunc_unrealize(): void
     vfunc_visibility_notify_event(event: Gdk.EventVisibility): boolean
     vfunc_window_state_event(event: Gdk.EventWindowState): boolean
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -16126,7 +16126,7 @@ export class EditorSkeleton {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gtk.Container */
+    /* Signals of Gtk-3.0.Gtk.Container */
     connect(sigName: "add", callback: (($obj: EditorSkeleton, object: Gtk.Widget) => void)): number
     connect_after(sigName: "add", callback: (($obj: EditorSkeleton, object: Gtk.Widget) => void)): number
     emit(sigName: "add", object: Gtk.Widget): void
@@ -16139,7 +16139,7 @@ export class EditorSkeleton {
     connect(sigName: "set-focus-child", callback: (($obj: EditorSkeleton, object: Gtk.Widget) => void)): number
     connect_after(sigName: "set-focus-child", callback: (($obj: EditorSkeleton, object: Gtk.Widget) => void)): number
     emit(sigName: "set-focus-child", object: Gtk.Widget): void
-    /* Signals of Gtk.Widget */
+    /* Signals of Gtk-3.0.Gtk.Widget */
     connect(sigName: "accel-closures-changed", callback: (($obj: EditorSkeleton) => void)): number
     connect_after(sigName: "accel-closures-changed", callback: (($obj: EditorSkeleton) => void)): number
     emit(sigName: "accel-closures-changed"): void
@@ -16347,7 +16347,7 @@ export class EditorSkeleton {
     connect(sigName: "window-state-event", callback: (($obj: EditorSkeleton, event: Gdk.EventWindowState) => boolean)): number
     connect_after(sigName: "window-state-event", callback: (($obj: EditorSkeleton, event: Gdk.EventWindowState) => boolean)): number
     emit(sigName: "window-state-event", event: Gdk.EventWindowState): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: EditorSkeleton, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: EditorSkeleton, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -16460,17 +16460,17 @@ export interface EditorTable_ConstructProps extends Gtk.Grid_ConstructProps {
     orientation?: Gtk.Orientation
 }
 export class EditorTable {
-    /* Properties of Gtk.Grid */
+    /* Properties of Gtk-3.0.Gtk.Grid */
     baseline_row: number
     column_homogeneous: boolean
     column_spacing: number
     row_homogeneous: boolean
     row_spacing: number
-    /* Properties of Gtk.Container */
+    /* Properties of Gtk-3.0.Gtk.Container */
     border_width: number
     child: Gtk.Widget
     resize_mode: Gtk.ResizeMode
-    /* Properties of Gtk.Widget */
+    /* Properties of Gtk-3.0.Gtk.Widget */
     app_paintable: boolean
     can_default: boolean
     can_focus: boolean
@@ -16510,15 +16510,15 @@ export class EditorTable {
     visible: boolean
     width_request: number
     readonly window: Gdk.Window
-    /* Properties of Gtk.Orientable */
+    /* Properties of Gtk-3.0.Gtk.Orientable */
     orientation: Gtk.Orientation
-    /* Fields of Gladeui.EditorTable */
+    /* Fields of Gladeui-2.0.Gladeui.EditorTable */
     parent_instance: Gtk.Grid
-    /* Fields of Gtk.Container */
+    /* Fields of Gtk-3.0.Gtk.Container */
     widget: Gtk.Widget
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Gtk.Grid */
+    /* Methods of Gtk-3.0.Gtk.Grid */
     attach(child: Gtk.Widget, left: number, top: number, width: number, height: number): void
     attach_next_to(child: Gtk.Widget, sibling: Gtk.Widget | null, side: Gtk.PositionType, width: number, height: number): void
     get_baseline_row(): number
@@ -16539,7 +16539,7 @@ export class EditorTable {
     set_row_baseline_position(row: number, pos: Gtk.BaselinePosition): void
     set_row_homogeneous(homogeneous: boolean): void
     set_row_spacing(spacing: number): void
-    /* Methods of Gtk.Container */
+    /* Methods of Gtk-3.0.Gtk.Container */
     add(widget: Gtk.Widget): void
     check_resize(): void
     child_get_property(child: Gtk.Widget, property_name: string, value: any): void
@@ -16567,7 +16567,7 @@ export class EditorTable {
     set_reallocate_redraws(needs_redraws: boolean): void
     set_resize_mode(resize_mode: Gtk.ResizeMode): void
     unset_focus_chain(): void
-    /* Methods of Gtk.Widget */
+    /* Methods of Gtk-3.0.Gtk.Widget */
     activate(): boolean
     add_accelerator(accel_signal: string, accel_group: Gtk.AccelGroup, accel_key: number, accel_mods: Gdk.ModifierType, accel_flags: Gtk.AccelFlags): void
     add_device_events(device: Gdk.Device, events: Gdk.EventMask): void
@@ -16826,7 +16826,7 @@ export class EditorTable {
     unrealize(): void
     unregister_window(window: Gdk.Window): void
     unset_state_flags(flags: Gtk.StateFlags): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -16848,14 +16848,14 @@ export class EditorTable {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of Gladeui.Editable */
+    /* Methods of Gladeui-2.0.Gladeui.Editable */
     block(): void
     load(widget: Widget): void
     loaded_widget(): Widget | null
     loading(): boolean
     set_show_name(show_name: boolean): void
     unblock(): void
-    /* Methods of Gtk.Buildable */
+    /* Methods of Gtk-3.0.Gtk.Buildable */
     add_child(builder: Gtk.Builder, child: GObject.Object, type?: string | null): void
     construct_child(builder: Gtk.Builder, name: string): GObject.Object
     custom_finished(builder: Gtk.Builder, child: GObject.Object | null, tagname: string, data?: object | null): void
@@ -16864,10 +16864,10 @@ export class EditorTable {
     get_internal_child(builder: Gtk.Builder, childname: string): GObject.Object
     parser_finished(builder: Gtk.Builder): void
     set_buildable_property(builder: Gtk.Builder, name: string, value: any): void
-    /* Methods of Gtk.Orientable */
+    /* Methods of Gtk-3.0.Gtk.Orientable */
     get_orientation(): Gtk.Orientation
     set_orientation(orientation: Gtk.Orientation): void
-    /* Virtual methods of Gladeui.EditorTable */
+    /* Virtual methods of Gladeui-2.0.Gladeui.EditorTable */
     vfunc_load(widget: Widget): void
     vfunc_set_show_name(show_name: boolean): void
     vfunc_add_child(builder: Gtk.Builder, child: GObject.Object, type?: string | null): void
@@ -16880,7 +16880,7 @@ export class EditorTable {
     vfunc_parser_finished(builder: Gtk.Builder): void
     vfunc_set_buildable_property(builder: Gtk.Builder, name: string, value: any): void
     vfunc_set_name(name: string): void
-    /* Virtual methods of Gtk.Container */
+    /* Virtual methods of Gtk-3.0.Gtk.Container */
     vfunc_add(widget: Gtk.Widget): void
     vfunc_check_resize(): void
     vfunc_child_type(): GObject.Type
@@ -16891,7 +16891,7 @@ export class EditorTable {
     vfunc_remove(widget: Gtk.Widget): void
     vfunc_set_child_property(child: Gtk.Widget, property_id: number, value: any, pspec: GObject.ParamSpec): void
     vfunc_set_focus_child(child?: Gtk.Widget | null): void
-    /* Virtual methods of Gtk.Widget */
+    /* Virtual methods of Gtk-3.0.Gtk.Widget */
     vfunc_adjust_baseline_allocation(baseline: number): void
     vfunc_adjust_baseline_request(minimum_baseline: number, natural_baseline: number): void
     vfunc_adjust_size_allocation(orientation: Gtk.Orientation, minimum_size: number, natural_size: number, allocated_pos: number, allocated_size: number): void
@@ -16974,7 +16974,7 @@ export class EditorTable {
     vfunc_unrealize(): void
     vfunc_visibility_notify_event(event: Gdk.EventVisibility): boolean
     vfunc_window_state_event(event: Gdk.EventWindowState): boolean
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -16982,7 +16982,7 @@ export class EditorTable {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gtk.Container */
+    /* Signals of Gtk-3.0.Gtk.Container */
     connect(sigName: "add", callback: (($obj: EditorTable, object: Gtk.Widget) => void)): number
     connect_after(sigName: "add", callback: (($obj: EditorTable, object: Gtk.Widget) => void)): number
     emit(sigName: "add", object: Gtk.Widget): void
@@ -16995,7 +16995,7 @@ export class EditorTable {
     connect(sigName: "set-focus-child", callback: (($obj: EditorTable, object: Gtk.Widget) => void)): number
     connect_after(sigName: "set-focus-child", callback: (($obj: EditorTable, object: Gtk.Widget) => void)): number
     emit(sigName: "set-focus-child", object: Gtk.Widget): void
-    /* Signals of Gtk.Widget */
+    /* Signals of Gtk-3.0.Gtk.Widget */
     connect(sigName: "accel-closures-changed", callback: (($obj: EditorTable) => void)): number
     connect_after(sigName: "accel-closures-changed", callback: (($obj: EditorTable) => void)): number
     emit(sigName: "accel-closures-changed"): void
@@ -17203,7 +17203,7 @@ export class EditorTable {
     connect(sigName: "window-state-event", callback: (($obj: EditorTable, event: Gdk.EventWindowState) => boolean)): number
     connect_after(sigName: "window-state-event", callback: (($obj: EditorTable, event: Gdk.EventWindowState) => boolean)): number
     emit(sigName: "window-state-event", event: Gdk.EventWindowState): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: EditorTable, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: EditorTable, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -17320,17 +17320,17 @@ export interface Inspector_ConstructProps extends Gtk.Box_ConstructProps {
     orientation?: Gtk.Orientation
 }
 export class Inspector {
-    /* Properties of Gladeui.Inspector */
+    /* Properties of Gladeui-2.0.Gladeui.Inspector */
     project: Project
-    /* Properties of Gtk.Box */
+    /* Properties of Gtk-3.0.Gtk.Box */
     baseline_position: Gtk.BaselinePosition
     homogeneous: boolean
     spacing: number
-    /* Properties of Gtk.Container */
+    /* Properties of Gtk-3.0.Gtk.Container */
     border_width: number
     child: Gtk.Widget
     resize_mode: Gtk.ResizeMode
-    /* Properties of Gtk.Widget */
+    /* Properties of Gtk-3.0.Gtk.Widget */
     app_paintable: boolean
     can_default: boolean
     can_focus: boolean
@@ -17370,21 +17370,21 @@ export class Inspector {
     visible: boolean
     width_request: number
     readonly window: Gdk.Window
-    /* Properties of Gtk.Orientable */
+    /* Properties of Gtk-3.0.Gtk.Orientable */
     orientation: Gtk.Orientation
-    /* Fields of Gladeui.Inspector */
+    /* Fields of Gladeui-2.0.Gladeui.Inspector */
     parent_instance: Gtk.Box
-    /* Fields of Gtk.Box */
+    /* Fields of Gtk-3.0.Gtk.Box */
     container: Gtk.Container
-    /* Fields of Gtk.Container */
+    /* Fields of Gtk-3.0.Gtk.Container */
     widget: Gtk.Widget
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Gladeui.Inspector */
+    /* Methods of Gladeui-2.0.Gladeui.Inspector */
     get_project(): Project
     get_selected_items(): Widget[]
     set_project(project: Project): void
-    /* Methods of Gtk.Box */
+    /* Methods of Gtk-3.0.Gtk.Box */
     get_baseline_position(): Gtk.BaselinePosition
     get_center_widget(): Gtk.Widget | null
     get_homogeneous(): boolean
@@ -17398,7 +17398,7 @@ export class Inspector {
     set_child_packing(child: Gtk.Widget, expand: boolean, fill: boolean, padding: number, pack_type: Gtk.PackType): void
     set_homogeneous(homogeneous: boolean): void
     set_spacing(spacing: number): void
-    /* Methods of Gtk.Container */
+    /* Methods of Gtk-3.0.Gtk.Container */
     add(widget: Gtk.Widget): void
     check_resize(): void
     child_get_property(child: Gtk.Widget, property_name: string, value: any): void
@@ -17426,7 +17426,7 @@ export class Inspector {
     set_reallocate_redraws(needs_redraws: boolean): void
     set_resize_mode(resize_mode: Gtk.ResizeMode): void
     unset_focus_chain(): void
-    /* Methods of Gtk.Widget */
+    /* Methods of Gtk-3.0.Gtk.Widget */
     activate(): boolean
     add_accelerator(accel_signal: string, accel_group: Gtk.AccelGroup, accel_key: number, accel_mods: Gdk.ModifierType, accel_flags: Gtk.AccelFlags): void
     add_device_events(device: Gdk.Device, events: Gdk.EventMask): void
@@ -17685,7 +17685,7 @@ export class Inspector {
     unrealize(): void
     unregister_window(window: Gdk.Window): void
     unset_state_flags(flags: Gtk.StateFlags): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -17707,7 +17707,7 @@ export class Inspector {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of Gtk.Buildable */
+    /* Methods of Gtk-3.0.Gtk.Buildable */
     add_child(builder: Gtk.Builder, child: GObject.Object, type?: string | null): void
     construct_child(builder: Gtk.Builder, name: string): GObject.Object
     custom_finished(builder: Gtk.Builder, child: GObject.Object | null, tagname: string, data?: object | null): void
@@ -17716,10 +17716,10 @@ export class Inspector {
     get_internal_child(builder: Gtk.Builder, childname: string): GObject.Object
     parser_finished(builder: Gtk.Builder): void
     set_buildable_property(builder: Gtk.Builder, name: string, value: any): void
-    /* Methods of Gtk.Orientable */
+    /* Methods of Gtk-3.0.Gtk.Orientable */
     get_orientation(): Gtk.Orientation
     set_orientation(orientation: Gtk.Orientation): void
-    /* Virtual methods of Gladeui.Inspector */
+    /* Virtual methods of Gladeui-2.0.Gladeui.Inspector */
     vfunc_item_activated(): void
     vfunc_selection_changed(): void
     vfunc_add_child(builder: Gtk.Builder, child: GObject.Object, type?: string | null): void
@@ -17732,7 +17732,7 @@ export class Inspector {
     vfunc_parser_finished(builder: Gtk.Builder): void
     vfunc_set_buildable_property(builder: Gtk.Builder, name: string, value: any): void
     vfunc_set_name(name: string): void
-    /* Virtual methods of Gtk.Container */
+    /* Virtual methods of Gtk-3.0.Gtk.Container */
     vfunc_add(widget: Gtk.Widget): void
     vfunc_check_resize(): void
     vfunc_child_type(): GObject.Type
@@ -17743,7 +17743,7 @@ export class Inspector {
     vfunc_remove(widget: Gtk.Widget): void
     vfunc_set_child_property(child: Gtk.Widget, property_id: number, value: any, pspec: GObject.ParamSpec): void
     vfunc_set_focus_child(child?: Gtk.Widget | null): void
-    /* Virtual methods of Gtk.Widget */
+    /* Virtual methods of Gtk-3.0.Gtk.Widget */
     vfunc_adjust_baseline_allocation(baseline: number): void
     vfunc_adjust_baseline_request(minimum_baseline: number, natural_baseline: number): void
     vfunc_adjust_size_allocation(orientation: Gtk.Orientation, minimum_size: number, natural_size: number, allocated_pos: number, allocated_size: number): void
@@ -17826,7 +17826,7 @@ export class Inspector {
     vfunc_unrealize(): void
     vfunc_visibility_notify_event(event: Gdk.EventVisibility): boolean
     vfunc_window_state_event(event: Gdk.EventWindowState): boolean
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -17834,14 +17834,14 @@ export class Inspector {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gladeui.Inspector */
+    /* Signals of Gladeui-2.0.Gladeui.Inspector */
     connect(sigName: "item-activated", callback: (($obj: Inspector) => void)): number
     connect_after(sigName: "item-activated", callback: (($obj: Inspector) => void)): number
     emit(sigName: "item-activated"): void
     connect(sigName: "selection-changed", callback: (($obj: Inspector) => void)): number
     connect_after(sigName: "selection-changed", callback: (($obj: Inspector) => void)): number
     emit(sigName: "selection-changed"): void
-    /* Signals of Gtk.Container */
+    /* Signals of Gtk-3.0.Gtk.Container */
     connect(sigName: "add", callback: (($obj: Inspector, object: Gtk.Widget) => void)): number
     connect_after(sigName: "add", callback: (($obj: Inspector, object: Gtk.Widget) => void)): number
     emit(sigName: "add", object: Gtk.Widget): void
@@ -17854,7 +17854,7 @@ export class Inspector {
     connect(sigName: "set-focus-child", callback: (($obj: Inspector, object: Gtk.Widget) => void)): number
     connect_after(sigName: "set-focus-child", callback: (($obj: Inspector, object: Gtk.Widget) => void)): number
     emit(sigName: "set-focus-child", object: Gtk.Widget): void
-    /* Signals of Gtk.Widget */
+    /* Signals of Gtk-3.0.Gtk.Widget */
     connect(sigName: "accel-closures-changed", callback: (($obj: Inspector) => void)): number
     connect_after(sigName: "accel-closures-changed", callback: (($obj: Inspector) => void)): number
     emit(sigName: "accel-closures-changed"): void
@@ -18062,7 +18062,7 @@ export class Inspector {
     connect(sigName: "window-state-event", callback: (($obj: Inspector, event: Gdk.EventWindowState) => boolean)): number
     connect_after(sigName: "window-state-event", callback: (($obj: Inspector, event: Gdk.EventWindowState) => boolean)): number
     emit(sigName: "window-state-event", event: Gdk.EventWindowState): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Inspector, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Inspector, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -18176,7 +18176,7 @@ export class Inspector {
 export interface NamedIconChooserDialog_ConstructProps extends Gtk.Dialog_ConstructProps {
 }
 export class NamedIconChooserDialog {
-    /* Properties of Gtk.Window */
+    /* Properties of Gtk-3.0.Gtk.Window */
     accept_focus: boolean
     application: Gtk.Application
     attached_to: Gtk.Widget
@@ -18209,11 +18209,11 @@ export class NamedIconChooserDialog {
     type_hint: Gdk.WindowTypeHint
     urgency_hint: boolean
     window_position: Gtk.WindowPosition
-    /* Properties of Gtk.Container */
+    /* Properties of Gtk-3.0.Gtk.Container */
     border_width: number
     child: Gtk.Widget
     resize_mode: Gtk.ResizeMode
-    /* Properties of Gtk.Widget */
+    /* Properties of Gtk-3.0.Gtk.Widget */
     app_paintable: boolean
     can_default: boolean
     can_focus: boolean
@@ -18253,23 +18253,23 @@ export class NamedIconChooserDialog {
     visible: boolean
     width_request: number
     readonly window: Gdk.Window
-    /* Fields of Gladeui.NamedIconChooserDialog */
+    /* Fields of Gladeui-2.0.Gladeui.NamedIconChooserDialog */
     parent_instance: Gtk.Dialog
-    /* Fields of Gtk.Window */
+    /* Fields of Gtk-3.0.Gtk.Window */
     bin: Gtk.Bin
     priv: Gtk.WindowPrivate
-    /* Fields of Gtk.Bin */
+    /* Fields of Gtk-3.0.Gtk.Bin */
     container: Gtk.Container
-    /* Fields of Gtk.Container */
+    /* Fields of Gtk-3.0.Gtk.Container */
     widget: Gtk.Widget
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Gladeui.NamedIconChooserDialog */
+    /* Methods of Gladeui-2.0.Gladeui.NamedIconChooserDialog */
     get_context(): string
     get_icon_name(): string
     set_context(context: string): boolean
     set_icon_name(icon_name: string): void
-    /* Methods of Gtk.Dialog */
+    /* Methods of Gtk-3.0.Gtk.Dialog */
     add_action_widget(child: Gtk.Widget, response_id: number): void
     add_button(button_text: string, response_id: number): Gtk.Widget
     get_action_area(): Gtk.Box
@@ -18282,7 +18282,7 @@ export class NamedIconChooserDialog {
     set_alternative_button_order_from_array(new_order: number[]): void
     set_default_response(response_id: number): void
     set_response_sensitive(response_id: number, setting: boolean): void
-    /* Methods of Gtk.Window */
+    /* Methods of Gtk-3.0.Gtk.Window */
     activate_default(): boolean
     activate_focus(): boolean
     activate_key(event: Gdk.EventKey): boolean
@@ -18389,9 +18389,9 @@ export class NamedIconChooserDialog {
     unfullscreen(): void
     unmaximize(): void
     unstick(): void
-    /* Methods of Gtk.Bin */
+    /* Methods of Gtk-3.0.Gtk.Bin */
     get_child(): Gtk.Widget | null
-    /* Methods of Gtk.Container */
+    /* Methods of Gtk-3.0.Gtk.Container */
     add(widget: Gtk.Widget): void
     check_resize(): void
     child_get_property(child: Gtk.Widget, property_name: string, value: any): void
@@ -18419,7 +18419,7 @@ export class NamedIconChooserDialog {
     set_reallocate_redraws(needs_redraws: boolean): void
     set_resize_mode(resize_mode: Gtk.ResizeMode): void
     unset_focus_chain(): void
-    /* Methods of Gtk.Widget */
+    /* Methods of Gtk-3.0.Gtk.Widget */
     activate(): boolean
     add_accelerator(accel_signal: string, accel_group: Gtk.AccelGroup, accel_key: number, accel_mods: Gdk.ModifierType, accel_flags: Gtk.AccelFlags): void
     add_device_events(device: Gdk.Device, events: Gdk.EventMask): void
@@ -18675,7 +18675,7 @@ export class NamedIconChooserDialog {
     unrealize(): void
     unregister_window(window: Gdk.Window): void
     unset_state_flags(flags: Gtk.StateFlags): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -18697,7 +18697,7 @@ export class NamedIconChooserDialog {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of Gtk.Buildable */
+    /* Methods of Gtk-3.0.Gtk.Buildable */
     add_child(builder: Gtk.Builder, child: GObject.Object, type?: string | null): void
     construct_child(builder: Gtk.Builder, name: string): GObject.Object
     custom_finished(builder: Gtk.Builder, child: GObject.Object | null, tagname: string, data?: object | null): void
@@ -18706,7 +18706,7 @@ export class NamedIconChooserDialog {
     get_internal_child(builder: Gtk.Builder, childname: string): GObject.Object
     parser_finished(builder: Gtk.Builder): void
     set_buildable_property(builder: Gtk.Builder, name: string, value: any): void
-    /* Virtual methods of Gladeui.NamedIconChooserDialog */
+    /* Virtual methods of Gladeui-2.0.Gladeui.NamedIconChooserDialog */
     vfunc_icon_activated(): void
     vfunc_selection_changed(): void
     vfunc_add_child(builder: Gtk.Builder, child: GObject.Object, type?: string | null): void
@@ -18719,16 +18719,16 @@ export class NamedIconChooserDialog {
     vfunc_parser_finished(builder: Gtk.Builder): void
     vfunc_set_buildable_property(builder: Gtk.Builder, name: string, value: any): void
     vfunc_set_name(name: string): void
-    /* Virtual methods of Gtk.Dialog */
+    /* Virtual methods of Gtk-3.0.Gtk.Dialog */
     vfunc_close(): void
     vfunc_response(response_id: number): void
-    /* Virtual methods of Gtk.Window */
+    /* Virtual methods of Gtk-3.0.Gtk.Window */
     vfunc_activate_default(): void
     vfunc_activate_focus(): void
     vfunc_enable_debugging(toggle: boolean): boolean
     vfunc_keys_changed(): void
     vfunc_set_focus(focus?: Gtk.Widget | null): void
-    /* Virtual methods of Gtk.Container */
+    /* Virtual methods of Gtk-3.0.Gtk.Container */
     vfunc_add(widget: Gtk.Widget): void
     vfunc_check_resize(): void
     vfunc_child_type(): GObject.Type
@@ -18739,7 +18739,7 @@ export class NamedIconChooserDialog {
     vfunc_remove(widget: Gtk.Widget): void
     vfunc_set_child_property(child: Gtk.Widget, property_id: number, value: any, pspec: GObject.ParamSpec): void
     vfunc_set_focus_child(child?: Gtk.Widget | null): void
-    /* Virtual methods of Gtk.Widget */
+    /* Virtual methods of Gtk-3.0.Gtk.Widget */
     vfunc_adjust_baseline_allocation(baseline: number): void
     vfunc_adjust_baseline_request(minimum_baseline: number, natural_baseline: number): void
     vfunc_adjust_size_allocation(orientation: Gtk.Orientation, minimum_size: number, natural_size: number, allocated_pos: number, allocated_size: number): void
@@ -18822,7 +18822,7 @@ export class NamedIconChooserDialog {
     vfunc_unrealize(): void
     vfunc_visibility_notify_event(event: Gdk.EventVisibility): boolean
     vfunc_window_state_event(event: Gdk.EventWindowState): boolean
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -18830,21 +18830,21 @@ export class NamedIconChooserDialog {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gladeui.NamedIconChooserDialog */
+    /* Signals of Gladeui-2.0.Gladeui.NamedIconChooserDialog */
     connect(sigName: "icon-activated", callback: (($obj: NamedIconChooserDialog) => void)): number
     connect_after(sigName: "icon-activated", callback: (($obj: NamedIconChooserDialog) => void)): number
     emit(sigName: "icon-activated"): void
     connect(sigName: "selection-changed", callback: (($obj: NamedIconChooserDialog) => void)): number
     connect_after(sigName: "selection-changed", callback: (($obj: NamedIconChooserDialog) => void)): number
     emit(sigName: "selection-changed"): void
-    /* Signals of Gtk.Dialog */
+    /* Signals of Gtk-3.0.Gtk.Dialog */
     connect(sigName: "close", callback: (($obj: NamedIconChooserDialog) => void)): number
     connect_after(sigName: "close", callback: (($obj: NamedIconChooserDialog) => void)): number
     emit(sigName: "close"): void
     connect(sigName: "response", callback: (($obj: NamedIconChooserDialog, response_id: number) => void)): number
     connect_after(sigName: "response", callback: (($obj: NamedIconChooserDialog, response_id: number) => void)): number
     emit(sigName: "response", response_id: number): void
-    /* Signals of Gtk.Window */
+    /* Signals of Gtk-3.0.Gtk.Window */
     connect(sigName: "activate-default", callback: (($obj: NamedIconChooserDialog) => void)): number
     connect_after(sigName: "activate-default", callback: (($obj: NamedIconChooserDialog) => void)): number
     emit(sigName: "activate-default"): void
@@ -18860,7 +18860,7 @@ export class NamedIconChooserDialog {
     connect(sigName: "set-focus", callback: (($obj: NamedIconChooserDialog, widget?: Gtk.Widget | null) => void)): number
     connect_after(sigName: "set-focus", callback: (($obj: NamedIconChooserDialog, widget?: Gtk.Widget | null) => void)): number
     emit(sigName: "set-focus", widget?: Gtk.Widget | null): void
-    /* Signals of Gtk.Container */
+    /* Signals of Gtk-3.0.Gtk.Container */
     connect(sigName: "add", callback: (($obj: NamedIconChooserDialog, object: Gtk.Widget) => void)): number
     connect_after(sigName: "add", callback: (($obj: NamedIconChooserDialog, object: Gtk.Widget) => void)): number
     emit(sigName: "add", object: Gtk.Widget): void
@@ -18873,7 +18873,7 @@ export class NamedIconChooserDialog {
     connect(sigName: "set-focus-child", callback: (($obj: NamedIconChooserDialog, object: Gtk.Widget) => void)): number
     connect_after(sigName: "set-focus-child", callback: (($obj: NamedIconChooserDialog, object: Gtk.Widget) => void)): number
     emit(sigName: "set-focus-child", object: Gtk.Widget): void
-    /* Signals of Gtk.Widget */
+    /* Signals of Gtk-3.0.Gtk.Widget */
     connect(sigName: "accel-closures-changed", callback: (($obj: NamedIconChooserDialog) => void)): number
     connect_after(sigName: "accel-closures-changed", callback: (($obj: NamedIconChooserDialog) => void)): number
     emit(sigName: "accel-closures-changed"): void
@@ -19081,7 +19081,7 @@ export class NamedIconChooserDialog {
     connect(sigName: "window-state-event", callback: (($obj: NamedIconChooserDialog, event: Gdk.EventWindowState) => boolean)): number
     connect_after(sigName: "window-state-event", callback: (($obj: NamedIconChooserDialog, event: Gdk.EventWindowState) => boolean)): number
     emit(sigName: "window-state-event", event: Gdk.EventWindowState): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: NamedIconChooserDialog, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: NamedIconChooserDialog, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -19253,20 +19253,20 @@ export interface Palette_ConstructProps extends Gtk.Box_ConstructProps {
     orientation?: Gtk.Orientation
 }
 export class Palette {
-    /* Properties of Gladeui.Palette */
+    /* Properties of Gladeui-2.0.Gladeui.Palette */
     item_appearance: ItemAppearance
     project: Project
     show_selector_button: boolean
     use_small_item_icons: boolean
-    /* Properties of Gtk.Box */
+    /* Properties of Gtk-3.0.Gtk.Box */
     baseline_position: Gtk.BaselinePosition
     homogeneous: boolean
     spacing: number
-    /* Properties of Gtk.Container */
+    /* Properties of Gtk-3.0.Gtk.Container */
     border_width: number
     child: Gtk.Widget
     resize_mode: Gtk.ResizeMode
-    /* Properties of Gtk.Widget */
+    /* Properties of Gtk-3.0.Gtk.Widget */
     app_paintable: boolean
     can_default: boolean
     can_focus: boolean
@@ -19306,18 +19306,18 @@ export class Palette {
     visible: boolean
     width_request: number
     readonly window: Gdk.Window
-    /* Properties of Gtk.Orientable */
+    /* Properties of Gtk-3.0.Gtk.Orientable */
     orientation: Gtk.Orientation
-    /* Fields of Gladeui.Palette */
+    /* Fields of Gladeui-2.0.Gladeui.Palette */
     parent_instance: Gtk.Box
     priv: PalettePrivate
-    /* Fields of Gtk.Box */
+    /* Fields of Gtk-3.0.Gtk.Box */
     container: Gtk.Container
-    /* Fields of Gtk.Container */
+    /* Fields of Gtk-3.0.Gtk.Container */
     widget: Gtk.Widget
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Gladeui.Palette */
+    /* Methods of Gladeui-2.0.Gladeui.Palette */
     get_item_appearance(): ItemAppearance
     get_project(): Project
     get_show_selector_button(): boolean
@@ -19327,7 +19327,7 @@ export class Palette {
     set_project(project: Project): void
     set_show_selector_button(show_selector_button: boolean): void
     set_use_small_item_icons(use_small_item_icons: boolean): void
-    /* Methods of Gtk.Box */
+    /* Methods of Gtk-3.0.Gtk.Box */
     get_baseline_position(): Gtk.BaselinePosition
     get_center_widget(): Gtk.Widget | null
     get_homogeneous(): boolean
@@ -19341,7 +19341,7 @@ export class Palette {
     set_child_packing(child: Gtk.Widget, expand: boolean, fill: boolean, padding: number, pack_type: Gtk.PackType): void
     set_homogeneous(homogeneous: boolean): void
     set_spacing(spacing: number): void
-    /* Methods of Gtk.Container */
+    /* Methods of Gtk-3.0.Gtk.Container */
     add(widget: Gtk.Widget): void
     check_resize(): void
     child_get_property(child: Gtk.Widget, property_name: string, value: any): void
@@ -19369,7 +19369,7 @@ export class Palette {
     set_reallocate_redraws(needs_redraws: boolean): void
     set_resize_mode(resize_mode: Gtk.ResizeMode): void
     unset_focus_chain(): void
-    /* Methods of Gtk.Widget */
+    /* Methods of Gtk-3.0.Gtk.Widget */
     activate(): boolean
     add_accelerator(accel_signal: string, accel_group: Gtk.AccelGroup, accel_key: number, accel_mods: Gdk.ModifierType, accel_flags: Gtk.AccelFlags): void
     add_device_events(device: Gdk.Device, events: Gdk.EventMask): void
@@ -19628,7 +19628,7 @@ export class Palette {
     unrealize(): void
     unregister_window(window: Gdk.Window): void
     unset_state_flags(flags: Gtk.StateFlags): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -19650,7 +19650,7 @@ export class Palette {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of Gtk.Buildable */
+    /* Methods of Gtk-3.0.Gtk.Buildable */
     add_child(builder: Gtk.Builder, child: GObject.Object, type?: string | null): void
     construct_child(builder: Gtk.Builder, name: string): GObject.Object
     custom_finished(builder: Gtk.Builder, child: GObject.Object | null, tagname: string, data?: object | null): void
@@ -19659,10 +19659,10 @@ export class Palette {
     get_internal_child(builder: Gtk.Builder, childname: string): GObject.Object
     parser_finished(builder: Gtk.Builder): void
     set_buildable_property(builder: Gtk.Builder, name: string, value: any): void
-    /* Methods of Gtk.Orientable */
+    /* Methods of Gtk-3.0.Gtk.Orientable */
     get_orientation(): Gtk.Orientation
     set_orientation(orientation: Gtk.Orientation): void
-    /* Virtual methods of Gladeui.Palette */
+    /* Virtual methods of Gladeui-2.0.Gladeui.Palette */
     vfunc_refresh(): void
     vfunc_add_child(builder: Gtk.Builder, child: GObject.Object, type?: string | null): void
     vfunc_construct_child(builder: Gtk.Builder, name: string): GObject.Object
@@ -19674,7 +19674,7 @@ export class Palette {
     vfunc_parser_finished(builder: Gtk.Builder): void
     vfunc_set_buildable_property(builder: Gtk.Builder, name: string, value: any): void
     vfunc_set_name(name: string): void
-    /* Virtual methods of Gtk.Container */
+    /* Virtual methods of Gtk-3.0.Gtk.Container */
     vfunc_add(widget: Gtk.Widget): void
     vfunc_check_resize(): void
     vfunc_child_type(): GObject.Type
@@ -19685,7 +19685,7 @@ export class Palette {
     vfunc_remove(widget: Gtk.Widget): void
     vfunc_set_child_property(child: Gtk.Widget, property_id: number, value: any, pspec: GObject.ParamSpec): void
     vfunc_set_focus_child(child?: Gtk.Widget | null): void
-    /* Virtual methods of Gtk.Widget */
+    /* Virtual methods of Gtk-3.0.Gtk.Widget */
     vfunc_adjust_baseline_allocation(baseline: number): void
     vfunc_adjust_baseline_request(minimum_baseline: number, natural_baseline: number): void
     vfunc_adjust_size_allocation(orientation: Gtk.Orientation, minimum_size: number, natural_size: number, allocated_pos: number, allocated_size: number): void
@@ -19768,7 +19768,7 @@ export class Palette {
     vfunc_unrealize(): void
     vfunc_visibility_notify_event(event: Gdk.EventVisibility): boolean
     vfunc_window_state_event(event: Gdk.EventWindowState): boolean
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -19776,11 +19776,11 @@ export class Palette {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gladeui.Palette */
+    /* Signals of Gladeui-2.0.Gladeui.Palette */
     connect(sigName: "refresh", callback: (($obj: Palette) => void)): number
     connect_after(sigName: "refresh", callback: (($obj: Palette) => void)): number
     emit(sigName: "refresh"): void
-    /* Signals of Gtk.Container */
+    /* Signals of Gtk-3.0.Gtk.Container */
     connect(sigName: "add", callback: (($obj: Palette, object: Gtk.Widget) => void)): number
     connect_after(sigName: "add", callback: (($obj: Palette, object: Gtk.Widget) => void)): number
     emit(sigName: "add", object: Gtk.Widget): void
@@ -19793,7 +19793,7 @@ export class Palette {
     connect(sigName: "set-focus-child", callback: (($obj: Palette, object: Gtk.Widget) => void)): number
     connect_after(sigName: "set-focus-child", callback: (($obj: Palette, object: Gtk.Widget) => void)): number
     emit(sigName: "set-focus-child", object: Gtk.Widget): void
-    /* Signals of Gtk.Widget */
+    /* Signals of Gtk-3.0.Gtk.Widget */
     connect(sigName: "accel-closures-changed", callback: (($obj: Palette) => void)): number
     connect_after(sigName: "accel-closures-changed", callback: (($obj: Palette) => void)): number
     emit(sigName: "accel-closures-changed"): void
@@ -20001,7 +20001,7 @@ export class Palette {
     connect(sigName: "window-state-event", callback: (($obj: Palette, event: Gdk.EventWindowState) => boolean)): number
     connect_after(sigName: "window-state-event", callback: (($obj: Palette, event: Gdk.EventWindowState) => boolean)): number
     emit(sigName: "window-state-event", event: Gdk.EventWindowState): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Palette, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Palette, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -20118,13 +20118,13 @@ export class Palette {
     static $gtype: GObject.Type
 }
 export class ParamObjects {
-    /* Fields of GObject.ParamSpec */
+    /* Fields of GObject-2.0.GObject.ParamSpec */
     g_type_instance: GObject.TypeInstance
     name: string
     flags: GObject.ParamFlags
     value_type: GObject.Type
     owner_type: GObject.Type
-    /* Methods of GObject.ParamSpec */
+    /* Methods of GObject-2.0.GObject.ParamSpec */
     get_blurb(): string | null
     get_default_value(): GObject.Value
     get_name(): string
@@ -20135,7 +20135,7 @@ export class ParamObjects {
     set_qdata(quark: GLib.Quark, data?: object | null): void
     sink(): void
     steal_qdata(quark: GLib.Quark): object | null
-    /* Virtual methods of GObject.ParamSpec */
+    /* Virtual methods of GObject-2.0.GObject.ParamSpec */
     vfunc_finalize(): void
     vfunc_value_set_default(value: GObject.Value): void
     vfunc_value_validate(value: GObject.Value): boolean
@@ -20149,7 +20149,7 @@ export interface Placeholder_ConstructProps extends Gtk.Widget_ConstructProps {
     vscroll_policy?: Gtk.ScrollablePolicy
 }
 export class Placeholder {
-    /* Properties of Gtk.Widget */
+    /* Properties of Gtk-3.0.Gtk.Widget */
     app_paintable: boolean
     can_default: boolean
     can_focus: boolean
@@ -20189,23 +20189,23 @@ export class Placeholder {
     visible: boolean
     width_request: number
     readonly window: Gdk.Window
-    /* Properties of Gtk.Scrollable */
+    /* Properties of Gtk-3.0.Gtk.Scrollable */
     hadjustment: Gtk.Adjustment
     hscroll_policy: Gtk.ScrollablePolicy
     vadjustment: Gtk.Adjustment
     vscroll_policy: Gtk.ScrollablePolicy
-    /* Fields of Gladeui.Placeholder */
+    /* Fields of Gladeui-2.0.Gladeui.Placeholder */
     widget: Gtk.Widget
     priv: PlaceholderPrivate
-    /* Fields of Gtk.Widget */
+    /* Fields of Gtk-3.0.Gtk.Widget */
     parent_instance: GObject.InitiallyUnowned
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Gladeui.Placeholder */
+    /* Methods of Gladeui-2.0.Gladeui.Placeholder */
     get_parent(): Widget | null
     get_project(): Project | null
     packing_actions(): WidgetAction[]
-    /* Methods of Gtk.Widget */
+    /* Methods of Gtk-3.0.Gtk.Widget */
     activate(): boolean
     add_accelerator(accel_signal: string, accel_group: Gtk.AccelGroup, accel_key: number, accel_mods: Gdk.ModifierType, accel_flags: Gtk.AccelFlags): void
     add_device_events(device: Gdk.Device, events: Gdk.EventMask): void
@@ -20464,7 +20464,7 @@ export class Placeholder {
     unrealize(): void
     unregister_window(window: Gdk.Window): void
     unset_state_flags(flags: Gtk.StateFlags): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -20486,7 +20486,7 @@ export class Placeholder {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of Gtk.Buildable */
+    /* Methods of Gtk-3.0.Gtk.Buildable */
     add_child(builder: Gtk.Builder, child: GObject.Object, type?: string | null): void
     construct_child(builder: Gtk.Builder, name: string): GObject.Object
     custom_finished(builder: Gtk.Builder, child: GObject.Object | null, tagname: string, data?: object | null): void
@@ -20495,7 +20495,7 @@ export class Placeholder {
     get_internal_child(builder: Gtk.Builder, childname: string): GObject.Object
     parser_finished(builder: Gtk.Builder): void
     set_buildable_property(builder: Gtk.Builder, name: string, value: any): void
-    /* Methods of Gtk.Scrollable */
+    /* Methods of Gtk-3.0.Gtk.Scrollable */
     get_border(): [ /* returnType */ boolean, /* border */ Gtk.Border ]
     get_hadjustment(): Gtk.Adjustment
     get_hscroll_policy(): Gtk.ScrollablePolicy
@@ -20505,7 +20505,7 @@ export class Placeholder {
     set_hscroll_policy(policy: Gtk.ScrollablePolicy): void
     set_vadjustment(vadjustment?: Gtk.Adjustment | null): void
     set_vscroll_policy(policy: Gtk.ScrollablePolicy): void
-    /* Virtual methods of Gladeui.Placeholder */
+    /* Virtual methods of Gladeui-2.0.Gladeui.Placeholder */
     vfunc_add_child(builder: Gtk.Builder, child: GObject.Object, type?: string | null): void
     vfunc_construct_child(builder: Gtk.Builder, name: string): GObject.Object
     vfunc_custom_finished(builder: Gtk.Builder, child: GObject.Object | null, tagname: string, data?: object | null): void
@@ -20517,7 +20517,7 @@ export class Placeholder {
     vfunc_set_buildable_property(builder: Gtk.Builder, name: string, value: any): void
     vfunc_set_name(name: string): void
     vfunc_get_border(): [ /* returnType */ boolean, /* border */ Gtk.Border ]
-    /* Virtual methods of Gtk.Widget */
+    /* Virtual methods of Gtk-3.0.Gtk.Widget */
     vfunc_adjust_baseline_allocation(baseline: number): void
     vfunc_adjust_baseline_request(minimum_baseline: number, natural_baseline: number): void
     vfunc_adjust_size_allocation(orientation: Gtk.Orientation, minimum_size: number, natural_size: number, allocated_pos: number, allocated_size: number): void
@@ -20600,7 +20600,7 @@ export class Placeholder {
     vfunc_unrealize(): void
     vfunc_visibility_notify_event(event: Gdk.EventVisibility): boolean
     vfunc_window_state_event(event: Gdk.EventWindowState): boolean
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -20608,7 +20608,7 @@ export class Placeholder {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gtk.Widget */
+    /* Signals of Gtk-3.0.Gtk.Widget */
     connect(sigName: "accel-closures-changed", callback: (($obj: Placeholder) => void)): number
     connect_after(sigName: "accel-closures-changed", callback: (($obj: Placeholder) => void)): number
     emit(sigName: "accel-closures-changed"): void
@@ -20816,7 +20816,7 @@ export class Placeholder {
     connect(sigName: "window-state-event", callback: (($obj: Placeholder, event: Gdk.EventWindowState) => boolean)): number
     connect_after(sigName: "window-state-event", callback: (($obj: Placeholder, event: Gdk.EventWindowState) => boolean)): number
     emit(sigName: "window-state-event", event: Gdk.EventWindowState): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Placeholder, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Placeholder, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -20925,7 +20925,7 @@ export interface Project_ConstructProps extends GObject.Object_ConstructProps {
     translation_domain?: string
 }
 export class Project {
-    /* Properties of Gladeui.Project */
+    /* Properties of Gladeui-2.0.Gladeui.Project */
     readonly add_item: WidgetAdaptor
     css_provider_path: string
     readonly has_selection: boolean
@@ -20937,12 +20937,12 @@ export class Project {
     resource_path: string
     template: Widget
     translation_domain: string
-    /* Fields of Gladeui.Project */
+    /* Fields of Gladeui-2.0.Gladeui.Project */
     parent_instance: GObject.Object
     priv: ProjectPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Gladeui.Project */
+    /* Methods of Gladeui-2.0.Gladeui.Project */
     add_object(object: GObject.Object): void
     autosave(): boolean
     available_widget_name(widget: Widget, name: string): boolean
@@ -21014,7 +21014,7 @@ export class Project {
     widget_changed(gwidget: Widget): void
     widget_visibility_changed(widget: Widget, visible: boolean): void
     writing_preview(): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -21036,11 +21036,11 @@ export class Project {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of Gtk.TreeDragSource */
+    /* Methods of Gtk-3.0.Gtk.TreeDragSource */
     drag_data_delete(path: Gtk.TreePath): boolean
     drag_data_get(path: Gtk.TreePath, selection_data: Gtk.SelectionData): boolean
     row_draggable(path: Gtk.TreePath): boolean
-    /* Methods of Gtk.TreeModel */
+    /* Methods of Gtk-3.0.Gtk.TreeModel */
     filter_new(root?: Gtk.TreePath | null): Gtk.TreeModel
     foreach(func: Gtk.TreeModelForeachFunc): void
     get_column_type(index_: number): GObject.Type
@@ -21066,7 +21066,7 @@ export class Project {
     row_inserted(path: Gtk.TreePath, iter: Gtk.TreeIter): void
     rows_reordered(path: Gtk.TreePath, iter: Gtk.TreeIter | null, new_order: number[]): void
     unref_node(iter: Gtk.TreeIter): void
-    /* Virtual methods of Gladeui.Project */
+    /* Virtual methods of Gladeui-2.0.Gladeui.Project */
     vfunc_add_object(object: Widget): void
     vfunc_changed(command: Command, forward: boolean): void
     vfunc_close(): void
@@ -21101,7 +21101,7 @@ export class Project {
     vfunc_row_has_child_toggled(path: Gtk.TreePath, iter: Gtk.TreeIter): void
     vfunc_row_inserted(path: Gtk.TreePath, iter: Gtk.TreeIter): void
     vfunc_unref_node(iter: Gtk.TreeIter): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -21109,7 +21109,7 @@ export class Project {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gladeui.Project */
+    /* Signals of Gladeui-2.0.Gladeui.Project */
     connect(sigName: "activate-signal-handler", callback: (($obj: Project, gladewidget: Widget, signal: Signal) => void)): number
     connect_after(sigName: "activate-signal-handler", callback: (($obj: Project, gladewidget: Widget, signal: Signal) => void)): number
     emit(sigName: "activate-signal-handler", gladewidget: Widget, signal: Signal): void
@@ -21155,11 +21155,11 @@ export class Project {
     connect(sigName: "widget-visibility-changed", callback: (($obj: Project, widget: Widget, visible: boolean) => void)): number
     connect_after(sigName: "widget-visibility-changed", callback: (($obj: Project, widget: Widget, visible: boolean) => void)): number
     emit(sigName: "widget-visibility-changed", widget: Widget, visible: boolean): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Project, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Project, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    /* Signals of Gtk.TreeModel */
+    /* Signals of Gtk-3.0.Gtk.TreeModel */
     connect(sigName: "row-changed", callback: (($obj: Project, path: Gtk.TreePath, iter: Gtk.TreeIter) => void)): number
     connect_after(sigName: "row-changed", callback: (($obj: Project, path: Gtk.TreePath, iter: Gtk.TreeIter) => void)): number
     emit(sigName: "row-changed", path: Gtk.TreePath, iter: Gtk.TreeIter): void
@@ -21221,7 +21221,7 @@ export interface Property_ConstructProps extends GObject.Object_ConstructProps {
     sensitive?: boolean
 }
 export class Property {
-    /* Properties of Gladeui.Property */
+    /* Properties of Gladeui-2.0.Gladeui.Property */
     enabled: boolean
     i18n_comment: string
     i18n_context: string
@@ -21229,12 +21229,12 @@ export class Property {
     precision: number
     sensitive: boolean
     readonly state: number
-    /* Fields of Gladeui.Property */
+    /* Fields of Gladeui-2.0.Gladeui.Property */
     parent_instance: GObject.Object
     priv: PropertyPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Gladeui.Property */
+    /* Methods of Gladeui-2.0.Gladeui.Property */
     add_object(object: GObject.Object): void
     default(): boolean
     dup(widget: Widget): Property
@@ -21271,7 +21271,7 @@ export class Property {
     sync(): void
     warn_usage(): boolean
     write(context: XmlContext, node: XmlNode): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -21293,7 +21293,7 @@ export class Property {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Gladeui.Property */
+    /* Virtual methods of Gladeui-2.0.Gladeui.Property */
     vfunc_dup(widget: Widget): Property
     vfunc_equals_value(value: any): boolean
     vfunc_get_value(value: any): void
@@ -21302,7 +21302,7 @@ export class Property {
     vfunc_sync(): void
     vfunc_tooltip_changed(tooltip: string, insensitive_tooltip: string, support_warning: string): void
     vfunc_value_changed(old_value: any, new_value: any): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -21310,14 +21310,14 @@ export class Property {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gladeui.Property */
+    /* Signals of Gladeui-2.0.Gladeui.Property */
     connect(sigName: "tooltip-changed", callback: (($obj: Property, object: string, p0: string, p1: string) => void)): number
     connect_after(sigName: "tooltip-changed", callback: (($obj: Property, object: string, p0: string, p1: string) => void)): number
     emit(sigName: "tooltip-changed", object: string, p0: string, p1: string): void
     connect(sigName: "value-changed", callback: (($obj: Property, object?: object | null, p0?: object | null) => void)): number
     connect_after(sigName: "value-changed", callback: (($obj: Property, object?: object | null, p0?: object | null) => void)): number
     emit(sigName: "value-changed", object?: object | null, p0?: object | null): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Property, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Property, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -21358,21 +21358,21 @@ export interface PropertyLabel_ConstructProps extends Gtk.EventBox_ConstructProp
     property_name?: string
 }
 export class PropertyLabel {
-    /* Properties of Gladeui.PropertyLabel */
+    /* Properties of Gladeui-2.0.Gladeui.PropertyLabel */
     append_colon: boolean
     custom_text: string
     custom_tooltip: string
     packing: boolean
     property: Property
     property_name: string
-    /* Properties of Gtk.EventBox */
+    /* Properties of Gtk-3.0.Gtk.EventBox */
     above_child: boolean
     visible_window: boolean
-    /* Properties of Gtk.Container */
+    /* Properties of Gtk-3.0.Gtk.Container */
     border_width: number
     child: Gtk.Widget
     resize_mode: Gtk.ResizeMode
-    /* Properties of Gtk.Widget */
+    /* Properties of Gtk-3.0.Gtk.Widget */
     app_paintable: boolean
     can_default: boolean
     can_focus: boolean
@@ -21412,17 +21412,17 @@ export class PropertyLabel {
     visible: boolean
     width_request: number
     readonly window: Gdk.Window
-    /* Fields of Gtk.EventBox */
+    /* Fields of Gtk-3.0.Gtk.EventBox */
     bin: Gtk.Bin
-    /* Fields of Gtk.Bin */
+    /* Fields of Gtk-3.0.Gtk.Bin */
     container: Gtk.Container
-    /* Fields of Gtk.Container */
+    /* Fields of Gtk-3.0.Gtk.Container */
     widget: Gtk.Widget
-    /* Fields of Gtk.Widget */
+    /* Fields of Gtk-3.0.Gtk.Widget */
     parent_instance: GObject.InitiallyUnowned
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Gladeui.PropertyLabel */
+    /* Methods of Gladeui-2.0.Gladeui.PropertyLabel */
     get_append_colon(): boolean
     get_custom_text(): string
     get_custom_tooltip(): string
@@ -21435,14 +21435,14 @@ export class PropertyLabel {
     set_packing(packing: boolean): void
     set_property(property: Property): void
     set_property_name(property_name: string): void
-    /* Methods of Gtk.EventBox */
+    /* Methods of Gtk-3.0.Gtk.EventBox */
     get_above_child(): boolean
     get_visible_window(): boolean
     set_above_child(above_child: boolean): void
     set_visible_window(visible_window: boolean): void
-    /* Methods of Gtk.Bin */
+    /* Methods of Gtk-3.0.Gtk.Bin */
     get_child(): Gtk.Widget | null
-    /* Methods of Gtk.Container */
+    /* Methods of Gtk-3.0.Gtk.Container */
     add(widget: Gtk.Widget): void
     check_resize(): void
     child_get_property(child: Gtk.Widget, property_name: string, value: any): void
@@ -21470,7 +21470,7 @@ export class PropertyLabel {
     set_reallocate_redraws(needs_redraws: boolean): void
     set_resize_mode(resize_mode: Gtk.ResizeMode): void
     unset_focus_chain(): void
-    /* Methods of Gtk.Widget */
+    /* Methods of Gtk-3.0.Gtk.Widget */
     activate(): boolean
     add_accelerator(accel_signal: string, accel_group: Gtk.AccelGroup, accel_key: number, accel_mods: Gdk.ModifierType, accel_flags: Gtk.AccelFlags): void
     add_device_events(device: Gdk.Device, events: Gdk.EventMask): void
@@ -21729,7 +21729,7 @@ export class PropertyLabel {
     unrealize(): void
     unregister_window(window: Gdk.Window): void
     unset_state_flags(flags: Gtk.StateFlags): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -21751,14 +21751,14 @@ export class PropertyLabel {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of Gladeui.Editable */
+    /* Methods of Gladeui-2.0.Gladeui.Editable */
     block(): void
     load(widget: Widget): void
     loaded_widget(): Widget | null
     loading(): boolean
     set_show_name(show_name: boolean): void
     unblock(): void
-    /* Methods of Gtk.Buildable */
+    /* Methods of Gtk-3.0.Gtk.Buildable */
     add_child(builder: Gtk.Builder, child: GObject.Object, type?: string | null): void
     construct_child(builder: Gtk.Builder, name: string): GObject.Object
     custom_finished(builder: Gtk.Builder, child: GObject.Object | null, tagname: string, data?: object | null): void
@@ -21767,7 +21767,7 @@ export class PropertyLabel {
     get_internal_child(builder: Gtk.Builder, childname: string): GObject.Object
     parser_finished(builder: Gtk.Builder): void
     set_buildable_property(builder: Gtk.Builder, name: string, value: any): void
-    /* Virtual methods of Gladeui.PropertyLabel */
+    /* Virtual methods of Gladeui-2.0.Gladeui.PropertyLabel */
     vfunc_load(widget: Widget): void
     vfunc_set_show_name(show_name: boolean): void
     vfunc_add_child(builder: Gtk.Builder, child: GObject.Object, type?: string | null): void
@@ -21780,7 +21780,7 @@ export class PropertyLabel {
     vfunc_parser_finished(builder: Gtk.Builder): void
     vfunc_set_buildable_property(builder: Gtk.Builder, name: string, value: any): void
     vfunc_set_name(name: string): void
-    /* Virtual methods of Gtk.Container */
+    /* Virtual methods of Gtk-3.0.Gtk.Container */
     vfunc_add(widget: Gtk.Widget): void
     vfunc_check_resize(): void
     vfunc_child_type(): GObject.Type
@@ -21791,7 +21791,7 @@ export class PropertyLabel {
     vfunc_remove(widget: Gtk.Widget): void
     vfunc_set_child_property(child: Gtk.Widget, property_id: number, value: any, pspec: GObject.ParamSpec): void
     vfunc_set_focus_child(child?: Gtk.Widget | null): void
-    /* Virtual methods of Gtk.Widget */
+    /* Virtual methods of Gtk-3.0.Gtk.Widget */
     vfunc_adjust_baseline_allocation(baseline: number): void
     vfunc_adjust_baseline_request(minimum_baseline: number, natural_baseline: number): void
     vfunc_adjust_size_allocation(orientation: Gtk.Orientation, minimum_size: number, natural_size: number, allocated_pos: number, allocated_size: number): void
@@ -21874,7 +21874,7 @@ export class PropertyLabel {
     vfunc_unrealize(): void
     vfunc_visibility_notify_event(event: Gdk.EventVisibility): boolean
     vfunc_window_state_event(event: Gdk.EventWindowState): boolean
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -21882,7 +21882,7 @@ export class PropertyLabel {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gtk.Container */
+    /* Signals of Gtk-3.0.Gtk.Container */
     connect(sigName: "add", callback: (($obj: PropertyLabel, object: Gtk.Widget) => void)): number
     connect_after(sigName: "add", callback: (($obj: PropertyLabel, object: Gtk.Widget) => void)): number
     emit(sigName: "add", object: Gtk.Widget): void
@@ -21895,7 +21895,7 @@ export class PropertyLabel {
     connect(sigName: "set-focus-child", callback: (($obj: PropertyLabel, object: Gtk.Widget) => void)): number
     connect_after(sigName: "set-focus-child", callback: (($obj: PropertyLabel, object: Gtk.Widget) => void)): number
     emit(sigName: "set-focus-child", object: Gtk.Widget): void
-    /* Signals of Gtk.Widget */
+    /* Signals of Gtk-3.0.Gtk.Widget */
     connect(sigName: "accel-closures-changed", callback: (($obj: PropertyLabel) => void)): number
     connect_after(sigName: "accel-closures-changed", callback: (($obj: PropertyLabel) => void)): number
     emit(sigName: "accel-closures-changed"): void
@@ -22103,7 +22103,7 @@ export class PropertyLabel {
     connect(sigName: "window-state-event", callback: (($obj: PropertyLabel, event: Gdk.EventWindowState) => boolean)): number
     connect_after(sigName: "window-state-event", callback: (($obj: PropertyLabel, event: Gdk.EventWindowState) => boolean)): number
     emit(sigName: "window-state-event", event: Gdk.EventWindowState): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: PropertyLabel, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: PropertyLabel, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -22228,21 +22228,21 @@ export interface PropertyShell_ConstructProps extends Gtk.Box_ConstructProps {
     orientation?: Gtk.Orientation
 }
 export class PropertyShell {
-    /* Properties of Gladeui.PropertyShell */
+    /* Properties of Gladeui-2.0.Gladeui.PropertyShell */
     custom_text: string
     disable_check: boolean
     packing: boolean
     property_name: string
     use_command: boolean
-    /* Properties of Gtk.Box */
+    /* Properties of Gtk-3.0.Gtk.Box */
     baseline_position: Gtk.BaselinePosition
     homogeneous: boolean
     spacing: number
-    /* Properties of Gtk.Container */
+    /* Properties of Gtk-3.0.Gtk.Container */
     border_width: number
     child: Gtk.Widget
     resize_mode: Gtk.ResizeMode
-    /* Properties of Gtk.Widget */
+    /* Properties of Gtk-3.0.Gtk.Widget */
     app_paintable: boolean
     can_default: boolean
     can_focus: boolean
@@ -22282,17 +22282,17 @@ export class PropertyShell {
     visible: boolean
     width_request: number
     readonly window: Gdk.Window
-    /* Properties of Gtk.Orientable */
+    /* Properties of Gtk-3.0.Gtk.Orientable */
     orientation: Gtk.Orientation
-    /* Fields of Gtk.Box */
+    /* Fields of Gtk-3.0.Gtk.Box */
     container: Gtk.Container
-    /* Fields of Gtk.Container */
+    /* Fields of Gtk-3.0.Gtk.Container */
     widget: Gtk.Widget
-    /* Fields of Gtk.Widget */
+    /* Fields of Gtk-3.0.Gtk.Widget */
     parent_instance: GObject.InitiallyUnowned
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Gladeui.PropertyShell */
+    /* Methods of Gladeui-2.0.Gladeui.PropertyShell */
     get_custom_text(): string
     get_disable_check(): boolean
     get_packing(): boolean
@@ -22303,7 +22303,7 @@ export class PropertyShell {
     set_packing(packing: boolean): void
     set_property_name(property_name: string): void
     set_use_command(use_command: boolean): void
-    /* Methods of Gtk.Box */
+    /* Methods of Gtk-3.0.Gtk.Box */
     get_baseline_position(): Gtk.BaselinePosition
     get_center_widget(): Gtk.Widget | null
     get_homogeneous(): boolean
@@ -22317,7 +22317,7 @@ export class PropertyShell {
     set_child_packing(child: Gtk.Widget, expand: boolean, fill: boolean, padding: number, pack_type: Gtk.PackType): void
     set_homogeneous(homogeneous: boolean): void
     set_spacing(spacing: number): void
-    /* Methods of Gtk.Container */
+    /* Methods of Gtk-3.0.Gtk.Container */
     add(widget: Gtk.Widget): void
     check_resize(): void
     child_get_property(child: Gtk.Widget, property_name: string, value: any): void
@@ -22345,7 +22345,7 @@ export class PropertyShell {
     set_reallocate_redraws(needs_redraws: boolean): void
     set_resize_mode(resize_mode: Gtk.ResizeMode): void
     unset_focus_chain(): void
-    /* Methods of Gtk.Widget */
+    /* Methods of Gtk-3.0.Gtk.Widget */
     activate(): boolean
     add_accelerator(accel_signal: string, accel_group: Gtk.AccelGroup, accel_key: number, accel_mods: Gdk.ModifierType, accel_flags: Gtk.AccelFlags): void
     add_device_events(device: Gdk.Device, events: Gdk.EventMask): void
@@ -22604,7 +22604,7 @@ export class PropertyShell {
     unrealize(): void
     unregister_window(window: Gdk.Window): void
     unset_state_flags(flags: Gtk.StateFlags): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -22626,14 +22626,14 @@ export class PropertyShell {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of Gladeui.Editable */
+    /* Methods of Gladeui-2.0.Gladeui.Editable */
     block(): void
     load(widget: Widget): void
     loaded_widget(): Widget | null
     loading(): boolean
     set_show_name(show_name: boolean): void
     unblock(): void
-    /* Methods of Gtk.Buildable */
+    /* Methods of Gtk-3.0.Gtk.Buildable */
     add_child(builder: Gtk.Builder, child: GObject.Object, type?: string | null): void
     construct_child(builder: Gtk.Builder, name: string): GObject.Object
     custom_finished(builder: Gtk.Builder, child: GObject.Object | null, tagname: string, data?: object | null): void
@@ -22642,10 +22642,10 @@ export class PropertyShell {
     get_internal_child(builder: Gtk.Builder, childname: string): GObject.Object
     parser_finished(builder: Gtk.Builder): void
     set_buildable_property(builder: Gtk.Builder, name: string, value: any): void
-    /* Methods of Gtk.Orientable */
+    /* Methods of Gtk-3.0.Gtk.Orientable */
     get_orientation(): Gtk.Orientation
     set_orientation(orientation: Gtk.Orientation): void
-    /* Virtual methods of Gladeui.PropertyShell */
+    /* Virtual methods of Gladeui-2.0.Gladeui.PropertyShell */
     vfunc_load(widget: Widget): void
     vfunc_set_show_name(show_name: boolean): void
     vfunc_add_child(builder: Gtk.Builder, child: GObject.Object, type?: string | null): void
@@ -22658,7 +22658,7 @@ export class PropertyShell {
     vfunc_parser_finished(builder: Gtk.Builder): void
     vfunc_set_buildable_property(builder: Gtk.Builder, name: string, value: any): void
     vfunc_set_name(name: string): void
-    /* Virtual methods of Gtk.Container */
+    /* Virtual methods of Gtk-3.0.Gtk.Container */
     vfunc_add(widget: Gtk.Widget): void
     vfunc_check_resize(): void
     vfunc_child_type(): GObject.Type
@@ -22669,7 +22669,7 @@ export class PropertyShell {
     vfunc_remove(widget: Gtk.Widget): void
     vfunc_set_child_property(child: Gtk.Widget, property_id: number, value: any, pspec: GObject.ParamSpec): void
     vfunc_set_focus_child(child?: Gtk.Widget | null): void
-    /* Virtual methods of Gtk.Widget */
+    /* Virtual methods of Gtk-3.0.Gtk.Widget */
     vfunc_adjust_baseline_allocation(baseline: number): void
     vfunc_adjust_baseline_request(minimum_baseline: number, natural_baseline: number): void
     vfunc_adjust_size_allocation(orientation: Gtk.Orientation, minimum_size: number, natural_size: number, allocated_pos: number, allocated_size: number): void
@@ -22752,7 +22752,7 @@ export class PropertyShell {
     vfunc_unrealize(): void
     vfunc_visibility_notify_event(event: Gdk.EventVisibility): boolean
     vfunc_window_state_event(event: Gdk.EventWindowState): boolean
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -22760,14 +22760,14 @@ export class PropertyShell {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gladeui.PropertyShell */
+    /* Signals of Gladeui-2.0.Gladeui.PropertyShell */
     connect(sigName: "post-commit", callback: (($obj: PropertyShell, arg1?: object | null) => void)): number
     connect_after(sigName: "post-commit", callback: (($obj: PropertyShell, arg1?: object | null) => void)): number
     emit(sigName: "post-commit", arg1?: object | null): void
     connect(sigName: "pre-commit", callback: (($obj: PropertyShell, arg1?: object | null) => void)): number
     connect_after(sigName: "pre-commit", callback: (($obj: PropertyShell, arg1?: object | null) => void)): number
     emit(sigName: "pre-commit", arg1?: object | null): void
-    /* Signals of Gtk.Container */
+    /* Signals of Gtk-3.0.Gtk.Container */
     connect(sigName: "add", callback: (($obj: PropertyShell, object: Gtk.Widget) => void)): number
     connect_after(sigName: "add", callback: (($obj: PropertyShell, object: Gtk.Widget) => void)): number
     emit(sigName: "add", object: Gtk.Widget): void
@@ -22780,7 +22780,7 @@ export class PropertyShell {
     connect(sigName: "set-focus-child", callback: (($obj: PropertyShell, object: Gtk.Widget) => void)): number
     connect_after(sigName: "set-focus-child", callback: (($obj: PropertyShell, object: Gtk.Widget) => void)): number
     emit(sigName: "set-focus-child", object: Gtk.Widget): void
-    /* Signals of Gtk.Widget */
+    /* Signals of Gtk-3.0.Gtk.Widget */
     connect(sigName: "accel-closures-changed", callback: (($obj: PropertyShell) => void)): number
     connect_after(sigName: "accel-closures-changed", callback: (($obj: PropertyShell) => void)): number
     emit(sigName: "accel-closures-changed"): void
@@ -22988,7 +22988,7 @@ export class PropertyShell {
     connect(sigName: "window-state-event", callback: (($obj: PropertyShell, event: Gdk.EventWindowState) => boolean)): number
     connect_after(sigName: "window-state-event", callback: (($obj: PropertyShell, event: Gdk.EventWindowState) => boolean)): number
     emit(sigName: "window-state-event", event: Gdk.EventWindowState): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: PropertyShell, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: PropertyShell, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -23116,19 +23116,19 @@ export interface Signal_ConstructProps extends GObject.Object_ConstructProps {
     userdata?: string
 }
 export class Signal {
-    /* Properties of Gladeui.Signal */
+    /* Properties of Gladeui-2.0.Gladeui.Signal */
     after: boolean
     detail: string
     handler: string
     support_warning: string
     swapped: boolean
     userdata: string
-    /* Fields of Gladeui.Signal */
+    /* Fields of Gladeui-2.0.Gladeui.Signal */
     object: GObject.Object
     priv: SignalPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Gladeui.Signal */
+    /* Methods of Gladeui-2.0.Gladeui.Signal */
     clone(): Signal
     equal(sig2: Signal): boolean
     get_after(): boolean
@@ -23146,7 +23146,7 @@ export class Signal {
     set_swapped(swapped: boolean): void
     set_userdata(userdata: string): void
     write(context: XmlContext, node: XmlNode): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -23168,7 +23168,7 @@ export class Signal {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -23176,7 +23176,7 @@ export class Signal {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Signal, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Signal, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -23209,17 +23209,17 @@ export interface SignalEditor_ConstructProps extends Gtk.Box_ConstructProps {
     orientation?: Gtk.Orientation
 }
 export class SignalEditor {
-    /* Properties of Gladeui.SignalEditor */
+    /* Properties of Gladeui-2.0.Gladeui.SignalEditor */
     glade_widget: Gtk.TreeModel
-    /* Properties of Gtk.Box */
+    /* Properties of Gtk-3.0.Gtk.Box */
     baseline_position: Gtk.BaselinePosition
     homogeneous: boolean
     spacing: number
-    /* Properties of Gtk.Container */
+    /* Properties of Gtk-3.0.Gtk.Container */
     border_width: number
     child: Gtk.Widget
     resize_mode: Gtk.ResizeMode
-    /* Properties of Gtk.Widget */
+    /* Properties of Gtk-3.0.Gtk.Widget */
     app_paintable: boolean
     can_default: boolean
     can_focus: boolean
@@ -23259,21 +23259,21 @@ export class SignalEditor {
     visible: boolean
     width_request: number
     readonly window: Gdk.Window
-    /* Properties of Gtk.Orientable */
+    /* Properties of Gtk-3.0.Gtk.Orientable */
     orientation: Gtk.Orientation
-    /* Fields of Gladeui.SignalEditor */
+    /* Fields of Gladeui-2.0.Gladeui.SignalEditor */
     parent_instance: Gtk.Box
-    /* Fields of Gtk.Box */
+    /* Fields of Gtk-3.0.Gtk.Box */
     container: Gtk.Container
-    /* Fields of Gtk.Container */
+    /* Fields of Gtk-3.0.Gtk.Container */
     widget: Gtk.Widget
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Gladeui.SignalEditor */
+    /* Methods of Gladeui-2.0.Gladeui.SignalEditor */
     enable_dnd(enabled: boolean): void
     get_widget(): Widget
     load_widget(widget: Widget): void
-    /* Methods of Gtk.Box */
+    /* Methods of Gtk-3.0.Gtk.Box */
     get_baseline_position(): Gtk.BaselinePosition
     get_center_widget(): Gtk.Widget | null
     get_homogeneous(): boolean
@@ -23287,7 +23287,7 @@ export class SignalEditor {
     set_child_packing(child: Gtk.Widget, expand: boolean, fill: boolean, padding: number, pack_type: Gtk.PackType): void
     set_homogeneous(homogeneous: boolean): void
     set_spacing(spacing: number): void
-    /* Methods of Gtk.Container */
+    /* Methods of Gtk-3.0.Gtk.Container */
     add(widget: Gtk.Widget): void
     check_resize(): void
     child_get_property(child: Gtk.Widget, property_name: string, value: any): void
@@ -23315,7 +23315,7 @@ export class SignalEditor {
     set_reallocate_redraws(needs_redraws: boolean): void
     set_resize_mode(resize_mode: Gtk.ResizeMode): void
     unset_focus_chain(): void
-    /* Methods of Gtk.Widget */
+    /* Methods of Gtk-3.0.Gtk.Widget */
     activate(): boolean
     add_accelerator(accel_signal: string, accel_group: Gtk.AccelGroup, accel_key: number, accel_mods: Gdk.ModifierType, accel_flags: Gtk.AccelFlags): void
     add_device_events(device: Gdk.Device, events: Gdk.EventMask): void
@@ -23574,7 +23574,7 @@ export class SignalEditor {
     unrealize(): void
     unregister_window(window: Gdk.Window): void
     unset_state_flags(flags: Gtk.StateFlags): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -23596,7 +23596,7 @@ export class SignalEditor {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of Gtk.Buildable */
+    /* Methods of Gtk-3.0.Gtk.Buildable */
     add_child(builder: Gtk.Builder, child: GObject.Object, type?: string | null): void
     construct_child(builder: Gtk.Builder, name: string): GObject.Object
     custom_finished(builder: Gtk.Builder, child: GObject.Object | null, tagname: string, data?: object | null): void
@@ -23605,10 +23605,10 @@ export class SignalEditor {
     get_internal_child(builder: Gtk.Builder, childname: string): GObject.Object
     parser_finished(builder: Gtk.Builder): void
     set_buildable_property(builder: Gtk.Builder, name: string, value: any): void
-    /* Methods of Gtk.Orientable */
+    /* Methods of Gtk-3.0.Gtk.Orientable */
     get_orientation(): Gtk.Orientation
     set_orientation(orientation: Gtk.Orientation): void
-    /* Virtual methods of Gladeui.SignalEditor */
+    /* Virtual methods of Gladeui-2.0.Gladeui.SignalEditor */
     vfunc_add_child(builder: Gtk.Builder, child: GObject.Object, type?: string | null): void
     vfunc_construct_child(builder: Gtk.Builder, name: string): GObject.Object
     vfunc_custom_finished(builder: Gtk.Builder, child: GObject.Object | null, tagname: string, data?: object | null): void
@@ -23619,7 +23619,7 @@ export class SignalEditor {
     vfunc_parser_finished(builder: Gtk.Builder): void
     vfunc_set_buildable_property(builder: Gtk.Builder, name: string, value: any): void
     vfunc_set_name(name: string): void
-    /* Virtual methods of Gtk.Container */
+    /* Virtual methods of Gtk-3.0.Gtk.Container */
     vfunc_add(widget: Gtk.Widget): void
     vfunc_check_resize(): void
     vfunc_child_type(): GObject.Type
@@ -23630,7 +23630,7 @@ export class SignalEditor {
     vfunc_remove(widget: Gtk.Widget): void
     vfunc_set_child_property(child: Gtk.Widget, property_id: number, value: any, pspec: GObject.ParamSpec): void
     vfunc_set_focus_child(child?: Gtk.Widget | null): void
-    /* Virtual methods of Gtk.Widget */
+    /* Virtual methods of Gtk-3.0.Gtk.Widget */
     vfunc_adjust_baseline_allocation(baseline: number): void
     vfunc_adjust_baseline_request(minimum_baseline: number, natural_baseline: number): void
     vfunc_adjust_size_allocation(orientation: Gtk.Orientation, minimum_size: number, natural_size: number, allocated_pos: number, allocated_size: number): void
@@ -23713,7 +23713,7 @@ export class SignalEditor {
     vfunc_unrealize(): void
     vfunc_visibility_notify_event(event: Gdk.EventVisibility): boolean
     vfunc_window_state_event(event: Gdk.EventWindowState): boolean
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -23721,7 +23721,7 @@ export class SignalEditor {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gladeui.SignalEditor */
+    /* Signals of Gladeui-2.0.Gladeui.SignalEditor */
     connect(sigName: "callback-suggestions", callback: (($obj: SignalEditor, signal: Signal) => string[])): number
     connect_after(sigName: "callback-suggestions", callback: (($obj: SignalEditor, signal: Signal) => string[])): number
     emit(sigName: "callback-suggestions", signal: Signal): void
@@ -23731,7 +23731,7 @@ export class SignalEditor {
     connect(sigName: "signal-activated", callback: (($obj: SignalEditor, signal: Signal) => void)): number
     connect_after(sigName: "signal-activated", callback: (($obj: SignalEditor, signal: Signal) => void)): number
     emit(sigName: "signal-activated", signal: Signal): void
-    /* Signals of Gtk.Container */
+    /* Signals of Gtk-3.0.Gtk.Container */
     connect(sigName: "add", callback: (($obj: SignalEditor, object: Gtk.Widget) => void)): number
     connect_after(sigName: "add", callback: (($obj: SignalEditor, object: Gtk.Widget) => void)): number
     emit(sigName: "add", object: Gtk.Widget): void
@@ -23744,7 +23744,7 @@ export class SignalEditor {
     connect(sigName: "set-focus-child", callback: (($obj: SignalEditor, object: Gtk.Widget) => void)): number
     connect_after(sigName: "set-focus-child", callback: (($obj: SignalEditor, object: Gtk.Widget) => void)): number
     emit(sigName: "set-focus-child", object: Gtk.Widget): void
-    /* Signals of Gtk.Widget */
+    /* Signals of Gtk-3.0.Gtk.Widget */
     connect(sigName: "accel-closures-changed", callback: (($obj: SignalEditor) => void)): number
     connect_after(sigName: "accel-closures-changed", callback: (($obj: SignalEditor) => void)): number
     emit(sigName: "accel-closures-changed"): void
@@ -23952,7 +23952,7 @@ export class SignalEditor {
     connect(sigName: "window-state-event", callback: (($obj: SignalEditor, event: Gdk.EventWindowState) => boolean)): number
     connect_after(sigName: "window-state-event", callback: (($obj: SignalEditor, event: Gdk.EventWindowState) => boolean)): number
     emit(sigName: "window-state-event", event: Gdk.EventWindowState): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: SignalEditor, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: SignalEditor, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -24067,12 +24067,12 @@ export interface SignalModel_ConstructProps extends GObject.Object_ConstructProp
     widget?: Widget
 }
 export class SignalModel {
-    /* Fields of Gladeui.SignalModel */
+    /* Fields of Gladeui-2.0.Gladeui.SignalModel */
     parent_instance: GObject.Object
     priv: SignalModelPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -24094,11 +24094,11 @@ export class SignalModel {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of Gtk.TreeDragSource */
+    /* Methods of Gtk-3.0.Gtk.TreeDragSource */
     drag_data_delete(path: Gtk.TreePath): boolean
     drag_data_get(path: Gtk.TreePath, selection_data: Gtk.SelectionData): boolean
     row_draggable(path: Gtk.TreePath): boolean
-    /* Methods of Gtk.TreeModel */
+    /* Methods of Gtk-3.0.Gtk.TreeModel */
     filter_new(root?: Gtk.TreePath | null): Gtk.TreeModel
     foreach(func: Gtk.TreeModelForeachFunc): void
     get_column_type(index_: number): GObject.Type
@@ -24124,7 +24124,7 @@ export class SignalModel {
     row_inserted(path: Gtk.TreePath, iter: Gtk.TreeIter): void
     rows_reordered(path: Gtk.TreePath, iter: Gtk.TreeIter | null, new_order: number[]): void
     unref_node(iter: Gtk.TreeIter): void
-    /* Virtual methods of Gladeui.SignalModel */
+    /* Virtual methods of Gladeui-2.0.Gladeui.SignalModel */
     vfunc_drag_data_delete(path: Gtk.TreePath): boolean
     vfunc_drag_data_get(path: Gtk.TreePath, selection_data: Gtk.SelectionData): boolean
     vfunc_row_draggable(path: Gtk.TreePath): boolean
@@ -24147,7 +24147,7 @@ export class SignalModel {
     vfunc_row_has_child_toggled(path: Gtk.TreePath, iter: Gtk.TreeIter): void
     vfunc_row_inserted(path: Gtk.TreePath, iter: Gtk.TreeIter): void
     vfunc_unref_node(iter: Gtk.TreeIter): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -24155,11 +24155,11 @@ export class SignalModel {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: SignalModel, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: SignalModel, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    /* Signals of Gtk.TreeModel */
+    /* Signals of Gtk-3.0.Gtk.TreeModel */
     connect(sigName: "row-changed", callback: (($obj: SignalModel, path: Gtk.TreePath, iter: Gtk.TreeIter) => void)): number
     connect_after(sigName: "row-changed", callback: (($obj: SignalModel, path: Gtk.TreePath, iter: Gtk.TreeIter) => void)): number
     emit(sigName: "row-changed", path: Gtk.TreePath, iter: Gtk.TreeIter): void
@@ -24202,7 +24202,7 @@ export interface Widget_ConstructProps extends GObject.InitiallyUnowned_Construc
     toplevel_width?: number
 }
 export class Widget {
-    /* Properties of Gladeui.Widget */
+    /* Properties of Gladeui-2.0.Gladeui.Widget */
     composite: boolean
     internal: string
     name: string
@@ -24213,12 +24213,12 @@ export class Widget {
     toplevel_height: number
     toplevel_width: number
     readonly visible: boolean
-    /* Fields of Gladeui.Widget */
+    /* Fields of Gladeui-2.0.Gladeui.Widget */
     parent_instance: GObject.InitiallyUnowned
     priv: WidgetPrivate
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Gladeui.Widget */
+    /* Methods of Gladeui-2.0.Gladeui.Widget */
     adaptor_create_internal(internal_object: GObject.Object, internal_name: string, parent_name: string, anarchist: boolean, reason: CreateReason): Widget
     add_child(child: Widget, at_mouse: boolean): void
     add_prop_ref(property: Property): void
@@ -24315,7 +24315,7 @@ export class Widget {
     write_placeholder(object: GObject.Object, context: XmlContext, node: XmlNode): void
     write_signals(context: XmlContext, node: XmlNode): void
     write_special_child_prop(object: GObject.Object, context: XmlContext, node: XmlNode): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -24337,7 +24337,7 @@ export class Widget {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Gladeui.Widget */
+    /* Virtual methods of Gladeui-2.0.Gladeui.Widget */
     vfunc_add_child(child: Widget, at_mouse: boolean): void
     vfunc_add_signal_handler(signal_handler: Signal): void
     vfunc_button_press_event(event: Gdk.Event): number
@@ -24348,7 +24348,7 @@ export class Widget {
     vfunc_remove_child(child: Widget): void
     vfunc_remove_signal_handler(signal_handler: Signal): void
     vfunc_replace_child(old_object: GObject.Object, new_object: GObject.Object): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -24356,7 +24356,7 @@ export class Widget {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gladeui.Widget */
+    /* Signals of Gladeui-2.0.Gladeui.Widget */
     connect(sigName: "add-signal-handler", callback: (($obj: Widget, arg1: Signal) => void)): number
     connect_after(sigName: "add-signal-handler", callback: (($obj: Widget, arg1: Signal) => void)): number
     emit(sigName: "add-signal-handler", arg1: Signal): void
@@ -24378,7 +24378,7 @@ export class Widget {
     connect(sigName: "support-changed", callback: (($obj: Widget) => void)): number
     connect_after(sigName: "support-changed", callback: (($obj: Widget) => void)): number
     emit(sigName: "support-changed"): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Widget, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Widget, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -24424,22 +24424,22 @@ export interface WidgetAction_ConstructProps extends GObject.Object_ConstructPro
     visible?: boolean
 }
 export class WidgetAction {
-    /* Properties of Gladeui.WidgetAction */
+    /* Properties of Gladeui-2.0.Gladeui.WidgetAction */
     sensitive: boolean
     visible: boolean
-    /* Fields of Gladeui.WidgetAction */
+    /* Fields of Gladeui-2.0.Gladeui.WidgetAction */
     parent_instance: GObject.Object
     priv: WidgetActionPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Gladeui.WidgetAction */
+    /* Methods of Gladeui-2.0.Gladeui.WidgetAction */
     get_children(): WidgetActionDef[]
     get_def(): WidgetActionDef
     get_sensitive(): boolean
     get_visible(): boolean
     set_sensitive(sensitive: boolean): void
     set_visible(visible: boolean): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -24461,7 +24461,7 @@ export class WidgetAction {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -24469,7 +24469,7 @@ export class WidgetAction {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: WidgetAction, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: WidgetAction, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -24498,15 +24498,15 @@ export interface WidgetAdaptor_ConstructProps extends GObject.Object_ConstructPr
     type?: GObject.Type
 }
 export class WidgetAdaptor {
-    /* Properties of Gladeui.WidgetAdaptor */
+    /* Properties of Gladeui-2.0.Gladeui.WidgetAdaptor */
     readonly cursor: object
     query: boolean
     title: string
-    /* Fields of Gladeui.WidgetAdaptor */
+    /* Fields of Gladeui-2.0.Gladeui.WidgetAdaptor */
     parent_instance: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Gladeui.WidgetAdaptor */
+    /* Methods of Gladeui-2.0.Gladeui.WidgetAdaptor */
     action_activate(object: GObject.Object, action_path: string): void
     action_add(action_path: string, label: string, stock: string, important: boolean): boolean
     action_remove(action_path: string): boolean
@@ -24565,7 +24565,7 @@ export class WidgetAdaptor {
     write_child(widget: Widget, context: XmlContext, node: XmlNode): void
     write_widget(widget: Widget, context: XmlContext, node: XmlNode): void
     write_widget_after(widget: Widget, context: XmlContext, node: XmlNode): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -24587,7 +24587,7 @@ export class WidgetAdaptor {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Gladeui.WidgetAdaptor */
+    /* Virtual methods of Gladeui-2.0.Gladeui.WidgetAdaptor */
     vfunc_action_activate(object: GObject.Object, action_path: string): void
     vfunc_action_submenu(object: GObject.Object, action_path: string): Gtk.Widget | null
     vfunc_add(container: GObject.Object, child: GObject.Object): void
@@ -24618,7 +24618,7 @@ export class WidgetAdaptor {
     vfunc_write_child(widget: Widget, context: XmlContext, node: XmlNode): void
     vfunc_write_widget(widget: Widget, context: XmlContext, node: XmlNode): void
     vfunc_write_widget_after(widget: Widget, context: XmlContext, node: XmlNode): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -24626,7 +24626,7 @@ export class WidgetAdaptor {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: WidgetAdaptor, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: WidgetAdaptor, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -24651,18 +24651,18 @@ export class WidgetAdaptor {
     static $gtype: GObject.Type
 }
 export abstract class AdaptorChooserClass {
-    /* Fields of Gladeui.AdaptorChooserClass */
+    /* Fields of Gladeui-2.0.Gladeui.AdaptorChooserClass */
     parent_class: Gtk.BoxClass
     static name: string
 }
 export abstract class AppClass {
-    /* Fields of Gladeui.AppClass */
+    /* Fields of Gladeui-2.0.Gladeui.AppClass */
     parent_class: GObject.ObjectClass
     padding: object[]
     static name: string
 }
 export abstract class BaseEditorClass {
-    /* Fields of Gladeui.BaseEditorClass */
+    /* Fields of Gladeui-2.0.Gladeui.BaseEditorClass */
     parent_class: Gtk.BoxClass
     child_selected: (editor: BaseEditor, gchild: Widget) => void
     change_type: (editor: BaseEditor, gchild: Widget, type: GObject.Type) => boolean
@@ -24673,7 +24673,7 @@ export abstract class BaseEditorClass {
     static name: string
 }
 export class Catalog {
-    /* Methods of Gladeui.Catalog */
+    /* Methods of Gladeui-2.0.Gladeui.Catalog */
     get_adaptors(): WidgetAdaptor[]
     get_book(): string
     get_domain(): string
@@ -24694,19 +24694,19 @@ export class Catalog {
     static remove_path(path?: string | null): void
 }
 export abstract class CellRendererIconClass {
-    /* Fields of Gladeui.CellRendererIconClass */
+    /* Fields of Gladeui-2.0.Gladeui.CellRendererIconClass */
     parent_class: Gtk.CellRendererPixbufClass
     activate: (cell_renderer_icon: CellRendererIcon, path: string) => void
     static name: string
 }
 export abstract class ClipboardClass {
-    /* Fields of Gladeui.ClipboardClass */
+    /* Fields of Gladeui-2.0.Gladeui.ClipboardClass */
     parent_class: GObject.ObjectClass
     padding: object[]
     static name: string
 }
 export abstract class CommandClass {
-    /* Fields of Gladeui.CommandClass */
+    /* Fields of Gladeui-2.0.Gladeui.CommandClass */
     parent_class: GObject.ObjectClass
     execute: (command: Command) => boolean
     undo: (command: Command) => boolean
@@ -24716,14 +24716,14 @@ export abstract class CommandClass {
     static name: string
 }
 export class CommandSetPropData {
-    /* Fields of Gladeui.CommandSetPropData */
+    /* Fields of Gladeui-2.0.Gladeui.CommandSetPropData */
     property: Property
     new_value: any
     old_value: any
     static name: string
 }
 export class Cursor {
-    /* Fields of Gladeui.Cursor */
+    /* Fields of Gladeui-2.0.Gladeui.Cursor */
     selector: Gdk.Cursor
     add_widget: Gdk.Cursor
     resize_top_left: Gdk.Cursor
@@ -24743,26 +24743,26 @@ export class Cursor {
     static set(project: Project, window: Gdk.Window, type: CursorType): void
 }
 export abstract class DesignViewClass {
-    /* Fields of Gladeui.DesignViewClass */
+    /* Fields of Gladeui-2.0.Gladeui.DesignViewClass */
     parent_class: Gtk.BoxClass
     padding: object[]
     static name: string
 }
 export abstract class EditableInterface {
-    /* Fields of Gladeui.EditableInterface */
+    /* Fields of Gladeui-2.0.Gladeui.EditableInterface */
     g_iface: GObject.TypeInterface
     load: (editable: Editable, widget: Widget) => void
     set_show_name: (editable: Editable, show_name: boolean) => void
     static name: string
 }
 export abstract class EditorClass {
-    /* Fields of Gladeui.EditorClass */
+    /* Fields of Gladeui-2.0.Gladeui.EditorClass */
     parent_class: Gtk.BoxClass
     padding: object[]
     static name: string
 }
 export abstract class EditorPropertyClass {
-    /* Fields of Gladeui.EditorPropertyClass */
+    /* Fields of Gladeui-2.0.Gladeui.EditorPropertyClass */
     parent_class: Gtk.BoxClass
     load: (eprop: EditorProperty, property: Property) => void
     commit: (eprop: EditorProperty, value: any) => void
@@ -24771,12 +24771,12 @@ export abstract class EditorPropertyClass {
     static name: string
 }
 export abstract class EditorSkeletonClass {
-    /* Fields of Gladeui.EditorSkeletonClass */
+    /* Fields of Gladeui-2.0.Gladeui.EditorSkeletonClass */
     parent_class: Gtk.BoxClass
     static name: string
 }
 export abstract class EditorTableClass {
-    /* Fields of Gladeui.EditorTableClass */
+    /* Fields of Gladeui-2.0.Gladeui.EditorTableClass */
     parent: Gtk.GridClass
     glade_reserved1: () => void
     glade_reserved2: () => void
@@ -24785,14 +24785,14 @@ export abstract class EditorTableClass {
     static name: string
 }
 export class IDAllocator {
-    /* Methods of Gladeui.IDAllocator */
+    /* Methods of Gladeui-2.0.Gladeui.IDAllocator */
     allocate(): number
     destroy(): void
     release(id: number): void
     static name: string
 }
 export abstract class InspectorClass {
-    /* Fields of Gladeui.InspectorClass */
+    /* Fields of Gladeui-2.0.Gladeui.InspectorClass */
     parent_class: Gtk.BoxClass
     selection_changed: (inspector: Inspector) => void
     item_activated: (inspector: Inspector) => void
@@ -24800,7 +24800,7 @@ export abstract class InspectorClass {
     static name: string
 }
 export class NameContext {
-    /* Methods of Gladeui.NameContext */
+    /* Methods of Gladeui-2.0.Gladeui.NameContext */
     add_name(name: string): boolean
     destroy(): void
     has_name(name: string): boolean
@@ -24810,7 +24810,7 @@ export class NameContext {
     static name: string
 }
 export abstract class NamedIconChooserDialogClass {
-    /* Fields of Gladeui.NamedIconChooserDialogClass */
+    /* Fields of Gladeui-2.0.Gladeui.NamedIconChooserDialogClass */
     parent_class: Gtk.DialogClass
     icon_activated: (dialog: NamedIconChooserDialog) => void
     selection_changed: (dialog: NamedIconChooserDialog) => void
@@ -24818,7 +24818,7 @@ export abstract class NamedIconChooserDialogClass {
     static name: string
 }
 export abstract class PaletteClass {
-    /* Fields of Gladeui.PaletteClass */
+    /* Fields of Gladeui-2.0.Gladeui.PaletteClass */
     parent_class: Gtk.BoxClass
     refresh: (palette: Palette) => void
     glade_reserved1: () => void
@@ -24831,13 +24831,13 @@ export class PalettePrivate {
     static name: string
 }
 export class ParamSpecObjects {
-    /* Methods of Gladeui.ParamSpecObjects */
+    /* Methods of Gladeui-2.0.Gladeui.ParamSpecObjects */
     get_type(): GObject.Type
     set_type(type: GObject.Type): void
     static name: string
 }
 export abstract class PlaceholderClass {
-    /* Fields of Gladeui.PlaceholderClass */
+    /* Fields of Gladeui-2.0.Gladeui.PlaceholderClass */
     parent_class: Gtk.WidgetClass
     glade_reserved1: () => void
     glade_reserved2: () => void
@@ -24849,7 +24849,7 @@ export class PlaceholderPrivate {
     static name: string
 }
 export abstract class ProjectClass {
-    /* Fields of Gladeui.ProjectClass */
+    /* Fields of Gladeui-2.0.Gladeui.ProjectClass */
     parent_class: GObject.ObjectClass
     add_object: (project: Project, object: Widget) => void
     remove_object: (project: Project, object: Widget) => void
@@ -24877,7 +24877,7 @@ export class ProjectPrivate {
     static name: string
 }
 export abstract class PropertyClass {
-    /* Fields of Gladeui.PropertyClass */
+    /* Fields of Gladeui-2.0.Gladeui.PropertyClass */
     parent_class: GObject.ObjectClass
     dup: (template_prop: Property, widget: Widget) => Property
     equals_value: (property: Property, value: any) => boolean
@@ -24896,7 +24896,7 @@ export abstract class PropertyClass {
     static name: string
 }
 export class PropertyDef {
-    /* Methods of Gladeui.PropertyDef */
+    /* Methods of Gladeui-2.0.Gladeui.PropertyDef */
     atk(): boolean
     clone(): PropertyDef
     common(): boolean
@@ -24963,7 +24963,7 @@ export class PropertyDef {
     static update_from_node(node: XmlNode, object_type: GObject.Type, property_def_ref: PropertyDef | null, domain: string): [ /* returnType */ boolean, /* property_def_ref */ PropertyDef | null ]
 }
 export abstract class PropertyLabelClass {
-    /* Fields of Gladeui.PropertyLabelClass */
+    /* Fields of Gladeui-2.0.Gladeui.PropertyLabelClass */
     parent_class: Gtk.EventBoxClass
     static name: string
 }
@@ -24974,7 +24974,7 @@ export class PropertyPrivate {
     static name: string
 }
 export abstract class PropertyShellClass {
-    /* Fields of Gladeui.PropertyShellClass */
+    /* Fields of Gladeui-2.0.Gladeui.PropertyShellClass */
     parent_class: Gtk.BoxClass
     static name: string
 }
@@ -24982,7 +24982,7 @@ export class PropertyShellPrivate {
     static name: string
 }
 export abstract class SignalClass {
-    /* Fields of Gladeui.SignalClass */
+    /* Fields of Gladeui-2.0.Gladeui.SignalClass */
     object_class: GObject.ObjectClass
     glade_reserved1: () => void
     glade_reserved2: () => void
@@ -24991,7 +24991,7 @@ export abstract class SignalClass {
     static name: string
 }
 export class SignalDef {
-    /* Methods of Gladeui.SignalDef */
+    /* Methods of Gladeui-2.0.Gladeui.SignalDef */
     clone(): SignalDef
     deprecated(): boolean
     deprecated_since_major(): number
@@ -25013,13 +25013,13 @@ export class SignalDef {
     static new(adaptor: WidgetAdaptor, for_type: GObject.Type, signal_id: number): SignalDef
 }
 export abstract class SignalEditorClass {
-    /* Fields of Gladeui.SignalEditorClass */
+    /* Fields of Gladeui-2.0.Gladeui.SignalEditorClass */
     parent_class: Gtk.BoxClass
     padding: object[]
     static name: string
 }
 export abstract class SignalModelClass {
-    /* Fields of Gladeui.SignalModelClass */
+    /* Fields of Gladeui-2.0.Gladeui.SignalModelClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
@@ -25030,13 +25030,13 @@ export class SignalPrivate {
     static name: string
 }
 export class TargetableVersion {
-    /* Fields of Gladeui.TargetableVersion */
+    /* Fields of Gladeui-2.0.Gladeui.TargetableVersion */
     major: number
     minor: number
     static name: string
 }
 export abstract class WidgetActionClass {
-    /* Fields of Gladeui.WidgetActionClass */
+    /* Fields of Gladeui-2.0.Gladeui.WidgetActionClass */
     parent_class: GObject.ObjectClass
     glade_reserved1: () => void
     glade_reserved2: () => void
@@ -25045,14 +25045,14 @@ export abstract class WidgetActionClass {
     static name: string
 }
 export class WidgetActionDef {
-    /* Fields of Gladeui.WidgetActionDef */
+    /* Fields of Gladeui-2.0.Gladeui.WidgetActionDef */
     id: string
     path: string
     label: string
     stock: string
     important: boolean
     actions: object[]
-    /* Methods of Gladeui.WidgetActionDef */
+    /* Methods of Gladeui-2.0.Gladeui.WidgetActionDef */
     clone(): WidgetActionDef
     free(): void
     set_important(important: boolean): void
@@ -25068,7 +25068,7 @@ export class WidgetActionPrivate {
     static name: string
 }
 export abstract class WidgetAdaptorClass {
-    /* Fields of Gladeui.WidgetAdaptorClass */
+    /* Fields of Gladeui-2.0.Gladeui.WidgetAdaptorClass */
     parent_class: GObject.ObjectClass
     version_since_major: number
     version_since_minor: number
@@ -25115,7 +25115,7 @@ export abstract class WidgetAdaptorClass {
     static name: string
 }
 export abstract class WidgetClass {
-    /* Fields of Gladeui.WidgetClass */
+    /* Fields of Gladeui-2.0.Gladeui.WidgetClass */
     parent_class: GObject.InitiallyUnownedClass
     add_child: (parent: Widget, child: Widget, at_mouse: boolean) => void
     remove_child: (parent: Widget, child: Widget) => void
@@ -25138,7 +25138,7 @@ export abstract class WidgetClass {
     static name: string
 }
 export class WidgetGroup {
-    /* Methods of Gladeui.WidgetGroup */
+    /* Methods of Gladeui-2.0.Gladeui.WidgetGroup */
     get_adaptors(): WidgetAdaptor[]
     get_expanded(): boolean
     get_name(): string
@@ -25149,7 +25149,7 @@ export class WidgetPrivate {
     static name: string
 }
 export class XmlContext {
-    /* Methods of Gladeui.XmlContext */
+    /* Methods of Gladeui-2.0.Gladeui.XmlContext */
     copy(): XmlContext
     free(): void
     get_doc(): XmlDoc
@@ -25161,7 +25161,7 @@ export class XmlContext {
     static new_from_path(full_path: string, nspace?: string | null, root_name?: string | null): XmlContext
 }
 export class XmlDoc {
-    /* Methods of Gladeui.XmlDoc */
+    /* Methods of Gladeui-2.0.Gladeui.XmlDoc */
     get_root(): XmlNode
     new_comment(comment: string): XmlNode
     ref(): XmlDoc
@@ -25175,7 +25175,7 @@ export class XmlDoc {
     static new(): XmlDoc
 }
 export class XmlNode {
-    /* Methods of Gladeui.XmlNode */
+    /* Methods of Gladeui-2.0.Gladeui.XmlNode */
     add_next_sibling(new_node: XmlNode): XmlNode
     add_prev_sibling(new_node: XmlNode): XmlNode
     append_child(child: XmlNode): void

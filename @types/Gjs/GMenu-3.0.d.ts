@@ -30,15 +30,15 @@ export interface Tree_ConstructProps extends GObject.Object_ConstructProps {
     menu_path?: string
 }
 export class Tree {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GMenu.Tree */
+    /* Methods of GMenu-3.0.GMenu.Tree */
     get_canonical_menu_path(): string
     get_directory_from_path(path: string): TreeDirectory
     get_entry_by_id(id: string): TreeEntry
     get_root_directory(): TreeDirectory
     load_sync(): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -60,7 +60,7 @@ export class Tree {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -68,11 +68,11 @@ export class Tree {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GMenu.Tree */
+    /* Signals of GMenu-3.0.GMenu.Tree */
     connect(sigName: "changed", callback: (($obj: Tree) => void)): number
     connect_after(sigName: "changed", callback: (($obj: Tree) => void)): number
     emit(sigName: "changed"): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Tree, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Tree, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -91,7 +91,7 @@ export class Tree {
     static $gtype: GObject.Type
 }
 export class TreeAlias {
-    /* Methods of GMenu.TreeAlias */
+    /* Methods of GMenu-3.0.GMenu.TreeAlias */
     get_aliased_directory(): TreeDirectory
     get_aliased_entry(): TreeEntry
     get_aliased_item_type(): TreeItemType
@@ -101,12 +101,12 @@ export class TreeAlias {
     static name: string
 }
 export abstract class TreeClass {
-    /* Fields of GMenu.TreeClass */
+    /* Fields of GMenu-3.0.GMenu.TreeClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
 export class TreeDirectory {
-    /* Methods of GMenu.TreeDirectory */
+    /* Methods of GMenu-3.0.GMenu.TreeDirectory */
     get_comment(): string
     get_desktop_file_path(): string
     get_generic_name(): string
@@ -121,7 +121,7 @@ export class TreeDirectory {
     static name: string
 }
 export class TreeEntry {
-    /* Methods of GMenu.TreeEntry */
+    /* Methods of GMenu-3.0.GMenu.TreeEntry */
     get_app_info(): Gio.DesktopAppInfo
     get_desktop_file_id(): string
     get_desktop_file_path(): string
@@ -133,14 +133,14 @@ export class TreeEntry {
     static name: string
 }
 export class TreeHeader {
-    /* Methods of GMenu.TreeHeader */
+    /* Methods of GMenu-3.0.GMenu.TreeHeader */
     get_directory(): TreeDirectory
     get_parent(): TreeDirectory
     get_tree(): Tree
     static name: string
 }
 export class TreeIter {
-    /* Methods of GMenu.TreeIter */
+    /* Methods of GMenu-3.0.GMenu.TreeIter */
     get_alias(): TreeAlias
     get_directory(): TreeDirectory
     get_entry(): TreeEntry
@@ -150,7 +150,7 @@ export class TreeIter {
     static name: string
 }
 export class TreeSeparator {
-    /* Methods of GMenu.TreeSeparator */
+    /* Methods of GMenu-3.0.GMenu.TreeSeparator */
     get_parent(): TreeDirectory
     get_tree(): Tree
     static name: string

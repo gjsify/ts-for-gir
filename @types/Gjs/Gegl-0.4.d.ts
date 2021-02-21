@@ -236,7 +236,7 @@ export interface TileSourceCommand {
     (gegl_tile_source: TileSource, command: TileCommand, x: number, y: number, z: number, data?: object | null): object | null
 }
 export class Metadata {
-    /* Methods of Gegl.Metadata */
+    /* Methods of Gegl-0.4.Gegl.Metadata */
     get_resolution(unit: ResolutionUnit, x: number, y: number): boolean
     iter_get_value(iter: MetadataIter, value: any): boolean
     iter_init(iter: MetadataIter): void
@@ -246,7 +246,7 @@ export class Metadata {
     register_map(file_module: string, flags: number, map: MetadataMap[]): void
     set_resolution(unit: ResolutionUnit, x: number, y: number): boolean
     unregister_map(): void
-    /* Virtual methods of Gegl.Metadata */
+    /* Virtual methods of Gegl-0.4.Gegl.Metadata */
     vfunc_get_resolution(unit: ResolutionUnit, x: number, y: number): boolean
     vfunc_iter_get_value(iter: MetadataIter, value: any): boolean
     vfunc_iter_init(iter: MetadataIter): void
@@ -261,15 +261,15 @@ export interface AudioFragment_ConstructProps extends GObject.Object_ConstructPr
     string?: string
 }
 export class AudioFragment {
-    /* Properties of Gegl.AudioFragment */
+    /* Properties of Gegl-0.4.Gegl.AudioFragment */
     string: string
-    /* Fields of Gegl.AudioFragment */
+    /* Fields of Gegl-0.4.Gegl.AudioFragment */
     parent_instance: GObject.Object
     data: number[]
     priv: AudioFragmentPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Gegl.AudioFragment */
+    /* Methods of Gegl-0.4.Gegl.AudioFragment */
     get_channel_layout(): number
     get_channels(): number
     get_max_samples(): number
@@ -282,7 +282,7 @@ export class AudioFragment {
     set_pos(pos: number): void
     set_sample_count(sample_count: number): void
     set_sample_rate(sample_rate: number): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -304,7 +304,7 @@ export class AudioFragment {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -312,7 +312,7 @@ export class AudioFragment {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: AudioFragment, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: AudioFragment, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -348,7 +348,7 @@ export interface Buffer_ConstructProps extends TileHandler_ConstructProps {
     y?: number
 }
 export class Buffer {
-    /* Properties of Gegl.Buffer */
+    /* Properties of Gegl-0.4.Gegl.Buffer */
     format: object
     height: number
     readonly pixels: number
@@ -356,17 +356,17 @@ export class Buffer {
     width: number
     x: number
     y: number
-    /* Properties of Gegl.TileHandler */
+    /* Properties of Gegl-0.4.Gegl.TileHandler */
     source: GObject.Object
-    /* Fields of Gegl.TileHandler */
+    /* Fields of Gegl-0.4.Gegl.TileHandler */
     parent_instance: TileSource
     priv: TileHandlerPrivate
-    /* Fields of Gegl.TileSource */
+    /* Fields of Gegl-0.4.Gegl.TileSource */
     command: TileSourceCommand
     padding: object[]
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Gegl.Buffer */
+    /* Methods of Gegl-0.4.Gegl.Buffer */
     add_handler(handler?: object | null): void
     clear(roi: Rectangle): void
     copy(src_rect: Rectangle, repeat_mode: AbyssPolicy, dst: Buffer, dst_rect: Rectangle): void
@@ -391,13 +391,13 @@ export class Buffer {
     share_storage(buffer2: Buffer): boolean
     signal_connect(detailed_signal: string, c_handler: GObject.Callback): number
     thaw_changed(): void
-    /* Methods of Gegl.TileHandler */
+    /* Methods of Gegl-0.4.Gegl.TileHandler */
     damage_rect(rect: Rectangle): void
     damage_tile(x: number, y: number, z: number, damage: number): void
     lock(): void
     set_source(source: TileSource): void
     unlock(): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -419,7 +419,7 @@ export class Buffer {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -427,11 +427,11 @@ export class Buffer {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gegl.Buffer */
+    /* Signals of Gegl-0.4.Gegl.Buffer */
     connect(sigName: "changed", callback: (($obj: Buffer, object: Rectangle) => void)): number
     connect_after(sigName: "changed", callback: (($obj: Buffer, object: Rectangle) => void)): number
     emit(sigName: "changed", object: Rectangle): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Buffer, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Buffer, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -472,21 +472,21 @@ export interface Color_ConstructProps extends GObject.Object_ConstructProps {
     string?: string
 }
 export class Color {
-    /* Properties of Gegl.Color */
+    /* Properties of Gegl-0.4.Gegl.Color */
     string: string
-    /* Fields of Gegl.Color */
+    /* Fields of Gegl-0.4.Gegl.Color */
     parent_instance: GObject.Object
     priv: ColorPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Gegl.Color */
+    /* Methods of Gegl-0.4.Gegl.Color */
     duplicate(): Color
     get_components(format: any): number[]
     get_format(): Babl.Object
     get_rgba(): [ /* red */ number, /* green */ number, /* blue */ number, /* alpha */ number ]
     set_components(format: any, components: number[]): void
     set_rgba(red: number, green: number, blue: number, alpha: number): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -508,7 +508,7 @@ export class Color {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -516,7 +516,7 @@ export class Color {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Color, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Color, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -548,7 +548,7 @@ export interface Config_ConstructProps extends GObject.Object_ConstructProps {
     use_opencl?: boolean
 }
 export class Config {
-    /* Properties of Gegl.Config */
+    /* Properties of Gegl-0.4.Gegl.Config */
     application_license: string
     chunk_size: number
     mipmap_rendering: boolean
@@ -561,9 +561,9 @@ export class Config {
     tile_height: number
     tile_width: number
     use_opencl: boolean
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -585,7 +585,7 @@ export class Config {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -593,7 +593,7 @@ export class Config {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Config, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Config, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -633,11 +633,11 @@ export class Config {
 export interface Curve_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class Curve {
-    /* Fields of Gegl.Curve */
+    /* Fields of Gegl-0.4.Gegl.Curve */
     parent_instance: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Gegl.Curve */
+    /* Methods of Gegl-0.4.Gegl.Curve */
     add_point(x: number, y: number): number
     calc_value(x: number): number
     duplicate(): Curve
@@ -645,7 +645,7 @@ export class Curve {
     get_y_bounds(): [ /* min_y */ number, /* max_y */ number ]
     num_points(): number
     set_point(index: number, x: number, y: number): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -667,7 +667,7 @@ export class Curve {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -675,7 +675,7 @@ export class Curve {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Curve, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Curve, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -694,7 +694,7 @@ export class Curve {
 export interface MetadataHash_ConstructProps extends MetadataStore_ConstructProps {
 }
 export class MetadataHash {
-    /* Properties of Gegl.MetadataStore */
+    /* Properties of Gegl-0.4.Gegl.MetadataStore */
     artist: string
     comment: string
     copyright: string
@@ -709,11 +709,11 @@ export class MetadataHash {
     timestamp: GLib.DateTime
     title: string
     warning: string
-    /* Fields of Gegl.MetadataStore */
+    /* Fields of Gegl-0.4.Gegl.MetadataStore */
     parent_instance: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Gegl.MetadataStore */
+    /* Methods of Gegl-0.4.Gegl.MetadataStore */
     declare(pspec: GObject.ParamSpec): void
     get_artist(): string
     get_comment(): string
@@ -750,7 +750,7 @@ export class MetadataHash {
     set_value(name: string, value: any): void
     set_warning(warning: string): void
     typeof_value(name: string): GObject.Type
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -772,7 +772,7 @@ export class MetadataHash {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of Gegl.Metadata */
+    /* Methods of Gegl-0.4.Gegl.Metadata */
     get_resolution(unit: ResolutionUnit, x: number, y: number): boolean
     iter_get_value(iter: MetadataIter, value: any): boolean
     iter_init(iter: MetadataIter): void
@@ -782,7 +782,7 @@ export class MetadataHash {
     register_map(file_module: string, flags: number, map: MetadataMap[]): void
     set_resolution(unit: ResolutionUnit, x: number, y: number): boolean
     unregister_map(): void
-    /* Virtual methods of Gegl.MetadataStore */
+    /* Virtual methods of Gegl-0.4.Gegl.MetadataStore */
     vfunc__declare(pspec: GObject.ParamSpec, shadow: boolean): void
     vfunc__get_value(name: string): any
     vfunc_has_value(name: string): boolean
@@ -796,7 +796,7 @@ export class MetadataHash {
     vfunc_iter_set_value(iter: MetadataIter, value: any): boolean
     vfunc_register_map(file_module: string, flags: number, map: MetadataMap[]): void
     vfunc_set_resolution(unit: ResolutionUnit, x: number, y: number): boolean
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -804,7 +804,7 @@ export class MetadataHash {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gegl.MetadataStore */
+    /* Signals of Gegl-0.4.Gegl.MetadataStore */
     connect(sigName: "changed", callback: (($obj: MetadataHash, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "changed", callback: (($obj: MetadataHash, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "changed", pspec: GObject.ParamSpec): void
@@ -820,7 +820,7 @@ export class MetadataHash {
     connect(sigName: "unmapped", callback: (($obj: MetadataHash, file_module: string, local_name: string) => void)): number
     connect_after(sigName: "unmapped", callback: (($obj: MetadataHash, file_module: string, local_name: string) => void)): number
     emit(sigName: "unmapped", file_module: string, local_name: string): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: MetadataHash, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: MetadataHash, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -879,7 +879,7 @@ export interface MetadataStore_ConstructProps extends GObject.Object_ConstructPr
     warning?: string
 }
 export class MetadataStore {
-    /* Properties of Gegl.MetadataStore */
+    /* Properties of Gegl-0.4.Gegl.MetadataStore */
     artist: string
     comment: string
     copyright: string
@@ -894,11 +894,11 @@ export class MetadataStore {
     timestamp: GLib.DateTime
     title: string
     warning: string
-    /* Fields of Gegl.MetadataStore */
+    /* Fields of Gegl-0.4.Gegl.MetadataStore */
     parent_instance: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Gegl.MetadataStore */
+    /* Methods of Gegl-0.4.Gegl.MetadataStore */
     declare(pspec: GObject.ParamSpec): void
     get_artist(): string
     get_comment(): string
@@ -935,7 +935,7 @@ export class MetadataStore {
     set_value(name: string, value: any): void
     set_warning(warning: string): void
     typeof_value(name: string): GObject.Type
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -957,7 +957,7 @@ export class MetadataStore {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of Gegl.Metadata */
+    /* Methods of Gegl-0.4.Gegl.Metadata */
     get_resolution(unit: ResolutionUnit, x: number, y: number): boolean
     iter_get_value(iter: MetadataIter, value: any): boolean
     iter_init(iter: MetadataIter): void
@@ -967,7 +967,7 @@ export class MetadataStore {
     register_map(file_module: string, flags: number, map: MetadataMap[]): void
     set_resolution(unit: ResolutionUnit, x: number, y: number): boolean
     unregister_map(): void
-    /* Virtual methods of Gegl.MetadataStore */
+    /* Virtual methods of Gegl-0.4.Gegl.MetadataStore */
     vfunc__declare(pspec: GObject.ParamSpec, shadow: boolean): void
     vfunc__get_value(name: string): any
     vfunc_has_value(name: string): boolean
@@ -981,7 +981,7 @@ export class MetadataStore {
     vfunc_iter_set_value(iter: MetadataIter, value: any): boolean
     vfunc_register_map(file_module: string, flags: number, map: MetadataMap[]): void
     vfunc_set_resolution(unit: ResolutionUnit, x: number, y: number): boolean
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -989,7 +989,7 @@ export class MetadataStore {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gegl.MetadataStore */
+    /* Signals of Gegl-0.4.Gegl.MetadataStore */
     connect(sigName: "changed", callback: (($obj: MetadataStore, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "changed", callback: (($obj: MetadataStore, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "changed", pspec: GObject.ParamSpec): void
@@ -1005,7 +1005,7 @@ export class MetadataStore {
     connect(sigName: "unmapped", callback: (($obj: MetadataStore, file_module: string, local_name: string) => void)): number
     connect_after(sigName: "unmapped", callback: (($obj: MetadataStore, file_module: string, local_name: string) => void)): number
     emit(sigName: "unmapped", file_module: string, local_name: string): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: MetadataStore, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: MetadataStore, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -1056,7 +1056,7 @@ export interface Node_ConstructProps extends GObject.Object_ConstructProps {
     use_opencl?: boolean
 }
 export class Node {
-    /* Properties of Gegl.Node */
+    /* Properties of Gegl-0.4.Gegl.Node */
     cache_policy: CachePolicy
     dont_cache: boolean
     gegl_operation: Operation
@@ -1064,9 +1064,9 @@ export class Node {
     operation: string
     passthrough: boolean
     use_opencl: boolean
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Gegl.Node */
+    /* Methods of Gegl-0.4.Gegl.Node */
     add_child(child: Node): Node
     blit_buffer(buffer: Buffer | null, roi: Rectangle | null, level: number, abyss_policy: AbyssPolicy): void
     connect_from(input_pad_name: string, source: Node, output_pad_name: string): boolean
@@ -1100,7 +1100,7 @@ export class Node {
     set_time(time: number): void
     to_xml(path_root: string): string
     to_xml_full(tail: Node | null, path_root: string): string
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -1122,7 +1122,7 @@ export class Node {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -1130,7 +1130,7 @@ export class Node {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gegl.Node */
+    /* Signals of Gegl-0.4.Gegl.Node */
     connect(sigName: "computed", callback: (($obj: Node, object: Rectangle) => void)): number
     connect_after(sigName: "computed", callback: (($obj: Node, object: Rectangle) => void)): number
     emit(sigName: "computed", object: Rectangle): void
@@ -1140,7 +1140,7 @@ export class Node {
     connect(sigName: "progress", callback: (($obj: Node, object: number) => void)): number
     connect_after(sigName: "progress", callback: (($obj: Node, object: number) => void)): number
     emit(sigName: "progress", object: number): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Node, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Node, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -1175,9 +1175,9 @@ export class Node {
 export interface Operation_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class Operation {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -1199,7 +1199,7 @@ export class Operation {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -1207,7 +1207,7 @@ export class Operation {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Operation, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Operation, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -1229,13 +1229,13 @@ export class Operation {
     static $gtype: GObject.Type
 }
 export class ParamAudioFragment {
-    /* Fields of GObject.ParamSpec */
+    /* Fields of GObject-2.0.GObject.ParamSpec */
     g_type_instance: GObject.TypeInstance
     name: string
     flags: GObject.ParamFlags
     value_type: GObject.Type
     owner_type: GObject.Type
-    /* Methods of GObject.ParamSpec */
+    /* Methods of GObject-2.0.GObject.ParamSpec */
     get_blurb(): string | null
     get_default_value(): GObject.Value
     get_name(): string
@@ -1246,7 +1246,7 @@ export class ParamAudioFragment {
     set_qdata(quark: GLib.Quark, data?: object | null): void
     sink(): void
     steal_qdata(quark: GLib.Quark): object | null
-    /* Virtual methods of GObject.ParamSpec */
+    /* Virtual methods of GObject-2.0.GObject.ParamSpec */
     vfunc_finalize(): void
     vfunc_value_set_default(value: GObject.Value): void
     vfunc_value_validate(value: GObject.Value): boolean
@@ -1254,13 +1254,13 @@ export class ParamAudioFragment {
     static name: string
 }
 export class ParamColor {
-    /* Fields of GObject.ParamSpec */
+    /* Fields of GObject-2.0.GObject.ParamSpec */
     g_type_instance: GObject.TypeInstance
     name: string
     flags: GObject.ParamFlags
     value_type: GObject.Type
     owner_type: GObject.Type
-    /* Methods of GObject.ParamSpec */
+    /* Methods of GObject-2.0.GObject.ParamSpec */
     get_blurb(): string | null
     get_default_value(): GObject.Value
     get_name(): string
@@ -1271,7 +1271,7 @@ export class ParamColor {
     set_qdata(quark: GLib.Quark, data?: object | null): void
     sink(): void
     steal_qdata(quark: GLib.Quark): object | null
-    /* Virtual methods of GObject.ParamSpec */
+    /* Virtual methods of GObject-2.0.GObject.ParamSpec */
     vfunc_finalize(): void
     vfunc_value_set_default(value: GObject.Value): void
     vfunc_value_validate(value: GObject.Value): boolean
@@ -1279,13 +1279,13 @@ export class ParamColor {
     static name: string
 }
 export class ParamCurve {
-    /* Fields of GObject.ParamSpec */
+    /* Fields of GObject-2.0.GObject.ParamSpec */
     g_type_instance: GObject.TypeInstance
     name: string
     flags: GObject.ParamFlags
     value_type: GObject.Type
     owner_type: GObject.Type
-    /* Methods of GObject.ParamSpec */
+    /* Methods of GObject-2.0.GObject.ParamSpec */
     get_blurb(): string | null
     get_default_value(): GObject.Value
     get_name(): string
@@ -1296,7 +1296,7 @@ export class ParamCurve {
     set_qdata(quark: GLib.Quark, data?: object | null): void
     sink(): void
     steal_qdata(quark: GLib.Quark): object | null
-    /* Virtual methods of GObject.ParamSpec */
+    /* Virtual methods of GObject-2.0.GObject.ParamSpec */
     vfunc_finalize(): void
     vfunc_value_set_default(value: GObject.Value): void
     vfunc_value_validate(value: GObject.Value): boolean
@@ -1304,19 +1304,19 @@ export class ParamCurve {
     static name: string
 }
 export class ParamDouble {
-    /* Fields of GObject.ParamSpecDouble */
+    /* Fields of GObject-2.0.GObject.ParamSpecDouble */
     parent_instance: GObject.ParamSpec
     minimum: number
     maximum: number
     default_value: number
     epsilon: number
-    /* Fields of GObject.ParamSpec */
+    /* Fields of GObject-2.0.GObject.ParamSpec */
     g_type_instance: GObject.TypeInstance
     name: string
     flags: GObject.ParamFlags
     value_type: GObject.Type
     owner_type: GObject.Type
-    /* Methods of GObject.ParamSpec */
+    /* Methods of GObject-2.0.GObject.ParamSpec */
     get_blurb(): string | null
     get_default_value(): GObject.Value
     get_name(): string
@@ -1327,7 +1327,7 @@ export class ParamDouble {
     set_qdata(quark: GLib.Quark, data?: object | null): void
     sink(): void
     steal_qdata(quark: GLib.Quark): object | null
-    /* Virtual methods of GObject.ParamSpec */
+    /* Virtual methods of GObject-2.0.GObject.ParamSpec */
     vfunc_finalize(): void
     vfunc_value_set_default(value: GObject.Value): void
     vfunc_value_validate(value: GObject.Value): boolean
@@ -1335,17 +1335,17 @@ export class ParamDouble {
     static name: string
 }
 export class ParamEnum {
-    /* Fields of GObject.ParamSpecEnum */
+    /* Fields of GObject-2.0.GObject.ParamSpecEnum */
     parent_instance: GObject.ParamSpec
     enum_class: GObject.EnumClass
     default_value: number
-    /* Fields of GObject.ParamSpec */
+    /* Fields of GObject-2.0.GObject.ParamSpec */
     g_type_instance: GObject.TypeInstance
     name: string
     flags: GObject.ParamFlags
     value_type: GObject.Type
     owner_type: GObject.Type
-    /* Methods of GObject.ParamSpec */
+    /* Methods of GObject-2.0.GObject.ParamSpec */
     get_blurb(): string | null
     get_default_value(): GObject.Value
     get_name(): string
@@ -1356,7 +1356,7 @@ export class ParamEnum {
     set_qdata(quark: GLib.Quark, data?: object | null): void
     sink(): void
     steal_qdata(quark: GLib.Quark): object | null
-    /* Virtual methods of GObject.ParamSpec */
+    /* Virtual methods of GObject-2.0.GObject.ParamSpec */
     vfunc_finalize(): void
     vfunc_value_set_default(value: GObject.Value): void
     vfunc_value_validate(value: GObject.Value): boolean
@@ -1364,7 +1364,7 @@ export class ParamEnum {
     static name: string
 }
 export class ParamFilePath {
-    /* Fields of GObject.ParamSpecString */
+    /* Fields of GObject-2.0.GObject.ParamSpecString */
     parent_instance: GObject.ParamSpec
     default_value: string
     cset_first: string
@@ -1372,13 +1372,13 @@ export class ParamFilePath {
     substitutor: number
     null_fold_if_empty: number
     ensure_non_null: number
-    /* Fields of GObject.ParamSpec */
+    /* Fields of GObject-2.0.GObject.ParamSpec */
     g_type_instance: GObject.TypeInstance
     name: string
     flags: GObject.ParamFlags
     value_type: GObject.Type
     owner_type: GObject.Type
-    /* Methods of GObject.ParamSpec */
+    /* Methods of GObject-2.0.GObject.ParamSpec */
     get_blurb(): string | null
     get_default_value(): GObject.Value
     get_name(): string
@@ -1389,7 +1389,7 @@ export class ParamFilePath {
     set_qdata(quark: GLib.Quark, data?: object | null): void
     sink(): void
     steal_qdata(quark: GLib.Quark): object | null
-    /* Virtual methods of GObject.ParamSpec */
+    /* Virtual methods of GObject-2.0.GObject.ParamSpec */
     vfunc_finalize(): void
     vfunc_value_set_default(value: GObject.Value): void
     vfunc_value_validate(value: GObject.Value): boolean
@@ -1397,15 +1397,15 @@ export class ParamFilePath {
     static name: string
 }
 export class ParamFormat {
-    /* Fields of GObject.ParamSpecPointer */
+    /* Fields of GObject-2.0.GObject.ParamSpecPointer */
     parent_instance: GObject.ParamSpec
-    /* Fields of GObject.ParamSpec */
+    /* Fields of GObject-2.0.GObject.ParamSpec */
     g_type_instance: GObject.TypeInstance
     name: string
     flags: GObject.ParamFlags
     value_type: GObject.Type
     owner_type: GObject.Type
-    /* Methods of GObject.ParamSpec */
+    /* Methods of GObject-2.0.GObject.ParamSpec */
     get_blurb(): string | null
     get_default_value(): GObject.Value
     get_name(): string
@@ -1416,7 +1416,7 @@ export class ParamFormat {
     set_qdata(quark: GLib.Quark, data?: object | null): void
     sink(): void
     steal_qdata(quark: GLib.Quark): object | null
-    /* Virtual methods of GObject.ParamSpec */
+    /* Virtual methods of GObject-2.0.GObject.ParamSpec */
     vfunc_finalize(): void
     vfunc_value_set_default(value: GObject.Value): void
     vfunc_value_validate(value: GObject.Value): boolean
@@ -1424,18 +1424,18 @@ export class ParamFormat {
     static name: string
 }
 export class ParamInt {
-    /* Fields of GObject.ParamSpecInt */
+    /* Fields of GObject-2.0.GObject.ParamSpecInt */
     parent_instance: GObject.ParamSpec
     minimum: number
     maximum: number
     default_value: number
-    /* Fields of GObject.ParamSpec */
+    /* Fields of GObject-2.0.GObject.ParamSpec */
     g_type_instance: GObject.TypeInstance
     name: string
     flags: GObject.ParamFlags
     value_type: GObject.Type
     owner_type: GObject.Type
-    /* Methods of GObject.ParamSpec */
+    /* Methods of GObject-2.0.GObject.ParamSpec */
     get_blurb(): string | null
     get_default_value(): GObject.Value
     get_name(): string
@@ -1446,7 +1446,7 @@ export class ParamInt {
     set_qdata(quark: GLib.Quark, data?: object | null): void
     sink(): void
     steal_qdata(quark: GLib.Quark): object | null
-    /* Virtual methods of GObject.ParamSpec */
+    /* Virtual methods of GObject-2.0.GObject.ParamSpec */
     vfunc_finalize(): void
     vfunc_value_set_default(value: GObject.Value): void
     vfunc_value_validate(value: GObject.Value): boolean
@@ -1454,13 +1454,13 @@ export class ParamInt {
     static name: string
 }
 export class ParamPath {
-    /* Fields of GObject.ParamSpec */
+    /* Fields of GObject-2.0.GObject.ParamSpec */
     g_type_instance: GObject.TypeInstance
     name: string
     flags: GObject.ParamFlags
     value_type: GObject.Type
     owner_type: GObject.Type
-    /* Methods of GObject.ParamSpec */
+    /* Methods of GObject-2.0.GObject.ParamSpec */
     get_blurb(): string | null
     get_default_value(): GObject.Value
     get_name(): string
@@ -1471,7 +1471,7 @@ export class ParamPath {
     set_qdata(quark: GLib.Quark, data?: object | null): void
     sink(): void
     steal_qdata(quark: GLib.Quark): object | null
-    /* Virtual methods of GObject.ParamSpec */
+    /* Virtual methods of GObject-2.0.GObject.ParamSpec */
     vfunc_finalize(): void
     vfunc_value_set_default(value: GObject.Value): void
     vfunc_value_validate(value: GObject.Value): boolean
@@ -1479,18 +1479,18 @@ export class ParamPath {
     static name: string
 }
 export class ParamSeed {
-    /* Fields of GObject.ParamSpecUInt */
+    /* Fields of GObject-2.0.GObject.ParamSpecUInt */
     parent_instance: GObject.ParamSpec
     minimum: number
     maximum: number
     default_value: number
-    /* Fields of GObject.ParamSpec */
+    /* Fields of GObject-2.0.GObject.ParamSpec */
     g_type_instance: GObject.TypeInstance
     name: string
     flags: GObject.ParamFlags
     value_type: GObject.Type
     owner_type: GObject.Type
-    /* Methods of GObject.ParamSpec */
+    /* Methods of GObject-2.0.GObject.ParamSpec */
     get_blurb(): string | null
     get_default_value(): GObject.Value
     get_name(): string
@@ -1501,7 +1501,7 @@ export class ParamSeed {
     set_qdata(quark: GLib.Quark, data?: object | null): void
     sink(): void
     steal_qdata(quark: GLib.Quark): object | null
-    /* Virtual methods of GObject.ParamSpec */
+    /* Virtual methods of GObject-2.0.GObject.ParamSpec */
     vfunc_finalize(): void
     vfunc_value_set_default(value: GObject.Value): void
     vfunc_value_validate(value: GObject.Value): boolean
@@ -1509,7 +1509,7 @@ export class ParamSeed {
     static name: string
 }
 export class ParamString {
-    /* Fields of GObject.ParamSpecString */
+    /* Fields of GObject-2.0.GObject.ParamSpecString */
     parent_instance: GObject.ParamSpec
     default_value: string
     cset_first: string
@@ -1517,13 +1517,13 @@ export class ParamString {
     substitutor: number
     null_fold_if_empty: number
     ensure_non_null: number
-    /* Fields of GObject.ParamSpec */
+    /* Fields of GObject-2.0.GObject.ParamSpec */
     g_type_instance: GObject.TypeInstance
     name: string
     flags: GObject.ParamFlags
     value_type: GObject.Type
     owner_type: GObject.Type
-    /* Methods of GObject.ParamSpec */
+    /* Methods of GObject-2.0.GObject.ParamSpec */
     get_blurb(): string | null
     get_default_value(): GObject.Value
     get_name(): string
@@ -1534,7 +1534,7 @@ export class ParamString {
     set_qdata(quark: GLib.Quark, data?: object | null): void
     sink(): void
     steal_qdata(quark: GLib.Quark): object | null
-    /* Virtual methods of GObject.ParamSpec */
+    /* Virtual methods of GObject-2.0.GObject.ParamSpec */
     vfunc_finalize(): void
     vfunc_value_set_default(value: GObject.Value): void
     vfunc_value_validate(value: GObject.Value): boolean
@@ -1542,7 +1542,7 @@ export class ParamString {
     static name: string
 }
 export class ParamUri {
-    /* Fields of GObject.ParamSpecString */
+    /* Fields of GObject-2.0.GObject.ParamSpecString */
     parent_instance: GObject.ParamSpec
     default_value: string
     cset_first: string
@@ -1550,13 +1550,13 @@ export class ParamUri {
     substitutor: number
     null_fold_if_empty: number
     ensure_non_null: number
-    /* Fields of GObject.ParamSpec */
+    /* Fields of GObject-2.0.GObject.ParamSpec */
     g_type_instance: GObject.TypeInstance
     name: string
     flags: GObject.ParamFlags
     value_type: GObject.Type
     owner_type: GObject.Type
-    /* Methods of GObject.ParamSpec */
+    /* Methods of GObject-2.0.GObject.ParamSpec */
     get_blurb(): string | null
     get_default_value(): GObject.Value
     get_name(): string
@@ -1567,7 +1567,7 @@ export class ParamUri {
     set_qdata(quark: GLib.Quark, data?: object | null): void
     sink(): void
     steal_qdata(quark: GLib.Quark): object | null
-    /* Virtual methods of GObject.ParamSpec */
+    /* Virtual methods of GObject-2.0.GObject.ParamSpec */
     vfunc_finalize(): void
     vfunc_value_set_default(value: GObject.Value): void
     vfunc_value_validate(value: GObject.Value): boolean
@@ -1577,11 +1577,11 @@ export class ParamUri {
 export interface Path_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class Path {
-    /* Fields of Gegl.Path */
+    /* Fields of Gegl-0.4.Gegl.Path */
     parent_instance: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Gegl.Path */
+    /* Methods of Gegl-0.4.Gegl.Path */
     calc(pos: number): [ /* returnType */ boolean, /* x */ number, /* y */ number ]
     calc_y_for_x(x: number): [ /* returnType */ number, /* y */ number ]
     clear(): void
@@ -1603,7 +1603,7 @@ export class Path {
     set_matrix(matrix: Matrix3): void
     thaw(): void
     to_string(): string
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -1625,7 +1625,7 @@ export class Path {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -1633,11 +1633,11 @@ export class Path {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gegl.Path */
+    /* Signals of Gegl-0.4.Gegl.Path */
     connect(sigName: "changed", callback: (($obj: Path, object?: object | null) => void)): number
     connect_after(sigName: "changed", callback: (($obj: Path, object?: object | null) => void)): number
     emit(sigName: "changed", object?: object | null): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Path, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Path, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -1661,19 +1661,19 @@ export interface Processor_ConstructProps extends GObject.Object_ConstructProps 
     rectangle?: object
 }
 export class Processor {
-    /* Properties of Gegl.Processor */
+    /* Properties of Gegl-0.4.Gegl.Processor */
     node: Node
     progress: number
     rectangle: object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Gegl.Processor */
+    /* Methods of Gegl-0.4.Gegl.Processor */
     get_buffer(): Buffer
     set_level(level: number): void
     set_rectangle(rectangle: Rectangle): void
     set_scale(scale: number): void
     work(): [ /* returnType */ boolean, /* progress */ number ]
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -1695,7 +1695,7 @@ export class Processor {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -1703,7 +1703,7 @@ export class Processor {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Processor, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Processor, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -1725,7 +1725,7 @@ export class Processor {
 export interface Stats_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class Stats {
-    /* Properties of Gegl.Stats */
+    /* Properties of Gegl-0.4.Gegl.Stats */
     readonly active_threads: number
     readonly assigned_threads: number
     readonly scratch_total: number
@@ -1747,9 +1747,9 @@ export class Stats {
     readonly tile_cache_total_max: number
     readonly tile_cache_total_uncompressed: number
     readonly zoom_total: number
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -1771,7 +1771,7 @@ export class Stats {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -1779,7 +1779,7 @@ export class Stats {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Stats, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Stats, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -1841,19 +1841,19 @@ export interface TileBackend_ConstructProps extends TileSource_ConstructProps {
     tile_width?: number
 }
 export class TileBackend {
-    /* Properties of Gegl.TileBackend */
+    /* Properties of Gegl-0.4.Gegl.TileBackend */
     flush_on_destroy: boolean
     readonly px_size: number
     readonly tile_size: number
-    /* Fields of Gegl.TileBackend */
+    /* Fields of Gegl-0.4.Gegl.TileBackend */
     parent_instance: TileSource
     priv: TileBackendPrivate
-    /* Fields of Gegl.TileSource */
+    /* Fields of Gegl-0.4.Gegl.TileSource */
     command: TileSourceCommand
     padding: object[]
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Gegl.TileBackend */
+    /* Methods of Gegl-0.4.Gegl.TileBackend */
     get_flush_on_destroy(): boolean
     get_tile_height(): number
     get_tile_size(): number
@@ -1861,7 +1861,7 @@ export class TileBackend {
     peek_storage(): TileSource
     set_extent(rectangle: Rectangle): void
     set_flush_on_destroy(flush_on_destroy: boolean): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -1883,7 +1883,7 @@ export class TileBackend {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -1891,7 +1891,7 @@ export class TileBackend {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: TileBackend, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: TileBackend, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -1916,23 +1916,23 @@ export interface TileHandler_ConstructProps extends TileSource_ConstructProps {
     source?: GObject.Object
 }
 export class TileHandler {
-    /* Properties of Gegl.TileHandler */
+    /* Properties of Gegl-0.4.Gegl.TileHandler */
     source: GObject.Object
-    /* Fields of Gegl.TileHandler */
+    /* Fields of Gegl-0.4.Gegl.TileHandler */
     parent_instance: TileSource
     priv: TileHandlerPrivate
-    /* Fields of Gegl.TileSource */
+    /* Fields of Gegl-0.4.Gegl.TileSource */
     command: TileSourceCommand
     padding: object[]
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Gegl.TileHandler */
+    /* Methods of Gegl-0.4.Gegl.TileHandler */
     damage_rect(rect: Rectangle): void
     damage_tile(x: number, y: number, z: number, damage: number): void
     lock(): void
     set_source(source: TileSource): void
     unlock(): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -1954,7 +1954,7 @@ export class TileHandler {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -1962,7 +1962,7 @@ export class TileHandler {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: TileHandler, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: TileHandler, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -1980,13 +1980,13 @@ export class TileHandler {
 export interface TileSource_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class TileSource {
-    /* Fields of Gegl.TileSource */
+    /* Fields of Gegl-0.4.Gegl.TileSource */
     parent_instance: GObject.Object
     command: TileSourceCommand
     padding: object[]
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -2008,7 +2008,7 @@ export class TileSource {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -2016,7 +2016,7 @@ export class TileSource {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: TileSource, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: TileSource, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -2030,7 +2030,7 @@ export class TileSource {
     static $gtype: GObject.Type
 }
 export abstract class AudioFragmentClass {
-    /* Fields of Gegl.AudioFragmentClass */
+    /* Fields of Gegl-0.4.Gegl.AudioFragmentClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
@@ -2038,14 +2038,14 @@ export class AudioFragmentPrivate {
     static name: string
 }
 export class BufferIterator {
-    /* Fields of Gegl.BufferIterator */
+    /* Fields of Gegl-0.4.Gegl.BufferIterator */
     length: number
     priv: BufferIteratorPriv
     items: BufferIteratorItem[]
     static name: string
 }
 export class BufferIteratorItem {
-    /* Fields of Gegl.BufferIteratorItem */
+    /* Fields of Gegl-0.4.Gegl.BufferIteratorItem */
     data: object
     roi: Rectangle
     static name: string
@@ -2054,16 +2054,16 @@ export class BufferIteratorPriv {
     static name: string
 }
 export class BufferMatrix2 {
-    /* Fields of Gegl.BufferMatrix2 */
+    /* Fields of Gegl-0.4.Gegl.BufferMatrix2 */
     coeff: number[]
-    /* Methods of Gegl.BufferMatrix2 */
+    /* Methods of Gegl-0.4.Gegl.BufferMatrix2 */
     determinant(): number
     is_identity(): boolean
     is_scale(): boolean
     static name: string
 }
 export abstract class ColorClass {
-    /* Fields of Gegl.ColorClass */
+    /* Fields of Gegl-0.4.Gegl.ColorClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
@@ -2071,12 +2071,12 @@ export class ColorPrivate {
     static name: string
 }
 export abstract class CurveClass {
-    /* Fields of Gegl.CurveClass */
+    /* Fields of Gegl-0.4.Gegl.CurveClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
 export class Lookup {
-    /* Fields of Gegl.Lookup */
+    /* Fields of Gegl-0.4.Gegl.Lookup */
     function_: LookupFunction
     data: object
     shift: number
@@ -2089,9 +2089,9 @@ export class Lookup {
     static name: string
 }
 export class Matrix3 {
-    /* Fields of Gegl.Matrix3 */
+    /* Fields of Gegl-0.4.Gegl.Matrix3 */
     coeff: number[]
-    /* Methods of Gegl.Matrix3 */
+    /* Methods of Gegl-0.4.Gegl.Matrix3 */
     copy(): Matrix3
     copy_into(src: Matrix3): void
     determinant(): number
@@ -2115,12 +2115,12 @@ export class Matrix3 {
     static new(): Matrix3
 }
 export abstract class MetadataHashClass {
-    /* Fields of Gegl.MetadataHashClass */
+    /* Fields of Gegl-0.4.Gegl.MetadataHashClass */
     parent_class: MetadataStoreClass
     static name: string
 }
 export abstract class MetadataInterface {
-    /* Fields of Gegl.MetadataInterface */
+    /* Fields of Gegl-0.4.Gegl.MetadataInterface */
     register_map: (metadata: Metadata, file_module: string, flags: number, map: MetadataMap[]) => void
     set_resolution: (metadata: Metadata, unit: ResolutionUnit, x: number, y: number) => boolean
     get_resolution: (metadata: Metadata, unit: ResolutionUnit, x: number, y: number) => boolean
@@ -2135,14 +2135,14 @@ export class MetadataIter {
     static name: string
 }
 export class MetadataMap {
-    /* Fields of Gegl.MetadataMap */
+    /* Fields of Gegl-0.4.Gegl.MetadataMap */
     local_name: string
     name: string
     transform: GObject.ValueTransform
     static name: string
 }
 export abstract class MetadataStoreClass {
-    /* Fields of Gegl.MetadataStoreClass */
+    /* Fields of Gegl-0.4.Gegl.MetadataStoreClass */
     set_value: (self: MetadataStore, name: string, value: any) => void
     has_value: (self: MetadataStore, name: string) => boolean
     register_hook: (self: MetadataStore, file_module_name: string, flags: number) => void
@@ -2152,7 +2152,7 @@ export class OperationContext {
     static name: string
 }
 export class ParamSpecDouble {
-    /* Fields of Gegl.ParamSpecDouble */
+    /* Fields of Gegl-0.4.Gegl.ParamSpecDouble */
     parent_instance: GObject.ParamSpecDouble
     ui_minimum: number
     ui_maximum: number
@@ -2160,59 +2160,59 @@ export class ParamSpecDouble {
     ui_step_small: number
     ui_step_big: number
     ui_digits: number
-    /* Methods of Gegl.ParamSpecDouble */
+    /* Methods of Gegl-0.4.Gegl.ParamSpecDouble */
     set_digits(digits: number): void
     set_steps(small_step: number, big_step: number): void
     static name: string
 }
 export class ParamSpecEnum {
-    /* Fields of Gegl.ParamSpecEnum */
+    /* Fields of Gegl-0.4.Gegl.ParamSpecEnum */
     parent_instance: GObject.ParamSpecEnum
     excluded_values: object[]
-    /* Methods of Gegl.ParamSpecEnum */
+    /* Methods of Gegl-0.4.Gegl.ParamSpecEnum */
     exclude_value(value: number): void
     static name: string
 }
 export class ParamSpecFilePath {
-    /* Fields of Gegl.ParamSpecFilePath */
+    /* Fields of Gegl-0.4.Gegl.ParamSpecFilePath */
     parent_instance: GObject.ParamSpecString
     no_validate: number
     null_ok: number
     static name: string
 }
 export class ParamSpecFormat {
-    /* Fields of Gegl.ParamSpecFormat */
+    /* Fields of Gegl-0.4.Gegl.ParamSpecFormat */
     parent_instance: GObject.ParamSpecPointer
     static name: string
 }
 export class ParamSpecInt {
-    /* Fields of Gegl.ParamSpecInt */
+    /* Fields of Gegl-0.4.Gegl.ParamSpecInt */
     parent_instance: GObject.ParamSpecInt
     ui_minimum: number
     ui_maximum: number
     ui_gamma: number
     ui_step_small: number
     ui_step_big: number
-    /* Methods of Gegl.ParamSpecInt */
+    /* Methods of Gegl-0.4.Gegl.ParamSpecInt */
     set_steps(small_step: number, big_step: number): void
     static name: string
 }
 export class ParamSpecSeed {
-    /* Fields of Gegl.ParamSpecSeed */
+    /* Fields of Gegl-0.4.Gegl.ParamSpecSeed */
     parent_instance: GObject.ParamSpecUInt
     ui_minimum: number
     ui_maximum: number
     static name: string
 }
 export class ParamSpecString {
-    /* Fields of Gegl.ParamSpecString */
+    /* Fields of Gegl-0.4.Gegl.ParamSpecString */
     parent_instance: GObject.ParamSpecString
     no_validate: number
     null_ok: number
     static name: string
 }
 export class ParamSpecUri {
-    /* Fields of Gegl.ParamSpecUri */
+    /* Fields of Gegl-0.4.Gegl.ParamSpecUri */
     parent_instance: GObject.ParamSpecString
     no_validate: number
     null_ok: number
@@ -2222,25 +2222,25 @@ export abstract class PathClass {
     static name: string
 }
 export class PathItem {
-    /* Fields of Gegl.PathItem */
+    /* Fields of Gegl-0.4.Gegl.PathItem */
     type: number
     point: PathPoint[]
     static name: string
 }
 export class PathList {
-    /* Fields of Gegl.PathList */
+    /* Fields of Gegl-0.4.Gegl.PathList */
     next: object
     d: PathItem
     static name: string
 }
 export class PathPoint {
-    /* Fields of Gegl.PathPoint */
+    /* Fields of Gegl-0.4.Gegl.PathPoint */
     x: number
     y: number
     static name: string
 }
 export class Random {
-    /* Methods of Gegl.Random */
+    /* Methods of Gegl-0.4.Gegl.Random */
     duplicate(): Random
     float(x: number, y: number, z: number, n: number): number
     float_range(x: number, y: number, z: number, n: number, min: number, max: number): number
@@ -2256,12 +2256,12 @@ export class Random {
     static new_with_seed(seed: number): Random
 }
 export class Rectangle {
-    /* Fields of Gegl.Rectangle */
+    /* Fields of Gegl-0.4.Gegl.Rectangle */
     x: number
     y: number
     width: number
     height: number
-    /* Methods of Gegl.Rectangle */
+    /* Methods of Gegl-0.4.Gegl.Rectangle */
     align(rectangle: Rectangle, tile: Rectangle, alignment: RectangleAlignment): boolean
     align_to_buffer(rectangle: Rectangle, buffer: Buffer, alignment: RectangleAlignment): boolean
     bounding_box(source1: Rectangle, source2: Rectangle): void
@@ -2286,7 +2286,7 @@ export class Rectangle {
     static infinite_plane(): Rectangle
 }
 export class Sampler {
-    /* Methods of Gegl.Sampler */
+    /* Methods of Gegl-0.4.Gegl.Sampler */
     get(x: number, y: number, scale: BufferMatrix2, output: object | null, repeat_mode: AbyssPolicy): void
     get_context_rect(): Rectangle
     static name: string
@@ -2295,7 +2295,7 @@ export class Tile {
     static name: string
 }
 export abstract class TileBackendClass {
-    /* Fields of Gegl.TileBackendClass */
+    /* Fields of Gegl-0.4.Gegl.TileBackendClass */
     parent_class: TileSourceClass
     padding: object[]
     static name: string
@@ -2304,7 +2304,7 @@ export class TileBackendPrivate {
     static name: string
 }
 export class TileCopyParams {
-    /* Fields of Gegl.TileCopyParams */
+    /* Fields of Gegl-0.4.Gegl.TileCopyParams */
     dst_buffer: Buffer
     dst_x: number
     dst_y: number
@@ -2312,7 +2312,7 @@ export class TileCopyParams {
     static name: string
 }
 export abstract class TileHandlerClass {
-    /* Fields of Gegl.TileHandlerClass */
+    /* Fields of Gegl-0.4.Gegl.TileHandlerClass */
     parent_class: TileSourceClass
     static name: string
 }
@@ -2320,7 +2320,7 @@ export class TileHandlerPrivate {
     static name: string
 }
 export abstract class TileSourceClass {
-    /* Fields of Gegl.TileSourceClass */
+    /* Fields of Gegl-0.4.Gegl.TileSourceClass */
     parent_class: GObject.ObjectClass
     padding: object[]
     static name: string

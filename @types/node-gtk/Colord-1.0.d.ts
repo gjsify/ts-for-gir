@@ -363,16 +363,16 @@ export function standardSpaceToString(standardSpace: StandardSpace): string
 export interface Client_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class Client {
-    /* Properties of Colord.Client */
+    /* Properties of Colord-1.0.Colord.Client */
     readonly connected: string
     readonly daemonVersion: string
     readonly systemModel: string
     readonly systemVendor: string
-    /* Fields of Colord.Client */
+    /* Fields of Colord-1.0.Colord.Client */
     parentInstance: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Colord.Client */
+    /* Methods of Colord-1.0.Colord.Client */
     connect(cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     connectFinish(res: Gio.AsyncResult): boolean
     connectSync(cancellable?: Gio.Cancellable | null): boolean
@@ -432,7 +432,7 @@ export class Client {
     importProfile(file: Gio.File, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     importProfileFinish(res: Gio.AsyncResult): Profile
     importProfileSync(file: Gio.File, cancellable?: Gio.Cancellable | null): Profile
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -454,93 +454,63 @@ export class Client {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of Colord.Client */
-    vfuncChanged(): void
-    vfuncDeviceAdded(device: Device): void
-    vfuncDeviceChanged(device: Device): void
-    vfuncDeviceRemoved(device: Device): void
-    vfuncProfileAdded(profile: Profile): void
-    vfuncProfileChanged(profile: Profile): void
-    vfuncProfileRemoved(profile: Profile): void
-    vfuncSensorAdded(sensor: Sensor): void
-    vfuncSensorChanged(sensor: Sensor): void
-    vfuncSensorRemoved(sensor: Sensor): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Colord.Client */
+    /* Signals of Colord-1.0.Colord.Client */
     connect(sigName: "changed", callback: (($obj: Client) => void)): number
-    connect_after(sigName: "changed", callback: (($obj: Client) => void)): number
+    on(sigName: "changed", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "changed", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "changed", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "changed"): void
-    on(sigName: "changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "device-added", callback: (($obj: Client, device: Device) => void)): number
-    connect_after(sigName: "device-added", callback: (($obj: Client, device: Device) => void)): number
+    on(sigName: "device-added", callback: (device: Device) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "device-added", callback: (device: Device) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "device-added", callback: (device: Device) => void): NodeJS.EventEmitter
     emit(sigName: "device-added", device: Device): void
-    on(sigName: "device-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "device-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "device-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "device-changed", callback: (($obj: Client, device: Device) => void)): number
-    connect_after(sigName: "device-changed", callback: (($obj: Client, device: Device) => void)): number
+    on(sigName: "device-changed", callback: (device: Device) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "device-changed", callback: (device: Device) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "device-changed", callback: (device: Device) => void): NodeJS.EventEmitter
     emit(sigName: "device-changed", device: Device): void
-    on(sigName: "device-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "device-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "device-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "device-removed", callback: (($obj: Client, device: Device) => void)): number
-    connect_after(sigName: "device-removed", callback: (($obj: Client, device: Device) => void)): number
+    on(sigName: "device-removed", callback: (device: Device) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "device-removed", callback: (device: Device) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "device-removed", callback: (device: Device) => void): NodeJS.EventEmitter
     emit(sigName: "device-removed", device: Device): void
-    on(sigName: "device-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "device-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "device-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "profile-added", callback: (($obj: Client, profile: Profile) => void)): number
-    connect_after(sigName: "profile-added", callback: (($obj: Client, profile: Profile) => void)): number
+    on(sigName: "profile-added", callback: (profile: Profile) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "profile-added", callback: (profile: Profile) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "profile-added", callback: (profile: Profile) => void): NodeJS.EventEmitter
     emit(sigName: "profile-added", profile: Profile): void
-    on(sigName: "profile-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "profile-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "profile-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "profile-changed", callback: (($obj: Client, profile: Profile) => void)): number
-    connect_after(sigName: "profile-changed", callback: (($obj: Client, profile: Profile) => void)): number
+    on(sigName: "profile-changed", callback: (profile: Profile) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "profile-changed", callback: (profile: Profile) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "profile-changed", callback: (profile: Profile) => void): NodeJS.EventEmitter
     emit(sigName: "profile-changed", profile: Profile): void
-    on(sigName: "profile-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "profile-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "profile-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "profile-removed", callback: (($obj: Client, profile: Profile) => void)): number
-    connect_after(sigName: "profile-removed", callback: (($obj: Client, profile: Profile) => void)): number
+    on(sigName: "profile-removed", callback: (profile: Profile) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "profile-removed", callback: (profile: Profile) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "profile-removed", callback: (profile: Profile) => void): NodeJS.EventEmitter
     emit(sigName: "profile-removed", profile: Profile): void
-    on(sigName: "profile-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "profile-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "profile-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "sensor-added", callback: (($obj: Client, sensor: Sensor) => void)): number
-    connect_after(sigName: "sensor-added", callback: (($obj: Client, sensor: Sensor) => void)): number
+    on(sigName: "sensor-added", callback: (sensor: Sensor) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "sensor-added", callback: (sensor: Sensor) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "sensor-added", callback: (sensor: Sensor) => void): NodeJS.EventEmitter
     emit(sigName: "sensor-added", sensor: Sensor): void
-    on(sigName: "sensor-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "sensor-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "sensor-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "sensor-changed", callback: (($obj: Client, sensor: Sensor) => void)): number
-    connect_after(sigName: "sensor-changed", callback: (($obj: Client, sensor: Sensor) => void)): number
+    on(sigName: "sensor-changed", callback: (sensor: Sensor) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "sensor-changed", callback: (sensor: Sensor) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "sensor-changed", callback: (sensor: Sensor) => void): NodeJS.EventEmitter
     emit(sigName: "sensor-changed", sensor: Sensor): void
-    on(sigName: "sensor-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "sensor-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "sensor-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "sensor-removed", callback: (($obj: Client, sensor: Sensor) => void)): number
-    connect_after(sigName: "sensor-removed", callback: (($obj: Client, sensor: Sensor) => void)): number
+    on(sigName: "sensor-removed", callback: (sensor: Sensor) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "sensor-removed", callback: (sensor: Sensor) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "sensor-removed", callback: (sensor: Sensor) => void): NodeJS.EventEmitter
     emit(sigName: "sensor-removed", sensor: Sensor): void
-    on(sigName: "sensor-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "sensor-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "sensor-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Client, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Client, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::connected", callback: (($obj: Client, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::connected", callback: (($obj: Client, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::connected", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -582,7 +552,7 @@ export interface Device_ConstructProps extends GObject.Object_ConstructProps {
     objectPath?: string
 }
 export class Device {
-    /* Properties of Colord.Device */
+    /* Properties of Colord-1.0.Colord.Device */
     readonly colorspace: number
     readonly connected: string
     readonly created: number
@@ -601,11 +571,11 @@ export class Device {
     readonly seat: string
     readonly serial: string
     readonly vendor: string
-    /* Fields of Colord.Device */
+    /* Fields of Colord-1.0.Colord.Device */
     parentInstance: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Colord.Device */
+    /* Methods of Colord-1.0.Colord.Device */
     addProfile(relation: DeviceRelation, profile: Profile, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     addProfileFinish(res: Gio.AsyncResult): boolean
     addProfileSync(relation: DeviceRelation, profile: Profile, cancellable?: Gio.Cancellable | null): boolean
@@ -667,7 +637,7 @@ export class Device {
     setSerialSync(value: string, cancellable?: Gio.Cancellable | null): boolean
     setVendorSync(value: string, cancellable?: Gio.Cancellable | null): boolean
     toString(): string
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -689,30 +659,18 @@ export class Device {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of Colord.Device */
-    vfuncChanged(): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Colord.Device */
+    /* Signals of Colord-1.0.Colord.Device */
     connect(sigName: "changed", callback: (($obj: Device) => void)): number
-    connect_after(sigName: "changed", callback: (($obj: Device) => void)): number
+    on(sigName: "changed", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "changed", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "changed", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "changed"): void
-    on(sigName: "changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Device, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Device, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::colorspace", callback: (($obj: Device, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::colorspace", callback: (($obj: Device, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::colorspace", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -831,11 +789,11 @@ export class Device {
 export interface Edid_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class Edid {
-    /* Fields of Colord.Edid */
+    /* Fields of Colord-1.0.Colord.Edid */
     parentInstance: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Colord.Edid */
+    /* Methods of Colord-1.0.Colord.Edid */
     getBlue(): ColorYxy
     getChecksum(): string
     getEisaId(): string
@@ -851,7 +809,7 @@ export class Edid {
     getWidth(): number
     parse(edidData: any): boolean
     reset(): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -873,21 +831,12 @@ export class Edid {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Edid, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Edid, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -909,7 +858,7 @@ export interface Icc_ConstructProps extends GObject.Object_ConstructProps {
     version?: number
 }
 export class Icc {
-    /* Properties of Colord.Icc */
+    /* Properties of Colord-1.0.Colord.Icc */
     readonly blue: ColorXYZ
     readonly canDelete: boolean
     readonly checksum: string
@@ -922,11 +871,11 @@ export class Icc {
     readonly temperature: number
     version: number
     readonly white: ColorXYZ
-    /* Fields of Colord.Icc */
+    /* Fields of Colord-1.0.Colord.Icc */
     parentInstance: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Colord.Icc */
+    /* Methods of Colord-1.0.Colord.Icc */
     addMetadata(key: string, value: string): void
     createDefault(): boolean
     createDefaultFull(flags: IccLoadFlags): boolean
@@ -985,7 +934,7 @@ export class Icc {
     setVcgt(vcgt: ColorRGB[]): boolean
     setVersion(version: number): void
     toString(): string
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -1007,21 +956,12 @@ export class Icc {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Icc, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Icc, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::blue", callback: (($obj: Icc, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::blue", callback: (($obj: Icc, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::blue", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -1101,7 +1041,7 @@ export interface It8_ConstructProps extends GObject.Object_ConstructProps {
     kind?: number
 }
 export class It8 {
-    /* Properties of Colord.It8 */
+    /* Properties of Colord-1.0.Colord.It8 */
     readonly instrument: string
     kind: number
     readonly normalized: boolean
@@ -1109,11 +1049,11 @@ export class It8 {
     readonly reference: string
     readonly spectral: boolean
     readonly title: string
-    /* Fields of Colord.It8 */
+    /* Fields of Colord-1.0.Colord.It8 */
     parentInstance: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Colord.It8 */
+    /* Methods of Colord-1.0.Colord.It8 */
     addData(rgb: ColorRGB, xyz: ColorXYZ): void
     addOption(option: string): void
     addSpectrum(spectrum: Spectrum): void
@@ -1146,7 +1086,7 @@ export class It8 {
     setSpectral(spectral: boolean): void
     setSpectrumArray(data: Spectrum[]): void
     setTitle(title: string): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -1168,21 +1108,12 @@ export class It8 {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: It8, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: It8, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::instrument", callback: (($obj: It8, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::instrument", callback: (($obj: It8, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::instrument", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -1238,7 +1169,7 @@ export interface Profile_ConstructProps extends GObject.Object_ConstructProps {
     objectPath?: string
 }
 export class Profile {
-    /* Properties of Colord.Profile */
+    /* Properties of Colord-1.0.Colord.Profile */
     readonly colorspace: string
     readonly connected: string
     readonly created: number
@@ -1254,11 +1185,11 @@ export class Profile {
     readonly scope: number
     readonly title: string
     readonly warnings: string[]
-    /* Fields of Colord.Profile */
+    /* Fields of Colord-1.0.Colord.Profile */
     parentInstance: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Colord.Profile */
+    /* Methods of Colord-1.0.Colord.Profile */
     connect(cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     connectFinish(res: Gio.AsyncResult): boolean
     connectSync(cancellable?: Gio.Cancellable | null): boolean
@@ -1291,7 +1222,7 @@ export class Profile {
     setPropertyFinish(res: Gio.AsyncResult): boolean
     setPropertySync(key: string, value: string, cancellable?: Gio.Cancellable | null): boolean
     toString(): string
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -1313,30 +1244,18 @@ export class Profile {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of Colord.Profile */
-    vfuncChanged(): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Colord.Profile */
+    /* Signals of Colord-1.0.Colord.Profile */
     connect(sigName: "changed", callback: (($obj: Profile) => void)): number
-    connect_after(sigName: "changed", callback: (($obj: Profile) => void)): number
+    on(sigName: "changed", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "changed", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "changed", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "changed"): void
-    on(sigName: "changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Profile, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Profile, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::colorspace", callback: (($obj: Profile, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::colorspace", callback: (($obj: Profile, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::colorspace", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -1440,7 +1359,7 @@ export interface Sensor_ConstructProps extends GObject.Object_ConstructProps {
     objectPath?: string
 }
 export class Sensor {
-    /* Properties of Colord.Sensor */
+    /* Properties of Colord-1.0.Colord.Sensor */
     readonly connected: string
     readonly embedded: string
     readonly id: string
@@ -1453,11 +1372,11 @@ export class Sensor {
     readonly serial: string
     readonly state: string
     readonly vendor: string
-    /* Fields of Colord.Sensor */
+    /* Fields of Colord-1.0.Colord.Sensor */
     parentInstance: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Colord.Sensor */
+    /* Methods of Colord-1.0.Colord.Sensor */
     connect(cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     connectFinish(res: Gio.AsyncResult): boolean
     connectSync(cancellable?: Gio.Cancellable | null): boolean
@@ -1497,7 +1416,7 @@ export class Sensor {
     unlock(cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     unlockFinish(res: Gio.AsyncResult): boolean
     unlockSync(cancellable?: Gio.Cancellable | null): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -1519,30 +1438,18 @@ export class Sensor {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of Colord.Sensor */
-    vfuncButtonPressed(): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Colord.Sensor */
+    /* Signals of Colord-1.0.Colord.Sensor */
     connect(sigName: "button-pressed", callback: (($obj: Sensor) => void)): number
-    connect_after(sigName: "button-pressed", callback: (($obj: Sensor) => void)): number
+    on(sigName: "button-pressed", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "button-pressed", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "button-pressed", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "button-pressed"): void
-    on(sigName: "button-pressed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "button-pressed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "button-pressed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Sensor, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Sensor, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::connected", callback: (($obj: Sensor, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::connected", callback: (($obj: Sensor, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::connected", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -1628,7 +1535,7 @@ export class Sensor {
     static $gtype: GObject.Type
 }
 export abstract class ClientClass {
-    /* Fields of Colord.ClientClass */
+    /* Fields of Colord-1.0.Colord.ClientClass */
     parentClass: GObject.ObjectClass
     deviceAdded: (client: Client, device: Device) => void
     deviceRemoved: (client: Client, device: Device) => void
@@ -1643,11 +1550,11 @@ export abstract class ClientClass {
     static name: string
 }
 export class ColorLab {
-    /* Fields of Colord.ColorLab */
+    /* Fields of Colord-1.0.Colord.ColorLab */
     l: number
     a: number
     b: number
-    /* Methods of Colord.ColorLab */
+    /* Methods of Colord-1.0.Colord.ColorLab */
     copy(dest: ColorLab): void
     deltaE76(p2: ColorLab): number
     dup(): ColorLab
@@ -1660,11 +1567,11 @@ export class ColorLab {
     static new(): ColorLab
 }
 export class ColorRGB {
-    /* Fields of Colord.ColorRGB */
+    /* Fields of Colord-1.0.Colord.ColorRGB */
     r: number
     g: number
     b: number
-    /* Methods of Colord.ColorRGB */
+    /* Methods of Colord-1.0.Colord.ColorRGB */
     copy(dest: ColorRGB): void
     dup(): ColorRGB
     free(): void
@@ -1682,14 +1589,14 @@ export class ColorRGB {
     static arrayNew(): ColorRGB[]
 }
 export class ColorRGB8 {
-    /* Fields of Colord.ColorRGB8 */
+    /* Fields of Colord-1.0.Colord.ColorRGB8 */
     r: number
     g: number
     b: number
     static name: string
 }
 export class ColorSwatch {
-    /* Methods of Colord.ColorSwatch */
+    /* Methods of Colord-1.0.Colord.ColorSwatch */
     dup(): ColorSwatch
     free(): void
     getName(): string
@@ -1703,11 +1610,11 @@ export class ColorSwatch {
     static new(): ColorSwatch
 }
 export class ColorUVW {
-    /* Fields of Colord.ColorUVW */
+    /* Fields of Colord-1.0.Colord.ColorUVW */
     u: number
     v: number
     w: number
-    /* Methods of Colord.ColorUVW */
+    /* Methods of Colord-1.0.Colord.ColorUVW */
     copy(dest: ColorUVW): void
     dup(): ColorUVW
     free(): void
@@ -1721,11 +1628,11 @@ export class ColorUVW {
     static new(): ColorUVW
 }
 export class ColorXYZ {
-    /* Fields of Colord.ColorXYZ */
+    /* Fields of Colord-1.0.Colord.ColorXYZ */
     x: number
     y: number
     z: number
-    /* Methods of Colord.ColorXYZ */
+    /* Methods of Colord-1.0.Colord.ColorXYZ */
     clear(): void
     copy(dest: ColorXYZ): void
     dup(): ColorXYZ
@@ -1742,10 +1649,10 @@ export class ColorXYZ {
     static new(): ColorXYZ
 }
 export class ColorYxy {
-    /* Fields of Colord.ColorYxy */
+    /* Fields of Colord-1.0.Colord.ColorYxy */
     y: number
     x: number
-    /* Methods of Colord.ColorYxy */
+    /* Methods of Colord-1.0.Colord.ColorYxy */
     copy(dest: ColorYxy): void
     dup(): ColorYxy
     free(): void
@@ -1759,28 +1666,28 @@ export class ColorYxy {
     static new(): ColorYxy
 }
 export abstract class DeviceClass {
-    /* Fields of Colord.DeviceClass */
+    /* Fields of Colord-1.0.Colord.DeviceClass */
     parentClass: GObject.ObjectClass
     changed: (device: Device) => void
     static name: string
 }
 export abstract class EdidClass {
-    /* Fields of Colord.EdidClass */
+    /* Fields of Colord-1.0.Colord.EdidClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
 export abstract class IccClass {
-    /* Fields of Colord.IccClass */
+    /* Fields of Colord-1.0.Colord.IccClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
 export abstract class It8Class {
-    /* Fields of Colord.It8Class */
+    /* Fields of Colord-1.0.Colord.It8Class */
     parentClass: GObject.ObjectClass
     static name: string
 }
 export class Mat3x3 {
-    /* Fields of Colord.Mat3x3 */
+    /* Fields of Colord-1.0.Colord.Mat3x3 */
     m00: number
     m01: number
     m02: number
@@ -1793,19 +1700,19 @@ export class Mat3x3 {
     static name: string
 }
 export abstract class ProfileClass {
-    /* Fields of Colord.ProfileClass */
+    /* Fields of Colord-1.0.Colord.ProfileClass */
     parentClass: GObject.ObjectClass
     changed: (profile: Profile) => void
     static name: string
 }
 export abstract class SensorClass {
-    /* Fields of Colord.SensorClass */
+    /* Fields of Colord-1.0.Colord.SensorClass */
     parentClass: GObject.ObjectClass
     buttonPressed: (sensor: Sensor) => void
     static name: string
 }
 export class Spectrum {
-    /* Methods of Colord.Spectrum */
+    /* Methods of Colord-1.0.Colord.Spectrum */
     addValue(data: number): void
     dup(): Spectrum
     free(): void
@@ -1850,11 +1757,11 @@ export class Spectrum {
     static sizedNew(reservedSize: number): Spectrum
 }
 export class Vec3 {
-    /* Fields of Colord.Vec3 */
+    /* Fields of Colord-1.0.Colord.Vec3 */
     v0: number
     v1: number
     v2: number
-    /* Methods of Colord.Vec3 */
+    /* Methods of Colord-1.0.Colord.Vec3 */
     add(src2: Vec3, dest: Vec3): void
     clear(): void
     copy(dest: Vec3): void

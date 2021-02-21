@@ -118,7 +118,7 @@ export interface OperationGetStringCallback {
     (result: Result, string: string | null): void
 }
 export class AccessControl {
-    /* Methods of GnomeKeyring.AccessControl */
+    /* Methods of GnomeKeyring-1.0.GnomeKeyring.AccessControl */
     copy(): AccessControl
     free(): void
     static name: string
@@ -128,7 +128,7 @@ export class AccessControl {
     static new(application: ApplicationRef, types_allowed: AccessType): AccessControl
 }
 export class ApplicationRef {
-    /* Methods of GnomeKeyring.ApplicationRef */
+    /* Methods of GnomeKeyring-1.0.GnomeKeyring.ApplicationRef */
     copy(): ApplicationRef
     free(): void
     static name: string
@@ -138,10 +138,10 @@ export class ApplicationRef {
     static new(): ApplicationRef
 }
 export class Attribute {
-    /* Fields of GnomeKeyring.Attribute */
+    /* Fields of GnomeKeyring-1.0.GnomeKeyring.Attribute */
     name: string
     type: AttributeType
-    /* Methods of GnomeKeyring.Attribute */
+    /* Methods of GnomeKeyring-1.0.GnomeKeyring.Attribute */
     get_string(): string
     get_uint32(): number
     static name: string
@@ -154,12 +154,12 @@ export class Attribute {
     static list_to_glist(attributes: AttributeList): Attribute[]
 }
 export class Found {
-    /* Fields of GnomeKeyring.Found */
+    /* Fields of GnomeKeyring-1.0.GnomeKeyring.Found */
     keyring: string
     item_id: number
     attributes: AttributeList
     secret: string
-    /* Methods of GnomeKeyring.Found */
+    /* Methods of GnomeKeyring-1.0.GnomeKeyring.Found */
     copy(): Found
     free(): void
     static name: string
@@ -167,7 +167,7 @@ export class Found {
     static list_free(found_list: Found[]): void
 }
 export class Info {
-    /* Methods of GnomeKeyring.Info */
+    /* Methods of GnomeKeyring-1.0.GnomeKeyring.Info */
     copy(): Info
     free(): void
     get_ctime(): number
@@ -180,7 +180,7 @@ export class Info {
     static name: string
 }
 export class ItemInfo {
-    /* Methods of GnomeKeyring.ItemInfo */
+    /* Methods of GnomeKeyring-1.0.GnomeKeyring.ItemInfo */
     copy(): ItemInfo
     free(): void
     get_ctime(): number
@@ -198,7 +198,7 @@ export class ItemInfo {
     static new(): ItemInfo
 }
 export class NetworkPasswordData {
-    /* Fields of GnomeKeyring.NetworkPasswordData */
+    /* Fields of GnomeKeyring-1.0.GnomeKeyring.NetworkPasswordData */
     keyring: string
     item_id: number
     protocol: string
@@ -212,13 +212,13 @@ export class NetworkPasswordData {
     static name: string
 }
 export class PasswordSchema {
-    /* Fields of GnomeKeyring.PasswordSchema */
+    /* Fields of GnomeKeyring-1.0.GnomeKeyring.PasswordSchema */
     item_type: ItemType
     attributes: PasswordSchemaAttribute[]
     static name: string
 }
 export class PasswordSchemaAttribute {
-    /* Fields of GnomeKeyring.PasswordSchemaAttribute */
+    /* Fields of GnomeKeyring-1.0.GnomeKeyring.PasswordSchemaAttribute */
     name: string
     type: AttributeType
     static name: string

@@ -180,16 +180,16 @@ export function rtpBufferCalcPacketLen(payloadLen: number, padLen: number, csrcC
 export function rtpBufferCalcPayloadLen(packetLen: number, padLen: number, csrcCount: number): number
 export function rtpBufferCompareSeqnum(seqnum1: number, seqnum2: number): number
 export function rtpBufferDefaultClockRate(payloadType: number): number
-export function rtpBufferExtTimestamp(exttimestamp: number, timestamp: number): [ /* returnType */ number, /* exttimestamp */ number ]
-export function rtpBufferGetExtensionOnebyteHeaderFromBytes(bytes: any, bitPattern: number, id: number, nth: number): [ /* returnType */ boolean, /* data */ any[] ]
-export function rtpBufferMap(buffer: Gst.Buffer, flags: Gst.MapFlags): [ /* returnType */ boolean, /* rtp */ RTPBuffer ]
+export function rtpBufferExtTimestamp(exttimestamp: number, timestamp: number): { returnType: number, exttimestamp: number }
+export function rtpBufferGetExtensionOnebyteHeaderFromBytes(bytes: any, bitPattern: number, id: number, nth: number): { returnType: boolean, data: any[] }
+export function rtpBufferMap(buffer: Gst.Buffer, flags: Gst.MapFlags): { returnType: boolean, rtp: RTPBuffer }
 export function rtpBufferNewAllocate(payloadLen: number, padLen: number, csrcCount: number): Gst.Buffer
 export function rtpBufferNewAllocateLen(packetLen: number, padLen: number, csrcCount: number): Gst.Buffer
 export function rtpBufferNewCopyData(data: any[]): Gst.Buffer
 export function rtpBufferNewTakeData(data: any[]): Gst.Buffer
 export function rtpGetHeaderExtensionList(): RTPHeaderExtension[]
-export function rtpHdrextGetNtp56(data: any[]): [ /* returnType */ boolean, /* ntptime */ number ]
-export function rtpHdrextGetNtp64(data: any[]): [ /* returnType */ boolean, /* ntptime */ number ]
+export function rtpHdrextGetNtp56(data: any[]): { returnType: boolean, ntptime: number }
+export function rtpHdrextGetNtp64(data: any[]): { returnType: boolean, ntptime: number }
 export function rtpHdrextSetNtp56(data: object | null, size: number, ntptime: number): boolean
 export function rtpHdrextSetNtp64(data: object | null, size: number, ntptime: number): boolean
 export function rtpPayloadInfoForName(media: string, encodingName: string): RTPPayloadInfo
@@ -200,9 +200,9 @@ export interface RTPBaseAudioPayload_ConstructProps extends RTPBasePayload_Const
     bufferList?: boolean
 }
 export class RTPBaseAudioPayload {
-    /* Properties of GstRtp.RTPBaseAudioPayload */
+    /* Properties of GstRtp-1.0.GstRtp.RTPBaseAudioPayload */
     bufferList: boolean
-    /* Properties of GstRtp.RTPBasePayload */
+    /* Properties of GstRtp-1.0.GstRtp.RTPBasePayload */
     autoHeaderExtension: boolean
     maxPtime: number
     minPtime: number
@@ -219,19 +219,19 @@ export class RTPBaseAudioPayload {
     readonly stats: Gst.Structure
     readonly timestamp: number
     timestampOffset: number
-    /* Properties of Gst.Object */
+    /* Properties of Gst-1.0.Gst.Object */
     name: string
     parent: Gst.Object
-    /* Fields of GstRtp.RTPBaseAudioPayload */
+    /* Fields of GstRtp-1.0.GstRtp.RTPBaseAudioPayload */
     payload: RTPBasePayload
     priv: RTPBaseAudioPayloadPrivate
     baseTs: Gst.ClockTime
     frameSize: number
     frameDuration: number
     sampleSize: number
-    /* Fields of GstRtp.RTPBasePayload */
+    /* Fields of GstRtp-1.0.GstRtp.RTPBasePayload */
     element: Gst.Element
-    /* Fields of Gst.Element */
+    /* Fields of Gst-1.0.Gst.Element */
     object: Gst.Object
     stateLock: GLib.RecMutex
     stateCond: GLib.Cond
@@ -253,12 +253,12 @@ export class RTPBaseAudioPayload {
     sinkpads: Gst.Pad[]
     padsCookie: number
     contexts: Gst.Context[]
-    /* Fields of Gst.Object */
+    /* Fields of Gst-1.0.Gst.Object */
     lock: GLib.Mutex
     flags: number
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GstRtp.RTPBaseAudioPayload */
+    /* Methods of GstRtp-1.0.GstRtp.RTPBaseAudioPayload */
     flush(payloadLen: number, timestamp: Gst.ClockTime): Gst.FlowReturn
     getAdapter(): GstBase.Adapter
     push(data: any[], timestamp: Gst.ClockTime): Gst.FlowReturn
@@ -267,7 +267,7 @@ export class RTPBaseAudioPayload {
     setSampleBased(): void
     setSampleOptions(sampleSize: number): void
     setSamplebitsOptions(sampleSize: number): void
-    /* Methods of GstRtp.RTPBasePayload */
+    /* Methods of GstRtp-1.0.GstRtp.RTPBasePayload */
     allocateOutputBuffer(payloadLen: number, padLen: number, csrcCount: number): Gst.Buffer
     getSourceCount(buffer: Gst.Buffer): number
     isFilled(size: number, duration: Gst.ClockTime): boolean
@@ -277,7 +277,7 @@ export class RTPBaseAudioPayload {
     setOptions(media: string, dynamic: boolean, encodingName: string, clockRate: number): void
     setOutcapsStructure(s?: Gst.Structure | null): boolean
     setSourceInfoEnabled(enable: boolean): void
-    /* Methods of Gst.Element */
+    /* Methods of Gst-1.0.Gst.Element */
     abortState(): void
     addPad(pad: Gst.Pad): boolean
     addPropertyDeepNotifyWatch(propertyName: string | null, includeValue: boolean): number
@@ -305,7 +305,7 @@ export class RTPBaseAudioPayload {
     getPadTemplateList(): Gst.PadTemplate[]
     getRequestPad(name: string): Gst.Pad | null
     getStartTime(): Gst.ClockTime
-    getState(timeout: Gst.ClockTime): [ /* returnType */ Gst.StateChangeReturn, /* state */ Gst.State | null, /* pending */ Gst.State | null ]
+    getState(timeout: Gst.ClockTime): { returnType: Gst.StateChangeReturn, state: Gst.State | null, pending: Gst.State | null }
     getStaticPad(name: string): Gst.Pad | null
     isLockedState(): boolean
     iteratePads(): Gst.Iterator
@@ -323,9 +323,9 @@ export class RTPBaseAudioPayload {
     postMessage(message: Gst.Message): boolean
     provideClock(): Gst.Clock | null
     query(query: Gst.Query): boolean
-    queryConvert(srcFormat: Gst.Format, srcVal: number, destFormat: Gst.Format): [ /* returnType */ boolean, /* destVal */ number ]
-    queryDuration(format: Gst.Format): [ /* returnType */ boolean, /* duration */ number | null ]
-    queryPosition(format: Gst.Format): [ /* returnType */ boolean, /* cur */ number | null ]
+    queryConvert(srcFormat: Gst.Format, srcVal: number, destFormat: Gst.Format): { returnType: boolean, destVal: number }
+    queryDuration(format: Gst.Format): { returnType: boolean, duration: number | null }
+    queryPosition(format: Gst.Format): { returnType: boolean, cur: number | null }
     releaseRequestPad(pad: Gst.Pad): void
     removePad(pad: Gst.Pad): boolean
     removePropertyNotifyWatch(watchId: number): void
@@ -343,7 +343,7 @@ export class RTPBaseAudioPayload {
     syncStateWithParent(): boolean
     unlink(dest: Gst.Element): void
     unlinkPads(srcpadname: string, dest: Gst.Element, destpadname: string): void
-    /* Methods of Gst.Object */
+    /* Methods of Gst-1.0.Gst.Object */
     addControlBinding(binding: Gst.ControlBinding): boolean
     defaultError(error: GLib.Error, debug?: string | null): void
     getControlBinding(propertyName: string): Gst.ControlBinding | null
@@ -368,7 +368,7 @@ export class RTPBaseAudioPayload {
     syncValues(timestamp: Gst.ClockTime): boolean
     unparent(): void
     unref(): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -389,96 +389,50 @@ export class RTPBaseAudioPayload {
     stealQdata(quark: GLib.Quark): object | null
     thawNotify(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GstRtp.RTPBaseAudioPayload */
-    vfuncQuery(pad: Gst.Pad, query: Gst.Query): boolean
-    vfuncQuery(query: Gst.Query): boolean
-    /* Virtual methods of GstRtp.RTPBasePayload */
-    vfuncGetCaps(pad: Gst.Pad, filter: Gst.Caps): Gst.Caps
-    vfuncHandleBuffer(buffer: Gst.Buffer): Gst.FlowReturn
-    vfuncQuery(pad: Gst.Pad, query: Gst.Query): boolean
-    vfuncQuery(query: Gst.Query): boolean
-    vfuncSetCaps(caps: Gst.Caps): boolean
-    vfuncSinkEvent(event: Gst.Event): boolean
-    vfuncSrcEvent(event: Gst.Event): boolean
-    /* Virtual methods of Gst.Element */
-    vfuncChangeState(transition: Gst.StateChange): Gst.StateChangeReturn
-    vfuncGetState(timeout: Gst.ClockTime): [ /* returnType */ Gst.StateChangeReturn, /* state */ Gst.State | null, /* pending */ Gst.State | null ]
-    vfuncNoMorePads(): void
-    vfuncPadAdded(pad: Gst.Pad): void
-    vfuncPadRemoved(pad: Gst.Pad): void
-    vfuncPostMessage(message: Gst.Message): boolean
-    vfuncProvideClock(): Gst.Clock | null
-    vfuncQuery(query: Gst.Query): boolean
-    vfuncReleasePad(pad: Gst.Pad): void
-    vfuncRequestNewPad(templ: Gst.PadTemplate, name?: string | null, caps?: Gst.Caps | null): Gst.Pad | null
-    vfuncSendEvent(event: Gst.Event): boolean
-    vfuncSetBus(bus?: Gst.Bus | null): void
-    vfuncSetClock(clock?: Gst.Clock | null): boolean
-    vfuncSetContext(context: Gst.Context): void
-    vfuncSetState(state: Gst.State): Gst.StateChangeReturn
-    vfuncStateChanged(oldstate: Gst.State, newstate: Gst.State, pending: Gst.State): void
-    /* Virtual methods of Gst.Object */
-    vfuncDeepNotify(orig: Gst.Object, pspec: GObject.ParamSpec): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GstRtp.RTPBasePayload */
+    /* Signals of GstRtp-1.0.GstRtp.RTPBasePayload */
     connect(sigName: "add-extension", callback: (($obj: RTPBaseAudioPayload, ext: RTPHeaderExtension) => void)): number
-    connect_after(sigName: "add-extension", callback: (($obj: RTPBaseAudioPayload, ext: RTPHeaderExtension) => void)): number
+    on(sigName: "add-extension", callback: (ext: RTPHeaderExtension) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "add-extension", callback: (ext: RTPHeaderExtension) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "add-extension", callback: (ext: RTPHeaderExtension) => void): NodeJS.EventEmitter
     emit(sigName: "add-extension", ext: RTPHeaderExtension): void
-    on(sigName: "add-extension", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "add-extension", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "add-extension", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "clear-extensions", callback: (($obj: RTPBaseAudioPayload) => void)): number
-    connect_after(sigName: "clear-extensions", callback: (($obj: RTPBaseAudioPayload) => void)): number
+    on(sigName: "clear-extensions", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "clear-extensions", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "clear-extensions", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "clear-extensions"): void
-    on(sigName: "clear-extensions", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "clear-extensions", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "clear-extensions", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "request-extension", callback: (($obj: RTPBaseAudioPayload, extId: number, extUri: string) => RTPHeaderExtension)): number
-    connect_after(sigName: "request-extension", callback: (($obj: RTPBaseAudioPayload, extId: number, extUri: string) => RTPHeaderExtension)): number
+    on(sigName: "request-extension", callback: (extId: number, extUri: string) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "request-extension", callback: (extId: number, extUri: string) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "request-extension", callback: (extId: number, extUri: string) => void): NodeJS.EventEmitter
     emit(sigName: "request-extension", extId: number, extUri: string): void
-    on(sigName: "request-extension", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "request-extension", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "request-extension", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of Gst.Element */
+    /* Signals of Gst-1.0.Gst.Element */
     connect(sigName: "no-more-pads", callback: (($obj: RTPBaseAudioPayload) => void)): number
-    connect_after(sigName: "no-more-pads", callback: (($obj: RTPBaseAudioPayload) => void)): number
+    on(sigName: "no-more-pads", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "no-more-pads", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "no-more-pads", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "no-more-pads"): void
-    on(sigName: "no-more-pads", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "no-more-pads", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "no-more-pads", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "pad-added", callback: (($obj: RTPBaseAudioPayload, newPad: Gst.Pad) => void)): number
-    connect_after(sigName: "pad-added", callback: (($obj: RTPBaseAudioPayload, newPad: Gst.Pad) => void)): number
+    on(sigName: "pad-added", callback: (newPad: Gst.Pad) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "pad-added", callback: (newPad: Gst.Pad) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "pad-added", callback: (newPad: Gst.Pad) => void): NodeJS.EventEmitter
     emit(sigName: "pad-added", newPad: Gst.Pad): void
-    on(sigName: "pad-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "pad-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "pad-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "pad-removed", callback: (($obj: RTPBaseAudioPayload, oldPad: Gst.Pad) => void)): number
-    connect_after(sigName: "pad-removed", callback: (($obj: RTPBaseAudioPayload, oldPad: Gst.Pad) => void)): number
+    on(sigName: "pad-removed", callback: (oldPad: Gst.Pad) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "pad-removed", callback: (oldPad: Gst.Pad) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "pad-removed", callback: (oldPad: Gst.Pad) => void): NodeJS.EventEmitter
     emit(sigName: "pad-removed", oldPad: Gst.Pad): void
-    on(sigName: "pad-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "pad-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "pad-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of Gst.Object */
+    /* Signals of Gst-1.0.Gst.Object */
     connect(sigName: "deep-notify", callback: (($obj: RTPBaseAudioPayload, propObject: Gst.Object, prop: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "deep-notify", callback: (($obj: RTPBaseAudioPayload, propObject: Gst.Object, prop: GObject.ParamSpec) => void)): number
+    on(sigName: "deep-notify", callback: (propObject: Gst.Object, prop: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "deep-notify", callback: (propObject: Gst.Object, prop: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "deep-notify", callback: (propObject: Gst.Object, prop: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "deep-notify", propObject: Gst.Object, prop: GObject.ParamSpec): void
-    on(sigName: "deep-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "deep-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "deep-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: RTPBaseAudioPayload, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: RTPBaseAudioPayload, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::buffer-list", callback: (($obj: RTPBaseAudioPayload, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::buffer-list", callback: (($obj: RTPBaseAudioPayload, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::buffer-list", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -592,21 +546,21 @@ export interface RTPBaseDepayload_ConstructProps extends Gst.Element_ConstructPr
     sourceInfo?: boolean
 }
 export class RTPBaseDepayload {
-    /* Properties of GstRtp.RTPBaseDepayload */
+    /* Properties of GstRtp-1.0.GstRtp.RTPBaseDepayload */
     autoHeaderExtension: boolean
     maxReorder: number
     sourceInfo: boolean
     readonly stats: Gst.Structure
-    /* Properties of Gst.Object */
+    /* Properties of Gst-1.0.Gst.Object */
     name: string
     parent: Gst.Object
-    /* Fields of GstRtp.RTPBaseDepayload */
+    /* Fields of GstRtp-1.0.GstRtp.RTPBaseDepayload */
     sinkpad: Gst.Pad
     srcpad: Gst.Pad
     clockRate: number
     segment: Gst.Segment
     needNewsegment: boolean
-    /* Fields of Gst.Element */
+    /* Fields of Gst-1.0.Gst.Element */
     object: Gst.Object
     stateLock: GLib.RecMutex
     stateCond: GLib.Cond
@@ -628,17 +582,17 @@ export class RTPBaseDepayload {
     sinkpads: Gst.Pad[]
     padsCookie: number
     contexts: Gst.Context[]
-    /* Fields of Gst.Object */
+    /* Fields of Gst-1.0.Gst.Object */
     lock: GLib.Mutex
     flags: number
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GstRtp.RTPBaseDepayload */
+    /* Methods of GstRtp-1.0.GstRtp.RTPBaseDepayload */
     isSourceInfoEnabled(): boolean
     push(outBuf: Gst.Buffer): Gst.FlowReturn
     pushList(outList: Gst.BufferList): Gst.FlowReturn
     setSourceInfoEnabled(enable: boolean): void
-    /* Methods of Gst.Element */
+    /* Methods of Gst-1.0.Gst.Element */
     abortState(): void
     addPad(pad: Gst.Pad): boolean
     addPropertyDeepNotifyWatch(propertyName: string | null, includeValue: boolean): number
@@ -666,7 +620,7 @@ export class RTPBaseDepayload {
     getPadTemplateList(): Gst.PadTemplate[]
     getRequestPad(name: string): Gst.Pad | null
     getStartTime(): Gst.ClockTime
-    getState(timeout: Gst.ClockTime): [ /* returnType */ Gst.StateChangeReturn, /* state */ Gst.State | null, /* pending */ Gst.State | null ]
+    getState(timeout: Gst.ClockTime): { returnType: Gst.StateChangeReturn, state: Gst.State | null, pending: Gst.State | null }
     getStaticPad(name: string): Gst.Pad | null
     isLockedState(): boolean
     iteratePads(): Gst.Iterator
@@ -684,9 +638,9 @@ export class RTPBaseDepayload {
     postMessage(message: Gst.Message): boolean
     provideClock(): Gst.Clock | null
     query(query: Gst.Query): boolean
-    queryConvert(srcFormat: Gst.Format, srcVal: number, destFormat: Gst.Format): [ /* returnType */ boolean, /* destVal */ number ]
-    queryDuration(format: Gst.Format): [ /* returnType */ boolean, /* duration */ number | null ]
-    queryPosition(format: Gst.Format): [ /* returnType */ boolean, /* cur */ number | null ]
+    queryConvert(srcFormat: Gst.Format, srcVal: number, destFormat: Gst.Format): { returnType: boolean, destVal: number }
+    queryDuration(format: Gst.Format): { returnType: boolean, duration: number | null }
+    queryPosition(format: Gst.Format): { returnType: boolean, cur: number | null }
     releaseRequestPad(pad: Gst.Pad): void
     removePad(pad: Gst.Pad): boolean
     removePropertyNotifyWatch(watchId: number): void
@@ -704,7 +658,7 @@ export class RTPBaseDepayload {
     syncStateWithParent(): boolean
     unlink(dest: Gst.Element): void
     unlinkPads(srcpadname: string, dest: Gst.Element, destpadname: string): void
-    /* Methods of Gst.Object */
+    /* Methods of Gst-1.0.Gst.Object */
     addControlBinding(binding: Gst.ControlBinding): boolean
     defaultError(error: GLib.Error, debug?: string | null): void
     getControlBinding(propertyName: string): Gst.ControlBinding | null
@@ -729,7 +683,7 @@ export class RTPBaseDepayload {
     syncValues(timestamp: Gst.ClockTime): boolean
     unparent(): void
     unref(): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -750,91 +704,50 @@ export class RTPBaseDepayload {
     stealQdata(quark: GLib.Quark): object | null
     thawNotify(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GstRtp.RTPBaseDepayload */
-    vfuncHandleEvent(event: Gst.Event): boolean
-    vfuncPacketLost(event: Gst.Event): boolean
-    vfuncProcess(in_: Gst.Buffer): Gst.Buffer
-    vfuncProcessRtpPacket(rtpBuffer: RTPBuffer): Gst.Buffer
-    vfuncSetCaps(caps: Gst.Caps): boolean
-    /* Virtual methods of Gst.Element */
-    vfuncChangeState(transition: Gst.StateChange): Gst.StateChangeReturn
-    vfuncGetState(timeout: Gst.ClockTime): [ /* returnType */ Gst.StateChangeReturn, /* state */ Gst.State | null, /* pending */ Gst.State | null ]
-    vfuncNoMorePads(): void
-    vfuncPadAdded(pad: Gst.Pad): void
-    vfuncPadRemoved(pad: Gst.Pad): void
-    vfuncPostMessage(message: Gst.Message): boolean
-    vfuncProvideClock(): Gst.Clock | null
-    vfuncQuery(query: Gst.Query): boolean
-    vfuncReleasePad(pad: Gst.Pad): void
-    vfuncRequestNewPad(templ: Gst.PadTemplate, name?: string | null, caps?: Gst.Caps | null): Gst.Pad | null
-    vfuncSendEvent(event: Gst.Event): boolean
-    vfuncSetBus(bus?: Gst.Bus | null): void
-    vfuncSetClock(clock?: Gst.Clock | null): boolean
-    vfuncSetContext(context: Gst.Context): void
-    vfuncSetState(state: Gst.State): Gst.StateChangeReturn
-    vfuncStateChanged(oldstate: Gst.State, newstate: Gst.State, pending: Gst.State): void
-    /* Virtual methods of Gst.Object */
-    vfuncDeepNotify(orig: Gst.Object, pspec: GObject.ParamSpec): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GstRtp.RTPBaseDepayload */
+    /* Signals of GstRtp-1.0.GstRtp.RTPBaseDepayload */
     connect(sigName: "add-extension", callback: (($obj: RTPBaseDepayload, ext: RTPHeaderExtension) => void)): number
-    connect_after(sigName: "add-extension", callback: (($obj: RTPBaseDepayload, ext: RTPHeaderExtension) => void)): number
+    on(sigName: "add-extension", callback: (ext: RTPHeaderExtension) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "add-extension", callback: (ext: RTPHeaderExtension) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "add-extension", callback: (ext: RTPHeaderExtension) => void): NodeJS.EventEmitter
     emit(sigName: "add-extension", ext: RTPHeaderExtension): void
-    on(sigName: "add-extension", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "add-extension", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "add-extension", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "clear-extensions", callback: (($obj: RTPBaseDepayload) => void)): number
-    connect_after(sigName: "clear-extensions", callback: (($obj: RTPBaseDepayload) => void)): number
+    on(sigName: "clear-extensions", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "clear-extensions", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "clear-extensions", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "clear-extensions"): void
-    on(sigName: "clear-extensions", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "clear-extensions", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "clear-extensions", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "request-extension", callback: (($obj: RTPBaseDepayload, extId: number, extUri?: string | null) => RTPHeaderExtension)): number
-    connect_after(sigName: "request-extension", callback: (($obj: RTPBaseDepayload, extId: number, extUri?: string | null) => RTPHeaderExtension)): number
+    on(sigName: "request-extension", callback: (extId: number, extUri?: string | null) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "request-extension", callback: (extId: number, extUri?: string | null) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "request-extension", callback: (extId: number, extUri?: string | null) => void): NodeJS.EventEmitter
     emit(sigName: "request-extension", extId: number, extUri?: string | null): void
-    on(sigName: "request-extension", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "request-extension", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "request-extension", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of Gst.Element */
+    /* Signals of Gst-1.0.Gst.Element */
     connect(sigName: "no-more-pads", callback: (($obj: RTPBaseDepayload) => void)): number
-    connect_after(sigName: "no-more-pads", callback: (($obj: RTPBaseDepayload) => void)): number
+    on(sigName: "no-more-pads", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "no-more-pads", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "no-more-pads", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "no-more-pads"): void
-    on(sigName: "no-more-pads", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "no-more-pads", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "no-more-pads", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "pad-added", callback: (($obj: RTPBaseDepayload, newPad: Gst.Pad) => void)): number
-    connect_after(sigName: "pad-added", callback: (($obj: RTPBaseDepayload, newPad: Gst.Pad) => void)): number
+    on(sigName: "pad-added", callback: (newPad: Gst.Pad) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "pad-added", callback: (newPad: Gst.Pad) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "pad-added", callback: (newPad: Gst.Pad) => void): NodeJS.EventEmitter
     emit(sigName: "pad-added", newPad: Gst.Pad): void
-    on(sigName: "pad-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "pad-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "pad-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "pad-removed", callback: (($obj: RTPBaseDepayload, oldPad: Gst.Pad) => void)): number
-    connect_after(sigName: "pad-removed", callback: (($obj: RTPBaseDepayload, oldPad: Gst.Pad) => void)): number
+    on(sigName: "pad-removed", callback: (oldPad: Gst.Pad) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "pad-removed", callback: (oldPad: Gst.Pad) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "pad-removed", callback: (oldPad: Gst.Pad) => void): NodeJS.EventEmitter
     emit(sigName: "pad-removed", oldPad: Gst.Pad): void
-    on(sigName: "pad-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "pad-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "pad-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of Gst.Object */
+    /* Signals of Gst-1.0.Gst.Object */
     connect(sigName: "deep-notify", callback: (($obj: RTPBaseDepayload, propObject: Gst.Object, prop: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "deep-notify", callback: (($obj: RTPBaseDepayload, propObject: Gst.Object, prop: GObject.ParamSpec) => void)): number
+    on(sigName: "deep-notify", callback: (propObject: Gst.Object, prop: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "deep-notify", callback: (propObject: Gst.Object, prop: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "deep-notify", callback: (propObject: Gst.Object, prop: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "deep-notify", propObject: Gst.Object, prop: GObject.ParamSpec): void
-    on(sigName: "deep-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "deep-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "deep-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: RTPBaseDepayload, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: RTPBaseDepayload, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::auto-header-extension", callback: (($obj: RTPBaseDepayload, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::auto-header-extension", callback: (($obj: RTPBaseDepayload, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::auto-header-extension", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -893,7 +806,7 @@ export interface RTPBasePayload_ConstructProps extends Gst.Element_ConstructProp
     timestampOffset?: number
 }
 export class RTPBasePayload {
-    /* Properties of GstRtp.RTPBasePayload */
+    /* Properties of GstRtp-1.0.GstRtp.RTPBasePayload */
     autoHeaderExtension: boolean
     maxPtime: number
     minPtime: number
@@ -910,12 +823,12 @@ export class RTPBasePayload {
     readonly stats: Gst.Structure
     readonly timestamp: number
     timestampOffset: number
-    /* Properties of Gst.Object */
+    /* Properties of Gst-1.0.Gst.Object */
     name: string
     parent: Gst.Object
-    /* Fields of GstRtp.RTPBasePayload */
+    /* Fields of GstRtp-1.0.GstRtp.RTPBasePayload */
     element: Gst.Element
-    /* Fields of Gst.Element */
+    /* Fields of Gst-1.0.Gst.Element */
     object: Gst.Object
     stateLock: GLib.RecMutex
     stateCond: GLib.Cond
@@ -937,12 +850,12 @@ export class RTPBasePayload {
     sinkpads: Gst.Pad[]
     padsCookie: number
     contexts: Gst.Context[]
-    /* Fields of Gst.Object */
+    /* Fields of Gst-1.0.Gst.Object */
     lock: GLib.Mutex
     flags: number
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GstRtp.RTPBasePayload */
+    /* Methods of GstRtp-1.0.GstRtp.RTPBasePayload */
     allocateOutputBuffer(payloadLen: number, padLen: number, csrcCount: number): Gst.Buffer
     getSourceCount(buffer: Gst.Buffer): number
     isFilled(size: number, duration: Gst.ClockTime): boolean
@@ -952,7 +865,7 @@ export class RTPBasePayload {
     setOptions(media: string, dynamic: boolean, encodingName: string, clockRate: number): void
     setOutcapsStructure(s?: Gst.Structure | null): boolean
     setSourceInfoEnabled(enable: boolean): void
-    /* Methods of Gst.Element */
+    /* Methods of Gst-1.0.Gst.Element */
     abortState(): void
     addPad(pad: Gst.Pad): boolean
     addPropertyDeepNotifyWatch(propertyName: string | null, includeValue: boolean): number
@@ -980,7 +893,7 @@ export class RTPBasePayload {
     getPadTemplateList(): Gst.PadTemplate[]
     getRequestPad(name: string): Gst.Pad | null
     getStartTime(): Gst.ClockTime
-    getState(timeout: Gst.ClockTime): [ /* returnType */ Gst.StateChangeReturn, /* state */ Gst.State | null, /* pending */ Gst.State | null ]
+    getState(timeout: Gst.ClockTime): { returnType: Gst.StateChangeReturn, state: Gst.State | null, pending: Gst.State | null }
     getStaticPad(name: string): Gst.Pad | null
     isLockedState(): boolean
     iteratePads(): Gst.Iterator
@@ -998,9 +911,9 @@ export class RTPBasePayload {
     postMessage(message: Gst.Message): boolean
     provideClock(): Gst.Clock | null
     query(query: Gst.Query): boolean
-    queryConvert(srcFormat: Gst.Format, srcVal: number, destFormat: Gst.Format): [ /* returnType */ boolean, /* destVal */ number ]
-    queryDuration(format: Gst.Format): [ /* returnType */ boolean, /* duration */ number | null ]
-    queryPosition(format: Gst.Format): [ /* returnType */ boolean, /* cur */ number | null ]
+    queryConvert(srcFormat: Gst.Format, srcVal: number, destFormat: Gst.Format): { returnType: boolean, destVal: number }
+    queryDuration(format: Gst.Format): { returnType: boolean, duration: number | null }
+    queryPosition(format: Gst.Format): { returnType: boolean, cur: number | null }
     releaseRequestPad(pad: Gst.Pad): void
     removePad(pad: Gst.Pad): boolean
     removePropertyNotifyWatch(watchId: number): void
@@ -1018,7 +931,7 @@ export class RTPBasePayload {
     syncStateWithParent(): boolean
     unlink(dest: Gst.Element): void
     unlinkPads(srcpadname: string, dest: Gst.Element, destpadname: string): void
-    /* Methods of Gst.Object */
+    /* Methods of Gst-1.0.Gst.Object */
     addControlBinding(binding: Gst.ControlBinding): boolean
     defaultError(error: GLib.Error, debug?: string | null): void
     getControlBinding(propertyName: string): Gst.ControlBinding | null
@@ -1043,7 +956,7 @@ export class RTPBasePayload {
     syncValues(timestamp: Gst.ClockTime): boolean
     unparent(): void
     unref(): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -1064,93 +977,50 @@ export class RTPBasePayload {
     stealQdata(quark: GLib.Quark): object | null
     thawNotify(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GstRtp.RTPBasePayload */
-    vfuncGetCaps(pad: Gst.Pad, filter: Gst.Caps): Gst.Caps
-    vfuncHandleBuffer(buffer: Gst.Buffer): Gst.FlowReturn
-    vfuncQuery(pad: Gst.Pad, query: Gst.Query): boolean
-    vfuncQuery(query: Gst.Query): boolean
-    vfuncSetCaps(caps: Gst.Caps): boolean
-    vfuncSinkEvent(event: Gst.Event): boolean
-    vfuncSrcEvent(event: Gst.Event): boolean
-    /* Virtual methods of Gst.Element */
-    vfuncChangeState(transition: Gst.StateChange): Gst.StateChangeReturn
-    vfuncGetState(timeout: Gst.ClockTime): [ /* returnType */ Gst.StateChangeReturn, /* state */ Gst.State | null, /* pending */ Gst.State | null ]
-    vfuncNoMorePads(): void
-    vfuncPadAdded(pad: Gst.Pad): void
-    vfuncPadRemoved(pad: Gst.Pad): void
-    vfuncPostMessage(message: Gst.Message): boolean
-    vfuncProvideClock(): Gst.Clock | null
-    vfuncQuery(query: Gst.Query): boolean
-    vfuncReleasePad(pad: Gst.Pad): void
-    vfuncRequestNewPad(templ: Gst.PadTemplate, name?: string | null, caps?: Gst.Caps | null): Gst.Pad | null
-    vfuncSendEvent(event: Gst.Event): boolean
-    vfuncSetBus(bus?: Gst.Bus | null): void
-    vfuncSetClock(clock?: Gst.Clock | null): boolean
-    vfuncSetContext(context: Gst.Context): void
-    vfuncSetState(state: Gst.State): Gst.StateChangeReturn
-    vfuncStateChanged(oldstate: Gst.State, newstate: Gst.State, pending: Gst.State): void
-    /* Virtual methods of Gst.Object */
-    vfuncDeepNotify(orig: Gst.Object, pspec: GObject.ParamSpec): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GstRtp.RTPBasePayload */
+    /* Signals of GstRtp-1.0.GstRtp.RTPBasePayload */
     connect(sigName: "add-extension", callback: (($obj: RTPBasePayload, ext: RTPHeaderExtension) => void)): number
-    connect_after(sigName: "add-extension", callback: (($obj: RTPBasePayload, ext: RTPHeaderExtension) => void)): number
+    on(sigName: "add-extension", callback: (ext: RTPHeaderExtension) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "add-extension", callback: (ext: RTPHeaderExtension) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "add-extension", callback: (ext: RTPHeaderExtension) => void): NodeJS.EventEmitter
     emit(sigName: "add-extension", ext: RTPHeaderExtension): void
-    on(sigName: "add-extension", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "add-extension", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "add-extension", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "clear-extensions", callback: (($obj: RTPBasePayload) => void)): number
-    connect_after(sigName: "clear-extensions", callback: (($obj: RTPBasePayload) => void)): number
+    on(sigName: "clear-extensions", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "clear-extensions", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "clear-extensions", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "clear-extensions"): void
-    on(sigName: "clear-extensions", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "clear-extensions", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "clear-extensions", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "request-extension", callback: (($obj: RTPBasePayload, extId: number, extUri: string) => RTPHeaderExtension)): number
-    connect_after(sigName: "request-extension", callback: (($obj: RTPBasePayload, extId: number, extUri: string) => RTPHeaderExtension)): number
+    on(sigName: "request-extension", callback: (extId: number, extUri: string) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "request-extension", callback: (extId: number, extUri: string) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "request-extension", callback: (extId: number, extUri: string) => void): NodeJS.EventEmitter
     emit(sigName: "request-extension", extId: number, extUri: string): void
-    on(sigName: "request-extension", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "request-extension", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "request-extension", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of Gst.Element */
+    /* Signals of Gst-1.0.Gst.Element */
     connect(sigName: "no-more-pads", callback: (($obj: RTPBasePayload) => void)): number
-    connect_after(sigName: "no-more-pads", callback: (($obj: RTPBasePayload) => void)): number
+    on(sigName: "no-more-pads", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "no-more-pads", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "no-more-pads", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "no-more-pads"): void
-    on(sigName: "no-more-pads", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "no-more-pads", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "no-more-pads", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "pad-added", callback: (($obj: RTPBasePayload, newPad: Gst.Pad) => void)): number
-    connect_after(sigName: "pad-added", callback: (($obj: RTPBasePayload, newPad: Gst.Pad) => void)): number
+    on(sigName: "pad-added", callback: (newPad: Gst.Pad) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "pad-added", callback: (newPad: Gst.Pad) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "pad-added", callback: (newPad: Gst.Pad) => void): NodeJS.EventEmitter
     emit(sigName: "pad-added", newPad: Gst.Pad): void
-    on(sigName: "pad-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "pad-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "pad-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "pad-removed", callback: (($obj: RTPBasePayload, oldPad: Gst.Pad) => void)): number
-    connect_after(sigName: "pad-removed", callback: (($obj: RTPBasePayload, oldPad: Gst.Pad) => void)): number
+    on(sigName: "pad-removed", callback: (oldPad: Gst.Pad) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "pad-removed", callback: (oldPad: Gst.Pad) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "pad-removed", callback: (oldPad: Gst.Pad) => void): NodeJS.EventEmitter
     emit(sigName: "pad-removed", oldPad: Gst.Pad): void
-    on(sigName: "pad-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "pad-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "pad-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of Gst.Object */
+    /* Signals of Gst-1.0.Gst.Object */
     connect(sigName: "deep-notify", callback: (($obj: RTPBasePayload, propObject: Gst.Object, prop: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "deep-notify", callback: (($obj: RTPBasePayload, propObject: Gst.Object, prop: GObject.ParamSpec) => void)): number
+    on(sigName: "deep-notify", callback: (propObject: Gst.Object, prop: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "deep-notify", callback: (propObject: Gst.Object, prop: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "deep-notify", callback: (propObject: Gst.Object, prop: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "deep-notify", propObject: Gst.Object, prop: GObject.ParamSpec): void
-    on(sigName: "deep-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "deep-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "deep-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: RTPBasePayload, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: RTPBasePayload, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::auto-header-extension", callback: (($obj: RTPBasePayload, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::auto-header-extension", callback: (($obj: RTPBasePayload, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::auto-header-extension", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -1256,12 +1126,12 @@ export class RTPBasePayload {
 export interface RTPHeaderExtension_ConstructProps extends Gst.Element_ConstructProps {
 }
 export class RTPHeaderExtension {
-    /* Properties of Gst.Object */
+    /* Properties of Gst-1.0.Gst.Object */
     name: string
     parent: Gst.Object
-    /* Fields of GstRtp.RTPHeaderExtension */
+    /* Fields of GstRtp-1.0.GstRtp.RTPHeaderExtension */
     extId: number
-    /* Fields of Gst.Element */
+    /* Fields of Gst-1.0.Gst.Element */
     object: Gst.Object
     stateLock: GLib.RecMutex
     stateCond: GLib.Cond
@@ -1283,12 +1153,12 @@ export class RTPHeaderExtension {
     sinkpads: Gst.Pad[]
     padsCookie: number
     contexts: Gst.Context[]
-    /* Fields of Gst.Object */
+    /* Fields of Gst-1.0.Gst.Object */
     lock: GLib.Mutex
     flags: number
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GstRtp.RTPHeaderExtension */
+    /* Methods of GstRtp-1.0.GstRtp.RTPHeaderExtension */
     getId(): number
     getMaxSize(inputMeta: Gst.Buffer): number
     getSdpCapsFieldName(): string
@@ -1301,7 +1171,7 @@ export class RTPHeaderExtension {
     setCapsFromAttributesSimpleSdp(caps: Gst.Caps): boolean
     setId(extId: number): void
     write(inputMeta: Gst.Buffer, writeFlags: RTPHeaderExtensionFlags, output: Gst.Buffer, data: number, size: number): number
-    /* Methods of Gst.Element */
+    /* Methods of Gst-1.0.Gst.Element */
     abortState(): void
     addPad(pad: Gst.Pad): boolean
     addPropertyDeepNotifyWatch(propertyName: string | null, includeValue: boolean): number
@@ -1329,7 +1199,7 @@ export class RTPHeaderExtension {
     getPadTemplateList(): Gst.PadTemplate[]
     getRequestPad(name: string): Gst.Pad | null
     getStartTime(): Gst.ClockTime
-    getState(timeout: Gst.ClockTime): [ /* returnType */ Gst.StateChangeReturn, /* state */ Gst.State | null, /* pending */ Gst.State | null ]
+    getState(timeout: Gst.ClockTime): { returnType: Gst.StateChangeReturn, state: Gst.State | null, pending: Gst.State | null }
     getStaticPad(name: string): Gst.Pad | null
     isLockedState(): boolean
     iteratePads(): Gst.Iterator
@@ -1347,9 +1217,9 @@ export class RTPHeaderExtension {
     postMessage(message: Gst.Message): boolean
     provideClock(): Gst.Clock | null
     query(query: Gst.Query): boolean
-    queryConvert(srcFormat: Gst.Format, srcVal: number, destFormat: Gst.Format): [ /* returnType */ boolean, /* destVal */ number ]
-    queryDuration(format: Gst.Format): [ /* returnType */ boolean, /* duration */ number | null ]
-    queryPosition(format: Gst.Format): [ /* returnType */ boolean, /* cur */ number | null ]
+    queryConvert(srcFormat: Gst.Format, srcVal: number, destFormat: Gst.Format): { returnType: boolean, destVal: number }
+    queryDuration(format: Gst.Format): { returnType: boolean, duration: number | null }
+    queryPosition(format: Gst.Format): { returnType: boolean, cur: number | null }
     releaseRequestPad(pad: Gst.Pad): void
     removePad(pad: Gst.Pad): boolean
     removePropertyNotifyWatch(watchId: number): void
@@ -1367,7 +1237,7 @@ export class RTPHeaderExtension {
     syncStateWithParent(): boolean
     unlink(dest: Gst.Element): void
     unlinkPads(srcpadname: string, dest: Gst.Element, destpadname: string): void
-    /* Methods of Gst.Object */
+    /* Methods of Gst-1.0.Gst.Object */
     addControlBinding(binding: Gst.ControlBinding): boolean
     defaultError(error: GLib.Error, debug?: string | null): void
     getControlBinding(propertyName: string): Gst.ControlBinding | null
@@ -1392,7 +1262,7 @@ export class RTPHeaderExtension {
     syncValues(timestamp: Gst.ClockTime): boolean
     unparent(): void
     unref(): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -1413,73 +1283,34 @@ export class RTPHeaderExtension {
     stealQdata(quark: GLib.Quark): object | null
     thawNotify(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GstRtp.RTPHeaderExtension */
-    vfuncGetMaxSize(inputMeta: Gst.Buffer): number
-    vfuncGetSupportedFlags(): RTPHeaderExtensionFlags
-    vfuncRead(readFlags: RTPHeaderExtensionFlags, data: number, size: number, buffer: Gst.Buffer): boolean
-    vfuncSetAttributesFromCaps(caps: Gst.Caps): boolean
-    vfuncSetCapsFromAttributes(caps: Gst.Caps): boolean
-    vfuncWrite(inputMeta: Gst.Buffer, writeFlags: RTPHeaderExtensionFlags, output: Gst.Buffer, data: number, size: number): number
-    /* Virtual methods of Gst.Element */
-    vfuncChangeState(transition: Gst.StateChange): Gst.StateChangeReturn
-    vfuncGetState(timeout: Gst.ClockTime): [ /* returnType */ Gst.StateChangeReturn, /* state */ Gst.State | null, /* pending */ Gst.State | null ]
-    vfuncNoMorePads(): void
-    vfuncPadAdded(pad: Gst.Pad): void
-    vfuncPadRemoved(pad: Gst.Pad): void
-    vfuncPostMessage(message: Gst.Message): boolean
-    vfuncProvideClock(): Gst.Clock | null
-    vfuncQuery(query: Gst.Query): boolean
-    vfuncReleasePad(pad: Gst.Pad): void
-    vfuncRequestNewPad(templ: Gst.PadTemplate, name?: string | null, caps?: Gst.Caps | null): Gst.Pad | null
-    vfuncSendEvent(event: Gst.Event): boolean
-    vfuncSetBus(bus?: Gst.Bus | null): void
-    vfuncSetClock(clock?: Gst.Clock | null): boolean
-    vfuncSetContext(context: Gst.Context): void
-    vfuncSetState(state: Gst.State): Gst.StateChangeReturn
-    vfuncStateChanged(oldstate: Gst.State, newstate: Gst.State, pending: Gst.State): void
-    /* Virtual methods of Gst.Object */
-    vfuncDeepNotify(orig: Gst.Object, pspec: GObject.ParamSpec): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gst.Element */
+    /* Signals of Gst-1.0.Gst.Element */
     connect(sigName: "no-more-pads", callback: (($obj: RTPHeaderExtension) => void)): number
-    connect_after(sigName: "no-more-pads", callback: (($obj: RTPHeaderExtension) => void)): number
+    on(sigName: "no-more-pads", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "no-more-pads", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "no-more-pads", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "no-more-pads"): void
-    on(sigName: "no-more-pads", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "no-more-pads", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "no-more-pads", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "pad-added", callback: (($obj: RTPHeaderExtension, newPad: Gst.Pad) => void)): number
-    connect_after(sigName: "pad-added", callback: (($obj: RTPHeaderExtension, newPad: Gst.Pad) => void)): number
+    on(sigName: "pad-added", callback: (newPad: Gst.Pad) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "pad-added", callback: (newPad: Gst.Pad) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "pad-added", callback: (newPad: Gst.Pad) => void): NodeJS.EventEmitter
     emit(sigName: "pad-added", newPad: Gst.Pad): void
-    on(sigName: "pad-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "pad-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "pad-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "pad-removed", callback: (($obj: RTPHeaderExtension, oldPad: Gst.Pad) => void)): number
-    connect_after(sigName: "pad-removed", callback: (($obj: RTPHeaderExtension, oldPad: Gst.Pad) => void)): number
+    on(sigName: "pad-removed", callback: (oldPad: Gst.Pad) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "pad-removed", callback: (oldPad: Gst.Pad) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "pad-removed", callback: (oldPad: Gst.Pad) => void): NodeJS.EventEmitter
     emit(sigName: "pad-removed", oldPad: Gst.Pad): void
-    on(sigName: "pad-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "pad-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "pad-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of Gst.Object */
+    /* Signals of Gst-1.0.Gst.Object */
     connect(sigName: "deep-notify", callback: (($obj: RTPHeaderExtension, propObject: Gst.Object, prop: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "deep-notify", callback: (($obj: RTPHeaderExtension, propObject: Gst.Object, prop: GObject.ParamSpec) => void)): number
+    on(sigName: "deep-notify", callback: (propObject: Gst.Object, prop: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "deep-notify", callback: (propObject: Gst.Object, prop: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "deep-notify", callback: (propObject: Gst.Object, prop: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "deep-notify", propObject: Gst.Object, prop: GObject.ParamSpec): void
-    on(sigName: "deep-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "deep-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "deep-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: RTPHeaderExtension, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: RTPHeaderExtension, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::name", callback: (($obj: RTPHeaderExtension, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::name", callback: (($obj: RTPHeaderExtension, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::name", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -1506,10 +1337,10 @@ export class RTPHeaderExtension {
     static $gtype: GObject.Type
 }
 export class RTCPBuffer {
-    /* Fields of GstRtp.RTCPBuffer */
+    /* Fields of GstRtp-1.0.GstRtp.RTCPBuffer */
     buffer: Gst.Buffer
     map: Gst.MapInfo
-    /* Methods of GstRtp.RTCPBuffer */
+    /* Methods of GstRtp-1.0.GstRtp.RTCPBuffer */
     addPacket(type: RTCPType, packet: RTCPPacket): boolean
     getFirstPacket(packet: RTCPPacket): boolean
     getPacketCount(): number
@@ -1525,10 +1356,10 @@ export class RTCPBuffer {
     static validateReduced(buffer: Gst.Buffer): boolean
 }
 export class RTCPPacket {
-    /* Fields of GstRtp.RTCPPacket */
+    /* Fields of GstRtp-1.0.GstRtp.RTCPPacket */
     rtcp: RTCPBuffer
     offset: number
-    /* Methods of GstRtp.RTCPPacket */
+    /* Methods of GstRtp-1.0.GstRtp.RTCPPacket */
     addProfileSpecificExt(data: any[]): boolean
     addRb(ssrc: number, fractionlost: number, packetslost: number, exthighestseq: number, jitter: number, lsr: number, dlsr: number): boolean
     appGetData(): number
@@ -1547,7 +1378,7 @@ export class RTCPPacket {
     byeGetReasonLen(): number
     byeGetSsrcCount(): number
     byeSetReason(reason: string): boolean
-    copyProfileSpecificExt(): [ /* returnType */ boolean, /* data */ any[] ]
+    copyProfileSpecificExt(): { returnType: boolean, data: any[] }
     fbGetFci(): number
     fbGetFciLength(): number
     fbGetMediaSsrc(): number
@@ -1560,9 +1391,9 @@ export class RTCPPacket {
     getCount(): number
     getLength(): number
     getPadding(): boolean
-    getProfileSpecificExt(): [ /* returnType */ boolean, /* data */ any[] ]
+    getProfileSpecificExt(): { returnType: boolean, data: any[] }
     getProfileSpecificExtLength(): number
-    getRb(nth: number): [ /* ssrc */ number, /* fractionlost */ number, /* packetslost */ number, /* exthighestseq */ number, /* jitter */ number, /* lsr */ number, /* dlsr */ number ]
+    getRb(nth: number): { ssrc: number, fractionlost: number, packetslost: number, exthighestseq: number, jitter: number, lsr: number, dlsr: number }
     getRbCount(): number
     getType(): RTCPType
     moveToNext(): boolean
@@ -1571,16 +1402,16 @@ export class RTCPPacket {
     rrSetSsrc(ssrc: number): void
     sdesAddEntry(type: RTCPSDESType, data: any[]): boolean
     sdesAddItem(ssrc: number): boolean
-    sdesCopyEntry(type: RTCPSDESType): [ /* returnType */ boolean, /* data */ any[] ]
+    sdesCopyEntry(type: RTCPSDESType): { returnType: boolean, data: any[] }
     sdesFirstEntry(): boolean
     sdesFirstItem(): boolean
-    sdesGetEntry(type: RTCPSDESType): [ /* returnType */ boolean, /* data */ any[] ]
+    sdesGetEntry(type: RTCPSDESType): { returnType: boolean, data: any[] }
     sdesGetItemCount(): number
     sdesGetSsrc(): number
     sdesNextEntry(): boolean
     sdesNextItem(): boolean
     setRb(nth: number, ssrc: number, fractionlost: number, packetslost: number, exthighestseq: number, jitter: number, lsr: number, dlsr: number): void
-    srGetSenderInfo(): [ /* ssrc */ number, /* ntptime */ number, /* rtptime */ number, /* packetCount */ number, /* octetCount */ number ]
+    srGetSenderInfo(): { ssrc: number, ntptime: number, rtptime: number, packetCount: number, octetCount: number }
     srSetSenderInfo(ssrc: number, ntptime: number, rtptime: number, packetCount: number, octetCount: number): void
     xrFirstRb(): boolean
     xrGetBlockLength(): number
@@ -1608,7 +1439,7 @@ export class RTCPPacket {
     static name: string
 }
 export abstract class RTPBaseAudioPayloadClass {
-    /* Fields of GstRtp.RTPBaseAudioPayloadClass */
+    /* Fields of GstRtp-1.0.GstRtp.RTPBaseAudioPayloadClass */
     parentClass: RTPBasePayloadClass
     static name: string
 }
@@ -1616,7 +1447,7 @@ export class RTPBaseAudioPayloadPrivate {
     static name: string
 }
 export abstract class RTPBaseDepayloadClass {
-    /* Fields of GstRtp.RTPBaseDepayloadClass */
+    /* Fields of GstRtp-1.0.GstRtp.RTPBaseDepayloadClass */
     parentClass: Gst.ElementClass
     setCaps: (filter: RTPBaseDepayload, caps: Gst.Caps) => boolean
     process: (base: RTPBaseDepayload, in_: Gst.Buffer) => Gst.Buffer
@@ -1629,7 +1460,7 @@ export class RTPBaseDepayloadPrivate {
     static name: string
 }
 export abstract class RTPBasePayloadClass {
-    /* Fields of GstRtp.RTPBasePayloadClass */
+    /* Fields of GstRtp-1.0.GstRtp.RTPBasePayloadClass */
     parentClass: Gst.ElementClass
     getCaps: (payload: RTPBasePayload, pad: Gst.Pad, filter: Gst.Caps) => Gst.Caps
     setCaps: (payload: RTPBasePayload, caps: Gst.Caps) => boolean
@@ -1643,21 +1474,21 @@ export class RTPBasePayloadPrivate {
     static name: string
 }
 export class RTPBuffer {
-    /* Fields of GstRtp.RTPBuffer */
+    /* Fields of GstRtp-1.0.GstRtp.RTPBuffer */
     buffer: Gst.Buffer
     state: number
     data: object[]
     size: number[]
     map: Gst.MapInfo[]
-    /* Methods of GstRtp.RTPBuffer */
+    /* Methods of GstRtp-1.0.GstRtp.RTPBuffer */
     addExtensionOnebyteHeader(id: number, data: any[]): boolean
     addExtensionTwobytesHeader(appbits: number, id: number, data: any[]): boolean
     getCsrc(idx: number): number
     getCsrcCount(): number
     getExtension(): boolean
-    getExtensionData(): [ /* returnType */ any, /* bits */ number ]
-    getExtensionOnebyteHeader(id: number, nth: number): [ /* returnType */ boolean, /* data */ any[] ]
-    getExtensionTwobytesHeader(id: number, nth: number): [ /* returnType */ boolean, /* appbits */ number, /* data */ any[] ]
+    getExtensionData(): { returnType: any, bits: number }
+    getExtensionOnebyteHeader(id: number, nth: number): { returnType: boolean, data: any[] }
+    getExtensionTwobytesHeader(id: number, nth: number): { returnType: boolean, appbits: number, data: any[] }
     getHeaderLen(): number
     getMarker(): boolean
     getPacketLen(): number
@@ -1692,16 +1523,16 @@ export class RTPBuffer {
     static calcPayloadLen(packetLen: number, padLen: number, csrcCount: number): number
     static compareSeqnum(seqnum1: number, seqnum2: number): number
     static defaultClockRate(payloadType: number): number
-    static extTimestamp(exttimestamp: number, timestamp: number): [ /* returnType */ number, /* exttimestamp */ number ]
-    static getExtensionOnebyteHeaderFromBytes(bytes: any, bitPattern: number, id: number, nth: number): [ /* returnType */ boolean, /* data */ any[] ]
-    static map(buffer: Gst.Buffer, flags: Gst.MapFlags): [ /* returnType */ boolean, /* rtp */ RTPBuffer ]
+    static extTimestamp(exttimestamp: number, timestamp: number): { returnType: number, exttimestamp: number }
+    static getExtensionOnebyteHeaderFromBytes(bytes: any, bitPattern: number, id: number, nth: number): { returnType: boolean, data: any[] }
+    static map(buffer: Gst.Buffer, flags: Gst.MapFlags): { returnType: boolean, rtp: RTPBuffer }
     static newAllocate(payloadLen: number, padLen: number, csrcCount: number): Gst.Buffer
     static newAllocateLen(packetLen: number, padLen: number, csrcCount: number): Gst.Buffer
     static newCopyData(data: any[]): Gst.Buffer
     static newTakeData(data: any[]): Gst.Buffer
 }
 export abstract class RTPHeaderExtensionClass {
-    /* Fields of GstRtp.RTPHeaderExtensionClass */
+    /* Fields of GstRtp-1.0.GstRtp.RTPHeaderExtensionClass */
     parentClass: Gst.ElementClass
     getSupportedFlags: (ext: RTPHeaderExtension) => RTPHeaderExtensionFlags
     getMaxSize: (ext: RTPHeaderExtension, inputMeta: Gst.Buffer) => number
@@ -1709,12 +1540,12 @@ export abstract class RTPHeaderExtensionClass {
     read: (ext: RTPHeaderExtension, readFlags: RTPHeaderExtensionFlags, data: number, size: number, buffer: Gst.Buffer) => boolean
     setAttributesFromCaps: (ext: RTPHeaderExtension, caps: Gst.Caps) => boolean
     setCapsFromAttributes: (ext: RTPHeaderExtension, caps: Gst.Caps) => boolean
-    /* Methods of GstRtp.RTPHeaderExtensionClass */
+    /* Methods of GstRtp-1.0.GstRtp.RTPHeaderExtensionClass */
     setUri(klass: RTPHeaderExtension | Function | GObject.Type, uri: string): void
     static name: string
 }
 export class RTPPayloadInfo {
-    /* Fields of GstRtp.RTPPayloadInfo */
+    /* Fields of GstRtp-1.0.GstRtp.RTPPayloadInfo */
     payloadType: number
     media: string
     encodingName: string
@@ -1727,13 +1558,13 @@ export class RTPPayloadInfo {
     static forPt(payloadType: number): RTPPayloadInfo
 }
 export class RTPSourceMeta {
-    /* Fields of GstRtp.RTPSourceMeta */
+    /* Fields of GstRtp-1.0.GstRtp.RTPSourceMeta */
     meta: Gst.Meta
     ssrc: number
     ssrcValid: boolean
     csrc: number[]
     csrcCount: number
-    /* Methods of GstRtp.RTPSourceMeta */
+    /* Methods of GstRtp-1.0.GstRtp.RTPSourceMeta */
     appendCsrc(csrc: number, csrcCount: number): boolean
     getSourceCount(): number
     setSsrc(ssrc?: number | null): boolean

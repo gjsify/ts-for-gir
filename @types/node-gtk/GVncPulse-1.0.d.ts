@@ -13,12 +13,12 @@ export declare namespace GVncPulse {
 export interface AudioPulse_ConstructProps extends GVnc.BaseAudio_ConstructProps {
 }
 export class AudioPulse {
-    /* Fields of GVncPulse.AudioPulse */
+    /* Fields of GVncPulse-1.0.GVncPulse.AudioPulse */
     parent: GVnc.BaseAudio
     priv: AudioPulsePrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -40,52 +40,32 @@ export class AudioPulse {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of GVnc.Audio */
+    /* Methods of GVnc-1.0.GVnc.Audio */
     playbackData(sample: GVnc.AudioSample): void
     playbackStart(format: GVnc.AudioFormat): void
     playbackStop(): void
-    /* Virtual methods of GVncPulse.AudioPulse */
-    vfuncPlaybackData(sample: GVnc.AudioSample): boolean
-    vfuncPlaybackStart(format: GVnc.AudioFormat): boolean
-    vfuncPlaybackStop(): boolean
-    /* Virtual methods of GVnc.BaseAudio */
-    vfuncPlaybackData(sample: GVnc.AudioSample): boolean
-    vfuncPlaybackStart(format: GVnc.AudioFormat): boolean
-    vfuncPlaybackStop(): boolean
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GVnc.BaseAudio */
+    /* Signals of GVnc-1.0.GVnc.BaseAudio */
     connect(sigName: "vnc-audio-playback-data", callback: (($obj: AudioPulse, object: GVnc.AudioSample) => void)): number
-    connect_after(sigName: "vnc-audio-playback-data", callback: (($obj: AudioPulse, object: GVnc.AudioSample) => void)): number
+    on(sigName: "vnc-audio-playback-data", callback: (object: GVnc.AudioSample) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "vnc-audio-playback-data", callback: (object: GVnc.AudioSample) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "vnc-audio-playback-data", callback: (object: GVnc.AudioSample) => void): NodeJS.EventEmitter
     emit(sigName: "vnc-audio-playback-data", object: GVnc.AudioSample): void
-    on(sigName: "vnc-audio-playback-data", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "vnc-audio-playback-data", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "vnc-audio-playback-data", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "vnc-audio-playback-start", callback: (($obj: AudioPulse, object: GVnc.AudioFormat) => void)): number
-    connect_after(sigName: "vnc-audio-playback-start", callback: (($obj: AudioPulse, object: GVnc.AudioFormat) => void)): number
+    on(sigName: "vnc-audio-playback-start", callback: (object: GVnc.AudioFormat) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "vnc-audio-playback-start", callback: (object: GVnc.AudioFormat) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "vnc-audio-playback-start", callback: (object: GVnc.AudioFormat) => void): NodeJS.EventEmitter
     emit(sigName: "vnc-audio-playback-start", object: GVnc.AudioFormat): void
-    on(sigName: "vnc-audio-playback-start", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "vnc-audio-playback-start", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "vnc-audio-playback-start", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "vnc-audio-playback-stop", callback: (($obj: AudioPulse) => void)): number
-    connect_after(sigName: "vnc-audio-playback-stop", callback: (($obj: AudioPulse) => void)): number
+    on(sigName: "vnc-audio-playback-stop", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "vnc-audio-playback-stop", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "vnc-audio-playback-stop", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "vnc-audio-playback-stop"): void
-    on(sigName: "vnc-audio-playback-stop", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "vnc-audio-playback-stop", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "vnc-audio-playback-stop", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: AudioPulse, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: AudioPulse, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -101,7 +81,7 @@ export class AudioPulse {
     static $gtype: GObject.Type
 }
 export abstract class AudioPulseClass {
-    /* Fields of GVncPulse.AudioPulseClass */
+    /* Fields of GVncPulse-1.0.GVncPulse.AudioPulseClass */
     parentClass: GVnc.BaseAudioClass
     static name: string
 }

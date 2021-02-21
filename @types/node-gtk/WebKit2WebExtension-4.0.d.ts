@@ -193,36 +193,28 @@ export interface WebExtensionInitializeWithUserDataFunction {
     (extension: WebExtension, userData: GLib.Variant): void
 }
 export class DOMEventTarget {
-    /* Methods of WebKit2WebExtension.DOMEventTarget */
+    /* Methods of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMEventTarget */
     addEventListener(eventName: string, handler: Function, useCapture: boolean): boolean
     dispatchEvent(event: DOMEvent): boolean
     removeEventListener(eventName: string, handler: Function, useCapture: boolean): boolean
-    /* Virtual methods of WebKit2WebExtension.DOMEventTarget */
-    vfuncAddEventListener(eventName: string, handler: Function, useCapture: boolean): boolean
-    vfuncDispatchEvent(event: DOMEvent): boolean
-    vfuncRemoveEventListener(eventName: string, handler: Function, useCapture: boolean): boolean
     static name: string
 }
 export class DOMNodeFilter {
-    /* Methods of WebKit2WebExtension.DOMNodeFilter */
+    /* Methods of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMNodeFilter */
     acceptNode(node: DOMNode): number
-    /* Virtual methods of WebKit2WebExtension.DOMNodeFilter */
-    vfuncAcceptNode(node: DOMNode): number
     static name: string
 }
 export class DOMXPathNSResolver {
-    /* Methods of WebKit2WebExtension.DOMXPathNSResolver */
+    /* Methods of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMXPathNSResolver */
     lookupNamespaceUri(prefix: string): string
-    /* Virtual methods of WebKit2WebExtension.DOMXPathNSResolver */
-    vfuncLookupNamespaceUri(prefix: string): string
     static name: string
 }
 export interface ContextMenu_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class ContextMenu {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of WebKit2WebExtension.ContextMenu */
+    /* Methods of WebKit2WebExtension-4.0.WebKit2WebExtension.ContextMenu */
     append(item: ContextMenuItem): void
     first(): ContextMenuItem
     getItemAtPosition(position: number): ContextMenuItem
@@ -236,7 +228,7 @@ export class ContextMenu {
     remove(item: ContextMenuItem): void
     removeAll(): void
     setUserData(userData: GLib.Variant): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -258,21 +250,12 @@ export class ContextMenu {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: ContextMenu, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: ContextMenu, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -291,16 +274,16 @@ export class ContextMenu {
 export interface ContextMenuItem_ConstructProps extends GObject.InitiallyUnowned_ConstructProps {
 }
 export class ContextMenuItem {
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of WebKit2WebExtension.ContextMenuItem */
+    /* Methods of WebKit2WebExtension-4.0.WebKit2WebExtension.ContextMenuItem */
     getAction(): Gtk.Action
     getGaction(): Gio.Action
     getStockAction(): ContextMenuAction
     getSubmenu(): ContextMenu
     isSeparator(): boolean
     setSubmenu(submenu?: ContextMenu | null): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -322,21 +305,12 @@ export class ContextMenuItem {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: ContextMenuItem, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: ContextMenuItem, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -360,7 +334,7 @@ export interface DOMAttr_ConstructProps extends DOMNode_ConstructProps {
     value?: string
 }
 export class DOMAttr {
-    /* Properties of WebKit2WebExtension.DOMAttr */
+    /* Properties of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMAttr */
     readonly localName: string
     readonly name: string
     readonly namespaceUri: string
@@ -368,7 +342,7 @@ export class DOMAttr {
     readonly prefix: string
     readonly specified: boolean
     value: string
-    /* Properties of WebKit2WebExtension.DOMNode */
+    /* Properties of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMNode */
     readonly baseUri: string
     readonly childNodes: DOMNodeList
     readonly firstChild: DOMNode
@@ -382,13 +356,13 @@ export class DOMAttr {
     readonly parentNode: DOMNode
     readonly previousSibling: DOMNode
     textContent: string
-    /* Fields of WebKit2WebExtension.DOMAttr */
+    /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMAttr */
     parentInstance: DOMNode
-    /* Fields of WebKit2WebExtension.DOMObject */
+    /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMObject */
     coreObject: object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of WebKit2WebExtension.DOMAttr */
+    /* Methods of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMAttr */
     getLocalName(): string
     getName(): string
     getNamespaceUri(): string
@@ -397,7 +371,7 @@ export class DOMAttr {
     getSpecified(): boolean
     getValue(): string
     setValue(value: string): void
-    /* Methods of WebKit2WebExtension.DOMNode */
+    /* Methods of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMNode */
     appendChild(newChild: DOMNode): DOMNode
     cloneNode(deep: boolean): DOMNode
     cloneNodeWithError(deep: boolean): DOMNode
@@ -430,7 +404,7 @@ export class DOMAttr {
     setNodeValue(value: string): void
     setPrefix(value: string): void
     setTextContent(value: string): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -452,29 +426,16 @@ export class DOMAttr {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of WebKit2WebExtension.DOMEventTarget */
+    /* Methods of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMEventTarget */
     addEventListener(eventName: string, handler: Function, useCapture: boolean): boolean
     dispatchEvent(event: DOMEvent): boolean
     removeEventListener(eventName: string, handler: Function, useCapture: boolean): boolean
-    /* Virtual methods of WebKit2WebExtension.DOMNode */
-    vfuncAddEventListener(eventName: string, handler: Function, useCapture: boolean): boolean
-    vfuncDispatchEvent(event: DOMEvent): boolean
-    vfuncRemoveEventListener(eventName: string, handler: Function, useCapture: boolean): boolean
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: DOMAttr, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: DOMAttr, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::local-name", callback: (($obj: DOMAttr, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::local-name", callback: (($obj: DOMAttr, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::local-name", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -590,17 +551,17 @@ export class DOMAttr {
 export interface DOMBlob_ConstructProps extends DOMObject_ConstructProps {
 }
 export class DOMBlob {
-    /* Properties of WebKit2WebExtension.DOMBlob */
+    /* Properties of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMBlob */
     readonly size: number
-    /* Fields of WebKit2WebExtension.DOMBlob */
+    /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMBlob */
     parentInstance: DOMObject
-    /* Fields of WebKit2WebExtension.DOMObject */
+    /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMObject */
     coreObject: object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of WebKit2WebExtension.DOMBlob */
+    /* Methods of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMBlob */
     getSize(): number
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -622,21 +583,12 @@ export class DOMBlob {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: DOMBlob, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: DOMBlob, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::size", callback: (($obj: DOMBlob, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::size", callback: (($obj: DOMBlob, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::size", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -657,12 +609,12 @@ export class DOMBlob {
 export interface DOMCDATASection_ConstructProps extends DOMText_ConstructProps {
 }
 export class DOMCDATASection {
-    /* Properties of WebKit2WebExtension.DOMText */
+    /* Properties of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMText */
     readonly wholeText: string
-    /* Properties of WebKit2WebExtension.DOMCharacterData */
+    /* Properties of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMCharacterData */
     data: string
     readonly length: number
-    /* Properties of WebKit2WebExtension.DOMNode */
+    /* Properties of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMNode */
     readonly baseUri: string
     readonly childNodes: DOMNodeList
     readonly firstChild: DOMNode
@@ -676,17 +628,17 @@ export class DOMCDATASection {
     readonly parentNode: DOMNode
     readonly previousSibling: DOMNode
     textContent: string
-    /* Fields of WebKit2WebExtension.DOMCDATASection */
+    /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMCDATASection */
     parentInstance: DOMText
-    /* Fields of WebKit2WebExtension.DOMObject */
+    /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMObject */
     coreObject: object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of WebKit2WebExtension.DOMText */
+    /* Methods of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMText */
     getWholeText(): string
     replaceWholeText(content: string): DOMText
     splitText(offset: number): DOMText
-    /* Methods of WebKit2WebExtension.DOMCharacterData */
+    /* Methods of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMCharacterData */
     appendData(data: string): void
     deleteData(offset: number, length: number): void
     getData(): string
@@ -695,7 +647,7 @@ export class DOMCDATASection {
     replaceData(offset: number, length: number, data: string): void
     setData(value: string): void
     substringData(offset: number, length: number): string
-    /* Methods of WebKit2WebExtension.DOMNode */
+    /* Methods of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMNode */
     appendChild(newChild: DOMNode): DOMNode
     cloneNode(deep: boolean): DOMNode
     cloneNodeWithError(deep: boolean): DOMNode
@@ -731,7 +683,7 @@ export class DOMCDATASection {
     setNodeValue(value: string): void
     setPrefix(value: string): void
     setTextContent(value: string): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -753,29 +705,16 @@ export class DOMCDATASection {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of WebKit2WebExtension.DOMEventTarget */
+    /* Methods of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMEventTarget */
     addEventListener(eventName: string, handler: Function, useCapture: boolean): boolean
     dispatchEvent(event: DOMEvent): boolean
     removeEventListener(eventName: string, handler: Function, useCapture: boolean): boolean
-    /* Virtual methods of WebKit2WebExtension.DOMNode */
-    vfuncAddEventListener(eventName: string, handler: Function, useCapture: boolean): boolean
-    vfuncDispatchEvent(event: DOMEvent): boolean
-    vfuncRemoveEventListener(eventName: string, handler: Function, useCapture: boolean): boolean
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: DOMCDATASection, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: DOMCDATASection, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::whole-text", callback: (($obj: DOMCDATASection, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::whole-text", callback: (($obj: DOMCDATASection, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::whole-text", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -872,24 +811,24 @@ export interface DOMCSSRule_ConstructProps extends DOMObject_ConstructProps {
     cssText?: string
 }
 export class DOMCSSRule {
-    /* Properties of WebKit2WebExtension.DOMCSSRule */
+    /* Properties of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMCSSRule */
     cssText: string
     readonly parentRule: DOMCSSRule
     readonly parentStyleSheet: DOMCSSStyleSheet
     readonly type: number
-    /* Fields of WebKit2WebExtension.DOMCSSRule */
+    /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMCSSRule */
     parentInstance: DOMObject
-    /* Fields of WebKit2WebExtension.DOMObject */
+    /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMObject */
     coreObject: object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of WebKit2WebExtension.DOMCSSRule */
+    /* Methods of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMCSSRule */
     getCssText(): string
     getParentRule(): DOMCSSRule
     getParentStyleSheet(): DOMCSSStyleSheet
     getRuleType(): number
     setCssText(value: string): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -911,21 +850,12 @@ export class DOMCSSRule {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: DOMCSSRule, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: DOMCSSRule, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::css-text", callback: (($obj: DOMCSSRule, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::css-text", callback: (($obj: DOMCSSRule, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::css-text", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -961,18 +891,18 @@ export class DOMCSSRule {
 export interface DOMCSSRuleList_ConstructProps extends DOMObject_ConstructProps {
 }
 export class DOMCSSRuleList {
-    /* Properties of WebKit2WebExtension.DOMCSSRuleList */
+    /* Properties of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMCSSRuleList */
     readonly length: number
-    /* Fields of WebKit2WebExtension.DOMCSSRuleList */
+    /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMCSSRuleList */
     parentInstance: DOMObject
-    /* Fields of WebKit2WebExtension.DOMObject */
+    /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMObject */
     coreObject: object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of WebKit2WebExtension.DOMCSSRuleList */
+    /* Methods of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMCSSRuleList */
     getLength(): number
     item(index: number): DOMCSSRule
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -994,21 +924,12 @@ export class DOMCSSRuleList {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: DOMCSSRuleList, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: DOMCSSRuleList, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::length", callback: (($obj: DOMCSSRuleList, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::length", callback: (($obj: DOMCSSRuleList, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::length", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -1030,17 +951,17 @@ export interface DOMCSSStyleDeclaration_ConstructProps extends DOMObject_Constru
     cssText?: string
 }
 export class DOMCSSStyleDeclaration {
-    /* Properties of WebKit2WebExtension.DOMCSSStyleDeclaration */
+    /* Properties of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMCSSStyleDeclaration */
     cssText: string
     readonly length: number
     readonly parentRule: DOMCSSRule
-    /* Fields of WebKit2WebExtension.DOMCSSStyleDeclaration */
+    /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMCSSStyleDeclaration */
     parentInstance: DOMObject
-    /* Fields of WebKit2WebExtension.DOMObject */
+    /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMObject */
     coreObject: object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of WebKit2WebExtension.DOMCSSStyleDeclaration */
+    /* Methods of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMCSSStyleDeclaration */
     getCssText(): string
     getLength(): number
     getParentRule(): DOMCSSRule
@@ -1052,7 +973,7 @@ export class DOMCSSStyleDeclaration {
     removeProperty(propertyName: string): string
     setCssText(value: string): void
     setProperty(propertyName: string, value: string, priority: string): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -1074,21 +995,12 @@ export class DOMCSSStyleDeclaration {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: DOMCSSStyleDeclaration, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: DOMCSSStyleDeclaration, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::css-text", callback: (($obj: DOMCSSStyleDeclaration, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::css-text", callback: (($obj: DOMCSSStyleDeclaration, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::css-text", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -1119,11 +1031,11 @@ export class DOMCSSStyleDeclaration {
 export interface DOMCSSStyleSheet_ConstructProps extends DOMStyleSheet_ConstructProps {
 }
 export class DOMCSSStyleSheet {
-    /* Properties of WebKit2WebExtension.DOMCSSStyleSheet */
+    /* Properties of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMCSSStyleSheet */
     readonly cssRules: DOMCSSRuleList
     readonly ownerRule: DOMCSSRule
     readonly rules: DOMCSSRuleList
-    /* Properties of WebKit2WebExtension.DOMStyleSheet */
+    /* Properties of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMStyleSheet */
     disabled: boolean
     readonly href: string
     readonly media: DOMMediaList
@@ -1131,13 +1043,13 @@ export class DOMCSSStyleSheet {
     readonly parentStyleSheet: DOMStyleSheet
     readonly title: string
     readonly type: string
-    /* Fields of WebKit2WebExtension.DOMCSSStyleSheet */
+    /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMCSSStyleSheet */
     parentInstance: DOMStyleSheet
-    /* Fields of WebKit2WebExtension.DOMObject */
+    /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMObject */
     coreObject: object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of WebKit2WebExtension.DOMCSSStyleSheet */
+    /* Methods of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMCSSStyleSheet */
     addRule(selector: string, style: string, index: number): number
     deleteRule(index: number): void
     getCssRules(): DOMCSSRuleList
@@ -1145,7 +1057,7 @@ export class DOMCSSStyleSheet {
     getRules(): DOMCSSRuleList
     insertRule(rule: string, index: number): number
     removeRule(index: number): void
-    /* Methods of WebKit2WebExtension.DOMStyleSheet */
+    /* Methods of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMStyleSheet */
     getContentType(): string
     getDisabled(): boolean
     getHref(): string
@@ -1154,7 +1066,7 @@ export class DOMCSSStyleSheet {
     getParentStyleSheet(): DOMStyleSheet
     getTitle(): string
     setDisabled(value: boolean): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -1176,21 +1088,12 @@ export class DOMCSSStyleSheet {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: DOMCSSStyleSheet, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: DOMCSSStyleSheet, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::css-rules", callback: (($obj: DOMCSSStyleSheet, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::css-rules", callback: (($obj: DOMCSSStyleSheet, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::css-rules", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -1257,20 +1160,20 @@ export interface DOMCSSValue_ConstructProps extends DOMObject_ConstructProps {
     cssText?: string
 }
 export class DOMCSSValue {
-    /* Properties of WebKit2WebExtension.DOMCSSValue */
+    /* Properties of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMCSSValue */
     cssText: string
     readonly cssValueType: number
-    /* Fields of WebKit2WebExtension.DOMCSSValue */
+    /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMCSSValue */
     parentInstance: DOMObject
-    /* Fields of WebKit2WebExtension.DOMObject */
+    /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMObject */
     coreObject: object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of WebKit2WebExtension.DOMCSSValue */
+    /* Methods of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMCSSValue */
     getCssText(): string
     getCssValueType(): number
     setCssText(value: string): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -1292,21 +1195,12 @@ export class DOMCSSValue {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: DOMCSSValue, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: DOMCSSValue, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::css-text", callback: (($obj: DOMCSSValue, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::css-text", callback: (($obj: DOMCSSValue, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::css-text", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -1333,10 +1227,10 @@ export interface DOMCharacterData_ConstructProps extends DOMNode_ConstructProps 
     data?: string
 }
 export class DOMCharacterData {
-    /* Properties of WebKit2WebExtension.DOMCharacterData */
+    /* Properties of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMCharacterData */
     data: string
     readonly length: number
-    /* Properties of WebKit2WebExtension.DOMNode */
+    /* Properties of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMNode */
     readonly baseUri: string
     readonly childNodes: DOMNodeList
     readonly firstChild: DOMNode
@@ -1350,13 +1244,13 @@ export class DOMCharacterData {
     readonly parentNode: DOMNode
     readonly previousSibling: DOMNode
     textContent: string
-    /* Fields of WebKit2WebExtension.DOMCharacterData */
+    /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMCharacterData */
     parentInstance: DOMNode
-    /* Fields of WebKit2WebExtension.DOMObject */
+    /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMObject */
     coreObject: object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of WebKit2WebExtension.DOMCharacterData */
+    /* Methods of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMCharacterData */
     appendData(data: string): void
     deleteData(offset: number, length: number): void
     getData(): string
@@ -1365,7 +1259,7 @@ export class DOMCharacterData {
     replaceData(offset: number, length: number, data: string): void
     setData(value: string): void
     substringData(offset: number, length: number): string
-    /* Methods of WebKit2WebExtension.DOMNode */
+    /* Methods of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMNode */
     appendChild(newChild: DOMNode): DOMNode
     cloneNode(deep: boolean): DOMNode
     cloneNodeWithError(deep: boolean): DOMNode
@@ -1401,7 +1295,7 @@ export class DOMCharacterData {
     setNodeValue(value: string): void
     setPrefix(value: string): void
     setTextContent(value: string): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -1423,29 +1317,16 @@ export class DOMCharacterData {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of WebKit2WebExtension.DOMEventTarget */
+    /* Methods of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMEventTarget */
     addEventListener(eventName: string, handler: Function, useCapture: boolean): boolean
     dispatchEvent(event: DOMEvent): boolean
     removeEventListener(eventName: string, handler: Function, useCapture: boolean): boolean
-    /* Virtual methods of WebKit2WebExtension.DOMNode */
-    vfuncAddEventListener(eventName: string, handler: Function, useCapture: boolean): boolean
-    vfuncDispatchEvent(event: DOMEvent): boolean
-    vfuncRemoveEventListener(eventName: string, handler: Function, useCapture: boolean): boolean
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: DOMCharacterData, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: DOMCharacterData, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::data", callback: (($obj: DOMCharacterData, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::data", callback: (($obj: DOMCharacterData, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::data", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -1536,27 +1417,27 @@ export class DOMCharacterData {
 export interface DOMClientRect_ConstructProps extends DOMObject_ConstructProps {
 }
 export class DOMClientRect {
-    /* Properties of WebKit2WebExtension.DOMClientRect */
+    /* Properties of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMClientRect */
     readonly bottom: number
     readonly height: number
     readonly left: number
     readonly right: number
     readonly top: number
     readonly width: number
-    /* Fields of WebKit2WebExtension.DOMClientRect */
+    /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMClientRect */
     parentInstance: DOMObject
-    /* Fields of WebKit2WebExtension.DOMObject */
+    /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMObject */
     coreObject: object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of WebKit2WebExtension.DOMClientRect */
+    /* Methods of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMClientRect */
     getBottom(): number
     getHeight(): number
     getLeft(): number
     getRight(): number
     getTop(): number
     getWidth(): number
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -1578,21 +1459,12 @@ export class DOMClientRect {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: DOMClientRect, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: DOMClientRect, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::bottom", callback: (($obj: DOMClientRect, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::bottom", callback: (($obj: DOMClientRect, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::bottom", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -1638,18 +1510,18 @@ export class DOMClientRect {
 export interface DOMClientRectList_ConstructProps extends DOMObject_ConstructProps {
 }
 export class DOMClientRectList {
-    /* Properties of WebKit2WebExtension.DOMClientRectList */
+    /* Properties of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMClientRectList */
     readonly length: number
-    /* Fields of WebKit2WebExtension.DOMClientRectList */
+    /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMClientRectList */
     parentInstance: DOMObject
-    /* Fields of WebKit2WebExtension.DOMObject */
+    /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMObject */
     coreObject: object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of WebKit2WebExtension.DOMClientRectList */
+    /* Methods of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMClientRectList */
     getLength(): number
     item(index: number): DOMClientRect
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -1671,21 +1543,12 @@ export class DOMClientRectList {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: DOMClientRectList, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: DOMClientRectList, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::length", callback: (($obj: DOMClientRectList, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::length", callback: (($obj: DOMClientRectList, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::length", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -1706,10 +1569,10 @@ export class DOMClientRectList {
 export interface DOMComment_ConstructProps extends DOMCharacterData_ConstructProps {
 }
 export class DOMComment {
-    /* Properties of WebKit2WebExtension.DOMCharacterData */
+    /* Properties of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMCharacterData */
     data: string
     readonly length: number
-    /* Properties of WebKit2WebExtension.DOMNode */
+    /* Properties of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMNode */
     readonly baseUri: string
     readonly childNodes: DOMNodeList
     readonly firstChild: DOMNode
@@ -1723,13 +1586,13 @@ export class DOMComment {
     readonly parentNode: DOMNode
     readonly previousSibling: DOMNode
     textContent: string
-    /* Fields of WebKit2WebExtension.DOMComment */
+    /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMComment */
     parentInstance: DOMCharacterData
-    /* Fields of WebKit2WebExtension.DOMObject */
+    /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMObject */
     coreObject: object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of WebKit2WebExtension.DOMCharacterData */
+    /* Methods of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMCharacterData */
     appendData(data: string): void
     deleteData(offset: number, length: number): void
     getData(): string
@@ -1738,7 +1601,7 @@ export class DOMComment {
     replaceData(offset: number, length: number, data: string): void
     setData(value: string): void
     substringData(offset: number, length: number): string
-    /* Methods of WebKit2WebExtension.DOMNode */
+    /* Methods of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMNode */
     appendChild(newChild: DOMNode): DOMNode
     cloneNode(deep: boolean): DOMNode
     cloneNodeWithError(deep: boolean): DOMNode
@@ -1774,7 +1637,7 @@ export class DOMComment {
     setNodeValue(value: string): void
     setPrefix(value: string): void
     setTextContent(value: string): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -1796,29 +1659,16 @@ export class DOMComment {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of WebKit2WebExtension.DOMEventTarget */
+    /* Methods of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMEventTarget */
     addEventListener(eventName: string, handler: Function, useCapture: boolean): boolean
     dispatchEvent(event: DOMEvent): boolean
     removeEventListener(eventName: string, handler: Function, useCapture: boolean): boolean
-    /* Virtual methods of WebKit2WebExtension.DOMNode */
-    vfuncAddEventListener(eventName: string, handler: Function, useCapture: boolean): boolean
-    vfuncDispatchEvent(event: DOMEvent): boolean
-    vfuncRemoveEventListener(eventName: string, handler: Function, useCapture: boolean): boolean
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: DOMComment, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: DOMComment, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::data", callback: (($obj: DOMComment, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::data", callback: (($obj: DOMComment, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::data", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -1909,19 +1759,19 @@ export class DOMComment {
 export interface DOMDOMImplementation_ConstructProps extends DOMObject_ConstructProps {
 }
 export class DOMDOMImplementation {
-    /* Fields of WebKit2WebExtension.DOMDOMImplementation */
+    /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMDOMImplementation */
     parentInstance: DOMObject
-    /* Fields of WebKit2WebExtension.DOMObject */
+    /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMObject */
     coreObject: object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of WebKit2WebExtension.DOMDOMImplementation */
+    /* Methods of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMDOMImplementation */
     createCssStyleSheet(title: string, media: string): DOMCSSStyleSheet
     createDocument(namespaceURI: string | null, qualifiedName: string, doctype?: DOMDocumentType | null): DOMDocument
     createDocumentType(qualifiedName: string, publicId: string, systemId: string): DOMDocumentType
     createHtmlDocument(title: string): DOMHTMLDocument
     hasFeature(feature: string, version: string): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -1943,21 +1793,12 @@ export class DOMDOMImplementation {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: DOMDOMImplementation, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: DOMDOMImplementation, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -1973,7 +1814,7 @@ export class DOMDOMImplementation {
 export interface DOMDOMSelection_ConstructProps extends DOMObject_ConstructProps {
 }
 export class DOMDOMSelection {
-    /* Properties of WebKit2WebExtension.DOMDOMSelection */
+    /* Properties of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMDOMSelection */
     readonly anchorNode: DOMNode
     readonly anchorOffset: number
     readonly baseNode: DOMNode
@@ -1985,13 +1826,13 @@ export class DOMDOMSelection {
     readonly isCollapsed: boolean
     readonly rangeCount: number
     readonly type: string
-    /* Fields of WebKit2WebExtension.DOMDOMSelection */
+    /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMDOMSelection */
     parentInstance: DOMObject
-    /* Fields of WebKit2WebExtension.DOMObject */
+    /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMObject */
     coreObject: object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of WebKit2WebExtension.DOMDOMSelection */
+    /* Methods of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMDOMSelection */
     addRange(range: DOMRange): void
     collapse(node: DOMNode, offset: number): void
     collapseToEnd(): void
@@ -2017,7 +1858,7 @@ export class DOMDOMSelection {
     selectAllChildren(node: DOMNode): void
     setBaseAndExtent(baseNode: DOMNode, baseOffset: number, extentNode: DOMNode, extentOffset: number): void
     setPosition(node: DOMNode, offset: number): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -2039,21 +1880,12 @@ export class DOMDOMSelection {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: DOMDOMSelection, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: DOMDOMSelection, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::anchor-node", callback: (($obj: DOMDOMSelection, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::anchor-node", callback: (($obj: DOMDOMSelection, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::anchor-node", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -2125,16 +1957,16 @@ export interface DOMDOMTokenList_ConstructProps extends DOMObject_ConstructProps
     value?: string
 }
 export class DOMDOMTokenList {
-    /* Properties of WebKit2WebExtension.DOMDOMTokenList */
+    /* Properties of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMDOMTokenList */
     readonly length: number
     value: string
-    /* Fields of WebKit2WebExtension.DOMDOMTokenList */
+    /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMDOMTokenList */
     parentInstance: DOMObject
-    /* Fields of WebKit2WebExtension.DOMObject */
+    /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMObject */
     coreObject: object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of WebKit2WebExtension.DOMDOMTokenList */
+    /* Methods of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMDOMTokenList */
     contains(token: string): boolean
     getLength(): number
     getValue(): string
@@ -2142,7 +1974,7 @@ export class DOMDOMTokenList {
     replace(token: string, newToken: string): void
     setValue(value: string): void
     toggle(token: string, force: boolean): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -2164,21 +1996,12 @@ export class DOMDOMTokenList {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: DOMDOMTokenList, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: DOMDOMTokenList, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::length", callback: (($obj: DOMDOMTokenList, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::length", callback: (($obj: DOMDOMTokenList, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::length", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -2207,7 +2030,7 @@ export interface DOMDOMWindow_ConstructProps extends DOMObject_ConstructProps {
     status?: string
 }
 export class DOMDOMWindow {
-    /* Properties of WebKit2WebExtension.DOMDOMWindow */
+    /* Properties of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMDOMWindow */
     readonly closed: boolean
     defaultStatus: string
     readonly devicePixelRatio: number
@@ -2236,13 +2059,13 @@ export class DOMDOMWindow {
     status: string
     readonly top: DOMDOMWindow
     readonly window: DOMDOMWindow
-    /* Fields of WebKit2WebExtension.DOMDOMWindow */
+    /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMDOMWindow */
     parentInstance: DOMObject
-    /* Fields of WebKit2WebExtension.DOMObject */
+    /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMObject */
     coreObject: object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of WebKit2WebExtension.DOMDOMWindow */
+    /* Methods of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMDOMWindow */
     alert(message: string): void
     blur(): void
     captureEvents(): void
@@ -2294,7 +2117,7 @@ export class DOMDOMWindow {
     setStatus(value: string): void
     stop(): void
     webkitMessageHandlersPostMessage(handler: string, message: string): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -2316,29 +2139,16 @@ export class DOMDOMWindow {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of WebKit2WebExtension.DOMEventTarget */
+    /* Methods of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMEventTarget */
     addEventListener(eventName: string, handler: Function, useCapture: boolean): boolean
     dispatchEvent(event: DOMEvent): boolean
     removeEventListener(eventName: string, handler: Function, useCapture: boolean): boolean
-    /* Virtual methods of WebKit2WebExtension.DOMDOMWindow */
-    vfuncAddEventListener(eventName: string, handler: Function, useCapture: boolean): boolean
-    vfuncDispatchEvent(event: DOMEvent): boolean
-    vfuncRemoveEventListener(eventName: string, handler: Function, useCapture: boolean): boolean
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: DOMDOMWindow, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: DOMDOMWindow, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::closed", callback: (($obj: DOMDOMWindow, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::closed", callback: (($obj: DOMDOMWindow, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::closed", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -2503,7 +2313,7 @@ export interface DOMDocument_ConstructProps extends DOMNode_ConstructProps {
     xmlVersion?: string
 }
 export class DOMDocument {
-    /* Properties of WebKit2WebExtension.DOMDocument */
+    /* Properties of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMDocument */
     readonly activeElement: DOMElement
     readonly anchors: DOMHTMLCollection
     readonly applets: DOMHTMLCollection
@@ -2555,7 +2365,7 @@ export class DOMDocument {
     readonly xmlEncoding: string
     xmlStandalone: boolean
     xmlVersion: string
-    /* Properties of WebKit2WebExtension.DOMNode */
+    /* Properties of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMNode */
     readonly baseUri: string
     readonly childNodes: DOMNodeList
     readonly firstChild: DOMNode
@@ -2569,13 +2379,13 @@ export class DOMDocument {
     readonly parentNode: DOMNode
     readonly previousSibling: DOMNode
     textContent: string
-    /* Fields of WebKit2WebExtension.DOMDocument */
+    /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMDocument */
     parentInstance: DOMNode
-    /* Fields of WebKit2WebExtension.DOMObject */
+    /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMObject */
     coreObject: object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of WebKit2WebExtension.DOMDocument */
+    /* Methods of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMDocument */
     adoptNode(source: DOMNode): DOMNode
     caretRangeFromPoint(x: number, y: number): DOMRange
     createAttribute(name: string): DOMAttr
@@ -2681,7 +2491,7 @@ export class DOMDocument {
     setXmlVersion(value: string): void
     webkitCancelFullscreen(): void
     webkitExitFullscreen(): void
-    /* Methods of WebKit2WebExtension.DOMNode */
+    /* Methods of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMNode */
     appendChild(newChild: DOMNode): DOMNode
     cloneNode(deep: boolean): DOMNode
     cloneNodeWithError(deep: boolean): DOMNode
@@ -2717,7 +2527,7 @@ export class DOMDocument {
     setNodeValue(value: string): void
     setPrefix(value: string): void
     setTextContent(value: string): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -2739,29 +2549,16 @@ export class DOMDocument {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of WebKit2WebExtension.DOMEventTarget */
+    /* Methods of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMEventTarget */
     addEventListener(eventName: string, handler: Function, useCapture: boolean): boolean
     dispatchEvent(event: DOMEvent): boolean
     removeEventListener(eventName: string, handler: Function, useCapture: boolean): boolean
-    /* Virtual methods of WebKit2WebExtension.DOMNode */
-    vfuncAddEventListener(eventName: string, handler: Function, useCapture: boolean): boolean
-    vfuncDispatchEvent(event: DOMEvent): boolean
-    vfuncRemoveEventListener(eventName: string, handler: Function, useCapture: boolean): boolean
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: DOMDocument, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: DOMDocument, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::active-element", callback: (($obj: DOMDocument, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::active-element", callback: (($obj: DOMDocument, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::active-element", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -3097,12 +2894,12 @@ export class DOMDocument {
 export interface DOMDocumentFragment_ConstructProps extends DOMNode_ConstructProps {
 }
 export class DOMDocumentFragment {
-    /* Properties of WebKit2WebExtension.DOMDocumentFragment */
+    /* Properties of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMDocumentFragment */
     readonly childElementCount: number
     readonly children: DOMHTMLCollection
     readonly firstElementChild: DOMElement
     readonly lastElementChild: DOMElement
-    /* Properties of WebKit2WebExtension.DOMNode */
+    /* Properties of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMNode */
     readonly baseUri: string
     readonly childNodes: DOMNodeList
     readonly firstChild: DOMNode
@@ -3116,13 +2913,13 @@ export class DOMDocumentFragment {
     readonly parentNode: DOMNode
     readonly previousSibling: DOMNode
     textContent: string
-    /* Fields of WebKit2WebExtension.DOMDocumentFragment */
+    /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMDocumentFragment */
     parentInstance: DOMNode
-    /* Fields of WebKit2WebExtension.DOMObject */
+    /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMObject */
     coreObject: object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of WebKit2WebExtension.DOMDocumentFragment */
+    /* Methods of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMDocumentFragment */
     getChildElementCount(): number
     getChildren(): DOMHTMLCollection
     getElementById(elementId: string): DOMElement
@@ -3130,7 +2927,7 @@ export class DOMDocumentFragment {
     getLastElementChild(): DOMElement
     querySelector(selectors: string): DOMElement
     querySelectorAll(selectors: string): DOMNodeList
-    /* Methods of WebKit2WebExtension.DOMNode */
+    /* Methods of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMNode */
     appendChild(newChild: DOMNode): DOMNode
     cloneNode(deep: boolean): DOMNode
     cloneNodeWithError(deep: boolean): DOMNode
@@ -3166,7 +2963,7 @@ export class DOMDocumentFragment {
     setNodeValue(value: string): void
     setPrefix(value: string): void
     setTextContent(value: string): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -3188,29 +2985,16 @@ export class DOMDocumentFragment {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of WebKit2WebExtension.DOMEventTarget */
+    /* Methods of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMEventTarget */
     addEventListener(eventName: string, handler: Function, useCapture: boolean): boolean
     dispatchEvent(event: DOMEvent): boolean
     removeEventListener(eventName: string, handler: Function, useCapture: boolean): boolean
-    /* Virtual methods of WebKit2WebExtension.DOMNode */
-    vfuncAddEventListener(eventName: string, handler: Function, useCapture: boolean): boolean
-    vfuncDispatchEvent(event: DOMEvent): boolean
-    vfuncRemoveEventListener(eventName: string, handler: Function, useCapture: boolean): boolean
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: DOMDocumentFragment, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: DOMDocumentFragment, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::child-element-count", callback: (($obj: DOMDocumentFragment, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::child-element-count", callback: (($obj: DOMDocumentFragment, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::child-element-count", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -3311,14 +3095,14 @@ export class DOMDocumentFragment {
 export interface DOMDocumentType_ConstructProps extends DOMNode_ConstructProps {
 }
 export class DOMDocumentType {
-    /* Properties of WebKit2WebExtension.DOMDocumentType */
+    /* Properties of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMDocumentType */
     readonly entities: DOMNamedNodeMap
     readonly internalSubset: string
     readonly name: string
     readonly notations: DOMNamedNodeMap
     readonly publicId: string
     readonly systemId: string
-    /* Properties of WebKit2WebExtension.DOMNode */
+    /* Properties of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMNode */
     readonly baseUri: string
     readonly childNodes: DOMNodeList
     readonly firstChild: DOMNode
@@ -3332,20 +3116,20 @@ export class DOMDocumentType {
     readonly parentNode: DOMNode
     readonly previousSibling: DOMNode
     textContent: string
-    /* Fields of WebKit2WebExtension.DOMDocumentType */
+    /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMDocumentType */
     parentInstance: DOMNode
-    /* Fields of WebKit2WebExtension.DOMObject */
+    /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMObject */
     coreObject: object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of WebKit2WebExtension.DOMDocumentType */
+    /* Methods of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMDocumentType */
     getEntities(): DOMNamedNodeMap
     getInternalSubset(): string
     getName(): string
     getNotations(): DOMNamedNodeMap
     getPublicId(): string
     getSystemId(): string
-    /* Methods of WebKit2WebExtension.DOMNode */
+    /* Methods of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMNode */
     appendChild(newChild: DOMNode): DOMNode
     cloneNode(deep: boolean): DOMNode
     cloneNodeWithError(deep: boolean): DOMNode
@@ -3381,7 +3165,7 @@ export class DOMDocumentType {
     setNodeValue(value: string): void
     setPrefix(value: string): void
     setTextContent(value: string): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -3403,29 +3187,16 @@ export class DOMDocumentType {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of WebKit2WebExtension.DOMEventTarget */
+    /* Methods of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMEventTarget */
     addEventListener(eventName: string, handler: Function, useCapture: boolean): boolean
     dispatchEvent(event: DOMEvent): boolean
     removeEventListener(eventName: string, handler: Function, useCapture: boolean): boolean
-    /* Virtual methods of WebKit2WebExtension.DOMNode */
-    vfuncAddEventListener(eventName: string, handler: Function, useCapture: boolean): boolean
-    vfuncDispatchEvent(event: DOMEvent): boolean
-    vfuncRemoveEventListener(eventName: string, handler: Function, useCapture: boolean): boolean
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: DOMDocumentType, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: DOMDocumentType, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::entities", callback: (($obj: DOMDocumentType, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::entities", callback: (($obj: DOMDocumentType, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::entities", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -3542,7 +3313,7 @@ export interface DOMElement_ConstructProps extends DOMNode_ConstructProps {
     scrollTop?: number
 }
 export class DOMElement {
-    /* Properties of WebKit2WebExtension.DOMElement */
+    /* Properties of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMElement */
     readonly attributes: DOMNamedNodeMap
     readonly childElementCount: number
     readonly children: DOMHTMLCollection
@@ -3574,7 +3345,7 @@ export class DOMElement {
     readonly style: DOMCSSStyleDeclaration
     readonly tagName: string
     readonly webkitRegionOverset: string
-    /* Properties of WebKit2WebExtension.DOMNode */
+    /* Properties of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMNode */
     readonly baseUri: string
     readonly childNodes: DOMNodeList
     readonly firstChild: DOMNode
@@ -3588,13 +3359,13 @@ export class DOMElement {
     readonly parentNode: DOMNode
     readonly previousSibling: DOMNode
     textContent: string
-    /* Fields of WebKit2WebExtension.DOMElement */
+    /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMElement */
     parentInstance: DOMNode
-    /* Fields of WebKit2WebExtension.DOMObject */
+    /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMObject */
     coreObject: object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of WebKit2WebExtension.DOMElement */
+    /* Methods of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMElement */
     blur(): void
     closest(selectors: string): DOMElement
     focus(): void
@@ -3675,7 +3446,7 @@ export class DOMElement {
     setScrollTop(value: number): void
     webkitMatchesSelector(selectors: string): boolean
     webkitRequestFullscreen(): void
-    /* Methods of WebKit2WebExtension.DOMNode */
+    /* Methods of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMNode */
     appendChild(newChild: DOMNode): DOMNode
     cloneNode(deep: boolean): DOMNode
     cloneNodeWithError(deep: boolean): DOMNode
@@ -3708,7 +3479,7 @@ export class DOMElement {
     setNodeValue(value: string): void
     setPrefix(value: string): void
     setTextContent(value: string): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -3730,29 +3501,16 @@ export class DOMElement {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of WebKit2WebExtension.DOMEventTarget */
+    /* Methods of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMEventTarget */
     addEventListener(eventName: string, handler: Function, useCapture: boolean): boolean
     dispatchEvent(event: DOMEvent): boolean
     removeEventListener(eventName: string, handler: Function, useCapture: boolean): boolean
-    /* Virtual methods of WebKit2WebExtension.DOMNode */
-    vfuncAddEventListener(eventName: string, handler: Function, useCapture: boolean): boolean
-    vfuncDispatchEvent(event: DOMEvent): boolean
-    vfuncRemoveEventListener(eventName: string, handler: Function, useCapture: boolean): boolean
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: DOMElement, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: DOMElement, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::attributes", callback: (($obj: DOMElement, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::attributes", callback: (($obj: DOMElement, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::attributes", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -3988,7 +3746,7 @@ export class DOMElement {
 export interface DOMEntityReference_ConstructProps extends DOMNode_ConstructProps {
 }
 export class DOMEntityReference {
-    /* Properties of WebKit2WebExtension.DOMNode */
+    /* Properties of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMNode */
     readonly baseUri: string
     readonly childNodes: DOMNodeList
     readonly firstChild: DOMNode
@@ -4002,13 +3760,13 @@ export class DOMEntityReference {
     readonly parentNode: DOMNode
     readonly previousSibling: DOMNode
     textContent: string
-    /* Fields of WebKit2WebExtension.DOMEntityReference */
+    /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMEntityReference */
     parentInstance: DOMNode
-    /* Fields of WebKit2WebExtension.DOMObject */
+    /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMObject */
     coreObject: object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of WebKit2WebExtension.DOMNode */
+    /* Methods of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMNode */
     appendChild(newChild: DOMNode): DOMNode
     cloneNode(deep: boolean): DOMNode
     cloneNodeWithError(deep: boolean): DOMNode
@@ -4044,7 +3802,7 @@ export class DOMEntityReference {
     setNodeValue(value: string): void
     setPrefix(value: string): void
     setTextContent(value: string): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -4066,29 +3824,16 @@ export class DOMEntityReference {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of WebKit2WebExtension.DOMEventTarget */
+    /* Methods of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMEventTarget */
     addEventListener(eventName: string, handler: Function, useCapture: boolean): boolean
     dispatchEvent(event: DOMEvent): boolean
     removeEventListener(eventName: string, handler: Function, useCapture: boolean): boolean
-    /* Virtual methods of WebKit2WebExtension.DOMNode */
-    vfuncAddEventListener(eventName: string, handler: Function, useCapture: boolean): boolean
-    vfuncDispatchEvent(event: DOMEvent): boolean
-    vfuncRemoveEventListener(eventName: string, handler: Function, useCapture: boolean): boolean
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: DOMEntityReference, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: DOMEntityReference, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::base-uri", callback: (($obj: DOMEntityReference, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::base-uri", callback: (($obj: DOMEntityReference, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::base-uri", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -4171,7 +3916,7 @@ export interface DOMEvent_ConstructProps extends DOMObject_ConstructProps {
     returnValue?: boolean
 }
 export class DOMEvent {
-    /* Properties of WebKit2WebExtension.DOMEvent */
+    /* Properties of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMEvent */
     readonly bubbles: boolean
     cancelBubble: boolean
     readonly cancelable: boolean
@@ -4182,13 +3927,13 @@ export class DOMEvent {
     readonly target: DOMEventTarget
     readonly timeStamp: number
     readonly type: string
-    /* Fields of WebKit2WebExtension.DOMEvent */
+    /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMEvent */
     parentInstance: DOMObject
-    /* Fields of WebKit2WebExtension.DOMObject */
+    /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMObject */
     coreObject: object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of WebKit2WebExtension.DOMEvent */
+    /* Methods of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMEvent */
     getBubbles(): boolean
     getCancelBubble(): boolean
     getCancelable(): boolean
@@ -4204,7 +3949,7 @@ export class DOMEvent {
     setCancelBubble(value: boolean): void
     setReturnValue(value: boolean): void
     stopPropagation(): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -4226,21 +3971,12 @@ export class DOMEvent {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: DOMEvent, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: DOMEvent, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::bubbles", callback: (($obj: DOMEvent, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::bubbles", callback: (($obj: DOMEvent, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::bubbles", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -4306,21 +4042,21 @@ export class DOMEvent {
 export interface DOMFile_ConstructProps extends DOMBlob_ConstructProps {
 }
 export class DOMFile {
-    /* Properties of WebKit2WebExtension.DOMFile */
+    /* Properties of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMFile */
     readonly name: string
-    /* Properties of WebKit2WebExtension.DOMBlob */
+    /* Properties of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMBlob */
     readonly size: number
-    /* Fields of WebKit2WebExtension.DOMFile */
+    /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMFile */
     parentInstance: DOMBlob
-    /* Fields of WebKit2WebExtension.DOMObject */
+    /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMObject */
     coreObject: object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of WebKit2WebExtension.DOMFile */
+    /* Methods of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMFile */
     getName(): string
-    /* Methods of WebKit2WebExtension.DOMBlob */
+    /* Methods of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMBlob */
     getSize(): number
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -4342,21 +4078,12 @@ export class DOMFile {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: DOMFile, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: DOMFile, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::name", callback: (($obj: DOMFile, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::name", callback: (($obj: DOMFile, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::name", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -4382,18 +4109,18 @@ export class DOMFile {
 export interface DOMFileList_ConstructProps extends DOMObject_ConstructProps {
 }
 export class DOMFileList {
-    /* Properties of WebKit2WebExtension.DOMFileList */
+    /* Properties of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMFileList */
     readonly length: number
-    /* Fields of WebKit2WebExtension.DOMFileList */
+    /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMFileList */
     parentInstance: DOMObject
-    /* Fields of WebKit2WebExtension.DOMObject */
+    /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMObject */
     coreObject: object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of WebKit2WebExtension.DOMFileList */
+    /* Methods of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMFileList */
     getLength(): number
     item(index: number): DOMFile
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -4415,21 +4142,12 @@ export class DOMFileList {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: DOMFileList, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: DOMFileList, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::length", callback: (($obj: DOMFileList, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::length", callback: (($obj: DOMFileList, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::length", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -4468,7 +4186,7 @@ export interface DOMHTMLAnchorElement_ConstructProps extends DOMHTMLElement_Cons
     type?: string
 }
 export class DOMHTMLAnchorElement {
-    /* Properties of WebKit2WebExtension.DOMHTMLAnchorElement */
+    /* Properties of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLAnchorElement */
     charset: string
     coords: string
     hash: string
@@ -4487,7 +4205,7 @@ export class DOMHTMLAnchorElement {
     target: string
     text: string
     type: string
-    /* Properties of WebKit2WebExtension.DOMHTMLElement */
+    /* Properties of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLElement */
     accessKey: string
     contentEditable: string
     dir: string
@@ -4502,7 +4220,7 @@ export class DOMHTMLAnchorElement {
     title: string
     translate: boolean
     webkitdropzone: string
-    /* Properties of WebKit2WebExtension.DOMElement */
+    /* Properties of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMElement */
     readonly attributes: DOMNamedNodeMap
     readonly childElementCount: number
     readonly children: DOMHTMLCollection
@@ -4534,7 +4252,7 @@ export class DOMHTMLAnchorElement {
     readonly style: DOMCSSStyleDeclaration
     readonly tagName: string
     readonly webkitRegionOverset: string
-    /* Properties of WebKit2WebExtension.DOMNode */
+    /* Properties of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMNode */
     readonly baseUri: string
     readonly childNodes: DOMNodeList
     readonly firstChild: DOMNode
@@ -4548,13 +4266,13 @@ export class DOMHTMLAnchorElement {
     readonly parentNode: DOMNode
     readonly previousSibling: DOMNode
     textContent: string
-    /* Fields of WebKit2WebExtension.DOMHTMLAnchorElement */
+    /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLAnchorElement */
     parentInstance: DOMHTMLElement
-    /* Fields of WebKit2WebExtension.DOMObject */
+    /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMObject */
     coreObject: object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of WebKit2WebExtension.DOMHTMLAnchorElement */
+    /* Methods of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLAnchorElement */
     getCharset(): string
     getCoords(): string
     getHash(): string
@@ -4591,7 +4309,7 @@ export class DOMHTMLAnchorElement {
     setTarget(value: string): void
     setText(value: string): void
     setTypeAttr(value: string): void
-    /* Methods of WebKit2WebExtension.DOMHTMLElement */
+    /* Methods of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLElement */
     click(): void
     getAccessKey(): string
     getChildren(): DOMHTMLCollection
@@ -4625,7 +4343,7 @@ export class DOMHTMLAnchorElement {
     setTitle(value: string): void
     setTranslate(value: boolean): void
     setWebkitdropzone(value: string): void
-    /* Methods of WebKit2WebExtension.DOMElement */
+    /* Methods of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMElement */
     blur(): void
     closest(selectors: string): DOMElement
     focus(): void
@@ -4703,7 +4421,7 @@ export class DOMHTMLAnchorElement {
     setScrollTop(value: number): void
     webkitMatchesSelector(selectors: string): boolean
     webkitRequestFullscreen(): void
-    /* Methods of WebKit2WebExtension.DOMNode */
+    /* Methods of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMNode */
     appendChild(newChild: DOMNode): DOMNode
     cloneNode(deep: boolean): DOMNode
     cloneNodeWithError(deep: boolean): DOMNode
@@ -4736,7 +4454,7 @@ export class DOMHTMLAnchorElement {
     setNodeValue(value: string): void
     setPrefix(value: string): void
     setTextContent(value: string): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -4758,29 +4476,16 @@ export class DOMHTMLAnchorElement {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of WebKit2WebExtension.DOMEventTarget */
+    /* Methods of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMEventTarget */
     addEventListener(eventName: string, handler: Function, useCapture: boolean): boolean
     dispatchEvent(event: DOMEvent): boolean
     removeEventListener(eventName: string, handler: Function, useCapture: boolean): boolean
-    /* Virtual methods of WebKit2WebExtension.DOMNode */
-    vfuncAddEventListener(eventName: string, handler: Function, useCapture: boolean): boolean
-    vfuncDispatchEvent(event: DOMEvent): boolean
-    vfuncRemoveEventListener(eventName: string, handler: Function, useCapture: boolean): boolean
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: DOMHTMLAnchorElement, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: DOMHTMLAnchorElement, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::charset", callback: (($obj: DOMHTMLAnchorElement, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::charset", callback: (($obj: DOMHTMLAnchorElement, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::charset", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -5187,7 +4892,7 @@ export interface DOMHTMLAppletElement_ConstructProps extends DOMHTMLElement_Cons
     width?: string
 }
 export class DOMHTMLAppletElement {
-    /* Properties of WebKit2WebExtension.DOMHTMLAppletElement */
+    /* Properties of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLAppletElement */
     align: string
     alt: string
     archive: string
@@ -5199,7 +4904,7 @@ export class DOMHTMLAppletElement {
     object: string
     vspace: number
     width: string
-    /* Properties of WebKit2WebExtension.DOMHTMLElement */
+    /* Properties of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLElement */
     accessKey: string
     contentEditable: string
     dir: string
@@ -5214,7 +4919,7 @@ export class DOMHTMLAppletElement {
     title: string
     translate: boolean
     webkitdropzone: string
-    /* Properties of WebKit2WebExtension.DOMElement */
+    /* Properties of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMElement */
     readonly attributes: DOMNamedNodeMap
     readonly childElementCount: number
     readonly children: DOMHTMLCollection
@@ -5246,7 +4951,7 @@ export class DOMHTMLAppletElement {
     readonly style: DOMCSSStyleDeclaration
     readonly tagName: string
     readonly webkitRegionOverset: string
-    /* Properties of WebKit2WebExtension.DOMNode */
+    /* Properties of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMNode */
     readonly baseUri: string
     readonly childNodes: DOMNodeList
     readonly firstChild: DOMNode
@@ -5260,13 +4965,13 @@ export class DOMHTMLAppletElement {
     readonly parentNode: DOMNode
     readonly previousSibling: DOMNode
     textContent: string
-    /* Fields of WebKit2WebExtension.DOMHTMLAppletElement */
+    /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLAppletElement */
     parentInstance: DOMHTMLElement
-    /* Fields of WebKit2WebExtension.DOMObject */
+    /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMObject */
     coreObject: object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of WebKit2WebExtension.DOMHTMLAppletElement */
+    /* Methods of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLAppletElement */
     getAlign(): string
     getAlt(): string
     getArchive(): string
@@ -5289,7 +4994,7 @@ export class DOMHTMLAppletElement {
     setObject(value: string): void
     setVspace(value: number): void
     setWidth(value: string): void
-    /* Methods of WebKit2WebExtension.DOMHTMLElement */
+    /* Methods of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLElement */
     click(): void
     getAccessKey(): string
     getChildren(): DOMHTMLCollection
@@ -5323,7 +5028,7 @@ export class DOMHTMLAppletElement {
     setTitle(value: string): void
     setTranslate(value: boolean): void
     setWebkitdropzone(value: string): void
-    /* Methods of WebKit2WebExtension.DOMElement */
+    /* Methods of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMElement */
     blur(): void
     closest(selectors: string): DOMElement
     focus(): void
@@ -5401,7 +5106,7 @@ export class DOMHTMLAppletElement {
     setScrollTop(value: number): void
     webkitMatchesSelector(selectors: string): boolean
     webkitRequestFullscreen(): void
-    /* Methods of WebKit2WebExtension.DOMNode */
+    /* Methods of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMNode */
     appendChild(newChild: DOMNode): DOMNode
     cloneNode(deep: boolean): DOMNode
     cloneNodeWithError(deep: boolean): DOMNode
@@ -5434,7 +5139,7 @@ export class DOMHTMLAppletElement {
     setNodeValue(value: string): void
     setPrefix(value: string): void
     setTextContent(value: string): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -5456,29 +5161,16 @@ export class DOMHTMLAppletElement {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of WebKit2WebExtension.DOMEventTarget */
+    /* Methods of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMEventTarget */
     addEventListener(eventName: string, handler: Function, useCapture: boolean): boolean
     dispatchEvent(event: DOMEvent): boolean
     removeEventListener(eventName: string, handler: Function, useCapture: boolean): boolean
-    /* Virtual methods of WebKit2WebExtension.DOMNode */
-    vfuncAddEventListener(eventName: string, handler: Function, useCapture: boolean): boolean
-    vfuncDispatchEvent(event: DOMEvent): boolean
-    vfuncRemoveEventListener(eventName: string, handler: Function, useCapture: boolean): boolean
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: DOMHTMLAppletElement, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: DOMHTMLAppletElement, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::align", callback: (($obj: DOMHTMLAppletElement, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::align", callback: (($obj: DOMHTMLAppletElement, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::align", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -5852,7 +5544,7 @@ export interface DOMHTMLAreaElement_ConstructProps extends DOMHTMLElement_Constr
     target?: string
 }
 export class DOMHTMLAreaElement {
-    /* Properties of WebKit2WebExtension.DOMHTMLAreaElement */
+    /* Properties of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLAreaElement */
     alt: string
     coords: string
     hash: string
@@ -5866,7 +5558,7 @@ export class DOMHTMLAreaElement {
     search: string
     shape: string
     target: string
-    /* Properties of WebKit2WebExtension.DOMHTMLElement */
+    /* Properties of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLElement */
     accessKey: string
     contentEditable: string
     dir: string
@@ -5881,7 +5573,7 @@ export class DOMHTMLAreaElement {
     title: string
     translate: boolean
     webkitdropzone: string
-    /* Properties of WebKit2WebExtension.DOMElement */
+    /* Properties of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMElement */
     readonly attributes: DOMNamedNodeMap
     readonly childElementCount: number
     readonly children: DOMHTMLCollection
@@ -5913,7 +5605,7 @@ export class DOMHTMLAreaElement {
     readonly style: DOMCSSStyleDeclaration
     readonly tagName: string
     readonly webkitRegionOverset: string
-    /* Properties of WebKit2WebExtension.DOMNode */
+    /* Properties of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMNode */
     readonly baseUri: string
     readonly childNodes: DOMNodeList
     readonly firstChild: DOMNode
@@ -5927,13 +5619,13 @@ export class DOMHTMLAreaElement {
     readonly parentNode: DOMNode
     readonly previousSibling: DOMNode
     textContent: string
-    /* Fields of WebKit2WebExtension.DOMHTMLAreaElement */
+    /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLAreaElement */
     parentInstance: DOMHTMLElement
-    /* Fields of WebKit2WebExtension.DOMObject */
+    /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMObject */
     coreObject: object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of WebKit2WebExtension.DOMHTMLAreaElement */
+    /* Methods of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLAreaElement */
     getAlt(): string
     getCoords(): string
     getHash(): string
@@ -5960,7 +5652,7 @@ export class DOMHTMLAreaElement {
     setSearch(value: string): void
     setShape(value: string): void
     setTarget(value: string): void
-    /* Methods of WebKit2WebExtension.DOMHTMLElement */
+    /* Methods of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLElement */
     click(): void
     getAccessKey(): string
     getChildren(): DOMHTMLCollection
@@ -5994,7 +5686,7 @@ export class DOMHTMLAreaElement {
     setTitle(value: string): void
     setTranslate(value: boolean): void
     setWebkitdropzone(value: string): void
-    /* Methods of WebKit2WebExtension.DOMElement */
+    /* Methods of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMElement */
     blur(): void
     closest(selectors: string): DOMElement
     focus(): void
@@ -6072,7 +5764,7 @@ export class DOMHTMLAreaElement {
     setScrollTop(value: number): void
     webkitMatchesSelector(selectors: string): boolean
     webkitRequestFullscreen(): void
-    /* Methods of WebKit2WebExtension.DOMNode */
+    /* Methods of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMNode */
     appendChild(newChild: DOMNode): DOMNode
     cloneNode(deep: boolean): DOMNode
     cloneNodeWithError(deep: boolean): DOMNode
@@ -6105,7 +5797,7 @@ export class DOMHTMLAreaElement {
     setNodeValue(value: string): void
     setPrefix(value: string): void
     setTextContent(value: string): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -6127,29 +5819,16 @@ export class DOMHTMLAreaElement {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of WebKit2WebExtension.DOMEventTarget */
+    /* Methods of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMEventTarget */
     addEventListener(eventName: string, handler: Function, useCapture: boolean): boolean
     dispatchEvent(event: DOMEvent): boolean
     removeEventListener(eventName: string, handler: Function, useCapture: boolean): boolean
-    /* Virtual methods of WebKit2WebExtension.DOMNode */
-    vfuncAddEventListener(eventName: string, handler: Function, useCapture: boolean): boolean
-    vfuncDispatchEvent(event: DOMEvent): boolean
-    vfuncRemoveEventListener(eventName: string, handler: Function, useCapture: boolean): boolean
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: DOMHTMLAreaElement, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: DOMHTMLAreaElement, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::alt", callback: (($obj: DOMHTMLAreaElement, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::alt", callback: (($obj: DOMHTMLAreaElement, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::alt", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -6521,9 +6200,9 @@ export interface DOMHTMLBRElement_ConstructProps extends DOMHTMLElement_Construc
     clear?: string
 }
 export class DOMHTMLBRElement {
-    /* Properties of WebKit2WebExtension.DOMHTMLBRElement */
+    /* Properties of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLBRElement */
     clear: string
-    /* Properties of WebKit2WebExtension.DOMHTMLElement */
+    /* Properties of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLElement */
     accessKey: string
     contentEditable: string
     dir: string
@@ -6538,7 +6217,7 @@ export class DOMHTMLBRElement {
     title: string
     translate: boolean
     webkitdropzone: string
-    /* Properties of WebKit2WebExtension.DOMElement */
+    /* Properties of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMElement */
     readonly attributes: DOMNamedNodeMap
     readonly childElementCount: number
     readonly children: DOMHTMLCollection
@@ -6570,7 +6249,7 @@ export class DOMHTMLBRElement {
     readonly style: DOMCSSStyleDeclaration
     readonly tagName: string
     readonly webkitRegionOverset: string
-    /* Properties of WebKit2WebExtension.DOMNode */
+    /* Properties of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMNode */
     readonly baseUri: string
     readonly childNodes: DOMNodeList
     readonly firstChild: DOMNode
@@ -6584,16 +6263,16 @@ export class DOMHTMLBRElement {
     readonly parentNode: DOMNode
     readonly previousSibling: DOMNode
     textContent: string
-    /* Fields of WebKit2WebExtension.DOMHTMLBRElement */
+    /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLBRElement */
     parentInstance: DOMHTMLElement
-    /* Fields of WebKit2WebExtension.DOMObject */
+    /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMObject */
     coreObject: object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of WebKit2WebExtension.DOMHTMLBRElement */
+    /* Methods of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLBRElement */
     getClear(): string
     setClear(value: string): void
-    /* Methods of WebKit2WebExtension.DOMHTMLElement */
+    /* Methods of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLElement */
     click(): void
     getAccessKey(): string
     getChildren(): DOMHTMLCollection
@@ -6627,7 +6306,7 @@ export class DOMHTMLBRElement {
     setTitle(value: string): void
     setTranslate(value: boolean): void
     setWebkitdropzone(value: string): void
-    /* Methods of WebKit2WebExtension.DOMElement */
+    /* Methods of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMElement */
     blur(): void
     closest(selectors: string): DOMElement
     focus(): void
@@ -6705,7 +6384,7 @@ export class DOMHTMLBRElement {
     setScrollTop(value: number): void
     webkitMatchesSelector(selectors: string): boolean
     webkitRequestFullscreen(): void
-    /* Methods of WebKit2WebExtension.DOMNode */
+    /* Methods of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMNode */
     appendChild(newChild: DOMNode): DOMNode
     cloneNode(deep: boolean): DOMNode
     cloneNodeWithError(deep: boolean): DOMNode
@@ -6738,7 +6417,7 @@ export class DOMHTMLBRElement {
     setNodeValue(value: string): void
     setPrefix(value: string): void
     setTextContent(value: string): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -6760,29 +6439,16 @@ export class DOMHTMLBRElement {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of WebKit2WebExtension.DOMEventTarget */
+    /* Methods of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMEventTarget */
     addEventListener(eventName: string, handler: Function, useCapture: boolean): boolean
     dispatchEvent(event: DOMEvent): boolean
     removeEventListener(eventName: string, handler: Function, useCapture: boolean): boolean
-    /* Virtual methods of WebKit2WebExtension.DOMNode */
-    vfuncAddEventListener(eventName: string, handler: Function, useCapture: boolean): boolean
-    vfuncDispatchEvent(event: DOMEvent): boolean
-    vfuncRemoveEventListener(eventName: string, handler: Function, useCapture: boolean): boolean
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: DOMHTMLBRElement, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: DOMHTMLBRElement, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::clear", callback: (($obj: DOMHTMLBRElement, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::clear", callback: (($obj: DOMHTMLBRElement, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::clear", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -7095,10 +6761,10 @@ export interface DOMHTMLBaseElement_ConstructProps extends DOMHTMLElement_Constr
     target?: string
 }
 export class DOMHTMLBaseElement {
-    /* Properties of WebKit2WebExtension.DOMHTMLBaseElement */
+    /* Properties of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLBaseElement */
     href: string
     target: string
-    /* Properties of WebKit2WebExtension.DOMHTMLElement */
+    /* Properties of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLElement */
     accessKey: string
     contentEditable: string
     dir: string
@@ -7113,7 +6779,7 @@ export class DOMHTMLBaseElement {
     title: string
     translate: boolean
     webkitdropzone: string
-    /* Properties of WebKit2WebExtension.DOMElement */
+    /* Properties of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMElement */
     readonly attributes: DOMNamedNodeMap
     readonly childElementCount: number
     readonly children: DOMHTMLCollection
@@ -7145,7 +6811,7 @@ export class DOMHTMLBaseElement {
     readonly style: DOMCSSStyleDeclaration
     readonly tagName: string
     readonly webkitRegionOverset: string
-    /* Properties of WebKit2WebExtension.DOMNode */
+    /* Properties of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMNode */
     readonly baseUri: string
     readonly childNodes: DOMNodeList
     readonly firstChild: DOMNode
@@ -7159,18 +6825,18 @@ export class DOMHTMLBaseElement {
     readonly parentNode: DOMNode
     readonly previousSibling: DOMNode
     textContent: string
-    /* Fields of WebKit2WebExtension.DOMHTMLBaseElement */
+    /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLBaseElement */
     parentInstance: DOMHTMLElement
-    /* Fields of WebKit2WebExtension.DOMObject */
+    /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMObject */
     coreObject: object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of WebKit2WebExtension.DOMHTMLBaseElement */
+    /* Methods of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLBaseElement */
     getHref(): string
     getTarget(): string
     setHref(value: string): void
     setTarget(value: string): void
-    /* Methods of WebKit2WebExtension.DOMHTMLElement */
+    /* Methods of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLElement */
     click(): void
     getAccessKey(): string
     getChildren(): DOMHTMLCollection
@@ -7204,7 +6870,7 @@ export class DOMHTMLBaseElement {
     setTitle(value: string): void
     setTranslate(value: boolean): void
     setWebkitdropzone(value: string): void
-    /* Methods of WebKit2WebExtension.DOMElement */
+    /* Methods of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMElement */
     blur(): void
     closest(selectors: string): DOMElement
     focus(): void
@@ -7282,7 +6948,7 @@ export class DOMHTMLBaseElement {
     setScrollTop(value: number): void
     webkitMatchesSelector(selectors: string): boolean
     webkitRequestFullscreen(): void
-    /* Methods of WebKit2WebExtension.DOMNode */
+    /* Methods of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMNode */
     appendChild(newChild: DOMNode): DOMNode
     cloneNode(deep: boolean): DOMNode
     cloneNodeWithError(deep: boolean): DOMNode
@@ -7315,7 +6981,7 @@ export class DOMHTMLBaseElement {
     setNodeValue(value: string): void
     setPrefix(value: string): void
     setTextContent(value: string): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -7337,29 +7003,16 @@ export class DOMHTMLBaseElement {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of WebKit2WebExtension.DOMEventTarget */
+    /* Methods of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMEventTarget */
     addEventListener(eventName: string, handler: Function, useCapture: boolean): boolean
     dispatchEvent(event: DOMEvent): boolean
     removeEventListener(eventName: string, handler: Function, useCapture: boolean): boolean
-    /* Virtual methods of WebKit2WebExtension.DOMNode */
-    vfuncAddEventListener(eventName: string, handler: Function, useCapture: boolean): boolean
-    vfuncDispatchEvent(event: DOMEvent): boolean
-    vfuncRemoveEventListener(eventName: string, handler: Function, useCapture: boolean): boolean
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: DOMHTMLBaseElement, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: DOMHTMLBaseElement, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::href", callback: (($obj: DOMHTMLBaseElement, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::href", callback: (($obj: DOMHTMLBaseElement, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::href", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -7675,7 +7328,7 @@ export class DOMHTMLBaseElement {
 export interface DOMHTMLBaseFontElement_ConstructProps extends DOMHTMLElement_ConstructProps {
 }
 export class DOMHTMLBaseFontElement {
-    /* Properties of WebKit2WebExtension.DOMHTMLElement */
+    /* Properties of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLElement */
     accessKey: string
     contentEditable: string
     dir: string
@@ -7690,7 +7343,7 @@ export class DOMHTMLBaseFontElement {
     title: string
     translate: boolean
     webkitdropzone: string
-    /* Properties of WebKit2WebExtension.DOMElement */
+    /* Properties of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMElement */
     readonly attributes: DOMNamedNodeMap
     readonly childElementCount: number
     readonly children: DOMHTMLCollection
@@ -7722,7 +7375,7 @@ export class DOMHTMLBaseFontElement {
     readonly style: DOMCSSStyleDeclaration
     readonly tagName: string
     readonly webkitRegionOverset: string
-    /* Properties of WebKit2WebExtension.DOMNode */
+    /* Properties of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMNode */
     readonly baseUri: string
     readonly childNodes: DOMNodeList
     readonly firstChild: DOMNode
@@ -7736,20 +7389,20 @@ export class DOMHTMLBaseFontElement {
     readonly parentNode: DOMNode
     readonly previousSibling: DOMNode
     textContent: string
-    /* Fields of WebKit2WebExtension.DOMHTMLBaseFontElement */
+    /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLBaseFontElement */
     parentInstance: DOMHTMLElement
-    /* Fields of WebKit2WebExtension.DOMObject */
+    /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMObject */
     coreObject: object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of WebKit2WebExtension.DOMHTMLBaseFontElement */
+    /* Methods of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLBaseFontElement */
     getColor(): string
     getFace(): string
     getSize(): number
     setColor(value: string): void
     setFace(value: string): void
     setSize(value: number): void
-    /* Methods of WebKit2WebExtension.DOMHTMLElement */
+    /* Methods of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLElement */
     click(): void
     getAccessKey(): string
     getChildren(): DOMHTMLCollection
@@ -7783,7 +7436,7 @@ export class DOMHTMLBaseFontElement {
     setTitle(value: string): void
     setTranslate(value: boolean): void
     setWebkitdropzone(value: string): void
-    /* Methods of WebKit2WebExtension.DOMElement */
+    /* Methods of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMElement */
     blur(): void
     closest(selectors: string): DOMElement
     focus(): void
@@ -7861,7 +7514,7 @@ export class DOMHTMLBaseFontElement {
     setScrollTop(value: number): void
     webkitMatchesSelector(selectors: string): boolean
     webkitRequestFullscreen(): void
-    /* Methods of WebKit2WebExtension.DOMNode */
+    /* Methods of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMNode */
     appendChild(newChild: DOMNode): DOMNode
     cloneNode(deep: boolean): DOMNode
     cloneNodeWithError(deep: boolean): DOMNode
@@ -7894,7 +7547,7 @@ export class DOMHTMLBaseFontElement {
     setNodeValue(value: string): void
     setPrefix(value: string): void
     setTextContent(value: string): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -7916,29 +7569,16 @@ export class DOMHTMLBaseFontElement {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of WebKit2WebExtension.DOMEventTarget */
+    /* Methods of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMEventTarget */
     addEventListener(eventName: string, handler: Function, useCapture: boolean): boolean
     dispatchEvent(event: DOMEvent): boolean
     removeEventListener(eventName: string, handler: Function, useCapture: boolean): boolean
-    /* Virtual methods of WebKit2WebExtension.DOMNode */
-    vfuncAddEventListener(eventName: string, handler: Function, useCapture: boolean): boolean
-    vfuncDispatchEvent(event: DOMEvent): boolean
-    vfuncRemoveEventListener(eventName: string, handler: Function, useCapture: boolean): boolean
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: DOMHTMLBaseFontElement, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: DOMHTMLBaseFontElement, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::access-key", callback: (($obj: DOMHTMLBaseFontElement, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::access-key", callback: (($obj: DOMHTMLBaseFontElement, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::access-key", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -8250,14 +7890,14 @@ export interface DOMHTMLBodyElement_ConstructProps extends DOMHTMLElement_Constr
     vLink?: string
 }
 export class DOMHTMLBodyElement {
-    /* Properties of WebKit2WebExtension.DOMHTMLBodyElement */
+    /* Properties of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLBodyElement */
     aLink: string
     background: string
     bgColor: string
     link: string
     text: string
     vLink: string
-    /* Properties of WebKit2WebExtension.DOMHTMLElement */
+    /* Properties of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLElement */
     accessKey: string
     contentEditable: string
     dir: string
@@ -8272,7 +7912,7 @@ export class DOMHTMLBodyElement {
     title: string
     translate: boolean
     webkitdropzone: string
-    /* Properties of WebKit2WebExtension.DOMElement */
+    /* Properties of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMElement */
     readonly attributes: DOMNamedNodeMap
     readonly childElementCount: number
     readonly children: DOMHTMLCollection
@@ -8304,7 +7944,7 @@ export class DOMHTMLBodyElement {
     readonly style: DOMCSSStyleDeclaration
     readonly tagName: string
     readonly webkitRegionOverset: string
-    /* Properties of WebKit2WebExtension.DOMNode */
+    /* Properties of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMNode */
     readonly baseUri: string
     readonly childNodes: DOMNodeList
     readonly firstChild: DOMNode
@@ -8318,13 +7958,13 @@ export class DOMHTMLBodyElement {
     readonly parentNode: DOMNode
     readonly previousSibling: DOMNode
     textContent: string
-    /* Fields of WebKit2WebExtension.DOMHTMLBodyElement */
+    /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLBodyElement */
     parentInstance: DOMHTMLElement
-    /* Fields of WebKit2WebExtension.DOMObject */
+    /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMObject */
     coreObject: object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of WebKit2WebExtension.DOMHTMLBodyElement */
+    /* Methods of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLBodyElement */
     getALink(): string
     getBackground(): string
     getBgColor(): string
@@ -8337,7 +7977,7 @@ export class DOMHTMLBodyElement {
     setLink(value: string): void
     setText(value: string): void
     setVLink(value: string): void
-    /* Methods of WebKit2WebExtension.DOMHTMLElement */
+    /* Methods of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLElement */
     click(): void
     getAccessKey(): string
     getChildren(): DOMHTMLCollection
@@ -8371,7 +8011,7 @@ export class DOMHTMLBodyElement {
     setTitle(value: string): void
     setTranslate(value: boolean): void
     setWebkitdropzone(value: string): void
-    /* Methods of WebKit2WebExtension.DOMElement */
+    /* Methods of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMElement */
     blur(): void
     closest(selectors: string): DOMElement
     focus(): void
@@ -8449,7 +8089,7 @@ export class DOMHTMLBodyElement {
     setScrollTop(value: number): void
     webkitMatchesSelector(selectors: string): boolean
     webkitRequestFullscreen(): void
-    /* Methods of WebKit2WebExtension.DOMNode */
+    /* Methods of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMNode */
     appendChild(newChild: DOMNode): DOMNode
     cloneNode(deep: boolean): DOMNode
     cloneNodeWithError(deep: boolean): DOMNode
@@ -8482,7 +8122,7 @@ export class DOMHTMLBodyElement {
     setNodeValue(value: string): void
     setPrefix(value: string): void
     setTextContent(value: string): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -8504,29 +8144,16 @@ export class DOMHTMLBodyElement {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of WebKit2WebExtension.DOMEventTarget */
+    /* Methods of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMEventTarget */
     addEventListener(eventName: string, handler: Function, useCapture: boolean): boolean
     dispatchEvent(event: DOMEvent): boolean
     removeEventListener(eventName: string, handler: Function, useCapture: boolean): boolean
-    /* Virtual methods of WebKit2WebExtension.DOMNode */
-    vfuncAddEventListener(eventName: string, handler: Function, useCapture: boolean): boolean
-    vfuncDispatchEvent(event: DOMEvent): boolean
-    vfuncRemoveEventListener(eventName: string, handler: Function, useCapture: boolean): boolean
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: DOMHTMLBodyElement, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: DOMHTMLBodyElement, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::a-link", callback: (($obj: DOMHTMLBodyElement, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::a-link", callback: (($obj: DOMHTMLBodyElement, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::a-link", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -8867,7 +8494,7 @@ export interface DOMHTMLButtonElement_ConstructProps extends DOMHTMLElement_Cons
     value?: string
 }
 export class DOMHTMLButtonElement {
-    /* Properties of WebKit2WebExtension.DOMHTMLButtonElement */
+    /* Properties of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLButtonElement */
     autofocus: boolean
     disabled: boolean
     readonly form: DOMHTMLFormElement
@@ -8875,7 +8502,7 @@ export class DOMHTMLButtonElement {
     type: string
     value: string
     readonly willValidate: boolean
-    /* Properties of WebKit2WebExtension.DOMHTMLElement */
+    /* Properties of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLElement */
     accessKey: string
     contentEditable: string
     dir: string
@@ -8890,7 +8517,7 @@ export class DOMHTMLButtonElement {
     title: string
     translate: boolean
     webkitdropzone: string
-    /* Properties of WebKit2WebExtension.DOMElement */
+    /* Properties of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMElement */
     readonly attributes: DOMNamedNodeMap
     readonly childElementCount: number
     readonly children: DOMHTMLCollection
@@ -8922,7 +8549,7 @@ export class DOMHTMLButtonElement {
     readonly style: DOMCSSStyleDeclaration
     readonly tagName: string
     readonly webkitRegionOverset: string
-    /* Properties of WebKit2WebExtension.DOMNode */
+    /* Properties of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMNode */
     readonly baseUri: string
     readonly childNodes: DOMNodeList
     readonly firstChild: DOMNode
@@ -8936,13 +8563,13 @@ export class DOMHTMLButtonElement {
     readonly parentNode: DOMNode
     readonly previousSibling: DOMNode
     textContent: string
-    /* Fields of WebKit2WebExtension.DOMHTMLButtonElement */
+    /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLButtonElement */
     parentInstance: DOMHTMLElement
-    /* Fields of WebKit2WebExtension.DOMObject */
+    /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMObject */
     coreObject: object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of WebKit2WebExtension.DOMHTMLButtonElement */
+    /* Methods of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLButtonElement */
     getAutofocus(): boolean
     getButtonType(): string
     getDisabled(): boolean
@@ -8955,7 +8582,7 @@ export class DOMHTMLButtonElement {
     setDisabled(value: boolean): void
     setName(value: string): void
     setValue(value: string): void
-    /* Methods of WebKit2WebExtension.DOMHTMLElement */
+    /* Methods of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLElement */
     click(): void
     getAccessKey(): string
     getChildren(): DOMHTMLCollection
@@ -8989,7 +8616,7 @@ export class DOMHTMLButtonElement {
     setTitle(value: string): void
     setTranslate(value: boolean): void
     setWebkitdropzone(value: string): void
-    /* Methods of WebKit2WebExtension.DOMElement */
+    /* Methods of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMElement */
     blur(): void
     closest(selectors: string): DOMElement
     focus(): void
@@ -9067,7 +8694,7 @@ export class DOMHTMLButtonElement {
     setScrollTop(value: number): void
     webkitMatchesSelector(selectors: string): boolean
     webkitRequestFullscreen(): void
-    /* Methods of WebKit2WebExtension.DOMNode */
+    /* Methods of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMNode */
     appendChild(newChild: DOMNode): DOMNode
     cloneNode(deep: boolean): DOMNode
     cloneNodeWithError(deep: boolean): DOMNode
@@ -9100,7 +8727,7 @@ export class DOMHTMLButtonElement {
     setNodeValue(value: string): void
     setPrefix(value: string): void
     setTextContent(value: string): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -9122,29 +8749,16 @@ export class DOMHTMLButtonElement {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of WebKit2WebExtension.DOMEventTarget */
+    /* Methods of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMEventTarget */
     addEventListener(eventName: string, handler: Function, useCapture: boolean): boolean
     dispatchEvent(event: DOMEvent): boolean
     removeEventListener(eventName: string, handler: Function, useCapture: boolean): boolean
-    /* Virtual methods of WebKit2WebExtension.DOMNode */
-    vfuncAddEventListener(eventName: string, handler: Function, useCapture: boolean): boolean
-    vfuncDispatchEvent(event: DOMEvent): boolean
-    vfuncRemoveEventListener(eventName: string, handler: Function, useCapture: boolean): boolean
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: DOMHTMLButtonElement, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: DOMHTMLButtonElement, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::autofocus", callback: (($obj: DOMHTMLButtonElement, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::autofocus", callback: (($obj: DOMHTMLButtonElement, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::autofocus", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -9487,10 +9101,10 @@ export interface DOMHTMLCanvasElement_ConstructProps extends DOMHTMLElement_Cons
     width?: number
 }
 export class DOMHTMLCanvasElement {
-    /* Properties of WebKit2WebExtension.DOMHTMLCanvasElement */
+    /* Properties of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLCanvasElement */
     height: number
     width: number
-    /* Properties of WebKit2WebExtension.DOMHTMLElement */
+    /* Properties of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLElement */
     accessKey: string
     contentEditable: string
     dir: string
@@ -9505,7 +9119,7 @@ export class DOMHTMLCanvasElement {
     title: string
     translate: boolean
     webkitdropzone: string
-    /* Properties of WebKit2WebExtension.DOMElement */
+    /* Properties of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMElement */
     readonly attributes: DOMNamedNodeMap
     readonly childElementCount: number
     readonly children: DOMHTMLCollection
@@ -9537,7 +9151,7 @@ export class DOMHTMLCanvasElement {
     readonly style: DOMCSSStyleDeclaration
     readonly tagName: string
     readonly webkitRegionOverset: string
-    /* Properties of WebKit2WebExtension.DOMNode */
+    /* Properties of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMNode */
     readonly baseUri: string
     readonly childNodes: DOMNodeList
     readonly firstChild: DOMNode
@@ -9551,18 +9165,18 @@ export class DOMHTMLCanvasElement {
     readonly parentNode: DOMNode
     readonly previousSibling: DOMNode
     textContent: string
-    /* Fields of WebKit2WebExtension.DOMHTMLCanvasElement */
+    /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLCanvasElement */
     parentInstance: DOMHTMLElement
-    /* Fields of WebKit2WebExtension.DOMObject */
+    /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMObject */
     coreObject: object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of WebKit2WebExtension.DOMHTMLCanvasElement */
+    /* Methods of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLCanvasElement */
     getHeight(): number
     getWidth(): number
     setHeight(value: number): void
     setWidth(value: number): void
-    /* Methods of WebKit2WebExtension.DOMHTMLElement */
+    /* Methods of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLElement */
     click(): void
     getAccessKey(): string
     getChildren(): DOMHTMLCollection
@@ -9596,7 +9210,7 @@ export class DOMHTMLCanvasElement {
     setTitle(value: string): void
     setTranslate(value: boolean): void
     setWebkitdropzone(value: string): void
-    /* Methods of WebKit2WebExtension.DOMElement */
+    /* Methods of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMElement */
     blur(): void
     closest(selectors: string): DOMElement
     focus(): void
@@ -9674,7 +9288,7 @@ export class DOMHTMLCanvasElement {
     setScrollTop(value: number): void
     webkitMatchesSelector(selectors: string): boolean
     webkitRequestFullscreen(): void
-    /* Methods of WebKit2WebExtension.DOMNode */
+    /* Methods of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMNode */
     appendChild(newChild: DOMNode): DOMNode
     cloneNode(deep: boolean): DOMNode
     cloneNodeWithError(deep: boolean): DOMNode
@@ -9707,7 +9321,7 @@ export class DOMHTMLCanvasElement {
     setNodeValue(value: string): void
     setPrefix(value: string): void
     setTextContent(value: string): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -9729,29 +9343,16 @@ export class DOMHTMLCanvasElement {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of WebKit2WebExtension.DOMEventTarget */
+    /* Methods of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMEventTarget */
     addEventListener(eventName: string, handler: Function, useCapture: boolean): boolean
     dispatchEvent(event: DOMEvent): boolean
     removeEventListener(eventName: string, handler: Function, useCapture: boolean): boolean
-    /* Virtual methods of WebKit2WebExtension.DOMNode */
-    vfuncAddEventListener(eventName: string, handler: Function, useCapture: boolean): boolean
-    vfuncDispatchEvent(event: DOMEvent): boolean
-    vfuncRemoveEventListener(eventName: string, handler: Function, useCapture: boolean): boolean
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: DOMHTMLCanvasElement, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: DOMHTMLCanvasElement, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::height", callback: (($obj: DOMHTMLCanvasElement, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::height", callback: (($obj: DOMHTMLCanvasElement, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::height", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -10067,19 +9668,19 @@ export class DOMHTMLCanvasElement {
 export interface DOMHTMLCollection_ConstructProps extends DOMObject_ConstructProps {
 }
 export class DOMHTMLCollection {
-    /* Properties of WebKit2WebExtension.DOMHTMLCollection */
+    /* Properties of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLCollection */
     readonly length: number
-    /* Fields of WebKit2WebExtension.DOMHTMLCollection */
+    /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLCollection */
     parentInstance: DOMObject
-    /* Fields of WebKit2WebExtension.DOMObject */
+    /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMObject */
     coreObject: object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of WebKit2WebExtension.DOMHTMLCollection */
+    /* Methods of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLCollection */
     getLength(): number
     item(index: number): DOMNode
     namedItem(name: string): DOMNode
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -10101,21 +9702,12 @@ export class DOMHTMLCollection {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: DOMHTMLCollection, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: DOMHTMLCollection, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::length", callback: (($obj: DOMHTMLCollection, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::length", callback: (($obj: DOMHTMLCollection, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::length", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -10137,9 +9729,9 @@ export interface DOMHTMLDListElement_ConstructProps extends DOMHTMLElement_Const
     compact?: boolean
 }
 export class DOMHTMLDListElement {
-    /* Properties of WebKit2WebExtension.DOMHTMLDListElement */
+    /* Properties of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLDListElement */
     compact: boolean
-    /* Properties of WebKit2WebExtension.DOMHTMLElement */
+    /* Properties of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLElement */
     accessKey: string
     contentEditable: string
     dir: string
@@ -10154,7 +9746,7 @@ export class DOMHTMLDListElement {
     title: string
     translate: boolean
     webkitdropzone: string
-    /* Properties of WebKit2WebExtension.DOMElement */
+    /* Properties of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMElement */
     readonly attributes: DOMNamedNodeMap
     readonly childElementCount: number
     readonly children: DOMHTMLCollection
@@ -10186,7 +9778,7 @@ export class DOMHTMLDListElement {
     readonly style: DOMCSSStyleDeclaration
     readonly tagName: string
     readonly webkitRegionOverset: string
-    /* Properties of WebKit2WebExtension.DOMNode */
+    /* Properties of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMNode */
     readonly baseUri: string
     readonly childNodes: DOMNodeList
     readonly firstChild: DOMNode
@@ -10200,16 +9792,16 @@ export class DOMHTMLDListElement {
     readonly parentNode: DOMNode
     readonly previousSibling: DOMNode
     textContent: string
-    /* Fields of WebKit2WebExtension.DOMHTMLDListElement */
+    /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLDListElement */
     parentInstance: DOMHTMLElement
-    /* Fields of WebKit2WebExtension.DOMObject */
+    /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMObject */
     coreObject: object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of WebKit2WebExtension.DOMHTMLDListElement */
+    /* Methods of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLDListElement */
     getCompact(): boolean
     setCompact(value: boolean): void
-    /* Methods of WebKit2WebExtension.DOMHTMLElement */
+    /* Methods of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLElement */
     click(): void
     getAccessKey(): string
     getChildren(): DOMHTMLCollection
@@ -10243,7 +9835,7 @@ export class DOMHTMLDListElement {
     setTitle(value: string): void
     setTranslate(value: boolean): void
     setWebkitdropzone(value: string): void
-    /* Methods of WebKit2WebExtension.DOMElement */
+    /* Methods of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMElement */
     blur(): void
     closest(selectors: string): DOMElement
     focus(): void
@@ -10321,7 +9913,7 @@ export class DOMHTMLDListElement {
     setScrollTop(value: number): void
     webkitMatchesSelector(selectors: string): boolean
     webkitRequestFullscreen(): void
-    /* Methods of WebKit2WebExtension.DOMNode */
+    /* Methods of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMNode */
     appendChild(newChild: DOMNode): DOMNode
     cloneNode(deep: boolean): DOMNode
     cloneNodeWithError(deep: boolean): DOMNode
@@ -10354,7 +9946,7 @@ export class DOMHTMLDListElement {
     setNodeValue(value: string): void
     setPrefix(value: string): void
     setTextContent(value: string): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -10376,29 +9968,16 @@ export class DOMHTMLDListElement {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of WebKit2WebExtension.DOMEventTarget */
+    /* Methods of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMEventTarget */
     addEventListener(eventName: string, handler: Function, useCapture: boolean): boolean
     dispatchEvent(event: DOMEvent): boolean
     removeEventListener(eventName: string, handler: Function, useCapture: boolean): boolean
-    /* Virtual methods of WebKit2WebExtension.DOMNode */
-    vfuncAddEventListener(eventName: string, handler: Function, useCapture: boolean): boolean
-    vfuncDispatchEvent(event: DOMEvent): boolean
-    vfuncRemoveEventListener(eventName: string, handler: Function, useCapture: boolean): boolean
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: DOMHTMLDListElement, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: DOMHTMLDListElement, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::compact", callback: (($obj: DOMHTMLDListElement, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::compact", callback: (($obj: DOMHTMLDListElement, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::compact", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -10710,9 +10289,9 @@ export interface DOMHTMLDirectoryElement_ConstructProps extends DOMHTMLElement_C
     compact?: boolean
 }
 export class DOMHTMLDirectoryElement {
-    /* Properties of WebKit2WebExtension.DOMHTMLDirectoryElement */
+    /* Properties of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLDirectoryElement */
     compact: boolean
-    /* Properties of WebKit2WebExtension.DOMHTMLElement */
+    /* Properties of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLElement */
     accessKey: string
     contentEditable: string
     dir: string
@@ -10727,7 +10306,7 @@ export class DOMHTMLDirectoryElement {
     title: string
     translate: boolean
     webkitdropzone: string
-    /* Properties of WebKit2WebExtension.DOMElement */
+    /* Properties of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMElement */
     readonly attributes: DOMNamedNodeMap
     readonly childElementCount: number
     readonly children: DOMHTMLCollection
@@ -10759,7 +10338,7 @@ export class DOMHTMLDirectoryElement {
     readonly style: DOMCSSStyleDeclaration
     readonly tagName: string
     readonly webkitRegionOverset: string
-    /* Properties of WebKit2WebExtension.DOMNode */
+    /* Properties of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMNode */
     readonly baseUri: string
     readonly childNodes: DOMNodeList
     readonly firstChild: DOMNode
@@ -10773,16 +10352,16 @@ export class DOMHTMLDirectoryElement {
     readonly parentNode: DOMNode
     readonly previousSibling: DOMNode
     textContent: string
-    /* Fields of WebKit2WebExtension.DOMHTMLDirectoryElement */
+    /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLDirectoryElement */
     parentInstance: DOMHTMLElement
-    /* Fields of WebKit2WebExtension.DOMObject */
+    /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMObject */
     coreObject: object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of WebKit2WebExtension.DOMHTMLDirectoryElement */
+    /* Methods of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLDirectoryElement */
     getCompact(): boolean
     setCompact(value: boolean): void
-    /* Methods of WebKit2WebExtension.DOMHTMLElement */
+    /* Methods of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLElement */
     click(): void
     getAccessKey(): string
     getChildren(): DOMHTMLCollection
@@ -10816,7 +10395,7 @@ export class DOMHTMLDirectoryElement {
     setTitle(value: string): void
     setTranslate(value: boolean): void
     setWebkitdropzone(value: string): void
-    /* Methods of WebKit2WebExtension.DOMElement */
+    /* Methods of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMElement */
     blur(): void
     closest(selectors: string): DOMElement
     focus(): void
@@ -10894,7 +10473,7 @@ export class DOMHTMLDirectoryElement {
     setScrollTop(value: number): void
     webkitMatchesSelector(selectors: string): boolean
     webkitRequestFullscreen(): void
-    /* Methods of WebKit2WebExtension.DOMNode */
+    /* Methods of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMNode */
     appendChild(newChild: DOMNode): DOMNode
     cloneNode(deep: boolean): DOMNode
     cloneNodeWithError(deep: boolean): DOMNode
@@ -10927,7 +10506,7 @@ export class DOMHTMLDirectoryElement {
     setNodeValue(value: string): void
     setPrefix(value: string): void
     setTextContent(value: string): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -10949,29 +10528,16 @@ export class DOMHTMLDirectoryElement {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of WebKit2WebExtension.DOMEventTarget */
+    /* Methods of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMEventTarget */
     addEventListener(eventName: string, handler: Function, useCapture: boolean): boolean
     dispatchEvent(event: DOMEvent): boolean
     removeEventListener(eventName: string, handler: Function, useCapture: boolean): boolean
-    /* Virtual methods of WebKit2WebExtension.DOMNode */
-    vfuncAddEventListener(eventName: string, handler: Function, useCapture: boolean): boolean
-    vfuncDispatchEvent(event: DOMEvent): boolean
-    vfuncRemoveEventListener(eventName: string, handler: Function, useCapture: boolean): boolean
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: DOMHTMLDirectoryElement, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: DOMHTMLDirectoryElement, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::compact", callback: (($obj: DOMHTMLDirectoryElement, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::compact", callback: (($obj: DOMHTMLDirectoryElement, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::compact", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -11283,9 +10849,9 @@ export interface DOMHTMLDivElement_ConstructProps extends DOMHTMLElement_Constru
     align?: string
 }
 export class DOMHTMLDivElement {
-    /* Properties of WebKit2WebExtension.DOMHTMLDivElement */
+    /* Properties of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLDivElement */
     align: string
-    /* Properties of WebKit2WebExtension.DOMHTMLElement */
+    /* Properties of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLElement */
     accessKey: string
     contentEditable: string
     dir: string
@@ -11300,7 +10866,7 @@ export class DOMHTMLDivElement {
     title: string
     translate: boolean
     webkitdropzone: string
-    /* Properties of WebKit2WebExtension.DOMElement */
+    /* Properties of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMElement */
     readonly attributes: DOMNamedNodeMap
     readonly childElementCount: number
     readonly children: DOMHTMLCollection
@@ -11332,7 +10898,7 @@ export class DOMHTMLDivElement {
     readonly style: DOMCSSStyleDeclaration
     readonly tagName: string
     readonly webkitRegionOverset: string
-    /* Properties of WebKit2WebExtension.DOMNode */
+    /* Properties of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMNode */
     readonly baseUri: string
     readonly childNodes: DOMNodeList
     readonly firstChild: DOMNode
@@ -11346,16 +10912,16 @@ export class DOMHTMLDivElement {
     readonly parentNode: DOMNode
     readonly previousSibling: DOMNode
     textContent: string
-    /* Fields of WebKit2WebExtension.DOMHTMLDivElement */
+    /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLDivElement */
     parentInstance: DOMHTMLElement
-    /* Fields of WebKit2WebExtension.DOMObject */
+    /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMObject */
     coreObject: object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of WebKit2WebExtension.DOMHTMLDivElement */
+    /* Methods of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLDivElement */
     getAlign(): string
     setAlign(value: string): void
-    /* Methods of WebKit2WebExtension.DOMHTMLElement */
+    /* Methods of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLElement */
     click(): void
     getAccessKey(): string
     getChildren(): DOMHTMLCollection
@@ -11389,7 +10955,7 @@ export class DOMHTMLDivElement {
     setTitle(value: string): void
     setTranslate(value: boolean): void
     setWebkitdropzone(value: string): void
-    /* Methods of WebKit2WebExtension.DOMElement */
+    /* Methods of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMElement */
     blur(): void
     closest(selectors: string): DOMElement
     focus(): void
@@ -11467,7 +11033,7 @@ export class DOMHTMLDivElement {
     setScrollTop(value: number): void
     webkitMatchesSelector(selectors: string): boolean
     webkitRequestFullscreen(): void
-    /* Methods of WebKit2WebExtension.DOMNode */
+    /* Methods of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMNode */
     appendChild(newChild: DOMNode): DOMNode
     cloneNode(deep: boolean): DOMNode
     cloneNodeWithError(deep: boolean): DOMNode
@@ -11500,7 +11066,7 @@ export class DOMHTMLDivElement {
     setNodeValue(value: string): void
     setPrefix(value: string): void
     setTextContent(value: string): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -11522,29 +11088,16 @@ export class DOMHTMLDivElement {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of WebKit2WebExtension.DOMEventTarget */
+    /* Methods of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMEventTarget */
     addEventListener(eventName: string, handler: Function, useCapture: boolean): boolean
     dispatchEvent(event: DOMEvent): boolean
     removeEventListener(eventName: string, handler: Function, useCapture: boolean): boolean
-    /* Virtual methods of WebKit2WebExtension.DOMNode */
-    vfuncAddEventListener(eventName: string, handler: Function, useCapture: boolean): boolean
-    vfuncDispatchEvent(event: DOMEvent): boolean
-    vfuncRemoveEventListener(eventName: string, handler: Function, useCapture: boolean): boolean
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: DOMHTMLDivElement, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: DOMHTMLDivElement, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::align", callback: (($obj: DOMHTMLDivElement, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::align", callback: (($obj: DOMHTMLDivElement, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::align", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -11861,7 +11414,7 @@ export interface DOMHTMLDocument_ConstructProps extends DOMDocument_ConstructPro
     vlinkColor?: string
 }
 export class DOMHTMLDocument {
-    /* Properties of WebKit2WebExtension.DOMHTMLDocument */
+    /* Properties of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLDocument */
     alinkColor: string
     bgColor: string
     dir: string
@@ -11870,7 +11423,7 @@ export class DOMHTMLDocument {
     linkColor: string
     vlinkColor: string
     readonly width: number
-    /* Properties of WebKit2WebExtension.DOMDocument */
+    /* Properties of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMDocument */
     readonly activeElement: DOMElement
     readonly anchors: DOMHTMLCollection
     readonly applets: DOMHTMLCollection
@@ -11921,7 +11474,7 @@ export class DOMHTMLDocument {
     readonly xmlEncoding: string
     xmlStandalone: boolean
     xmlVersion: string
-    /* Properties of WebKit2WebExtension.DOMNode */
+    /* Properties of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMNode */
     readonly baseUri: string
     readonly childNodes: DOMNodeList
     readonly firstChild: DOMNode
@@ -11935,13 +11488,13 @@ export class DOMHTMLDocument {
     readonly parentNode: DOMNode
     readonly previousSibling: DOMNode
     textContent: string
-    /* Fields of WebKit2WebExtension.DOMHTMLDocument */
+    /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLDocument */
     parentInstance: DOMDocument
-    /* Fields of WebKit2WebExtension.DOMObject */
+    /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMObject */
     coreObject: object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of WebKit2WebExtension.DOMHTMLDocument */
+    /* Methods of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLDocument */
     captureEvents(): void
     clear(): void
     close(): void
@@ -11966,7 +11519,7 @@ export class DOMHTMLDocument {
     setFgColor(value: string): void
     setLinkColor(value: string): void
     setVlinkColor(value: string): void
-    /* Methods of WebKit2WebExtension.DOMDocument */
+    /* Methods of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMDocument */
     adoptNode(source: DOMNode): DOMNode
     caretRangeFromPoint(x: number, y: number): DOMRange
     createAttribute(name: string): DOMAttr
@@ -12064,7 +11617,7 @@ export class DOMHTMLDocument {
     setXmlVersion(value: string): void
     webkitCancelFullscreen(): void
     webkitExitFullscreen(): void
-    /* Methods of WebKit2WebExtension.DOMNode */
+    /* Methods of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMNode */
     appendChild(newChild: DOMNode): DOMNode
     cloneNode(deep: boolean): DOMNode
     cloneNodeWithError(deep: boolean): DOMNode
@@ -12100,7 +11653,7 @@ export class DOMHTMLDocument {
     setNodeValue(value: string): void
     setPrefix(value: string): void
     setTextContent(value: string): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -12122,29 +11675,16 @@ export class DOMHTMLDocument {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of WebKit2WebExtension.DOMEventTarget */
+    /* Methods of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMEventTarget */
     addEventListener(eventName: string, handler: Function, useCapture: boolean): boolean
     dispatchEvent(event: DOMEvent): boolean
     removeEventListener(eventName: string, handler: Function, useCapture: boolean): boolean
-    /* Virtual methods of WebKit2WebExtension.DOMNode */
-    vfuncAddEventListener(eventName: string, handler: Function, useCapture: boolean): boolean
-    vfuncDispatchEvent(event: DOMEvent): boolean
-    vfuncRemoveEventListener(eventName: string, handler: Function, useCapture: boolean): boolean
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: DOMHTMLDocument, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: DOMHTMLDocument, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::alink-color", callback: (($obj: DOMHTMLDocument, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::alink-color", callback: (($obj: DOMHTMLDocument, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::alink-color", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -12528,7 +12068,7 @@ export interface DOMHTMLElement_ConstructProps extends DOMElement_ConstructProps
     webkitdropzone?: string
 }
 export class DOMHTMLElement {
-    /* Properties of WebKit2WebExtension.DOMHTMLElement */
+    /* Properties of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLElement */
     accessKey: string
     contentEditable: string
     dir: string
@@ -12543,7 +12083,7 @@ export class DOMHTMLElement {
     title: string
     translate: boolean
     webkitdropzone: string
-    /* Properties of WebKit2WebExtension.DOMElement */
+    /* Properties of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMElement */
     readonly attributes: DOMNamedNodeMap
     readonly childElementCount: number
     readonly children: DOMHTMLCollection
@@ -12575,7 +12115,7 @@ export class DOMHTMLElement {
     readonly style: DOMCSSStyleDeclaration
     readonly tagName: string
     readonly webkitRegionOverset: string
-    /* Properties of WebKit2WebExtension.DOMNode */
+    /* Properties of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMNode */
     readonly baseUri: string
     readonly childNodes: DOMNodeList
     readonly firstChild: DOMNode
@@ -12589,13 +12129,13 @@ export class DOMHTMLElement {
     readonly parentNode: DOMNode
     readonly previousSibling: DOMNode
     textContent: string
-    /* Fields of WebKit2WebExtension.DOMHTMLElement */
+    /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLElement */
     parentInstance: DOMElement
-    /* Fields of WebKit2WebExtension.DOMObject */
+    /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMObject */
     coreObject: object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of WebKit2WebExtension.DOMHTMLElement */
+    /* Methods of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLElement */
     click(): void
     getAccessKey(): string
     getChildren(): DOMHTMLCollection
@@ -12629,7 +12169,7 @@ export class DOMHTMLElement {
     setTitle(value: string): void
     setTranslate(value: boolean): void
     setWebkitdropzone(value: string): void
-    /* Methods of WebKit2WebExtension.DOMElement */
+    /* Methods of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMElement */
     blur(): void
     closest(selectors: string): DOMElement
     focus(): void
@@ -12707,7 +12247,7 @@ export class DOMHTMLElement {
     setScrollTop(value: number): void
     webkitMatchesSelector(selectors: string): boolean
     webkitRequestFullscreen(): void
-    /* Methods of WebKit2WebExtension.DOMNode */
+    /* Methods of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMNode */
     appendChild(newChild: DOMNode): DOMNode
     cloneNode(deep: boolean): DOMNode
     cloneNodeWithError(deep: boolean): DOMNode
@@ -12740,7 +12280,7 @@ export class DOMHTMLElement {
     setNodeValue(value: string): void
     setPrefix(value: string): void
     setTextContent(value: string): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -12762,29 +12302,16 @@ export class DOMHTMLElement {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of WebKit2WebExtension.DOMEventTarget */
+    /* Methods of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMEventTarget */
     addEventListener(eventName: string, handler: Function, useCapture: boolean): boolean
     dispatchEvent(event: DOMEvent): boolean
     removeEventListener(eventName: string, handler: Function, useCapture: boolean): boolean
-    /* Virtual methods of WebKit2WebExtension.DOMNode */
-    vfuncAddEventListener(eventName: string, handler: Function, useCapture: boolean): boolean
-    vfuncDispatchEvent(event: DOMEvent): boolean
-    vfuncRemoveEventListener(eventName: string, handler: Function, useCapture: boolean): boolean
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: DOMHTMLElement, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: DOMHTMLElement, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::access-key", callback: (($obj: DOMHTMLElement, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::access-key", callback: (($obj: DOMHTMLElement, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::access-key", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -13096,14 +12623,14 @@ export interface DOMHTMLEmbedElement_ConstructProps extends DOMHTMLElement_Const
     width?: number
 }
 export class DOMHTMLEmbedElement {
-    /* Properties of WebKit2WebExtension.DOMHTMLEmbedElement */
+    /* Properties of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLEmbedElement */
     align: string
     height: number
     name: string
     src: string
     type: string
     width: number
-    /* Properties of WebKit2WebExtension.DOMHTMLElement */
+    /* Properties of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLElement */
     accessKey: string
     contentEditable: string
     dir: string
@@ -13118,7 +12645,7 @@ export class DOMHTMLEmbedElement {
     title: string
     translate: boolean
     webkitdropzone: string
-    /* Properties of WebKit2WebExtension.DOMElement */
+    /* Properties of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMElement */
     readonly attributes: DOMNamedNodeMap
     readonly childElementCount: number
     readonly children: DOMHTMLCollection
@@ -13150,7 +12677,7 @@ export class DOMHTMLEmbedElement {
     readonly style: DOMCSSStyleDeclaration
     readonly tagName: string
     readonly webkitRegionOverset: string
-    /* Properties of WebKit2WebExtension.DOMNode */
+    /* Properties of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMNode */
     readonly baseUri: string
     readonly childNodes: DOMNodeList
     readonly firstChild: DOMNode
@@ -13164,13 +12691,13 @@ export class DOMHTMLEmbedElement {
     readonly parentNode: DOMNode
     readonly previousSibling: DOMNode
     textContent: string
-    /* Fields of WebKit2WebExtension.DOMHTMLEmbedElement */
+    /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLEmbedElement */
     parentInstance: DOMHTMLElement
-    /* Fields of WebKit2WebExtension.DOMObject */
+    /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMObject */
     coreObject: object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of WebKit2WebExtension.DOMHTMLEmbedElement */
+    /* Methods of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLEmbedElement */
     getAlign(): string
     getHeight(): number
     getName(): string
@@ -13183,7 +12710,7 @@ export class DOMHTMLEmbedElement {
     setSrc(value: string): void
     setTypeAttr(value: string): void
     setWidth(value: number): void
-    /* Methods of WebKit2WebExtension.DOMHTMLElement */
+    /* Methods of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLElement */
     click(): void
     getAccessKey(): string
     getChildren(): DOMHTMLCollection
@@ -13217,7 +12744,7 @@ export class DOMHTMLEmbedElement {
     setTitle(value: string): void
     setTranslate(value: boolean): void
     setWebkitdropzone(value: string): void
-    /* Methods of WebKit2WebExtension.DOMElement */
+    /* Methods of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMElement */
     blur(): void
     closest(selectors: string): DOMElement
     focus(): void
@@ -13295,7 +12822,7 @@ export class DOMHTMLEmbedElement {
     setScrollTop(value: number): void
     webkitMatchesSelector(selectors: string): boolean
     webkitRequestFullscreen(): void
-    /* Methods of WebKit2WebExtension.DOMNode */
+    /* Methods of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMNode */
     appendChild(newChild: DOMNode): DOMNode
     cloneNode(deep: boolean): DOMNode
     cloneNodeWithError(deep: boolean): DOMNode
@@ -13328,7 +12855,7 @@ export class DOMHTMLEmbedElement {
     setNodeValue(value: string): void
     setPrefix(value: string): void
     setTextContent(value: string): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -13350,29 +12877,16 @@ export class DOMHTMLEmbedElement {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of WebKit2WebExtension.DOMEventTarget */
+    /* Methods of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMEventTarget */
     addEventListener(eventName: string, handler: Function, useCapture: boolean): boolean
     dispatchEvent(event: DOMEvent): boolean
     removeEventListener(eventName: string, handler: Function, useCapture: boolean): boolean
-    /* Virtual methods of WebKit2WebExtension.DOMNode */
-    vfuncAddEventListener(eventName: string, handler: Function, useCapture: boolean): boolean
-    vfuncDispatchEvent(event: DOMEvent): boolean
-    vfuncRemoveEventListener(eventName: string, handler: Function, useCapture: boolean): boolean
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: DOMHTMLEmbedElement, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: DOMHTMLEmbedElement, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::align", callback: (($obj: DOMHTMLEmbedElement, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::align", callback: (($obj: DOMHTMLEmbedElement, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::align", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -13708,9 +13222,9 @@ export class DOMHTMLEmbedElement {
 export interface DOMHTMLFieldSetElement_ConstructProps extends DOMHTMLElement_ConstructProps {
 }
 export class DOMHTMLFieldSetElement {
-    /* Properties of WebKit2WebExtension.DOMHTMLFieldSetElement */
+    /* Properties of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLFieldSetElement */
     readonly form: DOMHTMLFormElement
-    /* Properties of WebKit2WebExtension.DOMHTMLElement */
+    /* Properties of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLElement */
     accessKey: string
     contentEditable: string
     dir: string
@@ -13725,7 +13239,7 @@ export class DOMHTMLFieldSetElement {
     title: string
     translate: boolean
     webkitdropzone: string
-    /* Properties of WebKit2WebExtension.DOMElement */
+    /* Properties of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMElement */
     readonly attributes: DOMNamedNodeMap
     readonly childElementCount: number
     readonly children: DOMHTMLCollection
@@ -13757,7 +13271,7 @@ export class DOMHTMLFieldSetElement {
     readonly style: DOMCSSStyleDeclaration
     readonly tagName: string
     readonly webkitRegionOverset: string
-    /* Properties of WebKit2WebExtension.DOMNode */
+    /* Properties of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMNode */
     readonly baseUri: string
     readonly childNodes: DOMNodeList
     readonly firstChild: DOMNode
@@ -13771,15 +13285,15 @@ export class DOMHTMLFieldSetElement {
     readonly parentNode: DOMNode
     readonly previousSibling: DOMNode
     textContent: string
-    /* Fields of WebKit2WebExtension.DOMHTMLFieldSetElement */
+    /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLFieldSetElement */
     parentInstance: DOMHTMLElement
-    /* Fields of WebKit2WebExtension.DOMObject */
+    /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMObject */
     coreObject: object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of WebKit2WebExtension.DOMHTMLFieldSetElement */
+    /* Methods of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLFieldSetElement */
     getForm(): DOMHTMLFormElement
-    /* Methods of WebKit2WebExtension.DOMHTMLElement */
+    /* Methods of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLElement */
     click(): void
     getAccessKey(): string
     getChildren(): DOMHTMLCollection
@@ -13813,7 +13327,7 @@ export class DOMHTMLFieldSetElement {
     setTitle(value: string): void
     setTranslate(value: boolean): void
     setWebkitdropzone(value: string): void
-    /* Methods of WebKit2WebExtension.DOMElement */
+    /* Methods of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMElement */
     blur(): void
     closest(selectors: string): DOMElement
     focus(): void
@@ -13891,7 +13405,7 @@ export class DOMHTMLFieldSetElement {
     setScrollTop(value: number): void
     webkitMatchesSelector(selectors: string): boolean
     webkitRequestFullscreen(): void
-    /* Methods of WebKit2WebExtension.DOMNode */
+    /* Methods of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMNode */
     appendChild(newChild: DOMNode): DOMNode
     cloneNode(deep: boolean): DOMNode
     cloneNodeWithError(deep: boolean): DOMNode
@@ -13924,7 +13438,7 @@ export class DOMHTMLFieldSetElement {
     setNodeValue(value: string): void
     setPrefix(value: string): void
     setTextContent(value: string): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -13946,29 +13460,16 @@ export class DOMHTMLFieldSetElement {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of WebKit2WebExtension.DOMEventTarget */
+    /* Methods of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMEventTarget */
     addEventListener(eventName: string, handler: Function, useCapture: boolean): boolean
     dispatchEvent(event: DOMEvent): boolean
     removeEventListener(eventName: string, handler: Function, useCapture: boolean): boolean
-    /* Virtual methods of WebKit2WebExtension.DOMNode */
-    vfuncAddEventListener(eventName: string, handler: Function, useCapture: boolean): boolean
-    vfuncDispatchEvent(event: DOMEvent): boolean
-    vfuncRemoveEventListener(eventName: string, handler: Function, useCapture: boolean): boolean
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: DOMHTMLFieldSetElement, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: DOMHTMLFieldSetElement, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::form", callback: (($obj: DOMHTMLFieldSetElement, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::form", callback: (($obj: DOMHTMLFieldSetElement, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::form", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -14282,11 +13783,11 @@ export interface DOMHTMLFontElement_ConstructProps extends DOMHTMLElement_Constr
     size?: string
 }
 export class DOMHTMLFontElement {
-    /* Properties of WebKit2WebExtension.DOMHTMLFontElement */
+    /* Properties of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLFontElement */
     color: string
     face: string
     size: string
-    /* Properties of WebKit2WebExtension.DOMHTMLElement */
+    /* Properties of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLElement */
     accessKey: string
     contentEditable: string
     dir: string
@@ -14301,7 +13802,7 @@ export class DOMHTMLFontElement {
     title: string
     translate: boolean
     webkitdropzone: string
-    /* Properties of WebKit2WebExtension.DOMElement */
+    /* Properties of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMElement */
     readonly attributes: DOMNamedNodeMap
     readonly childElementCount: number
     readonly children: DOMHTMLCollection
@@ -14333,7 +13834,7 @@ export class DOMHTMLFontElement {
     readonly style: DOMCSSStyleDeclaration
     readonly tagName: string
     readonly webkitRegionOverset: string
-    /* Properties of WebKit2WebExtension.DOMNode */
+    /* Properties of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMNode */
     readonly baseUri: string
     readonly childNodes: DOMNodeList
     readonly firstChild: DOMNode
@@ -14347,20 +13848,20 @@ export class DOMHTMLFontElement {
     readonly parentNode: DOMNode
     readonly previousSibling: DOMNode
     textContent: string
-    /* Fields of WebKit2WebExtension.DOMHTMLFontElement */
+    /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLFontElement */
     parentInstance: DOMHTMLElement
-    /* Fields of WebKit2WebExtension.DOMObject */
+    /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMObject */
     coreObject: object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of WebKit2WebExtension.DOMHTMLFontElement */
+    /* Methods of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLFontElement */
     getColor(): string
     getFace(): string
     getSize(): string
     setColor(value: string): void
     setFace(value: string): void
     setSize(value: string): void
-    /* Methods of WebKit2WebExtension.DOMHTMLElement */
+    /* Methods of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLElement */
     click(): void
     getAccessKey(): string
     getChildren(): DOMHTMLCollection
@@ -14394,7 +13895,7 @@ export class DOMHTMLFontElement {
     setTitle(value: string): void
     setTranslate(value: boolean): void
     setWebkitdropzone(value: string): void
-    /* Methods of WebKit2WebExtension.DOMElement */
+    /* Methods of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMElement */
     blur(): void
     closest(selectors: string): DOMElement
     focus(): void
@@ -14472,7 +13973,7 @@ export class DOMHTMLFontElement {
     setScrollTop(value: number): void
     webkitMatchesSelector(selectors: string): boolean
     webkitRequestFullscreen(): void
-    /* Methods of WebKit2WebExtension.DOMNode */
+    /* Methods of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMNode */
     appendChild(newChild: DOMNode): DOMNode
     cloneNode(deep: boolean): DOMNode
     cloneNodeWithError(deep: boolean): DOMNode
@@ -14505,7 +14006,7 @@ export class DOMHTMLFontElement {
     setNodeValue(value: string): void
     setPrefix(value: string): void
     setTextContent(value: string): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -14527,29 +14028,16 @@ export class DOMHTMLFontElement {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of WebKit2WebExtension.DOMEventTarget */
+    /* Methods of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMEventTarget */
     addEventListener(eventName: string, handler: Function, useCapture: boolean): boolean
     dispatchEvent(event: DOMEvent): boolean
     removeEventListener(eventName: string, handler: Function, useCapture: boolean): boolean
-    /* Virtual methods of WebKit2WebExtension.DOMNode */
-    vfuncAddEventListener(eventName: string, handler: Function, useCapture: boolean): boolean
-    vfuncDispatchEvent(event: DOMEvent): boolean
-    vfuncRemoveEventListener(eventName: string, handler: Function, useCapture: boolean): boolean
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: DOMHTMLFontElement, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: DOMHTMLFontElement, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::color", callback: (($obj: DOMHTMLFontElement, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::color", callback: (($obj: DOMHTMLFontElement, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::color", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -14877,7 +14365,7 @@ export interface DOMHTMLFormElement_ConstructProps extends DOMHTMLElement_Constr
     target?: string
 }
 export class DOMHTMLFormElement {
-    /* Properties of WebKit2WebExtension.DOMHTMLFormElement */
+    /* Properties of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLFormElement */
     acceptCharset: string
     action: string
     readonly elements: DOMHTMLCollection
@@ -14887,7 +14375,7 @@ export class DOMHTMLFormElement {
     method: string
     name: string
     target: string
-    /* Properties of WebKit2WebExtension.DOMHTMLElement */
+    /* Properties of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLElement */
     accessKey: string
     contentEditable: string
     dir: string
@@ -14902,7 +14390,7 @@ export class DOMHTMLFormElement {
     title: string
     translate: boolean
     webkitdropzone: string
-    /* Properties of WebKit2WebExtension.DOMElement */
+    /* Properties of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMElement */
     readonly attributes: DOMNamedNodeMap
     readonly childElementCount: number
     readonly children: DOMHTMLCollection
@@ -14934,7 +14422,7 @@ export class DOMHTMLFormElement {
     readonly style: DOMCSSStyleDeclaration
     readonly tagName: string
     readonly webkitRegionOverset: string
-    /* Properties of WebKit2WebExtension.DOMNode */
+    /* Properties of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMNode */
     readonly baseUri: string
     readonly childNodes: DOMNodeList
     readonly firstChild: DOMNode
@@ -14948,13 +14436,13 @@ export class DOMHTMLFormElement {
     readonly parentNode: DOMNode
     readonly previousSibling: DOMNode
     textContent: string
-    /* Fields of WebKit2WebExtension.DOMHTMLFormElement */
+    /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLFormElement */
     parentInstance: DOMHTMLElement
-    /* Fields of WebKit2WebExtension.DOMObject */
+    /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMObject */
     coreObject: object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of WebKit2WebExtension.DOMHTMLFormElement */
+    /* Methods of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLFormElement */
     getAcceptCharset(): string
     getAction(): string
     getElements(): DOMHTMLCollection
@@ -14973,7 +14461,7 @@ export class DOMHTMLFormElement {
     setName(value: string): void
     setTarget(value: string): void
     submit(): void
-    /* Methods of WebKit2WebExtension.DOMHTMLElement */
+    /* Methods of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLElement */
     click(): void
     getAccessKey(): string
     getChildren(): DOMHTMLCollection
@@ -15007,7 +14495,7 @@ export class DOMHTMLFormElement {
     setTitle(value: string): void
     setTranslate(value: boolean): void
     setWebkitdropzone(value: string): void
-    /* Methods of WebKit2WebExtension.DOMElement */
+    /* Methods of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMElement */
     blur(): void
     closest(selectors: string): DOMElement
     focus(): void
@@ -15085,7 +14573,7 @@ export class DOMHTMLFormElement {
     setScrollTop(value: number): void
     webkitMatchesSelector(selectors: string): boolean
     webkitRequestFullscreen(): void
-    /* Methods of WebKit2WebExtension.DOMNode */
+    /* Methods of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMNode */
     appendChild(newChild: DOMNode): DOMNode
     cloneNode(deep: boolean): DOMNode
     cloneNodeWithError(deep: boolean): DOMNode
@@ -15118,7 +14606,7 @@ export class DOMHTMLFormElement {
     setNodeValue(value: string): void
     setPrefix(value: string): void
     setTextContent(value: string): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -15140,29 +14628,16 @@ export class DOMHTMLFormElement {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of WebKit2WebExtension.DOMEventTarget */
+    /* Methods of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMEventTarget */
     addEventListener(eventName: string, handler: Function, useCapture: boolean): boolean
     dispatchEvent(event: DOMEvent): boolean
     removeEventListener(eventName: string, handler: Function, useCapture: boolean): boolean
-    /* Virtual methods of WebKit2WebExtension.DOMNode */
-    vfuncAddEventListener(eventName: string, handler: Function, useCapture: boolean): boolean
-    vfuncDispatchEvent(event: DOMEvent): boolean
-    vfuncRemoveEventListener(eventName: string, handler: Function, useCapture: boolean): boolean
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: DOMHTMLFormElement, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: DOMHTMLFormElement, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::accept-charset", callback: (($obj: DOMHTMLFormElement, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::accept-charset", callback: (($obj: DOMHTMLFormElement, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::accept-charset", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -15521,7 +14996,7 @@ export interface DOMHTMLFrameElement_ConstructProps extends DOMHTMLElement_Const
     src?: string
 }
 export class DOMHTMLFrameElement {
-    /* Properties of WebKit2WebExtension.DOMHTMLFrameElement */
+    /* Properties of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLFrameElement */
     readonly contentDocument: DOMDocument
     readonly contentWindow: DOMDOMWindow
     frameBorder: string
@@ -15534,7 +15009,7 @@ export class DOMHTMLFrameElement {
     scrolling: string
     src: string
     readonly width: number
-    /* Properties of WebKit2WebExtension.DOMHTMLElement */
+    /* Properties of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLElement */
     accessKey: string
     contentEditable: string
     dir: string
@@ -15549,7 +15024,7 @@ export class DOMHTMLFrameElement {
     title: string
     translate: boolean
     webkitdropzone: string
-    /* Properties of WebKit2WebExtension.DOMElement */
+    /* Properties of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMElement */
     readonly attributes: DOMNamedNodeMap
     readonly childElementCount: number
     readonly children: DOMHTMLCollection
@@ -15581,7 +15056,7 @@ export class DOMHTMLFrameElement {
     readonly style: DOMCSSStyleDeclaration
     readonly tagName: string
     readonly webkitRegionOverset: string
-    /* Properties of WebKit2WebExtension.DOMNode */
+    /* Properties of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMNode */
     readonly baseUri: string
     readonly childNodes: DOMNodeList
     readonly firstChild: DOMNode
@@ -15595,13 +15070,13 @@ export class DOMHTMLFrameElement {
     readonly parentNode: DOMNode
     readonly previousSibling: DOMNode
     textContent: string
-    /* Fields of WebKit2WebExtension.DOMHTMLFrameElement */
+    /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLFrameElement */
     parentInstance: DOMHTMLElement
-    /* Fields of WebKit2WebExtension.DOMObject */
+    /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMObject */
     coreObject: object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of WebKit2WebExtension.DOMHTMLFrameElement */
+    /* Methods of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLFrameElement */
     getContentDocument(): DOMDocument
     getContentWindow(): DOMDOMWindow
     getFrameBorder(): string
@@ -15622,7 +15097,7 @@ export class DOMHTMLFrameElement {
     setNoResize(value: boolean): void
     setScrolling(value: string): void
     setSrc(value: string): void
-    /* Methods of WebKit2WebExtension.DOMHTMLElement */
+    /* Methods of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLElement */
     click(): void
     getAccessKey(): string
     getChildren(): DOMHTMLCollection
@@ -15656,7 +15131,7 @@ export class DOMHTMLFrameElement {
     setTitle(value: string): void
     setTranslate(value: boolean): void
     setWebkitdropzone(value: string): void
-    /* Methods of WebKit2WebExtension.DOMElement */
+    /* Methods of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMElement */
     blur(): void
     closest(selectors: string): DOMElement
     focus(): void
@@ -15734,7 +15209,7 @@ export class DOMHTMLFrameElement {
     setScrollTop(value: number): void
     webkitMatchesSelector(selectors: string): boolean
     webkitRequestFullscreen(): void
-    /* Methods of WebKit2WebExtension.DOMNode */
+    /* Methods of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMNode */
     appendChild(newChild: DOMNode): DOMNode
     cloneNode(deep: boolean): DOMNode
     cloneNodeWithError(deep: boolean): DOMNode
@@ -15767,7 +15242,7 @@ export class DOMHTMLFrameElement {
     setNodeValue(value: string): void
     setPrefix(value: string): void
     setTextContent(value: string): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -15789,29 +15264,16 @@ export class DOMHTMLFrameElement {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of WebKit2WebExtension.DOMEventTarget */
+    /* Methods of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMEventTarget */
     addEventListener(eventName: string, handler: Function, useCapture: boolean): boolean
     dispatchEvent(event: DOMEvent): boolean
     removeEventListener(eventName: string, handler: Function, useCapture: boolean): boolean
-    /* Virtual methods of WebKit2WebExtension.DOMNode */
-    vfuncAddEventListener(eventName: string, handler: Function, useCapture: boolean): boolean
-    vfuncDispatchEvent(event: DOMEvent): boolean
-    vfuncRemoveEventListener(eventName: string, handler: Function, useCapture: boolean): boolean
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: DOMHTMLFrameElement, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: DOMHTMLFrameElement, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::content-document", callback: (($obj: DOMHTMLFrameElement, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::content-document", callback: (($obj: DOMHTMLFrameElement, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::content-document", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -16179,10 +15641,10 @@ export interface DOMHTMLFrameSetElement_ConstructProps extends DOMHTMLElement_Co
     rows?: string
 }
 export class DOMHTMLFrameSetElement {
-    /* Properties of WebKit2WebExtension.DOMHTMLFrameSetElement */
+    /* Properties of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLFrameSetElement */
     cols: string
     rows: string
-    /* Properties of WebKit2WebExtension.DOMHTMLElement */
+    /* Properties of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLElement */
     accessKey: string
     contentEditable: string
     dir: string
@@ -16197,7 +15659,7 @@ export class DOMHTMLFrameSetElement {
     title: string
     translate: boolean
     webkitdropzone: string
-    /* Properties of WebKit2WebExtension.DOMElement */
+    /* Properties of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMElement */
     readonly attributes: DOMNamedNodeMap
     readonly childElementCount: number
     readonly children: DOMHTMLCollection
@@ -16229,7 +15691,7 @@ export class DOMHTMLFrameSetElement {
     readonly style: DOMCSSStyleDeclaration
     readonly tagName: string
     readonly webkitRegionOverset: string
-    /* Properties of WebKit2WebExtension.DOMNode */
+    /* Properties of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMNode */
     readonly baseUri: string
     readonly childNodes: DOMNodeList
     readonly firstChild: DOMNode
@@ -16243,18 +15705,18 @@ export class DOMHTMLFrameSetElement {
     readonly parentNode: DOMNode
     readonly previousSibling: DOMNode
     textContent: string
-    /* Fields of WebKit2WebExtension.DOMHTMLFrameSetElement */
+    /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLFrameSetElement */
     parentInstance: DOMHTMLElement
-    /* Fields of WebKit2WebExtension.DOMObject */
+    /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMObject */
     coreObject: object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of WebKit2WebExtension.DOMHTMLFrameSetElement */
+    /* Methods of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLFrameSetElement */
     getCols(): string
     getRows(): string
     setCols(value: string): void
     setRows(value: string): void
-    /* Methods of WebKit2WebExtension.DOMHTMLElement */
+    /* Methods of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLElement */
     click(): void
     getAccessKey(): string
     getChildren(): DOMHTMLCollection
@@ -16288,7 +15750,7 @@ export class DOMHTMLFrameSetElement {
     setTitle(value: string): void
     setTranslate(value: boolean): void
     setWebkitdropzone(value: string): void
-    /* Methods of WebKit2WebExtension.DOMElement */
+    /* Methods of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMElement */
     blur(): void
     closest(selectors: string): DOMElement
     focus(): void
@@ -16366,7 +15828,7 @@ export class DOMHTMLFrameSetElement {
     setScrollTop(value: number): void
     webkitMatchesSelector(selectors: string): boolean
     webkitRequestFullscreen(): void
-    /* Methods of WebKit2WebExtension.DOMNode */
+    /* Methods of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMNode */
     appendChild(newChild: DOMNode): DOMNode
     cloneNode(deep: boolean): DOMNode
     cloneNodeWithError(deep: boolean): DOMNode
@@ -16399,7 +15861,7 @@ export class DOMHTMLFrameSetElement {
     setNodeValue(value: string): void
     setPrefix(value: string): void
     setTextContent(value: string): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -16421,29 +15883,16 @@ export class DOMHTMLFrameSetElement {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of WebKit2WebExtension.DOMEventTarget */
+    /* Methods of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMEventTarget */
     addEventListener(eventName: string, handler: Function, useCapture: boolean): boolean
     dispatchEvent(event: DOMEvent): boolean
     removeEventListener(eventName: string, handler: Function, useCapture: boolean): boolean
-    /* Virtual methods of WebKit2WebExtension.DOMNode */
-    vfuncAddEventListener(eventName: string, handler: Function, useCapture: boolean): boolean
-    vfuncDispatchEvent(event: DOMEvent): boolean
-    vfuncRemoveEventListener(eventName: string, handler: Function, useCapture: boolean): boolean
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: DOMHTMLFrameSetElement, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: DOMHTMLFrameSetElement, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::cols", callback: (($obj: DOMHTMLFrameSetElement, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::cols", callback: (($obj: DOMHTMLFrameSetElement, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::cols", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -16763,12 +16212,12 @@ export interface DOMHTMLHRElement_ConstructProps extends DOMHTMLElement_Construc
     width?: string
 }
 export class DOMHTMLHRElement {
-    /* Properties of WebKit2WebExtension.DOMHTMLHRElement */
+    /* Properties of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLHRElement */
     align: string
     noShade: boolean
     size: string
     width: string
-    /* Properties of WebKit2WebExtension.DOMHTMLElement */
+    /* Properties of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLElement */
     accessKey: string
     contentEditable: string
     dir: string
@@ -16783,7 +16232,7 @@ export class DOMHTMLHRElement {
     title: string
     translate: boolean
     webkitdropzone: string
-    /* Properties of WebKit2WebExtension.DOMElement */
+    /* Properties of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMElement */
     readonly attributes: DOMNamedNodeMap
     readonly childElementCount: number
     readonly children: DOMHTMLCollection
@@ -16815,7 +16264,7 @@ export class DOMHTMLHRElement {
     readonly style: DOMCSSStyleDeclaration
     readonly tagName: string
     readonly webkitRegionOverset: string
-    /* Properties of WebKit2WebExtension.DOMNode */
+    /* Properties of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMNode */
     readonly baseUri: string
     readonly childNodes: DOMNodeList
     readonly firstChild: DOMNode
@@ -16829,13 +16278,13 @@ export class DOMHTMLHRElement {
     readonly parentNode: DOMNode
     readonly previousSibling: DOMNode
     textContent: string
-    /* Fields of WebKit2WebExtension.DOMHTMLHRElement */
+    /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLHRElement */
     parentInstance: DOMHTMLElement
-    /* Fields of WebKit2WebExtension.DOMObject */
+    /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMObject */
     coreObject: object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of WebKit2WebExtension.DOMHTMLHRElement */
+    /* Methods of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLHRElement */
     getAlign(): string
     getNoShade(): boolean
     getSize(): string
@@ -16844,7 +16293,7 @@ export class DOMHTMLHRElement {
     setNoShade(value: boolean): void
     setSize(value: string): void
     setWidth(value: string): void
-    /* Methods of WebKit2WebExtension.DOMHTMLElement */
+    /* Methods of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLElement */
     click(): void
     getAccessKey(): string
     getChildren(): DOMHTMLCollection
@@ -16878,7 +16327,7 @@ export class DOMHTMLHRElement {
     setTitle(value: string): void
     setTranslate(value: boolean): void
     setWebkitdropzone(value: string): void
-    /* Methods of WebKit2WebExtension.DOMElement */
+    /* Methods of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMElement */
     blur(): void
     closest(selectors: string): DOMElement
     focus(): void
@@ -16956,7 +16405,7 @@ export class DOMHTMLHRElement {
     setScrollTop(value: number): void
     webkitMatchesSelector(selectors: string): boolean
     webkitRequestFullscreen(): void
-    /* Methods of WebKit2WebExtension.DOMNode */
+    /* Methods of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMNode */
     appendChild(newChild: DOMNode): DOMNode
     cloneNode(deep: boolean): DOMNode
     cloneNodeWithError(deep: boolean): DOMNode
@@ -16989,7 +16438,7 @@ export class DOMHTMLHRElement {
     setNodeValue(value: string): void
     setPrefix(value: string): void
     setTextContent(value: string): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -17011,29 +16460,16 @@ export class DOMHTMLHRElement {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of WebKit2WebExtension.DOMEventTarget */
+    /* Methods of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMEventTarget */
     addEventListener(eventName: string, handler: Function, useCapture: boolean): boolean
     dispatchEvent(event: DOMEvent): boolean
     removeEventListener(eventName: string, handler: Function, useCapture: boolean): boolean
-    /* Virtual methods of WebKit2WebExtension.DOMNode */
-    vfuncAddEventListener(eventName: string, handler: Function, useCapture: boolean): boolean
-    vfuncDispatchEvent(event: DOMEvent): boolean
-    vfuncRemoveEventListener(eventName: string, handler: Function, useCapture: boolean): boolean
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: DOMHTMLHRElement, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: DOMHTMLHRElement, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::align", callback: (($obj: DOMHTMLHRElement, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::align", callback: (($obj: DOMHTMLHRElement, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::align", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -17360,9 +16796,9 @@ export interface DOMHTMLHeadElement_ConstructProps extends DOMHTMLElement_Constr
     profile?: string
 }
 export class DOMHTMLHeadElement {
-    /* Properties of WebKit2WebExtension.DOMHTMLHeadElement */
+    /* Properties of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLHeadElement */
     profile: string
-    /* Properties of WebKit2WebExtension.DOMHTMLElement */
+    /* Properties of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLElement */
     accessKey: string
     contentEditable: string
     dir: string
@@ -17377,7 +16813,7 @@ export class DOMHTMLHeadElement {
     title: string
     translate: boolean
     webkitdropzone: string
-    /* Properties of WebKit2WebExtension.DOMElement */
+    /* Properties of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMElement */
     readonly attributes: DOMNamedNodeMap
     readonly childElementCount: number
     readonly children: DOMHTMLCollection
@@ -17409,7 +16845,7 @@ export class DOMHTMLHeadElement {
     readonly style: DOMCSSStyleDeclaration
     readonly tagName: string
     readonly webkitRegionOverset: string
-    /* Properties of WebKit2WebExtension.DOMNode */
+    /* Properties of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMNode */
     readonly baseUri: string
     readonly childNodes: DOMNodeList
     readonly firstChild: DOMNode
@@ -17423,16 +16859,16 @@ export class DOMHTMLHeadElement {
     readonly parentNode: DOMNode
     readonly previousSibling: DOMNode
     textContent: string
-    /* Fields of WebKit2WebExtension.DOMHTMLHeadElement */
+    /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLHeadElement */
     parentInstance: DOMHTMLElement
-    /* Fields of WebKit2WebExtension.DOMObject */
+    /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMObject */
     coreObject: object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of WebKit2WebExtension.DOMHTMLHeadElement */
+    /* Methods of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLHeadElement */
     getProfile(): string
     setProfile(value: string): void
-    /* Methods of WebKit2WebExtension.DOMHTMLElement */
+    /* Methods of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLElement */
     click(): void
     getAccessKey(): string
     getChildren(): DOMHTMLCollection
@@ -17466,7 +16902,7 @@ export class DOMHTMLHeadElement {
     setTitle(value: string): void
     setTranslate(value: boolean): void
     setWebkitdropzone(value: string): void
-    /* Methods of WebKit2WebExtension.DOMElement */
+    /* Methods of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMElement */
     blur(): void
     closest(selectors: string): DOMElement
     focus(): void
@@ -17544,7 +16980,7 @@ export class DOMHTMLHeadElement {
     setScrollTop(value: number): void
     webkitMatchesSelector(selectors: string): boolean
     webkitRequestFullscreen(): void
-    /* Methods of WebKit2WebExtension.DOMNode */
+    /* Methods of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMNode */
     appendChild(newChild: DOMNode): DOMNode
     cloneNode(deep: boolean): DOMNode
     cloneNodeWithError(deep: boolean): DOMNode
@@ -17577,7 +17013,7 @@ export class DOMHTMLHeadElement {
     setNodeValue(value: string): void
     setPrefix(value: string): void
     setTextContent(value: string): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -17599,29 +17035,16 @@ export class DOMHTMLHeadElement {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of WebKit2WebExtension.DOMEventTarget */
+    /* Methods of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMEventTarget */
     addEventListener(eventName: string, handler: Function, useCapture: boolean): boolean
     dispatchEvent(event: DOMEvent): boolean
     removeEventListener(eventName: string, handler: Function, useCapture: boolean): boolean
-    /* Virtual methods of WebKit2WebExtension.DOMNode */
-    vfuncAddEventListener(eventName: string, handler: Function, useCapture: boolean): boolean
-    vfuncDispatchEvent(event: DOMEvent): boolean
-    vfuncRemoveEventListener(eventName: string, handler: Function, useCapture: boolean): boolean
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: DOMHTMLHeadElement, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: DOMHTMLHeadElement, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::profile", callback: (($obj: DOMHTMLHeadElement, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::profile", callback: (($obj: DOMHTMLHeadElement, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::profile", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -17933,9 +17356,9 @@ export interface DOMHTMLHeadingElement_ConstructProps extends DOMHTMLElement_Con
     align?: string
 }
 export class DOMHTMLHeadingElement {
-    /* Properties of WebKit2WebExtension.DOMHTMLHeadingElement */
+    /* Properties of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLHeadingElement */
     align: string
-    /* Properties of WebKit2WebExtension.DOMHTMLElement */
+    /* Properties of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLElement */
     accessKey: string
     contentEditable: string
     dir: string
@@ -17950,7 +17373,7 @@ export class DOMHTMLHeadingElement {
     title: string
     translate: boolean
     webkitdropzone: string
-    /* Properties of WebKit2WebExtension.DOMElement */
+    /* Properties of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMElement */
     readonly attributes: DOMNamedNodeMap
     readonly childElementCount: number
     readonly children: DOMHTMLCollection
@@ -17982,7 +17405,7 @@ export class DOMHTMLHeadingElement {
     readonly style: DOMCSSStyleDeclaration
     readonly tagName: string
     readonly webkitRegionOverset: string
-    /* Properties of WebKit2WebExtension.DOMNode */
+    /* Properties of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMNode */
     readonly baseUri: string
     readonly childNodes: DOMNodeList
     readonly firstChild: DOMNode
@@ -17996,16 +17419,16 @@ export class DOMHTMLHeadingElement {
     readonly parentNode: DOMNode
     readonly previousSibling: DOMNode
     textContent: string
-    /* Fields of WebKit2WebExtension.DOMHTMLHeadingElement */
+    /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLHeadingElement */
     parentInstance: DOMHTMLElement
-    /* Fields of WebKit2WebExtension.DOMObject */
+    /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMObject */
     coreObject: object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of WebKit2WebExtension.DOMHTMLHeadingElement */
+    /* Methods of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLHeadingElement */
     getAlign(): string
     setAlign(value: string): void
-    /* Methods of WebKit2WebExtension.DOMHTMLElement */
+    /* Methods of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLElement */
     click(): void
     getAccessKey(): string
     getChildren(): DOMHTMLCollection
@@ -18039,7 +17462,7 @@ export class DOMHTMLHeadingElement {
     setTitle(value: string): void
     setTranslate(value: boolean): void
     setWebkitdropzone(value: string): void
-    /* Methods of WebKit2WebExtension.DOMElement */
+    /* Methods of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMElement */
     blur(): void
     closest(selectors: string): DOMElement
     focus(): void
@@ -18117,7 +17540,7 @@ export class DOMHTMLHeadingElement {
     setScrollTop(value: number): void
     webkitMatchesSelector(selectors: string): boolean
     webkitRequestFullscreen(): void
-    /* Methods of WebKit2WebExtension.DOMNode */
+    /* Methods of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMNode */
     appendChild(newChild: DOMNode): DOMNode
     cloneNode(deep: boolean): DOMNode
     cloneNodeWithError(deep: boolean): DOMNode
@@ -18150,7 +17573,7 @@ export class DOMHTMLHeadingElement {
     setNodeValue(value: string): void
     setPrefix(value: string): void
     setTextContent(value: string): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -18172,29 +17595,16 @@ export class DOMHTMLHeadingElement {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of WebKit2WebExtension.DOMEventTarget */
+    /* Methods of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMEventTarget */
     addEventListener(eventName: string, handler: Function, useCapture: boolean): boolean
     dispatchEvent(event: DOMEvent): boolean
     removeEventListener(eventName: string, handler: Function, useCapture: boolean): boolean
-    /* Virtual methods of WebKit2WebExtension.DOMNode */
-    vfuncAddEventListener(eventName: string, handler: Function, useCapture: boolean): boolean
-    vfuncDispatchEvent(event: DOMEvent): boolean
-    vfuncRemoveEventListener(eventName: string, handler: Function, useCapture: boolean): boolean
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: DOMHTMLHeadingElement, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: DOMHTMLHeadingElement, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::align", callback: (($obj: DOMHTMLHeadingElement, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::align", callback: (($obj: DOMHTMLHeadingElement, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::align", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -18506,9 +17916,9 @@ export interface DOMHTMLHtmlElement_ConstructProps extends DOMHTMLElement_Constr
     version?: string
 }
 export class DOMHTMLHtmlElement {
-    /* Properties of WebKit2WebExtension.DOMHTMLHtmlElement */
+    /* Properties of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLHtmlElement */
     version: string
-    /* Properties of WebKit2WebExtension.DOMHTMLElement */
+    /* Properties of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLElement */
     accessKey: string
     contentEditable: string
     dir: string
@@ -18523,7 +17933,7 @@ export class DOMHTMLHtmlElement {
     title: string
     translate: boolean
     webkitdropzone: string
-    /* Properties of WebKit2WebExtension.DOMElement */
+    /* Properties of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMElement */
     readonly attributes: DOMNamedNodeMap
     readonly childElementCount: number
     readonly children: DOMHTMLCollection
@@ -18555,7 +17965,7 @@ export class DOMHTMLHtmlElement {
     readonly style: DOMCSSStyleDeclaration
     readonly tagName: string
     readonly webkitRegionOverset: string
-    /* Properties of WebKit2WebExtension.DOMNode */
+    /* Properties of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMNode */
     readonly baseUri: string
     readonly childNodes: DOMNodeList
     readonly firstChild: DOMNode
@@ -18569,16 +17979,16 @@ export class DOMHTMLHtmlElement {
     readonly parentNode: DOMNode
     readonly previousSibling: DOMNode
     textContent: string
-    /* Fields of WebKit2WebExtension.DOMHTMLHtmlElement */
+    /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLHtmlElement */
     parentInstance: DOMHTMLElement
-    /* Fields of WebKit2WebExtension.DOMObject */
+    /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMObject */
     coreObject: object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of WebKit2WebExtension.DOMHTMLHtmlElement */
+    /* Methods of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLHtmlElement */
     getVersion(): string
     setVersion(value: string): void
-    /* Methods of WebKit2WebExtension.DOMHTMLElement */
+    /* Methods of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLElement */
     click(): void
     getAccessKey(): string
     getChildren(): DOMHTMLCollection
@@ -18612,7 +18022,7 @@ export class DOMHTMLHtmlElement {
     setTitle(value: string): void
     setTranslate(value: boolean): void
     setWebkitdropzone(value: string): void
-    /* Methods of WebKit2WebExtension.DOMElement */
+    /* Methods of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMElement */
     blur(): void
     closest(selectors: string): DOMElement
     focus(): void
@@ -18690,7 +18100,7 @@ export class DOMHTMLHtmlElement {
     setScrollTop(value: number): void
     webkitMatchesSelector(selectors: string): boolean
     webkitRequestFullscreen(): void
-    /* Methods of WebKit2WebExtension.DOMNode */
+    /* Methods of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMNode */
     appendChild(newChild: DOMNode): DOMNode
     cloneNode(deep: boolean): DOMNode
     cloneNodeWithError(deep: boolean): DOMNode
@@ -18723,7 +18133,7 @@ export class DOMHTMLHtmlElement {
     setNodeValue(value: string): void
     setPrefix(value: string): void
     setTextContent(value: string): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -18745,29 +18155,16 @@ export class DOMHTMLHtmlElement {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of WebKit2WebExtension.DOMEventTarget */
+    /* Methods of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMEventTarget */
     addEventListener(eventName: string, handler: Function, useCapture: boolean): boolean
     dispatchEvent(event: DOMEvent): boolean
     removeEventListener(eventName: string, handler: Function, useCapture: boolean): boolean
-    /* Virtual methods of WebKit2WebExtension.DOMNode */
-    vfuncAddEventListener(eventName: string, handler: Function, useCapture: boolean): boolean
-    vfuncDispatchEvent(event: DOMEvent): boolean
-    vfuncRemoveEventListener(eventName: string, handler: Function, useCapture: boolean): boolean
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: DOMHTMLHtmlElement, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: DOMHTMLHtmlElement, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::version", callback: (($obj: DOMHTMLHtmlElement, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::version", callback: (($obj: DOMHTMLHtmlElement, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::version", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -19088,7 +18485,7 @@ export interface DOMHTMLIFrameElement_ConstructProps extends DOMHTMLElement_Cons
     width?: string
 }
 export class DOMHTMLIFrameElement {
-    /* Properties of WebKit2WebExtension.DOMHTMLIFrameElement */
+    /* Properties of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLIFrameElement */
     align: string
     readonly contentDocument: DOMDocument
     readonly contentWindow: DOMDOMWindow
@@ -19101,7 +18498,7 @@ export class DOMHTMLIFrameElement {
     scrolling: string
     src: string
     width: string
-    /* Properties of WebKit2WebExtension.DOMHTMLElement */
+    /* Properties of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLElement */
     accessKey: string
     contentEditable: string
     dir: string
@@ -19116,7 +18513,7 @@ export class DOMHTMLIFrameElement {
     title: string
     translate: boolean
     webkitdropzone: string
-    /* Properties of WebKit2WebExtension.DOMElement */
+    /* Properties of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMElement */
     readonly attributes: DOMNamedNodeMap
     readonly childElementCount: number
     readonly children: DOMHTMLCollection
@@ -19148,7 +18545,7 @@ export class DOMHTMLIFrameElement {
     readonly style: DOMCSSStyleDeclaration
     readonly tagName: string
     readonly webkitRegionOverset: string
-    /* Properties of WebKit2WebExtension.DOMNode */
+    /* Properties of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMNode */
     readonly baseUri: string
     readonly childNodes: DOMNodeList
     readonly firstChild: DOMNode
@@ -19162,13 +18559,13 @@ export class DOMHTMLIFrameElement {
     readonly parentNode: DOMNode
     readonly previousSibling: DOMNode
     textContent: string
-    /* Fields of WebKit2WebExtension.DOMHTMLIFrameElement */
+    /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLIFrameElement */
     parentInstance: DOMHTMLElement
-    /* Fields of WebKit2WebExtension.DOMObject */
+    /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMObject */
     coreObject: object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of WebKit2WebExtension.DOMHTMLIFrameElement */
+    /* Methods of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLIFrameElement */
     getAlign(): string
     getContentDocument(): DOMDocument
     getContentWindow(): DOMDOMWindow
@@ -19191,7 +18588,7 @@ export class DOMHTMLIFrameElement {
     setScrolling(value: string): void
     setSrc(value: string): void
     setWidth(value: string): void
-    /* Methods of WebKit2WebExtension.DOMHTMLElement */
+    /* Methods of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLElement */
     click(): void
     getAccessKey(): string
     getChildren(): DOMHTMLCollection
@@ -19225,7 +18622,7 @@ export class DOMHTMLIFrameElement {
     setTitle(value: string): void
     setTranslate(value: boolean): void
     setWebkitdropzone(value: string): void
-    /* Methods of WebKit2WebExtension.DOMElement */
+    /* Methods of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMElement */
     blur(): void
     closest(selectors: string): DOMElement
     focus(): void
@@ -19303,7 +18700,7 @@ export class DOMHTMLIFrameElement {
     setScrollTop(value: number): void
     webkitMatchesSelector(selectors: string): boolean
     webkitRequestFullscreen(): void
-    /* Methods of WebKit2WebExtension.DOMNode */
+    /* Methods of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMNode */
     appendChild(newChild: DOMNode): DOMNode
     cloneNode(deep: boolean): DOMNode
     cloneNodeWithError(deep: boolean): DOMNode
@@ -19336,7 +18733,7 @@ export class DOMHTMLIFrameElement {
     setNodeValue(value: string): void
     setPrefix(value: string): void
     setTextContent(value: string): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -19358,29 +18755,16 @@ export class DOMHTMLIFrameElement {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of WebKit2WebExtension.DOMEventTarget */
+    /* Methods of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMEventTarget */
     addEventListener(eventName: string, handler: Function, useCapture: boolean): boolean
     dispatchEvent(event: DOMEvent): boolean
     removeEventListener(eventName: string, handler: Function, useCapture: boolean): boolean
-    /* Virtual methods of WebKit2WebExtension.DOMNode */
-    vfuncAddEventListener(eventName: string, handler: Function, useCapture: boolean): boolean
-    vfuncDispatchEvent(event: DOMEvent): boolean
-    vfuncRemoveEventListener(eventName: string, handler: Function, useCapture: boolean): boolean
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: DOMHTMLIFrameElement, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: DOMHTMLIFrameElement, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::align", callback: (($obj: DOMHTMLIFrameElement, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::align", callback: (($obj: DOMHTMLIFrameElement, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::align", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -19759,7 +19143,7 @@ export interface DOMHTMLImageElement_ConstructProps extends DOMHTMLElement_Const
     width?: number
 }
 export class DOMHTMLImageElement {
-    /* Properties of WebKit2WebExtension.DOMHTMLImageElement */
+    /* Properties of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLImageElement */
     align: string
     alt: string
     border: string
@@ -19778,7 +19162,7 @@ export class DOMHTMLImageElement {
     width: number
     readonly x: number
     readonly y: number
-    /* Properties of WebKit2WebExtension.DOMHTMLElement */
+    /* Properties of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLElement */
     accessKey: string
     contentEditable: string
     dir: string
@@ -19793,7 +19177,7 @@ export class DOMHTMLImageElement {
     title: string
     translate: boolean
     webkitdropzone: string
-    /* Properties of WebKit2WebExtension.DOMElement */
+    /* Properties of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMElement */
     readonly attributes: DOMNamedNodeMap
     readonly childElementCount: number
     readonly children: DOMHTMLCollection
@@ -19825,7 +19209,7 @@ export class DOMHTMLImageElement {
     readonly style: DOMCSSStyleDeclaration
     readonly tagName: string
     readonly webkitRegionOverset: string
-    /* Properties of WebKit2WebExtension.DOMNode */
+    /* Properties of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMNode */
     readonly baseUri: string
     readonly childNodes: DOMNodeList
     readonly firstChild: DOMNode
@@ -19839,13 +19223,13 @@ export class DOMHTMLImageElement {
     readonly parentNode: DOMNode
     readonly previousSibling: DOMNode
     textContent: string
-    /* Fields of WebKit2WebExtension.DOMHTMLImageElement */
+    /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLImageElement */
     parentInstance: DOMHTMLElement
-    /* Fields of WebKit2WebExtension.DOMObject */
+    /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMObject */
     coreObject: object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of WebKit2WebExtension.DOMHTMLImageElement */
+    /* Methods of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLImageElement */
     getAlign(): string
     getAlt(): string
     getBorder(): string
@@ -19877,7 +19261,7 @@ export class DOMHTMLImageElement {
     setUseMap(value: string): void
     setVspace(value: number): void
     setWidth(value: number): void
-    /* Methods of WebKit2WebExtension.DOMHTMLElement */
+    /* Methods of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLElement */
     click(): void
     getAccessKey(): string
     getChildren(): DOMHTMLCollection
@@ -19911,7 +19295,7 @@ export class DOMHTMLImageElement {
     setTitle(value: string): void
     setTranslate(value: boolean): void
     setWebkitdropzone(value: string): void
-    /* Methods of WebKit2WebExtension.DOMElement */
+    /* Methods of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMElement */
     blur(): void
     closest(selectors: string): DOMElement
     focus(): void
@@ -19989,7 +19373,7 @@ export class DOMHTMLImageElement {
     setScrollTop(value: number): void
     webkitMatchesSelector(selectors: string): boolean
     webkitRequestFullscreen(): void
-    /* Methods of WebKit2WebExtension.DOMNode */
+    /* Methods of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMNode */
     appendChild(newChild: DOMNode): DOMNode
     cloneNode(deep: boolean): DOMNode
     cloneNodeWithError(deep: boolean): DOMNode
@@ -20022,7 +19406,7 @@ export class DOMHTMLImageElement {
     setNodeValue(value: string): void
     setPrefix(value: string): void
     setTextContent(value: string): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -20044,29 +19428,16 @@ export class DOMHTMLImageElement {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of WebKit2WebExtension.DOMEventTarget */
+    /* Methods of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMEventTarget */
     addEventListener(eventName: string, handler: Function, useCapture: boolean): boolean
     dispatchEvent(event: DOMEvent): boolean
     removeEventListener(eventName: string, handler: Function, useCapture: boolean): boolean
-    /* Virtual methods of WebKit2WebExtension.DOMNode */
-    vfuncAddEventListener(eventName: string, handler: Function, useCapture: boolean): boolean
-    vfuncDispatchEvent(event: DOMEvent): boolean
-    vfuncRemoveEventListener(eventName: string, handler: Function, useCapture: boolean): boolean
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: DOMHTMLImageElement, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: DOMHTMLImageElement, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::align", callback: (($obj: DOMHTMLImageElement, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::align", callback: (($obj: DOMHTMLImageElement, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::align", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -20483,7 +19854,7 @@ export interface DOMHTMLInputElement_ConstructProps extends DOMHTMLElement_Const
     width?: number
 }
 export class DOMHTMLInputElement {
-    /* Properties of WebKit2WebExtension.DOMHTMLInputElement */
+    /* Properties of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLInputElement */
     accept: string
     align: string
     alt: string
@@ -20508,7 +19879,7 @@ export class DOMHTMLInputElement {
     value: string
     width: number
     readonly willValidate: boolean
-    /* Properties of WebKit2WebExtension.DOMHTMLElement */
+    /* Properties of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLElement */
     accessKey: string
     contentEditable: string
     dir: string
@@ -20523,7 +19894,7 @@ export class DOMHTMLInputElement {
     title: string
     translate: boolean
     webkitdropzone: string
-    /* Properties of WebKit2WebExtension.DOMElement */
+    /* Properties of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMElement */
     readonly attributes: DOMNamedNodeMap
     readonly childElementCount: number
     readonly children: DOMHTMLCollection
@@ -20555,7 +19926,7 @@ export class DOMHTMLInputElement {
     readonly style: DOMCSSStyleDeclaration
     readonly tagName: string
     readonly webkitRegionOverset: string
-    /* Properties of WebKit2WebExtension.DOMNode */
+    /* Properties of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMNode */
     readonly baseUri: string
     readonly childNodes: DOMNodeList
     readonly firstChild: DOMNode
@@ -20569,13 +19940,13 @@ export class DOMHTMLInputElement {
     readonly parentNode: DOMNode
     readonly previousSibling: DOMNode
     textContent: string
-    /* Fields of WebKit2WebExtension.DOMHTMLInputElement */
+    /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLInputElement */
     parentInstance: DOMHTMLElement
-    /* Fields of WebKit2WebExtension.DOMObject */
+    /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMObject */
     coreObject: object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of WebKit2WebExtension.DOMHTMLInputElement */
+    /* Methods of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLInputElement */
     getAccept(): string
     getAlign(): string
     getAlt(): string
@@ -20628,7 +19999,7 @@ export class DOMHTMLInputElement {
     setUseMap(value: string): void
     setValue(value: string): void
     setWidth(value: number): void
-    /* Methods of WebKit2WebExtension.DOMHTMLElement */
+    /* Methods of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLElement */
     click(): void
     getAccessKey(): string
     getChildren(): DOMHTMLCollection
@@ -20662,7 +20033,7 @@ export class DOMHTMLInputElement {
     setTitle(value: string): void
     setTranslate(value: boolean): void
     setWebkitdropzone(value: string): void
-    /* Methods of WebKit2WebExtension.DOMElement */
+    /* Methods of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMElement */
     blur(): void
     closest(selectors: string): DOMElement
     focus(): void
@@ -20740,7 +20111,7 @@ export class DOMHTMLInputElement {
     setScrollTop(value: number): void
     webkitMatchesSelector(selectors: string): boolean
     webkitRequestFullscreen(): void
-    /* Methods of WebKit2WebExtension.DOMNode */
+    /* Methods of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMNode */
     appendChild(newChild: DOMNode): DOMNode
     cloneNode(deep: boolean): DOMNode
     cloneNodeWithError(deep: boolean): DOMNode
@@ -20773,7 +20144,7 @@ export class DOMHTMLInputElement {
     setNodeValue(value: string): void
     setPrefix(value: string): void
     setTextContent(value: string): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -20795,29 +20166,16 @@ export class DOMHTMLInputElement {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of WebKit2WebExtension.DOMEventTarget */
+    /* Methods of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMEventTarget */
     addEventListener(eventName: string, handler: Function, useCapture: boolean): boolean
     dispatchEvent(event: DOMEvent): boolean
     removeEventListener(eventName: string, handler: Function, useCapture: boolean): boolean
-    /* Virtual methods of WebKit2WebExtension.DOMNode */
-    vfuncAddEventListener(eventName: string, handler: Function, useCapture: boolean): boolean
-    vfuncDispatchEvent(event: DOMEvent): boolean
-    vfuncRemoveEventListener(eventName: string, handler: Function, useCapture: boolean): boolean
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: DOMHTMLInputElement, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: DOMHTMLInputElement, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::accept", callback: (($obj: DOMHTMLInputElement, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::accept", callback: (($obj: DOMHTMLInputElement, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::accept", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -21245,10 +20603,10 @@ export interface DOMHTMLLIElement_ConstructProps extends DOMHTMLElement_Construc
     value?: number
 }
 export class DOMHTMLLIElement {
-    /* Properties of WebKit2WebExtension.DOMHTMLLIElement */
+    /* Properties of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLLIElement */
     type: string
     value: number
-    /* Properties of WebKit2WebExtension.DOMHTMLElement */
+    /* Properties of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLElement */
     accessKey: string
     contentEditable: string
     dir: string
@@ -21263,7 +20621,7 @@ export class DOMHTMLLIElement {
     title: string
     translate: boolean
     webkitdropzone: string
-    /* Properties of WebKit2WebExtension.DOMElement */
+    /* Properties of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMElement */
     readonly attributes: DOMNamedNodeMap
     readonly childElementCount: number
     readonly children: DOMHTMLCollection
@@ -21295,7 +20653,7 @@ export class DOMHTMLLIElement {
     readonly style: DOMCSSStyleDeclaration
     readonly tagName: string
     readonly webkitRegionOverset: string
-    /* Properties of WebKit2WebExtension.DOMNode */
+    /* Properties of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMNode */
     readonly baseUri: string
     readonly childNodes: DOMNodeList
     readonly firstChild: DOMNode
@@ -21309,18 +20667,18 @@ export class DOMHTMLLIElement {
     readonly parentNode: DOMNode
     readonly previousSibling: DOMNode
     textContent: string
-    /* Fields of WebKit2WebExtension.DOMHTMLLIElement */
+    /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLLIElement */
     parentInstance: DOMHTMLElement
-    /* Fields of WebKit2WebExtension.DOMObject */
+    /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMObject */
     coreObject: object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of WebKit2WebExtension.DOMHTMLLIElement */
+    /* Methods of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLLIElement */
     getTypeAttr(): string
     getValue(): number
     setTypeAttr(value: string): void
     setValue(value: number): void
-    /* Methods of WebKit2WebExtension.DOMHTMLElement */
+    /* Methods of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLElement */
     click(): void
     getAccessKey(): string
     getChildren(): DOMHTMLCollection
@@ -21354,7 +20712,7 @@ export class DOMHTMLLIElement {
     setTitle(value: string): void
     setTranslate(value: boolean): void
     setWebkitdropzone(value: string): void
-    /* Methods of WebKit2WebExtension.DOMElement */
+    /* Methods of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMElement */
     blur(): void
     closest(selectors: string): DOMElement
     focus(): void
@@ -21432,7 +20790,7 @@ export class DOMHTMLLIElement {
     setScrollTop(value: number): void
     webkitMatchesSelector(selectors: string): boolean
     webkitRequestFullscreen(): void
-    /* Methods of WebKit2WebExtension.DOMNode */
+    /* Methods of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMNode */
     appendChild(newChild: DOMNode): DOMNode
     cloneNode(deep: boolean): DOMNode
     cloneNodeWithError(deep: boolean): DOMNode
@@ -21465,7 +20823,7 @@ export class DOMHTMLLIElement {
     setNodeValue(value: string): void
     setPrefix(value: string): void
     setTextContent(value: string): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -21487,29 +20845,16 @@ export class DOMHTMLLIElement {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of WebKit2WebExtension.DOMEventTarget */
+    /* Methods of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMEventTarget */
     addEventListener(eventName: string, handler: Function, useCapture: boolean): boolean
     dispatchEvent(event: DOMEvent): boolean
     removeEventListener(eventName: string, handler: Function, useCapture: boolean): boolean
-    /* Virtual methods of WebKit2WebExtension.DOMNode */
-    vfuncAddEventListener(eventName: string, handler: Function, useCapture: boolean): boolean
-    vfuncDispatchEvent(event: DOMEvent): boolean
-    vfuncRemoveEventListener(eventName: string, handler: Function, useCapture: boolean): boolean
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: DOMHTMLLIElement, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: DOMHTMLLIElement, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::type", callback: (($obj: DOMHTMLLIElement, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::type", callback: (($obj: DOMHTMLLIElement, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::type", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -21826,10 +21171,10 @@ export interface DOMHTMLLabelElement_ConstructProps extends DOMHTMLElement_Const
     htmlFor?: string
 }
 export class DOMHTMLLabelElement {
-    /* Properties of WebKit2WebExtension.DOMHTMLLabelElement */
+    /* Properties of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLLabelElement */
     readonly form: DOMHTMLFormElement
     htmlFor: string
-    /* Properties of WebKit2WebExtension.DOMHTMLElement */
+    /* Properties of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLElement */
     accessKey: string
     contentEditable: string
     dir: string
@@ -21844,7 +21189,7 @@ export class DOMHTMLLabelElement {
     title: string
     translate: boolean
     webkitdropzone: string
-    /* Properties of WebKit2WebExtension.DOMElement */
+    /* Properties of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMElement */
     readonly attributes: DOMNamedNodeMap
     readonly childElementCount: number
     readonly children: DOMHTMLCollection
@@ -21876,7 +21221,7 @@ export class DOMHTMLLabelElement {
     readonly style: DOMCSSStyleDeclaration
     readonly tagName: string
     readonly webkitRegionOverset: string
-    /* Properties of WebKit2WebExtension.DOMNode */
+    /* Properties of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMNode */
     readonly baseUri: string
     readonly childNodes: DOMNodeList
     readonly firstChild: DOMNode
@@ -21890,17 +21235,17 @@ export class DOMHTMLLabelElement {
     readonly parentNode: DOMNode
     readonly previousSibling: DOMNode
     textContent: string
-    /* Fields of WebKit2WebExtension.DOMHTMLLabelElement */
+    /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLLabelElement */
     parentInstance: DOMHTMLElement
-    /* Fields of WebKit2WebExtension.DOMObject */
+    /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMObject */
     coreObject: object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of WebKit2WebExtension.DOMHTMLLabelElement */
+    /* Methods of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLLabelElement */
     getForm(): DOMHTMLFormElement
     getHtmlFor(): string
     setHtmlFor(value: string): void
-    /* Methods of WebKit2WebExtension.DOMHTMLElement */
+    /* Methods of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLElement */
     click(): void
     getAccessKey(): string
     getChildren(): DOMHTMLCollection
@@ -21934,7 +21279,7 @@ export class DOMHTMLLabelElement {
     setTitle(value: string): void
     setTranslate(value: boolean): void
     setWebkitdropzone(value: string): void
-    /* Methods of WebKit2WebExtension.DOMElement */
+    /* Methods of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMElement */
     blur(): void
     closest(selectors: string): DOMElement
     focus(): void
@@ -22012,7 +21357,7 @@ export class DOMHTMLLabelElement {
     setScrollTop(value: number): void
     webkitMatchesSelector(selectors: string): boolean
     webkitRequestFullscreen(): void
-    /* Methods of WebKit2WebExtension.DOMNode */
+    /* Methods of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMNode */
     appendChild(newChild: DOMNode): DOMNode
     cloneNode(deep: boolean): DOMNode
     cloneNodeWithError(deep: boolean): DOMNode
@@ -22045,7 +21390,7 @@ export class DOMHTMLLabelElement {
     setNodeValue(value: string): void
     setPrefix(value: string): void
     setTextContent(value: string): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -22067,29 +21412,16 @@ export class DOMHTMLLabelElement {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of WebKit2WebExtension.DOMEventTarget */
+    /* Methods of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMEventTarget */
     addEventListener(eventName: string, handler: Function, useCapture: boolean): boolean
     dispatchEvent(event: DOMEvent): boolean
     removeEventListener(eventName: string, handler: Function, useCapture: boolean): boolean
-    /* Virtual methods of WebKit2WebExtension.DOMNode */
-    vfuncAddEventListener(eventName: string, handler: Function, useCapture: boolean): boolean
-    vfuncDispatchEvent(event: DOMEvent): boolean
-    vfuncRemoveEventListener(eventName: string, handler: Function, useCapture: boolean): boolean
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: DOMHTMLLabelElement, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: DOMHTMLLabelElement, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::form", callback: (($obj: DOMHTMLLabelElement, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::form", callback: (($obj: DOMHTMLLabelElement, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::form", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -22406,10 +21738,10 @@ export interface DOMHTMLLegendElement_ConstructProps extends DOMHTMLElement_Cons
     align?: string
 }
 export class DOMHTMLLegendElement {
-    /* Properties of WebKit2WebExtension.DOMHTMLLegendElement */
+    /* Properties of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLLegendElement */
     align: string
     readonly form: DOMHTMLFormElement
-    /* Properties of WebKit2WebExtension.DOMHTMLElement */
+    /* Properties of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLElement */
     accessKey: string
     contentEditable: string
     dir: string
@@ -22424,7 +21756,7 @@ export class DOMHTMLLegendElement {
     title: string
     translate: boolean
     webkitdropzone: string
-    /* Properties of WebKit2WebExtension.DOMElement */
+    /* Properties of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMElement */
     readonly attributes: DOMNamedNodeMap
     readonly childElementCount: number
     readonly children: DOMHTMLCollection
@@ -22456,7 +21788,7 @@ export class DOMHTMLLegendElement {
     readonly style: DOMCSSStyleDeclaration
     readonly tagName: string
     readonly webkitRegionOverset: string
-    /* Properties of WebKit2WebExtension.DOMNode */
+    /* Properties of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMNode */
     readonly baseUri: string
     readonly childNodes: DOMNodeList
     readonly firstChild: DOMNode
@@ -22470,17 +21802,17 @@ export class DOMHTMLLegendElement {
     readonly parentNode: DOMNode
     readonly previousSibling: DOMNode
     textContent: string
-    /* Fields of WebKit2WebExtension.DOMHTMLLegendElement */
+    /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLLegendElement */
     parentInstance: DOMHTMLElement
-    /* Fields of WebKit2WebExtension.DOMObject */
+    /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMObject */
     coreObject: object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of WebKit2WebExtension.DOMHTMLLegendElement */
+    /* Methods of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLLegendElement */
     getAlign(): string
     getForm(): DOMHTMLFormElement
     setAlign(value: string): void
-    /* Methods of WebKit2WebExtension.DOMHTMLElement */
+    /* Methods of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLElement */
     click(): void
     getAccessKey(): string
     getChildren(): DOMHTMLCollection
@@ -22514,7 +21846,7 @@ export class DOMHTMLLegendElement {
     setTitle(value: string): void
     setTranslate(value: boolean): void
     setWebkitdropzone(value: string): void
-    /* Methods of WebKit2WebExtension.DOMElement */
+    /* Methods of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMElement */
     blur(): void
     closest(selectors: string): DOMElement
     focus(): void
@@ -22592,7 +21924,7 @@ export class DOMHTMLLegendElement {
     setScrollTop(value: number): void
     webkitMatchesSelector(selectors: string): boolean
     webkitRequestFullscreen(): void
-    /* Methods of WebKit2WebExtension.DOMNode */
+    /* Methods of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMNode */
     appendChild(newChild: DOMNode): DOMNode
     cloneNode(deep: boolean): DOMNode
     cloneNodeWithError(deep: boolean): DOMNode
@@ -22625,7 +21957,7 @@ export class DOMHTMLLegendElement {
     setNodeValue(value: string): void
     setPrefix(value: string): void
     setTextContent(value: string): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -22647,29 +21979,16 @@ export class DOMHTMLLegendElement {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of WebKit2WebExtension.DOMEventTarget */
+    /* Methods of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMEventTarget */
     addEventListener(eventName: string, handler: Function, useCapture: boolean): boolean
     dispatchEvent(event: DOMEvent): boolean
     removeEventListener(eventName: string, handler: Function, useCapture: boolean): boolean
-    /* Virtual methods of WebKit2WebExtension.DOMNode */
-    vfuncAddEventListener(eventName: string, handler: Function, useCapture: boolean): boolean
-    vfuncDispatchEvent(event: DOMEvent): boolean
-    vfuncRemoveEventListener(eventName: string, handler: Function, useCapture: boolean): boolean
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: DOMHTMLLegendElement, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: DOMHTMLLegendElement, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::align", callback: (($obj: DOMHTMLLegendElement, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::align", callback: (($obj: DOMHTMLLegendElement, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::align", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -22994,7 +22313,7 @@ export interface DOMHTMLLinkElement_ConstructProps extends DOMHTMLElement_Constr
     type?: string
 }
 export class DOMHTMLLinkElement {
-    /* Properties of WebKit2WebExtension.DOMHTMLLinkElement */
+    /* Properties of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLLinkElement */
     charset: string
     disabled: boolean
     href: string
@@ -23006,7 +22325,7 @@ export class DOMHTMLLinkElement {
     readonly sizes: DOMDOMTokenList
     target: string
     type: string
-    /* Properties of WebKit2WebExtension.DOMHTMLElement */
+    /* Properties of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLElement */
     accessKey: string
     contentEditable: string
     dir: string
@@ -23021,7 +22340,7 @@ export class DOMHTMLLinkElement {
     title: string
     translate: boolean
     webkitdropzone: string
-    /* Properties of WebKit2WebExtension.DOMElement */
+    /* Properties of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMElement */
     readonly attributes: DOMNamedNodeMap
     readonly childElementCount: number
     readonly children: DOMHTMLCollection
@@ -23053,7 +22372,7 @@ export class DOMHTMLLinkElement {
     readonly style: DOMCSSStyleDeclaration
     readonly tagName: string
     readonly webkitRegionOverset: string
-    /* Properties of WebKit2WebExtension.DOMNode */
+    /* Properties of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMNode */
     readonly baseUri: string
     readonly childNodes: DOMNodeList
     readonly firstChild: DOMNode
@@ -23067,13 +22386,13 @@ export class DOMHTMLLinkElement {
     readonly parentNode: DOMNode
     readonly previousSibling: DOMNode
     textContent: string
-    /* Fields of WebKit2WebExtension.DOMHTMLLinkElement */
+    /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLLinkElement */
     parentInstance: DOMHTMLElement
-    /* Fields of WebKit2WebExtension.DOMObject */
+    /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMObject */
     coreObject: object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of WebKit2WebExtension.DOMHTMLLinkElement */
+    /* Methods of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLLinkElement */
     getCharset(): string
     getDisabled(): boolean
     getHref(): string
@@ -23095,7 +22414,7 @@ export class DOMHTMLLinkElement {
     setSizes(value: string): void
     setTarget(value: string): void
     setTypeAttr(value: string): void
-    /* Methods of WebKit2WebExtension.DOMHTMLElement */
+    /* Methods of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLElement */
     click(): void
     getAccessKey(): string
     getChildren(): DOMHTMLCollection
@@ -23129,7 +22448,7 @@ export class DOMHTMLLinkElement {
     setTitle(value: string): void
     setTranslate(value: boolean): void
     setWebkitdropzone(value: string): void
-    /* Methods of WebKit2WebExtension.DOMElement */
+    /* Methods of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMElement */
     blur(): void
     closest(selectors: string): DOMElement
     focus(): void
@@ -23207,7 +22526,7 @@ export class DOMHTMLLinkElement {
     setScrollTop(value: number): void
     webkitMatchesSelector(selectors: string): boolean
     webkitRequestFullscreen(): void
-    /* Methods of WebKit2WebExtension.DOMNode */
+    /* Methods of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMNode */
     appendChild(newChild: DOMNode): DOMNode
     cloneNode(deep: boolean): DOMNode
     cloneNodeWithError(deep: boolean): DOMNode
@@ -23240,7 +22559,7 @@ export class DOMHTMLLinkElement {
     setNodeValue(value: string): void
     setPrefix(value: string): void
     setTextContent(value: string): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -23262,29 +22581,16 @@ export class DOMHTMLLinkElement {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of WebKit2WebExtension.DOMEventTarget */
+    /* Methods of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMEventTarget */
     addEventListener(eventName: string, handler: Function, useCapture: boolean): boolean
     dispatchEvent(event: DOMEvent): boolean
     removeEventListener(eventName: string, handler: Function, useCapture: boolean): boolean
-    /* Virtual methods of WebKit2WebExtension.DOMNode */
-    vfuncAddEventListener(eventName: string, handler: Function, useCapture: boolean): boolean
-    vfuncDispatchEvent(event: DOMEvent): boolean
-    vfuncRemoveEventListener(eventName: string, handler: Function, useCapture: boolean): boolean
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: DOMHTMLLinkElement, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: DOMHTMLLinkElement, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::charset", callback: (($obj: DOMHTMLLinkElement, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::charset", callback: (($obj: DOMHTMLLinkElement, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::charset", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -23646,10 +22952,10 @@ export interface DOMHTMLMapElement_ConstructProps extends DOMHTMLElement_Constru
     name?: string
 }
 export class DOMHTMLMapElement {
-    /* Properties of WebKit2WebExtension.DOMHTMLMapElement */
+    /* Properties of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLMapElement */
     readonly areas: DOMHTMLCollection
     name: string
-    /* Properties of WebKit2WebExtension.DOMHTMLElement */
+    /* Properties of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLElement */
     accessKey: string
     contentEditable: string
     dir: string
@@ -23664,7 +22970,7 @@ export class DOMHTMLMapElement {
     title: string
     translate: boolean
     webkitdropzone: string
-    /* Properties of WebKit2WebExtension.DOMElement */
+    /* Properties of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMElement */
     readonly attributes: DOMNamedNodeMap
     readonly childElementCount: number
     readonly children: DOMHTMLCollection
@@ -23696,7 +23002,7 @@ export class DOMHTMLMapElement {
     readonly style: DOMCSSStyleDeclaration
     readonly tagName: string
     readonly webkitRegionOverset: string
-    /* Properties of WebKit2WebExtension.DOMNode */
+    /* Properties of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMNode */
     readonly baseUri: string
     readonly childNodes: DOMNodeList
     readonly firstChild: DOMNode
@@ -23710,17 +23016,17 @@ export class DOMHTMLMapElement {
     readonly parentNode: DOMNode
     readonly previousSibling: DOMNode
     textContent: string
-    /* Fields of WebKit2WebExtension.DOMHTMLMapElement */
+    /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLMapElement */
     parentInstance: DOMHTMLElement
-    /* Fields of WebKit2WebExtension.DOMObject */
+    /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMObject */
     coreObject: object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of WebKit2WebExtension.DOMHTMLMapElement */
+    /* Methods of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLMapElement */
     getAreas(): DOMHTMLCollection
     getName(): string
     setName(value: string): void
-    /* Methods of WebKit2WebExtension.DOMHTMLElement */
+    /* Methods of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLElement */
     click(): void
     getAccessKey(): string
     getChildren(): DOMHTMLCollection
@@ -23754,7 +23060,7 @@ export class DOMHTMLMapElement {
     setTitle(value: string): void
     setTranslate(value: boolean): void
     setWebkitdropzone(value: string): void
-    /* Methods of WebKit2WebExtension.DOMElement */
+    /* Methods of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMElement */
     blur(): void
     closest(selectors: string): DOMElement
     focus(): void
@@ -23832,7 +23138,7 @@ export class DOMHTMLMapElement {
     setScrollTop(value: number): void
     webkitMatchesSelector(selectors: string): boolean
     webkitRequestFullscreen(): void
-    /* Methods of WebKit2WebExtension.DOMNode */
+    /* Methods of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMNode */
     appendChild(newChild: DOMNode): DOMNode
     cloneNode(deep: boolean): DOMNode
     cloneNodeWithError(deep: boolean): DOMNode
@@ -23865,7 +23171,7 @@ export class DOMHTMLMapElement {
     setNodeValue(value: string): void
     setPrefix(value: string): void
     setTextContent(value: string): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -23887,29 +23193,16 @@ export class DOMHTMLMapElement {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of WebKit2WebExtension.DOMEventTarget */
+    /* Methods of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMEventTarget */
     addEventListener(eventName: string, handler: Function, useCapture: boolean): boolean
     dispatchEvent(event: DOMEvent): boolean
     removeEventListener(eventName: string, handler: Function, useCapture: boolean): boolean
-    /* Virtual methods of WebKit2WebExtension.DOMNode */
-    vfuncAddEventListener(eventName: string, handler: Function, useCapture: boolean): boolean
-    vfuncDispatchEvent(event: DOMEvent): boolean
-    vfuncRemoveEventListener(eventName: string, handler: Function, useCapture: boolean): boolean
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: DOMHTMLMapElement, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: DOMHTMLMapElement, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::areas", callback: (($obj: DOMHTMLMapElement, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::areas", callback: (($obj: DOMHTMLMapElement, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::areas", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -24225,7 +23518,7 @@ export class DOMHTMLMapElement {
 export interface DOMHTMLMarqueeElement_ConstructProps extends DOMHTMLElement_ConstructProps {
 }
 export class DOMHTMLMarqueeElement {
-    /* Properties of WebKit2WebExtension.DOMHTMLElement */
+    /* Properties of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLElement */
     accessKey: string
     contentEditable: string
     dir: string
@@ -24240,7 +23533,7 @@ export class DOMHTMLMarqueeElement {
     title: string
     translate: boolean
     webkitdropzone: string
-    /* Properties of WebKit2WebExtension.DOMElement */
+    /* Properties of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMElement */
     readonly attributes: DOMNamedNodeMap
     readonly childElementCount: number
     readonly children: DOMHTMLCollection
@@ -24272,7 +23565,7 @@ export class DOMHTMLMarqueeElement {
     readonly style: DOMCSSStyleDeclaration
     readonly tagName: string
     readonly webkitRegionOverset: string
-    /* Properties of WebKit2WebExtension.DOMNode */
+    /* Properties of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMNode */
     readonly baseUri: string
     readonly childNodes: DOMNodeList
     readonly firstChild: DOMNode
@@ -24286,16 +23579,16 @@ export class DOMHTMLMarqueeElement {
     readonly parentNode: DOMNode
     readonly previousSibling: DOMNode
     textContent: string
-    /* Fields of WebKit2WebExtension.DOMHTMLMarqueeElement */
+    /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLMarqueeElement */
     parentInstance: DOMHTMLElement
-    /* Fields of WebKit2WebExtension.DOMObject */
+    /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMObject */
     coreObject: object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of WebKit2WebExtension.DOMHTMLMarqueeElement */
+    /* Methods of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLMarqueeElement */
     start(): void
     stop(): void
-    /* Methods of WebKit2WebExtension.DOMHTMLElement */
+    /* Methods of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLElement */
     click(): void
     getAccessKey(): string
     getChildren(): DOMHTMLCollection
@@ -24329,7 +23622,7 @@ export class DOMHTMLMarqueeElement {
     setTitle(value: string): void
     setTranslate(value: boolean): void
     setWebkitdropzone(value: string): void
-    /* Methods of WebKit2WebExtension.DOMElement */
+    /* Methods of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMElement */
     blur(): void
     closest(selectors: string): DOMElement
     focus(): void
@@ -24407,7 +23700,7 @@ export class DOMHTMLMarqueeElement {
     setScrollTop(value: number): void
     webkitMatchesSelector(selectors: string): boolean
     webkitRequestFullscreen(): void
-    /* Methods of WebKit2WebExtension.DOMNode */
+    /* Methods of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMNode */
     appendChild(newChild: DOMNode): DOMNode
     cloneNode(deep: boolean): DOMNode
     cloneNodeWithError(deep: boolean): DOMNode
@@ -24440,7 +23733,7 @@ export class DOMHTMLMarqueeElement {
     setNodeValue(value: string): void
     setPrefix(value: string): void
     setTextContent(value: string): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -24462,29 +23755,16 @@ export class DOMHTMLMarqueeElement {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of WebKit2WebExtension.DOMEventTarget */
+    /* Methods of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMEventTarget */
     addEventListener(eventName: string, handler: Function, useCapture: boolean): boolean
     dispatchEvent(event: DOMEvent): boolean
     removeEventListener(eventName: string, handler: Function, useCapture: boolean): boolean
-    /* Virtual methods of WebKit2WebExtension.DOMNode */
-    vfuncAddEventListener(eventName: string, handler: Function, useCapture: boolean): boolean
-    vfuncDispatchEvent(event: DOMEvent): boolean
-    vfuncRemoveEventListener(eventName: string, handler: Function, useCapture: boolean): boolean
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: DOMHTMLMarqueeElement, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: DOMHTMLMarqueeElement, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::access-key", callback: (($obj: DOMHTMLMarqueeElement, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::access-key", callback: (($obj: DOMHTMLMarqueeElement, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::access-key", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -24791,9 +24071,9 @@ export interface DOMHTMLMenuElement_ConstructProps extends DOMHTMLElement_Constr
     compact?: boolean
 }
 export class DOMHTMLMenuElement {
-    /* Properties of WebKit2WebExtension.DOMHTMLMenuElement */
+    /* Properties of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLMenuElement */
     compact: boolean
-    /* Properties of WebKit2WebExtension.DOMHTMLElement */
+    /* Properties of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLElement */
     accessKey: string
     contentEditable: string
     dir: string
@@ -24808,7 +24088,7 @@ export class DOMHTMLMenuElement {
     title: string
     translate: boolean
     webkitdropzone: string
-    /* Properties of WebKit2WebExtension.DOMElement */
+    /* Properties of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMElement */
     readonly attributes: DOMNamedNodeMap
     readonly childElementCount: number
     readonly children: DOMHTMLCollection
@@ -24840,7 +24120,7 @@ export class DOMHTMLMenuElement {
     readonly style: DOMCSSStyleDeclaration
     readonly tagName: string
     readonly webkitRegionOverset: string
-    /* Properties of WebKit2WebExtension.DOMNode */
+    /* Properties of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMNode */
     readonly baseUri: string
     readonly childNodes: DOMNodeList
     readonly firstChild: DOMNode
@@ -24854,16 +24134,16 @@ export class DOMHTMLMenuElement {
     readonly parentNode: DOMNode
     readonly previousSibling: DOMNode
     textContent: string
-    /* Fields of WebKit2WebExtension.DOMHTMLMenuElement */
+    /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLMenuElement */
     parentInstance: DOMHTMLElement
-    /* Fields of WebKit2WebExtension.DOMObject */
+    /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMObject */
     coreObject: object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of WebKit2WebExtension.DOMHTMLMenuElement */
+    /* Methods of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLMenuElement */
     getCompact(): boolean
     setCompact(value: boolean): void
-    /* Methods of WebKit2WebExtension.DOMHTMLElement */
+    /* Methods of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLElement */
     click(): void
     getAccessKey(): string
     getChildren(): DOMHTMLCollection
@@ -24897,7 +24177,7 @@ export class DOMHTMLMenuElement {
     setTitle(value: string): void
     setTranslate(value: boolean): void
     setWebkitdropzone(value: string): void
-    /* Methods of WebKit2WebExtension.DOMElement */
+    /* Methods of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMElement */
     blur(): void
     closest(selectors: string): DOMElement
     focus(): void
@@ -24975,7 +24255,7 @@ export class DOMHTMLMenuElement {
     setScrollTop(value: number): void
     webkitMatchesSelector(selectors: string): boolean
     webkitRequestFullscreen(): void
-    /* Methods of WebKit2WebExtension.DOMNode */
+    /* Methods of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMNode */
     appendChild(newChild: DOMNode): DOMNode
     cloneNode(deep: boolean): DOMNode
     cloneNodeWithError(deep: boolean): DOMNode
@@ -25008,7 +24288,7 @@ export class DOMHTMLMenuElement {
     setNodeValue(value: string): void
     setPrefix(value: string): void
     setTextContent(value: string): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -25030,29 +24310,16 @@ export class DOMHTMLMenuElement {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of WebKit2WebExtension.DOMEventTarget */
+    /* Methods of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMEventTarget */
     addEventListener(eventName: string, handler: Function, useCapture: boolean): boolean
     dispatchEvent(event: DOMEvent): boolean
     removeEventListener(eventName: string, handler: Function, useCapture: boolean): boolean
-    /* Virtual methods of WebKit2WebExtension.DOMNode */
-    vfuncAddEventListener(eventName: string, handler: Function, useCapture: boolean): boolean
-    vfuncDispatchEvent(event: DOMEvent): boolean
-    vfuncRemoveEventListener(eventName: string, handler: Function, useCapture: boolean): boolean
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: DOMHTMLMenuElement, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: DOMHTMLMenuElement, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::compact", callback: (($obj: DOMHTMLMenuElement, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::compact", callback: (($obj: DOMHTMLMenuElement, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::compact", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -25367,12 +24634,12 @@ export interface DOMHTMLMetaElement_ConstructProps extends DOMHTMLElement_Constr
     scheme?: string
 }
 export class DOMHTMLMetaElement {
-    /* Properties of WebKit2WebExtension.DOMHTMLMetaElement */
+    /* Properties of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLMetaElement */
     content: string
     httpEquiv: string
     name: string
     scheme: string
-    /* Properties of WebKit2WebExtension.DOMHTMLElement */
+    /* Properties of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLElement */
     accessKey: string
     contentEditable: string
     dir: string
@@ -25387,7 +24654,7 @@ export class DOMHTMLMetaElement {
     title: string
     translate: boolean
     webkitdropzone: string
-    /* Properties of WebKit2WebExtension.DOMElement */
+    /* Properties of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMElement */
     readonly attributes: DOMNamedNodeMap
     readonly childElementCount: number
     readonly children: DOMHTMLCollection
@@ -25419,7 +24686,7 @@ export class DOMHTMLMetaElement {
     readonly style: DOMCSSStyleDeclaration
     readonly tagName: string
     readonly webkitRegionOverset: string
-    /* Properties of WebKit2WebExtension.DOMNode */
+    /* Properties of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMNode */
     readonly baseUri: string
     readonly childNodes: DOMNodeList
     readonly firstChild: DOMNode
@@ -25433,13 +24700,13 @@ export class DOMHTMLMetaElement {
     readonly parentNode: DOMNode
     readonly previousSibling: DOMNode
     textContent: string
-    /* Fields of WebKit2WebExtension.DOMHTMLMetaElement */
+    /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLMetaElement */
     parentInstance: DOMHTMLElement
-    /* Fields of WebKit2WebExtension.DOMObject */
+    /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMObject */
     coreObject: object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of WebKit2WebExtension.DOMHTMLMetaElement */
+    /* Methods of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLMetaElement */
     getContent(): string
     getHttpEquiv(): string
     getName(): string
@@ -25448,7 +24715,7 @@ export class DOMHTMLMetaElement {
     setHttpEquiv(value: string): void
     setName(value: string): void
     setScheme(value: string): void
-    /* Methods of WebKit2WebExtension.DOMHTMLElement */
+    /* Methods of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLElement */
     click(): void
     getAccessKey(): string
     getChildren(): DOMHTMLCollection
@@ -25482,7 +24749,7 @@ export class DOMHTMLMetaElement {
     setTitle(value: string): void
     setTranslate(value: boolean): void
     setWebkitdropzone(value: string): void
-    /* Methods of WebKit2WebExtension.DOMElement */
+    /* Methods of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMElement */
     blur(): void
     closest(selectors: string): DOMElement
     focus(): void
@@ -25560,7 +24827,7 @@ export class DOMHTMLMetaElement {
     setScrollTop(value: number): void
     webkitMatchesSelector(selectors: string): boolean
     webkitRequestFullscreen(): void
-    /* Methods of WebKit2WebExtension.DOMNode */
+    /* Methods of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMNode */
     appendChild(newChild: DOMNode): DOMNode
     cloneNode(deep: boolean): DOMNode
     cloneNodeWithError(deep: boolean): DOMNode
@@ -25593,7 +24860,7 @@ export class DOMHTMLMetaElement {
     setNodeValue(value: string): void
     setPrefix(value: string): void
     setTextContent(value: string): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -25615,29 +24882,16 @@ export class DOMHTMLMetaElement {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of WebKit2WebExtension.DOMEventTarget */
+    /* Methods of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMEventTarget */
     addEventListener(eventName: string, handler: Function, useCapture: boolean): boolean
     dispatchEvent(event: DOMEvent): boolean
     removeEventListener(eventName: string, handler: Function, useCapture: boolean): boolean
-    /* Virtual methods of WebKit2WebExtension.DOMNode */
-    vfuncAddEventListener(eventName: string, handler: Function, useCapture: boolean): boolean
-    vfuncDispatchEvent(event: DOMEvent): boolean
-    vfuncRemoveEventListener(eventName: string, handler: Function, useCapture: boolean): boolean
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: DOMHTMLMetaElement, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: DOMHTMLMetaElement, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::content", callback: (($obj: DOMHTMLMetaElement, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::content", callback: (($obj: DOMHTMLMetaElement, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::content", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -25965,10 +25219,10 @@ export interface DOMHTMLModElement_ConstructProps extends DOMHTMLElement_Constru
     dateTime?: string
 }
 export class DOMHTMLModElement {
-    /* Properties of WebKit2WebExtension.DOMHTMLModElement */
+    /* Properties of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLModElement */
     cite: string
     dateTime: string
-    /* Properties of WebKit2WebExtension.DOMHTMLElement */
+    /* Properties of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLElement */
     accessKey: string
     contentEditable: string
     dir: string
@@ -25983,7 +25237,7 @@ export class DOMHTMLModElement {
     title: string
     translate: boolean
     webkitdropzone: string
-    /* Properties of WebKit2WebExtension.DOMElement */
+    /* Properties of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMElement */
     readonly attributes: DOMNamedNodeMap
     readonly childElementCount: number
     readonly children: DOMHTMLCollection
@@ -26015,7 +25269,7 @@ export class DOMHTMLModElement {
     readonly style: DOMCSSStyleDeclaration
     readonly tagName: string
     readonly webkitRegionOverset: string
-    /* Properties of WebKit2WebExtension.DOMNode */
+    /* Properties of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMNode */
     readonly baseUri: string
     readonly childNodes: DOMNodeList
     readonly firstChild: DOMNode
@@ -26029,18 +25283,18 @@ export class DOMHTMLModElement {
     readonly parentNode: DOMNode
     readonly previousSibling: DOMNode
     textContent: string
-    /* Fields of WebKit2WebExtension.DOMHTMLModElement */
+    /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLModElement */
     parentInstance: DOMHTMLElement
-    /* Fields of WebKit2WebExtension.DOMObject */
+    /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMObject */
     coreObject: object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of WebKit2WebExtension.DOMHTMLModElement */
+    /* Methods of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLModElement */
     getCite(): string
     getDateTime(): string
     setCite(value: string): void
     setDateTime(value: string): void
-    /* Methods of WebKit2WebExtension.DOMHTMLElement */
+    /* Methods of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLElement */
     click(): void
     getAccessKey(): string
     getChildren(): DOMHTMLCollection
@@ -26074,7 +25328,7 @@ export class DOMHTMLModElement {
     setTitle(value: string): void
     setTranslate(value: boolean): void
     setWebkitdropzone(value: string): void
-    /* Methods of WebKit2WebExtension.DOMElement */
+    /* Methods of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMElement */
     blur(): void
     closest(selectors: string): DOMElement
     focus(): void
@@ -26152,7 +25406,7 @@ export class DOMHTMLModElement {
     setScrollTop(value: number): void
     webkitMatchesSelector(selectors: string): boolean
     webkitRequestFullscreen(): void
-    /* Methods of WebKit2WebExtension.DOMNode */
+    /* Methods of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMNode */
     appendChild(newChild: DOMNode): DOMNode
     cloneNode(deep: boolean): DOMNode
     cloneNodeWithError(deep: boolean): DOMNode
@@ -26185,7 +25439,7 @@ export class DOMHTMLModElement {
     setNodeValue(value: string): void
     setPrefix(value: string): void
     setTextContent(value: string): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -26207,29 +25461,16 @@ export class DOMHTMLModElement {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of WebKit2WebExtension.DOMEventTarget */
+    /* Methods of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMEventTarget */
     addEventListener(eventName: string, handler: Function, useCapture: boolean): boolean
     dispatchEvent(event: DOMEvent): boolean
     removeEventListener(eventName: string, handler: Function, useCapture: boolean): boolean
-    /* Virtual methods of WebKit2WebExtension.DOMNode */
-    vfuncAddEventListener(eventName: string, handler: Function, useCapture: boolean): boolean
-    vfuncDispatchEvent(event: DOMEvent): boolean
-    vfuncRemoveEventListener(eventName: string, handler: Function, useCapture: boolean): boolean
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: DOMHTMLModElement, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: DOMHTMLModElement, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::cite", callback: (($obj: DOMHTMLModElement, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::cite", callback: (($obj: DOMHTMLModElement, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::cite", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -26548,11 +25789,11 @@ export interface DOMHTMLOListElement_ConstructProps extends DOMHTMLElement_Const
     type?: string
 }
 export class DOMHTMLOListElement {
-    /* Properties of WebKit2WebExtension.DOMHTMLOListElement */
+    /* Properties of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLOListElement */
     compact: boolean
     start: number
     type: string
-    /* Properties of WebKit2WebExtension.DOMHTMLElement */
+    /* Properties of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLElement */
     accessKey: string
     contentEditable: string
     dir: string
@@ -26567,7 +25808,7 @@ export class DOMHTMLOListElement {
     title: string
     translate: boolean
     webkitdropzone: string
-    /* Properties of WebKit2WebExtension.DOMElement */
+    /* Properties of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMElement */
     readonly attributes: DOMNamedNodeMap
     readonly childElementCount: number
     readonly children: DOMHTMLCollection
@@ -26599,7 +25840,7 @@ export class DOMHTMLOListElement {
     readonly style: DOMCSSStyleDeclaration
     readonly tagName: string
     readonly webkitRegionOverset: string
-    /* Properties of WebKit2WebExtension.DOMNode */
+    /* Properties of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMNode */
     readonly baseUri: string
     readonly childNodes: DOMNodeList
     readonly firstChild: DOMNode
@@ -26613,20 +25854,20 @@ export class DOMHTMLOListElement {
     readonly parentNode: DOMNode
     readonly previousSibling: DOMNode
     textContent: string
-    /* Fields of WebKit2WebExtension.DOMHTMLOListElement */
+    /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLOListElement */
     parentInstance: DOMHTMLElement
-    /* Fields of WebKit2WebExtension.DOMObject */
+    /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMObject */
     coreObject: object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of WebKit2WebExtension.DOMHTMLOListElement */
+    /* Methods of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLOListElement */
     getCompact(): boolean
     getStart(): number
     getTypeAttr(): string
     setCompact(value: boolean): void
     setStart(value: number): void
     setTypeAttr(value: string): void
-    /* Methods of WebKit2WebExtension.DOMHTMLElement */
+    /* Methods of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLElement */
     click(): void
     getAccessKey(): string
     getChildren(): DOMHTMLCollection
@@ -26660,7 +25901,7 @@ export class DOMHTMLOListElement {
     setTitle(value: string): void
     setTranslate(value: boolean): void
     setWebkitdropzone(value: string): void
-    /* Methods of WebKit2WebExtension.DOMElement */
+    /* Methods of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMElement */
     blur(): void
     closest(selectors: string): DOMElement
     focus(): void
@@ -26738,7 +25979,7 @@ export class DOMHTMLOListElement {
     setScrollTop(value: number): void
     webkitMatchesSelector(selectors: string): boolean
     webkitRequestFullscreen(): void
-    /* Methods of WebKit2WebExtension.DOMNode */
+    /* Methods of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMNode */
     appendChild(newChild: DOMNode): DOMNode
     cloneNode(deep: boolean): DOMNode
     cloneNodeWithError(deep: boolean): DOMNode
@@ -26771,7 +26012,7 @@ export class DOMHTMLOListElement {
     setNodeValue(value: string): void
     setPrefix(value: string): void
     setTextContent(value: string): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -26793,29 +26034,16 @@ export class DOMHTMLOListElement {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of WebKit2WebExtension.DOMEventTarget */
+    /* Methods of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMEventTarget */
     addEventListener(eventName: string, handler: Function, useCapture: boolean): boolean
     dispatchEvent(event: DOMEvent): boolean
     removeEventListener(eventName: string, handler: Function, useCapture: boolean): boolean
-    /* Virtual methods of WebKit2WebExtension.DOMNode */
-    vfuncAddEventListener(eventName: string, handler: Function, useCapture: boolean): boolean
-    vfuncDispatchEvent(event: DOMEvent): boolean
-    vfuncRemoveEventListener(eventName: string, handler: Function, useCapture: boolean): boolean
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: DOMHTMLOListElement, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: DOMHTMLOListElement, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::compact", callback: (($obj: DOMHTMLOListElement, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::compact", callback: (($obj: DOMHTMLOListElement, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::compact", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -27152,7 +26380,7 @@ export interface DOMHTMLObjectElement_ConstructProps extends DOMHTMLElement_Cons
     width?: string
 }
 export class DOMHTMLObjectElement {
-    /* Properties of WebKit2WebExtension.DOMHTMLObjectElement */
+    /* Properties of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLObjectElement */
     align: string
     archive: string
     border: string
@@ -27171,7 +26399,7 @@ export class DOMHTMLObjectElement {
     useMap: string
     vspace: number
     width: string
-    /* Properties of WebKit2WebExtension.DOMHTMLElement */
+    /* Properties of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLElement */
     accessKey: string
     contentEditable: string
     dir: string
@@ -27186,7 +26414,7 @@ export class DOMHTMLObjectElement {
     title: string
     translate: boolean
     webkitdropzone: string
-    /* Properties of WebKit2WebExtension.DOMElement */
+    /* Properties of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMElement */
     readonly attributes: DOMNamedNodeMap
     readonly childElementCount: number
     readonly children: DOMHTMLCollection
@@ -27218,7 +26446,7 @@ export class DOMHTMLObjectElement {
     readonly style: DOMCSSStyleDeclaration
     readonly tagName: string
     readonly webkitRegionOverset: string
-    /* Properties of WebKit2WebExtension.DOMNode */
+    /* Properties of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMNode */
     readonly baseUri: string
     readonly childNodes: DOMNodeList
     readonly firstChild: DOMNode
@@ -27232,13 +26460,13 @@ export class DOMHTMLObjectElement {
     readonly parentNode: DOMNode
     readonly previousSibling: DOMNode
     textContent: string
-    /* Fields of WebKit2WebExtension.DOMHTMLObjectElement */
+    /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLObjectElement */
     parentInstance: DOMHTMLElement
-    /* Fields of WebKit2WebExtension.DOMObject */
+    /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMObject */
     coreObject: object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of WebKit2WebExtension.DOMHTMLObjectElement */
+    /* Methods of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLObjectElement */
     getAlign(): string
     getArchive(): string
     getBorder(): string
@@ -27273,7 +26501,7 @@ export class DOMHTMLObjectElement {
     setUseMap(value: string): void
     setVspace(value: number): void
     setWidth(value: string): void
-    /* Methods of WebKit2WebExtension.DOMHTMLElement */
+    /* Methods of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLElement */
     click(): void
     getAccessKey(): string
     getChildren(): DOMHTMLCollection
@@ -27307,7 +26535,7 @@ export class DOMHTMLObjectElement {
     setTitle(value: string): void
     setTranslate(value: boolean): void
     setWebkitdropzone(value: string): void
-    /* Methods of WebKit2WebExtension.DOMElement */
+    /* Methods of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMElement */
     blur(): void
     closest(selectors: string): DOMElement
     focus(): void
@@ -27385,7 +26613,7 @@ export class DOMHTMLObjectElement {
     setScrollTop(value: number): void
     webkitMatchesSelector(selectors: string): boolean
     webkitRequestFullscreen(): void
-    /* Methods of WebKit2WebExtension.DOMNode */
+    /* Methods of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMNode */
     appendChild(newChild: DOMNode): DOMNode
     cloneNode(deep: boolean): DOMNode
     cloneNodeWithError(deep: boolean): DOMNode
@@ -27418,7 +26646,7 @@ export class DOMHTMLObjectElement {
     setNodeValue(value: string): void
     setPrefix(value: string): void
     setTextContent(value: string): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -27440,29 +26668,16 @@ export class DOMHTMLObjectElement {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of WebKit2WebExtension.DOMEventTarget */
+    /* Methods of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMEventTarget */
     addEventListener(eventName: string, handler: Function, useCapture: boolean): boolean
     dispatchEvent(event: DOMEvent): boolean
     removeEventListener(eventName: string, handler: Function, useCapture: boolean): boolean
-    /* Virtual methods of WebKit2WebExtension.DOMNode */
-    vfuncAddEventListener(eventName: string, handler: Function, useCapture: boolean): boolean
-    vfuncDispatchEvent(event: DOMEvent): boolean
-    vfuncRemoveEventListener(eventName: string, handler: Function, useCapture: boolean): boolean
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: DOMHTMLObjectElement, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: DOMHTMLObjectElement, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::align", callback: (($obj: DOMHTMLObjectElement, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::align", callback: (($obj: DOMHTMLObjectElement, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::align", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -27860,10 +27075,10 @@ export interface DOMHTMLOptGroupElement_ConstructProps extends DOMHTMLElement_Co
     label?: string
 }
 export class DOMHTMLOptGroupElement {
-    /* Properties of WebKit2WebExtension.DOMHTMLOptGroupElement */
+    /* Properties of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLOptGroupElement */
     disabled: boolean
     label: string
-    /* Properties of WebKit2WebExtension.DOMHTMLElement */
+    /* Properties of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLElement */
     accessKey: string
     contentEditable: string
     dir: string
@@ -27878,7 +27093,7 @@ export class DOMHTMLOptGroupElement {
     title: string
     translate: boolean
     webkitdropzone: string
-    /* Properties of WebKit2WebExtension.DOMElement */
+    /* Properties of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMElement */
     readonly attributes: DOMNamedNodeMap
     readonly childElementCount: number
     readonly children: DOMHTMLCollection
@@ -27910,7 +27125,7 @@ export class DOMHTMLOptGroupElement {
     readonly style: DOMCSSStyleDeclaration
     readonly tagName: string
     readonly webkitRegionOverset: string
-    /* Properties of WebKit2WebExtension.DOMNode */
+    /* Properties of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMNode */
     readonly baseUri: string
     readonly childNodes: DOMNodeList
     readonly firstChild: DOMNode
@@ -27924,18 +27139,18 @@ export class DOMHTMLOptGroupElement {
     readonly parentNode: DOMNode
     readonly previousSibling: DOMNode
     textContent: string
-    /* Fields of WebKit2WebExtension.DOMHTMLOptGroupElement */
+    /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLOptGroupElement */
     parentInstance: DOMHTMLElement
-    /* Fields of WebKit2WebExtension.DOMObject */
+    /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMObject */
     coreObject: object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of WebKit2WebExtension.DOMHTMLOptGroupElement */
+    /* Methods of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLOptGroupElement */
     getDisabled(): boolean
     getLabel(): string
     setDisabled(value: boolean): void
     setLabel(value: string): void
-    /* Methods of WebKit2WebExtension.DOMHTMLElement */
+    /* Methods of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLElement */
     click(): void
     getAccessKey(): string
     getChildren(): DOMHTMLCollection
@@ -27969,7 +27184,7 @@ export class DOMHTMLOptGroupElement {
     setTitle(value: string): void
     setTranslate(value: boolean): void
     setWebkitdropzone(value: string): void
-    /* Methods of WebKit2WebExtension.DOMElement */
+    /* Methods of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMElement */
     blur(): void
     closest(selectors: string): DOMElement
     focus(): void
@@ -28047,7 +27262,7 @@ export class DOMHTMLOptGroupElement {
     setScrollTop(value: number): void
     webkitMatchesSelector(selectors: string): boolean
     webkitRequestFullscreen(): void
-    /* Methods of WebKit2WebExtension.DOMNode */
+    /* Methods of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMNode */
     appendChild(newChild: DOMNode): DOMNode
     cloneNode(deep: boolean): DOMNode
     cloneNodeWithError(deep: boolean): DOMNode
@@ -28080,7 +27295,7 @@ export class DOMHTMLOptGroupElement {
     setNodeValue(value: string): void
     setPrefix(value: string): void
     setTextContent(value: string): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -28102,29 +27317,16 @@ export class DOMHTMLOptGroupElement {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of WebKit2WebExtension.DOMEventTarget */
+    /* Methods of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMEventTarget */
     addEventListener(eventName: string, handler: Function, useCapture: boolean): boolean
     dispatchEvent(event: DOMEvent): boolean
     removeEventListener(eventName: string, handler: Function, useCapture: boolean): boolean
-    /* Virtual methods of WebKit2WebExtension.DOMNode */
-    vfuncAddEventListener(eventName: string, handler: Function, useCapture: boolean): boolean
-    vfuncDispatchEvent(event: DOMEvent): boolean
-    vfuncRemoveEventListener(eventName: string, handler: Function, useCapture: boolean): boolean
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: DOMHTMLOptGroupElement, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: DOMHTMLOptGroupElement, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::disabled", callback: (($obj: DOMHTMLOptGroupElement, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::disabled", callback: (($obj: DOMHTMLOptGroupElement, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::disabled", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -28445,7 +27647,7 @@ export interface DOMHTMLOptionElement_ConstructProps extends DOMHTMLElement_Cons
     value?: string
 }
 export class DOMHTMLOptionElement {
-    /* Properties of WebKit2WebExtension.DOMHTMLOptionElement */
+    /* Properties of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLOptionElement */
     defaultSelected: boolean
     disabled: boolean
     readonly form: DOMHTMLFormElement
@@ -28454,7 +27656,7 @@ export class DOMHTMLOptionElement {
     selected: boolean
     readonly text: string
     value: string
-    /* Properties of WebKit2WebExtension.DOMHTMLElement */
+    /* Properties of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLElement */
     accessKey: string
     contentEditable: string
     dir: string
@@ -28469,7 +27671,7 @@ export class DOMHTMLOptionElement {
     title: string
     translate: boolean
     webkitdropzone: string
-    /* Properties of WebKit2WebExtension.DOMElement */
+    /* Properties of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMElement */
     readonly attributes: DOMNamedNodeMap
     readonly childElementCount: number
     readonly children: DOMHTMLCollection
@@ -28501,7 +27703,7 @@ export class DOMHTMLOptionElement {
     readonly style: DOMCSSStyleDeclaration
     readonly tagName: string
     readonly webkitRegionOverset: string
-    /* Properties of WebKit2WebExtension.DOMNode */
+    /* Properties of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMNode */
     readonly baseUri: string
     readonly childNodes: DOMNodeList
     readonly firstChild: DOMNode
@@ -28515,13 +27717,13 @@ export class DOMHTMLOptionElement {
     readonly parentNode: DOMNode
     readonly previousSibling: DOMNode
     textContent: string
-    /* Fields of WebKit2WebExtension.DOMHTMLOptionElement */
+    /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLOptionElement */
     parentInstance: DOMHTMLElement
-    /* Fields of WebKit2WebExtension.DOMObject */
+    /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMObject */
     coreObject: object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of WebKit2WebExtension.DOMHTMLOptionElement */
+    /* Methods of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLOptionElement */
     getDefaultSelected(): boolean
     getDisabled(): boolean
     getForm(): DOMHTMLFormElement
@@ -28535,7 +27737,7 @@ export class DOMHTMLOptionElement {
     setLabel(value: string): void
     setSelected(value: boolean): void
     setValue(value: string): void
-    /* Methods of WebKit2WebExtension.DOMHTMLElement */
+    /* Methods of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLElement */
     click(): void
     getAccessKey(): string
     getChildren(): DOMHTMLCollection
@@ -28569,7 +27771,7 @@ export class DOMHTMLOptionElement {
     setTitle(value: string): void
     setTranslate(value: boolean): void
     setWebkitdropzone(value: string): void
-    /* Methods of WebKit2WebExtension.DOMElement */
+    /* Methods of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMElement */
     blur(): void
     closest(selectors: string): DOMElement
     focus(): void
@@ -28647,7 +27849,7 @@ export class DOMHTMLOptionElement {
     setScrollTop(value: number): void
     webkitMatchesSelector(selectors: string): boolean
     webkitRequestFullscreen(): void
-    /* Methods of WebKit2WebExtension.DOMNode */
+    /* Methods of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMNode */
     appendChild(newChild: DOMNode): DOMNode
     cloneNode(deep: boolean): DOMNode
     cloneNodeWithError(deep: boolean): DOMNode
@@ -28680,7 +27882,7 @@ export class DOMHTMLOptionElement {
     setNodeValue(value: string): void
     setPrefix(value: string): void
     setTextContent(value: string): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -28702,29 +27904,16 @@ export class DOMHTMLOptionElement {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of WebKit2WebExtension.DOMEventTarget */
+    /* Methods of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMEventTarget */
     addEventListener(eventName: string, handler: Function, useCapture: boolean): boolean
     dispatchEvent(event: DOMEvent): boolean
     removeEventListener(eventName: string, handler: Function, useCapture: boolean): boolean
-    /* Virtual methods of WebKit2WebExtension.DOMNode */
-    vfuncAddEventListener(eventName: string, handler: Function, useCapture: boolean): boolean
-    vfuncDispatchEvent(event: DOMEvent): boolean
-    vfuncRemoveEventListener(eventName: string, handler: Function, useCapture: boolean): boolean
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: DOMHTMLOptionElement, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: DOMHTMLOptionElement, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::default-selected", callback: (($obj: DOMHTMLOptionElement, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::default-selected", callback: (($obj: DOMHTMLOptionElement, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::default-selected", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -29071,23 +28260,23 @@ export interface DOMHTMLOptionsCollection_ConstructProps extends DOMHTMLCollecti
     selectedIndex?: number
 }
 export class DOMHTMLOptionsCollection {
-    /* Properties of WebKit2WebExtension.DOMHTMLOptionsCollection */
+    /* Properties of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLOptionsCollection */
     readonly length: number
     selectedIndex: number
-    /* Fields of WebKit2WebExtension.DOMHTMLOptionsCollection */
+    /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLOptionsCollection */
     parentInstance: DOMHTMLCollection
-    /* Fields of WebKit2WebExtension.DOMObject */
+    /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMObject */
     coreObject: object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of WebKit2WebExtension.DOMHTMLOptionsCollection */
+    /* Methods of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLOptionsCollection */
     getLength(): number
     getSelectedIndex(): number
     namedItem(name: string): DOMNode
     setSelectedIndex(value: number): void
-    /* Methods of WebKit2WebExtension.DOMHTMLCollection */
+    /* Methods of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLCollection */
     item(index: number): DOMNode
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -29109,21 +28298,12 @@ export class DOMHTMLOptionsCollection {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: DOMHTMLOptionsCollection, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: DOMHTMLOptionsCollection, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::length", callback: (($obj: DOMHTMLOptionsCollection, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::length", callback: (($obj: DOMHTMLOptionsCollection, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::length", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -29150,9 +28330,9 @@ export interface DOMHTMLParagraphElement_ConstructProps extends DOMHTMLElement_C
     align?: string
 }
 export class DOMHTMLParagraphElement {
-    /* Properties of WebKit2WebExtension.DOMHTMLParagraphElement */
+    /* Properties of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLParagraphElement */
     align: string
-    /* Properties of WebKit2WebExtension.DOMHTMLElement */
+    /* Properties of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLElement */
     accessKey: string
     contentEditable: string
     dir: string
@@ -29167,7 +28347,7 @@ export class DOMHTMLParagraphElement {
     title: string
     translate: boolean
     webkitdropzone: string
-    /* Properties of WebKit2WebExtension.DOMElement */
+    /* Properties of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMElement */
     readonly attributes: DOMNamedNodeMap
     readonly childElementCount: number
     readonly children: DOMHTMLCollection
@@ -29199,7 +28379,7 @@ export class DOMHTMLParagraphElement {
     readonly style: DOMCSSStyleDeclaration
     readonly tagName: string
     readonly webkitRegionOverset: string
-    /* Properties of WebKit2WebExtension.DOMNode */
+    /* Properties of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMNode */
     readonly baseUri: string
     readonly childNodes: DOMNodeList
     readonly firstChild: DOMNode
@@ -29213,16 +28393,16 @@ export class DOMHTMLParagraphElement {
     readonly parentNode: DOMNode
     readonly previousSibling: DOMNode
     textContent: string
-    /* Fields of WebKit2WebExtension.DOMHTMLParagraphElement */
+    /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLParagraphElement */
     parentInstance: DOMHTMLElement
-    /* Fields of WebKit2WebExtension.DOMObject */
+    /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMObject */
     coreObject: object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of WebKit2WebExtension.DOMHTMLParagraphElement */
+    /* Methods of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLParagraphElement */
     getAlign(): string
     setAlign(value: string): void
-    /* Methods of WebKit2WebExtension.DOMHTMLElement */
+    /* Methods of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLElement */
     click(): void
     getAccessKey(): string
     getChildren(): DOMHTMLCollection
@@ -29256,7 +28436,7 @@ export class DOMHTMLParagraphElement {
     setTitle(value: string): void
     setTranslate(value: boolean): void
     setWebkitdropzone(value: string): void
-    /* Methods of WebKit2WebExtension.DOMElement */
+    /* Methods of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMElement */
     blur(): void
     closest(selectors: string): DOMElement
     focus(): void
@@ -29334,7 +28514,7 @@ export class DOMHTMLParagraphElement {
     setScrollTop(value: number): void
     webkitMatchesSelector(selectors: string): boolean
     webkitRequestFullscreen(): void
-    /* Methods of WebKit2WebExtension.DOMNode */
+    /* Methods of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMNode */
     appendChild(newChild: DOMNode): DOMNode
     cloneNode(deep: boolean): DOMNode
     cloneNodeWithError(deep: boolean): DOMNode
@@ -29367,7 +28547,7 @@ export class DOMHTMLParagraphElement {
     setNodeValue(value: string): void
     setPrefix(value: string): void
     setTextContent(value: string): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -29389,29 +28569,16 @@ export class DOMHTMLParagraphElement {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of WebKit2WebExtension.DOMEventTarget */
+    /* Methods of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMEventTarget */
     addEventListener(eventName: string, handler: Function, useCapture: boolean): boolean
     dispatchEvent(event: DOMEvent): boolean
     removeEventListener(eventName: string, handler: Function, useCapture: boolean): boolean
-    /* Virtual methods of WebKit2WebExtension.DOMNode */
-    vfuncAddEventListener(eventName: string, handler: Function, useCapture: boolean): boolean
-    vfuncDispatchEvent(event: DOMEvent): boolean
-    vfuncRemoveEventListener(eventName: string, handler: Function, useCapture: boolean): boolean
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: DOMHTMLParagraphElement, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: DOMHTMLParagraphElement, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::align", callback: (($obj: DOMHTMLParagraphElement, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::align", callback: (($obj: DOMHTMLParagraphElement, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::align", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -29726,12 +28893,12 @@ export interface DOMHTMLParamElement_ConstructProps extends DOMHTMLElement_Const
     valueType?: string
 }
 export class DOMHTMLParamElement {
-    /* Properties of WebKit2WebExtension.DOMHTMLParamElement */
+    /* Properties of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLParamElement */
     name: string
     type: string
     value: string
     valueType: string
-    /* Properties of WebKit2WebExtension.DOMHTMLElement */
+    /* Properties of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLElement */
     accessKey: string
     contentEditable: string
     dir: string
@@ -29746,7 +28913,7 @@ export class DOMHTMLParamElement {
     title: string
     translate: boolean
     webkitdropzone: string
-    /* Properties of WebKit2WebExtension.DOMElement */
+    /* Properties of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMElement */
     readonly attributes: DOMNamedNodeMap
     readonly childElementCount: number
     readonly children: DOMHTMLCollection
@@ -29778,7 +28945,7 @@ export class DOMHTMLParamElement {
     readonly style: DOMCSSStyleDeclaration
     readonly tagName: string
     readonly webkitRegionOverset: string
-    /* Properties of WebKit2WebExtension.DOMNode */
+    /* Properties of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMNode */
     readonly baseUri: string
     readonly childNodes: DOMNodeList
     readonly firstChild: DOMNode
@@ -29792,13 +28959,13 @@ export class DOMHTMLParamElement {
     readonly parentNode: DOMNode
     readonly previousSibling: DOMNode
     textContent: string
-    /* Fields of WebKit2WebExtension.DOMHTMLParamElement */
+    /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLParamElement */
     parentInstance: DOMHTMLElement
-    /* Fields of WebKit2WebExtension.DOMObject */
+    /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMObject */
     coreObject: object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of WebKit2WebExtension.DOMHTMLParamElement */
+    /* Methods of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLParamElement */
     getName(): string
     getTypeAttr(): string
     getValue(): string
@@ -29807,7 +28974,7 @@ export class DOMHTMLParamElement {
     setTypeAttr(value: string): void
     setValue(value: string): void
     setValueType(value: string): void
-    /* Methods of WebKit2WebExtension.DOMHTMLElement */
+    /* Methods of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLElement */
     click(): void
     getAccessKey(): string
     getChildren(): DOMHTMLCollection
@@ -29841,7 +29008,7 @@ export class DOMHTMLParamElement {
     setTitle(value: string): void
     setTranslate(value: boolean): void
     setWebkitdropzone(value: string): void
-    /* Methods of WebKit2WebExtension.DOMElement */
+    /* Methods of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMElement */
     blur(): void
     closest(selectors: string): DOMElement
     focus(): void
@@ -29919,7 +29086,7 @@ export class DOMHTMLParamElement {
     setScrollTop(value: number): void
     webkitMatchesSelector(selectors: string): boolean
     webkitRequestFullscreen(): void
-    /* Methods of WebKit2WebExtension.DOMNode */
+    /* Methods of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMNode */
     appendChild(newChild: DOMNode): DOMNode
     cloneNode(deep: boolean): DOMNode
     cloneNodeWithError(deep: boolean): DOMNode
@@ -29952,7 +29119,7 @@ export class DOMHTMLParamElement {
     setNodeValue(value: string): void
     setPrefix(value: string): void
     setTextContent(value: string): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -29974,29 +29141,16 @@ export class DOMHTMLParamElement {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of WebKit2WebExtension.DOMEventTarget */
+    /* Methods of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMEventTarget */
     addEventListener(eventName: string, handler: Function, useCapture: boolean): boolean
     dispatchEvent(event: DOMEvent): boolean
     removeEventListener(eventName: string, handler: Function, useCapture: boolean): boolean
-    /* Virtual methods of WebKit2WebExtension.DOMNode */
-    vfuncAddEventListener(eventName: string, handler: Function, useCapture: boolean): boolean
-    vfuncDispatchEvent(event: DOMEvent): boolean
-    vfuncRemoveEventListener(eventName: string, handler: Function, useCapture: boolean): boolean
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: DOMHTMLParamElement, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: DOMHTMLParamElement, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::name", callback: (($obj: DOMHTMLParamElement, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::name", callback: (($obj: DOMHTMLParamElement, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::name", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -30324,10 +29478,10 @@ export interface DOMHTMLPreElement_ConstructProps extends DOMHTMLElement_Constru
     wrap?: boolean
 }
 export class DOMHTMLPreElement {
-    /* Properties of WebKit2WebExtension.DOMHTMLPreElement */
+    /* Properties of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLPreElement */
     width: number
     wrap: boolean
-    /* Properties of WebKit2WebExtension.DOMHTMLElement */
+    /* Properties of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLElement */
     accessKey: string
     contentEditable: string
     dir: string
@@ -30342,7 +29496,7 @@ export class DOMHTMLPreElement {
     title: string
     translate: boolean
     webkitdropzone: string
-    /* Properties of WebKit2WebExtension.DOMElement */
+    /* Properties of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMElement */
     readonly attributes: DOMNamedNodeMap
     readonly childElementCount: number
     readonly children: DOMHTMLCollection
@@ -30374,7 +29528,7 @@ export class DOMHTMLPreElement {
     readonly style: DOMCSSStyleDeclaration
     readonly tagName: string
     readonly webkitRegionOverset: string
-    /* Properties of WebKit2WebExtension.DOMNode */
+    /* Properties of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMNode */
     readonly baseUri: string
     readonly childNodes: DOMNodeList
     readonly firstChild: DOMNode
@@ -30388,18 +29542,18 @@ export class DOMHTMLPreElement {
     readonly parentNode: DOMNode
     readonly previousSibling: DOMNode
     textContent: string
-    /* Fields of WebKit2WebExtension.DOMHTMLPreElement */
+    /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLPreElement */
     parentInstance: DOMHTMLElement
-    /* Fields of WebKit2WebExtension.DOMObject */
+    /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMObject */
     coreObject: object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of WebKit2WebExtension.DOMHTMLPreElement */
+    /* Methods of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLPreElement */
     getWidth(): number
     getWrap(): boolean
     setWidth(value: number): void
     setWrap(value: boolean): void
-    /* Methods of WebKit2WebExtension.DOMHTMLElement */
+    /* Methods of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLElement */
     click(): void
     getAccessKey(): string
     getChildren(): DOMHTMLCollection
@@ -30433,7 +29587,7 @@ export class DOMHTMLPreElement {
     setTitle(value: string): void
     setTranslate(value: boolean): void
     setWebkitdropzone(value: string): void
-    /* Methods of WebKit2WebExtension.DOMElement */
+    /* Methods of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMElement */
     blur(): void
     closest(selectors: string): DOMElement
     focus(): void
@@ -30511,7 +29665,7 @@ export class DOMHTMLPreElement {
     setScrollTop(value: number): void
     webkitMatchesSelector(selectors: string): boolean
     webkitRequestFullscreen(): void
-    /* Methods of WebKit2WebExtension.DOMNode */
+    /* Methods of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMNode */
     appendChild(newChild: DOMNode): DOMNode
     cloneNode(deep: boolean): DOMNode
     cloneNodeWithError(deep: boolean): DOMNode
@@ -30544,7 +29698,7 @@ export class DOMHTMLPreElement {
     setNodeValue(value: string): void
     setPrefix(value: string): void
     setTextContent(value: string): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -30566,29 +29720,16 @@ export class DOMHTMLPreElement {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of WebKit2WebExtension.DOMEventTarget */
+    /* Methods of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMEventTarget */
     addEventListener(eventName: string, handler: Function, useCapture: boolean): boolean
     dispatchEvent(event: DOMEvent): boolean
     removeEventListener(eventName: string, handler: Function, useCapture: boolean): boolean
-    /* Virtual methods of WebKit2WebExtension.DOMNode */
-    vfuncAddEventListener(eventName: string, handler: Function, useCapture: boolean): boolean
-    vfuncDispatchEvent(event: DOMEvent): boolean
-    vfuncRemoveEventListener(eventName: string, handler: Function, useCapture: boolean): boolean
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: DOMHTMLPreElement, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: DOMHTMLPreElement, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::width", callback: (($obj: DOMHTMLPreElement, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::width", callback: (($obj: DOMHTMLPreElement, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::width", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -30905,9 +30046,9 @@ export interface DOMHTMLQuoteElement_ConstructProps extends DOMHTMLElement_Const
     cite?: string
 }
 export class DOMHTMLQuoteElement {
-    /* Properties of WebKit2WebExtension.DOMHTMLQuoteElement */
+    /* Properties of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLQuoteElement */
     cite: string
-    /* Properties of WebKit2WebExtension.DOMHTMLElement */
+    /* Properties of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLElement */
     accessKey: string
     contentEditable: string
     dir: string
@@ -30922,7 +30063,7 @@ export class DOMHTMLQuoteElement {
     title: string
     translate: boolean
     webkitdropzone: string
-    /* Properties of WebKit2WebExtension.DOMElement */
+    /* Properties of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMElement */
     readonly attributes: DOMNamedNodeMap
     readonly childElementCount: number
     readonly children: DOMHTMLCollection
@@ -30954,7 +30095,7 @@ export class DOMHTMLQuoteElement {
     readonly style: DOMCSSStyleDeclaration
     readonly tagName: string
     readonly webkitRegionOverset: string
-    /* Properties of WebKit2WebExtension.DOMNode */
+    /* Properties of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMNode */
     readonly baseUri: string
     readonly childNodes: DOMNodeList
     readonly firstChild: DOMNode
@@ -30968,16 +30109,16 @@ export class DOMHTMLQuoteElement {
     readonly parentNode: DOMNode
     readonly previousSibling: DOMNode
     textContent: string
-    /* Fields of WebKit2WebExtension.DOMHTMLQuoteElement */
+    /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLQuoteElement */
     parentInstance: DOMHTMLElement
-    /* Fields of WebKit2WebExtension.DOMObject */
+    /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMObject */
     coreObject: object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of WebKit2WebExtension.DOMHTMLQuoteElement */
+    /* Methods of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLQuoteElement */
     getCite(): string
     setCite(value: string): void
-    /* Methods of WebKit2WebExtension.DOMHTMLElement */
+    /* Methods of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLElement */
     click(): void
     getAccessKey(): string
     getChildren(): DOMHTMLCollection
@@ -31011,7 +30152,7 @@ export class DOMHTMLQuoteElement {
     setTitle(value: string): void
     setTranslate(value: boolean): void
     setWebkitdropzone(value: string): void
-    /* Methods of WebKit2WebExtension.DOMElement */
+    /* Methods of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMElement */
     blur(): void
     closest(selectors: string): DOMElement
     focus(): void
@@ -31089,7 +30230,7 @@ export class DOMHTMLQuoteElement {
     setScrollTop(value: number): void
     webkitMatchesSelector(selectors: string): boolean
     webkitRequestFullscreen(): void
-    /* Methods of WebKit2WebExtension.DOMNode */
+    /* Methods of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMNode */
     appendChild(newChild: DOMNode): DOMNode
     cloneNode(deep: boolean): DOMNode
     cloneNodeWithError(deep: boolean): DOMNode
@@ -31122,7 +30263,7 @@ export class DOMHTMLQuoteElement {
     setNodeValue(value: string): void
     setPrefix(value: string): void
     setTextContent(value: string): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -31144,29 +30285,16 @@ export class DOMHTMLQuoteElement {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of WebKit2WebExtension.DOMEventTarget */
+    /* Methods of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMEventTarget */
     addEventListener(eventName: string, handler: Function, useCapture: boolean): boolean
     dispatchEvent(event: DOMEvent): boolean
     removeEventListener(eventName: string, handler: Function, useCapture: boolean): boolean
-    /* Virtual methods of WebKit2WebExtension.DOMNode */
-    vfuncAddEventListener(eventName: string, handler: Function, useCapture: boolean): boolean
-    vfuncDispatchEvent(event: DOMEvent): boolean
-    vfuncRemoveEventListener(eventName: string, handler: Function, useCapture: boolean): boolean
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: DOMHTMLQuoteElement, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: DOMHTMLQuoteElement, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::cite", callback: (($obj: DOMHTMLQuoteElement, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::cite", callback: (($obj: DOMHTMLQuoteElement, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::cite", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -31484,7 +30612,7 @@ export interface DOMHTMLScriptElement_ConstructProps extends DOMHTMLElement_Cons
     type?: string
 }
 export class DOMHTMLScriptElement {
-    /* Properties of WebKit2WebExtension.DOMHTMLScriptElement */
+    /* Properties of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLScriptElement */
     charset: string
     defer: boolean
     event: string
@@ -31492,7 +30620,7 @@ export class DOMHTMLScriptElement {
     src: string
     text: string
     type: string
-    /* Properties of WebKit2WebExtension.DOMHTMLElement */
+    /* Properties of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLElement */
     accessKey: string
     contentEditable: string
     dir: string
@@ -31507,7 +30635,7 @@ export class DOMHTMLScriptElement {
     title: string
     translate: boolean
     webkitdropzone: string
-    /* Properties of WebKit2WebExtension.DOMElement */
+    /* Properties of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMElement */
     readonly attributes: DOMNamedNodeMap
     readonly childElementCount: number
     readonly children: DOMHTMLCollection
@@ -31539,7 +30667,7 @@ export class DOMHTMLScriptElement {
     readonly style: DOMCSSStyleDeclaration
     readonly tagName: string
     readonly webkitRegionOverset: string
-    /* Properties of WebKit2WebExtension.DOMNode */
+    /* Properties of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMNode */
     readonly baseUri: string
     readonly childNodes: DOMNodeList
     readonly firstChild: DOMNode
@@ -31553,13 +30681,13 @@ export class DOMHTMLScriptElement {
     readonly parentNode: DOMNode
     readonly previousSibling: DOMNode
     textContent: string
-    /* Fields of WebKit2WebExtension.DOMHTMLScriptElement */
+    /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLScriptElement */
     parentInstance: DOMHTMLElement
-    /* Fields of WebKit2WebExtension.DOMObject */
+    /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMObject */
     coreObject: object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of WebKit2WebExtension.DOMHTMLScriptElement */
+    /* Methods of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLScriptElement */
     getCharset(): string
     getDefer(): boolean
     getEvent(): string
@@ -31574,7 +30702,7 @@ export class DOMHTMLScriptElement {
     setSrc(value: string): void
     setText(value: string): void
     setTypeAttr(value: string): void
-    /* Methods of WebKit2WebExtension.DOMHTMLElement */
+    /* Methods of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLElement */
     click(): void
     getAccessKey(): string
     getChildren(): DOMHTMLCollection
@@ -31608,7 +30736,7 @@ export class DOMHTMLScriptElement {
     setTitle(value: string): void
     setTranslate(value: boolean): void
     setWebkitdropzone(value: string): void
-    /* Methods of WebKit2WebExtension.DOMElement */
+    /* Methods of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMElement */
     blur(): void
     closest(selectors: string): DOMElement
     focus(): void
@@ -31686,7 +30814,7 @@ export class DOMHTMLScriptElement {
     setScrollTop(value: number): void
     webkitMatchesSelector(selectors: string): boolean
     webkitRequestFullscreen(): void
-    /* Methods of WebKit2WebExtension.DOMNode */
+    /* Methods of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMNode */
     appendChild(newChild: DOMNode): DOMNode
     cloneNode(deep: boolean): DOMNode
     cloneNodeWithError(deep: boolean): DOMNode
@@ -31719,7 +30847,7 @@ export class DOMHTMLScriptElement {
     setNodeValue(value: string): void
     setPrefix(value: string): void
     setTextContent(value: string): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -31741,29 +30869,16 @@ export class DOMHTMLScriptElement {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of WebKit2WebExtension.DOMEventTarget */
+    /* Methods of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMEventTarget */
     addEventListener(eventName: string, handler: Function, useCapture: boolean): boolean
     dispatchEvent(event: DOMEvent): boolean
     removeEventListener(eventName: string, handler: Function, useCapture: boolean): boolean
-    /* Virtual methods of WebKit2WebExtension.DOMNode */
-    vfuncAddEventListener(eventName: string, handler: Function, useCapture: boolean): boolean
-    vfuncDispatchEvent(event: DOMEvent): boolean
-    vfuncRemoveEventListener(eventName: string, handler: Function, useCapture: boolean): boolean
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: DOMHTMLScriptElement, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: DOMHTMLScriptElement, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::charset", callback: (($obj: DOMHTMLScriptElement, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::charset", callback: (($obj: DOMHTMLScriptElement, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::charset", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -32112,7 +31227,7 @@ export interface DOMHTMLSelectElement_ConstructProps extends DOMHTMLElement_Cons
     value?: string
 }
 export class DOMHTMLSelectElement {
-    /* Properties of WebKit2WebExtension.DOMHTMLSelectElement */
+    /* Properties of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLSelectElement */
     autofocus: boolean
     disabled: boolean
     readonly form: DOMHTMLFormElement
@@ -32125,7 +31240,7 @@ export class DOMHTMLSelectElement {
     readonly type: string
     value: string
     readonly willValidate: boolean
-    /* Properties of WebKit2WebExtension.DOMHTMLElement */
+    /* Properties of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLElement */
     accessKey: string
     contentEditable: string
     dir: string
@@ -32140,7 +31255,7 @@ export class DOMHTMLSelectElement {
     title: string
     translate: boolean
     webkitdropzone: string
-    /* Properties of WebKit2WebExtension.DOMElement */
+    /* Properties of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMElement */
     readonly attributes: DOMNamedNodeMap
     readonly childElementCount: number
     readonly children: DOMHTMLCollection
@@ -32172,7 +31287,7 @@ export class DOMHTMLSelectElement {
     readonly style: DOMCSSStyleDeclaration
     readonly tagName: string
     readonly webkitRegionOverset: string
-    /* Properties of WebKit2WebExtension.DOMNode */
+    /* Properties of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMNode */
     readonly baseUri: string
     readonly childNodes: DOMNodeList
     readonly firstChild: DOMNode
@@ -32186,13 +31301,13 @@ export class DOMHTMLSelectElement {
     readonly parentNode: DOMNode
     readonly previousSibling: DOMNode
     textContent: string
-    /* Fields of WebKit2WebExtension.DOMHTMLSelectElement */
+    /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLSelectElement */
     parentInstance: DOMHTMLElement
-    /* Fields of WebKit2WebExtension.DOMObject */
+    /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMObject */
     coreObject: object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of WebKit2WebExtension.DOMHTMLSelectElement */
+    /* Methods of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLSelectElement */
     add(element: DOMHTMLElement, before: DOMHTMLElement): void
     getAutofocus(): boolean
     getDisabled(): boolean
@@ -32217,7 +31332,7 @@ export class DOMHTMLSelectElement {
     setSelectedIndex(value: number): void
     setSize(value: number): void
     setValue(value: string): void
-    /* Methods of WebKit2WebExtension.DOMHTMLElement */
+    /* Methods of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLElement */
     click(): void
     getAccessKey(): string
     getChildren(): DOMHTMLCollection
@@ -32251,7 +31366,7 @@ export class DOMHTMLSelectElement {
     setTitle(value: string): void
     setTranslate(value: boolean): void
     setWebkitdropzone(value: string): void
-    /* Methods of WebKit2WebExtension.DOMElement */
+    /* Methods of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMElement */
     blur(): void
     closest(selectors: string): DOMElement
     focus(): void
@@ -32329,7 +31444,7 @@ export class DOMHTMLSelectElement {
     setScrollTop(value: number): void
     webkitMatchesSelector(selectors: string): boolean
     webkitRequestFullscreen(): void
-    /* Methods of WebKit2WebExtension.DOMNode */
+    /* Methods of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMNode */
     appendChild(newChild: DOMNode): DOMNode
     cloneNode(deep: boolean): DOMNode
     cloneNodeWithError(deep: boolean): DOMNode
@@ -32362,7 +31477,7 @@ export class DOMHTMLSelectElement {
     setNodeValue(value: string): void
     setPrefix(value: string): void
     setTextContent(value: string): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -32384,29 +31499,16 @@ export class DOMHTMLSelectElement {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of WebKit2WebExtension.DOMEventTarget */
+    /* Methods of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMEventTarget */
     addEventListener(eventName: string, handler: Function, useCapture: boolean): boolean
     dispatchEvent(event: DOMEvent): boolean
     removeEventListener(eventName: string, handler: Function, useCapture: boolean): boolean
-    /* Virtual methods of WebKit2WebExtension.DOMNode */
-    vfuncAddEventListener(eventName: string, handler: Function, useCapture: boolean): boolean
-    vfuncDispatchEvent(event: DOMEvent): boolean
-    vfuncRemoveEventListener(eventName: string, handler: Function, useCapture: boolean): boolean
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: DOMHTMLSelectElement, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: DOMHTMLSelectElement, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::autofocus", callback: (($obj: DOMHTMLSelectElement, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::autofocus", callback: (($obj: DOMHTMLSelectElement, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::autofocus", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -32775,12 +31877,12 @@ export interface DOMHTMLStyleElement_ConstructProps extends DOMHTMLElement_Const
     type?: string
 }
 export class DOMHTMLStyleElement {
-    /* Properties of WebKit2WebExtension.DOMHTMLStyleElement */
+    /* Properties of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLStyleElement */
     disabled: boolean
     media: string
     readonly sheet: DOMStyleSheet
     type: string
-    /* Properties of WebKit2WebExtension.DOMHTMLElement */
+    /* Properties of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLElement */
     accessKey: string
     contentEditable: string
     dir: string
@@ -32795,7 +31897,7 @@ export class DOMHTMLStyleElement {
     title: string
     translate: boolean
     webkitdropzone: string
-    /* Properties of WebKit2WebExtension.DOMElement */
+    /* Properties of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMElement */
     readonly attributes: DOMNamedNodeMap
     readonly childElementCount: number
     readonly children: DOMHTMLCollection
@@ -32827,7 +31929,7 @@ export class DOMHTMLStyleElement {
     readonly style: DOMCSSStyleDeclaration
     readonly tagName: string
     readonly webkitRegionOverset: string
-    /* Properties of WebKit2WebExtension.DOMNode */
+    /* Properties of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMNode */
     readonly baseUri: string
     readonly childNodes: DOMNodeList
     readonly firstChild: DOMNode
@@ -32841,13 +31943,13 @@ export class DOMHTMLStyleElement {
     readonly parentNode: DOMNode
     readonly previousSibling: DOMNode
     textContent: string
-    /* Fields of WebKit2WebExtension.DOMHTMLStyleElement */
+    /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLStyleElement */
     parentInstance: DOMHTMLElement
-    /* Fields of WebKit2WebExtension.DOMObject */
+    /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMObject */
     coreObject: object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of WebKit2WebExtension.DOMHTMLStyleElement */
+    /* Methods of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLStyleElement */
     getDisabled(): boolean
     getMedia(): string
     getSheet(): DOMStyleSheet
@@ -32855,7 +31957,7 @@ export class DOMHTMLStyleElement {
     setDisabled(value: boolean): void
     setMedia(value: string): void
     setTypeAttr(value: string): void
-    /* Methods of WebKit2WebExtension.DOMHTMLElement */
+    /* Methods of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLElement */
     click(): void
     getAccessKey(): string
     getChildren(): DOMHTMLCollection
@@ -32889,7 +31991,7 @@ export class DOMHTMLStyleElement {
     setTitle(value: string): void
     setTranslate(value: boolean): void
     setWebkitdropzone(value: string): void
-    /* Methods of WebKit2WebExtension.DOMElement */
+    /* Methods of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMElement */
     blur(): void
     closest(selectors: string): DOMElement
     focus(): void
@@ -32967,7 +32069,7 @@ export class DOMHTMLStyleElement {
     setScrollTop(value: number): void
     webkitMatchesSelector(selectors: string): boolean
     webkitRequestFullscreen(): void
-    /* Methods of WebKit2WebExtension.DOMNode */
+    /* Methods of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMNode */
     appendChild(newChild: DOMNode): DOMNode
     cloneNode(deep: boolean): DOMNode
     cloneNodeWithError(deep: boolean): DOMNode
@@ -33000,7 +32102,7 @@ export class DOMHTMLStyleElement {
     setNodeValue(value: string): void
     setPrefix(value: string): void
     setTextContent(value: string): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -33022,29 +32124,16 @@ export class DOMHTMLStyleElement {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of WebKit2WebExtension.DOMEventTarget */
+    /* Methods of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMEventTarget */
     addEventListener(eventName: string, handler: Function, useCapture: boolean): boolean
     dispatchEvent(event: DOMEvent): boolean
     removeEventListener(eventName: string, handler: Function, useCapture: boolean): boolean
-    /* Virtual methods of WebKit2WebExtension.DOMNode */
-    vfuncAddEventListener(eventName: string, handler: Function, useCapture: boolean): boolean
-    vfuncDispatchEvent(event: DOMEvent): boolean
-    vfuncRemoveEventListener(eventName: string, handler: Function, useCapture: boolean): boolean
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: DOMHTMLStyleElement, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: DOMHTMLStyleElement, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::disabled", callback: (($obj: DOMHTMLStyleElement, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::disabled", callback: (($obj: DOMHTMLStyleElement, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::disabled", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -33371,9 +32460,9 @@ export interface DOMHTMLTableCaptionElement_ConstructProps extends DOMHTMLElemen
     align?: string
 }
 export class DOMHTMLTableCaptionElement {
-    /* Properties of WebKit2WebExtension.DOMHTMLTableCaptionElement */
+    /* Properties of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLTableCaptionElement */
     align: string
-    /* Properties of WebKit2WebExtension.DOMHTMLElement */
+    /* Properties of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLElement */
     accessKey: string
     contentEditable: string
     dir: string
@@ -33388,7 +32477,7 @@ export class DOMHTMLTableCaptionElement {
     title: string
     translate: boolean
     webkitdropzone: string
-    /* Properties of WebKit2WebExtension.DOMElement */
+    /* Properties of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMElement */
     readonly attributes: DOMNamedNodeMap
     readonly childElementCount: number
     readonly children: DOMHTMLCollection
@@ -33420,7 +32509,7 @@ export class DOMHTMLTableCaptionElement {
     readonly style: DOMCSSStyleDeclaration
     readonly tagName: string
     readonly webkitRegionOverset: string
-    /* Properties of WebKit2WebExtension.DOMNode */
+    /* Properties of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMNode */
     readonly baseUri: string
     readonly childNodes: DOMNodeList
     readonly firstChild: DOMNode
@@ -33434,16 +32523,16 @@ export class DOMHTMLTableCaptionElement {
     readonly parentNode: DOMNode
     readonly previousSibling: DOMNode
     textContent: string
-    /* Fields of WebKit2WebExtension.DOMHTMLTableCaptionElement */
+    /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLTableCaptionElement */
     parentInstance: DOMHTMLElement
-    /* Fields of WebKit2WebExtension.DOMObject */
+    /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMObject */
     coreObject: object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of WebKit2WebExtension.DOMHTMLTableCaptionElement */
+    /* Methods of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLTableCaptionElement */
     getAlign(): string
     setAlign(value: string): void
-    /* Methods of WebKit2WebExtension.DOMHTMLElement */
+    /* Methods of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLElement */
     click(): void
     getAccessKey(): string
     getChildren(): DOMHTMLCollection
@@ -33477,7 +32566,7 @@ export class DOMHTMLTableCaptionElement {
     setTitle(value: string): void
     setTranslate(value: boolean): void
     setWebkitdropzone(value: string): void
-    /* Methods of WebKit2WebExtension.DOMElement */
+    /* Methods of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMElement */
     blur(): void
     closest(selectors: string): DOMElement
     focus(): void
@@ -33555,7 +32644,7 @@ export class DOMHTMLTableCaptionElement {
     setScrollTop(value: number): void
     webkitMatchesSelector(selectors: string): boolean
     webkitRequestFullscreen(): void
-    /* Methods of WebKit2WebExtension.DOMNode */
+    /* Methods of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMNode */
     appendChild(newChild: DOMNode): DOMNode
     cloneNode(deep: boolean): DOMNode
     cloneNodeWithError(deep: boolean): DOMNode
@@ -33588,7 +32677,7 @@ export class DOMHTMLTableCaptionElement {
     setNodeValue(value: string): void
     setPrefix(value: string): void
     setTextContent(value: string): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -33610,29 +32699,16 @@ export class DOMHTMLTableCaptionElement {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of WebKit2WebExtension.DOMEventTarget */
+    /* Methods of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMEventTarget */
     addEventListener(eventName: string, handler: Function, useCapture: boolean): boolean
     dispatchEvent(event: DOMEvent): boolean
     removeEventListener(eventName: string, handler: Function, useCapture: boolean): boolean
-    /* Virtual methods of WebKit2WebExtension.DOMNode */
-    vfuncAddEventListener(eventName: string, handler: Function, useCapture: boolean): boolean
-    vfuncDispatchEvent(event: DOMEvent): boolean
-    vfuncRemoveEventListener(eventName: string, handler: Function, useCapture: boolean): boolean
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: DOMHTMLTableCaptionElement, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: DOMHTMLTableCaptionElement, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::align", callback: (($obj: DOMHTMLTableCaptionElement, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::align", callback: (($obj: DOMHTMLTableCaptionElement, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::align", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -33957,7 +33033,7 @@ export interface DOMHTMLTableCellElement_ConstructProps extends DOMHTMLElement_C
     width?: string
 }
 export class DOMHTMLTableCellElement {
-    /* Properties of WebKit2WebExtension.DOMHTMLTableCellElement */
+    /* Properties of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLTableCellElement */
     abbr: string
     align: string
     axis: string
@@ -33973,7 +33049,7 @@ export class DOMHTMLTableCellElement {
     scope: string
     vAlign: string
     width: string
-    /* Properties of WebKit2WebExtension.DOMHTMLElement */
+    /* Properties of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLElement */
     accessKey: string
     contentEditable: string
     dir: string
@@ -33988,7 +33064,7 @@ export class DOMHTMLTableCellElement {
     title: string
     translate: boolean
     webkitdropzone: string
-    /* Properties of WebKit2WebExtension.DOMElement */
+    /* Properties of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMElement */
     readonly attributes: DOMNamedNodeMap
     readonly childElementCount: number
     readonly children: DOMHTMLCollection
@@ -34020,7 +33096,7 @@ export class DOMHTMLTableCellElement {
     readonly style: DOMCSSStyleDeclaration
     readonly tagName: string
     readonly webkitRegionOverset: string
-    /* Properties of WebKit2WebExtension.DOMNode */
+    /* Properties of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMNode */
     readonly baseUri: string
     readonly childNodes: DOMNodeList
     readonly firstChild: DOMNode
@@ -34034,13 +33110,13 @@ export class DOMHTMLTableCellElement {
     readonly parentNode: DOMNode
     readonly previousSibling: DOMNode
     textContent: string
-    /* Fields of WebKit2WebExtension.DOMHTMLTableCellElement */
+    /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLTableCellElement */
     parentInstance: DOMHTMLElement
-    /* Fields of WebKit2WebExtension.DOMObject */
+    /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMObject */
     coreObject: object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of WebKit2WebExtension.DOMHTMLTableCellElement */
+    /* Methods of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLTableCellElement */
     getAbbr(): string
     getAlign(): string
     getAxis(): string
@@ -34070,7 +33146,7 @@ export class DOMHTMLTableCellElement {
     setScope(value: string): void
     setVAlign(value: string): void
     setWidth(value: string): void
-    /* Methods of WebKit2WebExtension.DOMHTMLElement */
+    /* Methods of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLElement */
     click(): void
     getAccessKey(): string
     getChildren(): DOMHTMLCollection
@@ -34104,7 +33180,7 @@ export class DOMHTMLTableCellElement {
     setTitle(value: string): void
     setTranslate(value: boolean): void
     setWebkitdropzone(value: string): void
-    /* Methods of WebKit2WebExtension.DOMElement */
+    /* Methods of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMElement */
     blur(): void
     closest(selectors: string): DOMElement
     focus(): void
@@ -34182,7 +33258,7 @@ export class DOMHTMLTableCellElement {
     setScrollTop(value: number): void
     webkitMatchesSelector(selectors: string): boolean
     webkitRequestFullscreen(): void
-    /* Methods of WebKit2WebExtension.DOMNode */
+    /* Methods of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMNode */
     appendChild(newChild: DOMNode): DOMNode
     cloneNode(deep: boolean): DOMNode
     cloneNodeWithError(deep: boolean): DOMNode
@@ -34215,7 +33291,7 @@ export class DOMHTMLTableCellElement {
     setNodeValue(value: string): void
     setPrefix(value: string): void
     setTextContent(value: string): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -34237,29 +33313,16 @@ export class DOMHTMLTableCellElement {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of WebKit2WebExtension.DOMEventTarget */
+    /* Methods of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMEventTarget */
     addEventListener(eventName: string, handler: Function, useCapture: boolean): boolean
     dispatchEvent(event: DOMEvent): boolean
     removeEventListener(eventName: string, handler: Function, useCapture: boolean): boolean
-    /* Virtual methods of WebKit2WebExtension.DOMNode */
-    vfuncAddEventListener(eventName: string, handler: Function, useCapture: boolean): boolean
-    vfuncDispatchEvent(event: DOMEvent): boolean
-    vfuncRemoveEventListener(eventName: string, handler: Function, useCapture: boolean): boolean
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: DOMHTMLTableCellElement, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: DOMHTMLTableCellElement, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::abbr", callback: (($obj: DOMHTMLTableCellElement, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::abbr", callback: (($obj: DOMHTMLTableCellElement, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::abbr", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -34646,14 +33709,14 @@ export interface DOMHTMLTableColElement_ConstructProps extends DOMHTMLElement_Co
     width?: string
 }
 export class DOMHTMLTableColElement {
-    /* Properties of WebKit2WebExtension.DOMHTMLTableColElement */
+    /* Properties of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLTableColElement */
     align: string
     ch: string
     chOff: string
     span: number
     vAlign: string
     width: string
-    /* Properties of WebKit2WebExtension.DOMHTMLElement */
+    /* Properties of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLElement */
     accessKey: string
     contentEditable: string
     dir: string
@@ -34668,7 +33731,7 @@ export class DOMHTMLTableColElement {
     title: string
     translate: boolean
     webkitdropzone: string
-    /* Properties of WebKit2WebExtension.DOMElement */
+    /* Properties of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMElement */
     readonly attributes: DOMNamedNodeMap
     readonly childElementCount: number
     readonly children: DOMHTMLCollection
@@ -34700,7 +33763,7 @@ export class DOMHTMLTableColElement {
     readonly style: DOMCSSStyleDeclaration
     readonly tagName: string
     readonly webkitRegionOverset: string
-    /* Properties of WebKit2WebExtension.DOMNode */
+    /* Properties of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMNode */
     readonly baseUri: string
     readonly childNodes: DOMNodeList
     readonly firstChild: DOMNode
@@ -34714,13 +33777,13 @@ export class DOMHTMLTableColElement {
     readonly parentNode: DOMNode
     readonly previousSibling: DOMNode
     textContent: string
-    /* Fields of WebKit2WebExtension.DOMHTMLTableColElement */
+    /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLTableColElement */
     parentInstance: DOMHTMLElement
-    /* Fields of WebKit2WebExtension.DOMObject */
+    /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMObject */
     coreObject: object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of WebKit2WebExtension.DOMHTMLTableColElement */
+    /* Methods of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLTableColElement */
     getAlign(): string
     getCh(): string
     getChOff(): string
@@ -34733,7 +33796,7 @@ export class DOMHTMLTableColElement {
     setSpan(value: number): void
     setVAlign(value: string): void
     setWidth(value: string): void
-    /* Methods of WebKit2WebExtension.DOMHTMLElement */
+    /* Methods of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLElement */
     click(): void
     getAccessKey(): string
     getChildren(): DOMHTMLCollection
@@ -34767,7 +33830,7 @@ export class DOMHTMLTableColElement {
     setTitle(value: string): void
     setTranslate(value: boolean): void
     setWebkitdropzone(value: string): void
-    /* Methods of WebKit2WebExtension.DOMElement */
+    /* Methods of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMElement */
     blur(): void
     closest(selectors: string): DOMElement
     focus(): void
@@ -34845,7 +33908,7 @@ export class DOMHTMLTableColElement {
     setScrollTop(value: number): void
     webkitMatchesSelector(selectors: string): boolean
     webkitRequestFullscreen(): void
-    /* Methods of WebKit2WebExtension.DOMNode */
+    /* Methods of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMNode */
     appendChild(newChild: DOMNode): DOMNode
     cloneNode(deep: boolean): DOMNode
     cloneNodeWithError(deep: boolean): DOMNode
@@ -34878,7 +33941,7 @@ export class DOMHTMLTableColElement {
     setNodeValue(value: string): void
     setPrefix(value: string): void
     setTextContent(value: string): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -34900,29 +33963,16 @@ export class DOMHTMLTableColElement {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of WebKit2WebExtension.DOMEventTarget */
+    /* Methods of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMEventTarget */
     addEventListener(eventName: string, handler: Function, useCapture: boolean): boolean
     dispatchEvent(event: DOMEvent): boolean
     removeEventListener(eventName: string, handler: Function, useCapture: boolean): boolean
-    /* Virtual methods of WebKit2WebExtension.DOMNode */
-    vfuncAddEventListener(eventName: string, handler: Function, useCapture: boolean): boolean
-    vfuncDispatchEvent(event: DOMEvent): boolean
-    vfuncRemoveEventListener(eventName: string, handler: Function, useCapture: boolean): boolean
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: DOMHTMLTableColElement, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: DOMHTMLTableColElement, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::align", callback: (($obj: DOMHTMLTableColElement, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::align", callback: (($obj: DOMHTMLTableColElement, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::align", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -35266,7 +34316,7 @@ export interface DOMHTMLTableElement_ConstructProps extends DOMHTMLElement_Const
     width?: string
 }
 export class DOMHTMLTableElement {
-    /* Properties of WebKit2WebExtension.DOMHTMLTableElement */
+    /* Properties of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLTableElement */
     align: string
     bgColor: string
     border: string
@@ -35280,7 +34330,7 @@ export class DOMHTMLTableElement {
     readonly tFoot: DOMHTMLTableSectionElement
     readonly tHead: DOMHTMLTableSectionElement
     width: string
-    /* Properties of WebKit2WebExtension.DOMHTMLElement */
+    /* Properties of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLElement */
     accessKey: string
     contentEditable: string
     dir: string
@@ -35295,7 +34345,7 @@ export class DOMHTMLTableElement {
     title: string
     translate: boolean
     webkitdropzone: string
-    /* Properties of WebKit2WebExtension.DOMElement */
+    /* Properties of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMElement */
     readonly attributes: DOMNamedNodeMap
     readonly childElementCount: number
     readonly children: DOMHTMLCollection
@@ -35327,7 +34377,7 @@ export class DOMHTMLTableElement {
     readonly style: DOMCSSStyleDeclaration
     readonly tagName: string
     readonly webkitRegionOverset: string
-    /* Properties of WebKit2WebExtension.DOMNode */
+    /* Properties of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMNode */
     readonly baseUri: string
     readonly childNodes: DOMNodeList
     readonly firstChild: DOMNode
@@ -35341,13 +34391,13 @@ export class DOMHTMLTableElement {
     readonly parentNode: DOMNode
     readonly previousSibling: DOMNode
     textContent: string
-    /* Fields of WebKit2WebExtension.DOMHTMLTableElement */
+    /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLTableElement */
     parentInstance: DOMHTMLElement
-    /* Fields of WebKit2WebExtension.DOMObject */
+    /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMObject */
     coreObject: object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of WebKit2WebExtension.DOMHTMLTableElement */
+    /* Methods of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLTableElement */
     createCaption(): DOMHTMLElement
     createTFoot(): DOMHTMLElement
     createTHead(): DOMHTMLElement
@@ -35380,7 +34430,7 @@ export class DOMHTMLTableElement {
     setTFoot(value: DOMHTMLTableSectionElement): void
     setTHead(value: DOMHTMLTableSectionElement): void
     setWidth(value: string): void
-    /* Methods of WebKit2WebExtension.DOMHTMLElement */
+    /* Methods of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLElement */
     click(): void
     getAccessKey(): string
     getChildren(): DOMHTMLCollection
@@ -35414,7 +34464,7 @@ export class DOMHTMLTableElement {
     setTitle(value: string): void
     setTranslate(value: boolean): void
     setWebkitdropzone(value: string): void
-    /* Methods of WebKit2WebExtension.DOMElement */
+    /* Methods of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMElement */
     blur(): void
     closest(selectors: string): DOMElement
     focus(): void
@@ -35492,7 +34542,7 @@ export class DOMHTMLTableElement {
     setScrollTop(value: number): void
     webkitMatchesSelector(selectors: string): boolean
     webkitRequestFullscreen(): void
-    /* Methods of WebKit2WebExtension.DOMNode */
+    /* Methods of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMNode */
     appendChild(newChild: DOMNode): DOMNode
     cloneNode(deep: boolean): DOMNode
     cloneNodeWithError(deep: boolean): DOMNode
@@ -35525,7 +34575,7 @@ export class DOMHTMLTableElement {
     setNodeValue(value: string): void
     setPrefix(value: string): void
     setTextContent(value: string): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -35547,29 +34597,16 @@ export class DOMHTMLTableElement {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of WebKit2WebExtension.DOMEventTarget */
+    /* Methods of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMEventTarget */
     addEventListener(eventName: string, handler: Function, useCapture: boolean): boolean
     dispatchEvent(event: DOMEvent): boolean
     removeEventListener(eventName: string, handler: Function, useCapture: boolean): boolean
-    /* Virtual methods of WebKit2WebExtension.DOMNode */
-    vfuncAddEventListener(eventName: string, handler: Function, useCapture: boolean): boolean
-    vfuncDispatchEvent(event: DOMEvent): boolean
-    vfuncRemoveEventListener(eventName: string, handler: Function, useCapture: boolean): boolean
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: DOMHTMLTableElement, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: DOMHTMLTableElement, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::align", callback: (($obj: DOMHTMLTableElement, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::align", callback: (($obj: DOMHTMLTableElement, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::align", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -35945,7 +34982,7 @@ export interface DOMHTMLTableRowElement_ConstructProps extends DOMHTMLElement_Co
     vAlign?: string
 }
 export class DOMHTMLTableRowElement {
-    /* Properties of WebKit2WebExtension.DOMHTMLTableRowElement */
+    /* Properties of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLTableRowElement */
     align: string
     bgColor: string
     readonly cells: DOMHTMLCollection
@@ -35954,7 +34991,7 @@ export class DOMHTMLTableRowElement {
     readonly rowIndex: number
     readonly sectionRowIndex: number
     vAlign: string
-    /* Properties of WebKit2WebExtension.DOMHTMLElement */
+    /* Properties of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLElement */
     accessKey: string
     contentEditable: string
     dir: string
@@ -35969,7 +35006,7 @@ export class DOMHTMLTableRowElement {
     title: string
     translate: boolean
     webkitdropzone: string
-    /* Properties of WebKit2WebExtension.DOMElement */
+    /* Properties of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMElement */
     readonly attributes: DOMNamedNodeMap
     readonly childElementCount: number
     readonly children: DOMHTMLCollection
@@ -36001,7 +35038,7 @@ export class DOMHTMLTableRowElement {
     readonly style: DOMCSSStyleDeclaration
     readonly tagName: string
     readonly webkitRegionOverset: string
-    /* Properties of WebKit2WebExtension.DOMNode */
+    /* Properties of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMNode */
     readonly baseUri: string
     readonly childNodes: DOMNodeList
     readonly firstChild: DOMNode
@@ -36015,13 +35052,13 @@ export class DOMHTMLTableRowElement {
     readonly parentNode: DOMNode
     readonly previousSibling: DOMNode
     textContent: string
-    /* Fields of WebKit2WebExtension.DOMHTMLTableRowElement */
+    /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLTableRowElement */
     parentInstance: DOMHTMLElement
-    /* Fields of WebKit2WebExtension.DOMObject */
+    /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMObject */
     coreObject: object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of WebKit2WebExtension.DOMHTMLTableRowElement */
+    /* Methods of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLTableRowElement */
     deleteCell(index: number): void
     getAlign(): string
     getBgColor(): string
@@ -36037,7 +35074,7 @@ export class DOMHTMLTableRowElement {
     setCh(value: string): void
     setChOff(value: string): void
     setVAlign(value: string): void
-    /* Methods of WebKit2WebExtension.DOMHTMLElement */
+    /* Methods of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLElement */
     click(): void
     getAccessKey(): string
     getChildren(): DOMHTMLCollection
@@ -36071,7 +35108,7 @@ export class DOMHTMLTableRowElement {
     setTitle(value: string): void
     setTranslate(value: boolean): void
     setWebkitdropzone(value: string): void
-    /* Methods of WebKit2WebExtension.DOMElement */
+    /* Methods of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMElement */
     blur(): void
     closest(selectors: string): DOMElement
     focus(): void
@@ -36149,7 +35186,7 @@ export class DOMHTMLTableRowElement {
     setScrollTop(value: number): void
     webkitMatchesSelector(selectors: string): boolean
     webkitRequestFullscreen(): void
-    /* Methods of WebKit2WebExtension.DOMNode */
+    /* Methods of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMNode */
     appendChild(newChild: DOMNode): DOMNode
     cloneNode(deep: boolean): DOMNode
     cloneNodeWithError(deep: boolean): DOMNode
@@ -36182,7 +35219,7 @@ export class DOMHTMLTableRowElement {
     setNodeValue(value: string): void
     setPrefix(value: string): void
     setTextContent(value: string): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -36204,29 +35241,16 @@ export class DOMHTMLTableRowElement {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of WebKit2WebExtension.DOMEventTarget */
+    /* Methods of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMEventTarget */
     addEventListener(eventName: string, handler: Function, useCapture: boolean): boolean
     dispatchEvent(event: DOMEvent): boolean
     removeEventListener(eventName: string, handler: Function, useCapture: boolean): boolean
-    /* Virtual methods of WebKit2WebExtension.DOMNode */
-    vfuncAddEventListener(eventName: string, handler: Function, useCapture: boolean): boolean
-    vfuncDispatchEvent(event: DOMEvent): boolean
-    vfuncRemoveEventListener(eventName: string, handler: Function, useCapture: boolean): boolean
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: DOMHTMLTableRowElement, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: DOMHTMLTableRowElement, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::align", callback: (($obj: DOMHTMLTableRowElement, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::align", callback: (($obj: DOMHTMLTableRowElement, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::align", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -36576,13 +35600,13 @@ export interface DOMHTMLTableSectionElement_ConstructProps extends DOMHTMLElemen
     vAlign?: string
 }
 export class DOMHTMLTableSectionElement {
-    /* Properties of WebKit2WebExtension.DOMHTMLTableSectionElement */
+    /* Properties of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLTableSectionElement */
     align: string
     ch: string
     chOff: string
     readonly rows: DOMHTMLCollection
     vAlign: string
-    /* Properties of WebKit2WebExtension.DOMHTMLElement */
+    /* Properties of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLElement */
     accessKey: string
     contentEditable: string
     dir: string
@@ -36597,7 +35621,7 @@ export class DOMHTMLTableSectionElement {
     title: string
     translate: boolean
     webkitdropzone: string
-    /* Properties of WebKit2WebExtension.DOMElement */
+    /* Properties of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMElement */
     readonly attributes: DOMNamedNodeMap
     readonly childElementCount: number
     readonly children: DOMHTMLCollection
@@ -36629,7 +35653,7 @@ export class DOMHTMLTableSectionElement {
     readonly style: DOMCSSStyleDeclaration
     readonly tagName: string
     readonly webkitRegionOverset: string
-    /* Properties of WebKit2WebExtension.DOMNode */
+    /* Properties of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMNode */
     readonly baseUri: string
     readonly childNodes: DOMNodeList
     readonly firstChild: DOMNode
@@ -36643,13 +35667,13 @@ export class DOMHTMLTableSectionElement {
     readonly parentNode: DOMNode
     readonly previousSibling: DOMNode
     textContent: string
-    /* Fields of WebKit2WebExtension.DOMHTMLTableSectionElement */
+    /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLTableSectionElement */
     parentInstance: DOMHTMLElement
-    /* Fields of WebKit2WebExtension.DOMObject */
+    /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMObject */
     coreObject: object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of WebKit2WebExtension.DOMHTMLTableSectionElement */
+    /* Methods of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLTableSectionElement */
     deleteRow(index: number): void
     getAlign(): string
     getCh(): string
@@ -36661,7 +35685,7 @@ export class DOMHTMLTableSectionElement {
     setCh(value: string): void
     setChOff(value: string): void
     setVAlign(value: string): void
-    /* Methods of WebKit2WebExtension.DOMHTMLElement */
+    /* Methods of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLElement */
     click(): void
     getAccessKey(): string
     getChildren(): DOMHTMLCollection
@@ -36695,7 +35719,7 @@ export class DOMHTMLTableSectionElement {
     setTitle(value: string): void
     setTranslate(value: boolean): void
     setWebkitdropzone(value: string): void
-    /* Methods of WebKit2WebExtension.DOMElement */
+    /* Methods of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMElement */
     blur(): void
     closest(selectors: string): DOMElement
     focus(): void
@@ -36773,7 +35797,7 @@ export class DOMHTMLTableSectionElement {
     setScrollTop(value: number): void
     webkitMatchesSelector(selectors: string): boolean
     webkitRequestFullscreen(): void
-    /* Methods of WebKit2WebExtension.DOMNode */
+    /* Methods of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMNode */
     appendChild(newChild: DOMNode): DOMNode
     cloneNode(deep: boolean): DOMNode
     cloneNodeWithError(deep: boolean): DOMNode
@@ -36806,7 +35830,7 @@ export class DOMHTMLTableSectionElement {
     setNodeValue(value: string): void
     setPrefix(value: string): void
     setTextContent(value: string): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -36828,29 +35852,16 @@ export class DOMHTMLTableSectionElement {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of WebKit2WebExtension.DOMEventTarget */
+    /* Methods of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMEventTarget */
     addEventListener(eventName: string, handler: Function, useCapture: boolean): boolean
     dispatchEvent(event: DOMEvent): boolean
     removeEventListener(eventName: string, handler: Function, useCapture: boolean): boolean
-    /* Virtual methods of WebKit2WebExtension.DOMNode */
-    vfuncAddEventListener(eventName: string, handler: Function, useCapture: boolean): boolean
-    vfuncDispatchEvent(event: DOMEvent): boolean
-    vfuncRemoveEventListener(eventName: string, handler: Function, useCapture: boolean): boolean
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: DOMHTMLTableSectionElement, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: DOMHTMLTableSectionElement, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::align", callback: (($obj: DOMHTMLTableSectionElement, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::align", callback: (($obj: DOMHTMLTableSectionElement, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::align", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -37191,7 +36202,7 @@ export interface DOMHTMLTextAreaElement_ConstructProps extends DOMHTMLElement_Co
     value?: string
 }
 export class DOMHTMLTextAreaElement {
-    /* Properties of WebKit2WebExtension.DOMHTMLTextAreaElement */
+    /* Properties of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLTextAreaElement */
     autofocus: boolean
     cols: number
     defaultValue: string
@@ -37205,7 +36216,7 @@ export class DOMHTMLTextAreaElement {
     readonly type: string
     value: string
     readonly willValidate: boolean
-    /* Properties of WebKit2WebExtension.DOMHTMLElement */
+    /* Properties of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLElement */
     accessKey: string
     contentEditable: string
     dir: string
@@ -37220,7 +36231,7 @@ export class DOMHTMLTextAreaElement {
     title: string
     translate: boolean
     webkitdropzone: string
-    /* Properties of WebKit2WebExtension.DOMElement */
+    /* Properties of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMElement */
     readonly attributes: DOMNamedNodeMap
     readonly childElementCount: number
     readonly children: DOMHTMLCollection
@@ -37252,7 +36263,7 @@ export class DOMHTMLTextAreaElement {
     readonly style: DOMCSSStyleDeclaration
     readonly tagName: string
     readonly webkitRegionOverset: string
-    /* Properties of WebKit2WebExtension.DOMNode */
+    /* Properties of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMNode */
     readonly baseUri: string
     readonly childNodes: DOMNodeList
     readonly firstChild: DOMNode
@@ -37266,13 +36277,13 @@ export class DOMHTMLTextAreaElement {
     readonly parentNode: DOMNode
     readonly previousSibling: DOMNode
     textContent: string
-    /* Fields of WebKit2WebExtension.DOMHTMLTextAreaElement */
+    /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLTextAreaElement */
     parentInstance: DOMHTMLElement
-    /* Fields of WebKit2WebExtension.DOMObject */
+    /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMObject */
     coreObject: object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of WebKit2WebExtension.DOMHTMLTextAreaElement */
+    /* Methods of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLTextAreaElement */
     getAreaType(): string
     getAutofocus(): boolean
     getCols(): number
@@ -37299,7 +36310,7 @@ export class DOMHTMLTextAreaElement {
     setSelectionRange(start: number, end: number, direction: string): void
     setSelectionStart(value: number): void
     setValue(value: string): void
-    /* Methods of WebKit2WebExtension.DOMHTMLElement */
+    /* Methods of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLElement */
     click(): void
     getAccessKey(): string
     getChildren(): DOMHTMLCollection
@@ -37333,7 +36344,7 @@ export class DOMHTMLTextAreaElement {
     setTitle(value: string): void
     setTranslate(value: boolean): void
     setWebkitdropzone(value: string): void
-    /* Methods of WebKit2WebExtension.DOMElement */
+    /* Methods of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMElement */
     blur(): void
     closest(selectors: string): DOMElement
     focus(): void
@@ -37411,7 +36422,7 @@ export class DOMHTMLTextAreaElement {
     setScrollTop(value: number): void
     webkitMatchesSelector(selectors: string): boolean
     webkitRequestFullscreen(): void
-    /* Methods of WebKit2WebExtension.DOMNode */
+    /* Methods of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMNode */
     appendChild(newChild: DOMNode): DOMNode
     cloneNode(deep: boolean): DOMNode
     cloneNodeWithError(deep: boolean): DOMNode
@@ -37444,7 +36455,7 @@ export class DOMHTMLTextAreaElement {
     setNodeValue(value: string): void
     setPrefix(value: string): void
     setTextContent(value: string): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -37466,29 +36477,16 @@ export class DOMHTMLTextAreaElement {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of WebKit2WebExtension.DOMEventTarget */
+    /* Methods of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMEventTarget */
     addEventListener(eventName: string, handler: Function, useCapture: boolean): boolean
     dispatchEvent(event: DOMEvent): boolean
     removeEventListener(eventName: string, handler: Function, useCapture: boolean): boolean
-    /* Virtual methods of WebKit2WebExtension.DOMNode */
-    vfuncAddEventListener(eventName: string, handler: Function, useCapture: boolean): boolean
-    vfuncDispatchEvent(event: DOMEvent): boolean
-    vfuncRemoveEventListener(eventName: string, handler: Function, useCapture: boolean): boolean
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: DOMHTMLTextAreaElement, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: DOMHTMLTextAreaElement, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::autofocus", callback: (($obj: DOMHTMLTextAreaElement, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::autofocus", callback: (($obj: DOMHTMLTextAreaElement, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::autofocus", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -37860,9 +36858,9 @@ export interface DOMHTMLTitleElement_ConstructProps extends DOMHTMLElement_Const
     text?: string
 }
 export class DOMHTMLTitleElement {
-    /* Properties of WebKit2WebExtension.DOMHTMLTitleElement */
+    /* Properties of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLTitleElement */
     text: string
-    /* Properties of WebKit2WebExtension.DOMHTMLElement */
+    /* Properties of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLElement */
     accessKey: string
     contentEditable: string
     dir: string
@@ -37877,7 +36875,7 @@ export class DOMHTMLTitleElement {
     title: string
     translate: boolean
     webkitdropzone: string
-    /* Properties of WebKit2WebExtension.DOMElement */
+    /* Properties of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMElement */
     readonly attributes: DOMNamedNodeMap
     readonly childElementCount: number
     readonly children: DOMHTMLCollection
@@ -37909,7 +36907,7 @@ export class DOMHTMLTitleElement {
     readonly style: DOMCSSStyleDeclaration
     readonly tagName: string
     readonly webkitRegionOverset: string
-    /* Properties of WebKit2WebExtension.DOMNode */
+    /* Properties of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMNode */
     readonly baseUri: string
     readonly childNodes: DOMNodeList
     readonly firstChild: DOMNode
@@ -37923,16 +36921,16 @@ export class DOMHTMLTitleElement {
     readonly parentNode: DOMNode
     readonly previousSibling: DOMNode
     textContent: string
-    /* Fields of WebKit2WebExtension.DOMHTMLTitleElement */
+    /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLTitleElement */
     parentInstance: DOMHTMLElement
-    /* Fields of WebKit2WebExtension.DOMObject */
+    /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMObject */
     coreObject: object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of WebKit2WebExtension.DOMHTMLTitleElement */
+    /* Methods of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLTitleElement */
     getText(): string
     setText(value: string): void
-    /* Methods of WebKit2WebExtension.DOMHTMLElement */
+    /* Methods of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLElement */
     click(): void
     getAccessKey(): string
     getChildren(): DOMHTMLCollection
@@ -37966,7 +36964,7 @@ export class DOMHTMLTitleElement {
     setTitle(value: string): void
     setTranslate(value: boolean): void
     setWebkitdropzone(value: string): void
-    /* Methods of WebKit2WebExtension.DOMElement */
+    /* Methods of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMElement */
     blur(): void
     closest(selectors: string): DOMElement
     focus(): void
@@ -38044,7 +37042,7 @@ export class DOMHTMLTitleElement {
     setScrollTop(value: number): void
     webkitMatchesSelector(selectors: string): boolean
     webkitRequestFullscreen(): void
-    /* Methods of WebKit2WebExtension.DOMNode */
+    /* Methods of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMNode */
     appendChild(newChild: DOMNode): DOMNode
     cloneNode(deep: boolean): DOMNode
     cloneNodeWithError(deep: boolean): DOMNode
@@ -38077,7 +37075,7 @@ export class DOMHTMLTitleElement {
     setNodeValue(value: string): void
     setPrefix(value: string): void
     setTextContent(value: string): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -38099,29 +37097,16 @@ export class DOMHTMLTitleElement {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of WebKit2WebExtension.DOMEventTarget */
+    /* Methods of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMEventTarget */
     addEventListener(eventName: string, handler: Function, useCapture: boolean): boolean
     dispatchEvent(event: DOMEvent): boolean
     removeEventListener(eventName: string, handler: Function, useCapture: boolean): boolean
-    /* Virtual methods of WebKit2WebExtension.DOMNode */
-    vfuncAddEventListener(eventName: string, handler: Function, useCapture: boolean): boolean
-    vfuncDispatchEvent(event: DOMEvent): boolean
-    vfuncRemoveEventListener(eventName: string, handler: Function, useCapture: boolean): boolean
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: DOMHTMLTitleElement, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: DOMHTMLTitleElement, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::text", callback: (($obj: DOMHTMLTitleElement, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::text", callback: (($obj: DOMHTMLTitleElement, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::text", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -38434,10 +37419,10 @@ export interface DOMHTMLUListElement_ConstructProps extends DOMHTMLElement_Const
     type?: string
 }
 export class DOMHTMLUListElement {
-    /* Properties of WebKit2WebExtension.DOMHTMLUListElement */
+    /* Properties of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLUListElement */
     compact: boolean
     type: string
-    /* Properties of WebKit2WebExtension.DOMHTMLElement */
+    /* Properties of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLElement */
     accessKey: string
     contentEditable: string
     dir: string
@@ -38452,7 +37437,7 @@ export class DOMHTMLUListElement {
     title: string
     translate: boolean
     webkitdropzone: string
-    /* Properties of WebKit2WebExtension.DOMElement */
+    /* Properties of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMElement */
     readonly attributes: DOMNamedNodeMap
     readonly childElementCount: number
     readonly children: DOMHTMLCollection
@@ -38484,7 +37469,7 @@ export class DOMHTMLUListElement {
     readonly style: DOMCSSStyleDeclaration
     readonly tagName: string
     readonly webkitRegionOverset: string
-    /* Properties of WebKit2WebExtension.DOMNode */
+    /* Properties of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMNode */
     readonly baseUri: string
     readonly childNodes: DOMNodeList
     readonly firstChild: DOMNode
@@ -38498,18 +37483,18 @@ export class DOMHTMLUListElement {
     readonly parentNode: DOMNode
     readonly previousSibling: DOMNode
     textContent: string
-    /* Fields of WebKit2WebExtension.DOMHTMLUListElement */
+    /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLUListElement */
     parentInstance: DOMHTMLElement
-    /* Fields of WebKit2WebExtension.DOMObject */
+    /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMObject */
     coreObject: object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of WebKit2WebExtension.DOMHTMLUListElement */
+    /* Methods of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLUListElement */
     getCompact(): boolean
     getTypeAttr(): string
     setCompact(value: boolean): void
     setTypeAttr(value: string): void
-    /* Methods of WebKit2WebExtension.DOMHTMLElement */
+    /* Methods of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLElement */
     click(): void
     getAccessKey(): string
     getChildren(): DOMHTMLCollection
@@ -38543,7 +37528,7 @@ export class DOMHTMLUListElement {
     setTitle(value: string): void
     setTranslate(value: boolean): void
     setWebkitdropzone(value: string): void
-    /* Methods of WebKit2WebExtension.DOMElement */
+    /* Methods of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMElement */
     blur(): void
     closest(selectors: string): DOMElement
     focus(): void
@@ -38621,7 +37606,7 @@ export class DOMHTMLUListElement {
     setScrollTop(value: number): void
     webkitMatchesSelector(selectors: string): boolean
     webkitRequestFullscreen(): void
-    /* Methods of WebKit2WebExtension.DOMNode */
+    /* Methods of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMNode */
     appendChild(newChild: DOMNode): DOMNode
     cloneNode(deep: boolean): DOMNode
     cloneNodeWithError(deep: boolean): DOMNode
@@ -38654,7 +37639,7 @@ export class DOMHTMLUListElement {
     setNodeValue(value: string): void
     setPrefix(value: string): void
     setTextContent(value: string): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -38676,29 +37661,16 @@ export class DOMHTMLUListElement {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of WebKit2WebExtension.DOMEventTarget */
+    /* Methods of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMEventTarget */
     addEventListener(eventName: string, handler: Function, useCapture: boolean): boolean
     dispatchEvent(event: DOMEvent): boolean
     removeEventListener(eventName: string, handler: Function, useCapture: boolean): boolean
-    /* Virtual methods of WebKit2WebExtension.DOMNode */
-    vfuncAddEventListener(eventName: string, handler: Function, useCapture: boolean): boolean
-    vfuncDispatchEvent(event: DOMEvent): boolean
-    vfuncRemoveEventListener(eventName: string, handler: Function, useCapture: boolean): boolean
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: DOMHTMLUListElement, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: DOMHTMLUListElement, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::compact", callback: (($obj: DOMHTMLUListElement, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::compact", callback: (($obj: DOMHTMLUListElement, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::compact", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -39014,7 +37986,7 @@ export class DOMHTMLUListElement {
 export interface DOMKeyboardEvent_ConstructProps extends DOMUIEvent_ConstructProps {
 }
 export class DOMKeyboardEvent {
-    /* Properties of WebKit2WebExtension.DOMKeyboardEvent */
+    /* Properties of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMKeyboardEvent */
     readonly altGraphKey: boolean
     readonly altKey: boolean
     readonly ctrlKey: boolean
@@ -39022,7 +37994,7 @@ export class DOMKeyboardEvent {
     readonly keyLocation: number
     readonly metaKey: boolean
     readonly shiftKey: boolean
-    /* Properties of WebKit2WebExtension.DOMUIEvent */
+    /* Properties of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMUIEvent */
     readonly charCode: number
     readonly detail: number
     readonly keyCode: number
@@ -39031,7 +38003,7 @@ export class DOMKeyboardEvent {
     readonly pageX: number
     readonly pageY: number
     readonly view: DOMDOMWindow
-    /* Properties of WebKit2WebExtension.DOMEvent */
+    /* Properties of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMEvent */
     readonly bubbles: boolean
     cancelBubble: boolean
     readonly cancelable: boolean
@@ -39042,13 +38014,13 @@ export class DOMKeyboardEvent {
     readonly target: DOMEventTarget
     readonly timeStamp: number
     readonly type: string
-    /* Fields of WebKit2WebExtension.DOMKeyboardEvent */
+    /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMKeyboardEvent */
     parentInstance: DOMUIEvent
-    /* Fields of WebKit2WebExtension.DOMObject */
+    /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMObject */
     coreObject: object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of WebKit2WebExtension.DOMKeyboardEvent */
+    /* Methods of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMKeyboardEvent */
     getAltGraphKey(): boolean
     getAltKey(): boolean
     getCtrlKey(): boolean
@@ -39058,7 +38030,7 @@ export class DOMKeyboardEvent {
     getModifierState(keyIdentifierArg: string): boolean
     getShiftKey(): boolean
     initKeyboardEvent(type: string, canBubble: boolean, cancelable: boolean, view: DOMDOMWindow, keyIdentifier: string, location: number, ctrlKey: boolean, altKey: boolean, shiftKey: boolean, metaKey: boolean, altGraphKey: boolean): void
-    /* Methods of WebKit2WebExtension.DOMUIEvent */
+    /* Methods of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMUIEvent */
     getCharCode(): number
     getDetail(): number
     getKeyCode(): number
@@ -39068,7 +38040,7 @@ export class DOMKeyboardEvent {
     getPageY(): number
     getView(): DOMDOMWindow
     initUiEvent(type: string, canBubble: boolean, cancelable: boolean, view: DOMDOMWindow, detail: number): void
-    /* Methods of WebKit2WebExtension.DOMEvent */
+    /* Methods of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMEvent */
     getBubbles(): boolean
     getCancelBubble(): boolean
     getCancelable(): boolean
@@ -39084,7 +38056,7 @@ export class DOMKeyboardEvent {
     setCancelBubble(value: boolean): void
     setReturnValue(value: boolean): void
     stopPropagation(): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -39106,21 +38078,12 @@ export class DOMKeyboardEvent {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: DOMKeyboardEvent, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: DOMKeyboardEvent, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::alt-graph-key", callback: (($obj: DOMKeyboardEvent, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::alt-graph-key", callback: (($obj: DOMKeyboardEvent, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::alt-graph-key", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -39262,23 +38225,23 @@ export interface DOMMediaList_ConstructProps extends DOMObject_ConstructProps {
     mediaText?: string
 }
 export class DOMMediaList {
-    /* Properties of WebKit2WebExtension.DOMMediaList */
+    /* Properties of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMMediaList */
     readonly length: number
     mediaText: string
-    /* Fields of WebKit2WebExtension.DOMMediaList */
+    /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMMediaList */
     parentInstance: DOMObject
-    /* Fields of WebKit2WebExtension.DOMObject */
+    /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMObject */
     coreObject: object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of WebKit2WebExtension.DOMMediaList */
+    /* Methods of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMMediaList */
     appendMedium(newMedium: string): void
     deleteMedium(oldMedium: string): void
     getLength(): number
     getMediaText(): string
     item(index: number): string
     setMediaText(value: string): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -39300,21 +38263,12 @@ export class DOMMediaList {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: DOMMediaList, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: DOMMediaList, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::length", callback: (($obj: DOMMediaList, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::length", callback: (($obj: DOMMediaList, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::length", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -39340,7 +38294,7 @@ export class DOMMediaList {
 export interface DOMMouseEvent_ConstructProps extends DOMUIEvent_ConstructProps {
 }
 export class DOMMouseEvent {
-    /* Properties of WebKit2WebExtension.DOMMouseEvent */
+    /* Properties of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMMouseEvent */
     readonly altKey: boolean
     readonly button: number
     readonly clientX: number
@@ -39357,7 +38311,7 @@ export class DOMMouseEvent {
     readonly toElement: DOMNode
     readonly x: number
     readonly y: number
-    /* Properties of WebKit2WebExtension.DOMUIEvent */
+    /* Properties of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMUIEvent */
     readonly charCode: number
     readonly detail: number
     readonly keyCode: number
@@ -39366,7 +38320,7 @@ export class DOMMouseEvent {
     readonly pageX: number
     readonly pageY: number
     readonly view: DOMDOMWindow
-    /* Properties of WebKit2WebExtension.DOMEvent */
+    /* Properties of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMEvent */
     readonly bubbles: boolean
     cancelBubble: boolean
     readonly cancelable: boolean
@@ -39377,13 +38331,13 @@ export class DOMMouseEvent {
     readonly target: DOMEventTarget
     readonly timeStamp: number
     readonly type: string
-    /* Fields of WebKit2WebExtension.DOMMouseEvent */
+    /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMMouseEvent */
     parentInstance: DOMUIEvent
-    /* Fields of WebKit2WebExtension.DOMObject */
+    /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMObject */
     coreObject: object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of WebKit2WebExtension.DOMMouseEvent */
+    /* Methods of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMMouseEvent */
     getAltKey(): boolean
     getButton(): number
     getClientX(): number
@@ -39401,7 +38355,7 @@ export class DOMMouseEvent {
     getX(): number
     getY(): number
     initMouseEvent(type: string, canBubble: boolean, cancelable: boolean, view: DOMDOMWindow, detail: number, screenX: number, screenY: number, clientX: number, clientY: number, ctrlKey: boolean, altKey: boolean, shiftKey: boolean, metaKey: boolean, button: number, relatedTarget: DOMEventTarget): void
-    /* Methods of WebKit2WebExtension.DOMUIEvent */
+    /* Methods of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMUIEvent */
     getCharCode(): number
     getDetail(): number
     getKeyCode(): number
@@ -39411,7 +38365,7 @@ export class DOMMouseEvent {
     getPageY(): number
     getView(): DOMDOMWindow
     initUiEvent(type: string, canBubble: boolean, cancelable: boolean, view: DOMDOMWindow, detail: number): void
-    /* Methods of WebKit2WebExtension.DOMEvent */
+    /* Methods of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMEvent */
     getBubbles(): boolean
     getCancelBubble(): boolean
     getCancelable(): boolean
@@ -39427,7 +38381,7 @@ export class DOMMouseEvent {
     setCancelBubble(value: boolean): void
     setReturnValue(value: boolean): void
     stopPropagation(): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -39449,21 +38403,12 @@ export class DOMMouseEvent {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: DOMMouseEvent, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: DOMMouseEvent, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::alt-key", callback: (($obj: DOMMouseEvent, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::alt-key", callback: (($obj: DOMMouseEvent, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::alt-key", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -39649,15 +38594,15 @@ export class DOMMouseEvent {
 export interface DOMNamedNodeMap_ConstructProps extends DOMObject_ConstructProps {
 }
 export class DOMNamedNodeMap {
-    /* Properties of WebKit2WebExtension.DOMNamedNodeMap */
+    /* Properties of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMNamedNodeMap */
     readonly length: number
-    /* Fields of WebKit2WebExtension.DOMNamedNodeMap */
+    /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMNamedNodeMap */
     parentInstance: DOMObject
-    /* Fields of WebKit2WebExtension.DOMObject */
+    /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMObject */
     coreObject: object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of WebKit2WebExtension.DOMNamedNodeMap */
+    /* Methods of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMNamedNodeMap */
     getLength(): number
     getNamedItem(name: string): DOMNode
     getNamedItemNs(namespaceURI: string, localName: string): DOMNode
@@ -39666,7 +38611,7 @@ export class DOMNamedNodeMap {
     removeNamedItemNs(namespaceURI: string, localName: string): DOMNode
     setNamedItem(node: DOMNode): DOMNode
     setNamedItemNs(node: DOMNode): DOMNode
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -39688,21 +38633,12 @@ export class DOMNamedNodeMap {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: DOMNamedNodeMap, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: DOMNamedNodeMap, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::length", callback: (($obj: DOMNamedNodeMap, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::length", callback: (($obj: DOMNamedNodeMap, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::length", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -39725,7 +38661,7 @@ export interface DOMNode_ConstructProps extends DOMObject_ConstructProps {
     textContent?: string
 }
 export class DOMNode {
-    /* Properties of WebKit2WebExtension.DOMNode */
+    /* Properties of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMNode */
     readonly baseUri: string
     readonly childNodes: DOMNodeList
     readonly firstChild: DOMNode
@@ -39739,13 +38675,13 @@ export class DOMNode {
     readonly parentNode: DOMNode
     readonly previousSibling: DOMNode
     textContent: string
-    /* Fields of WebKit2WebExtension.DOMNode */
+    /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMNode */
     parentInstance: DOMObject
-    /* Fields of WebKit2WebExtension.DOMObject */
+    /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMObject */
     coreObject: object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of WebKit2WebExtension.DOMNode */
+    /* Methods of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMNode */
     appendChild(newChild: DOMNode): DOMNode
     cloneNode(deep: boolean): DOMNode
     cloneNodeWithError(deep: boolean): DOMNode
@@ -39781,7 +38717,7 @@ export class DOMNode {
     setNodeValue(value: string): void
     setPrefix(value: string): void
     setTextContent(value: string): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -39803,29 +38739,16 @@ export class DOMNode {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of WebKit2WebExtension.DOMEventTarget */
+    /* Methods of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMEventTarget */
     addEventListener(eventName: string, handler: Function, useCapture: boolean): boolean
     dispatchEvent(event: DOMEvent): boolean
     removeEventListener(eventName: string, handler: Function, useCapture: boolean): boolean
-    /* Virtual methods of WebKit2WebExtension.DOMNode */
-    vfuncAddEventListener(eventName: string, handler: Function, useCapture: boolean): boolean
-    vfuncDispatchEvent(event: DOMEvent): boolean
-    vfuncRemoveEventListener(eventName: string, handler: Function, useCapture: boolean): boolean
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: DOMNode, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: DOMNode, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::base-uri", callback: (($obj: DOMNode, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::base-uri", callback: (($obj: DOMNode, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::base-uri", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -39908,19 +38831,19 @@ export class DOMNode {
 export interface DOMNodeIterator_ConstructProps extends DOMObject_ConstructProps {
 }
 export class DOMNodeIterator {
-    /* Properties of WebKit2WebExtension.DOMNodeIterator */
+    /* Properties of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMNodeIterator */
     readonly filter: DOMNodeFilter
     readonly pointerBeforeReferenceNode: boolean
     readonly referenceNode: DOMNode
     readonly root: DOMNode
     readonly whatToShow: number
-    /* Fields of WebKit2WebExtension.DOMNodeIterator */
+    /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMNodeIterator */
     parentInstance: DOMObject
-    /* Fields of WebKit2WebExtension.DOMObject */
+    /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMObject */
     coreObject: object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of WebKit2WebExtension.DOMNodeIterator */
+    /* Methods of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMNodeIterator */
     detach(): void
     getExpandEntityReferences(): boolean
     getFilter(): DOMNodeFilter
@@ -39930,7 +38853,7 @@ export class DOMNodeIterator {
     getWhatToShow(): number
     nextNode(): DOMNode
     previousNode(): DOMNode
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -39952,21 +38875,12 @@ export class DOMNodeIterator {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: DOMNodeIterator, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: DOMNodeIterator, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::filter", callback: (($obj: DOMNodeIterator, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::filter", callback: (($obj: DOMNodeIterator, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::filter", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -40007,18 +38921,18 @@ export class DOMNodeIterator {
 export interface DOMNodeList_ConstructProps extends DOMObject_ConstructProps {
 }
 export class DOMNodeList {
-    /* Properties of WebKit2WebExtension.DOMNodeList */
+    /* Properties of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMNodeList */
     readonly length: number
-    /* Fields of WebKit2WebExtension.DOMNodeList */
+    /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMNodeList */
     parentInstance: DOMObject
-    /* Fields of WebKit2WebExtension.DOMObject */
+    /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMObject */
     coreObject: object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of WebKit2WebExtension.DOMNodeList */
+    /* Methods of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMNodeList */
     getLength(): number
     item(index: number): DOMNode
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -40040,21 +38954,12 @@ export class DOMNodeList {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: DOMNodeList, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: DOMNodeList, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::length", callback: (($obj: DOMNodeList, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::length", callback: (($obj: DOMNodeList, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::length", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -40076,12 +38981,12 @@ export interface DOMObject_ConstructProps extends GObject.Object_ConstructProps 
     coreObject?: object
 }
 export class DOMObject {
-    /* Fields of WebKit2WebExtension.DOMObject */
+    /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMObject */
     parentInstance: GObject.Object
     coreObject: object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -40103,21 +39008,12 @@ export class DOMObject {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: DOMObject, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: DOMObject, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -40133,13 +39029,13 @@ export class DOMObject {
 export interface DOMProcessingInstruction_ConstructProps extends DOMCharacterData_ConstructProps {
 }
 export class DOMProcessingInstruction {
-    /* Properties of WebKit2WebExtension.DOMProcessingInstruction */
+    /* Properties of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMProcessingInstruction */
     readonly sheet: DOMStyleSheet
     readonly target: string
-    /* Properties of WebKit2WebExtension.DOMCharacterData */
+    /* Properties of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMCharacterData */
     data: string
     readonly length: number
-    /* Properties of WebKit2WebExtension.DOMNode */
+    /* Properties of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMNode */
     readonly baseUri: string
     readonly childNodes: DOMNodeList
     readonly firstChild: DOMNode
@@ -40153,16 +39049,16 @@ export class DOMProcessingInstruction {
     readonly parentNode: DOMNode
     readonly previousSibling: DOMNode
     textContent: string
-    /* Fields of WebKit2WebExtension.DOMProcessingInstruction */
+    /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMProcessingInstruction */
     parentInstance: DOMCharacterData
-    /* Fields of WebKit2WebExtension.DOMObject */
+    /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMObject */
     coreObject: object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of WebKit2WebExtension.DOMProcessingInstruction */
+    /* Methods of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMProcessingInstruction */
     getSheet(): DOMStyleSheet
     getTarget(): string
-    /* Methods of WebKit2WebExtension.DOMCharacterData */
+    /* Methods of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMCharacterData */
     appendData(data: string): void
     deleteData(offset: number, length: number): void
     getData(): string
@@ -40171,7 +39067,7 @@ export class DOMProcessingInstruction {
     replaceData(offset: number, length: number, data: string): void
     setData(value: string): void
     substringData(offset: number, length: number): string
-    /* Methods of WebKit2WebExtension.DOMNode */
+    /* Methods of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMNode */
     appendChild(newChild: DOMNode): DOMNode
     cloneNode(deep: boolean): DOMNode
     cloneNodeWithError(deep: boolean): DOMNode
@@ -40207,7 +39103,7 @@ export class DOMProcessingInstruction {
     setNodeValue(value: string): void
     setPrefix(value: string): void
     setTextContent(value: string): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -40229,29 +39125,16 @@ export class DOMProcessingInstruction {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of WebKit2WebExtension.DOMEventTarget */
+    /* Methods of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMEventTarget */
     addEventListener(eventName: string, handler: Function, useCapture: boolean): boolean
     dispatchEvent(event: DOMEvent): boolean
     removeEventListener(eventName: string, handler: Function, useCapture: boolean): boolean
-    /* Virtual methods of WebKit2WebExtension.DOMNode */
-    vfuncAddEventListener(eventName: string, handler: Function, useCapture: boolean): boolean
-    vfuncDispatchEvent(event: DOMEvent): boolean
-    vfuncRemoveEventListener(eventName: string, handler: Function, useCapture: boolean): boolean
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: DOMProcessingInstruction, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: DOMProcessingInstruction, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::sheet", callback: (($obj: DOMProcessingInstruction, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::sheet", callback: (($obj: DOMProcessingInstruction, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::sheet", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -40352,7 +39235,7 @@ export class DOMProcessingInstruction {
 export interface DOMRange_ConstructProps extends DOMObject_ConstructProps {
 }
 export class DOMRange {
-    /* Properties of WebKit2WebExtension.DOMRange */
+    /* Properties of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMRange */
     readonly collapsed: boolean
     readonly commonAncestorContainer: DOMNode
     readonly endContainer: DOMNode
@@ -40360,13 +39243,13 @@ export class DOMRange {
     readonly startContainer: DOMNode
     readonly startOffset: number
     readonly text: string
-    /* Fields of WebKit2WebExtension.DOMRange */
+    /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMRange */
     parentInstance: DOMObject
-    /* Fields of WebKit2WebExtension.DOMObject */
+    /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMObject */
     coreObject: object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of WebKit2WebExtension.DOMRange */
+    /* Methods of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMRange */
     cloneContents(): DOMDocumentFragment
     cloneRange(): DOMRange
     collapse(toStart: boolean): void
@@ -40398,7 +39281,7 @@ export class DOMRange {
     setStartBefore(refNode: DOMNode): void
     surroundContents(newParent: DOMNode): void
     toString(): string
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -40420,21 +39303,12 @@ export class DOMRange {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: DOMRange, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: DOMRange, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::collapsed", callback: (($obj: DOMRange, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::collapsed", callback: (($obj: DOMRange, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::collapsed", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -40486,7 +39360,7 @@ export interface DOMStyleSheet_ConstructProps extends DOMObject_ConstructProps {
     disabled?: boolean
 }
 export class DOMStyleSheet {
-    /* Properties of WebKit2WebExtension.DOMStyleSheet */
+    /* Properties of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMStyleSheet */
     disabled: boolean
     readonly href: string
     readonly media: DOMMediaList
@@ -40494,13 +39368,13 @@ export class DOMStyleSheet {
     readonly parentStyleSheet: DOMStyleSheet
     readonly title: string
     readonly type: string
-    /* Fields of WebKit2WebExtension.DOMStyleSheet */
+    /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMStyleSheet */
     parentInstance: DOMObject
-    /* Fields of WebKit2WebExtension.DOMObject */
+    /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMObject */
     coreObject: object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of WebKit2WebExtension.DOMStyleSheet */
+    /* Methods of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMStyleSheet */
     getContentType(): string
     getDisabled(): boolean
     getHref(): string
@@ -40509,7 +39383,7 @@ export class DOMStyleSheet {
     getParentStyleSheet(): DOMStyleSheet
     getTitle(): string
     setDisabled(value: boolean): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -40531,21 +39405,12 @@ export class DOMStyleSheet {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: DOMStyleSheet, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: DOMStyleSheet, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::disabled", callback: (($obj: DOMStyleSheet, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::disabled", callback: (($obj: DOMStyleSheet, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::disabled", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -40596,18 +39461,18 @@ export class DOMStyleSheet {
 export interface DOMStyleSheetList_ConstructProps extends DOMObject_ConstructProps {
 }
 export class DOMStyleSheetList {
-    /* Properties of WebKit2WebExtension.DOMStyleSheetList */
+    /* Properties of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMStyleSheetList */
     readonly length: number
-    /* Fields of WebKit2WebExtension.DOMStyleSheetList */
+    /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMStyleSheetList */
     parentInstance: DOMObject
-    /* Fields of WebKit2WebExtension.DOMObject */
+    /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMObject */
     coreObject: object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of WebKit2WebExtension.DOMStyleSheetList */
+    /* Methods of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMStyleSheetList */
     getLength(): number
     item(index: number): DOMStyleSheet
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -40629,21 +39494,12 @@ export class DOMStyleSheetList {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: DOMStyleSheetList, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: DOMStyleSheetList, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::length", callback: (($obj: DOMStyleSheetList, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::length", callback: (($obj: DOMStyleSheetList, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::length", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -40664,12 +39520,12 @@ export class DOMStyleSheetList {
 export interface DOMText_ConstructProps extends DOMCharacterData_ConstructProps {
 }
 export class DOMText {
-    /* Properties of WebKit2WebExtension.DOMText */
+    /* Properties of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMText */
     readonly wholeText: string
-    /* Properties of WebKit2WebExtension.DOMCharacterData */
+    /* Properties of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMCharacterData */
     data: string
     readonly length: number
-    /* Properties of WebKit2WebExtension.DOMNode */
+    /* Properties of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMNode */
     readonly baseUri: string
     readonly childNodes: DOMNodeList
     readonly firstChild: DOMNode
@@ -40683,17 +39539,17 @@ export class DOMText {
     readonly parentNode: DOMNode
     readonly previousSibling: DOMNode
     textContent: string
-    /* Fields of WebKit2WebExtension.DOMText */
+    /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMText */
     parentInstance: DOMCharacterData
-    /* Fields of WebKit2WebExtension.DOMObject */
+    /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMObject */
     coreObject: object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of WebKit2WebExtension.DOMText */
+    /* Methods of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMText */
     getWholeText(): string
     replaceWholeText(content: string): DOMText
     splitText(offset: number): DOMText
-    /* Methods of WebKit2WebExtension.DOMCharacterData */
+    /* Methods of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMCharacterData */
     appendData(data: string): void
     deleteData(offset: number, length: number): void
     getData(): string
@@ -40702,7 +39558,7 @@ export class DOMText {
     replaceData(offset: number, length: number, data: string): void
     setData(value: string): void
     substringData(offset: number, length: number): string
-    /* Methods of WebKit2WebExtension.DOMNode */
+    /* Methods of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMNode */
     appendChild(newChild: DOMNode): DOMNode
     cloneNode(deep: boolean): DOMNode
     cloneNodeWithError(deep: boolean): DOMNode
@@ -40738,7 +39594,7 @@ export class DOMText {
     setNodeValue(value: string): void
     setPrefix(value: string): void
     setTextContent(value: string): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -40760,29 +39616,16 @@ export class DOMText {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of WebKit2WebExtension.DOMEventTarget */
+    /* Methods of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMEventTarget */
     addEventListener(eventName: string, handler: Function, useCapture: boolean): boolean
     dispatchEvent(event: DOMEvent): boolean
     removeEventListener(eventName: string, handler: Function, useCapture: boolean): boolean
-    /* Virtual methods of WebKit2WebExtension.DOMNode */
-    vfuncAddEventListener(eventName: string, handler: Function, useCapture: boolean): boolean
-    vfuncDispatchEvent(event: DOMEvent): boolean
-    vfuncRemoveEventListener(eventName: string, handler: Function, useCapture: boolean): boolean
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: DOMText, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: DOMText, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::whole-text", callback: (($obj: DOMText, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::whole-text", callback: (($obj: DOMText, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::whole-text", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -40878,18 +39721,18 @@ export class DOMText {
 export interface DOMTreeWalker_ConstructProps extends DOMObject_ConstructProps {
 }
 export class DOMTreeWalker {
-    /* Properties of WebKit2WebExtension.DOMTreeWalker */
+    /* Properties of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMTreeWalker */
     readonly currentNode: DOMNode
     readonly filter: DOMNodeFilter
     readonly root: DOMNode
     readonly whatToShow: number
-    /* Fields of WebKit2WebExtension.DOMTreeWalker */
+    /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMTreeWalker */
     parentInstance: DOMObject
-    /* Fields of WebKit2WebExtension.DOMObject */
+    /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMObject */
     coreObject: object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of WebKit2WebExtension.DOMTreeWalker */
+    /* Methods of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMTreeWalker */
     firstChild(): DOMNode
     getCurrentNode(): DOMNode
     getExpandEntityReferences(): boolean
@@ -40903,7 +39746,7 @@ export class DOMTreeWalker {
     previousNode(): DOMNode
     previousSibling(): DOMNode
     setCurrentNode(value: DOMNode): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -40925,21 +39768,12 @@ export class DOMTreeWalker {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: DOMTreeWalker, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: DOMTreeWalker, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::current-node", callback: (($obj: DOMTreeWalker, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::current-node", callback: (($obj: DOMTreeWalker, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::current-node", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -40975,7 +39809,7 @@ export class DOMTreeWalker {
 export interface DOMUIEvent_ConstructProps extends DOMEvent_ConstructProps {
 }
 export class DOMUIEvent {
-    /* Properties of WebKit2WebExtension.DOMUIEvent */
+    /* Properties of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMUIEvent */
     readonly charCode: number
     readonly detail: number
     readonly keyCode: number
@@ -40984,7 +39818,7 @@ export class DOMUIEvent {
     readonly pageX: number
     readonly pageY: number
     readonly view: DOMDOMWindow
-    /* Properties of WebKit2WebExtension.DOMEvent */
+    /* Properties of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMEvent */
     readonly bubbles: boolean
     cancelBubble: boolean
     readonly cancelable: boolean
@@ -40995,13 +39829,13 @@ export class DOMUIEvent {
     readonly target: DOMEventTarget
     readonly timeStamp: number
     readonly type: string
-    /* Fields of WebKit2WebExtension.DOMUIEvent */
+    /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMUIEvent */
     parentInstance: DOMEvent
-    /* Fields of WebKit2WebExtension.DOMObject */
+    /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMObject */
     coreObject: object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of WebKit2WebExtension.DOMUIEvent */
+    /* Methods of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMUIEvent */
     getCharCode(): number
     getDetail(): number
     getKeyCode(): number
@@ -41011,7 +39845,7 @@ export class DOMUIEvent {
     getPageY(): number
     getView(): DOMDOMWindow
     initUiEvent(type: string, canBubble: boolean, cancelable: boolean, view: DOMDOMWindow, detail: number): void
-    /* Methods of WebKit2WebExtension.DOMEvent */
+    /* Methods of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMEvent */
     getBubbles(): boolean
     getCancelBubble(): boolean
     getCancelable(): boolean
@@ -41027,7 +39861,7 @@ export class DOMUIEvent {
     setCancelBubble(value: boolean): void
     setReturnValue(value: boolean): void
     stopPropagation(): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -41049,21 +39883,12 @@ export class DOMUIEvent {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: DOMUIEvent, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: DOMUIEvent, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::char-code", callback: (($obj: DOMUIEvent, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::char-code", callback: (($obj: DOMUIEvent, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::char-code", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -41169,11 +39994,11 @@ export class DOMUIEvent {
 export interface DOMWheelEvent_ConstructProps extends DOMMouseEvent_ConstructProps {
 }
 export class DOMWheelEvent {
-    /* Properties of WebKit2WebExtension.DOMWheelEvent */
+    /* Properties of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMWheelEvent */
     readonly wheelDelta: number
     readonly wheelDeltaX: number
     readonly wheelDeltaY: number
-    /* Properties of WebKit2WebExtension.DOMMouseEvent */
+    /* Properties of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMMouseEvent */
     readonly altKey: boolean
     readonly button: number
     readonly clientX: number
@@ -41190,7 +40015,7 @@ export class DOMWheelEvent {
     readonly toElement: DOMNode
     readonly x: number
     readonly y: number
-    /* Properties of WebKit2WebExtension.DOMUIEvent */
+    /* Properties of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMUIEvent */
     readonly charCode: number
     readonly detail: number
     readonly keyCode: number
@@ -41199,7 +40024,7 @@ export class DOMWheelEvent {
     readonly pageX: number
     readonly pageY: number
     readonly view: DOMDOMWindow
-    /* Properties of WebKit2WebExtension.DOMEvent */
+    /* Properties of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMEvent */
     readonly bubbles: boolean
     cancelBubble: boolean
     readonly cancelable: boolean
@@ -41210,18 +40035,18 @@ export class DOMWheelEvent {
     readonly target: DOMEventTarget
     readonly timeStamp: number
     readonly type: string
-    /* Fields of WebKit2WebExtension.DOMWheelEvent */
+    /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMWheelEvent */
     parentInstance: DOMMouseEvent
-    /* Fields of WebKit2WebExtension.DOMObject */
+    /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMObject */
     coreObject: object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of WebKit2WebExtension.DOMWheelEvent */
+    /* Methods of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMWheelEvent */
     getWheelDelta(): number
     getWheelDeltaX(): number
     getWheelDeltaY(): number
     initWheelEvent(wheelDeltaX: number, wheelDeltaY: number, view: DOMDOMWindow, screenX: number, screenY: number, clientX: number, clientY: number, ctrlKey: boolean, altKey: boolean, shiftKey: boolean, metaKey: boolean): void
-    /* Methods of WebKit2WebExtension.DOMMouseEvent */
+    /* Methods of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMMouseEvent */
     getAltKey(): boolean
     getButton(): number
     getClientX(): number
@@ -41239,7 +40064,7 @@ export class DOMWheelEvent {
     getX(): number
     getY(): number
     initMouseEvent(type: string, canBubble: boolean, cancelable: boolean, view: DOMDOMWindow, detail: number, screenX: number, screenY: number, clientX: number, clientY: number, ctrlKey: boolean, altKey: boolean, shiftKey: boolean, metaKey: boolean, button: number, relatedTarget: DOMEventTarget): void
-    /* Methods of WebKit2WebExtension.DOMUIEvent */
+    /* Methods of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMUIEvent */
     getCharCode(): number
     getDetail(): number
     getKeyCode(): number
@@ -41249,7 +40074,7 @@ export class DOMWheelEvent {
     getPageY(): number
     getView(): DOMDOMWindow
     initUiEvent(type: string, canBubble: boolean, cancelable: boolean, view: DOMDOMWindow, detail: number): void
-    /* Methods of WebKit2WebExtension.DOMEvent */
+    /* Methods of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMEvent */
     getBubbles(): boolean
     getCancelBubble(): boolean
     getCancelable(): boolean
@@ -41265,7 +40090,7 @@ export class DOMWheelEvent {
     setCancelBubble(value: boolean): void
     setReturnValue(value: boolean): void
     stopPropagation(): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -41287,21 +40112,12 @@ export class DOMWheelEvent {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: DOMWheelEvent, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: DOMWheelEvent, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::wheel-delta", callback: (($obj: DOMWheelEvent, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::wheel-delta", callback: (($obj: DOMWheelEvent, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::wheel-delta", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -41502,15 +40318,15 @@ export class DOMWheelEvent {
 export interface DOMXPathExpression_ConstructProps extends DOMObject_ConstructProps {
 }
 export class DOMXPathExpression {
-    /* Fields of WebKit2WebExtension.DOMXPathExpression */
+    /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMXPathExpression */
     parentInstance: DOMObject
-    /* Fields of WebKit2WebExtension.DOMObject */
+    /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMObject */
     coreObject: object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of WebKit2WebExtension.DOMXPathExpression */
+    /* Methods of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMXPathExpression */
     evaluate(contextNode: DOMNode, type: number, inResult: DOMXPathResult): DOMXPathResult
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -41532,21 +40348,12 @@ export class DOMXPathExpression {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: DOMXPathExpression, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: DOMXPathExpression, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -41562,7 +40369,7 @@ export class DOMXPathExpression {
 export interface DOMXPathResult_ConstructProps extends DOMObject_ConstructProps {
 }
 export class DOMXPathResult {
-    /* Properties of WebKit2WebExtension.DOMXPathResult */
+    /* Properties of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMXPathResult */
     readonly booleanValue: boolean
     readonly invalidIteratorState: boolean
     readonly numberValue: number
@@ -41570,13 +40377,13 @@ export class DOMXPathResult {
     readonly singleNodeValue: DOMNode
     readonly snapshotLength: number
     readonly stringValue: string
-    /* Fields of WebKit2WebExtension.DOMXPathResult */
+    /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMXPathResult */
     parentInstance: DOMObject
-    /* Fields of WebKit2WebExtension.DOMObject */
+    /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMObject */
     coreObject: object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of WebKit2WebExtension.DOMXPathResult */
+    /* Methods of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMXPathResult */
     getBooleanValue(): boolean
     getInvalidIteratorState(): boolean
     getNumberValue(): number
@@ -41586,7 +40393,7 @@ export class DOMXPathResult {
     getStringValue(): string
     iterateNext(): DOMNode
     snapshotItem(index: number): DOMNode
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -41608,21 +40415,12 @@ export class DOMXPathResult {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: DOMXPathResult, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: DOMXPathResult, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::boolean-value", callback: (($obj: DOMXPathResult, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::boolean-value", callback: (($obj: DOMXPathResult, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::boolean-value", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -41673,12 +40471,12 @@ export class DOMXPathResult {
 export interface Frame_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class Frame {
-    /* Fields of WebKit2WebExtension.Frame */
+    /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.Frame */
     parent: GObject.Object
     priv: FramePrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of WebKit2WebExtension.Frame */
+    /* Methods of WebKit2WebExtension-4.0.WebKit2WebExtension.Frame */
     getId(): number
     getJsContext(): JavaScriptCore.Context
     getJsContextForScriptWorld(world: ScriptWorld): JavaScriptCore.Context
@@ -41686,7 +40484,7 @@ export class Frame {
     getJsValueForDomObjectInScriptWorld(domObject: DOMObject, world: ScriptWorld): JavaScriptCore.Value
     getUri(): string
     isMainFrame(): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -41708,21 +40506,12 @@ export class Frame {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Frame, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Frame, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -41744,12 +40533,12 @@ export interface HitTestResult_ConstructProps extends GObject.Object_ConstructPr
     mediaUri?: string
 }
 export class HitTestResult {
-    /* Fields of WebKit2WebExtension.HitTestResult */
+    /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.HitTestResult */
     parent: GObject.Object
     priv: HitTestResultPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of WebKit2WebExtension.HitTestResult */
+    /* Methods of WebKit2WebExtension-4.0.WebKit2WebExtension.HitTestResult */
     contextIsEditable(): boolean
     contextIsImage(): boolean
     contextIsLink(): boolean
@@ -41762,7 +40551,7 @@ export class HitTestResult {
     getLinkTitle(): string
     getLinkUri(): string
     getMediaUri(): string
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -41784,21 +40573,12 @@ export class HitTestResult {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: HitTestResult, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: HitTestResult, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -41814,14 +40594,14 @@ export class HitTestResult {
 export interface ScriptWorld_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class ScriptWorld {
-    /* Fields of WebKit2WebExtension.ScriptWorld */
+    /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.ScriptWorld */
     parent: GObject.Object
     priv: ScriptWorldPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of WebKit2WebExtension.ScriptWorld */
+    /* Methods of WebKit2WebExtension-4.0.WebKit2WebExtension.ScriptWorld */
     getName(): string
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -41843,28 +40623,18 @@ export class ScriptWorld {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of WebKit2WebExtension.ScriptWorld */
+    /* Signals of WebKit2WebExtension-4.0.WebKit2WebExtension.ScriptWorld */
     connect(sigName: "window-object-cleared", callback: (($obj: ScriptWorld, page: WebPage, frame: Frame) => void)): number
-    connect_after(sigName: "window-object-cleared", callback: (($obj: ScriptWorld, page: WebPage, frame: Frame) => void)): number
+    on(sigName: "window-object-cleared", callback: (page: WebPage, frame: Frame) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "window-object-cleared", callback: (page: WebPage, frame: Frame) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "window-object-cleared", callback: (page: WebPage, frame: Frame) => void): NodeJS.EventEmitter
     emit(sigName: "window-object-cleared", page: WebPage, frame: Frame): void
-    on(sigName: "window-object-cleared", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "window-object-cleared", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "window-object-cleared", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: ScriptWorld, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: ScriptWorld, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -41885,18 +40655,18 @@ export interface URIRequest_ConstructProps extends GObject.Object_ConstructProps
     uri?: string
 }
 export class URIRequest {
-    /* Properties of WebKit2WebExtension.URIRequest */
+    /* Properties of WebKit2WebExtension-4.0.WebKit2WebExtension.URIRequest */
     uri: string
-    /* Fields of WebKit2WebExtension.URIRequest */
+    /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.URIRequest */
     parent: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of WebKit2WebExtension.URIRequest */
+    /* Methods of WebKit2WebExtension-4.0.WebKit2WebExtension.URIRequest */
     getHttpHeaders(): Soup.MessageHeaders
     getHttpMethod(): string
     getUri(): string
     setUri(uri: string): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -41918,21 +40688,12 @@ export class URIRequest {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: URIRequest, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: URIRequest, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::uri", callback: (($obj: URIRequest, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::uri", callback: (($obj: URIRequest, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::uri", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -41955,25 +40716,25 @@ export class URIRequest {
 export interface URIResponse_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class URIResponse {
-    /* Properties of WebKit2WebExtension.URIResponse */
+    /* Properties of WebKit2WebExtension-4.0.WebKit2WebExtension.URIResponse */
     readonly contentLength: number
     readonly httpHeaders: Soup.MessageHeaders
     readonly mimeType: string
     readonly statusCode: number
     readonly suggestedFilename: string
     readonly uri: string
-    /* Fields of WebKit2WebExtension.URIResponse */
+    /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.URIResponse */
     parent: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of WebKit2WebExtension.URIResponse */
+    /* Methods of WebKit2WebExtension-4.0.WebKit2WebExtension.URIResponse */
     getContentLength(): number
     getHttpHeaders(): Soup.MessageHeaders
     getMimeType(): string
     getStatusCode(): number
     getSuggestedFilename(): string
     getUri(): string
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -41995,21 +40756,12 @@ export class URIResponse {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: URIResponse, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: URIResponse, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::content-length", callback: (($obj: URIResponse, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::content-length", callback: (($obj: URIResponse, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::content-length", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -42058,17 +40810,17 @@ export interface UserMessage_ConstructProps extends GObject.InitiallyUnowned_Con
     parameters?: GLib.Variant
 }
 export class UserMessage {
-    /* Fields of WebKit2WebExtension.UserMessage */
+    /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.UserMessage */
     parent: GObject.InitiallyUnowned
     priv: UserMessagePrivate
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of WebKit2WebExtension.UserMessage */
+    /* Methods of WebKit2WebExtension-4.0.WebKit2WebExtension.UserMessage */
     getFdList(): Gio.UnixFDList | null
     getName(): string
     getParameters(): GLib.Variant | null
     sendReply(reply: UserMessage): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -42090,21 +40842,12 @@ export class UserMessage {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: UserMessage, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: UserMessage, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -42124,14 +40867,14 @@ export class UserMessage {
 export interface WebEditor_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class WebEditor {
-    /* Fields of WebKit2WebExtension.WebEditor */
+    /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.WebEditor */
     parent: GObject.Object
     priv: WebEditorPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of WebKit2WebExtension.WebEditor */
+    /* Methods of WebKit2WebExtension-4.0.WebKit2WebExtension.WebEditor */
     getPage(): WebPage
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -42153,28 +40896,18 @@ export class WebEditor {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of WebKit2WebExtension.WebEditor */
+    /* Signals of WebKit2WebExtension-4.0.WebKit2WebExtension.WebEditor */
     connect(sigName: "selection-changed", callback: (($obj: WebEditor) => void)): number
-    connect_after(sigName: "selection-changed", callback: (($obj: WebEditor) => void)): number
+    on(sigName: "selection-changed", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "selection-changed", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "selection-changed", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "selection-changed"): void
-    on(sigName: "selection-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "selection-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "selection-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: WebEditor, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: WebEditor, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -42190,16 +40923,16 @@ export class WebEditor {
 export interface WebExtension_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class WebExtension {
-    /* Fields of WebKit2WebExtension.WebExtension */
+    /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.WebExtension */
     parent: GObject.Object
     priv: WebExtensionPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of WebKit2WebExtension.WebExtension */
+    /* Methods of WebKit2WebExtension-4.0.WebKit2WebExtension.WebExtension */
     getPage(pageId: number): WebPage
     sendMessageToContext(message: UserMessage, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     sendMessageToContextFinish(result: Gio.AsyncResult): UserMessage
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -42221,34 +40954,23 @@ export class WebExtension {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of WebKit2WebExtension.WebExtension */
+    /* Signals of WebKit2WebExtension-4.0.WebKit2WebExtension.WebExtension */
     connect(sigName: "page-created", callback: (($obj: WebExtension, webPage: WebPage) => void)): number
-    connect_after(sigName: "page-created", callback: (($obj: WebExtension, webPage: WebPage) => void)): number
+    on(sigName: "page-created", callback: (webPage: WebPage) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "page-created", callback: (webPage: WebPage) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "page-created", callback: (webPage: WebPage) => void): NodeJS.EventEmitter
     emit(sigName: "page-created", webPage: WebPage): void
-    on(sigName: "page-created", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "page-created", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "page-created", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "user-message-received", callback: (($obj: WebExtension, message: UserMessage) => void)): number
-    connect_after(sigName: "user-message-received", callback: (($obj: WebExtension, message: UserMessage) => void)): number
+    on(sigName: "user-message-received", callback: (message: UserMessage) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "user-message-received", callback: (message: UserMessage) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "user-message-received", callback: (message: UserMessage) => void): NodeJS.EventEmitter
     emit(sigName: "user-message-received", message: UserMessage): void
-    on(sigName: "user-message-received", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "user-message-received", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "user-message-received", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: WebExtension, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: WebExtension, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -42265,14 +40987,14 @@ export interface WebHitTestResult_ConstructProps extends HitTestResult_Construct
     node?: DOMNode
 }
 export class WebHitTestResult {
-    /* Fields of WebKit2WebExtension.WebHitTestResult */
+    /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.WebHitTestResult */
     parent: HitTestResult
     priv: WebHitTestResultPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of WebKit2WebExtension.WebHitTestResult */
+    /* Methods of WebKit2WebExtension-4.0.WebKit2WebExtension.WebHitTestResult */
     getNode(): DOMNode
-    /* Methods of WebKit2WebExtension.HitTestResult */
+    /* Methods of WebKit2WebExtension-4.0.WebKit2WebExtension.HitTestResult */
     contextIsEditable(): boolean
     contextIsImage(): boolean
     contextIsLink(): boolean
@@ -42285,7 +41007,7 @@ export class WebHitTestResult {
     getLinkTitle(): string
     getLinkUri(): string
     getMediaUri(): string
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -42307,21 +41029,12 @@ export class WebHitTestResult {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: WebHitTestResult, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: WebHitTestResult, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -42337,14 +41050,14 @@ export class WebHitTestResult {
 export interface WebPage_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class WebPage {
-    /* Properties of WebKit2WebExtension.WebPage */
+    /* Properties of WebKit2WebExtension-4.0.WebKit2WebExtension.WebPage */
     readonly uri: string
-    /* Fields of WebKit2WebExtension.WebPage */
+    /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.WebPage */
     parent: GObject.Object
     priv: WebPagePrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of WebKit2WebExtension.WebPage */
+    /* Methods of WebKit2WebExtension-4.0.WebKit2WebExtension.WebPage */
     getDomDocument(): DOMDocument
     getEditor(): WebEditor
     getId(): number
@@ -42352,7 +41065,7 @@ export class WebPage {
     getUri(): string
     sendMessageToView(message: UserMessage, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     sendMessageToViewFinish(result: Gio.AsyncResult): UserMessage
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -42374,70 +41087,53 @@ export class WebPage {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of WebKit2WebExtension.WebPage */
+    /* Signals of WebKit2WebExtension-4.0.WebKit2WebExtension.WebPage */
     connect(sigName: "console-message-sent", callback: (($obj: WebPage, consoleMessage: ConsoleMessage) => void)): number
-    connect_after(sigName: "console-message-sent", callback: (($obj: WebPage, consoleMessage: ConsoleMessage) => void)): number
+    on(sigName: "console-message-sent", callback: (consoleMessage: ConsoleMessage) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "console-message-sent", callback: (consoleMessage: ConsoleMessage) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "console-message-sent", callback: (consoleMessage: ConsoleMessage) => void): NodeJS.EventEmitter
     emit(sigName: "console-message-sent", consoleMessage: ConsoleMessage): void
-    on(sigName: "console-message-sent", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "console-message-sent", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "console-message-sent", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "context-menu", callback: (($obj: WebPage, contextMenu: ContextMenu, hitTestResult: WebHitTestResult) => boolean)): number
-    connect_after(sigName: "context-menu", callback: (($obj: WebPage, contextMenu: ContextMenu, hitTestResult: WebHitTestResult) => boolean)): number
+    on(sigName: "context-menu", callback: (contextMenu: ContextMenu, hitTestResult: WebHitTestResult) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "context-menu", callback: (contextMenu: ContextMenu, hitTestResult: WebHitTestResult) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "context-menu", callback: (contextMenu: ContextMenu, hitTestResult: WebHitTestResult) => void): NodeJS.EventEmitter
     emit(sigName: "context-menu", contextMenu: ContextMenu, hitTestResult: WebHitTestResult): void
-    on(sigName: "context-menu", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "context-menu", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "context-menu", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "document-loaded", callback: (($obj: WebPage) => void)): number
-    connect_after(sigName: "document-loaded", callback: (($obj: WebPage) => void)): number
+    on(sigName: "document-loaded", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "document-loaded", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "document-loaded", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "document-loaded"): void
-    on(sigName: "document-loaded", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "document-loaded", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "document-loaded", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "form-controls-associated", callback: (($obj: WebPage, elements: DOMElement[]) => void)): number
-    connect_after(sigName: "form-controls-associated", callback: (($obj: WebPage, elements: DOMElement[]) => void)): number
+    on(sigName: "form-controls-associated", callback: (elements: DOMElement[]) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "form-controls-associated", callback: (elements: DOMElement[]) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "form-controls-associated", callback: (elements: DOMElement[]) => void): NodeJS.EventEmitter
     emit(sigName: "form-controls-associated", elements: DOMElement[]): void
-    on(sigName: "form-controls-associated", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "form-controls-associated", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "form-controls-associated", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "form-controls-associated-for-frame", callback: (($obj: WebPage, elements: DOMElement[], frame: Frame) => void)): number
-    connect_after(sigName: "form-controls-associated-for-frame", callback: (($obj: WebPage, elements: DOMElement[], frame: Frame) => void)): number
+    on(sigName: "form-controls-associated-for-frame", callback: (elements: DOMElement[], frame: Frame) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "form-controls-associated-for-frame", callback: (elements: DOMElement[], frame: Frame) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "form-controls-associated-for-frame", callback: (elements: DOMElement[], frame: Frame) => void): NodeJS.EventEmitter
     emit(sigName: "form-controls-associated-for-frame", elements: DOMElement[], frame: Frame): void
-    on(sigName: "form-controls-associated-for-frame", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "form-controls-associated-for-frame", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "form-controls-associated-for-frame", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "send-request", callback: (($obj: WebPage, request: URIRequest, redirectedResponse: URIResponse) => boolean)): number
-    connect_after(sigName: "send-request", callback: (($obj: WebPage, request: URIRequest, redirectedResponse: URIResponse) => boolean)): number
+    on(sigName: "send-request", callback: (request: URIRequest, redirectedResponse: URIResponse) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "send-request", callback: (request: URIRequest, redirectedResponse: URIResponse) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "send-request", callback: (request: URIRequest, redirectedResponse: URIResponse) => void): NodeJS.EventEmitter
     emit(sigName: "send-request", request: URIRequest, redirectedResponse: URIResponse): void
-    on(sigName: "send-request", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "send-request", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "send-request", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "user-message-received", callback: (($obj: WebPage, message: UserMessage) => boolean)): number
-    connect_after(sigName: "user-message-received", callback: (($obj: WebPage, message: UserMessage) => boolean)): number
+    on(sigName: "user-message-received", callback: (message: UserMessage) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "user-message-received", callback: (message: UserMessage) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "user-message-received", callback: (message: UserMessage) => void): NodeJS.EventEmitter
     emit(sigName: "user-message-received", message: UserMessage): void
-    on(sigName: "user-message-received", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "user-message-received", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "user-message-received", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "will-submit-form", callback: (($obj: WebPage, form: DOMElement, step: FormSubmissionStep, sourceFrame: Frame, targetFrame: Frame, textFieldNames: string[], textFieldValues: string[]) => void)): number
-    connect_after(sigName: "will-submit-form", callback: (($obj: WebPage, form: DOMElement, step: FormSubmissionStep, sourceFrame: Frame, targetFrame: Frame, textFieldNames: string[], textFieldValues: string[]) => void)): number
+    on(sigName: "will-submit-form", callback: (form: DOMElement, step: FormSubmissionStep, sourceFrame: Frame, targetFrame: Frame, textFieldNames: string[], textFieldValues: string[]) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "will-submit-form", callback: (form: DOMElement, step: FormSubmissionStep, sourceFrame: Frame, targetFrame: Frame, textFieldNames: string[], textFieldValues: string[]) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "will-submit-form", callback: (form: DOMElement, step: FormSubmissionStep, sourceFrame: Frame, targetFrame: Frame, textFieldNames: string[], textFieldValues: string[]) => void): NodeJS.EventEmitter
     emit(sigName: "will-submit-form", form: DOMElement, step: FormSubmissionStep, sourceFrame: Frame, targetFrame: Frame, textFieldNames: string[], textFieldValues: string[]): void
-    on(sigName: "will-submit-form", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "will-submit-form", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "will-submit-form", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: WebPage, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: WebPage, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::uri", callback: (($obj: WebPage, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::uri", callback: (($obj: WebPage, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::uri", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -42456,7 +41152,7 @@ export class WebPage {
     static $gtype: GObject.Type
 }
 export class ConsoleMessage {
-    /* Methods of WebKit2WebExtension.ConsoleMessage */
+    /* Methods of WebKit2WebExtension-4.0.WebKit2WebExtension.ConsoleMessage */
     copy(): ConsoleMessage
     free(): void
     getLevel(): ConsoleMessageLevel
@@ -42467,12 +41163,12 @@ export class ConsoleMessage {
     static name: string
 }
 export abstract class ContextMenuClass {
-    /* Fields of WebKit2WebExtension.ContextMenuClass */
+    /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.ContextMenuClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
 export abstract class ContextMenuItemClass {
-    /* Fields of WebKit2WebExtension.ContextMenuItemClass */
+    /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.ContextMenuItemClass */
     parentClass: GObject.InitiallyUnownedClass
     static name: string
 }
@@ -42483,117 +41179,117 @@ export class ContextMenuPrivate {
     static name: string
 }
 export abstract class DOMAttrClass {
-    /* Fields of WebKit2WebExtension.DOMAttrClass */
+    /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMAttrClass */
     parentClass: DOMNodeClass
     static name: string
 }
 export abstract class DOMBlobClass {
-    /* Fields of WebKit2WebExtension.DOMBlobClass */
+    /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMBlobClass */
     parentClass: DOMObjectClass
     static name: string
 }
 export abstract class DOMCDATASectionClass {
-    /* Fields of WebKit2WebExtension.DOMCDATASectionClass */
+    /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMCDATASectionClass */
     parentClass: DOMTextClass
     static name: string
 }
 export abstract class DOMCSSRuleClass {
-    /* Fields of WebKit2WebExtension.DOMCSSRuleClass */
+    /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMCSSRuleClass */
     parentClass: DOMObjectClass
     static name: string
 }
 export abstract class DOMCSSRuleListClass {
-    /* Fields of WebKit2WebExtension.DOMCSSRuleListClass */
+    /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMCSSRuleListClass */
     parentClass: DOMObjectClass
     static name: string
 }
 export abstract class DOMCSSStyleDeclarationClass {
-    /* Fields of WebKit2WebExtension.DOMCSSStyleDeclarationClass */
+    /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMCSSStyleDeclarationClass */
     parentClass: DOMObjectClass
     static name: string
 }
 export abstract class DOMCSSStyleSheetClass {
-    /* Fields of WebKit2WebExtension.DOMCSSStyleSheetClass */
+    /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMCSSStyleSheetClass */
     parentClass: DOMStyleSheetClass
     static name: string
 }
 export abstract class DOMCSSValueClass {
-    /* Fields of WebKit2WebExtension.DOMCSSValueClass */
+    /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMCSSValueClass */
     parentClass: DOMObjectClass
     static name: string
 }
 export abstract class DOMCharacterDataClass {
-    /* Fields of WebKit2WebExtension.DOMCharacterDataClass */
+    /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMCharacterDataClass */
     parentClass: DOMNodeClass
     static name: string
 }
 export abstract class DOMClientRectClass {
-    /* Fields of WebKit2WebExtension.DOMClientRectClass */
+    /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMClientRectClass */
     parentClass: DOMObjectClass
     static name: string
 }
 export abstract class DOMClientRectListClass {
-    /* Fields of WebKit2WebExtension.DOMClientRectListClass */
+    /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMClientRectListClass */
     parentClass: DOMObjectClass
     static name: string
 }
 export abstract class DOMCommentClass {
-    /* Fields of WebKit2WebExtension.DOMCommentClass */
+    /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMCommentClass */
     parentClass: DOMCharacterDataClass
     static name: string
 }
 export abstract class DOMDOMImplementationClass {
-    /* Fields of WebKit2WebExtension.DOMDOMImplementationClass */
+    /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMDOMImplementationClass */
     parentClass: DOMObjectClass
     static name: string
 }
 export abstract class DOMDOMSelectionClass {
-    /* Fields of WebKit2WebExtension.DOMDOMSelectionClass */
+    /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMDOMSelectionClass */
     parentClass: DOMObjectClass
     static name: string
 }
 export abstract class DOMDOMTokenListClass {
-    /* Fields of WebKit2WebExtension.DOMDOMTokenListClass */
+    /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMDOMTokenListClass */
     parentClass: DOMObjectClass
     static name: string
 }
 export abstract class DOMDOMWindowClass {
-    /* Fields of WebKit2WebExtension.DOMDOMWindowClass */
+    /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMDOMWindowClass */
     parentClass: DOMObjectClass
     static name: string
 }
 export abstract class DOMDocumentClass {
-    /* Fields of WebKit2WebExtension.DOMDocumentClass */
+    /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMDocumentClass */
     parentClass: DOMNodeClass
     static name: string
 }
 export abstract class DOMDocumentFragmentClass {
-    /* Fields of WebKit2WebExtension.DOMDocumentFragmentClass */
+    /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMDocumentFragmentClass */
     parentClass: DOMNodeClass
     static name: string
 }
 export abstract class DOMDocumentTypeClass {
-    /* Fields of WebKit2WebExtension.DOMDocumentTypeClass */
+    /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMDocumentTypeClass */
     parentClass: DOMNodeClass
     static name: string
 }
 export abstract class DOMElementClass {
-    /* Fields of WebKit2WebExtension.DOMElementClass */
+    /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMElementClass */
     parentClass: DOMNodeClass
     static name: string
 }
 export abstract class DOMEntityReferenceClass {
-    /* Fields of WebKit2WebExtension.DOMEntityReferenceClass */
+    /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMEntityReferenceClass */
     parentClass: DOMNodeClass
     static name: string
 }
 export abstract class DOMEventClass {
-    /* Fields of WebKit2WebExtension.DOMEventClass */
+    /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMEventClass */
     parentClass: DOMObjectClass
     static name: string
 }
 export abstract class DOMEventTargetIface {
-    /* Fields of WebKit2WebExtension.DOMEventTargetIface */
+    /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMEventTargetIface */
     gIface: GObject.TypeInterface
     dispatchEvent: (target: DOMEventTarget, event: DOMEvent) => boolean
     addEventListener: (target: DOMEventTarget, eventName: string, handler: Function, useCapture: boolean) => boolean
@@ -42601,409 +41297,409 @@ export abstract class DOMEventTargetIface {
     static name: string
 }
 export abstract class DOMFileClass {
-    /* Fields of WebKit2WebExtension.DOMFileClass */
+    /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMFileClass */
     parentClass: DOMBlobClass
     static name: string
 }
 export abstract class DOMFileListClass {
-    /* Fields of WebKit2WebExtension.DOMFileListClass */
+    /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMFileListClass */
     parentClass: DOMObjectClass
     static name: string
 }
 export abstract class DOMHTMLAnchorElementClass {
-    /* Fields of WebKit2WebExtension.DOMHTMLAnchorElementClass */
+    /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLAnchorElementClass */
     parentClass: DOMHTMLElementClass
     static name: string
 }
 export abstract class DOMHTMLAppletElementClass {
-    /* Fields of WebKit2WebExtension.DOMHTMLAppletElementClass */
+    /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLAppletElementClass */
     parentClass: DOMHTMLElementClass
     static name: string
 }
 export abstract class DOMHTMLAreaElementClass {
-    /* Fields of WebKit2WebExtension.DOMHTMLAreaElementClass */
+    /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLAreaElementClass */
     parentClass: DOMHTMLElementClass
     static name: string
 }
 export abstract class DOMHTMLBRElementClass {
-    /* Fields of WebKit2WebExtension.DOMHTMLBRElementClass */
+    /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLBRElementClass */
     parentClass: DOMHTMLElementClass
     static name: string
 }
 export abstract class DOMHTMLBaseElementClass {
-    /* Fields of WebKit2WebExtension.DOMHTMLBaseElementClass */
+    /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLBaseElementClass */
     parentClass: DOMHTMLElementClass
     static name: string
 }
 export abstract class DOMHTMLBaseFontElementClass {
-    /* Fields of WebKit2WebExtension.DOMHTMLBaseFontElementClass */
+    /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLBaseFontElementClass */
     parentClass: DOMHTMLElementClass
     static name: string
 }
 export abstract class DOMHTMLBodyElementClass {
-    /* Fields of WebKit2WebExtension.DOMHTMLBodyElementClass */
+    /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLBodyElementClass */
     parentClass: DOMHTMLElementClass
     static name: string
 }
 export abstract class DOMHTMLButtonElementClass {
-    /* Fields of WebKit2WebExtension.DOMHTMLButtonElementClass */
+    /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLButtonElementClass */
     parentClass: DOMHTMLElementClass
     static name: string
 }
 export abstract class DOMHTMLCanvasElementClass {
-    /* Fields of WebKit2WebExtension.DOMHTMLCanvasElementClass */
+    /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLCanvasElementClass */
     parentClass: DOMHTMLElementClass
     static name: string
 }
 export abstract class DOMHTMLCollectionClass {
-    /* Fields of WebKit2WebExtension.DOMHTMLCollectionClass */
+    /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLCollectionClass */
     parentClass: DOMObjectClass
     static name: string
 }
 export abstract class DOMHTMLDListElementClass {
-    /* Fields of WebKit2WebExtension.DOMHTMLDListElementClass */
+    /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLDListElementClass */
     parentClass: DOMHTMLElementClass
     static name: string
 }
 export abstract class DOMHTMLDirectoryElementClass {
-    /* Fields of WebKit2WebExtension.DOMHTMLDirectoryElementClass */
+    /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLDirectoryElementClass */
     parentClass: DOMHTMLElementClass
     static name: string
 }
 export abstract class DOMHTMLDivElementClass {
-    /* Fields of WebKit2WebExtension.DOMHTMLDivElementClass */
+    /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLDivElementClass */
     parentClass: DOMHTMLElementClass
     static name: string
 }
 export abstract class DOMHTMLDocumentClass {
-    /* Fields of WebKit2WebExtension.DOMHTMLDocumentClass */
+    /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLDocumentClass */
     parentClass: DOMDocumentClass
     static name: string
 }
 export abstract class DOMHTMLElementClass {
-    /* Fields of WebKit2WebExtension.DOMHTMLElementClass */
+    /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLElementClass */
     parentClass: DOMElementClass
     static name: string
 }
 export abstract class DOMHTMLEmbedElementClass {
-    /* Fields of WebKit2WebExtension.DOMHTMLEmbedElementClass */
+    /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLEmbedElementClass */
     parentClass: DOMHTMLElementClass
     static name: string
 }
 export abstract class DOMHTMLFieldSetElementClass {
-    /* Fields of WebKit2WebExtension.DOMHTMLFieldSetElementClass */
+    /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLFieldSetElementClass */
     parentClass: DOMHTMLElementClass
     static name: string
 }
 export abstract class DOMHTMLFontElementClass {
-    /* Fields of WebKit2WebExtension.DOMHTMLFontElementClass */
+    /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLFontElementClass */
     parentClass: DOMHTMLElementClass
     static name: string
 }
 export abstract class DOMHTMLFormElementClass {
-    /* Fields of WebKit2WebExtension.DOMHTMLFormElementClass */
+    /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLFormElementClass */
     parentClass: DOMHTMLElementClass
     static name: string
 }
 export abstract class DOMHTMLFrameElementClass {
-    /* Fields of WebKit2WebExtension.DOMHTMLFrameElementClass */
+    /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLFrameElementClass */
     parentClass: DOMHTMLElementClass
     static name: string
 }
 export abstract class DOMHTMLFrameSetElementClass {
-    /* Fields of WebKit2WebExtension.DOMHTMLFrameSetElementClass */
+    /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLFrameSetElementClass */
     parentClass: DOMHTMLElementClass
     static name: string
 }
 export abstract class DOMHTMLHRElementClass {
-    /* Fields of WebKit2WebExtension.DOMHTMLHRElementClass */
+    /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLHRElementClass */
     parentClass: DOMHTMLElementClass
     static name: string
 }
 export abstract class DOMHTMLHeadElementClass {
-    /* Fields of WebKit2WebExtension.DOMHTMLHeadElementClass */
+    /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLHeadElementClass */
     parentClass: DOMHTMLElementClass
     static name: string
 }
 export abstract class DOMHTMLHeadingElementClass {
-    /* Fields of WebKit2WebExtension.DOMHTMLHeadingElementClass */
+    /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLHeadingElementClass */
     parentClass: DOMHTMLElementClass
     static name: string
 }
 export abstract class DOMHTMLHtmlElementClass {
-    /* Fields of WebKit2WebExtension.DOMHTMLHtmlElementClass */
+    /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLHtmlElementClass */
     parentClass: DOMHTMLElementClass
     static name: string
 }
 export abstract class DOMHTMLIFrameElementClass {
-    /* Fields of WebKit2WebExtension.DOMHTMLIFrameElementClass */
+    /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLIFrameElementClass */
     parentClass: DOMHTMLElementClass
     static name: string
 }
 export abstract class DOMHTMLImageElementClass {
-    /* Fields of WebKit2WebExtension.DOMHTMLImageElementClass */
+    /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLImageElementClass */
     parentClass: DOMHTMLElementClass
     static name: string
 }
 export abstract class DOMHTMLInputElementClass {
-    /* Fields of WebKit2WebExtension.DOMHTMLInputElementClass */
+    /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLInputElementClass */
     parentClass: DOMHTMLElementClass
     static name: string
 }
 export abstract class DOMHTMLLIElementClass {
-    /* Fields of WebKit2WebExtension.DOMHTMLLIElementClass */
+    /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLLIElementClass */
     parentClass: DOMHTMLElementClass
     static name: string
 }
 export abstract class DOMHTMLLabelElementClass {
-    /* Fields of WebKit2WebExtension.DOMHTMLLabelElementClass */
+    /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLLabelElementClass */
     parentClass: DOMHTMLElementClass
     static name: string
 }
 export abstract class DOMHTMLLegendElementClass {
-    /* Fields of WebKit2WebExtension.DOMHTMLLegendElementClass */
+    /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLLegendElementClass */
     parentClass: DOMHTMLElementClass
     static name: string
 }
 export abstract class DOMHTMLLinkElementClass {
-    /* Fields of WebKit2WebExtension.DOMHTMLLinkElementClass */
+    /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLLinkElementClass */
     parentClass: DOMHTMLElementClass
     static name: string
 }
 export abstract class DOMHTMLMapElementClass {
-    /* Fields of WebKit2WebExtension.DOMHTMLMapElementClass */
+    /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLMapElementClass */
     parentClass: DOMHTMLElementClass
     static name: string
 }
 export abstract class DOMHTMLMarqueeElementClass {
-    /* Fields of WebKit2WebExtension.DOMHTMLMarqueeElementClass */
+    /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLMarqueeElementClass */
     parentClass: DOMHTMLElementClass
     static name: string
 }
 export abstract class DOMHTMLMenuElementClass {
-    /* Fields of WebKit2WebExtension.DOMHTMLMenuElementClass */
+    /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLMenuElementClass */
     parentClass: DOMHTMLElementClass
     static name: string
 }
 export abstract class DOMHTMLMetaElementClass {
-    /* Fields of WebKit2WebExtension.DOMHTMLMetaElementClass */
+    /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLMetaElementClass */
     parentClass: DOMHTMLElementClass
     static name: string
 }
 export abstract class DOMHTMLModElementClass {
-    /* Fields of WebKit2WebExtension.DOMHTMLModElementClass */
+    /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLModElementClass */
     parentClass: DOMHTMLElementClass
     static name: string
 }
 export abstract class DOMHTMLOListElementClass {
-    /* Fields of WebKit2WebExtension.DOMHTMLOListElementClass */
+    /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLOListElementClass */
     parentClass: DOMHTMLElementClass
     static name: string
 }
 export abstract class DOMHTMLObjectElementClass {
-    /* Fields of WebKit2WebExtension.DOMHTMLObjectElementClass */
+    /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLObjectElementClass */
     parentClass: DOMHTMLElementClass
     static name: string
 }
 export abstract class DOMHTMLOptGroupElementClass {
-    /* Fields of WebKit2WebExtension.DOMHTMLOptGroupElementClass */
+    /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLOptGroupElementClass */
     parentClass: DOMHTMLElementClass
     static name: string
 }
 export abstract class DOMHTMLOptionElementClass {
-    /* Fields of WebKit2WebExtension.DOMHTMLOptionElementClass */
+    /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLOptionElementClass */
     parentClass: DOMHTMLElementClass
     static name: string
 }
 export abstract class DOMHTMLOptionsCollectionClass {
-    /* Fields of WebKit2WebExtension.DOMHTMLOptionsCollectionClass */
+    /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLOptionsCollectionClass */
     parentClass: DOMHTMLCollectionClass
     static name: string
 }
 export abstract class DOMHTMLParagraphElementClass {
-    /* Fields of WebKit2WebExtension.DOMHTMLParagraphElementClass */
+    /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLParagraphElementClass */
     parentClass: DOMHTMLElementClass
     static name: string
 }
 export abstract class DOMHTMLParamElementClass {
-    /* Fields of WebKit2WebExtension.DOMHTMLParamElementClass */
+    /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLParamElementClass */
     parentClass: DOMHTMLElementClass
     static name: string
 }
 export abstract class DOMHTMLPreElementClass {
-    /* Fields of WebKit2WebExtension.DOMHTMLPreElementClass */
+    /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLPreElementClass */
     parentClass: DOMHTMLElementClass
     static name: string
 }
 export abstract class DOMHTMLQuoteElementClass {
-    /* Fields of WebKit2WebExtension.DOMHTMLQuoteElementClass */
+    /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLQuoteElementClass */
     parentClass: DOMHTMLElementClass
     static name: string
 }
 export abstract class DOMHTMLScriptElementClass {
-    /* Fields of WebKit2WebExtension.DOMHTMLScriptElementClass */
+    /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLScriptElementClass */
     parentClass: DOMHTMLElementClass
     static name: string
 }
 export abstract class DOMHTMLSelectElementClass {
-    /* Fields of WebKit2WebExtension.DOMHTMLSelectElementClass */
+    /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLSelectElementClass */
     parentClass: DOMHTMLElementClass
     static name: string
 }
 export abstract class DOMHTMLStyleElementClass {
-    /* Fields of WebKit2WebExtension.DOMHTMLStyleElementClass */
+    /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLStyleElementClass */
     parentClass: DOMHTMLElementClass
     static name: string
 }
 export abstract class DOMHTMLTableCaptionElementClass {
-    /* Fields of WebKit2WebExtension.DOMHTMLTableCaptionElementClass */
+    /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLTableCaptionElementClass */
     parentClass: DOMHTMLElementClass
     static name: string
 }
 export abstract class DOMHTMLTableCellElementClass {
-    /* Fields of WebKit2WebExtension.DOMHTMLTableCellElementClass */
+    /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLTableCellElementClass */
     parentClass: DOMHTMLElementClass
     static name: string
 }
 export abstract class DOMHTMLTableColElementClass {
-    /* Fields of WebKit2WebExtension.DOMHTMLTableColElementClass */
+    /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLTableColElementClass */
     parentClass: DOMHTMLElementClass
     static name: string
 }
 export abstract class DOMHTMLTableElementClass {
-    /* Fields of WebKit2WebExtension.DOMHTMLTableElementClass */
+    /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLTableElementClass */
     parentClass: DOMHTMLElementClass
     static name: string
 }
 export abstract class DOMHTMLTableRowElementClass {
-    /* Fields of WebKit2WebExtension.DOMHTMLTableRowElementClass */
+    /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLTableRowElementClass */
     parentClass: DOMHTMLElementClass
     static name: string
 }
 export abstract class DOMHTMLTableSectionElementClass {
-    /* Fields of WebKit2WebExtension.DOMHTMLTableSectionElementClass */
+    /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLTableSectionElementClass */
     parentClass: DOMHTMLElementClass
     static name: string
 }
 export abstract class DOMHTMLTextAreaElementClass {
-    /* Fields of WebKit2WebExtension.DOMHTMLTextAreaElementClass */
+    /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLTextAreaElementClass */
     parentClass: DOMHTMLElementClass
     static name: string
 }
 export abstract class DOMHTMLTitleElementClass {
-    /* Fields of WebKit2WebExtension.DOMHTMLTitleElementClass */
+    /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLTitleElementClass */
     parentClass: DOMHTMLElementClass
     static name: string
 }
 export abstract class DOMHTMLUListElementClass {
-    /* Fields of WebKit2WebExtension.DOMHTMLUListElementClass */
+    /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLUListElementClass */
     parentClass: DOMHTMLElementClass
     static name: string
 }
 export abstract class DOMKeyboardEventClass {
-    /* Fields of WebKit2WebExtension.DOMKeyboardEventClass */
+    /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMKeyboardEventClass */
     parentClass: DOMUIEventClass
     static name: string
 }
 export abstract class DOMMediaListClass {
-    /* Fields of WebKit2WebExtension.DOMMediaListClass */
+    /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMMediaListClass */
     parentClass: DOMObjectClass
     static name: string
 }
 export abstract class DOMMouseEventClass {
-    /* Fields of WebKit2WebExtension.DOMMouseEventClass */
+    /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMMouseEventClass */
     parentClass: DOMUIEventClass
     static name: string
 }
 export abstract class DOMNamedNodeMapClass {
-    /* Fields of WebKit2WebExtension.DOMNamedNodeMapClass */
+    /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMNamedNodeMapClass */
     parentClass: DOMObjectClass
     static name: string
 }
 export abstract class DOMNodeClass {
-    /* Fields of WebKit2WebExtension.DOMNodeClass */
+    /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMNodeClass */
     parentClass: DOMObjectClass
     static name: string
 }
 export abstract class DOMNodeFilterIface {
-    /* Fields of WebKit2WebExtension.DOMNodeFilterIface */
+    /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMNodeFilterIface */
     gIface: GObject.TypeInterface
     acceptNode: (filter: DOMNodeFilter, node: DOMNode) => number
     static name: string
 }
 export abstract class DOMNodeIteratorClass {
-    /* Fields of WebKit2WebExtension.DOMNodeIteratorClass */
+    /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMNodeIteratorClass */
     parentClass: DOMObjectClass
     static name: string
 }
 export abstract class DOMNodeListClass {
-    /* Fields of WebKit2WebExtension.DOMNodeListClass */
+    /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMNodeListClass */
     parentClass: DOMObjectClass
     static name: string
 }
 export abstract class DOMObjectClass {
-    /* Fields of WebKit2WebExtension.DOMObjectClass */
+    /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMObjectClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
 export abstract class DOMProcessingInstructionClass {
-    /* Fields of WebKit2WebExtension.DOMProcessingInstructionClass */
+    /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMProcessingInstructionClass */
     parentClass: DOMCharacterDataClass
     static name: string
 }
 export abstract class DOMRangeClass {
-    /* Fields of WebKit2WebExtension.DOMRangeClass */
+    /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMRangeClass */
     parentClass: DOMObjectClass
     static name: string
 }
 export abstract class DOMStyleSheetClass {
-    /* Fields of WebKit2WebExtension.DOMStyleSheetClass */
+    /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMStyleSheetClass */
     parentClass: DOMObjectClass
     static name: string
 }
 export abstract class DOMStyleSheetListClass {
-    /* Fields of WebKit2WebExtension.DOMStyleSheetListClass */
+    /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMStyleSheetListClass */
     parentClass: DOMObjectClass
     static name: string
 }
 export abstract class DOMTextClass {
-    /* Fields of WebKit2WebExtension.DOMTextClass */
+    /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMTextClass */
     parentClass: DOMCharacterDataClass
     static name: string
 }
 export abstract class DOMTreeWalkerClass {
-    /* Fields of WebKit2WebExtension.DOMTreeWalkerClass */
+    /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMTreeWalkerClass */
     parentClass: DOMObjectClass
     static name: string
 }
 export abstract class DOMUIEventClass {
-    /* Fields of WebKit2WebExtension.DOMUIEventClass */
+    /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMUIEventClass */
     parentClass: DOMEventClass
     static name: string
 }
 export abstract class DOMWheelEventClass {
-    /* Fields of WebKit2WebExtension.DOMWheelEventClass */
+    /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMWheelEventClass */
     parentClass: DOMMouseEventClass
     static name: string
 }
 export abstract class DOMXPathExpressionClass {
-    /* Fields of WebKit2WebExtension.DOMXPathExpressionClass */
+    /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMXPathExpressionClass */
     parentClass: DOMObjectClass
     static name: string
 }
 export abstract class DOMXPathNSResolverIface {
-    /* Fields of WebKit2WebExtension.DOMXPathNSResolverIface */
+    /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMXPathNSResolverIface */
     gIface: GObject.TypeInterface
     lookupNamespaceUri: (resolver: DOMXPathNSResolver, prefix: string) => string
     static name: string
 }
 export abstract class DOMXPathResultClass {
-    /* Fields of WebKit2WebExtension.DOMXPathResultClass */
+    /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMXPathResultClass */
     parentClass: DOMObjectClass
     static name: string
 }
 export abstract class FrameClass {
-    /* Fields of WebKit2WebExtension.FrameClass */
+    /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.FrameClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
@@ -43011,7 +41707,7 @@ export class FramePrivate {
     static name: string
 }
 export abstract class HitTestResultClass {
-    /* Fields of WebKit2WebExtension.HitTestResultClass */
+    /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.HitTestResultClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
@@ -43019,7 +41715,7 @@ export class HitTestResultPrivate {
     static name: string
 }
 export abstract class ScriptWorldClass {
-    /* Fields of WebKit2WebExtension.ScriptWorldClass */
+    /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.ScriptWorldClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
@@ -43027,7 +41723,7 @@ export class ScriptWorldPrivate {
     static name: string
 }
 export abstract class URIRequestClass {
-    /* Fields of WebKit2WebExtension.URIRequestClass */
+    /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.URIRequestClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
@@ -43035,7 +41731,7 @@ export class URIRequestPrivate {
     static name: string
 }
 export abstract class URIResponseClass {
-    /* Fields of WebKit2WebExtension.URIResponseClass */
+    /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.URIResponseClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
@@ -43043,7 +41739,7 @@ export class URIResponsePrivate {
     static name: string
 }
 export abstract class UserMessageClass {
-    /* Fields of WebKit2WebExtension.UserMessageClass */
+    /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.UserMessageClass */
     parentClass: GObject.InitiallyUnownedClass
     static name: string
 }
@@ -43051,7 +41747,7 @@ export class UserMessagePrivate {
     static name: string
 }
 export abstract class WebEditorClass {
-    /* Fields of WebKit2WebExtension.WebEditorClass */
+    /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.WebEditorClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
@@ -43059,7 +41755,7 @@ export class WebEditorPrivate {
     static name: string
 }
 export abstract class WebExtensionClass {
-    /* Fields of WebKit2WebExtension.WebExtensionClass */
+    /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.WebExtensionClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
@@ -43067,7 +41763,7 @@ export class WebExtensionPrivate {
     static name: string
 }
 export abstract class WebHitTestResultClass {
-    /* Fields of WebKit2WebExtension.WebHitTestResultClass */
+    /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.WebHitTestResultClass */
     parentClass: HitTestResultClass
     static name: string
 }
@@ -43075,7 +41771,7 @@ export class WebHitTestResultPrivate {
     static name: string
 }
 export abstract class WebPageClass {
-    /* Fields of WebKit2WebExtension.WebPageClass */
+    /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.WebPageClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
@@ -43083,13 +41779,13 @@ export class WebPagePrivate {
     static name: string
 }
 export class _ContextMenu {
-    /* Fields of WebKit2WebExtension._ContextMenu */
+    /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension._ContextMenu */
     parent: GObject.Object
     priv: ContextMenuPrivate
     static name: string
 }
 export class _ContextMenuItem {
-    /* Fields of WebKit2WebExtension._ContextMenuItem */
+    /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension._ContextMenuItem */
     parent: GObject.InitiallyUnowned
     priv: ContextMenuItemPrivate
     static name: string

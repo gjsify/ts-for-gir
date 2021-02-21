@@ -16,13 +16,13 @@ export interface InsertBinCallback {
 export interface InsertBin_ConstructProps extends Gst.Bin_ConstructProps {
 }
 export class InsertBin {
-    /* Properties of Gst.Bin */
+    /* Properties of Gst-1.0.Gst.Bin */
     asyncHandling: boolean
     messageForward: boolean
-    /* Properties of Gst.Object */
+    /* Properties of Gst-1.0.Gst.Object */
     name: string
     parent: Gst.Object
-    /* Fields of Gst.Bin */
+    /* Fields of Gst-1.0.Gst.Bin */
     element: Gst.Element
     numchildren: number
     children: Gst.Element[]
@@ -34,7 +34,7 @@ export class InsertBin {
     clockDirty: boolean
     providedClock: Gst.Clock
     clockProvider: Gst.Element
-    /* Fields of Gst.Element */
+    /* Fields of Gst-1.0.Gst.Element */
     object: Gst.Object
     stateLock: GLib.RecMutex
     stateCond: GLib.Cond
@@ -56,18 +56,18 @@ export class InsertBin {
     sinkpads: Gst.Pad[]
     padsCookie: number
     contexts: Gst.Context[]
-    /* Fields of Gst.Object */
+    /* Fields of Gst-1.0.Gst.Object */
     lock: GLib.Mutex
     flags: number
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GstInsertBin.InsertBin */
+    /* Methods of GstInsertBin-1.0.GstInsertBin.InsertBin */
     append(element: Gst.Element, callback: InsertBinCallback): void
     insertAfter(element: Gst.Element, sibling: Gst.Element, callback: InsertBinCallback): void
     insertBefore(element: Gst.Element, sibling: Gst.Element, callback: InsertBinCallback): void
     prepend(element: Gst.Element, callback: InsertBinCallback): void
     remove(element: Gst.Element, callback: InsertBinCallback): void
-    /* Methods of Gst.Bin */
+    /* Methods of Gst-1.0.Gst.Bin */
     add(element: Gst.Element): boolean
     findUnlinkedPad(direction: Gst.PadDirection): Gst.Pad | null
     getByInterface(iface: GObject.Type): Gst.Element | null
@@ -85,7 +85,7 @@ export class InsertBin {
     remove(element: Gst.Element): boolean
     setSuppressedFlags(flags: Gst.ElementFlags): void
     syncChildrenStates(): boolean
-    /* Methods of Gst.Element */
+    /* Methods of Gst-1.0.Gst.Element */
     abortState(): void
     addPad(pad: Gst.Pad): boolean
     addPropertyDeepNotifyWatch(propertyName: string | null, includeValue: boolean): number
@@ -113,7 +113,7 @@ export class InsertBin {
     getPadTemplateList(): Gst.PadTemplate[]
     getRequestPad(name: string): Gst.Pad | null
     getStartTime(): Gst.ClockTime
-    getState(timeout: Gst.ClockTime): [ /* returnType */ Gst.StateChangeReturn, /* state */ Gst.State | null, /* pending */ Gst.State | null ]
+    getState(timeout: Gst.ClockTime): { returnType: Gst.StateChangeReturn, state: Gst.State | null, pending: Gst.State | null }
     getStaticPad(name: string): Gst.Pad | null
     isLockedState(): boolean
     iteratePads(): Gst.Iterator
@@ -131,9 +131,9 @@ export class InsertBin {
     postMessage(message: Gst.Message): boolean
     provideClock(): Gst.Clock | null
     query(query: Gst.Query): boolean
-    queryConvert(srcFormat: Gst.Format, srcVal: number, destFormat: Gst.Format): [ /* returnType */ boolean, /* destVal */ number ]
-    queryDuration(format: Gst.Format): [ /* returnType */ boolean, /* duration */ number | null ]
-    queryPosition(format: Gst.Format): [ /* returnType */ boolean, /* cur */ number | null ]
+    queryConvert(srcFormat: Gst.Format, srcVal: number, destFormat: Gst.Format): { returnType: boolean, destVal: number }
+    queryDuration(format: Gst.Format): { returnType: boolean, duration: number | null }
+    queryPosition(format: Gst.Format): { returnType: boolean, cur: number | null }
     releaseRequestPad(pad: Gst.Pad): void
     removePad(pad: Gst.Pad): boolean
     removePropertyNotifyWatch(watchId: number): void
@@ -151,7 +151,7 @@ export class InsertBin {
     syncStateWithParent(): boolean
     unlink(dest: Gst.Element): void
     unlinkPads(srcpadname: string, dest: Gst.Element, destpadname: string): void
-    /* Methods of Gst.Object */
+    /* Methods of Gst-1.0.Gst.Object */
     addControlBinding(binding: Gst.ControlBinding): boolean
     defaultError(error: GLib.Error, debug?: string | null): void
     getControlBinding(propertyName: string): Gst.ControlBinding | null
@@ -176,7 +176,7 @@ export class InsertBin {
     syncValues(timestamp: Gst.ClockTime): boolean
     unparent(): void
     unref(): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -197,165 +197,106 @@ export class InsertBin {
     stealQdata(quark: GLib.Quark): object | null
     thawNotify(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of Gst.ChildProxy */
+    /* Methods of Gst-1.0.Gst.ChildProxy */
     childAdded(child: GObject.Object, name: string): void
     childRemoved(child: GObject.Object, name: string): void
     getChildByIndex(index: number): GObject.Object | null
     getChildByName(name: string): GObject.Object | null
     getChildrenCount(): number
-    getProperty(name: string): /* value */ any
-    lookup(name: string): [ /* returnType */ boolean, /* target */ GObject.Object | null, /* pspec */ GObject.ParamSpec | null ]
+    getProperty(name: string): { value: any }
+    lookup(name: string): { returnType: boolean, target: GObject.Object | null, pspec: GObject.ParamSpec | null }
     setProperty(name: string, value: any): void
-    /* Virtual methods of GstInsertBin.InsertBin */
-    vfuncChildAdded(child: GObject.Object, name: string): void
-    vfuncChildRemoved(child: GObject.Object, name: string): void
-    vfuncGetChildByIndex(index: number): GObject.Object | null
-    vfuncGetChildByName(name: string): GObject.Object | null
-    vfuncGetChildrenCount(): number
-    /* Virtual methods of Gst.Bin */
-    vfuncAddElement(element: Gst.Element): boolean
-    vfuncDeepElementAdded(subBin: Gst.Bin, child: Gst.Element): void
-    vfuncDeepElementRemoved(subBin: Gst.Bin, child: Gst.Element): void
-    vfuncDoLatency(): boolean
-    vfuncElementAdded(child: Gst.Element): void
-    vfuncElementRemoved(child: Gst.Element): void
-    vfuncHandleMessage(message: Gst.Message): void
-    vfuncRemoveElement(element: Gst.Element): boolean
-    /* Virtual methods of Gst.Element */
-    vfuncChangeState(transition: Gst.StateChange): Gst.StateChangeReturn
-    vfuncGetState(timeout: Gst.ClockTime): [ /* returnType */ Gst.StateChangeReturn, /* state */ Gst.State | null, /* pending */ Gst.State | null ]
-    vfuncNoMorePads(): void
-    vfuncPadAdded(pad: Gst.Pad): void
-    vfuncPadRemoved(pad: Gst.Pad): void
-    vfuncPostMessage(message: Gst.Message): boolean
-    vfuncProvideClock(): Gst.Clock | null
-    vfuncQuery(query: Gst.Query): boolean
-    vfuncReleasePad(pad: Gst.Pad): void
-    vfuncRequestNewPad(templ: Gst.PadTemplate, name?: string | null, caps?: Gst.Caps | null): Gst.Pad | null
-    vfuncSendEvent(event: Gst.Event): boolean
-    vfuncSetBus(bus?: Gst.Bus | null): void
-    vfuncSetClock(clock?: Gst.Clock | null): boolean
-    vfuncSetContext(context: Gst.Context): void
-    vfuncSetState(state: Gst.State): Gst.StateChangeReturn
-    vfuncStateChanged(oldstate: Gst.State, newstate: Gst.State, pending: Gst.State): void
-    /* Virtual methods of Gst.Object */
-    vfuncDeepNotify(orig: Gst.Object, pspec: GObject.ParamSpec): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GstInsertBin.InsertBin */
+    /* Signals of GstInsertBin-1.0.GstInsertBin.InsertBin */
     connect(sigName: "append", callback: (($obj: InsertBin, callback: Gst.Element, userData?: object | null, userData2?: object | null) => void)): number
-    connect_after(sigName: "append", callback: (($obj: InsertBin, callback: Gst.Element, userData?: object | null, userData2?: object | null) => void)): number
+    on(sigName: "append", callback: (callback: Gst.Element, userData?: object | null, userData2?: object | null) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "append", callback: (callback: Gst.Element, userData?: object | null, userData2?: object | null) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "append", callback: (callback: Gst.Element, userData?: object | null, userData2?: object | null) => void): NodeJS.EventEmitter
     emit(sigName: "append", callback: Gst.Element, userData?: object | null, userData2?: object | null): void
-    on(sigName: "append", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "append", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "append", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "insert-after", callback: (($obj: InsertBin, sibling: Gst.Element, callback: Gst.Element, userData?: object | null, userData2?: object | null) => void)): number
-    connect_after(sigName: "insert-after", callback: (($obj: InsertBin, sibling: Gst.Element, callback: Gst.Element, userData?: object | null, userData2?: object | null) => void)): number
+    on(sigName: "insert-after", callback: (sibling: Gst.Element, callback: Gst.Element, userData?: object | null, userData2?: object | null) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "insert-after", callback: (sibling: Gst.Element, callback: Gst.Element, userData?: object | null, userData2?: object | null) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "insert-after", callback: (sibling: Gst.Element, callback: Gst.Element, userData?: object | null, userData2?: object | null) => void): NodeJS.EventEmitter
     emit(sigName: "insert-after", sibling: Gst.Element, callback: Gst.Element, userData?: object | null, userData2?: object | null): void
-    on(sigName: "insert-after", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "insert-after", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "insert-after", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "insert-before", callback: (($obj: InsertBin, sibling: Gst.Element, callback: Gst.Element, userData?: object | null, userData2?: object | null) => void)): number
-    connect_after(sigName: "insert-before", callback: (($obj: InsertBin, sibling: Gst.Element, callback: Gst.Element, userData?: object | null, userData2?: object | null) => void)): number
+    on(sigName: "insert-before", callback: (sibling: Gst.Element, callback: Gst.Element, userData?: object | null, userData2?: object | null) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "insert-before", callback: (sibling: Gst.Element, callback: Gst.Element, userData?: object | null, userData2?: object | null) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "insert-before", callback: (sibling: Gst.Element, callback: Gst.Element, userData?: object | null, userData2?: object | null) => void): NodeJS.EventEmitter
     emit(sigName: "insert-before", sibling: Gst.Element, callback: Gst.Element, userData?: object | null, userData2?: object | null): void
-    on(sigName: "insert-before", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "insert-before", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "insert-before", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "prepend", callback: (($obj: InsertBin, callback: Gst.Element, userData?: object | null, userData2?: object | null) => void)): number
-    connect_after(sigName: "prepend", callback: (($obj: InsertBin, callback: Gst.Element, userData?: object | null, userData2?: object | null) => void)): number
+    on(sigName: "prepend", callback: (callback: Gst.Element, userData?: object | null, userData2?: object | null) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "prepend", callback: (callback: Gst.Element, userData?: object | null, userData2?: object | null) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "prepend", callback: (callback: Gst.Element, userData?: object | null, userData2?: object | null) => void): NodeJS.EventEmitter
     emit(sigName: "prepend", callback: Gst.Element, userData?: object | null, userData2?: object | null): void
-    on(sigName: "prepend", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "prepend", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "prepend", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "remove", callback: (($obj: InsertBin, callback: Gst.Element, userData?: object | null, userData2?: object | null) => void)): number
-    connect_after(sigName: "remove", callback: (($obj: InsertBin, callback: Gst.Element, userData?: object | null, userData2?: object | null) => void)): number
+    on(sigName: "remove", callback: (callback: Gst.Element, userData?: object | null, userData2?: object | null) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "remove", callback: (callback: Gst.Element, userData?: object | null, userData2?: object | null) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "remove", callback: (callback: Gst.Element, userData?: object | null, userData2?: object | null) => void): NodeJS.EventEmitter
     emit(sigName: "remove", callback: Gst.Element, userData?: object | null, userData2?: object | null): void
-    on(sigName: "remove", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "remove", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "remove", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of Gst.Bin */
+    /* Signals of Gst-1.0.Gst.Bin */
     connect(sigName: "deep-element-added", callback: (($obj: InsertBin, subBin: Gst.Bin, element: Gst.Element) => void)): number
-    connect_after(sigName: "deep-element-added", callback: (($obj: InsertBin, subBin: Gst.Bin, element: Gst.Element) => void)): number
+    on(sigName: "deep-element-added", callback: (subBin: Gst.Bin, element: Gst.Element) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "deep-element-added", callback: (subBin: Gst.Bin, element: Gst.Element) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "deep-element-added", callback: (subBin: Gst.Bin, element: Gst.Element) => void): NodeJS.EventEmitter
     emit(sigName: "deep-element-added", subBin: Gst.Bin, element: Gst.Element): void
-    on(sigName: "deep-element-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "deep-element-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "deep-element-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "deep-element-removed", callback: (($obj: InsertBin, subBin: Gst.Bin, element: Gst.Element) => void)): number
-    connect_after(sigName: "deep-element-removed", callback: (($obj: InsertBin, subBin: Gst.Bin, element: Gst.Element) => void)): number
+    on(sigName: "deep-element-removed", callback: (subBin: Gst.Bin, element: Gst.Element) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "deep-element-removed", callback: (subBin: Gst.Bin, element: Gst.Element) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "deep-element-removed", callback: (subBin: Gst.Bin, element: Gst.Element) => void): NodeJS.EventEmitter
     emit(sigName: "deep-element-removed", subBin: Gst.Bin, element: Gst.Element): void
-    on(sigName: "deep-element-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "deep-element-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "deep-element-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "do-latency", callback: (($obj: InsertBin) => boolean)): number
-    connect_after(sigName: "do-latency", callback: (($obj: InsertBin) => boolean)): number
+    on(sigName: "do-latency", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "do-latency", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "do-latency", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "do-latency"): void
-    on(sigName: "do-latency", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "do-latency", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "do-latency", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "element-added", callback: (($obj: InsertBin, element: Gst.Element) => void)): number
-    connect_after(sigName: "element-added", callback: (($obj: InsertBin, element: Gst.Element) => void)): number
+    on(sigName: "element-added", callback: (element: Gst.Element) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "element-added", callback: (element: Gst.Element) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "element-added", callback: (element: Gst.Element) => void): NodeJS.EventEmitter
     emit(sigName: "element-added", element: Gst.Element): void
-    on(sigName: "element-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "element-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "element-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "element-removed", callback: (($obj: InsertBin, element: Gst.Element) => void)): number
-    connect_after(sigName: "element-removed", callback: (($obj: InsertBin, element: Gst.Element) => void)): number
+    on(sigName: "element-removed", callback: (element: Gst.Element) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "element-removed", callback: (element: Gst.Element) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "element-removed", callback: (element: Gst.Element) => void): NodeJS.EventEmitter
     emit(sigName: "element-removed", element: Gst.Element): void
-    on(sigName: "element-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "element-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "element-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of Gst.Element */
+    /* Signals of Gst-1.0.Gst.Element */
     connect(sigName: "no-more-pads", callback: (($obj: InsertBin) => void)): number
-    connect_after(sigName: "no-more-pads", callback: (($obj: InsertBin) => void)): number
+    on(sigName: "no-more-pads", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "no-more-pads", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "no-more-pads", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "no-more-pads"): void
-    on(sigName: "no-more-pads", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "no-more-pads", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "no-more-pads", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "pad-added", callback: (($obj: InsertBin, newPad: Gst.Pad) => void)): number
-    connect_after(sigName: "pad-added", callback: (($obj: InsertBin, newPad: Gst.Pad) => void)): number
+    on(sigName: "pad-added", callback: (newPad: Gst.Pad) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "pad-added", callback: (newPad: Gst.Pad) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "pad-added", callback: (newPad: Gst.Pad) => void): NodeJS.EventEmitter
     emit(sigName: "pad-added", newPad: Gst.Pad): void
-    on(sigName: "pad-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "pad-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "pad-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "pad-removed", callback: (($obj: InsertBin, oldPad: Gst.Pad) => void)): number
-    connect_after(sigName: "pad-removed", callback: (($obj: InsertBin, oldPad: Gst.Pad) => void)): number
+    on(sigName: "pad-removed", callback: (oldPad: Gst.Pad) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "pad-removed", callback: (oldPad: Gst.Pad) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "pad-removed", callback: (oldPad: Gst.Pad) => void): NodeJS.EventEmitter
     emit(sigName: "pad-removed", oldPad: Gst.Pad): void
-    on(sigName: "pad-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "pad-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "pad-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of Gst.Object */
+    /* Signals of Gst-1.0.Gst.Object */
     connect(sigName: "deep-notify", callback: (($obj: InsertBin, propObject: Gst.Object, prop: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "deep-notify", callback: (($obj: InsertBin, propObject: Gst.Object, prop: GObject.ParamSpec) => void)): number
+    on(sigName: "deep-notify", callback: (propObject: Gst.Object, prop: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "deep-notify", callback: (propObject: Gst.Object, prop: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "deep-notify", callback: (propObject: Gst.Object, prop: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "deep-notify", propObject: Gst.Object, prop: GObject.ParamSpec): void
-    on(sigName: "deep-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "deep-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "deep-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: InsertBin, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: InsertBin, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of Gst.ChildProxy */
+    /* Signals of Gst-1.0.Gst.ChildProxy */
     connect(sigName: "child-added", callback: (($obj: InsertBin, object: GObject.Object, name: string) => void)): number
-    connect_after(sigName: "child-added", callback: (($obj: InsertBin, object: GObject.Object, name: string) => void)): number
+    on(sigName: "child-added", callback: (object: GObject.Object, name: string) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "child-added", callback: (object: GObject.Object, name: string) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "child-added", callback: (object: GObject.Object, name: string) => void): NodeJS.EventEmitter
     emit(sigName: "child-added", object: GObject.Object, name: string): void
-    on(sigName: "child-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "child-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "child-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "child-removed", callback: (($obj: InsertBin, object: GObject.Object, name: string) => void)): number
-    connect_after(sigName: "child-removed", callback: (($obj: InsertBin, object: GObject.Object, name: string) => void)): number
+    on(sigName: "child-removed", callback: (object: GObject.Object, name: string) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "child-removed", callback: (object: GObject.Object, name: string) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "child-removed", callback: (object: GObject.Object, name: string) => void): NodeJS.EventEmitter
     emit(sigName: "child-removed", object: GObject.Object, name: string): void
-    on(sigName: "child-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "child-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "child-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::async-handling", callback: (($obj: InsertBin, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::async-handling", callback: (($obj: InsertBin, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::async-handling", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -391,7 +332,7 @@ export class InsertBin {
     static $gtype: GObject.Type
 }
 export abstract class InsertBinClass {
-    /* Fields of GstInsertBin.InsertBinClass */
+    /* Fields of GstInsertBin-1.0.GstInsertBin.InsertBinClass */
     parentClass: Gst.BinClass
     static name: string
 }

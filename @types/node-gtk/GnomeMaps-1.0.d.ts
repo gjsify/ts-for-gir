@@ -43,21 +43,21 @@ export interface Contact_ConstructProps extends GObject.Object_ConstructProps {
     name?: string
 }
 export class Contact {
-    /* Properties of GnomeMaps.Contact */
+    /* Properties of GnomeMaps-1.0.GnomeMaps.Contact */
     readonly boundingBox: Champlain.BoundingBox
     icon: Gio.Icon
     id: string
     name: string
-    /* Fields of GnomeMaps.Contact */
+    /* Fields of GnomeMaps-1.0.GnomeMaps.Contact */
     parentInstance: GObject.Object
     priv: ContactPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GnomeMaps.Contact */
+    /* Methods of GnomeMaps-1.0.GnomeMaps.Contact */
     addPlace(place: GeocodeGlib.Place): void
     geocode(callback: ContactGeocodeCallback): void
     getPlaces(): GeocodeGlib.Place[]
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -79,21 +79,12 @@ export class Contact {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Contact, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Contact, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::bounding-box", callback: (($obj: Contact, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::bounding-box", callback: (($obj: Contact, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::bounding-box", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -131,18 +122,18 @@ export class Contact {
 export interface ContactStore_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class ContactStore {
-    /* Properties of GnomeMaps.ContactStore */
+    /* Properties of GnomeMaps-1.0.GnomeMaps.ContactStore */
     readonly state: ContactStoreState
-    /* Fields of GnomeMaps.ContactStore */
+    /* Fields of GnomeMaps-1.0.GnomeMaps.ContactStore */
     parentInstance: GObject.Object
     priv: ContactStorePrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GnomeMaps.ContactStore */
+    /* Methods of GnomeMaps-1.0.GnomeMaps.ContactStore */
     getContacts(): Contact[]
     load(): void
     lookup(id: string, callback: ContactStoreLookupCallback): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -164,21 +155,12 @@ export class ContactStore {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: ContactStore, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: ContactStore, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::state", callback: (($obj: ContactStore, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::state", callback: (($obj: ContactStore, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::state", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -202,12 +184,12 @@ export interface FileTileSource_ConstructProps extends Champlain.TileSource_Cons
     path?: string
 }
 export class FileTileSource {
-    /* Properties of GnomeMaps.FileTileSource */
+    /* Properties of GnomeMaps-1.0.GnomeMaps.FileTileSource */
     readonly maxZoom: number
     readonly minZoom: number
     path: string
     readonly world: Champlain.BoundingBox
-    /* Properties of Champlain.TileSource */
+    /* Properties of Champlain-0.12.Champlain.TileSource */
     cache: Champlain.TileCache
     id: string
     license: string
@@ -217,17 +199,17 @@ export class FileTileSource {
     name: string
     projection: Champlain.MapProjection
     tileSize: number
-    /* Properties of Champlain.MapSource */
+    /* Properties of Champlain-0.12.Champlain.MapSource */
     nextSource: Champlain.MapSource
     renderer: Champlain.Renderer
-    /* Fields of GnomeMaps.FileTileSource */
+    /* Fields of GnomeMaps-1.0.GnomeMaps.FileTileSource */
     parentInstance: Champlain.TileSource
     priv: FileTileSourcePrivate
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GnomeMaps.FileTileSource */
+    /* Methods of GnomeMaps-1.0.GnomeMaps.FileTileSource */
     prepare(): boolean
-    /* Methods of Champlain.TileSource */
+    /* Methods of Champlain-0.12.Champlain.TileSource */
     getCache(): Champlain.TileCache
     setCache(cache: Champlain.TileCache): void
     setId(id: string): void
@@ -238,7 +220,7 @@ export class FileTileSource {
     setName(name: string): void
     setProjection(projection: Champlain.MapProjection): void
     setTileSize(tileSize: number): void
-    /* Methods of Champlain.MapSource */
+    /* Methods of Champlain-0.12.Champlain.MapSource */
     fillTile(tile: Champlain.Tile): void
     getColumnCount(zoomLevel: number): number
     getId(): string
@@ -259,7 +241,7 @@ export class FileTileSource {
     getY(zoomLevel: number, latitude: number): number
     setNextSource(nextSource: Champlain.MapSource): void
     setRenderer(renderer: Champlain.Renderer): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -281,31 +263,12 @@ export class FileTileSource {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of Champlain.MapSource */
-    vfuncFillTile(tile: Champlain.Tile): void
-    vfuncGetId(): string
-    vfuncGetLicense(): string
-    vfuncGetLicenseUri(): string
-    vfuncGetMaxZoomLevel(): number
-    vfuncGetMinZoomLevel(): number
-    vfuncGetName(): string
-    vfuncGetProjection(): Champlain.MapProjection
-    vfuncGetTileSize(): number
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: FileTileSource, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: FileTileSource, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::max-zoom", callback: (($obj: FileTileSource, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::max-zoom", callback: (($obj: FileTileSource, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::max-zoom", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -398,17 +361,17 @@ export interface OSMChangeset_ConstructProps extends GObject.Object_ConstructPro
     createdBy?: string
 }
 export class OSMChangeset {
-    /* Properties of GnomeMaps.OSMChangeset */
+    /* Properties of GnomeMaps-1.0.GnomeMaps.OSMChangeset */
     comment: string
     createdBy: string
-    /* Fields of GnomeMaps.OSMChangeset */
+    /* Fields of GnomeMaps-1.0.GnomeMaps.OSMChangeset */
     parentInstance: GObject.Object
     priv: OSMChangesetPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GnomeMaps.OSMChangeset */
+    /* Methods of GnomeMaps-1.0.GnomeMaps.OSMChangeset */
     serialize(): string
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -430,21 +393,12 @@ export class OSMChangeset {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: OSMChangeset, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: OSMChangeset, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::comment", callback: (($obj: OSMChangeset, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::comment", callback: (($obj: OSMChangeset, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::comment", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -474,24 +428,24 @@ export interface OSMNode_ConstructProps extends OSMObject_ConstructProps {
     longitude?: number
 }
 export class OSMNode {
-    /* Properties of GnomeMaps.OSMNode */
+    /* Properties of GnomeMaps-1.0.GnomeMaps.OSMNode */
     latitude: number
     longitude: number
-    /* Properties of GnomeMaps.OSMObject */
+    /* Properties of GnomeMaps-1.0.GnomeMaps.OSMObject */
     changeset: number
     id: number
     version: number
-    /* Fields of GnomeMaps.OSMNode */
+    /* Fields of GnomeMaps-1.0.GnomeMaps.OSMNode */
     parentInstance: OSMObject
     priv: OSMNodePrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GnomeMaps.OSMObject */
+    /* Methods of GnomeMaps-1.0.GnomeMaps.OSMObject */
     deleteTag(key: string): void
     getTag(key: string): string
     serialize(): string
     setTag(key: string, value: string): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -513,21 +467,12 @@ export class OSMNode {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: OSMNode, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: OSMNode, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::latitude", callback: (($obj: OSMNode, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::latitude", callback: (($obj: OSMNode, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::latitude", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -570,15 +515,15 @@ export class OSMNode {
 export interface OSMOAuthProxyCall_ConstructProps extends Rest.OAuthProxyCall_ConstructProps {
 }
 export class OSMOAuthProxyCall {
-    /* Fields of GnomeMaps.OSMOAuthProxyCall */
+    /* Fields of GnomeMaps-1.0.GnomeMaps.OSMOAuthProxyCall */
     parent: Rest.OAuthProxyCall
     priv: OSMOAuthProxyCallPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Rest.OAuthProxyCall */
+    /* Methods of Rest-0.7.Rest.OAuthProxyCall */
     parseTokenReponse(): void
     parseTokenResponse(): void
-    /* Methods of Rest.ProxyCall */
+    /* Methods of Rest-0.7.Rest.ProxyCall */
     addHeader(header: string, value: string): void
     addParam(name: string, value: string): void
     addParamFull(param: Rest.Param): void
@@ -598,12 +543,12 @@ export class OSMOAuthProxyCall {
     removeHeader(header: string): void
     removeParam(name: string): void
     run(loop: GLib.MainLoop): boolean
-    serializeParams(): [ /* returnType */ boolean, /* contentType */ string, /* content */ string, /* contentLen */ number ]
+    serializeParams(): { returnType: boolean, contentType: string, content: string, contentLen: number }
     setFunction(function_: string): void
     setMethod(method: string): void
     sync(): boolean
     upload(callback: Rest.ProxyCallUploadCallback, weakObject: GObject.Object): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -625,24 +570,12 @@ export class OSMOAuthProxyCall {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of Rest.ProxyCall */
-    vfuncPrepare(): boolean
-    vfuncSerializeParams(): [ /* returnType */ boolean, /* contentType */ string, /* content */ string, /* contentLen */ number ]
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: OSMOAuthProxyCall, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: OSMOAuthProxyCall, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -663,20 +596,20 @@ export interface OSMObject_ConstructProps extends GObject.Object_ConstructProps 
     version?: number
 }
 export class OSMObject {
-    /* Properties of GnomeMaps.OSMObject */
+    /* Properties of GnomeMaps-1.0.GnomeMaps.OSMObject */
     changeset: number
     id: number
     version: number
-    /* Fields of GnomeMaps.OSMObject */
+    /* Fields of GnomeMaps-1.0.GnomeMaps.OSMObject */
     parentInstance: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GnomeMaps.OSMObject */
+    /* Methods of GnomeMaps-1.0.GnomeMaps.OSMObject */
     deleteTag(key: string): void
     getTag(key: string): string
     serialize(): string
     setTag(key: string, value: string): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -698,21 +631,12 @@ export class OSMObject {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: OSMObject, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: OSMObject, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::changeset", callback: (($obj: OSMObject, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::changeset", callback: (($obj: OSMObject, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::changeset", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -743,23 +667,23 @@ export class OSMObject {
 export interface OSMRelation_ConstructProps extends OSMObject_ConstructProps {
 }
 export class OSMRelation {
-    /* Properties of GnomeMaps.OSMObject */
+    /* Properties of GnomeMaps-1.0.GnomeMaps.OSMObject */
     changeset: number
     id: number
     version: number
-    /* Fields of GnomeMaps.OSMRelation */
+    /* Fields of GnomeMaps-1.0.GnomeMaps.OSMRelation */
     parentInstance: OSMObject
     priv: OSMRelationPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GnomeMaps.OSMRelation */
+    /* Methods of GnomeMaps-1.0.GnomeMaps.OSMRelation */
     addMember(role: string, type: number, ref: number): void
-    /* Methods of GnomeMaps.OSMObject */
+    /* Methods of GnomeMaps-1.0.GnomeMaps.OSMObject */
     deleteTag(key: string): void
     getTag(key: string): string
     serialize(): string
     setTag(key: string, value: string): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -781,21 +705,12 @@ export class OSMRelation {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: OSMRelation, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: OSMRelation, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::changeset", callback: (($obj: OSMRelation, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::changeset", callback: (($obj: OSMRelation, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::changeset", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -828,23 +743,23 @@ export class OSMRelation {
 export interface OSMWay_ConstructProps extends OSMObject_ConstructProps {
 }
 export class OSMWay {
-    /* Properties of GnomeMaps.OSMObject */
+    /* Properties of GnomeMaps-1.0.GnomeMaps.OSMObject */
     changeset: number
     id: number
     version: number
-    /* Fields of GnomeMaps.OSMWay */
+    /* Fields of GnomeMaps-1.0.GnomeMaps.OSMWay */
     parentInstance: OSMObject
     priv: OSMWayPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GnomeMaps.OSMWay */
+    /* Methods of GnomeMaps-1.0.GnomeMaps.OSMWay */
     addNodeId(id: number): void
-    /* Methods of GnomeMaps.OSMObject */
+    /* Methods of GnomeMaps-1.0.GnomeMaps.OSMObject */
     deleteTag(key: string): void
     getTag(key: string): string
     serialize(): string
     setTag(key: string, value: string): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -866,21 +781,12 @@ export class OSMWay {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: OSMWay, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: OSMWay, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::changeset", callback: (($obj: OSMWay, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::changeset", callback: (($obj: OSMWay, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::changeset", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -911,7 +817,7 @@ export class OSMWay {
     static $gtype: GObject.Type
 }
 export abstract class ContactClass {
-    /* Fields of GnomeMaps.ContactClass */
+    /* Fields of GnomeMaps-1.0.GnomeMaps.ContactClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
@@ -919,7 +825,7 @@ export class ContactPrivate {
     static name: string
 }
 export abstract class ContactStoreClass {
-    /* Fields of GnomeMaps.ContactStoreClass */
+    /* Fields of GnomeMaps-1.0.GnomeMaps.ContactStoreClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
@@ -927,7 +833,7 @@ export class ContactStorePrivate {
     static name: string
 }
 export abstract class FileTileSourceClass {
-    /* Fields of GnomeMaps.FileTileSourceClass */
+    /* Fields of GnomeMaps-1.0.GnomeMaps.FileTileSourceClass */
     parentClass: Champlain.TileSourceClass
     static name: string
 }
@@ -935,7 +841,7 @@ export class FileTileSourcePrivate {
     static name: string
 }
 export abstract class OSMChangesetClass {
-    /* Fields of GnomeMaps.OSMChangesetClass */
+    /* Fields of GnomeMaps-1.0.GnomeMaps.OSMChangesetClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
@@ -943,7 +849,7 @@ export class OSMChangesetPrivate {
     static name: string
 }
 export abstract class OSMNodeClass {
-    /* Fields of GnomeMaps.OSMNodeClass */
+    /* Fields of GnomeMaps-1.0.GnomeMaps.OSMNodeClass */
     parentClass: OSMObjectClass
     static name: string
 }
@@ -951,7 +857,7 @@ export class OSMNodePrivate {
     static name: string
 }
 export abstract class OSMOAuthProxyCallClass {
-    /* Fields of GnomeMaps.OSMOAuthProxyCallClass */
+    /* Fields of GnomeMaps-1.0.GnomeMaps.OSMOAuthProxyCallClass */
     parentClass: Rest.OAuthProxyCallClass
     static name: string
 }
@@ -959,7 +865,7 @@ export class OSMOAuthProxyCallPrivate {
     static name: string
 }
 export abstract class OSMObjectClass {
-    /* Fields of GnomeMaps.OSMObjectClass */
+    /* Fields of GnomeMaps-1.0.GnomeMaps.OSMObjectClass */
     parentClass: GObject.ObjectClass
     getXmlTagName: () => string
     static name: string
@@ -968,7 +874,7 @@ export class OSMObjectPrivate {
     static name: string
 }
 export abstract class OSMRelationClass {
-    /* Fields of GnomeMaps.OSMRelationClass */
+    /* Fields of GnomeMaps-1.0.GnomeMaps.OSMRelationClass */
     parentClass: OSMObjectClass
     static name: string
 }
@@ -976,7 +882,7 @@ export class OSMRelationPrivate {
     static name: string
 }
 export abstract class OSMWayClass {
-    /* Fields of GnomeMaps.OSMWayClass */
+    /* Fields of GnomeMaps-1.0.GnomeMaps.OSMWayClass */
     parentClass: OSMObjectClass
     static name: string
 }
@@ -984,32 +890,32 @@ export class OSMWayPrivate {
     static name: string
 }
 export class _ContactClass {
-    /* Fields of GnomeMaps._ContactClass */
+    /* Fields of GnomeMaps-1.0.GnomeMaps._ContactClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
 export class _ContactStoreClass {
-    /* Fields of GnomeMaps._ContactStoreClass */
+    /* Fields of GnomeMaps-1.0.GnomeMaps._ContactStoreClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
 export class _OSMChangesetClass {
-    /* Fields of GnomeMaps._OSMChangesetClass */
+    /* Fields of GnomeMaps-1.0.GnomeMaps._OSMChangesetClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
 export class _OSMNodeClass {
-    /* Fields of GnomeMaps._OSMNodeClass */
+    /* Fields of GnomeMaps-1.0.GnomeMaps._OSMNodeClass */
     parentClass: OSMObjectClass
     static name: string
 }
 export class _OSMRelationClass {
-    /* Fields of GnomeMaps._OSMRelationClass */
+    /* Fields of GnomeMaps-1.0.GnomeMaps._OSMRelationClass */
     parentClass: OSMObjectClass
     static name: string
 }
 export class _OSMWayClass {
-    /* Fields of GnomeMaps._OSMWayClass */
+    /* Fields of GnomeMaps-1.0.GnomeMaps._OSMWayClass */
     parentClass: OSMObjectClass
     static name: string
 }

@@ -76,13 +76,13 @@ export interface Consumer_ConstructProps extends GObject.Object_ConstructProps {
     username?: string
 }
 export class Consumer {
-    /* Properties of Epc.Consumer */
+    /* Properties of Epc-1.0.Epc.Consumer */
     password: string
     protocol: Protocol
     username: string
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Epc.Consumer */
+    /* Methods of Epc-1.0.Epc.Consumer */
     get_password(): string
     get_protocol(): Protocol
     get_username(): string
@@ -91,7 +91,7 @@ export class Consumer {
     set_password(password: string): void
     set_protocol(protocol: Protocol): void
     set_username(username: string): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -113,10 +113,10 @@ export class Consumer {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Epc.Consumer */
+    /* Virtual methods of Epc-1.0.Epc.Consumer */
     vfunc_authenticate(realm: string): void
     vfunc_publisher_resolved(protocol: Protocol, hostname: string, port: number): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -124,14 +124,14 @@ export class Consumer {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Epc.Consumer */
+    /* Signals of Epc-1.0.Epc.Consumer */
     connect(sigName: "authenticate", callback: (($obj: Consumer, object: string) => boolean)): number
     connect_after(sigName: "authenticate", callback: (($obj: Consumer, object: string) => boolean)): number
     emit(sigName: "authenticate", object: string): void
     connect(sigName: "publisher-resolved", callback: (($obj: Consumer, object: Protocol, p0: string, p1: number) => void)): number
     connect_after(sigName: "publisher-resolved", callback: (($obj: Consumer, object: Protocol, p0: string, p1: number) => void)): number
     emit(sigName: "publisher-resolved", object: Protocol, p0: string, p1: number): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Consumer, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Consumer, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -160,13 +160,13 @@ export interface Dispatcher_ConstructProps extends GObject.Object_ConstructProps
     name?: string
 }
 export class Dispatcher {
-    /* Properties of Epc.Dispatcher */
+    /* Properties of Epc-1.0.Epc.Dispatcher */
     collision_handling: CollisionHandling
     cookie: string
     name: string
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Epc.Dispatcher */
+    /* Methods of Epc-1.0.Epc.Dispatcher */
     add_service_subtype(type: string, subtype: string): void
     get_collision_handling(): CollisionHandling
     get_cookie(): string
@@ -176,7 +176,7 @@ export class Dispatcher {
     set_collision_handling(method: CollisionHandling): void
     set_cookie(cookie: string): void
     set_name(name: string): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -198,7 +198,7 @@ export class Dispatcher {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -206,7 +206,7 @@ export class Dispatcher {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Dispatcher, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Dispatcher, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -240,7 +240,7 @@ export interface Publisher_ConstructProps extends GObject.Object_ConstructProps 
     service_name?: string
 }
 export class Publisher {
-    /* Properties of Epc.Publisher */
+    /* Properties of Epc-1.0.Epc.Publisher */
     application: string
     auth_flags: AuthFlags
     certificate_file: string
@@ -251,9 +251,9 @@ export class Publisher {
     service_cookie: string
     service_domain: string
     service_name: string
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Epc.Publisher */
+    /* Methods of Epc-1.0.Epc.Publisher */
     add(key: string, data: object, length: number): void
     add_bookmark(key: string, label: string): void
     add_file(key: string, filename: string): void
@@ -282,7 +282,7 @@ export class Publisher {
     set_protocol(protocol: Protocol): void
     set_service_cookie(cookie: string): void
     set_service_name(name: string): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -304,7 +304,7 @@ export class Publisher {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -312,7 +312,7 @@ export class Publisher {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Publisher, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Publisher, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -355,14 +355,14 @@ export interface ServiceMonitor_ConstructProps extends GObject.Object_ConstructP
     skip_our_own?: boolean
 }
 export class ServiceMonitor {
-    /* Properties of Epc.ServiceMonitor */
+    /* Properties of Epc-1.0.Epc.ServiceMonitor */
     skip_our_own: boolean
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Epc.ServiceMonitor */
+    /* Methods of Epc-1.0.Epc.ServiceMonitor */
     get_skip_our_own(): boolean
     set_skip_our_own(setting: boolean): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -384,11 +384,11 @@ export class ServiceMonitor {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Epc.ServiceMonitor */
+    /* Virtual methods of Epc-1.0.Epc.ServiceMonitor */
     vfunc_scanning_done(type: string): void
     vfunc_service_found(name: string, info: ServiceInfo): void
     vfunc_service_removed(name: string, type: string): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -396,7 +396,7 @@ export class ServiceMonitor {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Epc.ServiceMonitor */
+    /* Signals of Epc-1.0.Epc.ServiceMonitor */
     connect(sigName: "scanning-done", callback: (($obj: ServiceMonitor, object: string) => void)): number
     connect_after(sigName: "scanning-done", callback: (($obj: ServiceMonitor, object: string) => void)): number
     emit(sigName: "scanning-done", object: string): void
@@ -406,7 +406,7 @@ export class ServiceMonitor {
     connect(sigName: "service-removed", callback: (($obj: ServiceMonitor, object: string, p0: string) => void)): number
     connect_after(sigName: "service-removed", callback: (($obj: ServiceMonitor, object: string, p0: string) => void)): number
     emit(sigName: "service-removed", object: string, p0: string): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: ServiceMonitor, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: ServiceMonitor, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -424,14 +424,14 @@ export class ServiceMonitor {
     static $gtype: GObject.Type
 }
 export class AuthContext {
-    /* Methods of Epc.AuthContext */
+    /* Methods of Epc-1.0.Epc.AuthContext */
     check_password(password: string): boolean
     get_key(): string
     get_password(): string
     static name: string
 }
 export abstract class ConsumerClass {
-    /* Fields of Epc.ConsumerClass */
+    /* Fields of Epc-1.0.Epc.ConsumerClass */
     authenticate: (consumer: Consumer, realm: string) => void
     publisher_resolved: (consumer: Consumer, protocol: Protocol, hostname: string, port: number) => void
     static name: string
@@ -440,7 +440,7 @@ export class ConsumerPrivate {
     static name: string
 }
 export class Contents {
-    /* Methods of Epc.Contents */
+    /* Methods of Epc-1.0.Epc.Contents */
     get_mime_type(): string
     is_stream(): boolean
     ref(): Contents
@@ -466,7 +466,7 @@ export class PublisherPrivate {
     static name: string
 }
 export class ServiceInfo {
-    /* Methods of Epc.ServiceInfo */
+    /* Methods of Epc-1.0.Epc.ServiceInfo */
     get_address_family(): AddressFamily
     get_detail(name: string): string
     get_host(): string
@@ -478,7 +478,7 @@ export class ServiceInfo {
     static name: string
 }
 export abstract class ServiceMonitorClass {
-    /* Fields of Epc.ServiceMonitorClass */
+    /* Fields of Epc-1.0.Epc.ServiceMonitorClass */
     service_found: (monitor: ServiceMonitor, name: string, info: ServiceInfo) => void
     service_removed: (monitor: ServiceMonitor, name: string, type: string) => void
     scanning_done: (monitor: ServiceMonitor, type: string) => void
@@ -488,7 +488,7 @@ export class ServiceMonitorPrivate {
     static name: string
 }
 export class ShellProgressHooks {
-    /* Fields of Epc.ShellProgressHooks */
+    /* Fields of Epc-1.0.Epc.ShellProgressHooks */
     begin: (title: string) => void
     update: (percentage: number, message: string) => void
     end: () => void

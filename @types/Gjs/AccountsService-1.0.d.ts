@@ -27,7 +27,7 @@ export function user_manager_error_quark(): GLib.Quark
 export interface User_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class User {
-    /* Properties of AccountsService.User */
+    /* Properties of AccountsService-1.0.AccountsService.User */
     readonly account_type: number
     readonly automatic_login: boolean
     readonly email: string
@@ -50,9 +50,9 @@ export class User {
     readonly uid: number
     readonly user_name: string
     readonly x_session: string
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of AccountsService.User */
+    /* Methods of AccountsService-1.0.AccountsService.User */
     collate(user2: User): number
     get_account_type(): UserAccountType
     get_automatic_login(): boolean
@@ -100,7 +100,7 @@ export class User {
     set_session_type(session_type: string): void
     set_user_name(user_name: string): void
     set_x_session(x_session: string): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -122,7 +122,7 @@ export class User {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -130,14 +130,14 @@ export class User {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of AccountsService.User */
+    /* Signals of AccountsService-1.0.AccountsService.User */
     connect(sigName: "changed", callback: (($obj: User) => void)): number
     connect_after(sigName: "changed", callback: (($obj: User) => void)): number
     emit(sigName: "changed"): void
     connect(sigName: "sessions-changed", callback: (($obj: User) => void)): number
     connect_after(sigName: "sessions-changed", callback: (($obj: User) => void)): number
     emit(sigName: "sessions-changed"): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: User, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: User, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -200,16 +200,16 @@ export interface UserManager_ConstructProps extends GObject.Object_ConstructProp
     include_usernames_list?: object
 }
 export class UserManager {
-    /* Properties of AccountsService.UserManager */
+    /* Properties of AccountsService-1.0.AccountsService.UserManager */
     exclude_usernames_list: object
     has_multiple_users: boolean
     include_usernames_list: object
     readonly is_loaded: boolean
-    /* Fields of AccountsService.UserManager */
+    /* Fields of AccountsService-1.0.AccountsService.UserManager */
     parent: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of AccountsService.UserManager */
+    /* Methods of AccountsService-1.0.AccountsService.UserManager */
     activate_user_session(user: User): boolean
     cache_user(username: string): User
     cache_user_async(username: string, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
@@ -229,7 +229,7 @@ export class UserManager {
     uncache_user(username: string): boolean
     uncache_user_async(username: string, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     uncache_user_finish(result: Gio.AsyncResult): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -251,12 +251,12 @@ export class UserManager {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of AccountsService.UserManager */
+    /* Virtual methods of AccountsService-1.0.AccountsService.UserManager */
     vfunc_user_added(user: User): void
     vfunc_user_changed(user: User): void
     vfunc_user_is_logged_in_changed(user: User): void
     vfunc_user_removed(user: User): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -264,7 +264,7 @@ export class UserManager {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of AccountsService.UserManager */
+    /* Signals of AccountsService-1.0.AccountsService.UserManager */
     connect(sigName: "user-added", callback: (($obj: UserManager, user: User) => void)): number
     connect_after(sigName: "user-added", callback: (($obj: UserManager, user: User) => void)): number
     emit(sigName: "user-added", user: User): void
@@ -277,7 +277,7 @@ export class UserManager {
     connect(sigName: "user-removed", callback: (($obj: UserManager, user: User) => void)): number
     connect_after(sigName: "user-removed", callback: (($obj: UserManager, user: User) => void)): number
     emit(sigName: "user-removed", user: User): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: UserManager, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: UserManager, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -301,12 +301,12 @@ export class UserManager {
     static $gtype: GObject.Type
 }
 export abstract class UserClass {
-    /* Fields of AccountsService.UserClass */
+    /* Fields of AccountsService-1.0.AccountsService.UserClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
 export abstract class UserManagerClass {
-    /* Fields of AccountsService.UserManagerClass */
+    /* Fields of AccountsService-1.0.AccountsService.UserManagerClass */
     parent_class: GObject.ObjectClass
     user_added: (user_manager: UserManager, user: User) => void
     user_removed: (user_manager: UserManager, user: User) => void

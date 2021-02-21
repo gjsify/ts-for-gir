@@ -227,11 +227,11 @@ export interface SourceStoreCb {
 export interface Caps_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class Caps {
-    /* Fields of Grl.Caps */
+    /* Fields of Grl-0.2.Grl.Caps */
     parent: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Grl.Caps */
+    /* Methods of Grl-0.2.Grl.Caps */
     get_key_filter(): KeyID[]
     get_key_range_filter(): KeyID[]
     get_type_filter(): TypeFilter
@@ -241,7 +241,7 @@ export class Caps {
     set_key_range_filter(keys: KeyID[]): void
     set_type_filter(filter: TypeFilter): void
     test_option(key: string, value: any): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -263,7 +263,7 @@ export class Caps {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -271,7 +271,7 @@ export class Caps {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Caps, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Caps, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -289,13 +289,13 @@ export class Caps {
 export interface Config_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class Config {
-    /* Fields of Grl.Config */
+    /* Fields of Grl-0.2.Grl.Config */
     parent: GObject.Object
     priv: ConfigPrivate
     _grl_reserved: object[]
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Grl.Config */
+    /* Methods of Grl-0.2.Grl.Config */
     get_api_key(): string
     get_api_key_blob(size: number): number
     get_api_secret(): string
@@ -326,7 +326,7 @@ export class Config {
     set_source(source: string): void
     set_string(param: string, value: string): void
     set_username(username: string): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -348,7 +348,7 @@ export class Config {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -356,7 +356,7 @@ export class Config {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Config, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Config, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -374,13 +374,13 @@ export class Config {
 export interface Data_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class Data {
-    /* Fields of Grl.Data */
+    /* Fields of Grl-0.2.Grl.Data */
     parent: GObject.Object
     priv: DataPrivate
     _grl_reserved: object[]
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Grl.Data */
+    /* Methods of Grl-0.2.Grl.Data */
     add_binary(key: KeyID, buf: number, size: number): void
     add_boxed(key: KeyID, boxed?: object | null): void
     add_float(key: KeyID, floatvalue: number): void
@@ -414,7 +414,7 @@ export class Data {
     set_int64(key: KeyID, intvalue: number): void
     set_related_keys(relkeys: RelatedKeys, index: number): void
     set_string(key: KeyID, strvalue: string): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -436,7 +436,7 @@ export class Data {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -444,7 +444,7 @@ export class Data {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Data, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Data, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -462,14 +462,14 @@ export class Data {
 export interface Media_ConstructProps extends Data_ConstructProps {
 }
 export class Media {
-    /* Fields of Grl.Media */
+    /* Fields of Grl-0.2.Grl.Media */
     parent: Data
-    /* Fields of Grl.Data */
+    /* Fields of Grl-0.2.Grl.Data */
     priv: DataPrivate
     _grl_reserved: object[]
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Grl.Media */
+    /* Methods of Grl-0.2.Grl.Media */
     add_author(author: string): void
     add_external_player(player: string): void
     add_external_url(url: string): void
@@ -546,7 +546,7 @@ export class Media {
     set_title(title: string): void
     set_url(url: string): void
     set_url_data(url: string, mime: string): void
-    /* Methods of Grl.Data */
+    /* Methods of Grl-0.2.Grl.Data */
     add_binary(key: KeyID, buf: number, size: number): void
     add_boxed(key: KeyID, boxed?: object | null): void
     add_float(key: KeyID, floatvalue: number): void
@@ -580,7 +580,7 @@ export class Media {
     set_int64(key: KeyID, intvalue: number): void
     set_related_keys(relkeys: RelatedKeys, index: number): void
     set_string(key: KeyID, strvalue: string): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -602,7 +602,7 @@ export class Media {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -610,7 +610,7 @@ export class Media {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Media, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Media, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -629,14 +629,14 @@ export class Media {
 export interface MediaAudio_ConstructProps extends Media_ConstructProps {
 }
 export class MediaAudio {
-    /* Fields of Grl.MediaAudio */
+    /* Fields of Grl-0.2.Grl.MediaAudio */
     parent: Media
-    /* Fields of Grl.Data */
+    /* Fields of Grl-0.2.Grl.Data */
     priv: DataPrivate
     _grl_reserved: object[]
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Grl.MediaAudio */
+    /* Methods of Grl-0.2.Grl.MediaAudio */
     add_artist(artist: string): void
     add_genre(genre: string): void
     add_lyrics(lyrics: string): void
@@ -669,7 +669,7 @@ export class MediaAudio {
     set_mb_track_id(mb_track_id: string): void
     set_track_number(track_number: number): void
     set_url_data(url: string, mime: string, bitrate: number): void
-    /* Methods of Grl.Media */
+    /* Methods of Grl-0.2.Grl.Media */
     add_author(author: string): void
     add_external_player(player: string): void
     add_external_url(url: string): void
@@ -746,7 +746,7 @@ export class MediaAudio {
     set_title(title: string): void
     set_url(url: string): void
     set_url_data(url: string, mime: string): void
-    /* Methods of Grl.Data */
+    /* Methods of Grl-0.2.Grl.Data */
     add_binary(key: KeyID, buf: number, size: number): void
     add_boxed(key: KeyID, boxed?: object | null): void
     add_float(key: KeyID, floatvalue: number): void
@@ -780,7 +780,7 @@ export class MediaAudio {
     set_int64(key: KeyID, intvalue: number): void
     set_related_keys(relkeys: RelatedKeys, index: number): void
     set_string(key: KeyID, strvalue: string): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -802,7 +802,7 @@ export class MediaAudio {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -810,7 +810,7 @@ export class MediaAudio {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: MediaAudio, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: MediaAudio, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -828,17 +828,17 @@ export class MediaAudio {
 export interface MediaBox_ConstructProps extends Media_ConstructProps {
 }
 export class MediaBox {
-    /* Fields of Grl.MediaBox */
+    /* Fields of Grl-0.2.Grl.MediaBox */
     parent: Media
-    /* Fields of Grl.Data */
+    /* Fields of Grl-0.2.Grl.Data */
     priv: DataPrivate
     _grl_reserved: object[]
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Grl.MediaBox */
+    /* Methods of Grl-0.2.Grl.MediaBox */
     get_childcount(): number
     set_childcount(childcount: number): void
-    /* Methods of Grl.Media */
+    /* Methods of Grl-0.2.Grl.Media */
     add_author(author: string): void
     add_external_player(player: string): void
     add_external_url(url: string): void
@@ -915,7 +915,7 @@ export class MediaBox {
     set_title(title: string): void
     set_url(url: string): void
     set_url_data(url: string, mime: string): void
-    /* Methods of Grl.Data */
+    /* Methods of Grl-0.2.Grl.Data */
     add_binary(key: KeyID, buf: number, size: number): void
     add_boxed(key: KeyID, boxed?: object | null): void
     add_float(key: KeyID, floatvalue: number): void
@@ -949,7 +949,7 @@ export class MediaBox {
     set_int64(key: KeyID, intvalue: number): void
     set_related_keys(relkeys: RelatedKeys, index: number): void
     set_string(key: KeyID, strvalue: string): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -971,7 +971,7 @@ export class MediaBox {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -979,7 +979,7 @@ export class MediaBox {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: MediaBox, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: MediaBox, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -997,14 +997,14 @@ export class MediaBox {
 export interface MediaImage_ConstructProps extends Media_ConstructProps {
 }
 export class MediaImage {
-    /* Fields of Grl.MediaImage */
+    /* Fields of Grl-0.2.Grl.MediaImage */
     parent: Media
-    /* Fields of Grl.Data */
+    /* Fields of Grl-0.2.Grl.Data */
     priv: DataPrivate
     _grl_reserved: object[]
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Grl.MediaImage */
+    /* Methods of Grl-0.2.Grl.MediaImage */
     add_url_data(url: string, mime: string, width: number, height: number): void
     get_camera_model(): string
     get_exposure_time(): number
@@ -1024,7 +1024,7 @@ export class MediaImage {
     set_size(width: number, height: number): void
     set_url_data(url: string, mime: string, width: number, height: number): void
     set_width(width: number): void
-    /* Methods of Grl.Media */
+    /* Methods of Grl-0.2.Grl.Media */
     add_author(author: string): void
     add_external_player(player: string): void
     add_external_url(url: string): void
@@ -1101,7 +1101,7 @@ export class MediaImage {
     set_title(title: string): void
     set_url(url: string): void
     set_url_data(url: string, mime: string): void
-    /* Methods of Grl.Data */
+    /* Methods of Grl-0.2.Grl.Data */
     add_binary(key: KeyID, buf: number, size: number): void
     add_boxed(key: KeyID, boxed?: object | null): void
     add_float(key: KeyID, floatvalue: number): void
@@ -1135,7 +1135,7 @@ export class MediaImage {
     set_int64(key: KeyID, intvalue: number): void
     set_related_keys(relkeys: RelatedKeys, index: number): void
     set_string(key: KeyID, strvalue: string): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -1157,7 +1157,7 @@ export class MediaImage {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -1165,7 +1165,7 @@ export class MediaImage {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: MediaImage, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: MediaImage, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -1183,14 +1183,14 @@ export class MediaImage {
 export interface MediaVideo_ConstructProps extends Media_ConstructProps {
 }
 export class MediaVideo {
-    /* Fields of Grl.MediaVideo */
+    /* Fields of Grl-0.2.Grl.MediaVideo */
     parent: Media
-    /* Fields of Grl.Data */
+    /* Fields of Grl-0.2.Grl.Data */
     priv: DataPrivate
     _grl_reserved: object[]
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Grl.MediaVideo */
+    /* Methods of Grl-0.2.Grl.MediaVideo */
     add_director(director: string): void
     add_performer(performer: string): void
     add_producer(producer: string): void
@@ -1224,7 +1224,7 @@ export class MediaVideo {
     set_size(width: number, height: number): void
     set_url_data(url: string, mime: string, framerate: number, width: number, height: number): void
     set_width(width: number): void
-    /* Methods of Grl.Media */
+    /* Methods of Grl-0.2.Grl.Media */
     add_author(author: string): void
     add_external_player(player: string): void
     add_external_url(url: string): void
@@ -1301,7 +1301,7 @@ export class MediaVideo {
     set_title(title: string): void
     set_url(url: string): void
     set_url_data(url: string, mime: string): void
-    /* Methods of Grl.Data */
+    /* Methods of Grl-0.2.Grl.Data */
     add_binary(key: KeyID, buf: number, size: number): void
     add_boxed(key: KeyID, boxed?: object | null): void
     add_float(key: KeyID, floatvalue: number): void
@@ -1335,7 +1335,7 @@ export class MediaVideo {
     set_int64(key: KeyID, intvalue: number): void
     set_related_keys(relkeys: RelatedKeys, index: number): void
     set_string(key: KeyID, strvalue: string): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -1357,7 +1357,7 @@ export class MediaVideo {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -1365,7 +1365,7 @@ export class MediaVideo {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: MediaVideo, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: MediaVideo, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -1383,11 +1383,11 @@ export class MediaVideo {
 export interface OperationOptions_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class OperationOptions {
-    /* Fields of Grl.OperationOptions */
+    /* Fields of Grl-0.2.Grl.OperationOptions */
     parent: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Grl.OperationOptions */
+    /* Methods of Grl-0.2.Grl.OperationOptions */
     copy(): OperationOptions
     get_count(): number
     get_flags(): ResolutionFlags
@@ -1408,7 +1408,7 @@ export class OperationOptions {
     set_resolution_flags(flags: ResolutionFlags): boolean
     set_skip(skip: number): boolean
     set_type_filter(filter: TypeFilter): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -1430,7 +1430,7 @@ export class OperationOptions {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -1438,7 +1438,7 @@ export class OperationOptions {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: OperationOptions, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: OperationOptions, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -1456,13 +1456,13 @@ export class OperationOptions {
 export interface Plugin_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class Plugin {
-    /* Properties of Grl.Plugin */
+    /* Properties of Grl-0.2.Grl.Plugin */
     readonly loaded: boolean
-    /* Fields of Grl.Plugin */
+    /* Fields of Grl-0.2.Grl.Plugin */
     parent: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Grl.Plugin */
+    /* Methods of Grl-0.2.Grl.Plugin */
     get_author(): string
     get_description(): string
     get_filename(): string
@@ -1485,7 +1485,7 @@ export class Plugin {
     set_register_keys_func(register_keys_function?: object | null): void
     set_unload_func(unload_function?: object | null): void
     unload(): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -1507,7 +1507,7 @@ export class Plugin {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -1515,7 +1515,7 @@ export class Plugin {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Plugin, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Plugin, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -1533,11 +1533,11 @@ export class Plugin {
 export interface Registry_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class Registry {
-    /* Fields of Grl.Registry */
+    /* Fields of Grl-0.2.Grl.Registry */
     parent: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Grl.Registry */
+    /* Methods of Grl-0.2.Grl.Registry */
     add_config(config: Config): boolean
     add_config_from_file(config_file: string): boolean
     add_config_from_resource(resource_path: string): boolean
@@ -1566,7 +1566,7 @@ export class Registry {
     shutdown(): void
     unload_plugin(plugin_id: string): boolean
     unregister_source(source: Source): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -1588,7 +1588,7 @@ export class Registry {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -1596,7 +1596,7 @@ export class Registry {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Grl.Registry */
+    /* Signals of Grl-0.2.Grl.Registry */
     connect(sigName: "metadata-key-added", callback: (($obj: Registry, key: string) => void)): number
     connect_after(sigName: "metadata-key-added", callback: (($obj: Registry, key: string) => void)): number
     emit(sigName: "metadata-key-added", key: string): void
@@ -1606,7 +1606,7 @@ export class Registry {
     connect(sigName: "source-removed", callback: (($obj: Registry, source: Source) => void)): number
     connect_after(sigName: "source-removed", callback: (($obj: Registry, source: Source) => void)): number
     emit(sigName: "source-removed", source: Source): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Registry, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Registry, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -1624,11 +1624,11 @@ export class Registry {
 export interface RelatedKeys_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class RelatedKeys {
-    /* Fields of Grl.RelatedKeys */
+    /* Fields of Grl-0.2.Grl.RelatedKeys */
     parent: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Grl.RelatedKeys */
+    /* Methods of Grl-0.2.Grl.RelatedKeys */
     dup(): RelatedKeys
     get(key: KeyID): any
     get_binary(key: KeyID): [ /* returnType */ number, /* size */ number ]
@@ -1649,7 +1649,7 @@ export class RelatedKeys {
     set_int(key: KeyID, intvalue: number): void
     set_int64(key: KeyID, intvalue: number): void
     set_string(key: KeyID, strvalue: string): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -1671,7 +1671,7 @@ export class RelatedKeys {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -1679,7 +1679,7 @@ export class RelatedKeys {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: RelatedKeys, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: RelatedKeys, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -1706,7 +1706,7 @@ export interface Source_ConstructProps extends GObject.Object_ConstructProps {
     supported_media?: MediaType
 }
 export class Source {
-    /* Properties of Grl.Source */
+    /* Properties of Grl-0.2.Grl.Source */
     auto_split_threshold: number
     plugin: Plugin
     rank: number
@@ -1716,11 +1716,11 @@ export class Source {
     source_name: string
     source_tags: string[]
     supported_media: MediaType
-    /* Fields of Grl.Source */
+    /* Fields of Grl-0.2.Grl.Source */
     parent: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Grl.Source */
+    /* Methods of Grl-0.2.Grl.Source */
     browse(container: Media | null, keys: KeyID[], options: OperationOptions, callback: SourceResultCb): number
     browse_sync(container: Media | null, keys: KeyID[], options: OperationOptions): Media[]
     get_auto_split_threshold(): number
@@ -1758,7 +1758,7 @@ export class Source {
     supported_operations(): number
     test_media_from_uri(uri: string): boolean
     writable_keys(): KeyID[]
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -1780,7 +1780,7 @@ export class Source {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Grl.Source */
+    /* Virtual methods of Grl-0.2.Grl.Source */
     vfunc_browse(bs: SourceBrowseSpec): void
     vfunc_cancel(operation_id: number): void
     vfunc_get_caps(operation: SupportedOps): Caps
@@ -1799,7 +1799,7 @@ export class Source {
     vfunc_supported_operations(): SupportedOps
     vfunc_test_media_from_uri(uri: string): boolean
     vfunc_writable_keys(): KeyID[]
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -1807,11 +1807,11 @@ export class Source {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Grl.Source */
+    /* Signals of Grl-0.2.Grl.Source */
     connect(sigName: "content-changed", callback: (($obj: Source, changed_medias: Media[], change_type: SourceChangeType, location_unknown: boolean) => void)): number
     connect_after(sigName: "content-changed", callback: (($obj: Source, changed_medias: Media[], change_type: SourceChangeType, location_unknown: boolean) => void)): number
     emit(sigName: "content-changed", changed_medias: Media[], change_type: SourceChangeType, location_unknown: boolean): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Source, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Source, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -1843,7 +1843,7 @@ export class Source {
     static $gtype: GObject.Type
 }
 export abstract class CapsClass {
-    /* Fields of Grl.CapsClass */
+    /* Fields of Grl-0.2.Grl.CapsClass */
     parent: GObject.ObjectClass
     static name: string
 }
@@ -1851,7 +1851,7 @@ export class CapsPrivate {
     static name: string
 }
 export abstract class ConfigClass {
-    /* Fields of Grl.ConfigClass */
+    /* Fields of Grl-0.2.Grl.ConfigClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
@@ -1859,7 +1859,7 @@ export class ConfigPrivate {
     static name: string
 }
 export abstract class DataClass {
-    /* Fields of Grl.DataClass */
+    /* Fields of Grl-0.2.Grl.DataClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
@@ -1867,37 +1867,37 @@ export class DataPrivate {
     static name: string
 }
 export class LogDomain {
-    /* Methods of Grl.LogDomain */
+    /* Methods of Grl-0.2.Grl.LogDomain */
     free(): void
     static name: string
 }
 export abstract class MediaAudioClass {
-    /* Fields of Grl.MediaAudioClass */
+    /* Fields of Grl-0.2.Grl.MediaAudioClass */
     parent_class: MediaClass
     static name: string
 }
 export abstract class MediaBoxClass {
-    /* Fields of Grl.MediaBoxClass */
+    /* Fields of Grl-0.2.Grl.MediaBoxClass */
     parent_class: MediaClass
     static name: string
 }
 export abstract class MediaClass {
-    /* Fields of Grl.MediaClass */
+    /* Fields of Grl-0.2.Grl.MediaClass */
     parent_class: DataClass
     static name: string
 }
 export abstract class MediaImageClass {
-    /* Fields of Grl.MediaImageClass */
+    /* Fields of Grl-0.2.Grl.MediaImageClass */
     parent_class: MediaClass
     static name: string
 }
 export abstract class MediaVideoClass {
-    /* Fields of Grl.MediaVideoClass */
+    /* Fields of Grl-0.2.Grl.MediaVideoClass */
     parent_class: MediaClass
     static name: string
 }
 export abstract class OperationOptionsClass {
-    /* Fields of Grl.OperationOptionsClass */
+    /* Fields of Grl-0.2.Grl.OperationOptionsClass */
     parent: GObject.ObjectClass
     static name: string
 }
@@ -1905,12 +1905,12 @@ export class OperationOptionsPrivate {
     static name: string
 }
 export abstract class PluginClass {
-    /* Fields of Grl.PluginClass */
+    /* Fields of Grl-0.2.Grl.PluginClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
 export class PluginDescriptor {
-    /* Fields of Grl.PluginDescriptor */
+    /* Fields of Grl-0.2.Grl.PluginDescriptor */
     plugin_id: string
     plugin_deinit: (plugin: Plugin) => void
     module: GModule.Module
@@ -1921,10 +1921,10 @@ export class PluginPrivate {
     static name: string
 }
 export class RangeValue {
-    /* Fields of Grl.RangeValue */
+    /* Fields of Grl-0.2.Grl.RangeValue */
     min: any
     max: any
-    /* Methods of Grl.RangeValue */
+    /* Methods of Grl-0.2.Grl.RangeValue */
     dup(): RangeValue
     free(): void
     static name: string
@@ -1936,7 +1936,7 @@ export class RangeValue {
     static hashtable_new(): GLib.HashTable
 }
 export abstract class RegistryClass {
-    /* Fields of Grl.RegistryClass */
+    /* Fields of Grl-0.2.Grl.RegistryClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
@@ -1944,7 +1944,7 @@ export class RegistryPrivate {
     static name: string
 }
 export abstract class RelatedKeysClass {
-    /* Fields of Grl.RelatedKeysClass */
+    /* Fields of Grl-0.2.Grl.RelatedKeysClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
@@ -1952,7 +1952,7 @@ export class RelatedKeysPrivate {
     static name: string
 }
 export class SourceBrowseSpec {
-    /* Fields of Grl.SourceBrowseSpec */
+    /* Fields of Grl-0.2.Grl.SourceBrowseSpec */
     source: Source
     operation_id: number
     container: Media
@@ -1963,7 +1963,7 @@ export class SourceBrowseSpec {
     static name: string
 }
 export abstract class SourceClass {
-    /* Fields of Grl.SourceClass */
+    /* Fields of Grl-0.2.Grl.SourceClass */
     parent_class: GObject.ObjectClass
     supported_operations: (source: Source) => SupportedOps
     supported_keys: (source: Source) => KeyID[]
@@ -1986,7 +1986,7 @@ export abstract class SourceClass {
     static name: string
 }
 export class SourceMediaFromUriSpec {
-    /* Fields of Grl.SourceMediaFromUriSpec */
+    /* Fields of Grl-0.2.Grl.SourceMediaFromUriSpec */
     source: Source
     operation_id: number
     uri: string
@@ -2000,7 +2000,7 @@ export class SourcePrivate {
     static name: string
 }
 export class SourceQuerySpec {
-    /* Fields of Grl.SourceQuerySpec */
+    /* Fields of Grl-0.2.Grl.SourceQuerySpec */
     source: Source
     operation_id: number
     query: string
@@ -2011,7 +2011,7 @@ export class SourceQuerySpec {
     static name: string
 }
 export class SourceRemoveSpec {
-    /* Fields of Grl.SourceRemoveSpec */
+    /* Fields of Grl-0.2.Grl.SourceRemoveSpec */
     source: Source
     media_id: string
     media: Media
@@ -2020,7 +2020,7 @@ export class SourceRemoveSpec {
     static name: string
 }
 export class SourceResolveSpec {
-    /* Fields of Grl.SourceResolveSpec */
+    /* Fields of Grl-0.2.Grl.SourceResolveSpec */
     source: Source
     operation_id: number
     media: Media
@@ -2031,7 +2031,7 @@ export class SourceResolveSpec {
     static name: string
 }
 export class SourceSearchSpec {
-    /* Fields of Grl.SourceSearchSpec */
+    /* Fields of Grl-0.2.Grl.SourceSearchSpec */
     source: Source
     operation_id: number
     text: string
@@ -2042,7 +2042,7 @@ export class SourceSearchSpec {
     static name: string
 }
 export class SourceStoreMetadataSpec {
-    /* Fields of Grl.SourceStoreMetadataSpec */
+    /* Fields of Grl-0.2.Grl.SourceStoreMetadataSpec */
     source: Source
     media: Media
     keys: object[]
@@ -2053,7 +2053,7 @@ export class SourceStoreMetadataSpec {
     static name: string
 }
 export class SourceStoreSpec {
-    /* Fields of Grl.SourceStoreSpec */
+    /* Fields of Grl-0.2.Grl.SourceStoreSpec */
     source: Source
     parent: MediaBox
     media: Media

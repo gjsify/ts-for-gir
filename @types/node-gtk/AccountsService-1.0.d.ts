@@ -29,7 +29,7 @@ export function userManagerErrorQuark(): GLib.Quark
 export interface User_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class User {
-    /* Properties of AccountsService.User */
+    /* Properties of AccountsService-1.0.AccountsService.User */
     readonly accountType: number
     readonly automaticLogin: boolean
     readonly email: string
@@ -52,9 +52,9 @@ export class User {
     readonly uid: number
     readonly userName: string
     readonly xSession: string
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of AccountsService.User */
+    /* Methods of AccountsService-1.0.AccountsService.User */
     collate(user2: User): number
     getAccountType(): UserAccountType
     getAutomaticLogin(): boolean
@@ -70,7 +70,7 @@ export class User {
     getNumSessions(): number
     getNumSessionsAnywhere(): number
     getObjectPath(): string
-    getPasswordExpirationPolicy(): [ /* expirationTime */ number | null, /* lastChangeTime */ number | null, /* minDaysBetweenChanges */ number | null, /* maxDaysBetweenChanges */ number | null, /* daysToWarn */ number | null, /* daysAfterExpirationUntilLock */ number | null ]
+    getPasswordExpirationPolicy(): { expirationTime: number | null, lastChangeTime: number | null, minDaysBetweenChanges: number | null, maxDaysBetweenChanges: number | null, daysToWarn: number | null, daysAfterExpirationUntilLock: number | null }
     getPasswordHint(): string
     getPasswordMode(): UserPasswordMode
     getPrimarySessionId(): string
@@ -102,7 +102,7 @@ export class User {
     setSessionType(sessionType: string): void
     setUserName(userName: string): void
     setXSession(xSession: string): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -124,34 +124,23 @@ export class User {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of AccountsService.User */
+    /* Signals of AccountsService-1.0.AccountsService.User */
     connect(sigName: "changed", callback: (($obj: User) => void)): number
-    connect_after(sigName: "changed", callback: (($obj: User) => void)): number
+    on(sigName: "changed", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "changed", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "changed", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "changed"): void
-    on(sigName: "changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "sessions-changed", callback: (($obj: User) => void)): number
-    connect_after(sigName: "sessions-changed", callback: (($obj: User) => void)): number
+    on(sigName: "sessions-changed", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "sessions-changed", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "sessions-changed", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "sessions-changed"): void
-    on(sigName: "sessions-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "sessions-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "sessions-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: User, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: User, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::account-type", callback: (($obj: User, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::account-type", callback: (($obj: User, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::account-type", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -280,16 +269,16 @@ export interface UserManager_ConstructProps extends GObject.Object_ConstructProp
     includeUsernamesList?: object
 }
 export class UserManager {
-    /* Properties of AccountsService.UserManager */
+    /* Properties of AccountsService-1.0.AccountsService.UserManager */
     excludeUsernamesList: object
     hasMultipleUsers: boolean
     includeUsernamesList: object
     readonly isLoaded: boolean
-    /* Fields of AccountsService.UserManager */
+    /* Fields of AccountsService-1.0.AccountsService.UserManager */
     parent: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of AccountsService.UserManager */
+    /* Methods of AccountsService-1.0.AccountsService.UserManager */
     activateUserSession(user: User): boolean
     cacheUser(username: string): User
     cacheUserAsync(username: string, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
@@ -309,7 +298,7 @@ export class UserManager {
     uncacheUser(username: string): boolean
     uncacheUserAsync(username: string, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     uncacheUserFinish(result: Gio.AsyncResult): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -331,51 +320,33 @@ export class UserManager {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of AccountsService.UserManager */
-    vfuncUserAdded(user: User): void
-    vfuncUserChanged(user: User): void
-    vfuncUserIsLoggedInChanged(user: User): void
-    vfuncUserRemoved(user: User): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of AccountsService.UserManager */
+    /* Signals of AccountsService-1.0.AccountsService.UserManager */
     connect(sigName: "user-added", callback: (($obj: UserManager, user: User) => void)): number
-    connect_after(sigName: "user-added", callback: (($obj: UserManager, user: User) => void)): number
+    on(sigName: "user-added", callback: (user: User) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "user-added", callback: (user: User) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "user-added", callback: (user: User) => void): NodeJS.EventEmitter
     emit(sigName: "user-added", user: User): void
-    on(sigName: "user-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "user-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "user-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "user-changed", callback: (($obj: UserManager, user: User) => void)): number
-    connect_after(sigName: "user-changed", callback: (($obj: UserManager, user: User) => void)): number
+    on(sigName: "user-changed", callback: (user: User) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "user-changed", callback: (user: User) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "user-changed", callback: (user: User) => void): NodeJS.EventEmitter
     emit(sigName: "user-changed", user: User): void
-    on(sigName: "user-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "user-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "user-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "user-is-logged-in-changed", callback: (($obj: UserManager, user: User) => void)): number
-    connect_after(sigName: "user-is-logged-in-changed", callback: (($obj: UserManager, user: User) => void)): number
+    on(sigName: "user-is-logged-in-changed", callback: (user: User) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "user-is-logged-in-changed", callback: (user: User) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "user-is-logged-in-changed", callback: (user: User) => void): NodeJS.EventEmitter
     emit(sigName: "user-is-logged-in-changed", user: User): void
-    on(sigName: "user-is-logged-in-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "user-is-logged-in-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "user-is-logged-in-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "user-removed", callback: (($obj: UserManager, user: User) => void)): number
-    connect_after(sigName: "user-removed", callback: (($obj: UserManager, user: User) => void)): number
+    on(sigName: "user-removed", callback: (user: User) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "user-removed", callback: (user: User) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "user-removed", callback: (user: User) => void): NodeJS.EventEmitter
     emit(sigName: "user-removed", user: User): void
-    on(sigName: "user-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "user-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "user-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: UserManager, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: UserManager, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::exclude-usernames-list", callback: (($obj: UserManager, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::exclude-usernames-list", callback: (($obj: UserManager, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::exclude-usernames-list", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -411,12 +382,12 @@ export class UserManager {
     static $gtype: GObject.Type
 }
 export abstract class UserClass {
-    /* Fields of AccountsService.UserClass */
+    /* Fields of AccountsService-1.0.AccountsService.UserClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
 export abstract class UserManagerClass {
-    /* Fields of AccountsService.UserManagerClass */
+    /* Fields of AccountsService-1.0.AccountsService.UserManagerClass */
     parentClass: GObject.ObjectClass
     userAdded: (userManager: UserManager, user: User) => void
     userRemoved: (userManager: UserManager, user: User) => void

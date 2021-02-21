@@ -42,12 +42,12 @@ export interface logger {
 export interface GContext_ConstructProps extends GObject.InitiallyUnowned_ConstructProps {
 }
 export class GContext {
-    /* Fields of Anthy.GContext */
+    /* Fields of Anthy-9000.Anthy.GContext */
     parent: GObject.InitiallyUnowned
     priv: GContextPrivate
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Anthy.GContext */
+    /* Methods of Anthy-9000.Anthy.GContext */
     commit_prediction(nth_seg: number): number
     commit_segment(nth_seg: number, nth_lookup: number): number
     do_set_personality(dict_name: string): number
@@ -61,7 +61,7 @@ export class GContext {
     set_encoding(encoding: number): number
     set_prediction_string(string: string): number
     set_string(string: string): number
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -83,7 +83,7 @@ export class GContext {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -91,7 +91,7 @@ export class GContext {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: GContext, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: GContext, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -107,7 +107,7 @@ export class GContext {
     static $gtype: GObject.Type
 }
 export abstract class GContextClass {
-    /* Fields of Anthy.GContextClass */
+    /* Fields of Anthy-9000.Anthy.GContextClass */
     parent: GObject.InitiallyUnownedClass
     static name: string
 }
@@ -118,17 +118,17 @@ export class anthy_context_t {
     static name: string
 }
 export class anthy_conv_stat {
-    /* Fields of Anthy.anthy_conv_stat */
+    /* Fields of Anthy-9000.Anthy.anthy_conv_stat */
     nr_segment: number
     static name: string
 }
 export class anthy_prediction_stat {
-    /* Fields of Anthy.anthy_prediction_stat */
+    /* Fields of Anthy-9000.Anthy.anthy_prediction_stat */
     nr_prediction: number
     static name: string
 }
 export class anthy_segment_stat {
-    /* Fields of Anthy.anthy_segment_stat */
+    /* Fields of Anthy-9000.Anthy.anthy_segment_stat */
     nr_candidate: number
     seg_len: number
     static name: string

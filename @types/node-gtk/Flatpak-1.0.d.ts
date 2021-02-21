@@ -123,11 +123,11 @@ export interface BundleRef_ConstructProps extends Ref_ConstructProps {
     file?: Gio.File
 }
 export class BundleRef {
-    /* Fields of Flatpak.BundleRef */
+    /* Fields of Flatpak-1.0.Flatpak.BundleRef */
     parent: Ref
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Flatpak.BundleRef */
+    /* Methods of Flatpak-1.0.Flatpak.BundleRef */
     getAppstream(): any
     getFile(): Gio.File
     getIcon(size: number): any
@@ -135,7 +135,7 @@ export class BundleRef {
     getMetadata(): any
     getOrigin(): string
     getRuntimeRepoUrl(): string
-    /* Methods of Flatpak.Ref */
+    /* Methods of Flatpak-1.0.Flatpak.Ref */
     formatRef(): string
     getArch(): string
     getBranch(): string
@@ -143,7 +143,7 @@ export class BundleRef {
     getCommit(): string
     getKind(): RefKind
     getName(): string
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -165,21 +165,12 @@ export class BundleRef {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: BundleRef, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: BundleRef, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -197,11 +188,11 @@ export class BundleRef {
 export interface Installation_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class Installation {
-    /* Fields of Flatpak.Installation */
+    /* Fields of Flatpak-1.0.Flatpak.Installation */
     parent: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Flatpak.Installation */
+    /* Methods of Flatpak-1.0.Flatpak.Installation */
     addRemote(remote: Remote, ifNeeded: boolean, cancellable?: Gio.Cancellable | null): boolean
     cleanupLocalRefsSync(cancellable?: Gio.Cancellable | null): boolean
     createMonitor(cancellable?: Gio.Cancellable | null): Gio.FileMonitor
@@ -209,7 +200,7 @@ export class Installation {
     fetchRemoteMetadataSync(remoteName: string, ref: Ref, cancellable?: Gio.Cancellable | null): any
     fetchRemoteRefSync(remoteName: string, kind: RefKind, name: string, arch?: string | null, branch?: string | null, cancellable?: Gio.Cancellable | null): RemoteRef
     fetchRemoteRefSyncFull(remoteName: string, kind: RefKind, name: string, arch: string | null, branch: string | null, flags: QueryFlags, cancellable?: Gio.Cancellable | null): RemoteRef
-    fetchRemoteSizeSync(remoteName: string, ref: Ref, cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* downloadSize */ number, /* installedSize */ number ]
+    fetchRemoteSizeSync(remoteName: string, ref: Ref, cancellable?: Gio.Cancellable | null): { returnType: boolean, downloadSize: number, installedSize: number }
     getConfig(key: string, cancellable?: Gio.Cancellable | null): string
     getCurrentInstalledApp(name: string, cancellable?: Gio.Cancellable | null): InstalledRef
     getDefaultLanguages(): string[]
@@ -218,7 +209,7 @@ export class Installation {
     getId(): string
     getInstalledRef(kind: RefKind, name: string, arch?: string | null, branch?: string | null, cancellable?: Gio.Cancellable | null): InstalledRef
     getIsUser(): boolean
-    getMinFreeSpaceBytes(): [ /* returnType */ boolean, /* outBytes */ number ]
+    getMinFreeSpaceBytes(): { returnType: boolean, outBytes: number }
     getNoInteraction(): boolean
     getPath(): Gio.File
     getPriority(): number
@@ -255,7 +246,7 @@ export class Installation {
     updateAppstreamSync(remoteName: string, arch?: string | null, outChanged?: boolean | null, cancellable?: Gio.Cancellable | null): boolean
     updateFull(flags: UpdateFlags, kind: RefKind, name: string, arch?: string | null, branch?: string | null, subpaths?: string[] | null, cancellable?: Gio.Cancellable | null): InstalledRef
     updateRemoteSync(name: string, cancellable?: Gio.Cancellable | null): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -277,21 +268,12 @@ export class Installation {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Installation, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Installation, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -326,18 +308,18 @@ export interface InstalledRef_ConstructProps extends Ref_ConstructProps {
     subpaths?: string[]
 }
 export class InstalledRef {
-    /* Properties of Flatpak.InstalledRef */
+    /* Properties of Flatpak-1.0.Flatpak.InstalledRef */
     deployDir: string
     installedSize: number
     isCurrent: boolean
     latestCommit: string
     origin: string
     subpaths: string[]
-    /* Fields of Flatpak.InstalledRef */
+    /* Fields of Flatpak-1.0.Flatpak.InstalledRef */
     parent: Ref
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Flatpak.InstalledRef */
+    /* Methods of Flatpak-1.0.Flatpak.InstalledRef */
     getAppdataContentRating(): GLib.HashTable | null
     getAppdataContentRatingType(): string | null
     getAppdataLicense(): string
@@ -354,7 +336,7 @@ export class InstalledRef {
     getSubpaths(): string[]
     loadAppdata(cancellable?: Gio.Cancellable | null): any
     loadMetadata(cancellable?: Gio.Cancellable | null): any
-    /* Methods of Flatpak.Ref */
+    /* Methods of Flatpak-1.0.Flatpak.Ref */
     formatRef(): string
     getArch(): string
     getBranch(): string
@@ -362,7 +344,7 @@ export class InstalledRef {
     getCommit(): string
     getKind(): RefKind
     getName(): string
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -384,21 +366,12 @@ export class InstalledRef {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: InstalledRef, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: InstalledRef, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::deploy-dir", callback: (($obj: InstalledRef, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::deploy-dir", callback: (($obj: InstalledRef, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::deploy-dir", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -444,11 +417,11 @@ export class InstalledRef {
 export interface Instance_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class Instance {
-    /* Fields of Flatpak.Instance */
+    /* Fields of Flatpak-1.0.Flatpak.Instance */
     parent: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Flatpak.Instance */
+    /* Methods of Flatpak-1.0.Flatpak.Instance */
     getApp(): string
     getArch(): string
     getBranch(): string
@@ -460,7 +433,7 @@ export class Instance {
     getRuntime(): string
     getRuntimeCommit(): string
     isRunning(): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -482,21 +455,12 @@ export class Instance {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Instance, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Instance, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -520,11 +484,11 @@ export interface Ref_ConstructProps extends GObject.Object_ConstructProps {
     name?: string
 }
 export class Ref {
-    /* Fields of Flatpak.Ref */
+    /* Fields of Flatpak-1.0.Flatpak.Ref */
     parent: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Flatpak.Ref */
+    /* Methods of Flatpak-1.0.Flatpak.Ref */
     formatRef(): string
     getArch(): string
     getBranch(): string
@@ -532,7 +496,7 @@ export class Ref {
     getCommit(): string
     getKind(): RefKind
     getName(): string
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -554,21 +518,12 @@ export class Ref {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Ref, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Ref, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -590,16 +545,16 @@ export interface RelatedRef_ConstructProps extends Ref_ConstructProps {
     subpaths?: string[]
 }
 export class RelatedRef {
-    /* Fields of Flatpak.RelatedRef */
+    /* Fields of Flatpak-1.0.Flatpak.RelatedRef */
     parent: Ref
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Flatpak.RelatedRef */
+    /* Methods of Flatpak-1.0.Flatpak.RelatedRef */
     getSubpaths(): string[]
     shouldAutoprune(): boolean
     shouldDelete(): boolean
     shouldDownload(): boolean
-    /* Methods of Flatpak.Ref */
+    /* Methods of Flatpak-1.0.Flatpak.Ref */
     formatRef(): string
     getArch(): string
     getBranch(): string
@@ -607,7 +562,7 @@ export class RelatedRef {
     getCommit(): string
     getKind(): RefKind
     getName(): string
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -629,21 +584,12 @@ export class RelatedRef {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: RelatedRef, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: RelatedRef, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -661,13 +607,13 @@ export interface Remote_ConstructProps extends GObject.Object_ConstructProps {
     type?: RemoteType
 }
 export class Remote {
-    /* Properties of Flatpak.Remote */
+    /* Properties of Flatpak-1.0.Flatpak.Remote */
     name: string
-    /* Fields of Flatpak.Remote */
+    /* Fields of Flatpak-1.0.Flatpak.Remote */
     parent: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Flatpak.Remote */
+    /* Methods of Flatpak-1.0.Flatpak.Remote */
     getAppstreamDir(arch?: string | null): Gio.File
     getAppstreamTimestamp(arch?: string | null): Gio.File
     getCollectionId(): string | null
@@ -703,7 +649,7 @@ export class Remote {
     setPrio(prio: number): void
     setTitle(title: string): void
     setUrl(url: string): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -725,21 +671,12 @@ export class Remote {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Remote, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Remote, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::name", callback: (($obj: Remote, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::name", callback: (($obj: Remote, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::name", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -769,18 +706,18 @@ export interface RemoteRef_ConstructProps extends Ref_ConstructProps {
     remoteName?: string
 }
 export class RemoteRef {
-    /* Fields of Flatpak.RemoteRef */
+    /* Fields of Flatpak-1.0.Flatpak.RemoteRef */
     parent: Ref
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Flatpak.RemoteRef */
+    /* Methods of Flatpak-1.0.Flatpak.RemoteRef */
     getDownloadSize(): number
     getEol(): string
     getEolRebase(): string
     getInstalledSize(): number
     getMetadata(): any | null
     getRemoteName(): string
-    /* Methods of Flatpak.Ref */
+    /* Methods of Flatpak-1.0.Flatpak.Ref */
     formatRef(): string
     getArch(): string
     getBranch(): string
@@ -788,7 +725,7 @@ export class RemoteRef {
     getCommit(): string
     getKind(): RefKind
     getName(): string
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -810,21 +747,12 @@ export class RemoteRef {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: RemoteRef, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: RemoteRef, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -841,11 +769,11 @@ export interface Transaction_ConstructProps extends GObject.Object_ConstructProp
     installation?: Installation
 }
 export class Transaction {
-    /* Fields of Flatpak.Transaction */
+    /* Fields of Flatpak-1.0.Flatpak.Transaction */
     parentInstance: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Flatpak.Transaction */
+    /* Methods of Flatpak-1.0.Flatpak.Transaction */
     abortWebflow(id: number): void
     addDefaultDependencySources(): void
     addDependencySource(installation: Installation): void
@@ -876,7 +804,7 @@ export class Transaction {
     setNoPull(noPull: boolean): void
     setParentWindow(parentWindow: string): void
     setReinstall(reinstall: boolean): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -898,111 +826,75 @@ export class Transaction {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of Gio.Initable */
+    /* Methods of Gio-2.0.Gio.Initable */
     init(cancellable?: Gio.Cancellable | null): boolean
-    /* Virtual methods of Flatpak.Transaction */
-    vfuncAddNewRemote(reason: TransactionRemoteReason, fromId: string, remoteName: string, url: string): boolean
-    vfuncBasicAuthStart(remote: string, realm: string, options: GLib.Variant, id: number): boolean
-    vfuncChooseRemoteForRef(forRef: string, runtimeRef: string, remotes: string): number
-    vfuncEndOfLifed(ref: string, reason: string, rebase: string): void
-    vfuncEndOfLifedWithRebase(remote: string, ref: string, reason: string, rebasedToRef: string, previousIds: string): boolean
-    vfuncInstallAuthenticator(remote: string, authenticatorRef: string): void
-    vfuncNewOperation(operation: TransactionOperation, progress: TransactionProgress): void
-    vfuncOperationDone(operation: TransactionOperation, commit: string, details: TransactionResult): void
-    vfuncOperationError(operation: TransactionOperation, error: GLib.Error, detail: TransactionErrorDetails): boolean
-    vfuncReady(): boolean
-    vfuncRun(cancellable?: Gio.Cancellable | null): boolean
-    vfuncWebflowDone(options: GLib.Variant, id: number): void
-    vfuncWebflowStart(remote: string, url: string, options: GLib.Variant, id: number): boolean
-    vfuncInit(cancellable?: Gio.Cancellable | null): boolean
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Flatpak.Transaction */
+    /* Signals of Flatpak-1.0.Flatpak.Transaction */
     connect(sigName: "add-new-remote", callback: (($obj: Transaction, reason: TransactionRemoteReason, fromId: string, suggestedRemoteName: string, url: string) => boolean)): number
-    connect_after(sigName: "add-new-remote", callback: (($obj: Transaction, reason: TransactionRemoteReason, fromId: string, suggestedRemoteName: string, url: string) => boolean)): number
+    on(sigName: "add-new-remote", callback: (reason: TransactionRemoteReason, fromId: string, suggestedRemoteName: string, url: string) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "add-new-remote", callback: (reason: TransactionRemoteReason, fromId: string, suggestedRemoteName: string, url: string) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "add-new-remote", callback: (reason: TransactionRemoteReason, fromId: string, suggestedRemoteName: string, url: string) => void): NodeJS.EventEmitter
     emit(sigName: "add-new-remote", reason: TransactionRemoteReason, fromId: string, suggestedRemoteName: string, url: string): void
-    on(sigName: "add-new-remote", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "add-new-remote", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "add-new-remote", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "basic-auth-start", callback: (($obj: Transaction, remote: string, realm: string, options: GLib.Variant, id: number) => boolean)): number
-    connect_after(sigName: "basic-auth-start", callback: (($obj: Transaction, remote: string, realm: string, options: GLib.Variant, id: number) => boolean)): number
+    on(sigName: "basic-auth-start", callback: (remote: string, realm: string, options: GLib.Variant, id: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "basic-auth-start", callback: (remote: string, realm: string, options: GLib.Variant, id: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "basic-auth-start", callback: (remote: string, realm: string, options: GLib.Variant, id: number) => void): NodeJS.EventEmitter
     emit(sigName: "basic-auth-start", remote: string, realm: string, options: GLib.Variant, id: number): void
-    on(sigName: "basic-auth-start", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "basic-auth-start", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "basic-auth-start", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "choose-remote-for-ref", callback: (($obj: Transaction, forRef: string, runtimeRef: string, remotes: string[]) => number)): number
-    connect_after(sigName: "choose-remote-for-ref", callback: (($obj: Transaction, forRef: string, runtimeRef: string, remotes: string[]) => number)): number
+    on(sigName: "choose-remote-for-ref", callback: (forRef: string, runtimeRef: string, remotes: string[]) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "choose-remote-for-ref", callback: (forRef: string, runtimeRef: string, remotes: string[]) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "choose-remote-for-ref", callback: (forRef: string, runtimeRef: string, remotes: string[]) => void): NodeJS.EventEmitter
     emit(sigName: "choose-remote-for-ref", forRef: string, runtimeRef: string, remotes: string[]): void
-    on(sigName: "choose-remote-for-ref", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "choose-remote-for-ref", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "choose-remote-for-ref", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "end-of-lifed", callback: (($obj: Transaction, ref: string, reason: string, rebase: string) => void)): number
-    connect_after(sigName: "end-of-lifed", callback: (($obj: Transaction, ref: string, reason: string, rebase: string) => void)): number
+    on(sigName: "end-of-lifed", callback: (ref: string, reason: string, rebase: string) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "end-of-lifed", callback: (ref: string, reason: string, rebase: string) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "end-of-lifed", callback: (ref: string, reason: string, rebase: string) => void): NodeJS.EventEmitter
     emit(sigName: "end-of-lifed", ref: string, reason: string, rebase: string): void
-    on(sigName: "end-of-lifed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "end-of-lifed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "end-of-lifed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "end-of-lifed-with-rebase", callback: (($obj: Transaction, remote: string, ref: string, reason: string, rebasedToRef: string, previousIds: string[]) => boolean)): number
-    connect_after(sigName: "end-of-lifed-with-rebase", callback: (($obj: Transaction, remote: string, ref: string, reason: string, rebasedToRef: string, previousIds: string[]) => boolean)): number
+    on(sigName: "end-of-lifed-with-rebase", callback: (remote: string, ref: string, reason: string, rebasedToRef: string, previousIds: string[]) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "end-of-lifed-with-rebase", callback: (remote: string, ref: string, reason: string, rebasedToRef: string, previousIds: string[]) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "end-of-lifed-with-rebase", callback: (remote: string, ref: string, reason: string, rebasedToRef: string, previousIds: string[]) => void): NodeJS.EventEmitter
     emit(sigName: "end-of-lifed-with-rebase", remote: string, ref: string, reason: string, rebasedToRef: string, previousIds: string[]): void
-    on(sigName: "end-of-lifed-with-rebase", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "end-of-lifed-with-rebase", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "end-of-lifed-with-rebase", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "install-authenticator", callback: (($obj: Transaction, remote: string, authenticatorRef: string) => void)): number
-    connect_after(sigName: "install-authenticator", callback: (($obj: Transaction, remote: string, authenticatorRef: string) => void)): number
+    on(sigName: "install-authenticator", callback: (remote: string, authenticatorRef: string) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "install-authenticator", callback: (remote: string, authenticatorRef: string) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "install-authenticator", callback: (remote: string, authenticatorRef: string) => void): NodeJS.EventEmitter
     emit(sigName: "install-authenticator", remote: string, authenticatorRef: string): void
-    on(sigName: "install-authenticator", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "install-authenticator", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "install-authenticator", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "new-operation", callback: (($obj: Transaction, operation: TransactionOperation, progress: TransactionProgress) => void)): number
-    connect_after(sigName: "new-operation", callback: (($obj: Transaction, operation: TransactionOperation, progress: TransactionProgress) => void)): number
+    on(sigName: "new-operation", callback: (operation: TransactionOperation, progress: TransactionProgress) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "new-operation", callback: (operation: TransactionOperation, progress: TransactionProgress) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "new-operation", callback: (operation: TransactionOperation, progress: TransactionProgress) => void): NodeJS.EventEmitter
     emit(sigName: "new-operation", operation: TransactionOperation, progress: TransactionProgress): void
-    on(sigName: "new-operation", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "new-operation", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "new-operation", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "operation-done", callback: (($obj: Transaction, operation: TransactionOperation, commit: string, result: TransactionResult) => void)): number
-    connect_after(sigName: "operation-done", callback: (($obj: Transaction, operation: TransactionOperation, commit: string, result: TransactionResult) => void)): number
+    on(sigName: "operation-done", callback: (operation: TransactionOperation, commit: string, result: TransactionResult) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "operation-done", callback: (operation: TransactionOperation, commit: string, result: TransactionResult) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "operation-done", callback: (operation: TransactionOperation, commit: string, result: TransactionResult) => void): NodeJS.EventEmitter
     emit(sigName: "operation-done", operation: TransactionOperation, commit: string, result: TransactionResult): void
-    on(sigName: "operation-done", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "operation-done", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "operation-done", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "operation-error", callback: (($obj: Transaction, operation: TransactionOperation, error: GLib.Error, details: TransactionErrorDetails) => boolean)): number
-    connect_after(sigName: "operation-error", callback: (($obj: Transaction, operation: TransactionOperation, error: GLib.Error, details: TransactionErrorDetails) => boolean)): number
+    on(sigName: "operation-error", callback: (operation: TransactionOperation, error: GLib.Error, details: TransactionErrorDetails) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "operation-error", callback: (operation: TransactionOperation, error: GLib.Error, details: TransactionErrorDetails) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "operation-error", callback: (operation: TransactionOperation, error: GLib.Error, details: TransactionErrorDetails) => void): NodeJS.EventEmitter
     emit(sigName: "operation-error", operation: TransactionOperation, error: GLib.Error, details: TransactionErrorDetails): void
-    on(sigName: "operation-error", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "operation-error", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "operation-error", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "ready", callback: (($obj: Transaction) => boolean)): number
-    connect_after(sigName: "ready", callback: (($obj: Transaction) => boolean)): number
+    on(sigName: "ready", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "ready", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "ready", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "ready"): void
-    on(sigName: "ready", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "ready", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "ready", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "webflow-done", callback: (($obj: Transaction, options: GLib.Variant, id: number) => void)): number
-    connect_after(sigName: "webflow-done", callback: (($obj: Transaction, options: GLib.Variant, id: number) => void)): number
+    on(sigName: "webflow-done", callback: (options: GLib.Variant, id: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "webflow-done", callback: (options: GLib.Variant, id: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "webflow-done", callback: (options: GLib.Variant, id: number) => void): NodeJS.EventEmitter
     emit(sigName: "webflow-done", options: GLib.Variant, id: number): void
-    on(sigName: "webflow-done", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "webflow-done", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "webflow-done", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "webflow-start", callback: (($obj: Transaction, remote: string, url: string, options: GLib.Variant, id: number) => boolean)): number
-    connect_after(sigName: "webflow-start", callback: (($obj: Transaction, remote: string, url: string, options: GLib.Variant, id: number) => boolean)): number
+    on(sigName: "webflow-start", callback: (remote: string, url: string, options: GLib.Variant, id: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "webflow-start", callback: (remote: string, url: string, options: GLib.Variant, id: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "webflow-start", callback: (remote: string, url: string, options: GLib.Variant, id: number) => void): NodeJS.EventEmitter
     emit(sigName: "webflow-start", remote: string, url: string, options: GLib.Variant, id: number): void
-    on(sigName: "webflow-start", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "webflow-start", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "webflow-start", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Transaction, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Transaction, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -1021,9 +913,9 @@ export class Transaction {
 export interface TransactionOperation_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class TransactionOperation {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Flatpak.TransactionOperation */
+    /* Methods of Flatpak-1.0.Flatpak.TransactionOperation */
     getBundlePath(): Gio.File
     getCommit(): string
     getDownloadSize(): number
@@ -1035,7 +927,7 @@ export class TransactionOperation {
     getRef(): string
     getRelatedToOps(): TransactionOperation[] | null
     getRemote(): string
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -1057,21 +949,12 @@ export class TransactionOperation {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: TransactionOperation, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: TransactionOperation, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -1087,16 +970,16 @@ export class TransactionOperation {
 export interface TransactionProgress_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class TransactionProgress {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Flatpak.TransactionProgress */
+    /* Methods of Flatpak-1.0.Flatpak.TransactionProgress */
     getBytesTransferred(): number
     getIsEstimating(): boolean
     getProgress(): number
     getStartTime(): number
     getStatus(): string
     setUpdateFrequency(updateInterval: number): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -1118,28 +1001,18 @@ export class TransactionProgress {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Flatpak.TransactionProgress */
+    /* Signals of Flatpak-1.0.Flatpak.TransactionProgress */
     connect(sigName: "changed", callback: (($obj: TransactionProgress) => void)): number
-    connect_after(sigName: "changed", callback: (($obj: TransactionProgress) => void)): number
+    on(sigName: "changed", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "changed", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "changed", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "changed"): void
-    on(sigName: "changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: TransactionProgress, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: TransactionProgress, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -1153,47 +1026,47 @@ export class TransactionProgress {
     static $gtype: GObject.Type
 }
 export abstract class BundleRefClass {
-    /* Fields of Flatpak.BundleRefClass */
+    /* Fields of Flatpak-1.0.Flatpak.BundleRefClass */
     parentClass: RefClass
     static name: string
 }
 export abstract class InstallationClass {
-    /* Fields of Flatpak.InstallationClass */
+    /* Fields of Flatpak-1.0.Flatpak.InstallationClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
 export abstract class InstalledRefClass {
-    /* Fields of Flatpak.InstalledRefClass */
+    /* Fields of Flatpak-1.0.Flatpak.InstalledRefClass */
     parentClass: RefClass
     static name: string
 }
 export abstract class InstanceClass {
-    /* Fields of Flatpak.InstanceClass */
+    /* Fields of Flatpak-1.0.Flatpak.InstanceClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
 export abstract class RefClass {
-    /* Fields of Flatpak.RefClass */
+    /* Fields of Flatpak-1.0.Flatpak.RefClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
 export abstract class RelatedRefClass {
-    /* Fields of Flatpak.RelatedRefClass */
+    /* Fields of Flatpak-1.0.Flatpak.RelatedRefClass */
     parentClass: RefClass
     static name: string
 }
 export abstract class RemoteClass {
-    /* Fields of Flatpak.RemoteClass */
+    /* Fields of Flatpak-1.0.Flatpak.RemoteClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
 export abstract class RemoteRefClass {
-    /* Fields of Flatpak.RemoteRefClass */
+    /* Fields of Flatpak-1.0.Flatpak.RemoteRefClass */
     parentClass: RefClass
     static name: string
 }
 export abstract class TransactionClass {
-    /* Fields of Flatpak.TransactionClass */
+    /* Fields of Flatpak-1.0.Flatpak.TransactionClass */
     parentClass: GObject.ObjectClass
     newOperation: (transaction: Transaction, operation: TransactionOperation, progress: TransactionProgress) => void
     operationDone: (transaction: Transaction, operation: TransactionOperation, commit: string, details: TransactionResult) => void
@@ -1212,12 +1085,12 @@ export abstract class TransactionClass {
     static name: string
 }
 export abstract class TransactionOperationClass {
-    /* Fields of Flatpak.TransactionOperationClass */
+    /* Fields of Flatpak-1.0.Flatpak.TransactionOperationClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
 export abstract class TransactionProgressClass {
-    /* Fields of Flatpak.TransactionProgressClass */
+    /* Fields of Flatpak-1.0.Flatpak.TransactionProgressClass */
     parentClass: GObject.ObjectClass
     static name: string
 }

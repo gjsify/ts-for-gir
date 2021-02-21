@@ -105,17 +105,17 @@ export interface QueryMethodsCb {
 export interface AuthService_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class AuthService {
-    /* Fields of gSignon.AuthService */
+    /* Fields of gSignon-1.0.gSignon.AuthService */
     parent_instance: GObject.Object
     priv: AuthServicePrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of gSignon.AuthService */
+    /* Methods of gSignon-1.0.gSignon.AuthService */
     clear(cb: ClearCb): void
     query_identities(filter: GLib.HashTable, application_context: string, cb: QueryIdentitiesCb): void
     query_mechanisms(method: string, cb: QueryMechanismCb): void
     query_methods(cb: QueryMethodsCb): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -137,7 +137,7 @@ export class AuthService {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -145,7 +145,7 @@ export class AuthService {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: AuthService, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: AuthService, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -164,16 +164,16 @@ export interface AuthSession_ConstructProps extends GObject.Object_ConstructProp
     identity?: Identity
 }
 export class AuthSession {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of gSignon.AuthSession */
+    /* Methods of gSignon-1.0.gSignon.AuthSession */
     cancel(): void
     get_method(): string
     process(session_data: GLib.HashTable, mechanism: string, cb: AuthSessionProcessCb): void
     process_async(session_data: GLib.Variant, mechanism: string, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     process_finish(res: Gio.AsyncResult): GLib.Variant
     query_available_mechanisms(wanted_mechanisms: string, cb: AuthSessionQueryAvailableMechanismsCb): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -195,7 +195,7 @@ export class AuthSession {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -203,11 +203,11 @@ export class AuthSession {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of gSignon.AuthSession */
+    /* Signals of gSignon-1.0.gSignon.AuthSession */
     connect(sigName: "state-changed", callback: (($obj: AuthSession, state: number, message: string) => void)): number
     connect_after(sigName: "state-changed", callback: (($obj: AuthSession, state: number, message: string) => void)): number
     emit(sigName: "state-changed", state: number, message: string): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: AuthSession, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: AuthSession, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -228,12 +228,12 @@ export interface Identity_ConstructProps extends GObject.Object_ConstructProps {
     id?: number
 }
 export class Identity {
-    /* Properties of gSignon.Identity */
+    /* Properties of gSignon-1.0.gSignon.Identity */
     app_ctx: string
     id: number
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of gSignon.Identity */
+    /* Methods of gSignon-1.0.gSignon.Identity */
     add_reference(reference: string, cb: IdentityReferenceAddedCb): void
     create_session(method: string): AuthSession
     get_auth_session(session: AuthSession, method: string, cb: IdentitySessionReadyCb): void
@@ -246,7 +246,7 @@ export class Identity {
     store_credentials_with_args(username: string | null, secret: string | null, store_secret: boolean, methods: GLib.HashTable, caption: string | null, realms: string | null, owner: SecurityContext | null, access_control_list: SecurityContext[] | null, type: IdentityType, cb: IdentityStoreCredentialsCb): void
     store_credentials_with_info(info: IdentityInfo, cb: IdentityStoreCredentialsCb): void
     verify_user(args: GLib.Variant, cb: IdentityVerifyCb): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -268,7 +268,7 @@ export class Identity {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -276,14 +276,14 @@ export class Identity {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of gSignon.Identity */
+    /* Signals of gSignon-1.0.gSignon.Identity */
     connect(sigName: "removed", callback: (($obj: Identity) => void)): number
     connect_after(sigName: "removed", callback: (($obj: Identity) => void)): number
     emit(sigName: "removed"): void
     connect(sigName: "signout", callback: (($obj: Identity) => void)): number
     connect_after(sigName: "signout", callback: (($obj: Identity) => void)): number
     emit(sigName: "signout"): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Identity, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Identity, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -306,7 +306,7 @@ export class Identity {
     static $gtype: GObject.Type
 }
 export abstract class AuthServiceClass {
-    /* Fields of gSignon.AuthServiceClass */
+    /* Fields of gSignon-1.0.gSignon.AuthServiceClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
@@ -314,7 +314,7 @@ export class AuthServicePrivate {
     static name: string
 }
 export abstract class AuthSessionClass {
-    /* Fields of gSignon.AuthSessionClass */
+    /* Fields of gSignon-1.0.gSignon.AuthSessionClass */
     parent: GObject.ObjectClass
     static name: string
 }
@@ -322,12 +322,12 @@ export class AuthSessionPrivate {
     static name: string
 }
 export abstract class IdentityClass {
-    /* Fields of gSignon.IdentityClass */
+    /* Fields of gSignon-1.0.gSignon.IdentityClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
 export class IdentityInfo {
-    /* Methods of gSignon.IdentityInfo */
+    /* Methods of gSignon-1.0.gSignon.IdentityInfo */
     access_control_list_append(security_context: SecurityContext): void
     copy(): IdentityInfo
     free(): void
@@ -362,10 +362,10 @@ export class IdentityPrivate {
     static name: string
 }
 export class SecurityContext {
-    /* Fields of gSignon.SecurityContext */
+    /* Fields of gSignon-1.0.gSignon.SecurityContext */
     sys_ctx: string
     app_ctx: string
-    /* Methods of gSignon.SecurityContext */
+    /* Methods of gSignon-1.0.gSignon.SecurityContext */
     build_variant(): GLib.Variant
     copy(): SecurityContext
     free(): void
@@ -384,13 +384,13 @@ export class SecurityContext {
     static list_deconstruct_variant(variant: GLib.Variant): SecurityContext[]
 }
 export class _AuthSession {
-    /* Fields of gSignon._AuthSession */
+    /* Fields of gSignon-1.0.gSignon._AuthSession */
     parent: GObject.Object
     priv: AuthSessionPrivate
     static name: string
 }
 export class _Identity {
-    /* Fields of gSignon._Identity */
+    /* Fields of gSignon-1.0.gSignon._Identity */
     parent_instance: GObject.Object
     priv: IdentityPrivate
     static name: string

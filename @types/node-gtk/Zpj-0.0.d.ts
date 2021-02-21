@@ -33,18 +33,13 @@ export const SKYDRIVE_FOLDER_PUBLIC_DOCUMENTS: string
 export const SKYDRIVE_FOLDER_SKYDRIVE: string
 export function errorQuark(): GLib.Quark
 export class Authorizer {
-    /* Methods of Zpj.Authorizer */
+    /* Methods of Zpj-0.0.Zpj.Authorizer */
     isAuthorizedForDomain(domain: AuthorizationDomain): boolean
     processCall(domain: AuthorizationDomain | null, call: Rest.ProxyCall): void
     processMessage(domain: AuthorizationDomain | null, message: Soup.Message): void
     refreshAuthorization(cancellable?: Gio.Cancellable | null): boolean
     refreshAuthorizationAsync(cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     refreshAuthorizationFinish(res: Gio.AsyncResult): boolean
-    /* Virtual methods of Zpj.Authorizer */
-    vfuncIsAuthorizedForDomain(domain: AuthorizationDomain): boolean
-    vfuncProcessCall(domain: AuthorizationDomain | null, call: Rest.ProxyCall): void
-    vfuncProcessMessage(domain: AuthorizationDomain | null, message: Soup.Message): void
-    vfuncRefreshAuthorization(cancellable?: Gio.Cancellable | null): boolean
     static name: string
 }
 export interface AuthorizationDomain_ConstructProps extends GObject.Object_ConstructProps {
@@ -52,15 +47,15 @@ export interface AuthorizationDomain_ConstructProps extends GObject.Object_Const
     serviceName?: string
 }
 export class AuthorizationDomain {
-    /* Fields of Zpj.AuthorizationDomain */
+    /* Fields of Zpj-0.0.Zpj.AuthorizationDomain */
     parentInstance: GObject.Object
     priv: AuthorizationDomainPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Zpj.AuthorizationDomain */
+    /* Methods of Zpj-0.0.Zpj.AuthorizationDomain */
     getScope(): string
     getServiceName(): string
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -82,21 +77,12 @@ export class AuthorizationDomain {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: AuthorizationDomain, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: AuthorizationDomain, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -112,12 +98,12 @@ export class AuthorizationDomain {
 export interface GoaAuthorizer_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class GoaAuthorizer {
-    /* Fields of Zpj.GoaAuthorizer */
+    /* Fields of Zpj-0.0.Zpj.GoaAuthorizer */
     parentInstance: GObject.Object
     priv: GoaAuthorizerPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -139,33 +125,19 @@ export class GoaAuthorizer {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of Zpj.Authorizer */
+    /* Methods of Zpj-0.0.Zpj.Authorizer */
     isAuthorizedForDomain(domain: AuthorizationDomain): boolean
     processCall(domain: AuthorizationDomain | null, call: Rest.ProxyCall): void
     processMessage(domain: AuthorizationDomain | null, message: Soup.Message): void
     refreshAuthorization(cancellable?: Gio.Cancellable | null): boolean
     refreshAuthorizationAsync(cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     refreshAuthorizationFinish(res: Gio.AsyncResult): boolean
-    /* Virtual methods of Zpj.GoaAuthorizer */
-    vfuncIsAuthorizedForDomain(domain: AuthorizationDomain): boolean
-    vfuncProcessCall(domain: AuthorizationDomain | null, call: Rest.ProxyCall): void
-    vfuncProcessMessage(domain: AuthorizationDomain | null, message: Soup.Message): void
-    vfuncRefreshAuthorization(cancellable?: Gio.Cancellable | null): boolean
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: GoaAuthorizer, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: GoaAuthorizer, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -182,14 +154,14 @@ export interface Skydrive_ConstructProps extends GObject.Object_ConstructProps {
     authorizer?: Authorizer
 }
 export class Skydrive {
-    /* Properties of Zpj.Skydrive */
+    /* Properties of Zpj-0.0.Zpj.Skydrive */
     authorizer: Authorizer
-    /* Fields of Zpj.Skydrive */
+    /* Fields of Zpj-0.0.Zpj.Skydrive */
     parentInstance: GObject.Object
     priv: SkydrivePrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Zpj.Skydrive */
+    /* Methods of Zpj-0.0.Zpj.Skydrive */
     createFolder(folder: SkydriveFolder, cancellable?: Gio.Cancellable | null): boolean
     createFolderFromName(name: string, parentId: string, cancellable?: Gio.Cancellable | null): boolean
     deleteEntryId(entryId: string, cancellable?: Gio.Cancellable | null): boolean
@@ -213,7 +185,7 @@ export class Skydrive {
     thumbnailFileIdToStream(fileId: string, size: ThumbnailSize, cancellable?: Gio.Cancellable | null): Gio.InputStream
     uploadPathToFolder(path: string, folder: SkydriveFolder, cancellable?: Gio.Cancellable | null): boolean
     uploadPathToFolderId(path: string, folderId: string, cancellable?: Gio.Cancellable | null): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -235,21 +207,12 @@ export class Skydrive {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Skydrive, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Skydrive, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::authorizer", callback: (($obj: Skydrive, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::authorizer", callback: (($obj: Skydrive, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::authorizer", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -273,7 +236,7 @@ export interface SkydriveEntry_ConstructProps extends GObject.Object_ConstructPr
     json?: Json.Node
 }
 export class SkydriveEntry {
-    /* Properties of Zpj.SkydriveEntry */
+    /* Properties of Zpj-0.0.Zpj.SkydriveEntry */
     readonly createdTime: GLib.DateTime
     readonly description: string
     readonly fromId: string
@@ -283,12 +246,12 @@ export class SkydriveEntry {
     readonly parentId: string
     readonly type: SkydriveEntryType
     readonly updatedTime: GLib.DateTime
-    /* Fields of Zpj.SkydriveEntry */
+    /* Fields of Zpj-0.0.Zpj.SkydriveEntry */
     parentInstance: GObject.Object
     priv: SkydriveEntryPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Zpj.SkydriveEntry */
+    /* Methods of Zpj-0.0.Zpj.SkydriveEntry */
     getCreatedTime(): GLib.DateTime
     getDescription(): string
     getFromId(): string
@@ -298,7 +261,7 @@ export class SkydriveEntry {
     getParentId(): string
     getUpdatedTime(): GLib.DateTime
     isFolder(): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -320,23 +283,12 @@ export class SkydriveEntry {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of Zpj.SkydriveEntry */
-    vfuncParseJsonNode(node: Json.Node): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: SkydriveEntry, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: SkydriveEntry, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::created-time", callback: (($obj: SkydriveEntry, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::created-time", callback: (($obj: SkydriveEntry, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::created-time", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -397,9 +349,9 @@ export class SkydriveEntry {
 export interface SkydriveFile_ConstructProps extends SkydriveEntry_ConstructProps {
 }
 export class SkydriveFile {
-    /* Properties of Zpj.SkydriveFile */
+    /* Properties of Zpj-0.0.Zpj.SkydriveFile */
     readonly size: number
-    /* Properties of Zpj.SkydriveEntry */
+    /* Properties of Zpj-0.0.Zpj.SkydriveEntry */
     readonly createdTime: GLib.DateTime
     readonly description: string
     readonly fromId: string
@@ -409,14 +361,14 @@ export class SkydriveFile {
     readonly parentId: string
     readonly type: SkydriveEntryType
     readonly updatedTime: GLib.DateTime
-    /* Fields of Zpj.SkydriveFile */
+    /* Fields of Zpj-0.0.Zpj.SkydriveFile */
     parentInstance: SkydriveEntry
     priv: SkydriveFilePrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Zpj.SkydriveFile */
+    /* Methods of Zpj-0.0.Zpj.SkydriveFile */
     getSize(): number
-    /* Methods of Zpj.SkydriveEntry */
+    /* Methods of Zpj-0.0.Zpj.SkydriveEntry */
     getCreatedTime(): GLib.DateTime
     getDescription(): string
     getFromId(): string
@@ -426,7 +378,7 @@ export class SkydriveFile {
     getParentId(): string
     getUpdatedTime(): GLib.DateTime
     isFolder(): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -448,23 +400,12 @@ export class SkydriveFile {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of Zpj.SkydriveEntry */
-    vfuncParseJsonNode(node: Json.Node): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: SkydriveFile, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: SkydriveFile, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::size", callback: (($obj: SkydriveFile, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::size", callback: (($obj: SkydriveFile, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::size", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -532,7 +473,7 @@ export class SkydriveFile {
 export interface SkydriveFolder_ConstructProps extends SkydriveEntry_ConstructProps {
 }
 export class SkydriveFolder {
-    /* Properties of Zpj.SkydriveEntry */
+    /* Properties of Zpj-0.0.Zpj.SkydriveEntry */
     readonly createdTime: GLib.DateTime
     readonly description: string
     readonly fromId: string
@@ -542,13 +483,13 @@ export class SkydriveFolder {
     readonly parentId: string
     readonly type: SkydriveEntryType
     readonly updatedTime: GLib.DateTime
-    /* Fields of Zpj.SkydriveFolder */
+    /* Fields of Zpj-0.0.Zpj.SkydriveFolder */
     parentInstance: SkydriveEntry
-    /* Fields of Zpj.SkydriveEntry */
+    /* Fields of Zpj-0.0.Zpj.SkydriveEntry */
     priv: SkydriveEntryPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Zpj.SkydriveEntry */
+    /* Methods of Zpj-0.0.Zpj.SkydriveEntry */
     getCreatedTime(): GLib.DateTime
     getDescription(): string
     getFromId(): string
@@ -558,7 +499,7 @@ export class SkydriveFolder {
     getParentId(): string
     getUpdatedTime(): GLib.DateTime
     isFolder(): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -580,23 +521,12 @@ export class SkydriveFolder {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of Zpj.SkydriveEntry */
-    vfuncParseJsonNode(node: Json.Node): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: SkydriveFolder, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: SkydriveFolder, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::created-time", callback: (($obj: SkydriveFolder, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::created-time", callback: (($obj: SkydriveFolder, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::created-time", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -659,9 +589,9 @@ export class SkydriveFolder {
 export interface SkydrivePhoto_ConstructProps extends SkydriveFile_ConstructProps {
 }
 export class SkydrivePhoto {
-    /* Properties of Zpj.SkydriveFile */
+    /* Properties of Zpj-0.0.Zpj.SkydriveFile */
     readonly size: number
-    /* Properties of Zpj.SkydriveEntry */
+    /* Properties of Zpj-0.0.Zpj.SkydriveEntry */
     readonly createdTime: GLib.DateTime
     readonly description: string
     readonly fromId: string
@@ -671,15 +601,15 @@ export class SkydrivePhoto {
     readonly parentId: string
     readonly type: SkydriveEntryType
     readonly updatedTime: GLib.DateTime
-    /* Fields of Zpj.SkydrivePhoto */
+    /* Fields of Zpj-0.0.Zpj.SkydrivePhoto */
     parentInstance: SkydriveFile
-    /* Fields of Zpj.SkydriveFile */
+    /* Fields of Zpj-0.0.Zpj.SkydriveFile */
     priv: SkydriveFilePrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Zpj.SkydriveFile */
+    /* Methods of Zpj-0.0.Zpj.SkydriveFile */
     getSize(): number
-    /* Methods of Zpj.SkydriveEntry */
+    /* Methods of Zpj-0.0.Zpj.SkydriveEntry */
     getCreatedTime(): GLib.DateTime
     getDescription(): string
     getFromId(): string
@@ -689,7 +619,7 @@ export class SkydrivePhoto {
     getParentId(): string
     getUpdatedTime(): GLib.DateTime
     isFolder(): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -711,23 +641,12 @@ export class SkydrivePhoto {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of Zpj.SkydriveEntry */
-    vfuncParseJsonNode(node: Json.Node): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: SkydrivePhoto, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: SkydrivePhoto, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::size", callback: (($obj: SkydrivePhoto, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::size", callback: (($obj: SkydrivePhoto, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::size", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -795,14 +714,14 @@ export class SkydrivePhoto {
 export interface SkydriveVideo_ConstructProps extends SkydriveFile_ConstructProps {
 }
 export class SkydriveVideo {
-    /* Properties of Zpj.SkydriveVideo */
+    /* Properties of Zpj-0.0.Zpj.SkydriveVideo */
     readonly bitrate: number
     readonly duration: number
     readonly height: number
     readonly width: number
-    /* Properties of Zpj.SkydriveFile */
+    /* Properties of Zpj-0.0.Zpj.SkydriveFile */
     readonly size: number
-    /* Properties of Zpj.SkydriveEntry */
+    /* Properties of Zpj-0.0.Zpj.SkydriveEntry */
     readonly createdTime: GLib.DateTime
     readonly description: string
     readonly fromId: string
@@ -812,19 +731,19 @@ export class SkydriveVideo {
     readonly parentId: string
     readonly type: SkydriveEntryType
     readonly updatedTime: GLib.DateTime
-    /* Fields of Zpj.SkydriveVideo */
+    /* Fields of Zpj-0.0.Zpj.SkydriveVideo */
     parentInstance: SkydriveFile
     priv: SkydriveVideoPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Zpj.SkydriveVideo */
+    /* Methods of Zpj-0.0.Zpj.SkydriveVideo */
     getBitrate(): number
     getDuration(): number
     getHeight(): number
     getWidth(): number
-    /* Methods of Zpj.SkydriveFile */
+    /* Methods of Zpj-0.0.Zpj.SkydriveFile */
     getSize(): number
-    /* Methods of Zpj.SkydriveEntry */
+    /* Methods of Zpj-0.0.Zpj.SkydriveEntry */
     getCreatedTime(): GLib.DateTime
     getDescription(): string
     getFromId(): string
@@ -834,7 +753,7 @@ export class SkydriveVideo {
     getParentId(): string
     getUpdatedTime(): GLib.DateTime
     isFolder(): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -856,23 +775,12 @@ export class SkydriveVideo {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of Zpj.SkydriveEntry */
-    vfuncParseJsonNode(node: Json.Node): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: SkydriveVideo, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: SkydriveVideo, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::bitrate", callback: (($obj: SkydriveVideo, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::bitrate", callback: (($obj: SkydriveVideo, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::bitrate", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -958,7 +866,7 @@ export class SkydriveVideo {
     static $gtype: GObject.Type
 }
 export abstract class AuthorizationDomainClass {
-    /* Fields of Zpj.AuthorizationDomainClass */
+    /* Fields of Zpj-0.0.Zpj.AuthorizationDomainClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
@@ -966,7 +874,7 @@ export class AuthorizationDomainPrivate {
     static name: string
 }
 export abstract class AuthorizerInterface {
-    /* Fields of Zpj.AuthorizerInterface */
+    /* Fields of Zpj-0.0.Zpj.AuthorizerInterface */
     parentIface: GObject.TypeInterface
     isAuthorizedForDomain: (iface: Authorizer, domain: AuthorizationDomain) => boolean
     processCall: (iface: Authorizer, domain: AuthorizationDomain | null, call: Rest.ProxyCall) => void
@@ -975,7 +883,7 @@ export abstract class AuthorizerInterface {
     static name: string
 }
 export abstract class GoaAuthorizerClass {
-    /* Fields of Zpj.GoaAuthorizerClass */
+    /* Fields of Zpj-0.0.Zpj.GoaAuthorizerClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
@@ -983,12 +891,12 @@ export class GoaAuthorizerPrivate {
     static name: string
 }
 export abstract class SkydriveClass {
-    /* Fields of Zpj.SkydriveClass */
+    /* Fields of Zpj-0.0.Zpj.SkydriveClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
 export abstract class SkydriveEntryClass {
-    /* Fields of Zpj.SkydriveEntryClass */
+    /* Fields of Zpj-0.0.Zpj.SkydriveEntryClass */
     parentClass: GObject.ObjectClass
     parseJsonNode: (self: SkydriveEntry, node: Json.Node) => void
     static name: string
@@ -997,7 +905,7 @@ export class SkydriveEntryPrivate {
     static name: string
 }
 export abstract class SkydriveFileClass {
-    /* Fields of Zpj.SkydriveFileClass */
+    /* Fields of Zpj-0.0.Zpj.SkydriveFileClass */
     parentClass: SkydriveEntryClass
     static name: string
 }
@@ -1005,12 +913,12 @@ export class SkydriveFilePrivate {
     static name: string
 }
 export abstract class SkydriveFolderClass {
-    /* Fields of Zpj.SkydriveFolderClass */
+    /* Fields of Zpj-0.0.Zpj.SkydriveFolderClass */
     parentClass: SkydriveEntryClass
     static name: string
 }
 export abstract class SkydrivePhotoClass {
-    /* Fields of Zpj.SkydrivePhotoClass */
+    /* Fields of Zpj-0.0.Zpj.SkydrivePhotoClass */
     parentClass: SkydriveFileClass
     static name: string
 }
@@ -1018,7 +926,7 @@ export class SkydrivePrivate {
     static name: string
 }
 export abstract class SkydriveVideoClass {
-    /* Fields of Zpj.SkydriveVideoClass */
+    /* Fields of Zpj-0.0.Zpj.SkydriveVideoClass */
     parentClass: SkydriveFileClass
     static name: string
 }

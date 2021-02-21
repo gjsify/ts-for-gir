@@ -74,7 +74,7 @@ export interface ObjectForeach {
     (object: Object, member_name: string, member_node: Node): void
 }
 export class Serializable {
-    /* Methods of Json.Serializable */
+    /* Methods of Json-1.0.Json.Serializable */
     default_deserialize_property(property_name: string, value: any, pspec: GObject.ParamSpec, property_node: Node): boolean
     default_serialize_property(property_name: string, value: any, pspec: GObject.ParamSpec): Node | null
     deserialize_property(property_name: string, pspec: GObject.ParamSpec, property_node: Node): [ /* returnType */ boolean, /* value */ any ]
@@ -83,7 +83,7 @@ export class Serializable {
     list_properties(): GObject.ParamSpec[]
     serialize_property(property_name: string, value: any, pspec: GObject.ParamSpec): Node
     set_property(pspec: GObject.ParamSpec, value: any): void
-    /* Virtual methods of Json.Serializable */
+    /* Virtual methods of Json-1.0.Json.Serializable */
     vfunc_deserialize_property(property_name: string, pspec: GObject.ParamSpec, property_node: Node): [ /* returnType */ boolean, /* value */ any ]
     vfunc_find_property(name: string): GObject.ParamSpec | null
     vfunc_get_property(pspec: GObject.ParamSpec): /* value */ any
@@ -95,9 +95,9 @@ export interface Builder_ConstructProps extends GObject.Object_ConstructProps {
     immutable?: boolean
 }
 export class Builder {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Json.Builder */
+    /* Methods of Json-1.0.Json.Builder */
     add_boolean_value(value: boolean): Builder | null
     add_double_value(value: number): Builder | null
     add_int_value(value: number): Builder | null
@@ -111,7 +111,7 @@ export class Builder {
     get_root(): Node | null
     reset(): void
     set_member_name(member_name: string): Builder | null
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -133,7 +133,7 @@ export class Builder {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -141,7 +141,7 @@ export class Builder {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Builder, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Builder, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -164,14 +164,14 @@ export interface Generator_ConstructProps extends GObject.Object_ConstructProps 
     root?: Node
 }
 export class Generator {
-    /* Properties of Json.Generator */
+    /* Properties of Json-1.0.Json.Generator */
     indent: number
     indent_char: number
     pretty: boolean
     root: Node
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Json.Generator */
+    /* Methods of Json-1.0.Json.Generator */
     get_indent(): number
     get_indent_char(): number
     get_pretty(): boolean
@@ -184,7 +184,7 @@ export class Generator {
     to_file(filename: string): boolean
     to_gstring(string: GLib.String): GLib.String
     to_stream(stream: Gio.OutputStream, cancellable?: Gio.Cancellable | null): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -206,7 +206,7 @@ export class Generator {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -214,7 +214,7 @@ export class Generator {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Generator, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Generator, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -241,9 +241,9 @@ export interface Parser_ConstructProps extends GObject.Object_ConstructProps {
     immutable?: boolean
 }
 export class Parser {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Json.Parser */
+    /* Methods of Json-1.0.Json.Parser */
     get_current_line(): number
     get_current_pos(): number
     get_root(): Node | null
@@ -255,7 +255,7 @@ export class Parser {
     load_from_stream_async(stream: Gio.InputStream, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     load_from_stream_finish(result: Gio.AsyncResult): boolean
     steal_root(): Node | null
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -277,7 +277,7 @@ export class Parser {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Json.Parser */
+    /* Virtual methods of Json-1.0.Json.Parser */
     vfunc_array_element(array: Array, index_: number): void
     vfunc_array_end(array: Array): void
     vfunc_array_start(): void
@@ -287,7 +287,7 @@ export class Parser {
     vfunc_object_start(): void
     vfunc_parse_end(): void
     vfunc_parse_start(): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -295,7 +295,7 @@ export class Parser {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Json.Parser */
+    /* Signals of Json-1.0.Json.Parser */
     connect(sigName: "array-element", callback: (($obj: Parser, array: Array, index_: number) => void)): number
     connect_after(sigName: "array-element", callback: (($obj: Parser, array: Array, index_: number) => void)): number
     emit(sigName: "array-element", array: Array, index_: number): void
@@ -323,7 +323,7 @@ export class Parser {
     connect(sigName: "parse-start", callback: (($obj: Parser) => void)): number
     connect_after(sigName: "parse-start", callback: (($obj: Parser) => void)): number
     emit(sigName: "parse-start"): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Parser, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Parser, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -342,12 +342,12 @@ export class Parser {
 export interface Path_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class Path {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Json.Path */
+    /* Methods of Json-1.0.Json.Path */
     compile(expression: string): boolean
     match(root: Node): Node
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -369,7 +369,7 @@ export class Path {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -377,7 +377,7 @@ export class Path {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Path, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Path, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -397,11 +397,11 @@ export interface Reader_ConstructProps extends GObject.Object_ConstructProps {
     root?: Node
 }
 export class Reader {
-    /* Properties of Json.Reader */
+    /* Properties of Json-1.0.Json.Reader */
     root: Node
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Json.Reader */
+    /* Methods of Json-1.0.Json.Reader */
     count_elements(): number
     count_members(): number
     end_element(): void
@@ -421,7 +421,7 @@ export class Reader {
     read_element(index_: number): boolean
     read_member(member_name: string): boolean
     set_root(root?: Node | null): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -443,7 +443,7 @@ export class Reader {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -451,7 +451,7 @@ export class Reader {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Reader, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Reader, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -469,7 +469,7 @@ export class Reader {
     static $gtype: GObject.Type
 }
 export class Array {
-    /* Methods of Json.Array */
+    /* Methods of Json-1.0.Json.Array */
     add_array_element(value?: Array | null): void
     add_boolean_element(value: boolean): void
     add_double_element(value: number): void
@@ -517,7 +517,7 @@ export class GeneratorPrivate {
     static name: string
 }
 export class Node {
-    /* Methods of Json.Node */
+    /* Methods of Json-1.0.Json.Node */
     copy(): Node
     dup_array(): Array | null
     dup_object(): Object | null
@@ -567,7 +567,7 @@ export class Node {
     static new(type: NodeType): Node
 }
 export class Object {
-    /* Methods of Json.Object */
+    /* Methods of Json-1.0.Json.Object */
     add_member(member_name: string, node: Node): void
     dup_member(member_name: string): Node | null
     equal(b: Object): boolean
@@ -609,7 +609,7 @@ export class Object {
     static new(): Object
 }
 export class ObjectIter {
-    /* Methods of Json.ObjectIter */
+    /* Methods of Json-1.0.Json.ObjectIter */
     init(object: Object): void
     init_ordered(object: Object): void
     next(): [ /* returnType */ boolean, /* member_name */ string | null, /* member_node */ Node | null ]
@@ -617,7 +617,7 @@ export class ObjectIter {
     static name: string
 }
 export abstract class ParserClass {
-    /* Fields of Json.ParserClass */
+    /* Fields of Json-1.0.Json.ParserClass */
     parse_start: (parser: Parser) => void
     object_start: (parser: Parser) => void
     object_member: (parser: Parser, object: Object, member_name: string) => void
@@ -642,7 +642,7 @@ export class ReaderPrivate {
     static name: string
 }
 export abstract class SerializableIface {
-    /* Fields of Json.SerializableIface */
+    /* Fields of Json-1.0.Json.SerializableIface */
     serialize_property: (serializable: Serializable, property_name: string, value: any, pspec: GObject.ParamSpec) => Node
     deserialize_property: (serializable: Serializable, property_name: string, pspec: GObject.ParamSpec, property_node: Node) => [ /* returnType */ boolean, /* value */ any ]
     find_property: (serializable: Serializable, name: string) => GObject.ParamSpec | null

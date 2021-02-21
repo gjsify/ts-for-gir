@@ -30,7 +30,7 @@ export interface ActionFunc {
 export interface Actor_ConstructProps extends Atk.GObjectAccessible_ConstructProps {
 }
 export class Actor {
-    /* Properties of Atk.Object */
+    /* Properties of Atk-1.0.Atk.Object */
     readonly accessibleComponentLayer: number
     readonly accessibleComponentMdiZorder: number
     accessibleDescription: string
@@ -46,23 +46,23 @@ export class Actor {
     accessibleTableRowHeader: Atk.Object
     accessibleTableSummary: Atk.Object
     accessibleValue: number
-    /* Fields of Atk.GObjectAccessible */
+    /* Fields of Atk-1.0.Atk.GObjectAccessible */
     parent: Atk.Object
-    /* Fields of Atk.Object */
+    /* Fields of Atk-1.0.Atk.Object */
     description: string
     name: string
     role: Atk.Role
     relationSet: Atk.RelationSet
     layer: Atk.Layer
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Cally.Actor */
+    /* Methods of Cally-1.0.Cally.Actor */
     addAction(actionName: string, actionDescription: string, actionKeybinding: string, callback: ActionCallback): number
     removeAction(actionId: number): boolean
     removeActionByName(actionName: string): boolean
-    /* Methods of Atk.GObjectAccessible */
+    /* Methods of Atk-1.0.Atk.GObjectAccessible */
     getObject(): GObject.Object
-    /* Methods of Atk.Object */
+    /* Methods of Atk-1.0.Atk.Object */
     addRelationship(relationship: Atk.RelationType, target: Atk.Object): boolean
     getAccessibleId(): string
     getAttributes(): Atk.AttributeSet
@@ -88,7 +88,7 @@ export class Actor {
     setName(name: string): void
     setParent(parent: Atk.Object): void
     setRole(role: Atk.Role): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -110,7 +110,7 @@ export class Actor {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of Atk.Action */
+    /* Methods of Atk-1.0.Atk.Action */
     doAction(i: number): boolean
     getDescription(i: number): string | null
     getKeybinding(i: number): string | null
@@ -118,12 +118,12 @@ export class Actor {
     getNActions(): number
     getName(i: number): string | null
     setDescription(i: number, desc: string): boolean
-    /* Methods of Atk.Component */
+    /* Methods of Atk-1.0.Atk.Component */
     contains(x: number, y: number, coordType: Atk.CoordType): boolean
     getAlpha(): number
-    getExtents(coordType: Atk.CoordType): [ /* x */ number | null, /* y */ number | null, /* width */ number | null, /* height */ number | null ]
-    getPosition(coordType: Atk.CoordType): [ /* x */ number | null, /* y */ number | null ]
-    getSize(): [ /* width */ number | null, /* height */ number | null ]
+    getExtents(coordType: Atk.CoordType): { x: number | null, y: number | null, width: number | null, height: number | null }
+    getPosition(coordType: Atk.CoordType): { x: number | null, y: number | null }
+    getSize(): { width: number | null, height: number | null }
     grabFocus(): boolean
     refAccessibleAtPoint(x: number, y: number, coordType: Atk.CoordType): Atk.Object | null
     removeFocusHandler(handlerId: number): void
@@ -132,117 +132,49 @@ export class Actor {
     setExtents(x: number, y: number, width: number, height: number, coordType: Atk.CoordType): boolean
     setPosition(x: number, y: number, coordType: Atk.CoordType): boolean
     setSize(width: number, height: number): boolean
-    /* Virtual methods of Cally.Actor */
-    vfuncDoAction(i: number): boolean
-    vfuncGetDescription(i: number): string | null
-    vfunc_get_description(): string | null
-    vfuncGetKeybinding(i: number): string | null
-    vfuncGetLocalizedName(i: number): string | null
-    vfuncGetNActions(): number
-    vfuncGetName(i: number): string | null
-    vfunc_get_name(): string | null
-    vfuncSetDescription(i: number, desc: string): boolean
-    vfunc_set_description(description: string): boolean | null
-    vfuncBoundsChanged(bounds: Atk.Rectangle): void
-    vfuncContains(x: number, y: number, coordType: Atk.CoordType): boolean
-    vfuncGetAlpha(): number
-    vfuncGetExtents(coordType: Atk.CoordType): [ /* x */ number | null, /* y */ number | null, /* width */ number | null, /* height */ number | null ]
-    vfuncGetLayer(): Atk.Layer
-    vfuncGetMdiZorder(): number
-    vfuncGetPosition(coordType: Atk.CoordType): [ /* x */ number | null, /* y */ number | null ]
-    vfuncGetSize(): [ /* width */ number | null, /* height */ number | null ]
-    vfuncGrabFocus(): boolean
-    vfuncRefAccessibleAtPoint(x: number, y: number, coordType: Atk.CoordType): Atk.Object | null
-    vfuncRemoveFocusHandler(handlerId: number): void
-    vfuncScrollTo(type: Atk.ScrollType): boolean
-    vfuncScrollToPoint(coords: Atk.CoordType, x: number, y: number): boolean
-    vfuncSetExtents(x: number, y: number, width: number, height: number, coordType: Atk.CoordType): boolean
-    vfuncSetPosition(x: number, y: number, coordType: Atk.CoordType): boolean
-    vfuncSetSize(width: number, height: number): boolean
-    /* Virtual methods of Atk.Object */
-    vfuncActiveDescendantChanged(child?: object | null): void
-    vfuncChildrenChanged(changeIndex: number, changedChild?: object | null): void
-    vfuncFocusEvent(focusIn: boolean): void
-    vfuncGetAttributes(): Atk.AttributeSet
-    vfunc_get_description(): string | null
-    vfuncGetIndexInParent(): number
-    vfuncGetLayer(): Atk.Layer
-    vfuncGetMdiZorder(): number
-    vfuncGetNChildren(): number
-    vfunc_get_name(): string | null
-    vfuncGetObjectLocale(): string
-    vfuncGetParent(): Atk.Object
-    vfuncGetRole(): Atk.Role
-    vfuncInitialize(data?: object | null): void
-    vfuncPropertyChange(values: Atk.PropertyValues): void
-    vfuncRefRelationSet(): Atk.RelationSet
-    vfuncRefStateSet(): Atk.StateSet
-    vfuncRemovePropertyChangeHandler(handlerId: number): void
-    vfunc_set_description(description: string): boolean | null
-    vfuncSetName(name: string): void
-    vfuncSetParent(parent: Atk.Object): void
-    vfuncSetRole(role: Atk.Role): void
-    vfuncStateChange(name: string, stateSet: boolean): void
-    vfuncVisibleDataChanged(): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Atk.Object */
+    /* Signals of Atk-1.0.Atk.Object */
     connect(sigName: "active-descendant-changed", callback: (($obj: Actor, arg1: Atk.Object) => void)): number
-    connect_after(sigName: "active-descendant-changed", callback: (($obj: Actor, arg1: Atk.Object) => void)): number
+    on(sigName: "active-descendant-changed", callback: (arg1: Atk.Object) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "active-descendant-changed", callback: (arg1: Atk.Object) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "active-descendant-changed", callback: (arg1: Atk.Object) => void): NodeJS.EventEmitter
     emit(sigName: "active-descendant-changed", arg1: Atk.Object): void
-    on(sigName: "active-descendant-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "active-descendant-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "active-descendant-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "children-changed", callback: (($obj: Actor, arg1: number, arg2: Atk.Object) => void)): number
-    connect_after(sigName: "children-changed", callback: (($obj: Actor, arg1: number, arg2: Atk.Object) => void)): number
+    on(sigName: "children-changed", callback: (arg1: number, arg2: Atk.Object) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "children-changed", callback: (arg1: number, arg2: Atk.Object) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "children-changed", callback: (arg1: number, arg2: Atk.Object) => void): NodeJS.EventEmitter
     emit(sigName: "children-changed", arg1: number, arg2: Atk.Object): void
-    on(sigName: "children-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "children-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "children-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "focus-event", callback: (($obj: Actor, arg1: boolean) => void)): number
-    connect_after(sigName: "focus-event", callback: (($obj: Actor, arg1: boolean) => void)): number
+    on(sigName: "focus-event", callback: (arg1: boolean) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "focus-event", callback: (arg1: boolean) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "focus-event", callback: (arg1: boolean) => void): NodeJS.EventEmitter
     emit(sigName: "focus-event", arg1: boolean): void
-    on(sigName: "focus-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "focus-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "focus-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "property-change", callback: (($obj: Actor, arg1: Atk.PropertyValues) => void)): number
-    connect_after(sigName: "property-change", callback: (($obj: Actor, arg1: Atk.PropertyValues) => void)): number
+    on(sigName: "property-change", callback: (arg1: Atk.PropertyValues) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "property-change", callback: (arg1: Atk.PropertyValues) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "property-change", callback: (arg1: Atk.PropertyValues) => void): NodeJS.EventEmitter
     emit(sigName: "property-change", arg1: Atk.PropertyValues): void
-    on(sigName: "property-change", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "property-change", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "property-change", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "state-change", callback: (($obj: Actor, arg1: string, arg2: boolean) => void)): number
-    connect_after(sigName: "state-change", callback: (($obj: Actor, arg1: string, arg2: boolean) => void)): number
+    on(sigName: "state-change", callback: (arg1: string, arg2: boolean) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "state-change", callback: (arg1: string, arg2: boolean) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "state-change", callback: (arg1: string, arg2: boolean) => void): NodeJS.EventEmitter
     emit(sigName: "state-change", arg1: string, arg2: boolean): void
-    on(sigName: "state-change", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "state-change", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "state-change", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "visible-data-changed", callback: (($obj: Actor) => void)): number
-    connect_after(sigName: "visible-data-changed", callback: (($obj: Actor) => void)): number
+    on(sigName: "visible-data-changed", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "visible-data-changed", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "visible-data-changed", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "visible-data-changed"): void
-    on(sigName: "visible-data-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "visible-data-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "visible-data-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Actor, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Actor, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of Atk.Component */
+    /* Signals of Atk-1.0.Atk.Component */
     connect(sigName: "bounds-changed", callback: (($obj: Actor, arg1: Atk.Rectangle) => void)): number
-    connect_after(sigName: "bounds-changed", callback: (($obj: Actor, arg1: Atk.Rectangle) => void)): number
+    on(sigName: "bounds-changed", callback: (arg1: Atk.Rectangle) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "bounds-changed", callback: (arg1: Atk.Rectangle) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "bounds-changed", callback: (arg1: Atk.Rectangle) => void): NodeJS.EventEmitter
     emit(sigName: "bounds-changed", arg1: Atk.Rectangle): void
-    on(sigName: "bounds-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "bounds-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "bounds-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::accessible-component-layer", callback: (($obj: Actor, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::accessible-component-layer", callback: (($obj: Actor, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::accessible-component-layer", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -335,7 +267,7 @@ export class Actor {
 export interface Clone_ConstructProps extends Actor_ConstructProps {
 }
 export class Clone {
-    /* Properties of Atk.Object */
+    /* Properties of Atk-1.0.Atk.Object */
     readonly accessibleComponentLayer: number
     readonly accessibleComponentMdiZorder: number
     accessibleDescription: string
@@ -351,23 +283,23 @@ export class Clone {
     accessibleTableRowHeader: Atk.Object
     accessibleTableSummary: Atk.Object
     accessibleValue: number
-    /* Fields of Atk.GObjectAccessible */
+    /* Fields of Atk-1.0.Atk.GObjectAccessible */
     parent: Atk.Object
-    /* Fields of Atk.Object */
+    /* Fields of Atk-1.0.Atk.Object */
     description: string
     name: string
     role: Atk.Role
     relationSet: Atk.RelationSet
     layer: Atk.Layer
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Cally.Actor */
+    /* Methods of Cally-1.0.Cally.Actor */
     addAction(actionName: string, actionDescription: string, actionKeybinding: string, callback: ActionCallback): number
     removeAction(actionId: number): boolean
     removeActionByName(actionName: string): boolean
-    /* Methods of Atk.GObjectAccessible */
+    /* Methods of Atk-1.0.Atk.GObjectAccessible */
     getObject(): GObject.Object
-    /* Methods of Atk.Object */
+    /* Methods of Atk-1.0.Atk.Object */
     addRelationship(relationship: Atk.RelationType, target: Atk.Object): boolean
     getAccessibleId(): string
     getAttributes(): Atk.AttributeSet
@@ -393,7 +325,7 @@ export class Clone {
     setName(name: string): void
     setParent(parent: Atk.Object): void
     setRole(role: Atk.Role): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -415,7 +347,7 @@ export class Clone {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of Atk.Action */
+    /* Methods of Atk-1.0.Atk.Action */
     doAction(i: number): boolean
     getDescription(i: number): string | null
     getKeybinding(i: number): string | null
@@ -423,12 +355,12 @@ export class Clone {
     getNActions(): number
     getName(i: number): string | null
     setDescription(i: number, desc: string): boolean
-    /* Methods of Atk.Component */
+    /* Methods of Atk-1.0.Atk.Component */
     contains(x: number, y: number, coordType: Atk.CoordType): boolean
     getAlpha(): number
-    getExtents(coordType: Atk.CoordType): [ /* x */ number | null, /* y */ number | null, /* width */ number | null, /* height */ number | null ]
-    getPosition(coordType: Atk.CoordType): [ /* x */ number | null, /* y */ number | null ]
-    getSize(): [ /* width */ number | null, /* height */ number | null ]
+    getExtents(coordType: Atk.CoordType): { x: number | null, y: number | null, width: number | null, height: number | null }
+    getPosition(coordType: Atk.CoordType): { x: number | null, y: number | null }
+    getSize(): { width: number | null, height: number | null }
     grabFocus(): boolean
     refAccessibleAtPoint(x: number, y: number, coordType: Atk.CoordType): Atk.Object | null
     removeFocusHandler(handlerId: number): void
@@ -437,124 +369,49 @@ export class Clone {
     setExtents(x: number, y: number, width: number, height: number, coordType: Atk.CoordType): boolean
     setPosition(x: number, y: number, coordType: Atk.CoordType): boolean
     setSize(width: number, height: number): boolean
-    /* Virtual methods of Cally.Clone */
-    vfuncGetDescription(i: number): string | null
-    vfunc_get_description(): string | null
-    vfuncGetName(i: number): string | null
-    vfunc_get_name(): string | null
-    vfuncSetDescription(i: number, desc: string): boolean
-    vfunc_set_description(description: string): boolean | null
-    /* Virtual methods of Cally.Actor */
-    vfuncDoAction(i: number): boolean
-    vfuncGetDescription(i: number): string | null
-    vfunc_get_description(): string | null
-    vfuncGetKeybinding(i: number): string | null
-    vfuncGetLocalizedName(i: number): string | null
-    vfuncGetNActions(): number
-    vfuncGetName(i: number): string | null
-    vfunc_get_name(): string | null
-    vfuncSetDescription(i: number, desc: string): boolean
-    vfunc_set_description(description: string): boolean | null
-    vfuncBoundsChanged(bounds: Atk.Rectangle): void
-    vfuncContains(x: number, y: number, coordType: Atk.CoordType): boolean
-    vfuncGetAlpha(): number
-    vfuncGetExtents(coordType: Atk.CoordType): [ /* x */ number | null, /* y */ number | null, /* width */ number | null, /* height */ number | null ]
-    vfuncGetLayer(): Atk.Layer
-    vfuncGetMdiZorder(): number
-    vfuncGetPosition(coordType: Atk.CoordType): [ /* x */ number | null, /* y */ number | null ]
-    vfuncGetSize(): [ /* width */ number | null, /* height */ number | null ]
-    vfuncGrabFocus(): boolean
-    vfuncRefAccessibleAtPoint(x: number, y: number, coordType: Atk.CoordType): Atk.Object | null
-    vfuncRemoveFocusHandler(handlerId: number): void
-    vfuncScrollTo(type: Atk.ScrollType): boolean
-    vfuncScrollToPoint(coords: Atk.CoordType, x: number, y: number): boolean
-    vfuncSetExtents(x: number, y: number, width: number, height: number, coordType: Atk.CoordType): boolean
-    vfuncSetPosition(x: number, y: number, coordType: Atk.CoordType): boolean
-    vfuncSetSize(width: number, height: number): boolean
-    /* Virtual methods of Atk.Object */
-    vfuncActiveDescendantChanged(child?: object | null): void
-    vfuncChildrenChanged(changeIndex: number, changedChild?: object | null): void
-    vfuncFocusEvent(focusIn: boolean): void
-    vfuncGetAttributes(): Atk.AttributeSet
-    vfunc_get_description(): string | null
-    vfuncGetIndexInParent(): number
-    vfuncGetLayer(): Atk.Layer
-    vfuncGetMdiZorder(): number
-    vfuncGetNChildren(): number
-    vfunc_get_name(): string | null
-    vfuncGetObjectLocale(): string
-    vfuncGetParent(): Atk.Object
-    vfuncGetRole(): Atk.Role
-    vfuncInitialize(data?: object | null): void
-    vfuncPropertyChange(values: Atk.PropertyValues): void
-    vfuncRefRelationSet(): Atk.RelationSet
-    vfuncRefStateSet(): Atk.StateSet
-    vfuncRemovePropertyChangeHandler(handlerId: number): void
-    vfunc_set_description(description: string): boolean | null
-    vfuncSetName(name: string): void
-    vfuncSetParent(parent: Atk.Object): void
-    vfuncSetRole(role: Atk.Role): void
-    vfuncStateChange(name: string, stateSet: boolean): void
-    vfuncVisibleDataChanged(): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Atk.Object */
+    /* Signals of Atk-1.0.Atk.Object */
     connect(sigName: "active-descendant-changed", callback: (($obj: Clone, arg1: Atk.Object) => void)): number
-    connect_after(sigName: "active-descendant-changed", callback: (($obj: Clone, arg1: Atk.Object) => void)): number
+    on(sigName: "active-descendant-changed", callback: (arg1: Atk.Object) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "active-descendant-changed", callback: (arg1: Atk.Object) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "active-descendant-changed", callback: (arg1: Atk.Object) => void): NodeJS.EventEmitter
     emit(sigName: "active-descendant-changed", arg1: Atk.Object): void
-    on(sigName: "active-descendant-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "active-descendant-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "active-descendant-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "children-changed", callback: (($obj: Clone, arg1: number, arg2: Atk.Object) => void)): number
-    connect_after(sigName: "children-changed", callback: (($obj: Clone, arg1: number, arg2: Atk.Object) => void)): number
+    on(sigName: "children-changed", callback: (arg1: number, arg2: Atk.Object) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "children-changed", callback: (arg1: number, arg2: Atk.Object) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "children-changed", callback: (arg1: number, arg2: Atk.Object) => void): NodeJS.EventEmitter
     emit(sigName: "children-changed", arg1: number, arg2: Atk.Object): void
-    on(sigName: "children-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "children-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "children-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "focus-event", callback: (($obj: Clone, arg1: boolean) => void)): number
-    connect_after(sigName: "focus-event", callback: (($obj: Clone, arg1: boolean) => void)): number
+    on(sigName: "focus-event", callback: (arg1: boolean) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "focus-event", callback: (arg1: boolean) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "focus-event", callback: (arg1: boolean) => void): NodeJS.EventEmitter
     emit(sigName: "focus-event", arg1: boolean): void
-    on(sigName: "focus-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "focus-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "focus-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "property-change", callback: (($obj: Clone, arg1: Atk.PropertyValues) => void)): number
-    connect_after(sigName: "property-change", callback: (($obj: Clone, arg1: Atk.PropertyValues) => void)): number
+    on(sigName: "property-change", callback: (arg1: Atk.PropertyValues) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "property-change", callback: (arg1: Atk.PropertyValues) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "property-change", callback: (arg1: Atk.PropertyValues) => void): NodeJS.EventEmitter
     emit(sigName: "property-change", arg1: Atk.PropertyValues): void
-    on(sigName: "property-change", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "property-change", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "property-change", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "state-change", callback: (($obj: Clone, arg1: string, arg2: boolean) => void)): number
-    connect_after(sigName: "state-change", callback: (($obj: Clone, arg1: string, arg2: boolean) => void)): number
+    on(sigName: "state-change", callback: (arg1: string, arg2: boolean) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "state-change", callback: (arg1: string, arg2: boolean) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "state-change", callback: (arg1: string, arg2: boolean) => void): NodeJS.EventEmitter
     emit(sigName: "state-change", arg1: string, arg2: boolean): void
-    on(sigName: "state-change", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "state-change", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "state-change", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "visible-data-changed", callback: (($obj: Clone) => void)): number
-    connect_after(sigName: "visible-data-changed", callback: (($obj: Clone) => void)): number
+    on(sigName: "visible-data-changed", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "visible-data-changed", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "visible-data-changed", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "visible-data-changed"): void
-    on(sigName: "visible-data-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "visible-data-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "visible-data-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Clone, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Clone, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of Atk.Component */
+    /* Signals of Atk-1.0.Atk.Component */
     connect(sigName: "bounds-changed", callback: (($obj: Clone, arg1: Atk.Rectangle) => void)): number
-    connect_after(sigName: "bounds-changed", callback: (($obj: Clone, arg1: Atk.Rectangle) => void)): number
+    on(sigName: "bounds-changed", callback: (arg1: Atk.Rectangle) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "bounds-changed", callback: (arg1: Atk.Rectangle) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "bounds-changed", callback: (arg1: Atk.Rectangle) => void): NodeJS.EventEmitter
     emit(sigName: "bounds-changed", arg1: Atk.Rectangle): void
-    on(sigName: "bounds-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "bounds-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "bounds-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::accessible-component-layer", callback: (($obj: Clone, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::accessible-component-layer", callback: (($obj: Clone, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::accessible-component-layer", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -647,7 +504,7 @@ export class Clone {
 export interface Group_ConstructProps extends Actor_ConstructProps {
 }
 export class Group {
-    /* Properties of Atk.Object */
+    /* Properties of Atk-1.0.Atk.Object */
     readonly accessibleComponentLayer: number
     readonly accessibleComponentMdiZorder: number
     accessibleDescription: string
@@ -663,23 +520,23 @@ export class Group {
     accessibleTableRowHeader: Atk.Object
     accessibleTableSummary: Atk.Object
     accessibleValue: number
-    /* Fields of Atk.GObjectAccessible */
+    /* Fields of Atk-1.0.Atk.GObjectAccessible */
     parent: Atk.Object
-    /* Fields of Atk.Object */
+    /* Fields of Atk-1.0.Atk.Object */
     description: string
     name: string
     role: Atk.Role
     relationSet: Atk.RelationSet
     layer: Atk.Layer
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Cally.Actor */
+    /* Methods of Cally-1.0.Cally.Actor */
     addAction(actionName: string, actionDescription: string, actionKeybinding: string, callback: ActionCallback): number
     removeAction(actionId: number): boolean
     removeActionByName(actionName: string): boolean
-    /* Methods of Atk.GObjectAccessible */
+    /* Methods of Atk-1.0.Atk.GObjectAccessible */
     getObject(): GObject.Object
-    /* Methods of Atk.Object */
+    /* Methods of Atk-1.0.Atk.Object */
     addRelationship(relationship: Atk.RelationType, target: Atk.Object): boolean
     getAccessibleId(): string
     getAttributes(): Atk.AttributeSet
@@ -705,7 +562,7 @@ export class Group {
     setName(name: string): void
     setParent(parent: Atk.Object): void
     setRole(role: Atk.Role): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -727,7 +584,7 @@ export class Group {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of Atk.Action */
+    /* Methods of Atk-1.0.Atk.Action */
     doAction(i: number): boolean
     getDescription(i: number): string | null
     getKeybinding(i: number): string | null
@@ -735,12 +592,12 @@ export class Group {
     getNActions(): number
     getName(i: number): string | null
     setDescription(i: number, desc: string): boolean
-    /* Methods of Atk.Component */
+    /* Methods of Atk-1.0.Atk.Component */
     contains(x: number, y: number, coordType: Atk.CoordType): boolean
     getAlpha(): number
-    getExtents(coordType: Atk.CoordType): [ /* x */ number | null, /* y */ number | null, /* width */ number | null, /* height */ number | null ]
-    getPosition(coordType: Atk.CoordType): [ /* x */ number | null, /* y */ number | null ]
-    getSize(): [ /* width */ number | null, /* height */ number | null ]
+    getExtents(coordType: Atk.CoordType): { x: number | null, y: number | null, width: number | null, height: number | null }
+    getPosition(coordType: Atk.CoordType): { x: number | null, y: number | null }
+    getSize(): { width: number | null, height: number | null }
     grabFocus(): boolean
     refAccessibleAtPoint(x: number, y: number, coordType: Atk.CoordType): Atk.Object | null
     removeFocusHandler(handlerId: number): void
@@ -749,124 +606,49 @@ export class Group {
     setExtents(x: number, y: number, width: number, height: number, coordType: Atk.CoordType): boolean
     setPosition(x: number, y: number, coordType: Atk.CoordType): boolean
     setSize(width: number, height: number): boolean
-    /* Virtual methods of Cally.Group */
-    vfuncGetDescription(i: number): string | null
-    vfunc_get_description(): string | null
-    vfuncGetName(i: number): string | null
-    vfunc_get_name(): string | null
-    vfuncSetDescription(i: number, desc: string): boolean
-    vfunc_set_description(description: string): boolean | null
-    /* Virtual methods of Cally.Actor */
-    vfuncDoAction(i: number): boolean
-    vfuncGetDescription(i: number): string | null
-    vfunc_get_description(): string | null
-    vfuncGetKeybinding(i: number): string | null
-    vfuncGetLocalizedName(i: number): string | null
-    vfuncGetNActions(): number
-    vfuncGetName(i: number): string | null
-    vfunc_get_name(): string | null
-    vfuncSetDescription(i: number, desc: string): boolean
-    vfunc_set_description(description: string): boolean | null
-    vfuncBoundsChanged(bounds: Atk.Rectangle): void
-    vfuncContains(x: number, y: number, coordType: Atk.CoordType): boolean
-    vfuncGetAlpha(): number
-    vfuncGetExtents(coordType: Atk.CoordType): [ /* x */ number | null, /* y */ number | null, /* width */ number | null, /* height */ number | null ]
-    vfuncGetLayer(): Atk.Layer
-    vfuncGetMdiZorder(): number
-    vfuncGetPosition(coordType: Atk.CoordType): [ /* x */ number | null, /* y */ number | null ]
-    vfuncGetSize(): [ /* width */ number | null, /* height */ number | null ]
-    vfuncGrabFocus(): boolean
-    vfuncRefAccessibleAtPoint(x: number, y: number, coordType: Atk.CoordType): Atk.Object | null
-    vfuncRemoveFocusHandler(handlerId: number): void
-    vfuncScrollTo(type: Atk.ScrollType): boolean
-    vfuncScrollToPoint(coords: Atk.CoordType, x: number, y: number): boolean
-    vfuncSetExtents(x: number, y: number, width: number, height: number, coordType: Atk.CoordType): boolean
-    vfuncSetPosition(x: number, y: number, coordType: Atk.CoordType): boolean
-    vfuncSetSize(width: number, height: number): boolean
-    /* Virtual methods of Atk.Object */
-    vfuncActiveDescendantChanged(child?: object | null): void
-    vfuncChildrenChanged(changeIndex: number, changedChild?: object | null): void
-    vfuncFocusEvent(focusIn: boolean): void
-    vfuncGetAttributes(): Atk.AttributeSet
-    vfunc_get_description(): string | null
-    vfuncGetIndexInParent(): number
-    vfuncGetLayer(): Atk.Layer
-    vfuncGetMdiZorder(): number
-    vfuncGetNChildren(): number
-    vfunc_get_name(): string | null
-    vfuncGetObjectLocale(): string
-    vfuncGetParent(): Atk.Object
-    vfuncGetRole(): Atk.Role
-    vfuncInitialize(data?: object | null): void
-    vfuncPropertyChange(values: Atk.PropertyValues): void
-    vfuncRefRelationSet(): Atk.RelationSet
-    vfuncRefStateSet(): Atk.StateSet
-    vfuncRemovePropertyChangeHandler(handlerId: number): void
-    vfunc_set_description(description: string): boolean | null
-    vfuncSetName(name: string): void
-    vfuncSetParent(parent: Atk.Object): void
-    vfuncSetRole(role: Atk.Role): void
-    vfuncStateChange(name: string, stateSet: boolean): void
-    vfuncVisibleDataChanged(): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Atk.Object */
+    /* Signals of Atk-1.0.Atk.Object */
     connect(sigName: "active-descendant-changed", callback: (($obj: Group, arg1: Atk.Object) => void)): number
-    connect_after(sigName: "active-descendant-changed", callback: (($obj: Group, arg1: Atk.Object) => void)): number
+    on(sigName: "active-descendant-changed", callback: (arg1: Atk.Object) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "active-descendant-changed", callback: (arg1: Atk.Object) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "active-descendant-changed", callback: (arg1: Atk.Object) => void): NodeJS.EventEmitter
     emit(sigName: "active-descendant-changed", arg1: Atk.Object): void
-    on(sigName: "active-descendant-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "active-descendant-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "active-descendant-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "children-changed", callback: (($obj: Group, arg1: number, arg2: Atk.Object) => void)): number
-    connect_after(sigName: "children-changed", callback: (($obj: Group, arg1: number, arg2: Atk.Object) => void)): number
+    on(sigName: "children-changed", callback: (arg1: number, arg2: Atk.Object) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "children-changed", callback: (arg1: number, arg2: Atk.Object) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "children-changed", callback: (arg1: number, arg2: Atk.Object) => void): NodeJS.EventEmitter
     emit(sigName: "children-changed", arg1: number, arg2: Atk.Object): void
-    on(sigName: "children-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "children-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "children-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "focus-event", callback: (($obj: Group, arg1: boolean) => void)): number
-    connect_after(sigName: "focus-event", callback: (($obj: Group, arg1: boolean) => void)): number
+    on(sigName: "focus-event", callback: (arg1: boolean) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "focus-event", callback: (arg1: boolean) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "focus-event", callback: (arg1: boolean) => void): NodeJS.EventEmitter
     emit(sigName: "focus-event", arg1: boolean): void
-    on(sigName: "focus-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "focus-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "focus-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "property-change", callback: (($obj: Group, arg1: Atk.PropertyValues) => void)): number
-    connect_after(sigName: "property-change", callback: (($obj: Group, arg1: Atk.PropertyValues) => void)): number
+    on(sigName: "property-change", callback: (arg1: Atk.PropertyValues) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "property-change", callback: (arg1: Atk.PropertyValues) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "property-change", callback: (arg1: Atk.PropertyValues) => void): NodeJS.EventEmitter
     emit(sigName: "property-change", arg1: Atk.PropertyValues): void
-    on(sigName: "property-change", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "property-change", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "property-change", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "state-change", callback: (($obj: Group, arg1: string, arg2: boolean) => void)): number
-    connect_after(sigName: "state-change", callback: (($obj: Group, arg1: string, arg2: boolean) => void)): number
+    on(sigName: "state-change", callback: (arg1: string, arg2: boolean) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "state-change", callback: (arg1: string, arg2: boolean) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "state-change", callback: (arg1: string, arg2: boolean) => void): NodeJS.EventEmitter
     emit(sigName: "state-change", arg1: string, arg2: boolean): void
-    on(sigName: "state-change", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "state-change", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "state-change", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "visible-data-changed", callback: (($obj: Group) => void)): number
-    connect_after(sigName: "visible-data-changed", callback: (($obj: Group) => void)): number
+    on(sigName: "visible-data-changed", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "visible-data-changed", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "visible-data-changed", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "visible-data-changed"): void
-    on(sigName: "visible-data-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "visible-data-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "visible-data-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Group, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Group, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of Atk.Component */
+    /* Signals of Atk-1.0.Atk.Component */
     connect(sigName: "bounds-changed", callback: (($obj: Group, arg1: Atk.Rectangle) => void)): number
-    connect_after(sigName: "bounds-changed", callback: (($obj: Group, arg1: Atk.Rectangle) => void)): number
+    on(sigName: "bounds-changed", callback: (arg1: Atk.Rectangle) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "bounds-changed", callback: (arg1: Atk.Rectangle) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "bounds-changed", callback: (arg1: Atk.Rectangle) => void): NodeJS.EventEmitter
     emit(sigName: "bounds-changed", arg1: Atk.Rectangle): void
-    on(sigName: "bounds-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "bounds-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "bounds-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::accessible-component-layer", callback: (($obj: Group, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::accessible-component-layer", callback: (($obj: Group, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::accessible-component-layer", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -959,7 +741,7 @@ export class Group {
 export interface Rectangle_ConstructProps extends Actor_ConstructProps {
 }
 export class Rectangle {
-    /* Properties of Atk.Object */
+    /* Properties of Atk-1.0.Atk.Object */
     readonly accessibleComponentLayer: number
     readonly accessibleComponentMdiZorder: number
     accessibleDescription: string
@@ -975,23 +757,23 @@ export class Rectangle {
     accessibleTableRowHeader: Atk.Object
     accessibleTableSummary: Atk.Object
     accessibleValue: number
-    /* Fields of Atk.GObjectAccessible */
+    /* Fields of Atk-1.0.Atk.GObjectAccessible */
     parent: Atk.Object
-    /* Fields of Atk.Object */
+    /* Fields of Atk-1.0.Atk.Object */
     description: string
     name: string
     role: Atk.Role
     relationSet: Atk.RelationSet
     layer: Atk.Layer
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Cally.Actor */
+    /* Methods of Cally-1.0.Cally.Actor */
     addAction(actionName: string, actionDescription: string, actionKeybinding: string, callback: ActionCallback): number
     removeAction(actionId: number): boolean
     removeActionByName(actionName: string): boolean
-    /* Methods of Atk.GObjectAccessible */
+    /* Methods of Atk-1.0.Atk.GObjectAccessible */
     getObject(): GObject.Object
-    /* Methods of Atk.Object */
+    /* Methods of Atk-1.0.Atk.Object */
     addRelationship(relationship: Atk.RelationType, target: Atk.Object): boolean
     getAccessibleId(): string
     getAttributes(): Atk.AttributeSet
@@ -1017,7 +799,7 @@ export class Rectangle {
     setName(name: string): void
     setParent(parent: Atk.Object): void
     setRole(role: Atk.Role): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -1039,7 +821,7 @@ export class Rectangle {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of Atk.Action */
+    /* Methods of Atk-1.0.Atk.Action */
     doAction(i: number): boolean
     getDescription(i: number): string | null
     getKeybinding(i: number): string | null
@@ -1047,12 +829,12 @@ export class Rectangle {
     getNActions(): number
     getName(i: number): string | null
     setDescription(i: number, desc: string): boolean
-    /* Methods of Atk.Component */
+    /* Methods of Atk-1.0.Atk.Component */
     contains(x: number, y: number, coordType: Atk.CoordType): boolean
     getAlpha(): number
-    getExtents(coordType: Atk.CoordType): [ /* x */ number | null, /* y */ number | null, /* width */ number | null, /* height */ number | null ]
-    getPosition(coordType: Atk.CoordType): [ /* x */ number | null, /* y */ number | null ]
-    getSize(): [ /* width */ number | null, /* height */ number | null ]
+    getExtents(coordType: Atk.CoordType): { x: number | null, y: number | null, width: number | null, height: number | null }
+    getPosition(coordType: Atk.CoordType): { x: number | null, y: number | null }
+    getSize(): { width: number | null, height: number | null }
     grabFocus(): boolean
     refAccessibleAtPoint(x: number, y: number, coordType: Atk.CoordType): Atk.Object | null
     removeFocusHandler(handlerId: number): void
@@ -1061,124 +843,49 @@ export class Rectangle {
     setExtents(x: number, y: number, width: number, height: number, coordType: Atk.CoordType): boolean
     setPosition(x: number, y: number, coordType: Atk.CoordType): boolean
     setSize(width: number, height: number): boolean
-    /* Virtual methods of Cally.Rectangle */
-    vfuncGetDescription(i: number): string | null
-    vfunc_get_description(): string | null
-    vfuncGetName(i: number): string | null
-    vfunc_get_name(): string | null
-    vfuncSetDescription(i: number, desc: string): boolean
-    vfunc_set_description(description: string): boolean | null
-    /* Virtual methods of Cally.Actor */
-    vfuncDoAction(i: number): boolean
-    vfuncGetDescription(i: number): string | null
-    vfunc_get_description(): string | null
-    vfuncGetKeybinding(i: number): string | null
-    vfuncGetLocalizedName(i: number): string | null
-    vfuncGetNActions(): number
-    vfuncGetName(i: number): string | null
-    vfunc_get_name(): string | null
-    vfuncSetDescription(i: number, desc: string): boolean
-    vfunc_set_description(description: string): boolean | null
-    vfuncBoundsChanged(bounds: Atk.Rectangle): void
-    vfuncContains(x: number, y: number, coordType: Atk.CoordType): boolean
-    vfuncGetAlpha(): number
-    vfuncGetExtents(coordType: Atk.CoordType): [ /* x */ number | null, /* y */ number | null, /* width */ number | null, /* height */ number | null ]
-    vfuncGetLayer(): Atk.Layer
-    vfuncGetMdiZorder(): number
-    vfuncGetPosition(coordType: Atk.CoordType): [ /* x */ number | null, /* y */ number | null ]
-    vfuncGetSize(): [ /* width */ number | null, /* height */ number | null ]
-    vfuncGrabFocus(): boolean
-    vfuncRefAccessibleAtPoint(x: number, y: number, coordType: Atk.CoordType): Atk.Object | null
-    vfuncRemoveFocusHandler(handlerId: number): void
-    vfuncScrollTo(type: Atk.ScrollType): boolean
-    vfuncScrollToPoint(coords: Atk.CoordType, x: number, y: number): boolean
-    vfuncSetExtents(x: number, y: number, width: number, height: number, coordType: Atk.CoordType): boolean
-    vfuncSetPosition(x: number, y: number, coordType: Atk.CoordType): boolean
-    vfuncSetSize(width: number, height: number): boolean
-    /* Virtual methods of Atk.Object */
-    vfuncActiveDescendantChanged(child?: object | null): void
-    vfuncChildrenChanged(changeIndex: number, changedChild?: object | null): void
-    vfuncFocusEvent(focusIn: boolean): void
-    vfuncGetAttributes(): Atk.AttributeSet
-    vfunc_get_description(): string | null
-    vfuncGetIndexInParent(): number
-    vfuncGetLayer(): Atk.Layer
-    vfuncGetMdiZorder(): number
-    vfuncGetNChildren(): number
-    vfunc_get_name(): string | null
-    vfuncGetObjectLocale(): string
-    vfuncGetParent(): Atk.Object
-    vfuncGetRole(): Atk.Role
-    vfuncInitialize(data?: object | null): void
-    vfuncPropertyChange(values: Atk.PropertyValues): void
-    vfuncRefRelationSet(): Atk.RelationSet
-    vfuncRefStateSet(): Atk.StateSet
-    vfuncRemovePropertyChangeHandler(handlerId: number): void
-    vfunc_set_description(description: string): boolean | null
-    vfuncSetName(name: string): void
-    vfuncSetParent(parent: Atk.Object): void
-    vfuncSetRole(role: Atk.Role): void
-    vfuncStateChange(name: string, stateSet: boolean): void
-    vfuncVisibleDataChanged(): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Atk.Object */
+    /* Signals of Atk-1.0.Atk.Object */
     connect(sigName: "active-descendant-changed", callback: (($obj: Rectangle, arg1: Atk.Object) => void)): number
-    connect_after(sigName: "active-descendant-changed", callback: (($obj: Rectangle, arg1: Atk.Object) => void)): number
+    on(sigName: "active-descendant-changed", callback: (arg1: Atk.Object) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "active-descendant-changed", callback: (arg1: Atk.Object) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "active-descendant-changed", callback: (arg1: Atk.Object) => void): NodeJS.EventEmitter
     emit(sigName: "active-descendant-changed", arg1: Atk.Object): void
-    on(sigName: "active-descendant-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "active-descendant-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "active-descendant-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "children-changed", callback: (($obj: Rectangle, arg1: number, arg2: Atk.Object) => void)): number
-    connect_after(sigName: "children-changed", callback: (($obj: Rectangle, arg1: number, arg2: Atk.Object) => void)): number
+    on(sigName: "children-changed", callback: (arg1: number, arg2: Atk.Object) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "children-changed", callback: (arg1: number, arg2: Atk.Object) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "children-changed", callback: (arg1: number, arg2: Atk.Object) => void): NodeJS.EventEmitter
     emit(sigName: "children-changed", arg1: number, arg2: Atk.Object): void
-    on(sigName: "children-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "children-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "children-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "focus-event", callback: (($obj: Rectangle, arg1: boolean) => void)): number
-    connect_after(sigName: "focus-event", callback: (($obj: Rectangle, arg1: boolean) => void)): number
+    on(sigName: "focus-event", callback: (arg1: boolean) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "focus-event", callback: (arg1: boolean) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "focus-event", callback: (arg1: boolean) => void): NodeJS.EventEmitter
     emit(sigName: "focus-event", arg1: boolean): void
-    on(sigName: "focus-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "focus-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "focus-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "property-change", callback: (($obj: Rectangle, arg1: Atk.PropertyValues) => void)): number
-    connect_after(sigName: "property-change", callback: (($obj: Rectangle, arg1: Atk.PropertyValues) => void)): number
+    on(sigName: "property-change", callback: (arg1: Atk.PropertyValues) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "property-change", callback: (arg1: Atk.PropertyValues) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "property-change", callback: (arg1: Atk.PropertyValues) => void): NodeJS.EventEmitter
     emit(sigName: "property-change", arg1: Atk.PropertyValues): void
-    on(sigName: "property-change", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "property-change", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "property-change", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "state-change", callback: (($obj: Rectangle, arg1: string, arg2: boolean) => void)): number
-    connect_after(sigName: "state-change", callback: (($obj: Rectangle, arg1: string, arg2: boolean) => void)): number
+    on(sigName: "state-change", callback: (arg1: string, arg2: boolean) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "state-change", callback: (arg1: string, arg2: boolean) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "state-change", callback: (arg1: string, arg2: boolean) => void): NodeJS.EventEmitter
     emit(sigName: "state-change", arg1: string, arg2: boolean): void
-    on(sigName: "state-change", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "state-change", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "state-change", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "visible-data-changed", callback: (($obj: Rectangle) => void)): number
-    connect_after(sigName: "visible-data-changed", callback: (($obj: Rectangle) => void)): number
+    on(sigName: "visible-data-changed", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "visible-data-changed", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "visible-data-changed", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "visible-data-changed"): void
-    on(sigName: "visible-data-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "visible-data-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "visible-data-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Rectangle, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Rectangle, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of Atk.Component */
+    /* Signals of Atk-1.0.Atk.Component */
     connect(sigName: "bounds-changed", callback: (($obj: Rectangle, arg1: Atk.Rectangle) => void)): number
-    connect_after(sigName: "bounds-changed", callback: (($obj: Rectangle, arg1: Atk.Rectangle) => void)): number
+    on(sigName: "bounds-changed", callback: (arg1: Atk.Rectangle) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "bounds-changed", callback: (arg1: Atk.Rectangle) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "bounds-changed", callback: (arg1: Atk.Rectangle) => void): NodeJS.EventEmitter
     emit(sigName: "bounds-changed", arg1: Atk.Rectangle): void
-    on(sigName: "bounds-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "bounds-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "bounds-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::accessible-component-layer", callback: (($obj: Rectangle, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::accessible-component-layer", callback: (($obj: Rectangle, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::accessible-component-layer", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -1271,7 +978,7 @@ export class Rectangle {
 export interface Root_ConstructProps extends Atk.GObjectAccessible_ConstructProps {
 }
 export class Root {
-    /* Properties of Atk.Object */
+    /* Properties of Atk-1.0.Atk.Object */
     readonly accessibleComponentLayer: number
     readonly accessibleComponentMdiZorder: number
     accessibleDescription: string
@@ -1287,19 +994,19 @@ export class Root {
     accessibleTableRowHeader: Atk.Object
     accessibleTableSummary: Atk.Object
     accessibleValue: number
-    /* Fields of Atk.GObjectAccessible */
+    /* Fields of Atk-1.0.Atk.GObjectAccessible */
     parent: Atk.Object
-    /* Fields of Atk.Object */
+    /* Fields of Atk-1.0.Atk.Object */
     description: string
     name: string
     role: Atk.Role
     relationSet: Atk.RelationSet
     layer: Atk.Layer
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Atk.GObjectAccessible */
+    /* Methods of Atk-1.0.Atk.GObjectAccessible */
     getObject(): GObject.Object
-    /* Methods of Atk.Object */
+    /* Methods of Atk-1.0.Atk.Object */
     addRelationship(relationship: Atk.RelationType, target: Atk.Object): boolean
     getAccessibleId(): string
     getAttributes(): Atk.AttributeSet
@@ -1325,7 +1032,7 @@ export class Root {
     setName(name: string): void
     setParent(parent: Atk.Object): void
     setRole(role: Atk.Role): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -1347,83 +1054,43 @@ export class Root {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of Atk.Object */
-    vfuncActiveDescendantChanged(child?: object | null): void
-    vfuncChildrenChanged(changeIndex: number, changedChild?: object | null): void
-    vfuncFocusEvent(focusIn: boolean): void
-    vfuncGetAttributes(): Atk.AttributeSet
-    vfunc_get_description(): string | null
-    vfuncGetIndexInParent(): number
-    vfuncGetLayer(): Atk.Layer
-    vfuncGetMdiZorder(): number
-    vfuncGetNChildren(): number
-    vfunc_get_name(): string | null
-    vfuncGetObjectLocale(): string
-    vfuncGetParent(): Atk.Object
-    vfuncGetRole(): Atk.Role
-    vfuncInitialize(data?: object | null): void
-    vfuncPropertyChange(values: Atk.PropertyValues): void
-    vfuncRefRelationSet(): Atk.RelationSet
-    vfuncRefStateSet(): Atk.StateSet
-    vfuncRemovePropertyChangeHandler(handlerId: number): void
-    vfunc_set_description(description: string): boolean | null
-    vfuncSetName(name: string): void
-    vfuncSetParent(parent: Atk.Object): void
-    vfuncSetRole(role: Atk.Role): void
-    vfuncStateChange(name: string, stateSet: boolean): void
-    vfuncVisibleDataChanged(): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Atk.Object */
+    /* Signals of Atk-1.0.Atk.Object */
     connect(sigName: "active-descendant-changed", callback: (($obj: Root, arg1: Atk.Object) => void)): number
-    connect_after(sigName: "active-descendant-changed", callback: (($obj: Root, arg1: Atk.Object) => void)): number
+    on(sigName: "active-descendant-changed", callback: (arg1: Atk.Object) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "active-descendant-changed", callback: (arg1: Atk.Object) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "active-descendant-changed", callback: (arg1: Atk.Object) => void): NodeJS.EventEmitter
     emit(sigName: "active-descendant-changed", arg1: Atk.Object): void
-    on(sigName: "active-descendant-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "active-descendant-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "active-descendant-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "children-changed", callback: (($obj: Root, arg1: number, arg2: Atk.Object) => void)): number
-    connect_after(sigName: "children-changed", callback: (($obj: Root, arg1: number, arg2: Atk.Object) => void)): number
+    on(sigName: "children-changed", callback: (arg1: number, arg2: Atk.Object) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "children-changed", callback: (arg1: number, arg2: Atk.Object) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "children-changed", callback: (arg1: number, arg2: Atk.Object) => void): NodeJS.EventEmitter
     emit(sigName: "children-changed", arg1: number, arg2: Atk.Object): void
-    on(sigName: "children-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "children-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "children-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "focus-event", callback: (($obj: Root, arg1: boolean) => void)): number
-    connect_after(sigName: "focus-event", callback: (($obj: Root, arg1: boolean) => void)): number
+    on(sigName: "focus-event", callback: (arg1: boolean) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "focus-event", callback: (arg1: boolean) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "focus-event", callback: (arg1: boolean) => void): NodeJS.EventEmitter
     emit(sigName: "focus-event", arg1: boolean): void
-    on(sigName: "focus-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "focus-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "focus-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "property-change", callback: (($obj: Root, arg1: Atk.PropertyValues) => void)): number
-    connect_after(sigName: "property-change", callback: (($obj: Root, arg1: Atk.PropertyValues) => void)): number
+    on(sigName: "property-change", callback: (arg1: Atk.PropertyValues) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "property-change", callback: (arg1: Atk.PropertyValues) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "property-change", callback: (arg1: Atk.PropertyValues) => void): NodeJS.EventEmitter
     emit(sigName: "property-change", arg1: Atk.PropertyValues): void
-    on(sigName: "property-change", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "property-change", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "property-change", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "state-change", callback: (($obj: Root, arg1: string, arg2: boolean) => void)): number
-    connect_after(sigName: "state-change", callback: (($obj: Root, arg1: string, arg2: boolean) => void)): number
+    on(sigName: "state-change", callback: (arg1: string, arg2: boolean) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "state-change", callback: (arg1: string, arg2: boolean) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "state-change", callback: (arg1: string, arg2: boolean) => void): NodeJS.EventEmitter
     emit(sigName: "state-change", arg1: string, arg2: boolean): void
-    on(sigName: "state-change", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "state-change", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "state-change", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "visible-data-changed", callback: (($obj: Root) => void)): number
-    connect_after(sigName: "visible-data-changed", callback: (($obj: Root) => void)): number
+    on(sigName: "visible-data-changed", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "visible-data-changed", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "visible-data-changed", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "visible-data-changed"): void
-    on(sigName: "visible-data-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "visible-data-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "visible-data-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Root, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Root, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::accessible-component-layer", callback: (($obj: Root, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::accessible-component-layer", callback: (($obj: Root, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::accessible-component-layer", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -1516,7 +1183,7 @@ export class Root {
 export interface Stage_ConstructProps extends Group_ConstructProps {
 }
 export class Stage {
-    /* Properties of Atk.Object */
+    /* Properties of Atk-1.0.Atk.Object */
     readonly accessibleComponentLayer: number
     readonly accessibleComponentMdiZorder: number
     accessibleDescription: string
@@ -1532,23 +1199,23 @@ export class Stage {
     accessibleTableRowHeader: Atk.Object
     accessibleTableSummary: Atk.Object
     accessibleValue: number
-    /* Fields of Atk.GObjectAccessible */
+    /* Fields of Atk-1.0.Atk.GObjectAccessible */
     parent: Atk.Object
-    /* Fields of Atk.Object */
+    /* Fields of Atk-1.0.Atk.Object */
     description: string
     name: string
     role: Atk.Role
     relationSet: Atk.RelationSet
     layer: Atk.Layer
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Cally.Actor */
+    /* Methods of Cally-1.0.Cally.Actor */
     addAction(actionName: string, actionDescription: string, actionKeybinding: string, callback: ActionCallback): number
     removeAction(actionId: number): boolean
     removeActionByName(actionName: string): boolean
-    /* Methods of Atk.GObjectAccessible */
+    /* Methods of Atk-1.0.Atk.GObjectAccessible */
     getObject(): GObject.Object
-    /* Methods of Atk.Object */
+    /* Methods of Atk-1.0.Atk.Object */
     addRelationship(relationship: Atk.RelationType, target: Atk.Object): boolean
     getAccessibleId(): string
     getAttributes(): Atk.AttributeSet
@@ -1574,7 +1241,7 @@ export class Stage {
     setName(name: string): void
     setParent(parent: Atk.Object): void
     setRole(role: Atk.Role): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -1596,7 +1263,7 @@ export class Stage {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of Atk.Action */
+    /* Methods of Atk-1.0.Atk.Action */
     doAction(i: number): boolean
     getDescription(i: number): string | null
     getKeybinding(i: number): string | null
@@ -1604,12 +1271,12 @@ export class Stage {
     getNActions(): number
     getName(i: number): string | null
     setDescription(i: number, desc: string): boolean
-    /* Methods of Atk.Component */
+    /* Methods of Atk-1.0.Atk.Component */
     contains(x: number, y: number, coordType: Atk.CoordType): boolean
     getAlpha(): number
-    getExtents(coordType: Atk.CoordType): [ /* x */ number | null, /* y */ number | null, /* width */ number | null, /* height */ number | null ]
-    getPosition(coordType: Atk.CoordType): [ /* x */ number | null, /* y */ number | null ]
-    getSize(): [ /* width */ number | null, /* height */ number | null ]
+    getExtents(coordType: Atk.CoordType): { x: number | null, y: number | null, width: number | null, height: number | null }
+    getPosition(coordType: Atk.CoordType): { x: number | null, y: number | null }
+    getSize(): { width: number | null, height: number | null }
     grabFocus(): boolean
     refAccessibleAtPoint(x: number, y: number, coordType: Atk.CoordType): Atk.Object | null
     removeFocusHandler(handlerId: number): void
@@ -1618,186 +1285,95 @@ export class Stage {
     setExtents(x: number, y: number, width: number, height: number, coordType: Atk.CoordType): boolean
     setPosition(x: number, y: number, coordType: Atk.CoordType): boolean
     setSize(width: number, height: number): boolean
-    /* Virtual methods of Cally.Stage */
-    vfuncGetDescription(i: number): string | null
-    vfunc_get_description(): string | null
-    vfuncGetName(i: number): string | null
-    vfunc_get_name(): string | null
-    vfuncSetDescription(i: number, desc: string): boolean
-    vfunc_set_description(description: string): boolean | null
-    /* Virtual methods of Cally.Group */
-    vfuncGetDescription(i: number): string | null
-    vfunc_get_description(): string | null
-    vfuncGetName(i: number): string | null
-    vfunc_get_name(): string | null
-    vfuncSetDescription(i: number, desc: string): boolean
-    vfunc_set_description(description: string): boolean | null
-    /* Virtual methods of Cally.Actor */
-    vfuncDoAction(i: number): boolean
-    vfuncGetDescription(i: number): string | null
-    vfunc_get_description(): string | null
-    vfuncGetKeybinding(i: number): string | null
-    vfuncGetLocalizedName(i: number): string | null
-    vfuncGetNActions(): number
-    vfuncGetName(i: number): string | null
-    vfunc_get_name(): string | null
-    vfuncSetDescription(i: number, desc: string): boolean
-    vfunc_set_description(description: string): boolean | null
-    vfuncBoundsChanged(bounds: Atk.Rectangle): void
-    vfuncContains(x: number, y: number, coordType: Atk.CoordType): boolean
-    vfuncGetAlpha(): number
-    vfuncGetExtents(coordType: Atk.CoordType): [ /* x */ number | null, /* y */ number | null, /* width */ number | null, /* height */ number | null ]
-    vfuncGetLayer(): Atk.Layer
-    vfuncGetMdiZorder(): number
-    vfuncGetPosition(coordType: Atk.CoordType): [ /* x */ number | null, /* y */ number | null ]
-    vfuncGetSize(): [ /* width */ number | null, /* height */ number | null ]
-    vfuncGrabFocus(): boolean
-    vfuncRefAccessibleAtPoint(x: number, y: number, coordType: Atk.CoordType): Atk.Object | null
-    vfuncRemoveFocusHandler(handlerId: number): void
-    vfuncScrollTo(type: Atk.ScrollType): boolean
-    vfuncScrollToPoint(coords: Atk.CoordType, x: number, y: number): boolean
-    vfuncSetExtents(x: number, y: number, width: number, height: number, coordType: Atk.CoordType): boolean
-    vfuncSetPosition(x: number, y: number, coordType: Atk.CoordType): boolean
-    vfuncSetSize(width: number, height: number): boolean
-    /* Virtual methods of Atk.Object */
-    vfuncActiveDescendantChanged(child?: object | null): void
-    vfuncChildrenChanged(changeIndex: number, changedChild?: object | null): void
-    vfuncFocusEvent(focusIn: boolean): void
-    vfuncGetAttributes(): Atk.AttributeSet
-    vfunc_get_description(): string | null
-    vfuncGetIndexInParent(): number
-    vfuncGetLayer(): Atk.Layer
-    vfuncGetMdiZorder(): number
-    vfuncGetNChildren(): number
-    vfunc_get_name(): string | null
-    vfuncGetObjectLocale(): string
-    vfuncGetParent(): Atk.Object
-    vfuncGetRole(): Atk.Role
-    vfuncInitialize(data?: object | null): void
-    vfuncPropertyChange(values: Atk.PropertyValues): void
-    vfuncRefRelationSet(): Atk.RelationSet
-    vfuncRefStateSet(): Atk.StateSet
-    vfuncRemovePropertyChangeHandler(handlerId: number): void
-    vfunc_set_description(description: string): boolean | null
-    vfuncSetName(name: string): void
-    vfuncSetParent(parent: Atk.Object): void
-    vfuncSetRole(role: Atk.Role): void
-    vfuncStateChange(name: string, stateSet: boolean): void
-    vfuncVisibleDataChanged(): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Atk.Object */
+    /* Signals of Atk-1.0.Atk.Object */
     connect(sigName: "active-descendant-changed", callback: (($obj: Stage, arg1: Atk.Object) => void)): number
-    connect_after(sigName: "active-descendant-changed", callback: (($obj: Stage, arg1: Atk.Object) => void)): number
+    on(sigName: "active-descendant-changed", callback: (arg1: Atk.Object) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "active-descendant-changed", callback: (arg1: Atk.Object) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "active-descendant-changed", callback: (arg1: Atk.Object) => void): NodeJS.EventEmitter
     emit(sigName: "active-descendant-changed", arg1: Atk.Object): void
-    on(sigName: "active-descendant-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "active-descendant-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "active-descendant-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "children-changed", callback: (($obj: Stage, arg1: number, arg2: Atk.Object) => void)): number
-    connect_after(sigName: "children-changed", callback: (($obj: Stage, arg1: number, arg2: Atk.Object) => void)): number
+    on(sigName: "children-changed", callback: (arg1: number, arg2: Atk.Object) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "children-changed", callback: (arg1: number, arg2: Atk.Object) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "children-changed", callback: (arg1: number, arg2: Atk.Object) => void): NodeJS.EventEmitter
     emit(sigName: "children-changed", arg1: number, arg2: Atk.Object): void
-    on(sigName: "children-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "children-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "children-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "focus-event", callback: (($obj: Stage, arg1: boolean) => void)): number
-    connect_after(sigName: "focus-event", callback: (($obj: Stage, arg1: boolean) => void)): number
+    on(sigName: "focus-event", callback: (arg1: boolean) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "focus-event", callback: (arg1: boolean) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "focus-event", callback: (arg1: boolean) => void): NodeJS.EventEmitter
     emit(sigName: "focus-event", arg1: boolean): void
-    on(sigName: "focus-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "focus-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "focus-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "property-change", callback: (($obj: Stage, arg1: Atk.PropertyValues) => void)): number
-    connect_after(sigName: "property-change", callback: (($obj: Stage, arg1: Atk.PropertyValues) => void)): number
+    on(sigName: "property-change", callback: (arg1: Atk.PropertyValues) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "property-change", callback: (arg1: Atk.PropertyValues) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "property-change", callback: (arg1: Atk.PropertyValues) => void): NodeJS.EventEmitter
     emit(sigName: "property-change", arg1: Atk.PropertyValues): void
-    on(sigName: "property-change", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "property-change", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "property-change", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "state-change", callback: (($obj: Stage, arg1: string, arg2: boolean) => void)): number
-    connect_after(sigName: "state-change", callback: (($obj: Stage, arg1: string, arg2: boolean) => void)): number
+    on(sigName: "state-change", callback: (arg1: string, arg2: boolean) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "state-change", callback: (arg1: string, arg2: boolean) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "state-change", callback: (arg1: string, arg2: boolean) => void): NodeJS.EventEmitter
     emit(sigName: "state-change", arg1: string, arg2: boolean): void
-    on(sigName: "state-change", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "state-change", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "state-change", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "visible-data-changed", callback: (($obj: Stage) => void)): number
-    connect_after(sigName: "visible-data-changed", callback: (($obj: Stage) => void)): number
+    on(sigName: "visible-data-changed", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "visible-data-changed", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "visible-data-changed", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "visible-data-changed"): void
-    on(sigName: "visible-data-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "visible-data-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "visible-data-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Stage, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Stage, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of Atk.Component */
+    /* Signals of Atk-1.0.Atk.Component */
     connect(sigName: "bounds-changed", callback: (($obj: Stage, arg1: Atk.Rectangle) => void)): number
-    connect_after(sigName: "bounds-changed", callback: (($obj: Stage, arg1: Atk.Rectangle) => void)): number
+    on(sigName: "bounds-changed", callback: (arg1: Atk.Rectangle) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "bounds-changed", callback: (arg1: Atk.Rectangle) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "bounds-changed", callback: (arg1: Atk.Rectangle) => void): NodeJS.EventEmitter
     emit(sigName: "bounds-changed", arg1: Atk.Rectangle): void
-    on(sigName: "bounds-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "bounds-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "bounds-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of Atk.Window */
+    /* Signals of Atk-1.0.Atk.Window */
     connect(sigName: "activate", callback: (($obj: Stage) => void)): number
-    connect_after(sigName: "activate", callback: (($obj: Stage) => void)): number
+    on(sigName: "activate", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "activate", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "activate", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "activate"): void
-    on(sigName: "activate", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "activate", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "activate", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "create", callback: (($obj: Stage) => void)): number
-    connect_after(sigName: "create", callback: (($obj: Stage) => void)): number
+    on(sigName: "create", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "create", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "create", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "create"): void
-    on(sigName: "create", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "create", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "create", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "deactivate", callback: (($obj: Stage) => void)): number
-    connect_after(sigName: "deactivate", callback: (($obj: Stage) => void)): number
+    on(sigName: "deactivate", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "deactivate", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "deactivate", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "deactivate"): void
-    on(sigName: "deactivate", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "deactivate", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "deactivate", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "destroy", callback: (($obj: Stage) => void)): number
-    connect_after(sigName: "destroy", callback: (($obj: Stage) => void)): number
+    on(sigName: "destroy", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "destroy", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "destroy", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "destroy"): void
-    on(sigName: "destroy", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "destroy", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "destroy", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "maximize", callback: (($obj: Stage) => void)): number
-    connect_after(sigName: "maximize", callback: (($obj: Stage) => void)): number
+    on(sigName: "maximize", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "maximize", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "maximize", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "maximize"): void
-    on(sigName: "maximize", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "maximize", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "maximize", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "minimize", callback: (($obj: Stage) => void)): number
-    connect_after(sigName: "minimize", callback: (($obj: Stage) => void)): number
+    on(sigName: "minimize", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "minimize", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "minimize", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "minimize"): void
-    on(sigName: "minimize", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "minimize", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "minimize", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "move", callback: (($obj: Stage) => void)): number
-    connect_after(sigName: "move", callback: (($obj: Stage) => void)): number
+    on(sigName: "move", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "move", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "move", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "move"): void
-    on(sigName: "move", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "move", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "move", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "resize", callback: (($obj: Stage) => void)): number
-    connect_after(sigName: "resize", callback: (($obj: Stage) => void)): number
+    on(sigName: "resize", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "resize", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "resize", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "resize"): void
-    on(sigName: "resize", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "resize", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "resize", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "restore", callback: (($obj: Stage) => void)): number
-    connect_after(sigName: "restore", callback: (($obj: Stage) => void)): number
+    on(sigName: "restore", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "restore", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "restore", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "restore"): void
-    on(sigName: "restore", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "restore", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "restore", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::accessible-component-layer", callback: (($obj: Stage, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::accessible-component-layer", callback: (($obj: Stage, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::accessible-component-layer", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -1890,7 +1466,7 @@ export class Stage {
 export interface Text_ConstructProps extends Actor_ConstructProps {
 }
 export class Text {
-    /* Properties of Atk.Object */
+    /* Properties of Atk-1.0.Atk.Object */
     readonly accessibleComponentLayer: number
     readonly accessibleComponentMdiZorder: number
     accessibleDescription: string
@@ -1906,23 +1482,23 @@ export class Text {
     accessibleTableRowHeader: Atk.Object
     accessibleTableSummary: Atk.Object
     accessibleValue: number
-    /* Fields of Atk.GObjectAccessible */
+    /* Fields of Atk-1.0.Atk.GObjectAccessible */
     parent: Atk.Object
-    /* Fields of Atk.Object */
+    /* Fields of Atk-1.0.Atk.Object */
     description: string
     name: string
     role: Atk.Role
     relationSet: Atk.RelationSet
     layer: Atk.Layer
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Cally.Actor */
+    /* Methods of Cally-1.0.Cally.Actor */
     addAction(actionName: string, actionDescription: string, actionKeybinding: string, callback: ActionCallback): number
     removeAction(actionId: number): boolean
     removeActionByName(actionName: string): boolean
-    /* Methods of Atk.GObjectAccessible */
+    /* Methods of Atk-1.0.Atk.GObjectAccessible */
     getObject(): GObject.Object
-    /* Methods of Atk.Object */
+    /* Methods of Atk-1.0.Atk.Object */
     addRelationship(relationship: Atk.RelationType, target: Atk.Object): boolean
     getAccessibleId(): string
     getAttributes(): Atk.AttributeSet
@@ -1948,7 +1524,7 @@ export class Text {
     setName(name: string): void
     setParent(parent: Atk.Object): void
     setRole(role: Atk.Role): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -1970,7 +1546,7 @@ export class Text {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of Atk.Action */
+    /* Methods of Atk-1.0.Atk.Action */
     doAction(i: number): boolean
     getDescription(i: number): string | null
     getKeybinding(i: number): string | null
@@ -1978,12 +1554,12 @@ export class Text {
     getNActions(): number
     getName(i: number): string | null
     setDescription(i: number, desc: string): boolean
-    /* Methods of Atk.Component */
+    /* Methods of Atk-1.0.Atk.Component */
     contains(x: number, y: number, coordType: Atk.CoordType): boolean
     getAlpha(): number
-    getExtents(coordType: Atk.CoordType): [ /* x */ number | null, /* y */ number | null, /* width */ number | null, /* height */ number | null ]
-    getPosition(coordType: Atk.CoordType): [ /* x */ number | null, /* y */ number | null ]
-    getSize(): [ /* width */ number | null, /* height */ number | null ]
+    getExtents(coordType: Atk.CoordType): { x: number | null, y: number | null, width: number | null, height: number | null }
+    getPosition(coordType: Atk.CoordType): { x: number | null, y: number | null }
+    getSize(): { width: number | null, height: number | null }
     grabFocus(): boolean
     refAccessibleAtPoint(x: number, y: number, coordType: Atk.CoordType): Atk.Object | null
     removeFocusHandler(handlerId: number): void
@@ -1992,7 +1568,7 @@ export class Text {
     setExtents(x: number, y: number, width: number, height: number, coordType: Atk.CoordType): boolean
     setPosition(x: number, y: number, coordType: Atk.CoordType): boolean
     setSize(width: number, height: number): boolean
-    /* Methods of Atk.EditableText */
+    /* Methods of Atk-1.0.Atk.EditableText */
     copyText(startPos: number, endPos: number): void
     cutText(startPos: number, endPos: number): void
     deleteText(startPos: number, endPos: number): void
@@ -2000,217 +1576,103 @@ export class Text {
     pasteText(position: number): void
     setRunAttributes(attribSet: Atk.AttributeSet, startOffset: number, endOffset: number): boolean
     setTextContents(string: string): void
-    /* Methods of Atk.Text */
+    /* Methods of Atk-1.0.Atk.Text */
     addSelection(startOffset: number, endOffset: number): boolean
     getBoundedRanges(rect: Atk.TextRectangle, coordType: Atk.CoordType, xClipType: Atk.TextClipType, yClipType: Atk.TextClipType): Atk.TextRange[]
     getCaretOffset(): number
     getCharacterAtOffset(offset: number): number
     getCharacterCount(): number
-    getCharacterExtents(offset: number, coords: Atk.CoordType): [ /* x */ number | null, /* y */ number | null, /* width */ number | null, /* height */ number | null ]
+    getCharacterExtents(offset: number, coords: Atk.CoordType): { x: number | null, y: number | null, width: number | null, height: number | null }
     getDefaultAttributes(): Atk.AttributeSet
     getNSelections(): number
     getOffsetAtPoint(x: number, y: number, coords: Atk.CoordType): number
-    getRangeExtents(startOffset: number, endOffset: number, coordType: Atk.CoordType): /* rect */ Atk.TextRectangle
-    getRunAttributes(offset: number): [ /* returnType */ Atk.AttributeSet, /* startOffset */ number, /* endOffset */ number ]
-    getSelection(selectionNum: number): [ /* returnType */ string, /* startOffset */ number, /* endOffset */ number ]
-    getStringAtOffset(offset: number, granularity: Atk.TextGranularity): [ /* returnType */ string | null, /* startOffset */ number, /* endOffset */ number ]
+    getRangeExtents(startOffset: number, endOffset: number, coordType: Atk.CoordType): { rect: Atk.TextRectangle }
+    getRunAttributes(offset: number): { returnType: Atk.AttributeSet, startOffset: number, endOffset: number }
+    getSelection(selectionNum: number): { returnType: string, startOffset: number, endOffset: number }
+    getStringAtOffset(offset: number, granularity: Atk.TextGranularity): { returnType: string | null, startOffset: number, endOffset: number }
     getText(startOffset: number, endOffset: number): string
-    getTextAfterOffset(offset: number, boundaryType: Atk.TextBoundary): [ /* returnType */ string, /* startOffset */ number, /* endOffset */ number ]
-    getTextAtOffset(offset: number, boundaryType: Atk.TextBoundary): [ /* returnType */ string, /* startOffset */ number, /* endOffset */ number ]
-    getTextBeforeOffset(offset: number, boundaryType: Atk.TextBoundary): [ /* returnType */ string, /* startOffset */ number, /* endOffset */ number ]
+    getTextAfterOffset(offset: number, boundaryType: Atk.TextBoundary): { returnType: string, startOffset: number, endOffset: number }
+    getTextAtOffset(offset: number, boundaryType: Atk.TextBoundary): { returnType: string, startOffset: number, endOffset: number }
+    getTextBeforeOffset(offset: number, boundaryType: Atk.TextBoundary): { returnType: string, startOffset: number, endOffset: number }
     removeSelection(selectionNum: number): boolean
     scrollSubstringTo(startOffset: number, endOffset: number, type: Atk.ScrollType): boolean
     scrollSubstringToPoint(startOffset: number, endOffset: number, coords: Atk.CoordType, x: number, y: number): boolean
     setCaretOffset(offset: number): boolean
     setSelection(selectionNum: number, startOffset: number, endOffset: number): boolean
-    /* Virtual methods of Cally.Text */
-    vfuncCopyText(startPos: number, endPos: number): void
-    vfuncCutText(startPos: number, endPos: number): void
-    vfuncDeleteText(startPos: number, endPos: number): void
-    vfuncInsertText(string: string, length: number, position: number): void
-    vfuncPasteText(position: number): void
-    vfuncSetRunAttributes(attribSet: Atk.AttributeSet, startOffset: number, endOffset: number): boolean
-    vfuncSetTextContents(string: string): void
-    vfuncAddSelection(startOffset: number, endOffset: number): boolean
-    vfuncGetBoundedRanges(rect: Atk.TextRectangle, coordType: Atk.CoordType, xClipType: Atk.TextClipType, yClipType: Atk.TextClipType): Atk.TextRange[]
-    vfuncGetCaretOffset(): number
-    vfuncGetCharacterAtOffset(offset: number): number
-    vfuncGetCharacterCount(): number
-    vfuncGetCharacterExtents(offset: number, coords: Atk.CoordType): [ /* x */ number | null, /* y */ number | null, /* width */ number | null, /* height */ number | null ]
-    vfuncGetDefaultAttributes(): Atk.AttributeSet
-    vfuncGetNSelections(): number
-    vfuncGetOffsetAtPoint(x: number, y: number, coords: Atk.CoordType): number
-    vfuncGetRangeExtents(startOffset: number, endOffset: number, coordType: Atk.CoordType): /* rect */ Atk.TextRectangle
-    vfuncGetRunAttributes(offset: number): [ /* returnType */ Atk.AttributeSet, /* startOffset */ number, /* endOffset */ number ]
-    vfuncGetSelection(selectionNum: number): [ /* returnType */ string, /* startOffset */ number, /* endOffset */ number ]
-    vfuncGetStringAtOffset(offset: number, granularity: Atk.TextGranularity): [ /* returnType */ string | null, /* startOffset */ number, /* endOffset */ number ]
-    vfuncGetText(startOffset: number, endOffset: number): string
-    vfuncGetTextAfterOffset(offset: number, boundaryType: Atk.TextBoundary): [ /* returnType */ string, /* startOffset */ number, /* endOffset */ number ]
-    vfuncGetTextAtOffset(offset: number, boundaryType: Atk.TextBoundary): [ /* returnType */ string, /* startOffset */ number, /* endOffset */ number ]
-    vfuncGetTextBeforeOffset(offset: number, boundaryType: Atk.TextBoundary): [ /* returnType */ string, /* startOffset */ number, /* endOffset */ number ]
-    vfuncRemoveSelection(selectionNum: number): boolean
-    vfuncScrollSubstringTo(startOffset: number, endOffset: number, type: Atk.ScrollType): boolean
-    vfuncScrollSubstringToPoint(startOffset: number, endOffset: number, coords: Atk.CoordType, x: number, y: number): boolean
-    vfuncSetCaretOffset(offset: number): boolean
-    vfuncSetSelection(selectionNum: number, startOffset: number, endOffset: number): boolean
-    vfuncTextAttributesChanged(): void
-    vfuncTextCaretMoved(location: number): void
-    vfuncTextChanged(position: number, length: number): void
-    vfuncTextSelectionChanged(): void
-    vfuncGetDescription(i: number): string | null
-    vfunc_get_description(): string | null
-    vfuncGetName(i: number): string | null
-    vfunc_get_name(): string | null
-    vfuncSetDescription(i: number, desc: string): boolean
-    vfunc_set_description(description: string): boolean | null
-    /* Virtual methods of Cally.Actor */
-    vfuncDoAction(i: number): boolean
-    vfuncGetDescription(i: number): string | null
-    vfunc_get_description(): string | null
-    vfuncGetKeybinding(i: number): string | null
-    vfuncGetLocalizedName(i: number): string | null
-    vfuncGetNActions(): number
-    vfuncGetName(i: number): string | null
-    vfunc_get_name(): string | null
-    vfuncSetDescription(i: number, desc: string): boolean
-    vfunc_set_description(description: string): boolean | null
-    vfuncBoundsChanged(bounds: Atk.Rectangle): void
-    vfuncContains(x: number, y: number, coordType: Atk.CoordType): boolean
-    vfuncGetAlpha(): number
-    vfuncGetExtents(coordType: Atk.CoordType): [ /* x */ number | null, /* y */ number | null, /* width */ number | null, /* height */ number | null ]
-    vfuncGetLayer(): Atk.Layer
-    vfuncGetMdiZorder(): number
-    vfuncGetPosition(coordType: Atk.CoordType): [ /* x */ number | null, /* y */ number | null ]
-    vfuncGetSize(): [ /* width */ number | null, /* height */ number | null ]
-    vfuncGrabFocus(): boolean
-    vfuncRefAccessibleAtPoint(x: number, y: number, coordType: Atk.CoordType): Atk.Object | null
-    vfuncRemoveFocusHandler(handlerId: number): void
-    vfuncScrollTo(type: Atk.ScrollType): boolean
-    vfuncScrollToPoint(coords: Atk.CoordType, x: number, y: number): boolean
-    vfuncSetExtents(x: number, y: number, width: number, height: number, coordType: Atk.CoordType): boolean
-    vfuncSetPosition(x: number, y: number, coordType: Atk.CoordType): boolean
-    vfuncSetSize(width: number, height: number): boolean
-    /* Virtual methods of Atk.Object */
-    vfuncActiveDescendantChanged(child?: object | null): void
-    vfuncChildrenChanged(changeIndex: number, changedChild?: object | null): void
-    vfuncFocusEvent(focusIn: boolean): void
-    vfuncGetAttributes(): Atk.AttributeSet
-    vfunc_get_description(): string | null
-    vfuncGetIndexInParent(): number
-    vfuncGetLayer(): Atk.Layer
-    vfuncGetMdiZorder(): number
-    vfuncGetNChildren(): number
-    vfunc_get_name(): string | null
-    vfuncGetObjectLocale(): string
-    vfuncGetParent(): Atk.Object
-    vfuncGetRole(): Atk.Role
-    vfuncInitialize(data?: object | null): void
-    vfuncPropertyChange(values: Atk.PropertyValues): void
-    vfuncRefRelationSet(): Atk.RelationSet
-    vfuncRefStateSet(): Atk.StateSet
-    vfuncRemovePropertyChangeHandler(handlerId: number): void
-    vfunc_set_description(description: string): boolean | null
-    vfuncSetName(name: string): void
-    vfuncSetParent(parent: Atk.Object): void
-    vfuncSetRole(role: Atk.Role): void
-    vfuncStateChange(name: string, stateSet: boolean): void
-    vfuncVisibleDataChanged(): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Atk.Object */
+    /* Signals of Atk-1.0.Atk.Object */
     connect(sigName: "active-descendant-changed", callback: (($obj: Text, arg1: Atk.Object) => void)): number
-    connect_after(sigName: "active-descendant-changed", callback: (($obj: Text, arg1: Atk.Object) => void)): number
+    on(sigName: "active-descendant-changed", callback: (arg1: Atk.Object) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "active-descendant-changed", callback: (arg1: Atk.Object) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "active-descendant-changed", callback: (arg1: Atk.Object) => void): NodeJS.EventEmitter
     emit(sigName: "active-descendant-changed", arg1: Atk.Object): void
-    on(sigName: "active-descendant-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "active-descendant-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "active-descendant-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "children-changed", callback: (($obj: Text, arg1: number, arg2: Atk.Object) => void)): number
-    connect_after(sigName: "children-changed", callback: (($obj: Text, arg1: number, arg2: Atk.Object) => void)): number
+    on(sigName: "children-changed", callback: (arg1: number, arg2: Atk.Object) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "children-changed", callback: (arg1: number, arg2: Atk.Object) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "children-changed", callback: (arg1: number, arg2: Atk.Object) => void): NodeJS.EventEmitter
     emit(sigName: "children-changed", arg1: number, arg2: Atk.Object): void
-    on(sigName: "children-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "children-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "children-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "focus-event", callback: (($obj: Text, arg1: boolean) => void)): number
-    connect_after(sigName: "focus-event", callback: (($obj: Text, arg1: boolean) => void)): number
+    on(sigName: "focus-event", callback: (arg1: boolean) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "focus-event", callback: (arg1: boolean) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "focus-event", callback: (arg1: boolean) => void): NodeJS.EventEmitter
     emit(sigName: "focus-event", arg1: boolean): void
-    on(sigName: "focus-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "focus-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "focus-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "property-change", callback: (($obj: Text, arg1: Atk.PropertyValues) => void)): number
-    connect_after(sigName: "property-change", callback: (($obj: Text, arg1: Atk.PropertyValues) => void)): number
+    on(sigName: "property-change", callback: (arg1: Atk.PropertyValues) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "property-change", callback: (arg1: Atk.PropertyValues) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "property-change", callback: (arg1: Atk.PropertyValues) => void): NodeJS.EventEmitter
     emit(sigName: "property-change", arg1: Atk.PropertyValues): void
-    on(sigName: "property-change", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "property-change", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "property-change", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "state-change", callback: (($obj: Text, arg1: string, arg2: boolean) => void)): number
-    connect_after(sigName: "state-change", callback: (($obj: Text, arg1: string, arg2: boolean) => void)): number
+    on(sigName: "state-change", callback: (arg1: string, arg2: boolean) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "state-change", callback: (arg1: string, arg2: boolean) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "state-change", callback: (arg1: string, arg2: boolean) => void): NodeJS.EventEmitter
     emit(sigName: "state-change", arg1: string, arg2: boolean): void
-    on(sigName: "state-change", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "state-change", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "state-change", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "visible-data-changed", callback: (($obj: Text) => void)): number
-    connect_after(sigName: "visible-data-changed", callback: (($obj: Text) => void)): number
+    on(sigName: "visible-data-changed", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "visible-data-changed", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "visible-data-changed", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "visible-data-changed"): void
-    on(sigName: "visible-data-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "visible-data-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "visible-data-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Text, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Text, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of Atk.Component */
+    /* Signals of Atk-1.0.Atk.Component */
     connect(sigName: "bounds-changed", callback: (($obj: Text, arg1: Atk.Rectangle) => void)): number
-    connect_after(sigName: "bounds-changed", callback: (($obj: Text, arg1: Atk.Rectangle) => void)): number
+    on(sigName: "bounds-changed", callback: (arg1: Atk.Rectangle) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "bounds-changed", callback: (arg1: Atk.Rectangle) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "bounds-changed", callback: (arg1: Atk.Rectangle) => void): NodeJS.EventEmitter
     emit(sigName: "bounds-changed", arg1: Atk.Rectangle): void
-    on(sigName: "bounds-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "bounds-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "bounds-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of Atk.Text */
+    /* Signals of Atk-1.0.Atk.Text */
     connect(sigName: "text-attributes-changed", callback: (($obj: Text) => void)): number
-    connect_after(sigName: "text-attributes-changed", callback: (($obj: Text) => void)): number
+    on(sigName: "text-attributes-changed", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "text-attributes-changed", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "text-attributes-changed", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "text-attributes-changed"): void
-    on(sigName: "text-attributes-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "text-attributes-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "text-attributes-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "text-caret-moved", callback: (($obj: Text, arg1: number) => void)): number
-    connect_after(sigName: "text-caret-moved", callback: (($obj: Text, arg1: number) => void)): number
+    on(sigName: "text-caret-moved", callback: (arg1: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "text-caret-moved", callback: (arg1: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "text-caret-moved", callback: (arg1: number) => void): NodeJS.EventEmitter
     emit(sigName: "text-caret-moved", arg1: number): void
-    on(sigName: "text-caret-moved", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "text-caret-moved", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "text-caret-moved", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "text-changed", callback: (($obj: Text, arg1: number, arg2: number) => void)): number
-    connect_after(sigName: "text-changed", callback: (($obj: Text, arg1: number, arg2: number) => void)): number
+    on(sigName: "text-changed", callback: (arg1: number, arg2: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "text-changed", callback: (arg1: number, arg2: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "text-changed", callback: (arg1: number, arg2: number) => void): NodeJS.EventEmitter
     emit(sigName: "text-changed", arg1: number, arg2: number): void
-    on(sigName: "text-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "text-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "text-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "text-insert", callback: (($obj: Text, arg1: number, arg2: number, arg3: string) => void)): number
-    connect_after(sigName: "text-insert", callback: (($obj: Text, arg1: number, arg2: number, arg3: string) => void)): number
+    on(sigName: "text-insert", callback: (arg1: number, arg2: number, arg3: string) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "text-insert", callback: (arg1: number, arg2: number, arg3: string) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "text-insert", callback: (arg1: number, arg2: number, arg3: string) => void): NodeJS.EventEmitter
     emit(sigName: "text-insert", arg1: number, arg2: number, arg3: string): void
-    on(sigName: "text-insert", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "text-insert", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "text-insert", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "text-remove", callback: (($obj: Text, arg1: number, arg2: number, arg3: string) => void)): number
-    connect_after(sigName: "text-remove", callback: (($obj: Text, arg1: number, arg2: number, arg3: string) => void)): number
+    on(sigName: "text-remove", callback: (arg1: number, arg2: number, arg3: string) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "text-remove", callback: (arg1: number, arg2: number, arg3: string) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "text-remove", callback: (arg1: number, arg2: number, arg3: string) => void): NodeJS.EventEmitter
     emit(sigName: "text-remove", arg1: number, arg2: number, arg3: string): void
-    on(sigName: "text-remove", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "text-remove", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "text-remove", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "text-selection-changed", callback: (($obj: Text) => void)): number
-    connect_after(sigName: "text-selection-changed", callback: (($obj: Text) => void)): number
+    on(sigName: "text-selection-changed", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "text-selection-changed", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "text-selection-changed", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "text-selection-changed"): void
-    on(sigName: "text-selection-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "text-selection-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "text-selection-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::accessible-component-layer", callback: (($obj: Text, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::accessible-component-layer", callback: (($obj: Text, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::accessible-component-layer", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -2304,7 +1766,7 @@ export class Text {
 export interface Texture_ConstructProps extends Actor_ConstructProps {
 }
 export class Texture {
-    /* Properties of Atk.Object */
+    /* Properties of Atk-1.0.Atk.Object */
     readonly accessibleComponentLayer: number
     readonly accessibleComponentMdiZorder: number
     accessibleDescription: string
@@ -2320,23 +1782,23 @@ export class Texture {
     accessibleTableRowHeader: Atk.Object
     accessibleTableSummary: Atk.Object
     accessibleValue: number
-    /* Fields of Atk.GObjectAccessible */
+    /* Fields of Atk-1.0.Atk.GObjectAccessible */
     parent: Atk.Object
-    /* Fields of Atk.Object */
+    /* Fields of Atk-1.0.Atk.Object */
     description: string
     name: string
     role: Atk.Role
     relationSet: Atk.RelationSet
     layer: Atk.Layer
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Cally.Actor */
+    /* Methods of Cally-1.0.Cally.Actor */
     addAction(actionName: string, actionDescription: string, actionKeybinding: string, callback: ActionCallback): number
     removeAction(actionId: number): boolean
     removeActionByName(actionName: string): boolean
-    /* Methods of Atk.GObjectAccessible */
+    /* Methods of Atk-1.0.Atk.GObjectAccessible */
     getObject(): GObject.Object
-    /* Methods of Atk.Object */
+    /* Methods of Atk-1.0.Atk.Object */
     addRelationship(relationship: Atk.RelationType, target: Atk.Object): boolean
     getAccessibleId(): string
     getAttributes(): Atk.AttributeSet
@@ -2362,7 +1824,7 @@ export class Texture {
     setName(name: string): void
     setParent(parent: Atk.Object): void
     setRole(role: Atk.Role): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -2384,7 +1846,7 @@ export class Texture {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of Atk.Action */
+    /* Methods of Atk-1.0.Atk.Action */
     doAction(i: number): boolean
     getDescription(i: number): string | null
     getKeybinding(i: number): string | null
@@ -2392,12 +1854,12 @@ export class Texture {
     getNActions(): number
     getName(i: number): string | null
     setDescription(i: number, desc: string): boolean
-    /* Methods of Atk.Component */
+    /* Methods of Atk-1.0.Atk.Component */
     contains(x: number, y: number, coordType: Atk.CoordType): boolean
     getAlpha(): number
-    getExtents(coordType: Atk.CoordType): [ /* x */ number | null, /* y */ number | null, /* width */ number | null, /* height */ number | null ]
-    getPosition(coordType: Atk.CoordType): [ /* x */ number | null, /* y */ number | null ]
-    getSize(): [ /* width */ number | null, /* height */ number | null ]
+    getExtents(coordType: Atk.CoordType): { x: number | null, y: number | null, width: number | null, height: number | null }
+    getPosition(coordType: Atk.CoordType): { x: number | null, y: number | null }
+    getSize(): { width: number | null, height: number | null }
     grabFocus(): boolean
     refAccessibleAtPoint(x: number, y: number, coordType: Atk.CoordType): Atk.Object | null
     removeFocusHandler(handlerId: number): void
@@ -2406,124 +1868,49 @@ export class Texture {
     setExtents(x: number, y: number, width: number, height: number, coordType: Atk.CoordType): boolean
     setPosition(x: number, y: number, coordType: Atk.CoordType): boolean
     setSize(width: number, height: number): boolean
-    /* Virtual methods of Cally.Texture */
-    vfuncGetDescription(i: number): string | null
-    vfunc_get_description(): string | null
-    vfuncGetName(i: number): string | null
-    vfunc_get_name(): string | null
-    vfuncSetDescription(i: number, desc: string): boolean
-    vfunc_set_description(description: string): boolean | null
-    /* Virtual methods of Cally.Actor */
-    vfuncDoAction(i: number): boolean
-    vfuncGetDescription(i: number): string | null
-    vfunc_get_description(): string | null
-    vfuncGetKeybinding(i: number): string | null
-    vfuncGetLocalizedName(i: number): string | null
-    vfuncGetNActions(): number
-    vfuncGetName(i: number): string | null
-    vfunc_get_name(): string | null
-    vfuncSetDescription(i: number, desc: string): boolean
-    vfunc_set_description(description: string): boolean | null
-    vfuncBoundsChanged(bounds: Atk.Rectangle): void
-    vfuncContains(x: number, y: number, coordType: Atk.CoordType): boolean
-    vfuncGetAlpha(): number
-    vfuncGetExtents(coordType: Atk.CoordType): [ /* x */ number | null, /* y */ number | null, /* width */ number | null, /* height */ number | null ]
-    vfuncGetLayer(): Atk.Layer
-    vfuncGetMdiZorder(): number
-    vfuncGetPosition(coordType: Atk.CoordType): [ /* x */ number | null, /* y */ number | null ]
-    vfuncGetSize(): [ /* width */ number | null, /* height */ number | null ]
-    vfuncGrabFocus(): boolean
-    vfuncRefAccessibleAtPoint(x: number, y: number, coordType: Atk.CoordType): Atk.Object | null
-    vfuncRemoveFocusHandler(handlerId: number): void
-    vfuncScrollTo(type: Atk.ScrollType): boolean
-    vfuncScrollToPoint(coords: Atk.CoordType, x: number, y: number): boolean
-    vfuncSetExtents(x: number, y: number, width: number, height: number, coordType: Atk.CoordType): boolean
-    vfuncSetPosition(x: number, y: number, coordType: Atk.CoordType): boolean
-    vfuncSetSize(width: number, height: number): boolean
-    /* Virtual methods of Atk.Object */
-    vfuncActiveDescendantChanged(child?: object | null): void
-    vfuncChildrenChanged(changeIndex: number, changedChild?: object | null): void
-    vfuncFocusEvent(focusIn: boolean): void
-    vfuncGetAttributes(): Atk.AttributeSet
-    vfunc_get_description(): string | null
-    vfuncGetIndexInParent(): number
-    vfuncGetLayer(): Atk.Layer
-    vfuncGetMdiZorder(): number
-    vfuncGetNChildren(): number
-    vfunc_get_name(): string | null
-    vfuncGetObjectLocale(): string
-    vfuncGetParent(): Atk.Object
-    vfuncGetRole(): Atk.Role
-    vfuncInitialize(data?: object | null): void
-    vfuncPropertyChange(values: Atk.PropertyValues): void
-    vfuncRefRelationSet(): Atk.RelationSet
-    vfuncRefStateSet(): Atk.StateSet
-    vfuncRemovePropertyChangeHandler(handlerId: number): void
-    vfunc_set_description(description: string): boolean | null
-    vfuncSetName(name: string): void
-    vfuncSetParent(parent: Atk.Object): void
-    vfuncSetRole(role: Atk.Role): void
-    vfuncStateChange(name: string, stateSet: boolean): void
-    vfuncVisibleDataChanged(): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Atk.Object */
+    /* Signals of Atk-1.0.Atk.Object */
     connect(sigName: "active-descendant-changed", callback: (($obj: Texture, arg1: Atk.Object) => void)): number
-    connect_after(sigName: "active-descendant-changed", callback: (($obj: Texture, arg1: Atk.Object) => void)): number
+    on(sigName: "active-descendant-changed", callback: (arg1: Atk.Object) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "active-descendant-changed", callback: (arg1: Atk.Object) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "active-descendant-changed", callback: (arg1: Atk.Object) => void): NodeJS.EventEmitter
     emit(sigName: "active-descendant-changed", arg1: Atk.Object): void
-    on(sigName: "active-descendant-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "active-descendant-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "active-descendant-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "children-changed", callback: (($obj: Texture, arg1: number, arg2: Atk.Object) => void)): number
-    connect_after(sigName: "children-changed", callback: (($obj: Texture, arg1: number, arg2: Atk.Object) => void)): number
+    on(sigName: "children-changed", callback: (arg1: number, arg2: Atk.Object) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "children-changed", callback: (arg1: number, arg2: Atk.Object) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "children-changed", callback: (arg1: number, arg2: Atk.Object) => void): NodeJS.EventEmitter
     emit(sigName: "children-changed", arg1: number, arg2: Atk.Object): void
-    on(sigName: "children-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "children-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "children-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "focus-event", callback: (($obj: Texture, arg1: boolean) => void)): number
-    connect_after(sigName: "focus-event", callback: (($obj: Texture, arg1: boolean) => void)): number
+    on(sigName: "focus-event", callback: (arg1: boolean) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "focus-event", callback: (arg1: boolean) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "focus-event", callback: (arg1: boolean) => void): NodeJS.EventEmitter
     emit(sigName: "focus-event", arg1: boolean): void
-    on(sigName: "focus-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "focus-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "focus-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "property-change", callback: (($obj: Texture, arg1: Atk.PropertyValues) => void)): number
-    connect_after(sigName: "property-change", callback: (($obj: Texture, arg1: Atk.PropertyValues) => void)): number
+    on(sigName: "property-change", callback: (arg1: Atk.PropertyValues) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "property-change", callback: (arg1: Atk.PropertyValues) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "property-change", callback: (arg1: Atk.PropertyValues) => void): NodeJS.EventEmitter
     emit(sigName: "property-change", arg1: Atk.PropertyValues): void
-    on(sigName: "property-change", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "property-change", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "property-change", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "state-change", callback: (($obj: Texture, arg1: string, arg2: boolean) => void)): number
-    connect_after(sigName: "state-change", callback: (($obj: Texture, arg1: string, arg2: boolean) => void)): number
+    on(sigName: "state-change", callback: (arg1: string, arg2: boolean) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "state-change", callback: (arg1: string, arg2: boolean) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "state-change", callback: (arg1: string, arg2: boolean) => void): NodeJS.EventEmitter
     emit(sigName: "state-change", arg1: string, arg2: boolean): void
-    on(sigName: "state-change", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "state-change", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "state-change", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "visible-data-changed", callback: (($obj: Texture) => void)): number
-    connect_after(sigName: "visible-data-changed", callback: (($obj: Texture) => void)): number
+    on(sigName: "visible-data-changed", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "visible-data-changed", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "visible-data-changed", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "visible-data-changed"): void
-    on(sigName: "visible-data-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "visible-data-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "visible-data-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Texture, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Texture, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of Atk.Component */
+    /* Signals of Atk-1.0.Atk.Component */
     connect(sigName: "bounds-changed", callback: (($obj: Texture, arg1: Atk.Rectangle) => void)): number
-    connect_after(sigName: "bounds-changed", callback: (($obj: Texture, arg1: Atk.Rectangle) => void)): number
+    on(sigName: "bounds-changed", callback: (arg1: Atk.Rectangle) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "bounds-changed", callback: (arg1: Atk.Rectangle) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "bounds-changed", callback: (arg1: Atk.Rectangle) => void): NodeJS.EventEmitter
     emit(sigName: "bounds-changed", arg1: Atk.Rectangle): void
-    on(sigName: "bounds-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "bounds-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "bounds-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::accessible-component-layer", callback: (($obj: Texture, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::accessible-component-layer", callback: (($obj: Texture, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::accessible-component-layer", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -2616,11 +2003,11 @@ export class Texture {
 export interface Util_ConstructProps extends Atk.Util_ConstructProps {
 }
 export class Util {
-    /* Fields of Atk.Util */
+    /* Fields of Atk-1.0.Atk.Util */
     parent: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -2642,21 +2029,12 @@ export class Util {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Util, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Util, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -2670,7 +2048,7 @@ export class Util {
     static $gtype: GObject.Type
 }
 export abstract class ActorClass {
-    /* Fields of Cally.ActorClass */
+    /* Fields of Cally-1.0.Cally.ActorClass */
     notifyClutter: (object: GObject.Object, pspec: GObject.ParamSpec) => void
     focusClutter: (actor: Clutter.Actor, data: object) => boolean
     addActor: (container: Clutter.Actor, actor: Clutter.Actor, data: object) => number

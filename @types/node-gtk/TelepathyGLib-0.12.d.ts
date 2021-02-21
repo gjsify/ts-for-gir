@@ -1132,17 +1132,17 @@ export const TOKEN_CONNECTION_INTERFACE_SIMPLE_PRESENCE_PRESENCE: string
 export const UNKNOWN_CONNECTION_STATUS: ConnectionStatus
 export const UNKNOWN_HANDLE_TYPE: HandleType
 export const USER_ACTION_TIME_NOT_USER_ACTION: number
-export function asvGetBoolean(asv: GLib.HashTable, key: string): [ /* returnType */ boolean, /* valid */ boolean ]
+export function asvGetBoolean(asv: GLib.HashTable, key: string): { returnType: boolean, valid: boolean }
 export function asvGetBoxed(asv: GLib.HashTable, key: string, type: GObject.Type): object | null
 export function asvGetBytes(asv: GLib.HashTable, key: string): any[] | null
-export function asvGetDouble(asv: GLib.HashTable, key: string): [ /* returnType */ number, /* valid */ boolean ]
-export function asvGetInt32(asv: GLib.HashTable, key: string): [ /* returnType */ number, /* valid */ boolean ]
-export function asvGetInt64(asv: GLib.HashTable, key: string): [ /* returnType */ number, /* valid */ boolean ]
+export function asvGetDouble(asv: GLib.HashTable, key: string): { returnType: number, valid: boolean }
+export function asvGetInt32(asv: GLib.HashTable, key: string): { returnType: number, valid: boolean }
+export function asvGetInt64(asv: GLib.HashTable, key: string): { returnType: number, valid: boolean }
 export function asvGetObjectPath(asv: GLib.HashTable, key: string): string | null
 export function asvGetString(asv: GLib.HashTable, key: string): string | null
 export function asvGetStrv(asv: GLib.HashTable, key: string): string[] | null
-export function asvGetUint32(asv: GLib.HashTable, key: string): [ /* returnType */ number, /* valid */ boolean ]
-export function asvGetUint64(asv: GLib.HashTable, key: string): [ /* returnType */ number, /* valid */ boolean ]
+export function asvGetUint32(asv: GLib.HashTable, key: string): { returnType: number, valid: boolean }
+export function asvGetUint64(asv: GLib.HashTable, key: string): { returnType: number, valid: boolean }
 export function dbusCheckValidBusName(name: string, allowTypes: DBusNameType): boolean
 export function dbusCheckValidInterfaceName(name: string): boolean
 export function dbusCheckValidMemberName(name: string): boolean
@@ -1275,7 +1275,7 @@ export function listConnectionNames(busDaemon: DBusDaemon, callback: ConnectionN
 export function simpleAsyncReportSuccessInIdle(source?: GObject.Object | null, callback?: Gio.AsyncReadyCallback | null, sourceTag?: object | null): void
 export function svcInterfaceSetDbusPropertiesInfo(gInterface: GObject.Type, info: DBusPropertiesMixinIfaceInfo): void
 export function userActionTimeFromX11(x11Time: number): number
-export function userActionTimeShouldPresent(userActionTime: number): [ /* returnType */ boolean, /* x11Time */ number | null ]
+export function userActionTimeShouldPresent(userActionTime: number): { returnType: boolean, x11Time: number | null }
 export function utf8MakeValid(name: string): string
 export function valueArrayFree(va: GObject.ValueArray): void
 export interface AccountChannelRequestDelegatedChannelCb {
@@ -1378,7 +1378,7 @@ export interface SimpleObserverObserveChannelsImpl {
     (observer: SimpleObserver, account: Account, connection: Connection, channels: Channel[], dispatchOperation: ChannelDispatchOperation | null, requests: ChannelRequest[], context: ObserveChannelsContext): void
 }
 export class ClientChannelFactory {
-    /* Methods of TelepathyGLib.ClientChannelFactory */
+    /* Methods of TelepathyGLib-0.12.TelepathyGLib.ClientChannelFactory */
     createChannel(conn: Connection, path: string, properties: GLib.HashTable): Channel
     dupChannelFeatures(channel: Channel): GLib.Quark[]
     static name: string
@@ -1389,7 +1389,7 @@ export class HandleRepoIface {
 export interface Account_ConstructProps extends Proxy_ConstructProps {
 }
 export class Account {
-    /* Properties of TelepathyGLib.Account */
+    /* Properties of TelepathyGLib-0.12.TelepathyGLib.Account */
     readonly automaticPresenceType: number
     readonly automaticStatus: string
     readonly automaticStatusMessage: string
@@ -1424,20 +1424,20 @@ export class Account {
     readonly supersedes: string[]
     readonly uriSchemes: string[]
     readonly valid: boolean
-    /* Properties of TelepathyGLib.Proxy */
+    /* Properties of TelepathyGLib-0.12.TelepathyGLib.Proxy */
     readonly interfaces: string[]
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of TelepathyGLib.Account */
+    /* Methods of TelepathyGLib-0.12.TelepathyGLib.Account */
     associatedWithUriScheme(scheme: string): boolean
     bindConnectionStatusToProperty(target: object | null, targetProperty: string, invert: boolean): GObject.Binding
-    dupDetailedErrorVardict(): [ /* returnType */ string | null, /* details */ GLib.Variant | null ]
+    dupDetailedErrorVardict(): { returnType: string | null, details: GLib.Variant | null }
     dupParametersVardict(): GLib.Variant
     dupStorageIdentifierVariant(): GLib.Variant
     dupStorageSpecificInformationVardictAsync(callback?: Gio.AsyncReadyCallback | null): void
     dupStorageSpecificInformationVardictFinish(result: Gio.AsyncResult): GLib.Variant
     ensureConnection(path: string): Connection
-    getAutomaticPresence(): [ /* returnType */ ConnectionPresenceType, /* status */ string, /* statusMessage */ string ]
+    getAutomaticPresence(): { returnType: ConnectionPresenceType, status: string, statusMessage: string }
     getAvatarAsync(callback?: Gio.AsyncReadyCallback | null): void
     getAvatarFinish(result: Gio.AsyncResult): any[]
     getChangingPresence(): boolean
@@ -1445,8 +1445,8 @@ export class Account {
     getConnectAutomatically(): boolean
     getConnection(): Connection
     getConnectionManager(): string
-    getConnectionStatus(): [ /* returnType */ ConnectionStatus, /* reason */ ConnectionStatusReason ]
-    getCurrentPresence(): [ /* returnType */ ConnectionPresenceType, /* status */ string, /* statusMessage */ string ]
+    getConnectionStatus(): { returnType: ConnectionStatus, reason: ConnectionStatusReason }
+    getCurrentPresence(): { returnType: ConnectionPresenceType, status: string, statusMessage: string }
     getDisplayName(): string
     getHasBeenOnline(): boolean
     getIconName(): string
@@ -1456,7 +1456,7 @@ export class Account {
     getPathSuffix(): string
     getProtocol(): string
     getProtocolName(): string
-    getRequestedPresence(): [ /* returnType */ ConnectionPresenceType, /* status */ string, /* statusMessage */ string ]
+    getRequestedPresence(): { returnType: ConnectionPresenceType, status: string, statusMessage: string }
     getService(): string
     getStorageIdentifier(): any
     getStorageProvider(): string
@@ -1492,10 +1492,10 @@ export class Account {
     setUriSchemeAssociationAsync(scheme: string, associate: boolean, callback?: Gio.AsyncReadyCallback | null): void
     setUriSchemeAssociationFinish(result: Gio.AsyncResult): boolean
     updateParametersAsync(parameters: GLib.HashTable, unsetParameters: string, callback?: Gio.AsyncReadyCallback | null): void
-    updateParametersFinish(result: Gio.AsyncResult): [ /* returnType */ boolean, /* reconnectRequired */ string[] ]
+    updateParametersFinish(result: Gio.AsyncResult): { returnType: boolean, reconnectRequired: string[] }
     updateParametersVardictAsync(parameters: GLib.Variant, unsetParameters: string[], callback?: Gio.AsyncReadyCallback | null): void
-    updateParametersVardictFinish(result: Gio.AsyncResult): [ /* returnType */ boolean, /* reconnectRequired */ string[] ]
-    /* Methods of TelepathyGLib.Proxy */
+    updateParametersVardictFinish(result: Gio.AsyncResult): { returnType: boolean, reconnectRequired: string[] }
+    /* Methods of TelepathyGLib-0.12.TelepathyGLib.Proxy */
     dbusErrorToGerror(dbusError: string, debugMessage: string): void
     getBusName(): string
     getDbusDaemon(): DBusDaemon
@@ -1507,7 +1507,7 @@ export class Account {
     isPrepared(feature: GLib.Quark): boolean
     prepareAsync(features?: GLib.Quark[] | null, callback?: Gio.AsyncReadyCallback | null): void
     prepareFinish(result: Gio.AsyncResult): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -1529,53 +1529,39 @@ export class Account {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of TelepathyGLib.Account */
+    /* Signals of TelepathyGLib-0.12.TelepathyGLib.Account */
     connect(sigName: "avatar-changed", callback: (($obj: Account) => void)): number
-    connect_after(sigName: "avatar-changed", callback: (($obj: Account) => void)): number
+    on(sigName: "avatar-changed", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "avatar-changed", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "avatar-changed", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "avatar-changed"): void
-    on(sigName: "avatar-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "avatar-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "avatar-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "presence-changed", callback: (($obj: Account, presence: number, status: string, statusMessage: string) => void)): number
-    connect_after(sigName: "presence-changed", callback: (($obj: Account, presence: number, status: string, statusMessage: string) => void)): number
+    on(sigName: "presence-changed", callback: (presence: number, status: string, statusMessage: string) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "presence-changed", callback: (presence: number, status: string, statusMessage: string) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "presence-changed", callback: (presence: number, status: string, statusMessage: string) => void): NodeJS.EventEmitter
     emit(sigName: "presence-changed", presence: number, status: string, statusMessage: string): void
-    on(sigName: "presence-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "presence-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "presence-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "status-changed", callback: (($obj: Account, oldStatus: number, newStatus: number, reason: number, dbusErrorName: string | null, details: GLib.HashTable) => void)): number
-    connect_after(sigName: "status-changed", callback: (($obj: Account, oldStatus: number, newStatus: number, reason: number, dbusErrorName: string | null, details: GLib.HashTable) => void)): number
+    on(sigName: "status-changed", callback: (oldStatus: number, newStatus: number, reason: number, dbusErrorName: string | null, details: GLib.HashTable) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "status-changed", callback: (oldStatus: number, newStatus: number, reason: number, dbusErrorName: string | null, details: GLib.HashTable) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "status-changed", callback: (oldStatus: number, newStatus: number, reason: number, dbusErrorName: string | null, details: GLib.HashTable) => void): NodeJS.EventEmitter
     emit(sigName: "status-changed", oldStatus: number, newStatus: number, reason: number, dbusErrorName: string | null, details: GLib.HashTable): void
-    on(sigName: "status-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "status-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "status-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of TelepathyGLib.Proxy */
+    /* Signals of TelepathyGLib-0.12.TelepathyGLib.Proxy */
     connect(sigName: "interface-added", callback: (($obj: Account, id: number, proxy: any) => void)): number
-    connect_after(sigName: "interface-added", callback: (($obj: Account, id: number, proxy: any) => void)): number
+    on(sigName: "interface-added", callback: (id: number, proxy: any) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "interface-added", callback: (id: number, proxy: any) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "interface-added", callback: (id: number, proxy: any) => void): NodeJS.EventEmitter
     emit(sigName: "interface-added", id: number, proxy: any): void
-    on(sigName: "interface-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "interface-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "interface-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "invalidated", callback: (($obj: Account, domain: number, code: number, message: string) => void)): number
-    connect_after(sigName: "invalidated", callback: (($obj: Account, domain: number, code: number, message: string) => void)): number
+    on(sigName: "invalidated", callback: (domain: number, code: number, message: string) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "invalidated", callback: (domain: number, code: number, message: string) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "invalidated", callback: (domain: number, code: number, message: string) => void): NodeJS.EventEmitter
     emit(sigName: "invalidated", domain: number, code: number, message: string): void
-    on(sigName: "invalidated", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "invalidated", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "invalidated", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Account, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Account, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::automatic-presence-type", callback: (($obj: Account, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::automatic-presence-type", callback: (($obj: Account, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::automatic-presence-type", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -1768,7 +1754,7 @@ export class Account {
     static getFeatureQuarkCore(): GLib.Quark
     static getFeatureQuarkStorage(): GLib.Quark
     static initKnownInterfaces(): void
-    static parseObjectPath(objectPath: string): [ /* returnType */ boolean, /* cm */ string, /* protocol */ string, /* accountId */ string ]
+    static parseObjectPath(objectPath: string): { returnType: boolean, cm: string, protocol: string, accountId: string }
     static $gtype: GObject.Type
 }
 export interface AccountChannelRequest_ConstructProps extends GObject.Object_ConstructProps {
@@ -1777,20 +1763,20 @@ export interface AccountChannelRequest_ConstructProps extends GObject.Object_Con
     userActionTime?: number
 }
 export class AccountChannelRequest {
-    /* Properties of TelepathyGLib.AccountChannelRequest */
+    /* Properties of TelepathyGLib-0.12.TelepathyGLib.AccountChannelRequest */
     readonly channelRequest: ChannelRequest
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of TelepathyGLib.AccountChannelRequest */
+    /* Methods of TelepathyGLib-0.12.TelepathyGLib.AccountChannelRequest */
     createAndHandleChannelAsync(cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    createAndHandleChannelFinish(result: Gio.AsyncResult): [ /* returnType */ Channel | null, /* context */ HandleChannelsContext | null ]
+    createAndHandleChannelFinish(result: Gio.AsyncResult): { returnType: Channel | null, context: HandleChannelsContext | null }
     createAndObserveChannelAsync(preferredHandler: string, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     createAndObserveChannelFinish(result: Gio.AsyncResult): Channel
     createChannelAsync(preferredHandler: string, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     createChannelFinish(result: Gio.AsyncResult): boolean
     dupRequest(): GLib.Variant
     ensureAndHandleChannelAsync(cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    ensureAndHandleChannelFinish(result: Gio.AsyncResult): [ /* returnType */ Channel | null, /* context */ HandleChannelsContext | null ]
+    ensureAndHandleChannelFinish(result: Gio.AsyncResult): { returnType: Channel | null, context: HandleChannelsContext | null }
     ensureAndObserveChannelAsync(preferredHandler: string, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     ensureAndObserveChannelFinish(result: Gio.AsyncResult): Channel
     ensureChannelAsync(preferredHandler: string, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
@@ -1816,7 +1802,7 @@ export class AccountChannelRequest {
     setSmsChannel(isSmsChannel: boolean): void
     setTargetContact(contact: Contact): void
     setTargetId(handleType: HandleType, identifier: string): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -1838,28 +1824,18 @@ export class AccountChannelRequest {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of TelepathyGLib.AccountChannelRequest */
+    /* Signals of TelepathyGLib-0.12.TelepathyGLib.AccountChannelRequest */
     connect(sigName: "re-handled", callback: (($obj: AccountChannelRequest, channel: Channel, userActionTime: number, context: HandleChannelsContext) => void)): number
-    connect_after(sigName: "re-handled", callback: (($obj: AccountChannelRequest, channel: Channel, userActionTime: number, context: HandleChannelsContext) => void)): number
+    on(sigName: "re-handled", callback: (channel: Channel, userActionTime: number, context: HandleChannelsContext) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "re-handled", callback: (channel: Channel, userActionTime: number, context: HandleChannelsContext) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "re-handled", callback: (channel: Channel, userActionTime: number, context: HandleChannelsContext) => void): NodeJS.EventEmitter
     emit(sigName: "re-handled", channel: Channel, userActionTime: number, context: HandleChannelsContext): void
-    on(sigName: "re-handled", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "re-handled", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "re-handled", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: AccountChannelRequest, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: AccountChannelRequest, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::channel-request", callback: (($obj: AccountChannelRequest, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::channel-request", callback: (($obj: AccountChannelRequest, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::channel-request", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -1889,21 +1865,21 @@ export class AccountChannelRequest {
 export interface AccountManager_ConstructProps extends Proxy_ConstructProps {
 }
 export class AccountManager {
-    /* Properties of TelepathyGLib.Proxy */
+    /* Properties of TelepathyGLib-0.12.TelepathyGLib.Proxy */
     readonly interfaces: string[]
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of TelepathyGLib.AccountManager */
+    /* Methods of TelepathyGLib-0.12.TelepathyGLib.AccountManager */
     createAccountAsync(connectionManager: string, protocol: string, displayName: string, parameters: GLib.HashTable, properties: GLib.HashTable, callback?: Gio.AsyncReadyCallback | null): void
     createAccountFinish(result: Gio.AsyncResult): Account
     dupValidAccounts(): Account[]
     enableRestart(): void
     ensureAccount(path: string): Account
-    getMostAvailablePresence(): [ /* returnType */ ConnectionPresenceType, /* status */ string, /* message */ string ]
+    getMostAvailablePresence(): { returnType: ConnectionPresenceType, status: string, message: string }
     getValidAccounts(): Account[]
     setAllRequestedPresences(type: ConnectionPresenceType, status: string, message: string): void
     setDefault(): void
-    /* Methods of TelepathyGLib.Proxy */
+    /* Methods of TelepathyGLib-0.12.TelepathyGLib.Proxy */
     dbusErrorToGerror(dbusError: string, debugMessage: string): void
     getBusName(): string
     getDbusDaemon(): DBusDaemon
@@ -1915,7 +1891,7 @@ export class AccountManager {
     isPrepared(feature: GLib.Quark): boolean
     prepareAsync(features?: GLib.Quark[] | null, callback?: Gio.AsyncReadyCallback | null): void
     prepareFinish(result: Gio.AsyncResult): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -1937,65 +1913,49 @@ export class AccountManager {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of TelepathyGLib.AccountManager */
+    /* Signals of TelepathyGLib-0.12.TelepathyGLib.AccountManager */
     connect(sigName: "account-disabled", callback: (($obj: AccountManager, account: Account) => void)): number
-    connect_after(sigName: "account-disabled", callback: (($obj: AccountManager, account: Account) => void)): number
+    on(sigName: "account-disabled", callback: (account: Account) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "account-disabled", callback: (account: Account) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "account-disabled", callback: (account: Account) => void): NodeJS.EventEmitter
     emit(sigName: "account-disabled", account: Account): void
-    on(sigName: "account-disabled", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "account-disabled", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "account-disabled", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "account-enabled", callback: (($obj: AccountManager, account: Account) => void)): number
-    connect_after(sigName: "account-enabled", callback: (($obj: AccountManager, account: Account) => void)): number
+    on(sigName: "account-enabled", callback: (account: Account) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "account-enabled", callback: (account: Account) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "account-enabled", callback: (account: Account) => void): NodeJS.EventEmitter
     emit(sigName: "account-enabled", account: Account): void
-    on(sigName: "account-enabled", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "account-enabled", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "account-enabled", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "account-removed", callback: (($obj: AccountManager, account: Account) => void)): number
-    connect_after(sigName: "account-removed", callback: (($obj: AccountManager, account: Account) => void)): number
+    on(sigName: "account-removed", callback: (account: Account) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "account-removed", callback: (account: Account) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "account-removed", callback: (account: Account) => void): NodeJS.EventEmitter
     emit(sigName: "account-removed", account: Account): void
-    on(sigName: "account-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "account-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "account-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "account-validity-changed", callback: (($obj: AccountManager, account: Account, valid: boolean) => void)): number
-    connect_after(sigName: "account-validity-changed", callback: (($obj: AccountManager, account: Account, valid: boolean) => void)): number
+    on(sigName: "account-validity-changed", callback: (account: Account, valid: boolean) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "account-validity-changed", callback: (account: Account, valid: boolean) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "account-validity-changed", callback: (account: Account, valid: boolean) => void): NodeJS.EventEmitter
     emit(sigName: "account-validity-changed", account: Account, valid: boolean): void
-    on(sigName: "account-validity-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "account-validity-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "account-validity-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "most-available-presence-changed", callback: (($obj: AccountManager, presence: number, status: string, message: string) => void)): number
-    connect_after(sigName: "most-available-presence-changed", callback: (($obj: AccountManager, presence: number, status: string, message: string) => void)): number
+    on(sigName: "most-available-presence-changed", callback: (presence: number, status: string, message: string) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "most-available-presence-changed", callback: (presence: number, status: string, message: string) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "most-available-presence-changed", callback: (presence: number, status: string, message: string) => void): NodeJS.EventEmitter
     emit(sigName: "most-available-presence-changed", presence: number, status: string, message: string): void
-    on(sigName: "most-available-presence-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "most-available-presence-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "most-available-presence-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of TelepathyGLib.Proxy */
+    /* Signals of TelepathyGLib-0.12.TelepathyGLib.Proxy */
     connect(sigName: "interface-added", callback: (($obj: AccountManager, id: number, proxy: any) => void)): number
-    connect_after(sigName: "interface-added", callback: (($obj: AccountManager, id: number, proxy: any) => void)): number
+    on(sigName: "interface-added", callback: (id: number, proxy: any) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "interface-added", callback: (id: number, proxy: any) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "interface-added", callback: (id: number, proxy: any) => void): NodeJS.EventEmitter
     emit(sigName: "interface-added", id: number, proxy: any): void
-    on(sigName: "interface-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "interface-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "interface-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "invalidated", callback: (($obj: AccountManager, domain: number, code: number, message: string) => void)): number
-    connect_after(sigName: "invalidated", callback: (($obj: AccountManager, domain: number, code: number, message: string) => void)): number
+    on(sigName: "invalidated", callback: (domain: number, code: number, message: string) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "invalidated", callback: (domain: number, code: number, message: string) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "invalidated", callback: (domain: number, code: number, message: string) => void): NodeJS.EventEmitter
     emit(sigName: "invalidated", domain: number, code: number, message: string): void
-    on(sigName: "invalidated", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "invalidated", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "invalidated", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: AccountManager, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: AccountManager, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::interfaces", callback: (($obj: AccountManager, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::interfaces", callback: (($obj: AccountManager, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::interfaces", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -2027,7 +1987,7 @@ export interface AccountRequest_ConstructProps extends GObject.Object_ConstructP
     protocol?: string
 }
 export class AccountRequest {
-    /* Properties of TelepathyGLib.AccountRequest */
+    /* Properties of TelepathyGLib-0.12.TelepathyGLib.AccountRequest */
     readonly automaticPresenceType: number
     readonly automaticStatus: string
     readonly automaticStatusMessage: string
@@ -2045,9 +2005,9 @@ export class AccountRequest {
     readonly service: string
     readonly storageProvider: string
     readonly supersedes: string[]
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of TelepathyGLib.AccountRequest */
+    /* Methods of TelepathyGLib-0.12.TelepathyGLib.AccountRequest */
     addSupersedes(supersededPath: string): void
     createAccountAsync(callback?: Gio.AsyncReadyCallback | null): void
     createAccountFinish(result: Gio.AsyncResult): Account
@@ -2063,7 +2023,7 @@ export class AccountRequest {
     setService(service: string): void
     setStorageProvider(provider: string): void
     unsetParameter(key: string): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -2085,21 +2045,12 @@ export class AccountRequest {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: AccountRequest, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: AccountRequest, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::automatic-presence-type", callback: (($obj: AccountRequest, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::automatic-presence-type", callback: (($obj: AccountRequest, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::automatic-presence-type", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -2207,13 +2158,13 @@ export interface AddDispatchOperationContext_ConstructProps extends GObject.Obje
     dispatchOperation?: ChannelDispatchOperation
 }
 export class AddDispatchOperationContext {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of TelepathyGLib.AddDispatchOperationContext */
+    /* Methods of TelepathyGLib-0.12.TelepathyGLib.AddDispatchOperationContext */
     accept(): void
     delay(): void
     fail(error: GLib.Error): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -2235,21 +2186,12 @@ export class AddDispatchOperationContext {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: AddDispatchOperationContext, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: AddDispatchOperationContext, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -2265,9 +2207,9 @@ export class AddDispatchOperationContext {
 export interface AutomaticClientFactory_ConstructProps extends SimpleClientFactory_ConstructProps {
 }
 export class AutomaticClientFactory {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of TelepathyGLib.SimpleClientFactory */
+    /* Methods of TelepathyGLib-0.12.TelepathyGLib.SimpleClientFactory */
     addAccountFeatures(features?: GLib.Quark[] | null): void
     addChannelFeatures(features?: GLib.Quark[] | null): void
     addConnectionFeatures(features?: GLib.Quark[] | null): void
@@ -2284,8 +2226,8 @@ export class AutomaticClientFactory {
     ensureContactByIdFinish(result: Gio.AsyncResult): Contact
     getDbusDaemon(): DBusDaemon
     upgradeContactsAsync(connection: Connection, contacts: Contact[], callback?: Gio.AsyncReadyCallback | null): void
-    upgradeContactsFinish(result: Gio.AsyncResult): [ /* returnType */ boolean, /* contacts */ Contact[] | null ]
-    /* Methods of GObject.Object */
+    upgradeContactsFinish(result: Gio.AsyncResult): { returnType: boolean, contacts: Contact[] | null }
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -2307,26 +2249,12 @@ export class AutomaticClientFactory {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of TelepathyGLib.SimpleClientFactory */
-    vfuncDupAccountFeatures(account: Account): GLib.Quark[]
-    vfuncDupChannelFeatures(channel: Channel): GLib.Quark[]
-    vfuncDupConnectionFeatures(connection: Connection): GLib.Quark[]
-    vfuncDupContactFeatures(connection: Connection): ContactFeature[]
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: AutomaticClientFactory, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: AutomaticClientFactory, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -2344,9 +2272,9 @@ export class AutomaticClientFactory {
 export interface AutomaticProxyFactory_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class AutomaticProxyFactory {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -2368,24 +2296,15 @@ export class AutomaticProxyFactory {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of TelepathyGLib.ClientChannelFactory */
+    /* Methods of TelepathyGLib-0.12.TelepathyGLib.ClientChannelFactory */
     createChannel(conn: Connection, path: string, properties: GLib.HashTable): Channel
     dupChannelFeatures(channel: Channel): GLib.Quark[]
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: AutomaticProxyFactory, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: AutomaticProxyFactory, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -2410,9 +2329,9 @@ export interface BaseClient_ConstructProps extends GObject.Object_ConstructProps
     uniquifyName?: boolean
 }
 export class BaseClient {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of TelepathyGLib.BaseClient */
+    /* Methods of TelepathyGLib-0.12.TelepathyGLib.BaseClient */
     addAccountFeatures(features: GLib.Quark[]): void
     addApproverFilter(filter: GLib.HashTable): void
     addApproverFilterVardict(filter: GLib.Variant): void
@@ -2426,7 +2345,7 @@ export class BaseClient {
     addObserverFilterVardict(filter: GLib.Variant): void
     beAHandler(): void
     delegateChannelsAsync(channels: Channel[], userActionTime: number, preferredHandler: string, callback?: Gio.AsyncReadyCallback | null): void
-    delegateChannelsFinish(result: Gio.AsyncResult): [ /* returnType */ boolean, /* delegated */ Channel[], /* notDelegated */ GLib.HashTable ]
+    delegateChannelsFinish(result: Gio.AsyncResult): { returnType: boolean, delegated: Channel[], notDelegated: GLib.HashTable }
     dupHandledChannels(): Channel[]
     dupPendingRequests(): ChannelRequest[]
     getBusName(): string
@@ -2445,7 +2364,7 @@ export class BaseClient {
     setObserverDelayApprovers(delay: boolean): void
     setObserverRecover(recover: boolean): void
     unregister(): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -2467,38 +2386,23 @@ export class BaseClient {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of TelepathyGLib.BaseClient */
-    vfuncAddDispatchOperation(account: Account, connection: Connection, channels: Channel[], dispatchOperation: ChannelDispatchOperation, context: AddDispatchOperationContext): void
-    vfuncHandleChannels(account: Account, connection: Connection, channels: Channel[], requestsSatisfied: ChannelRequest[], userActionTime: number, context: HandleChannelsContext): void
-    vfuncObserveChannels(account: Account, connection: Connection, channels: Channel[], dispatchOperation: ChannelDispatchOperation | null, requests: ChannelRequest[], context: ObserveChannelsContext): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of TelepathyGLib.BaseClient */
+    /* Signals of TelepathyGLib-0.12.TelepathyGLib.BaseClient */
     connect(sigName: "request-added", callback: (($obj: BaseClient, account: Account, request: ChannelRequest) => void)): number
-    connect_after(sigName: "request-added", callback: (($obj: BaseClient, account: Account, request: ChannelRequest) => void)): number
+    on(sigName: "request-added", callback: (account: Account, request: ChannelRequest) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "request-added", callback: (account: Account, request: ChannelRequest) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "request-added", callback: (account: Account, request: ChannelRequest) => void): NodeJS.EventEmitter
     emit(sigName: "request-added", account: Account, request: ChannelRequest): void
-    on(sigName: "request-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "request-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "request-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "request-removed", callback: (($obj: BaseClient, request: ChannelRequest, error: string, message: string) => void)): number
-    connect_after(sigName: "request-removed", callback: (($obj: BaseClient, request: ChannelRequest, error: string, message: string) => void)): number
+    on(sigName: "request-removed", callback: (request: ChannelRequest, error: string, message: string) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "request-removed", callback: (request: ChannelRequest, error: string, message: string) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "request-removed", callback: (request: ChannelRequest, error: string, message: string) => void): NodeJS.EventEmitter
     emit(sigName: "request-removed", request: ChannelRequest, error: string, message: string): void
-    on(sigName: "request-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "request-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "request-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: BaseClient, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: BaseClient, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -2515,11 +2419,11 @@ export interface BaseConnection_ConstructProps extends GObject.Object_ConstructP
     accountPathSuffix?: string
 }
 export class BaseConnection {
-    /* Properties of TelepathyGLib.BaseConnection */
+    /* Properties of TelepathyGLib-0.12.TelepathyGLib.BaseConnection */
     readonly hasImmortalHandles: boolean
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of TelepathyGLib.BaseConnection */
+    /* Methods of TelepathyGLib-0.12.TelepathyGLib.BaseConnection */
     addClientInterest(uniqueName: string, token: string, onlyIfUninterested: boolean): void
     addPossibleClientInterest(token: GLib.Quark): void
     changeStatus(status: ConnectionStatus, reason: ConnectionStatusReason): void
@@ -2530,9 +2434,9 @@ export class BaseConnection {
     getObjectPath(): string | null
     getStatus(): ConnectionStatus
     isDestroyed(): boolean
-    register(cmName: string): [ /* returnType */ boolean, /* busName */ string, /* objectPath */ string ]
+    register(cmName: string): { returnType: boolean, busName: string, objectPath: string }
     setSelfHandle(selfHandle: Handle): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -2554,47 +2458,28 @@ export class BaseConnection {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of TelepathyGLib.BaseConnection */
-    vfuncConnected(): void
-    vfuncConnecting(): void
-    vfuncDisconnected(): void
-    vfuncGetUniqueConnectionName(): string
-    vfuncShutDown(): void
-    vfuncStartConnecting(): boolean
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of TelepathyGLib.BaseConnection */
+    /* Signals of TelepathyGLib-0.12.TelepathyGLib.BaseConnection */
     connect(sigName: "clients-interested", callback: (($obj: BaseConnection, token: string) => void)): number
-    connect_after(sigName: "clients-interested", callback: (($obj: BaseConnection, token: string) => void)): number
+    on(sigName: "clients-interested", callback: (token: string) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "clients-interested", callback: (token: string) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "clients-interested", callback: (token: string) => void): NodeJS.EventEmitter
     emit(sigName: "clients-interested", token: string): void
-    on(sigName: "clients-interested", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "clients-interested", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "clients-interested", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "clients-uninterested", callback: (($obj: BaseConnection, token: string) => void)): number
-    connect_after(sigName: "clients-uninterested", callback: (($obj: BaseConnection, token: string) => void)): number
+    on(sigName: "clients-uninterested", callback: (token: string) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "clients-uninterested", callback: (token: string) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "clients-uninterested", callback: (token: string) => void): NodeJS.EventEmitter
     emit(sigName: "clients-uninterested", token: string): void
-    on(sigName: "clients-uninterested", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "clients-uninterested", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "clients-uninterested", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "shutdown-finished", callback: (($obj: BaseConnection) => void)): number
-    connect_after(sigName: "shutdown-finished", callback: (($obj: BaseConnection) => void)): number
+    on(sigName: "shutdown-finished", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "shutdown-finished", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "shutdown-finished", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "shutdown-finished"): void
-    on(sigName: "shutdown-finished", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "shutdown-finished", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "shutdown-finished", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: BaseConnection, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: BaseConnection, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::has-immortal-handles", callback: (($obj: BaseConnection, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::has-immortal-handles", callback: (($obj: BaseConnection, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::has-immortal-handles", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -2615,9 +2500,9 @@ export class BaseConnection {
 export interface BasicProxyFactory_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class BasicProxyFactory {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -2639,24 +2524,15 @@ export class BasicProxyFactory {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of TelepathyGLib.ClientChannelFactory */
+    /* Methods of TelepathyGLib-0.12.TelepathyGLib.ClientChannelFactory */
     createChannel(conn: Connection, path: string, properties: GLib.HashTable): Channel
     dupChannelFeatures(channel: Channel): GLib.Quark[]
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: BasicProxyFactory, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: BasicProxyFactory, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -2675,7 +2551,7 @@ export class BasicProxyFactory {
 export interface CallChannel_ConstructProps extends Channel_ConstructProps {
 }
 export class CallChannel {
-    /* Properties of TelepathyGLib.CallChannel */
+    /* Properties of TelepathyGLib-0.12.TelepathyGLib.CallChannel */
     readonly contents: object[]
     readonly flags: number
     readonly hardwareStreaming: boolean
@@ -2689,7 +2565,7 @@ export class CallChannel {
     readonly state: number
     readonly stateDetails: GLib.HashTable
     readonly stateReason: CallStateReason
-    /* Properties of TelepathyGLib.Channel */
+    /* Properties of TelepathyGLib-0.12.TelepathyGLib.Channel */
     readonly channelReady: boolean
     readonly groupFlags: number
     readonly groupSelfContact: Contact
@@ -2701,25 +2577,25 @@ export class CallChannel {
     readonly passwordNeeded: boolean
     readonly requested: boolean
     readonly targetContact: Contact
-    /* Properties of TelepathyGLib.Proxy */
+    /* Properties of TelepathyGLib-0.12.TelepathyGLib.Proxy */
     readonly interfaces: string[]
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of TelepathyGLib.CallChannel */
+    /* Methods of TelepathyGLib-0.12.TelepathyGLib.CallChannel */
     acceptAsync(callback?: Gio.AsyncReadyCallback | null): void
     acceptFinish(result: Gio.AsyncResult): boolean
     addContentAsync(name: string, type: MediaStreamType, initialDirection: MediaStreamDirection, callback?: Gio.AsyncReadyCallback | null): void
     addContentFinish(result: Gio.AsyncResult): CallContent
     getContents(): CallContent[]
     getMembers(): GLib.HashTable
-    getState(): [ /* returnType */ CallState, /* flags */ CallFlags | null, /* details */ GLib.HashTable | null, /* reason */ CallStateReason | null ]
+    getState(): { returnType: CallState, flags: CallFlags | null, details: GLib.HashTable | null, reason: CallStateReason | null }
     hangupAsync(reason: CallStateChangeReason, detailedReason: string, message: string, callback?: Gio.AsyncReadyCallback | null): void
     hangupFinish(result: Gio.AsyncResult): boolean
     hasDtmf(): boolean
     hasHardwareStreaming(): boolean
     hasHold(): boolean
-    hasInitialAudio(): [ /* returnType */ boolean, /* initialAudioName */ string | null ]
-    hasInitialVideo(): [ /* returnType */ boolean, /* initialVideoName */ string | null ]
+    hasInitialAudio(): { returnType: boolean, initialAudioName: string | null }
+    hasInitialVideo(): { returnType: boolean, initialVideoName: string | null }
     hasMutableContents(): boolean
     requestHoldAsync(hold: boolean, callback?: Gio.AsyncReadyCallback | null): void
     requestHoldFinish(result: Gio.AsyncResult): boolean
@@ -2729,7 +2605,7 @@ export class CallChannel {
     setQueuedFinish(result: Gio.AsyncResult): boolean
     setRingingAsync(callback?: Gio.AsyncReadyCallback | null): void
     setRingingFinish(result: Gio.AsyncResult): boolean
-    /* Methods of TelepathyGLib.Channel */
+    /* Methods of TelepathyGLib-0.12.TelepathyGLib.Channel */
     borrowConnection(): Connection
     borrowImmutableProperties(): GLib.HashTable
     closeAsync(callback?: Gio.AsyncReadyCallback | null): void
@@ -2741,7 +2617,7 @@ export class CallChannel {
     getChannelTypeId(): GLib.Quark
     getChatState(contact: Handle): ChannelChatState
     getConnection(): Connection
-    getHandle(): [ /* returnType */ Handle, /* handleType */ HandleType ]
+    getHandle(): { returnType: Handle, handleType: HandleType }
     getIdentifier(): string
     getInitiatorContact(): Contact
     getRequested(): boolean
@@ -2753,8 +2629,8 @@ export class CallChannel {
     groupGetFlags(): ChannelGroupFlags
     groupGetHandleOwner(handle: Handle): Handle
     groupGetLocalPending(): Intset
-    groupGetLocalPendingContactInfo(localPending: Contact): [ /* returnType */ boolean, /* actor */ Contact | null, /* reason */ ChannelGroupChangeReason | null, /* message */ string | null ]
-    groupGetLocalPendingInfo(localPending: Handle): [ /* returnType */ boolean, /* actor */ Handle | null, /* reason */ ChannelGroupChangeReason | null, /* message */ string | null ]
+    groupGetLocalPendingContactInfo(localPending: Contact): { returnType: boolean, actor: Contact | null, reason: ChannelGroupChangeReason | null, message: string | null }
+    groupGetLocalPendingInfo(localPending: Handle): { returnType: boolean, actor: Handle | null, reason: ChannelGroupChangeReason | null, message: string | null }
     groupGetMembers(): Intset
     groupGetRemotePending(): Intset
     groupGetSelfContact(): Contact
@@ -2765,7 +2641,7 @@ export class CallChannel {
     leaveFinish(result: Gio.AsyncResult): boolean
     providePasswordAsync(password: string, callback?: Gio.AsyncReadyCallback | null): void
     providePasswordFinish(result: Gio.AsyncResult): boolean
-    /* Methods of TelepathyGLib.Proxy */
+    /* Methods of TelepathyGLib-0.12.TelepathyGLib.Proxy */
     dbusErrorToGerror(dbusError: string, debugMessage: string): void
     getBusName(): string
     getDbusDaemon(): DBusDaemon
@@ -2777,7 +2653,7 @@ export class CallChannel {
     isPrepared(feature: GLib.Quark): boolean
     prepareAsync(features?: GLib.Quark[] | null, callback?: Gio.AsyncReadyCallback | null): void
     prepareFinish(result: Gio.AsyncResult): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -2799,90 +2675,70 @@ export class CallChannel {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of TelepathyGLib.CallChannel */
+    /* Signals of TelepathyGLib-0.12.TelepathyGLib.CallChannel */
     connect(sigName: "content-added", callback: (($obj: CallChannel, content: GObject.Object) => void)): number
-    connect_after(sigName: "content-added", callback: (($obj: CallChannel, content: GObject.Object) => void)): number
+    on(sigName: "content-added", callback: (content: GObject.Object) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "content-added", callback: (content: GObject.Object) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "content-added", callback: (content: GObject.Object) => void): NodeJS.EventEmitter
     emit(sigName: "content-added", content: GObject.Object): void
-    on(sigName: "content-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "content-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "content-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "content-removed", callback: (($obj: CallChannel, content: GObject.Object, reason: CallStateReason) => void)): number
-    connect_after(sigName: "content-removed", callback: (($obj: CallChannel, content: GObject.Object, reason: CallStateReason) => void)): number
+    on(sigName: "content-removed", callback: (content: GObject.Object, reason: CallStateReason) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "content-removed", callback: (content: GObject.Object, reason: CallStateReason) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "content-removed", callback: (content: GObject.Object, reason: CallStateReason) => void): NodeJS.EventEmitter
     emit(sigName: "content-removed", content: GObject.Object, reason: CallStateReason): void
-    on(sigName: "content-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "content-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "content-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "members-changed", callback: (($obj: CallChannel, updates: GLib.HashTable, removed: Contact[], reason: CallStateReason) => void)): number
-    connect_after(sigName: "members-changed", callback: (($obj: CallChannel, updates: GLib.HashTable, removed: Contact[], reason: CallStateReason) => void)): number
+    on(sigName: "members-changed", callback: (updates: GLib.HashTable, removed: Contact[], reason: CallStateReason) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "members-changed", callback: (updates: GLib.HashTable, removed: Contact[], reason: CallStateReason) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "members-changed", callback: (updates: GLib.HashTable, removed: Contact[], reason: CallStateReason) => void): NodeJS.EventEmitter
     emit(sigName: "members-changed", updates: GLib.HashTable, removed: Contact[], reason: CallStateReason): void
-    on(sigName: "members-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "members-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "members-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "state-changed", callback: (($obj: CallChannel, state: number, flags: number, reason: CallStateReason, details: GLib.HashTable) => void)): number
-    connect_after(sigName: "state-changed", callback: (($obj: CallChannel, state: number, flags: number, reason: CallStateReason, details: GLib.HashTable) => void)): number
+    on(sigName: "state-changed", callback: (state: number, flags: number, reason: CallStateReason, details: GLib.HashTable) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "state-changed", callback: (state: number, flags: number, reason: CallStateReason, details: GLib.HashTable) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "state-changed", callback: (state: number, flags: number, reason: CallStateReason, details: GLib.HashTable) => void): NodeJS.EventEmitter
     emit(sigName: "state-changed", state: number, flags: number, reason: CallStateReason, details: GLib.HashTable): void
-    on(sigName: "state-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "state-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "state-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of TelepathyGLib.Channel */
+    /* Signals of TelepathyGLib-0.12.TelepathyGLib.Channel */
     connect(sigName: "chat-state-changed", callback: (($obj: CallChannel, contact: number, state: number) => void)): number
-    connect_after(sigName: "chat-state-changed", callback: (($obj: CallChannel, contact: number, state: number) => void)): number
+    on(sigName: "chat-state-changed", callback: (contact: number, state: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "chat-state-changed", callback: (contact: number, state: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "chat-state-changed", callback: (contact: number, state: number) => void): NodeJS.EventEmitter
     emit(sigName: "chat-state-changed", contact: number, state: number): void
-    on(sigName: "chat-state-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "chat-state-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "chat-state-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "group-contacts-changed", callback: (($obj: CallChannel, added: Contact[], removed: Contact[], localPending: Contact[], remotePending: Contact[], actor: Contact, details: GLib.HashTable) => void)): number
-    connect_after(sigName: "group-contacts-changed", callback: (($obj: CallChannel, added: Contact[], removed: Contact[], localPending: Contact[], remotePending: Contact[], actor: Contact, details: GLib.HashTable) => void)): number
+    on(sigName: "group-contacts-changed", callback: (added: Contact[], removed: Contact[], localPending: Contact[], remotePending: Contact[], actor: Contact, details: GLib.HashTable) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "group-contacts-changed", callback: (added: Contact[], removed: Contact[], localPending: Contact[], remotePending: Contact[], actor: Contact, details: GLib.HashTable) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "group-contacts-changed", callback: (added: Contact[], removed: Contact[], localPending: Contact[], remotePending: Contact[], actor: Contact, details: GLib.HashTable) => void): NodeJS.EventEmitter
     emit(sigName: "group-contacts-changed", added: Contact[], removed: Contact[], localPending: Contact[], remotePending: Contact[], actor: Contact, details: GLib.HashTable): void
-    on(sigName: "group-contacts-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "group-contacts-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "group-contacts-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "group-flags-changed", callback: (($obj: CallChannel, added: number, removed: number) => void)): number
-    connect_after(sigName: "group-flags-changed", callback: (($obj: CallChannel, added: number, removed: number) => void)): number
+    on(sigName: "group-flags-changed", callback: (added: number, removed: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "group-flags-changed", callback: (added: number, removed: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "group-flags-changed", callback: (added: number, removed: number) => void): NodeJS.EventEmitter
     emit(sigName: "group-flags-changed", added: number, removed: number): void
-    on(sigName: "group-flags-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "group-flags-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "group-flags-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "group-members-changed", callback: (($obj: CallChannel, message: string, added: any, removed: any, localPending: any, remotePending: any, actor: number, reason: number) => void)): number
-    connect_after(sigName: "group-members-changed", callback: (($obj: CallChannel, message: string, added: any, removed: any, localPending: any, remotePending: any, actor: number, reason: number) => void)): number
+    on(sigName: "group-members-changed", callback: (message: string, added: any, removed: any, localPending: any, remotePending: any, actor: number, reason: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "group-members-changed", callback: (message: string, added: any, removed: any, localPending: any, remotePending: any, actor: number, reason: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "group-members-changed", callback: (message: string, added: any, removed: any, localPending: any, remotePending: any, actor: number, reason: number) => void): NodeJS.EventEmitter
     emit(sigName: "group-members-changed", message: string, added: any, removed: any, localPending: any, remotePending: any, actor: number, reason: number): void
-    on(sigName: "group-members-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "group-members-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "group-members-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "group-members-changed-detailed", callback: (($obj: CallChannel, added: number[], removed: number[], localPending: number[], remotePending: number[], details: GLib.HashTable) => void)): number
-    connect_after(sigName: "group-members-changed-detailed", callback: (($obj: CallChannel, added: number[], removed: number[], localPending: number[], remotePending: number[], details: GLib.HashTable) => void)): number
+    on(sigName: "group-members-changed-detailed", callback: (added: number[], removed: number[], localPending: number[], remotePending: number[], details: GLib.HashTable) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "group-members-changed-detailed", callback: (added: number[], removed: number[], localPending: number[], remotePending: number[], details: GLib.HashTable) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "group-members-changed-detailed", callback: (added: number[], removed: number[], localPending: number[], remotePending: number[], details: GLib.HashTable) => void): NodeJS.EventEmitter
     emit(sigName: "group-members-changed-detailed", added: number[], removed: number[], localPending: number[], remotePending: number[], details: GLib.HashTable): void
-    on(sigName: "group-members-changed-detailed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "group-members-changed-detailed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "group-members-changed-detailed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of TelepathyGLib.Proxy */
+    /* Signals of TelepathyGLib-0.12.TelepathyGLib.Proxy */
     connect(sigName: "interface-added", callback: (($obj: CallChannel, id: number, proxy: any) => void)): number
-    connect_after(sigName: "interface-added", callback: (($obj: CallChannel, id: number, proxy: any) => void)): number
+    on(sigName: "interface-added", callback: (id: number, proxy: any) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "interface-added", callback: (id: number, proxy: any) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "interface-added", callback: (id: number, proxy: any) => void): NodeJS.EventEmitter
     emit(sigName: "interface-added", id: number, proxy: any): void
-    on(sigName: "interface-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "interface-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "interface-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "invalidated", callback: (($obj: CallChannel, domain: number, code: number, message: string) => void)): number
-    connect_after(sigName: "invalidated", callback: (($obj: CallChannel, domain: number, code: number, message: string) => void)): number
+    on(sigName: "invalidated", callback: (domain: number, code: number, message: string) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "invalidated", callback: (domain: number, code: number, message: string) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "invalidated", callback: (domain: number, code: number, message: string) => void): NodeJS.EventEmitter
     emit(sigName: "invalidated", domain: number, code: number, message: string): void
-    on(sigName: "invalidated", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "invalidated", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "invalidated", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: CallChannel, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: CallChannel, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::contents", callback: (($obj: CallChannel, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::contents", callback: (($obj: CallChannel, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::contents", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -3027,16 +2883,16 @@ export interface CallContent_ConstructProps extends Proxy_ConstructProps {
     connection?: Connection
 }
 export class CallContent {
-    /* Properties of TelepathyGLib.CallContent */
+    /* Properties of TelepathyGLib-0.12.TelepathyGLib.CallContent */
     readonly disposition: number
     readonly mediaType: number
     readonly name: string
     readonly streams: object[]
-    /* Properties of TelepathyGLib.Proxy */
+    /* Properties of TelepathyGLib-0.12.TelepathyGLib.Proxy */
     readonly interfaces: string[]
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of TelepathyGLib.CallContent */
+    /* Methods of TelepathyGLib-0.12.TelepathyGLib.CallContent */
     getDisposition(): CallContentDisposition
     getMediaType(): MediaStreamType
     getName(): string
@@ -3045,7 +2901,7 @@ export class CallContent {
     removeFinish(result: Gio.AsyncResult): boolean
     sendTonesAsync(tones: string, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     sendTonesFinish(result: Gio.AsyncResult): boolean
-    /* Methods of TelepathyGLib.Proxy */
+    /* Methods of TelepathyGLib-0.12.TelepathyGLib.Proxy */
     dbusErrorToGerror(dbusError: string, debugMessage: string): void
     getBusName(): string
     getDbusDaemon(): DBusDaemon
@@ -3057,7 +2913,7 @@ export class CallContent {
     isPrepared(feature: GLib.Quark): boolean
     prepareAsync(features?: GLib.Quark[] | null, callback?: Gio.AsyncReadyCallback | null): void
     prepareFinish(result: Gio.AsyncResult): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -3079,53 +2935,39 @@ export class CallContent {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of TelepathyGLib.CallContent */
+    /* Signals of TelepathyGLib-0.12.TelepathyGLib.CallContent */
     connect(sigName: "removed", callback: (($obj: CallContent) => void)): number
-    connect_after(sigName: "removed", callback: (($obj: CallContent) => void)): number
+    on(sigName: "removed", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "removed", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "removed", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "removed"): void
-    on(sigName: "removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "streams-added", callback: (($obj: CallContent, streams: CallStream[]) => void)): number
-    connect_after(sigName: "streams-added", callback: (($obj: CallContent, streams: CallStream[]) => void)): number
+    on(sigName: "streams-added", callback: (streams: CallStream[]) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "streams-added", callback: (streams: CallStream[]) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "streams-added", callback: (streams: CallStream[]) => void): NodeJS.EventEmitter
     emit(sigName: "streams-added", streams: CallStream[]): void
-    on(sigName: "streams-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "streams-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "streams-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "streams-removed", callback: (($obj: CallContent, streams: CallStream[], reason: CallStateReason) => void)): number
-    connect_after(sigName: "streams-removed", callback: (($obj: CallContent, streams: CallStream[], reason: CallStateReason) => void)): number
+    on(sigName: "streams-removed", callback: (streams: CallStream[], reason: CallStateReason) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "streams-removed", callback: (streams: CallStream[], reason: CallStateReason) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "streams-removed", callback: (streams: CallStream[], reason: CallStateReason) => void): NodeJS.EventEmitter
     emit(sigName: "streams-removed", streams: CallStream[], reason: CallStateReason): void
-    on(sigName: "streams-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "streams-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "streams-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of TelepathyGLib.Proxy */
+    /* Signals of TelepathyGLib-0.12.TelepathyGLib.Proxy */
     connect(sigName: "interface-added", callback: (($obj: CallContent, id: number, proxy: any) => void)): number
-    connect_after(sigName: "interface-added", callback: (($obj: CallContent, id: number, proxy: any) => void)): number
+    on(sigName: "interface-added", callback: (id: number, proxy: any) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "interface-added", callback: (id: number, proxy: any) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "interface-added", callback: (id: number, proxy: any) => void): NodeJS.EventEmitter
     emit(sigName: "interface-added", id: number, proxy: any): void
-    on(sigName: "interface-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "interface-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "interface-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "invalidated", callback: (($obj: CallContent, domain: number, code: number, message: string) => void)): number
-    connect_after(sigName: "invalidated", callback: (($obj: CallContent, domain: number, code: number, message: string) => void)): number
+    on(sigName: "invalidated", callback: (domain: number, code: number, message: string) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "invalidated", callback: (domain: number, code: number, message: string) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "invalidated", callback: (domain: number, code: number, message: string) => void): NodeJS.EventEmitter
     emit(sigName: "invalidated", domain: number, code: number, message: string): void
-    on(sigName: "invalidated", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "invalidated", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "invalidated", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: CallContent, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: CallContent, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::disposition", callback: (($obj: CallContent, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::disposition", callback: (($obj: CallContent, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::disposition", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -3171,21 +3013,21 @@ export interface CallStream_ConstructProps extends Proxy_ConstructProps {
     content?: CallContent
 }
 export class CallStream {
-    /* Properties of TelepathyGLib.CallStream */
+    /* Properties of TelepathyGLib-0.12.TelepathyGLib.CallStream */
     readonly canRequestReceiving: boolean
     readonly localSendingState: number
-    /* Properties of TelepathyGLib.Proxy */
+    /* Properties of TelepathyGLib-0.12.TelepathyGLib.Proxy */
     readonly interfaces: string[]
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of TelepathyGLib.CallStream */
+    /* Methods of TelepathyGLib-0.12.TelepathyGLib.CallStream */
     getLocalSendingState(): SendingState
     getRemoteMembers(): GLib.HashTable
     requestReceivingAsync(contact: Contact, receive: boolean, callback?: Gio.AsyncReadyCallback | null): void
     requestReceivingFinish(result: Gio.AsyncResult): boolean
     setSendingAsync(send: boolean, callback?: Gio.AsyncReadyCallback | null): void
     setSendingFinish(result: Gio.AsyncResult): boolean
-    /* Methods of TelepathyGLib.Proxy */
+    /* Methods of TelepathyGLib-0.12.TelepathyGLib.Proxy */
     dbusErrorToGerror(dbusError: string, debugMessage: string): void
     getBusName(): string
     getDbusDaemon(): DBusDaemon
@@ -3197,7 +3039,7 @@ export class CallStream {
     isPrepared(feature: GLib.Quark): boolean
     prepareAsync(features?: GLib.Quark[] | null, callback?: Gio.AsyncReadyCallback | null): void
     prepareFinish(result: Gio.AsyncResult): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -3219,47 +3061,34 @@ export class CallStream {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of TelepathyGLib.CallStream */
+    /* Signals of TelepathyGLib-0.12.TelepathyGLib.CallStream */
     connect(sigName: "local-sending-state-changed", callback: (($obj: CallStream, state: number, reason: CallStateReason) => void)): number
-    connect_after(sigName: "local-sending-state-changed", callback: (($obj: CallStream, state: number, reason: CallStateReason) => void)): number
+    on(sigName: "local-sending-state-changed", callback: (state: number, reason: CallStateReason) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "local-sending-state-changed", callback: (state: number, reason: CallStateReason) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "local-sending-state-changed", callback: (state: number, reason: CallStateReason) => void): NodeJS.EventEmitter
     emit(sigName: "local-sending-state-changed", state: number, reason: CallStateReason): void
-    on(sigName: "local-sending-state-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "local-sending-state-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "local-sending-state-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "remote-members-changed", callback: (($obj: CallStream, updates: GLib.HashTable, removed: Contact[], reason: CallStateReason) => void)): number
-    connect_after(sigName: "remote-members-changed", callback: (($obj: CallStream, updates: GLib.HashTable, removed: Contact[], reason: CallStateReason) => void)): number
+    on(sigName: "remote-members-changed", callback: (updates: GLib.HashTable, removed: Contact[], reason: CallStateReason) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "remote-members-changed", callback: (updates: GLib.HashTable, removed: Contact[], reason: CallStateReason) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "remote-members-changed", callback: (updates: GLib.HashTable, removed: Contact[], reason: CallStateReason) => void): NodeJS.EventEmitter
     emit(sigName: "remote-members-changed", updates: GLib.HashTable, removed: Contact[], reason: CallStateReason): void
-    on(sigName: "remote-members-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "remote-members-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "remote-members-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of TelepathyGLib.Proxy */
+    /* Signals of TelepathyGLib-0.12.TelepathyGLib.Proxy */
     connect(sigName: "interface-added", callback: (($obj: CallStream, id: number, proxy: any) => void)): number
-    connect_after(sigName: "interface-added", callback: (($obj: CallStream, id: number, proxy: any) => void)): number
+    on(sigName: "interface-added", callback: (id: number, proxy: any) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "interface-added", callback: (id: number, proxy: any) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "interface-added", callback: (id: number, proxy: any) => void): NodeJS.EventEmitter
     emit(sigName: "interface-added", id: number, proxy: any): void
-    on(sigName: "interface-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "interface-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "interface-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "invalidated", callback: (($obj: CallStream, domain: number, code: number, message: string) => void)): number
-    connect_after(sigName: "invalidated", callback: (($obj: CallStream, domain: number, code: number, message: string) => void)): number
+    on(sigName: "invalidated", callback: (domain: number, code: number, message: string) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "invalidated", callback: (domain: number, code: number, message: string) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "invalidated", callback: (domain: number, code: number, message: string) => void): NodeJS.EventEmitter
     emit(sigName: "invalidated", domain: number, code: number, message: string): void
-    on(sigName: "invalidated", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "invalidated", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "invalidated", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: CallStream, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: CallStream, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::can-request-receiving", callback: (($obj: CallStream, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::can-request-receiving", callback: (($obj: CallStream, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::can-request-receiving", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -3294,29 +3123,29 @@ export interface Capabilities_ConstructProps extends GObject.Object_ConstructPro
     contactSpecific?: boolean
 }
 export class Capabilities {
-    /* Properties of TelepathyGLib.Capabilities */
+    /* Properties of TelepathyGLib-0.12.TelepathyGLib.Capabilities */
     readonly channelClassesVariant: GLib.Variant
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of TelepathyGLib.Capabilities */
+    /* Methods of TelepathyGLib-0.12.TelepathyGLib.Capabilities */
     dupChannelClassesVariant(): GLib.Variant
     getChannelClasses(): GLib.HashTable[]
     isSpecificToContact(): boolean
     supportsAudioCall(handleType: HandleType): boolean
     supportsAudioVideoCall(handleType: HandleType): boolean
-    supportsContactSearch(): [ /* returnType */ boolean, /* withLimit */ boolean, /* withServer */ boolean ]
+    supportsContactSearch(): { returnType: boolean, withLimit: boolean, withServer: boolean }
     supportsDbusTubes(handleType: HandleType, serviceName: string): boolean
     supportsFileTransfer(): boolean
     supportsFileTransferDescription(): boolean
     supportsFileTransferInitialOffset(): boolean
     supportsFileTransferTimestamp(): boolean
     supportsFileTransferUri(): boolean
-    supportsRoomList(): [ /* returnType */ boolean, /* withServer */ boolean ]
+    supportsRoomList(): { returnType: boolean, withServer: boolean }
     supportsSms(): boolean
     supportsStreamTubes(handleType: HandleType, service: string): boolean
     supportsTextChatrooms(): boolean
     supportsTextChats(): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -3338,21 +3167,12 @@ export class Capabilities {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Capabilities, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Capabilities, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::channel-classes-variant", callback: (($obj: Capabilities, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::channel-classes-variant", callback: (($obj: Capabilities, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::channel-classes-variant", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -3374,7 +3194,7 @@ export interface Channel_ConstructProps extends Proxy_ConstructProps {
     connection?: Connection
 }
 export class Channel {
-    /* Properties of TelepathyGLib.Channel */
+    /* Properties of TelepathyGLib-0.12.TelepathyGLib.Channel */
     readonly channelReady: boolean
     readonly groupFlags: number
     readonly groupSelfContact: Contact
@@ -3386,11 +3206,11 @@ export class Channel {
     readonly passwordNeeded: boolean
     readonly requested: boolean
     readonly targetContact: Contact
-    /* Properties of TelepathyGLib.Proxy */
+    /* Properties of TelepathyGLib-0.12.TelepathyGLib.Proxy */
     readonly interfaces: string[]
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of TelepathyGLib.Channel */
+    /* Methods of TelepathyGLib-0.12.TelepathyGLib.Channel */
     borrowConnection(): Connection
     borrowImmutableProperties(): GLib.HashTable
     closeAsync(callback?: Gio.AsyncReadyCallback | null): void
@@ -3402,7 +3222,7 @@ export class Channel {
     getChannelTypeId(): GLib.Quark
     getChatState(contact: Handle): ChannelChatState
     getConnection(): Connection
-    getHandle(): [ /* returnType */ Handle, /* handleType */ HandleType ]
+    getHandle(): { returnType: Handle, handleType: HandleType }
     getIdentifier(): string
     getInitiatorContact(): Contact
     getRequested(): boolean
@@ -3414,8 +3234,8 @@ export class Channel {
     groupGetFlags(): ChannelGroupFlags
     groupGetHandleOwner(handle: Handle): Handle
     groupGetLocalPending(): Intset
-    groupGetLocalPendingContactInfo(localPending: Contact): [ /* returnType */ boolean, /* actor */ Contact | null, /* reason */ ChannelGroupChangeReason | null, /* message */ string | null ]
-    groupGetLocalPendingInfo(localPending: Handle): [ /* returnType */ boolean, /* actor */ Handle | null, /* reason */ ChannelGroupChangeReason | null, /* message */ string | null ]
+    groupGetLocalPendingContactInfo(localPending: Contact): { returnType: boolean, actor: Contact | null, reason: ChannelGroupChangeReason | null, message: string | null }
+    groupGetLocalPendingInfo(localPending: Handle): { returnType: boolean, actor: Handle | null, reason: ChannelGroupChangeReason | null, message: string | null }
     groupGetMembers(): Intset
     groupGetRemotePending(): Intset
     groupGetSelfContact(): Contact
@@ -3426,7 +3246,7 @@ export class Channel {
     leaveFinish(result: Gio.AsyncResult): boolean
     providePasswordAsync(password: string, callback?: Gio.AsyncReadyCallback | null): void
     providePasswordFinish(result: Gio.AsyncResult): boolean
-    /* Methods of TelepathyGLib.Proxy */
+    /* Methods of TelepathyGLib-0.12.TelepathyGLib.Proxy */
     dbusErrorToGerror(dbusError: string, debugMessage: string): void
     getBusName(): string
     getDbusDaemon(): DBusDaemon
@@ -3438,7 +3258,7 @@ export class Channel {
     isPrepared(feature: GLib.Quark): boolean
     prepareAsync(features?: GLib.Quark[] | null, callback?: Gio.AsyncReadyCallback | null): void
     prepareFinish(result: Gio.AsyncResult): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -3460,65 +3280,49 @@ export class Channel {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of TelepathyGLib.Channel */
+    /* Signals of TelepathyGLib-0.12.TelepathyGLib.Channel */
     connect(sigName: "chat-state-changed", callback: (($obj: Channel, contact: number, state: number) => void)): number
-    connect_after(sigName: "chat-state-changed", callback: (($obj: Channel, contact: number, state: number) => void)): number
+    on(sigName: "chat-state-changed", callback: (contact: number, state: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "chat-state-changed", callback: (contact: number, state: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "chat-state-changed", callback: (contact: number, state: number) => void): NodeJS.EventEmitter
     emit(sigName: "chat-state-changed", contact: number, state: number): void
-    on(sigName: "chat-state-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "chat-state-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "chat-state-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "group-contacts-changed", callback: (($obj: Channel, added: Contact[], removed: Contact[], localPending: Contact[], remotePending: Contact[], actor: Contact, details: GLib.HashTable) => void)): number
-    connect_after(sigName: "group-contacts-changed", callback: (($obj: Channel, added: Contact[], removed: Contact[], localPending: Contact[], remotePending: Contact[], actor: Contact, details: GLib.HashTable) => void)): number
+    on(sigName: "group-contacts-changed", callback: (added: Contact[], removed: Contact[], localPending: Contact[], remotePending: Contact[], actor: Contact, details: GLib.HashTable) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "group-contacts-changed", callback: (added: Contact[], removed: Contact[], localPending: Contact[], remotePending: Contact[], actor: Contact, details: GLib.HashTable) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "group-contacts-changed", callback: (added: Contact[], removed: Contact[], localPending: Contact[], remotePending: Contact[], actor: Contact, details: GLib.HashTable) => void): NodeJS.EventEmitter
     emit(sigName: "group-contacts-changed", added: Contact[], removed: Contact[], localPending: Contact[], remotePending: Contact[], actor: Contact, details: GLib.HashTable): void
-    on(sigName: "group-contacts-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "group-contacts-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "group-contacts-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "group-flags-changed", callback: (($obj: Channel, added: number, removed: number) => void)): number
-    connect_after(sigName: "group-flags-changed", callback: (($obj: Channel, added: number, removed: number) => void)): number
+    on(sigName: "group-flags-changed", callback: (added: number, removed: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "group-flags-changed", callback: (added: number, removed: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "group-flags-changed", callback: (added: number, removed: number) => void): NodeJS.EventEmitter
     emit(sigName: "group-flags-changed", added: number, removed: number): void
-    on(sigName: "group-flags-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "group-flags-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "group-flags-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "group-members-changed", callback: (($obj: Channel, message: string, added: any, removed: any, localPending: any, remotePending: any, actor: number, reason: number) => void)): number
-    connect_after(sigName: "group-members-changed", callback: (($obj: Channel, message: string, added: any, removed: any, localPending: any, remotePending: any, actor: number, reason: number) => void)): number
+    on(sigName: "group-members-changed", callback: (message: string, added: any, removed: any, localPending: any, remotePending: any, actor: number, reason: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "group-members-changed", callback: (message: string, added: any, removed: any, localPending: any, remotePending: any, actor: number, reason: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "group-members-changed", callback: (message: string, added: any, removed: any, localPending: any, remotePending: any, actor: number, reason: number) => void): NodeJS.EventEmitter
     emit(sigName: "group-members-changed", message: string, added: any, removed: any, localPending: any, remotePending: any, actor: number, reason: number): void
-    on(sigName: "group-members-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "group-members-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "group-members-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "group-members-changed-detailed", callback: (($obj: Channel, added: number[], removed: number[], localPending: number[], remotePending: number[], details: GLib.HashTable) => void)): number
-    connect_after(sigName: "group-members-changed-detailed", callback: (($obj: Channel, added: number[], removed: number[], localPending: number[], remotePending: number[], details: GLib.HashTable) => void)): number
+    on(sigName: "group-members-changed-detailed", callback: (added: number[], removed: number[], localPending: number[], remotePending: number[], details: GLib.HashTable) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "group-members-changed-detailed", callback: (added: number[], removed: number[], localPending: number[], remotePending: number[], details: GLib.HashTable) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "group-members-changed-detailed", callback: (added: number[], removed: number[], localPending: number[], remotePending: number[], details: GLib.HashTable) => void): NodeJS.EventEmitter
     emit(sigName: "group-members-changed-detailed", added: number[], removed: number[], localPending: number[], remotePending: number[], details: GLib.HashTable): void
-    on(sigName: "group-members-changed-detailed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "group-members-changed-detailed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "group-members-changed-detailed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of TelepathyGLib.Proxy */
+    /* Signals of TelepathyGLib-0.12.TelepathyGLib.Proxy */
     connect(sigName: "interface-added", callback: (($obj: Channel, id: number, proxy: any) => void)): number
-    connect_after(sigName: "interface-added", callback: (($obj: Channel, id: number, proxy: any) => void)): number
+    on(sigName: "interface-added", callback: (id: number, proxy: any) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "interface-added", callback: (id: number, proxy: any) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "interface-added", callback: (id: number, proxy: any) => void): NodeJS.EventEmitter
     emit(sigName: "interface-added", id: number, proxy: any): void
-    on(sigName: "interface-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "interface-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "interface-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "invalidated", callback: (($obj: Channel, domain: number, code: number, message: string) => void)): number
-    connect_after(sigName: "invalidated", callback: (($obj: Channel, domain: number, code: number, message: string) => void)): number
+    on(sigName: "invalidated", callback: (domain: number, code: number, message: string) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "invalidated", callback: (domain: number, code: number, message: string) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "invalidated", callback: (domain: number, code: number, message: string) => void): NodeJS.EventEmitter
     emit(sigName: "invalidated", domain: number, code: number, message: string): void
-    on(sigName: "invalidated", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "invalidated", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "invalidated", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Channel, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Channel, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::channel-ready", callback: (($obj: Channel, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::channel-ready", callback: (($obj: Channel, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::channel-ready", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -3606,13 +3410,13 @@ export interface ChannelDispatchOperation_ConstructProps extends Proxy_Construct
     connection?: Connection
 }
 export class ChannelDispatchOperation {
-    /* Properties of TelepathyGLib.ChannelDispatchOperation */
+    /* Properties of TelepathyGLib-0.12.TelepathyGLib.ChannelDispatchOperation */
     readonly possibleHandlers: string[]
-    /* Properties of TelepathyGLib.Proxy */
+    /* Properties of TelepathyGLib-0.12.TelepathyGLib.Proxy */
     readonly interfaces: string[]
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of TelepathyGLib.ChannelDispatchOperation */
+    /* Methods of TelepathyGLib-0.12.TelepathyGLib.ChannelDispatchOperation */
     claimAsync(callback?: Gio.AsyncReadyCallback | null): void
     claimFinish(result: Gio.AsyncResult): boolean
     claimWithAsync(client: BaseClient, callback?: Gio.AsyncReadyCallback | null): void
@@ -3628,7 +3432,7 @@ export class ChannelDispatchOperation {
     handleWithTimeFinish(result: Gio.AsyncResult): boolean
     leaveChannelsAsync(reason: ChannelGroupChangeReason, message: string, callback?: Gio.AsyncReadyCallback | null): void
     leaveChannelsFinish(result: Gio.AsyncResult): boolean
-    /* Methods of TelepathyGLib.Proxy */
+    /* Methods of TelepathyGLib-0.12.TelepathyGLib.Proxy */
     dbusErrorToGerror(dbusError: string, debugMessage: string): void
     getBusName(): string
     getDbusDaemon(): DBusDaemon
@@ -3640,7 +3444,7 @@ export class ChannelDispatchOperation {
     isPrepared(feature: GLib.Quark): boolean
     prepareAsync(features?: GLib.Quark[] | null, callback?: Gio.AsyncReadyCallback | null): void
     prepareFinish(result: Gio.AsyncResult): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -3662,41 +3466,29 @@ export class ChannelDispatchOperation {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of TelepathyGLib.ChannelDispatchOperation */
+    /* Signals of TelepathyGLib-0.12.TelepathyGLib.ChannelDispatchOperation */
     connect(sigName: "channel-lost", callback: (($obj: ChannelDispatchOperation, channel: Channel, domain: number, code: number, message: string) => void)): number
-    connect_after(sigName: "channel-lost", callback: (($obj: ChannelDispatchOperation, channel: Channel, domain: number, code: number, message: string) => void)): number
+    on(sigName: "channel-lost", callback: (channel: Channel, domain: number, code: number, message: string) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "channel-lost", callback: (channel: Channel, domain: number, code: number, message: string) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "channel-lost", callback: (channel: Channel, domain: number, code: number, message: string) => void): NodeJS.EventEmitter
     emit(sigName: "channel-lost", channel: Channel, domain: number, code: number, message: string): void
-    on(sigName: "channel-lost", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "channel-lost", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "channel-lost", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of TelepathyGLib.Proxy */
+    /* Signals of TelepathyGLib-0.12.TelepathyGLib.Proxy */
     connect(sigName: "interface-added", callback: (($obj: ChannelDispatchOperation, id: number, proxy: any) => void)): number
-    connect_after(sigName: "interface-added", callback: (($obj: ChannelDispatchOperation, id: number, proxy: any) => void)): number
+    on(sigName: "interface-added", callback: (id: number, proxy: any) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "interface-added", callback: (id: number, proxy: any) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "interface-added", callback: (id: number, proxy: any) => void): NodeJS.EventEmitter
     emit(sigName: "interface-added", id: number, proxy: any): void
-    on(sigName: "interface-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "interface-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "interface-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "invalidated", callback: (($obj: ChannelDispatchOperation, domain: number, code: number, message: string) => void)): number
-    connect_after(sigName: "invalidated", callback: (($obj: ChannelDispatchOperation, domain: number, code: number, message: string) => void)): number
+    on(sigName: "invalidated", callback: (domain: number, code: number, message: string) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "invalidated", callback: (domain: number, code: number, message: string) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "invalidated", callback: (domain: number, code: number, message: string) => void): NodeJS.EventEmitter
     emit(sigName: "invalidated", domain: number, code: number, message: string): void
-    on(sigName: "invalidated", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "invalidated", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "invalidated", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: ChannelDispatchOperation, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: ChannelDispatchOperation, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::possible-handlers", callback: (($obj: ChannelDispatchOperation, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::possible-handlers", callback: (($obj: ChannelDispatchOperation, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::possible-handlers", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -3726,14 +3518,14 @@ export class ChannelDispatchOperation {
 export interface ChannelDispatcher_ConstructProps extends Proxy_ConstructProps {
 }
 export class ChannelDispatcher {
-    /* Properties of TelepathyGLib.Proxy */
+    /* Properties of TelepathyGLib-0.12.TelepathyGLib.Proxy */
     readonly interfaces: string[]
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of TelepathyGLib.ChannelDispatcher */
+    /* Methods of TelepathyGLib-0.12.TelepathyGLib.ChannelDispatcher */
     presentChannelAsync(channel: Channel, userActionTime: number, callback?: Gio.AsyncReadyCallback | null): void
     presentChannelFinish(result: Gio.AsyncResult): boolean
-    /* Methods of TelepathyGLib.Proxy */
+    /* Methods of TelepathyGLib-0.12.TelepathyGLib.Proxy */
     dbusErrorToGerror(dbusError: string, debugMessage: string): void
     getBusName(): string
     getDbusDaemon(): DBusDaemon
@@ -3745,7 +3537,7 @@ export class ChannelDispatcher {
     isPrepared(feature: GLib.Quark): boolean
     prepareAsync(features?: GLib.Quark[] | null, callback?: Gio.AsyncReadyCallback | null): void
     prepareFinish(result: Gio.AsyncResult): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -3767,34 +3559,23 @@ export class ChannelDispatcher {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of TelepathyGLib.Proxy */
+    /* Signals of TelepathyGLib-0.12.TelepathyGLib.Proxy */
     connect(sigName: "interface-added", callback: (($obj: ChannelDispatcher, id: number, proxy: any) => void)): number
-    connect_after(sigName: "interface-added", callback: (($obj: ChannelDispatcher, id: number, proxy: any) => void)): number
+    on(sigName: "interface-added", callback: (id: number, proxy: any) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "interface-added", callback: (id: number, proxy: any) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "interface-added", callback: (id: number, proxy: any) => void): NodeJS.EventEmitter
     emit(sigName: "interface-added", id: number, proxy: any): void
-    on(sigName: "interface-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "interface-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "interface-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "invalidated", callback: (($obj: ChannelDispatcher, domain: number, code: number, message: string) => void)): number
-    connect_after(sigName: "invalidated", callback: (($obj: ChannelDispatcher, domain: number, code: number, message: string) => void)): number
+    on(sigName: "invalidated", callback: (domain: number, code: number, message: string) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "invalidated", callback: (domain: number, code: number, message: string) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "invalidated", callback: (domain: number, code: number, message: string) => void): NodeJS.EventEmitter
     emit(sigName: "invalidated", domain: number, code: number, message: string): void
-    on(sigName: "invalidated", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "invalidated", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "invalidated", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: ChannelDispatcher, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: ChannelDispatcher, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::interfaces", callback: (($obj: ChannelDispatcher, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::interfaces", callback: (($obj: ChannelDispatcher, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::interfaces", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -3819,18 +3600,18 @@ export interface ChannelRequest_ConstructProps extends Proxy_ConstructProps {
     channelFactory?: GObject.Object
 }
 export class ChannelRequest {
-    /* Properties of TelepathyGLib.ChannelRequest */
+    /* Properties of TelepathyGLib-0.12.TelepathyGLib.ChannelRequest */
     readonly account: Account
     channelFactory: GObject.Object
     readonly hintsVardict: GLib.Variant
     readonly immutablePropertiesVardict: GLib.Variant
     readonly preferredHandler: string
     readonly userActionTime: number
-    /* Properties of TelepathyGLib.Proxy */
+    /* Properties of TelepathyGLib-0.12.TelepathyGLib.Proxy */
     readonly interfaces: string[]
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of TelepathyGLib.ChannelRequest */
+    /* Methods of TelepathyGLib-0.12.TelepathyGLib.ChannelRequest */
     dupHints(): GLib.Variant
     dupImmutableProperties(): GLib.Variant
     getAccount(): Account
@@ -3839,7 +3620,7 @@ export class ChannelRequest {
     getPreferredHandler(): string
     getUserActionTime(): number
     setChannelFactory(factory: ClientChannelFactory): void
-    /* Methods of TelepathyGLib.Proxy */
+    /* Methods of TelepathyGLib-0.12.TelepathyGLib.Proxy */
     dbusErrorToGerror(dbusError: string, debugMessage: string): void
     getBusName(): string
     getDbusDaemon(): DBusDaemon
@@ -3851,7 +3632,7 @@ export class ChannelRequest {
     isPrepared(feature: GLib.Quark): boolean
     prepareAsync(features?: GLib.Quark[] | null, callback?: Gio.AsyncReadyCallback | null): void
     prepareFinish(result: Gio.AsyncResult): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -3873,47 +3654,34 @@ export class ChannelRequest {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of TelepathyGLib.ChannelRequest */
+    /* Signals of TelepathyGLib-0.12.TelepathyGLib.ChannelRequest */
     connect(sigName: "succeeded", callback: (($obj: ChannelRequest) => void)): number
-    connect_after(sigName: "succeeded", callback: (($obj: ChannelRequest) => void)): number
+    on(sigName: "succeeded", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "succeeded", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "succeeded", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "succeeded"): void
-    on(sigName: "succeeded", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "succeeded", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "succeeded", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "succeeded-with-channel", callback: (($obj: ChannelRequest, connection: Connection, channel: Channel) => void)): number
-    connect_after(sigName: "succeeded-with-channel", callback: (($obj: ChannelRequest, connection: Connection, channel: Channel) => void)): number
+    on(sigName: "succeeded-with-channel", callback: (connection: Connection, channel: Channel) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "succeeded-with-channel", callback: (connection: Connection, channel: Channel) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "succeeded-with-channel", callback: (connection: Connection, channel: Channel) => void): NodeJS.EventEmitter
     emit(sigName: "succeeded-with-channel", connection: Connection, channel: Channel): void
-    on(sigName: "succeeded-with-channel", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "succeeded-with-channel", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "succeeded-with-channel", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of TelepathyGLib.Proxy */
+    /* Signals of TelepathyGLib-0.12.TelepathyGLib.Proxy */
     connect(sigName: "interface-added", callback: (($obj: ChannelRequest, id: number, proxy: any) => void)): number
-    connect_after(sigName: "interface-added", callback: (($obj: ChannelRequest, id: number, proxy: any) => void)): number
+    on(sigName: "interface-added", callback: (id: number, proxy: any) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "interface-added", callback: (id: number, proxy: any) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "interface-added", callback: (id: number, proxy: any) => void): NodeJS.EventEmitter
     emit(sigName: "interface-added", id: number, proxy: any): void
-    on(sigName: "interface-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "interface-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "interface-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "invalidated", callback: (($obj: ChannelRequest, domain: number, code: number, message: string) => void)): number
-    connect_after(sigName: "invalidated", callback: (($obj: ChannelRequest, domain: number, code: number, message: string) => void)): number
+    on(sigName: "invalidated", callback: (domain: number, code: number, message: string) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "invalidated", callback: (domain: number, code: number, message: string) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "invalidated", callback: (domain: number, code: number, message: string) => void): NodeJS.EventEmitter
     emit(sigName: "invalidated", domain: number, code: number, message: string): void
-    on(sigName: "invalidated", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "invalidated", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "invalidated", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: ChannelRequest, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: ChannelRequest, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::account", callback: (($obj: ChannelRequest, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::account", callback: (($obj: ChannelRequest, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::account", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -3967,9 +3735,9 @@ export class ChannelRequest {
 export interface ClientMessage_ConstructProps extends Message_ConstructProps {
 }
 export class ClientMessage {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of TelepathyGLib.Message */
+    /* Methods of TelepathyGLib-0.12.TelepathyGLib.Message */
     appendPart(): number
     countParts(): number
     deleteKey(part: number, key: string): boolean
@@ -3977,7 +3745,7 @@ export class ClientMessage {
     destroy(): void
     dupPart(part: number): GLib.Variant
     getMessageType(): ChannelTextMessageType
-    getPendingMessageId(): [ /* returnType */ number, /* valid */ boolean ]
+    getPendingMessageId(): { returnType: number, valid: boolean }
     getReceivedTimestamp(): number
     getSentTimestamp(): number
     getSpecificToInterface(): string
@@ -4000,8 +3768,8 @@ export class ClientMessage {
     setUint64(part: number, key: string, u: number): void
     setVariant(part: number, key: string, value: GLib.Variant): void
     takeMessage(part: number, key: string, message: Message): void
-    toText(): [ /* returnType */ string, /* outFlags */ ChannelTextMessageFlags ]
-    /* Methods of GObject.Object */
+    toText(): { returnType: string, outFlags: ChannelTextMessageFlags }
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -4023,21 +3791,12 @@ export class ClientMessage {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: ClientMessage, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: ClientMessage, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -4056,7 +3815,7 @@ export class ClientMessage {
 export interface Connection_ConstructProps extends Proxy_ConstructProps {
 }
 export class Connection {
-    /* Properties of TelepathyGLib.Connection */
+    /* Properties of TelepathyGLib-0.12.TelepathyGLib.Connection */
     readonly balance: number
     readonly balanceCurrency: string
     readonly balanceScale: number
@@ -4079,11 +3838,11 @@ export class Connection {
     readonly selfHandle: number
     readonly status: number
     readonly statusReason: number
-    /* Properties of TelepathyGLib.Proxy */
+    /* Properties of TelepathyGLib-0.12.TelepathyGLib.Proxy */
     readonly interfaces: string[]
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of TelepathyGLib.Connection */
+    /* Methods of TelepathyGLib-0.12.TelepathyGLib.Connection */
     addClientInterest(interestedIn: string): void
     addToGroupAsync(group: string, contacts: Contact[], callback?: Gio.AsyncReadyCallback | null): void
     addToGroupFinish(result: Gio.AsyncResult): boolean
@@ -4100,10 +3859,10 @@ export class Connection {
     dupContactIfPossible(handle: Handle, identifier: string): Contact
     dupContactInfoSupportedFields(): ContactInfoFieldSpec[]
     dupContactList(): Contact[]
-    dupDetailedErrorVardict(): [ /* returnType */ string | null, /* details */ GLib.Variant | null ]
+    dupDetailedErrorVardict(): { returnType: string | null, details: GLib.Variant | null }
     getAccount(): Account
     getAvatarRequirements(): AvatarRequirements
-    getBalance(): [ /* returnType */ boolean, /* balance */ number, /* scale */ number, /* currency */ string ]
+    getBalance(): { returnType: boolean, balance: number, scale: number, currency: string }
     getBalanceUri(): string
     getBlockedContacts(): Contact[]
     getCanChangeContactList(): boolean
@@ -4119,17 +3878,17 @@ export class Connection {
     getContactListState(): ContactListState
     getContactsByHandle(handles: number[], features: number[] | null, callback: ConnectionContactsByHandleCb, weakObject?: GObject.Object | null): void
     getContactsById(ids: string[], features: ContactFeature[] | null, callback: ConnectionContactsByIdCb, weakObject?: GObject.Object | null): void
-    getDetailedError(): [ /* returnType */ string | null, /* details */ GLib.HashTable | null ]
+    getDetailedError(): { returnType: string | null, details: GLib.HashTable | null }
     getDisjointGroups(): boolean
     getGroupStorage(): ContactMetadataStorageType
     getProtocolName(): string
     getRequestUsesMessage(): boolean
     getSelfContact(): Contact
     getSelfHandle(): Handle
-    getStatus(): [ /* returnType */ ConnectionStatus, /* reason */ ConnectionStatusReason ]
+    getStatus(): { returnType: ConnectionStatus, reason: ConnectionStatusReason }
     hasImmortalHandles(): boolean
     holdHandles(timeoutMs: number, handleType: HandleType, handles: Handle[], callback: ConnectionHoldHandlesCb, weakObject: GObject.Object): void
-    parseObjectPath(): [ /* returnType */ boolean, /* protocol */ string, /* cmName */ string ]
+    parseObjectPath(): { returnType: boolean, protocol: string, cmName: string }
     refreshContactInfo(contacts: Contact[]): void
     removeContactsAsync(contacts: Contact[], callback?: Gio.AsyncReadyCallback | null): void
     removeContactsFinish(result: Gio.AsyncResult): boolean
@@ -4155,8 +3914,8 @@ export class Connection {
     unsubscribeFinish(result: Gio.AsyncResult): boolean
     upgradeContacts(contacts: Contact[], features: ContactFeature[], callback: ConnectionUpgradeContactsCb, weakObject?: GObject.Object | null): void
     upgradeContactsAsync(contacts: Contact[], features: ContactFeature[], callback?: Gio.AsyncReadyCallback | null): void
-    upgradeContactsFinish(result: Gio.AsyncResult): [ /* returnType */ boolean, /* contacts */ Contact[] | null ]
-    /* Methods of TelepathyGLib.Proxy */
+    upgradeContactsFinish(result: Gio.AsyncResult): { returnType: boolean, contacts: Contact[] | null }
+    /* Methods of TelepathyGLib-0.12.TelepathyGLib.Proxy */
     dbusErrorToGerror(dbusError: string, debugMessage: string): void
     getBusName(): string
     getDbusDaemon(): DBusDaemon
@@ -4168,7 +3927,7 @@ export class Connection {
     isPrepared(feature: GLib.Quark): boolean
     prepareAsync(features?: GLib.Quark[] | null, callback?: Gio.AsyncReadyCallback | null): void
     prepareFinish(result: Gio.AsyncResult): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -4190,71 +3949,54 @@ export class Connection {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of TelepathyGLib.Connection */
+    /* Signals of TelepathyGLib-0.12.TelepathyGLib.Connection */
     connect(sigName: "balance-changed", callback: (($obj: Connection, balance: number, balanceScale: number, balanceCurrency: string) => void)): number
-    connect_after(sigName: "balance-changed", callback: (($obj: Connection, balance: number, balanceScale: number, balanceCurrency: string) => void)): number
+    on(sigName: "balance-changed", callback: (balance: number, balanceScale: number, balanceCurrency: string) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "balance-changed", callback: (balance: number, balanceScale: number, balanceCurrency: string) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "balance-changed", callback: (balance: number, balanceScale: number, balanceCurrency: string) => void): NodeJS.EventEmitter
     emit(sigName: "balance-changed", balance: number, balanceScale: number, balanceCurrency: string): void
-    on(sigName: "balance-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "balance-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "balance-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "blocked-contacts-changed", callback: (($obj: Connection, added: Contact[], removed: Contact[]) => void)): number
-    connect_after(sigName: "blocked-contacts-changed", callback: (($obj: Connection, added: Contact[], removed: Contact[]) => void)): number
+    on(sigName: "blocked-contacts-changed", callback: (added: Contact[], removed: Contact[]) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "blocked-contacts-changed", callback: (added: Contact[], removed: Contact[]) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "blocked-contacts-changed", callback: (added: Contact[], removed: Contact[]) => void): NodeJS.EventEmitter
     emit(sigName: "blocked-contacts-changed", added: Contact[], removed: Contact[]): void
-    on(sigName: "blocked-contacts-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "blocked-contacts-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "blocked-contacts-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "contact-list-changed", callback: (($obj: Connection, added: Contact[], removed: Contact[]) => void)): number
-    connect_after(sigName: "contact-list-changed", callback: (($obj: Connection, added: Contact[], removed: Contact[]) => void)): number
+    on(sigName: "contact-list-changed", callback: (added: Contact[], removed: Contact[]) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "contact-list-changed", callback: (added: Contact[], removed: Contact[]) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "contact-list-changed", callback: (added: Contact[], removed: Contact[]) => void): NodeJS.EventEmitter
     emit(sigName: "contact-list-changed", added: Contact[], removed: Contact[]): void
-    on(sigName: "contact-list-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "contact-list-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "contact-list-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "group-renamed", callback: (($obj: Connection, oldName: string, newName: string) => void)): number
-    connect_after(sigName: "group-renamed", callback: (($obj: Connection, oldName: string, newName: string) => void)): number
+    on(sigName: "group-renamed", callback: (oldName: string, newName: string) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "group-renamed", callback: (oldName: string, newName: string) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "group-renamed", callback: (oldName: string, newName: string) => void): NodeJS.EventEmitter
     emit(sigName: "group-renamed", oldName: string, newName: string): void
-    on(sigName: "group-renamed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "group-renamed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "group-renamed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "groups-created", callback: (($obj: Connection, added: string[]) => void)): number
-    connect_after(sigName: "groups-created", callback: (($obj: Connection, added: string[]) => void)): number
+    on(sigName: "groups-created", callback: (added: string[]) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "groups-created", callback: (added: string[]) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "groups-created", callback: (added: string[]) => void): NodeJS.EventEmitter
     emit(sigName: "groups-created", added: string[]): void
-    on(sigName: "groups-created", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "groups-created", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "groups-created", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "groups-removed", callback: (($obj: Connection, added: string[]) => void)): number
-    connect_after(sigName: "groups-removed", callback: (($obj: Connection, added: string[]) => void)): number
+    on(sigName: "groups-removed", callback: (added: string[]) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "groups-removed", callback: (added: string[]) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "groups-removed", callback: (added: string[]) => void): NodeJS.EventEmitter
     emit(sigName: "groups-removed", added: string[]): void
-    on(sigName: "groups-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "groups-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "groups-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of TelepathyGLib.Proxy */
+    /* Signals of TelepathyGLib-0.12.TelepathyGLib.Proxy */
     connect(sigName: "interface-added", callback: (($obj: Connection, id: number, proxy: any) => void)): number
-    connect_after(sigName: "interface-added", callback: (($obj: Connection, id: number, proxy: any) => void)): number
+    on(sigName: "interface-added", callback: (id: number, proxy: any) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "interface-added", callback: (id: number, proxy: any) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "interface-added", callback: (id: number, proxy: any) => void): NodeJS.EventEmitter
     emit(sigName: "interface-added", id: number, proxy: any): void
-    on(sigName: "interface-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "interface-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "interface-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "invalidated", callback: (($obj: Connection, domain: number, code: number, message: string) => void)): number
-    connect_after(sigName: "invalidated", callback: (($obj: Connection, domain: number, code: number, message: string) => void)): number
+    on(sigName: "invalidated", callback: (domain: number, code: number, message: string) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "invalidated", callback: (domain: number, code: number, message: string) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "invalidated", callback: (domain: number, code: number, message: string) => void): NodeJS.EventEmitter
     emit(sigName: "invalidated", domain: number, code: number, message: string): void
-    on(sigName: "invalidated", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "invalidated", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "invalidated", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Connection, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Connection, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::balance", callback: (($obj: Connection, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::balance", callback: (($obj: Connection, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::balance", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -4402,17 +4144,17 @@ export interface ConnectionManager_ConstructProps extends Proxy_ConstructProps {
     managerFile?: string
 }
 export class ConnectionManager {
-    /* Properties of TelepathyGLib.ConnectionManager */
+    /* Properties of TelepathyGLib-0.12.TelepathyGLib.ConnectionManager */
     alwaysIntrospect: boolean
     readonly cmName: string
     readonly connectionManager: string
     readonly infoSource: number
     managerFile: string
-    /* Properties of TelepathyGLib.Proxy */
+    /* Properties of TelepathyGLib-0.12.TelepathyGLib.Proxy */
     readonly interfaces: string[]
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of TelepathyGLib.ConnectionManager */
+    /* Methods of TelepathyGLib-0.12.TelepathyGLib.ConnectionManager */
     dupProtocolNames(): string[]
     dupProtocols(): Protocol[]
     getInfoSource(): CMInfoSource
@@ -4421,7 +4163,7 @@ export class ConnectionManager {
     getProtocolObject(protocol: string): Protocol
     hasProtocol(protocol: string): boolean
     isRunning(): boolean
-    /* Methods of TelepathyGLib.Proxy */
+    /* Methods of TelepathyGLib-0.12.TelepathyGLib.Proxy */
     dbusErrorToGerror(dbusError: string, debugMessage: string): void
     getBusName(): string
     getDbusDaemon(): DBusDaemon
@@ -4433,7 +4175,7 @@ export class ConnectionManager {
     isPrepared(feature: GLib.Quark): boolean
     prepareAsync(features?: GLib.Quark[] | null, callback?: Gio.AsyncReadyCallback | null): void
     prepareFinish(result: Gio.AsyncResult): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -4455,53 +4197,39 @@ export class ConnectionManager {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of TelepathyGLib.ConnectionManager */
+    /* Signals of TelepathyGLib-0.12.TelepathyGLib.ConnectionManager */
     connect(sigName: "activated", callback: (($obj: ConnectionManager) => void)): number
-    connect_after(sigName: "activated", callback: (($obj: ConnectionManager) => void)): number
+    on(sigName: "activated", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "activated", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "activated", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "activated"): void
-    on(sigName: "activated", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "activated", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "activated", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "exited", callback: (($obj: ConnectionManager) => void)): number
-    connect_after(sigName: "exited", callback: (($obj: ConnectionManager) => void)): number
+    on(sigName: "exited", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "exited", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "exited", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "exited"): void
-    on(sigName: "exited", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "exited", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "exited", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "got-info", callback: (($obj: ConnectionManager, source: number) => void)): number
-    connect_after(sigName: "got-info", callback: (($obj: ConnectionManager, source: number) => void)): number
+    on(sigName: "got-info", callback: (source: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "got-info", callback: (source: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "got-info", callback: (source: number) => void): NodeJS.EventEmitter
     emit(sigName: "got-info", source: number): void
-    on(sigName: "got-info", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "got-info", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "got-info", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of TelepathyGLib.Proxy */
+    /* Signals of TelepathyGLib-0.12.TelepathyGLib.Proxy */
     connect(sigName: "interface-added", callback: (($obj: ConnectionManager, id: number, proxy: any) => void)): number
-    connect_after(sigName: "interface-added", callback: (($obj: ConnectionManager, id: number, proxy: any) => void)): number
+    on(sigName: "interface-added", callback: (id: number, proxy: any) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "interface-added", callback: (id: number, proxy: any) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "interface-added", callback: (id: number, proxy: any) => void): NodeJS.EventEmitter
     emit(sigName: "interface-added", id: number, proxy: any): void
-    on(sigName: "interface-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "interface-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "interface-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "invalidated", callback: (($obj: ConnectionManager, domain: number, code: number, message: string) => void)): number
-    connect_after(sigName: "invalidated", callback: (($obj: ConnectionManager, domain: number, code: number, message: string) => void)): number
+    on(sigName: "invalidated", callback: (domain: number, code: number, message: string) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "invalidated", callback: (domain: number, code: number, message: string) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "invalidated", callback: (domain: number, code: number, message: string) => void): NodeJS.EventEmitter
     emit(sigName: "invalidated", domain: number, code: number, message: string): void
-    on(sigName: "invalidated", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "invalidated", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "invalidated", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: ConnectionManager, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: ConnectionManager, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::always-introspect", callback: (($obj: ConnectionManager, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::always-introspect", callback: (($obj: ConnectionManager, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::always-introspect", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -4553,7 +4281,7 @@ export class ConnectionManager {
 export interface Contact_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class Contact {
-    /* Properties of TelepathyGLib.Contact */
+    /* Properties of TelepathyGLib-0.12.TelepathyGLib.Contact */
     readonly alias: string
     readonly avatarFile: Gio.File
     readonly avatarMimeType: string
@@ -4573,9 +4301,9 @@ export class Contact {
     readonly publishRequest: string
     readonly publishState: number
     readonly subscribeState: number
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of TelepathyGLib.Contact */
+    /* Methods of TelepathyGLib-0.12.TelepathyGLib.Contact */
     addToGroupAsync(group: string, callback?: Gio.AsyncReadyCallback | null): void
     addToGroupFinish(result: Gio.AsyncResult): boolean
     authorizePublicationAsync(callback?: Gio.AsyncReadyCallback | null): void
@@ -4620,7 +4348,7 @@ export class Contact {
     unpublishFinish(result: Gio.AsyncResult): boolean
     unsubscribeAsync(callback?: Gio.AsyncReadyCallback | null): void
     unsubscribeFinish(result: Gio.AsyncResult): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -4642,40 +4370,28 @@ export class Contact {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of TelepathyGLib.Contact */
+    /* Signals of TelepathyGLib-0.12.TelepathyGLib.Contact */
     connect(sigName: "contact-groups-changed", callback: (($obj: Contact, added: string[], removed: string[]) => void)): number
-    connect_after(sigName: "contact-groups-changed", callback: (($obj: Contact, added: string[], removed: string[]) => void)): number
+    on(sigName: "contact-groups-changed", callback: (added: string[], removed: string[]) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "contact-groups-changed", callback: (added: string[], removed: string[]) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "contact-groups-changed", callback: (added: string[], removed: string[]) => void): NodeJS.EventEmitter
     emit(sigName: "contact-groups-changed", added: string[], removed: string[]): void
-    on(sigName: "contact-groups-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "contact-groups-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "contact-groups-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "presence-changed", callback: (($obj: Contact, type: number, status: string, message: string) => void)): number
-    connect_after(sigName: "presence-changed", callback: (($obj: Contact, type: number, status: string, message: string) => void)): number
+    on(sigName: "presence-changed", callback: (type: number, status: string, message: string) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "presence-changed", callback: (type: number, status: string, message: string) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "presence-changed", callback: (type: number, status: string, message: string) => void): NodeJS.EventEmitter
     emit(sigName: "presence-changed", type: number, status: string, message: string): void
-    on(sigName: "presence-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "presence-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "presence-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "subscription-states-changed", callback: (($obj: Contact, subscribe: number, publish: number, publishRequest: string) => void)): number
-    connect_after(sigName: "subscription-states-changed", callback: (($obj: Contact, subscribe: number, publish: number, publishRequest: string) => void)): number
+    on(sigName: "subscription-states-changed", callback: (subscribe: number, publish: number, publishRequest: string) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "subscription-states-changed", callback: (subscribe: number, publish: number, publishRequest: string) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "subscription-states-changed", callback: (subscribe: number, publish: number, publishRequest: string) => void): NodeJS.EventEmitter
     emit(sigName: "subscription-states-changed", subscribe: number, publish: number, publishRequest: string): void
-    on(sigName: "subscription-states-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "subscription-states-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "subscription-states-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Contact, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Contact, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::alias", callback: (($obj: Contact, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::alias", callback: (($obj: Contact, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::alias", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -4789,12 +4505,12 @@ export interface ContactSearch_ConstructProps extends GObject.Object_ConstructPr
     server?: string
 }
 export class ContactSearch {
-    /* Properties of TelepathyGLib.ContactSearch */
+    /* Properties of TelepathyGLib-0.12.TelepathyGLib.ContactSearch */
     limit: number
     readonly state: number
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of TelepathyGLib.ContactSearch */
+    /* Methods of TelepathyGLib-0.12.TelepathyGLib.ContactSearch */
     getAccount(): Account
     getLimit(): number
     getSearchKeys(): string[]
@@ -4802,7 +4518,7 @@ export class ContactSearch {
     resetAsync(server: string, limit: number, callback?: Gio.AsyncReadyCallback | null): void
     resetFinish(result: Gio.AsyncResult): string[]
     start(criteria: GLib.HashTable): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -4824,35 +4540,22 @@ export class ContactSearch {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of Gio.AsyncInitable */
+    /* Methods of Gio-2.0.Gio.AsyncInitable */
     initAsync(ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     initFinish(res: Gio.AsyncResult): boolean
     newFinish(res: Gio.AsyncResult): GObject.Object
-    /* Virtual methods of TelepathyGLib.ContactSearch */
-    vfuncInitAsync(ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    vfuncInitFinish(res: Gio.AsyncResult): boolean
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of TelepathyGLib.ContactSearch */
+    /* Signals of TelepathyGLib-0.12.TelepathyGLib.ContactSearch */
     connect(sigName: "search-results-received", callback: (($obj: ContactSearch, results: ContactSearchResult[]) => void)): number
-    connect_after(sigName: "search-results-received", callback: (($obj: ContactSearch, results: ContactSearchResult[]) => void)): number
+    on(sigName: "search-results-received", callback: (results: ContactSearchResult[]) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "search-results-received", callback: (results: ContactSearchResult[]) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "search-results-received", callback: (results: ContactSearchResult[]) => void): NodeJS.EventEmitter
     emit(sigName: "search-results-received", results: ContactSearchResult[]): void
-    on(sigName: "search-results-received", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "search-results-received", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "search-results-received", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: ContactSearch, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: ContactSearch, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::limit", callback: (($obj: ContactSearch, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::limit", callback: (($obj: ContactSearch, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::limit", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -4883,14 +4586,14 @@ export interface ContactSearchResult_ConstructProps extends GObject.Object_Const
     identifier?: string
 }
 export class ContactSearchResult {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of TelepathyGLib.ContactSearchResult */
+    /* Methods of TelepathyGLib-0.12.TelepathyGLib.ContactSearchResult */
     dupFields(): ContactInfoField[]
     getField(field: string): ContactInfoField
     getFields(): ContactInfoField[]
     getIdentifier(): string
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -4912,21 +4615,12 @@ export class ContactSearchResult {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: ContactSearchResult, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: ContactSearchResult, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -4942,11 +4636,11 @@ export class ContactSearchResult {
 export interface DBusDaemon_ConstructProps extends Proxy_ConstructProps {
 }
 export class DBusDaemon {
-    /* Properties of TelepathyGLib.Proxy */
+    /* Properties of TelepathyGLib-0.12.TelepathyGLib.Proxy */
     readonly interfaces: string[]
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of TelepathyGLib.DBusDaemon */
+    /* Methods of TelepathyGLib-0.12.TelepathyGLib.DBusDaemon */
     getUniqueName(): string
     listActivatableNames(timeoutMs: number, callback: DBusDaemonListNamesCb, weakObject: GObject.Object): void
     listNames(timeoutMs: number, callback: DBusDaemonListNamesCb, weakObject: GObject.Object): void
@@ -4955,7 +4649,7 @@ export class DBusDaemon {
     requestName(wellKnownName: string, idempotent: boolean): boolean
     unregisterObject(object: GObject.Object): void
     watchNameOwner(name: string, callback: DBusDaemonNameOwnerChangedCb): void
-    /* Methods of TelepathyGLib.Proxy */
+    /* Methods of TelepathyGLib-0.12.TelepathyGLib.Proxy */
     dbusErrorToGerror(dbusError: string, debugMessage: string): void
     getBusName(): string
     getDbusDaemon(): DBusDaemon
@@ -4967,7 +4661,7 @@ export class DBusDaemon {
     isPrepared(feature: GLib.Quark): boolean
     prepareAsync(features?: GLib.Quark[] | null, callback?: Gio.AsyncReadyCallback | null): void
     prepareFinish(result: Gio.AsyncResult): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -4989,34 +4683,23 @@ export class DBusDaemon {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of TelepathyGLib.Proxy */
+    /* Signals of TelepathyGLib-0.12.TelepathyGLib.Proxy */
     connect(sigName: "interface-added", callback: (($obj: DBusDaemon, id: number, proxy: any) => void)): number
-    connect_after(sigName: "interface-added", callback: (($obj: DBusDaemon, id: number, proxy: any) => void)): number
+    on(sigName: "interface-added", callback: (id: number, proxy: any) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "interface-added", callback: (id: number, proxy: any) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "interface-added", callback: (id: number, proxy: any) => void): NodeJS.EventEmitter
     emit(sigName: "interface-added", id: number, proxy: any): void
-    on(sigName: "interface-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "interface-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "interface-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "invalidated", callback: (($obj: DBusDaemon, domain: number, code: number, message: string) => void)): number
-    connect_after(sigName: "invalidated", callback: (($obj: DBusDaemon, domain: number, code: number, message: string) => void)): number
+    on(sigName: "invalidated", callback: (domain: number, code: number, message: string) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "invalidated", callback: (domain: number, code: number, message: string) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "invalidated", callback: (domain: number, code: number, message: string) => void): NodeJS.EventEmitter
     emit(sigName: "invalidated", domain: number, code: number, message: string): void
-    on(sigName: "invalidated", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "invalidated", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "invalidated", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: DBusDaemon, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: DBusDaemon, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::interfaces", callback: (($obj: DBusDaemon, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::interfaces", callback: (($obj: DBusDaemon, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::interfaces", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -5040,10 +4723,10 @@ export class DBusDaemon {
 export interface DBusTubeChannel_ConstructProps extends Channel_ConstructProps {
 }
 export class DBusTubeChannel {
-    /* Properties of TelepathyGLib.DBusTubeChannel */
+    /* Properties of TelepathyGLib-0.12.TelepathyGLib.DBusTubeChannel */
     readonly parametersVardict: GLib.Variant
     readonly serviceName: string
-    /* Properties of TelepathyGLib.Channel */
+    /* Properties of TelepathyGLib-0.12.TelepathyGLib.Channel */
     readonly channelReady: boolean
     readonly groupFlags: number
     readonly groupSelfContact: Contact
@@ -5055,18 +4738,18 @@ export class DBusTubeChannel {
     readonly passwordNeeded: boolean
     readonly requested: boolean
     readonly targetContact: Contact
-    /* Properties of TelepathyGLib.Proxy */
+    /* Properties of TelepathyGLib-0.12.TelepathyGLib.Proxy */
     readonly interfaces: string[]
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of TelepathyGLib.DBusTubeChannel */
+    /* Methods of TelepathyGLib-0.12.TelepathyGLib.DBusTubeChannel */
     acceptAsync(callback?: Gio.AsyncReadyCallback | null): void
     acceptFinish(result: Gio.AsyncResult): Gio.DBusConnection
     dupParametersVardict(): GLib.Variant
     getServiceName(): string
     offerAsync(params?: GLib.HashTable | null, callback?: Gio.AsyncReadyCallback | null): void
     offerFinish(result: Gio.AsyncResult): Gio.DBusConnection
-    /* Methods of TelepathyGLib.Channel */
+    /* Methods of TelepathyGLib-0.12.TelepathyGLib.Channel */
     borrowConnection(): Connection
     borrowImmutableProperties(): GLib.HashTable
     closeAsync(callback?: Gio.AsyncReadyCallback | null): void
@@ -5078,7 +4761,7 @@ export class DBusTubeChannel {
     getChannelTypeId(): GLib.Quark
     getChatState(contact: Handle): ChannelChatState
     getConnection(): Connection
-    getHandle(): [ /* returnType */ Handle, /* handleType */ HandleType ]
+    getHandle(): { returnType: Handle, handleType: HandleType }
     getIdentifier(): string
     getInitiatorContact(): Contact
     getRequested(): boolean
@@ -5090,8 +4773,8 @@ export class DBusTubeChannel {
     groupGetFlags(): ChannelGroupFlags
     groupGetHandleOwner(handle: Handle): Handle
     groupGetLocalPending(): Intset
-    groupGetLocalPendingContactInfo(localPending: Contact): [ /* returnType */ boolean, /* actor */ Contact | null, /* reason */ ChannelGroupChangeReason | null, /* message */ string | null ]
-    groupGetLocalPendingInfo(localPending: Handle): [ /* returnType */ boolean, /* actor */ Handle | null, /* reason */ ChannelGroupChangeReason | null, /* message */ string | null ]
+    groupGetLocalPendingContactInfo(localPending: Contact): { returnType: boolean, actor: Contact | null, reason: ChannelGroupChangeReason | null, message: string | null }
+    groupGetLocalPendingInfo(localPending: Handle): { returnType: boolean, actor: Handle | null, reason: ChannelGroupChangeReason | null, message: string | null }
     groupGetMembers(): Intset
     groupGetRemotePending(): Intset
     groupGetSelfContact(): Contact
@@ -5102,7 +4785,7 @@ export class DBusTubeChannel {
     leaveFinish(result: Gio.AsyncResult): boolean
     providePasswordAsync(password: string, callback?: Gio.AsyncReadyCallback | null): void
     providePasswordFinish(result: Gio.AsyncResult): boolean
-    /* Methods of TelepathyGLib.Proxy */
+    /* Methods of TelepathyGLib-0.12.TelepathyGLib.Proxy */
     dbusErrorToGerror(dbusError: string, debugMessage: string): void
     getBusName(): string
     getDbusDaemon(): DBusDaemon
@@ -5114,7 +4797,7 @@ export class DBusTubeChannel {
     isPrepared(feature: GLib.Quark): boolean
     prepareAsync(features?: GLib.Quark[] | null, callback?: Gio.AsyncReadyCallback | null): void
     prepareFinish(result: Gio.AsyncResult): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -5136,65 +4819,49 @@ export class DBusTubeChannel {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of TelepathyGLib.Channel */
+    /* Signals of TelepathyGLib-0.12.TelepathyGLib.Channel */
     connect(sigName: "chat-state-changed", callback: (($obj: DBusTubeChannel, contact: number, state: number) => void)): number
-    connect_after(sigName: "chat-state-changed", callback: (($obj: DBusTubeChannel, contact: number, state: number) => void)): number
+    on(sigName: "chat-state-changed", callback: (contact: number, state: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "chat-state-changed", callback: (contact: number, state: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "chat-state-changed", callback: (contact: number, state: number) => void): NodeJS.EventEmitter
     emit(sigName: "chat-state-changed", contact: number, state: number): void
-    on(sigName: "chat-state-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "chat-state-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "chat-state-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "group-contacts-changed", callback: (($obj: DBusTubeChannel, added: Contact[], removed: Contact[], localPending: Contact[], remotePending: Contact[], actor: Contact, details: GLib.HashTable) => void)): number
-    connect_after(sigName: "group-contacts-changed", callback: (($obj: DBusTubeChannel, added: Contact[], removed: Contact[], localPending: Contact[], remotePending: Contact[], actor: Contact, details: GLib.HashTable) => void)): number
+    on(sigName: "group-contacts-changed", callback: (added: Contact[], removed: Contact[], localPending: Contact[], remotePending: Contact[], actor: Contact, details: GLib.HashTable) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "group-contacts-changed", callback: (added: Contact[], removed: Contact[], localPending: Contact[], remotePending: Contact[], actor: Contact, details: GLib.HashTable) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "group-contacts-changed", callback: (added: Contact[], removed: Contact[], localPending: Contact[], remotePending: Contact[], actor: Contact, details: GLib.HashTable) => void): NodeJS.EventEmitter
     emit(sigName: "group-contacts-changed", added: Contact[], removed: Contact[], localPending: Contact[], remotePending: Contact[], actor: Contact, details: GLib.HashTable): void
-    on(sigName: "group-contacts-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "group-contacts-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "group-contacts-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "group-flags-changed", callback: (($obj: DBusTubeChannel, added: number, removed: number) => void)): number
-    connect_after(sigName: "group-flags-changed", callback: (($obj: DBusTubeChannel, added: number, removed: number) => void)): number
+    on(sigName: "group-flags-changed", callback: (added: number, removed: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "group-flags-changed", callback: (added: number, removed: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "group-flags-changed", callback: (added: number, removed: number) => void): NodeJS.EventEmitter
     emit(sigName: "group-flags-changed", added: number, removed: number): void
-    on(sigName: "group-flags-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "group-flags-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "group-flags-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "group-members-changed", callback: (($obj: DBusTubeChannel, message: string, added: any, removed: any, localPending: any, remotePending: any, actor: number, reason: number) => void)): number
-    connect_after(sigName: "group-members-changed", callback: (($obj: DBusTubeChannel, message: string, added: any, removed: any, localPending: any, remotePending: any, actor: number, reason: number) => void)): number
+    on(sigName: "group-members-changed", callback: (message: string, added: any, removed: any, localPending: any, remotePending: any, actor: number, reason: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "group-members-changed", callback: (message: string, added: any, removed: any, localPending: any, remotePending: any, actor: number, reason: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "group-members-changed", callback: (message: string, added: any, removed: any, localPending: any, remotePending: any, actor: number, reason: number) => void): NodeJS.EventEmitter
     emit(sigName: "group-members-changed", message: string, added: any, removed: any, localPending: any, remotePending: any, actor: number, reason: number): void
-    on(sigName: "group-members-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "group-members-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "group-members-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "group-members-changed-detailed", callback: (($obj: DBusTubeChannel, added: number[], removed: number[], localPending: number[], remotePending: number[], details: GLib.HashTable) => void)): number
-    connect_after(sigName: "group-members-changed-detailed", callback: (($obj: DBusTubeChannel, added: number[], removed: number[], localPending: number[], remotePending: number[], details: GLib.HashTable) => void)): number
+    on(sigName: "group-members-changed-detailed", callback: (added: number[], removed: number[], localPending: number[], remotePending: number[], details: GLib.HashTable) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "group-members-changed-detailed", callback: (added: number[], removed: number[], localPending: number[], remotePending: number[], details: GLib.HashTable) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "group-members-changed-detailed", callback: (added: number[], removed: number[], localPending: number[], remotePending: number[], details: GLib.HashTable) => void): NodeJS.EventEmitter
     emit(sigName: "group-members-changed-detailed", added: number[], removed: number[], localPending: number[], remotePending: number[], details: GLib.HashTable): void
-    on(sigName: "group-members-changed-detailed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "group-members-changed-detailed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "group-members-changed-detailed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of TelepathyGLib.Proxy */
+    /* Signals of TelepathyGLib-0.12.TelepathyGLib.Proxy */
     connect(sigName: "interface-added", callback: (($obj: DBusTubeChannel, id: number, proxy: any) => void)): number
-    connect_after(sigName: "interface-added", callback: (($obj: DBusTubeChannel, id: number, proxy: any) => void)): number
+    on(sigName: "interface-added", callback: (id: number, proxy: any) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "interface-added", callback: (id: number, proxy: any) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "interface-added", callback: (id: number, proxy: any) => void): NodeJS.EventEmitter
     emit(sigName: "interface-added", id: number, proxy: any): void
-    on(sigName: "interface-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "interface-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "interface-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "invalidated", callback: (($obj: DBusTubeChannel, domain: number, code: number, message: string) => void)): number
-    connect_after(sigName: "invalidated", callback: (($obj: DBusTubeChannel, domain: number, code: number, message: string) => void)): number
+    on(sigName: "invalidated", callback: (domain: number, code: number, message: string) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "invalidated", callback: (domain: number, code: number, message: string) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "invalidated", callback: (domain: number, code: number, message: string) => void): NodeJS.EventEmitter
     emit(sigName: "invalidated", domain: number, code: number, message: string): void
-    on(sigName: "invalidated", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "invalidated", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "invalidated", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: DBusTubeChannel, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: DBusTubeChannel, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::parameters-vardict", callback: (($obj: DBusTubeChannel, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::parameters-vardict", callback: (($obj: DBusTubeChannel, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::parameters-vardict", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -5282,19 +4949,19 @@ export class DBusTubeChannel {
 export interface DebugClient_ConstructProps extends Proxy_ConstructProps {
 }
 export class DebugClient {
-    /* Properties of TelepathyGLib.DebugClient */
+    /* Properties of TelepathyGLib-0.12.TelepathyGLib.DebugClient */
     readonly enabled: boolean
-    /* Properties of TelepathyGLib.Proxy */
+    /* Properties of TelepathyGLib-0.12.TelepathyGLib.Proxy */
     readonly interfaces: string[]
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of TelepathyGLib.DebugClient */
+    /* Methods of TelepathyGLib-0.12.TelepathyGLib.DebugClient */
     getMessagesAsync(callback?: Gio.AsyncReadyCallback | null): void
     getMessagesFinish(result: Gio.AsyncResult): DebugMessage[]
     isEnabled(): boolean
     setEnabledAsync(enabled: boolean, callback?: Gio.AsyncReadyCallback | null): void
     setEnabledFinish(result: Gio.AsyncResult): boolean
-    /* Methods of TelepathyGLib.Proxy */
+    /* Methods of TelepathyGLib-0.12.TelepathyGLib.Proxy */
     dbusErrorToGerror(dbusError: string, debugMessage: string): void
     getBusName(): string
     getDbusDaemon(): DBusDaemon
@@ -5306,7 +4973,7 @@ export class DebugClient {
     isPrepared(feature: GLib.Quark): boolean
     prepareAsync(features?: GLib.Quark[] | null, callback?: Gio.AsyncReadyCallback | null): void
     prepareFinish(result: Gio.AsyncResult): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -5328,41 +4995,29 @@ export class DebugClient {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of TelepathyGLib.DebugClient */
+    /* Signals of TelepathyGLib-0.12.TelepathyGLib.DebugClient */
     connect(sigName: "new-debug-message", callback: (($obj: DebugClient, message: DebugMessage) => void)): number
-    connect_after(sigName: "new-debug-message", callback: (($obj: DebugClient, message: DebugMessage) => void)): number
+    on(sigName: "new-debug-message", callback: (message: DebugMessage) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "new-debug-message", callback: (message: DebugMessage) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "new-debug-message", callback: (message: DebugMessage) => void): NodeJS.EventEmitter
     emit(sigName: "new-debug-message", message: DebugMessage): void
-    on(sigName: "new-debug-message", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "new-debug-message", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "new-debug-message", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of TelepathyGLib.Proxy */
+    /* Signals of TelepathyGLib-0.12.TelepathyGLib.Proxy */
     connect(sigName: "interface-added", callback: (($obj: DebugClient, id: number, proxy: any) => void)): number
-    connect_after(sigName: "interface-added", callback: (($obj: DebugClient, id: number, proxy: any) => void)): number
+    on(sigName: "interface-added", callback: (id: number, proxy: any) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "interface-added", callback: (id: number, proxy: any) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "interface-added", callback: (id: number, proxy: any) => void): NodeJS.EventEmitter
     emit(sigName: "interface-added", id: number, proxy: any): void
-    on(sigName: "interface-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "interface-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "interface-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "invalidated", callback: (($obj: DebugClient, domain: number, code: number, message: string) => void)): number
-    connect_after(sigName: "invalidated", callback: (($obj: DebugClient, domain: number, code: number, message: string) => void)): number
+    on(sigName: "invalidated", callback: (domain: number, code: number, message: string) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "invalidated", callback: (domain: number, code: number, message: string) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "invalidated", callback: (domain: number, code: number, message: string) => void): NodeJS.EventEmitter
     emit(sigName: "invalidated", domain: number, code: number, message: string): void
-    on(sigName: "invalidated", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "invalidated", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "invalidated", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: DebugClient, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: DebugClient, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::enabled", callback: (($obj: DebugClient, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::enabled", callback: (($obj: DebugClient, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::enabled", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -5392,21 +5047,21 @@ export class DebugClient {
 export interface DebugMessage_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class DebugMessage {
-    /* Properties of TelepathyGLib.DebugMessage */
+    /* Properties of TelepathyGLib-0.12.TelepathyGLib.DebugMessage */
     readonly category: string
     readonly domain: string
     readonly level: number
     readonly message: string
     readonly time: GLib.DateTime
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of TelepathyGLib.DebugMessage */
+    /* Methods of TelepathyGLib-0.12.TelepathyGLib.DebugMessage */
     getCategory(): string
     getDomain(): string
     getLevel(): GLib.LogLevelFlags
     getMessage(): string
     getTime(): GLib.DateTime
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -5428,21 +5083,12 @@ export class DebugMessage {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: DebugMessage, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: DebugMessage, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::category", callback: (($obj: DebugMessage, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::category", callback: (($obj: DebugMessage, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::category", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -5483,7 +5129,7 @@ export class DebugMessage {
 export interface FileTransferChannel_ConstructProps extends Channel_ConstructProps {
 }
 export class FileTransferChannel {
-    /* Properties of TelepathyGLib.FileTransferChannel */
+    /* Properties of TelepathyGLib-0.12.TelepathyGLib.FileTransferChannel */
     readonly date: GLib.DateTime
     readonly description: string
     readonly file: Gio.File
@@ -5494,7 +5140,7 @@ export class FileTransferChannel {
     readonly size: number
     readonly state: number
     readonly transferredBytes: number
-    /* Properties of TelepathyGLib.Channel */
+    /* Properties of TelepathyGLib-0.12.TelepathyGLib.Channel */
     readonly channelReady: boolean
     readonly groupFlags: number
     readonly groupSelfContact: Contact
@@ -5506,11 +5152,11 @@ export class FileTransferChannel {
     readonly passwordNeeded: boolean
     readonly requested: boolean
     readonly targetContact: Contact
-    /* Properties of TelepathyGLib.Proxy */
+    /* Properties of TelepathyGLib-0.12.TelepathyGLib.Proxy */
     readonly interfaces: string[]
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of TelepathyGLib.FileTransferChannel */
+    /* Methods of TelepathyGLib-0.12.TelepathyGLib.FileTransferChannel */
     acceptFileAsync(file: Gio.File, offset: number, callback?: Gio.AsyncReadyCallback | null): void
     acceptFileFinish(result: Gio.AsyncResult): boolean
     getDate(): GLib.DateTime
@@ -5520,11 +5166,11 @@ export class FileTransferChannel {
     getMimeType(): string
     getServiceName(): string
     getSize(): number
-    getState(): [ /* returnType */ FileTransferState, /* reason */ FileTransferStateChangeReason ]
+    getState(): { returnType: FileTransferState, reason: FileTransferStateChangeReason }
     getTransferredBytes(): number
     provideFileAsync(file: Gio.File, callback?: Gio.AsyncReadyCallback | null): void
     provideFileFinish(result: Gio.AsyncResult): boolean
-    /* Methods of TelepathyGLib.Channel */
+    /* Methods of TelepathyGLib-0.12.TelepathyGLib.Channel */
     borrowConnection(): Connection
     borrowImmutableProperties(): GLib.HashTable
     closeAsync(callback?: Gio.AsyncReadyCallback | null): void
@@ -5536,7 +5182,7 @@ export class FileTransferChannel {
     getChannelTypeId(): GLib.Quark
     getChatState(contact: Handle): ChannelChatState
     getConnection(): Connection
-    getHandle(): [ /* returnType */ Handle, /* handleType */ HandleType ]
+    getHandle(): { returnType: Handle, handleType: HandleType }
     getIdentifier(): string
     getInitiatorContact(): Contact
     getRequested(): boolean
@@ -5548,8 +5194,8 @@ export class FileTransferChannel {
     groupGetFlags(): ChannelGroupFlags
     groupGetHandleOwner(handle: Handle): Handle
     groupGetLocalPending(): Intset
-    groupGetLocalPendingContactInfo(localPending: Contact): [ /* returnType */ boolean, /* actor */ Contact | null, /* reason */ ChannelGroupChangeReason | null, /* message */ string | null ]
-    groupGetLocalPendingInfo(localPending: Handle): [ /* returnType */ boolean, /* actor */ Handle | null, /* reason */ ChannelGroupChangeReason | null, /* message */ string | null ]
+    groupGetLocalPendingContactInfo(localPending: Contact): { returnType: boolean, actor: Contact | null, reason: ChannelGroupChangeReason | null, message: string | null }
+    groupGetLocalPendingInfo(localPending: Handle): { returnType: boolean, actor: Handle | null, reason: ChannelGroupChangeReason | null, message: string | null }
     groupGetMembers(): Intset
     groupGetRemotePending(): Intset
     groupGetSelfContact(): Contact
@@ -5560,7 +5206,7 @@ export class FileTransferChannel {
     leaveFinish(result: Gio.AsyncResult): boolean
     providePasswordAsync(password: string, callback?: Gio.AsyncReadyCallback | null): void
     providePasswordFinish(result: Gio.AsyncResult): boolean
-    /* Methods of TelepathyGLib.Proxy */
+    /* Methods of TelepathyGLib-0.12.TelepathyGLib.Proxy */
     dbusErrorToGerror(dbusError: string, debugMessage: string): void
     getBusName(): string
     getDbusDaemon(): DBusDaemon
@@ -5572,7 +5218,7 @@ export class FileTransferChannel {
     isPrepared(feature: GLib.Quark): boolean
     prepareAsync(features?: GLib.Quark[] | null, callback?: Gio.AsyncReadyCallback | null): void
     prepareFinish(result: Gio.AsyncResult): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -5594,65 +5240,49 @@ export class FileTransferChannel {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of TelepathyGLib.Channel */
+    /* Signals of TelepathyGLib-0.12.TelepathyGLib.Channel */
     connect(sigName: "chat-state-changed", callback: (($obj: FileTransferChannel, contact: number, state: number) => void)): number
-    connect_after(sigName: "chat-state-changed", callback: (($obj: FileTransferChannel, contact: number, state: number) => void)): number
+    on(sigName: "chat-state-changed", callback: (contact: number, state: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "chat-state-changed", callback: (contact: number, state: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "chat-state-changed", callback: (contact: number, state: number) => void): NodeJS.EventEmitter
     emit(sigName: "chat-state-changed", contact: number, state: number): void
-    on(sigName: "chat-state-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "chat-state-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "chat-state-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "group-contacts-changed", callback: (($obj: FileTransferChannel, added: Contact[], removed: Contact[], localPending: Contact[], remotePending: Contact[], actor: Contact, details: GLib.HashTable) => void)): number
-    connect_after(sigName: "group-contacts-changed", callback: (($obj: FileTransferChannel, added: Contact[], removed: Contact[], localPending: Contact[], remotePending: Contact[], actor: Contact, details: GLib.HashTable) => void)): number
+    on(sigName: "group-contacts-changed", callback: (added: Contact[], removed: Contact[], localPending: Contact[], remotePending: Contact[], actor: Contact, details: GLib.HashTable) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "group-contacts-changed", callback: (added: Contact[], removed: Contact[], localPending: Contact[], remotePending: Contact[], actor: Contact, details: GLib.HashTable) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "group-contacts-changed", callback: (added: Contact[], removed: Contact[], localPending: Contact[], remotePending: Contact[], actor: Contact, details: GLib.HashTable) => void): NodeJS.EventEmitter
     emit(sigName: "group-contacts-changed", added: Contact[], removed: Contact[], localPending: Contact[], remotePending: Contact[], actor: Contact, details: GLib.HashTable): void
-    on(sigName: "group-contacts-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "group-contacts-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "group-contacts-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "group-flags-changed", callback: (($obj: FileTransferChannel, added: number, removed: number) => void)): number
-    connect_after(sigName: "group-flags-changed", callback: (($obj: FileTransferChannel, added: number, removed: number) => void)): number
+    on(sigName: "group-flags-changed", callback: (added: number, removed: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "group-flags-changed", callback: (added: number, removed: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "group-flags-changed", callback: (added: number, removed: number) => void): NodeJS.EventEmitter
     emit(sigName: "group-flags-changed", added: number, removed: number): void
-    on(sigName: "group-flags-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "group-flags-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "group-flags-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "group-members-changed", callback: (($obj: FileTransferChannel, message: string, added: any, removed: any, localPending: any, remotePending: any, actor: number, reason: number) => void)): number
-    connect_after(sigName: "group-members-changed", callback: (($obj: FileTransferChannel, message: string, added: any, removed: any, localPending: any, remotePending: any, actor: number, reason: number) => void)): number
+    on(sigName: "group-members-changed", callback: (message: string, added: any, removed: any, localPending: any, remotePending: any, actor: number, reason: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "group-members-changed", callback: (message: string, added: any, removed: any, localPending: any, remotePending: any, actor: number, reason: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "group-members-changed", callback: (message: string, added: any, removed: any, localPending: any, remotePending: any, actor: number, reason: number) => void): NodeJS.EventEmitter
     emit(sigName: "group-members-changed", message: string, added: any, removed: any, localPending: any, remotePending: any, actor: number, reason: number): void
-    on(sigName: "group-members-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "group-members-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "group-members-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "group-members-changed-detailed", callback: (($obj: FileTransferChannel, added: number[], removed: number[], localPending: number[], remotePending: number[], details: GLib.HashTable) => void)): number
-    connect_after(sigName: "group-members-changed-detailed", callback: (($obj: FileTransferChannel, added: number[], removed: number[], localPending: number[], remotePending: number[], details: GLib.HashTable) => void)): number
+    on(sigName: "group-members-changed-detailed", callback: (added: number[], removed: number[], localPending: number[], remotePending: number[], details: GLib.HashTable) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "group-members-changed-detailed", callback: (added: number[], removed: number[], localPending: number[], remotePending: number[], details: GLib.HashTable) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "group-members-changed-detailed", callback: (added: number[], removed: number[], localPending: number[], remotePending: number[], details: GLib.HashTable) => void): NodeJS.EventEmitter
     emit(sigName: "group-members-changed-detailed", added: number[], removed: number[], localPending: number[], remotePending: number[], details: GLib.HashTable): void
-    on(sigName: "group-members-changed-detailed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "group-members-changed-detailed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "group-members-changed-detailed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of TelepathyGLib.Proxy */
+    /* Signals of TelepathyGLib-0.12.TelepathyGLib.Proxy */
     connect(sigName: "interface-added", callback: (($obj: FileTransferChannel, id: number, proxy: any) => void)): number
-    connect_after(sigName: "interface-added", callback: (($obj: FileTransferChannel, id: number, proxy: any) => void)): number
+    on(sigName: "interface-added", callback: (id: number, proxy: any) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "interface-added", callback: (id: number, proxy: any) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "interface-added", callback: (id: number, proxy: any) => void): NodeJS.EventEmitter
     emit(sigName: "interface-added", id: number, proxy: any): void
-    on(sigName: "interface-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "interface-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "interface-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "invalidated", callback: (($obj: FileTransferChannel, domain: number, code: number, message: string) => void)): number
-    connect_after(sigName: "invalidated", callback: (($obj: FileTransferChannel, domain: number, code: number, message: string) => void)): number
+    on(sigName: "invalidated", callback: (domain: number, code: number, message: string) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "invalidated", callback: (domain: number, code: number, message: string) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "invalidated", callback: (domain: number, code: number, message: string) => void): NodeJS.EventEmitter
     emit(sigName: "invalidated", domain: number, code: number, message: string): void
-    on(sigName: "invalidated", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "invalidated", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "invalidated", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: FileTransferChannel, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: FileTransferChannel, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::date", callback: (($obj: FileTransferChannel, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::date", callback: (($obj: FileTransferChannel, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::date", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -5787,15 +5417,15 @@ export interface HandleChannelsContext_ConstructProps extends GObject.Object_Con
     userActionTime?: number
 }
 export class HandleChannelsContext {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of TelepathyGLib.HandleChannelsContext */
+    /* Methods of TelepathyGLib-0.12.TelepathyGLib.HandleChannelsContext */
     accept(): void
     delay(): void
     fail(error: GLib.Error): void
     getHandlerInfo(): GLib.HashTable
     getRequests(): ChannelRequest[]
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -5817,28 +5447,18 @@ export class HandleChannelsContext {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of TelepathyGLib.HandleChannelsContext */
+    /* Signals of TelepathyGLib-0.12.TelepathyGLib.HandleChannelsContext */
     connect(sigName: "done", callback: (($obj: HandleChannelsContext) => void)): number
-    connect_after(sigName: "done", callback: (($obj: HandleChannelsContext) => void)): number
+    on(sigName: "done", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "done", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "done", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "done"): void
-    on(sigName: "done", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "done", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "done", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: HandleChannelsContext, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: HandleChannelsContext, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -5854,9 +5474,9 @@ export class HandleChannelsContext {
 export interface Message_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class Message {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of TelepathyGLib.Message */
+    /* Methods of TelepathyGLib-0.12.TelepathyGLib.Message */
     appendPart(): number
     countParts(): number
     deleteKey(part: number, key: string): boolean
@@ -5864,7 +5484,7 @@ export class Message {
     destroy(): void
     dupPart(part: number): GLib.Variant
     getMessageType(): ChannelTextMessageType
-    getPendingMessageId(): [ /* returnType */ number, /* valid */ boolean ]
+    getPendingMessageId(): { returnType: number, valid: boolean }
     getReceivedTimestamp(): number
     getSentTimestamp(): number
     getSpecificToInterface(): string
@@ -5887,8 +5507,8 @@ export class Message {
     setUint64(part: number, key: string, u: number): void
     setVariant(part: number, key: string, value: GLib.Variant): void
     takeMessage(part: number, key: string, message: Message): void
-    toText(): [ /* returnType */ string, /* outFlags */ ChannelTextMessageFlags ]
-    /* Methods of GObject.Object */
+    toText(): { returnType: string, outFlags: ChannelTextMessageFlags }
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -5910,21 +5530,12 @@ export class Message {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Message, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Message, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -5945,15 +5556,15 @@ export interface ObserveChannelsContext_ConstructProps extends GObject.Object_Co
     requests?: object[]
 }
 export class ObserveChannelsContext {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of TelepathyGLib.ObserveChannelsContext */
+    /* Methods of TelepathyGLib-0.12.TelepathyGLib.ObserveChannelsContext */
     accept(): void
     delay(): void
     fail(error: GLib.Error): void
     getRequests(): ChannelRequest[]
     isRecovering(): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -5975,21 +5586,12 @@ export class ObserveChannelsContext {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: ObserveChannelsContext, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: ObserveChannelsContext, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -6007,7 +5609,7 @@ export interface Protocol_ConstructProps extends Proxy_ConstructProps {
     protocolName?: string
 }
 export class Protocol {
-    /* Properties of TelepathyGLib.Protocol */
+    /* Properties of TelepathyGLib-0.12.TelepathyGLib.Protocol */
     readonly addressableUriSchemes: string[]
     readonly addressableVcardFields: string[]
     readonly authenticationTypes: string[]
@@ -6018,11 +5620,11 @@ export class Protocol {
     readonly paramNames: string[]
     readonly protocolPropertiesVardict: GLib.Variant
     readonly vcardField: string
-    /* Properties of TelepathyGLib.Proxy */
+    /* Properties of TelepathyGLib-0.12.TelepathyGLib.Proxy */
     readonly interfaces: string[]
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of TelepathyGLib.Protocol */
+    /* Methods of TelepathyGLib-0.12.TelepathyGLib.Protocol */
     canRegister(): boolean
     dupImmutableProperties(): GLib.Variant
     dupParam(param: string): ConnectionManagerParam
@@ -6049,7 +5651,7 @@ export class Protocol {
     normalizeContactUriFinish(result: Gio.AsyncResult): string
     normalizeVcardAddressAsync(field: string, value: string, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     normalizeVcardAddressFinish(result: Gio.AsyncResult): string
-    /* Methods of TelepathyGLib.Proxy */
+    /* Methods of TelepathyGLib-0.12.TelepathyGLib.Proxy */
     dbusErrorToGerror(dbusError: string, debugMessage: string): void
     getBusName(): string
     getDbusDaemon(): DBusDaemon
@@ -6061,7 +5663,7 @@ export class Protocol {
     isPrepared(feature: GLib.Quark): boolean
     prepareAsync(features?: GLib.Quark[] | null, callback?: Gio.AsyncReadyCallback | null): void
     prepareFinish(result: Gio.AsyncResult): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -6083,34 +5685,23 @@ export class Protocol {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of TelepathyGLib.Proxy */
+    /* Signals of TelepathyGLib-0.12.TelepathyGLib.Proxy */
     connect(sigName: "interface-added", callback: (($obj: Protocol, id: number, proxy: any) => void)): number
-    connect_after(sigName: "interface-added", callback: (($obj: Protocol, id: number, proxy: any) => void)): number
+    on(sigName: "interface-added", callback: (id: number, proxy: any) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "interface-added", callback: (id: number, proxy: any) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "interface-added", callback: (id: number, proxy: any) => void): NodeJS.EventEmitter
     emit(sigName: "interface-added", id: number, proxy: any): void
-    on(sigName: "interface-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "interface-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "interface-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "invalidated", callback: (($obj: Protocol, domain: number, code: number, message: string) => void)): number
-    connect_after(sigName: "invalidated", callback: (($obj: Protocol, domain: number, code: number, message: string) => void)): number
+    on(sigName: "invalidated", callback: (domain: number, code: number, message: string) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "invalidated", callback: (domain: number, code: number, message: string) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "invalidated", callback: (domain: number, code: number, message: string) => void): NodeJS.EventEmitter
     emit(sigName: "invalidated", domain: number, code: number, message: string): void
-    on(sigName: "invalidated", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "invalidated", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "invalidated", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Protocol, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Protocol, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::addressable-uri-schemes", callback: (($obj: Protocol, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::addressable-uri-schemes", callback: (($obj: Protocol, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::addressable-uri-schemes", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -6191,11 +5782,11 @@ export interface Proxy_ConstructProps extends GObject.Object_ConstructProps {
     objectPath?: string
 }
 export class Proxy {
-    /* Properties of TelepathyGLib.Proxy */
+    /* Properties of TelepathyGLib-0.12.TelepathyGLib.Proxy */
     readonly interfaces: string[]
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of TelepathyGLib.Proxy */
+    /* Methods of TelepathyGLib-0.12.TelepathyGLib.Proxy */
     dbusErrorToGerror(dbusError: string, debugMessage: string): void
     getBusName(): string
     getDbusDaemon(): DBusDaemon
@@ -6207,7 +5798,7 @@ export class Proxy {
     isPrepared(feature: GLib.Quark): boolean
     prepareAsync(features?: GLib.Quark[] | null, callback?: Gio.AsyncReadyCallback | null): void
     prepareFinish(result: Gio.AsyncResult): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -6229,34 +5820,23 @@ export class Proxy {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of TelepathyGLib.Proxy */
+    /* Signals of TelepathyGLib-0.12.TelepathyGLib.Proxy */
     connect(sigName: "interface-added", callback: (($obj: Proxy, id: number, proxy: any) => void)): number
-    connect_after(sigName: "interface-added", callback: (($obj: Proxy, id: number, proxy: any) => void)): number
+    on(sigName: "interface-added", callback: (id: number, proxy: any) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "interface-added", callback: (id: number, proxy: any) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "interface-added", callback: (id: number, proxy: any) => void): NodeJS.EventEmitter
     emit(sigName: "interface-added", id: number, proxy: any): void
-    on(sigName: "interface-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "interface-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "interface-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "invalidated", callback: (($obj: Proxy, domain: number, code: number, message: string) => void)): number
-    connect_after(sigName: "invalidated", callback: (($obj: Proxy, domain: number, code: number, message: string) => void)): number
+    on(sigName: "invalidated", callback: (domain: number, code: number, message: string) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "invalidated", callback: (domain: number, code: number, message: string) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "invalidated", callback: (domain: number, code: number, message: string) => void): NodeJS.EventEmitter
     emit(sigName: "invalidated", domain: number, code: number, message: string): void
-    on(sigName: "invalidated", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "invalidated", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "invalidated", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Proxy, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Proxy, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::interfaces", callback: (($obj: Proxy, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::interfaces", callback: (($obj: Proxy, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::interfaces", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -6277,9 +5857,9 @@ export class Proxy {
 export interface RoomInfo_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class RoomInfo {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of TelepathyGLib.RoomInfo */
+    /* Methods of TelepathyGLib-0.12.TelepathyGLib.RoomInfo */
     getChannelType(): string
     getDescription(): string
     getHandle(): Handle
@@ -6291,7 +5871,7 @@ export class RoomInfo {
     getRoomId(): string
     getServer(): string
     getSubject(): string
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -6313,21 +5893,12 @@ export class RoomInfo {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: RoomInfo, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: RoomInfo, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -6345,16 +5916,16 @@ export interface RoomList_ConstructProps extends GObject.Object_ConstructProps {
     server?: string
 }
 export class RoomList {
-    /* Properties of TelepathyGLib.RoomList */
+    /* Properties of TelepathyGLib-0.12.TelepathyGLib.RoomList */
     readonly listing: boolean
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of TelepathyGLib.RoomList */
+    /* Methods of TelepathyGLib-0.12.TelepathyGLib.RoomList */
     getAccount(): Account
     getServer(): string
     isListing(): boolean
     start(): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -6376,41 +5947,27 @@ export class RoomList {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of Gio.AsyncInitable */
+    /* Methods of Gio-2.0.Gio.AsyncInitable */
     initAsync(ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     initFinish(res: Gio.AsyncResult): boolean
     newFinish(res: Gio.AsyncResult): GObject.Object
-    /* Virtual methods of TelepathyGLib.RoomList */
-    vfuncInitAsync(ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    vfuncInitFinish(res: Gio.AsyncResult): boolean
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of TelepathyGLib.RoomList */
+    /* Signals of TelepathyGLib-0.12.TelepathyGLib.RoomList */
     connect(sigName: "failed", callback: (($obj: RoomList, error: GLib.Error) => void)): number
-    connect_after(sigName: "failed", callback: (($obj: RoomList, error: GLib.Error) => void)): number
+    on(sigName: "failed", callback: (error: GLib.Error) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "failed", callback: (error: GLib.Error) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "failed", callback: (error: GLib.Error) => void): NodeJS.EventEmitter
     emit(sigName: "failed", error: GLib.Error): void
-    on(sigName: "failed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "failed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "failed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "got-room", callback: (($obj: RoomList, room: RoomInfo) => void)): number
-    connect_after(sigName: "got-room", callback: (($obj: RoomList, room: RoomInfo) => void)): number
+    on(sigName: "got-room", callback: (room: RoomInfo) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "got-room", callback: (room: RoomInfo) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "got-room", callback: (room: RoomInfo) => void): NodeJS.EventEmitter
     emit(sigName: "got-room", room: RoomInfo): void
-    on(sigName: "got-room", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "got-room", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "got-room", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: RoomList, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: RoomList, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::listing", callback: (($obj: RoomList, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::listing", callback: (($obj: RoomList, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::listing", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -6436,9 +5993,9 @@ export interface SignalledMessage_ConstructProps extends Message_ConstructProps 
     sender?: Contact
 }
 export class SignalledMessage {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of TelepathyGLib.Message */
+    /* Methods of TelepathyGLib-0.12.TelepathyGLib.Message */
     appendPart(): number
     countParts(): number
     deleteKey(part: number, key: string): boolean
@@ -6446,7 +6003,7 @@ export class SignalledMessage {
     destroy(): void
     dupPart(part: number): GLib.Variant
     getMessageType(): ChannelTextMessageType
-    getPendingMessageId(): [ /* returnType */ number, /* valid */ boolean ]
+    getPendingMessageId(): { returnType: number, valid: boolean }
     getReceivedTimestamp(): number
     getSentTimestamp(): number
     getSpecificToInterface(): string
@@ -6469,8 +6026,8 @@ export class SignalledMessage {
     setUint64(part: number, key: string, u: number): void
     setVariant(part: number, key: string, value: GLib.Variant): void
     takeMessage(part: number, key: string, message: Message): void
-    toText(): [ /* returnType */ string, /* outFlags */ ChannelTextMessageFlags ]
-    /* Methods of GObject.Object */
+    toText(): { returnType: string, outFlags: ChannelTextMessageFlags }
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -6492,21 +6049,12 @@ export class SignalledMessage {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: SignalledMessage, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: SignalledMessage, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -6527,9 +6075,9 @@ export interface SimpleApprover_ConstructProps extends BaseClient_ConstructProps
     userData?: object
 }
 export class SimpleApprover {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of TelepathyGLib.BaseClient */
+    /* Methods of TelepathyGLib-0.12.TelepathyGLib.BaseClient */
     addAccountFeatures(features: GLib.Quark[]): void
     addApproverFilter(filter: GLib.HashTable): void
     addApproverFilterVardict(filter: GLib.Variant): void
@@ -6543,7 +6091,7 @@ export class SimpleApprover {
     addObserverFilterVardict(filter: GLib.Variant): void
     beAHandler(): void
     delegateChannelsAsync(channels: Channel[], userActionTime: number, preferredHandler: string, callback?: Gio.AsyncReadyCallback | null): void
-    delegateChannelsFinish(result: Gio.AsyncResult): [ /* returnType */ boolean, /* delegated */ Channel[], /* notDelegated */ GLib.HashTable ]
+    delegateChannelsFinish(result: Gio.AsyncResult): { returnType: boolean, delegated: Channel[], notDelegated: GLib.HashTable }
     dupHandledChannels(): Channel[]
     dupPendingRequests(): ChannelRequest[]
     getBusName(): string
@@ -6562,7 +6110,7 @@ export class SimpleApprover {
     setObserverDelayApprovers(delay: boolean): void
     setObserverRecover(recover: boolean): void
     unregister(): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -6584,38 +6132,23 @@ export class SimpleApprover {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of TelepathyGLib.BaseClient */
-    vfuncAddDispatchOperation(account: Account, connection: Connection, channels: Channel[], dispatchOperation: ChannelDispatchOperation, context: AddDispatchOperationContext): void
-    vfuncHandleChannels(account: Account, connection: Connection, channels: Channel[], requestsSatisfied: ChannelRequest[], userActionTime: number, context: HandleChannelsContext): void
-    vfuncObserveChannels(account: Account, connection: Connection, channels: Channel[], dispatchOperation: ChannelDispatchOperation | null, requests: ChannelRequest[], context: ObserveChannelsContext): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of TelepathyGLib.BaseClient */
+    /* Signals of TelepathyGLib-0.12.TelepathyGLib.BaseClient */
     connect(sigName: "request-added", callback: (($obj: SimpleApprover, account: Account, request: ChannelRequest) => void)): number
-    connect_after(sigName: "request-added", callback: (($obj: SimpleApprover, account: Account, request: ChannelRequest) => void)): number
+    on(sigName: "request-added", callback: (account: Account, request: ChannelRequest) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "request-added", callback: (account: Account, request: ChannelRequest) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "request-added", callback: (account: Account, request: ChannelRequest) => void): NodeJS.EventEmitter
     emit(sigName: "request-added", account: Account, request: ChannelRequest): void
-    on(sigName: "request-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "request-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "request-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "request-removed", callback: (($obj: SimpleApprover, request: ChannelRequest, error: string, message: string) => void)): number
-    connect_after(sigName: "request-removed", callback: (($obj: SimpleApprover, request: ChannelRequest, error: string, message: string) => void)): number
+    on(sigName: "request-removed", callback: (request: ChannelRequest, error: string, message: string) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "request-removed", callback: (request: ChannelRequest, error: string, message: string) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "request-removed", callback: (request: ChannelRequest, error: string, message: string) => void): NodeJS.EventEmitter
     emit(sigName: "request-removed", request: ChannelRequest, error: string, message: string): void
-    on(sigName: "request-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "request-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "request-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: SimpleApprover, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: SimpleApprover, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -6636,9 +6169,9 @@ export interface SimpleClientFactory_ConstructProps extends GObject.Object_Const
     dbusDaemon?: DBusDaemon
 }
 export class SimpleClientFactory {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of TelepathyGLib.SimpleClientFactory */
+    /* Methods of TelepathyGLib-0.12.TelepathyGLib.SimpleClientFactory */
     addAccountFeatures(features?: GLib.Quark[] | null): void
     addChannelFeatures(features?: GLib.Quark[] | null): void
     addConnectionFeatures(features?: GLib.Quark[] | null): void
@@ -6655,8 +6188,8 @@ export class SimpleClientFactory {
     ensureContactByIdFinish(result: Gio.AsyncResult): Contact
     getDbusDaemon(): DBusDaemon
     upgradeContactsAsync(connection: Connection, contacts: Contact[], callback?: Gio.AsyncReadyCallback | null): void
-    upgradeContactsFinish(result: Gio.AsyncResult): [ /* returnType */ boolean, /* contacts */ Contact[] | null ]
-    /* Methods of GObject.Object */
+    upgradeContactsFinish(result: Gio.AsyncResult): { returnType: boolean, contacts: Contact[] | null }
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -6678,26 +6211,12 @@ export class SimpleClientFactory {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of TelepathyGLib.SimpleClientFactory */
-    vfuncDupAccountFeatures(account: Account): GLib.Quark[]
-    vfuncDupChannelFeatures(channel: Channel): GLib.Quark[]
-    vfuncDupConnectionFeatures(connection: Connection): GLib.Quark[]
-    vfuncDupContactFeatures(connection: Connection): ContactFeature[]
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: SimpleClientFactory, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: SimpleClientFactory, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -6720,9 +6239,9 @@ export interface SimpleHandler_ConstructProps extends BaseClient_ConstructProps 
     userData?: object
 }
 export class SimpleHandler {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of TelepathyGLib.BaseClient */
+    /* Methods of TelepathyGLib-0.12.TelepathyGLib.BaseClient */
     addAccountFeatures(features: GLib.Quark[]): void
     addApproverFilter(filter: GLib.HashTable): void
     addApproverFilterVardict(filter: GLib.Variant): void
@@ -6736,7 +6255,7 @@ export class SimpleHandler {
     addObserverFilterVardict(filter: GLib.Variant): void
     beAHandler(): void
     delegateChannelsAsync(channels: Channel[], userActionTime: number, preferredHandler: string, callback?: Gio.AsyncReadyCallback | null): void
-    delegateChannelsFinish(result: Gio.AsyncResult): [ /* returnType */ boolean, /* delegated */ Channel[], /* notDelegated */ GLib.HashTable ]
+    delegateChannelsFinish(result: Gio.AsyncResult): { returnType: boolean, delegated: Channel[], notDelegated: GLib.HashTable }
     dupHandledChannels(): Channel[]
     dupPendingRequests(): ChannelRequest[]
     getBusName(): string
@@ -6755,7 +6274,7 @@ export class SimpleHandler {
     setObserverDelayApprovers(delay: boolean): void
     setObserverRecover(recover: boolean): void
     unregister(): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -6777,38 +6296,23 @@ export class SimpleHandler {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of TelepathyGLib.BaseClient */
-    vfuncAddDispatchOperation(account: Account, connection: Connection, channels: Channel[], dispatchOperation: ChannelDispatchOperation, context: AddDispatchOperationContext): void
-    vfuncHandleChannels(account: Account, connection: Connection, channels: Channel[], requestsSatisfied: ChannelRequest[], userActionTime: number, context: HandleChannelsContext): void
-    vfuncObserveChannels(account: Account, connection: Connection, channels: Channel[], dispatchOperation: ChannelDispatchOperation | null, requests: ChannelRequest[], context: ObserveChannelsContext): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of TelepathyGLib.BaseClient */
+    /* Signals of TelepathyGLib-0.12.TelepathyGLib.BaseClient */
     connect(sigName: "request-added", callback: (($obj: SimpleHandler, account: Account, request: ChannelRequest) => void)): number
-    connect_after(sigName: "request-added", callback: (($obj: SimpleHandler, account: Account, request: ChannelRequest) => void)): number
+    on(sigName: "request-added", callback: (account: Account, request: ChannelRequest) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "request-added", callback: (account: Account, request: ChannelRequest) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "request-added", callback: (account: Account, request: ChannelRequest) => void): NodeJS.EventEmitter
     emit(sigName: "request-added", account: Account, request: ChannelRequest): void
-    on(sigName: "request-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "request-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "request-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "request-removed", callback: (($obj: SimpleHandler, request: ChannelRequest, error: string, message: string) => void)): number
-    connect_after(sigName: "request-removed", callback: (($obj: SimpleHandler, request: ChannelRequest, error: string, message: string) => void)): number
+    on(sigName: "request-removed", callback: (request: ChannelRequest, error: string, message: string) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "request-removed", callback: (request: ChannelRequest, error: string, message: string) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "request-removed", callback: (request: ChannelRequest, error: string, message: string) => void): NodeJS.EventEmitter
     emit(sigName: "request-removed", request: ChannelRequest, error: string, message: string): void
-    on(sigName: "request-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "request-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "request-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: SimpleHandler, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: SimpleHandler, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -6832,9 +6336,9 @@ export interface SimpleObserver_ConstructProps extends BaseClient_ConstructProps
     userData?: object
 }
 export class SimpleObserver {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of TelepathyGLib.BaseClient */
+    /* Methods of TelepathyGLib-0.12.TelepathyGLib.BaseClient */
     addAccountFeatures(features: GLib.Quark[]): void
     addApproverFilter(filter: GLib.HashTable): void
     addApproverFilterVardict(filter: GLib.Variant): void
@@ -6848,7 +6352,7 @@ export class SimpleObserver {
     addObserverFilterVardict(filter: GLib.Variant): void
     beAHandler(): void
     delegateChannelsAsync(channels: Channel[], userActionTime: number, preferredHandler: string, callback?: Gio.AsyncReadyCallback | null): void
-    delegateChannelsFinish(result: Gio.AsyncResult): [ /* returnType */ boolean, /* delegated */ Channel[], /* notDelegated */ GLib.HashTable ]
+    delegateChannelsFinish(result: Gio.AsyncResult): { returnType: boolean, delegated: Channel[], notDelegated: GLib.HashTable }
     dupHandledChannels(): Channel[]
     dupPendingRequests(): ChannelRequest[]
     getBusName(): string
@@ -6867,7 +6371,7 @@ export class SimpleObserver {
     setObserverDelayApprovers(delay: boolean): void
     setObserverRecover(recover: boolean): void
     unregister(): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -6889,38 +6393,23 @@ export class SimpleObserver {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of TelepathyGLib.BaseClient */
-    vfuncAddDispatchOperation(account: Account, connection: Connection, channels: Channel[], dispatchOperation: ChannelDispatchOperation, context: AddDispatchOperationContext): void
-    vfuncHandleChannels(account: Account, connection: Connection, channels: Channel[], requestsSatisfied: ChannelRequest[], userActionTime: number, context: HandleChannelsContext): void
-    vfuncObserveChannels(account: Account, connection: Connection, channels: Channel[], dispatchOperation: ChannelDispatchOperation | null, requests: ChannelRequest[], context: ObserveChannelsContext): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of TelepathyGLib.BaseClient */
+    /* Signals of TelepathyGLib-0.12.TelepathyGLib.BaseClient */
     connect(sigName: "request-added", callback: (($obj: SimpleObserver, account: Account, request: ChannelRequest) => void)): number
-    connect_after(sigName: "request-added", callback: (($obj: SimpleObserver, account: Account, request: ChannelRequest) => void)): number
+    on(sigName: "request-added", callback: (account: Account, request: ChannelRequest) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "request-added", callback: (account: Account, request: ChannelRequest) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "request-added", callback: (account: Account, request: ChannelRequest) => void): NodeJS.EventEmitter
     emit(sigName: "request-added", account: Account, request: ChannelRequest): void
-    on(sigName: "request-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "request-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "request-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "request-removed", callback: (($obj: SimpleObserver, request: ChannelRequest, error: string, message: string) => void)): number
-    connect_after(sigName: "request-removed", callback: (($obj: SimpleObserver, request: ChannelRequest, error: string, message: string) => void)): number
+    on(sigName: "request-removed", callback: (request: ChannelRequest, error: string, message: string) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "request-removed", callback: (request: ChannelRequest, error: string, message: string) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "request-removed", callback: (request: ChannelRequest, error: string, message: string) => void): NodeJS.EventEmitter
     emit(sigName: "request-removed", request: ChannelRequest, error: string, message: string): void
-    on(sigName: "request-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "request-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "request-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: SimpleObserver, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: SimpleObserver, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -6940,10 +6429,10 @@ export class SimpleObserver {
 export interface StreamTubeChannel_ConstructProps extends Channel_ConstructProps {
 }
 export class StreamTubeChannel {
-    /* Properties of TelepathyGLib.StreamTubeChannel */
+    /* Properties of TelepathyGLib-0.12.TelepathyGLib.StreamTubeChannel */
     readonly parametersVardict: GLib.Variant
     readonly service: string
-    /* Properties of TelepathyGLib.Channel */
+    /* Properties of TelepathyGLib-0.12.TelepathyGLib.Channel */
     readonly channelReady: boolean
     readonly groupFlags: number
     readonly groupSelfContact: Contact
@@ -6955,18 +6444,18 @@ export class StreamTubeChannel {
     readonly passwordNeeded: boolean
     readonly requested: boolean
     readonly targetContact: Contact
-    /* Properties of TelepathyGLib.Proxy */
+    /* Properties of TelepathyGLib-0.12.TelepathyGLib.Proxy */
     readonly interfaces: string[]
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of TelepathyGLib.StreamTubeChannel */
+    /* Methods of TelepathyGLib-0.12.TelepathyGLib.StreamTubeChannel */
     acceptAsync(callback?: Gio.AsyncReadyCallback | null): void
     acceptFinish(result: Gio.AsyncResult): StreamTubeConnection
     dupParametersVardict(): GLib.Variant
     getService(): string
     offerAsync(params?: GLib.HashTable | null, callback?: Gio.AsyncReadyCallback | null): void
     offerFinish(result: Gio.AsyncResult): boolean
-    /* Methods of TelepathyGLib.Channel */
+    /* Methods of TelepathyGLib-0.12.TelepathyGLib.Channel */
     borrowConnection(): Connection
     borrowImmutableProperties(): GLib.HashTable
     closeAsync(callback?: Gio.AsyncReadyCallback | null): void
@@ -6978,7 +6467,7 @@ export class StreamTubeChannel {
     getChannelTypeId(): GLib.Quark
     getChatState(contact: Handle): ChannelChatState
     getConnection(): Connection
-    getHandle(): [ /* returnType */ Handle, /* handleType */ HandleType ]
+    getHandle(): { returnType: Handle, handleType: HandleType }
     getIdentifier(): string
     getInitiatorContact(): Contact
     getRequested(): boolean
@@ -6990,8 +6479,8 @@ export class StreamTubeChannel {
     groupGetFlags(): ChannelGroupFlags
     groupGetHandleOwner(handle: Handle): Handle
     groupGetLocalPending(): Intset
-    groupGetLocalPendingContactInfo(localPending: Contact): [ /* returnType */ boolean, /* actor */ Contact | null, /* reason */ ChannelGroupChangeReason | null, /* message */ string | null ]
-    groupGetLocalPendingInfo(localPending: Handle): [ /* returnType */ boolean, /* actor */ Handle | null, /* reason */ ChannelGroupChangeReason | null, /* message */ string | null ]
+    groupGetLocalPendingContactInfo(localPending: Contact): { returnType: boolean, actor: Contact | null, reason: ChannelGroupChangeReason | null, message: string | null }
+    groupGetLocalPendingInfo(localPending: Handle): { returnType: boolean, actor: Handle | null, reason: ChannelGroupChangeReason | null, message: string | null }
     groupGetMembers(): Intset
     groupGetRemotePending(): Intset
     groupGetSelfContact(): Contact
@@ -7002,7 +6491,7 @@ export class StreamTubeChannel {
     leaveFinish(result: Gio.AsyncResult): boolean
     providePasswordAsync(password: string, callback?: Gio.AsyncReadyCallback | null): void
     providePasswordFinish(result: Gio.AsyncResult): boolean
-    /* Methods of TelepathyGLib.Proxy */
+    /* Methods of TelepathyGLib-0.12.TelepathyGLib.Proxy */
     dbusErrorToGerror(dbusError: string, debugMessage: string): void
     getBusName(): string
     getDbusDaemon(): DBusDaemon
@@ -7014,7 +6503,7 @@ export class StreamTubeChannel {
     isPrepared(feature: GLib.Quark): boolean
     prepareAsync(features?: GLib.Quark[] | null, callback?: Gio.AsyncReadyCallback | null): void
     prepareFinish(result: Gio.AsyncResult): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -7036,72 +6525,55 @@ export class StreamTubeChannel {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of TelepathyGLib.StreamTubeChannel */
+    /* Signals of TelepathyGLib-0.12.TelepathyGLib.StreamTubeChannel */
     connect(sigName: "incoming", callback: (($obj: StreamTubeChannel, tubeConnection: StreamTubeConnection) => void)): number
-    connect_after(sigName: "incoming", callback: (($obj: StreamTubeChannel, tubeConnection: StreamTubeConnection) => void)): number
+    on(sigName: "incoming", callback: (tubeConnection: StreamTubeConnection) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "incoming", callback: (tubeConnection: StreamTubeConnection) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "incoming", callback: (tubeConnection: StreamTubeConnection) => void): NodeJS.EventEmitter
     emit(sigName: "incoming", tubeConnection: StreamTubeConnection): void
-    on(sigName: "incoming", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "incoming", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "incoming", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of TelepathyGLib.Channel */
+    /* Signals of TelepathyGLib-0.12.TelepathyGLib.Channel */
     connect(sigName: "chat-state-changed", callback: (($obj: StreamTubeChannel, contact: number, state: number) => void)): number
-    connect_after(sigName: "chat-state-changed", callback: (($obj: StreamTubeChannel, contact: number, state: number) => void)): number
+    on(sigName: "chat-state-changed", callback: (contact: number, state: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "chat-state-changed", callback: (contact: number, state: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "chat-state-changed", callback: (contact: number, state: number) => void): NodeJS.EventEmitter
     emit(sigName: "chat-state-changed", contact: number, state: number): void
-    on(sigName: "chat-state-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "chat-state-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "chat-state-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "group-contacts-changed", callback: (($obj: StreamTubeChannel, added: Contact[], removed: Contact[], localPending: Contact[], remotePending: Contact[], actor: Contact, details: GLib.HashTable) => void)): number
-    connect_after(sigName: "group-contacts-changed", callback: (($obj: StreamTubeChannel, added: Contact[], removed: Contact[], localPending: Contact[], remotePending: Contact[], actor: Contact, details: GLib.HashTable) => void)): number
+    on(sigName: "group-contacts-changed", callback: (added: Contact[], removed: Contact[], localPending: Contact[], remotePending: Contact[], actor: Contact, details: GLib.HashTable) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "group-contacts-changed", callback: (added: Contact[], removed: Contact[], localPending: Contact[], remotePending: Contact[], actor: Contact, details: GLib.HashTable) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "group-contacts-changed", callback: (added: Contact[], removed: Contact[], localPending: Contact[], remotePending: Contact[], actor: Contact, details: GLib.HashTable) => void): NodeJS.EventEmitter
     emit(sigName: "group-contacts-changed", added: Contact[], removed: Contact[], localPending: Contact[], remotePending: Contact[], actor: Contact, details: GLib.HashTable): void
-    on(sigName: "group-contacts-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "group-contacts-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "group-contacts-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "group-flags-changed", callback: (($obj: StreamTubeChannel, added: number, removed: number) => void)): number
-    connect_after(sigName: "group-flags-changed", callback: (($obj: StreamTubeChannel, added: number, removed: number) => void)): number
+    on(sigName: "group-flags-changed", callback: (added: number, removed: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "group-flags-changed", callback: (added: number, removed: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "group-flags-changed", callback: (added: number, removed: number) => void): NodeJS.EventEmitter
     emit(sigName: "group-flags-changed", added: number, removed: number): void
-    on(sigName: "group-flags-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "group-flags-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "group-flags-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "group-members-changed", callback: (($obj: StreamTubeChannel, message: string, added: any, removed: any, localPending: any, remotePending: any, actor: number, reason: number) => void)): number
-    connect_after(sigName: "group-members-changed", callback: (($obj: StreamTubeChannel, message: string, added: any, removed: any, localPending: any, remotePending: any, actor: number, reason: number) => void)): number
+    on(sigName: "group-members-changed", callback: (message: string, added: any, removed: any, localPending: any, remotePending: any, actor: number, reason: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "group-members-changed", callback: (message: string, added: any, removed: any, localPending: any, remotePending: any, actor: number, reason: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "group-members-changed", callback: (message: string, added: any, removed: any, localPending: any, remotePending: any, actor: number, reason: number) => void): NodeJS.EventEmitter
     emit(sigName: "group-members-changed", message: string, added: any, removed: any, localPending: any, remotePending: any, actor: number, reason: number): void
-    on(sigName: "group-members-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "group-members-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "group-members-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "group-members-changed-detailed", callback: (($obj: StreamTubeChannel, added: number[], removed: number[], localPending: number[], remotePending: number[], details: GLib.HashTable) => void)): number
-    connect_after(sigName: "group-members-changed-detailed", callback: (($obj: StreamTubeChannel, added: number[], removed: number[], localPending: number[], remotePending: number[], details: GLib.HashTable) => void)): number
+    on(sigName: "group-members-changed-detailed", callback: (added: number[], removed: number[], localPending: number[], remotePending: number[], details: GLib.HashTable) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "group-members-changed-detailed", callback: (added: number[], removed: number[], localPending: number[], remotePending: number[], details: GLib.HashTable) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "group-members-changed-detailed", callback: (added: number[], removed: number[], localPending: number[], remotePending: number[], details: GLib.HashTable) => void): NodeJS.EventEmitter
     emit(sigName: "group-members-changed-detailed", added: number[], removed: number[], localPending: number[], remotePending: number[], details: GLib.HashTable): void
-    on(sigName: "group-members-changed-detailed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "group-members-changed-detailed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "group-members-changed-detailed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of TelepathyGLib.Proxy */
+    /* Signals of TelepathyGLib-0.12.TelepathyGLib.Proxy */
     connect(sigName: "interface-added", callback: (($obj: StreamTubeChannel, id: number, proxy: any) => void)): number
-    connect_after(sigName: "interface-added", callback: (($obj: StreamTubeChannel, id: number, proxy: any) => void)): number
+    on(sigName: "interface-added", callback: (id: number, proxy: any) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "interface-added", callback: (id: number, proxy: any) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "interface-added", callback: (id: number, proxy: any) => void): NodeJS.EventEmitter
     emit(sigName: "interface-added", id: number, proxy: any): void
-    on(sigName: "interface-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "interface-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "interface-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "invalidated", callback: (($obj: StreamTubeChannel, domain: number, code: number, message: string) => void)): number
-    connect_after(sigName: "invalidated", callback: (($obj: StreamTubeChannel, domain: number, code: number, message: string) => void)): number
+    on(sigName: "invalidated", callback: (domain: number, code: number, message: string) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "invalidated", callback: (domain: number, code: number, message: string) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "invalidated", callback: (domain: number, code: number, message: string) => void): NodeJS.EventEmitter
     emit(sigName: "invalidated", domain: number, code: number, message: string): void
-    on(sigName: "invalidated", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "invalidated", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "invalidated", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: StreamTubeChannel, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: StreamTubeChannel, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::parameters-vardict", callback: (($obj: StreamTubeChannel, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::parameters-vardict", callback: (($obj: StreamTubeChannel, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::parameters-vardict", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -7193,13 +6665,13 @@ export interface StreamTubeConnection_ConstructProps extends GObject.Object_Cons
     socketConnection?: Gio.SocketConnection
 }
 export class StreamTubeConnection {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of TelepathyGLib.StreamTubeConnection */
+    /* Methods of TelepathyGLib-0.12.TelepathyGLib.StreamTubeConnection */
     getChannel(): StreamTubeChannel
     getContact(): Contact
     getSocketConnection(): Gio.SocketConnection
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -7221,28 +6693,18 @@ export class StreamTubeConnection {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of TelepathyGLib.StreamTubeConnection */
+    /* Signals of TelepathyGLib-0.12.TelepathyGLib.StreamTubeConnection */
     connect(sigName: "closed", callback: (($obj: StreamTubeConnection, error: GLib.Error) => void)): number
-    connect_after(sigName: "closed", callback: (($obj: StreamTubeConnection, error: GLib.Error) => void)): number
+    on(sigName: "closed", callback: (error: GLib.Error) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "closed", callback: (error: GLib.Error) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "closed", callback: (error: GLib.Error) => void): NodeJS.EventEmitter
     emit(sigName: "closed", error: GLib.Error): void
-    on(sigName: "closed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "closed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "closed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: StreamTubeConnection, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: StreamTubeConnection, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -7259,15 +6721,15 @@ export interface TLSCertificate_ConstructProps extends Proxy_ConstructProps {
     parent?: Proxy
 }
 export class TLSCertificate {
-    /* Properties of TelepathyGLib.TLSCertificate */
+    /* Properties of TelepathyGLib-0.12.TelepathyGLib.TLSCertificate */
     readonly certData: object[]
     readonly certType: string
     readonly state: number
-    /* Properties of TelepathyGLib.Proxy */
+    /* Properties of TelepathyGLib-0.12.TelepathyGLib.Proxy */
     readonly interfaces: string[]
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of TelepathyGLib.TLSCertificate */
+    /* Methods of TelepathyGLib-0.12.TelepathyGLib.TLSCertificate */
     acceptAsync(callback?: Gio.AsyncReadyCallback | null): void
     acceptFinish(result: Gio.AsyncResult): boolean
     addRejection(reason: TLSCertificateRejectReason, dbusError: string, details?: GLib.Variant | null): void
@@ -7278,7 +6740,7 @@ export class TLSCertificate {
     getState(): TLSCertificateState
     rejectAsync(callback?: Gio.AsyncReadyCallback | null): void
     rejectFinish(result: Gio.AsyncResult): boolean
-    /* Methods of TelepathyGLib.Proxy */
+    /* Methods of TelepathyGLib-0.12.TelepathyGLib.Proxy */
     dbusErrorToGerror(dbusError: string, debugMessage: string): void
     getBusName(): string
     getDbusDaemon(): DBusDaemon
@@ -7290,7 +6752,7 @@ export class TLSCertificate {
     isPrepared(feature: GLib.Quark): boolean
     prepareAsync(features?: GLib.Quark[] | null, callback?: Gio.AsyncReadyCallback | null): void
     prepareFinish(result: Gio.AsyncResult): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -7312,34 +6774,23 @@ export class TLSCertificate {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of TelepathyGLib.Proxy */
+    /* Signals of TelepathyGLib-0.12.TelepathyGLib.Proxy */
     connect(sigName: "interface-added", callback: (($obj: TLSCertificate, id: number, proxy: any) => void)): number
-    connect_after(sigName: "interface-added", callback: (($obj: TLSCertificate, id: number, proxy: any) => void)): number
+    on(sigName: "interface-added", callback: (id: number, proxy: any) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "interface-added", callback: (id: number, proxy: any) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "interface-added", callback: (id: number, proxy: any) => void): NodeJS.EventEmitter
     emit(sigName: "interface-added", id: number, proxy: any): void
-    on(sigName: "interface-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "interface-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "interface-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "invalidated", callback: (($obj: TLSCertificate, domain: number, code: number, message: string) => void)): number
-    connect_after(sigName: "invalidated", callback: (($obj: TLSCertificate, domain: number, code: number, message: string) => void)): number
+    on(sigName: "invalidated", callback: (domain: number, code: number, message: string) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "invalidated", callback: (domain: number, code: number, message: string) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "invalidated", callback: (domain: number, code: number, message: string) => void): NodeJS.EventEmitter
     emit(sigName: "invalidated", domain: number, code: number, message: string): void
-    on(sigName: "invalidated", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "invalidated", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "invalidated", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: TLSCertificate, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: TLSCertificate, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::cert-data", callback: (($obj: TLSCertificate, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::cert-data", callback: (($obj: TLSCertificate, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::cert-data", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -7383,15 +6834,15 @@ export interface TLSCertificateRejection_ConstructProps extends GObject.Object_C
     reason?: number
 }
 export class TLSCertificateRejection {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of TelepathyGLib.TLSCertificateRejection */
+    /* Methods of TelepathyGLib-0.12.TelepathyGLib.TLSCertificateRejection */
     getDbusError(): string
     getDetails(): GLib.Variant
     getError(): GLib.Error
     getReason(): TLSCertificateRejectReason
     raiseError(): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -7413,21 +6864,12 @@ export class TLSCertificateRejection {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: TLSCertificateRejection, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: TLSCertificateRejection, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -7443,13 +6885,13 @@ export class TLSCertificateRejection {
 export interface TextChannel_ConstructProps extends Channel_ConstructProps {
 }
 export class TextChannel {
-    /* Properties of TelepathyGLib.TextChannel */
+    /* Properties of TelepathyGLib-0.12.TelepathyGLib.TextChannel */
     readonly deliveryReportingSupport: number
     readonly isSmsChannel: boolean
     readonly messagePartSupportFlags: number
     readonly smsFlash: boolean
     readonly supportedContentTypes: string[]
-    /* Properties of TelepathyGLib.Channel */
+    /* Properties of TelepathyGLib-0.12.TelepathyGLib.Channel */
     readonly channelReady: boolean
     readonly groupFlags: number
     readonly groupSelfContact: Contact
@@ -7461,11 +6903,11 @@ export class TextChannel {
     readonly passwordNeeded: boolean
     readonly requested: boolean
     readonly targetContact: Contact
-    /* Properties of TelepathyGLib.Proxy */
+    /* Properties of TelepathyGLib-0.12.TelepathyGLib.Proxy */
     readonly interfaces: string[]
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of TelepathyGLib.TextChannel */
+    /* Methods of TelepathyGLib-0.12.TelepathyGLib.TextChannel */
     ackAllPendingMessagesAsync(callback?: Gio.AsyncReadyCallback | null): void
     ackAllPendingMessagesFinish(result: Gio.AsyncResult): boolean
     ackMessageAsync(message: Message, callback?: Gio.AsyncReadyCallback | null): void
@@ -7480,14 +6922,14 @@ export class TextChannel {
     getPendingMessages(): SignalledMessage[]
     getSmsFlash(): boolean
     getSmsLengthAsync(message: Message, callback?: Gio.AsyncReadyCallback | null): void
-    getSmsLengthFinish(result: Gio.AsyncResult): [ /* returnType */ boolean, /* chunksRequired */ number, /* remainingCharacters */ number, /* estimatedCost */ number ]
+    getSmsLengthFinish(result: Gio.AsyncResult): { returnType: boolean, chunksRequired: number, remainingCharacters: number, estimatedCost: number }
     getSupportedContentTypes(): string[]
     sendMessageAsync(message: Message, flags: MessageSendingFlags, callback?: Gio.AsyncReadyCallback | null): void
-    sendMessageFinish(result: Gio.AsyncResult): [ /* returnType */ boolean, /* token */ string ]
+    sendMessageFinish(result: Gio.AsyncResult): { returnType: boolean, token: string }
     setChatStateAsync(state: ChannelChatState, callback?: Gio.AsyncReadyCallback | null): void
     setChatStateFinish(result: Gio.AsyncResult): boolean
     supportsMessageType(messageType: ChannelTextMessageType): boolean
-    /* Methods of TelepathyGLib.Channel */
+    /* Methods of TelepathyGLib-0.12.TelepathyGLib.Channel */
     borrowConnection(): Connection
     borrowImmutableProperties(): GLib.HashTable
     closeAsync(callback?: Gio.AsyncReadyCallback | null): void
@@ -7499,7 +6941,7 @@ export class TextChannel {
     getChannelTypeId(): GLib.Quark
     getChatState(contact: Handle): ChannelChatState
     getConnection(): Connection
-    getHandle(): [ /* returnType */ Handle, /* handleType */ HandleType ]
+    getHandle(): { returnType: Handle, handleType: HandleType }
     getIdentifier(): string
     getInitiatorContact(): Contact
     getRequested(): boolean
@@ -7511,8 +6953,8 @@ export class TextChannel {
     groupGetFlags(): ChannelGroupFlags
     groupGetHandleOwner(handle: Handle): Handle
     groupGetLocalPending(): Intset
-    groupGetLocalPendingContactInfo(localPending: Contact): [ /* returnType */ boolean, /* actor */ Contact | null, /* reason */ ChannelGroupChangeReason | null, /* message */ string | null ]
-    groupGetLocalPendingInfo(localPending: Handle): [ /* returnType */ boolean, /* actor */ Handle | null, /* reason */ ChannelGroupChangeReason | null, /* message */ string | null ]
+    groupGetLocalPendingContactInfo(localPending: Contact): { returnType: boolean, actor: Contact | null, reason: ChannelGroupChangeReason | null, message: string | null }
+    groupGetLocalPendingInfo(localPending: Handle): { returnType: boolean, actor: Handle | null, reason: ChannelGroupChangeReason | null, message: string | null }
     groupGetMembers(): Intset
     groupGetRemotePending(): Intset
     groupGetSelfContact(): Contact
@@ -7523,7 +6965,7 @@ export class TextChannel {
     leaveFinish(result: Gio.AsyncResult): boolean
     providePasswordAsync(password: string, callback?: Gio.AsyncReadyCallback | null): void
     providePasswordFinish(result: Gio.AsyncResult): boolean
-    /* Methods of TelepathyGLib.Proxy */
+    /* Methods of TelepathyGLib-0.12.TelepathyGLib.Proxy */
     dbusErrorToGerror(dbusError: string, debugMessage: string): void
     getBusName(): string
     getDbusDaemon(): DBusDaemon
@@ -7535,7 +6977,7 @@ export class TextChannel {
     isPrepared(feature: GLib.Quark): boolean
     prepareAsync(features?: GLib.Quark[] | null, callback?: Gio.AsyncReadyCallback | null): void
     prepareFinish(result: Gio.AsyncResult): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -7557,90 +6999,70 @@ export class TextChannel {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of TelepathyGLib.TextChannel */
+    /* Signals of TelepathyGLib-0.12.TelepathyGLib.TextChannel */
     connect(sigName: "contact-chat-state-changed", callback: (($obj: TextChannel, contact: Contact, state: number) => void)): number
-    connect_after(sigName: "contact-chat-state-changed", callback: (($obj: TextChannel, contact: Contact, state: number) => void)): number
+    on(sigName: "contact-chat-state-changed", callback: (contact: Contact, state: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "contact-chat-state-changed", callback: (contact: Contact, state: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "contact-chat-state-changed", callback: (contact: Contact, state: number) => void): NodeJS.EventEmitter
     emit(sigName: "contact-chat-state-changed", contact: Contact, state: number): void
-    on(sigName: "contact-chat-state-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "contact-chat-state-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "contact-chat-state-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "message-received", callback: (($obj: TextChannel, message: SignalledMessage) => void)): number
-    connect_after(sigName: "message-received", callback: (($obj: TextChannel, message: SignalledMessage) => void)): number
+    on(sigName: "message-received", callback: (message: SignalledMessage) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "message-received", callback: (message: SignalledMessage) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "message-received", callback: (message: SignalledMessage) => void): NodeJS.EventEmitter
     emit(sigName: "message-received", message: SignalledMessage): void
-    on(sigName: "message-received", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "message-received", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "message-received", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "message-sent", callback: (($obj: TextChannel, message: SignalledMessage, flags: number, token: string) => void)): number
-    connect_after(sigName: "message-sent", callback: (($obj: TextChannel, message: SignalledMessage, flags: number, token: string) => void)): number
+    on(sigName: "message-sent", callback: (message: SignalledMessage, flags: number, token: string) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "message-sent", callback: (message: SignalledMessage, flags: number, token: string) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "message-sent", callback: (message: SignalledMessage, flags: number, token: string) => void): NodeJS.EventEmitter
     emit(sigName: "message-sent", message: SignalledMessage, flags: number, token: string): void
-    on(sigName: "message-sent", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "message-sent", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "message-sent", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "pending-message-removed", callback: (($obj: TextChannel, message: SignalledMessage) => void)): number
-    connect_after(sigName: "pending-message-removed", callback: (($obj: TextChannel, message: SignalledMessage) => void)): number
+    on(sigName: "pending-message-removed", callback: (message: SignalledMessage) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "pending-message-removed", callback: (message: SignalledMessage) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "pending-message-removed", callback: (message: SignalledMessage) => void): NodeJS.EventEmitter
     emit(sigName: "pending-message-removed", message: SignalledMessage): void
-    on(sigName: "pending-message-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "pending-message-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "pending-message-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of TelepathyGLib.Channel */
+    /* Signals of TelepathyGLib-0.12.TelepathyGLib.Channel */
     connect(sigName: "chat-state-changed", callback: (($obj: TextChannel, contact: number, state: number) => void)): number
-    connect_after(sigName: "chat-state-changed", callback: (($obj: TextChannel, contact: number, state: number) => void)): number
+    on(sigName: "chat-state-changed", callback: (contact: number, state: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "chat-state-changed", callback: (contact: number, state: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "chat-state-changed", callback: (contact: number, state: number) => void): NodeJS.EventEmitter
     emit(sigName: "chat-state-changed", contact: number, state: number): void
-    on(sigName: "chat-state-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "chat-state-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "chat-state-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "group-contacts-changed", callback: (($obj: TextChannel, added: Contact[], removed: Contact[], localPending: Contact[], remotePending: Contact[], actor: Contact, details: GLib.HashTable) => void)): number
-    connect_after(sigName: "group-contacts-changed", callback: (($obj: TextChannel, added: Contact[], removed: Contact[], localPending: Contact[], remotePending: Contact[], actor: Contact, details: GLib.HashTable) => void)): number
+    on(sigName: "group-contacts-changed", callback: (added: Contact[], removed: Contact[], localPending: Contact[], remotePending: Contact[], actor: Contact, details: GLib.HashTable) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "group-contacts-changed", callback: (added: Contact[], removed: Contact[], localPending: Contact[], remotePending: Contact[], actor: Contact, details: GLib.HashTable) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "group-contacts-changed", callback: (added: Contact[], removed: Contact[], localPending: Contact[], remotePending: Contact[], actor: Contact, details: GLib.HashTable) => void): NodeJS.EventEmitter
     emit(sigName: "group-contacts-changed", added: Contact[], removed: Contact[], localPending: Contact[], remotePending: Contact[], actor: Contact, details: GLib.HashTable): void
-    on(sigName: "group-contacts-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "group-contacts-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "group-contacts-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "group-flags-changed", callback: (($obj: TextChannel, added: number, removed: number) => void)): number
-    connect_after(sigName: "group-flags-changed", callback: (($obj: TextChannel, added: number, removed: number) => void)): number
+    on(sigName: "group-flags-changed", callback: (added: number, removed: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "group-flags-changed", callback: (added: number, removed: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "group-flags-changed", callback: (added: number, removed: number) => void): NodeJS.EventEmitter
     emit(sigName: "group-flags-changed", added: number, removed: number): void
-    on(sigName: "group-flags-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "group-flags-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "group-flags-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "group-members-changed", callback: (($obj: TextChannel, message: string, added: any, removed: any, localPending: any, remotePending: any, actor: number, reason: number) => void)): number
-    connect_after(sigName: "group-members-changed", callback: (($obj: TextChannel, message: string, added: any, removed: any, localPending: any, remotePending: any, actor: number, reason: number) => void)): number
+    on(sigName: "group-members-changed", callback: (message: string, added: any, removed: any, localPending: any, remotePending: any, actor: number, reason: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "group-members-changed", callback: (message: string, added: any, removed: any, localPending: any, remotePending: any, actor: number, reason: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "group-members-changed", callback: (message: string, added: any, removed: any, localPending: any, remotePending: any, actor: number, reason: number) => void): NodeJS.EventEmitter
     emit(sigName: "group-members-changed", message: string, added: any, removed: any, localPending: any, remotePending: any, actor: number, reason: number): void
-    on(sigName: "group-members-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "group-members-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "group-members-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "group-members-changed-detailed", callback: (($obj: TextChannel, added: number[], removed: number[], localPending: number[], remotePending: number[], details: GLib.HashTable) => void)): number
-    connect_after(sigName: "group-members-changed-detailed", callback: (($obj: TextChannel, added: number[], removed: number[], localPending: number[], remotePending: number[], details: GLib.HashTable) => void)): number
+    on(sigName: "group-members-changed-detailed", callback: (added: number[], removed: number[], localPending: number[], remotePending: number[], details: GLib.HashTable) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "group-members-changed-detailed", callback: (added: number[], removed: number[], localPending: number[], remotePending: number[], details: GLib.HashTable) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "group-members-changed-detailed", callback: (added: number[], removed: number[], localPending: number[], remotePending: number[], details: GLib.HashTable) => void): NodeJS.EventEmitter
     emit(sigName: "group-members-changed-detailed", added: number[], removed: number[], localPending: number[], remotePending: number[], details: GLib.HashTable): void
-    on(sigName: "group-members-changed-detailed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "group-members-changed-detailed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "group-members-changed-detailed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of TelepathyGLib.Proxy */
+    /* Signals of TelepathyGLib-0.12.TelepathyGLib.Proxy */
     connect(sigName: "interface-added", callback: (($obj: TextChannel, id: number, proxy: any) => void)): number
-    connect_after(sigName: "interface-added", callback: (($obj: TextChannel, id: number, proxy: any) => void)): number
+    on(sigName: "interface-added", callback: (id: number, proxy: any) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "interface-added", callback: (id: number, proxy: any) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "interface-added", callback: (id: number, proxy: any) => void): NodeJS.EventEmitter
     emit(sigName: "interface-added", id: number, proxy: any): void
-    on(sigName: "interface-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "interface-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "interface-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "invalidated", callback: (($obj: TextChannel, domain: number, code: number, message: string) => void)): number
-    connect_after(sigName: "invalidated", callback: (($obj: TextChannel, domain: number, code: number, message: string) => void)): number
+    on(sigName: "invalidated", callback: (domain: number, code: number, message: string) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "invalidated", callback: (domain: number, code: number, message: string) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "invalidated", callback: (domain: number, code: number, message: string) => void): NodeJS.EventEmitter
     emit(sigName: "invalidated", domain: number, code: number, message: string): void
-    on(sigName: "invalidated", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "invalidated", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "invalidated", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: TextChannel, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: TextChannel, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::delivery-reporting-support", callback: (($obj: TextChannel, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::delivery-reporting-support", callback: (($obj: TextChannel, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::delivery-reporting-support", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -7781,17 +7203,17 @@ export class AddDispatchOperationContextPrivate {
     static name: string
 }
 export abstract class AutomaticClientFactoryClass {
-    /* Fields of TelepathyGLib.AutomaticClientFactoryClass */
+    /* Fields of TelepathyGLib-0.12.TelepathyGLib.AutomaticClientFactoryClass */
     parentClass: SimpleClientFactoryClass
     static name: string
 }
 export abstract class AutomaticProxyFactoryClass {
-    /* Fields of TelepathyGLib.AutomaticProxyFactoryClass */
+    /* Fields of TelepathyGLib-0.12.TelepathyGLib.AutomaticProxyFactoryClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
 export class AvatarRequirements {
-    /* Fields of TelepathyGLib.AvatarRequirements */
+    /* Fields of TelepathyGLib-0.12.TelepathyGLib.AvatarRequirements */
     supportedMimeTypes: string[]
     minimumWidth: number
     minimumHeight: number
@@ -7807,7 +7229,7 @@ export class AvatarRequirements {
     static new(supportedMimeTypes: string[], minimumWidth: number, minimumHeight: number, recommendedWidth: number, recommendedHeight: number, maximumWidth: number, maximumHeight: number, maximumBytes: number): AvatarRequirements
 }
 export abstract class BaseClientClass {
-    /* Fields of TelepathyGLib.BaseClientClass */
+    /* Fields of TelepathyGLib-0.12.TelepathyGLib.BaseClientClass */
     parentClass: GObject.ObjectClass
     observeChannels: BaseClientClassObserveChannelsImpl
     addDispatchOperation: BaseClientClassAddDispatchOperationImpl
@@ -7821,7 +7243,7 @@ export class BaseClientPrivate {
     static name: string
 }
 export abstract class BaseConnectionClass {
-    /* Fields of TelepathyGLib.BaseConnectionClass */
+    /* Fields of TelepathyGLib-0.12.TelepathyGLib.BaseConnectionClass */
     parentClass: GObject.ObjectClass
     getUniqueConnectionName: BaseConnectionGetUniqueConnectionNameImpl
     connecting: BaseConnectionProc
@@ -7835,7 +7257,7 @@ export class BaseConnectionPrivate {
     static name: string
 }
 export abstract class BasicProxyFactoryClass {
-    /* Fields of TelepathyGLib.BasicProxyFactoryClass */
+    /* Fields of TelepathyGLib-0.12.TelepathyGLib.BasicProxyFactoryClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
@@ -7852,7 +7274,7 @@ export class CallContentPrivate {
     static name: string
 }
 export class CallStateReason {
-    /* Fields of TelepathyGLib.CallStateReason */
+    /* Fields of TelepathyGLib-0.12.TelepathyGLib.CallStateReason */
     actor: Handle
     reason: CallStateChangeReason
     dbusReason: string
@@ -7872,7 +7294,7 @@ export class CapabilitiesPrivate {
     static name: string
 }
 export abstract class ChannelClass {
-    /* Fields of TelepathyGLib.ChannelClass */
+    /* Fields of TelepathyGLib-0.12.TelepathyGLib.ChannelClass */
     parentClass: ProxyClass
     static name: string
 }
@@ -7910,7 +7332,7 @@ export class ChannelRequestPrivate {
     static name: string
 }
 export abstract class ClientChannelFactoryInterface {
-    /* Fields of TelepathyGLib.ClientChannelFactoryInterface */
+    /* Fields of TelepathyGLib-0.12.TelepathyGLib.ClientChannelFactoryInterface */
     parent: GObject.TypeInterface
     static name: string
 }
@@ -7918,7 +7340,7 @@ export abstract class ClientMessageClass {
     static name: string
 }
 export abstract class ConnectionClass {
-    /* Fields of TelepathyGLib.ConnectionClass */
+    /* Fields of TelepathyGLib-0.12.TelepathyGLib.ConnectionClass */
     parentClass: ProxyClass
     static name: string
 }
@@ -7926,7 +7348,7 @@ export abstract class ConnectionManagerClass {
     static name: string
 }
 export class ConnectionManagerParam {
-    /* Methods of TelepathyGLib.ConnectionManagerParam */
+    /* Methods of TelepathyGLib-0.12.TelepathyGLib.ConnectionManagerParam */
     copy(): ConnectionManagerParam
     dupDefaultVariant(): GLib.Variant
     dupVariantType(): GLib.VariantType
@@ -7944,10 +7366,10 @@ export class ConnectionManagerPrivate {
     static name: string
 }
 export class ConnectionManagerProtocol {
-    /* Fields of TelepathyGLib.ConnectionManagerProtocol */
+    /* Fields of TelepathyGLib-0.12.TelepathyGLib.ConnectionManagerProtocol */
     name: string
     params: ConnectionManagerParam
-    /* Methods of TelepathyGLib.ConnectionManagerProtocol */
+    /* Methods of TelepathyGLib-0.12.TelepathyGLib.ConnectionManagerProtocol */
     canRegister(): boolean
     copy(): ConnectionManagerProtocol
     dupParamNames(): string[]
@@ -7963,7 +7385,7 @@ export abstract class ContactClass {
     static name: string
 }
 export class ContactInfoField {
-    /* Fields of TelepathyGLib.ContactInfoField */
+    /* Fields of TelepathyGLib-0.12.TelepathyGLib.ContactInfoField */
     fieldName: string
     parameters: string[]
     fieldValue: string[]
@@ -7974,7 +7396,7 @@ export class ContactInfoField {
     static new(fieldName: string, parameters: string[], fieldValue: string[]): ContactInfoField
 }
 export class ContactInfoFieldSpec {
-    /* Fields of TelepathyGLib.ContactInfoFieldSpec */
+    /* Fields of TelepathyGLib-0.12.TelepathyGLib.ContactInfoFieldSpec */
     name: string
     parameters: string[]
     flags: ContactInfoFieldFlags
@@ -8015,14 +7437,14 @@ export class DBusDaemonPrivate {
     static name: string
 }
 export class DBusPropertiesMixinClass {
-    /* Fields of TelepathyGLib.DBusPropertiesMixinClass */
+    /* Fields of TelepathyGLib-0.12.TelepathyGLib.DBusPropertiesMixinClass */
     interfaces: DBusPropertiesMixinIfaceImpl
     static name: string
     /* Static methods and pseudo-constructors */
     static init(cls: GObject.ObjectClass, offset: number): void
 }
 export class DBusPropertiesMixinIfaceImpl {
-    /* Fields of TelepathyGLib.DBusPropertiesMixinIfaceImpl */
+    /* Fields of TelepathyGLib-0.12.TelepathyGLib.DBusPropertiesMixinIfaceImpl */
     name: string
     getter: DBusPropertiesMixinGetter
     setter: DBusPropertiesMixinSetter
@@ -8030,20 +7452,20 @@ export class DBusPropertiesMixinIfaceImpl {
     static name: string
 }
 export class DBusPropertiesMixinIfaceInfo {
-    /* Fields of TelepathyGLib.DBusPropertiesMixinIfaceInfo */
+    /* Fields of TelepathyGLib-0.12.TelepathyGLib.DBusPropertiesMixinIfaceInfo */
     dbusInterface: GLib.Quark
     props: DBusPropertiesMixinPropInfo
     static name: string
 }
 export class DBusPropertiesMixinPropImpl {
-    /* Fields of TelepathyGLib.DBusPropertiesMixinPropImpl */
+    /* Fields of TelepathyGLib-0.12.TelepathyGLib.DBusPropertiesMixinPropImpl */
     name: string
     getterData: object
     setterData: object
     static name: string
 }
 export class DBusPropertiesMixinPropInfo {
-    /* Fields of TelepathyGLib.DBusPropertiesMixinPropInfo */
+    /* Fields of TelepathyGLib-0.12.TelepathyGLib.DBusPropertiesMixinPropInfo */
     name: GLib.Quark
     flags: DBusPropertiesMixinFlags
     dbusSignature: string
@@ -8075,7 +7497,7 @@ export class FileTransferChannelPrivate {
     static name: string
 }
 export class GroupMixin {
-    /* Fields of TelepathyGLib.GroupMixin */
+    /* Fields of TelepathyGLib-0.12.TelepathyGLib.GroupMixin */
     handleRepo: HandleRepoIface
     selfHandle: Handle
     groupFlags: ChannelGroupFlags
@@ -8086,7 +7508,7 @@ export class GroupMixin {
     static name: string
 }
 export class GroupMixinClass {
-    /* Fields of TelepathyGLib.GroupMixinClass */
+    /* Fields of TelepathyGLib-0.12.TelepathyGLib.GroupMixinClass */
     addMember: GroupMixinAddMemberFunc
     removeMember: GroupMixinRemMemberFunc
     priv: GroupMixinClassPrivate
@@ -8108,13 +7530,13 @@ export class HandleRepoIfaceClass {
     static name: string
 }
 export class HandleSet {
-    /* Methods of TelepathyGLib.HandleSet */
+    /* Methods of TelepathyGLib-0.12.TelepathyGLib.HandleSet */
     dump(): string
     toIdentifierMap(): GLib.HashTable
     static name: string
 }
 export class Intset {
-    /* Methods of TelepathyGLib.Intset */
+    /* Methods of TelepathyGLib-0.12.TelepathyGLib.Intset */
     add(element: number): void
     clear(): void
     copy(): Intset
@@ -8143,16 +7565,16 @@ export class Intset {
     static fromArray(array: number[]): Intset
 }
 export class IntsetFastIter {
-    /* Methods of TelepathyGLib.IntsetFastIter */
+    /* Methods of TelepathyGLib-0.12.TelepathyGLib.IntsetFastIter */
     init(set: Intset): void
     next(output: number): boolean
     static name: string
 }
 export class IntsetIter {
-    /* Fields of TelepathyGLib.IntsetIter */
+    /* Fields of TelepathyGLib-0.12.TelepathyGLib.IntsetIter */
     set: Intset
     element: number
-    /* Methods of TelepathyGLib.IntsetIter */
+    /* Methods of TelepathyGLib-0.12.TelepathyGLib.IntsetIter */
     init(set: Intset): void
     next(): boolean
     reset(): void
@@ -8171,7 +7593,7 @@ export class PresenceMixin {
     static name: string
 }
 export class PresenceMixinClass {
-    /* Fields of TelepathyGLib.PresenceMixinClass */
+    /* Fields of TelepathyGLib-0.12.TelepathyGLib.PresenceMixinClass */
     statusAvailable: PresenceMixinStatusAvailableFunc
     setOwnStatus: PresenceMixinSetOwnStatusFunc
     statuses: PresenceStatusSpec
@@ -8185,24 +7607,24 @@ export class PresenceMixinPrivate {
     static name: string
 }
 export class PresenceStatus {
-    /* Fields of TelepathyGLib.PresenceStatus */
+    /* Fields of TelepathyGLib-0.12.TelepathyGLib.PresenceStatus */
     index: number
     optionalArguments: GLib.HashTable
     static name: string
 }
 export class PresenceStatusOptionalArgumentSpec {
-    /* Fields of TelepathyGLib.PresenceStatusOptionalArgumentSpec */
+    /* Fields of TelepathyGLib-0.12.TelepathyGLib.PresenceStatusOptionalArgumentSpec */
     name: string
     dtype: string
     static name: string
 }
 export class PresenceStatusSpec {
-    /* Fields of TelepathyGLib.PresenceStatusSpec */
+    /* Fields of TelepathyGLib-0.12.TelepathyGLib.PresenceStatusSpec */
     name: string
     presenceType: ConnectionPresenceType
     self: boolean
     optionalArguments: PresenceStatusOptionalArgumentSpec
-    /* Methods of TelepathyGLib.PresenceStatusSpec */
+    /* Methods of TelepathyGLib-0.12.TelepathyGLib.PresenceStatusSpec */
     canSetOnSelf(): boolean
     copy(): PresenceStatusSpec
     free(): void
@@ -8228,14 +7650,14 @@ export class ProtocolPrivate {
     static name: string
 }
 export abstract class ProxyClass {
-    /* Fields of TelepathyGLib.ProxyClass */
+    /* Fields of TelepathyGLib-0.12.TelepathyGLib.ProxyClass */
     parentClass: GObject.ObjectClass
     interface: GLib.Quark
     mustHaveUniqueName: number
     static name: string
 }
 export class ProxyFeature {
-    /* Fields of TelepathyGLib.ProxyFeature */
+    /* Fields of TelepathyGLib-0.12.TelepathyGLib.ProxyFeature */
     name: GLib.Quark
     core: boolean
     prepareAsync: ProxyPrepareAsync
@@ -8249,7 +7671,7 @@ export class ProxyFeaturePrivate {
     static name: string
 }
 export class ProxyPendingCall {
-    /* Methods of TelepathyGLib.ProxyPendingCall */
+    /* Methods of TelepathyGLib-0.12.TelepathyGLib.ProxyPendingCall */
     cancel(): void
     static name: string
 }
@@ -8257,7 +7679,7 @@ export class ProxyPrivate {
     static name: string
 }
 export class ProxySignalConnection {
-    /* Methods of TelepathyGLib.ProxySignalConnection */
+    /* Methods of TelepathyGLib-0.12.TelepathyGLib.ProxySignalConnection */
     disconnect(): void
     static name: string
 }
@@ -8283,7 +7705,7 @@ export class SimpleApproverPrivate {
     static name: string
 }
 export abstract class SimpleClientFactoryClass {
-    /* Fields of TelepathyGLib.SimpleClientFactoryClass */
+    /* Fields of TelepathyGLib-0.12.TelepathyGLib.SimpleClientFactoryClass */
     parentClass: GObject.ObjectClass
     dupAccountFeatures: (self: SimpleClientFactory, account: Account) => GLib.Quark[]
     dupConnectionFeatures: (self: SimpleClientFactory, connection: Connection) => GLib.Quark[]

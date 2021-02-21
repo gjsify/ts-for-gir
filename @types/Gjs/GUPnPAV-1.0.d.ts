@@ -87,14 +87,14 @@ export function protocol_error_quark(): GLib.Quark
 export interface CDSLastChangeParser_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class CDSLastChangeParser {
-    /* Fields of GUPnPAV.CDSLastChangeParser */
+    /* Fields of GUPnPAV-1.0.GUPnPAV.CDSLastChangeParser */
     parent: GObject.Object
     priv: CDSLastChangeParserPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GUPnPAV.CDSLastChangeParser */
+    /* Methods of GUPnPAV-1.0.GUPnPAV.CDSLastChangeParser */
     parse(last_change: string): CDSLastChangeEntry[]
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -116,7 +116,7 @@ export class CDSLastChangeParser {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -124,7 +124,7 @@ export class CDSLastChangeParser {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: CDSLastChangeParser, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: CDSLastChangeParser, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -147,13 +147,13 @@ export interface DIDLLiteContainer_ConstructProps extends DIDLLiteObject_Constru
     total_deleted_child_count?: number
 }
 export class DIDLLiteContainer {
-    /* Properties of GUPnPAV.DIDLLiteContainer */
+    /* Properties of GUPnPAV-1.0.GUPnPAV.DIDLLiteContainer */
     child_count: number
     container_update_id: number
     searchable: boolean
     storage_used: number
     total_deleted_child_count: number
-    /* Properties of GUPnPAV.DIDLLiteObject */
+    /* Properties of GUPnPAV-1.0.GUPnPAV.DIDLLiteObject */
     album: string
     album_art: string
     artist: string
@@ -171,13 +171,13 @@ export class DIDLLiteContainer {
     update_id: number
     upnp_class: string
     write_status: string
-    /* Fields of GUPnPAV.DIDLLiteContainer */
+    /* Fields of GUPnPAV-1.0.GUPnPAV.DIDLLiteContainer */
     parent: DIDLLiteObject
-    /* Fields of GUPnPAV.DIDLLiteObject */
+    /* Fields of GUPnPAV-1.0.GUPnPAV.DIDLLiteObject */
     priv: DIDLLiteObjectPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GUPnPAV.DIDLLiteContainer */
+    /* Methods of GUPnPAV-1.0.GUPnPAV.DIDLLiteContainer */
     add_create_class(create_class: string): void
     add_create_class_full(create_class: string, include_derived: boolean): void
     add_search_class(search_class: string): void
@@ -199,7 +199,7 @@ export class DIDLLiteContainer {
     total_deleted_child_count_is_set(): boolean
     unset_container_update_id(): void
     unset_total_deleted_child_count(): void
-    /* Methods of GUPnPAV.DIDLLiteObject */
+    /* Methods of GUPnPAV-1.0.GUPnPAV.DIDLLiteObject */
     add_artist(): DIDLLiteContributor
     add_author(): DIDLLiteContributor
     add_creator(): DIDLLiteContributor
@@ -263,7 +263,7 @@ export class DIDLLiteContainer {
     unset_artists(): void
     unset_update_id(): void
     update_id_is_set(): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -285,7 +285,7 @@ export class DIDLLiteContainer {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -293,7 +293,7 @@ export class DIDLLiteContainer {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: DIDLLiteContainer, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: DIDLLiteContainer, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -356,21 +356,21 @@ export interface DIDLLiteContributor_ConstructProps extends GObject.Object_Const
     xml_node?: object
 }
 export class DIDLLiteContributor {
-    /* Properties of GUPnPAV.DIDLLiteContributor */
+    /* Properties of GUPnPAV-1.0.GUPnPAV.DIDLLiteContributor */
     name: string
     role: string
-    /* Fields of GUPnPAV.DIDLLiteContributor */
+    /* Fields of GUPnPAV-1.0.GUPnPAV.DIDLLiteContributor */
     parent: GObject.Object
     priv: DIDLLiteContributorPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GUPnPAV.DIDLLiteContributor */
+    /* Methods of GUPnPAV-1.0.GUPnPAV.DIDLLiteContributor */
     get_name(): string
     get_role(): string
     get_xml_node(): libxml2.Node
     set_name(name: string): void
     set_role(role: string): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -392,7 +392,7 @@ export class DIDLLiteContributor {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -400,7 +400,7 @@ export class DIDLLiteContributor {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: DIDLLiteContributor, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: DIDLLiteContributor, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -424,15 +424,15 @@ export interface DIDLLiteCreateClass_ConstructProps extends GObject.Object_Const
     xml_node?: object
 }
 export class DIDLLiteCreateClass {
-    /* Properties of GUPnPAV.DIDLLiteCreateClass */
+    /* Properties of GUPnPAV-1.0.GUPnPAV.DIDLLiteCreateClass */
     content: string
     friendly_name: string
     include_derived: boolean
-    /* Fields of GUPnPAV.DIDLLiteCreateClass */
+    /* Fields of GUPnPAV-1.0.GUPnPAV.DIDLLiteCreateClass */
     parent: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GUPnPAV.DIDLLiteCreateClass */
+    /* Methods of GUPnPAV-1.0.GUPnPAV.DIDLLiteCreateClass */
     get_content(): string
     get_friendly_name(): string
     get_include_derived(): boolean
@@ -440,7 +440,7 @@ export class DIDLLiteCreateClass {
     set_content(content: string): void
     set_friendly_name(friendly_name: string): void
     set_include_derived(include_derived: boolean): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -462,7 +462,7 @@ export class DIDLLiteCreateClass {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -470,7 +470,7 @@ export class DIDLLiteCreateClass {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: DIDLLiteCreateClass, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: DIDLLiteCreateClass, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -497,17 +497,17 @@ export interface DIDLLiteDescriptor_ConstructProps extends GObject.Object_Constr
     xml_node?: object
 }
 export class DIDLLiteDescriptor {
-    /* Properties of GUPnPAV.DIDLLiteDescriptor */
+    /* Properties of GUPnPAV-1.0.GUPnPAV.DIDLLiteDescriptor */
     content: string
     id: string
     metadata_type: string
     name_space: string
-    /* Fields of GUPnPAV.DIDLLiteDescriptor */
+    /* Fields of GUPnPAV-1.0.GUPnPAV.DIDLLiteDescriptor */
     parent: GObject.Object
     priv: DIDLLiteDescriptorPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GUPnPAV.DIDLLiteDescriptor */
+    /* Methods of GUPnPAV-1.0.GUPnPAV.DIDLLiteDescriptor */
     get_content(): string
     get_id(): string
     get_metadata_type(): string
@@ -517,7 +517,7 @@ export class DIDLLiteDescriptor {
     set_id(id: string): void
     set_metadata_type(type: string): void
     set_name_space(name_space: string): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -539,7 +539,7 @@ export class DIDLLiteDescriptor {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -547,7 +547,7 @@ export class DIDLLiteDescriptor {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: DIDLLiteDescriptor, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: DIDLLiteDescriptor, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -575,10 +575,10 @@ export interface DIDLLiteItem_ConstructProps extends DIDLLiteObject_ConstructPro
     ref_id?: string
 }
 export class DIDLLiteItem {
-    /* Properties of GUPnPAV.DIDLLiteItem */
+    /* Properties of GUPnPAV-1.0.GUPnPAV.DIDLLiteItem */
     lifetime: number
     ref_id: string
-    /* Properties of GUPnPAV.DIDLLiteObject */
+    /* Properties of GUPnPAV-1.0.GUPnPAV.DIDLLiteObject */
     album: string
     album_art: string
     artist: string
@@ -596,18 +596,18 @@ export class DIDLLiteItem {
     update_id: number
     upnp_class: string
     write_status: string
-    /* Fields of GUPnPAV.DIDLLiteItem */
+    /* Fields of GUPnPAV-1.0.GUPnPAV.DIDLLiteItem */
     parent: DIDLLiteObject
-    /* Fields of GUPnPAV.DIDLLiteObject */
+    /* Fields of GUPnPAV-1.0.GUPnPAV.DIDLLiteObject */
     priv: DIDLLiteObjectPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GUPnPAV.DIDLLiteItem */
+    /* Methods of GUPnPAV-1.0.GUPnPAV.DIDLLiteItem */
     get_lifetime(): number
     get_ref_id(): string
     set_lifetime(lifetime: number): void
     set_ref_id(ref_id: string): void
-    /* Methods of GUPnPAV.DIDLLiteObject */
+    /* Methods of GUPnPAV-1.0.GUPnPAV.DIDLLiteObject */
     add_artist(): DIDLLiteContributor
     add_author(): DIDLLiteContributor
     add_creator(): DIDLLiteContributor
@@ -671,7 +671,7 @@ export class DIDLLiteItem {
     unset_artists(): void
     unset_update_id(): void
     update_id_is_set(): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -693,7 +693,7 @@ export class DIDLLiteItem {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -701,7 +701,7 @@ export class DIDLLiteItem {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: DIDLLiteItem, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: DIDLLiteItem, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -777,7 +777,7 @@ export interface DIDLLiteObject_ConstructProps extends GObject.Object_ConstructP
     xml_node?: object
 }
 export class DIDLLiteObject {
-    /* Properties of GUPnPAV.DIDLLiteObject */
+    /* Properties of GUPnPAV-1.0.GUPnPAV.DIDLLiteObject */
     album: string
     album_art: string
     artist: string
@@ -795,12 +795,12 @@ export class DIDLLiteObject {
     update_id: number
     upnp_class: string
     write_status: string
-    /* Fields of GUPnPAV.DIDLLiteObject */
+    /* Fields of GUPnPAV-1.0.GUPnPAV.DIDLLiteObject */
     parent: GObject.Object
     priv: DIDLLiteObjectPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GUPnPAV.DIDLLiteObject */
+    /* Methods of GUPnPAV-1.0.GUPnPAV.DIDLLiteObject */
     add_artist(): DIDLLiteContributor
     add_author(): DIDLLiteContributor
     add_creator(): DIDLLiteContributor
@@ -864,7 +864,7 @@ export class DIDLLiteObject {
     unset_artists(): void
     unset_update_id(): void
     update_id_is_set(): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -886,7 +886,7 @@ export class DIDLLiteObject {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -894,7 +894,7 @@ export class DIDLLiteObject {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: DIDLLiteObject, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: DIDLLiteObject, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -944,14 +944,14 @@ export class DIDLLiteObject {
 export interface DIDLLiteParser_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class DIDLLiteParser {
-    /* Fields of GUPnPAV.DIDLLiteParser */
+    /* Fields of GUPnPAV-1.0.GUPnPAV.DIDLLiteParser */
     parent: GObject.Object
     gupnp_reserved: object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GUPnPAV.DIDLLiteParser */
+    /* Methods of GUPnPAV-1.0.GUPnPAV.DIDLLiteParser */
     parse_didl(didl: string): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -973,11 +973,11 @@ export class DIDLLiteParser {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GUPnPAV.DIDLLiteParser */
+    /* Virtual methods of GUPnPAV-1.0.GUPnPAV.DIDLLiteParser */
     vfunc_container_available(container: DIDLLiteContainer): void
     vfunc_item_available(item: DIDLLiteItem): void
     vfunc_object_available(object: DIDLLiteObject): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -985,7 +985,7 @@ export class DIDLLiteParser {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GUPnPAV.DIDLLiteParser */
+    /* Signals of GUPnPAV-1.0.GUPnPAV.DIDLLiteParser */
     connect(sigName: "container-available", callback: (($obj: DIDLLiteParser, container: DIDLLiteContainer) => void)): number
     connect_after(sigName: "container-available", callback: (($obj: DIDLLiteParser, container: DIDLLiteContainer) => void)): number
     emit(sigName: "container-available", container: DIDLLiteContainer): void
@@ -995,7 +995,7 @@ export class DIDLLiteParser {
     connect(sigName: "object-available", callback: (($obj: DIDLLiteParser, object: DIDLLiteObject) => void)): number
     connect_after(sigName: "object-available", callback: (($obj: DIDLLiteParser, object: DIDLLiteObject) => void)): number
     emit(sigName: "object-available", object: DIDLLiteObject): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: DIDLLiteParser, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: DIDLLiteParser, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -1035,7 +1035,7 @@ export interface DIDLLiteResource_ConstructProps extends GObject.Object_Construc
     xml_node?: object
 }
 export class DIDLLiteResource {
-    /* Properties of GUPnPAV.DIDLLiteResource */
+    /* Properties of GUPnPAV-1.0.GUPnPAV.DIDLLiteResource */
     audio_channels: number
     bitrate: number
     bits_per_sample: number
@@ -1055,12 +1055,12 @@ export class DIDLLiteResource {
     update_count: number
     uri: string
     width: number
-    /* Fields of GUPnPAV.DIDLLiteResource */
+    /* Fields of GUPnPAV-1.0.GUPnPAV.DIDLLiteResource */
     parent: GObject.Object
     priv: DIDLLiteResourcePrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GUPnPAV.DIDLLiteResource */
+    /* Methods of GUPnPAV-1.0.GUPnPAV.DIDLLiteResource */
     get_audio_channels(): number
     get_bitrate(): number
     get_bits_per_sample(): number
@@ -1106,7 +1106,7 @@ export class DIDLLiteResource {
     unset_track_total(): void
     unset_update_count(): void
     update_count_is_set(): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -1128,7 +1128,7 @@ export class DIDLLiteResource {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -1136,7 +1136,7 @@ export class DIDLLiteResource {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: DIDLLiteResource, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: DIDLLiteResource, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -1191,14 +1191,14 @@ export interface DIDLLiteWriter_ConstructProps extends GObject.Object_ConstructP
     language?: string
 }
 export class DIDLLiteWriter {
-    /* Properties of GUPnPAV.DIDLLiteWriter */
+    /* Properties of GUPnPAV-1.0.GUPnPAV.DIDLLiteWriter */
     readonly xml_node: object
-    /* Fields of GUPnPAV.DIDLLiteWriter */
+    /* Fields of GUPnPAV-1.0.GUPnPAV.DIDLLiteWriter */
     parent: GObject.Object
     priv: DIDLLiteWriterPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GUPnPAV.DIDLLiteWriter */
+    /* Methods of GUPnPAV-1.0.GUPnPAV.DIDLLiteWriter */
     add_container(): DIDLLiteContainer
     add_descriptor(): DIDLLiteDescriptor
     add_item(): DIDLLiteItem
@@ -1206,7 +1206,7 @@ export class DIDLLiteWriter {
     get_language(): string
     get_string(): string
     get_xml_node(): libxml2.Node
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -1228,7 +1228,7 @@ export class DIDLLiteWriter {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -1236,7 +1236,7 @@ export class DIDLLiteWriter {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: DIDLLiteWriter, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: DIDLLiteWriter, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -1259,16 +1259,16 @@ export interface Feature_ConstructProps extends GObject.Object_ConstructProps {
     version?: string
 }
 export class Feature {
-    /* Fields of GUPnPAV.Feature */
+    /* Fields of GUPnPAV-1.0.GUPnPAV.Feature */
     parent: GObject.Object
     priv: FeaturePrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GUPnPAV.Feature */
+    /* Methods of GUPnPAV-1.0.GUPnPAV.Feature */
     get_name(): string
     get_object_ids(): string
     get_version(): string
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -1290,7 +1290,7 @@ export class Feature {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -1298,7 +1298,7 @@ export class Feature {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Feature, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Feature, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -1314,13 +1314,13 @@ export class Feature {
 export interface FeatureListParser_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class FeatureListParser {
-    /* Fields of GUPnPAV.FeatureListParser */
+    /* Fields of GUPnPAV-1.0.GUPnPAV.FeatureListParser */
     parent: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GUPnPAV.FeatureListParser */
+    /* Methods of GUPnPAV-1.0.GUPnPAV.FeatureListParser */
     parse_text(text: string): Feature[]
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -1342,7 +1342,7 @@ export class FeatureListParser {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -1350,7 +1350,7 @@ export class FeatureListParser {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: FeatureListParser, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: FeatureListParser, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -1368,11 +1368,11 @@ export class FeatureListParser {
 export interface LastChangeParser_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class LastChangeParser {
-    /* Fields of GUPnPAV.LastChangeParser */
+    /* Fields of GUPnPAV-1.0.GUPnPAV.LastChangeParser */
     parent: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -1394,7 +1394,7 @@ export class LastChangeParser {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -1402,7 +1402,7 @@ export class LastChangeParser {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: LastChangeParser, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: LastChangeParser, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -1423,16 +1423,16 @@ export interface MediaCollection_ConstructProps extends GObject.Object_Construct
     title?: string
 }
 export class MediaCollection {
-    /* Properties of GUPnPAV.MediaCollection */
+    /* Properties of GUPnPAV-1.0.GUPnPAV.MediaCollection */
     author: string
     readonly mutable: boolean
     title: string
-    /* Fields of GUPnPAV.MediaCollection */
+    /* Fields of GUPnPAV-1.0.GUPnPAV.MediaCollection */
     parent: GObject.Object
     priv: MediaCollectionPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GUPnPAV.MediaCollection */
+    /* Methods of GUPnPAV-1.0.GUPnPAV.MediaCollection */
     add_item(): DIDLLiteItem
     get_author(): string
     get_items(): DIDLLiteItem[]
@@ -1441,7 +1441,7 @@ export class MediaCollection {
     get_title(): string
     set_author(author: string): void
     set_title(title: string): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -1463,7 +1463,7 @@ export class MediaCollection {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -1471,7 +1471,7 @@ export class MediaCollection {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: MediaCollection, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: MediaCollection, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -1504,7 +1504,7 @@ export interface ProtocolInfo_ConstructProps extends GObject.Object_ConstructPro
     protocol?: string
 }
 export class ProtocolInfo {
-    /* Properties of GUPnPAV.ProtocolInfo */
+    /* Properties of GUPnPAV-1.0.GUPnPAV.ProtocolInfo */
     dlna_conversion: DLNAConversion
     dlna_flags: DLNAFlags
     dlna_operation: DLNAOperation
@@ -1513,12 +1513,12 @@ export class ProtocolInfo {
     network: string
     play_speeds: string[]
     protocol: string
-    /* Fields of GUPnPAV.ProtocolInfo */
+    /* Fields of GUPnPAV-1.0.GUPnPAV.ProtocolInfo */
     parent: GObject.Object
     priv: ProtocolInfoPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GUPnPAV.ProtocolInfo */
+    /* Methods of GUPnPAV-1.0.GUPnPAV.ProtocolInfo */
     get_dlna_conversion(): DLNAConversion
     get_dlna_flags(): DLNAFlags
     get_dlna_operation(): DLNAOperation
@@ -1537,7 +1537,7 @@ export class ProtocolInfo {
     set_play_speeds(speeds: string): void
     set_protocol(protocol: string): void
     to_string(): string
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -1559,7 +1559,7 @@ export class ProtocolInfo {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -1567,7 +1567,7 @@ export class ProtocolInfo {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: ProtocolInfo, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: ProtocolInfo, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -1602,14 +1602,14 @@ export class ProtocolInfo {
 export interface SearchCriteriaParser_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class SearchCriteriaParser {
-    /* Fields of GUPnPAV.SearchCriteriaParser */
+    /* Fields of GUPnPAV-1.0.GUPnPAV.SearchCriteriaParser */
     parent: GObject.Object
     priv: SearchCriteriaParserPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GUPnPAV.SearchCriteriaParser */
+    /* Methods of GUPnPAV-1.0.GUPnPAV.SearchCriteriaParser */
     parse_text(text: string): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -1631,13 +1631,13 @@ export class SearchCriteriaParser {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GUPnPAV.SearchCriteriaParser */
+    /* Virtual methods of GUPnPAV-1.0.GUPnPAV.SearchCriteriaParser */
     vfunc_begin_parens(): void
     vfunc_conjunction(): void
     vfunc_disjunction(): void
     vfunc_end_parens(): void
     vfunc_expression(property: string, op: SearchCriteriaOp, value: string): boolean
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -1645,7 +1645,7 @@ export class SearchCriteriaParser {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GUPnPAV.SearchCriteriaParser */
+    /* Signals of GUPnPAV-1.0.GUPnPAV.SearchCriteriaParser */
     connect(sigName: "begin-parens", callback: (($obj: SearchCriteriaParser) => void)): number
     connect_after(sigName: "begin-parens", callback: (($obj: SearchCriteriaParser) => void)): number
     emit(sigName: "begin-parens"): void
@@ -1661,7 +1661,7 @@ export class SearchCriteriaParser {
     connect(sigName: "expression", callback: (($obj: SearchCriteriaParser, property: string, op: SearchCriteriaOp, value: string, error?: object | null) => boolean)): number
     connect_after(sigName: "expression", callback: (($obj: SearchCriteriaParser, property: string, op: SearchCriteriaOp, value: string, error?: object | null) => boolean)): number
     emit(sigName: "expression", property: string, op: SearchCriteriaOp, value: string, error?: object | null): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: SearchCriteriaParser, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: SearchCriteriaParser, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -1678,7 +1678,7 @@ export class SearchCriteriaParser {
     static $gtype: GObject.Type
 }
 export class CDSLastChangeEntry {
-    /* Methods of GUPnPAV.CDSLastChangeEntry */
+    /* Methods of GUPnPAV-1.0.GUPnPAV.CDSLastChangeEntry */
     get_class(): string
     get_event(): CDSLastChangeEvent
     get_object_id(): string
@@ -1690,7 +1690,7 @@ export class CDSLastChangeEntry {
     static name: string
 }
 export abstract class CDSLastChangeParserClass {
-    /* Fields of GUPnPAV.CDSLastChangeParserClass */
+    /* Fields of GUPnPAV-1.0.GUPnPAV.CDSLastChangeParserClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
@@ -1698,12 +1698,12 @@ export class CDSLastChangeParserPrivate {
     static name: string
 }
 export abstract class DIDLLiteContainerClass {
-    /* Fields of GUPnPAV.DIDLLiteContainerClass */
+    /* Fields of GUPnPAV-1.0.GUPnPAV.DIDLLiteContainerClass */
     parent_class: DIDLLiteObjectClass
     static name: string
 }
 export abstract class DIDLLiteContributorClass {
-    /* Fields of GUPnPAV.DIDLLiteContributorClass */
+    /* Fields of GUPnPAV-1.0.GUPnPAV.DIDLLiteContributorClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
@@ -1711,7 +1711,7 @@ export class DIDLLiteContributorPrivate {
     static name: string
 }
 export abstract class DIDLLiteCreateClassClass {
-    /* Fields of GUPnPAV.DIDLLiteCreateClassClass */
+    /* Fields of GUPnPAV-1.0.GUPnPAV.DIDLLiteCreateClassClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
@@ -1719,7 +1719,7 @@ export class DIDLLiteCreateClassPrivate {
     static name: string
 }
 export abstract class DIDLLiteDescriptorClass {
-    /* Fields of GUPnPAV.DIDLLiteDescriptorClass */
+    /* Fields of GUPnPAV-1.0.GUPnPAV.DIDLLiteDescriptorClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
@@ -1727,12 +1727,12 @@ export class DIDLLiteDescriptorPrivate {
     static name: string
 }
 export abstract class DIDLLiteItemClass {
-    /* Fields of GUPnPAV.DIDLLiteItemClass */
+    /* Fields of GUPnPAV-1.0.GUPnPAV.DIDLLiteItemClass */
     parent_class: DIDLLiteObjectClass
     static name: string
 }
 export abstract class DIDLLiteObjectClass {
-    /* Fields of GUPnPAV.DIDLLiteObjectClass */
+    /* Fields of GUPnPAV-1.0.GUPnPAV.DIDLLiteObjectClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
@@ -1740,7 +1740,7 @@ export class DIDLLiteObjectPrivate {
     static name: string
 }
 export abstract class DIDLLiteParserClass {
-    /* Fields of GUPnPAV.DIDLLiteParserClass */
+    /* Fields of GUPnPAV-1.0.GUPnPAV.DIDLLiteParserClass */
     parent_class: GObject.ObjectClass
     object_available: (parser: DIDLLiteParser, object: DIDLLiteObject) => void
     item_available: (parser: DIDLLiteParser, item: DIDLLiteItem) => void
@@ -1748,7 +1748,7 @@ export abstract class DIDLLiteParserClass {
     static name: string
 }
 export abstract class DIDLLiteResourceClass {
-    /* Fields of GUPnPAV.DIDLLiteResourceClass */
+    /* Fields of GUPnPAV-1.0.GUPnPAV.DIDLLiteResourceClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
@@ -1756,7 +1756,7 @@ export class DIDLLiteResourcePrivate {
     static name: string
 }
 export abstract class DIDLLiteWriterClass {
-    /* Fields of GUPnPAV.DIDLLiteWriterClass */
+    /* Fields of GUPnPAV-1.0.GUPnPAV.DIDLLiteWriterClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
@@ -1764,12 +1764,12 @@ export class DIDLLiteWriterPrivate {
     static name: string
 }
 export abstract class FeatureClass {
-    /* Fields of GUPnPAV.FeatureClass */
+    /* Fields of GUPnPAV-1.0.GUPnPAV.FeatureClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
 export abstract class FeatureListParserClass {
-    /* Fields of GUPnPAV.FeatureListParserClass */
+    /* Fields of GUPnPAV-1.0.GUPnPAV.FeatureListParserClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
@@ -1777,12 +1777,12 @@ export class FeaturePrivate {
     static name: string
 }
 export abstract class LastChangeParserClass {
-    /* Fields of GUPnPAV.LastChangeParserClass */
+    /* Fields of GUPnPAV-1.0.GUPnPAV.LastChangeParserClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
 export abstract class MediaCollectionClass {
-    /* Fields of GUPnPAV.MediaCollectionClass */
+    /* Fields of GUPnPAV-1.0.GUPnPAV.MediaCollectionClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
@@ -1790,7 +1790,7 @@ export class MediaCollectionPrivate {
     static name: string
 }
 export abstract class ProtocolInfoClass {
-    /* Fields of GUPnPAV.ProtocolInfoClass */
+    /* Fields of GUPnPAV-1.0.GUPnPAV.ProtocolInfoClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
@@ -1798,7 +1798,7 @@ export class ProtocolInfoPrivate {
     static name: string
 }
 export abstract class SearchCriteriaParserClass {
-    /* Fields of GUPnPAV.SearchCriteriaParserClass */
+    /* Fields of GUPnPAV-1.0.GUPnPAV.SearchCriteriaParserClass */
     parent_class: GObject.ObjectClass
     begin_parens: (parser: SearchCriteriaParser) => void
     end_parens: (parser: SearchCriteriaParser) => void

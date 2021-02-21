@@ -98,12 +98,12 @@ export function utils_get_default_element_properties(element: any): GLib.KeyFile
 export function utils_get_default_rtp_header_extension_preferences(element: any, media_type: MediaType): Codec[]
 export function utils_set_bitrate(element: any, bitrate: number): void
 export class Conference {
-    /* Fields of Farstream.Conference */
+    /* Fields of Farstream-0.1.Farstream.Conference */
     parent: any
-    /* Methods of Farstream.Conference */
+    /* Methods of Farstream-0.1.Farstream.Conference */
     new_participant(): Participant
     new_session(media_type: MediaType): Session
-    /* Virtual methods of Farstream.Conference */
+    /* Virtual methods of Farstream-0.1.Farstream.Conference */
     vfunc_new_participant(): Participant
     vfunc_new_session(media_type: MediaType): Session
     static name: string
@@ -111,17 +111,17 @@ export class Conference {
 export interface ElementAddedNotifier_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class ElementAddedNotifier {
-    /* Fields of Farstream.ElementAddedNotifier */
+    /* Fields of Farstream-0.1.Farstream.ElementAddedNotifier */
     parent: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Farstream.ElementAddedNotifier */
+    /* Methods of Farstream-0.1.Farstream.ElementAddedNotifier */
     add(bin: any): void
     remove(bin: any): boolean
     set_default_properties(element: any): void
     set_properties_from_file(filename: string): boolean
     set_properties_from_keyfile(keyfile: GLib.KeyFile): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -143,7 +143,7 @@ export class ElementAddedNotifier {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -151,11 +151,11 @@ export class ElementAddedNotifier {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Farstream.ElementAddedNotifier */
+    /* Signals of Farstream-0.1.Farstream.ElementAddedNotifier */
     connect(sigName: "element-added", callback: (($obj: ElementAddedNotifier, bin: any, element: any) => void)): number
     connect_after(sigName: "element-added", callback: (($obj: ElementAddedNotifier, bin: any, element: any) => void)): number
     emit(sigName: "element-added", bin: any, element: any): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: ElementAddedNotifier, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: ElementAddedNotifier, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -173,11 +173,11 @@ export class ElementAddedNotifier {
 export interface Participant_ConstructProps extends Gst.Object_ConstructProps {
 }
 export class Participant {
-    /* Fields of Farstream.Participant */
+    /* Fields of Farstream-0.1.Farstream.Participant */
     parent: any
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -199,7 +199,7 @@ export class Participant {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -207,7 +207,7 @@ export class Participant {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Participant, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Participant, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -223,17 +223,17 @@ export class Participant {
 export interface Plugin_ConstructProps extends GObject.TypeModule_ConstructProps {
 }
 export class Plugin {
-    /* Fields of Farstream.Plugin */
+    /* Fields of Farstream-0.1.Farstream.Plugin */
     parent: GObject.TypeModule
-    /* Fields of GObject.TypeModule */
+    /* Fields of GObject-2.0.GObject.TypeModule */
     parent_instance: GObject.Object
     use_count: number
     type_infos: object[]
     interface_infos: object[]
     name: string
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GObject.TypeModule */
+    /* Methods of GObject-2.0.GObject.TypeModule */
     add_interface(instance_type: GObject.Type, interface_type: GObject.Type, interface_info: GObject.InterfaceInfo): void
     register_enum(name: string, const_static_values: GObject.EnumValue): GObject.Type
     register_flags(name: string, const_static_values: GObject.FlagsValue): GObject.Type
@@ -241,7 +241,7 @@ export class Plugin {
     set_name(name: string): void
     unuse(): void
     use(): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -263,14 +263,14 @@ export class Plugin {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of GObject.TypePlugin */
+    /* Methods of GObject-2.0.GObject.TypePlugin */
     complete_interface_info(instance_type: GObject.Type, interface_type: GObject.Type, info: GObject.InterfaceInfo): void
     complete_type_info(g_type: GObject.Type, info: GObject.TypeInfo, value_table: GObject.TypeValueTable): void
     use(): void
-    /* Virtual methods of GObject.TypeModule */
+    /* Virtual methods of GObject-2.0.GObject.TypeModule */
     vfunc_load(): boolean
     vfunc_unload(): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -278,7 +278,7 @@ export class Plugin {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Plugin, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Plugin, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -300,18 +300,18 @@ export interface Session_ConstructProps extends Gst.Object_ConstructProps {
     tos?: number
 }
 export class Session {
-    /* Properties of Farstream.Session */
+    /* Properties of Farstream-0.1.Farstream.Session */
     readonly codec_preferences: Codec[]
     readonly codecs: Codec[]
     readonly codecs_without_config: Codec[]
     readonly current_send_codec: Codec
     readonly sink_pad: any
     tos: number
-    /* Fields of Farstream.Session */
+    /* Fields of Farstream-0.1.Farstream.Session */
     parent: any
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Farstream.Session */
+    /* Methods of Farstream-0.1.Farstream.Session */
     codecs_need_resend(old_codecs: Codec[], new_codecs: Codec[]): Codec[]
     destroy(): void
     emit_error(error_no: number, error_msg: string): void
@@ -326,7 +326,7 @@ export class Session {
     set_send_codec(send_codec: Codec): boolean
     start_telephony_event(event: number, volume: number): boolean
     stop_telephony_event(): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -348,7 +348,7 @@ export class Session {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Farstream.Session */
+    /* Virtual methods of Farstream-0.1.Farstream.Session */
     vfunc_codecs_need_resend(old_codecs: Codec[], new_codecs: Codec[]): Codec[]
     vfunc_get_stream_transmitter_type(transmitter: string): GObject.Type
     vfunc_list_transmitters(): string[]
@@ -357,7 +357,7 @@ export class Session {
     vfunc_set_send_codec(send_codec: Codec): boolean
     vfunc_start_telephony_event(event: number, volume: number): boolean
     vfunc_stop_telephony_event(): boolean
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -365,11 +365,11 @@ export class Session {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Farstream.Session */
+    /* Signals of Farstream-0.1.Farstream.Session */
     connect(sigName: "error", callback: (($obj: Session, object: GObject.Object, error_no: Error, error_msg: string) => void)): number
     connect_after(sigName: "error", callback: (($obj: Session, object: GObject.Object, error_no: Error, error_msg: string) => void)): number
     emit(sigName: "error", object: GObject.Object, error_no: Error, error_msg: string): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Session, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Session, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -400,16 +400,16 @@ export interface Stream_ConstructProps extends Gst.Object_ConstructProps {
     session?: Session
 }
 export class Stream {
-    /* Properties of Farstream.Stream */
+    /* Properties of Farstream-0.1.Farstream.Stream */
     readonly current_recv_codecs: Codec[]
     direction: StreamDirection
     readonly negotiated_codecs: Codec[]
     readonly remote_codecs: Codec[]
-    /* Fields of Farstream.Stream */
+    /* Fields of Farstream-0.1.Farstream.Stream */
     parent: any
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Farstream.Stream */
+    /* Methods of Farstream-0.1.Farstream.Stream */
     add_id(id: number): void
     add_remote_candidates(candidates: Candidate[]): boolean
     destroy(): void
@@ -423,7 +423,7 @@ export class Stream {
     parse_recv_codecs_changed(message: any): [ /* returnType */ boolean, /* codecs */ Codec[] ]
     set_remote_codecs(remote_codecs: Codec[]): boolean
     set_transmitter(transmitter: string, stream_transmitter_parameters: GObject.Parameter, stream_transmitter_n_parameters: number): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -445,13 +445,13 @@ export class Stream {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Farstream.Stream */
+    /* Virtual methods of Farstream-0.1.Farstream.Stream */
     vfunc_add_id(id: number): void
     vfunc_add_remote_candidates(candidates: Candidate[]): boolean
     vfunc_force_remote_candidates(remote_candidates: Candidate[]): boolean
     vfunc_set_remote_codecs(remote_codecs: Codec[]): boolean
     vfunc_set_transmitter(transmitter: string, stream_transmitter_parameters: GObject.Parameter, stream_transmitter_n_parameters: number): boolean
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -459,14 +459,14 @@ export class Stream {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Farstream.Stream */
+    /* Signals of Farstream-0.1.Farstream.Stream */
     connect(sigName: "error", callback: (($obj: Stream, errorno: Error, error_msg: string) => void)): number
     connect_after(sigName: "error", callback: (($obj: Stream, errorno: Error, error_msg: string) => void)): number
     emit(sigName: "error", errorno: Error, error_msg: string): void
     connect(sigName: "src-pad-added", callback: (($obj: Stream, pad: any, codec: Codec) => void)): number
     connect_after(sigName: "src-pad-added", callback: (($obj: Stream, pad: any, codec: Codec) => void)): number
     emit(sigName: "src-pad-added", pad: any, codec: Codec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Stream, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Stream, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -493,19 +493,19 @@ export interface StreamTransmitter_ConstructProps extends Gst.Object_ConstructPr
     sending?: boolean
 }
 export class StreamTransmitter {
-    /* Properties of Farstream.StreamTransmitter */
+    /* Properties of Farstream-0.1.Farstream.StreamTransmitter */
     sending: boolean
-    /* Fields of Farstream.StreamTransmitter */
+    /* Fields of Farstream-0.1.Farstream.StreamTransmitter */
     parent: any
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Farstream.StreamTransmitter */
+    /* Methods of Farstream-0.1.Farstream.StreamTransmitter */
     add_remote_candidates(candidates: Candidate[]): boolean
     emit_error(error_no: number, error_msg: string): void
     force_remote_candidates(remote_candidates: Candidate[]): boolean
     gather_local_candidates(): boolean
     stop(): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -527,12 +527,12 @@ export class StreamTransmitter {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Farstream.StreamTransmitter */
+    /* Virtual methods of Farstream-0.1.Farstream.StreamTransmitter */
     vfunc_add_remote_candidates(candidates: Candidate[]): boolean
     vfunc_force_remote_candidates(remote_candidates: Candidate[]): boolean
     vfunc_gather_local_candidates(): boolean
     vfunc_stop(): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -540,7 +540,7 @@ export class StreamTransmitter {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Farstream.StreamTransmitter */
+    /* Signals of Farstream-0.1.Farstream.StreamTransmitter */
     connect(sigName: "error", callback: (($obj: StreamTransmitter, errorno: Error, error_msg: string) => void)): number
     connect_after(sigName: "error", callback: (($obj: StreamTransmitter, errorno: Error, error_msg: string) => void)): number
     emit(sigName: "error", errorno: Error, error_msg: string): void
@@ -559,7 +559,7 @@ export class StreamTransmitter {
     connect(sigName: "state-changed", callback: (($obj: StreamTransmitter, component: number, state: StreamState) => void)): number
     connect_after(sigName: "state-changed", callback: (($obj: StreamTransmitter, component: number, state: StreamState) => void)): number
     emit(sigName: "state-changed", component: number, state: StreamState): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: StreamTransmitter, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: StreamTransmitter, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -579,20 +579,20 @@ export interface Transmitter_ConstructProps extends Gst.Object_ConstructProps {
     tos?: number
 }
 export class Transmitter {
-    /* Properties of Farstream.Transmitter */
+    /* Properties of Farstream-0.1.Farstream.Transmitter */
     readonly gst_sink: any
     readonly gst_src: any
     tos: number
-    /* Fields of Farstream.Transmitter */
+    /* Fields of Farstream-0.1.Farstream.Transmitter */
     parent: any
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Farstream.Transmitter */
+    /* Methods of Farstream-0.1.Farstream.Transmitter */
     emit_error(error_no: number, error_msg: string): void
     get_recvonly_filter(component: number): any
     get_stream_transmitter_type(): GObject.Type
     new_stream_transmitter(participant: Participant, n_parameters: number, parameters: GObject.Parameter): StreamTransmitter
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -614,10 +614,10 @@ export class Transmitter {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Farstream.Transmitter */
+    /* Virtual methods of Farstream-0.1.Farstream.Transmitter */
     vfunc_get_stream_transmitter_type(): GObject.Type
     vfunc_new_stream_transmitter(participant: Participant, n_parameters: number, parameters: GObject.Parameter): StreamTransmitter
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -625,14 +625,14 @@ export class Transmitter {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Farstream.Transmitter */
+    /* Signals of Farstream-0.1.Farstream.Transmitter */
     connect(sigName: "error", callback: (($obj: Transmitter, errorno: Error, error_msg: string) => void)): number
     connect_after(sigName: "error", callback: (($obj: Transmitter, errorno: Error, error_msg: string) => void)): number
     emit(sigName: "error", errorno: Error, error_msg: string): void
     connect(sigName: "get-recvonly-filter", callback: (($obj: Transmitter, component: number) => any)): number
     connect_after(sigName: "get-recvonly-filter", callback: (($obj: Transmitter, component: number) => any)): number
     emit(sigName: "get-recvonly-filter", component: number): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Transmitter, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Transmitter, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -655,7 +655,7 @@ export class Transmitter {
     static $gtype: GObject.Type
 }
 export class Candidate {
-    /* Fields of Farstream.Candidate */
+    /* Fields of Farstream-0.1.Farstream.Candidate */
     foundation: string
     component_id: number
     ip: string
@@ -668,7 +668,7 @@ export class Candidate {
     username: string
     password: string
     ttl: number
-    /* Methods of Farstream.Candidate */
+    /* Methods of Farstream-0.1.Farstream.Candidate */
     copy(): Candidate
     destroy(): void
     static name: string
@@ -678,7 +678,7 @@ export class Candidate {
     static new(foundation: string, component_id: number, type: CandidateType, proto: NetworkProtocol, ip: string, port: number): Candidate
 }
 export class Codec {
-    /* Fields of Farstream.Codec */
+    /* Fields of Farstream-0.1.Farstream.Codec */
     id: number
     encoding_name: string
     media_type: MediaType
@@ -687,7 +687,7 @@ export class Codec {
     minimum_reporting_interval: number
     optional_params: CodecParameter[]
     feedback_params: FeedbackParameter[]
-    /* Methods of Farstream.Codec */
+    /* Methods of Farstream-0.1.Farstream.Codec */
     add_feedback_parameter(type: string, subtype: string, extra_params: string): void
     add_optional_parameter(name: string, value: string): void
     are_equal(codec2: Codec): boolean
@@ -705,23 +705,23 @@ export class Codec {
     static new(id: number, encoding_name: string, media_type: MediaType, clock_rate: number): Codec
 }
 export class CodecParameter {
-    /* Fields of Farstream.CodecParameter */
+    /* Fields of Farstream-0.1.Farstream.CodecParameter */
     name: string
     value: string
-    /* Methods of Farstream.CodecParameter */
+    /* Methods of Farstream-0.1.Farstream.CodecParameter */
     copy(): CodecParameter
     free(): void
     static name: string
 }
 export abstract class ConferenceClass {
-    /* Fields of Farstream.ConferenceClass */
+    /* Fields of Farstream-0.1.Farstream.ConferenceClass */
     parent: any
     new_session: (conference: Conference, media_type: MediaType) => Session
     new_participant: (conference: Conference) => Participant
     static name: string
 }
 export abstract class ElementAddedNotifierClass {
-    /* Fields of Farstream.ElementAddedNotifierClass */
+    /* Fields of Farstream-0.1.Farstream.ElementAddedNotifierClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
@@ -729,17 +729,17 @@ export class ElementAddedNotifierPrivate {
     static name: string
 }
 export class FeedbackParameter {
-    /* Fields of Farstream.FeedbackParameter */
+    /* Fields of Farstream-0.1.Farstream.FeedbackParameter */
     type: string
     subtype: string
     extra_params: string
-    /* Methods of Farstream.FeedbackParameter */
+    /* Methods of Farstream-0.1.Farstream.FeedbackParameter */
     copy(): FeedbackParameter
     free(): void
     static name: string
 }
 export abstract class ParticipantClass {
-    /* Fields of Farstream.ParticipantClass */
+    /* Fields of Farstream-0.1.Farstream.ParticipantClass */
     parent_class: any
     static name: string
 }
@@ -747,7 +747,7 @@ export class ParticipantPrivate {
     static name: string
 }
 export abstract class PluginClass {
-    /* Fields of Farstream.PluginClass */
+    /* Fields of Farstream-0.1.Farstream.PluginClass */
     parent_class: GObject.TypeModuleClass
     static name: string
 }
@@ -755,7 +755,7 @@ export class PluginPrivate {
     static name: string
 }
 export abstract class SessionClass {
-    /* Fields of Farstream.SessionClass */
+    /* Fields of Farstream-0.1.Farstream.SessionClass */
     parent_class: any
     new_stream: (session: Session, participant: Participant, direction: StreamDirection) => Stream
     start_telephony_event: (session: Session, event: number, volume: number) => boolean
@@ -771,7 +771,7 @@ export class SessionPrivate {
     static name: string
 }
 export abstract class StreamClass {
-    /* Fields of Farstream.StreamClass */
+    /* Fields of Farstream-0.1.Farstream.StreamClass */
     parent_class: any
     add_remote_candidates: (stream: Stream, candidates: Candidate[]) => boolean
     force_remote_candidates: (stream: Stream, remote_candidates: Candidate[]) => boolean
@@ -784,7 +784,7 @@ export class StreamPrivate {
     static name: string
 }
 export abstract class StreamTransmitterClass {
-    /* Fields of Farstream.StreamTransmitterClass */
+    /* Fields of Farstream-0.1.Farstream.StreamTransmitterClass */
     parent_class: any
     add_remote_candidates: (streamtransmitter: StreamTransmitter, candidates: Candidate[]) => boolean
     force_remote_candidates: (streamtransmitter: StreamTransmitter, remote_candidates: Candidate[]) => boolean
@@ -796,7 +796,7 @@ export class StreamTransmitterPrivate {
     static name: string
 }
 export abstract class TransmitterClass {
-    /* Fields of Farstream.TransmitterClass */
+    /* Fields of Farstream-0.1.Farstream.TransmitterClass */
     parent_class: any
     new_stream_transmitter: (transmitter: Transmitter, participant: Participant, n_parameters: number, parameters: GObject.Parameter) => StreamTransmitter
     get_stream_transmitter_type: (transmitter: Transmitter) => GObject.Type
@@ -806,7 +806,7 @@ export class TransmitterPrivate {
     static name: string
 }
 export class _RtpHeaderExtension {
-    /* Fields of Farstream._RtpHeaderExtension */
+    /* Fields of Farstream-0.1.Farstream._RtpHeaderExtension */
     id: number
     direction: StreamDirection
     uri: string

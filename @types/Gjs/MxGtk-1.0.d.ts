@@ -18,18 +18,18 @@ import type * as Atk from './Atk-1.0';
 export interface Frame_ConstructProps extends Gtk.Frame_ConstructProps {
 }
 export class Frame {
-    /* Properties of Gtk.Frame */
+    /* Properties of Gtk-2.0.Gtk.Frame */
     label: string
     label_widget: Gtk.Widget
     label_xalign: number
     label_yalign: number
     shadow: Gtk.ShadowType
     shadow_type: Gtk.ShadowType
-    /* Properties of Gtk.Container */
+    /* Properties of Gtk-2.0.Gtk.Container */
     border_width: number
     child: Gtk.Widget
     resize_mode: Gtk.ResizeMode
-    /* Properties of Gtk.Widget */
+    /* Properties of Gtk-2.0.Gtk.Widget */
     app_paintable: boolean
     can_default: boolean
     can_focus: boolean
@@ -53,29 +53,29 @@ export class Frame {
     visible: boolean
     width_request: number
     readonly window: Gdk.Window
-    /* Properties of Gtk.Object */
+    /* Properties of Gtk-2.0.Gtk.Object */
     user_data: object
-    /* Fields of Gtk.Frame */
+    /* Fields of Gtk-2.0.Gtk.Frame */
     bin: Gtk.Bin
     child_allocation: Gtk.Allocation
-    /* Fields of Gtk.Bin */
+    /* Fields of Gtk-2.0.Gtk.Bin */
     container: Gtk.Container
-    /* Fields of Gtk.Container */
+    /* Fields of Gtk-2.0.Gtk.Container */
     widget: Gtk.Widget
     focus_child: Gtk.Widget
-    /* Fields of Gtk.Widget */
+    /* Fields of Gtk-2.0.Gtk.Widget */
     object: Gtk.Object
     private_flags: number
     state: number
     saved_state: number
     requisition: Gtk.Requisition
     allocation: Gtk.Allocation
-    /* Fields of Gtk.Object */
+    /* Fields of Gtk-2.0.Gtk.Object */
     parent_instance: GObject.InitiallyUnowned
     flags: number
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Gtk.Frame */
+    /* Methods of Gtk-2.0.Gtk.Frame */
     get_label(): string
     get_label_align(): [ /* xalign */ number | null, /* yalign */ number | null ]
     get_label_widget(): Gtk.Widget
@@ -84,9 +84,9 @@ export class Frame {
     set_label_align(xalign: number, yalign: number): void
     set_label_widget(label_widget: Gtk.Widget): void
     set_shadow_type(type: Gtk.ShadowType): void
-    /* Methods of Gtk.Bin */
+    /* Methods of Gtk-2.0.Gtk.Bin */
     get_child(): Gtk.Widget
-    /* Methods of Gtk.Container */
+    /* Methods of Gtk-2.0.Gtk.Container */
     add(widget: Gtk.Widget): void
     check_resize(): void
     child_get_property(child: Gtk.Widget, property_name: string, value: any): void
@@ -111,7 +111,7 @@ export class Frame {
     set_reallocate_redraws(needs_redraws: boolean): void
     set_resize_mode(resize_mode: Gtk.ResizeMode): void
     unset_focus_chain(): void
-    /* Methods of Gtk.Widget */
+    /* Methods of Gtk-2.0.Gtk.Widget */
     activate(): boolean
     add_accelerator(accel_signal: string, accel_group: Gtk.AccelGroup, accel_key: number, accel_mods: Gdk.ModifierType, accel_flags: Gtk.AccelFlags): void
     add_events(events: number): void
@@ -264,7 +264,7 @@ export class Frame {
     unparent(): void
     unrealize(): void
     unref(): void
-    /* Methods of Gtk.Object */
+    /* Methods of Gtk-2.0.Gtk.Object */
     get_data(key: string): object | null
     get_data_by_id(data_id: GLib.Quark): object | null
     get_user_data(): object | null
@@ -280,7 +280,7 @@ export class Frame {
     sink(): void
     weakref(notify: GLib.DestroyNotify, data?: object | null): void
     weakunref(notify: GLib.DestroyNotify, data?: object | null): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -299,7 +299,7 @@ export class Frame {
     steal_qdata(quark: GLib.Quark): object | null
     thaw_notify(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of Gtk.Buildable */
+    /* Methods of Gtk-2.0.Gtk.Buildable */
     add_child(builder: Gtk.Builder, child: GObject.Object, type?: string | null): void
     construct_child(builder: Gtk.Builder, name: string): GObject.Object
     custom_finished(builder: Gtk.Builder, child: GObject.Object | null, tagname: string, data?: object | null): void
@@ -308,7 +308,7 @@ export class Frame {
     get_internal_child(builder: Gtk.Builder, childname: string): GObject.Object
     parser_finished(builder: Gtk.Builder): void
     set_buildable_property(builder: Gtk.Builder, name: string, value: any): void
-    /* Virtual methods of MxGtk.Frame */
+    /* Virtual methods of MxGtk-1.0.MxGtk.Frame */
     vfunc_add_child(builder: Gtk.Builder, child: GObject.Object, type?: string | null): void
     vfunc_construct_child(builder: Gtk.Builder, name: string): GObject.Object
     vfunc_custom_finished(builder: Gtk.Builder, child: GObject.Object | null, tagname: string, data?: object | null): void
@@ -319,9 +319,9 @@ export class Frame {
     vfunc_parser_finished(builder: Gtk.Builder): void
     vfunc_set_buildable_property(builder: Gtk.Builder, name: string, value: any): void
     vfunc_set_name(name: string): void
-    /* Virtual methods of Gtk.Frame */
+    /* Virtual methods of Gtk-2.0.Gtk.Frame */
     vfunc_compute_child_allocation(allocation: Gtk.Allocation): void
-    /* Virtual methods of Gtk.Container */
+    /* Virtual methods of Gtk-2.0.Gtk.Container */
     vfunc_add(widget: Gtk.Widget): void
     vfunc_check_resize(): void
     vfunc_child_type(): GObject.Type
@@ -330,7 +330,7 @@ export class Frame {
     vfunc_remove(widget: Gtk.Widget): void
     vfunc_set_child_property(child: Gtk.Widget, property_id: number, value: any, pspec: GObject.ParamSpec): void
     vfunc_set_focus_child(widget: Gtk.Widget): void
-    /* Virtual methods of Gtk.Widget */
+    /* Virtual methods of Gtk-2.0.Gtk.Widget */
     vfunc_button_press_event(event: Gdk.EventButton): boolean
     vfunc_button_release_event(event: Gdk.EventButton): boolean
     vfunc_can_activate_accel(signal_id: number): boolean
@@ -397,11 +397,11 @@ export class Frame {
     vfunc_unrealize(): void
     vfunc_visibility_notify_event(event: Gdk.EventVisibility): boolean
     vfunc_window_state_event(event: Gdk.EventWindowState): boolean
-    /* Virtual methods of Gtk.Object */
+    /* Virtual methods of Gtk-2.0.Gtk.Object */
     vfunc_destroy(): void
     vfunc_get_arg(arg: Gtk.Arg, arg_id: number): void
     vfunc_set_arg(arg: Gtk.Arg, arg_id: number): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -409,7 +409,7 @@ export class Frame {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gtk.Container */
+    /* Signals of Gtk-2.0.Gtk.Container */
     connect(sigName: "add", callback: (($obj: Frame, object: Gtk.Widget) => void)): number
     connect_after(sigName: "add", callback: (($obj: Frame, object: Gtk.Widget) => void)): number
     emit(sigName: "add", object: Gtk.Widget): void
@@ -422,7 +422,7 @@ export class Frame {
     connect(sigName: "set-focus-child", callback: (($obj: Frame, object: Gtk.Widget) => void)): number
     connect_after(sigName: "set-focus-child", callback: (($obj: Frame, object: Gtk.Widget) => void)): number
     emit(sigName: "set-focus-child", object: Gtk.Widget): void
-    /* Signals of Gtk.Widget */
+    /* Signals of Gtk-2.0.Gtk.Widget */
     connect(sigName: "accel-closures-changed", callback: (($obj: Frame) => void)): number
     connect_after(sigName: "accel-closures-changed", callback: (($obj: Frame) => void)): number
     emit(sigName: "accel-closures-changed"): void
@@ -627,11 +627,11 @@ export class Frame {
     connect(sigName: "window-state-event", callback: (($obj: Frame, event: Gdk.EventWindowState) => boolean)): number
     connect_after(sigName: "window-state-event", callback: (($obj: Frame, event: Gdk.EventWindowState) => boolean)): number
     emit(sigName: "window-state-event", event: Gdk.EventWindowState): void
-    /* Signals of Gtk.Object */
+    /* Signals of Gtk-2.0.Gtk.Object */
     connect(sigName: "destroy", callback: (($obj: Frame) => void)): number
     connect_after(sigName: "destroy", callback: (($obj: Frame) => void)): number
     emit(sigName: "destroy"): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Frame, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Frame, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -717,9 +717,9 @@ export interface LightSwitch_ConstructProps extends Gtk.DrawingArea_ConstructPro
     active?: boolean
 }
 export class LightSwitch {
-    /* Properties of MxGtk.LightSwitch */
+    /* Properties of MxGtk-1.0.MxGtk.LightSwitch */
     active: boolean
-    /* Properties of Gtk.Widget */
+    /* Properties of Gtk-2.0.Gtk.Widget */
     app_paintable: boolean
     can_default: boolean
     can_focus: boolean
@@ -743,29 +743,29 @@ export class LightSwitch {
     visible: boolean
     width_request: number
     readonly window: Gdk.Window
-    /* Properties of Gtk.Object */
+    /* Properties of Gtk-2.0.Gtk.Object */
     user_data: object
-    /* Fields of Gtk.DrawingArea */
+    /* Fields of Gtk-2.0.Gtk.DrawingArea */
     widget: Gtk.Widget
     draw_data: object
-    /* Fields of Gtk.Widget */
+    /* Fields of Gtk-2.0.Gtk.Widget */
     object: Gtk.Object
     private_flags: number
     state: number
     saved_state: number
     requisition: Gtk.Requisition
     allocation: Gtk.Allocation
-    /* Fields of Gtk.Object */
+    /* Fields of Gtk-2.0.Gtk.Object */
     parent_instance: GObject.InitiallyUnowned
     flags: number
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     g_type_instance: GObject.TypeInstance
-    /* Methods of MxGtk.LightSwitch */
+    /* Methods of MxGtk-1.0.MxGtk.LightSwitch */
     get_active(): boolean
     set_active(active: boolean): void
-    /* Methods of Gtk.DrawingArea */
+    /* Methods of Gtk-2.0.Gtk.DrawingArea */
     size(width: number, height: number): void
-    /* Methods of Gtk.Widget */
+    /* Methods of Gtk-2.0.Gtk.Widget */
     activate(): boolean
     add_accelerator(accel_signal: string, accel_group: Gtk.AccelGroup, accel_key: number, accel_mods: Gdk.ModifierType, accel_flags: Gtk.AccelFlags): void
     add_events(events: number): void
@@ -918,7 +918,7 @@ export class LightSwitch {
     unparent(): void
     unrealize(): void
     unref(): void
-    /* Methods of Gtk.Object */
+    /* Methods of Gtk-2.0.Gtk.Object */
     get_data(key: string): object | null
     get_data_by_id(data_id: GLib.Quark): object | null
     get_user_data(): object | null
@@ -934,7 +934,7 @@ export class LightSwitch {
     sink(): void
     weakref(notify: GLib.DestroyNotify, data?: object | null): void
     weakunref(notify: GLib.DestroyNotify, data?: object | null): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -953,7 +953,7 @@ export class LightSwitch {
     steal_qdata(quark: GLib.Quark): object | null
     thaw_notify(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of Gtk.Buildable */
+    /* Methods of Gtk-2.0.Gtk.Buildable */
     add_child(builder: Gtk.Builder, child: GObject.Object, type?: string | null): void
     construct_child(builder: Gtk.Builder, name: string): GObject.Object
     custom_finished(builder: Gtk.Builder, child: GObject.Object | null, tagname: string, data?: object | null): void
@@ -962,7 +962,7 @@ export class LightSwitch {
     get_internal_child(builder: Gtk.Builder, childname: string): GObject.Object
     parser_finished(builder: Gtk.Builder): void
     set_buildable_property(builder: Gtk.Builder, name: string, value: any): void
-    /* Virtual methods of MxGtk.LightSwitch */
+    /* Virtual methods of MxGtk-1.0.MxGtk.LightSwitch */
     vfunc_switch_flipped(state: boolean): void
     vfunc_add_child(builder: Gtk.Builder, child: GObject.Object, type?: string | null): void
     vfunc_construct_child(builder: Gtk.Builder, name: string): GObject.Object
@@ -974,7 +974,7 @@ export class LightSwitch {
     vfunc_parser_finished(builder: Gtk.Builder): void
     vfunc_set_buildable_property(builder: Gtk.Builder, name: string, value: any): void
     vfunc_set_name(name: string): void
-    /* Virtual methods of Gtk.Widget */
+    /* Virtual methods of Gtk-2.0.Gtk.Widget */
     vfunc_button_press_event(event: Gdk.EventButton): boolean
     vfunc_button_release_event(event: Gdk.EventButton): boolean
     vfunc_can_activate_accel(signal_id: number): boolean
@@ -1041,11 +1041,11 @@ export class LightSwitch {
     vfunc_unrealize(): void
     vfunc_visibility_notify_event(event: Gdk.EventVisibility): boolean
     vfunc_window_state_event(event: Gdk.EventWindowState): boolean
-    /* Virtual methods of Gtk.Object */
+    /* Virtual methods of Gtk-2.0.Gtk.Object */
     vfunc_destroy(): void
     vfunc_get_arg(arg: Gtk.Arg, arg_id: number): void
     vfunc_set_arg(arg: Gtk.Arg, arg_id: number): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -1053,11 +1053,11 @@ export class LightSwitch {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of MxGtk.LightSwitch */
+    /* Signals of MxGtk-1.0.MxGtk.LightSwitch */
     connect(sigName: "switch-flipped", callback: (($obj: LightSwitch, object: boolean) => void)): number
     connect_after(sigName: "switch-flipped", callback: (($obj: LightSwitch, object: boolean) => void)): number
     emit(sigName: "switch-flipped", object: boolean): void
-    /* Signals of Gtk.Widget */
+    /* Signals of Gtk-2.0.Gtk.Widget */
     connect(sigName: "accel-closures-changed", callback: (($obj: LightSwitch) => void)): number
     connect_after(sigName: "accel-closures-changed", callback: (($obj: LightSwitch) => void)): number
     emit(sigName: "accel-closures-changed"): void
@@ -1262,11 +1262,11 @@ export class LightSwitch {
     connect(sigName: "window-state-event", callback: (($obj: LightSwitch, event: Gdk.EventWindowState) => boolean)): number
     connect_after(sigName: "window-state-event", callback: (($obj: LightSwitch, event: Gdk.EventWindowState) => boolean)): number
     emit(sigName: "window-state-event", event: Gdk.EventWindowState): void
-    /* Signals of Gtk.Object */
+    /* Signals of Gtk-2.0.Gtk.Object */
     connect(sigName: "destroy", callback: (($obj: LightSwitch) => void)): number
     connect_after(sigName: "destroy", callback: (($obj: LightSwitch) => void)): number
     emit(sigName: "destroy"): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: LightSwitch, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: LightSwitch, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -1332,12 +1332,12 @@ export class LightSwitch {
     static $gtype: GObject.Type
 }
 export abstract class FrameClass {
-    /* Fields of MxGtk.FrameClass */
+    /* Fields of MxGtk-1.0.MxGtk.FrameClass */
     parent_class: Gtk.FrameClass
     static name: string
 }
 export abstract class LightSwitchClass {
-    /* Fields of MxGtk.LightSwitchClass */
+    /* Fields of MxGtk-1.0.MxGtk.LightSwitchClass */
     parent_class: Gtk.DrawingAreaClass
     switch_flipped: (lightswitch: LightSwitch, state: boolean) => void
     static name: string

@@ -45,14 +45,14 @@ export function getMajorVersion(): number
 export function getMicroVersion(): number
 export function getMinorVersion(): number
 export function optionsForeach(function_: OptionsFunc): void
-export function optionsGetBoolean(option: string): [ /* returnType */ boolean, /* value */ boolean ]
-export function optionsGetDouble(option: string): [ /* returnType */ boolean, /* value */ number ]
-export function optionsGetInt(option: string): [ /* returnType */ boolean, /* value */ number ]
+export function optionsGetBoolean(option: string): { returnType: boolean, value: boolean }
+export function optionsGetDouble(option: string): { returnType: boolean, value: number }
+export function optionsGetInt(option: string): { returnType: boolean, value: number }
 export function optionsGetOptionGroup(): GLib.OptionGroup
-export function optionsGetRangeString(option: string): [ /* returnType */ boolean, /* value */ string ]
-export function optionsGetSize(option: string): [ /* returnType */ boolean, /* value */ number ]
-export function optionsGetString(option: string): [ /* returnType */ boolean, /* value */ string ]
-export function optionsGetUint(option: string): [ /* returnType */ boolean, /* value */ number ]
+export function optionsGetRangeString(option: string): { returnType: boolean, value: string }
+export function optionsGetSize(option: string): { returnType: boolean, value: number }
+export function optionsGetString(option: string): { returnType: boolean, value: string }
+export function optionsGetUint(option: string): { returnType: boolean, value: number }
 export function optionsSetBoolean(option: string, value: boolean): boolean
 export function optionsSetDouble(option: string, value: number): boolean
 export function optionsSetInt(option: string, value: number): boolean
@@ -87,9 +87,9 @@ export interface Class_ConstructProps extends GObject.Object_ConstructProps {
     parent?: Class
 }
 export class Class {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of JavaScriptCore.Class */
+    /* Methods of JavaScriptCore-4.0.JavaScriptCore.Class */
     addConstructorVariadic(name: string | null, callback: GObject.Callback, returnType: GObject.Type): Value
     addConstructor(name: string | null, callback: GObject.Callback, returnType: GObject.Type, parameterTypes?: GObject.Type[] | null): Value
     addMethodVariadic(name: string, callback: GObject.Callback, returnType: GObject.Type): void
@@ -97,7 +97,7 @@ export class Class {
     addProperty(name: string, propertyType: GObject.Type, getter?: GObject.Callback | null, setter?: GObject.Callback | null): void
     getName(): string
     getParent(): Class
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -119,21 +119,12 @@ export class Class {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Class, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Class, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -150,15 +141,15 @@ export interface Context_ConstructProps extends GObject.Object_ConstructProps {
     virtualMachine?: VirtualMachine
 }
 export class Context {
-    /* Fields of JavaScriptCore.Context */
+    /* Fields of JavaScriptCore-4.0.JavaScriptCore.Context */
     parent: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of JavaScriptCore.Context */
-    checkSyntax(code: string, length: number, mode: CheckSyntaxMode, uri: string, lineNumber: number): [ /* returnType */ CheckSyntaxResult, /* exception */ Exception | null ]
+    /* Methods of JavaScriptCore-4.0.JavaScriptCore.Context */
+    checkSyntax(code: string, length: number, mode: CheckSyntaxMode, uri: string, lineNumber: number): { returnType: CheckSyntaxResult, exception: Exception | null }
     clearException(): void
     evaluate(code: string, length: number): Value
-    evaluateInObject(code: string, length: number, objectInstance: object | null, objectClass: Class | null, uri: string, lineNumber: number): [ /* returnType */ Value, /* object */ Value ]
+    evaluateInObject(code: string, length: number, objectInstance: object | null, objectClass: Class | null, uri: string, lineNumber: number): { returnType: Value, object: Value }
     evaluateWithSourceUri(code: string, length: number, uri: string, lineNumber: number): Value
     getException(): Exception | null
     getGlobalObject(): Value
@@ -171,7 +162,7 @@ export class Context {
     throw(errorMessage: string): void
     throwException(exception: Exception): void
     throwWithName(errorName: string, errorMessage: string): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -193,21 +184,12 @@ export class Context {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Context, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Context, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -227,11 +209,11 @@ export class Context {
 export interface Exception_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class Exception {
-    /* Fields of JavaScriptCore.Exception */
+    /* Fields of JavaScriptCore-4.0.JavaScriptCore.Exception */
     parent: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of JavaScriptCore.Exception */
+    /* Methods of JavaScriptCore-4.0.JavaScriptCore.Exception */
     getBacktraceString(): string | null
     getColumnNumber(): number
     getLineNumber(): number
@@ -240,7 +222,7 @@ export class Exception {
     getSourceUri(): string | null
     report(): string
     toString(): string
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -262,21 +244,12 @@ export class Exception {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Exception, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Exception, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -296,11 +269,11 @@ export interface Value_ConstructProps extends GObject.Object_ConstructProps {
     context?: Context
 }
 export class Value {
-    /* Fields of JavaScriptCore.Value */
+    /* Fields of JavaScriptCore-4.0.JavaScriptCore.Value */
     parent: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of JavaScriptCore.Value */
+    /* Methods of JavaScriptCore-4.0.JavaScriptCore.Value */
     constructorCall(parameters?: Value[] | null): Value
     functionCall(parameters?: Value[] | null): Value
     getContext(): Context
@@ -330,7 +303,7 @@ export class Value {
     toJson(indent: number): string
     toString(): string
     toStringAsBytes(): any
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -352,21 +325,12 @@ export class Value {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Value, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Value, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -395,11 +359,11 @@ export class Value {
 export interface VirtualMachine_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class VirtualMachine {
-    /* Fields of JavaScriptCore.VirtualMachine */
+    /* Fields of JavaScriptCore-4.0.JavaScriptCore.VirtualMachine */
     parent: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -421,21 +385,12 @@ export class VirtualMachine {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: VirtualMachine, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: VirtualMachine, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -454,13 +409,13 @@ export interface WeakValue_ConstructProps extends GObject.Object_ConstructProps 
     value?: Value
 }
 export class WeakValue {
-    /* Fields of JavaScriptCore.WeakValue */
+    /* Fields of JavaScriptCore-4.0.JavaScriptCore.WeakValue */
     parent: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of JavaScriptCore.WeakValue */
+    /* Methods of JavaScriptCore-4.0.JavaScriptCore.WeakValue */
     getValue(): Value
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -482,28 +437,18 @@ export class WeakValue {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of JavaScriptCore.WeakValue */
+    /* Signals of JavaScriptCore-4.0.JavaScriptCore.WeakValue */
     connect(sigName: "cleared", callback: (($obj: WeakValue) => void)): number
-    connect_after(sigName: "cleared", callback: (($obj: WeakValue) => void)): number
+    on(sigName: "cleared", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "cleared", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "cleared", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "cleared"): void
-    on(sigName: "cleared", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "cleared", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "cleared", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: WeakValue, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: WeakValue, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -522,7 +467,7 @@ export abstract class ClassClass {
     static name: string
 }
 export class ClassVTable {
-    /* Fields of JavaScriptCore.ClassVTable */
+    /* Fields of JavaScriptCore-4.0.JavaScriptCore.ClassVTable */
     getProperty: ClassGetPropertyFunction
     setProperty: ClassSetPropertyFunction
     hasProperty: ClassHasPropertyFunction
@@ -531,7 +476,7 @@ export class ClassVTable {
     static name: string
 }
 export abstract class ContextClass {
-    /* Fields of JavaScriptCore.ContextClass */
+    /* Fields of JavaScriptCore-4.0.JavaScriptCore.ContextClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
@@ -539,7 +484,7 @@ export class ContextPrivate {
     static name: string
 }
 export abstract class ExceptionClass {
-    /* Fields of JavaScriptCore.ExceptionClass */
+    /* Fields of JavaScriptCore-4.0.JavaScriptCore.ExceptionClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
@@ -547,7 +492,7 @@ export class ExceptionPrivate {
     static name: string
 }
 export abstract class ValueClass {
-    /* Fields of JavaScriptCore.ValueClass */
+    /* Fields of JavaScriptCore-4.0.JavaScriptCore.ValueClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
@@ -555,7 +500,7 @@ export class ValuePrivate {
     static name: string
 }
 export abstract class VirtualMachineClass {
-    /* Fields of JavaScriptCore.VirtualMachineClass */
+    /* Fields of JavaScriptCore-4.0.JavaScriptCore.VirtualMachineClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
@@ -563,7 +508,7 @@ export class VirtualMachinePrivate {
     static name: string
 }
 export abstract class WeakValueClass {
-    /* Fields of JavaScriptCore.WeakValueClass */
+    /* Fields of JavaScriptCore-4.0.JavaScriptCore.WeakValueClass */
     parentClass: GObject.ObjectClass
     static name: string
 }

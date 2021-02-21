@@ -34,10 +34,10 @@ export interface PlaybinPlayer_ConstructProps extends GObject.Object_ConstructPr
     userAgent?: string
 }
 export class PlaybinPlayer {
-    /* Properties of RygelRendererGst.PlaybinPlayer */
+    /* Properties of RygelRendererGst-2.6.RygelRendererGst.PlaybinPlayer */
     playbin: Gst.Element
     readonly supportedProfiles: RygelCore.DLNAProfile[]
-    /* Properties of RygelRenderer.MediaPlayer */
+    /* Properties of RygelRenderer-2.6.RygelRenderer.MediaPlayer */
     playbackState: string
     readonly allowedPlaybackSpeeds: string[]
     playbackSpeed: string
@@ -53,12 +53,12 @@ export class PlaybinPlayer {
     readonly position: number
     readonly bytePosition: number
     userAgent: string
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of RygelRendererGst.PlaybinPlayer */
+    /* Methods of RygelRendererGst-2.6.RygelRendererGst.PlaybinPlayer */
     getPlaybin(): Gst.Element
     getSupportedProfiles(): RygelCore.DLNAProfile[]
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -80,7 +80,7 @@ export class PlaybinPlayer {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of RygelRenderer.MediaPlayer */
+    /* Methods of RygelRenderer-2.6.RygelRenderer.MediaPlayer */
     seek(time: number): boolean
     seekBytes(bytes: number): boolean
     getProtocols(): string[]
@@ -112,49 +112,12 @@ export class PlaybinPlayer {
     getUserAgent(): string | null
     setUserAgent(value?: string | null): void
     getProtocolInfo(): string
-    /* Virtual methods of RygelRendererGst.PlaybinPlayer */
-    vfuncSeek(time: number): boolean
-    vfuncSeekBytes(bytes: number): boolean
-    vfuncGetProtocols(): string[]
-    vfuncGetMimeTypes(): string[]
-    vfuncGetPlaybackState(): string
-    vfuncSetPlaybackState(value: string): void
-    vfuncGetAllowedPlaybackSpeeds(): string[]
-    vfuncGetPlaybackSpeed(): string
-    vfuncSetPlaybackSpeed(value: string): void
-    vfuncGetUri(): string | null
-    vfuncSetUri(value?: string | null): void
-    vfuncGetVolume(): number
-    vfuncSetVolume(value: number): void
-    vfuncGetDuration(): number
-    vfuncGetSize(): number
-    vfuncGetMetadata(): string | null
-    vfuncSetMetadata(value?: string | null): void
-    vfuncGetMimeType(): string | null
-    vfuncSetMimeType(value?: string | null): void
-    vfuncGetCanSeek(): boolean
-    vfuncGetCanSeekBytes(): boolean
-    vfuncGetContentFeatures(): string | null
-    vfuncSetContentFeatures(value?: string | null): void
-    vfuncGetPosition(): number
-    vfuncGetBytePosition(): number
-    vfuncGetUserAgent(): string | null
-    vfuncSetUserAgent(value?: string | null): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: PlaybinPlayer, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: PlaybinPlayer, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::playbin", callback: (($obj: PlaybinPlayer, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::playbin", callback: (($obj: PlaybinPlayer, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::playbin", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -257,13 +220,13 @@ export class PlaybinPlayer {
 export interface PlaybinRenderer_ConstructProps extends RygelRenderer.MediaRenderer_ConstructProps {
 }
 export class PlaybinRenderer {
-    /* Properties of RygelCore.MediaDevice */
+    /* Properties of RygelCore-2.6.RygelCore.MediaDevice */
     plugin: RygelCore.Plugin
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of RygelRendererGst.PlaybinRenderer */
+    /* Methods of RygelRendererGst-2.6.RygelRendererGst.PlaybinRenderer */
     getPlaybin(): Gst.Element | null
-    /* Methods of RygelCore.MediaDevice */
+    /* Methods of RygelCore-2.6.RygelCore.MediaDevice */
     addInterface(iface: string): void
     removeInterface(iface: string): void
     getInterfaces(): string[]
@@ -271,7 +234,7 @@ export class PlaybinRenderer {
     setPlugin(value: RygelCore.Plugin): void
     getTitle(): string
     getCapabilities(): RygelCore.PluginCapabilities
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -293,21 +256,12 @@ export class PlaybinRenderer {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: PlaybinRenderer, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: PlaybinRenderer, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::plugin", callback: (($obj: PlaybinRenderer, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::plugin", callback: (($obj: PlaybinRenderer, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::plugin", callback: (...args: any[]) => void): NodeJS.EventEmitter

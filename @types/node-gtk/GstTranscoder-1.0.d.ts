@@ -20,8 +20,6 @@ export enum TranscoderError {
 export function transcoderErrorGetName(error: TranscoderError): string
 export function transcoderErrorQuark(): GLib.Quark
 export class TranscoderSignalDispatcher {
-    /* Virtual methods of GstTranscoder.TranscoderSignalDispatcher */
-    vfuncDispatch(transcoder: Transcoder, emitter: object | null, data: object | null, destroy: GLib.DestroyNotify): void
     static name: string
 }
 export interface Transcoder_ConstructProps extends Gst.Object_ConstructProps {
@@ -33,22 +31,22 @@ export interface Transcoder_ConstructProps extends Gst.Object_ConstructProps {
     srcUri?: string
 }
 export class Transcoder {
-    /* Properties of GstTranscoder.Transcoder */
+    /* Properties of GstTranscoder-1.0.GstTranscoder.Transcoder */
     avoidReencoding: boolean
     readonly duration: number
     readonly pipeline: Gst.Element
     readonly position: number
     positionUpdateInterval: number
-    /* Properties of Gst.Object */
+    /* Properties of Gst-1.0.Gst.Object */
     name: string
     parent: Gst.Object
-    /* Fields of Gst.Object */
+    /* Fields of Gst-1.0.Gst.Object */
     object: GObject.InitiallyUnowned
     lock: GLib.Mutex
     flags: number
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GstTranscoder.Transcoder */
+    /* Methods of GstTranscoder-1.0.GstTranscoder.Transcoder */
     getAvoidReencoding(): boolean
     getDestUri(): string
     getDuration(): Gst.ClockTime
@@ -61,7 +59,7 @@ export class Transcoder {
     setAvoidReencoding(avoidReencoding: boolean): void
     setCpuUsage(cpuUsage: number): void
     setPositionUpdateInterval(interval: number): void
-    /* Methods of Gst.Object */
+    /* Methods of Gst-1.0.Gst.Object */
     addControlBinding(binding: Gst.ControlBinding): boolean
     defaultError(error: GLib.Error, debug?: string | null): void
     getControlBinding(propertyName: string): Gst.ControlBinding | null
@@ -86,7 +84,7 @@ export class Transcoder {
     syncValues(timestamp: Gst.ClockTime): boolean
     unparent(): void
     unref(): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -107,61 +105,44 @@ export class Transcoder {
     stealQdata(quark: GLib.Quark): object | null
     thawNotify(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of Gst.Object */
-    vfuncDeepNotify(orig: Gst.Object, pspec: GObject.ParamSpec): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GstTranscoder.Transcoder */
+    /* Signals of GstTranscoder-1.0.GstTranscoder.Transcoder */
     connect(sigName: "done", callback: (($obj: Transcoder) => void)): number
-    connect_after(sigName: "done", callback: (($obj: Transcoder) => void)): number
+    on(sigName: "done", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "done", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "done", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "done"): void
-    on(sigName: "done", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "done", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "done", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "duration-changed", callback: (($obj: Transcoder, object: number) => void)): number
-    connect_after(sigName: "duration-changed", callback: (($obj: Transcoder, object: number) => void)): number
+    on(sigName: "duration-changed", callback: (object: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "duration-changed", callback: (object: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "duration-changed", callback: (object: number) => void): NodeJS.EventEmitter
     emit(sigName: "duration-changed", object: number): void
-    on(sigName: "duration-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "duration-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "duration-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "error", callback: (($obj: Transcoder, object: GLib.Error, p0: Gst.Structure) => void)): number
-    connect_after(sigName: "error", callback: (($obj: Transcoder, object: GLib.Error, p0: Gst.Structure) => void)): number
+    on(sigName: "error", callback: (object: GLib.Error, p0: Gst.Structure) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "error", callback: (object: GLib.Error, p0: Gst.Structure) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "error", callback: (object: GLib.Error, p0: Gst.Structure) => void): NodeJS.EventEmitter
     emit(sigName: "error", object: GLib.Error, p0: Gst.Structure): void
-    on(sigName: "error", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "error", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "error", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "position-updated", callback: (($obj: Transcoder, object: number) => void)): number
-    connect_after(sigName: "position-updated", callback: (($obj: Transcoder, object: number) => void)): number
+    on(sigName: "position-updated", callback: (object: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "position-updated", callback: (object: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "position-updated", callback: (object: number) => void): NodeJS.EventEmitter
     emit(sigName: "position-updated", object: number): void
-    on(sigName: "position-updated", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "position-updated", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "position-updated", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "warning", callback: (($obj: Transcoder, object: GLib.Error, p0: Gst.Structure) => void)): number
-    connect_after(sigName: "warning", callback: (($obj: Transcoder, object: GLib.Error, p0: Gst.Structure) => void)): number
+    on(sigName: "warning", callback: (object: GLib.Error, p0: Gst.Structure) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "warning", callback: (object: GLib.Error, p0: Gst.Structure) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "warning", callback: (object: GLib.Error, p0: Gst.Structure) => void): NodeJS.EventEmitter
     emit(sigName: "warning", object: GLib.Error, p0: Gst.Structure): void
-    on(sigName: "warning", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "warning", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "warning", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of Gst.Object */
+    /* Signals of Gst-1.0.Gst.Object */
     connect(sigName: "deep-notify", callback: (($obj: Transcoder, propObject: Gst.Object, prop: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "deep-notify", callback: (($obj: Transcoder, propObject: Gst.Object, prop: GObject.ParamSpec) => void)): number
+    on(sigName: "deep-notify", callback: (propObject: Gst.Object, prop: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "deep-notify", callback: (propObject: Gst.Object, prop: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "deep-notify", callback: (propObject: Gst.Object, prop: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "deep-notify", propObject: Gst.Object, prop: GObject.ParamSpec): void
-    on(sigName: "deep-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "deep-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "deep-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Transcoder, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Transcoder, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::avoid-reencoding", callback: (($obj: Transcoder, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::avoid-reencoding", callback: (($obj: Transcoder, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::avoid-reencoding", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -216,9 +197,9 @@ export interface TranscoderGMainContextSignalDispatcher_ConstructProps extends G
     applicationContext?: GLib.MainContext
 }
 export class TranscoderGMainContextSignalDispatcher {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -240,23 +221,12 @@ export class TranscoderGMainContextSignalDispatcher {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GstTranscoder.TranscoderGMainContextSignalDispatcher */
-    vfuncDispatch(transcoder: Transcoder, emitter: object | null, data: object | null, destroy: GLib.DestroyNotify): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: TranscoderGMainContextSignalDispatcher, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: TranscoderGMainContextSignalDispatcher, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -279,7 +249,7 @@ export class TranscoderPrivate {
     static name: string
 }
 export abstract class TranscoderSignalDispatcherInterface {
-    /* Fields of GstTranscoder.TranscoderSignalDispatcherInterface */
+    /* Fields of GstTranscoder-1.0.GstTranscoder.TranscoderSignalDispatcherInterface */
     parentIface: GObject.TypeInterface
     dispatch: (self: TranscoderSignalDispatcher, transcoder: Transcoder, emitter: object | null, data: object | null, destroy: GLib.DestroyNotify) => void
     static name: string

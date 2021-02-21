@@ -97,12 +97,12 @@ export interface PluginTransactionFunc {
 export interface Backend_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class Backend {
-    /* Fields of PackageKitPlugin.Backend */
+    /* Fields of PackageKitPlugin-1.0.PackageKitPlugin.Backend */
     parent: GObject.Object
     priv: BackendPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of PackageKitPlugin.Backend */
+    /* Methods of PackageKitPlugin-1.0.PackageKitPlugin.Backend */
     accept_eula(eula_id: string): void
     cancel(job: BackendJob): void
     depends_on(job: BackendJob, filters: PackageKitGlib.Bitfield, package_ids: string, recursive: boolean): void
@@ -157,7 +157,7 @@ export class Backend {
     update_packages(job: BackendJob, transaction_flags: PackageKitGlib.Bitfield, package_ids: string): void
     watch_file(filename: string, func: BackendFileChanged): boolean
     what_provides(job: BackendJob, filters: PackageKitGlib.Bitfield, search: string): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -179,7 +179,7 @@ export class Backend {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -187,7 +187,7 @@ export class Backend {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Backend, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Backend, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -207,12 +207,12 @@ export class Backend {
 export interface BackendJob_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class BackendJob {
-    /* Fields of PackageKitPlugin.BackendJob */
+    /* Fields of PackageKitPlugin-1.0.PackageKitPlugin.BackendJob */
     parent: GObject.Object
     priv: BackendJobPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of PackageKitPlugin.BackendJob */
+    /* Methods of PackageKitPlugin-1.0.PackageKitPlugin.BackendJob */
     category(parent_id: string, cat_id: string, name: string, summary: string, icon: string): void
     details(package_id: string, summary: string, license: string, group: PackageKitGlib.GroupEnum, description: string, url: string, size: number): void
     distro_upgrade(type: PackageKitGlib.DistroUpgradeEnum, name: string, summary: string): void
@@ -279,7 +279,7 @@ export class BackendJob {
     thread_create(func: BackendJobThreadFunc): boolean
     update_detail(package_id: string, updates: string, obsoletes: string, vendor_urls: string, bugzilla_urls: string, cve_urls: string, restart: PackageKitGlib.RestartEnum, update_text: string, changelog: string, state: PackageKitGlib.UpdateStateEnum, issued: string, updated: string): void
     use_background(): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -301,7 +301,7 @@ export class BackendJob {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -309,7 +309,7 @@ export class BackendJob {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: BackendJob, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: BackendJob, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -327,12 +327,12 @@ export class BackendJob {
 export interface Transaction_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class Transaction {
-    /* Fields of PackageKitPlugin.Transaction */
+    /* Fields of PackageKitPlugin-1.0.PackageKitPlugin.Transaction */
     parent: GObject.Object
     priv: TransactionPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of PackageKitPlugin.Transaction */
+    /* Methods of PackageKitPlugin-1.0.PackageKitPlugin.Transaction */
     add_supported_content_type(mime_type: string): void
     cancel_bg(): void
     get_backend_job(): BackendJob
@@ -357,7 +357,7 @@ export class Transaction {
     set_state(state: TransactionState): boolean
     signals_reset(job: BackendJob): void
     skip_auth_checks(skip_checks: boolean): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -379,7 +379,7 @@ export class Transaction {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -387,11 +387,11 @@ export class Transaction {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of PackageKitPlugin.Transaction */
+    /* Signals of PackageKitPlugin-1.0.PackageKitPlugin.Transaction */
     connect(sigName: "finished", callback: (($obj: Transaction) => void)): number
     connect_after(sigName: "finished", callback: (($obj: Transaction) => void)): number
     emit(sigName: "finished"): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Transaction, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Transaction, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -409,12 +409,12 @@ export class Transaction {
     static $gtype: GObject.Type
 }
 export abstract class BackendClass {
-    /* Fields of PackageKitPlugin.BackendClass */
+    /* Fields of PackageKitPlugin-1.0.PackageKitPlugin.BackendClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
 export abstract class BackendJobClass {
-    /* Fields of PackageKitPlugin.BackendJobClass */
+    /* Fields of PackageKitPlugin-1.0.PackageKitPlugin.BackendJobClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
@@ -425,11 +425,11 @@ export class BackendPrivate {
     static name: string
 }
 export class Plugin {
-    /* Fields of PackageKitPlugin.Plugin */
+    /* Fields of PackageKitPlugin-1.0.PackageKitPlugin.Plugin */
     backend: Backend
     job: BackendJob
     priv: PluginPrivate
-    /* Methods of PackageKitPlugin.Plugin */
+    /* Methods of PackageKitPlugin-1.0.PackageKitPlugin.Plugin */
     destroy(): void
     initialize(): void
     state_changed(): void
@@ -447,7 +447,7 @@ export class PluginPrivate {
     static name: string
 }
 export abstract class TransactionClass {
-    /* Fields of PackageKitPlugin.TransactionClass */
+    /* Fields of PackageKitPlugin-1.0.PackageKitPlugin.TransactionClass */
     parent_class: GObject.ObjectClass
     static name: string
 }

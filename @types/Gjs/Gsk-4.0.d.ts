@@ -101,11 +101,11 @@ export interface ParseErrorFunc {
     (start: ParseLocation, end: ParseLocation, error: GLib.Error): void
 }
 export class BlendNode {
-    /* Methods of Gsk.BlendNode */
+    /* Methods of Gsk-4.0.Gsk.BlendNode */
     get_blend_mode(): BlendMode
     get_bottom_child(): RenderNode
     get_top_child(): RenderNode
-    /* Methods of Gsk.RenderNode */
+    /* Methods of Gsk-4.0.Gsk.RenderNode */
     draw(cr: cairo.Context): void
     get_bounds(): /* bounds */ Graphene.Rect
     get_node_type(): RenderNodeType
@@ -120,10 +120,10 @@ export class BlendNode {
     static new(bottom: RenderNode, top: RenderNode, blend_mode: BlendMode): BlendNode
 }
 export class BlurNode {
-    /* Methods of Gsk.BlurNode */
+    /* Methods of Gsk-4.0.Gsk.BlurNode */
     get_child(): RenderNode
     get_radius(): number
-    /* Methods of Gsk.RenderNode */
+    /* Methods of Gsk-4.0.Gsk.RenderNode */
     draw(cr: cairo.Context): void
     get_bounds(): /* bounds */ Graphene.Rect
     get_node_type(): RenderNodeType
@@ -138,11 +138,11 @@ export class BlurNode {
     static new(child: RenderNode, radius: number): BlurNode
 }
 export class BorderNode {
-    /* Methods of Gsk.BorderNode */
+    /* Methods of Gsk-4.0.Gsk.BorderNode */
     get_colors(): Gdk.RGBA
     get_outline(): RoundedRect
     get_widths(): number[]
-    /* Methods of Gsk.RenderNode */
+    /* Methods of Gsk-4.0.Gsk.RenderNode */
     draw(cr: cairo.Context): void
     get_bounds(): /* bounds */ Graphene.Rect
     get_node_type(): RenderNodeType
@@ -159,19 +159,19 @@ export class BorderNode {
 export interface BroadwayRenderer_ConstructProps extends Renderer_ConstructProps {
 }
 export class BroadwayRenderer {
-    /* Properties of Gsk.Renderer */
+    /* Properties of Gsk-4.0.Gsk.Renderer */
     readonly realized: boolean
     readonly surface: Gdk.Surface
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Gsk.Renderer */
+    /* Methods of Gsk-4.0.Gsk.Renderer */
     get_surface(): Gdk.Surface | null
     is_realized(): boolean
     realize(surface: Gdk.Surface): boolean
     render(root: RenderNode, region?: cairo.Region | null): void
     render_texture(root: RenderNode, viewport?: Graphene.Rect | null): Gdk.Texture
     unrealize(): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -193,7 +193,7 @@ export class BroadwayRenderer {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -201,7 +201,7 @@ export class BroadwayRenderer {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: BroadwayRenderer, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: BroadwayRenderer, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -221,10 +221,10 @@ export class BroadwayRenderer {
     static $gtype: GObject.Type
 }
 export class CairoNode {
-    /* Methods of Gsk.CairoNode */
+    /* Methods of Gsk-4.0.Gsk.CairoNode */
     get_draw_context(): cairo.Context
     get_surface(): cairo.Surface
-    /* Methods of Gsk.RenderNode */
+    /* Methods of Gsk-4.0.Gsk.RenderNode */
     draw(cr: cairo.Context): void
     get_bounds(): /* bounds */ Graphene.Rect
     get_node_type(): RenderNodeType
@@ -241,19 +241,19 @@ export class CairoNode {
 export interface CairoRenderer_ConstructProps extends Renderer_ConstructProps {
 }
 export class CairoRenderer {
-    /* Properties of Gsk.Renderer */
+    /* Properties of Gsk-4.0.Gsk.Renderer */
     readonly realized: boolean
     readonly surface: Gdk.Surface
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Gsk.Renderer */
+    /* Methods of Gsk-4.0.Gsk.Renderer */
     get_surface(): Gdk.Surface | null
     is_realized(): boolean
     realize(surface: Gdk.Surface): boolean
     render(root: RenderNode, region?: cairo.Region | null): void
     render_texture(root: RenderNode, viewport?: Graphene.Rect | null): Gdk.Texture
     unrealize(): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -275,7 +275,7 @@ export class CairoRenderer {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -283,7 +283,7 @@ export class CairoRenderer {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: CairoRenderer, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: CairoRenderer, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -303,10 +303,10 @@ export class CairoRenderer {
     static $gtype: GObject.Type
 }
 export class ClipNode {
-    /* Methods of Gsk.ClipNode */
+    /* Methods of Gsk-4.0.Gsk.ClipNode */
     get_child(): RenderNode
     get_clip(): Graphene.Rect
-    /* Methods of Gsk.RenderNode */
+    /* Methods of Gsk-4.0.Gsk.RenderNode */
     draw(cr: cairo.Context): void
     get_bounds(): /* bounds */ Graphene.Rect
     get_node_type(): RenderNodeType
@@ -321,11 +321,11 @@ export class ClipNode {
     static new(child: RenderNode, clip: Graphene.Rect): ClipNode
 }
 export class ColorMatrixNode {
-    /* Methods of Gsk.ColorMatrixNode */
+    /* Methods of Gsk-4.0.Gsk.ColorMatrixNode */
     get_child(): RenderNode
     get_color_matrix(): Graphene.Matrix
     get_color_offset(): Graphene.Vec4
-    /* Methods of Gsk.RenderNode */
+    /* Methods of Gsk-4.0.Gsk.RenderNode */
     draw(cr: cairo.Context): void
     get_bounds(): /* bounds */ Graphene.Rect
     get_node_type(): RenderNodeType
@@ -340,9 +340,9 @@ export class ColorMatrixNode {
     static new(child: RenderNode, color_matrix: Graphene.Matrix, color_offset: Graphene.Vec4): ColorMatrixNode
 }
 export class ColorNode {
-    /* Methods of Gsk.ColorNode */
+    /* Methods of Gsk-4.0.Gsk.ColorNode */
     get_color(): Gdk.RGBA
-    /* Methods of Gsk.RenderNode */
+    /* Methods of Gsk-4.0.Gsk.RenderNode */
     draw(cr: cairo.Context): void
     get_bounds(): /* bounds */ Graphene.Rect
     get_node_type(): RenderNodeType
@@ -357,13 +357,13 @@ export class ColorNode {
     static new(rgba: Gdk.RGBA, bounds: Graphene.Rect): ColorNode
 }
 export class ConicGradientNode {
-    /* Methods of Gsk.ConicGradientNode */
+    /* Methods of Gsk-4.0.Gsk.ConicGradientNode */
     get_angle(): number
     get_center(): Graphene.Point
     get_color_stops(): ColorStop[]
     get_n_color_stops(): number
     get_rotation(): number
-    /* Methods of Gsk.RenderNode */
+    /* Methods of Gsk-4.0.Gsk.RenderNode */
     draw(cr: cairo.Context): void
     get_bounds(): /* bounds */ Graphene.Rect
     get_node_type(): RenderNodeType
@@ -378,10 +378,10 @@ export class ConicGradientNode {
     static new(bounds: Graphene.Rect, center: Graphene.Point, rotation: number, color_stops: ColorStop[]): ConicGradientNode
 }
 export class ContainerNode {
-    /* Methods of Gsk.ContainerNode */
+    /* Methods of Gsk-4.0.Gsk.ContainerNode */
     get_child(idx: number): RenderNode
     get_n_children(): number
-    /* Methods of Gsk.RenderNode */
+    /* Methods of Gsk-4.0.Gsk.RenderNode */
     draw(cr: cairo.Context): void
     get_bounds(): /* bounds */ Graphene.Rect
     get_node_type(): RenderNodeType
@@ -396,11 +396,11 @@ export class ContainerNode {
     static new(children: RenderNode[]): ContainerNode
 }
 export class CrossFadeNode {
-    /* Methods of Gsk.CrossFadeNode */
+    /* Methods of Gsk-4.0.Gsk.CrossFadeNode */
     get_end_child(): RenderNode
     get_progress(): number
     get_start_child(): RenderNode
-    /* Methods of Gsk.RenderNode */
+    /* Methods of Gsk-4.0.Gsk.RenderNode */
     draw(cr: cairo.Context): void
     get_bounds(): /* bounds */ Graphene.Rect
     get_node_type(): RenderNodeType
@@ -415,10 +415,10 @@ export class CrossFadeNode {
     static new(start: RenderNode, end: RenderNode, progress: number): CrossFadeNode
 }
 export class DebugNode {
-    /* Methods of Gsk.DebugNode */
+    /* Methods of Gsk-4.0.Gsk.DebugNode */
     get_child(): RenderNode
     get_message(): string
-    /* Methods of Gsk.RenderNode */
+    /* Methods of Gsk-4.0.Gsk.RenderNode */
     draw(cr: cairo.Context): void
     get_bounds(): /* bounds */ Graphene.Rect
     get_node_type(): RenderNodeType
@@ -435,19 +435,19 @@ export class DebugNode {
 export interface GLRenderer_ConstructProps extends Renderer_ConstructProps {
 }
 export class GLRenderer {
-    /* Properties of Gsk.Renderer */
+    /* Properties of Gsk-4.0.Gsk.Renderer */
     readonly realized: boolean
     readonly surface: Gdk.Surface
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Gsk.Renderer */
+    /* Methods of Gsk-4.0.Gsk.Renderer */
     get_surface(): Gdk.Surface | null
     is_realized(): boolean
     realize(surface: Gdk.Surface): boolean
     render(root: RenderNode, region?: cairo.Region | null): void
     render_texture(root: RenderNode, viewport?: Graphene.Rect | null): Gdk.Texture
     unrealize(): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -469,7 +469,7 @@ export class GLRenderer {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -477,7 +477,7 @@ export class GLRenderer {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: GLRenderer, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: GLRenderer, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -501,9 +501,9 @@ export interface GLShader_ConstructProps extends GObject.Object_ConstructProps {
     source?: GLib.Bytes
 }
 export class GLShader {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Gsk.GLShader */
+    /* Methods of Gsk-4.0.Gsk.GLShader */
     compile(renderer: Renderer): boolean
     find_uniform_by_name(name: string): number
     get_arg_bool(args: GLib.Bytes, idx: number): boolean
@@ -521,7 +521,7 @@ export class GLShader {
     get_uniform_name(idx: number): string
     get_uniform_offset(idx: number): number
     get_uniform_type(idx: number): GLUniformType
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -543,7 +543,7 @@ export class GLShader {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -551,7 +551,7 @@ export class GLShader {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: GLShader, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: GLShader, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -568,12 +568,12 @@ export class GLShader {
     static $gtype: GObject.Type
 }
 export class GLShaderNode {
-    /* Methods of Gsk.GLShaderNode */
+    /* Methods of Gsk-4.0.Gsk.GLShaderNode */
     get_args(): GLib.Bytes
     get_child(idx: number): RenderNode
     get_n_children(): number
     get_shader(): GLShader
-    /* Methods of Gsk.RenderNode */
+    /* Methods of Gsk-4.0.Gsk.RenderNode */
     draw(cr: cairo.Context): void
     get_bounds(): /* bounds */ Graphene.Rect
     get_node_type(): RenderNodeType
@@ -588,14 +588,14 @@ export class GLShaderNode {
     static new(shader: GLShader, bounds: Graphene.Rect, args: GLib.Bytes, children: RenderNode[]): GLShaderNode
 }
 export class InsetShadowNode {
-    /* Methods of Gsk.InsetShadowNode */
+    /* Methods of Gsk-4.0.Gsk.InsetShadowNode */
     get_blur_radius(): number
     get_color(): Gdk.RGBA
     get_dx(): number
     get_dy(): number
     get_outline(): RoundedRect
     get_spread(): number
-    /* Methods of Gsk.RenderNode */
+    /* Methods of Gsk-4.0.Gsk.RenderNode */
     draw(cr: cairo.Context): void
     get_bounds(): /* bounds */ Graphene.Rect
     get_node_type(): RenderNodeType
@@ -610,12 +610,12 @@ export class InsetShadowNode {
     static new(outline: RoundedRect, color: Gdk.RGBA, dx: number, dy: number, spread: number, blur_radius: number): InsetShadowNode
 }
 export class LinearGradientNode {
-    /* Methods of Gsk.LinearGradientNode */
+    /* Methods of Gsk-4.0.Gsk.LinearGradientNode */
     get_color_stops(): ColorStop[]
     get_end(): Graphene.Point
     get_n_color_stops(): number
     get_start(): Graphene.Point
-    /* Methods of Gsk.RenderNode */
+    /* Methods of Gsk-4.0.Gsk.RenderNode */
     draw(cr: cairo.Context): void
     get_bounds(): /* bounds */ Graphene.Rect
     get_node_type(): RenderNodeType
@@ -630,10 +630,10 @@ export class LinearGradientNode {
     static new(bounds: Graphene.Rect, start: Graphene.Point, end: Graphene.Point, color_stops: ColorStop[]): LinearGradientNode
 }
 export class OpacityNode {
-    /* Methods of Gsk.OpacityNode */
+    /* Methods of Gsk-4.0.Gsk.OpacityNode */
     get_child(): RenderNode
     get_opacity(): number
-    /* Methods of Gsk.RenderNode */
+    /* Methods of Gsk-4.0.Gsk.RenderNode */
     draw(cr: cairo.Context): void
     get_bounds(): /* bounds */ Graphene.Rect
     get_node_type(): RenderNodeType
@@ -648,14 +648,14 @@ export class OpacityNode {
     static new(child: RenderNode, opacity: number): OpacityNode
 }
 export class OutsetShadowNode {
-    /* Methods of Gsk.OutsetShadowNode */
+    /* Methods of Gsk-4.0.Gsk.OutsetShadowNode */
     get_blur_radius(): number
     get_color(): Gdk.RGBA
     get_dx(): number
     get_dy(): number
     get_outline(): RoundedRect
     get_spread(): number
-    /* Methods of Gsk.RenderNode */
+    /* Methods of Gsk-4.0.Gsk.RenderNode */
     draw(cr: cairo.Context): void
     get_bounds(): /* bounds */ Graphene.Rect
     get_node_type(): RenderNodeType
@@ -670,7 +670,7 @@ export class OutsetShadowNode {
     static new(outline: RoundedRect, color: Gdk.RGBA, dx: number, dy: number, spread: number, blur_radius: number): OutsetShadowNode
 }
 export class RadialGradientNode {
-    /* Methods of Gsk.RadialGradientNode */
+    /* Methods of Gsk-4.0.Gsk.RadialGradientNode */
     get_center(): Graphene.Point
     get_color_stops(): ColorStop[]
     get_end(): number
@@ -678,7 +678,7 @@ export class RadialGradientNode {
     get_n_color_stops(): number
     get_start(): number
     get_vradius(): number
-    /* Methods of Gsk.RenderNode */
+    /* Methods of Gsk-4.0.Gsk.RenderNode */
     draw(cr: cairo.Context): void
     get_bounds(): /* bounds */ Graphene.Rect
     get_node_type(): RenderNodeType
@@ -693,7 +693,7 @@ export class RadialGradientNode {
     static new(bounds: Graphene.Rect, center: Graphene.Point, hradius: number, vradius: number, start: number, end: number, color_stops: ColorStop[]): RadialGradientNode
 }
 export class RenderNode {
-    /* Methods of Gsk.RenderNode */
+    /* Methods of Gsk-4.0.Gsk.RenderNode */
     draw(cr: cairo.Context): void
     get_bounds(): /* bounds */ Graphene.Rect
     get_node_type(): RenderNodeType
@@ -708,19 +708,19 @@ export class RenderNode {
 export interface Renderer_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class Renderer {
-    /* Properties of Gsk.Renderer */
+    /* Properties of Gsk-4.0.Gsk.Renderer */
     readonly realized: boolean
     readonly surface: Gdk.Surface
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Gsk.Renderer */
+    /* Methods of Gsk-4.0.Gsk.Renderer */
     get_surface(): Gdk.Surface | null
     is_realized(): boolean
     realize(surface: Gdk.Surface): boolean
     render(root: RenderNode, region?: cairo.Region | null): void
     render_texture(root: RenderNode, viewport?: Graphene.Rect | null): Gdk.Texture
     unrealize(): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -742,7 +742,7 @@ export class Renderer {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -750,7 +750,7 @@ export class Renderer {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Renderer, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Renderer, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -770,10 +770,10 @@ export class Renderer {
     static $gtype: GObject.Type
 }
 export class RepeatNode {
-    /* Methods of Gsk.RepeatNode */
+    /* Methods of Gsk-4.0.Gsk.RepeatNode */
     get_child(): RenderNode
     get_child_bounds(): Graphene.Rect
-    /* Methods of Gsk.RenderNode */
+    /* Methods of Gsk-4.0.Gsk.RenderNode */
     draw(cr: cairo.Context): void
     get_bounds(): /* bounds */ Graphene.Rect
     get_node_type(): RenderNodeType
@@ -788,7 +788,7 @@ export class RepeatNode {
     static new(bounds: Graphene.Rect, child: RenderNode, child_bounds?: Graphene.Rect | null): RepeatNode
 }
 export class RepeatingLinearGradientNode {
-    /* Methods of Gsk.RenderNode */
+    /* Methods of Gsk-4.0.Gsk.RenderNode */
     draw(cr: cairo.Context): void
     get_bounds(): /* bounds */ Graphene.Rect
     get_node_type(): RenderNodeType
@@ -803,7 +803,7 @@ export class RepeatingLinearGradientNode {
     static new(bounds: Graphene.Rect, start: Graphene.Point, end: Graphene.Point, color_stops: ColorStop[]): RepeatingLinearGradientNode
 }
 export class RepeatingRadialGradientNode {
-    /* Methods of Gsk.RenderNode */
+    /* Methods of Gsk-4.0.Gsk.RenderNode */
     draw(cr: cairo.Context): void
     get_bounds(): /* bounds */ Graphene.Rect
     get_node_type(): RenderNodeType
@@ -818,10 +818,10 @@ export class RepeatingRadialGradientNode {
     static new(bounds: Graphene.Rect, center: Graphene.Point, hradius: number, vradius: number, start: number, end: number, color_stops: ColorStop[]): RepeatingRadialGradientNode
 }
 export class RoundedClipNode {
-    /* Methods of Gsk.RoundedClipNode */
+    /* Methods of Gsk-4.0.Gsk.RoundedClipNode */
     get_child(): RenderNode
     get_clip(): RoundedRect
-    /* Methods of Gsk.RenderNode */
+    /* Methods of Gsk-4.0.Gsk.RenderNode */
     draw(cr: cairo.Context): void
     get_bounds(): /* bounds */ Graphene.Rect
     get_node_type(): RenderNodeType
@@ -836,11 +836,11 @@ export class RoundedClipNode {
     static new(child: RenderNode, clip: RoundedRect): RoundedClipNode
 }
 export class ShadowNode {
-    /* Methods of Gsk.ShadowNode */
+    /* Methods of Gsk-4.0.Gsk.ShadowNode */
     get_child(): RenderNode
     get_n_shadows(): number
     get_shadow(i: number): Shadow
-    /* Methods of Gsk.RenderNode */
+    /* Methods of Gsk-4.0.Gsk.RenderNode */
     draw(cr: cairo.Context): void
     get_bounds(): /* bounds */ Graphene.Rect
     get_node_type(): RenderNodeType
@@ -855,14 +855,14 @@ export class ShadowNode {
     static new(child: RenderNode, shadows: Shadow[]): ShadowNode
 }
 export class TextNode {
-    /* Methods of Gsk.TextNode */
+    /* Methods of Gsk-4.0.Gsk.TextNode */
     get_color(): Gdk.RGBA
     get_font(): Pango.Font
     get_glyphs(): Pango.GlyphInfo[]
     get_num_glyphs(): number
     get_offset(): Graphene.Point
     has_color_glyphs(): boolean
-    /* Methods of Gsk.RenderNode */
+    /* Methods of Gsk-4.0.Gsk.RenderNode */
     draw(cr: cairo.Context): void
     get_bounds(): /* bounds */ Graphene.Rect
     get_node_type(): RenderNodeType
@@ -877,9 +877,9 @@ export class TextNode {
     static new(font: Pango.Font, glyphs: Pango.GlyphString, color: Gdk.RGBA, offset: Graphene.Point): TextNode
 }
 export class TextureNode {
-    /* Methods of Gsk.TextureNode */
+    /* Methods of Gsk-4.0.Gsk.TextureNode */
     get_texture(): Gdk.Texture
-    /* Methods of Gsk.RenderNode */
+    /* Methods of Gsk-4.0.Gsk.RenderNode */
     draw(cr: cairo.Context): void
     get_bounds(): /* bounds */ Graphene.Rect
     get_node_type(): RenderNodeType
@@ -894,10 +894,10 @@ export class TextureNode {
     static new(texture: Gdk.Texture, bounds: Graphene.Rect): TextureNode
 }
 export class TransformNode {
-    /* Methods of Gsk.TransformNode */
+    /* Methods of Gsk-4.0.Gsk.TransformNode */
     get_child(): RenderNode
     get_transform(): Transform
-    /* Methods of Gsk.RenderNode */
+    /* Methods of Gsk-4.0.Gsk.RenderNode */
     draw(cr: cairo.Context): void
     get_bounds(): /* bounds */ Graphene.Rect
     get_node_type(): RenderNodeType
@@ -914,19 +914,19 @@ export class TransformNode {
 export interface VulkanRenderer_ConstructProps extends Renderer_ConstructProps {
 }
 export class VulkanRenderer {
-    /* Properties of Gsk.Renderer */
+    /* Properties of Gsk-4.0.Gsk.Renderer */
     readonly realized: boolean
     readonly surface: Gdk.Surface
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Gsk.Renderer */
+    /* Methods of Gsk-4.0.Gsk.Renderer */
     get_surface(): Gdk.Surface | null
     is_realized(): boolean
     realize(surface: Gdk.Surface): boolean
     render(root: RenderNode, region?: cairo.Region | null): void
     render_texture(root: RenderNode, viewport?: Graphene.Rect | null): Gdk.Texture
     unrealize(): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -948,7 +948,7 @@ export class VulkanRenderer {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -956,7 +956,7 @@ export class VulkanRenderer {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: VulkanRenderer, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: VulkanRenderer, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -982,7 +982,7 @@ export abstract class CairoRendererClass {
     static name: string
 }
 export class ColorStop {
-    /* Fields of Gsk.ColorStop */
+    /* Fields of Gsk-4.0.Gsk.ColorStop */
     offset: number
     color: Gdk.RGBA
     static name: string
@@ -991,12 +991,12 @@ export abstract class GLRendererClass {
     static name: string
 }
 export abstract class GLShaderClass {
-    /* Fields of Gsk.GLShaderClass */
+    /* Fields of Gsk-4.0.Gsk.GLShaderClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
 export class ParseLocation {
-    /* Fields of Gsk.ParseLocation */
+    /* Fields of Gsk-4.0.Gsk.ParseLocation */
     bytes: number
     chars: number
     lines: number
@@ -1008,10 +1008,10 @@ export abstract class RendererClass {
     static name: string
 }
 export class RoundedRect {
-    /* Fields of Gsk.RoundedRect */
+    /* Fields of Gsk-4.0.Gsk.RoundedRect */
     bounds: Graphene.Rect
     corner: Graphene.Size[]
-    /* Methods of Gsk.RoundedRect */
+    /* Methods of Gsk-4.0.Gsk.RoundedRect */
     contains_point(point: Graphene.Point): boolean
     contains_rect(rect: Graphene.Rect): boolean
     init(bounds: Graphene.Rect, top_left: Graphene.Size, top_right: Graphene.Size, bottom_right: Graphene.Size, bottom_left: Graphene.Size): RoundedRect
@@ -1025,7 +1025,7 @@ export class RoundedRect {
     static name: string
 }
 export class ShaderArgsBuilder {
-    /* Methods of Gsk.ShaderArgsBuilder */
+    /* Methods of Gsk-4.0.Gsk.ShaderArgsBuilder */
     ref(): ShaderArgsBuilder
     set_bool(idx: number, value: boolean): void
     set_float(idx: number, value: number): void
@@ -1043,7 +1043,7 @@ export class ShaderArgsBuilder {
     static new(shader: GLShader, initial_values?: GLib.Bytes | null): ShaderArgsBuilder
 }
 export class Shadow {
-    /* Fields of Gsk.Shadow */
+    /* Fields of Gsk-4.0.Gsk.Shadow */
     color: Gdk.RGBA
     dx: number
     dy: number
@@ -1051,7 +1051,7 @@ export class Shadow {
     static name: string
 }
 export class Transform {
-    /* Methods of Gsk.Transform */
+    /* Methods of Gsk-4.0.Gsk.Transform */
     equal(second?: Transform | null): boolean
     get_category(): TransformCategory
     invert(): Transform | null

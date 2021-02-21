@@ -16,11 +16,11 @@ export interface MinerManager_ConstructProps extends GObject.Object_ConstructPro
     domain_ontology?: string
 }
 export class MinerManager {
-    /* Fields of TrackerControl.MinerManager */
+    /* Fields of TrackerControl-2.0.TrackerControl.MinerManager */
     parent_instance: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of TrackerControl.MinerManager */
+    /* Methods of TrackerControl-2.0.TrackerControl.MinerManager */
     get_available(): string[] | null
     get_description(miner: string): string
     get_display_name(miner: string): string
@@ -38,7 +38,7 @@ export class MinerManager {
     pause_for_process(miner: string, reason: string): [ /* returnType */ boolean, /* cookie */ number | null ]
     reindex_by_mimetype(mimetypes: string[]): boolean
     resume(miner: string, cookie: number): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -60,16 +60,16 @@ export class MinerManager {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of Gio.Initable */
+    /* Methods of Gio-2.0.Gio.Initable */
     init(cancellable?: Gio.Cancellable | null): boolean
-    /* Virtual methods of TrackerControl.MinerManager */
+    /* Virtual methods of TrackerControl-2.0.TrackerControl.MinerManager */
     vfunc_miner_activated(miner_name: string): void
     vfunc_miner_deactivated(miner_name: string): void
     vfunc_miner_paused(miner_name: string): void
     vfunc_miner_progress(miner_name: string, status: string, progress: number): void
     vfunc_miner_resumed(miner_name: string): void
     vfunc_init(cancellable?: Gio.Cancellable | null): boolean
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -77,7 +77,7 @@ export class MinerManager {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of TrackerControl.MinerManager */
+    /* Signals of TrackerControl-2.0.TrackerControl.MinerManager */
     connect(sigName: "miner-activated", callback: (($obj: MinerManager, miner: string) => void)): number
     connect_after(sigName: "miner-activated", callback: (($obj: MinerManager, miner: string) => void)): number
     emit(sigName: "miner-activated", miner: string): void
@@ -93,7 +93,7 @@ export class MinerManager {
     connect(sigName: "miner-resumed", callback: (($obj: MinerManager, miner: string) => void)): number
     connect_after(sigName: "miner-resumed", callback: (($obj: MinerManager, miner: string) => void)): number
     emit(sigName: "miner-resumed", miner: string): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: MinerManager, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: MinerManager, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -112,7 +112,7 @@ export class MinerManager {
     static $gtype: GObject.Type
 }
 export abstract class MinerManagerClass {
-    /* Fields of TrackerControl.MinerManagerClass */
+    /* Fields of TrackerControl-2.0.TrackerControl.MinerManagerClass */
     parent_class: GObject.ObjectClass
     miner_progress: (manager: MinerManager, miner_name: string, status: string, progress: number) => void
     miner_paused: (manager: MinerManager, miner_name: string) => void

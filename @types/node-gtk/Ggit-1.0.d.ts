@@ -410,16 +410,16 @@ export interface TreeWalkCallback {
 export interface Blame_ConstructProps extends Native_ConstructProps {
 }
 export class Blame {
-    /* Fields of Ggit.Native */
+    /* Fields of Ggit-1.0.Ggit.Native */
     parentInstance: ObjectFactoryBase
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Ggit.Blame */
+    /* Methods of Ggit-1.0.Ggit.Blame */
     fromBuffer(buffer: any[]): Blame | null
     getHunkByIndex(idx: number): BlameHunk
     getHunkByLine(line: number): BlameHunk
     getHunkCount(): number
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -441,21 +441,12 @@ export class Blame {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Blame, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Blame, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -474,17 +465,17 @@ export class Blame {
 export interface Blob_ConstructProps extends Object_ConstructProps {
 }
 export class Blob {
-    /* Fields of Ggit.Object */
+    /* Fields of Ggit-1.0.Ggit.Object */
     parentInstance: Native
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Ggit.Blob */
+    /* Methods of Ggit-1.0.Ggit.Blob */
     getRawContent(): any[] | null
     isBinary(): boolean
-    /* Methods of Ggit.Object */
+    /* Methods of Ggit-1.0.Ggit.Object */
     getId(): OId | null
     getOwner(): Repository | null
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -506,21 +497,12 @@ export class Blob {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Blob, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Blob, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -537,13 +519,13 @@ export interface BlobOutputStream_ConstructProps extends Gio.OutputStream_Constr
     repository?: Repository
 }
 export class BlobOutputStream {
-    /* Fields of Ggit.BlobOutputStream */
+    /* Fields of Ggit-1.0.Ggit.BlobOutputStream */
     parentInstance: Gio.OutputStream
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Ggit.BlobOutputStream */
+    /* Methods of Ggit-1.0.Ggit.BlobOutputStream */
     getId(): OId | null
-    /* Methods of Gio.OutputStream */
+    /* Methods of Gio-2.0.Gio.OutputStream */
     clearPending(): void
     close(cancellable?: Gio.Cancellable | null): boolean
     closeAsync(ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
@@ -559,21 +541,21 @@ export class BlobOutputStream {
     spliceAsync(source: Gio.InputStream, flags: Gio.OutputStreamSpliceFlags, ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     spliceFinish(result: Gio.AsyncResult): number
     write(buffer: any[], cancellable?: Gio.Cancellable | null): number
-    writeAll(buffer: any[], cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* bytesWritten */ number | null ]
+    writeAll(buffer: any[], cancellable?: Gio.Cancellable | null): { returnType: boolean, bytesWritten: number | null }
     writeAllAsync(buffer: any[], ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    writeAllFinish(result: Gio.AsyncResult): [ /* returnType */ boolean, /* bytesWritten */ number | null ]
+    writeAllFinish(result: Gio.AsyncResult): { returnType: boolean, bytesWritten: number | null }
     writeAsync(buffer: any[], ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     writeBytes(bytes: any, cancellable?: Gio.Cancellable | null): number
     writeBytesAsync(bytes: any, ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     writeBytesFinish(result: Gio.AsyncResult): number
     writeFinish(result: Gio.AsyncResult): number
-    writev(vectors: Gio.OutputVector[], cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* bytesWritten */ number | null ]
-    writevAll(vectors: Gio.OutputVector[], cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* bytesWritten */ number | null ]
+    writev(vectors: Gio.OutputVector[], cancellable?: Gio.Cancellable | null): { returnType: boolean, bytesWritten: number | null }
+    writevAll(vectors: Gio.OutputVector[], cancellable?: Gio.Cancellable | null): { returnType: boolean, bytesWritten: number | null }
     writevAllAsync(vectors: Gio.OutputVector[], ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    writevAllFinish(result: Gio.AsyncResult): [ /* returnType */ boolean, /* bytesWritten */ number | null ]
+    writevAllFinish(result: Gio.AsyncResult): { returnType: boolean, bytesWritten: number | null }
     writevAsync(vectors: Gio.OutputVector[], ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    writevFinish(result: Gio.AsyncResult): [ /* returnType */ boolean, /* bytesWritten */ number | null ]
-    /* Methods of GObject.Object */
+    writevFinish(result: Gio.AsyncResult): { returnType: boolean, bytesWritten: number | null }
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -595,37 +577,12 @@ export class BlobOutputStream {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of Gio.OutputStream */
-    vfuncCloseAsync(ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    vfuncCloseFinish(result: Gio.AsyncResult): boolean
-    vfuncCloseFn(cancellable?: Gio.Cancellable | null): boolean
-    vfuncFlush(cancellable?: Gio.Cancellable | null): boolean
-    vfuncFlushAsync(ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    vfuncFlushFinish(result: Gio.AsyncResult): boolean
-    vfuncSplice(source: Gio.InputStream, flags: Gio.OutputStreamSpliceFlags, cancellable?: Gio.Cancellable | null): number
-    vfuncSpliceAsync(source: Gio.InputStream, flags: Gio.OutputStreamSpliceFlags, ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    vfuncSpliceFinish(result: Gio.AsyncResult): number
-    vfuncWriteAsync(buffer: any[] | null, ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    vfuncWriteFinish(result: Gio.AsyncResult): number
-    vfuncWriteFn(buffer: any[] | null, cancellable?: Gio.Cancellable | null): number
-    vfuncWritevAsync(vectors: Gio.OutputVector[], ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    vfuncWritevFinish(result: Gio.AsyncResult): [ /* returnType */ boolean, /* bytesWritten */ number | null ]
-    vfuncWritevFn(vectors: Gio.OutputVector[], cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* bytesWritten */ number | null ]
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: BlobOutputStream, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: BlobOutputStream, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -641,18 +598,18 @@ export class BlobOutputStream {
 export interface Branch_ConstructProps extends Ref_ConstructProps {
 }
 export class Branch {
-    /* Fields of Ggit.Branch */
+    /* Fields of Ggit-1.0.Ggit.Branch */
     parentInstance: Ref
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Ggit.Branch */
+    /* Methods of Ggit-1.0.Ggit.Branch */
     delete(): void
     getName(): string | null
     getUpstream(): Ref | null
     isHead(): boolean
     move(newBranchName: string, flags: CreateFlags): Branch | null
     setUpstream(upstreamBranchName: string): void
-    /* Methods of Ggit.Ref */
+    /* Methods of Ggit-1.0.Ggit.Ref */
     deleteLog(): void
     getLog(): Reflog | null
     getOwner(): Repository | null
@@ -671,7 +628,7 @@ export class Branch {
     setSymbolicTarget(target: string, logMessage: string): Ref | null
     setTarget(oid: OId, logMessage: string): Ref | null
     toString(): string | null
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -693,21 +650,12 @@ export class Branch {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Branch, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Branch, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -734,7 +682,7 @@ export interface CheckoutOptions_ConstructProps extends GObject.Object_Construct
     theirLabel?: string
 }
 export class CheckoutOptions {
-    /* Properties of Ggit.CheckoutOptions */
+    /* Properties of Ggit-1.0.Ggit.CheckoutOptions */
     ancestorLabel: string
     baseline: Tree
     dirMode: number
@@ -746,11 +694,11 @@ export class CheckoutOptions {
     strategy: CheckoutStrategy
     targetDirectory: string
     theirLabel: string
-    /* Fields of Ggit.CheckoutOptions */
+    /* Fields of Ggit-1.0.Ggit.CheckoutOptions */
     parentInstance: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Ggit.CheckoutOptions */
+    /* Methods of Ggit-1.0.Ggit.CheckoutOptions */
     getAncestorLabel(): string | null
     getBaseline(): Tree | null
     getDirMode(): number
@@ -775,7 +723,7 @@ export class CheckoutOptions {
     setStrategy(strategy: CheckoutStrategy): void
     setTargetDirectory(directory?: string | null): void
     setTheirLabel(label?: string | null): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -797,25 +745,12 @@ export class CheckoutOptions {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of Ggit.CheckoutOptions */
-    vfuncNotify(why: CheckoutNotifyFlags, path: string, baseline: DiffFile, target: DiffFile, workdir: DiffFile): number
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncProgress(path: string, completedSteps: number, totalSteps: number): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: CheckoutOptions, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: CheckoutOptions, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::ancestor-label", callback: (($obj: CheckoutOptions, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::ancestor-label", callback: (($obj: CheckoutOptions, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::ancestor-label", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -891,22 +826,22 @@ export interface CherryPickOptions_ConstructProps extends GObject.Object_Constru
     mergeOptions?: MergeOptions
 }
 export class CherryPickOptions {
-    /* Properties of Ggit.CherryPickOptions */
+    /* Properties of Ggit-1.0.Ggit.CherryPickOptions */
     checkoutOptions: CheckoutOptions
     mainline: number
     mergeOptions: MergeOptions
-    /* Fields of Ggit.CherryPickOptions */
+    /* Fields of Ggit-1.0.Ggit.CherryPickOptions */
     parentInstance: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Ggit.CherryPickOptions */
+    /* Methods of Ggit-1.0.Ggit.CherryPickOptions */
     getCheckoutOptions(): CheckoutOptions
     getMainline(): number
     getMergeOptions(): MergeOptions
     setCheckoutOptions(checkoutOptions?: CheckoutOptions | null): void
     setMainline(mainline: number): void
     setMergeOptions(mergeOptions?: MergeOptions | null): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -928,21 +863,12 @@ export class CherryPickOptions {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: CherryPickOptions, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: CherryPickOptions, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::checkout-options", callback: (($obj: CherryPickOptions, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::checkout-options", callback: (($obj: CherryPickOptions, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::checkout-options", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -975,11 +901,11 @@ export class CherryPickOptions {
 export interface CloneOptions_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class CloneOptions {
-    /* Fields of Ggit.CloneOptions */
+    /* Fields of Ggit-1.0.Ggit.CloneOptions */
     parentInstance: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Ggit.CloneOptions */
+    /* Methods of Ggit-1.0.Ggit.CloneOptions */
     getCheckoutBranch(): string
     getFetchOptions(): FetchOptions
     getIsBare(): boolean
@@ -988,7 +914,7 @@ export class CloneOptions {
     setFetchOptions(fetchOptions?: FetchOptions | null): void
     setIsBare(bare: boolean): void
     setLocal(local: CloneLocal): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -1010,24 +936,12 @@ export class CloneOptions {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of Ggit.CloneOptions */
-    vfuncCreateRemote(repository: Repository, name: string, url: string): Remote | null
-    vfuncCreateRepository(path: string, isBare: boolean): Repository | null
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: CloneOptions, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: CloneOptions, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -1045,11 +959,11 @@ export class CloneOptions {
 export interface Commit_ConstructProps extends Object_ConstructProps {
 }
 export class Commit {
-    /* Fields of Ggit.Commit */
+    /* Fields of Ggit-1.0.Ggit.Commit */
     parentInstance: Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Ggit.Commit */
+    /* Methods of Ggit-1.0.Ggit.Commit */
     amend(updateRef: string | null, author: Signature, committer: Signature, messageEncoding: string | null, message: string, tree: Tree): OId | null
     getAuthor(): Signature | null
     getCommitter(): Signature | null
@@ -1060,10 +974,10 @@ export class Commit {
     getSubject(): string | null
     getTree(): Tree | null
     getTreeId(): OId | null
-    /* Methods of Ggit.Object */
+    /* Methods of Ggit-1.0.Ggit.Object */
     getId(): OId | null
     getOwner(): Repository | null
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -1085,21 +999,12 @@ export class Commit {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Commit, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Commit, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -1116,15 +1021,15 @@ export interface CommitParents_ConstructProps extends GObject.Object_ConstructPr
     commit?: Commit
 }
 export class CommitParents {
-    /* Properties of Ggit.CommitParents */
+    /* Properties of Ggit-1.0.Ggit.CommitParents */
     readonly size: number
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Ggit.CommitParents */
+    /* Methods of Ggit-1.0.Ggit.CommitParents */
     get(idx: number): Commit | null
     getId(idx: number): OId | null
     getSize(): number
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -1146,21 +1051,12 @@ export class CommitParents {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: CommitParents, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: CommitParents, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::size", callback: (($obj: CommitParents, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::size", callback: (($obj: CommitParents, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::size", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -1183,11 +1079,11 @@ export class CommitParents {
 export interface Config_ConstructProps extends Native_ConstructProps {
 }
 export class Config {
-    /* Fields of Ggit.Native */
+    /* Fields of Ggit-1.0.Ggit.Native */
     parentInstance: ObjectFactoryBase
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Ggit.Config */
+    /* Methods of Ggit-1.0.Ggit.Config */
     addFile(file: Gio.File, level: ConfigLevel, force: boolean): void
     deleteEntry(name: string): boolean
     foreach(callback: ConfigCallback): boolean
@@ -1196,7 +1092,7 @@ export class Config {
     getInt32(name: string): number
     getInt64(name: string): number
     getString(name: string): string | null
-    match(regex: GLib.Regex): [ /* returnType */ string | null, /* matchInfo */ GLib.MatchInfo | null ]
+    match(regex: GLib.Regex): { returnType: string | null, matchInfo: GLib.MatchInfo | null }
     matchForeach(regex: GLib.Regex, callback: ConfigMatchCallback): boolean
     openLevel(level: ConfigLevel): Config
     setBool(name: string, value: boolean): boolean
@@ -1204,7 +1100,7 @@ export class Config {
     setInt64(name: string, value: number): boolean
     setString(name: string, value: string): boolean
     snapshot(): Config
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -1226,21 +1122,12 @@ export class Config {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Config, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Config, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -1262,11 +1149,11 @@ export class Config {
 export interface Cred_ConstructProps extends Native_ConstructProps {
 }
 export class Cred {
-    /* Fields of Ggit.Cred */
+    /* Fields of Ggit-1.0.Ggit.Cred */
     parentInstance: Native
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -1288,21 +1175,12 @@ export class Cred {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Cred, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Cred, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -1320,14 +1198,14 @@ export interface CredPlaintext_ConstructProps extends Cred_ConstructProps {
     username?: string
 }
 export class CredPlaintext {
-    /* Fields of Ggit.CredPlaintext */
+    /* Fields of Ggit-1.0.Ggit.CredPlaintext */
     parentInstance: Cred
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Ggit.CredPlaintext */
+    /* Methods of Ggit-1.0.Ggit.CredPlaintext */
     getPassword(): string
     getUsername(): string
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -1349,25 +1227,14 @@ export class CredPlaintext {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of Gio.Initable */
+    /* Methods of Gio-2.0.Gio.Initable */
     init(cancellable?: Gio.Cancellable | null): boolean
-    /* Virtual methods of Ggit.CredPlaintext */
-    vfuncInit(cancellable?: Gio.Cancellable | null): boolean
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: CredPlaintext, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: CredPlaintext, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -1387,13 +1254,13 @@ export interface CredSshInteractive_ConstructProps extends Cred_ConstructProps {
     username?: string
 }
 export class CredSshInteractive {
-    /* Fields of Ggit.CredSshInteractive */
+    /* Fields of Ggit-1.0.Ggit.CredSshInteractive */
     parentInstance: Cred
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Ggit.CredSshInteractive */
+    /* Methods of Ggit-1.0.Ggit.CredSshInteractive */
     getUsername(): string
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -1415,26 +1282,14 @@ export class CredSshInteractive {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of Gio.Initable */
+    /* Methods of Gio-2.0.Gio.Initable */
     init(cancellable?: Gio.Cancellable | null): boolean
-    /* Virtual methods of Ggit.CredSshInteractive */
-    vfuncPrompt(prompts: CredSshInteractivePrompt[]): void
-    vfuncInit(cancellable?: Gio.Cancellable | null): boolean
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: CredSshInteractive, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: CredSshInteractive, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -1454,13 +1309,13 @@ export interface CredSshKeyFromAgent_ConstructProps extends Cred_ConstructProps 
     username?: string
 }
 export class CredSshKeyFromAgent {
-    /* Fields of Ggit.Cred */
+    /* Fields of Ggit-1.0.Ggit.Cred */
     parentInstance: Native
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Ggit.CredSshKeyFromAgent */
+    /* Methods of Ggit-1.0.Ggit.CredSshKeyFromAgent */
     getUsername(): string | null
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -1482,25 +1337,14 @@ export class CredSshKeyFromAgent {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of Gio.Initable */
+    /* Methods of Gio-2.0.Gio.Initable */
     init(cancellable?: Gio.Cancellable | null): boolean
-    /* Virtual methods of Ggit.CredSshKeyFromAgent */
-    vfuncInit(cancellable?: Gio.Cancellable | null): boolean
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: CredSshKeyFromAgent, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: CredSshKeyFromAgent, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -1520,11 +1364,11 @@ export interface Diff_ConstructProps extends Native_ConstructProps {
     repository?: Repository
 }
 export class Diff {
-    /* Fields of Ggit.Diff */
+    /* Fields of Ggit-1.0.Ggit.Diff */
     parentInstance: Native
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Ggit.Diff */
+    /* Methods of Ggit-1.0.Ggit.Diff */
     findSimilar(options?: DiffFindOptions | null): boolean
     foreach(fileCb?: DiffFileCallback | null, binaryCb?: DiffBinaryCallback | null, hunkCb?: DiffHunkCallback | null, lineCb?: DiffLineCallback | null): void
     formatEmail(options: DiffFormatEmailOptions): string | null
@@ -1532,7 +1376,7 @@ export class Diff {
     getNumDeltas(): number
     merge(from: Diff): void
     print(type: DiffFormatType, printCb: DiffLineCallback): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -1554,21 +1398,12 @@ export class Diff {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Diff, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Diff, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -1598,18 +1433,18 @@ export interface DiffFindOptions_ConstructProps extends GObject.Object_Construct
     renameThreshold?: number
 }
 export class DiffFindOptions {
-    /* Properties of Ggit.DiffFindOptions */
+    /* Properties of Ggit-1.0.Ggit.DiffFindOptions */
     copyThreshold: number
     flags: DiffFindFlags
     metric: DiffSimilarityMetric
     renameFromRewriteThreshold: number
     renameLimit: number
     renameThreshold: number
-    /* Fields of Ggit.DiffFindOptions */
+    /* Fields of Ggit-1.0.Ggit.DiffFindOptions */
     parentInstance: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Ggit.DiffFindOptions */
+    /* Methods of Ggit-1.0.Ggit.DiffFindOptions */
     getCopyThreshold(): number
     getFlags(): DiffFindFlags
     getMetric(): DiffSimilarityMetric | null
@@ -1622,7 +1457,7 @@ export class DiffFindOptions {
     setRenameFromRewriteThreshold(threshold: number): void
     setRenameLimit(limit: number): void
     setRenameThreshold(threshold: number): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -1644,21 +1479,12 @@ export class DiffFindOptions {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: DiffFindOptions, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: DiffFindOptions, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::copy-threshold", callback: (($obj: DiffFindOptions, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::copy-threshold", callback: (($obj: DiffFindOptions, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::copy-threshold", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -1713,7 +1539,7 @@ export interface DiffFormatEmailOptions_ConstructProps extends GObject.Object_Co
     totalPatches?: number
 }
 export class DiffFormatEmailOptions {
-    /* Properties of Ggit.DiffFormatEmailOptions */
+    /* Properties of Ggit-1.0.Ggit.DiffFormatEmailOptions */
     author: Signature
     body: string
     flags: DiffFormatEmailFlags
@@ -1721,11 +1547,11 @@ export class DiffFormatEmailOptions {
     patchNumber: number
     summary: string
     totalPatches: number
-    /* Fields of Ggit.DiffFormatEmailOptions */
+    /* Fields of Ggit-1.0.Ggit.DiffFormatEmailOptions */
     parentInstance: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Ggit.DiffFormatEmailOptions */
+    /* Methods of Ggit-1.0.Ggit.DiffFormatEmailOptions */
     getAuthor(): Signature | null
     getBody(): string | null
     getFlags(): DiffFormatEmailFlags
@@ -1740,7 +1566,7 @@ export class DiffFormatEmailOptions {
     setPatchNumber(number: number): void
     setSummary(summary?: string | null): void
     setTotalPatches(patches: number): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -1762,21 +1588,12 @@ export class DiffFormatEmailOptions {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: DiffFormatEmailOptions, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: DiffFormatEmailOptions, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::author", callback: (($obj: DiffFormatEmailOptions, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::author", callback: (($obj: DiffFormatEmailOptions, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::author", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -1835,18 +1652,18 @@ export interface DiffOptions_ConstructProps extends GObject.Object_ConstructProp
     pathspec?: string[]
 }
 export class DiffOptions {
-    /* Properties of Ggit.DiffOptions */
+    /* Properties of Ggit-1.0.Ggit.DiffOptions */
     flags: DiffOption
     nContextLines: number
     nInterhunkLines: number
     newPrefix: string
     oldPrefix: string
     pathspec: string[]
-    /* Fields of Ggit.DiffOptions */
+    /* Fields of Ggit-1.0.Ggit.DiffOptions */
     parentInstance: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Ggit.DiffOptions */
+    /* Methods of Ggit-1.0.Ggit.DiffOptions */
     getFlags(): DiffOption
     getNContextLines(): number
     getNInterhunkLines(): number
@@ -1859,7 +1676,7 @@ export class DiffOptions {
     setNewPrefix(prefix: string): void
     setOldPrefix(prefix: string): void
     setPathspec(pathspec?: string[] | null): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -1881,21 +1698,12 @@ export class DiffOptions {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: DiffOptions, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: DiffOptions, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::flags", callback: (($obj: DiffOptions, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::flags", callback: (($obj: DiffOptions, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::flags", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -1944,11 +1752,11 @@ export interface Index_ConstructProps extends Native_ConstructProps {
     file?: Gio.File
 }
 export class Index {
-    /* Fields of Ggit.Native */
+    /* Fields of Ggit-1.0.Ggit.Native */
     parentInstance: ObjectFactoryBase
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Ggit.Index */
+    /* Methods of Ggit-1.0.Ggit.Index */
     add(entry: IndexEntry): boolean
     addFile(file: Gio.File): boolean
     addPath(path: string): boolean
@@ -1961,7 +1769,7 @@ export class Index {
     write(): boolean
     writeTree(): OId | null
     writeTreeTo(repository: Repository): OId | null
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -1983,25 +1791,14 @@ export class Index {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of Gio.Initable */
+    /* Methods of Gio-2.0.Gio.Initable */
     init(cancellable?: Gio.Cancellable | null): boolean
-    /* Virtual methods of Ggit.Index */
-    vfuncInit(cancellable?: Gio.Cancellable | null): boolean
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Index, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Index, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -2021,11 +1818,11 @@ export interface Native_ConstructProps extends ObjectFactoryBase_ConstructProps 
     native?: object
 }
 export class Native {
-    /* Fields of Ggit.Native */
+    /* Fields of Ggit-1.0.Ggit.Native */
     parentInstance: ObjectFactoryBase
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -2047,21 +1844,12 @@ export class Native {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Native, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Native, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -2077,14 +1865,14 @@ export class Native {
 export interface Object_ConstructProps extends Native_ConstructProps {
 }
 export class Object {
-    /* Fields of Ggit.Object */
+    /* Fields of Ggit-1.0.Ggit.Object */
     parentInstance: Native
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Ggit.Object */
+    /* Methods of Ggit-1.0.Ggit.Object */
     getId(): OId | null
     getOwner(): Repository | null
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -2106,21 +1894,12 @@ export class Object {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Object, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Object, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -2136,13 +1915,13 @@ export class Object {
 export interface ObjectFactory_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class ObjectFactory {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Ggit.ObjectFactory */
+    /* Methods of Ggit-1.0.Ggit.ObjectFactory */
     construct(parentClass: GObject.ObjectClass, basetype: GObject.Type, constructProperties: GObject.ObjectConstructParam[]): GObject.Object | null
     register(basetype: GObject.Type, subtype: GObject.Type): void
     unregister(basetype: GObject.Type, subtype: GObject.Type): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -2164,21 +1943,12 @@ export class ObjectFactory {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: ObjectFactory, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: ObjectFactory, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -2196,11 +1966,11 @@ export class ObjectFactory {
 export interface ObjectFactoryBase_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class ObjectFactoryBase {
-    /* Fields of Ggit.ObjectFactoryBase */
+    /* Fields of Ggit-1.0.Ggit.ObjectFactoryBase */
     parentInstance: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -2222,21 +1992,12 @@ export class ObjectFactoryBase {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: ObjectFactoryBase, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: ObjectFactoryBase, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -2252,11 +2013,11 @@ export class ObjectFactoryBase {
 export interface ProxyOptions_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class ProxyOptions {
-    /* Fields of Ggit.ProxyOptions */
+    /* Fields of Ggit-1.0.Ggit.ProxyOptions */
     parentInstance: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -2278,21 +2039,12 @@ export class ProxyOptions {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: ProxyOptions, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: ProxyOptions, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -2312,19 +2064,19 @@ export interface PushOptions_ConstructProps extends GObject.Object_ConstructProp
     parallelism?: number
 }
 export class PushOptions {
-    /* Properties of Ggit.PushOptions */
+    /* Properties of Ggit-1.0.Ggit.PushOptions */
     callbacks: RemoteCallbacks
     parallelism: number
-    /* Fields of Ggit.PushOptions */
+    /* Fields of Ggit-1.0.Ggit.PushOptions */
     parentInstance: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Ggit.PushOptions */
+    /* Methods of Ggit-1.0.Ggit.PushOptions */
     getParallelism(): number
     getRemoteCallbacks(): RemoteCallbacks | null
     setParallelism(parallelism: number): void
     setRemoteCallbacks(callbacks: RemoteCallbacks): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -2346,21 +2098,12 @@ export class PushOptions {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: PushOptions, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: PushOptions, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::callbacks", callback: (($obj: PushOptions, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::callbacks", callback: (($obj: PushOptions, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::callbacks", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -2388,11 +2131,11 @@ export class PushOptions {
 export interface Rebase_ConstructProps extends Native_ConstructProps {
 }
 export class Rebase {
-    /* Fields of Ggit.Native */
+    /* Fields of Ggit-1.0.Ggit.Native */
     parentInstance: ObjectFactoryBase
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Ggit.Rebase */
+    /* Methods of Ggit-1.0.Ggit.Rebase */
     abort(): void
     commit(author: Signature | null, committer: Signature, message?: string | null): OId | null
     finish(signature?: Signature | null): void
@@ -2400,7 +2143,7 @@ export class Rebase {
     getOperationEntryCount(): number
     getOperationIndex(): number
     next(): RebaseOperation | null
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -2422,21 +2165,12 @@ export class Rebase {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Rebase, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Rebase, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -2452,11 +2186,11 @@ export class Rebase {
 export interface Ref_ConstructProps extends Native_ConstructProps {
 }
 export class Ref {
-    /* Fields of Ggit.Ref */
+    /* Fields of Ggit-1.0.Ggit.Ref */
     parentInstance: Native
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Ggit.Ref */
+    /* Methods of Ggit-1.0.Ggit.Ref */
     delete(): void
     deleteLog(): void
     getLog(): Reflog | null
@@ -2477,7 +2211,7 @@ export class Ref {
     setSymbolicTarget(target: string, logMessage: string): Ref | null
     setTarget(oid: OId, logMessage: string): Ref | null
     toString(): string | null
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -2499,21 +2233,12 @@ export class Ref {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Ref, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Ref, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -2531,11 +2256,11 @@ export class Ref {
 export interface Remote_ConstructProps extends Native_ConstructProps {
 }
 export class Remote {
-    /* Fields of Ggit.Remote */
+    /* Fields of Ggit-1.0.Ggit.Remote */
     parentInstance: Native
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Ggit.Remote */
+    /* Methods of Ggit-1.0.Ggit.Remote */
     connect(direction: Direction, callbacks: RemoteCallbacks, proxyOptions?: ProxyOptions | null, customHeaders?: string | null): void
     disconnect(): void
     download(specs: string[] | null, fetchOptions: FetchOptions): boolean
@@ -2550,7 +2275,7 @@ export class Remote {
     push(specs: string[] | null, pushOptions: PushOptions): boolean
     updateTips(callbacks: RemoteCallbacks, updateFetchHead: boolean, tagsType: RemoteDownloadTagsType, message?: string | null): boolean
     upload(specs: string[] | null, pushOptions: PushOptions): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -2572,21 +2297,12 @@ export class Remote {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Remote, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Remote, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -2605,11 +2321,11 @@ export class Remote {
 export interface RemoteCallbacks_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class RemoteCallbacks {
-    /* Fields of Ggit.RemoteCallbacks */
+    /* Fields of Ggit-1.0.Ggit.RemoteCallbacks */
     parentInstance: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -2631,52 +2347,33 @@ export class RemoteCallbacks {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of Ggit.RemoteCallbacks */
-    vfuncCompletion(type: RemoteCompletionType): void
-    vfuncCredentials(url: string, usernameFromUrl: string | null, allowedTypes: Credtype): Cred | null
-    vfuncProgress(message: string): void
-    vfuncTransferProgress(stats: TransferProgress): void
-    vfuncUpdateTips(refname: string, a: OId, b: OId): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Ggit.RemoteCallbacks */
+    /* Signals of Ggit-1.0.Ggit.RemoteCallbacks */
     connect(sigName: "completion", callback: (($obj: RemoteCallbacks, object: RemoteCompletionType) => void)): number
-    connect_after(sigName: "completion", callback: (($obj: RemoteCallbacks, object: RemoteCompletionType) => void)): number
+    on(sigName: "completion", callback: (object: RemoteCompletionType) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "completion", callback: (object: RemoteCompletionType) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "completion", callback: (object: RemoteCompletionType) => void): NodeJS.EventEmitter
     emit(sigName: "completion", object: RemoteCompletionType): void
-    on(sigName: "completion", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "completion", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "completion", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "progress", callback: (($obj: RemoteCallbacks, object: string) => void)): number
-    connect_after(sigName: "progress", callback: (($obj: RemoteCallbacks, object: string) => void)): number
+    on(sigName: "progress", callback: (object: string) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "progress", callback: (object: string) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "progress", callback: (object: string) => void): NodeJS.EventEmitter
     emit(sigName: "progress", object: string): void
-    on(sigName: "progress", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "progress", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "progress", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "transfer-progress", callback: (($obj: RemoteCallbacks, object: TransferProgress) => void)): number
-    connect_after(sigName: "transfer-progress", callback: (($obj: RemoteCallbacks, object: TransferProgress) => void)): number
+    on(sigName: "transfer-progress", callback: (object: TransferProgress) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "transfer-progress", callback: (object: TransferProgress) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "transfer-progress", callback: (object: TransferProgress) => void): NodeJS.EventEmitter
     emit(sigName: "transfer-progress", object: TransferProgress): void
-    on(sigName: "transfer-progress", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "transfer-progress", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "transfer-progress", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "update-tips", callback: (($obj: RemoteCallbacks, object: string, p0: OId, p1: OId) => void)): number
-    connect_after(sigName: "update-tips", callback: (($obj: RemoteCallbacks, object: string, p0: OId, p1: OId) => void)): number
+    on(sigName: "update-tips", callback: (object: string, p0: OId, p1: OId) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "update-tips", callback: (object: string, p0: OId, p1: OId) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "update-tips", callback: (object: string, p0: OId, p1: OId) => void): NodeJS.EventEmitter
     emit(sigName: "update-tips", object: string, p0: OId, p1: OId): void
-    on(sigName: "update-tips", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "update-tips", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "update-tips", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: RemoteCallbacks, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: RemoteCallbacks, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -2698,14 +2395,14 @@ export interface Repository_ConstructProps extends Native_ConstructProps {
     workdir?: Gio.File
 }
 export class Repository {
-    /* Properties of Ggit.Repository */
+    /* Properties of Ggit-1.0.Ggit.Repository */
     readonly head: Ref
     workdir: Gio.File
-    /* Fields of Ggit.Native */
+    /* Fields of Ggit-1.0.Ggit.Native */
     parentInstance: ObjectFactoryBase
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Ggit.Repository */
+    /* Methods of Ggit-1.0.Ggit.Repository */
     addRemoteFetch(remote: Remote, refspec: string): void
     addRemotePush(remote: Remote, refspec: string): void
     blameFile(file: Gio.File, blameOptions?: BlameOptions | null): Blame | null
@@ -2738,7 +2435,7 @@ export class Repository {
     enumerateBranches(listType: BranchType): BranchEnumerator | null
     fileStatus(location: Gio.File): StatusFlags
     fileStatusForeach(options: StatusOptions | null, callback: StatusCallback): boolean
-    getAheadBehind(local: OId, upstream: OId): [ /* ahead */ number, /* behind */ number ]
+    getAheadBehind(local: OId, upstream: OId): { ahead: number, behind: number }
     getAttribute(path: string, name: string, flags: AttributeCheckFlags): string | null
     getConfig(): Config | null
     getDefaultNotesRef(): string | null
@@ -2794,7 +2491,7 @@ export class Repository {
     stashForeach(callback: StashCallback): boolean
     submoduleForeach(callback: SubmoduleCallback): boolean
     tagForeach(callback: TagCallback): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -2816,25 +2513,14 @@ export class Repository {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of Gio.Initable */
+    /* Methods of Gio-2.0.Gio.Initable */
     init(cancellable?: Gio.Cancellable | null): boolean
-    /* Virtual methods of Ggit.Repository */
-    vfuncInit(cancellable?: Gio.Cancellable | null): boolean
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Repository, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Repository, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::head", callback: (($obj: Repository, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::head", callback: (($obj: Repository, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::head", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -2868,13 +2554,13 @@ export interface RevisionWalker_ConstructProps extends Native_ConstructProps {
     repository?: Repository
 }
 export class RevisionWalker {
-    /* Properties of Ggit.RevisionWalker */
+    /* Properties of Ggit-1.0.Ggit.RevisionWalker */
     repository: Repository
-    /* Fields of Ggit.RevisionWalker */
+    /* Fields of Ggit-1.0.Ggit.RevisionWalker */
     parentInstance: Native
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Ggit.RevisionWalker */
+    /* Methods of Ggit-1.0.Ggit.RevisionWalker */
     getRepository(): Repository | null
     hide(oid: OId): void
     hideGlob(item: string): void
@@ -2888,7 +2574,7 @@ export class RevisionWalker {
     pushRef(item: string): void
     reset(): void
     setSortMode(sortMode: SortMode): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -2910,25 +2596,14 @@ export class RevisionWalker {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of Gio.Initable */
+    /* Methods of Gio-2.0.Gio.Initable */
     init(cancellable?: Gio.Cancellable | null): boolean
-    /* Virtual methods of Ggit.RevisionWalker */
-    vfuncInit(cancellable?: Gio.Cancellable | null): boolean
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: RevisionWalker, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: RevisionWalker, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::repository", callback: (($obj: RevisionWalker, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::repository", callback: (($obj: RevisionWalker, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::repository", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -2953,17 +2628,17 @@ export interface Signature_ConstructProps extends Native_ConstructProps {
     encoding?: string
 }
 export class Signature {
-    /* Fields of Ggit.Native */
+    /* Fields of Ggit-1.0.Ggit.Native */
     parentInstance: ObjectFactoryBase
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Ggit.Signature */
+    /* Methods of Ggit-1.0.Ggit.Signature */
     copy(): Signature | null
     getEmail(): string | null
     getName(): string | null
     getTime(): GLib.DateTime | null
     getTimeZone(): GLib.TimeZone | null
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -2985,21 +2660,12 @@ export class Signature {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Signature, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Signature, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -3020,19 +2686,19 @@ export interface SubmoduleUpdateOptions_ConstructProps extends GObject.Object_Co
     fetchOptions?: FetchOptions
 }
 export class SubmoduleUpdateOptions {
-    /* Properties of Ggit.SubmoduleUpdateOptions */
+    /* Properties of Ggit-1.0.Ggit.SubmoduleUpdateOptions */
     checkoutOptions: CheckoutOptions
     fetchOptions: FetchOptions
-    /* Fields of Ggit.SubmoduleUpdateOptions */
+    /* Fields of Ggit-1.0.Ggit.SubmoduleUpdateOptions */
     parentInstance: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Ggit.SubmoduleUpdateOptions */
+    /* Methods of Ggit-1.0.Ggit.SubmoduleUpdateOptions */
     getCheckoutOptions(): CheckoutOptions | null
     getFetchOptions(): FetchOptions
     setCheckoutOptions(checkoutOptions?: CheckoutOptions | null): void
     setFetchOptions(fetchOptions?: FetchOptions | null): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -3054,21 +2720,12 @@ export class SubmoduleUpdateOptions {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: SubmoduleUpdateOptions, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: SubmoduleUpdateOptions, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::checkout-options", callback: (($obj: SubmoduleUpdateOptions, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::checkout-options", callback: (($obj: SubmoduleUpdateOptions, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::checkout-options", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -3096,11 +2753,11 @@ export class SubmoduleUpdateOptions {
 export interface Tag_ConstructProps extends Object_ConstructProps {
 }
 export class Tag {
-    /* Fields of Ggit.Tag */
+    /* Fields of Ggit-1.0.Ggit.Tag */
     parentInstance: Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Ggit.Tag */
+    /* Methods of Ggit-1.0.Ggit.Tag */
     getMessage(): string | null
     getName(): string | null
     getTagger(): Signature | null
@@ -3108,10 +2765,10 @@ export class Tag {
     getTargetId(): OId | null
     getTargetType(): GObject.Type
     peel(): Object | null
-    /* Methods of Ggit.Object */
+    /* Methods of Ggit-1.0.Ggit.Object */
     getId(): OId | null
     getOwner(): Repository | null
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -3133,21 +2790,12 @@ export class Tag {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Tag, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Tag, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -3163,20 +2811,20 @@ export class Tag {
 export interface Tree_ConstructProps extends Object_ConstructProps {
 }
 export class Tree {
-    /* Fields of Ggit.Tree */
+    /* Fields of Ggit-1.0.Ggit.Tree */
     parentInstance: Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Ggit.Tree */
+    /* Methods of Ggit-1.0.Ggit.Tree */
     get(i: number): TreeEntry | null
     getByName(name: string): TreeEntry | null
     getByPath(path: string): TreeEntry | null
     getId(): OId | null
     size(): number
     walk(mode: TreeWalkMode, callback: TreeWalkCallback): void
-    /* Methods of Ggit.Object */
+    /* Methods of Ggit-1.0.Ggit.Object */
     getOwner(): Repository | null
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -3198,21 +2846,12 @@ export class Tree {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Tree, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Tree, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -3228,17 +2867,17 @@ export class Tree {
 export interface TreeBuilder_ConstructProps extends Native_ConstructProps {
 }
 export class TreeBuilder {
-    /* Fields of Ggit.TreeBuilder */
+    /* Fields of Ggit-1.0.Ggit.TreeBuilder */
     parentInstance: Native
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Ggit.TreeBuilder */
+    /* Methods of Ggit-1.0.Ggit.TreeBuilder */
     clear(): void
     getEntry(path: string): TreeEntry | null
     insert(filename: string, oid: OId, fileMode: FileMode): TreeEntry | null
     remove(path: string): void
     write(): OId | null
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -3260,21 +2899,12 @@ export class TreeBuilder {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: TreeBuilder, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: TreeBuilder, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -3288,7 +2918,7 @@ export class TreeBuilder {
     static $gtype: GObject.Type
 }
 export class AnnotatedCommit {
-    /* Methods of Ggit.AnnotatedCommit */
+    /* Methods of Ggit-1.0.Ggit.AnnotatedCommit */
     getId(): OId | null
     ref(): AnnotatedCommit | null
     unref(): void
@@ -3297,12 +2927,12 @@ export class AnnotatedCommit {
     static newFromRef(repository: Repository, ref: Ref): AnnotatedCommit
 }
 export abstract class BlameClass {
-    /* Fields of Ggit.BlameClass */
+    /* Fields of Ggit-1.0.Ggit.BlameClass */
     parentClass: NativeClass
     static name: string
 }
 export class BlameHunk {
-    /* Methods of Ggit.BlameHunk */
+    /* Methods of Ggit-1.0.Ggit.BlameHunk */
     getFinalCommitId(): OId | null
     getFinalSignature(): Signature | null
     getFinalStartLineNumber(): number
@@ -3317,7 +2947,7 @@ export class BlameHunk {
     static name: string
 }
 export class BlameOptions {
-    /* Methods of Ggit.BlameOptions */
+    /* Methods of Ggit-1.0.Ggit.BlameOptions */
     copy(): BlameOptions | null
     free(): void
     getMaximumLine(): number
@@ -3337,7 +2967,7 @@ export class BlameOptions {
     static new(): BlameOptions
 }
 export abstract class BlobClass {
-    /* Fields of Ggit.BlobClass */
+    /* Fields of Ggit-1.0.Ggit.BlobClass */
     parentClass: ObjectClass
     static name: string
 }
@@ -3348,7 +2978,7 @@ export abstract class BranchClass {
     static name: string
 }
 export class BranchEnumerator {
-    /* Methods of Ggit.BranchEnumerator */
+    /* Methods of Ggit-1.0.Ggit.BranchEnumerator */
     get(): Ref | null
     iterator(): BranchEnumerator | null
     next(): boolean
@@ -3357,19 +2987,19 @@ export class BranchEnumerator {
     static name: string
 }
 export abstract class CheckoutOptionsClass {
-    /* Fields of Ggit.CheckoutOptionsClass */
+    /* Fields of Ggit-1.0.Ggit.CheckoutOptionsClass */
     parentClass: GObject.ObjectClass
     notify: (options: CheckoutOptions, why: CheckoutNotifyFlags, path: string, baseline: DiffFile, target: DiffFile, workdir: DiffFile) => number
     progress: (options: CheckoutOptions, path: string, completedSteps: number, totalSteps: number) => void
     static name: string
 }
 export abstract class CherryPickOptionsClass {
-    /* Fields of Ggit.CherryPickOptionsClass */
+    /* Fields of Ggit-1.0.Ggit.CherryPickOptionsClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
 export abstract class CloneOptionsClass {
-    /* Fields of Ggit.CloneOptionsClass */
+    /* Fields of Ggit-1.0.Ggit.CloneOptionsClass */
     parentClass: GObject.ObjectClass
     createRepository: (options: CloneOptions, path: string, isBare: boolean) => Repository | null
     createRemote: (options: CloneOptions, repository: Repository, name: string, url: string) => Remote | null
@@ -3379,17 +3009,17 @@ export abstract class CommitClass {
     static name: string
 }
 export abstract class CommitParentsClass {
-    /* Fields of Ggit.CommitParentsClass */
+    /* Fields of Ggit-1.0.Ggit.CommitParentsClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
 export abstract class ConfigClass {
-    /* Fields of Ggit.ConfigClass */
+    /* Fields of Ggit-1.0.Ggit.ConfigClass */
     parentClass: NativeClass
     static name: string
 }
 export class ConfigEntry {
-    /* Methods of Ggit.ConfigEntry */
+    /* Methods of Ggit-1.0.Ggit.ConfigEntry */
     getLevel(): ConfigLevel
     getName(): string | null
     getValue(): string | null
@@ -3404,12 +3034,12 @@ export abstract class CredPlaintextClass {
     static name: string
 }
 export abstract class CredSshInteractiveClass {
-    /* Fields of Ggit.CredSshInteractiveClass */
+    /* Fields of Ggit-1.0.Ggit.CredSshInteractiveClass */
     prompt: (cred: CredSshInteractive, prompts: CredSshInteractivePrompt[]) => void
     static name: string
 }
 export class CredSshInteractivePrompt {
-    /* Methods of Ggit.CredSshInteractivePrompt */
+    /* Methods of Ggit-1.0.Ggit.CredSshInteractivePrompt */
     getInstruction(): string
     getName(): string
     getResponse(): string
@@ -3425,12 +3055,12 @@ export class CredSshInteractivePrompt {
     static new(name: string, instruction: string, text: string, isMasked: boolean): CredSshInteractivePrompt
 }
 export abstract class CredSshKeyFromAgentClass {
-    /* Fields of Ggit.CredSshKeyFromAgentClass */
+    /* Fields of Ggit-1.0.Ggit.CredSshKeyFromAgentClass */
     parentClass: CredClass
     static name: string
 }
 export class DiffBinary {
-    /* Methods of Ggit.DiffBinary */
+    /* Methods of Ggit-1.0.Ggit.DiffBinary */
     getNewFile(): DiffBinaryFile | null
     getOldFile(): DiffBinaryFile | null
     ref(): DiffBinary | null
@@ -3438,7 +3068,7 @@ export class DiffBinary {
     static name: string
 }
 export class DiffBinaryFile {
-    /* Methods of Ggit.DiffBinaryFile */
+    /* Methods of Ggit-1.0.Ggit.DiffBinaryFile */
     getBinaryType(): DiffBinaryType
     getData(size?: number | null): number
     getInflatedSize(): number
@@ -3450,7 +3080,7 @@ export abstract class DiffClass {
     static name: string
 }
 export class DiffDelta {
-    /* Methods of Ggit.DiffDelta */
+    /* Methods of Ggit-1.0.Ggit.DiffDelta */
     getFlags(): DiffFlag
     getNewFile(): DiffFile | null
     getOldFile(): DiffFile | null
@@ -3461,7 +3091,7 @@ export class DiffDelta {
     static name: string
 }
 export class DiffFile {
-    /* Methods of Ggit.DiffFile */
+    /* Methods of Ggit-1.0.Ggit.DiffFile */
     getFlags(): DiffFlag
     getMode(): number
     getOid(): OId | null
@@ -3472,17 +3102,17 @@ export class DiffFile {
     static name: string
 }
 export abstract class DiffFindOptionsClass {
-    /* Fields of Ggit.DiffFindOptionsClass */
+    /* Fields of Ggit-1.0.Ggit.DiffFindOptionsClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
 export abstract class DiffFormatEmailOptionsClass {
-    /* Fields of Ggit.DiffFormatEmailOptionsClass */
+    /* Fields of Ggit-1.0.Ggit.DiffFormatEmailOptionsClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
 export class DiffHunk {
-    /* Methods of Ggit.DiffHunk */
+    /* Methods of Ggit-1.0.Ggit.DiffHunk */
     getHeader(): string
     getNewLines(): number
     getNewStart(): number
@@ -3493,7 +3123,7 @@ export class DiffHunk {
     static name: string
 }
 export class DiffLine {
-    /* Methods of Ggit.DiffLine */
+    /* Methods of Ggit-1.0.Ggit.DiffLine */
     getContent(): any[]
     getContentOffset(): number
     getNewLineno(): number
@@ -3505,12 +3135,12 @@ export class DiffLine {
     static name: string
 }
 export abstract class DiffOptionsClass {
-    /* Fields of Ggit.DiffOptionsClass */
+    /* Fields of Ggit-1.0.Ggit.DiffOptionsClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
 export class DiffSimilarityMetric {
-    /* Methods of Ggit.DiffSimilarityMetric */
+    /* Methods of Ggit-1.0.Ggit.DiffSimilarityMetric */
     copy(): DiffSimilarityMetric | null
     free(): void
     static name: string
@@ -3520,7 +3150,7 @@ export class DiffSimilarityMetric {
     static new(fileSignature: DiffSimilarityMetricFileSignatureCallback, bufferSignature: DiffSimilarityMetricBufferSignatureCallback, freeSignature: DiffSimilarityMetricFreeSignatureCallback, similarity: DiffSimilarityMetricSimilarityCallback): DiffSimilarityMetric
 }
 export class FetchOptions {
-    /* Methods of Ggit.FetchOptions */
+    /* Methods of Ggit-1.0.Ggit.FetchOptions */
     copy(): FetchOptions | null
     free(): void
     getDownloadTags(): RemoteDownloadTagsType
@@ -3534,12 +3164,12 @@ export class FetchOptions {
     static new(): FetchOptions
 }
 export abstract class IndexClass {
-    /* Fields of Ggit.IndexClass */
+    /* Fields of Ggit-1.0.Ggit.IndexClass */
     parentClass: NativeClass
     static name: string
 }
 export class IndexEntries {
-    /* Methods of Ggit.IndexEntries */
+    /* Methods of Ggit-1.0.Ggit.IndexEntries */
     getByIndex(idx: number): IndexEntry | null
     getByPath(file: Gio.File, stage: number): IndexEntry | null
     ref(): IndexEntries | null
@@ -3548,7 +3178,7 @@ export class IndexEntries {
     static name: string
 }
 export class IndexEntriesResolveUndo {
-    /* Methods of Ggit.IndexEntriesResolveUndo */
+    /* Methods of Ggit-1.0.Ggit.IndexEntriesResolveUndo */
     get(idx: number): IndexEntryResolveUndo | null
     getByFile(file: Gio.File): IndexEntryResolveUndo | null
     ref(): IndexEntriesResolveUndo | null
@@ -3557,7 +3187,7 @@ export class IndexEntriesResolveUndo {
     static name: string
 }
 export class IndexEntry {
-    /* Methods of Ggit.IndexEntry */
+    /* Methods of Ggit-1.0.Ggit.IndexEntry */
     getDev(): number
     getFileSize(): number
     getFlags(): number
@@ -3586,7 +3216,7 @@ export class IndexEntry {
     static name: string
 }
 export class IndexEntryResolveUndo {
-    /* Methods of Ggit.IndexEntryResolveUndo */
+    /* Methods of Ggit-1.0.Ggit.IndexEntryResolveUndo */
     getFile(): Gio.File | null
     getId(stage: number): OId | null
     getMode(stage: number): number
@@ -3595,7 +3225,7 @@ export class IndexEntryResolveUndo {
     static name: string
 }
 export class MergeOptions {
-    /* Methods of Ggit.MergeOptions */
+    /* Methods of Ggit-1.0.Ggit.MergeOptions */
     copy(): MergeOptions | null
     free(): void
     getFileFavor(): MergeFileFavor
@@ -3620,7 +3250,7 @@ export abstract class NativeClass {
     static name: string
 }
 export class Note {
-    /* Methods of Ggit.Note */
+    /* Methods of Ggit-1.0.Ggit.Note */
     getId(): OId | null
     getMessage(): string | null
     ref(): Note | null
@@ -3628,7 +3258,7 @@ export class Note {
     static name: string
 }
 export class OId {
-    /* Methods of Ggit.OId */
+    /* Methods of Ggit-1.0.Ggit.OId */
     compare(b: OId): number
     copy(): OId | null
     equal(b: OId): boolean
@@ -3649,15 +3279,15 @@ export abstract class ObjectFactoryBaseClass {
     static name: string
 }
 export abstract class ObjectFactoryClass {
-    /* Fields of Ggit.ObjectFactoryClass */
+    /* Fields of Ggit-1.0.Ggit.ObjectFactoryClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
 export class Patch {
-    /* Methods of Ggit.Patch */
+    /* Methods of Ggit-1.0.Ggit.Patch */
     getDelta(): DiffDelta | null
     getHunk(idx: number): DiffHunk | null
-    getLineStats(): [ /* returnType */ boolean, /* totalContext */ number | null, /* totalAdditions */ number | null, /* totalDeletions */ number | null ]
+    getLineStats(): { returnType: boolean, totalContext: number | null, totalAdditions: number | null, totalDeletions: number | null }
     getNumHunks(): number
     getNumLinesInHunk(hunk: number): number
     ref(): Patch | null
@@ -3670,22 +3300,22 @@ export class Patch {
     static newFromDiff(diff: Diff, idx: number): Patch
 }
 export abstract class ProxyOptionsClass {
-    /* Fields of Ggit.ProxyOptionsClass */
+    /* Fields of Ggit-1.0.Ggit.ProxyOptionsClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
 export abstract class PushOptionsClass {
-    /* Fields of Ggit.PushOptionsClass */
+    /* Fields of Ggit-1.0.Ggit.PushOptionsClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
 export abstract class RebaseClass {
-    /* Fields of Ggit.RebaseClass */
+    /* Fields of Ggit-1.0.Ggit.RebaseClass */
     parentClass: NativeClass
     static name: string
 }
 export class RebaseOperation {
-    /* Methods of Ggit.RebaseOperation */
+    /* Methods of Ggit-1.0.Ggit.RebaseOperation */
     getExec(): string | null
     getId(): OId | null
     getOperationType(): RebaseOperationType
@@ -3694,7 +3324,7 @@ export class RebaseOperation {
     static name: string
 }
 export class RebaseOptions {
-    /* Methods of Ggit.RebaseOptions */
+    /* Methods of Ggit-1.0.Ggit.RebaseOptions */
     copy(): RebaseOptions | null
     free(): void
     getCheckoutOptions(): CheckoutOptions | null
@@ -3713,7 +3343,7 @@ export abstract class RefClass {
     static name: string
 }
 export class RefSpec {
-    /* Methods of Ggit.RefSpec */
+    /* Methods of Ggit-1.0.Ggit.RefSpec */
     getDestination(): string | null
     getSource(): string | null
     isForced(): boolean
@@ -3722,7 +3352,7 @@ export class RefSpec {
     static name: string
 }
 export class Reflog {
-    /* Methods of Ggit.Reflog */
+    /* Methods of Ggit-1.0.Ggit.Reflog */
     append(oid: OId, committer: Signature, message: string): boolean
     getEntryCount(): number
     getEntryFromIndex(idx: number): ReflogEntry | null
@@ -3733,7 +3363,7 @@ export class Reflog {
     static name: string
 }
 export class ReflogEntry {
-    /* Methods of Ggit.ReflogEntry */
+    /* Methods of Ggit-1.0.Ggit.ReflogEntry */
     getCommitter(): Signature | null
     getMessage(): string | null
     getNewId(): OId | null
@@ -3743,7 +3373,7 @@ export class ReflogEntry {
     static name: string
 }
 export abstract class RemoteCallbacksClass {
-    /* Fields of Ggit.RemoteCallbacksClass */
+    /* Fields of Ggit-1.0.Ggit.RemoteCallbacksClass */
     parentClass: GObject.ObjectClass
     progress: (callbacks: RemoteCallbacks, message: string) => void
     transferProgress: (callbacks: RemoteCallbacks, stats: TransferProgress) => void
@@ -3756,7 +3386,7 @@ export abstract class RemoteClass {
     static name: string
 }
 export class RemoteHead {
-    /* Methods of Ggit.RemoteHead */
+    /* Methods of Ggit-1.0.Ggit.RemoteHead */
     getLocalOid(): OId | null
     getName(): string | null
     getOid(): OId | null
@@ -3769,7 +3399,7 @@ export abstract class RepositoryClass {
     static name: string
 }
 export class RevertOptions {
-    /* Methods of Ggit.RevertOptions */
+    /* Methods of Ggit-1.0.Ggit.RevertOptions */
     copy(): RevertOptions | null
     free(): void
     static name: string
@@ -3782,12 +3412,12 @@ export abstract class RevisionWalkerClass {
     static name: string
 }
 export abstract class SignatureClass {
-    /* Fields of Ggit.SignatureClass */
+    /* Fields of Ggit-1.0.Ggit.SignatureClass */
     parentClass: NativeClass
     static name: string
 }
 export class StatusOptions {
-    /* Methods of Ggit.StatusOptions */
+    /* Methods of Ggit-1.0.Ggit.StatusOptions */
     copy(): StatusOptions | null
     free(): void
     static name: string
@@ -3797,7 +3427,7 @@ export class StatusOptions {
     static new(options: StatusOption, show: StatusShow, pathspec?: string[] | null): StatusOptions
 }
 export class Submodule {
-    /* Methods of Ggit.Submodule */
+    /* Methods of Ggit-1.0.Ggit.Submodule */
     getFetchRecurse(): boolean
     getHeadId(): OId
     getIgnore(): SubmoduleIgnore
@@ -3818,7 +3448,7 @@ export class Submodule {
     static name: string
 }
 export abstract class SubmoduleUpdateOptionsClass {
-    /* Fields of Ggit.SubmoduleUpdateOptionsClass */
+    /* Fields of Ggit-1.0.Ggit.SubmoduleUpdateOptionsClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
@@ -3826,7 +3456,7 @@ export abstract class TagClass {
     static name: string
 }
 export class TransferProgress {
-    /* Methods of Ggit.TransferProgress */
+    /* Methods of Ggit-1.0.Ggit.TransferProgress */
     copy(): TransferProgress | null
     free(): void
     getIndexedObjects(): number
@@ -3842,7 +3472,7 @@ export abstract class TreeClass {
     static name: string
 }
 export class TreeEntry {
-    /* Methods of Ggit.TreeEntry */
+    /* Methods of Ggit-1.0.Ggit.TreeEntry */
     getFileMode(): FileMode
     getId(): OId | null
     getName(): string | null

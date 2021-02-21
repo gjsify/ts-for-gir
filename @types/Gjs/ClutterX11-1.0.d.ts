@@ -53,7 +53,7 @@ export interface TexturePixmap_ConstructProps extends Clutter.Texture_ConstructP
     window_redirect_automatic?: boolean
 }
 export class TexturePixmap {
-    /* Properties of ClutterX11.TexturePixmap */
+    /* Properties of ClutterX11-1.0.ClutterX11.TexturePixmap */
     automatic_updates: boolean
     readonly destroyed: boolean
     pixmap: number
@@ -66,7 +66,7 @@ export class TexturePixmap {
     window_redirect_automatic: boolean
     readonly window_x: number
     readonly window_y: number
-    /* Properties of Clutter.Texture */
+    /* Properties of Clutter-1.0.Clutter.Texture */
     filename: string
     filter_quality: Clutter.TextureQuality
     keep_aspect_ratio: boolean
@@ -78,7 +78,7 @@ export class TexturePixmap {
     repeat_y: boolean
     sync_size: boolean
     readonly tile_waste: number
-    /* Properties of Clutter.Actor */
+    /* Properties of Clutter-1.0.Clutter.Actor */
     actions: Clutter.Action
     readonly allocation: Clutter.ActorBox
     anchor_gravity: Clutter.Gravity
@@ -161,17 +161,17 @@ export class TexturePixmap {
     y_align: Clutter.ActorAlign
     y_expand: boolean
     z_position: number
-    /* Fields of Clutter.Actor */
+    /* Fields of Clutter-1.0.Clutter.Actor */
     flags: number
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     g_type_instance: GObject.TypeInstance
-    /* Methods of ClutterX11.TexturePixmap */
+    /* Methods of ClutterX11-1.0.ClutterX11.TexturePixmap */
     set_automatic(setting: boolean): void
     set_pixmap(pixmap: xlib.Pixmap): void
     set_window(window: xlib.Window, automatic: boolean): void
     sync_window(): void
     update_area(x: number, y: number, width: number, height: number): void
-    /* Methods of Clutter.Texture */
+    /* Methods of Clutter-1.0.Clutter.Texture */
     get_base_size(): [ /* width */ number, /* height */ number ]
     get_cogl_material(): Cogl.Handle
     get_cogl_texture(): Cogl.Handle
@@ -197,7 +197,7 @@ export class TexturePixmap {
     set_pick_with_alpha(pick_with_alpha: boolean): void
     set_repeat(repeat_x: boolean, repeat_y: boolean): void
     set_sync_size(sync_size: boolean): void
-    /* Methods of Clutter.Actor */
+    /* Methods of Clutter-1.0.Clutter.Actor */
     add_action(action: Clutter.Action): void
     add_action_with_name(name: string, action: Clutter.Action): void
     add_child(child: Clutter.Actor): void
@@ -433,7 +433,7 @@ export class TexturePixmap {
     unparent(): void
     unrealize(): void
     unset_flags(flags: Clutter.ActorFlags): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -455,13 +455,13 @@ export class TexturePixmap {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of Clutter.Animatable */
+    /* Methods of Clutter-1.0.Clutter.Animatable */
     animate_property(animation: Clutter.Animation, property_name: string, initial_value: any, final_value: any, progress: number, value: any): boolean
     find_property(property_name: string): GObject.ParamSpec
     get_initial_state(property_name: string, value: any): void
     interpolate_value(property_name: string, interval: Clutter.Interval, progress: number): [ /* returnType */ boolean, /* value */ any ]
     set_final_state(property_name: string, value: any): void
-    /* Methods of Clutter.Container */
+    /* Methods of Clutter-1.0.Clutter.Container */
     add_actor(actor: Clutter.Actor): void
     child_get_property(child: Clutter.Actor, property: string, value: any): void
     child_notify(child: Clutter.Actor, pspec: GObject.ParamSpec): void
@@ -476,12 +476,12 @@ export class TexturePixmap {
     raise_child(actor: Clutter.Actor, sibling?: Clutter.Actor | null): void
     remove_actor(actor: Clutter.Actor): void
     sort_depth_order(): void
-    /* Methods of Clutter.Scriptable */
+    /* Methods of Clutter-1.0.Clutter.Scriptable */
     get_id(): string
     parse_custom_node(script: Clutter.Script, value: any, name: string, node: Json.Node): boolean
     set_custom_property(script: Clutter.Script, name: string, value: any): void
     set_id(id_: string): void
-    /* Virtual methods of ClutterX11.TexturePixmap */
+    /* Virtual methods of ClutterX11-1.0.ClutterX11.TexturePixmap */
     vfunc_update_area(x: number, y: number, width: number, height: number): void
     vfunc_animate_property(animation: Clutter.Animation, property_name: string, initial_value: any, final_value: any, progress: number, value: any): boolean
     vfunc_find_property(property_name: string): GObject.ParamSpec
@@ -505,11 +505,11 @@ export class TexturePixmap {
     vfunc_parse_custom_node(script: Clutter.Script, value: any, name: string, node: Json.Node): boolean
     vfunc_set_custom_property(script: Clutter.Script, name: string, value: any): void
     vfunc_set_id(id_: string): void
-    /* Virtual methods of Clutter.Texture */
+    /* Virtual methods of Clutter-1.0.Clutter.Texture */
     vfunc_load_finished(error: GLib.Error): void
     vfunc_pixbuf_change(): void
     vfunc_size_change(width: number, height: number): void
-    /* Virtual methods of Clutter.Actor */
+    /* Virtual methods of Clutter-1.0.Clutter.Actor */
     vfunc_allocate(box: Clutter.ActorBox, flags: Clutter.AllocationFlags): void
     vfunc_apply_transform(matrix: Clutter.Matrix): void
     vfunc_button_press_event(event: Clutter.ButtonEvent): boolean
@@ -545,7 +545,7 @@ export class TexturePixmap {
     vfunc_touch_event(event: Clutter.TouchEvent): boolean
     vfunc_unmap(): void
     vfunc_unrealize(): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -553,14 +553,14 @@ export class TexturePixmap {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of ClutterX11.TexturePixmap */
+    /* Signals of ClutterX11-1.0.ClutterX11.TexturePixmap */
     connect(sigName: "queue-damage-redraw", callback: (($obj: TexturePixmap, x: number, y: number, width: number, height: number) => void)): number
     connect_after(sigName: "queue-damage-redraw", callback: (($obj: TexturePixmap, x: number, y: number, width: number, height: number) => void)): number
     emit(sigName: "queue-damage-redraw", x: number, y: number, width: number, height: number): void
     connect(sigName: "update-area", callback: (($obj: TexturePixmap, x: number, y: number, width: number, height: number) => void)): number
     connect_after(sigName: "update-area", callback: (($obj: TexturePixmap, x: number, y: number, width: number, height: number) => void)): number
     emit(sigName: "update-area", x: number, y: number, width: number, height: number): void
-    /* Signals of Clutter.Texture */
+    /* Signals of Clutter-1.0.Clutter.Texture */
     connect(sigName: "load-finished", callback: (($obj: TexturePixmap, error: GLib.Error) => void)): number
     connect_after(sigName: "load-finished", callback: (($obj: TexturePixmap, error: GLib.Error) => void)): number
     emit(sigName: "load-finished", error: GLib.Error): void
@@ -570,7 +570,7 @@ export class TexturePixmap {
     connect(sigName: "size-change", callback: (($obj: TexturePixmap, width: number, height: number) => void)): number
     connect_after(sigName: "size-change", callback: (($obj: TexturePixmap, width: number, height: number) => void)): number
     emit(sigName: "size-change", width: number, height: number): void
-    /* Signals of Clutter.Actor */
+    /* Signals of Clutter-1.0.Clutter.Actor */
     connect(sigName: "allocation-changed", callback: (($obj: TexturePixmap, box: Clutter.ActorBox, flags: Clutter.AllocationFlags) => void)): number
     connect_after(sigName: "allocation-changed", callback: (($obj: TexturePixmap, box: Clutter.ActorBox, flags: Clutter.AllocationFlags) => void)): number
     emit(sigName: "allocation-changed", box: Clutter.ActorBox, flags: Clutter.AllocationFlags): void
@@ -649,11 +649,11 @@ export class TexturePixmap {
     connect(sigName: "unrealize", callback: (($obj: TexturePixmap) => void)): number
     connect_after(sigName: "unrealize", callback: (($obj: TexturePixmap) => void)): number
     emit(sigName: "unrealize"): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: TexturePixmap, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: TexturePixmap, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    /* Signals of Clutter.Container */
+    /* Signals of Clutter-1.0.Clutter.Container */
     connect(sigName: "actor-added", callback: (($obj: TexturePixmap, actor: Clutter.Actor) => void)): number
     connect_after(sigName: "actor-added", callback: (($obj: TexturePixmap, actor: Clutter.Actor) => void)): number
     emit(sigName: "actor-added", actor: Clutter.Actor): void
@@ -889,7 +889,7 @@ export class TexturePixmap {
     static $gtype: GObject.Type
 }
 export abstract class TexturePixmapClass {
-    /* Fields of ClutterX11.TexturePixmapClass */
+    /* Fields of ClutterX11-1.0.ClutterX11.TexturePixmapClass */
     update_area: (texture: TexturePixmap, x: number, y: number, width: number, height: number) => void
     static name: string
 }

@@ -4243,7 +4243,7 @@ export function getUserName(): string
 export function init(): void
 export function keyEventFromString(string: string, keyval: number, modifiers: number): boolean
 export function keyEventToString(keyval: number, modifiers: number): string
-export function keyvalConvertCase(symbol: number): [ /* lower */ number, /* upper */ number ]
+export function keyvalConvertCase(symbol: number): { lower: number, upper: number }
 export function keyvalFromName(keyvalName: string): number
 export function keyvalName(keyval: number): string
 export function keyvalToLower(keyval: number): number
@@ -4276,26 +4276,26 @@ export interface SerializableSerializeFunc {
 export interface AttrList_ConstructProps extends Serializable_ConstructProps {
 }
 export class AttrList {
-    /* Fields of IBus.AttrList */
+    /* Fields of IBus-1.0.IBus.AttrList */
     parent: Serializable
     attributes: object[]
-    /* Fields of IBus.Object */
+    /* Fields of IBus-1.0.IBus.Object */
     flags: number
     priv: ObjectPrivate
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of IBus.AttrList */
+    /* Methods of IBus-1.0.IBus.AttrList */
     append(attr: Attribute): void
     get(index: number): Attribute
-    /* Methods of IBus.Serializable */
+    /* Methods of IBus-1.0.IBus.Serializable */
     copy(): Serializable
     getQattachment(key: GLib.Quark): GLib.Variant
     removeQattachment(key: GLib.Quark): void
     serialize(): GLib.Variant
     setQattachment(key: GLib.Quark, value: GLib.Variant): void
-    /* Methods of IBus.Object */
+    /* Methods of IBus-1.0.IBus.Object */
     destroy(): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -4317,34 +4317,18 @@ export class AttrList {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of IBus.Serializable */
-    vfuncCopy(src: Serializable): boolean
-    vfuncDeserialize(variant: GLib.Variant): number
-    vfuncSerialize(builder: GLib.VariantBuilder): boolean
-    /* Virtual methods of IBus.Object */
-    vfuncDestroy(): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of IBus.Object */
+    /* Signals of IBus-1.0.IBus.Object */
     connect(sigName: "destroy", callback: (($obj: AttrList) => void)): number
-    connect_after(sigName: "destroy", callback: (($obj: AttrList) => void)): number
+    on(sigName: "destroy", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "destroy", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "destroy", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "destroy"): void
-    on(sigName: "destroy", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "destroy", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "destroy", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: AttrList, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: AttrList, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -4362,31 +4346,31 @@ export class AttrList {
 export interface Attribute_ConstructProps extends Serializable_ConstructProps {
 }
 export class Attribute {
-    /* Fields of IBus.Attribute */
+    /* Fields of IBus-1.0.IBus.Attribute */
     parent: Serializable
     type: number
     value: number
     startIndex: number
     endIndex: number
-    /* Fields of IBus.Object */
+    /* Fields of IBus-1.0.IBus.Object */
     flags: number
     priv: ObjectPrivate
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of IBus.Attribute */
+    /* Methods of IBus-1.0.IBus.Attribute */
     getAttrType(): number
     getEndIndex(): number
     getStartIndex(): number
     getValue(): number
-    /* Methods of IBus.Serializable */
+    /* Methods of IBus-1.0.IBus.Serializable */
     copy(): Serializable
     getQattachment(key: GLib.Quark): GLib.Variant
     removeQattachment(key: GLib.Quark): void
     serialize(): GLib.Variant
     setQattachment(key: GLib.Quark, value: GLib.Variant): void
-    /* Methods of IBus.Object */
+    /* Methods of IBus-1.0.IBus.Object */
     destroy(): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -4408,34 +4392,18 @@ export class Attribute {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of IBus.Serializable */
-    vfuncCopy(src: Serializable): boolean
-    vfuncDeserialize(variant: GLib.Variant): number
-    vfuncSerialize(builder: GLib.VariantBuilder): boolean
-    /* Virtual methods of IBus.Object */
-    vfuncDestroy(): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of IBus.Object */
+    /* Signals of IBus-1.0.IBus.Object */
     connect(sigName: "destroy", callback: (($obj: Attribute) => void)): number
-    connect_after(sigName: "destroy", callback: (($obj: Attribute) => void)): number
+    on(sigName: "destroy", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "destroy", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "destroy", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "destroy"): void
-    on(sigName: "destroy", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "destroy", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "destroy", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Attribute, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Attribute, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -4455,14 +4423,14 @@ export interface Bus_ConstructProps extends Object_ConstructProps {
     connectAsync?: boolean
 }
 export class Bus {
-    /* Fields of IBus.Bus */
+    /* Fields of IBus-1.0.IBus.Bus */
     parent: Object
     priv: BusPrivate
-    /* Fields of IBus.Object */
+    /* Fields of IBus-1.0.IBus.Object */
     flags: number
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of IBus.Bus */
+    /* Methods of IBus-1.0.IBus.Bus */
     addMatch(rule: string): boolean
     addMatchAsync(rule: string, timeoutMsec: number, cancellable: Gio.Cancellable | null, callback: Gio.AsyncReadyCallback | null): void
     addMatchAsyncFinish(res: Gio.AsyncResult): boolean
@@ -4532,9 +4500,9 @@ export class Bus {
     setIbusPropertyAsyncFinish(res: Gio.AsyncResult): boolean
     setWatchDbusSignal(watch: boolean): void
     setWatchIbusSignal(watch: boolean): void
-    /* Methods of IBus.Object */
+    /* Methods of IBus-1.0.IBus.Object */
     destroy(): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -4556,55 +4524,39 @@ export class Bus {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of IBus.Object */
-    vfuncDestroy(): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of IBus.Bus */
+    /* Signals of IBus-1.0.IBus.Bus */
     connect(sigName: "connected", callback: (($obj: Bus) => void)): number
-    connect_after(sigName: "connected", callback: (($obj: Bus) => void)): number
+    on(sigName: "connected", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "connected", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "connected", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "connected"): void
-    on(sigName: "connected", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "connected", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "connected", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "disconnected", callback: (($obj: Bus) => void)): number
-    connect_after(sigName: "disconnected", callback: (($obj: Bus) => void)): number
+    on(sigName: "disconnected", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "disconnected", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "disconnected", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "disconnected"): void
-    on(sigName: "disconnected", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "disconnected", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "disconnected", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "global-engine-changed", callback: (($obj: Bus, name: string) => void)): number
-    connect_after(sigName: "global-engine-changed", callback: (($obj: Bus, name: string) => void)): number
+    on(sigName: "global-engine-changed", callback: (name: string) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "global-engine-changed", callback: (name: string) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "global-engine-changed", callback: (name: string) => void): NodeJS.EventEmitter
     emit(sigName: "global-engine-changed", name: string): void
-    on(sigName: "global-engine-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "global-engine-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "global-engine-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "name-owner-changed", callback: (($obj: Bus, name: string, oldOwner: string, newOwner: string) => void)): number
-    connect_after(sigName: "name-owner-changed", callback: (($obj: Bus, name: string, oldOwner: string, newOwner: string) => void)): number
+    on(sigName: "name-owner-changed", callback: (name: string, oldOwner: string, newOwner: string) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "name-owner-changed", callback: (name: string, oldOwner: string, newOwner: string) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "name-owner-changed", callback: (name: string, oldOwner: string, newOwner: string) => void): NodeJS.EventEmitter
     emit(sigName: "name-owner-changed", name: string, oldOwner: string, newOwner: string): void
-    on(sigName: "name-owner-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "name-owner-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "name-owner-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of IBus.Object */
+    /* Signals of IBus-1.0.IBus.Object */
     connect(sigName: "destroy", callback: (($obj: Bus) => void)): number
-    connect_after(sigName: "destroy", callback: (($obj: Bus) => void)): number
+    on(sigName: "destroy", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "destroy", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "destroy", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "destroy"): void
-    on(sigName: "destroy", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "destroy", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "destroy", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Bus, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Bus, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -4631,13 +4583,13 @@ export interface Component_ConstructProps extends Serializable_ConstructProps {
     version?: string
 }
 export class Component {
-    /* Fields of IBus.Object */
+    /* Fields of IBus-1.0.IBus.Object */
     parent: GObject.InitiallyUnowned
     flags: number
     priv: ObjectPrivate
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of IBus.Component */
+    /* Methods of IBus-1.0.IBus.Component */
     addEngine(engine: EngineDesc): void
     addObservedPath(path: string, accessFs: boolean): void
     checkModification(): boolean
@@ -4653,15 +4605,15 @@ export class Component {
     getVersion(): string
     output(output: GLib.String, indent: number): void
     outputEngines(output: GLib.String, indent: number): void
-    /* Methods of IBus.Serializable */
+    /* Methods of IBus-1.0.IBus.Serializable */
     copy(): Serializable
     getQattachment(key: GLib.Quark): GLib.Variant
     removeQattachment(key: GLib.Quark): void
     serialize(): GLib.Variant
     setQattachment(key: GLib.Quark, value: GLib.Variant): void
-    /* Methods of IBus.Object */
+    /* Methods of IBus-1.0.IBus.Object */
     destroy(): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -4683,34 +4635,18 @@ export class Component {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of IBus.Serializable */
-    vfuncCopy(src: Serializable): boolean
-    vfuncDeserialize(variant: GLib.Variant): number
-    vfuncSerialize(builder: GLib.VariantBuilder): boolean
-    /* Virtual methods of IBus.Object */
-    vfuncDestroy(): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of IBus.Object */
+    /* Signals of IBus-1.0.IBus.Object */
     connect(sigName: "destroy", callback: (($obj: Component) => void)): number
-    connect_after(sigName: "destroy", callback: (($obj: Component) => void)): number
+    on(sigName: "destroy", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "destroy", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "destroy", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "destroy"): void
-    on(sigName: "destroy", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "destroy", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "destroy", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Component, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Component, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -4731,17 +4667,17 @@ export class Component {
 export interface Config_ConstructProps extends Proxy_ConstructProps {
 }
 export class Config {
-    /* Properties of Gio.DBusProxy */
+    /* Properties of Gio-2.0.Gio.DBusProxy */
     gDefaultTimeout: number
     gInterfaceInfo: Gio.DBusInterfaceInfo
     readonly gNameOwner: string
-    /* Fields of IBus.Proxy */
+    /* Fields of IBus-1.0.IBus.Proxy */
     parent: Gio.DBusProxy
     flags: number
     own: boolean
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of IBus.Config */
+    /* Methods of IBus-1.0.IBus.Config */
     getValue(section: string, name: string): GLib.Variant
     getValueAsync(section: string, name: string, timeoutMs: number, cancellable: Gio.Cancellable | null, callback: Gio.AsyncReadyCallback | null): void
     getValueAsyncFinish(result: Gio.AsyncResult): GLib.Variant
@@ -4754,15 +4690,15 @@ export class Config {
     unset(section: string, name: string): boolean
     unwatch(section?: string | null, name?: string | null): boolean
     watch(section?: string | null, name?: string | null): boolean
-    /* Methods of IBus.Proxy */
+    /* Methods of IBus-1.0.IBus.Proxy */
     destroy(): void
-    /* Methods of Gio.DBusProxy */
+    /* Methods of Gio-2.0.Gio.DBusProxy */
     call(methodName: string, parameters: GLib.Variant | null, flags: Gio.DBusCallFlags, timeoutMsec: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     callFinish(res: Gio.AsyncResult): GLib.Variant
     callSync(methodName: string, parameters: GLib.Variant | null, flags: Gio.DBusCallFlags, timeoutMsec: number, cancellable?: Gio.Cancellable | null): GLib.Variant
     callWithUnixFdList(methodName: string, parameters: GLib.Variant | null, flags: Gio.DBusCallFlags, timeoutMsec: number, fdList?: Gio.UnixFDList | null, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    callWithUnixFdListFinish(res: Gio.AsyncResult): [ /* returnType */ GLib.Variant, /* outFdList */ Gio.UnixFDList | null ]
-    callWithUnixFdListSync(methodName: string, parameters: GLib.Variant | null, flags: Gio.DBusCallFlags, timeoutMsec: number, fdList?: Gio.UnixFDList | null, cancellable?: Gio.Cancellable | null): [ /* returnType */ GLib.Variant, /* outFdList */ Gio.UnixFDList | null ]
+    callWithUnixFdListFinish(res: Gio.AsyncResult): { returnType: GLib.Variant, outFdList: Gio.UnixFDList | null }
+    callWithUnixFdListSync(methodName: string, parameters: GLib.Variant | null, flags: Gio.DBusCallFlags, timeoutMsec: number, fdList?: Gio.UnixFDList | null, cancellable?: Gio.Cancellable | null): { returnType: GLib.Variant, outFdList: Gio.UnixFDList | null }
     getCachedProperty(propertyName: string): GLib.Variant | null
     getCachedPropertyNames(): string[] | null
     getConnection(): Gio.DBusConnection
@@ -4776,7 +4712,7 @@ export class Config {
     setCachedProperty(propertyName: string, value?: GLib.Variant | null): void
     setDefaultTimeout(timeoutMsec: number): void
     setInterfaceInfo(info?: Gio.DBusInterfaceInfo | null): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -4798,69 +4734,45 @@ export class Config {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of Gio.AsyncInitable */
+    /* Methods of Gio-2.0.Gio.AsyncInitable */
     initAsync(ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     initFinish(res: Gio.AsyncResult): boolean
     newFinish(res: Gio.AsyncResult): GObject.Object
-    /* Methods of Gio.DBusInterface */
+    /* Methods of Gio-2.0.Gio.DBusInterface */
     getObject(): Gio.DBusObject | null
     getInfo(): Gio.DBusInterfaceInfo
     setObject(object?: Gio.DBusObject | null): void
-    /* Methods of Gio.Initable */
+    /* Methods of Gio-2.0.Gio.Initable */
     init(cancellable?: Gio.Cancellable | null): boolean
-    /* Virtual methods of IBus.Proxy */
-    vfuncDestroy(): void
-    vfuncInitAsync(ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    vfuncInitFinish(res: Gio.AsyncResult): boolean
-    vfuncDupObject(): Gio.DBusObject | null
-    vfuncGetInfo(): Gio.DBusInterfaceInfo
-    vfuncSetObject(object?: Gio.DBusObject | null): void
-    vfuncInit(cancellable?: Gio.Cancellable | null): boolean
-    /* Virtual methods of Gio.DBusProxy */
-    vfuncGPropertiesChanged(changedProperties: GLib.Variant, invalidatedProperties: string): void
-    vfuncGSignal(senderName: string, signalName: string, parameters: GLib.Variant): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of IBus.Config */
+    /* Signals of IBus-1.0.IBus.Config */
     connect(sigName: "value-changed", callback: (($obj: Config, section: string, name: string, value: GLib.Variant) => void)): number
-    connect_after(sigName: "value-changed", callback: (($obj: Config, section: string, name: string, value: GLib.Variant) => void)): number
+    on(sigName: "value-changed", callback: (section: string, name: string, value: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "value-changed", callback: (section: string, name: string, value: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "value-changed", callback: (section: string, name: string, value: GLib.Variant) => void): NodeJS.EventEmitter
     emit(sigName: "value-changed", section: string, name: string, value: GLib.Variant): void
-    on(sigName: "value-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "value-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "value-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of IBus.Proxy */
+    /* Signals of IBus-1.0.IBus.Proxy */
     connect(sigName: "destroy", callback: (($obj: Config) => void)): number
-    connect_after(sigName: "destroy", callback: (($obj: Config) => void)): number
+    on(sigName: "destroy", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "destroy", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "destroy", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "destroy"): void
-    on(sigName: "destroy", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "destroy", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "destroy", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of Gio.DBusProxy */
+    /* Signals of Gio-2.0.Gio.DBusProxy */
     connect(sigName: "g-properties-changed", callback: (($obj: Config, changedProperties: GLib.Variant, invalidatedProperties: string[]) => void)): number
-    connect_after(sigName: "g-properties-changed", callback: (($obj: Config, changedProperties: GLib.Variant, invalidatedProperties: string[]) => void)): number
+    on(sigName: "g-properties-changed", callback: (changedProperties: GLib.Variant, invalidatedProperties: string[]) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "g-properties-changed", callback: (changedProperties: GLib.Variant, invalidatedProperties: string[]) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "g-properties-changed", callback: (changedProperties: GLib.Variant, invalidatedProperties: string[]) => void): NodeJS.EventEmitter
     emit(sigName: "g-properties-changed", changedProperties: GLib.Variant, invalidatedProperties: string[]): void
-    on(sigName: "g-properties-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "g-properties-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "g-properties-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "g-signal", callback: (($obj: Config, senderName: string | null, signalName: string, parameters: GLib.Variant) => void)): number
-    connect_after(sigName: "g-signal", callback: (($obj: Config, senderName: string | null, signalName: string, parameters: GLib.Variant) => void)): number
+    on(sigName: "g-signal", callback: (senderName: string | null, signalName: string, parameters: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "g-signal", callback: (senderName: string | null, signalName: string, parameters: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "g-signal", callback: (senderName: string | null, signalName: string, parameters: GLib.Variant) => void): NodeJS.EventEmitter
     emit(sigName: "g-signal", senderName: string | null, signalName: string, parameters: GLib.Variant): void
-    on(sigName: "g-signal", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "g-signal", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "g-signal", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Config, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Config, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::g-default-timeout", callback: (($obj: Config, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::g-default-timeout", callback: (($obj: Config, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::g-default-timeout", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -4895,23 +4807,23 @@ export class Config {
 export interface ConfigService_ConstructProps extends Service_ConstructProps {
 }
 export class ConfigService {
-    /* Fields of IBus.Object */
+    /* Fields of IBus-1.0.IBus.Object */
     parent: GObject.InitiallyUnowned
     flags: number
     priv: ObjectPrivate
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of IBus.ConfigService */
+    /* Methods of IBus-1.0.IBus.ConfigService */
     valueChanged(section: string, name: string, value: GLib.Variant): void
-    /* Methods of IBus.Service */
+    /* Methods of IBus-1.0.IBus.Service */
     emitSignal(destBusName: string, interfaceName: string, signalName: string, parameters: GLib.Variant): boolean
     getConnection(): Gio.DBusConnection
     getObjectPath(): string
     register(connection: Gio.DBusConnection): boolean
     unregister(connection: Gio.DBusConnection): void
-    /* Methods of IBus.Object */
+    /* Methods of IBus-1.0.IBus.Object */
     destroy(): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -4933,39 +4845,18 @@ export class ConfigService {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of IBus.ConfigService */
-    vfuncGetValue(section: string, name: string): GLib.Variant
-    vfuncGetValues(section: string): GLib.Variant
-    vfuncSetValue(section: string, name: string, value: GLib.Variant): boolean
-    vfuncUnsetValue(section: string, name: string): boolean
-    /* Virtual methods of IBus.Service */
-    vfuncServiceGetProperty(connection: Gio.DBusConnection, sender: string, objectPath: string, interfaceName: string, propertyName: string): GLib.Variant | null
-    vfuncServiceMethodCall(connection: Gio.DBusConnection, sender: string, objectPath: string, interfaceName: string, methodName: string, parameters: GLib.Variant, invocation: Gio.DBusMethodInvocation): void
-    vfuncServiceSetProperty(connection: Gio.DBusConnection, sender: string, objectPath: string, interfaceName: string, propertyName: string, value: GLib.Variant): boolean
-    /* Virtual methods of IBus.Object */
-    vfuncDestroy(): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of IBus.Object */
+    /* Signals of IBus-1.0.IBus.Object */
     connect(sigName: "destroy", callback: (($obj: ConfigService) => void)): number
-    connect_after(sigName: "destroy", callback: (($obj: ConfigService) => void)): number
+    on(sigName: "destroy", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "destroy", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "destroy", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "destroy"): void
-    on(sigName: "destroy", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "destroy", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "destroy", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: ConfigService, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: ConfigService, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -4986,24 +4877,24 @@ export interface Engine_ConstructProps extends Service_ConstructProps {
     engineName?: string
 }
 export class Engine {
-    /* Fields of IBus.Engine */
+    /* Fields of IBus-1.0.IBus.Engine */
     enabled: boolean
     hasFocus: boolean
     cursorArea: Rectangle
     clientCapabilities: number
-    /* Fields of IBus.Object */
+    /* Fields of IBus-1.0.IBus.Object */
     parent: GObject.InitiallyUnowned
     flags: number
     priv: ObjectPrivate
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of IBus.Engine */
+    /* Methods of IBus-1.0.IBus.Engine */
     commitText(text: Text): void
     deleteSurroundingText(offset: number, nchars: number): void
     forwardKeyEvent(keyval: number, keycode: number, state: number): void
-    getContentType(): [ /* purpose */ number | null, /* hints */ number | null ]
+    getContentType(): { purpose: number | null, hints: number | null }
     getName(): string
-    getSurroundingText(): [ /* text */ Text | null, /* cursorPos */ number | null, /* anchorPos */ number | null ]
+    getSurroundingText(): { text: Text | null, cursorPos: number | null, anchorPos: number | null }
     hideAuxiliaryText(): void
     hideLookupTable(): void
     hidePreeditText(): void
@@ -5017,15 +4908,15 @@ export class Engine {
     updatePreeditText(text: Text, cursorPos: number, visible: boolean): void
     updatePreeditTextWithMode(text: Text, cursorPos: number, visible: boolean, mode: PreeditFocusMode): void
     updateProperty(prop: Property): void
-    /* Methods of IBus.Service */
+    /* Methods of IBus-1.0.IBus.Service */
     emitSignal(destBusName: string, interfaceName: string, signalName: string, parameters: GLib.Variant): boolean
     getConnection(): Gio.DBusConnection
     getObjectPath(): string
     register(connection: Gio.DBusConnection): boolean
     unregister(connection: Gio.DBusConnection): void
-    /* Methods of IBus.Object */
+    /* Methods of IBus-1.0.IBus.Object */
     destroy(): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -5047,176 +4938,119 @@ export class Engine {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of IBus.Engine */
-    vfuncCancelHandWriting(nStrokes: number): void
-    vfuncCandidateClicked(index: number, button: number, state: number): void
-    vfuncCursorDown(): void
-    vfuncCursorUp(): void
-    vfuncDisable(): void
-    vfuncEnable(): void
-    vfuncFocusIn(): void
-    vfuncFocusOut(): void
-    vfuncPageDown(): void
-    vfuncPageUp(): void
-    vfuncProcessHandWritingEvent(coordinates: number, coordinatesLen: number): void
-    vfuncProcessKeyEvent(keyval: number, keycode: number, state: number): boolean
-    vfuncPropertyActivate(propName: string, propState: number): void
-    vfuncPropertyHide(propName: string): void
-    vfuncPropertyShow(propName: string): void
-    vfuncReset(): void
-    vfuncSetCapabilities(caps: number): void
-    vfuncSetContentType(purpose: number, hints: number): void
-    vfuncSetCursorLocation(x: number, y: number, w: number, h: number): void
-    vfuncSetSurroundingText(text: Text, cursorIndex: number, anchorPos: number): void
-    /* Virtual methods of IBus.Service */
-    vfuncServiceGetProperty(connection: Gio.DBusConnection, sender: string, objectPath: string, interfaceName: string, propertyName: string): GLib.Variant | null
-    vfuncServiceMethodCall(connection: Gio.DBusConnection, sender: string, objectPath: string, interfaceName: string, methodName: string, parameters: GLib.Variant, invocation: Gio.DBusMethodInvocation): void
-    vfuncServiceSetProperty(connection: Gio.DBusConnection, sender: string, objectPath: string, interfaceName: string, propertyName: string, value: GLib.Variant): boolean
-    /* Virtual methods of IBus.Object */
-    vfuncDestroy(): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of IBus.Engine */
+    /* Signals of IBus-1.0.IBus.Engine */
     connect(sigName: "cancel-hand-writing", callback: (($obj: Engine, nStrokes: number) => void)): number
-    connect_after(sigName: "cancel-hand-writing", callback: (($obj: Engine, nStrokes: number) => void)): number
+    on(sigName: "cancel-hand-writing", callback: (nStrokes: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "cancel-hand-writing", callback: (nStrokes: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "cancel-hand-writing", callback: (nStrokes: number) => void): NodeJS.EventEmitter
     emit(sigName: "cancel-hand-writing", nStrokes: number): void
-    on(sigName: "cancel-hand-writing", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "cancel-hand-writing", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "cancel-hand-writing", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "candidate-clicked", callback: (($obj: Engine, index: number, button: number, state: number) => void)): number
-    connect_after(sigName: "candidate-clicked", callback: (($obj: Engine, index: number, button: number, state: number) => void)): number
+    on(sigName: "candidate-clicked", callback: (index: number, button: number, state: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "candidate-clicked", callback: (index: number, button: number, state: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "candidate-clicked", callback: (index: number, button: number, state: number) => void): NodeJS.EventEmitter
     emit(sigName: "candidate-clicked", index: number, button: number, state: number): void
-    on(sigName: "candidate-clicked", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "candidate-clicked", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "candidate-clicked", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "cursor-down", callback: (($obj: Engine) => void)): number
-    connect_after(sigName: "cursor-down", callback: (($obj: Engine) => void)): number
+    on(sigName: "cursor-down", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "cursor-down", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "cursor-down", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "cursor-down"): void
-    on(sigName: "cursor-down", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "cursor-down", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "cursor-down", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "cursor-up", callback: (($obj: Engine) => void)): number
-    connect_after(sigName: "cursor-up", callback: (($obj: Engine) => void)): number
+    on(sigName: "cursor-up", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "cursor-up", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "cursor-up", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "cursor-up"): void
-    on(sigName: "cursor-up", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "cursor-up", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "cursor-up", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "disable", callback: (($obj: Engine) => void)): number
-    connect_after(sigName: "disable", callback: (($obj: Engine) => void)): number
+    on(sigName: "disable", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "disable", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "disable", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "disable"): void
-    on(sigName: "disable", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "disable", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "disable", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "enable", callback: (($obj: Engine) => void)): number
-    connect_after(sigName: "enable", callback: (($obj: Engine) => void)): number
+    on(sigName: "enable", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "enable", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "enable", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "enable"): void
-    on(sigName: "enable", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "enable", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "enable", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "focus-in", callback: (($obj: Engine) => void)): number
-    connect_after(sigName: "focus-in", callback: (($obj: Engine) => void)): number
+    on(sigName: "focus-in", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "focus-in", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "focus-in", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "focus-in"): void
-    on(sigName: "focus-in", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "focus-in", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "focus-in", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "focus-out", callback: (($obj: Engine) => void)): number
-    connect_after(sigName: "focus-out", callback: (($obj: Engine) => void)): number
+    on(sigName: "focus-out", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "focus-out", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "focus-out", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "focus-out"): void
-    on(sigName: "focus-out", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "focus-out", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "focus-out", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "page-down", callback: (($obj: Engine) => void)): number
-    connect_after(sigName: "page-down", callback: (($obj: Engine) => void)): number
+    on(sigName: "page-down", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "page-down", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "page-down", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "page-down"): void
-    on(sigName: "page-down", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "page-down", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "page-down", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "page-up", callback: (($obj: Engine) => void)): number
-    connect_after(sigName: "page-up", callback: (($obj: Engine) => void)): number
+    on(sigName: "page-up", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "page-up", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "page-up", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "page-up"): void
-    on(sigName: "page-up", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "page-up", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "page-up", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "process-hand-writing-event", callback: (($obj: Engine, coordinates: object, coordinatesLen: number) => void)): number
-    connect_after(sigName: "process-hand-writing-event", callback: (($obj: Engine, coordinates: object, coordinatesLen: number) => void)): number
+    on(sigName: "process-hand-writing-event", callback: (coordinates: object, coordinatesLen: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "process-hand-writing-event", callback: (coordinates: object, coordinatesLen: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "process-hand-writing-event", callback: (coordinates: object, coordinatesLen: number) => void): NodeJS.EventEmitter
     emit(sigName: "process-hand-writing-event", coordinates: object, coordinatesLen: number): void
-    on(sigName: "process-hand-writing-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "process-hand-writing-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "process-hand-writing-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "process-key-event", callback: (($obj: Engine, keyval: number, keycode: number, state: number) => boolean)): number
-    connect_after(sigName: "process-key-event", callback: (($obj: Engine, keyval: number, keycode: number, state: number) => boolean)): number
+    on(sigName: "process-key-event", callback: (keyval: number, keycode: number, state: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "process-key-event", callback: (keyval: number, keycode: number, state: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "process-key-event", callback: (keyval: number, keycode: number, state: number) => void): NodeJS.EventEmitter
     emit(sigName: "process-key-event", keyval: number, keycode: number, state: number): void
-    on(sigName: "process-key-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "process-key-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "process-key-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "property-activate", callback: (($obj: Engine, name: string, state: number) => void)): number
-    connect_after(sigName: "property-activate", callback: (($obj: Engine, name: string, state: number) => void)): number
+    on(sigName: "property-activate", callback: (name: string, state: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "property-activate", callback: (name: string, state: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "property-activate", callback: (name: string, state: number) => void): NodeJS.EventEmitter
     emit(sigName: "property-activate", name: string, state: number): void
-    on(sigName: "property-activate", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "property-activate", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "property-activate", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "property-hide", callback: (($obj: Engine, name: string) => void)): number
-    connect_after(sigName: "property-hide", callback: (($obj: Engine, name: string) => void)): number
+    on(sigName: "property-hide", callback: (name: string) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "property-hide", callback: (name: string) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "property-hide", callback: (name: string) => void): NodeJS.EventEmitter
     emit(sigName: "property-hide", name: string): void
-    on(sigName: "property-hide", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "property-hide", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "property-hide", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "property-show", callback: (($obj: Engine, name: string) => void)): number
-    connect_after(sigName: "property-show", callback: (($obj: Engine, name: string) => void)): number
+    on(sigName: "property-show", callback: (name: string) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "property-show", callback: (name: string) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "property-show", callback: (name: string) => void): NodeJS.EventEmitter
     emit(sigName: "property-show", name: string): void
-    on(sigName: "property-show", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "property-show", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "property-show", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "reset", callback: (($obj: Engine) => void)): number
-    connect_after(sigName: "reset", callback: (($obj: Engine) => void)): number
+    on(sigName: "reset", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "reset", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "reset", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "reset"): void
-    on(sigName: "reset", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "reset", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "reset", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "set-capabilities", callback: (($obj: Engine, caps: number) => void)): number
-    connect_after(sigName: "set-capabilities", callback: (($obj: Engine, caps: number) => void)): number
+    on(sigName: "set-capabilities", callback: (caps: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "set-capabilities", callback: (caps: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "set-capabilities", callback: (caps: number) => void): NodeJS.EventEmitter
     emit(sigName: "set-capabilities", caps: number): void
-    on(sigName: "set-capabilities", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "set-capabilities", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "set-capabilities", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "set-content-type", callback: (($obj: Engine, purpose: number, hints: number) => void)): number
-    connect_after(sigName: "set-content-type", callback: (($obj: Engine, purpose: number, hints: number) => void)): number
+    on(sigName: "set-content-type", callback: (purpose: number, hints: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "set-content-type", callback: (purpose: number, hints: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "set-content-type", callback: (purpose: number, hints: number) => void): NodeJS.EventEmitter
     emit(sigName: "set-content-type", purpose: number, hints: number): void
-    on(sigName: "set-content-type", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "set-content-type", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "set-content-type", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "set-cursor-location", callback: (($obj: Engine, x: number, y: number, w: number, h: number) => void)): number
-    connect_after(sigName: "set-cursor-location", callback: (($obj: Engine, x: number, y: number, w: number, h: number) => void)): number
+    on(sigName: "set-cursor-location", callback: (x: number, y: number, w: number, h: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "set-cursor-location", callback: (x: number, y: number, w: number, h: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "set-cursor-location", callback: (x: number, y: number, w: number, h: number) => void): NodeJS.EventEmitter
     emit(sigName: "set-cursor-location", x: number, y: number, w: number, h: number): void
-    on(sigName: "set-cursor-location", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "set-cursor-location", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "set-cursor-location", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "set-surrounding-text", callback: (($obj: Engine, text: GObject.Object, cursorPos: number, anchorPos: number) => void)): number
-    connect_after(sigName: "set-surrounding-text", callback: (($obj: Engine, text: GObject.Object, cursorPos: number, anchorPos: number) => void)): number
+    on(sigName: "set-surrounding-text", callback: (text: GObject.Object, cursorPos: number, anchorPos: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "set-surrounding-text", callback: (text: GObject.Object, cursorPos: number, anchorPos: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "set-surrounding-text", callback: (text: GObject.Object, cursorPos: number, anchorPos: number) => void): NodeJS.EventEmitter
     emit(sigName: "set-surrounding-text", text: GObject.Object, cursorPos: number, anchorPos: number): void
-    on(sigName: "set-surrounding-text", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "set-surrounding-text", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "set-surrounding-text", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of IBus.Object */
+    /* Signals of IBus-1.0.IBus.Object */
     connect(sigName: "destroy", callback: (($obj: Engine) => void)): number
-    connect_after(sigName: "destroy", callback: (($obj: Engine) => void)): number
+    on(sigName: "destroy", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "destroy", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "destroy", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "destroy"): void
-    on(sigName: "destroy", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "destroy", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "destroy", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Engine, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Engine, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -5254,14 +5088,14 @@ export interface EngineDesc_ConstructProps extends Serializable_ConstructProps {
     version?: string
 }
 export class EngineDesc {
-    /* Fields of IBus.EngineDesc */
+    /* Fields of IBus-1.0.IBus.EngineDesc */
     parent: Serializable
-    /* Fields of IBus.Object */
+    /* Fields of IBus-1.0.IBus.Object */
     flags: number
     priv: ObjectPrivate
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of IBus.EngineDesc */
+    /* Methods of IBus-1.0.IBus.EngineDesc */
     getAuthor(): string
     getDescription(): string
     getHotkeys(): string
@@ -5280,15 +5114,15 @@ export class EngineDesc {
     getTextdomain(): string
     getVersion(): string
     output(output: GLib.String, indent: number): void
-    /* Methods of IBus.Serializable */
+    /* Methods of IBus-1.0.IBus.Serializable */
     copy(): Serializable
     getQattachment(key: GLib.Quark): GLib.Variant
     removeQattachment(key: GLib.Quark): void
     serialize(): GLib.Variant
     setQattachment(key: GLib.Quark, value: GLib.Variant): void
-    /* Methods of IBus.Object */
+    /* Methods of IBus-1.0.IBus.Object */
     destroy(): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -5310,34 +5144,18 @@ export class EngineDesc {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of IBus.Serializable */
-    vfuncCopy(src: Serializable): boolean
-    vfuncDeserialize(variant: GLib.Variant): number
-    vfuncSerialize(builder: GLib.VariantBuilder): boolean
-    /* Virtual methods of IBus.Object */
-    vfuncDestroy(): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of IBus.Object */
+    /* Signals of IBus-1.0.IBus.Object */
     connect(sigName: "destroy", callback: (($obj: EngineDesc) => void)): number
-    connect_after(sigName: "destroy", callback: (($obj: EngineDesc) => void)): number
+    on(sigName: "destroy", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "destroy", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "destroy", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "destroy"): void
-    on(sigName: "destroy", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "destroy", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "destroy", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: EngineDesc, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: EngineDesc, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -5357,28 +5175,28 @@ export class EngineDesc {
 export interface EngineSimple_ConstructProps extends Engine_ConstructProps {
 }
 export class EngineSimple {
-    /* Fields of IBus.Engine */
+    /* Fields of IBus-1.0.IBus.Engine */
     enabled: boolean
     hasFocus: boolean
     cursorArea: Rectangle
     clientCapabilities: number
-    /* Fields of IBus.Object */
+    /* Fields of IBus-1.0.IBus.Object */
     parent: GObject.InitiallyUnowned
     flags: number
     priv: ObjectPrivate
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of IBus.EngineSimple */
+    /* Methods of IBus-1.0.IBus.EngineSimple */
     addComposeFile(file: string): boolean
     addTable(data: number[], maxSeqLen: number, nSeqs: number): void
     addTableByLocale(locale?: string | null): boolean
-    /* Methods of IBus.Engine */
+    /* Methods of IBus-1.0.IBus.Engine */
     commitText(text: Text): void
     deleteSurroundingText(offset: number, nchars: number): void
     forwardKeyEvent(keyval: number, keycode: number, state: number): void
-    getContentType(): [ /* purpose */ number | null, /* hints */ number | null ]
+    getContentType(): { purpose: number | null, hints: number | null }
     getName(): string
-    getSurroundingText(): [ /* text */ Text | null, /* cursorPos */ number | null, /* anchorPos */ number | null ]
+    getSurroundingText(): { text: Text | null, cursorPos: number | null, anchorPos: number | null }
     hideAuxiliaryText(): void
     hideLookupTable(): void
     hidePreeditText(): void
@@ -5392,15 +5210,15 @@ export class EngineSimple {
     updatePreeditText(text: Text, cursorPos: number, visible: boolean): void
     updatePreeditTextWithMode(text: Text, cursorPos: number, visible: boolean, mode: PreeditFocusMode): void
     updateProperty(prop: Property): void
-    /* Methods of IBus.Service */
+    /* Methods of IBus-1.0.IBus.Service */
     emitSignal(destBusName: string, interfaceName: string, signalName: string, parameters: GLib.Variant): boolean
     getConnection(): Gio.DBusConnection
     getObjectPath(): string
     register(connection: Gio.DBusConnection): boolean
     unregister(connection: Gio.DBusConnection): void
-    /* Methods of IBus.Object */
+    /* Methods of IBus-1.0.IBus.Object */
     destroy(): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -5422,176 +5240,119 @@ export class EngineSimple {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of IBus.Engine */
-    vfuncCancelHandWriting(nStrokes: number): void
-    vfuncCandidateClicked(index: number, button: number, state: number): void
-    vfuncCursorDown(): void
-    vfuncCursorUp(): void
-    vfuncDisable(): void
-    vfuncEnable(): void
-    vfuncFocusIn(): void
-    vfuncFocusOut(): void
-    vfuncPageDown(): void
-    vfuncPageUp(): void
-    vfuncProcessHandWritingEvent(coordinates: number, coordinatesLen: number): void
-    vfuncProcessKeyEvent(keyval: number, keycode: number, state: number): boolean
-    vfuncPropertyActivate(propName: string, propState: number): void
-    vfuncPropertyHide(propName: string): void
-    vfuncPropertyShow(propName: string): void
-    vfuncReset(): void
-    vfuncSetCapabilities(caps: number): void
-    vfuncSetContentType(purpose: number, hints: number): void
-    vfuncSetCursorLocation(x: number, y: number, w: number, h: number): void
-    vfuncSetSurroundingText(text: Text, cursorIndex: number, anchorPos: number): void
-    /* Virtual methods of IBus.Service */
-    vfuncServiceGetProperty(connection: Gio.DBusConnection, sender: string, objectPath: string, interfaceName: string, propertyName: string): GLib.Variant | null
-    vfuncServiceMethodCall(connection: Gio.DBusConnection, sender: string, objectPath: string, interfaceName: string, methodName: string, parameters: GLib.Variant, invocation: Gio.DBusMethodInvocation): void
-    vfuncServiceSetProperty(connection: Gio.DBusConnection, sender: string, objectPath: string, interfaceName: string, propertyName: string, value: GLib.Variant): boolean
-    /* Virtual methods of IBus.Object */
-    vfuncDestroy(): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of IBus.Engine */
+    /* Signals of IBus-1.0.IBus.Engine */
     connect(sigName: "cancel-hand-writing", callback: (($obj: EngineSimple, nStrokes: number) => void)): number
-    connect_after(sigName: "cancel-hand-writing", callback: (($obj: EngineSimple, nStrokes: number) => void)): number
+    on(sigName: "cancel-hand-writing", callback: (nStrokes: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "cancel-hand-writing", callback: (nStrokes: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "cancel-hand-writing", callback: (nStrokes: number) => void): NodeJS.EventEmitter
     emit(sigName: "cancel-hand-writing", nStrokes: number): void
-    on(sigName: "cancel-hand-writing", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "cancel-hand-writing", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "cancel-hand-writing", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "candidate-clicked", callback: (($obj: EngineSimple, index: number, button: number, state: number) => void)): number
-    connect_after(sigName: "candidate-clicked", callback: (($obj: EngineSimple, index: number, button: number, state: number) => void)): number
+    on(sigName: "candidate-clicked", callback: (index: number, button: number, state: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "candidate-clicked", callback: (index: number, button: number, state: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "candidate-clicked", callback: (index: number, button: number, state: number) => void): NodeJS.EventEmitter
     emit(sigName: "candidate-clicked", index: number, button: number, state: number): void
-    on(sigName: "candidate-clicked", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "candidate-clicked", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "candidate-clicked", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "cursor-down", callback: (($obj: EngineSimple) => void)): number
-    connect_after(sigName: "cursor-down", callback: (($obj: EngineSimple) => void)): number
+    on(sigName: "cursor-down", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "cursor-down", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "cursor-down", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "cursor-down"): void
-    on(sigName: "cursor-down", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "cursor-down", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "cursor-down", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "cursor-up", callback: (($obj: EngineSimple) => void)): number
-    connect_after(sigName: "cursor-up", callback: (($obj: EngineSimple) => void)): number
+    on(sigName: "cursor-up", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "cursor-up", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "cursor-up", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "cursor-up"): void
-    on(sigName: "cursor-up", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "cursor-up", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "cursor-up", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "disable", callback: (($obj: EngineSimple) => void)): number
-    connect_after(sigName: "disable", callback: (($obj: EngineSimple) => void)): number
+    on(sigName: "disable", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "disable", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "disable", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "disable"): void
-    on(sigName: "disable", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "disable", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "disable", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "enable", callback: (($obj: EngineSimple) => void)): number
-    connect_after(sigName: "enable", callback: (($obj: EngineSimple) => void)): number
+    on(sigName: "enable", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "enable", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "enable", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "enable"): void
-    on(sigName: "enable", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "enable", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "enable", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "focus-in", callback: (($obj: EngineSimple) => void)): number
-    connect_after(sigName: "focus-in", callback: (($obj: EngineSimple) => void)): number
+    on(sigName: "focus-in", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "focus-in", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "focus-in", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "focus-in"): void
-    on(sigName: "focus-in", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "focus-in", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "focus-in", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "focus-out", callback: (($obj: EngineSimple) => void)): number
-    connect_after(sigName: "focus-out", callback: (($obj: EngineSimple) => void)): number
+    on(sigName: "focus-out", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "focus-out", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "focus-out", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "focus-out"): void
-    on(sigName: "focus-out", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "focus-out", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "focus-out", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "page-down", callback: (($obj: EngineSimple) => void)): number
-    connect_after(sigName: "page-down", callback: (($obj: EngineSimple) => void)): number
+    on(sigName: "page-down", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "page-down", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "page-down", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "page-down"): void
-    on(sigName: "page-down", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "page-down", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "page-down", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "page-up", callback: (($obj: EngineSimple) => void)): number
-    connect_after(sigName: "page-up", callback: (($obj: EngineSimple) => void)): number
+    on(sigName: "page-up", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "page-up", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "page-up", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "page-up"): void
-    on(sigName: "page-up", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "page-up", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "page-up", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "process-hand-writing-event", callback: (($obj: EngineSimple, coordinates: object, coordinatesLen: number) => void)): number
-    connect_after(sigName: "process-hand-writing-event", callback: (($obj: EngineSimple, coordinates: object, coordinatesLen: number) => void)): number
+    on(sigName: "process-hand-writing-event", callback: (coordinates: object, coordinatesLen: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "process-hand-writing-event", callback: (coordinates: object, coordinatesLen: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "process-hand-writing-event", callback: (coordinates: object, coordinatesLen: number) => void): NodeJS.EventEmitter
     emit(sigName: "process-hand-writing-event", coordinates: object, coordinatesLen: number): void
-    on(sigName: "process-hand-writing-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "process-hand-writing-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "process-hand-writing-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "process-key-event", callback: (($obj: EngineSimple, keyval: number, keycode: number, state: number) => boolean)): number
-    connect_after(sigName: "process-key-event", callback: (($obj: EngineSimple, keyval: number, keycode: number, state: number) => boolean)): number
+    on(sigName: "process-key-event", callback: (keyval: number, keycode: number, state: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "process-key-event", callback: (keyval: number, keycode: number, state: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "process-key-event", callback: (keyval: number, keycode: number, state: number) => void): NodeJS.EventEmitter
     emit(sigName: "process-key-event", keyval: number, keycode: number, state: number): void
-    on(sigName: "process-key-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "process-key-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "process-key-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "property-activate", callback: (($obj: EngineSimple, name: string, state: number) => void)): number
-    connect_after(sigName: "property-activate", callback: (($obj: EngineSimple, name: string, state: number) => void)): number
+    on(sigName: "property-activate", callback: (name: string, state: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "property-activate", callback: (name: string, state: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "property-activate", callback: (name: string, state: number) => void): NodeJS.EventEmitter
     emit(sigName: "property-activate", name: string, state: number): void
-    on(sigName: "property-activate", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "property-activate", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "property-activate", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "property-hide", callback: (($obj: EngineSimple, name: string) => void)): number
-    connect_after(sigName: "property-hide", callback: (($obj: EngineSimple, name: string) => void)): number
+    on(sigName: "property-hide", callback: (name: string) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "property-hide", callback: (name: string) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "property-hide", callback: (name: string) => void): NodeJS.EventEmitter
     emit(sigName: "property-hide", name: string): void
-    on(sigName: "property-hide", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "property-hide", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "property-hide", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "property-show", callback: (($obj: EngineSimple, name: string) => void)): number
-    connect_after(sigName: "property-show", callback: (($obj: EngineSimple, name: string) => void)): number
+    on(sigName: "property-show", callback: (name: string) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "property-show", callback: (name: string) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "property-show", callback: (name: string) => void): NodeJS.EventEmitter
     emit(sigName: "property-show", name: string): void
-    on(sigName: "property-show", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "property-show", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "property-show", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "reset", callback: (($obj: EngineSimple) => void)): number
-    connect_after(sigName: "reset", callback: (($obj: EngineSimple) => void)): number
+    on(sigName: "reset", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "reset", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "reset", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "reset"): void
-    on(sigName: "reset", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "reset", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "reset", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "set-capabilities", callback: (($obj: EngineSimple, caps: number) => void)): number
-    connect_after(sigName: "set-capabilities", callback: (($obj: EngineSimple, caps: number) => void)): number
+    on(sigName: "set-capabilities", callback: (caps: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "set-capabilities", callback: (caps: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "set-capabilities", callback: (caps: number) => void): NodeJS.EventEmitter
     emit(sigName: "set-capabilities", caps: number): void
-    on(sigName: "set-capabilities", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "set-capabilities", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "set-capabilities", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "set-content-type", callback: (($obj: EngineSimple, purpose: number, hints: number) => void)): number
-    connect_after(sigName: "set-content-type", callback: (($obj: EngineSimple, purpose: number, hints: number) => void)): number
+    on(sigName: "set-content-type", callback: (purpose: number, hints: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "set-content-type", callback: (purpose: number, hints: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "set-content-type", callback: (purpose: number, hints: number) => void): NodeJS.EventEmitter
     emit(sigName: "set-content-type", purpose: number, hints: number): void
-    on(sigName: "set-content-type", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "set-content-type", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "set-content-type", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "set-cursor-location", callback: (($obj: EngineSimple, x: number, y: number, w: number, h: number) => void)): number
-    connect_after(sigName: "set-cursor-location", callback: (($obj: EngineSimple, x: number, y: number, w: number, h: number) => void)): number
+    on(sigName: "set-cursor-location", callback: (x: number, y: number, w: number, h: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "set-cursor-location", callback: (x: number, y: number, w: number, h: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "set-cursor-location", callback: (x: number, y: number, w: number, h: number) => void): NodeJS.EventEmitter
     emit(sigName: "set-cursor-location", x: number, y: number, w: number, h: number): void
-    on(sigName: "set-cursor-location", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "set-cursor-location", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "set-cursor-location", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "set-surrounding-text", callback: (($obj: EngineSimple, text: GObject.Object, cursorPos: number, anchorPos: number) => void)): number
-    connect_after(sigName: "set-surrounding-text", callback: (($obj: EngineSimple, text: GObject.Object, cursorPos: number, anchorPos: number) => void)): number
+    on(sigName: "set-surrounding-text", callback: (text: GObject.Object, cursorPos: number, anchorPos: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "set-surrounding-text", callback: (text: GObject.Object, cursorPos: number, anchorPos: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "set-surrounding-text", callback: (text: GObject.Object, cursorPos: number, anchorPos: number) => void): NodeJS.EventEmitter
     emit(sigName: "set-surrounding-text", text: GObject.Object, cursorPos: number, anchorPos: number): void
-    on(sigName: "set-surrounding-text", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "set-surrounding-text", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "set-surrounding-text", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of IBus.Object */
+    /* Signals of IBus-1.0.IBus.Object */
     connect(sigName: "destroy", callback: (($obj: EngineSimple) => void)): number
-    connect_after(sigName: "destroy", callback: (($obj: EngineSimple) => void)): number
+    on(sigName: "destroy", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "destroy", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "destroy", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "destroy"): void
-    on(sigName: "destroy", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "destroy", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "destroy", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: EngineSimple, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: EngineSimple, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -5611,24 +5372,24 @@ export class EngineSimple {
 export interface Factory_ConstructProps extends Service_ConstructProps {
 }
 export class Factory {
-    /* Fields of IBus.Object */
+    /* Fields of IBus-1.0.IBus.Object */
     parent: GObject.InitiallyUnowned
     flags: number
     priv: ObjectPrivate
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of IBus.Factory */
+    /* Methods of IBus-1.0.IBus.Factory */
     addEngine(engineName: string, engineType: GObject.Type): void
     createEngine(engineName: string): Engine
-    /* Methods of IBus.Service */
+    /* Methods of IBus-1.0.IBus.Service */
     emitSignal(destBusName: string, interfaceName: string, signalName: string, parameters: GLib.Variant): boolean
     getConnection(): Gio.DBusConnection
     getObjectPath(): string
     register(connection: Gio.DBusConnection): boolean
     unregister(connection: Gio.DBusConnection): void
-    /* Methods of IBus.Object */
+    /* Methods of IBus-1.0.IBus.Object */
     destroy(): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -5650,43 +5411,24 @@ export class Factory {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of IBus.Factory */
-    vfuncCreateEngine(engineName: string): Engine
-    /* Virtual methods of IBus.Service */
-    vfuncServiceGetProperty(connection: Gio.DBusConnection, sender: string, objectPath: string, interfaceName: string, propertyName: string): GLib.Variant | null
-    vfuncServiceMethodCall(connection: Gio.DBusConnection, sender: string, objectPath: string, interfaceName: string, methodName: string, parameters: GLib.Variant, invocation: Gio.DBusMethodInvocation): void
-    vfuncServiceSetProperty(connection: Gio.DBusConnection, sender: string, objectPath: string, interfaceName: string, propertyName: string, value: GLib.Variant): boolean
-    /* Virtual methods of IBus.Object */
-    vfuncDestroy(): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of IBus.Factory */
+    /* Signals of IBus-1.0.IBus.Factory */
     connect(sigName: "create-engine", callback: (($obj: Factory, engineName: string) => Engine | null)): number
-    connect_after(sigName: "create-engine", callback: (($obj: Factory, engineName: string) => Engine | null)): number
+    on(sigName: "create-engine", callback: (engineName: string) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "create-engine", callback: (engineName: string) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "create-engine", callback: (engineName: string) => void): NodeJS.EventEmitter
     emit(sigName: "create-engine", engineName: string): void
-    on(sigName: "create-engine", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "create-engine", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "create-engine", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of IBus.Object */
+    /* Signals of IBus-1.0.IBus.Object */
     connect(sigName: "destroy", callback: (($obj: Factory) => void)): number
-    connect_after(sigName: "destroy", callback: (($obj: Factory) => void)): number
+    on(sigName: "destroy", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "destroy", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "destroy", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "destroy"): void
-    on(sigName: "destroy", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "destroy", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "destroy", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Factory, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Factory, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -5706,29 +5448,29 @@ export class Factory {
 export interface HotkeyProfile_ConstructProps extends Serializable_ConstructProps {
 }
 export class HotkeyProfile {
-    /* Fields of IBus.HotkeyProfile */
+    /* Fields of IBus-1.0.IBus.HotkeyProfile */
     parent: Serializable
-    /* Fields of IBus.Object */
+    /* Fields of IBus-1.0.IBus.Object */
     flags: number
     priv: ObjectPrivate
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of IBus.HotkeyProfile */
+    /* Methods of IBus-1.0.IBus.HotkeyProfile */
     addHotkey(keyval: number, modifiers: number, event: GLib.Quark): boolean
     addHotkeyFromString(str: string, event: GLib.Quark): boolean
     filterKeyEvent(keyval: number, modifiers: number, prevKeyval: number, prevModifiers: number, userData: object): GLib.Quark
     lookupHotkey(keyval: number, modifiers: number): GLib.Quark
     removeHotkey(keyval: number, modifiers: number): boolean
     removeHotkeyByEvent(event: GLib.Quark): boolean
-    /* Methods of IBus.Serializable */
+    /* Methods of IBus-1.0.IBus.Serializable */
     copy(): Serializable
     getQattachment(key: GLib.Quark): GLib.Variant
     removeQattachment(key: GLib.Quark): void
     serialize(): GLib.Variant
     setQattachment(key: GLib.Quark, value: GLib.Variant): void
-    /* Methods of IBus.Object */
+    /* Methods of IBus-1.0.IBus.Object */
     destroy(): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -5750,43 +5492,24 @@ export class HotkeyProfile {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of IBus.HotkeyProfile */
-    vfuncTrigger(event: GLib.Quark): void
-    /* Virtual methods of IBus.Serializable */
-    vfuncCopy(src: Serializable): boolean
-    vfuncDeserialize(variant: GLib.Variant): number
-    vfuncSerialize(builder: GLib.VariantBuilder): boolean
-    /* Virtual methods of IBus.Object */
-    vfuncDestroy(): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of IBus.HotkeyProfile */
+    /* Signals of IBus-1.0.IBus.HotkeyProfile */
     connect(sigName: "trigger", callback: (($obj: HotkeyProfile, event: number, userData: object) => void)): number
-    connect_after(sigName: "trigger", callback: (($obj: HotkeyProfile, event: number, userData: object) => void)): number
+    on(sigName: "trigger", callback: (event: number, userData: object) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "trigger", callback: (event: number, userData: object) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "trigger", callback: (event: number, userData: object) => void): NodeJS.EventEmitter
     emit(sigName: "trigger", event: number, userData: object): void
-    on(sigName: "trigger", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "trigger", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "trigger", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of IBus.Object */
+    /* Signals of IBus-1.0.IBus.Object */
     connect(sigName: "destroy", callback: (($obj: HotkeyProfile) => void)): number
-    connect_after(sigName: "destroy", callback: (($obj: HotkeyProfile) => void)): number
+    on(sigName: "destroy", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "destroy", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "destroy", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "destroy"): void
-    on(sigName: "destroy", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "destroy", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "destroy", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: HotkeyProfile, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: HotkeyProfile, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -5804,18 +5527,18 @@ export class HotkeyProfile {
 export interface InputContext_ConstructProps extends Proxy_ConstructProps {
 }
 export class InputContext {
-    /* Properties of Gio.DBusProxy */
+    /* Properties of Gio-2.0.Gio.DBusProxy */
     gDefaultTimeout: number
     gInterfaceInfo: Gio.DBusInterfaceInfo
     readonly gNameOwner: string
-    /* Fields of IBus.InputContext */
+    /* Fields of IBus-1.0.IBus.InputContext */
     parent: Proxy
-    /* Fields of IBus.Proxy */
+    /* Fields of IBus-1.0.IBus.Proxy */
     flags: number
     own: boolean
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of IBus.InputContext */
+    /* Methods of IBus-1.0.IBus.InputContext */
     cancelHandWriting(nStrokes: number): void
     focusIn(): void
     focusOut(): void
@@ -5834,15 +5557,15 @@ export class InputContext {
     setCursorLocation(x: number, y: number, w: number, h: number): void
     setEngine(name: string): void
     setSurroundingText(text: Text, cursorPos: number, anchorPos: number): void
-    /* Methods of IBus.Proxy */
+    /* Methods of IBus-1.0.IBus.Proxy */
     destroy(): void
-    /* Methods of Gio.DBusProxy */
+    /* Methods of Gio-2.0.Gio.DBusProxy */
     call(methodName: string, parameters: GLib.Variant | null, flags: Gio.DBusCallFlags, timeoutMsec: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     callFinish(res: Gio.AsyncResult): GLib.Variant
     callSync(methodName: string, parameters: GLib.Variant | null, flags: Gio.DBusCallFlags, timeoutMsec: number, cancellable?: Gio.Cancellable | null): GLib.Variant
     callWithUnixFdList(methodName: string, parameters: GLib.Variant | null, flags: Gio.DBusCallFlags, timeoutMsec: number, fdList?: Gio.UnixFDList | null, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    callWithUnixFdListFinish(res: Gio.AsyncResult): [ /* returnType */ GLib.Variant, /* outFdList */ Gio.UnixFDList | null ]
-    callWithUnixFdListSync(methodName: string, parameters: GLib.Variant | null, flags: Gio.DBusCallFlags, timeoutMsec: number, fdList?: Gio.UnixFDList | null, cancellable?: Gio.Cancellable | null): [ /* returnType */ GLib.Variant, /* outFdList */ Gio.UnixFDList | null ]
+    callWithUnixFdListFinish(res: Gio.AsyncResult): { returnType: GLib.Variant, outFdList: Gio.UnixFDList | null }
+    callWithUnixFdListSync(methodName: string, parameters: GLib.Variant | null, flags: Gio.DBusCallFlags, timeoutMsec: number, fdList?: Gio.UnixFDList | null, cancellable?: Gio.Cancellable | null): { returnType: GLib.Variant, outFdList: Gio.UnixFDList | null }
     getCachedProperty(propertyName: string): GLib.Variant | null
     getCachedPropertyNames(): string[] | null
     getConnection(): Gio.DBusConnection
@@ -5856,7 +5579,7 @@ export class InputContext {
     setCachedProperty(propertyName: string, value?: GLib.Variant | null): void
     setDefaultTimeout(timeoutMsec: number): void
     setInterfaceInfo(info?: Gio.DBusInterfaceInfo | null): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -5878,183 +5601,140 @@ export class InputContext {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of Gio.AsyncInitable */
+    /* Methods of Gio-2.0.Gio.AsyncInitable */
     initAsync(ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     initFinish(res: Gio.AsyncResult): boolean
     newFinish(res: Gio.AsyncResult): GObject.Object
-    /* Methods of Gio.DBusInterface */
+    /* Methods of Gio-2.0.Gio.DBusInterface */
     getObject(): Gio.DBusObject | null
     getInfo(): Gio.DBusInterfaceInfo
     setObject(object?: Gio.DBusObject | null): void
-    /* Methods of Gio.Initable */
+    /* Methods of Gio-2.0.Gio.Initable */
     init(cancellable?: Gio.Cancellable | null): boolean
-    /* Virtual methods of IBus.Proxy */
-    vfuncDestroy(): void
-    vfuncInitAsync(ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    vfuncInitFinish(res: Gio.AsyncResult): boolean
-    vfuncDupObject(): Gio.DBusObject | null
-    vfuncGetInfo(): Gio.DBusInterfaceInfo
-    vfuncSetObject(object?: Gio.DBusObject | null): void
-    vfuncInit(cancellable?: Gio.Cancellable | null): boolean
-    /* Virtual methods of Gio.DBusProxy */
-    vfuncGPropertiesChanged(changedProperties: GLib.Variant, invalidatedProperties: string): void
-    vfuncGSignal(senderName: string, signalName: string, parameters: GLib.Variant): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of IBus.InputContext */
+    /* Signals of IBus-1.0.IBus.InputContext */
     connect(sigName: "commit-text", callback: (($obj: InputContext, text: Text) => void)): number
-    connect_after(sigName: "commit-text", callback: (($obj: InputContext, text: Text) => void)): number
+    on(sigName: "commit-text", callback: (text: Text) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "commit-text", callback: (text: Text) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "commit-text", callback: (text: Text) => void): NodeJS.EventEmitter
     emit(sigName: "commit-text", text: Text): void
-    on(sigName: "commit-text", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "commit-text", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "commit-text", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "cursor-down-lookup-table", callback: (($obj: InputContext) => void)): number
-    connect_after(sigName: "cursor-down-lookup-table", callback: (($obj: InputContext) => void)): number
+    on(sigName: "cursor-down-lookup-table", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "cursor-down-lookup-table", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "cursor-down-lookup-table", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "cursor-down-lookup-table"): void
-    on(sigName: "cursor-down-lookup-table", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "cursor-down-lookup-table", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "cursor-down-lookup-table", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "cursor-up-lookup-table", callback: (($obj: InputContext) => void)): number
-    connect_after(sigName: "cursor-up-lookup-table", callback: (($obj: InputContext) => void)): number
+    on(sigName: "cursor-up-lookup-table", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "cursor-up-lookup-table", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "cursor-up-lookup-table", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "cursor-up-lookup-table"): void
-    on(sigName: "cursor-up-lookup-table", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "cursor-up-lookup-table", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "cursor-up-lookup-table", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "delete-surrounding-text", callback: (($obj: InputContext, offset: number, nChars: number) => void)): number
-    connect_after(sigName: "delete-surrounding-text", callback: (($obj: InputContext, offset: number, nChars: number) => void)): number
+    on(sigName: "delete-surrounding-text", callback: (offset: number, nChars: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "delete-surrounding-text", callback: (offset: number, nChars: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "delete-surrounding-text", callback: (offset: number, nChars: number) => void): NodeJS.EventEmitter
     emit(sigName: "delete-surrounding-text", offset: number, nChars: number): void
-    on(sigName: "delete-surrounding-text", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "delete-surrounding-text", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "delete-surrounding-text", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "disabled", callback: (($obj: InputContext) => void)): number
-    connect_after(sigName: "disabled", callback: (($obj: InputContext) => void)): number
+    on(sigName: "disabled", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "disabled", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "disabled", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "disabled"): void
-    on(sigName: "disabled", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "disabled", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "disabled", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "enabled", callback: (($obj: InputContext) => void)): number
-    connect_after(sigName: "enabled", callback: (($obj: InputContext) => void)): number
+    on(sigName: "enabled", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "enabled", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "enabled", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "enabled"): void
-    on(sigName: "enabled", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "enabled", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "enabled", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "forward-key-event", callback: (($obj: InputContext, keyval: number, keycode: number, modifiers: number) => void)): number
-    connect_after(sigName: "forward-key-event", callback: (($obj: InputContext, keyval: number, keycode: number, modifiers: number) => void)): number
+    on(sigName: "forward-key-event", callback: (keyval: number, keycode: number, modifiers: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "forward-key-event", callback: (keyval: number, keycode: number, modifiers: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "forward-key-event", callback: (keyval: number, keycode: number, modifiers: number) => void): NodeJS.EventEmitter
     emit(sigName: "forward-key-event", keyval: number, keycode: number, modifiers: number): void
-    on(sigName: "forward-key-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "forward-key-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "forward-key-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "hide-auxiliary-text", callback: (($obj: InputContext) => void)): number
-    connect_after(sigName: "hide-auxiliary-text", callback: (($obj: InputContext) => void)): number
+    on(sigName: "hide-auxiliary-text", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "hide-auxiliary-text", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "hide-auxiliary-text", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "hide-auxiliary-text"): void
-    on(sigName: "hide-auxiliary-text", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "hide-auxiliary-text", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "hide-auxiliary-text", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "hide-lookup-table", callback: (($obj: InputContext) => void)): number
-    connect_after(sigName: "hide-lookup-table", callback: (($obj: InputContext) => void)): number
+    on(sigName: "hide-lookup-table", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "hide-lookup-table", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "hide-lookup-table", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "hide-lookup-table"): void
-    on(sigName: "hide-lookup-table", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "hide-lookup-table", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "hide-lookup-table", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "hide-preedit-text", callback: (($obj: InputContext) => void)): number
-    connect_after(sigName: "hide-preedit-text", callback: (($obj: InputContext) => void)): number
+    on(sigName: "hide-preedit-text", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "hide-preedit-text", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "hide-preedit-text", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "hide-preedit-text"): void
-    on(sigName: "hide-preedit-text", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "hide-preedit-text", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "hide-preedit-text", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "page-down-lookup-table", callback: (($obj: InputContext) => void)): number
-    connect_after(sigName: "page-down-lookup-table", callback: (($obj: InputContext) => void)): number
+    on(sigName: "page-down-lookup-table", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "page-down-lookup-table", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "page-down-lookup-table", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "page-down-lookup-table"): void
-    on(sigName: "page-down-lookup-table", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "page-down-lookup-table", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "page-down-lookup-table", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "page-up-lookup-table", callback: (($obj: InputContext) => void)): number
-    connect_after(sigName: "page-up-lookup-table", callback: (($obj: InputContext) => void)): number
+    on(sigName: "page-up-lookup-table", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "page-up-lookup-table", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "page-up-lookup-table", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "page-up-lookup-table"): void
-    on(sigName: "page-up-lookup-table", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "page-up-lookup-table", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "page-up-lookup-table", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "register-properties", callback: (($obj: InputContext, props: PropList) => void)): number
-    connect_after(sigName: "register-properties", callback: (($obj: InputContext, props: PropList) => void)): number
+    on(sigName: "register-properties", callback: (props: PropList) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "register-properties", callback: (props: PropList) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "register-properties", callback: (props: PropList) => void): NodeJS.EventEmitter
     emit(sigName: "register-properties", props: PropList): void
-    on(sigName: "register-properties", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "register-properties", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "register-properties", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "show-auxiliary-text", callback: (($obj: InputContext) => void)): number
-    connect_after(sigName: "show-auxiliary-text", callback: (($obj: InputContext) => void)): number
+    on(sigName: "show-auxiliary-text", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "show-auxiliary-text", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "show-auxiliary-text", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "show-auxiliary-text"): void
-    on(sigName: "show-auxiliary-text", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "show-auxiliary-text", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "show-auxiliary-text", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "show-lookup-table", callback: (($obj: InputContext) => void)): number
-    connect_after(sigName: "show-lookup-table", callback: (($obj: InputContext) => void)): number
+    on(sigName: "show-lookup-table", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "show-lookup-table", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "show-lookup-table", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "show-lookup-table"): void
-    on(sigName: "show-lookup-table", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "show-lookup-table", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "show-lookup-table", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "show-preedit-text", callback: (($obj: InputContext) => void)): number
-    connect_after(sigName: "show-preedit-text", callback: (($obj: InputContext) => void)): number
+    on(sigName: "show-preedit-text", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "show-preedit-text", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "show-preedit-text", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "show-preedit-text"): void
-    on(sigName: "show-preedit-text", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "show-preedit-text", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "show-preedit-text", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "update-auxiliary-text", callback: (($obj: InputContext, text: Text, visible: boolean) => void)): number
-    connect_after(sigName: "update-auxiliary-text", callback: (($obj: InputContext, text: Text, visible: boolean) => void)): number
+    on(sigName: "update-auxiliary-text", callback: (text: Text, visible: boolean) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "update-auxiliary-text", callback: (text: Text, visible: boolean) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "update-auxiliary-text", callback: (text: Text, visible: boolean) => void): NodeJS.EventEmitter
     emit(sigName: "update-auxiliary-text", text: Text, visible: boolean): void
-    on(sigName: "update-auxiliary-text", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "update-auxiliary-text", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "update-auxiliary-text", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "update-lookup-table", callback: (($obj: InputContext, table: LookupTable, visible: boolean) => void)): number
-    connect_after(sigName: "update-lookup-table", callback: (($obj: InputContext, table: LookupTable, visible: boolean) => void)): number
+    on(sigName: "update-lookup-table", callback: (table: LookupTable, visible: boolean) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "update-lookup-table", callback: (table: LookupTable, visible: boolean) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "update-lookup-table", callback: (table: LookupTable, visible: boolean) => void): NodeJS.EventEmitter
     emit(sigName: "update-lookup-table", table: LookupTable, visible: boolean): void
-    on(sigName: "update-lookup-table", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "update-lookup-table", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "update-lookup-table", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "update-preedit-text", callback: (($obj: InputContext, text: Text, cursorPos: number, visible: boolean) => void)): number
-    connect_after(sigName: "update-preedit-text", callback: (($obj: InputContext, text: Text, cursorPos: number, visible: boolean) => void)): number
+    on(sigName: "update-preedit-text", callback: (text: Text, cursorPos: number, visible: boolean) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "update-preedit-text", callback: (text: Text, cursorPos: number, visible: boolean) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "update-preedit-text", callback: (text: Text, cursorPos: number, visible: boolean) => void): NodeJS.EventEmitter
     emit(sigName: "update-preedit-text", text: Text, cursorPos: number, visible: boolean): void
-    on(sigName: "update-preedit-text", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "update-preedit-text", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "update-preedit-text", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "update-property", callback: (($obj: InputContext, prop: Property) => void)): number
-    connect_after(sigName: "update-property", callback: (($obj: InputContext, prop: Property) => void)): number
+    on(sigName: "update-property", callback: (prop: Property) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "update-property", callback: (prop: Property) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "update-property", callback: (prop: Property) => void): NodeJS.EventEmitter
     emit(sigName: "update-property", prop: Property): void
-    on(sigName: "update-property", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "update-property", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "update-property", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of IBus.Proxy */
+    /* Signals of IBus-1.0.IBus.Proxy */
     connect(sigName: "destroy", callback: (($obj: InputContext) => void)): number
-    connect_after(sigName: "destroy", callback: (($obj: InputContext) => void)): number
+    on(sigName: "destroy", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "destroy", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "destroy", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "destroy"): void
-    on(sigName: "destroy", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "destroy", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "destroy", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of Gio.DBusProxy */
+    /* Signals of Gio-2.0.Gio.DBusProxy */
     connect(sigName: "g-properties-changed", callback: (($obj: InputContext, changedProperties: GLib.Variant, invalidatedProperties: string[]) => void)): number
-    connect_after(sigName: "g-properties-changed", callback: (($obj: InputContext, changedProperties: GLib.Variant, invalidatedProperties: string[]) => void)): number
+    on(sigName: "g-properties-changed", callback: (changedProperties: GLib.Variant, invalidatedProperties: string[]) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "g-properties-changed", callback: (changedProperties: GLib.Variant, invalidatedProperties: string[]) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "g-properties-changed", callback: (changedProperties: GLib.Variant, invalidatedProperties: string[]) => void): NodeJS.EventEmitter
     emit(sigName: "g-properties-changed", changedProperties: GLib.Variant, invalidatedProperties: string[]): void
-    on(sigName: "g-properties-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "g-properties-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "g-properties-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "g-signal", callback: (($obj: InputContext, senderName: string | null, signalName: string, parameters: GLib.Variant) => void)): number
-    connect_after(sigName: "g-signal", callback: (($obj: InputContext, senderName: string | null, signalName: string, parameters: GLib.Variant) => void)): number
+    on(sigName: "g-signal", callback: (senderName: string | null, signalName: string, parameters: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "g-signal", callback: (senderName: string | null, signalName: string, parameters: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "g-signal", callback: (senderName: string | null, signalName: string, parameters: GLib.Variant) => void): NodeJS.EventEmitter
     emit(sigName: "g-signal", senderName: string | null, signalName: string, parameters: GLib.Variant): void
-    on(sigName: "g-signal", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "g-signal", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "g-signal", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: InputContext, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: InputContext, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::g-default-timeout", callback: (($obj: InputContext, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::g-default-timeout", callback: (($obj: InputContext, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::g-default-timeout", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -6092,20 +5772,20 @@ export class InputContext {
 export interface Keymap_ConstructProps extends Object_ConstructProps {
 }
 export class Keymap {
-    /* Fields of IBus.Keymap */
+    /* Fields of IBus-1.0.IBus.Keymap */
     name: string
     keymap: number[]
-    /* Fields of IBus.Object */
+    /* Fields of IBus-1.0.IBus.Object */
     parent: GObject.InitiallyUnowned
     flags: number
     priv: ObjectPrivate
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of IBus.Keymap */
+    /* Methods of IBus-1.0.IBus.Keymap */
     lookupKeysym(keycode: number, state: number): number
-    /* Methods of IBus.Object */
+    /* Methods of IBus-1.0.IBus.Object */
     destroy(): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -6127,30 +5807,18 @@ export class Keymap {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of IBus.Object */
-    vfuncDestroy(): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of IBus.Object */
+    /* Signals of IBus-1.0.IBus.Object */
     connect(sigName: "destroy", callback: (($obj: Keymap) => void)): number
-    connect_after(sigName: "destroy", callback: (($obj: Keymap) => void)): number
+    on(sigName: "destroy", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "destroy", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "destroy", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "destroy"): void
-    on(sigName: "destroy", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "destroy", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "destroy", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Keymap, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Keymap, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -6170,7 +5838,7 @@ export class Keymap {
 export interface LookupTable_ConstructProps extends Serializable_ConstructProps {
 }
 export class LookupTable {
-    /* Fields of IBus.LookupTable */
+    /* Fields of IBus-1.0.IBus.LookupTable */
     parent: Serializable
     pageSize: number
     cursorPos: number
@@ -6179,12 +5847,12 @@ export class LookupTable {
     orientation: number
     candidates: object[]
     labels: object[]
-    /* Fields of IBus.Object */
+    /* Fields of IBus-1.0.IBus.Object */
     flags: number
     priv: ObjectPrivate
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of IBus.LookupTable */
+    /* Methods of IBus-1.0.IBus.LookupTable */
     appendCandidate(text: Text): void
     appendLabel(text: Text): void
     clear(): void
@@ -6207,15 +5875,15 @@ export class LookupTable {
     setOrientation(orientation: number): void
     setPageSize(pageSize: number): void
     setRound(round: boolean): void
-    /* Methods of IBus.Serializable */
+    /* Methods of IBus-1.0.IBus.Serializable */
     copy(): Serializable
     getQattachment(key: GLib.Quark): GLib.Variant
     removeQattachment(key: GLib.Quark): void
     serialize(): GLib.Variant
     setQattachment(key: GLib.Quark, value: GLib.Variant): void
-    /* Methods of IBus.Object */
+    /* Methods of IBus-1.0.IBus.Object */
     destroy(): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -6237,34 +5905,18 @@ export class LookupTable {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of IBus.Serializable */
-    vfuncCopy(src: Serializable): boolean
-    vfuncDeserialize(variant: GLib.Variant): number
-    vfuncSerialize(builder: GLib.VariantBuilder): boolean
-    /* Virtual methods of IBus.Object */
-    vfuncDestroy(): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of IBus.Object */
+    /* Signals of IBus-1.0.IBus.Object */
     connect(sigName: "destroy", callback: (($obj: LookupTable) => void)): number
-    connect_after(sigName: "destroy", callback: (($obj: LookupTable) => void)): number
+    on(sigName: "destroy", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "destroy", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "destroy", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "destroy"): void
-    on(sigName: "destroy", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "destroy", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "destroy", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: LookupTable, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: LookupTable, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -6283,15 +5935,15 @@ export class LookupTable {
 export interface Object_ConstructProps extends GObject.InitiallyUnowned_ConstructProps {
 }
 export class Object {
-    /* Fields of IBus.Object */
+    /* Fields of IBus-1.0.IBus.Object */
     parent: GObject.InitiallyUnowned
     flags: number
     priv: ObjectPrivate
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of IBus.Object */
+    /* Methods of IBus-1.0.IBus.Object */
     destroy(): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -6313,30 +5965,18 @@ export class Object {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of IBus.Object */
-    vfuncDestroy(): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of IBus.Object */
+    /* Signals of IBus-1.0.IBus.Object */
     connect(sigName: "destroy", callback: (($obj: Object) => void)): number
-    connect_after(sigName: "destroy", callback: (($obj: Object) => void)): number
+    on(sigName: "destroy", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "destroy", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "destroy", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "destroy"): void
-    on(sigName: "destroy", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "destroy", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "destroy", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Object, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Object, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -6354,30 +5994,30 @@ export class Object {
 export interface ObservedPath_ConstructProps extends Serializable_ConstructProps {
 }
 export class ObservedPath {
-    /* Fields of IBus.ObservedPath */
+    /* Fields of IBus-1.0.IBus.ObservedPath */
     parent: Serializable
     path: string
     mtime: number
     isDir: boolean
     isExist: boolean
-    /* Fields of IBus.Object */
+    /* Fields of IBus-1.0.IBus.Object */
     flags: number
     priv: ObjectPrivate
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of IBus.ObservedPath */
+    /* Methods of IBus-1.0.IBus.ObservedPath */
     checkModification(): boolean
     output(output: GLib.String, indent: number): void
     traverse(dirOnly: boolean): ObservedPath[]
-    /* Methods of IBus.Serializable */
+    /* Methods of IBus-1.0.IBus.Serializable */
     copy(): Serializable
     getQattachment(key: GLib.Quark): GLib.Variant
     removeQattachment(key: GLib.Quark): void
     serialize(): GLib.Variant
     setQattachment(key: GLib.Quark, value: GLib.Variant): void
-    /* Methods of IBus.Object */
+    /* Methods of IBus-1.0.IBus.Object */
     destroy(): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -6399,34 +6039,18 @@ export class ObservedPath {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of IBus.Serializable */
-    vfuncCopy(src: Serializable): boolean
-    vfuncDeserialize(variant: GLib.Variant): number
-    vfuncSerialize(builder: GLib.VariantBuilder): boolean
-    /* Virtual methods of IBus.Object */
-    vfuncDestroy(): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of IBus.Object */
+    /* Signals of IBus-1.0.IBus.Object */
     connect(sigName: "destroy", callback: (($obj: ObservedPath) => void)): number
-    connect_after(sigName: "destroy", callback: (($obj: ObservedPath) => void)): number
+    on(sigName: "destroy", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "destroy", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "destroy", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "destroy"): void
-    on(sigName: "destroy", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "destroy", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "destroy", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: ObservedPath, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: ObservedPath, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -6446,14 +6070,14 @@ export class ObservedPath {
 export interface PanelService_ConstructProps extends Service_ConstructProps {
 }
 export class PanelService {
-    /* Fields of IBus.PanelService */
+    /* Fields of IBus-1.0.IBus.PanelService */
     parent: Service
-    /* Fields of IBus.Object */
+    /* Fields of IBus-1.0.IBus.Object */
     flags: number
     priv: ObjectPrivate
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of IBus.PanelService */
+    /* Methods of IBus-1.0.IBus.PanelService */
     candidateClicked(index: number, button: number, state: number): void
     cursorDown(): void
     cursorUp(): void
@@ -6462,15 +6086,15 @@ export class PanelService {
     propertyActivate(propName: string, propState: number): void
     propertyHide(propName: string): void
     propertyShow(propName: string): void
-    /* Methods of IBus.Service */
+    /* Methods of IBus-1.0.IBus.Service */
     emitSignal(destBusName: string, interfaceName: string, signalName: string, parameters: GLib.Variant): boolean
     getConnection(): Gio.DBusConnection
     getObjectPath(): string
     register(connection: Gio.DBusConnection): boolean
     unregister(connection: Gio.DBusConnection): void
-    /* Methods of IBus.Object */
+    /* Methods of IBus-1.0.IBus.Object */
     destroy(): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -6492,211 +6116,144 @@ export class PanelService {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of IBus.PanelService */
-    vfuncCursorDownLookupTable(): void
-    vfuncCursorUpLookupTable(): void
-    vfuncDestroyContext(inputContextPath: string): void
-    vfuncFocusIn(inputContextPath: string): void
-    vfuncFocusOut(inputContextPath: string): void
-    vfuncHideAuxiliaryText(): void
-    vfuncHideLanguageBar(): void
-    vfuncHideLookupTable(): void
-    vfuncHidePreeditText(): void
-    vfuncPageDownLookupTable(): void
-    vfuncPageUpLookupTable(): void
-    vfuncRegisterProperties(propList: PropList): void
-    vfuncReset(): void
-    vfuncSetContentType(purpose: number, hints: number): void
-    vfuncSetCursorLocation(x: number, y: number, w: number, h: number): void
-    vfuncShowAuxiliaryText(): void
-    vfuncShowLanguageBar(): void
-    vfuncShowLookupTable(): void
-    vfuncShowPreeditText(): void
-    vfuncStartSetup(): void
-    vfuncStateChanged(): void
-    vfuncUpdateAuxiliaryText(text: Text, visible: boolean): void
-    vfuncUpdateLookupTable(lookupTable: LookupTable, visible: boolean): void
-    vfuncUpdatePreeditText(text: Text, cursorPos: number, visible: boolean): void
-    vfuncUpdateProperty(prop: Property): void
-    /* Virtual methods of IBus.Service */
-    vfuncServiceGetProperty(connection: Gio.DBusConnection, sender: string, objectPath: string, interfaceName: string, propertyName: string): GLib.Variant | null
-    vfuncServiceMethodCall(connection: Gio.DBusConnection, sender: string, objectPath: string, interfaceName: string, methodName: string, parameters: GLib.Variant, invocation: Gio.DBusMethodInvocation): void
-    vfuncServiceSetProperty(connection: Gio.DBusConnection, sender: string, objectPath: string, interfaceName: string, propertyName: string, value: GLib.Variant): boolean
-    /* Virtual methods of IBus.Object */
-    vfuncDestroy(): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of IBus.PanelService */
+    /* Signals of IBus-1.0.IBus.PanelService */
     connect(sigName: "cursor-down-lookup-table", callback: (($obj: PanelService) => void)): number
-    connect_after(sigName: "cursor-down-lookup-table", callback: (($obj: PanelService) => void)): number
+    on(sigName: "cursor-down-lookup-table", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "cursor-down-lookup-table", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "cursor-down-lookup-table", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "cursor-down-lookup-table"): void
-    on(sigName: "cursor-down-lookup-table", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "cursor-down-lookup-table", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "cursor-down-lookup-table", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "cursor-up-lookup-table", callback: (($obj: PanelService) => void)): number
-    connect_after(sigName: "cursor-up-lookup-table", callback: (($obj: PanelService) => void)): number
+    on(sigName: "cursor-up-lookup-table", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "cursor-up-lookup-table", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "cursor-up-lookup-table", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "cursor-up-lookup-table"): void
-    on(sigName: "cursor-up-lookup-table", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "cursor-up-lookup-table", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "cursor-up-lookup-table", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "destroy-context", callback: (($obj: PanelService, inputContextPath: string) => void)): number
-    connect_after(sigName: "destroy-context", callback: (($obj: PanelService, inputContextPath: string) => void)): number
+    on(sigName: "destroy-context", callback: (inputContextPath: string) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "destroy-context", callback: (inputContextPath: string) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "destroy-context", callback: (inputContextPath: string) => void): NodeJS.EventEmitter
     emit(sigName: "destroy-context", inputContextPath: string): void
-    on(sigName: "destroy-context", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "destroy-context", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "destroy-context", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "focus-in", callback: (($obj: PanelService, inputContextPath: string) => void)): number
-    connect_after(sigName: "focus-in", callback: (($obj: PanelService, inputContextPath: string) => void)): number
+    on(sigName: "focus-in", callback: (inputContextPath: string) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "focus-in", callback: (inputContextPath: string) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "focus-in", callback: (inputContextPath: string) => void): NodeJS.EventEmitter
     emit(sigName: "focus-in", inputContextPath: string): void
-    on(sigName: "focus-in", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "focus-in", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "focus-in", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "focus-out", callback: (($obj: PanelService, inputContextPath: string) => void)): number
-    connect_after(sigName: "focus-out", callback: (($obj: PanelService, inputContextPath: string) => void)): number
+    on(sigName: "focus-out", callback: (inputContextPath: string) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "focus-out", callback: (inputContextPath: string) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "focus-out", callback: (inputContextPath: string) => void): NodeJS.EventEmitter
     emit(sigName: "focus-out", inputContextPath: string): void
-    on(sigName: "focus-out", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "focus-out", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "focus-out", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "hide-auxiliary-text", callback: (($obj: PanelService) => void)): number
-    connect_after(sigName: "hide-auxiliary-text", callback: (($obj: PanelService) => void)): number
+    on(sigName: "hide-auxiliary-text", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "hide-auxiliary-text", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "hide-auxiliary-text", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "hide-auxiliary-text"): void
-    on(sigName: "hide-auxiliary-text", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "hide-auxiliary-text", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "hide-auxiliary-text", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "hide-language-bar", callback: (($obj: PanelService) => void)): number
-    connect_after(sigName: "hide-language-bar", callback: (($obj: PanelService) => void)): number
+    on(sigName: "hide-language-bar", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "hide-language-bar", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "hide-language-bar", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "hide-language-bar"): void
-    on(sigName: "hide-language-bar", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "hide-language-bar", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "hide-language-bar", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "hide-lookup-table", callback: (($obj: PanelService) => void)): number
-    connect_after(sigName: "hide-lookup-table", callback: (($obj: PanelService) => void)): number
+    on(sigName: "hide-lookup-table", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "hide-lookup-table", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "hide-lookup-table", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "hide-lookup-table"): void
-    on(sigName: "hide-lookup-table", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "hide-lookup-table", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "hide-lookup-table", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "hide-preedit-text", callback: (($obj: PanelService) => void)): number
-    connect_after(sigName: "hide-preedit-text", callback: (($obj: PanelService) => void)): number
+    on(sigName: "hide-preedit-text", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "hide-preedit-text", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "hide-preedit-text", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "hide-preedit-text"): void
-    on(sigName: "hide-preedit-text", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "hide-preedit-text", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "hide-preedit-text", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "page-down-lookup-table", callback: (($obj: PanelService) => void)): number
-    connect_after(sigName: "page-down-lookup-table", callback: (($obj: PanelService) => void)): number
+    on(sigName: "page-down-lookup-table", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "page-down-lookup-table", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "page-down-lookup-table", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "page-down-lookup-table"): void
-    on(sigName: "page-down-lookup-table", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "page-down-lookup-table", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "page-down-lookup-table", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "page-up-lookup-table", callback: (($obj: PanelService) => void)): number
-    connect_after(sigName: "page-up-lookup-table", callback: (($obj: PanelService) => void)): number
+    on(sigName: "page-up-lookup-table", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "page-up-lookup-table", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "page-up-lookup-table", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "page-up-lookup-table"): void
-    on(sigName: "page-up-lookup-table", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "page-up-lookup-table", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "page-up-lookup-table", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "register-properties", callback: (($obj: PanelService, propList: PropList) => void)): number
-    connect_after(sigName: "register-properties", callback: (($obj: PanelService, propList: PropList) => void)): number
+    on(sigName: "register-properties", callback: (propList: PropList) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "register-properties", callback: (propList: PropList) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "register-properties", callback: (propList: PropList) => void): NodeJS.EventEmitter
     emit(sigName: "register-properties", propList: PropList): void
-    on(sigName: "register-properties", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "register-properties", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "register-properties", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "reset", callback: (($obj: PanelService) => void)): number
-    connect_after(sigName: "reset", callback: (($obj: PanelService) => void)): number
+    on(sigName: "reset", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "reset", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "reset", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "reset"): void
-    on(sigName: "reset", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "reset", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "reset", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "set-content-type", callback: (($obj: PanelService, purpose: number, hints: number) => void)): number
-    connect_after(sigName: "set-content-type", callback: (($obj: PanelService, purpose: number, hints: number) => void)): number
+    on(sigName: "set-content-type", callback: (purpose: number, hints: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "set-content-type", callback: (purpose: number, hints: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "set-content-type", callback: (purpose: number, hints: number) => void): NodeJS.EventEmitter
     emit(sigName: "set-content-type", purpose: number, hints: number): void
-    on(sigName: "set-content-type", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "set-content-type", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "set-content-type", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "set-cursor-location", callback: (($obj: PanelService, x: number, y: number, w: number, h: number) => void)): number
-    connect_after(sigName: "set-cursor-location", callback: (($obj: PanelService, x: number, y: number, w: number, h: number) => void)): number
+    on(sigName: "set-cursor-location", callback: (x: number, y: number, w: number, h: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "set-cursor-location", callback: (x: number, y: number, w: number, h: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "set-cursor-location", callback: (x: number, y: number, w: number, h: number) => void): NodeJS.EventEmitter
     emit(sigName: "set-cursor-location", x: number, y: number, w: number, h: number): void
-    on(sigName: "set-cursor-location", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "set-cursor-location", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "set-cursor-location", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "show-auxiliary-text", callback: (($obj: PanelService) => void)): number
-    connect_after(sigName: "show-auxiliary-text", callback: (($obj: PanelService) => void)): number
+    on(sigName: "show-auxiliary-text", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "show-auxiliary-text", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "show-auxiliary-text", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "show-auxiliary-text"): void
-    on(sigName: "show-auxiliary-text", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "show-auxiliary-text", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "show-auxiliary-text", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "show-language-bar", callback: (($obj: PanelService) => void)): number
-    connect_after(sigName: "show-language-bar", callback: (($obj: PanelService) => void)): number
+    on(sigName: "show-language-bar", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "show-language-bar", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "show-language-bar", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "show-language-bar"): void
-    on(sigName: "show-language-bar", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "show-language-bar", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "show-language-bar", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "show-lookup-table", callback: (($obj: PanelService) => void)): number
-    connect_after(sigName: "show-lookup-table", callback: (($obj: PanelService) => void)): number
+    on(sigName: "show-lookup-table", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "show-lookup-table", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "show-lookup-table", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "show-lookup-table"): void
-    on(sigName: "show-lookup-table", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "show-lookup-table", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "show-lookup-table", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "show-preedit-text", callback: (($obj: PanelService) => void)): number
-    connect_after(sigName: "show-preedit-text", callback: (($obj: PanelService) => void)): number
+    on(sigName: "show-preedit-text", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "show-preedit-text", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "show-preedit-text", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "show-preedit-text"): void
-    on(sigName: "show-preedit-text", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "show-preedit-text", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "show-preedit-text", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "start-setup", callback: (($obj: PanelService) => void)): number
-    connect_after(sigName: "start-setup", callback: (($obj: PanelService) => void)): number
+    on(sigName: "start-setup", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "start-setup", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "start-setup", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "start-setup"): void
-    on(sigName: "start-setup", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "start-setup", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "start-setup", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "state-changed", callback: (($obj: PanelService) => void)): number
-    connect_after(sigName: "state-changed", callback: (($obj: PanelService) => void)): number
+    on(sigName: "state-changed", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "state-changed", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "state-changed", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "state-changed"): void
-    on(sigName: "state-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "state-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "state-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "update-auxiliary-text", callback: (($obj: PanelService, text: Text, visible: boolean) => void)): number
-    connect_after(sigName: "update-auxiliary-text", callback: (($obj: PanelService, text: Text, visible: boolean) => void)): number
+    on(sigName: "update-auxiliary-text", callback: (text: Text, visible: boolean) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "update-auxiliary-text", callback: (text: Text, visible: boolean) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "update-auxiliary-text", callback: (text: Text, visible: boolean) => void): NodeJS.EventEmitter
     emit(sigName: "update-auxiliary-text", text: Text, visible: boolean): void
-    on(sigName: "update-auxiliary-text", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "update-auxiliary-text", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "update-auxiliary-text", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "update-lookup-table", callback: (($obj: PanelService, lookupTable: LookupTable, visible: boolean) => void)): number
-    connect_after(sigName: "update-lookup-table", callback: (($obj: PanelService, lookupTable: LookupTable, visible: boolean) => void)): number
+    on(sigName: "update-lookup-table", callback: (lookupTable: LookupTable, visible: boolean) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "update-lookup-table", callback: (lookupTable: LookupTable, visible: boolean) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "update-lookup-table", callback: (lookupTable: LookupTable, visible: boolean) => void): NodeJS.EventEmitter
     emit(sigName: "update-lookup-table", lookupTable: LookupTable, visible: boolean): void
-    on(sigName: "update-lookup-table", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "update-lookup-table", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "update-lookup-table", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "update-preedit-text", callback: (($obj: PanelService, text: Text, cursorPos: number, visible: boolean) => void)): number
-    connect_after(sigName: "update-preedit-text", callback: (($obj: PanelService, text: Text, cursorPos: number, visible: boolean) => void)): number
+    on(sigName: "update-preedit-text", callback: (text: Text, cursorPos: number, visible: boolean) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "update-preedit-text", callback: (text: Text, cursorPos: number, visible: boolean) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "update-preedit-text", callback: (text: Text, cursorPos: number, visible: boolean) => void): NodeJS.EventEmitter
     emit(sigName: "update-preedit-text", text: Text, cursorPos: number, visible: boolean): void
-    on(sigName: "update-preedit-text", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "update-preedit-text", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "update-preedit-text", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "update-property", callback: (($obj: PanelService, prop: Property) => void)): number
-    connect_after(sigName: "update-property", callback: (($obj: PanelService, prop: Property) => void)): number
+    on(sigName: "update-property", callback: (prop: Property) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "update-property", callback: (prop: Property) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "update-property", callback: (prop: Property) => void): NodeJS.EventEmitter
     emit(sigName: "update-property", prop: Property): void
-    on(sigName: "update-property", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "update-property", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "update-property", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of IBus.Object */
+    /* Signals of IBus-1.0.IBus.Object */
     connect(sigName: "destroy", callback: (($obj: PanelService) => void)): number
-    connect_after(sigName: "destroy", callback: (($obj: PanelService) => void)): number
+    on(sigName: "destroy", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "destroy", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "destroy", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "destroy"): void
-    on(sigName: "destroy", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "destroy", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "destroy", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: PanelService, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: PanelService, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -6716,27 +6273,27 @@ export class PanelService {
 export interface PropList_ConstructProps extends Serializable_ConstructProps {
 }
 export class PropList {
-    /* Fields of IBus.PropList */
+    /* Fields of IBus-1.0.IBus.PropList */
     parent: Serializable
     properties: object[]
-    /* Fields of IBus.Object */
+    /* Fields of IBus-1.0.IBus.Object */
     flags: number
     priv: ObjectPrivate
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of IBus.PropList */
+    /* Methods of IBus-1.0.IBus.PropList */
     append(prop: Property): void
     get(index: number): Property
     updateProperty(prop: Property): boolean
-    /* Methods of IBus.Serializable */
+    /* Methods of IBus-1.0.IBus.Serializable */
     copy(): Serializable
     getQattachment(key: GLib.Quark): GLib.Variant
     removeQattachment(key: GLib.Quark): void
     serialize(): GLib.Variant
     setQattachment(key: GLib.Quark, value: GLib.Variant): void
-    /* Methods of IBus.Object */
+    /* Methods of IBus-1.0.IBus.Object */
     destroy(): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -6758,34 +6315,18 @@ export class PropList {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of IBus.Serializable */
-    vfuncCopy(src: Serializable): boolean
-    vfuncDeserialize(variant: GLib.Variant): number
-    vfuncSerialize(builder: GLib.VariantBuilder): boolean
-    /* Virtual methods of IBus.Object */
-    vfuncDestroy(): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of IBus.Object */
+    /* Signals of IBus-1.0.IBus.Object */
     connect(sigName: "destroy", callback: (($obj: PropList) => void)): number
-    connect_after(sigName: "destroy", callback: (($obj: PropList) => void)): number
+    on(sigName: "destroy", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "destroy", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "destroy", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "destroy"): void
-    on(sigName: "destroy", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "destroy", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "destroy", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: PropList, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: PropList, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -6813,7 +6354,7 @@ export interface Property_ConstructProps extends Serializable_ConstructProps {
     visible?: boolean
 }
 export class Property {
-    /* Properties of IBus.Property */
+    /* Properties of IBus-1.0.IBus.Property */
     icon: string
     label: Text
     sensitive: boolean
@@ -6822,13 +6363,13 @@ export class Property {
     symbol: Text
     tooltip: Text
     visible: boolean
-    /* Fields of IBus.Object */
+    /* Fields of IBus-1.0.IBus.Object */
     parent: GObject.InitiallyUnowned
     flags: number
     priv: ObjectPrivate
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of IBus.Property */
+    /* Methods of IBus-1.0.IBus.Property */
     getIcon(): string
     getKey(): string
     getLabel(): Text
@@ -6848,15 +6389,15 @@ export class Property {
     setTooltip(tooltip: Text): void
     setVisible(visible: boolean): void
     update(propUpdate: Property): boolean
-    /* Methods of IBus.Serializable */
+    /* Methods of IBus-1.0.IBus.Serializable */
     copy(): Serializable
     getQattachment(key: GLib.Quark): GLib.Variant
     removeQattachment(key: GLib.Quark): void
     serialize(): GLib.Variant
     setQattachment(key: GLib.Quark, value: GLib.Variant): void
-    /* Methods of IBus.Object */
+    /* Methods of IBus-1.0.IBus.Object */
     destroy(): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -6878,34 +6419,18 @@ export class Property {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of IBus.Serializable */
-    vfuncCopy(src: Serializable): boolean
-    vfuncDeserialize(variant: GLib.Variant): number
-    vfuncSerialize(builder: GLib.VariantBuilder): boolean
-    /* Virtual methods of IBus.Object */
-    vfuncDestroy(): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of IBus.Object */
+    /* Signals of IBus-1.0.IBus.Object */
     connect(sigName: "destroy", callback: (($obj: Property) => void)): number
-    connect_after(sigName: "destroy", callback: (($obj: Property) => void)): number
+    on(sigName: "destroy", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "destroy", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "destroy", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "destroy"): void
-    on(sigName: "destroy", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "destroy", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "destroy", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Property, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Property, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::icon", callback: (($obj: Property, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::icon", callback: (($obj: Property, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::icon", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -6964,25 +6489,25 @@ export class Property {
 export interface Proxy_ConstructProps extends Gio.DBusProxy_ConstructProps {
 }
 export class Proxy {
-    /* Properties of Gio.DBusProxy */
+    /* Properties of Gio-2.0.Gio.DBusProxy */
     gDefaultTimeout: number
     gInterfaceInfo: Gio.DBusInterfaceInfo
     readonly gNameOwner: string
-    /* Fields of IBus.Proxy */
+    /* Fields of IBus-1.0.IBus.Proxy */
     parent: Gio.DBusProxy
     flags: number
     own: boolean
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of IBus.Proxy */
+    /* Methods of IBus-1.0.IBus.Proxy */
     destroy(): void
-    /* Methods of Gio.DBusProxy */
+    /* Methods of Gio-2.0.Gio.DBusProxy */
     call(methodName: string, parameters: GLib.Variant | null, flags: Gio.DBusCallFlags, timeoutMsec: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     callFinish(res: Gio.AsyncResult): GLib.Variant
     callSync(methodName: string, parameters: GLib.Variant | null, flags: Gio.DBusCallFlags, timeoutMsec: number, cancellable?: Gio.Cancellable | null): GLib.Variant
     callWithUnixFdList(methodName: string, parameters: GLib.Variant | null, flags: Gio.DBusCallFlags, timeoutMsec: number, fdList?: Gio.UnixFDList | null, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    callWithUnixFdListFinish(res: Gio.AsyncResult): [ /* returnType */ GLib.Variant, /* outFdList */ Gio.UnixFDList | null ]
-    callWithUnixFdListSync(methodName: string, parameters: GLib.Variant | null, flags: Gio.DBusCallFlags, timeoutMsec: number, fdList?: Gio.UnixFDList | null, cancellable?: Gio.Cancellable | null): [ /* returnType */ GLib.Variant, /* outFdList */ Gio.UnixFDList | null ]
+    callWithUnixFdListFinish(res: Gio.AsyncResult): { returnType: GLib.Variant, outFdList: Gio.UnixFDList | null }
+    callWithUnixFdListSync(methodName: string, parameters: GLib.Variant | null, flags: Gio.DBusCallFlags, timeoutMsec: number, fdList?: Gio.UnixFDList | null, cancellable?: Gio.Cancellable | null): { returnType: GLib.Variant, outFdList: Gio.UnixFDList | null }
     getCachedProperty(propertyName: string): GLib.Variant | null
     getCachedPropertyNames(): string[] | null
     getConnection(): Gio.DBusConnection
@@ -6996,7 +6521,7 @@ export class Proxy {
     setCachedProperty(propertyName: string, value?: GLib.Variant | null): void
     setDefaultTimeout(timeoutMsec: number): void
     setInterfaceInfo(info?: Gio.DBusInterfaceInfo | null): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -7018,62 +6543,39 @@ export class Proxy {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of Gio.AsyncInitable */
+    /* Methods of Gio-2.0.Gio.AsyncInitable */
     initAsync(ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     initFinish(res: Gio.AsyncResult): boolean
     newFinish(res: Gio.AsyncResult): GObject.Object
-    /* Methods of Gio.DBusInterface */
+    /* Methods of Gio-2.0.Gio.DBusInterface */
     getObject(): Gio.DBusObject | null
     getInfo(): Gio.DBusInterfaceInfo
     setObject(object?: Gio.DBusObject | null): void
-    /* Methods of Gio.Initable */
+    /* Methods of Gio-2.0.Gio.Initable */
     init(cancellable?: Gio.Cancellable | null): boolean
-    /* Virtual methods of IBus.Proxy */
-    vfuncDestroy(): void
-    vfuncInitAsync(ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    vfuncInitFinish(res: Gio.AsyncResult): boolean
-    vfuncDupObject(): Gio.DBusObject | null
-    vfuncGetInfo(): Gio.DBusInterfaceInfo
-    vfuncSetObject(object?: Gio.DBusObject | null): void
-    vfuncInit(cancellable?: Gio.Cancellable | null): boolean
-    /* Virtual methods of Gio.DBusProxy */
-    vfuncGPropertiesChanged(changedProperties: GLib.Variant, invalidatedProperties: string): void
-    vfuncGSignal(senderName: string, signalName: string, parameters: GLib.Variant): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of IBus.Proxy */
+    /* Signals of IBus-1.0.IBus.Proxy */
     connect(sigName: "destroy", callback: (($obj: Proxy) => void)): number
-    connect_after(sigName: "destroy", callback: (($obj: Proxy) => void)): number
+    on(sigName: "destroy", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "destroy", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "destroy", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "destroy"): void
-    on(sigName: "destroy", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "destroy", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "destroy", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of Gio.DBusProxy */
+    /* Signals of Gio-2.0.Gio.DBusProxy */
     connect(sigName: "g-properties-changed", callback: (($obj: Proxy, changedProperties: GLib.Variant, invalidatedProperties: string[]) => void)): number
-    connect_after(sigName: "g-properties-changed", callback: (($obj: Proxy, changedProperties: GLib.Variant, invalidatedProperties: string[]) => void)): number
+    on(sigName: "g-properties-changed", callback: (changedProperties: GLib.Variant, invalidatedProperties: string[]) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "g-properties-changed", callback: (changedProperties: GLib.Variant, invalidatedProperties: string[]) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "g-properties-changed", callback: (changedProperties: GLib.Variant, invalidatedProperties: string[]) => void): NodeJS.EventEmitter
     emit(sigName: "g-properties-changed", changedProperties: GLib.Variant, invalidatedProperties: string[]): void
-    on(sigName: "g-properties-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "g-properties-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "g-properties-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "g-signal", callback: (($obj: Proxy, senderName: string | null, signalName: string, parameters: GLib.Variant) => void)): number
-    connect_after(sigName: "g-signal", callback: (($obj: Proxy, senderName: string | null, signalName: string, parameters: GLib.Variant) => void)): number
+    on(sigName: "g-signal", callback: (senderName: string | null, signalName: string, parameters: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "g-signal", callback: (senderName: string | null, signalName: string, parameters: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "g-signal", callback: (senderName: string | null, signalName: string, parameters: GLib.Variant) => void): NodeJS.EventEmitter
     emit(sigName: "g-signal", senderName: string | null, signalName: string, parameters: GLib.Variant): void
-    on(sigName: "g-signal", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "g-signal", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "g-signal", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Proxy, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Proxy, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::g-default-timeout", callback: (($obj: Proxy, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::g-default-timeout", callback: (($obj: Proxy, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::g-default-timeout", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -7107,13 +6609,13 @@ export class Proxy {
 export interface Registry_ConstructProps extends Serializable_ConstructProps {
 }
 export class Registry {
-    /* Fields of IBus.Object */
+    /* Fields of IBus-1.0.IBus.Object */
     parent: GObject.InitiallyUnowned
     flags: number
     priv: ObjectPrivate
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of IBus.Registry */
+    /* Methods of IBus-1.0.IBus.Registry */
     checkModification(): boolean
     getComponents(): Component[]
     getObservedPaths(): ObservedPath[]
@@ -7125,15 +6627,15 @@ export class Registry {
     saveCache(isUser: boolean): boolean
     saveCacheFile(filename: string): boolean
     startMonitorChanges(): void
-    /* Methods of IBus.Serializable */
+    /* Methods of IBus-1.0.IBus.Serializable */
     copy(): Serializable
     getQattachment(key: GLib.Quark): GLib.Variant
     removeQattachment(key: GLib.Quark): void
     serialize(): GLib.Variant
     setQattachment(key: GLib.Quark, value: GLib.Variant): void
-    /* Methods of IBus.Object */
+    /* Methods of IBus-1.0.IBus.Object */
     destroy(): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -7155,41 +6657,24 @@ export class Registry {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of IBus.Serializable */
-    vfuncCopy(src: Serializable): boolean
-    vfuncDeserialize(variant: GLib.Variant): number
-    vfuncSerialize(builder: GLib.VariantBuilder): boolean
-    /* Virtual methods of IBus.Object */
-    vfuncDestroy(): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of IBus.Registry */
+    /* Signals of IBus-1.0.IBus.Registry */
     connect(sigName: "changed", callback: (($obj: Registry) => void)): number
-    connect_after(sigName: "changed", callback: (($obj: Registry) => void)): number
+    on(sigName: "changed", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "changed", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "changed", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "changed"): void
-    on(sigName: "changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of IBus.Object */
+    /* Signals of IBus-1.0.IBus.Object */
     connect(sigName: "destroy", callback: (($obj: Registry) => void)): number
-    connect_after(sigName: "destroy", callback: (($obj: Registry) => void)): number
+    on(sigName: "destroy", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "destroy", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "destroy", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "destroy"): void
-    on(sigName: "destroy", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "destroy", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "destroy", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Registry, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Registry, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -7207,21 +6692,21 @@ export class Registry {
 export interface Serializable_ConstructProps extends Object_ConstructProps {
 }
 export class Serializable {
-    /* Fields of IBus.Object */
+    /* Fields of IBus-1.0.IBus.Object */
     parent: GObject.InitiallyUnowned
     flags: number
     priv: ObjectPrivate
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of IBus.Serializable */
+    /* Methods of IBus-1.0.IBus.Serializable */
     copy(): Serializable
     getQattachment(key: GLib.Quark): GLib.Variant
     removeQattachment(key: GLib.Quark): void
     serialize(): GLib.Variant
     setQattachment(key: GLib.Quark, value: GLib.Variant): void
-    /* Methods of IBus.Object */
+    /* Methods of IBus-1.0.IBus.Object */
     destroy(): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -7243,34 +6728,18 @@ export class Serializable {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of IBus.Serializable */
-    vfuncCopy(src: Serializable): boolean
-    vfuncDeserialize(variant: GLib.Variant): number
-    vfuncSerialize(builder: GLib.VariantBuilder): boolean
-    /* Virtual methods of IBus.Object */
-    vfuncDestroy(): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of IBus.Object */
+    /* Signals of IBus-1.0.IBus.Object */
     connect(sigName: "destroy", callback: (($obj: Serializable) => void)): number
-    connect_after(sigName: "destroy", callback: (($obj: Serializable) => void)): number
+    on(sigName: "destroy", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "destroy", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "destroy", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "destroy"): void
-    on(sigName: "destroy", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "destroy", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "destroy", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Serializable, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Serializable, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -7291,21 +6760,21 @@ export interface Service_ConstructProps extends Object_ConstructProps {
     objectPath?: string
 }
 export class Service {
-    /* Fields of IBus.Object */
+    /* Fields of IBus-1.0.IBus.Object */
     parent: GObject.InitiallyUnowned
     flags: number
     priv: ObjectPrivate
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of IBus.Service */
+    /* Methods of IBus-1.0.IBus.Service */
     emitSignal(destBusName: string, interfaceName: string, signalName: string, parameters: GLib.Variant): boolean
     getConnection(): Gio.DBusConnection
     getObjectPath(): string
     register(connection: Gio.DBusConnection): boolean
     unregister(connection: Gio.DBusConnection): void
-    /* Methods of IBus.Object */
+    /* Methods of IBus-1.0.IBus.Object */
     destroy(): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -7327,34 +6796,18 @@ export class Service {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of IBus.Service */
-    vfuncServiceGetProperty(connection: Gio.DBusConnection, sender: string, objectPath: string, interfaceName: string, propertyName: string): GLib.Variant | null
-    vfuncServiceMethodCall(connection: Gio.DBusConnection, sender: string, objectPath: string, interfaceName: string, methodName: string, parameters: GLib.Variant, invocation: Gio.DBusMethodInvocation): void
-    vfuncServiceSetProperty(connection: Gio.DBusConnection, sender: string, objectPath: string, interfaceName: string, propertyName: string, value: GLib.Variant): boolean
-    /* Virtual methods of IBus.Object */
-    vfuncDestroy(): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of IBus.Object */
+    /* Signals of IBus-1.0.IBus.Object */
     connect(sigName: "destroy", callback: (($obj: Service) => void)): number
-    connect_after(sigName: "destroy", callback: (($obj: Service) => void)): number
+    on(sigName: "destroy", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "destroy", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "destroy", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "destroy"): void
-    on(sigName: "destroy", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "destroy", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "destroy", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Service, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Service, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -7374,31 +6827,31 @@ export class Service {
 export interface Text_ConstructProps extends Serializable_ConstructProps {
 }
 export class Text {
-    /* Fields of IBus.Text */
+    /* Fields of IBus-1.0.IBus.Text */
     parent: Serializable
     isStatic: boolean
     text: string
     attrs: AttrList
-    /* Fields of IBus.Object */
+    /* Fields of IBus-1.0.IBus.Object */
     flags: number
     priv: ObjectPrivate
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of IBus.Text */
+    /* Methods of IBus-1.0.IBus.Text */
     appendAttribute(type: number, value: number, startIndex: number, endIndex: number): void
     getAttributes(): AttrList
     getLength(): number
     getText(): string
     setAttributes(attrs: AttrList): void
-    /* Methods of IBus.Serializable */
+    /* Methods of IBus-1.0.IBus.Serializable */
     copy(): Serializable
     getQattachment(key: GLib.Quark): GLib.Variant
     removeQattachment(key: GLib.Quark): void
     serialize(): GLib.Variant
     setQattachment(key: GLib.Quark, value: GLib.Variant): void
-    /* Methods of IBus.Object */
+    /* Methods of IBus-1.0.IBus.Object */
     destroy(): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -7420,34 +6873,18 @@ export class Text {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of IBus.Serializable */
-    vfuncCopy(src: Serializable): boolean
-    vfuncDeserialize(variant: GLib.Variant): number
-    vfuncSerialize(builder: GLib.VariantBuilder): boolean
-    /* Virtual methods of IBus.Object */
-    vfuncDestroy(): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of IBus.Object */
+    /* Signals of IBus-1.0.IBus.Object */
     connect(sigName: "destroy", callback: (($obj: Text) => void)): number
-    connect_after(sigName: "destroy", callback: (($obj: Text) => void)): number
+    on(sigName: "destroy", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "destroy", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "destroy", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "destroy"): void
-    on(sigName: "destroy", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "destroy", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "destroy", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Text, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Text, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -7465,17 +6902,17 @@ export class Text {
     static $gtype: GObject.Type
 }
 export abstract class AttrListClass {
-    /* Fields of IBus.AttrListClass */
+    /* Fields of IBus-1.0.IBus.AttrListClass */
     parent: SerializableClass
     static name: string
 }
 export abstract class AttributeClass {
-    /* Fields of IBus.AttributeClass */
+    /* Fields of IBus-1.0.IBus.AttributeClass */
     parent: SerializableClass
     static name: string
 }
 export abstract class BusClass {
-    /* Fields of IBus.BusClass */
+    /* Fields of IBus-1.0.IBus.BusClass */
     parent: ObjectClass
     static name: string
 }
@@ -7483,7 +6920,7 @@ export class BusPrivate {
     static name: string
 }
 export abstract class ComponentClass {
-    /* Fields of IBus.ComponentClass */
+    /* Fields of IBus-1.0.IBus.ComponentClass */
     parent: SerializableClass
     static name: string
 }
@@ -7497,7 +6934,7 @@ export class ConfigPrivate {
     static name: string
 }
 export abstract class ConfigServiceClass {
-    /* Fields of IBus.ConfigServiceClass */
+    /* Fields of IBus-1.0.IBus.ConfigServiceClass */
     setValue: (config: ConfigService, section: string, name: string, value: GLib.Variant) => boolean
     getValue: (config: ConfigService, section: string, name: string) => GLib.Variant
     unsetValue: (config: ConfigService, section: string, name: string) => boolean
@@ -7505,7 +6942,7 @@ export abstract class ConfigServiceClass {
     static name: string
 }
 export abstract class EngineClass {
-    /* Fields of IBus.EngineClass */
+    /* Fields of IBus-1.0.IBus.EngineClass */
     processKeyEvent: (engine: Engine, keyval: number, keycode: number, state: number) => boolean
     focusIn: (engine: Engine) => void
     focusOut: (engine: Engine) => void
@@ -7529,7 +6966,7 @@ export abstract class EngineClass {
     static name: string
 }
 export abstract class EngineDescClass {
-    /* Fields of IBus.EngineDescClass */
+    /* Fields of IBus-1.0.IBus.EngineDescClass */
     parent: SerializableClass
     static name: string
 }
@@ -7546,7 +6983,7 @@ export class EngineSimplePrivate {
     static name: string
 }
 export abstract class FactoryClass {
-    /* Fields of IBus.FactoryClass */
+    /* Fields of IBus-1.0.IBus.FactoryClass */
     createEngine: (factory: Factory, engineName: string) => Engine
     static name: string
 }
@@ -7554,28 +6991,28 @@ export class FactoryPrivate {
     static name: string
 }
 export abstract class HotkeyProfileClass {
-    /* Fields of IBus.HotkeyProfileClass */
+    /* Fields of IBus-1.0.IBus.HotkeyProfileClass */
     parent: SerializableClass
     trigger: (profile: HotkeyProfile, event: GLib.Quark) => void
     static name: string
 }
 export abstract class InputContextClass {
-    /* Fields of IBus.InputContextClass */
+    /* Fields of IBus-1.0.IBus.InputContextClass */
     parent: ProxyClass
     static name: string
 }
 export abstract class KeymapClass {
-    /* Fields of IBus.KeymapClass */
+    /* Fields of IBus-1.0.IBus.KeymapClass */
     parent: ObjectClass
     static name: string
 }
 export abstract class LookupTableClass {
-    /* Fields of IBus.LookupTableClass */
+    /* Fields of IBus-1.0.IBus.LookupTableClass */
     parent: SerializableClass
     static name: string
 }
 export abstract class ObjectClass {
-    /* Fields of IBus.ObjectClass */
+    /* Fields of IBus-1.0.IBus.ObjectClass */
     parent: GObject.InitiallyUnownedClass
     destroy: (object: Object) => void
     static name: string
@@ -7584,12 +7021,12 @@ export class ObjectPrivate {
     static name: string
 }
 export abstract class ObservedPathClass {
-    /* Fields of IBus.ObservedPathClass */
+    /* Fields of IBus-1.0.IBus.ObservedPathClass */
     parent: SerializableClass
     static name: string
 }
 export abstract class PanelServiceClass {
-    /* Fields of IBus.PanelServiceClass */
+    /* Fields of IBus-1.0.IBus.PanelServiceClass */
     parent: ServiceClass
     focusIn: (panel: PanelService, inputContextPath: string) => void
     focusOut: (panel: PanelService, inputContextPath: string) => void
@@ -7619,12 +7056,12 @@ export abstract class PanelServiceClass {
     static name: string
 }
 export abstract class PropListClass {
-    /* Fields of IBus.PropListClass */
+    /* Fields of IBus-1.0.IBus.PropListClass */
     parent: SerializableClass
     static name: string
 }
 export abstract class PropertyClass {
-    /* Fields of IBus.PropertyClass */
+    /* Fields of IBus-1.0.IBus.PropertyClass */
     parent: SerializableClass
     static name: string
 }
@@ -7632,13 +7069,13 @@ export class PropertyPrivate {
     static name: string
 }
 export abstract class ProxyClass {
-    /* Fields of IBus.ProxyClass */
+    /* Fields of IBus-1.0.IBus.ProxyClass */
     parent: Gio.DBusProxyClass
     destroy: (proxy: Proxy) => void
     static name: string
 }
 export class Rectangle {
-    /* Fields of IBus.Rectangle */
+    /* Fields of IBus-1.0.IBus.Rectangle */
     x: number
     y: number
     width: number
@@ -7652,7 +7089,7 @@ export class RegistryPrivate {
     static name: string
 }
 export abstract class SerializableClass {
-    /* Fields of IBus.SerializableClass */
+    /* Fields of IBus-1.0.IBus.SerializableClass */
     serialize: (object: Serializable, builder: GLib.VariantBuilder) => boolean
     deserialize: (object: Serializable, variant: GLib.Variant) => number
     copy: (dest: Serializable, src: Serializable) => boolean
@@ -7662,11 +7099,11 @@ export class SerializablePrivate {
     static name: string
 }
 export abstract class ServiceClass {
-    /* Fields of IBus.ServiceClass */
+    /* Fields of IBus-1.0.IBus.ServiceClass */
     serviceMethodCall: (service: Service, connection: Gio.DBusConnection, sender: string, objectPath: string, interfaceName: string, methodName: string, parameters: GLib.Variant, invocation: Gio.DBusMethodInvocation) => void
     serviceGetProperty: (service: Service, connection: Gio.DBusConnection, sender: string, objectPath: string, interfaceName: string, propertyName: string) => GLib.Variant | null
     serviceSetProperty: (service: Service, connection: Gio.DBusConnection, sender: string, objectPath: string, interfaceName: string, propertyName: string, value: GLib.Variant) => boolean
-    /* Methods of IBus.ServiceClass */
+    /* Methods of IBus-1.0.IBus.ServiceClass */
     addInterfaces(klass: Service | Function | GObject.Type, xmlData: string): boolean
     static name: string
 }
@@ -7674,17 +7111,17 @@ export class ServicePrivate {
     static name: string
 }
 export abstract class TextClass {
-    /* Fields of IBus.TextClass */
+    /* Fields of IBus-1.0.IBus.TextClass */
     parent: SerializableClass
     static name: string
 }
 export class XML {
-    /* Fields of IBus.XML */
+    /* Fields of IBus-1.0.IBus.XML */
     name: string
     text: string
     attributes: string
     subNodes: object[]
-    /* Methods of IBus.XML */
+    /* Methods of IBus-1.0.IBus.XML */
     copy(): XML
     free(): void
     output(output: GLib.String): void

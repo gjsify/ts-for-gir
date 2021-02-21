@@ -24,7 +24,7 @@ export function netAddressMetaApiGetType(): GObject.Type
 export function netAddressMetaGetInfo(): Gst.MetaInfo
 export function netControlMessageMetaApiGetType(): GObject.Type
 export function netControlMessageMetaGetInfo(): Gst.MetaInfo
-export function netTimePacketReceive(socket: Gio.Socket): [ /* returnType */ NetTimePacket, /* srcAddress */ Gio.SocketAddress ]
+export function netTimePacketReceive(socket: Gio.Socket): { returnType: NetTimePacket, srcAddress: Gio.SocketAddress }
 export function netUtilsSetSocketTos(socket: Gio.Socket, qosDscp: number): boolean
 export function ptpDeinit(): void
 export function ptpInit(clockId: number, interfaces?: string[] | null): boolean
@@ -45,7 +45,7 @@ export interface NetClientClock_ConstructProps extends Gst.SystemClock_Construct
     roundTripLimit?: number
 }
 export class NetClientClock {
-    /* Properties of GstNet.NetClientClock */
+    /* Properties of GstNet-1.0.GstNet.NetClientClock */
     address: string
     bus: Gst.Bus
     readonly internalClock: Gst.Clock
@@ -53,30 +53,30 @@ export class NetClientClock {
     port: number
     qosDscp: number
     roundTripLimit: number
-    /* Properties of Gst.SystemClock */
+    /* Properties of Gst-1.0.Gst.SystemClock */
     clockType: Gst.ClockType
-    /* Properties of Gst.Clock */
+    /* Properties of Gst-1.0.Gst.Clock */
     timeout: number
     windowSize: number
     windowThreshold: number
-    /* Properties of Gst.Object */
+    /* Properties of Gst-1.0.Gst.Object */
     name: string
     parent: Gst.Object
-    /* Fields of GstNet.NetClientClock */
+    /* Fields of GstNet-1.0.GstNet.NetClientClock */
     clock: Gst.SystemClock
-    /* Fields of Gst.Clock */
+    /* Fields of Gst-1.0.Gst.Clock */
     object: Gst.Object
-    /* Fields of Gst.Object */
+    /* Fields of Gst-1.0.Gst.Object */
     lock: GLib.Mutex
     flags: number
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Gst.Clock */
-    addObservation(slave: Gst.ClockTime, master: Gst.ClockTime): [ /* returnType */ boolean, /* rSquared */ number ]
-    addObservationUnapplied(slave: Gst.ClockTime, master: Gst.ClockTime): [ /* returnType */ boolean, /* rSquared */ number, /* internal */ Gst.ClockTime | null, /* external */ Gst.ClockTime | null, /* rateNum */ Gst.ClockTime | null, /* rateDenom */ Gst.ClockTime | null ]
+    /* Methods of Gst-1.0.Gst.Clock */
+    addObservation(slave: Gst.ClockTime, master: Gst.ClockTime): { returnType: boolean, rSquared: number }
+    addObservationUnapplied(slave: Gst.ClockTime, master: Gst.ClockTime): { returnType: boolean, rSquared: number, internal: Gst.ClockTime | null, external: Gst.ClockTime | null, rateNum: Gst.ClockTime | null, rateDenom: Gst.ClockTime | null }
     adjustUnlocked(internal: Gst.ClockTime): Gst.ClockTime
     adjustWithCalibration(internalTarget: Gst.ClockTime, cinternal: Gst.ClockTime, cexternal: Gst.ClockTime, cnum: Gst.ClockTime, cdenom: Gst.ClockTime): Gst.ClockTime
-    getCalibration(): [ /* internal */ Gst.ClockTime | null, /* external */ Gst.ClockTime | null, /* rateNum */ Gst.ClockTime | null, /* rateDenom */ Gst.ClockTime | null ]
+    getCalibration(): { internal: Gst.ClockTime | null, external: Gst.ClockTime | null, rateNum: Gst.ClockTime | null, rateDenom: Gst.ClockTime | null }
     getInternalTime(): Gst.ClockTime
     getMaster(): Gst.Clock | null
     getResolution(): Gst.ClockTime
@@ -95,7 +95,7 @@ export class NetClientClock {
     unadjustUnlocked(external: Gst.ClockTime): Gst.ClockTime
     unadjustWithCalibration(externalTarget: Gst.ClockTime, cinternal: Gst.ClockTime, cexternal: Gst.ClockTime, cnum: Gst.ClockTime, cdenom: Gst.ClockTime): Gst.ClockTime
     waitForSync(timeout: Gst.ClockTime): boolean
-    /* Methods of Gst.Object */
+    /* Methods of Gst-1.0.Gst.Object */
     addControlBinding(binding: Gst.ControlBinding): boolean
     defaultError(error: GLib.Error, debug?: string | null): void
     getControlBinding(propertyName: string): Gst.ControlBinding | null
@@ -120,7 +120,7 @@ export class NetClientClock {
     syncValues(timestamp: Gst.ClockTime): boolean
     unparent(): void
     unref(): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -141,44 +141,24 @@ export class NetClientClock {
     stealQdata(quark: GLib.Quark): object | null
     thawNotify(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of Gst.Clock */
-    vfuncChangeResolution(oldResolution: Gst.ClockTime, newResolution: Gst.ClockTime): Gst.ClockTime
-    vfuncGetInternalTime(): Gst.ClockTime
-    vfuncGetResolution(): Gst.ClockTime
-    vfuncUnschedule(entry: Gst.ClockEntry): void
-    vfuncWait(entry: Gst.ClockEntry, jitter: Gst.ClockTimeDiff): Gst.ClockReturn
-    vfuncWaitAsync(entry: Gst.ClockEntry): Gst.ClockReturn
-    /* Virtual methods of Gst.Object */
-    vfuncDeepNotify(orig: Gst.Object, pspec: GObject.ParamSpec): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gst.Clock */
+    /* Signals of Gst-1.0.Gst.Clock */
     connect(sigName: "synced", callback: (($obj: NetClientClock, synced: boolean) => void)): number
-    connect_after(sigName: "synced", callback: (($obj: NetClientClock, synced: boolean) => void)): number
+    on(sigName: "synced", callback: (synced: boolean) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "synced", callback: (synced: boolean) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "synced", callback: (synced: boolean) => void): NodeJS.EventEmitter
     emit(sigName: "synced", synced: boolean): void
-    on(sigName: "synced", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "synced", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "synced", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of Gst.Object */
+    /* Signals of Gst-1.0.Gst.Object */
     connect(sigName: "deep-notify", callback: (($obj: NetClientClock, propObject: Gst.Object, prop: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "deep-notify", callback: (($obj: NetClientClock, propObject: Gst.Object, prop: GObject.ParamSpec) => void)): number
+    on(sigName: "deep-notify", callback: (propObject: Gst.Object, prop: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "deep-notify", callback: (propObject: Gst.Object, prop: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "deep-notify", callback: (propObject: Gst.Object, prop: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "deep-notify", propObject: Gst.Object, prop: GObject.ParamSpec): void
-    on(sigName: "deep-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "deep-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "deep-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: NetClientClock, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: NetClientClock, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::address", callback: (($obj: NetClientClock, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::address", callback: (($obj: NetClientClock, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::address", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -266,19 +246,19 @@ export interface NetTimeProvider_ConstructProps extends Gst.Object_ConstructProp
     qosDscp?: number
 }
 export class NetTimeProvider {
-    /* Properties of GstNet.NetTimeProvider */
+    /* Properties of GstNet-1.0.GstNet.NetTimeProvider */
     active: boolean
     qosDscp: number
-    /* Properties of Gst.Object */
+    /* Properties of Gst-1.0.Gst.Object */
     name: string
     parent: Gst.Object
-    /* Fields of Gst.Object */
+    /* Fields of Gst-1.0.Gst.Object */
     object: GObject.InitiallyUnowned
     lock: GLib.Mutex
     flags: number
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Gst.Object */
+    /* Methods of Gst-1.0.Gst.Object */
     addControlBinding(binding: Gst.ControlBinding): boolean
     defaultError(error: GLib.Error, debug?: string | null): void
     getControlBinding(propertyName: string): Gst.ControlBinding | null
@@ -303,7 +283,7 @@ export class NetTimeProvider {
     syncValues(timestamp: Gst.ClockTime): boolean
     unparent(): void
     unref(): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -324,34 +304,20 @@ export class NetTimeProvider {
     stealQdata(quark: GLib.Quark): object | null
     thawNotify(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of Gio.Initable */
+    /* Methods of Gio-2.0.Gio.Initable */
     init(cancellable?: Gio.Cancellable | null): boolean
-    /* Virtual methods of GstNet.NetTimeProvider */
-    vfuncInit(cancellable?: Gio.Cancellable | null): boolean
-    /* Virtual methods of Gst.Object */
-    vfuncDeepNotify(orig: Gst.Object, pspec: GObject.ParamSpec): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gst.Object */
+    /* Signals of Gst-1.0.Gst.Object */
     connect(sigName: "deep-notify", callback: (($obj: NetTimeProvider, propObject: Gst.Object, prop: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "deep-notify", callback: (($obj: NetTimeProvider, propObject: Gst.Object, prop: GObject.ParamSpec) => void)): number
+    on(sigName: "deep-notify", callback: (propObject: Gst.Object, prop: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "deep-notify", callback: (propObject: Gst.Object, prop: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "deep-notify", callback: (propObject: Gst.Object, prop: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "deep-notify", propObject: Gst.Object, prop: GObject.ParamSpec): void
-    on(sigName: "deep-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "deep-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "deep-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: NetTimeProvider, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: NetTimeProvider, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::active", callback: (($obj: NetTimeProvider, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::active", callback: (($obj: NetTimeProvider, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::active", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -390,7 +356,7 @@ export class NetTimeProvider {
 export interface NtpClock_ConstructProps extends NetClientClock_ConstructProps {
 }
 export class NtpClock {
-    /* Properties of GstNet.NetClientClock */
+    /* Properties of GstNet-1.0.GstNet.NetClientClock */
     address: string
     bus: Gst.Bus
     readonly internalClock: Gst.Clock
@@ -398,30 +364,30 @@ export class NtpClock {
     port: number
     qosDscp: number
     roundTripLimit: number
-    /* Properties of Gst.SystemClock */
+    /* Properties of Gst-1.0.Gst.SystemClock */
     clockType: Gst.ClockType
-    /* Properties of Gst.Clock */
+    /* Properties of Gst-1.0.Gst.Clock */
     timeout: number
     windowSize: number
     windowThreshold: number
-    /* Properties of Gst.Object */
+    /* Properties of Gst-1.0.Gst.Object */
     name: string
     parent: Gst.Object
-    /* Fields of GstNet.NtpClock */
+    /* Fields of GstNet-1.0.GstNet.NtpClock */
     clock: Gst.SystemClock
-    /* Fields of Gst.Clock */
+    /* Fields of Gst-1.0.Gst.Clock */
     object: Gst.Object
-    /* Fields of Gst.Object */
+    /* Fields of Gst-1.0.Gst.Object */
     lock: GLib.Mutex
     flags: number
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Gst.Clock */
-    addObservation(slave: Gst.ClockTime, master: Gst.ClockTime): [ /* returnType */ boolean, /* rSquared */ number ]
-    addObservationUnapplied(slave: Gst.ClockTime, master: Gst.ClockTime): [ /* returnType */ boolean, /* rSquared */ number, /* internal */ Gst.ClockTime | null, /* external */ Gst.ClockTime | null, /* rateNum */ Gst.ClockTime | null, /* rateDenom */ Gst.ClockTime | null ]
+    /* Methods of Gst-1.0.Gst.Clock */
+    addObservation(slave: Gst.ClockTime, master: Gst.ClockTime): { returnType: boolean, rSquared: number }
+    addObservationUnapplied(slave: Gst.ClockTime, master: Gst.ClockTime): { returnType: boolean, rSquared: number, internal: Gst.ClockTime | null, external: Gst.ClockTime | null, rateNum: Gst.ClockTime | null, rateDenom: Gst.ClockTime | null }
     adjustUnlocked(internal: Gst.ClockTime): Gst.ClockTime
     adjustWithCalibration(internalTarget: Gst.ClockTime, cinternal: Gst.ClockTime, cexternal: Gst.ClockTime, cnum: Gst.ClockTime, cdenom: Gst.ClockTime): Gst.ClockTime
-    getCalibration(): [ /* internal */ Gst.ClockTime | null, /* external */ Gst.ClockTime | null, /* rateNum */ Gst.ClockTime | null, /* rateDenom */ Gst.ClockTime | null ]
+    getCalibration(): { internal: Gst.ClockTime | null, external: Gst.ClockTime | null, rateNum: Gst.ClockTime | null, rateDenom: Gst.ClockTime | null }
     getInternalTime(): Gst.ClockTime
     getMaster(): Gst.Clock | null
     getResolution(): Gst.ClockTime
@@ -440,7 +406,7 @@ export class NtpClock {
     unadjustUnlocked(external: Gst.ClockTime): Gst.ClockTime
     unadjustWithCalibration(externalTarget: Gst.ClockTime, cinternal: Gst.ClockTime, cexternal: Gst.ClockTime, cnum: Gst.ClockTime, cdenom: Gst.ClockTime): Gst.ClockTime
     waitForSync(timeout: Gst.ClockTime): boolean
-    /* Methods of Gst.Object */
+    /* Methods of Gst-1.0.Gst.Object */
     addControlBinding(binding: Gst.ControlBinding): boolean
     defaultError(error: GLib.Error, debug?: string | null): void
     getControlBinding(propertyName: string): Gst.ControlBinding | null
@@ -465,7 +431,7 @@ export class NtpClock {
     syncValues(timestamp: Gst.ClockTime): boolean
     unparent(): void
     unref(): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -486,44 +452,24 @@ export class NtpClock {
     stealQdata(quark: GLib.Quark): object | null
     thawNotify(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of Gst.Clock */
-    vfuncChangeResolution(oldResolution: Gst.ClockTime, newResolution: Gst.ClockTime): Gst.ClockTime
-    vfuncGetInternalTime(): Gst.ClockTime
-    vfuncGetResolution(): Gst.ClockTime
-    vfuncUnschedule(entry: Gst.ClockEntry): void
-    vfuncWait(entry: Gst.ClockEntry, jitter: Gst.ClockTimeDiff): Gst.ClockReturn
-    vfuncWaitAsync(entry: Gst.ClockEntry): Gst.ClockReturn
-    /* Virtual methods of Gst.Object */
-    vfuncDeepNotify(orig: Gst.Object, pspec: GObject.ParamSpec): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gst.Clock */
+    /* Signals of Gst-1.0.Gst.Clock */
     connect(sigName: "synced", callback: (($obj: NtpClock, synced: boolean) => void)): number
-    connect_after(sigName: "synced", callback: (($obj: NtpClock, synced: boolean) => void)): number
+    on(sigName: "synced", callback: (synced: boolean) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "synced", callback: (synced: boolean) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "synced", callback: (synced: boolean) => void): NodeJS.EventEmitter
     emit(sigName: "synced", synced: boolean): void
-    on(sigName: "synced", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "synced", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "synced", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of Gst.Object */
+    /* Signals of Gst-1.0.Gst.Object */
     connect(sigName: "deep-notify", callback: (($obj: NtpClock, propObject: Gst.Object, prop: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "deep-notify", callback: (($obj: NtpClock, propObject: Gst.Object, prop: GObject.ParamSpec) => void)): number
+    on(sigName: "deep-notify", callback: (propObject: Gst.Object, prop: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "deep-notify", callback: (propObject: Gst.Object, prop: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "deep-notify", callback: (propObject: Gst.Object, prop: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "deep-notify", propObject: Gst.Object, prop: GObject.ParamSpec): void
-    on(sigName: "deep-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "deep-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "deep-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: NtpClock, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: NtpClock, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::address", callback: (($obj: NtpClock, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::address", callback: (($obj: NtpClock, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::address", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -607,34 +553,34 @@ export interface PtpClock_ConstructProps extends Gst.SystemClock_ConstructProps 
     domain?: number
 }
 export class PtpClock {
-    /* Properties of GstNet.PtpClock */
+    /* Properties of GstNet-1.0.GstNet.PtpClock */
     readonly grandmasterClockId: number
     readonly internalClock: Gst.Clock
     readonly masterClockId: number
-    /* Properties of Gst.SystemClock */
+    /* Properties of Gst-1.0.Gst.SystemClock */
     clockType: Gst.ClockType
-    /* Properties of Gst.Clock */
+    /* Properties of Gst-1.0.Gst.Clock */
     timeout: number
     windowSize: number
     windowThreshold: number
-    /* Properties of Gst.Object */
+    /* Properties of Gst-1.0.Gst.Object */
     name: string
     parent: Gst.Object
-    /* Fields of GstNet.PtpClock */
+    /* Fields of GstNet-1.0.GstNet.PtpClock */
     clock: Gst.SystemClock
-    /* Fields of Gst.Clock */
+    /* Fields of Gst-1.0.Gst.Clock */
     object: Gst.Object
-    /* Fields of Gst.Object */
+    /* Fields of Gst-1.0.Gst.Object */
     lock: GLib.Mutex
     flags: number
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Gst.Clock */
-    addObservation(slave: Gst.ClockTime, master: Gst.ClockTime): [ /* returnType */ boolean, /* rSquared */ number ]
-    addObservationUnapplied(slave: Gst.ClockTime, master: Gst.ClockTime): [ /* returnType */ boolean, /* rSquared */ number, /* internal */ Gst.ClockTime | null, /* external */ Gst.ClockTime | null, /* rateNum */ Gst.ClockTime | null, /* rateDenom */ Gst.ClockTime | null ]
+    /* Methods of Gst-1.0.Gst.Clock */
+    addObservation(slave: Gst.ClockTime, master: Gst.ClockTime): { returnType: boolean, rSquared: number }
+    addObservationUnapplied(slave: Gst.ClockTime, master: Gst.ClockTime): { returnType: boolean, rSquared: number, internal: Gst.ClockTime | null, external: Gst.ClockTime | null, rateNum: Gst.ClockTime | null, rateDenom: Gst.ClockTime | null }
     adjustUnlocked(internal: Gst.ClockTime): Gst.ClockTime
     adjustWithCalibration(internalTarget: Gst.ClockTime, cinternal: Gst.ClockTime, cexternal: Gst.ClockTime, cnum: Gst.ClockTime, cdenom: Gst.ClockTime): Gst.ClockTime
-    getCalibration(): [ /* internal */ Gst.ClockTime | null, /* external */ Gst.ClockTime | null, /* rateNum */ Gst.ClockTime | null, /* rateDenom */ Gst.ClockTime | null ]
+    getCalibration(): { internal: Gst.ClockTime | null, external: Gst.ClockTime | null, rateNum: Gst.ClockTime | null, rateDenom: Gst.ClockTime | null }
     getInternalTime(): Gst.ClockTime
     getMaster(): Gst.Clock | null
     getResolution(): Gst.ClockTime
@@ -653,7 +599,7 @@ export class PtpClock {
     unadjustUnlocked(external: Gst.ClockTime): Gst.ClockTime
     unadjustWithCalibration(externalTarget: Gst.ClockTime, cinternal: Gst.ClockTime, cexternal: Gst.ClockTime, cnum: Gst.ClockTime, cdenom: Gst.ClockTime): Gst.ClockTime
     waitForSync(timeout: Gst.ClockTime): boolean
-    /* Methods of Gst.Object */
+    /* Methods of Gst-1.0.Gst.Object */
     addControlBinding(binding: Gst.ControlBinding): boolean
     defaultError(error: GLib.Error, debug?: string | null): void
     getControlBinding(propertyName: string): Gst.ControlBinding | null
@@ -678,7 +624,7 @@ export class PtpClock {
     syncValues(timestamp: Gst.ClockTime): boolean
     unparent(): void
     unref(): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -699,44 +645,24 @@ export class PtpClock {
     stealQdata(quark: GLib.Quark): object | null
     thawNotify(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of Gst.Clock */
-    vfuncChangeResolution(oldResolution: Gst.ClockTime, newResolution: Gst.ClockTime): Gst.ClockTime
-    vfuncGetInternalTime(): Gst.ClockTime
-    vfuncGetResolution(): Gst.ClockTime
-    vfuncUnschedule(entry: Gst.ClockEntry): void
-    vfuncWait(entry: Gst.ClockEntry, jitter: Gst.ClockTimeDiff): Gst.ClockReturn
-    vfuncWaitAsync(entry: Gst.ClockEntry): Gst.ClockReturn
-    /* Virtual methods of Gst.Object */
-    vfuncDeepNotify(orig: Gst.Object, pspec: GObject.ParamSpec): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gst.Clock */
+    /* Signals of Gst-1.0.Gst.Clock */
     connect(sigName: "synced", callback: (($obj: PtpClock, synced: boolean) => void)): number
-    connect_after(sigName: "synced", callback: (($obj: PtpClock, synced: boolean) => void)): number
+    on(sigName: "synced", callback: (synced: boolean) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "synced", callback: (synced: boolean) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "synced", callback: (synced: boolean) => void): NodeJS.EventEmitter
     emit(sigName: "synced", synced: boolean): void
-    on(sigName: "synced", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "synced", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "synced", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of Gst.Object */
+    /* Signals of Gst-1.0.Gst.Object */
     connect(sigName: "deep-notify", callback: (($obj: PtpClock, propObject: Gst.Object, prop: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "deep-notify", callback: (($obj: PtpClock, propObject: Gst.Object, prop: GObject.ParamSpec) => void)): number
+    on(sigName: "deep-notify", callback: (propObject: Gst.Object, prop: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "deep-notify", callback: (propObject: Gst.Object, prop: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "deep-notify", callback: (propObject: Gst.Object, prop: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "deep-notify", propObject: Gst.Object, prop: GObject.ParamSpec): void
-    on(sigName: "deep-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "deep-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "deep-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: PtpClock, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: PtpClock, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::grandmaster-clock-id", callback: (($obj: PtpClock, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::grandmaster-clock-id", callback: (($obj: PtpClock, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::grandmaster-clock-id", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -797,7 +723,7 @@ export class PtpClock {
     static $gtype: GObject.Type
 }
 export class NetAddressMeta {
-    /* Fields of GstNet.NetAddressMeta */
+    /* Fields of GstNet-1.0.GstNet.NetAddressMeta */
     meta: Gst.Meta
     addr: Gio.SocketAddress
     static name: string
@@ -805,7 +731,7 @@ export class NetAddressMeta {
     static getInfo(): Gst.MetaInfo
 }
 export abstract class NetClientClockClass {
-    /* Fields of GstNet.NetClientClockClass */
+    /* Fields of GstNet-1.0.GstNet.NetClientClockClass */
     parentClass: Gst.SystemClockClass
     static name: string
 }
@@ -813,7 +739,7 @@ export class NetClientClockPrivate {
     static name: string
 }
 export class NetControlMessageMeta {
-    /* Fields of GstNet.NetControlMessageMeta */
+    /* Fields of GstNet-1.0.GstNet.NetControlMessageMeta */
     meta: Gst.Meta
     message: Gio.SocketControlMessage
     static name: string
@@ -821,10 +747,10 @@ export class NetControlMessageMeta {
     static getInfo(): Gst.MetaInfo
 }
 export class NetTimePacket {
-    /* Fields of GstNet.NetTimePacket */
+    /* Fields of GstNet-1.0.GstNet.NetTimePacket */
     localTime: Gst.ClockTime
     remoteTime: Gst.ClockTime
-    /* Methods of GstNet.NetTimePacket */
+    /* Methods of GstNet-1.0.GstNet.NetTimePacket */
     copy(): NetTimePacket
     free(): void
     send(socket: Gio.Socket, destAddress: Gio.SocketAddress): boolean
@@ -834,10 +760,10 @@ export class NetTimePacket {
     constructor(buffer: any[])
     /* Static methods and pseudo-constructors */
     static new(buffer: any[]): NetTimePacket
-    static receive(socket: Gio.Socket): [ /* returnType */ NetTimePacket, /* srcAddress */ Gio.SocketAddress ]
+    static receive(socket: Gio.Socket): { returnType: NetTimePacket, srcAddress: Gio.SocketAddress }
 }
 export abstract class NetTimeProviderClass {
-    /* Fields of GstNet.NetTimeProviderClass */
+    /* Fields of GstNet-1.0.GstNet.NetTimeProviderClass */
     parentClass: Gst.ObjectClass
     gstReserved: object[]
     static name: string
@@ -846,12 +772,12 @@ export class NetTimeProviderPrivate {
     static name: string
 }
 export abstract class NtpClockClass {
-    /* Fields of GstNet.NtpClockClass */
+    /* Fields of GstNet-1.0.GstNet.NtpClockClass */
     parentClass: Gst.SystemClockClass
     static name: string
 }
 export abstract class PtpClockClass {
-    /* Fields of GstNet.PtpClockClass */
+    /* Fields of GstNet-1.0.GstNet.PtpClockClass */
     parentClass: Gst.SystemClockClass
     static name: string
 }

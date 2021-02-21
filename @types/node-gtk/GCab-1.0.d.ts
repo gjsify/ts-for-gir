@@ -39,12 +39,12 @@ export interface Cabinet_ConstructProps extends GObject.Object_ConstructProps {
     signature?: any[]
 }
 export class Cabinet {
-    /* Properties of GCab.Cabinet */
+    /* Properties of GCab-1.0.GCab.Cabinet */
     reserved: any[]
     signature: any[]
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GCab.Cabinet */
+    /* Methods of GCab-1.0.GCab.Cabinet */
     addFolder(folder: Folder): boolean
     extract(path?: Gio.File | null, fileCallback?: FileCallback | null, progressCallback?: Gio.FileProgressCallback | null, cancellable?: Gio.Cancellable | null): boolean
     extractSimple(path: Gio.File, fileCallback?: FileCallback | null, cancellable?: Gio.Cancellable | null): boolean
@@ -54,7 +54,7 @@ export class Cabinet {
     load(stream: Gio.InputStream, cancellable?: Gio.Cancellable | null): boolean
     write(stream: Gio.OutputStream, fileCallback?: FileCallback | null, progressCallback?: Gio.FileProgressCallback | null, cancellable?: Gio.Cancellable | null): boolean
     writeSimple(stream: Gio.OutputStream, fileCallback?: FileCallback | null, cancellable?: Gio.Cancellable | null): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -76,21 +76,12 @@ export class Cabinet {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Cabinet, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Cabinet, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::reserved", callback: (($obj: Cabinet, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::reserved", callback: (($obj: Cabinet, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::reserved", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -121,13 +112,13 @@ export interface File_ConstructProps extends GObject.Object_ConstructProps {
     name?: string
 }
 export class File {
-    /* Properties of GCab.File */
+    /* Properties of GCab-1.0.GCab.File */
     bytes: any
     file: Gio.File
     name: string
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GCab.File */
+    /* Methods of GCab-1.0.GCab.File */
     getAttributes(): number
     getBytes(): any
     getDate(result: GLib.TimeVal): boolean
@@ -140,7 +131,7 @@ export class File {
     setDate(tv: GLib.TimeVal): void
     setDateTime(dt: GLib.DateTime): void
     setExtractName(name?: string | null): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -162,21 +153,12 @@ export class File {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: File, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: File, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::bytes", callback: (($obj: File, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::bytes", callback: (($obj: File, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::bytes", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -212,18 +194,18 @@ export interface Folder_ConstructProps extends GObject.Object_ConstructProps {
     reserved?: any[]
 }
 export class Folder {
-    /* Properties of GCab.Folder */
+    /* Properties of GCab-1.0.GCab.Folder */
     readonly compression: Compression
     reserved: any[]
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GCab.Folder */
+    /* Methods of GCab-1.0.GCab.Folder */
     addFile(cabfile: File, recurse: boolean, cancellable?: Gio.Cancellable | null): boolean
     getComptype(): number
     getFileByName(name: string): File
     getFiles(): File[]
     getNfiles(): number
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -245,21 +227,12 @@ export class Folder {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Folder, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Folder, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::compression", callback: (($obj: Folder, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::compression", callback: (($obj: Folder, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::compression", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -285,17 +258,17 @@ export class Folder {
     static $gtype: GObject.Type
 }
 export abstract class CabinetClass {
-    /* Fields of GCab.CabinetClass */
+    /* Fields of GCab-1.0.GCab.CabinetClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
 export abstract class FileClass {
-    /* Fields of GCab.FileClass */
+    /* Fields of GCab-1.0.GCab.FileClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
 export abstract class FolderClass {
-    /* Fields of GCab.FolderClass */
+    /* Fields of GCab-1.0.GCab.FolderClass */
     parentClass: GObject.ObjectClass
     static name: string
 }

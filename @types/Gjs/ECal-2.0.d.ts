@@ -239,14 +239,14 @@ export interface RecurResolveTimezoneCb {
     (tzid: string, cancellable?: Gio.Cancellable | null): ICalGLib.Timezone | null
 }
 export class TimezoneCache {
-    /* Methods of ECal.TimezoneCache */
+    /* Methods of ECal-2.0.ECal.TimezoneCache */
     add_timezone(zone: ICalGLib.Timezone): void
     get_timezone(tzid: string): ICalGLib.Timezone | null
     list_timezones(): ICalGLib.Timezone[]
-    /* Virtual methods of ECal.TimezoneCache */
+    /* Virtual methods of ECal-2.0.ECal.TimezoneCache */
     vfunc_timezone_added(zone: ICalGLib.Timezone): void
     vfunc_tzcache_add_timezone(zone: ICalGLib.Timezone): void
-    /* Signals of ECal.TimezoneCache */
+    /* Signals of ECal-2.0.ECal.TimezoneCache */
     connect(sigName: "timezone-added", callback: (($obj: TimezoneCache, zone: ICalGLib.Timezone) => void)): number
     connect_after(sigName: "timezone-added", callback: (($obj: TimezoneCache, zone: ICalGLib.Timezone) => void)): number
     emit(sigName: "timezone-added", zone: ICalGLib.Timezone): void
@@ -257,17 +257,17 @@ export interface Client_ConstructProps extends EDataServer.Client_ConstructProps
     source_type?: ClientSourceType
 }
 export class Client {
-    /* Properties of ECal.Client */
+    /* Properties of ECal-2.0.ECal.Client */
     default_timezone: ICalGLib.Timezone
-    /* Properties of EDataServer.Client */
+    /* Properties of EDataServer-1.2.EDataServer.Client */
     readonly capabilities: object
     readonly main_context: GLib.MainContext
     online: boolean
     readonly opened: boolean
     readonly readonly: boolean
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of ECal.Client */
+    /* Methods of ECal-2.0.ECal.Client */
     add_timezone(zone: ICalGLib.Timezone, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     add_timezone_finish(result: Gio.AsyncResult): boolean
     add_timezone_sync(zone: ICalGLib.Timezone, cancellable?: Gio.Cancellable | null): boolean
@@ -339,7 +339,7 @@ export class Client {
     send_objects_finish(result: Gio.AsyncResult): [ /* returnType */ boolean, /* out_users */ string[], /* out_modified_icalcomp */ ICalGLib.Component ]
     send_objects_sync(icalcomp: ICalGLib.Component, opflags: OperationFlags, cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* out_users */ string[], /* out_modified_icalcomp */ ICalGLib.Component ]
     set_default_timezone(zone: ICalGLib.Timezone): void
-    /* Methods of EDataServer.Client */
+    /* Methods of EDataServer-1.2.EDataServer.Client */
     cancel_all(): void
     check_capability(capability: string): boolean
     check_refresh_supported(): boolean
@@ -376,7 +376,7 @@ export class Client {
     wait_for_connected(timeout_seconds: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     wait_for_connected_finish(result: Gio.AsyncResult): boolean
     wait_for_connected_sync(timeout_seconds: number, cancellable?: Gio.Cancellable | null): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -398,23 +398,23 @@ export class Client {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of ECal.TimezoneCache */
+    /* Methods of ECal-2.0.ECal.TimezoneCache */
     add_timezone(zone: ICalGLib.Timezone): void
     get_timezone(tzid: string): ICalGLib.Timezone | null
     list_timezones(): ICalGLib.Timezone[]
-    /* Methods of Gio.AsyncInitable */
+    /* Methods of Gio-2.0.Gio.AsyncInitable */
     init_async(io_priority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     init_finish(res: Gio.AsyncResult): boolean
     new_finish(res: Gio.AsyncResult): GObject.Object
-    /* Methods of Gio.Initable */
+    /* Methods of Gio-2.0.Gio.Initable */
     init(cancellable?: Gio.Cancellable | null): boolean
-    /* Virtual methods of ECal.Client */
+    /* Virtual methods of ECal-2.0.ECal.Client */
     vfunc_timezone_added(zone: ICalGLib.Timezone): void
     vfunc_tzcache_add_timezone(zone: ICalGLib.Timezone): void
     vfunc_init_async(io_priority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     vfunc_init_finish(res: Gio.AsyncResult): boolean
     vfunc_init(cancellable?: Gio.Cancellable | null): boolean
-    /* Virtual methods of EDataServer.Client */
+    /* Virtual methods of EDataServer-1.2.EDataServer.Client */
     vfunc_backend_died(): void
     vfunc_backend_error(error_msg: string): void
     vfunc_backend_property_changed(prop_name: string, prop_value: string): void
@@ -439,7 +439,7 @@ export class Client {
     vfunc_set_backend_property_finish(result: Gio.AsyncResult): boolean
     vfunc_set_backend_property_sync(prop_name: string, prop_value: string, cancellable?: Gio.Cancellable | null): boolean
     vfunc_unwrap_dbus_error(dbus_error: GLib.Error): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -447,11 +447,11 @@ export class Client {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of ECal.Client */
+    /* Signals of ECal-2.0.ECal.Client */
     connect(sigName: "free-busy-data", callback: (($obj: Client, object?: object | null) => void)): number
     connect_after(sigName: "free-busy-data", callback: (($obj: Client, object?: object | null) => void)): number
     emit(sigName: "free-busy-data", object?: object | null): void
-    /* Signals of EDataServer.Client */
+    /* Signals of EDataServer-1.2.EDataServer.Client */
     connect(sigName: "backend-died", callback: (($obj: Client) => void)): number
     connect_after(sigName: "backend-died", callback: (($obj: Client) => void)): number
     emit(sigName: "backend-died"): void
@@ -464,11 +464,11 @@ export class Client {
     connect(sigName: "opened", callback: (($obj: Client, object: GLib.Error) => void)): number
     connect_after(sigName: "opened", callback: (($obj: Client, object: GLib.Error) => void)): number
     emit(sigName: "opened", object: GLib.Error): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Client, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Client, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    /* Signals of ECal.TimezoneCache */
+    /* Signals of ECal-2.0.ECal.TimezoneCache */
     connect(sigName: "timezone-added", callback: (($obj: Client, zone: ICalGLib.Timezone) => void)): number
     connect_after(sigName: "timezone-added", callback: (($obj: Client, zone: ICalGLib.Timezone) => void)): number
     emit(sigName: "timezone-added", zone: ICalGLib.Timezone): void
@@ -513,9 +513,9 @@ export interface ClientView_ConstructProps extends GObject.Object_ConstructProps
     object_path?: string
 }
 export class ClientView {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of ECal.ClientView */
+    /* Methods of ECal-2.0.ECal.ClientView */
     get_connection(): Gio.DBusConnection
     get_object_path(): string
     is_running(): boolean
@@ -524,7 +524,7 @@ export class ClientView {
     set_flags(flags: ClientViewFlags): void
     start(): void
     stop(): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -546,13 +546,13 @@ export class ClientView {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of Gio.Initable */
+    /* Methods of Gio-2.0.Gio.Initable */
     init(cancellable?: Gio.Cancellable | null): boolean
-    /* Virtual methods of ECal.ClientView */
+    /* Virtual methods of ECal-2.0.ECal.ClientView */
     vfunc_complete(error: GLib.Error): void
     vfunc_progress(percent: number, message: string): void
     vfunc_init(cancellable?: Gio.Cancellable | null): boolean
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -560,7 +560,7 @@ export class ClientView {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of ECal.ClientView */
+    /* Signals of ECal-2.0.ECal.ClientView */
     connect(sigName: "complete", callback: (($obj: ClientView, object: GLib.Error) => void)): number
     connect_after(sigName: "complete", callback: (($obj: ClientView, object: GLib.Error) => void)): number
     emit(sigName: "complete", object: GLib.Error): void
@@ -576,7 +576,7 @@ export class ClientView {
     connect(sigName: "progress", callback: (($obj: ClientView, object: number, p0: string) => void)): number
     connect_after(sigName: "progress", callback: (($obj: ClientView, object: number, p0: string) => void)): number
     emit(sigName: "progress", object: number, p0: string): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: ClientView, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: ClientView, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -594,9 +594,9 @@ export class ClientView {
 export interface Component_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class Component {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of ECal.Component */
+    /* Methods of ECal-2.0.ECal.Component */
     abort_sequence(): void
     add_alarm(alarm: ComponentAlarm): void
     clone(): Component
@@ -690,7 +690,7 @@ export class Component {
     set_uid(uid: string): void
     set_url(url?: string | null): void
     strip_errors(): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -712,7 +712,7 @@ export class Component {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -720,7 +720,7 @@ export class Component {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Component, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Component, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -744,12 +744,12 @@ export interface ReminderWatcher_ConstructProps extends GObject.Object_Construct
     timers_enabled?: boolean
 }
 export class ReminderWatcher {
-    /* Properties of ECal.ReminderWatcher */
+    /* Properties of ECal-2.0.ECal.ReminderWatcher */
     default_zone: ICalGLib.Timezone
     timers_enabled: boolean
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of ECal.ReminderWatcher */
+    /* Methods of ECal-2.0.ECal.ReminderWatcher */
     describe_data(rd: ReminderData, flags: number): string
     dismiss(rd: ReminderData, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     dismiss_all(cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
@@ -767,7 +767,7 @@ export class ReminderWatcher {
     set_timers_enabled(enabled: boolean): void
     snooze(rd: ReminderData, until: number): void
     timer_elapsed(): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -789,12 +789,12 @@ export class ReminderWatcher {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of ECal.ReminderWatcher */
+    /* Virtual methods of ECal-2.0.ECal.ReminderWatcher */
     vfunc_cal_client_connect(source: EDataServer.Source, source_type: ClientSourceType, wait_for_connected_seconds: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     vfunc_changed(): void
     vfunc_format_time(rd: ReminderData, itt: ICalGLib.Time, inout_buffer: string, buffer_size: number): void
     vfunc_schedule_timer(at_time: number): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -802,7 +802,7 @@ export class ReminderWatcher {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of ECal.ReminderWatcher */
+    /* Signals of ECal-2.0.ECal.ReminderWatcher */
     connect(sigName: "changed", callback: (($obj: ReminderWatcher) => void)): number
     connect_after(sigName: "changed", callback: (($obj: ReminderWatcher) => void)): number
     emit(sigName: "changed"): void
@@ -812,7 +812,7 @@ export class ReminderWatcher {
     connect(sigName: "triggered", callback: (($obj: ReminderWatcher, reminders: ReminderData[], snoozed: boolean) => void)): number
     connect_after(sigName: "triggered", callback: (($obj: ReminderWatcher, reminders: ReminderData[], snoozed: boolean) => void)): number
     emit(sigName: "triggered", reminders: ReminderData[], snoozed: boolean): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: ReminderWatcher, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: ReminderWatcher, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -838,7 +838,7 @@ export class ClientPrivate {
     static name: string
 }
 export class ClientTzlookupICalCompData {
-    /* Methods of ECal.ClientTzlookupICalCompData */
+    /* Methods of ECal-2.0.ECal.ClientTzlookupICalCompData */
     copy(): ClientTzlookupICalCompData | null
     free(): void
     get_icalcomponent(): ICalGLib.Component
@@ -849,7 +849,7 @@ export class ClientTzlookupICalCompData {
     static new(icomp: ICalGLib.Component): ClientTzlookupICalCompData
 }
 export abstract class ClientViewClass {
-    /* Fields of ECal.ClientViewClass */
+    /* Fields of ECal-2.0.ECal.ClientViewClass */
     progress: (client_view: ClientView, percent: number, message: string) => void
     complete: (client_view: ClientView, error: GLib.Error) => void
     static name: string
@@ -858,7 +858,7 @@ export class ClientViewPrivate {
     static name: string
 }
 export class ComponentAlarm {
-    /* Methods of ECal.ComponentAlarm */
+    /* Methods of ECal-2.0.ECal.ComponentAlarm */
     copy(): ComponentAlarm
     fill_component(component: ICalGLib.Component): void
     get_acknowledged(): ICalGLib.Time | null
@@ -893,7 +893,7 @@ export class ComponentAlarm {
     static new_from_component(component: ICalGLib.Component): ComponentAlarm
 }
 export class ComponentAlarmInstance {
-    /* Methods of ECal.ComponentAlarmInstance */
+    /* Methods of ECal-2.0.ECal.ComponentAlarmInstance */
     copy(): ComponentAlarmInstance
     get_occur_end(): number
     get_occur_start(): number
@@ -910,7 +910,7 @@ export class ComponentAlarmInstance {
     static new(uid: string, instance_time: number, occur_start: number, occur_end: number): ComponentAlarmInstance
 }
 export class ComponentAlarmRepeat {
-    /* Methods of ECal.ComponentAlarmRepeat */
+    /* Methods of ECal-2.0.ECal.ComponentAlarmRepeat */
     copy(): ComponentAlarmRepeat
     get_interval(): ICalGLib.Duration
     get_interval_seconds(): number
@@ -926,7 +926,7 @@ export class ComponentAlarmRepeat {
     static new_seconds(repetitions: number, interval_seconds: number): ComponentAlarmRepeat
 }
 export class ComponentAlarmTrigger {
-    /* Methods of ECal.ComponentAlarmTrigger */
+    /* Methods of ECal-2.0.ECal.ComponentAlarmTrigger */
     copy(): ComponentAlarmTrigger
     fill_property(property: ICalGLib.Property): /* property */ ICalGLib.Property
     get_absolute_time(): ICalGLib.Time | null
@@ -947,7 +947,7 @@ export class ComponentAlarmTrigger {
     static new_relative(kind: ComponentAlarmTriggerKind, duration: ICalGLib.Duration): ComponentAlarmTrigger
 }
 export class ComponentAlarms {
-    /* Methods of ECal.ComponentAlarms */
+    /* Methods of ECal-2.0.ECal.ComponentAlarms */
     add_instance(instance: ComponentAlarmInstance): void
     copy(): ComponentAlarms
     get_component(): Component
@@ -963,7 +963,7 @@ export class ComponentAlarms {
     static new(comp: Component): ComponentAlarms
 }
 export class ComponentAttendee {
-    /* Methods of ECal.ComponentAttendee */
+    /* Methods of ECal-2.0.ECal.ComponentAttendee */
     copy(): ComponentAttendee
     fill_property(property: ICalGLib.Property): /* property */ ICalGLib.Property
     get_as_property(): ICalGLib.Property
@@ -1003,7 +1003,7 @@ export abstract class ComponentClass {
     static name: string
 }
 export class ComponentDateTime {
-    /* Methods of ECal.ComponentDateTime */
+    /* Methods of ECal-2.0.ECal.ComponentDateTime */
     copy(): ComponentDateTime
     get_tzid(): string | null
     get_value(): ICalGLib.Time
@@ -1020,7 +1020,7 @@ export class ComponentDateTime {
     static new_take(value: ICalGLib.Time, tzid?: string | null): ComponentDateTime
 }
 export class ComponentId {
-    /* Methods of ECal.ComponentId */
+    /* Methods of ECal-2.0.ECal.ComponentId */
     copy(): ComponentId
     equal(id2: ComponentId): boolean
     get_rid(): string | null
@@ -1036,7 +1036,7 @@ export class ComponentId {
     static new_take(uid: string, rid?: string | null): ComponentId
 }
 export class ComponentOrganizer {
-    /* Methods of ECal.ComponentOrganizer */
+    /* Methods of ECal-2.0.ECal.ComponentOrganizer */
     copy(): ComponentOrganizer
     fill_property(property: ICalGLib.Property): /* property */ ICalGLib.Property
     get_as_property(): ICalGLib.Property
@@ -1059,7 +1059,7 @@ export class ComponentOrganizer {
     static new_full(value?: string | null, sentby?: string | null, cn?: string | null, language?: string | null): ComponentOrganizer
 }
 export class ComponentParameterBag {
-    /* Methods of ECal.ComponentParameterBag */
+    /* Methods of ECal-2.0.ECal.ComponentParameterBag */
     add(param: ICalGLib.Parameter): void
     assign(src_bag: ComponentParameterBag): void
     clear(): void
@@ -1080,7 +1080,7 @@ export class ComponentParameterBag {
     static new_from_property(property: ICalGLib.Property): ComponentParameterBag
 }
 export class ComponentPeriod {
-    /* Methods of ECal.ComponentPeriod */
+    /* Methods of ECal-2.0.ECal.ComponentPeriod */
     copy(): ComponentPeriod
     get_duration(): ICalGLib.Duration
     get_end(): ICalGLib.Time | null
@@ -1100,7 +1100,7 @@ export class ComponentPrivate {
     static name: string
 }
 export class ComponentPropertyBag {
-    /* Methods of ECal.ComponentPropertyBag */
+    /* Methods of ECal-2.0.ECal.ComponentPropertyBag */
     add(prop: ICalGLib.Property): void
     assign(src_bag: ComponentPropertyBag): void
     clear(): void
@@ -1121,7 +1121,7 @@ export class ComponentPropertyBag {
     static new_from_component(component: ICalGLib.Component): ComponentPropertyBag
 }
 export class ComponentRange {
-    /* Methods of ECal.ComponentRange */
+    /* Methods of ECal-2.0.ECal.ComponentRange */
     copy(): ComponentRange
     get_datetime(): ComponentDateTime
     get_kind(): ComponentRangeKind
@@ -1134,7 +1134,7 @@ export class ComponentRange {
     static new(kind: ComponentRangeKind, datetime: ComponentDateTime): ComponentRange
 }
 export class ComponentText {
-    /* Methods of ECal.ComponentText */
+    /* Methods of ECal-2.0.ECal.ComponentText */
     copy(): ComponentText
     get_altrep(): string
     get_value(): string
@@ -1147,7 +1147,7 @@ export class ComponentText {
     static new(value?: string | null, altrep?: string | null): ComponentText
 }
 export class ReminderData {
-    /* Methods of ECal.ReminderData */
+    /* Methods of ECal-2.0.ECal.ReminderData */
     copy(): ReminderData
     get_component(): Component
     get_instance(): ComponentAlarmInstance
@@ -1163,7 +1163,7 @@ export class ReminderData {
     static free(rd?: object | null): void
 }
 export abstract class ReminderWatcherClass {
-    /* Fields of ECal.ReminderWatcherClass */
+    /* Fields of ECal-2.0.ECal.ReminderWatcherClass */
     parent_class: GObject.ObjectClass
     schedule_timer: (watcher: ReminderWatcher, at_time: number) => void
     format_time: (watcher: ReminderWatcher, rd: ReminderData, itt: ICalGLib.Time, inout_buffer: string, buffer_size: number) => void
@@ -1176,7 +1176,7 @@ export class ReminderWatcherPrivate {
     static name: string
 }
 export abstract class TimezoneCacheInterface {
-    /* Fields of ECal.TimezoneCacheInterface */
+    /* Fields of ECal-2.0.ECal.TimezoneCacheInterface */
     tzcache_add_timezone: (cache: TimezoneCache, zone: ICalGLib.Timezone) => void
     timezone_added: (cache: TimezoneCache, zone: ICalGLib.Timezone) => void
     reserved_signals: object[]

@@ -25,7 +25,7 @@ export interface MediaPlayer_ConstructProps extends GObject.Object_ConstructProp
     user_agent?: string
 }
 export class MediaPlayer {
-    /* Properties of RygelRenderer.MediaPlayer */
+    /* Properties of RygelRenderer-2.6.RygelRenderer.MediaPlayer */
     playback_state: string
     readonly allowed_playback_speeds: string[]
     playback_speed: string
@@ -41,9 +41,9 @@ export class MediaPlayer {
     readonly position: number
     readonly byte_position: number
     user_agent: string
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of RygelRenderer.MediaPlayer */
+    /* Methods of RygelRenderer-2.6.RygelRenderer.MediaPlayer */
     seek(time: number): boolean
     seek_bytes(bytes: number): boolean
     get_protocols(): string[]
@@ -75,7 +75,7 @@ export class MediaPlayer {
     get_user_agent(): string | null
     set_user_agent(value?: string | null): void
     get_protocol_info(): string
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -97,7 +97,7 @@ export class MediaPlayer {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of RygelRenderer.MediaPlayer */
+    /* Virtual methods of RygelRenderer-2.6.RygelRenderer.MediaPlayer */
     vfunc_seek(time: number): boolean
     vfunc_seek_bytes(bytes: number): boolean
     vfunc_get_protocols(): string[]
@@ -125,7 +125,7 @@ export class MediaPlayer {
     vfunc_get_byte_position(): number
     vfunc_get_user_agent(): string | null
     vfunc_set_user_agent(value?: string | null): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -133,7 +133,7 @@ export class MediaPlayer {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: MediaPlayer, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: MediaPlayer, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -189,7 +189,7 @@ export interface PlayerController_ConstructProps extends GObject.Object_Construc
     play_mode?: string
 }
 export class PlayerController {
-    /* Properties of RygelRenderer.PlayerController */
+    /* Properties of RygelRenderer-2.6.RygelRenderer.PlayerController */
     playback_state: string
     n_tracks: number
     track: number
@@ -202,9 +202,9 @@ export class PlayerController {
     readonly current_transport_actions: string
     play_mode: string
     readonly can_pause: boolean
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of RygelRenderer.PlayerController */
+    /* Methods of RygelRenderer-2.6.RygelRenderer.PlayerController */
     next(): boolean
     previous(): boolean
     set_single_play_uri(uri: string, metadata: string, mime?: string | null, features?: string | null): void
@@ -235,7 +235,7 @@ export class PlayerController {
     get_play_mode(): string
     set_play_mode(value: string): void
     get_can_pause(): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -257,7 +257,7 @@ export class PlayerController {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of RygelRenderer.PlayerController */
+    /* Virtual methods of RygelRenderer-2.6.RygelRenderer.PlayerController */
     vfunc_next(): boolean
     vfunc_previous(): boolean
     vfunc_set_single_play_uri(uri: string, metadata: string, mime?: string | null, features?: string | null): void
@@ -287,7 +287,7 @@ export class PlayerController {
     vfunc_get_play_mode(): string
     vfunc_set_play_mode(value: string): void
     vfunc_get_can_pause(): boolean
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -295,7 +295,7 @@ export class PlayerController {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: PlayerController, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: PlayerController, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -336,26 +336,26 @@ export interface MediaRendererPlugin_ConstructProps extends RygelCore.Plugin_Con
     supported_profiles?: RygelCore.DLNAProfile[]
 }
 export class MediaRendererPlugin {
-    /* Properties of RygelRenderer.MediaRendererPlugin */
+    /* Properties of RygelRenderer-2.6.RygelRenderer.MediaRendererPlugin */
     supported_profiles: RygelCore.DLNAProfile[]
-    /* Properties of RygelCore.Plugin */
+    /* Properties of RygelCore-2.6.RygelCore.Plugin */
     capabilities: RygelCore.PluginCapabilities
     title: string
     active: boolean
     resource_infos: Gee.ArrayList
     icon_infos: Gee.ArrayList
     default_icons: Gee.ArrayList
-    /* Fields of GUPnP.ResourceFactory */
+    /* Fields of GUPnP-1.2.GUPnP.ResourceFactory */
     parent_instance: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of RygelRenderer.MediaRendererPlugin */
+    /* Methods of RygelRenderer-2.6.RygelRenderer.MediaRendererPlugin */
     get_player(): MediaPlayer | null
     get_controller(): PlayerController
     get_protocol_info(): string
     get_supported_profiles(): RygelCore.DLNAProfile[]
     set_supported_profiles(value: RygelCore.DLNAProfile[]): void
-    /* Methods of RygelCore.Plugin */
+    /* Methods of RygelCore-2.6.RygelCore.Plugin */
     add_resource(resource_info: RygelCore.ResourceInfo): void
     add_icon(icon_info: RygelCore.IconInfo): void
     apply_hacks(device: RygelCore.RootDevice, description_path: string): void
@@ -371,12 +371,12 @@ export class MediaRendererPlugin {
     get_resource_infos(): Gee.ArrayList
     get_icon_infos(): Gee.ArrayList
     get_default_icons(): Gee.ArrayList
-    /* Methods of GUPnP.ResourceFactory */
+    /* Methods of GUPnP-1.2.GUPnP.ResourceFactory */
     register_resource_proxy_type(upnp_type: string, type: GObject.Type): void
     register_resource_type(upnp_type: string, type: GObject.Type): void
     unregister_resource_proxy_type(upnp_type: string): boolean
     unregister_resource_type(upnp_type: string): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -398,12 +398,12 @@ export class MediaRendererPlugin {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of RygelRenderer.MediaRendererPlugin */
+    /* Virtual methods of RygelRenderer-2.6.RygelRenderer.MediaRendererPlugin */
     vfunc_get_player(): MediaPlayer | null
     vfunc_get_controller(): PlayerController
-    /* Virtual methods of RygelCore.Plugin */
+    /* Virtual methods of RygelCore-2.6.RygelCore.Plugin */
     vfunc_apply_hacks(device: RygelCore.RootDevice, description_path: string): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -411,7 +411,7 @@ export class MediaRendererPlugin {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: MediaRendererPlugin, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: MediaRendererPlugin, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -446,11 +446,11 @@ export interface MediaRenderer_ConstructProps extends RygelCore.MediaDevice_Cons
     player?: MediaPlayer
 }
 export class MediaRenderer {
-    /* Properties of RygelCore.MediaDevice */
+    /* Properties of RygelCore-2.6.RygelCore.MediaDevice */
     plugin: RygelCore.Plugin
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of RygelCore.MediaDevice */
+    /* Methods of RygelCore-2.6.RygelCore.MediaDevice */
     add_interface(iface: string): void
     remove_interface(iface: string): void
     get_interfaces(): string[]
@@ -458,7 +458,7 @@ export class MediaRenderer {
     set_plugin(value: RygelCore.Plugin): void
     get_title(): string
     get_capabilities(): RygelCore.PluginCapabilities
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -480,7 +480,7 @@ export class MediaRenderer {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -488,7 +488,7 @@ export class MediaRenderer {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: MediaRenderer, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: MediaRenderer, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -506,7 +506,7 @@ export class MediaRenderer {
     static $gtype: GObject.Type
 }
 export abstract class MediaRendererPluginClass {
-    /* Fields of RygelRenderer.MediaRendererPluginClass */
+    /* Fields of RygelRenderer-2.6.RygelRenderer.MediaRendererPluginClass */
     get_player: () => MediaPlayer | null
     get_controller: () => PlayerController
     static name: string
@@ -521,7 +521,7 @@ export class MediaRendererPrivate {
     static name: string
 }
 export abstract class MediaPlayerIface {
-    /* Fields of RygelRenderer.MediaPlayerIface */
+    /* Fields of RygelRenderer-2.6.RygelRenderer.MediaPlayerIface */
     seek: (time: number) => boolean
     seek_bytes: (bytes: number) => boolean
     get_protocols: () => string[]
@@ -552,7 +552,7 @@ export abstract class MediaPlayerIface {
     static name: string
 }
 export abstract class PlayerControllerIface {
-    /* Fields of RygelRenderer.PlayerControllerIface */
+    /* Fields of RygelRenderer-2.6.RygelRenderer.PlayerControllerIface */
     next: () => boolean
     previous: () => boolean
     set_single_play_uri: (uri: string, metadata: string, mime?: string | null, features?: string | null) => void

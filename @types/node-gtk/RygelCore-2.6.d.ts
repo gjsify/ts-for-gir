@@ -61,11 +61,11 @@ export function getPrettyHostName(): string
 export interface DBusInterface_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class DBusInterface {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of RygelCore.DBusInterface */
+    /* Methods of RygelCore-2.6.RygelCore.DBusInterface */
     shutdown(): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -87,23 +87,12 @@ export class DBusInterface {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of RygelCore.DBusInterface */
-    vfuncShutdown(): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: DBusInterface, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: DBusInterface, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -119,12 +108,12 @@ export class DBusInterface {
 export interface DBusAclProvider_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class DBusAclProvider {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of RygelCore.DBusAclProvider */
+    /* Methods of RygelCore-2.6.RygelCore.DBusAclProvider */
     isAllowed(device: GLib.HashTable, service: GLib.HashTable, path: string, address: string, agent?: string | null, callback?: Gio.AsyncReadyCallback | null): void
     isAllowedFinish(res: Gio.AsyncResult): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -146,24 +135,12 @@ export class DBusAclProvider {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of RygelCore.DBusAclProvider */
-    vfuncIsAllowed(device: GLib.HashTable, service: GLib.HashTable, path: string, address: string, agent?: string | null, callback?: Gio.AsyncReadyCallback | null): void
-    vfuncIsAllowedFinish(res: Gio.AsyncResult): boolean
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: DBusAclProvider, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: DBusAclProvider, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -179,9 +156,9 @@ export class DBusAclProvider {
 export interface Configuration_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class Configuration {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of RygelCore.Configuration */
+    /* Methods of RygelCore-2.6.RygelCore.Configuration */
     getInterface(): string
     getInterfaces(): string[]
     getPort(): number
@@ -202,7 +179,7 @@ export class Configuration {
     getInt(section: string, key: string, min: number, max: number): number
     getIntList(section: string, key: string): Gee.ArrayList
     getBool(section: string, key: string): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -224,61 +201,28 @@ export class Configuration {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of RygelCore.Configuration */
-    vfuncGetInterface(): string
-    vfuncGetInterfaces(): string[]
-    vfuncGetPort(): number
-    vfuncGetTranscoding(): boolean
-    vfuncGetAllowUpload(): boolean
-    vfuncGetAllowDeletion(): boolean
-    vfuncGetLogLevels(): string
-    vfuncGetPluginPath(): string
-    vfuncGetEnginePath(): string
-    vfuncGetMediaEngine(): string
-    vfuncGetVideoUploadFolder(): string | null
-    vfuncGetMusicUploadFolder(): string | null
-    vfuncGetPictureUploadFolder(): string | null
-    vfuncGetEnabled(section: string): boolean
-    vfuncGetTitle(section: string): string
-    vfuncGetString(section: string, key: string): string
-    vfuncGetStringList(section: string, key: string): Gee.ArrayList
-    vfuncGetInt(section: string, key: string, min: number, max: number): number
-    vfuncGetIntList(section: string, key: string): Gee.ArrayList
-    vfuncGetBool(section: string, key: string): boolean
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of RygelCore.Configuration */
+    /* Signals of RygelCore-2.6.RygelCore.Configuration */
     connect(sigName: "configuration-changed", callback: (($obj: Configuration, entry: ConfigurationEntry) => void)): number
-    connect_after(sigName: "configuration-changed", callback: (($obj: Configuration, entry: ConfigurationEntry) => void)): number
+    on(sigName: "configuration-changed", callback: (entry: ConfigurationEntry) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "configuration-changed", callback: (entry: ConfigurationEntry) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "configuration-changed", callback: (entry: ConfigurationEntry) => void): NodeJS.EventEmitter
     emit(sigName: "configuration-changed", entry: ConfigurationEntry): void
-    on(sigName: "configuration-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "configuration-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "configuration-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "section-changed", callback: (($obj: Configuration, section: string, entry: SectionEntry) => void)): number
-    connect_after(sigName: "section-changed", callback: (($obj: Configuration, section: string, entry: SectionEntry) => void)): number
+    on(sigName: "section-changed", callback: (section: string, entry: SectionEntry) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "section-changed", callback: (section: string, entry: SectionEntry) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "section-changed", callback: (section: string, entry: SectionEntry) => void): NodeJS.EventEmitter
     emit(sigName: "section-changed", section: string, entry: SectionEntry): void
-    on(sigName: "section-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "section-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "section-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "setting-changed", callback: (($obj: Configuration, section: string, key: string) => void)): number
-    connect_after(sigName: "setting-changed", callback: (($obj: Configuration, section: string, key: string) => void)): number
+    on(sigName: "setting-changed", callback: (section: string, key: string) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "setting-changed", callback: (section: string, key: string) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "setting-changed", callback: (section: string, key: string) => void): NodeJS.EventEmitter
     emit(sigName: "setting-changed", section: string, key: string): void
-    on(sigName: "setting-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "setting-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "setting-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Configuration, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Configuration, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -295,16 +239,16 @@ export interface StateMachine_ConstructProps extends GObject.Object_ConstructPro
     cancellable?: Gio.Cancellable
 }
 export class StateMachine {
-    /* Properties of RygelCore.StateMachine */
+    /* Properties of RygelCore-2.6.RygelCore.StateMachine */
     cancellable: Gio.Cancellable
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of RygelCore.StateMachine */
+    /* Methods of RygelCore-2.6.RygelCore.StateMachine */
     run(callback?: Gio.AsyncReadyCallback | null): void
     runFinish(res: Gio.AsyncResult): void
     getCancellable(): Gio.Cancellable
     setCancellable(value: Gio.Cancellable): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -326,33 +270,18 @@ export class StateMachine {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of RygelCore.StateMachine */
-    vfuncRun(callback?: Gio.AsyncReadyCallback | null): void
-    vfuncRunFinish(res: Gio.AsyncResult): void
-    vfuncGetCancellable(): Gio.Cancellable
-    vfuncSetCancellable(value: Gio.Cancellable): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of RygelCore.StateMachine */
+    /* Signals of RygelCore-2.6.RygelCore.StateMachine */
     connect(sigName: "completed", callback: (($obj: StateMachine) => void)): number
-    connect_after(sigName: "completed", callback: (($obj: StateMachine) => void)): number
+    on(sigName: "completed", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "completed", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "completed", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "completed"): void
-    on(sigName: "completed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "completed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "completed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: StateMachine, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: StateMachine, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::cancellable", callback: (($obj: StateMachine, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::cancellable", callback: (($obj: StateMachine, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::cancellable", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -373,25 +302,25 @@ export class StateMachine {
 export interface ConnectionManager_ConstructProps extends GUPnP.Service_ConstructProps {
 }
 export class ConnectionManager {
-    /* Fields of RygelCore.ConnectionManager */
+    /* Fields of RygelCore-2.6.RygelCore.ConnectionManager */
     sinkProtocolInfo: string
     connectionIds: string
     sourceProtocolInfo: string
     rcsId: number
     avTransportId: number
     direction: string
-    /* Fields of GUPnP.Service */
+    /* Fields of GUPnP-1.2.GUPnP.Service */
     parentInstance: GUPnP.ServiceInfo
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of RygelCore.ConnectionManager */
+    /* Methods of RygelCore-2.6.RygelCore.ConnectionManager */
     getCurrentProtocolInfo(): string
-    /* Methods of GUPnP.Service */
+    /* Methods of GUPnP-1.2.GUPnP.Service */
     freezeNotify(): void
     notifyValue(variable: string, value: any): void
     signalsAutoconnect(userData?: object | null): void
     thawNotify(): void
-    /* Methods of GUPnP.ServiceInfo */
+    /* Methods of GUPnP-1.2.GUPnP.ServiceInfo */
     getContext(): GUPnP.Context
     getControlUrl(): string
     getEventSubscriptionUrl(): string
@@ -405,7 +334,7 @@ export class ConnectionManager {
     getUrlBase(): Soup.URI
     introspectAsync(cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     introspectFinish(res: Gio.AsyncResult): GUPnP.ServiceIntrospection
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -425,45 +354,28 @@ export class ConnectionManager {
     stealQdata(quark: GLib.Quark): object | null
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of RygelCore.ConnectionManager */
-    vfuncGetCurrentProtocolInfo(): string
-    /* Virtual methods of GUPnP.Service */
-    vfuncActionInvoked(action: GUPnP.ServiceAction): void
-    vfuncQueryVariable(variable: string, value: any): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GUPnP.Service */
+    /* Signals of GUPnP-1.2.GUPnP.Service */
     connect(sigName: "action-invoked", callback: (($obj: ConnectionManager, action: GUPnP.ServiceAction) => void)): number
-    connect_after(sigName: "action-invoked", callback: (($obj: ConnectionManager, action: GUPnP.ServiceAction) => void)): number
+    on(sigName: "action-invoked", callback: (action: GUPnP.ServiceAction) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "action-invoked", callback: (action: GUPnP.ServiceAction) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "action-invoked", callback: (action: GUPnP.ServiceAction) => void): NodeJS.EventEmitter
     emit(sigName: "action-invoked", action: GUPnP.ServiceAction): void
-    on(sigName: "action-invoked", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "action-invoked", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "action-invoked", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify-failed", callback: (($obj: ConnectionManager, callbackUrl: Soup.URI[], reason: GLib.Error) => void)): number
-    connect_after(sigName: "notify-failed", callback: (($obj: ConnectionManager, callbackUrl: Soup.URI[], reason: GLib.Error) => void)): number
+    on(sigName: "notify-failed", callback: (callbackUrl: Soup.URI[], reason: GLib.Error) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify-failed", callback: (callbackUrl: Soup.URI[], reason: GLib.Error) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify-failed", callback: (callbackUrl: Soup.URI[], reason: GLib.Error) => void): NodeJS.EventEmitter
     emit(sigName: "notify-failed", callbackUrl: Soup.URI[], reason: GLib.Error): void
-    on(sigName: "notify-failed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify-failed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify-failed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "query-variable", callback: (($obj: ConnectionManager, variable: string, value: any) => void)): number
-    connect_after(sigName: "query-variable", callback: (($obj: ConnectionManager, variable: string, value: any) => void)): number
+    on(sigName: "query-variable", callback: (variable: string, value: any) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "query-variable", callback: (variable: string, value: any) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "query-variable", callback: (variable: string, value: any) => void): NodeJS.EventEmitter
     emit(sigName: "query-variable", variable: string, value: any): void
-    on(sigName: "query-variable", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "query-variable", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "query-variable", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: ConnectionManager, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: ConnectionManager, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -482,23 +394,23 @@ export interface BasicManagement_ConstructProps extends GUPnP.Service_ConstructP
     maxHistorySize?: number
 }
 export class BasicManagement {
-    /* Properties of RygelCore.BasicManagement */
+    /* Properties of RygelCore-2.6.RygelCore.BasicManagement */
     maxHistorySize: number
-    /* Fields of RygelCore.BasicManagement */
+    /* Fields of RygelCore-2.6.RygelCore.BasicManagement */
     deviceStatus: string
-    /* Fields of GUPnP.Service */
+    /* Fields of GUPnP-1.2.GUPnP.Service */
     parentInstance: GUPnP.ServiceInfo
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of RygelCore.BasicManagement */
+    /* Methods of RygelCore-2.6.RygelCore.BasicManagement */
     getMaxHistorySize(): number
     setMaxHistorySize(value: number): void
-    /* Methods of GUPnP.Service */
+    /* Methods of GUPnP-1.2.GUPnP.Service */
     freezeNotify(): void
     notifyValue(variable: string, value: any): void
     signalsAutoconnect(userData?: object | null): void
     thawNotify(): void
-    /* Methods of GUPnP.ServiceInfo */
+    /* Methods of GUPnP-1.2.GUPnP.ServiceInfo */
     getContext(): GUPnP.Context
     getControlUrl(): string
     getEventSubscriptionUrl(): string
@@ -512,7 +424,7 @@ export class BasicManagement {
     getUrlBase(): Soup.URI
     introspectAsync(cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     introspectFinish(res: Gio.AsyncResult): GUPnP.ServiceIntrospection
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -532,43 +444,28 @@ export class BasicManagement {
     stealQdata(quark: GLib.Quark): object | null
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GUPnP.Service */
-    vfuncActionInvoked(action: GUPnP.ServiceAction): void
-    vfuncQueryVariable(variable: string, value: any): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GUPnP.Service */
+    /* Signals of GUPnP-1.2.GUPnP.Service */
     connect(sigName: "action-invoked", callback: (($obj: BasicManagement, action: GUPnP.ServiceAction) => void)): number
-    connect_after(sigName: "action-invoked", callback: (($obj: BasicManagement, action: GUPnP.ServiceAction) => void)): number
+    on(sigName: "action-invoked", callback: (action: GUPnP.ServiceAction) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "action-invoked", callback: (action: GUPnP.ServiceAction) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "action-invoked", callback: (action: GUPnP.ServiceAction) => void): NodeJS.EventEmitter
     emit(sigName: "action-invoked", action: GUPnP.ServiceAction): void
-    on(sigName: "action-invoked", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "action-invoked", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "action-invoked", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify-failed", callback: (($obj: BasicManagement, callbackUrl: Soup.URI[], reason: GLib.Error) => void)): number
-    connect_after(sigName: "notify-failed", callback: (($obj: BasicManagement, callbackUrl: Soup.URI[], reason: GLib.Error) => void)): number
+    on(sigName: "notify-failed", callback: (callbackUrl: Soup.URI[], reason: GLib.Error) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify-failed", callback: (callbackUrl: Soup.URI[], reason: GLib.Error) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify-failed", callback: (callbackUrl: Soup.URI[], reason: GLib.Error) => void): NodeJS.EventEmitter
     emit(sigName: "notify-failed", callbackUrl: Soup.URI[], reason: GLib.Error): void
-    on(sigName: "notify-failed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify-failed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify-failed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "query-variable", callback: (($obj: BasicManagement, variable: string, value: any) => void)): number
-    connect_after(sigName: "query-variable", callback: (($obj: BasicManagement, variable: string, value: any) => void)): number
+    on(sigName: "query-variable", callback: (variable: string, value: any) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "query-variable", callback: (variable: string, value: any) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "query-variable", callback: (variable: string, value: any) => void): NodeJS.EventEmitter
     emit(sigName: "query-variable", variable: string, value: any): void
-    on(sigName: "query-variable", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "query-variable", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "query-variable", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: BasicManagement, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: BasicManagement, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::max-history-size", callback: (($obj: BasicManagement, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::max-history-size", callback: (($obj: BasicManagement, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::max-history-size", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -591,9 +488,9 @@ export class BasicManagement {
 export interface DescriptionFile_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class DescriptionFile {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of RygelCore.DescriptionFile */
+    /* Methods of RygelCore-2.6.RygelCore.DescriptionFile */
     setDeviceType(deviceType: string): void
     setModelDescription(modelDescription: string): void
     setModelName(modelName: string): void
@@ -612,7 +509,7 @@ export class DescriptionFile {
     addIcon(deviceName: string, iconInfo: IconInfo, url: string): void
     modifyServiceType(oldType: string, newType: string): void
     save(path: string): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -634,21 +531,12 @@ export class DescriptionFile {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: DescriptionFile, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: DescriptionFile, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -665,7 +553,7 @@ export class DescriptionFile {
     static $gtype: GObject.Type
 }
 export class DLNAProfile {
-    /* Fields of RygelCore.DLNAProfile */
+    /* Fields of RygelCore-2.6.RygelCore.DLNAProfile */
     refCount: number
     mime: string
     name: string
@@ -679,16 +567,16 @@ export class DLNAProfile {
 export interface EnergyManagement_ConstructProps extends GUPnP.Service_ConstructProps {
 }
 export class EnergyManagement {
-    /* Fields of GUPnP.Service */
+    /* Fields of GUPnP-1.2.GUPnP.Service */
     parentInstance: GUPnP.ServiceInfo
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GUPnP.Service */
+    /* Methods of GUPnP-1.2.GUPnP.Service */
     freezeNotify(): void
     notifyValue(variable: string, value: any): void
     signalsAutoconnect(userData?: object | null): void
     thawNotify(): void
-    /* Methods of GUPnP.ServiceInfo */
+    /* Methods of GUPnP-1.2.GUPnP.ServiceInfo */
     getContext(): GUPnP.Context
     getControlUrl(): string
     getEventSubscriptionUrl(): string
@@ -702,7 +590,7 @@ export class EnergyManagement {
     getUrlBase(): Soup.URI
     introspectAsync(cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     introspectFinish(res: Gio.AsyncResult): GUPnP.ServiceIntrospection
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -722,43 +610,28 @@ export class EnergyManagement {
     stealQdata(quark: GLib.Quark): object | null
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GUPnP.Service */
-    vfuncActionInvoked(action: GUPnP.ServiceAction): void
-    vfuncQueryVariable(variable: string, value: any): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GUPnP.Service */
+    /* Signals of GUPnP-1.2.GUPnP.Service */
     connect(sigName: "action-invoked", callback: (($obj: EnergyManagement, action: GUPnP.ServiceAction) => void)): number
-    connect_after(sigName: "action-invoked", callback: (($obj: EnergyManagement, action: GUPnP.ServiceAction) => void)): number
+    on(sigName: "action-invoked", callback: (action: GUPnP.ServiceAction) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "action-invoked", callback: (action: GUPnP.ServiceAction) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "action-invoked", callback: (action: GUPnP.ServiceAction) => void): NodeJS.EventEmitter
     emit(sigName: "action-invoked", action: GUPnP.ServiceAction): void
-    on(sigName: "action-invoked", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "action-invoked", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "action-invoked", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify-failed", callback: (($obj: EnergyManagement, callbackUrl: Soup.URI[], reason: GLib.Error) => void)): number
-    connect_after(sigName: "notify-failed", callback: (($obj: EnergyManagement, callbackUrl: Soup.URI[], reason: GLib.Error) => void)): number
+    on(sigName: "notify-failed", callback: (callbackUrl: Soup.URI[], reason: GLib.Error) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify-failed", callback: (callbackUrl: Soup.URI[], reason: GLib.Error) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify-failed", callback: (callbackUrl: Soup.URI[], reason: GLib.Error) => void): NodeJS.EventEmitter
     emit(sigName: "notify-failed", callbackUrl: Soup.URI[], reason: GLib.Error): void
-    on(sigName: "notify-failed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify-failed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify-failed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "query-variable", callback: (($obj: EnergyManagement, variable: string, value: any) => void)): number
-    connect_after(sigName: "query-variable", callback: (($obj: EnergyManagement, variable: string, value: any) => void)): number
+    on(sigName: "query-variable", callback: (variable: string, value: any) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "query-variable", callback: (variable: string, value: any) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "query-variable", callback: (variable: string, value: any) => void): NodeJS.EventEmitter
     emit(sigName: "query-variable", variable: string, value: any): void
-    on(sigName: "query-variable", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "query-variable", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "query-variable", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: EnergyManagement, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: EnergyManagement, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -777,34 +650,34 @@ export interface RootDevice_ConstructProps extends GUPnP.RootDevice_ConstructPro
     services?: Gee.ArrayList
 }
 export class RootDevice {
-    /* Properties of RygelCore.RootDevice */
+    /* Properties of RygelCore-2.6.RygelCore.RootDevice */
     services: Gee.ArrayList
-    /* Properties of GUPnP.RootDevice */
+    /* Properties of GUPnP-1.2.GUPnP.RootDevice */
     available: boolean
-    /* Properties of GUPnP.DeviceInfo */
+    /* Properties of GUPnP-1.2.GUPnP.DeviceInfo */
     element: object
     location: string
     urlBase: Soup.URI
-    /* Fields of GUPnP.RootDevice */
+    /* Fields of GUPnP-1.2.GUPnP.RootDevice */
     parentInstance: GUPnP.Device
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of RygelCore.RootDevice */
+    /* Methods of RygelCore-2.6.RygelCore.RootDevice */
     getServices(): Gee.ArrayList
-    /* Methods of GUPnP.RootDevice */
+    /* Methods of GUPnP-1.2.GUPnP.RootDevice */
     getAvailable(): boolean
     getDescriptionDir(): string
     getDescriptionPath(): string
     getRelativeLocation(): string
     getSsdpResourceGroup(): GSSDP.ResourceGroup
     setAvailable(available: boolean): void
-    /* Methods of GUPnP.DeviceInfo */
+    /* Methods of GUPnP-1.2.GUPnP.DeviceInfo */
     getContext(): GUPnP.Context
     getDescriptionValue(element: string): string
     getDevice(type: string): GUPnP.DeviceInfo | null
     getDeviceType(): string
     getFriendlyName(): string
-    getIconUrl(requestedMimeType: string | null, requestedDepth: number, requestedWidth: number, requestedHeight: number, preferBigger: boolean): [ /* returnType */ string, /* mimeType */ string | null, /* depth */ number | null, /* width */ number | null, /* height */ number | null ]
+    getIconUrl(requestedMimeType: string | null, requestedDepth: number, requestedWidth: number, requestedHeight: number, preferBigger: boolean): { returnType: string, mimeType: string | null, depth: number | null, width: number | null, height: number | null }
     getLocation(): string
     getManufacturer(): string
     getManufacturerUrl(): string
@@ -825,7 +698,7 @@ export class RootDevice {
     listDlnaDeviceClassIdentifier(): string[]
     listServiceTypes(): string[]
     listServices(): GUPnP.ServiceInfo[]
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -847,25 +720,14 @@ export class RootDevice {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of Gio.Initable */
+    /* Methods of Gio-2.0.Gio.Initable */
     init(cancellable?: Gio.Cancellable | null): boolean
-    /* Virtual methods of GUPnP.RootDevice */
-    vfuncInit(cancellable?: Gio.Cancellable | null): boolean
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: RootDevice, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: RootDevice, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::services", callback: (($obj: RootDevice, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::services", callback: (($obj: RootDevice, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::services", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -910,12 +772,12 @@ export interface RootDeviceFactory_ConstructProps extends GObject.Object_Constru
     context?: GUPnP.Context
 }
 export class RootDeviceFactory {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of RygelCore.RootDeviceFactory */
+    /* Methods of RygelCore-2.6.RygelCore.RootDeviceFactory */
     create(plugin: Plugin): RootDevice
     getContext(): GUPnP.Context
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -937,25 +799,14 @@ export class RootDeviceFactory {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of Gio.Initable */
+    /* Methods of Gio-2.0.Gio.Initable */
     init(cancellable?: Gio.Cancellable | null): boolean
-    /* Virtual methods of RygelCore.RootDeviceFactory */
-    vfuncInit(cancellable?: Gio.Cancellable | null): boolean
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: RootDeviceFactory, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: RootDeviceFactory, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -974,9 +825,9 @@ export class RootDeviceFactory {
 export interface LogHandler_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class LogHandler {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -998,21 +849,12 @@ export class LogHandler {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: LogHandler, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: LogHandler, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -1030,9 +872,9 @@ export class LogHandler {
 export interface MetaConfig_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class MetaConfig {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -1054,7 +896,7 @@ export class MetaConfig {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of RygelCore.Configuration */
+    /* Methods of RygelCore-2.6.RygelCore.Configuration */
     getInterface(): string
     getInterfaces(): string[]
     getPort(): number
@@ -1075,61 +917,28 @@ export class MetaConfig {
     getInt(section: string, key: string, min: number, max: number): number
     getIntList(section: string, key: string): Gee.ArrayList
     getBool(section: string, key: string): boolean
-    /* Virtual methods of RygelCore.MetaConfig */
-    vfuncGetInterface(): string
-    vfuncGetInterfaces(): string[]
-    vfuncGetPort(): number
-    vfuncGetTranscoding(): boolean
-    vfuncGetAllowUpload(): boolean
-    vfuncGetAllowDeletion(): boolean
-    vfuncGetLogLevels(): string
-    vfuncGetPluginPath(): string
-    vfuncGetEnginePath(): string
-    vfuncGetMediaEngine(): string
-    vfuncGetVideoUploadFolder(): string | null
-    vfuncGetMusicUploadFolder(): string | null
-    vfuncGetPictureUploadFolder(): string | null
-    vfuncGetEnabled(section: string): boolean
-    vfuncGetTitle(section: string): string
-    vfuncGetString(section: string, key: string): string
-    vfuncGetStringList(section: string, key: string): Gee.ArrayList
-    vfuncGetInt(section: string, key: string, min: number, max: number): number
-    vfuncGetIntList(section: string, key: string): Gee.ArrayList
-    vfuncGetBool(section: string, key: string): boolean
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: MetaConfig, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: MetaConfig, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of RygelCore.Configuration */
+    /* Signals of RygelCore-2.6.RygelCore.Configuration */
     connect(sigName: "configuration-changed", callback: (($obj: MetaConfig, entry: ConfigurationEntry) => void)): number
-    connect_after(sigName: "configuration-changed", callback: (($obj: MetaConfig, entry: ConfigurationEntry) => void)): number
+    on(sigName: "configuration-changed", callback: (entry: ConfigurationEntry) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "configuration-changed", callback: (entry: ConfigurationEntry) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "configuration-changed", callback: (entry: ConfigurationEntry) => void): NodeJS.EventEmitter
     emit(sigName: "configuration-changed", entry: ConfigurationEntry): void
-    on(sigName: "configuration-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "configuration-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "configuration-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "section-changed", callback: (($obj: MetaConfig, section: string, entry: SectionEntry) => void)): number
-    connect_after(sigName: "section-changed", callback: (($obj: MetaConfig, section: string, entry: SectionEntry) => void)): number
+    on(sigName: "section-changed", callback: (section: string, entry: SectionEntry) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "section-changed", callback: (section: string, entry: SectionEntry) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "section-changed", callback: (section: string, entry: SectionEntry) => void): NodeJS.EventEmitter
     emit(sigName: "section-changed", section: string, entry: SectionEntry): void
-    on(sigName: "section-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "section-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "section-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "setting-changed", callback: (($obj: MetaConfig, section: string, key: string) => void)): number
-    connect_after(sigName: "setting-changed", callback: (($obj: MetaConfig, section: string, key: string) => void)): number
+    on(sigName: "setting-changed", callback: (section: string, key: string) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "setting-changed", callback: (section: string, key: string) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "setting-changed", callback: (section: string, key: string) => void): NodeJS.EventEmitter
     emit(sigName: "setting-changed", section: string, key: string): void
-    on(sigName: "setting-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "setting-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "setting-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -1150,23 +959,23 @@ export class MetaConfig {
 export interface PluginLoader_ConstructProps extends RecursiveModuleLoader_ConstructProps {
 }
 export class PluginLoader {
-    /* Properties of RygelCore.RecursiveModuleLoader */
+    /* Properties of RygelCore-2.6.RygelCore.RecursiveModuleLoader */
     basePath: string
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of RygelCore.PluginLoader */
+    /* Methods of RygelCore-2.6.RygelCore.PluginLoader */
     pluginDisabled(name: string): boolean
     addPlugin(plugin: Plugin): void
     getPluginByName(name: string): Plugin | null
     listPlugins(): Gee.Collection
-    /* Methods of RygelCore.RecursiveModuleLoader */
+    /* Methods of RygelCore-2.6.RygelCore.RecursiveModuleLoader */
     loadModules(): void
     loadModulesSync(cancellable?: Gio.Cancellable | null): void
     loadModuleFromFile(file: Gio.File): boolean
     loadModuleFromInfo(info: PluginInformation): boolean
     getBasePath(): string
     setBasePath(value: string): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -1188,31 +997,18 @@ export class PluginLoader {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of RygelCore.RecursiveModuleLoader */
-    vfuncLoadModuleFromFile(file: Gio.File): boolean
-    vfuncLoadModuleFromInfo(info: PluginInformation): boolean
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of RygelCore.PluginLoader */
+    /* Signals of RygelCore-2.6.RygelCore.PluginLoader */
     connect(sigName: "plugin-available", callback: (($obj: PluginLoader, plugin: Plugin) => void)): number
-    connect_after(sigName: "plugin-available", callback: (($obj: PluginLoader, plugin: Plugin) => void)): number
+    on(sigName: "plugin-available", callback: (plugin: Plugin) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "plugin-available", callback: (plugin: Plugin) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "plugin-available", callback: (plugin: Plugin) => void): NodeJS.EventEmitter
     emit(sigName: "plugin-available", plugin: Plugin): void
-    on(sigName: "plugin-available", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "plugin-available", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "plugin-available", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: PluginLoader, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: PluginLoader, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::base-path", callback: (($obj: PluginLoader, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::base-path", callback: (($obj: PluginLoader, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::base-path", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -1236,18 +1032,18 @@ export interface RecursiveModuleLoader_ConstructProps extends GObject.Object_Con
     basePath?: string
 }
 export class RecursiveModuleLoader {
-    /* Properties of RygelCore.RecursiveModuleLoader */
+    /* Properties of RygelCore-2.6.RygelCore.RecursiveModuleLoader */
     basePath: string
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of RygelCore.RecursiveModuleLoader */
+    /* Methods of RygelCore-2.6.RygelCore.RecursiveModuleLoader */
     loadModules(): void
     loadModulesSync(cancellable?: Gio.Cancellable | null): void
     loadModuleFromFile(file: Gio.File): boolean
     loadModuleFromInfo(info: PluginInformation): boolean
     getBasePath(): string
     setBasePath(value: string): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -1269,24 +1065,12 @@ export class RecursiveModuleLoader {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of RygelCore.RecursiveModuleLoader */
-    vfuncLoadModuleFromFile(file: Gio.File): boolean
-    vfuncLoadModuleFromInfo(info: PluginInformation): boolean
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: RecursiveModuleLoader, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: RecursiveModuleLoader, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::base-path", callback: (($obj: RecursiveModuleLoader, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::base-path", callback: (($obj: RecursiveModuleLoader, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::base-path", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -1316,18 +1100,18 @@ export interface Plugin_ConstructProps extends GUPnP.ResourceFactory_ConstructPr
     defaultIcons?: Gee.ArrayList
 }
 export class Plugin {
-    /* Properties of RygelCore.Plugin */
+    /* Properties of RygelCore-2.6.RygelCore.Plugin */
     capabilities: PluginCapabilities
     title: string
     active: boolean
     resourceInfos: Gee.ArrayList
     iconInfos: Gee.ArrayList
     defaultIcons: Gee.ArrayList
-    /* Fields of GUPnP.ResourceFactory */
+    /* Fields of GUPnP-1.2.GUPnP.ResourceFactory */
     parentInstance: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of RygelCore.Plugin */
+    /* Methods of RygelCore-2.6.RygelCore.Plugin */
     addResource(resourceInfo: ResourceInfo): void
     addIcon(iconInfo: IconInfo): void
     applyHacks(device: RootDevice, descriptionPath: string): void
@@ -1343,12 +1127,12 @@ export class Plugin {
     getResourceInfos(): Gee.ArrayList
     getIconInfos(): Gee.ArrayList
     getDefaultIcons(): Gee.ArrayList
-    /* Methods of GUPnP.ResourceFactory */
+    /* Methods of GUPnP-1.2.GUPnP.ResourceFactory */
     registerResourceProxyType(upnpType: string, type: GObject.Type): void
     registerResourceType(upnpType: string, type: GObject.Type): void
     unregisterResourceProxyType(upnpType: string): boolean
     unregisterResourceType(upnpType: string): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -1370,23 +1154,12 @@ export class Plugin {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of RygelCore.Plugin */
-    vfuncApplyHacks(device: RootDevice, descriptionPath: string): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Plugin, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Plugin, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::capabilities", callback: (($obj: Plugin, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::capabilities", callback: (($obj: Plugin, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::capabilities", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -1433,7 +1206,7 @@ export class Plugin {
     static $gtype: GObject.Type
 }
 export class ResourceInfo {
-    /* Fields of RygelCore.ResourceInfo */
+    /* Fields of RygelCore-2.6.RygelCore.ResourceInfo */
     refCount: number
     upnpType: string
     upnpId: string
@@ -1451,11 +1224,11 @@ export interface MediaDevice_ConstructProps extends GObject.Object_ConstructProp
     capabilities?: PluginCapabilities
 }
 export class MediaDevice {
-    /* Properties of RygelCore.MediaDevice */
+    /* Properties of RygelCore-2.6.RygelCore.MediaDevice */
     plugin: Plugin
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of RygelCore.MediaDevice */
+    /* Methods of RygelCore-2.6.RygelCore.MediaDevice */
     addInterface(iface: string): void
     removeInterface(iface: string): void
     getInterfaces(): string[]
@@ -1463,7 +1236,7 @@ export class MediaDevice {
     setPlugin(value: Plugin): void
     getTitle(): string
     getCapabilities(): PluginCapabilities
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -1485,21 +1258,12 @@ export class MediaDevice {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: MediaDevice, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: MediaDevice, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::plugin", callback: (($obj: MediaDevice, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::plugin", callback: (($obj: MediaDevice, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::plugin", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -1520,9 +1284,9 @@ export class MediaDevice {
 export interface BaseConfiguration_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class BaseConfiguration {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of RygelCore.BaseConfiguration */
+    /* Methods of RygelCore-2.6.RygelCore.BaseConfiguration */
     getInterface(): string
     getInterfaces(): string[]
     getPort(): number
@@ -1543,7 +1307,7 @@ export class BaseConfiguration {
     getInt(section: string, key: string, min: number, max: number): number
     getIntList(section: string, key: string): Gee.ArrayList
     getBool(section: string, key: string): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -1565,61 +1329,28 @@ export class BaseConfiguration {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of RygelCore.BaseConfiguration */
-    vfuncGetInterface(): string
-    vfuncGetInterfaces(): string[]
-    vfuncGetPort(): number
-    vfuncGetTranscoding(): boolean
-    vfuncGetAllowUpload(): boolean
-    vfuncGetAllowDeletion(): boolean
-    vfuncGetLogLevels(): string
-    vfuncGetPluginPath(): string
-    vfuncGetEnginePath(): string
-    vfuncGetMediaEngine(): string
-    vfuncGetVideoUploadFolder(): string | null
-    vfuncGetMusicUploadFolder(): string | null
-    vfuncGetPictureUploadFolder(): string | null
-    vfuncGetEnabled(section: string): boolean
-    vfuncGetTitle(section: string): string
-    vfuncGetString(section: string, key: string): string
-    vfuncGetStringList(section: string, key: string): Gee.ArrayList
-    vfuncGetInt(section: string, key: string, min: number, max: number): number
-    vfuncGetIntList(section: string, key: string): Gee.ArrayList
-    vfuncGetBool(section: string, key: string): boolean
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: BaseConfiguration, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: BaseConfiguration, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of RygelCore.Configuration */
+    /* Signals of RygelCore-2.6.RygelCore.Configuration */
     connect(sigName: "configuration-changed", callback: (($obj: BaseConfiguration, entry: ConfigurationEntry) => void)): number
-    connect_after(sigName: "configuration-changed", callback: (($obj: BaseConfiguration, entry: ConfigurationEntry) => void)): number
+    on(sigName: "configuration-changed", callback: (entry: ConfigurationEntry) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "configuration-changed", callback: (entry: ConfigurationEntry) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "configuration-changed", callback: (entry: ConfigurationEntry) => void): NodeJS.EventEmitter
     emit(sigName: "configuration-changed", entry: ConfigurationEntry): void
-    on(sigName: "configuration-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "configuration-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "configuration-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "section-changed", callback: (($obj: BaseConfiguration, section: string, entry: SectionEntry) => void)): number
-    connect_after(sigName: "section-changed", callback: (($obj: BaseConfiguration, section: string, entry: SectionEntry) => void)): number
+    on(sigName: "section-changed", callback: (section: string, entry: SectionEntry) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "section-changed", callback: (section: string, entry: SectionEntry) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "section-changed", callback: (section: string, entry: SectionEntry) => void): NodeJS.EventEmitter
     emit(sigName: "section-changed", section: string, entry: SectionEntry): void
-    on(sigName: "section-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "section-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "section-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "setting-changed", callback: (($obj: BaseConfiguration, section: string, key: string) => void)): number
-    connect_after(sigName: "setting-changed", callback: (($obj: BaseConfiguration, section: string, key: string) => void)): number
+    on(sigName: "setting-changed", callback: (section: string, key: string) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "setting-changed", callback: (section: string, key: string) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "setting-changed", callback: (section: string, key: string) => void): NodeJS.EventEmitter
     emit(sigName: "setting-changed", section: string, key: string): void
-    on(sigName: "setting-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "setting-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "setting-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -1637,11 +1368,11 @@ export class BaseConfiguration {
 export interface CmdlineConfig_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class CmdlineConfig {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of RygelCore.CmdlineConfig */
+    /* Methods of RygelCore-2.6.RygelCore.CmdlineConfig */
     getConfigFile(): string
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -1663,7 +1394,7 @@ export class CmdlineConfig {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of RygelCore.Configuration */
+    /* Methods of RygelCore-2.6.RygelCore.Configuration */
     getInterface(): string
     getInterfaces(): string[]
     getPort(): number
@@ -1684,61 +1415,28 @@ export class CmdlineConfig {
     getInt(section: string, key: string, min: number, max: number): number
     getIntList(section: string, key: string): Gee.ArrayList
     getBool(section: string, key: string): boolean
-    /* Virtual methods of RygelCore.CmdlineConfig */
-    vfuncGetInterface(): string
-    vfuncGetInterfaces(): string[]
-    vfuncGetPort(): number
-    vfuncGetTranscoding(): boolean
-    vfuncGetAllowUpload(): boolean
-    vfuncGetAllowDeletion(): boolean
-    vfuncGetLogLevels(): string
-    vfuncGetPluginPath(): string
-    vfuncGetEnginePath(): string
-    vfuncGetMediaEngine(): string
-    vfuncGetVideoUploadFolder(): string | null
-    vfuncGetMusicUploadFolder(): string | null
-    vfuncGetPictureUploadFolder(): string | null
-    vfuncGetEnabled(section: string): boolean
-    vfuncGetTitle(section: string): string
-    vfuncGetString(section: string, key: string): string
-    vfuncGetStringList(section: string, key: string): Gee.ArrayList
-    vfuncGetInt(section: string, key: string, min: number, max: number): number
-    vfuncGetIntList(section: string, key: string): Gee.ArrayList
-    vfuncGetBool(section: string, key: string): boolean
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: CmdlineConfig, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: CmdlineConfig, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of RygelCore.Configuration */
+    /* Signals of RygelCore-2.6.RygelCore.Configuration */
     connect(sigName: "configuration-changed", callback: (($obj: CmdlineConfig, entry: ConfigurationEntry) => void)): number
-    connect_after(sigName: "configuration-changed", callback: (($obj: CmdlineConfig, entry: ConfigurationEntry) => void)): number
+    on(sigName: "configuration-changed", callback: (entry: ConfigurationEntry) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "configuration-changed", callback: (entry: ConfigurationEntry) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "configuration-changed", callback: (entry: ConfigurationEntry) => void): NodeJS.EventEmitter
     emit(sigName: "configuration-changed", entry: ConfigurationEntry): void
-    on(sigName: "configuration-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "configuration-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "configuration-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "section-changed", callback: (($obj: CmdlineConfig, section: string, entry: SectionEntry) => void)): number
-    connect_after(sigName: "section-changed", callback: (($obj: CmdlineConfig, section: string, entry: SectionEntry) => void)): number
+    on(sigName: "section-changed", callback: (section: string, entry: SectionEntry) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "section-changed", callback: (section: string, entry: SectionEntry) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "section-changed", callback: (section: string, entry: SectionEntry) => void): NodeJS.EventEmitter
     emit(sigName: "section-changed", section: string, entry: SectionEntry): void
-    on(sigName: "section-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "section-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "section-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "setting-changed", callback: (($obj: CmdlineConfig, section: string, key: string) => void)): number
-    connect_after(sigName: "setting-changed", callback: (($obj: CmdlineConfig, section: string, key: string) => void)): number
+    on(sigName: "setting-changed", callback: (section: string, key: string) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "setting-changed", callback: (section: string, key: string) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "setting-changed", callback: (section: string, key: string) => void): NodeJS.EventEmitter
     emit(sigName: "setting-changed", section: string, key: string): void
-    on(sigName: "setting-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "setting-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "setting-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -1752,15 +1450,15 @@ export class CmdlineConfig {
     /* Static methods and pseudo-constructors */
     static new(): CmdlineConfig
     static getDefault(): CmdlineConfig
-    static parseArgs(args: string[]): /* args */ string[]
+    static parseArgs(args: string[]): { args: string[] }
     static $gtype: GObject.Type
 }
 export interface EnvironmentConfig_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class EnvironmentConfig {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -1782,7 +1480,7 @@ export class EnvironmentConfig {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of RygelCore.Configuration */
+    /* Methods of RygelCore-2.6.RygelCore.Configuration */
     getInterface(): string
     getInterfaces(): string[]
     getPort(): number
@@ -1803,61 +1501,28 @@ export class EnvironmentConfig {
     getInt(section: string, key: string, min: number, max: number): number
     getIntList(section: string, key: string): Gee.ArrayList
     getBool(section: string, key: string): boolean
-    /* Virtual methods of RygelCore.EnvironmentConfig */
-    vfuncGetInterface(): string
-    vfuncGetInterfaces(): string[]
-    vfuncGetPort(): number
-    vfuncGetTranscoding(): boolean
-    vfuncGetAllowUpload(): boolean
-    vfuncGetAllowDeletion(): boolean
-    vfuncGetLogLevels(): string
-    vfuncGetPluginPath(): string
-    vfuncGetEnginePath(): string
-    vfuncGetMediaEngine(): string
-    vfuncGetVideoUploadFolder(): string | null
-    vfuncGetMusicUploadFolder(): string | null
-    vfuncGetPictureUploadFolder(): string | null
-    vfuncGetEnabled(section: string): boolean
-    vfuncGetTitle(section: string): string
-    vfuncGetString(section: string, key: string): string
-    vfuncGetStringList(section: string, key: string): Gee.ArrayList
-    vfuncGetInt(section: string, key: string, min: number, max: number): number
-    vfuncGetIntList(section: string, key: string): Gee.ArrayList
-    vfuncGetBool(section: string, key: string): boolean
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: EnvironmentConfig, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: EnvironmentConfig, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of RygelCore.Configuration */
+    /* Signals of RygelCore-2.6.RygelCore.Configuration */
     connect(sigName: "configuration-changed", callback: (($obj: EnvironmentConfig, entry: ConfigurationEntry) => void)): number
-    connect_after(sigName: "configuration-changed", callback: (($obj: EnvironmentConfig, entry: ConfigurationEntry) => void)): number
+    on(sigName: "configuration-changed", callback: (entry: ConfigurationEntry) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "configuration-changed", callback: (entry: ConfigurationEntry) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "configuration-changed", callback: (entry: ConfigurationEntry) => void): NodeJS.EventEmitter
     emit(sigName: "configuration-changed", entry: ConfigurationEntry): void
-    on(sigName: "configuration-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "configuration-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "configuration-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "section-changed", callback: (($obj: EnvironmentConfig, section: string, entry: SectionEntry) => void)): number
-    connect_after(sigName: "section-changed", callback: (($obj: EnvironmentConfig, section: string, entry: SectionEntry) => void)): number
+    on(sigName: "section-changed", callback: (section: string, entry: SectionEntry) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "section-changed", callback: (section: string, entry: SectionEntry) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "section-changed", callback: (section: string, entry: SectionEntry) => void): NodeJS.EventEmitter
     emit(sigName: "section-changed", section: string, entry: SectionEntry): void
-    on(sigName: "section-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "section-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "section-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "setting-changed", callback: (($obj: EnvironmentConfig, section: string, key: string) => void)): number
-    connect_after(sigName: "setting-changed", callback: (($obj: EnvironmentConfig, section: string, key: string) => void)): number
+    on(sigName: "setting-changed", callback: (section: string, key: string) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "setting-changed", callback: (section: string, key: string) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "setting-changed", callback: (section: string, key: string) => void): NodeJS.EventEmitter
     emit(sigName: "setting-changed", section: string, key: string): void
-    on(sigName: "setting-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "setting-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "setting-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -1876,14 +1541,14 @@ export class EnvironmentConfig {
 export interface UserConfig_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class UserConfig {
-    /* Fields of RygelCore.UserConfig */
+    /* Fields of RygelCore-2.6.RygelCore.UserConfig */
     keyFile: GLib.KeyFile
     sysKeyFile: GLib.KeyFile
     keyFileMonitor: Gio.FileMonitor
     sysKeyFileMonitor: Gio.FileMonitor
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -1905,7 +1570,7 @@ export class UserConfig {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of RygelCore.Configuration */
+    /* Methods of RygelCore-2.6.RygelCore.Configuration */
     getInterface(): string
     getInterfaces(): string[]
     getPort(): number
@@ -1926,61 +1591,28 @@ export class UserConfig {
     getInt(section: string, key: string, min: number, max: number): number
     getIntList(section: string, key: string): Gee.ArrayList
     getBool(section: string, key: string): boolean
-    /* Virtual methods of RygelCore.UserConfig */
-    vfuncGetInterface(): string
-    vfuncGetInterfaces(): string[]
-    vfuncGetPort(): number
-    vfuncGetTranscoding(): boolean
-    vfuncGetAllowUpload(): boolean
-    vfuncGetAllowDeletion(): boolean
-    vfuncGetLogLevels(): string
-    vfuncGetPluginPath(): string
-    vfuncGetEnginePath(): string
-    vfuncGetMediaEngine(): string
-    vfuncGetVideoUploadFolder(): string | null
-    vfuncGetMusicUploadFolder(): string | null
-    vfuncGetPictureUploadFolder(): string | null
-    vfuncGetEnabled(section: string): boolean
-    vfuncGetTitle(section: string): string
-    vfuncGetString(section: string, key: string): string
-    vfuncGetStringList(section: string, key: string): Gee.ArrayList
-    vfuncGetInt(section: string, key: string, min: number, max: number): number
-    vfuncGetIntList(section: string, key: string): Gee.ArrayList
-    vfuncGetBool(section: string, key: string): boolean
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: UserConfig, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: UserConfig, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of RygelCore.Configuration */
+    /* Signals of RygelCore-2.6.RygelCore.Configuration */
     connect(sigName: "configuration-changed", callback: (($obj: UserConfig, entry: ConfigurationEntry) => void)): number
-    connect_after(sigName: "configuration-changed", callback: (($obj: UserConfig, entry: ConfigurationEntry) => void)): number
+    on(sigName: "configuration-changed", callback: (entry: ConfigurationEntry) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "configuration-changed", callback: (entry: ConfigurationEntry) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "configuration-changed", callback: (entry: ConfigurationEntry) => void): NodeJS.EventEmitter
     emit(sigName: "configuration-changed", entry: ConfigurationEntry): void
-    on(sigName: "configuration-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "configuration-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "configuration-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "section-changed", callback: (($obj: UserConfig, section: string, entry: SectionEntry) => void)): number
-    connect_after(sigName: "section-changed", callback: (($obj: UserConfig, section: string, entry: SectionEntry) => void)): number
+    on(sigName: "section-changed", callback: (section: string, entry: SectionEntry) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "section-changed", callback: (section: string, entry: SectionEntry) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "section-changed", callback: (section: string, entry: SectionEntry) => void): NodeJS.EventEmitter
     emit(sigName: "section-changed", section: string, entry: SectionEntry): void
-    on(sigName: "section-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "section-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "section-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "setting-changed", callback: (($obj: UserConfig, section: string, key: string) => void)): number
-    connect_after(sigName: "setting-changed", callback: (($obj: UserConfig, section: string, key: string) => void)): number
+    on(sigName: "setting-changed", callback: (section: string, key: string) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "setting-changed", callback: (section: string, key: string) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "setting-changed", callback: (section: string, key: string) => void): NodeJS.EventEmitter
     emit(sigName: "setting-changed", section: string, key: string): void
-    on(sigName: "setting-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "setting-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "setting-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -2002,18 +1634,18 @@ export interface V1Hacks_ConstructProps extends GObject.Object_ConstructProps {
     serviceTypes?: string[]
 }
 export class V1Hacks {
-    /* Properties of RygelCore.V1Hacks */
+    /* Properties of RygelCore-2.6.RygelCore.V1Hacks */
     deviceType: string
-    /* Fields of RygelCore.V1Hacks */
+    /* Fields of RygelCore-2.6.RygelCore.V1Hacks */
     descriptionPath: string
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of RygelCore.V1Hacks */
+    /* Methods of RygelCore-2.6.RygelCore.V1Hacks */
     applyOnDevice(device: RootDevice, templatePath?: string | null): void
     getDeviceType(): string
     setDeviceType(value: string): void
     getServiceTypes(): string[]
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -2035,21 +1667,12 @@ export class V1Hacks {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: V1Hacks, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: V1Hacks, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::device-type", callback: (($obj: V1Hacks, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::device-type", callback: (($obj: V1Hacks, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::device-type", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -2070,7 +1693,7 @@ export class V1Hacks {
     static $gtype: GObject.Type
 }
 export class IconInfo {
-    /* Fields of RygelCore.IconInfo */
+    /* Fields of RygelCore-2.6.RygelCore.IconInfo */
     refCount: number
     mimeType: string
     uri: string
@@ -2086,7 +1709,7 @@ export class IconInfo {
     static new(mimeType: string, fileExtension: string): IconInfo
 }
 export class XMLUtils {
-    /* Fields of RygelCore.XMLUtils */
+    /* Fields of RygelCore-2.6.RygelCore.XMLUtils */
     refCount: number
     static name: string
     static new(): XMLUtils
@@ -2095,9 +1718,9 @@ export class XMLUtils {
     static new(): XMLUtils
 }
 export class XMLUtilsIterator {
-    /* Fields of RygelCore.XMLUtilsIterator */
+    /* Fields of RygelCore-2.6.RygelCore.XMLUtilsIterator */
     refCount: number
-    /* Methods of RygelCore.XMLUtilsIterator */
+    /* Methods of RygelCore-2.6.RygelCore.XMLUtilsIterator */
     iterator(): XMLUtilsIterator
     next(): boolean
     get(): object | null
@@ -2108,9 +1731,9 @@ export class XMLUtilsIterator {
     static new(node?: object | null): XMLUtilsIterator
 }
 export class XMLUtilsChildIterator {
-    /* Fields of RygelCore.XMLUtilsIterator */
+    /* Fields of RygelCore-2.6.RygelCore.XMLUtilsIterator */
     refCount: number
-    /* Methods of RygelCore.XMLUtilsIterator */
+    /* Methods of RygelCore-2.6.RygelCore.XMLUtilsIterator */
     iterator(): XMLUtilsIterator
     next(): boolean
     get(): object | null
@@ -2127,17 +1750,17 @@ export interface PluginInformation_ConstructProps extends GObject.Object_Constru
     moduleLoaded?: boolean
 }
 export class PluginInformation {
-    /* Properties of RygelCore.PluginInformation */
+    /* Properties of RygelCore-2.6.RygelCore.PluginInformation */
     moduleLoaded: boolean
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of RygelCore.PluginInformation */
+    /* Methods of RygelCore-2.6.RygelCore.PluginInformation */
     getModulePath(): string
     getName(): string
     getConflicts(): any
     getModuleLoaded(): boolean
     setModuleLoaded(value: boolean): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -2159,21 +1782,12 @@ export class PluginInformation {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: PluginInformation, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: PluginInformation, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::module-loaded", callback: (($obj: PluginInformation, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::module-loaded", callback: (($obj: PluginInformation, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::module-loaded", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -2194,7 +1808,7 @@ export class PluginInformation {
     static $gtype: GObject.Type
 }
 export abstract class ConnectionManagerClass {
-    /* Fields of RygelCore.ConnectionManagerClass */
+    /* Fields of RygelCore-2.6.RygelCore.ConnectionManagerClass */
     getCurrentProtocolInfo: () => string
     static name: string
 }
@@ -2256,7 +1870,7 @@ export class PluginLoaderPrivate {
     static name: string
 }
 export abstract class RecursiveModuleLoaderClass {
-    /* Fields of RygelCore.RecursiveModuleLoaderClass */
+    /* Fields of RygelCore-2.6.RygelCore.RecursiveModuleLoaderClass */
     loadModuleFromFile: (file: Gio.File) => boolean
     loadModuleFromInfo: (info: PluginInformation) => boolean
     static name: string
@@ -2265,7 +1879,7 @@ export class RecursiveModuleLoaderPrivate {
     static name: string
 }
 export abstract class PluginClass {
-    /* Fields of RygelCore.PluginClass */
+    /* Fields of RygelCore-2.6.RygelCore.PluginClass */
     applyHacks: (device: RootDevice, descriptionPath: string) => void
     static name: string
 }
@@ -2285,7 +1899,7 @@ export class MediaDevicePrivate {
     static name: string
 }
 export abstract class BaseConfigurationClass {
-    /* Fields of RygelCore.BaseConfigurationClass */
+    /* Fields of RygelCore-2.6.RygelCore.BaseConfigurationClass */
     getInterface: () => string
     getInterfaces: () => string[]
     getPort: () => number
@@ -2366,18 +1980,18 @@ export class PluginInformationPrivate {
     static name: string
 }
 export abstract class DBusInterfaceIface {
-    /* Fields of RygelCore.DBusInterfaceIface */
+    /* Fields of RygelCore-2.6.RygelCore.DBusInterfaceIface */
     shutdown: () => void
     static name: string
 }
 export abstract class DBusAclProviderIface {
-    /* Fields of RygelCore.DBusAclProviderIface */
+    /* Fields of RygelCore-2.6.RygelCore.DBusAclProviderIface */
     isAllowed: (device: GLib.HashTable, service: GLib.HashTable, path: string, address: string, agent?: string | null, callback?: Gio.AsyncReadyCallback | null) => void
     isAllowedFinish: (res: Gio.AsyncResult) => boolean
     static name: string
 }
 export abstract class ConfigurationIface {
-    /* Fields of RygelCore.ConfigurationIface */
+    /* Fields of RygelCore-2.6.RygelCore.ConfigurationIface */
     getInterface: () => string
     getInterfaces: () => string[]
     getPort: () => number
@@ -2401,7 +2015,7 @@ export abstract class ConfigurationIface {
     static name: string
 }
 export abstract class StateMachineIface {
-    /* Fields of RygelCore.StateMachineIface */
+    /* Fields of RygelCore-2.6.RygelCore.StateMachineIface */
     run: (callback?: Gio.AsyncReadyCallback | null) => void
     runFinish: (res: Gio.AsyncResult) => void
     getCancellable: () => Gio.Cancellable

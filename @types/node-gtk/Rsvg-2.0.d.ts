@@ -46,7 +46,7 @@ export interface Handle_ConstructProps extends GObject.Object_ConstructProps {
     flags?: HandleFlags
 }
 export class Handle {
-    /* Properties of Rsvg.Handle */
+    /* Properties of Rsvg-2.0.Rsvg.Handle */
     baseUri: string
     readonly desc: string
     dpiX: number
@@ -57,22 +57,22 @@ export class Handle {
     readonly metadata: string
     readonly title: string
     readonly width: number
-    /* Fields of Rsvg.Handle */
+    /* Fields of Rsvg-2.0.Rsvg.Handle */
     parent: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Rsvg.Handle */
+    /* Methods of Rsvg-2.0.Rsvg.Handle */
     close(): boolean
     getBaseUri(): string
-    getDimensions(): /* dimensionData */ DimensionData
-    getDimensionsSub(id?: string | null): [ /* returnType */ boolean, /* dimensionData */ DimensionData ]
-    getGeometryForElement(id?: string | null): [ /* returnType */ boolean, /* outInkRect */ Rectangle | null, /* outLogicalRect */ Rectangle | null ]
-    getGeometryForLayer(id: string | null, viewport: Rectangle): [ /* returnType */ boolean, /* outInkRect */ Rectangle | null, /* outLogicalRect */ Rectangle | null ]
-    getIntrinsicDimensions(): [ /* outHasWidth */ boolean | null, /* outWidth */ Length | null, /* outHasHeight */ boolean | null, /* outHeight */ Length | null, /* outHasViewbox */ boolean | null, /* outViewbox */ Rectangle | null ]
-    getIntrinsicSizeInPixels(): [ /* returnType */ boolean, /* outWidth */ number | null, /* outHeight */ number | null ]
+    getDimensions(): { dimensionData: DimensionData }
+    getDimensionsSub(id?: string | null): { returnType: boolean, dimensionData: DimensionData }
+    getGeometryForElement(id?: string | null): { returnType: boolean, outInkRect: Rectangle | null, outLogicalRect: Rectangle | null }
+    getGeometryForLayer(id: string | null, viewport: Rectangle): { returnType: boolean, outInkRect: Rectangle | null, outLogicalRect: Rectangle | null }
+    getIntrinsicDimensions(): { outHasWidth: boolean | null, outWidth: Length | null, outHasHeight: boolean | null, outHeight: Length | null, outHasViewbox: boolean | null, outViewbox: Rectangle | null }
+    getIntrinsicSizeInPixels(): { returnType: boolean, outWidth: number | null, outHeight: number | null }
     getPixbuf(): GdkPixbuf.Pixbuf | null
     getPixbufSub(id?: string | null): GdkPixbuf.Pixbuf | null
-    getPositionSub(id?: string | null): [ /* returnType */ boolean, /* positionData */ PositionData ]
+    getPositionSub(id?: string | null): { returnType: boolean, positionData: PositionData }
     hasSub(id: string): boolean
     internalSetTesting(testing: boolean): void
     readStreamSync(stream: Gio.InputStream, cancellable?: Gio.Cancellable | null): boolean
@@ -87,7 +87,7 @@ export class Handle {
     setDpiXY(dpiX: number, dpiY: number): void
     setStylesheet(css: any[]): boolean
     write(buf: any[]): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -109,21 +109,12 @@ export class Handle {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Handle, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Handle, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::base-uri", callback: (($obj: Handle, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::base-uri", callback: (($obj: Handle, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::base-uri", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -194,7 +185,7 @@ export class Handle {
     static $gtype: GObject.Type
 }
 export class DimensionData {
-    /* Fields of Rsvg.DimensionData */
+    /* Fields of Rsvg-2.0.Rsvg.DimensionData */
     width: number
     height: number
     em: number
@@ -202,24 +193,24 @@ export class DimensionData {
     static name: string
 }
 export abstract class HandleClass {
-    /* Fields of Rsvg.HandleClass */
+    /* Fields of Rsvg-2.0.Rsvg.HandleClass */
     parent: GObject.ObjectClass
     static name: string
 }
 export class Length {
-    /* Fields of Rsvg.Length */
+    /* Fields of Rsvg-2.0.Rsvg.Length */
     length: number
     unit: Unit
     static name: string
 }
 export class PositionData {
-    /* Fields of Rsvg.PositionData */
+    /* Fields of Rsvg-2.0.Rsvg.PositionData */
     x: number
     y: number
     static name: string
 }
 export class Rectangle {
-    /* Fields of Rsvg.Rectangle */
+    /* Fields of Rsvg-2.0.Rsvg.Rectangle */
     x: number
     y: number
     width: number

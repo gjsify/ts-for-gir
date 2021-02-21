@@ -42,11 +42,11 @@ export function create_video_sink(): Gst.Element
 export function init(argv?: string[] | null): [ /* returnType */ Clutter.InitError, /* argv */ string[] | null ]
 export function init_with_args(argv: string[] | null, parameter_string: string, entries: GLib.OptionEntry, translation_domain: string): [ /* returnType */ Clutter.InitError, /* argv */ string[] | null ]
 export class Player {
-    /* Properties of ClutterGst.Player */
+    /* Properties of ClutterGst-3.0.ClutterGst.Player */
     audio_volume: number
     readonly idle: boolean
     playing: boolean
-    /* Methods of ClutterGst.Player */
+    /* Methods of ClutterGst-3.0.ClutterGst.Player */
     get_audio_volume(): number
     get_frame(): Frame
     get_idle(): boolean
@@ -55,7 +55,7 @@ export class Player {
     get_video_sink(): VideoSink
     set_audio_volume(volume: number): void
     set_playing(playing: boolean): void
-    /* Virtual methods of ClutterGst.Player */
+    /* Virtual methods of ClutterGst-3.0.ClutterGst.Player */
     vfunc_eos(): void
     vfunc_error(error: GLib.Error): void
     vfunc_get_audio_volume(): number
@@ -69,7 +69,7 @@ export class Player {
     vfunc_set_audio_volume(volume: number): void
     vfunc_set_playing(playing: boolean): void
     vfunc_size_change(width: number, height: number): void
-    /* Signals of ClutterGst.Player */
+    /* Signals of ClutterGst-3.0.ClutterGst.Player */
     connect(sigName: "eos", callback: (($obj: Player) => void)): number
     connect_after(sigName: "eos", callback: (($obj: Player) => void)): number
     emit(sigName: "eos"): void
@@ -92,18 +92,18 @@ export interface Aspectratio_ConstructProps extends Content_ConstructProps {
     paint_borders?: boolean
 }
 export class Aspectratio {
-    /* Properties of ClutterGst.Aspectratio */
+    /* Properties of ClutterGst-3.0.ClutterGst.Aspectratio */
     fill_allocation: boolean
     paint_borders: boolean
-    /* Properties of ClutterGst.Content */
+    /* Properties of ClutterGst-3.0.ClutterGst.Content */
     frame: Frame
     paint_frame: boolean
     paint_overlays: boolean
     player: GObject.Object
     sink: VideoSink
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of ClutterGst.Content */
+    /* Methods of ClutterGst-3.0.ClutterGst.Content */
     get_frame(): Frame
     get_overlays(): Overlays
     get_player(): Player
@@ -111,7 +111,7 @@ export class Aspectratio {
     set_frame(frame: Frame): void
     set_player(player: Player): void
     set_sink(sink: VideoSink): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -133,17 +133,17 @@ export class Aspectratio {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of Clutter.Content */
+    /* Methods of Clutter-1.0.Clutter.Content */
     get_preferred_size(): [ /* returnType */ boolean, /* width */ number, /* height */ number ]
     invalidate(): void
-    /* Virtual methods of ClutterGst.Content */
+    /* Virtual methods of ClutterGst-3.0.ClutterGst.Content */
     vfunc_has_painting_content(): boolean
     vfunc_attached(actor: Clutter.Actor): void
     vfunc_detached(actor: Clutter.Actor): void
     vfunc_get_preferred_size(): [ /* returnType */ boolean, /* width */ number, /* height */ number ]
     vfunc_invalidate(): void
     vfunc_paint_content(actor: Clutter.Actor, node: Clutter.PaintNode): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -151,15 +151,15 @@ export class Aspectratio {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of ClutterGst.Content */
+    /* Signals of ClutterGst-3.0.ClutterGst.Content */
     connect(sigName: "size-change", callback: (($obj: Aspectratio, width: number, height: number) => void)): number
     connect_after(sigName: "size-change", callback: (($obj: Aspectratio, width: number, height: number) => void)): number
     emit(sigName: "size-change", width: number, height: number): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Aspectratio, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Aspectratio, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    /* Signals of Clutter.Content */
+    /* Signals of Clutter-1.0.Clutter.Content */
     connect(sigName: "attached", callback: (($obj: Aspectratio, actor: Clutter.Actor) => void)): number
     connect_after(sigName: "attached", callback: (($obj: Aspectratio, actor: Clutter.Actor) => void)): number
     emit(sigName: "attached", actor: Clutter.Actor): void
@@ -195,15 +195,15 @@ export interface Camera_ConstructProps extends GObject.Object_ConstructProps {
     playing?: boolean
 }
 export class Camera {
-    /* Properties of ClutterGst.Camera */
+    /* Properties of ClutterGst-3.0.ClutterGst.Camera */
     device: CameraDevice
-    /* Properties of ClutterGst.Player */
+    /* Properties of ClutterGst-3.0.ClutterGst.Player */
     audio_volume: number
     readonly idle: boolean
     playing: boolean
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of ClutterGst.Camera */
+    /* Methods of ClutterGst-3.0.ClutterGst.Camera */
     get_brightness(cur_value: number): boolean
     get_brightness_range(min_value: number, max_value: number, default_value: number): boolean
     get_camera_device(): CameraDevice
@@ -237,7 +237,7 @@ export class Camera {
     supports_gamma_correction(): boolean
     take_photo(filename: string): boolean
     take_photo_pixbuf(): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -259,7 +259,7 @@ export class Camera {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of ClutterGst.Player */
+    /* Methods of ClutterGst-3.0.ClutterGst.Player */
     get_audio_volume(): number
     get_frame(): Frame
     get_idle(): boolean
@@ -268,7 +268,7 @@ export class Camera {
     get_video_sink(): VideoSink
     set_audio_volume(volume: number): void
     set_playing(playing: boolean): void
-    /* Virtual methods of ClutterGst.Camera */
+    /* Virtual methods of ClutterGst-3.0.ClutterGst.Camera */
     vfunc_photo_saved(): void
     vfunc_photo_taken(pixbuf: GdkPixbuf.Pixbuf): void
     vfunc_ready_for_capture(ready: boolean): void
@@ -286,7 +286,7 @@ export class Camera {
     vfunc_set_audio_volume(volume: number): void
     vfunc_set_playing(playing: boolean): void
     vfunc_size_change(width: number, height: number): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -294,7 +294,7 @@ export class Camera {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of ClutterGst.Camera */
+    /* Signals of ClutterGst-3.0.ClutterGst.Camera */
     connect(sigName: "photo-saved", callback: (($obj: Camera) => void)): number
     connect_after(sigName: "photo-saved", callback: (($obj: Camera) => void)): number
     emit(sigName: "photo-saved"): void
@@ -307,11 +307,11 @@ export class Camera {
     connect(sigName: "video-saved", callback: (($obj: Camera) => void)): number
     connect_after(sigName: "video-saved", callback: (($obj: Camera) => void)): number
     emit(sigName: "video-saved"): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Camera, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Camera, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    /* Signals of ClutterGst.Player */
+    /* Signals of ClutterGst-3.0.ClutterGst.Player */
     connect(sigName: "eos", callback: (($obj: Camera) => void)): number
     connect_after(sigName: "eos", callback: (($obj: Camera) => void)): number
     emit(sigName: "eos"): void
@@ -352,15 +352,15 @@ export interface CameraDevice_ConstructProps extends GObject.Object_ConstructPro
     node?: string
 }
 export class CameraDevice {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of ClutterGst.CameraDevice */
+    /* Methods of ClutterGst-3.0.ClutterGst.CameraDevice */
     get_capture_resolution(): [ /* width */ number, /* height */ number ]
     get_name(): string
     get_node(): string
     get_supported_resolutions(): VideoResolution[]
     set_capture_resolution(width: number, height: number): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -382,9 +382,9 @@ export class CameraDevice {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of ClutterGst.CameraDevice */
+    /* Virtual methods of ClutterGst-3.0.ClutterGst.CameraDevice */
     vfunc_capture_resolution_changed(width: number, height: number): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -392,11 +392,11 @@ export class CameraDevice {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of ClutterGst.CameraDevice */
+    /* Signals of ClutterGst-3.0.ClutterGst.CameraDevice */
     connect(sigName: "capture-resolution-changed", callback: (($obj: CameraDevice, width: number, height: number) => void)): number
     connect_after(sigName: "capture-resolution-changed", callback: (($obj: CameraDevice, width: number, height: number) => void)): number
     emit(sigName: "capture-resolution-changed", width: number, height: number): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: CameraDevice, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: CameraDevice, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -412,11 +412,11 @@ export class CameraDevice {
 export interface CameraManager_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class CameraManager {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of ClutterGst.CameraManager */
+    /* Methods of ClutterGst-3.0.ClutterGst.CameraManager */
     get_camera_devices(): CameraDevice[]
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -438,7 +438,7 @@ export class CameraManager {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -446,14 +446,14 @@ export class CameraManager {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of ClutterGst.CameraManager */
+    /* Signals of ClutterGst-3.0.ClutterGst.CameraManager */
     connect(sigName: "camera-added", callback: (($obj: CameraManager, camera_device: CameraDevice) => void)): number
     connect_after(sigName: "camera-added", callback: (($obj: CameraManager, camera_device: CameraDevice) => void)): number
     emit(sigName: "camera-added", camera_device: CameraDevice): void
     connect(sigName: "camera-removed", callback: (($obj: CameraManager, camera_device: CameraDevice) => void)): number
     connect_after(sigName: "camera-removed", callback: (($obj: CameraManager, camera_device: CameraDevice) => void)): number
     emit(sigName: "camera-removed", camera_device: CameraDevice): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: CameraManager, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: CameraManager, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -476,15 +476,15 @@ export interface Content_ConstructProps extends GObject.Object_ConstructProps {
     sink?: VideoSink
 }
 export class Content {
-    /* Properties of ClutterGst.Content */
+    /* Properties of ClutterGst-3.0.ClutterGst.Content */
     frame: Frame
     paint_frame: boolean
     paint_overlays: boolean
     player: GObject.Object
     sink: VideoSink
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of ClutterGst.Content */
+    /* Methods of ClutterGst-3.0.ClutterGst.Content */
     get_frame(): Frame
     get_overlays(): Overlays
     get_player(): Player
@@ -492,7 +492,7 @@ export class Content {
     set_frame(frame: Frame): void
     set_player(player: Player): void
     set_sink(sink: VideoSink): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -514,17 +514,17 @@ export class Content {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of Clutter.Content */
+    /* Methods of Clutter-1.0.Clutter.Content */
     get_preferred_size(): [ /* returnType */ boolean, /* width */ number, /* height */ number ]
     invalidate(): void
-    /* Virtual methods of ClutterGst.Content */
+    /* Virtual methods of ClutterGst-3.0.ClutterGst.Content */
     vfunc_has_painting_content(): boolean
     vfunc_attached(actor: Clutter.Actor): void
     vfunc_detached(actor: Clutter.Actor): void
     vfunc_get_preferred_size(): [ /* returnType */ boolean, /* width */ number, /* height */ number ]
     vfunc_invalidate(): void
     vfunc_paint_content(actor: Clutter.Actor, node: Clutter.PaintNode): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -532,15 +532,15 @@ export class Content {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of ClutterGst.Content */
+    /* Signals of ClutterGst-3.0.ClutterGst.Content */
     connect(sigName: "size-change", callback: (($obj: Content, width: number, height: number) => void)): number
     connect_after(sigName: "size-change", callback: (($obj: Content, width: number, height: number) => void)): number
     emit(sigName: "size-change", width: number, height: number): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Content, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Content, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    /* Signals of Clutter.Content */
+    /* Signals of Clutter-1.0.Clutter.Content */
     connect(sigName: "attached", callback: (($obj: Content, actor: Clutter.Actor) => void)): number
     connect_after(sigName: "attached", callback: (($obj: Content, actor: Clutter.Actor) => void)): number
     emit(sigName: "attached", actor: Clutter.Actor): void
@@ -575,20 +575,20 @@ export interface Crop_ConstructProps extends Content_ConstructProps {
     paint_borders?: boolean
 }
 export class Crop {
-    /* Properties of ClutterGst.Crop */
+    /* Properties of ClutterGst-3.0.ClutterGst.Crop */
     cull_backface: boolean
     input_region: Box
     output_region: Box
     paint_borders: boolean
-    /* Properties of ClutterGst.Content */
+    /* Properties of ClutterGst-3.0.ClutterGst.Content */
     frame: Frame
     paint_frame: boolean
     paint_overlays: boolean
     player: GObject.Object
     sink: VideoSink
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of ClutterGst.Content */
+    /* Methods of ClutterGst-3.0.ClutterGst.Content */
     get_frame(): Frame
     get_overlays(): Overlays
     get_player(): Player
@@ -596,7 +596,7 @@ export class Crop {
     set_frame(frame: Frame): void
     set_player(player: Player): void
     set_sink(sink: VideoSink): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -618,17 +618,17 @@ export class Crop {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of Clutter.Content */
+    /* Methods of Clutter-1.0.Clutter.Content */
     get_preferred_size(): [ /* returnType */ boolean, /* width */ number, /* height */ number ]
     invalidate(): void
-    /* Virtual methods of ClutterGst.Content */
+    /* Virtual methods of ClutterGst-3.0.ClutterGst.Content */
     vfunc_has_painting_content(): boolean
     vfunc_attached(actor: Clutter.Actor): void
     vfunc_detached(actor: Clutter.Actor): void
     vfunc_get_preferred_size(): [ /* returnType */ boolean, /* width */ number, /* height */ number ]
     vfunc_invalidate(): void
     vfunc_paint_content(actor: Clutter.Actor, node: Clutter.PaintNode): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -636,15 +636,15 @@ export class Crop {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of ClutterGst.Content */
+    /* Signals of ClutterGst-3.0.ClutterGst.Content */
     connect(sigName: "size-change", callback: (($obj: Crop, width: number, height: number) => void)): number
     connect_after(sigName: "size-change", callback: (($obj: Crop, width: number, height: number) => void)): number
     emit(sigName: "size-change", width: number, height: number): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Crop, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Crop, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    /* Signals of Clutter.Content */
+    /* Signals of Clutter-1.0.Clutter.Content */
     connect(sigName: "attached", callback: (($obj: Crop, actor: Clutter.Actor) => void)): number
     connect_after(sigName: "attached", callback: (($obj: Crop, actor: Clutter.Actor) => void)): number
     emit(sigName: "attached", actor: Clutter.Actor): void
@@ -693,7 +693,7 @@ export interface Playback_ConstructProps extends GObject.Object_ConstructProps {
     playing?: boolean
 }
 export class Playback {
-    /* Properties of ClutterGst.Playback */
+    /* Properties of ClutterGst-3.0.ClutterGst.Playback */
     audio_stream: number
     readonly audio_streams: object
     readonly buffer_fill: number
@@ -708,16 +708,16 @@ export class Playback {
     subtitle_uri: string
     uri: string
     user_agent: string
-    /* Properties of ClutterGst.Player */
+    /* Properties of ClutterGst-3.0.ClutterGst.Player */
     audio_volume: number
     readonly idle: boolean
     playing: boolean
-    /* Fields of ClutterGst.Playback */
+    /* Fields of ClutterGst-3.0.ClutterGst.Playback */
     parent: GObject.Object
     priv: PlaybackPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of ClutterGst.Playback */
+    /* Methods of ClutterGst-3.0.ClutterGst.Playback */
     get_audio_stream(): number
     get_audio_streams(): string[]
     get_buffer_duration(): number
@@ -748,7 +748,7 @@ export class Playback {
     set_subtitle_uri(uri: string): void
     set_uri(uri: string): void
     set_user_agent(user_agent: string): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -770,7 +770,7 @@ export class Playback {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of ClutterGst.Player */
+    /* Methods of ClutterGst-3.0.ClutterGst.Player */
     get_audio_volume(): number
     get_frame(): Frame
     get_idle(): boolean
@@ -779,7 +779,7 @@ export class Playback {
     get_video_sink(): VideoSink
     set_audio_volume(volume: number): void
     set_playing(playing: boolean): void
-    /* Virtual methods of ClutterGst.Playback */
+    /* Virtual methods of ClutterGst-3.0.ClutterGst.Playback */
     vfunc_should_buffer(query: Gst.Query): boolean
     vfunc_eos(): void
     vfunc_error(error: GLib.Error): void
@@ -794,7 +794,7 @@ export class Playback {
     vfunc_set_audio_volume(volume: number): void
     vfunc_set_playing(playing: boolean): void
     vfunc_size_change(width: number, height: number): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -802,15 +802,15 @@ export class Playback {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of ClutterGst.Playback */
+    /* Signals of ClutterGst-3.0.ClutterGst.Playback */
     connect(sigName: "should-buffer", callback: (($obj: Playback, query: Gst.Query) => boolean)): number
     connect_after(sigName: "should-buffer", callback: (($obj: Playback, query: Gst.Query) => boolean)): number
     emit(sigName: "should-buffer", query: Gst.Query): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Playback, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Playback, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    /* Signals of ClutterGst.Player */
+    /* Signals of ClutterGst-3.0.ClutterGst.Player */
     connect(sigName: "eos", callback: (($obj: Playback) => void)): number
     connect_after(sigName: "eos", callback: (($obj: Playback) => void)): number
     emit(sigName: "eos"): void
@@ -875,11 +875,11 @@ export interface VideoSink_ConstructProps extends GstVideo.VideoSink_ConstructPr
     update_priority?: number
 }
 export class VideoSink {
-    /* Properties of ClutterGst.VideoSink */
+    /* Properties of ClutterGst-3.0.ClutterGst.VideoSink */
     update_priority: number
-    /* Properties of GstVideo.VideoSink */
+    /* Properties of GstVideo-1.0.GstVideo.VideoSink */
     show_preroll_frame: boolean
-    /* Properties of GstBase.BaseSink */
+    /* Properties of GstBase-1.0.GstBase.BaseSink */
     async: boolean
     blocksize: number
     enable_last_sample: boolean
@@ -893,14 +893,14 @@ export class VideoSink {
     sync: boolean
     throttle_time: number
     ts_offset: number
-    /* Properties of Gst.Object */
+    /* Properties of Gst-1.0.Gst.Object */
     name: string
     parent: Gst.Object
-    /* Fields of GstVideo.VideoSink */
+    /* Fields of GstVideo-1.0.GstVideo.VideoSink */
     element: GstBase.BaseSink
     width: number
     height: number
-    /* Fields of GstBase.BaseSink */
+    /* Fields of GstBase-1.0.GstBase.BaseSink */
     sinkpad: Gst.Pad
     pad_mode: Gst.PadMode
     offset: number
@@ -914,7 +914,7 @@ export class VideoSink {
     playing_async: boolean
     have_newsegment: boolean
     segment: Gst.Segment
-    /* Fields of Gst.Element */
+    /* Fields of Gst-1.0.Gst.Element */
     object: Gst.Object
     state_lock: GLib.RecMutex
     state_cond: GLib.Cond
@@ -936,16 +936,16 @@ export class VideoSink {
     sinkpads: Gst.Pad[]
     pads_cookie: number
     contexts: Gst.Context[]
-    /* Fields of Gst.Object */
+    /* Fields of Gst-1.0.Gst.Object */
     lock: GLib.Mutex
     flags: number
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     g_type_instance: GObject.TypeInstance
-    /* Methods of ClutterGst.VideoSink */
+    /* Methods of ClutterGst-3.0.ClutterGst.VideoSink */
     get_frame(): Frame
     get_overlays(): Overlays
     is_ready(): boolean
-    /* Methods of GstBase.BaseSink */
+    /* Methods of GstBase-1.0.GstBase.BaseSink */
     do_preroll(obj: Gst.MiniObject): Gst.FlowReturn
     get_blocksize(): number
     get_drop_out_of_segment(): boolean
@@ -978,7 +978,7 @@ export class VideoSink {
     wait(time: Gst.ClockTime): [ /* returnType */ Gst.FlowReturn, /* jitter */ Gst.ClockTimeDiff | null ]
     wait_clock(time: Gst.ClockTime): [ /* returnType */ Gst.ClockReturn, /* jitter */ Gst.ClockTimeDiff | null ]
     wait_preroll(): Gst.FlowReturn
-    /* Methods of Gst.Element */
+    /* Methods of Gst-1.0.Gst.Element */
     abort_state(): void
     add_pad(pad: Gst.Pad): boolean
     add_property_deep_notify_watch(property_name: string | null, include_value: boolean): number
@@ -1044,7 +1044,7 @@ export class VideoSink {
     sync_state_with_parent(): boolean
     unlink(dest: Gst.Element): void
     unlink_pads(srcpadname: string, dest: Gst.Element, destpadname: string): void
-    /* Methods of Gst.Object */
+    /* Methods of Gst-1.0.Gst.Object */
     add_control_binding(binding: Gst.ControlBinding): boolean
     default_error(error: GLib.Error, debug?: string | null): void
     get_control_binding(property_name: string): Gst.ControlBinding | null
@@ -1069,7 +1069,7 @@ export class VideoSink {
     sync_values(timestamp: Gst.ClockTime): boolean
     unparent(): void
     unref(): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -1090,19 +1090,19 @@ export class VideoSink {
     steal_qdata(quark: GLib.Quark): object | null
     thaw_notify(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of GstVideo.ColorBalance */
+    /* Methods of GstVideo-1.0.GstVideo.ColorBalance */
     get_balance_type(): GstVideo.ColorBalanceType
     get_value(channel: GstVideo.ColorBalanceChannel): number
     list_channels(): GstVideo.ColorBalanceChannel[]
     set_value(channel: GstVideo.ColorBalanceChannel, value: number): void
     value_changed(channel: GstVideo.ColorBalanceChannel, value: number): void
-    /* Methods of GstVideo.Navigation */
+    /* Methods of GstVideo-1.0.GstVideo.Navigation */
     send_command(command: GstVideo.NavigationCommand): void
     send_event(structure: Gst.Structure): void
     send_key_event(event: string, key: string): void
     send_mouse_event(event: string, button: number, x: number, y: number): void
     send_mouse_scroll_event(x: number, y: number, delta_x: number, delta_y: number): void
-    /* Virtual methods of ClutterGst.VideoSink */
+    /* Virtual methods of ClutterGst-3.0.ClutterGst.VideoSink */
     vfunc_new_frame(): void
     vfunc_new_overlays(): void
     vfunc_pipeline_ready(): void
@@ -1113,10 +1113,10 @@ export class VideoSink {
     vfunc_value_changed(channel: GstVideo.ColorBalanceChannel, value: number): void
     vfunc_send_event(structure: Gst.Structure): void
     vfunc_send_event(event: Gst.Event): boolean
-    /* Virtual methods of GstVideo.VideoSink */
+    /* Virtual methods of GstVideo-1.0.GstVideo.VideoSink */
     vfunc_set_info(caps: Gst.Caps, info: GstVideo.VideoInfo): boolean
     vfunc_show_frame(buf: Gst.Buffer): Gst.FlowReturn
-    /* Virtual methods of GstBase.BaseSink */
+    /* Virtual methods of GstBase-1.0.GstBase.BaseSink */
     vfunc_activate_pull(active: boolean): boolean
     vfunc_event(event: Gst.Event): boolean
     vfunc_fixate(caps: Gst.Caps): Gst.Caps
@@ -1135,7 +1135,7 @@ export class VideoSink {
     vfunc_unlock(): boolean
     vfunc_unlock_stop(): boolean
     vfunc_wait_event(event: Gst.Event): Gst.FlowReturn
-    /* Virtual methods of Gst.Element */
+    /* Virtual methods of Gst-1.0.Gst.Element */
     vfunc_change_state(transition: Gst.StateChange): Gst.StateChangeReturn
     vfunc_get_state(timeout: Gst.ClockTime): [ /* returnType */ Gst.StateChangeReturn, /* state */ Gst.State | null, /* pending */ Gst.State | null ]
     vfunc_no_more_pads(): void
@@ -1152,9 +1152,9 @@ export class VideoSink {
     vfunc_set_context(context: Gst.Context): void
     vfunc_set_state(state: Gst.State): Gst.StateChangeReturn
     vfunc_state_changed(oldstate: Gst.State, newstate: Gst.State, pending: Gst.State): void
-    /* Virtual methods of Gst.Object */
+    /* Virtual methods of Gst-1.0.Gst.Object */
     vfunc_deep_notify(orig: Gst.Object, pspec: GObject.ParamSpec): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -1162,7 +1162,7 @@ export class VideoSink {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of ClutterGst.VideoSink */
+    /* Signals of ClutterGst-3.0.ClutterGst.VideoSink */
     connect(sigName: "new-frame", callback: (($obj: VideoSink) => void)): number
     connect_after(sigName: "new-frame", callback: (($obj: VideoSink) => void)): number
     emit(sigName: "new-frame"): void
@@ -1172,7 +1172,7 @@ export class VideoSink {
     connect(sigName: "pipeline-ready", callback: (($obj: VideoSink) => void)): number
     connect_after(sigName: "pipeline-ready", callback: (($obj: VideoSink) => void)): number
     emit(sigName: "pipeline-ready"): void
-    /* Signals of Gst.Element */
+    /* Signals of Gst-1.0.Gst.Element */
     connect(sigName: "no-more-pads", callback: (($obj: VideoSink) => void)): number
     connect_after(sigName: "no-more-pads", callback: (($obj: VideoSink) => void)): number
     emit(sigName: "no-more-pads"): void
@@ -1182,15 +1182,15 @@ export class VideoSink {
     connect(sigName: "pad-removed", callback: (($obj: VideoSink, old_pad: Gst.Pad) => void)): number
     connect_after(sigName: "pad-removed", callback: (($obj: VideoSink, old_pad: Gst.Pad) => void)): number
     emit(sigName: "pad-removed", old_pad: Gst.Pad): void
-    /* Signals of Gst.Object */
+    /* Signals of Gst-1.0.Gst.Object */
     connect(sigName: "deep-notify", callback: (($obj: VideoSink, prop_object: Gst.Object, prop: GObject.ParamSpec) => void)): number
     connect_after(sigName: "deep-notify", callback: (($obj: VideoSink, prop_object: Gst.Object, prop: GObject.ParamSpec) => void)): number
     emit(sigName: "deep-notify", prop_object: Gst.Object, prop: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: VideoSink, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: VideoSink, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    /* Signals of GstVideo.ColorBalance */
+    /* Signals of GstVideo-1.0.GstVideo.ColorBalance */
     connect(sigName: "value-changed", callback: (($obj: VideoSink, channel: GstVideo.ColorBalanceChannel, value: number) => void)): number
     connect_after(sigName: "value-changed", callback: (($obj: VideoSink, channel: GstVideo.ColorBalanceChannel, value: number) => void)): number
     emit(sigName: "value-changed", channel: GstVideo.ColorBalanceChannel, value: number): void
@@ -1268,18 +1268,18 @@ export class AspectratioPrivate {
     static name: string
 }
 export class Box {
-    /* Fields of ClutterGst.Box */
+    /* Fields of ClutterGst-3.0.ClutterGst.Box */
     x1: number
     y1: number
     x2: number
     y2: number
-    /* Methods of ClutterGst.Box */
+    /* Methods of ClutterGst-3.0.ClutterGst.Box */
     get_height(): number
     get_width(): number
     static name: string
 }
 export abstract class CameraClass {
-    /* Fields of ClutterGst.CameraClass */
+    /* Fields of ClutterGst-3.0.ClutterGst.CameraClass */
     ready_for_capture: (self: Camera, ready: boolean) => void
     photo_saved: (self: Camera) => void
     photo_taken: (self: Camera, pixbuf: GdkPixbuf.Pixbuf) => void
@@ -1287,7 +1287,7 @@ export abstract class CameraClass {
     static name: string
 }
 export abstract class CameraDeviceClass {
-    /* Fields of ClutterGst.CameraDeviceClass */
+    /* Fields of ClutterGst-3.0.ClutterGst.CameraDeviceClass */
     capture_resolution_changed: (device: CameraDevice, width: number, height: number) => void
     static name: string
 }
@@ -1304,7 +1304,7 @@ export class CameraPrivate {
     static name: string
 }
 export abstract class ContentClass {
-    /* Fields of ClutterGst.ContentClass */
+    /* Fields of ClutterGst-3.0.ClutterGst.ContentClass */
     has_painting_content: (self: Content) => boolean
     static name: string
 }
@@ -1318,22 +1318,22 @@ export class CropPrivate {
     static name: string
 }
 export class Frame {
-    /* Fields of ClutterGst.Frame */
+    /* Fields of ClutterGst-3.0.ClutterGst.Frame */
     resolution: VideoResolution
     static name: string
 }
 export class Overlay {
-    /* Fields of ClutterGst.Overlay */
+    /* Fields of ClutterGst-3.0.ClutterGst.Overlay */
     position: Box
     static name: string
 }
 export class Overlays {
-    /* Fields of ClutterGst.Overlays */
+    /* Fields of ClutterGst-3.0.ClutterGst.Overlays */
     overlays: object[]
     static name: string
 }
 export abstract class PlaybackClass {
-    /* Fields of ClutterGst.PlaybackClass */
+    /* Fields of ClutterGst-3.0.ClutterGst.PlaybackClass */
     should_buffer: (self: Playback, query: Gst.Query) => boolean
     static name: string
 }
@@ -1341,7 +1341,7 @@ export class PlaybackPrivate {
     static name: string
 }
 export abstract class PlayerIface {
-    /* Fields of ClutterGst.PlayerIface */
+    /* Fields of ClutterGst-3.0.ClutterGst.PlayerIface */
     get_frame: (self: Player) => Frame
     get_pipeline: (self: Player) => Gst.Element
     get_video_sink: (self: Player) => VideoSink
@@ -1361,7 +1361,7 @@ export class PlayerIfacePrivate {
     static name: string
 }
 export class VideoResolution {
-    /* Fields of ClutterGst.VideoResolution */
+    /* Fields of ClutterGst-3.0.ClutterGst.VideoResolution */
     width: number
     height: number
     par_n: number
@@ -1369,7 +1369,7 @@ export class VideoResolution {
     static name: string
 }
 export abstract class VideoSinkClass {
-    /* Fields of ClutterGst.VideoSinkClass */
+    /* Fields of ClutterGst-3.0.ClutterGst.VideoSinkClass */
     new_frame: (sink: VideoSink) => void
     pipeline_ready: (sink: VideoSink) => void
     new_overlays: (sink: VideoSink) => void

@@ -14,13 +14,13 @@ export interface InsertBinCallback {
 export interface InsertBin_ConstructProps extends Gst.Bin_ConstructProps {
 }
 export class InsertBin {
-    /* Properties of Gst.Bin */
+    /* Properties of Gst-1.0.Gst.Bin */
     async_handling: boolean
     message_forward: boolean
-    /* Properties of Gst.Object */
+    /* Properties of Gst-1.0.Gst.Object */
     name: string
     parent: Gst.Object
-    /* Fields of Gst.Bin */
+    /* Fields of Gst-1.0.Gst.Bin */
     element: Gst.Element
     numchildren: number
     children: Gst.Element[]
@@ -32,7 +32,7 @@ export class InsertBin {
     clock_dirty: boolean
     provided_clock: Gst.Clock
     clock_provider: Gst.Element
-    /* Fields of Gst.Element */
+    /* Fields of Gst-1.0.Gst.Element */
     object: Gst.Object
     state_lock: GLib.RecMutex
     state_cond: GLib.Cond
@@ -54,18 +54,18 @@ export class InsertBin {
     sinkpads: Gst.Pad[]
     pads_cookie: number
     contexts: Gst.Context[]
-    /* Fields of Gst.Object */
+    /* Fields of Gst-1.0.Gst.Object */
     lock: GLib.Mutex
     flags: number
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GstInsertBin.InsertBin */
+    /* Methods of GstInsertBin-1.0.GstInsertBin.InsertBin */
     append(element: Gst.Element, callback: InsertBinCallback): void
     insert_after(element: Gst.Element, sibling: Gst.Element, callback: InsertBinCallback): void
     insert_before(element: Gst.Element, sibling: Gst.Element, callback: InsertBinCallback): void
     prepend(element: Gst.Element, callback: InsertBinCallback): void
     remove(element: Gst.Element, callback: InsertBinCallback): void
-    /* Methods of Gst.Bin */
+    /* Methods of Gst-1.0.Gst.Bin */
     add(element: Gst.Element): boolean
     find_unlinked_pad(direction: Gst.PadDirection): Gst.Pad | null
     get_by_interface(iface: GObject.Type): Gst.Element | null
@@ -83,7 +83,7 @@ export class InsertBin {
     remove(element: Gst.Element): boolean
     set_suppressed_flags(flags: Gst.ElementFlags): void
     sync_children_states(): boolean
-    /* Methods of Gst.Element */
+    /* Methods of Gst-1.0.Gst.Element */
     abort_state(): void
     add_pad(pad: Gst.Pad): boolean
     add_property_deep_notify_watch(property_name: string | null, include_value: boolean): number
@@ -149,7 +149,7 @@ export class InsertBin {
     sync_state_with_parent(): boolean
     unlink(dest: Gst.Element): void
     unlink_pads(srcpadname: string, dest: Gst.Element, destpadname: string): void
-    /* Methods of Gst.Object */
+    /* Methods of Gst-1.0.Gst.Object */
     add_control_binding(binding: Gst.ControlBinding): boolean
     default_error(error: GLib.Error, debug?: string | null): void
     get_control_binding(property_name: string): Gst.ControlBinding | null
@@ -174,7 +174,7 @@ export class InsertBin {
     sync_values(timestamp: Gst.ClockTime): boolean
     unparent(): void
     unref(): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -195,7 +195,7 @@ export class InsertBin {
     steal_qdata(quark: GLib.Quark): object | null
     thaw_notify(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of Gst.ChildProxy */
+    /* Methods of Gst-1.0.Gst.ChildProxy */
     child_added(child: GObject.Object, name: string): void
     child_removed(child: GObject.Object, name: string): void
     get_child_by_index(index: number): GObject.Object | null
@@ -204,13 +204,13 @@ export class InsertBin {
     get_property(name: string): /* value */ any
     lookup(name: string): [ /* returnType */ boolean, /* target */ GObject.Object | null, /* pspec */ GObject.ParamSpec | null ]
     set_property(name: string, value: any): void
-    /* Virtual methods of GstInsertBin.InsertBin */
+    /* Virtual methods of GstInsertBin-1.0.GstInsertBin.InsertBin */
     vfunc_child_added(child: GObject.Object, name: string): void
     vfunc_child_removed(child: GObject.Object, name: string): void
     vfunc_get_child_by_index(index: number): GObject.Object | null
     vfunc_get_child_by_name(name: string): GObject.Object | null
     vfunc_get_children_count(): number
-    /* Virtual methods of Gst.Bin */
+    /* Virtual methods of Gst-1.0.Gst.Bin */
     vfunc_add_element(element: Gst.Element): boolean
     vfunc_deep_element_added(sub_bin: Gst.Bin, child: Gst.Element): void
     vfunc_deep_element_removed(sub_bin: Gst.Bin, child: Gst.Element): void
@@ -219,7 +219,7 @@ export class InsertBin {
     vfunc_element_removed(child: Gst.Element): void
     vfunc_handle_message(message: Gst.Message): void
     vfunc_remove_element(element: Gst.Element): boolean
-    /* Virtual methods of Gst.Element */
+    /* Virtual methods of Gst-1.0.Gst.Element */
     vfunc_change_state(transition: Gst.StateChange): Gst.StateChangeReturn
     vfunc_get_state(timeout: Gst.ClockTime): [ /* returnType */ Gst.StateChangeReturn, /* state */ Gst.State | null, /* pending */ Gst.State | null ]
     vfunc_no_more_pads(): void
@@ -236,9 +236,9 @@ export class InsertBin {
     vfunc_set_context(context: Gst.Context): void
     vfunc_set_state(state: Gst.State): Gst.StateChangeReturn
     vfunc_state_changed(oldstate: Gst.State, newstate: Gst.State, pending: Gst.State): void
-    /* Virtual methods of Gst.Object */
+    /* Virtual methods of Gst-1.0.Gst.Object */
     vfunc_deep_notify(orig: Gst.Object, pspec: GObject.ParamSpec): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -246,7 +246,7 @@ export class InsertBin {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GstInsertBin.InsertBin */
+    /* Signals of GstInsertBin-1.0.GstInsertBin.InsertBin */
     connect(sigName: "append", callback: (($obj: InsertBin, callback: Gst.Element, user_data?: object | null, user_data2?: object | null) => void)): number
     connect_after(sigName: "append", callback: (($obj: InsertBin, callback: Gst.Element, user_data?: object | null, user_data2?: object | null) => void)): number
     emit(sigName: "append", callback: Gst.Element, user_data?: object | null, user_data2?: object | null): void
@@ -262,7 +262,7 @@ export class InsertBin {
     connect(sigName: "remove", callback: (($obj: InsertBin, callback: Gst.Element, user_data?: object | null, user_data2?: object | null) => void)): number
     connect_after(sigName: "remove", callback: (($obj: InsertBin, callback: Gst.Element, user_data?: object | null, user_data2?: object | null) => void)): number
     emit(sigName: "remove", callback: Gst.Element, user_data?: object | null, user_data2?: object | null): void
-    /* Signals of Gst.Bin */
+    /* Signals of Gst-1.0.Gst.Bin */
     connect(sigName: "deep-element-added", callback: (($obj: InsertBin, sub_bin: Gst.Bin, element: Gst.Element) => void)): number
     connect_after(sigName: "deep-element-added", callback: (($obj: InsertBin, sub_bin: Gst.Bin, element: Gst.Element) => void)): number
     emit(sigName: "deep-element-added", sub_bin: Gst.Bin, element: Gst.Element): void
@@ -278,7 +278,7 @@ export class InsertBin {
     connect(sigName: "element-removed", callback: (($obj: InsertBin, element: Gst.Element) => void)): number
     connect_after(sigName: "element-removed", callback: (($obj: InsertBin, element: Gst.Element) => void)): number
     emit(sigName: "element-removed", element: Gst.Element): void
-    /* Signals of Gst.Element */
+    /* Signals of Gst-1.0.Gst.Element */
     connect(sigName: "no-more-pads", callback: (($obj: InsertBin) => void)): number
     connect_after(sigName: "no-more-pads", callback: (($obj: InsertBin) => void)): number
     emit(sigName: "no-more-pads"): void
@@ -288,15 +288,15 @@ export class InsertBin {
     connect(sigName: "pad-removed", callback: (($obj: InsertBin, old_pad: Gst.Pad) => void)): number
     connect_after(sigName: "pad-removed", callback: (($obj: InsertBin, old_pad: Gst.Pad) => void)): number
     emit(sigName: "pad-removed", old_pad: Gst.Pad): void
-    /* Signals of Gst.Object */
+    /* Signals of Gst-1.0.Gst.Object */
     connect(sigName: "deep-notify", callback: (($obj: InsertBin, prop_object: Gst.Object, prop: GObject.ParamSpec) => void)): number
     connect_after(sigName: "deep-notify", callback: (($obj: InsertBin, prop_object: Gst.Object, prop: GObject.ParamSpec) => void)): number
     emit(sigName: "deep-notify", prop_object: Gst.Object, prop: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: InsertBin, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: InsertBin, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    /* Signals of Gst.ChildProxy */
+    /* Signals of Gst-1.0.Gst.ChildProxy */
     connect(sigName: "child-added", callback: (($obj: InsertBin, object: GObject.Object, name: string) => void)): number
     connect_after(sigName: "child-added", callback: (($obj: InsertBin, object: GObject.Object, name: string) => void)): number
     emit(sigName: "child-added", object: GObject.Object, name: string): void
@@ -323,7 +323,7 @@ export class InsertBin {
     static $gtype: GObject.Type
 }
 export abstract class InsertBinClass {
-    /* Fields of GstInsertBin.InsertBinClass */
+    /* Fields of GstInsertBin-1.0.GstInsertBin.InsertBinClass */
     parent_class: Gst.BinClass
     static name: string
 }

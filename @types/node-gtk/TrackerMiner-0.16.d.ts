@@ -75,12 +75,12 @@ export function thumbnailerShutdown(): void
 export interface Crawler_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class Crawler {
-    /* Fields of TrackerMiner.Crawler */
+    /* Fields of TrackerMiner-0.16.TrackerMiner.Crawler */
     parent: GObject.Object
     priv: CrawlerPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of TrackerMiner.Crawler */
+    /* Methods of TrackerMiner-0.16.TrackerMiner.Crawler */
     getFileAttributes(): string
     getFileInfo(file: Gio.File): Gio.FileInfo
     pause(): void
@@ -89,7 +89,7 @@ export class Crawler {
     setThrottle(throttle: number): void
     start(file: Gio.File, recurse: boolean): boolean
     stop(): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -111,57 +111,38 @@ export class Crawler {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of TrackerMiner.Crawler */
-    vfuncCheckDirectory(file: Gio.File): boolean
-    vfuncCheckFile(file: Gio.File): boolean
-    vfuncDirectoryCrawled(directory: Gio.File, tree: GLib.Node, directoriesFound: number, directoriesIgnored: number, filesFound: number, filesIgnored: number): void
-    vfuncFinished(interrupted: boolean): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of TrackerMiner.Crawler */
+    /* Signals of TrackerMiner-0.16.TrackerMiner.Crawler */
     connect(sigName: "check-directory", callback: (($obj: Crawler, object: Gio.File) => boolean)): number
-    connect_after(sigName: "check-directory", callback: (($obj: Crawler, object: Gio.File) => boolean)): number
+    on(sigName: "check-directory", callback: (object: Gio.File) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "check-directory", callback: (object: Gio.File) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "check-directory", callback: (object: Gio.File) => void): NodeJS.EventEmitter
     emit(sigName: "check-directory", object: Gio.File): void
-    on(sigName: "check-directory", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "check-directory", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "check-directory", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "check-directory-contents", callback: (($obj: Crawler, object: Gio.File, p0: object) => boolean)): number
-    connect_after(sigName: "check-directory-contents", callback: (($obj: Crawler, object: Gio.File, p0: object) => boolean)): number
+    on(sigName: "check-directory-contents", callback: (object: Gio.File, p0: object) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "check-directory-contents", callback: (object: Gio.File, p0: object) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "check-directory-contents", callback: (object: Gio.File, p0: object) => void): NodeJS.EventEmitter
     emit(sigName: "check-directory-contents", object: Gio.File, p0: object): void
-    on(sigName: "check-directory-contents", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "check-directory-contents", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "check-directory-contents", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "check-file", callback: (($obj: Crawler, object: Gio.File) => boolean)): number
-    connect_after(sigName: "check-file", callback: (($obj: Crawler, object: Gio.File) => boolean)): number
+    on(sigName: "check-file", callback: (object: Gio.File) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "check-file", callback: (object: Gio.File) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "check-file", callback: (object: Gio.File) => void): NodeJS.EventEmitter
     emit(sigName: "check-file", object: Gio.File): void
-    on(sigName: "check-file", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "check-file", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "check-file", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "directory-crawled", callback: (($obj: Crawler, object: Gio.File, p0: object, p1: number, p2: number, p3: number, p4: number) => void)): number
-    connect_after(sigName: "directory-crawled", callback: (($obj: Crawler, object: Gio.File, p0: object, p1: number, p2: number, p3: number, p4: number) => void)): number
+    on(sigName: "directory-crawled", callback: (object: Gio.File, p0: object, p1: number, p2: number, p3: number, p4: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "directory-crawled", callback: (object: Gio.File, p0: object, p1: number, p2: number, p3: number, p4: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "directory-crawled", callback: (object: Gio.File, p0: object, p1: number, p2: number, p3: number, p4: number) => void): NodeJS.EventEmitter
     emit(sigName: "directory-crawled", object: Gio.File, p0: object, p1: number, p2: number, p3: number, p4: number): void
-    on(sigName: "directory-crawled", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "directory-crawled", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "directory-crawled", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "finished", callback: (($obj: Crawler, object: boolean) => void)): number
-    connect_after(sigName: "finished", callback: (($obj: Crawler, object: boolean) => void)): number
+    on(sigName: "finished", callback: (object: boolean) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "finished", callback: (object: boolean) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "finished", callback: (object: boolean) => void): NodeJS.EventEmitter
     emit(sigName: "finished", object: boolean): void
-    on(sigName: "finished", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "finished", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "finished", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Crawler, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Crawler, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -180,14 +161,14 @@ export interface IndexingTree_ConstructProps extends GObject.Object_ConstructPro
     filterHidden?: boolean
 }
 export class IndexingTree {
-    /* Properties of TrackerMiner.IndexingTree */
+    /* Properties of TrackerMiner-0.16.TrackerMiner.IndexingTree */
     filterHidden: boolean
-    /* Fields of TrackerMiner.IndexingTree */
+    /* Fields of TrackerMiner-0.16.TrackerMiner.IndexingTree */
     parentInstance: GObject.Object
     priv: object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of TrackerMiner.IndexingTree */
+    /* Methods of TrackerMiner-0.16.TrackerMiner.IndexingTree */
     add(directory: Gio.File, flags: DirectoryFlags): void
     addFilter(filter: FilterType, globString: string): void
     clearFilters(type: FilterType): void
@@ -196,13 +177,13 @@ export class IndexingTree {
     fileMatchesFilter(type: FilterType, file: Gio.File): boolean
     getDefaultPolicy(filter: FilterType): FilterPolicy
     getFilterHidden(): boolean
-    getRoot(file: Gio.File): [ /* returnType */ Gio.File, /* directoryFlags */ DirectoryFlags ]
+    getRoot(file: Gio.File): { returnType: Gio.File, directoryFlags: DirectoryFlags }
     listRoots(): Gio.File[]
     parentIsIndexable(parent: Gio.File, children: Gio.File[]): boolean
     remove(directory: Gio.File): void
     setDefaultPolicy(filter: FilterType, policy: FilterPolicy): void
     setFilterHidden(filterHidden: boolean): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -224,44 +205,28 @@ export class IndexingTree {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of TrackerMiner.IndexingTree */
-    vfuncDirectoryAdded(directory: Gio.File): void
-    vfuncDirectoryRemoved(directory: Gio.File): void
-    vfuncDirectoryUpdated(directory: Gio.File): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of TrackerMiner.IndexingTree */
+    /* Signals of TrackerMiner-0.16.TrackerMiner.IndexingTree */
     connect(sigName: "directory-added", callback: (($obj: IndexingTree, object: Gio.File) => void)): number
-    connect_after(sigName: "directory-added", callback: (($obj: IndexingTree, object: Gio.File) => void)): number
+    on(sigName: "directory-added", callback: (object: Gio.File) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "directory-added", callback: (object: Gio.File) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "directory-added", callback: (object: Gio.File) => void): NodeJS.EventEmitter
     emit(sigName: "directory-added", object: Gio.File): void
-    on(sigName: "directory-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "directory-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "directory-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "directory-removed", callback: (($obj: IndexingTree, object: Gio.File) => void)): number
-    connect_after(sigName: "directory-removed", callback: (($obj: IndexingTree, object: Gio.File) => void)): number
+    on(sigName: "directory-removed", callback: (object: Gio.File) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "directory-removed", callback: (object: Gio.File) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "directory-removed", callback: (object: Gio.File) => void): NodeJS.EventEmitter
     emit(sigName: "directory-removed", object: Gio.File): void
-    on(sigName: "directory-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "directory-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "directory-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "directory-updated", callback: (($obj: IndexingTree, object: Gio.File) => void)): number
-    connect_after(sigName: "directory-updated", callback: (($obj: IndexingTree, object: Gio.File) => void)): number
+    on(sigName: "directory-updated", callback: (object: Gio.File) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "directory-updated", callback: (object: Gio.File) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "directory-updated", callback: (object: Gio.File) => void): NodeJS.EventEmitter
     emit(sigName: "directory-updated", object: Gio.File): void
-    on(sigName: "directory-updated", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "directory-updated", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "directory-updated", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: IndexingTree, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: IndexingTree, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::filter-hidden", callback: (($obj: IndexingTree, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::filter-hidden", callback: (($obj: IndexingTree, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::filter-hidden", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -288,16 +253,16 @@ export interface Miner_ConstructProps extends GObject.Object_ConstructProps {
     status?: string
 }
 export class Miner {
-    /* Properties of TrackerMiner.Miner */
+    /* Properties of TrackerMiner-0.16.TrackerMiner.Miner */
     progress: number
     remainingTime: number
     status: string
-    /* Fields of TrackerMiner.Miner */
+    /* Fields of TrackerMiner-0.16.TrackerMiner.Miner */
     parentInstance: GObject.Object
     priv: MinerPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of TrackerMiner.Miner */
+    /* Methods of TrackerMiner-0.16.TrackerMiner.Miner */
     getConnection(): Tracker.SparqlConnection
     getDbusConnection(): Gio.DBusConnection
     getDbusFullName(): string
@@ -310,7 +275,7 @@ export class Miner {
     resume(cookie: number): boolean
     start(): void
     stop(): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -332,68 +297,45 @@ export class Miner {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of Gio.Initable */
+    /* Methods of Gio-2.0.Gio.Initable */
     init(cancellable?: Gio.Cancellable | null): boolean
-    /* Virtual methods of TrackerMiner.Miner */
-    vfuncIgnoreNextUpdate(urls: string[]): void
-    vfuncPaused(): void
-    vfuncProgress(status: string, progress: number): void
-    vfuncResumed(): void
-    vfuncStarted(): void
-    vfuncStopped(): void
-    vfuncInit(cancellable?: Gio.Cancellable | null): boolean
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of TrackerMiner.Miner */
+    /* Signals of TrackerMiner-0.16.TrackerMiner.Miner */
     connect(sigName: "ignore-next-update", callback: (($obj: Miner, urls: string[]) => void)): number
-    connect_after(sigName: "ignore-next-update", callback: (($obj: Miner, urls: string[]) => void)): number
+    on(sigName: "ignore-next-update", callback: (urls: string[]) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "ignore-next-update", callback: (urls: string[]) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "ignore-next-update", callback: (urls: string[]) => void): NodeJS.EventEmitter
     emit(sigName: "ignore-next-update", urls: string[]): void
-    on(sigName: "ignore-next-update", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "ignore-next-update", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "ignore-next-update", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "paused", callback: (($obj: Miner) => void)): number
-    connect_after(sigName: "paused", callback: (($obj: Miner) => void)): number
+    on(sigName: "paused", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "paused", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "paused", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "paused"): void
-    on(sigName: "paused", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "paused", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "paused", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "progress", callback: (($obj: Miner, status: string, progress: number, remainingTime: number) => void)): number
-    connect_after(sigName: "progress", callback: (($obj: Miner, status: string, progress: number, remainingTime: number) => void)): number
+    on(sigName: "progress", callback: (status: string, progress: number, remainingTime: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "progress", callback: (status: string, progress: number, remainingTime: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "progress", callback: (status: string, progress: number, remainingTime: number) => void): NodeJS.EventEmitter
     emit(sigName: "progress", status: string, progress: number, remainingTime: number): void
-    on(sigName: "progress", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "progress", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "progress", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "resumed", callback: (($obj: Miner) => void)): number
-    connect_after(sigName: "resumed", callback: (($obj: Miner) => void)): number
+    on(sigName: "resumed", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "resumed", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "resumed", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "resumed"): void
-    on(sigName: "resumed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "resumed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "resumed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "started", callback: (($obj: Miner) => void)): number
-    connect_after(sigName: "started", callback: (($obj: Miner) => void)): number
+    on(sigName: "started", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "started", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "started", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "started"): void
-    on(sigName: "started", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "started", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "started", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "stopped", callback: (($obj: Miner) => void)): number
-    connect_after(sigName: "stopped", callback: (($obj: Miner) => void)): number
+    on(sigName: "stopped", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "stopped", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "stopped", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "stopped"): void
-    on(sigName: "stopped", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "stopped", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "stopped", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Miner, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Miner, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::progress", callback: (($obj: Miner, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::progress", callback: (($obj: Miner, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::progress", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -432,24 +374,24 @@ export interface MinerFS_ConstructProps extends Miner_ConstructProps {
     throttle?: number
 }
 export class MinerFS {
-    /* Properties of TrackerMiner.MinerFS */
+    /* Properties of TrackerMiner-0.16.TrackerMiner.MinerFS */
     initialCrawling: boolean
     mtimeChecking: boolean
     processingPoolReadyLimit: number
     processingPoolWaitLimit: number
     throttle: number
-    /* Properties of TrackerMiner.Miner */
+    /* Properties of TrackerMiner-0.16.TrackerMiner.Miner */
     progress: number
     remainingTime: number
     status: string
-    /* Fields of TrackerMiner.MinerFS */
+    /* Fields of TrackerMiner-0.16.TrackerMiner.MinerFS */
     parent: Miner
     priv: MinerFSPrivate
-    /* Fields of TrackerMiner.Miner */
+    /* Fields of TrackerMiner-0.16.TrackerMiner.Miner */
     parentInstance: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of TrackerMiner.MinerFS */
+    /* Methods of TrackerMiner-0.16.TrackerMiner.MinerFS */
     addDirectoryWithoutParent(file: Gio.File): void
     checkDirectory(file: Gio.File, checkParents: boolean): void
     checkDirectoryWithPriority(file: Gio.File, priority: number, checkParents: boolean): void
@@ -474,7 +416,7 @@ export class MinerFS {
     setThrottle(throttle: number): void
     writebackFile(file: Gio.File, rdfTypes: string[], results: any[]): void
     writebackNotify(file: Gio.File, error: GLib.Error): void
-    /* Methods of TrackerMiner.Miner */
+    /* Methods of TrackerMiner-0.16.TrackerMiner.Miner */
     getConnection(): Tracker.SparqlConnection
     getDbusConnection(): Gio.DBusConnection
     getDbusFullName(): string
@@ -487,7 +429,7 @@ export class MinerFS {
     resume(cookie: number): boolean
     start(): void
     stop(): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -509,104 +451,71 @@ export class MinerFS {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of Gio.Initable */
+    /* Methods of Gio-2.0.Gio.Initable */
     init(cancellable?: Gio.Cancellable | null): boolean
-    /* Virtual methods of TrackerMiner.MinerFS */
-    vfuncFinished(): void
-    vfuncIgnoreNextUpdateFile(file: Gio.File, builder: Tracker.SparqlBuilder, cancellable?: Gio.Cancellable | null): boolean
-    vfuncProcessFile(file: Gio.File, builder: Tracker.SparqlBuilder, cancellable?: Gio.Cancellable | null): boolean
-    vfuncProcessFileAttributes(file: Gio.File, builder: Tracker.SparqlBuilder, cancellable?: Gio.Cancellable | null): boolean
-    /* Virtual methods of TrackerMiner.Miner */
-    vfuncIgnoreNextUpdate(urls: string[]): void
-    vfuncPaused(): void
-    vfuncProgress(status: string, progress: number): void
-    vfuncResumed(): void
-    vfuncStarted(): void
-    vfuncStopped(): void
-    vfuncInit(cancellable?: Gio.Cancellable | null): boolean
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of TrackerMiner.MinerFS */
+    /* Signals of TrackerMiner-0.16.TrackerMiner.MinerFS */
     connect(sigName: "finished", callback: (($obj: MinerFS, elapsed: number, directoriesFound: number, directoriesIgnored: number, filesFound: number, filesIgnored: number) => void)): number
-    connect_after(sigName: "finished", callback: (($obj: MinerFS, elapsed: number, directoriesFound: number, directoriesIgnored: number, filesFound: number, filesIgnored: number) => void)): number
+    on(sigName: "finished", callback: (elapsed: number, directoriesFound: number, directoriesIgnored: number, filesFound: number, filesIgnored: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "finished", callback: (elapsed: number, directoriesFound: number, directoriesIgnored: number, filesFound: number, filesIgnored: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "finished", callback: (elapsed: number, directoriesFound: number, directoriesIgnored: number, filesFound: number, filesIgnored: number) => void): NodeJS.EventEmitter
     emit(sigName: "finished", elapsed: number, directoriesFound: number, directoriesIgnored: number, filesFound: number, filesIgnored: number): void
-    on(sigName: "finished", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "finished", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "finished", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "ignore-next-update-file", callback: (($obj: MinerFS, file: Gio.File, builder: Tracker.SparqlBuilder, cancellable?: Gio.Cancellable | null) => boolean)): number
-    connect_after(sigName: "ignore-next-update-file", callback: (($obj: MinerFS, file: Gio.File, builder: Tracker.SparqlBuilder, cancellable?: Gio.Cancellable | null) => boolean)): number
+    on(sigName: "ignore-next-update-file", callback: (file: Gio.File, builder: Tracker.SparqlBuilder, cancellable?: Gio.Cancellable | null) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "ignore-next-update-file", callback: (file: Gio.File, builder: Tracker.SparqlBuilder, cancellable?: Gio.Cancellable | null) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "ignore-next-update-file", callback: (file: Gio.File, builder: Tracker.SparqlBuilder, cancellable?: Gio.Cancellable | null) => void): NodeJS.EventEmitter
     emit(sigName: "ignore-next-update-file", file: Gio.File, builder: Tracker.SparqlBuilder, cancellable?: Gio.Cancellable | null): void
-    on(sigName: "ignore-next-update-file", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "ignore-next-update-file", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "ignore-next-update-file", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "process-file", callback: (($obj: MinerFS, file: Gio.File, builder: Tracker.SparqlBuilder, cancellable?: Gio.Cancellable | null) => boolean)): number
-    connect_after(sigName: "process-file", callback: (($obj: MinerFS, file: Gio.File, builder: Tracker.SparqlBuilder, cancellable?: Gio.Cancellable | null) => boolean)): number
+    on(sigName: "process-file", callback: (file: Gio.File, builder: Tracker.SparqlBuilder, cancellable?: Gio.Cancellable | null) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "process-file", callback: (file: Gio.File, builder: Tracker.SparqlBuilder, cancellable?: Gio.Cancellable | null) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "process-file", callback: (file: Gio.File, builder: Tracker.SparqlBuilder, cancellable?: Gio.Cancellable | null) => void): NodeJS.EventEmitter
     emit(sigName: "process-file", file: Gio.File, builder: Tracker.SparqlBuilder, cancellable?: Gio.Cancellable | null): void
-    on(sigName: "process-file", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "process-file", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "process-file", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "process-file-attributes", callback: (($obj: MinerFS, file: Gio.File, builder: Tracker.SparqlBuilder, cancellable?: Gio.Cancellable | null) => boolean)): number
-    connect_after(sigName: "process-file-attributes", callback: (($obj: MinerFS, file: Gio.File, builder: Tracker.SparqlBuilder, cancellable?: Gio.Cancellable | null) => boolean)): number
+    on(sigName: "process-file-attributes", callback: (file: Gio.File, builder: Tracker.SparqlBuilder, cancellable?: Gio.Cancellable | null) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "process-file-attributes", callback: (file: Gio.File, builder: Tracker.SparqlBuilder, cancellable?: Gio.Cancellable | null) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "process-file-attributes", callback: (file: Gio.File, builder: Tracker.SparqlBuilder, cancellable?: Gio.Cancellable | null) => void): NodeJS.EventEmitter
     emit(sigName: "process-file-attributes", file: Gio.File, builder: Tracker.SparqlBuilder, cancellable?: Gio.Cancellable | null): void
-    on(sigName: "process-file-attributes", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "process-file-attributes", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "process-file-attributes", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "writeback-file", callback: (($obj: MinerFS, file: Gio.File, rdfTypes: string[], results: any[], cancellable?: Gio.Cancellable | null) => boolean)): number
-    connect_after(sigName: "writeback-file", callback: (($obj: MinerFS, file: Gio.File, rdfTypes: string[], results: any[], cancellable?: Gio.Cancellable | null) => boolean)): number
+    on(sigName: "writeback-file", callback: (file: Gio.File, rdfTypes: string[], results: any[], cancellable?: Gio.Cancellable | null) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "writeback-file", callback: (file: Gio.File, rdfTypes: string[], results: any[], cancellable?: Gio.Cancellable | null) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "writeback-file", callback: (file: Gio.File, rdfTypes: string[], results: any[], cancellable?: Gio.Cancellable | null) => void): NodeJS.EventEmitter
     emit(sigName: "writeback-file", file: Gio.File, rdfTypes: string[], results: any[], cancellable?: Gio.Cancellable | null): void
-    on(sigName: "writeback-file", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "writeback-file", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "writeback-file", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of TrackerMiner.Miner */
+    /* Signals of TrackerMiner-0.16.TrackerMiner.Miner */
     connect(sigName: "ignore-next-update", callback: (($obj: MinerFS, urls: string[]) => void)): number
-    connect_after(sigName: "ignore-next-update", callback: (($obj: MinerFS, urls: string[]) => void)): number
+    on(sigName: "ignore-next-update", callback: (urls: string[]) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "ignore-next-update", callback: (urls: string[]) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "ignore-next-update", callback: (urls: string[]) => void): NodeJS.EventEmitter
     emit(sigName: "ignore-next-update", urls: string[]): void
-    on(sigName: "ignore-next-update", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "ignore-next-update", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "ignore-next-update", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "paused", callback: (($obj: MinerFS) => void)): number
-    connect_after(sigName: "paused", callback: (($obj: MinerFS) => void)): number
+    on(sigName: "paused", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "paused", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "paused", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "paused"): void
-    on(sigName: "paused", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "paused", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "paused", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "progress", callback: (($obj: MinerFS, status: string, progress: number, remainingTime: number) => void)): number
-    connect_after(sigName: "progress", callback: (($obj: MinerFS, status: string, progress: number, remainingTime: number) => void)): number
+    on(sigName: "progress", callback: (status: string, progress: number, remainingTime: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "progress", callback: (status: string, progress: number, remainingTime: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "progress", callback: (status: string, progress: number, remainingTime: number) => void): NodeJS.EventEmitter
     emit(sigName: "progress", status: string, progress: number, remainingTime: number): void
-    on(sigName: "progress", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "progress", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "progress", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "resumed", callback: (($obj: MinerFS) => void)): number
-    connect_after(sigName: "resumed", callback: (($obj: MinerFS) => void)): number
+    on(sigName: "resumed", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "resumed", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "resumed", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "resumed"): void
-    on(sigName: "resumed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "resumed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "resumed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "started", callback: (($obj: MinerFS) => void)): number
-    connect_after(sigName: "started", callback: (($obj: MinerFS) => void)): number
+    on(sigName: "started", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "started", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "started", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "started"): void
-    on(sigName: "started", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "started", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "started", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "stopped", callback: (($obj: MinerFS) => void)): number
-    connect_after(sigName: "stopped", callback: (($obj: MinerFS) => void)): number
+    on(sigName: "stopped", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "stopped", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "stopped", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "stopped"): void
-    on(sigName: "stopped", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "stopped", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "stopped", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: MinerFS, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: MinerFS, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::initial-crawling", callback: (($obj: MinerFS, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::initial-crawling", callback: (($obj: MinerFS, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::initial-crawling", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -663,27 +572,27 @@ export interface MinerManager_ConstructProps extends GObject.Object_ConstructPro
     autoStart?: boolean
 }
 export class MinerManager {
-    /* Fields of TrackerMiner.MinerManager */
+    /* Fields of TrackerMiner-0.16.TrackerMiner.MinerManager */
     parentInstance: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of TrackerMiner.MinerManager */
+    /* Methods of TrackerMiner-0.16.TrackerMiner.MinerManager */
     getAvailable(): string[]
     getDescription(miner: string): string
     getDisplayName(miner: string): string
     getRunning(): string[]
-    getStatus(miner: string): [ /* returnType */ boolean, /* status */ string | null, /* progress */ number | null, /* remainingTime */ number | null ]
+    getStatus(miner: string): { returnType: boolean, status: string | null, progress: number | null, remainingTime: number | null }
     ignoreNextUpdate(miner: string, urls: string): boolean
     indexFile(file: Gio.File): boolean
     indexFileAsync(file: Gio.File, cancellable: Gio.Cancellable | null, callback: Gio.AsyncReadyCallback | null): void
     indexFileFinish(result: Gio.AsyncResult): boolean
     isActive(miner: string): boolean
-    isPaused(miner: string): [ /* returnType */ boolean, /* applications */ string[] | null, /* reasons */ string[] | null ]
-    pause(miner: string, reason: string): [ /* returnType */ boolean, /* cookie */ number | null ]
-    pauseForProcess(miner: string, reason: string): [ /* returnType */ boolean, /* cookie */ number | null ]
+    isPaused(miner: string): { returnType: boolean, applications: string[] | null, reasons: string[] | null }
+    pause(miner: string, reason: string): { returnType: boolean, cookie: number | null }
+    pauseForProcess(miner: string, reason: string): { returnType: boolean, cookie: number | null }
     reindexByMimetype(mimetypes: string[]): boolean
     resume(miner: string, cookie: number): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -705,61 +614,40 @@ export class MinerManager {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of Gio.Initable */
+    /* Methods of Gio-2.0.Gio.Initable */
     init(cancellable?: Gio.Cancellable | null): boolean
-    /* Virtual methods of TrackerMiner.MinerManager */
-    vfuncMinerActivated(minerName: string): void
-    vfuncMinerDeactivated(minerName: string): void
-    vfuncMinerPaused(minerName: string): void
-    vfuncMinerProgress(minerName: string, status: string, progress: number): void
-    vfuncMinerResumed(minerName: string): void
-    vfuncInit(cancellable?: Gio.Cancellable | null): boolean
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of TrackerMiner.MinerManager */
+    /* Signals of TrackerMiner-0.16.TrackerMiner.MinerManager */
     connect(sigName: "miner-activated", callback: (($obj: MinerManager, miner: string) => void)): number
-    connect_after(sigName: "miner-activated", callback: (($obj: MinerManager, miner: string) => void)): number
+    on(sigName: "miner-activated", callback: (miner: string) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "miner-activated", callback: (miner: string) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "miner-activated", callback: (miner: string) => void): NodeJS.EventEmitter
     emit(sigName: "miner-activated", miner: string): void
-    on(sigName: "miner-activated", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "miner-activated", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "miner-activated", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "miner-deactivated", callback: (($obj: MinerManager, miner: string) => void)): number
-    connect_after(sigName: "miner-deactivated", callback: (($obj: MinerManager, miner: string) => void)): number
+    on(sigName: "miner-deactivated", callback: (miner: string) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "miner-deactivated", callback: (miner: string) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "miner-deactivated", callback: (miner: string) => void): NodeJS.EventEmitter
     emit(sigName: "miner-deactivated", miner: string): void
-    on(sigName: "miner-deactivated", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "miner-deactivated", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "miner-deactivated", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "miner-paused", callback: (($obj: MinerManager, miner: string) => void)): number
-    connect_after(sigName: "miner-paused", callback: (($obj: MinerManager, miner: string) => void)): number
+    on(sigName: "miner-paused", callback: (miner: string) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "miner-paused", callback: (miner: string) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "miner-paused", callback: (miner: string) => void): NodeJS.EventEmitter
     emit(sigName: "miner-paused", miner: string): void
-    on(sigName: "miner-paused", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "miner-paused", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "miner-paused", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "miner-progress", callback: (($obj: MinerManager, miner: string, status: string, progress: number, remainingTime: number) => void)): number
-    connect_after(sigName: "miner-progress", callback: (($obj: MinerManager, miner: string, status: string, progress: number, remainingTime: number) => void)): number
+    on(sigName: "miner-progress", callback: (miner: string, status: string, progress: number, remainingTime: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "miner-progress", callback: (miner: string, status: string, progress: number, remainingTime: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "miner-progress", callback: (miner: string, status: string, progress: number, remainingTime: number) => void): NodeJS.EventEmitter
     emit(sigName: "miner-progress", miner: string, status: string, progress: number, remainingTime: number): void
-    on(sigName: "miner-progress", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "miner-progress", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "miner-progress", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "miner-resumed", callback: (($obj: MinerManager, miner: string) => void)): number
-    connect_after(sigName: "miner-resumed", callback: (($obj: MinerManager, miner: string) => void)): number
+    on(sigName: "miner-resumed", callback: (miner: string) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "miner-resumed", callback: (miner: string) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "miner-resumed", callback: (miner: string) => void): NodeJS.EventEmitter
     emit(sigName: "miner-resumed", miner: string): void
-    on(sigName: "miner-resumed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "miner-resumed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "miner-resumed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: MinerManager, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: MinerManager, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -781,23 +669,23 @@ export interface MinerWeb_ConstructProps extends Miner_ConstructProps {
     associated?: boolean
 }
 export class MinerWeb {
-    /* Properties of TrackerMiner.MinerWeb */
+    /* Properties of TrackerMiner-0.16.TrackerMiner.MinerWeb */
     associated: boolean
-    /* Properties of TrackerMiner.Miner */
+    /* Properties of TrackerMiner-0.16.TrackerMiner.Miner */
     progress: number
     remainingTime: number
     status: string
-    /* Fields of TrackerMiner.MinerWeb */
+    /* Fields of TrackerMiner-0.16.TrackerMiner.MinerWeb */
     parentInstance: Miner
     priv: MinerWebPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of TrackerMiner.MinerWeb */
+    /* Methods of TrackerMiner-0.16.TrackerMiner.MinerWeb */
     associate(associationData: GLib.HashTable): void
     authenticate(): void
     dissociate(): void
     getAssociationData(): GLib.HashTable
-    /* Methods of TrackerMiner.Miner */
+    /* Methods of TrackerMiner-0.16.TrackerMiner.Miner */
     getConnection(): Tracker.SparqlConnection
     getDbusConnection(): Gio.DBusConnection
     getDbusFullName(): string
@@ -810,7 +698,7 @@ export class MinerWeb {
     resume(cookie: number): boolean
     start(): void
     stop(): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -832,73 +720,45 @@ export class MinerWeb {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of Gio.Initable */
+    /* Methods of Gio-2.0.Gio.Initable */
     init(cancellable?: Gio.Cancellable | null): boolean
-    /* Virtual methods of TrackerMiner.MinerWeb */
-    vfuncAssociate(associationData: GLib.HashTable): void
-    vfuncAuthenticate(): void
-    vfuncDissociate(): void
-    vfuncGetAssociationData(): GLib.HashTable
-    /* Virtual methods of TrackerMiner.Miner */
-    vfuncIgnoreNextUpdate(urls: string[]): void
-    vfuncPaused(): void
-    vfuncProgress(status: string, progress: number): void
-    vfuncResumed(): void
-    vfuncStarted(): void
-    vfuncStopped(): void
-    vfuncInit(cancellable?: Gio.Cancellable | null): boolean
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of TrackerMiner.Miner */
+    /* Signals of TrackerMiner-0.16.TrackerMiner.Miner */
     connect(sigName: "ignore-next-update", callback: (($obj: MinerWeb, urls: string[]) => void)): number
-    connect_after(sigName: "ignore-next-update", callback: (($obj: MinerWeb, urls: string[]) => void)): number
+    on(sigName: "ignore-next-update", callback: (urls: string[]) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "ignore-next-update", callback: (urls: string[]) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "ignore-next-update", callback: (urls: string[]) => void): NodeJS.EventEmitter
     emit(sigName: "ignore-next-update", urls: string[]): void
-    on(sigName: "ignore-next-update", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "ignore-next-update", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "ignore-next-update", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "paused", callback: (($obj: MinerWeb) => void)): number
-    connect_after(sigName: "paused", callback: (($obj: MinerWeb) => void)): number
+    on(sigName: "paused", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "paused", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "paused", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "paused"): void
-    on(sigName: "paused", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "paused", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "paused", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "progress", callback: (($obj: MinerWeb, status: string, progress: number, remainingTime: number) => void)): number
-    connect_after(sigName: "progress", callback: (($obj: MinerWeb, status: string, progress: number, remainingTime: number) => void)): number
+    on(sigName: "progress", callback: (status: string, progress: number, remainingTime: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "progress", callback: (status: string, progress: number, remainingTime: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "progress", callback: (status: string, progress: number, remainingTime: number) => void): NodeJS.EventEmitter
     emit(sigName: "progress", status: string, progress: number, remainingTime: number): void
-    on(sigName: "progress", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "progress", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "progress", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "resumed", callback: (($obj: MinerWeb) => void)): number
-    connect_after(sigName: "resumed", callback: (($obj: MinerWeb) => void)): number
+    on(sigName: "resumed", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "resumed", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "resumed", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "resumed"): void
-    on(sigName: "resumed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "resumed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "resumed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "started", callback: (($obj: MinerWeb) => void)): number
-    connect_after(sigName: "started", callback: (($obj: MinerWeb) => void)): number
+    on(sigName: "started", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "started", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "started", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "started"): void
-    on(sigName: "started", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "started", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "started", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "stopped", callback: (($obj: MinerWeb) => void)): number
-    connect_after(sigName: "stopped", callback: (($obj: MinerWeb) => void)): number
+    on(sigName: "stopped", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "stopped", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "stopped", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "stopped"): void
-    on(sigName: "stopped", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "stopped", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "stopped", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: MinerWeb, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: MinerWeb, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::associated", callback: (($obj: MinerWeb, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::associated", callback: (($obj: MinerWeb, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::associated", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -934,7 +794,7 @@ export class MinerWeb {
     static $gtype: GObject.Type
 }
 export abstract class CrawlerClass {
-    /* Fields of TrackerMiner.CrawlerClass */
+    /* Fields of TrackerMiner-0.16.TrackerMiner.CrawlerClass */
     parent: GObject.ObjectClass
     checkDirectory: (crawler: Crawler, file: Gio.File) => boolean
     checkFile: (crawler: Crawler, file: Gio.File) => boolean
@@ -946,7 +806,7 @@ export class CrawlerPrivate {
     static name: string
 }
 export abstract class IndexingTreeClass {
-    /* Fields of TrackerMiner.IndexingTreeClass */
+    /* Fields of TrackerMiner-0.16.TrackerMiner.IndexingTreeClass */
     parentClass: GObject.ObjectClass
     directoryAdded: (indexingTree: IndexingTree, directory: Gio.File) => void
     directoryRemoved: (indexingTree: IndexingTree, directory: Gio.File) => void
@@ -954,7 +814,7 @@ export abstract class IndexingTreeClass {
     static name: string
 }
 export abstract class MinerClass {
-    /* Fields of TrackerMiner.MinerClass */
+    /* Fields of TrackerMiner-0.16.TrackerMiner.MinerClass */
     parentClass: GObject.ObjectClass
     started: (miner: Miner) => void
     stopped: (miner: Miner) => void
@@ -965,7 +825,7 @@ export abstract class MinerClass {
     static name: string
 }
 export abstract class MinerFSClass {
-    /* Fields of TrackerMiner.MinerFSClass */
+    /* Fields of TrackerMiner-0.16.TrackerMiner.MinerFSClass */
     parent: MinerClass
     processFile: (fs: MinerFS, file: Gio.File, builder: Tracker.SparqlBuilder, cancellable?: Gio.Cancellable | null) => boolean
     ignoreNextUpdateFile: (fs: MinerFS, file: Gio.File, builder: Tracker.SparqlBuilder, cancellable?: Gio.Cancellable | null) => boolean
@@ -977,7 +837,7 @@ export class MinerFSPrivate {
     static name: string
 }
 export abstract class MinerManagerClass {
-    /* Fields of TrackerMiner.MinerManagerClass */
+    /* Fields of TrackerMiner-0.16.TrackerMiner.MinerManagerClass */
     parentClass: GObject.ObjectClass
     minerProgress: (manager: MinerManager, minerName: string, status: string, progress: number) => void
     minerPaused: (manager: MinerManager, minerName: string) => void
@@ -990,7 +850,7 @@ export class MinerPrivate {
     static name: string
 }
 export abstract class MinerWebClass {
-    /* Fields of TrackerMiner.MinerWebClass */
+    /* Fields of TrackerMiner-0.16.TrackerMiner.MinerWebClass */
     parentClass: MinerClass
     authenticate: (miner: MinerWeb) => void
     getAssociationData: (miner: MinerWeb) => GLib.HashTable

@@ -47,15 +47,15 @@ export interface CoverArtFetcher_ConstructProps extends GObject.Object_Construct
     taglist?: any
 }
 export class CoverArtFetcher {
-    /* Properties of Sushi.CoverArtFetcher */
+    /* Properties of Sushi-1.0.Sushi.CoverArtFetcher */
     readonly cover: GdkPixbuf.Pixbuf
     taglist: any
-    /* Fields of Sushi.CoverArtFetcher */
+    /* Fields of Sushi-1.0.Sushi.CoverArtFetcher */
     parent_instance: GObject.Object
     priv: CoverArtFetcherPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -77,7 +77,7 @@ export class CoverArtFetcher {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -85,7 +85,7 @@ export class CoverArtFetcher {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: CoverArtFetcher, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: CoverArtFetcher, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -108,19 +108,19 @@ export interface FileLoader_ConstructProps extends GObject.Object_ConstructProps
     file?: Gio.File
 }
 export class FileLoader {
-    /* Properties of Sushi.FileLoader */
+    /* Properties of Sushi-1.0.Sushi.FileLoader */
     readonly content_type: string
     file: Gio.File
     readonly icon: GdkPixbuf.Pixbuf
     readonly name: string
     readonly size: string
     readonly time: string
-    /* Fields of Sushi.FileLoader */
+    /* Fields of Sushi-1.0.Sushi.FileLoader */
     parent_instance: GObject.Object
     priv: FileLoaderPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Sushi.FileLoader */
+    /* Methods of Sushi-1.0.Sushi.FileLoader */
     get_content_type_string(): string
     get_date_string(): string
     get_display_name(): string
@@ -128,7 +128,7 @@ export class FileLoader {
     get_loading(): boolean
     get_size_string(): string
     stop(): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -150,7 +150,7 @@ export class FileLoader {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -158,7 +158,7 @@ export class FileLoader {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: FileLoader, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: FileLoader, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -189,9 +189,9 @@ export interface FontWidget_ConstructProps extends Gtk.DrawingArea_ConstructProp
     uri?: string
 }
 export class FontWidget {
-    /* Properties of Sushi.FontWidget */
+    /* Properties of Sushi-1.0.Sushi.FontWidget */
     uri: string
-    /* Properties of Gtk.Widget */
+    /* Properties of Gtk-3.0.Gtk.Widget */
     app_paintable: boolean
     can_default: boolean
     can_focus: boolean
@@ -231,14 +231,14 @@ export class FontWidget {
     visible: boolean
     width_request: number
     readonly window: Gdk.Window
-    /* Fields of Sushi.FontWidget */
+    /* Fields of Sushi-1.0.Sushi.FontWidget */
     parent_instance: Gtk.DrawingArea
     priv: FontWidgetPrivate
-    /* Fields of Gtk.DrawingArea */
+    /* Fields of Gtk-3.0.Gtk.DrawingArea */
     widget: Gtk.Widget
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Gtk.Widget */
+    /* Methods of Gtk-3.0.Gtk.Widget */
     activate(): boolean
     add_accelerator(accel_signal: string, accel_group: Gtk.AccelGroup, accel_key: number, accel_mods: Gdk.ModifierType, accel_flags: Gtk.AccelFlags): void
     add_device_events(device: Gdk.Device, events: Gdk.EventMask): void
@@ -497,7 +497,7 @@ export class FontWidget {
     unrealize(): void
     unregister_window(window: Gdk.Window): void
     unset_state_flags(flags: Gtk.StateFlags): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -519,7 +519,7 @@ export class FontWidget {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of Gtk.Buildable */
+    /* Methods of Gtk-3.0.Gtk.Buildable */
     add_child(builder: Gtk.Builder, child: GObject.Object, type?: string | null): void
     construct_child(builder: Gtk.Builder, name: string): GObject.Object
     custom_finished(builder: Gtk.Builder, child: GObject.Object | null, tagname: string, data?: object | null): void
@@ -528,7 +528,7 @@ export class FontWidget {
     get_internal_child(builder: Gtk.Builder, childname: string): GObject.Object
     parser_finished(builder: Gtk.Builder): void
     set_buildable_property(builder: Gtk.Builder, name: string, value: any): void
-    /* Virtual methods of Sushi.FontWidget */
+    /* Virtual methods of Sushi-1.0.Sushi.FontWidget */
     vfunc_add_child(builder: Gtk.Builder, child: GObject.Object, type?: string | null): void
     vfunc_construct_child(builder: Gtk.Builder, name: string): GObject.Object
     vfunc_custom_finished(builder: Gtk.Builder, child: GObject.Object | null, tagname: string, data?: object | null): void
@@ -539,7 +539,7 @@ export class FontWidget {
     vfunc_parser_finished(builder: Gtk.Builder): void
     vfunc_set_buildable_property(builder: Gtk.Builder, name: string, value: any): void
     vfunc_set_name(name: string): void
-    /* Virtual methods of Gtk.Widget */
+    /* Virtual methods of Gtk-3.0.Gtk.Widget */
     vfunc_adjust_baseline_allocation(baseline: number): void
     vfunc_adjust_baseline_request(minimum_baseline: number, natural_baseline: number): void
     vfunc_adjust_size_allocation(orientation: Gtk.Orientation, minimum_size: number, natural_size: number, allocated_pos: number, allocated_size: number): void
@@ -622,7 +622,7 @@ export class FontWidget {
     vfunc_unrealize(): void
     vfunc_visibility_notify_event(event: Gdk.EventVisibility): boolean
     vfunc_window_state_event(event: Gdk.EventWindowState): boolean
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -630,11 +630,11 @@ export class FontWidget {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Sushi.FontWidget */
+    /* Signals of Sushi-1.0.Sushi.FontWidget */
     connect(sigName: "loaded", callback: (($obj: FontWidget) => void)): number
     connect_after(sigName: "loaded", callback: (($obj: FontWidget) => void)): number
     emit(sigName: "loaded"): void
-    /* Signals of Gtk.Widget */
+    /* Signals of Gtk-3.0.Gtk.Widget */
     connect(sigName: "accel-closures-changed", callback: (($obj: FontWidget) => void)): number
     connect_after(sigName: "accel-closures-changed", callback: (($obj: FontWidget) => void)): number
     emit(sigName: "accel-closures-changed"): void
@@ -842,7 +842,7 @@ export class FontWidget {
     connect(sigName: "window-state-event", callback: (($obj: FontWidget, event: Gdk.EventWindowState) => boolean)): number
     connect_after(sigName: "window-state-event", callback: (($obj: FontWidget, event: Gdk.EventWindowState) => boolean)): number
     emit(sigName: "window-state-event", event: Gdk.EventWindowState): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: FontWidget, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: FontWidget, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -942,18 +942,18 @@ export interface PdfLoader_ConstructProps extends GObject.Object_ConstructProps 
     uri?: string
 }
 export class PdfLoader {
-    /* Properties of Sushi.PdfLoader */
+    /* Properties of Sushi-1.0.Sushi.PdfLoader */
     readonly document: EvinceDocument.Document
     uri: string
-    /* Fields of Sushi.PdfLoader */
+    /* Fields of Sushi-1.0.Sushi.PdfLoader */
     parent_instance: GObject.Object
     priv: PdfLoaderPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Sushi.PdfLoader */
+    /* Methods of Sushi-1.0.Sushi.PdfLoader */
     cleanup_document(): void
     get_max_page_size(): [ /* width */ number, /* height */ number ]
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -975,7 +975,7 @@ export class PdfLoader {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -983,7 +983,7 @@ export class PdfLoader {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: PdfLoader, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: PdfLoader, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -1008,19 +1008,19 @@ export interface SoundPlayer_ConstructProps extends GObject.Object_ConstructProp
     uri?: string
 }
 export class SoundPlayer {
-    /* Properties of Sushi.SoundPlayer */
+    /* Properties of Sushi-1.0.Sushi.SoundPlayer */
     readonly duration: number
     playing: boolean
     progress: number
     readonly state: SoundPlayerState
     readonly taglist: any
     uri: string
-    /* Fields of Sushi.SoundPlayer */
+    /* Fields of Sushi-1.0.Sushi.SoundPlayer */
     parent_instance: GObject.Object
     priv: SoundPlayerPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -1042,7 +1042,7 @@ export class SoundPlayer {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -1050,7 +1050,7 @@ export class SoundPlayer {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: SoundPlayer, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: SoundPlayer, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -1079,14 +1079,14 @@ export interface TextLoader_ConstructProps extends GObject.Object_ConstructProps
     uri?: string
 }
 export class TextLoader {
-    /* Properties of Sushi.TextLoader */
+    /* Properties of Sushi-1.0.Sushi.TextLoader */
     uri: string
-    /* Fields of Sushi.TextLoader */
+    /* Fields of Sushi-1.0.Sushi.TextLoader */
     parent_instance: GObject.Object
     priv: TextLoaderPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -1108,7 +1108,7 @@ export class TextLoader {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -1116,11 +1116,11 @@ export class TextLoader {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Sushi.TextLoader */
+    /* Signals of Sushi-1.0.Sushi.TextLoader */
     connect(sigName: "loaded", callback: (($obj: TextLoader, object: GtkSource.Buffer) => void)): number
     connect_after(sigName: "loaded", callback: (($obj: TextLoader, object: GtkSource.Buffer) => void)): number
     emit(sigName: "loaded", object: GtkSource.Buffer): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: TextLoader, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: TextLoader, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -1138,7 +1138,7 @@ export class TextLoader {
     static $gtype: GObject.Type
 }
 export abstract class CoverArtFetcherClass {
-    /* Fields of Sushi.CoverArtFetcherClass */
+    /* Fields of Sushi-1.0.Sushi.CoverArtFetcherClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
@@ -1146,7 +1146,7 @@ export class CoverArtFetcherPrivate {
     static name: string
 }
 export abstract class FileLoaderClass {
-    /* Fields of Sushi.FileLoaderClass */
+    /* Fields of Sushi-1.0.Sushi.FileLoaderClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
@@ -1154,7 +1154,7 @@ export class FileLoaderPrivate {
     static name: string
 }
 export abstract class FontWidgetClass {
-    /* Fields of Sushi.FontWidgetClass */
+    /* Fields of Sushi-1.0.Sushi.FontWidgetClass */
     parent_class: Gtk.DrawingAreaClass
     static name: string
 }
@@ -1162,7 +1162,7 @@ export class FontWidgetPrivate {
     static name: string
 }
 export abstract class PdfLoaderClass {
-    /* Fields of Sushi.PdfLoaderClass */
+    /* Fields of Sushi-1.0.Sushi.PdfLoaderClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
@@ -1170,7 +1170,7 @@ export class PdfLoaderPrivate {
     static name: string
 }
 export abstract class SoundPlayerClass {
-    /* Fields of Sushi.SoundPlayerClass */
+    /* Fields of Sushi-1.0.Sushi.SoundPlayerClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
@@ -1178,7 +1178,7 @@ export class SoundPlayerPrivate {
     static name: string
 }
 export abstract class TextLoaderClass {
-    /* Fields of Sushi.TextLoaderClass */
+    /* Fields of Sushi-1.0.Sushi.TextLoaderClass */
     parent_class: GObject.ObjectClass
     static name: string
 }

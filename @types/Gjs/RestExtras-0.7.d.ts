@@ -19,9 +19,9 @@ export interface FlickrProxy_ConstructProps extends Rest.Proxy_ConstructProps {
     token?: string
 }
 export class FlickrProxy {
-    /* Properties of RestExtras.FlickrProxy */
+    /* Properties of RestExtras-0.7.RestExtras.FlickrProxy */
     token: string
-    /* Properties of Rest.Proxy */
+    /* Properties of Rest-0.7.Rest.Proxy */
     binding_required: boolean
     password: string
     ssl_ca_file: string
@@ -29,12 +29,12 @@ export class FlickrProxy {
     url_format: string
     user_agent: string
     username: string
-    /* Fields of RestExtras.FlickrProxy */
+    /* Fields of RestExtras-0.7.RestExtras.FlickrProxy */
     parent: Rest.Proxy
     priv: FlickrProxyPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of RestExtras.FlickrProxy */
+    /* Methods of RestExtras-0.7.RestExtras.FlickrProxy */
     build_login_url(frob: string, perms: string): string
     get_api_key(): string
     get_shared_secret(): string
@@ -43,12 +43,12 @@ export class FlickrProxy {
     new_upload_for_file(filename: string): FlickrProxyCall
     set_token(token: string): void
     sign(params: GLib.HashTable): string
-    /* Methods of Rest.Proxy */
+    /* Methods of Rest-0.7.Rest.Proxy */
     add_soup_feature(feature: Soup.SessionFeature): void
     get_user_agent(): string
     new_call(): Rest.ProxyCall
     set_user_agent(user_agent: string): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -70,10 +70,10 @@ export class FlickrProxy {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Rest.Proxy */
+    /* Virtual methods of Rest-0.7.Rest.Proxy */
     vfunc_authenticate(auth: Rest.ProxyAuth, retrying: boolean): boolean
     vfunc_new_call(): Rest.ProxyCall
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -81,11 +81,11 @@ export class FlickrProxy {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Rest.Proxy */
+    /* Signals of Rest-0.7.Rest.Proxy */
     connect(sigName: "authenticate", callback: (($obj: FlickrProxy, auth: Rest.ProxyAuth, retrying: boolean) => boolean)): number
     connect_after(sigName: "authenticate", callback: (($obj: FlickrProxy, auth: Rest.ProxyAuth, retrying: boolean) => boolean)): number
     emit(sigName: "authenticate", auth: Rest.ProxyAuth, retrying: boolean): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: FlickrProxy, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: FlickrProxy, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -123,13 +123,13 @@ export interface FlickrProxyCall_ConstructProps extends Rest.ProxyCall_Construct
     upload?: boolean
 }
 export class FlickrProxyCall {
-    /* Fields of RestExtras.FlickrProxyCall */
+    /* Fields of RestExtras-0.7.RestExtras.FlickrProxyCall */
     parent: Rest.ProxyCall
-    /* Fields of Rest.ProxyCall */
+    /* Fields of Rest-0.7.Rest.ProxyCall */
     priv: Rest.ProxyCallPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Rest.ProxyCall */
+    /* Methods of Rest-0.7.Rest.ProxyCall */
     add_header(header: string, value: string): void
     add_param(name: string, value: string): void
     add_param_full(param: Rest.Param): void
@@ -154,7 +154,7 @@ export class FlickrProxyCall {
     set_method(method: string): void
     sync(): boolean
     upload(callback: Rest.ProxyCallUploadCallback, weak_object: GObject.Object): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -176,10 +176,10 @@ export class FlickrProxyCall {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Rest.ProxyCall */
+    /* Virtual methods of Rest-0.7.Rest.ProxyCall */
     vfunc_prepare(): boolean
     vfunc_serialize_params(): [ /* returnType */ boolean, /* content_type */ string, /* content */ string, /* content_len */ number ]
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -187,7 +187,7 @@ export class FlickrProxyCall {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: FlickrProxyCall, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: FlickrProxyCall, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -206,9 +206,9 @@ export interface LastfmProxy_ConstructProps extends Rest.Proxy_ConstructProps {
     session_key?: string
 }
 export class LastfmProxy {
-    /* Properties of RestExtras.LastfmProxy */
+    /* Properties of RestExtras-0.7.RestExtras.LastfmProxy */
     session_key: string
-    /* Properties of Rest.Proxy */
+    /* Properties of Rest-0.7.Rest.Proxy */
     binding_required: boolean
     password: string
     ssl_ca_file: string
@@ -216,24 +216,24 @@ export class LastfmProxy {
     url_format: string
     user_agent: string
     username: string
-    /* Fields of RestExtras.LastfmProxy */
+    /* Fields of RestExtras-0.7.RestExtras.LastfmProxy */
     parent: Rest.Proxy
     priv: LastfmProxyPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of RestExtras.LastfmProxy */
+    /* Methods of RestExtras-0.7.RestExtras.LastfmProxy */
     build_login_url(token: string): string
     get_api_key(): string
     get_secret(): string
     get_session_key(): string
     set_session_key(session_key: string): void
     sign(params: GLib.HashTable): string
-    /* Methods of Rest.Proxy */
+    /* Methods of Rest-0.7.Rest.Proxy */
     add_soup_feature(feature: Soup.SessionFeature): void
     get_user_agent(): string
     new_call(): Rest.ProxyCall
     set_user_agent(user_agent: string): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -255,10 +255,10 @@ export class LastfmProxy {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Rest.Proxy */
+    /* Virtual methods of Rest-0.7.Rest.Proxy */
     vfunc_authenticate(auth: Rest.ProxyAuth, retrying: boolean): boolean
     vfunc_new_call(): Rest.ProxyCall
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -266,11 +266,11 @@ export class LastfmProxy {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Rest.Proxy */
+    /* Signals of Rest-0.7.Rest.Proxy */
     connect(sigName: "authenticate", callback: (($obj: LastfmProxy, auth: Rest.ProxyAuth, retrying: boolean) => boolean)): number
     connect_after(sigName: "authenticate", callback: (($obj: LastfmProxy, auth: Rest.ProxyAuth, retrying: boolean) => boolean)): number
     emit(sigName: "authenticate", auth: Rest.ProxyAuth, retrying: boolean): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: LastfmProxy, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: LastfmProxy, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -307,13 +307,13 @@ export class LastfmProxy {
 export interface LastfmProxyCall_ConstructProps extends Rest.ProxyCall_ConstructProps {
 }
 export class LastfmProxyCall {
-    /* Fields of RestExtras.LastfmProxyCall */
+    /* Fields of RestExtras-0.7.RestExtras.LastfmProxyCall */
     parent: Rest.ProxyCall
-    /* Fields of Rest.ProxyCall */
+    /* Fields of Rest-0.7.Rest.ProxyCall */
     priv: Rest.ProxyCallPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Rest.ProxyCall */
+    /* Methods of Rest-0.7.Rest.ProxyCall */
     add_header(header: string, value: string): void
     add_param(name: string, value: string): void
     add_param_full(param: Rest.Param): void
@@ -338,7 +338,7 @@ export class LastfmProxyCall {
     set_method(method: string): void
     sync(): boolean
     upload(callback: Rest.ProxyCallUploadCallback, weak_object: GObject.Object): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -360,10 +360,10 @@ export class LastfmProxyCall {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Rest.ProxyCall */
+    /* Virtual methods of Rest-0.7.Rest.ProxyCall */
     vfunc_prepare(): boolean
     vfunc_serialize_params(): [ /* returnType */ boolean, /* content_type */ string, /* content */ string, /* content_len */ number ]
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -371,7 +371,7 @@ export class LastfmProxyCall {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: LastfmProxyCall, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: LastfmProxyCall, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -389,9 +389,9 @@ export interface YoutubeProxy_ConstructProps extends Rest.Proxy_ConstructProps {
     user_auth?: string
 }
 export class YoutubeProxy {
-    /* Properties of RestExtras.YoutubeProxy */
+    /* Properties of RestExtras-0.7.RestExtras.YoutubeProxy */
     user_auth: string
-    /* Properties of Rest.Proxy */
+    /* Properties of Rest-0.7.Rest.Proxy */
     binding_required: boolean
     password: string
     ssl_ca_file: string
@@ -399,20 +399,20 @@ export class YoutubeProxy {
     url_format: string
     user_agent: string
     username: string
-    /* Fields of RestExtras.YoutubeProxy */
+    /* Fields of RestExtras-0.7.RestExtras.YoutubeProxy */
     parent: Rest.Proxy
     priv: YoutubeProxyPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of RestExtras.YoutubeProxy */
+    /* Methods of RestExtras-0.7.RestExtras.YoutubeProxy */
     set_user_auth(user_auth: string): void
     upload_async(filename: string, fields: GLib.HashTable, incomplete: boolean, callback: YoutubeProxyUploadCallback, weak_object: GObject.Object): boolean
-    /* Methods of Rest.Proxy */
+    /* Methods of Rest-0.7.Rest.Proxy */
     add_soup_feature(feature: Soup.SessionFeature): void
     get_user_agent(): string
     new_call(): Rest.ProxyCall
     set_user_agent(user_agent: string): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -434,10 +434,10 @@ export class YoutubeProxy {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Rest.Proxy */
+    /* Virtual methods of Rest-0.7.Rest.Proxy */
     vfunc_authenticate(auth: Rest.ProxyAuth, retrying: boolean): boolean
     vfunc_new_call(): Rest.ProxyCall
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -445,11 +445,11 @@ export class YoutubeProxy {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Rest.Proxy */
+    /* Signals of Rest-0.7.Rest.Proxy */
     connect(sigName: "authenticate", callback: (($obj: YoutubeProxy, auth: Rest.ProxyAuth, retrying: boolean) => boolean)): number
     connect_after(sigName: "authenticate", callback: (($obj: YoutubeProxy, auth: Rest.ProxyAuth, retrying: boolean) => boolean)): number
     emit(sigName: "authenticate", auth: Rest.ProxyAuth, retrying: boolean): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: YoutubeProxy, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: YoutubeProxy, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -483,12 +483,12 @@ export class YoutubeProxy {
     static $gtype: GObject.Type
 }
 export abstract class FlickrProxyCallClass {
-    /* Fields of RestExtras.FlickrProxyCallClass */
+    /* Fields of RestExtras-0.7.RestExtras.FlickrProxyCallClass */
     parent_class: Rest.ProxyCallClass
     static name: string
 }
 export abstract class FlickrProxyClass {
-    /* Fields of RestExtras.FlickrProxyClass */
+    /* Fields of RestExtras-0.7.RestExtras.FlickrProxyClass */
     parent_class: Rest.ProxyClass
     static name: string
 }
@@ -496,12 +496,12 @@ export class FlickrProxyPrivate {
     static name: string
 }
 export abstract class LastfmProxyCallClass {
-    /* Fields of RestExtras.LastfmProxyCallClass */
+    /* Fields of RestExtras-0.7.RestExtras.LastfmProxyCallClass */
     parent_class: Rest.ProxyCallClass
     static name: string
 }
 export abstract class LastfmProxyClass {
-    /* Fields of RestExtras.LastfmProxyClass */
+    /* Fields of RestExtras-0.7.RestExtras.LastfmProxyClass */
     parent_class: Rest.ProxyClass
     static name: string
 }
@@ -509,7 +509,7 @@ export class LastfmProxyPrivate {
     static name: string
 }
 export abstract class YoutubeProxyClass {
-    /* Fields of RestExtras.YoutubeProxyClass */
+    /* Fields of RestExtras-0.7.RestExtras.YoutubeProxyClass */
     parent_class: Rest.ProxyClass
     static name: string
 }

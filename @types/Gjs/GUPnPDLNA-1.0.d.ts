@@ -18,26 +18,26 @@ export interface Discoverer_ConstructProps extends GstPbutils.Discoverer_Constru
     relaxed_mode?: boolean
 }
 export class Discoverer {
-    /* Properties of GstPbutils.Discoverer */
+    /* Properties of GstPbutils-1.0.GstPbutils.Discoverer */
     timeout: number
     use_cache: boolean
-    /* Fields of GUPnPDLNA.Discoverer */
+    /* Fields of GUPnPDLNA-1.0.GUPnPDLNA.Discoverer */
     parent: GstPbutils.Discoverer
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GUPnPDLNA.Discoverer */
+    /* Methods of GUPnPDLNA-1.0.GUPnPDLNA.Discoverer */
     discover_uri(uri: string): boolean
     discover_uri_sync(uri: string): Information
     get_extended_mode(): boolean
     get_profile(name: string): Profile
     get_relaxed_mode(): boolean
     list_profiles(): Profile[]
-    /* Methods of GstPbutils.Discoverer */
+    /* Methods of GstPbutils-1.0.GstPbutils.Discoverer */
     discover_uri(uri: string): GstPbutils.DiscovererInfo
     discover_uri_async(uri: string): boolean
     start(): void
     stop(): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -59,14 +59,14 @@ export class Discoverer {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GUPnPDLNA.Discoverer */
+    /* Virtual methods of GUPnPDLNA-1.0.GUPnPDLNA.Discoverer */
     vfunc_done(dlna: Information, err: GLib.Error): void
-    /* Virtual methods of GstPbutils.Discoverer */
+    /* Virtual methods of GstPbutils-1.0.GstPbutils.Discoverer */
     vfunc_discovered(info: GstPbutils.DiscovererInfo, err: GLib.Error): void
     vfunc_finished(): void
     vfunc_source_setup(source: Gst.Element): void
     vfunc_starting(): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -74,11 +74,11 @@ export class Discoverer {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GUPnPDLNA.Discoverer */
+    /* Signals of GUPnPDLNA-1.0.GUPnPDLNA.Discoverer */
     connect(sigName: "done", callback: (($obj: Discoverer, dlna: Information, err: GLib.Error) => void)): number
     connect_after(sigName: "done", callback: (($obj: Discoverer, dlna: Information, err: GLib.Error) => void)): number
     emit(sigName: "done", dlna: Information, err: GLib.Error): void
-    /* Signals of GstPbutils.Discoverer */
+    /* Signals of GstPbutils-1.0.GstPbutils.Discoverer */
     connect(sigName: "discovered", callback: (($obj: Discoverer, info: GstPbutils.DiscovererInfo, error?: GLib.Error | null) => void)): number
     connect_after(sigName: "discovered", callback: (($obj: Discoverer, info: GstPbutils.DiscovererInfo, error?: GLib.Error | null) => void)): number
     emit(sigName: "discovered", info: GstPbutils.DiscovererInfo, error?: GLib.Error | null): void
@@ -91,7 +91,7 @@ export class Discoverer {
     connect(sigName: "starting", callback: (($obj: Discoverer) => void)): number
     connect_after(sigName: "starting", callback: (($obj: Discoverer) => void)): number
     emit(sigName: "starting"): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Discoverer, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Discoverer, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -117,15 +117,15 @@ export interface Information_ConstructProps extends GObject.Object_ConstructProp
     name?: string
 }
 export class Information {
-    /* Fields of GUPnPDLNA.Information */
+    /* Fields of GUPnPDLNA-1.0.GUPnPDLNA.Information */
     parent: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GUPnPDLNA.Information */
+    /* Methods of GUPnPDLNA-1.0.GUPnPDLNA.Information */
     get_info(): GstPbutils.DiscovererInfo
     get_mime(): string
     get_name(): string
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -147,7 +147,7 @@ export class Information {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -155,7 +155,7 @@ export class Information {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Information, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Information, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -176,18 +176,18 @@ export interface Profile_ConstructProps extends GObject.Object_ConstructProps {
     name?: string
 }
 export class Profile {
-    /* Properties of GUPnPDLNA.Profile */
+    /* Properties of GUPnPDLNA-1.0.GUPnPDLNA.Profile */
     readonly encoding_profile: GstPbutils.EncodingProfile
-    /* Fields of GUPnPDLNA.Profile */
+    /* Fields of GUPnPDLNA-1.0.GUPnPDLNA.Profile */
     parent: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GUPnPDLNA.Profile */
+    /* Methods of GUPnPDLNA-1.0.GUPnPDLNA.Profile */
     get_encoding_profile(): GstPbutils.EncodingProfile
     get_extended(): boolean
     get_mime(): string
     get_name(): string
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -209,7 +209,7 @@ export class Profile {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -217,7 +217,7 @@ export class Profile {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Profile, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Profile, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -233,18 +233,18 @@ export class Profile {
     static $gtype: GObject.Type
 }
 export abstract class DiscovererClass {
-    /* Fields of GUPnPDLNA.DiscovererClass */
+    /* Fields of GUPnPDLNA-1.0.GUPnPDLNA.DiscovererClass */
     parent_class: GstPbutils.DiscovererClass
     done: (discoverer: Discoverer, dlna: Information, err: GLib.Error) => void
     static name: string
 }
 export abstract class InformationClass {
-    /* Fields of GUPnPDLNA.InformationClass */
+    /* Fields of GUPnPDLNA-1.0.GUPnPDLNA.InformationClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
 export abstract class ProfileClass {
-    /* Fields of GUPnPDLNA.ProfileClass */
+    /* Fields of GUPnPDLNA-1.0.GUPnPDLNA.ProfileClass */
     parent_class: GObject.ObjectClass
     static name: string
 }

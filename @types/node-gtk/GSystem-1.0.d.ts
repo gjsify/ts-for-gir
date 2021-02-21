@@ -15,20 +15,20 @@ export enum SubprocessStreamDisposition {
     PIPE,
     STDERR_MERGE,
 }
-export function dfdAndNameGetAllXattrs(dfd: number, name: string, cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* outXattrs */ GLib.Variant ]
+export function dfdAndNameGetAllXattrs(dfd: number, name: string, cancellable?: Gio.Cancellable | null): { returnType: boolean, outXattrs: GLib.Variant }
 export function dfdAndNameSetAllXattrs(dfd: number, name: string, xattrs: GLib.Variant, cancellable?: Gio.Cancellable | null): boolean
 export function dirfdIteratorClear(dfdIter: DirFdIterator): void
 export function dirfdIteratorInitAt(dfd: number, path: string, follow: boolean, dfdIter: DirFdIterator): boolean
 export function dirfdIteratorInitTakeFd(dfd: number, dfdIter: DirFdIterator): boolean
-export function fdGetAllXattrs(fd: number, cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* outXattrs */ GLib.Variant ]
+export function fdGetAllXattrs(fd: number, cancellable?: Gio.Cancellable | null): { returnType: boolean, outXattrs: GLib.Variant }
 export function fdSetAllXattrs(fd: number, xattrs: GLib.Variant, cancellable?: Gio.Cancellable | null): boolean
 export function fileChmod(path: Gio.File, mode: number, cancellable?: Gio.Cancellable | null): boolean
 export function fileChown(path: Gio.File, owner: number, group: number, cancellable?: Gio.Cancellable | null): boolean
-export function fileCreate(file: Gio.File, mode: number, cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* outStream */ Gio.OutputStream | null ]
+export function fileCreate(file: Gio.File, mode: number, cancellable?: Gio.Cancellable | null): { returnType: boolean, outStream: Gio.OutputStream | null }
 export function fileEnsureDirectory(dir: Gio.File, withParents: boolean, cancellable?: Gio.Cancellable | null): boolean
 export function fileEnsureDirectoryMode(dir: Gio.File, mode: number, cancellable?: Gio.Cancellable | null): boolean
-export function fileEnumeratorIterate(direnum: Gio.FileEnumerator, cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* outInfo */ Gio.FileInfo | null, /* outChild */ Gio.File | null ]
-export function fileGetAllXattrs(f: Gio.File, cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* outXattrs */ GLib.Variant ]
+export function fileEnumeratorIterate(direnum: Gio.FileEnumerator, cancellable?: Gio.Cancellable | null): { returnType: boolean, outInfo: Gio.FileInfo | null, outChild: Gio.File | null }
+export function fileGetAllXattrs(f: Gio.File, cancellable?: Gio.Cancellable | null): { returnType: boolean, outXattrs: GLib.Variant }
 export function fileGetBasenameCached(file: Gio.File): string
 export function fileGetPathCached(file: Gio.File): string
 export function fileGetRelpath(one: Gio.File, two: Gio.File): string
@@ -37,11 +37,11 @@ export function fileLinkcopy(src: Gio.File, dest: Gio.File, flags: Gio.FileCopyF
 export function fileLinkcopySyncData(src: Gio.File, dest: Gio.File, flags: Gio.FileCopyFlags, cancellable?: Gio.Cancellable | null): boolean
 export function fileLoadContentsUtf8(file: Gio.File, cancellable?: Gio.Cancellable | null): string
 export function fileMapReadonly(file: Gio.File, cancellable?: Gio.Cancellable | null): any
-export function fileOpenDirFd(path: Gio.File, cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* outFd */ number ]
-export function fileOpenDirFdAt(parentDfd: number, name: string, cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* outFd */ number ]
-export function fileOpenInTmpdir(tmpdir: Gio.File, mode: number, cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* outFile */ Gio.File, /* outStream */ Gio.OutputStream | null ]
-export function fileOpenInTmpdirAt(tmpdirFd: number, mode: number, cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* outName */ string, /* outStream */ Gio.OutputStream | null ]
-export function fileOpenatNoatime(dfd: number, name: string, cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* retFd */ number ]
+export function fileOpenDirFd(path: Gio.File, cancellable?: Gio.Cancellable | null): { returnType: boolean, outFd: number }
+export function fileOpenDirFdAt(parentDfd: number, name: string, cancellable?: Gio.Cancellable | null): { returnType: boolean, outFd: number }
+export function fileOpenInTmpdir(tmpdir: Gio.File, mode: number, cancellable?: Gio.Cancellable | null): { returnType: boolean, outFile: Gio.File, outStream: Gio.OutputStream | null }
+export function fileOpenInTmpdirAt(tmpdirFd: number, mode: number, cancellable?: Gio.Cancellable | null): { returnType: boolean, outName: string, outStream: Gio.OutputStream | null }
+export function fileOpenatNoatime(dfd: number, name: string, cancellable?: Gio.Cancellable | null): { returnType: boolean, retFd: number }
 export function fileReadNoatime(file: Gio.File, cancellable?: Gio.Cancellable | null): Gio.InputStream
 export function fileRealpath(file: Gio.File): Gio.File | null
 export function fileRename(from: Gio.File, to: Gio.File, cancellable?: Gio.Cancellable | null): boolean
@@ -62,13 +62,13 @@ export function stdoutIsJournal(): boolean
 export interface Console_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class Console {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GSystem.Console */
+    /* Methods of GSystem-1.0.GSystem.Console */
     beginStatusLine(line: string, cancellable?: Gio.Cancellable | null): boolean
     endStatusLine(cancellable?: Gio.Cancellable | null): boolean
     readPassword(prompt: string, cancellable?: Gio.Cancellable | null): string
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -90,21 +90,12 @@ export class Console {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Console, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Console, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -126,9 +117,9 @@ export interface Subprocess_ConstructProps extends GObject.Object_ConstructProps
     context?: SubprocessContext
 }
 export class Subprocess {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GSystem.Subprocess */
+    /* Methods of GSystem-1.0.GSystem.Subprocess */
     forceExit(): void
     getPid(): GLib.Pid
     getStderrPipe(): Gio.InputStream
@@ -136,10 +127,10 @@ export class Subprocess {
     getStdoutPipe(): Gio.InputStream
     requestExit(): boolean
     wait(cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    waitFinish(result: Gio.AsyncResult): [ /* returnType */ boolean, /* outExitStatus */ number ]
-    waitSync(cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* outExitStatus */ number ]
+    waitFinish(result: Gio.AsyncResult): { returnType: boolean, outExitStatus: number }
+    waitSync(cancellable?: Gio.Cancellable | null): { returnType: boolean, outExitStatus: number }
     waitSyncCheck(cancellable?: Gio.Cancellable | null): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -161,25 +152,14 @@ export class Subprocess {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of Gio.Initable */
+    /* Methods of Gio-2.0.Gio.Initable */
     init(cancellable?: Gio.Cancellable | null): boolean
-    /* Virtual methods of GSystem.Subprocess */
-    vfuncInit(cancellable?: Gio.Cancellable | null): boolean
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Subprocess, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Subprocess, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -200,14 +180,14 @@ export interface SubprocessContext_ConstructProps extends GObject.Object_Constru
     argv?: string[]
 }
 export class SubprocessContext {
-    /* Properties of GSystem.SubprocessContext */
+    /* Properties of GSystem-1.0.GSystem.SubprocessContext */
     argv: string[]
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GSystem.SubprocessContext */
+    /* Methods of GSystem-1.0.GSystem.SubprocessContext */
     argvAppend(arg: string): void
-    openPipeRead(): [ /* returnType */ boolean, /* outStream */ Gio.InputStream, /* outFdno */ number ]
-    openPipeWrite(): [ /* returnType */ boolean, /* outStream */ Gio.OutputStream, /* outFdno */ number ]
+    openPipeRead(): { returnType: boolean, outStream: Gio.InputStream, outFdno: number }
+    openPipeWrite(): { returnType: boolean, outStream: Gio.OutputStream, outFdno: number }
     setCwd(cwd: string): void
     setEnvironment(environ: string[]): void
     setKeepDescriptors(keepDescriptors: boolean): void
@@ -221,7 +201,7 @@ export class SubprocessContext {
     setStdoutDisposition(disposition: SubprocessStreamDisposition): void
     setStdoutFd(fd: number): void
     setStdoutFilePath(path: string): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -243,21 +223,12 @@ export class SubprocessContext {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: SubprocessContext, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: SubprocessContext, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::argv", callback: (($obj: SubprocessContext, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::argv", callback: (($obj: SubprocessContext, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::argv", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -279,7 +250,7 @@ export class SubprocessContext {
     static $gtype: GObject.Type
 }
 export class DirFdIterator {
-    /* Fields of GSystem.DirFdIterator */
+    /* Fields of GSystem-1.0.GSystem.DirFdIterator */
     initialized: boolean
     fd: number
     paddingData: object[]

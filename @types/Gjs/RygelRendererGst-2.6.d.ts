@@ -32,10 +32,10 @@ export interface PlaybinPlayer_ConstructProps extends GObject.Object_ConstructPr
     user_agent?: string
 }
 export class PlaybinPlayer {
-    /* Properties of RygelRendererGst.PlaybinPlayer */
+    /* Properties of RygelRendererGst-2.6.RygelRendererGst.PlaybinPlayer */
     playbin: Gst.Element
     readonly supported_profiles: RygelCore.DLNAProfile[]
-    /* Properties of RygelRenderer.MediaPlayer */
+    /* Properties of RygelRenderer-2.6.RygelRenderer.MediaPlayer */
     playback_state: string
     readonly allowed_playback_speeds: string[]
     playback_speed: string
@@ -51,12 +51,12 @@ export class PlaybinPlayer {
     readonly position: number
     readonly byte_position: number
     user_agent: string
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of RygelRendererGst.PlaybinPlayer */
+    /* Methods of RygelRendererGst-2.6.RygelRendererGst.PlaybinPlayer */
     get_playbin(): Gst.Element
     get_supported_profiles(): RygelCore.DLNAProfile[]
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -78,7 +78,7 @@ export class PlaybinPlayer {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of RygelRenderer.MediaPlayer */
+    /* Methods of RygelRenderer-2.6.RygelRenderer.MediaPlayer */
     seek(time: number): boolean
     seek_bytes(bytes: number): boolean
     get_protocols(): string[]
@@ -110,7 +110,7 @@ export class PlaybinPlayer {
     get_user_agent(): string | null
     set_user_agent(value?: string | null): void
     get_protocol_info(): string
-    /* Virtual methods of RygelRendererGst.PlaybinPlayer */
+    /* Virtual methods of RygelRendererGst-2.6.RygelRendererGst.PlaybinPlayer */
     vfunc_seek(time: number): boolean
     vfunc_seek_bytes(bytes: number): boolean
     vfunc_get_protocols(): string[]
@@ -138,7 +138,7 @@ export class PlaybinPlayer {
     vfunc_get_byte_position(): number
     vfunc_get_user_agent(): string | null
     vfunc_set_user_agent(value?: string | null): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -146,7 +146,7 @@ export class PlaybinPlayer {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: PlaybinPlayer, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: PlaybinPlayer, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -198,13 +198,13 @@ export class PlaybinPlayer {
 export interface PlaybinRenderer_ConstructProps extends RygelRenderer.MediaRenderer_ConstructProps {
 }
 export class PlaybinRenderer {
-    /* Properties of RygelCore.MediaDevice */
+    /* Properties of RygelCore-2.6.RygelCore.MediaDevice */
     plugin: RygelCore.Plugin
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of RygelRendererGst.PlaybinRenderer */
+    /* Methods of RygelRendererGst-2.6.RygelRendererGst.PlaybinRenderer */
     get_playbin(): Gst.Element | null
-    /* Methods of RygelCore.MediaDevice */
+    /* Methods of RygelCore-2.6.RygelCore.MediaDevice */
     add_interface(iface: string): void
     remove_interface(iface: string): void
     get_interfaces(): string[]
@@ -212,7 +212,7 @@ export class PlaybinRenderer {
     set_plugin(value: RygelCore.Plugin): void
     get_title(): string
     get_capabilities(): RygelCore.PluginCapabilities
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -234,7 +234,7 @@ export class PlaybinRenderer {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -242,7 +242,7 @@ export class PlaybinRenderer {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: PlaybinRenderer, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: PlaybinRenderer, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void

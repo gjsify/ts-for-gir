@@ -16,11 +16,11 @@ export enum NodeError {
 }
 export function new_rest_call(authorizer: Authorizer): Rest.ProxyCall
 export class Authorizer {
-    /* Methods of GFBGraph.Authorizer */
+    /* Methods of GFBGraph-0.2.GFBGraph.Authorizer */
     process_call(call: Rest.ProxyCall): void
     process_message(message: Soup.Message): void
     refresh_authorization(cancellable?: Gio.Cancellable | null): boolean
-    /* Virtual methods of GFBGraph.Authorizer */
+    /* Virtual methods of GFBGraph-0.2.GFBGraph.Authorizer */
     vfunc_process_call(call: Rest.ProxyCall): void
     vfunc_process_message(message: Soup.Message): void
     vfunc_refresh_authorization(cancellable?: Gio.Cancellable | null): boolean
@@ -29,22 +29,22 @@ export class Authorizer {
 export interface Connectable_ConstructProps extends Node_ConstructProps {
 }
 export class Connectable {
-    /* Properties of GFBGraph.Node */
+    /* Properties of GFBGraph-0.2.GFBGraph.Node */
     created_time: string
     id: string
     link: string
     updated_time: string
-    /* Fields of GFBGraph.Node */
+    /* Fields of GFBGraph-0.2.GFBGraph.Node */
     parent: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GFBGraph.Connectable */
+    /* Methods of GFBGraph-0.2.GFBGraph.Connectable */
     default_parse_connected_data(payload: string): Node[]
     get_connection_path(node_type: GObject.Type): string
     get_connection_post_params(node_type: GObject.Type): GLib.HashTable
     is_connectable_to(node_type: GObject.Type): boolean
     parse_connected_data(payload: string): Node[]
-    /* Methods of GFBGraph.Node */
+    /* Methods of GFBGraph-0.2.GFBGraph.Node */
     append_connection(connect_node: Node, authorizer: Authorizer): boolean
     get_connection_nodes(node_type: GObject.Type, authorizer: Authorizer): Node[]
     get_connection_nodes_async(node_type: GObject.Type, authorizer: Authorizer, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
@@ -54,7 +54,7 @@ export class Connectable {
     get_link(): string
     get_updated_time(): string
     set_id(id: string): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -76,10 +76,10 @@ export class Connectable {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GFBGraph.Connectable */
+    /* Virtual methods of GFBGraph-0.2.GFBGraph.Connectable */
     vfunc_get_connection_post_params(node_type: GObject.Type): GLib.HashTable
     vfunc_parse_connected_data(payload: string): Node[]
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -87,7 +87,7 @@ export class Connectable {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Connectable, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Connectable, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -115,28 +115,28 @@ export interface Album_ConstructProps extends Node_ConstructProps {
     name?: string
 }
 export class Album {
-    /* Properties of GFBGraph.Album */
+    /* Properties of GFBGraph-0.2.GFBGraph.Album */
     count: number
     cover_photo: string
     description: string
     name: string
-    /* Properties of GFBGraph.Node */
+    /* Properties of GFBGraph-0.2.GFBGraph.Node */
     created_time: string
     id: string
     link: string
     updated_time: string
-    /* Fields of GFBGraph.Album */
+    /* Fields of GFBGraph-0.2.GFBGraph.Album */
     parent: Node
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GFBGraph.Album */
+    /* Methods of GFBGraph-0.2.GFBGraph.Album */
     get_count(): number
     get_cover_photo_id(): string
     get_description(): string
     get_name(): string
     set_description(description: string): void
     set_name(name: string): void
-    /* Methods of GFBGraph.Node */
+    /* Methods of GFBGraph-0.2.GFBGraph.Node */
     append_connection(connect_node: Node, authorizer: Authorizer): boolean
     get_connection_nodes(node_type: GObject.Type, authorizer: Authorizer): Node[]
     get_connection_nodes_async(node_type: GObject.Type, authorizer: Authorizer, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
@@ -146,7 +146,7 @@ export class Album {
     get_link(): string
     get_updated_time(): string
     set_id(id: string): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -168,16 +168,16 @@ export class Album {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of GFBGraph.Connectable */
+    /* Methods of GFBGraph-0.2.GFBGraph.Connectable */
     default_parse_connected_data(payload: string): Node[]
     get_connection_path(node_type: GObject.Type): string
     get_connection_post_params(node_type: GObject.Type): GLib.HashTable
     is_connectable_to(node_type: GObject.Type): boolean
     parse_connected_data(payload: string): Node[]
-    /* Virtual methods of GFBGraph.Album */
+    /* Virtual methods of GFBGraph-0.2.GFBGraph.Album */
     vfunc_get_connection_post_params(node_type: GObject.Type): GLib.HashTable
     vfunc_parse_connected_data(payload: string): Node[]
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -185,7 +185,7 @@ export class Album {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Album, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Album, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -221,11 +221,11 @@ export class Album {
 export interface GoaAuthorizer_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class GoaAuthorizer {
-    /* Fields of GFBGraph.GoaAuthorizer */
+    /* Fields of GFBGraph-0.2.GFBGraph.GoaAuthorizer */
     parent: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -247,15 +247,15 @@ export class GoaAuthorizer {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of GFBGraph.Authorizer */
+    /* Methods of GFBGraph-0.2.GFBGraph.Authorizer */
     process_call(call: Rest.ProxyCall): void
     process_message(message: Soup.Message): void
     refresh_authorization(cancellable?: Gio.Cancellable | null): boolean
-    /* Virtual methods of GFBGraph.GoaAuthorizer */
+    /* Virtual methods of GFBGraph-0.2.GFBGraph.GoaAuthorizer */
     vfunc_process_call(call: Rest.ProxyCall): void
     vfunc_process_message(message: Soup.Message): void
     vfunc_refresh_authorization(cancellable?: Gio.Cancellable | null): boolean
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -263,7 +263,7 @@ export class GoaAuthorizer {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: GoaAuthorizer, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: GoaAuthorizer, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -283,16 +283,16 @@ export interface Node_ConstructProps extends GObject.Object_ConstructProps {
     updated_time?: string
 }
 export class Node {
-    /* Properties of GFBGraph.Node */
+    /* Properties of GFBGraph-0.2.GFBGraph.Node */
     created_time: string
     id: string
     link: string
     updated_time: string
-    /* Fields of GFBGraph.Node */
+    /* Fields of GFBGraph-0.2.GFBGraph.Node */
     parent: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GFBGraph.Node */
+    /* Methods of GFBGraph-0.2.GFBGraph.Node */
     append_connection(connect_node: Node, authorizer: Authorizer): boolean
     get_connection_nodes(node_type: GObject.Type, authorizer: Authorizer): Node[]
     get_connection_nodes_async(node_type: GObject.Type, authorizer: Authorizer, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
@@ -302,7 +302,7 @@ export class Node {
     get_link(): string
     get_updated_time(): string
     set_id(id: string): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -324,7 +324,7 @@ export class Node {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -332,7 +332,7 @@ export class Node {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Node, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Node, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -365,22 +365,22 @@ export interface Photo_ConstructProps extends Node_ConstructProps {
     width?: number
 }
 export class Photo {
-    /* Properties of GFBGraph.Photo */
+    /* Properties of GFBGraph-0.2.GFBGraph.Photo */
     height: number
     images: object
     name: string
     source: string
     width: number
-    /* Properties of GFBGraph.Node */
+    /* Properties of GFBGraph-0.2.GFBGraph.Node */
     created_time: string
     id: string
     link: string
     updated_time: string
-    /* Fields of GFBGraph.Photo */
+    /* Fields of GFBGraph-0.2.GFBGraph.Photo */
     parent: Node
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GFBGraph.Photo */
+    /* Methods of GFBGraph-0.2.GFBGraph.Photo */
     download_default_size(authorizer: Authorizer): Gio.InputStream
     get_default_height(): number
     get_default_source_uri(): string
@@ -390,7 +390,7 @@ export class Photo {
     get_image_near_width(width: number): PhotoImage
     get_images(): PhotoImage[]
     get_name(): string
-    /* Methods of GFBGraph.Node */
+    /* Methods of GFBGraph-0.2.GFBGraph.Node */
     append_connection(connect_node: Node, authorizer: Authorizer): boolean
     get_connection_nodes(node_type: GObject.Type, authorizer: Authorizer): Node[]
     get_connection_nodes_async(node_type: GObject.Type, authorizer: Authorizer, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
@@ -400,7 +400,7 @@ export class Photo {
     get_link(): string
     get_updated_time(): string
     set_id(id: string): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -422,13 +422,13 @@ export class Photo {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of GFBGraph.Connectable */
+    /* Methods of GFBGraph-0.2.GFBGraph.Connectable */
     default_parse_connected_data(payload: string): Node[]
     get_connection_path(node_type: GObject.Type): string
     get_connection_post_params(node_type: GObject.Type): GLib.HashTable
     is_connectable_to(node_type: GObject.Type): boolean
     parse_connected_data(payload: string): Node[]
-    /* Methods of Json.Serializable */
+    /* Methods of Json-1.0.Json.Serializable */
     default_deserialize_property(property_name: string, value: any, pspec: GObject.ParamSpec, property_node: Json.Node): boolean
     default_serialize_property(property_name: string, value: any, pspec: GObject.ParamSpec): Json.Node | null
     deserialize_property(property_name: string, pspec: GObject.ParamSpec, property_node: Json.Node): [ /* returnType */ boolean, /* value */ any ]
@@ -437,7 +437,7 @@ export class Photo {
     list_properties(): GObject.ParamSpec[]
     serialize_property(property_name: string, value: any, pspec: GObject.ParamSpec): Json.Node
     set_property(pspec: GObject.ParamSpec, value: any): void
-    /* Virtual methods of GFBGraph.Photo */
+    /* Virtual methods of GFBGraph-0.2.GFBGraph.Photo */
     vfunc_get_connection_post_params(node_type: GObject.Type): GLib.HashTable
     vfunc_parse_connected_data(payload: string): Node[]
     vfunc_deserialize_property(property_name: string, pspec: GObject.ParamSpec, property_node: Json.Node): [ /* returnType */ boolean, /* value */ any ]
@@ -447,7 +447,7 @@ export class Photo {
     vfunc_serialize_property(property_name: string, value: any, pspec: GObject.ParamSpec): Json.Node
     vfunc_set_property(pspec: GObject.ParamSpec, value: any): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -455,7 +455,7 @@ export class Photo {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Photo, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Photo, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -494,13 +494,13 @@ export interface SimpleAuthorizer_ConstructProps extends GObject.Object_Construc
     access_token?: string
 }
 export class SimpleAuthorizer {
-    /* Properties of GFBGraph.SimpleAuthorizer */
+    /* Properties of GFBGraph-0.2.GFBGraph.SimpleAuthorizer */
     access_token: string
-    /* Fields of GFBGraph.SimpleAuthorizer */
+    /* Fields of GFBGraph-0.2.GFBGraph.SimpleAuthorizer */
     parent: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -522,15 +522,15 @@ export class SimpleAuthorizer {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of GFBGraph.Authorizer */
+    /* Methods of GFBGraph-0.2.GFBGraph.Authorizer */
     process_call(call: Rest.ProxyCall): void
     process_message(message: Soup.Message): void
     refresh_authorization(cancellable?: Gio.Cancellable | null): boolean
-    /* Virtual methods of GFBGraph.SimpleAuthorizer */
+    /* Virtual methods of GFBGraph-0.2.GFBGraph.SimpleAuthorizer */
     vfunc_process_call(call: Rest.ProxyCall): void
     vfunc_process_message(message: Soup.Message): void
     vfunc_refresh_authorization(cancellable?: Gio.Cancellable | null): boolean
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -538,7 +538,7 @@ export class SimpleAuthorizer {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: SimpleAuthorizer, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: SimpleAuthorizer, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -560,25 +560,25 @@ export interface User_ConstructProps extends Node_ConstructProps {
     name?: string
 }
 export class User {
-    /* Properties of GFBGraph.User */
+    /* Properties of GFBGraph-0.2.GFBGraph.User */
     email: string
     name: string
-    /* Properties of GFBGraph.Node */
+    /* Properties of GFBGraph-0.2.GFBGraph.Node */
     created_time: string
     id: string
     link: string
     updated_time: string
-    /* Fields of GFBGraph.User */
+    /* Fields of GFBGraph-0.2.GFBGraph.User */
     parent: Node
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GFBGraph.User */
+    /* Methods of GFBGraph-0.2.GFBGraph.User */
     get_albums(authorizer: Authorizer): Album[]
     get_albums_async(authorizer: Authorizer, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     get_albums_async_finish(result: Gio.AsyncResult): Album[]
     get_email(): string
     get_name(): string
-    /* Methods of GFBGraph.Node */
+    /* Methods of GFBGraph-0.2.GFBGraph.Node */
     append_connection(connect_node: Node, authorizer: Authorizer): boolean
     get_connection_nodes(node_type: GObject.Type, authorizer: Authorizer): Node[]
     get_connection_nodes_async(node_type: GObject.Type, authorizer: Authorizer, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
@@ -588,7 +588,7 @@ export class User {
     get_link(): string
     get_updated_time(): string
     set_id(id: string): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -610,7 +610,7 @@ export class User {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -618,7 +618,7 @@ export class User {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: User, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: User, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -651,7 +651,7 @@ export class User {
     static $gtype: GObject.Type
 }
 export abstract class AlbumClass {
-    /* Fields of GFBGraph.AlbumClass */
+    /* Fields of GFBGraph-0.2.GFBGraph.AlbumClass */
     parent_class: NodeClass
     static name: string
 }
@@ -659,7 +659,7 @@ export class AlbumPrivate {
     static name: string
 }
 export abstract class AuthorizerInterface {
-    /* Fields of GFBGraph.AuthorizerInterface */
+    /* Fields of GFBGraph-0.2.GFBGraph.AuthorizerInterface */
     parent: GObject.TypeInterface
     process_call: (iface: Authorizer, call: Rest.ProxyCall) => void
     process_message: (iface: Authorizer, message: Soup.Message) => void
@@ -667,7 +667,7 @@ export abstract class AuthorizerInterface {
     static name: string
 }
 export abstract class ConnectableInterface {
-    /* Fields of GFBGraph.ConnectableInterface */
+    /* Fields of GFBGraph-0.2.GFBGraph.ConnectableInterface */
     parent: GObject.TypeInterface
     connections: GLib.HashTable
     get_connection_post_params: (self: Connectable, node_type: GObject.Type) => GLib.HashTable
@@ -675,7 +675,7 @@ export abstract class ConnectableInterface {
     static name: string
 }
 export abstract class GoaAuthorizerClass {
-    /* Fields of GFBGraph.GoaAuthorizerClass */
+    /* Fields of GFBGraph-0.2.GFBGraph.GoaAuthorizerClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
@@ -683,7 +683,7 @@ export class GoaAuthorizerPrivate {
     static name: string
 }
 export abstract class NodeClass {
-    /* Fields of GFBGraph.NodeClass */
+    /* Fields of GFBGraph-0.2.GFBGraph.NodeClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
@@ -691,12 +691,12 @@ export class NodePrivate {
     static name: string
 }
 export abstract class PhotoClass {
-    /* Fields of GFBGraph.PhotoClass */
+    /* Fields of GFBGraph-0.2.GFBGraph.PhotoClass */
     parent_class: NodeClass
     static name: string
 }
 export class PhotoImage {
-    /* Fields of GFBGraph.PhotoImage */
+    /* Fields of GFBGraph-0.2.GFBGraph.PhotoImage */
     width: number
     height: number
     source: string
@@ -706,7 +706,7 @@ export class PhotoPrivate {
     static name: string
 }
 export abstract class SimpleAuthorizerClass {
-    /* Fields of GFBGraph.SimpleAuthorizerClass */
+    /* Fields of GFBGraph-0.2.GFBGraph.SimpleAuthorizerClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
@@ -714,7 +714,7 @@ export class SimpleAuthorizerPrivate {
     static name: string
 }
 export abstract class UserClass {
-    /* Fields of GFBGraph.UserClass */
+    /* Fields of GFBGraph-0.2.GFBGraph.UserClass */
     parent_class: NodeClass
     static name: string
 }

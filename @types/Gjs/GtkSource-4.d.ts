@@ -120,7 +120,7 @@ export function init(): void
 export function utils_escape_search_text(text: string): string
 export function utils_unescape_search_text(text: string): string
 export class CompletionProposal {
-    /* Methods of GtkSource.CompletionProposal */
+    /* Methods of GtkSource-4.GtkSource.CompletionProposal */
     changed(): void
     equal(other: CompletionProposal): boolean
     get_gicon(): Gio.Icon | null
@@ -131,7 +131,7 @@ export class CompletionProposal {
     get_markup(): string
     get_text(): string
     hash(): number
-    /* Virtual methods of GtkSource.CompletionProposal */
+    /* Virtual methods of GtkSource-4.GtkSource.CompletionProposal */
     vfunc_changed(): void
     vfunc_equal(other: CompletionProposal): boolean
     vfunc_get_gicon(): Gio.Icon | null
@@ -142,14 +142,14 @@ export class CompletionProposal {
     vfunc_get_markup(): string
     vfunc_get_text(): string
     vfunc_hash(): number
-    /* Signals of GtkSource.CompletionProposal */
+    /* Signals of GtkSource-4.GtkSource.CompletionProposal */
     connect(sigName: "changed", callback: (($obj: CompletionProposal) => void)): number
     connect_after(sigName: "changed", callback: (($obj: CompletionProposal) => void)): number
     emit(sigName: "changed"): void
     static name: string
 }
 export class CompletionProvider {
-    /* Methods of GtkSource.CompletionProvider */
+    /* Methods of GtkSource-4.GtkSource.CompletionProvider */
     activate_proposal(proposal: CompletionProposal, iter: Gtk.TextIter): boolean
     get_activation(): CompletionActivation
     get_gicon(): Gio.Icon | null
@@ -163,7 +163,7 @@ export class CompletionProvider {
     match(context: CompletionContext): boolean
     populate(context: CompletionContext): void
     update_info(proposal: CompletionProposal, info: CompletionInfo): void
-    /* Virtual methods of GtkSource.CompletionProvider */
+    /* Virtual methods of GtkSource-4.GtkSource.CompletionProvider */
     vfunc_activate_proposal(proposal: CompletionProposal, iter: Gtk.TextIter): boolean
     vfunc_get_activation(): CompletionActivation
     vfunc_get_gicon(): Gio.Icon | null
@@ -180,18 +180,18 @@ export class CompletionProvider {
     static name: string
 }
 export class StyleSchemeChooser {
-    /* Properties of GtkSource.StyleSchemeChooser */
+    /* Properties of GtkSource-4.GtkSource.StyleSchemeChooser */
     style_scheme: StyleScheme
-    /* Methods of GtkSource.StyleSchemeChooser */
+    /* Methods of GtkSource-4.GtkSource.StyleSchemeChooser */
     get_style_scheme(): StyleScheme
     set_style_scheme(scheme: StyleScheme): void
-    /* Virtual methods of GtkSource.StyleSchemeChooser */
+    /* Virtual methods of GtkSource-4.GtkSource.StyleSchemeChooser */
     vfunc_get_style_scheme(): StyleScheme
     vfunc_set_style_scheme(scheme: StyleScheme): void
     static name: string
 }
 export class UndoManager {
-    /* Methods of GtkSource.UndoManager */
+    /* Methods of GtkSource-4.GtkSource.UndoManager */
     begin_not_undoable_action(): void
     can_redo(): boolean
     can_redo_changed(): void
@@ -200,7 +200,7 @@ export class UndoManager {
     end_not_undoable_action(): void
     redo(): void
     undo(): void
-    /* Virtual methods of GtkSource.UndoManager */
+    /* Virtual methods of GtkSource-4.GtkSource.UndoManager */
     vfunc_begin_not_undoable_action(): void
     vfunc_can_redo(): boolean
     vfunc_can_redo_changed(): void
@@ -209,7 +209,7 @@ export class UndoManager {
     vfunc_end_not_undoable_action(): void
     vfunc_redo(): void
     vfunc_undo(): void
-    /* Signals of GtkSource.UndoManager */
+    /* Signals of GtkSource-4.GtkSource.UndoManager */
     connect(sigName: "can-redo-changed", callback: (($obj: UndoManager) => void)): number
     connect_after(sigName: "can-redo-changed", callback: (($obj: UndoManager) => void)): number
     emit(sigName: "can-redo-changed"): void
@@ -228,7 +228,7 @@ export interface Buffer_ConstructProps extends Gtk.TextBuffer_ConstructProps {
     undo_manager?: UndoManager
 }
 export class Buffer {
-    /* Properties of GtkSource.Buffer */
+    /* Properties of GtkSource-4.GtkSource.Buffer */
     readonly can_redo: boolean
     readonly can_undo: boolean
     highlight_matching_brackets: boolean
@@ -238,18 +238,18 @@ export class Buffer {
     max_undo_levels: number
     style_scheme: StyleScheme
     undo_manager: UndoManager
-    /* Properties of Gtk.TextBuffer */
+    /* Properties of Gtk-3.0.Gtk.TextBuffer */
     readonly copy_target_list: Gtk.TargetList
     readonly cursor_position: number
     readonly has_selection: boolean
     readonly paste_target_list: Gtk.TargetList
     text: string
-    /* Fields of GtkSource.Buffer */
+    /* Fields of GtkSource-4.GtkSource.Buffer */
     parent_instance: Gtk.TextBuffer
     priv: BufferPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GtkSource.Buffer */
+    /* Methods of GtkSource-4.GtkSource.Buffer */
     backward_iter_to_source_mark(iter: Gtk.TextIter, category?: string | null): [ /* returnType */ boolean, /* iter */ Gtk.TextIter ]
     begin_not_undoable_action(): void
     change_case(case_type: ChangeCaseType, start: Gtk.TextIter, end: Gtk.TextIter): void
@@ -282,7 +282,7 @@ export class Buffer {
     set_undo_manager(manager?: UndoManager | null): void
     sort_lines(start: Gtk.TextIter, end: Gtk.TextIter, flags: SortFlags, column: number): void
     undo(): void
-    /* Methods of Gtk.TextBuffer */
+    /* Methods of Gtk-3.0.Gtk.TextBuffer */
     add_mark(mark: Gtk.TextMark, where: Gtk.TextIter): void
     add_selection_clipboard(clipboard: Gtk.Clipboard): void
     apply_tag(tag: Gtk.TextTag, start: Gtk.TextIter, end: Gtk.TextIter): void
@@ -353,7 +353,7 @@ export class Buffer {
     set_text(text: string, len: number): void
     unregister_deserialize_format(format: Gdk.Atom): void
     unregister_serialize_format(format: Gdk.Atom): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -375,11 +375,11 @@ export class Buffer {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GtkSource.Buffer */
+    /* Virtual methods of GtkSource-4.GtkSource.Buffer */
     vfunc_bracket_matched(iter: Gtk.TextIter, state: BracketMatchType): void
     vfunc_redo(): void
     vfunc_undo(): void
-    /* Virtual methods of Gtk.TextBuffer */
+    /* Virtual methods of Gtk-3.0.Gtk.TextBuffer */
     vfunc_apply_tag(tag: Gtk.TextTag, start: Gtk.TextIter, end: Gtk.TextIter): void
     vfunc_begin_user_action(): void
     vfunc_changed(): void
@@ -393,7 +393,7 @@ export class Buffer {
     vfunc_modified_changed(): void
     vfunc_paste_done(clipboard: Gtk.Clipboard): void
     vfunc_remove_tag(tag: Gtk.TextTag, start: Gtk.TextIter, end: Gtk.TextIter): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -401,7 +401,7 @@ export class Buffer {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GtkSource.Buffer */
+    /* Signals of GtkSource-4.GtkSource.Buffer */
     connect(sigName: "bracket-matched", callback: (($obj: Buffer, iter: Gtk.TextIter | null, state: BracketMatchType) => void)): number
     connect_after(sigName: "bracket-matched", callback: (($obj: Buffer, iter: Gtk.TextIter | null, state: BracketMatchType) => void)): number
     emit(sigName: "bracket-matched", iter: Gtk.TextIter | null, state: BracketMatchType): void
@@ -417,7 +417,7 @@ export class Buffer {
     connect(sigName: "undo", callback: (($obj: Buffer) => void)): number
     connect_after(sigName: "undo", callback: (($obj: Buffer) => void)): number
     emit(sigName: "undo"): void
-    /* Signals of Gtk.TextBuffer */
+    /* Signals of Gtk-3.0.Gtk.TextBuffer */
     connect(sigName: "apply-tag", callback: (($obj: Buffer, tag: Gtk.TextTag, start: Gtk.TextIter, end: Gtk.TextIter) => void)): number
     connect_after(sigName: "apply-tag", callback: (($obj: Buffer, tag: Gtk.TextTag, start: Gtk.TextIter, end: Gtk.TextIter) => void)): number
     emit(sigName: "apply-tag", tag: Gtk.TextTag, start: Gtk.TextIter, end: Gtk.TextIter): void
@@ -457,7 +457,7 @@ export class Buffer {
     connect(sigName: "remove-tag", callback: (($obj: Buffer, tag: Gtk.TextTag, start: Gtk.TextIter, end: Gtk.TextIter) => void)): number
     connect_after(sigName: "remove-tag", callback: (($obj: Buffer, tag: Gtk.TextTag, start: Gtk.TextIter, end: Gtk.TextIter) => void)): number
     emit(sigName: "remove-tag", tag: Gtk.TextTag, start: Gtk.TextIter, end: Gtk.TextIter): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Buffer, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Buffer, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -513,7 +513,7 @@ export interface Completion_ConstructProps extends GObject.Object_ConstructProps
     view?: View
 }
 export class Completion {
-    /* Properties of GtkSource.Completion */
+    /* Properties of GtkSource-4.GtkSource.Completion */
     accelerators: number
     auto_complete_delay: number
     proposal_page_size: number
@@ -522,12 +522,12 @@ export class Completion {
     select_on_show: boolean
     show_headers: boolean
     show_icons: boolean
-    /* Fields of GtkSource.Completion */
+    /* Fields of GtkSource-4.GtkSource.Completion */
     parent_instance: GObject.Object
     priv: CompletionPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GtkSource.Completion */
+    /* Methods of GtkSource-4.GtkSource.Completion */
     add_provider(provider: CompletionProvider): boolean
     block_interactive(): void
     create_context(position?: Gtk.TextIter | null): CompletionContext
@@ -538,7 +538,7 @@ export class Completion {
     remove_provider(provider: CompletionProvider): boolean
     start(providers: CompletionProvider[] | null, context: CompletionContext): boolean
     unblock_interactive(): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -560,7 +560,7 @@ export class Completion {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of Gtk.Buildable */
+    /* Methods of Gtk-3.0.Gtk.Buildable */
     add_child(builder: Gtk.Builder, child: GObject.Object, type?: string | null): void
     construct_child(builder: Gtk.Builder, name: string): GObject.Object
     custom_finished(builder: Gtk.Builder, child: GObject.Object | null, tagname: string, data?: object | null): void
@@ -571,7 +571,7 @@ export class Completion {
     parser_finished(builder: Gtk.Builder): void
     set_buildable_property(builder: Gtk.Builder, name: string, value: any): void
     set_name(name: string): void
-    /* Virtual methods of GtkSource.Completion */
+    /* Virtual methods of GtkSource-4.GtkSource.Completion */
     vfunc_activate_proposal(): void
     vfunc_hide(): void
     vfunc_move_cursor(step: Gtk.ScrollStep, num: number): void
@@ -589,7 +589,7 @@ export class Completion {
     vfunc_parser_finished(builder: Gtk.Builder): void
     vfunc_set_buildable_property(builder: Gtk.Builder, name: string, value: any): void
     vfunc_set_name(name: string): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -597,7 +597,7 @@ export class Completion {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GtkSource.Completion */
+    /* Signals of GtkSource-4.GtkSource.Completion */
     connect(sigName: "activate-proposal", callback: (($obj: Completion) => void)): number
     connect_after(sigName: "activate-proposal", callback: (($obj: Completion) => void)): number
     emit(sigName: "activate-proposal"): void
@@ -616,7 +616,7 @@ export class Completion {
     connect(sigName: "show", callback: (($obj: Completion) => void)): number
     connect_after(sigName: "show", callback: (($obj: Completion) => void)): number
     emit(sigName: "show"): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Completion, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Completion, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -651,19 +651,19 @@ export interface CompletionContext_ConstructProps extends GObject.InitiallyUnown
     iter?: Gtk.TextIter
 }
 export class CompletionContext {
-    /* Properties of GtkSource.CompletionContext */
+    /* Properties of GtkSource-4.GtkSource.CompletionContext */
     activation: CompletionActivation
     iter: Gtk.TextIter
-    /* Fields of GtkSource.CompletionContext */
+    /* Fields of GtkSource-4.GtkSource.CompletionContext */
     parent: GObject.InitiallyUnowned
     priv: CompletionContextPrivate
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GtkSource.CompletionContext */
+    /* Methods of GtkSource-4.GtkSource.CompletionContext */
     add_proposals(provider: CompletionProvider, proposals: CompletionProposal[] | null, finished: boolean): void
     get_activation(): CompletionActivation
     get_iter(): [ /* returnType */ boolean, /* iter */ Gtk.TextIter ]
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -685,9 +685,9 @@ export class CompletionContext {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GtkSource.CompletionContext */
+    /* Virtual methods of GtkSource-4.GtkSource.CompletionContext */
     vfunc_cancelled(): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -695,11 +695,11 @@ export class CompletionContext {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GtkSource.CompletionContext */
+    /* Signals of GtkSource-4.GtkSource.CompletionContext */
     connect(sigName: "cancelled", callback: (($obj: CompletionContext) => void)): number
     connect_after(sigName: "cancelled", callback: (($obj: CompletionContext) => void)): number
     emit(sigName: "cancelled"): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: CompletionContext, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: CompletionContext, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -719,7 +719,7 @@ export class CompletionContext {
 export interface CompletionInfo_ConstructProps extends Gtk.Window_ConstructProps {
 }
 export class CompletionInfo {
-    /* Properties of Gtk.Window */
+    /* Properties of Gtk-3.0.Gtk.Window */
     accept_focus: boolean
     application: Gtk.Application
     attached_to: Gtk.Widget
@@ -752,11 +752,11 @@ export class CompletionInfo {
     type_hint: Gdk.WindowTypeHint
     urgency_hint: boolean
     window_position: Gtk.WindowPosition
-    /* Properties of Gtk.Container */
+    /* Properties of Gtk-3.0.Gtk.Container */
     border_width: number
     child: Gtk.Widget
     resize_mode: Gtk.ResizeMode
-    /* Properties of Gtk.Widget */
+    /* Properties of Gtk-3.0.Gtk.Widget */
     app_paintable: boolean
     can_default: boolean
     can_focus: boolean
@@ -796,21 +796,21 @@ export class CompletionInfo {
     visible: boolean
     width_request: number
     readonly window: Gdk.Window
-    /* Fields of GtkSource.CompletionInfo */
+    /* Fields of GtkSource-4.GtkSource.CompletionInfo */
     priv: CompletionInfoPrivate
-    /* Fields of Gtk.Window */
+    /* Fields of Gtk-3.0.Gtk.Window */
     bin: Gtk.Bin
-    /* Fields of Gtk.Bin */
+    /* Fields of Gtk-3.0.Gtk.Bin */
     container: Gtk.Container
-    /* Fields of Gtk.Container */
+    /* Fields of Gtk-3.0.Gtk.Container */
     widget: Gtk.Widget
-    /* Fields of Gtk.Widget */
+    /* Fields of Gtk-3.0.Gtk.Widget */
     parent_instance: GObject.InitiallyUnowned
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GtkSource.CompletionInfo */
+    /* Methods of GtkSource-4.GtkSource.CompletionInfo */
     move_to_iter(view: Gtk.TextView, iter?: Gtk.TextIter | null): void
-    /* Methods of Gtk.Window */
+    /* Methods of Gtk-3.0.Gtk.Window */
     activate_default(): boolean
     activate_focus(): boolean
     activate_key(event: Gdk.EventKey): boolean
@@ -917,9 +917,9 @@ export class CompletionInfo {
     unfullscreen(): void
     unmaximize(): void
     unstick(): void
-    /* Methods of Gtk.Bin */
+    /* Methods of Gtk-3.0.Gtk.Bin */
     get_child(): Gtk.Widget | null
-    /* Methods of Gtk.Container */
+    /* Methods of Gtk-3.0.Gtk.Container */
     add(widget: Gtk.Widget): void
     check_resize(): void
     child_get_property(child: Gtk.Widget, property_name: string, value: any): void
@@ -947,7 +947,7 @@ export class CompletionInfo {
     set_reallocate_redraws(needs_redraws: boolean): void
     set_resize_mode(resize_mode: Gtk.ResizeMode): void
     unset_focus_chain(): void
-    /* Methods of Gtk.Widget */
+    /* Methods of Gtk-3.0.Gtk.Widget */
     activate(): boolean
     add_accelerator(accel_signal: string, accel_group: Gtk.AccelGroup, accel_key: number, accel_mods: Gdk.ModifierType, accel_flags: Gtk.AccelFlags): void
     add_device_events(device: Gdk.Device, events: Gdk.EventMask): void
@@ -1203,7 +1203,7 @@ export class CompletionInfo {
     unrealize(): void
     unregister_window(window: Gdk.Window): void
     unset_state_flags(flags: Gtk.StateFlags): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -1225,7 +1225,7 @@ export class CompletionInfo {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of Gtk.Buildable */
+    /* Methods of Gtk-3.0.Gtk.Buildable */
     add_child(builder: Gtk.Builder, child: GObject.Object, type?: string | null): void
     construct_child(builder: Gtk.Builder, name: string): GObject.Object
     custom_finished(builder: Gtk.Builder, child: GObject.Object | null, tagname: string, data?: object | null): void
@@ -1234,7 +1234,7 @@ export class CompletionInfo {
     get_internal_child(builder: Gtk.Builder, childname: string): GObject.Object
     parser_finished(builder: Gtk.Builder): void
     set_buildable_property(builder: Gtk.Builder, name: string, value: any): void
-    /* Virtual methods of GtkSource.CompletionInfo */
+    /* Virtual methods of GtkSource-4.GtkSource.CompletionInfo */
     vfunc_add_child(builder: Gtk.Builder, child: GObject.Object, type?: string | null): void
     vfunc_construct_child(builder: Gtk.Builder, name: string): GObject.Object
     vfunc_custom_finished(builder: Gtk.Builder, child: GObject.Object | null, tagname: string, data?: object | null): void
@@ -1245,13 +1245,13 @@ export class CompletionInfo {
     vfunc_parser_finished(builder: Gtk.Builder): void
     vfunc_set_buildable_property(builder: Gtk.Builder, name: string, value: any): void
     vfunc_set_name(name: string): void
-    /* Virtual methods of Gtk.Window */
+    /* Virtual methods of Gtk-3.0.Gtk.Window */
     vfunc_activate_default(): void
     vfunc_activate_focus(): void
     vfunc_enable_debugging(toggle: boolean): boolean
     vfunc_keys_changed(): void
     vfunc_set_focus(focus?: Gtk.Widget | null): void
-    /* Virtual methods of Gtk.Container */
+    /* Virtual methods of Gtk-3.0.Gtk.Container */
     vfunc_add(widget: Gtk.Widget): void
     vfunc_check_resize(): void
     vfunc_child_type(): GObject.Type
@@ -1262,7 +1262,7 @@ export class CompletionInfo {
     vfunc_remove(widget: Gtk.Widget): void
     vfunc_set_child_property(child: Gtk.Widget, property_id: number, value: any, pspec: GObject.ParamSpec): void
     vfunc_set_focus_child(child?: Gtk.Widget | null): void
-    /* Virtual methods of Gtk.Widget */
+    /* Virtual methods of Gtk-3.0.Gtk.Widget */
     vfunc_adjust_baseline_allocation(baseline: number): void
     vfunc_adjust_baseline_request(minimum_baseline: number, natural_baseline: number): void
     vfunc_adjust_size_allocation(orientation: Gtk.Orientation, minimum_size: number, natural_size: number, allocated_pos: number, allocated_size: number): void
@@ -1345,7 +1345,7 @@ export class CompletionInfo {
     vfunc_unrealize(): void
     vfunc_visibility_notify_event(event: Gdk.EventVisibility): boolean
     vfunc_window_state_event(event: Gdk.EventWindowState): boolean
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -1353,7 +1353,7 @@ export class CompletionInfo {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gtk.Window */
+    /* Signals of Gtk-3.0.Gtk.Window */
     connect(sigName: "activate-default", callback: (($obj: CompletionInfo) => void)): number
     connect_after(sigName: "activate-default", callback: (($obj: CompletionInfo) => void)): number
     emit(sigName: "activate-default"): void
@@ -1369,7 +1369,7 @@ export class CompletionInfo {
     connect(sigName: "set-focus", callback: (($obj: CompletionInfo, widget?: Gtk.Widget | null) => void)): number
     connect_after(sigName: "set-focus", callback: (($obj: CompletionInfo, widget?: Gtk.Widget | null) => void)): number
     emit(sigName: "set-focus", widget?: Gtk.Widget | null): void
-    /* Signals of Gtk.Container */
+    /* Signals of Gtk-3.0.Gtk.Container */
     connect(sigName: "add", callback: (($obj: CompletionInfo, object: Gtk.Widget) => void)): number
     connect_after(sigName: "add", callback: (($obj: CompletionInfo, object: Gtk.Widget) => void)): number
     emit(sigName: "add", object: Gtk.Widget): void
@@ -1382,7 +1382,7 @@ export class CompletionInfo {
     connect(sigName: "set-focus-child", callback: (($obj: CompletionInfo, object: Gtk.Widget) => void)): number
     connect_after(sigName: "set-focus-child", callback: (($obj: CompletionInfo, object: Gtk.Widget) => void)): number
     emit(sigName: "set-focus-child", object: Gtk.Widget): void
-    /* Signals of Gtk.Widget */
+    /* Signals of Gtk-3.0.Gtk.Widget */
     connect(sigName: "accel-closures-changed", callback: (($obj: CompletionInfo) => void)): number
     connect_after(sigName: "accel-closures-changed", callback: (($obj: CompletionInfo) => void)): number
     emit(sigName: "accel-closures-changed"): void
@@ -1590,7 +1590,7 @@ export class CompletionInfo {
     connect(sigName: "window-state-event", callback: (($obj: CompletionInfo, event: Gdk.EventWindowState) => boolean)): number
     connect_after(sigName: "window-state-event", callback: (($obj: CompletionInfo, event: Gdk.EventWindowState) => boolean)): number
     emit(sigName: "window-state-event", event: Gdk.EventWindowState): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: CompletionInfo, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: CompletionInfo, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -1764,7 +1764,7 @@ export interface CompletionItem_ConstructProps extends GObject.Object_ConstructP
     text?: string
 }
 export class CompletionItem {
-    /* Properties of GtkSource.CompletionItem */
+    /* Properties of GtkSource-4.GtkSource.CompletionItem */
     gicon: Gio.Icon
     icon: GdkPixbuf.Pixbuf
     icon_name: string
@@ -1772,12 +1772,12 @@ export class CompletionItem {
     label: string
     markup: string
     text: string
-    /* Fields of GtkSource.CompletionItem */
+    /* Fields of GtkSource-4.GtkSource.CompletionItem */
     parent: GObject.Object
     priv: CompletionItemPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GtkSource.CompletionItem */
+    /* Methods of GtkSource-4.GtkSource.CompletionItem */
     set_gicon(gicon?: Gio.Icon | null): void
     set_icon(icon?: GdkPixbuf.Pixbuf | null): void
     set_icon_name(icon_name?: string | null): void
@@ -1785,7 +1785,7 @@ export class CompletionItem {
     set_label(label?: string | null): void
     set_markup(markup?: string | null): void
     set_text(text?: string | null): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -1807,7 +1807,7 @@ export class CompletionItem {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of GtkSource.CompletionProposal */
+    /* Methods of GtkSource-4.GtkSource.CompletionProposal */
     changed(): void
     equal(other: CompletionProposal): boolean
     get_gicon(): Gio.Icon | null
@@ -1818,7 +1818,7 @@ export class CompletionItem {
     get_markup(): string
     get_text(): string
     hash(): number
-    /* Virtual methods of GtkSource.CompletionItem */
+    /* Virtual methods of GtkSource-4.GtkSource.CompletionItem */
     vfunc_changed(): void
     vfunc_equal(other: CompletionProposal): boolean
     vfunc_get_gicon(): Gio.Icon | null
@@ -1829,7 +1829,7 @@ export class CompletionItem {
     vfunc_get_markup(): string
     vfunc_get_text(): string
     vfunc_hash(): number
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -1837,11 +1837,11 @@ export class CompletionItem {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: CompletionItem, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: CompletionItem, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    /* Signals of GtkSource.CompletionProposal */
+    /* Signals of GtkSource-4.GtkSource.CompletionProposal */
     connect(sigName: "changed", callback: (($obj: CompletionItem) => void)): number
     connect_after(sigName: "changed", callback: (($obj: CompletionItem) => void)): number
     emit(sigName: "changed"): void
@@ -1881,7 +1881,7 @@ export interface CompletionWords_ConstructProps extends GObject.Object_Construct
     scan_batch_size?: number
 }
 export class CompletionWords {
-    /* Properties of GtkSource.CompletionWords */
+    /* Properties of GtkSource-4.GtkSource.CompletionWords */
     activation: CompletionActivation
     icon: GdkPixbuf.Pixbuf
     interactive_delay: number
@@ -1890,15 +1890,15 @@ export class CompletionWords {
     priority: number
     proposals_batch_size: number
     scan_batch_size: number
-    /* Fields of GtkSource.CompletionWords */
+    /* Fields of GtkSource-4.GtkSource.CompletionWords */
     parent: GObject.Object
     priv: CompletionWordsPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GtkSource.CompletionWords */
+    /* Methods of GtkSource-4.GtkSource.CompletionWords */
     register(buffer: Gtk.TextBuffer): void
     unregister(buffer: Gtk.TextBuffer): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -1920,7 +1920,7 @@ export class CompletionWords {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of GtkSource.CompletionProvider */
+    /* Methods of GtkSource-4.GtkSource.CompletionProvider */
     activate_proposal(proposal: CompletionProposal, iter: Gtk.TextIter): boolean
     get_activation(): CompletionActivation
     get_gicon(): Gio.Icon | null
@@ -1934,7 +1934,7 @@ export class CompletionWords {
     match(context: CompletionContext): boolean
     populate(context: CompletionContext): void
     update_info(proposal: CompletionProposal, info: CompletionInfo): void
-    /* Virtual methods of GtkSource.CompletionWords */
+    /* Virtual methods of GtkSource-4.GtkSource.CompletionWords */
     vfunc_activate_proposal(proposal: CompletionProposal, iter: Gtk.TextIter): boolean
     vfunc_get_activation(): CompletionActivation
     vfunc_get_gicon(): Gio.Icon | null
@@ -1948,7 +1948,7 @@ export class CompletionWords {
     vfunc_match(context: CompletionContext): boolean
     vfunc_populate(context: CompletionContext): void
     vfunc_update_info(proposal: CompletionProposal, info: CompletionInfo): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -1956,7 +1956,7 @@ export class CompletionWords {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: CompletionWords, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: CompletionWords, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -1991,18 +1991,18 @@ export interface File_ConstructProps extends GObject.Object_ConstructProps {
     location?: Gio.File
 }
 export class File {
-    /* Properties of GtkSource.File */
+    /* Properties of GtkSource-4.GtkSource.File */
     readonly compression_type: CompressionType
     readonly encoding: Encoding
     location: Gio.File
     readonly newline_type: NewlineType
     readonly read_only: boolean
-    /* Fields of GtkSource.File */
+    /* Fields of GtkSource-4.GtkSource.File */
     parent: GObject.Object
     priv: FilePrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GtkSource.File */
+    /* Methods of GtkSource-4.GtkSource.File */
     check_file_on_disk(): void
     get_compression_type(): CompressionType
     get_encoding(): Encoding
@@ -2013,7 +2013,7 @@ export class File {
     is_local(): boolean
     is_readonly(): boolean
     set_location(location?: Gio.File | null): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -2035,7 +2035,7 @@ export class File {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -2043,7 +2043,7 @@ export class File {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: File, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: File, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -2075,12 +2075,12 @@ export interface FileLoader_ConstructProps extends GObject.Object_ConstructProps
     location?: Gio.File
 }
 export class FileLoader {
-    /* Fields of GtkSource.FileLoader */
+    /* Fields of GtkSource-4.GtkSource.FileLoader */
     parent: GObject.Object
     priv: FileLoaderPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GtkSource.FileLoader */
+    /* Methods of GtkSource-4.GtkSource.FileLoader */
     get_buffer(): Buffer
     get_compression_type(): CompressionType
     get_encoding(): Encoding
@@ -2091,7 +2091,7 @@ export class FileLoader {
     load_async(io_priority: number, cancellable?: Gio.Cancellable | null, progress_callback?: Gio.FileProgressCallback | null, callback?: Gio.AsyncReadyCallback | null): void
     load_finish(result: Gio.AsyncResult): boolean
     set_candidate_encodings(candidate_encodings: Encoding[]): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -2113,7 +2113,7 @@ export class FileLoader {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -2121,7 +2121,7 @@ export class FileLoader {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: FileLoader, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: FileLoader, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -2147,17 +2147,17 @@ export interface FileSaver_ConstructProps extends GObject.Object_ConstructProps 
     newline_type?: NewlineType
 }
 export class FileSaver {
-    /* Properties of GtkSource.FileSaver */
+    /* Properties of GtkSource-4.GtkSource.FileSaver */
     compression_type: CompressionType
     encoding: Encoding
     flags: FileSaverFlags
     newline_type: NewlineType
-    /* Fields of GtkSource.FileSaver */
+    /* Fields of GtkSource-4.GtkSource.FileSaver */
     object: GObject.Object
     priv: FileSaverPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GtkSource.FileSaver */
+    /* Methods of GtkSource-4.GtkSource.FileSaver */
     get_buffer(): Buffer
     get_compression_type(): CompressionType
     get_encoding(): Encoding
@@ -2171,7 +2171,7 @@ export class FileSaver {
     set_encoding(encoding?: Encoding | null): void
     set_flags(flags: FileSaverFlags): void
     set_newline_type(newline_type: NewlineType): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -2193,7 +2193,7 @@ export class FileSaver {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -2201,7 +2201,7 @@ export class FileSaver {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: FileSaver, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: FileSaver, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -2230,12 +2230,12 @@ export interface Gutter_ConstructProps extends GObject.Object_ConstructProps {
     window_type?: Gtk.TextWindowType
 }
 export class Gutter {
-    /* Fields of GtkSource.Gutter */
+    /* Fields of GtkSource-4.GtkSource.Gutter */
     parent: GObject.Object
     priv: GutterPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GtkSource.Gutter */
+    /* Methods of GtkSource-4.GtkSource.Gutter */
     get_renderer_at_pos(x: number, y: number): GutterRenderer | null
     get_view(): View
     get_window_type(): Gtk.TextWindowType
@@ -2243,7 +2243,7 @@ export class Gutter {
     queue_draw(): void
     remove(renderer: GutterRenderer): void
     reorder(renderer: GutterRenderer, position: number): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -2265,7 +2265,7 @@ export class Gutter {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -2273,7 +2273,7 @@ export class Gutter {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Gutter, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Gutter, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -2298,7 +2298,7 @@ export interface GutterRenderer_ConstructProps extends GObject.InitiallyUnowned_
     ypad?: number
 }
 export class GutterRenderer {
-    /* Properties of GtkSource.GutterRenderer */
+    /* Properties of GtkSource-4.GtkSource.GutterRenderer */
     alignment_mode: GutterRendererAlignmentMode
     background_rgba: Gdk.RGBA
     background_set: boolean
@@ -2310,11 +2310,11 @@ export class GutterRenderer {
     xpad: number
     yalign: number
     ypad: number
-    /* Fields of GtkSource.GutterRenderer */
+    /* Fields of GtkSource-4.GtkSource.GutterRenderer */
     parent: GObject.InitiallyUnowned
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GtkSource.GutterRenderer */
+    /* Methods of GtkSource-4.GtkSource.GutterRenderer */
     activate(iter: Gtk.TextIter, area: Gdk.Rectangle, event: Gdk.Event): void
     begin(cr: cairo.Context, background_area: Gdk.Rectangle, cell_area: Gdk.Rectangle, start: Gtk.TextIter, end: Gtk.TextIter): void
     draw(cr: cairo.Context, background_area: Gdk.Rectangle, cell_area: Gdk.Rectangle, start: Gtk.TextIter, end: Gtk.TextIter, state: GutterRendererState): void
@@ -2337,7 +2337,7 @@ export class GutterRenderer {
     set_padding(xpad: number, ypad: number): void
     set_size(size: number): void
     set_visible(visible: boolean): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -2359,7 +2359,7 @@ export class GutterRenderer {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GtkSource.GutterRenderer */
+    /* Virtual methods of GtkSource-4.GtkSource.GutterRenderer */
     vfunc_activate(iter: Gtk.TextIter, area: Gdk.Rectangle, event: Gdk.Event): void
     vfunc_begin(cr: cairo.Context, background_area: Gdk.Rectangle, cell_area: Gdk.Rectangle, start: Gtk.TextIter, end: Gtk.TextIter): void
     vfunc_change_buffer(old_buffer?: Gtk.TextBuffer | null): void
@@ -2370,7 +2370,7 @@ export class GutterRenderer {
     vfunc_query_data(start: Gtk.TextIter, end: Gtk.TextIter, state: GutterRendererState): void
     vfunc_query_tooltip(iter: Gtk.TextIter, area: Gdk.Rectangle, x: number, y: number, tooltip: Gtk.Tooltip): boolean
     vfunc_queue_draw(): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -2378,7 +2378,7 @@ export class GutterRenderer {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GtkSource.GutterRenderer */
+    /* Signals of GtkSource-4.GtkSource.GutterRenderer */
     connect(sigName: "activate", callback: (($obj: GutterRenderer, iter: Gtk.TextIter, area: Gdk.Rectangle, event: Gdk.Event) => void)): number
     connect_after(sigName: "activate", callback: (($obj: GutterRenderer, iter: Gtk.TextIter, area: Gdk.Rectangle, event: Gdk.Event) => void)): number
     emit(sigName: "activate", iter: Gtk.TextIter, area: Gdk.Rectangle, event: Gdk.Event): void
@@ -2394,7 +2394,7 @@ export class GutterRenderer {
     connect(sigName: "queue-draw", callback: (($obj: GutterRenderer) => void)): number
     connect_after(sigName: "queue-draw", callback: (($obj: GutterRenderer) => void)): number
     emit(sigName: "queue-draw"): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: GutterRenderer, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: GutterRenderer, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -2435,11 +2435,11 @@ export interface GutterRendererPixbuf_ConstructProps extends GutterRenderer_Cons
     pixbuf?: GdkPixbuf.Pixbuf
 }
 export class GutterRendererPixbuf {
-    /* Properties of GtkSource.GutterRendererPixbuf */
+    /* Properties of GtkSource-4.GtkSource.GutterRendererPixbuf */
     gicon: Gio.Icon
     icon_name: string
     pixbuf: GdkPixbuf.Pixbuf
-    /* Properties of GtkSource.GutterRenderer */
+    /* Properties of GtkSource-4.GtkSource.GutterRenderer */
     alignment_mode: GutterRendererAlignmentMode
     background_rgba: Gdk.RGBA
     background_set: boolean
@@ -2451,18 +2451,18 @@ export class GutterRendererPixbuf {
     xpad: number
     yalign: number
     ypad: number
-    /* Fields of GtkSource.GutterRenderer */
+    /* Fields of GtkSource-4.GtkSource.GutterRenderer */
     parent: GObject.InitiallyUnowned
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GtkSource.GutterRendererPixbuf */
+    /* Methods of GtkSource-4.GtkSource.GutterRendererPixbuf */
     get_gicon(): Gio.Icon
     get_icon_name(): string
     get_pixbuf(): GdkPixbuf.Pixbuf
     set_gicon(icon?: Gio.Icon | null): void
     set_icon_name(icon_name?: string | null): void
     set_pixbuf(pixbuf?: GdkPixbuf.Pixbuf | null): void
-    /* Methods of GtkSource.GutterRenderer */
+    /* Methods of GtkSource-4.GtkSource.GutterRenderer */
     activate(iter: Gtk.TextIter, area: Gdk.Rectangle, event: Gdk.Event): void
     begin(cr: cairo.Context, background_area: Gdk.Rectangle, cell_area: Gdk.Rectangle, start: Gtk.TextIter, end: Gtk.TextIter): void
     draw(cr: cairo.Context, background_area: Gdk.Rectangle, cell_area: Gdk.Rectangle, start: Gtk.TextIter, end: Gtk.TextIter, state: GutterRendererState): void
@@ -2485,7 +2485,7 @@ export class GutterRendererPixbuf {
     set_padding(xpad: number, ypad: number): void
     set_size(size: number): void
     set_visible(visible: boolean): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -2507,7 +2507,7 @@ export class GutterRendererPixbuf {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GtkSource.GutterRenderer */
+    /* Virtual methods of GtkSource-4.GtkSource.GutterRenderer */
     vfunc_activate(iter: Gtk.TextIter, area: Gdk.Rectangle, event: Gdk.Event): void
     vfunc_begin(cr: cairo.Context, background_area: Gdk.Rectangle, cell_area: Gdk.Rectangle, start: Gtk.TextIter, end: Gtk.TextIter): void
     vfunc_change_buffer(old_buffer?: Gtk.TextBuffer | null): void
@@ -2518,7 +2518,7 @@ export class GutterRendererPixbuf {
     vfunc_query_data(start: Gtk.TextIter, end: Gtk.TextIter, state: GutterRendererState): void
     vfunc_query_tooltip(iter: Gtk.TextIter, area: Gdk.Rectangle, x: number, y: number, tooltip: Gtk.Tooltip): boolean
     vfunc_queue_draw(): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -2526,7 +2526,7 @@ export class GutterRendererPixbuf {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GtkSource.GutterRenderer */
+    /* Signals of GtkSource-4.GtkSource.GutterRenderer */
     connect(sigName: "activate", callback: (($obj: GutterRendererPixbuf, iter: Gtk.TextIter, area: Gdk.Rectangle, event: Gdk.Event) => void)): number
     connect_after(sigName: "activate", callback: (($obj: GutterRendererPixbuf, iter: Gtk.TextIter, area: Gdk.Rectangle, event: Gdk.Event) => void)): number
     emit(sigName: "activate", iter: Gtk.TextIter, area: Gdk.Rectangle, event: Gdk.Event): void
@@ -2542,7 +2542,7 @@ export class GutterRendererPixbuf {
     connect(sigName: "queue-draw", callback: (($obj: GutterRendererPixbuf) => void)): number
     connect_after(sigName: "queue-draw", callback: (($obj: GutterRendererPixbuf) => void)): number
     emit(sigName: "queue-draw"): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: GutterRendererPixbuf, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: GutterRendererPixbuf, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -2590,10 +2590,10 @@ export interface GutterRendererText_ConstructProps extends GutterRenderer_Constr
     text?: string
 }
 export class GutterRendererText {
-    /* Properties of GtkSource.GutterRendererText */
+    /* Properties of GtkSource-4.GtkSource.GutterRendererText */
     markup: string
     text: string
-    /* Properties of GtkSource.GutterRenderer */
+    /* Properties of GtkSource-4.GtkSource.GutterRenderer */
     alignment_mode: GutterRendererAlignmentMode
     background_rgba: Gdk.RGBA
     background_set: boolean
@@ -2605,16 +2605,16 @@ export class GutterRendererText {
     xpad: number
     yalign: number
     ypad: number
-    /* Fields of GtkSource.GutterRenderer */
+    /* Fields of GtkSource-4.GtkSource.GutterRenderer */
     parent: GObject.InitiallyUnowned
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GtkSource.GutterRendererText */
+    /* Methods of GtkSource-4.GtkSource.GutterRendererText */
     measure(text: string): [ /* width */ number | null, /* height */ number | null ]
     measure_markup(markup: string): [ /* width */ number | null, /* height */ number | null ]
     set_markup(markup: string, length: number): void
     set_text(text: string, length: number): void
-    /* Methods of GtkSource.GutterRenderer */
+    /* Methods of GtkSource-4.GtkSource.GutterRenderer */
     activate(iter: Gtk.TextIter, area: Gdk.Rectangle, event: Gdk.Event): void
     begin(cr: cairo.Context, background_area: Gdk.Rectangle, cell_area: Gdk.Rectangle, start: Gtk.TextIter, end: Gtk.TextIter): void
     draw(cr: cairo.Context, background_area: Gdk.Rectangle, cell_area: Gdk.Rectangle, start: Gtk.TextIter, end: Gtk.TextIter, state: GutterRendererState): void
@@ -2637,7 +2637,7 @@ export class GutterRendererText {
     set_padding(xpad: number, ypad: number): void
     set_size(size: number): void
     set_visible(visible: boolean): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -2659,7 +2659,7 @@ export class GutterRendererText {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GtkSource.GutterRenderer */
+    /* Virtual methods of GtkSource-4.GtkSource.GutterRenderer */
     vfunc_activate(iter: Gtk.TextIter, area: Gdk.Rectangle, event: Gdk.Event): void
     vfunc_begin(cr: cairo.Context, background_area: Gdk.Rectangle, cell_area: Gdk.Rectangle, start: Gtk.TextIter, end: Gtk.TextIter): void
     vfunc_change_buffer(old_buffer?: Gtk.TextBuffer | null): void
@@ -2670,7 +2670,7 @@ export class GutterRendererText {
     vfunc_query_data(start: Gtk.TextIter, end: Gtk.TextIter, state: GutterRendererState): void
     vfunc_query_tooltip(iter: Gtk.TextIter, area: Gdk.Rectangle, x: number, y: number, tooltip: Gtk.Tooltip): boolean
     vfunc_queue_draw(): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -2678,7 +2678,7 @@ export class GutterRendererText {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GtkSource.GutterRenderer */
+    /* Signals of GtkSource-4.GtkSource.GutterRenderer */
     connect(sigName: "activate", callback: (($obj: GutterRendererText, iter: Gtk.TextIter, area: Gdk.Rectangle, event: Gdk.Event) => void)): number
     connect_after(sigName: "activate", callback: (($obj: GutterRendererText, iter: Gtk.TextIter, area: Gdk.Rectangle, event: Gdk.Event) => void)): number
     emit(sigName: "activate", iter: Gtk.TextIter, area: Gdk.Rectangle, event: Gdk.Event): void
@@ -2694,7 +2694,7 @@ export class GutterRendererText {
     connect(sigName: "queue-draw", callback: (($obj: GutterRendererText) => void)): number
     connect_after(sigName: "queue-draw", callback: (($obj: GutterRendererText) => void)): number
     emit(sigName: "queue-draw"): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: GutterRendererText, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: GutterRendererText, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -2738,17 +2738,17 @@ export class GutterRendererText {
 export interface Language_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class Language {
-    /* Properties of GtkSource.Language */
+    /* Properties of GtkSource-4.GtkSource.Language */
     readonly hidden: boolean
     readonly id: string
     readonly name: string
     readonly section: string
-    /* Fields of GtkSource.Language */
+    /* Fields of GtkSource-4.GtkSource.Language */
     parent_instance: GObject.Object
     priv: LanguagePrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GtkSource.Language */
+    /* Methods of GtkSource-4.GtkSource.Language */
     get_globs(): string[] | null
     get_hidden(): boolean
     get_id(): string
@@ -2759,7 +2759,7 @@ export class Language {
     get_style_fallback(style_id: string): string | null
     get_style_ids(): string[] | null
     get_style_name(style_id: string): string | null
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -2781,7 +2781,7 @@ export class Language {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -2789,7 +2789,7 @@ export class Language {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Language, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Language, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -2814,21 +2814,21 @@ export interface LanguageManager_ConstructProps extends GObject.Object_Construct
     search_path?: string[]
 }
 export class LanguageManager {
-    /* Properties of GtkSource.LanguageManager */
+    /* Properties of GtkSource-4.GtkSource.LanguageManager */
     readonly language_ids: string[]
     search_path: string[]
-    /* Fields of GtkSource.LanguageManager */
+    /* Fields of GtkSource-4.GtkSource.LanguageManager */
     parent_instance: GObject.Object
     priv: LanguageManagerPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GtkSource.LanguageManager */
+    /* Methods of GtkSource-4.GtkSource.LanguageManager */
     get_language(id: string): Language | null
     get_language_ids(): string[] | null
     get_search_path(): string[]
     guess_language(filename?: string | null, content_type?: string | null): Language | null
     set_search_path(dirs?: string[] | null): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -2850,7 +2850,7 @@ export class LanguageManager {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -2858,7 +2858,7 @@ export class LanguageManager {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: LanguageManager, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: LanguageManager, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -2887,10 +2887,10 @@ export interface Map_ConstructProps extends View_ConstructProps {
     vscroll_policy?: Gtk.ScrollablePolicy
 }
 export class Map {
-    /* Properties of GtkSource.Map */
+    /* Properties of GtkSource-4.GtkSource.Map */
     font_desc: Pango.FontDescription
     view: View
-    /* Properties of GtkSource.View */
+    /* Properties of GtkSource-4.GtkSource.View */
     auto_indent: boolean
     background_pattern: BackgroundPatternType
     readonly completion: Completion
@@ -2906,7 +2906,7 @@ export class Map {
     smart_home_end: SmartHomeEndType
     readonly space_drawer: SpaceDrawer
     tab_width: number
-    /* Properties of Gtk.TextView */
+    /* Properties of Gtk-3.0.Gtk.TextView */
     accepts_tab: boolean
     bottom_margin: number
     buffer: Gtk.TextBuffer
@@ -2928,11 +2928,11 @@ export class Map {
     tabs: Pango.TabArray
     top_margin: number
     wrap_mode: Gtk.WrapMode
-    /* Properties of Gtk.Container */
+    /* Properties of Gtk-3.0.Gtk.Container */
     border_width: number
     child: Gtk.Widget
     resize_mode: Gtk.ResizeMode
-    /* Properties of Gtk.Widget */
+    /* Properties of Gtk-3.0.Gtk.Widget */
     app_paintable: boolean
     can_default: boolean
     can_focus: boolean
@@ -2972,23 +2972,23 @@ export class Map {
     visible: boolean
     width_request: number
     readonly window: Gdk.Window
-    /* Properties of Gtk.Scrollable */
+    /* Properties of Gtk-3.0.Gtk.Scrollable */
     hadjustment: Gtk.Adjustment
     hscroll_policy: Gtk.ScrollablePolicy
     vadjustment: Gtk.Adjustment
     vscroll_policy: Gtk.ScrollablePolicy
-    /* Fields of GtkSource.Map */
+    /* Fields of GtkSource-4.GtkSource.Map */
     parent_instance: View
-    /* Fields of GtkSource.View */
+    /* Fields of GtkSource-4.GtkSource.View */
     priv: ViewPrivate
-    /* Fields of Gtk.Container */
+    /* Fields of Gtk-3.0.Gtk.Container */
     widget: Gtk.Widget
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GtkSource.Map */
+    /* Methods of GtkSource-4.GtkSource.Map */
     get_view(): View | null
     set_view(view: View): void
-    /* Methods of GtkSource.View */
+    /* Methods of GtkSource-4.GtkSource.View */
     get_auto_indent(): boolean
     get_background_pattern(): BackgroundPatternType
     get_completion(): Completion
@@ -3023,7 +3023,7 @@ export class Map {
     set_smart_home_end(smart_home_end: SmartHomeEndType): void
     set_tab_width(width: number): void
     unindent_lines(start: Gtk.TextIter, end: Gtk.TextIter): void
-    /* Methods of Gtk.TextView */
+    /* Methods of Gtk-3.0.Gtk.TextView */
     add_child_at_anchor(child: Gtk.Widget, anchor: Gtk.TextChildAnchor): void
     add_child_in_window(child: Gtk.Widget, which_window: Gtk.TextWindowType, xpos: number, ypos: number): void
     backward_display_line(iter: Gtk.TextIter): boolean
@@ -3094,7 +3094,7 @@ export class Map {
     set_wrap_mode(wrap_mode: Gtk.WrapMode): void
     starts_display_line(iter: Gtk.TextIter): boolean
     window_to_buffer_coords(win: Gtk.TextWindowType, window_x: number, window_y: number): [ /* buffer_x */ number | null, /* buffer_y */ number | null ]
-    /* Methods of Gtk.Container */
+    /* Methods of Gtk-3.0.Gtk.Container */
     add(widget: Gtk.Widget): void
     check_resize(): void
     child_get_property(child: Gtk.Widget, property_name: string, value: any): void
@@ -3122,7 +3122,7 @@ export class Map {
     set_reallocate_redraws(needs_redraws: boolean): void
     set_resize_mode(resize_mode: Gtk.ResizeMode): void
     unset_focus_chain(): void
-    /* Methods of Gtk.Widget */
+    /* Methods of Gtk-3.0.Gtk.Widget */
     activate(): boolean
     add_accelerator(accel_signal: string, accel_group: Gtk.AccelGroup, accel_key: number, accel_mods: Gdk.ModifierType, accel_flags: Gtk.AccelFlags): void
     add_device_events(device: Gdk.Device, events: Gdk.EventMask): void
@@ -3381,7 +3381,7 @@ export class Map {
     unrealize(): void
     unregister_window(window: Gdk.Window): void
     unset_state_flags(flags: Gtk.StateFlags): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -3403,7 +3403,7 @@ export class Map {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of Gtk.Buildable */
+    /* Methods of Gtk-3.0.Gtk.Buildable */
     add_child(builder: Gtk.Builder, child: GObject.Object, type?: string | null): void
     construct_child(builder: Gtk.Builder, name: string): GObject.Object
     custom_finished(builder: Gtk.Builder, child: GObject.Object | null, tagname: string, data?: object | null): void
@@ -3412,7 +3412,7 @@ export class Map {
     get_internal_child(builder: Gtk.Builder, childname: string): GObject.Object
     parser_finished(builder: Gtk.Builder): void
     set_buildable_property(builder: Gtk.Builder, name: string, value: any): void
-    /* Methods of Gtk.Scrollable */
+    /* Methods of Gtk-3.0.Gtk.Scrollable */
     get_border(): [ /* returnType */ boolean, /* border */ Gtk.Border ]
     get_hscroll_policy(): Gtk.ScrollablePolicy
     get_vscroll_policy(): Gtk.ScrollablePolicy
@@ -3420,7 +3420,7 @@ export class Map {
     set_hscroll_policy(policy: Gtk.ScrollablePolicy): void
     set_vadjustment(vadjustment?: Gtk.Adjustment | null): void
     set_vscroll_policy(policy: Gtk.ScrollablePolicy): void
-    /* Virtual methods of GtkSource.View */
+    /* Virtual methods of GtkSource-4.GtkSource.View */
     vfunc_line_mark_activated(iter: Gtk.TextIter, event: Gdk.Event): void
     vfunc_move_lines(down: boolean): void
     vfunc_move_words(step: number): void
@@ -3438,7 +3438,7 @@ export class Map {
     vfunc_set_buildable_property(builder: Gtk.Builder, name: string, value: any): void
     vfunc_set_name(name: string): void
     vfunc_get_border(): [ /* returnType */ boolean, /* border */ Gtk.Border ]
-    /* Virtual methods of Gtk.TextView */
+    /* Virtual methods of Gtk-3.0.Gtk.TextView */
     vfunc_backspace(): void
     vfunc_copy_clipboard(): void
     vfunc_cut_clipboard(): void
@@ -3452,7 +3452,7 @@ export class Map {
     vfunc_populate_popup(popup: Gtk.Widget): void
     vfunc_set_anchor(): void
     vfunc_toggle_overwrite(): void
-    /* Virtual methods of Gtk.Container */
+    /* Virtual methods of Gtk-3.0.Gtk.Container */
     vfunc_add(widget: Gtk.Widget): void
     vfunc_check_resize(): void
     vfunc_child_type(): GObject.Type
@@ -3463,7 +3463,7 @@ export class Map {
     vfunc_remove(widget: Gtk.Widget): void
     vfunc_set_child_property(child: Gtk.Widget, property_id: number, value: any, pspec: GObject.ParamSpec): void
     vfunc_set_focus_child(child?: Gtk.Widget | null): void
-    /* Virtual methods of Gtk.Widget */
+    /* Virtual methods of Gtk-3.0.Gtk.Widget */
     vfunc_adjust_baseline_allocation(baseline: number): void
     vfunc_adjust_baseline_request(minimum_baseline: number, natural_baseline: number): void
     vfunc_adjust_size_allocation(orientation: Gtk.Orientation, minimum_size: number, natural_size: number, allocated_pos: number, allocated_size: number): void
@@ -3546,7 +3546,7 @@ export class Map {
     vfunc_unrealize(): void
     vfunc_visibility_notify_event(event: Gdk.EventVisibility): boolean
     vfunc_window_state_event(event: Gdk.EventWindowState): boolean
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -3554,7 +3554,7 @@ export class Map {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GtkSource.View */
+    /* Signals of GtkSource-4.GtkSource.View */
     connect(sigName: "change-case", callback: (($obj: Map, case_type: ChangeCaseType) => void)): number
     connect_after(sigName: "change-case", callback: (($obj: Map, case_type: ChangeCaseType) => void)): number
     emit(sigName: "change-case", case_type: ChangeCaseType): void
@@ -3588,7 +3588,7 @@ export class Map {
     connect(sigName: "undo", callback: (($obj: Map) => void)): number
     connect_after(sigName: "undo", callback: (($obj: Map) => void)): number
     emit(sigName: "undo"): void
-    /* Signals of Gtk.TextView */
+    /* Signals of Gtk-3.0.Gtk.TextView */
     connect(sigName: "backspace", callback: (($obj: Map) => void)): number
     connect_after(sigName: "backspace", callback: (($obj: Map) => void)): number
     emit(sigName: "backspace"): void
@@ -3637,7 +3637,7 @@ export class Map {
     connect(sigName: "toggle-overwrite", callback: (($obj: Map) => void)): number
     connect_after(sigName: "toggle-overwrite", callback: (($obj: Map) => void)): number
     emit(sigName: "toggle-overwrite"): void
-    /* Signals of Gtk.Container */
+    /* Signals of Gtk-3.0.Gtk.Container */
     connect(sigName: "add", callback: (($obj: Map, object: Gtk.Widget) => void)): number
     connect_after(sigName: "add", callback: (($obj: Map, object: Gtk.Widget) => void)): number
     emit(sigName: "add", object: Gtk.Widget): void
@@ -3650,7 +3650,7 @@ export class Map {
     connect(sigName: "set-focus-child", callback: (($obj: Map, object: Gtk.Widget) => void)): number
     connect_after(sigName: "set-focus-child", callback: (($obj: Map, object: Gtk.Widget) => void)): number
     emit(sigName: "set-focus-child", object: Gtk.Widget): void
-    /* Signals of Gtk.Widget */
+    /* Signals of Gtk-3.0.Gtk.Widget */
     connect(sigName: "accel-closures-changed", callback: (($obj: Map) => void)): number
     connect_after(sigName: "accel-closures-changed", callback: (($obj: Map) => void)): number
     emit(sigName: "accel-closures-changed"): void
@@ -3858,7 +3858,7 @@ export class Map {
     connect(sigName: "window-state-event", callback: (($obj: Map, event: Gdk.EventWindowState) => boolean)): number
     connect_after(sigName: "window-state-event", callback: (($obj: Map, event: Gdk.EventWindowState) => boolean)): number
     emit(sigName: "window-state-event", event: Gdk.EventWindowState): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Map, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Map, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -4047,23 +4047,23 @@ export interface Mark_ConstructProps extends Gtk.TextMark_ConstructProps {
     category?: string
 }
 export class Mark {
-    /* Fields of GtkSource.Mark */
+    /* Fields of GtkSource-4.GtkSource.Mark */
     parent_instance: Gtk.TextMark
     priv: MarkPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GtkSource.Mark */
+    /* Methods of GtkSource-4.GtkSource.Mark */
     get_category(): string
     next(category?: string | null): Mark | null
     prev(category: string): Mark | null
-    /* Methods of Gtk.TextMark */
+    /* Methods of Gtk-3.0.Gtk.TextMark */
     get_buffer(): Gtk.TextBuffer
     get_deleted(): boolean
     get_left_gravity(): boolean
     get_name(): string | null
     get_visible(): boolean
     set_visible(setting: boolean): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -4085,7 +4085,7 @@ export class Mark {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -4093,7 +4093,7 @@ export class Mark {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Mark, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Mark, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -4116,14 +4116,14 @@ export interface MarkAttributes_ConstructProps extends GObject.Object_ConstructP
     pixbuf?: GdkPixbuf.Pixbuf
 }
 export class MarkAttributes {
-    /* Properties of GtkSource.MarkAttributes */
+    /* Properties of GtkSource-4.GtkSource.MarkAttributes */
     background: Gdk.RGBA
     gicon: Gio.Icon
     icon_name: string
     pixbuf: GdkPixbuf.Pixbuf
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GtkSource.MarkAttributes */
+    /* Methods of GtkSource-4.GtkSource.MarkAttributes */
     get_background(): [ /* returnType */ boolean, /* background */ Gdk.RGBA ]
     get_gicon(): Gio.Icon
     get_icon_name(): string
@@ -4135,7 +4135,7 @@ export class MarkAttributes {
     set_gicon(gicon: Gio.Icon): void
     set_icon_name(icon_name: string): void
     set_pixbuf(pixbuf: GdkPixbuf.Pixbuf): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -4157,7 +4157,7 @@ export class MarkAttributes {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -4165,14 +4165,14 @@ export class MarkAttributes {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GtkSource.MarkAttributes */
+    /* Signals of GtkSource-4.GtkSource.MarkAttributes */
     connect(sigName: "query-tooltip-markup", callback: (($obj: MarkAttributes, mark: Mark) => string)): number
     connect_after(sigName: "query-tooltip-markup", callback: (($obj: MarkAttributes, mark: Mark) => string)): number
     emit(sigName: "query-tooltip-markup", mark: Mark): void
     connect(sigName: "query-tooltip-text", callback: (($obj: MarkAttributes, mark: Mark) => string)): number
     connect_after(sigName: "query-tooltip-text", callback: (($obj: MarkAttributes, mark: Mark) => string)): number
     emit(sigName: "query-tooltip-text", mark: Mark): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: MarkAttributes, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: MarkAttributes, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -4209,7 +4209,7 @@ export interface PrintCompositor_ConstructProps extends GObject.Object_Construct
     wrap_mode?: Gtk.WrapMode
 }
 export class PrintCompositor {
-    /* Properties of GtkSource.PrintCompositor */
+    /* Properties of GtkSource-4.GtkSource.PrintCompositor */
     body_font_name: string
     footer_font_name: string
     header_font_name: string
@@ -4221,12 +4221,12 @@ export class PrintCompositor {
     print_line_numbers: number
     tab_width: number
     wrap_mode: Gtk.WrapMode
-    /* Fields of GtkSource.PrintCompositor */
+    /* Fields of GtkSource-4.GtkSource.PrintCompositor */
     parent_instance: GObject.Object
     priv: PrintCompositorPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GtkSource.PrintCompositor */
+    /* Methods of GtkSource-4.GtkSource.PrintCompositor */
     draw_page(context: Gtk.PrintContext, page_nr: number): void
     get_body_font_name(): string
     get_bottom_margin(unit: Gtk.Unit): number
@@ -4262,7 +4262,7 @@ export class PrintCompositor {
     set_tab_width(width: number): void
     set_top_margin(margin: number, unit: Gtk.Unit): void
     set_wrap_mode(wrap_mode: Gtk.WrapMode): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -4284,7 +4284,7 @@ export class PrintCompositor {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -4292,7 +4292,7 @@ export class PrintCompositor {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: PrintCompositor, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: PrintCompositor, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -4334,11 +4334,11 @@ export interface Region_ConstructProps extends GObject.Object_ConstructProps {
     buffer?: Gtk.TextBuffer
 }
 export class Region {
-    /* Fields of GtkSource.Region */
+    /* Fields of GtkSource-4.GtkSource.Region */
     parent_instance: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GtkSource.Region */
+    /* Methods of GtkSource-4.GtkSource.Region */
     add_region(region_to_add?: Region | null): void
     add_subregion(_start: Gtk.TextIter, _end: Gtk.TextIter): void
     get_bounds(): [ /* returnType */ boolean, /* start */ Gtk.TextIter | null, /* end */ Gtk.TextIter | null ]
@@ -4350,7 +4350,7 @@ export class Region {
     subtract_region(region_to_subtract?: Region | null): void
     subtract_subregion(_start: Gtk.TextIter, _end: Gtk.TextIter): void
     to_string(): string | null
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -4372,7 +4372,7 @@ export class Region {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -4380,7 +4380,7 @@ export class Region {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Region, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Region, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -4402,17 +4402,17 @@ export interface SearchContext_ConstructProps extends GObject.Object_ConstructPr
     settings?: SearchSettings
 }
 export class SearchContext {
-    /* Properties of GtkSource.SearchContext */
+    /* Properties of GtkSource-4.GtkSource.SearchContext */
     highlight: boolean
     match_style: Style
     readonly occurrences_count: number
     readonly regex_error: object
-    /* Fields of GtkSource.SearchContext */
+    /* Fields of GtkSource-4.GtkSource.SearchContext */
     parent: GObject.Object
     priv: SearchContextPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GtkSource.SearchContext */
+    /* Methods of GtkSource-4.GtkSource.SearchContext */
     backward(iter: Gtk.TextIter): [ /* returnType */ boolean, /* match_start */ Gtk.TextIter | null, /* match_end */ Gtk.TextIter | null, /* has_wrapped_around */ boolean | null ]
     backward_async(iter: Gtk.TextIter, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     backward_finish(result: Gio.AsyncResult): [ /* returnType */ boolean, /* match_start */ Gtk.TextIter | null, /* match_end */ Gtk.TextIter | null, /* has_wrapped_around */ boolean | null ]
@@ -4430,7 +4430,7 @@ export class SearchContext {
     replace_all(replace: string, replace_length: number): number
     set_highlight(highlight: boolean): void
     set_match_style(match_style?: Style | null): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -4452,7 +4452,7 @@ export class SearchContext {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -4460,7 +4460,7 @@ export class SearchContext {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: SearchContext, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: SearchContext, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -4491,18 +4491,18 @@ export interface SearchSettings_ConstructProps extends GObject.Object_ConstructP
     wrap_around?: boolean
 }
 export class SearchSettings {
-    /* Properties of GtkSource.SearchSettings */
+    /* Properties of GtkSource-4.GtkSource.SearchSettings */
     at_word_boundaries: boolean
     case_sensitive: boolean
     regex_enabled: boolean
     search_text: string
     wrap_around: boolean
-    /* Fields of GtkSource.SearchSettings */
+    /* Fields of GtkSource-4.GtkSource.SearchSettings */
     parent: GObject.Object
     priv: SearchSettingsPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GtkSource.SearchSettings */
+    /* Methods of GtkSource-4.GtkSource.SearchSettings */
     get_at_word_boundaries(): boolean
     get_case_sensitive(): boolean
     get_regex_enabled(): boolean
@@ -4513,7 +4513,7 @@ export class SearchSettings {
     set_regex_enabled(regex_enabled: boolean): void
     set_search_text(search_text?: string | null): void
     set_wrap_around(wrap_around: boolean): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -4535,7 +4535,7 @@ export class SearchSettings {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -4543,7 +4543,7 @@ export class SearchSettings {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: SearchSettings, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: SearchSettings, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -4573,15 +4573,15 @@ export interface SpaceDrawer_ConstructProps extends GObject.Object_ConstructProp
     matrix?: GLib.Variant
 }
 export class SpaceDrawer {
-    /* Properties of GtkSource.SpaceDrawer */
+    /* Properties of GtkSource-4.GtkSource.SpaceDrawer */
     enable_matrix: boolean
     matrix: GLib.Variant
-    /* Fields of GtkSource.SpaceDrawer */
+    /* Fields of GtkSource-4.GtkSource.SpaceDrawer */
     parent: GObject.Object
     priv: SpaceDrawerPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GtkSource.SpaceDrawer */
+    /* Methods of GtkSource-4.GtkSource.SpaceDrawer */
     bind_matrix_setting(settings: Gio.Settings, key: string, flags: Gio.SettingsBindFlags): void
     get_enable_matrix(): boolean
     get_matrix(): GLib.Variant
@@ -4589,7 +4589,7 @@ export class SpaceDrawer {
     set_enable_matrix(enable_matrix: boolean): void
     set_matrix(matrix?: GLib.Variant | null): void
     set_types_for_locations(locations: SpaceLocationFlags, types: SpaceTypeFlags): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -4611,7 +4611,7 @@ export class SpaceDrawer {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -4619,7 +4619,7 @@ export class SpaceDrawer {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: SpaceDrawer, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: SpaceDrawer, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -4659,12 +4659,12 @@ export interface Style_ConstructProps extends GObject.Object_ConstructProps {
     underline_set?: boolean
 }
 export class Style {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GtkSource.Style */
+    /* Methods of GtkSource-4.GtkSource.Style */
     apply(tag: Gtk.TextTag): void
     copy(): Style
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -4686,7 +4686,7 @@ export class Style {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -4694,7 +4694,7 @@ export class Style {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Style, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Style, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -4711,23 +4711,23 @@ export interface StyleScheme_ConstructProps extends GObject.Object_ConstructProp
     id?: string
 }
 export class StyleScheme {
-    /* Properties of GtkSource.StyleScheme */
+    /* Properties of GtkSource-4.GtkSource.StyleScheme */
     readonly description: string
     readonly filename: string
     readonly name: string
-    /* Fields of GtkSource.StyleScheme */
+    /* Fields of GtkSource-4.GtkSource.StyleScheme */
     base: GObject.Object
     priv: StyleSchemePrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GtkSource.StyleScheme */
+    /* Methods of GtkSource-4.GtkSource.StyleScheme */
     get_authors(): string[] | null
     get_description(): string | null
     get_filename(): string | null
     get_id(): string
     get_name(): string
     get_style(style_id: string): Style | null
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -4749,7 +4749,7 @@ export class StyleScheme {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -4757,7 +4757,7 @@ export class StyleScheme {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: StyleScheme, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: StyleScheme, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -4784,7 +4784,7 @@ export interface StyleSchemeChooserButton_ConstructProps extends Gtk.Button_Cons
     style_scheme?: StyleScheme
 }
 export class StyleSchemeChooserButton {
-    /* Properties of Gtk.Button */
+    /* Properties of Gtk-3.0.Gtk.Button */
     always_show_image: boolean
     image: Gtk.Widget
     image_position: Gtk.PositionType
@@ -4794,11 +4794,11 @@ export class StyleSchemeChooserButton {
     use_underline: boolean
     xalign: number
     yalign: number
-    /* Properties of Gtk.Container */
+    /* Properties of Gtk-3.0.Gtk.Container */
     border_width: number
     child: Gtk.Widget
     resize_mode: Gtk.ResizeMode
-    /* Properties of Gtk.Widget */
+    /* Properties of Gtk-3.0.Gtk.Widget */
     app_paintable: boolean
     can_default: boolean
     can_focus: boolean
@@ -4838,23 +4838,23 @@ export class StyleSchemeChooserButton {
     visible: boolean
     width_request: number
     readonly window: Gdk.Window
-    /* Properties of Gtk.Actionable */
+    /* Properties of Gtk-3.0.Gtk.Actionable */
     action_name: string
     action_target: GLib.Variant
-    /* Properties of Gtk.Activatable */
+    /* Properties of Gtk-3.0.Gtk.Activatable */
     related_action: Gtk.Action
     use_action_appearance: boolean
-    /* Properties of GtkSource.StyleSchemeChooser */
+    /* Properties of GtkSource-4.GtkSource.StyleSchemeChooser */
     style_scheme: StyleScheme
-    /* Fields of Gtk.Bin */
+    /* Fields of Gtk-3.0.Gtk.Bin */
     container: Gtk.Container
-    /* Fields of Gtk.Container */
+    /* Fields of Gtk-3.0.Gtk.Container */
     widget: Gtk.Widget
-    /* Fields of Gtk.Widget */
+    /* Fields of Gtk-3.0.Gtk.Widget */
     parent_instance: GObject.InitiallyUnowned
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Gtk.Button */
+    /* Methods of Gtk-3.0.Gtk.Button */
     clicked(): void
     enter(): void
     get_alignment(): [ /* xalign */ number, /* yalign */ number ]
@@ -4879,9 +4879,9 @@ export class StyleSchemeChooserButton {
     set_relief(relief: Gtk.ReliefStyle): void
     set_use_stock(use_stock: boolean): void
     set_use_underline(use_underline: boolean): void
-    /* Methods of Gtk.Bin */
+    /* Methods of Gtk-3.0.Gtk.Bin */
     get_child(): Gtk.Widget | null
-    /* Methods of Gtk.Container */
+    /* Methods of Gtk-3.0.Gtk.Container */
     add(widget: Gtk.Widget): void
     check_resize(): void
     child_get_property(child: Gtk.Widget, property_name: string, value: any): void
@@ -4909,7 +4909,7 @@ export class StyleSchemeChooserButton {
     set_reallocate_redraws(needs_redraws: boolean): void
     set_resize_mode(resize_mode: Gtk.ResizeMode): void
     unset_focus_chain(): void
-    /* Methods of Gtk.Widget */
+    /* Methods of Gtk-3.0.Gtk.Widget */
     activate(): boolean
     add_accelerator(accel_signal: string, accel_group: Gtk.AccelGroup, accel_key: number, accel_mods: Gdk.ModifierType, accel_flags: Gtk.AccelFlags): void
     add_device_events(device: Gdk.Device, events: Gdk.EventMask): void
@@ -5166,7 +5166,7 @@ export class StyleSchemeChooserButton {
     unrealize(): void
     unregister_window(window: Gdk.Window): void
     unset_state_flags(flags: Gtk.StateFlags): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -5188,20 +5188,20 @@ export class StyleSchemeChooserButton {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of Gtk.Actionable */
+    /* Methods of Gtk-3.0.Gtk.Actionable */
     get_action_name(): string | null
     get_action_target_value(): GLib.Variant
     set_action_name(action_name?: string | null): void
     set_action_target_value(target_value?: GLib.Variant | null): void
     set_detailed_action_name(detailed_action_name: string): void
-    /* Methods of Gtk.Activatable */
+    /* Methods of Gtk-3.0.Gtk.Activatable */
     do_set_related_action(action: Gtk.Action): void
     get_related_action(): Gtk.Action
     get_use_action_appearance(): boolean
     set_related_action(action: Gtk.Action): void
     set_use_action_appearance(use_appearance: boolean): void
     sync_action_properties(action?: Gtk.Action | null): void
-    /* Methods of Gtk.Buildable */
+    /* Methods of Gtk-3.0.Gtk.Buildable */
     add_child(builder: Gtk.Builder, child: GObject.Object, type?: string | null): void
     construct_child(builder: Gtk.Builder, name: string): GObject.Object
     custom_finished(builder: Gtk.Builder, child: GObject.Object | null, tagname: string, data?: object | null): void
@@ -5210,10 +5210,10 @@ export class StyleSchemeChooserButton {
     get_internal_child(builder: Gtk.Builder, childname: string): GObject.Object
     parser_finished(builder: Gtk.Builder): void
     set_buildable_property(builder: Gtk.Builder, name: string, value: any): void
-    /* Methods of GtkSource.StyleSchemeChooser */
+    /* Methods of GtkSource-4.GtkSource.StyleSchemeChooser */
     get_style_scheme(): StyleScheme
     set_style_scheme(scheme: StyleScheme): void
-    /* Virtual methods of GtkSource.StyleSchemeChooserButton */
+    /* Virtual methods of GtkSource-4.GtkSource.StyleSchemeChooserButton */
     vfunc_get_action_name(): string | null
     vfunc_get_action_target_value(): GLib.Variant
     vfunc_set_action_name(action_name?: string | null): void
@@ -5232,14 +5232,14 @@ export class StyleSchemeChooserButton {
     vfunc_set_name(name: string): void
     vfunc_get_style_scheme(): StyleScheme
     vfunc_set_style_scheme(scheme: StyleScheme): void
-    /* Virtual methods of Gtk.Button */
+    /* Virtual methods of Gtk-3.0.Gtk.Button */
     vfunc_activate(): void
     vfunc_clicked(): void
     vfunc_enter(): void
     vfunc_leave(): void
     vfunc_pressed(): void
     vfunc_released(): void
-    /* Virtual methods of Gtk.Container */
+    /* Virtual methods of Gtk-3.0.Gtk.Container */
     vfunc_add(widget: Gtk.Widget): void
     vfunc_check_resize(): void
     vfunc_child_type(): GObject.Type
@@ -5250,7 +5250,7 @@ export class StyleSchemeChooserButton {
     vfunc_remove(widget: Gtk.Widget): void
     vfunc_set_child_property(child: Gtk.Widget, property_id: number, value: any, pspec: GObject.ParamSpec): void
     vfunc_set_focus_child(child?: Gtk.Widget | null): void
-    /* Virtual methods of Gtk.Widget */
+    /* Virtual methods of Gtk-3.0.Gtk.Widget */
     vfunc_adjust_baseline_allocation(baseline: number): void
     vfunc_adjust_baseline_request(minimum_baseline: number, natural_baseline: number): void
     vfunc_adjust_size_allocation(orientation: Gtk.Orientation, minimum_size: number, natural_size: number, allocated_pos: number, allocated_size: number): void
@@ -5333,7 +5333,7 @@ export class StyleSchemeChooserButton {
     vfunc_unrealize(): void
     vfunc_visibility_notify_event(event: Gdk.EventVisibility): boolean
     vfunc_window_state_event(event: Gdk.EventWindowState): boolean
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -5341,7 +5341,7 @@ export class StyleSchemeChooserButton {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gtk.Button */
+    /* Signals of Gtk-3.0.Gtk.Button */
     connect(sigName: "activate", callback: (($obj: StyleSchemeChooserButton) => void)): number
     connect_after(sigName: "activate", callback: (($obj: StyleSchemeChooserButton) => void)): number
     emit(sigName: "activate"): void
@@ -5360,7 +5360,7 @@ export class StyleSchemeChooserButton {
     connect(sigName: "released", callback: (($obj: StyleSchemeChooserButton) => void)): number
     connect_after(sigName: "released", callback: (($obj: StyleSchemeChooserButton) => void)): number
     emit(sigName: "released"): void
-    /* Signals of Gtk.Container */
+    /* Signals of Gtk-3.0.Gtk.Container */
     connect(sigName: "add", callback: (($obj: StyleSchemeChooserButton, object: Gtk.Widget) => void)): number
     connect_after(sigName: "add", callback: (($obj: StyleSchemeChooserButton, object: Gtk.Widget) => void)): number
     emit(sigName: "add", object: Gtk.Widget): void
@@ -5373,7 +5373,7 @@ export class StyleSchemeChooserButton {
     connect(sigName: "set-focus-child", callback: (($obj: StyleSchemeChooserButton, object: Gtk.Widget) => void)): number
     connect_after(sigName: "set-focus-child", callback: (($obj: StyleSchemeChooserButton, object: Gtk.Widget) => void)): number
     emit(sigName: "set-focus-child", object: Gtk.Widget): void
-    /* Signals of Gtk.Widget */
+    /* Signals of Gtk-3.0.Gtk.Widget */
     connect(sigName: "accel-closures-changed", callback: (($obj: StyleSchemeChooserButton) => void)): number
     connect_after(sigName: "accel-closures-changed", callback: (($obj: StyleSchemeChooserButton) => void)): number
     emit(sigName: "accel-closures-changed"): void
@@ -5581,7 +5581,7 @@ export class StyleSchemeChooserButton {
     connect(sigName: "window-state-event", callback: (($obj: StyleSchemeChooserButton, event: Gdk.EventWindowState) => boolean)): number
     connect_after(sigName: "window-state-event", callback: (($obj: StyleSchemeChooserButton, event: Gdk.EventWindowState) => boolean)): number
     emit(sigName: "window-state-event", event: Gdk.EventWindowState): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: StyleSchemeChooserButton, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: StyleSchemeChooserButton, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -5712,11 +5712,11 @@ export interface StyleSchemeChooserWidget_ConstructProps extends Gtk.Bin_Constru
     style_scheme?: StyleScheme
 }
 export class StyleSchemeChooserWidget {
-    /* Properties of Gtk.Container */
+    /* Properties of Gtk-3.0.Gtk.Container */
     border_width: number
     child: Gtk.Widget
     resize_mode: Gtk.ResizeMode
-    /* Properties of Gtk.Widget */
+    /* Properties of Gtk-3.0.Gtk.Widget */
     app_paintable: boolean
     can_default: boolean
     can_focus: boolean
@@ -5756,19 +5756,19 @@ export class StyleSchemeChooserWidget {
     visible: boolean
     width_request: number
     readonly window: Gdk.Window
-    /* Properties of GtkSource.StyleSchemeChooser */
+    /* Properties of GtkSource-4.GtkSource.StyleSchemeChooser */
     style_scheme: StyleScheme
-    /* Fields of Gtk.Bin */
+    /* Fields of Gtk-3.0.Gtk.Bin */
     container: Gtk.Container
-    /* Fields of Gtk.Container */
+    /* Fields of Gtk-3.0.Gtk.Container */
     widget: Gtk.Widget
-    /* Fields of Gtk.Widget */
+    /* Fields of Gtk-3.0.Gtk.Widget */
     parent_instance: GObject.InitiallyUnowned
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Gtk.Bin */
+    /* Methods of Gtk-3.0.Gtk.Bin */
     get_child(): Gtk.Widget | null
-    /* Methods of Gtk.Container */
+    /* Methods of Gtk-3.0.Gtk.Container */
     add(widget: Gtk.Widget): void
     check_resize(): void
     child_get_property(child: Gtk.Widget, property_name: string, value: any): void
@@ -5796,7 +5796,7 @@ export class StyleSchemeChooserWidget {
     set_reallocate_redraws(needs_redraws: boolean): void
     set_resize_mode(resize_mode: Gtk.ResizeMode): void
     unset_focus_chain(): void
-    /* Methods of Gtk.Widget */
+    /* Methods of Gtk-3.0.Gtk.Widget */
     activate(): boolean
     add_accelerator(accel_signal: string, accel_group: Gtk.AccelGroup, accel_key: number, accel_mods: Gdk.ModifierType, accel_flags: Gtk.AccelFlags): void
     add_device_events(device: Gdk.Device, events: Gdk.EventMask): void
@@ -6055,7 +6055,7 @@ export class StyleSchemeChooserWidget {
     unrealize(): void
     unregister_window(window: Gdk.Window): void
     unset_state_flags(flags: Gtk.StateFlags): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -6077,7 +6077,7 @@ export class StyleSchemeChooserWidget {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of Gtk.Buildable */
+    /* Methods of Gtk-3.0.Gtk.Buildable */
     add_child(builder: Gtk.Builder, child: GObject.Object, type?: string | null): void
     construct_child(builder: Gtk.Builder, name: string): GObject.Object
     custom_finished(builder: Gtk.Builder, child: GObject.Object | null, tagname: string, data?: object | null): void
@@ -6086,10 +6086,10 @@ export class StyleSchemeChooserWidget {
     get_internal_child(builder: Gtk.Builder, childname: string): GObject.Object
     parser_finished(builder: Gtk.Builder): void
     set_buildable_property(builder: Gtk.Builder, name: string, value: any): void
-    /* Methods of GtkSource.StyleSchemeChooser */
+    /* Methods of GtkSource-4.GtkSource.StyleSchemeChooser */
     get_style_scheme(): StyleScheme
     set_style_scheme(scheme: StyleScheme): void
-    /* Virtual methods of GtkSource.StyleSchemeChooserWidget */
+    /* Virtual methods of GtkSource-4.GtkSource.StyleSchemeChooserWidget */
     vfunc_add_child(builder: Gtk.Builder, child: GObject.Object, type?: string | null): void
     vfunc_construct_child(builder: Gtk.Builder, name: string): GObject.Object
     vfunc_custom_finished(builder: Gtk.Builder, child: GObject.Object | null, tagname: string, data?: object | null): void
@@ -6102,7 +6102,7 @@ export class StyleSchemeChooserWidget {
     vfunc_set_name(name: string): void
     vfunc_get_style_scheme(): StyleScheme
     vfunc_set_style_scheme(scheme: StyleScheme): void
-    /* Virtual methods of Gtk.Container */
+    /* Virtual methods of Gtk-3.0.Gtk.Container */
     vfunc_add(widget: Gtk.Widget): void
     vfunc_check_resize(): void
     vfunc_child_type(): GObject.Type
@@ -6113,7 +6113,7 @@ export class StyleSchemeChooserWidget {
     vfunc_remove(widget: Gtk.Widget): void
     vfunc_set_child_property(child: Gtk.Widget, property_id: number, value: any, pspec: GObject.ParamSpec): void
     vfunc_set_focus_child(child?: Gtk.Widget | null): void
-    /* Virtual methods of Gtk.Widget */
+    /* Virtual methods of Gtk-3.0.Gtk.Widget */
     vfunc_adjust_baseline_allocation(baseline: number): void
     vfunc_adjust_baseline_request(minimum_baseline: number, natural_baseline: number): void
     vfunc_adjust_size_allocation(orientation: Gtk.Orientation, minimum_size: number, natural_size: number, allocated_pos: number, allocated_size: number): void
@@ -6196,7 +6196,7 @@ export class StyleSchemeChooserWidget {
     vfunc_unrealize(): void
     vfunc_visibility_notify_event(event: Gdk.EventVisibility): boolean
     vfunc_window_state_event(event: Gdk.EventWindowState): boolean
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -6204,7 +6204,7 @@ export class StyleSchemeChooserWidget {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gtk.Container */
+    /* Signals of Gtk-3.0.Gtk.Container */
     connect(sigName: "add", callback: (($obj: StyleSchemeChooserWidget, object: Gtk.Widget) => void)): number
     connect_after(sigName: "add", callback: (($obj: StyleSchemeChooserWidget, object: Gtk.Widget) => void)): number
     emit(sigName: "add", object: Gtk.Widget): void
@@ -6217,7 +6217,7 @@ export class StyleSchemeChooserWidget {
     connect(sigName: "set-focus-child", callback: (($obj: StyleSchemeChooserWidget, object: Gtk.Widget) => void)): number
     connect_after(sigName: "set-focus-child", callback: (($obj: StyleSchemeChooserWidget, object: Gtk.Widget) => void)): number
     emit(sigName: "set-focus-child", object: Gtk.Widget): void
-    /* Signals of Gtk.Widget */
+    /* Signals of Gtk-3.0.Gtk.Widget */
     connect(sigName: "accel-closures-changed", callback: (($obj: StyleSchemeChooserWidget) => void)): number
     connect_after(sigName: "accel-closures-changed", callback: (($obj: StyleSchemeChooserWidget) => void)): number
     emit(sigName: "accel-closures-changed"): void
@@ -6425,7 +6425,7 @@ export class StyleSchemeChooserWidget {
     connect(sigName: "window-state-event", callback: (($obj: StyleSchemeChooserWidget, event: Gdk.EventWindowState) => boolean)): number
     connect_after(sigName: "window-state-event", callback: (($obj: StyleSchemeChooserWidget, event: Gdk.EventWindowState) => boolean)): number
     emit(sigName: "window-state-event", event: Gdk.EventWindowState): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: StyleSchemeChooserWidget, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: StyleSchemeChooserWidget, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -6530,15 +6530,15 @@ export interface StyleSchemeManager_ConstructProps extends GObject.Object_Constr
     search_path?: string[]
 }
 export class StyleSchemeManager {
-    /* Properties of GtkSource.StyleSchemeManager */
+    /* Properties of GtkSource-4.GtkSource.StyleSchemeManager */
     readonly scheme_ids: string[]
     search_path: string[]
-    /* Fields of GtkSource.StyleSchemeManager */
+    /* Fields of GtkSource-4.GtkSource.StyleSchemeManager */
     parent: GObject.Object
     priv: StyleSchemeManagerPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GtkSource.StyleSchemeManager */
+    /* Methods of GtkSource-4.GtkSource.StyleSchemeManager */
     append_search_path(path: string): void
     force_rescan(): void
     get_scheme(scheme_id: string): StyleScheme | null
@@ -6546,7 +6546,7 @@ export class StyleSchemeManager {
     get_search_path(): string[]
     prepend_search_path(path: string): void
     set_search_path(path?: string[] | null): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -6568,7 +6568,7 @@ export class StyleSchemeManager {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -6576,7 +6576,7 @@ export class StyleSchemeManager {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: StyleSchemeManager, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: StyleSchemeManager, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -6601,10 +6601,10 @@ export interface Tag_ConstructProps extends Gtk.TextTag_ConstructProps {
     draw_spaces_set?: boolean
 }
 export class Tag {
-    /* Properties of GtkSource.Tag */
+    /* Properties of GtkSource-4.GtkSource.Tag */
     draw_spaces: boolean
     draw_spaces_set: boolean
-    /* Properties of Gtk.TextTag */
+    /* Properties of Gtk-3.0.Gtk.TextTag */
     accumulative_margin: boolean
     background: string
     background_full_height: boolean
@@ -6678,18 +6678,18 @@ export class Tag {
     weight_set: boolean
     wrap_mode: Gtk.WrapMode
     wrap_mode_set: boolean
-    /* Fields of GtkSource.Tag */
+    /* Fields of GtkSource-4.GtkSource.Tag */
     parent_instance: Gtk.TextTag
-    /* Fields of Gtk.TextTag */
+    /* Fields of Gtk-3.0.Gtk.TextTag */
     priv: Gtk.TextTagPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Gtk.TextTag */
+    /* Methods of Gtk-3.0.Gtk.TextTag */
     changed(size_changed: boolean): void
     event(event_object: GObject.Object, event: Gdk.Event, iter: Gtk.TextIter): boolean
     get_priority(): number
     set_priority(priority: number): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -6711,9 +6711,9 @@ export class Tag {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Gtk.TextTag */
+    /* Virtual methods of Gtk-3.0.Gtk.TextTag */
     vfunc_event(event_object: GObject.Object, event: Gdk.Event, iter: Gtk.TextIter): boolean
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -6721,11 +6721,11 @@ export class Tag {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gtk.TextTag */
+    /* Signals of Gtk-3.0.Gtk.TextTag */
     connect(sigName: "event", callback: (($obj: Tag, object: GObject.Object, event: Gdk.Event, iter: Gtk.TextIter) => boolean)): number
     connect_after(sigName: "event", callback: (($obj: Tag, object: GObject.Object, event: Gdk.Event, iter: Gtk.TextIter) => boolean)): number
     emit(sigName: "event", object: GObject.Object, event: Gdk.Event, iter: Gtk.TextIter): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Tag, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Tag, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -6910,7 +6910,7 @@ export interface View_ConstructProps extends Gtk.TextView_ConstructProps {
     vscroll_policy?: Gtk.ScrollablePolicy
 }
 export class View {
-    /* Properties of GtkSource.View */
+    /* Properties of GtkSource-4.GtkSource.View */
     auto_indent: boolean
     background_pattern: BackgroundPatternType
     readonly completion: Completion
@@ -6926,7 +6926,7 @@ export class View {
     smart_home_end: SmartHomeEndType
     readonly space_drawer: SpaceDrawer
     tab_width: number
-    /* Properties of Gtk.TextView */
+    /* Properties of Gtk-3.0.Gtk.TextView */
     accepts_tab: boolean
     bottom_margin: number
     buffer: Gtk.TextBuffer
@@ -6948,11 +6948,11 @@ export class View {
     tabs: Pango.TabArray
     top_margin: number
     wrap_mode: Gtk.WrapMode
-    /* Properties of Gtk.Container */
+    /* Properties of Gtk-3.0.Gtk.Container */
     border_width: number
     child: Gtk.Widget
     resize_mode: Gtk.ResizeMode
-    /* Properties of Gtk.Widget */
+    /* Properties of Gtk-3.0.Gtk.Widget */
     app_paintable: boolean
     can_default: boolean
     can_focus: boolean
@@ -6992,20 +6992,20 @@ export class View {
     visible: boolean
     width_request: number
     readonly window: Gdk.Window
-    /* Properties of Gtk.Scrollable */
+    /* Properties of Gtk-3.0.Gtk.Scrollable */
     hadjustment: Gtk.Adjustment
     hscroll_policy: Gtk.ScrollablePolicy
     vadjustment: Gtk.Adjustment
     vscroll_policy: Gtk.ScrollablePolicy
-    /* Fields of GtkSource.View */
+    /* Fields of GtkSource-4.GtkSource.View */
     priv: ViewPrivate
-    /* Fields of Gtk.TextView */
+    /* Fields of Gtk-3.0.Gtk.TextView */
     parent_instance: Gtk.Container
-    /* Fields of Gtk.Container */
+    /* Fields of Gtk-3.0.Gtk.Container */
     widget: Gtk.Widget
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GtkSource.View */
+    /* Methods of GtkSource-4.GtkSource.View */
     get_auto_indent(): boolean
     get_background_pattern(): BackgroundPatternType
     get_completion(): Completion
@@ -7040,7 +7040,7 @@ export class View {
     set_smart_home_end(smart_home_end: SmartHomeEndType): void
     set_tab_width(width: number): void
     unindent_lines(start: Gtk.TextIter, end: Gtk.TextIter): void
-    /* Methods of Gtk.TextView */
+    /* Methods of Gtk-3.0.Gtk.TextView */
     add_child_at_anchor(child: Gtk.Widget, anchor: Gtk.TextChildAnchor): void
     add_child_in_window(child: Gtk.Widget, which_window: Gtk.TextWindowType, xpos: number, ypos: number): void
     backward_display_line(iter: Gtk.TextIter): boolean
@@ -7111,7 +7111,7 @@ export class View {
     set_wrap_mode(wrap_mode: Gtk.WrapMode): void
     starts_display_line(iter: Gtk.TextIter): boolean
     window_to_buffer_coords(win: Gtk.TextWindowType, window_x: number, window_y: number): [ /* buffer_x */ number | null, /* buffer_y */ number | null ]
-    /* Methods of Gtk.Container */
+    /* Methods of Gtk-3.0.Gtk.Container */
     add(widget: Gtk.Widget): void
     check_resize(): void
     child_get_property(child: Gtk.Widget, property_name: string, value: any): void
@@ -7139,7 +7139,7 @@ export class View {
     set_reallocate_redraws(needs_redraws: boolean): void
     set_resize_mode(resize_mode: Gtk.ResizeMode): void
     unset_focus_chain(): void
-    /* Methods of Gtk.Widget */
+    /* Methods of Gtk-3.0.Gtk.Widget */
     activate(): boolean
     add_accelerator(accel_signal: string, accel_group: Gtk.AccelGroup, accel_key: number, accel_mods: Gdk.ModifierType, accel_flags: Gtk.AccelFlags): void
     add_device_events(device: Gdk.Device, events: Gdk.EventMask): void
@@ -7398,7 +7398,7 @@ export class View {
     unrealize(): void
     unregister_window(window: Gdk.Window): void
     unset_state_flags(flags: Gtk.StateFlags): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -7420,7 +7420,7 @@ export class View {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of Gtk.Buildable */
+    /* Methods of Gtk-3.0.Gtk.Buildable */
     add_child(builder: Gtk.Builder, child: GObject.Object, type?: string | null): void
     construct_child(builder: Gtk.Builder, name: string): GObject.Object
     custom_finished(builder: Gtk.Builder, child: GObject.Object | null, tagname: string, data?: object | null): void
@@ -7429,7 +7429,7 @@ export class View {
     get_internal_child(builder: Gtk.Builder, childname: string): GObject.Object
     parser_finished(builder: Gtk.Builder): void
     set_buildable_property(builder: Gtk.Builder, name: string, value: any): void
-    /* Methods of Gtk.Scrollable */
+    /* Methods of Gtk-3.0.Gtk.Scrollable */
     get_border(): [ /* returnType */ boolean, /* border */ Gtk.Border ]
     get_hscroll_policy(): Gtk.ScrollablePolicy
     get_vscroll_policy(): Gtk.ScrollablePolicy
@@ -7437,7 +7437,7 @@ export class View {
     set_hscroll_policy(policy: Gtk.ScrollablePolicy): void
     set_vadjustment(vadjustment?: Gtk.Adjustment | null): void
     set_vscroll_policy(policy: Gtk.ScrollablePolicy): void
-    /* Virtual methods of GtkSource.View */
+    /* Virtual methods of GtkSource-4.GtkSource.View */
     vfunc_line_mark_activated(iter: Gtk.TextIter, event: Gdk.Event): void
     vfunc_move_lines(down: boolean): void
     vfunc_move_words(step: number): void
@@ -7455,7 +7455,7 @@ export class View {
     vfunc_set_buildable_property(builder: Gtk.Builder, name: string, value: any): void
     vfunc_set_name(name: string): void
     vfunc_get_border(): [ /* returnType */ boolean, /* border */ Gtk.Border ]
-    /* Virtual methods of Gtk.TextView */
+    /* Virtual methods of Gtk-3.0.Gtk.TextView */
     vfunc_backspace(): void
     vfunc_copy_clipboard(): void
     vfunc_cut_clipboard(): void
@@ -7469,7 +7469,7 @@ export class View {
     vfunc_populate_popup(popup: Gtk.Widget): void
     vfunc_set_anchor(): void
     vfunc_toggle_overwrite(): void
-    /* Virtual methods of Gtk.Container */
+    /* Virtual methods of Gtk-3.0.Gtk.Container */
     vfunc_add(widget: Gtk.Widget): void
     vfunc_check_resize(): void
     vfunc_child_type(): GObject.Type
@@ -7480,7 +7480,7 @@ export class View {
     vfunc_remove(widget: Gtk.Widget): void
     vfunc_set_child_property(child: Gtk.Widget, property_id: number, value: any, pspec: GObject.ParamSpec): void
     vfunc_set_focus_child(child?: Gtk.Widget | null): void
-    /* Virtual methods of Gtk.Widget */
+    /* Virtual methods of Gtk-3.0.Gtk.Widget */
     vfunc_adjust_baseline_allocation(baseline: number): void
     vfunc_adjust_baseline_request(minimum_baseline: number, natural_baseline: number): void
     vfunc_adjust_size_allocation(orientation: Gtk.Orientation, minimum_size: number, natural_size: number, allocated_pos: number, allocated_size: number): void
@@ -7563,7 +7563,7 @@ export class View {
     vfunc_unrealize(): void
     vfunc_visibility_notify_event(event: Gdk.EventVisibility): boolean
     vfunc_window_state_event(event: Gdk.EventWindowState): boolean
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -7571,7 +7571,7 @@ export class View {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GtkSource.View */
+    /* Signals of GtkSource-4.GtkSource.View */
     connect(sigName: "change-case", callback: (($obj: View, case_type: ChangeCaseType) => void)): number
     connect_after(sigName: "change-case", callback: (($obj: View, case_type: ChangeCaseType) => void)): number
     emit(sigName: "change-case", case_type: ChangeCaseType): void
@@ -7605,7 +7605,7 @@ export class View {
     connect(sigName: "undo", callback: (($obj: View) => void)): number
     connect_after(sigName: "undo", callback: (($obj: View) => void)): number
     emit(sigName: "undo"): void
-    /* Signals of Gtk.TextView */
+    /* Signals of Gtk-3.0.Gtk.TextView */
     connect(sigName: "backspace", callback: (($obj: View) => void)): number
     connect_after(sigName: "backspace", callback: (($obj: View) => void)): number
     emit(sigName: "backspace"): void
@@ -7654,7 +7654,7 @@ export class View {
     connect(sigName: "toggle-overwrite", callback: (($obj: View) => void)): number
     connect_after(sigName: "toggle-overwrite", callback: (($obj: View) => void)): number
     emit(sigName: "toggle-overwrite"): void
-    /* Signals of Gtk.Container */
+    /* Signals of Gtk-3.0.Gtk.Container */
     connect(sigName: "add", callback: (($obj: View, object: Gtk.Widget) => void)): number
     connect_after(sigName: "add", callback: (($obj: View, object: Gtk.Widget) => void)): number
     emit(sigName: "add", object: Gtk.Widget): void
@@ -7667,7 +7667,7 @@ export class View {
     connect(sigName: "set-focus-child", callback: (($obj: View, object: Gtk.Widget) => void)): number
     connect_after(sigName: "set-focus-child", callback: (($obj: View, object: Gtk.Widget) => void)): number
     emit(sigName: "set-focus-child", object: Gtk.Widget): void
-    /* Signals of Gtk.Widget */
+    /* Signals of Gtk-3.0.Gtk.Widget */
     connect(sigName: "accel-closures-changed", callback: (($obj: View) => void)): number
     connect_after(sigName: "accel-closures-changed", callback: (($obj: View) => void)): number
     emit(sigName: "accel-closures-changed"): void
@@ -7875,7 +7875,7 @@ export class View {
     connect(sigName: "window-state-event", callback: (($obj: View, event: Gdk.EventWindowState) => boolean)): number
     connect_after(sigName: "window-state-event", callback: (($obj: View, event: Gdk.EventWindowState) => boolean)): number
     emit(sigName: "window-state-event", event: Gdk.EventWindowState): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: View, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: View, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -8057,7 +8057,7 @@ export class View {
     static $gtype: GObject.Type
 }
 export abstract class BufferClass {
-    /* Fields of GtkSource.BufferClass */
+    /* Fields of GtkSource-4.GtkSource.BufferClass */
     parent_class: Gtk.TextBufferClass
     undo: (buffer: Buffer) => void
     redo: (buffer: Buffer) => void
@@ -8069,7 +8069,7 @@ export class BufferPrivate {
     static name: string
 }
 export abstract class CompletionClass {
-    /* Fields of GtkSource.CompletionClass */
+    /* Fields of GtkSource-4.GtkSource.CompletionClass */
     parent_class: GObject.ObjectClass
     proposal_activated: (completion: Completion, provider: CompletionProvider, proposal: CompletionProposal) => boolean
     show: (completion: Completion) => void
@@ -8082,7 +8082,7 @@ export abstract class CompletionClass {
     static name: string
 }
 export abstract class CompletionContextClass {
-    /* Fields of GtkSource.CompletionContextClass */
+    /* Fields of GtkSource-4.GtkSource.CompletionContextClass */
     parent_class: GObject.InitiallyUnownedClass
     cancelled: (context: CompletionContext) => void
     padding: object[]
@@ -8092,7 +8092,7 @@ export class CompletionContextPrivate {
     static name: string
 }
 export abstract class CompletionInfoClass {
-    /* Fields of GtkSource.CompletionInfoClass */
+    /* Fields of GtkSource-4.GtkSource.CompletionInfoClass */
     parent_class: Gtk.WindowClass
     padding: object[]
     static name: string
@@ -8101,7 +8101,7 @@ export class CompletionInfoPrivate {
     static name: string
 }
 export abstract class CompletionItemClass {
-    /* Fields of GtkSource.CompletionItemClass */
+    /* Fields of GtkSource-4.GtkSource.CompletionItemClass */
     parent_class: GObject.ObjectClass
     padding: object[]
     static name: string
@@ -8113,7 +8113,7 @@ export class CompletionPrivate {
     static name: string
 }
 export abstract class CompletionProposalIface {
-    /* Fields of GtkSource.CompletionProposalIface */
+    /* Fields of GtkSource-4.GtkSource.CompletionProposalIface */
     parent: GObject.TypeInterface
     get_label: (proposal: CompletionProposal) => string
     get_markup: (proposal: CompletionProposal) => string
@@ -8128,7 +8128,7 @@ export abstract class CompletionProposalIface {
     static name: string
 }
 export abstract class CompletionProviderIface {
-    /* Fields of GtkSource.CompletionProviderIface */
+    /* Fields of GtkSource-4.GtkSource.CompletionProviderIface */
     g_iface: GObject.TypeInterface
     get_name: (provider: CompletionProvider) => string
     get_icon: (provider: CompletionProvider) => GdkPixbuf.Pixbuf | null
@@ -8146,7 +8146,7 @@ export abstract class CompletionProviderIface {
     static name: string
 }
 export abstract class CompletionWordsClass {
-    /* Fields of GtkSource.CompletionWordsClass */
+    /* Fields of GtkSource-4.GtkSource.CompletionWordsClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
@@ -8154,7 +8154,7 @@ export class CompletionWordsPrivate {
     static name: string
 }
 export class Encoding {
-    /* Methods of GtkSource.Encoding */
+    /* Methods of GtkSource-4.GtkSource.Encoding */
     copy(): Encoding
     free(): void
     get_charset(): string
@@ -8169,13 +8169,13 @@ export class Encoding {
     static get_utf8(): Encoding
 }
 export abstract class FileClass {
-    /* Fields of GtkSource.FileClass */
+    /* Fields of GtkSource-4.GtkSource.FileClass */
     parent_class: GObject.ObjectClass
     padding: object[]
     static name: string
 }
 export abstract class FileLoaderClass {
-    /* Fields of GtkSource.FileLoaderClass */
+    /* Fields of GtkSource-4.GtkSource.FileLoaderClass */
     parent_class: GObject.ObjectClass
     padding: object[]
     static name: string
@@ -8187,7 +8187,7 @@ export class FilePrivate {
     static name: string
 }
 export abstract class FileSaverClass {
-    /* Fields of GtkSource.FileSaverClass */
+    /* Fields of GtkSource-4.GtkSource.FileSaverClass */
     parent_class: GObject.ObjectClass
     padding: object[]
     static name: string
@@ -8196,7 +8196,7 @@ export class FileSaverPrivate {
     static name: string
 }
 export abstract class GutterClass {
-    /* Fields of GtkSource.GutterClass */
+    /* Fields of GtkSource-4.GtkSource.GutterClass */
     parent_class: GObject.ObjectClass
     padding: object[]
     static name: string
@@ -8205,7 +8205,7 @@ export class GutterPrivate {
     static name: string
 }
 export abstract class GutterRendererClass {
-    /* Fields of GtkSource.GutterRendererClass */
+    /* Fields of GtkSource-4.GtkSource.GutterRendererClass */
     parent_class: GObject.InitiallyUnownedClass
     begin: (renderer: GutterRenderer, cr: cairo.Context, background_area: Gdk.Rectangle, cell_area: Gdk.Rectangle, start: Gtk.TextIter, end: Gtk.TextIter) => void
     draw: (renderer: GutterRenderer, cr: cairo.Context, background_area: Gdk.Rectangle, cell_area: Gdk.Rectangle, start: Gtk.TextIter, end: Gtk.TextIter, state: GutterRendererState) => void
@@ -8236,13 +8236,13 @@ export class GutterRendererTextPrivate {
     static name: string
 }
 export abstract class LanguageClass {
-    /* Fields of GtkSource.LanguageClass */
+    /* Fields of GtkSource-4.GtkSource.LanguageClass */
     parent_class: GObject.ObjectClass
     padding: object[]
     static name: string
 }
 export abstract class LanguageManagerClass {
-    /* Fields of GtkSource.LanguageManagerClass */
+    /* Fields of GtkSource-4.GtkSource.LanguageManagerClass */
     parent_class: GObject.ObjectClass
     padding: object[]
     static name: string
@@ -8254,7 +8254,7 @@ export class LanguagePrivate {
     static name: string
 }
 export abstract class MapClass {
-    /* Fields of GtkSource.MapClass */
+    /* Fields of GtkSource-4.GtkSource.MapClass */
     parent_class: ViewClass
     padding: object[]
     static name: string
@@ -8266,7 +8266,7 @@ export class MarkAttributesPrivate {
     static name: string
 }
 export abstract class MarkClass {
-    /* Fields of GtkSource.MarkClass */
+    /* Fields of GtkSource-4.GtkSource.MarkClass */
     parent_class: Gtk.TextMarkClass
     padding: object[]
     static name: string
@@ -8275,7 +8275,7 @@ export class MarkPrivate {
     static name: string
 }
 export abstract class PrintCompositorClass {
-    /* Fields of GtkSource.PrintCompositorClass */
+    /* Fields of GtkSource-4.GtkSource.PrintCompositorClass */
     parent_class: GObject.ObjectClass
     padding: object[]
     static name: string
@@ -8284,20 +8284,20 @@ export class PrintCompositorPrivate {
     static name: string
 }
 export abstract class RegionClass {
-    /* Fields of GtkSource.RegionClass */
+    /* Fields of GtkSource-4.GtkSource.RegionClass */
     parent_class: GObject.ObjectClass
     padding: object[]
     static name: string
 }
 export class RegionIter {
-    /* Methods of GtkSource.RegionIter */
+    /* Methods of GtkSource-4.GtkSource.RegionIter */
     get_subregion(): [ /* returnType */ boolean, /* start */ Gtk.TextIter | null, /* end */ Gtk.TextIter | null ]
     is_end(): boolean
     next(): boolean
     static name: string
 }
 export abstract class SearchContextClass {
-    /* Fields of GtkSource.SearchContextClass */
+    /* Fields of GtkSource-4.GtkSource.SearchContextClass */
     parent_class: GObject.ObjectClass
     padding: object[]
     static name: string
@@ -8306,7 +8306,7 @@ export class SearchContextPrivate {
     static name: string
 }
 export abstract class SearchSettingsClass {
-    /* Fields of GtkSource.SearchSettingsClass */
+    /* Fields of GtkSource-4.GtkSource.SearchSettingsClass */
     parent_class: GObject.ObjectClass
     padding: object[]
     static name: string
@@ -8315,7 +8315,7 @@ export class SearchSettingsPrivate {
     static name: string
 }
 export abstract class SpaceDrawerClass {
-    /* Fields of GtkSource.SpaceDrawerClass */
+    /* Fields of GtkSource-4.GtkSource.SpaceDrawerClass */
     parent_class: GObject.ObjectClass
     padding: object[]
     static name: string
@@ -8327,13 +8327,13 @@ export abstract class StyleClass {
     static name: string
 }
 export abstract class StyleSchemeChooserButtonClass {
-    /* Fields of GtkSource.StyleSchemeChooserButtonClass */
+    /* Fields of GtkSource-4.GtkSource.StyleSchemeChooserButtonClass */
     parent: Gtk.ButtonClass
     padding: object[]
     static name: string
 }
 export abstract class StyleSchemeChooserInterface {
-    /* Fields of GtkSource.StyleSchemeChooserInterface */
+    /* Fields of GtkSource-4.GtkSource.StyleSchemeChooserInterface */
     base_interface: GObject.TypeInterface
     get_style_scheme: (chooser: StyleSchemeChooser) => StyleScheme
     set_style_scheme: (chooser: StyleSchemeChooser, scheme: StyleScheme) => void
@@ -8341,19 +8341,19 @@ export abstract class StyleSchemeChooserInterface {
     static name: string
 }
 export abstract class StyleSchemeChooserWidgetClass {
-    /* Fields of GtkSource.StyleSchemeChooserWidgetClass */
+    /* Fields of GtkSource-4.GtkSource.StyleSchemeChooserWidgetClass */
     parent: Gtk.BinClass
     padding: object[]
     static name: string
 }
 export abstract class StyleSchemeClass {
-    /* Fields of GtkSource.StyleSchemeClass */
+    /* Fields of GtkSource-4.GtkSource.StyleSchemeClass */
     base_class: GObject.ObjectClass
     padding: object[]
     static name: string
 }
 export abstract class StyleSchemeManagerClass {
-    /* Fields of GtkSource.StyleSchemeManagerClass */
+    /* Fields of GtkSource-4.GtkSource.StyleSchemeManagerClass */
     parent_class: GObject.ObjectClass
     padding: object[]
     static name: string
@@ -8365,13 +8365,13 @@ export class StyleSchemePrivate {
     static name: string
 }
 export abstract class TagClass {
-    /* Fields of GtkSource.TagClass */
+    /* Fields of GtkSource-4.GtkSource.TagClass */
     parent_class: Gtk.TextTagClass
     padding: object[]
     static name: string
 }
 export abstract class UndoManagerIface {
-    /* Fields of GtkSource.UndoManagerIface */
+    /* Fields of GtkSource-4.GtkSource.UndoManagerIface */
     parent: GObject.TypeInterface
     can_undo: (manager: UndoManager) => boolean
     can_redo: (manager: UndoManager) => boolean
@@ -8384,7 +8384,7 @@ export abstract class UndoManagerIface {
     static name: string
 }
 export abstract class ViewClass {
-    /* Fields of GtkSource.ViewClass */
+    /* Fields of GtkSource-4.GtkSource.ViewClass */
     parent_class: Gtk.TextViewClass
     undo: (view: View) => void
     redo: (view: View) => void

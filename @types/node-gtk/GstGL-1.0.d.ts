@@ -177,7 +177,7 @@ export function bufferAddGlSyncMeta(context: GLContext, buffer: Gst.Buffer): GLS
 export function bufferAddGlSyncMetaFull(context: GLContext, buffer: Gst.Buffer, data?: object | null): GLSyncMeta
 export function bufferPoolConfigGetGlAllocationParams(config: Gst.Structure): GLAllocationParams
 export function bufferPoolConfigSetGlAllocationParams(config: Gst.Structure, params: GLAllocationParams): void
-export function contextGetGlDisplay(context: Gst.Context): [ /* returnType */ boolean, /* display */ GLDisplay ]
+export function contextGetGlDisplay(context: Gst.Context): { returnType: boolean, display: GLDisplay }
 export function contextSetGlDisplay(context: Gst.Context, display: GLDisplay): void
 export function glApiFromString(apiS: string): GLAPI
 export function glApiToString(api: GLAPI): string
@@ -188,20 +188,20 @@ export function glBufferInitOnce(): void
 export function glCheckExtension(name: string, ext: string): boolean
 export function glContextErrorQuark(): GLib.Quark
 export function glElementPropagateDisplayContext(element: Gst.Element, display: GLDisplay): void
-export function glEnsureElementData(element: object | null, displayPtr: GLDisplay, otherContextPtr: GLContext): [ /* returnType */ boolean, /* displayPtr */ GLDisplay, /* otherContextPtr */ GLContext ]
+export function glEnsureElementData(element: object | null, displayPtr: GLDisplay, otherContextPtr: GLContext): { returnType: boolean, displayPtr: GLDisplay, otherContextPtr: GLContext }
 export function glFormatFromVideoInfo(context: GLContext, vinfo: GstVideo.VideoInfo, plane: number): GLFormat
 export function glFormatIsSupported(context: GLContext, format: GLFormat): boolean
-export function glFormatTypeFromSizedGlFormat(format: GLFormat): [ /* unsizedFormat */ GLFormat, /* glType */ number ]
+export function glFormatTypeFromSizedGlFormat(format: GLFormat): { unsizedFormat: GLFormat, glType: number }
 export function glFormatTypeNBytes(format: number, type: number): number
 export function glGetPlaneDataSize(info: GstVideo.VideoInfo, align: GstVideo.VideoAlignment, plane: number): number
 export function glGetPlaneStart(info: GstVideo.VideoInfo, valign: GstVideo.VideoAlignment, plane: number): number
 export function glHandleContextQuery(element: Gst.Element, query: Gst.Query, display?: GLDisplay | null, context?: GLContext | null, otherContext?: GLContext | null): boolean
-export function glHandleSetContext(element: Gst.Element, context: Gst.Context, display: GLDisplay, otherContext: GLContext): [ /* returnType */ boolean, /* display */ GLDisplay, /* otherContext */ GLContext ]
+export function glHandleSetContext(element: Gst.Element, context: Gst.Context, display: GLDisplay, otherContext: GLContext): { returnType: boolean, display: GLDisplay, otherContext: GLContext }
 export function glMemoryInitOnce(): void
 export function glMemoryPboInitOnce(): void
 export function glPlatformFromString(platformS: string): GLPlatform
 export function glPlatformToString(platform: GLPlatform): string
-export function glQueryLocalGlContext(element: Gst.Element, direction: Gst.PadDirection, contextPtr: GLContext): [ /* returnType */ boolean, /* contextPtr */ GLContext ]
+export function glQueryLocalGlContext(element: Gst.Element, direction: Gst.PadDirection, contextPtr: GLContext): { returnType: boolean, contextPtr: GLContext }
 export function glRenderbufferInitOnce(): void
 export function glSizedGlFormatFromGlFormatType(context: GLContext, format: number, type: number): number
 export function glStereoDownmixModeGetType(): GObject.Type
@@ -220,9 +220,9 @@ export function glWindowErrorQuark(): GLib.Quark
 export function glslErrorQuark(): GLib.Quark
 export function glslProfileFromString(string: string): GLSLProfile
 export function glslProfileToString(profile: GLSLProfile): string | null
-export function glslStringGetVersionProfile(s: string): [ /* returnType */ boolean, /* version */ GLSLVersion, /* profile */ GLSLProfile ]
+export function glslStringGetVersionProfile(s: string): { returnType: boolean, version: GLSLVersion, profile: GLSLProfile }
 export function glslVersionFromString(string: string): GLSLVersion
-export function glslVersionProfileFromString(string: string): [ /* returnType */ boolean, /* versionRet */ GLSLVersion, /* profileRet */ GLSLProfile ]
+export function glslVersionProfileFromString(string: string): { returnType: boolean, versionRet: GLSLVersion, profileRet: GLSLProfile }
 export function glslVersionProfileToString(version: GLSLVersion, profile: GLSLProfile): string
 export function glslVersionToString(version: GLSLVersion): string | null
 export function isGlBaseMemory(mem: Gst.Memory): boolean
@@ -275,25 +275,25 @@ export interface GLWindowResizeCB {
 export interface GLBaseFilter_ConstructProps extends GstBase.BaseTransform_ConstructProps {
 }
 export class GLBaseFilter {
-    /* Properties of GstGL.GLBaseFilter */
+    /* Properties of GstGL-1.0.GstGL.GLBaseFilter */
     readonly context: GLContext
-    /* Properties of GstBase.BaseTransform */
+    /* Properties of GstBase-1.0.GstBase.BaseTransform */
     qos: boolean
-    /* Properties of Gst.Object */
+    /* Properties of Gst-1.0.Gst.Object */
     name: string
     parent: Gst.Object
-    /* Fields of GstGL.GLBaseFilter */
+    /* Fields of GstGL-1.0.GstGL.GLBaseFilter */
     display: GLDisplay
     inCaps: Gst.Caps
     outCaps: Gst.Caps
-    /* Fields of GstBase.BaseTransform */
+    /* Fields of GstBase-1.0.GstBase.BaseTransform */
     element: Gst.Element
     sinkpad: Gst.Pad
     srcpad: Gst.Pad
     haveSegment: boolean
     segment: Gst.Segment
     queuedBuf: Gst.Buffer
-    /* Fields of Gst.Element */
+    /* Fields of Gst-1.0.Gst.Element */
     object: Gst.Object
     stateLock: GLib.RecMutex
     stateCond: GLib.Cond
@@ -315,16 +315,16 @@ export class GLBaseFilter {
     sinkpads: Gst.Pad[]
     padsCookie: number
     contexts: Gst.Context[]
-    /* Fields of Gst.Object */
+    /* Fields of Gst-1.0.Gst.Object */
     lock: GLib.Mutex
     flags: number
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GstGL.GLBaseFilter */
+    /* Methods of GstGL-1.0.GstGL.GLBaseFilter */
     findGlContext(): boolean
     getGlContext(): GLContext | null
-    /* Methods of GstBase.BaseTransform */
-    getAllocator(): [ /* allocator */ Gst.Allocator | null, /* params */ Gst.AllocationParams | null ]
+    /* Methods of GstBase-1.0.GstBase.BaseTransform */
+    getAllocator(): { allocator: Gst.Allocator | null, params: Gst.AllocationParams | null }
     getBufferPool(): Gst.BufferPool | null
     isInPlace(): boolean
     isPassthrough(): boolean
@@ -339,7 +339,7 @@ export class GLBaseFilter {
     setQosEnabled(enabled: boolean): void
     updateQos(proportion: number, diff: Gst.ClockTimeDiff, timestamp: Gst.ClockTime): void
     updateSrcCaps(updatedCaps: Gst.Caps): boolean
-    /* Methods of Gst.Element */
+    /* Methods of Gst-1.0.Gst.Element */
     abortState(): void
     addPad(pad: Gst.Pad): boolean
     addPropertyDeepNotifyWatch(propertyName: string | null, includeValue: boolean): number
@@ -367,7 +367,7 @@ export class GLBaseFilter {
     getPadTemplateList(): Gst.PadTemplate[]
     getRequestPad(name: string): Gst.Pad | null
     getStartTime(): Gst.ClockTime
-    getState(timeout: Gst.ClockTime): [ /* returnType */ Gst.StateChangeReturn, /* state */ Gst.State | null, /* pending */ Gst.State | null ]
+    getState(timeout: Gst.ClockTime): { returnType: Gst.StateChangeReturn, state: Gst.State | null, pending: Gst.State | null }
     getStaticPad(name: string): Gst.Pad | null
     isLockedState(): boolean
     iteratePads(): Gst.Iterator
@@ -385,9 +385,9 @@ export class GLBaseFilter {
     postMessage(message: Gst.Message): boolean
     provideClock(): Gst.Clock | null
     query(query: Gst.Query): boolean
-    queryConvert(srcFormat: Gst.Format, srcVal: number, destFormat: Gst.Format): [ /* returnType */ boolean, /* destVal */ number ]
-    queryDuration(format: Gst.Format): [ /* returnType */ boolean, /* duration */ number | null ]
-    queryPosition(format: Gst.Format): [ /* returnType */ boolean, /* cur */ number | null ]
+    queryConvert(srcFormat: Gst.Format, srcVal: number, destFormat: Gst.Format): { returnType: boolean, destVal: number }
+    queryDuration(format: Gst.Format): { returnType: boolean, duration: number | null }
+    queryPosition(format: Gst.Format): { returnType: boolean, cur: number | null }
     releaseRequestPad(pad: Gst.Pad): void
     removePad(pad: Gst.Pad): boolean
     removePropertyNotifyWatch(watchId: number): void
@@ -405,7 +405,7 @@ export class GLBaseFilter {
     syncStateWithParent(): boolean
     unlink(dest: Gst.Element): void
     unlinkPads(srcpadname: string, dest: Gst.Element, destpadname: string): void
-    /* Methods of Gst.Object */
+    /* Methods of Gst-1.0.Gst.Object */
     addControlBinding(binding: Gst.ControlBinding): boolean
     defaultError(error: GLib.Error, debug?: string | null): void
     getControlBinding(propertyName: string): Gst.ControlBinding | null
@@ -430,7 +430,7 @@ export class GLBaseFilter {
     syncValues(timestamp: Gst.ClockTime): boolean
     unparent(): void
     unref(): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -451,96 +451,34 @@ export class GLBaseFilter {
     stealQdata(quark: GLib.Quark): object | null
     thawNotify(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GstGL.GLBaseFilter */
-    vfuncGlSetCaps(incaps: Gst.Caps, outcaps: Gst.Caps): boolean
-    vfuncGlStart(): boolean
-    vfuncGlStop(): void
-    vfuncQuery(direction: Gst.PadDirection, query: Gst.Query): boolean
-    vfuncQuery(query: Gst.Query): boolean
-    /* Virtual methods of GstBase.BaseTransform */
-    vfuncAcceptCaps(direction: Gst.PadDirection, caps: Gst.Caps): boolean
-    vfuncBeforeTransform(buffer: Gst.Buffer): void
-    vfuncCopyMetadata(input: Gst.Buffer, outbuf: Gst.Buffer): boolean
-    vfuncDecideAllocation(query: Gst.Query): boolean
-    vfuncFilterMeta(query: Gst.Query, api: GObject.Type, params: Gst.Structure): boolean
-    vfuncFixateCaps(direction: Gst.PadDirection, caps: Gst.Caps, othercaps: Gst.Caps): Gst.Caps
-    vfuncGenerateOutput(): [ /* returnType */ Gst.FlowReturn, /* outbuf */ Gst.Buffer ]
-    vfuncGetUnitSize(caps: Gst.Caps): [ /* returnType */ boolean, /* size */ number ]
-    vfuncPrepareOutputBuffer(input: Gst.Buffer): [ /* returnType */ Gst.FlowReturn, /* outbuf */ Gst.Buffer ]
-    vfuncProposeAllocation(decideQuery: Gst.Query, query: Gst.Query): boolean
-    vfuncQuery(direction: Gst.PadDirection, query: Gst.Query): boolean
-    vfuncQuery(query: Gst.Query): boolean
-    vfuncSetCaps(incaps: Gst.Caps, outcaps: Gst.Caps): boolean
-    vfuncSinkEvent(event: Gst.Event): boolean
-    vfuncSrcEvent(event: Gst.Event): boolean
-    vfuncStart(): boolean
-    vfuncStop(): boolean
-    vfuncSubmitInputBuffer(isDiscont: boolean, input: Gst.Buffer): Gst.FlowReturn
-    vfuncTransform(inbuf: Gst.Buffer, outbuf: Gst.Buffer): Gst.FlowReturn
-    vfuncTransformCaps(direction: Gst.PadDirection, caps: Gst.Caps, filter: Gst.Caps): Gst.Caps
-    vfuncTransformIp(buf: Gst.Buffer): Gst.FlowReturn
-    vfuncTransformMeta(outbuf: Gst.Buffer, meta: Gst.Meta, inbuf: Gst.Buffer): boolean
-    vfuncTransformSize(direction: Gst.PadDirection, caps: Gst.Caps, size: number, othercaps: Gst.Caps): [ /* returnType */ boolean, /* othersize */ number ]
-    /* Virtual methods of Gst.Element */
-    vfuncChangeState(transition: Gst.StateChange): Gst.StateChangeReturn
-    vfuncGetState(timeout: Gst.ClockTime): [ /* returnType */ Gst.StateChangeReturn, /* state */ Gst.State | null, /* pending */ Gst.State | null ]
-    vfuncNoMorePads(): void
-    vfuncPadAdded(pad: Gst.Pad): void
-    vfuncPadRemoved(pad: Gst.Pad): void
-    vfuncPostMessage(message: Gst.Message): boolean
-    vfuncProvideClock(): Gst.Clock | null
-    vfuncQuery(query: Gst.Query): boolean
-    vfuncReleasePad(pad: Gst.Pad): void
-    vfuncRequestNewPad(templ: Gst.PadTemplate, name?: string | null, caps?: Gst.Caps | null): Gst.Pad | null
-    vfuncSendEvent(event: Gst.Event): boolean
-    vfuncSetBus(bus?: Gst.Bus | null): void
-    vfuncSetClock(clock?: Gst.Clock | null): boolean
-    vfuncSetContext(context: Gst.Context): void
-    vfuncSetState(state: Gst.State): Gst.StateChangeReturn
-    vfuncStateChanged(oldstate: Gst.State, newstate: Gst.State, pending: Gst.State): void
-    /* Virtual methods of Gst.Object */
-    vfuncDeepNotify(orig: Gst.Object, pspec: GObject.ParamSpec): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gst.Element */
+    /* Signals of Gst-1.0.Gst.Element */
     connect(sigName: "no-more-pads", callback: (($obj: GLBaseFilter) => void)): number
-    connect_after(sigName: "no-more-pads", callback: (($obj: GLBaseFilter) => void)): number
+    on(sigName: "no-more-pads", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "no-more-pads", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "no-more-pads", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "no-more-pads"): void
-    on(sigName: "no-more-pads", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "no-more-pads", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "no-more-pads", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "pad-added", callback: (($obj: GLBaseFilter, newPad: Gst.Pad) => void)): number
-    connect_after(sigName: "pad-added", callback: (($obj: GLBaseFilter, newPad: Gst.Pad) => void)): number
+    on(sigName: "pad-added", callback: (newPad: Gst.Pad) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "pad-added", callback: (newPad: Gst.Pad) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "pad-added", callback: (newPad: Gst.Pad) => void): NodeJS.EventEmitter
     emit(sigName: "pad-added", newPad: Gst.Pad): void
-    on(sigName: "pad-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "pad-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "pad-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "pad-removed", callback: (($obj: GLBaseFilter, oldPad: Gst.Pad) => void)): number
-    connect_after(sigName: "pad-removed", callback: (($obj: GLBaseFilter, oldPad: Gst.Pad) => void)): number
+    on(sigName: "pad-removed", callback: (oldPad: Gst.Pad) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "pad-removed", callback: (oldPad: Gst.Pad) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "pad-removed", callback: (oldPad: Gst.Pad) => void): NodeJS.EventEmitter
     emit(sigName: "pad-removed", oldPad: Gst.Pad): void
-    on(sigName: "pad-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "pad-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "pad-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of Gst.Object */
+    /* Signals of Gst-1.0.Gst.Object */
     connect(sigName: "deep-notify", callback: (($obj: GLBaseFilter, propObject: Gst.Object, prop: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "deep-notify", callback: (($obj: GLBaseFilter, propObject: Gst.Object, prop: GObject.ParamSpec) => void)): number
+    on(sigName: "deep-notify", callback: (propObject: Gst.Object, prop: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "deep-notify", callback: (propObject: Gst.Object, prop: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "deep-notify", callback: (propObject: Gst.Object, prop: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "deep-notify", propObject: Gst.Object, prop: GObject.ParamSpec): void
-    on(sigName: "deep-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "deep-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "deep-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: GLBaseFilter, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: GLBaseFilter, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::context", callback: (($obj: GLBaseFilter, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::context", callback: (($obj: GLBaseFilter, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::context", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -576,10 +514,10 @@ export class GLBaseFilter {
 export interface GLBaseMemoryAllocator_ConstructProps extends Gst.Allocator_ConstructProps {
 }
 export class GLBaseMemoryAllocator {
-    /* Properties of Gst.Object */
+    /* Properties of Gst-1.0.Gst.Object */
     name: string
     parent: Gst.Object
-    /* Fields of Gst.Allocator */
+    /* Fields of Gst-1.0.Gst.Allocator */
     object: Gst.Object
     memType: string
     memMap: Gst.MemoryMapFunction
@@ -589,16 +527,16 @@ export class GLBaseMemoryAllocator {
     memIsSpan: Gst.MemoryIsSpanFunction
     memMapFull: Gst.MemoryMapFullFunction
     memUnmapFull: Gst.MemoryUnmapFullFunction
-    /* Fields of Gst.Object */
+    /* Fields of Gst-1.0.Gst.Object */
     lock: GLib.Mutex
     flags: number
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Gst.Allocator */
+    /* Methods of Gst-1.0.Gst.Allocator */
     alloc(size: number, params?: Gst.AllocationParams | null): Gst.Memory | null
     free(memory: Gst.Memory): void
     setDefault(): void
-    /* Methods of Gst.Object */
+    /* Methods of Gst-1.0.Gst.Object */
     addControlBinding(binding: Gst.ControlBinding): boolean
     defaultError(error: GLib.Error, debug?: string | null): void
     getControlBinding(propertyName: string): Gst.ControlBinding | null
@@ -623,7 +561,7 @@ export class GLBaseMemoryAllocator {
     syncValues(timestamp: Gst.ClockTime): boolean
     unparent(): void
     unref(): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -644,36 +582,18 @@ export class GLBaseMemoryAllocator {
     stealQdata(quark: GLib.Quark): object | null
     thawNotify(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GstGL.GLBaseMemoryAllocator */
-    vfuncAlloc(params: GLAllocationParams): GLBaseMemory
-    vfuncAlloc(size: number, params?: Gst.AllocationParams | null): Gst.Memory | null
-    /* Virtual methods of Gst.Allocator */
-    vfuncAlloc(size: number, params?: Gst.AllocationParams | null): Gst.Memory | null
-    vfuncFree(memory: Gst.Memory): void
-    /* Virtual methods of Gst.Object */
-    vfuncDeepNotify(orig: Gst.Object, pspec: GObject.ParamSpec): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gst.Object */
+    /* Signals of Gst-1.0.Gst.Object */
     connect(sigName: "deep-notify", callback: (($obj: GLBaseMemoryAllocator, propObject: Gst.Object, prop: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "deep-notify", callback: (($obj: GLBaseMemoryAllocator, propObject: Gst.Object, prop: GObject.ParamSpec) => void)): number
+    on(sigName: "deep-notify", callback: (propObject: Gst.Object, prop: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "deep-notify", callback: (propObject: Gst.Object, prop: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "deep-notify", callback: (propObject: Gst.Object, prop: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "deep-notify", propObject: Gst.Object, prop: GObject.ParamSpec): void
-    on(sigName: "deep-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "deep-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "deep-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: GLBaseMemoryAllocator, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: GLBaseMemoryAllocator, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::name", callback: (($obj: GLBaseMemoryAllocator, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::name", callback: (($obj: GLBaseMemoryAllocator, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::name", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -700,23 +620,23 @@ export interface GLBaseSrc_ConstructProps extends GstBase.PushSrc_ConstructProps
     timestampOffset?: number
 }
 export class GLBaseSrc {
-    /* Properties of GstGL.GLBaseSrc */
+    /* Properties of GstGL-1.0.GstGL.GLBaseSrc */
     timestampOffset: number
-    /* Properties of GstBase.BaseSrc */
+    /* Properties of GstBase-1.0.GstBase.BaseSrc */
     blocksize: number
     doTimestamp: boolean
     numBuffers: number
     typefind: boolean
-    /* Properties of Gst.Object */
+    /* Properties of Gst-1.0.Gst.Object */
     name: string
     parent: Gst.Object
-    /* Fields of GstGL.GLBaseSrc */
+    /* Fields of GstGL-1.0.GstGL.GLBaseSrc */
     display: GLDisplay
     context: GLContext
     outInfo: GstVideo.VideoInfo
     outCaps: Gst.Caps
     runningTime: Gst.ClockTime
-    /* Fields of GstBase.BaseSrc */
+    /* Fields of GstBase-1.0.GstBase.BaseSrc */
     element: Gst.Element
     srcpad: Gst.Pad
     liveLock: GLib.Mutex
@@ -732,7 +652,7 @@ export class GLBaseSrc {
     running: boolean
     pendingSeek: Gst.Event
     priv: GstBase.BaseSrcPrivate
-    /* Fields of Gst.Element */
+    /* Fields of Gst-1.0.Gst.Element */
     object: Gst.Object
     stateLock: GLib.RecMutex
     stateCond: GLib.Cond
@@ -754,13 +674,13 @@ export class GLBaseSrc {
     sinkpads: Gst.Pad[]
     padsCookie: number
     contexts: Gst.Context[]
-    /* Fields of Gst.Object */
+    /* Fields of Gst-1.0.Gst.Object */
     lock: GLib.Mutex
     flags: number
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GstBase.BaseSrc */
-    getAllocator(): [ /* allocator */ Gst.Allocator | null, /* params */ Gst.AllocationParams | null ]
+    /* Methods of GstBase-1.0.GstBase.BaseSrc */
+    getAllocator(): { allocator: Gst.Allocator | null, params: Gst.AllocationParams | null }
     getBlocksize(): number
     getBufferPool(): Gst.BufferPool | null
     getDoTimestamp(): boolean
@@ -768,7 +688,7 @@ export class GLBaseSrc {
     negotiate(): boolean
     newSeamlessSegment(start: number, stop: number, time: number): boolean
     newSegment(segment: Gst.Segment): boolean
-    queryLatency(): [ /* returnType */ boolean, /* live */ boolean | null, /* minLatency */ Gst.ClockTime | null, /* maxLatency */ Gst.ClockTime | null ]
+    queryLatency(): { returnType: boolean, live: boolean | null, minLatency: Gst.ClockTime | null, maxLatency: Gst.ClockTime | null }
     setAsync(async: boolean): void
     setAutomaticEos(automaticEos: boolean): void
     setBlocksize(blocksize: number): void
@@ -781,7 +701,7 @@ export class GLBaseSrc {
     startWait(): Gst.FlowReturn
     submitBufferList(bufferList: Gst.BufferList): void
     waitPlaying(): Gst.FlowReturn
-    /* Methods of Gst.Element */
+    /* Methods of Gst-1.0.Gst.Element */
     abortState(): void
     addPad(pad: Gst.Pad): boolean
     addPropertyDeepNotifyWatch(propertyName: string | null, includeValue: boolean): number
@@ -809,7 +729,7 @@ export class GLBaseSrc {
     getPadTemplateList(): Gst.PadTemplate[]
     getRequestPad(name: string): Gst.Pad | null
     getStartTime(): Gst.ClockTime
-    getState(timeout: Gst.ClockTime): [ /* returnType */ Gst.StateChangeReturn, /* state */ Gst.State | null, /* pending */ Gst.State | null ]
+    getState(timeout: Gst.ClockTime): { returnType: Gst.StateChangeReturn, state: Gst.State | null, pending: Gst.State | null }
     getStaticPad(name: string): Gst.Pad | null
     isLockedState(): boolean
     iteratePads(): Gst.Iterator
@@ -827,9 +747,9 @@ export class GLBaseSrc {
     postMessage(message: Gst.Message): boolean
     provideClock(): Gst.Clock | null
     query(query: Gst.Query): boolean
-    queryConvert(srcFormat: Gst.Format, srcVal: number, destFormat: Gst.Format): [ /* returnType */ boolean, /* destVal */ number ]
-    queryDuration(format: Gst.Format): [ /* returnType */ boolean, /* duration */ number | null ]
-    queryPosition(format: Gst.Format): [ /* returnType */ boolean, /* cur */ number | null ]
+    queryConvert(srcFormat: Gst.Format, srcVal: number, destFormat: Gst.Format): { returnType: boolean, destVal: number }
+    queryDuration(format: Gst.Format): { returnType: boolean, duration: number | null }
+    queryPosition(format: Gst.Format): { returnType: boolean, cur: number | null }
     releaseRequestPad(pad: Gst.Pad): void
     removePad(pad: Gst.Pad): boolean
     removePropertyNotifyWatch(watchId: number): void
@@ -847,7 +767,7 @@ export class GLBaseSrc {
     syncStateWithParent(): boolean
     unlink(dest: Gst.Element): void
     unlinkPads(srcpadname: string, dest: Gst.Element, destpadname: string): void
-    /* Methods of Gst.Object */
+    /* Methods of Gst-1.0.Gst.Object */
     addControlBinding(binding: Gst.ControlBinding): boolean
     defaultError(error: GLib.Error, debug?: string | null): void
     getControlBinding(propertyName: string): Gst.ControlBinding | null
@@ -872,7 +792,7 @@ export class GLBaseSrc {
     syncValues(timestamp: Gst.ClockTime): boolean
     unparent(): void
     unref(): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -893,103 +813,34 @@ export class GLBaseSrc {
     stealQdata(quark: GLib.Quark): object | null
     thawNotify(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GstGL.GLBaseSrc */
-    vfuncFillGlMemory(mem: GLMemory): boolean
-    vfuncGlStart(): boolean
-    vfuncGlStop(): void
-    vfuncAlloc(buf: Gst.Buffer): Gst.FlowReturn
-    vfuncAlloc(offset: number, size: number, buf: Gst.Buffer): Gst.FlowReturn
-    vfuncCreate(buf: Gst.Buffer): Gst.FlowReturn
-    vfuncCreate(offset: number, size: number): [ /* returnType */ Gst.FlowReturn, /* buf */ Gst.Buffer ]
-    vfuncFill(buf: Gst.Buffer): Gst.FlowReturn
-    vfuncFill(offset: number, size: number, buf: Gst.Buffer): Gst.FlowReturn
-    /* Virtual methods of GstBase.PushSrc */
-    vfuncAlloc(buf: Gst.Buffer): Gst.FlowReturn
-    vfuncAlloc(offset: number, size: number, buf: Gst.Buffer): Gst.FlowReturn
-    vfuncCreate(buf: Gst.Buffer): Gst.FlowReturn
-    vfuncCreate(offset: number, size: number): [ /* returnType */ Gst.FlowReturn, /* buf */ Gst.Buffer ]
-    vfuncFill(buf: Gst.Buffer): Gst.FlowReturn
-    vfuncFill(offset: number, size: number, buf: Gst.Buffer): Gst.FlowReturn
-    /* Virtual methods of GstBase.BaseSrc */
-    vfuncAlloc(offset: number, size: number, buf: Gst.Buffer): Gst.FlowReturn
-    vfuncCreate(offset: number, size: number): [ /* returnType */ Gst.FlowReturn, /* buf */ Gst.Buffer ]
-    vfuncDecideAllocation(query: Gst.Query): boolean
-    vfuncDoSeek(segment: Gst.Segment): boolean
-    vfuncEvent(event: Gst.Event): boolean
-    vfuncFill(offset: number, size: number, buf: Gst.Buffer): Gst.FlowReturn
-    vfuncFixate(caps: Gst.Caps): Gst.Caps
-    vfuncGetCaps(filter?: Gst.Caps | null): Gst.Caps
-    vfuncGetSize(size: number): boolean
-    vfuncGetTimes(buffer: Gst.Buffer): [ /* start */ Gst.ClockTime, /* end */ Gst.ClockTime ]
-    vfuncIsSeekable(): boolean
-    vfuncNegotiate(): boolean
-    vfuncPrepareSeekSegment(seek: Gst.Event, segment: Gst.Segment): boolean
-    vfuncQuery(query: Gst.Query): boolean
-    vfuncSetCaps(caps: Gst.Caps): boolean
-    vfuncStart(): boolean
-    vfuncStop(): boolean
-    vfuncUnlock(): boolean
-    vfuncUnlockStop(): boolean
-    /* Virtual methods of Gst.Element */
-    vfuncChangeState(transition: Gst.StateChange): Gst.StateChangeReturn
-    vfuncGetState(timeout: Gst.ClockTime): [ /* returnType */ Gst.StateChangeReturn, /* state */ Gst.State | null, /* pending */ Gst.State | null ]
-    vfuncNoMorePads(): void
-    vfuncPadAdded(pad: Gst.Pad): void
-    vfuncPadRemoved(pad: Gst.Pad): void
-    vfuncPostMessage(message: Gst.Message): boolean
-    vfuncProvideClock(): Gst.Clock | null
-    vfuncQuery(query: Gst.Query): boolean
-    vfuncReleasePad(pad: Gst.Pad): void
-    vfuncRequestNewPad(templ: Gst.PadTemplate, name?: string | null, caps?: Gst.Caps | null): Gst.Pad | null
-    vfuncSendEvent(event: Gst.Event): boolean
-    vfuncSetBus(bus?: Gst.Bus | null): void
-    vfuncSetClock(clock?: Gst.Clock | null): boolean
-    vfuncSetContext(context: Gst.Context): void
-    vfuncSetState(state: Gst.State): Gst.StateChangeReturn
-    vfuncStateChanged(oldstate: Gst.State, newstate: Gst.State, pending: Gst.State): void
-    /* Virtual methods of Gst.Object */
-    vfuncDeepNotify(orig: Gst.Object, pspec: GObject.ParamSpec): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gst.Element */
+    /* Signals of Gst-1.0.Gst.Element */
     connect(sigName: "no-more-pads", callback: (($obj: GLBaseSrc) => void)): number
-    connect_after(sigName: "no-more-pads", callback: (($obj: GLBaseSrc) => void)): number
+    on(sigName: "no-more-pads", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "no-more-pads", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "no-more-pads", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "no-more-pads"): void
-    on(sigName: "no-more-pads", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "no-more-pads", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "no-more-pads", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "pad-added", callback: (($obj: GLBaseSrc, newPad: Gst.Pad) => void)): number
-    connect_after(sigName: "pad-added", callback: (($obj: GLBaseSrc, newPad: Gst.Pad) => void)): number
+    on(sigName: "pad-added", callback: (newPad: Gst.Pad) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "pad-added", callback: (newPad: Gst.Pad) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "pad-added", callback: (newPad: Gst.Pad) => void): NodeJS.EventEmitter
     emit(sigName: "pad-added", newPad: Gst.Pad): void
-    on(sigName: "pad-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "pad-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "pad-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "pad-removed", callback: (($obj: GLBaseSrc, oldPad: Gst.Pad) => void)): number
-    connect_after(sigName: "pad-removed", callback: (($obj: GLBaseSrc, oldPad: Gst.Pad) => void)): number
+    on(sigName: "pad-removed", callback: (oldPad: Gst.Pad) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "pad-removed", callback: (oldPad: Gst.Pad) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "pad-removed", callback: (oldPad: Gst.Pad) => void): NodeJS.EventEmitter
     emit(sigName: "pad-removed", oldPad: Gst.Pad): void
-    on(sigName: "pad-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "pad-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "pad-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of Gst.Object */
+    /* Signals of Gst-1.0.Gst.Object */
     connect(sigName: "deep-notify", callback: (($obj: GLBaseSrc, propObject: Gst.Object, prop: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "deep-notify", callback: (($obj: GLBaseSrc, propObject: Gst.Object, prop: GObject.ParamSpec) => void)): number
+    on(sigName: "deep-notify", callback: (propObject: Gst.Object, prop: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "deep-notify", callback: (propObject: Gst.Object, prop: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "deep-notify", callback: (propObject: Gst.Object, prop: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "deep-notify", propObject: Gst.Object, prop: GObject.ParamSpec): void
-    on(sigName: "deep-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "deep-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "deep-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: GLBaseSrc, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: GLBaseSrc, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::timestamp-offset", callback: (($obj: GLBaseSrc, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::timestamp-offset", callback: (($obj: GLBaseSrc, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::timestamp-offset", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -1040,10 +891,10 @@ export class GLBaseSrc {
 export interface GLBufferAllocator_ConstructProps extends GLBaseMemoryAllocator_ConstructProps {
 }
 export class GLBufferAllocator {
-    /* Properties of Gst.Object */
+    /* Properties of Gst-1.0.Gst.Object */
     name: string
     parent: Gst.Object
-    /* Fields of Gst.Allocator */
+    /* Fields of Gst-1.0.Gst.Allocator */
     object: Gst.Object
     memType: string
     memMap: Gst.MemoryMapFunction
@@ -1053,16 +904,16 @@ export class GLBufferAllocator {
     memIsSpan: Gst.MemoryIsSpanFunction
     memMapFull: Gst.MemoryMapFullFunction
     memUnmapFull: Gst.MemoryUnmapFullFunction
-    /* Fields of Gst.Object */
+    /* Fields of Gst-1.0.Gst.Object */
     lock: GLib.Mutex
     flags: number
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Gst.Allocator */
+    /* Methods of Gst-1.0.Gst.Allocator */
     alloc(size: number, params?: Gst.AllocationParams | null): Gst.Memory | null
     free(memory: Gst.Memory): void
     setDefault(): void
-    /* Methods of Gst.Object */
+    /* Methods of Gst-1.0.Gst.Object */
     addControlBinding(binding: Gst.ControlBinding): boolean
     defaultError(error: GLib.Error, debug?: string | null): void
     getControlBinding(propertyName: string): Gst.ControlBinding | null
@@ -1087,7 +938,7 @@ export class GLBufferAllocator {
     syncValues(timestamp: Gst.ClockTime): boolean
     unparent(): void
     unref(): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -1108,39 +959,18 @@ export class GLBufferAllocator {
     stealQdata(quark: GLib.Quark): object | null
     thawNotify(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GstGL.GLBufferAllocator */
-    vfuncAlloc(params: GLAllocationParams): GLBaseMemory
-    vfuncAlloc(size: number, params?: Gst.AllocationParams | null): Gst.Memory | null
-    /* Virtual methods of GstGL.GLBaseMemoryAllocator */
-    vfuncAlloc(params: GLAllocationParams): GLBaseMemory
-    vfuncAlloc(size: number, params?: Gst.AllocationParams | null): Gst.Memory | null
-    /* Virtual methods of Gst.Allocator */
-    vfuncAlloc(size: number, params?: Gst.AllocationParams | null): Gst.Memory | null
-    vfuncFree(memory: Gst.Memory): void
-    /* Virtual methods of Gst.Object */
-    vfuncDeepNotify(orig: Gst.Object, pspec: GObject.ParamSpec): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gst.Object */
+    /* Signals of Gst-1.0.Gst.Object */
     connect(sigName: "deep-notify", callback: (($obj: GLBufferAllocator, propObject: Gst.Object, prop: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "deep-notify", callback: (($obj: GLBufferAllocator, propObject: Gst.Object, prop: GObject.ParamSpec) => void)): number
+    on(sigName: "deep-notify", callback: (propObject: Gst.Object, prop: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "deep-notify", callback: (propObject: Gst.Object, prop: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "deep-notify", callback: (propObject: Gst.Object, prop: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "deep-notify", propObject: Gst.Object, prop: GObject.ParamSpec): void
-    on(sigName: "deep-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "deep-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "deep-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: GLBufferAllocator, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: GLBufferAllocator, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::name", callback: (($obj: GLBufferAllocator, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::name", callback: (($obj: GLBufferAllocator, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::name", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -1166,22 +996,22 @@ export class GLBufferAllocator {
 export interface GLBufferPool_ConstructProps extends Gst.BufferPool_ConstructProps {
 }
 export class GLBufferPool {
-    /* Properties of Gst.Object */
+    /* Properties of Gst-1.0.Gst.Object */
     name: string
     parent: Gst.Object
-    /* Fields of GstGL.GLBufferPool */
+    /* Fields of GstGL-1.0.GstGL.GLBufferPool */
     bufferpool: Gst.BufferPool
     context: GLContext
-    /* Fields of Gst.BufferPool */
+    /* Fields of Gst-1.0.Gst.BufferPool */
     object: Gst.Object
     flushing: number
-    /* Fields of Gst.Object */
+    /* Fields of Gst-1.0.Gst.Object */
     lock: GLib.Mutex
     flags: number
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Gst.BufferPool */
-    acquireBuffer(params?: Gst.BufferPoolAcquireParams | null): [ /* returnType */ Gst.FlowReturn, /* buffer */ Gst.Buffer ]
+    /* Methods of Gst-1.0.Gst.BufferPool */
+    acquireBuffer(params?: Gst.BufferPoolAcquireParams | null): { returnType: Gst.FlowReturn, buffer: Gst.Buffer }
     getConfig(): Gst.Structure
     getOptions(): string[]
     hasOption(option: string): boolean
@@ -1190,7 +1020,7 @@ export class GLBufferPool {
     setActive(active: boolean): boolean
     setConfig(config: Gst.Structure): boolean
     setFlushing(flushing: boolean): void
-    /* Methods of Gst.Object */
+    /* Methods of Gst-1.0.Gst.Object */
     addControlBinding(binding: Gst.ControlBinding): boolean
     defaultError(error: GLib.Error, debug?: string | null): void
     getControlBinding(propertyName: string): Gst.ControlBinding | null
@@ -1215,7 +1045,7 @@ export class GLBufferPool {
     syncValues(timestamp: Gst.ClockTime): boolean
     unparent(): void
     unref(): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -1236,42 +1066,18 @@ export class GLBufferPool {
     stealQdata(quark: GLib.Quark): object | null
     thawNotify(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of Gst.BufferPool */
-    vfuncAcquireBuffer(params?: Gst.BufferPoolAcquireParams | null): [ /* returnType */ Gst.FlowReturn, /* buffer */ Gst.Buffer ]
-    vfuncAllocBuffer(params?: Gst.BufferPoolAcquireParams | null): [ /* returnType */ Gst.FlowReturn, /* buffer */ Gst.Buffer ]
-    vfuncFlushStart(): void
-    vfuncFlushStop(): void
-    vfuncFreeBuffer(buffer: Gst.Buffer): void
-    vfuncGetOptions(): string[]
-    vfuncReleaseBuffer(buffer: Gst.Buffer): void
-    vfuncResetBuffer(buffer: Gst.Buffer): void
-    vfuncSetConfig(config: Gst.Structure): boolean
-    vfuncStart(): boolean
-    vfuncStop(): boolean
-    /* Virtual methods of Gst.Object */
-    vfuncDeepNotify(orig: Gst.Object, pspec: GObject.ParamSpec): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gst.Object */
+    /* Signals of Gst-1.0.Gst.Object */
     connect(sigName: "deep-notify", callback: (($obj: GLBufferPool, propObject: Gst.Object, prop: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "deep-notify", callback: (($obj: GLBufferPool, propObject: Gst.Object, prop: GObject.ParamSpec) => void)): number
+    on(sigName: "deep-notify", callback: (propObject: Gst.Object, prop: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "deep-notify", callback: (propObject: Gst.Object, prop: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "deep-notify", callback: (propObject: Gst.Object, prop: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "deep-notify", propObject: Gst.Object, prop: GObject.ParamSpec): void
-    on(sigName: "deep-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "deep-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "deep-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: GLBufferPool, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: GLBufferPool, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::name", callback: (($obj: GLBufferPool, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::name", callback: (($obj: GLBufferPool, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::name", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -1300,20 +1106,20 @@ export class GLBufferPool {
 export interface GLColorConvert_ConstructProps extends Gst.Object_ConstructProps {
 }
 export class GLColorConvert {
-    /* Properties of Gst.Object */
+    /* Properties of Gst-1.0.Gst.Object */
     name: string
     parent: Gst.Object
-    /* Fields of Gst.Object */
+    /* Fields of Gst-1.0.Gst.Object */
     object: GObject.InitiallyUnowned
     lock: GLib.Mutex
     flags: number
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GstGL.GLColorConvert */
+    /* Methods of GstGL-1.0.GstGL.GLColorConvert */
     decideAllocation(query: Gst.Query): boolean
     perform(inbuf: Gst.Buffer): Gst.Buffer
     setCaps(inCaps: Gst.Caps, outCaps: Gst.Caps): boolean
-    /* Methods of Gst.Object */
+    /* Methods of Gst-1.0.Gst.Object */
     addControlBinding(binding: Gst.ControlBinding): boolean
     defaultError(error: GLib.Error, debug?: string | null): void
     getControlBinding(propertyName: string): Gst.ControlBinding | null
@@ -1338,7 +1144,7 @@ export class GLColorConvert {
     syncValues(timestamp: Gst.ClockTime): boolean
     unparent(): void
     unref(): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -1359,30 +1165,18 @@ export class GLColorConvert {
     stealQdata(quark: GLib.Quark): object | null
     thawNotify(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of Gst.Object */
-    vfuncDeepNotify(orig: Gst.Object, pspec: GObject.ParamSpec): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gst.Object */
+    /* Signals of Gst-1.0.Gst.Object */
     connect(sigName: "deep-notify", callback: (($obj: GLColorConvert, propObject: Gst.Object, prop: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "deep-notify", callback: (($obj: GLColorConvert, propObject: Gst.Object, prop: GObject.ParamSpec) => void)): number
+    on(sigName: "deep-notify", callback: (propObject: Gst.Object, prop: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "deep-notify", callback: (propObject: Gst.Object, prop: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "deep-notify", callback: (propObject: Gst.Object, prop: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "deep-notify", propObject: Gst.Object, prop: GObject.ParamSpec): void
-    on(sigName: "deep-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "deep-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "deep-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: GLColorConvert, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: GLColorConvert, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::name", callback: (($obj: GLColorConvert, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::name", callback: (($obj: GLColorConvert, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::name", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -1412,18 +1206,18 @@ export class GLColorConvert {
 export interface GLContext_ConstructProps extends Gst.Object_ConstructProps {
 }
 export class GLContext {
-    /* Properties of Gst.Object */
+    /* Properties of Gst-1.0.Gst.Object */
     name: string
     parent: Gst.Object
-    /* Fields of GstGL.GLContext */
+    /* Fields of GstGL-1.0.GstGL.GLContext */
     glVtable: GLFuncs
-    /* Fields of Gst.Object */
+    /* Fields of Gst-1.0.Gst.Object */
     object: GObject.InitiallyUnowned
     lock: GLib.Mutex
     flags: number
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GstGL.GLContext */
+    /* Methods of GstGL-1.0.GstGL.GLContext */
     activate(activate: boolean): boolean
     canShare(otherContext: GLContext): boolean
     checkFeature(feature: string): boolean
@@ -1438,8 +1232,8 @@ export class GLContext {
     getGlApi(): GLAPI
     getGlContext(): number
     getGlPlatform(): GLPlatform
-    getGlPlatformVersion(): [ /* major */ number, /* minor */ number ]
-    getGlVersion(): [ /* maj */ number, /* min */ number ]
+    getGlPlatformVersion(): { major: number, minor: number }
+    getGlVersion(): { maj: number, min: number }
     getProcAddress(name: string): object | null
     getThread(): GLib.Thread
     getWindow(): GLWindow | null
@@ -1451,7 +1245,7 @@ export class GLContext {
     supportsPrecisionHighp(version: GLSLVersion, profile: GLSLProfile): boolean
     swapBuffers(): void
     threadAdd(func: GLContextThreadFunc): void
-    /* Methods of Gst.Object */
+    /* Methods of Gst-1.0.Gst.Object */
     addControlBinding(binding: Gst.ControlBinding): boolean
     defaultError(error: GLib.Error, debug?: string | null): void
     getControlBinding(propertyName: string): Gst.ControlBinding | null
@@ -1476,7 +1270,7 @@ export class GLContext {
     syncValues(timestamp: Gst.ClockTime): boolean
     unparent(): void
     unref(): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -1497,41 +1291,18 @@ export class GLContext {
     stealQdata(quark: GLib.Quark): object | null
     thawNotify(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GstGL.GLContext */
-    vfuncActivate(activate: boolean): boolean
-    vfuncCheckFeature(feature: string): boolean
-    vfuncChooseFormat(): boolean
-    vfuncCreateContext(glApi: GLAPI, otherContext: GLContext): boolean
-    vfuncDestroyContext(): void
-    vfuncGetGlApi(): GLAPI
-    vfuncGetGlContext(): number
-    vfuncGetGlPlatform(): GLPlatform
-    vfuncGetGlPlatformVersion(): [ /* major */ number, /* minor */ number ]
-    vfuncSwapBuffers(): void
-    /* Virtual methods of Gst.Object */
-    vfuncDeepNotify(orig: Gst.Object, pspec: GObject.ParamSpec): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gst.Object */
+    /* Signals of Gst-1.0.Gst.Object */
     connect(sigName: "deep-notify", callback: (($obj: GLContext, propObject: Gst.Object, prop: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "deep-notify", callback: (($obj: GLContext, propObject: Gst.Object, prop: GObject.ParamSpec) => void)): number
+    on(sigName: "deep-notify", callback: (propObject: Gst.Object, prop: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "deep-notify", callback: (propObject: Gst.Object, prop: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "deep-notify", callback: (propObject: Gst.Object, prop: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "deep-notify", propObject: Gst.Object, prop: GObject.ParamSpec): void
-    on(sigName: "deep-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "deep-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "deep-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: GLContext, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: GLContext, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::name", callback: (($obj: GLContext, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::name", callback: (($obj: GLContext, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::name", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -1557,7 +1328,7 @@ export class GLContext {
     static newWrapped(display: GLDisplay, handle: number, contextType: GLPlatform, availableApis: GLAPI): GLContext
     static defaultGetProcAddress(glApi: GLAPI, name: string): object | null
     static getCurrent(): GLContext
-    static getCurrentGlApi(platform: GLPlatform): [ /* returnType */ GLAPI, /* major */ number | null, /* minor */ number | null ]
+    static getCurrentGlApi(platform: GLPlatform): { returnType: GLAPI, major: number | null, minor: number | null }
     static getCurrentGlContext(contextType: GLPlatform): number
     static getProcAddressWithPlatform(contextType: GLPlatform, glApi: GLAPI, name: string): object | null
     static $gtype: GObject.Type
@@ -1565,18 +1336,18 @@ export class GLContext {
 export interface GLDisplay_ConstructProps extends Gst.Object_ConstructProps {
 }
 export class GLDisplay {
-    /* Properties of Gst.Object */
+    /* Properties of Gst-1.0.Gst.Object */
     name: string
     parent: Gst.Object
-    /* Fields of Gst.Object */
+    /* Fields of Gst-1.0.Gst.Object */
     object: GObject.InitiallyUnowned
     lock: GLib.Mutex
     flags: number
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GstGL.GLDisplay */
+    /* Methods of GstGL-1.0.GstGL.GLDisplay */
     addContext(context: GLContext): boolean
-    createContext(otherContext: GLContext): [ /* returnType */ boolean, /* pContext */ GLContext ]
+    createContext(otherContext: GLContext): { returnType: boolean, pContext: GLContext }
     createWindow(): GLWindow
     filterGlApi(glApi: GLAPI): void
     findWindow(data: object | null, compareFunc: GLib.CompareFunc): GLWindow
@@ -1588,7 +1359,7 @@ export class GLDisplay {
     removeContext(context: GLContext): void
     removeWindow(window: GLWindow): boolean
     retrieveWindow(data: object | null, compareFunc: GLib.CompareFunc): GLWindow
-    /* Methods of Gst.Object */
+    /* Methods of Gst-1.0.Gst.Object */
     addControlBinding(binding: Gst.ControlBinding): boolean
     defaultError(error: GLib.Error, debug?: string | null): void
     getControlBinding(propertyName: string): Gst.ControlBinding | null
@@ -1613,7 +1384,7 @@ export class GLDisplay {
     syncValues(timestamp: Gst.ClockTime): boolean
     unparent(): void
     unref(): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -1634,40 +1405,24 @@ export class GLDisplay {
     stealQdata(quark: GLib.Quark): object | null
     thawNotify(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GstGL.GLDisplay */
-    vfuncCreateWindow(): GLWindow
-    vfuncGetHandle(): number
-    /* Virtual methods of Gst.Object */
-    vfuncDeepNotify(orig: Gst.Object, pspec: GObject.ParamSpec): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GstGL.GLDisplay */
+    /* Signals of GstGL-1.0.GstGL.GLDisplay */
     connect(sigName: "create-context", callback: (($obj: GLDisplay, context: GLContext) => GLContext)): number
-    connect_after(sigName: "create-context", callback: (($obj: GLDisplay, context: GLContext) => GLContext)): number
+    on(sigName: "create-context", callback: (context: GLContext) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "create-context", callback: (context: GLContext) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "create-context", callback: (context: GLContext) => void): NodeJS.EventEmitter
     emit(sigName: "create-context", context: GLContext): void
-    on(sigName: "create-context", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "create-context", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "create-context", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of Gst.Object */
+    /* Signals of Gst-1.0.Gst.Object */
     connect(sigName: "deep-notify", callback: (($obj: GLDisplay, propObject: Gst.Object, prop: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "deep-notify", callback: (($obj: GLDisplay, propObject: Gst.Object, prop: GObject.ParamSpec) => void)): number
+    on(sigName: "deep-notify", callback: (propObject: Gst.Object, prop: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "deep-notify", callback: (propObject: Gst.Object, prop: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "deep-notify", callback: (propObject: Gst.Object, prop: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "deep-notify", propObject: Gst.Object, prop: GObject.ParamSpec): void
-    on(sigName: "deep-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "deep-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "deep-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: GLDisplay, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: GLDisplay, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::name", callback: (($obj: GLDisplay, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::name", callback: (($obj: GLDisplay, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::name", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -1695,31 +1450,31 @@ export class GLDisplay {
 export interface GLFilter_ConstructProps extends GLBaseFilter_ConstructProps {
 }
 export class GLFilter {
-    /* Properties of GstGL.GLBaseFilter */
+    /* Properties of GstGL-1.0.GstGL.GLBaseFilter */
     readonly context: GLContext
-    /* Properties of GstBase.BaseTransform */
+    /* Properties of GstBase-1.0.GstBase.BaseTransform */
     qos: boolean
-    /* Properties of Gst.Object */
+    /* Properties of Gst-1.0.Gst.Object */
     name: string
     parent: Gst.Object
-    /* Fields of GstGL.GLFilter */
+    /* Fields of GstGL-1.0.GstGL.GLFilter */
     inInfo: GstVideo.VideoInfo
     outInfo: GstVideo.VideoInfo
     inTextureTarget: GLTextureTarget
     outTextureTarget: GLTextureTarget
     outCaps: Gst.Caps
     fbo: GLFramebuffer
-    /* Fields of GstGL.GLBaseFilter */
+    /* Fields of GstGL-1.0.GstGL.GLBaseFilter */
     display: GLDisplay
     inCaps: Gst.Caps
-    /* Fields of GstBase.BaseTransform */
+    /* Fields of GstBase-1.0.GstBase.BaseTransform */
     element: Gst.Element
     sinkpad: Gst.Pad
     srcpad: Gst.Pad
     haveSegment: boolean
     segment: Gst.Segment
     queuedBuf: Gst.Buffer
-    /* Fields of Gst.Element */
+    /* Fields of Gst-1.0.Gst.Element */
     object: Gst.Object
     stateLock: GLib.RecMutex
     stateCond: GLib.Cond
@@ -1741,21 +1496,21 @@ export class GLFilter {
     sinkpads: Gst.Pad[]
     padsCookie: number
     contexts: Gst.Context[]
-    /* Fields of Gst.Object */
+    /* Fields of Gst-1.0.Gst.Object */
     lock: GLib.Mutex
     flags: number
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GstGL.GLFilter */
+    /* Methods of GstGL-1.0.GstGL.GLFilter */
     drawFullscreenQuad(): void
     filterTexture(input: Gst.Buffer, output: Gst.Buffer): boolean
     renderToTarget(input: GLMemory, output: GLMemory, func: GLFilterRenderFunc): boolean
     renderToTargetWithShader(input: GLMemory, output: GLMemory, shader: GLShader): void
-    /* Methods of GstGL.GLBaseFilter */
+    /* Methods of GstGL-1.0.GstGL.GLBaseFilter */
     findGlContext(): boolean
     getGlContext(): GLContext | null
-    /* Methods of GstBase.BaseTransform */
-    getAllocator(): [ /* allocator */ Gst.Allocator | null, /* params */ Gst.AllocationParams | null ]
+    /* Methods of GstBase-1.0.GstBase.BaseTransform */
+    getAllocator(): { allocator: Gst.Allocator | null, params: Gst.AllocationParams | null }
     getBufferPool(): Gst.BufferPool | null
     isInPlace(): boolean
     isPassthrough(): boolean
@@ -1770,7 +1525,7 @@ export class GLFilter {
     setQosEnabled(enabled: boolean): void
     updateQos(proportion: number, diff: Gst.ClockTimeDiff, timestamp: Gst.ClockTime): void
     updateSrcCaps(updatedCaps: Gst.Caps): boolean
-    /* Methods of Gst.Element */
+    /* Methods of Gst-1.0.Gst.Element */
     abortState(): void
     addPad(pad: Gst.Pad): boolean
     addPropertyDeepNotifyWatch(propertyName: string | null, includeValue: boolean): number
@@ -1798,7 +1553,7 @@ export class GLFilter {
     getPadTemplateList(): Gst.PadTemplate[]
     getRequestPad(name: string): Gst.Pad | null
     getStartTime(): Gst.ClockTime
-    getState(timeout: Gst.ClockTime): [ /* returnType */ Gst.StateChangeReturn, /* state */ Gst.State | null, /* pending */ Gst.State | null ]
+    getState(timeout: Gst.ClockTime): { returnType: Gst.StateChangeReturn, state: Gst.State | null, pending: Gst.State | null }
     getStaticPad(name: string): Gst.Pad | null
     isLockedState(): boolean
     iteratePads(): Gst.Iterator
@@ -1816,9 +1571,9 @@ export class GLFilter {
     postMessage(message: Gst.Message): boolean
     provideClock(): Gst.Clock | null
     query(query: Gst.Query): boolean
-    queryConvert(srcFormat: Gst.Format, srcVal: number, destFormat: Gst.Format): [ /* returnType */ boolean, /* destVal */ number ]
-    queryDuration(format: Gst.Format): [ /* returnType */ boolean, /* duration */ number | null ]
-    queryPosition(format: Gst.Format): [ /* returnType */ boolean, /* cur */ number | null ]
+    queryConvert(srcFormat: Gst.Format, srcVal: number, destFormat: Gst.Format): { returnType: boolean, destVal: number }
+    queryDuration(format: Gst.Format): { returnType: boolean, duration: number | null }
+    queryPosition(format: Gst.Format): { returnType: boolean, cur: number | null }
     releaseRequestPad(pad: Gst.Pad): void
     removePad(pad: Gst.Pad): boolean
     removePropertyNotifyWatch(watchId: number): void
@@ -1836,7 +1591,7 @@ export class GLFilter {
     syncStateWithParent(): boolean
     unlink(dest: Gst.Element): void
     unlinkPads(srcpadname: string, dest: Gst.Element, destpadname: string): void
-    /* Methods of Gst.Object */
+    /* Methods of Gst-1.0.Gst.Object */
     addControlBinding(binding: Gst.ControlBinding): boolean
     defaultError(error: GLib.Error, debug?: string | null): void
     getControlBinding(propertyName: string): Gst.ControlBinding | null
@@ -1861,7 +1616,7 @@ export class GLFilter {
     syncValues(timestamp: Gst.ClockTime): boolean
     unparent(): void
     unref(): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -1882,104 +1637,34 @@ export class GLFilter {
     stealQdata(quark: GLib.Quark): object | null
     thawNotify(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GstGL.GLFilter */
-    vfuncFilter(inbuf: Gst.Buffer, outbuf: Gst.Buffer): boolean
-    vfuncFilterTexture(input: GLMemory, output: GLMemory): boolean
-    vfuncInitFbo(): boolean
-    vfuncSetCaps(incaps: Gst.Caps, outcaps: Gst.Caps): boolean
-    vfuncTransformInternalCaps(direction: Gst.PadDirection, caps: Gst.Caps, filterCaps: Gst.Caps): Gst.Caps
-    vfuncQuery(direction: Gst.PadDirection, query: Gst.Query): boolean
-    vfuncQuery(query: Gst.Query): boolean
-    /* Virtual methods of GstGL.GLBaseFilter */
-    vfuncGlSetCaps(incaps: Gst.Caps, outcaps: Gst.Caps): boolean
-    vfuncGlStart(): boolean
-    vfuncGlStop(): void
-    vfuncQuery(direction: Gst.PadDirection, query: Gst.Query): boolean
-    vfuncQuery(query: Gst.Query): boolean
-    /* Virtual methods of GstBase.BaseTransform */
-    vfuncAcceptCaps(direction: Gst.PadDirection, caps: Gst.Caps): boolean
-    vfuncBeforeTransform(buffer: Gst.Buffer): void
-    vfuncCopyMetadata(input: Gst.Buffer, outbuf: Gst.Buffer): boolean
-    vfuncDecideAllocation(query: Gst.Query): boolean
-    vfuncFilterMeta(query: Gst.Query, api: GObject.Type, params: Gst.Structure): boolean
-    vfuncFixateCaps(direction: Gst.PadDirection, caps: Gst.Caps, othercaps: Gst.Caps): Gst.Caps
-    vfuncGenerateOutput(): [ /* returnType */ Gst.FlowReturn, /* outbuf */ Gst.Buffer ]
-    vfuncGetUnitSize(caps: Gst.Caps): [ /* returnType */ boolean, /* size */ number ]
-    vfuncPrepareOutputBuffer(input: Gst.Buffer): [ /* returnType */ Gst.FlowReturn, /* outbuf */ Gst.Buffer ]
-    vfuncProposeAllocation(decideQuery: Gst.Query, query: Gst.Query): boolean
-    vfuncQuery(direction: Gst.PadDirection, query: Gst.Query): boolean
-    vfuncQuery(query: Gst.Query): boolean
-    vfuncSetCaps(incaps: Gst.Caps, outcaps: Gst.Caps): boolean
-    vfuncSinkEvent(event: Gst.Event): boolean
-    vfuncSrcEvent(event: Gst.Event): boolean
-    vfuncStart(): boolean
-    vfuncStop(): boolean
-    vfuncSubmitInputBuffer(isDiscont: boolean, input: Gst.Buffer): Gst.FlowReturn
-    vfuncTransform(inbuf: Gst.Buffer, outbuf: Gst.Buffer): Gst.FlowReturn
-    vfuncTransformCaps(direction: Gst.PadDirection, caps: Gst.Caps, filter: Gst.Caps): Gst.Caps
-    vfuncTransformIp(buf: Gst.Buffer): Gst.FlowReturn
-    vfuncTransformMeta(outbuf: Gst.Buffer, meta: Gst.Meta, inbuf: Gst.Buffer): boolean
-    vfuncTransformSize(direction: Gst.PadDirection, caps: Gst.Caps, size: number, othercaps: Gst.Caps): [ /* returnType */ boolean, /* othersize */ number ]
-    /* Virtual methods of Gst.Element */
-    vfuncChangeState(transition: Gst.StateChange): Gst.StateChangeReturn
-    vfuncGetState(timeout: Gst.ClockTime): [ /* returnType */ Gst.StateChangeReturn, /* state */ Gst.State | null, /* pending */ Gst.State | null ]
-    vfuncNoMorePads(): void
-    vfuncPadAdded(pad: Gst.Pad): void
-    vfuncPadRemoved(pad: Gst.Pad): void
-    vfuncPostMessage(message: Gst.Message): boolean
-    vfuncProvideClock(): Gst.Clock | null
-    vfuncQuery(query: Gst.Query): boolean
-    vfuncReleasePad(pad: Gst.Pad): void
-    vfuncRequestNewPad(templ: Gst.PadTemplate, name?: string | null, caps?: Gst.Caps | null): Gst.Pad | null
-    vfuncSendEvent(event: Gst.Event): boolean
-    vfuncSetBus(bus?: Gst.Bus | null): void
-    vfuncSetClock(clock?: Gst.Clock | null): boolean
-    vfuncSetContext(context: Gst.Context): void
-    vfuncSetState(state: Gst.State): Gst.StateChangeReturn
-    vfuncStateChanged(oldstate: Gst.State, newstate: Gst.State, pending: Gst.State): void
-    /* Virtual methods of Gst.Object */
-    vfuncDeepNotify(orig: Gst.Object, pspec: GObject.ParamSpec): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gst.Element */
+    /* Signals of Gst-1.0.Gst.Element */
     connect(sigName: "no-more-pads", callback: (($obj: GLFilter) => void)): number
-    connect_after(sigName: "no-more-pads", callback: (($obj: GLFilter) => void)): number
+    on(sigName: "no-more-pads", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "no-more-pads", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "no-more-pads", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "no-more-pads"): void
-    on(sigName: "no-more-pads", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "no-more-pads", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "no-more-pads", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "pad-added", callback: (($obj: GLFilter, newPad: Gst.Pad) => void)): number
-    connect_after(sigName: "pad-added", callback: (($obj: GLFilter, newPad: Gst.Pad) => void)): number
+    on(sigName: "pad-added", callback: (newPad: Gst.Pad) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "pad-added", callback: (newPad: Gst.Pad) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "pad-added", callback: (newPad: Gst.Pad) => void): NodeJS.EventEmitter
     emit(sigName: "pad-added", newPad: Gst.Pad): void
-    on(sigName: "pad-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "pad-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "pad-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "pad-removed", callback: (($obj: GLFilter, oldPad: Gst.Pad) => void)): number
-    connect_after(sigName: "pad-removed", callback: (($obj: GLFilter, oldPad: Gst.Pad) => void)): number
+    on(sigName: "pad-removed", callback: (oldPad: Gst.Pad) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "pad-removed", callback: (oldPad: Gst.Pad) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "pad-removed", callback: (oldPad: Gst.Pad) => void): NodeJS.EventEmitter
     emit(sigName: "pad-removed", oldPad: Gst.Pad): void
-    on(sigName: "pad-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "pad-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "pad-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of Gst.Object */
+    /* Signals of Gst-1.0.Gst.Object */
     connect(sigName: "deep-notify", callback: (($obj: GLFilter, propObject: Gst.Object, prop: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "deep-notify", callback: (($obj: GLFilter, propObject: Gst.Object, prop: GObject.ParamSpec) => void)): number
+    on(sigName: "deep-notify", callback: (propObject: Gst.Object, prop: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "deep-notify", callback: (propObject: Gst.Object, prop: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "deep-notify", callback: (propObject: Gst.Object, prop: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "deep-notify", propObject: Gst.Object, prop: GObject.ParamSpec): void
-    on(sigName: "deep-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "deep-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "deep-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: GLFilter, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: GLFilter, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::context", callback: (($obj: GLFilter, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::context", callback: (($obj: GLFilter, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::context", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -2017,22 +1702,22 @@ export class GLFilter {
 export interface GLFramebuffer_ConstructProps extends Gst.Object_ConstructProps {
 }
 export class GLFramebuffer {
-    /* Properties of Gst.Object */
+    /* Properties of Gst-1.0.Gst.Object */
     name: string
     parent: Gst.Object
-    /* Fields of Gst.Object */
+    /* Fields of Gst-1.0.Gst.Object */
     object: GObject.InitiallyUnowned
     lock: GLib.Mutex
     flags: number
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GstGL.GLFramebuffer */
+    /* Methods of GstGL-1.0.GstGL.GLFramebuffer */
     attach(attachmentPoint: number, mem: GLBaseMemory): void
     bind(): void
     drawToTexture(mem: GLMemory, func: GLFramebufferFunc): boolean
-    getEffectiveDimensions(): [ /* width */ number | null, /* height */ number | null ]
+    getEffectiveDimensions(): { width: number | null, height: number | null }
     getId(): number
-    /* Methods of Gst.Object */
+    /* Methods of Gst-1.0.Gst.Object */
     addControlBinding(binding: Gst.ControlBinding): boolean
     defaultError(error: GLib.Error, debug?: string | null): void
     getControlBinding(propertyName: string): Gst.ControlBinding | null
@@ -2057,7 +1742,7 @@ export class GLFramebuffer {
     syncValues(timestamp: Gst.ClockTime): boolean
     unparent(): void
     unref(): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -2078,30 +1763,18 @@ export class GLFramebuffer {
     stealQdata(quark: GLib.Quark): object | null
     thawNotify(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of Gst.Object */
-    vfuncDeepNotify(orig: Gst.Object, pspec: GObject.ParamSpec): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gst.Object */
+    /* Signals of Gst-1.0.Gst.Object */
     connect(sigName: "deep-notify", callback: (($obj: GLFramebuffer, propObject: Gst.Object, prop: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "deep-notify", callback: (($obj: GLFramebuffer, propObject: Gst.Object, prop: GObject.ParamSpec) => void)): number
+    on(sigName: "deep-notify", callback: (propObject: Gst.Object, prop: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "deep-notify", callback: (propObject: Gst.Object, prop: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "deep-notify", callback: (propObject: Gst.Object, prop: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "deep-notify", propObject: Gst.Object, prop: GObject.ParamSpec): void
-    on(sigName: "deep-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "deep-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "deep-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: GLFramebuffer, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: GLFramebuffer, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::name", callback: (($obj: GLFramebuffer, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::name", callback: (($obj: GLFramebuffer, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::name", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -2130,10 +1803,10 @@ export class GLFramebuffer {
 export interface GLMemoryAllocator_ConstructProps extends GLBaseMemoryAllocator_ConstructProps {
 }
 export class GLMemoryAllocator {
-    /* Properties of Gst.Object */
+    /* Properties of Gst-1.0.Gst.Object */
     name: string
     parent: Gst.Object
-    /* Fields of Gst.Allocator */
+    /* Fields of Gst-1.0.Gst.Allocator */
     object: Gst.Object
     memType: string
     memMap: Gst.MemoryMapFunction
@@ -2143,16 +1816,16 @@ export class GLMemoryAllocator {
     memIsSpan: Gst.MemoryIsSpanFunction
     memMapFull: Gst.MemoryMapFullFunction
     memUnmapFull: Gst.MemoryUnmapFullFunction
-    /* Fields of Gst.Object */
+    /* Fields of Gst-1.0.Gst.Object */
     lock: GLib.Mutex
     flags: number
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Gst.Allocator */
+    /* Methods of Gst-1.0.Gst.Allocator */
     alloc(size: number, params?: Gst.AllocationParams | null): Gst.Memory | null
     free(memory: Gst.Memory): void
     setDefault(): void
-    /* Methods of Gst.Object */
+    /* Methods of Gst-1.0.Gst.Object */
     addControlBinding(binding: Gst.ControlBinding): boolean
     defaultError(error: GLib.Error, debug?: string | null): void
     getControlBinding(propertyName: string): Gst.ControlBinding | null
@@ -2177,7 +1850,7 @@ export class GLMemoryAllocator {
     syncValues(timestamp: Gst.ClockTime): boolean
     unparent(): void
     unref(): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -2198,39 +1871,18 @@ export class GLMemoryAllocator {
     stealQdata(quark: GLib.Quark): object | null
     thawNotify(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GstGL.GLMemoryAllocator */
-    vfuncAlloc(params: GLAllocationParams): GLBaseMemory
-    vfuncAlloc(size: number, params?: Gst.AllocationParams | null): Gst.Memory | null
-    /* Virtual methods of GstGL.GLBaseMemoryAllocator */
-    vfuncAlloc(params: GLAllocationParams): GLBaseMemory
-    vfuncAlloc(size: number, params?: Gst.AllocationParams | null): Gst.Memory | null
-    /* Virtual methods of Gst.Allocator */
-    vfuncAlloc(size: number, params?: Gst.AllocationParams | null): Gst.Memory | null
-    vfuncFree(memory: Gst.Memory): void
-    /* Virtual methods of Gst.Object */
-    vfuncDeepNotify(orig: Gst.Object, pspec: GObject.ParamSpec): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gst.Object */
+    /* Signals of Gst-1.0.Gst.Object */
     connect(sigName: "deep-notify", callback: (($obj: GLMemoryAllocator, propObject: Gst.Object, prop: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "deep-notify", callback: (($obj: GLMemoryAllocator, propObject: Gst.Object, prop: GObject.ParamSpec) => void)): number
+    on(sigName: "deep-notify", callback: (propObject: Gst.Object, prop: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "deep-notify", callback: (propObject: Gst.Object, prop: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "deep-notify", callback: (propObject: Gst.Object, prop: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "deep-notify", propObject: Gst.Object, prop: GObject.ParamSpec): void
-    on(sigName: "deep-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "deep-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "deep-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: GLMemoryAllocator, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: GLMemoryAllocator, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::name", callback: (($obj: GLMemoryAllocator, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::name", callback: (($obj: GLMemoryAllocator, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::name", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -2258,10 +1910,10 @@ export class GLMemoryAllocator {
 export interface GLMemoryPBOAllocator_ConstructProps extends GLMemoryAllocator_ConstructProps {
 }
 export class GLMemoryPBOAllocator {
-    /* Properties of Gst.Object */
+    /* Properties of Gst-1.0.Gst.Object */
     name: string
     parent: Gst.Object
-    /* Fields of Gst.Allocator */
+    /* Fields of Gst-1.0.Gst.Allocator */
     object: Gst.Object
     memType: string
     memMap: Gst.MemoryMapFunction
@@ -2271,16 +1923,16 @@ export class GLMemoryPBOAllocator {
     memIsSpan: Gst.MemoryIsSpanFunction
     memMapFull: Gst.MemoryMapFullFunction
     memUnmapFull: Gst.MemoryUnmapFullFunction
-    /* Fields of Gst.Object */
+    /* Fields of Gst-1.0.Gst.Object */
     lock: GLib.Mutex
     flags: number
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Gst.Allocator */
+    /* Methods of Gst-1.0.Gst.Allocator */
     alloc(size: number, params?: Gst.AllocationParams | null): Gst.Memory | null
     free(memory: Gst.Memory): void
     setDefault(): void
-    /* Methods of Gst.Object */
+    /* Methods of Gst-1.0.Gst.Object */
     addControlBinding(binding: Gst.ControlBinding): boolean
     defaultError(error: GLib.Error, debug?: string | null): void
     getControlBinding(propertyName: string): Gst.ControlBinding | null
@@ -2305,7 +1957,7 @@ export class GLMemoryPBOAllocator {
     syncValues(timestamp: Gst.ClockTime): boolean
     unparent(): void
     unref(): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -2326,42 +1978,18 @@ export class GLMemoryPBOAllocator {
     stealQdata(quark: GLib.Quark): object | null
     thawNotify(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GstGL.GLMemoryPBOAllocator */
-    vfuncAlloc(params: GLAllocationParams): GLBaseMemory
-    vfuncAlloc(size: number, params?: Gst.AllocationParams | null): Gst.Memory | null
-    /* Virtual methods of GstGL.GLMemoryAllocator */
-    vfuncAlloc(params: GLAllocationParams): GLBaseMemory
-    vfuncAlloc(size: number, params?: Gst.AllocationParams | null): Gst.Memory | null
-    /* Virtual methods of GstGL.GLBaseMemoryAllocator */
-    vfuncAlloc(params: GLAllocationParams): GLBaseMemory
-    vfuncAlloc(size: number, params?: Gst.AllocationParams | null): Gst.Memory | null
-    /* Virtual methods of Gst.Allocator */
-    vfuncAlloc(size: number, params?: Gst.AllocationParams | null): Gst.Memory | null
-    vfuncFree(memory: Gst.Memory): void
-    /* Virtual methods of Gst.Object */
-    vfuncDeepNotify(orig: Gst.Object, pspec: GObject.ParamSpec): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gst.Object */
+    /* Signals of Gst-1.0.Gst.Object */
     connect(sigName: "deep-notify", callback: (($obj: GLMemoryPBOAllocator, propObject: Gst.Object, prop: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "deep-notify", callback: (($obj: GLMemoryPBOAllocator, propObject: Gst.Object, prop: GObject.ParamSpec) => void)): number
+    on(sigName: "deep-notify", callback: (propObject: Gst.Object, prop: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "deep-notify", callback: (propObject: Gst.Object, prop: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "deep-notify", callback: (propObject: Gst.Object, prop: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "deep-notify", propObject: Gst.Object, prop: GObject.ParamSpec): void
-    on(sigName: "deep-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "deep-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "deep-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: GLMemoryPBOAllocator, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: GLMemoryPBOAllocator, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::name", callback: (($obj: GLMemoryPBOAllocator, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::name", callback: (($obj: GLMemoryPBOAllocator, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::name", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -2388,22 +2016,22 @@ export interface GLOverlayCompositor_ConstructProps extends Gst.Object_Construct
     yinvert?: boolean
 }
 export class GLOverlayCompositor {
-    /* Properties of GstGL.GLOverlayCompositor */
+    /* Properties of GstGL-1.0.GstGL.GLOverlayCompositor */
     yinvert: boolean
-    /* Properties of Gst.Object */
+    /* Properties of Gst-1.0.Gst.Object */
     name: string
     parent: Gst.Object
-    /* Fields of Gst.Object */
+    /* Fields of Gst-1.0.Gst.Object */
     object: GObject.InitiallyUnowned
     lock: GLib.Mutex
     flags: number
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GstGL.GLOverlayCompositor */
+    /* Methods of GstGL-1.0.GstGL.GLOverlayCompositor */
     drawOverlays(): void
     freeOverlays(): void
     uploadOverlays(buf: Gst.Buffer): void
-    /* Methods of Gst.Object */
+    /* Methods of Gst-1.0.Gst.Object */
     addControlBinding(binding: Gst.ControlBinding): boolean
     defaultError(error: GLib.Error, debug?: string | null): void
     getControlBinding(propertyName: string): Gst.ControlBinding | null
@@ -2428,7 +2056,7 @@ export class GLOverlayCompositor {
     syncValues(timestamp: Gst.ClockTime): boolean
     unparent(): void
     unref(): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -2449,30 +2077,18 @@ export class GLOverlayCompositor {
     stealQdata(quark: GLib.Quark): object | null
     thawNotify(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of Gst.Object */
-    vfuncDeepNotify(orig: Gst.Object, pspec: GObject.ParamSpec): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gst.Object */
+    /* Signals of Gst-1.0.Gst.Object */
     connect(sigName: "deep-notify", callback: (($obj: GLOverlayCompositor, propObject: Gst.Object, prop: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "deep-notify", callback: (($obj: GLOverlayCompositor, propObject: Gst.Object, prop: GObject.ParamSpec) => void)): number
+    on(sigName: "deep-notify", callback: (propObject: Gst.Object, prop: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "deep-notify", callback: (propObject: Gst.Object, prop: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "deep-notify", callback: (propObject: Gst.Object, prop: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "deep-notify", propObject: Gst.Object, prop: GObject.ParamSpec): void
-    on(sigName: "deep-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "deep-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "deep-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: GLOverlayCompositor, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: GLOverlayCompositor, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::yinvert", callback: (($obj: GLOverlayCompositor, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::yinvert", callback: (($obj: GLOverlayCompositor, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::yinvert", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -2506,10 +2122,10 @@ export class GLOverlayCompositor {
 export interface GLRenderbufferAllocator_ConstructProps extends GLBaseMemoryAllocator_ConstructProps {
 }
 export class GLRenderbufferAllocator {
-    /* Properties of Gst.Object */
+    /* Properties of Gst-1.0.Gst.Object */
     name: string
     parent: Gst.Object
-    /* Fields of Gst.Allocator */
+    /* Fields of Gst-1.0.Gst.Allocator */
     object: Gst.Object
     memType: string
     memMap: Gst.MemoryMapFunction
@@ -2519,16 +2135,16 @@ export class GLRenderbufferAllocator {
     memIsSpan: Gst.MemoryIsSpanFunction
     memMapFull: Gst.MemoryMapFullFunction
     memUnmapFull: Gst.MemoryUnmapFullFunction
-    /* Fields of Gst.Object */
+    /* Fields of Gst-1.0.Gst.Object */
     lock: GLib.Mutex
     flags: number
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Gst.Allocator */
+    /* Methods of Gst-1.0.Gst.Allocator */
     alloc(size: number, params?: Gst.AllocationParams | null): Gst.Memory | null
     free(memory: Gst.Memory): void
     setDefault(): void
-    /* Methods of Gst.Object */
+    /* Methods of Gst-1.0.Gst.Object */
     addControlBinding(binding: Gst.ControlBinding): boolean
     defaultError(error: GLib.Error, debug?: string | null): void
     getControlBinding(propertyName: string): Gst.ControlBinding | null
@@ -2553,7 +2169,7 @@ export class GLRenderbufferAllocator {
     syncValues(timestamp: Gst.ClockTime): boolean
     unparent(): void
     unref(): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -2574,39 +2190,18 @@ export class GLRenderbufferAllocator {
     stealQdata(quark: GLib.Quark): object | null
     thawNotify(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GstGL.GLRenderbufferAllocator */
-    vfuncAlloc(params: GLAllocationParams): GLBaseMemory
-    vfuncAlloc(size: number, params?: Gst.AllocationParams | null): Gst.Memory | null
-    /* Virtual methods of GstGL.GLBaseMemoryAllocator */
-    vfuncAlloc(params: GLAllocationParams): GLBaseMemory
-    vfuncAlloc(size: number, params?: Gst.AllocationParams | null): Gst.Memory | null
-    /* Virtual methods of Gst.Allocator */
-    vfuncAlloc(size: number, params?: Gst.AllocationParams | null): Gst.Memory | null
-    vfuncFree(memory: Gst.Memory): void
-    /* Virtual methods of Gst.Object */
-    vfuncDeepNotify(orig: Gst.Object, pspec: GObject.ParamSpec): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gst.Object */
+    /* Signals of Gst-1.0.Gst.Object */
     connect(sigName: "deep-notify", callback: (($obj: GLRenderbufferAllocator, propObject: Gst.Object, prop: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "deep-notify", callback: (($obj: GLRenderbufferAllocator, propObject: Gst.Object, prop: GObject.ParamSpec) => void)): number
+    on(sigName: "deep-notify", callback: (propObject: Gst.Object, prop: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "deep-notify", callback: (propObject: Gst.Object, prop: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "deep-notify", callback: (propObject: Gst.Object, prop: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "deep-notify", propObject: Gst.Object, prop: GObject.ParamSpec): void
-    on(sigName: "deep-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "deep-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "deep-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: GLRenderbufferAllocator, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: GLRenderbufferAllocator, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::name", callback: (($obj: GLRenderbufferAllocator, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::name", callback: (($obj: GLRenderbufferAllocator, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::name", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -2632,23 +2227,23 @@ export class GLRenderbufferAllocator {
 export interface GLSLStage_ConstructProps extends Gst.Object_ConstructProps {
 }
 export class GLSLStage {
-    /* Properties of Gst.Object */
+    /* Properties of Gst-1.0.Gst.Object */
     name: string
     parent: Gst.Object
-    /* Fields of Gst.Object */
+    /* Fields of Gst-1.0.Gst.Object */
     object: GObject.InitiallyUnowned
     lock: GLib.Mutex
     flags: number
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GstGL.GLSLStage */
+    /* Methods of GstGL-1.0.GstGL.GLSLStage */
     compile(): boolean
     getHandle(): number
     getProfile(): GLSLProfile
     getShaderType(): number
     getVersion(): GLSLVersion
     setStrings(version: GLSLVersion, profile: GLSLProfile, str: string[]): boolean
-    /* Methods of Gst.Object */
+    /* Methods of Gst-1.0.Gst.Object */
     addControlBinding(binding: Gst.ControlBinding): boolean
     defaultError(error: GLib.Error, debug?: string | null): void
     getControlBinding(propertyName: string): Gst.ControlBinding | null
@@ -2673,7 +2268,7 @@ export class GLSLStage {
     syncValues(timestamp: Gst.ClockTime): boolean
     unparent(): void
     unref(): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -2694,30 +2289,18 @@ export class GLSLStage {
     stealQdata(quark: GLib.Quark): object | null
     thawNotify(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of Gst.Object */
-    vfuncDeepNotify(orig: Gst.Object, pspec: GObject.ParamSpec): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gst.Object */
+    /* Signals of Gst-1.0.Gst.Object */
     connect(sigName: "deep-notify", callback: (($obj: GLSLStage, propObject: Gst.Object, prop: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "deep-notify", callback: (($obj: GLSLStage, propObject: Gst.Object, prop: GObject.ParamSpec) => void)): number
+    on(sigName: "deep-notify", callback: (propObject: Gst.Object, prop: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "deep-notify", callback: (propObject: Gst.Object, prop: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "deep-notify", callback: (propObject: Gst.Object, prop: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "deep-notify", propObject: Gst.Object, prop: GObject.ParamSpec): void
-    on(sigName: "deep-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "deep-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "deep-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: GLSLStage, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: GLSLStage, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::name", callback: (($obj: GLSLStage, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::name", callback: (($obj: GLSLStage, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::name", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -2749,20 +2332,20 @@ export class GLSLStage {
 export interface GLShader_ConstructProps extends Gst.Object_ConstructProps {
 }
 export class GLShader {
-    /* Properties of GstGL.GLShader */
+    /* Properties of GstGL-1.0.GstGL.GLShader */
     readonly linked: boolean
-    /* Properties of Gst.Object */
+    /* Properties of Gst-1.0.Gst.Object */
     name: string
     parent: Gst.Object
-    /* Fields of GstGL.GLShader */
+    /* Fields of GstGL-1.0.GstGL.GLShader */
     context: GLContext
-    /* Fields of Gst.Object */
+    /* Fields of Gst-1.0.Gst.Object */
     object: GObject.InitiallyUnowned
     lock: GLib.Mutex
     flags: number
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GstGL.GLShader */
+    /* Methods of GstGL-1.0.GstGL.GLShader */
     attach(stage: GLSLStage): boolean
     attachUnlocked(stage: GLSLStage): boolean
     bindAttributeLocation(index: number, name: string): void
@@ -2802,7 +2385,7 @@ export class GLShader {
     setUniformMatrix4x2fv(name: string, count: number, transpose: boolean, value: number): void
     setUniformMatrix4x3fv(name: string, count: number, transpose: boolean, value: number): void
     use(): void
-    /* Methods of Gst.Object */
+    /* Methods of Gst-1.0.Gst.Object */
     addControlBinding(binding: Gst.ControlBinding): boolean
     defaultError(error: GLib.Error, debug?: string | null): void
     getControlBinding(propertyName: string): Gst.ControlBinding | null
@@ -2827,7 +2410,7 @@ export class GLShader {
     syncValues(timestamp: Gst.ClockTime): boolean
     unparent(): void
     unref(): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -2848,30 +2431,18 @@ export class GLShader {
     stealQdata(quark: GLib.Quark): object | null
     thawNotify(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of Gst.Object */
-    vfuncDeepNotify(orig: Gst.Object, pspec: GObject.ParamSpec): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gst.Object */
+    /* Signals of Gst-1.0.Gst.Object */
     connect(sigName: "deep-notify", callback: (($obj: GLShader, propObject: Gst.Object, prop: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "deep-notify", callback: (($obj: GLShader, propObject: Gst.Object, prop: GObject.ParamSpec) => void)): number
+    on(sigName: "deep-notify", callback: (propObject: Gst.Object, prop: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "deep-notify", callback: (propObject: Gst.Object, prop: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "deep-notify", callback: (propObject: Gst.Object, prop: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "deep-notify", propObject: Gst.Object, prop: GObject.ParamSpec): void
-    on(sigName: "deep-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "deep-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "deep-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: GLShader, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: GLShader, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::linked", callback: (($obj: GLShader, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::linked", callback: (($obj: GLShader, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::linked", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -2908,25 +2479,25 @@ export class GLShader {
 export interface GLUpload_ConstructProps extends Gst.Object_ConstructProps {
 }
 export class GLUpload {
-    /* Properties of Gst.Object */
+    /* Properties of Gst-1.0.Gst.Object */
     name: string
     parent: Gst.Object
-    /* Fields of GstGL.GLUpload */
+    /* Fields of GstGL-1.0.GstGL.GLUpload */
     context: GLContext
-    /* Fields of Gst.Object */
+    /* Fields of Gst-1.0.Gst.Object */
     object: GObject.InitiallyUnowned
     lock: GLib.Mutex
     flags: number
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GstGL.GLUpload */
-    getCaps(): [ /* inCaps */ Gst.Caps | null, /* outCaps */ Gst.Caps | null ]
-    performWithBuffer(buffer: Gst.Buffer): [ /* returnType */ GLUploadReturn, /* outbufPtr */ Gst.Buffer ]
+    /* Methods of GstGL-1.0.GstGL.GLUpload */
+    getCaps(): { inCaps: Gst.Caps | null, outCaps: Gst.Caps | null }
+    performWithBuffer(buffer: Gst.Buffer): { returnType: GLUploadReturn, outbufPtr: Gst.Buffer }
     proposeAllocation(decideQuery: Gst.Query | null, query: Gst.Query): void
     setCaps(inCaps: Gst.Caps, outCaps: Gst.Caps): boolean
     setContext(context: GLContext): void
     transformCaps(context: GLContext, direction: Gst.PadDirection, caps: Gst.Caps, filter: Gst.Caps): Gst.Caps
-    /* Methods of Gst.Object */
+    /* Methods of Gst-1.0.Gst.Object */
     addControlBinding(binding: Gst.ControlBinding): boolean
     defaultError(error: GLib.Error, debug?: string | null): void
     getControlBinding(propertyName: string): Gst.ControlBinding | null
@@ -2951,7 +2522,7 @@ export class GLUpload {
     syncValues(timestamp: Gst.ClockTime): boolean
     unparent(): void
     unref(): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -2972,30 +2543,18 @@ export class GLUpload {
     stealQdata(quark: GLib.Quark): object | null
     thawNotify(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of Gst.Object */
-    vfuncDeepNotify(orig: Gst.Object, pspec: GObject.ParamSpec): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gst.Object */
+    /* Signals of Gst-1.0.Gst.Object */
     connect(sigName: "deep-notify", callback: (($obj: GLUpload, propObject: Gst.Object, prop: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "deep-notify", callback: (($obj: GLUpload, propObject: Gst.Object, prop: GObject.ParamSpec) => void)): number
+    on(sigName: "deep-notify", callback: (propObject: Gst.Object, prop: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "deep-notify", callback: (propObject: Gst.Object, prop: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "deep-notify", callback: (propObject: Gst.Object, prop: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "deep-notify", propObject: Gst.Object, prop: GObject.ParamSpec): void
-    on(sigName: "deep-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "deep-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "deep-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: GLUpload, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: GLUpload, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::name", callback: (($obj: GLUpload, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::name", callback: (($obj: GLUpload, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::name", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -3029,16 +2588,16 @@ export interface GLViewConvert_ConstructProps extends Gst.Object_ConstructProps 
     outputModeOverride?: GstVideo.VideoMultiviewMode
 }
 export class GLViewConvert {
-    /* Properties of GstGL.GLViewConvert */
+    /* Properties of GstGL-1.0.GstGL.GLViewConvert */
     downmixMode: GLStereoDownmix
     inputFlagsOverride: GstVideo.VideoMultiviewFlags
     inputModeOverride: GstVideo.VideoMultiviewMode
     outputFlagsOverride: GstVideo.VideoMultiviewFlags
     outputModeOverride: GstVideo.VideoMultiviewMode
-    /* Properties of Gst.Object */
+    /* Properties of Gst-1.0.Gst.Object */
     name: string
     parent: Gst.Object
-    /* Fields of GstGL.GLViewConvert */
+    /* Fields of GstGL-1.0.GstGL.GLViewConvert */
     object: Gst.Object
     context: GLContext
     shader: GLShader
@@ -3050,21 +2609,21 @@ export class GLViewConvert {
     initted: boolean
     reconfigure: boolean
     fbo: GLFramebuffer
-    /* Fields of Gst.Object */
+    /* Fields of Gst-1.0.Gst.Object */
     lock: GLib.Mutex
     flags: number
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GstGL.GLViewConvert */
+    /* Methods of GstGL-1.0.GstGL.GLViewConvert */
     fixateCaps(direction: Gst.PadDirection, caps: Gst.Caps, othercaps: Gst.Caps): Gst.Caps
-    getOutput(): [ /* returnType */ Gst.FlowReturn, /* outbufPtr */ Gst.Buffer ]
+    getOutput(): { returnType: Gst.FlowReturn, outbufPtr: Gst.Buffer }
     perform(inbuf: Gst.Buffer): Gst.Buffer
     reset(): void
     setCaps(inCaps: Gst.Caps, outCaps: Gst.Caps): boolean
     setContext(context: GLContext): void
     submitInputBuffer(isDiscont: boolean, input: Gst.Buffer): Gst.FlowReturn
     transformCaps(direction: Gst.PadDirection, caps: Gst.Caps, filter: Gst.Caps): Gst.Caps
-    /* Methods of Gst.Object */
+    /* Methods of Gst-1.0.Gst.Object */
     addControlBinding(binding: Gst.ControlBinding): boolean
     defaultError(error: GLib.Error, debug?: string | null): void
     getControlBinding(propertyName: string): Gst.ControlBinding | null
@@ -3089,7 +2648,7 @@ export class GLViewConvert {
     syncValues(timestamp: Gst.ClockTime): boolean
     unparent(): void
     unref(): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -3110,30 +2669,18 @@ export class GLViewConvert {
     stealQdata(quark: GLib.Quark): object | null
     thawNotify(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of Gst.Object */
-    vfuncDeepNotify(orig: Gst.Object, pspec: GObject.ParamSpec): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gst.Object */
+    /* Signals of Gst-1.0.Gst.Object */
     connect(sigName: "deep-notify", callback: (($obj: GLViewConvert, propObject: Gst.Object, prop: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "deep-notify", callback: (($obj: GLViewConvert, propObject: Gst.Object, prop: GObject.ParamSpec) => void)): number
+    on(sigName: "deep-notify", callback: (propObject: Gst.Object, prop: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "deep-notify", callback: (propObject: Gst.Object, prop: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "deep-notify", callback: (propObject: Gst.Object, prop: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "deep-notify", propObject: Gst.Object, prop: GObject.ParamSpec): void
-    on(sigName: "deep-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "deep-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "deep-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: GLViewConvert, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: GLViewConvert, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::downmix-mode", callback: (($obj: GLViewConvert, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::downmix-mode", callback: (($obj: GLViewConvert, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::downmix-mode", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -3186,21 +2733,21 @@ export class GLViewConvert {
 export interface GLWindow_ConstructProps extends Gst.Object_ConstructProps {
 }
 export class GLWindow {
-    /* Properties of Gst.Object */
+    /* Properties of Gst-1.0.Gst.Object */
     name: string
     parent: Gst.Object
-    /* Fields of Gst.Object */
+    /* Fields of Gst-1.0.Gst.Object */
     object: GObject.InitiallyUnowned
     lock: GLib.Mutex
     flags: number
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GstGL.GLWindow */
+    /* Methods of GstGL-1.0.GstGL.GLWindow */
     controlsViewport(): boolean
     draw(): void
     getContext(): GLContext
     getDisplay(): number
-    getSurfaceDimensions(): [ /* width */ number, /* height */ number ]
+    getSurfaceDimensions(): { width: number, height: number }
     getWindowHandle(): number
     handleEvents(handleEvents: boolean): void
     hasOutputSurface(): boolean
@@ -3220,7 +2767,7 @@ export class GLWindow {
     setResizeCallback(callback: GLWindowResizeCB): void
     setWindowHandle(handle: number): void
     show(): void
-    /* Methods of Gst.Object */
+    /* Methods of Gst-1.0.Gst.Object */
     addControlBinding(binding: Gst.ControlBinding): boolean
     defaultError(error: GLib.Error, debug?: string | null): void
     getControlBinding(propertyName: string): Gst.ControlBinding | null
@@ -3245,7 +2792,7 @@ export class GLWindow {
     syncValues(timestamp: Gst.ClockTime): boolean
     unparent(): void
     unref(): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -3266,67 +2813,34 @@ export class GLWindow {
     stealQdata(quark: GLib.Quark): object | null
     thawNotify(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GstGL.GLWindow */
-    vfuncClose(): void
-    vfuncControlsViewport(): boolean
-    vfuncDraw(): void
-    vfuncGetDisplay(): number
-    vfuncGetWindowHandle(): number
-    vfuncHandleEvents(handleEvents: boolean): void
-    vfuncHasOutputSurface(): boolean
-    vfuncOpen(): boolean
-    vfuncQueueResize(): void
-    vfuncQuit(): void
-    vfuncRun(): void
-    vfuncSendMessage(callback: GLWindowCB): void
-    vfuncSendMessageAsync(callback: GLWindowCB): void
-    vfuncSetPreferredSize(width: number, height: number): void
-    vfuncSetRenderRectangle(x: number, y: number, width: number, height: number): boolean
-    vfuncSetWindowHandle(handle: number): void
-    vfuncShow(): void
-    /* Virtual methods of Gst.Object */
-    vfuncDeepNotify(orig: Gst.Object, pspec: GObject.ParamSpec): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GstGL.GLWindow */
+    /* Signals of GstGL-1.0.GstGL.GLWindow */
     connect(sigName: "key-event", callback: (($obj: GLWindow, id: string, key: string) => void)): number
-    connect_after(sigName: "key-event", callback: (($obj: GLWindow, id: string, key: string) => void)): number
+    on(sigName: "key-event", callback: (id: string, key: string) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "key-event", callback: (id: string, key: string) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "key-event", callback: (id: string, key: string) => void): NodeJS.EventEmitter
     emit(sigName: "key-event", id: string, key: string): void
-    on(sigName: "key-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "key-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "key-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "mouse-event", callback: (($obj: GLWindow, id: string, button: number, x: number, y: number) => void)): number
-    connect_after(sigName: "mouse-event", callback: (($obj: GLWindow, id: string, button: number, x: number, y: number) => void)): number
+    on(sigName: "mouse-event", callback: (id: string, button: number, x: number, y: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "mouse-event", callback: (id: string, button: number, x: number, y: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "mouse-event", callback: (id: string, button: number, x: number, y: number) => void): NodeJS.EventEmitter
     emit(sigName: "mouse-event", id: string, button: number, x: number, y: number): void
-    on(sigName: "mouse-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "mouse-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "mouse-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "scroll-event", callback: (($obj: GLWindow, x: number, y: number, deltaX: number, deltaY: number) => void)): number
-    connect_after(sigName: "scroll-event", callback: (($obj: GLWindow, x: number, y: number, deltaX: number, deltaY: number) => void)): number
+    on(sigName: "scroll-event", callback: (x: number, y: number, deltaX: number, deltaY: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "scroll-event", callback: (x: number, y: number, deltaX: number, deltaY: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "scroll-event", callback: (x: number, y: number, deltaX: number, deltaY: number) => void): NodeJS.EventEmitter
     emit(sigName: "scroll-event", x: number, y: number, deltaX: number, deltaY: number): void
-    on(sigName: "scroll-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "scroll-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "scroll-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of Gst.Object */
+    /* Signals of Gst-1.0.Gst.Object */
     connect(sigName: "deep-notify", callback: (($obj: GLWindow, propObject: Gst.Object, prop: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "deep-notify", callback: (($obj: GLWindow, propObject: Gst.Object, prop: GObject.ParamSpec) => void)): number
+    on(sigName: "deep-notify", callback: (propObject: Gst.Object, prop: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "deep-notify", callback: (propObject: Gst.Object, prop: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "deep-notify", callback: (propObject: Gst.Object, prop: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "deep-notify", propObject: Gst.Object, prop: GObject.ParamSpec): void
-    on(sigName: "deep-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "deep-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "deep-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: GLWindow, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: GLWindow, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::name", callback: (($obj: GLWindow, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::name", callback: (($obj: GLWindow, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::name", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -3352,7 +2866,7 @@ export class GLWindow {
     static $gtype: GObject.Type
 }
 export class GLAllocationParams {
-    /* Fields of GstGL.GLAllocationParams */
+    /* Fields of GstGL-1.0.GstGL.GLAllocationParams */
     structSize: number
     copy: GLAllocationParamsCopyFunc
     free: GLAllocationParamsFreeFunc
@@ -3364,13 +2878,13 @@ export class GLAllocationParams {
     userData: object
     wrappedData: object
     glHandle: object
-    /* Methods of GstGL.GLAllocationParams */
+    /* Methods of GstGL-1.0.GstGL.GLAllocationParams */
     copyData(dest: GLAllocationParams): void
     freeData(): void
     static name: string
 }
 export class GLAsyncDebug {
-    /* Methods of GstGL.GLAsyncDebug */
+    /* Methods of GstGL-1.0.GstGL.GLAsyncDebug */
     free(): void
     freeze(): void
     init(): void
@@ -3380,7 +2894,7 @@ export class GLAsyncDebug {
     static name: string
 }
 export abstract class GLBaseFilterClass {
-    /* Fields of GstGL.GLBaseFilterClass */
+    /* Fields of GstGL-1.0.GstGL.GLBaseFilterClass */
     parentClass: GstBase.BaseTransformClass
     supportedGlApi: GLAPI
     glStart: (filter: GLBaseFilter) => boolean
@@ -3392,7 +2906,7 @@ export class GLBaseFilterPrivate {
     static name: string
 }
 export class GLBaseMemory {
-    /* Fields of GstGL.GLBaseMemory */
+    /* Fields of GstGL-1.0.GstGL.GLBaseMemory */
     mem: Gst.Memory
     context: GLContext
     lock: GLib.Mutex
@@ -3401,7 +2915,7 @@ export class GLBaseMemory {
     glMapCount: number
     data: object
     query: GLQuery
-    /* Methods of GstGL.GLBaseMemory */
+    /* Methods of GstGL-1.0.GstGL.GLBaseMemory */
     allocData(): boolean
     init(allocator: Gst.Allocator, parent: Gst.Memory | null, context: GLContext, params: Gst.AllocationParams | null, size: number, userData?: object | null, notify?: GLib.DestroyNotify | null): void
     memcpy(dest: GLBaseMemory, offset: number, size: number): boolean
@@ -3411,7 +2925,7 @@ export class GLBaseMemory {
     static initOnce(): void
 }
 export abstract class GLBaseMemoryAllocatorClass {
-    /* Fields of GstGL.GLBaseMemoryAllocatorClass */
+    /* Fields of GstGL-1.0.GstGL.GLBaseMemoryAllocatorClass */
     parentClass: Gst.AllocatorClass
     alloc: GLBaseMemoryAllocatorAllocFunction
     create: GLBaseMemoryAllocatorCreateFunction
@@ -3422,7 +2936,7 @@ export abstract class GLBaseMemoryAllocatorClass {
     static name: string
 }
 export abstract class GLBaseSrcClass {
-    /* Fields of GstGL.GLBaseSrcClass */
+    /* Fields of GstGL-1.0.GstGL.GLBaseSrcClass */
     parentClass: GstBase.PushSrcClass
     supportedGlApi: GLAPI
     glStart: (src: GLBaseSrc) => boolean
@@ -3434,7 +2948,7 @@ export class GLBaseSrcPrivate {
     static name: string
 }
 export class GLBuffer {
-    /* Fields of GstGL.GLBuffer */
+    /* Fields of GstGL-1.0.GstGL.GLBuffer */
     mem: GLBaseMemory
     id: number
     target: number
@@ -3444,7 +2958,7 @@ export class GLBuffer {
     static initOnce(): void
 }
 export class GLBufferAllocationParams {
-    /* Fields of GstGL.GLBufferAllocationParams */
+    /* Fields of GstGL-1.0.GstGL.GLBufferAllocationParams */
     parent: GLAllocationParams
     glTarget: number
     glUsage: number
@@ -3455,12 +2969,12 @@ export class GLBufferAllocationParams {
     static new(context: GLContext, allocSize: number, allocParams: Gst.AllocationParams | null, glTarget: number, glUsage: number): GLBufferAllocationParams
 }
 export abstract class GLBufferAllocatorClass {
-    /* Fields of GstGL.GLBufferAllocatorClass */
+    /* Fields of GstGL-1.0.GstGL.GLBufferAllocatorClass */
     parentClass: GLBaseMemoryAllocatorClass
     static name: string
 }
 export abstract class GLBufferPoolClass {
-    /* Fields of GstGL.GLBufferPoolClass */
+    /* Fields of GstGL-1.0.GstGL.GLBufferPoolClass */
     parentClass: Gst.BufferPoolClass
     static name: string
 }
@@ -3474,7 +2988,7 @@ export class GLColorConvertPrivate {
     static name: string
 }
 export abstract class GLContextClass {
-    /* Fields of GstGL.GLContextClass */
+    /* Fields of GstGL-1.0.GstGL.GLContextClass */
     parentClass: Gst.ObjectClass
     getCurrentContext: () => number
     getGlContext: (context: GLContext) => number
@@ -3487,14 +3001,14 @@ export abstract class GLContextClass {
     destroyContext: (context: GLContext) => void
     swapBuffers: (context: GLContext) => void
     checkFeature: (context: GLContext, feature: string) => boolean
-    getGlPlatformVersion: (context: GLContext) => [ /* major */ number, /* minor */ number ]
+    getGlPlatformVersion: (context: GLContext) => { major: number, minor: number }
     static name: string
 }
 export class GLContextPrivate {
     static name: string
 }
 export abstract class GLDisplayClass {
-    /* Fields of GstGL.GLDisplayClass */
+    /* Fields of GstGL-1.0.GstGL.GLDisplayClass */
     objectClass: Gst.ObjectClass
     getHandle: (display: GLDisplay) => number
     createWindow: (display: GLDisplay) => GLWindow
@@ -3504,7 +3018,7 @@ export class GLDisplayPrivate {
     static name: string
 }
 export abstract class GLFilterClass {
-    /* Fields of GstGL.GLFilterClass */
+    /* Fields of GstGL-1.0.GstGL.GLFilterClass */
     parentClass: GLBaseFilterClass
     setCaps: (filter: GLFilter, incaps: Gst.Caps, outcaps: Gst.Caps) => boolean
     filter: (filter: GLFilter, inbuf: Gst.Buffer, outbuf: Gst.Buffer) => boolean
@@ -3523,7 +3037,7 @@ export class GLFuncs {
     static name: string
 }
 export class GLMemory {
-    /* Fields of GstGL.GLMemory */
+    /* Fields of GstGL-1.0.GstGL.GLMemory */
     mem: GLBaseMemory
     texId: number
     texTarget: GLTextureTarget
@@ -3535,7 +3049,7 @@ export class GLMemory {
     textureWrapped: boolean
     unpackLength: number
     texWidth: number
-    /* Methods of GstGL.GLMemory */
+    /* Methods of GstGL-1.0.GstGL.GLMemory */
     copyInto(texId: number, target: GLTextureTarget, texFormat: GLFormat, width: number, height: number): boolean
     copyTeximage(texId: number, outTarget: GLTextureTarget, outTexFormat: GLFormat, outWidth: number, outHeight: number): boolean
     getTextureFormat(): GLFormat
@@ -3551,14 +3065,14 @@ export class GLMemory {
     static initOnce(): void
 }
 export abstract class GLMemoryAllocatorClass {
-    /* Fields of GstGL.GLMemoryAllocatorClass */
+    /* Fields of GstGL-1.0.GstGL.GLMemoryAllocatorClass */
     map: GLBaseMemoryAllocatorMapFunction
     copy: GLBaseMemoryAllocatorCopyFunction
     unmap: GLBaseMemoryAllocatorUnmapFunction
     static name: string
 }
 export class GLMemoryPBO {
-    /* Methods of GstGL.GLMemoryPBO */
+    /* Methods of GstGL-1.0.GstGL.GLMemoryPBO */
     copyIntoTexture(texId: number, target: GLTextureTarget, texFormat: GLFormat, width: number, height: number, stride: number, respecify: boolean): boolean
     downloadTransfer(): void
     uploadTransfer(): void
@@ -3567,17 +3081,17 @@ export class GLMemoryPBO {
     static initOnce(): void
 }
 export abstract class GLMemoryPBOAllocatorClass {
-    /* Fields of GstGL.GLMemoryPBOAllocatorClass */
+    /* Fields of GstGL-1.0.GstGL.GLMemoryPBOAllocatorClass */
     parentClass: GLMemoryAllocatorClass
     static name: string
 }
 export abstract class GLOverlayCompositorClass {
-    /* Fields of GstGL.GLOverlayCompositorClass */
+    /* Fields of GstGL-1.0.GstGL.GLOverlayCompositorClass */
     objectClass: Gst.ObjectClass
     static name: string
 }
 export class GLQuery {
-    /* Methods of GstGL.GLQuery */
+    /* Methods of GstGL-1.0.GstGL.GLQuery */
     counter(): void
     end(): void
     free(): void
@@ -3587,16 +3101,16 @@ export class GLQuery {
     unset(): void
     static name: string
     /* Static methods and pseudo-constructors */
-    static localGlContext(element: Gst.Element, direction: Gst.PadDirection, contextPtr: GLContext): [ /* returnType */ boolean, /* contextPtr */ GLContext ]
+    static localGlContext(element: Gst.Element, direction: Gst.PadDirection, contextPtr: GLContext): { returnType: boolean, contextPtr: GLContext }
 }
 export class GLRenderbuffer {
-    /* Fields of GstGL.GLRenderbuffer */
+    /* Fields of GstGL-1.0.GstGL.GLRenderbuffer */
     renderbufferId: number
     renderbufferFormat: GLFormat
     width: number
     height: number
     renderbufferWrapped: boolean
-    /* Methods of GstGL.GLRenderbuffer */
+    /* Methods of GstGL-1.0.GstGL.GLRenderbuffer */
     getFormat(): GLFormat
     getHeight(): number
     getId(): number
@@ -3606,7 +3120,7 @@ export class GLRenderbuffer {
     static initOnce(): void
 }
 export class GLRenderbufferAllocationParams {
-    /* Fields of GstGL.GLRenderbufferAllocationParams */
+    /* Fields of GstGL-1.0.GstGL.GLRenderbufferAllocationParams */
     renderbufferFormat: GLFormat
     width: number
     height: number
@@ -3618,7 +3132,7 @@ export class GLRenderbufferAllocationParams {
     static newWrapped(context: GLContext, allocParams: Gst.AllocationParams | null, renderbufferFormat: GLFormat, width: number, height: number, glHandle?: object | null, userData?: object | null, notify?: GLib.DestroyNotify | null): GLRenderbufferAllocationParams
 }
 export abstract class GLRenderbufferAllocatorClass {
-    /* Fields of GstGL.GLRenderbufferAllocatorClass */
+    /* Fields of GstGL-1.0.GstGL.GLRenderbufferAllocatorClass */
     parentClass: GLBaseMemoryAllocatorClass
     static name: string
 }
@@ -3635,7 +3149,7 @@ export class GLShaderPrivate {
     static name: string
 }
 export class GLSyncMeta {
-    /* Fields of GstGL.GLSyncMeta */
+    /* Fields of GstGL-1.0.GstGL.GLSyncMeta */
     parent: Gst.Meta
     context: GLContext
     data: object
@@ -3648,14 +3162,14 @@ export class GLSyncMeta {
     copy: (src: GLSyncMeta, sbuffer: Gst.Buffer, dest: GLSyncMeta, dbuffer: Gst.Buffer) => void
     free: (sync: GLSyncMeta, context: GLContext) => void
     freeGl: (sync: GLSyncMeta, context: GLContext) => void
-    /* Methods of GstGL.GLSyncMeta */
+    /* Methods of GstGL-1.0.GstGL.GLSyncMeta */
     setSyncPoint(context: GLContext): void
     static name: string
     /* Static methods and pseudo-constructors */
     static getInfo(): Gst.MetaInfo
 }
 export abstract class GLUploadClass {
-    /* Fields of GstGL.GLUploadClass */
+    /* Fields of GstGL-1.0.GstGL.GLUploadClass */
     objectClass: Gst.ObjectClass
     static name: string
 }
@@ -3663,14 +3177,14 @@ export class GLUploadPrivate {
     static name: string
 }
 export class GLVideoAllocationParams {
-    /* Fields of GstGL.GLVideoAllocationParams */
+    /* Fields of GstGL-1.0.GstGL.GLVideoAllocationParams */
     parent: GLAllocationParams
     vInfo: GstVideo.VideoInfo
     plane: number
     valign: GstVideo.VideoAlignment
     target: GLTextureTarget
     texFormat: GLFormat
-    /* Methods of GstGL.GLVideoAllocationParams */
+    /* Methods of GstGL-1.0.GstGL.GLVideoAllocationParams */
     copyData(destVid: GLVideoAllocationParams): void
     freeData(): void
     static name: string
@@ -3689,7 +3203,7 @@ export class GLViewConvertPrivate {
     static name: string
 }
 export abstract class GLWindowClass {
-    /* Fields of GstGL.GLWindowClass */
+    /* Fields of GstGL-1.0.GstGL.GLWindowClass */
     parentClass: Gst.ObjectClass
     getDisplay: (window: GLWindow) => number
     setWindowHandle: (window: GLWindow, handle: number) => void

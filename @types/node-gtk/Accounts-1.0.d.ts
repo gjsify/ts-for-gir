@@ -51,15 +51,15 @@ export interface Account_ConstructProps extends GObject.Object_ConstructProps {
     provider?: string
 }
 export class Account {
-    /* Properties of Accounts.Account */
+    /* Properties of Accounts-1.0.Accounts.Account */
     readonly displayName: string
     readonly enabled: boolean
-    /* Fields of Accounts.Account */
+    /* Fields of Accounts-1.0.Accounts.Account */
     parentInstance: GObject.Object
     id: AccountId
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Accounts.Account */
+    /* Methods of Accounts-1.0.Accounts.Account */
     delete(): void
     getDisplayName(): string
     getEnabled(): boolean
@@ -67,8 +67,8 @@ export class Account {
     getProviderName(): string
     getSelectedService(): Service
     getSettingsIter(keyPrefix?: string | null): AccountSettingIter
-    getValue(key: string, value: any): [ /* returnType */ SettingSource, /* value */ any ]
-    getVariant(key: string): [ /* returnType */ GLib.Variant, /* source */ SettingSource | null ]
+    getValue(key: string, value: any): { returnType: SettingSource, value: any }
+    getVariant(key: string): { returnType: GLib.Variant, source: SettingSource | null }
     listEnabledServices(): Service[]
     listServices(): Service[]
     listServicesByType(serviceType: string): Service[]
@@ -89,7 +89,7 @@ export class Account {
     verifyWithTokens(key: string, tokens: string): boolean
     watchDir(keyPrefix: string, callback: AccountNotifyCb): AccountWatch
     watchKey(key: string, callback: AccountNotifyCb): AccountWatch
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -111,44 +111,30 @@ export class Account {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of Gio.Initable */
+    /* Methods of Gio-2.0.Gio.Initable */
     init(cancellable?: Gio.Cancellable | null): boolean
-    /* Virtual methods of Accounts.Account */
-    vfuncInit(cancellable?: Gio.Cancellable | null): boolean
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Accounts.Account */
+    /* Signals of Accounts-1.0.Accounts.Account */
     connect(sigName: "deleted", callback: (($obj: Account) => void)): number
-    connect_after(sigName: "deleted", callback: (($obj: Account) => void)): number
+    on(sigName: "deleted", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "deleted", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "deleted", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "deleted"): void
-    on(sigName: "deleted", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "deleted", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "deleted", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "display-name-changed", callback: (($obj: Account) => void)): number
-    connect_after(sigName: "display-name-changed", callback: (($obj: Account) => void)): number
+    on(sigName: "display-name-changed", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "display-name-changed", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "display-name-changed", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "display-name-changed"): void
-    on(sigName: "display-name-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "display-name-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "display-name-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "enabled", callback: (($obj: Account, service: string, enabled: boolean) => void)): number
-    connect_after(sigName: "enabled", callback: (($obj: Account, service: string, enabled: boolean) => void)): number
+    on(sigName: "enabled", callback: (service: string, enabled: boolean) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "enabled", callback: (service: string, enabled: boolean) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "enabled", callback: (service: string, enabled: boolean) => void): NodeJS.EventEmitter
     emit(sigName: "enabled", service: string, enabled: boolean): void
-    on(sigName: "enabled", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "enabled", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "enabled", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Account, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Account, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::display-name", callback: (($obj: Account, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::display-name", callback: (($obj: Account, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::display-name", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -178,26 +164,26 @@ export interface AccountService_ConstructProps extends GObject.Object_ConstructP
     service?: Service
 }
 export class AccountService {
-    /* Properties of Accounts.AccountService */
+    /* Properties of Accounts-1.0.Accounts.AccountService */
     readonly enabled: boolean
-    /* Fields of Accounts.AccountService */
+    /* Fields of Accounts-1.0.Accounts.AccountService */
     parentInstance: GObject.Object
     priv: AccountServicePrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Accounts.AccountService */
+    /* Methods of Accounts-1.0.Accounts.AccountService */
     getAccount(): Account
     getAuthData(): AuthData
     getChangedFields(): string[]
     getEnabled(): boolean
     getService(): Service
     getSettingsIter(keyPrefix?: string | null): AccountSettingIter
-    getValue(key: string, value: any): [ /* returnType */ SettingSource, /* value */ any ]
-    getVariant(key: string): [ /* returnType */ GLib.Variant, /* source */ SettingSource | null ]
+    getValue(key: string, value: any): { returnType: SettingSource, value: any }
+    getVariant(key: string): { returnType: GLib.Variant, source: SettingSource | null }
     setValue(key: string, value?: any | null): void
     setVariant(key: string, value?: GLib.Variant | null): void
     settingsIterInit(iter: AccountSettingIter, keyPrefix?: string | null): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -219,34 +205,23 @@ export class AccountService {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Accounts.AccountService */
+    /* Signals of Accounts-1.0.Accounts.AccountService */
     connect(sigName: "changed", callback: (($obj: AccountService) => void)): number
-    connect_after(sigName: "changed", callback: (($obj: AccountService) => void)): number
+    on(sigName: "changed", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "changed", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "changed", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "changed"): void
-    on(sigName: "changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "enabled", callback: (($obj: AccountService, enabled: boolean) => void)): number
-    connect_after(sigName: "enabled", callback: (($obj: AccountService, enabled: boolean) => void)): number
+    on(sigName: "enabled", callback: (enabled: boolean) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "enabled", callback: (enabled: boolean) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "enabled", callback: (enabled: boolean) => void): NodeJS.EventEmitter
     emit(sigName: "enabled", enabled: boolean): void
-    on(sigName: "enabled", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "enabled", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "enabled", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: AccountService, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: AccountService, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::enabled", callback: (($obj: AccountService, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::enabled", callback: (($obj: AccountService, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::enabled", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -264,7 +239,7 @@ export class AccountService {
     _init (config?: AccountService_ConstructProps): void
     /* Static methods and pseudo-constructors */
     static new(account: Account, service?: Service | null): AccountService
-    static settingsIterNext(iter: AccountSettingIter): [ /* returnType */ boolean, /* key */ string, /* value */ any ]
+    static settingsIterNext(iter: AccountSettingIter): { returnType: boolean, key: string, value: any }
     static $gtype: GObject.Type
 }
 export interface Manager_ConstructProps extends GObject.Object_ConstructProps {
@@ -274,14 +249,14 @@ export interface Manager_ConstructProps extends GObject.Object_ConstructProps {
     useDbus?: boolean
 }
 export class Manager {
-    /* Properties of Accounts.Manager */
+    /* Properties of Accounts-1.0.Accounts.Manager */
     abortOnDbTimeout: boolean
     dbTimeout: number
-    /* Fields of Accounts.Manager */
+    /* Fields of Accounts-1.0.Accounts.Manager */
     parentInstance: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Accounts.Manager */
+    /* Methods of Accounts-1.0.Accounts.Manager */
     createAccount(providerName: string): Account
     getAbortOnDbTimeout(): boolean
     getAccount(accountId: AccountId): Account
@@ -305,7 +280,7 @@ export class Manager {
     loadServiceType(serviceType: string): ServiceType
     setAbortOnDbTimeout(abort: boolean): void
     setDbTimeout(timeoutMs: number): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -327,51 +302,35 @@ export class Manager {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of Gio.Initable */
+    /* Methods of Gio-2.0.Gio.Initable */
     init(cancellable?: Gio.Cancellable | null): boolean
-    /* Virtual methods of Accounts.Manager */
-    vfuncAccountDeleted(id: AccountId): void
-    vfuncInit(cancellable?: Gio.Cancellable | null): boolean
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Accounts.Manager */
+    /* Signals of Accounts-1.0.Accounts.Manager */
     connect(sigName: "account-created", callback: (($obj: Manager, accountId: number) => void)): number
-    connect_after(sigName: "account-created", callback: (($obj: Manager, accountId: number) => void)): number
+    on(sigName: "account-created", callback: (accountId: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "account-created", callback: (accountId: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "account-created", callback: (accountId: number) => void): NodeJS.EventEmitter
     emit(sigName: "account-created", accountId: number): void
-    on(sigName: "account-created", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "account-created", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "account-created", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "account-deleted", callback: (($obj: Manager, accountId: number) => void)): number
-    connect_after(sigName: "account-deleted", callback: (($obj: Manager, accountId: number) => void)): number
+    on(sigName: "account-deleted", callback: (accountId: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "account-deleted", callback: (accountId: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "account-deleted", callback: (accountId: number) => void): NodeJS.EventEmitter
     emit(sigName: "account-deleted", accountId: number): void
-    on(sigName: "account-deleted", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "account-deleted", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "account-deleted", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "account-updated", callback: (($obj: Manager, accountId: number) => void)): number
-    connect_after(sigName: "account-updated", callback: (($obj: Manager, accountId: number) => void)): number
+    on(sigName: "account-updated", callback: (accountId: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "account-updated", callback: (accountId: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "account-updated", callback: (accountId: number) => void): NodeJS.EventEmitter
     emit(sigName: "account-updated", accountId: number): void
-    on(sigName: "account-updated", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "account-updated", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "account-updated", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "enabled-event", callback: (($obj: Manager, accountId: number) => void)): number
-    connect_after(sigName: "enabled-event", callback: (($obj: Manager, accountId: number) => void)): number
+    on(sigName: "enabled-event", callback: (accountId: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "enabled-event", callback: (accountId: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "enabled-event", callback: (accountId: number) => void): NodeJS.EventEmitter
     emit(sigName: "enabled-event", accountId: number): void
-    on(sigName: "enabled-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "enabled-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "enabled-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Manager, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Manager, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::abort-on-db-timeout", callback: (($obj: Manager, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::abort-on-db-timeout", callback: (($obj: Manager, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::abort-on-db-timeout", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -400,7 +359,7 @@ export class Manager {
     static $gtype: GObject.Type
 }
 export abstract class AccountClass {
-    /* Fields of Accounts.AccountClass */
+    /* Fields of Accounts-1.0.Accounts.AccountClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
@@ -408,7 +367,7 @@ export class AccountPrivate {
     static name: string
 }
 export abstract class AccountServiceClass {
-    /* Fields of Accounts.AccountServiceClass */
+    /* Fields of Accounts-1.0.Accounts.AccountServiceClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
@@ -416,19 +375,19 @@ export class AccountServicePrivate {
     static name: string
 }
 export class AccountSettingIter {
-    /* Fields of Accounts.AccountSettingIter */
+    /* Fields of Accounts-1.0.Accounts.AccountSettingIter */
     account: Account
-    /* Methods of Accounts.AccountSettingIter */
+    /* Methods of Accounts-1.0.Accounts.AccountSettingIter */
     free(): void
-    getNext(): [ /* returnType */ boolean, /* key */ string, /* value */ GLib.Variant ]
-    next(): [ /* returnType */ boolean, /* key */ string, /* value */ any ]
+    getNext(): { returnType: boolean, key: string, value: GLib.Variant }
+    next(): { returnType: boolean, key: string, value: any }
     static name: string
 }
 export class AccountWatch {
     static name: string
 }
 export class Application {
-    /* Methods of Accounts.Application */
+    /* Methods of Accounts-1.0.Accounts.Application */
     getDescription(): string
     getDesktopAppInfo(): Gio.DesktopAppInfo
     getI18nDomain(): string
@@ -439,7 +398,7 @@ export class Application {
     static name: string
 }
 export class AuthData {
-    /* Methods of Accounts.AuthData */
+    /* Methods of Accounts-1.0.Accounts.AuthData */
     getCredentialsId(): number
     getLoginParameters(extraParameters?: GLib.Variant | null): GLib.Variant
     getMechanism(): string
@@ -451,7 +410,7 @@ export class AuthData {
     static name: string
 }
 export abstract class ManagerClass {
-    /* Fields of Accounts.ManagerClass */
+    /* Fields of Accounts-1.0.Accounts.ManagerClass */
     parentClass: GObject.ObjectClass
     accountDeleted: (manager: Manager, id: AccountId) => void
     static name: string
@@ -460,7 +419,7 @@ export class ManagerPrivate {
     static name: string
 }
 export class Provider {
-    /* Methods of Accounts.Provider */
+    /* Methods of Accounts-1.0.Accounts.Provider */
     getDescription(): string
     getDisplayName(): string
     getDomainsRegex(): string
@@ -478,7 +437,7 @@ export class Provider {
     static listFree(list: Provider[]): void
 }
 export class Service {
-    /* Methods of Accounts.Service */
+    /* Methods of Accounts-1.0.Accounts.Service */
     getDescription(): string
     getDisplayName(): string
     getFileContents(contents: string, dataOffset: number): void
@@ -496,7 +455,7 @@ export class Service {
     static listFree(list: Service[]): void
 }
 export class ServiceType {
-    /* Methods of Accounts.ServiceType */
+    /* Methods of Accounts-1.0.Accounts.ServiceType */
     getDescription(): string
     getDisplayName(): string
     getFileContents(contents: string, len: number): void

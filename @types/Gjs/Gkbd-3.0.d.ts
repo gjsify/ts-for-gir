@@ -49,12 +49,12 @@ export function strv_remove(arr: string, element: string): boolean
 export interface Configuration_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class Configuration {
-    /* Fields of Gkbd.Configuration */
+    /* Fields of Gkbd-3.0.Gkbd.Configuration */
     parent: GObject.Object
     priv: ConfigurationPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Gkbd.Configuration */
+    /* Methods of Gkbd-3.0.Gkbd.Configuration */
     append_object(obj: GObject.Object): void
     extract_layout_name(group: number): string
     free_images(images: GdkPixbuf.Pixbuf[]): void
@@ -79,7 +79,7 @@ export class Configuration {
     remove_object(obj: GObject.Object): void
     start_listen(): void
     stop_listen(): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -101,7 +101,7 @@ export class Configuration {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -109,7 +109,7 @@ export class Configuration {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gkbd.Configuration */
+    /* Signals of Gkbd-3.0.Gkbd.Configuration */
     connect(sigName: "changed", callback: (($obj: Configuration) => void)): number
     connect_after(sigName: "changed", callback: (($obj: Configuration) => void)): number
     emit(sigName: "changed"): void
@@ -119,7 +119,7 @@ export class Configuration {
     connect(sigName: "indicators-changed", callback: (($obj: Configuration) => void)): number
     connect_after(sigName: "indicators-changed", callback: (($obj: Configuration) => void)): number
     emit(sigName: "indicators-changed"): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Configuration, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Configuration, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -138,7 +138,7 @@ export class Configuration {
 export interface Indicator_ConstructProps extends Gtk.Notebook_ConstructProps {
 }
 export class Indicator {
-    /* Properties of Gtk.Notebook */
+    /* Properties of Gtk-3.0.Gtk.Notebook */
     enable_popup: boolean
     group_name: string
     page: number
@@ -146,11 +146,11 @@ export class Indicator {
     show_border: boolean
     show_tabs: boolean
     tab_pos: Gtk.PositionType
-    /* Properties of Gtk.Container */
+    /* Properties of Gtk-3.0.Gtk.Container */
     border_width: number
     child: Gtk.Widget
     resize_mode: Gtk.ResizeMode
-    /* Properties of Gtk.Widget */
+    /* Properties of Gtk-3.0.Gtk.Widget */
     app_paintable: boolean
     can_default: boolean
     can_focus: boolean
@@ -190,19 +190,19 @@ export class Indicator {
     visible: boolean
     width_request: number
     readonly window: Gdk.Window
-    /* Fields of Gkbd.Indicator */
+    /* Fields of Gkbd-3.0.Gkbd.Indicator */
     priv: IndicatorPrivate
-    /* Fields of Gtk.Container */
+    /* Fields of Gtk-3.0.Gtk.Container */
     widget: Gtk.Widget
-    /* Fields of Gtk.Widget */
+    /* Fields of Gtk-3.0.Gtk.Widget */
     parent_instance: GObject.InitiallyUnowned
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Gkbd.Indicator */
+    /* Methods of Gkbd-3.0.Gkbd.Indicator */
     reinit_ui(): void
     set_angle(angle: number): void
     set_parent_tooltips(ifset: boolean): void
-    /* Methods of Gtk.Notebook */
+    /* Methods of Gtk-3.0.Gtk.Notebook */
     append_page(child: Gtk.Widget, tab_label?: Gtk.Widget | null): number
     append_page_menu(child: Gtk.Widget, tab_label?: Gtk.Widget | null, menu_label?: Gtk.Widget | null): number
     detach_tab(child: Gtk.Widget): void
@@ -247,7 +247,7 @@ export class Indicator {
     set_tab_label_text(child: Gtk.Widget, tab_text: string): void
     set_tab_pos(pos: Gtk.PositionType): void
     set_tab_reorderable(child: Gtk.Widget, reorderable: boolean): void
-    /* Methods of Gtk.Container */
+    /* Methods of Gtk-3.0.Gtk.Container */
     add(widget: Gtk.Widget): void
     check_resize(): void
     child_get_property(child: Gtk.Widget, property_name: string, value: any): void
@@ -275,7 +275,7 @@ export class Indicator {
     set_reallocate_redraws(needs_redraws: boolean): void
     set_resize_mode(resize_mode: Gtk.ResizeMode): void
     unset_focus_chain(): void
-    /* Methods of Gtk.Widget */
+    /* Methods of Gtk-3.0.Gtk.Widget */
     activate(): boolean
     add_accelerator(accel_signal: string, accel_group: Gtk.AccelGroup, accel_key: number, accel_mods: Gdk.ModifierType, accel_flags: Gtk.AccelFlags): void
     add_device_events(device: Gdk.Device, events: Gdk.EventMask): void
@@ -534,7 +534,7 @@ export class Indicator {
     unrealize(): void
     unregister_window(window: Gdk.Window): void
     unset_state_flags(flags: Gtk.StateFlags): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -556,7 +556,7 @@ export class Indicator {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of Gtk.Buildable */
+    /* Methods of Gtk-3.0.Gtk.Buildable */
     add_child(builder: Gtk.Builder, child: GObject.Object, type?: string | null): void
     construct_child(builder: Gtk.Builder, name: string): GObject.Object
     custom_finished(builder: Gtk.Builder, child: GObject.Object | null, tagname: string, data?: object | null): void
@@ -565,7 +565,7 @@ export class Indicator {
     get_internal_child(builder: Gtk.Builder, childname: string): GObject.Object
     parser_finished(builder: Gtk.Builder): void
     set_buildable_property(builder: Gtk.Builder, name: string, value: any): void
-    /* Virtual methods of Gkbd.Indicator */
+    /* Virtual methods of Gkbd-3.0.Gkbd.Indicator */
     vfunc_reinit_ui(): void
     vfunc_add_child(builder: Gtk.Builder, child: GObject.Object, type?: string | null): void
     vfunc_construct_child(builder: Gtk.Builder, name: string): GObject.Object
@@ -577,7 +577,7 @@ export class Indicator {
     vfunc_parser_finished(builder: Gtk.Builder): void
     vfunc_set_buildable_property(builder: Gtk.Builder, name: string, value: any): void
     vfunc_set_name(name: string): void
-    /* Virtual methods of Gtk.Notebook */
+    /* Virtual methods of Gtk-3.0.Gtk.Notebook */
     vfunc_change_current_page(offset: number): boolean
     vfunc_focus_tab(type: Gtk.NotebookTab): boolean
     vfunc_insert_page(child: Gtk.Widget, tab_label: Gtk.Widget, menu_label: Gtk.Widget, position: number): number
@@ -588,7 +588,7 @@ export class Indicator {
     vfunc_reorder_tab(direction: Gtk.DirectionType, move_to_last: boolean): boolean
     vfunc_select_page(move_focus: boolean): boolean
     vfunc_switch_page(page: Gtk.Widget, page_num: number): void
-    /* Virtual methods of Gtk.Container */
+    /* Virtual methods of Gtk-3.0.Gtk.Container */
     vfunc_add(widget: Gtk.Widget): void
     vfunc_check_resize(): void
     vfunc_child_type(): GObject.Type
@@ -599,7 +599,7 @@ export class Indicator {
     vfunc_remove(widget: Gtk.Widget): void
     vfunc_set_child_property(child: Gtk.Widget, property_id: number, value: any, pspec: GObject.ParamSpec): void
     vfunc_set_focus_child(child?: Gtk.Widget | null): void
-    /* Virtual methods of Gtk.Widget */
+    /* Virtual methods of Gtk-3.0.Gtk.Widget */
     vfunc_adjust_baseline_allocation(baseline: number): void
     vfunc_adjust_baseline_request(minimum_baseline: number, natural_baseline: number): void
     vfunc_adjust_size_allocation(orientation: Gtk.Orientation, minimum_size: number, natural_size: number, allocated_pos: number, allocated_size: number): void
@@ -682,7 +682,7 @@ export class Indicator {
     vfunc_unrealize(): void
     vfunc_visibility_notify_event(event: Gdk.EventVisibility): boolean
     vfunc_window_state_event(event: Gdk.EventWindowState): boolean
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -690,11 +690,11 @@ export class Indicator {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gkbd.Indicator */
+    /* Signals of Gkbd-3.0.Gkbd.Indicator */
     connect(sigName: "reinit-ui", callback: (($obj: Indicator) => void)): number
     connect_after(sigName: "reinit-ui", callback: (($obj: Indicator) => void)): number
     emit(sigName: "reinit-ui"): void
-    /* Signals of Gtk.Notebook */
+    /* Signals of Gtk-3.0.Gtk.Notebook */
     connect(sigName: "change-current-page", callback: (($obj: Indicator, object: number) => boolean)): number
     connect_after(sigName: "change-current-page", callback: (($obj: Indicator, object: number) => boolean)): number
     emit(sigName: "change-current-page", object: number): void
@@ -725,7 +725,7 @@ export class Indicator {
     connect(sigName: "switch-page", callback: (($obj: Indicator, page: Gtk.Widget, page_num: number) => void)): number
     connect_after(sigName: "switch-page", callback: (($obj: Indicator, page: Gtk.Widget, page_num: number) => void)): number
     emit(sigName: "switch-page", page: Gtk.Widget, page_num: number): void
-    /* Signals of Gtk.Container */
+    /* Signals of Gtk-3.0.Gtk.Container */
     connect(sigName: "add", callback: (($obj: Indicator, object: Gtk.Widget) => void)): number
     connect_after(sigName: "add", callback: (($obj: Indicator, object: Gtk.Widget) => void)): number
     emit(sigName: "add", object: Gtk.Widget): void
@@ -738,7 +738,7 @@ export class Indicator {
     connect(sigName: "set-focus-child", callback: (($obj: Indicator, object: Gtk.Widget) => void)): number
     connect_after(sigName: "set-focus-child", callback: (($obj: Indicator, object: Gtk.Widget) => void)): number
     emit(sigName: "set-focus-child", object: Gtk.Widget): void
-    /* Signals of Gtk.Widget */
+    /* Signals of Gtk-3.0.Gtk.Widget */
     connect(sigName: "accel-closures-changed", callback: (($obj: Indicator) => void)): number
     connect_after(sigName: "accel-closures-changed", callback: (($obj: Indicator) => void)): number
     emit(sigName: "accel-closures-changed"): void
@@ -946,7 +946,7 @@ export class Indicator {
     connect(sigName: "window-state-event", callback: (($obj: Indicator, event: Gdk.EventWindowState) => boolean)): number
     connect_after(sigName: "window-state-event", callback: (($obj: Indicator, event: Gdk.EventWindowState) => boolean)): number
     emit(sigName: "window-state-event", event: Gdk.EventWindowState): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Indicator, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Indicator, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -1066,7 +1066,7 @@ export class Indicator {
 export interface KeyboardDrawing_ConstructProps extends Gtk.DrawingArea_ConstructProps {
 }
 export class KeyboardDrawing {
-    /* Properties of Gtk.Widget */
+    /* Properties of Gtk-3.0.Gtk.Widget */
     app_paintable: boolean
     can_default: boolean
     can_focus: boolean
@@ -1106,13 +1106,13 @@ export class KeyboardDrawing {
     visible: boolean
     width_request: number
     readonly window: Gdk.Window
-    /* Fields of Gtk.DrawingArea */
+    /* Fields of Gtk-3.0.Gtk.DrawingArea */
     widget: Gtk.Widget
-    /* Fields of Gtk.Widget */
+    /* Fields of Gtk-3.0.Gtk.Widget */
     parent_instance: GObject.InitiallyUnowned
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Gkbd.KeyboardDrawing */
+    /* Methods of Gkbd-3.0.Gkbd.KeyboardDrawing */
     get_compat(): string
     get_geometry(): string
     get_keycodes(): string
@@ -1124,7 +1124,7 @@ export class KeyboardDrawing {
     set_layout(id: string): void
     set_track_config(enable: boolean): void
     set_track_modifiers(enable: boolean): void
-    /* Methods of Gtk.Widget */
+    /* Methods of Gtk-3.0.Gtk.Widget */
     activate(): boolean
     add_accelerator(accel_signal: string, accel_group: Gtk.AccelGroup, accel_key: number, accel_mods: Gdk.ModifierType, accel_flags: Gtk.AccelFlags): void
     add_device_events(device: Gdk.Device, events: Gdk.EventMask): void
@@ -1383,7 +1383,7 @@ export class KeyboardDrawing {
     unrealize(): void
     unregister_window(window: Gdk.Window): void
     unset_state_flags(flags: Gtk.StateFlags): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -1405,7 +1405,7 @@ export class KeyboardDrawing {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of Gtk.Buildable */
+    /* Methods of Gtk-3.0.Gtk.Buildable */
     add_child(builder: Gtk.Builder, child: GObject.Object, type?: string | null): void
     construct_child(builder: Gtk.Builder, name: string): GObject.Object
     custom_finished(builder: Gtk.Builder, child: GObject.Object | null, tagname: string, data?: object | null): void
@@ -1414,7 +1414,7 @@ export class KeyboardDrawing {
     get_internal_child(builder: Gtk.Builder, childname: string): GObject.Object
     parser_finished(builder: Gtk.Builder): void
     set_buildable_property(builder: Gtk.Builder, name: string, value: any): void
-    /* Virtual methods of Gkbd.KeyboardDrawing */
+    /* Virtual methods of Gkbd-3.0.Gkbd.KeyboardDrawing */
     vfunc_bad_keycode(keycode: number): void
     vfunc_add_child(builder: Gtk.Builder, child: GObject.Object, type?: string | null): void
     vfunc_construct_child(builder: Gtk.Builder, name: string): GObject.Object
@@ -1426,7 +1426,7 @@ export class KeyboardDrawing {
     vfunc_parser_finished(builder: Gtk.Builder): void
     vfunc_set_buildable_property(builder: Gtk.Builder, name: string, value: any): void
     vfunc_set_name(name: string): void
-    /* Virtual methods of Gtk.Widget */
+    /* Virtual methods of Gtk-3.0.Gtk.Widget */
     vfunc_adjust_baseline_allocation(baseline: number): void
     vfunc_adjust_baseline_request(minimum_baseline: number, natural_baseline: number): void
     vfunc_adjust_size_allocation(orientation: Gtk.Orientation, minimum_size: number, natural_size: number, allocated_pos: number, allocated_size: number): void
@@ -1509,7 +1509,7 @@ export class KeyboardDrawing {
     vfunc_unrealize(): void
     vfunc_visibility_notify_event(event: Gdk.EventVisibility): boolean
     vfunc_window_state_event(event: Gdk.EventWindowState): boolean
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -1517,11 +1517,11 @@ export class KeyboardDrawing {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gkbd.KeyboardDrawing */
+    /* Signals of Gkbd-3.0.Gkbd.KeyboardDrawing */
     connect(sigName: "bad-keycode", callback: (($obj: KeyboardDrawing, object: number) => void)): number
     connect_after(sigName: "bad-keycode", callback: (($obj: KeyboardDrawing, object: number) => void)): number
     emit(sigName: "bad-keycode", object: number): void
-    /* Signals of Gtk.Widget */
+    /* Signals of Gtk-3.0.Gtk.Widget */
     connect(sigName: "accel-closures-changed", callback: (($obj: KeyboardDrawing) => void)): number
     connect_after(sigName: "accel-closures-changed", callback: (($obj: KeyboardDrawing) => void)): number
     emit(sigName: "accel-closures-changed"): void
@@ -1729,7 +1729,7 @@ export class KeyboardDrawing {
     connect(sigName: "window-state-event", callback: (($obj: KeyboardDrawing, event: Gdk.EventWindowState) => boolean)): number
     connect_after(sigName: "window-state-event", callback: (($obj: KeyboardDrawing, event: Gdk.EventWindowState) => boolean)): number
     emit(sigName: "window-state-event", event: Gdk.EventWindowState): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: KeyboardDrawing, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: KeyboardDrawing, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -1828,7 +1828,7 @@ export class KeyboardDrawing {
 export interface Status_ConstructProps extends Gtk.StatusIcon_ConstructProps {
 }
 export class Status {
-    /* Properties of Gtk.StatusIcon */
+    /* Properties of Gtk-3.0.Gtk.StatusIcon */
     readonly embedded: boolean
     file: string
     gicon: Gio.Icon
@@ -1844,16 +1844,16 @@ export class Status {
     tooltip_markup: string
     tooltip_text: string
     visible: boolean
-    /* Fields of Gkbd.Status */
+    /* Fields of Gkbd-3.0.Gkbd.Status */
     parent: Gtk.StatusIcon
     priv: StatusPrivate
-    /* Fields of Gtk.StatusIcon */
+    /* Fields of Gtk-3.0.Gtk.StatusIcon */
     parent_instance: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Gkbd.Status */
+    /* Methods of Gkbd-3.0.Gkbd.Status */
     reinit_ui(): void
-    /* Methods of Gtk.StatusIcon */
+    /* Methods of Gtk-3.0.Gtk.StatusIcon */
     get_geometry(): [ /* returnType */ boolean, /* screen */ Gdk.Screen | null, /* area */ Gdk.Rectangle | null, /* orientation */ Gtk.Orientation | null ]
     get_gicon(): Gio.Icon | null
     get_has_tooltip(): boolean
@@ -1881,7 +1881,7 @@ export class Status {
     set_tooltip_markup(markup?: string | null): void
     set_tooltip_text(text: string): void
     set_visible(visible: boolean): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -1903,7 +1903,7 @@ export class Status {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Gtk.StatusIcon */
+    /* Virtual methods of Gtk-3.0.Gtk.StatusIcon */
     vfunc_activate(): void
     vfunc_button_press_event(event: Gdk.EventButton): boolean
     vfunc_button_release_event(event: Gdk.EventButton): boolean
@@ -1911,7 +1911,7 @@ export class Status {
     vfunc_query_tooltip(x: number, y: number, keyboard_mode: boolean, tooltip: Gtk.Tooltip): boolean
     vfunc_scroll_event(event: Gdk.EventScroll): boolean
     vfunc_size_changed(size: number): boolean
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -1919,7 +1919,7 @@ export class Status {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gtk.StatusIcon */
+    /* Signals of Gtk-3.0.Gtk.StatusIcon */
     connect(sigName: "activate", callback: (($obj: Status) => void)): number
     connect_after(sigName: "activate", callback: (($obj: Status) => void)): number
     emit(sigName: "activate"): void
@@ -1941,7 +1941,7 @@ export class Status {
     connect(sigName: "size-changed", callback: (($obj: Status, size: number) => boolean)): number
     connect_after(sigName: "size-changed", callback: (($obj: Status, size: number) => boolean)): number
     emit(sigName: "size-changed", size: number): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Status, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Status, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -1990,7 +1990,7 @@ export class Status {
     static $gtype: GObject.Type
 }
 export abstract class ConfigurationClass {
-    /* Fields of Gkbd.ConfigurationClass */
+    /* Fields of Gkbd-3.0.Gkbd.ConfigurationClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
@@ -1998,7 +1998,7 @@ export class ConfigurationPrivate {
     static name: string
 }
 export class DesktopConfig {
-    /* Fields of Gkbd.DesktopConfig */
+    /* Fields of Gkbd-3.0.Gkbd.DesktopConfig */
     default_group: number
     group_per_app: boolean
     handle_indicators: boolean
@@ -2007,7 +2007,7 @@ export class DesktopConfig {
     settings: Gio.Settings
     config_listener_id: number
     engine: Xkl.Engine
-    /* Methods of Gkbd.DesktopConfig */
+    /* Methods of Gkbd-3.0.Gkbd.DesktopConfig */
     activate(): boolean
     init(engine: Xkl.Engine): void
     load(): void
@@ -2022,13 +2022,13 @@ export class DesktopConfig {
     static name: string
 }
 export abstract class IndicatorClass {
-    /* Fields of Gkbd.IndicatorClass */
+    /* Fields of Gkbd-3.0.Gkbd.IndicatorClass */
     parent_class: Gtk.NotebookClass
     reinit_ui: (gki: Indicator) => void
     static name: string
 }
 export class IndicatorConfig {
-    /* Fields of Gkbd.IndicatorConfig */
+    /* Fields of Gkbd-3.0.Gkbd.IndicatorConfig */
     secondary_groups_mask: number
     show_flags: boolean
     font_family: string
@@ -2040,7 +2040,7 @@ export class IndicatorConfig {
     icon_theme: Gtk.IconTheme
     config_listener_id: number
     engine: Xkl.Engine
-    /* Methods of Gkbd.IndicatorConfig */
+    /* Methods of Gkbd-3.0.Gkbd.IndicatorConfig */
     activate(): void
     free_image_filenames(): void
     get_fg_color_for_widget(widget: Gtk.Widget): string
@@ -2060,14 +2060,14 @@ export class IndicatorPrivate {
     static name: string
 }
 export class KeyboardConfig {
-    /* Fields of Gkbd.KeyboardConfig */
+    /* Fields of Gkbd-3.0.Gkbd.KeyboardConfig */
     model: string
     layouts_variants: string
     options: string
     settings: Gio.Settings
     config_listener_id: number
     engine: Xkl.Engine
-    /* Methods of Gkbd.KeyboardConfig */
+    /* Methods of Gkbd-3.0.Gkbd.KeyboardConfig */
     activate(): boolean
     equals(kbd_config2: KeyboardConfig): boolean
     init(engine: Xkl.Engine): void
@@ -2088,7 +2088,7 @@ export class KeyboardConfig {
     static split_items(merged: string, parent: string, child: string): boolean
 }
 export abstract class KeyboardDrawingClass {
-    /* Fields of Gkbd.KeyboardDrawingClass */
+    /* Fields of Gkbd-3.0.Gkbd.KeyboardDrawingClass */
     parent_class: Gtk.DrawingAreaClass
     bad_keycode: (drawing: KeyboardDrawing, keycode: number) => void
     static name: string
@@ -2097,7 +2097,7 @@ export class KeyboardDrawingDoodad {
     static name: string
 }
 export class KeyboardDrawingGroupLevel {
-    /* Fields of Gkbd.KeyboardDrawingGroupLevel */
+    /* Fields of Gkbd-3.0.Gkbd.KeyboardDrawingGroupLevel */
     group: number
     level: number
     static name: string
@@ -2109,7 +2109,7 @@ export class KeyboardDrawingKey {
     static name: string
 }
 export class KeyboardDrawingRenderContext {
-    /* Fields of Gkbd.KeyboardDrawingRenderContext */
+    /* Fields of Gkbd-3.0.Gkbd.KeyboardDrawingRenderContext */
     cr: cairo.Context
     angle: number
     layout: Pango.Layout
@@ -2120,7 +2120,7 @@ export class KeyboardDrawingRenderContext {
     static name: string
 }
 export abstract class StatusClass {
-    /* Fields of Gkbd.StatusClass */
+    /* Fields of Gkbd-3.0.Gkbd.StatusClass */
     parent_class: Gtk.NotebookClass
     static name: string
 }

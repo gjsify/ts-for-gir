@@ -28,7 +28,7 @@ export interface ActionFunc {
 export interface Actor_ConstructProps extends Atk.GObjectAccessible_ConstructProps {
 }
 export class Actor {
-    /* Properties of Atk.Object */
+    /* Properties of Atk-1.0.Atk.Object */
     readonly accessible_component_layer: number
     readonly accessible_component_mdi_zorder: number
     accessible_description: string
@@ -44,23 +44,23 @@ export class Actor {
     accessible_table_row_header: Atk.Object
     accessible_table_summary: Atk.Object
     accessible_value: number
-    /* Fields of Atk.GObjectAccessible */
+    /* Fields of Atk-1.0.Atk.GObjectAccessible */
     parent: Atk.Object
-    /* Fields of Atk.Object */
+    /* Fields of Atk-1.0.Atk.Object */
     description: string
     name: string
     role: Atk.Role
     relation_set: Atk.RelationSet
     layer: Atk.Layer
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Cally.Actor */
+    /* Methods of Cally-1.0.Cally.Actor */
     add_action(action_name: string, action_description: string, action_keybinding: string, callback: ActionCallback): number
     remove_action(action_id: number): boolean
     remove_action_by_name(action_name: string): boolean
-    /* Methods of Atk.GObjectAccessible */
+    /* Methods of Atk-1.0.Atk.GObjectAccessible */
     get_object(): GObject.Object
-    /* Methods of Atk.Object */
+    /* Methods of Atk-1.0.Atk.Object */
     add_relationship(relationship: Atk.RelationType, target: Atk.Object): boolean
     get_accessible_id(): string
     get_attributes(): Atk.AttributeSet
@@ -86,7 +86,7 @@ export class Actor {
     set_name(name: string): void
     set_parent(parent: Atk.Object): void
     set_role(role: Atk.Role): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -108,7 +108,7 @@ export class Actor {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of Atk.Action */
+    /* Methods of Atk-1.0.Atk.Action */
     do_action(i: number): boolean
     get_description(i: number): string | null
     get_keybinding(i: number): string | null
@@ -116,7 +116,7 @@ export class Actor {
     get_n_actions(): number
     get_name(i: number): string | null
     set_description(i: number, desc: string): boolean
-    /* Methods of Atk.Component */
+    /* Methods of Atk-1.0.Atk.Component */
     contains(x: number, y: number, coord_type: Atk.CoordType): boolean
     get_alpha(): number
     get_extents(coord_type: Atk.CoordType): [ /* x */ number | null, /* y */ number | null, /* width */ number | null, /* height */ number | null ]
@@ -130,7 +130,7 @@ export class Actor {
     set_extents(x: number, y: number, width: number, height: number, coord_type: Atk.CoordType): boolean
     set_position(x: number, y: number, coord_type: Atk.CoordType): boolean
     set_size(width: number, height: number): boolean
-    /* Virtual methods of Cally.Actor */
+    /* Virtual methods of Cally-1.0.Cally.Actor */
     vfunc_do_action(i: number): boolean
     vfunc_get_description(i: number): string | null
     vfunc_get_description(): string | null
@@ -157,7 +157,7 @@ export class Actor {
     vfunc_set_extents(x: number, y: number, width: number, height: number, coord_type: Atk.CoordType): boolean
     vfunc_set_position(x: number, y: number, coord_type: Atk.CoordType): boolean
     vfunc_set_size(width: number, height: number): boolean
-    /* Virtual methods of Atk.Object */
+    /* Virtual methods of Atk-1.0.Atk.Object */
     vfunc_active_descendant_changed(child?: object | null): void
     vfunc_children_changed(change_index: number, changed_child?: object | null): void
     vfunc_focus_event(focus_in: boolean): void
@@ -182,7 +182,7 @@ export class Actor {
     vfunc_set_role(role: Atk.Role): void
     vfunc_state_change(name: string, state_set: boolean): void
     vfunc_visible_data_changed(): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -190,7 +190,7 @@ export class Actor {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Atk.Object */
+    /* Signals of Atk-1.0.Atk.Object */
     connect(sigName: "active-descendant-changed", callback: (($obj: Actor, arg1: Atk.Object) => void)): number
     connect_after(sigName: "active-descendant-changed", callback: (($obj: Actor, arg1: Atk.Object) => void)): number
     emit(sigName: "active-descendant-changed", arg1: Atk.Object): void
@@ -209,11 +209,11 @@ export class Actor {
     connect(sigName: "visible-data-changed", callback: (($obj: Actor) => void)): number
     connect_after(sigName: "visible-data-changed", callback: (($obj: Actor) => void)): number
     emit(sigName: "visible-data-changed"): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Actor, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Actor, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    /* Signals of Atk.Component */
+    /* Signals of Atk-1.0.Atk.Component */
     connect(sigName: "bounds-changed", callback: (($obj: Actor, arg1: Atk.Rectangle) => void)): number
     connect_after(sigName: "bounds-changed", callback: (($obj: Actor, arg1: Atk.Rectangle) => void)): number
     emit(sigName: "bounds-changed", arg1: Atk.Rectangle): void
@@ -261,7 +261,7 @@ export class Actor {
 export interface Clone_ConstructProps extends Actor_ConstructProps {
 }
 export class Clone {
-    /* Properties of Atk.Object */
+    /* Properties of Atk-1.0.Atk.Object */
     readonly accessible_component_layer: number
     readonly accessible_component_mdi_zorder: number
     accessible_description: string
@@ -277,23 +277,23 @@ export class Clone {
     accessible_table_row_header: Atk.Object
     accessible_table_summary: Atk.Object
     accessible_value: number
-    /* Fields of Atk.GObjectAccessible */
+    /* Fields of Atk-1.0.Atk.GObjectAccessible */
     parent: Atk.Object
-    /* Fields of Atk.Object */
+    /* Fields of Atk-1.0.Atk.Object */
     description: string
     name: string
     role: Atk.Role
     relation_set: Atk.RelationSet
     layer: Atk.Layer
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Cally.Actor */
+    /* Methods of Cally-1.0.Cally.Actor */
     add_action(action_name: string, action_description: string, action_keybinding: string, callback: ActionCallback): number
     remove_action(action_id: number): boolean
     remove_action_by_name(action_name: string): boolean
-    /* Methods of Atk.GObjectAccessible */
+    /* Methods of Atk-1.0.Atk.GObjectAccessible */
     get_object(): GObject.Object
-    /* Methods of Atk.Object */
+    /* Methods of Atk-1.0.Atk.Object */
     add_relationship(relationship: Atk.RelationType, target: Atk.Object): boolean
     get_accessible_id(): string
     get_attributes(): Atk.AttributeSet
@@ -319,7 +319,7 @@ export class Clone {
     set_name(name: string): void
     set_parent(parent: Atk.Object): void
     set_role(role: Atk.Role): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -341,7 +341,7 @@ export class Clone {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of Atk.Action */
+    /* Methods of Atk-1.0.Atk.Action */
     do_action(i: number): boolean
     get_description(i: number): string | null
     get_keybinding(i: number): string | null
@@ -349,7 +349,7 @@ export class Clone {
     get_n_actions(): number
     get_name(i: number): string | null
     set_description(i: number, desc: string): boolean
-    /* Methods of Atk.Component */
+    /* Methods of Atk-1.0.Atk.Component */
     contains(x: number, y: number, coord_type: Atk.CoordType): boolean
     get_alpha(): number
     get_extents(coord_type: Atk.CoordType): [ /* x */ number | null, /* y */ number | null, /* width */ number | null, /* height */ number | null ]
@@ -363,14 +363,14 @@ export class Clone {
     set_extents(x: number, y: number, width: number, height: number, coord_type: Atk.CoordType): boolean
     set_position(x: number, y: number, coord_type: Atk.CoordType): boolean
     set_size(width: number, height: number): boolean
-    /* Virtual methods of Cally.Clone */
+    /* Virtual methods of Cally-1.0.Cally.Clone */
     vfunc_get_description(i: number): string | null
     vfunc_get_description(): string | null
     vfunc_get_name(i: number): string | null
     vfunc_get_name(): string | null
     vfunc_set_description(i: number, desc: string): boolean
     vfunc_set_description(description: string): boolean | null
-    /* Virtual methods of Cally.Actor */
+    /* Virtual methods of Cally-1.0.Cally.Actor */
     vfunc_do_action(i: number): boolean
     vfunc_get_description(i: number): string | null
     vfunc_get_description(): string | null
@@ -397,7 +397,7 @@ export class Clone {
     vfunc_set_extents(x: number, y: number, width: number, height: number, coord_type: Atk.CoordType): boolean
     vfunc_set_position(x: number, y: number, coord_type: Atk.CoordType): boolean
     vfunc_set_size(width: number, height: number): boolean
-    /* Virtual methods of Atk.Object */
+    /* Virtual methods of Atk-1.0.Atk.Object */
     vfunc_active_descendant_changed(child?: object | null): void
     vfunc_children_changed(change_index: number, changed_child?: object | null): void
     vfunc_focus_event(focus_in: boolean): void
@@ -422,7 +422,7 @@ export class Clone {
     vfunc_set_role(role: Atk.Role): void
     vfunc_state_change(name: string, state_set: boolean): void
     vfunc_visible_data_changed(): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -430,7 +430,7 @@ export class Clone {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Atk.Object */
+    /* Signals of Atk-1.0.Atk.Object */
     connect(sigName: "active-descendant-changed", callback: (($obj: Clone, arg1: Atk.Object) => void)): number
     connect_after(sigName: "active-descendant-changed", callback: (($obj: Clone, arg1: Atk.Object) => void)): number
     emit(sigName: "active-descendant-changed", arg1: Atk.Object): void
@@ -449,11 +449,11 @@ export class Clone {
     connect(sigName: "visible-data-changed", callback: (($obj: Clone) => void)): number
     connect_after(sigName: "visible-data-changed", callback: (($obj: Clone) => void)): number
     emit(sigName: "visible-data-changed"): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Clone, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Clone, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    /* Signals of Atk.Component */
+    /* Signals of Atk-1.0.Atk.Component */
     connect(sigName: "bounds-changed", callback: (($obj: Clone, arg1: Atk.Rectangle) => void)): number
     connect_after(sigName: "bounds-changed", callback: (($obj: Clone, arg1: Atk.Rectangle) => void)): number
     emit(sigName: "bounds-changed", arg1: Atk.Rectangle): void
@@ -501,7 +501,7 @@ export class Clone {
 export interface Group_ConstructProps extends Actor_ConstructProps {
 }
 export class Group {
-    /* Properties of Atk.Object */
+    /* Properties of Atk-1.0.Atk.Object */
     readonly accessible_component_layer: number
     readonly accessible_component_mdi_zorder: number
     accessible_description: string
@@ -517,23 +517,23 @@ export class Group {
     accessible_table_row_header: Atk.Object
     accessible_table_summary: Atk.Object
     accessible_value: number
-    /* Fields of Atk.GObjectAccessible */
+    /* Fields of Atk-1.0.Atk.GObjectAccessible */
     parent: Atk.Object
-    /* Fields of Atk.Object */
+    /* Fields of Atk-1.0.Atk.Object */
     description: string
     name: string
     role: Atk.Role
     relation_set: Atk.RelationSet
     layer: Atk.Layer
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Cally.Actor */
+    /* Methods of Cally-1.0.Cally.Actor */
     add_action(action_name: string, action_description: string, action_keybinding: string, callback: ActionCallback): number
     remove_action(action_id: number): boolean
     remove_action_by_name(action_name: string): boolean
-    /* Methods of Atk.GObjectAccessible */
+    /* Methods of Atk-1.0.Atk.GObjectAccessible */
     get_object(): GObject.Object
-    /* Methods of Atk.Object */
+    /* Methods of Atk-1.0.Atk.Object */
     add_relationship(relationship: Atk.RelationType, target: Atk.Object): boolean
     get_accessible_id(): string
     get_attributes(): Atk.AttributeSet
@@ -559,7 +559,7 @@ export class Group {
     set_name(name: string): void
     set_parent(parent: Atk.Object): void
     set_role(role: Atk.Role): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -581,7 +581,7 @@ export class Group {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of Atk.Action */
+    /* Methods of Atk-1.0.Atk.Action */
     do_action(i: number): boolean
     get_description(i: number): string | null
     get_keybinding(i: number): string | null
@@ -589,7 +589,7 @@ export class Group {
     get_n_actions(): number
     get_name(i: number): string | null
     set_description(i: number, desc: string): boolean
-    /* Methods of Atk.Component */
+    /* Methods of Atk-1.0.Atk.Component */
     contains(x: number, y: number, coord_type: Atk.CoordType): boolean
     get_alpha(): number
     get_extents(coord_type: Atk.CoordType): [ /* x */ number | null, /* y */ number | null, /* width */ number | null, /* height */ number | null ]
@@ -603,14 +603,14 @@ export class Group {
     set_extents(x: number, y: number, width: number, height: number, coord_type: Atk.CoordType): boolean
     set_position(x: number, y: number, coord_type: Atk.CoordType): boolean
     set_size(width: number, height: number): boolean
-    /* Virtual methods of Cally.Group */
+    /* Virtual methods of Cally-1.0.Cally.Group */
     vfunc_get_description(i: number): string | null
     vfunc_get_description(): string | null
     vfunc_get_name(i: number): string | null
     vfunc_get_name(): string | null
     vfunc_set_description(i: number, desc: string): boolean
     vfunc_set_description(description: string): boolean | null
-    /* Virtual methods of Cally.Actor */
+    /* Virtual methods of Cally-1.0.Cally.Actor */
     vfunc_do_action(i: number): boolean
     vfunc_get_description(i: number): string | null
     vfunc_get_description(): string | null
@@ -637,7 +637,7 @@ export class Group {
     vfunc_set_extents(x: number, y: number, width: number, height: number, coord_type: Atk.CoordType): boolean
     vfunc_set_position(x: number, y: number, coord_type: Atk.CoordType): boolean
     vfunc_set_size(width: number, height: number): boolean
-    /* Virtual methods of Atk.Object */
+    /* Virtual methods of Atk-1.0.Atk.Object */
     vfunc_active_descendant_changed(child?: object | null): void
     vfunc_children_changed(change_index: number, changed_child?: object | null): void
     vfunc_focus_event(focus_in: boolean): void
@@ -662,7 +662,7 @@ export class Group {
     vfunc_set_role(role: Atk.Role): void
     vfunc_state_change(name: string, state_set: boolean): void
     vfunc_visible_data_changed(): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -670,7 +670,7 @@ export class Group {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Atk.Object */
+    /* Signals of Atk-1.0.Atk.Object */
     connect(sigName: "active-descendant-changed", callback: (($obj: Group, arg1: Atk.Object) => void)): number
     connect_after(sigName: "active-descendant-changed", callback: (($obj: Group, arg1: Atk.Object) => void)): number
     emit(sigName: "active-descendant-changed", arg1: Atk.Object): void
@@ -689,11 +689,11 @@ export class Group {
     connect(sigName: "visible-data-changed", callback: (($obj: Group) => void)): number
     connect_after(sigName: "visible-data-changed", callback: (($obj: Group) => void)): number
     emit(sigName: "visible-data-changed"): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Group, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Group, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    /* Signals of Atk.Component */
+    /* Signals of Atk-1.0.Atk.Component */
     connect(sigName: "bounds-changed", callback: (($obj: Group, arg1: Atk.Rectangle) => void)): number
     connect_after(sigName: "bounds-changed", callback: (($obj: Group, arg1: Atk.Rectangle) => void)): number
     emit(sigName: "bounds-changed", arg1: Atk.Rectangle): void
@@ -741,7 +741,7 @@ export class Group {
 export interface Rectangle_ConstructProps extends Actor_ConstructProps {
 }
 export class Rectangle {
-    /* Properties of Atk.Object */
+    /* Properties of Atk-1.0.Atk.Object */
     readonly accessible_component_layer: number
     readonly accessible_component_mdi_zorder: number
     accessible_description: string
@@ -757,23 +757,23 @@ export class Rectangle {
     accessible_table_row_header: Atk.Object
     accessible_table_summary: Atk.Object
     accessible_value: number
-    /* Fields of Atk.GObjectAccessible */
+    /* Fields of Atk-1.0.Atk.GObjectAccessible */
     parent: Atk.Object
-    /* Fields of Atk.Object */
+    /* Fields of Atk-1.0.Atk.Object */
     description: string
     name: string
     role: Atk.Role
     relation_set: Atk.RelationSet
     layer: Atk.Layer
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Cally.Actor */
+    /* Methods of Cally-1.0.Cally.Actor */
     add_action(action_name: string, action_description: string, action_keybinding: string, callback: ActionCallback): number
     remove_action(action_id: number): boolean
     remove_action_by_name(action_name: string): boolean
-    /* Methods of Atk.GObjectAccessible */
+    /* Methods of Atk-1.0.Atk.GObjectAccessible */
     get_object(): GObject.Object
-    /* Methods of Atk.Object */
+    /* Methods of Atk-1.0.Atk.Object */
     add_relationship(relationship: Atk.RelationType, target: Atk.Object): boolean
     get_accessible_id(): string
     get_attributes(): Atk.AttributeSet
@@ -799,7 +799,7 @@ export class Rectangle {
     set_name(name: string): void
     set_parent(parent: Atk.Object): void
     set_role(role: Atk.Role): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -821,7 +821,7 @@ export class Rectangle {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of Atk.Action */
+    /* Methods of Atk-1.0.Atk.Action */
     do_action(i: number): boolean
     get_description(i: number): string | null
     get_keybinding(i: number): string | null
@@ -829,7 +829,7 @@ export class Rectangle {
     get_n_actions(): number
     get_name(i: number): string | null
     set_description(i: number, desc: string): boolean
-    /* Methods of Atk.Component */
+    /* Methods of Atk-1.0.Atk.Component */
     contains(x: number, y: number, coord_type: Atk.CoordType): boolean
     get_alpha(): number
     get_extents(coord_type: Atk.CoordType): [ /* x */ number | null, /* y */ number | null, /* width */ number | null, /* height */ number | null ]
@@ -843,14 +843,14 @@ export class Rectangle {
     set_extents(x: number, y: number, width: number, height: number, coord_type: Atk.CoordType): boolean
     set_position(x: number, y: number, coord_type: Atk.CoordType): boolean
     set_size(width: number, height: number): boolean
-    /* Virtual methods of Cally.Rectangle */
+    /* Virtual methods of Cally-1.0.Cally.Rectangle */
     vfunc_get_description(i: number): string | null
     vfunc_get_description(): string | null
     vfunc_get_name(i: number): string | null
     vfunc_get_name(): string | null
     vfunc_set_description(i: number, desc: string): boolean
     vfunc_set_description(description: string): boolean | null
-    /* Virtual methods of Cally.Actor */
+    /* Virtual methods of Cally-1.0.Cally.Actor */
     vfunc_do_action(i: number): boolean
     vfunc_get_description(i: number): string | null
     vfunc_get_description(): string | null
@@ -877,7 +877,7 @@ export class Rectangle {
     vfunc_set_extents(x: number, y: number, width: number, height: number, coord_type: Atk.CoordType): boolean
     vfunc_set_position(x: number, y: number, coord_type: Atk.CoordType): boolean
     vfunc_set_size(width: number, height: number): boolean
-    /* Virtual methods of Atk.Object */
+    /* Virtual methods of Atk-1.0.Atk.Object */
     vfunc_active_descendant_changed(child?: object | null): void
     vfunc_children_changed(change_index: number, changed_child?: object | null): void
     vfunc_focus_event(focus_in: boolean): void
@@ -902,7 +902,7 @@ export class Rectangle {
     vfunc_set_role(role: Atk.Role): void
     vfunc_state_change(name: string, state_set: boolean): void
     vfunc_visible_data_changed(): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -910,7 +910,7 @@ export class Rectangle {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Atk.Object */
+    /* Signals of Atk-1.0.Atk.Object */
     connect(sigName: "active-descendant-changed", callback: (($obj: Rectangle, arg1: Atk.Object) => void)): number
     connect_after(sigName: "active-descendant-changed", callback: (($obj: Rectangle, arg1: Atk.Object) => void)): number
     emit(sigName: "active-descendant-changed", arg1: Atk.Object): void
@@ -929,11 +929,11 @@ export class Rectangle {
     connect(sigName: "visible-data-changed", callback: (($obj: Rectangle) => void)): number
     connect_after(sigName: "visible-data-changed", callback: (($obj: Rectangle) => void)): number
     emit(sigName: "visible-data-changed"): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Rectangle, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Rectangle, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    /* Signals of Atk.Component */
+    /* Signals of Atk-1.0.Atk.Component */
     connect(sigName: "bounds-changed", callback: (($obj: Rectangle, arg1: Atk.Rectangle) => void)): number
     connect_after(sigName: "bounds-changed", callback: (($obj: Rectangle, arg1: Atk.Rectangle) => void)): number
     emit(sigName: "bounds-changed", arg1: Atk.Rectangle): void
@@ -981,7 +981,7 @@ export class Rectangle {
 export interface Root_ConstructProps extends Atk.GObjectAccessible_ConstructProps {
 }
 export class Root {
-    /* Properties of Atk.Object */
+    /* Properties of Atk-1.0.Atk.Object */
     readonly accessible_component_layer: number
     readonly accessible_component_mdi_zorder: number
     accessible_description: string
@@ -997,19 +997,19 @@ export class Root {
     accessible_table_row_header: Atk.Object
     accessible_table_summary: Atk.Object
     accessible_value: number
-    /* Fields of Atk.GObjectAccessible */
+    /* Fields of Atk-1.0.Atk.GObjectAccessible */
     parent: Atk.Object
-    /* Fields of Atk.Object */
+    /* Fields of Atk-1.0.Atk.Object */
     description: string
     name: string
     role: Atk.Role
     relation_set: Atk.RelationSet
     layer: Atk.Layer
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Atk.GObjectAccessible */
+    /* Methods of Atk-1.0.Atk.GObjectAccessible */
     get_object(): GObject.Object
-    /* Methods of Atk.Object */
+    /* Methods of Atk-1.0.Atk.Object */
     add_relationship(relationship: Atk.RelationType, target: Atk.Object): boolean
     get_accessible_id(): string
     get_attributes(): Atk.AttributeSet
@@ -1035,7 +1035,7 @@ export class Root {
     set_name(name: string): void
     set_parent(parent: Atk.Object): void
     set_role(role: Atk.Role): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -1057,7 +1057,7 @@ export class Root {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Atk.Object */
+    /* Virtual methods of Atk-1.0.Atk.Object */
     vfunc_active_descendant_changed(child?: object | null): void
     vfunc_children_changed(change_index: number, changed_child?: object | null): void
     vfunc_focus_event(focus_in: boolean): void
@@ -1082,7 +1082,7 @@ export class Root {
     vfunc_set_role(role: Atk.Role): void
     vfunc_state_change(name: string, state_set: boolean): void
     vfunc_visible_data_changed(): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -1090,7 +1090,7 @@ export class Root {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Atk.Object */
+    /* Signals of Atk-1.0.Atk.Object */
     connect(sigName: "active-descendant-changed", callback: (($obj: Root, arg1: Atk.Object) => void)): number
     connect_after(sigName: "active-descendant-changed", callback: (($obj: Root, arg1: Atk.Object) => void)): number
     emit(sigName: "active-descendant-changed", arg1: Atk.Object): void
@@ -1109,7 +1109,7 @@ export class Root {
     connect(sigName: "visible-data-changed", callback: (($obj: Root) => void)): number
     connect_after(sigName: "visible-data-changed", callback: (($obj: Root) => void)): number
     emit(sigName: "visible-data-changed"): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Root, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Root, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -1157,7 +1157,7 @@ export class Root {
 export interface Stage_ConstructProps extends Group_ConstructProps {
 }
 export class Stage {
-    /* Properties of Atk.Object */
+    /* Properties of Atk-1.0.Atk.Object */
     readonly accessible_component_layer: number
     readonly accessible_component_mdi_zorder: number
     accessible_description: string
@@ -1173,23 +1173,23 @@ export class Stage {
     accessible_table_row_header: Atk.Object
     accessible_table_summary: Atk.Object
     accessible_value: number
-    /* Fields of Atk.GObjectAccessible */
+    /* Fields of Atk-1.0.Atk.GObjectAccessible */
     parent: Atk.Object
-    /* Fields of Atk.Object */
+    /* Fields of Atk-1.0.Atk.Object */
     description: string
     name: string
     role: Atk.Role
     relation_set: Atk.RelationSet
     layer: Atk.Layer
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Cally.Actor */
+    /* Methods of Cally-1.0.Cally.Actor */
     add_action(action_name: string, action_description: string, action_keybinding: string, callback: ActionCallback): number
     remove_action(action_id: number): boolean
     remove_action_by_name(action_name: string): boolean
-    /* Methods of Atk.GObjectAccessible */
+    /* Methods of Atk-1.0.Atk.GObjectAccessible */
     get_object(): GObject.Object
-    /* Methods of Atk.Object */
+    /* Methods of Atk-1.0.Atk.Object */
     add_relationship(relationship: Atk.RelationType, target: Atk.Object): boolean
     get_accessible_id(): string
     get_attributes(): Atk.AttributeSet
@@ -1215,7 +1215,7 @@ export class Stage {
     set_name(name: string): void
     set_parent(parent: Atk.Object): void
     set_role(role: Atk.Role): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -1237,7 +1237,7 @@ export class Stage {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of Atk.Action */
+    /* Methods of Atk-1.0.Atk.Action */
     do_action(i: number): boolean
     get_description(i: number): string | null
     get_keybinding(i: number): string | null
@@ -1245,7 +1245,7 @@ export class Stage {
     get_n_actions(): number
     get_name(i: number): string | null
     set_description(i: number, desc: string): boolean
-    /* Methods of Atk.Component */
+    /* Methods of Atk-1.0.Atk.Component */
     contains(x: number, y: number, coord_type: Atk.CoordType): boolean
     get_alpha(): number
     get_extents(coord_type: Atk.CoordType): [ /* x */ number | null, /* y */ number | null, /* width */ number | null, /* height */ number | null ]
@@ -1259,21 +1259,21 @@ export class Stage {
     set_extents(x: number, y: number, width: number, height: number, coord_type: Atk.CoordType): boolean
     set_position(x: number, y: number, coord_type: Atk.CoordType): boolean
     set_size(width: number, height: number): boolean
-    /* Virtual methods of Cally.Stage */
+    /* Virtual methods of Cally-1.0.Cally.Stage */
     vfunc_get_description(i: number): string | null
     vfunc_get_description(): string | null
     vfunc_get_name(i: number): string | null
     vfunc_get_name(): string | null
     vfunc_set_description(i: number, desc: string): boolean
     vfunc_set_description(description: string): boolean | null
-    /* Virtual methods of Cally.Group */
+    /* Virtual methods of Cally-1.0.Cally.Group */
     vfunc_get_description(i: number): string | null
     vfunc_get_description(): string | null
     vfunc_get_name(i: number): string | null
     vfunc_get_name(): string | null
     vfunc_set_description(i: number, desc: string): boolean
     vfunc_set_description(description: string): boolean | null
-    /* Virtual methods of Cally.Actor */
+    /* Virtual methods of Cally-1.0.Cally.Actor */
     vfunc_do_action(i: number): boolean
     vfunc_get_description(i: number): string | null
     vfunc_get_description(): string | null
@@ -1300,7 +1300,7 @@ export class Stage {
     vfunc_set_extents(x: number, y: number, width: number, height: number, coord_type: Atk.CoordType): boolean
     vfunc_set_position(x: number, y: number, coord_type: Atk.CoordType): boolean
     vfunc_set_size(width: number, height: number): boolean
-    /* Virtual methods of Atk.Object */
+    /* Virtual methods of Atk-1.0.Atk.Object */
     vfunc_active_descendant_changed(child?: object | null): void
     vfunc_children_changed(change_index: number, changed_child?: object | null): void
     vfunc_focus_event(focus_in: boolean): void
@@ -1325,7 +1325,7 @@ export class Stage {
     vfunc_set_role(role: Atk.Role): void
     vfunc_state_change(name: string, state_set: boolean): void
     vfunc_visible_data_changed(): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -1333,7 +1333,7 @@ export class Stage {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Atk.Object */
+    /* Signals of Atk-1.0.Atk.Object */
     connect(sigName: "active-descendant-changed", callback: (($obj: Stage, arg1: Atk.Object) => void)): number
     connect_after(sigName: "active-descendant-changed", callback: (($obj: Stage, arg1: Atk.Object) => void)): number
     emit(sigName: "active-descendant-changed", arg1: Atk.Object): void
@@ -1352,15 +1352,15 @@ export class Stage {
     connect(sigName: "visible-data-changed", callback: (($obj: Stage) => void)): number
     connect_after(sigName: "visible-data-changed", callback: (($obj: Stage) => void)): number
     emit(sigName: "visible-data-changed"): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Stage, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Stage, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    /* Signals of Atk.Component */
+    /* Signals of Atk-1.0.Atk.Component */
     connect(sigName: "bounds-changed", callback: (($obj: Stage, arg1: Atk.Rectangle) => void)): number
     connect_after(sigName: "bounds-changed", callback: (($obj: Stage, arg1: Atk.Rectangle) => void)): number
     emit(sigName: "bounds-changed", arg1: Atk.Rectangle): void
-    /* Signals of Atk.Window */
+    /* Signals of Atk-1.0.Atk.Window */
     connect(sigName: "activate", callback: (($obj: Stage) => void)): number
     connect_after(sigName: "activate", callback: (($obj: Stage) => void)): number
     emit(sigName: "activate"): void
@@ -1432,7 +1432,7 @@ export class Stage {
 export interface Text_ConstructProps extends Actor_ConstructProps {
 }
 export class Text {
-    /* Properties of Atk.Object */
+    /* Properties of Atk-1.0.Atk.Object */
     readonly accessible_component_layer: number
     readonly accessible_component_mdi_zorder: number
     accessible_description: string
@@ -1448,23 +1448,23 @@ export class Text {
     accessible_table_row_header: Atk.Object
     accessible_table_summary: Atk.Object
     accessible_value: number
-    /* Fields of Atk.GObjectAccessible */
+    /* Fields of Atk-1.0.Atk.GObjectAccessible */
     parent: Atk.Object
-    /* Fields of Atk.Object */
+    /* Fields of Atk-1.0.Atk.Object */
     description: string
     name: string
     role: Atk.Role
     relation_set: Atk.RelationSet
     layer: Atk.Layer
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Cally.Actor */
+    /* Methods of Cally-1.0.Cally.Actor */
     add_action(action_name: string, action_description: string, action_keybinding: string, callback: ActionCallback): number
     remove_action(action_id: number): boolean
     remove_action_by_name(action_name: string): boolean
-    /* Methods of Atk.GObjectAccessible */
+    /* Methods of Atk-1.0.Atk.GObjectAccessible */
     get_object(): GObject.Object
-    /* Methods of Atk.Object */
+    /* Methods of Atk-1.0.Atk.Object */
     add_relationship(relationship: Atk.RelationType, target: Atk.Object): boolean
     get_accessible_id(): string
     get_attributes(): Atk.AttributeSet
@@ -1490,7 +1490,7 @@ export class Text {
     set_name(name: string): void
     set_parent(parent: Atk.Object): void
     set_role(role: Atk.Role): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -1512,7 +1512,7 @@ export class Text {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of Atk.Action */
+    /* Methods of Atk-1.0.Atk.Action */
     do_action(i: number): boolean
     get_description(i: number): string | null
     get_keybinding(i: number): string | null
@@ -1520,7 +1520,7 @@ export class Text {
     get_n_actions(): number
     get_name(i: number): string | null
     set_description(i: number, desc: string): boolean
-    /* Methods of Atk.Component */
+    /* Methods of Atk-1.0.Atk.Component */
     contains(x: number, y: number, coord_type: Atk.CoordType): boolean
     get_alpha(): number
     get_extents(coord_type: Atk.CoordType): [ /* x */ number | null, /* y */ number | null, /* width */ number | null, /* height */ number | null ]
@@ -1534,7 +1534,7 @@ export class Text {
     set_extents(x: number, y: number, width: number, height: number, coord_type: Atk.CoordType): boolean
     set_position(x: number, y: number, coord_type: Atk.CoordType): boolean
     set_size(width: number, height: number): boolean
-    /* Methods of Atk.EditableText */
+    /* Methods of Atk-1.0.Atk.EditableText */
     copy_text(start_pos: number, end_pos: number): void
     cut_text(start_pos: number, end_pos: number): void
     delete_text(start_pos: number, end_pos: number): void
@@ -1542,7 +1542,7 @@ export class Text {
     paste_text(position: number): void
     set_run_attributes(attrib_set: Atk.AttributeSet, start_offset: number, end_offset: number): boolean
     set_text_contents(string: string): void
-    /* Methods of Atk.Text */
+    /* Methods of Atk-1.0.Atk.Text */
     add_selection(start_offset: number, end_offset: number): boolean
     get_bounded_ranges(rect: Atk.TextRectangle, coord_type: Atk.CoordType, x_clip_type: Atk.TextClipType, y_clip_type: Atk.TextClipType): Atk.TextRange[]
     get_caret_offset(): number
@@ -1565,7 +1565,7 @@ export class Text {
     scroll_substring_to_point(start_offset: number, end_offset: number, coords: Atk.CoordType, x: number, y: number): boolean
     set_caret_offset(offset: number): boolean
     set_selection(selection_num: number, start_offset: number, end_offset: number): boolean
-    /* Virtual methods of Cally.Text */
+    /* Virtual methods of Cally-1.0.Cally.Text */
     vfunc_copy_text(start_pos: number, end_pos: number): void
     vfunc_cut_text(start_pos: number, end_pos: number): void
     vfunc_delete_text(start_pos: number, end_pos: number): void
@@ -1605,7 +1605,7 @@ export class Text {
     vfunc_get_name(): string | null
     vfunc_set_description(i: number, desc: string): boolean
     vfunc_set_description(description: string): boolean | null
-    /* Virtual methods of Cally.Actor */
+    /* Virtual methods of Cally-1.0.Cally.Actor */
     vfunc_do_action(i: number): boolean
     vfunc_get_description(i: number): string | null
     vfunc_get_description(): string | null
@@ -1632,7 +1632,7 @@ export class Text {
     vfunc_set_extents(x: number, y: number, width: number, height: number, coord_type: Atk.CoordType): boolean
     vfunc_set_position(x: number, y: number, coord_type: Atk.CoordType): boolean
     vfunc_set_size(width: number, height: number): boolean
-    /* Virtual methods of Atk.Object */
+    /* Virtual methods of Atk-1.0.Atk.Object */
     vfunc_active_descendant_changed(child?: object | null): void
     vfunc_children_changed(change_index: number, changed_child?: object | null): void
     vfunc_focus_event(focus_in: boolean): void
@@ -1657,7 +1657,7 @@ export class Text {
     vfunc_set_role(role: Atk.Role): void
     vfunc_state_change(name: string, state_set: boolean): void
     vfunc_visible_data_changed(): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -1665,7 +1665,7 @@ export class Text {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Atk.Object */
+    /* Signals of Atk-1.0.Atk.Object */
     connect(sigName: "active-descendant-changed", callback: (($obj: Text, arg1: Atk.Object) => void)): number
     connect_after(sigName: "active-descendant-changed", callback: (($obj: Text, arg1: Atk.Object) => void)): number
     emit(sigName: "active-descendant-changed", arg1: Atk.Object): void
@@ -1684,15 +1684,15 @@ export class Text {
     connect(sigName: "visible-data-changed", callback: (($obj: Text) => void)): number
     connect_after(sigName: "visible-data-changed", callback: (($obj: Text) => void)): number
     emit(sigName: "visible-data-changed"): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Text, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Text, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    /* Signals of Atk.Component */
+    /* Signals of Atk-1.0.Atk.Component */
     connect(sigName: "bounds-changed", callback: (($obj: Text, arg1: Atk.Rectangle) => void)): number
     connect_after(sigName: "bounds-changed", callback: (($obj: Text, arg1: Atk.Rectangle) => void)): number
     emit(sigName: "bounds-changed", arg1: Atk.Rectangle): void
-    /* Signals of Atk.Text */
+    /* Signals of Atk-1.0.Atk.Text */
     connect(sigName: "text-attributes-changed", callback: (($obj: Text) => void)): number
     connect_after(sigName: "text-attributes-changed", callback: (($obj: Text) => void)): number
     emit(sigName: "text-attributes-changed"): void
@@ -1756,7 +1756,7 @@ export class Text {
 export interface Texture_ConstructProps extends Actor_ConstructProps {
 }
 export class Texture {
-    /* Properties of Atk.Object */
+    /* Properties of Atk-1.0.Atk.Object */
     readonly accessible_component_layer: number
     readonly accessible_component_mdi_zorder: number
     accessible_description: string
@@ -1772,23 +1772,23 @@ export class Texture {
     accessible_table_row_header: Atk.Object
     accessible_table_summary: Atk.Object
     accessible_value: number
-    /* Fields of Atk.GObjectAccessible */
+    /* Fields of Atk-1.0.Atk.GObjectAccessible */
     parent: Atk.Object
-    /* Fields of Atk.Object */
+    /* Fields of Atk-1.0.Atk.Object */
     description: string
     name: string
     role: Atk.Role
     relation_set: Atk.RelationSet
     layer: Atk.Layer
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Cally.Actor */
+    /* Methods of Cally-1.0.Cally.Actor */
     add_action(action_name: string, action_description: string, action_keybinding: string, callback: ActionCallback): number
     remove_action(action_id: number): boolean
     remove_action_by_name(action_name: string): boolean
-    /* Methods of Atk.GObjectAccessible */
+    /* Methods of Atk-1.0.Atk.GObjectAccessible */
     get_object(): GObject.Object
-    /* Methods of Atk.Object */
+    /* Methods of Atk-1.0.Atk.Object */
     add_relationship(relationship: Atk.RelationType, target: Atk.Object): boolean
     get_accessible_id(): string
     get_attributes(): Atk.AttributeSet
@@ -1814,7 +1814,7 @@ export class Texture {
     set_name(name: string): void
     set_parent(parent: Atk.Object): void
     set_role(role: Atk.Role): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -1836,7 +1836,7 @@ export class Texture {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of Atk.Action */
+    /* Methods of Atk-1.0.Atk.Action */
     do_action(i: number): boolean
     get_description(i: number): string | null
     get_keybinding(i: number): string | null
@@ -1844,7 +1844,7 @@ export class Texture {
     get_n_actions(): number
     get_name(i: number): string | null
     set_description(i: number, desc: string): boolean
-    /* Methods of Atk.Component */
+    /* Methods of Atk-1.0.Atk.Component */
     contains(x: number, y: number, coord_type: Atk.CoordType): boolean
     get_alpha(): number
     get_extents(coord_type: Atk.CoordType): [ /* x */ number | null, /* y */ number | null, /* width */ number | null, /* height */ number | null ]
@@ -1858,14 +1858,14 @@ export class Texture {
     set_extents(x: number, y: number, width: number, height: number, coord_type: Atk.CoordType): boolean
     set_position(x: number, y: number, coord_type: Atk.CoordType): boolean
     set_size(width: number, height: number): boolean
-    /* Virtual methods of Cally.Texture */
+    /* Virtual methods of Cally-1.0.Cally.Texture */
     vfunc_get_description(i: number): string | null
     vfunc_get_description(): string | null
     vfunc_get_name(i: number): string | null
     vfunc_get_name(): string | null
     vfunc_set_description(i: number, desc: string): boolean
     vfunc_set_description(description: string): boolean | null
-    /* Virtual methods of Cally.Actor */
+    /* Virtual methods of Cally-1.0.Cally.Actor */
     vfunc_do_action(i: number): boolean
     vfunc_get_description(i: number): string | null
     vfunc_get_description(): string | null
@@ -1892,7 +1892,7 @@ export class Texture {
     vfunc_set_extents(x: number, y: number, width: number, height: number, coord_type: Atk.CoordType): boolean
     vfunc_set_position(x: number, y: number, coord_type: Atk.CoordType): boolean
     vfunc_set_size(width: number, height: number): boolean
-    /* Virtual methods of Atk.Object */
+    /* Virtual methods of Atk-1.0.Atk.Object */
     vfunc_active_descendant_changed(child?: object | null): void
     vfunc_children_changed(change_index: number, changed_child?: object | null): void
     vfunc_focus_event(focus_in: boolean): void
@@ -1917,7 +1917,7 @@ export class Texture {
     vfunc_set_role(role: Atk.Role): void
     vfunc_state_change(name: string, state_set: boolean): void
     vfunc_visible_data_changed(): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -1925,7 +1925,7 @@ export class Texture {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Atk.Object */
+    /* Signals of Atk-1.0.Atk.Object */
     connect(sigName: "active-descendant-changed", callback: (($obj: Texture, arg1: Atk.Object) => void)): number
     connect_after(sigName: "active-descendant-changed", callback: (($obj: Texture, arg1: Atk.Object) => void)): number
     emit(sigName: "active-descendant-changed", arg1: Atk.Object): void
@@ -1944,11 +1944,11 @@ export class Texture {
     connect(sigName: "visible-data-changed", callback: (($obj: Texture) => void)): number
     connect_after(sigName: "visible-data-changed", callback: (($obj: Texture) => void)): number
     emit(sigName: "visible-data-changed"): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Texture, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Texture, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    /* Signals of Atk.Component */
+    /* Signals of Atk-1.0.Atk.Component */
     connect(sigName: "bounds-changed", callback: (($obj: Texture, arg1: Atk.Rectangle) => void)): number
     connect_after(sigName: "bounds-changed", callback: (($obj: Texture, arg1: Atk.Rectangle) => void)): number
     emit(sigName: "bounds-changed", arg1: Atk.Rectangle): void
@@ -1996,11 +1996,11 @@ export class Texture {
 export interface Util_ConstructProps extends Atk.Util_ConstructProps {
 }
 export class Util {
-    /* Fields of Atk.Util */
+    /* Fields of Atk-1.0.Atk.Util */
     parent: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -2022,7 +2022,7 @@ export class Util {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -2030,7 +2030,7 @@ export class Util {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Util, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Util, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -2044,7 +2044,7 @@ export class Util {
     static $gtype: GObject.Type
 }
 export abstract class ActorClass {
-    /* Fields of Cally.ActorClass */
+    /* Fields of Cally-1.0.Cally.ActorClass */
     notify_clutter: (object: GObject.Object, pspec: GObject.ParamSpec) => void
     focus_clutter: (actor: Clutter.Actor, data: object) => boolean
     add_actor: (container: Clutter.Actor, actor: Clutter.Actor, data: object) => number

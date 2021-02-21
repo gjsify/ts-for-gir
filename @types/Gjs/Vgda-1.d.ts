@@ -14,19 +14,19 @@ export interface GProvider_ConstructProps extends GObject.Object_ConstructProps 
     parameters?: Vda.ConnectionParameters
 }
 export class GProvider {
-    /* Properties of Vda.Connection */
+    /* Properties of Vda-1.Vda.Connection */
     readonly status: Vda.ConnectionStatus
     parameters: Vda.ConnectionParameters
     readonly is_opened: boolean
     readonly connection_string: string
-    /* Fields of Vgda.GProvider */
+    /* Fields of Vgda-1.Vgda.GProvider */
     parent_instance: GObject.Object
     priv: GProviderPrivate
     _provider: string
     _cnc_string: string
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -48,7 +48,7 @@ export class GProvider {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of Vda.Connection */
+    /* Methods of Vda-1.Vda.Connection */
     close(_callback_?: Gio.AsyncReadyCallback | null): void
     close_finish(_res_: Gio.AsyncResult): void
     open(_callback_?: Gio.AsyncReadyCallback | null): void
@@ -73,7 +73,7 @@ export class GProvider {
     set_parameters(value: Vda.ConnectionParameters): void
     get_is_opened(): boolean
     get_connection_string(): string
-    /* Virtual methods of Vgda.GProvider */
+    /* Virtual methods of Vgda-1.Vgda.GProvider */
     vfunc_close(_callback_?: Gio.AsyncReadyCallback | null): void
     vfunc_close_finish(_res_: Gio.AsyncResult): void
     vfunc_open(_callback_?: Gio.AsyncReadyCallback | null): void
@@ -98,7 +98,7 @@ export class GProvider {
     vfunc_set_parameters(value: Vda.ConnectionParameters): void
     vfunc_get_is_opened(): boolean
     vfunc_get_connection_string(): string
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -106,11 +106,11 @@ export class GProvider {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: GProvider, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: GProvider, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    /* Signals of Vda.Connection */
+    /* Signals of Vda-1.Vda.Connection */
     connect(sigName: "closed", callback: (($obj: GProvider) => void)): number
     connect_after(sigName: "closed", callback: (($obj: GProvider) => void)): number
     emit(sigName: "closed"): void
@@ -149,7 +149,7 @@ export class GProvider {
     static $gtype: GObject.Type
 }
 export abstract class GProviderClass {
-    /* Fields of Vgda.GProviderClass */
+    /* Fields of Vgda-1.Vgda.GProviderClass */
     parent_class: GObject.ObjectClass
     current_user: (self: GProvider) => Vda.Role | null
     static name: string

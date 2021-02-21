@@ -28,14 +28,14 @@ export function locationOverrideProperties(klass: GObject.ObjectClass, propertyI
 export function managerInterfaceInfo(): Gio.DBusInterfaceInfo
 export function managerOverrideProperties(klass: GObject.ObjectClass, propertyIdBegin: number): number
 export class Client {
-    /* Properties of Geoclue.Client */
+    /* Properties of Geoclue-2.0.Geoclue.Client */
     active: boolean
     desktopId: string
     distanceThreshold: number
     location: string
     requestedAccuracyLevel: number
     timeThreshold: number
-    /* Methods of Geoclue.Client */
+    /* Methods of Geoclue-2.0.Geoclue.Client */
     callStart(cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     callStartFinish(res: Gio.AsyncResult): boolean
     callStartSync(cancellable?: Gio.Cancellable | null): boolean
@@ -45,36 +45,29 @@ export class Client {
     completeStart(invocation: Gio.DBusMethodInvocation): void
     completeStop(invocation: Gio.DBusMethodInvocation): void
     emitLocationUpdated(argOld: string, argNew: string): void
-    /* Virtual methods of Geoclue.Client */
-    vfuncHandleStart(invocation: Gio.DBusMethodInvocation): boolean
-    vfuncHandleStop(invocation: Gio.DBusMethodInvocation): boolean
-    vfuncLocationUpdated(argOld: string, argNew: string): void
-    /* Signals of Geoclue.Client */
+    /* Signals of Geoclue-2.0.Geoclue.Client */
     connect(sigName: "handle-start", callback: (($obj: Client, invocation: Gio.DBusMethodInvocation) => boolean)): number
-    connect_after(sigName: "handle-start", callback: (($obj: Client, invocation: Gio.DBusMethodInvocation) => boolean)): number
+    on(sigName: "handle-start", callback: (invocation: Gio.DBusMethodInvocation) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-start", callback: (invocation: Gio.DBusMethodInvocation) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-start", callback: (invocation: Gio.DBusMethodInvocation) => void): NodeJS.EventEmitter
     emit(sigName: "handle-start", invocation: Gio.DBusMethodInvocation): void
-    on(sigName: "handle-start", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-start", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-start", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "handle-stop", callback: (($obj: Client, invocation: Gio.DBusMethodInvocation) => boolean)): number
-    connect_after(sigName: "handle-stop", callback: (($obj: Client, invocation: Gio.DBusMethodInvocation) => boolean)): number
+    on(sigName: "handle-stop", callback: (invocation: Gio.DBusMethodInvocation) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-stop", callback: (invocation: Gio.DBusMethodInvocation) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-stop", callback: (invocation: Gio.DBusMethodInvocation) => void): NodeJS.EventEmitter
     emit(sigName: "handle-stop", invocation: Gio.DBusMethodInvocation): void
-    on(sigName: "handle-stop", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-stop", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-stop", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "location-updated", callback: (($obj: Client, argOld: string, argNew: string) => void)): number
-    connect_after(sigName: "location-updated", callback: (($obj: Client, argOld: string, argNew: string) => void)): number
+    on(sigName: "location-updated", callback: (argOld: string, argNew: string) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "location-updated", callback: (argOld: string, argNew: string) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "location-updated", callback: (argOld: string, argNew: string) => void): NodeJS.EventEmitter
     emit(sigName: "location-updated", argOld: string, argNew: string): void
-    on(sigName: "location-updated", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "location-updated", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "location-updated", callback: (...args: any[]) => void): NodeJS.EventEmitter
     static name: string
     /* Static methods and pseudo-constructors */
     static interfaceInfo(): Gio.DBusInterfaceInfo
     static overrideProperties(klass: GObject.ObjectClass, propertyIdBegin: number): number
 }
 export class Location {
-    /* Properties of Geoclue.Location */
+    /* Properties of Geoclue-2.0.Geoclue.Location */
     accuracy: number
     altitude: number
     description: string
@@ -89,56 +82,47 @@ export class Location {
     static overrideProperties(klass: GObject.ObjectClass, propertyIdBegin: number): number
 }
 export class Manager {
-    /* Properties of Geoclue.Manager */
+    /* Properties of Geoclue-2.0.Geoclue.Manager */
     availableAccuracyLevel: number
     inUse: boolean
-    /* Methods of Geoclue.Manager */
+    /* Methods of Geoclue-2.0.Geoclue.Manager */
     callAddAgent(argId: string, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     callAddAgentFinish(res: Gio.AsyncResult): boolean
     callAddAgentSync(argId: string, cancellable?: Gio.Cancellable | null): boolean
     callCreateClient(cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    callCreateClientFinish(res: Gio.AsyncResult): [ /* returnType */ boolean, /* outClient */ string | null ]
-    callCreateClientSync(cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* outClient */ string | null ]
+    callCreateClientFinish(res: Gio.AsyncResult): { returnType: boolean, outClient: string | null }
+    callCreateClientSync(cancellable?: Gio.Cancellable | null): { returnType: boolean, outClient: string | null }
     callDeleteClient(argClient: string, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     callDeleteClientFinish(res: Gio.AsyncResult): boolean
     callDeleteClientSync(argClient: string, cancellable?: Gio.Cancellable | null): boolean
     callGetClient(cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    callGetClientFinish(res: Gio.AsyncResult): [ /* returnType */ boolean, /* outClient */ string | null ]
-    callGetClientSync(cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* outClient */ string | null ]
+    callGetClientFinish(res: Gio.AsyncResult): { returnType: boolean, outClient: string | null }
+    callGetClientSync(cancellable?: Gio.Cancellable | null): { returnType: boolean, outClient: string | null }
     completeAddAgent(invocation: Gio.DBusMethodInvocation): void
     completeCreateClient(invocation: Gio.DBusMethodInvocation, client: string): void
     completeDeleteClient(invocation: Gio.DBusMethodInvocation): void
     completeGetClient(invocation: Gio.DBusMethodInvocation, client: string): void
-    /* Virtual methods of Geoclue.Manager */
-    vfuncHandleAddAgent(invocation: Gio.DBusMethodInvocation, argId: string): boolean
-    vfuncHandleCreateClient(invocation: Gio.DBusMethodInvocation): boolean
-    vfuncHandleDeleteClient(invocation: Gio.DBusMethodInvocation, argClient: string): boolean
-    vfuncHandleGetClient(invocation: Gio.DBusMethodInvocation): boolean
-    /* Signals of Geoclue.Manager */
+    /* Signals of Geoclue-2.0.Geoclue.Manager */
     connect(sigName: "handle-add-agent", callback: (($obj: Manager, invocation: Gio.DBusMethodInvocation, argId: string) => boolean)): number
-    connect_after(sigName: "handle-add-agent", callback: (($obj: Manager, invocation: Gio.DBusMethodInvocation, argId: string) => boolean)): number
+    on(sigName: "handle-add-agent", callback: (invocation: Gio.DBusMethodInvocation, argId: string) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-add-agent", callback: (invocation: Gio.DBusMethodInvocation, argId: string) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-add-agent", callback: (invocation: Gio.DBusMethodInvocation, argId: string) => void): NodeJS.EventEmitter
     emit(sigName: "handle-add-agent", invocation: Gio.DBusMethodInvocation, argId: string): void
-    on(sigName: "handle-add-agent", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-add-agent", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-add-agent", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "handle-create-client", callback: (($obj: Manager, invocation: Gio.DBusMethodInvocation) => boolean)): number
-    connect_after(sigName: "handle-create-client", callback: (($obj: Manager, invocation: Gio.DBusMethodInvocation) => boolean)): number
+    on(sigName: "handle-create-client", callback: (invocation: Gio.DBusMethodInvocation) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-create-client", callback: (invocation: Gio.DBusMethodInvocation) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-create-client", callback: (invocation: Gio.DBusMethodInvocation) => void): NodeJS.EventEmitter
     emit(sigName: "handle-create-client", invocation: Gio.DBusMethodInvocation): void
-    on(sigName: "handle-create-client", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-create-client", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-create-client", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "handle-delete-client", callback: (($obj: Manager, invocation: Gio.DBusMethodInvocation, argClient: string) => boolean)): number
-    connect_after(sigName: "handle-delete-client", callback: (($obj: Manager, invocation: Gio.DBusMethodInvocation, argClient: string) => boolean)): number
+    on(sigName: "handle-delete-client", callback: (invocation: Gio.DBusMethodInvocation, argClient: string) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-delete-client", callback: (invocation: Gio.DBusMethodInvocation, argClient: string) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-delete-client", callback: (invocation: Gio.DBusMethodInvocation, argClient: string) => void): NodeJS.EventEmitter
     emit(sigName: "handle-delete-client", invocation: Gio.DBusMethodInvocation, argClient: string): void
-    on(sigName: "handle-delete-client", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-delete-client", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-delete-client", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "handle-get-client", callback: (($obj: Manager, invocation: Gio.DBusMethodInvocation) => boolean)): number
-    connect_after(sigName: "handle-get-client", callback: (($obj: Manager, invocation: Gio.DBusMethodInvocation) => boolean)): number
+    on(sigName: "handle-get-client", callback: (invocation: Gio.DBusMethodInvocation) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-get-client", callback: (invocation: Gio.DBusMethodInvocation) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-get-client", callback: (invocation: Gio.DBusMethodInvocation) => void): NodeJS.EventEmitter
     emit(sigName: "handle-get-client", invocation: Gio.DBusMethodInvocation): void
-    on(sigName: "handle-get-client", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-get-client", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-get-client", callback: (...args: any[]) => void): NodeJS.EventEmitter
     static name: string
     /* Static methods and pseudo-constructors */
     static interfaceInfo(): Gio.DBusInterfaceInfo
@@ -153,26 +137,26 @@ export interface ClientProxy_ConstructProps extends Gio.DBusProxy_ConstructProps
     timeThreshold?: number
 }
 export class ClientProxy {
-    /* Properties of Gio.DBusProxy */
+    /* Properties of Gio-2.0.Gio.DBusProxy */
     gDefaultTimeout: number
     gInterfaceInfo: Gio.DBusInterfaceInfo
     readonly gNameOwner: string
-    /* Properties of Geoclue.Client */
+    /* Properties of Geoclue-2.0.Geoclue.Client */
     active: boolean
     desktopId: string
     distanceThreshold: number
     location: string
     requestedAccuracyLevel: number
     timeThreshold: number
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Gio.DBusProxy */
+    /* Methods of Gio-2.0.Gio.DBusProxy */
     call(methodName: string, parameters: GLib.Variant | null, flags: Gio.DBusCallFlags, timeoutMsec: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     callFinish(res: Gio.AsyncResult): GLib.Variant
     callSync(methodName: string, parameters: GLib.Variant | null, flags: Gio.DBusCallFlags, timeoutMsec: number, cancellable?: Gio.Cancellable | null): GLib.Variant
     callWithUnixFdList(methodName: string, parameters: GLib.Variant | null, flags: Gio.DBusCallFlags, timeoutMsec: number, fdList?: Gio.UnixFDList | null, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    callWithUnixFdListFinish(res: Gio.AsyncResult): [ /* returnType */ GLib.Variant, /* outFdList */ Gio.UnixFDList | null ]
-    callWithUnixFdListSync(methodName: string, parameters: GLib.Variant | null, flags: Gio.DBusCallFlags, timeoutMsec: number, fdList?: Gio.UnixFDList | null, cancellable?: Gio.Cancellable | null): [ /* returnType */ GLib.Variant, /* outFdList */ Gio.UnixFDList | null ]
+    callWithUnixFdListFinish(res: Gio.AsyncResult): { returnType: GLib.Variant, outFdList: Gio.UnixFDList | null }
+    callWithUnixFdListSync(methodName: string, parameters: GLib.Variant | null, flags: Gio.DBusCallFlags, timeoutMsec: number, fdList?: Gio.UnixFDList | null, cancellable?: Gio.Cancellable | null): { returnType: GLib.Variant, outFdList: Gio.UnixFDList | null }
     getCachedProperty(propertyName: string): GLib.Variant | null
     getCachedPropertyNames(): string[] | null
     getConnection(): Gio.DBusConnection
@@ -186,7 +170,7 @@ export class ClientProxy {
     setCachedProperty(propertyName: string, value?: GLib.Variant | null): void
     setDefaultTimeout(timeoutMsec: number): void
     setInterfaceInfo(info?: Gio.DBusInterfaceInfo | null): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -208,7 +192,7 @@ export class ClientProxy {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of Geoclue.Client */
+    /* Methods of Geoclue-2.0.Geoclue.Client */
     callStart(cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     callStartFinish(res: Gio.AsyncResult): boolean
     callStartSync(cancellable?: Gio.Cancellable | null): boolean
@@ -218,76 +202,49 @@ export class ClientProxy {
     completeStart(invocation: Gio.DBusMethodInvocation): void
     completeStop(invocation: Gio.DBusMethodInvocation): void
     emitLocationUpdated(argOld: string, argNew: string): void
-    /* Methods of Gio.AsyncInitable */
+    /* Methods of Gio-2.0.Gio.AsyncInitable */
     initAsync(ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     initFinish(res: Gio.AsyncResult): boolean
     newFinish(res: Gio.AsyncResult): GObject.Object
-    /* Methods of Gio.DBusInterface */
+    /* Methods of Gio-2.0.Gio.DBusInterface */
     getObject(): Gio.DBusObject | null
     getInfo(): Gio.DBusInterfaceInfo
     setObject(object?: Gio.DBusObject | null): void
-    /* Methods of Gio.Initable */
+    /* Methods of Gio-2.0.Gio.Initable */
     init(cancellable?: Gio.Cancellable | null): boolean
-    /* Virtual methods of Geoclue.ClientProxy */
-    vfuncHandleStart(invocation: Gio.DBusMethodInvocation): boolean
-    vfuncHandleStop(invocation: Gio.DBusMethodInvocation): boolean
-    vfuncLocationUpdated(argOld: string, argNew: string): void
-    vfuncInitAsync(ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    vfuncInitFinish(res: Gio.AsyncResult): boolean
-    vfuncDupObject(): Gio.DBusObject | null
-    vfuncGetInfo(): Gio.DBusInterfaceInfo
-    vfuncSetObject(object?: Gio.DBusObject | null): void
-    vfuncInit(cancellable?: Gio.Cancellable | null): boolean
-    /* Virtual methods of Gio.DBusProxy */
-    vfuncGPropertiesChanged(changedProperties: GLib.Variant, invalidatedProperties: string): void
-    vfuncGSignal(senderName: string, signalName: string, parameters: GLib.Variant): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gio.DBusProxy */
+    /* Signals of Gio-2.0.Gio.DBusProxy */
     connect(sigName: "g-properties-changed", callback: (($obj: ClientProxy, changedProperties: GLib.Variant, invalidatedProperties: string[]) => void)): number
-    connect_after(sigName: "g-properties-changed", callback: (($obj: ClientProxy, changedProperties: GLib.Variant, invalidatedProperties: string[]) => void)): number
+    on(sigName: "g-properties-changed", callback: (changedProperties: GLib.Variant, invalidatedProperties: string[]) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "g-properties-changed", callback: (changedProperties: GLib.Variant, invalidatedProperties: string[]) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "g-properties-changed", callback: (changedProperties: GLib.Variant, invalidatedProperties: string[]) => void): NodeJS.EventEmitter
     emit(sigName: "g-properties-changed", changedProperties: GLib.Variant, invalidatedProperties: string[]): void
-    on(sigName: "g-properties-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "g-properties-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "g-properties-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "g-signal", callback: (($obj: ClientProxy, senderName: string | null, signalName: string, parameters: GLib.Variant) => void)): number
-    connect_after(sigName: "g-signal", callback: (($obj: ClientProxy, senderName: string | null, signalName: string, parameters: GLib.Variant) => void)): number
+    on(sigName: "g-signal", callback: (senderName: string | null, signalName: string, parameters: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "g-signal", callback: (senderName: string | null, signalName: string, parameters: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "g-signal", callback: (senderName: string | null, signalName: string, parameters: GLib.Variant) => void): NodeJS.EventEmitter
     emit(sigName: "g-signal", senderName: string | null, signalName: string, parameters: GLib.Variant): void
-    on(sigName: "g-signal", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "g-signal", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "g-signal", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: ClientProxy, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: ClientProxy, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of Geoclue.Client */
+    /* Signals of Geoclue-2.0.Geoclue.Client */
     connect(sigName: "handle-start", callback: (($obj: ClientProxy, invocation: Gio.DBusMethodInvocation) => boolean)): number
-    connect_after(sigName: "handle-start", callback: (($obj: ClientProxy, invocation: Gio.DBusMethodInvocation) => boolean)): number
+    on(sigName: "handle-start", callback: (invocation: Gio.DBusMethodInvocation) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-start", callback: (invocation: Gio.DBusMethodInvocation) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-start", callback: (invocation: Gio.DBusMethodInvocation) => void): NodeJS.EventEmitter
     emit(sigName: "handle-start", invocation: Gio.DBusMethodInvocation): void
-    on(sigName: "handle-start", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-start", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-start", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "handle-stop", callback: (($obj: ClientProxy, invocation: Gio.DBusMethodInvocation) => boolean)): number
-    connect_after(sigName: "handle-stop", callback: (($obj: ClientProxy, invocation: Gio.DBusMethodInvocation) => boolean)): number
+    on(sigName: "handle-stop", callback: (invocation: Gio.DBusMethodInvocation) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-stop", callback: (invocation: Gio.DBusMethodInvocation) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-stop", callback: (invocation: Gio.DBusMethodInvocation) => void): NodeJS.EventEmitter
     emit(sigName: "handle-stop", invocation: Gio.DBusMethodInvocation): void
-    on(sigName: "handle-stop", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-stop", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-stop", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "location-updated", callback: (($obj: ClientProxy, argOld: string, argNew: string) => void)): number
-    connect_after(sigName: "location-updated", callback: (($obj: ClientProxy, argOld: string, argNew: string) => void)): number
+    on(sigName: "location-updated", callback: (argOld: string, argNew: string) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "location-updated", callback: (argOld: string, argNew: string) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "location-updated", callback: (argOld: string, argNew: string) => void): NodeJS.EventEmitter
     emit(sigName: "location-updated", argOld: string, argNew: string): void
-    on(sigName: "location-updated", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "location-updated", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "location-updated", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::g-default-timeout", callback: (($obj: ClientProxy, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::g-default-timeout", callback: (($obj: ClientProxy, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::g-default-timeout", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -373,18 +330,18 @@ export interface ClientSkeleton_ConstructProps extends Gio.DBusInterfaceSkeleton
     timeThreshold?: number
 }
 export class ClientSkeleton {
-    /* Properties of Gio.DBusInterfaceSkeleton */
+    /* Properties of Gio-2.0.Gio.DBusInterfaceSkeleton */
     gFlags: Gio.DBusInterfaceSkeletonFlags
-    /* Properties of Geoclue.Client */
+    /* Properties of Geoclue-2.0.Geoclue.Client */
     active: boolean
     desktopId: string
     distanceThreshold: number
     location: string
     requestedAccuracyLevel: number
     timeThreshold: number
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Gio.DBusInterfaceSkeleton */
+    /* Methods of Gio-2.0.Gio.DBusInterfaceSkeleton */
     export(connection: Gio.DBusConnection, objectPath: string): boolean
     flush(): void
     getConnection(): Gio.DBusConnection | null
@@ -397,7 +354,7 @@ export class ClientSkeleton {
     setFlags(flags: Gio.DBusInterfaceSkeletonFlags): void
     unexport(): void
     unexportFromConnection(connection: Gio.DBusConnection): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -419,7 +376,7 @@ export class ClientSkeleton {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of Geoclue.Client */
+    /* Methods of Geoclue-2.0.Geoclue.Client */
     callStart(cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     callStartFinish(res: Gio.AsyncResult): boolean
     callStartSync(cancellable?: Gio.Cancellable | null): boolean
@@ -429,62 +386,37 @@ export class ClientSkeleton {
     completeStart(invocation: Gio.DBusMethodInvocation): void
     completeStop(invocation: Gio.DBusMethodInvocation): void
     emitLocationUpdated(argOld: string, argNew: string): void
-    /* Methods of Gio.DBusInterface */
+    /* Methods of Gio-2.0.Gio.DBusInterface */
     getObject(): Gio.DBusObject | null
     setObject(object?: Gio.DBusObject | null): void
-    /* Virtual methods of Geoclue.ClientSkeleton */
-    vfuncHandleStart(invocation: Gio.DBusMethodInvocation): boolean
-    vfuncHandleStop(invocation: Gio.DBusMethodInvocation): boolean
-    vfuncLocationUpdated(argOld: string, argNew: string): void
-    vfuncDupObject(): Gio.DBusObject | null
-    vfuncGetInfo(): Gio.DBusInterfaceInfo
-    vfuncSetObject(object?: Gio.DBusObject | null): void
-    /* Virtual methods of Gio.DBusInterfaceSkeleton */
-    vfuncFlush(): void
-    vfuncGAuthorizeMethod(invocation: Gio.DBusMethodInvocation): boolean
-    vfuncGetInfo(): Gio.DBusInterfaceInfo
-    vfuncGetProperties(): GLib.Variant
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gio.DBusInterfaceSkeleton */
+    /* Signals of Gio-2.0.Gio.DBusInterfaceSkeleton */
     connect(sigName: "g-authorize-method", callback: (($obj: ClientSkeleton, invocation: Gio.DBusMethodInvocation) => boolean)): number
-    connect_after(sigName: "g-authorize-method", callback: (($obj: ClientSkeleton, invocation: Gio.DBusMethodInvocation) => boolean)): number
+    on(sigName: "g-authorize-method", callback: (invocation: Gio.DBusMethodInvocation) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "g-authorize-method", callback: (invocation: Gio.DBusMethodInvocation) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "g-authorize-method", callback: (invocation: Gio.DBusMethodInvocation) => void): NodeJS.EventEmitter
     emit(sigName: "g-authorize-method", invocation: Gio.DBusMethodInvocation): void
-    on(sigName: "g-authorize-method", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "g-authorize-method", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "g-authorize-method", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: ClientSkeleton, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: ClientSkeleton, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of Geoclue.Client */
+    /* Signals of Geoclue-2.0.Geoclue.Client */
     connect(sigName: "handle-start", callback: (($obj: ClientSkeleton, invocation: Gio.DBusMethodInvocation) => boolean)): number
-    connect_after(sigName: "handle-start", callback: (($obj: ClientSkeleton, invocation: Gio.DBusMethodInvocation) => boolean)): number
+    on(sigName: "handle-start", callback: (invocation: Gio.DBusMethodInvocation) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-start", callback: (invocation: Gio.DBusMethodInvocation) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-start", callback: (invocation: Gio.DBusMethodInvocation) => void): NodeJS.EventEmitter
     emit(sigName: "handle-start", invocation: Gio.DBusMethodInvocation): void
-    on(sigName: "handle-start", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-start", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-start", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "handle-stop", callback: (($obj: ClientSkeleton, invocation: Gio.DBusMethodInvocation) => boolean)): number
-    connect_after(sigName: "handle-stop", callback: (($obj: ClientSkeleton, invocation: Gio.DBusMethodInvocation) => boolean)): number
+    on(sigName: "handle-stop", callback: (invocation: Gio.DBusMethodInvocation) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-stop", callback: (invocation: Gio.DBusMethodInvocation) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-stop", callback: (invocation: Gio.DBusMethodInvocation) => void): NodeJS.EventEmitter
     emit(sigName: "handle-stop", invocation: Gio.DBusMethodInvocation): void
-    on(sigName: "handle-stop", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-stop", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-stop", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "location-updated", callback: (($obj: ClientSkeleton, argOld: string, argNew: string) => void)): number
-    connect_after(sigName: "location-updated", callback: (($obj: ClientSkeleton, argOld: string, argNew: string) => void)): number
+    on(sigName: "location-updated", callback: (argOld: string, argNew: string) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "location-updated", callback: (argOld: string, argNew: string) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "location-updated", callback: (argOld: string, argNew: string) => void): NodeJS.EventEmitter
     emit(sigName: "location-updated", argOld: string, argNew: string): void
-    on(sigName: "location-updated", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "location-updated", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "location-updated", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::g-flags", callback: (($obj: ClientSkeleton, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::g-flags", callback: (($obj: ClientSkeleton, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::g-flags", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -547,11 +479,11 @@ export interface LocationProxy_ConstructProps extends Gio.DBusProxy_ConstructPro
     timestamp?: GLib.Variant
 }
 export class LocationProxy {
-    /* Properties of Gio.DBusProxy */
+    /* Properties of Gio-2.0.Gio.DBusProxy */
     gDefaultTimeout: number
     gInterfaceInfo: Gio.DBusInterfaceInfo
     readonly gNameOwner: string
-    /* Properties of Geoclue.Location */
+    /* Properties of Geoclue-2.0.Geoclue.Location */
     accuracy: number
     altitude: number
     description: string
@@ -560,15 +492,15 @@ export class LocationProxy {
     longitude: number
     speed: number
     timestamp: GLib.Variant
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Gio.DBusProxy */
+    /* Methods of Gio-2.0.Gio.DBusProxy */
     call(methodName: string, parameters: GLib.Variant | null, flags: Gio.DBusCallFlags, timeoutMsec: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     callFinish(res: Gio.AsyncResult): GLib.Variant
     callSync(methodName: string, parameters: GLib.Variant | null, flags: Gio.DBusCallFlags, timeoutMsec: number, cancellable?: Gio.Cancellable | null): GLib.Variant
     callWithUnixFdList(methodName: string, parameters: GLib.Variant | null, flags: Gio.DBusCallFlags, timeoutMsec: number, fdList?: Gio.UnixFDList | null, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    callWithUnixFdListFinish(res: Gio.AsyncResult): [ /* returnType */ GLib.Variant, /* outFdList */ Gio.UnixFDList | null ]
-    callWithUnixFdListSync(methodName: string, parameters: GLib.Variant | null, flags: Gio.DBusCallFlags, timeoutMsec: number, fdList?: Gio.UnixFDList | null, cancellable?: Gio.Cancellable | null): [ /* returnType */ GLib.Variant, /* outFdList */ Gio.UnixFDList | null ]
+    callWithUnixFdListFinish(res: Gio.AsyncResult): { returnType: GLib.Variant, outFdList: Gio.UnixFDList | null }
+    callWithUnixFdListSync(methodName: string, parameters: GLib.Variant | null, flags: Gio.DBusCallFlags, timeoutMsec: number, fdList?: Gio.UnixFDList | null, cancellable?: Gio.Cancellable | null): { returnType: GLib.Variant, outFdList: Gio.UnixFDList | null }
     getCachedProperty(propertyName: string): GLib.Variant | null
     getCachedPropertyNames(): string[] | null
     getConnection(): Gio.DBusConnection
@@ -582,7 +514,7 @@ export class LocationProxy {
     setCachedProperty(propertyName: string, value?: GLib.Variant | null): void
     setDefaultTimeout(timeoutMsec: number): void
     setInterfaceInfo(info?: Gio.DBusInterfaceInfo | null): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -604,54 +536,33 @@ export class LocationProxy {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of Gio.AsyncInitable */
+    /* Methods of Gio-2.0.Gio.AsyncInitable */
     initAsync(ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     initFinish(res: Gio.AsyncResult): boolean
     newFinish(res: Gio.AsyncResult): GObject.Object
-    /* Methods of Gio.DBusInterface */
+    /* Methods of Gio-2.0.Gio.DBusInterface */
     getObject(): Gio.DBusObject | null
     getInfo(): Gio.DBusInterfaceInfo
     setObject(object?: Gio.DBusObject | null): void
-    /* Methods of Gio.Initable */
+    /* Methods of Gio-2.0.Gio.Initable */
     init(cancellable?: Gio.Cancellable | null): boolean
-    /* Virtual methods of Geoclue.LocationProxy */
-    vfuncInitAsync(ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    vfuncInitFinish(res: Gio.AsyncResult): boolean
-    vfuncDupObject(): Gio.DBusObject | null
-    vfuncGetInfo(): Gio.DBusInterfaceInfo
-    vfuncSetObject(object?: Gio.DBusObject | null): void
-    vfuncInit(cancellable?: Gio.Cancellable | null): boolean
-    /* Virtual methods of Gio.DBusProxy */
-    vfuncGPropertiesChanged(changedProperties: GLib.Variant, invalidatedProperties: string): void
-    vfuncGSignal(senderName: string, signalName: string, parameters: GLib.Variant): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gio.DBusProxy */
+    /* Signals of Gio-2.0.Gio.DBusProxy */
     connect(sigName: "g-properties-changed", callback: (($obj: LocationProxy, changedProperties: GLib.Variant, invalidatedProperties: string[]) => void)): number
-    connect_after(sigName: "g-properties-changed", callback: (($obj: LocationProxy, changedProperties: GLib.Variant, invalidatedProperties: string[]) => void)): number
+    on(sigName: "g-properties-changed", callback: (changedProperties: GLib.Variant, invalidatedProperties: string[]) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "g-properties-changed", callback: (changedProperties: GLib.Variant, invalidatedProperties: string[]) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "g-properties-changed", callback: (changedProperties: GLib.Variant, invalidatedProperties: string[]) => void): NodeJS.EventEmitter
     emit(sigName: "g-properties-changed", changedProperties: GLib.Variant, invalidatedProperties: string[]): void
-    on(sigName: "g-properties-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "g-properties-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "g-properties-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "g-signal", callback: (($obj: LocationProxy, senderName: string | null, signalName: string, parameters: GLib.Variant) => void)): number
-    connect_after(sigName: "g-signal", callback: (($obj: LocationProxy, senderName: string | null, signalName: string, parameters: GLib.Variant) => void)): number
+    on(sigName: "g-signal", callback: (senderName: string | null, signalName: string, parameters: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "g-signal", callback: (senderName: string | null, signalName: string, parameters: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "g-signal", callback: (senderName: string | null, signalName: string, parameters: GLib.Variant) => void): NodeJS.EventEmitter
     emit(sigName: "g-signal", senderName: string | null, signalName: string, parameters: GLib.Variant): void
-    on(sigName: "g-signal", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "g-signal", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "g-signal", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: LocationProxy, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: LocationProxy, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::g-default-timeout", callback: (($obj: LocationProxy, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::g-default-timeout", callback: (($obj: LocationProxy, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::g-default-timeout", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -743,9 +654,9 @@ export interface LocationSkeleton_ConstructProps extends Gio.DBusInterfaceSkelet
     timestamp?: GLib.Variant
 }
 export class LocationSkeleton {
-    /* Properties of Gio.DBusInterfaceSkeleton */
+    /* Properties of Gio-2.0.Gio.DBusInterfaceSkeleton */
     gFlags: Gio.DBusInterfaceSkeletonFlags
-    /* Properties of Geoclue.Location */
+    /* Properties of Geoclue-2.0.Geoclue.Location */
     accuracy: number
     altitude: number
     description: string
@@ -754,9 +665,9 @@ export class LocationSkeleton {
     longitude: number
     speed: number
     timestamp: GLib.Variant
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Gio.DBusInterfaceSkeleton */
+    /* Methods of Gio-2.0.Gio.DBusInterfaceSkeleton */
     export(connection: Gio.DBusConnection, objectPath: string): boolean
     flush(): void
     getConnection(): Gio.DBusConnection | null
@@ -769,7 +680,7 @@ export class LocationSkeleton {
     setFlags(flags: Gio.DBusInterfaceSkeletonFlags): void
     unexport(): void
     unexportFromConnection(connection: Gio.DBusConnection): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -791,40 +702,21 @@ export class LocationSkeleton {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of Gio.DBusInterface */
+    /* Methods of Gio-2.0.Gio.DBusInterface */
     getObject(): Gio.DBusObject | null
     setObject(object?: Gio.DBusObject | null): void
-    /* Virtual methods of Geoclue.LocationSkeleton */
-    vfuncDupObject(): Gio.DBusObject | null
-    vfuncGetInfo(): Gio.DBusInterfaceInfo
-    vfuncSetObject(object?: Gio.DBusObject | null): void
-    /* Virtual methods of Gio.DBusInterfaceSkeleton */
-    vfuncFlush(): void
-    vfuncGAuthorizeMethod(invocation: Gio.DBusMethodInvocation): boolean
-    vfuncGetInfo(): Gio.DBusInterfaceInfo
-    vfuncGetProperties(): GLib.Variant
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gio.DBusInterfaceSkeleton */
+    /* Signals of Gio-2.0.Gio.DBusInterfaceSkeleton */
     connect(sigName: "g-authorize-method", callback: (($obj: LocationSkeleton, invocation: Gio.DBusMethodInvocation) => boolean)): number
-    connect_after(sigName: "g-authorize-method", callback: (($obj: LocationSkeleton, invocation: Gio.DBusMethodInvocation) => boolean)): number
+    on(sigName: "g-authorize-method", callback: (invocation: Gio.DBusMethodInvocation) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "g-authorize-method", callback: (invocation: Gio.DBusMethodInvocation) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "g-authorize-method", callback: (invocation: Gio.DBusMethodInvocation) => void): NodeJS.EventEmitter
     emit(sigName: "g-authorize-method", invocation: Gio.DBusMethodInvocation): void
-    on(sigName: "g-authorize-method", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "g-authorize-method", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "g-authorize-method", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: LocationSkeleton, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: LocationSkeleton, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::g-flags", callback: (($obj: LocationSkeleton, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::g-flags", callback: (($obj: LocationSkeleton, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::g-flags", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -891,22 +783,22 @@ export interface ManagerProxy_ConstructProps extends Gio.DBusProxy_ConstructProp
     inUse?: boolean
 }
 export class ManagerProxy {
-    /* Properties of Gio.DBusProxy */
+    /* Properties of Gio-2.0.Gio.DBusProxy */
     gDefaultTimeout: number
     gInterfaceInfo: Gio.DBusInterfaceInfo
     readonly gNameOwner: string
-    /* Properties of Geoclue.Manager */
+    /* Properties of Geoclue-2.0.Geoclue.Manager */
     availableAccuracyLevel: number
     inUse: boolean
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Gio.DBusProxy */
+    /* Methods of Gio-2.0.Gio.DBusProxy */
     call(methodName: string, parameters: GLib.Variant | null, flags: Gio.DBusCallFlags, timeoutMsec: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     callFinish(res: Gio.AsyncResult): GLib.Variant
     callSync(methodName: string, parameters: GLib.Variant | null, flags: Gio.DBusCallFlags, timeoutMsec: number, cancellable?: Gio.Cancellable | null): GLib.Variant
     callWithUnixFdList(methodName: string, parameters: GLib.Variant | null, flags: Gio.DBusCallFlags, timeoutMsec: number, fdList?: Gio.UnixFDList | null, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    callWithUnixFdListFinish(res: Gio.AsyncResult): [ /* returnType */ GLib.Variant, /* outFdList */ Gio.UnixFDList | null ]
-    callWithUnixFdListSync(methodName: string, parameters: GLib.Variant | null, flags: Gio.DBusCallFlags, timeoutMsec: number, fdList?: Gio.UnixFDList | null, cancellable?: Gio.Cancellable | null): [ /* returnType */ GLib.Variant, /* outFdList */ Gio.UnixFDList | null ]
+    callWithUnixFdListFinish(res: Gio.AsyncResult): { returnType: GLib.Variant, outFdList: Gio.UnixFDList | null }
+    callWithUnixFdListSync(methodName: string, parameters: GLib.Variant | null, flags: Gio.DBusCallFlags, timeoutMsec: number, fdList?: Gio.UnixFDList | null, cancellable?: Gio.Cancellable | null): { returnType: GLib.Variant, outFdList: Gio.UnixFDList | null }
     getCachedProperty(propertyName: string): GLib.Variant | null
     getCachedPropertyNames(): string[] | null
     getConnection(): Gio.DBusConnection
@@ -920,7 +812,7 @@ export class ManagerProxy {
     setCachedProperty(propertyName: string, value?: GLib.Variant | null): void
     setDefaultTimeout(timeoutMsec: number): void
     setInterfaceInfo(info?: Gio.DBusInterfaceInfo | null): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -942,100 +834,71 @@ export class ManagerProxy {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of Geoclue.Manager */
+    /* Methods of Geoclue-2.0.Geoclue.Manager */
     callAddAgent(argId: string, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     callAddAgentFinish(res: Gio.AsyncResult): boolean
     callAddAgentSync(argId: string, cancellable?: Gio.Cancellable | null): boolean
     callCreateClient(cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    callCreateClientFinish(res: Gio.AsyncResult): [ /* returnType */ boolean, /* outClient */ string | null ]
-    callCreateClientSync(cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* outClient */ string | null ]
+    callCreateClientFinish(res: Gio.AsyncResult): { returnType: boolean, outClient: string | null }
+    callCreateClientSync(cancellable?: Gio.Cancellable | null): { returnType: boolean, outClient: string | null }
     callDeleteClient(argClient: string, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     callDeleteClientFinish(res: Gio.AsyncResult): boolean
     callDeleteClientSync(argClient: string, cancellable?: Gio.Cancellable | null): boolean
     callGetClient(cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    callGetClientFinish(res: Gio.AsyncResult): [ /* returnType */ boolean, /* outClient */ string | null ]
-    callGetClientSync(cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* outClient */ string | null ]
+    callGetClientFinish(res: Gio.AsyncResult): { returnType: boolean, outClient: string | null }
+    callGetClientSync(cancellable?: Gio.Cancellable | null): { returnType: boolean, outClient: string | null }
     completeAddAgent(invocation: Gio.DBusMethodInvocation): void
     completeCreateClient(invocation: Gio.DBusMethodInvocation, client: string): void
     completeDeleteClient(invocation: Gio.DBusMethodInvocation): void
     completeGetClient(invocation: Gio.DBusMethodInvocation, client: string): void
-    /* Methods of Gio.AsyncInitable */
+    /* Methods of Gio-2.0.Gio.AsyncInitable */
     initAsync(ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     initFinish(res: Gio.AsyncResult): boolean
     newFinish(res: Gio.AsyncResult): GObject.Object
-    /* Methods of Gio.DBusInterface */
+    /* Methods of Gio-2.0.Gio.DBusInterface */
     getObject(): Gio.DBusObject | null
     getInfo(): Gio.DBusInterfaceInfo
     setObject(object?: Gio.DBusObject | null): void
-    /* Methods of Gio.Initable */
+    /* Methods of Gio-2.0.Gio.Initable */
     init(cancellable?: Gio.Cancellable | null): boolean
-    /* Virtual methods of Geoclue.ManagerProxy */
-    vfuncHandleAddAgent(invocation: Gio.DBusMethodInvocation, argId: string): boolean
-    vfuncHandleCreateClient(invocation: Gio.DBusMethodInvocation): boolean
-    vfuncHandleDeleteClient(invocation: Gio.DBusMethodInvocation, argClient: string): boolean
-    vfuncHandleGetClient(invocation: Gio.DBusMethodInvocation): boolean
-    vfuncInitAsync(ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    vfuncInitFinish(res: Gio.AsyncResult): boolean
-    vfuncDupObject(): Gio.DBusObject | null
-    vfuncGetInfo(): Gio.DBusInterfaceInfo
-    vfuncSetObject(object?: Gio.DBusObject | null): void
-    vfuncInit(cancellable?: Gio.Cancellable | null): boolean
-    /* Virtual methods of Gio.DBusProxy */
-    vfuncGPropertiesChanged(changedProperties: GLib.Variant, invalidatedProperties: string): void
-    vfuncGSignal(senderName: string, signalName: string, parameters: GLib.Variant): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gio.DBusProxy */
+    /* Signals of Gio-2.0.Gio.DBusProxy */
     connect(sigName: "g-properties-changed", callback: (($obj: ManagerProxy, changedProperties: GLib.Variant, invalidatedProperties: string[]) => void)): number
-    connect_after(sigName: "g-properties-changed", callback: (($obj: ManagerProxy, changedProperties: GLib.Variant, invalidatedProperties: string[]) => void)): number
+    on(sigName: "g-properties-changed", callback: (changedProperties: GLib.Variant, invalidatedProperties: string[]) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "g-properties-changed", callback: (changedProperties: GLib.Variant, invalidatedProperties: string[]) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "g-properties-changed", callback: (changedProperties: GLib.Variant, invalidatedProperties: string[]) => void): NodeJS.EventEmitter
     emit(sigName: "g-properties-changed", changedProperties: GLib.Variant, invalidatedProperties: string[]): void
-    on(sigName: "g-properties-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "g-properties-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "g-properties-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "g-signal", callback: (($obj: ManagerProxy, senderName: string | null, signalName: string, parameters: GLib.Variant) => void)): number
-    connect_after(sigName: "g-signal", callback: (($obj: ManagerProxy, senderName: string | null, signalName: string, parameters: GLib.Variant) => void)): number
+    on(sigName: "g-signal", callback: (senderName: string | null, signalName: string, parameters: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "g-signal", callback: (senderName: string | null, signalName: string, parameters: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "g-signal", callback: (senderName: string | null, signalName: string, parameters: GLib.Variant) => void): NodeJS.EventEmitter
     emit(sigName: "g-signal", senderName: string | null, signalName: string, parameters: GLib.Variant): void
-    on(sigName: "g-signal", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "g-signal", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "g-signal", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: ManagerProxy, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: ManagerProxy, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of Geoclue.Manager */
+    /* Signals of Geoclue-2.0.Geoclue.Manager */
     connect(sigName: "handle-add-agent", callback: (($obj: ManagerProxy, invocation: Gio.DBusMethodInvocation, argId: string) => boolean)): number
-    connect_after(sigName: "handle-add-agent", callback: (($obj: ManagerProxy, invocation: Gio.DBusMethodInvocation, argId: string) => boolean)): number
+    on(sigName: "handle-add-agent", callback: (invocation: Gio.DBusMethodInvocation, argId: string) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-add-agent", callback: (invocation: Gio.DBusMethodInvocation, argId: string) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-add-agent", callback: (invocation: Gio.DBusMethodInvocation, argId: string) => void): NodeJS.EventEmitter
     emit(sigName: "handle-add-agent", invocation: Gio.DBusMethodInvocation, argId: string): void
-    on(sigName: "handle-add-agent", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-add-agent", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-add-agent", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "handle-create-client", callback: (($obj: ManagerProxy, invocation: Gio.DBusMethodInvocation) => boolean)): number
-    connect_after(sigName: "handle-create-client", callback: (($obj: ManagerProxy, invocation: Gio.DBusMethodInvocation) => boolean)): number
+    on(sigName: "handle-create-client", callback: (invocation: Gio.DBusMethodInvocation) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-create-client", callback: (invocation: Gio.DBusMethodInvocation) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-create-client", callback: (invocation: Gio.DBusMethodInvocation) => void): NodeJS.EventEmitter
     emit(sigName: "handle-create-client", invocation: Gio.DBusMethodInvocation): void
-    on(sigName: "handle-create-client", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-create-client", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-create-client", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "handle-delete-client", callback: (($obj: ManagerProxy, invocation: Gio.DBusMethodInvocation, argClient: string) => boolean)): number
-    connect_after(sigName: "handle-delete-client", callback: (($obj: ManagerProxy, invocation: Gio.DBusMethodInvocation, argClient: string) => boolean)): number
+    on(sigName: "handle-delete-client", callback: (invocation: Gio.DBusMethodInvocation, argClient: string) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-delete-client", callback: (invocation: Gio.DBusMethodInvocation, argClient: string) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-delete-client", callback: (invocation: Gio.DBusMethodInvocation, argClient: string) => void): NodeJS.EventEmitter
     emit(sigName: "handle-delete-client", invocation: Gio.DBusMethodInvocation, argClient: string): void
-    on(sigName: "handle-delete-client", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-delete-client", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-delete-client", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "handle-get-client", callback: (($obj: ManagerProxy, invocation: Gio.DBusMethodInvocation) => boolean)): number
-    connect_after(sigName: "handle-get-client", callback: (($obj: ManagerProxy, invocation: Gio.DBusMethodInvocation) => boolean)): number
+    on(sigName: "handle-get-client", callback: (invocation: Gio.DBusMethodInvocation) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-get-client", callback: (invocation: Gio.DBusMethodInvocation) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-get-client", callback: (invocation: Gio.DBusMethodInvocation) => void): NodeJS.EventEmitter
     emit(sigName: "handle-get-client", invocation: Gio.DBusMethodInvocation): void
-    on(sigName: "handle-get-client", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-get-client", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-get-client", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::g-default-timeout", callback: (($obj: ManagerProxy, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::g-default-timeout", callback: (($obj: ManagerProxy, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::g-default-timeout", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -1091,14 +954,14 @@ export interface ManagerSkeleton_ConstructProps extends Gio.DBusInterfaceSkeleto
     inUse?: boolean
 }
 export class ManagerSkeleton {
-    /* Properties of Gio.DBusInterfaceSkeleton */
+    /* Properties of Gio-2.0.Gio.DBusInterfaceSkeleton */
     gFlags: Gio.DBusInterfaceSkeletonFlags
-    /* Properties of Geoclue.Manager */
+    /* Properties of Geoclue-2.0.Geoclue.Manager */
     availableAccuracyLevel: number
     inUse: boolean
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Gio.DBusInterfaceSkeleton */
+    /* Methods of Gio-2.0.Gio.DBusInterfaceSkeleton */
     export(connection: Gio.DBusConnection, objectPath: string): boolean
     flush(): void
     getConnection(): Gio.DBusConnection | null
@@ -1111,7 +974,7 @@ export class ManagerSkeleton {
     setFlags(flags: Gio.DBusInterfaceSkeletonFlags): void
     unexport(): void
     unexportFromConnection(connection: Gio.DBusConnection): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -1133,86 +996,59 @@ export class ManagerSkeleton {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of Geoclue.Manager */
+    /* Methods of Geoclue-2.0.Geoclue.Manager */
     callAddAgent(argId: string, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     callAddAgentFinish(res: Gio.AsyncResult): boolean
     callAddAgentSync(argId: string, cancellable?: Gio.Cancellable | null): boolean
     callCreateClient(cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    callCreateClientFinish(res: Gio.AsyncResult): [ /* returnType */ boolean, /* outClient */ string | null ]
-    callCreateClientSync(cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* outClient */ string | null ]
+    callCreateClientFinish(res: Gio.AsyncResult): { returnType: boolean, outClient: string | null }
+    callCreateClientSync(cancellable?: Gio.Cancellable | null): { returnType: boolean, outClient: string | null }
     callDeleteClient(argClient: string, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     callDeleteClientFinish(res: Gio.AsyncResult): boolean
     callDeleteClientSync(argClient: string, cancellable?: Gio.Cancellable | null): boolean
     callGetClient(cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    callGetClientFinish(res: Gio.AsyncResult): [ /* returnType */ boolean, /* outClient */ string | null ]
-    callGetClientSync(cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* outClient */ string | null ]
+    callGetClientFinish(res: Gio.AsyncResult): { returnType: boolean, outClient: string | null }
+    callGetClientSync(cancellable?: Gio.Cancellable | null): { returnType: boolean, outClient: string | null }
     completeAddAgent(invocation: Gio.DBusMethodInvocation): void
     completeCreateClient(invocation: Gio.DBusMethodInvocation, client: string): void
     completeDeleteClient(invocation: Gio.DBusMethodInvocation): void
     completeGetClient(invocation: Gio.DBusMethodInvocation, client: string): void
-    /* Methods of Gio.DBusInterface */
+    /* Methods of Gio-2.0.Gio.DBusInterface */
     getObject(): Gio.DBusObject | null
     setObject(object?: Gio.DBusObject | null): void
-    /* Virtual methods of Geoclue.ManagerSkeleton */
-    vfuncHandleAddAgent(invocation: Gio.DBusMethodInvocation, argId: string): boolean
-    vfuncHandleCreateClient(invocation: Gio.DBusMethodInvocation): boolean
-    vfuncHandleDeleteClient(invocation: Gio.DBusMethodInvocation, argClient: string): boolean
-    vfuncHandleGetClient(invocation: Gio.DBusMethodInvocation): boolean
-    vfuncDupObject(): Gio.DBusObject | null
-    vfuncGetInfo(): Gio.DBusInterfaceInfo
-    vfuncSetObject(object?: Gio.DBusObject | null): void
-    /* Virtual methods of Gio.DBusInterfaceSkeleton */
-    vfuncFlush(): void
-    vfuncGAuthorizeMethod(invocation: Gio.DBusMethodInvocation): boolean
-    vfuncGetInfo(): Gio.DBusInterfaceInfo
-    vfuncGetProperties(): GLib.Variant
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gio.DBusInterfaceSkeleton */
+    /* Signals of Gio-2.0.Gio.DBusInterfaceSkeleton */
     connect(sigName: "g-authorize-method", callback: (($obj: ManagerSkeleton, invocation: Gio.DBusMethodInvocation) => boolean)): number
-    connect_after(sigName: "g-authorize-method", callback: (($obj: ManagerSkeleton, invocation: Gio.DBusMethodInvocation) => boolean)): number
+    on(sigName: "g-authorize-method", callback: (invocation: Gio.DBusMethodInvocation) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "g-authorize-method", callback: (invocation: Gio.DBusMethodInvocation) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "g-authorize-method", callback: (invocation: Gio.DBusMethodInvocation) => void): NodeJS.EventEmitter
     emit(sigName: "g-authorize-method", invocation: Gio.DBusMethodInvocation): void
-    on(sigName: "g-authorize-method", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "g-authorize-method", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "g-authorize-method", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: ManagerSkeleton, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: ManagerSkeleton, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of Geoclue.Manager */
+    /* Signals of Geoclue-2.0.Geoclue.Manager */
     connect(sigName: "handle-add-agent", callback: (($obj: ManagerSkeleton, invocation: Gio.DBusMethodInvocation, argId: string) => boolean)): number
-    connect_after(sigName: "handle-add-agent", callback: (($obj: ManagerSkeleton, invocation: Gio.DBusMethodInvocation, argId: string) => boolean)): number
+    on(sigName: "handle-add-agent", callback: (invocation: Gio.DBusMethodInvocation, argId: string) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-add-agent", callback: (invocation: Gio.DBusMethodInvocation, argId: string) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-add-agent", callback: (invocation: Gio.DBusMethodInvocation, argId: string) => void): NodeJS.EventEmitter
     emit(sigName: "handle-add-agent", invocation: Gio.DBusMethodInvocation, argId: string): void
-    on(sigName: "handle-add-agent", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-add-agent", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-add-agent", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "handle-create-client", callback: (($obj: ManagerSkeleton, invocation: Gio.DBusMethodInvocation) => boolean)): number
-    connect_after(sigName: "handle-create-client", callback: (($obj: ManagerSkeleton, invocation: Gio.DBusMethodInvocation) => boolean)): number
+    on(sigName: "handle-create-client", callback: (invocation: Gio.DBusMethodInvocation) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-create-client", callback: (invocation: Gio.DBusMethodInvocation) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-create-client", callback: (invocation: Gio.DBusMethodInvocation) => void): NodeJS.EventEmitter
     emit(sigName: "handle-create-client", invocation: Gio.DBusMethodInvocation): void
-    on(sigName: "handle-create-client", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-create-client", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-create-client", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "handle-delete-client", callback: (($obj: ManagerSkeleton, invocation: Gio.DBusMethodInvocation, argClient: string) => boolean)): number
-    connect_after(sigName: "handle-delete-client", callback: (($obj: ManagerSkeleton, invocation: Gio.DBusMethodInvocation, argClient: string) => boolean)): number
+    on(sigName: "handle-delete-client", callback: (invocation: Gio.DBusMethodInvocation, argClient: string) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-delete-client", callback: (invocation: Gio.DBusMethodInvocation, argClient: string) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-delete-client", callback: (invocation: Gio.DBusMethodInvocation, argClient: string) => void): NodeJS.EventEmitter
     emit(sigName: "handle-delete-client", invocation: Gio.DBusMethodInvocation, argClient: string): void
-    on(sigName: "handle-delete-client", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-delete-client", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-delete-client", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "handle-get-client", callback: (($obj: ManagerSkeleton, invocation: Gio.DBusMethodInvocation) => boolean)): number
-    connect_after(sigName: "handle-get-client", callback: (($obj: ManagerSkeleton, invocation: Gio.DBusMethodInvocation) => boolean)): number
+    on(sigName: "handle-get-client", callback: (invocation: Gio.DBusMethodInvocation) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-get-client", callback: (invocation: Gio.DBusMethodInvocation) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-get-client", callback: (invocation: Gio.DBusMethodInvocation) => void): NodeJS.EventEmitter
     emit(sigName: "handle-get-client", invocation: Gio.DBusMethodInvocation): void
-    on(sigName: "handle-get-client", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-get-client", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-get-client", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::g-flags", callback: (($obj: ManagerSkeleton, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::g-flags", callback: (($obj: ManagerSkeleton, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::g-flags", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -1251,17 +1087,17 @@ export interface Simple_ConstructProps extends GObject.Object_ConstructProps {
     timeThreshold?: number
 }
 export class Simple {
-    /* Properties of Geoclue.Simple */
+    /* Properties of Geoclue-2.0.Geoclue.Simple */
     readonly client: ClientProxy
     readonly location: LocationProxy
-    /* Fields of Geoclue.Simple */
+    /* Fields of Geoclue-2.0.Geoclue.Simple */
     parent: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Geoclue.Simple */
+    /* Methods of Geoclue-2.0.Geoclue.Simple */
     getClient(): ClientProxy
     getLocation(): Location
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -1283,28 +1119,16 @@ export class Simple {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of Gio.AsyncInitable */
+    /* Methods of Gio-2.0.Gio.AsyncInitable */
     initAsync(ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     initFinish(res: Gio.AsyncResult): boolean
     newFinish(res: Gio.AsyncResult): GObject.Object
-    /* Virtual methods of Geoclue.Simple */
-    vfuncInitAsync(ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    vfuncInitFinish(res: Gio.AsyncResult): boolean
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Simple, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Simple, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::client", callback: (($obj: Simple, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::client", callback: (($obj: Simple, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::client", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -1334,7 +1158,7 @@ export class Simple {
     static $gtype: GObject.Type
 }
 export abstract class ClientIface {
-    /* Fields of Geoclue.ClientIface */
+    /* Fields of Geoclue-2.0.Geoclue.ClientIface */
     parentIface: GObject.TypeInterface
     handleStart: (object: Client, invocation: Gio.DBusMethodInvocation) => boolean
     handleStop: (object: Client, invocation: Gio.DBusMethodInvocation) => boolean
@@ -1348,7 +1172,7 @@ export abstract class ClientIface {
     static name: string
 }
 export abstract class ClientProxyClass {
-    /* Fields of Geoclue.ClientProxyClass */
+    /* Fields of Geoclue-2.0.Geoclue.ClientProxyClass */
     parentClass: Gio.DBusProxyClass
     static name: string
 }
@@ -1356,7 +1180,7 @@ export class ClientProxyPrivate {
     static name: string
 }
 export abstract class ClientSkeletonClass {
-    /* Fields of Geoclue.ClientSkeletonClass */
+    /* Fields of Geoclue-2.0.Geoclue.ClientSkeletonClass */
     parentClass: Gio.DBusInterfaceSkeletonClass
     static name: string
 }
@@ -1364,7 +1188,7 @@ export class ClientSkeletonPrivate {
     static name: string
 }
 export abstract class LocationIface {
-    /* Fields of Geoclue.LocationIface */
+    /* Fields of Geoclue-2.0.Geoclue.LocationIface */
     parentIface: GObject.TypeInterface
     getAccuracy: (object: Location) => number
     getAltitude: (object: Location) => number
@@ -1377,7 +1201,7 @@ export abstract class LocationIface {
     static name: string
 }
 export abstract class LocationProxyClass {
-    /* Fields of Geoclue.LocationProxyClass */
+    /* Fields of Geoclue-2.0.Geoclue.LocationProxyClass */
     parentClass: Gio.DBusProxyClass
     static name: string
 }
@@ -1385,7 +1209,7 @@ export class LocationProxyPrivate {
     static name: string
 }
 export abstract class LocationSkeletonClass {
-    /* Fields of Geoclue.LocationSkeletonClass */
+    /* Fields of Geoclue-2.0.Geoclue.LocationSkeletonClass */
     parentClass: Gio.DBusInterfaceSkeletonClass
     static name: string
 }
@@ -1393,7 +1217,7 @@ export class LocationSkeletonPrivate {
     static name: string
 }
 export abstract class ManagerIface {
-    /* Fields of Geoclue.ManagerIface */
+    /* Fields of Geoclue-2.0.Geoclue.ManagerIface */
     parentIface: GObject.TypeInterface
     handleAddAgent: (object: Manager, invocation: Gio.DBusMethodInvocation, argId: string) => boolean
     handleCreateClient: (object: Manager, invocation: Gio.DBusMethodInvocation) => boolean
@@ -1404,7 +1228,7 @@ export abstract class ManagerIface {
     static name: string
 }
 export abstract class ManagerProxyClass {
-    /* Fields of Geoclue.ManagerProxyClass */
+    /* Fields of Geoclue-2.0.Geoclue.ManagerProxyClass */
     parentClass: Gio.DBusProxyClass
     static name: string
 }
@@ -1412,7 +1236,7 @@ export class ManagerProxyPrivate {
     static name: string
 }
 export abstract class ManagerSkeletonClass {
-    /* Fields of Geoclue.ManagerSkeletonClass */
+    /* Fields of Geoclue-2.0.Geoclue.ManagerSkeletonClass */
     parentClass: Gio.DBusInterfaceSkeletonClass
     static name: string
 }
@@ -1420,7 +1244,7 @@ export class ManagerSkeletonPrivate {
     static name: string
 }
 export abstract class SimpleClass {
-    /* Fields of Geoclue.SimpleClass */
+    /* Fields of Geoclue-2.0.Geoclue.SimpleClass */
     parentClass: GObject.ObjectClass
     static name: string
 }

@@ -81,9 +81,9 @@ export interface OAuth2Proxy_ConstructProps extends Proxy_ConstructProps {
     client_id?: string
 }
 export class OAuth2Proxy {
-    /* Properties of Rest.OAuth2Proxy */
+    /* Properties of Rest-0.7.Rest.OAuth2Proxy */
     access_token: string
-    /* Properties of Rest.Proxy */
+    /* Properties of Rest-0.7.Rest.Proxy */
     binding_required: boolean
     password: string
     ssl_ca_file: string
@@ -91,22 +91,22 @@ export class OAuth2Proxy {
     url_format: string
     user_agent: string
     username: string
-    /* Fields of Rest.OAuth2Proxy */
+    /* Fields of Rest-0.7.Rest.OAuth2Proxy */
     parent: Proxy
     priv: OAuth2ProxyPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Rest.OAuth2Proxy */
+    /* Methods of Rest-0.7.Rest.OAuth2Proxy */
     build_login_url(redirect_uri: string): string
     build_login_url_full(redirect_uri: string, extra_params: GLib.HashTable): string
     get_access_token(): string
     set_access_token(access_token: string): void
-    /* Methods of Rest.Proxy */
+    /* Methods of Rest-0.7.Rest.Proxy */
     add_soup_feature(feature: Soup.SessionFeature): void
     get_user_agent(): string
     new_call(): ProxyCall
     set_user_agent(user_agent: string): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -128,10 +128,10 @@ export class OAuth2Proxy {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Rest.Proxy */
+    /* Virtual methods of Rest-0.7.Rest.Proxy */
     vfunc_authenticate(auth: ProxyAuth, retrying: boolean): boolean
     vfunc_new_call(): ProxyCall
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -139,11 +139,11 @@ export class OAuth2Proxy {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Rest.Proxy */
+    /* Signals of Rest-0.7.Rest.Proxy */
     connect(sigName: "authenticate", callback: (($obj: OAuth2Proxy, auth: ProxyAuth, retrying: boolean) => boolean)): number
     connect_after(sigName: "authenticate", callback: (($obj: OAuth2Proxy, auth: ProxyAuth, retrying: boolean) => boolean)): number
     emit(sigName: "authenticate", auth: ProxyAuth, retrying: boolean): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: OAuth2Proxy, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: OAuth2Proxy, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -180,13 +180,13 @@ export class OAuth2Proxy {
 export interface OAuth2ProxyCall_ConstructProps extends ProxyCall_ConstructProps {
 }
 export class OAuth2ProxyCall {
-    /* Fields of Rest.OAuth2ProxyCall */
+    /* Fields of Rest-0.7.Rest.OAuth2ProxyCall */
     parent: ProxyCall
-    /* Fields of Rest.ProxyCall */
+    /* Fields of Rest-0.7.Rest.ProxyCall */
     priv: ProxyCallPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Rest.ProxyCall */
+    /* Methods of Rest-0.7.Rest.ProxyCall */
     add_header(header: string, value: string): void
     add_param(name: string, value: string): void
     add_param_full(param: Param): void
@@ -211,7 +211,7 @@ export class OAuth2ProxyCall {
     set_method(method: string): void
     sync(): boolean
     upload(callback: ProxyCallUploadCallback, weak_object: GObject.Object): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -233,10 +233,10 @@ export class OAuth2ProxyCall {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Rest.ProxyCall */
+    /* Virtual methods of Rest-0.7.Rest.ProxyCall */
     vfunc_prepare(): boolean
     vfunc_serialize_params(): [ /* returnType */ boolean, /* content_type */ string, /* content */ string, /* content_len */ number ]
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -244,7 +244,7 @@ export class OAuth2ProxyCall {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: OAuth2ProxyCall, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: OAuth2ProxyCall, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -266,12 +266,12 @@ export interface OAuthProxy_ConstructProps extends Proxy_ConstructProps {
     token_secret?: string
 }
 export class OAuthProxy {
-    /* Properties of Rest.OAuthProxy */
+    /* Properties of Rest-0.7.Rest.OAuthProxy */
     signature_host: string
     signature_method: OAuthSignatureMethod
     token: string
     token_secret: string
-    /* Properties of Rest.Proxy */
+    /* Properties of Rest-0.7.Rest.Proxy */
     binding_required: boolean
     password: string
     ssl_ca_file: string
@@ -279,11 +279,11 @@ export class OAuthProxy {
     url_format: string
     user_agent: string
     username: string
-    /* Fields of Rest.OAuthProxy */
+    /* Fields of Rest-0.7.Rest.OAuthProxy */
     parent: Proxy
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Rest.OAuthProxy */
+    /* Methods of Rest-0.7.Rest.OAuthProxy */
     access_token(function_: string, verifier: string): boolean
     access_token_async(function_: string, verifier: string, callback: OAuthProxyAuthCallback, weak_object: GObject.Object): boolean
     auth_step(function_: string): boolean
@@ -298,12 +298,12 @@ export class OAuthProxy {
     set_signature_host(signature_host: string): void
     set_token(token: string): void
     set_token_secret(token_secret: string): void
-    /* Methods of Rest.Proxy */
+    /* Methods of Rest-0.7.Rest.Proxy */
     add_soup_feature(feature: Soup.SessionFeature): void
     get_user_agent(): string
     new_call(): ProxyCall
     set_user_agent(user_agent: string): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -325,10 +325,10 @@ export class OAuthProxy {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Rest.Proxy */
+    /* Virtual methods of Rest-0.7.Rest.Proxy */
     vfunc_authenticate(auth: ProxyAuth, retrying: boolean): boolean
     vfunc_new_call(): ProxyCall
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -336,11 +336,11 @@ export class OAuthProxy {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Rest.Proxy */
+    /* Signals of Rest-0.7.Rest.Proxy */
     connect(sigName: "authenticate", callback: (($obj: OAuthProxy, auth: ProxyAuth, retrying: boolean) => boolean)): number
     connect_after(sigName: "authenticate", callback: (($obj: OAuthProxy, auth: ProxyAuth, retrying: boolean) => boolean)): number
     emit(sigName: "authenticate", auth: ProxyAuth, retrying: boolean): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: OAuthProxy, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: OAuthProxy, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -382,16 +382,16 @@ export class OAuthProxy {
 export interface OAuthProxyCall_ConstructProps extends ProxyCall_ConstructProps {
 }
 export class OAuthProxyCall {
-    /* Fields of Rest.OAuthProxyCall */
+    /* Fields of Rest-0.7.Rest.OAuthProxyCall */
     parent: ProxyCall
-    /* Fields of Rest.ProxyCall */
+    /* Fields of Rest-0.7.Rest.ProxyCall */
     priv: ProxyCallPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Rest.OAuthProxyCall */
+    /* Methods of Rest-0.7.Rest.OAuthProxyCall */
     parse_token_reponse(): void
     parse_token_response(): void
-    /* Methods of Rest.ProxyCall */
+    /* Methods of Rest-0.7.Rest.ProxyCall */
     add_header(header: string, value: string): void
     add_param(name: string, value: string): void
     add_param_full(param: Param): void
@@ -416,7 +416,7 @@ export class OAuthProxyCall {
     set_method(method: string): void
     sync(): boolean
     upload(callback: ProxyCallUploadCallback, weak_object: GObject.Object): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -438,10 +438,10 @@ export class OAuthProxyCall {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Rest.ProxyCall */
+    /* Virtual methods of Rest-0.7.Rest.ProxyCall */
     vfunc_prepare(): boolean
     vfunc_serialize_params(): [ /* returnType */ boolean, /* content_type */ string, /* content */ string, /* content_len */ number ]
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -449,7 +449,7 @@ export class OAuthProxyCall {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: OAuthProxyCall, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: OAuthProxyCall, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -473,7 +473,7 @@ export interface Proxy_ConstructProps extends GObject.Object_ConstructProps {
     username?: string
 }
 export class Proxy {
-    /* Properties of Rest.Proxy */
+    /* Properties of Rest-0.7.Rest.Proxy */
     binding_required: boolean
     password: string
     ssl_ca_file: string
@@ -481,16 +481,16 @@ export class Proxy {
     url_format: string
     user_agent: string
     username: string
-    /* Fields of Rest.Proxy */
+    /* Fields of Rest-0.7.Rest.Proxy */
     parent: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Rest.Proxy */
+    /* Methods of Rest-0.7.Rest.Proxy */
     add_soup_feature(feature: Soup.SessionFeature): void
     get_user_agent(): string
     new_call(): ProxyCall
     set_user_agent(user_agent: string): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -512,10 +512,10 @@ export class Proxy {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Rest.Proxy */
+    /* Virtual methods of Rest-0.7.Rest.Proxy */
     vfunc_authenticate(auth: ProxyAuth, retrying: boolean): boolean
     vfunc_new_call(): ProxyCall
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -523,11 +523,11 @@ export class Proxy {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Rest.Proxy */
+    /* Signals of Rest-0.7.Rest.Proxy */
     connect(sigName: "authenticate", callback: (($obj: Proxy, auth: ProxyAuth, retrying: boolean) => boolean)): number
     connect_after(sigName: "authenticate", callback: (($obj: Proxy, auth: ProxyAuth, retrying: boolean) => boolean)): number
     emit(sigName: "authenticate", auth: ProxyAuth, retrying: boolean): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Proxy, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Proxy, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -560,16 +560,16 @@ export class Proxy {
 export interface ProxyAuth_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class ProxyAuth {
-    /* Fields of Rest.ProxyAuth */
+    /* Fields of Rest-0.7.Rest.ProxyAuth */
     parent: GObject.Object
     priv: ProxyAuthPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Rest.ProxyAuth */
+    /* Methods of Rest-0.7.Rest.ProxyAuth */
     cancel(): void
     pause(): void
     unpause(): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -591,7 +591,7 @@ export class ProxyAuth {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -599,7 +599,7 @@ export class ProxyAuth {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: ProxyAuth, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: ProxyAuth, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -616,12 +616,12 @@ export interface ProxyCall_ConstructProps extends GObject.Object_ConstructProps 
     proxy?: Proxy
 }
 export class ProxyCall {
-    /* Fields of Rest.ProxyCall */
+    /* Fields of Rest-0.7.Rest.ProxyCall */
     parent: GObject.Object
     priv: ProxyCallPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Rest.ProxyCall */
+    /* Methods of Rest-0.7.Rest.ProxyCall */
     add_header(header: string, value: string): void
     add_param(name: string, value: string): void
     add_param_full(param: Param): void
@@ -646,7 +646,7 @@ export class ProxyCall {
     set_method(method: string): void
     sync(): boolean
     upload(callback: ProxyCallUploadCallback, weak_object: GObject.Object): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -668,10 +668,10 @@ export class ProxyCall {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Rest.ProxyCall */
+    /* Virtual methods of Rest-0.7.Rest.ProxyCall */
     vfunc_prepare(): boolean
     vfunc_serialize_params(): [ /* returnType */ boolean, /* content_type */ string, /* content */ string, /* content_len */ number ]
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -679,7 +679,7 @@ export class ProxyCall {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: ProxyCall, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: ProxyCall, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -695,13 +695,13 @@ export class ProxyCall {
 export interface XmlParser_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class XmlParser {
-    /* Fields of Rest.XmlParser */
+    /* Fields of Rest-0.7.Rest.XmlParser */
     parent: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Rest.XmlParser */
+    /* Methods of Rest-0.7.Rest.XmlParser */
     parse_from_data(data: string, len: number): XmlNode
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -723,7 +723,7 @@ export class XmlParser {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -731,7 +731,7 @@ export class XmlParser {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: XmlParser, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: XmlParser, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -747,12 +747,12 @@ export class XmlParser {
     static $gtype: GObject.Type
 }
 export abstract class OAuth2ProxyCallClass {
-    /* Fields of Rest.OAuth2ProxyCallClass */
+    /* Fields of Rest-0.7.Rest.OAuth2ProxyCallClass */
     parent_class: ProxyCallClass
     static name: string
 }
 export abstract class OAuth2ProxyClass {
-    /* Fields of Rest.OAuth2ProxyClass */
+    /* Fields of Rest-0.7.Rest.OAuth2ProxyClass */
     parent_class: ProxyClass
     static name: string
 }
@@ -760,17 +760,17 @@ export class OAuth2ProxyPrivate {
     static name: string
 }
 export abstract class OAuthProxyCallClass {
-    /* Fields of Rest.OAuthProxyCallClass */
+    /* Fields of Rest-0.7.Rest.OAuthProxyCallClass */
     parent_class: ProxyCallClass
     static name: string
 }
 export abstract class OAuthProxyClass {
-    /* Fields of Rest.OAuthProxyClass */
+    /* Fields of Rest-0.7.Rest.OAuthProxyClass */
     parent_class: ProxyClass
     static name: string
 }
 export class Param {
-    /* Methods of Rest.Param */
+    /* Methods of Rest-0.7.Rest.Param */
     get_content(): object | null
     get_content_length(): number
     get_content_type(): string
@@ -786,7 +786,7 @@ export class Param {
     static new_with_owner(name: string, data: Uint8Array[], content_type: string, filename?: string | null, owner?: object | null, owner_dnotify?: GLib.DestroyNotify | null): Param
 }
 export class Params {
-    /* Methods of Rest.Params */
+    /* Methods of Rest-0.7.Rest.Params */
     add(param: Param): void
     are_strings(): boolean
     as_string_hash_table(): GLib.HashTable
@@ -796,13 +796,13 @@ export class Params {
     static name: string
 }
 export class ParamsIter {
-    /* Methods of Rest.ParamsIter */
+    /* Methods of Rest-0.7.Rest.ParamsIter */
     init(params: Params): void
     next(): [ /* returnType */ boolean, /* name */ string, /* param */ Param | null ]
     static name: string
 }
 export abstract class ProxyAuthClass {
-    /* Fields of Rest.ProxyAuthClass */
+    /* Fields of Rest-0.7.Rest.ProxyAuthClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
@@ -810,7 +810,7 @@ export class ProxyAuthPrivate {
     static name: string
 }
 export abstract class ProxyCallClass {
-    /* Fields of Rest.ProxyCallClass */
+    /* Fields of Rest-0.7.Rest.ProxyCallClass */
     prepare: (call: ProxyCall) => boolean
     serialize_params: (call: ProxyCall) => [ /* returnType */ boolean, /* content_type */ string, /* content */ string, /* content_len */ number ]
     static name: string
@@ -819,19 +819,19 @@ export class ProxyCallPrivate {
     static name: string
 }
 export abstract class ProxyClass {
-    /* Fields of Rest.ProxyClass */
+    /* Fields of Rest-0.7.Rest.ProxyClass */
     new_call: (proxy: Proxy) => ProxyCall
     authenticate: (proxy: Proxy, auth: ProxyAuth, retrying: boolean) => boolean
     static name: string
 }
 export class XmlNode {
-    /* Fields of Rest.XmlNode */
+    /* Fields of Rest-0.7.Rest.XmlNode */
     name: string
     content: string
     children: GLib.HashTable
     attrs: GLib.HashTable
     next: XmlNode
-    /* Methods of Rest.XmlNode */
+    /* Methods of Rest-0.7.Rest.XmlNode */
     add_attr(attribute: string, value: string): void
     add_child(tag: string): XmlNode
     find(tag: string): XmlNode
@@ -842,7 +842,7 @@ export class XmlNode {
     static name: string
 }
 export abstract class XmlParserClass {
-    /* Fields of Rest.XmlParserClass */
+    /* Fields of Rest-0.7.Rest.XmlParserClass */
     parent_class: GObject.ObjectClass
     static name: string
 }

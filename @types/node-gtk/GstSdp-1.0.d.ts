@@ -104,11 +104,11 @@ export const SDP_BWTYPE_RS: string
 export const SDP_BWTYPE_TIAS: string
 export function sdpAddressIsMulticast(nettype: string, addrtype: string, addr: string): boolean
 export function sdpMakeKeymgmt(uri: string, base64: string): string
-export function sdpMediaNew(): [ /* returnType */ SDPResult, /* media */ SDPMedia ]
+export function sdpMediaNew(): { returnType: SDPResult, media: SDPMedia }
 export function sdpMediaSetMediaFromCaps(caps: Gst.Caps, media: SDPMedia): SDPResult
 export function sdpMessageAsUri(scheme: string, msg: SDPMessage): string
-export function sdpMessageNew(): [ /* returnType */ SDPResult, /* msg */ SDPMessage ]
-export function sdpMessageNewFromText(text: string): [ /* returnType */ SDPResult, /* msg */ SDPMessage ]
+export function sdpMessageNew(): { returnType: SDPResult, msg: SDPMessage }
+export function sdpMessageNewFromText(text: string): { returnType: SDPResult, msg: SDPMessage }
 export function sdpMessageParseBuffer(data: any[], msg: SDPMessage): SDPResult
 export function sdpMessageParseUri(uri: string, msg: SDPMessage): SDPResult
 export class MIKEYDecryptInfo {
@@ -118,14 +118,14 @@ export class MIKEYEncryptInfo {
     static name: string
 }
 export class MIKEYMapSRTP {
-    /* Fields of GstSdp.MIKEYMapSRTP */
+    /* Fields of GstSdp-1.0.GstSdp.MIKEYMapSRTP */
     policy: number
     ssrc: number
     roc: number
     static name: string
 }
 export class MIKEYMessage {
-    /* Fields of GstSdp.MIKEYMessage */
+    /* Fields of GstSdp-1.0.GstSdp.MIKEYMessage */
     version: number
     type: MIKEYType
     v: boolean
@@ -134,7 +134,7 @@ export class MIKEYMessage {
     mapType: MIKEYMapType
     mapInfo: object[]
     payloads: object[]
-    /* Methods of GstSdp.MIKEYMessage */
+    /* Methods of GstSdp-1.0.GstSdp.MIKEYMessage */
     addCsSrtp(policy: number, ssrc: number, roc: number): boolean
     addPayload(payload: MIKEYPayload): boolean
     addPke(c: MIKEYCacheType, data: any[]): boolean
@@ -167,10 +167,10 @@ export class MIKEYMessage {
     static newFromData(data: any[], info: MIKEYDecryptInfo): MIKEYMessage
 }
 export class MIKEYPayload {
-    /* Fields of GstSdp.MIKEYPayload */
+    /* Fields of GstSdp-1.0.GstSdp.MIKEYPayload */
     type: MIKEYPayloadType
     len: number
-    /* Methods of GstSdp.MIKEYPayload */
+    /* Methods of GstSdp-1.0.GstSdp.MIKEYPayload */
     kemacAddSub(newpay: MIKEYPayload): boolean
     kemacGetNSub(): number
     kemacGetSub(idx: number): MIKEYPayload
@@ -195,7 +195,7 @@ export class MIKEYPayload {
     static new(type: MIKEYPayloadType): MIKEYPayload
 }
 export class MIKEYPayloadKEMAC {
-    /* Fields of GstSdp.MIKEYPayloadKEMAC */
+    /* Fields of GstSdp-1.0.GstSdp.MIKEYPayloadKEMAC */
     pt: MIKEYPayload
     encAlg: MIKEYEncAlg
     macAlg: MIKEYMacAlg
@@ -203,7 +203,7 @@ export class MIKEYPayloadKEMAC {
     static name: string
 }
 export class MIKEYPayloadKeyData {
-    /* Fields of GstSdp.MIKEYPayloadKeyData */
+    /* Fields of GstSdp-1.0.GstSdp.MIKEYPayloadKeyData */
     pt: MIKEYPayload
     keyType: MIKEYKeyDataType
     keyLen: number
@@ -216,7 +216,7 @@ export class MIKEYPayloadKeyData {
     static name: string
 }
 export class MIKEYPayloadPKE {
-    /* Fields of GstSdp.MIKEYPayloadPKE */
+    /* Fields of GstSdp-1.0.GstSdp.MIKEYPayloadPKE */
     pt: MIKEYPayload
     c: MIKEYCacheType
     dataLen: number
@@ -224,14 +224,14 @@ export class MIKEYPayloadPKE {
     static name: string
 }
 export class MIKEYPayloadRAND {
-    /* Fields of GstSdp.MIKEYPayloadRAND */
+    /* Fields of GstSdp-1.0.GstSdp.MIKEYPayloadRAND */
     pt: MIKEYPayload
     len: number
     rand: number
     static name: string
 }
 export class MIKEYPayloadSP {
-    /* Fields of GstSdp.MIKEYPayloadSP */
+    /* Fields of GstSdp-1.0.GstSdp.MIKEYPayloadSP */
     pt: MIKEYPayload
     policy: number
     proto: MIKEYSecProto
@@ -239,57 +239,57 @@ export class MIKEYPayloadSP {
     static name: string
 }
 export class MIKEYPayloadSPParam {
-    /* Fields of GstSdp.MIKEYPayloadSPParam */
+    /* Fields of GstSdp-1.0.GstSdp.MIKEYPayloadSPParam */
     type: number
     len: number
     val: number
     static name: string
 }
 export class MIKEYPayloadT {
-    /* Fields of GstSdp.MIKEYPayloadT */
+    /* Fields of GstSdp-1.0.GstSdp.MIKEYPayloadT */
     pt: MIKEYPayload
     type: MIKEYTSType
     tsValue: number
     static name: string
 }
 export class SDPAttribute {
-    /* Fields of GstSdp.SDPAttribute */
+    /* Fields of GstSdp-1.0.GstSdp.SDPAttribute */
     key: string
     value: string
-    /* Methods of GstSdp.SDPAttribute */
+    /* Methods of GstSdp-1.0.GstSdp.SDPAttribute */
     clear(): SDPResult
     set(key: string, value?: string | null): SDPResult
     static name: string
 }
 export class SDPBandwidth {
-    /* Fields of GstSdp.SDPBandwidth */
+    /* Fields of GstSdp-1.0.GstSdp.SDPBandwidth */
     bwtype: string
     bandwidth: number
-    /* Methods of GstSdp.SDPBandwidth */
+    /* Methods of GstSdp-1.0.GstSdp.SDPBandwidth */
     clear(): SDPResult
     set(bwtype: string, bandwidth: number): SDPResult
     static name: string
 }
 export class SDPConnection {
-    /* Fields of GstSdp.SDPConnection */
+    /* Fields of GstSdp-1.0.GstSdp.SDPConnection */
     nettype: string
     addrtype: string
     address: string
     ttl: number
     addrNumber: number
-    /* Methods of GstSdp.SDPConnection */
+    /* Methods of GstSdp-1.0.GstSdp.SDPConnection */
     clear(): SDPResult
     set(nettype: string, addrtype: string, address: string, ttl: number, addrNumber: number): SDPResult
     static name: string
 }
 export class SDPKey {
-    /* Fields of GstSdp.SDPKey */
+    /* Fields of GstSdp-1.0.GstSdp.SDPKey */
     type: string
     data: string
     static name: string
 }
 export class SDPMedia {
-    /* Fields of GstSdp.SDPMedia */
+    /* Fields of GstSdp-1.0.GstSdp.SDPMedia */
     media: string
     port: number
     numPorts: number
@@ -300,7 +300,7 @@ export class SDPMedia {
     bandwidths: object[]
     key: SDPKey
     attributes: object[]
-    /* Methods of GstSdp.SDPMedia */
+    /* Methods of GstSdp-1.0.GstSdp.SDPMedia */
     addAttribute(key: string, value?: string | null): SDPResult
     addBandwidth(bwtype: string, bandwidth: number): SDPResult
     addConnection(nettype: string, addrtype: string, address: string, ttl: number, addrNumber: number): SDPResult
@@ -310,7 +310,7 @@ export class SDPMedia {
     attributesToCaps(caps: Gst.Caps): SDPResult
     bandwidthsLen(): number
     connectionsLen(): number
-    copy(): [ /* returnType */ SDPResult, /* copy */ SDPMedia ]
+    copy(): { returnType: SDPResult, copy: SDPMedia }
     formatsLen(): number
     free(): SDPResult
     getAttribute(idx: number): SDPAttribute
@@ -331,7 +331,7 @@ export class SDPMedia {
     insertBandwidth(idx: number, bw: SDPBandwidth): SDPResult
     insertConnection(idx: number, conn: SDPConnection): SDPResult
     insertFormat(idx: number, format: string): SDPResult
-    parseKeymgmt(): [ /* returnType */ SDPResult, /* mikey */ MIKEYMessage ]
+    parseKeymgmt(): { returnType: SDPResult, mikey: MIKEYMessage }
     removeAttribute(idx: number): SDPResult
     removeBandwidth(idx: number): SDPResult
     removeConnection(idx: number): SDPResult
@@ -351,7 +351,7 @@ export class SDPMedia {
     static setMediaFromCaps(caps: Gst.Caps, media: SDPMedia): SDPResult
 }
 export class SDPMessage {
-    /* Fields of GstSdp.SDPMessage */
+    /* Fields of GstSdp-1.0.GstSdp.SDPMessage */
     version: string
     origin: SDPOrigin
     sessionName: string
@@ -366,7 +366,7 @@ export class SDPMessage {
     key: SDPKey
     attributes: object[]
     medias: object[]
-    /* Methods of GstSdp.SDPMessage */
+    /* Methods of GstSdp-1.0.GstSdp.SDPMessage */
     addAttribute(key: string, value?: string | null): SDPResult
     addBandwidth(bwtype: string, bandwidth: number): SDPResult
     addEmail(email: string): SDPResult
@@ -378,7 +378,7 @@ export class SDPMessage {
     attributesLen(): number
     attributesToCaps(caps: Gst.Caps): SDPResult
     bandwidthsLen(): number
-    copy(): [ /* returnType */ SDPResult, /* copy */ SDPMessage ]
+    copy(): { returnType: SDPResult, copy: SDPMessage }
     dump(): SDPResult
     emailsLen(): number
     free(): SDPResult
@@ -406,7 +406,7 @@ export class SDPMessage {
     insertTime(idx: number, t: SDPTime): SDPResult
     insertZone(idx: number, zone: SDPZone): SDPResult
     mediasLen(): number
-    parseKeymgmt(): [ /* returnType */ SDPResult, /* mikey */ MIKEYMessage ]
+    parseKeymgmt(): { returnType: SDPResult, mikey: MIKEYMessage }
     phonesLen(): number
     removeAttribute(idx: number): SDPResult
     removeBandwidth(idx: number): SDPResult
@@ -433,12 +433,12 @@ export class SDPMessage {
     static name: string
     /* Static methods and pseudo-constructors */
     static asUri(scheme: string, msg: SDPMessage): string
-    static newFromText(text: string): [ /* returnType */ SDPResult, /* msg */ SDPMessage ]
+    static newFromText(text: string): { returnType: SDPResult, msg: SDPMessage }
     static parseBuffer(data: any[], msg: SDPMessage): SDPResult
     static parseUri(uri: string, msg: SDPMessage): SDPResult
 }
 export class SDPOrigin {
-    /* Fields of GstSdp.SDPOrigin */
+    /* Fields of GstSdp-1.0.GstSdp.SDPOrigin */
     username: string
     sessId: string
     sessVersion: string
@@ -448,20 +448,20 @@ export class SDPOrigin {
     static name: string
 }
 export class SDPTime {
-    /* Fields of GstSdp.SDPTime */
+    /* Fields of GstSdp-1.0.GstSdp.SDPTime */
     start: string
     stop: string
     repeat: object[]
-    /* Methods of GstSdp.SDPTime */
+    /* Methods of GstSdp-1.0.GstSdp.SDPTime */
     clear(): SDPResult
     set(start: string, stop: string, repeat: string[]): SDPResult
     static name: string
 }
 export class SDPZone {
-    /* Fields of GstSdp.SDPZone */
+    /* Fields of GstSdp-1.0.GstSdp.SDPZone */
     time: string
     typedTime: string
-    /* Methods of GstSdp.SDPZone */
+    /* Methods of GstSdp-1.0.GstSdp.SDPZone */
     clear(): SDPResult
     set(adjTime: string, typedTime: string): SDPResult
     static name: string

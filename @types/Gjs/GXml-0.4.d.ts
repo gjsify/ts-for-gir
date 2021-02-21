@@ -67,17 +67,17 @@ export interface NamedNodeMap_ConstructProps extends GObject.Object_ConstructPro
     length?: number
 }
 export class NamedNodeMap {
-    /* Properties of GXml.NamedNodeMap */
+    /* Properties of GXml-0.4.GXml.NamedNodeMap */
     length: number
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GXml.NamedNodeMap */
+    /* Methods of GXml-0.4.GXml.NamedNodeMap */
     get_named_item(name: string): object | null
     set_named_item(item?: object | null): object | null
     remove_named_item(name: string): object | null
     item(index: number): object | null
     get_length(): number
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -99,13 +99,13 @@ export class NamedNodeMap {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GXml.NamedNodeMap */
+    /* Virtual methods of GXml-0.4.GXml.NamedNodeMap */
     vfunc_get_named_item(name: string): object | null
     vfunc_set_named_item(item?: object | null): object | null
     vfunc_remove_named_item(name: string): object | null
     vfunc_item(index: number): object | null
     vfunc_get_length(): number
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -113,7 +113,7 @@ export class NamedNodeMap {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: NamedNodeMap, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: NamedNodeMap, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -132,11 +132,11 @@ export interface NodeList_ConstructProps extends GObject.Object_ConstructProps {
     length?: number
 }
 export class NodeList {
-    /* Properties of GXml.NodeList */
+    /* Properties of GXml-0.4.GXml.NodeList */
     length: number
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GXml.NodeList */
+    /* Methods of GXml-0.4.GXml.NodeList */
     item(idx: number): Node
     insert_before(new_child: Node, ref_child?: Node | null): Node | null
     replace_child(new_child: Node, old_child: Node): Node | null
@@ -147,7 +147,7 @@ export class NodeList {
     last(): Node
     get(n: number): Node
     get_length(): number
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -169,7 +169,7 @@ export class NodeList {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GXml.NodeList */
+    /* Virtual methods of GXml-0.4.GXml.NodeList */
     vfunc_item(idx: number): Node
     vfunc_insert_before(new_child: Node, ref_child?: Node | null): Node | null
     vfunc_replace_child(new_child: Node, old_child: Node): Node | null
@@ -180,7 +180,7 @@ export class NodeList {
     vfunc_last(): Node
     vfunc_get(n: number): Node
     vfunc_get_length(): number
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -188,7 +188,7 @@ export class NodeList {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: NodeList, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: NodeList, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -210,14 +210,14 @@ export interface Serializable_ConstructProps extends GObject.Object_ConstructPro
     serialized_xml_node_value?: string
 }
 export class Serializable {
-    /* Properties of GXml.Serializable */
+    /* Properties of GXml-0.4.GXml.Serializable */
     properties: GObject.ParamSpec[]
     ignored_serializable_properties: GLib.HashTable
     unknown_serializable_property: GLib.HashTable
     serialized_xml_node_value: string
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GXml.Serializable */
+    /* Methods of GXml-0.4.GXml.Serializable */
     get_enable_unknown_serializable_property(): boolean
     serialize_use_xml_node_value(): boolean
     node_name(): string
@@ -246,7 +246,7 @@ export class Serializable {
     set_unknown_serializable_property(value: GLib.HashTable): void
     get_serialized_xml_node_value(): string | null
     set_serialized_xml_node_value(value?: string | null): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -268,7 +268,7 @@ export class Serializable {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GXml.Serializable */
+    /* Virtual methods of GXml-0.4.GXml.Serializable */
     vfunc_get_enable_unknown_serializable_property(): boolean
     vfunc_serialize_use_xml_node_value(): boolean
     vfunc_node_name(): string
@@ -297,7 +297,7 @@ export class Serializable {
     vfunc_set_unknown_serializable_property(value: GLib.HashTable): void
     vfunc_get_serialized_xml_node_value(): string | null
     vfunc_set_serialized_xml_node_value(value?: string | null): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -305,7 +305,7 @@ export class Serializable {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GXml.Serializable */
+    /* Signals of GXml-0.4.GXml.Serializable */
     connect(sigName: "serialize_unknown_property", callback: (($obj: Serializable, element: Node, prop: GObject.ParamSpec) => void)): number
     connect_after(sigName: "serialize_unknown_property", callback: (($obj: Serializable, element: Node, prop: GObject.ParamSpec) => void)): number
     emit(sigName: "serialize_unknown_property", element: Node, prop: GObject.ParamSpec): void
@@ -318,7 +318,7 @@ export class Serializable {
     connect(sigName: "deserialize_unknown_property_type", callback: (($obj: Serializable, node: Node, prop: GObject.ParamSpec) => void)): number
     connect_after(sigName: "deserialize_unknown_property_type", callback: (($obj: Serializable, node: Node, prop: GObject.ParamSpec) => void)): number
     emit(sigName: "deserialize_unknown_property_type", node: Node, prop: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Serializable, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Serializable, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -345,11 +345,11 @@ export class Serializable {
 export interface SerializableMapKey_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class SerializableMapKey {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GXml.SerializableMapKey */
+    /* Methods of GXml-0.4.GXml.SerializableMapKey */
     get_map_key(): object | null
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -371,9 +371,9 @@ export class SerializableMapKey {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GXml.SerializableMapKey */
+    /* Virtual methods of GXml-0.4.GXml.SerializableMapKey */
     vfunc_get_map_key(): object | null
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -381,7 +381,7 @@ export class SerializableMapKey {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: SerializableMapKey, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: SerializableMapKey, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -397,12 +397,12 @@ export class SerializableMapKey {
 export interface SerializableMapDualKey_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class SerializableMapDualKey {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GXml.SerializableMapDualKey */
+    /* Methods of GXml-0.4.GXml.SerializableMapDualKey */
     get_map_primary_key(): object | null
     get_map_secondary_key(): object | null
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -424,10 +424,10 @@ export class SerializableMapDualKey {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GXml.SerializableMapDualKey */
+    /* Virtual methods of GXml-0.4.GXml.SerializableMapDualKey */
     vfunc_get_map_primary_key(): object | null
     vfunc_get_map_secondary_key(): object | null
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -435,7 +435,7 @@ export class SerializableMapDualKey {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: SerializableMapDualKey, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: SerializableMapDualKey, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -451,11 +451,11 @@ export class SerializableMapDualKey {
 export interface SerializableCollection_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class SerializableCollection {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GXml.SerializableCollection */
+    /* Methods of GXml-0.4.GXml.SerializableCollection */
     is_collection(): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -477,9 +477,9 @@ export class SerializableCollection {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GXml.SerializableCollection */
+    /* Virtual methods of GXml-0.4.GXml.SerializableCollection */
     vfunc_is_collection(): boolean
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -487,7 +487,7 @@ export class SerializableCollection {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: SerializableCollection, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: SerializableCollection, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -506,11 +506,11 @@ export interface Attr_ConstructProps extends BackedNode_ConstructProps {
     value?: string
 }
 export class Attr {
-    /* Properties of GXml.Attr */
+    /* Properties of GXml-0.4.GXml.Attr */
     name: string
     specified: boolean
     value: string
-    /* Properties of GXml.Node */
+    /* Properties of GXml-0.4.GXml.Node */
     namespace_definitions: NodeList
     namespace_uri: string
     prefix: string
@@ -526,17 +526,17 @@ export class Attr {
     next_sibling: Node
     attributes: NamedAttrMap
     owner_document: Document
-    /* Fields of GXml.Attr */
+    /* Fields of GXml-0.4.GXml.Attr */
     parent_instance: BackedNode
     priv: AttrPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GXml.Attr */
+    /* Methods of GXml-0.4.GXml.Attr */
     get_name(): string
     get_specified(): boolean
     get_value(): string
     set_value(value: string): void
-    /* Methods of GXml.Node */
+    /* Methods of GXml-0.4.GXml.Node */
     add_namespace_attr(uri: string, prefix: string): NamespaceAttr | null
     insert_before(new_child: Node, ref_child?: Node | null): Node | null
     replace_child(new_child: Node, old_child: Node): Node | null
@@ -561,7 +561,7 @@ export class Attr {
     get_next_sibling(): Node | null
     get_attributes(): NamedAttrMap | null
     get_owner_document(): Document
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -583,7 +583,7 @@ export class Attr {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GXml.Node */
+    /* Virtual methods of GXml-0.4.GXml.Node */
     vfunc_add_namespace_attr(uri: string, prefix: string): NamespaceAttr | null
     vfunc_insert_before(new_child: Node, ref_child?: Node | null): Node | null
     vfunc_replace_child(new_child: Node, old_child: Node): Node | null
@@ -607,7 +607,7 @@ export class Attr {
     vfunc_get_previous_sibling(): Node | null
     vfunc_get_next_sibling(): Node | null
     vfunc_get_attributes(): NamedAttrMap | null
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -615,7 +615,7 @@ export class Attr {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Attr, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Attr, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -667,7 +667,7 @@ export class Attr {
 export interface BackedNode_ConstructProps extends Node_ConstructProps {
 }
 export class BackedNode {
-    /* Properties of GXml.Node */
+    /* Properties of GXml-0.4.GXml.Node */
     namespace_definitions: NodeList
     namespace_uri: string
     prefix: string
@@ -683,12 +683,12 @@ export class BackedNode {
     next_sibling: Node
     attributes: NamedAttrMap
     owner_document: Document
-    /* Fields of GXml.BackedNode */
+    /* Fields of GXml-0.4.GXml.BackedNode */
     parent_instance: Node
     priv: BackedNodePrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GXml.Node */
+    /* Methods of GXml-0.4.GXml.Node */
     add_namespace_attr(uri: string, prefix: string): NamespaceAttr | null
     insert_before(new_child: Node, ref_child?: Node | null): Node | null
     replace_child(new_child: Node, old_child: Node): Node | null
@@ -713,7 +713,7 @@ export class BackedNode {
     get_next_sibling(): Node | null
     get_attributes(): NamedAttrMap | null
     get_owner_document(): Document
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -735,7 +735,7 @@ export class BackedNode {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GXml.Node */
+    /* Virtual methods of GXml-0.4.GXml.Node */
     vfunc_add_namespace_attr(uri: string, prefix: string): NamespaceAttr | null
     vfunc_insert_before(new_child: Node, ref_child?: Node | null): Node | null
     vfunc_replace_child(new_child: Node, old_child: Node): Node | null
@@ -759,7 +759,7 @@ export class BackedNode {
     vfunc_get_previous_sibling(): Node | null
     vfunc_get_next_sibling(): Node | null
     vfunc_get_attributes(): NamedAttrMap | null
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -767,7 +767,7 @@ export class BackedNode {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: BackedNode, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: BackedNode, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -813,10 +813,10 @@ export class BackedNode {
 export interface CDATASection_ConstructProps extends Text_ConstructProps {
 }
 export class CDATASection {
-    /* Properties of GXml.CharacterData */
+    /* Properties of GXml-0.4.GXml.CharacterData */
     data: string
     length: number
-    /* Properties of GXml.Node */
+    /* Properties of GXml-0.4.GXml.Node */
     namespace_definitions: NodeList
     namespace_uri: string
     prefix: string
@@ -832,14 +832,14 @@ export class CDATASection {
     next_sibling: Node
     attributes: NamedAttrMap
     owner_document: Document
-    /* Fields of GXml.CDATASection */
+    /* Fields of GXml-0.4.GXml.CDATASection */
     parent_instance: Text
     priv: CDATASectionPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GXml.Text */
+    /* Methods of GXml-0.4.GXml.Text */
     split_text(offset: number): Text
-    /* Methods of GXml.CharacterData */
+    /* Methods of GXml-0.4.GXml.CharacterData */
     substring_data(offset: number, count: number): string
     append_data(new_segment: string): void
     insert_data(offset: number, new_segment: string): void
@@ -848,7 +848,7 @@ export class CDATASection {
     get_data(): string
     set_data(value: string): void
     get_length(): number
-    /* Methods of GXml.Node */
+    /* Methods of GXml-0.4.GXml.Node */
     add_namespace_attr(uri: string, prefix: string): NamespaceAttr | null
     insert_before(new_child: Node, ref_child?: Node | null): Node | null
     replace_child(new_child: Node, old_child: Node): Node | null
@@ -873,7 +873,7 @@ export class CDATASection {
     get_next_sibling(): Node | null
     get_attributes(): NamedAttrMap | null
     get_owner_document(): Document
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -895,7 +895,7 @@ export class CDATASection {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GXml.Node */
+    /* Virtual methods of GXml-0.4.GXml.Node */
     vfunc_add_namespace_attr(uri: string, prefix: string): NamespaceAttr | null
     vfunc_insert_before(new_child: Node, ref_child?: Node | null): Node | null
     vfunc_replace_child(new_child: Node, old_child: Node): Node | null
@@ -919,7 +919,7 @@ export class CDATASection {
     vfunc_get_previous_sibling(): Node | null
     vfunc_get_next_sibling(): Node | null
     vfunc_get_attributes(): NamedAttrMap | null
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -927,7 +927,7 @@ export class CDATASection {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: CDATASection, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: CDATASection, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -979,10 +979,10 @@ export interface CharacterData_ConstructProps extends BackedNode_ConstructProps 
     length?: number
 }
 export class CharacterData {
-    /* Properties of GXml.CharacterData */
+    /* Properties of GXml-0.4.GXml.CharacterData */
     data: string
     length: number
-    /* Properties of GXml.Node */
+    /* Properties of GXml-0.4.GXml.Node */
     namespace_definitions: NodeList
     namespace_uri: string
     prefix: string
@@ -998,12 +998,12 @@ export class CharacterData {
     next_sibling: Node
     attributes: NamedAttrMap
     owner_document: Document
-    /* Fields of GXml.CharacterData */
+    /* Fields of GXml-0.4.GXml.CharacterData */
     parent_instance: BackedNode
     priv: CharacterDataPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GXml.CharacterData */
+    /* Methods of GXml-0.4.GXml.CharacterData */
     substring_data(offset: number, count: number): string
     append_data(new_segment: string): void
     insert_data(offset: number, new_segment: string): void
@@ -1012,7 +1012,7 @@ export class CharacterData {
     get_data(): string
     set_data(value: string): void
     get_length(): number
-    /* Methods of GXml.Node */
+    /* Methods of GXml-0.4.GXml.Node */
     add_namespace_attr(uri: string, prefix: string): NamespaceAttr | null
     insert_before(new_child: Node, ref_child?: Node | null): Node | null
     replace_child(new_child: Node, old_child: Node): Node | null
@@ -1037,7 +1037,7 @@ export class CharacterData {
     get_next_sibling(): Node | null
     get_attributes(): NamedAttrMap | null
     get_owner_document(): Document
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -1059,7 +1059,7 @@ export class CharacterData {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GXml.Node */
+    /* Virtual methods of GXml-0.4.GXml.Node */
     vfunc_add_namespace_attr(uri: string, prefix: string): NamespaceAttr | null
     vfunc_insert_before(new_child: Node, ref_child?: Node | null): Node | null
     vfunc_replace_child(new_child: Node, old_child: Node): Node | null
@@ -1083,7 +1083,7 @@ export class CharacterData {
     vfunc_get_previous_sibling(): Node | null
     vfunc_get_next_sibling(): Node | null
     vfunc_get_attributes(): NamedAttrMap | null
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -1091,7 +1091,7 @@ export class CharacterData {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: CharacterData, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: CharacterData, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -1141,10 +1141,10 @@ export class CharacterData {
 export interface Comment_ConstructProps extends CharacterData_ConstructProps {
 }
 export class Comment {
-    /* Properties of GXml.CharacterData */
+    /* Properties of GXml-0.4.GXml.CharacterData */
     data: string
     length: number
-    /* Properties of GXml.Node */
+    /* Properties of GXml-0.4.GXml.Node */
     namespace_definitions: NodeList
     namespace_uri: string
     prefix: string
@@ -1160,12 +1160,12 @@ export class Comment {
     next_sibling: Node
     attributes: NamedAttrMap
     owner_document: Document
-    /* Fields of GXml.Comment */
+    /* Fields of GXml-0.4.GXml.Comment */
     parent_instance: CharacterData
     priv: CommentPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GXml.CharacterData */
+    /* Methods of GXml-0.4.GXml.CharacterData */
     substring_data(offset: number, count: number): string
     append_data(new_segment: string): void
     insert_data(offset: number, new_segment: string): void
@@ -1174,7 +1174,7 @@ export class Comment {
     get_data(): string
     set_data(value: string): void
     get_length(): number
-    /* Methods of GXml.Node */
+    /* Methods of GXml-0.4.GXml.Node */
     add_namespace_attr(uri: string, prefix: string): NamespaceAttr | null
     insert_before(new_child: Node, ref_child?: Node | null): Node | null
     replace_child(new_child: Node, old_child: Node): Node | null
@@ -1199,7 +1199,7 @@ export class Comment {
     get_next_sibling(): Node | null
     get_attributes(): NamedAttrMap | null
     get_owner_document(): Document
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -1221,7 +1221,7 @@ export class Comment {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GXml.Node */
+    /* Virtual methods of GXml-0.4.GXml.Node */
     vfunc_add_namespace_attr(uri: string, prefix: string): NamespaceAttr | null
     vfunc_insert_before(new_child: Node, ref_child?: Node | null): Node | null
     vfunc_replace_child(new_child: Node, old_child: Node): Node | null
@@ -1245,7 +1245,7 @@ export class Comment {
     vfunc_get_previous_sibling(): Node | null
     vfunc_get_next_sibling(): Node | null
     vfunc_get_attributes(): NamedAttrMap | null
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -1253,7 +1253,7 @@ export class Comment {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Comment, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Comment, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -1306,11 +1306,11 @@ export interface Document_ConstructProps extends Node_ConstructProps {
     document_element?: Element
 }
 export class Document {
-    /* Properties of GXml.Document */
+    /* Properties of GXml-0.4.GXml.Document */
     doctype: DocumentType
     implementation: Implementation
     document_element: Element
-    /* Properties of GXml.Node */
+    /* Properties of GXml-0.4.GXml.Node */
     namespace_definitions: NodeList
     namespace_uri: string
     prefix: string
@@ -1326,12 +1326,12 @@ export class Document {
     next_sibling: Node
     attributes: NamedAttrMap
     owner_document: Document
-    /* Fields of GXml.Document */
+    /* Fields of GXml-0.4.GXml.Document */
     parent_instance: Node
     priv: DocumentPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GXml.Document */
+    /* Methods of GXml-0.4.GXml.Document */
     save_to_path(file_path: string): void
     save_to_stream(outstream: Gio.OutputStream, can?: Gio.Cancellable | null): void
     create_element(tag_name: string): Element
@@ -1347,7 +1347,7 @@ export class Document {
     get_doctype(): DocumentType | null
     get_implementation(): Implementation
     get_document_element(): Element
-    /* Methods of GXml.Node */
+    /* Methods of GXml-0.4.GXml.Node */
     add_namespace_attr(uri: string, prefix: string): NamespaceAttr | null
     insert_before(new_child: Node, ref_child?: Node | null): Node | null
     replace_child(new_child: Node, old_child: Node): Node | null
@@ -1372,7 +1372,7 @@ export class Document {
     get_next_sibling(): Node | null
     get_attributes(): NamedAttrMap | null
     get_owner_document(): Document
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -1394,7 +1394,7 @@ export class Document {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GXml.Node */
+    /* Virtual methods of GXml-0.4.GXml.Node */
     vfunc_add_namespace_attr(uri: string, prefix: string): NamespaceAttr | null
     vfunc_insert_before(new_child: Node, ref_child?: Node | null): Node | null
     vfunc_replace_child(new_child: Node, old_child: Node): Node | null
@@ -1418,7 +1418,7 @@ export class Document {
     vfunc_get_previous_sibling(): Node | null
     vfunc_get_next_sibling(): Node | null
     vfunc_get_attributes(): NamedAttrMap | null
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -1426,7 +1426,7 @@ export class Document {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Document, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Document, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -1486,7 +1486,7 @@ export class Document {
 export interface DocumentFragment_ConstructProps extends BackedNode_ConstructProps {
 }
 export class DocumentFragment {
-    /* Properties of GXml.Node */
+    /* Properties of GXml-0.4.GXml.Node */
     namespace_definitions: NodeList
     namespace_uri: string
     prefix: string
@@ -1502,12 +1502,12 @@ export class DocumentFragment {
     next_sibling: Node
     attributes: NamedAttrMap
     owner_document: Document
-    /* Fields of GXml.DocumentFragment */
+    /* Fields of GXml-0.4.GXml.DocumentFragment */
     parent_instance: BackedNode
     priv: DocumentFragmentPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GXml.Node */
+    /* Methods of GXml-0.4.GXml.Node */
     add_namespace_attr(uri: string, prefix: string): NamespaceAttr | null
     insert_before(new_child: Node, ref_child?: Node | null): Node | null
     replace_child(new_child: Node, old_child: Node): Node | null
@@ -1532,7 +1532,7 @@ export class DocumentFragment {
     get_next_sibling(): Node | null
     get_attributes(): NamedAttrMap | null
     get_owner_document(): Document
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -1554,7 +1554,7 @@ export class DocumentFragment {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GXml.Node */
+    /* Virtual methods of GXml-0.4.GXml.Node */
     vfunc_add_namespace_attr(uri: string, prefix: string): NamespaceAttr | null
     vfunc_insert_before(new_child: Node, ref_child?: Node | null): Node | null
     vfunc_replace_child(new_child: Node, old_child: Node): Node | null
@@ -1578,7 +1578,7 @@ export class DocumentFragment {
     vfunc_get_previous_sibling(): Node | null
     vfunc_get_next_sibling(): Node | null
     vfunc_get_attributes(): NamedAttrMap | null
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -1586,7 +1586,7 @@ export class DocumentFragment {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: DocumentFragment, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: DocumentFragment, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -1635,11 +1635,11 @@ export interface DocumentType_ConstructProps extends Node_ConstructProps {
     notations?: GLib.HashTable
 }
 export class DocumentType {
-    /* Properties of GXml.DocumentType */
+    /* Properties of GXml-0.4.GXml.DocumentType */
     name: string
     entities: GLib.HashTable
     notations: GLib.HashTable
-    /* Properties of GXml.Node */
+    /* Properties of GXml-0.4.GXml.Node */
     namespace_definitions: NodeList
     namespace_uri: string
     prefix: string
@@ -1655,16 +1655,16 @@ export class DocumentType {
     next_sibling: Node
     attributes: NamedAttrMap
     owner_document: Document
-    /* Fields of GXml.DocumentType */
+    /* Fields of GXml-0.4.GXml.DocumentType */
     parent_instance: Node
     priv: DocumentTypePrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GXml.DocumentType */
+    /* Methods of GXml-0.4.GXml.DocumentType */
     get_name(): string
     get_entities(): GLib.HashTable | null
     get_notations(): GLib.HashTable | null
-    /* Methods of GXml.Node */
+    /* Methods of GXml-0.4.GXml.Node */
     add_namespace_attr(uri: string, prefix: string): NamespaceAttr | null
     insert_before(new_child: Node, ref_child?: Node | null): Node | null
     replace_child(new_child: Node, old_child: Node): Node | null
@@ -1689,7 +1689,7 @@ export class DocumentType {
     get_next_sibling(): Node | null
     get_attributes(): NamedAttrMap | null
     get_owner_document(): Document
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -1711,7 +1711,7 @@ export class DocumentType {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GXml.Node */
+    /* Virtual methods of GXml-0.4.GXml.Node */
     vfunc_add_namespace_attr(uri: string, prefix: string): NamespaceAttr | null
     vfunc_insert_before(new_child: Node, ref_child?: Node | null): Node | null
     vfunc_replace_child(new_child: Node, old_child: Node): Node | null
@@ -1735,7 +1735,7 @@ export class DocumentType {
     vfunc_get_previous_sibling(): Node | null
     vfunc_get_next_sibling(): Node | null
     vfunc_get_attributes(): NamedAttrMap | null
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -1743,7 +1743,7 @@ export class DocumentType {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: DocumentType, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: DocumentType, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -1810,7 +1810,7 @@ export interface Node_ConstructProps extends GObject.Object_ConstructProps {
     owner_document?: Document
 }
 export class Node {
-    /* Properties of GXml.Node */
+    /* Properties of GXml-0.4.GXml.Node */
     namespace_definitions: NodeList
     namespace_uri: string
     prefix: string
@@ -1826,12 +1826,12 @@ export class Node {
     next_sibling: Node
     attributes: NamedAttrMap
     owner_document: Document
-    /* Fields of GXml.Node */
+    /* Fields of GXml-0.4.GXml.Node */
     parent_instance: GObject.Object
     priv: NodePrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GXml.Node */
+    /* Methods of GXml-0.4.GXml.Node */
     add_namespace_attr(uri: string, prefix: string): NamespaceAttr | null
     insert_before(new_child: Node, ref_child?: Node | null): Node | null
     replace_child(new_child: Node, old_child: Node): Node | null
@@ -1856,7 +1856,7 @@ export class Node {
     get_next_sibling(): Node | null
     get_attributes(): NamedAttrMap | null
     get_owner_document(): Document
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -1878,7 +1878,7 @@ export class Node {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GXml.Node */
+    /* Virtual methods of GXml-0.4.GXml.Node */
     vfunc_add_namespace_attr(uri: string, prefix: string): NamespaceAttr | null
     vfunc_insert_before(new_child: Node, ref_child?: Node | null): Node | null
     vfunc_replace_child(new_child: Node, old_child: Node): Node | null
@@ -1902,7 +1902,7 @@ export class Node {
     vfunc_get_previous_sibling(): Node | null
     vfunc_get_next_sibling(): Node | null
     vfunc_get_attributes(): NamedAttrMap | null
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -1910,7 +1910,7 @@ export class Node {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Node, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Node, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -1958,10 +1958,10 @@ export interface Element_ConstructProps extends BackedNode_ConstructProps {
     content?: string
 }
 export class Element {
-    /* Properties of GXml.Element */
+    /* Properties of GXml-0.4.GXml.Element */
     tag_name: string
     content: string
-    /* Properties of GXml.Node */
+    /* Properties of GXml-0.4.GXml.Node */
     namespace_definitions: NodeList
     namespace_uri: string
     prefix: string
@@ -1977,12 +1977,12 @@ export class Element {
     next_sibling: Node
     attributes: NamedAttrMap
     owner_document: Document
-    /* Fields of GXml.Element */
+    /* Fields of GXml-0.4.GXml.Element */
     parent_instance: BackedNode
     priv: ElementPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GXml.Element */
+    /* Methods of GXml-0.4.GXml.Element */
     get_attribute(name: string): string
     set_attribute(name: string, value: string): void
     remove_attribute(name: string): void
@@ -1994,7 +1994,7 @@ export class Element {
     get_tag_name(): string
     get_content(): string
     set_content(value: string): void
-    /* Methods of GXml.Node */
+    /* Methods of GXml-0.4.GXml.Node */
     add_namespace_attr(uri: string, prefix: string): NamespaceAttr | null
     insert_before(new_child: Node, ref_child?: Node | null): Node | null
     replace_child(new_child: Node, old_child: Node): Node | null
@@ -2019,7 +2019,7 @@ export class Element {
     get_next_sibling(): Node | null
     get_attributes(): NamedAttrMap | null
     get_owner_document(): Document
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -2041,7 +2041,7 @@ export class Element {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GXml.Node */
+    /* Virtual methods of GXml-0.4.GXml.Node */
     vfunc_add_namespace_attr(uri: string, prefix: string): NamespaceAttr | null
     vfunc_insert_before(new_child: Node, ref_child?: Node | null): Node | null
     vfunc_replace_child(new_child: Node, old_child: Node): Node | null
@@ -2065,7 +2065,7 @@ export class Element {
     vfunc_get_previous_sibling(): Node | null
     vfunc_get_next_sibling(): Node | null
     vfunc_get_attributes(): NamedAttrMap | null
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -2073,7 +2073,7 @@ export class Element {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Element, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Element, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -2126,11 +2126,11 @@ export interface Entity_ConstructProps extends Node_ConstructProps {
     notation_name?: string
 }
 export class Entity {
-    /* Properties of GXml.Entity */
+    /* Properties of GXml-0.4.GXml.Entity */
     public_id: string
     system_id: string
     notation_name: string
-    /* Properties of GXml.Node */
+    /* Properties of GXml-0.4.GXml.Node */
     namespace_definitions: NodeList
     namespace_uri: string
     prefix: string
@@ -2146,16 +2146,16 @@ export class Entity {
     next_sibling: Node
     attributes: NamedAttrMap
     owner_document: Document
-    /* Fields of GXml.Entity */
+    /* Fields of GXml-0.4.GXml.Entity */
     parent_instance: Node
     priv: EntityPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GXml.Entity */
+    /* Methods of GXml-0.4.GXml.Entity */
     get_public_id(): string
     get_system_id(): string
     get_notation_name(): string
-    /* Methods of GXml.Node */
+    /* Methods of GXml-0.4.GXml.Node */
     add_namespace_attr(uri: string, prefix: string): NamespaceAttr | null
     insert_before(new_child: Node, ref_child?: Node | null): Node | null
     replace_child(new_child: Node, old_child: Node): Node | null
@@ -2180,7 +2180,7 @@ export class Entity {
     get_next_sibling(): Node | null
     get_attributes(): NamedAttrMap | null
     get_owner_document(): Document
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -2202,7 +2202,7 @@ export class Entity {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GXml.Node */
+    /* Virtual methods of GXml-0.4.GXml.Node */
     vfunc_add_namespace_attr(uri: string, prefix: string): NamespaceAttr | null
     vfunc_insert_before(new_child: Node, ref_child?: Node | null): Node | null
     vfunc_replace_child(new_child: Node, old_child: Node): Node | null
@@ -2226,7 +2226,7 @@ export class Entity {
     vfunc_get_previous_sibling(): Node | null
     vfunc_get_next_sibling(): Node | null
     vfunc_get_attributes(): NamedAttrMap | null
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -2234,7 +2234,7 @@ export class Entity {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Entity, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Entity, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -2286,7 +2286,7 @@ export class Entity {
 export interface EntityReference_ConstructProps extends Node_ConstructProps {
 }
 export class EntityReference {
-    /* Properties of GXml.Node */
+    /* Properties of GXml-0.4.GXml.Node */
     namespace_definitions: NodeList
     namespace_uri: string
     prefix: string
@@ -2302,12 +2302,12 @@ export class EntityReference {
     next_sibling: Node
     attributes: NamedAttrMap
     owner_document: Document
-    /* Fields of GXml.EntityReference */
+    /* Fields of GXml-0.4.GXml.EntityReference */
     parent_instance: Node
     priv: EntityReferencePrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GXml.Node */
+    /* Methods of GXml-0.4.GXml.Node */
     add_namespace_attr(uri: string, prefix: string): NamespaceAttr | null
     insert_before(new_child: Node, ref_child?: Node | null): Node | null
     replace_child(new_child: Node, old_child: Node): Node | null
@@ -2332,7 +2332,7 @@ export class EntityReference {
     get_next_sibling(): Node | null
     get_attributes(): NamedAttrMap | null
     get_owner_document(): Document
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -2354,7 +2354,7 @@ export class EntityReference {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GXml.Node */
+    /* Virtual methods of GXml-0.4.GXml.Node */
     vfunc_add_namespace_attr(uri: string, prefix: string): NamespaceAttr | null
     vfunc_insert_before(new_child: Node, ref_child?: Node | null): Node | null
     vfunc_replace_child(new_child: Node, old_child: Node): Node | null
@@ -2378,7 +2378,7 @@ export class EntityReference {
     vfunc_get_previous_sibling(): Node | null
     vfunc_get_next_sibling(): Node | null
     vfunc_get_attributes(): NamedAttrMap | null
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -2386,7 +2386,7 @@ export class EntityReference {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: EntityReference, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: EntityReference, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -2432,15 +2432,15 @@ export class EntityReference {
 export interface Implementation_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class Implementation {
-    /* Fields of GXml.Implementation */
+    /* Fields of GXml-0.4.GXml.Implementation */
     parent_instance: GObject.Object
     priv: ImplementationPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GXml.Implementation */
+    /* Methods of GXml-0.4.GXml.Implementation */
     create_document(namespace_uri?: string | null, qualified_name?: string | null, doctype?: DocumentType | null): Document
     has_feature(feature: string, version?: string | null): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -2462,7 +2462,7 @@ export class Implementation {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -2470,7 +2470,7 @@ export class Implementation {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Implementation, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Implementation, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -2487,16 +2487,16 @@ export interface NamedAttrMap_ConstructProps extends GObject.Object_ConstructPro
     length?: number
 }
 export class NamedAttrMap {
-    /* Properties of GXml.NamedNodeMap */
+    /* Properties of GXml-0.4.GXml.NamedNodeMap */
     length: number
-    /* Fields of GXml.NamedAttrMap */
+    /* Fields of GXml-0.4.GXml.NamedAttrMap */
     parent_instance: GObject.Object
     priv: NamedAttrMapPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GXml.NamedAttrMap */
+    /* Methods of GXml-0.4.GXml.NamedAttrMap */
     get_values(): Gee.Collection
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -2518,19 +2518,19 @@ export class NamedAttrMap {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of GXml.NamedNodeMap */
+    /* Methods of GXml-0.4.GXml.NamedNodeMap */
     get_named_item(name: string): object | null
     set_named_item(item?: object | null): object | null
     remove_named_item(name: string): object | null
     item(index: number): object | null
     get_length(): number
-    /* Virtual methods of GXml.NamedAttrMap */
+    /* Virtual methods of GXml-0.4.GXml.NamedAttrMap */
     vfunc_get_named_item(name: string): object | null
     vfunc_set_named_item(item?: object | null): object | null
     vfunc_remove_named_item(name: string): object | null
     vfunc_item(index: number): object | null
     vfunc_get_length(): number
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -2538,7 +2538,7 @@ export class NamedAttrMap {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: NamedAttrMap, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: NamedAttrMap, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -2558,10 +2558,10 @@ export interface NamespaceAttr_ConstructProps extends Node_ConstructProps {
     defined_namespace_uri?: string
 }
 export class NamespaceAttr {
-    /* Properties of GXml.NamespaceAttr */
+    /* Properties of GXml-0.4.GXml.NamespaceAttr */
     defined_prefix: string
     defined_namespace_uri: string
-    /* Properties of GXml.Node */
+    /* Properties of GXml-0.4.GXml.Node */
     namespace_definitions: NodeList
     namespace_uri: string
     prefix: string
@@ -2577,15 +2577,15 @@ export class NamespaceAttr {
     next_sibling: Node
     attributes: NamedAttrMap
     owner_document: Document
-    /* Fields of GXml.NamespaceAttr */
+    /* Fields of GXml-0.4.GXml.NamespaceAttr */
     parent_instance: Node
     priv: NamespaceAttrPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GXml.NamespaceAttr */
+    /* Methods of GXml-0.4.GXml.NamespaceAttr */
     get_defined_prefix(): string
     get_defined_namespace_uri(): string
-    /* Methods of GXml.Node */
+    /* Methods of GXml-0.4.GXml.Node */
     add_namespace_attr(uri: string, prefix: string): NamespaceAttr | null
     insert_before(new_child: Node, ref_child?: Node | null): Node | null
     replace_child(new_child: Node, old_child: Node): Node | null
@@ -2610,7 +2610,7 @@ export class NamespaceAttr {
     get_next_sibling(): Node | null
     get_attributes(): NamedAttrMap | null
     get_owner_document(): Document
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -2632,7 +2632,7 @@ export class NamespaceAttr {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GXml.Node */
+    /* Virtual methods of GXml-0.4.GXml.Node */
     vfunc_add_namespace_attr(uri: string, prefix: string): NamespaceAttr | null
     vfunc_insert_before(new_child: Node, ref_child?: Node | null): Node | null
     vfunc_replace_child(new_child: Node, old_child: Node): Node | null
@@ -2656,7 +2656,7 @@ export class NamespaceAttr {
     vfunc_get_previous_sibling(): Node | null
     vfunc_get_next_sibling(): Node | null
     vfunc_get_attributes(): NamedAttrMap | null
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -2664,7 +2664,7 @@ export class NamespaceAttr {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: NamespaceAttr, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: NamespaceAttr, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -2716,10 +2716,10 @@ export interface Notation_ConstructProps extends Node_ConstructProps {
     system_id?: string
 }
 export class Notation {
-    /* Properties of GXml.Notation */
+    /* Properties of GXml-0.4.GXml.Notation */
     public_id: string
     system_id: string
-    /* Properties of GXml.Node */
+    /* Properties of GXml-0.4.GXml.Node */
     namespace_definitions: NodeList
     namespace_uri: string
     prefix: string
@@ -2735,15 +2735,15 @@ export class Notation {
     next_sibling: Node
     attributes: NamedAttrMap
     owner_document: Document
-    /* Fields of GXml.Notation */
+    /* Fields of GXml-0.4.GXml.Notation */
     parent_instance: Node
     priv: NotationPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GXml.Notation */
+    /* Methods of GXml-0.4.GXml.Notation */
     get_public_id(): string | null
     get_system_id(): string | null
-    /* Methods of GXml.Node */
+    /* Methods of GXml-0.4.GXml.Node */
     add_namespace_attr(uri: string, prefix: string): NamespaceAttr | null
     insert_before(new_child: Node, ref_child?: Node | null): Node | null
     replace_child(new_child: Node, old_child: Node): Node | null
@@ -2768,7 +2768,7 @@ export class Notation {
     get_next_sibling(): Node | null
     get_attributes(): NamedAttrMap | null
     get_owner_document(): Document
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -2790,7 +2790,7 @@ export class Notation {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GXml.Node */
+    /* Virtual methods of GXml-0.4.GXml.Node */
     vfunc_add_namespace_attr(uri: string, prefix: string): NamespaceAttr | null
     vfunc_insert_before(new_child: Node, ref_child?: Node | null): Node | null
     vfunc_replace_child(new_child: Node, old_child: Node): Node | null
@@ -2814,7 +2814,7 @@ export class Notation {
     vfunc_get_previous_sibling(): Node | null
     vfunc_get_next_sibling(): Node | null
     vfunc_get_attributes(): NamedAttrMap | null
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -2822,7 +2822,7 @@ export class Notation {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Notation, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Notation, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -2874,10 +2874,10 @@ export interface ProcessingInstruction_ConstructProps extends Node_ConstructProp
     data?: string
 }
 export class ProcessingInstruction {
-    /* Properties of GXml.ProcessingInstruction */
+    /* Properties of GXml-0.4.GXml.ProcessingInstruction */
     target: string
     data: string
-    /* Properties of GXml.Node */
+    /* Properties of GXml-0.4.GXml.Node */
     namespace_definitions: NodeList
     namespace_uri: string
     prefix: string
@@ -2893,16 +2893,16 @@ export class ProcessingInstruction {
     next_sibling: Node
     attributes: NamedAttrMap
     owner_document: Document
-    /* Fields of GXml.ProcessingInstruction */
+    /* Fields of GXml-0.4.GXml.ProcessingInstruction */
     parent_instance: Node
     priv: ProcessingInstructionPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GXml.ProcessingInstruction */
+    /* Methods of GXml-0.4.GXml.ProcessingInstruction */
     get_target(): string
     get_data(): string
     set_data(value: string): void
-    /* Methods of GXml.Node */
+    /* Methods of GXml-0.4.GXml.Node */
     add_namespace_attr(uri: string, prefix: string): NamespaceAttr | null
     insert_before(new_child: Node, ref_child?: Node | null): Node | null
     replace_child(new_child: Node, old_child: Node): Node | null
@@ -2927,7 +2927,7 @@ export class ProcessingInstruction {
     get_next_sibling(): Node | null
     get_attributes(): NamedAttrMap | null
     get_owner_document(): Document
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -2949,7 +2949,7 @@ export class ProcessingInstruction {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GXml.Node */
+    /* Virtual methods of GXml-0.4.GXml.Node */
     vfunc_add_namespace_attr(uri: string, prefix: string): NamespaceAttr | null
     vfunc_insert_before(new_child: Node, ref_child?: Node | null): Node | null
     vfunc_replace_child(new_child: Node, old_child: Node): Node | null
@@ -2973,7 +2973,7 @@ export class ProcessingInstruction {
     vfunc_get_previous_sibling(): Node | null
     vfunc_get_next_sibling(): Node | null
     vfunc_get_attributes(): NamedAttrMap | null
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -2981,7 +2981,7 @@ export class ProcessingInstruction {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: ProcessingInstruction, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: ProcessingInstruction, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -3031,10 +3031,10 @@ export class ProcessingInstruction {
 export interface Text_ConstructProps extends CharacterData_ConstructProps {
 }
 export class Text {
-    /* Properties of GXml.CharacterData */
+    /* Properties of GXml-0.4.GXml.CharacterData */
     data: string
     length: number
-    /* Properties of GXml.Node */
+    /* Properties of GXml-0.4.GXml.Node */
     namespace_definitions: NodeList
     namespace_uri: string
     prefix: string
@@ -3050,14 +3050,14 @@ export class Text {
     next_sibling: Node
     attributes: NamedAttrMap
     owner_document: Document
-    /* Fields of GXml.Text */
+    /* Fields of GXml-0.4.GXml.Text */
     parent_instance: CharacterData
     priv: TextPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GXml.Text */
+    /* Methods of GXml-0.4.GXml.Text */
     split_text(offset: number): Text
-    /* Methods of GXml.CharacterData */
+    /* Methods of GXml-0.4.GXml.CharacterData */
     substring_data(offset: number, count: number): string
     append_data(new_segment: string): void
     insert_data(offset: number, new_segment: string): void
@@ -3066,7 +3066,7 @@ export class Text {
     get_data(): string
     set_data(value: string): void
     get_length(): number
-    /* Methods of GXml.Node */
+    /* Methods of GXml-0.4.GXml.Node */
     add_namespace_attr(uri: string, prefix: string): NamespaceAttr | null
     insert_before(new_child: Node, ref_child?: Node | null): Node | null
     replace_child(new_child: Node, old_child: Node): Node | null
@@ -3091,7 +3091,7 @@ export class Text {
     get_next_sibling(): Node | null
     get_attributes(): NamedAttrMap | null
     get_owner_document(): Document
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -3113,7 +3113,7 @@ export class Text {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GXml.Node */
+    /* Virtual methods of GXml-0.4.GXml.Node */
     vfunc_add_namespace_attr(uri: string, prefix: string): NamespaceAttr | null
     vfunc_insert_before(new_child: Node, ref_child?: Node | null): Node | null
     vfunc_replace_child(new_child: Node, old_child: Node): Node | null
@@ -3137,7 +3137,7 @@ export class Text {
     vfunc_get_previous_sibling(): Node | null
     vfunc_get_next_sibling(): Node | null
     vfunc_get_attributes(): NamedAttrMap | null
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -3145,7 +3145,7 @@ export class Text {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Text, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Text, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -3199,17 +3199,17 @@ export interface SerializableObjectModel_ConstructProps extends GObject.Object_C
     serialized_xml_node_value?: string
 }
 export class SerializableObjectModel {
-    /* Properties of GXml.Serializable */
+    /* Properties of GXml-0.4.GXml.Serializable */
     properties: GObject.ParamSpec[]
     ignored_serializable_properties: GLib.HashTable
     unknown_serializable_property: GLib.HashTable
     serialized_xml_node_value: string
-    /* Fields of GXml.SerializableObjectModel */
+    /* Fields of GXml-0.4.GXml.SerializableObjectModel */
     parent_instance: GObject.Object
     priv: SerializableObjectModelPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GXml.SerializableObjectModel */
+    /* Methods of GXml-0.4.GXml.SerializableObjectModel */
     get_enable_unknown_serializable_property(): boolean
     serialize_use_xml_node_value(): boolean
     property_use_nick(): boolean
@@ -3231,7 +3231,7 @@ export class SerializableObjectModel {
     deserialize_property(property_node: Node): boolean
     default_deserialize_property(property_node: Node): boolean
     to_string(): string
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -3253,7 +3253,7 @@ export class SerializableObjectModel {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of GXml.Serializable */
+    /* Methods of GXml-0.4.GXml.Serializable */
     default_find_property_spec(property_name: string): GObject.ParamSpec | null
     default_init_properties(): void
     default_list_serializable_properties(): GObject.ParamSpec[]
@@ -3267,7 +3267,7 @@ export class SerializableObjectModel {
     set_unknown_serializable_property(value: GLib.HashTable): void
     get_serialized_xml_node_value(): string | null
     set_serialized_xml_node_value(value?: string | null): void
-    /* Virtual methods of GXml.SerializableObjectModel */
+    /* Virtual methods of GXml-0.4.GXml.SerializableObjectModel */
     vfunc_get_enable_unknown_serializable_property(): boolean
     vfunc_serialize_use_xml_node_value(): boolean
     vfunc_property_use_nick(): boolean
@@ -3297,7 +3297,7 @@ export class SerializableObjectModel {
     vfunc_set_unknown_serializable_property(value: GLib.HashTable): void
     vfunc_get_serialized_xml_node_value(): string | null
     vfunc_set_serialized_xml_node_value(value?: string | null): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -3305,11 +3305,11 @@ export class SerializableObjectModel {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: SerializableObjectModel, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: SerializableObjectModel, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    /* Signals of GXml.Serializable */
+    /* Signals of GXml-0.4.GXml.Serializable */
     connect(sigName: "serialize_unknown_property", callback: (($obj: SerializableObjectModel, element: Node, prop: GObject.ParamSpec) => void)): number
     connect_after(sigName: "serialize_unknown_property", callback: (($obj: SerializableObjectModel, element: Node, prop: GObject.ParamSpec) => void)): number
     emit(sigName: "serialize_unknown_property", element: Node, prop: GObject.ParamSpec): void
@@ -3350,17 +3350,17 @@ export interface SerializableJson_ConstructProps extends GObject.Object_Construc
     serialized_xml_node_value?: string
 }
 export class SerializableJson {
-    /* Properties of GXml.Serializable */
+    /* Properties of GXml-0.4.GXml.Serializable */
     properties: GObject.ParamSpec[]
     ignored_serializable_properties: GLib.HashTable
     unknown_serializable_property: GLib.HashTable
     serialized_xml_node_value: string
-    /* Fields of GXml.SerializableJson */
+    /* Fields of GXml-0.4.GXml.SerializableJson */
     parent_instance: GObject.Object
     priv: SerializableJsonPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GXml.SerializableJson */
+    /* Methods of GXml-0.4.GXml.SerializableJson */
     get_enable_unknown_serializable_property(): boolean
     serialize_use_xml_node_value(): boolean
     node_name(): string
@@ -3374,7 +3374,7 @@ export class SerializableJson {
     transform_to_string(val: any, str: string): [ /* returnType */ boolean, /* str */ string ]
     serialize_property(element: Element, prop: GObject.ParamSpec): Node | null
     deserialize_property(property_node: Node): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -3396,7 +3396,7 @@ export class SerializableJson {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of GXml.Serializable */
+    /* Methods of GXml-0.4.GXml.Serializable */
     serialize(node: Node): Node | null
     deserialize(node: Node): Node | null
     default_find_property_spec(property_name: string): GObject.ParamSpec | null
@@ -3412,7 +3412,7 @@ export class SerializableJson {
     set_unknown_serializable_property(value: GLib.HashTable): void
     get_serialized_xml_node_value(): string | null
     set_serialized_xml_node_value(value?: string | null): void
-    /* Virtual methods of GXml.SerializableJson */
+    /* Virtual methods of GXml-0.4.GXml.SerializableJson */
     vfunc_get_enable_unknown_serializable_property(): boolean
     vfunc_serialize_use_xml_node_value(): boolean
     vfunc_node_name(): string
@@ -3441,7 +3441,7 @@ export class SerializableJson {
     vfunc_set_unknown_serializable_property(value: GLib.HashTable): void
     vfunc_get_serialized_xml_node_value(): string | null
     vfunc_set_serialized_xml_node_value(value?: string | null): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -3449,11 +3449,11 @@ export class SerializableJson {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: SerializableJson, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: SerializableJson, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    /* Signals of GXml.Serializable */
+    /* Signals of GXml-0.4.GXml.Serializable */
     connect(sigName: "serialize_unknown_property", callback: (($obj: SerializableJson, element: Node, prop: GObject.ParamSpec) => void)): number
     connect_after(sigName: "serialize_unknown_property", callback: (($obj: SerializableJson, element: Node, prop: GObject.ParamSpec) => void)): number
     emit(sigName: "serialize_unknown_property", element: Node, prop: GObject.ParamSpec): void
@@ -3490,12 +3490,12 @@ export class SerializableJson {
 export interface Serialization_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class Serialization {
-    /* Fields of GXml.Serialization */
+    /* Fields of GXml-0.4.GXml.Serialization */
     parent_instance: GObject.Object
     priv: SerializationPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -3517,7 +3517,7 @@ export class Serialization {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -3525,7 +3525,7 @@ export class Serialization {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Serialization, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Serialization, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -3550,28 +3550,28 @@ export interface SerializableTreeMap_ConstructProps extends Gee.TreeMap_Construc
     serialized_xml_node_value?: string
 }
 export class SerializableTreeMap {
-    /* Properties of Gee.AbstractBidirSortedMap */
+    /* Properties of Gee-0.8.Gee.AbstractBidirSortedMap */
     readonly read_only_view: Gee.BidirSortedMap
-    /* Properties of Gee.AbstractSortedMap */
+    /* Properties of Gee-0.8.Gee.AbstractSortedMap */
     readonly ascending_keys: Gee.SortedSet
     readonly ascending_entries: Gee.SortedSet
-    /* Properties of Gee.AbstractMap */
+    /* Properties of Gee-0.8.Gee.AbstractMap */
     readonly size: number
     readonly read_only: boolean
     readonly keys: Gee.Set
     readonly values: Gee.Collection
     readonly entries: Gee.Set
-    /* Properties of GXml.Serializable */
+    /* Properties of GXml-0.4.GXml.Serializable */
     properties: GObject.ParamSpec[]
     ignored_serializable_properties: GLib.HashTable
     unknown_serializable_property: GLib.HashTable
     serialized_xml_node_value: string
-    /* Fields of GXml.SerializableTreeMap */
+    /* Fields of GXml-0.4.GXml.SerializableTreeMap */
     parent_instance: Gee.TreeMap
     priv: SerializableTreeMapPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GXml.SerializableTreeMap */
+    /* Methods of GXml-0.4.GXml.SerializableTreeMap */
     serialize_use_xml_node_value(): boolean
     property_use_nick(): boolean
     node_name(): string
@@ -3590,10 +3590,10 @@ export class SerializableTreeMap {
     default_deserialize(node: Node): Node | null
     deserialize_property(property_node: Node): boolean
     default_deserialize_property(property_node: Node): boolean
-    /* Methods of Gee.TreeMap */
+    /* Methods of Gee-0.8.Gee.TreeMap */
     get_key_compare_func(): [ /* returnType */ GLib.CompareDataFunc, /* result_target */ object | null ]
     get_value_equal_func(): [ /* returnType */ Gee.EqualDataFunc, /* result_target */ object | null ]
-    /* Methods of Gee.AbstractBidirSortedMap */
+    /* Methods of Gee-0.8.Gee.AbstractBidirSortedMap */
     bidir_map_iterator(): Gee.BidirMapIterator
     reserved0(): void
     reserved1(): void
@@ -3606,13 +3606,13 @@ export class SerializableTreeMap {
     reserved8(): void
     reserved9(): void
     get_read_only_view(): Gee.BidirSortedMap
-    /* Methods of Gee.AbstractSortedMap */
+    /* Methods of Gee-0.8.Gee.AbstractSortedMap */
     head_map(before?: object | null): Gee.SortedMap
     tail_map(after?: object | null): Gee.SortedMap
     sub_map(before?: object | null, after?: object | null): Gee.SortedMap
     get_ascending_keys(): Gee.SortedSet
     get_ascending_entries(): Gee.SortedSet
-    /* Methods of Gee.AbstractMap */
+    /* Methods of Gee-0.8.Gee.AbstractMap */
     has_key(key?: object | null): boolean
     has(key?: object | null, value?: object | null): boolean
     get(key?: object | null): object | null
@@ -3628,7 +3628,7 @@ export class SerializableTreeMap {
     get_values(): Gee.Collection
     get_entries(): Gee.Set
     get_read_only_view(): Gee.Map
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -3650,7 +3650,7 @@ export class SerializableTreeMap {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of GXml.Serializable */
+    /* Methods of GXml-0.4.GXml.Serializable */
     get_enable_unknown_serializable_property(): boolean
     default_find_property_spec(property_name: string): GObject.ParamSpec | null
     default_init_properties(): void
@@ -3665,9 +3665,9 @@ export class SerializableTreeMap {
     set_unknown_serializable_property(value: GLib.HashTable): void
     get_serialized_xml_node_value(): string | null
     set_serialized_xml_node_value(value?: string | null): void
-    /* Methods of GXml.SerializableCollection */
+    /* Methods of GXml-0.4.GXml.SerializableCollection */
     is_collection(): boolean
-    /* Virtual methods of GXml.SerializableTreeMap */
+    /* Virtual methods of GXml-0.4.GXml.SerializableTreeMap */
     vfunc_serialize_use_xml_node_value(): boolean
     vfunc_property_use_nick(): boolean
     vfunc_node_name(): string
@@ -3700,11 +3700,11 @@ export class SerializableTreeMap {
     vfunc_get_read_only_view(): Gee.BidirSortedMap
     vfunc_get_read_only_view(): Gee.SortedMap
     vfunc_get_read_only_view(): Gee.Map
-    /* Virtual methods of Gee.TreeMap */
+    /* Virtual methods of Gee-0.8.Gee.TreeMap */
     vfunc_get_read_only_view(): Gee.BidirSortedMap
     vfunc_get_read_only_view(): Gee.SortedMap
     vfunc_get_read_only_view(): Gee.Map
-    /* Virtual methods of Gee.AbstractBidirSortedMap */
+    /* Virtual methods of Gee-0.8.Gee.AbstractBidirSortedMap */
     vfunc_bidir_map_iterator(): Gee.BidirMapIterator
     vfunc_reserved0(): void
     vfunc_reserved1(): void
@@ -3719,7 +3719,7 @@ export class SerializableTreeMap {
     vfunc_get_read_only_view(): Gee.BidirSortedMap
     vfunc_get_read_only_view(): Gee.SortedMap
     vfunc_get_read_only_view(): Gee.Map
-    /* Virtual methods of Gee.AbstractSortedMap */
+    /* Virtual methods of Gee-0.8.Gee.AbstractSortedMap */
     vfunc_head_map(before?: object | null): Gee.SortedMap
     vfunc_tail_map(after?: object | null): Gee.SortedMap
     vfunc_sub_map(before?: object | null, after?: object | null): Gee.SortedMap
@@ -3737,7 +3737,7 @@ export class SerializableTreeMap {
     vfunc_get_ascending_entries(): Gee.SortedSet
     vfunc_get_read_only_view(): Gee.SortedMap
     vfunc_get_read_only_view(): Gee.Map
-    /* Virtual methods of Gee.AbstractMap */
+    /* Virtual methods of Gee-0.8.Gee.AbstractMap */
     vfunc_has_key(key?: object | null): boolean
     vfunc_has(key?: object | null, value?: object | null): boolean
     vfunc_get(key?: object | null): object | null
@@ -3782,7 +3782,7 @@ export class SerializableTreeMap {
     vfunc_unset_all(map: Gee.Map): boolean
     vfunc_has_all(map: Gee.Map): boolean
     vfunc_get_is_empty(): boolean
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -3790,11 +3790,11 @@ export class SerializableTreeMap {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: SerializableTreeMap, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: SerializableTreeMap, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    /* Signals of GXml.Serializable */
+    /* Signals of GXml-0.4.GXml.Serializable */
     connect(sigName: "serialize_unknown_property", callback: (($obj: SerializableTreeMap, element: Node, prop: GObject.ParamSpec) => void)): number
     connect_after(sigName: "serialize_unknown_property", callback: (($obj: SerializableTreeMap, element: Node, prop: GObject.ParamSpec) => void)): number
     emit(sigName: "serialize_unknown_property", element: Node, prop: GObject.ParamSpec): void
@@ -3852,24 +3852,24 @@ export interface SerializableHashMap_ConstructProps extends Gee.HashMap_Construc
     serialized_xml_node_value?: string
 }
 export class SerializableHashMap {
-    /* Properties of Gee.AbstractMap */
+    /* Properties of Gee-0.8.Gee.AbstractMap */
     readonly size: number
     readonly read_only: boolean
     readonly keys: Gee.Set
     readonly values: Gee.Collection
     readonly entries: Gee.Set
     readonly read_only_view: Gee.Map
-    /* Properties of GXml.Serializable */
+    /* Properties of GXml-0.4.GXml.Serializable */
     properties: GObject.ParamSpec[]
     ignored_serializable_properties: GLib.HashTable
     unknown_serializable_property: GLib.HashTable
     serialized_xml_node_value: string
-    /* Fields of GXml.SerializableHashMap */
+    /* Fields of GXml-0.4.GXml.SerializableHashMap */
     parent_instance: Gee.HashMap
     priv: SerializableHashMapPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GXml.SerializableHashMap */
+    /* Methods of GXml-0.4.GXml.SerializableHashMap */
     get_enable_unknown_serializable_property(): boolean
     serialize_use_xml_node_value(): boolean
     property_use_nick(): boolean
@@ -3889,11 +3889,11 @@ export class SerializableHashMap {
     default_deserialize(node: Node): Node | null
     deserialize_property(property_node: Node): boolean
     default_deserialize_property(property_node: Node): boolean
-    /* Methods of Gee.HashMap */
+    /* Methods of Gee-0.8.Gee.HashMap */
     get_key_hash_func(): [ /* returnType */ Gee.HashDataFunc, /* result_target */ object | null ]
     get_key_equal_func(): [ /* returnType */ Gee.EqualDataFunc, /* result_target */ object | null ]
     get_value_equal_func(): [ /* returnType */ Gee.EqualDataFunc, /* result_target */ object | null ]
-    /* Methods of Gee.AbstractMap */
+    /* Methods of Gee-0.8.Gee.AbstractMap */
     has_key(key?: object | null): boolean
     has(key?: object | null, value?: object | null): boolean
     get(key?: object | null): object | null
@@ -3919,7 +3919,7 @@ export class SerializableHashMap {
     get_values(): Gee.Collection
     get_entries(): Gee.Set
     get_read_only_view(): Gee.Map
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -3941,7 +3941,7 @@ export class SerializableHashMap {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of GXml.Serializable */
+    /* Methods of GXml-0.4.GXml.Serializable */
     default_find_property_spec(property_name: string): GObject.ParamSpec | null
     default_init_properties(): void
     default_list_serializable_properties(): GObject.ParamSpec[]
@@ -3955,9 +3955,9 @@ export class SerializableHashMap {
     set_unknown_serializable_property(value: GLib.HashTable): void
     get_serialized_xml_node_value(): string | null
     set_serialized_xml_node_value(value?: string | null): void
-    /* Methods of GXml.SerializableCollection */
+    /* Methods of GXml-0.4.GXml.SerializableCollection */
     is_collection(): boolean
-    /* Virtual methods of GXml.SerializableHashMap */
+    /* Virtual methods of GXml-0.4.GXml.SerializableHashMap */
     vfunc_get_enable_unknown_serializable_property(): boolean
     vfunc_serialize_use_xml_node_value(): boolean
     vfunc_property_use_nick(): boolean
@@ -3987,7 +3987,7 @@ export class SerializableHashMap {
     vfunc_get_serialized_xml_node_value(): string | null
     vfunc_set_serialized_xml_node_value(value?: string | null): void
     vfunc_is_collection(): boolean
-    /* Virtual methods of Gee.AbstractMap */
+    /* Virtual methods of Gee-0.8.Gee.AbstractMap */
     vfunc_has_key(key?: object | null): boolean
     vfunc_has(key?: object | null, value?: object | null): boolean
     vfunc_get(key?: object | null): object | null
@@ -4032,7 +4032,7 @@ export class SerializableHashMap {
     vfunc_unset_all(map: Gee.Map): boolean
     vfunc_has_all(map: Gee.Map): boolean
     vfunc_get_is_empty(): boolean
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -4040,11 +4040,11 @@ export class SerializableHashMap {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: SerializableHashMap, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: SerializableHashMap, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    /* Signals of GXml.Serializable */
+    /* Signals of GXml-0.4.GXml.Serializable */
     connect(sigName: "serialize_unknown_property", callback: (($obj: SerializableHashMap, element: Node, prop: GObject.ParamSpec) => void)): number
     connect_after(sigName: "serialize_unknown_property", callback: (($obj: SerializableHashMap, element: Node, prop: GObject.ParamSpec) => void)): number
     emit(sigName: "serialize_unknown_property", element: Node, prop: GObject.ParamSpec): void
@@ -4098,24 +4098,24 @@ export interface SerializableDualKeyMap_ConstructProps extends GObject.Object_Co
     serialized_xml_node_value?: string
 }
 export class SerializableDualKeyMap {
-    /* Properties of GXml.SerializableDualKeyMap */
+    /* Properties of GXml-0.4.GXml.SerializableDualKeyMap */
     readonly value_type: GObject.Type
     readonly primary_key_type: GObject.Type
     readonly secondary_key_type: GObject.Type
     readonly primary_keys: Gee.Collection
     readonly size: number
-    /* Properties of GXml.Serializable */
+    /* Properties of GXml-0.4.GXml.Serializable */
     properties: GObject.ParamSpec[]
     ignored_serializable_properties: GLib.HashTable
     unknown_serializable_property: GLib.HashTable
     serialized_xml_node_value: string
-    /* Fields of GXml.SerializableDualKeyMap */
+    /* Fields of GXml-0.4.GXml.SerializableDualKeyMap */
     parent_instance: GObject.Object
     priv: SerializableDualKeyMapPrivate
     storage: Gee.HashMultiMap
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GXml.SerializableDualKeyMap */
+    /* Methods of GXml-0.4.GXml.SerializableDualKeyMap */
     secondary_keys(key?: object | null): Gee.Collection
     values_for_key(primary_key?: object | null): Gee.Collection
     values(): Gee.Collection
@@ -4145,7 +4145,7 @@ export class SerializableDualKeyMap {
     get_secondary_key_type(): GObject.Type
     get_primary_keys(): Gee.Collection
     get_size(): number
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -4167,7 +4167,7 @@ export class SerializableDualKeyMap {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of GXml.Serializable */
+    /* Methods of GXml-0.4.GXml.Serializable */
     default_find_property_spec(property_name: string): GObject.ParamSpec | null
     default_init_properties(): void
     default_list_serializable_properties(): GObject.ParamSpec[]
@@ -4181,9 +4181,9 @@ export class SerializableDualKeyMap {
     set_unknown_serializable_property(value: GLib.HashTable): void
     get_serialized_xml_node_value(): string | null
     set_serialized_xml_node_value(value?: string | null): void
-    /* Methods of GXml.SerializableCollection */
+    /* Methods of GXml-0.4.GXml.SerializableCollection */
     is_collection(): boolean
-    /* Virtual methods of GXml.SerializableDualKeyMap */
+    /* Virtual methods of GXml-0.4.GXml.SerializableDualKeyMap */
     vfunc_get_enable_unknown_serializable_property(): boolean
     vfunc_serialize_use_xml_node_value(): boolean
     vfunc_property_use_nick(): boolean
@@ -4213,7 +4213,7 @@ export class SerializableDualKeyMap {
     vfunc_get_serialized_xml_node_value(): string | null
     vfunc_set_serialized_xml_node_value(value?: string | null): void
     vfunc_is_collection(): boolean
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -4221,11 +4221,11 @@ export class SerializableDualKeyMap {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: SerializableDualKeyMap, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: SerializableDualKeyMap, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    /* Signals of GXml.Serializable */
+    /* Signals of GXml-0.4.GXml.Serializable */
     connect(sigName: "serialize_unknown_property", callback: (($obj: SerializableDualKeyMap, element: Node, prop: GObject.ParamSpec) => void)): number
     connect_after(sigName: "serialize_unknown_property", callback: (($obj: SerializableDualKeyMap, element: Node, prop: GObject.ParamSpec) => void)): number
     emit(sigName: "serialize_unknown_property", element: Node, prop: GObject.ParamSpec): void
@@ -4276,26 +4276,26 @@ export interface SerializableArrayList_ConstructProps extends Gee.ArrayList_Cons
     serialized_xml_node_value?: string
 }
 export class SerializableArrayList {
-    /* Properties of Gee.AbstractBidirList */
+    /* Properties of Gee-0.8.Gee.AbstractBidirList */
     readonly read_only_view: Gee.BidirList
-    /* Properties of Gee.AbstractCollection */
+    /* Properties of Gee-0.8.Gee.AbstractCollection */
     readonly size: number
     readonly read_only: boolean
-    /* Properties of GXml.Serializable */
+    /* Properties of GXml-0.4.GXml.Serializable */
     properties: GObject.ParamSpec[]
     ignored_serializable_properties: GLib.HashTable
     unknown_serializable_property: GLib.HashTable
     serialized_xml_node_value: string
-    /* Fields of GXml.SerializableArrayList */
+    /* Fields of GXml-0.4.GXml.SerializableArrayList */
     parent_instance: Gee.ArrayList
     priv: SerializableArrayListPrivate
-    /* Fields of Gee.ArrayList */
+    /* Fields of Gee-0.8.Gee.ArrayList */
     _items: object[]
     _items_length1: number
     _size: number
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GXml.SerializableArrayList */
+    /* Methods of GXml-0.4.GXml.SerializableArrayList */
     serialize_use_xml_node_value(): boolean
     property_use_nick(): boolean
     node_name(): string
@@ -4314,10 +4314,10 @@ export class SerializableArrayList {
     default_deserialize(node: Node): Node | null
     deserialize_property(property_node: Node): boolean
     default_deserialize_property(property_node: Node): boolean
-    /* Methods of Gee.ArrayList */
+    /* Methods of Gee-0.8.Gee.ArrayList */
     add_all(collection: Gee.Collection): boolean
     get_equal_func(): [ /* returnType */ Gee.EqualDataFunc, /* result_target */ object | null ]
-    /* Methods of Gee.AbstractBidirList */
+    /* Methods of Gee-0.8.Gee.AbstractBidirList */
     bidir_list_iterator(): Gee.BidirListIterator
     reserved0(): void
     reserved1(): void
@@ -4330,7 +4330,7 @@ export class SerializableArrayList {
     reserved8(): void
     reserved9(): void
     get_read_only_view(): Gee.BidirList
-    /* Methods of Gee.AbstractList */
+    /* Methods of Gee-0.8.Gee.AbstractList */
     list_iterator(): Gee.ListIterator
     get(index: number): object | null
     set(index: number, item?: object | null): void
@@ -4339,7 +4339,7 @@ export class SerializableArrayList {
     remove_at(index: number): object | null
     slice(start: number, stop: number): Gee.List | null
     get_read_only_view(): Gee.List
-    /* Methods of Gee.AbstractCollection */
+    /* Methods of Gee-0.8.Gee.AbstractCollection */
     contains(item?: object | null): boolean
     add(item?: object | null): boolean
     remove(item?: object | null): boolean
@@ -4349,7 +4349,7 @@ export class SerializableArrayList {
     get_size(): number
     get_read_only(): boolean
     get_read_only_view(): Gee.Collection
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -4371,7 +4371,7 @@ export class SerializableArrayList {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of GXml.Serializable */
+    /* Methods of GXml-0.4.GXml.Serializable */
     get_enable_unknown_serializable_property(): boolean
     default_find_property_spec(property_name: string): GObject.ParamSpec | null
     default_init_properties(): void
@@ -4386,9 +4386,9 @@ export class SerializableArrayList {
     set_unknown_serializable_property(value: GLib.HashTable): void
     get_serialized_xml_node_value(): string | null
     set_serialized_xml_node_value(value?: string | null): void
-    /* Methods of GXml.SerializableCollection */
+    /* Methods of GXml-0.4.GXml.SerializableCollection */
     is_collection(): boolean
-    /* Virtual methods of GXml.SerializableArrayList */
+    /* Virtual methods of GXml-0.4.GXml.SerializableArrayList */
     vfunc_serialize_use_xml_node_value(): boolean
     vfunc_property_use_nick(): boolean
     vfunc_node_name(): string
@@ -4421,11 +4421,11 @@ export class SerializableArrayList {
     vfunc_get_read_only_view(): Gee.BidirList
     vfunc_get_read_only_view(): Gee.List
     vfunc_get_read_only_view(): Gee.Collection
-    /* Virtual methods of Gee.ArrayList */
+    /* Virtual methods of Gee-0.8.Gee.ArrayList */
     vfunc_get_read_only_view(): Gee.BidirList
     vfunc_get_read_only_view(): Gee.List
     vfunc_get_read_only_view(): Gee.Collection
-    /* Virtual methods of Gee.AbstractBidirList */
+    /* Virtual methods of Gee-0.8.Gee.AbstractBidirList */
     vfunc_bidir_list_iterator(): Gee.BidirListIterator
     vfunc_reserved0(): void
     vfunc_reserved1(): void
@@ -4440,7 +4440,7 @@ export class SerializableArrayList {
     vfunc_get_read_only_view(): Gee.BidirList
     vfunc_get_read_only_view(): Gee.List
     vfunc_get_read_only_view(): Gee.Collection
-    /* Virtual methods of Gee.AbstractList */
+    /* Virtual methods of Gee-0.8.Gee.AbstractList */
     vfunc_list_iterator(): Gee.ListIterator
     vfunc_get(index: number): object | null
     vfunc_set(index: number, item?: object | null): void
@@ -4464,7 +4464,7 @@ export class SerializableArrayList {
     vfunc_last(): object | null
     vfunc_insert_all(index: number, collection: Gee.Collection): void
     vfunc_sort(compare_func: GLib.CompareDataFunc | null): void
-    /* Virtual methods of Gee.AbstractCollection */
+    /* Virtual methods of Gee-0.8.Gee.AbstractCollection */
     vfunc_contains(item?: object | null): boolean
     vfunc_add(item?: object | null): boolean
     vfunc_remove(item?: object | null): boolean
@@ -4511,7 +4511,7 @@ export class SerializableArrayList {
     vfunc_contains_all_iterator(iter: Gee.Iterator): boolean
     vfunc_remove_all_iterator(iter: Gee.Iterator): boolean
     vfunc_get_is_empty(): boolean
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -4519,11 +4519,11 @@ export class SerializableArrayList {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: SerializableArrayList, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: SerializableArrayList, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    /* Signals of GXml.Serializable */
+    /* Signals of GXml-0.4.GXml.Serializable */
     connect(sigName: "serialize_unknown_property", callback: (($obj: SerializableArrayList, element: Node, prop: GObject.ParamSpec) => void)): number
     connect_after(sigName: "serialize_unknown_property", callback: (($obj: SerializableArrayList, element: Node, prop: GObject.ParamSpec) => void)): number
     emit(sigName: "serialize_unknown_property", element: Node, prop: GObject.ParamSpec): void
@@ -4567,14 +4567,14 @@ export class SerializableArrayList {
 export interface SerializableContainer_ConstructProps extends SerializableObjectModel_ConstructProps {
 }
 export class SerializableContainer {
-    /* Fields of GXml.SerializableContainer */
+    /* Fields of GXml-0.4.GXml.SerializableContainer */
     parent_instance: SerializableObjectModel
     priv: SerializableContainerPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GXml.SerializableContainer */
+    /* Methods of GXml-0.4.GXml.SerializableContainer */
     init_containers(): void
-    /* Methods of GXml.SerializableObjectModel */
+    /* Methods of GXml-0.4.GXml.SerializableObjectModel */
     get_enable_unknown_serializable_property(): boolean
     serialize_use_xml_node_value(): boolean
     property_use_nick(): boolean
@@ -4596,7 +4596,7 @@ export class SerializableContainer {
     deserialize_property(property_node: Node): boolean
     default_deserialize_property(property_node: Node): boolean
     to_string(): string
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -4618,9 +4618,9 @@ export class SerializableContainer {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GXml.SerializableContainer */
+    /* Virtual methods of GXml-0.4.GXml.SerializableContainer */
     vfunc_init_containers(): void
-    /* Virtual methods of GXml.SerializableObjectModel */
+    /* Virtual methods of GXml-0.4.GXml.SerializableObjectModel */
     vfunc_get_enable_unknown_serializable_property(): boolean
     vfunc_serialize_use_xml_node_value(): boolean
     vfunc_property_use_nick(): boolean
@@ -4650,7 +4650,7 @@ export class SerializableContainer {
     vfunc_set_unknown_serializable_property(value: GLib.HashTable): void
     vfunc_get_serialized_xml_node_value(): string | null
     vfunc_set_serialized_xml_node_value(value?: string | null): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -4658,7 +4658,7 @@ export class SerializableContainer {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: SerializableContainer, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: SerializableContainer, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -4672,7 +4672,7 @@ export class SerializableContainer {
     static $gtype: GObject.Type
 }
 export abstract class AttrClass {
-    /* Fields of GXml.AttrClass */
+    /* Fields of GXml-0.4.GXml.AttrClass */
     parent_class: BackedNodeClass
     static name: string
 }
@@ -4680,7 +4680,7 @@ export class AttrPrivate {
     static name: string
 }
 export abstract class BackedNodeClass {
-    /* Fields of GXml.BackedNodeClass */
+    /* Fields of GXml-0.4.GXml.BackedNodeClass */
     parent_class: NodeClass
     static name: string
 }
@@ -4688,7 +4688,7 @@ export class BackedNodePrivate {
     static name: string
 }
 export abstract class CDATASectionClass {
-    /* Fields of GXml.CDATASectionClass */
+    /* Fields of GXml-0.4.GXml.CDATASectionClass */
     parent_class: TextClass
     static name: string
 }
@@ -4696,7 +4696,7 @@ export class CDATASectionPrivate {
     static name: string
 }
 export abstract class CharacterDataClass {
-    /* Fields of GXml.CharacterDataClass */
+    /* Fields of GXml-0.4.GXml.CharacterDataClass */
     parent_class: BackedNodeClass
     static name: string
 }
@@ -4704,7 +4704,7 @@ export class CharacterDataPrivate {
     static name: string
 }
 export abstract class CommentClass {
-    /* Fields of GXml.CommentClass */
+    /* Fields of GXml-0.4.GXml.CommentClass */
     parent_class: CharacterDataClass
     static name: string
 }
@@ -4712,7 +4712,7 @@ export class CommentPrivate {
     static name: string
 }
 export abstract class DocumentClass {
-    /* Fields of GXml.DocumentClass */
+    /* Fields of GXml-0.4.GXml.DocumentClass */
     parent_class: NodeClass
     static name: string
 }
@@ -4720,7 +4720,7 @@ export class DocumentPrivate {
     static name: string
 }
 export abstract class DocumentFragmentClass {
-    /* Fields of GXml.DocumentFragmentClass */
+    /* Fields of GXml-0.4.GXml.DocumentFragmentClass */
     parent_class: BackedNodeClass
     static name: string
 }
@@ -4728,7 +4728,7 @@ export class DocumentFragmentPrivate {
     static name: string
 }
 export abstract class DocumentTypeClass {
-    /* Fields of GXml.DocumentTypeClass */
+    /* Fields of GXml-0.4.GXml.DocumentTypeClass */
     parent_class: NodeClass
     static name: string
 }
@@ -4736,7 +4736,7 @@ export class DocumentTypePrivate {
     static name: string
 }
 export abstract class NodeClass {
-    /* Fields of GXml.NodeClass */
+    /* Fields of GXml-0.4.GXml.NodeClass */
     parent_class: GObject.ObjectClass
     add_namespace_attr: (self: Node, uri: string, prefix: string) => NamespaceAttr | null
     insert_before: (self: Node, new_child: Node, ref_child?: Node | null) => Node | null
@@ -4753,7 +4753,7 @@ export class NodePrivate {
     static name: string
 }
 export abstract class ElementClass {
-    /* Fields of GXml.ElementClass */
+    /* Fields of GXml-0.4.GXml.ElementClass */
     parent_class: BackedNodeClass
     static name: string
 }
@@ -4761,7 +4761,7 @@ export class ElementPrivate {
     static name: string
 }
 export abstract class EntityClass {
-    /* Fields of GXml.EntityClass */
+    /* Fields of GXml-0.4.GXml.EntityClass */
     parent_class: NodeClass
     static name: string
 }
@@ -4769,7 +4769,7 @@ export class EntityPrivate {
     static name: string
 }
 export abstract class EntityReferenceClass {
-    /* Fields of GXml.EntityReferenceClass */
+    /* Fields of GXml-0.4.GXml.EntityReferenceClass */
     parent_class: NodeClass
     static name: string
 }
@@ -4777,7 +4777,7 @@ export class EntityReferencePrivate {
     static name: string
 }
 export abstract class ImplementationClass {
-    /* Fields of GXml.ImplementationClass */
+    /* Fields of GXml-0.4.GXml.ImplementationClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
@@ -4785,7 +4785,7 @@ export class ImplementationPrivate {
     static name: string
 }
 export abstract class NamedAttrMapClass {
-    /* Fields of GXml.NamedAttrMapClass */
+    /* Fields of GXml-0.4.GXml.NamedAttrMapClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
@@ -4793,7 +4793,7 @@ export class NamedAttrMapPrivate {
     static name: string
 }
 export abstract class NamespaceAttrClass {
-    /* Fields of GXml.NamespaceAttrClass */
+    /* Fields of GXml-0.4.GXml.NamespaceAttrClass */
     parent_class: NodeClass
     static name: string
 }
@@ -4801,7 +4801,7 @@ export class NamespaceAttrPrivate {
     static name: string
 }
 export abstract class NotationClass {
-    /* Fields of GXml.NotationClass */
+    /* Fields of GXml-0.4.GXml.NotationClass */
     parent_class: NodeClass
     static name: string
 }
@@ -4809,7 +4809,7 @@ export class NotationPrivate {
     static name: string
 }
 export abstract class ProcessingInstructionClass {
-    /* Fields of GXml.ProcessingInstructionClass */
+    /* Fields of GXml-0.4.GXml.ProcessingInstructionClass */
     parent_class: NodeClass
     static name: string
 }
@@ -4817,7 +4817,7 @@ export class ProcessingInstructionPrivate {
     static name: string
 }
 export abstract class TextClass {
-    /* Fields of GXml.TextClass */
+    /* Fields of GXml-0.4.GXml.TextClass */
     parent_class: CharacterDataClass
     static name: string
 }
@@ -4837,7 +4837,7 @@ export class Enumeration {
     static to_array(enumeration: GObject.Type): GObject.EnumValue[]
 }
 export abstract class SerializableObjectModelClass {
-    /* Fields of GXml.SerializableObjectModelClass */
+    /* Fields of GXml-0.4.GXml.SerializableObjectModelClass */
     parent_class: GObject.ObjectClass
     get_enable_unknown_serializable_property: (self: SerializableObjectModel) => boolean
     serialize_use_xml_node_value: (self: SerializableObjectModel) => boolean
@@ -4861,7 +4861,7 @@ export class SerializableObjectModelPrivate {
     static name: string
 }
 export abstract class SerializableJsonClass {
-    /* Fields of GXml.SerializableJsonClass */
+    /* Fields of GXml-0.4.GXml.SerializableJsonClass */
     parent_class: GObject.ObjectClass
     get_enable_unknown_serializable_property: (self: SerializableJson) => boolean
     serialize_use_xml_node_value: (self: SerializableJson) => boolean
@@ -4882,7 +4882,7 @@ export class SerializableJsonPrivate {
     static name: string
 }
 export abstract class SerializationClass {
-    /* Fields of GXml.SerializationClass */
+    /* Fields of GXml-0.4.GXml.SerializationClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
@@ -4890,7 +4890,7 @@ export class SerializationPrivate {
     static name: string
 }
 export abstract class SerializableTreeMapClass {
-    /* Fields of GXml.SerializableTreeMapClass */
+    /* Fields of GXml-0.4.GXml.SerializableTreeMapClass */
     parent_class: Gee.TreeMapClass
     serialize_use_xml_node_value: (self: SerializableTreeMap) => boolean
     property_use_nick: (self: SerializableTreeMap) => boolean
@@ -4912,7 +4912,7 @@ export class SerializableTreeMapPrivate {
     static name: string
 }
 export abstract class SerializableHashMapClass {
-    /* Fields of GXml.SerializableHashMapClass */
+    /* Fields of GXml-0.4.GXml.SerializableHashMapClass */
     parent_class: Gee.HashMapClass
     get_enable_unknown_serializable_property: (self: SerializableHashMap) => boolean
     serialize_use_xml_node_value: (self: SerializableHashMap) => boolean
@@ -4935,7 +4935,7 @@ export class SerializableHashMapPrivate {
     static name: string
 }
 export abstract class SerializableDualKeyMapClass {
-    /* Fields of GXml.SerializableDualKeyMapClass */
+    /* Fields of GXml-0.4.GXml.SerializableDualKeyMapClass */
     parent_class: GObject.ObjectClass
     get_enable_unknown_serializable_property: (self: SerializableDualKeyMap) => boolean
     serialize_use_xml_node_value: (self: SerializableDualKeyMap) => boolean
@@ -4958,7 +4958,7 @@ export class SerializableDualKeyMapPrivate {
     static name: string
 }
 export abstract class SerializableArrayListClass {
-    /* Fields of GXml.SerializableArrayListClass */
+    /* Fields of GXml-0.4.GXml.SerializableArrayListClass */
     parent_class: Gee.ArrayListClass
     serialize_use_xml_node_value: (self: SerializableArrayList) => boolean
     property_use_nick: (self: SerializableArrayList) => boolean
@@ -4980,7 +4980,7 @@ export class SerializableArrayListPrivate {
     static name: string
 }
 export abstract class SerializableContainerClass {
-    /* Fields of GXml.SerializableContainerClass */
+    /* Fields of GXml-0.4.GXml.SerializableContainerClass */
     parent_class: SerializableObjectModelClass
     init_containers: (self: SerializableContainer) => void
     static name: string
@@ -4989,7 +4989,7 @@ export class SerializableContainerPrivate {
     static name: string
 }
 export abstract class NamedNodeMapIface {
-    /* Fields of GXml.NamedNodeMapIface */
+    /* Fields of GXml-0.4.GXml.NamedNodeMapIface */
     parent_iface: GObject.TypeInterface
     get_named_item: (self: NamedNodeMap, name: string) => object | null
     set_named_item: (self: NamedNodeMap, item?: object | null) => object | null
@@ -5000,7 +5000,7 @@ export abstract class NamedNodeMapIface {
     static name: string
 }
 export abstract class NodeListIface {
-    /* Fields of GXml.NodeListIface */
+    /* Fields of GXml-0.4.GXml.NodeListIface */
     parent_iface: GObject.TypeInterface
     item: (self: NodeList, idx: number) => Node
     insert_before: (self: NodeList, new_child: Node, ref_child?: Node | null) => Node | null
@@ -5016,7 +5016,7 @@ export abstract class NodeListIface {
     static name: string
 }
 export abstract class SerializableIface {
-    /* Fields of GXml.SerializableIface */
+    /* Fields of GXml-0.4.GXml.SerializableIface */
     parent_iface: GObject.TypeInterface
     get_enable_unknown_serializable_property: (self: Serializable) => boolean
     serialize_use_xml_node_value: (self: Serializable) => boolean
@@ -5049,20 +5049,20 @@ export abstract class SerializableIface {
     static name: string
 }
 export abstract class SerializableMapKeyIface {
-    /* Fields of GXml.SerializableMapKeyIface */
+    /* Fields of GXml-0.4.GXml.SerializableMapKeyIface */
     parent_iface: GObject.TypeInterface
     get_map_key: (self: SerializableMapKey) => object | null
     static name: string
 }
 export abstract class SerializableMapDualKeyIface {
-    /* Fields of GXml.SerializableMapDualKeyIface */
+    /* Fields of GXml-0.4.GXml.SerializableMapDualKeyIface */
     parent_iface: GObject.TypeInterface
     get_map_primary_key: (self: SerializableMapDualKey) => object | null
     get_map_secondary_key: (self: SerializableMapDualKey) => object | null
     static name: string
 }
 export abstract class SerializableCollectionIface {
-    /* Fields of GXml.SerializableCollectionIface */
+    /* Fields of GXml-0.4.GXml.SerializableCollectionIface */
     parent_iface: GObject.TypeInterface
     is_collection: (self: SerializableCollection) => boolean
     static name: string

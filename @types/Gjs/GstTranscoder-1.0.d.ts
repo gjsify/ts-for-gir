@@ -18,7 +18,7 @@ export enum TranscoderError {
 export function transcoder_error_get_name(error: TranscoderError): string
 export function transcoder_error_quark(): GLib.Quark
 export class TranscoderSignalDispatcher {
-    /* Virtual methods of GstTranscoder.TranscoderSignalDispatcher */
+    /* Virtual methods of GstTranscoder-1.0.GstTranscoder.TranscoderSignalDispatcher */
     vfunc_dispatch(transcoder: Transcoder, emitter: object | null, data: object | null, destroy: GLib.DestroyNotify): void
     static name: string
 }
@@ -31,22 +31,22 @@ export interface Transcoder_ConstructProps extends Gst.Object_ConstructProps {
     src_uri?: string
 }
 export class Transcoder {
-    /* Properties of GstTranscoder.Transcoder */
+    /* Properties of GstTranscoder-1.0.GstTranscoder.Transcoder */
     avoid_reencoding: boolean
     readonly duration: number
     readonly pipeline: Gst.Element
     readonly position: number
     position_update_interval: number
-    /* Properties of Gst.Object */
+    /* Properties of Gst-1.0.Gst.Object */
     name: string
     parent: Gst.Object
-    /* Fields of Gst.Object */
+    /* Fields of Gst-1.0.Gst.Object */
     object: GObject.InitiallyUnowned
     lock: GLib.Mutex
     flags: number
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GstTranscoder.Transcoder */
+    /* Methods of GstTranscoder-1.0.GstTranscoder.Transcoder */
     get_avoid_reencoding(): boolean
     get_dest_uri(): string
     get_duration(): Gst.ClockTime
@@ -59,7 +59,7 @@ export class Transcoder {
     set_avoid_reencoding(avoid_reencoding: boolean): void
     set_cpu_usage(cpu_usage: number): void
     set_position_update_interval(interval: number): void
-    /* Methods of Gst.Object */
+    /* Methods of Gst-1.0.Gst.Object */
     add_control_binding(binding: Gst.ControlBinding): boolean
     default_error(error: GLib.Error, debug?: string | null): void
     get_control_binding(property_name: string): Gst.ControlBinding | null
@@ -84,7 +84,7 @@ export class Transcoder {
     sync_values(timestamp: Gst.ClockTime): boolean
     unparent(): void
     unref(): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -105,9 +105,9 @@ export class Transcoder {
     steal_qdata(quark: GLib.Quark): object | null
     thaw_notify(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Gst.Object */
+    /* Virtual methods of Gst-1.0.Gst.Object */
     vfunc_deep_notify(orig: Gst.Object, pspec: GObject.ParamSpec): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -115,7 +115,7 @@ export class Transcoder {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GstTranscoder.Transcoder */
+    /* Signals of GstTranscoder-1.0.GstTranscoder.Transcoder */
     connect(sigName: "done", callback: (($obj: Transcoder) => void)): number
     connect_after(sigName: "done", callback: (($obj: Transcoder) => void)): number
     emit(sigName: "done"): void
@@ -131,11 +131,11 @@ export class Transcoder {
     connect(sigName: "warning", callback: (($obj: Transcoder, object: GLib.Error, p0: Gst.Structure) => void)): number
     connect_after(sigName: "warning", callback: (($obj: Transcoder, object: GLib.Error, p0: Gst.Structure) => void)): number
     emit(sigName: "warning", object: GLib.Error, p0: Gst.Structure): void
-    /* Signals of Gst.Object */
+    /* Signals of Gst-1.0.Gst.Object */
     connect(sigName: "deep-notify", callback: (($obj: Transcoder, prop_object: Gst.Object, prop: GObject.ParamSpec) => void)): number
     connect_after(sigName: "deep-notify", callback: (($obj: Transcoder, prop_object: Gst.Object, prop: GObject.ParamSpec) => void)): number
     emit(sigName: "deep-notify", prop_object: Gst.Object, prop: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Transcoder, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Transcoder, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -169,9 +169,9 @@ export interface TranscoderGMainContextSignalDispatcher_ConstructProps extends G
     application_context?: GLib.MainContext
 }
 export class TranscoderGMainContextSignalDispatcher {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -193,9 +193,9 @@ export class TranscoderGMainContextSignalDispatcher {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GstTranscoder.TranscoderGMainContextSignalDispatcher */
+    /* Virtual methods of GstTranscoder-1.0.GstTranscoder.TranscoderGMainContextSignalDispatcher */
     vfunc_dispatch(transcoder: Transcoder, emitter: object | null, data: object | null, destroy: GLib.DestroyNotify): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -203,7 +203,7 @@ export class TranscoderGMainContextSignalDispatcher {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: TranscoderGMainContextSignalDispatcher, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: TranscoderGMainContextSignalDispatcher, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -226,7 +226,7 @@ export class TranscoderPrivate {
     static name: string
 }
 export abstract class TranscoderSignalDispatcherInterface {
-    /* Fields of GstTranscoder.TranscoderSignalDispatcherInterface */
+    /* Fields of GstTranscoder-1.0.GstTranscoder.TranscoderSignalDispatcherInterface */
     parent_iface: GObject.TypeInterface
     dispatch: (self: TranscoderSignalDispatcher, transcoder: Transcoder, emitter: object | null, data: object | null, destroy: GLib.DestroyNotify) => void
     static name: string

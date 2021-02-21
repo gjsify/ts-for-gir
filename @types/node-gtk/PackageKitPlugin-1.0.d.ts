@@ -99,12 +99,12 @@ export interface PluginTransactionFunc {
 export interface Backend_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class Backend {
-    /* Fields of PackageKitPlugin.Backend */
+    /* Fields of PackageKitPlugin-1.0.PackageKitPlugin.Backend */
     parent: GObject.Object
     priv: BackendPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of PackageKitPlugin.Backend */
+    /* Methods of PackageKitPlugin-1.0.PackageKitPlugin.Backend */
     acceptEula(eulaId: string): void
     cancel(job: BackendJob): void
     dependsOn(job: BackendJob, filters: PackageKitGlib.Bitfield, packageIds: string, recursive: boolean): void
@@ -159,7 +159,7 @@ export class Backend {
     updatePackages(job: BackendJob, transactionFlags: PackageKitGlib.Bitfield, packageIds: string): void
     watchFile(filename: string, func: BackendFileChanged): boolean
     whatProvides(job: BackendJob, filters: PackageKitGlib.Bitfield, search: string): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -181,21 +181,12 @@ export class Backend {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Backend, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Backend, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -215,12 +206,12 @@ export class Backend {
 export interface BackendJob_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class BackendJob {
-    /* Fields of PackageKitPlugin.BackendJob */
+    /* Fields of PackageKitPlugin-1.0.PackageKitPlugin.BackendJob */
     parent: GObject.Object
     priv: BackendJobPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of PackageKitPlugin.BackendJob */
+    /* Methods of PackageKitPlugin-1.0.PackageKitPlugin.BackendJob */
     category(parentId: string, catId: string, name: string, summary: string, icon: string): void
     details(packageId: string, summary: string, license: string, group: PackageKitGlib.GroupEnum, description: string, url: string, size: number): void
     distroUpgrade(type: PackageKitGlib.DistroUpgradeEnum, name: string, summary: string): void
@@ -287,7 +278,7 @@ export class BackendJob {
     threadCreate(func: BackendJobThreadFunc): boolean
     updateDetail(packageId: string, updates: string, obsoletes: string, vendorUrls: string, bugzillaUrls: string, cveUrls: string, restart: PackageKitGlib.RestartEnum, updateText: string, changelog: string, state: PackageKitGlib.UpdateStateEnum, issued: string, updated: string): void
     useBackground(): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -309,21 +300,12 @@ export class BackendJob {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: BackendJob, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: BackendJob, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -341,12 +323,12 @@ export class BackendJob {
 export interface Transaction_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class Transaction {
-    /* Fields of PackageKitPlugin.Transaction */
+    /* Fields of PackageKitPlugin-1.0.PackageKitPlugin.Transaction */
     parent: GObject.Object
     priv: TransactionPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of PackageKitPlugin.Transaction */
+    /* Methods of PackageKitPlugin-1.0.PackageKitPlugin.Transaction */
     addSupportedContentType(mimeType: string): void
     cancelBg(): void
     getBackendJob(): BackendJob
@@ -371,7 +353,7 @@ export class Transaction {
     setState(state: TransactionState): boolean
     signalsReset(job: BackendJob): void
     skipAuthChecks(skipChecks: boolean): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -393,28 +375,18 @@ export class Transaction {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of PackageKitPlugin.Transaction */
+    /* Signals of PackageKitPlugin-1.0.PackageKitPlugin.Transaction */
     connect(sigName: "finished", callback: (($obj: Transaction) => void)): number
-    connect_after(sigName: "finished", callback: (($obj: Transaction) => void)): number
+    on(sigName: "finished", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "finished", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "finished", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "finished"): void
-    on(sigName: "finished", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "finished", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "finished", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Transaction, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Transaction, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -432,12 +404,12 @@ export class Transaction {
     static $gtype: GObject.Type
 }
 export abstract class BackendClass {
-    /* Fields of PackageKitPlugin.BackendClass */
+    /* Fields of PackageKitPlugin-1.0.PackageKitPlugin.BackendClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
 export abstract class BackendJobClass {
-    /* Fields of PackageKitPlugin.BackendJobClass */
+    /* Fields of PackageKitPlugin-1.0.PackageKitPlugin.BackendJobClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
@@ -448,11 +420,11 @@ export class BackendPrivate {
     static name: string
 }
 export class Plugin {
-    /* Fields of PackageKitPlugin.Plugin */
+    /* Fields of PackageKitPlugin-1.0.PackageKitPlugin.Plugin */
     backend: Backend
     job: BackendJob
     priv: PluginPrivate
-    /* Methods of PackageKitPlugin.Plugin */
+    /* Methods of PackageKitPlugin-1.0.PackageKitPlugin.Plugin */
     destroy(): void
     initialize(): void
     stateChanged(): void
@@ -470,7 +442,7 @@ export class PluginPrivate {
     static name: string
 }
 export abstract class TransactionClass {
-    /* Fields of PackageKitPlugin.TransactionClass */
+    /* Fields of PackageKitPlugin-1.0.PackageKitPlugin.TransactionClass */
     parentClass: GObject.ObjectClass
     static name: string
 }

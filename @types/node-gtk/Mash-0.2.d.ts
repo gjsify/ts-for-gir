@@ -39,13 +39,13 @@ export enum DataFlags {
 export interface Data_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class Data {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Mash.Data */
+    /* Methods of Mash-0.2.Mash.Data */
     getExtents(minVertex: Clutter.Vertex, maxVertex: Clutter.Vertex): void
     load(flags: DataFlags, filename: string): boolean
     render(): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -67,21 +67,12 @@ export class Data {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Data, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Data, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -100,12 +91,12 @@ export class Data {
 export interface DataLoader_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class DataLoader {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Mash.DataLoader */
+    /* Methods of Mash-0.2.Mash.DataLoader */
     getData(loaderData: DataLoaderData): void
     load(flags: DataFlags, filename: string): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -127,24 +118,12 @@ export class DataLoader {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of Mash.DataLoader */
-    vfuncGetData(loaderData: DataLoaderData): void
-    vfuncLoad(flags: DataFlags, filename: string): boolean
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: DataLoader, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: DataLoader, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -160,11 +139,11 @@ export class DataLoader {
 export interface DirectionalLight_ConstructProps extends Light_ConstructProps {
 }
 export class DirectionalLight {
-    /* Properties of Mash.Light */
+    /* Properties of Mash-0.2.Mash.Light */
     ambient: Clutter.Color
     diffuse: Clutter.Color
     specular: Clutter.Color
-    /* Properties of Clutter.Actor */
+    /* Properties of Clutter-1.0.Clutter.Actor */
     actions: Clutter.Action
     readonly allocation: Clutter.ActorBox
     anchorGravity: Clutter.Gravity
@@ -247,11 +226,11 @@ export class DirectionalLight {
     yAlign: Clutter.ActorAlign
     yExpand: boolean
     zPosition: number
-    /* Fields of Clutter.Actor */
+    /* Fields of Clutter-1.0.Clutter.Actor */
     flags: number
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Mash.Light */
+    /* Methods of Mash-0.2.Mash.Light */
     appendShader(shaderSource: GLib.String, snippet: string): void
     generateShader(uniformSource: GLib.String, mainSource: GLib.String): void
     getAmbient(ambient: Clutter.Color): void
@@ -264,7 +243,7 @@ export class DirectionalLight {
     setDirectionUniform(program: Cogl.Handle, uniformLocation: number, directionIn: number): void
     setSpecular(specular: Clutter.Color): void
     updateUniforms(program: Cogl.Handle): void
-    /* Methods of Clutter.Actor */
+    /* Methods of Clutter-1.0.Clutter.Actor */
     addAction(action: Clutter.Action): void
     addActionWithName(name: string, action: Clutter.Action): void
     addChild(child: Clutter.Actor): void
@@ -280,8 +259,8 @@ export class DirectionalLight {
     animateWithAlphav(alpha: Clutter.Alpha, properties: string[], values: any[]): Clutter.Animation
     animateWithTimelinev(mode: number, timeline: Clutter.Timeline, properties: string[], values: any[]): Clutter.Animation
     animatev(mode: number, duration: number, properties: string[], values: any[]): Clutter.Animation
-    applyRelativeTransformToPoint(ancestor: Clutter.Actor | null, point: Clutter.Vertex): /* vertex */ Clutter.Vertex
-    applyTransformToPoint(point: Clutter.Vertex): /* vertex */ Clutter.Vertex
+    applyRelativeTransformToPoint(ancestor: Clutter.Actor | null, point: Clutter.Vertex): { vertex: Clutter.Vertex }
+    applyTransformToPoint(point: Clutter.Vertex): { vertex: Clutter.Vertex }
     bindModel(model: Gio.ListModel | null, createChildFunc: Clutter.ActorCreateChildFunc): void
     clearActions(): void
     clearConstraints(): void
@@ -294,29 +273,29 @@ export class DirectionalLight {
     destroyAllChildren(): void
     detachAnimation(): void
     event(event: Clutter.Event, capture: boolean): boolean
-    getAbsAllocationVertices(): /* verts */ Clutter.Vertex[]
+    getAbsAllocationVertices(): { verts: Clutter.Vertex[] }
     getAccessible(): Atk.Object
     getAction(name: string): Clutter.Action
     getActions(): Clutter.Action[]
-    getAllocationBox(): /* box */ Clutter.ActorBox
-    getAllocationGeometry(): /* geom */ Clutter.Geometry
-    getAllocationVertices(ancestor?: Clutter.Actor | null): /* verts */ Clutter.Vertex[]
-    getAnchorPoint(): [ /* anchorX */ number, /* anchorY */ number ]
+    getAllocationBox(): { box: Clutter.ActorBox }
+    getAllocationGeometry(): { geom: Clutter.Geometry }
+    getAllocationVertices(ancestor?: Clutter.Actor | null): { verts: Clutter.Vertex[] }
+    getAnchorPoint(): { anchorX: number, anchorY: number }
     getAnchorPointGravity(): Clutter.Gravity
     getAnimation(): Clutter.Animation
-    getBackgroundColor(): /* color */ Clutter.Color
+    getBackgroundColor(): { color: Clutter.Color }
     getChildAtIndex(index: number): Clutter.Actor
-    getChildTransform(): /* transform */ Clutter.Matrix
+    getChildTransform(): { transform: Clutter.Matrix }
     getChildren(): Clutter.Actor[]
-    getClip(): [ /* xoff */ number | null, /* yoff */ number | null, /* width */ number | null, /* height */ number | null ]
+    getClip(): { xoff: number | null, yoff: number | null, width: number | null, height: number | null }
     getClipToAllocation(): boolean
     getConstraint(name: string): Clutter.Constraint
     getConstraints(): Clutter.Constraint[]
     getContent(): Clutter.Content
-    getContentBox(): /* box */ Clutter.ActorBox
+    getContentBox(): { box: Clutter.ActorBox }
     getContentGravity(): Clutter.ContentGravity
     getContentRepeat(): Clutter.ContentRepeat
-    getContentScalingFilters(): [ /* minFilter */ Clutter.ScalingFilter | null, /* magFilter */ Clutter.ScalingFilter | null ]
+    getContentScalingFilters(): { minFilter: Clutter.ScalingFilter | null, magFilter: Clutter.ScalingFilter | null }
     getDefaultPaintVolume(): Clutter.PaintVolume
     getDepth(): number
     getEasingDelay(): number
@@ -327,12 +306,12 @@ export class DirectionalLight {
     getFirstChild(): Clutter.Actor
     getFixedPositionSet(): boolean
     getFlags(): Clutter.ActorFlags
-    getGeometry(): /* geometry */ Clutter.Geometry
+    getGeometry(): { geometry: Clutter.Geometry }
     getGid(): number
     getHeight(): number
     getLastChild(): Clutter.Actor
     getLayoutManager(): Clutter.LayoutManager
-    getMargin(): /* margin */ Clutter.Margin
+    getMargin(): { margin: Clutter.Margin }
     getMarginBottom(): number
     getMarginLeft(): number
     getMarginRight(): number
@@ -342,38 +321,38 @@ export class DirectionalLight {
     getNextSibling(): Clutter.Actor
     getOffscreenRedirect(): Clutter.OffscreenRedirect
     getOpacity(): number
-    getPaintBox(): [ /* returnType */ boolean, /* box */ Clutter.ActorBox ]
+    getPaintBox(): { returnType: boolean, box: Clutter.ActorBox }
     getPaintOpacity(): number
     getPaintVisibility(): boolean
     getPaintVolume(): Clutter.PaintVolume
     getPangoContext(): Pango.Context
     getParent(): Clutter.Actor
-    getPivotPoint(): [ /* pivotX */ number | null, /* pivotY */ number | null ]
+    getPivotPoint(): { pivotX: number | null, pivotY: number | null }
     getPivotPointZ(): number
-    getPosition(): [ /* x */ number | null, /* y */ number | null ]
-    getPreferredHeight(forWidth: number): [ /* minHeightP */ number | null, /* naturalHeightP */ number | null ]
-    getPreferredSize(): [ /* minWidthP */ number | null, /* minHeightP */ number | null, /* naturalWidthP */ number | null, /* naturalHeightP */ number | null ]
-    getPreferredWidth(forHeight: number): [ /* minWidthP */ number | null, /* naturalWidthP */ number | null ]
+    getPosition(): { x: number | null, y: number | null }
+    getPreferredHeight(forWidth: number): { minHeightP: number | null, naturalHeightP: number | null }
+    getPreferredSize(): { minWidthP: number | null, minHeightP: number | null, naturalWidthP: number | null, naturalHeightP: number | null }
+    getPreferredWidth(forHeight: number): { minWidthP: number | null, naturalWidthP: number | null }
     getPreviousSibling(): Clutter.Actor
     getReactive(): boolean
     getRequestMode(): Clutter.RequestMode
-    getRotation(axis: Clutter.RotateAxis): [ /* returnType */ number, /* x */ number, /* y */ number, /* z */ number ]
+    getRotation(axis: Clutter.RotateAxis): { returnType: number, x: number, y: number, z: number }
     getRotationAngle(axis: Clutter.RotateAxis): number
-    getScale(): [ /* scaleX */ number | null, /* scaleY */ number | null ]
-    getScaleCenter(): [ /* centerX */ number | null, /* centerY */ number | null ]
+    getScale(): { scaleX: number | null, scaleY: number | null }
+    getScaleCenter(): { centerX: number | null, centerY: number | null }
     getScaleGravity(): Clutter.Gravity
     getScaleZ(): number
     getShader(): Clutter.Shader
-    getSize(): [ /* width */ number | null, /* height */ number | null ]
+    getSize(): { width: number | null, height: number | null }
     getStage(): Clutter.Stage
     getTextDirection(): Clutter.TextDirection
-    getTransform(): /* transform */ Clutter.Matrix
-    getTransformationMatrix(): /* matrix */ Clutter.Matrix
+    getTransform(): { transform: Clutter.Matrix }
+    getTransformationMatrix(): { matrix: Clutter.Matrix }
     getTransformedPaintVolume(relativeToAncestor: Clutter.Actor): Clutter.PaintVolume
-    getTransformedPosition(): [ /* x */ number | null, /* y */ number | null ]
-    getTransformedSize(): [ /* width */ number | null, /* height */ number | null ]
+    getTransformedPosition(): { x: number | null, y: number | null }
+    getTransformedSize(): { width: number | null, height: number | null }
     getTransition(name: string): Clutter.Transition
-    getTranslation(): [ /* translateX */ number | null, /* translateY */ number | null, /* translateZ */ number | null ]
+    getTranslation(): { translateX: number | null, translateY: number | null, translateZ: number | null }
     getWidth(): number
     getX(): number
     getXAlign(): Clutter.ActorAlign
@@ -495,12 +474,12 @@ export class DirectionalLight {
     shouldPickPaint(): boolean
     show(): void
     showAll(): void
-    transformStagePoint(x: number, y: number): [ /* returnType */ boolean, /* xOut */ number, /* yOut */ number ]
+    transformStagePoint(x: number, y: number): { returnType: boolean, xOut: number, yOut: number }
     unmap(): void
     unparent(): void
     unrealize(): void
     unsetFlags(flags: Clutter.ActorFlags): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -522,13 +501,13 @@ export class DirectionalLight {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of Clutter.Animatable */
+    /* Methods of Clutter-1.0.Clutter.Animatable */
     animateProperty(animation: Clutter.Animation, propertyName: string, initialValue: any, finalValue: any, progress: number, value: any): boolean
     findProperty(propertyName: string): GObject.ParamSpec
     getInitialState(propertyName: string, value: any): void
-    interpolateValue(propertyName: string, interval: Clutter.Interval, progress: number): [ /* returnType */ boolean, /* value */ any ]
+    interpolateValue(propertyName: string, interval: Clutter.Interval, progress: number): { returnType: boolean, value: any }
     setFinalState(propertyName: string, value: any): void
-    /* Methods of Clutter.Container */
+    /* Methods of Clutter-1.0.Clutter.Container */
     addActor(actor: Clutter.Actor): void
     childGetProperty(child: Clutter.Actor, property: string, value: any): void
     childNotify(child: Clutter.Actor, pspec: GObject.ParamSpec): void
@@ -543,263 +522,164 @@ export class DirectionalLight {
     raiseChild(actor: Clutter.Actor, sibling?: Clutter.Actor | null): void
     removeActor(actor: Clutter.Actor): void
     sortDepthOrder(): void
-    /* Methods of Clutter.Scriptable */
+    /* Methods of Clutter-1.0.Clutter.Scriptable */
     getId(): string
     parseCustomNode(script: Clutter.Script, value: any, name: string, node: Json.Node): boolean
     setCustomProperty(script: Clutter.Script, name: string, value: any): void
     setId(id: string): void
-    /* Virtual methods of Mash.Light */
-    vfuncGenerateShader(uniformSource: GLib.String, mainSource: GLib.String): void
-    vfuncUpdateUniforms(program: Cogl.Handle): void
-    vfuncAnimateProperty(animation: Clutter.Animation, propertyName: string, initialValue: any, finalValue: any, progress: number, value: any): boolean
-    vfuncFindProperty(propertyName: string): GObject.ParamSpec
-    vfuncGetInitialState(propertyName: string, value: any): void
-    vfuncInterpolateValue(propertyName: string, interval: Clutter.Interval, progress: number): [ /* returnType */ boolean, /* value */ any ]
-    vfuncSetFinalState(propertyName: string, value: any): void
-    vfuncActorAdded(actor: Clutter.Actor): void
-    vfuncActorRemoved(actor: Clutter.Actor): void
-    vfuncAdd(actor: Clutter.Actor): void
-    vfuncChildNotify(child: Clutter.Actor, pspec: GObject.ParamSpec): void
-    vfuncCreateChildMeta(actor: Clutter.Actor): void
-    vfuncDestroyChildMeta(actor: Clutter.Actor): void
-    vfuncForeach(callback: Clutter.Callback): void
-    vfuncForeachWithInternals(callback: Clutter.Callback): void
-    vfuncGetChildMeta(actor: Clutter.Actor): Clutter.ChildMeta
-    vfuncLower(actor: Clutter.Actor, sibling?: Clutter.Actor | null): void
-    vfuncRaise(actor: Clutter.Actor, sibling?: Clutter.Actor | null): void
-    vfuncRemove(actor: Clutter.Actor): void
-    vfuncSortDepthOrder(): void
-    vfuncGetId(): string
-    vfuncParseCustomNode(script: Clutter.Script, value: any, name: string, node: Json.Node): boolean
-    vfuncSetCustomProperty(script: Clutter.Script, name: string, value: any): void
-    vfuncSetId(id: string): void
-    /* Virtual methods of Clutter.Actor */
-    vfuncAllocate(box: Clutter.ActorBox, flags: Clutter.AllocationFlags): void
-    vfuncApplyTransform(matrix: Clutter.Matrix): void
-    vfuncButtonPressEvent(event: Clutter.ButtonEvent): boolean
-    vfuncButtonReleaseEvent(event: Clutter.ButtonEvent): boolean
-    vfuncCapturedEvent(event: Clutter.Event): boolean
-    vfuncDestroy(): void
-    vfuncEnterEvent(event: Clutter.CrossingEvent): boolean
-    vfuncEvent(event: Clutter.Event): boolean
-    vfuncGetAccessible(): Atk.Object
-    vfuncGetPaintVolume(volume: Clutter.PaintVolume): boolean
-    vfuncGetPreferredHeight(forWidth: number): [ /* minHeightP */ number | null, /* naturalHeightP */ number | null ]
-    vfuncGetPreferredWidth(forHeight: number): [ /* minWidthP */ number | null, /* naturalWidthP */ number | null ]
-    vfuncHasOverlaps(): boolean
-    vfuncHide(): void
-    vfuncHideAll(): void
-    vfuncKeyFocusIn(): void
-    vfuncKeyFocusOut(): void
-    vfuncKeyPressEvent(event: Clutter.KeyEvent): boolean
-    vfuncKeyReleaseEvent(event: Clutter.KeyEvent): boolean
-    vfuncLeaveEvent(event: Clutter.CrossingEvent): boolean
-    vfuncMap(): void
-    vfuncMotionEvent(event: Clutter.MotionEvent): boolean
-    vfuncPaint(): void
-    vfuncPaintNode(root: Clutter.PaintNode): void
-    vfuncParentSet(oldParent: Clutter.Actor): void
-    vfuncPick(color: Clutter.Color): void
-    vfuncQueueRedraw(leafThatQueued: Clutter.Actor): void
-    vfuncQueueRelayout(): void
-    vfuncRealize(): void
-    vfuncScrollEvent(event: Clutter.ScrollEvent): boolean
-    vfuncShow(): void
-    vfuncShowAll(): void
-    vfuncTouchEvent(event: Clutter.TouchEvent): boolean
-    vfuncUnmap(): void
-    vfuncUnrealize(): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Clutter.Actor */
+    /* Signals of Clutter-1.0.Clutter.Actor */
     connect(sigName: "allocation-changed", callback: (($obj: DirectionalLight, box: Clutter.ActorBox, flags: Clutter.AllocationFlags) => void)): number
-    connect_after(sigName: "allocation-changed", callback: (($obj: DirectionalLight, box: Clutter.ActorBox, flags: Clutter.AllocationFlags) => void)): number
+    on(sigName: "allocation-changed", callback: (box: Clutter.ActorBox, flags: Clutter.AllocationFlags) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "allocation-changed", callback: (box: Clutter.ActorBox, flags: Clutter.AllocationFlags) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "allocation-changed", callback: (box: Clutter.ActorBox, flags: Clutter.AllocationFlags) => void): NodeJS.EventEmitter
     emit(sigName: "allocation-changed", box: Clutter.ActorBox, flags: Clutter.AllocationFlags): void
-    on(sigName: "allocation-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "allocation-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "allocation-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "button-press-event", callback: (($obj: DirectionalLight, event: Clutter.ButtonEvent) => boolean)): number
-    connect_after(sigName: "button-press-event", callback: (($obj: DirectionalLight, event: Clutter.ButtonEvent) => boolean)): number
+    on(sigName: "button-press-event", callback: (event: Clutter.ButtonEvent) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "button-press-event", callback: (event: Clutter.ButtonEvent) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "button-press-event", callback: (event: Clutter.ButtonEvent) => void): NodeJS.EventEmitter
     emit(sigName: "button-press-event", event: Clutter.ButtonEvent): void
-    on(sigName: "button-press-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "button-press-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "button-press-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "button-release-event", callback: (($obj: DirectionalLight, event: Clutter.ButtonEvent) => boolean)): number
-    connect_after(sigName: "button-release-event", callback: (($obj: DirectionalLight, event: Clutter.ButtonEvent) => boolean)): number
+    on(sigName: "button-release-event", callback: (event: Clutter.ButtonEvent) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "button-release-event", callback: (event: Clutter.ButtonEvent) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "button-release-event", callback: (event: Clutter.ButtonEvent) => void): NodeJS.EventEmitter
     emit(sigName: "button-release-event", event: Clutter.ButtonEvent): void
-    on(sigName: "button-release-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "button-release-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "button-release-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "captured-event", callback: (($obj: DirectionalLight, event: Clutter.Event) => boolean)): number
-    connect_after(sigName: "captured-event", callback: (($obj: DirectionalLight, event: Clutter.Event) => boolean)): number
+    on(sigName: "captured-event", callback: (event: Clutter.Event) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "captured-event", callback: (event: Clutter.Event) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "captured-event", callback: (event: Clutter.Event) => void): NodeJS.EventEmitter
     emit(sigName: "captured-event", event: Clutter.Event): void
-    on(sigName: "captured-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "captured-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "captured-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "destroy", callback: (($obj: DirectionalLight) => void)): number
-    connect_after(sigName: "destroy", callback: (($obj: DirectionalLight) => void)): number
+    on(sigName: "destroy", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "destroy", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "destroy", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "destroy"): void
-    on(sigName: "destroy", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "destroy", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "destroy", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "enter-event", callback: (($obj: DirectionalLight, event: Clutter.CrossingEvent) => boolean)): number
-    connect_after(sigName: "enter-event", callback: (($obj: DirectionalLight, event: Clutter.CrossingEvent) => boolean)): number
+    on(sigName: "enter-event", callback: (event: Clutter.CrossingEvent) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "enter-event", callback: (event: Clutter.CrossingEvent) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "enter-event", callback: (event: Clutter.CrossingEvent) => void): NodeJS.EventEmitter
     emit(sigName: "enter-event", event: Clutter.CrossingEvent): void
-    on(sigName: "enter-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "enter-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "enter-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "event", callback: (($obj: DirectionalLight, event: Clutter.Event) => boolean)): number
-    connect_after(sigName: "event", callback: (($obj: DirectionalLight, event: Clutter.Event) => boolean)): number
+    on(sigName: "event", callback: (event: Clutter.Event) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "event", callback: (event: Clutter.Event) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "event", callback: (event: Clutter.Event) => void): NodeJS.EventEmitter
     emit(sigName: "event", event: Clutter.Event): void
-    on(sigName: "event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "hide", callback: (($obj: DirectionalLight) => void)): number
-    connect_after(sigName: "hide", callback: (($obj: DirectionalLight) => void)): number
+    on(sigName: "hide", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "hide", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "hide", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "hide"): void
-    on(sigName: "hide", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "hide", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "hide", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "key-focus-in", callback: (($obj: DirectionalLight) => void)): number
-    connect_after(sigName: "key-focus-in", callback: (($obj: DirectionalLight) => void)): number
+    on(sigName: "key-focus-in", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "key-focus-in", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "key-focus-in", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "key-focus-in"): void
-    on(sigName: "key-focus-in", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "key-focus-in", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "key-focus-in", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "key-focus-out", callback: (($obj: DirectionalLight) => void)): number
-    connect_after(sigName: "key-focus-out", callback: (($obj: DirectionalLight) => void)): number
+    on(sigName: "key-focus-out", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "key-focus-out", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "key-focus-out", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "key-focus-out"): void
-    on(sigName: "key-focus-out", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "key-focus-out", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "key-focus-out", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "key-press-event", callback: (($obj: DirectionalLight, event: Clutter.KeyEvent) => boolean)): number
-    connect_after(sigName: "key-press-event", callback: (($obj: DirectionalLight, event: Clutter.KeyEvent) => boolean)): number
+    on(sigName: "key-press-event", callback: (event: Clutter.KeyEvent) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "key-press-event", callback: (event: Clutter.KeyEvent) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "key-press-event", callback: (event: Clutter.KeyEvent) => void): NodeJS.EventEmitter
     emit(sigName: "key-press-event", event: Clutter.KeyEvent): void
-    on(sigName: "key-press-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "key-press-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "key-press-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "key-release-event", callback: (($obj: DirectionalLight, event: Clutter.KeyEvent) => boolean)): number
-    connect_after(sigName: "key-release-event", callback: (($obj: DirectionalLight, event: Clutter.KeyEvent) => boolean)): number
+    on(sigName: "key-release-event", callback: (event: Clutter.KeyEvent) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "key-release-event", callback: (event: Clutter.KeyEvent) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "key-release-event", callback: (event: Clutter.KeyEvent) => void): NodeJS.EventEmitter
     emit(sigName: "key-release-event", event: Clutter.KeyEvent): void
-    on(sigName: "key-release-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "key-release-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "key-release-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "leave-event", callback: (($obj: DirectionalLight, event: Clutter.CrossingEvent) => boolean)): number
-    connect_after(sigName: "leave-event", callback: (($obj: DirectionalLight, event: Clutter.CrossingEvent) => boolean)): number
+    on(sigName: "leave-event", callback: (event: Clutter.CrossingEvent) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "leave-event", callback: (event: Clutter.CrossingEvent) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "leave-event", callback: (event: Clutter.CrossingEvent) => void): NodeJS.EventEmitter
     emit(sigName: "leave-event", event: Clutter.CrossingEvent): void
-    on(sigName: "leave-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "leave-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "leave-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "motion-event", callback: (($obj: DirectionalLight, event: Clutter.MotionEvent) => boolean)): number
-    connect_after(sigName: "motion-event", callback: (($obj: DirectionalLight, event: Clutter.MotionEvent) => boolean)): number
+    on(sigName: "motion-event", callback: (event: Clutter.MotionEvent) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "motion-event", callback: (event: Clutter.MotionEvent) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "motion-event", callback: (event: Clutter.MotionEvent) => void): NodeJS.EventEmitter
     emit(sigName: "motion-event", event: Clutter.MotionEvent): void
-    on(sigName: "motion-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "motion-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "motion-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "paint", callback: (($obj: DirectionalLight) => void)): number
-    connect_after(sigName: "paint", callback: (($obj: DirectionalLight) => void)): number
+    on(sigName: "paint", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "paint", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "paint", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "paint"): void
-    on(sigName: "paint", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "paint", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "paint", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "parent-set", callback: (($obj: DirectionalLight, oldParent?: Clutter.Actor | null) => void)): number
-    connect_after(sigName: "parent-set", callback: (($obj: DirectionalLight, oldParent?: Clutter.Actor | null) => void)): number
+    on(sigName: "parent-set", callback: (oldParent?: Clutter.Actor | null) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "parent-set", callback: (oldParent?: Clutter.Actor | null) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "parent-set", callback: (oldParent?: Clutter.Actor | null) => void): NodeJS.EventEmitter
     emit(sigName: "parent-set", oldParent?: Clutter.Actor | null): void
-    on(sigName: "parent-set", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "parent-set", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "parent-set", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "pick", callback: (($obj: DirectionalLight, color: Clutter.Color) => void)): number
-    connect_after(sigName: "pick", callback: (($obj: DirectionalLight, color: Clutter.Color) => void)): number
+    on(sigName: "pick", callback: (color: Clutter.Color) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "pick", callback: (color: Clutter.Color) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "pick", callback: (color: Clutter.Color) => void): NodeJS.EventEmitter
     emit(sigName: "pick", color: Clutter.Color): void
-    on(sigName: "pick", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "pick", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "pick", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "queue-redraw", callback: (($obj: DirectionalLight, origin: Clutter.Actor) => void)): number
-    connect_after(sigName: "queue-redraw", callback: (($obj: DirectionalLight, origin: Clutter.Actor) => void)): number
+    on(sigName: "queue-redraw", callback: (origin: Clutter.Actor) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "queue-redraw", callback: (origin: Clutter.Actor) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "queue-redraw", callback: (origin: Clutter.Actor) => void): NodeJS.EventEmitter
     emit(sigName: "queue-redraw", origin: Clutter.Actor): void
-    on(sigName: "queue-redraw", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "queue-redraw", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "queue-redraw", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "queue-relayout", callback: (($obj: DirectionalLight) => void)): number
-    connect_after(sigName: "queue-relayout", callback: (($obj: DirectionalLight) => void)): number
+    on(sigName: "queue-relayout", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "queue-relayout", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "queue-relayout", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "queue-relayout"): void
-    on(sigName: "queue-relayout", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "queue-relayout", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "queue-relayout", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "realize", callback: (($obj: DirectionalLight) => void)): number
-    connect_after(sigName: "realize", callback: (($obj: DirectionalLight) => void)): number
+    on(sigName: "realize", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "realize", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "realize", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "realize"): void
-    on(sigName: "realize", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "realize", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "realize", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "scroll-event", callback: (($obj: DirectionalLight, event: Clutter.ScrollEvent) => boolean)): number
-    connect_after(sigName: "scroll-event", callback: (($obj: DirectionalLight, event: Clutter.ScrollEvent) => boolean)): number
+    on(sigName: "scroll-event", callback: (event: Clutter.ScrollEvent) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "scroll-event", callback: (event: Clutter.ScrollEvent) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "scroll-event", callback: (event: Clutter.ScrollEvent) => void): NodeJS.EventEmitter
     emit(sigName: "scroll-event", event: Clutter.ScrollEvent): void
-    on(sigName: "scroll-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "scroll-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "scroll-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "show", callback: (($obj: DirectionalLight) => void)): number
-    connect_after(sigName: "show", callback: (($obj: DirectionalLight) => void)): number
+    on(sigName: "show", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "show", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "show", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "show"): void
-    on(sigName: "show", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "show", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "show", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "touch-event", callback: (($obj: DirectionalLight, event: Clutter.Event) => boolean)): number
-    connect_after(sigName: "touch-event", callback: (($obj: DirectionalLight, event: Clutter.Event) => boolean)): number
+    on(sigName: "touch-event", callback: (event: Clutter.Event) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "touch-event", callback: (event: Clutter.Event) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "touch-event", callback: (event: Clutter.Event) => void): NodeJS.EventEmitter
     emit(sigName: "touch-event", event: Clutter.Event): void
-    on(sigName: "touch-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "touch-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "touch-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "transition-stopped", callback: (($obj: DirectionalLight, name: string, isFinished: boolean) => void)): number
-    connect_after(sigName: "transition-stopped", callback: (($obj: DirectionalLight, name: string, isFinished: boolean) => void)): number
+    on(sigName: "transition-stopped", callback: (name: string, isFinished: boolean) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "transition-stopped", callback: (name: string, isFinished: boolean) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "transition-stopped", callback: (name: string, isFinished: boolean) => void): NodeJS.EventEmitter
     emit(sigName: "transition-stopped", name: string, isFinished: boolean): void
-    on(sigName: "transition-stopped", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "transition-stopped", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "transition-stopped", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "transitions-completed", callback: (($obj: DirectionalLight) => void)): number
-    connect_after(sigName: "transitions-completed", callback: (($obj: DirectionalLight) => void)): number
+    on(sigName: "transitions-completed", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "transitions-completed", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "transitions-completed", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "transitions-completed"): void
-    on(sigName: "transitions-completed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "transitions-completed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "transitions-completed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "unrealize", callback: (($obj: DirectionalLight) => void)): number
-    connect_after(sigName: "unrealize", callback: (($obj: DirectionalLight) => void)): number
+    on(sigName: "unrealize", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "unrealize", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "unrealize", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "unrealize"): void
-    on(sigName: "unrealize", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "unrealize", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "unrealize", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: DirectionalLight, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: DirectionalLight, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of Clutter.Container */
+    /* Signals of Clutter-1.0.Clutter.Container */
     connect(sigName: "actor-added", callback: (($obj: DirectionalLight, actor: Clutter.Actor) => void)): number
-    connect_after(sigName: "actor-added", callback: (($obj: DirectionalLight, actor: Clutter.Actor) => void)): number
+    on(sigName: "actor-added", callback: (actor: Clutter.Actor) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "actor-added", callback: (actor: Clutter.Actor) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "actor-added", callback: (actor: Clutter.Actor) => void): NodeJS.EventEmitter
     emit(sigName: "actor-added", actor: Clutter.Actor): void
-    on(sigName: "actor-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "actor-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "actor-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "actor-removed", callback: (($obj: DirectionalLight, actor: Clutter.Actor) => void)): number
-    connect_after(sigName: "actor-removed", callback: (($obj: DirectionalLight, actor: Clutter.Actor) => void)): number
+    on(sigName: "actor-removed", callback: (actor: Clutter.Actor) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "actor-removed", callback: (actor: Clutter.Actor) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "actor-removed", callback: (actor: Clutter.Actor) => void): NodeJS.EventEmitter
     emit(sigName: "actor-removed", actor: Clutter.Actor): void
-    on(sigName: "actor-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "actor-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "actor-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "child-notify", callback: (($obj: DirectionalLight, actor: Clutter.Actor, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "child-notify", callback: (($obj: DirectionalLight, actor: Clutter.Actor, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "child-notify", callback: (actor: Clutter.Actor, pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "child-notify", callback: (actor: Clutter.Actor, pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "child-notify", callback: (actor: Clutter.Actor, pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "child-notify", actor: Clutter.Actor, pspec: GObject.ParamSpec): void
-    on(sigName: "child-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "child-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "child-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::ambient", callback: (($obj: DirectionalLight, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::ambient", callback: (($obj: DirectionalLight, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::ambient", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -1245,11 +1125,11 @@ export interface Light_ConstructProps extends Clutter.Actor_ConstructProps {
     specular?: Clutter.Color
 }
 export class Light {
-    /* Properties of Mash.Light */
+    /* Properties of Mash-0.2.Mash.Light */
     ambient: Clutter.Color
     diffuse: Clutter.Color
     specular: Clutter.Color
-    /* Properties of Clutter.Actor */
+    /* Properties of Clutter-1.0.Clutter.Actor */
     actions: Clutter.Action
     readonly allocation: Clutter.ActorBox
     anchorGravity: Clutter.Gravity
@@ -1332,11 +1212,11 @@ export class Light {
     yAlign: Clutter.ActorAlign
     yExpand: boolean
     zPosition: number
-    /* Fields of Clutter.Actor */
+    /* Fields of Clutter-1.0.Clutter.Actor */
     flags: number
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Mash.Light */
+    /* Methods of Mash-0.2.Mash.Light */
     appendShader(shaderSource: GLib.String, snippet: string): void
     generateShader(uniformSource: GLib.String, mainSource: GLib.String): void
     getAmbient(ambient: Clutter.Color): void
@@ -1349,7 +1229,7 @@ export class Light {
     setDirectionUniform(program: Cogl.Handle, uniformLocation: number, directionIn: number): void
     setSpecular(specular: Clutter.Color): void
     updateUniforms(program: Cogl.Handle): void
-    /* Methods of Clutter.Actor */
+    /* Methods of Clutter-1.0.Clutter.Actor */
     addAction(action: Clutter.Action): void
     addActionWithName(name: string, action: Clutter.Action): void
     addChild(child: Clutter.Actor): void
@@ -1365,8 +1245,8 @@ export class Light {
     animateWithAlphav(alpha: Clutter.Alpha, properties: string[], values: any[]): Clutter.Animation
     animateWithTimelinev(mode: number, timeline: Clutter.Timeline, properties: string[], values: any[]): Clutter.Animation
     animatev(mode: number, duration: number, properties: string[], values: any[]): Clutter.Animation
-    applyRelativeTransformToPoint(ancestor: Clutter.Actor | null, point: Clutter.Vertex): /* vertex */ Clutter.Vertex
-    applyTransformToPoint(point: Clutter.Vertex): /* vertex */ Clutter.Vertex
+    applyRelativeTransformToPoint(ancestor: Clutter.Actor | null, point: Clutter.Vertex): { vertex: Clutter.Vertex }
+    applyTransformToPoint(point: Clutter.Vertex): { vertex: Clutter.Vertex }
     bindModel(model: Gio.ListModel | null, createChildFunc: Clutter.ActorCreateChildFunc): void
     clearActions(): void
     clearConstraints(): void
@@ -1379,29 +1259,29 @@ export class Light {
     destroyAllChildren(): void
     detachAnimation(): void
     event(event: Clutter.Event, capture: boolean): boolean
-    getAbsAllocationVertices(): /* verts */ Clutter.Vertex[]
+    getAbsAllocationVertices(): { verts: Clutter.Vertex[] }
     getAccessible(): Atk.Object
     getAction(name: string): Clutter.Action
     getActions(): Clutter.Action[]
-    getAllocationBox(): /* box */ Clutter.ActorBox
-    getAllocationGeometry(): /* geom */ Clutter.Geometry
-    getAllocationVertices(ancestor?: Clutter.Actor | null): /* verts */ Clutter.Vertex[]
-    getAnchorPoint(): [ /* anchorX */ number, /* anchorY */ number ]
+    getAllocationBox(): { box: Clutter.ActorBox }
+    getAllocationGeometry(): { geom: Clutter.Geometry }
+    getAllocationVertices(ancestor?: Clutter.Actor | null): { verts: Clutter.Vertex[] }
+    getAnchorPoint(): { anchorX: number, anchorY: number }
     getAnchorPointGravity(): Clutter.Gravity
     getAnimation(): Clutter.Animation
-    getBackgroundColor(): /* color */ Clutter.Color
+    getBackgroundColor(): { color: Clutter.Color }
     getChildAtIndex(index: number): Clutter.Actor
-    getChildTransform(): /* transform */ Clutter.Matrix
+    getChildTransform(): { transform: Clutter.Matrix }
     getChildren(): Clutter.Actor[]
-    getClip(): [ /* xoff */ number | null, /* yoff */ number | null, /* width */ number | null, /* height */ number | null ]
+    getClip(): { xoff: number | null, yoff: number | null, width: number | null, height: number | null }
     getClipToAllocation(): boolean
     getConstraint(name: string): Clutter.Constraint
     getConstraints(): Clutter.Constraint[]
     getContent(): Clutter.Content
-    getContentBox(): /* box */ Clutter.ActorBox
+    getContentBox(): { box: Clutter.ActorBox }
     getContentGravity(): Clutter.ContentGravity
     getContentRepeat(): Clutter.ContentRepeat
-    getContentScalingFilters(): [ /* minFilter */ Clutter.ScalingFilter | null, /* magFilter */ Clutter.ScalingFilter | null ]
+    getContentScalingFilters(): { minFilter: Clutter.ScalingFilter | null, magFilter: Clutter.ScalingFilter | null }
     getDefaultPaintVolume(): Clutter.PaintVolume
     getDepth(): number
     getEasingDelay(): number
@@ -1412,12 +1292,12 @@ export class Light {
     getFirstChild(): Clutter.Actor
     getFixedPositionSet(): boolean
     getFlags(): Clutter.ActorFlags
-    getGeometry(): /* geometry */ Clutter.Geometry
+    getGeometry(): { geometry: Clutter.Geometry }
     getGid(): number
     getHeight(): number
     getLastChild(): Clutter.Actor
     getLayoutManager(): Clutter.LayoutManager
-    getMargin(): /* margin */ Clutter.Margin
+    getMargin(): { margin: Clutter.Margin }
     getMarginBottom(): number
     getMarginLeft(): number
     getMarginRight(): number
@@ -1427,38 +1307,38 @@ export class Light {
     getNextSibling(): Clutter.Actor
     getOffscreenRedirect(): Clutter.OffscreenRedirect
     getOpacity(): number
-    getPaintBox(): [ /* returnType */ boolean, /* box */ Clutter.ActorBox ]
+    getPaintBox(): { returnType: boolean, box: Clutter.ActorBox }
     getPaintOpacity(): number
     getPaintVisibility(): boolean
     getPaintVolume(): Clutter.PaintVolume
     getPangoContext(): Pango.Context
     getParent(): Clutter.Actor
-    getPivotPoint(): [ /* pivotX */ number | null, /* pivotY */ number | null ]
+    getPivotPoint(): { pivotX: number | null, pivotY: number | null }
     getPivotPointZ(): number
-    getPosition(): [ /* x */ number | null, /* y */ number | null ]
-    getPreferredHeight(forWidth: number): [ /* minHeightP */ number | null, /* naturalHeightP */ number | null ]
-    getPreferredSize(): [ /* minWidthP */ number | null, /* minHeightP */ number | null, /* naturalWidthP */ number | null, /* naturalHeightP */ number | null ]
-    getPreferredWidth(forHeight: number): [ /* minWidthP */ number | null, /* naturalWidthP */ number | null ]
+    getPosition(): { x: number | null, y: number | null }
+    getPreferredHeight(forWidth: number): { minHeightP: number | null, naturalHeightP: number | null }
+    getPreferredSize(): { minWidthP: number | null, minHeightP: number | null, naturalWidthP: number | null, naturalHeightP: number | null }
+    getPreferredWidth(forHeight: number): { minWidthP: number | null, naturalWidthP: number | null }
     getPreviousSibling(): Clutter.Actor
     getReactive(): boolean
     getRequestMode(): Clutter.RequestMode
-    getRotation(axis: Clutter.RotateAxis): [ /* returnType */ number, /* x */ number, /* y */ number, /* z */ number ]
+    getRotation(axis: Clutter.RotateAxis): { returnType: number, x: number, y: number, z: number }
     getRotationAngle(axis: Clutter.RotateAxis): number
-    getScale(): [ /* scaleX */ number | null, /* scaleY */ number | null ]
-    getScaleCenter(): [ /* centerX */ number | null, /* centerY */ number | null ]
+    getScale(): { scaleX: number | null, scaleY: number | null }
+    getScaleCenter(): { centerX: number | null, centerY: number | null }
     getScaleGravity(): Clutter.Gravity
     getScaleZ(): number
     getShader(): Clutter.Shader
-    getSize(): [ /* width */ number | null, /* height */ number | null ]
+    getSize(): { width: number | null, height: number | null }
     getStage(): Clutter.Stage
     getTextDirection(): Clutter.TextDirection
-    getTransform(): /* transform */ Clutter.Matrix
-    getTransformationMatrix(): /* matrix */ Clutter.Matrix
+    getTransform(): { transform: Clutter.Matrix }
+    getTransformationMatrix(): { matrix: Clutter.Matrix }
     getTransformedPaintVolume(relativeToAncestor: Clutter.Actor): Clutter.PaintVolume
-    getTransformedPosition(): [ /* x */ number | null, /* y */ number | null ]
-    getTransformedSize(): [ /* width */ number | null, /* height */ number | null ]
+    getTransformedPosition(): { x: number | null, y: number | null }
+    getTransformedSize(): { width: number | null, height: number | null }
     getTransition(name: string): Clutter.Transition
-    getTranslation(): [ /* translateX */ number | null, /* translateY */ number | null, /* translateZ */ number | null ]
+    getTranslation(): { translateX: number | null, translateY: number | null, translateZ: number | null }
     getWidth(): number
     getX(): number
     getXAlign(): Clutter.ActorAlign
@@ -1580,12 +1460,12 @@ export class Light {
     shouldPickPaint(): boolean
     show(): void
     showAll(): void
-    transformStagePoint(x: number, y: number): [ /* returnType */ boolean, /* xOut */ number, /* yOut */ number ]
+    transformStagePoint(x: number, y: number): { returnType: boolean, xOut: number, yOut: number }
     unmap(): void
     unparent(): void
     unrealize(): void
     unsetFlags(flags: Clutter.ActorFlags): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -1607,13 +1487,13 @@ export class Light {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of Clutter.Animatable */
+    /* Methods of Clutter-1.0.Clutter.Animatable */
     animateProperty(animation: Clutter.Animation, propertyName: string, initialValue: any, finalValue: any, progress: number, value: any): boolean
     findProperty(propertyName: string): GObject.ParamSpec
     getInitialState(propertyName: string, value: any): void
-    interpolateValue(propertyName: string, interval: Clutter.Interval, progress: number): [ /* returnType */ boolean, /* value */ any ]
+    interpolateValue(propertyName: string, interval: Clutter.Interval, progress: number): { returnType: boolean, value: any }
     setFinalState(propertyName: string, value: any): void
-    /* Methods of Clutter.Container */
+    /* Methods of Clutter-1.0.Clutter.Container */
     addActor(actor: Clutter.Actor): void
     childGetProperty(child: Clutter.Actor, property: string, value: any): void
     childNotify(child: Clutter.Actor, pspec: GObject.ParamSpec): void
@@ -1628,263 +1508,164 @@ export class Light {
     raiseChild(actor: Clutter.Actor, sibling?: Clutter.Actor | null): void
     removeActor(actor: Clutter.Actor): void
     sortDepthOrder(): void
-    /* Methods of Clutter.Scriptable */
+    /* Methods of Clutter-1.0.Clutter.Scriptable */
     getId(): string
     parseCustomNode(script: Clutter.Script, value: any, name: string, node: Json.Node): boolean
     setCustomProperty(script: Clutter.Script, name: string, value: any): void
     setId(id: string): void
-    /* Virtual methods of Mash.Light */
-    vfuncGenerateShader(uniformSource: GLib.String, mainSource: GLib.String): void
-    vfuncUpdateUniforms(program: Cogl.Handle): void
-    vfuncAnimateProperty(animation: Clutter.Animation, propertyName: string, initialValue: any, finalValue: any, progress: number, value: any): boolean
-    vfuncFindProperty(propertyName: string): GObject.ParamSpec
-    vfuncGetInitialState(propertyName: string, value: any): void
-    vfuncInterpolateValue(propertyName: string, interval: Clutter.Interval, progress: number): [ /* returnType */ boolean, /* value */ any ]
-    vfuncSetFinalState(propertyName: string, value: any): void
-    vfuncActorAdded(actor: Clutter.Actor): void
-    vfuncActorRemoved(actor: Clutter.Actor): void
-    vfuncAdd(actor: Clutter.Actor): void
-    vfuncChildNotify(child: Clutter.Actor, pspec: GObject.ParamSpec): void
-    vfuncCreateChildMeta(actor: Clutter.Actor): void
-    vfuncDestroyChildMeta(actor: Clutter.Actor): void
-    vfuncForeach(callback: Clutter.Callback): void
-    vfuncForeachWithInternals(callback: Clutter.Callback): void
-    vfuncGetChildMeta(actor: Clutter.Actor): Clutter.ChildMeta
-    vfuncLower(actor: Clutter.Actor, sibling?: Clutter.Actor | null): void
-    vfuncRaise(actor: Clutter.Actor, sibling?: Clutter.Actor | null): void
-    vfuncRemove(actor: Clutter.Actor): void
-    vfuncSortDepthOrder(): void
-    vfuncGetId(): string
-    vfuncParseCustomNode(script: Clutter.Script, value: any, name: string, node: Json.Node): boolean
-    vfuncSetCustomProperty(script: Clutter.Script, name: string, value: any): void
-    vfuncSetId(id: string): void
-    /* Virtual methods of Clutter.Actor */
-    vfuncAllocate(box: Clutter.ActorBox, flags: Clutter.AllocationFlags): void
-    vfuncApplyTransform(matrix: Clutter.Matrix): void
-    vfuncButtonPressEvent(event: Clutter.ButtonEvent): boolean
-    vfuncButtonReleaseEvent(event: Clutter.ButtonEvent): boolean
-    vfuncCapturedEvent(event: Clutter.Event): boolean
-    vfuncDestroy(): void
-    vfuncEnterEvent(event: Clutter.CrossingEvent): boolean
-    vfuncEvent(event: Clutter.Event): boolean
-    vfuncGetAccessible(): Atk.Object
-    vfuncGetPaintVolume(volume: Clutter.PaintVolume): boolean
-    vfuncGetPreferredHeight(forWidth: number): [ /* minHeightP */ number | null, /* naturalHeightP */ number | null ]
-    vfuncGetPreferredWidth(forHeight: number): [ /* minWidthP */ number | null, /* naturalWidthP */ number | null ]
-    vfuncHasOverlaps(): boolean
-    vfuncHide(): void
-    vfuncHideAll(): void
-    vfuncKeyFocusIn(): void
-    vfuncKeyFocusOut(): void
-    vfuncKeyPressEvent(event: Clutter.KeyEvent): boolean
-    vfuncKeyReleaseEvent(event: Clutter.KeyEvent): boolean
-    vfuncLeaveEvent(event: Clutter.CrossingEvent): boolean
-    vfuncMap(): void
-    vfuncMotionEvent(event: Clutter.MotionEvent): boolean
-    vfuncPaint(): void
-    vfuncPaintNode(root: Clutter.PaintNode): void
-    vfuncParentSet(oldParent: Clutter.Actor): void
-    vfuncPick(color: Clutter.Color): void
-    vfuncQueueRedraw(leafThatQueued: Clutter.Actor): void
-    vfuncQueueRelayout(): void
-    vfuncRealize(): void
-    vfuncScrollEvent(event: Clutter.ScrollEvent): boolean
-    vfuncShow(): void
-    vfuncShowAll(): void
-    vfuncTouchEvent(event: Clutter.TouchEvent): boolean
-    vfuncUnmap(): void
-    vfuncUnrealize(): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Clutter.Actor */
+    /* Signals of Clutter-1.0.Clutter.Actor */
     connect(sigName: "allocation-changed", callback: (($obj: Light, box: Clutter.ActorBox, flags: Clutter.AllocationFlags) => void)): number
-    connect_after(sigName: "allocation-changed", callback: (($obj: Light, box: Clutter.ActorBox, flags: Clutter.AllocationFlags) => void)): number
+    on(sigName: "allocation-changed", callback: (box: Clutter.ActorBox, flags: Clutter.AllocationFlags) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "allocation-changed", callback: (box: Clutter.ActorBox, flags: Clutter.AllocationFlags) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "allocation-changed", callback: (box: Clutter.ActorBox, flags: Clutter.AllocationFlags) => void): NodeJS.EventEmitter
     emit(sigName: "allocation-changed", box: Clutter.ActorBox, flags: Clutter.AllocationFlags): void
-    on(sigName: "allocation-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "allocation-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "allocation-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "button-press-event", callback: (($obj: Light, event: Clutter.ButtonEvent) => boolean)): number
-    connect_after(sigName: "button-press-event", callback: (($obj: Light, event: Clutter.ButtonEvent) => boolean)): number
+    on(sigName: "button-press-event", callback: (event: Clutter.ButtonEvent) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "button-press-event", callback: (event: Clutter.ButtonEvent) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "button-press-event", callback: (event: Clutter.ButtonEvent) => void): NodeJS.EventEmitter
     emit(sigName: "button-press-event", event: Clutter.ButtonEvent): void
-    on(sigName: "button-press-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "button-press-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "button-press-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "button-release-event", callback: (($obj: Light, event: Clutter.ButtonEvent) => boolean)): number
-    connect_after(sigName: "button-release-event", callback: (($obj: Light, event: Clutter.ButtonEvent) => boolean)): number
+    on(sigName: "button-release-event", callback: (event: Clutter.ButtonEvent) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "button-release-event", callback: (event: Clutter.ButtonEvent) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "button-release-event", callback: (event: Clutter.ButtonEvent) => void): NodeJS.EventEmitter
     emit(sigName: "button-release-event", event: Clutter.ButtonEvent): void
-    on(sigName: "button-release-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "button-release-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "button-release-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "captured-event", callback: (($obj: Light, event: Clutter.Event) => boolean)): number
-    connect_after(sigName: "captured-event", callback: (($obj: Light, event: Clutter.Event) => boolean)): number
+    on(sigName: "captured-event", callback: (event: Clutter.Event) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "captured-event", callback: (event: Clutter.Event) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "captured-event", callback: (event: Clutter.Event) => void): NodeJS.EventEmitter
     emit(sigName: "captured-event", event: Clutter.Event): void
-    on(sigName: "captured-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "captured-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "captured-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "destroy", callback: (($obj: Light) => void)): number
-    connect_after(sigName: "destroy", callback: (($obj: Light) => void)): number
+    on(sigName: "destroy", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "destroy", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "destroy", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "destroy"): void
-    on(sigName: "destroy", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "destroy", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "destroy", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "enter-event", callback: (($obj: Light, event: Clutter.CrossingEvent) => boolean)): number
-    connect_after(sigName: "enter-event", callback: (($obj: Light, event: Clutter.CrossingEvent) => boolean)): number
+    on(sigName: "enter-event", callback: (event: Clutter.CrossingEvent) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "enter-event", callback: (event: Clutter.CrossingEvent) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "enter-event", callback: (event: Clutter.CrossingEvent) => void): NodeJS.EventEmitter
     emit(sigName: "enter-event", event: Clutter.CrossingEvent): void
-    on(sigName: "enter-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "enter-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "enter-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "event", callback: (($obj: Light, event: Clutter.Event) => boolean)): number
-    connect_after(sigName: "event", callback: (($obj: Light, event: Clutter.Event) => boolean)): number
+    on(sigName: "event", callback: (event: Clutter.Event) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "event", callback: (event: Clutter.Event) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "event", callback: (event: Clutter.Event) => void): NodeJS.EventEmitter
     emit(sigName: "event", event: Clutter.Event): void
-    on(sigName: "event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "hide", callback: (($obj: Light) => void)): number
-    connect_after(sigName: "hide", callback: (($obj: Light) => void)): number
+    on(sigName: "hide", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "hide", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "hide", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "hide"): void
-    on(sigName: "hide", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "hide", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "hide", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "key-focus-in", callback: (($obj: Light) => void)): number
-    connect_after(sigName: "key-focus-in", callback: (($obj: Light) => void)): number
+    on(sigName: "key-focus-in", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "key-focus-in", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "key-focus-in", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "key-focus-in"): void
-    on(sigName: "key-focus-in", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "key-focus-in", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "key-focus-in", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "key-focus-out", callback: (($obj: Light) => void)): number
-    connect_after(sigName: "key-focus-out", callback: (($obj: Light) => void)): number
+    on(sigName: "key-focus-out", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "key-focus-out", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "key-focus-out", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "key-focus-out"): void
-    on(sigName: "key-focus-out", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "key-focus-out", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "key-focus-out", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "key-press-event", callback: (($obj: Light, event: Clutter.KeyEvent) => boolean)): number
-    connect_after(sigName: "key-press-event", callback: (($obj: Light, event: Clutter.KeyEvent) => boolean)): number
+    on(sigName: "key-press-event", callback: (event: Clutter.KeyEvent) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "key-press-event", callback: (event: Clutter.KeyEvent) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "key-press-event", callback: (event: Clutter.KeyEvent) => void): NodeJS.EventEmitter
     emit(sigName: "key-press-event", event: Clutter.KeyEvent): void
-    on(sigName: "key-press-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "key-press-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "key-press-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "key-release-event", callback: (($obj: Light, event: Clutter.KeyEvent) => boolean)): number
-    connect_after(sigName: "key-release-event", callback: (($obj: Light, event: Clutter.KeyEvent) => boolean)): number
+    on(sigName: "key-release-event", callback: (event: Clutter.KeyEvent) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "key-release-event", callback: (event: Clutter.KeyEvent) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "key-release-event", callback: (event: Clutter.KeyEvent) => void): NodeJS.EventEmitter
     emit(sigName: "key-release-event", event: Clutter.KeyEvent): void
-    on(sigName: "key-release-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "key-release-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "key-release-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "leave-event", callback: (($obj: Light, event: Clutter.CrossingEvent) => boolean)): number
-    connect_after(sigName: "leave-event", callback: (($obj: Light, event: Clutter.CrossingEvent) => boolean)): number
+    on(sigName: "leave-event", callback: (event: Clutter.CrossingEvent) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "leave-event", callback: (event: Clutter.CrossingEvent) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "leave-event", callback: (event: Clutter.CrossingEvent) => void): NodeJS.EventEmitter
     emit(sigName: "leave-event", event: Clutter.CrossingEvent): void
-    on(sigName: "leave-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "leave-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "leave-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "motion-event", callback: (($obj: Light, event: Clutter.MotionEvent) => boolean)): number
-    connect_after(sigName: "motion-event", callback: (($obj: Light, event: Clutter.MotionEvent) => boolean)): number
+    on(sigName: "motion-event", callback: (event: Clutter.MotionEvent) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "motion-event", callback: (event: Clutter.MotionEvent) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "motion-event", callback: (event: Clutter.MotionEvent) => void): NodeJS.EventEmitter
     emit(sigName: "motion-event", event: Clutter.MotionEvent): void
-    on(sigName: "motion-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "motion-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "motion-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "paint", callback: (($obj: Light) => void)): number
-    connect_after(sigName: "paint", callback: (($obj: Light) => void)): number
+    on(sigName: "paint", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "paint", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "paint", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "paint"): void
-    on(sigName: "paint", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "paint", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "paint", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "parent-set", callback: (($obj: Light, oldParent?: Clutter.Actor | null) => void)): number
-    connect_after(sigName: "parent-set", callback: (($obj: Light, oldParent?: Clutter.Actor | null) => void)): number
+    on(sigName: "parent-set", callback: (oldParent?: Clutter.Actor | null) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "parent-set", callback: (oldParent?: Clutter.Actor | null) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "parent-set", callback: (oldParent?: Clutter.Actor | null) => void): NodeJS.EventEmitter
     emit(sigName: "parent-set", oldParent?: Clutter.Actor | null): void
-    on(sigName: "parent-set", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "parent-set", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "parent-set", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "pick", callback: (($obj: Light, color: Clutter.Color) => void)): number
-    connect_after(sigName: "pick", callback: (($obj: Light, color: Clutter.Color) => void)): number
+    on(sigName: "pick", callback: (color: Clutter.Color) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "pick", callback: (color: Clutter.Color) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "pick", callback: (color: Clutter.Color) => void): NodeJS.EventEmitter
     emit(sigName: "pick", color: Clutter.Color): void
-    on(sigName: "pick", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "pick", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "pick", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "queue-redraw", callback: (($obj: Light, origin: Clutter.Actor) => void)): number
-    connect_after(sigName: "queue-redraw", callback: (($obj: Light, origin: Clutter.Actor) => void)): number
+    on(sigName: "queue-redraw", callback: (origin: Clutter.Actor) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "queue-redraw", callback: (origin: Clutter.Actor) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "queue-redraw", callback: (origin: Clutter.Actor) => void): NodeJS.EventEmitter
     emit(sigName: "queue-redraw", origin: Clutter.Actor): void
-    on(sigName: "queue-redraw", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "queue-redraw", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "queue-redraw", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "queue-relayout", callback: (($obj: Light) => void)): number
-    connect_after(sigName: "queue-relayout", callback: (($obj: Light) => void)): number
+    on(sigName: "queue-relayout", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "queue-relayout", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "queue-relayout", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "queue-relayout"): void
-    on(sigName: "queue-relayout", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "queue-relayout", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "queue-relayout", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "realize", callback: (($obj: Light) => void)): number
-    connect_after(sigName: "realize", callback: (($obj: Light) => void)): number
+    on(sigName: "realize", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "realize", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "realize", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "realize"): void
-    on(sigName: "realize", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "realize", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "realize", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "scroll-event", callback: (($obj: Light, event: Clutter.ScrollEvent) => boolean)): number
-    connect_after(sigName: "scroll-event", callback: (($obj: Light, event: Clutter.ScrollEvent) => boolean)): number
+    on(sigName: "scroll-event", callback: (event: Clutter.ScrollEvent) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "scroll-event", callback: (event: Clutter.ScrollEvent) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "scroll-event", callback: (event: Clutter.ScrollEvent) => void): NodeJS.EventEmitter
     emit(sigName: "scroll-event", event: Clutter.ScrollEvent): void
-    on(sigName: "scroll-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "scroll-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "scroll-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "show", callback: (($obj: Light) => void)): number
-    connect_after(sigName: "show", callback: (($obj: Light) => void)): number
+    on(sigName: "show", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "show", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "show", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "show"): void
-    on(sigName: "show", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "show", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "show", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "touch-event", callback: (($obj: Light, event: Clutter.Event) => boolean)): number
-    connect_after(sigName: "touch-event", callback: (($obj: Light, event: Clutter.Event) => boolean)): number
+    on(sigName: "touch-event", callback: (event: Clutter.Event) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "touch-event", callback: (event: Clutter.Event) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "touch-event", callback: (event: Clutter.Event) => void): NodeJS.EventEmitter
     emit(sigName: "touch-event", event: Clutter.Event): void
-    on(sigName: "touch-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "touch-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "touch-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "transition-stopped", callback: (($obj: Light, name: string, isFinished: boolean) => void)): number
-    connect_after(sigName: "transition-stopped", callback: (($obj: Light, name: string, isFinished: boolean) => void)): number
+    on(sigName: "transition-stopped", callback: (name: string, isFinished: boolean) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "transition-stopped", callback: (name: string, isFinished: boolean) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "transition-stopped", callback: (name: string, isFinished: boolean) => void): NodeJS.EventEmitter
     emit(sigName: "transition-stopped", name: string, isFinished: boolean): void
-    on(sigName: "transition-stopped", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "transition-stopped", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "transition-stopped", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "transitions-completed", callback: (($obj: Light) => void)): number
-    connect_after(sigName: "transitions-completed", callback: (($obj: Light) => void)): number
+    on(sigName: "transitions-completed", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "transitions-completed", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "transitions-completed", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "transitions-completed"): void
-    on(sigName: "transitions-completed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "transitions-completed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "transitions-completed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "unrealize", callback: (($obj: Light) => void)): number
-    connect_after(sigName: "unrealize", callback: (($obj: Light) => void)): number
+    on(sigName: "unrealize", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "unrealize", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "unrealize", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "unrealize"): void
-    on(sigName: "unrealize", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "unrealize", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "unrealize", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Light, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Light, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of Clutter.Container */
+    /* Signals of Clutter-1.0.Clutter.Container */
     connect(sigName: "actor-added", callback: (($obj: Light, actor: Clutter.Actor) => void)): number
-    connect_after(sigName: "actor-added", callback: (($obj: Light, actor: Clutter.Actor) => void)): number
+    on(sigName: "actor-added", callback: (actor: Clutter.Actor) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "actor-added", callback: (actor: Clutter.Actor) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "actor-added", callback: (actor: Clutter.Actor) => void): NodeJS.EventEmitter
     emit(sigName: "actor-added", actor: Clutter.Actor): void
-    on(sigName: "actor-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "actor-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "actor-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "actor-removed", callback: (($obj: Light, actor: Clutter.Actor) => void)): number
-    connect_after(sigName: "actor-removed", callback: (($obj: Light, actor: Clutter.Actor) => void)): number
+    on(sigName: "actor-removed", callback: (actor: Clutter.Actor) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "actor-removed", callback: (actor: Clutter.Actor) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "actor-removed", callback: (actor: Clutter.Actor) => void): NodeJS.EventEmitter
     emit(sigName: "actor-removed", actor: Clutter.Actor): void
-    on(sigName: "actor-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "actor-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "actor-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "child-notify", callback: (($obj: Light, actor: Clutter.Actor, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "child-notify", callback: (($obj: Light, actor: Clutter.Actor, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "child-notify", callback: (actor: Clutter.Actor, pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "child-notify", callback: (actor: Clutter.Actor, pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "child-notify", callback: (actor: Clutter.Actor, pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "child-notify", actor: Clutter.Actor, pspec: GObject.ParamSpec): void
-    on(sigName: "child-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "child-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "child-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::ambient", callback: (($obj: Light, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::ambient", callback: (($obj: Light, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::ambient", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -2328,12 +2109,12 @@ export class Light {
 export interface LightSet_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class LightSet {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Mash.LightSet */
+    /* Methods of Mash-0.2.Mash.LightSet */
     addLight(light: Light): void
     removeLight(light: Light): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -2355,21 +2136,12 @@ export class LightSet {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: LightSet, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: LightSet, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -2390,11 +2162,11 @@ export interface Model_ConstructProps extends Clutter.Actor_ConstructProps {
     lightSet?: LightSet
 }
 export class Model {
-    /* Properties of Mash.Model */
+    /* Properties of Mash-0.2.Mash.Model */
     data: Data
     fitToAllocation: boolean
     lightSet: LightSet
-    /* Properties of Clutter.Actor */
+    /* Properties of Clutter-1.0.Clutter.Actor */
     actions: Clutter.Action
     readonly allocation: Clutter.ActorBox
     anchorGravity: Clutter.Gravity
@@ -2477,17 +2249,17 @@ export class Model {
     yAlign: Clutter.ActorAlign
     yExpand: boolean
     zPosition: number
-    /* Fields of Clutter.Actor */
+    /* Fields of Clutter-1.0.Clutter.Actor */
     flags: number
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Mash.Model */
+    /* Methods of Mash-0.2.Mash.Model */
     getFitToAllocation(): boolean
     setData(data: Data): void
     setFitToAllocation(fitToAllocation: boolean): void
     setLightSet(lightSet: LightSet): void
     setMaterial(material: Cogl.Handle): void
-    /* Methods of Clutter.Actor */
+    /* Methods of Clutter-1.0.Clutter.Actor */
     addAction(action: Clutter.Action): void
     addActionWithName(name: string, action: Clutter.Action): void
     addChild(child: Clutter.Actor): void
@@ -2503,8 +2275,8 @@ export class Model {
     animateWithAlphav(alpha: Clutter.Alpha, properties: string[], values: any[]): Clutter.Animation
     animateWithTimelinev(mode: number, timeline: Clutter.Timeline, properties: string[], values: any[]): Clutter.Animation
     animatev(mode: number, duration: number, properties: string[], values: any[]): Clutter.Animation
-    applyRelativeTransformToPoint(ancestor: Clutter.Actor | null, point: Clutter.Vertex): /* vertex */ Clutter.Vertex
-    applyTransformToPoint(point: Clutter.Vertex): /* vertex */ Clutter.Vertex
+    applyRelativeTransformToPoint(ancestor: Clutter.Actor | null, point: Clutter.Vertex): { vertex: Clutter.Vertex }
+    applyTransformToPoint(point: Clutter.Vertex): { vertex: Clutter.Vertex }
     bindModel(model: Gio.ListModel | null, createChildFunc: Clutter.ActorCreateChildFunc): void
     clearActions(): void
     clearConstraints(): void
@@ -2517,29 +2289,29 @@ export class Model {
     destroyAllChildren(): void
     detachAnimation(): void
     event(event: Clutter.Event, capture: boolean): boolean
-    getAbsAllocationVertices(): /* verts */ Clutter.Vertex[]
+    getAbsAllocationVertices(): { verts: Clutter.Vertex[] }
     getAccessible(): Atk.Object
     getAction(name: string): Clutter.Action
     getActions(): Clutter.Action[]
-    getAllocationBox(): /* box */ Clutter.ActorBox
-    getAllocationGeometry(): /* geom */ Clutter.Geometry
-    getAllocationVertices(ancestor?: Clutter.Actor | null): /* verts */ Clutter.Vertex[]
-    getAnchorPoint(): [ /* anchorX */ number, /* anchorY */ number ]
+    getAllocationBox(): { box: Clutter.ActorBox }
+    getAllocationGeometry(): { geom: Clutter.Geometry }
+    getAllocationVertices(ancestor?: Clutter.Actor | null): { verts: Clutter.Vertex[] }
+    getAnchorPoint(): { anchorX: number, anchorY: number }
     getAnchorPointGravity(): Clutter.Gravity
     getAnimation(): Clutter.Animation
-    getBackgroundColor(): /* color */ Clutter.Color
+    getBackgroundColor(): { color: Clutter.Color }
     getChildAtIndex(index: number): Clutter.Actor
-    getChildTransform(): /* transform */ Clutter.Matrix
+    getChildTransform(): { transform: Clutter.Matrix }
     getChildren(): Clutter.Actor[]
-    getClip(): [ /* xoff */ number | null, /* yoff */ number | null, /* width */ number | null, /* height */ number | null ]
+    getClip(): { xoff: number | null, yoff: number | null, width: number | null, height: number | null }
     getClipToAllocation(): boolean
     getConstraint(name: string): Clutter.Constraint
     getConstraints(): Clutter.Constraint[]
     getContent(): Clutter.Content
-    getContentBox(): /* box */ Clutter.ActorBox
+    getContentBox(): { box: Clutter.ActorBox }
     getContentGravity(): Clutter.ContentGravity
     getContentRepeat(): Clutter.ContentRepeat
-    getContentScalingFilters(): [ /* minFilter */ Clutter.ScalingFilter | null, /* magFilter */ Clutter.ScalingFilter | null ]
+    getContentScalingFilters(): { minFilter: Clutter.ScalingFilter | null, magFilter: Clutter.ScalingFilter | null }
     getDefaultPaintVolume(): Clutter.PaintVolume
     getDepth(): number
     getEasingDelay(): number
@@ -2550,12 +2322,12 @@ export class Model {
     getFirstChild(): Clutter.Actor
     getFixedPositionSet(): boolean
     getFlags(): Clutter.ActorFlags
-    getGeometry(): /* geometry */ Clutter.Geometry
+    getGeometry(): { geometry: Clutter.Geometry }
     getGid(): number
     getHeight(): number
     getLastChild(): Clutter.Actor
     getLayoutManager(): Clutter.LayoutManager
-    getMargin(): /* margin */ Clutter.Margin
+    getMargin(): { margin: Clutter.Margin }
     getMarginBottom(): number
     getMarginLeft(): number
     getMarginRight(): number
@@ -2565,38 +2337,38 @@ export class Model {
     getNextSibling(): Clutter.Actor
     getOffscreenRedirect(): Clutter.OffscreenRedirect
     getOpacity(): number
-    getPaintBox(): [ /* returnType */ boolean, /* box */ Clutter.ActorBox ]
+    getPaintBox(): { returnType: boolean, box: Clutter.ActorBox }
     getPaintOpacity(): number
     getPaintVisibility(): boolean
     getPaintVolume(): Clutter.PaintVolume
     getPangoContext(): Pango.Context
     getParent(): Clutter.Actor
-    getPivotPoint(): [ /* pivotX */ number | null, /* pivotY */ number | null ]
+    getPivotPoint(): { pivotX: number | null, pivotY: number | null }
     getPivotPointZ(): number
-    getPosition(): [ /* x */ number | null, /* y */ number | null ]
-    getPreferredHeight(forWidth: number): [ /* minHeightP */ number | null, /* naturalHeightP */ number | null ]
-    getPreferredSize(): [ /* minWidthP */ number | null, /* minHeightP */ number | null, /* naturalWidthP */ number | null, /* naturalHeightP */ number | null ]
-    getPreferredWidth(forHeight: number): [ /* minWidthP */ number | null, /* naturalWidthP */ number | null ]
+    getPosition(): { x: number | null, y: number | null }
+    getPreferredHeight(forWidth: number): { minHeightP: number | null, naturalHeightP: number | null }
+    getPreferredSize(): { minWidthP: number | null, minHeightP: number | null, naturalWidthP: number | null, naturalHeightP: number | null }
+    getPreferredWidth(forHeight: number): { minWidthP: number | null, naturalWidthP: number | null }
     getPreviousSibling(): Clutter.Actor
     getReactive(): boolean
     getRequestMode(): Clutter.RequestMode
-    getRotation(axis: Clutter.RotateAxis): [ /* returnType */ number, /* x */ number, /* y */ number, /* z */ number ]
+    getRotation(axis: Clutter.RotateAxis): { returnType: number, x: number, y: number, z: number }
     getRotationAngle(axis: Clutter.RotateAxis): number
-    getScale(): [ /* scaleX */ number | null, /* scaleY */ number | null ]
-    getScaleCenter(): [ /* centerX */ number | null, /* centerY */ number | null ]
+    getScale(): { scaleX: number | null, scaleY: number | null }
+    getScaleCenter(): { centerX: number | null, centerY: number | null }
     getScaleGravity(): Clutter.Gravity
     getScaleZ(): number
     getShader(): Clutter.Shader
-    getSize(): [ /* width */ number | null, /* height */ number | null ]
+    getSize(): { width: number | null, height: number | null }
     getStage(): Clutter.Stage
     getTextDirection(): Clutter.TextDirection
-    getTransform(): /* transform */ Clutter.Matrix
-    getTransformationMatrix(): /* matrix */ Clutter.Matrix
+    getTransform(): { transform: Clutter.Matrix }
+    getTransformationMatrix(): { matrix: Clutter.Matrix }
     getTransformedPaintVolume(relativeToAncestor: Clutter.Actor): Clutter.PaintVolume
-    getTransformedPosition(): [ /* x */ number | null, /* y */ number | null ]
-    getTransformedSize(): [ /* width */ number | null, /* height */ number | null ]
+    getTransformedPosition(): { x: number | null, y: number | null }
+    getTransformedSize(): { width: number | null, height: number | null }
     getTransition(name: string): Clutter.Transition
-    getTranslation(): [ /* translateX */ number | null, /* translateY */ number | null, /* translateZ */ number | null ]
+    getTranslation(): { translateX: number | null, translateY: number | null, translateZ: number | null }
     getWidth(): number
     getX(): number
     getXAlign(): Clutter.ActorAlign
@@ -2718,12 +2490,12 @@ export class Model {
     shouldPickPaint(): boolean
     show(): void
     showAll(): void
-    transformStagePoint(x: number, y: number): [ /* returnType */ boolean, /* xOut */ number, /* yOut */ number ]
+    transformStagePoint(x: number, y: number): { returnType: boolean, xOut: number, yOut: number }
     unmap(): void
     unparent(): void
     unrealize(): void
     unsetFlags(flags: Clutter.ActorFlags): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -2745,13 +2517,13 @@ export class Model {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of Clutter.Animatable */
+    /* Methods of Clutter-1.0.Clutter.Animatable */
     animateProperty(animation: Clutter.Animation, propertyName: string, initialValue: any, finalValue: any, progress: number, value: any): boolean
     findProperty(propertyName: string): GObject.ParamSpec
     getInitialState(propertyName: string, value: any): void
-    interpolateValue(propertyName: string, interval: Clutter.Interval, progress: number): [ /* returnType */ boolean, /* value */ any ]
+    interpolateValue(propertyName: string, interval: Clutter.Interval, progress: number): { returnType: boolean, value: any }
     setFinalState(propertyName: string, value: any): void
-    /* Methods of Clutter.Container */
+    /* Methods of Clutter-1.0.Clutter.Container */
     addActor(actor: Clutter.Actor): void
     childGetProperty(child: Clutter.Actor, property: string, value: any): void
     childNotify(child: Clutter.Actor, pspec: GObject.ParamSpec): void
@@ -2766,261 +2538,164 @@ export class Model {
     raiseChild(actor: Clutter.Actor, sibling?: Clutter.Actor | null): void
     removeActor(actor: Clutter.Actor): void
     sortDepthOrder(): void
-    /* Methods of Clutter.Scriptable */
+    /* Methods of Clutter-1.0.Clutter.Scriptable */
     getId(): string
     parseCustomNode(script: Clutter.Script, value: any, name: string, node: Json.Node): boolean
     setCustomProperty(script: Clutter.Script, name: string, value: any): void
     setId(id: string): void
-    /* Virtual methods of Mash.Model */
-    vfuncAnimateProperty(animation: Clutter.Animation, propertyName: string, initialValue: any, finalValue: any, progress: number, value: any): boolean
-    vfuncFindProperty(propertyName: string): GObject.ParamSpec
-    vfuncGetInitialState(propertyName: string, value: any): void
-    vfuncInterpolateValue(propertyName: string, interval: Clutter.Interval, progress: number): [ /* returnType */ boolean, /* value */ any ]
-    vfuncSetFinalState(propertyName: string, value: any): void
-    vfuncActorAdded(actor: Clutter.Actor): void
-    vfuncActorRemoved(actor: Clutter.Actor): void
-    vfuncAdd(actor: Clutter.Actor): void
-    vfuncChildNotify(child: Clutter.Actor, pspec: GObject.ParamSpec): void
-    vfuncCreateChildMeta(actor: Clutter.Actor): void
-    vfuncDestroyChildMeta(actor: Clutter.Actor): void
-    vfuncForeach(callback: Clutter.Callback): void
-    vfuncForeachWithInternals(callback: Clutter.Callback): void
-    vfuncGetChildMeta(actor: Clutter.Actor): Clutter.ChildMeta
-    vfuncLower(actor: Clutter.Actor, sibling?: Clutter.Actor | null): void
-    vfuncRaise(actor: Clutter.Actor, sibling?: Clutter.Actor | null): void
-    vfuncRemove(actor: Clutter.Actor): void
-    vfuncSortDepthOrder(): void
-    vfuncGetId(): string
-    vfuncParseCustomNode(script: Clutter.Script, value: any, name: string, node: Json.Node): boolean
-    vfuncSetCustomProperty(script: Clutter.Script, name: string, value: any): void
-    vfuncSetId(id: string): void
-    /* Virtual methods of Clutter.Actor */
-    vfuncAllocate(box: Clutter.ActorBox, flags: Clutter.AllocationFlags): void
-    vfuncApplyTransform(matrix: Clutter.Matrix): void
-    vfuncButtonPressEvent(event: Clutter.ButtonEvent): boolean
-    vfuncButtonReleaseEvent(event: Clutter.ButtonEvent): boolean
-    vfuncCapturedEvent(event: Clutter.Event): boolean
-    vfuncDestroy(): void
-    vfuncEnterEvent(event: Clutter.CrossingEvent): boolean
-    vfuncEvent(event: Clutter.Event): boolean
-    vfuncGetAccessible(): Atk.Object
-    vfuncGetPaintVolume(volume: Clutter.PaintVolume): boolean
-    vfuncGetPreferredHeight(forWidth: number): [ /* minHeightP */ number | null, /* naturalHeightP */ number | null ]
-    vfuncGetPreferredWidth(forHeight: number): [ /* minWidthP */ number | null, /* naturalWidthP */ number | null ]
-    vfuncHasOverlaps(): boolean
-    vfuncHide(): void
-    vfuncHideAll(): void
-    vfuncKeyFocusIn(): void
-    vfuncKeyFocusOut(): void
-    vfuncKeyPressEvent(event: Clutter.KeyEvent): boolean
-    vfuncKeyReleaseEvent(event: Clutter.KeyEvent): boolean
-    vfuncLeaveEvent(event: Clutter.CrossingEvent): boolean
-    vfuncMap(): void
-    vfuncMotionEvent(event: Clutter.MotionEvent): boolean
-    vfuncPaint(): void
-    vfuncPaintNode(root: Clutter.PaintNode): void
-    vfuncParentSet(oldParent: Clutter.Actor): void
-    vfuncPick(color: Clutter.Color): void
-    vfuncQueueRedraw(leafThatQueued: Clutter.Actor): void
-    vfuncQueueRelayout(): void
-    vfuncRealize(): void
-    vfuncScrollEvent(event: Clutter.ScrollEvent): boolean
-    vfuncShow(): void
-    vfuncShowAll(): void
-    vfuncTouchEvent(event: Clutter.TouchEvent): boolean
-    vfuncUnmap(): void
-    vfuncUnrealize(): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Clutter.Actor */
+    /* Signals of Clutter-1.0.Clutter.Actor */
     connect(sigName: "allocation-changed", callback: (($obj: Model, box: Clutter.ActorBox, flags: Clutter.AllocationFlags) => void)): number
-    connect_after(sigName: "allocation-changed", callback: (($obj: Model, box: Clutter.ActorBox, flags: Clutter.AllocationFlags) => void)): number
+    on(sigName: "allocation-changed", callback: (box: Clutter.ActorBox, flags: Clutter.AllocationFlags) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "allocation-changed", callback: (box: Clutter.ActorBox, flags: Clutter.AllocationFlags) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "allocation-changed", callback: (box: Clutter.ActorBox, flags: Clutter.AllocationFlags) => void): NodeJS.EventEmitter
     emit(sigName: "allocation-changed", box: Clutter.ActorBox, flags: Clutter.AllocationFlags): void
-    on(sigName: "allocation-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "allocation-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "allocation-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "button-press-event", callback: (($obj: Model, event: Clutter.ButtonEvent) => boolean)): number
-    connect_after(sigName: "button-press-event", callback: (($obj: Model, event: Clutter.ButtonEvent) => boolean)): number
+    on(sigName: "button-press-event", callback: (event: Clutter.ButtonEvent) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "button-press-event", callback: (event: Clutter.ButtonEvent) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "button-press-event", callback: (event: Clutter.ButtonEvent) => void): NodeJS.EventEmitter
     emit(sigName: "button-press-event", event: Clutter.ButtonEvent): void
-    on(sigName: "button-press-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "button-press-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "button-press-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "button-release-event", callback: (($obj: Model, event: Clutter.ButtonEvent) => boolean)): number
-    connect_after(sigName: "button-release-event", callback: (($obj: Model, event: Clutter.ButtonEvent) => boolean)): number
+    on(sigName: "button-release-event", callback: (event: Clutter.ButtonEvent) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "button-release-event", callback: (event: Clutter.ButtonEvent) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "button-release-event", callback: (event: Clutter.ButtonEvent) => void): NodeJS.EventEmitter
     emit(sigName: "button-release-event", event: Clutter.ButtonEvent): void
-    on(sigName: "button-release-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "button-release-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "button-release-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "captured-event", callback: (($obj: Model, event: Clutter.Event) => boolean)): number
-    connect_after(sigName: "captured-event", callback: (($obj: Model, event: Clutter.Event) => boolean)): number
+    on(sigName: "captured-event", callback: (event: Clutter.Event) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "captured-event", callback: (event: Clutter.Event) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "captured-event", callback: (event: Clutter.Event) => void): NodeJS.EventEmitter
     emit(sigName: "captured-event", event: Clutter.Event): void
-    on(sigName: "captured-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "captured-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "captured-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "destroy", callback: (($obj: Model) => void)): number
-    connect_after(sigName: "destroy", callback: (($obj: Model) => void)): number
+    on(sigName: "destroy", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "destroy", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "destroy", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "destroy"): void
-    on(sigName: "destroy", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "destroy", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "destroy", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "enter-event", callback: (($obj: Model, event: Clutter.CrossingEvent) => boolean)): number
-    connect_after(sigName: "enter-event", callback: (($obj: Model, event: Clutter.CrossingEvent) => boolean)): number
+    on(sigName: "enter-event", callback: (event: Clutter.CrossingEvent) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "enter-event", callback: (event: Clutter.CrossingEvent) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "enter-event", callback: (event: Clutter.CrossingEvent) => void): NodeJS.EventEmitter
     emit(sigName: "enter-event", event: Clutter.CrossingEvent): void
-    on(sigName: "enter-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "enter-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "enter-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "event", callback: (($obj: Model, event: Clutter.Event) => boolean)): number
-    connect_after(sigName: "event", callback: (($obj: Model, event: Clutter.Event) => boolean)): number
+    on(sigName: "event", callback: (event: Clutter.Event) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "event", callback: (event: Clutter.Event) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "event", callback: (event: Clutter.Event) => void): NodeJS.EventEmitter
     emit(sigName: "event", event: Clutter.Event): void
-    on(sigName: "event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "hide", callback: (($obj: Model) => void)): number
-    connect_after(sigName: "hide", callback: (($obj: Model) => void)): number
+    on(sigName: "hide", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "hide", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "hide", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "hide"): void
-    on(sigName: "hide", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "hide", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "hide", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "key-focus-in", callback: (($obj: Model) => void)): number
-    connect_after(sigName: "key-focus-in", callback: (($obj: Model) => void)): number
+    on(sigName: "key-focus-in", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "key-focus-in", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "key-focus-in", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "key-focus-in"): void
-    on(sigName: "key-focus-in", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "key-focus-in", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "key-focus-in", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "key-focus-out", callback: (($obj: Model) => void)): number
-    connect_after(sigName: "key-focus-out", callback: (($obj: Model) => void)): number
+    on(sigName: "key-focus-out", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "key-focus-out", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "key-focus-out", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "key-focus-out"): void
-    on(sigName: "key-focus-out", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "key-focus-out", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "key-focus-out", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "key-press-event", callback: (($obj: Model, event: Clutter.KeyEvent) => boolean)): number
-    connect_after(sigName: "key-press-event", callback: (($obj: Model, event: Clutter.KeyEvent) => boolean)): number
+    on(sigName: "key-press-event", callback: (event: Clutter.KeyEvent) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "key-press-event", callback: (event: Clutter.KeyEvent) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "key-press-event", callback: (event: Clutter.KeyEvent) => void): NodeJS.EventEmitter
     emit(sigName: "key-press-event", event: Clutter.KeyEvent): void
-    on(sigName: "key-press-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "key-press-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "key-press-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "key-release-event", callback: (($obj: Model, event: Clutter.KeyEvent) => boolean)): number
-    connect_after(sigName: "key-release-event", callback: (($obj: Model, event: Clutter.KeyEvent) => boolean)): number
+    on(sigName: "key-release-event", callback: (event: Clutter.KeyEvent) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "key-release-event", callback: (event: Clutter.KeyEvent) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "key-release-event", callback: (event: Clutter.KeyEvent) => void): NodeJS.EventEmitter
     emit(sigName: "key-release-event", event: Clutter.KeyEvent): void
-    on(sigName: "key-release-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "key-release-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "key-release-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "leave-event", callback: (($obj: Model, event: Clutter.CrossingEvent) => boolean)): number
-    connect_after(sigName: "leave-event", callback: (($obj: Model, event: Clutter.CrossingEvent) => boolean)): number
+    on(sigName: "leave-event", callback: (event: Clutter.CrossingEvent) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "leave-event", callback: (event: Clutter.CrossingEvent) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "leave-event", callback: (event: Clutter.CrossingEvent) => void): NodeJS.EventEmitter
     emit(sigName: "leave-event", event: Clutter.CrossingEvent): void
-    on(sigName: "leave-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "leave-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "leave-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "motion-event", callback: (($obj: Model, event: Clutter.MotionEvent) => boolean)): number
-    connect_after(sigName: "motion-event", callback: (($obj: Model, event: Clutter.MotionEvent) => boolean)): number
+    on(sigName: "motion-event", callback: (event: Clutter.MotionEvent) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "motion-event", callback: (event: Clutter.MotionEvent) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "motion-event", callback: (event: Clutter.MotionEvent) => void): NodeJS.EventEmitter
     emit(sigName: "motion-event", event: Clutter.MotionEvent): void
-    on(sigName: "motion-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "motion-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "motion-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "paint", callback: (($obj: Model) => void)): number
-    connect_after(sigName: "paint", callback: (($obj: Model) => void)): number
+    on(sigName: "paint", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "paint", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "paint", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "paint"): void
-    on(sigName: "paint", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "paint", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "paint", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "parent-set", callback: (($obj: Model, oldParent?: Clutter.Actor | null) => void)): number
-    connect_after(sigName: "parent-set", callback: (($obj: Model, oldParent?: Clutter.Actor | null) => void)): number
+    on(sigName: "parent-set", callback: (oldParent?: Clutter.Actor | null) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "parent-set", callback: (oldParent?: Clutter.Actor | null) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "parent-set", callback: (oldParent?: Clutter.Actor | null) => void): NodeJS.EventEmitter
     emit(sigName: "parent-set", oldParent?: Clutter.Actor | null): void
-    on(sigName: "parent-set", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "parent-set", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "parent-set", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "pick", callback: (($obj: Model, color: Clutter.Color) => void)): number
-    connect_after(sigName: "pick", callback: (($obj: Model, color: Clutter.Color) => void)): number
+    on(sigName: "pick", callback: (color: Clutter.Color) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "pick", callback: (color: Clutter.Color) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "pick", callback: (color: Clutter.Color) => void): NodeJS.EventEmitter
     emit(sigName: "pick", color: Clutter.Color): void
-    on(sigName: "pick", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "pick", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "pick", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "queue-redraw", callback: (($obj: Model, origin: Clutter.Actor) => void)): number
-    connect_after(sigName: "queue-redraw", callback: (($obj: Model, origin: Clutter.Actor) => void)): number
+    on(sigName: "queue-redraw", callback: (origin: Clutter.Actor) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "queue-redraw", callback: (origin: Clutter.Actor) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "queue-redraw", callback: (origin: Clutter.Actor) => void): NodeJS.EventEmitter
     emit(sigName: "queue-redraw", origin: Clutter.Actor): void
-    on(sigName: "queue-redraw", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "queue-redraw", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "queue-redraw", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "queue-relayout", callback: (($obj: Model) => void)): number
-    connect_after(sigName: "queue-relayout", callback: (($obj: Model) => void)): number
+    on(sigName: "queue-relayout", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "queue-relayout", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "queue-relayout", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "queue-relayout"): void
-    on(sigName: "queue-relayout", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "queue-relayout", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "queue-relayout", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "realize", callback: (($obj: Model) => void)): number
-    connect_after(sigName: "realize", callback: (($obj: Model) => void)): number
+    on(sigName: "realize", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "realize", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "realize", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "realize"): void
-    on(sigName: "realize", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "realize", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "realize", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "scroll-event", callback: (($obj: Model, event: Clutter.ScrollEvent) => boolean)): number
-    connect_after(sigName: "scroll-event", callback: (($obj: Model, event: Clutter.ScrollEvent) => boolean)): number
+    on(sigName: "scroll-event", callback: (event: Clutter.ScrollEvent) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "scroll-event", callback: (event: Clutter.ScrollEvent) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "scroll-event", callback: (event: Clutter.ScrollEvent) => void): NodeJS.EventEmitter
     emit(sigName: "scroll-event", event: Clutter.ScrollEvent): void
-    on(sigName: "scroll-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "scroll-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "scroll-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "show", callback: (($obj: Model) => void)): number
-    connect_after(sigName: "show", callback: (($obj: Model) => void)): number
+    on(sigName: "show", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "show", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "show", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "show"): void
-    on(sigName: "show", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "show", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "show", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "touch-event", callback: (($obj: Model, event: Clutter.Event) => boolean)): number
-    connect_after(sigName: "touch-event", callback: (($obj: Model, event: Clutter.Event) => boolean)): number
+    on(sigName: "touch-event", callback: (event: Clutter.Event) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "touch-event", callback: (event: Clutter.Event) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "touch-event", callback: (event: Clutter.Event) => void): NodeJS.EventEmitter
     emit(sigName: "touch-event", event: Clutter.Event): void
-    on(sigName: "touch-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "touch-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "touch-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "transition-stopped", callback: (($obj: Model, name: string, isFinished: boolean) => void)): number
-    connect_after(sigName: "transition-stopped", callback: (($obj: Model, name: string, isFinished: boolean) => void)): number
+    on(sigName: "transition-stopped", callback: (name: string, isFinished: boolean) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "transition-stopped", callback: (name: string, isFinished: boolean) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "transition-stopped", callback: (name: string, isFinished: boolean) => void): NodeJS.EventEmitter
     emit(sigName: "transition-stopped", name: string, isFinished: boolean): void
-    on(sigName: "transition-stopped", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "transition-stopped", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "transition-stopped", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "transitions-completed", callback: (($obj: Model) => void)): number
-    connect_after(sigName: "transitions-completed", callback: (($obj: Model) => void)): number
+    on(sigName: "transitions-completed", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "transitions-completed", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "transitions-completed", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "transitions-completed"): void
-    on(sigName: "transitions-completed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "transitions-completed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "transitions-completed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "unrealize", callback: (($obj: Model) => void)): number
-    connect_after(sigName: "unrealize", callback: (($obj: Model) => void)): number
+    on(sigName: "unrealize", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "unrealize", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "unrealize", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "unrealize"): void
-    on(sigName: "unrealize", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "unrealize", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "unrealize", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Model, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Model, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of Clutter.Container */
+    /* Signals of Clutter-1.0.Clutter.Container */
     connect(sigName: "actor-added", callback: (($obj: Model, actor: Clutter.Actor) => void)): number
-    connect_after(sigName: "actor-added", callback: (($obj: Model, actor: Clutter.Actor) => void)): number
+    on(sigName: "actor-added", callback: (actor: Clutter.Actor) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "actor-added", callback: (actor: Clutter.Actor) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "actor-added", callback: (actor: Clutter.Actor) => void): NodeJS.EventEmitter
     emit(sigName: "actor-added", actor: Clutter.Actor): void
-    on(sigName: "actor-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "actor-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "actor-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "actor-removed", callback: (($obj: Model, actor: Clutter.Actor) => void)): number
-    connect_after(sigName: "actor-removed", callback: (($obj: Model, actor: Clutter.Actor) => void)): number
+    on(sigName: "actor-removed", callback: (actor: Clutter.Actor) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "actor-removed", callback: (actor: Clutter.Actor) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "actor-removed", callback: (actor: Clutter.Actor) => void): NodeJS.EventEmitter
     emit(sigName: "actor-removed", actor: Clutter.Actor): void
-    on(sigName: "actor-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "actor-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "actor-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "child-notify", callback: (($obj: Model, actor: Clutter.Actor, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "child-notify", callback: (($obj: Model, actor: Clutter.Actor, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "child-notify", callback: (actor: Clutter.Actor, pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "child-notify", callback: (actor: Clutter.Actor, pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "child-notify", callback: (actor: Clutter.Actor, pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "child-notify", actor: Clutter.Actor, pspec: GObject.ParamSpec): void
-    on(sigName: "child-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "child-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "child-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::data", callback: (($obj: Model, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::data", callback: (($obj: Model, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::data", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -3466,13 +3141,13 @@ export class Model {
 export interface PlyLoader_ConstructProps extends Data_ConstructProps {
 }
 export class PlyLoader {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Mash.Data */
+    /* Methods of Mash-0.2.Mash.Data */
     getExtents(minVertex: Clutter.Vertex, maxVertex: Clutter.Vertex): void
     load(flags: DataFlags, filename: string): boolean
     render(): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -3494,21 +3169,12 @@ export class PlyLoader {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: PlyLoader, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: PlyLoader, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -3527,15 +3193,15 @@ export interface PointLight_ConstructProps extends Light_ConstructProps {
     quadraticAttenuation?: number
 }
 export class PointLight {
-    /* Properties of Mash.PointLight */
+    /* Properties of Mash-0.2.Mash.PointLight */
     constantAttenuation: number
     linearAttenuation: number
     quadraticAttenuation: number
-    /* Properties of Mash.Light */
+    /* Properties of Mash-0.2.Mash.Light */
     ambient: Clutter.Color
     diffuse: Clutter.Color
     specular: Clutter.Color
-    /* Properties of Clutter.Actor */
+    /* Properties of Clutter-1.0.Clutter.Actor */
     actions: Clutter.Action
     readonly allocation: Clutter.ActorBox
     anchorGravity: Clutter.Gravity
@@ -3618,18 +3284,18 @@ export class PointLight {
     yAlign: Clutter.ActorAlign
     yExpand: boolean
     zPosition: number
-    /* Fields of Clutter.Actor */
+    /* Fields of Clutter-1.0.Clutter.Actor */
     flags: number
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Mash.PointLight */
+    /* Methods of Mash-0.2.Mash.PointLight */
     getConstantAttenuation(): number
     getLinearAttenuation(): number
     getQuadraticAttenuation(): number
     setConstantAttenuation(attenuation: number): void
     setLinearAttenuation(attenuation: number): void
     setQuadraticAttenuation(attenuation: number): void
-    /* Methods of Mash.Light */
+    /* Methods of Mash-0.2.Mash.Light */
     appendShader(shaderSource: GLib.String, snippet: string): void
     generateShader(uniformSource: GLib.String, mainSource: GLib.String): void
     getAmbient(ambient: Clutter.Color): void
@@ -3642,7 +3308,7 @@ export class PointLight {
     setDirectionUniform(program: Cogl.Handle, uniformLocation: number, directionIn: number): void
     setSpecular(specular: Clutter.Color): void
     updateUniforms(program: Cogl.Handle): void
-    /* Methods of Clutter.Actor */
+    /* Methods of Clutter-1.0.Clutter.Actor */
     addAction(action: Clutter.Action): void
     addActionWithName(name: string, action: Clutter.Action): void
     addChild(child: Clutter.Actor): void
@@ -3658,8 +3324,8 @@ export class PointLight {
     animateWithAlphav(alpha: Clutter.Alpha, properties: string[], values: any[]): Clutter.Animation
     animateWithTimelinev(mode: number, timeline: Clutter.Timeline, properties: string[], values: any[]): Clutter.Animation
     animatev(mode: number, duration: number, properties: string[], values: any[]): Clutter.Animation
-    applyRelativeTransformToPoint(ancestor: Clutter.Actor | null, point: Clutter.Vertex): /* vertex */ Clutter.Vertex
-    applyTransformToPoint(point: Clutter.Vertex): /* vertex */ Clutter.Vertex
+    applyRelativeTransformToPoint(ancestor: Clutter.Actor | null, point: Clutter.Vertex): { vertex: Clutter.Vertex }
+    applyTransformToPoint(point: Clutter.Vertex): { vertex: Clutter.Vertex }
     bindModel(model: Gio.ListModel | null, createChildFunc: Clutter.ActorCreateChildFunc): void
     clearActions(): void
     clearConstraints(): void
@@ -3672,29 +3338,29 @@ export class PointLight {
     destroyAllChildren(): void
     detachAnimation(): void
     event(event: Clutter.Event, capture: boolean): boolean
-    getAbsAllocationVertices(): /* verts */ Clutter.Vertex[]
+    getAbsAllocationVertices(): { verts: Clutter.Vertex[] }
     getAccessible(): Atk.Object
     getAction(name: string): Clutter.Action
     getActions(): Clutter.Action[]
-    getAllocationBox(): /* box */ Clutter.ActorBox
-    getAllocationGeometry(): /* geom */ Clutter.Geometry
-    getAllocationVertices(ancestor?: Clutter.Actor | null): /* verts */ Clutter.Vertex[]
-    getAnchorPoint(): [ /* anchorX */ number, /* anchorY */ number ]
+    getAllocationBox(): { box: Clutter.ActorBox }
+    getAllocationGeometry(): { geom: Clutter.Geometry }
+    getAllocationVertices(ancestor?: Clutter.Actor | null): { verts: Clutter.Vertex[] }
+    getAnchorPoint(): { anchorX: number, anchorY: number }
     getAnchorPointGravity(): Clutter.Gravity
     getAnimation(): Clutter.Animation
-    getBackgroundColor(): /* color */ Clutter.Color
+    getBackgroundColor(): { color: Clutter.Color }
     getChildAtIndex(index: number): Clutter.Actor
-    getChildTransform(): /* transform */ Clutter.Matrix
+    getChildTransform(): { transform: Clutter.Matrix }
     getChildren(): Clutter.Actor[]
-    getClip(): [ /* xoff */ number | null, /* yoff */ number | null, /* width */ number | null, /* height */ number | null ]
+    getClip(): { xoff: number | null, yoff: number | null, width: number | null, height: number | null }
     getClipToAllocation(): boolean
     getConstraint(name: string): Clutter.Constraint
     getConstraints(): Clutter.Constraint[]
     getContent(): Clutter.Content
-    getContentBox(): /* box */ Clutter.ActorBox
+    getContentBox(): { box: Clutter.ActorBox }
     getContentGravity(): Clutter.ContentGravity
     getContentRepeat(): Clutter.ContentRepeat
-    getContentScalingFilters(): [ /* minFilter */ Clutter.ScalingFilter | null, /* magFilter */ Clutter.ScalingFilter | null ]
+    getContentScalingFilters(): { minFilter: Clutter.ScalingFilter | null, magFilter: Clutter.ScalingFilter | null }
     getDefaultPaintVolume(): Clutter.PaintVolume
     getDepth(): number
     getEasingDelay(): number
@@ -3705,12 +3371,12 @@ export class PointLight {
     getFirstChild(): Clutter.Actor
     getFixedPositionSet(): boolean
     getFlags(): Clutter.ActorFlags
-    getGeometry(): /* geometry */ Clutter.Geometry
+    getGeometry(): { geometry: Clutter.Geometry }
     getGid(): number
     getHeight(): number
     getLastChild(): Clutter.Actor
     getLayoutManager(): Clutter.LayoutManager
-    getMargin(): /* margin */ Clutter.Margin
+    getMargin(): { margin: Clutter.Margin }
     getMarginBottom(): number
     getMarginLeft(): number
     getMarginRight(): number
@@ -3720,38 +3386,38 @@ export class PointLight {
     getNextSibling(): Clutter.Actor
     getOffscreenRedirect(): Clutter.OffscreenRedirect
     getOpacity(): number
-    getPaintBox(): [ /* returnType */ boolean, /* box */ Clutter.ActorBox ]
+    getPaintBox(): { returnType: boolean, box: Clutter.ActorBox }
     getPaintOpacity(): number
     getPaintVisibility(): boolean
     getPaintVolume(): Clutter.PaintVolume
     getPangoContext(): Pango.Context
     getParent(): Clutter.Actor
-    getPivotPoint(): [ /* pivotX */ number | null, /* pivotY */ number | null ]
+    getPivotPoint(): { pivotX: number | null, pivotY: number | null }
     getPivotPointZ(): number
-    getPosition(): [ /* x */ number | null, /* y */ number | null ]
-    getPreferredHeight(forWidth: number): [ /* minHeightP */ number | null, /* naturalHeightP */ number | null ]
-    getPreferredSize(): [ /* minWidthP */ number | null, /* minHeightP */ number | null, /* naturalWidthP */ number | null, /* naturalHeightP */ number | null ]
-    getPreferredWidth(forHeight: number): [ /* minWidthP */ number | null, /* naturalWidthP */ number | null ]
+    getPosition(): { x: number | null, y: number | null }
+    getPreferredHeight(forWidth: number): { minHeightP: number | null, naturalHeightP: number | null }
+    getPreferredSize(): { minWidthP: number | null, minHeightP: number | null, naturalWidthP: number | null, naturalHeightP: number | null }
+    getPreferredWidth(forHeight: number): { minWidthP: number | null, naturalWidthP: number | null }
     getPreviousSibling(): Clutter.Actor
     getReactive(): boolean
     getRequestMode(): Clutter.RequestMode
-    getRotation(axis: Clutter.RotateAxis): [ /* returnType */ number, /* x */ number, /* y */ number, /* z */ number ]
+    getRotation(axis: Clutter.RotateAxis): { returnType: number, x: number, y: number, z: number }
     getRotationAngle(axis: Clutter.RotateAxis): number
-    getScale(): [ /* scaleX */ number | null, /* scaleY */ number | null ]
-    getScaleCenter(): [ /* centerX */ number | null, /* centerY */ number | null ]
+    getScale(): { scaleX: number | null, scaleY: number | null }
+    getScaleCenter(): { centerX: number | null, centerY: number | null }
     getScaleGravity(): Clutter.Gravity
     getScaleZ(): number
     getShader(): Clutter.Shader
-    getSize(): [ /* width */ number | null, /* height */ number | null ]
+    getSize(): { width: number | null, height: number | null }
     getStage(): Clutter.Stage
     getTextDirection(): Clutter.TextDirection
-    getTransform(): /* transform */ Clutter.Matrix
-    getTransformationMatrix(): /* matrix */ Clutter.Matrix
+    getTransform(): { transform: Clutter.Matrix }
+    getTransformationMatrix(): { matrix: Clutter.Matrix }
     getTransformedPaintVolume(relativeToAncestor: Clutter.Actor): Clutter.PaintVolume
-    getTransformedPosition(): [ /* x */ number | null, /* y */ number | null ]
-    getTransformedSize(): [ /* width */ number | null, /* height */ number | null ]
+    getTransformedPosition(): { x: number | null, y: number | null }
+    getTransformedSize(): { width: number | null, height: number | null }
     getTransition(name: string): Clutter.Transition
-    getTranslation(): [ /* translateX */ number | null, /* translateY */ number | null, /* translateZ */ number | null ]
+    getTranslation(): { translateX: number | null, translateY: number | null, translateZ: number | null }
     getWidth(): number
     getX(): number
     getXAlign(): Clutter.ActorAlign
@@ -3873,12 +3539,12 @@ export class PointLight {
     shouldPickPaint(): boolean
     show(): void
     showAll(): void
-    transformStagePoint(x: number, y: number): [ /* returnType */ boolean, /* xOut */ number, /* yOut */ number ]
+    transformStagePoint(x: number, y: number): { returnType: boolean, xOut: number, yOut: number }
     unmap(): void
     unparent(): void
     unrealize(): void
     unsetFlags(flags: Clutter.ActorFlags): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -3900,13 +3566,13 @@ export class PointLight {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of Clutter.Animatable */
+    /* Methods of Clutter-1.0.Clutter.Animatable */
     animateProperty(animation: Clutter.Animation, propertyName: string, initialValue: any, finalValue: any, progress: number, value: any): boolean
     findProperty(propertyName: string): GObject.ParamSpec
     getInitialState(propertyName: string, value: any): void
-    interpolateValue(propertyName: string, interval: Clutter.Interval, progress: number): [ /* returnType */ boolean, /* value */ any ]
+    interpolateValue(propertyName: string, interval: Clutter.Interval, progress: number): { returnType: boolean, value: any }
     setFinalState(propertyName: string, value: any): void
-    /* Methods of Clutter.Container */
+    /* Methods of Clutter-1.0.Clutter.Container */
     addActor(actor: Clutter.Actor): void
     childGetProperty(child: Clutter.Actor, property: string, value: any): void
     childNotify(child: Clutter.Actor, pspec: GObject.ParamSpec): void
@@ -3921,263 +3587,164 @@ export class PointLight {
     raiseChild(actor: Clutter.Actor, sibling?: Clutter.Actor | null): void
     removeActor(actor: Clutter.Actor): void
     sortDepthOrder(): void
-    /* Methods of Clutter.Scriptable */
+    /* Methods of Clutter-1.0.Clutter.Scriptable */
     getId(): string
     parseCustomNode(script: Clutter.Script, value: any, name: string, node: Json.Node): boolean
     setCustomProperty(script: Clutter.Script, name: string, value: any): void
     setId(id: string): void
-    /* Virtual methods of Mash.Light */
-    vfuncGenerateShader(uniformSource: GLib.String, mainSource: GLib.String): void
-    vfuncUpdateUniforms(program: Cogl.Handle): void
-    vfuncAnimateProperty(animation: Clutter.Animation, propertyName: string, initialValue: any, finalValue: any, progress: number, value: any): boolean
-    vfuncFindProperty(propertyName: string): GObject.ParamSpec
-    vfuncGetInitialState(propertyName: string, value: any): void
-    vfuncInterpolateValue(propertyName: string, interval: Clutter.Interval, progress: number): [ /* returnType */ boolean, /* value */ any ]
-    vfuncSetFinalState(propertyName: string, value: any): void
-    vfuncActorAdded(actor: Clutter.Actor): void
-    vfuncActorRemoved(actor: Clutter.Actor): void
-    vfuncAdd(actor: Clutter.Actor): void
-    vfuncChildNotify(child: Clutter.Actor, pspec: GObject.ParamSpec): void
-    vfuncCreateChildMeta(actor: Clutter.Actor): void
-    vfuncDestroyChildMeta(actor: Clutter.Actor): void
-    vfuncForeach(callback: Clutter.Callback): void
-    vfuncForeachWithInternals(callback: Clutter.Callback): void
-    vfuncGetChildMeta(actor: Clutter.Actor): Clutter.ChildMeta
-    vfuncLower(actor: Clutter.Actor, sibling?: Clutter.Actor | null): void
-    vfuncRaise(actor: Clutter.Actor, sibling?: Clutter.Actor | null): void
-    vfuncRemove(actor: Clutter.Actor): void
-    vfuncSortDepthOrder(): void
-    vfuncGetId(): string
-    vfuncParseCustomNode(script: Clutter.Script, value: any, name: string, node: Json.Node): boolean
-    vfuncSetCustomProperty(script: Clutter.Script, name: string, value: any): void
-    vfuncSetId(id: string): void
-    /* Virtual methods of Clutter.Actor */
-    vfuncAllocate(box: Clutter.ActorBox, flags: Clutter.AllocationFlags): void
-    vfuncApplyTransform(matrix: Clutter.Matrix): void
-    vfuncButtonPressEvent(event: Clutter.ButtonEvent): boolean
-    vfuncButtonReleaseEvent(event: Clutter.ButtonEvent): boolean
-    vfuncCapturedEvent(event: Clutter.Event): boolean
-    vfuncDestroy(): void
-    vfuncEnterEvent(event: Clutter.CrossingEvent): boolean
-    vfuncEvent(event: Clutter.Event): boolean
-    vfuncGetAccessible(): Atk.Object
-    vfuncGetPaintVolume(volume: Clutter.PaintVolume): boolean
-    vfuncGetPreferredHeight(forWidth: number): [ /* minHeightP */ number | null, /* naturalHeightP */ number | null ]
-    vfuncGetPreferredWidth(forHeight: number): [ /* minWidthP */ number | null, /* naturalWidthP */ number | null ]
-    vfuncHasOverlaps(): boolean
-    vfuncHide(): void
-    vfuncHideAll(): void
-    vfuncKeyFocusIn(): void
-    vfuncKeyFocusOut(): void
-    vfuncKeyPressEvent(event: Clutter.KeyEvent): boolean
-    vfuncKeyReleaseEvent(event: Clutter.KeyEvent): boolean
-    vfuncLeaveEvent(event: Clutter.CrossingEvent): boolean
-    vfuncMap(): void
-    vfuncMotionEvent(event: Clutter.MotionEvent): boolean
-    vfuncPaint(): void
-    vfuncPaintNode(root: Clutter.PaintNode): void
-    vfuncParentSet(oldParent: Clutter.Actor): void
-    vfuncPick(color: Clutter.Color): void
-    vfuncQueueRedraw(leafThatQueued: Clutter.Actor): void
-    vfuncQueueRelayout(): void
-    vfuncRealize(): void
-    vfuncScrollEvent(event: Clutter.ScrollEvent): boolean
-    vfuncShow(): void
-    vfuncShowAll(): void
-    vfuncTouchEvent(event: Clutter.TouchEvent): boolean
-    vfuncUnmap(): void
-    vfuncUnrealize(): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Clutter.Actor */
+    /* Signals of Clutter-1.0.Clutter.Actor */
     connect(sigName: "allocation-changed", callback: (($obj: PointLight, box: Clutter.ActorBox, flags: Clutter.AllocationFlags) => void)): number
-    connect_after(sigName: "allocation-changed", callback: (($obj: PointLight, box: Clutter.ActorBox, flags: Clutter.AllocationFlags) => void)): number
+    on(sigName: "allocation-changed", callback: (box: Clutter.ActorBox, flags: Clutter.AllocationFlags) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "allocation-changed", callback: (box: Clutter.ActorBox, flags: Clutter.AllocationFlags) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "allocation-changed", callback: (box: Clutter.ActorBox, flags: Clutter.AllocationFlags) => void): NodeJS.EventEmitter
     emit(sigName: "allocation-changed", box: Clutter.ActorBox, flags: Clutter.AllocationFlags): void
-    on(sigName: "allocation-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "allocation-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "allocation-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "button-press-event", callback: (($obj: PointLight, event: Clutter.ButtonEvent) => boolean)): number
-    connect_after(sigName: "button-press-event", callback: (($obj: PointLight, event: Clutter.ButtonEvent) => boolean)): number
+    on(sigName: "button-press-event", callback: (event: Clutter.ButtonEvent) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "button-press-event", callback: (event: Clutter.ButtonEvent) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "button-press-event", callback: (event: Clutter.ButtonEvent) => void): NodeJS.EventEmitter
     emit(sigName: "button-press-event", event: Clutter.ButtonEvent): void
-    on(sigName: "button-press-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "button-press-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "button-press-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "button-release-event", callback: (($obj: PointLight, event: Clutter.ButtonEvent) => boolean)): number
-    connect_after(sigName: "button-release-event", callback: (($obj: PointLight, event: Clutter.ButtonEvent) => boolean)): number
+    on(sigName: "button-release-event", callback: (event: Clutter.ButtonEvent) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "button-release-event", callback: (event: Clutter.ButtonEvent) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "button-release-event", callback: (event: Clutter.ButtonEvent) => void): NodeJS.EventEmitter
     emit(sigName: "button-release-event", event: Clutter.ButtonEvent): void
-    on(sigName: "button-release-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "button-release-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "button-release-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "captured-event", callback: (($obj: PointLight, event: Clutter.Event) => boolean)): number
-    connect_after(sigName: "captured-event", callback: (($obj: PointLight, event: Clutter.Event) => boolean)): number
+    on(sigName: "captured-event", callback: (event: Clutter.Event) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "captured-event", callback: (event: Clutter.Event) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "captured-event", callback: (event: Clutter.Event) => void): NodeJS.EventEmitter
     emit(sigName: "captured-event", event: Clutter.Event): void
-    on(sigName: "captured-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "captured-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "captured-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "destroy", callback: (($obj: PointLight) => void)): number
-    connect_after(sigName: "destroy", callback: (($obj: PointLight) => void)): number
+    on(sigName: "destroy", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "destroy", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "destroy", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "destroy"): void
-    on(sigName: "destroy", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "destroy", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "destroy", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "enter-event", callback: (($obj: PointLight, event: Clutter.CrossingEvent) => boolean)): number
-    connect_after(sigName: "enter-event", callback: (($obj: PointLight, event: Clutter.CrossingEvent) => boolean)): number
+    on(sigName: "enter-event", callback: (event: Clutter.CrossingEvent) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "enter-event", callback: (event: Clutter.CrossingEvent) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "enter-event", callback: (event: Clutter.CrossingEvent) => void): NodeJS.EventEmitter
     emit(sigName: "enter-event", event: Clutter.CrossingEvent): void
-    on(sigName: "enter-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "enter-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "enter-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "event", callback: (($obj: PointLight, event: Clutter.Event) => boolean)): number
-    connect_after(sigName: "event", callback: (($obj: PointLight, event: Clutter.Event) => boolean)): number
+    on(sigName: "event", callback: (event: Clutter.Event) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "event", callback: (event: Clutter.Event) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "event", callback: (event: Clutter.Event) => void): NodeJS.EventEmitter
     emit(sigName: "event", event: Clutter.Event): void
-    on(sigName: "event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "hide", callback: (($obj: PointLight) => void)): number
-    connect_after(sigName: "hide", callback: (($obj: PointLight) => void)): number
+    on(sigName: "hide", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "hide", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "hide", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "hide"): void
-    on(sigName: "hide", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "hide", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "hide", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "key-focus-in", callback: (($obj: PointLight) => void)): number
-    connect_after(sigName: "key-focus-in", callback: (($obj: PointLight) => void)): number
+    on(sigName: "key-focus-in", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "key-focus-in", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "key-focus-in", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "key-focus-in"): void
-    on(sigName: "key-focus-in", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "key-focus-in", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "key-focus-in", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "key-focus-out", callback: (($obj: PointLight) => void)): number
-    connect_after(sigName: "key-focus-out", callback: (($obj: PointLight) => void)): number
+    on(sigName: "key-focus-out", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "key-focus-out", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "key-focus-out", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "key-focus-out"): void
-    on(sigName: "key-focus-out", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "key-focus-out", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "key-focus-out", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "key-press-event", callback: (($obj: PointLight, event: Clutter.KeyEvent) => boolean)): number
-    connect_after(sigName: "key-press-event", callback: (($obj: PointLight, event: Clutter.KeyEvent) => boolean)): number
+    on(sigName: "key-press-event", callback: (event: Clutter.KeyEvent) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "key-press-event", callback: (event: Clutter.KeyEvent) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "key-press-event", callback: (event: Clutter.KeyEvent) => void): NodeJS.EventEmitter
     emit(sigName: "key-press-event", event: Clutter.KeyEvent): void
-    on(sigName: "key-press-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "key-press-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "key-press-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "key-release-event", callback: (($obj: PointLight, event: Clutter.KeyEvent) => boolean)): number
-    connect_after(sigName: "key-release-event", callback: (($obj: PointLight, event: Clutter.KeyEvent) => boolean)): number
+    on(sigName: "key-release-event", callback: (event: Clutter.KeyEvent) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "key-release-event", callback: (event: Clutter.KeyEvent) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "key-release-event", callback: (event: Clutter.KeyEvent) => void): NodeJS.EventEmitter
     emit(sigName: "key-release-event", event: Clutter.KeyEvent): void
-    on(sigName: "key-release-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "key-release-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "key-release-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "leave-event", callback: (($obj: PointLight, event: Clutter.CrossingEvent) => boolean)): number
-    connect_after(sigName: "leave-event", callback: (($obj: PointLight, event: Clutter.CrossingEvent) => boolean)): number
+    on(sigName: "leave-event", callback: (event: Clutter.CrossingEvent) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "leave-event", callback: (event: Clutter.CrossingEvent) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "leave-event", callback: (event: Clutter.CrossingEvent) => void): NodeJS.EventEmitter
     emit(sigName: "leave-event", event: Clutter.CrossingEvent): void
-    on(sigName: "leave-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "leave-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "leave-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "motion-event", callback: (($obj: PointLight, event: Clutter.MotionEvent) => boolean)): number
-    connect_after(sigName: "motion-event", callback: (($obj: PointLight, event: Clutter.MotionEvent) => boolean)): number
+    on(sigName: "motion-event", callback: (event: Clutter.MotionEvent) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "motion-event", callback: (event: Clutter.MotionEvent) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "motion-event", callback: (event: Clutter.MotionEvent) => void): NodeJS.EventEmitter
     emit(sigName: "motion-event", event: Clutter.MotionEvent): void
-    on(sigName: "motion-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "motion-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "motion-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "paint", callback: (($obj: PointLight) => void)): number
-    connect_after(sigName: "paint", callback: (($obj: PointLight) => void)): number
+    on(sigName: "paint", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "paint", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "paint", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "paint"): void
-    on(sigName: "paint", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "paint", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "paint", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "parent-set", callback: (($obj: PointLight, oldParent?: Clutter.Actor | null) => void)): number
-    connect_after(sigName: "parent-set", callback: (($obj: PointLight, oldParent?: Clutter.Actor | null) => void)): number
+    on(sigName: "parent-set", callback: (oldParent?: Clutter.Actor | null) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "parent-set", callback: (oldParent?: Clutter.Actor | null) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "parent-set", callback: (oldParent?: Clutter.Actor | null) => void): NodeJS.EventEmitter
     emit(sigName: "parent-set", oldParent?: Clutter.Actor | null): void
-    on(sigName: "parent-set", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "parent-set", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "parent-set", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "pick", callback: (($obj: PointLight, color: Clutter.Color) => void)): number
-    connect_after(sigName: "pick", callback: (($obj: PointLight, color: Clutter.Color) => void)): number
+    on(sigName: "pick", callback: (color: Clutter.Color) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "pick", callback: (color: Clutter.Color) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "pick", callback: (color: Clutter.Color) => void): NodeJS.EventEmitter
     emit(sigName: "pick", color: Clutter.Color): void
-    on(sigName: "pick", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "pick", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "pick", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "queue-redraw", callback: (($obj: PointLight, origin: Clutter.Actor) => void)): number
-    connect_after(sigName: "queue-redraw", callback: (($obj: PointLight, origin: Clutter.Actor) => void)): number
+    on(sigName: "queue-redraw", callback: (origin: Clutter.Actor) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "queue-redraw", callback: (origin: Clutter.Actor) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "queue-redraw", callback: (origin: Clutter.Actor) => void): NodeJS.EventEmitter
     emit(sigName: "queue-redraw", origin: Clutter.Actor): void
-    on(sigName: "queue-redraw", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "queue-redraw", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "queue-redraw", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "queue-relayout", callback: (($obj: PointLight) => void)): number
-    connect_after(sigName: "queue-relayout", callback: (($obj: PointLight) => void)): number
+    on(sigName: "queue-relayout", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "queue-relayout", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "queue-relayout", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "queue-relayout"): void
-    on(sigName: "queue-relayout", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "queue-relayout", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "queue-relayout", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "realize", callback: (($obj: PointLight) => void)): number
-    connect_after(sigName: "realize", callback: (($obj: PointLight) => void)): number
+    on(sigName: "realize", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "realize", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "realize", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "realize"): void
-    on(sigName: "realize", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "realize", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "realize", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "scroll-event", callback: (($obj: PointLight, event: Clutter.ScrollEvent) => boolean)): number
-    connect_after(sigName: "scroll-event", callback: (($obj: PointLight, event: Clutter.ScrollEvent) => boolean)): number
+    on(sigName: "scroll-event", callback: (event: Clutter.ScrollEvent) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "scroll-event", callback: (event: Clutter.ScrollEvent) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "scroll-event", callback: (event: Clutter.ScrollEvent) => void): NodeJS.EventEmitter
     emit(sigName: "scroll-event", event: Clutter.ScrollEvent): void
-    on(sigName: "scroll-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "scroll-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "scroll-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "show", callback: (($obj: PointLight) => void)): number
-    connect_after(sigName: "show", callback: (($obj: PointLight) => void)): number
+    on(sigName: "show", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "show", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "show", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "show"): void
-    on(sigName: "show", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "show", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "show", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "touch-event", callback: (($obj: PointLight, event: Clutter.Event) => boolean)): number
-    connect_after(sigName: "touch-event", callback: (($obj: PointLight, event: Clutter.Event) => boolean)): number
+    on(sigName: "touch-event", callback: (event: Clutter.Event) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "touch-event", callback: (event: Clutter.Event) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "touch-event", callback: (event: Clutter.Event) => void): NodeJS.EventEmitter
     emit(sigName: "touch-event", event: Clutter.Event): void
-    on(sigName: "touch-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "touch-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "touch-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "transition-stopped", callback: (($obj: PointLight, name: string, isFinished: boolean) => void)): number
-    connect_after(sigName: "transition-stopped", callback: (($obj: PointLight, name: string, isFinished: boolean) => void)): number
+    on(sigName: "transition-stopped", callback: (name: string, isFinished: boolean) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "transition-stopped", callback: (name: string, isFinished: boolean) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "transition-stopped", callback: (name: string, isFinished: boolean) => void): NodeJS.EventEmitter
     emit(sigName: "transition-stopped", name: string, isFinished: boolean): void
-    on(sigName: "transition-stopped", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "transition-stopped", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "transition-stopped", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "transitions-completed", callback: (($obj: PointLight) => void)): number
-    connect_after(sigName: "transitions-completed", callback: (($obj: PointLight) => void)): number
+    on(sigName: "transitions-completed", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "transitions-completed", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "transitions-completed", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "transitions-completed"): void
-    on(sigName: "transitions-completed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "transitions-completed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "transitions-completed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "unrealize", callback: (($obj: PointLight) => void)): number
-    connect_after(sigName: "unrealize", callback: (($obj: PointLight) => void)): number
+    on(sigName: "unrealize", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "unrealize", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "unrealize", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "unrealize"): void
-    on(sigName: "unrealize", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "unrealize", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "unrealize", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: PointLight, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: PointLight, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of Clutter.Container */
+    /* Signals of Clutter-1.0.Clutter.Container */
     connect(sigName: "actor-added", callback: (($obj: PointLight, actor: Clutter.Actor) => void)): number
-    connect_after(sigName: "actor-added", callback: (($obj: PointLight, actor: Clutter.Actor) => void)): number
+    on(sigName: "actor-added", callback: (actor: Clutter.Actor) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "actor-added", callback: (actor: Clutter.Actor) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "actor-added", callback: (actor: Clutter.Actor) => void): NodeJS.EventEmitter
     emit(sigName: "actor-added", actor: Clutter.Actor): void
-    on(sigName: "actor-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "actor-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "actor-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "actor-removed", callback: (($obj: PointLight, actor: Clutter.Actor) => void)): number
-    connect_after(sigName: "actor-removed", callback: (($obj: PointLight, actor: Clutter.Actor) => void)): number
+    on(sigName: "actor-removed", callback: (actor: Clutter.Actor) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "actor-removed", callback: (actor: Clutter.Actor) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "actor-removed", callback: (actor: Clutter.Actor) => void): NodeJS.EventEmitter
     emit(sigName: "actor-removed", actor: Clutter.Actor): void
-    on(sigName: "actor-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "actor-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "actor-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "child-notify", callback: (($obj: PointLight, actor: Clutter.Actor, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "child-notify", callback: (($obj: PointLight, actor: Clutter.Actor, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "child-notify", callback: (actor: Clutter.Actor, pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "child-notify", callback: (actor: Clutter.Actor, pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "child-notify", callback: (actor: Clutter.Actor, pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "child-notify", actor: Clutter.Actor, pspec: GObject.ParamSpec): void
-    on(sigName: "child-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "child-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "child-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::constant-attenuation", callback: (($obj: PointLight, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::constant-attenuation", callback: (($obj: PointLight, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::constant-attenuation", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -4637,18 +4204,18 @@ export interface SpotLight_ConstructProps extends PointLight_ConstructProps {
     spotExponent?: number
 }
 export class SpotLight {
-    /* Properties of Mash.SpotLight */
+    /* Properties of Mash-0.2.Mash.SpotLight */
     spotCutoff: number
     spotExponent: number
-    /* Properties of Mash.PointLight */
+    /* Properties of Mash-0.2.Mash.PointLight */
     constantAttenuation: number
     linearAttenuation: number
     quadraticAttenuation: number
-    /* Properties of Mash.Light */
+    /* Properties of Mash-0.2.Mash.Light */
     ambient: Clutter.Color
     diffuse: Clutter.Color
     specular: Clutter.Color
-    /* Properties of Clutter.Actor */
+    /* Properties of Clutter-1.0.Clutter.Actor */
     actions: Clutter.Action
     readonly allocation: Clutter.ActorBox
     anchorGravity: Clutter.Gravity
@@ -4731,23 +4298,23 @@ export class SpotLight {
     yAlign: Clutter.ActorAlign
     yExpand: boolean
     zPosition: number
-    /* Fields of Clutter.Actor */
+    /* Fields of Clutter-1.0.Clutter.Actor */
     flags: number
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Mash.SpotLight */
+    /* Methods of Mash-0.2.Mash.SpotLight */
     getSpotCutoff(): number
     getSpotExponent(): number
     setSpotCutoff(cutoff: number): void
     setSpotExponent(exponent: number): void
-    /* Methods of Mash.PointLight */
+    /* Methods of Mash-0.2.Mash.PointLight */
     getConstantAttenuation(): number
     getLinearAttenuation(): number
     getQuadraticAttenuation(): number
     setConstantAttenuation(attenuation: number): void
     setLinearAttenuation(attenuation: number): void
     setQuadraticAttenuation(attenuation: number): void
-    /* Methods of Mash.Light */
+    /* Methods of Mash-0.2.Mash.Light */
     appendShader(shaderSource: GLib.String, snippet: string): void
     generateShader(uniformSource: GLib.String, mainSource: GLib.String): void
     getAmbient(ambient: Clutter.Color): void
@@ -4760,7 +4327,7 @@ export class SpotLight {
     setDirectionUniform(program: Cogl.Handle, uniformLocation: number, directionIn: number): void
     setSpecular(specular: Clutter.Color): void
     updateUniforms(program: Cogl.Handle): void
-    /* Methods of Clutter.Actor */
+    /* Methods of Clutter-1.0.Clutter.Actor */
     addAction(action: Clutter.Action): void
     addActionWithName(name: string, action: Clutter.Action): void
     addChild(child: Clutter.Actor): void
@@ -4776,8 +4343,8 @@ export class SpotLight {
     animateWithAlphav(alpha: Clutter.Alpha, properties: string[], values: any[]): Clutter.Animation
     animateWithTimelinev(mode: number, timeline: Clutter.Timeline, properties: string[], values: any[]): Clutter.Animation
     animatev(mode: number, duration: number, properties: string[], values: any[]): Clutter.Animation
-    applyRelativeTransformToPoint(ancestor: Clutter.Actor | null, point: Clutter.Vertex): /* vertex */ Clutter.Vertex
-    applyTransformToPoint(point: Clutter.Vertex): /* vertex */ Clutter.Vertex
+    applyRelativeTransformToPoint(ancestor: Clutter.Actor | null, point: Clutter.Vertex): { vertex: Clutter.Vertex }
+    applyTransformToPoint(point: Clutter.Vertex): { vertex: Clutter.Vertex }
     bindModel(model: Gio.ListModel | null, createChildFunc: Clutter.ActorCreateChildFunc): void
     clearActions(): void
     clearConstraints(): void
@@ -4790,29 +4357,29 @@ export class SpotLight {
     destroyAllChildren(): void
     detachAnimation(): void
     event(event: Clutter.Event, capture: boolean): boolean
-    getAbsAllocationVertices(): /* verts */ Clutter.Vertex[]
+    getAbsAllocationVertices(): { verts: Clutter.Vertex[] }
     getAccessible(): Atk.Object
     getAction(name: string): Clutter.Action
     getActions(): Clutter.Action[]
-    getAllocationBox(): /* box */ Clutter.ActorBox
-    getAllocationGeometry(): /* geom */ Clutter.Geometry
-    getAllocationVertices(ancestor?: Clutter.Actor | null): /* verts */ Clutter.Vertex[]
-    getAnchorPoint(): [ /* anchorX */ number, /* anchorY */ number ]
+    getAllocationBox(): { box: Clutter.ActorBox }
+    getAllocationGeometry(): { geom: Clutter.Geometry }
+    getAllocationVertices(ancestor?: Clutter.Actor | null): { verts: Clutter.Vertex[] }
+    getAnchorPoint(): { anchorX: number, anchorY: number }
     getAnchorPointGravity(): Clutter.Gravity
     getAnimation(): Clutter.Animation
-    getBackgroundColor(): /* color */ Clutter.Color
+    getBackgroundColor(): { color: Clutter.Color }
     getChildAtIndex(index: number): Clutter.Actor
-    getChildTransform(): /* transform */ Clutter.Matrix
+    getChildTransform(): { transform: Clutter.Matrix }
     getChildren(): Clutter.Actor[]
-    getClip(): [ /* xoff */ number | null, /* yoff */ number | null, /* width */ number | null, /* height */ number | null ]
+    getClip(): { xoff: number | null, yoff: number | null, width: number | null, height: number | null }
     getClipToAllocation(): boolean
     getConstraint(name: string): Clutter.Constraint
     getConstraints(): Clutter.Constraint[]
     getContent(): Clutter.Content
-    getContentBox(): /* box */ Clutter.ActorBox
+    getContentBox(): { box: Clutter.ActorBox }
     getContentGravity(): Clutter.ContentGravity
     getContentRepeat(): Clutter.ContentRepeat
-    getContentScalingFilters(): [ /* minFilter */ Clutter.ScalingFilter | null, /* magFilter */ Clutter.ScalingFilter | null ]
+    getContentScalingFilters(): { minFilter: Clutter.ScalingFilter | null, magFilter: Clutter.ScalingFilter | null }
     getDefaultPaintVolume(): Clutter.PaintVolume
     getDepth(): number
     getEasingDelay(): number
@@ -4823,12 +4390,12 @@ export class SpotLight {
     getFirstChild(): Clutter.Actor
     getFixedPositionSet(): boolean
     getFlags(): Clutter.ActorFlags
-    getGeometry(): /* geometry */ Clutter.Geometry
+    getGeometry(): { geometry: Clutter.Geometry }
     getGid(): number
     getHeight(): number
     getLastChild(): Clutter.Actor
     getLayoutManager(): Clutter.LayoutManager
-    getMargin(): /* margin */ Clutter.Margin
+    getMargin(): { margin: Clutter.Margin }
     getMarginBottom(): number
     getMarginLeft(): number
     getMarginRight(): number
@@ -4838,38 +4405,38 @@ export class SpotLight {
     getNextSibling(): Clutter.Actor
     getOffscreenRedirect(): Clutter.OffscreenRedirect
     getOpacity(): number
-    getPaintBox(): [ /* returnType */ boolean, /* box */ Clutter.ActorBox ]
+    getPaintBox(): { returnType: boolean, box: Clutter.ActorBox }
     getPaintOpacity(): number
     getPaintVisibility(): boolean
     getPaintVolume(): Clutter.PaintVolume
     getPangoContext(): Pango.Context
     getParent(): Clutter.Actor
-    getPivotPoint(): [ /* pivotX */ number | null, /* pivotY */ number | null ]
+    getPivotPoint(): { pivotX: number | null, pivotY: number | null }
     getPivotPointZ(): number
-    getPosition(): [ /* x */ number | null, /* y */ number | null ]
-    getPreferredHeight(forWidth: number): [ /* minHeightP */ number | null, /* naturalHeightP */ number | null ]
-    getPreferredSize(): [ /* minWidthP */ number | null, /* minHeightP */ number | null, /* naturalWidthP */ number | null, /* naturalHeightP */ number | null ]
-    getPreferredWidth(forHeight: number): [ /* minWidthP */ number | null, /* naturalWidthP */ number | null ]
+    getPosition(): { x: number | null, y: number | null }
+    getPreferredHeight(forWidth: number): { minHeightP: number | null, naturalHeightP: number | null }
+    getPreferredSize(): { minWidthP: number | null, minHeightP: number | null, naturalWidthP: number | null, naturalHeightP: number | null }
+    getPreferredWidth(forHeight: number): { minWidthP: number | null, naturalWidthP: number | null }
     getPreviousSibling(): Clutter.Actor
     getReactive(): boolean
     getRequestMode(): Clutter.RequestMode
-    getRotation(axis: Clutter.RotateAxis): [ /* returnType */ number, /* x */ number, /* y */ number, /* z */ number ]
+    getRotation(axis: Clutter.RotateAxis): { returnType: number, x: number, y: number, z: number }
     getRotationAngle(axis: Clutter.RotateAxis): number
-    getScale(): [ /* scaleX */ number | null, /* scaleY */ number | null ]
-    getScaleCenter(): [ /* centerX */ number | null, /* centerY */ number | null ]
+    getScale(): { scaleX: number | null, scaleY: number | null }
+    getScaleCenter(): { centerX: number | null, centerY: number | null }
     getScaleGravity(): Clutter.Gravity
     getScaleZ(): number
     getShader(): Clutter.Shader
-    getSize(): [ /* width */ number | null, /* height */ number | null ]
+    getSize(): { width: number | null, height: number | null }
     getStage(): Clutter.Stage
     getTextDirection(): Clutter.TextDirection
-    getTransform(): /* transform */ Clutter.Matrix
-    getTransformationMatrix(): /* matrix */ Clutter.Matrix
+    getTransform(): { transform: Clutter.Matrix }
+    getTransformationMatrix(): { matrix: Clutter.Matrix }
     getTransformedPaintVolume(relativeToAncestor: Clutter.Actor): Clutter.PaintVolume
-    getTransformedPosition(): [ /* x */ number | null, /* y */ number | null ]
-    getTransformedSize(): [ /* width */ number | null, /* height */ number | null ]
+    getTransformedPosition(): { x: number | null, y: number | null }
+    getTransformedSize(): { width: number | null, height: number | null }
     getTransition(name: string): Clutter.Transition
-    getTranslation(): [ /* translateX */ number | null, /* translateY */ number | null, /* translateZ */ number | null ]
+    getTranslation(): { translateX: number | null, translateY: number | null, translateZ: number | null }
     getWidth(): number
     getX(): number
     getXAlign(): Clutter.ActorAlign
@@ -4991,12 +4558,12 @@ export class SpotLight {
     shouldPickPaint(): boolean
     show(): void
     showAll(): void
-    transformStagePoint(x: number, y: number): [ /* returnType */ boolean, /* xOut */ number, /* yOut */ number ]
+    transformStagePoint(x: number, y: number): { returnType: boolean, xOut: number, yOut: number }
     unmap(): void
     unparent(): void
     unrealize(): void
     unsetFlags(flags: Clutter.ActorFlags): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -5018,13 +4585,13 @@ export class SpotLight {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of Clutter.Animatable */
+    /* Methods of Clutter-1.0.Clutter.Animatable */
     animateProperty(animation: Clutter.Animation, propertyName: string, initialValue: any, finalValue: any, progress: number, value: any): boolean
     findProperty(propertyName: string): GObject.ParamSpec
     getInitialState(propertyName: string, value: any): void
-    interpolateValue(propertyName: string, interval: Clutter.Interval, progress: number): [ /* returnType */ boolean, /* value */ any ]
+    interpolateValue(propertyName: string, interval: Clutter.Interval, progress: number): { returnType: boolean, value: any }
     setFinalState(propertyName: string, value: any): void
-    /* Methods of Clutter.Container */
+    /* Methods of Clutter-1.0.Clutter.Container */
     addActor(actor: Clutter.Actor): void
     childGetProperty(child: Clutter.Actor, property: string, value: any): void
     childNotify(child: Clutter.Actor, pspec: GObject.ParamSpec): void
@@ -5039,263 +4606,164 @@ export class SpotLight {
     raiseChild(actor: Clutter.Actor, sibling?: Clutter.Actor | null): void
     removeActor(actor: Clutter.Actor): void
     sortDepthOrder(): void
-    /* Methods of Clutter.Scriptable */
+    /* Methods of Clutter-1.0.Clutter.Scriptable */
     getId(): string
     parseCustomNode(script: Clutter.Script, value: any, name: string, node: Json.Node): boolean
     setCustomProperty(script: Clutter.Script, name: string, value: any): void
     setId(id: string): void
-    /* Virtual methods of Mash.Light */
-    vfuncGenerateShader(uniformSource: GLib.String, mainSource: GLib.String): void
-    vfuncUpdateUniforms(program: Cogl.Handle): void
-    vfuncAnimateProperty(animation: Clutter.Animation, propertyName: string, initialValue: any, finalValue: any, progress: number, value: any): boolean
-    vfuncFindProperty(propertyName: string): GObject.ParamSpec
-    vfuncGetInitialState(propertyName: string, value: any): void
-    vfuncInterpolateValue(propertyName: string, interval: Clutter.Interval, progress: number): [ /* returnType */ boolean, /* value */ any ]
-    vfuncSetFinalState(propertyName: string, value: any): void
-    vfuncActorAdded(actor: Clutter.Actor): void
-    vfuncActorRemoved(actor: Clutter.Actor): void
-    vfuncAdd(actor: Clutter.Actor): void
-    vfuncChildNotify(child: Clutter.Actor, pspec: GObject.ParamSpec): void
-    vfuncCreateChildMeta(actor: Clutter.Actor): void
-    vfuncDestroyChildMeta(actor: Clutter.Actor): void
-    vfuncForeach(callback: Clutter.Callback): void
-    vfuncForeachWithInternals(callback: Clutter.Callback): void
-    vfuncGetChildMeta(actor: Clutter.Actor): Clutter.ChildMeta
-    vfuncLower(actor: Clutter.Actor, sibling?: Clutter.Actor | null): void
-    vfuncRaise(actor: Clutter.Actor, sibling?: Clutter.Actor | null): void
-    vfuncRemove(actor: Clutter.Actor): void
-    vfuncSortDepthOrder(): void
-    vfuncGetId(): string
-    vfuncParseCustomNode(script: Clutter.Script, value: any, name: string, node: Json.Node): boolean
-    vfuncSetCustomProperty(script: Clutter.Script, name: string, value: any): void
-    vfuncSetId(id: string): void
-    /* Virtual methods of Clutter.Actor */
-    vfuncAllocate(box: Clutter.ActorBox, flags: Clutter.AllocationFlags): void
-    vfuncApplyTransform(matrix: Clutter.Matrix): void
-    vfuncButtonPressEvent(event: Clutter.ButtonEvent): boolean
-    vfuncButtonReleaseEvent(event: Clutter.ButtonEvent): boolean
-    vfuncCapturedEvent(event: Clutter.Event): boolean
-    vfuncDestroy(): void
-    vfuncEnterEvent(event: Clutter.CrossingEvent): boolean
-    vfuncEvent(event: Clutter.Event): boolean
-    vfuncGetAccessible(): Atk.Object
-    vfuncGetPaintVolume(volume: Clutter.PaintVolume): boolean
-    vfuncGetPreferredHeight(forWidth: number): [ /* minHeightP */ number | null, /* naturalHeightP */ number | null ]
-    vfuncGetPreferredWidth(forHeight: number): [ /* minWidthP */ number | null, /* naturalWidthP */ number | null ]
-    vfuncHasOverlaps(): boolean
-    vfuncHide(): void
-    vfuncHideAll(): void
-    vfuncKeyFocusIn(): void
-    vfuncKeyFocusOut(): void
-    vfuncKeyPressEvent(event: Clutter.KeyEvent): boolean
-    vfuncKeyReleaseEvent(event: Clutter.KeyEvent): boolean
-    vfuncLeaveEvent(event: Clutter.CrossingEvent): boolean
-    vfuncMap(): void
-    vfuncMotionEvent(event: Clutter.MotionEvent): boolean
-    vfuncPaint(): void
-    vfuncPaintNode(root: Clutter.PaintNode): void
-    vfuncParentSet(oldParent: Clutter.Actor): void
-    vfuncPick(color: Clutter.Color): void
-    vfuncQueueRedraw(leafThatQueued: Clutter.Actor): void
-    vfuncQueueRelayout(): void
-    vfuncRealize(): void
-    vfuncScrollEvent(event: Clutter.ScrollEvent): boolean
-    vfuncShow(): void
-    vfuncShowAll(): void
-    vfuncTouchEvent(event: Clutter.TouchEvent): boolean
-    vfuncUnmap(): void
-    vfuncUnrealize(): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Clutter.Actor */
+    /* Signals of Clutter-1.0.Clutter.Actor */
     connect(sigName: "allocation-changed", callback: (($obj: SpotLight, box: Clutter.ActorBox, flags: Clutter.AllocationFlags) => void)): number
-    connect_after(sigName: "allocation-changed", callback: (($obj: SpotLight, box: Clutter.ActorBox, flags: Clutter.AllocationFlags) => void)): number
+    on(sigName: "allocation-changed", callback: (box: Clutter.ActorBox, flags: Clutter.AllocationFlags) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "allocation-changed", callback: (box: Clutter.ActorBox, flags: Clutter.AllocationFlags) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "allocation-changed", callback: (box: Clutter.ActorBox, flags: Clutter.AllocationFlags) => void): NodeJS.EventEmitter
     emit(sigName: "allocation-changed", box: Clutter.ActorBox, flags: Clutter.AllocationFlags): void
-    on(sigName: "allocation-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "allocation-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "allocation-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "button-press-event", callback: (($obj: SpotLight, event: Clutter.ButtonEvent) => boolean)): number
-    connect_after(sigName: "button-press-event", callback: (($obj: SpotLight, event: Clutter.ButtonEvent) => boolean)): number
+    on(sigName: "button-press-event", callback: (event: Clutter.ButtonEvent) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "button-press-event", callback: (event: Clutter.ButtonEvent) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "button-press-event", callback: (event: Clutter.ButtonEvent) => void): NodeJS.EventEmitter
     emit(sigName: "button-press-event", event: Clutter.ButtonEvent): void
-    on(sigName: "button-press-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "button-press-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "button-press-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "button-release-event", callback: (($obj: SpotLight, event: Clutter.ButtonEvent) => boolean)): number
-    connect_after(sigName: "button-release-event", callback: (($obj: SpotLight, event: Clutter.ButtonEvent) => boolean)): number
+    on(sigName: "button-release-event", callback: (event: Clutter.ButtonEvent) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "button-release-event", callback: (event: Clutter.ButtonEvent) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "button-release-event", callback: (event: Clutter.ButtonEvent) => void): NodeJS.EventEmitter
     emit(sigName: "button-release-event", event: Clutter.ButtonEvent): void
-    on(sigName: "button-release-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "button-release-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "button-release-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "captured-event", callback: (($obj: SpotLight, event: Clutter.Event) => boolean)): number
-    connect_after(sigName: "captured-event", callback: (($obj: SpotLight, event: Clutter.Event) => boolean)): number
+    on(sigName: "captured-event", callback: (event: Clutter.Event) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "captured-event", callback: (event: Clutter.Event) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "captured-event", callback: (event: Clutter.Event) => void): NodeJS.EventEmitter
     emit(sigName: "captured-event", event: Clutter.Event): void
-    on(sigName: "captured-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "captured-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "captured-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "destroy", callback: (($obj: SpotLight) => void)): number
-    connect_after(sigName: "destroy", callback: (($obj: SpotLight) => void)): number
+    on(sigName: "destroy", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "destroy", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "destroy", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "destroy"): void
-    on(sigName: "destroy", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "destroy", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "destroy", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "enter-event", callback: (($obj: SpotLight, event: Clutter.CrossingEvent) => boolean)): number
-    connect_after(sigName: "enter-event", callback: (($obj: SpotLight, event: Clutter.CrossingEvent) => boolean)): number
+    on(sigName: "enter-event", callback: (event: Clutter.CrossingEvent) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "enter-event", callback: (event: Clutter.CrossingEvent) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "enter-event", callback: (event: Clutter.CrossingEvent) => void): NodeJS.EventEmitter
     emit(sigName: "enter-event", event: Clutter.CrossingEvent): void
-    on(sigName: "enter-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "enter-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "enter-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "event", callback: (($obj: SpotLight, event: Clutter.Event) => boolean)): number
-    connect_after(sigName: "event", callback: (($obj: SpotLight, event: Clutter.Event) => boolean)): number
+    on(sigName: "event", callback: (event: Clutter.Event) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "event", callback: (event: Clutter.Event) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "event", callback: (event: Clutter.Event) => void): NodeJS.EventEmitter
     emit(sigName: "event", event: Clutter.Event): void
-    on(sigName: "event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "hide", callback: (($obj: SpotLight) => void)): number
-    connect_after(sigName: "hide", callback: (($obj: SpotLight) => void)): number
+    on(sigName: "hide", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "hide", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "hide", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "hide"): void
-    on(sigName: "hide", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "hide", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "hide", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "key-focus-in", callback: (($obj: SpotLight) => void)): number
-    connect_after(sigName: "key-focus-in", callback: (($obj: SpotLight) => void)): number
+    on(sigName: "key-focus-in", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "key-focus-in", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "key-focus-in", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "key-focus-in"): void
-    on(sigName: "key-focus-in", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "key-focus-in", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "key-focus-in", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "key-focus-out", callback: (($obj: SpotLight) => void)): number
-    connect_after(sigName: "key-focus-out", callback: (($obj: SpotLight) => void)): number
+    on(sigName: "key-focus-out", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "key-focus-out", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "key-focus-out", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "key-focus-out"): void
-    on(sigName: "key-focus-out", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "key-focus-out", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "key-focus-out", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "key-press-event", callback: (($obj: SpotLight, event: Clutter.KeyEvent) => boolean)): number
-    connect_after(sigName: "key-press-event", callback: (($obj: SpotLight, event: Clutter.KeyEvent) => boolean)): number
+    on(sigName: "key-press-event", callback: (event: Clutter.KeyEvent) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "key-press-event", callback: (event: Clutter.KeyEvent) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "key-press-event", callback: (event: Clutter.KeyEvent) => void): NodeJS.EventEmitter
     emit(sigName: "key-press-event", event: Clutter.KeyEvent): void
-    on(sigName: "key-press-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "key-press-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "key-press-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "key-release-event", callback: (($obj: SpotLight, event: Clutter.KeyEvent) => boolean)): number
-    connect_after(sigName: "key-release-event", callback: (($obj: SpotLight, event: Clutter.KeyEvent) => boolean)): number
+    on(sigName: "key-release-event", callback: (event: Clutter.KeyEvent) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "key-release-event", callback: (event: Clutter.KeyEvent) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "key-release-event", callback: (event: Clutter.KeyEvent) => void): NodeJS.EventEmitter
     emit(sigName: "key-release-event", event: Clutter.KeyEvent): void
-    on(sigName: "key-release-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "key-release-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "key-release-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "leave-event", callback: (($obj: SpotLight, event: Clutter.CrossingEvent) => boolean)): number
-    connect_after(sigName: "leave-event", callback: (($obj: SpotLight, event: Clutter.CrossingEvent) => boolean)): number
+    on(sigName: "leave-event", callback: (event: Clutter.CrossingEvent) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "leave-event", callback: (event: Clutter.CrossingEvent) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "leave-event", callback: (event: Clutter.CrossingEvent) => void): NodeJS.EventEmitter
     emit(sigName: "leave-event", event: Clutter.CrossingEvent): void
-    on(sigName: "leave-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "leave-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "leave-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "motion-event", callback: (($obj: SpotLight, event: Clutter.MotionEvent) => boolean)): number
-    connect_after(sigName: "motion-event", callback: (($obj: SpotLight, event: Clutter.MotionEvent) => boolean)): number
+    on(sigName: "motion-event", callback: (event: Clutter.MotionEvent) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "motion-event", callback: (event: Clutter.MotionEvent) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "motion-event", callback: (event: Clutter.MotionEvent) => void): NodeJS.EventEmitter
     emit(sigName: "motion-event", event: Clutter.MotionEvent): void
-    on(sigName: "motion-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "motion-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "motion-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "paint", callback: (($obj: SpotLight) => void)): number
-    connect_after(sigName: "paint", callback: (($obj: SpotLight) => void)): number
+    on(sigName: "paint", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "paint", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "paint", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "paint"): void
-    on(sigName: "paint", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "paint", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "paint", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "parent-set", callback: (($obj: SpotLight, oldParent?: Clutter.Actor | null) => void)): number
-    connect_after(sigName: "parent-set", callback: (($obj: SpotLight, oldParent?: Clutter.Actor | null) => void)): number
+    on(sigName: "parent-set", callback: (oldParent?: Clutter.Actor | null) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "parent-set", callback: (oldParent?: Clutter.Actor | null) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "parent-set", callback: (oldParent?: Clutter.Actor | null) => void): NodeJS.EventEmitter
     emit(sigName: "parent-set", oldParent?: Clutter.Actor | null): void
-    on(sigName: "parent-set", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "parent-set", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "parent-set", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "pick", callback: (($obj: SpotLight, color: Clutter.Color) => void)): number
-    connect_after(sigName: "pick", callback: (($obj: SpotLight, color: Clutter.Color) => void)): number
+    on(sigName: "pick", callback: (color: Clutter.Color) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "pick", callback: (color: Clutter.Color) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "pick", callback: (color: Clutter.Color) => void): NodeJS.EventEmitter
     emit(sigName: "pick", color: Clutter.Color): void
-    on(sigName: "pick", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "pick", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "pick", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "queue-redraw", callback: (($obj: SpotLight, origin: Clutter.Actor) => void)): number
-    connect_after(sigName: "queue-redraw", callback: (($obj: SpotLight, origin: Clutter.Actor) => void)): number
+    on(sigName: "queue-redraw", callback: (origin: Clutter.Actor) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "queue-redraw", callback: (origin: Clutter.Actor) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "queue-redraw", callback: (origin: Clutter.Actor) => void): NodeJS.EventEmitter
     emit(sigName: "queue-redraw", origin: Clutter.Actor): void
-    on(sigName: "queue-redraw", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "queue-redraw", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "queue-redraw", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "queue-relayout", callback: (($obj: SpotLight) => void)): number
-    connect_after(sigName: "queue-relayout", callback: (($obj: SpotLight) => void)): number
+    on(sigName: "queue-relayout", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "queue-relayout", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "queue-relayout", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "queue-relayout"): void
-    on(sigName: "queue-relayout", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "queue-relayout", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "queue-relayout", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "realize", callback: (($obj: SpotLight) => void)): number
-    connect_after(sigName: "realize", callback: (($obj: SpotLight) => void)): number
+    on(sigName: "realize", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "realize", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "realize", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "realize"): void
-    on(sigName: "realize", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "realize", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "realize", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "scroll-event", callback: (($obj: SpotLight, event: Clutter.ScrollEvent) => boolean)): number
-    connect_after(sigName: "scroll-event", callback: (($obj: SpotLight, event: Clutter.ScrollEvent) => boolean)): number
+    on(sigName: "scroll-event", callback: (event: Clutter.ScrollEvent) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "scroll-event", callback: (event: Clutter.ScrollEvent) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "scroll-event", callback: (event: Clutter.ScrollEvent) => void): NodeJS.EventEmitter
     emit(sigName: "scroll-event", event: Clutter.ScrollEvent): void
-    on(sigName: "scroll-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "scroll-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "scroll-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "show", callback: (($obj: SpotLight) => void)): number
-    connect_after(sigName: "show", callback: (($obj: SpotLight) => void)): number
+    on(sigName: "show", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "show", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "show", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "show"): void
-    on(sigName: "show", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "show", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "show", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "touch-event", callback: (($obj: SpotLight, event: Clutter.Event) => boolean)): number
-    connect_after(sigName: "touch-event", callback: (($obj: SpotLight, event: Clutter.Event) => boolean)): number
+    on(sigName: "touch-event", callback: (event: Clutter.Event) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "touch-event", callback: (event: Clutter.Event) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "touch-event", callback: (event: Clutter.Event) => void): NodeJS.EventEmitter
     emit(sigName: "touch-event", event: Clutter.Event): void
-    on(sigName: "touch-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "touch-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "touch-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "transition-stopped", callback: (($obj: SpotLight, name: string, isFinished: boolean) => void)): number
-    connect_after(sigName: "transition-stopped", callback: (($obj: SpotLight, name: string, isFinished: boolean) => void)): number
+    on(sigName: "transition-stopped", callback: (name: string, isFinished: boolean) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "transition-stopped", callback: (name: string, isFinished: boolean) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "transition-stopped", callback: (name: string, isFinished: boolean) => void): NodeJS.EventEmitter
     emit(sigName: "transition-stopped", name: string, isFinished: boolean): void
-    on(sigName: "transition-stopped", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "transition-stopped", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "transition-stopped", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "transitions-completed", callback: (($obj: SpotLight) => void)): number
-    connect_after(sigName: "transitions-completed", callback: (($obj: SpotLight) => void)): number
+    on(sigName: "transitions-completed", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "transitions-completed", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "transitions-completed", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "transitions-completed"): void
-    on(sigName: "transitions-completed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "transitions-completed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "transitions-completed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "unrealize", callback: (($obj: SpotLight) => void)): number
-    connect_after(sigName: "unrealize", callback: (($obj: SpotLight) => void)): number
+    on(sigName: "unrealize", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "unrealize", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "unrealize", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "unrealize"): void
-    on(sigName: "unrealize", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "unrealize", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "unrealize", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: SpotLight, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: SpotLight, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of Clutter.Container */
+    /* Signals of Clutter-1.0.Clutter.Container */
     connect(sigName: "actor-added", callback: (($obj: SpotLight, actor: Clutter.Actor) => void)): number
-    connect_after(sigName: "actor-added", callback: (($obj: SpotLight, actor: Clutter.Actor) => void)): number
+    on(sigName: "actor-added", callback: (actor: Clutter.Actor) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "actor-added", callback: (actor: Clutter.Actor) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "actor-added", callback: (actor: Clutter.Actor) => void): NodeJS.EventEmitter
     emit(sigName: "actor-added", actor: Clutter.Actor): void
-    on(sigName: "actor-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "actor-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "actor-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "actor-removed", callback: (($obj: SpotLight, actor: Clutter.Actor) => void)): number
-    connect_after(sigName: "actor-removed", callback: (($obj: SpotLight, actor: Clutter.Actor) => void)): number
+    on(sigName: "actor-removed", callback: (actor: Clutter.Actor) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "actor-removed", callback: (actor: Clutter.Actor) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "actor-removed", callback: (actor: Clutter.Actor) => void): NodeJS.EventEmitter
     emit(sigName: "actor-removed", actor: Clutter.Actor): void
-    on(sigName: "actor-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "actor-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "actor-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "child-notify", callback: (($obj: SpotLight, actor: Clutter.Actor, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "child-notify", callback: (($obj: SpotLight, actor: Clutter.Actor, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "child-notify", callback: (actor: Clutter.Actor, pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "child-notify", callback: (actor: Clutter.Actor, pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "child-notify", callback: (actor: Clutter.Actor, pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "child-notify", actor: Clutter.Actor, pspec: GObject.ParamSpec): void
-    on(sigName: "child-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "child-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "child-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::spot-cutoff", callback: (($obj: SpotLight, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::spot-cutoff", callback: (($obj: SpotLight, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::spot-cutoff", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -5764,13 +5232,13 @@ export abstract class DataClass {
     static name: string
 }
 export abstract class DataLoaderClass {
-    /* Fields of Mash.DataLoaderClass */
+    /* Fields of Mash-0.2.Mash.DataLoaderClass */
     load: (dataLoader: DataLoader, flags: DataFlags, filename: string) => boolean
     getData: (dataLoader: DataLoader, loaderData: DataLoaderData) => void
     static name: string
 }
 export class DataLoaderData {
-    /* Fields of Mash.DataLoaderData */
+    /* Fields of Mash-0.2.Mash.DataLoaderData */
     verticesVbo: Cogl.Handle
     indices: Cogl.Handle
     minIndex: number
@@ -5793,7 +5261,7 @@ export class DirectionalLightPrivate {
     static name: string
 }
 export abstract class LightClass {
-    /* Fields of Mash.LightClass */
+    /* Fields of Mash-0.2.Mash.LightClass */
     generateShader: (light: Light, uniformSource: GLib.String, mainSource: GLib.String) => void
     updateUniforms: (light: Light, program: Cogl.Handle) => void
     static name: string

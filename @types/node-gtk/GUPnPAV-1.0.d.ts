@@ -89,14 +89,14 @@ export function protocolErrorQuark(): GLib.Quark
 export interface CDSLastChangeParser_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class CDSLastChangeParser {
-    /* Fields of GUPnPAV.CDSLastChangeParser */
+    /* Fields of GUPnPAV-1.0.GUPnPAV.CDSLastChangeParser */
     parent: GObject.Object
     priv: CDSLastChangeParserPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GUPnPAV.CDSLastChangeParser */
+    /* Methods of GUPnPAV-1.0.GUPnPAV.CDSLastChangeParser */
     parse(lastChange: string): CDSLastChangeEntry[]
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -118,21 +118,12 @@ export class CDSLastChangeParser {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: CDSLastChangeParser, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: CDSLastChangeParser, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -155,13 +146,13 @@ export interface DIDLLiteContainer_ConstructProps extends DIDLLiteObject_Constru
     totalDeletedChildCount?: number
 }
 export class DIDLLiteContainer {
-    /* Properties of GUPnPAV.DIDLLiteContainer */
+    /* Properties of GUPnPAV-1.0.GUPnPAV.DIDLLiteContainer */
     childCount: number
     containerUpdateId: number
     searchable: boolean
     storageUsed: number
     totalDeletedChildCount: number
-    /* Properties of GUPnPAV.DIDLLiteObject */
+    /* Properties of GUPnPAV-1.0.GUPnPAV.DIDLLiteObject */
     album: string
     albumArt: string
     artist: string
@@ -179,13 +170,13 @@ export class DIDLLiteContainer {
     updateId: number
     upnpClass: string
     writeStatus: string
-    /* Fields of GUPnPAV.DIDLLiteContainer */
+    /* Fields of GUPnPAV-1.0.GUPnPAV.DIDLLiteContainer */
     parent: DIDLLiteObject
-    /* Fields of GUPnPAV.DIDLLiteObject */
+    /* Fields of GUPnPAV-1.0.GUPnPAV.DIDLLiteObject */
     priv: DIDLLiteObjectPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GUPnPAV.DIDLLiteContainer */
+    /* Methods of GUPnPAV-1.0.GUPnPAV.DIDLLiteContainer */
     addCreateClass(createClass: string): void
     addCreateClassFull(createClass: string, includeDerived: boolean): void
     addSearchClass(searchClass: string): void
@@ -207,7 +198,7 @@ export class DIDLLiteContainer {
     totalDeletedChildCountIsSet(): boolean
     unsetContainerUpdateId(): void
     unsetTotalDeletedChildCount(): void
-    /* Methods of GUPnPAV.DIDLLiteObject */
+    /* Methods of GUPnPAV-1.0.GUPnPAV.DIDLLiteObject */
     addArtist(): DIDLLiteContributor
     addAuthor(): DIDLLiteContributor
     addCreator(): DIDLLiteContributor
@@ -271,7 +262,7 @@ export class DIDLLiteContainer {
     unsetArtists(): void
     unsetUpdateId(): void
     updateIdIsSet(): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -293,21 +284,12 @@ export class DIDLLiteContainer {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: DIDLLiteContainer, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: DIDLLiteContainer, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::child-count", callback: (($obj: DIDLLiteContainer, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::child-count", callback: (($obj: DIDLLiteContainer, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::child-count", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -436,21 +418,21 @@ export interface DIDLLiteContributor_ConstructProps extends GObject.Object_Const
     xmlNode?: object
 }
 export class DIDLLiteContributor {
-    /* Properties of GUPnPAV.DIDLLiteContributor */
+    /* Properties of GUPnPAV-1.0.GUPnPAV.DIDLLiteContributor */
     name: string
     role: string
-    /* Fields of GUPnPAV.DIDLLiteContributor */
+    /* Fields of GUPnPAV-1.0.GUPnPAV.DIDLLiteContributor */
     parent: GObject.Object
     priv: DIDLLiteContributorPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GUPnPAV.DIDLLiteContributor */
+    /* Methods of GUPnPAV-1.0.GUPnPAV.DIDLLiteContributor */
     getName(): string
     getRole(): string
     getXmlNode(): libxml2.Node
     setName(name: string): void
     setRole(role: string): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -472,21 +454,12 @@ export class DIDLLiteContributor {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: DIDLLiteContributor, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: DIDLLiteContributor, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::name", callback: (($obj: DIDLLiteContributor, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::name", callback: (($obj: DIDLLiteContributor, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::name", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -516,15 +489,15 @@ export interface DIDLLiteCreateClass_ConstructProps extends GObject.Object_Const
     xmlNode?: object
 }
 export class DIDLLiteCreateClass {
-    /* Properties of GUPnPAV.DIDLLiteCreateClass */
+    /* Properties of GUPnPAV-1.0.GUPnPAV.DIDLLiteCreateClass */
     content: string
     friendlyName: string
     includeDerived: boolean
-    /* Fields of GUPnPAV.DIDLLiteCreateClass */
+    /* Fields of GUPnPAV-1.0.GUPnPAV.DIDLLiteCreateClass */
     parent: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GUPnPAV.DIDLLiteCreateClass */
+    /* Methods of GUPnPAV-1.0.GUPnPAV.DIDLLiteCreateClass */
     getContent(): string
     getFriendlyName(): string
     getIncludeDerived(): boolean
@@ -532,7 +505,7 @@ export class DIDLLiteCreateClass {
     setContent(content: string): void
     setFriendlyName(friendlyName: string): void
     setIncludeDerived(includeDerived: boolean): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -554,21 +527,12 @@ export class DIDLLiteCreateClass {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: DIDLLiteCreateClass, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: DIDLLiteCreateClass, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::content", callback: (($obj: DIDLLiteCreateClass, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::content", callback: (($obj: DIDLLiteCreateClass, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::content", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -604,17 +568,17 @@ export interface DIDLLiteDescriptor_ConstructProps extends GObject.Object_Constr
     xmlNode?: object
 }
 export class DIDLLiteDescriptor {
-    /* Properties of GUPnPAV.DIDLLiteDescriptor */
+    /* Properties of GUPnPAV-1.0.GUPnPAV.DIDLLiteDescriptor */
     content: string
     id: string
     metadataType: string
     nameSpace: string
-    /* Fields of GUPnPAV.DIDLLiteDescriptor */
+    /* Fields of GUPnPAV-1.0.GUPnPAV.DIDLLiteDescriptor */
     parent: GObject.Object
     priv: DIDLLiteDescriptorPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GUPnPAV.DIDLLiteDescriptor */
+    /* Methods of GUPnPAV-1.0.GUPnPAV.DIDLLiteDescriptor */
     getContent(): string
     getId(): string
     getMetadataType(): string
@@ -624,7 +588,7 @@ export class DIDLLiteDescriptor {
     setId(id: string): void
     setMetadataType(type: string): void
     setNameSpace(nameSpace: string): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -646,21 +610,12 @@ export class DIDLLiteDescriptor {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: DIDLLiteDescriptor, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: DIDLLiteDescriptor, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::content", callback: (($obj: DIDLLiteDescriptor, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::content", callback: (($obj: DIDLLiteDescriptor, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::content", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -700,10 +655,10 @@ export interface DIDLLiteItem_ConstructProps extends DIDLLiteObject_ConstructPro
     refId?: string
 }
 export class DIDLLiteItem {
-    /* Properties of GUPnPAV.DIDLLiteItem */
+    /* Properties of GUPnPAV-1.0.GUPnPAV.DIDLLiteItem */
     lifetime: number
     refId: string
-    /* Properties of GUPnPAV.DIDLLiteObject */
+    /* Properties of GUPnPAV-1.0.GUPnPAV.DIDLLiteObject */
     album: string
     albumArt: string
     artist: string
@@ -721,18 +676,18 @@ export class DIDLLiteItem {
     updateId: number
     upnpClass: string
     writeStatus: string
-    /* Fields of GUPnPAV.DIDLLiteItem */
+    /* Fields of GUPnPAV-1.0.GUPnPAV.DIDLLiteItem */
     parent: DIDLLiteObject
-    /* Fields of GUPnPAV.DIDLLiteObject */
+    /* Fields of GUPnPAV-1.0.GUPnPAV.DIDLLiteObject */
     priv: DIDLLiteObjectPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GUPnPAV.DIDLLiteItem */
+    /* Methods of GUPnPAV-1.0.GUPnPAV.DIDLLiteItem */
     getLifetime(): number
     getRefId(): string
     setLifetime(lifetime: number): void
     setRefId(refId: string): void
-    /* Methods of GUPnPAV.DIDLLiteObject */
+    /* Methods of GUPnPAV-1.0.GUPnPAV.DIDLLiteObject */
     addArtist(): DIDLLiteContributor
     addAuthor(): DIDLLiteContributor
     addCreator(): DIDLLiteContributor
@@ -796,7 +751,7 @@ export class DIDLLiteItem {
     unsetArtists(): void
     unsetUpdateId(): void
     updateIdIsSet(): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -818,21 +773,12 @@ export class DIDLLiteItem {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: DIDLLiteItem, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: DIDLLiteItem, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::lifetime", callback: (($obj: DIDLLiteItem, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::lifetime", callback: (($obj: DIDLLiteItem, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::lifetime", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -965,7 +911,7 @@ export interface DIDLLiteObject_ConstructProps extends GObject.Object_ConstructP
     xmlNode?: object
 }
 export class DIDLLiteObject {
-    /* Properties of GUPnPAV.DIDLLiteObject */
+    /* Properties of GUPnPAV-1.0.GUPnPAV.DIDLLiteObject */
     album: string
     albumArt: string
     artist: string
@@ -983,12 +929,12 @@ export class DIDLLiteObject {
     updateId: number
     upnpClass: string
     writeStatus: string
-    /* Fields of GUPnPAV.DIDLLiteObject */
+    /* Fields of GUPnPAV-1.0.GUPnPAV.DIDLLiteObject */
     parent: GObject.Object
     priv: DIDLLiteObjectPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GUPnPAV.DIDLLiteObject */
+    /* Methods of GUPnPAV-1.0.GUPnPAV.DIDLLiteObject */
     addArtist(): DIDLLiteContributor
     addAuthor(): DIDLLiteContributor
     addCreator(): DIDLLiteContributor
@@ -1052,7 +998,7 @@ export class DIDLLiteObject {
     unsetArtists(): void
     unsetUpdateId(): void
     updateIdIsSet(): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -1074,21 +1020,12 @@ export class DIDLLiteObject {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: DIDLLiteObject, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: DIDLLiteObject, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::album", callback: (($obj: DIDLLiteObject, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::album", callback: (($obj: DIDLLiteObject, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::album", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -1189,14 +1126,14 @@ export class DIDLLiteObject {
 export interface DIDLLiteParser_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class DIDLLiteParser {
-    /* Fields of GUPnPAV.DIDLLiteParser */
+    /* Fields of GUPnPAV-1.0.GUPnPAV.DIDLLiteParser */
     parent: GObject.Object
     gupnpReserved: object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GUPnPAV.DIDLLiteParser */
+    /* Methods of GUPnPAV-1.0.GUPnPAV.DIDLLiteParser */
     parseDidl(didl: string): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -1218,44 +1155,28 @@ export class DIDLLiteParser {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GUPnPAV.DIDLLiteParser */
-    vfuncContainerAvailable(container: DIDLLiteContainer): void
-    vfuncItemAvailable(item: DIDLLiteItem): void
-    vfuncObjectAvailable(object: DIDLLiteObject): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GUPnPAV.DIDLLiteParser */
+    /* Signals of GUPnPAV-1.0.GUPnPAV.DIDLLiteParser */
     connect(sigName: "container-available", callback: (($obj: DIDLLiteParser, container: DIDLLiteContainer) => void)): number
-    connect_after(sigName: "container-available", callback: (($obj: DIDLLiteParser, container: DIDLLiteContainer) => void)): number
+    on(sigName: "container-available", callback: (container: DIDLLiteContainer) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "container-available", callback: (container: DIDLLiteContainer) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "container-available", callback: (container: DIDLLiteContainer) => void): NodeJS.EventEmitter
     emit(sigName: "container-available", container: DIDLLiteContainer): void
-    on(sigName: "container-available", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "container-available", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "container-available", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "item-available", callback: (($obj: DIDLLiteParser, item: DIDLLiteItem) => void)): number
-    connect_after(sigName: "item-available", callback: (($obj: DIDLLiteParser, item: DIDLLiteItem) => void)): number
+    on(sigName: "item-available", callback: (item: DIDLLiteItem) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "item-available", callback: (item: DIDLLiteItem) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "item-available", callback: (item: DIDLLiteItem) => void): NodeJS.EventEmitter
     emit(sigName: "item-available", item: DIDLLiteItem): void
-    on(sigName: "item-available", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "item-available", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "item-available", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "object-available", callback: (($obj: DIDLLiteParser, object: DIDLLiteObject) => void)): number
-    connect_after(sigName: "object-available", callback: (($obj: DIDLLiteParser, object: DIDLLiteObject) => void)): number
+    on(sigName: "object-available", callback: (object: DIDLLiteObject) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "object-available", callback: (object: DIDLLiteObject) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "object-available", callback: (object: DIDLLiteObject) => void): NodeJS.EventEmitter
     emit(sigName: "object-available", object: DIDLLiteObject): void
-    on(sigName: "object-available", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "object-available", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "object-available", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: DIDLLiteParser, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: DIDLLiteParser, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -1295,7 +1216,7 @@ export interface DIDLLiteResource_ConstructProps extends GObject.Object_Construc
     xmlNode?: object
 }
 export class DIDLLiteResource {
-    /* Properties of GUPnPAV.DIDLLiteResource */
+    /* Properties of GUPnPAV-1.0.GUPnPAV.DIDLLiteResource */
     audioChannels: number
     bitrate: number
     bitsPerSample: number
@@ -1315,12 +1236,12 @@ export class DIDLLiteResource {
     updateCount: number
     uri: string
     width: number
-    /* Fields of GUPnPAV.DIDLLiteResource */
+    /* Fields of GUPnPAV-1.0.GUPnPAV.DIDLLiteResource */
     parent: GObject.Object
     priv: DIDLLiteResourcePrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GUPnPAV.DIDLLiteResource */
+    /* Methods of GUPnPAV-1.0.GUPnPAV.DIDLLiteResource */
     getAudioChannels(): number
     getBitrate(): number
     getBitsPerSample(): number
@@ -1366,7 +1287,7 @@ export class DIDLLiteResource {
     unsetTrackTotal(): void
     unsetUpdateCount(): void
     updateCountIsSet(): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -1388,21 +1309,12 @@ export class DIDLLiteResource {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: DIDLLiteResource, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: DIDLLiteResource, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::audio-channels", callback: (($obj: DIDLLiteResource, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::audio-channels", callback: (($obj: DIDLLiteResource, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::audio-channels", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -1514,14 +1426,14 @@ export interface DIDLLiteWriter_ConstructProps extends GObject.Object_ConstructP
     language?: string
 }
 export class DIDLLiteWriter {
-    /* Properties of GUPnPAV.DIDLLiteWriter */
+    /* Properties of GUPnPAV-1.0.GUPnPAV.DIDLLiteWriter */
     readonly xmlNode: object
-    /* Fields of GUPnPAV.DIDLLiteWriter */
+    /* Fields of GUPnPAV-1.0.GUPnPAV.DIDLLiteWriter */
     parent: GObject.Object
     priv: DIDLLiteWriterPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GUPnPAV.DIDLLiteWriter */
+    /* Methods of GUPnPAV-1.0.GUPnPAV.DIDLLiteWriter */
     addContainer(): DIDLLiteContainer
     addDescriptor(): DIDLLiteDescriptor
     addItem(): DIDLLiteItem
@@ -1529,7 +1441,7 @@ export class DIDLLiteWriter {
     getLanguage(): string
     getString(): string
     getXmlNode(): libxml2.Node
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -1551,21 +1463,12 @@ export class DIDLLiteWriter {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: DIDLLiteWriter, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: DIDLLiteWriter, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::xml-node", callback: (($obj: DIDLLiteWriter, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::xml-node", callback: (($obj: DIDLLiteWriter, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::xml-node", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -1591,16 +1494,16 @@ export interface Feature_ConstructProps extends GObject.Object_ConstructProps {
     version?: string
 }
 export class Feature {
-    /* Fields of GUPnPAV.Feature */
+    /* Fields of GUPnPAV-1.0.GUPnPAV.Feature */
     parent: GObject.Object
     priv: FeaturePrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GUPnPAV.Feature */
+    /* Methods of GUPnPAV-1.0.GUPnPAV.Feature */
     getName(): string
     getObjectIds(): string
     getVersion(): string
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -1622,21 +1525,12 @@ export class Feature {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Feature, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Feature, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -1652,13 +1546,13 @@ export class Feature {
 export interface FeatureListParser_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class FeatureListParser {
-    /* Fields of GUPnPAV.FeatureListParser */
+    /* Fields of GUPnPAV-1.0.GUPnPAV.FeatureListParser */
     parent: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GUPnPAV.FeatureListParser */
+    /* Methods of GUPnPAV-1.0.GUPnPAV.FeatureListParser */
     parseText(text: string): Feature[]
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -1680,21 +1574,12 @@ export class FeatureListParser {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: FeatureListParser, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: FeatureListParser, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -1712,11 +1597,11 @@ export class FeatureListParser {
 export interface LastChangeParser_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class LastChangeParser {
-    /* Fields of GUPnPAV.LastChangeParser */
+    /* Fields of GUPnPAV-1.0.GUPnPAV.LastChangeParser */
     parent: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -1738,21 +1623,12 @@ export class LastChangeParser {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: LastChangeParser, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: LastChangeParser, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -1773,16 +1649,16 @@ export interface MediaCollection_ConstructProps extends GObject.Object_Construct
     title?: string
 }
 export class MediaCollection {
-    /* Properties of GUPnPAV.MediaCollection */
+    /* Properties of GUPnPAV-1.0.GUPnPAV.MediaCollection */
     author: string
     readonly mutable: boolean
     title: string
-    /* Fields of GUPnPAV.MediaCollection */
+    /* Fields of GUPnPAV-1.0.GUPnPAV.MediaCollection */
     parent: GObject.Object
     priv: MediaCollectionPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GUPnPAV.MediaCollection */
+    /* Methods of GUPnPAV-1.0.GUPnPAV.MediaCollection */
     addItem(): DIDLLiteItem
     getAuthor(): string
     getItems(): DIDLLiteItem[]
@@ -1791,7 +1667,7 @@ export class MediaCollection {
     getTitle(): string
     setAuthor(author: string): void
     setTitle(title: string): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -1813,21 +1689,12 @@ export class MediaCollection {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: MediaCollection, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: MediaCollection, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::author", callback: (($obj: MediaCollection, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::author", callback: (($obj: MediaCollection, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::author", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -1869,7 +1736,7 @@ export interface ProtocolInfo_ConstructProps extends GObject.Object_ConstructPro
     protocol?: string
 }
 export class ProtocolInfo {
-    /* Properties of GUPnPAV.ProtocolInfo */
+    /* Properties of GUPnPAV-1.0.GUPnPAV.ProtocolInfo */
     dlnaConversion: DLNAConversion
     dlnaFlags: DLNAFlags
     dlnaOperation: DLNAOperation
@@ -1878,12 +1745,12 @@ export class ProtocolInfo {
     network: string
     playSpeeds: string[]
     protocol: string
-    /* Fields of GUPnPAV.ProtocolInfo */
+    /* Fields of GUPnPAV-1.0.GUPnPAV.ProtocolInfo */
     parent: GObject.Object
     priv: ProtocolInfoPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GUPnPAV.ProtocolInfo */
+    /* Methods of GUPnPAV-1.0.GUPnPAV.ProtocolInfo */
     getDlnaConversion(): DLNAConversion
     getDlnaFlags(): DLNAFlags
     getDlnaOperation(): DLNAOperation
@@ -1902,7 +1769,7 @@ export class ProtocolInfo {
     setPlaySpeeds(speeds: string): void
     setProtocol(protocol: string): void
     toString(): string
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -1924,21 +1791,12 @@ export class ProtocolInfo {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: ProtocolInfo, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: ProtocolInfo, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::dlna-conversion", callback: (($obj: ProtocolInfo, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::dlna-conversion", callback: (($obj: ProtocolInfo, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::dlna-conversion", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -1997,14 +1855,14 @@ export class ProtocolInfo {
 export interface SearchCriteriaParser_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class SearchCriteriaParser {
-    /* Fields of GUPnPAV.SearchCriteriaParser */
+    /* Fields of GUPnPAV-1.0.GUPnPAV.SearchCriteriaParser */
     parent: GObject.Object
     priv: SearchCriteriaParserPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GUPnPAV.SearchCriteriaParser */
+    /* Methods of GUPnPAV-1.0.GUPnPAV.SearchCriteriaParser */
     parseText(text: string): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -2026,58 +1884,38 @@ export class SearchCriteriaParser {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GUPnPAV.SearchCriteriaParser */
-    vfuncBeginParens(): void
-    vfuncConjunction(): void
-    vfuncDisjunction(): void
-    vfuncEndParens(): void
-    vfuncExpression(property: string, op: SearchCriteriaOp, value: string): boolean
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GUPnPAV.SearchCriteriaParser */
+    /* Signals of GUPnPAV-1.0.GUPnPAV.SearchCriteriaParser */
     connect(sigName: "begin-parens", callback: (($obj: SearchCriteriaParser) => void)): number
-    connect_after(sigName: "begin-parens", callback: (($obj: SearchCriteriaParser) => void)): number
+    on(sigName: "begin-parens", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "begin-parens", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "begin-parens", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "begin-parens"): void
-    on(sigName: "begin-parens", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "begin-parens", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "begin-parens", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "conjunction", callback: (($obj: SearchCriteriaParser) => void)): number
-    connect_after(sigName: "conjunction", callback: (($obj: SearchCriteriaParser) => void)): number
+    on(sigName: "conjunction", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "conjunction", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "conjunction", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "conjunction"): void
-    on(sigName: "conjunction", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "conjunction", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "conjunction", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "disjunction", callback: (($obj: SearchCriteriaParser) => void)): number
-    connect_after(sigName: "disjunction", callback: (($obj: SearchCriteriaParser) => void)): number
+    on(sigName: "disjunction", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "disjunction", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "disjunction", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "disjunction"): void
-    on(sigName: "disjunction", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "disjunction", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "disjunction", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "end-parens", callback: (($obj: SearchCriteriaParser) => void)): number
-    connect_after(sigName: "end-parens", callback: (($obj: SearchCriteriaParser) => void)): number
+    on(sigName: "end-parens", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "end-parens", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "end-parens", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "end-parens"): void
-    on(sigName: "end-parens", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "end-parens", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "end-parens", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "expression", callback: (($obj: SearchCriteriaParser, property: string, op: SearchCriteriaOp, value: string, error?: object | null) => boolean)): number
-    connect_after(sigName: "expression", callback: (($obj: SearchCriteriaParser, property: string, op: SearchCriteriaOp, value: string, error?: object | null) => boolean)): number
+    on(sigName: "expression", callback: (property: string, op: SearchCriteriaOp, value: string, error?: object | null) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "expression", callback: (property: string, op: SearchCriteriaOp, value: string, error?: object | null) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "expression", callback: (property: string, op: SearchCriteriaOp, value: string, error?: object | null) => void): NodeJS.EventEmitter
     emit(sigName: "expression", property: string, op: SearchCriteriaOp, value: string, error?: object | null): void
-    on(sigName: "expression", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "expression", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "expression", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: SearchCriteriaParser, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: SearchCriteriaParser, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -2094,7 +1932,7 @@ export class SearchCriteriaParser {
     static $gtype: GObject.Type
 }
 export class CDSLastChangeEntry {
-    /* Methods of GUPnPAV.CDSLastChangeEntry */
+    /* Methods of GUPnPAV-1.0.GUPnPAV.CDSLastChangeEntry */
     getClass(): string
     getEvent(): CDSLastChangeEvent
     getObjectId(): string
@@ -2106,7 +1944,7 @@ export class CDSLastChangeEntry {
     static name: string
 }
 export abstract class CDSLastChangeParserClass {
-    /* Fields of GUPnPAV.CDSLastChangeParserClass */
+    /* Fields of GUPnPAV-1.0.GUPnPAV.CDSLastChangeParserClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
@@ -2114,12 +1952,12 @@ export class CDSLastChangeParserPrivate {
     static name: string
 }
 export abstract class DIDLLiteContainerClass {
-    /* Fields of GUPnPAV.DIDLLiteContainerClass */
+    /* Fields of GUPnPAV-1.0.GUPnPAV.DIDLLiteContainerClass */
     parentClass: DIDLLiteObjectClass
     static name: string
 }
 export abstract class DIDLLiteContributorClass {
-    /* Fields of GUPnPAV.DIDLLiteContributorClass */
+    /* Fields of GUPnPAV-1.0.GUPnPAV.DIDLLiteContributorClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
@@ -2127,7 +1965,7 @@ export class DIDLLiteContributorPrivate {
     static name: string
 }
 export abstract class DIDLLiteCreateClassClass {
-    /* Fields of GUPnPAV.DIDLLiteCreateClassClass */
+    /* Fields of GUPnPAV-1.0.GUPnPAV.DIDLLiteCreateClassClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
@@ -2135,7 +1973,7 @@ export class DIDLLiteCreateClassPrivate {
     static name: string
 }
 export abstract class DIDLLiteDescriptorClass {
-    /* Fields of GUPnPAV.DIDLLiteDescriptorClass */
+    /* Fields of GUPnPAV-1.0.GUPnPAV.DIDLLiteDescriptorClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
@@ -2143,12 +1981,12 @@ export class DIDLLiteDescriptorPrivate {
     static name: string
 }
 export abstract class DIDLLiteItemClass {
-    /* Fields of GUPnPAV.DIDLLiteItemClass */
+    /* Fields of GUPnPAV-1.0.GUPnPAV.DIDLLiteItemClass */
     parentClass: DIDLLiteObjectClass
     static name: string
 }
 export abstract class DIDLLiteObjectClass {
-    /* Fields of GUPnPAV.DIDLLiteObjectClass */
+    /* Fields of GUPnPAV-1.0.GUPnPAV.DIDLLiteObjectClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
@@ -2156,7 +1994,7 @@ export class DIDLLiteObjectPrivate {
     static name: string
 }
 export abstract class DIDLLiteParserClass {
-    /* Fields of GUPnPAV.DIDLLiteParserClass */
+    /* Fields of GUPnPAV-1.0.GUPnPAV.DIDLLiteParserClass */
     parentClass: GObject.ObjectClass
     objectAvailable: (parser: DIDLLiteParser, object: DIDLLiteObject) => void
     itemAvailable: (parser: DIDLLiteParser, item: DIDLLiteItem) => void
@@ -2164,7 +2002,7 @@ export abstract class DIDLLiteParserClass {
     static name: string
 }
 export abstract class DIDLLiteResourceClass {
-    /* Fields of GUPnPAV.DIDLLiteResourceClass */
+    /* Fields of GUPnPAV-1.0.GUPnPAV.DIDLLiteResourceClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
@@ -2172,7 +2010,7 @@ export class DIDLLiteResourcePrivate {
     static name: string
 }
 export abstract class DIDLLiteWriterClass {
-    /* Fields of GUPnPAV.DIDLLiteWriterClass */
+    /* Fields of GUPnPAV-1.0.GUPnPAV.DIDLLiteWriterClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
@@ -2180,12 +2018,12 @@ export class DIDLLiteWriterPrivate {
     static name: string
 }
 export abstract class FeatureClass {
-    /* Fields of GUPnPAV.FeatureClass */
+    /* Fields of GUPnPAV-1.0.GUPnPAV.FeatureClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
 export abstract class FeatureListParserClass {
-    /* Fields of GUPnPAV.FeatureListParserClass */
+    /* Fields of GUPnPAV-1.0.GUPnPAV.FeatureListParserClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
@@ -2193,12 +2031,12 @@ export class FeaturePrivate {
     static name: string
 }
 export abstract class LastChangeParserClass {
-    /* Fields of GUPnPAV.LastChangeParserClass */
+    /* Fields of GUPnPAV-1.0.GUPnPAV.LastChangeParserClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
 export abstract class MediaCollectionClass {
-    /* Fields of GUPnPAV.MediaCollectionClass */
+    /* Fields of GUPnPAV-1.0.GUPnPAV.MediaCollectionClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
@@ -2206,7 +2044,7 @@ export class MediaCollectionPrivate {
     static name: string
 }
 export abstract class ProtocolInfoClass {
-    /* Fields of GUPnPAV.ProtocolInfoClass */
+    /* Fields of GUPnPAV-1.0.GUPnPAV.ProtocolInfoClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
@@ -2214,7 +2052,7 @@ export class ProtocolInfoPrivate {
     static name: string
 }
 export abstract class SearchCriteriaParserClass {
-    /* Fields of GUPnPAV.SearchCriteriaParserClass */
+    /* Fields of GUPnPAV-1.0.GUPnPAV.SearchCriteriaParserClass */
     parentClass: GObject.ObjectClass
     beginParens: (parser: SearchCriteriaParser) => void
     endParens: (parser: SearchCriteriaParser) => void

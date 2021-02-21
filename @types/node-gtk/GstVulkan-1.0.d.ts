@@ -93,13 +93,13 @@ export function vulkanBufferMemoryInitOnce(): void
 export function vulkanBufferMemoryWrapped(device: VulkanDevice, buffer: Vulkan.Buffer, usage: Vulkan.BufferUsageFlags, userData?: object | null, notify?: GLib.DestroyNotify | null): Gst.Memory
 export function vulkanCreateShader(device: VulkanDevice, code: string, size: number): VulkanHandle
 export function vulkanDisplayTypeToExtensionString(type: VulkanDisplayType): string
-export function vulkanEnsureElementData(element: Gst.Element, displayPtr: VulkanDisplay | null, instancePtr: VulkanInstance): [ /* returnType */ boolean, /* displayPtr */ VulkanDisplay | null, /* instancePtr */ VulkanInstance ]
+export function vulkanEnsureElementData(element: Gst.Element, displayPtr: VulkanDisplay | null, instancePtr: VulkanInstance): { returnType: boolean, displayPtr: VulkanDisplay | null, instancePtr: VulkanInstance }
 export function vulkanErrorQuark(): GLib.Quark
 export function vulkanFormatGetInfo(format: Vulkan.Format): VulkanFormatInfo
 export function vulkanGetOrCreateImageView(image: VulkanImageMemory): VulkanImageView
 export function vulkanGlobalContextQuery(element: Gst.Element, contextType: string): void
 export function vulkanHandleContextQuery(element: Gst.Element, query: Gst.Query, display?: VulkanDisplay | null, instance?: VulkanInstance | null, device?: VulkanDevice | null): boolean
-export function vulkanHandleSetContext(element: Gst.Element, context: Gst.Context, display: VulkanDisplay | null, instance: VulkanInstance): [ /* returnType */ boolean, /* display */ VulkanDisplay | null, /* instance */ VulkanInstance ]
+export function vulkanHandleSetContext(element: Gst.Element, context: Gst.Context, display: VulkanDisplay | null, instance: VulkanInstance): { returnType: boolean, display: VulkanDisplay | null, instance: VulkanInstance }
 export function vulkanImageMemoryAlloc(device: VulkanDevice, format: Vulkan.Format, width: number, height: number, tiling: Vulkan.ImageTiling, usage: Vulkan.ImageUsageFlags, memPropFlags: Vulkan.MemoryPropertyFlags): Gst.Memory
 export function vulkanImageMemoryInitOnce(): void
 export function vulkanImageMemoryWrapped(device: VulkanDevice, image: Vulkan.Image, format: Vulkan.Format, width: number, height: number, tiling: Vulkan.ImageTiling, usage: Vulkan.ImageUsageFlags, userData: object | null, notify: GLib.DestroyNotify): Gst.Memory
@@ -138,10 +138,10 @@ export interface VulkanTrashNotify {
 export interface VulkanBufferMemoryAllocator_ConstructProps extends Gst.Allocator_ConstructProps {
 }
 export class VulkanBufferMemoryAllocator {
-    /* Properties of Gst.Object */
+    /* Properties of Gst-1.0.Gst.Object */
     name: string
     parent: Gst.Object
-    /* Fields of Gst.Allocator */
+    /* Fields of Gst-1.0.Gst.Allocator */
     object: Gst.Object
     memType: string
     memMap: Gst.MemoryMapFunction
@@ -151,16 +151,16 @@ export class VulkanBufferMemoryAllocator {
     memIsSpan: Gst.MemoryIsSpanFunction
     memMapFull: Gst.MemoryMapFullFunction
     memUnmapFull: Gst.MemoryUnmapFullFunction
-    /* Fields of Gst.Object */
+    /* Fields of Gst-1.0.Gst.Object */
     lock: GLib.Mutex
     flags: number
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Gst.Allocator */
+    /* Methods of Gst-1.0.Gst.Allocator */
     alloc(size: number, params?: Gst.AllocationParams | null): Gst.Memory | null
     free(memory: Gst.Memory): void
     setDefault(): void
-    /* Methods of Gst.Object */
+    /* Methods of Gst-1.0.Gst.Object */
     addControlBinding(binding: Gst.ControlBinding): boolean
     defaultError(error: GLib.Error, debug?: string | null): void
     getControlBinding(propertyName: string): Gst.ControlBinding | null
@@ -185,7 +185,7 @@ export class VulkanBufferMemoryAllocator {
     syncValues(timestamp: Gst.ClockTime): boolean
     unparent(): void
     unref(): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -206,33 +206,18 @@ export class VulkanBufferMemoryAllocator {
     stealQdata(quark: GLib.Quark): object | null
     thawNotify(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of Gst.Allocator */
-    vfuncAlloc(size: number, params?: Gst.AllocationParams | null): Gst.Memory | null
-    vfuncFree(memory: Gst.Memory): void
-    /* Virtual methods of Gst.Object */
-    vfuncDeepNotify(orig: Gst.Object, pspec: GObject.ParamSpec): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gst.Object */
+    /* Signals of Gst-1.0.Gst.Object */
     connect(sigName: "deep-notify", callback: (($obj: VulkanBufferMemoryAllocator, propObject: Gst.Object, prop: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "deep-notify", callback: (($obj: VulkanBufferMemoryAllocator, propObject: Gst.Object, prop: GObject.ParamSpec) => void)): number
+    on(sigName: "deep-notify", callback: (propObject: Gst.Object, prop: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "deep-notify", callback: (propObject: Gst.Object, prop: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "deep-notify", callback: (propObject: Gst.Object, prop: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "deep-notify", propObject: Gst.Object, prop: GObject.ParamSpec): void
-    on(sigName: "deep-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "deep-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "deep-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: VulkanBufferMemoryAllocator, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: VulkanBufferMemoryAllocator, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::name", callback: (($obj: VulkanBufferMemoryAllocator, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::name", callback: (($obj: VulkanBufferMemoryAllocator, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::name", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -258,22 +243,22 @@ export class VulkanBufferMemoryAllocator {
 export interface VulkanBufferPool_ConstructProps extends Gst.BufferPool_ConstructProps {
 }
 export class VulkanBufferPool {
-    /* Properties of Gst.Object */
+    /* Properties of Gst-1.0.Gst.Object */
     name: string
     parent: Gst.Object
-    /* Fields of GstVulkan.VulkanBufferPool */
+    /* Fields of GstVulkan-1.0.GstVulkan.VulkanBufferPool */
     bufferpool: Gst.BufferPool
     device: VulkanDevice
-    /* Fields of Gst.BufferPool */
+    /* Fields of Gst-1.0.Gst.BufferPool */
     object: Gst.Object
     flushing: number
-    /* Fields of Gst.Object */
+    /* Fields of Gst-1.0.Gst.Object */
     lock: GLib.Mutex
     flags: number
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Gst.BufferPool */
-    acquireBuffer(params?: Gst.BufferPoolAcquireParams | null): [ /* returnType */ Gst.FlowReturn, /* buffer */ Gst.Buffer ]
+    /* Methods of Gst-1.0.Gst.BufferPool */
+    acquireBuffer(params?: Gst.BufferPoolAcquireParams | null): { returnType: Gst.FlowReturn, buffer: Gst.Buffer }
     getConfig(): Gst.Structure
     getOptions(): string[]
     hasOption(option: string): boolean
@@ -282,7 +267,7 @@ export class VulkanBufferPool {
     setActive(active: boolean): boolean
     setConfig(config: Gst.Structure): boolean
     setFlushing(flushing: boolean): void
-    /* Methods of Gst.Object */
+    /* Methods of Gst-1.0.Gst.Object */
     addControlBinding(binding: Gst.ControlBinding): boolean
     defaultError(error: GLib.Error, debug?: string | null): void
     getControlBinding(propertyName: string): Gst.ControlBinding | null
@@ -307,7 +292,7 @@ export class VulkanBufferPool {
     syncValues(timestamp: Gst.ClockTime): boolean
     unparent(): void
     unref(): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -328,42 +313,18 @@ export class VulkanBufferPool {
     stealQdata(quark: GLib.Quark): object | null
     thawNotify(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of Gst.BufferPool */
-    vfuncAcquireBuffer(params?: Gst.BufferPoolAcquireParams | null): [ /* returnType */ Gst.FlowReturn, /* buffer */ Gst.Buffer ]
-    vfuncAllocBuffer(params?: Gst.BufferPoolAcquireParams | null): [ /* returnType */ Gst.FlowReturn, /* buffer */ Gst.Buffer ]
-    vfuncFlushStart(): void
-    vfuncFlushStop(): void
-    vfuncFreeBuffer(buffer: Gst.Buffer): void
-    vfuncGetOptions(): string[]
-    vfuncReleaseBuffer(buffer: Gst.Buffer): void
-    vfuncResetBuffer(buffer: Gst.Buffer): void
-    vfuncSetConfig(config: Gst.Structure): boolean
-    vfuncStart(): boolean
-    vfuncStop(): boolean
-    /* Virtual methods of Gst.Object */
-    vfuncDeepNotify(orig: Gst.Object, pspec: GObject.ParamSpec): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gst.Object */
+    /* Signals of Gst-1.0.Gst.Object */
     connect(sigName: "deep-notify", callback: (($obj: VulkanBufferPool, propObject: Gst.Object, prop: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "deep-notify", callback: (($obj: VulkanBufferPool, propObject: Gst.Object, prop: GObject.ParamSpec) => void)): number
+    on(sigName: "deep-notify", callback: (propObject: Gst.Object, prop: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "deep-notify", callback: (propObject: Gst.Object, prop: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "deep-notify", callback: (propObject: Gst.Object, prop: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "deep-notify", propObject: Gst.Object, prop: GObject.ParamSpec): void
-    on(sigName: "deep-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "deep-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "deep-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: VulkanBufferPool, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: VulkanBufferPool, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::name", callback: (($obj: VulkanBufferPool, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::name", callback: (($obj: VulkanBufferPool, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::name", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -392,23 +353,23 @@ export class VulkanBufferPool {
 export interface VulkanCommandPool_ConstructProps extends Gst.Object_ConstructProps {
 }
 export class VulkanCommandPool {
-    /* Properties of Gst.Object */
+    /* Properties of Gst-1.0.Gst.Object */
     name: string
     parent: Gst.Object
-    /* Fields of GstVulkan.VulkanCommandPool */
+    /* Fields of GstVulkan-1.0.GstVulkan.VulkanCommandPool */
     queue: VulkanQueue
     pool: Vulkan.CommandPool
-    /* Fields of Gst.Object */
+    /* Fields of Gst-1.0.Gst.Object */
     object: GObject.InitiallyUnowned
     lock: GLib.Mutex
     flags: number
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GstVulkan.VulkanCommandPool */
+    /* Methods of GstVulkan-1.0.GstVulkan.VulkanCommandPool */
     create(): VulkanCommandBuffer
     getQueue(): VulkanQueue
     unlock(): void
-    /* Methods of Gst.Object */
+    /* Methods of Gst-1.0.Gst.Object */
     addControlBinding(binding: Gst.ControlBinding): boolean
     defaultError(error: GLib.Error, debug?: string | null): void
     getControlBinding(propertyName: string): Gst.ControlBinding | null
@@ -433,7 +394,7 @@ export class VulkanCommandPool {
     syncValues(timestamp: Gst.ClockTime): boolean
     unparent(): void
     unref(): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -454,30 +415,18 @@ export class VulkanCommandPool {
     stealQdata(quark: GLib.Quark): object | null
     thawNotify(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of Gst.Object */
-    vfuncDeepNotify(orig: Gst.Object, pspec: GObject.ParamSpec): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gst.Object */
+    /* Signals of Gst-1.0.Gst.Object */
     connect(sigName: "deep-notify", callback: (($obj: VulkanCommandPool, propObject: Gst.Object, prop: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "deep-notify", callback: (($obj: VulkanCommandPool, propObject: Gst.Object, prop: GObject.ParamSpec) => void)): number
+    on(sigName: "deep-notify", callback: (propObject: Gst.Object, prop: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "deep-notify", callback: (propObject: Gst.Object, prop: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "deep-notify", callback: (propObject: Gst.Object, prop: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "deep-notify", propObject: Gst.Object, prop: GObject.ParamSpec): void
-    on(sigName: "deep-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "deep-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "deep-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: VulkanCommandPool, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: VulkanCommandPool, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::name", callback: (($obj: VulkanCommandPool, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::name", callback: (($obj: VulkanCommandPool, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::name", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -503,28 +452,28 @@ export class VulkanCommandPool {
 export interface VulkanDescriptorCache_ConstructProps extends VulkanHandlePool_ConstructProps {
 }
 export class VulkanDescriptorCache {
-    /* Properties of Gst.Object */
+    /* Properties of Gst-1.0.Gst.Object */
     name: string
     parent: Gst.Object
-    /* Fields of GstVulkan.VulkanDescriptorCache */
+    /* Fields of GstVulkan-1.0.GstVulkan.VulkanDescriptorCache */
     pool: VulkanDescriptorPool
-    /* Fields of GstVulkan.VulkanHandlePool */
+    /* Fields of GstVulkan-1.0.GstVulkan.VulkanHandlePool */
     device: VulkanDevice
     outstanding: object[]
     available: object[]
-    /* Fields of Gst.Object */
+    /* Fields of Gst-1.0.Gst.Object */
     object: GObject.InitiallyUnowned
     lock: GLib.Mutex
     flags: number
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GstVulkan.VulkanDescriptorCache */
+    /* Methods of GstVulkan-1.0.GstVulkan.VulkanDescriptorCache */
     acquire(): VulkanDescriptorSet
-    /* Methods of GstVulkan.VulkanHandlePool */
+    /* Methods of GstVulkan-1.0.GstVulkan.VulkanHandlePool */
     acquire(): object | null
     alloc(): object | null
     release(handle?: object | null): void
-    /* Methods of Gst.Object */
+    /* Methods of Gst-1.0.Gst.Object */
     addControlBinding(binding: Gst.ControlBinding): boolean
     defaultError(error: GLib.Error, debug?: string | null): void
     getControlBinding(propertyName: string): Gst.ControlBinding | null
@@ -549,7 +498,7 @@ export class VulkanDescriptorCache {
     syncValues(timestamp: Gst.ClockTime): boolean
     unparent(): void
     unref(): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -570,35 +519,18 @@ export class VulkanDescriptorCache {
     stealQdata(quark: GLib.Quark): object | null
     thawNotify(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GstVulkan.VulkanHandlePool */
-    vfuncAcquire(): object | null
-    vfuncAlloc(): object | null
-    vfuncFree(handle?: object | null): void
-    vfuncRelease(handle?: object | null): void
-    /* Virtual methods of Gst.Object */
-    vfuncDeepNotify(orig: Gst.Object, pspec: GObject.ParamSpec): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gst.Object */
+    /* Signals of Gst-1.0.Gst.Object */
     connect(sigName: "deep-notify", callback: (($obj: VulkanDescriptorCache, propObject: Gst.Object, prop: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "deep-notify", callback: (($obj: VulkanDescriptorCache, propObject: Gst.Object, prop: GObject.ParamSpec) => void)): number
+    on(sigName: "deep-notify", callback: (propObject: Gst.Object, prop: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "deep-notify", callback: (propObject: Gst.Object, prop: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "deep-notify", callback: (propObject: Gst.Object, prop: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "deep-notify", propObject: Gst.Object, prop: GObject.ParamSpec): void
-    on(sigName: "deep-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "deep-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "deep-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: VulkanDescriptorCache, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: VulkanDescriptorCache, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::name", callback: (($obj: VulkanDescriptorCache, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::name", callback: (($obj: VulkanDescriptorCache, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::name", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -626,23 +558,23 @@ export class VulkanDescriptorCache {
 export interface VulkanDescriptorPool_ConstructProps extends Gst.Object_ConstructProps {
 }
 export class VulkanDescriptorPool {
-    /* Properties of Gst.Object */
+    /* Properties of Gst-1.0.Gst.Object */
     name: string
     parent: Gst.Object
-    /* Fields of GstVulkan.VulkanDescriptorPool */
+    /* Fields of GstVulkan-1.0.GstVulkan.VulkanDescriptorPool */
     device: VulkanDevice
     pool: Vulkan.DescriptorPool
-    /* Fields of Gst.Object */
+    /* Fields of Gst-1.0.Gst.Object */
     object: GObject.InitiallyUnowned
     lock: GLib.Mutex
     flags: number
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GstVulkan.VulkanDescriptorPool */
+    /* Methods of GstVulkan-1.0.GstVulkan.VulkanDescriptorPool */
     create(nLayouts: number, layouts: VulkanHandle): VulkanDescriptorSet
     getDevice(): VulkanDevice
     getMaxSets(): number
-    /* Methods of Gst.Object */
+    /* Methods of Gst-1.0.Gst.Object */
     addControlBinding(binding: Gst.ControlBinding): boolean
     defaultError(error: GLib.Error, debug?: string | null): void
     getControlBinding(propertyName: string): Gst.ControlBinding | null
@@ -667,7 +599,7 @@ export class VulkanDescriptorPool {
     syncValues(timestamp: Gst.ClockTime): boolean
     unparent(): void
     unref(): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -688,30 +620,18 @@ export class VulkanDescriptorPool {
     stealQdata(quark: GLib.Quark): object | null
     thawNotify(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of Gst.Object */
-    vfuncDeepNotify(orig: Gst.Object, pspec: GObject.ParamSpec): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gst.Object */
+    /* Signals of Gst-1.0.Gst.Object */
     connect(sigName: "deep-notify", callback: (($obj: VulkanDescriptorPool, propObject: Gst.Object, prop: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "deep-notify", callback: (($obj: VulkanDescriptorPool, propObject: Gst.Object, prop: GObject.ParamSpec) => void)): number
+    on(sigName: "deep-notify", callback: (propObject: Gst.Object, prop: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "deep-notify", callback: (propObject: Gst.Object, prop: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "deep-notify", callback: (propObject: Gst.Object, prop: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "deep-notify", propObject: Gst.Object, prop: GObject.ParamSpec): void
-    on(sigName: "deep-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "deep-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "deep-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: VulkanDescriptorPool, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: VulkanDescriptorPool, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::name", callback: (($obj: VulkanDescriptorPool, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::name", callback: (($obj: VulkanDescriptorPool, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::name", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -740,28 +660,28 @@ export interface VulkanDevice_ConstructProps extends Gst.Object_ConstructProps {
     physicalDevice?: VulkanPhysicalDevice
 }
 export class VulkanDevice {
-    /* Properties of GstVulkan.VulkanDevice */
+    /* Properties of GstVulkan-1.0.GstVulkan.VulkanDevice */
     readonly instance: VulkanInstance
-    /* Properties of Gst.Object */
+    /* Properties of Gst-1.0.Gst.Object */
     name: string
     parent: Gst.Object
-    /* Fields of GstVulkan.VulkanDevice */
+    /* Fields of GstVulkan-1.0.GstVulkan.VulkanDevice */
     physicalDevice: VulkanPhysicalDevice
     device: Vulkan.Device
-    /* Fields of Gst.Object */
+    /* Fields of Gst-1.0.Gst.Object */
     object: GObject.InitiallyUnowned
     lock: GLib.Mutex
     flags: number
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GstVulkan.VulkanDevice */
+    /* Methods of GstVulkan-1.0.GstVulkan.VulkanDevice */
     createFence(): VulkanFence
     foreachQueue(): void
     getInstance(): VulkanInstance
     getProcAddress(name: string): object | null
     getQueue(queueFamily: number, queueI: number): VulkanQueue
     open(): boolean
-    /* Methods of Gst.Object */
+    /* Methods of Gst-1.0.Gst.Object */
     addControlBinding(binding: Gst.ControlBinding): boolean
     defaultError(error: GLib.Error, debug?: string | null): void
     getControlBinding(propertyName: string): Gst.ControlBinding | null
@@ -786,7 +706,7 @@ export class VulkanDevice {
     syncValues(timestamp: Gst.ClockTime): boolean
     unparent(): void
     unref(): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -807,30 +727,18 @@ export class VulkanDevice {
     stealQdata(quark: GLib.Quark): object | null
     thawNotify(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of Gst.Object */
-    vfuncDeepNotify(orig: Gst.Object, pspec: GObject.ParamSpec): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gst.Object */
+    /* Signals of Gst-1.0.Gst.Object */
     connect(sigName: "deep-notify", callback: (($obj: VulkanDevice, propObject: Gst.Object, prop: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "deep-notify", callback: (($obj: VulkanDevice, propObject: Gst.Object, prop: GObject.ParamSpec) => void)): number
+    on(sigName: "deep-notify", callback: (propObject: Gst.Object, prop: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "deep-notify", callback: (propObject: Gst.Object, prop: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "deep-notify", callback: (propObject: Gst.Object, prop: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "deep-notify", propObject: Gst.Object, prop: GObject.ParamSpec): void
-    on(sigName: "deep-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "deep-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "deep-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: VulkanDevice, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: VulkanDevice, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::instance", callback: (($obj: VulkanDevice, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::instance", callback: (($obj: VulkanDevice, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::instance", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -860,28 +768,28 @@ export class VulkanDevice {
     static new(physicalDevice: VulkanPhysicalDevice): VulkanDevice
     static newWithIndex(instance: VulkanInstance, deviceIndex: number): VulkanDevice
     static handleContextQuery(element: Gst.Element, query: Gst.Query, device: VulkanDevice): boolean
-    static runContextQuery(element: Gst.Element, device: VulkanDevice): [ /* returnType */ boolean, /* device */ VulkanDevice ]
+    static runContextQuery(element: Gst.Element, device: VulkanDevice): { returnType: boolean, device: VulkanDevice }
     static $gtype: GObject.Type
 }
 export interface VulkanDisplay_ConstructProps extends Gst.Object_ConstructProps {
 }
 export class VulkanDisplay {
-    /* Properties of Gst.Object */
+    /* Properties of Gst-1.0.Gst.Object */
     name: string
     parent: Gst.Object
-    /* Fields of Gst.Object */
+    /* Fields of Gst-1.0.Gst.Object */
     object: GObject.InitiallyUnowned
     lock: GLib.Mutex
     flags: number
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GstVulkan.VulkanDisplay */
+    /* Methods of GstVulkan-1.0.GstVulkan.VulkanDisplay */
     createWindow(): VulkanWindow
     findWindow(data: object | null, compareFunc: GLib.CompareFunc): VulkanWindow
     getHandle(): object | null
     getHandleType(): VulkanDisplayType
     removeWindow(window: VulkanWindow): boolean
-    /* Methods of Gst.Object */
+    /* Methods of Gst-1.0.Gst.Object */
     addControlBinding(binding: Gst.ControlBinding): boolean
     defaultError(error: GLib.Error, debug?: string | null): void
     getControlBinding(propertyName: string): Gst.ControlBinding | null
@@ -906,7 +814,7 @@ export class VulkanDisplay {
     syncValues(timestamp: Gst.ClockTime): boolean
     unparent(): void
     unref(): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -927,33 +835,18 @@ export class VulkanDisplay {
     stealQdata(quark: GLib.Quark): object | null
     thawNotify(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GstVulkan.VulkanDisplay */
-    vfuncCreateWindow(): VulkanWindow
-    vfuncGetHandle(): object | null
-    /* Virtual methods of Gst.Object */
-    vfuncDeepNotify(orig: Gst.Object, pspec: GObject.ParamSpec): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gst.Object */
+    /* Signals of Gst-1.0.Gst.Object */
     connect(sigName: "deep-notify", callback: (($obj: VulkanDisplay, propObject: Gst.Object, prop: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "deep-notify", callback: (($obj: VulkanDisplay, propObject: Gst.Object, prop: GObject.ParamSpec) => void)): number
+    on(sigName: "deep-notify", callback: (propObject: Gst.Object, prop: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "deep-notify", callback: (propObject: Gst.Object, prop: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "deep-notify", callback: (propObject: Gst.Object, prop: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "deep-notify", propObject: Gst.Object, prop: GObject.ParamSpec): void
-    on(sigName: "deep-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "deep-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "deep-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: VulkanDisplay, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: VulkanDisplay, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::name", callback: (($obj: VulkanDisplay, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::name", callback: (($obj: VulkanDisplay, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::name", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -979,30 +872,30 @@ export class VulkanDisplay {
     static newWithType(instance: VulkanInstance, type: VulkanDisplayType): VulkanDisplay
     static chooseType(instance: VulkanInstance): VulkanDisplayType
     static handleContextQuery(element: Gst.Element, query: Gst.Query, display?: VulkanDisplay | null): boolean
-    static runContextQuery(element: Gst.Element, display: VulkanDisplay): [ /* returnType */ boolean, /* display */ VulkanDisplay ]
+    static runContextQuery(element: Gst.Element, display: VulkanDisplay): { returnType: boolean, display: VulkanDisplay }
     static $gtype: GObject.Type
 }
 export interface VulkanFenceCache_ConstructProps extends VulkanHandlePool_ConstructProps {
 }
 export class VulkanFenceCache {
-    /* Properties of Gst.Object */
+    /* Properties of Gst-1.0.Gst.Object */
     name: string
     parent: Gst.Object
-    /* Fields of GstVulkan.VulkanHandlePool */
+    /* Fields of GstVulkan-1.0.GstVulkan.VulkanHandlePool */
     device: VulkanDevice
     outstanding: object[]
     available: object[]
-    /* Fields of Gst.Object */
+    /* Fields of Gst-1.0.Gst.Object */
     object: GObject.InitiallyUnowned
     lock: GLib.Mutex
     flags: number
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GstVulkan.VulkanHandlePool */
+    /* Methods of GstVulkan-1.0.GstVulkan.VulkanHandlePool */
     acquire(): object | null
     alloc(): object | null
     release(handle?: object | null): void
-    /* Methods of Gst.Object */
+    /* Methods of Gst-1.0.Gst.Object */
     addControlBinding(binding: Gst.ControlBinding): boolean
     defaultError(error: GLib.Error, debug?: string | null): void
     getControlBinding(propertyName: string): Gst.ControlBinding | null
@@ -1027,7 +920,7 @@ export class VulkanFenceCache {
     syncValues(timestamp: Gst.ClockTime): boolean
     unparent(): void
     unref(): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -1048,35 +941,18 @@ export class VulkanFenceCache {
     stealQdata(quark: GLib.Quark): object | null
     thawNotify(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GstVulkan.VulkanHandlePool */
-    vfuncAcquire(): object | null
-    vfuncAlloc(): object | null
-    vfuncFree(handle?: object | null): void
-    vfuncRelease(handle?: object | null): void
-    /* Virtual methods of Gst.Object */
-    vfuncDeepNotify(orig: Gst.Object, pspec: GObject.ParamSpec): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gst.Object */
+    /* Signals of Gst-1.0.Gst.Object */
     connect(sigName: "deep-notify", callback: (($obj: VulkanFenceCache, propObject: Gst.Object, prop: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "deep-notify", callback: (($obj: VulkanFenceCache, propObject: Gst.Object, prop: GObject.ParamSpec) => void)): number
+    on(sigName: "deep-notify", callback: (propObject: Gst.Object, prop: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "deep-notify", callback: (propObject: Gst.Object, prop: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "deep-notify", callback: (propObject: Gst.Object, prop: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "deep-notify", propObject: Gst.Object, prop: GObject.ParamSpec): void
-    on(sigName: "deep-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "deep-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "deep-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: VulkanFenceCache, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: VulkanFenceCache, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::name", callback: (($obj: VulkanFenceCache, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::name", callback: (($obj: VulkanFenceCache, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::name", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -1104,10 +980,10 @@ export class VulkanFenceCache {
 export interface VulkanFullScreenQuad_ConstructProps extends Gst.Object_ConstructProps {
 }
 export class VulkanFullScreenQuad {
-    /* Properties of Gst.Object */
+    /* Properties of Gst-1.0.Gst.Object */
     name: string
     parent: Gst.Object
-    /* Fields of GstVulkan.VulkanFullScreenQuad */
+    /* Fields of GstVulkan-1.0.GstVulkan.VulkanFullScreenQuad */
     outInfo: GstVideo.VideoInfo
     inInfo: GstVideo.VideoInfo
     queue: VulkanQueue
@@ -1122,13 +998,13 @@ export class VulkanFullScreenQuad {
     cmdPool: VulkanCommandPool
     trashList: VulkanTrashList
     lastFence: VulkanFence
-    /* Fields of Gst.Object */
+    /* Fields of Gst-1.0.Gst.Object */
     object: GObject.InitiallyUnowned
     lock: GLib.Mutex
     flags: number
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GstVulkan.VulkanFullScreenQuad */
+    /* Methods of GstVulkan-1.0.GstVulkan.VulkanFullScreenQuad */
     draw(): boolean
     fillCommandBuffer(cmd: VulkanCommandBuffer, fence: VulkanFence): boolean
     getLastFence(): VulkanFence
@@ -1141,7 +1017,7 @@ export class VulkanFullScreenQuad {
     setUniformBuffer(uniforms: Gst.Memory): boolean
     setVertexBuffer(vertices: Gst.Memory): boolean
     submit(cmd: VulkanCommandBuffer, fence: VulkanFence): boolean
-    /* Methods of Gst.Object */
+    /* Methods of Gst-1.0.Gst.Object */
     addControlBinding(binding: Gst.ControlBinding): boolean
     defaultError(error: GLib.Error, debug?: string | null): void
     getControlBinding(propertyName: string): Gst.ControlBinding | null
@@ -1166,7 +1042,7 @@ export class VulkanFullScreenQuad {
     syncValues(timestamp: Gst.ClockTime): boolean
     unparent(): void
     unref(): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -1187,30 +1063,18 @@ export class VulkanFullScreenQuad {
     stealQdata(quark: GLib.Quark): object | null
     thawNotify(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of Gst.Object */
-    vfuncDeepNotify(orig: Gst.Object, pspec: GObject.ParamSpec): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gst.Object */
+    /* Signals of Gst-1.0.Gst.Object */
     connect(sigName: "deep-notify", callback: (($obj: VulkanFullScreenQuad, propObject: Gst.Object, prop: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "deep-notify", callback: (($obj: VulkanFullScreenQuad, propObject: Gst.Object, prop: GObject.ParamSpec) => void)): number
+    on(sigName: "deep-notify", callback: (propObject: Gst.Object, prop: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "deep-notify", callback: (propObject: Gst.Object, prop: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "deep-notify", callback: (propObject: Gst.Object, prop: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "deep-notify", propObject: Gst.Object, prop: GObject.ParamSpec): void
-    on(sigName: "deep-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "deep-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "deep-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: VulkanFullScreenQuad, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: VulkanFullScreenQuad, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::name", callback: (($obj: VulkanFullScreenQuad, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::name", callback: (($obj: VulkanFullScreenQuad, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::name", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -1238,24 +1102,24 @@ export class VulkanFullScreenQuad {
 export interface VulkanHandlePool_ConstructProps extends Gst.Object_ConstructProps {
 }
 export class VulkanHandlePool {
-    /* Properties of Gst.Object */
+    /* Properties of Gst-1.0.Gst.Object */
     name: string
     parent: Gst.Object
-    /* Fields of GstVulkan.VulkanHandlePool */
+    /* Fields of GstVulkan-1.0.GstVulkan.VulkanHandlePool */
     device: VulkanDevice
     outstanding: object[]
     available: object[]
-    /* Fields of Gst.Object */
+    /* Fields of Gst-1.0.Gst.Object */
     object: GObject.InitiallyUnowned
     lock: GLib.Mutex
     flags: number
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GstVulkan.VulkanHandlePool */
+    /* Methods of GstVulkan-1.0.GstVulkan.VulkanHandlePool */
     acquire(): object | null
     alloc(): object | null
     release(handle?: object | null): void
-    /* Methods of Gst.Object */
+    /* Methods of Gst-1.0.Gst.Object */
     addControlBinding(binding: Gst.ControlBinding): boolean
     defaultError(error: GLib.Error, debug?: string | null): void
     getControlBinding(propertyName: string): Gst.ControlBinding | null
@@ -1280,7 +1144,7 @@ export class VulkanHandlePool {
     syncValues(timestamp: Gst.ClockTime): boolean
     unparent(): void
     unref(): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -1301,35 +1165,18 @@ export class VulkanHandlePool {
     stealQdata(quark: GLib.Quark): object | null
     thawNotify(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GstVulkan.VulkanHandlePool */
-    vfuncAcquire(): object | null
-    vfuncAlloc(): object | null
-    vfuncFree(handle?: object | null): void
-    vfuncRelease(handle?: object | null): void
-    /* Virtual methods of Gst.Object */
-    vfuncDeepNotify(orig: Gst.Object, pspec: GObject.ParamSpec): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gst.Object */
+    /* Signals of Gst-1.0.Gst.Object */
     connect(sigName: "deep-notify", callback: (($obj: VulkanHandlePool, propObject: Gst.Object, prop: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "deep-notify", callback: (($obj: VulkanHandlePool, propObject: Gst.Object, prop: GObject.ParamSpec) => void)): number
+    on(sigName: "deep-notify", callback: (propObject: Gst.Object, prop: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "deep-notify", callback: (propObject: Gst.Object, prop: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "deep-notify", callback: (propObject: Gst.Object, prop: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "deep-notify", propObject: Gst.Object, prop: GObject.ParamSpec): void
-    on(sigName: "deep-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "deep-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "deep-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: VulkanHandlePool, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: VulkanHandlePool, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::name", callback: (($obj: VulkanHandlePool, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::name", callback: (($obj: VulkanHandlePool, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::name", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -1355,22 +1202,22 @@ export class VulkanHandlePool {
 export interface VulkanImageBufferPool_ConstructProps extends Gst.BufferPool_ConstructProps {
 }
 export class VulkanImageBufferPool {
-    /* Properties of Gst.Object */
+    /* Properties of Gst-1.0.Gst.Object */
     name: string
     parent: Gst.Object
-    /* Fields of GstVulkan.VulkanImageBufferPool */
+    /* Fields of GstVulkan-1.0.GstVulkan.VulkanImageBufferPool */
     bufferpool: Gst.BufferPool
     device: VulkanDevice
-    /* Fields of Gst.BufferPool */
+    /* Fields of Gst-1.0.Gst.BufferPool */
     object: Gst.Object
     flushing: number
-    /* Fields of Gst.Object */
+    /* Fields of Gst-1.0.Gst.Object */
     lock: GLib.Mutex
     flags: number
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Gst.BufferPool */
-    acquireBuffer(params?: Gst.BufferPoolAcquireParams | null): [ /* returnType */ Gst.FlowReturn, /* buffer */ Gst.Buffer ]
+    /* Methods of Gst-1.0.Gst.BufferPool */
+    acquireBuffer(params?: Gst.BufferPoolAcquireParams | null): { returnType: Gst.FlowReturn, buffer: Gst.Buffer }
     getConfig(): Gst.Structure
     getOptions(): string[]
     hasOption(option: string): boolean
@@ -1379,7 +1226,7 @@ export class VulkanImageBufferPool {
     setActive(active: boolean): boolean
     setConfig(config: Gst.Structure): boolean
     setFlushing(flushing: boolean): void
-    /* Methods of Gst.Object */
+    /* Methods of Gst-1.0.Gst.Object */
     addControlBinding(binding: Gst.ControlBinding): boolean
     defaultError(error: GLib.Error, debug?: string | null): void
     getControlBinding(propertyName: string): Gst.ControlBinding | null
@@ -1404,7 +1251,7 @@ export class VulkanImageBufferPool {
     syncValues(timestamp: Gst.ClockTime): boolean
     unparent(): void
     unref(): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -1425,42 +1272,18 @@ export class VulkanImageBufferPool {
     stealQdata(quark: GLib.Quark): object | null
     thawNotify(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of Gst.BufferPool */
-    vfuncAcquireBuffer(params?: Gst.BufferPoolAcquireParams | null): [ /* returnType */ Gst.FlowReturn, /* buffer */ Gst.Buffer ]
-    vfuncAllocBuffer(params?: Gst.BufferPoolAcquireParams | null): [ /* returnType */ Gst.FlowReturn, /* buffer */ Gst.Buffer ]
-    vfuncFlushStart(): void
-    vfuncFlushStop(): void
-    vfuncFreeBuffer(buffer: Gst.Buffer): void
-    vfuncGetOptions(): string[]
-    vfuncReleaseBuffer(buffer: Gst.Buffer): void
-    vfuncResetBuffer(buffer: Gst.Buffer): void
-    vfuncSetConfig(config: Gst.Structure): boolean
-    vfuncStart(): boolean
-    vfuncStop(): boolean
-    /* Virtual methods of Gst.Object */
-    vfuncDeepNotify(orig: Gst.Object, pspec: GObject.ParamSpec): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gst.Object */
+    /* Signals of Gst-1.0.Gst.Object */
     connect(sigName: "deep-notify", callback: (($obj: VulkanImageBufferPool, propObject: Gst.Object, prop: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "deep-notify", callback: (($obj: VulkanImageBufferPool, propObject: Gst.Object, prop: GObject.ParamSpec) => void)): number
+    on(sigName: "deep-notify", callback: (propObject: Gst.Object, prop: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "deep-notify", callback: (propObject: Gst.Object, prop: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "deep-notify", callback: (propObject: Gst.Object, prop: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "deep-notify", propObject: Gst.Object, prop: GObject.ParamSpec): void
-    on(sigName: "deep-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "deep-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "deep-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: VulkanImageBufferPool, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: VulkanImageBufferPool, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::name", callback: (($obj: VulkanImageBufferPool, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::name", callback: (($obj: VulkanImageBufferPool, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::name", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -1489,10 +1312,10 @@ export class VulkanImageBufferPool {
 export interface VulkanImageMemoryAllocator_ConstructProps extends Gst.Allocator_ConstructProps {
 }
 export class VulkanImageMemoryAllocator {
-    /* Properties of Gst.Object */
+    /* Properties of Gst-1.0.Gst.Object */
     name: string
     parent: Gst.Object
-    /* Fields of Gst.Allocator */
+    /* Fields of Gst-1.0.Gst.Allocator */
     object: Gst.Object
     memType: string
     memMap: Gst.MemoryMapFunction
@@ -1502,16 +1325,16 @@ export class VulkanImageMemoryAllocator {
     memIsSpan: Gst.MemoryIsSpanFunction
     memMapFull: Gst.MemoryMapFullFunction
     memUnmapFull: Gst.MemoryUnmapFullFunction
-    /* Fields of Gst.Object */
+    /* Fields of Gst-1.0.Gst.Object */
     lock: GLib.Mutex
     flags: number
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Gst.Allocator */
+    /* Methods of Gst-1.0.Gst.Allocator */
     alloc(size: number, params?: Gst.AllocationParams | null): Gst.Memory | null
     free(memory: Gst.Memory): void
     setDefault(): void
-    /* Methods of Gst.Object */
+    /* Methods of Gst-1.0.Gst.Object */
     addControlBinding(binding: Gst.ControlBinding): boolean
     defaultError(error: GLib.Error, debug?: string | null): void
     getControlBinding(propertyName: string): Gst.ControlBinding | null
@@ -1536,7 +1359,7 @@ export class VulkanImageMemoryAllocator {
     syncValues(timestamp: Gst.ClockTime): boolean
     unparent(): void
     unref(): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -1557,33 +1380,18 @@ export class VulkanImageMemoryAllocator {
     stealQdata(quark: GLib.Quark): object | null
     thawNotify(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of Gst.Allocator */
-    vfuncAlloc(size: number, params?: Gst.AllocationParams | null): Gst.Memory | null
-    vfuncFree(memory: Gst.Memory): void
-    /* Virtual methods of Gst.Object */
-    vfuncDeepNotify(orig: Gst.Object, pspec: GObject.ParamSpec): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gst.Object */
+    /* Signals of Gst-1.0.Gst.Object */
     connect(sigName: "deep-notify", callback: (($obj: VulkanImageMemoryAllocator, propObject: Gst.Object, prop: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "deep-notify", callback: (($obj: VulkanImageMemoryAllocator, propObject: Gst.Object, prop: GObject.ParamSpec) => void)): number
+    on(sigName: "deep-notify", callback: (propObject: Gst.Object, prop: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "deep-notify", callback: (propObject: Gst.Object, prop: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "deep-notify", callback: (propObject: Gst.Object, prop: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "deep-notify", propObject: Gst.Object, prop: GObject.ParamSpec): void
-    on(sigName: "deep-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "deep-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "deep-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: VulkanImageMemoryAllocator, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: VulkanImageMemoryAllocator, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::name", callback: (($obj: VulkanImageMemoryAllocator, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::name", callback: (($obj: VulkanImageMemoryAllocator, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::name", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -1609,25 +1417,25 @@ export class VulkanImageMemoryAllocator {
 export interface VulkanInstance_ConstructProps extends Gst.Object_ConstructProps {
 }
 export class VulkanInstance {
-    /* Properties of Gst.Object */
+    /* Properties of Gst-1.0.Gst.Object */
     name: string
     parent: Gst.Object
-    /* Fields of GstVulkan.VulkanInstance */
+    /* Fields of GstVulkan-1.0.GstVulkan.VulkanInstance */
     instance: Vulkan.Instance
     physicalDevices: Vulkan.PhysicalDevice
     nPhysicalDevices: number
     msgCallback: Vulkan.DebugReportCallbackEXT
-    /* Fields of Gst.Object */
+    /* Fields of Gst-1.0.Gst.Object */
     object: GObject.InitiallyUnowned
     lock: GLib.Mutex
     flags: number
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GstVulkan.VulkanInstance */
+    /* Methods of GstVulkan-1.0.GstVulkan.VulkanInstance */
     createDevice(): VulkanDevice
     getProcAddress(name: string): object | null
     open(): boolean
-    /* Methods of Gst.Object */
+    /* Methods of Gst-1.0.Gst.Object */
     addControlBinding(binding: Gst.ControlBinding): boolean
     defaultError(error: GLib.Error, debug?: string | null): void
     getControlBinding(propertyName: string): Gst.ControlBinding | null
@@ -1652,7 +1460,7 @@ export class VulkanInstance {
     syncValues(timestamp: Gst.ClockTime): boolean
     unparent(): void
     unref(): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -1673,37 +1481,24 @@ export class VulkanInstance {
     stealQdata(quark: GLib.Quark): object | null
     thawNotify(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of Gst.Object */
-    vfuncDeepNotify(orig: Gst.Object, pspec: GObject.ParamSpec): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GstVulkan.VulkanInstance */
+    /* Signals of GstVulkan-1.0.GstVulkan.VulkanInstance */
     connect(sigName: "create-device", callback: (($obj: VulkanInstance) => VulkanDevice)): number
-    connect_after(sigName: "create-device", callback: (($obj: VulkanInstance) => VulkanDevice)): number
+    on(sigName: "create-device", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "create-device", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "create-device", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "create-device"): void
-    on(sigName: "create-device", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "create-device", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "create-device", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of Gst.Object */
+    /* Signals of Gst-1.0.Gst.Object */
     connect(sigName: "deep-notify", callback: (($obj: VulkanInstance, propObject: Gst.Object, prop: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "deep-notify", callback: (($obj: VulkanInstance, propObject: Gst.Object, prop: GObject.ParamSpec) => void)): number
+    on(sigName: "deep-notify", callback: (propObject: Gst.Object, prop: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "deep-notify", callback: (propObject: Gst.Object, prop: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "deep-notify", callback: (propObject: Gst.Object, prop: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "deep-notify", propObject: Gst.Object, prop: GObject.ParamSpec): void
-    on(sigName: "deep-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "deep-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "deep-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: VulkanInstance, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: VulkanInstance, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::name", callback: (($obj: VulkanInstance, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::name", callback: (($obj: VulkanInstance, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::name", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -1727,16 +1522,16 @@ export class VulkanInstance {
     /* Static methods and pseudo-constructors */
     static new(): VulkanInstance
     static handleContextQuery(element: Gst.Element, query: Gst.Query, instance?: VulkanInstance | null): boolean
-    static runContextQuery(element: Gst.Element, instance: VulkanInstance): [ /* returnType */ boolean, /* instance */ VulkanInstance ]
+    static runContextQuery(element: Gst.Element, instance: VulkanInstance): { returnType: boolean, instance: VulkanInstance }
     static $gtype: GObject.Type
 }
 export interface VulkanMemoryAllocator_ConstructProps extends Gst.Allocator_ConstructProps {
 }
 export class VulkanMemoryAllocator {
-    /* Properties of Gst.Object */
+    /* Properties of Gst-1.0.Gst.Object */
     name: string
     parent: Gst.Object
-    /* Fields of Gst.Allocator */
+    /* Fields of Gst-1.0.Gst.Allocator */
     object: Gst.Object
     memType: string
     memMap: Gst.MemoryMapFunction
@@ -1746,16 +1541,16 @@ export class VulkanMemoryAllocator {
     memIsSpan: Gst.MemoryIsSpanFunction
     memMapFull: Gst.MemoryMapFullFunction
     memUnmapFull: Gst.MemoryUnmapFullFunction
-    /* Fields of Gst.Object */
+    /* Fields of Gst-1.0.Gst.Object */
     lock: GLib.Mutex
     flags: number
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Gst.Allocator */
+    /* Methods of Gst-1.0.Gst.Allocator */
     alloc(size: number, params?: Gst.AllocationParams | null): Gst.Memory | null
     free(memory: Gst.Memory): void
     setDefault(): void
-    /* Methods of Gst.Object */
+    /* Methods of Gst-1.0.Gst.Object */
     addControlBinding(binding: Gst.ControlBinding): boolean
     defaultError(error: GLib.Error, debug?: string | null): void
     getControlBinding(propertyName: string): Gst.ControlBinding | null
@@ -1780,7 +1575,7 @@ export class VulkanMemoryAllocator {
     syncValues(timestamp: Gst.ClockTime): boolean
     unparent(): void
     unref(): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -1801,33 +1596,18 @@ export class VulkanMemoryAllocator {
     stealQdata(quark: GLib.Quark): object | null
     thawNotify(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of Gst.Allocator */
-    vfuncAlloc(size: number, params?: Gst.AllocationParams | null): Gst.Memory | null
-    vfuncFree(memory: Gst.Memory): void
-    /* Virtual methods of Gst.Object */
-    vfuncDeepNotify(orig: Gst.Object, pspec: GObject.ParamSpec): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gst.Object */
+    /* Signals of Gst-1.0.Gst.Object */
     connect(sigName: "deep-notify", callback: (($obj: VulkanMemoryAllocator, propObject: Gst.Object, prop: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "deep-notify", callback: (($obj: VulkanMemoryAllocator, propObject: Gst.Object, prop: GObject.ParamSpec) => void)): number
+    on(sigName: "deep-notify", callback: (propObject: Gst.Object, prop: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "deep-notify", callback: (propObject: Gst.Object, prop: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "deep-notify", callback: (propObject: Gst.Object, prop: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "deep-notify", propObject: Gst.Object, prop: GObject.ParamSpec): void
-    on(sigName: "deep-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "deep-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "deep-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: VulkanMemoryAllocator, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: VulkanMemoryAllocator, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::name", callback: (($obj: VulkanMemoryAllocator, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::name", callback: (($obj: VulkanMemoryAllocator, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::name", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -1855,11 +1635,11 @@ export interface VulkanPhysicalDevice_ConstructProps extends Gst.Object_Construc
     instance?: VulkanInstance
 }
 export class VulkanPhysicalDevice {
-    /* Properties of GstVulkan.VulkanPhysicalDevice */
+    /* Properties of GstVulkan-1.0.GstVulkan.VulkanPhysicalDevice */
     readonly name: string
-    /* Properties of Gst.Object */
+    /* Properties of Gst-1.0.Gst.Object */
     parent: Gst.Object
-    /* Fields of GstVulkan.VulkanPhysicalDevice */
+    /* Fields of GstVulkan-1.0.GstVulkan.VulkanPhysicalDevice */
     instance: VulkanInstance
     deviceIndex: number
     device: Vulkan.PhysicalDevice
@@ -1872,15 +1652,15 @@ export class VulkanPhysicalDevice {
     memoryProperties: Vulkan.PhysicalDeviceMemoryProperties
     queueFamilyProps: Vulkan.QueueFamilyProperties
     nQueueFamilies: number
-    /* Fields of Gst.Object */
+    /* Fields of Gst-1.0.Gst.Object */
     object: GObject.InitiallyUnowned
     lock: GLib.Mutex
     flags: number
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GstVulkan.VulkanPhysicalDevice */
+    /* Methods of GstVulkan-1.0.GstVulkan.VulkanPhysicalDevice */
     getInstance(): VulkanInstance
-    /* Methods of Gst.Object */
+    /* Methods of Gst-1.0.Gst.Object */
     addControlBinding(binding: Gst.ControlBinding): boolean
     defaultError(error: GLib.Error, debug?: string | null): void
     getControlBinding(propertyName: string): Gst.ControlBinding | null
@@ -1905,7 +1685,7 @@ export class VulkanPhysicalDevice {
     syncValues(timestamp: Gst.ClockTime): boolean
     unparent(): void
     unref(): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -1926,30 +1706,18 @@ export class VulkanPhysicalDevice {
     stealQdata(quark: GLib.Quark): object | null
     thawNotify(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of Gst.Object */
-    vfuncDeepNotify(orig: Gst.Object, pspec: GObject.ParamSpec): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gst.Object */
+    /* Signals of Gst-1.0.Gst.Object */
     connect(sigName: "deep-notify", callback: (($obj: VulkanPhysicalDevice, propObject: Gst.Object, prop: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "deep-notify", callback: (($obj: VulkanPhysicalDevice, propObject: Gst.Object, prop: GObject.ParamSpec) => void)): number
+    on(sigName: "deep-notify", callback: (propObject: Gst.Object, prop: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "deep-notify", callback: (propObject: Gst.Object, prop: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "deep-notify", callback: (propObject: Gst.Object, prop: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "deep-notify", propObject: Gst.Object, prop: GObject.ParamSpec): void
-    on(sigName: "deep-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "deep-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "deep-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: VulkanPhysicalDevice, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: VulkanPhysicalDevice, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::name", callback: (($obj: VulkanPhysicalDevice, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::name", callback: (($obj: VulkanPhysicalDevice, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::name", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -1978,26 +1746,26 @@ export class VulkanPhysicalDevice {
 export interface VulkanQueue_ConstructProps extends Gst.Object_ConstructProps {
 }
 export class VulkanQueue {
-    /* Properties of Gst.Object */
+    /* Properties of Gst-1.0.Gst.Object */
     name: string
     parent: Gst.Object
-    /* Fields of GstVulkan.VulkanQueue */
+    /* Fields of GstVulkan-1.0.GstVulkan.VulkanQueue */
     device: VulkanDevice
     queue: Vulkan.Queue
     family: number
     index: number
-    /* Fields of Gst.Object */
+    /* Fields of Gst-1.0.Gst.Object */
     object: GObject.InitiallyUnowned
     lock: GLib.Mutex
     flags: number
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GstVulkan.VulkanQueue */
+    /* Methods of GstVulkan-1.0.GstVulkan.VulkanQueue */
     createCommandPool(): VulkanCommandPool
     getDevice(): VulkanDevice
     submitLock(): void
     submitUnlock(): void
-    /* Methods of Gst.Object */
+    /* Methods of Gst-1.0.Gst.Object */
     addControlBinding(binding: Gst.ControlBinding): boolean
     defaultError(error: GLib.Error, debug?: string | null): void
     getControlBinding(propertyName: string): Gst.ControlBinding | null
@@ -2022,7 +1790,7 @@ export class VulkanQueue {
     syncValues(timestamp: Gst.ClockTime): boolean
     unparent(): void
     unref(): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -2043,30 +1811,18 @@ export class VulkanQueue {
     stealQdata(quark: GLib.Quark): object | null
     thawNotify(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of Gst.Object */
-    vfuncDeepNotify(orig: Gst.Object, pspec: GObject.ParamSpec): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gst.Object */
+    /* Signals of Gst-1.0.Gst.Object */
     connect(sigName: "deep-notify", callback: (($obj: VulkanQueue, propObject: Gst.Object, prop: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "deep-notify", callback: (($obj: VulkanQueue, propObject: Gst.Object, prop: GObject.ParamSpec) => void)): number
+    on(sigName: "deep-notify", callback: (propObject: Gst.Object, prop: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "deep-notify", callback: (propObject: Gst.Object, prop: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "deep-notify", callback: (propObject: Gst.Object, prop: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "deep-notify", propObject: Gst.Object, prop: GObject.ParamSpec): void
-    on(sigName: "deep-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "deep-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "deep-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: VulkanQueue, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: VulkanQueue, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::name", callback: (($obj: VulkanQueue, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::name", callback: (($obj: VulkanQueue, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::name", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -2090,7 +1846,7 @@ export class VulkanQueue {
     /* Static methods and pseudo-constructors */
     static flagsToString(queueBits: Vulkan.QueueFlags): string
     static handleContextQuery(element: Gst.Element, query: Gst.Query, queue?: VulkanQueue | null): boolean
-    static runContextQuery(element: Gst.Element, queue: VulkanQueue): [ /* returnType */ boolean, /* queue */ VulkanQueue ]
+    static runContextQuery(element: Gst.Element, queue: VulkanQueue): { returnType: boolean, queue: VulkanQueue }
     static $gtype: GObject.Type
 }
 export interface VulkanSwapper_ConstructProps extends Gst.Object_ConstructProps {
@@ -2098,30 +1854,30 @@ export interface VulkanSwapper_ConstructProps extends Gst.Object_ConstructProps 
     pixelAspectRatio?: Gst.Fraction
 }
 export class VulkanSwapper {
-    /* Properties of GstVulkan.VulkanSwapper */
+    /* Properties of GstVulkan-1.0.GstVulkan.VulkanSwapper */
     forceAspectRatio: boolean
     pixelAspectRatio: Gst.Fraction
-    /* Properties of Gst.Object */
+    /* Properties of Gst-1.0.Gst.Object */
     name: string
     parent: Gst.Object
-    /* Fields of GstVulkan.VulkanSwapper */
+    /* Fields of GstVulkan-1.0.GstVulkan.VulkanSwapper */
     device: VulkanDevice
     window: VulkanWindow
     queue: VulkanQueue
     cmdPool: VulkanCommandPool
-    /* Fields of Gst.Object */
+    /* Fields of Gst-1.0.Gst.Object */
     object: GObject.InitiallyUnowned
     lock: GLib.Mutex
     flags: number
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GstVulkan.VulkanSwapper */
+    /* Methods of GstVulkan-1.0.GstVulkan.VulkanSwapper */
     chooseQueue(availableQueue: VulkanQueue): boolean
     getSupportedCaps(): Gst.Caps
-    getSurfaceRectangles(): [ /* inputImage */ GstVideo.VideoRectangle | null, /* surfaceLocation */ GstVideo.VideoRectangle | null, /* displayRect */ GstVideo.VideoRectangle | null ]
+    getSurfaceRectangles(): { inputImage: GstVideo.VideoRectangle | null, surfaceLocation: GstVideo.VideoRectangle | null, displayRect: GstVideo.VideoRectangle | null }
     renderBuffer(buffer: Gst.Buffer): boolean
     setCaps(caps: Gst.Caps): boolean
-    /* Methods of Gst.Object */
+    /* Methods of Gst-1.0.Gst.Object */
     addControlBinding(binding: Gst.ControlBinding): boolean
     defaultError(error: GLib.Error, debug?: string | null): void
     getControlBinding(propertyName: string): Gst.ControlBinding | null
@@ -2146,7 +1902,7 @@ export class VulkanSwapper {
     syncValues(timestamp: Gst.ClockTime): boolean
     unparent(): void
     unref(): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -2167,30 +1923,18 @@ export class VulkanSwapper {
     stealQdata(quark: GLib.Quark): object | null
     thawNotify(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of Gst.Object */
-    vfuncDeepNotify(orig: Gst.Object, pspec: GObject.ParamSpec): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gst.Object */
+    /* Signals of Gst-1.0.Gst.Object */
     connect(sigName: "deep-notify", callback: (($obj: VulkanSwapper, propObject: Gst.Object, prop: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "deep-notify", callback: (($obj: VulkanSwapper, propObject: Gst.Object, prop: GObject.ParamSpec) => void)): number
+    on(sigName: "deep-notify", callback: (propObject: Gst.Object, prop: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "deep-notify", callback: (propObject: Gst.Object, prop: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "deep-notify", callback: (propObject: Gst.Object, prop: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "deep-notify", propObject: Gst.Object, prop: GObject.ParamSpec): void
-    on(sigName: "deep-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "deep-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "deep-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: VulkanSwapper, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: VulkanSwapper, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::force-aspect-ratio", callback: (($obj: VulkanSwapper, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::force-aspect-ratio", callback: (($obj: VulkanSwapper, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::force-aspect-ratio", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -2228,29 +1972,29 @@ export class VulkanSwapper {
 export interface VulkanTrashFenceList_ConstructProps extends VulkanTrashList_ConstructProps {
 }
 export class VulkanTrashFenceList {
-    /* Properties of Gst.Object */
+    /* Properties of Gst-1.0.Gst.Object */
     name: string
     parent: Gst.Object
-    /* Fields of GstVulkan.VulkanHandlePool */
+    /* Fields of GstVulkan-1.0.GstVulkan.VulkanHandlePool */
     device: VulkanDevice
     outstanding: object[]
     available: object[]
-    /* Fields of Gst.Object */
+    /* Fields of Gst-1.0.Gst.Object */
     object: GObject.InitiallyUnowned
     lock: GLib.Mutex
     flags: number
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GstVulkan.VulkanTrashList */
+    /* Methods of GstVulkan-1.0.GstVulkan.VulkanTrashList */
     acquire(fence: VulkanFence, notify: VulkanTrashNotify): VulkanTrash
     add(trash: VulkanTrash): boolean
     gc(): void
     wait(timeout: number): boolean
-    /* Methods of GstVulkan.VulkanHandlePool */
+    /* Methods of GstVulkan-1.0.GstVulkan.VulkanHandlePool */
     acquire(): object | null
     alloc(): object | null
     release(handle?: object | null): void
-    /* Methods of Gst.Object */
+    /* Methods of Gst-1.0.Gst.Object */
     addControlBinding(binding: Gst.ControlBinding): boolean
     defaultError(error: GLib.Error, debug?: string | null): void
     getControlBinding(propertyName: string): Gst.ControlBinding | null
@@ -2275,7 +2019,7 @@ export class VulkanTrashFenceList {
     syncValues(timestamp: Gst.ClockTime): boolean
     unparent(): void
     unref(): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -2296,39 +2040,18 @@ export class VulkanTrashFenceList {
     stealQdata(quark: GLib.Quark): object | null
     thawNotify(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GstVulkan.VulkanTrashList */
-    vfuncAddFunc(trash: VulkanTrash): boolean
-    vfuncGcFunc(): void
-    vfuncWaitFunc(timeout: number): boolean
-    /* Virtual methods of GstVulkan.VulkanHandlePool */
-    vfuncAcquire(): object | null
-    vfuncAlloc(): object | null
-    vfuncFree(handle?: object | null): void
-    vfuncRelease(handle?: object | null): void
-    /* Virtual methods of Gst.Object */
-    vfuncDeepNotify(orig: Gst.Object, pspec: GObject.ParamSpec): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gst.Object */
+    /* Signals of Gst-1.0.Gst.Object */
     connect(sigName: "deep-notify", callback: (($obj: VulkanTrashFenceList, propObject: Gst.Object, prop: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "deep-notify", callback: (($obj: VulkanTrashFenceList, propObject: Gst.Object, prop: GObject.ParamSpec) => void)): number
+    on(sigName: "deep-notify", callback: (propObject: Gst.Object, prop: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "deep-notify", callback: (propObject: Gst.Object, prop: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "deep-notify", callback: (propObject: Gst.Object, prop: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "deep-notify", propObject: Gst.Object, prop: GObject.ParamSpec): void
-    on(sigName: "deep-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "deep-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "deep-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: VulkanTrashFenceList, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: VulkanTrashFenceList, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::name", callback: (($obj: VulkanTrashFenceList, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::name", callback: (($obj: VulkanTrashFenceList, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::name", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -2356,29 +2079,29 @@ export class VulkanTrashFenceList {
 export interface VulkanTrashList_ConstructProps extends VulkanHandlePool_ConstructProps {
 }
 export class VulkanTrashList {
-    /* Properties of Gst.Object */
+    /* Properties of Gst-1.0.Gst.Object */
     name: string
     parent: Gst.Object
-    /* Fields of GstVulkan.VulkanHandlePool */
+    /* Fields of GstVulkan-1.0.GstVulkan.VulkanHandlePool */
     device: VulkanDevice
     outstanding: object[]
     available: object[]
-    /* Fields of Gst.Object */
+    /* Fields of Gst-1.0.Gst.Object */
     object: GObject.InitiallyUnowned
     lock: GLib.Mutex
     flags: number
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GstVulkan.VulkanTrashList */
+    /* Methods of GstVulkan-1.0.GstVulkan.VulkanTrashList */
     acquire(fence: VulkanFence, notify: VulkanTrashNotify): VulkanTrash
     add(trash: VulkanTrash): boolean
     gc(): void
     wait(timeout: number): boolean
-    /* Methods of GstVulkan.VulkanHandlePool */
+    /* Methods of GstVulkan-1.0.GstVulkan.VulkanHandlePool */
     acquire(): object | null
     alloc(): object | null
     release(handle?: object | null): void
-    /* Methods of Gst.Object */
+    /* Methods of Gst-1.0.Gst.Object */
     addControlBinding(binding: Gst.ControlBinding): boolean
     defaultError(error: GLib.Error, debug?: string | null): void
     getControlBinding(propertyName: string): Gst.ControlBinding | null
@@ -2403,7 +2126,7 @@ export class VulkanTrashList {
     syncValues(timestamp: Gst.ClockTime): boolean
     unparent(): void
     unref(): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -2424,39 +2147,18 @@ export class VulkanTrashList {
     stealQdata(quark: GLib.Quark): object | null
     thawNotify(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GstVulkan.VulkanTrashList */
-    vfuncAddFunc(trash: VulkanTrash): boolean
-    vfuncGcFunc(): void
-    vfuncWaitFunc(timeout: number): boolean
-    /* Virtual methods of GstVulkan.VulkanHandlePool */
-    vfuncAcquire(): object | null
-    vfuncAlloc(): object | null
-    vfuncFree(handle?: object | null): void
-    vfuncRelease(handle?: object | null): void
-    /* Virtual methods of Gst.Object */
-    vfuncDeepNotify(orig: Gst.Object, pspec: GObject.ParamSpec): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gst.Object */
+    /* Signals of Gst-1.0.Gst.Object */
     connect(sigName: "deep-notify", callback: (($obj: VulkanTrashList, propObject: Gst.Object, prop: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "deep-notify", callback: (($obj: VulkanTrashList, propObject: Gst.Object, prop: GObject.ParamSpec) => void)): number
+    on(sigName: "deep-notify", callback: (propObject: Gst.Object, prop: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "deep-notify", callback: (propObject: Gst.Object, prop: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "deep-notify", callback: (propObject: Gst.Object, prop: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "deep-notify", propObject: Gst.Object, prop: GObject.ParamSpec): void
-    on(sigName: "deep-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "deep-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "deep-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: VulkanTrashList, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: VulkanTrashList, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::name", callback: (($obj: VulkanTrashList, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::name", callback: (($obj: VulkanTrashList, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::name", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -2482,12 +2184,12 @@ export class VulkanTrashList {
 export interface VulkanVideoFilter_ConstructProps extends GstBase.BaseTransform_ConstructProps {
 }
 export class VulkanVideoFilter {
-    /* Properties of GstBase.BaseTransform */
+    /* Properties of GstBase-1.0.GstBase.BaseTransform */
     qos: boolean
-    /* Properties of Gst.Object */
+    /* Properties of Gst-1.0.Gst.Object */
     name: string
     parent: Gst.Object
-    /* Fields of GstVulkan.VulkanVideoFilter */
+    /* Fields of GstVulkan-1.0.GstVulkan.VulkanVideoFilter */
     instance: VulkanInstance
     device: VulkanDevice
     queue: VulkanQueue
@@ -2495,14 +2197,14 @@ export class VulkanVideoFilter {
     inInfo: GstVideo.VideoInfo
     outCaps: Gst.Caps
     outInfo: GstVideo.VideoInfo
-    /* Fields of GstBase.BaseTransform */
+    /* Fields of GstBase-1.0.GstBase.BaseTransform */
     element: Gst.Element
     sinkpad: Gst.Pad
     srcpad: Gst.Pad
     haveSegment: boolean
     segment: Gst.Segment
     queuedBuf: Gst.Buffer
-    /* Fields of Gst.Element */
+    /* Fields of Gst-1.0.Gst.Element */
     object: Gst.Object
     stateLock: GLib.RecMutex
     stateCond: GLib.Cond
@@ -2524,13 +2226,13 @@ export class VulkanVideoFilter {
     sinkpads: Gst.Pad[]
     padsCookie: number
     contexts: Gst.Context[]
-    /* Fields of Gst.Object */
+    /* Fields of Gst-1.0.Gst.Object */
     lock: GLib.Mutex
     flags: number
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GstBase.BaseTransform */
-    getAllocator(): [ /* allocator */ Gst.Allocator | null, /* params */ Gst.AllocationParams | null ]
+    /* Methods of GstBase-1.0.GstBase.BaseTransform */
+    getAllocator(): { allocator: Gst.Allocator | null, params: Gst.AllocationParams | null }
     getBufferPool(): Gst.BufferPool | null
     isInPlace(): boolean
     isPassthrough(): boolean
@@ -2545,7 +2247,7 @@ export class VulkanVideoFilter {
     setQosEnabled(enabled: boolean): void
     updateQos(proportion: number, diff: Gst.ClockTimeDiff, timestamp: Gst.ClockTime): void
     updateSrcCaps(updatedCaps: Gst.Caps): boolean
-    /* Methods of Gst.Element */
+    /* Methods of Gst-1.0.Gst.Element */
     abortState(): void
     addPad(pad: Gst.Pad): boolean
     addPropertyDeepNotifyWatch(propertyName: string | null, includeValue: boolean): number
@@ -2573,7 +2275,7 @@ export class VulkanVideoFilter {
     getPadTemplateList(): Gst.PadTemplate[]
     getRequestPad(name: string): Gst.Pad | null
     getStartTime(): Gst.ClockTime
-    getState(timeout: Gst.ClockTime): [ /* returnType */ Gst.StateChangeReturn, /* state */ Gst.State | null, /* pending */ Gst.State | null ]
+    getState(timeout: Gst.ClockTime): { returnType: Gst.StateChangeReturn, state: Gst.State | null, pending: Gst.State | null }
     getStaticPad(name: string): Gst.Pad | null
     isLockedState(): boolean
     iteratePads(): Gst.Iterator
@@ -2591,9 +2293,9 @@ export class VulkanVideoFilter {
     postMessage(message: Gst.Message): boolean
     provideClock(): Gst.Clock | null
     query(query: Gst.Query): boolean
-    queryConvert(srcFormat: Gst.Format, srcVal: number, destFormat: Gst.Format): [ /* returnType */ boolean, /* destVal */ number ]
-    queryDuration(format: Gst.Format): [ /* returnType */ boolean, /* duration */ number | null ]
-    queryPosition(format: Gst.Format): [ /* returnType */ boolean, /* cur */ number | null ]
+    queryConvert(srcFormat: Gst.Format, srcVal: number, destFormat: Gst.Format): { returnType: boolean, destVal: number }
+    queryDuration(format: Gst.Format): { returnType: boolean, duration: number | null }
+    queryPosition(format: Gst.Format): { returnType: boolean, cur: number | null }
     releaseRequestPad(pad: Gst.Pad): void
     removePad(pad: Gst.Pad): boolean
     removePropertyNotifyWatch(watchId: number): void
@@ -2611,7 +2313,7 @@ export class VulkanVideoFilter {
     syncStateWithParent(): boolean
     unlink(dest: Gst.Element): void
     unlinkPads(srcpadname: string, dest: Gst.Element, destpadname: string): void
-    /* Methods of Gst.Object */
+    /* Methods of Gst-1.0.Gst.Object */
     addControlBinding(binding: Gst.ControlBinding): boolean
     defaultError(error: GLib.Error, debug?: string | null): void
     getControlBinding(propertyName: string): Gst.ControlBinding | null
@@ -2636,7 +2338,7 @@ export class VulkanVideoFilter {
     syncValues(timestamp: Gst.ClockTime): boolean
     unparent(): void
     unref(): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -2657,93 +2359,34 @@ export class VulkanVideoFilter {
     stealQdata(quark: GLib.Quark): object | null
     thawNotify(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GstVulkan.VulkanVideoFilter */
-    vfuncQuery(direction: Gst.PadDirection, query: Gst.Query): boolean
-    vfuncQuery(query: Gst.Query): boolean
-    /* Virtual methods of GstBase.BaseTransform */
-    vfuncAcceptCaps(direction: Gst.PadDirection, caps: Gst.Caps): boolean
-    vfuncBeforeTransform(buffer: Gst.Buffer): void
-    vfuncCopyMetadata(input: Gst.Buffer, outbuf: Gst.Buffer): boolean
-    vfuncDecideAllocation(query: Gst.Query): boolean
-    vfuncFilterMeta(query: Gst.Query, api: GObject.Type, params: Gst.Structure): boolean
-    vfuncFixateCaps(direction: Gst.PadDirection, caps: Gst.Caps, othercaps: Gst.Caps): Gst.Caps
-    vfuncGenerateOutput(): [ /* returnType */ Gst.FlowReturn, /* outbuf */ Gst.Buffer ]
-    vfuncGetUnitSize(caps: Gst.Caps): [ /* returnType */ boolean, /* size */ number ]
-    vfuncPrepareOutputBuffer(input: Gst.Buffer): [ /* returnType */ Gst.FlowReturn, /* outbuf */ Gst.Buffer ]
-    vfuncProposeAllocation(decideQuery: Gst.Query, query: Gst.Query): boolean
-    vfuncQuery(direction: Gst.PadDirection, query: Gst.Query): boolean
-    vfuncQuery(query: Gst.Query): boolean
-    vfuncSetCaps(incaps: Gst.Caps, outcaps: Gst.Caps): boolean
-    vfuncSinkEvent(event: Gst.Event): boolean
-    vfuncSrcEvent(event: Gst.Event): boolean
-    vfuncStart(): boolean
-    vfuncStop(): boolean
-    vfuncSubmitInputBuffer(isDiscont: boolean, input: Gst.Buffer): Gst.FlowReturn
-    vfuncTransform(inbuf: Gst.Buffer, outbuf: Gst.Buffer): Gst.FlowReturn
-    vfuncTransformCaps(direction: Gst.PadDirection, caps: Gst.Caps, filter: Gst.Caps): Gst.Caps
-    vfuncTransformIp(buf: Gst.Buffer): Gst.FlowReturn
-    vfuncTransformMeta(outbuf: Gst.Buffer, meta: Gst.Meta, inbuf: Gst.Buffer): boolean
-    vfuncTransformSize(direction: Gst.PadDirection, caps: Gst.Caps, size: number, othercaps: Gst.Caps): [ /* returnType */ boolean, /* othersize */ number ]
-    /* Virtual methods of Gst.Element */
-    vfuncChangeState(transition: Gst.StateChange): Gst.StateChangeReturn
-    vfuncGetState(timeout: Gst.ClockTime): [ /* returnType */ Gst.StateChangeReturn, /* state */ Gst.State | null, /* pending */ Gst.State | null ]
-    vfuncNoMorePads(): void
-    vfuncPadAdded(pad: Gst.Pad): void
-    vfuncPadRemoved(pad: Gst.Pad): void
-    vfuncPostMessage(message: Gst.Message): boolean
-    vfuncProvideClock(): Gst.Clock | null
-    vfuncQuery(query: Gst.Query): boolean
-    vfuncReleasePad(pad: Gst.Pad): void
-    vfuncRequestNewPad(templ: Gst.PadTemplate, name?: string | null, caps?: Gst.Caps | null): Gst.Pad | null
-    vfuncSendEvent(event: Gst.Event): boolean
-    vfuncSetBus(bus?: Gst.Bus | null): void
-    vfuncSetClock(clock?: Gst.Clock | null): boolean
-    vfuncSetContext(context: Gst.Context): void
-    vfuncSetState(state: Gst.State): Gst.StateChangeReturn
-    vfuncStateChanged(oldstate: Gst.State, newstate: Gst.State, pending: Gst.State): void
-    /* Virtual methods of Gst.Object */
-    vfuncDeepNotify(orig: Gst.Object, pspec: GObject.ParamSpec): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gst.Element */
+    /* Signals of Gst-1.0.Gst.Element */
     connect(sigName: "no-more-pads", callback: (($obj: VulkanVideoFilter) => void)): number
-    connect_after(sigName: "no-more-pads", callback: (($obj: VulkanVideoFilter) => void)): number
+    on(sigName: "no-more-pads", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "no-more-pads", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "no-more-pads", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "no-more-pads"): void
-    on(sigName: "no-more-pads", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "no-more-pads", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "no-more-pads", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "pad-added", callback: (($obj: VulkanVideoFilter, newPad: Gst.Pad) => void)): number
-    connect_after(sigName: "pad-added", callback: (($obj: VulkanVideoFilter, newPad: Gst.Pad) => void)): number
+    on(sigName: "pad-added", callback: (newPad: Gst.Pad) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "pad-added", callback: (newPad: Gst.Pad) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "pad-added", callback: (newPad: Gst.Pad) => void): NodeJS.EventEmitter
     emit(sigName: "pad-added", newPad: Gst.Pad): void
-    on(sigName: "pad-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "pad-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "pad-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "pad-removed", callback: (($obj: VulkanVideoFilter, oldPad: Gst.Pad) => void)): number
-    connect_after(sigName: "pad-removed", callback: (($obj: VulkanVideoFilter, oldPad: Gst.Pad) => void)): number
+    on(sigName: "pad-removed", callback: (oldPad: Gst.Pad) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "pad-removed", callback: (oldPad: Gst.Pad) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "pad-removed", callback: (oldPad: Gst.Pad) => void): NodeJS.EventEmitter
     emit(sigName: "pad-removed", oldPad: Gst.Pad): void
-    on(sigName: "pad-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "pad-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "pad-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of Gst.Object */
+    /* Signals of Gst-1.0.Gst.Object */
     connect(sigName: "deep-notify", callback: (($obj: VulkanVideoFilter, propObject: Gst.Object, prop: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "deep-notify", callback: (($obj: VulkanVideoFilter, propObject: Gst.Object, prop: GObject.ParamSpec) => void)): number
+    on(sigName: "deep-notify", callback: (propObject: Gst.Object, prop: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "deep-notify", callback: (propObject: Gst.Object, prop: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "deep-notify", callback: (propObject: Gst.Object, prop: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "deep-notify", propObject: Gst.Object, prop: GObject.ParamSpec): void
-    on(sigName: "deep-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "deep-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "deep-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: VulkanVideoFilter, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: VulkanVideoFilter, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::qos", callback: (($obj: VulkanVideoFilter, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::qos", callback: (($obj: VulkanVideoFilter, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::qos", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -2774,18 +2417,18 @@ export class VulkanVideoFilter {
 export interface VulkanWindow_ConstructProps extends Gst.Object_ConstructProps {
 }
 export class VulkanWindow {
-    /* Properties of GstVulkan.VulkanWindow */
+    /* Properties of GstVulkan-1.0.GstVulkan.VulkanWindow */
     readonly display: VulkanDisplay
-    /* Properties of Gst.Object */
+    /* Properties of Gst-1.0.Gst.Object */
     name: string
     parent: Gst.Object
-    /* Fields of Gst.Object */
+    /* Fields of Gst-1.0.Gst.Object */
     object: GObject.InitiallyUnowned
     lock: GLib.Mutex
     flags: number
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GstVulkan.VulkanWindow */
+    /* Methods of GstVulkan-1.0.GstVulkan.VulkanWindow */
     close(): void
     getDisplay(): VulkanDisplay
     getPresentationSupport(device: VulkanDevice, queueFamilyIdx: number): boolean
@@ -2797,7 +2440,7 @@ export class VulkanWindow {
     sendKeyEvent(eventType: string, keyStr: string): void
     sendMouseEvent(eventType: string, button: number, posx: number, posy: number): void
     setWindowHandle(handle: number): void
-    /* Methods of Gst.Object */
+    /* Methods of Gst-1.0.Gst.Object */
     addControlBinding(binding: Gst.ControlBinding): boolean
     defaultError(error: GLib.Error, debug?: string | null): void
     getControlBinding(propertyName: string): Gst.ControlBinding | null
@@ -2822,7 +2465,7 @@ export class VulkanWindow {
     syncValues(timestamp: Gst.ClockTime): boolean
     unparent(): void
     unref(): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -2843,68 +2486,44 @@ export class VulkanWindow {
     stealQdata(quark: GLib.Quark): object | null
     thawNotify(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GstVulkan.VulkanWindow */
-    vfuncClose(): void
-    vfuncGetPresentationSupport(device: VulkanDevice, queueFamilyIdx: number): boolean
-    vfuncGetSurfaceDimensions(width: number, height: number): void
-    vfuncHandleEvents(handleEvents: boolean): void
-    vfuncOpen(): boolean
-    vfuncSetWindowHandle(handle: number): void
-    /* Virtual methods of Gst.Object */
-    vfuncDeepNotify(orig: Gst.Object, pspec: GObject.ParamSpec): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GstVulkan.VulkanWindow */
+    /* Signals of GstVulkan-1.0.GstVulkan.VulkanWindow */
     connect(sigName: "close", callback: (($obj: VulkanWindow) => boolean)): number
-    connect_after(sigName: "close", callback: (($obj: VulkanWindow) => boolean)): number
+    on(sigName: "close", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "close", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "close", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "close"): void
-    on(sigName: "close", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "close", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "close", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "draw", callback: (($obj: VulkanWindow) => void)): number
-    connect_after(sigName: "draw", callback: (($obj: VulkanWindow) => void)): number
+    on(sigName: "draw", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "draw", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "draw", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "draw"): void
-    on(sigName: "draw", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "draw", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "draw", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "key-event", callback: (($obj: VulkanWindow, id: string, key: string) => void)): number
-    connect_after(sigName: "key-event", callback: (($obj: VulkanWindow, id: string, key: string) => void)): number
+    on(sigName: "key-event", callback: (id: string, key: string) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "key-event", callback: (id: string, key: string) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "key-event", callback: (id: string, key: string) => void): NodeJS.EventEmitter
     emit(sigName: "key-event", id: string, key: string): void
-    on(sigName: "key-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "key-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "key-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "mouse-event", callback: (($obj: VulkanWindow, id: string, button: number, x: number, y: number) => void)): number
-    connect_after(sigName: "mouse-event", callback: (($obj: VulkanWindow, id: string, button: number, x: number, y: number) => void)): number
+    on(sigName: "mouse-event", callback: (id: string, button: number, x: number, y: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "mouse-event", callback: (id: string, button: number, x: number, y: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "mouse-event", callback: (id: string, button: number, x: number, y: number) => void): NodeJS.EventEmitter
     emit(sigName: "mouse-event", id: string, button: number, x: number, y: number): void
-    on(sigName: "mouse-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "mouse-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "mouse-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "resize", callback: (($obj: VulkanWindow, object: number, p0: number) => void)): number
-    connect_after(sigName: "resize", callback: (($obj: VulkanWindow, object: number, p0: number) => void)): number
+    on(sigName: "resize", callback: (object: number, p0: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "resize", callback: (object: number, p0: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "resize", callback: (object: number, p0: number) => void): NodeJS.EventEmitter
     emit(sigName: "resize", object: number, p0: number): void
-    on(sigName: "resize", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "resize", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "resize", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of Gst.Object */
+    /* Signals of Gst-1.0.Gst.Object */
     connect(sigName: "deep-notify", callback: (($obj: VulkanWindow, propObject: Gst.Object, prop: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "deep-notify", callback: (($obj: VulkanWindow, propObject: Gst.Object, prop: GObject.ParamSpec) => void)): number
+    on(sigName: "deep-notify", callback: (propObject: Gst.Object, prop: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "deep-notify", callback: (propObject: Gst.Object, prop: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "deep-notify", callback: (propObject: Gst.Object, prop: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "deep-notify", propObject: Gst.Object, prop: GObject.ParamSpec): void
-    on(sigName: "deep-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "deep-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "deep-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: VulkanWindow, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: VulkanWindow, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::display", callback: (($obj: VulkanWindow, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::display", callback: (($obj: VulkanWindow, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::display", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -2935,21 +2554,21 @@ export class VulkanWindow {
     static $gtype: GObject.Type
 }
 export class VulkanBarrierBufferInfo {
-    /* Fields of GstVulkan.VulkanBarrierBufferInfo */
+    /* Fields of GstVulkan-1.0.GstVulkan.VulkanBarrierBufferInfo */
     parent: VulkanBarrierMemoryInfo
     offset: Vulkan.DeviceSize
     size: Vulkan.DeviceSize
     static name: string
 }
 export class VulkanBarrierImageInfo {
-    /* Fields of GstVulkan.VulkanBarrierImageInfo */
+    /* Fields of GstVulkan-1.0.GstVulkan.VulkanBarrierImageInfo */
     parent: VulkanBarrierMemoryInfo
     imageLayout: Vulkan.ImageLayout
     subresourceRange: Vulkan.ImageSubresourceRange
     static name: string
 }
 export class VulkanBarrierMemoryInfo {
-    /* Fields of GstVulkan.VulkanBarrierMemoryInfo */
+    /* Fields of GstVulkan-1.0.GstVulkan.VulkanBarrierMemoryInfo */
     type: VulkanBarrierType
     flags: VulkanBarrierFlags
     queue: VulkanQueue
@@ -2958,7 +2577,7 @@ export class VulkanBarrierMemoryInfo {
     static name: string
 }
 export class VulkanBufferMemory {
-    /* Fields of GstVulkan.VulkanBufferMemory */
+    /* Fields of GstVulkan-1.0.GstVulkan.VulkanBufferMemory */
     parent: Gst.Memory
     device: VulkanDevice
     buffer: Vulkan.Buffer
@@ -2977,12 +2596,12 @@ export class VulkanBufferMemory {
     static wrapped(device: VulkanDevice, buffer: Vulkan.Buffer, usage: Vulkan.BufferUsageFlags, userData?: object | null, notify?: GLib.DestroyNotify | null): Gst.Memory
 }
 export abstract class VulkanBufferMemoryAllocatorClass {
-    /* Fields of GstVulkan.VulkanBufferMemoryAllocatorClass */
+    /* Fields of GstVulkan-1.0.GstVulkan.VulkanBufferMemoryAllocatorClass */
     parentClass: Gst.AllocatorClass
     static name: string
 }
 export abstract class VulkanBufferPoolClass {
-    /* Fields of GstVulkan.VulkanBufferPoolClass */
+    /* Fields of GstVulkan-1.0.GstVulkan.VulkanBufferPoolClass */
     parentClass: Gst.BufferPoolClass
     static name: string
 }
@@ -2990,7 +2609,7 @@ export class VulkanBufferPoolPrivate {
     static name: string
 }
 export class VulkanCommandBuffer {
-    /* Fields of GstVulkan.VulkanCommandBuffer */
+    /* Fields of GstVulkan-1.0.GstVulkan.VulkanCommandBuffer */
     parent: Gst.MiniObject
     cmd: Vulkan.CommandBuffer
     pool: VulkanCommandPool
@@ -3001,7 +2620,7 @@ export class VulkanCommandBuffer {
     static newWrapped(cmd: Vulkan.CommandBuffer, level: Vulkan.CommandBufferLevel): VulkanCommandBuffer
 }
 export abstract class VulkanCommandPoolClass {
-    /* Fields of GstVulkan.VulkanCommandPoolClass */
+    /* Fields of GstVulkan-1.0.GstVulkan.VulkanCommandPoolClass */
     parentClass: Gst.ObjectClass
     static name: string
 }
@@ -3009,7 +2628,7 @@ export class VulkanCommandPoolPrivate {
     static name: string
 }
 export abstract class VulkanDescriptorCacheClass {
-    /* Fields of GstVulkan.VulkanDescriptorCacheClass */
+    /* Fields of GstVulkan-1.0.GstVulkan.VulkanDescriptorCacheClass */
     parentClass: VulkanHandlePoolClass
     static name: string
 }
@@ -3017,7 +2636,7 @@ export class VulkanDescriptorCachePrivate {
     static name: string
 }
 export abstract class VulkanDescriptorPoolClass {
-    /* Fields of GstVulkan.VulkanDescriptorPoolClass */
+    /* Fields of GstVulkan-1.0.GstVulkan.VulkanDescriptorPoolClass */
     parentClass: Gst.ObjectClass
     static name: string
 }
@@ -3025,7 +2644,7 @@ export class VulkanDescriptorPoolPrivate {
     static name: string
 }
 export class VulkanDescriptorSet {
-    /* Fields of GstVulkan.VulkanDescriptorSet */
+    /* Fields of GstVulkan-1.0.GstVulkan.VulkanDescriptorSet */
     parent: Gst.MiniObject
     set: Vulkan.DescriptorSet
     pool: VulkanDescriptorPool
@@ -3044,7 +2663,7 @@ export class VulkanDescriptorSetPrivate {
     static name: string
 }
 export abstract class VulkanDeviceClass {
-    /* Fields of GstVulkan.VulkanDeviceClass */
+    /* Fields of GstVulkan-1.0.GstVulkan.VulkanDeviceClass */
     parentClass: Gst.ObjectClass
     static name: string
 }
@@ -3052,7 +2671,7 @@ export class VulkanDevicePrivate {
     static name: string
 }
 export abstract class VulkanDisplayClass {
-    /* Fields of GstVulkan.VulkanDisplayClass */
+    /* Fields of GstVulkan-1.0.GstVulkan.VulkanDisplayClass */
     objectClass: Gst.ObjectClass
     getHandle: (display: VulkanDisplay) => object | null
     createWindow: (display: VulkanDisplay) => VulkanWindow
@@ -3062,12 +2681,12 @@ export class VulkanDisplayPrivate {
     static name: string
 }
 export class VulkanFence {
-    /* Fields of GstVulkan.VulkanFence */
+    /* Fields of GstVulkan-1.0.GstVulkan.VulkanFence */
     parent: Gst.MiniObject
     device: VulkanDevice
     cache: VulkanFenceCache
     fence: Vulkan.Fence
-    /* Methods of GstVulkan.VulkanFence */
+    /* Methods of GstVulkan-1.0.GstVulkan.VulkanFence */
     isSignaled(): boolean
     reset(): void
     static name: string
@@ -3078,12 +2697,12 @@ export class VulkanFence {
     static newAlwaysSignalled(device: VulkanDevice): VulkanFence
 }
 export abstract class VulkanFenceCacheClass {
-    /* Fields of GstVulkan.VulkanFenceCacheClass */
+    /* Fields of GstVulkan-1.0.GstVulkan.VulkanFenceCacheClass */
     parentClass: VulkanHandlePoolClass
     static name: string
 }
 export class VulkanFormatInfo {
-    /* Fields of GstVulkan.VulkanFormatInfo */
+    /* Fields of GstVulkan-1.0.GstVulkan.VulkanFormatInfo */
     format: Vulkan.Format
     name: string
     scaling: VulkanFormatScaling
@@ -3101,7 +2720,7 @@ export class VulkanFormatInfo {
     static name: string
 }
 export abstract class VulkanFullScreenQuadClass {
-    /* Fields of GstVulkan.VulkanFullScreenQuadClass */
+    /* Fields of GstVulkan-1.0.GstVulkan.VulkanFullScreenQuadClass */
     parentClass: Gst.ObjectClass
     static name: string
 }
@@ -3109,14 +2728,14 @@ export class VulkanFullScreenQuadPrivate {
     static name: string
 }
 export class VulkanHandle {
-    /* Fields of GstVulkan.VulkanHandle */
+    /* Fields of GstVulkan-1.0.GstVulkan.VulkanHandle */
     parent: Gst.MiniObject
     device: VulkanDevice
     type: VulkanHandleType
     handle: VulkanHandleTypedef
     notify: VulkanHandleDestroyNotify
     userData: object
-    /* Methods of GstVulkan.VulkanHandle */
+    /* Methods of GstVulkan-1.0.GstVulkan.VulkanHandle */
     freeDescriptorSetLayout(userData?: object | null): void
     freeFramebuffer(userData?: object | null): void
     freePipeline(userData?: object | null): void
@@ -3128,10 +2747,10 @@ export class VulkanHandle {
     /* Static methods and pseudo-constructors */
     static newWrapped(device: VulkanDevice, type: VulkanHandleType, handle: VulkanHandleTypedef, notify: VulkanHandleDestroyNotify): VulkanHandle
     static contextQuery(element: Gst.Element, query: Gst.Query, display?: VulkanDisplay | null, instance?: VulkanInstance | null, device?: VulkanDevice | null): boolean
-    static setContext(element: Gst.Element, context: Gst.Context, display: VulkanDisplay | null, instance: VulkanInstance): [ /* returnType */ boolean, /* display */ VulkanDisplay | null, /* instance */ VulkanInstance ]
+    static setContext(element: Gst.Element, context: Gst.Context, display: VulkanDisplay | null, instance: VulkanInstance): { returnType: boolean, display: VulkanDisplay | null, instance: VulkanInstance }
 }
 export abstract class VulkanHandlePoolClass {
-    /* Fields of GstVulkan.VulkanHandlePoolClass */
+    /* Fields of GstVulkan-1.0.GstVulkan.VulkanHandlePoolClass */
     parent: Gst.ObjectClass
     alloc: (pool: VulkanHandlePool) => object | null
     acquire: (pool: VulkanHandlePool) => object | null
@@ -3143,7 +2762,7 @@ export class VulkanHandleTypedef {
     static name: string
 }
 export abstract class VulkanImageBufferPoolClass {
-    /* Fields of GstVulkan.VulkanImageBufferPoolClass */
+    /* Fields of GstVulkan-1.0.GstVulkan.VulkanImageBufferPoolClass */
     parentClass: Gst.BufferPoolClass
     static name: string
 }
@@ -3151,7 +2770,7 @@ export class VulkanImageBufferPoolPrivate {
     static name: string
 }
 export class VulkanImageMemory {
-    /* Fields of GstVulkan.VulkanImageMemory */
+    /* Fields of GstVulkan-1.0.GstVulkan.VulkanImageMemory */
     parent: Gst.Memory
     device: VulkanDevice
     image: Vulkan.Image
@@ -3168,7 +2787,7 @@ export class VulkanImageMemory {
     views: object[]
     outstandingViews: object[]
     padding: object[]
-    /* Methods of GstVulkan.VulkanImageMemory */
+    /* Methods of GstVulkan-1.0.GstVulkan.VulkanImageMemory */
     addView(view: VulkanImageView): void
     findView(findFunc: VulkanImageMemoryFindViewFunc): VulkanImageView
     getHeight(): number
@@ -3181,12 +2800,12 @@ export class VulkanImageMemory {
     static wrapped(device: VulkanDevice, image: Vulkan.Image, format: Vulkan.Format, width: number, height: number, tiling: Vulkan.ImageTiling, usage: Vulkan.ImageUsageFlags, userData: object | null, notify: GLib.DestroyNotify): Gst.Memory
 }
 export abstract class VulkanImageMemoryAllocatorClass {
-    /* Fields of GstVulkan.VulkanImageMemoryAllocatorClass */
+    /* Fields of GstVulkan-1.0.GstVulkan.VulkanImageMemoryAllocatorClass */
     parentClass: Gst.AllocatorClass
     static name: string
 }
 export class VulkanImageView {
-    /* Fields of GstVulkan.VulkanImageView */
+    /* Fields of GstVulkan-1.0.GstVulkan.VulkanImageView */
     parent: Gst.MiniObject
     device: VulkanDevice
     image: VulkanImageMemory
@@ -3199,7 +2818,7 @@ export class VulkanImageView {
     static new(image: VulkanImageMemory, createInfo: Vulkan.ImageViewCreateInfo): VulkanImageView
 }
 export abstract class VulkanInstanceClass {
-    /* Fields of GstVulkan.VulkanInstanceClass */
+    /* Fields of GstVulkan-1.0.GstVulkan.VulkanInstanceClass */
     parentClass: Gst.ObjectClass
     static name: string
 }
@@ -3207,7 +2826,7 @@ export class VulkanInstancePrivate {
     static name: string
 }
 export class VulkanMemory {
-    /* Fields of GstVulkan.VulkanMemory */
+    /* Fields of GstVulkan-1.0.GstVulkan.VulkanMemory */
     mem: Gst.Memory
     device: VulkanDevice
     memPtr: Vulkan.DeviceMemory
@@ -3222,12 +2841,12 @@ export class VulkanMemory {
     static propertyFlagsToString(propBits: Vulkan.MemoryPropertyFlags): string
 }
 export abstract class VulkanMemoryAllocatorClass {
-    /* Fields of GstVulkan.VulkanMemoryAllocatorClass */
+    /* Fields of GstVulkan-1.0.GstVulkan.VulkanMemoryAllocatorClass */
     parentClass: Gst.AllocatorClass
     static name: string
 }
 export abstract class VulkanPhysicalDeviceClass {
-    /* Fields of GstVulkan.VulkanPhysicalDeviceClass */
+    /* Fields of GstVulkan-1.0.GstVulkan.VulkanPhysicalDeviceClass */
     parentClass: Gst.ObjectClass
     static name: string
 }
@@ -3235,7 +2854,7 @@ export class VulkanPhysicalDevicePrivate {
     static name: string
 }
 export abstract class VulkanQueueClass {
-    /* Fields of GstVulkan.VulkanQueueClass */
+    /* Fields of GstVulkan-1.0.GstVulkan.VulkanQueueClass */
     parentClass: Gst.ObjectClass
     static name: string
 }
@@ -3243,7 +2862,7 @@ export class VulkanQueuePrivate {
     static name: string
 }
 export abstract class VulkanSwapperClass {
-    /* Fields of GstVulkan.VulkanSwapperClass */
+    /* Fields of GstVulkan-1.0.GstVulkan.VulkanSwapperClass */
     parentClass: Gst.ObjectClass
     static name: string
 }
@@ -3251,7 +2870,7 @@ export class VulkanSwapperPrivate {
     static name: string
 }
 export class VulkanTrash {
-    /* Fields of GstVulkan.VulkanTrash */
+    /* Fields of GstVulkan-1.0.GstVulkan.VulkanTrash */
     parent: Gst.MiniObject
     cache: VulkanTrashList
     fence: VulkanFence
@@ -3267,12 +2886,12 @@ export class VulkanTrash {
     static objectUnref(device: VulkanDevice, userData?: object | null): void
 }
 export abstract class VulkanTrashFenceListClass {
-    /* Fields of GstVulkan.VulkanTrashFenceListClass */
+    /* Fields of GstVulkan-1.0.GstVulkan.VulkanTrashFenceListClass */
     parentClass: VulkanTrashListClass
     static name: string
 }
 export abstract class VulkanTrashListClass {
-    /* Fields of GstVulkan.VulkanTrashListClass */
+    /* Fields of GstVulkan-1.0.GstVulkan.VulkanTrashListClass */
     parentClass: VulkanHandlePoolClass
     addFunc: VulkanTrashListAdd
     gcFunc: VulkanTrashListGC
@@ -3281,12 +2900,12 @@ export abstract class VulkanTrashListClass {
     static name: string
 }
 export abstract class VulkanVideoFilterClass {
-    /* Fields of GstVulkan.VulkanVideoFilterClass */
+    /* Fields of GstVulkan-1.0.GstVulkan.VulkanVideoFilterClass */
     videoSinkClass: GstBase.BaseTransformClass
     static name: string
 }
 export abstract class VulkanWindowClass {
-    /* Fields of GstVulkan.VulkanWindowClass */
+    /* Fields of GstVulkan-1.0.GstVulkan.VulkanWindowClass */
     parentClass: Gst.ObjectClass
     open: (window: VulkanWindow) => boolean
     close: (window: VulkanWindow) => void

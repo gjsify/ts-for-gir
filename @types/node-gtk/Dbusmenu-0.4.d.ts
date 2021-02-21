@@ -94,18 +94,18 @@ export interface Client_ConstructProps extends GObject.Object_ConstructProps {
     groupEvents?: boolean
 }
 export class Client {
-    /* Properties of Dbusmenu.Client */
+    /* Properties of Dbusmenu-0.4.Dbusmenu.Client */
     groupEvents: boolean
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Dbusmenu.Client */
+    /* Methods of Dbusmenu-0.4.Dbusmenu.Client */
     addTypeHandler(type: string, newfunc: ClientTypeHandler): boolean
     addTypeHandlerFull(type: string, newfunc: ClientTypeHandler): boolean
     getIconPaths(): string[]
     getRoot(): Menuitem
     getStatus(): Status
     getTextDirection(): TextDirection
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -127,58 +127,43 @@ export class Client {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Dbusmenu.Client */
+    /* Signals of Dbusmenu-0.4.Dbusmenu.Client */
     connect(sigName: "event-result", callback: (($obj: Client, object: GObject.Object, p0: string, p1: GLib.Variant, p2: number, p3?: object | null) => void)): number
-    connect_after(sigName: "event-result", callback: (($obj: Client, object: GObject.Object, p0: string, p1: GLib.Variant, p2: number, p3?: object | null) => void)): number
+    on(sigName: "event-result", callback: (object: GObject.Object, p0: string, p1: GLib.Variant, p2: number, p3?: object | null) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "event-result", callback: (object: GObject.Object, p0: string, p1: GLib.Variant, p2: number, p3?: object | null) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "event-result", callback: (object: GObject.Object, p0: string, p1: GLib.Variant, p2: number, p3?: object | null) => void): NodeJS.EventEmitter
     emit(sigName: "event-result", object: GObject.Object, p0: string, p1: GLib.Variant, p2: number, p3?: object | null): void
-    on(sigName: "event-result", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "event-result", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "event-result", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "icon-theme-dirs-changed", callback: (($obj: Client, arg1?: object | null) => void)): number
-    connect_after(sigName: "icon-theme-dirs-changed", callback: (($obj: Client, arg1?: object | null) => void)): number
+    on(sigName: "icon-theme-dirs-changed", callback: (arg1?: object | null) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "icon-theme-dirs-changed", callback: (arg1?: object | null) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "icon-theme-dirs-changed", callback: (arg1?: object | null) => void): NodeJS.EventEmitter
     emit(sigName: "icon-theme-dirs-changed", arg1?: object | null): void
-    on(sigName: "icon-theme-dirs-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "icon-theme-dirs-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "icon-theme-dirs-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "item-activate", callback: (($obj: Client, arg1: GObject.Object, arg2: number) => void)): number
-    connect_after(sigName: "item-activate", callback: (($obj: Client, arg1: GObject.Object, arg2: number) => void)): number
+    on(sigName: "item-activate", callback: (arg1: GObject.Object, arg2: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "item-activate", callback: (arg1: GObject.Object, arg2: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "item-activate", callback: (arg1: GObject.Object, arg2: number) => void): NodeJS.EventEmitter
     emit(sigName: "item-activate", arg1: GObject.Object, arg2: number): void
-    on(sigName: "item-activate", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "item-activate", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "item-activate", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "layout-updated", callback: (($obj: Client) => void)): number
-    connect_after(sigName: "layout-updated", callback: (($obj: Client) => void)): number
+    on(sigName: "layout-updated", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "layout-updated", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "layout-updated", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "layout-updated"): void
-    on(sigName: "layout-updated", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "layout-updated", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "layout-updated", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "new-menuitem", callback: (($obj: Client, arg1: GObject.Object) => void)): number
-    connect_after(sigName: "new-menuitem", callback: (($obj: Client, arg1: GObject.Object) => void)): number
+    on(sigName: "new-menuitem", callback: (arg1: GObject.Object) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "new-menuitem", callback: (arg1: GObject.Object) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "new-menuitem", callback: (arg1: GObject.Object) => void): NodeJS.EventEmitter
     emit(sigName: "new-menuitem", arg1: GObject.Object): void
-    on(sigName: "new-menuitem", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "new-menuitem", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "new-menuitem", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "root-changed", callback: (($obj: Client, arg1: GObject.Object) => void)): number
-    connect_after(sigName: "root-changed", callback: (($obj: Client, arg1: GObject.Object) => void)): number
+    on(sigName: "root-changed", callback: (arg1: GObject.Object) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "root-changed", callback: (arg1: GObject.Object) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "root-changed", callback: (arg1: GObject.Object) => void): NodeJS.EventEmitter
     emit(sigName: "root-changed", arg1: GObject.Object): void
-    on(sigName: "root-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "root-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "root-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Client, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Client, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::group-events", callback: (($obj: Client, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::group-events", callback: (($obj: Client, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::group-events", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -202,12 +187,12 @@ export interface Menuitem_ConstructProps extends GObject.Object_ConstructProps {
     id?: number
 }
 export class Menuitem {
-    /* Fields of Dbusmenu.Menuitem */
+    /* Fields of Dbusmenu-0.4.Dbusmenu.Menuitem */
     parent: GObject.Object
     priv: MenuitemPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Dbusmenu.Menuitem */
+    /* Methods of Dbusmenu-0.4.Dbusmenu.Menuitem */
     childAddPosition(child: Menuitem, position: number): boolean
     childAppend(child: Menuitem): boolean
     childDelete(child: Menuitem): boolean
@@ -243,7 +228,7 @@ export class Menuitem {
     showToUser(timestamp: number): void
     takeChildren(): Menuitem[]
     unparent(): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -265,82 +250,58 @@ export class Menuitem {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of Dbusmenu.Menuitem */
-    vfuncChildAdded(position: number): void
-    vfuncChildMoved(newpos: number, oldpos: number): void
-    vfuncChildRemoved(): void
-    vfuncHandleEvent(name: string, variant: GLib.Variant, timestamp: number): void
-    vfuncShowToUser(timestamp: number, cbData?: object | null): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Dbusmenu.Menuitem */
+    /* Signals of Dbusmenu-0.4.Dbusmenu.Menuitem */
     connect(sigName: "about-to-show", callback: (($obj: Menuitem) => boolean)): number
-    connect_after(sigName: "about-to-show", callback: (($obj: Menuitem) => boolean)): number
+    on(sigName: "about-to-show", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "about-to-show", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "about-to-show", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "about-to-show"): void
-    on(sigName: "about-to-show", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "about-to-show", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "about-to-show", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "child-added", callback: (($obj: Menuitem, arg1: GObject.Object, arg2: number) => void)): number
-    connect_after(sigName: "child-added", callback: (($obj: Menuitem, arg1: GObject.Object, arg2: number) => void)): number
+    on(sigName: "child-added", callback: (arg1: GObject.Object, arg2: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "child-added", callback: (arg1: GObject.Object, arg2: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "child-added", callback: (arg1: GObject.Object, arg2: number) => void): NodeJS.EventEmitter
     emit(sigName: "child-added", arg1: GObject.Object, arg2: number): void
-    on(sigName: "child-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "child-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "child-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "child-moved", callback: (($obj: Menuitem, arg1: GObject.Object, arg2: number, arg3: number) => void)): number
-    connect_after(sigName: "child-moved", callback: (($obj: Menuitem, arg1: GObject.Object, arg2: number, arg3: number) => void)): number
+    on(sigName: "child-moved", callback: (arg1: GObject.Object, arg2: number, arg3: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "child-moved", callback: (arg1: GObject.Object, arg2: number, arg3: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "child-moved", callback: (arg1: GObject.Object, arg2: number, arg3: number) => void): NodeJS.EventEmitter
     emit(sigName: "child-moved", arg1: GObject.Object, arg2: number, arg3: number): void
-    on(sigName: "child-moved", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "child-moved", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "child-moved", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "child-removed", callback: (($obj: Menuitem, arg1: GObject.Object) => void)): number
-    connect_after(sigName: "child-removed", callback: (($obj: Menuitem, arg1: GObject.Object) => void)): number
+    on(sigName: "child-removed", callback: (arg1: GObject.Object) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "child-removed", callback: (arg1: GObject.Object) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "child-removed", callback: (arg1: GObject.Object) => void): NodeJS.EventEmitter
     emit(sigName: "child-removed", arg1: GObject.Object): void
-    on(sigName: "child-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "child-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "child-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "event", callback: (($obj: Menuitem, arg1: string, arg2: GLib.Variant, arg3: number) => boolean)): number
-    connect_after(sigName: "event", callback: (($obj: Menuitem, arg1: string, arg2: GLib.Variant, arg3: number) => boolean)): number
+    on(sigName: "event", callback: (arg1: string, arg2: GLib.Variant, arg3: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "event", callback: (arg1: string, arg2: GLib.Variant, arg3: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "event", callback: (arg1: string, arg2: GLib.Variant, arg3: number) => void): NodeJS.EventEmitter
     emit(sigName: "event", arg1: string, arg2: GLib.Variant, arg3: number): void
-    on(sigName: "event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "item-activated", callback: (($obj: Menuitem, arg1: number) => void)): number
-    connect_after(sigName: "item-activated", callback: (($obj: Menuitem, arg1: number) => void)): number
+    on(sigName: "item-activated", callback: (arg1: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "item-activated", callback: (arg1: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "item-activated", callback: (arg1: number) => void): NodeJS.EventEmitter
     emit(sigName: "item-activated", arg1: number): void
-    on(sigName: "item-activated", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "item-activated", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "item-activated", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "property-changed", callback: (($obj: Menuitem, arg1: string, arg2: GLib.Variant) => void)): number
-    connect_after(sigName: "property-changed", callback: (($obj: Menuitem, arg1: string, arg2: GLib.Variant) => void)): number
+    on(sigName: "property-changed", callback: (arg1: string, arg2: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "property-changed", callback: (arg1: string, arg2: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "property-changed", callback: (arg1: string, arg2: GLib.Variant) => void): NodeJS.EventEmitter
     emit(sigName: "property-changed", arg1: string, arg2: GLib.Variant): void
-    on(sigName: "property-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "property-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "property-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "realized", callback: (($obj: Menuitem) => void)): number
-    connect_after(sigName: "realized", callback: (($obj: Menuitem) => void)): number
+    on(sigName: "realized", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "realized", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "realized", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "realized"): void
-    on(sigName: "realized", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "realized", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "realized", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "show-to-user", callback: (($obj: Menuitem, arg1: number) => void)): number
-    connect_after(sigName: "show-to-user", callback: (($obj: Menuitem, arg1: number) => void)): number
+    on(sigName: "show-to-user", callback: (arg1: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "show-to-user", callback: (arg1: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "show-to-user", callback: (arg1: number) => void): NodeJS.EventEmitter
     emit(sigName: "show-to-user", arg1: number): void
-    on(sigName: "show-to-user", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "show-to-user", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "show-to-user", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Menuitem, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Menuitem, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -360,14 +321,14 @@ export interface MenuitemProxy_ConstructProps extends Menuitem_ConstructProps {
     menuItem?: Menuitem
 }
 export class MenuitemProxy {
-    /* Fields of Dbusmenu.Menuitem */
+    /* Fields of Dbusmenu-0.4.Dbusmenu.Menuitem */
     parent: GObject.Object
     priv: MenuitemPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Dbusmenu.MenuitemProxy */
+    /* Methods of Dbusmenu-0.4.Dbusmenu.MenuitemProxy */
     getWrapped(): Menuitem
-    /* Methods of Dbusmenu.Menuitem */
+    /* Methods of Dbusmenu-0.4.Dbusmenu.Menuitem */
     childAddPosition(child: Menuitem, position: number): boolean
     childAppend(child: Menuitem): boolean
     childDelete(child: Menuitem): boolean
@@ -403,7 +364,7 @@ export class MenuitemProxy {
     showToUser(timestamp: number): void
     takeChildren(): Menuitem[]
     unparent(): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -425,82 +386,58 @@ export class MenuitemProxy {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of Dbusmenu.Menuitem */
-    vfuncChildAdded(position: number): void
-    vfuncChildMoved(newpos: number, oldpos: number): void
-    vfuncChildRemoved(): void
-    vfuncHandleEvent(name: string, variant: GLib.Variant, timestamp: number): void
-    vfuncShowToUser(timestamp: number, cbData?: object | null): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Dbusmenu.Menuitem */
+    /* Signals of Dbusmenu-0.4.Dbusmenu.Menuitem */
     connect(sigName: "about-to-show", callback: (($obj: MenuitemProxy) => boolean)): number
-    connect_after(sigName: "about-to-show", callback: (($obj: MenuitemProxy) => boolean)): number
+    on(sigName: "about-to-show", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "about-to-show", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "about-to-show", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "about-to-show"): void
-    on(sigName: "about-to-show", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "about-to-show", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "about-to-show", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "child-added", callback: (($obj: MenuitemProxy, arg1: GObject.Object, arg2: number) => void)): number
-    connect_after(sigName: "child-added", callback: (($obj: MenuitemProxy, arg1: GObject.Object, arg2: number) => void)): number
+    on(sigName: "child-added", callback: (arg1: GObject.Object, arg2: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "child-added", callback: (arg1: GObject.Object, arg2: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "child-added", callback: (arg1: GObject.Object, arg2: number) => void): NodeJS.EventEmitter
     emit(sigName: "child-added", arg1: GObject.Object, arg2: number): void
-    on(sigName: "child-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "child-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "child-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "child-moved", callback: (($obj: MenuitemProxy, arg1: GObject.Object, arg2: number, arg3: number) => void)): number
-    connect_after(sigName: "child-moved", callback: (($obj: MenuitemProxy, arg1: GObject.Object, arg2: number, arg3: number) => void)): number
+    on(sigName: "child-moved", callback: (arg1: GObject.Object, arg2: number, arg3: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "child-moved", callback: (arg1: GObject.Object, arg2: number, arg3: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "child-moved", callback: (arg1: GObject.Object, arg2: number, arg3: number) => void): NodeJS.EventEmitter
     emit(sigName: "child-moved", arg1: GObject.Object, arg2: number, arg3: number): void
-    on(sigName: "child-moved", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "child-moved", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "child-moved", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "child-removed", callback: (($obj: MenuitemProxy, arg1: GObject.Object) => void)): number
-    connect_after(sigName: "child-removed", callback: (($obj: MenuitemProxy, arg1: GObject.Object) => void)): number
+    on(sigName: "child-removed", callback: (arg1: GObject.Object) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "child-removed", callback: (arg1: GObject.Object) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "child-removed", callback: (arg1: GObject.Object) => void): NodeJS.EventEmitter
     emit(sigName: "child-removed", arg1: GObject.Object): void
-    on(sigName: "child-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "child-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "child-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "event", callback: (($obj: MenuitemProxy, arg1: string, arg2: GLib.Variant, arg3: number) => boolean)): number
-    connect_after(sigName: "event", callback: (($obj: MenuitemProxy, arg1: string, arg2: GLib.Variant, arg3: number) => boolean)): number
+    on(sigName: "event", callback: (arg1: string, arg2: GLib.Variant, arg3: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "event", callback: (arg1: string, arg2: GLib.Variant, arg3: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "event", callback: (arg1: string, arg2: GLib.Variant, arg3: number) => void): NodeJS.EventEmitter
     emit(sigName: "event", arg1: string, arg2: GLib.Variant, arg3: number): void
-    on(sigName: "event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "item-activated", callback: (($obj: MenuitemProxy, arg1: number) => void)): number
-    connect_after(sigName: "item-activated", callback: (($obj: MenuitemProxy, arg1: number) => void)): number
+    on(sigName: "item-activated", callback: (arg1: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "item-activated", callback: (arg1: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "item-activated", callback: (arg1: number) => void): NodeJS.EventEmitter
     emit(sigName: "item-activated", arg1: number): void
-    on(sigName: "item-activated", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "item-activated", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "item-activated", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "property-changed", callback: (($obj: MenuitemProxy, arg1: string, arg2: GLib.Variant) => void)): number
-    connect_after(sigName: "property-changed", callback: (($obj: MenuitemProxy, arg1: string, arg2: GLib.Variant) => void)): number
+    on(sigName: "property-changed", callback: (arg1: string, arg2: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "property-changed", callback: (arg1: string, arg2: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "property-changed", callback: (arg1: string, arg2: GLib.Variant) => void): NodeJS.EventEmitter
     emit(sigName: "property-changed", arg1: string, arg2: GLib.Variant): void
-    on(sigName: "property-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "property-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "property-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "realized", callback: (($obj: MenuitemProxy) => void)): number
-    connect_after(sigName: "realized", callback: (($obj: MenuitemProxy) => void)): number
+    on(sigName: "realized", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "realized", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "realized", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "realized"): void
-    on(sigName: "realized", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "realized", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "realized", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "show-to-user", callback: (($obj: MenuitemProxy, arg1: number) => void)): number
-    connect_after(sigName: "show-to-user", callback: (($obj: MenuitemProxy, arg1: number) => void)): number
+    on(sigName: "show-to-user", callback: (arg1: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "show-to-user", callback: (arg1: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "show-to-user", callback: (arg1: number) => void): NodeJS.EventEmitter
     emit(sigName: "show-to-user", arg1: number): void
-    on(sigName: "show-to-user", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "show-to-user", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "show-to-user", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: MenuitemProxy, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: MenuitemProxy, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -521,12 +458,12 @@ export interface Server_ConstructProps extends GObject.Object_ConstructProps {
     rootNode?: Menuitem
 }
 export class Server {
-    /* Properties of Dbusmenu.Server */
+    /* Properties of Dbusmenu-0.4.Dbusmenu.Server */
     rootNode: Menuitem
     readonly version: number
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Dbusmenu.Server */
+    /* Methods of Dbusmenu-0.4.Dbusmenu.Server */
     getIconPaths(): string[]
     getStatus(): Status
     getTextDirection(): TextDirection
@@ -534,7 +471,7 @@ export class Server {
     setRoot(root: Menuitem): void
     setStatus(status: Status): void
     setTextDirection(dir: TextDirection): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -556,46 +493,33 @@ export class Server {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Dbusmenu.Server */
+    /* Signals of Dbusmenu-0.4.Dbusmenu.Server */
     connect(sigName: "item-activation-requested", callback: (($obj: Server, arg1: number, arg2: number) => void)): number
-    connect_after(sigName: "item-activation-requested", callback: (($obj: Server, arg1: number, arg2: number) => void)): number
+    on(sigName: "item-activation-requested", callback: (arg1: number, arg2: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "item-activation-requested", callback: (arg1: number, arg2: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "item-activation-requested", callback: (arg1: number, arg2: number) => void): NodeJS.EventEmitter
     emit(sigName: "item-activation-requested", arg1: number, arg2: number): void
-    on(sigName: "item-activation-requested", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "item-activation-requested", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "item-activation-requested", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "item-property-updated", callback: (($obj: Server, object: number, p0: string, p1: GLib.Variant) => void)): number
-    connect_after(sigName: "item-property-updated", callback: (($obj: Server, object: number, p0: string, p1: GLib.Variant) => void)): number
+    on(sigName: "item-property-updated", callback: (object: number, p0: string, p1: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "item-property-updated", callback: (object: number, p0: string, p1: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "item-property-updated", callback: (object: number, p0: string, p1: GLib.Variant) => void): NodeJS.EventEmitter
     emit(sigName: "item-property-updated", object: number, p0: string, p1: GLib.Variant): void
-    on(sigName: "item-property-updated", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "item-property-updated", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "item-property-updated", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "item-updated", callback: (($obj: Server, object: number) => void)): number
-    connect_after(sigName: "item-updated", callback: (($obj: Server, object: number) => void)): number
+    on(sigName: "item-updated", callback: (object: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "item-updated", callback: (object: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "item-updated", callback: (object: number) => void): NodeJS.EventEmitter
     emit(sigName: "item-updated", object: number): void
-    on(sigName: "item-updated", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "item-updated", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "item-updated", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "layout-updated", callback: (($obj: Server, arg1: number, arg2: number) => void)): number
-    connect_after(sigName: "layout-updated", callback: (($obj: Server, arg1: number, arg2: number) => void)): number
+    on(sigName: "layout-updated", callback: (arg1: number, arg2: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "layout-updated", callback: (arg1: number, arg2: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "layout-updated", callback: (arg1: number, arg2: number) => void): NodeJS.EventEmitter
     emit(sigName: "layout-updated", arg1: number, arg2: number): void
-    on(sigName: "layout-updated", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "layout-updated", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "layout-updated", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Server, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Server, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::root-node", callback: (($obj: Server, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::root-node", callback: (($obj: Server, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::root-node", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -621,7 +545,7 @@ export class Server {
     static $gtype: GObject.Type
 }
 export abstract class ClientClass {
-    /* Fields of Dbusmenu.ClientClass */
+    /* Fields of Dbusmenu-0.4.Dbusmenu.ClientClass */
     parentClass: GObject.ObjectClass
     layoutUpdated: () => void
     rootChanged: (newroot: Menuitem) => void
@@ -640,7 +564,7 @@ export class ClientPrivate {
     static name: string
 }
 export abstract class MenuitemClass {
-    /* Fields of Dbusmenu.MenuitemClass */
+    /* Fields of Dbusmenu-0.4.Dbusmenu.MenuitemClass */
     parentClass: GObject.ObjectClass
     propertyChanged: (property: string, value: GLib.Variant) => void
     itemActivated: (timestamp: number) => void
@@ -663,7 +587,7 @@ export class MenuitemPrivate {
     static name: string
 }
 export abstract class MenuitemProxyClass {
-    /* Fields of Dbusmenu.MenuitemProxyClass */
+    /* Fields of Dbusmenu-0.4.Dbusmenu.MenuitemProxyClass */
     parentClass: MenuitemClass
     reserved1: () => void
     reserved2: () => void
@@ -675,7 +599,7 @@ export class MenuitemProxyPrivate {
     static name: string
 }
 export abstract class ServerClass {
-    /* Fields of Dbusmenu.ServerClass */
+    /* Fields of Dbusmenu-0.4.Dbusmenu.ServerClass */
     parentClass: GObject.ObjectClass
     idPropUpdate: (id: number, property: string, value: string) => void
     idUpdate: (id: number) => void

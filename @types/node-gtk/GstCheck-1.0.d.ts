@@ -58,43 +58,43 @@ export interface TestClock_ConstructProps extends Gst.Clock_ConstructProps {
     startTime?: number
 }
 export class TestClock {
-    /* Properties of GstCheck.TestClock */
+    /* Properties of GstCheck-1.0.GstCheck.TestClock */
     clockType: Gst.ClockType
-    /* Properties of Gst.Clock */
+    /* Properties of Gst-1.0.Gst.Clock */
     timeout: number
     windowSize: number
     windowThreshold: number
-    /* Properties of Gst.Object */
+    /* Properties of Gst-1.0.Gst.Object */
     name: string
     parent: Gst.Object
-    /* Fields of Gst.Clock */
+    /* Fields of Gst-1.0.Gst.Clock */
     object: Gst.Object
-    /* Fields of Gst.Object */
+    /* Fields of Gst-1.0.Gst.Object */
     lock: GLib.Mutex
     flags: number
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GstCheck.TestClock */
+    /* Methods of GstCheck-1.0.GstCheck.TestClock */
     advanceTime(delta: Gst.ClockTimeDiff): void
     crank(): boolean
     getNextEntryTime(): Gst.ClockTime
     hasId(id: Gst.ClockID): boolean
     peekIdCount(): number
-    peekNextPendingId(): [ /* returnType */ boolean, /* pendingId */ Gst.ClockID | null ]
+    peekNextPendingId(): { returnType: boolean, pendingId: Gst.ClockID | null }
     processId(pendingId: Gst.ClockID): boolean
     processIdList(pendingList?: Gst.ClockID[] | null): number
     processNextClockId(): Gst.ClockID | null
     setTime(newTime: Gst.ClockTime): void
-    timedWaitForMultiplePendingIds(count: number, timeoutMs: number): [ /* returnType */ boolean, /* pendingList */ Gst.ClockID[] | null ]
-    waitForMultiplePendingIds(count: number): /* pendingList */ Gst.ClockID[] | null
-    waitForNextPendingId(): /* pendingId */ Gst.ClockID | null
+    timedWaitForMultiplePendingIds(count: number, timeoutMs: number): { returnType: boolean, pendingList: Gst.ClockID[] | null }
+    waitForMultiplePendingIds(count: number): { pendingList: Gst.ClockID[] | null }
+    waitForNextPendingId(): { pendingId: Gst.ClockID | null }
     waitForPendingIdCount(count: number): void
-    /* Methods of Gst.Clock */
-    addObservation(slave: Gst.ClockTime, master: Gst.ClockTime): [ /* returnType */ boolean, /* rSquared */ number ]
-    addObservationUnapplied(slave: Gst.ClockTime, master: Gst.ClockTime): [ /* returnType */ boolean, /* rSquared */ number, /* internal */ Gst.ClockTime | null, /* external */ Gst.ClockTime | null, /* rateNum */ Gst.ClockTime | null, /* rateDenom */ Gst.ClockTime | null ]
+    /* Methods of Gst-1.0.Gst.Clock */
+    addObservation(slave: Gst.ClockTime, master: Gst.ClockTime): { returnType: boolean, rSquared: number }
+    addObservationUnapplied(slave: Gst.ClockTime, master: Gst.ClockTime): { returnType: boolean, rSquared: number, internal: Gst.ClockTime | null, external: Gst.ClockTime | null, rateNum: Gst.ClockTime | null, rateDenom: Gst.ClockTime | null }
     adjustUnlocked(internal: Gst.ClockTime): Gst.ClockTime
     adjustWithCalibration(internalTarget: Gst.ClockTime, cinternal: Gst.ClockTime, cexternal: Gst.ClockTime, cnum: Gst.ClockTime, cdenom: Gst.ClockTime): Gst.ClockTime
-    getCalibration(): [ /* internal */ Gst.ClockTime | null, /* external */ Gst.ClockTime | null, /* rateNum */ Gst.ClockTime | null, /* rateDenom */ Gst.ClockTime | null ]
+    getCalibration(): { internal: Gst.ClockTime | null, external: Gst.ClockTime | null, rateNum: Gst.ClockTime | null, rateDenom: Gst.ClockTime | null }
     getInternalTime(): Gst.ClockTime
     getMaster(): Gst.Clock | null
     getResolution(): Gst.ClockTime
@@ -113,7 +113,7 @@ export class TestClock {
     unadjustUnlocked(external: Gst.ClockTime): Gst.ClockTime
     unadjustWithCalibration(externalTarget: Gst.ClockTime, cinternal: Gst.ClockTime, cexternal: Gst.ClockTime, cnum: Gst.ClockTime, cdenom: Gst.ClockTime): Gst.ClockTime
     waitForSync(timeout: Gst.ClockTime): boolean
-    /* Methods of Gst.Object */
+    /* Methods of Gst-1.0.Gst.Object */
     addControlBinding(binding: Gst.ControlBinding): boolean
     defaultError(error: GLib.Error, debug?: string | null): void
     getControlBinding(propertyName: string): Gst.ControlBinding | null
@@ -138,7 +138,7 @@ export class TestClock {
     syncValues(timestamp: Gst.ClockTime): boolean
     unparent(): void
     unref(): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -159,44 +159,24 @@ export class TestClock {
     stealQdata(quark: GLib.Quark): object | null
     thawNotify(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of Gst.Clock */
-    vfuncChangeResolution(oldResolution: Gst.ClockTime, newResolution: Gst.ClockTime): Gst.ClockTime
-    vfuncGetInternalTime(): Gst.ClockTime
-    vfuncGetResolution(): Gst.ClockTime
-    vfuncUnschedule(entry: Gst.ClockEntry): void
-    vfuncWait(entry: Gst.ClockEntry, jitter: Gst.ClockTimeDiff): Gst.ClockReturn
-    vfuncWaitAsync(entry: Gst.ClockEntry): Gst.ClockReturn
-    /* Virtual methods of Gst.Object */
-    vfuncDeepNotify(orig: Gst.Object, pspec: GObject.ParamSpec): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gst.Clock */
+    /* Signals of Gst-1.0.Gst.Clock */
     connect(sigName: "synced", callback: (($obj: TestClock, synced: boolean) => void)): number
-    connect_after(sigName: "synced", callback: (($obj: TestClock, synced: boolean) => void)): number
+    on(sigName: "synced", callback: (synced: boolean) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "synced", callback: (synced: boolean) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "synced", callback: (synced: boolean) => void): NodeJS.EventEmitter
     emit(sigName: "synced", synced: boolean): void
-    on(sigName: "synced", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "synced", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "synced", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of Gst.Object */
+    /* Signals of Gst-1.0.Gst.Object */
     connect(sigName: "deep-notify", callback: (($obj: TestClock, propObject: Gst.Object, prop: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "deep-notify", callback: (($obj: TestClock, propObject: Gst.Object, prop: GObject.ParamSpec) => void)): number
+    on(sigName: "deep-notify", callback: (propObject: Gst.Object, prop: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "deep-notify", callback: (propObject: Gst.Object, prop: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "deep-notify", callback: (propObject: Gst.Object, prop: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "deep-notify", propObject: Gst.Object, prop: GObject.ParamSpec): void
-    on(sigName: "deep-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "deep-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "deep-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: TestClock, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: TestClock, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::clock-type", callback: (($obj: TestClock, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::clock-type", callback: (($obj: TestClock, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::clock-type", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -244,7 +224,7 @@ export class TestClock {
     static $gtype: GObject.Type
 }
 export class CheckABIStruct {
-    /* Fields of GstCheck.CheckABIStruct */
+    /* Fields of GstCheck-1.0.GstCheck.CheckABIStruct */
     name: string
     size: number
     abiSize: number
@@ -254,13 +234,13 @@ export class CheckLogFilter {
     static name: string
 }
 export class Harness {
-    /* Fields of GstCheck.Harness */
+    /* Fields of GstCheck-1.0.GstCheck.Harness */
     element: Gst.Element
     srcpad: Gst.Pad
     sinkpad: Gst.Pad
     srcHarness: Harness
     sinkHarness: Harness
-    /* Methods of GstCheck.Harness */
+    /* Methods of GstCheck-1.0.GstCheck.Harness */
     addElementSinkPad(sinkpad: Gst.Pad): void
     addElementSrcPad(srcpad: Gst.Pad): void
     addProbe(elementName: string, padName: string, mask: Gst.PadProbeType, callback: Gst.PadProbeCallback): void
@@ -280,13 +260,13 @@ export class Harness {
     eventsInQueue(): number
     eventsReceived(): number
     findElement(elementName: string): Gst.Element | null
-    getAllocator(): [ /* allocator */ Gst.Allocator | null, /* params */ Gst.AllocationParams | null ]
+    getAllocator(): { allocator: Gst.Allocator | null, params: Gst.AllocationParams | null }
     getLastPushedTimestamp(): Gst.ClockTime
     getTestclock(): TestClock
     play(): void
     pull(): Gst.Buffer
     pullEvent(): Gst.Event
-    pullUntilEos(): [ /* returnType */ boolean, /* buf */ Gst.Buffer ]
+    pullUntilEos(): { returnType: boolean, buf: Gst.Buffer }
     pullUpstreamEvent(): Gst.Event
     push(buffer: Gst.Buffer): Gst.FlowReturn
     pushAndPull(buffer: Gst.Buffer): Gst.Buffer
@@ -336,7 +316,7 @@ export class StreamConsistency {
     static name: string
 }
 export abstract class TestClockClass {
-    /* Fields of GstCheck.TestClockClass */
+    /* Fields of GstCheck-1.0.GstCheck.TestClockClass */
     parentClass: Gst.ClockClass
     static name: string
 }

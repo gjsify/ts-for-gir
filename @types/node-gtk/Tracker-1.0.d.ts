@@ -57,16 +57,16 @@ export interface SparqlBuilder_ConstructProps extends GObject.Object_ConstructPr
     length?: number
 }
 export class SparqlBuilder {
-    /* Properties of Tracker.SparqlBuilder */
+    /* Properties of Tracker-1.0.Tracker.SparqlBuilder */
     readonly result: string
     length: number
     readonly state: SparqlBuilderState
-    /* Fields of Tracker.SparqlBuilder */
+    /* Fields of Tracker-1.0.Tracker.SparqlBuilder */
     parentInstance: GObject.Object
     priv: SparqlBuilderPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Tracker.SparqlBuilder */
+    /* Methods of Tracker-1.0.Tracker.SparqlBuilder */
     insertOpen(graph?: string | null): void
     insertSilentOpen(graph?: string | null): void
     insertClose(): void
@@ -88,7 +88,7 @@ export class SparqlBuilder {
     objectUnvalidated(value: string): void
     objectBoolean(literal: boolean): void
     objectInt64(literal: number): void
-    objectDate(literal: number): /* literal */ number
+    objectDate(literal: number): { literal: number }
     objectDouble(literal: number): void
     objectBlankOpen(): void
     objectBlankClose(): void
@@ -97,7 +97,7 @@ export class SparqlBuilder {
     getResult(): string
     getLength(): number
     getState(): SparqlBuilderState
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -119,21 +119,12 @@ export class SparqlBuilder {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: SparqlBuilder, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: SparqlBuilder, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::result", callback: (($obj: SparqlBuilder, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::result", callback: (($obj: SparqlBuilder, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::result", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -168,12 +159,12 @@ export class SparqlBuilder {
 export interface SparqlConnection_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class SparqlConnection {
-    /* Fields of Tracker.SparqlConnection */
+    /* Fields of Tracker-1.0.Tracker.SparqlConnection */
     parentInstance: GObject.Object
     priv: SparqlConnectionPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Tracker.SparqlConnection */
+    /* Methods of Tracker-1.0.Tracker.SparqlConnection */
     query(sparql: string, cancellable?: Gio.Cancellable | null): SparqlCursor
     queryAsync(sparql: string, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     queryFinish(res: Gio.AsyncResult): SparqlCursor
@@ -191,7 +182,7 @@ export class SparqlConnection {
     statistics(cancellable?: Gio.Cancellable | null): SparqlCursor | null
     statisticsAsync(cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     statisticsFinish(res: Gio.AsyncResult): SparqlCursor | null
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -213,39 +204,12 @@ export class SparqlConnection {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of Tracker.SparqlConnection */
-    vfuncQuery(sparql: string, cancellable?: Gio.Cancellable | null): SparqlCursor
-    vfuncQueryAsync(sparql: string, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    vfuncQueryFinish(res: Gio.AsyncResult): SparqlCursor
-    vfuncUpdate(sparql: string, priority: number, cancellable?: Gio.Cancellable | null): void
-    vfuncUpdateAsync(sparql: string, priority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    vfuncUpdateFinish(res: Gio.AsyncResult): void
-    vfuncUpdateArrayAsync(sparql: string[], priority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    vfuncUpdateArrayFinish(res: Gio.AsyncResult): any[] | null
-    vfuncUpdateBlank(sparql: string, priority: number, cancellable?: Gio.Cancellable | null): GLib.Variant | null
-    vfuncUpdateBlankAsync(sparql: string, priority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    vfuncUpdateBlankFinish(res: Gio.AsyncResult): GLib.Variant | null
-    vfuncLoad(file: Gio.File, cancellable?: Gio.Cancellable | null): void
-    vfuncLoadAsync(file: Gio.File, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    vfuncLoadFinish(res: Gio.AsyncResult): void
-    vfuncStatistics(cancellable?: Gio.Cancellable | null): SparqlCursor | null
-    vfuncStatisticsAsync(cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    vfuncStatisticsFinish(res: Gio.AsyncResult): SparqlCursor | null
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: SparqlConnection, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: SparqlConnection, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -270,18 +234,18 @@ export interface SparqlCursor_ConstructProps extends GObject.Object_ConstructPro
     connection?: SparqlConnection
 }
 export class SparqlCursor {
-    /* Properties of Tracker.SparqlCursor */
+    /* Properties of Tracker-1.0.Tracker.SparqlCursor */
     connection: SparqlConnection
     readonly nColumns: number
-    /* Fields of Tracker.SparqlCursor */
+    /* Fields of Tracker-1.0.Tracker.SparqlCursor */
     parentInstance: GObject.Object
     priv: SparqlCursorPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Tracker.SparqlCursor */
+    /* Methods of Tracker-1.0.Tracker.SparqlCursor */
     getValueType(column: number): SparqlValueType
     getVariableName(column: number): string | null
-    getString(column: number): [ /* returnType */ string | null, /* length */ number ]
+    getString(column: number): { returnType: string | null, length: number }
     next(cancellable?: Gio.Cancellable | null): boolean
     nextAsync(cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     nextFinish(res: Gio.AsyncResult): boolean
@@ -294,7 +258,7 @@ export class SparqlCursor {
     getConnection(): SparqlConnection
     setConnection(value: SparqlConnection): void
     getNColumns(): number
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -316,35 +280,12 @@ export class SparqlCursor {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of Tracker.SparqlCursor */
-    vfuncGetValueType(column: number): SparqlValueType
-    vfuncGetVariableName(column: number): string | null
-    vfuncGetString(column: number): [ /* returnType */ string | null, /* length */ number ]
-    vfuncNext(cancellable?: Gio.Cancellable | null): boolean
-    vfuncNextAsync(cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    vfuncNextFinish(res: Gio.AsyncResult): boolean
-    vfuncRewind(): void
-    vfuncClose(): void
-    vfuncGetInteger(column: number): number
-    vfuncGetDouble(column: number): number
-    vfuncGetBoolean(column: number): boolean
-    vfuncIsBound(column: number): boolean
-    vfuncGetNColumns(): number
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: SparqlCursor, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: SparqlCursor, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::connection", callback: (($obj: SparqlCursor, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::connection", callback: (($obj: SparqlCursor, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::connection", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -368,7 +309,7 @@ export class SparqlCursor {
     static $gtype: GObject.Type
 }
 export abstract class SparqlBuilderClass {
-    /* Fields of Tracker.SparqlBuilderClass */
+    /* Fields of Tracker-1.0.Tracker.SparqlBuilderClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
@@ -376,7 +317,7 @@ export class SparqlBuilderPrivate {
     static name: string
 }
 export abstract class SparqlConnectionClass {
-    /* Fields of Tracker.SparqlConnectionClass */
+    /* Fields of Tracker-1.0.Tracker.SparqlConnectionClass */
     parentClass: GObject.ObjectClass
     query: (self: SparqlConnection, sparql: string, cancellable?: Gio.Cancellable | null) => SparqlCursor
     queryAsync: (self: SparqlConnection, sparql: string, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null) => void
@@ -401,11 +342,11 @@ export class SparqlConnectionPrivate {
     static name: string
 }
 export abstract class SparqlCursorClass {
-    /* Fields of Tracker.SparqlCursorClass */
+    /* Fields of Tracker-1.0.Tracker.SparqlCursorClass */
     parentClass: GObject.ObjectClass
     getValueType: (self: SparqlCursor, column: number) => SparqlValueType
     getVariableName: (self: SparqlCursor, column: number) => string | null
-    getString: (self: SparqlCursor, column: number) => [ /* returnType */ string | null, /* length */ number ]
+    getString: (self: SparqlCursor, column: number) => { returnType: string | null, length: number }
     next: (self: SparqlCursor, cancellable?: Gio.Cancellable | null) => boolean
     nextAsync: (self: SparqlCursor, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null) => void
     nextFinish: (self: SparqlCursor, res: Gio.AsyncResult) => boolean

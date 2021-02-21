@@ -13,13 +13,13 @@ export function gnome_features_2_26_get_type(): GObject.Type
 export interface CookieJarSqlite_ConstructProps extends Soup.CookieJarDB_ConstructProps {
 }
 export class CookieJarSqlite {
-    /* Properties of Soup.CookieJar */
+    /* Properties of Soup-2.4.Soup.CookieJar */
     accept_policy: Soup.CookieJarAcceptPolicy
-    /* Fields of SoupGNOME.CookieJarSqlite */
+    /* Fields of SoupGNOME-2.4.SoupGNOME.CookieJarSqlite */
     parent: Soup.CookieJarDB
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Soup.CookieJar */
+    /* Methods of Soup-2.4.Soup.CookieJar */
     add_cookie(cookie: Soup.Cookie): void
     add_cookie_full(cookie: Soup.Cookie, uri?: Soup.URI | null, first_party?: Soup.URI | null): void
     add_cookie_with_first_party(first_party: Soup.URI, cookie: Soup.Cookie): void
@@ -34,7 +34,7 @@ export class CookieJarSqlite {
     set_accept_policy(policy: Soup.CookieJarAcceptPolicy): void
     set_cookie(uri: Soup.URI, cookie: string): void
     set_cookie_with_first_party(uri: Soup.URI, first_party: Soup.URI, cookie: string): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -56,13 +56,13 @@ export class CookieJarSqlite {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of Soup.SessionFeature */
+    /* Methods of Soup-2.4.Soup.SessionFeature */
     add_feature(type: GObject.Type): boolean
     attach(session: Soup.Session): void
     detach(session: Soup.Session): void
     has_feature(type: GObject.Type): boolean
     remove_feature(type: GObject.Type): boolean
-    /* Virtual methods of SoupGNOME.CookieJarSqlite */
+    /* Virtual methods of SoupGNOME-2.4.SoupGNOME.CookieJarSqlite */
     vfunc_add_feature(type: GObject.Type): boolean
     vfunc_attach(session: Soup.Session): void
     vfunc_detach(session: Soup.Session): void
@@ -71,11 +71,11 @@ export class CookieJarSqlite {
     vfunc_request_queued(session: Soup.Session, msg: Soup.Message): void
     vfunc_request_started(session: Soup.Session, msg: Soup.Message, socket: Soup.Socket): void
     vfunc_request_unqueued(session: Soup.Session, msg: Soup.Message): void
-    /* Virtual methods of Soup.CookieJar */
+    /* Virtual methods of Soup-2.4.Soup.CookieJar */
     vfunc_changed(old_cookie: Soup.Cookie, new_cookie: Soup.Cookie): void
     vfunc_is_persistent(): boolean
     vfunc_save(): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -83,11 +83,11 @@ export class CookieJarSqlite {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Soup.CookieJar */
+    /* Signals of Soup-2.4.Soup.CookieJar */
     connect(sigName: "changed", callback: (($obj: CookieJarSqlite, old_cookie: Soup.Cookie, new_cookie: Soup.Cookie) => void)): number
     connect_after(sigName: "changed", callback: (($obj: CookieJarSqlite, old_cookie: Soup.Cookie, new_cookie: Soup.Cookie) => void)): number
     emit(sigName: "changed", old_cookie: Soup.Cookie, new_cookie: Soup.Cookie): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: CookieJarSqlite, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: CookieJarSqlite, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -108,9 +108,9 @@ export class CookieJarSqlite {
 export interface PasswordManagerGNOME_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class PasswordManagerGNOME {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -132,13 +132,13 @@ export class PasswordManagerGNOME {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of Soup.SessionFeature */
+    /* Methods of Soup-2.4.Soup.SessionFeature */
     add_feature(type: GObject.Type): boolean
     attach(session: Soup.Session): void
     detach(session: Soup.Session): void
     has_feature(type: GObject.Type): boolean
     remove_feature(type: GObject.Type): boolean
-    /* Virtual methods of SoupGNOME.PasswordManagerGNOME */
+    /* Virtual methods of SoupGNOME-2.4.SoupGNOME.PasswordManagerGNOME */
     vfunc_add_feature(type: GObject.Type): boolean
     vfunc_attach(session: Soup.Session): void
     vfunc_detach(session: Soup.Session): void
@@ -147,7 +147,7 @@ export class PasswordManagerGNOME {
     vfunc_request_queued(session: Soup.Session, msg: Soup.Message): void
     vfunc_request_started(session: Soup.Session, msg: Soup.Message, socket: Soup.Socket): void
     vfunc_request_unqueued(session: Soup.Session, msg: Soup.Message): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -155,7 +155,7 @@ export class PasswordManagerGNOME {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: PasswordManagerGNOME, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: PasswordManagerGNOME, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -171,13 +171,13 @@ export class PasswordManagerGNOME {
 export interface ProxyResolverGNOME_ConstructProps extends Soup.ProxyResolverDefault_ConstructProps {
 }
 export class ProxyResolverGNOME {
-    /* Properties of Soup.ProxyResolverDefault */
+    /* Properties of Soup-2.4.Soup.ProxyResolverDefault */
     gproxy_resolver: Gio.ProxyResolver
-    /* Fields of Soup.ProxyResolverDefault */
+    /* Fields of Soup-2.4.Soup.ProxyResolverDefault */
     parent: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -199,16 +199,16 @@ export class ProxyResolverGNOME {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of Soup.ProxyURIResolver */
+    /* Methods of Soup-2.4.Soup.ProxyURIResolver */
     get_proxy_uri_async(uri: Soup.URI, async_context: GLib.MainContext | null, cancellable: Gio.Cancellable | null, callback: Soup.ProxyURIResolverCallback): void
     get_proxy_uri_sync(uri: Soup.URI, cancellable?: Gio.Cancellable | null): [ /* returnType */ number, /* proxy_uri */ Soup.URI ]
-    /* Methods of Soup.SessionFeature */
+    /* Methods of Soup-2.4.Soup.SessionFeature */
     add_feature(type: GObject.Type): boolean
     attach(session: Soup.Session): void
     detach(session: Soup.Session): void
     has_feature(type: GObject.Type): boolean
     remove_feature(type: GObject.Type): boolean
-    /* Virtual methods of SoupGNOME.ProxyResolverGNOME */
+    /* Virtual methods of SoupGNOME-2.4.SoupGNOME.ProxyResolverGNOME */
     vfunc_get_proxy_uri_async(uri: Soup.URI, async_context: GLib.MainContext | null, cancellable: Gio.Cancellable | null, callback: Soup.ProxyURIResolverCallback): void
     vfunc_get_proxy_uri_sync(uri: Soup.URI, cancellable?: Gio.Cancellable | null): [ /* returnType */ number, /* proxy_uri */ Soup.URI ]
     vfunc_add_feature(type: GObject.Type): boolean
@@ -219,7 +219,7 @@ export class ProxyResolverGNOME {
     vfunc_request_queued(session: Soup.Session, msg: Soup.Message): void
     vfunc_request_started(session: Soup.Session, msg: Soup.Message, socket: Soup.Socket): void
     vfunc_request_unqueued(session: Soup.Session, msg: Soup.Message): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -227,7 +227,7 @@ export class ProxyResolverGNOME {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: ProxyResolverGNOME, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: ProxyResolverGNOME, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -243,7 +243,7 @@ export class ProxyResolverGNOME {
     static $gtype: GObject.Type
 }
 export abstract class CookieJarSqliteClass {
-    /* Fields of SoupGNOME.CookieJarSqliteClass */
+    /* Fields of SoupGNOME-2.4.SoupGNOME.CookieJarSqliteClass */
     parent_class: Soup.CookieJarDBClass
     static name: string
 }

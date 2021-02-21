@@ -37,11 +37,11 @@ export const MICRO_VERSION: number
 export const MINOR_VERSION: number
 export const VERSION_HEX: number
 export const VERSION_S: string
-export function init(argv?: string[] | null): [ /* returnType */ Clutter.InitError, /* argv */ string[] | null ]
-export function initWithArgs(argv: string[] | null, parameterString: string, entries: GLib.OptionEntry, translationDomain: string): [ /* returnType */ Clutter.InitError, /* argv */ string[] | null ]
+export function init(argv?: string[] | null): { returnType: Clutter.InitError, argv: string[] | null }
+export function initWithArgs(argv: string[] | null, parameterString: string, entries: GLib.OptionEntry, translationDomain: string): { returnType: Clutter.InitError, argv: string[] | null }
 export function playerClassInit(objectClass: GObject.ObjectClass): void
 export class Player {
-    /* Properties of ClutterGst.Player */
+    /* Properties of ClutterGst-1.0.ClutterGst.Player */
     audioStream: number
     readonly audioStreams: object
     readonly idle: boolean
@@ -50,7 +50,7 @@ export class Player {
     subtitleTrack: number
     readonly subtitleTracks: object
     userAgent: string
-    /* Properties of Clutter.Media */
+    /* Properties of Clutter-1.0.Clutter.Media */
     audioVolume: number
     readonly bufferFill: number
     readonly canSeek: boolean
@@ -60,7 +60,7 @@ export class Player {
     subtitleFontName: string
     subtitleUri: string
     uri: string
-    /* Methods of ClutterGst.Player */
+    /* Methods of ClutterGst-1.0.ClutterGst.Player */
     deinit(): void
     getAudioStream(): number
     getAudioStreams(): string[]
@@ -78,7 +78,7 @@ export class Player {
     setSeekFlags(flags: SeekFlags): void
     setSubtitleTrack(index: number): void
     setUserAgent(userAgent: string): void
-    /* Methods of Clutter.Media */
+    /* Methods of Clutter-1.0.Clutter.Media */
     getAudioVolume(): number
     getBufferFill(): number
     getCanSeek(): boolean
@@ -95,52 +95,29 @@ export class Player {
     setSubtitleFontName(fontName: string): void
     setSubtitleUri(uri: string): void
     setUri(uri: string): void
-    /* Virtual methods of ClutterGst.Player */
-    vfuncDownloadBuffering(start: number, stop: number): void
-    vfuncGetAudioStream(): number
-    vfuncGetAudioStreams(): string[]
-    vfuncGetBufferingMode(): BufferingMode
-    vfuncGetIdle(): boolean
-    vfuncGetInSeek(): boolean
-    vfuncGetPipeline(): any
-    vfuncGetSeekFlags(): SeekFlags
-    vfuncGetSubtitleTrack(): number
-    vfuncGetSubtitleTracks(): string[]
-    vfuncGetUserAgent(): string
-    vfuncSetAudioStream(index: number): void
-    vfuncSetBufferingMode(mode: BufferingMode): void
-    vfuncSetSeekFlags(flags: SeekFlags): void
-    vfuncSetSubtitleTrack(index: number): void
-    vfuncSetUserAgent(userAgent: string): void
-    /* Virtual methods of Clutter.Media */
-    vfuncEos(): void
-    vfuncError(error: GLib.Error): void
-    /* Signals of ClutterGst.Player */
+    /* Signals of ClutterGst-1.0.ClutterGst.Player */
     connect(sigName: "download-buffering", callback: (($obj: Player, start: number, stop: number) => void)): number
-    connect_after(sigName: "download-buffering", callback: (($obj: Player, start: number, stop: number) => void)): number
+    on(sigName: "download-buffering", callback: (start: number, stop: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "download-buffering", callback: (start: number, stop: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "download-buffering", callback: (start: number, stop: number) => void): NodeJS.EventEmitter
     emit(sigName: "download-buffering", start: number, stop: number): void
-    on(sigName: "download-buffering", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "download-buffering", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "download-buffering", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of Clutter.Media */
+    /* Signals of Clutter-1.0.Clutter.Media */
     connect(sigName: "eos", callback: (($obj: Player) => void)): number
-    connect_after(sigName: "eos", callback: (($obj: Player) => void)): number
+    on(sigName: "eos", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "eos", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "eos", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "eos"): void
-    on(sigName: "eos", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "eos", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "eos", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "error", callback: (($obj: Player, error: GLib.Error) => void)): number
-    connect_after(sigName: "error", callback: (($obj: Player, error: GLib.Error) => void)): number
+    on(sigName: "error", callback: (error: GLib.Error) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "error", callback: (error: GLib.Error) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "error", callback: (error: GLib.Error) => void): NodeJS.EventEmitter
     emit(sigName: "error", error: GLib.Error): void
-    on(sigName: "error", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "error", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "error", callback: (...args: any[]) => void): NodeJS.EventEmitter
     static name: string
     /* Static methods and pseudo-constructors */
     static classInit(objectClass: GObject.ObjectClass): void
 }
 export class VideoSink {
-    /* Properties of ClutterGst.VideoSink */
+    /* Properties of ClutterGst-1.0.ClutterGst.VideoSink */
     texture: Clutter.Texture
     updatePriority: number
     static name: string
@@ -163,9 +140,9 @@ export interface VideoTexture_ConstructProps extends Clutter.Texture_ConstructPr
     userAgent?: string
 }
 export class VideoTexture {
-    /* Properties of ClutterGst.VideoTexture */
+    /* Properties of ClutterGst-1.0.ClutterGst.VideoTexture */
     pixelAspectRatio: any
-    /* Properties of Clutter.Texture */
+    /* Properties of Clutter-1.0.Clutter.Texture */
     filename: string
     filterQuality: Clutter.TextureQuality
     keepAspectRatio: boolean
@@ -177,7 +154,7 @@ export class VideoTexture {
     repeatY: boolean
     syncSize: boolean
     readonly tileWaste: number
-    /* Properties of Clutter.Actor */
+    /* Properties of Clutter-1.0.Clutter.Actor */
     actions: Clutter.Action
     readonly allocation: Clutter.ActorBox
     anchorGravity: Clutter.Gravity
@@ -260,7 +237,7 @@ export class VideoTexture {
     yAlign: Clutter.ActorAlign
     yExpand: boolean
     zPosition: number
-    /* Properties of Clutter.Media */
+    /* Properties of Clutter-1.0.Clutter.Media */
     audioVolume: number
     readonly bufferFill: number
     readonly canSeek: boolean
@@ -270,7 +247,7 @@ export class VideoTexture {
     subtitleFontName: string
     subtitleUri: string
     uri: string
-    /* Properties of ClutterGst.Player */
+    /* Properties of ClutterGst-1.0.ClutterGst.Player */
     audioStream: number
     readonly audioStreams: object
     readonly idle: boolean
@@ -279,11 +256,11 @@ export class VideoTexture {
     subtitleTrack: number
     readonly subtitleTracks: object
     userAgent: string
-    /* Fields of Clutter.Actor */
+    /* Fields of Clutter-1.0.Clutter.Actor */
     flags: number
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of ClutterGst.VideoTexture */
+    /* Methods of ClutterGst-1.0.ClutterGst.VideoTexture */
     getAudioStream(): number
     getAudioStreams(): any[]
     getBufferingMode(): BufferingMode
@@ -299,8 +276,8 @@ export class VideoTexture {
     setSeekFlags(flags: SeekFlags): void
     setSubtitleTrack(index: number): void
     setUserAgent(userAgent: string): void
-    /* Methods of Clutter.Texture */
-    getBaseSize(): [ /* width */ number, /* height */ number ]
+    /* Methods of Clutter-1.0.Clutter.Texture */
+    getBaseSize(): { width: number, height: number }
     getCoglMaterial(): Cogl.Handle
     getCoglTexture(): Cogl.Handle
     getFilterQuality(): Clutter.TextureQuality
@@ -310,7 +287,7 @@ export class VideoTexture {
     getMaxTileWaste(): number
     getPickWithAlpha(): boolean
     getPixelFormat(): Cogl.PixelFormat
-    getRepeat(): [ /* repeatX */ boolean, /* repeatY */ boolean ]
+    getRepeat(): { repeatX: boolean, repeatY: boolean }
     getSyncSize(): boolean
     setAreaFromRgbData(data: any[], hasAlpha: boolean, x: number, y: number, width: number, height: number, rowstride: number, bpp: number, flags: Clutter.TextureFlags): boolean
     setCoglMaterial(coglMaterial: Cogl.Handle): void
@@ -325,7 +302,7 @@ export class VideoTexture {
     setPickWithAlpha(pickWithAlpha: boolean): void
     setRepeat(repeatX: boolean, repeatY: boolean): void
     setSyncSize(syncSize: boolean): void
-    /* Methods of Clutter.Actor */
+    /* Methods of Clutter-1.0.Clutter.Actor */
     addAction(action: Clutter.Action): void
     addActionWithName(name: string, action: Clutter.Action): void
     addChild(child: Clutter.Actor): void
@@ -341,8 +318,8 @@ export class VideoTexture {
     animateWithAlphav(alpha: Clutter.Alpha, properties: string[], values: any[]): Clutter.Animation
     animateWithTimelinev(mode: number, timeline: Clutter.Timeline, properties: string[], values: any[]): Clutter.Animation
     animatev(mode: number, duration: number, properties: string[], values: any[]): Clutter.Animation
-    applyRelativeTransformToPoint(ancestor: Clutter.Actor | null, point: Clutter.Vertex): /* vertex */ Clutter.Vertex
-    applyTransformToPoint(point: Clutter.Vertex): /* vertex */ Clutter.Vertex
+    applyRelativeTransformToPoint(ancestor: Clutter.Actor | null, point: Clutter.Vertex): { vertex: Clutter.Vertex }
+    applyTransformToPoint(point: Clutter.Vertex): { vertex: Clutter.Vertex }
     bindModel(model: Gio.ListModel | null, createChildFunc: Clutter.ActorCreateChildFunc): void
     clearActions(): void
     clearConstraints(): void
@@ -355,29 +332,29 @@ export class VideoTexture {
     destroyAllChildren(): void
     detachAnimation(): void
     event(event: Clutter.Event, capture: boolean): boolean
-    getAbsAllocationVertices(): /* verts */ Clutter.Vertex[]
+    getAbsAllocationVertices(): { verts: Clutter.Vertex[] }
     getAccessible(): Atk.Object
     getAction(name: string): Clutter.Action
     getActions(): Clutter.Action[]
-    getAllocationBox(): /* box */ Clutter.ActorBox
-    getAllocationGeometry(): /* geom */ Clutter.Geometry
-    getAllocationVertices(ancestor?: Clutter.Actor | null): /* verts */ Clutter.Vertex[]
-    getAnchorPoint(): [ /* anchorX */ number, /* anchorY */ number ]
+    getAllocationBox(): { box: Clutter.ActorBox }
+    getAllocationGeometry(): { geom: Clutter.Geometry }
+    getAllocationVertices(ancestor?: Clutter.Actor | null): { verts: Clutter.Vertex[] }
+    getAnchorPoint(): { anchorX: number, anchorY: number }
     getAnchorPointGravity(): Clutter.Gravity
     getAnimation(): Clutter.Animation
-    getBackgroundColor(): /* color */ Clutter.Color
+    getBackgroundColor(): { color: Clutter.Color }
     getChildAtIndex(index: number): Clutter.Actor
-    getChildTransform(): /* transform */ Clutter.Matrix
+    getChildTransform(): { transform: Clutter.Matrix }
     getChildren(): Clutter.Actor[]
-    getClip(): [ /* xoff */ number | null, /* yoff */ number | null, /* width */ number | null, /* height */ number | null ]
+    getClip(): { xoff: number | null, yoff: number | null, width: number | null, height: number | null }
     getClipToAllocation(): boolean
     getConstraint(name: string): Clutter.Constraint
     getConstraints(): Clutter.Constraint[]
     getContent(): Clutter.Content
-    getContentBox(): /* box */ Clutter.ActorBox
+    getContentBox(): { box: Clutter.ActorBox }
     getContentGravity(): Clutter.ContentGravity
     getContentRepeat(): Clutter.ContentRepeat
-    getContentScalingFilters(): [ /* minFilter */ Clutter.ScalingFilter | null, /* magFilter */ Clutter.ScalingFilter | null ]
+    getContentScalingFilters(): { minFilter: Clutter.ScalingFilter | null, magFilter: Clutter.ScalingFilter | null }
     getDefaultPaintVolume(): Clutter.PaintVolume
     getDepth(): number
     getEasingDelay(): number
@@ -388,12 +365,12 @@ export class VideoTexture {
     getFirstChild(): Clutter.Actor
     getFixedPositionSet(): boolean
     getFlags(): Clutter.ActorFlags
-    getGeometry(): /* geometry */ Clutter.Geometry
+    getGeometry(): { geometry: Clutter.Geometry }
     getGid(): number
     getHeight(): number
     getLastChild(): Clutter.Actor
     getLayoutManager(): Clutter.LayoutManager
-    getMargin(): /* margin */ Clutter.Margin
+    getMargin(): { margin: Clutter.Margin }
     getMarginBottom(): number
     getMarginLeft(): number
     getMarginRight(): number
@@ -403,38 +380,38 @@ export class VideoTexture {
     getNextSibling(): Clutter.Actor
     getOffscreenRedirect(): Clutter.OffscreenRedirect
     getOpacity(): number
-    getPaintBox(): [ /* returnType */ boolean, /* box */ Clutter.ActorBox ]
+    getPaintBox(): { returnType: boolean, box: Clutter.ActorBox }
     getPaintOpacity(): number
     getPaintVisibility(): boolean
     getPaintVolume(): Clutter.PaintVolume
     getPangoContext(): Pango.Context
     getParent(): Clutter.Actor
-    getPivotPoint(): [ /* pivotX */ number | null, /* pivotY */ number | null ]
+    getPivotPoint(): { pivotX: number | null, pivotY: number | null }
     getPivotPointZ(): number
-    getPosition(): [ /* x */ number | null, /* y */ number | null ]
-    getPreferredHeight(forWidth: number): [ /* minHeightP */ number | null, /* naturalHeightP */ number | null ]
-    getPreferredSize(): [ /* minWidthP */ number | null, /* minHeightP */ number | null, /* naturalWidthP */ number | null, /* naturalHeightP */ number | null ]
-    getPreferredWidth(forHeight: number): [ /* minWidthP */ number | null, /* naturalWidthP */ number | null ]
+    getPosition(): { x: number | null, y: number | null }
+    getPreferredHeight(forWidth: number): { minHeightP: number | null, naturalHeightP: number | null }
+    getPreferredSize(): { minWidthP: number | null, minHeightP: number | null, naturalWidthP: number | null, naturalHeightP: number | null }
+    getPreferredWidth(forHeight: number): { minWidthP: number | null, naturalWidthP: number | null }
     getPreviousSibling(): Clutter.Actor
     getReactive(): boolean
     getRequestMode(): Clutter.RequestMode
-    getRotation(axis: Clutter.RotateAxis): [ /* returnType */ number, /* x */ number, /* y */ number, /* z */ number ]
+    getRotation(axis: Clutter.RotateAxis): { returnType: number, x: number, y: number, z: number }
     getRotationAngle(axis: Clutter.RotateAxis): number
-    getScale(): [ /* scaleX */ number | null, /* scaleY */ number | null ]
-    getScaleCenter(): [ /* centerX */ number | null, /* centerY */ number | null ]
+    getScale(): { scaleX: number | null, scaleY: number | null }
+    getScaleCenter(): { centerX: number | null, centerY: number | null }
     getScaleGravity(): Clutter.Gravity
     getScaleZ(): number
     getShader(): Clutter.Shader
-    getSize(): [ /* width */ number | null, /* height */ number | null ]
+    getSize(): { width: number | null, height: number | null }
     getStage(): Clutter.Stage
     getTextDirection(): Clutter.TextDirection
-    getTransform(): /* transform */ Clutter.Matrix
-    getTransformationMatrix(): /* matrix */ Clutter.Matrix
+    getTransform(): { transform: Clutter.Matrix }
+    getTransformationMatrix(): { matrix: Clutter.Matrix }
     getTransformedPaintVolume(relativeToAncestor: Clutter.Actor): Clutter.PaintVolume
-    getTransformedPosition(): [ /* x */ number | null, /* y */ number | null ]
-    getTransformedSize(): [ /* width */ number | null, /* height */ number | null ]
+    getTransformedPosition(): { x: number | null, y: number | null }
+    getTransformedSize(): { width: number | null, height: number | null }
     getTransition(name: string): Clutter.Transition
-    getTranslation(): [ /* translateX */ number | null, /* translateY */ number | null, /* translateZ */ number | null ]
+    getTranslation(): { translateX: number | null, translateY: number | null, translateZ: number | null }
     getWidth(): number
     getX(): number
     getXAlign(): Clutter.ActorAlign
@@ -556,12 +533,12 @@ export class VideoTexture {
     shouldPickPaint(): boolean
     show(): void
     showAll(): void
-    transformStagePoint(x: number, y: number): [ /* returnType */ boolean, /* xOut */ number, /* yOut */ number ]
+    transformStagePoint(x: number, y: number): { returnType: boolean, xOut: number, yOut: number }
     unmap(): void
     unparent(): void
     unrealize(): void
     unsetFlags(flags: Clutter.ActorFlags): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -583,13 +560,13 @@ export class VideoTexture {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of Clutter.Animatable */
+    /* Methods of Clutter-1.0.Clutter.Animatable */
     animateProperty(animation: Clutter.Animation, propertyName: string, initialValue: any, finalValue: any, progress: number, value: any): boolean
     findProperty(propertyName: string): GObject.ParamSpec
     getInitialState(propertyName: string, value: any): void
-    interpolateValue(propertyName: string, interval: Clutter.Interval, progress: number): [ /* returnType */ boolean, /* value */ any ]
+    interpolateValue(propertyName: string, interval: Clutter.Interval, progress: number): { returnType: boolean, value: any }
     setFinalState(propertyName: string, value: any): void
-    /* Methods of Clutter.Container */
+    /* Methods of Clutter-1.0.Clutter.Container */
     addActor(actor: Clutter.Actor): void
     childGetProperty(child: Clutter.Actor, property: string, value: any): void
     childNotify(child: Clutter.Actor, pspec: GObject.ParamSpec): void
@@ -604,7 +581,7 @@ export class VideoTexture {
     raiseChild(actor: Clutter.Actor, sibling?: Clutter.Actor | null): void
     removeActor(actor: Clutter.Actor): void
     sortDepthOrder(): void
-    /* Methods of Clutter.Media */
+    /* Methods of Clutter-1.0.Clutter.Media */
     getAudioVolume(): number
     getBufferFill(): number
     getCanSeek(): boolean
@@ -621,329 +598,204 @@ export class VideoTexture {
     setSubtitleFontName(fontName: string): void
     setSubtitleUri(uri: string): void
     setUri(uri: string): void
-    /* Methods of Clutter.Scriptable */
+    /* Methods of Clutter-1.0.Clutter.Scriptable */
     getId(): string
     parseCustomNode(script: Clutter.Script, value: any, name: string, node: Json.Node): boolean
     setCustomProperty(script: Clutter.Script, name: string, value: any): void
     setId(id: string): void
-    /* Methods of ClutterGst.Player */
+    /* Methods of ClutterGst-1.0.ClutterGst.Player */
     deinit(): void
     getAudioStreams(): string[]
     getIdle(): boolean
     getInSeek(): boolean
     getSubtitleTracks(): string[]
     init(): boolean
-    /* Virtual methods of ClutterGst.VideoTexture */
-    vfuncAnimateProperty(animation: Clutter.Animation, propertyName: string, initialValue: any, finalValue: any, progress: number, value: any): boolean
-    vfuncFindProperty(propertyName: string): GObject.ParamSpec
-    vfuncGetInitialState(propertyName: string, value: any): void
-    vfuncInterpolateValue(propertyName: string, interval: Clutter.Interval, progress: number): [ /* returnType */ boolean, /* value */ any ]
-    vfuncSetFinalState(propertyName: string, value: any): void
-    vfuncActorAdded(actor: Clutter.Actor): void
-    vfuncActorRemoved(actor: Clutter.Actor): void
-    vfuncAdd(actor: Clutter.Actor): void
-    vfuncChildNotify(child: Clutter.Actor, pspec: GObject.ParamSpec): void
-    vfuncCreateChildMeta(actor: Clutter.Actor): void
-    vfuncDestroyChildMeta(actor: Clutter.Actor): void
-    vfuncForeach(callback: Clutter.Callback): void
-    vfuncForeachWithInternals(callback: Clutter.Callback): void
-    vfuncGetChildMeta(actor: Clutter.Actor): Clutter.ChildMeta
-    vfuncLower(actor: Clutter.Actor, sibling?: Clutter.Actor | null): void
-    vfuncRaise(actor: Clutter.Actor, sibling?: Clutter.Actor | null): void
-    vfuncRemove(actor: Clutter.Actor): void
-    vfuncSortDepthOrder(): void
-    vfuncEos(): void
-    vfuncError(error: GLib.Error): void
-    vfuncGetId(): string
-    vfuncParseCustomNode(script: Clutter.Script, value: any, name: string, node: Json.Node): boolean
-    vfuncSetCustomProperty(script: Clutter.Script, name: string, value: any): void
-    vfuncSetId(id: string): void
-    vfuncDownloadBuffering(start: number, stop: number): void
-    vfuncGetAudioStream(): number
-    vfuncGetAudioStreams(): string[]
-    vfuncGetBufferingMode(): BufferingMode
-    vfuncGetIdle(): boolean
-    vfuncGetInSeek(): boolean
-    vfuncGetPipeline(): any
-    vfuncGetSeekFlags(): SeekFlags
-    vfuncGetSubtitleTrack(): number
-    vfuncGetSubtitleTracks(): string[]
-    vfuncGetUserAgent(): string
-    vfuncSetAudioStream(index: number): void
-    vfuncSetBufferingMode(mode: BufferingMode): void
-    vfuncSetSeekFlags(flags: SeekFlags): void
-    vfuncSetSubtitleTrack(index: number): void
-    vfuncSetUserAgent(userAgent: string): void
-    /* Virtual methods of Clutter.Texture */
-    vfuncLoadFinished(error: GLib.Error): void
-    vfuncPixbufChange(): void
-    vfuncSizeChange(width: number, height: number): void
-    /* Virtual methods of Clutter.Actor */
-    vfuncAllocate(box: Clutter.ActorBox, flags: Clutter.AllocationFlags): void
-    vfuncApplyTransform(matrix: Clutter.Matrix): void
-    vfuncButtonPressEvent(event: Clutter.ButtonEvent): boolean
-    vfuncButtonReleaseEvent(event: Clutter.ButtonEvent): boolean
-    vfuncCapturedEvent(event: Clutter.Event): boolean
-    vfuncDestroy(): void
-    vfuncEnterEvent(event: Clutter.CrossingEvent): boolean
-    vfuncEvent(event: Clutter.Event): boolean
-    vfuncGetAccessible(): Atk.Object
-    vfuncGetPaintVolume(volume: Clutter.PaintVolume): boolean
-    vfuncGetPreferredHeight(forWidth: number): [ /* minHeightP */ number | null, /* naturalHeightP */ number | null ]
-    vfuncGetPreferredWidth(forHeight: number): [ /* minWidthP */ number | null, /* naturalWidthP */ number | null ]
-    vfuncHasOverlaps(): boolean
-    vfuncHide(): void
-    vfuncHideAll(): void
-    vfuncKeyFocusIn(): void
-    vfuncKeyFocusOut(): void
-    vfuncKeyPressEvent(event: Clutter.KeyEvent): boolean
-    vfuncKeyReleaseEvent(event: Clutter.KeyEvent): boolean
-    vfuncLeaveEvent(event: Clutter.CrossingEvent): boolean
-    vfuncMap(): void
-    vfuncMotionEvent(event: Clutter.MotionEvent): boolean
-    vfuncPaint(): void
-    vfuncPaintNode(root: Clutter.PaintNode): void
-    vfuncParentSet(oldParent: Clutter.Actor): void
-    vfuncPick(color: Clutter.Color): void
-    vfuncQueueRedraw(leafThatQueued: Clutter.Actor): void
-    vfuncQueueRelayout(): void
-    vfuncRealize(): void
-    vfuncScrollEvent(event: Clutter.ScrollEvent): boolean
-    vfuncShow(): void
-    vfuncShowAll(): void
-    vfuncTouchEvent(event: Clutter.TouchEvent): boolean
-    vfuncUnmap(): void
-    vfuncUnrealize(): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Clutter.Texture */
+    /* Signals of Clutter-1.0.Clutter.Texture */
     connect(sigName: "load-finished", callback: (($obj: VideoTexture, error: GLib.Error) => void)): number
-    connect_after(sigName: "load-finished", callback: (($obj: VideoTexture, error: GLib.Error) => void)): number
+    on(sigName: "load-finished", callback: (error: GLib.Error) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "load-finished", callback: (error: GLib.Error) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "load-finished", callback: (error: GLib.Error) => void): NodeJS.EventEmitter
     emit(sigName: "load-finished", error: GLib.Error): void
-    on(sigName: "load-finished", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "load-finished", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "load-finished", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "pixbuf-change", callback: (($obj: VideoTexture) => void)): number
-    connect_after(sigName: "pixbuf-change", callback: (($obj: VideoTexture) => void)): number
+    on(sigName: "pixbuf-change", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "pixbuf-change", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "pixbuf-change", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "pixbuf-change"): void
-    on(sigName: "pixbuf-change", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "pixbuf-change", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "pixbuf-change", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "size-change", callback: (($obj: VideoTexture, width: number, height: number) => void)): number
-    connect_after(sigName: "size-change", callback: (($obj: VideoTexture, width: number, height: number) => void)): number
+    on(sigName: "size-change", callback: (width: number, height: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "size-change", callback: (width: number, height: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "size-change", callback: (width: number, height: number) => void): NodeJS.EventEmitter
     emit(sigName: "size-change", width: number, height: number): void
-    on(sigName: "size-change", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "size-change", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "size-change", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of Clutter.Actor */
+    /* Signals of Clutter-1.0.Clutter.Actor */
     connect(sigName: "allocation-changed", callback: (($obj: VideoTexture, box: Clutter.ActorBox, flags: Clutter.AllocationFlags) => void)): number
-    connect_after(sigName: "allocation-changed", callback: (($obj: VideoTexture, box: Clutter.ActorBox, flags: Clutter.AllocationFlags) => void)): number
+    on(sigName: "allocation-changed", callback: (box: Clutter.ActorBox, flags: Clutter.AllocationFlags) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "allocation-changed", callback: (box: Clutter.ActorBox, flags: Clutter.AllocationFlags) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "allocation-changed", callback: (box: Clutter.ActorBox, flags: Clutter.AllocationFlags) => void): NodeJS.EventEmitter
     emit(sigName: "allocation-changed", box: Clutter.ActorBox, flags: Clutter.AllocationFlags): void
-    on(sigName: "allocation-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "allocation-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "allocation-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "button-press-event", callback: (($obj: VideoTexture, event: Clutter.ButtonEvent) => boolean)): number
-    connect_after(sigName: "button-press-event", callback: (($obj: VideoTexture, event: Clutter.ButtonEvent) => boolean)): number
+    on(sigName: "button-press-event", callback: (event: Clutter.ButtonEvent) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "button-press-event", callback: (event: Clutter.ButtonEvent) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "button-press-event", callback: (event: Clutter.ButtonEvent) => void): NodeJS.EventEmitter
     emit(sigName: "button-press-event", event: Clutter.ButtonEvent): void
-    on(sigName: "button-press-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "button-press-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "button-press-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "button-release-event", callback: (($obj: VideoTexture, event: Clutter.ButtonEvent) => boolean)): number
-    connect_after(sigName: "button-release-event", callback: (($obj: VideoTexture, event: Clutter.ButtonEvent) => boolean)): number
+    on(sigName: "button-release-event", callback: (event: Clutter.ButtonEvent) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "button-release-event", callback: (event: Clutter.ButtonEvent) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "button-release-event", callback: (event: Clutter.ButtonEvent) => void): NodeJS.EventEmitter
     emit(sigName: "button-release-event", event: Clutter.ButtonEvent): void
-    on(sigName: "button-release-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "button-release-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "button-release-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "captured-event", callback: (($obj: VideoTexture, event: Clutter.Event) => boolean)): number
-    connect_after(sigName: "captured-event", callback: (($obj: VideoTexture, event: Clutter.Event) => boolean)): number
+    on(sigName: "captured-event", callback: (event: Clutter.Event) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "captured-event", callback: (event: Clutter.Event) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "captured-event", callback: (event: Clutter.Event) => void): NodeJS.EventEmitter
     emit(sigName: "captured-event", event: Clutter.Event): void
-    on(sigName: "captured-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "captured-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "captured-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "destroy", callback: (($obj: VideoTexture) => void)): number
-    connect_after(sigName: "destroy", callback: (($obj: VideoTexture) => void)): number
+    on(sigName: "destroy", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "destroy", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "destroy", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "destroy"): void
-    on(sigName: "destroy", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "destroy", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "destroy", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "enter-event", callback: (($obj: VideoTexture, event: Clutter.CrossingEvent) => boolean)): number
-    connect_after(sigName: "enter-event", callback: (($obj: VideoTexture, event: Clutter.CrossingEvent) => boolean)): number
+    on(sigName: "enter-event", callback: (event: Clutter.CrossingEvent) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "enter-event", callback: (event: Clutter.CrossingEvent) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "enter-event", callback: (event: Clutter.CrossingEvent) => void): NodeJS.EventEmitter
     emit(sigName: "enter-event", event: Clutter.CrossingEvent): void
-    on(sigName: "enter-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "enter-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "enter-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "event", callback: (($obj: VideoTexture, event: Clutter.Event) => boolean)): number
-    connect_after(sigName: "event", callback: (($obj: VideoTexture, event: Clutter.Event) => boolean)): number
+    on(sigName: "event", callback: (event: Clutter.Event) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "event", callback: (event: Clutter.Event) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "event", callback: (event: Clutter.Event) => void): NodeJS.EventEmitter
     emit(sigName: "event", event: Clutter.Event): void
-    on(sigName: "event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "hide", callback: (($obj: VideoTexture) => void)): number
-    connect_after(sigName: "hide", callback: (($obj: VideoTexture) => void)): number
+    on(sigName: "hide", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "hide", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "hide", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "hide"): void
-    on(sigName: "hide", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "hide", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "hide", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "key-focus-in", callback: (($obj: VideoTexture) => void)): number
-    connect_after(sigName: "key-focus-in", callback: (($obj: VideoTexture) => void)): number
+    on(sigName: "key-focus-in", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "key-focus-in", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "key-focus-in", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "key-focus-in"): void
-    on(sigName: "key-focus-in", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "key-focus-in", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "key-focus-in", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "key-focus-out", callback: (($obj: VideoTexture) => void)): number
-    connect_after(sigName: "key-focus-out", callback: (($obj: VideoTexture) => void)): number
+    on(sigName: "key-focus-out", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "key-focus-out", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "key-focus-out", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "key-focus-out"): void
-    on(sigName: "key-focus-out", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "key-focus-out", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "key-focus-out", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "key-press-event", callback: (($obj: VideoTexture, event: Clutter.KeyEvent) => boolean)): number
-    connect_after(sigName: "key-press-event", callback: (($obj: VideoTexture, event: Clutter.KeyEvent) => boolean)): number
+    on(sigName: "key-press-event", callback: (event: Clutter.KeyEvent) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "key-press-event", callback: (event: Clutter.KeyEvent) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "key-press-event", callback: (event: Clutter.KeyEvent) => void): NodeJS.EventEmitter
     emit(sigName: "key-press-event", event: Clutter.KeyEvent): void
-    on(sigName: "key-press-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "key-press-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "key-press-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "key-release-event", callback: (($obj: VideoTexture, event: Clutter.KeyEvent) => boolean)): number
-    connect_after(sigName: "key-release-event", callback: (($obj: VideoTexture, event: Clutter.KeyEvent) => boolean)): number
+    on(sigName: "key-release-event", callback: (event: Clutter.KeyEvent) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "key-release-event", callback: (event: Clutter.KeyEvent) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "key-release-event", callback: (event: Clutter.KeyEvent) => void): NodeJS.EventEmitter
     emit(sigName: "key-release-event", event: Clutter.KeyEvent): void
-    on(sigName: "key-release-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "key-release-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "key-release-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "leave-event", callback: (($obj: VideoTexture, event: Clutter.CrossingEvent) => boolean)): number
-    connect_after(sigName: "leave-event", callback: (($obj: VideoTexture, event: Clutter.CrossingEvent) => boolean)): number
+    on(sigName: "leave-event", callback: (event: Clutter.CrossingEvent) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "leave-event", callback: (event: Clutter.CrossingEvent) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "leave-event", callback: (event: Clutter.CrossingEvent) => void): NodeJS.EventEmitter
     emit(sigName: "leave-event", event: Clutter.CrossingEvent): void
-    on(sigName: "leave-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "leave-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "leave-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "motion-event", callback: (($obj: VideoTexture, event: Clutter.MotionEvent) => boolean)): number
-    connect_after(sigName: "motion-event", callback: (($obj: VideoTexture, event: Clutter.MotionEvent) => boolean)): number
+    on(sigName: "motion-event", callback: (event: Clutter.MotionEvent) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "motion-event", callback: (event: Clutter.MotionEvent) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "motion-event", callback: (event: Clutter.MotionEvent) => void): NodeJS.EventEmitter
     emit(sigName: "motion-event", event: Clutter.MotionEvent): void
-    on(sigName: "motion-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "motion-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "motion-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "paint", callback: (($obj: VideoTexture) => void)): number
-    connect_after(sigName: "paint", callback: (($obj: VideoTexture) => void)): number
+    on(sigName: "paint", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "paint", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "paint", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "paint"): void
-    on(sigName: "paint", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "paint", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "paint", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "parent-set", callback: (($obj: VideoTexture, oldParent?: Clutter.Actor | null) => void)): number
-    connect_after(sigName: "parent-set", callback: (($obj: VideoTexture, oldParent?: Clutter.Actor | null) => void)): number
+    on(sigName: "parent-set", callback: (oldParent?: Clutter.Actor | null) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "parent-set", callback: (oldParent?: Clutter.Actor | null) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "parent-set", callback: (oldParent?: Clutter.Actor | null) => void): NodeJS.EventEmitter
     emit(sigName: "parent-set", oldParent?: Clutter.Actor | null): void
-    on(sigName: "parent-set", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "parent-set", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "parent-set", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "pick", callback: (($obj: VideoTexture, color: Clutter.Color) => void)): number
-    connect_after(sigName: "pick", callback: (($obj: VideoTexture, color: Clutter.Color) => void)): number
+    on(sigName: "pick", callback: (color: Clutter.Color) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "pick", callback: (color: Clutter.Color) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "pick", callback: (color: Clutter.Color) => void): NodeJS.EventEmitter
     emit(sigName: "pick", color: Clutter.Color): void
-    on(sigName: "pick", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "pick", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "pick", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "queue-redraw", callback: (($obj: VideoTexture, origin: Clutter.Actor) => void)): number
-    connect_after(sigName: "queue-redraw", callback: (($obj: VideoTexture, origin: Clutter.Actor) => void)): number
+    on(sigName: "queue-redraw", callback: (origin: Clutter.Actor) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "queue-redraw", callback: (origin: Clutter.Actor) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "queue-redraw", callback: (origin: Clutter.Actor) => void): NodeJS.EventEmitter
     emit(sigName: "queue-redraw", origin: Clutter.Actor): void
-    on(sigName: "queue-redraw", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "queue-redraw", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "queue-redraw", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "queue-relayout", callback: (($obj: VideoTexture) => void)): number
-    connect_after(sigName: "queue-relayout", callback: (($obj: VideoTexture) => void)): number
+    on(sigName: "queue-relayout", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "queue-relayout", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "queue-relayout", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "queue-relayout"): void
-    on(sigName: "queue-relayout", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "queue-relayout", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "queue-relayout", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "realize", callback: (($obj: VideoTexture) => void)): number
-    connect_after(sigName: "realize", callback: (($obj: VideoTexture) => void)): number
+    on(sigName: "realize", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "realize", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "realize", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "realize"): void
-    on(sigName: "realize", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "realize", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "realize", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "scroll-event", callback: (($obj: VideoTexture, event: Clutter.ScrollEvent) => boolean)): number
-    connect_after(sigName: "scroll-event", callback: (($obj: VideoTexture, event: Clutter.ScrollEvent) => boolean)): number
+    on(sigName: "scroll-event", callback: (event: Clutter.ScrollEvent) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "scroll-event", callback: (event: Clutter.ScrollEvent) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "scroll-event", callback: (event: Clutter.ScrollEvent) => void): NodeJS.EventEmitter
     emit(sigName: "scroll-event", event: Clutter.ScrollEvent): void
-    on(sigName: "scroll-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "scroll-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "scroll-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "show", callback: (($obj: VideoTexture) => void)): number
-    connect_after(sigName: "show", callback: (($obj: VideoTexture) => void)): number
+    on(sigName: "show", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "show", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "show", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "show"): void
-    on(sigName: "show", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "show", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "show", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "touch-event", callback: (($obj: VideoTexture, event: Clutter.Event) => boolean)): number
-    connect_after(sigName: "touch-event", callback: (($obj: VideoTexture, event: Clutter.Event) => boolean)): number
+    on(sigName: "touch-event", callback: (event: Clutter.Event) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "touch-event", callback: (event: Clutter.Event) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "touch-event", callback: (event: Clutter.Event) => void): NodeJS.EventEmitter
     emit(sigName: "touch-event", event: Clutter.Event): void
-    on(sigName: "touch-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "touch-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "touch-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "transition-stopped", callback: (($obj: VideoTexture, name: string, isFinished: boolean) => void)): number
-    connect_after(sigName: "transition-stopped", callback: (($obj: VideoTexture, name: string, isFinished: boolean) => void)): number
+    on(sigName: "transition-stopped", callback: (name: string, isFinished: boolean) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "transition-stopped", callback: (name: string, isFinished: boolean) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "transition-stopped", callback: (name: string, isFinished: boolean) => void): NodeJS.EventEmitter
     emit(sigName: "transition-stopped", name: string, isFinished: boolean): void
-    on(sigName: "transition-stopped", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "transition-stopped", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "transition-stopped", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "transitions-completed", callback: (($obj: VideoTexture) => void)): number
-    connect_after(sigName: "transitions-completed", callback: (($obj: VideoTexture) => void)): number
+    on(sigName: "transitions-completed", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "transitions-completed", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "transitions-completed", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "transitions-completed"): void
-    on(sigName: "transitions-completed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "transitions-completed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "transitions-completed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "unrealize", callback: (($obj: VideoTexture) => void)): number
-    connect_after(sigName: "unrealize", callback: (($obj: VideoTexture) => void)): number
+    on(sigName: "unrealize", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "unrealize", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "unrealize", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "unrealize"): void
-    on(sigName: "unrealize", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "unrealize", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "unrealize", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: VideoTexture, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: VideoTexture, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of Clutter.Container */
+    /* Signals of Clutter-1.0.Clutter.Container */
     connect(sigName: "actor-added", callback: (($obj: VideoTexture, actor: Clutter.Actor) => void)): number
-    connect_after(sigName: "actor-added", callback: (($obj: VideoTexture, actor: Clutter.Actor) => void)): number
+    on(sigName: "actor-added", callback: (actor: Clutter.Actor) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "actor-added", callback: (actor: Clutter.Actor) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "actor-added", callback: (actor: Clutter.Actor) => void): NodeJS.EventEmitter
     emit(sigName: "actor-added", actor: Clutter.Actor): void
-    on(sigName: "actor-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "actor-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "actor-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "actor-removed", callback: (($obj: VideoTexture, actor: Clutter.Actor) => void)): number
-    connect_after(sigName: "actor-removed", callback: (($obj: VideoTexture, actor: Clutter.Actor) => void)): number
+    on(sigName: "actor-removed", callback: (actor: Clutter.Actor) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "actor-removed", callback: (actor: Clutter.Actor) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "actor-removed", callback: (actor: Clutter.Actor) => void): NodeJS.EventEmitter
     emit(sigName: "actor-removed", actor: Clutter.Actor): void
-    on(sigName: "actor-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "actor-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "actor-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "child-notify", callback: (($obj: VideoTexture, actor: Clutter.Actor, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "child-notify", callback: (($obj: VideoTexture, actor: Clutter.Actor, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "child-notify", callback: (actor: Clutter.Actor, pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "child-notify", callback: (actor: Clutter.Actor, pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "child-notify", callback: (actor: Clutter.Actor, pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "child-notify", actor: Clutter.Actor, pspec: GObject.ParamSpec): void
-    on(sigName: "child-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "child-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "child-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of Clutter.Media */
+    /* Signals of Clutter-1.0.Clutter.Media */
     connect(sigName: "eos", callback: (($obj: VideoTexture) => void)): number
-    connect_after(sigName: "eos", callback: (($obj: VideoTexture) => void)): number
+    on(sigName: "eos", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "eos", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "eos", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "eos"): void
-    on(sigName: "eos", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "eos", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "eos", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "error", callback: (($obj: VideoTexture, error: GLib.Error) => void)): number
-    connect_after(sigName: "error", callback: (($obj: VideoTexture, error: GLib.Error) => void)): number
+    on(sigName: "error", callback: (error: GLib.Error) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "error", callback: (error: GLib.Error) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "error", callback: (error: GLib.Error) => void): NodeJS.EventEmitter
     emit(sigName: "error", error: GLib.Error): void
-    on(sigName: "error", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "error", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "error", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of ClutterGst.Player */
+    /* Signals of ClutterGst-1.0.ClutterGst.Player */
     connect(sigName: "download-buffering", callback: (($obj: VideoTexture, start: number, stop: number) => void)): number
-    connect_after(sigName: "download-buffering", callback: (($obj: VideoTexture, start: number, stop: number) => void)): number
+    on(sigName: "download-buffering", callback: (start: number, stop: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "download-buffering", callback: (start: number, stop: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "download-buffering", callback: (start: number, stop: number) => void): NodeJS.EventEmitter
     emit(sigName: "download-buffering", start: number, stop: number): void
-    on(sigName: "download-buffering", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "download-buffering", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "download-buffering", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::pixel-aspect-ratio", callback: (($obj: VideoTexture, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::pixel-aspect-ratio", callback: (($obj: VideoTexture, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::pixel-aspect-ratio", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -1517,7 +1369,7 @@ export class VideoTexture {
     static $gtype: GObject.Type
 }
 export abstract class PlayerIface {
-    /* Fields of ClutterGst.PlayerIface */
+    /* Fields of ClutterGst-1.0.ClutterGst.PlayerIface */
     getPipeline: (player: Player) => any
     getUserAgent: (player: Player) => string
     setUserAgent: (player: Player, userAgent: string) => void

@@ -12,18 +12,18 @@ export enum SimpleIgdError {
 export interface SimpleIgd_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class SimpleIgd {
-    /* Properties of GUPnPIgd.SimpleIgd */
+    /* Properties of GUPnPIgd-1.0.GUPnPIgd.SimpleIgd */
     readonly main_context: object
-    /* Fields of GUPnPIgd.SimpleIgd */
+    /* Fields of GUPnPIgd-1.0.GUPnPIgd.SimpleIgd */
     parent: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GUPnPIgd.SimpleIgd */
+    /* Methods of GUPnPIgd-1.0.GUPnPIgd.SimpleIgd */
     add_port(protocol: string, external_port: number, local_ip: string, local_port: number, lease_duration: number, description: string): void
     delete_all_mappings(): boolean
     remove_port(protocol: string, external_port: number): void
     remove_port_local(protocol: string, local_ip: string, local_port: number): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -45,7 +45,7 @@ export class SimpleIgd {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -53,7 +53,7 @@ export class SimpleIgd {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GUPnPIgd.SimpleIgd */
+    /* Signals of GUPnPIgd-1.0.GUPnPIgd.SimpleIgd */
     connect(sigName: "context-available", callback: (($obj: SimpleIgd, context: GObject.Object) => boolean)): number
     connect_after(sigName: "context-available", callback: (($obj: SimpleIgd, context: GObject.Object) => boolean)): number
     emit(sigName: "context-available", context: GObject.Object): void
@@ -63,7 +63,7 @@ export class SimpleIgd {
     connect(sigName: "mapped-external-port", callback: (($obj: SimpleIgd, proto: string, external_ip: string, replaces_external_ip: string, external_port: number, local_ip: string, local_port: number, description: string) => void)): number
     connect_after(sigName: "mapped-external-port", callback: (($obj: SimpleIgd, proto: string, external_ip: string, replaces_external_ip: string, external_port: number, local_ip: string, local_port: number, description: string) => void)): number
     emit(sigName: "mapped-external-port", proto: string, external_ip: string, replaces_external_ip: string, external_port: number, local_ip: string, local_port: number, description: string): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: SimpleIgd, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: SimpleIgd, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -84,18 +84,18 @@ export class SimpleIgd {
 export interface SimpleIgdThread_ConstructProps extends SimpleIgd_ConstructProps {
 }
 export class SimpleIgdThread {
-    /* Properties of GUPnPIgd.SimpleIgd */
+    /* Properties of GUPnPIgd-1.0.GUPnPIgd.SimpleIgd */
     readonly main_context: object
-    /* Fields of GUPnPIgd.SimpleIgdThread */
+    /* Fields of GUPnPIgd-1.0.GUPnPIgd.SimpleIgdThread */
     parent: SimpleIgd
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GUPnPIgd.SimpleIgd */
+    /* Methods of GUPnPIgd-1.0.GUPnPIgd.SimpleIgd */
     add_port(protocol: string, external_port: number, local_ip: string, local_port: number, lease_duration: number, description: string): void
     delete_all_mappings(): boolean
     remove_port(protocol: string, external_port: number): void
     remove_port_local(protocol: string, local_ip: string, local_port: number): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -117,7 +117,7 @@ export class SimpleIgdThread {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -125,7 +125,7 @@ export class SimpleIgdThread {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GUPnPIgd.SimpleIgd */
+    /* Signals of GUPnPIgd-1.0.GUPnPIgd.SimpleIgd */
     connect(sigName: "context-available", callback: (($obj: SimpleIgdThread, context: GObject.Object) => boolean)): number
     connect_after(sigName: "context-available", callback: (($obj: SimpleIgdThread, context: GObject.Object) => boolean)): number
     emit(sigName: "context-available", context: GObject.Object): void
@@ -135,7 +135,7 @@ export class SimpleIgdThread {
     connect(sigName: "mapped-external-port", callback: (($obj: SimpleIgdThread, proto: string, external_ip: string, replaces_external_ip: string, external_port: number, local_ip: string, local_port: number, description: string) => void)): number
     connect_after(sigName: "mapped-external-port", callback: (($obj: SimpleIgdThread, proto: string, external_ip: string, replaces_external_ip: string, external_port: number, local_ip: string, local_port: number, description: string) => void)): number
     emit(sigName: "mapped-external-port", proto: string, external_ip: string, replaces_external_ip: string, external_port: number, local_ip: string, local_port: number, description: string): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: SimpleIgdThread, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: SimpleIgdThread, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void

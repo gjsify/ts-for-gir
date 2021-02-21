@@ -83,9 +83,9 @@ export interface OAuth2Proxy_ConstructProps extends Proxy_ConstructProps {
     clientId?: string
 }
 export class OAuth2Proxy {
-    /* Properties of Rest.OAuth2Proxy */
+    /* Properties of Rest-0.7.Rest.OAuth2Proxy */
     accessToken: string
-    /* Properties of Rest.Proxy */
+    /* Properties of Rest-0.7.Rest.Proxy */
     bindingRequired: boolean
     password: string
     sslCaFile: string
@@ -93,22 +93,22 @@ export class OAuth2Proxy {
     urlFormat: string
     userAgent: string
     username: string
-    /* Fields of Rest.OAuth2Proxy */
+    /* Fields of Rest-0.7.Rest.OAuth2Proxy */
     parent: Proxy
     priv: OAuth2ProxyPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Rest.OAuth2Proxy */
+    /* Methods of Rest-0.7.Rest.OAuth2Proxy */
     buildLoginUrl(redirectUri: string): string
     buildLoginUrlFull(redirectUri: string, extraParams: GLib.HashTable): string
     getAccessToken(): string
     setAccessToken(accessToken: string): void
-    /* Methods of Rest.Proxy */
+    /* Methods of Rest-0.7.Rest.Proxy */
     addSoupFeature(feature: Soup.SessionFeature): void
     getUserAgent(): string
     newCall(): ProxyCall
     setUserAgent(userAgent: string): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -130,31 +130,18 @@ export class OAuth2Proxy {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of Rest.Proxy */
-    vfuncAuthenticate(auth: ProxyAuth, retrying: boolean): boolean
-    vfuncNewCall(): ProxyCall
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Rest.Proxy */
+    /* Signals of Rest-0.7.Rest.Proxy */
     connect(sigName: "authenticate", callback: (($obj: OAuth2Proxy, auth: ProxyAuth, retrying: boolean) => boolean)): number
-    connect_after(sigName: "authenticate", callback: (($obj: OAuth2Proxy, auth: ProxyAuth, retrying: boolean) => boolean)): number
+    on(sigName: "authenticate", callback: (auth: ProxyAuth, retrying: boolean) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "authenticate", callback: (auth: ProxyAuth, retrying: boolean) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "authenticate", callback: (auth: ProxyAuth, retrying: boolean) => void): NodeJS.EventEmitter
     emit(sigName: "authenticate", auth: ProxyAuth, retrying: boolean): void
-    on(sigName: "authenticate", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "authenticate", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "authenticate", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: OAuth2Proxy, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: OAuth2Proxy, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::access-token", callback: (($obj: OAuth2Proxy, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::access-token", callback: (($obj: OAuth2Proxy, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::access-token", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -215,13 +202,13 @@ export class OAuth2Proxy {
 export interface OAuth2ProxyCall_ConstructProps extends ProxyCall_ConstructProps {
 }
 export class OAuth2ProxyCall {
-    /* Fields of Rest.OAuth2ProxyCall */
+    /* Fields of Rest-0.7.Rest.OAuth2ProxyCall */
     parent: ProxyCall
-    /* Fields of Rest.ProxyCall */
+    /* Fields of Rest-0.7.Rest.ProxyCall */
     priv: ProxyCallPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Rest.ProxyCall */
+    /* Methods of Rest-0.7.Rest.ProxyCall */
     addHeader(header: string, value: string): void
     addParam(name: string, value: string): void
     addParamFull(param: Param): void
@@ -241,12 +228,12 @@ export class OAuth2ProxyCall {
     removeHeader(header: string): void
     removeParam(name: string): void
     run(loop: GLib.MainLoop): boolean
-    serializeParams(): [ /* returnType */ boolean, /* contentType */ string, /* content */ string, /* contentLen */ number ]
+    serializeParams(): { returnType: boolean, contentType: string, content: string, contentLen: number }
     setFunction(function_: string): void
     setMethod(method: string): void
     sync(): boolean
     upload(callback: ProxyCallUploadCallback, weakObject: GObject.Object): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -268,24 +255,12 @@ export class OAuth2ProxyCall {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of Rest.ProxyCall */
-    vfuncPrepare(): boolean
-    vfuncSerializeParams(): [ /* returnType */ boolean, /* contentType */ string, /* content */ string, /* contentLen */ number ]
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: OAuth2ProxyCall, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: OAuth2ProxyCall, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -307,12 +282,12 @@ export interface OAuthProxy_ConstructProps extends Proxy_ConstructProps {
     tokenSecret?: string
 }
 export class OAuthProxy {
-    /* Properties of Rest.OAuthProxy */
+    /* Properties of Rest-0.7.Rest.OAuthProxy */
     signatureHost: string
     signatureMethod: OAuthSignatureMethod
     token: string
     tokenSecret: string
-    /* Properties of Rest.Proxy */
+    /* Properties of Rest-0.7.Rest.Proxy */
     bindingRequired: boolean
     password: string
     sslCaFile: string
@@ -320,11 +295,11 @@ export class OAuthProxy {
     urlFormat: string
     userAgent: string
     username: string
-    /* Fields of Rest.OAuthProxy */
+    /* Fields of Rest-0.7.Rest.OAuthProxy */
     parent: Proxy
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Rest.OAuthProxy */
+    /* Methods of Rest-0.7.Rest.OAuthProxy */
     accessToken(function_: string, verifier: string): boolean
     accessTokenAsync(function_: string, verifier: string, callback: OAuthProxyAuthCallback, weakObject: GObject.Object): boolean
     authStep(function_: string): boolean
@@ -339,12 +314,12 @@ export class OAuthProxy {
     setSignatureHost(signatureHost: string): void
     setToken(token: string): void
     setTokenSecret(tokenSecret: string): void
-    /* Methods of Rest.Proxy */
+    /* Methods of Rest-0.7.Rest.Proxy */
     addSoupFeature(feature: Soup.SessionFeature): void
     getUserAgent(): string
     newCall(): ProxyCall
     setUserAgent(userAgent: string): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -366,31 +341,18 @@ export class OAuthProxy {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of Rest.Proxy */
-    vfuncAuthenticate(auth: ProxyAuth, retrying: boolean): boolean
-    vfuncNewCall(): ProxyCall
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Rest.Proxy */
+    /* Signals of Rest-0.7.Rest.Proxy */
     connect(sigName: "authenticate", callback: (($obj: OAuthProxy, auth: ProxyAuth, retrying: boolean) => boolean)): number
-    connect_after(sigName: "authenticate", callback: (($obj: OAuthProxy, auth: ProxyAuth, retrying: boolean) => boolean)): number
+    on(sigName: "authenticate", callback: (auth: ProxyAuth, retrying: boolean) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "authenticate", callback: (auth: ProxyAuth, retrying: boolean) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "authenticate", callback: (auth: ProxyAuth, retrying: boolean) => void): NodeJS.EventEmitter
     emit(sigName: "authenticate", auth: ProxyAuth, retrying: boolean): void
-    on(sigName: "authenticate", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "authenticate", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "authenticate", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: OAuthProxy, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: OAuthProxy, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::signature-host", callback: (($obj: OAuthProxy, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::signature-host", callback: (($obj: OAuthProxy, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::signature-host", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -465,16 +427,16 @@ export class OAuthProxy {
 export interface OAuthProxyCall_ConstructProps extends ProxyCall_ConstructProps {
 }
 export class OAuthProxyCall {
-    /* Fields of Rest.OAuthProxyCall */
+    /* Fields of Rest-0.7.Rest.OAuthProxyCall */
     parent: ProxyCall
-    /* Fields of Rest.ProxyCall */
+    /* Fields of Rest-0.7.Rest.ProxyCall */
     priv: ProxyCallPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Rest.OAuthProxyCall */
+    /* Methods of Rest-0.7.Rest.OAuthProxyCall */
     parseTokenReponse(): void
     parseTokenResponse(): void
-    /* Methods of Rest.ProxyCall */
+    /* Methods of Rest-0.7.Rest.ProxyCall */
     addHeader(header: string, value: string): void
     addParam(name: string, value: string): void
     addParamFull(param: Param): void
@@ -494,12 +456,12 @@ export class OAuthProxyCall {
     removeHeader(header: string): void
     removeParam(name: string): void
     run(loop: GLib.MainLoop): boolean
-    serializeParams(): [ /* returnType */ boolean, /* contentType */ string, /* content */ string, /* contentLen */ number ]
+    serializeParams(): { returnType: boolean, contentType: string, content: string, contentLen: number }
     setFunction(function_: string): void
     setMethod(method: string): void
     sync(): boolean
     upload(callback: ProxyCallUploadCallback, weakObject: GObject.Object): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -521,24 +483,12 @@ export class OAuthProxyCall {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of Rest.ProxyCall */
-    vfuncPrepare(): boolean
-    vfuncSerializeParams(): [ /* returnType */ boolean, /* contentType */ string, /* content */ string, /* contentLen */ number ]
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: OAuthProxyCall, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: OAuthProxyCall, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -562,7 +512,7 @@ export interface Proxy_ConstructProps extends GObject.Object_ConstructProps {
     username?: string
 }
 export class Proxy {
-    /* Properties of Rest.Proxy */
+    /* Properties of Rest-0.7.Rest.Proxy */
     bindingRequired: boolean
     password: string
     sslCaFile: string
@@ -570,16 +520,16 @@ export class Proxy {
     urlFormat: string
     userAgent: string
     username: string
-    /* Fields of Rest.Proxy */
+    /* Fields of Rest-0.7.Rest.Proxy */
     parent: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Rest.Proxy */
+    /* Methods of Rest-0.7.Rest.Proxy */
     addSoupFeature(feature: Soup.SessionFeature): void
     getUserAgent(): string
     newCall(): ProxyCall
     setUserAgent(userAgent: string): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -601,31 +551,18 @@ export class Proxy {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of Rest.Proxy */
-    vfuncAuthenticate(auth: ProxyAuth, retrying: boolean): boolean
-    vfuncNewCall(): ProxyCall
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Rest.Proxy */
+    /* Signals of Rest-0.7.Rest.Proxy */
     connect(sigName: "authenticate", callback: (($obj: Proxy, auth: ProxyAuth, retrying: boolean) => boolean)): number
-    connect_after(sigName: "authenticate", callback: (($obj: Proxy, auth: ProxyAuth, retrying: boolean) => boolean)): number
+    on(sigName: "authenticate", callback: (auth: ProxyAuth, retrying: boolean) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "authenticate", callback: (auth: ProxyAuth, retrying: boolean) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "authenticate", callback: (auth: ProxyAuth, retrying: boolean) => void): NodeJS.EventEmitter
     emit(sigName: "authenticate", auth: ProxyAuth, retrying: boolean): void
-    on(sigName: "authenticate", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "authenticate", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "authenticate", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Proxy, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Proxy, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::binding-required", callback: (($obj: Proxy, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::binding-required", callback: (($obj: Proxy, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::binding-required", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -679,16 +616,16 @@ export class Proxy {
 export interface ProxyAuth_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class ProxyAuth {
-    /* Fields of Rest.ProxyAuth */
+    /* Fields of Rest-0.7.Rest.ProxyAuth */
     parent: GObject.Object
     priv: ProxyAuthPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Rest.ProxyAuth */
+    /* Methods of Rest-0.7.Rest.ProxyAuth */
     cancel(): void
     pause(): void
     unpause(): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -710,21 +647,12 @@ export class ProxyAuth {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: ProxyAuth, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: ProxyAuth, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -741,12 +669,12 @@ export interface ProxyCall_ConstructProps extends GObject.Object_ConstructProps 
     proxy?: Proxy
 }
 export class ProxyCall {
-    /* Fields of Rest.ProxyCall */
+    /* Fields of Rest-0.7.Rest.ProxyCall */
     parent: GObject.Object
     priv: ProxyCallPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Rest.ProxyCall */
+    /* Methods of Rest-0.7.Rest.ProxyCall */
     addHeader(header: string, value: string): void
     addParam(name: string, value: string): void
     addParamFull(param: Param): void
@@ -766,12 +694,12 @@ export class ProxyCall {
     removeHeader(header: string): void
     removeParam(name: string): void
     run(loop: GLib.MainLoop): boolean
-    serializeParams(): [ /* returnType */ boolean, /* contentType */ string, /* content */ string, /* contentLen */ number ]
+    serializeParams(): { returnType: boolean, contentType: string, content: string, contentLen: number }
     setFunction(function_: string): void
     setMethod(method: string): void
     sync(): boolean
     upload(callback: ProxyCallUploadCallback, weakObject: GObject.Object): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -793,24 +721,12 @@ export class ProxyCall {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of Rest.ProxyCall */
-    vfuncPrepare(): boolean
-    vfuncSerializeParams(): [ /* returnType */ boolean, /* contentType */ string, /* content */ string, /* contentLen */ number ]
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: ProxyCall, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: ProxyCall, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -826,13 +742,13 @@ export class ProxyCall {
 export interface XmlParser_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class XmlParser {
-    /* Fields of Rest.XmlParser */
+    /* Fields of Rest-0.7.Rest.XmlParser */
     parent: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Rest.XmlParser */
+    /* Methods of Rest-0.7.Rest.XmlParser */
     parseFromData(data: string, len: number): XmlNode
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -854,21 +770,12 @@ export class XmlParser {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: XmlParser, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: XmlParser, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -884,12 +791,12 @@ export class XmlParser {
     static $gtype: GObject.Type
 }
 export abstract class OAuth2ProxyCallClass {
-    /* Fields of Rest.OAuth2ProxyCallClass */
+    /* Fields of Rest-0.7.Rest.OAuth2ProxyCallClass */
     parentClass: ProxyCallClass
     static name: string
 }
 export abstract class OAuth2ProxyClass {
-    /* Fields of Rest.OAuth2ProxyClass */
+    /* Fields of Rest-0.7.Rest.OAuth2ProxyClass */
     parentClass: ProxyClass
     static name: string
 }
@@ -897,17 +804,17 @@ export class OAuth2ProxyPrivate {
     static name: string
 }
 export abstract class OAuthProxyCallClass {
-    /* Fields of Rest.OAuthProxyCallClass */
+    /* Fields of Rest-0.7.Rest.OAuthProxyCallClass */
     parentClass: ProxyCallClass
     static name: string
 }
 export abstract class OAuthProxyClass {
-    /* Fields of Rest.OAuthProxyClass */
+    /* Fields of Rest-0.7.Rest.OAuthProxyClass */
     parentClass: ProxyClass
     static name: string
 }
 export class Param {
-    /* Methods of Rest.Param */
+    /* Methods of Rest-0.7.Rest.Param */
     getContent(): object | null
     getContentLength(): number
     getContentType(): string
@@ -923,7 +830,7 @@ export class Param {
     static newWithOwner(name: string, data: any[], contentType: string, filename?: string | null, owner?: object | null, ownerDnotify?: GLib.DestroyNotify | null): Param
 }
 export class Params {
-    /* Methods of Rest.Params */
+    /* Methods of Rest-0.7.Rest.Params */
     add(param: Param): void
     areStrings(): boolean
     asStringHashTable(): GLib.HashTable
@@ -933,13 +840,13 @@ export class Params {
     static name: string
 }
 export class ParamsIter {
-    /* Methods of Rest.ParamsIter */
+    /* Methods of Rest-0.7.Rest.ParamsIter */
     init(params: Params): void
-    next(): [ /* returnType */ boolean, /* name */ string, /* param */ Param | null ]
+    next(): { returnType: boolean, name: string, param: Param | null }
     static name: string
 }
 export abstract class ProxyAuthClass {
-    /* Fields of Rest.ProxyAuthClass */
+    /* Fields of Rest-0.7.Rest.ProxyAuthClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
@@ -947,28 +854,28 @@ export class ProxyAuthPrivate {
     static name: string
 }
 export abstract class ProxyCallClass {
-    /* Fields of Rest.ProxyCallClass */
+    /* Fields of Rest-0.7.Rest.ProxyCallClass */
     prepare: (call: ProxyCall) => boolean
-    serializeParams: (call: ProxyCall) => [ /* returnType */ boolean, /* contentType */ string, /* content */ string, /* contentLen */ number ]
+    serializeParams: (call: ProxyCall) => { returnType: boolean, contentType: string, content: string, contentLen: number }
     static name: string
 }
 export class ProxyCallPrivate {
     static name: string
 }
 export abstract class ProxyClass {
-    /* Fields of Rest.ProxyClass */
+    /* Fields of Rest-0.7.Rest.ProxyClass */
     newCall: (proxy: Proxy) => ProxyCall
     authenticate: (proxy: Proxy, auth: ProxyAuth, retrying: boolean) => boolean
     static name: string
 }
 export class XmlNode {
-    /* Fields of Rest.XmlNode */
+    /* Fields of Rest-0.7.Rest.XmlNode */
     name: string
     content: string
     children: GLib.HashTable
     attrs: GLib.HashTable
     next: XmlNode
-    /* Methods of Rest.XmlNode */
+    /* Methods of Rest-0.7.Rest.XmlNode */
     addAttr(attribute: string, value: string): void
     addChild(tag: string): XmlNode
     find(tag: string): XmlNode
@@ -979,7 +886,7 @@ export class XmlNode {
     static name: string
 }
 export abstract class XmlParserClass {
-    /* Fields of Rest.XmlParserClass */
+    /* Fields of Rest-0.7.Rest.XmlParserClass */
     parentClass: GObject.ObjectClass
     static name: string
 }

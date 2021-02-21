@@ -3105,9 +3105,9 @@ export class AppLaunchContext {
     setScreen(screen: Screen): void
     setTimestamp(timestamp: number): void
     /* Methods of Gio-2.0.Gio.AppLaunchContext */
-    getDisplay(info: Gio.AppInfo, files: Gio.File[]): string
+    getDisplay(info: Gio.AppInfo, files: Gio.File[]): string | null
     getEnvironment(): string[]
-    getStartupNotifyId(info: Gio.AppInfo, files: Gio.File[]): string
+    getStartupNotifyId(info: Gio.AppInfo, files: Gio.File[]): string | null
     launchFailed(startupNotifyId: string): void
     setenv(variable: string, value: string): void
     unsetenv(variable: string): void

@@ -362,7 +362,7 @@ export interface VcsStatusCallback {
     (file: Gio.File, status: Anjuta.VcsStatus): void
 }
 export class Buildable {
-    /* Methods of IAnjuta.Buildable */
+    /* Methods of IAnjuta-3.0.IAnjuta.Buildable */
     build(uri: string): void
     clean(uri: string): void
     configure(uri: string): void
@@ -372,7 +372,7 @@ export class Buildable {
     install(uri: string): void
     reset_commands(): void
     set_command(command_id: BuildableCommand, command: string): void
-    /* Virtual methods of IAnjuta.Buildable */
+    /* Virtual methods of IAnjuta-3.0.IAnjuta.Buildable */
     vfunc_build(uri: string): void
     vfunc_clean(uri: string): void
     vfunc_configure(uri: string): void
@@ -387,22 +387,22 @@ export class Buildable {
     static error_quark(): GLib.Quark
 }
 export class Builder {
-    /* Methods of IAnjuta.Builder */
+    /* Methods of IAnjuta-3.0.IAnjuta.Builder */
     cancel(handle: BuilderHandle): void
     get_uri_configuration(uri: string): string
     list_configuration(): string[]
-    /* Virtual methods of IAnjuta.Builder */
+    /* Virtual methods of IAnjuta-3.0.IAnjuta.Builder */
     vfunc_cancel(handle: BuilderHandle): void
     vfunc_get_uri_configuration(uri: string): string
     vfunc_list_configuration(): string[]
     static name: string
 }
 export class DebugManager {
-    /* Methods of IAnjuta.DebugManager */
+    /* Methods of IAnjuta-3.0.IAnjuta.DebugManager */
     quit(): boolean
     start(uri: string): boolean
     start_remote(server: string, uri: string): boolean
-    /* Virtual methods of IAnjuta.DebugManager */
+    /* Virtual methods of IAnjuta-3.0.IAnjuta.DebugManager */
     vfunc_breakpoint_changed(breakpoint: DebuggerBreakpointItem): void
     vfunc_debugger_started(): void
     vfunc_debugger_stopped(err: GLib.Error): void
@@ -420,7 +420,7 @@ export class DebugManager {
     vfunc_signal_received(name: string, description: string): void
     vfunc_start(uri: string): boolean
     vfunc_start_remote(server: string, uri: string): boolean
-    /* Signals of IAnjuta.DebugManager */
+    /* Signals of IAnjuta-3.0.IAnjuta.DebugManager */
     connect(sigName: "breakpoint-changed", callback: (($obj: DebugManager, object?: object | null) => void)): number
     connect_after(sigName: "breakpoint-changed", callback: (($obj: DebugManager, object?: object | null) => void)): number
     emit(sigName: "breakpoint-changed", object?: object | null): void
@@ -468,7 +468,7 @@ export class DebugManager {
     static error_quark(): GLib.Quark
 }
 export class Debugger {
-    /* Methods of IAnjuta.Debugger */
+    /* Methods of IAnjuta-3.0.IAnjuta.Debugger */
     abort(): boolean
     attach(pid: number, source_search_directories: string[]): boolean
     connect(server: string, args: string, terminal: boolean, stop: boolean): boolean
@@ -493,7 +493,7 @@ export class Debugger {
     step_out(): boolean
     step_over(): boolean
     unload(): boolean
-    /* Virtual methods of IAnjuta.Debugger */
+    /* Virtual methods of IAnjuta-3.0.IAnjuta.Debugger */
     vfunc_abort(): boolean
     vfunc_attach(pid: number, source_search_directories: string[]): boolean
     vfunc_connect(server: string, args: string, terminal: boolean, stop: boolean): boolean
@@ -529,7 +529,7 @@ export class Debugger {
     vfunc_step_out(): boolean
     vfunc_step_over(): boolean
     vfunc_unload(): boolean
-    /* Signals of IAnjuta.Debugger */
+    /* Signals of IAnjuta-3.0.IAnjuta.Debugger */
     connect(sigName: "debugger-ready", callback: (($obj: Debugger, object: DebuggerState) => void)): number
     connect_after(sigName: "debugger-ready", callback: (($obj: Debugger, object: DebuggerState) => void)): number
     emit(sigName: "debugger-ready", object: DebuggerState): void
@@ -566,9 +566,9 @@ export class Debugger {
     static name: string
 }
 export class DebuggerBreakpoint {
-    /* Methods of IAnjuta.DebuggerBreakpoint */
+    /* Methods of IAnjuta-3.0.IAnjuta.DebuggerBreakpoint */
     implement_breakpoint(): number
-    /* Methods of IAnjuta.Debugger */
+    /* Methods of IAnjuta-3.0.IAnjuta.Debugger */
     abort(): boolean
     attach(pid: number, source_search_directories: string[]): boolean
     connect(server: string, args: string, terminal: boolean, stop: boolean): boolean
@@ -593,9 +593,9 @@ export class DebuggerBreakpoint {
     step_out(): boolean
     step_over(): boolean
     unload(): boolean
-    /* Virtual methods of IAnjuta.DebuggerBreakpoint */
+    /* Virtual methods of IAnjuta-3.0.IAnjuta.DebuggerBreakpoint */
     vfunc_implement_breakpoint(): number
-    /* Virtual methods of IAnjuta.Debugger */
+    /* Virtual methods of IAnjuta-3.0.IAnjuta.Debugger */
     vfunc_abort(): boolean
     vfunc_attach(pid: number, source_search_directories: string[]): boolean
     vfunc_connect(server: string, args: string, terminal: boolean, stop: boolean): boolean
@@ -631,7 +631,7 @@ export class DebuggerBreakpoint {
     vfunc_step_out(): boolean
     vfunc_step_over(): boolean
     vfunc_unload(): boolean
-    /* Signals of IAnjuta.Debugger */
+    /* Signals of IAnjuta-3.0.IAnjuta.Debugger */
     connect(sigName: "debugger-ready", callback: (($obj: DebuggerBreakpoint, object: DebuggerState) => void)): number
     connect_after(sigName: "debugger-ready", callback: (($obj: DebuggerBreakpoint, object: DebuggerState) => void)): number
     emit(sigName: "debugger-ready", object: DebuggerState): void
@@ -670,12 +670,12 @@ export class DebuggerBreakpoint {
     static error_quark(): GLib.Quark
 }
 export class DebuggerInstruction {
-    /* Methods of IAnjuta.DebuggerInstruction */
+    /* Methods of IAnjuta-3.0.IAnjuta.DebuggerInstruction */
     run_from_address(address: number): boolean
     run_to_address(address: number): boolean
     step_in_instruction(): boolean
     step_over_instruction(): boolean
-    /* Methods of IAnjuta.Debugger */
+    /* Methods of IAnjuta-3.0.IAnjuta.Debugger */
     abort(): boolean
     attach(pid: number, source_search_directories: string[]): boolean
     connect(server: string, args: string, terminal: boolean, stop: boolean): boolean
@@ -700,12 +700,12 @@ export class DebuggerInstruction {
     step_out(): boolean
     step_over(): boolean
     unload(): boolean
-    /* Virtual methods of IAnjuta.DebuggerInstruction */
+    /* Virtual methods of IAnjuta-3.0.IAnjuta.DebuggerInstruction */
     vfunc_run_from_address(address: number): boolean
     vfunc_run_to_address(address: number): boolean
     vfunc_step_in_instruction(): boolean
     vfunc_step_over_instruction(): boolean
-    /* Virtual methods of IAnjuta.Debugger */
+    /* Virtual methods of IAnjuta-3.0.IAnjuta.Debugger */
     vfunc_abort(): boolean
     vfunc_attach(pid: number, source_search_directories: string[]): boolean
     vfunc_connect(server: string, args: string, terminal: boolean, stop: boolean): boolean
@@ -741,7 +741,7 @@ export class DebuggerInstruction {
     vfunc_step_out(): boolean
     vfunc_step_over(): boolean
     vfunc_unload(): boolean
-    /* Signals of IAnjuta.Debugger */
+    /* Signals of IAnjuta-3.0.IAnjuta.Debugger */
     connect(sigName: "debugger-ready", callback: (($obj: DebuggerInstruction, object: DebuggerState) => void)): number
     connect_after(sigName: "debugger-ready", callback: (($obj: DebuggerInstruction, object: DebuggerState) => void)): number
     emit(sigName: "debugger-ready", object: DebuggerState): void
@@ -780,7 +780,7 @@ export class DebuggerInstruction {
     static error_quark(): GLib.Quark
 }
 export class DebuggerMemory {
-    /* Methods of IAnjuta.Debugger */
+    /* Methods of IAnjuta-3.0.IAnjuta.Debugger */
     abort(): boolean
     attach(pid: number, source_search_directories: string[]): boolean
     connect(server: string, args: string, terminal: boolean, stop: boolean): boolean
@@ -805,7 +805,7 @@ export class DebuggerMemory {
     step_out(): boolean
     step_over(): boolean
     unload(): boolean
-    /* Virtual methods of IAnjuta.Debugger */
+    /* Virtual methods of IAnjuta-3.0.IAnjuta.Debugger */
     vfunc_abort(): boolean
     vfunc_attach(pid: number, source_search_directories: string[]): boolean
     vfunc_connect(server: string, args: string, terminal: boolean, stop: boolean): boolean
@@ -841,7 +841,7 @@ export class DebuggerMemory {
     vfunc_step_out(): boolean
     vfunc_step_over(): boolean
     vfunc_unload(): boolean
-    /* Signals of IAnjuta.Debugger */
+    /* Signals of IAnjuta-3.0.IAnjuta.Debugger */
     connect(sigName: "debugger-ready", callback: (($obj: DebuggerMemory, object: DebuggerState) => void)): number
     connect_after(sigName: "debugger-ready", callback: (($obj: DebuggerMemory, object: DebuggerState) => void)): number
     emit(sigName: "debugger-ready", object: DebuggerState): void
@@ -880,9 +880,9 @@ export class DebuggerMemory {
     static error_quark(): GLib.Quark
 }
 export class DebuggerRegister {
-    /* Methods of IAnjuta.DebuggerRegister */
+    /* Methods of IAnjuta-3.0.IAnjuta.DebuggerRegister */
     write_register(value: DebuggerRegisterData): boolean
-    /* Methods of IAnjuta.Debugger */
+    /* Methods of IAnjuta-3.0.IAnjuta.Debugger */
     abort(): boolean
     attach(pid: number, source_search_directories: string[]): boolean
     connect(server: string, args: string, terminal: boolean, stop: boolean): boolean
@@ -907,9 +907,9 @@ export class DebuggerRegister {
     step_out(): boolean
     step_over(): boolean
     unload(): boolean
-    /* Virtual methods of IAnjuta.DebuggerRegister */
+    /* Virtual methods of IAnjuta-3.0.IAnjuta.DebuggerRegister */
     vfunc_write_register(value: DebuggerRegisterData): boolean
-    /* Virtual methods of IAnjuta.Debugger */
+    /* Virtual methods of IAnjuta-3.0.IAnjuta.Debugger */
     vfunc_abort(): boolean
     vfunc_attach(pid: number, source_search_directories: string[]): boolean
     vfunc_connect(server: string, args: string, terminal: boolean, stop: boolean): boolean
@@ -945,7 +945,7 @@ export class DebuggerRegister {
     vfunc_step_out(): boolean
     vfunc_step_over(): boolean
     vfunc_unload(): boolean
-    /* Signals of IAnjuta.Debugger */
+    /* Signals of IAnjuta-3.0.IAnjuta.Debugger */
     connect(sigName: "debugger-ready", callback: (($obj: DebuggerRegister, object: DebuggerState) => void)): number
     connect_after(sigName: "debugger-ready", callback: (($obj: DebuggerRegister, object: DebuggerState) => void)): number
     emit(sigName: "debugger-ready", object: DebuggerState): void
@@ -984,10 +984,10 @@ export class DebuggerRegister {
     static error_quark(): GLib.Quark
 }
 export class DebuggerVariable {
-    /* Methods of IAnjuta.DebuggerVariable */
+    /* Methods of IAnjuta-3.0.IAnjuta.DebuggerVariable */
     assign(name: string, value: string): boolean
     destroy(name: string): boolean
-    /* Methods of IAnjuta.Debugger */
+    /* Methods of IAnjuta-3.0.IAnjuta.Debugger */
     abort(): boolean
     attach(pid: number, source_search_directories: string[]): boolean
     connect(server: string, args: string, terminal: boolean, stop: boolean): boolean
@@ -1012,10 +1012,10 @@ export class DebuggerVariable {
     step_out(): boolean
     step_over(): boolean
     unload(): boolean
-    /* Virtual methods of IAnjuta.DebuggerVariable */
+    /* Virtual methods of IAnjuta-3.0.IAnjuta.DebuggerVariable */
     vfunc_assign(name: string, value: string): boolean
     vfunc_destroy(name: string): boolean
-    /* Virtual methods of IAnjuta.Debugger */
+    /* Virtual methods of IAnjuta-3.0.IAnjuta.Debugger */
     vfunc_abort(): boolean
     vfunc_attach(pid: number, source_search_directories: string[]): boolean
     vfunc_connect(server: string, args: string, terminal: boolean, stop: boolean): boolean
@@ -1051,7 +1051,7 @@ export class DebuggerVariable {
     vfunc_step_out(): boolean
     vfunc_step_over(): boolean
     vfunc_unload(): boolean
-    /* Signals of IAnjuta.Debugger */
+    /* Signals of IAnjuta-3.0.IAnjuta.Debugger */
     connect(sigName: "debugger-ready", callback: (($obj: DebuggerVariable, object: DebuggerState) => void)): number
     connect_after(sigName: "debugger-ready", callback: (($obj: DebuggerVariable, object: DebuggerState) => void)): number
     emit(sigName: "debugger-ready", object: DebuggerState): void
@@ -1090,7 +1090,7 @@ export class DebuggerVariable {
     static error_quark(): GLib.Quark
 }
 export class Document {
-    /* Methods of IAnjuta.Document */
+    /* Methods of IAnjuta-3.0.IAnjuta.Document */
     begin_undo_action(): void
     can_redo(): boolean
     can_undo(): boolean
@@ -1103,7 +1103,7 @@ export class Document {
     paste(): void
     redo(): void
     undo(): void
-    /* Virtual methods of IAnjuta.Document */
+    /* Virtual methods of IAnjuta-3.0.IAnjuta.Document */
     vfunc_begin_undo_action(): void
     vfunc_can_redo(): boolean
     vfunc_can_undo(): boolean
@@ -1117,7 +1117,7 @@ export class Document {
     vfunc_redo(): void
     vfunc_undo(): void
     vfunc_update_ui(): void
-    /* Signals of IAnjuta.Document */
+    /* Signals of IAnjuta-3.0.IAnjuta.Document */
     connect(sigName: "update-ui", callback: (($obj: Document) => void)): number
     connect_after(sigName: "update-ui", callback: (($obj: Document) => void)): number
     emit(sigName: "update-ui"): void
@@ -1126,7 +1126,7 @@ export class Document {
     static error_quark(): GLib.Quark
 }
 export class DocumentManager {
-    /* Methods of IAnjuta.DocumentManager */
+    /* Methods of IAnjuta-3.0.IAnjuta.DocumentManager */
     add_bookmark(file: Gio.File, line: number): void
     add_buffer(name: string, content: string): Editor
     add_document(document: Document): void
@@ -1138,7 +1138,7 @@ export class DocumentManager {
     goto_file_line_mark(file: Gio.File, lineno: number, mark: boolean): Editor
     remove_document(document: Document, save_before: boolean): boolean
     set_current_document(document: Document): void
-    /* Virtual methods of IAnjuta.DocumentManager */
+    /* Virtual methods of IAnjuta-3.0.IAnjuta.DocumentManager */
     vfunc_add_bookmark(file: Gio.File, line: number): void
     vfunc_add_buffer(name: string, content: string): Editor
     vfunc_add_document(document: Document): void
@@ -1152,7 +1152,7 @@ export class DocumentManager {
     vfunc_goto_file_line_mark(file: Gio.File, lineno: number, mark: boolean): Editor
     vfunc_remove_document(document: Document, save_before: boolean): boolean
     vfunc_set_current_document(document: Document): void
-    /* Signals of IAnjuta.DocumentManager */
+    /* Signals of IAnjuta-3.0.IAnjuta.DocumentManager */
     connect(sigName: "document-added", callback: (($obj: DocumentManager, doc: Document) => void)): number
     connect_after(sigName: "document-added", callback: (($obj: DocumentManager, doc: Document) => void)): number
     emit(sigName: "document-added", doc: Document): void
@@ -1162,7 +1162,7 @@ export class DocumentManager {
     static name: string
 }
 export class Editor {
-    /* Methods of IAnjuta.Editor */
+    /* Methods of IAnjuta-3.0.IAnjuta.Editor */
     append(text: string, length: number): void
     erase(position_start: Iterable, position_end: Iterable): void
     erase_all(): void
@@ -1193,7 +1193,7 @@ export class Editor {
     set_popup_menu(menu: Gtk.Widget): void
     set_tabsize(tabsize: number): void
     set_use_spaces(use_spaces: boolean): void
-    /* Virtual methods of IAnjuta.Editor */
+    /* Virtual methods of IAnjuta-3.0.IAnjuta.Editor */
     vfunc_append(text: string, length: number): void
     vfunc_backspace(): void
     vfunc_changed(position: Iterable, added: boolean, length: number, lines: number, text: string): void
@@ -1232,7 +1232,7 @@ export class Editor {
     vfunc_set_popup_menu(menu: Gtk.Widget): void
     vfunc_set_tabsize(tabsize: number): void
     vfunc_set_use_spaces(use_spaces: boolean): void
-    /* Signals of IAnjuta.Editor */
+    /* Signals of IAnjuta-3.0.IAnjuta.Editor */
     connect(sigName: "backspace", callback: (($obj: Editor) => void)): number
     connect_after(sigName: "backspace", callback: (($obj: Editor) => void)): number
     emit(sigName: "backspace"): void
@@ -1260,12 +1260,12 @@ export class Editor {
     static name: string
 }
 export class EditorAssist {
-    /* Methods of IAnjuta.EditorAssist */
+    /* Methods of IAnjuta-3.0.IAnjuta.EditorAssist */
     add(provider: Provider): void
     invoke(provider: Provider): void
     proposals(provider: Provider, proposals: EditorAssistProposal[], pre_word: string, finished: boolean): void
     remove(provider: Provider): void
-    /* Methods of IAnjuta.Editor */
+    /* Methods of IAnjuta-3.0.IAnjuta.Editor */
     append(text: string, length: number): void
     erase(position_start: Iterable, position_end: Iterable): void
     erase_all(): void
@@ -1296,13 +1296,13 @@ export class EditorAssist {
     set_popup_menu(menu: Gtk.Widget): void
     set_tabsize(tabsize: number): void
     set_use_spaces(use_spaces: boolean): void
-    /* Virtual methods of IAnjuta.EditorAssist */
+    /* Virtual methods of IAnjuta-3.0.IAnjuta.EditorAssist */
     vfunc_add(provider: Provider): void
     vfunc_cancelled(): void
     vfunc_invoke(provider: Provider): void
     vfunc_proposals(provider: Provider, proposals: EditorAssistProposal[], pre_word: string, finished: boolean): void
     vfunc_remove(provider: Provider): void
-    /* Virtual methods of IAnjuta.Editor */
+    /* Virtual methods of IAnjuta-3.0.IAnjuta.Editor */
     vfunc_append(text: string, length: number): void
     vfunc_backspace(): void
     vfunc_changed(position: Iterable, added: boolean, length: number, lines: number, text: string): void
@@ -1341,11 +1341,11 @@ export class EditorAssist {
     vfunc_set_popup_menu(menu: Gtk.Widget): void
     vfunc_set_tabsize(tabsize: number): void
     vfunc_set_use_spaces(use_spaces: boolean): void
-    /* Signals of IAnjuta.EditorAssist */
+    /* Signals of IAnjuta-3.0.IAnjuta.EditorAssist */
     connect(sigName: "cancelled", callback: (($obj: EditorAssist) => void)): number
     connect_after(sigName: "cancelled", callback: (($obj: EditorAssist) => void)): number
     emit(sigName: "cancelled"): void
-    /* Signals of IAnjuta.Editor */
+    /* Signals of IAnjuta-3.0.IAnjuta.Editor */
     connect(sigName: "backspace", callback: (($obj: EditorAssist) => void)): number
     connect_after(sigName: "backspace", callback: (($obj: EditorAssist) => void)): number
     emit(sigName: "backspace"): void
@@ -1375,12 +1375,12 @@ export class EditorAssist {
     static error_quark(): GLib.Quark
 }
 export class EditorCell {
-    /* Methods of IAnjuta.EditorCell */
+    /* Methods of IAnjuta-3.0.IAnjuta.EditorCell */
     get_attribute(): EditorAttribute
     get_char(char_index: number): number
     get_character(): string
     get_length(): number
-    /* Virtual methods of IAnjuta.EditorCell */
+    /* Virtual methods of IAnjuta-3.0.IAnjuta.EditorCell */
     vfunc_get_attribute(): EditorAttribute
     vfunc_get_char(char_index: number): number
     vfunc_get_character(): string
@@ -1390,20 +1390,20 @@ export class EditorCell {
     static error_quark(): GLib.Quark
 }
 export class EditorCellStyle {
-    /* Methods of IAnjuta.EditorCellStyle */
+    /* Methods of IAnjuta-3.0.IAnjuta.EditorCellStyle */
     get_background_color(): string
     get_color(): string
     get_font_description(): string
-    /* Methods of IAnjuta.EditorCell */
+    /* Methods of IAnjuta-3.0.IAnjuta.EditorCell */
     get_attribute(): EditorAttribute
     get_char(char_index: number): number
     get_character(): string
     get_length(): number
-    /* Virtual methods of IAnjuta.EditorCellStyle */
+    /* Virtual methods of IAnjuta-3.0.IAnjuta.EditorCellStyle */
     vfunc_get_background_color(): string
     vfunc_get_color(): string
     vfunc_get_font_description(): string
-    /* Virtual methods of IAnjuta.EditorCell */
+    /* Virtual methods of IAnjuta-3.0.IAnjuta.EditorCell */
     vfunc_get_attribute(): EditorAttribute
     vfunc_get_char(char_index: number): number
     vfunc_get_character(): string
@@ -1413,11 +1413,11 @@ export class EditorCellStyle {
     static error_quark(): GLib.Quark
 }
 export class EditorComment {
-    /* Methods of IAnjuta.EditorComment */
+    /* Methods of IAnjuta-3.0.IAnjuta.EditorComment */
     block(): void
     box(): void
     stream(): void
-    /* Methods of IAnjuta.Editor */
+    /* Methods of IAnjuta-3.0.IAnjuta.Editor */
     append(text: string, length: number): void
     erase(position_start: Iterable, position_end: Iterable): void
     erase_all(): void
@@ -1448,11 +1448,11 @@ export class EditorComment {
     set_popup_menu(menu: Gtk.Widget): void
     set_tabsize(tabsize: number): void
     set_use_spaces(use_spaces: boolean): void
-    /* Virtual methods of IAnjuta.EditorComment */
+    /* Virtual methods of IAnjuta-3.0.IAnjuta.EditorComment */
     vfunc_block(): void
     vfunc_box(): void
     vfunc_stream(): void
-    /* Virtual methods of IAnjuta.Editor */
+    /* Virtual methods of IAnjuta-3.0.IAnjuta.Editor */
     vfunc_append(text: string, length: number): void
     vfunc_backspace(): void
     vfunc_changed(position: Iterable, added: boolean, length: number, lines: number, text: string): void
@@ -1491,7 +1491,7 @@ export class EditorComment {
     vfunc_set_popup_menu(menu: Gtk.Widget): void
     vfunc_set_tabsize(tabsize: number): void
     vfunc_set_use_spaces(use_spaces: boolean): void
-    /* Signals of IAnjuta.Editor */
+    /* Signals of IAnjuta-3.0.IAnjuta.Editor */
     connect(sigName: "backspace", callback: (($obj: EditorComment) => void)): number
     connect_after(sigName: "backspace", callback: (($obj: EditorComment) => void)): number
     emit(sigName: "backspace"): void
@@ -1521,10 +1521,10 @@ export class EditorComment {
     static error_quark(): GLib.Quark
 }
 export class EditorConvert {
-    /* Methods of IAnjuta.EditorConvert */
+    /* Methods of IAnjuta-3.0.IAnjuta.EditorConvert */
     to_lower(start_position: Iterable, end_position: Iterable): void
     to_upper(start_position: Iterable, end_position: Iterable): void
-    /* Methods of IAnjuta.Editor */
+    /* Methods of IAnjuta-3.0.IAnjuta.Editor */
     append(text: string, length: number): void
     erase(position_start: Iterable, position_end: Iterable): void
     erase_all(): void
@@ -1555,10 +1555,10 @@ export class EditorConvert {
     set_popup_menu(menu: Gtk.Widget): void
     set_tabsize(tabsize: number): void
     set_use_spaces(use_spaces: boolean): void
-    /* Virtual methods of IAnjuta.EditorConvert */
+    /* Virtual methods of IAnjuta-3.0.IAnjuta.EditorConvert */
     vfunc_to_lower(start_position: Iterable, end_position: Iterable): void
     vfunc_to_upper(start_position: Iterable, end_position: Iterable): void
-    /* Virtual methods of IAnjuta.Editor */
+    /* Virtual methods of IAnjuta-3.0.IAnjuta.Editor */
     vfunc_append(text: string, length: number): void
     vfunc_backspace(): void
     vfunc_changed(position: Iterable, added: boolean, length: number, lines: number, text: string): void
@@ -1597,7 +1597,7 @@ export class EditorConvert {
     vfunc_set_popup_menu(menu: Gtk.Widget): void
     vfunc_set_tabsize(tabsize: number): void
     vfunc_set_use_spaces(use_spaces: boolean): void
-    /* Signals of IAnjuta.Editor */
+    /* Signals of IAnjuta-3.0.IAnjuta.Editor */
     connect(sigName: "backspace", callback: (($obj: EditorConvert) => void)): number
     connect_after(sigName: "backspace", callback: (($obj: EditorConvert) => void)): number
     emit(sigName: "backspace"): void
@@ -1632,11 +1632,11 @@ export class EditorFactory {
     static error_quark(): GLib.Quark
 }
 export class EditorFolds {
-    /* Methods of IAnjuta.EditorFolds */
+    /* Methods of IAnjuta-3.0.IAnjuta.EditorFolds */
     close_all(): void
     open_all(): void
     toggle_current(): void
-    /* Methods of IAnjuta.Editor */
+    /* Methods of IAnjuta-3.0.IAnjuta.Editor */
     append(text: string, length: number): void
     erase(position_start: Iterable, position_end: Iterable): void
     erase_all(): void
@@ -1667,11 +1667,11 @@ export class EditorFolds {
     set_popup_menu(menu: Gtk.Widget): void
     set_tabsize(tabsize: number): void
     set_use_spaces(use_spaces: boolean): void
-    /* Virtual methods of IAnjuta.EditorFolds */
+    /* Virtual methods of IAnjuta-3.0.IAnjuta.EditorFolds */
     vfunc_close_all(): void
     vfunc_open_all(): void
     vfunc_toggle_current(): void
-    /* Virtual methods of IAnjuta.Editor */
+    /* Virtual methods of IAnjuta-3.0.IAnjuta.Editor */
     vfunc_append(text: string, length: number): void
     vfunc_backspace(): void
     vfunc_changed(position: Iterable, added: boolean, length: number, lines: number, text: string): void
@@ -1710,7 +1710,7 @@ export class EditorFolds {
     vfunc_set_popup_menu(menu: Gtk.Widget): void
     vfunc_set_tabsize(tabsize: number): void
     vfunc_set_use_spaces(use_spaces: boolean): void
-    /* Signals of IAnjuta.Editor */
+    /* Signals of IAnjuta-3.0.IAnjuta.Editor */
     connect(sigName: "backspace", callback: (($obj: EditorFolds) => void)): number
     connect_after(sigName: "backspace", callback: (($obj: EditorFolds) => void)): number
     emit(sigName: "backspace"): void
@@ -1740,7 +1740,7 @@ export class EditorFolds {
     static error_quark(): GLib.Quark
 }
 export class EditorGladeSignal {
-    /* Methods of IAnjuta.Editor */
+    /* Methods of IAnjuta-3.0.IAnjuta.Editor */
     append(text: string, length: number): void
     erase(position_start: Iterable, position_end: Iterable): void
     erase_all(): void
@@ -1771,10 +1771,10 @@ export class EditorGladeSignal {
     set_popup_menu(menu: Gtk.Widget): void
     set_tabsize(tabsize: number): void
     set_use_spaces(use_spaces: boolean): void
-    /* Virtual methods of IAnjuta.EditorGladeSignal */
+    /* Virtual methods of IAnjuta-3.0.IAnjuta.EditorGladeSignal */
     vfunc_drop(iterator: Iterable, signal_data: string): void
     vfunc_drop_possible(iterator: Iterable): boolean
-    /* Virtual methods of IAnjuta.Editor */
+    /* Virtual methods of IAnjuta-3.0.IAnjuta.Editor */
     vfunc_append(text: string, length: number): void
     vfunc_backspace(): void
     vfunc_changed(position: Iterable, added: boolean, length: number, lines: number, text: string): void
@@ -1813,14 +1813,14 @@ export class EditorGladeSignal {
     vfunc_set_popup_menu(menu: Gtk.Widget): void
     vfunc_set_tabsize(tabsize: number): void
     vfunc_set_use_spaces(use_spaces: boolean): void
-    /* Signals of IAnjuta.EditorGladeSignal */
+    /* Signals of IAnjuta-3.0.IAnjuta.EditorGladeSignal */
     connect(sigName: "drop", callback: (($obj: EditorGladeSignal, iter: Iterable, signal_data: string) => void)): number
     connect_after(sigName: "drop", callback: (($obj: EditorGladeSignal, iter: Iterable, signal_data: string) => void)): number
     emit(sigName: "drop", iter: Iterable, signal_data: string): void
     connect(sigName: "drop-possible", callback: (($obj: EditorGladeSignal, iter: Iterable) => boolean)): number
     connect_after(sigName: "drop-possible", callback: (($obj: EditorGladeSignal, iter: Iterable) => boolean)): number
     emit(sigName: "drop-possible", iter: Iterable): void
-    /* Signals of IAnjuta.Editor */
+    /* Signals of IAnjuta-3.0.IAnjuta.Editor */
     connect(sigName: "backspace", callback: (($obj: EditorGladeSignal) => void)): number
     connect_after(sigName: "backspace", callback: (($obj: EditorGladeSignal) => void)): number
     emit(sigName: "backspace"): void
@@ -1850,11 +1850,11 @@ export class EditorGladeSignal {
     static error_quark(): GLib.Quark
 }
 export class EditorGoto {
-    /* Methods of IAnjuta.EditorGoto */
+    /* Methods of IAnjuta-3.0.IAnjuta.EditorGoto */
     end_block(): void
     matching_brace(): void
     start_block(): void
-    /* Methods of IAnjuta.Editor */
+    /* Methods of IAnjuta-3.0.IAnjuta.Editor */
     append(text: string, length: number): void
     erase(position_start: Iterable, position_end: Iterable): void
     erase_all(): void
@@ -1885,11 +1885,11 @@ export class EditorGoto {
     set_popup_menu(menu: Gtk.Widget): void
     set_tabsize(tabsize: number): void
     set_use_spaces(use_spaces: boolean): void
-    /* Virtual methods of IAnjuta.EditorGoto */
+    /* Virtual methods of IAnjuta-3.0.IAnjuta.EditorGoto */
     vfunc_end_block(): void
     vfunc_matching_brace(): void
     vfunc_start_block(): void
-    /* Virtual methods of IAnjuta.Editor */
+    /* Virtual methods of IAnjuta-3.0.IAnjuta.Editor */
     vfunc_append(text: string, length: number): void
     vfunc_backspace(): void
     vfunc_changed(position: Iterable, added: boolean, length: number, lines: number, text: string): void
@@ -1928,7 +1928,7 @@ export class EditorGoto {
     vfunc_set_popup_menu(menu: Gtk.Widget): void
     vfunc_set_tabsize(tabsize: number): void
     vfunc_set_use_spaces(use_spaces: boolean): void
-    /* Signals of IAnjuta.Editor */
+    /* Signals of IAnjuta-3.0.IAnjuta.Editor */
     connect(sigName: "backspace", callback: (($obj: EditorGoto) => void)): number
     connect_after(sigName: "backspace", callback: (($obj: EditorGoto) => void)): number
     emit(sigName: "backspace"): void
@@ -1958,9 +1958,9 @@ export class EditorGoto {
     static error_quark(): GLib.Quark
 }
 export class EditorHover {
-    /* Methods of IAnjuta.EditorHover */
+    /* Methods of IAnjuta-3.0.IAnjuta.EditorHover */
     display(position: Iterable, info: string): void
-    /* Methods of IAnjuta.Editor */
+    /* Methods of IAnjuta-3.0.IAnjuta.Editor */
     append(text: string, length: number): void
     erase(position_start: Iterable, position_end: Iterable): void
     erase_all(): void
@@ -1991,11 +1991,11 @@ export class EditorHover {
     set_popup_menu(menu: Gtk.Widget): void
     set_tabsize(tabsize: number): void
     set_use_spaces(use_spaces: boolean): void
-    /* Virtual methods of IAnjuta.EditorHover */
+    /* Virtual methods of IAnjuta-3.0.IAnjuta.EditorHover */
     vfunc_display(position: Iterable, info: string): void
     vfunc_hover_leave(position: Iterable): void
     vfunc_hover_over(position: Iterable): void
-    /* Virtual methods of IAnjuta.Editor */
+    /* Virtual methods of IAnjuta-3.0.IAnjuta.Editor */
     vfunc_append(text: string, length: number): void
     vfunc_backspace(): void
     vfunc_changed(position: Iterable, added: boolean, length: number, lines: number, text: string): void
@@ -2034,14 +2034,14 @@ export class EditorHover {
     vfunc_set_popup_menu(menu: Gtk.Widget): void
     vfunc_set_tabsize(tabsize: number): void
     vfunc_set_use_spaces(use_spaces: boolean): void
-    /* Signals of IAnjuta.EditorHover */
+    /* Signals of IAnjuta-3.0.IAnjuta.EditorHover */
     connect(sigName: "hover-leave", callback: (($obj: EditorHover, position: Iterable) => void)): number
     connect_after(sigName: "hover-leave", callback: (($obj: EditorHover, position: Iterable) => void)): number
     emit(sigName: "hover-leave", position: Iterable): void
     connect(sigName: "hover-over", callback: (($obj: EditorHover, position: Iterable) => void)): number
     connect_after(sigName: "hover-over", callback: (($obj: EditorHover, position: Iterable) => void)): number
     emit(sigName: "hover-over", position: Iterable): void
-    /* Signals of IAnjuta.Editor */
+    /* Signals of IAnjuta-3.0.IAnjuta.Editor */
     connect(sigName: "backspace", callback: (($obj: EditorHover) => void)): number
     connect_after(sigName: "backspace", callback: (($obj: EditorHover) => void)): number
     emit(sigName: "backspace"): void
@@ -2071,12 +2071,12 @@ export class EditorHover {
     static error_quark(): GLib.Quark
 }
 export class EditorLanguage {
-    /* Methods of IAnjuta.EditorLanguage */
+    /* Methods of IAnjuta-3.0.IAnjuta.EditorLanguage */
     get_language(): string
     get_language_name(language: string): string
     get_supported_languages(): string[]
     set_language(language: string): void
-    /* Methods of IAnjuta.Editor */
+    /* Methods of IAnjuta-3.0.IAnjuta.Editor */
     append(text: string, length: number): void
     erase(position_start: Iterable, position_end: Iterable): void
     erase_all(): void
@@ -2107,13 +2107,13 @@ export class EditorLanguage {
     set_popup_menu(menu: Gtk.Widget): void
     set_tabsize(tabsize: number): void
     set_use_spaces(use_spaces: boolean): void
-    /* Virtual methods of IAnjuta.EditorLanguage */
+    /* Virtual methods of IAnjuta-3.0.IAnjuta.EditorLanguage */
     vfunc_get_language(): string
     vfunc_get_language_name(language: string): string
     vfunc_get_supported_languages(): string[]
     vfunc_language_changed(language: string): void
     vfunc_set_language(language: string): void
-    /* Virtual methods of IAnjuta.Editor */
+    /* Virtual methods of IAnjuta-3.0.IAnjuta.Editor */
     vfunc_append(text: string, length: number): void
     vfunc_backspace(): void
     vfunc_changed(position: Iterable, added: boolean, length: number, lines: number, text: string): void
@@ -2152,11 +2152,11 @@ export class EditorLanguage {
     vfunc_set_popup_menu(menu: Gtk.Widget): void
     vfunc_set_tabsize(tabsize: number): void
     vfunc_set_use_spaces(use_spaces: boolean): void
-    /* Signals of IAnjuta.EditorLanguage */
+    /* Signals of IAnjuta-3.0.IAnjuta.EditorLanguage */
     connect(sigName: "language-changed", callback: (($obj: EditorLanguage, language: string) => void)): number
     connect_after(sigName: "language-changed", callback: (($obj: EditorLanguage, language: string) => void)): number
     emit(sigName: "language-changed", language: string): void
-    /* Signals of IAnjuta.Editor */
+    /* Signals of IAnjuta-3.0.IAnjuta.Editor */
     connect(sigName: "backspace", callback: (($obj: EditorLanguage) => void)): number
     connect_after(sigName: "backspace", callback: (($obj: EditorLanguage) => void)): number
     emit(sigName: "backspace"): void
@@ -2186,12 +2186,12 @@ export class EditorLanguage {
     static error_quark(): GLib.Quark
 }
 export class EditorLineMode {
-    /* Methods of IAnjuta.EditorLineMode */
+    /* Methods of IAnjuta-3.0.IAnjuta.EditorLineMode */
     convert(mode: EditorLineModeType): void
     fix(): void
     get(): EditorLineModeType
     set(mode: EditorLineModeType): void
-    /* Methods of IAnjuta.Editor */
+    /* Methods of IAnjuta-3.0.IAnjuta.Editor */
     append(text: string, length: number): void
     erase(position_start: Iterable, position_end: Iterable): void
     erase_all(): void
@@ -2222,12 +2222,12 @@ export class EditorLineMode {
     set_popup_menu(menu: Gtk.Widget): void
     set_tabsize(tabsize: number): void
     set_use_spaces(use_spaces: boolean): void
-    /* Virtual methods of IAnjuta.EditorLineMode */
+    /* Virtual methods of IAnjuta-3.0.IAnjuta.EditorLineMode */
     vfunc_convert(mode: EditorLineModeType): void
     vfunc_fix(): void
     vfunc_get(): EditorLineModeType
     vfunc_set(mode: EditorLineModeType): void
-    /* Virtual methods of IAnjuta.Editor */
+    /* Virtual methods of IAnjuta-3.0.IAnjuta.Editor */
     vfunc_append(text: string, length: number): void
     vfunc_backspace(): void
     vfunc_changed(position: Iterable, added: boolean, length: number, lines: number, text: string): void
@@ -2266,7 +2266,7 @@ export class EditorLineMode {
     vfunc_set_popup_menu(menu: Gtk.Widget): void
     vfunc_set_tabsize(tabsize: number): void
     vfunc_set_use_spaces(use_spaces: boolean): void
-    /* Signals of IAnjuta.Editor */
+    /* Signals of IAnjuta-3.0.IAnjuta.Editor */
     connect(sigName: "backspace", callback: (($obj: EditorLineMode) => void)): number
     connect_after(sigName: "backspace", callback: (($obj: EditorLineMode) => void)): number
     emit(sigName: "backspace"): void
@@ -2296,10 +2296,10 @@ export class EditorLineMode {
     static error_quark(): GLib.Quark
 }
 export class EditorSearch {
-    /* Methods of IAnjuta.EditorSearch */
+    /* Methods of IAnjuta-3.0.IAnjuta.EditorSearch */
     backward(search: string, case_sensitive: boolean, start: EditorCell, end: EditorCell): [ /* returnType */ boolean, /* result_start */ EditorCell, /* result_end */ EditorCell ]
     forward(search: string, case_sensitive: boolean, start: EditorCell, end: EditorCell): [ /* returnType */ boolean, /* result_start */ EditorCell, /* result_end */ EditorCell ]
-    /* Methods of IAnjuta.Editor */
+    /* Methods of IAnjuta-3.0.IAnjuta.Editor */
     append(text: string, length: number): void
     erase(position_start: Iterable, position_end: Iterable): void
     erase_all(): void
@@ -2330,10 +2330,10 @@ export class EditorSearch {
     set_popup_menu(menu: Gtk.Widget): void
     set_tabsize(tabsize: number): void
     set_use_spaces(use_spaces: boolean): void
-    /* Virtual methods of IAnjuta.EditorSearch */
+    /* Virtual methods of IAnjuta-3.0.IAnjuta.EditorSearch */
     vfunc_backward(search: string, case_sensitive: boolean, start: EditorCell, end: EditorCell): [ /* returnType */ boolean, /* result_start */ EditorCell, /* result_end */ EditorCell ]
     vfunc_forward(search: string, case_sensitive: boolean, start: EditorCell, end: EditorCell): [ /* returnType */ boolean, /* result_start */ EditorCell, /* result_end */ EditorCell ]
-    /* Virtual methods of IAnjuta.Editor */
+    /* Virtual methods of IAnjuta-3.0.IAnjuta.Editor */
     vfunc_append(text: string, length: number): void
     vfunc_backspace(): void
     vfunc_changed(position: Iterable, added: boolean, length: number, lines: number, text: string): void
@@ -2372,7 +2372,7 @@ export class EditorSearch {
     vfunc_set_popup_menu(menu: Gtk.Widget): void
     vfunc_set_tabsize(tabsize: number): void
     vfunc_set_use_spaces(use_spaces: boolean): void
-    /* Signals of IAnjuta.Editor */
+    /* Signals of IAnjuta-3.0.IAnjuta.Editor */
     connect(sigName: "backspace", callback: (($obj: EditorSearch) => void)): number
     connect_after(sigName: "backspace", callback: (($obj: EditorSearch) => void)): number
     emit(sigName: "backspace"): void
@@ -2402,7 +2402,7 @@ export class EditorSearch {
     static error_quark(): GLib.Quark
 }
 export class EditorSelection {
-    /* Methods of IAnjuta.EditorSelection */
+    /* Methods of IAnjuta-3.0.IAnjuta.EditorSelection */
     get(): string
     has_selection(): boolean
     replace(text: string, length: number): void
@@ -2410,7 +2410,7 @@ export class EditorSelection {
     select_block(): void
     select_function(): void
     set(start: Iterable, end: Iterable, scroll: boolean): void
-    /* Methods of IAnjuta.Editor */
+    /* Methods of IAnjuta-3.0.IAnjuta.Editor */
     append(text: string, length: number): void
     erase(position_start: Iterable, position_end: Iterable): void
     erase_all(): void
@@ -2441,7 +2441,7 @@ export class EditorSelection {
     set_popup_menu(menu: Gtk.Widget): void
     set_tabsize(tabsize: number): void
     set_use_spaces(use_spaces: boolean): void
-    /* Virtual methods of IAnjuta.EditorSelection */
+    /* Virtual methods of IAnjuta-3.0.IAnjuta.EditorSelection */
     vfunc_get(): string
     vfunc_has_selection(): boolean
     vfunc_replace(text: string, length: number): void
@@ -2449,7 +2449,7 @@ export class EditorSelection {
     vfunc_select_block(): void
     vfunc_select_function(): void
     vfunc_set(start: Iterable, end: Iterable, scroll: boolean): void
-    /* Virtual methods of IAnjuta.Editor */
+    /* Virtual methods of IAnjuta-3.0.IAnjuta.Editor */
     vfunc_append(text: string, length: number): void
     vfunc_backspace(): void
     vfunc_changed(position: Iterable, added: boolean, length: number, lines: number, text: string): void
@@ -2488,7 +2488,7 @@ export class EditorSelection {
     vfunc_set_popup_menu(menu: Gtk.Widget): void
     vfunc_set_tabsize(tabsize: number): void
     vfunc_set_use_spaces(use_spaces: boolean): void
-    /* Signals of IAnjuta.Editor */
+    /* Signals of IAnjuta-3.0.IAnjuta.Editor */
     connect(sigName: "backspace", callback: (($obj: EditorSelection) => void)): number
     connect_after(sigName: "backspace", callback: (($obj: EditorSelection) => void)): number
     emit(sigName: "backspace"): void
@@ -2518,11 +2518,11 @@ export class EditorSelection {
     static error_quark(): GLib.Quark
 }
 export class EditorTip {
-    /* Methods of IAnjuta.EditorTip */
+    /* Methods of IAnjuta-3.0.IAnjuta.EditorTip */
     cancel(): void
     show(tips: string[], position: Iterable): void
     visible(): boolean
-    /* Methods of IAnjuta.Editor */
+    /* Methods of IAnjuta-3.0.IAnjuta.Editor */
     append(text: string, length: number): void
     erase(position_start: Iterable, position_end: Iterable): void
     erase_all(): void
@@ -2553,11 +2553,11 @@ export class EditorTip {
     set_popup_menu(menu: Gtk.Widget): void
     set_tabsize(tabsize: number): void
     set_use_spaces(use_spaces: boolean): void
-    /* Virtual methods of IAnjuta.EditorTip */
+    /* Virtual methods of IAnjuta-3.0.IAnjuta.EditorTip */
     vfunc_cancel(): void
     vfunc_show(tips: string[], position: Iterable): void
     vfunc_visible(): boolean
-    /* Virtual methods of IAnjuta.Editor */
+    /* Virtual methods of IAnjuta-3.0.IAnjuta.Editor */
     vfunc_append(text: string, length: number): void
     vfunc_backspace(): void
     vfunc_changed(position: Iterable, added: boolean, length: number, lines: number, text: string): void
@@ -2596,7 +2596,7 @@ export class EditorTip {
     vfunc_set_popup_menu(menu: Gtk.Widget): void
     vfunc_set_tabsize(tabsize: number): void
     vfunc_set_use_spaces(use_spaces: boolean): void
-    /* Signals of IAnjuta.Editor */
+    /* Signals of IAnjuta-3.0.IAnjuta.Editor */
     connect(sigName: "backspace", callback: (($obj: EditorTip) => void)): number
     connect_after(sigName: "backspace", callback: (($obj: EditorTip) => void)): number
     emit(sigName: "backspace"): void
@@ -2626,11 +2626,11 @@ export class EditorTip {
     static error_quark(): GLib.Quark
 }
 export class EditorView {
-    /* Methods of IAnjuta.EditorView */
+    /* Methods of IAnjuta-3.0.IAnjuta.EditorView */
     create(): void
     get_count(): number
     remove_current(): void
-    /* Methods of IAnjuta.Editor */
+    /* Methods of IAnjuta-3.0.IAnjuta.Editor */
     append(text: string, length: number): void
     erase(position_start: Iterable, position_end: Iterable): void
     erase_all(): void
@@ -2661,11 +2661,11 @@ export class EditorView {
     set_popup_menu(menu: Gtk.Widget): void
     set_tabsize(tabsize: number): void
     set_use_spaces(use_spaces: boolean): void
-    /* Virtual methods of IAnjuta.EditorView */
+    /* Virtual methods of IAnjuta-3.0.IAnjuta.EditorView */
     vfunc_create(): void
     vfunc_get_count(): number
     vfunc_remove_current(): void
-    /* Virtual methods of IAnjuta.Editor */
+    /* Virtual methods of IAnjuta-3.0.IAnjuta.Editor */
     vfunc_append(text: string, length: number): void
     vfunc_backspace(): void
     vfunc_changed(position: Iterable, added: boolean, length: number, lines: number, text: string): void
@@ -2704,7 +2704,7 @@ export class EditorView {
     vfunc_set_popup_menu(menu: Gtk.Widget): void
     vfunc_set_tabsize(tabsize: number): void
     vfunc_set_use_spaces(use_spaces: boolean): void
-    /* Signals of IAnjuta.Editor */
+    /* Signals of IAnjuta-3.0.IAnjuta.Editor */
     connect(sigName: "backspace", callback: (($obj: EditorView) => void)): number
     connect_after(sigName: "backspace", callback: (($obj: EditorView) => void)): number
     emit(sigName: "backspace"): void
@@ -2734,10 +2734,10 @@ export class EditorView {
     static error_quark(): GLib.Quark
 }
 export class EditorZoom {
-    /* Methods of IAnjuta.EditorZoom */
+    /* Methods of IAnjuta-3.0.IAnjuta.EditorZoom */
     in(): void
     out(): void
-    /* Methods of IAnjuta.Editor */
+    /* Methods of IAnjuta-3.0.IAnjuta.Editor */
     append(text: string, length: number): void
     erase(position_start: Iterable, position_end: Iterable): void
     erase_all(): void
@@ -2768,10 +2768,10 @@ export class EditorZoom {
     set_popup_menu(menu: Gtk.Widget): void
     set_tabsize(tabsize: number): void
     set_use_spaces(use_spaces: boolean): void
-    /* Virtual methods of IAnjuta.EditorZoom */
+    /* Virtual methods of IAnjuta-3.0.IAnjuta.EditorZoom */
     vfunc_in(): void
     vfunc_out(): void
-    /* Virtual methods of IAnjuta.Editor */
+    /* Virtual methods of IAnjuta-3.0.IAnjuta.Editor */
     vfunc_append(text: string, length: number): void
     vfunc_backspace(): void
     vfunc_changed(position: Iterable, added: boolean, length: number, lines: number, text: string): void
@@ -2810,7 +2810,7 @@ export class EditorZoom {
     vfunc_set_popup_menu(menu: Gtk.Widget): void
     vfunc_set_tabsize(tabsize: number): void
     vfunc_set_use_spaces(use_spaces: boolean): void
-    /* Signals of IAnjuta.Editor */
+    /* Signals of IAnjuta-3.0.IAnjuta.Editor */
     connect(sigName: "backspace", callback: (($obj: EditorZoom) => void)): number
     connect_after(sigName: "backspace", callback: (($obj: EditorZoom) => void)): number
     emit(sigName: "backspace"): void
@@ -2840,23 +2840,23 @@ export class EditorZoom {
     static error_quark(): GLib.Quark
 }
 export class Environment {
-    /* Methods of IAnjuta.Environment */
+    /* Methods of IAnjuta-3.0.IAnjuta.Environment */
     get_real_directory(dir: string): string
     override(dirp: string, argvp: string, envp: string): boolean
-    /* Virtual methods of IAnjuta.Environment */
+    /* Virtual methods of IAnjuta-3.0.IAnjuta.Environment */
     vfunc_get_real_directory(dir: string): string
     vfunc_override(dirp: string, argvp: string, envp: string): boolean
     static name: string
 }
 export class File {
-    /* Methods of IAnjuta.File */
+    /* Methods of IAnjuta-3.0.IAnjuta.File */
     get_file(): Gio.File
     open(file: Gio.File): void
-    /* Virtual methods of IAnjuta.File */
+    /* Virtual methods of IAnjuta-3.0.IAnjuta.File */
     vfunc_get_file(): Gio.File
     vfunc_open(file: Gio.File): void
     vfunc_opened(): void
-    /* Signals of IAnjuta.File */
+    /* Signals of IAnjuta-3.0.IAnjuta.File */
     connect(sigName: "opened", callback: (($obj: File) => void)): number
     connect_after(sigName: "opened", callback: (($obj: File) => void)): number
     emit(sigName: "opened"): void
@@ -2865,23 +2865,23 @@ export class File {
     static error_quark(): GLib.Quark
 }
 export class FileLoader {
-    /* Methods of IAnjuta.FileLoader */
+    /* Methods of IAnjuta-3.0.IAnjuta.FileLoader */
     peek_interface(file: Gio.File): string
-    /* Virtual methods of IAnjuta.FileLoader */
+    /* Virtual methods of IAnjuta-3.0.IAnjuta.FileLoader */
     vfunc_peek_interface(file: Gio.File): string
     static name: string
     /* Static methods and pseudo-constructors */
     static error_quark(): GLib.Quark
 }
 export class FileManager {
-    /* Methods of IAnjuta.FileManager */
+    /* Methods of IAnjuta-3.0.IAnjuta.FileManager */
     set_root(root_uri: string): void
     set_selected(file: Gio.File): void
-    /* Virtual methods of IAnjuta.FileManager */
+    /* Virtual methods of IAnjuta-3.0.IAnjuta.FileManager */
     vfunc_section_changed(file: Gio.File): void
     vfunc_set_root(root_uri: string): void
     vfunc_set_selected(file: Gio.File): void
-    /* Signals of IAnjuta.FileManager */
+    /* Signals of IAnjuta-3.0.IAnjuta.FileManager */
     connect(sigName: "section-changed", callback: (($obj: FileManager, err: Gio.File) => void)): number
     connect_after(sigName: "section-changed", callback: (($obj: FileManager, err: Gio.File) => void)): number
     emit(sigName: "section-changed", err: Gio.File): void
@@ -2890,17 +2890,17 @@ export class FileManager {
     static error_quark(): GLib.Quark
 }
 export class FileSavable {
-    /* Methods of IAnjuta.FileSavable */
+    /* Methods of IAnjuta-3.0.IAnjuta.FileSavable */
     is_conflict(): boolean
     is_dirty(): boolean
     is_read_only(): boolean
     save(): void
     save_as(file: Gio.File): void
     set_dirty(dirty: boolean): void
-    /* Methods of IAnjuta.File */
+    /* Methods of IAnjuta-3.0.IAnjuta.File */
     get_file(): Gio.File
     open(file: Gio.File): void
-    /* Virtual methods of IAnjuta.FileSavable */
+    /* Virtual methods of IAnjuta-3.0.IAnjuta.FileSavable */
     vfunc_is_conflict(): boolean
     vfunc_is_dirty(): boolean
     vfunc_is_read_only(): boolean
@@ -2909,18 +2909,18 @@ export class FileSavable {
     vfunc_saved(file: Gio.File): void
     vfunc_set_dirty(dirty: boolean): void
     vfunc_update_save_ui(): void
-    /* Virtual methods of IAnjuta.File */
+    /* Virtual methods of IAnjuta-3.0.IAnjuta.File */
     vfunc_get_file(): Gio.File
     vfunc_open(file: Gio.File): void
     vfunc_opened(): void
-    /* Signals of IAnjuta.FileSavable */
+    /* Signals of IAnjuta-3.0.IAnjuta.FileSavable */
     connect(sigName: "saved", callback: (($obj: FileSavable, file: Gio.File) => void)): number
     connect_after(sigName: "saved", callback: (($obj: FileSavable, file: Gio.File) => void)): number
     emit(sigName: "saved", file: Gio.File): void
     connect(sigName: "update-save-ui", callback: (($obj: FileSavable) => void)): number
     connect_after(sigName: "update-save-ui", callback: (($obj: FileSavable) => void)): number
     emit(sigName: "update-save-ui"): void
-    /* Signals of IAnjuta.File */
+    /* Signals of IAnjuta-3.0.IAnjuta.File */
     connect(sigName: "opened", callback: (($obj: FileSavable) => void)): number
     connect_after(sigName: "opened", callback: (($obj: FileSavable) => void)): number
     emit(sigName: "opened"): void
@@ -2929,37 +2929,37 @@ export class FileSavable {
     static error_quark(): GLib.Quark
 }
 export class Glade {
-    /* Methods of IAnjuta.Glade */
+    /* Methods of IAnjuta-3.0.IAnjuta.Glade */
     add_association(master: string, slave: string): void
-    /* Virtual methods of IAnjuta.Glade */
+    /* Virtual methods of IAnjuta-3.0.IAnjuta.Glade */
     vfunc_add_association(master: string, slave: string): void
     static name: string
     /* Static methods and pseudo-constructors */
     static error_quark(): GLib.Quark
 }
 export class Help {
-    /* Methods of IAnjuta.Help */
+    /* Methods of IAnjuta-3.0.IAnjuta.Help */
     search(query: string): void
-    /* Virtual methods of IAnjuta.Help */
+    /* Virtual methods of IAnjuta-3.0.IAnjuta.Help */
     vfunc_search(query: string): void
     static name: string
     /* Static methods and pseudo-constructors */
     static error_quark(): GLib.Quark
 }
 export class Indenter {
-    /* Methods of IAnjuta.Indenter */
+    /* Methods of IAnjuta-3.0.IAnjuta.Indenter */
     indent(start: Iterable, end: Iterable): void
-    /* Virtual methods of IAnjuta.Indenter */
+    /* Virtual methods of IAnjuta-3.0.IAnjuta.Indenter */
     vfunc_indent(start: Iterable, end: Iterable): void
     static name: string
     /* Static methods and pseudo-constructors */
     static error_quark(): GLib.Quark
 }
 export class Indicable {
-    /* Methods of IAnjuta.Indicable */
+    /* Methods of IAnjuta-3.0.IAnjuta.Indicable */
     clear(): void
     set(begin_location: Iterable, end_location: Iterable, indicator: IndicableIndicator): void
-    /* Virtual methods of IAnjuta.Indicable */
+    /* Virtual methods of IAnjuta-3.0.IAnjuta.Indicable */
     vfunc_clear(): void
     vfunc_set(begin_location: Iterable, end_location: Iterable, indicator: IndicableIndicator): void
     static name: string
@@ -2967,7 +2967,7 @@ export class Indicable {
     static error_quark(): GLib.Quark
 }
 export class Iterable {
-    /* Methods of IAnjuta.Iterable */
+    /* Methods of IAnjuta-3.0.IAnjuta.Iterable */
     assign(src_iter: Iterable): void
     clone(): Iterable
     compare(iter2: Iterable): number
@@ -2979,7 +2979,7 @@ export class Iterable {
     next(): boolean
     previous(): boolean
     set_position(position: number): boolean
-    /* Virtual methods of IAnjuta.Iterable */
+    /* Virtual methods of IAnjuta-3.0.IAnjuta.Iterable */
     vfunc_assign(src_iter: Iterable): void
     vfunc_clone(): Iterable
     vfunc_compare(iter2: Iterable): number
@@ -2996,11 +2996,11 @@ export class Iterable {
     static error_quark(): GLib.Quark
 }
 export class IterableTree {
-    /* Methods of IAnjuta.IterableTree */
+    /* Methods of IAnjuta-3.0.IAnjuta.IterableTree */
     children(): boolean
     has_children(): boolean
     parent(): boolean
-    /* Methods of IAnjuta.Iterable */
+    /* Methods of IAnjuta-3.0.IAnjuta.Iterable */
     assign(src_iter: Iterable): void
     clone(): Iterable
     compare(iter2: Iterable): number
@@ -3012,11 +3012,11 @@ export class IterableTree {
     next(): boolean
     previous(): boolean
     set_position(position: number): boolean
-    /* Virtual methods of IAnjuta.IterableTree */
+    /* Virtual methods of IAnjuta-3.0.IAnjuta.IterableTree */
     vfunc_children(): boolean
     vfunc_has_children(): boolean
     vfunc_parent(): boolean
-    /* Virtual methods of IAnjuta.Iterable */
+    /* Virtual methods of IAnjuta-3.0.IAnjuta.Iterable */
     vfunc_assign(src_iter: Iterable): void
     vfunc_clone(): Iterable
     vfunc_compare(iter2: Iterable): number
@@ -3033,7 +3033,7 @@ export class IterableTree {
     static error_quark(): GLib.Quark
 }
 export class Language {
-    /* Methods of IAnjuta.Language */
+    /* Methods of IAnjuta-3.0.IAnjuta.Language */
     get_from_editor(editor: EditorLanguage): LanguageId
     get_from_mime_type(mime_type: string): LanguageId
     get_from_string(string: string): LanguageId
@@ -3041,7 +3041,7 @@ export class Language {
     get_make_target(id: LanguageId): string
     get_name(id: LanguageId): string
     get_name_from_editor(editor: EditorLanguage): string
-    /* Virtual methods of IAnjuta.Language */
+    /* Virtual methods of IAnjuta-3.0.IAnjuta.Language */
     vfunc_get_from_editor(editor: EditorLanguage): LanguageId
     vfunc_get_from_mime_type(mime_type: string): LanguageId
     vfunc_get_from_string(string: string): LanguageId
@@ -3054,22 +3054,22 @@ export class Language {
     static error_quark(): GLib.Quark
 }
 export class LanguageProvider {
-    /* Methods of IAnjuta.LanguageProvider */
+    /* Methods of IAnjuta-3.0.IAnjuta.LanguageProvider */
     get_calltip_cache(call_context: string): string[]
     get_calltip_context(iter: Iterable): string
     new_calltip(call_context: string, iter: Iterable): void
     populate_completions(iter: Iterable): Iterable | null
-    /* Methods of IAnjuta.Provider */
+    /* Methods of IAnjuta-3.0.IAnjuta.Provider */
     activate(iter: Iterable, data?: object | null): void
     get_name(): string
     get_start_iter(): Iterable
     populate(iter: Iterable): void
-    /* Virtual methods of IAnjuta.LanguageProvider */
+    /* Virtual methods of IAnjuta-3.0.IAnjuta.LanguageProvider */
     vfunc_get_calltip_cache(call_context: string): string[]
     vfunc_get_calltip_context(iter: Iterable): string
     vfunc_new_calltip(call_context: string, iter: Iterable): void
     vfunc_populate_completions(iter: Iterable): Iterable | null
-    /* Virtual methods of IAnjuta.Provider */
+    /* Virtual methods of IAnjuta-3.0.IAnjuta.Provider */
     vfunc_activate(iter: Iterable, data?: object | null): void
     vfunc_get_name(): string
     vfunc_get_start_iter(): Iterable
@@ -3084,33 +3084,33 @@ export class Loader {
     static error_quark(): GLib.Quark
 }
 export class Markable {
-    /* Methods of IAnjuta.Markable */
+    /* Methods of IAnjuta-3.0.IAnjuta.Markable */
     delete_all_markers(marker: MarkableMarker): void
     is_marker_set(location: number, marker: MarkableMarker): boolean
     location_from_handle(handle: number): number
     mark(location: number, marker: MarkableMarker, tooltip?: string | null): number
     unmark(location: number, marker: MarkableMarker): void
-    /* Virtual methods of IAnjuta.Markable */
+    /* Virtual methods of IAnjuta-3.0.IAnjuta.Markable */
     vfunc_delete_all_markers(marker: MarkableMarker): void
     vfunc_is_marker_set(location: number, marker: MarkableMarker): boolean
     vfunc_location_from_handle(handle: number): number
     vfunc_mark(location: number, marker: MarkableMarker, tooltip?: string | null): number
     vfunc_marker_clicked(double_click: boolean, location: number): void
     vfunc_unmark(location: number, marker: MarkableMarker): void
-    /* Signals of IAnjuta.Markable */
+    /* Signals of IAnjuta-3.0.IAnjuta.Markable */
     connect(sigName: "marker-clicked", callback: (($obj: Markable, double_click: boolean, location: number) => void)): number
     connect_after(sigName: "marker-clicked", callback: (($obj: Markable, double_click: boolean, location: number) => void)): number
     emit(sigName: "marker-clicked", double_click: boolean, location: number): void
     static name: string
 }
 export class MessageManager {
-    /* Methods of IAnjuta.MessageManager */
+    /* Methods of IAnjuta-3.0.IAnjuta.MessageManager */
     remove_view(view: MessageView): void
     set_current_view(view: MessageView): void
     set_view_icon(view: MessageView, icon: GdkPixbuf.PixbufAnimation): void
     set_view_icon_from_stock(view: MessageView, icon: string): void
     set_view_title(view: MessageView, title: string): void
-    /* Virtual methods of IAnjuta.MessageManager */
+    /* Virtual methods of IAnjuta-3.0.IAnjuta.MessageManager */
     vfunc_remove_view(view: MessageView): void
     vfunc_set_current_view(view: MessageView): void
     vfunc_set_view_icon(view: MessageView, icon: GdkPixbuf.PixbufAnimation): void
@@ -3119,14 +3119,14 @@ export class MessageManager {
     static name: string
 }
 export class MessageView {
-    /* Methods of IAnjuta.MessageView */
+    /* Methods of IAnjuta-3.0.IAnjuta.MessageView */
     append(type: MessageViewType, summary: string, details: string): void
     buffer_append(text: string): void
     clear(): void
     get_current_message(): string
     select_next(): void
     select_previous(): void
-    /* Virtual methods of IAnjuta.MessageView */
+    /* Virtual methods of IAnjuta-3.0.IAnjuta.MessageView */
     vfunc_append(type: MessageViewType, summary: string, details: string): void
     vfunc_buffer_append(text: string): void
     vfunc_buffer_flushed(line: string): void
@@ -3135,7 +3135,7 @@ export class MessageView {
     vfunc_message_clicked(message: string): void
     vfunc_select_next(): void
     vfunc_select_previous(): void
-    /* Signals of IAnjuta.MessageView */
+    /* Signals of IAnjuta-3.0.IAnjuta.MessageView */
     connect(sigName: "buffer-flushed", callback: (($obj: MessageView, line: string) => void)): number
     connect_after(sigName: "buffer-flushed", callback: (($obj: MessageView, line: string) => void)): number
     emit(sigName: "buffer-flushed", line: string): void
@@ -3150,10 +3150,10 @@ export class PluginFactory {
     static name: string
 }
 export class Preferences {
-    /* Methods of IAnjuta.Preferences */
+    /* Methods of IAnjuta-3.0.IAnjuta.Preferences */
     merge(prefs: Anjuta.Preferences): void
     unmerge(prefs: Anjuta.Preferences): void
-    /* Virtual methods of IAnjuta.Preferences */
+    /* Virtual methods of IAnjuta-3.0.IAnjuta.Preferences */
     vfunc_merge(prefs: Anjuta.Preferences): void
     vfunc_unmerge(prefs: Anjuta.Preferences): void
     static name: string
@@ -3161,10 +3161,10 @@ export class Preferences {
     static error_quark(): GLib.Quark
 }
 export class Print {
-    /* Methods of IAnjuta.Print */
+    /* Methods of IAnjuta-3.0.IAnjuta.Print */
     print(): void
     print_preview(): void
-    /* Virtual methods of IAnjuta.Print */
+    /* Virtual methods of IAnjuta-3.0.IAnjuta.Print */
     vfunc_print(): void
     vfunc_print_preview(): void
     static name: string
@@ -3172,7 +3172,7 @@ export class Print {
     static error_quark(): GLib.Quark
 }
 export class Project {
-    /* Methods of IAnjuta.Project */
+    /* Methods of IAnjuta-3.0.IAnjuta.Project */
     add_node_after(parent: Anjuta.ProjectNode, sibling: Anjuta.ProjectNode | null, type: Anjuta.ProjectNodeType, file?: Gio.File | null, name?: string | null): Anjuta.ProjectNode
     add_node_before(parent: Anjuta.ProjectNode, sibling: Anjuta.ProjectNode | null, type: Anjuta.ProjectNodeType, file?: Gio.File | null, name?: string | null): Anjuta.ProjectNode
     get_node_info(): Anjuta.ProjectNodeInfo[]
@@ -3183,7 +3183,7 @@ export class Project {
     remove_property(node: Anjuta.ProjectNode, id: string, name?: string | null): boolean
     save_node(node: Anjuta.ProjectNode): boolean
     set_property(node: Anjuta.ProjectNode, id: string, name: string | null, value: string): Anjuta.ProjectProperty | null
-    /* Virtual methods of IAnjuta.Project */
+    /* Virtual methods of IAnjuta-3.0.IAnjuta.Project */
     vfunc_add_node_after(parent: Anjuta.ProjectNode, sibling: Anjuta.ProjectNode | null, type: Anjuta.ProjectNodeType, file?: Gio.File | null, name?: string | null): Anjuta.ProjectNode
     vfunc_add_node_before(parent: Anjuta.ProjectNode, sibling: Anjuta.ProjectNode | null, type: Anjuta.ProjectNodeType, file?: Gio.File | null, name?: string | null): Anjuta.ProjectNode
     vfunc_file_changed(node?: object | null): void
@@ -3198,7 +3198,7 @@ export class Project {
     vfunc_remove_property(node: Anjuta.ProjectNode, id: string, name?: string | null): boolean
     vfunc_save_node(node: Anjuta.ProjectNode): boolean
     vfunc_set_property(node: Anjuta.ProjectNode, id: string, name: string | null, value: string): Anjuta.ProjectProperty | null
-    /* Signals of IAnjuta.Project */
+    /* Signals of IAnjuta-3.0.IAnjuta.Project */
     connect(sigName: "file-changed", callback: (($obj: Project, node?: object | null) => void)): number
     connect_after(sigName: "file-changed", callback: (($obj: Project, node?: object | null) => void)): number
     emit(sigName: "file-changed", node?: object | null): void
@@ -3214,10 +3214,10 @@ export class Project {
     static name: string
 }
 export class ProjectBackend {
-    /* Methods of IAnjuta.ProjectBackend */
+    /* Methods of IAnjuta-3.0.IAnjuta.ProjectBackend */
     new_project(file: Gio.File): Project
     probe(directory: Gio.File): number
-    /* Virtual methods of IAnjuta.ProjectBackend */
+    /* Virtual methods of IAnjuta-3.0.IAnjuta.ProjectBackend */
     vfunc_new_project(file: Gio.File): Project
     vfunc_probe(directory: Gio.File): number
     static name: string
@@ -3225,14 +3225,14 @@ export class ProjectBackend {
     static error_quark(): GLib.Quark
 }
 export class ProjectChooser {
-    /* Methods of IAnjuta.ProjectChooser */
+    /* Methods of IAnjuta-3.0.IAnjuta.ProjectChooser */
     get_selected(): Gio.File
     set_project_model(manager: ProjectManager, child_type: Anjuta.ProjectNodeType): boolean
-    /* Virtual methods of IAnjuta.ProjectChooser */
+    /* Virtual methods of IAnjuta-3.0.IAnjuta.ProjectChooser */
     vfunc_changed(): void
     vfunc_get_selected(): Gio.File
     vfunc_set_project_model(manager: ProjectManager, child_type: Anjuta.ProjectNodeType): boolean
-    /* Signals of IAnjuta.ProjectChooser */
+    /* Signals of IAnjuta-3.0.IAnjuta.ProjectChooser */
     connect(sigName: "changed", callback: (($obj: ProjectChooser) => void)): number
     connect_after(sigName: "changed", callback: (($obj: ProjectChooser) => void)): number
     emit(sigName: "changed"): void
@@ -3241,7 +3241,7 @@ export class ProjectChooser {
     static error_quark(): GLib.Quark
 }
 export class ProjectManager {
-    /* Methods of IAnjuta.ProjectManager */
+    /* Methods of IAnjuta-3.0.IAnjuta.ProjectManager */
     add_group(name: string, default_group?: Gio.File | null): Gio.File
     add_source(name: string, default_target?: Gio.File | null): Gio.File
     add_source_quiet(name: string, target: Gio.File): Gio.File
@@ -3257,7 +3257,7 @@ export class ProjectManager {
     get_targets(target_type: Anjuta.ProjectNodeType): Gio.File[]
     is_open(): boolean
     remove_file(file: Gio.File): boolean
-    /* Virtual methods of IAnjuta.ProjectManager */
+    /* Virtual methods of IAnjuta-3.0.IAnjuta.ProjectManager */
     vfunc_add_group(name: string, default_group?: Gio.File | null): Gio.File
     vfunc_add_source(name: string, default_target?: Gio.File | null): Gio.File
     vfunc_add_source_quiet(name: string, target: Gio.File): Gio.File
@@ -3277,7 +3277,7 @@ export class ProjectManager {
     vfunc_is_open(): boolean
     vfunc_project_loaded(error: GLib.Error): void
     vfunc_remove_file(file: Gio.File): boolean
-    /* Signals of IAnjuta.ProjectManager */
+    /* Signals of IAnjuta-3.0.IAnjuta.ProjectManager */
     connect(sigName: "element-added", callback: (($obj: ProjectManager, object: Gio.File) => void)): number
     connect_after(sigName: "element-added", callback: (($obj: ProjectManager, object: Gio.File) => void)): number
     emit(sigName: "element-added", object: Gio.File): void
@@ -3295,12 +3295,12 @@ export class ProjectManager {
     static error_quark(): GLib.Quark
 }
 export class Provider {
-    /* Methods of IAnjuta.Provider */
+    /* Methods of IAnjuta-3.0.IAnjuta.Provider */
     activate(iter: Iterable, data?: object | null): void
     get_name(): string
     get_start_iter(): Iterable
     populate(iter: Iterable): void
-    /* Virtual methods of IAnjuta.Provider */
+    /* Virtual methods of IAnjuta-3.0.IAnjuta.Provider */
     vfunc_activate(iter: Iterable, data?: object | null): void
     vfunc_get_name(): string
     vfunc_get_start_iter(): Iterable
@@ -3310,53 +3310,53 @@ export class Provider {
     static error_quark(): GLib.Quark
 }
 export class SnippetsManager {
-    /* Methods of IAnjuta.SnippetsManager */
+    /* Methods of IAnjuta-3.0.IAnjuta.SnippetsManager */
     insert(key: string, editing_session: boolean): boolean
-    /* Virtual methods of IAnjuta.SnippetsManager */
+    /* Virtual methods of IAnjuta-3.0.IAnjuta.SnippetsManager */
     vfunc_insert(key: string, editing_session: boolean): boolean
     static name: string
     /* Static methods and pseudo-constructors */
     static error_quark(): GLib.Quark
 }
 export class Stream {
-    /* Methods of IAnjuta.Stream */
+    /* Methods of IAnjuta-3.0.IAnjuta.Stream */
     open(stream?: object | null): void
-    /* Virtual methods of IAnjuta.Stream */
+    /* Virtual methods of IAnjuta-3.0.IAnjuta.Stream */
     vfunc_open(stream?: object | null): void
     static name: string
     /* Static methods and pseudo-constructors */
     static error_quark(): GLib.Quark
 }
 export class StreamLoader {
-    /* Methods of IAnjuta.StreamLoader */
+    /* Methods of IAnjuta-3.0.IAnjuta.StreamLoader */
     peek_interface(stream?: object | null): string
-    /* Virtual methods of IAnjuta.StreamLoader */
+    /* Virtual methods of IAnjuta-3.0.IAnjuta.StreamLoader */
     vfunc_peek_interface(stream?: object | null): string
     static name: string
     /* Static methods and pseudo-constructors */
     static error_quark(): GLib.Quark
 }
 export class StreamSavable {
-    /* Methods of IAnjuta.StreamSavable */
+    /* Methods of IAnjuta-3.0.IAnjuta.StreamSavable */
     save(stream?: object | null): void
-    /* Methods of IAnjuta.Stream */
+    /* Methods of IAnjuta-3.0.IAnjuta.Stream */
     open(stream?: object | null): void
-    /* Virtual methods of IAnjuta.StreamSavable */
+    /* Virtual methods of IAnjuta-3.0.IAnjuta.StreamSavable */
     vfunc_save(stream?: object | null): void
-    /* Virtual methods of IAnjuta.Stream */
+    /* Virtual methods of IAnjuta-3.0.IAnjuta.Stream */
     vfunc_open(stream?: object | null): void
     static name: string
     /* Static methods and pseudo-constructors */
     static error_quark(): GLib.Quark
 }
 export class Symbol {
-    /* Methods of IAnjuta.Symbol */
+    /* Methods of IAnjuta-3.0.IAnjuta.Symbol */
     get_boolean(field: SymbolField): boolean
     get_icon(): GdkPixbuf.Pixbuf
     get_int(field: SymbolField): number
     get_string(field: SymbolField): string
     get_sym_type(): SymbolType
-    /* Virtual methods of IAnjuta.Symbol */
+    /* Virtual methods of IAnjuta-3.0.IAnjuta.Symbol */
     vfunc_get_boolean(field: SymbolField): boolean
     vfunc_get_icon(): GdkPixbuf.Pixbuf
     vfunc_get_int(field: SymbolField): number
@@ -3367,17 +3367,17 @@ export class Symbol {
     static error_quark(): GLib.Quark
 }
 export class SymbolManager {
-    /* Methods of IAnjuta.SymbolManager */
+    /* Methods of IAnjuta-3.0.IAnjuta.SymbolManager */
     activate_package(pkg_name: string, pkg_version: string): boolean
     deactivate_all(): void
     deactivate_package(pkg_name: string, pkg_version: string): void
-    /* Virtual methods of IAnjuta.SymbolManager */
+    /* Virtual methods of IAnjuta-3.0.IAnjuta.SymbolManager */
     vfunc_activate_package(pkg_name: string, pkg_version: string): boolean
     vfunc_deactivate_all(): void
     vfunc_deactivate_package(pkg_name: string, pkg_version: string): void
     vfunc_prj_scan_end(process_id: number): void
     vfunc_sys_scan_end(process_id: number): void
-    /* Signals of IAnjuta.SymbolManager */
+    /* Signals of IAnjuta-3.0.IAnjuta.SymbolManager */
     connect(sigName: "prj-scan-end", callback: (($obj: SymbolManager, object: number) => void)): number
     connect_after(sigName: "prj-scan-end", callback: (($obj: SymbolManager, object: number) => void)): number
     emit(sigName: "prj-scan-end", object: number): void
@@ -3389,7 +3389,7 @@ export class SymbolManager {
     static error_quark(): GLib.Quark
 }
 export class SymbolQuery {
-    /* Methods of IAnjuta.SymbolQuery */
+    /* Methods of IAnjuta-3.0.IAnjuta.SymbolQuery */
     cancel(): void
     set_fields(n_fields: number, fields: SymbolField): void
     set_file_scope(filescope_search: SymbolQueryFileScope): void
@@ -3399,7 +3399,7 @@ export class SymbolQuery {
     set_mode(mode: SymbolQueryMode): void
     set_offset(offset: number): void
     set_order_by(field: SymbolField): void
-    /* Virtual methods of IAnjuta.SymbolQuery */
+    /* Virtual methods of IAnjuta-3.0.IAnjuta.SymbolQuery */
     vfunc_async_result(result: GObject.Object): void
     vfunc_cancel(): void
     vfunc_set_fields(n_fields: number, fields: SymbolField): void
@@ -3410,7 +3410,7 @@ export class SymbolQuery {
     vfunc_set_mode(mode: SymbolQueryMode): void
     vfunc_set_offset(offset: number): void
     vfunc_set_order_by(field: SymbolField): void
-    /* Signals of IAnjuta.SymbolQuery */
+    /* Signals of IAnjuta-3.0.IAnjuta.SymbolQuery */
     connect(sigName: "async-result", callback: (($obj: SymbolQuery, object: GObject.Object) => void)): number
     connect_after(sigName: "async-result", callback: (($obj: SymbolQuery, object: GObject.Object) => void)): number
     emit(sigName: "async-result", object: GObject.Object): void
@@ -3419,12 +3419,12 @@ export class SymbolQuery {
     static error_quark(): GLib.Quark
 }
 export class Terminal {
-    /* Methods of IAnjuta.Terminal */
+    /* Methods of IAnjuta-3.0.IAnjuta.Terminal */
     execute_command(directory: string, command: string, environment: string[]): number
-    /* Virtual methods of IAnjuta.Terminal */
+    /* Virtual methods of IAnjuta-3.0.IAnjuta.Terminal */
     vfunc_child_exited(pid: number, status: number): void
     vfunc_execute_command(directory: string, command: string, environment: string[]): number
-    /* Signals of IAnjuta.Terminal */
+    /* Signals of IAnjuta-3.0.IAnjuta.Terminal */
     connect(sigName: "child-exited", callback: (($obj: Terminal, object: number, p0: number) => void)): number
     connect_after(sigName: "child-exited", callback: (($obj: Terminal, object: number, p0: number) => void)): number
     emit(sigName: "child-exited", object: number, p0: number): void
@@ -3433,41 +3433,41 @@ export class Terminal {
     static error_quark(): GLib.Quark
 }
 export class Todo {
-    /* Methods of IAnjuta.Todo */
+    /* Methods of IAnjuta-3.0.IAnjuta.Todo */
     load(file: Gio.File): void
-    /* Virtual methods of IAnjuta.Todo */
+    /* Virtual methods of IAnjuta-3.0.IAnjuta.Todo */
     vfunc_load(file: Gio.File): void
     static name: string
     /* Static methods and pseudo-constructors */
     static error_quark(): GLib.Quark
 }
 export class Vcs {
-    /* Methods of IAnjuta.Vcs */
+    /* Methods of IAnjuta-3.0.IAnjuta.Vcs */
     add(files: Gio.File[], notify: Anjuta.AsyncNotify): void
     checkout(repository_location: string, dest: Gio.File, cancel: Gio.Cancellable | null, notify: Anjuta.AsyncNotify): void
     remove(files: Gio.File[], notify: Anjuta.AsyncNotify): void
-    /* Virtual methods of IAnjuta.Vcs */
+    /* Virtual methods of IAnjuta-3.0.IAnjuta.Vcs */
     vfunc_add(files: Gio.File[], notify: Anjuta.AsyncNotify): void
     vfunc_checkout(repository_location: string, dest: Gio.File, cancel: Gio.Cancellable | null, notify: Anjuta.AsyncNotify): void
     vfunc_remove(files: Gio.File[], notify: Anjuta.AsyncNotify): void
     vfunc_status_changed(): void
-    /* Signals of IAnjuta.Vcs */
+    /* Signals of IAnjuta-3.0.IAnjuta.Vcs */
     connect(sigName: "status-changed", callback: (($obj: Vcs) => void)): number
     connect_after(sigName: "status-changed", callback: (($obj: Vcs) => void)): number
     emit(sigName: "status-changed"): void
     static name: string
 }
 export class Wizard {
-    /* Methods of IAnjuta.Wizard */
+    /* Methods of IAnjuta-3.0.IAnjuta.Wizard */
     activate(): void
-    /* Virtual methods of IAnjuta.Wizard */
+    /* Virtual methods of IAnjuta-3.0.IAnjuta.Wizard */
     vfunc_activate(): void
     static name: string
     /* Static methods and pseudo-constructors */
     static error_quark(): GLib.Quark
 }
 export abstract class BuildableIface {
-    /* Fields of IAnjuta.BuildableIface */
+    /* Fields of IAnjuta-3.0.IAnjuta.BuildableIface */
     g_iface: GObject.TypeInterface
     build: (obj: Buildable, uri: string) => void
     clean: (obj: Buildable, uri: string) => void
@@ -3481,7 +3481,7 @@ export abstract class BuildableIface {
     static name: string
 }
 export abstract class BuilderIface {
-    /* Fields of IAnjuta.BuilderIface */
+    /* Fields of IAnjuta-3.0.IAnjuta.BuilderIface */
     g_iface: GObject.TypeInterface
     cancel: (obj: Builder, handle: BuilderHandle) => void
     get_uri_configuration: (obj: Builder, uri: string) => string
@@ -3489,7 +3489,7 @@ export abstract class BuilderIface {
     static name: string
 }
 export abstract class DebugManagerIface {
-    /* Fields of IAnjuta.DebugManagerIface */
+    /* Fields of IAnjuta-3.0.IAnjuta.DebugManagerIface */
     g_iface: GObject.TypeInterface
     breakpoint_changed: (obj: DebugManager, breakpoint: DebuggerBreakpointItem) => void
     debugger_started: (obj: DebugManager) => void
@@ -3511,13 +3511,13 @@ export abstract class DebugManagerIface {
     static name: string
 }
 export abstract class DebuggerBreakpointIface {
-    /* Fields of IAnjuta.DebuggerBreakpointIface */
+    /* Fields of IAnjuta-3.0.IAnjuta.DebuggerBreakpointIface */
     g_iface: DebuggerIface
     implement_breakpoint: (obj: DebuggerBreakpoint) => number
     static name: string
 }
 export class DebuggerBreakpointItem {
-    /* Fields of IAnjuta.DebuggerBreakpointItem */
+    /* Fields of IAnjuta-3.0.IAnjuta.DebuggerBreakpointItem */
     type: number
     id: number
     file: string
@@ -3533,7 +3533,7 @@ export class DebuggerBreakpointItem {
     static name: string
 }
 export class DebuggerFrame {
-    /* Fields of IAnjuta.DebuggerFrame */
+    /* Fields of IAnjuta-3.0.IAnjuta.DebuggerFrame */
     thread: number
     level: number
     args: string
@@ -3545,7 +3545,7 @@ export class DebuggerFrame {
     static name: string
 }
 export abstract class DebuggerIface {
-    /* Fields of IAnjuta.DebuggerIface */
+    /* Fields of IAnjuta-3.0.IAnjuta.DebuggerIface */
     g_iface: GObject.TypeInterface
     debugger_ready: (obj: Debugger, state: DebuggerState) => void
     debugger_started: (obj: Debugger) => void
@@ -3585,20 +3585,20 @@ export abstract class DebuggerIface {
     static name: string
 }
 export class DebuggerInstructionALine {
-    /* Fields of IAnjuta.DebuggerInstructionALine */
+    /* Fields of IAnjuta-3.0.IAnjuta.DebuggerInstructionALine */
     address: number
     label: string
     text: string
     static name: string
 }
 export class DebuggerInstructionDisassembly {
-    /* Fields of IAnjuta.DebuggerInstructionDisassembly */
+    /* Fields of IAnjuta-3.0.IAnjuta.DebuggerInstructionDisassembly */
     size: number
     data: DebuggerInstructionALine[]
     static name: string
 }
 export abstract class DebuggerInstructionIface {
-    /* Fields of IAnjuta.DebuggerInstructionIface */
+    /* Fields of IAnjuta-3.0.IAnjuta.DebuggerInstructionIface */
     g_iface: DebuggerIface
     run_from_address: (obj: DebuggerInstruction, address: number) => boolean
     run_to_address: (obj: DebuggerInstruction, address: number) => boolean
@@ -3607,39 +3607,39 @@ export abstract class DebuggerInstructionIface {
     static name: string
 }
 export class DebuggerMemoryBlock {
-    /* Fields of IAnjuta.DebuggerMemoryBlock */
+    /* Fields of IAnjuta-3.0.IAnjuta.DebuggerMemoryBlock */
     address: number
     length: number
     data: string
     static name: string
 }
 export abstract class DebuggerMemoryIface {
-    /* Fields of IAnjuta.DebuggerMemoryIface */
+    /* Fields of IAnjuta-3.0.IAnjuta.DebuggerMemoryIface */
     g_iface: DebuggerIface
     static name: string
 }
 export class DebuggerRegisterData {
-    /* Fields of IAnjuta.DebuggerRegisterData */
+    /* Fields of IAnjuta-3.0.IAnjuta.DebuggerRegisterData */
     num: number
     name: string
     value: string
     static name: string
 }
 export abstract class DebuggerRegisterIface {
-    /* Fields of IAnjuta.DebuggerRegisterIface */
+    /* Fields of IAnjuta-3.0.IAnjuta.DebuggerRegisterIface */
     g_iface: DebuggerIface
     write_register: (obj: DebuggerRegister, value: DebuggerRegisterData) => boolean
     static name: string
 }
 export abstract class DebuggerVariableIface {
-    /* Fields of IAnjuta.DebuggerVariableIface */
+    /* Fields of IAnjuta-3.0.IAnjuta.DebuggerVariableIface */
     g_iface: DebuggerIface
     assign: (obj: DebuggerVariable, name: string, value: string) => boolean
     destroy: (obj: DebuggerVariable, name: string) => boolean
     static name: string
 }
 export class DebuggerVariableObject {
-    /* Fields of IAnjuta.DebuggerVariableObject */
+    /* Fields of IAnjuta-3.0.IAnjuta.DebuggerVariableObject */
     name: string
     expression: string
     type: string
@@ -3652,7 +3652,7 @@ export class DebuggerVariableObject {
     static name: string
 }
 export abstract class DocumentIface {
-    /* Fields of IAnjuta.DocumentIface */
+    /* Fields of IAnjuta-3.0.IAnjuta.DocumentIface */
     g_iface: GObject.TypeInterface
     update_ui: (obj: Document) => void
     begin_undo_action: (obj: Document) => void
@@ -3670,7 +3670,7 @@ export abstract class DocumentIface {
     static name: string
 }
 export abstract class DocumentManagerIface {
-    /* Fields of IAnjuta.DocumentManagerIface */
+    /* Fields of IAnjuta-3.0.IAnjuta.DocumentManagerIface */
     g_iface: GObject.TypeInterface
     document_added: (obj: DocumentManager, doc: Document) => void
     document_removed: (obj: DocumentManager, doc: Document) => void
@@ -3688,7 +3688,7 @@ export abstract class DocumentManagerIface {
     static name: string
 }
 export abstract class EditorAssistIface {
-    /* Fields of IAnjuta.EditorAssistIface */
+    /* Fields of IAnjuta-3.0.IAnjuta.EditorAssistIface */
     g_iface: EditorIface
     cancelled: (obj: EditorAssist) => void
     add: (obj: EditorAssist, provider: Provider) => void
@@ -3698,7 +3698,7 @@ export abstract class EditorAssistIface {
     static name: string
 }
 export class EditorAssistProposal {
-    /* Fields of IAnjuta.EditorAssistProposal */
+    /* Fields of IAnjuta-3.0.IAnjuta.EditorAssistProposal */
     label: string
     markup: string
     info: string
@@ -3708,7 +3708,7 @@ export class EditorAssistProposal {
     static name: string
 }
 export abstract class EditorCellIface {
-    /* Fields of IAnjuta.EditorCellIface */
+    /* Fields of IAnjuta-3.0.IAnjuta.EditorCellIface */
     g_iface: GObject.TypeInterface
     get_attribute: (obj: EditorCell) => EditorAttribute
     get_char: (obj: EditorCell, char_index: number) => number
@@ -3717,7 +3717,7 @@ export abstract class EditorCellIface {
     static name: string
 }
 export abstract class EditorCellStyleIface {
-    /* Fields of IAnjuta.EditorCellStyleIface */
+    /* Fields of IAnjuta-3.0.IAnjuta.EditorCellStyleIface */
     g_iface: EditorCellIface
     get_background_color: (obj: EditorCellStyle) => string
     get_color: (obj: EditorCellStyle) => string
@@ -3725,7 +3725,7 @@ export abstract class EditorCellStyleIface {
     static name: string
 }
 export abstract class EditorCommentIface {
-    /* Fields of IAnjuta.EditorCommentIface */
+    /* Fields of IAnjuta-3.0.IAnjuta.EditorCommentIface */
     g_iface: EditorIface
     block: (obj: EditorComment) => void
     box: (obj: EditorComment) => void
@@ -3733,19 +3733,19 @@ export abstract class EditorCommentIface {
     static name: string
 }
 export abstract class EditorConvertIface {
-    /* Fields of IAnjuta.EditorConvertIface */
+    /* Fields of IAnjuta-3.0.IAnjuta.EditorConvertIface */
     g_iface: EditorIface
     to_lower: (obj: EditorConvert, start_position: Iterable, end_position: Iterable) => void
     to_upper: (obj: EditorConvert, start_position: Iterable, end_position: Iterable) => void
     static name: string
 }
 export abstract class EditorFactoryIface {
-    /* Fields of IAnjuta.EditorFactoryIface */
+    /* Fields of IAnjuta-3.0.IAnjuta.EditorFactoryIface */
     g_iface: GObject.TypeInterface
     static name: string
 }
 export abstract class EditorFoldsIface {
-    /* Fields of IAnjuta.EditorFoldsIface */
+    /* Fields of IAnjuta-3.0.IAnjuta.EditorFoldsIface */
     g_iface: EditorIface
     close_all: (obj: EditorFolds) => void
     open_all: (obj: EditorFolds) => void
@@ -3753,14 +3753,14 @@ export abstract class EditorFoldsIface {
     static name: string
 }
 export abstract class EditorGladeSignalIface {
-    /* Fields of IAnjuta.EditorGladeSignalIface */
+    /* Fields of IAnjuta-3.0.IAnjuta.EditorGladeSignalIface */
     g_iface: EditorIface
     drop: (obj: EditorGladeSignal, iterator: Iterable, signal_data: string) => void
     drop_possible: (obj: EditorGladeSignal, iterator: Iterable) => boolean
     static name: string
 }
 export abstract class EditorGotoIface {
-    /* Fields of IAnjuta.EditorGotoIface */
+    /* Fields of IAnjuta-3.0.IAnjuta.EditorGotoIface */
     g_iface: EditorIface
     end_block: (obj: EditorGoto) => void
     matching_brace: (obj: EditorGoto) => void
@@ -3768,7 +3768,7 @@ export abstract class EditorGotoIface {
     static name: string
 }
 export abstract class EditorHoverIface {
-    /* Fields of IAnjuta.EditorHoverIface */
+    /* Fields of IAnjuta-3.0.IAnjuta.EditorHoverIface */
     g_iface: EditorIface
     hover_leave: (obj: EditorHover, position: Iterable) => void
     hover_over: (obj: EditorHover, position: Iterable) => void
@@ -3776,7 +3776,7 @@ export abstract class EditorHoverIface {
     static name: string
 }
 export abstract class EditorIface {
-    /* Fields of IAnjuta.EditorIface */
+    /* Fields of IAnjuta-3.0.IAnjuta.EditorIface */
     g_iface: GObject.TypeInterface
     backspace: (obj: Editor) => void
     changed: (obj: Editor, position: Iterable, added: boolean, length: number, lines: number, text: string) => void
@@ -3819,7 +3819,7 @@ export abstract class EditorIface {
     static name: string
 }
 export abstract class EditorLanguageIface {
-    /* Fields of IAnjuta.EditorLanguageIface */
+    /* Fields of IAnjuta-3.0.IAnjuta.EditorLanguageIface */
     g_iface: EditorIface
     language_changed: (obj: EditorLanguage, language: string) => void
     get_language: (obj: EditorLanguage) => string
@@ -3829,7 +3829,7 @@ export abstract class EditorLanguageIface {
     static name: string
 }
 export abstract class EditorLineModeIface {
-    /* Fields of IAnjuta.EditorLineModeIface */
+    /* Fields of IAnjuta-3.0.IAnjuta.EditorLineModeIface */
     g_iface: EditorIface
     convert: (obj: EditorLineMode, mode: EditorLineModeType) => void
     fix: (obj: EditorLineMode) => void
@@ -3838,14 +3838,14 @@ export abstract class EditorLineModeIface {
     static name: string
 }
 export abstract class EditorSearchIface {
-    /* Fields of IAnjuta.EditorSearchIface */
+    /* Fields of IAnjuta-3.0.IAnjuta.EditorSearchIface */
     g_iface: EditorIface
     backward: (obj: EditorSearch, search: string, case_sensitive: boolean, start: EditorCell, end: EditorCell) => [ /* returnType */ boolean, /* result_start */ EditorCell, /* result_end */ EditorCell ]
     forward: (obj: EditorSearch, search: string, case_sensitive: boolean, start: EditorCell, end: EditorCell) => [ /* returnType */ boolean, /* result_start */ EditorCell, /* result_end */ EditorCell ]
     static name: string
 }
 export abstract class EditorSelectionIface {
-    /* Fields of IAnjuta.EditorSelectionIface */
+    /* Fields of IAnjuta-3.0.IAnjuta.EditorSelectionIface */
     g_iface: EditorIface
     get: (obj: EditorSelection) => string
     has_selection: (obj: EditorSelection) => boolean
@@ -3857,7 +3857,7 @@ export abstract class EditorSelectionIface {
     static name: string
 }
 export abstract class EditorTipIface {
-    /* Fields of IAnjuta.EditorTipIface */
+    /* Fields of IAnjuta-3.0.IAnjuta.EditorTipIface */
     g_iface: EditorIface
     cancel: (obj: EditorTip) => void
     show: (obj: EditorTip, tips: string[], position: Iterable) => void
@@ -3865,7 +3865,7 @@ export abstract class EditorTipIface {
     static name: string
 }
 export abstract class EditorViewIface {
-    /* Fields of IAnjuta.EditorViewIface */
+    /* Fields of IAnjuta-3.0.IAnjuta.EditorViewIface */
     g_iface: EditorIface
     create: (obj: EditorView) => void
     get_count: (obj: EditorView) => number
@@ -3873,21 +3873,21 @@ export abstract class EditorViewIface {
     static name: string
 }
 export abstract class EditorZoomIface {
-    /* Fields of IAnjuta.EditorZoomIface */
+    /* Fields of IAnjuta-3.0.IAnjuta.EditorZoomIface */
     g_iface: EditorIface
     in_: (obj: EditorZoom) => void
     out: (obj: EditorZoom) => void
     static name: string
 }
 export abstract class EnvironmentIface {
-    /* Fields of IAnjuta.EnvironmentIface */
+    /* Fields of IAnjuta-3.0.IAnjuta.EnvironmentIface */
     g_iface: GObject.TypeInterface
     get_real_directory: (obj: Environment, dir: string) => string
     override: (obj: Environment, dirp: string, argvp: string, envp: string) => boolean
     static name: string
 }
 export abstract class FileIface {
-    /* Fields of IAnjuta.FileIface */
+    /* Fields of IAnjuta-3.0.IAnjuta.FileIface */
     g_iface: GObject.TypeInterface
     opened: (obj: File) => void
     get_file: (obj: File) => Gio.File
@@ -3895,13 +3895,13 @@ export abstract class FileIface {
     static name: string
 }
 export abstract class FileLoaderIface {
-    /* Fields of IAnjuta.FileLoaderIface */
+    /* Fields of IAnjuta-3.0.IAnjuta.FileLoaderIface */
     g_iface: LoaderIface
     peek_interface: (obj: FileLoader, file: Gio.File) => string
     static name: string
 }
 export abstract class FileManagerIface {
-    /* Fields of IAnjuta.FileManagerIface */
+    /* Fields of IAnjuta-3.0.IAnjuta.FileManagerIface */
     g_iface: GObject.TypeInterface
     section_changed: (obj: FileManager, file: Gio.File) => void
     set_root: (obj: FileManager, root_uri: string) => void
@@ -3909,7 +3909,7 @@ export abstract class FileManagerIface {
     static name: string
 }
 export abstract class FileSavableIface {
-    /* Fields of IAnjuta.FileSavableIface */
+    /* Fields of IAnjuta-3.0.IAnjuta.FileSavableIface */
     g_iface: FileIface
     saved: (obj: FileSavable, file: Gio.File) => void
     update_save_ui: (obj: FileSavable) => void
@@ -3922,32 +3922,32 @@ export abstract class FileSavableIface {
     static name: string
 }
 export abstract class GladeIface {
-    /* Fields of IAnjuta.GladeIface */
+    /* Fields of IAnjuta-3.0.IAnjuta.GladeIface */
     g_iface: GObject.TypeInterface
     add_association: (obj: Glade, master: string, slave: string) => void
     static name: string
 }
 export abstract class HelpIface {
-    /* Fields of IAnjuta.HelpIface */
+    /* Fields of IAnjuta-3.0.IAnjuta.HelpIface */
     g_iface: GObject.TypeInterface
     search: (obj: Help, query: string) => void
     static name: string
 }
 export abstract class IndenterIface {
-    /* Fields of IAnjuta.IndenterIface */
+    /* Fields of IAnjuta-3.0.IAnjuta.IndenterIface */
     g_iface: GObject.TypeInterface
     indent: (obj: Indenter, start: Iterable, end: Iterable) => void
     static name: string
 }
 export abstract class IndicableIface {
-    /* Fields of IAnjuta.IndicableIface */
+    /* Fields of IAnjuta-3.0.IAnjuta.IndicableIface */
     g_iface: GObject.TypeInterface
     clear: (obj: Indicable) => void
     set: (obj: Indicable, begin_location: Iterable, end_location: Iterable, indicator: IndicableIndicator) => void
     static name: string
 }
 export abstract class IterableIface {
-    /* Fields of IAnjuta.IterableIface */
+    /* Fields of IAnjuta-3.0.IAnjuta.IterableIface */
     g_iface: GObject.TypeInterface
     assign: (obj: Iterable, src_iter: Iterable) => void
     clone: (obj: Iterable) => Iterable
@@ -3963,7 +3963,7 @@ export abstract class IterableIface {
     static name: string
 }
 export abstract class IterableTreeIface {
-    /* Fields of IAnjuta.IterableTreeIface */
+    /* Fields of IAnjuta-3.0.IAnjuta.IterableTreeIface */
     g_iface: IterableIface
     children: (obj: IterableTree) => boolean
     has_children: (obj: IterableTree) => boolean
@@ -3971,7 +3971,7 @@ export abstract class IterableTreeIface {
     static name: string
 }
 export abstract class LanguageIface {
-    /* Fields of IAnjuta.LanguageIface */
+    /* Fields of IAnjuta-3.0.IAnjuta.LanguageIface */
     g_iface: GObject.TypeInterface
     get_from_editor: (obj: Language, editor: EditorLanguage) => LanguageId
     get_from_mime_type: (obj: Language, mime_type: string) => LanguageId
@@ -3983,7 +3983,7 @@ export abstract class LanguageIface {
     static name: string
 }
 export abstract class LanguageProviderIface {
-    /* Fields of IAnjuta.LanguageProviderIface */
+    /* Fields of IAnjuta-3.0.IAnjuta.LanguageProviderIface */
     g_iface: ProviderIface
     get_calltip_cache: (obj: LanguageProvider, call_context: string) => string[]
     get_calltip_context: (obj: LanguageProvider, iter: Iterable) => string
@@ -3992,12 +3992,12 @@ export abstract class LanguageProviderIface {
     static name: string
 }
 export abstract class LoaderIface {
-    /* Fields of IAnjuta.LoaderIface */
+    /* Fields of IAnjuta-3.0.IAnjuta.LoaderIface */
     g_iface: GObject.TypeInterface
     static name: string
 }
 export abstract class MarkableIface {
-    /* Fields of IAnjuta.MarkableIface */
+    /* Fields of IAnjuta-3.0.IAnjuta.MarkableIface */
     g_iface: GObject.TypeInterface
     marker_clicked: (obj: Markable, double_click: boolean, location: number) => void
     delete_all_markers: (obj: Markable, marker: MarkableMarker) => void
@@ -4008,7 +4008,7 @@ export abstract class MarkableIface {
     static name: string
 }
 export abstract class MessageManagerIface {
-    /* Fields of IAnjuta.MessageManagerIface */
+    /* Fields of IAnjuta-3.0.IAnjuta.MessageManagerIface */
     g_iface: GObject.TypeInterface
     remove_view: (obj: MessageManager, view: MessageView) => void
     set_current_view: (obj: MessageManager, view: MessageView) => void
@@ -4018,7 +4018,7 @@ export abstract class MessageManagerIface {
     static name: string
 }
 export abstract class MessageViewIface {
-    /* Fields of IAnjuta.MessageViewIface */
+    /* Fields of IAnjuta-3.0.IAnjuta.MessageViewIface */
     g_iface: GObject.TypeInterface
     buffer_flushed: (obj: MessageView, line: string) => void
     message_clicked: (obj: MessageView, message: string) => void
@@ -4031,33 +4031,33 @@ export abstract class MessageViewIface {
     static name: string
 }
 export abstract class PluginFactoryIface {
-    /* Fields of IAnjuta.PluginFactoryIface */
+    /* Fields of IAnjuta-3.0.IAnjuta.PluginFactoryIface */
     g_iface: GObject.TypeInterface
     static name: string
 }
 export abstract class PreferencesIface {
-    /* Fields of IAnjuta.PreferencesIface */
+    /* Fields of IAnjuta-3.0.IAnjuta.PreferencesIface */
     g_iface: GObject.TypeInterface
     merge: (obj: Preferences, prefs: Anjuta.Preferences) => void
     unmerge: (obj: Preferences, prefs: Anjuta.Preferences) => void
     static name: string
 }
 export abstract class PrintIface {
-    /* Fields of IAnjuta.PrintIface */
+    /* Fields of IAnjuta-3.0.IAnjuta.PrintIface */
     g_iface: GObject.TypeInterface
     print: (obj: Print) => void
     print_preview: (obj: Print) => void
     static name: string
 }
 export abstract class ProjectBackendIface {
-    /* Fields of IAnjuta.ProjectBackendIface */
+    /* Fields of IAnjuta-3.0.IAnjuta.ProjectBackendIface */
     g_iface: GObject.TypeInterface
     new_project: (obj: ProjectBackend, file: Gio.File) => Project
     probe: (obj: ProjectBackend, directory: Gio.File) => number
     static name: string
 }
 export abstract class ProjectChooserIface {
-    /* Fields of IAnjuta.ProjectChooserIface */
+    /* Fields of IAnjuta-3.0.IAnjuta.ProjectChooserIface */
     g_iface: GObject.TypeInterface
     changed: (obj: ProjectChooser) => void
     get_selected: (obj: ProjectChooser) => Gio.File
@@ -4065,7 +4065,7 @@ export abstract class ProjectChooserIface {
     static name: string
 }
 export abstract class ProjectIface {
-    /* Fields of IAnjuta.ProjectIface */
+    /* Fields of IAnjuta-3.0.IAnjuta.ProjectIface */
     g_iface: GObject.TypeInterface
     file_changed: (obj: Project, node?: object | null) => void
     node_changed: (obj: Project, node: object | null, error: GLib.Error) => void
@@ -4084,7 +4084,7 @@ export abstract class ProjectIface {
     static name: string
 }
 export abstract class ProjectManagerIface {
-    /* Fields of IAnjuta.ProjectManagerIface */
+    /* Fields of IAnjuta-3.0.IAnjuta.ProjectManagerIface */
     g_iface: GObject.TypeInterface
     element_added: (obj: ProjectManager, element: Gio.File) => void
     element_removed: (obj: ProjectManager, element: Gio.File) => void
@@ -4108,7 +4108,7 @@ export abstract class ProjectManagerIface {
     static name: string
 }
 export abstract class ProviderIface {
-    /* Fields of IAnjuta.ProviderIface */
+    /* Fields of IAnjuta-3.0.IAnjuta.ProviderIface */
     g_iface: GObject.TypeInterface
     activate: (obj: Provider, iter: Iterable, data?: object | null) => void
     get_name: (obj: Provider) => string
@@ -4117,31 +4117,31 @@ export abstract class ProviderIface {
     static name: string
 }
 export abstract class SnippetsManagerIface {
-    /* Fields of IAnjuta.SnippetsManagerIface */
+    /* Fields of IAnjuta-3.0.IAnjuta.SnippetsManagerIface */
     g_iface: GObject.TypeInterface
     insert: (obj: SnippetsManager, key: string, editing_session: boolean) => boolean
     static name: string
 }
 export abstract class StreamIface {
-    /* Fields of IAnjuta.StreamIface */
+    /* Fields of IAnjuta-3.0.IAnjuta.StreamIface */
     g_iface: GObject.TypeInterface
     open: (obj: Stream, stream?: object | null) => void
     static name: string
 }
 export abstract class StreamLoaderIface {
-    /* Fields of IAnjuta.StreamLoaderIface */
+    /* Fields of IAnjuta-3.0.IAnjuta.StreamLoaderIface */
     g_iface: LoaderIface
     peek_interface: (obj: StreamLoader, stream?: object | null) => string
     static name: string
 }
 export abstract class StreamSavableIface {
-    /* Fields of IAnjuta.StreamSavableIface */
+    /* Fields of IAnjuta-3.0.IAnjuta.StreamSavableIface */
     g_iface: StreamIface
     save: (obj: StreamSavable, stream?: object | null) => void
     static name: string
 }
 export abstract class SymbolIface {
-    /* Fields of IAnjuta.SymbolIface */
+    /* Fields of IAnjuta-3.0.IAnjuta.SymbolIface */
     g_iface: GObject.TypeInterface
     get_boolean: (obj: Symbol, field: SymbolField) => boolean
     get_icon: (obj: Symbol) => GdkPixbuf.Pixbuf
@@ -4151,7 +4151,7 @@ export abstract class SymbolIface {
     static name: string
 }
 export abstract class SymbolManagerIface {
-    /* Fields of IAnjuta.SymbolManagerIface */
+    /* Fields of IAnjuta-3.0.IAnjuta.SymbolManagerIface */
     g_iface: GObject.TypeInterface
     prj_scan_end: (obj: SymbolManager, process_id: number) => void
     sys_scan_end: (obj: SymbolManager, process_id: number) => void
@@ -4161,7 +4161,7 @@ export abstract class SymbolManagerIface {
     static name: string
 }
 export abstract class SymbolQueryIface {
-    /* Fields of IAnjuta.SymbolQueryIface */
+    /* Fields of IAnjuta-3.0.IAnjuta.SymbolQueryIface */
     g_iface: GObject.TypeInterface
     async_result: (obj: SymbolQuery, result: GObject.Object) => void
     cancel: (obj: SymbolQuery) => void
@@ -4176,20 +4176,20 @@ export abstract class SymbolQueryIface {
     static name: string
 }
 export abstract class TerminalIface {
-    /* Fields of IAnjuta.TerminalIface */
+    /* Fields of IAnjuta-3.0.IAnjuta.TerminalIface */
     g_iface: GObject.TypeInterface
     child_exited: (obj: Terminal, pid: number, status: number) => void
     execute_command: (obj: Terminal, directory: string, command: string, environment: string[]) => number
     static name: string
 }
 export abstract class TodoIface {
-    /* Fields of IAnjuta.TodoIface */
+    /* Fields of IAnjuta-3.0.IAnjuta.TodoIface */
     g_iface: GObject.TypeInterface
     load: (obj: Todo, file: Gio.File) => void
     static name: string
 }
 export abstract class VcsIface {
-    /* Fields of IAnjuta.VcsIface */
+    /* Fields of IAnjuta-3.0.IAnjuta.VcsIface */
     g_iface: GObject.TypeInterface
     status_changed: (obj: Vcs) => void
     add: (obj: Vcs, files: Gio.File[], notify: Anjuta.AsyncNotify) => void
@@ -4198,7 +4198,7 @@ export abstract class VcsIface {
     static name: string
 }
 export abstract class WizardIface {
-    /* Fields of IAnjuta.WizardIface */
+    /* Fields of IAnjuta-3.0.IAnjuta.WizardIface */
     g_iface: GObject.TypeInterface
     activate: (obj: Wizard) => void
     static name: string

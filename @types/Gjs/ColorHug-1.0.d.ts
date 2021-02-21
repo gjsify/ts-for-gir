@@ -275,11 +275,11 @@ export function strerror(error_enum: Error): string
 export interface DeviceQueue_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class DeviceQueue {
-    /* Fields of ColorHug.DeviceQueue */
+    /* Fields of ColorHug-1.0.ColorHug.DeviceQueue */
     parent_instance: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of ColorHug.DeviceQueue */
+    /* Methods of ColorHug-1.0.ColorHug.DeviceQueue */
     add(device: GUsb.Device, cmd: number, buffer_in: number, buffer_in_len: number, buffer_out: number, buffer_out_len: number): void
     boot_flash(device: GUsb.Device): void
     clear_calibration(device: GUsb.Device, calibration_index: number): void
@@ -344,7 +344,7 @@ export class DeviceQueue {
     write_firmware(device: GUsb.Device, data: number, len: number): void
     write_flash(device: GUsb.Device, address: number, data: number, len: number): void
     write_sram(device: GUsb.Device, address: number, data: number, len: number): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -366,10 +366,10 @@ export class DeviceQueue {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of ColorHug.DeviceQueue */
+    /* Virtual methods of ColorHug-1.0.ColorHug.DeviceQueue */
     vfunc_device_failed(device: GUsb.Device, error_message: string): void
     vfunc_progress_changed(percentage: number): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -377,14 +377,14 @@ export class DeviceQueue {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of ColorHug.DeviceQueue */
+    /* Signals of ColorHug-1.0.ColorHug.DeviceQueue */
     connect(sigName: "device-failed", callback: (($obj: DeviceQueue, object: GObject.Object, p0: string) => void)): number
     connect_after(sigName: "device-failed", callback: (($obj: DeviceQueue, object: GObject.Object, p0: string) => void)): number
     emit(sigName: "device-failed", object: GObject.Object, p0: string): void
     connect(sigName: "progress-changed", callback: (($obj: DeviceQueue, object: number) => void)): number
     connect_after(sigName: "progress-changed", callback: (($obj: DeviceQueue, object: number) => void)): number
     emit(sigName: "progress-changed", object: number): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: DeviceQueue, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: DeviceQueue, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -400,16 +400,16 @@ export class DeviceQueue {
     static $gtype: GObject.Type
 }
 export abstract class DeviceQueueClass {
-    /* Fields of ColorHug.DeviceQueueClass */
+    /* Fields of ColorHug-1.0.ColorHug.DeviceQueueClass */
     parent_class: GObject.ObjectClass
     device_failed: (device_queue: DeviceQueue, device: GUsb.Device, error_message: string) => void
     progress_changed: (device_queue: DeviceQueue, percentage: number) => void
     static name: string
 }
 export class Sha1 {
-    /* Fields of ColorHug.Sha1 */
+    /* Fields of ColorHug-1.0.ColorHug.Sha1 */
     bytes: Uint8Array[]
-    /* Methods of ColorHug.Sha1 */
+    /* Methods of ColorHug-1.0.ColorHug.Sha1 */
     to_string(): string
     static name: string
     /* Static methods and pseudo-constructors */

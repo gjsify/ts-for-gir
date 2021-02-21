@@ -149,11 +149,11 @@ export function createChainArgv(ops: string, opStart: Node, opEnd: Node, time: n
 export function exit(): void
 export function format(formatName: string): any | null
 export function formatGetName(format: any): string | null
-export function getVersion(): [ /* major */ number, /* minor */ number, /* micro */ number ]
+export function getVersion(): { major: number, minor: number, micro: number }
 export function graphDumpOutputs(node: Node): void
 export function graphDumpRequest(node: Node, roi: Rectangle): void
 export function hasOperation(operationType: string): boolean
-export function init(argv?: string[] | null): /* argv */ string[] | null
+export function init(argv?: string[] | null): { argv: string[] | null }
 export function isMainThread(): boolean
 export function listOperations(): string[]
 export function loadModuleDirectory(path: string): void
@@ -196,15 +196,15 @@ export interface AudioFragment_ConstructProps extends GObject.Object_ConstructPr
     string?: string
 }
 export class AudioFragment {
-    /* Properties of Gegl.AudioFragment */
+    /* Properties of Gegl-0.3.Gegl.AudioFragment */
     string: string
-    /* Fields of Gegl.AudioFragment */
+    /* Fields of Gegl-0.3.Gegl.AudioFragment */
     parentInstance: GObject.Object
     data: number[]
     priv: AudioFragmentPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Gegl.AudioFragment */
+    /* Methods of Gegl-0.3.Gegl.AudioFragment */
     getChannelLayout(): number
     getChannels(): number
     getMaxSamples(): number
@@ -217,7 +217,7 @@ export class AudioFragment {
     setPos(pos: number): void
     setSampleCount(sampleCount: number): void
     setSampleRate(sampleRate: number): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -239,21 +239,12 @@ export class AudioFragment {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: AudioFragment, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: AudioFragment, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::string", callback: (($obj: AudioFragment, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::string", callback: (($obj: AudioFragment, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::string", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -291,7 +282,7 @@ export interface Buffer_ConstructProps extends TileHandler_ConstructProps {
     y?: number
 }
 export class Buffer {
-    /* Properties of Gegl.Buffer */
+    /* Properties of Gegl-0.3.Gegl.Buffer */
     format: object
     height: number
     readonly pixels: number
@@ -299,17 +290,17 @@ export class Buffer {
     width: number
     x: number
     y: number
-    /* Properties of Gegl.TileHandler */
+    /* Properties of Gegl-0.3.Gegl.TileHandler */
     source: GObject.Object
-    /* Fields of Gegl.TileHandler */
+    /* Fields of Gegl-0.3.Gegl.TileHandler */
     parentInstance: TileSource
     priv: TileHandlerPrivate
-    /* Fields of Gegl.TileSource */
+    /* Fields of Gegl-0.3.Gegl.TileSource */
     command: TileSourceCommand
     padding: object[]
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Gegl.Buffer */
+    /* Methods of Gegl-0.3.Gegl.Buffer */
     addHandler(handler?: object | null): void
     clear(roi: Rectangle): void
     copy(srcRect: Rectangle, repeatMode: AbyssPolicy, dst: Buffer, dstRect: Rectangle): void
@@ -329,10 +320,10 @@ export class Buffer {
     setExtent(extent: Rectangle): boolean
     setPattern(rect: Rectangle, pattern: Buffer, xOffset: number, yOffset: number): void
     signalConnect(detailedSignal: string, cHandler: GObject.Callback): number
-    /* Methods of Gegl.TileHandler */
+    /* Methods of Gegl-0.3.Gegl.TileHandler */
     damageRect(rect: Rectangle): void
     setSource(source: TileSource): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -354,28 +345,18 @@ export class Buffer {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gegl.Buffer */
+    /* Signals of Gegl-0.3.Gegl.Buffer */
     connect(sigName: "changed", callback: (($obj: Buffer, object: Rectangle) => void)): number
-    connect_after(sigName: "changed", callback: (($obj: Buffer, object: Rectangle) => void)): number
+    on(sigName: "changed", callback: (object: Rectangle) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "changed", callback: (object: Rectangle) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "changed", callback: (object: Rectangle) => void): NodeJS.EventEmitter
     emit(sigName: "changed", object: Rectangle): void
-    on(sigName: "changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Buffer, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Buffer, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::format", callback: (($obj: Buffer, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::format", callback: (($obj: Buffer, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::format", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -437,20 +418,20 @@ export interface Color_ConstructProps extends GObject.Object_ConstructProps {
     string?: string
 }
 export class Color {
-    /* Properties of Gegl.Color */
+    /* Properties of Gegl-0.3.Gegl.Color */
     string: string
-    /* Fields of Gegl.Color */
+    /* Fields of Gegl-0.3.Gegl.Color */
     parentInstance: GObject.Object
     priv: ColorPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Gegl.Color */
+    /* Methods of Gegl-0.3.Gegl.Color */
     duplicate(): Color
     getComponents(format: any): number[]
-    getRgba(): [ /* red */ number, /* green */ number, /* blue */ number, /* alpha */ number ]
+    getRgba(): { red: number, green: number, blue: number, alpha: number }
     setComponents(format: any, components: number[]): void
     setRgba(red: number, green: number, blue: number, alpha: number): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -472,21 +453,12 @@ export class Color {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Color, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Color, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::string", callback: (($obj: Color, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::string", callback: (($obj: Color, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::string", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -519,7 +491,7 @@ export interface Config_ConstructProps extends GObject.Object_ConstructProps {
     useOpencl?: boolean
 }
 export class Config {
-    /* Properties of Gegl.Config */
+    /* Properties of Gegl-0.3.Gegl.Config */
     applicationLicense: string
     chunkSize: number
     quality: number
@@ -530,9 +502,9 @@ export class Config {
     tileHeight: number
     tileWidth: number
     useOpencl: boolean
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -554,21 +526,12 @@ export class Config {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Config, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Config, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::application-license", callback: (($obj: Config, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::application-license", callback: (($obj: Config, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::application-license", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -634,19 +597,19 @@ export class Config {
 export interface Curve_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class Curve {
-    /* Fields of Gegl.Curve */
+    /* Fields of Gegl-0.3.Gegl.Curve */
     parentInstance: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Gegl.Curve */
+    /* Methods of Gegl-0.3.Gegl.Curve */
     addPoint(x: number, y: number): number
     calcValue(x: number): number
     duplicate(): Curve
-    getPoint(index: number): [ /* x */ number, /* y */ number ]
-    getYBounds(): [ /* minY */ number, /* maxY */ number ]
+    getPoint(index: number): { x: number, y: number }
+    getYBounds(): { minY: number, maxY: number }
     numPoints(): number
     setPoint(index: number, x: number, y: number): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -668,21 +631,12 @@ export class Curve {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Curve, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Curve, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -707,16 +661,16 @@ export interface Node_ConstructProps extends GObject.Object_ConstructProps {
     useOpencl?: boolean
 }
 export class Node {
-    /* Properties of Gegl.Node */
+    /* Properties of Gegl-0.3.Gegl.Node */
     dontCache: boolean
     geglOperation: Operation
     name: string
     operation: string
     passthrough: boolean
     useOpencl: boolean
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Gegl.Node */
+    /* Methods of Gegl-0.3.Gegl.Node */
     addChild(child: Node): Node
     blitBuffer(buffer: Buffer | null, roi: Rectangle | null, level: number, abyssPolicy: AbyssPolicy): void
     connectFrom(inputPadName: string, source: Node, outputPadName: string): boolean
@@ -726,7 +680,7 @@ export class Node {
     disconnect(inputPad: string): boolean
     findProperty(propertyName: string): GObject.ParamSpec
     getChildren(): Node[]
-    getConsumers(outputPad: string): [ /* returnType */ number, /* nodes */ Node[] | null, /* pads */ string[] | null ]
+    getConsumers(outputPad: string): { returnType: number, nodes: Node[] | null, pads: string[] | null }
     getGeglOperation(): Operation | null
     getInputProxy(padName: string): Node
     getOperation(): string
@@ -748,7 +702,7 @@ export class Node {
     setProperty(propertyName: string, value: any): void
     toXml(pathRoot: string): string
     toXmlFull(tail: Node | null, pathRoot: string): string
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -770,40 +724,28 @@ export class Node {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gegl.Node */
+    /* Signals of Gegl-0.3.Gegl.Node */
     connect(sigName: "computed", callback: (($obj: Node, object: Rectangle) => void)): number
-    connect_after(sigName: "computed", callback: (($obj: Node, object: Rectangle) => void)): number
+    on(sigName: "computed", callback: (object: Rectangle) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "computed", callback: (object: Rectangle) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "computed", callback: (object: Rectangle) => void): NodeJS.EventEmitter
     emit(sigName: "computed", object: Rectangle): void
-    on(sigName: "computed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "computed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "computed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "invalidated", callback: (($obj: Node, object: Rectangle) => void)): number
-    connect_after(sigName: "invalidated", callback: (($obj: Node, object: Rectangle) => void)): number
+    on(sigName: "invalidated", callback: (object: Rectangle) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "invalidated", callback: (object: Rectangle) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "invalidated", callback: (object: Rectangle) => void): NodeJS.EventEmitter
     emit(sigName: "invalidated", object: Rectangle): void
-    on(sigName: "invalidated", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "invalidated", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "invalidated", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "progress", callback: (($obj: Node, object: number) => void)): number
-    connect_after(sigName: "progress", callback: (($obj: Node, object: number) => void)): number
+    on(sigName: "progress", callback: (object: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "progress", callback: (object: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "progress", callback: (object: number) => void): NodeJS.EventEmitter
     emit(sigName: "progress", object: number): void
-    on(sigName: "progress", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "progress", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "progress", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Node, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Node, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::dont-cache", callback: (($obj: Node, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::dont-cache", callback: (($obj: Node, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::dont-cache", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -854,9 +796,9 @@ export class Node {
 export interface Operation_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class Operation {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -878,21 +820,12 @@ export class Operation {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Operation, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Operation, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -914,13 +847,13 @@ export class Operation {
     static $gtype: GObject.Type
 }
 export class ParamAudioFragment {
-    /* Fields of GObject.ParamSpec */
+    /* Fields of GObject-2.0.GObject.ParamSpec */
     gTypeInstance: GObject.TypeInstance
     name: string
     flags: GObject.ParamFlags
     valueType: GObject.Type
     ownerType: GObject.Type
-    /* Methods of GObject.ParamSpec */
+    /* Methods of GObject-2.0.GObject.ParamSpec */
     getBlurb(): string | null
     getDefaultValue(): GObject.Value
     getName(): string
@@ -931,21 +864,16 @@ export class ParamAudioFragment {
     setQdata(quark: GLib.Quark, data?: object | null): void
     sink(): void
     stealQdata(quark: GLib.Quark): object | null
-    /* Virtual methods of GObject.ParamSpec */
-    vfuncFinalize(): void
-    vfuncValueSetDefault(value: GObject.Value): void
-    vfuncValueValidate(value: GObject.Value): boolean
-    vfuncValuesCmp(value1: GObject.Value, value2: GObject.Value): number
     static name: string
 }
 export class ParamColor {
-    /* Fields of GObject.ParamSpec */
+    /* Fields of GObject-2.0.GObject.ParamSpec */
     gTypeInstance: GObject.TypeInstance
     name: string
     flags: GObject.ParamFlags
     valueType: GObject.Type
     ownerType: GObject.Type
-    /* Methods of GObject.ParamSpec */
+    /* Methods of GObject-2.0.GObject.ParamSpec */
     getBlurb(): string | null
     getDefaultValue(): GObject.Value
     getName(): string
@@ -956,21 +884,16 @@ export class ParamColor {
     setQdata(quark: GLib.Quark, data?: object | null): void
     sink(): void
     stealQdata(quark: GLib.Quark): object | null
-    /* Virtual methods of GObject.ParamSpec */
-    vfuncFinalize(): void
-    vfuncValueSetDefault(value: GObject.Value): void
-    vfuncValueValidate(value: GObject.Value): boolean
-    vfuncValuesCmp(value1: GObject.Value, value2: GObject.Value): number
     static name: string
 }
 export class ParamCurve {
-    /* Fields of GObject.ParamSpec */
+    /* Fields of GObject-2.0.GObject.ParamSpec */
     gTypeInstance: GObject.TypeInstance
     name: string
     flags: GObject.ParamFlags
     valueType: GObject.Type
     ownerType: GObject.Type
-    /* Methods of GObject.ParamSpec */
+    /* Methods of GObject-2.0.GObject.ParamSpec */
     getBlurb(): string | null
     getDefaultValue(): GObject.Value
     getName(): string
@@ -981,27 +904,22 @@ export class ParamCurve {
     setQdata(quark: GLib.Quark, data?: object | null): void
     sink(): void
     stealQdata(quark: GLib.Quark): object | null
-    /* Virtual methods of GObject.ParamSpec */
-    vfuncFinalize(): void
-    vfuncValueSetDefault(value: GObject.Value): void
-    vfuncValueValidate(value: GObject.Value): boolean
-    vfuncValuesCmp(value1: GObject.Value, value2: GObject.Value): number
     static name: string
 }
 export class ParamDouble {
-    /* Fields of GObject.ParamSpecDouble */
+    /* Fields of GObject-2.0.GObject.ParamSpecDouble */
     parentInstance: GObject.ParamSpec
     minimum: number
     maximum: number
     defaultValue: number
     epsilon: number
-    /* Fields of GObject.ParamSpec */
+    /* Fields of GObject-2.0.GObject.ParamSpec */
     gTypeInstance: GObject.TypeInstance
     name: string
     flags: GObject.ParamFlags
     valueType: GObject.Type
     ownerType: GObject.Type
-    /* Methods of GObject.ParamSpec */
+    /* Methods of GObject-2.0.GObject.ParamSpec */
     getBlurb(): string | null
     getDefaultValue(): GObject.Value
     getName(): string
@@ -1012,25 +930,20 @@ export class ParamDouble {
     setQdata(quark: GLib.Quark, data?: object | null): void
     sink(): void
     stealQdata(quark: GLib.Quark): object | null
-    /* Virtual methods of GObject.ParamSpec */
-    vfuncFinalize(): void
-    vfuncValueSetDefault(value: GObject.Value): void
-    vfuncValueValidate(value: GObject.Value): boolean
-    vfuncValuesCmp(value1: GObject.Value, value2: GObject.Value): number
     static name: string
 }
 export class ParamEnum {
-    /* Fields of GObject.ParamSpecEnum */
+    /* Fields of GObject-2.0.GObject.ParamSpecEnum */
     parentInstance: GObject.ParamSpec
     enumClass: GObject.EnumClass
     defaultValue: number
-    /* Fields of GObject.ParamSpec */
+    /* Fields of GObject-2.0.GObject.ParamSpec */
     gTypeInstance: GObject.TypeInstance
     name: string
     flags: GObject.ParamFlags
     valueType: GObject.Type
     ownerType: GObject.Type
-    /* Methods of GObject.ParamSpec */
+    /* Methods of GObject-2.0.GObject.ParamSpec */
     getBlurb(): string | null
     getDefaultValue(): GObject.Value
     getName(): string
@@ -1041,15 +954,10 @@ export class ParamEnum {
     setQdata(quark: GLib.Quark, data?: object | null): void
     sink(): void
     stealQdata(quark: GLib.Quark): object | null
-    /* Virtual methods of GObject.ParamSpec */
-    vfuncFinalize(): void
-    vfuncValueSetDefault(value: GObject.Value): void
-    vfuncValueValidate(value: GObject.Value): boolean
-    vfuncValuesCmp(value1: GObject.Value, value2: GObject.Value): number
     static name: string
 }
 export class ParamFilePath {
-    /* Fields of GObject.ParamSpecString */
+    /* Fields of GObject-2.0.GObject.ParamSpecString */
     parentInstance: GObject.ParamSpec
     defaultValue: string
     csetFirst: string
@@ -1057,13 +965,13 @@ export class ParamFilePath {
     substitutor: number
     nullFoldIfEmpty: number
     ensureNonNull: number
-    /* Fields of GObject.ParamSpec */
+    /* Fields of GObject-2.0.GObject.ParamSpec */
     gTypeInstance: GObject.TypeInstance
     name: string
     flags: GObject.ParamFlags
     valueType: GObject.Type
     ownerType: GObject.Type
-    /* Methods of GObject.ParamSpec */
+    /* Methods of GObject-2.0.GObject.ParamSpec */
     getBlurb(): string | null
     getDefaultValue(): GObject.Value
     getName(): string
@@ -1074,23 +982,18 @@ export class ParamFilePath {
     setQdata(quark: GLib.Quark, data?: object | null): void
     sink(): void
     stealQdata(quark: GLib.Quark): object | null
-    /* Virtual methods of GObject.ParamSpec */
-    vfuncFinalize(): void
-    vfuncValueSetDefault(value: GObject.Value): void
-    vfuncValueValidate(value: GObject.Value): boolean
-    vfuncValuesCmp(value1: GObject.Value, value2: GObject.Value): number
     static name: string
 }
 export class ParamFormat {
-    /* Fields of GObject.ParamSpecPointer */
+    /* Fields of GObject-2.0.GObject.ParamSpecPointer */
     parentInstance: GObject.ParamSpec
-    /* Fields of GObject.ParamSpec */
+    /* Fields of GObject-2.0.GObject.ParamSpec */
     gTypeInstance: GObject.TypeInstance
     name: string
     flags: GObject.ParamFlags
     valueType: GObject.Type
     ownerType: GObject.Type
-    /* Methods of GObject.ParamSpec */
+    /* Methods of GObject-2.0.GObject.ParamSpec */
     getBlurb(): string | null
     getDefaultValue(): GObject.Value
     getName(): string
@@ -1101,26 +1004,21 @@ export class ParamFormat {
     setQdata(quark: GLib.Quark, data?: object | null): void
     sink(): void
     stealQdata(quark: GLib.Quark): object | null
-    /* Virtual methods of GObject.ParamSpec */
-    vfuncFinalize(): void
-    vfuncValueSetDefault(value: GObject.Value): void
-    vfuncValueValidate(value: GObject.Value): boolean
-    vfuncValuesCmp(value1: GObject.Value, value2: GObject.Value): number
     static name: string
 }
 export class ParamInt {
-    /* Fields of GObject.ParamSpecInt */
+    /* Fields of GObject-2.0.GObject.ParamSpecInt */
     parentInstance: GObject.ParamSpec
     minimum: number
     maximum: number
     defaultValue: number
-    /* Fields of GObject.ParamSpec */
+    /* Fields of GObject-2.0.GObject.ParamSpec */
     gTypeInstance: GObject.TypeInstance
     name: string
     flags: GObject.ParamFlags
     valueType: GObject.Type
     ownerType: GObject.Type
-    /* Methods of GObject.ParamSpec */
+    /* Methods of GObject-2.0.GObject.ParamSpec */
     getBlurb(): string | null
     getDefaultValue(): GObject.Value
     getName(): string
@@ -1131,21 +1029,16 @@ export class ParamInt {
     setQdata(quark: GLib.Quark, data?: object | null): void
     sink(): void
     stealQdata(quark: GLib.Quark): object | null
-    /* Virtual methods of GObject.ParamSpec */
-    vfuncFinalize(): void
-    vfuncValueSetDefault(value: GObject.Value): void
-    vfuncValueValidate(value: GObject.Value): boolean
-    vfuncValuesCmp(value1: GObject.Value, value2: GObject.Value): number
     static name: string
 }
 export class ParamPath {
-    /* Fields of GObject.ParamSpec */
+    /* Fields of GObject-2.0.GObject.ParamSpec */
     gTypeInstance: GObject.TypeInstance
     name: string
     flags: GObject.ParamFlags
     valueType: GObject.Type
     ownerType: GObject.Type
-    /* Methods of GObject.ParamSpec */
+    /* Methods of GObject-2.0.GObject.ParamSpec */
     getBlurb(): string | null
     getDefaultValue(): GObject.Value
     getName(): string
@@ -1156,26 +1049,21 @@ export class ParamPath {
     setQdata(quark: GLib.Quark, data?: object | null): void
     sink(): void
     stealQdata(quark: GLib.Quark): object | null
-    /* Virtual methods of GObject.ParamSpec */
-    vfuncFinalize(): void
-    vfuncValueSetDefault(value: GObject.Value): void
-    vfuncValueValidate(value: GObject.Value): boolean
-    vfuncValuesCmp(value1: GObject.Value, value2: GObject.Value): number
     static name: string
 }
 export class ParamSeed {
-    /* Fields of GObject.ParamSpecUInt */
+    /* Fields of GObject-2.0.GObject.ParamSpecUInt */
     parentInstance: GObject.ParamSpec
     minimum: number
     maximum: number
     defaultValue: number
-    /* Fields of GObject.ParamSpec */
+    /* Fields of GObject-2.0.GObject.ParamSpec */
     gTypeInstance: GObject.TypeInstance
     name: string
     flags: GObject.ParamFlags
     valueType: GObject.Type
     ownerType: GObject.Type
-    /* Methods of GObject.ParamSpec */
+    /* Methods of GObject-2.0.GObject.ParamSpec */
     getBlurb(): string | null
     getDefaultValue(): GObject.Value
     getName(): string
@@ -1186,15 +1074,10 @@ export class ParamSeed {
     setQdata(quark: GLib.Quark, data?: object | null): void
     sink(): void
     stealQdata(quark: GLib.Quark): object | null
-    /* Virtual methods of GObject.ParamSpec */
-    vfuncFinalize(): void
-    vfuncValueSetDefault(value: GObject.Value): void
-    vfuncValueValidate(value: GObject.Value): boolean
-    vfuncValuesCmp(value1: GObject.Value, value2: GObject.Value): number
     static name: string
 }
 export class ParamString {
-    /* Fields of GObject.ParamSpecString */
+    /* Fields of GObject-2.0.GObject.ParamSpecString */
     parentInstance: GObject.ParamSpec
     defaultValue: string
     csetFirst: string
@@ -1202,13 +1085,13 @@ export class ParamString {
     substitutor: number
     nullFoldIfEmpty: number
     ensureNonNull: number
-    /* Fields of GObject.ParamSpec */
+    /* Fields of GObject-2.0.GObject.ParamSpec */
     gTypeInstance: GObject.TypeInstance
     name: string
     flags: GObject.ParamFlags
     valueType: GObject.Type
     ownerType: GObject.Type
-    /* Methods of GObject.ParamSpec */
+    /* Methods of GObject-2.0.GObject.ParamSpec */
     getBlurb(): string | null
     getDefaultValue(): GObject.Value
     getName(): string
@@ -1219,15 +1102,10 @@ export class ParamString {
     setQdata(quark: GLib.Quark, data?: object | null): void
     sink(): void
     stealQdata(quark: GLib.Quark): object | null
-    /* Virtual methods of GObject.ParamSpec */
-    vfuncFinalize(): void
-    vfuncValueSetDefault(value: GObject.Value): void
-    vfuncValueValidate(value: GObject.Value): boolean
-    vfuncValuesCmp(value1: GObject.Value, value2: GObject.Value): number
     static name: string
 }
 export class ParamUri {
-    /* Fields of GObject.ParamSpecString */
+    /* Fields of GObject-2.0.GObject.ParamSpecString */
     parentInstance: GObject.ParamSpec
     defaultValue: string
     csetFirst: string
@@ -1235,13 +1113,13 @@ export class ParamUri {
     substitutor: number
     nullFoldIfEmpty: number
     ensureNonNull: number
-    /* Fields of GObject.ParamSpec */
+    /* Fields of GObject-2.0.GObject.ParamSpec */
     gTypeInstance: GObject.TypeInstance
     name: string
     flags: GObject.ParamFlags
     valueType: GObject.Type
     ownerType: GObject.Type
-    /* Methods of GObject.ParamSpec */
+    /* Methods of GObject-2.0.GObject.ParamSpec */
     getBlurb(): string | null
     getDefaultValue(): GObject.Value
     getName(): string
@@ -1252,33 +1130,28 @@ export class ParamUri {
     setQdata(quark: GLib.Quark, data?: object | null): void
     sink(): void
     stealQdata(quark: GLib.Quark): object | null
-    /* Virtual methods of GObject.ParamSpec */
-    vfuncFinalize(): void
-    vfuncValueSetDefault(value: GObject.Value): void
-    vfuncValueValidate(value: GObject.Value): boolean
-    vfuncValuesCmp(value1: GObject.Value, value2: GObject.Value): number
     static name: string
 }
 export interface Path_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class Path {
-    /* Fields of Gegl.Path */
+    /* Fields of Gegl-0.3.Gegl.Path */
     parentInstance: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Gegl.Path */
-    calc(pos: number): [ /* returnType */ boolean, /* x */ number, /* y */ number ]
-    calcYForX(x: number): [ /* returnType */ number, /* y */ number ]
+    /* Methods of Gegl-0.3.Gegl.Path */
+    calc(pos: number): { returnType: boolean, x: number, y: number }
+    calcYForX(x: number): { returnType: number, y: number }
     clear(): void
-    closestPoint(x: number, y: number): [ /* returnType */ number, /* onPathX */ number, /* onPathY */ number, /* nodePosBefore */ number ]
+    closestPoint(x: number, y: number): { returnType: number, onPathX: number, onPathY: number, nodePosBefore: number }
     foreach(eachItem: NodeFunction): void
     foreachFlat(eachItem: NodeFunction): void
     freeze(): void
-    getBounds(): [ /* minX */ number, /* maxX */ number, /* minY */ number, /* maxY */ number ]
+    getBounds(): { minX: number, maxX: number, minY: number, maxY: number }
     getLength(): number
-    getMatrix(): /* matrix */ Matrix3
+    getMatrix(): { matrix: Matrix3 }
     getNNodes(): number
-    getNode(index: number): [ /* returnType */ boolean, /* node */ PathItem ]
+    getNode(index: number): { returnType: boolean, node: PathItem }
     insertNode(pos: number, node: PathItem): void
     isEmpty(): boolean
     parseString(instructions: string): void
@@ -1287,7 +1160,7 @@ export class Path {
     setMatrix(matrix: Matrix3): void
     thaw(): void
     toString(): string
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -1309,28 +1182,18 @@ export class Path {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gegl.Path */
+    /* Signals of Gegl-0.3.Gegl.Path */
     connect(sigName: "changed", callback: (($obj: Path, object?: object | null) => void)): number
-    connect_after(sigName: "changed", callback: (($obj: Path, object?: object | null) => void)): number
+    on(sigName: "changed", callback: (object?: object | null) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "changed", callback: (object?: object | null) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "changed", callback: (object?: object | null) => void): NodeJS.EventEmitter
     emit(sigName: "changed", object?: object | null): void
-    on(sigName: "changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Path, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Path, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -1354,18 +1217,18 @@ export interface Processor_ConstructProps extends GObject.Object_ConstructProps 
     rectangle?: object
 }
 export class Processor {
-    /* Properties of Gegl.Processor */
+    /* Properties of Gegl-0.3.Gegl.Processor */
     node: Node
     progress: number
     rectangle: object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Gegl.Processor */
+    /* Methods of Gegl-0.3.Gegl.Processor */
     setLevel(level: number): void
     setRectangle(rectangle: Rectangle): void
     setScale(scale: number): void
-    work(): [ /* returnType */ boolean, /* progress */ number ]
-    /* Methods of GObject.Object */
+    work(): { returnType: boolean, progress: number }
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -1387,21 +1250,12 @@ export class Processor {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Processor, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Processor, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::node", callback: (($obj: Processor, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::node", callback: (($obj: Processor, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::node", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -1432,7 +1286,7 @@ export class Processor {
 export interface Stats_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class Stats {
-    /* Properties of Gegl.Stats */
+    /* Properties of Gegl-0.3.Gegl.Stats */
     readonly swapBusy: boolean
     readonly swapFileSize: number
     readonly swapTotal: number
@@ -1442,9 +1296,9 @@ export class Stats {
     readonly tileCacheTotalMax: number
     readonly tileCacheTotalUncloned: number
     readonly zoomTotal: number
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -1466,21 +1320,12 @@ export class Stats {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Stats, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Stats, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::swap-busy", callback: (($obj: Stats, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::swap-busy", callback: (($obj: Stats, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::swap-busy", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -1545,19 +1390,19 @@ export interface TileBackend_ConstructProps extends TileSource_ConstructProps {
     tileWidth?: number
 }
 export class TileBackend {
-    /* Properties of Gegl.TileBackend */
+    /* Properties of Gegl-0.3.Gegl.TileBackend */
     flushOnDestroy: boolean
     readonly pxSize: number
     readonly tileSize: number
-    /* Fields of Gegl.TileBackend */
+    /* Fields of Gegl-0.3.Gegl.TileBackend */
     parentInstance: TileSource
     priv: TileBackendPrivate
-    /* Fields of Gegl.TileSource */
+    /* Fields of Gegl-0.3.Gegl.TileSource */
     command: TileSourceCommand
     padding: object[]
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Gegl.TileBackend */
+    /* Methods of Gegl-0.3.Gegl.TileBackend */
     getExtent(): Rectangle
     getFlushOnDestroy(): boolean
     getTileHeight(): number
@@ -1566,7 +1411,7 @@ export class TileBackend {
     peekStorage(): TileSource
     setExtent(rectangle: Rectangle): void
     setFlushOnDestroy(flushOnDestroy: boolean): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -1588,21 +1433,12 @@ export class TileBackend {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: TileBackend, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: TileBackend, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::flush-on-destroy", callback: (($obj: TileBackend, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::flush-on-destroy", callback: (($obj: TileBackend, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::flush-on-destroy", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -1636,20 +1472,20 @@ export interface TileHandler_ConstructProps extends TileSource_ConstructProps {
     source?: GObject.Object
 }
 export class TileHandler {
-    /* Properties of Gegl.TileHandler */
+    /* Properties of Gegl-0.3.Gegl.TileHandler */
     source: GObject.Object
-    /* Fields of Gegl.TileHandler */
+    /* Fields of Gegl-0.3.Gegl.TileHandler */
     parentInstance: TileSource
     priv: TileHandlerPrivate
-    /* Fields of Gegl.TileSource */
+    /* Fields of Gegl-0.3.Gegl.TileSource */
     command: TileSourceCommand
     padding: object[]
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Gegl.TileHandler */
+    /* Methods of Gegl-0.3.Gegl.TileHandler */
     damageRect(rect: Rectangle): void
     setSource(source: TileSource): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -1671,21 +1507,12 @@ export class TileHandler {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: TileHandler, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: TileHandler, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::source", callback: (($obj: TileHandler, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::source", callback: (($obj: TileHandler, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::source", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -1706,13 +1533,13 @@ export class TileHandler {
 export interface TileSource_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class TileSource {
-    /* Fields of Gegl.TileSource */
+    /* Fields of Gegl-0.3.Gegl.TileSource */
     parentInstance: GObject.Object
     command: TileSourceCommand
     padding: object[]
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -1734,21 +1561,12 @@ export class TileSource {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: TileSource, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: TileSource, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -1762,7 +1580,7 @@ export class TileSource {
     static $gtype: GObject.Type
 }
 export abstract class AudioFragmentClass {
-    /* Fields of Gegl.AudioFragmentClass */
+    /* Fields of Gegl-0.3.Gegl.AudioFragmentClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
@@ -1770,7 +1588,7 @@ export class AudioFragmentPrivate {
     static name: string
 }
 export class BufferIterator {
-    /* Fields of Gegl.BufferIterator */
+    /* Fields of Gegl-0.3.Gegl.BufferIterator */
     length: number
     data: object[]
     roi: Rectangle[]
@@ -1781,7 +1599,7 @@ export class BufferIteratorPriv {
     static name: string
 }
 export abstract class ColorClass {
-    /* Fields of Gegl.ColorClass */
+    /* Fields of Gegl-0.3.Gegl.ColorClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
@@ -1789,12 +1607,12 @@ export class ColorPrivate {
     static name: string
 }
 export abstract class CurveClass {
-    /* Fields of Gegl.CurveClass */
+    /* Fields of Gegl-0.3.Gegl.CurveClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
 export class Lookup {
-    /* Fields of Gegl.Lookup */
+    /* Fields of Gegl-0.3.Gegl.Lookup */
     function_: LookupFunction
     data: object
     shift: number
@@ -1807,17 +1625,17 @@ export class Lookup {
     static name: string
 }
 export class Matrix2 {
-    /* Fields of Gegl.Matrix2 */
+    /* Fields of Gegl-0.3.Gegl.Matrix2 */
     coeff: number[]
-    /* Methods of Gegl.Matrix2 */
+    /* Methods of Gegl-0.3.Gegl.Matrix2 */
     determinant(): number
     isScale(): boolean
     static name: string
 }
 export class Matrix3 {
-    /* Fields of Gegl.Matrix3 */
+    /* Fields of Gegl-0.3.Gegl.Matrix3 */
     coeff: number[]
-    /* Methods of Gegl.Matrix3 */
+    /* Methods of Gegl-0.3.Gegl.Matrix3 */
     copy(): Matrix3
     copyInto(src: Matrix3): void
     determinant(): number
@@ -1842,7 +1660,7 @@ export class OperationContext {
     static name: string
 }
 export class ParamSpecDouble {
-    /* Fields of Gegl.ParamSpecDouble */
+    /* Fields of Gegl-0.3.Gegl.ParamSpecDouble */
     parentInstance: GObject.ParamSpecDouble
     uiMinimum: number
     uiMaximum: number
@@ -1850,59 +1668,59 @@ export class ParamSpecDouble {
     uiStepSmall: number
     uiStepBig: number
     uiDigits: number
-    /* Methods of Gegl.ParamSpecDouble */
+    /* Methods of Gegl-0.3.Gegl.ParamSpecDouble */
     setDigits(digits: number): void
     setSteps(smallStep: number, bigStep: number): void
     static name: string
 }
 export class ParamSpecEnum {
-    /* Fields of Gegl.ParamSpecEnum */
+    /* Fields of Gegl-0.3.Gegl.ParamSpecEnum */
     parentInstance: GObject.ParamSpecEnum
     excludedValues: object[]
-    /* Methods of Gegl.ParamSpecEnum */
+    /* Methods of Gegl-0.3.Gegl.ParamSpecEnum */
     excludeValue(value: number): void
     static name: string
 }
 export class ParamSpecFilePath {
-    /* Fields of Gegl.ParamSpecFilePath */
+    /* Fields of Gegl-0.3.Gegl.ParamSpecFilePath */
     parentInstance: GObject.ParamSpecString
     noValidate: number
     nullOk: number
     static name: string
 }
 export class ParamSpecFormat {
-    /* Fields of Gegl.ParamSpecFormat */
+    /* Fields of Gegl-0.3.Gegl.ParamSpecFormat */
     parentInstance: GObject.ParamSpecPointer
     static name: string
 }
 export class ParamSpecInt {
-    /* Fields of Gegl.ParamSpecInt */
+    /* Fields of Gegl-0.3.Gegl.ParamSpecInt */
     parentInstance: GObject.ParamSpecInt
     uiMinimum: number
     uiMaximum: number
     uiGamma: number
     uiStepSmall: number
     uiStepBig: number
-    /* Methods of Gegl.ParamSpecInt */
+    /* Methods of Gegl-0.3.Gegl.ParamSpecInt */
     setSteps(smallStep: number, bigStep: number): void
     static name: string
 }
 export class ParamSpecSeed {
-    /* Fields of Gegl.ParamSpecSeed */
+    /* Fields of Gegl-0.3.Gegl.ParamSpecSeed */
     parentInstance: GObject.ParamSpecUInt
     uiMinimum: number
     uiMaximum: number
     static name: string
 }
 export class ParamSpecString {
-    /* Fields of Gegl.ParamSpecString */
+    /* Fields of Gegl-0.3.Gegl.ParamSpecString */
     parentInstance: GObject.ParamSpecString
     noValidate: number
     nullOk: number
     static name: string
 }
 export class ParamSpecUri {
-    /* Fields of Gegl.ParamSpecUri */
+    /* Fields of Gegl-0.3.Gegl.ParamSpecUri */
     parentInstance: GObject.ParamSpecString
     noValidate: number
     nullOk: number
@@ -1912,25 +1730,25 @@ export abstract class PathClass {
     static name: string
 }
 export class PathItem {
-    /* Fields of Gegl.PathItem */
+    /* Fields of Gegl-0.3.Gegl.PathItem */
     type: number
     point: PathPoint[]
     static name: string
 }
 export class PathList {
-    /* Fields of Gegl.PathList */
+    /* Fields of Gegl-0.3.Gegl.PathList */
     next: object
     d: PathItem
     static name: string
 }
 export class PathPoint {
-    /* Fields of Gegl.PathPoint */
+    /* Fields of Gegl-0.3.Gegl.PathPoint */
     x: number
     y: number
     static name: string
 }
 export class Random {
-    /* Methods of Gegl.Random */
+    /* Methods of Gegl-0.3.Gegl.Random */
     duplicate(): Random
     float(x: number, y: number, z: number, n: number): number
     floatRange(x: number, y: number, z: number, n: number, min: number, max: number): number
@@ -1946,12 +1764,12 @@ export class Random {
     static newWithSeed(seed: number): Random
 }
 export class Rectangle {
-    /* Fields of Gegl.Rectangle */
+    /* Fields of Gegl-0.3.Gegl.Rectangle */
     x: number
     y: number
     width: number
     height: number
-    /* Methods of Gegl.Rectangle */
+    /* Methods of Gegl-0.3.Gegl.Rectangle */
     boundingBox(source1: Rectangle, source2: Rectangle): void
     contains(child: Rectangle): boolean
     copy(source: Rectangle): void
@@ -1972,7 +1790,7 @@ export class Rectangle {
     static infinitePlane(): Rectangle
 }
 export class Sampler {
-    /* Methods of Gegl.Sampler */
+    /* Methods of Gegl-0.3.Gegl.Sampler */
     get(x: number, y: number, scale: Matrix2, output: object | null, repeatMode: AbyssPolicy): void
     getContextRect(): Rectangle
     static name: string
@@ -1981,7 +1799,7 @@ export class Tile {
     static name: string
 }
 export abstract class TileBackendClass {
-    /* Fields of Gegl.TileBackendClass */
+    /* Fields of Gegl-0.3.Gegl.TileBackendClass */
     parentClass: TileSourceClass
     padding: object[]
     static name: string
@@ -1990,7 +1808,7 @@ export class TileBackendPrivate {
     static name: string
 }
 export abstract class TileHandlerClass {
-    /* Fields of Gegl.TileHandlerClass */
+    /* Fields of Gegl-0.3.Gegl.TileHandlerClass */
     parentClass: TileSourceClass
     static name: string
 }
@@ -1998,7 +1816,7 @@ export class TileHandlerPrivate {
     static name: string
 }
 export abstract class TileSourceClass {
-    /* Fields of Gegl.TileSourceClass */
+    /* Fields of Gegl-0.3.Gegl.TileSourceClass */
     parentClass: GObject.ObjectClass
     padding: object[]
     static name: string

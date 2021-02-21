@@ -40,18 +40,18 @@ export interface CalBackend_ConstructProps extends EBackend.Backend_ConstructPro
     writable?: boolean
 }
 export class CalBackend {
-    /* Properties of EDataCal.CalBackend */
+    /* Properties of EDataCal-2.0.EDataCal.CalBackend */
     cache_dir: string
     readonly proxy_resolver: Gio.ProxyResolver
     writable: boolean
-    /* Properties of EBackend.Backend */
+    /* Properties of EBackend-1.2.EBackend.Backend */
     connectable: Gio.SocketConnectable
     readonly main_context: GLib.MainContext
     online: boolean
     readonly user_prompter: EBackend.UserPrompter
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of EDataCal.CalBackend */
+    /* Methods of EDataCal-2.0.EDataCal.CalBackend */
     add_timezone(tzobject: string, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     add_timezone_finish(result: Gio.AsyncResult): boolean
     add_timezone_sync(tzobject: string, cancellable?: Gio.Cancellable | null): boolean
@@ -122,7 +122,7 @@ export class CalBackend {
     set_writable(writable: boolean): void
     start_view(view: DataCalView): void
     stop_view(view: DataCalView): void
-    /* Methods of EBackend.Backend */
+    /* Methods of EBackend-1.2.EBackend.Backend */
     credentials_required(reason: EDataServer.SourceCredentialsReason, certificate_pem: string, certificate_errors: Gio.TlsCertificateFlags, op_error?: GLib.Error | null, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     credentials_required_finish(result: Gio.AsyncResult): boolean
     credentials_required_sync(reason: EDataServer.SourceCredentialsReason, certificate_pem: string, certificate_errors: Gio.TlsCertificateFlags, op_error?: GLib.Error | null, cancellable?: Gio.Cancellable | null): boolean
@@ -143,7 +143,7 @@ export class CalBackend {
     trust_prompt(parameters: EDataServer.NamedParameters, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     trust_prompt_finish(result: Gio.AsyncResult): EDataServer.TrustPromptResponse
     trust_prompt_sync(parameters: EDataServer.NamedParameters, cancellable?: Gio.Cancellable | null): EDataServer.TrustPromptResponse
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -165,11 +165,11 @@ export class CalBackend {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of ECal.TimezoneCache */
+    /* Methods of ECal-2.0.ECal.TimezoneCache */
     add_timezone(zone: ICalGLib.Timezone): void
     get_timezone(tzid: string): ICalGLib.Timezone | null
     list_timezones(): ICalGLib.Timezone[]
-    /* Virtual methods of EDataCal.CalBackend */
+    /* Virtual methods of EDataCal-2.0.EDataCal.CalBackend */
     vfunc_closed(sender: string): void
     vfunc_impl_add_timezone(cal: DataCal, opid: number, cancellable: Gio.Cancellable | null, tzobject: string): void
     vfunc_impl_discard_alarm(cal: DataCal, opid: number, cancellable: Gio.Cancellable | null, uid: string, rid: string, auid: string, opflags: ECal.OperationFlags): void
@@ -187,11 +187,11 @@ export class CalBackend {
     vfunc_shutdown(): void
     vfunc_timezone_added(zone: ICalGLib.Timezone): void
     vfunc_tzcache_add_timezone(zone: ICalGLib.Timezone): void
-    /* Virtual methods of EBackend.Backend */
+    /* Virtual methods of EBackend-1.2.EBackend.Backend */
     vfunc_authenticate_sync(credentials: EDataServer.NamedParameters, out_certificate_pem: string, out_certificate_errors: Gio.TlsCertificateFlags, cancellable?: Gio.Cancellable | null): EDataServer.SourceAuthenticationResult
     vfunc_get_destination_address(): [ /* returnType */ boolean, /* host */ string, /* port */ number ]
     vfunc_prepare_shutdown(): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -199,18 +199,18 @@ export class CalBackend {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of EDataCal.CalBackend */
+    /* Signals of EDataCal-2.0.EDataCal.CalBackend */
     connect(sigName: "closed", callback: (($obj: CalBackend, sender: string) => void)): number
     connect_after(sigName: "closed", callback: (($obj: CalBackend, sender: string) => void)): number
     emit(sigName: "closed", sender: string): void
     connect(sigName: "shutdown", callback: (($obj: CalBackend) => void)): number
     connect_after(sigName: "shutdown", callback: (($obj: CalBackend) => void)): number
     emit(sigName: "shutdown"): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: CalBackend, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: CalBackend, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    /* Signals of ECal.TimezoneCache */
+    /* Signals of ECal-2.0.ECal.TimezoneCache */
     connect(sigName: "timezone-added", callback: (($obj: CalBackend, zone: ICalGLib.Timezone) => void)): number
     connect_after(sigName: "timezone-added", callback: (($obj: CalBackend, zone: ICalGLib.Timezone) => void)): number
     emit(sigName: "timezone-added", zone: ICalGLib.Timezone): void
@@ -244,16 +244,16 @@ export class CalBackend {
 export interface CalBackendFactory_ConstructProps extends EBackend.BackendFactory_ConstructProps {
 }
 export class CalBackendFactory {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of EBackend.BackendFactory */
+    /* Methods of EBackend-1.2.EBackend.BackendFactory */
     get_hash_key(): string
     get_module_filename(): string
     new_backend(source: EDataServer.Source): EBackend.Backend
     share_subprocess(): boolean
-    /* Methods of EDataServer.Extension */
+    /* Methods of EDataServer-1.2.EDataServer.Extension */
     get_extensible(): EDataServer.Extensible
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -275,10 +275,10 @@ export class CalBackendFactory {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of EBackend.BackendFactory */
+    /* Virtual methods of EBackend-1.2.EBackend.BackendFactory */
     vfunc_get_hash_key(): string
     vfunc_new_backend(source: EDataServer.Source): EBackend.Backend
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -286,7 +286,7 @@ export class CalBackendFactory {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: CalBackendFactory, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: CalBackendFactory, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -302,16 +302,16 @@ export class CalBackendFactory {
 export interface CalBackendSExp_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class CalBackendSExp {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of EDataCal.CalBackendSExp */
+    /* Methods of EDataCal-2.0.EDataCal.CalBackendSExp */
     evaluate_occur_times(start: number, end: number): boolean
     lock(): void
     match_comp(comp: ECal.Component, cache: ECal.TimezoneCache): boolean
     match_object(object: string, cache: ECal.TimezoneCache): boolean
     text(): string
     unlock(): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -333,7 +333,7 @@ export class CalBackendSExp {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -341,7 +341,7 @@ export class CalBackendSExp {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: CalBackendSExp, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: CalBackendSExp, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -359,18 +359,18 @@ export class CalBackendSExp {
 export interface CalBackendSync_ConstructProps extends CalBackend_ConstructProps {
 }
 export class CalBackendSync {
-    /* Properties of EDataCal.CalBackend */
+    /* Properties of EDataCal-2.0.EDataCal.CalBackend */
     cache_dir: string
     readonly proxy_resolver: Gio.ProxyResolver
     writable: boolean
-    /* Properties of EBackend.Backend */
+    /* Properties of EBackend-1.2.EBackend.Backend */
     connectable: Gio.SocketConnectable
     readonly main_context: GLib.MainContext
     online: boolean
     readonly user_prompter: EBackend.UserPrompter
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of EDataCal.CalBackendSync */
+    /* Methods of EDataCal-2.0.EDataCal.CalBackendSync */
     add_timezone(cal: DataCal, cancellable: Gio.Cancellable | null, tzobject: string): void
     create_objects(cal: DataCal, cancellable: Gio.Cancellable | null, calobjs: string[], opflags: ECal.OperationFlags): [ /* uids */ string[], /* new_components */ ECal.Component[] ]
     discard_alarm(cal: DataCal, cancellable: Gio.Cancellable | null, uid: string, rid: string, auid: string, opflags: ECal.OperationFlags): void
@@ -385,7 +385,7 @@ export class CalBackendSync {
     refresh(cal: DataCal, cancellable?: Gio.Cancellable | null): void
     remove_objects(cal: DataCal, cancellable: Gio.Cancellable | null, ids: ECal.ComponentId[], mod: ECal.ObjModType, opflags: ECal.OperationFlags): [ /* old_components */ ECal.Component[], /* new_components */ ECal.Component[] ]
     send_objects(cal: DataCal, cancellable: Gio.Cancellable | null, calobj: string, opflags: ECal.OperationFlags, users: string[]): /* modified_calobj */ string
-    /* Methods of EDataCal.CalBackend */
+    /* Methods of EDataCal-2.0.EDataCal.CalBackend */
     add_timezone(tzobject: string, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     add_timezone_finish(result: Gio.AsyncResult): boolean
     add_timezone_sync(tzobject: string, cancellable?: Gio.Cancellable | null): boolean
@@ -456,7 +456,7 @@ export class CalBackendSync {
     set_writable(writable: boolean): void
     start_view(view: DataCalView): void
     stop_view(view: DataCalView): void
-    /* Methods of EBackend.Backend */
+    /* Methods of EBackend-1.2.EBackend.Backend */
     credentials_required(reason: EDataServer.SourceCredentialsReason, certificate_pem: string, certificate_errors: Gio.TlsCertificateFlags, op_error?: GLib.Error | null, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     credentials_required_finish(result: Gio.AsyncResult): boolean
     credentials_required_sync(reason: EDataServer.SourceCredentialsReason, certificate_pem: string, certificate_errors: Gio.TlsCertificateFlags, op_error?: GLib.Error | null, cancellable?: Gio.Cancellable | null): boolean
@@ -477,7 +477,7 @@ export class CalBackendSync {
     trust_prompt(parameters: EDataServer.NamedParameters, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     trust_prompt_finish(result: Gio.AsyncResult): EDataServer.TrustPromptResponse
     trust_prompt_sync(parameters: EDataServer.NamedParameters, cancellable?: Gio.Cancellable | null): EDataServer.TrustPromptResponse
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -499,11 +499,11 @@ export class CalBackendSync {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of ECal.TimezoneCache */
+    /* Methods of ECal-2.0.ECal.TimezoneCache */
     add_timezone(zone: ICalGLib.Timezone): void
     get_timezone(tzid: string): ICalGLib.Timezone | null
     list_timezones(): ICalGLib.Timezone[]
-    /* Virtual methods of EDataCal.CalBackendSync */
+    /* Virtual methods of EDataCal-2.0.EDataCal.CalBackendSync */
     vfunc_add_timezone_sync(cal: DataCal, cancellable: Gio.Cancellable | null, tzobject: string): void
     vfunc_discard_alarm_sync(cal: DataCal, cancellable: Gio.Cancellable | null, uid: string, rid: string, auid: string, opflags: ECal.OperationFlags): void
     vfunc_get_object_sync(cal: DataCal, cancellable: Gio.Cancellable | null, uid: string, rid: string, calobj: string): void
@@ -511,7 +511,7 @@ export class CalBackendSync {
     vfunc_open_sync(cal: DataCal, cancellable?: Gio.Cancellable | null): void
     vfunc_receive_objects_sync(cal: DataCal, cancellable: Gio.Cancellable | null, calobj: string, opflags: ECal.OperationFlags): void
     vfunc_refresh_sync(cal: DataCal, cancellable?: Gio.Cancellable | null): void
-    /* Virtual methods of EDataCal.CalBackend */
+    /* Virtual methods of EDataCal-2.0.EDataCal.CalBackend */
     vfunc_closed(sender: string): void
     vfunc_impl_add_timezone(cal: DataCal, opid: number, cancellable: Gio.Cancellable | null, tzobject: string): void
     vfunc_impl_discard_alarm(cal: DataCal, opid: number, cancellable: Gio.Cancellable | null, uid: string, rid: string, auid: string, opflags: ECal.OperationFlags): void
@@ -529,11 +529,11 @@ export class CalBackendSync {
     vfunc_shutdown(): void
     vfunc_timezone_added(zone: ICalGLib.Timezone): void
     vfunc_tzcache_add_timezone(zone: ICalGLib.Timezone): void
-    /* Virtual methods of EBackend.Backend */
+    /* Virtual methods of EBackend-1.2.EBackend.Backend */
     vfunc_authenticate_sync(credentials: EDataServer.NamedParameters, out_certificate_pem: string, out_certificate_errors: Gio.TlsCertificateFlags, cancellable?: Gio.Cancellable | null): EDataServer.SourceAuthenticationResult
     vfunc_get_destination_address(): [ /* returnType */ boolean, /* host */ string, /* port */ number ]
     vfunc_prepare_shutdown(): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -541,18 +541,18 @@ export class CalBackendSync {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of EDataCal.CalBackend */
+    /* Signals of EDataCal-2.0.EDataCal.CalBackend */
     connect(sigName: "closed", callback: (($obj: CalBackendSync, sender: string) => void)): number
     connect_after(sigName: "closed", callback: (($obj: CalBackendSync, sender: string) => void)): number
     emit(sigName: "closed", sender: string): void
     connect(sigName: "shutdown", callback: (($obj: CalBackendSync) => void)): number
     connect_after(sigName: "shutdown", callback: (($obj: CalBackendSync) => void)): number
     emit(sigName: "shutdown"): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: CalBackendSync, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: CalBackendSync, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    /* Signals of ECal.TimezoneCache */
+    /* Signals of ECal-2.0.ECal.TimezoneCache */
     connect(sigName: "timezone-added", callback: (($obj: CalBackendSync, zone: ICalGLib.Timezone) => void)): number
     connect_after(sigName: "timezone-added", callback: (($obj: CalBackendSync, zone: ICalGLib.Timezone) => void)): number
     emit(sigName: "timezone-added", zone: ICalGLib.Timezone): void
@@ -582,9 +582,9 @@ export class CalBackendSync {
 export interface CalCache_ConstructProps extends EBackend.Cache_ConstructProps {
 }
 export class CalCache {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of EDataCal.CalCache */
+    /* Methods of EDataCal-2.0.EDataCal.CalCache */
     contains(uid: string, rid: string | null, deleted_flag: EBackend.CacheDeletedFlag): boolean
     delete_attachments(component: ICalGLib.Component, cancellable?: Gio.Cancellable | null): boolean
     dup_component_revision(icomp: ICalGLib.Component): string
@@ -615,7 +615,7 @@ export class CalCache {
     search_with_callback(sexp?: string | null, cancellable?: Gio.Cancellable | null): boolean
     set_component_custom_flags(uid: string, rid: string | null, custom_flags: number, cancellable?: Gio.Cancellable | null): boolean
     set_component_extra(uid: string, rid?: string | null, extra?: string | null, cancellable?: Gio.Cancellable | null): boolean
-    /* Methods of EBackend.Cache */
+    /* Methods of EBackend-1.2.EBackend.Cache */
     change_revision(): void
     clear_offline_changes(cancellable?: Gio.Cancellable | null): boolean
     contains(uid: string, deleted_flag: EBackend.CacheDeletedFlag): boolean
@@ -653,7 +653,7 @@ export class CalCache {
     sqlite_select(sql_stmt: string, func: EBackend.CacheSelectFunc, cancellable?: Gio.Cancellable | null): boolean
     thaw_revision_change(): void
     unlock(action: EBackend.CacheUnlockAction): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -675,18 +675,18 @@ export class CalCache {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of ECal.TimezoneCache */
+    /* Methods of ECal-2.0.ECal.TimezoneCache */
     add_timezone(zone: ICalGLib.Timezone): void
     get_timezone(tzid: string): ICalGLib.Timezone | null
     list_timezones(): ICalGLib.Timezone[]
-    /* Methods of EDataServer.Extensible */
+    /* Methods of EDataServer-1.2.EDataServer.Extensible */
     list_extensions(extension_type: GObject.Type): EDataServer.Extension[]
     load_extensions(): void
-    /* Virtual methods of EDataCal.CalCache */
+    /* Virtual methods of EDataCal-2.0.EDataCal.CalCache */
     vfunc_dup_component_revision(icomp: ICalGLib.Component): string
     vfunc_timezone_added(zone: ICalGLib.Timezone): void
     vfunc_tzcache_add_timezone(zone: ICalGLib.Timezone): void
-    /* Virtual methods of EBackend.Cache */
+    /* Virtual methods of EBackend-1.2.EBackend.Cache */
     vfunc_before_put(uid: string, revision: string, object: string, other_columns: EBackend.CacheColumnValues, is_replace: boolean, cancellable?: Gio.Cancellable | null): boolean
     vfunc_before_remove(uid: string, cancellable?: Gio.Cancellable | null): boolean
     vfunc_clear_offline_changes_locked(cancellable?: Gio.Cancellable | null): boolean
@@ -694,7 +694,7 @@ export class CalCache {
     vfunc_put_locked(uid: string, revision: string, object: string, other_columns: EBackend.CacheColumnValues, offline_state: EBackend.OfflineState, is_replace: boolean, cancellable?: Gio.Cancellable | null): boolean
     vfunc_remove_locked(uid: string, cancellable?: Gio.Cancellable | null): boolean
     vfunc_revision_changed(): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -702,14 +702,14 @@ export class CalCache {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of EDataCal.CalCache */
+    /* Signals of EDataCal-2.0.EDataCal.CalCache */
     connect(sigName: "dup-component-revision", callback: (($obj: CalCache, object: ICalGLib.Component) => string)): number
     connect_after(sigName: "dup-component-revision", callback: (($obj: CalCache, object: ICalGLib.Component) => string)): number
     emit(sigName: "dup-component-revision", object: ICalGLib.Component): void
     connect(sigName: "get-timezone", callback: (($obj: CalCache, tzid: string) => ICalGLib.Timezone)): number
     connect_after(sigName: "get-timezone", callback: (($obj: CalCache, tzid: string) => ICalGLib.Timezone)): number
     emit(sigName: "get-timezone", tzid: string): void
-    /* Signals of EBackend.Cache */
+    /* Signals of EBackend-1.2.EBackend.Cache */
     connect(sigName: "before-put", callback: (($obj: CalCache, object: string, p0: string, p1: string, p2: EBackend.CacheColumnValues, p3: boolean, p4?: Gio.Cancellable | null, p5?: object | null) => boolean)): number
     connect_after(sigName: "before-put", callback: (($obj: CalCache, object: string, p0: string, p1: string, p2: EBackend.CacheColumnValues, p3: boolean, p4?: Gio.Cancellable | null, p5?: object | null) => boolean)): number
     emit(sigName: "before-put", object: string, p0: string, p1: string, p2: EBackend.CacheColumnValues, p3: boolean, p4?: Gio.Cancellable | null, p5?: object | null): void
@@ -719,11 +719,11 @@ export class CalCache {
     connect(sigName: "revision-changed", callback: (($obj: CalCache) => void)): number
     connect_after(sigName: "revision-changed", callback: (($obj: CalCache) => void)): number
     emit(sigName: "revision-changed"): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: CalCache, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: CalCache, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    /* Signals of ECal.TimezoneCache */
+    /* Signals of ECal-2.0.ECal.TimezoneCache */
     connect(sigName: "timezone-added", callback: (($obj: CalCache, zone: ICalGLib.Timezone) => void)): number
     connect_after(sigName: "timezone-added", callback: (($obj: CalCache, zone: ICalGLib.Timezone) => void)): number
     emit(sigName: "timezone-added", zone: ICalGLib.Timezone): void
@@ -743,20 +743,20 @@ export interface CalMetaBackend_ConstructProps extends CalBackendSync_ConstructP
     cache?: CalCache
 }
 export class CalMetaBackend {
-    /* Properties of EDataCal.CalMetaBackend */
+    /* Properties of EDataCal-2.0.EDataCal.CalMetaBackend */
     cache: CalCache
-    /* Properties of EDataCal.CalBackend */
+    /* Properties of EDataCal-2.0.EDataCal.CalBackend */
     cache_dir: string
     readonly proxy_resolver: Gio.ProxyResolver
     writable: boolean
-    /* Properties of EBackend.Backend */
+    /* Properties of EBackend-1.2.EBackend.Backend */
     connectable: Gio.SocketConnectable
     readonly main_context: GLib.MainContext
     online: boolean
     readonly user_prompter: EBackend.UserPrompter
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of EDataCal.CalMetaBackend */
+    /* Methods of EDataCal-2.0.EDataCal.CalMetaBackend */
     connect_sync(credentials?: EDataServer.NamedParameters | null, cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* out_auth_result */ EDataServer.SourceAuthenticationResult, /* out_certificate_pem */ string, /* out_certificate_errors */ Gio.TlsCertificateFlags ]
     disconnect_sync(cancellable?: Gio.Cancellable | null): boolean
     dup_sync_tag(): string | null
@@ -786,7 +786,7 @@ export class CalMetaBackend {
     set_ever_connected(value: boolean): void
     split_changes_sync(objects: CalMetaBackendInfo[], cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* objects */ CalMetaBackendInfo[], /* out_created_objects */ CalMetaBackendInfo[], /* out_modified_objects */ CalMetaBackendInfo[], /* out_removed_objects */ CalMetaBackendInfo[] | null ]
     store_inline_attachments_sync(component: ICalGLib.Component, cancellable?: Gio.Cancellable | null): boolean
-    /* Methods of EDataCal.CalBackendSync */
+    /* Methods of EDataCal-2.0.EDataCal.CalBackendSync */
     add_timezone(cal: DataCal, cancellable: Gio.Cancellable | null, tzobject: string): void
     create_objects(cal: DataCal, cancellable: Gio.Cancellable | null, calobjs: string[], opflags: ECal.OperationFlags): [ /* uids */ string[], /* new_components */ ECal.Component[] ]
     discard_alarm(cal: DataCal, cancellable: Gio.Cancellable | null, uid: string, rid: string, auid: string, opflags: ECal.OperationFlags): void
@@ -801,7 +801,7 @@ export class CalMetaBackend {
     refresh(cal: DataCal, cancellable?: Gio.Cancellable | null): void
     remove_objects(cal: DataCal, cancellable: Gio.Cancellable | null, ids: ECal.ComponentId[], mod: ECal.ObjModType, opflags: ECal.OperationFlags): [ /* old_components */ ECal.Component[], /* new_components */ ECal.Component[] ]
     send_objects(cal: DataCal, cancellable: Gio.Cancellable | null, calobj: string, opflags: ECal.OperationFlags, users: string[]): /* modified_calobj */ string
-    /* Methods of EDataCal.CalBackend */
+    /* Methods of EDataCal-2.0.EDataCal.CalBackend */
     add_timezone(tzobject: string, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     add_timezone_finish(result: Gio.AsyncResult): boolean
     add_timezone_sync(tzobject: string, cancellable?: Gio.Cancellable | null): boolean
@@ -871,7 +871,7 @@ export class CalMetaBackend {
     set_writable(writable: boolean): void
     start_view(view: DataCalView): void
     stop_view(view: DataCalView): void
-    /* Methods of EBackend.Backend */
+    /* Methods of EBackend-1.2.EBackend.Backend */
     credentials_required(reason: EDataServer.SourceCredentialsReason, certificate_pem: string, certificate_errors: Gio.TlsCertificateFlags, op_error?: GLib.Error | null, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     credentials_required_finish(result: Gio.AsyncResult): boolean
     credentials_required_sync(reason: EDataServer.SourceCredentialsReason, certificate_pem: string, certificate_errors: Gio.TlsCertificateFlags, op_error?: GLib.Error | null, cancellable?: Gio.Cancellable | null): boolean
@@ -892,7 +892,7 @@ export class CalMetaBackend {
     trust_prompt(parameters: EDataServer.NamedParameters, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     trust_prompt_finish(result: Gio.AsyncResult): EDataServer.TrustPromptResponse
     trust_prompt_sync(parameters: EDataServer.NamedParameters, cancellable?: Gio.Cancellable | null): EDataServer.TrustPromptResponse
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -914,11 +914,11 @@ export class CalMetaBackend {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of ECal.TimezoneCache */
+    /* Methods of ECal-2.0.ECal.TimezoneCache */
     add_timezone(zone: ICalGLib.Timezone): void
     get_timezone(tzid: string): ICalGLib.Timezone | null
     list_timezones(): ICalGLib.Timezone[]
-    /* Virtual methods of EDataCal.CalMetaBackend */
+    /* Virtual methods of EDataCal-2.0.EDataCal.CalMetaBackend */
     vfunc_connect_sync(credentials?: EDataServer.NamedParameters | null, cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* out_auth_result */ EDataServer.SourceAuthenticationResult, /* out_certificate_pem */ string, /* out_certificate_errors */ Gio.TlsCertificateFlags ]
     vfunc_disconnect_sync(cancellable?: Gio.Cancellable | null): boolean
     vfunc_get_changes_sync(last_sync_tag: string | null, is_repeat: boolean, cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* out_new_sync_tag */ string, /* out_repeat */ boolean, /* out_created_objects */ CalMetaBackendInfo[], /* out_modified_objects */ CalMetaBackendInfo[], /* out_removed_objects */ CalMetaBackendInfo[] ]
@@ -931,7 +931,7 @@ export class CalMetaBackend {
     vfunc_search_components_sync(expr?: string | null, cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* out_components */ ECal.Component[] ]
     vfunc_search_sync(expr?: string | null, cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* out_icalstrings */ string[] ]
     vfunc_source_changed(): void
-    /* Virtual methods of EDataCal.CalBackendSync */
+    /* Virtual methods of EDataCal-2.0.EDataCal.CalBackendSync */
     vfunc_add_timezone_sync(cal: DataCal, cancellable: Gio.Cancellable | null, tzobject: string): void
     vfunc_discard_alarm_sync(cal: DataCal, cancellable: Gio.Cancellable | null, uid: string, rid: string, auid: string, opflags: ECal.OperationFlags): void
     vfunc_get_object_sync(cal: DataCal, cancellable: Gio.Cancellable | null, uid: string, rid: string, calobj: string): void
@@ -939,7 +939,7 @@ export class CalMetaBackend {
     vfunc_open_sync(cal: DataCal, cancellable?: Gio.Cancellable | null): void
     vfunc_receive_objects_sync(cal: DataCal, cancellable: Gio.Cancellable | null, calobj: string, opflags: ECal.OperationFlags): void
     vfunc_refresh_sync(cal: DataCal, cancellable?: Gio.Cancellable | null): void
-    /* Virtual methods of EDataCal.CalBackend */
+    /* Virtual methods of EDataCal-2.0.EDataCal.CalBackend */
     vfunc_closed(sender: string): void
     vfunc_impl_add_timezone(cal: DataCal, opid: number, cancellable: Gio.Cancellable | null, tzobject: string): void
     vfunc_impl_discard_alarm(cal: DataCal, opid: number, cancellable: Gio.Cancellable | null, uid: string, rid: string, auid: string, opflags: ECal.OperationFlags): void
@@ -957,11 +957,11 @@ export class CalMetaBackend {
     vfunc_shutdown(): void
     vfunc_timezone_added(zone: ICalGLib.Timezone): void
     vfunc_tzcache_add_timezone(zone: ICalGLib.Timezone): void
-    /* Virtual methods of EBackend.Backend */
+    /* Virtual methods of EBackend-1.2.EBackend.Backend */
     vfunc_authenticate_sync(credentials: EDataServer.NamedParameters, out_certificate_pem: string, out_certificate_errors: Gio.TlsCertificateFlags, cancellable?: Gio.Cancellable | null): EDataServer.SourceAuthenticationResult
     vfunc_get_destination_address(): [ /* returnType */ boolean, /* host */ string, /* port */ number ]
     vfunc_prepare_shutdown(): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -969,25 +969,25 @@ export class CalMetaBackend {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of EDataCal.CalMetaBackend */
+    /* Signals of EDataCal-2.0.EDataCal.CalMetaBackend */
     connect(sigName: "refresh-completed", callback: (($obj: CalMetaBackend) => void)): number
     connect_after(sigName: "refresh-completed", callback: (($obj: CalMetaBackend) => void)): number
     emit(sigName: "refresh-completed"): void
     connect(sigName: "source-changed", callback: (($obj: CalMetaBackend) => void)): number
     connect_after(sigName: "source-changed", callback: (($obj: CalMetaBackend) => void)): number
     emit(sigName: "source-changed"): void
-    /* Signals of EDataCal.CalBackend */
+    /* Signals of EDataCal-2.0.EDataCal.CalBackend */
     connect(sigName: "closed", callback: (($obj: CalMetaBackend, sender: string) => void)): number
     connect_after(sigName: "closed", callback: (($obj: CalMetaBackend, sender: string) => void)): number
     emit(sigName: "closed", sender: string): void
     connect(sigName: "shutdown", callback: (($obj: CalMetaBackend) => void)): number
     connect_after(sigName: "shutdown", callback: (($obj: CalMetaBackend) => void)): number
     emit(sigName: "shutdown"): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: CalMetaBackend, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: CalMetaBackend, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    /* Signals of ECal.TimezoneCache */
+    /* Signals of ECal-2.0.ECal.TimezoneCache */
     connect(sigName: "timezone-added", callback: (($obj: CalMetaBackend, zone: ICalGLib.Timezone) => void)): number
     connect_after(sigName: "timezone-added", callback: (($obj: CalMetaBackend, zone: ICalGLib.Timezone) => void)): number
     emit(sigName: "timezone-added", zone: ICalGLib.Timezone): void
@@ -1022,12 +1022,12 @@ export interface DataCal_ConstructProps extends GObject.Object_ConstructProps {
     object_path?: string
 }
 export class DataCal {
-    /* Fields of EDataCal.DataCal */
+    /* Fields of EDataCal-2.0.EDataCal.DataCal */
     parent: GObject.Object
     priv: DataCalPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of EDataCal.DataCal */
+    /* Methods of EDataCal-2.0.EDataCal.DataCal */
     get_connection(): Gio.DBusConnection
     get_object_path(): string
     ref_backend(): CalBackend | null
@@ -1048,7 +1048,7 @@ export class DataCal {
     respond_refresh(opid: number, error: GLib.Error): void
     respond_remove_objects(opid: number, error: GLib.Error, ids: ECal.ComponentId[], old_components: ECal.Component[], new_components: ECal.Component[]): void
     respond_send_objects(opid: number, error: GLib.Error, users: string[], calobj: string): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -1070,11 +1070,11 @@ export class DataCal {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of Gio.Initable */
+    /* Methods of Gio-2.0.Gio.Initable */
     init(cancellable?: Gio.Cancellable | null): boolean
-    /* Virtual methods of EDataCal.DataCal */
+    /* Virtual methods of EDataCal-2.0.EDataCal.DataCal */
     vfunc_init(cancellable?: Gio.Cancellable | null): boolean
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -1082,7 +1082,7 @@ export class DataCal {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: DataCal, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: DataCal, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -1101,14 +1101,14 @@ export class DataCal {
 export interface DataCalFactory_ConstructProps extends EBackend.DataFactory_ConstructProps {
 }
 export class DataCalFactory {
-    /* Properties of EBackend.DataFactory */
+    /* Properties of EBackend-1.2.EBackend.DataFactory */
     readonly registry: EDataServer.SourceRegistry
-    /* Fields of EDataCal.DataCalFactory */
+    /* Fields of EDataCal-2.0.EDataCal.DataCalFactory */
     parent: EBackend.DataFactory
     priv: DataCalFactoryPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of EBackend.DataFactory */
+    /* Methods of EBackend-1.2.EBackend.DataFactory */
     backend_closed(backend: EBackend.Backend): void
     backend_closed_by_sender(backend: EBackend.Backend, sender: string): void
     construct_path(): string
@@ -1121,13 +1121,13 @@ export class DataCalFactory {
     ref_backend_factory(backend_name: string, extension_name: string): EBackend.BackendFactory
     spawn_subprocess_backend(invocation: Gio.DBusMethodInvocation, uid: string, extension_name: string, subprocess_path: string): void
     use_backend_per_process(): boolean
-    /* Methods of EBackend.DBusServer */
+    /* Methods of EBackend-1.2.EBackend.DBusServer */
     hold(): void
     load_modules(): void
     quit(code: EBackend.DBusServerExitCode): void
     release(): void
     run(wait_for_client: boolean): EBackend.DBusServerExitCode
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -1149,23 +1149,23 @@ export class DataCalFactory {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of EDataServer.Extensible */
+    /* Methods of EDataServer-1.2.EDataServer.Extensible */
     list_extensions(extension_type: GObject.Type): EDataServer.Extension[]
     load_extensions(): void
-    /* Methods of Gio.Initable */
+    /* Methods of Gio-2.0.Gio.Initable */
     init(cancellable?: Gio.Cancellable | null): boolean
-    /* Virtual methods of EBackend.DataFactory */
+    /* Virtual methods of EBackend-1.2.EBackend.DataFactory */
     vfunc_complete_open(invocation: Gio.DBusMethodInvocation, object_path: string, bus_name: string, extension_name: string): void
     vfunc_create_backend(backend_factory: EBackend.BackendFactory, source: EDataServer.Source): EBackend.Backend
     vfunc_open_backend(backend: EBackend.Backend, connection: Gio.DBusConnection, cancellable?: Gio.Cancellable | null): string
     vfunc_init(cancellable?: Gio.Cancellable | null): boolean
-    /* Virtual methods of EBackend.DBusServer */
+    /* Virtual methods of EBackend-1.2.EBackend.DBusServer */
     vfunc_bus_acquired(connection: Gio.DBusConnection): void
     vfunc_bus_name_acquired(connection: Gio.DBusConnection): void
     vfunc_bus_name_lost(connection: Gio.DBusConnection): void
     vfunc_quit_server(code: EBackend.DBusServerExitCode): void
     vfunc_run_server(): EBackend.DBusServerExitCode
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -1173,7 +1173,7 @@ export class DataCalFactory {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of EBackend.DBusServer */
+    /* Signals of EBackend-1.2.EBackend.DBusServer */
     connect(sigName: "bus-acquired", callback: (($obj: DataCalFactory, connection: Gio.DBusConnection) => void)): number
     connect_after(sigName: "bus-acquired", callback: (($obj: DataCalFactory, connection: Gio.DBusConnection) => void)): number
     emit(sigName: "bus-acquired", connection: Gio.DBusConnection): void
@@ -1189,7 +1189,7 @@ export class DataCalFactory {
     connect(sigName: "run-server", callback: (($obj: DataCalFactory) => EBackend.DBusServerExitCode)): number
     connect_after(sigName: "run-server", callback: (($obj: DataCalFactory) => EBackend.DBusServerExitCode)): number
     emit(sigName: "run-server"): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: DataCalFactory, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: DataCalFactory, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -1213,12 +1213,12 @@ export interface DataCalView_ConstructProps extends GObject.Object_ConstructProp
     sexp?: CalBackendSExp
 }
 export class DataCalView {
-    /* Fields of EDataCal.DataCalView */
+    /* Fields of EDataCal-2.0.EDataCal.DataCalView */
     parent: GObject.Object
     priv: DataCalViewPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of EDataCal.DataCalView */
+    /* Methods of EDataCal-2.0.EDataCal.DataCalView */
     component_matches(component: ECal.Component): boolean
     get_component_string(component: ECal.Component): string
     get_connection(): Gio.DBusConnection
@@ -1239,7 +1239,7 @@ export class DataCalView {
     notify_progress(percent: number, message: string): void
     object_matches(object: string): boolean
     ref_backend(): CalBackend | null
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -1261,11 +1261,11 @@ export class DataCalView {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of Gio.Initable */
+    /* Methods of Gio-2.0.Gio.Initable */
     init(cancellable?: Gio.Cancellable | null): boolean
-    /* Virtual methods of EDataCal.DataCalView */
+    /* Virtual methods of EDataCal-2.0.EDataCal.DataCalView */
     vfunc_init(cancellable?: Gio.Cancellable | null): boolean
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -1273,7 +1273,7 @@ export class DataCalView {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: DataCalView, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: DataCalView, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -1292,15 +1292,15 @@ export class DataCalView {
 export interface IntervalTree_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class IntervalTree {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of EDataCal.IntervalTree */
+    /* Methods of EDataCal-2.0.EDataCal.IntervalTree */
     destroy(): void
     dump(): void
     insert(start: number, end: number, comp: ECal.Component): boolean
     remove(uid: string, rid: string): boolean
     search(start: number, end: number): ECal.Component[] | null
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -1322,7 +1322,7 @@ export class IntervalTree {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -1330,7 +1330,7 @@ export class IntervalTree {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: IntervalTree, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: IntervalTree, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -1348,21 +1348,21 @@ export class IntervalTree {
 export interface SubprocessCalFactory_ConstructProps extends EBackend.SubprocessFactory_ConstructProps {
 }
 export class SubprocessCalFactory {
-    /* Properties of EBackend.SubprocessFactory */
+    /* Properties of EBackend-1.2.EBackend.SubprocessFactory */
     readonly registry: EDataServer.SourceRegistry
-    /* Fields of EDataCal.SubprocessCalFactory */
+    /* Fields of EDataCal-2.0.EDataCal.SubprocessCalFactory */
     parent: EBackend.SubprocessFactory
     priv: SubprocessCalFactoryPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of EBackend.SubprocessFactory */
+    /* Methods of EBackend-1.2.EBackend.SubprocessFactory */
     call_backends_prepare_shutdown(): void
     get_backends_list(): EBackend.Backend[]
     get_registry(): EDataServer.SourceRegistry
     open_backend(connection: Gio.DBusConnection, uid: string, backend_factory_type_name: string, module_filename: string, proxy: Gio.DBusInterfaceSkeleton, cancellable?: Gio.Cancellable | null): string
     ref_initable_backend(uid: string, backend_factory_type_name: string, module_filename: string, cancellable?: Gio.Cancellable | null): EBackend.Backend | null
     set_backend_callbacks(backend: EBackend.Backend, proxy: Gio.DBusInterfaceSkeleton): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -1384,14 +1384,14 @@ export class SubprocessCalFactory {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of Gio.Initable */
+    /* Methods of Gio-2.0.Gio.Initable */
     init(cancellable?: Gio.Cancellable | null): boolean
-    /* Virtual methods of EBackend.SubprocessFactory */
+    /* Virtual methods of EBackend-1.2.EBackend.SubprocessFactory */
     vfunc_backend_closed(backend: EBackend.Backend): void
     vfunc_backend_created(backend: EBackend.Backend): void
     vfunc_open_data(backend: EBackend.Backend, connection: Gio.DBusConnection, data?: object | null, cancellable?: Gio.Cancellable | null): string
     vfunc_init(cancellable?: Gio.Cancellable | null): boolean
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -1399,7 +1399,7 @@ export class SubprocessCalFactory {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: SubprocessCalFactory, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: SubprocessCalFactory, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -1417,7 +1417,7 @@ export class SubprocessCalFactory {
     static $gtype: GObject.Type
 }
 export abstract class CalBackendClass {
-    /* Fields of EDataCal.CalBackendClass */
+    /* Fields of EDataCal-2.0.EDataCal.CalBackendClass */
     use_serial_dispatch_queue: boolean
     impl_get_backend_property: (backend: CalBackend, prop_name: string) => string
     impl_open: (backend: CalBackend, cal: DataCal, opid: number, cancellable?: Gio.Cancellable | null) => void
@@ -1438,7 +1438,7 @@ export abstract class CalBackendClass {
     static name: string
 }
 export abstract class CalBackendFactoryClass {
-    /* Fields of EDataCal.CalBackendFactoryClass */
+    /* Fields of EDataCal-2.0.EDataCal.CalBackendFactoryClass */
     factory_name: string
     component_kind: ICalGLib.ComponentKind
     backend_type: GObject.Type
@@ -1457,7 +1457,7 @@ export class CalBackendSExpPrivate {
     static name: string
 }
 export abstract class CalBackendSyncClass {
-    /* Fields of EDataCal.CalBackendSyncClass */
+    /* Fields of EDataCal-2.0.EDataCal.CalBackendSyncClass */
     open_sync: (backend: CalBackendSync, cal: DataCal, cancellable?: Gio.Cancellable | null) => void
     refresh_sync: (backend: CalBackendSync, cal: DataCal, cancellable?: Gio.Cancellable | null) => void
     get_object_sync: (backend: CalBackendSync, cal: DataCal, cancellable: Gio.Cancellable | null, uid: string, rid: string, calobj: string) => void
@@ -1472,18 +1472,18 @@ export class CalBackendSyncPrivate {
     static name: string
 }
 export abstract class CalCacheClass {
-    /* Fields of EDataCal.CalCacheClass */
+    /* Fields of EDataCal-2.0.EDataCal.CalCacheClass */
     dup_component_revision: (cal_cache: CalCache, icomp: ICalGLib.Component) => string
     static name: string
 }
 export class CalCacheOfflineChange {
-    /* Fields of EDataCal.CalCacheOfflineChange */
+    /* Fields of EDataCal-2.0.EDataCal.CalCacheOfflineChange */
     uid: string
     rid: string
     revision: string
     object: string
     state: EBackend.OfflineState
-    /* Methods of EDataCal.CalCacheOfflineChange */
+    /* Methods of EDataCal-2.0.EDataCal.CalCacheOfflineChange */
     copy(): CalCacheOfflineChange
     static name: string
     static new(uid: string, rid: string | null, revision: string | null, object: string | null, state: EBackend.OfflineState): CalCacheOfflineChange
@@ -1496,12 +1496,12 @@ export class CalCachePrivate {
     static name: string
 }
 export class CalCacheSearchData {
-    /* Fields of EDataCal.CalCacheSearchData */
+    /* Fields of EDataCal-2.0.EDataCal.CalCacheSearchData */
     uid: string
     rid: string
     object: string
     extra: string
-    /* Methods of EDataCal.CalCacheSearchData */
+    /* Methods of EDataCal-2.0.EDataCal.CalCacheSearchData */
     copy(): CalCacheSearchData
     static name: string
     static new(uid: string, rid: string | null, object: string, extra?: string | null): CalCacheSearchData
@@ -1511,7 +1511,7 @@ export class CalCacheSearchData {
     static free(ptr?: object | null): void
 }
 export abstract class CalMetaBackendClass {
-    /* Fields of EDataCal.CalMetaBackendClass */
+    /* Fields of EDataCal-2.0.EDataCal.CalMetaBackendClass */
     connect_sync: (meta_backend: CalMetaBackend, credentials?: EDataServer.NamedParameters | null, cancellable?: Gio.Cancellable | null) => [ /* returnType */ boolean, /* out_auth_result */ EDataServer.SourceAuthenticationResult, /* out_certificate_pem */ string, /* out_certificate_errors */ Gio.TlsCertificateFlags ]
     disconnect_sync: (meta_backend: CalMetaBackend, cancellable?: Gio.Cancellable | null) => boolean
     get_changes_sync: (meta_backend: CalMetaBackend, last_sync_tag: string | null, is_repeat: boolean, cancellable?: Gio.Cancellable | null) => [ /* returnType */ boolean, /* out_new_sync_tag */ string, /* out_repeat */ boolean, /* out_created_objects */ CalMetaBackendInfo[], /* out_modified_objects */ CalMetaBackendInfo[], /* out_removed_objects */ CalMetaBackendInfo[] ]
@@ -1527,12 +1527,12 @@ export abstract class CalMetaBackendClass {
     static name: string
 }
 export class CalMetaBackendInfo {
-    /* Fields of EDataCal.CalMetaBackendInfo */
+    /* Fields of EDataCal-2.0.EDataCal.CalMetaBackendInfo */
     uid: string
     revision: string
     object: string
     extra: string
-    /* Methods of EDataCal.CalMetaBackendInfo */
+    /* Methods of EDataCal-2.0.EDataCal.CalMetaBackendInfo */
     copy(): CalMetaBackendInfo
     static name: string
     static new(uid: string, revision?: string | null, object?: string | null, extra?: string | null): CalMetaBackendInfo
@@ -1545,12 +1545,12 @@ export class CalMetaBackendPrivate {
     static name: string
 }
 export abstract class DataCalClass {
-    /* Fields of EDataCal.DataCalClass */
+    /* Fields of EDataCal-2.0.EDataCal.DataCalClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
 export abstract class DataCalFactoryClass {
-    /* Fields of EDataCal.DataCalFactoryClass */
+    /* Fields of EDataCal-2.0.EDataCal.DataCalFactoryClass */
     parent_class: EBackend.DataFactoryClass
     static name: string
 }
@@ -1561,7 +1561,7 @@ export class DataCalPrivate {
     static name: string
 }
 export abstract class DataCalViewClass {
-    /* Fields of EDataCal.DataCalViewClass */
+    /* Fields of EDataCal-2.0.EDataCal.DataCalViewClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
@@ -1575,7 +1575,7 @@ export class IntervalTreePrivate {
     static name: string
 }
 export abstract class SubprocessCalFactoryClass {
-    /* Fields of EDataCal.SubprocessCalFactoryClass */
+    /* Fields of EDataCal-2.0.EDataCal.SubprocessCalFactoryClass */
     parent_class: EBackend.SubprocessFactoryClass
     static name: string
 }

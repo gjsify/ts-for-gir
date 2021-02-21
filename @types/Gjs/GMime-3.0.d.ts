@@ -311,28 +311,28 @@ export interface PasswordRequestFunc {
 export interface ApplicationPkcs7Mime_ConstructProps extends Part_ConstructProps {
 }
 export class ApplicationPkcs7Mime {
-    /* Fields of GMime.ApplicationPkcs7Mime */
+    /* Fields of GMime-3.0.GMime.ApplicationPkcs7Mime */
     parent_object: Part
     smime_type: SecureMimeType
-    /* Fields of GMime.Part */
+    /* Fields of GMime-3.0.GMime.Part */
     encoding: ContentEncoding
     openpgp: OpenPGPData
     content_description: string
     content_location: string
     content_md5: string
     content: DataWrapper
-    /* Fields of GMime.Object */
+    /* Fields of GMime-3.0.GMime.Object */
     disposition: ContentDisposition
     content_type: ContentType
     headers: HeaderList
     content_id: string
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GMime.ApplicationPkcs7Mime */
+    /* Methods of GMime-3.0.GMime.ApplicationPkcs7Mime */
     decrypt(flags: DecryptFlags, session_key: string, result: DecryptResult): Object | null
     get_smime_type(): SecureMimeType
     verify(flags: VerifyFlags): [ /* returnType */ SignatureList | null, /* entity */ Object ]
-    /* Methods of GMime.Part */
+    /* Methods of GMime-3.0.GMime.Part */
     get_best_content_encoding(constraint: EncodingConstraint): ContentEncoding
     get_content(): DataWrapper
     get_content_description(): string
@@ -356,7 +356,7 @@ export class ApplicationPkcs7Mime {
     set_filename(filename: string): void
     set_openpgp_data(data: OpenPGPData): void
     verify_content_md5(): boolean
-    /* Methods of GMime.Object */
+    /* Methods of GMime-3.0.GMime.Object */
     append_header(header: string, value: string, charset: string): void
     encode(constraint: EncodingConstraint): void
     get_content_disposition(): ContentDisposition
@@ -378,7 +378,7 @@ export class ApplicationPkcs7Mime {
     to_string(options?: FormatOptions | null): string
     write_content_to_stream(options: FormatOptions | null, stream: Stream): number
     write_to_stream(options: FormatOptions | null, stream: Stream): number
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -400,9 +400,9 @@ export class ApplicationPkcs7Mime {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GMime.Part */
+    /* Virtual methods of GMime-3.0.GMime.Part */
     vfunc_set_content(content: DataWrapper): void
-    /* Virtual methods of GMime.Object */
+    /* Virtual methods of GMime-3.0.GMime.Object */
     vfunc_encode(constraint: EncodingConstraint): void
     vfunc_get_headers(options?: FormatOptions | null): string
     vfunc_header_added(header: Header): void
@@ -411,7 +411,7 @@ export class ApplicationPkcs7Mime {
     vfunc_headers_cleared(): void
     vfunc_set_content_type(content_type: ContentType): void
     vfunc_write_to_stream(options: FormatOptions, content_only: boolean, stream: Stream): number
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -419,7 +419,7 @@ export class ApplicationPkcs7Mime {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: ApplicationPkcs7Mime, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: ApplicationPkcs7Mime, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -441,15 +441,15 @@ export class ApplicationPkcs7Mime {
 export interface AutocryptHeader_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class AutocryptHeader {
-    /* Fields of GMime.AutocryptHeader */
+    /* Fields of GMime-3.0.GMime.AutocryptHeader */
     parent_object: GObject.Object
     address: InternetAddressMailbox
     prefer_encrypt: AutocryptPreferEncrypt
     keydata: GLib.Bytes
     effective_date: GLib.DateTime
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GMime.AutocryptHeader */
+    /* Methods of GMime-3.0.GMime.AutocryptHeader */
     clone(src: AutocryptHeader): void
     compare(ah2: AutocryptHeader): number
     get_address(): InternetAddressMailbox
@@ -464,7 +464,7 @@ export class AutocryptHeader {
     set_keydata(data: GLib.Bytes): void
     set_prefer_encrypt(pref: AutocryptPreferEncrypt): void
     to_string(gossip: boolean): string
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -486,7 +486,7 @@ export class AutocryptHeader {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -494,7 +494,7 @@ export class AutocryptHeader {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: AutocryptHeader, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: AutocryptHeader, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -513,18 +513,18 @@ export class AutocryptHeader {
 export interface AutocryptHeaderList_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class AutocryptHeaderList {
-    /* Fields of GMime.AutocryptHeaderList */
+    /* Fields of GMime-3.0.GMime.AutocryptHeaderList */
     parent_object: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GMime.AutocryptHeaderList */
+    /* Methods of GMime-3.0.GMime.AutocryptHeaderList */
     add(header: AutocryptHeader): void
     add_missing_addresses(addresses: InternetAddressList): number
     get_count(): number
     get_header_at(index: number): AutocryptHeader
     get_header_for_address(mailbox: InternetAddressMailbox): AutocryptHeader
     remove_incomplete(): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -546,7 +546,7 @@ export class AutocryptHeaderList {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -554,7 +554,7 @@ export class AutocryptHeaderList {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: AutocryptHeaderList, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: AutocryptHeaderList, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -572,7 +572,7 @@ export class AutocryptHeaderList {
 export interface Certificate_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class Certificate {
-    /* Fields of GMime.Certificate */
+    /* Fields of GMime-3.0.GMime.Certificate */
     parent_object: GObject.Object
     pubkey_algo: PubKeyAlgo
     digest_algo: DigestAlgo
@@ -587,9 +587,9 @@ export class Certificate {
     name: string
     user_id: string
     id_validity: Validity
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GMime.Certificate */
+    /* Methods of GMime-3.0.GMime.Certificate */
     get_created(): number
     get_created64(): number
     get_digest_algo(): DigestAlgo
@@ -618,7 +618,7 @@ export class Certificate {
     set_pubkey_algo(algo: PubKeyAlgo): void
     set_trust(trust: Trust): void
     set_user_id(user_id: string): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -640,7 +640,7 @@ export class Certificate {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -648,7 +648,7 @@ export class Certificate {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Certificate, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Certificate, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -666,12 +666,12 @@ export class Certificate {
 export interface CertificateList_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class CertificateList {
-    /* Fields of GMime.CertificateList */
+    /* Fields of GMime-3.0.GMime.CertificateList */
     parent_object: GObject.Object
     array: object[]
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GMime.CertificateList */
+    /* Methods of GMime-3.0.GMime.CertificateList */
     add(cert: Certificate): number
     clear(): void
     contains(cert: Certificate): boolean
@@ -682,7 +682,7 @@ export class CertificateList {
     remove(cert: Certificate): boolean
     remove_at(index: number): boolean
     set_certificate(index: number, cert: Certificate): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -704,7 +704,7 @@ export class CertificateList {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -712,7 +712,7 @@ export class CertificateList {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: CertificateList, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: CertificateList, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -730,13 +730,13 @@ export class CertificateList {
 export interface ContentDisposition_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class ContentDisposition {
-    /* Fields of GMime.ContentDisposition */
+    /* Fields of GMime-3.0.GMime.ContentDisposition */
     parent_object: GObject.Object
     disposition: string
     params: ParamList
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GMime.ContentDisposition */
+    /* Methods of GMime-3.0.GMime.ContentDisposition */
     encode(options?: FormatOptions | null): string
     get_disposition(): string
     get_parameter(name: string): string
@@ -744,7 +744,7 @@ export class ContentDisposition {
     is_attachment(): boolean
     set_disposition(value: string): void
     set_parameter(name: string, value: string): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -766,7 +766,7 @@ export class ContentDisposition {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -774,7 +774,7 @@ export class ContentDisposition {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: ContentDisposition, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: ContentDisposition, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -793,14 +793,14 @@ export class ContentDisposition {
 export interface ContentType_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class ContentType {
-    /* Fields of GMime.ContentType */
+    /* Fields of GMime-3.0.GMime.ContentType */
     parent_object: GObject.Object
     type: string
     subtype: string
     params: ParamList
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GMime.ContentType */
+    /* Methods of GMime-3.0.GMime.ContentType */
     encode(options?: FormatOptions | null): string
     get_media_subtype(): string
     get_media_type(): string
@@ -811,7 +811,7 @@ export class ContentType {
     set_media_subtype(subtype: string): void
     set_media_type(type: string): void
     set_parameter(name: string, value: string): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -833,7 +833,7 @@ export class ContentType {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -841,7 +841,7 @@ export class ContentType {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: ContentType, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: ContentType, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -860,12 +860,12 @@ export class ContentType {
 export interface CryptoContext_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class CryptoContext {
-    /* Fields of GMime.CryptoContext */
+    /* Fields of GMime-3.0.GMime.CryptoContext */
     parent_object: GObject.Object
     request_passwd: PasswordRequestFunc
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GMime.CryptoContext */
+    /* Methods of GMime-3.0.GMime.CryptoContext */
     decrypt(flags: DecryptFlags, session_key: string | null, istream: Stream, ostream: Stream): DecryptResult
     digest_id(name: string): DigestAlgo
     digest_name(digest: DigestAlgo): string | null
@@ -877,7 +877,7 @@ export class CryptoContext {
     import_keys(istream: Stream): number
     sign(detach: boolean, userid: string, istream: Stream, ostream: Stream): number
     verify(flags: VerifyFlags, istream: Stream, sigstream?: Stream | null, ostream?: Stream | null): SignatureList | null
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -899,7 +899,7 @@ export class CryptoContext {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GMime.CryptoContext */
+    /* Virtual methods of GMime-3.0.GMime.CryptoContext */
     vfunc_decrypt(flags: DecryptFlags, session_key: string | null, istream: Stream, ostream: Stream): DecryptResult
     vfunc_digest_id(name: string): DigestAlgo
     vfunc_digest_name(digest: DigestAlgo): string | null
@@ -911,7 +911,7 @@ export class CryptoContext {
     vfunc_import_keys(istream: Stream): number
     vfunc_sign(detach: boolean, userid: string, istream: Stream, ostream: Stream): number
     vfunc_verify(flags: VerifyFlags, istream: Stream, sigstream?: Stream | null, ostream?: Stream | null): SignatureList | null
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -919,7 +919,7 @@ export class CryptoContext {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: CryptoContext, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: CryptoContext, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -937,19 +937,19 @@ export class CryptoContext {
 export interface DataWrapper_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class DataWrapper {
-    /* Fields of GMime.DataWrapper */
+    /* Fields of GMime-3.0.GMime.DataWrapper */
     parent_object: GObject.Object
     encoding: ContentEncoding
     stream: Stream
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GMime.DataWrapper */
+    /* Methods of GMime-3.0.GMime.DataWrapper */
     get_encoding(): ContentEncoding
     get_stream(): Stream
     set_encoding(encoding: ContentEncoding): void
     set_stream(stream: Stream): void
     write_to_stream(stream: Stream): number
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -971,9 +971,9 @@ export class DataWrapper {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GMime.DataWrapper */
+    /* Virtual methods of GMime-3.0.GMime.DataWrapper */
     vfunc_write_to_stream(stream: Stream): number
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -981,7 +981,7 @@ export class DataWrapper {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: DataWrapper, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: DataWrapper, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -1000,16 +1000,16 @@ export class DataWrapper {
 export interface DecryptResult_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class DecryptResult {
-    /* Fields of GMime.DecryptResult */
+    /* Fields of GMime-3.0.GMime.DecryptResult */
     parent_object: GObject.Object
     recipients: CertificateList
     signatures: SignatureList
     cipher: CipherAlgo
     mdc: DigestAlgo
     session_key: string
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GMime.DecryptResult */
+    /* Methods of GMime-3.0.GMime.DecryptResult */
     get_cipher(): CipherAlgo
     get_mdc(): DigestAlgo
     get_recipients(): CertificateList
@@ -1020,7 +1020,7 @@ export class DecryptResult {
     set_recipients(recipients: CertificateList): void
     set_session_key(session_key?: string | null): void
     set_signatures(signatures: SignatureList): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -1042,7 +1042,7 @@ export class DecryptResult {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -1050,7 +1050,7 @@ export class DecryptResult {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: DecryptResult, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: DecryptResult, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -1068,7 +1068,7 @@ export class DecryptResult {
 export interface Filter_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class Filter {
-    /* Fields of GMime.Filter */
+    /* Fields of GMime-3.0.GMime.Filter */
     parent_object: GObject.Object
     priv: object
     outreal: string
@@ -1079,16 +1079,16 @@ export class Filter {
     backbuf: string
     backsize: number
     backlen: number
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GMime.Filter */
+    /* Methods of GMime-3.0.GMime.Filter */
     backup(data: Uint8Array[]): void
     complete(inbuf: Uint8Array[], prespace: number): [ /* outbuf */ Uint8Array[], /* outprespace */ number ]
     copy(): Filter
     filter(inbuf: Uint8Array[], prespace: number): [ /* outbuf */ Uint8Array[], /* outprespace */ number ]
     reset(): void
     set_size(size: number, keep: boolean): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -1110,12 +1110,12 @@ export class Filter {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GMime.Filter */
+    /* Virtual methods of GMime-3.0.GMime.Filter */
     vfunc_complete(inbuf: Uint8Array[], prespace: number): [ /* outbuf */ Uint8Array[], /* outprespace */ number ]
     vfunc_copy(): Filter
     vfunc_filter(inbuf: Uint8Array[], prespace: number): [ /* outbuf */ Uint8Array[], /* outprespace */ number ]
     vfunc_reset(): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -1123,7 +1123,7 @@ export class Filter {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Filter, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Filter, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -1139,10 +1139,10 @@ export class Filter {
 export interface FilterBasic_ConstructProps extends Filter_ConstructProps {
 }
 export class FilterBasic {
-    /* Fields of GMime.FilterBasic */
+    /* Fields of GMime-3.0.GMime.FilterBasic */
     parent_object: Filter
     encoder: Encoding
-    /* Fields of GMime.Filter */
+    /* Fields of GMime-3.0.GMime.Filter */
     priv: object
     outreal: string
     outbuf: string
@@ -1152,16 +1152,16 @@ export class FilterBasic {
     backbuf: string
     backsize: number
     backlen: number
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GMime.Filter */
+    /* Methods of GMime-3.0.GMime.Filter */
     backup(data: Uint8Array[]): void
     complete(inbuf: Uint8Array[], prespace: number): [ /* outbuf */ Uint8Array[], /* outprespace */ number ]
     copy(): Filter
     filter(inbuf: Uint8Array[], prespace: number): [ /* outbuf */ Uint8Array[], /* outprespace */ number ]
     reset(): void
     set_size(size: number, keep: boolean): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -1183,12 +1183,12 @@ export class FilterBasic {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GMime.Filter */
+    /* Virtual methods of GMime-3.0.GMime.Filter */
     vfunc_complete(inbuf: Uint8Array[], prespace: number): [ /* outbuf */ Uint8Array[], /* outprespace */ number ]
     vfunc_copy(): Filter
     vfunc_filter(inbuf: Uint8Array[], prespace: number): [ /* outbuf */ Uint8Array[], /* outprespace */ number ]
     vfunc_reset(): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -1196,7 +1196,7 @@ export class FilterBasic {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: FilterBasic, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: FilterBasic, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -1214,7 +1214,7 @@ export class FilterBasic {
 export interface FilterBest_ConstructProps extends Filter_ConstructProps {
 }
 export class FilterBest {
-    /* Fields of GMime.FilterBest */
+    /* Fields of GMime-3.0.GMime.FilterBest */
     parent_object: Filter
     flags: FilterBestFlags
     charset: Charset
@@ -1228,7 +1228,7 @@ export class FilterBest {
     hadfrom: number
     startline: number
     midline: number
-    /* Fields of GMime.Filter */
+    /* Fields of GMime-3.0.GMime.Filter */
     priv: object
     outreal: string
     outbuf: string
@@ -1238,18 +1238,18 @@ export class FilterBest {
     backbuf: string
     backsize: number
     backlen: number
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GMime.FilterBest */
+    /* Methods of GMime-3.0.GMime.FilterBest */
     encoding(constraint: EncodingConstraint): ContentEncoding
-    /* Methods of GMime.Filter */
+    /* Methods of GMime-3.0.GMime.Filter */
     backup(data: Uint8Array[]): void
     complete(inbuf: Uint8Array[], prespace: number): [ /* outbuf */ Uint8Array[], /* outprespace */ number ]
     copy(): Filter
     filter(inbuf: Uint8Array[], prespace: number): [ /* outbuf */ Uint8Array[], /* outprespace */ number ]
     reset(): void
     set_size(size: number, keep: boolean): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -1271,12 +1271,12 @@ export class FilterBest {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GMime.Filter */
+    /* Virtual methods of GMime-3.0.GMime.Filter */
     vfunc_complete(inbuf: Uint8Array[], prespace: number): [ /* outbuf */ Uint8Array[], /* outprespace */ number ]
     vfunc_copy(): Filter
     vfunc_filter(inbuf: Uint8Array[], prespace: number): [ /* outbuf */ Uint8Array[], /* outprespace */ number ]
     vfunc_reset(): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -1284,7 +1284,7 @@ export class FilterBest {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: FilterBest, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: FilterBest, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -1302,11 +1302,11 @@ export class FilterBest {
 export interface FilterCharset_ConstructProps extends Filter_ConstructProps {
 }
 export class FilterCharset {
-    /* Fields of GMime.FilterCharset */
+    /* Fields of GMime-3.0.GMime.FilterCharset */
     parent_object: Filter
     from_charset: string
     to_charset: string
-    /* Fields of GMime.Filter */
+    /* Fields of GMime-3.0.GMime.Filter */
     priv: object
     outreal: string
     outbuf: string
@@ -1316,16 +1316,16 @@ export class FilterCharset {
     backbuf: string
     backsize: number
     backlen: number
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GMime.Filter */
+    /* Methods of GMime-3.0.GMime.Filter */
     backup(data: Uint8Array[]): void
     complete(inbuf: Uint8Array[], prespace: number): [ /* outbuf */ Uint8Array[], /* outprespace */ number ]
     copy(): Filter
     filter(inbuf: Uint8Array[], prespace: number): [ /* outbuf */ Uint8Array[], /* outprespace */ number ]
     reset(): void
     set_size(size: number, keep: boolean): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -1347,12 +1347,12 @@ export class FilterCharset {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GMime.Filter */
+    /* Virtual methods of GMime-3.0.GMime.Filter */
     vfunc_complete(inbuf: Uint8Array[], prespace: number): [ /* outbuf */ Uint8Array[], /* outprespace */ number ]
     vfunc_copy(): Filter
     vfunc_filter(inbuf: Uint8Array[], prespace: number): [ /* outbuf */ Uint8Array[], /* outprespace */ number ]
     vfunc_reset(): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -1360,7 +1360,7 @@ export class FilterCharset {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: FilterCharset, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: FilterCharset, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -1378,10 +1378,10 @@ export class FilterCharset {
 export interface FilterChecksum_ConstructProps extends Filter_ConstructProps {
 }
 export class FilterChecksum {
-    /* Fields of GMime.FilterChecksum */
+    /* Fields of GMime-3.0.GMime.FilterChecksum */
     parent_object: Filter
     checksum: GLib.Checksum
-    /* Fields of GMime.Filter */
+    /* Fields of GMime-3.0.GMime.Filter */
     priv: object
     outreal: string
     outbuf: string
@@ -1391,19 +1391,19 @@ export class FilterChecksum {
     backbuf: string
     backsize: number
     backlen: number
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GMime.FilterChecksum */
+    /* Methods of GMime-3.0.GMime.FilterChecksum */
     get_digest(digest: number, len: number): number
     get_string(): string
-    /* Methods of GMime.Filter */
+    /* Methods of GMime-3.0.GMime.Filter */
     backup(data: Uint8Array[]): void
     complete(inbuf: Uint8Array[], prespace: number): [ /* outbuf */ Uint8Array[], /* outprespace */ number ]
     copy(): Filter
     filter(inbuf: Uint8Array[], prespace: number): [ /* outbuf */ Uint8Array[], /* outprespace */ number ]
     reset(): void
     set_size(size: number, keep: boolean): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -1425,12 +1425,12 @@ export class FilterChecksum {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GMime.Filter */
+    /* Virtual methods of GMime-3.0.GMime.Filter */
     vfunc_complete(inbuf: Uint8Array[], prespace: number): [ /* outbuf */ Uint8Array[], /* outprespace */ number ]
     vfunc_copy(): Filter
     vfunc_filter(inbuf: Uint8Array[], prespace: number): [ /* outbuf */ Uint8Array[], /* outprespace */ number ]
     vfunc_reset(): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -1438,7 +1438,7 @@ export class FilterChecksum {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: FilterChecksum, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: FilterChecksum, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -1456,11 +1456,11 @@ export class FilterChecksum {
 export interface FilterDos2Unix_ConstructProps extends Filter_ConstructProps {
 }
 export class FilterDos2Unix {
-    /* Fields of GMime.FilterDos2Unix */
+    /* Fields of GMime-3.0.GMime.FilterDos2Unix */
     parent_object: Filter
     ensure_newline: boolean
     pc: number
-    /* Fields of GMime.Filter */
+    /* Fields of GMime-3.0.GMime.Filter */
     priv: object
     outreal: string
     outbuf: string
@@ -1470,16 +1470,16 @@ export class FilterDos2Unix {
     backbuf: string
     backsize: number
     backlen: number
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GMime.Filter */
+    /* Methods of GMime-3.0.GMime.Filter */
     backup(data: Uint8Array[]): void
     complete(inbuf: Uint8Array[], prespace: number): [ /* outbuf */ Uint8Array[], /* outprespace */ number ]
     copy(): Filter
     filter(inbuf: Uint8Array[], prespace: number): [ /* outbuf */ Uint8Array[], /* outprespace */ number ]
     reset(): void
     set_size(size: number, keep: boolean): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -1501,12 +1501,12 @@ export class FilterDos2Unix {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GMime.Filter */
+    /* Virtual methods of GMime-3.0.GMime.Filter */
     vfunc_complete(inbuf: Uint8Array[], prespace: number): [ /* outbuf */ Uint8Array[], /* outprespace */ number ]
     vfunc_copy(): Filter
     vfunc_filter(inbuf: Uint8Array[], prespace: number): [ /* outbuf */ Uint8Array[], /* outprespace */ number ]
     vfunc_reset(): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -1514,7 +1514,7 @@ export class FilterDos2Unix {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: FilterDos2Unix, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: FilterDos2Unix, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -1532,11 +1532,11 @@ export class FilterDos2Unix {
 export interface FilterEnriched_ConstructProps extends Filter_ConstructProps {
 }
 export class FilterEnriched {
-    /* Fields of GMime.FilterEnriched */
+    /* Fields of GMime-3.0.GMime.FilterEnriched */
     parent_object: Filter
     flags: number
     nofill: number
-    /* Fields of GMime.Filter */
+    /* Fields of GMime-3.0.GMime.Filter */
     priv: object
     outreal: string
     outbuf: string
@@ -1546,16 +1546,16 @@ export class FilterEnriched {
     backbuf: string
     backsize: number
     backlen: number
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GMime.Filter */
+    /* Methods of GMime-3.0.GMime.Filter */
     backup(data: Uint8Array[]): void
     complete(inbuf: Uint8Array[], prespace: number): [ /* outbuf */ Uint8Array[], /* outprespace */ number ]
     copy(): Filter
     filter(inbuf: Uint8Array[], prespace: number): [ /* outbuf */ Uint8Array[], /* outprespace */ number ]
     reset(): void
     set_size(size: number, keep: boolean): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -1577,12 +1577,12 @@ export class FilterEnriched {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GMime.Filter */
+    /* Virtual methods of GMime-3.0.GMime.Filter */
     vfunc_complete(inbuf: Uint8Array[], prespace: number): [ /* outbuf */ Uint8Array[], /* outprespace */ number ]
     vfunc_copy(): Filter
     vfunc_filter(inbuf: Uint8Array[], prespace: number): [ /* outbuf */ Uint8Array[], /* outprespace */ number ]
     vfunc_reset(): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -1590,7 +1590,7 @@ export class FilterEnriched {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: FilterEnriched, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: FilterEnriched, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -1608,11 +1608,11 @@ export class FilterEnriched {
 export interface FilterFrom_ConstructProps extends Filter_ConstructProps {
 }
 export class FilterFrom {
-    /* Fields of GMime.FilterFrom */
+    /* Fields of GMime-3.0.GMime.FilterFrom */
     parent_object: Filter
     mode: FilterFromMode
     midline: boolean
-    /* Fields of GMime.Filter */
+    /* Fields of GMime-3.0.GMime.Filter */
     priv: object
     outreal: string
     outbuf: string
@@ -1622,16 +1622,16 @@ export class FilterFrom {
     backbuf: string
     backsize: number
     backlen: number
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GMime.Filter */
+    /* Methods of GMime-3.0.GMime.Filter */
     backup(data: Uint8Array[]): void
     complete(inbuf: Uint8Array[], prespace: number): [ /* outbuf */ Uint8Array[], /* outprespace */ number ]
     copy(): Filter
     filter(inbuf: Uint8Array[], prespace: number): [ /* outbuf */ Uint8Array[], /* outprespace */ number ]
     reset(): void
     set_size(size: number, keep: boolean): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -1653,12 +1653,12 @@ export class FilterFrom {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GMime.Filter */
+    /* Virtual methods of GMime-3.0.GMime.Filter */
     vfunc_complete(inbuf: Uint8Array[], prespace: number): [ /* outbuf */ Uint8Array[], /* outprespace */ number ]
     vfunc_copy(): Filter
     vfunc_filter(inbuf: Uint8Array[], prespace: number): [ /* outbuf */ Uint8Array[], /* outprespace */ number ]
     vfunc_reset(): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -1666,7 +1666,7 @@ export class FilterFrom {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: FilterFrom, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: FilterFrom, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -1684,12 +1684,12 @@ export class FilterFrom {
 export interface FilterGZip_ConstructProps extends Filter_ConstructProps {
 }
 export class FilterGZip {
-    /* Fields of GMime.FilterGZip */
+    /* Fields of GMime-3.0.GMime.FilterGZip */
     parent_object: Filter
     priv: object
     mode: FilterGZipMode
     level: number
-    /* Fields of GMime.Filter */
+    /* Fields of GMime-3.0.GMime.Filter */
     outreal: string
     outbuf: string
     outptr: string
@@ -1698,21 +1698,21 @@ export class FilterGZip {
     backbuf: string
     backsize: number
     backlen: number
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GMime.FilterGZip */
+    /* Methods of GMime-3.0.GMime.FilterGZip */
     get_comment(): string
     get_filename(): string
     set_comment(comment: string): void
     set_filename(filename: string): void
-    /* Methods of GMime.Filter */
+    /* Methods of GMime-3.0.GMime.Filter */
     backup(data: Uint8Array[]): void
     complete(inbuf: Uint8Array[], prespace: number): [ /* outbuf */ Uint8Array[], /* outprespace */ number ]
     copy(): Filter
     filter(inbuf: Uint8Array[], prespace: number): [ /* outbuf */ Uint8Array[], /* outprespace */ number ]
     reset(): void
     set_size(size: number, keep: boolean): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -1734,12 +1734,12 @@ export class FilterGZip {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GMime.Filter */
+    /* Virtual methods of GMime-3.0.GMime.Filter */
     vfunc_complete(inbuf: Uint8Array[], prespace: number): [ /* outbuf */ Uint8Array[], /* outprespace */ number ]
     vfunc_copy(): Filter
     vfunc_filter(inbuf: Uint8Array[], prespace: number): [ /* outbuf */ Uint8Array[], /* outprespace */ number ]
     vfunc_reset(): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -1747,7 +1747,7 @@ export class FilterGZip {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: FilterGZip, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: FilterGZip, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -1765,7 +1765,7 @@ export class FilterGZip {
 export interface FilterHTML_ConstructProps extends Filter_ConstructProps {
 }
 export class FilterHTML {
-    /* Fields of GMime.FilterHTML */
+    /* Fields of GMime-3.0.GMime.FilterHTML */
     parent_object: Filter
     scanner: object
     flags: number
@@ -1773,7 +1773,7 @@ export class FilterHTML {
     column: number
     pre_open: number
     citation_depth: number
-    /* Fields of GMime.Filter */
+    /* Fields of GMime-3.0.GMime.Filter */
     priv: object
     outreal: string
     outbuf: string
@@ -1783,16 +1783,16 @@ export class FilterHTML {
     backbuf: string
     backsize: number
     backlen: number
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GMime.Filter */
+    /* Methods of GMime-3.0.GMime.Filter */
     backup(data: Uint8Array[]): void
     complete(inbuf: Uint8Array[], prespace: number): [ /* outbuf */ Uint8Array[], /* outprespace */ number ]
     copy(): Filter
     filter(inbuf: Uint8Array[], prespace: number): [ /* outbuf */ Uint8Array[], /* outprespace */ number ]
     reset(): void
     set_size(size: number, keep: boolean): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -1814,12 +1814,12 @@ export class FilterHTML {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GMime.Filter */
+    /* Virtual methods of GMime-3.0.GMime.Filter */
     vfunc_complete(inbuf: Uint8Array[], prespace: number): [ /* outbuf */ Uint8Array[], /* outprespace */ number ]
     vfunc_copy(): Filter
     vfunc_filter(inbuf: Uint8Array[], prespace: number): [ /* outbuf */ Uint8Array[], /* outprespace */ number ]
     vfunc_reset(): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -1827,7 +1827,7 @@ export class FilterHTML {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: FilterHTML, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: FilterHTML, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -1845,9 +1845,9 @@ export class FilterHTML {
 export interface FilterOpenPGP_ConstructProps extends Filter_ConstructProps {
 }
 export class FilterOpenPGP {
-    /* Fields of GMime.FilterOpenPGP */
+    /* Fields of GMime-3.0.GMime.FilterOpenPGP */
     parent_object: Filter
-    /* Fields of GMime.Filter */
+    /* Fields of GMime-3.0.GMime.Filter */
     priv: object
     outreal: string
     outbuf: string
@@ -1857,20 +1857,20 @@ export class FilterOpenPGP {
     backbuf: string
     backsize: number
     backlen: number
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GMime.FilterOpenPGP */
+    /* Methods of GMime-3.0.GMime.FilterOpenPGP */
     get_begin_offset(): number
     get_data_type(): OpenPGPData
     get_end_offset(): number
-    /* Methods of GMime.Filter */
+    /* Methods of GMime-3.0.GMime.Filter */
     backup(data: Uint8Array[]): void
     complete(inbuf: Uint8Array[], prespace: number): [ /* outbuf */ Uint8Array[], /* outprespace */ number ]
     copy(): Filter
     filter(inbuf: Uint8Array[], prespace: number): [ /* outbuf */ Uint8Array[], /* outprespace */ number ]
     reset(): void
     set_size(size: number, keep: boolean): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -1892,12 +1892,12 @@ export class FilterOpenPGP {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GMime.Filter */
+    /* Virtual methods of GMime-3.0.GMime.Filter */
     vfunc_complete(inbuf: Uint8Array[], prespace: number): [ /* outbuf */ Uint8Array[], /* outprespace */ number ]
     vfunc_copy(): Filter
     vfunc_filter(inbuf: Uint8Array[], prespace: number): [ /* outbuf */ Uint8Array[], /* outprespace */ number ]
     vfunc_reset(): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -1905,7 +1905,7 @@ export class FilterOpenPGP {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: FilterOpenPGP, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: FilterOpenPGP, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -1923,10 +1923,10 @@ export class FilterOpenPGP {
 export interface FilterSmtpData_ConstructProps extends Filter_ConstructProps {
 }
 export class FilterSmtpData {
-    /* Fields of GMime.FilterSmtpData */
+    /* Fields of GMime-3.0.GMime.FilterSmtpData */
     parent_object: Filter
     bol: boolean
-    /* Fields of GMime.Filter */
+    /* Fields of GMime-3.0.GMime.Filter */
     priv: object
     outreal: string
     outbuf: string
@@ -1936,16 +1936,16 @@ export class FilterSmtpData {
     backbuf: string
     backsize: number
     backlen: number
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GMime.Filter */
+    /* Methods of GMime-3.0.GMime.Filter */
     backup(data: Uint8Array[]): void
     complete(inbuf: Uint8Array[], prespace: number): [ /* outbuf */ Uint8Array[], /* outprespace */ number ]
     copy(): Filter
     filter(inbuf: Uint8Array[], prespace: number): [ /* outbuf */ Uint8Array[], /* outprespace */ number ]
     reset(): void
     set_size(size: number, keep: boolean): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -1967,12 +1967,12 @@ export class FilterSmtpData {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GMime.Filter */
+    /* Virtual methods of GMime-3.0.GMime.Filter */
     vfunc_complete(inbuf: Uint8Array[], prespace: number): [ /* outbuf */ Uint8Array[], /* outprespace */ number ]
     vfunc_copy(): Filter
     vfunc_filter(inbuf: Uint8Array[], prespace: number): [ /* outbuf */ Uint8Array[], /* outprespace */ number ]
     vfunc_reset(): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -1980,7 +1980,7 @@ export class FilterSmtpData {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: FilterSmtpData, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: FilterSmtpData, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -1998,9 +1998,9 @@ export class FilterSmtpData {
 export interface FilterStrip_ConstructProps extends Filter_ConstructProps {
 }
 export class FilterStrip {
-    /* Fields of GMime.FilterStrip */
+    /* Fields of GMime-3.0.GMime.FilterStrip */
     parent_object: Filter
-    /* Fields of GMime.Filter */
+    /* Fields of GMime-3.0.GMime.Filter */
     priv: object
     outreal: string
     outbuf: string
@@ -2010,16 +2010,16 @@ export class FilterStrip {
     backbuf: string
     backsize: number
     backlen: number
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GMime.Filter */
+    /* Methods of GMime-3.0.GMime.Filter */
     backup(data: Uint8Array[]): void
     complete(inbuf: Uint8Array[], prespace: number): [ /* outbuf */ Uint8Array[], /* outprespace */ number ]
     copy(): Filter
     filter(inbuf: Uint8Array[], prespace: number): [ /* outbuf */ Uint8Array[], /* outprespace */ number ]
     reset(): void
     set_size(size: number, keep: boolean): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -2041,12 +2041,12 @@ export class FilterStrip {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GMime.Filter */
+    /* Virtual methods of GMime-3.0.GMime.Filter */
     vfunc_complete(inbuf: Uint8Array[], prespace: number): [ /* outbuf */ Uint8Array[], /* outprespace */ number ]
     vfunc_copy(): Filter
     vfunc_filter(inbuf: Uint8Array[], prespace: number): [ /* outbuf */ Uint8Array[], /* outprespace */ number ]
     vfunc_reset(): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -2054,7 +2054,7 @@ export class FilterStrip {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: FilterStrip, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: FilterStrip, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -2072,11 +2072,11 @@ export class FilterStrip {
 export interface FilterUnix2Dos_ConstructProps extends Filter_ConstructProps {
 }
 export class FilterUnix2Dos {
-    /* Fields of GMime.FilterUnix2Dos */
+    /* Fields of GMime-3.0.GMime.FilterUnix2Dos */
     parent_object: Filter
     ensure_newline: boolean
     pc: number
-    /* Fields of GMime.Filter */
+    /* Fields of GMime-3.0.GMime.Filter */
     priv: object
     outreal: string
     outbuf: string
@@ -2086,16 +2086,16 @@ export class FilterUnix2Dos {
     backbuf: string
     backsize: number
     backlen: number
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GMime.Filter */
+    /* Methods of GMime-3.0.GMime.Filter */
     backup(data: Uint8Array[]): void
     complete(inbuf: Uint8Array[], prespace: number): [ /* outbuf */ Uint8Array[], /* outprespace */ number ]
     copy(): Filter
     filter(inbuf: Uint8Array[], prespace: number): [ /* outbuf */ Uint8Array[], /* outprespace */ number ]
     reset(): void
     set_size(size: number, keep: boolean): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -2117,12 +2117,12 @@ export class FilterUnix2Dos {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GMime.Filter */
+    /* Virtual methods of GMime-3.0.GMime.Filter */
     vfunc_complete(inbuf: Uint8Array[], prespace: number): [ /* outbuf */ Uint8Array[], /* outprespace */ number ]
     vfunc_copy(): Filter
     vfunc_filter(inbuf: Uint8Array[], prespace: number): [ /* outbuf */ Uint8Array[], /* outprespace */ number ]
     vfunc_reset(): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -2130,7 +2130,7 @@ export class FilterUnix2Dos {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: FilterUnix2Dos, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: FilterUnix2Dos, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -2148,11 +2148,11 @@ export class FilterUnix2Dos {
 export interface FilterWindows_ConstructProps extends Filter_ConstructProps {
 }
 export class FilterWindows {
-    /* Fields of GMime.FilterWindows */
+    /* Fields of GMime-3.0.GMime.FilterWindows */
     parent_object: Filter
     is_windows: boolean
     claimed_charset: string
-    /* Fields of GMime.Filter */
+    /* Fields of GMime-3.0.GMime.Filter */
     priv: object
     outreal: string
     outbuf: string
@@ -2162,19 +2162,19 @@ export class FilterWindows {
     backbuf: string
     backsize: number
     backlen: number
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GMime.FilterWindows */
+    /* Methods of GMime-3.0.GMime.FilterWindows */
     is_windows_charset(): boolean
     real_charset(): string
-    /* Methods of GMime.Filter */
+    /* Methods of GMime-3.0.GMime.Filter */
     backup(data: Uint8Array[]): void
     complete(inbuf: Uint8Array[], prespace: number): [ /* outbuf */ Uint8Array[], /* outprespace */ number ]
     copy(): Filter
     filter(inbuf: Uint8Array[], prespace: number): [ /* outbuf */ Uint8Array[], /* outprespace */ number ]
     reset(): void
     set_size(size: number, keep: boolean): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -2196,12 +2196,12 @@ export class FilterWindows {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GMime.Filter */
+    /* Virtual methods of GMime-3.0.GMime.Filter */
     vfunc_complete(inbuf: Uint8Array[], prespace: number): [ /* outbuf */ Uint8Array[], /* outprespace */ number ]
     vfunc_copy(): Filter
     vfunc_filter(inbuf: Uint8Array[], prespace: number): [ /* outbuf */ Uint8Array[], /* outprespace */ number ]
     vfunc_reset(): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -2209,7 +2209,7 @@ export class FilterWindows {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: FilterWindows, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: FilterWindows, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -2227,14 +2227,14 @@ export class FilterWindows {
 export interface FilterYenc_ConstructProps extends Filter_ConstructProps {
 }
 export class FilterYenc {
-    /* Fields of GMime.FilterYenc */
+    /* Fields of GMime-3.0.GMime.FilterYenc */
     parent_object: Filter
     encode: boolean
     part: number
     state: number
     pcrc: number
     crc: number
-    /* Fields of GMime.Filter */
+    /* Fields of GMime-3.0.GMime.Filter */
     priv: object
     outreal: string
     outbuf: string
@@ -2244,21 +2244,21 @@ export class FilterYenc {
     backbuf: string
     backsize: number
     backlen: number
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GMime.FilterYenc */
+    /* Methods of GMime-3.0.GMime.FilterYenc */
     get_crc(): number
     get_pcrc(): number
     set_crc(crc: number): void
     set_state(state: number): void
-    /* Methods of GMime.Filter */
+    /* Methods of GMime-3.0.GMime.Filter */
     backup(data: Uint8Array[]): void
     complete(inbuf: Uint8Array[], prespace: number): [ /* outbuf */ Uint8Array[], /* outprespace */ number ]
     copy(): Filter
     filter(inbuf: Uint8Array[], prespace: number): [ /* outbuf */ Uint8Array[], /* outprespace */ number ]
     reset(): void
     set_size(size: number, keep: boolean): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -2280,12 +2280,12 @@ export class FilterYenc {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GMime.Filter */
+    /* Virtual methods of GMime-3.0.GMime.Filter */
     vfunc_complete(inbuf: Uint8Array[], prespace: number): [ /* outbuf */ Uint8Array[], /* outprespace */ number ]
     vfunc_copy(): Filter
     vfunc_filter(inbuf: Uint8Array[], prespace: number): [ /* outbuf */ Uint8Array[], /* outprespace */ number ]
     vfunc_reset(): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -2293,7 +2293,7 @@ export class FilterYenc {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: FilterYenc, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: FilterYenc, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -2311,12 +2311,12 @@ export class FilterYenc {
 export interface GpgContext_ConstructProps extends CryptoContext_ConstructProps {
 }
 export class GpgContext {
-    /* Fields of GMime.CryptoContext */
+    /* Fields of GMime-3.0.GMime.CryptoContext */
     parent_object: GObject.Object
     request_passwd: PasswordRequestFunc
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GMime.CryptoContext */
+    /* Methods of GMime-3.0.GMime.CryptoContext */
     decrypt(flags: DecryptFlags, session_key: string | null, istream: Stream, ostream: Stream): DecryptResult
     digest_id(name: string): DigestAlgo
     digest_name(digest: DigestAlgo): string | null
@@ -2328,7 +2328,7 @@ export class GpgContext {
     import_keys(istream: Stream): number
     sign(detach: boolean, userid: string, istream: Stream, ostream: Stream): number
     verify(flags: VerifyFlags, istream: Stream, sigstream?: Stream | null, ostream?: Stream | null): SignatureList | null
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -2350,7 +2350,7 @@ export class GpgContext {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GMime.CryptoContext */
+    /* Virtual methods of GMime-3.0.GMime.CryptoContext */
     vfunc_decrypt(flags: DecryptFlags, session_key: string | null, istream: Stream, ostream: Stream): DecryptResult
     vfunc_digest_id(name: string): DigestAlgo
     vfunc_digest_name(digest: DigestAlgo): string | null
@@ -2362,7 +2362,7 @@ export class GpgContext {
     vfunc_import_keys(istream: Stream): number
     vfunc_sign(detach: boolean, userid: string, istream: Stream, ostream: Stream): number
     vfunc_verify(flags: VerifyFlags, istream: Stream, sigstream?: Stream | null, ostream?: Stream | null): SignatureList | null
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -2370,7 +2370,7 @@ export class GpgContext {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: GpgContext, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: GpgContext, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -2389,9 +2389,9 @@ export class GpgContext {
 export interface Header_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class Header {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GMime.Header */
+    /* Methods of GMime-3.0.GMime.Header */
     format_addrlist(options: FormatOptions | null, value: string, charset: string): string
     format_content_disposition(options: FormatOptions | null, value: string, charset: string): string
     format_content_type(options: FormatOptions | null, value: string, charset: string): string
@@ -2407,7 +2407,7 @@ export class Header {
     set_raw_value(raw_value: string): void
     set_value(options: FormatOptions | null, value: string, charset: string): void
     write_to_stream(options: FormatOptions | null, stream: Stream): number
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -2429,7 +2429,7 @@ export class Header {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -2437,7 +2437,7 @@ export class Header {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Header, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Header, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -2453,11 +2453,11 @@ export class Header {
 export interface HeaderList_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class HeaderList {
-    /* Fields of GMime.HeaderList */
+    /* Fields of GMime-3.0.GMime.HeaderList */
     parent_object: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GMime.HeaderList */
+    /* Methods of GMime-3.0.GMime.HeaderList */
     append(name: string, value: string, charset: string): void
     clear(): void
     contains(name: string): boolean
@@ -2470,7 +2470,7 @@ export class HeaderList {
     set(name: string, value: string, charset: string): void
     to_string(options?: FormatOptions | null): string
     write_to_stream(options: FormatOptions | null, stream: Stream): number
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -2492,7 +2492,7 @@ export class HeaderList {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -2500,7 +2500,7 @@ export class HeaderList {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: HeaderList, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: HeaderList, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -2518,19 +2518,19 @@ export class HeaderList {
 export interface InternetAddress_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class InternetAddress {
-    /* Fields of GMime.InternetAddress */
+    /* Fields of GMime-3.0.GMime.InternetAddress */
     parent_object: GObject.Object
     charset: string
     name: string
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GMime.InternetAddress */
+    /* Methods of GMime-3.0.GMime.InternetAddress */
     get_charset(): string | null
     get_name(): string | null
     set_charset(charset?: string | null): void
     set_name(name: string): void
     to_string(options: FormatOptions | null, encode: boolean): string
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -2552,9 +2552,9 @@ export class InternetAddress {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GMime.InternetAddress */
+    /* Virtual methods of GMime-3.0.GMime.InternetAddress */
     vfunc_to_string(options: FormatOptions, flags: number, linelen: number, str: GLib.String): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -2562,7 +2562,7 @@ export class InternetAddress {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: InternetAddress, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: InternetAddress, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -2578,25 +2578,25 @@ export class InternetAddress {
 export interface InternetAddressGroup_ConstructProps extends InternetAddress_ConstructProps {
 }
 export class InternetAddressGroup {
-    /* Fields of GMime.InternetAddressGroup */
+    /* Fields of GMime-3.0.GMime.InternetAddressGroup */
     parent_object: InternetAddress
     members: InternetAddressList
-    /* Fields of GMime.InternetAddress */
+    /* Fields of GMime-3.0.GMime.InternetAddress */
     charset: string
     name: string
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GMime.InternetAddressGroup */
+    /* Methods of GMime-3.0.GMime.InternetAddressGroup */
     add_member(member: InternetAddress): number
     get_members(): InternetAddressList
     set_members(members: InternetAddressList): void
-    /* Methods of GMime.InternetAddress */
+    /* Methods of GMime-3.0.GMime.InternetAddress */
     get_charset(): string | null
     get_name(): string | null
     set_charset(charset?: string | null): void
     set_name(name: string): void
     to_string(options: FormatOptions | null, encode: boolean): string
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -2618,9 +2618,9 @@ export class InternetAddressGroup {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GMime.InternetAddress */
+    /* Virtual methods of GMime-3.0.GMime.InternetAddress */
     vfunc_to_string(options: FormatOptions, flags: number, linelen: number, str: GLib.String): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -2628,7 +2628,7 @@ export class InternetAddressGroup {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: InternetAddressGroup, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: InternetAddressGroup, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -2646,12 +2646,12 @@ export class InternetAddressGroup {
 export interface InternetAddressList_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class InternetAddressList {
-    /* Fields of GMime.InternetAddressList */
+    /* Fields of GMime-3.0.GMime.InternetAddressList */
     parent_object: GObject.Object
     array: object[]
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GMime.InternetAddressList */
+    /* Methods of GMime-3.0.GMime.InternetAddressList */
     add(ia: InternetAddress): number
     append(append: InternetAddressList): void
     clear(): void
@@ -2666,7 +2666,7 @@ export class InternetAddressList {
     remove_at(index: number): boolean
     set_address(index: number, ia: InternetAddress): void
     to_string(options: FormatOptions | null, encode: boolean): string | null
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -2688,7 +2688,7 @@ export class InternetAddressList {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -2696,7 +2696,7 @@ export class InternetAddressList {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: InternetAddressList, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: InternetAddressList, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -2715,27 +2715,27 @@ export class InternetAddressList {
 export interface InternetAddressMailbox_ConstructProps extends InternetAddress_ConstructProps {
 }
 export class InternetAddressMailbox {
-    /* Fields of GMime.InternetAddressMailbox */
+    /* Fields of GMime-3.0.GMime.InternetAddressMailbox */
     parent_object: InternetAddress
     idn_addr: string
     addr: string
     at: number
-    /* Fields of GMime.InternetAddress */
+    /* Fields of GMime-3.0.GMime.InternetAddress */
     charset: string
     name: string
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GMime.InternetAddressMailbox */
+    /* Methods of GMime-3.0.GMime.InternetAddressMailbox */
     get_addr(): string
     get_idn_addr(): string
     set_addr(addr: string): void
-    /* Methods of GMime.InternetAddress */
+    /* Methods of GMime-3.0.GMime.InternetAddress */
     get_charset(): string | null
     get_name(): string | null
     set_charset(charset?: string | null): void
     set_name(name: string): void
     to_string(options: FormatOptions | null, encode: boolean): string
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -2757,9 +2757,9 @@ export class InternetAddressMailbox {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GMime.InternetAddress */
+    /* Virtual methods of GMime-3.0.GMime.InternetAddress */
     vfunc_to_string(options: FormatOptions, flags: number, linelen: number, str: GLib.String): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -2767,7 +2767,7 @@ export class InternetAddressMailbox {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: InternetAddressMailbox, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: InternetAddressMailbox, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -2785,21 +2785,21 @@ export class InternetAddressMailbox {
 export interface Message_ConstructProps extends Object_ConstructProps {
 }
 export class Message {
-    /* Fields of GMime.Message */
+    /* Fields of GMime-3.0.GMime.Message */
     parent_object: Object
     addrlists: InternetAddressList
     mime_part: Object
     message_id: string
     date: GLib.DateTime
     subject: string
-    /* Fields of GMime.Object */
+    /* Fields of GMime-3.0.GMime.Object */
     disposition: ContentDisposition
     content_type: ContentType
     headers: HeaderList
     content_id: string
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GMime.Message */
+    /* Methods of GMime-3.0.GMime.Message */
     add_mailbox(type: AddressType, name: string, addr: string): void
     foreach(callback: ObjectForeachFunc): void
     get_addresses(type: AddressType): InternetAddressList
@@ -2823,7 +2823,7 @@ export class Message {
     set_message_id(message_id: string): void
     set_mime_part(mime_part: Object): void
     set_subject(subject: string, charset: string): void
-    /* Methods of GMime.Object */
+    /* Methods of GMime-3.0.GMime.Object */
     append_header(header: string, value: string, charset: string): void
     encode(constraint: EncodingConstraint): void
     get_content_disposition(): ContentDisposition
@@ -2847,7 +2847,7 @@ export class Message {
     to_string(options?: FormatOptions | null): string
     write_content_to_stream(options: FormatOptions | null, stream: Stream): number
     write_to_stream(options: FormatOptions | null, stream: Stream): number
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -2869,7 +2869,7 @@ export class Message {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GMime.Object */
+    /* Virtual methods of GMime-3.0.GMime.Object */
     vfunc_encode(constraint: EncodingConstraint): void
     vfunc_get_headers(options?: FormatOptions | null): string
     vfunc_header_added(header: Header): void
@@ -2878,7 +2878,7 @@ export class Message {
     vfunc_headers_cleared(): void
     vfunc_set_content_type(content_type: ContentType): void
     vfunc_write_to_stream(options: FormatOptions, content_only: boolean, stream: Stream): number
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -2886,7 +2886,7 @@ export class Message {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Message, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Message, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -2905,20 +2905,20 @@ export class Message {
 export interface MessagePart_ConstructProps extends Object_ConstructProps {
 }
 export class MessagePart {
-    /* Fields of GMime.MessagePart */
+    /* Fields of GMime-3.0.GMime.MessagePart */
     parent_object: Object
     message: Message
-    /* Fields of GMime.Object */
+    /* Fields of GMime-3.0.GMime.Object */
     disposition: ContentDisposition
     content_type: ContentType
     headers: HeaderList
     content_id: string
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GMime.MessagePart */
+    /* Methods of GMime-3.0.GMime.MessagePart */
     get_message(): Message
     set_message(message: Message): void
-    /* Methods of GMime.Object */
+    /* Methods of GMime-3.0.GMime.Object */
     append_header(header: string, value: string, charset: string): void
     encode(constraint: EncodingConstraint): void
     get_content_disposition(): ContentDisposition
@@ -2942,7 +2942,7 @@ export class MessagePart {
     to_string(options?: FormatOptions | null): string
     write_content_to_stream(options: FormatOptions | null, stream: Stream): number
     write_to_stream(options: FormatOptions | null, stream: Stream): number
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -2964,7 +2964,7 @@ export class MessagePart {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GMime.Object */
+    /* Virtual methods of GMime-3.0.GMime.Object */
     vfunc_encode(constraint: EncodingConstraint): void
     vfunc_get_headers(options?: FormatOptions | null): string
     vfunc_header_added(header: Header): void
@@ -2973,7 +2973,7 @@ export class MessagePart {
     vfunc_headers_cleared(): void
     vfunc_set_content_type(content_type: ContentType): void
     vfunc_write_to_stream(options: FormatOptions, content_only: boolean, stream: Stream): number
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -2981,7 +2981,7 @@ export class MessagePart {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: MessagePart, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: MessagePart, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -3001,30 +3001,30 @@ export class MessagePart {
 export interface MessagePartial_ConstructProps extends Part_ConstructProps {
 }
 export class MessagePartial {
-    /* Fields of GMime.MessagePartial */
+    /* Fields of GMime-3.0.GMime.MessagePartial */
     parent_object: Part
     number: number
     total: number
     id: string
-    /* Fields of GMime.Part */
+    /* Fields of GMime-3.0.GMime.Part */
     encoding: ContentEncoding
     openpgp: OpenPGPData
     content_description: string
     content_location: string
     content_md5: string
     content: DataWrapper
-    /* Fields of GMime.Object */
+    /* Fields of GMime-3.0.GMime.Object */
     disposition: ContentDisposition
     content_type: ContentType
     headers: HeaderList
     content_id: string
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GMime.MessagePartial */
+    /* Methods of GMime-3.0.GMime.MessagePartial */
     get_id(): string
     get_number(): number
     get_total(): number
-    /* Methods of GMime.Part */
+    /* Methods of GMime-3.0.GMime.Part */
     get_best_content_encoding(constraint: EncodingConstraint): ContentEncoding
     get_content(): DataWrapper
     get_content_description(): string
@@ -3048,7 +3048,7 @@ export class MessagePartial {
     set_filename(filename: string): void
     set_openpgp_data(data: OpenPGPData): void
     verify_content_md5(): boolean
-    /* Methods of GMime.Object */
+    /* Methods of GMime-3.0.GMime.Object */
     append_header(header: string, value: string, charset: string): void
     encode(constraint: EncodingConstraint): void
     get_content_disposition(): ContentDisposition
@@ -3070,7 +3070,7 @@ export class MessagePartial {
     to_string(options?: FormatOptions | null): string
     write_content_to_stream(options: FormatOptions | null, stream: Stream): number
     write_to_stream(options: FormatOptions | null, stream: Stream): number
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -3092,9 +3092,9 @@ export class MessagePartial {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GMime.Part */
+    /* Virtual methods of GMime-3.0.GMime.Part */
     vfunc_set_content(content: DataWrapper): void
-    /* Virtual methods of GMime.Object */
+    /* Virtual methods of GMime-3.0.GMime.Object */
     vfunc_encode(constraint: EncodingConstraint): void
     vfunc_get_headers(options?: FormatOptions | null): string
     vfunc_header_added(header: Header): void
@@ -3103,7 +3103,7 @@ export class MessagePartial {
     vfunc_headers_cleared(): void
     vfunc_set_content_type(content_type: ContentType): void
     vfunc_write_to_stream(options: FormatOptions, content_only: boolean, stream: Stream): number
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -3111,7 +3111,7 @@ export class MessagePartial {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: MessagePartial, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: MessagePartial, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -3132,20 +3132,20 @@ export class MessagePartial {
 export interface Multipart_ConstructProps extends Object_ConstructProps {
 }
 export class Multipart {
-    /* Fields of GMime.Multipart */
+    /* Fields of GMime-3.0.GMime.Multipart */
     parent_object: Object
     children: object[]
     boundary: string
     prologue: string
     epilogue: string
-    /* Fields of GMime.Object */
+    /* Fields of GMime-3.0.GMime.Object */
     disposition: ContentDisposition
     content_type: ContentType
     headers: HeaderList
     content_id: string
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GMime.Multipart */
+    /* Methods of GMime-3.0.GMime.Multipart */
     add(part: Object): void
     clear(): void
     contains(part: Object): boolean
@@ -3164,7 +3164,7 @@ export class Multipart {
     set_boundary(boundary: string): void
     set_epilogue(epilogue: string): void
     set_prologue(prologue: string): void
-    /* Methods of GMime.Object */
+    /* Methods of GMime-3.0.GMime.Object */
     append_header(header: string, value: string, charset: string): void
     encode(constraint: EncodingConstraint): void
     get_content_disposition(): ContentDisposition
@@ -3188,7 +3188,7 @@ export class Multipart {
     to_string(options?: FormatOptions | null): string
     write_content_to_stream(options: FormatOptions | null, stream: Stream): number
     write_to_stream(options: FormatOptions | null, stream: Stream): number
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -3210,7 +3210,7 @@ export class Multipart {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GMime.Multipart */
+    /* Virtual methods of GMime-3.0.GMime.Multipart */
     vfunc_add(part: Object): void
     vfunc_clear(): void
     vfunc_contains(part: Object): boolean
@@ -3222,7 +3222,7 @@ export class Multipart {
     vfunc_remove(part: Object): boolean
     vfunc_remove_at(index: number): Object
     vfunc_set_boundary(boundary: string): void
-    /* Virtual methods of GMime.Object */
+    /* Virtual methods of GMime-3.0.GMime.Object */
     vfunc_encode(constraint: EncodingConstraint): void
     vfunc_get_headers(options?: FormatOptions | null): string
     vfunc_header_added(header: Header): void
@@ -3231,7 +3231,7 @@ export class Multipart {
     vfunc_headers_cleared(): void
     vfunc_set_content_type(content_type: ContentType): void
     vfunc_write_to_stream(options: FormatOptions, content_only: boolean, stream: Stream): number
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -3239,7 +3239,7 @@ export class Multipart {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Multipart, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Multipart, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -3259,23 +3259,23 @@ export class Multipart {
 export interface MultipartEncrypted_ConstructProps extends Multipart_ConstructProps {
 }
 export class MultipartEncrypted {
-    /* Fields of GMime.MultipartEncrypted */
+    /* Fields of GMime-3.0.GMime.MultipartEncrypted */
     parent_object: Multipart
-    /* Fields of GMime.Multipart */
+    /* Fields of GMime-3.0.GMime.Multipart */
     children: object[]
     boundary: string
     prologue: string
     epilogue: string
-    /* Fields of GMime.Object */
+    /* Fields of GMime-3.0.GMime.Object */
     disposition: ContentDisposition
     content_type: ContentType
     headers: HeaderList
     content_id: string
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GMime.MultipartEncrypted */
+    /* Methods of GMime-3.0.GMime.MultipartEncrypted */
     decrypt(flags: DecryptFlags, session_key: string): [ /* returnType */ Object | null, /* result */ DecryptResult ]
-    /* Methods of GMime.Multipart */
+    /* Methods of GMime-3.0.GMime.Multipart */
     add(part: Object): void
     clear(): void
     contains(part: Object): boolean
@@ -3294,7 +3294,7 @@ export class MultipartEncrypted {
     set_boundary(boundary: string): void
     set_epilogue(epilogue: string): void
     set_prologue(prologue: string): void
-    /* Methods of GMime.Object */
+    /* Methods of GMime-3.0.GMime.Object */
     append_header(header: string, value: string, charset: string): void
     encode(constraint: EncodingConstraint): void
     get_content_disposition(): ContentDisposition
@@ -3318,7 +3318,7 @@ export class MultipartEncrypted {
     to_string(options?: FormatOptions | null): string
     write_content_to_stream(options: FormatOptions | null, stream: Stream): number
     write_to_stream(options: FormatOptions | null, stream: Stream): number
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -3340,7 +3340,7 @@ export class MultipartEncrypted {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GMime.Multipart */
+    /* Virtual methods of GMime-3.0.GMime.Multipart */
     vfunc_add(part: Object): void
     vfunc_clear(): void
     vfunc_contains(part: Object): boolean
@@ -3352,7 +3352,7 @@ export class MultipartEncrypted {
     vfunc_remove(part: Object): boolean
     vfunc_remove_at(index: number): Object
     vfunc_set_boundary(boundary: string): void
-    /* Virtual methods of GMime.Object */
+    /* Virtual methods of GMime-3.0.GMime.Object */
     vfunc_encode(constraint: EncodingConstraint): void
     vfunc_get_headers(options?: FormatOptions | null): string
     vfunc_header_added(header: Header): void
@@ -3361,7 +3361,7 @@ export class MultipartEncrypted {
     vfunc_headers_cleared(): void
     vfunc_set_content_type(content_type: ContentType): void
     vfunc_write_to_stream(options: FormatOptions, content_only: boolean, stream: Stream): number
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -3369,7 +3369,7 @@ export class MultipartEncrypted {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: MultipartEncrypted, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: MultipartEncrypted, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -3389,23 +3389,23 @@ export class MultipartEncrypted {
 export interface MultipartSigned_ConstructProps extends Multipart_ConstructProps {
 }
 export class MultipartSigned {
-    /* Fields of GMime.MultipartSigned */
+    /* Fields of GMime-3.0.GMime.MultipartSigned */
     parent_object: Multipart
-    /* Fields of GMime.Multipart */
+    /* Fields of GMime-3.0.GMime.Multipart */
     children: object[]
     boundary: string
     prologue: string
     epilogue: string
-    /* Fields of GMime.Object */
+    /* Fields of GMime-3.0.GMime.Object */
     disposition: ContentDisposition
     content_type: ContentType
     headers: HeaderList
     content_id: string
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GMime.MultipartSigned */
+    /* Methods of GMime-3.0.GMime.MultipartSigned */
     verify(flags: VerifyFlags): SignatureList | null
-    /* Methods of GMime.Multipart */
+    /* Methods of GMime-3.0.GMime.Multipart */
     add(part: Object): void
     clear(): void
     contains(part: Object): boolean
@@ -3424,7 +3424,7 @@ export class MultipartSigned {
     set_boundary(boundary: string): void
     set_epilogue(epilogue: string): void
     set_prologue(prologue: string): void
-    /* Methods of GMime.Object */
+    /* Methods of GMime-3.0.GMime.Object */
     append_header(header: string, value: string, charset: string): void
     encode(constraint: EncodingConstraint): void
     get_content_disposition(): ContentDisposition
@@ -3448,7 +3448,7 @@ export class MultipartSigned {
     to_string(options?: FormatOptions | null): string
     write_content_to_stream(options: FormatOptions | null, stream: Stream): number
     write_to_stream(options: FormatOptions | null, stream: Stream): number
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -3470,7 +3470,7 @@ export class MultipartSigned {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GMime.Multipart */
+    /* Virtual methods of GMime-3.0.GMime.Multipart */
     vfunc_add(part: Object): void
     vfunc_clear(): void
     vfunc_contains(part: Object): boolean
@@ -3482,7 +3482,7 @@ export class MultipartSigned {
     vfunc_remove(part: Object): boolean
     vfunc_remove_at(index: number): Object
     vfunc_set_boundary(boundary: string): void
-    /* Virtual methods of GMime.Object */
+    /* Virtual methods of GMime-3.0.GMime.Object */
     vfunc_encode(constraint: EncodingConstraint): void
     vfunc_get_headers(options?: FormatOptions | null): string
     vfunc_header_added(header: Header): void
@@ -3491,7 +3491,7 @@ export class MultipartSigned {
     vfunc_headers_cleared(): void
     vfunc_set_content_type(content_type: ContentType): void
     vfunc_write_to_stream(options: FormatOptions, content_only: boolean, stream: Stream): number
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -3499,7 +3499,7 @@ export class MultipartSigned {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: MultipartSigned, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: MultipartSigned, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -3519,15 +3519,15 @@ export class MultipartSigned {
 export interface Object_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class Object {
-    /* Fields of GMime.Object */
+    /* Fields of GMime-3.0.GMime.Object */
     parent_object: GObject.Object
     disposition: ContentDisposition
     content_type: ContentType
     headers: HeaderList
     content_id: string
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GMime.Object */
+    /* Methods of GMime-3.0.GMime.Object */
     append_header(header: string, value: string, charset: string): void
     encode(constraint: EncodingConstraint): void
     get_content_disposition(): ContentDisposition
@@ -3551,7 +3551,7 @@ export class Object {
     to_string(options?: FormatOptions | null): string
     write_content_to_stream(options: FormatOptions | null, stream: Stream): number
     write_to_stream(options: FormatOptions | null, stream: Stream): number
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -3573,7 +3573,7 @@ export class Object {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GMime.Object */
+    /* Virtual methods of GMime-3.0.GMime.Object */
     vfunc_encode(constraint: EncodingConstraint): void
     vfunc_get_headers(options?: FormatOptions | null): string
     vfunc_header_added(header: Header): void
@@ -3582,7 +3582,7 @@ export class Object {
     vfunc_headers_cleared(): void
     vfunc_set_content_type(content_type: ContentType): void
     vfunc_write_to_stream(options: FormatOptions, content_only: boolean, stream: Stream): number
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -3590,7 +3590,7 @@ export class Object {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Object, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Object, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -3612,16 +3612,16 @@ export class Object {
 export interface Param_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class Param {
-    /* Fields of GMime.Param */
+    /* Fields of GMime-3.0.GMime.Param */
     parent_object: GObject.Object
     method: ParamEncodingMethod
     charset: string
     lang: string
     name: string
     value: string
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GMime.Param */
+    /* Methods of GMime-3.0.GMime.Param */
     get_charset(): string
     get_encoding_method(): ParamEncodingMethod
     get_lang(): string
@@ -3631,7 +3631,7 @@ export class Param {
     set_encoding_method(method: ParamEncodingMethod): void
     set_lang(lang: string): void
     set_value(value: string): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -3653,7 +3653,7 @@ export class Param {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -3661,7 +3661,7 @@ export class Param {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Param, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Param, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -3677,9 +3677,9 @@ export class Param {
 export interface ParamList_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class ParamList {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GMime.ParamList */
+    /* Methods of GMime-3.0.GMime.ParamList */
     clear(): void
     encode(options: FormatOptions, fold: boolean, str: GLib.String): void
     get_parameter(name: string): Param
@@ -3688,7 +3688,7 @@ export class ParamList {
     remove(name: string): boolean
     remove_at(index: number): boolean
     set_parameter(name: string, value: string): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -3710,7 +3710,7 @@ export class ParamList {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -3718,7 +3718,7 @@ export class ParamList {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: ParamList, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: ParamList, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -3737,12 +3737,12 @@ export class ParamList {
 export interface Parser_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class Parser {
-    /* Fields of GMime.Parser */
+    /* Fields of GMime-3.0.GMime.Parser */
     parent_object: GObject.Object
     priv: object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GMime.Parser */
+    /* Methods of GMime-3.0.GMime.Parser */
     construct_message(options?: ParserOptions | null): Message | null
     construct_part(options?: ParserOptions | null): Object | null
     eos(): boolean
@@ -3758,7 +3758,7 @@ export class Parser {
     set_persist_stream(persist: boolean): void
     set_respect_content_length(respect_content_length: boolean): void
     tell(): number
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -3780,7 +3780,7 @@ export class Parser {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -3788,7 +3788,7 @@ export class Parser {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Parser, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Parser, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -3807,7 +3807,7 @@ export class Parser {
 export interface Part_ConstructProps extends Object_ConstructProps {
 }
 export class Part {
-    /* Fields of GMime.Part */
+    /* Fields of GMime-3.0.GMime.Part */
     parent_object: Object
     encoding: ContentEncoding
     openpgp: OpenPGPData
@@ -3815,14 +3815,14 @@ export class Part {
     content_location: string
     content_md5: string
     content: DataWrapper
-    /* Fields of GMime.Object */
+    /* Fields of GMime-3.0.GMime.Object */
     disposition: ContentDisposition
     content_type: ContentType
     headers: HeaderList
     content_id: string
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GMime.Part */
+    /* Methods of GMime-3.0.GMime.Part */
     get_best_content_encoding(constraint: EncodingConstraint): ContentEncoding
     get_content(): DataWrapper
     get_content_description(): string
@@ -3846,7 +3846,7 @@ export class Part {
     set_filename(filename: string): void
     set_openpgp_data(data: OpenPGPData): void
     verify_content_md5(): boolean
-    /* Methods of GMime.Object */
+    /* Methods of GMime-3.0.GMime.Object */
     append_header(header: string, value: string, charset: string): void
     encode(constraint: EncodingConstraint): void
     get_content_disposition(): ContentDisposition
@@ -3868,7 +3868,7 @@ export class Part {
     to_string(options?: FormatOptions | null): string
     write_content_to_stream(options: FormatOptions | null, stream: Stream): number
     write_to_stream(options: FormatOptions | null, stream: Stream): number
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -3890,9 +3890,9 @@ export class Part {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GMime.Part */
+    /* Virtual methods of GMime-3.0.GMime.Part */
     vfunc_set_content(content: DataWrapper): void
-    /* Virtual methods of GMime.Object */
+    /* Virtual methods of GMime-3.0.GMime.Object */
     vfunc_encode(constraint: EncodingConstraint): void
     vfunc_get_headers(options?: FormatOptions | null): string
     vfunc_header_added(header: Header): void
@@ -3901,7 +3901,7 @@ export class Part {
     vfunc_headers_cleared(): void
     vfunc_set_content_type(content_type: ContentType): void
     vfunc_write_to_stream(options: FormatOptions, content_only: boolean, stream: Stream): number
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -3909,7 +3909,7 @@ export class Part {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Part, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Part, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -3929,12 +3929,12 @@ export class Part {
 export interface Pkcs7Context_ConstructProps extends CryptoContext_ConstructProps {
 }
 export class Pkcs7Context {
-    /* Fields of GMime.CryptoContext */
+    /* Fields of GMime-3.0.GMime.CryptoContext */
     parent_object: GObject.Object
     request_passwd: PasswordRequestFunc
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GMime.CryptoContext */
+    /* Methods of GMime-3.0.GMime.CryptoContext */
     decrypt(flags: DecryptFlags, session_key: string | null, istream: Stream, ostream: Stream): DecryptResult
     digest_id(name: string): DigestAlgo
     digest_name(digest: DigestAlgo): string | null
@@ -3946,7 +3946,7 @@ export class Pkcs7Context {
     import_keys(istream: Stream): number
     sign(detach: boolean, userid: string, istream: Stream, ostream: Stream): number
     verify(flags: VerifyFlags, istream: Stream, sigstream?: Stream | null, ostream?: Stream | null): SignatureList | null
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -3968,7 +3968,7 @@ export class Pkcs7Context {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GMime.CryptoContext */
+    /* Virtual methods of GMime-3.0.GMime.CryptoContext */
     vfunc_decrypt(flags: DecryptFlags, session_key: string | null, istream: Stream, ostream: Stream): DecryptResult
     vfunc_digest_id(name: string): DigestAlgo
     vfunc_digest_name(digest: DigestAlgo): string | null
@@ -3980,7 +3980,7 @@ export class Pkcs7Context {
     vfunc_import_keys(istream: Stream): number
     vfunc_sign(detach: boolean, userid: string, istream: Stream, ostream: Stream): number
     vfunc_verify(flags: VerifyFlags, istream: Stream, sigstream?: Stream | null, ostream?: Stream | null): SignatureList | null
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -3988,7 +3988,7 @@ export class Pkcs7Context {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Pkcs7Context, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Pkcs7Context, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -4007,15 +4007,15 @@ export class Pkcs7Context {
 export interface Signature_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class Signature {
-    /* Fields of GMime.Signature */
+    /* Fields of GMime-3.0.GMime.Signature */
     parent_object: GObject.Object
     status: SignatureStatus
     cert: Certificate
     created: number
     expires: number
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GMime.Signature */
+    /* Methods of GMime-3.0.GMime.Signature */
     get_certificate(): Certificate
     get_created(): number
     get_created64(): number
@@ -4026,7 +4026,7 @@ export class Signature {
     set_created(created: number): void
     set_expires(expires: number): void
     set_status(status: SignatureStatus): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -4048,7 +4048,7 @@ export class Signature {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -4056,7 +4056,7 @@ export class Signature {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Signature, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Signature, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -4074,11 +4074,11 @@ export class Signature {
 export interface SignatureList_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class SignatureList {
-    /* Fields of GMime.SignatureList */
+    /* Fields of GMime-3.0.GMime.SignatureList */
     parent_object: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GMime.SignatureList */
+    /* Methods of GMime-3.0.GMime.SignatureList */
     add(sig: Signature): number
     clear(): void
     contains(sig: Signature): boolean
@@ -4089,7 +4089,7 @@ export class SignatureList {
     remove(sig: Signature): boolean
     remove_at(index: number): boolean
     set_signature(index: number, sig: Signature): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -4111,7 +4111,7 @@ export class SignatureList {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -4119,7 +4119,7 @@ export class SignatureList {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: SignatureList, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: SignatureList, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -4137,9 +4137,9 @@ export class SignatureList {
 export interface Stream_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class Stream {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GMime.Stream */
+    /* Methods of GMime-3.0.GMime.Stream */
     buffer_gets(buf: string, max: number): number
     buffer_readln(buffer: Uint8Array[]): void
     close(): number
@@ -4157,7 +4157,7 @@ export class Stream {
     write_string(str: string): number
     write_to_stream(dest: Stream): number
     writev(vector: StreamIOVector, count: number): number
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -4179,7 +4179,7 @@ export class Stream {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GMime.Stream */
+    /* Virtual methods of GMime-3.0.GMime.Stream */
     vfunc_close(): number
     vfunc_eos(): boolean
     vfunc_flush(): number
@@ -4190,7 +4190,7 @@ export class Stream {
     vfunc_substream(start: number, end: number): Stream
     vfunc_tell(): number
     vfunc_write(buf: string, len: number): number
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -4198,7 +4198,7 @@ export class Stream {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Stream, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Stream, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -4214,7 +4214,7 @@ export class Stream {
 export interface StreamBuffer_ConstructProps extends Stream_ConstructProps {
 }
 export class StreamBuffer {
-    /* Fields of GMime.StreamBuffer */
+    /* Fields of GMime-3.0.GMime.StreamBuffer */
     parent_object: Stream
     mode: StreamBufferMode
     source: Stream
@@ -4222,9 +4222,9 @@ export class StreamBuffer {
     bufptr: string
     bufend: string
     buflen: number
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GMime.Stream */
+    /* Methods of GMime-3.0.GMime.Stream */
     buffer_gets(buf: string, max: number): number
     buffer_readln(buffer: Uint8Array[]): void
     close(): number
@@ -4242,7 +4242,7 @@ export class StreamBuffer {
     write_string(str: string): number
     write_to_stream(dest: Stream): number
     writev(vector: StreamIOVector, count: number): number
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -4264,7 +4264,7 @@ export class StreamBuffer {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GMime.Stream */
+    /* Virtual methods of GMime-3.0.GMime.Stream */
     vfunc_close(): number
     vfunc_eos(): boolean
     vfunc_flush(): number
@@ -4275,7 +4275,7 @@ export class StreamBuffer {
     vfunc_substream(start: number, end: number): Stream
     vfunc_tell(): number
     vfunc_write(buf: string, len: number): number
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -4283,7 +4283,7 @@ export class StreamBuffer {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: StreamBuffer, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: StreamBuffer, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -4301,15 +4301,15 @@ export class StreamBuffer {
 export interface StreamCat_ConstructProps extends Stream_ConstructProps {
 }
 export class StreamCat {
-    /* Fields of GMime.StreamCat */
+    /* Fields of GMime-3.0.GMime.StreamCat */
     parent_object: Stream
     sources: object
     current: object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GMime.StreamCat */
+    /* Methods of GMime-3.0.GMime.StreamCat */
     add_source(source: Stream): number
-    /* Methods of GMime.Stream */
+    /* Methods of GMime-3.0.GMime.Stream */
     buffer_gets(buf: string, max: number): number
     buffer_readln(buffer: Uint8Array[]): void
     close(): number
@@ -4327,7 +4327,7 @@ export class StreamCat {
     write_string(str: string): number
     write_to_stream(dest: Stream): number
     writev(vector: StreamIOVector, count: number): number
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -4349,7 +4349,7 @@ export class StreamCat {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GMime.Stream */
+    /* Virtual methods of GMime-3.0.GMime.Stream */
     vfunc_close(): number
     vfunc_eos(): boolean
     vfunc_flush(): number
@@ -4360,7 +4360,7 @@ export class StreamCat {
     vfunc_substream(start: number, end: number): Stream
     vfunc_tell(): number
     vfunc_write(buf: string, len: number): number
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -4368,7 +4368,7 @@ export class StreamCat {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: StreamCat, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: StreamCat, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -4386,16 +4386,16 @@ export class StreamCat {
 export interface StreamFile_ConstructProps extends Stream_ConstructProps {
 }
 export class StreamFile {
-    /* Fields of GMime.StreamFile */
+    /* Fields of GMime-3.0.GMime.StreamFile */
     parent_object: Stream
     owner: boolean
     fp: object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GMime.StreamFile */
+    /* Methods of GMime-3.0.GMime.StreamFile */
     get_owner(): boolean
     set_owner(owner: boolean): void
-    /* Methods of GMime.Stream */
+    /* Methods of GMime-3.0.GMime.Stream */
     buffer_gets(buf: string, max: number): number
     buffer_readln(buffer: Uint8Array[]): void
     close(): number
@@ -4413,7 +4413,7 @@ export class StreamFile {
     write_string(str: string): number
     write_to_stream(dest: Stream): number
     writev(vector: StreamIOVector, count: number): number
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -4435,7 +4435,7 @@ export class StreamFile {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GMime.Stream */
+    /* Virtual methods of GMime-3.0.GMime.Stream */
     vfunc_close(): number
     vfunc_eos(): boolean
     vfunc_flush(): number
@@ -4446,7 +4446,7 @@ export class StreamFile {
     vfunc_substream(start: number, end: number): Stream
     vfunc_tell(): number
     vfunc_write(buf: string, len: number): number
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -4454,7 +4454,7 @@ export class StreamFile {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: StreamFile, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: StreamFile, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -4474,19 +4474,19 @@ export class StreamFile {
 export interface StreamFilter_ConstructProps extends Stream_ConstructProps {
 }
 export class StreamFilter {
-    /* Fields of GMime.StreamFilter */
+    /* Fields of GMime-3.0.GMime.StreamFilter */
     parent_object: Stream
     priv: object
     source: Stream
     owner: boolean
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GMime.StreamFilter */
+    /* Methods of GMime-3.0.GMime.StreamFilter */
     add(filter: Filter): number
     get_owner(): boolean
     remove(id: number): void
     set_owner(owner: boolean): void
-    /* Methods of GMime.Stream */
+    /* Methods of GMime-3.0.GMime.Stream */
     buffer_gets(buf: string, max: number): number
     buffer_readln(buffer: Uint8Array[]): void
     close(): number
@@ -4504,7 +4504,7 @@ export class StreamFilter {
     write_string(str: string): number
     write_to_stream(dest: Stream): number
     writev(vector: StreamIOVector, count: number): number
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -4526,7 +4526,7 @@ export class StreamFilter {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GMime.Stream */
+    /* Virtual methods of GMime-3.0.GMime.Stream */
     vfunc_close(): number
     vfunc_eos(): boolean
     vfunc_flush(): number
@@ -4537,7 +4537,7 @@ export class StreamFilter {
     vfunc_substream(start: number, end: number): Stream
     vfunc_tell(): number
     vfunc_write(buf: string, len: number): number
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -4545,7 +4545,7 @@ export class StreamFilter {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: StreamFilter, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: StreamFilter, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -4563,17 +4563,17 @@ export class StreamFilter {
 export interface StreamFs_ConstructProps extends Stream_ConstructProps {
 }
 export class StreamFs {
-    /* Fields of GMime.StreamFs */
+    /* Fields of GMime-3.0.GMime.StreamFs */
     parent_object: Stream
     owner: boolean
     eos: boolean
     fd: number
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GMime.StreamFs */
+    /* Methods of GMime-3.0.GMime.StreamFs */
     get_owner(): boolean
     set_owner(owner: boolean): void
-    /* Methods of GMime.Stream */
+    /* Methods of GMime-3.0.GMime.Stream */
     buffer_gets(buf: string, max: number): number
     buffer_readln(buffer: Uint8Array[]): void
     close(): number
@@ -4590,7 +4590,7 @@ export class StreamFs {
     write_string(str: string): number
     write_to_stream(dest: Stream): number
     writev(vector: StreamIOVector, count: number): number
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -4612,7 +4612,7 @@ export class StreamFs {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GMime.Stream */
+    /* Virtual methods of GMime-3.0.GMime.Stream */
     vfunc_close(): number
     vfunc_eos(): boolean
     vfunc_flush(): number
@@ -4623,7 +4623,7 @@ export class StreamFs {
     vfunc_substream(start: number, end: number): Stream
     vfunc_tell(): number
     vfunc_write(buf: string, len: number): number
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -4631,7 +4631,7 @@ export class StreamFs {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: StreamFs, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: StreamFs, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -4651,19 +4651,19 @@ export class StreamFs {
 export interface StreamGIO_ConstructProps extends Stream_ConstructProps {
 }
 export class StreamGIO {
-    /* Fields of GMime.StreamGIO */
+    /* Fields of GMime-3.0.GMime.StreamGIO */
     parent_object: Stream
     ostream: Gio.OutputStream
     istream: Gio.InputStream
     file: Gio.File
     owner: boolean
     eos: boolean
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GMime.StreamGIO */
+    /* Methods of GMime-3.0.GMime.StreamGIO */
     get_owner(): boolean
     set_owner(owner: boolean): void
-    /* Methods of GMime.Stream */
+    /* Methods of GMime-3.0.GMime.Stream */
     buffer_gets(buf: string, max: number): number
     buffer_readln(buffer: Uint8Array[]): void
     close(): number
@@ -4680,7 +4680,7 @@ export class StreamGIO {
     write_string(str: string): number
     write_to_stream(dest: Stream): number
     writev(vector: StreamIOVector, count: number): number
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -4702,7 +4702,7 @@ export class StreamGIO {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GMime.Stream */
+    /* Virtual methods of GMime-3.0.GMime.Stream */
     vfunc_close(): number
     vfunc_eos(): boolean
     vfunc_flush(): number
@@ -4713,7 +4713,7 @@ export class StreamGIO {
     vfunc_substream(start: number, end: number): Stream
     vfunc_tell(): number
     vfunc_write(buf: string, len: number): number
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -4721,7 +4721,7 @@ export class StreamGIO {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: StreamGIO, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: StreamGIO, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -4740,18 +4740,18 @@ export class StreamGIO {
 export interface StreamMem_ConstructProps extends Stream_ConstructProps {
 }
 export class StreamMem {
-    /* Fields of GMime.StreamMem */
+    /* Fields of GMime-3.0.GMime.StreamMem */
     parent_object: Stream
     buffer: Uint8Array[]
     owner: boolean
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GMime.StreamMem */
+    /* Methods of GMime-3.0.GMime.StreamMem */
     get_byte_array(): Uint8Array[]
     get_owner(): boolean
     set_byte_array(array: Uint8Array[]): void
     set_owner(owner: boolean): void
-    /* Methods of GMime.Stream */
+    /* Methods of GMime-3.0.GMime.Stream */
     buffer_gets(buf: string, max: number): number
     buffer_readln(buffer: Uint8Array[]): void
     close(): number
@@ -4769,7 +4769,7 @@ export class StreamMem {
     write_string(str: string): number
     write_to_stream(dest: Stream): number
     writev(vector: StreamIOVector, count: number): number
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -4791,7 +4791,7 @@ export class StreamMem {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GMime.Stream */
+    /* Virtual methods of GMime-3.0.GMime.Stream */
     vfunc_close(): number
     vfunc_eos(): boolean
     vfunc_flush(): number
@@ -4802,7 +4802,7 @@ export class StreamMem {
     vfunc_substream(start: number, end: number): Stream
     vfunc_tell(): number
     vfunc_write(buf: string, len: number): number
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -4810,7 +4810,7 @@ export class StreamMem {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: StreamMem, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: StreamMem, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -4830,19 +4830,19 @@ export class StreamMem {
 export interface StreamMmap_ConstructProps extends Stream_ConstructProps {
 }
 export class StreamMmap {
-    /* Fields of GMime.StreamMmap */
+    /* Fields of GMime-3.0.GMime.StreamMmap */
     parent_object: Stream
     owner: boolean
     eos: boolean
     fd: number
     map: string
     maplen: number
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GMime.StreamMmap */
+    /* Methods of GMime-3.0.GMime.StreamMmap */
     get_owner(): boolean
     set_owner(owner: boolean): void
-    /* Methods of GMime.Stream */
+    /* Methods of GMime-3.0.GMime.Stream */
     buffer_gets(buf: string, max: number): number
     buffer_readln(buffer: Uint8Array[]): void
     close(): number
@@ -4859,7 +4859,7 @@ export class StreamMmap {
     write_string(str: string): number
     write_to_stream(dest: Stream): number
     writev(vector: StreamIOVector, count: number): number
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -4881,7 +4881,7 @@ export class StreamMmap {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GMime.Stream */
+    /* Virtual methods of GMime-3.0.GMime.Stream */
     vfunc_close(): number
     vfunc_eos(): boolean
     vfunc_flush(): number
@@ -4892,7 +4892,7 @@ export class StreamMmap {
     vfunc_substream(start: number, end: number): Stream
     vfunc_tell(): number
     vfunc_write(buf: string, len: number): number
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -4900,7 +4900,7 @@ export class StreamMmap {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: StreamMmap, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: StreamMmap, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -4919,17 +4919,17 @@ export class StreamMmap {
 export interface StreamNull_ConstructProps extends Stream_ConstructProps {
 }
 export class StreamNull {
-    /* Fields of GMime.StreamNull */
+    /* Fields of GMime-3.0.GMime.StreamNull */
     parent_object: Stream
     written: number
     newlines: number
     count_newlines: boolean
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GMime.StreamNull */
+    /* Methods of GMime-3.0.GMime.StreamNull */
     get_count_newlines(): boolean
     set_count_newlines(count: boolean): void
-    /* Methods of GMime.Stream */
+    /* Methods of GMime-3.0.GMime.Stream */
     buffer_gets(buf: string, max: number): number
     buffer_readln(buffer: Uint8Array[]): void
     close(): number
@@ -4947,7 +4947,7 @@ export class StreamNull {
     write_string(str: string): number
     write_to_stream(dest: Stream): number
     writev(vector: StreamIOVector, count: number): number
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -4969,7 +4969,7 @@ export class StreamNull {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GMime.Stream */
+    /* Virtual methods of GMime-3.0.GMime.Stream */
     vfunc_close(): number
     vfunc_eos(): boolean
     vfunc_flush(): number
@@ -4980,7 +4980,7 @@ export class StreamNull {
     vfunc_substream(start: number, end: number): Stream
     vfunc_tell(): number
     vfunc_write(buf: string, len: number): number
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -4988,7 +4988,7 @@ export class StreamNull {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: StreamNull, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: StreamNull, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -5006,17 +5006,17 @@ export class StreamNull {
 export interface StreamPipe_ConstructProps extends Stream_ConstructProps {
 }
 export class StreamPipe {
-    /* Fields of GMime.StreamPipe */
+    /* Fields of GMime-3.0.GMime.StreamPipe */
     parent_object: Stream
     owner: boolean
     eos: boolean
     fd: number
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GMime.StreamPipe */
+    /* Methods of GMime-3.0.GMime.StreamPipe */
     get_owner(): boolean
     set_owner(owner: boolean): void
-    /* Methods of GMime.Stream */
+    /* Methods of GMime-3.0.GMime.Stream */
     buffer_gets(buf: string, max: number): number
     buffer_readln(buffer: Uint8Array[]): void
     close(): number
@@ -5033,7 +5033,7 @@ export class StreamPipe {
     write_string(str: string): number
     write_to_stream(dest: Stream): number
     writev(vector: StreamIOVector, count: number): number
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -5055,7 +5055,7 @@ export class StreamPipe {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GMime.Stream */
+    /* Virtual methods of GMime-3.0.GMime.Stream */
     vfunc_close(): number
     vfunc_eos(): boolean
     vfunc_flush(): number
@@ -5066,7 +5066,7 @@ export class StreamPipe {
     vfunc_substream(start: number, end: number): Stream
     vfunc_tell(): number
     vfunc_write(buf: string, len: number): number
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -5074,7 +5074,7 @@ export class StreamPipe {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: StreamPipe, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: StreamPipe, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -5092,28 +5092,28 @@ export class StreamPipe {
 export interface TextPart_ConstructProps extends Part_ConstructProps {
 }
 export class TextPart {
-    /* Fields of GMime.TextPart */
+    /* Fields of GMime-3.0.GMime.TextPart */
     parent_object: Part
-    /* Fields of GMime.Part */
+    /* Fields of GMime-3.0.GMime.Part */
     encoding: ContentEncoding
     openpgp: OpenPGPData
     content_description: string
     content_location: string
     content_md5: string
     content: DataWrapper
-    /* Fields of GMime.Object */
+    /* Fields of GMime-3.0.GMime.Object */
     disposition: ContentDisposition
     content_type: ContentType
     headers: HeaderList
     content_id: string
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GMime.TextPart */
+    /* Methods of GMime-3.0.GMime.TextPart */
     get_charset(): string
     get_text(): string
     set_charset(charset: string): void
     set_text(text: string): void
-    /* Methods of GMime.Part */
+    /* Methods of GMime-3.0.GMime.Part */
     get_best_content_encoding(constraint: EncodingConstraint): ContentEncoding
     get_content(): DataWrapper
     get_content_description(): string
@@ -5137,7 +5137,7 @@ export class TextPart {
     set_filename(filename: string): void
     set_openpgp_data(data: OpenPGPData): void
     verify_content_md5(): boolean
-    /* Methods of GMime.Object */
+    /* Methods of GMime-3.0.GMime.Object */
     append_header(header: string, value: string, charset: string): void
     encode(constraint: EncodingConstraint): void
     get_content_disposition(): ContentDisposition
@@ -5159,7 +5159,7 @@ export class TextPart {
     to_string(options?: FormatOptions | null): string
     write_content_to_stream(options: FormatOptions | null, stream: Stream): number
     write_to_stream(options: FormatOptions | null, stream: Stream): number
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -5181,9 +5181,9 @@ export class TextPart {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GMime.Part */
+    /* Virtual methods of GMime-3.0.GMime.Part */
     vfunc_set_content(content: DataWrapper): void
-    /* Virtual methods of GMime.Object */
+    /* Virtual methods of GMime-3.0.GMime.Object */
     vfunc_encode(constraint: EncodingConstraint): void
     vfunc_get_headers(options?: FormatOptions | null): string
     vfunc_header_added(header: Header): void
@@ -5192,7 +5192,7 @@ export class TextPart {
     vfunc_headers_cleared(): void
     vfunc_set_content_type(content_type: ContentType): void
     vfunc_write_to_stream(options: FormatOptions, content_only: boolean, stream: Stream): number
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -5200,7 +5200,7 @@ export class TextPart {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: TextPart, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: TextPart, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -5218,35 +5218,35 @@ export class TextPart {
     static $gtype: GObject.Type
 }
 export abstract class ApplicationPkcs7MimeClass {
-    /* Fields of GMime.ApplicationPkcs7MimeClass */
+    /* Fields of GMime-3.0.GMime.ApplicationPkcs7MimeClass */
     parent_class: PartClass
     static name: string
 }
 export abstract class AutocryptHeaderClass {
-    /* Fields of GMime.AutocryptHeaderClass */
+    /* Fields of GMime-3.0.GMime.AutocryptHeaderClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
 export abstract class AutocryptHeaderListClass {
-    /* Fields of GMime.AutocryptHeaderListClass */
+    /* Fields of GMime-3.0.GMime.AutocryptHeaderListClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
 export abstract class CertificateClass {
-    /* Fields of GMime.CertificateClass */
+    /* Fields of GMime-3.0.GMime.CertificateClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
 export abstract class CertificateListClass {
-    /* Fields of GMime.CertificateListClass */
+    /* Fields of GMime-3.0.GMime.CertificateListClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
 export class Charset {
-    /* Fields of GMime.Charset */
+    /* Fields of GMime-3.0.GMime.Charset */
     mask: number
     level: number
-    /* Methods of GMime.Charset */
+    /* Methods of GMime-3.0.GMime.Charset */
     best_name(): string | null
     can_encode(charset: string, text: string, len: number): boolean
     init(): void
@@ -5263,17 +5263,17 @@ export class Charset {
     static name(charset: string): string
 }
 export abstract class ContentDispositionClass {
-    /* Fields of GMime.ContentDispositionClass */
+    /* Fields of GMime-3.0.GMime.ContentDispositionClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
 export abstract class ContentTypeClass {
-    /* Fields of GMime.ContentTypeClass */
+    /* Fields of GMime-3.0.GMime.ContentTypeClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
 export abstract class CryptoContextClass {
-    /* Fields of GMime.CryptoContextClass */
+    /* Fields of GMime-3.0.GMime.CryptoContextClass */
     parent_class: GObject.ObjectClass
     digest_id: (ctx: CryptoContext, name: string) => DigestAlgo
     digest_name: (ctx: CryptoContext, digest: DigestAlgo) => string | null
@@ -5289,24 +5289,24 @@ export abstract class CryptoContextClass {
     static name: string
 }
 export abstract class DataWrapperClass {
-    /* Fields of GMime.DataWrapperClass */
+    /* Fields of GMime-3.0.GMime.DataWrapperClass */
     parent_class: GObject.ObjectClass
     write_to_stream: (wrapper: DataWrapper, stream: Stream) => number
     static name: string
 }
 export abstract class DecryptResultClass {
-    /* Fields of GMime.DecryptResultClass */
+    /* Fields of GMime-3.0.GMime.DecryptResultClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
 export class Encoding {
-    /* Fields of GMime.Encoding */
+    /* Fields of GMime-3.0.GMime.Encoding */
     encoding: ContentEncoding
     uubuf: Uint8Array[]
     encode: boolean
     save: number
     state: number
-    /* Methods of GMime.Encoding */
+    /* Methods of GMime-3.0.GMime.Encoding */
     flush(inbuf: string, inlen: number, outbuf: string): number
     init_decode(encoding: ContentEncoding): void
     init_encode(encoding: ContentEncoding): void
@@ -5326,27 +5326,27 @@ export class Encoding {
     static uuencode_step(inbuf: number, inlen: number, outbuf: number, uubuf: number, state: number, save: number): number
 }
 export abstract class FilterBasicClass {
-    /* Fields of GMime.FilterBasicClass */
+    /* Fields of GMime-3.0.GMime.FilterBasicClass */
     parent_class: FilterClass
     static name: string
 }
 export abstract class FilterBestClass {
-    /* Fields of GMime.FilterBestClass */
+    /* Fields of GMime-3.0.GMime.FilterBestClass */
     parent_class: FilterClass
     static name: string
 }
 export abstract class FilterCharsetClass {
-    /* Fields of GMime.FilterCharsetClass */
+    /* Fields of GMime-3.0.GMime.FilterCharsetClass */
     parent_class: FilterClass
     static name: string
 }
 export abstract class FilterChecksumClass {
-    /* Fields of GMime.FilterChecksumClass */
+    /* Fields of GMime-3.0.GMime.FilterChecksumClass */
     parent_class: FilterClass
     static name: string
 }
 export abstract class FilterClass {
-    /* Fields of GMime.FilterClass */
+    /* Fields of GMime-3.0.GMime.FilterClass */
     parent_class: GObject.ObjectClass
     copy: (filter: Filter) => Filter
     filter: (filter: Filter, inbuf: Uint8Array[], prespace: number) => [ /* outbuf */ Uint8Array[], /* outprespace */ number ]
@@ -5355,62 +5355,62 @@ export abstract class FilterClass {
     static name: string
 }
 export abstract class FilterDos2UnixClass {
-    /* Fields of GMime.FilterDos2UnixClass */
+    /* Fields of GMime-3.0.GMime.FilterDos2UnixClass */
     parent_class: FilterClass
     static name: string
 }
 export abstract class FilterEnrichedClass {
-    /* Fields of GMime.FilterEnrichedClass */
+    /* Fields of GMime-3.0.GMime.FilterEnrichedClass */
     parent_class: FilterClass
     static name: string
 }
 export abstract class FilterFromClass {
-    /* Fields of GMime.FilterFromClass */
+    /* Fields of GMime-3.0.GMime.FilterFromClass */
     parent_class: FilterClass
     static name: string
 }
 export abstract class FilterGZipClass {
-    /* Fields of GMime.FilterGZipClass */
+    /* Fields of GMime-3.0.GMime.FilterGZipClass */
     parent_class: FilterClass
     static name: string
 }
 export abstract class FilterHTMLClass {
-    /* Fields of GMime.FilterHTMLClass */
+    /* Fields of GMime-3.0.GMime.FilterHTMLClass */
     parent_class: FilterClass
     static name: string
 }
 export abstract class FilterOpenPGPClass {
-    /* Fields of GMime.FilterOpenPGPClass */
+    /* Fields of GMime-3.0.GMime.FilterOpenPGPClass */
     parent_class: FilterClass
     static name: string
 }
 export abstract class FilterSmtpDataClass {
-    /* Fields of GMime.FilterSmtpDataClass */
+    /* Fields of GMime-3.0.GMime.FilterSmtpDataClass */
     parent_class: FilterClass
     static name: string
 }
 export abstract class FilterStripClass {
-    /* Fields of GMime.FilterStripClass */
+    /* Fields of GMime-3.0.GMime.FilterStripClass */
     parent_class: FilterClass
     static name: string
 }
 export abstract class FilterUnix2DosClass {
-    /* Fields of GMime.FilterUnix2DosClass */
+    /* Fields of GMime-3.0.GMime.FilterUnix2DosClass */
     parent_class: FilterClass
     static name: string
 }
 export abstract class FilterWindowsClass {
-    /* Fields of GMime.FilterWindowsClass */
+    /* Fields of GMime-3.0.GMime.FilterWindowsClass */
     parent_class: FilterClass
     static name: string
 }
 export abstract class FilterYencClass {
-    /* Fields of GMime.FilterYencClass */
+    /* Fields of GMime-3.0.GMime.FilterYencClass */
     parent_class: FilterClass
     static name: string
 }
 export class FormatOptions {
-    /* Methods of GMime.FormatOptions */
+    /* Methods of GMime-3.0.GMime.FormatOptions */
     add_hidden_header(header: string): void
     clear_hidden_headers(): void
     clone(): FormatOptions
@@ -5434,53 +5434,53 @@ export abstract class GpgContextClass {
     static name: string
 }
 export abstract class HeaderClass {
-    /* Fields of GMime.HeaderClass */
+    /* Fields of GMime-3.0.GMime.HeaderClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
 export abstract class HeaderListClass {
-    /* Fields of GMime.HeaderListClass */
+    /* Fields of GMime-3.0.GMime.HeaderListClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
 export abstract class InternetAddressClass {
-    /* Fields of GMime.InternetAddressClass */
+    /* Fields of GMime-3.0.GMime.InternetAddressClass */
     parent_class: GObject.ObjectClass
     to_string: (ia: InternetAddress, options: FormatOptions, flags: number, linelen: number, str: GLib.String) => void
     static name: string
 }
 export abstract class InternetAddressGroupClass {
-    /* Fields of GMime.InternetAddressGroupClass */
+    /* Fields of GMime-3.0.GMime.InternetAddressGroupClass */
     parent_class: InternetAddressClass
     static name: string
 }
 export abstract class InternetAddressListClass {
-    /* Fields of GMime.InternetAddressListClass */
+    /* Fields of GMime-3.0.GMime.InternetAddressListClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
 export abstract class InternetAddressMailboxClass {
-    /* Fields of GMime.InternetAddressMailboxClass */
+    /* Fields of GMime-3.0.GMime.InternetAddressMailboxClass */
     parent_class: InternetAddressClass
     static name: string
 }
 export abstract class MessageClass {
-    /* Fields of GMime.MessageClass */
+    /* Fields of GMime-3.0.GMime.MessageClass */
     parent_class: ObjectClass
     static name: string
 }
 export abstract class MessagePartClass {
-    /* Fields of GMime.MessagePartClass */
+    /* Fields of GMime-3.0.GMime.MessagePartClass */
     parent_class: ObjectClass
     static name: string
 }
 export abstract class MessagePartialClass {
-    /* Fields of GMime.MessagePartialClass */
+    /* Fields of GMime-3.0.GMime.MessagePartialClass */
     parent_class: PartClass
     static name: string
 }
 export abstract class MultipartClass {
-    /* Fields of GMime.MultipartClass */
+    /* Fields of GMime-3.0.GMime.MultipartClass */
     parent_class: ObjectClass
     clear: (multipart: Multipart) => void
     add: (multipart: Multipart, part: Object) => void
@@ -5496,17 +5496,17 @@ export abstract class MultipartClass {
     static name: string
 }
 export abstract class MultipartEncryptedClass {
-    /* Fields of GMime.MultipartEncryptedClass */
+    /* Fields of GMime-3.0.GMime.MultipartEncryptedClass */
     parent_class: MultipartClass
     static name: string
 }
 export abstract class MultipartSignedClass {
-    /* Fields of GMime.MultipartSignedClass */
+    /* Fields of GMime-3.0.GMime.MultipartSignedClass */
     parent_class: MultipartClass
     static name: string
 }
 export abstract class ObjectClass {
-    /* Fields of GMime.ObjectClass */
+    /* Fields of GMime-3.0.GMime.ObjectClass */
     parent_class: GObject.ObjectClass
     header_added: (object: Object, header: Header) => void
     header_changed: (object: Object, header: Header) => void
@@ -5519,7 +5519,7 @@ export abstract class ObjectClass {
     static name: string
 }
 export class OpenPGPMarker {
-    /* Fields of GMime.OpenPGPMarker */
+    /* Fields of GMime-3.0.GMime.OpenPGPMarker */
     marker: string
     len: number
     before: OpenPGPState
@@ -5528,22 +5528,22 @@ export class OpenPGPMarker {
     static name: string
 }
 export abstract class ParamClass {
-    /* Fields of GMime.ParamClass */
+    /* Fields of GMime-3.0.GMime.ParamClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
 export abstract class ParamListClass {
-    /* Fields of GMime.ParamListClass */
+    /* Fields of GMime-3.0.GMime.ParamListClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
 export abstract class ParserClass {
-    /* Fields of GMime.ParserClass */
+    /* Fields of GMime-3.0.GMime.ParserClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
 export class ParserOptions {
-    /* Methods of GMime.ParserOptions */
+    /* Methods of GMime-3.0.GMime.ParserOptions */
     clone(): ParserOptions
     free(): void
     get_address_compliance_mode(): RfcComplianceMode
@@ -5564,13 +5564,13 @@ export class ParserOptions {
     static get_default(): ParserOptions
 }
 export abstract class PartClass {
-    /* Fields of GMime.PartClass */
+    /* Fields of GMime-3.0.GMime.PartClass */
     parent_class: ObjectClass
     set_content: (mime_part: Part, content: DataWrapper) => void
     static name: string
 }
 export class PartIter {
-    /* Methods of GMime.PartIter */
+    /* Methods of GMime-3.0.GMime.PartIter */
     clone(): PartIter
     free(): void
     get_current(): Object
@@ -5594,9 +5594,9 @@ export abstract class Pkcs7ContextClass {
     static name: string
 }
 export class References {
-    /* Fields of GMime.References */
+    /* Fields of GMime-3.0.GMime.References */
     array: object[]
-    /* Methods of GMime.References */
+    /* Methods of GMime-3.0.GMime.References */
     append(msgid: string): void
     clear(): void
     copy(): References
@@ -5612,27 +5612,27 @@ export class References {
     static parse(options: ParserOptions | null, text: string): References
 }
 export abstract class SignatureClass {
-    /* Fields of GMime.SignatureClass */
+    /* Fields of GMime-3.0.GMime.SignatureClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
 export abstract class SignatureListClass {
-    /* Fields of GMime.SignatureListClass */
+    /* Fields of GMime-3.0.GMime.SignatureListClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
 export abstract class StreamBufferClass {
-    /* Fields of GMime.StreamBufferClass */
+    /* Fields of GMime-3.0.GMime.StreamBufferClass */
     parent_class: StreamClass
     static name: string
 }
 export abstract class StreamCatClass {
-    /* Fields of GMime.StreamCatClass */
+    /* Fields of GMime-3.0.GMime.StreamCatClass */
     parent_class: StreamClass
     static name: string
 }
 export abstract class StreamClass {
-    /* Fields of GMime.StreamClass */
+    /* Fields of GMime-3.0.GMime.StreamClass */
     parent_class: GObject.ObjectClass
     read: (stream: Stream, buf: Uint8Array[]) => number
     write: (stream: Stream, buf: string, len: number) => number
@@ -5647,53 +5647,53 @@ export abstract class StreamClass {
     static name: string
 }
 export abstract class StreamFileClass {
-    /* Fields of GMime.StreamFileClass */
+    /* Fields of GMime-3.0.GMime.StreamFileClass */
     parent_class: StreamClass
     static name: string
 }
 export abstract class StreamFilterClass {
-    /* Fields of GMime.StreamFilterClass */
+    /* Fields of GMime-3.0.GMime.StreamFilterClass */
     parent_class: StreamClass
     static name: string
 }
 export abstract class StreamFsClass {
-    /* Fields of GMime.StreamFsClass */
+    /* Fields of GMime-3.0.GMime.StreamFsClass */
     parent_class: StreamClass
     static name: string
 }
 export abstract class StreamGIOClass {
-    /* Fields of GMime.StreamGIOClass */
+    /* Fields of GMime-3.0.GMime.StreamGIOClass */
     parent_class: StreamClass
     static name: string
 }
 export class StreamIOVector {
-    /* Fields of GMime.StreamIOVector */
+    /* Fields of GMime-3.0.GMime.StreamIOVector */
     data: object
     len: number
     static name: string
 }
 export abstract class StreamMemClass {
-    /* Fields of GMime.StreamMemClass */
+    /* Fields of GMime-3.0.GMime.StreamMemClass */
     parent_class: StreamClass
     static name: string
 }
 export abstract class StreamMmapClass {
-    /* Fields of GMime.StreamMmapClass */
+    /* Fields of GMime-3.0.GMime.StreamMmapClass */
     parent_class: StreamClass
     static name: string
 }
 export abstract class StreamNullClass {
-    /* Fields of GMime.StreamNullClass */
+    /* Fields of GMime-3.0.GMime.StreamNullClass */
     parent_class: StreamClass
     static name: string
 }
 export abstract class StreamPipeClass {
-    /* Fields of GMime.StreamPipeClass */
+    /* Fields of GMime-3.0.GMime.StreamPipeClass */
     parent_class: StreamClass
     static name: string
 }
 export abstract class TextPartClass {
-    /* Fields of GMime.TextPartClass */
+    /* Fields of GMime-3.0.GMime.TextPartClass */
     parent_class: PartClass
     static name: string
 }

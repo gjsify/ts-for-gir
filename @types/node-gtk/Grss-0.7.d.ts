@@ -14,13 +14,13 @@ export declare namespace Grss {
 export interface FeedAtomFormatter_ConstructProps extends FeedFormatter_ConstructProps {
 }
 export class FeedAtomFormatter {
-    /* Fields of Grss.FeedAtomFormatter */
+    /* Fields of Grss-0.7.Grss.FeedAtomFormatter */
     parent: FeedFormatter
-    /* Fields of Grss.FeedFormatter */
+    /* Fields of Grss-0.7.Grss.FeedFormatter */
     priv: FeedFormatterPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Grss.FeedFormatter */
+    /* Methods of Grss-0.7.Grss.FeedFormatter */
     addItem(item: FeedItem): void
     addItems(items: FeedItem[]): void
     format(): string
@@ -28,7 +28,7 @@ export class FeedAtomFormatter {
     getItems(): FeedItem[]
     reset(): void
     setChannel(channel: FeedChannel): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -50,23 +50,12 @@ export class FeedAtomFormatter {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of Grss.FeedFormatter */
-    vfuncFormat(): string
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: FeedAtomFormatter, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: FeedAtomFormatter, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -84,12 +73,12 @@ export class FeedAtomFormatter {
 export interface FeedChannel_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class FeedChannel {
-    /* Fields of Grss.FeedChannel */
+    /* Fields of Grss-0.7.Grss.FeedChannel */
     parent: GObject.Object
     priv: FeedChannelPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Grss.FeedChannel */
+    /* Methods of Grss-0.7.Grss.FeedChannel */
     addContributor(contributor: Person): void
     addCookie(cookie: Soup.Cookie): void
     fetch(): boolean
@@ -139,7 +128,7 @@ export class FeedChannel {
     setUpdateInterval(minutes: number): void
     setUpdateTime(update: number): void
     setWebmaster(webmaster: string): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -161,21 +150,12 @@ export class FeedChannel {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: FeedChannel, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: FeedChannel, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -197,12 +177,12 @@ export class FeedChannel {
 export interface FeedEnclosure_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class FeedEnclosure {
-    /* Fields of Grss.FeedEnclosure */
+    /* Fields of Grss-0.7.Grss.FeedEnclosure */
     parent: GObject.Object
     priv: FeedEnclosurePrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Grss.FeedEnclosure */
+    /* Methods of Grss-0.7.Grss.FeedEnclosure */
     fetch(): Gio.File
     fetchAsync(callback?: Gio.AsyncReadyCallback | null): void
     fetchFinish(res: Gio.AsyncResult): Gio.File
@@ -211,7 +191,7 @@ export class FeedEnclosure {
     getUrl(): string
     setFormat(type: string): void
     setLength(length: number): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -233,21 +213,12 @@ export class FeedEnclosure {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: FeedEnclosure, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: FeedEnclosure, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -265,12 +236,12 @@ export class FeedEnclosure {
 export interface FeedFormatter_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class FeedFormatter {
-    /* Fields of Grss.FeedFormatter */
+    /* Fields of Grss-0.7.Grss.FeedFormatter */
     parent: GObject.Object
     priv: FeedFormatterPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Grss.FeedFormatter */
+    /* Methods of Grss-0.7.Grss.FeedFormatter */
     addItem(item: FeedItem): void
     addItems(items: FeedItem[]): void
     format(): string
@@ -278,7 +249,7 @@ export class FeedFormatter {
     getItems(): FeedItem[]
     reset(): void
     setChannel(channel: FeedChannel): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -300,23 +271,12 @@ export class FeedFormatter {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of Grss.FeedFormatter */
-    vfuncFormat(): string
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: FeedFormatter, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: FeedFormatter, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -332,12 +292,12 @@ export class FeedFormatter {
 export interface FeedItem_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class FeedItem {
-    /* Fields of Grss.FeedItem */
+    /* Fields of Grss-0.7.Grss.FeedItem */
     parent: GObject.Object
     priv: FeedItemPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Grss.FeedItem */
+    /* Methods of Grss-0.7.Grss.FeedItem */
     addCategory(category: string): void
     addContributor(contributor: Person): void
     addEnclosure(enclosure: FeedEnclosure): void
@@ -367,7 +327,7 @@ export class FeedItem {
     setRelated(related: string): void
     setSource(source: string): boolean
     setTitle(title: string): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -389,21 +349,12 @@ export class FeedItem {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: FeedItem, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: FeedItem, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -421,15 +372,15 @@ export class FeedItem {
 export interface FeedParser_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class FeedParser {
-    /* Fields of Grss.FeedParser */
+    /* Fields of Grss-0.7.Grss.FeedParser */
     parent: GObject.Object
     priv: FeedParserPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Grss.FeedParser */
+    /* Methods of Grss-0.7.Grss.FeedParser */
     parse(feed: FeedChannel, doc: libxml2.DocPtr): FeedItem[]
     parseChannel(feed: FeedChannel, doc: libxml2.DocPtr): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -451,21 +402,12 @@ export class FeedParser {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: FeedParser, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: FeedParser, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -483,13 +425,13 @@ export class FeedParser {
 export interface FeedRssFormatter_ConstructProps extends FeedFormatter_ConstructProps {
 }
 export class FeedRssFormatter {
-    /* Fields of Grss.FeedRssFormatter */
+    /* Fields of Grss-0.7.Grss.FeedRssFormatter */
     parent: FeedFormatter
-    /* Fields of Grss.FeedFormatter */
+    /* Fields of Grss-0.7.Grss.FeedFormatter */
     priv: FeedFormatterPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Grss.FeedFormatter */
+    /* Methods of Grss-0.7.Grss.FeedFormatter */
     addItem(item: FeedItem): void
     addItems(items: FeedItem[]): void
     format(): string
@@ -497,7 +439,7 @@ export class FeedRssFormatter {
     getItems(): FeedItem[]
     reset(): void
     setChannel(channel: FeedChannel): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -519,23 +461,12 @@ export class FeedRssFormatter {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of Grss.FeedFormatter */
-    vfuncFormat(): string
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: FeedRssFormatter, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: FeedRssFormatter, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -553,16 +484,16 @@ export class FeedRssFormatter {
 export interface FeedsGroup_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class FeedsGroup {
-    /* Fields of Grss.FeedsGroup */
+    /* Fields of Grss-0.7.Grss.FeedsGroup */
     parent: GObject.Object
     priv: FeedsGroupPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Grss.FeedsGroup */
+    /* Methods of Grss-0.7.Grss.FeedsGroup */
     exportFile(channels: FeedChannel[], format: string, uri: string): boolean
     getFormats(): string[]
     parseFile(path: string): FeedChannel[]
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -584,21 +515,12 @@ export class FeedsGroup {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: FeedsGroup, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: FeedsGroup, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -616,18 +538,18 @@ export class FeedsGroup {
 export interface FeedsPool_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class FeedsPool {
-    /* Fields of Grss.FeedsPool */
+    /* Fields of Grss-0.7.Grss.FeedsPool */
     parent: GObject.Object
     priv: FeedsPoolPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Grss.FeedsPool */
+    /* Methods of Grss-0.7.Grss.FeedsPool */
     getListened(): FeedChannel[]
     getListenedNum(): number
     getSession(): Soup.Session
     listen(feeds: FeedChannel[]): void
     switch(run: boolean): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -649,42 +571,28 @@ export class FeedsPool {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of Grss.FeedsPool */
-    vfuncFeedFetching(feed: FeedChannel): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Grss.FeedsPool */
+    /* Signals of Grss-0.7.Grss.FeedsPool */
     connect(sigName: "feed-fail", callback: (($obj: FeedsPool, feed: GObject.Object) => void)): number
-    connect_after(sigName: "feed-fail", callback: (($obj: FeedsPool, feed: GObject.Object) => void)): number
+    on(sigName: "feed-fail", callback: (feed: GObject.Object) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "feed-fail", callback: (feed: GObject.Object) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "feed-fail", callback: (feed: GObject.Object) => void): NodeJS.EventEmitter
     emit(sigName: "feed-fail", feed: GObject.Object): void
-    on(sigName: "feed-fail", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "feed-fail", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "feed-fail", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "feed-fetching", callback: (($obj: FeedsPool, feed: GObject.Object) => void)): number
-    connect_after(sigName: "feed-fetching", callback: (($obj: FeedsPool, feed: GObject.Object) => void)): number
+    on(sigName: "feed-fetching", callback: (feed: GObject.Object) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "feed-fetching", callback: (feed: GObject.Object) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "feed-fetching", callback: (feed: GObject.Object) => void): NodeJS.EventEmitter
     emit(sigName: "feed-fetching", feed: GObject.Object): void
-    on(sigName: "feed-fetching", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "feed-fetching", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "feed-fetching", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "feed-ready", callback: (($obj: FeedsPool, feed: GObject.Object, items: FeedItem[]) => void)): number
-    connect_after(sigName: "feed-ready", callback: (($obj: FeedsPool, feed: GObject.Object, items: FeedItem[]) => void)): number
+    on(sigName: "feed-ready", callback: (feed: GObject.Object, items: FeedItem[]) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "feed-ready", callback: (feed: GObject.Object, items: FeedItem[]) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "feed-ready", callback: (feed: GObject.Object, items: FeedItem[]) => void): NodeJS.EventEmitter
     emit(sigName: "feed-ready", feed: GObject.Object, items: FeedItem[]): void
-    on(sigName: "feed-ready", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "feed-ready", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "feed-ready", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: FeedsPool, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: FeedsPool, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -702,19 +610,19 @@ export class FeedsPool {
 export interface FeedsPublisher_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class FeedsPublisher {
-    /* Fields of Grss.FeedsPublisher */
+    /* Fields of Grss-0.7.Grss.FeedsPublisher */
     parent: GObject.Object
     priv: FeedsPublisherPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Grss.FeedsPublisher */
+    /* Methods of Grss-0.7.Grss.FeedsPublisher */
     formatContent(channel: FeedChannel, items: FeedItem[]): string
     hubSetPort(port: number): void
     hubSetTopics(topics: FeedChannel[]): void
     hubSwitch(run: boolean): void
     publishFile(channel: FeedChannel, items: FeedItem[], uri: string): boolean
     publishWeb(channel: FeedChannel, items: FeedItem[], id: string): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -736,37 +644,23 @@ export class FeedsPublisher {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of Grss.FeedsPublisher */
-    vfuncDeleteSubscription(topic: FeedChannel, callback: string): void
-    vfuncNewSubscription(topic: FeedChannel, callback: string): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Grss.FeedsPublisher */
+    /* Signals of Grss-0.7.Grss.FeedsPublisher */
     connect(sigName: "delete-subscription", callback: (($obj: FeedsPublisher, object: FeedChannel, p0: string) => void)): number
-    connect_after(sigName: "delete-subscription", callback: (($obj: FeedsPublisher, object: FeedChannel, p0: string) => void)): number
+    on(sigName: "delete-subscription", callback: (object: FeedChannel, p0: string) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "delete-subscription", callback: (object: FeedChannel, p0: string) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "delete-subscription", callback: (object: FeedChannel, p0: string) => void): NodeJS.EventEmitter
     emit(sigName: "delete-subscription", object: FeedChannel, p0: string): void
-    on(sigName: "delete-subscription", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "delete-subscription", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "delete-subscription", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "new-subscription", callback: (($obj: FeedsPublisher, object: FeedChannel, p0: string) => void)): number
-    connect_after(sigName: "new-subscription", callback: (($obj: FeedsPublisher, object: FeedChannel, p0: string) => void)): number
+    on(sigName: "new-subscription", callback: (object: FeedChannel, p0: string) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "new-subscription", callback: (object: FeedChannel, p0: string) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "new-subscription", callback: (object: FeedChannel, p0: string) => void): NodeJS.EventEmitter
     emit(sigName: "new-subscription", object: FeedChannel, p0: string): void
-    on(sigName: "new-subscription", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "new-subscription", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "new-subscription", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: FeedsPublisher, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: FeedsPublisher, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -784,18 +678,18 @@ export class FeedsPublisher {
 export interface FeedsStore_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class FeedsStore {
-    /* Fields of Grss.FeedsStore */
+    /* Fields of Grss-0.7.Grss.FeedsStore */
     parent: GObject.Object
     priv: FeedsStorePrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Grss.FeedsStore */
+    /* Methods of Grss-0.7.Grss.FeedsStore */
     addItemInChannel(channel: FeedChannel, item: FeedItem): void
     getChannels(): FeedChannel[]
     getItemsByChannel(channel: FeedChannel): FeedItem[]
     hasItem(channel: FeedChannel, id: string): boolean
     switch(run: boolean): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -817,26 +711,12 @@ export class FeedsStore {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of Grss.FeedsStore */
-    vfuncAddItemInChannel(channel: FeedChannel, item: FeedItem): void
-    vfuncGetChannels(): FeedChannel[]
-    vfuncGetItemsByChannel(channel: FeedChannel): FeedItem[]
-    vfuncHasItem(channel: FeedChannel, id: string): boolean
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: FeedsStore, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: FeedsStore, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -852,12 +732,12 @@ export class FeedsStore {
 export interface FeedsSubscriber_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class FeedsSubscriber {
-    /* Fields of Grss.FeedsSubscriber */
+    /* Fields of Grss-0.7.Grss.FeedsSubscriber */
     parent: GObject.Object
     priv: FeedsSubscriberPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Grss.FeedsSubscriber */
+    /* Methods of Grss-0.7.Grss.FeedsSubscriber */
     getAddress(): Gio.InetAddress
     getListened(): FeedChannel[]
     getPort(): number
@@ -865,7 +745,7 @@ export class FeedsSubscriber {
     listen(feeds: FeedChannel[]): boolean
     setPort(port: number): void
     switch(run: boolean): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -887,30 +767,18 @@ export class FeedsSubscriber {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of Grss.FeedsSubscriber */
-    vfuncNotificationReceived(feed: FeedChannel, item: FeedItem): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Grss.FeedsSubscriber */
+    /* Signals of Grss-0.7.Grss.FeedsSubscriber */
     connect(sigName: "notification-received", callback: (($obj: FeedsSubscriber, feed: GObject.Object, item: GObject.Object) => void)): number
-    connect_after(sigName: "notification-received", callback: (($obj: FeedsSubscriber, feed: GObject.Object, item: GObject.Object) => void)): number
+    on(sigName: "notification-received", callback: (feed: GObject.Object, item: GObject.Object) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notification-received", callback: (feed: GObject.Object, item: GObject.Object) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notification-received", callback: (feed: GObject.Object, item: GObject.Object) => void): NodeJS.EventEmitter
     emit(sigName: "notification-received", feed: GObject.Object, item: GObject.Object): void
-    on(sigName: "notification-received", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notification-received", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notification-received", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: FeedsSubscriber, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: FeedsSubscriber, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -926,7 +794,7 @@ export class FeedsSubscriber {
     static $gtype: GObject.Type
 }
 export abstract class FeedAtomFormatterClass {
-    /* Fields of Grss.FeedAtomFormatterClass */
+    /* Fields of Grss-0.7.Grss.FeedAtomFormatterClass */
     parent: FeedFormatterClass
     static name: string
 }
@@ -934,7 +802,7 @@ export class FeedAtomFormatterPrivate {
     static name: string
 }
 export abstract class FeedChannelClass {
-    /* Fields of Grss.FeedChannelClass */
+    /* Fields of Grss-0.7.Grss.FeedChannelClass */
     parent: GObject.ObjectClass
     static name: string
 }
@@ -942,7 +810,7 @@ export class FeedChannelPrivate {
     static name: string
 }
 export abstract class FeedEnclosureClass {
-    /* Fields of Grss.FeedEnclosureClass */
+    /* Fields of Grss-0.7.Grss.FeedEnclosureClass */
     parent: GObject.ObjectClass
     static name: string
 }
@@ -950,7 +818,7 @@ export class FeedEnclosurePrivate {
     static name: string
 }
 export abstract class FeedFormatterClass {
-    /* Fields of Grss.FeedFormatterClass */
+    /* Fields of Grss-0.7.Grss.FeedFormatterClass */
     parent: GObject.ObjectClass
     format: (formatter: FeedFormatter) => string
     static name: string
@@ -959,7 +827,7 @@ export class FeedFormatterPrivate {
     static name: string
 }
 export abstract class FeedItemClass {
-    /* Fields of Grss.FeedItemClass */
+    /* Fields of Grss-0.7.Grss.FeedItemClass */
     parent: GObject.ObjectClass
     static name: string
 }
@@ -967,7 +835,7 @@ export class FeedItemPrivate {
     static name: string
 }
 export abstract class FeedParserClass {
-    /* Fields of Grss.FeedParserClass */
+    /* Fields of Grss-0.7.Grss.FeedParserClass */
     parent: GObject.ObjectClass
     static name: string
 }
@@ -975,7 +843,7 @@ export class FeedParserPrivate {
     static name: string
 }
 export abstract class FeedRssFormatterClass {
-    /* Fields of Grss.FeedRssFormatterClass */
+    /* Fields of Grss-0.7.Grss.FeedRssFormatterClass */
     parent: FeedFormatterClass
     static name: string
 }
@@ -983,7 +851,7 @@ export class FeedRssFormatterPrivate {
     static name: string
 }
 export abstract class FeedsGroupClass {
-    /* Fields of Grss.FeedsGroupClass */
+    /* Fields of Grss-0.7.Grss.FeedsGroupClass */
     parent: GObject.ObjectClass
     static name: string
 }
@@ -991,7 +859,7 @@ export class FeedsGroupPrivate {
     static name: string
 }
 export abstract class FeedsPoolClass {
-    /* Fields of Grss.FeedsPoolClass */
+    /* Fields of Grss-0.7.Grss.FeedsPoolClass */
     parent: GObject.ObjectClass
     feedFetching: (pool: FeedsPool, feed: FeedChannel) => void
     static name: string
@@ -1000,7 +868,7 @@ export class FeedsPoolPrivate {
     static name: string
 }
 export abstract class FeedsPublisherClass {
-    /* Fields of Grss.FeedsPublisherClass */
+    /* Fields of Grss-0.7.Grss.FeedsPublisherClass */
     parent: GObject.ObjectClass
     newSubscription: (pub: FeedsPublisher, topic: FeedChannel, callback: string) => void
     deleteSubscription: (pub: FeedsPublisher, topic: FeedChannel, callback: string) => void
@@ -1010,7 +878,7 @@ export class FeedsPublisherPrivate {
     static name: string
 }
 export abstract class FeedsStoreClass {
-    /* Fields of Grss.FeedsStoreClass */
+    /* Fields of Grss-0.7.Grss.FeedsStoreClass */
     parent: GObject.ObjectClass
     getChannels: (store: FeedsStore) => FeedChannel[]
     getItemsByChannel: (store: FeedsStore, channel: FeedChannel) => FeedItem[]
@@ -1022,7 +890,7 @@ export class FeedsStorePrivate {
     static name: string
 }
 export abstract class FeedsSubscriberClass {
-    /* Fields of Grss.FeedsSubscriberClass */
+    /* Fields of Grss-0.7.Grss.FeedsSubscriberClass */
     parent: GObject.ObjectClass
     notificationReceived: (sub: FeedsSubscriber, feed: FeedChannel, item: FeedItem) => void
     static name: string
@@ -1031,7 +899,7 @@ export class FeedsSubscriberPrivate {
     static name: string
 }
 export class Person {
-    /* Methods of Grss.Person */
+    /* Methods of Grss-0.7.Grss.Person */
     getEmail(): string
     getName(): string
     getUri(): string

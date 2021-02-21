@@ -68,17 +68,17 @@ export interface Parser_ConstructProps extends GObject.Object_ConstructProps {
     recurse?: boolean
 }
 export class Parser {
-    /* Properties of TotemPlParser.Parser */
+    /* Properties of TotemPlParser-1.0.TotemPlParser.Parser */
     debug: boolean
     disable_unsafe: boolean
     force: boolean
     recurse: boolean
-    /* Fields of TotemPlParser.Parser */
+    /* Fields of TotemPlParser-1.0.TotemPlParser.Parser */
     parent: GObject.Object
     priv: ParserPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of TotemPlParser.Parser */
+    /* Methods of TotemPlParser-1.0.TotemPlParser.Parser */
     add_ignored_glob(glob: string): void
     add_ignored_mimetype(mimetype: string): void
     add_ignored_scheme(scheme: string): void
@@ -90,7 +90,7 @@ export class Parser {
     save(playlist: Playlist, dest: Gio.File, title: string, type: ParserType): boolean
     save_async(playlist: Playlist, dest: Gio.File, title: string, type: ParserType, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     save_finish(async_result: Gio.AsyncResult): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -112,11 +112,11 @@ export class Parser {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of TotemPlParser.Parser */
+    /* Virtual methods of TotemPlParser-1.0.TotemPlParser.Parser */
     vfunc_entry_parsed(uri: string, metadata: GLib.HashTable): void
     vfunc_playlist_ended(uri: string): void
     vfunc_playlist_started(uri: string, metadata: GLib.HashTable): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -124,7 +124,7 @@ export class Parser {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of TotemPlParser.Parser */
+    /* Signals of TotemPlParser-1.0.TotemPlParser.Parser */
     connect(sigName: "entry-parsed", callback: (($obj: Parser, uri: string, metadata: GLib.HashTable) => void)): number
     connect_after(sigName: "entry-parsed", callback: (($obj: Parser, uri: string, metadata: GLib.HashTable) => void)): number
     emit(sigName: "entry-parsed", uri: string, metadata: GLib.HashTable): void
@@ -134,7 +134,7 @@ export class Parser {
     connect(sigName: "playlist-started", callback: (($obj: Parser, uri: string, metadata: GLib.HashTable) => void)): number
     connect_after(sigName: "playlist-started", callback: (($obj: Parser, uri: string, metadata: GLib.HashTable) => void)): number
     emit(sigName: "playlist-started", uri: string, metadata: GLib.HashTable): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Parser, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Parser, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -165,11 +165,11 @@ export class Parser {
 export interface Playlist_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class Playlist {
-    /* Fields of TotemPlParser.Playlist */
+    /* Fields of TotemPlParser-1.0.TotemPlParser.Playlist */
     parent_instance: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of TotemPlParser.Playlist */
+    /* Methods of TotemPlParser-1.0.TotemPlParser.Playlist */
     append(): /* iter */ PlaylistIter
     get_value(iter: PlaylistIter, key: string, value: any): boolean
     insert(position: number): /* iter */ PlaylistIter
@@ -179,7 +179,7 @@ export class Playlist {
     prepend(): /* iter */ PlaylistIter
     set_value(iter: PlaylistIter, key: string, value: any): boolean
     size(): number
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -201,7 +201,7 @@ export class Playlist {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -209,7 +209,7 @@ export class Playlist {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Playlist, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Playlist, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -225,7 +225,7 @@ export class Playlist {
     static $gtype: GObject.Type
 }
 export abstract class ParserClass {
-    /* Fields of TotemPlParser.ParserClass */
+    /* Fields of TotemPlParser-1.0.TotemPlParser.ParserClass */
     parent_class: GObject.ObjectClass
     entry_parsed: (parser: Parser, uri: string, metadata: GLib.HashTable) => void
     playlist_started: (parser: Parser, uri: string, metadata: GLib.HashTable) => void
@@ -236,7 +236,7 @@ export class ParserPrivate {
     static name: string
 }
 export abstract class PlaylistClass {
-    /* Fields of TotemPlParser.PlaylistClass */
+    /* Fields of TotemPlParser-1.0.TotemPlParser.PlaylistClass */
     parent_class: GObject.ObjectClass
     static name: string
 }

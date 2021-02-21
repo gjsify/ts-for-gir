@@ -63,70 +63,59 @@ export function deviceGlueOverrideProperties(klass: GObject.ObjectClass, propert
 export function wakeupsGlueInterfaceInfo(): Gio.DBusInterfaceInfo
 export function wakeupsGlueOverrideProperties(klass: GObject.ObjectClass, propertyIdBegin: number): number
 export class ClientGlue {
-    /* Properties of UPowerGlib.ClientGlue */
+    /* Properties of UPowerGlib-1.0.UPowerGlib.ClientGlue */
     daemonVersion: string
     lidIsClosed: boolean
     lidIsPresent: boolean
     onBattery: boolean
-    /* Methods of UPowerGlib.ClientGlue */
+    /* Methods of UPowerGlib-1.0.UPowerGlib.ClientGlue */
     callEnumerateDevices(cancellable: Gio.Cancellable | null, callback: Gio.AsyncReadyCallback | null): void
-    callEnumerateDevicesFinish(res: Gio.AsyncResult): [ /* returnType */ boolean, /* outDevices */ string ]
-    callEnumerateDevicesSync(cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* outDevices */ string ]
+    callEnumerateDevicesFinish(res: Gio.AsyncResult): { returnType: boolean, outDevices: string }
+    callEnumerateDevicesSync(cancellable?: Gio.Cancellable | null): { returnType: boolean, outDevices: string }
     callGetCriticalAction(cancellable: Gio.Cancellable | null, callback: Gio.AsyncReadyCallback | null): void
-    callGetCriticalActionFinish(res: Gio.AsyncResult): [ /* returnType */ boolean, /* outAction */ string ]
-    callGetCriticalActionSync(cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* outAction */ string ]
+    callGetCriticalActionFinish(res: Gio.AsyncResult): { returnType: boolean, outAction: string }
+    callGetCriticalActionSync(cancellable?: Gio.Cancellable | null): { returnType: boolean, outAction: string }
     callGetDisplayDevice(cancellable: Gio.Cancellable | null, callback: Gio.AsyncReadyCallback | null): void
-    callGetDisplayDeviceFinish(res: Gio.AsyncResult): [ /* returnType */ boolean, /* outDevice */ string ]
-    callGetDisplayDeviceSync(cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* outDevice */ string ]
+    callGetDisplayDeviceFinish(res: Gio.AsyncResult): { returnType: boolean, outDevice: string }
+    callGetDisplayDeviceSync(cancellable?: Gio.Cancellable | null): { returnType: boolean, outDevice: string }
     completeEnumerateDevices(invocation: Gio.DBusMethodInvocation, devices: string): void
     completeGetCriticalAction(invocation: Gio.DBusMethodInvocation, action: string): void
     completeGetDisplayDevice(invocation: Gio.DBusMethodInvocation, device: string): void
     emitDeviceAdded(argDevice: string): void
     emitDeviceRemoved(argDevice: string): void
-    /* Virtual methods of UPowerGlib.ClientGlue */
-    vfuncDeviceAdded(argDevice: string): void
-    vfuncDeviceRemoved(argDevice: string): void
-    vfuncHandleEnumerateDevices(invocation: Gio.DBusMethodInvocation): boolean
-    vfuncHandleGetCriticalAction(invocation: Gio.DBusMethodInvocation): boolean
-    vfuncHandleGetDisplayDevice(invocation: Gio.DBusMethodInvocation): boolean
-    /* Signals of UPowerGlib.ClientGlue */
+    /* Signals of UPowerGlib-1.0.UPowerGlib.ClientGlue */
     connect(sigName: "device-added", callback: (($obj: ClientGlue, argDevice: string) => void)): number
-    connect_after(sigName: "device-added", callback: (($obj: ClientGlue, argDevice: string) => void)): number
+    on(sigName: "device-added", callback: (argDevice: string) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "device-added", callback: (argDevice: string) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "device-added", callback: (argDevice: string) => void): NodeJS.EventEmitter
     emit(sigName: "device-added", argDevice: string): void
-    on(sigName: "device-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "device-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "device-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "device-removed", callback: (($obj: ClientGlue, argDevice: string) => void)): number
-    connect_after(sigName: "device-removed", callback: (($obj: ClientGlue, argDevice: string) => void)): number
+    on(sigName: "device-removed", callback: (argDevice: string) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "device-removed", callback: (argDevice: string) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "device-removed", callback: (argDevice: string) => void): NodeJS.EventEmitter
     emit(sigName: "device-removed", argDevice: string): void
-    on(sigName: "device-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "device-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "device-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "handle-enumerate-devices", callback: (($obj: ClientGlue, invocation: Gio.DBusMethodInvocation) => boolean)): number
-    connect_after(sigName: "handle-enumerate-devices", callback: (($obj: ClientGlue, invocation: Gio.DBusMethodInvocation) => boolean)): number
+    on(sigName: "handle-enumerate-devices", callback: (invocation: Gio.DBusMethodInvocation) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-enumerate-devices", callback: (invocation: Gio.DBusMethodInvocation) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-enumerate-devices", callback: (invocation: Gio.DBusMethodInvocation) => void): NodeJS.EventEmitter
     emit(sigName: "handle-enumerate-devices", invocation: Gio.DBusMethodInvocation): void
-    on(sigName: "handle-enumerate-devices", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-enumerate-devices", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-enumerate-devices", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "handle-get-critical-action", callback: (($obj: ClientGlue, invocation: Gio.DBusMethodInvocation) => boolean)): number
-    connect_after(sigName: "handle-get-critical-action", callback: (($obj: ClientGlue, invocation: Gio.DBusMethodInvocation) => boolean)): number
+    on(sigName: "handle-get-critical-action", callback: (invocation: Gio.DBusMethodInvocation) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-get-critical-action", callback: (invocation: Gio.DBusMethodInvocation) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-get-critical-action", callback: (invocation: Gio.DBusMethodInvocation) => void): NodeJS.EventEmitter
     emit(sigName: "handle-get-critical-action", invocation: Gio.DBusMethodInvocation): void
-    on(sigName: "handle-get-critical-action", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-get-critical-action", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-get-critical-action", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "handle-get-display-device", callback: (($obj: ClientGlue, invocation: Gio.DBusMethodInvocation) => boolean)): number
-    connect_after(sigName: "handle-get-display-device", callback: (($obj: ClientGlue, invocation: Gio.DBusMethodInvocation) => boolean)): number
+    on(sigName: "handle-get-display-device", callback: (invocation: Gio.DBusMethodInvocation) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-get-display-device", callback: (invocation: Gio.DBusMethodInvocation) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-get-display-device", callback: (invocation: Gio.DBusMethodInvocation) => void): NodeJS.EventEmitter
     emit(sigName: "handle-get-display-device", invocation: Gio.DBusMethodInvocation): void
-    on(sigName: "handle-get-display-device", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-get-display-device", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-get-display-device", callback: (...args: any[]) => void): NodeJS.EventEmitter
     static name: string
     /* Static methods and pseudo-constructors */
     static interfaceInfo(): Gio.DBusInterfaceInfo
     static overrideProperties(klass: GObject.ObjectClass, propertyIdBegin: number): number
 }
 export class DeviceGlue {
-    /* Properties of UPowerGlib.DeviceGlue */
+    /* Properties of UPowerGlib-1.0.UPowerGlib.DeviceGlue */
     capacity: number
     energy: number
     energyEmpty: number
@@ -155,91 +144,75 @@ export class DeviceGlue {
     vendor: string
     voltage: number
     warningLevel: number
-    /* Methods of UPowerGlib.DeviceGlue */
+    /* Methods of UPowerGlib-1.0.UPowerGlib.DeviceGlue */
     callGetHistory(argType: string, argTimespan: number, argResolution: number, cancellable: Gio.Cancellable | null, callback: Gio.AsyncReadyCallback | null): void
-    callGetHistoryFinish(res: Gio.AsyncResult): [ /* returnType */ boolean, /* outData */ GLib.Variant ]
-    callGetHistorySync(argType: string, argTimespan: number, argResolution: number, cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* outData */ GLib.Variant ]
+    callGetHistoryFinish(res: Gio.AsyncResult): { returnType: boolean, outData: GLib.Variant }
+    callGetHistorySync(argType: string, argTimespan: number, argResolution: number, cancellable?: Gio.Cancellable | null): { returnType: boolean, outData: GLib.Variant }
     callGetStatistics(argType: string, cancellable: Gio.Cancellable | null, callback: Gio.AsyncReadyCallback | null): void
-    callGetStatisticsFinish(res: Gio.AsyncResult): [ /* returnType */ boolean, /* outData */ GLib.Variant ]
-    callGetStatisticsSync(argType: string, cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* outData */ GLib.Variant ]
+    callGetStatisticsFinish(res: Gio.AsyncResult): { returnType: boolean, outData: GLib.Variant }
+    callGetStatisticsSync(argType: string, cancellable?: Gio.Cancellable | null): { returnType: boolean, outData: GLib.Variant }
     callRefresh(cancellable: Gio.Cancellable | null, callback: Gio.AsyncReadyCallback | null): void
     callRefreshFinish(res: Gio.AsyncResult): boolean
     callRefreshSync(cancellable?: Gio.Cancellable | null): boolean
     completeGetHistory(invocation: Gio.DBusMethodInvocation, data: GLib.Variant): void
     completeGetStatistics(invocation: Gio.DBusMethodInvocation, data: GLib.Variant): void
     completeRefresh(invocation: Gio.DBusMethodInvocation): void
-    /* Virtual methods of UPowerGlib.DeviceGlue */
-    vfuncHandleGetHistory(invocation: Gio.DBusMethodInvocation, argType: string, argTimespan: number, argResolution: number): boolean
-    vfuncHandleGetStatistics(invocation: Gio.DBusMethodInvocation, argType: string): boolean
-    vfuncHandleRefresh(invocation: Gio.DBusMethodInvocation): boolean
-    /* Signals of UPowerGlib.DeviceGlue */
+    /* Signals of UPowerGlib-1.0.UPowerGlib.DeviceGlue */
     connect(sigName: "handle-get-history", callback: (($obj: DeviceGlue, invocation: Gio.DBusMethodInvocation, argType: string, argTimespan: number, argResolution: number) => boolean)): number
-    connect_after(sigName: "handle-get-history", callback: (($obj: DeviceGlue, invocation: Gio.DBusMethodInvocation, argType: string, argTimespan: number, argResolution: number) => boolean)): number
+    on(sigName: "handle-get-history", callback: (invocation: Gio.DBusMethodInvocation, argType: string, argTimespan: number, argResolution: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-get-history", callback: (invocation: Gio.DBusMethodInvocation, argType: string, argTimespan: number, argResolution: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-get-history", callback: (invocation: Gio.DBusMethodInvocation, argType: string, argTimespan: number, argResolution: number) => void): NodeJS.EventEmitter
     emit(sigName: "handle-get-history", invocation: Gio.DBusMethodInvocation, argType: string, argTimespan: number, argResolution: number): void
-    on(sigName: "handle-get-history", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-get-history", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-get-history", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "handle-get-statistics", callback: (($obj: DeviceGlue, invocation: Gio.DBusMethodInvocation, argType: string) => boolean)): number
-    connect_after(sigName: "handle-get-statistics", callback: (($obj: DeviceGlue, invocation: Gio.DBusMethodInvocation, argType: string) => boolean)): number
+    on(sigName: "handle-get-statistics", callback: (invocation: Gio.DBusMethodInvocation, argType: string) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-get-statistics", callback: (invocation: Gio.DBusMethodInvocation, argType: string) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-get-statistics", callback: (invocation: Gio.DBusMethodInvocation, argType: string) => void): NodeJS.EventEmitter
     emit(sigName: "handle-get-statistics", invocation: Gio.DBusMethodInvocation, argType: string): void
-    on(sigName: "handle-get-statistics", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-get-statistics", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-get-statistics", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "handle-refresh", callback: (($obj: DeviceGlue, invocation: Gio.DBusMethodInvocation) => boolean)): number
-    connect_after(sigName: "handle-refresh", callback: (($obj: DeviceGlue, invocation: Gio.DBusMethodInvocation) => boolean)): number
+    on(sigName: "handle-refresh", callback: (invocation: Gio.DBusMethodInvocation) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-refresh", callback: (invocation: Gio.DBusMethodInvocation) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-refresh", callback: (invocation: Gio.DBusMethodInvocation) => void): NodeJS.EventEmitter
     emit(sigName: "handle-refresh", invocation: Gio.DBusMethodInvocation): void
-    on(sigName: "handle-refresh", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-refresh", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-refresh", callback: (...args: any[]) => void): NodeJS.EventEmitter
     static name: string
     /* Static methods and pseudo-constructors */
     static interfaceInfo(): Gio.DBusInterfaceInfo
     static overrideProperties(klass: GObject.ObjectClass, propertyIdBegin: number): number
 }
 export class WakeupsGlue {
-    /* Properties of UPowerGlib.WakeupsGlue */
+    /* Properties of UPowerGlib-1.0.UPowerGlib.WakeupsGlue */
     hasCapability: boolean
-    /* Methods of UPowerGlib.WakeupsGlue */
+    /* Methods of UPowerGlib-1.0.UPowerGlib.WakeupsGlue */
     callGetData(cancellable: Gio.Cancellable | null, callback: Gio.AsyncReadyCallback | null): void
-    callGetDataFinish(res: Gio.AsyncResult): [ /* returnType */ boolean, /* outData */ GLib.Variant ]
-    callGetDataSync(cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* outData */ GLib.Variant ]
+    callGetDataFinish(res: Gio.AsyncResult): { returnType: boolean, outData: GLib.Variant }
+    callGetDataSync(cancellable?: Gio.Cancellable | null): { returnType: boolean, outData: GLib.Variant }
     callGetTotal(cancellable: Gio.Cancellable | null, callback: Gio.AsyncReadyCallback | null): void
-    callGetTotalFinish(res: Gio.AsyncResult): [ /* returnType */ boolean, /* outValue */ number ]
-    callGetTotalSync(cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* outValue */ number ]
+    callGetTotalFinish(res: Gio.AsyncResult): { returnType: boolean, outValue: number }
+    callGetTotalSync(cancellable?: Gio.Cancellable | null): { returnType: boolean, outValue: number }
     completeGetData(invocation: Gio.DBusMethodInvocation, data: GLib.Variant): void
     completeGetTotal(invocation: Gio.DBusMethodInvocation, value: number): void
     emitDataChanged(): void
     emitTotalChanged(argValue: number): void
-    /* Virtual methods of UPowerGlib.WakeupsGlue */
-    vfuncDataChanged(): void
-    vfuncHandleGetData(invocation: Gio.DBusMethodInvocation): boolean
-    vfuncHandleGetTotal(invocation: Gio.DBusMethodInvocation): boolean
-    vfuncTotalChanged(argValue: number): void
-    /* Signals of UPowerGlib.WakeupsGlue */
+    /* Signals of UPowerGlib-1.0.UPowerGlib.WakeupsGlue */
     connect(sigName: "data-changed", callback: (($obj: WakeupsGlue) => void)): number
-    connect_after(sigName: "data-changed", callback: (($obj: WakeupsGlue) => void)): number
+    on(sigName: "data-changed", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "data-changed", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "data-changed", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "data-changed"): void
-    on(sigName: "data-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "data-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "data-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "handle-get-data", callback: (($obj: WakeupsGlue, invocation: Gio.DBusMethodInvocation) => boolean)): number
-    connect_after(sigName: "handle-get-data", callback: (($obj: WakeupsGlue, invocation: Gio.DBusMethodInvocation) => boolean)): number
+    on(sigName: "handle-get-data", callback: (invocation: Gio.DBusMethodInvocation) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-get-data", callback: (invocation: Gio.DBusMethodInvocation) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-get-data", callback: (invocation: Gio.DBusMethodInvocation) => void): NodeJS.EventEmitter
     emit(sigName: "handle-get-data", invocation: Gio.DBusMethodInvocation): void
-    on(sigName: "handle-get-data", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-get-data", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-get-data", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "handle-get-total", callback: (($obj: WakeupsGlue, invocation: Gio.DBusMethodInvocation) => boolean)): number
-    connect_after(sigName: "handle-get-total", callback: (($obj: WakeupsGlue, invocation: Gio.DBusMethodInvocation) => boolean)): number
+    on(sigName: "handle-get-total", callback: (invocation: Gio.DBusMethodInvocation) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-get-total", callback: (invocation: Gio.DBusMethodInvocation) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-get-total", callback: (invocation: Gio.DBusMethodInvocation) => void): NodeJS.EventEmitter
     emit(sigName: "handle-get-total", invocation: Gio.DBusMethodInvocation): void
-    on(sigName: "handle-get-total", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-get-total", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-get-total", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "total-changed", callback: (($obj: WakeupsGlue, argValue: number) => void)): number
-    connect_after(sigName: "total-changed", callback: (($obj: WakeupsGlue, argValue: number) => void)): number
+    on(sigName: "total-changed", callback: (argValue: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "total-changed", callback: (argValue: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "total-changed", callback: (argValue: number) => void): NodeJS.EventEmitter
     emit(sigName: "total-changed", argValue: number): void
-    on(sigName: "total-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "total-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "total-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     static name: string
     /* Static methods and pseudo-constructors */
     static interfaceInfo(): Gio.DBusInterfaceInfo
@@ -248,17 +221,17 @@ export class WakeupsGlue {
 export interface Client_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class Client {
-    /* Properties of UPowerGlib.Client */
+    /* Properties of UPowerGlib-1.0.UPowerGlib.Client */
     readonly daemonVersion: string
     readonly lidIsClosed: boolean
     readonly lidIsPresent: boolean
     readonly onBattery: boolean
-    /* Fields of UPowerGlib.Client */
+    /* Fields of UPowerGlib-1.0.UPowerGlib.Client */
     parent: GObject.Object
     priv: ClientPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of UPowerGlib.Client */
+    /* Methods of UPowerGlib-1.0.UPowerGlib.Client */
     getCriticalAction(): string
     getDaemonVersion(): string
     getDevices(): Device[]
@@ -266,7 +239,7 @@ export class Client {
     getLidIsClosed(): boolean
     getLidIsPresent(): boolean
     getOnBattery(): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -288,37 +261,23 @@ export class Client {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of UPowerGlib.Client */
-    vfuncDeviceAdded(device: Device): void
-    vfuncDeviceRemoved(objectPath: string): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of UPowerGlib.Client */
+    /* Signals of UPowerGlib-1.0.UPowerGlib.Client */
     connect(sigName: "device-added", callback: (($obj: Client, device: Device) => void)): number
-    connect_after(sigName: "device-added", callback: (($obj: Client, device: Device) => void)): number
+    on(sigName: "device-added", callback: (device: Device) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "device-added", callback: (device: Device) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "device-added", callback: (device: Device) => void): NodeJS.EventEmitter
     emit(sigName: "device-added", device: Device): void
-    on(sigName: "device-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "device-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "device-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "device-removed", callback: (($obj: Client, objectPath: string) => void)): number
-    connect_after(sigName: "device-removed", callback: (($obj: Client, objectPath: string) => void)): number
+    on(sigName: "device-removed", callback: (objectPath: string) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "device-removed", callback: (objectPath: string) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "device-removed", callback: (objectPath: string) => void): NodeJS.EventEmitter
     emit(sigName: "device-removed", objectPath: string): void
-    on(sigName: "device-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "device-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "device-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Client, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Client, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::daemon-version", callback: (($obj: Client, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::daemon-version", callback: (($obj: Client, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::daemon-version", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -360,24 +319,24 @@ export interface ClientGlueProxy_ConstructProps extends Gio.DBusProxy_ConstructP
     onBattery?: boolean
 }
 export class ClientGlueProxy {
-    /* Properties of Gio.DBusProxy */
+    /* Properties of Gio-2.0.Gio.DBusProxy */
     gDefaultTimeout: number
     gInterfaceInfo: Gio.DBusInterfaceInfo
     readonly gNameOwner: string
-    /* Properties of UPowerGlib.ClientGlue */
+    /* Properties of UPowerGlib-1.0.UPowerGlib.ClientGlue */
     daemonVersion: string
     lidIsClosed: boolean
     lidIsPresent: boolean
     onBattery: boolean
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Gio.DBusProxy */
+    /* Methods of Gio-2.0.Gio.DBusProxy */
     call(methodName: string, parameters: GLib.Variant | null, flags: Gio.DBusCallFlags, timeoutMsec: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     callFinish(res: Gio.AsyncResult): GLib.Variant
     callSync(methodName: string, parameters: GLib.Variant | null, flags: Gio.DBusCallFlags, timeoutMsec: number, cancellable?: Gio.Cancellable | null): GLib.Variant
     callWithUnixFdList(methodName: string, parameters: GLib.Variant | null, flags: Gio.DBusCallFlags, timeoutMsec: number, fdList?: Gio.UnixFDList | null, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    callWithUnixFdListFinish(res: Gio.AsyncResult): [ /* returnType */ GLib.Variant, /* outFdList */ Gio.UnixFDList | null ]
-    callWithUnixFdListSync(methodName: string, parameters: GLib.Variant | null, flags: Gio.DBusCallFlags, timeoutMsec: number, fdList?: Gio.UnixFDList | null, cancellable?: Gio.Cancellable | null): [ /* returnType */ GLib.Variant, /* outFdList */ Gio.UnixFDList | null ]
+    callWithUnixFdListFinish(res: Gio.AsyncResult): { returnType: GLib.Variant, outFdList: Gio.UnixFDList | null }
+    callWithUnixFdListSync(methodName: string, parameters: GLib.Variant | null, flags: Gio.DBusCallFlags, timeoutMsec: number, fdList?: Gio.UnixFDList | null, cancellable?: Gio.Cancellable | null): { returnType: GLib.Variant, outFdList: Gio.UnixFDList | null }
     getCachedProperty(propertyName: string): GLib.Variant | null
     getCachedPropertyNames(): string[] | null
     getConnection(): Gio.DBusConnection
@@ -391,7 +350,7 @@ export class ClientGlueProxy {
     setCachedProperty(propertyName: string, value?: GLib.Variant | null): void
     setDefaultTimeout(timeoutMsec: number): void
     setInterfaceInfo(info?: Gio.DBusInterfaceInfo | null): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -413,105 +372,74 @@ export class ClientGlueProxy {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of Gio.AsyncInitable */
+    /* Methods of Gio-2.0.Gio.AsyncInitable */
     initAsync(ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     initFinish(res: Gio.AsyncResult): boolean
     newFinish(res: Gio.AsyncResult): GObject.Object
-    /* Methods of Gio.DBusInterface */
+    /* Methods of Gio-2.0.Gio.DBusInterface */
     getObject(): Gio.DBusObject | null
     getInfo(): Gio.DBusInterfaceInfo
     setObject(object?: Gio.DBusObject | null): void
-    /* Methods of Gio.Initable */
+    /* Methods of Gio-2.0.Gio.Initable */
     init(cancellable?: Gio.Cancellable | null): boolean
-    /* Methods of UPowerGlib.ClientGlue */
+    /* Methods of UPowerGlib-1.0.UPowerGlib.ClientGlue */
     callEnumerateDevices(cancellable: Gio.Cancellable | null, callback: Gio.AsyncReadyCallback | null): void
-    callEnumerateDevicesFinish(res: Gio.AsyncResult): [ /* returnType */ boolean, /* outDevices */ string ]
-    callEnumerateDevicesSync(cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* outDevices */ string ]
+    callEnumerateDevicesFinish(res: Gio.AsyncResult): { returnType: boolean, outDevices: string }
+    callEnumerateDevicesSync(cancellable?: Gio.Cancellable | null): { returnType: boolean, outDevices: string }
     callGetCriticalAction(cancellable: Gio.Cancellable | null, callback: Gio.AsyncReadyCallback | null): void
-    callGetCriticalActionFinish(res: Gio.AsyncResult): [ /* returnType */ boolean, /* outAction */ string ]
-    callGetCriticalActionSync(cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* outAction */ string ]
+    callGetCriticalActionFinish(res: Gio.AsyncResult): { returnType: boolean, outAction: string }
+    callGetCriticalActionSync(cancellable?: Gio.Cancellable | null): { returnType: boolean, outAction: string }
     callGetDisplayDevice(cancellable: Gio.Cancellable | null, callback: Gio.AsyncReadyCallback | null): void
-    callGetDisplayDeviceFinish(res: Gio.AsyncResult): [ /* returnType */ boolean, /* outDevice */ string ]
-    callGetDisplayDeviceSync(cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* outDevice */ string ]
+    callGetDisplayDeviceFinish(res: Gio.AsyncResult): { returnType: boolean, outDevice: string }
+    callGetDisplayDeviceSync(cancellable?: Gio.Cancellable | null): { returnType: boolean, outDevice: string }
     completeEnumerateDevices(invocation: Gio.DBusMethodInvocation, devices: string): void
     completeGetCriticalAction(invocation: Gio.DBusMethodInvocation, action: string): void
     completeGetDisplayDevice(invocation: Gio.DBusMethodInvocation, device: string): void
     emitDeviceAdded(argDevice: string): void
     emitDeviceRemoved(argDevice: string): void
-    /* Virtual methods of UPowerGlib.ClientGlueProxy */
-    vfuncInitAsync(ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    vfuncInitFinish(res: Gio.AsyncResult): boolean
-    vfuncDupObject(): Gio.DBusObject | null
-    vfuncGetInfo(): Gio.DBusInterfaceInfo
-    vfuncSetObject(object?: Gio.DBusObject | null): void
-    vfuncInit(cancellable?: Gio.Cancellable | null): boolean
-    vfuncDeviceAdded(argDevice: string): void
-    vfuncDeviceRemoved(argDevice: string): void
-    vfuncHandleEnumerateDevices(invocation: Gio.DBusMethodInvocation): boolean
-    vfuncHandleGetCriticalAction(invocation: Gio.DBusMethodInvocation): boolean
-    vfuncHandleGetDisplayDevice(invocation: Gio.DBusMethodInvocation): boolean
-    /* Virtual methods of Gio.DBusProxy */
-    vfuncGPropertiesChanged(changedProperties: GLib.Variant, invalidatedProperties: string): void
-    vfuncGSignal(senderName: string, signalName: string, parameters: GLib.Variant): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gio.DBusProxy */
+    /* Signals of Gio-2.0.Gio.DBusProxy */
     connect(sigName: "g-properties-changed", callback: (($obj: ClientGlueProxy, changedProperties: GLib.Variant, invalidatedProperties: string[]) => void)): number
-    connect_after(sigName: "g-properties-changed", callback: (($obj: ClientGlueProxy, changedProperties: GLib.Variant, invalidatedProperties: string[]) => void)): number
+    on(sigName: "g-properties-changed", callback: (changedProperties: GLib.Variant, invalidatedProperties: string[]) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "g-properties-changed", callback: (changedProperties: GLib.Variant, invalidatedProperties: string[]) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "g-properties-changed", callback: (changedProperties: GLib.Variant, invalidatedProperties: string[]) => void): NodeJS.EventEmitter
     emit(sigName: "g-properties-changed", changedProperties: GLib.Variant, invalidatedProperties: string[]): void
-    on(sigName: "g-properties-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "g-properties-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "g-properties-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "g-signal", callback: (($obj: ClientGlueProxy, senderName: string | null, signalName: string, parameters: GLib.Variant) => void)): number
-    connect_after(sigName: "g-signal", callback: (($obj: ClientGlueProxy, senderName: string | null, signalName: string, parameters: GLib.Variant) => void)): number
+    on(sigName: "g-signal", callback: (senderName: string | null, signalName: string, parameters: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "g-signal", callback: (senderName: string | null, signalName: string, parameters: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "g-signal", callback: (senderName: string | null, signalName: string, parameters: GLib.Variant) => void): NodeJS.EventEmitter
     emit(sigName: "g-signal", senderName: string | null, signalName: string, parameters: GLib.Variant): void
-    on(sigName: "g-signal", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "g-signal", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "g-signal", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: ClientGlueProxy, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: ClientGlueProxy, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of UPowerGlib.ClientGlue */
+    /* Signals of UPowerGlib-1.0.UPowerGlib.ClientGlue */
     connect(sigName: "device-added", callback: (($obj: ClientGlueProxy, argDevice: string) => void)): number
-    connect_after(sigName: "device-added", callback: (($obj: ClientGlueProxy, argDevice: string) => void)): number
+    on(sigName: "device-added", callback: (argDevice: string) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "device-added", callback: (argDevice: string) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "device-added", callback: (argDevice: string) => void): NodeJS.EventEmitter
     emit(sigName: "device-added", argDevice: string): void
-    on(sigName: "device-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "device-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "device-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "device-removed", callback: (($obj: ClientGlueProxy, argDevice: string) => void)): number
-    connect_after(sigName: "device-removed", callback: (($obj: ClientGlueProxy, argDevice: string) => void)): number
+    on(sigName: "device-removed", callback: (argDevice: string) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "device-removed", callback: (argDevice: string) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "device-removed", callback: (argDevice: string) => void): NodeJS.EventEmitter
     emit(sigName: "device-removed", argDevice: string): void
-    on(sigName: "device-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "device-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "device-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "handle-enumerate-devices", callback: (($obj: ClientGlueProxy, invocation: Gio.DBusMethodInvocation) => boolean)): number
-    connect_after(sigName: "handle-enumerate-devices", callback: (($obj: ClientGlueProxy, invocation: Gio.DBusMethodInvocation) => boolean)): number
+    on(sigName: "handle-enumerate-devices", callback: (invocation: Gio.DBusMethodInvocation) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-enumerate-devices", callback: (invocation: Gio.DBusMethodInvocation) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-enumerate-devices", callback: (invocation: Gio.DBusMethodInvocation) => void): NodeJS.EventEmitter
     emit(sigName: "handle-enumerate-devices", invocation: Gio.DBusMethodInvocation): void
-    on(sigName: "handle-enumerate-devices", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-enumerate-devices", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-enumerate-devices", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "handle-get-critical-action", callback: (($obj: ClientGlueProxy, invocation: Gio.DBusMethodInvocation) => boolean)): number
-    connect_after(sigName: "handle-get-critical-action", callback: (($obj: ClientGlueProxy, invocation: Gio.DBusMethodInvocation) => boolean)): number
+    on(sigName: "handle-get-critical-action", callback: (invocation: Gio.DBusMethodInvocation) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-get-critical-action", callback: (invocation: Gio.DBusMethodInvocation) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-get-critical-action", callback: (invocation: Gio.DBusMethodInvocation) => void): NodeJS.EventEmitter
     emit(sigName: "handle-get-critical-action", invocation: Gio.DBusMethodInvocation): void
-    on(sigName: "handle-get-critical-action", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-get-critical-action", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-get-critical-action", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "handle-get-display-device", callback: (($obj: ClientGlueProxy, invocation: Gio.DBusMethodInvocation) => boolean)): number
-    connect_after(sigName: "handle-get-display-device", callback: (($obj: ClientGlueProxy, invocation: Gio.DBusMethodInvocation) => boolean)): number
+    on(sigName: "handle-get-display-device", callback: (invocation: Gio.DBusMethodInvocation) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-get-display-device", callback: (invocation: Gio.DBusMethodInvocation) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-get-display-device", callback: (invocation: Gio.DBusMethodInvocation) => void): NodeJS.EventEmitter
     emit(sigName: "handle-get-display-device", invocation: Gio.DBusMethodInvocation): void
-    on(sigName: "handle-get-display-device", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-get-display-device", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-get-display-device", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::g-default-timeout", callback: (($obj: ClientGlueProxy, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::g-default-timeout", callback: (($obj: ClientGlueProxy, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::g-default-timeout", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -579,16 +507,16 @@ export interface ClientGlueSkeleton_ConstructProps extends Gio.DBusInterfaceSkel
     onBattery?: boolean
 }
 export class ClientGlueSkeleton {
-    /* Properties of Gio.DBusInterfaceSkeleton */
+    /* Properties of Gio-2.0.Gio.DBusInterfaceSkeleton */
     gFlags: Gio.DBusInterfaceSkeletonFlags
-    /* Properties of UPowerGlib.ClientGlue */
+    /* Properties of UPowerGlib-1.0.UPowerGlib.ClientGlue */
     daemonVersion: string
     lidIsClosed: boolean
     lidIsPresent: boolean
     onBattery: boolean
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Gio.DBusInterfaceSkeleton */
+    /* Methods of Gio-2.0.Gio.DBusInterfaceSkeleton */
     export(connection: Gio.DBusConnection, objectPath: string): boolean
     flush(): void
     getConnection(): Gio.DBusConnection | null
@@ -601,7 +529,7 @@ export class ClientGlueSkeleton {
     setFlags(flags: Gio.DBusInterfaceSkeletonFlags): void
     unexport(): void
     unexportFromConnection(connection: Gio.DBusConnection): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -623,91 +551,62 @@ export class ClientGlueSkeleton {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of Gio.DBusInterface */
+    /* Methods of Gio-2.0.Gio.DBusInterface */
     getObject(): Gio.DBusObject | null
     setObject(object?: Gio.DBusObject | null): void
-    /* Methods of UPowerGlib.ClientGlue */
+    /* Methods of UPowerGlib-1.0.UPowerGlib.ClientGlue */
     callEnumerateDevices(cancellable: Gio.Cancellable | null, callback: Gio.AsyncReadyCallback | null): void
-    callEnumerateDevicesFinish(res: Gio.AsyncResult): [ /* returnType */ boolean, /* outDevices */ string ]
-    callEnumerateDevicesSync(cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* outDevices */ string ]
+    callEnumerateDevicesFinish(res: Gio.AsyncResult): { returnType: boolean, outDevices: string }
+    callEnumerateDevicesSync(cancellable?: Gio.Cancellable | null): { returnType: boolean, outDevices: string }
     callGetCriticalAction(cancellable: Gio.Cancellable | null, callback: Gio.AsyncReadyCallback | null): void
-    callGetCriticalActionFinish(res: Gio.AsyncResult): [ /* returnType */ boolean, /* outAction */ string ]
-    callGetCriticalActionSync(cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* outAction */ string ]
+    callGetCriticalActionFinish(res: Gio.AsyncResult): { returnType: boolean, outAction: string }
+    callGetCriticalActionSync(cancellable?: Gio.Cancellable | null): { returnType: boolean, outAction: string }
     callGetDisplayDevice(cancellable: Gio.Cancellable | null, callback: Gio.AsyncReadyCallback | null): void
-    callGetDisplayDeviceFinish(res: Gio.AsyncResult): [ /* returnType */ boolean, /* outDevice */ string ]
-    callGetDisplayDeviceSync(cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* outDevice */ string ]
+    callGetDisplayDeviceFinish(res: Gio.AsyncResult): { returnType: boolean, outDevice: string }
+    callGetDisplayDeviceSync(cancellable?: Gio.Cancellable | null): { returnType: boolean, outDevice: string }
     completeEnumerateDevices(invocation: Gio.DBusMethodInvocation, devices: string): void
     completeGetCriticalAction(invocation: Gio.DBusMethodInvocation, action: string): void
     completeGetDisplayDevice(invocation: Gio.DBusMethodInvocation, device: string): void
     emitDeviceAdded(argDevice: string): void
     emitDeviceRemoved(argDevice: string): void
-    /* Virtual methods of UPowerGlib.ClientGlueSkeleton */
-    vfuncDupObject(): Gio.DBusObject | null
-    vfuncGetInfo(): Gio.DBusInterfaceInfo
-    vfuncSetObject(object?: Gio.DBusObject | null): void
-    vfuncDeviceAdded(argDevice: string): void
-    vfuncDeviceRemoved(argDevice: string): void
-    vfuncHandleEnumerateDevices(invocation: Gio.DBusMethodInvocation): boolean
-    vfuncHandleGetCriticalAction(invocation: Gio.DBusMethodInvocation): boolean
-    vfuncHandleGetDisplayDevice(invocation: Gio.DBusMethodInvocation): boolean
-    /* Virtual methods of Gio.DBusInterfaceSkeleton */
-    vfuncFlush(): void
-    vfuncGAuthorizeMethod(invocation: Gio.DBusMethodInvocation): boolean
-    vfuncGetInfo(): Gio.DBusInterfaceInfo
-    vfuncGetProperties(): GLib.Variant
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gio.DBusInterfaceSkeleton */
+    /* Signals of Gio-2.0.Gio.DBusInterfaceSkeleton */
     connect(sigName: "g-authorize-method", callback: (($obj: ClientGlueSkeleton, invocation: Gio.DBusMethodInvocation) => boolean)): number
-    connect_after(sigName: "g-authorize-method", callback: (($obj: ClientGlueSkeleton, invocation: Gio.DBusMethodInvocation) => boolean)): number
+    on(sigName: "g-authorize-method", callback: (invocation: Gio.DBusMethodInvocation) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "g-authorize-method", callback: (invocation: Gio.DBusMethodInvocation) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "g-authorize-method", callback: (invocation: Gio.DBusMethodInvocation) => void): NodeJS.EventEmitter
     emit(sigName: "g-authorize-method", invocation: Gio.DBusMethodInvocation): void
-    on(sigName: "g-authorize-method", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "g-authorize-method", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "g-authorize-method", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: ClientGlueSkeleton, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: ClientGlueSkeleton, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of UPowerGlib.ClientGlue */
+    /* Signals of UPowerGlib-1.0.UPowerGlib.ClientGlue */
     connect(sigName: "device-added", callback: (($obj: ClientGlueSkeleton, argDevice: string) => void)): number
-    connect_after(sigName: "device-added", callback: (($obj: ClientGlueSkeleton, argDevice: string) => void)): number
+    on(sigName: "device-added", callback: (argDevice: string) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "device-added", callback: (argDevice: string) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "device-added", callback: (argDevice: string) => void): NodeJS.EventEmitter
     emit(sigName: "device-added", argDevice: string): void
-    on(sigName: "device-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "device-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "device-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "device-removed", callback: (($obj: ClientGlueSkeleton, argDevice: string) => void)): number
-    connect_after(sigName: "device-removed", callback: (($obj: ClientGlueSkeleton, argDevice: string) => void)): number
+    on(sigName: "device-removed", callback: (argDevice: string) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "device-removed", callback: (argDevice: string) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "device-removed", callback: (argDevice: string) => void): NodeJS.EventEmitter
     emit(sigName: "device-removed", argDevice: string): void
-    on(sigName: "device-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "device-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "device-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "handle-enumerate-devices", callback: (($obj: ClientGlueSkeleton, invocation: Gio.DBusMethodInvocation) => boolean)): number
-    connect_after(sigName: "handle-enumerate-devices", callback: (($obj: ClientGlueSkeleton, invocation: Gio.DBusMethodInvocation) => boolean)): number
+    on(sigName: "handle-enumerate-devices", callback: (invocation: Gio.DBusMethodInvocation) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-enumerate-devices", callback: (invocation: Gio.DBusMethodInvocation) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-enumerate-devices", callback: (invocation: Gio.DBusMethodInvocation) => void): NodeJS.EventEmitter
     emit(sigName: "handle-enumerate-devices", invocation: Gio.DBusMethodInvocation): void
-    on(sigName: "handle-enumerate-devices", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-enumerate-devices", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-enumerate-devices", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "handle-get-critical-action", callback: (($obj: ClientGlueSkeleton, invocation: Gio.DBusMethodInvocation) => boolean)): number
-    connect_after(sigName: "handle-get-critical-action", callback: (($obj: ClientGlueSkeleton, invocation: Gio.DBusMethodInvocation) => boolean)): number
+    on(sigName: "handle-get-critical-action", callback: (invocation: Gio.DBusMethodInvocation) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-get-critical-action", callback: (invocation: Gio.DBusMethodInvocation) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-get-critical-action", callback: (invocation: Gio.DBusMethodInvocation) => void): NodeJS.EventEmitter
     emit(sigName: "handle-get-critical-action", invocation: Gio.DBusMethodInvocation): void
-    on(sigName: "handle-get-critical-action", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-get-critical-action", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-get-critical-action", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "handle-get-display-device", callback: (($obj: ClientGlueSkeleton, invocation: Gio.DBusMethodInvocation) => boolean)): number
-    connect_after(sigName: "handle-get-display-device", callback: (($obj: ClientGlueSkeleton, invocation: Gio.DBusMethodInvocation) => boolean)): number
+    on(sigName: "handle-get-display-device", callback: (invocation: Gio.DBusMethodInvocation) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-get-display-device", callback: (invocation: Gio.DBusMethodInvocation) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-get-display-device", callback: (invocation: Gio.DBusMethodInvocation) => void): NodeJS.EventEmitter
     emit(sigName: "handle-get-display-device", invocation: Gio.DBusMethodInvocation): void
-    on(sigName: "handle-get-display-device", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-get-display-device", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-get-display-device", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::g-flags", callback: (($obj: ClientGlueSkeleton, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::g-flags", callback: (($obj: ClientGlueSkeleton, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::g-flags", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -780,7 +679,7 @@ export interface Device_ConstructProps extends GObject.Object_ConstructProps {
     warningLevel?: number
 }
 export class Device {
-    /* Properties of UPowerGlib.Device */
+    /* Properties of UPowerGlib-1.0.UPowerGlib.Device */
     capacity: number
     energy: number
     energyEmpty: number
@@ -809,19 +708,19 @@ export class Device {
     vendor: string
     voltage: number
     warningLevel: number
-    /* Fields of UPowerGlib.Device */
+    /* Fields of UPowerGlib-1.0.UPowerGlib.Device */
     parent: GObject.Object
     priv: DevicePrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of UPowerGlib.Device */
+    /* Methods of UPowerGlib-1.0.UPowerGlib.Device */
     getHistorySync(type: string, timespec: number, resolution: number, cancellable?: Gio.Cancellable | null): HistoryItem[]
     getObjectPath(): string
     getStatisticsSync(type: string, cancellable?: Gio.Cancellable | null): StatsItem[]
     refreshSync(cancellable?: Gio.Cancellable | null): boolean
     setObjectPathSync(objectPath: string, cancellable?: Gio.Cancellable | null): boolean
     toText(): string
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -843,21 +742,12 @@ export class Device {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Device, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Device, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::capacity", callback: (($obj: Device, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::capacity", callback: (($obj: Device, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::capacity", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -1051,11 +941,11 @@ export interface DeviceGlueProxy_ConstructProps extends Gio.DBusProxy_ConstructP
     warningLevel?: number
 }
 export class DeviceGlueProxy {
-    /* Properties of Gio.DBusProxy */
+    /* Properties of Gio-2.0.Gio.DBusProxy */
     gDefaultTimeout: number
     gInterfaceInfo: Gio.DBusInterfaceInfo
     readonly gNameOwner: string
-    /* Properties of UPowerGlib.DeviceGlue */
+    /* Properties of UPowerGlib-1.0.UPowerGlib.DeviceGlue */
     capacity: number
     energy: number
     energyEmpty: number
@@ -1084,15 +974,15 @@ export class DeviceGlueProxy {
     vendor: string
     voltage: number
     warningLevel: number
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Gio.DBusProxy */
+    /* Methods of Gio-2.0.Gio.DBusProxy */
     call(methodName: string, parameters: GLib.Variant | null, flags: Gio.DBusCallFlags, timeoutMsec: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     callFinish(res: Gio.AsyncResult): GLib.Variant
     callSync(methodName: string, parameters: GLib.Variant | null, flags: Gio.DBusCallFlags, timeoutMsec: number, cancellable?: Gio.Cancellable | null): GLib.Variant
     callWithUnixFdList(methodName: string, parameters: GLib.Variant | null, flags: Gio.DBusCallFlags, timeoutMsec: number, fdList?: Gio.UnixFDList | null, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    callWithUnixFdListFinish(res: Gio.AsyncResult): [ /* returnType */ GLib.Variant, /* outFdList */ Gio.UnixFDList | null ]
-    callWithUnixFdListSync(methodName: string, parameters: GLib.Variant | null, flags: Gio.DBusCallFlags, timeoutMsec: number, fdList?: Gio.UnixFDList | null, cancellable?: Gio.Cancellable | null): [ /* returnType */ GLib.Variant, /* outFdList */ Gio.UnixFDList | null ]
+    callWithUnixFdListFinish(res: Gio.AsyncResult): { returnType: GLib.Variant, outFdList: Gio.UnixFDList | null }
+    callWithUnixFdListSync(methodName: string, parameters: GLib.Variant | null, flags: Gio.DBusCallFlags, timeoutMsec: number, fdList?: Gio.UnixFDList | null, cancellable?: Gio.Cancellable | null): { returnType: GLib.Variant, outFdList: Gio.UnixFDList | null }
     getCachedProperty(propertyName: string): GLib.Variant | null
     getCachedPropertyNames(): string[] | null
     getConnection(): Gio.DBusConnection
@@ -1106,7 +996,7 @@ export class DeviceGlueProxy {
     setCachedProperty(propertyName: string, value?: GLib.Variant | null): void
     setDefaultTimeout(timeoutMsec: number): void
     setInterfaceInfo(info?: Gio.DBusInterfaceInfo | null): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -1128,89 +1018,62 @@ export class DeviceGlueProxy {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of Gio.AsyncInitable */
+    /* Methods of Gio-2.0.Gio.AsyncInitable */
     initAsync(ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     initFinish(res: Gio.AsyncResult): boolean
     newFinish(res: Gio.AsyncResult): GObject.Object
-    /* Methods of Gio.DBusInterface */
+    /* Methods of Gio-2.0.Gio.DBusInterface */
     getObject(): Gio.DBusObject | null
     getInfo(): Gio.DBusInterfaceInfo
     setObject(object?: Gio.DBusObject | null): void
-    /* Methods of Gio.Initable */
+    /* Methods of Gio-2.0.Gio.Initable */
     init(cancellable?: Gio.Cancellable | null): boolean
-    /* Methods of UPowerGlib.DeviceGlue */
+    /* Methods of UPowerGlib-1.0.UPowerGlib.DeviceGlue */
     callGetHistory(argType: string, argTimespan: number, argResolution: number, cancellable: Gio.Cancellable | null, callback: Gio.AsyncReadyCallback | null): void
-    callGetHistoryFinish(res: Gio.AsyncResult): [ /* returnType */ boolean, /* outData */ GLib.Variant ]
-    callGetHistorySync(argType: string, argTimespan: number, argResolution: number, cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* outData */ GLib.Variant ]
+    callGetHistoryFinish(res: Gio.AsyncResult): { returnType: boolean, outData: GLib.Variant }
+    callGetHistorySync(argType: string, argTimespan: number, argResolution: number, cancellable?: Gio.Cancellable | null): { returnType: boolean, outData: GLib.Variant }
     callGetStatistics(argType: string, cancellable: Gio.Cancellable | null, callback: Gio.AsyncReadyCallback | null): void
-    callGetStatisticsFinish(res: Gio.AsyncResult): [ /* returnType */ boolean, /* outData */ GLib.Variant ]
-    callGetStatisticsSync(argType: string, cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* outData */ GLib.Variant ]
+    callGetStatisticsFinish(res: Gio.AsyncResult): { returnType: boolean, outData: GLib.Variant }
+    callGetStatisticsSync(argType: string, cancellable?: Gio.Cancellable | null): { returnType: boolean, outData: GLib.Variant }
     callRefresh(cancellable: Gio.Cancellable | null, callback: Gio.AsyncReadyCallback | null): void
     callRefreshFinish(res: Gio.AsyncResult): boolean
     callRefreshSync(cancellable?: Gio.Cancellable | null): boolean
     completeGetHistory(invocation: Gio.DBusMethodInvocation, data: GLib.Variant): void
     completeGetStatistics(invocation: Gio.DBusMethodInvocation, data: GLib.Variant): void
     completeRefresh(invocation: Gio.DBusMethodInvocation): void
-    /* Virtual methods of UPowerGlib.DeviceGlueProxy */
-    vfuncInitAsync(ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    vfuncInitFinish(res: Gio.AsyncResult): boolean
-    vfuncDupObject(): Gio.DBusObject | null
-    vfuncGetInfo(): Gio.DBusInterfaceInfo
-    vfuncSetObject(object?: Gio.DBusObject | null): void
-    vfuncInit(cancellable?: Gio.Cancellable | null): boolean
-    vfuncHandleGetHistory(invocation: Gio.DBusMethodInvocation, argType: string, argTimespan: number, argResolution: number): boolean
-    vfuncHandleGetStatistics(invocation: Gio.DBusMethodInvocation, argType: string): boolean
-    vfuncHandleRefresh(invocation: Gio.DBusMethodInvocation): boolean
-    /* Virtual methods of Gio.DBusProxy */
-    vfuncGPropertiesChanged(changedProperties: GLib.Variant, invalidatedProperties: string): void
-    vfuncGSignal(senderName: string, signalName: string, parameters: GLib.Variant): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gio.DBusProxy */
+    /* Signals of Gio-2.0.Gio.DBusProxy */
     connect(sigName: "g-properties-changed", callback: (($obj: DeviceGlueProxy, changedProperties: GLib.Variant, invalidatedProperties: string[]) => void)): number
-    connect_after(sigName: "g-properties-changed", callback: (($obj: DeviceGlueProxy, changedProperties: GLib.Variant, invalidatedProperties: string[]) => void)): number
+    on(sigName: "g-properties-changed", callback: (changedProperties: GLib.Variant, invalidatedProperties: string[]) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "g-properties-changed", callback: (changedProperties: GLib.Variant, invalidatedProperties: string[]) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "g-properties-changed", callback: (changedProperties: GLib.Variant, invalidatedProperties: string[]) => void): NodeJS.EventEmitter
     emit(sigName: "g-properties-changed", changedProperties: GLib.Variant, invalidatedProperties: string[]): void
-    on(sigName: "g-properties-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "g-properties-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "g-properties-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "g-signal", callback: (($obj: DeviceGlueProxy, senderName: string | null, signalName: string, parameters: GLib.Variant) => void)): number
-    connect_after(sigName: "g-signal", callback: (($obj: DeviceGlueProxy, senderName: string | null, signalName: string, parameters: GLib.Variant) => void)): number
+    on(sigName: "g-signal", callback: (senderName: string | null, signalName: string, parameters: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "g-signal", callback: (senderName: string | null, signalName: string, parameters: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "g-signal", callback: (senderName: string | null, signalName: string, parameters: GLib.Variant) => void): NodeJS.EventEmitter
     emit(sigName: "g-signal", senderName: string | null, signalName: string, parameters: GLib.Variant): void
-    on(sigName: "g-signal", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "g-signal", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "g-signal", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: DeviceGlueProxy, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: DeviceGlueProxy, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of UPowerGlib.DeviceGlue */
+    /* Signals of UPowerGlib-1.0.UPowerGlib.DeviceGlue */
     connect(sigName: "handle-get-history", callback: (($obj: DeviceGlueProxy, invocation: Gio.DBusMethodInvocation, argType: string, argTimespan: number, argResolution: number) => boolean)): number
-    connect_after(sigName: "handle-get-history", callback: (($obj: DeviceGlueProxy, invocation: Gio.DBusMethodInvocation, argType: string, argTimespan: number, argResolution: number) => boolean)): number
+    on(sigName: "handle-get-history", callback: (invocation: Gio.DBusMethodInvocation, argType: string, argTimespan: number, argResolution: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-get-history", callback: (invocation: Gio.DBusMethodInvocation, argType: string, argTimespan: number, argResolution: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-get-history", callback: (invocation: Gio.DBusMethodInvocation, argType: string, argTimespan: number, argResolution: number) => void): NodeJS.EventEmitter
     emit(sigName: "handle-get-history", invocation: Gio.DBusMethodInvocation, argType: string, argTimespan: number, argResolution: number): void
-    on(sigName: "handle-get-history", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-get-history", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-get-history", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "handle-get-statistics", callback: (($obj: DeviceGlueProxy, invocation: Gio.DBusMethodInvocation, argType: string) => boolean)): number
-    connect_after(sigName: "handle-get-statistics", callback: (($obj: DeviceGlueProxy, invocation: Gio.DBusMethodInvocation, argType: string) => boolean)): number
+    on(sigName: "handle-get-statistics", callback: (invocation: Gio.DBusMethodInvocation, argType: string) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-get-statistics", callback: (invocation: Gio.DBusMethodInvocation, argType: string) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-get-statistics", callback: (invocation: Gio.DBusMethodInvocation, argType: string) => void): NodeJS.EventEmitter
     emit(sigName: "handle-get-statistics", invocation: Gio.DBusMethodInvocation, argType: string): void
-    on(sigName: "handle-get-statistics", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-get-statistics", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-get-statistics", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "handle-refresh", callback: (($obj: DeviceGlueProxy, invocation: Gio.DBusMethodInvocation) => boolean)): number
-    connect_after(sigName: "handle-refresh", callback: (($obj: DeviceGlueProxy, invocation: Gio.DBusMethodInvocation) => boolean)): number
+    on(sigName: "handle-refresh", callback: (invocation: Gio.DBusMethodInvocation) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-refresh", callback: (invocation: Gio.DBusMethodInvocation) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-refresh", callback: (invocation: Gio.DBusMethodInvocation) => void): NodeJS.EventEmitter
     emit(sigName: "handle-refresh", invocation: Gio.DBusMethodInvocation): void
-    on(sigName: "handle-refresh", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-refresh", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-refresh", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::g-default-timeout", callback: (($obj: DeviceGlueProxy, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::g-default-timeout", callback: (($obj: DeviceGlueProxy, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::g-default-timeout", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -1422,9 +1285,9 @@ export interface DeviceGlueSkeleton_ConstructProps extends Gio.DBusInterfaceSkel
     warningLevel?: number
 }
 export class DeviceGlueSkeleton {
-    /* Properties of Gio.DBusInterfaceSkeleton */
+    /* Properties of Gio-2.0.Gio.DBusInterfaceSkeleton */
     gFlags: Gio.DBusInterfaceSkeletonFlags
-    /* Properties of UPowerGlib.DeviceGlue */
+    /* Properties of UPowerGlib-1.0.UPowerGlib.DeviceGlue */
     capacity: number
     energy: number
     energyEmpty: number
@@ -1453,9 +1316,9 @@ export class DeviceGlueSkeleton {
     vendor: string
     voltage: number
     warningLevel: number
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Gio.DBusInterfaceSkeleton */
+    /* Methods of Gio-2.0.Gio.DBusInterfaceSkeleton */
     export(connection: Gio.DBusConnection, objectPath: string): boolean
     flush(): void
     getConnection(): Gio.DBusConnection | null
@@ -1468,7 +1331,7 @@ export class DeviceGlueSkeleton {
     setFlags(flags: Gio.DBusInterfaceSkeletonFlags): void
     unexport(): void
     unexportFromConnection(connection: Gio.DBusConnection): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -1490,75 +1353,50 @@ export class DeviceGlueSkeleton {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of Gio.DBusInterface */
+    /* Methods of Gio-2.0.Gio.DBusInterface */
     getObject(): Gio.DBusObject | null
     setObject(object?: Gio.DBusObject | null): void
-    /* Methods of UPowerGlib.DeviceGlue */
+    /* Methods of UPowerGlib-1.0.UPowerGlib.DeviceGlue */
     callGetHistory(argType: string, argTimespan: number, argResolution: number, cancellable: Gio.Cancellable | null, callback: Gio.AsyncReadyCallback | null): void
-    callGetHistoryFinish(res: Gio.AsyncResult): [ /* returnType */ boolean, /* outData */ GLib.Variant ]
-    callGetHistorySync(argType: string, argTimespan: number, argResolution: number, cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* outData */ GLib.Variant ]
+    callGetHistoryFinish(res: Gio.AsyncResult): { returnType: boolean, outData: GLib.Variant }
+    callGetHistorySync(argType: string, argTimespan: number, argResolution: number, cancellable?: Gio.Cancellable | null): { returnType: boolean, outData: GLib.Variant }
     callGetStatistics(argType: string, cancellable: Gio.Cancellable | null, callback: Gio.AsyncReadyCallback | null): void
-    callGetStatisticsFinish(res: Gio.AsyncResult): [ /* returnType */ boolean, /* outData */ GLib.Variant ]
-    callGetStatisticsSync(argType: string, cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* outData */ GLib.Variant ]
+    callGetStatisticsFinish(res: Gio.AsyncResult): { returnType: boolean, outData: GLib.Variant }
+    callGetStatisticsSync(argType: string, cancellable?: Gio.Cancellable | null): { returnType: boolean, outData: GLib.Variant }
     callRefresh(cancellable: Gio.Cancellable | null, callback: Gio.AsyncReadyCallback | null): void
     callRefreshFinish(res: Gio.AsyncResult): boolean
     callRefreshSync(cancellable?: Gio.Cancellable | null): boolean
     completeGetHistory(invocation: Gio.DBusMethodInvocation, data: GLib.Variant): void
     completeGetStatistics(invocation: Gio.DBusMethodInvocation, data: GLib.Variant): void
     completeRefresh(invocation: Gio.DBusMethodInvocation): void
-    /* Virtual methods of UPowerGlib.DeviceGlueSkeleton */
-    vfuncDupObject(): Gio.DBusObject | null
-    vfuncGetInfo(): Gio.DBusInterfaceInfo
-    vfuncSetObject(object?: Gio.DBusObject | null): void
-    vfuncHandleGetHistory(invocation: Gio.DBusMethodInvocation, argType: string, argTimespan: number, argResolution: number): boolean
-    vfuncHandleGetStatistics(invocation: Gio.DBusMethodInvocation, argType: string): boolean
-    vfuncHandleRefresh(invocation: Gio.DBusMethodInvocation): boolean
-    /* Virtual methods of Gio.DBusInterfaceSkeleton */
-    vfuncFlush(): void
-    vfuncGAuthorizeMethod(invocation: Gio.DBusMethodInvocation): boolean
-    vfuncGetInfo(): Gio.DBusInterfaceInfo
-    vfuncGetProperties(): GLib.Variant
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gio.DBusInterfaceSkeleton */
+    /* Signals of Gio-2.0.Gio.DBusInterfaceSkeleton */
     connect(sigName: "g-authorize-method", callback: (($obj: DeviceGlueSkeleton, invocation: Gio.DBusMethodInvocation) => boolean)): number
-    connect_after(sigName: "g-authorize-method", callback: (($obj: DeviceGlueSkeleton, invocation: Gio.DBusMethodInvocation) => boolean)): number
+    on(sigName: "g-authorize-method", callback: (invocation: Gio.DBusMethodInvocation) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "g-authorize-method", callback: (invocation: Gio.DBusMethodInvocation) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "g-authorize-method", callback: (invocation: Gio.DBusMethodInvocation) => void): NodeJS.EventEmitter
     emit(sigName: "g-authorize-method", invocation: Gio.DBusMethodInvocation): void
-    on(sigName: "g-authorize-method", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "g-authorize-method", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "g-authorize-method", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: DeviceGlueSkeleton, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: DeviceGlueSkeleton, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of UPowerGlib.DeviceGlue */
+    /* Signals of UPowerGlib-1.0.UPowerGlib.DeviceGlue */
     connect(sigName: "handle-get-history", callback: (($obj: DeviceGlueSkeleton, invocation: Gio.DBusMethodInvocation, argType: string, argTimespan: number, argResolution: number) => boolean)): number
-    connect_after(sigName: "handle-get-history", callback: (($obj: DeviceGlueSkeleton, invocation: Gio.DBusMethodInvocation, argType: string, argTimespan: number, argResolution: number) => boolean)): number
+    on(sigName: "handle-get-history", callback: (invocation: Gio.DBusMethodInvocation, argType: string, argTimespan: number, argResolution: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-get-history", callback: (invocation: Gio.DBusMethodInvocation, argType: string, argTimespan: number, argResolution: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-get-history", callback: (invocation: Gio.DBusMethodInvocation, argType: string, argTimespan: number, argResolution: number) => void): NodeJS.EventEmitter
     emit(sigName: "handle-get-history", invocation: Gio.DBusMethodInvocation, argType: string, argTimespan: number, argResolution: number): void
-    on(sigName: "handle-get-history", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-get-history", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-get-history", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "handle-get-statistics", callback: (($obj: DeviceGlueSkeleton, invocation: Gio.DBusMethodInvocation, argType: string) => boolean)): number
-    connect_after(sigName: "handle-get-statistics", callback: (($obj: DeviceGlueSkeleton, invocation: Gio.DBusMethodInvocation, argType: string) => boolean)): number
+    on(sigName: "handle-get-statistics", callback: (invocation: Gio.DBusMethodInvocation, argType: string) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-get-statistics", callback: (invocation: Gio.DBusMethodInvocation, argType: string) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-get-statistics", callback: (invocation: Gio.DBusMethodInvocation, argType: string) => void): NodeJS.EventEmitter
     emit(sigName: "handle-get-statistics", invocation: Gio.DBusMethodInvocation, argType: string): void
-    on(sigName: "handle-get-statistics", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-get-statistics", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-get-statistics", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "handle-refresh", callback: (($obj: DeviceGlueSkeleton, invocation: Gio.DBusMethodInvocation) => boolean)): number
-    connect_after(sigName: "handle-refresh", callback: (($obj: DeviceGlueSkeleton, invocation: Gio.DBusMethodInvocation) => boolean)): number
+    on(sigName: "handle-refresh", callback: (invocation: Gio.DBusMethodInvocation) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-refresh", callback: (invocation: Gio.DBusMethodInvocation) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-refresh", callback: (invocation: Gio.DBusMethodInvocation) => void): NodeJS.EventEmitter
     emit(sigName: "handle-refresh", invocation: Gio.DBusMethodInvocation): void
-    on(sigName: "handle-refresh", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-refresh", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-refresh", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::g-flags", callback: (($obj: DeviceGlueSkeleton, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::g-flags", callback: (($obj: DeviceGlueSkeleton, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::g-flags", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -1726,16 +1564,16 @@ export interface HistoryItem_ConstructProps extends GObject.Object_ConstructProp
     value?: number
 }
 export class HistoryItem {
-    /* Properties of UPowerGlib.HistoryItem */
+    /* Properties of UPowerGlib-1.0.UPowerGlib.HistoryItem */
     state: number
     time: number
     value: number
-    /* Fields of UPowerGlib.HistoryItem */
+    /* Fields of UPowerGlib-1.0.UPowerGlib.HistoryItem */
     parent: GObject.Object
     priv: HistoryItemPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of UPowerGlib.HistoryItem */
+    /* Methods of UPowerGlib-1.0.UPowerGlib.HistoryItem */
     getState(): DeviceState
     getTime(): number
     getValue(): number
@@ -1745,7 +1583,7 @@ export class HistoryItem {
     setTimeToPresent(): void
     setValue(value: number): void
     toString(): string
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -1767,21 +1605,12 @@ export class HistoryItem {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: HistoryItem, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: HistoryItem, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::state", callback: (($obj: HistoryItem, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::state", callback: (($obj: HistoryItem, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::state", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -1816,20 +1645,20 @@ export interface StatsItem_ConstructProps extends GObject.Object_ConstructProps 
     value?: number
 }
 export class StatsItem {
-    /* Properties of UPowerGlib.StatsItem */
+    /* Properties of UPowerGlib-1.0.UPowerGlib.StatsItem */
     accuracy: number
     value: number
-    /* Fields of UPowerGlib.StatsItem */
+    /* Fields of UPowerGlib-1.0.UPowerGlib.StatsItem */
     parent: GObject.Object
     priv: StatsItemPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of UPowerGlib.StatsItem */
+    /* Methods of UPowerGlib-1.0.UPowerGlib.StatsItem */
     getAccuracy(): number
     getValue(): number
     setAccuracy(accuracy: number): void
     setValue(value: number): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -1851,21 +1680,12 @@ export class StatsItem {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: StatsItem, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: StatsItem, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::accuracy", callback: (($obj: StatsItem, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::accuracy", callback: (($obj: StatsItem, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::accuracy", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -1899,19 +1719,19 @@ export interface WakeupItem_ConstructProps extends GObject.Object_ConstructProps
     value?: number
 }
 export class WakeupItem {
-    /* Properties of UPowerGlib.WakeupItem */
+    /* Properties of UPowerGlib-1.0.UPowerGlib.WakeupItem */
     cmdline: string
     details: string
     id: number
     isUserspace: boolean
     old: number
     value: number
-    /* Fields of UPowerGlib.WakeupItem */
+    /* Fields of UPowerGlib-1.0.UPowerGlib.WakeupItem */
     parent: GObject.Object
     priv: WakeupItemPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of UPowerGlib.WakeupItem */
+    /* Methods of UPowerGlib-1.0.UPowerGlib.WakeupItem */
     getCmdline(): string
     getDetails(): string
     getId(): number
@@ -1924,7 +1744,7 @@ export class WakeupItem {
     setIsUserspace(isUserspace: boolean): void
     setOld(old: number): void
     setValue(value: number): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -1946,21 +1766,12 @@ export class WakeupItem {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: WakeupItem, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: WakeupItem, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::cmdline", callback: (($obj: WakeupItem, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::cmdline", callback: (($obj: WakeupItem, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::cmdline", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -2008,17 +1819,17 @@ export class WakeupItem {
 export interface Wakeups_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class Wakeups {
-    /* Fields of UPowerGlib.Wakeups */
+    /* Fields of UPowerGlib-1.0.UPowerGlib.Wakeups */
     parent: GObject.Object
     priv: WakeupsPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of UPowerGlib.Wakeups */
+    /* Methods of UPowerGlib-1.0.UPowerGlib.Wakeups */
     getDataSync(cancellable?: Gio.Cancellable | null): WakeupItem[]
     getHasCapability(): boolean
     getPropertiesSync(cancellable?: Gio.Cancellable | null): boolean
     getTotalSync(cancellable?: Gio.Cancellable | null): number
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -2040,37 +1851,23 @@ export class Wakeups {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of UPowerGlib.Wakeups */
-    vfuncDataChanged(): void
-    vfuncTotalChanged(value: number): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of UPowerGlib.Wakeups */
+    /* Signals of UPowerGlib-1.0.UPowerGlib.Wakeups */
     connect(sigName: "data-changed", callback: (($obj: Wakeups) => void)): number
-    connect_after(sigName: "data-changed", callback: (($obj: Wakeups) => void)): number
+    on(sigName: "data-changed", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "data-changed", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "data-changed", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "data-changed"): void
-    on(sigName: "data-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "data-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "data-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "total-changed", callback: (($obj: Wakeups, object: number) => void)): number
-    connect_after(sigName: "total-changed", callback: (($obj: Wakeups, object: number) => void)): number
+    on(sigName: "total-changed", callback: (object: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "total-changed", callback: (object: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "total-changed", callback: (object: number) => void): NodeJS.EventEmitter
     emit(sigName: "total-changed", object: number): void
-    on(sigName: "total-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "total-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "total-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Wakeups, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Wakeups, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -2089,21 +1886,21 @@ export interface WakeupsGlueProxy_ConstructProps extends Gio.DBusProxy_Construct
     hasCapability?: boolean
 }
 export class WakeupsGlueProxy {
-    /* Properties of Gio.DBusProxy */
+    /* Properties of Gio-2.0.Gio.DBusProxy */
     gDefaultTimeout: number
     gInterfaceInfo: Gio.DBusInterfaceInfo
     readonly gNameOwner: string
-    /* Properties of UPowerGlib.WakeupsGlue */
+    /* Properties of UPowerGlib-1.0.UPowerGlib.WakeupsGlue */
     hasCapability: boolean
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Gio.DBusProxy */
+    /* Methods of Gio-2.0.Gio.DBusProxy */
     call(methodName: string, parameters: GLib.Variant | null, flags: Gio.DBusCallFlags, timeoutMsec: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     callFinish(res: Gio.AsyncResult): GLib.Variant
     callSync(methodName: string, parameters: GLib.Variant | null, flags: Gio.DBusCallFlags, timeoutMsec: number, cancellable?: Gio.Cancellable | null): GLib.Variant
     callWithUnixFdList(methodName: string, parameters: GLib.Variant | null, flags: Gio.DBusCallFlags, timeoutMsec: number, fdList?: Gio.UnixFDList | null, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    callWithUnixFdListFinish(res: Gio.AsyncResult): [ /* returnType */ GLib.Variant, /* outFdList */ Gio.UnixFDList | null ]
-    callWithUnixFdListSync(methodName: string, parameters: GLib.Variant | null, flags: Gio.DBusCallFlags, timeoutMsec: number, fdList?: Gio.UnixFDList | null, cancellable?: Gio.Cancellable | null): [ /* returnType */ GLib.Variant, /* outFdList */ Gio.UnixFDList | null ]
+    callWithUnixFdListFinish(res: Gio.AsyncResult): { returnType: GLib.Variant, outFdList: Gio.UnixFDList | null }
+    callWithUnixFdListSync(methodName: string, parameters: GLib.Variant | null, flags: Gio.DBusCallFlags, timeoutMsec: number, fdList?: Gio.UnixFDList | null, cancellable?: Gio.Cancellable | null): { returnType: GLib.Variant, outFdList: Gio.UnixFDList | null }
     getCachedProperty(propertyName: string): GLib.Variant | null
     getCachedPropertyNames(): string[] | null
     getConnection(): Gio.DBusConnection
@@ -2117,7 +1914,7 @@ export class WakeupsGlueProxy {
     setCachedProperty(propertyName: string, value?: GLib.Variant | null): void
     setDefaultTimeout(timeoutMsec: number): void
     setInterfaceInfo(info?: Gio.DBusInterfaceInfo | null): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -2139,94 +1936,65 @@ export class WakeupsGlueProxy {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of Gio.AsyncInitable */
+    /* Methods of Gio-2.0.Gio.AsyncInitable */
     initAsync(ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     initFinish(res: Gio.AsyncResult): boolean
     newFinish(res: Gio.AsyncResult): GObject.Object
-    /* Methods of Gio.DBusInterface */
+    /* Methods of Gio-2.0.Gio.DBusInterface */
     getObject(): Gio.DBusObject | null
     getInfo(): Gio.DBusInterfaceInfo
     setObject(object?: Gio.DBusObject | null): void
-    /* Methods of Gio.Initable */
+    /* Methods of Gio-2.0.Gio.Initable */
     init(cancellable?: Gio.Cancellable | null): boolean
-    /* Methods of UPowerGlib.WakeupsGlue */
+    /* Methods of UPowerGlib-1.0.UPowerGlib.WakeupsGlue */
     callGetData(cancellable: Gio.Cancellable | null, callback: Gio.AsyncReadyCallback | null): void
-    callGetDataFinish(res: Gio.AsyncResult): [ /* returnType */ boolean, /* outData */ GLib.Variant ]
-    callGetDataSync(cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* outData */ GLib.Variant ]
+    callGetDataFinish(res: Gio.AsyncResult): { returnType: boolean, outData: GLib.Variant }
+    callGetDataSync(cancellable?: Gio.Cancellable | null): { returnType: boolean, outData: GLib.Variant }
     callGetTotal(cancellable: Gio.Cancellable | null, callback: Gio.AsyncReadyCallback | null): void
-    callGetTotalFinish(res: Gio.AsyncResult): [ /* returnType */ boolean, /* outValue */ number ]
-    callGetTotalSync(cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* outValue */ number ]
+    callGetTotalFinish(res: Gio.AsyncResult): { returnType: boolean, outValue: number }
+    callGetTotalSync(cancellable?: Gio.Cancellable | null): { returnType: boolean, outValue: number }
     completeGetData(invocation: Gio.DBusMethodInvocation, data: GLib.Variant): void
     completeGetTotal(invocation: Gio.DBusMethodInvocation, value: number): void
     emitDataChanged(): void
     emitTotalChanged(argValue: number): void
-    /* Virtual methods of UPowerGlib.WakeupsGlueProxy */
-    vfuncInitAsync(ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    vfuncInitFinish(res: Gio.AsyncResult): boolean
-    vfuncDupObject(): Gio.DBusObject | null
-    vfuncGetInfo(): Gio.DBusInterfaceInfo
-    vfuncSetObject(object?: Gio.DBusObject | null): void
-    vfuncInit(cancellable?: Gio.Cancellable | null): boolean
-    vfuncDataChanged(): void
-    vfuncHandleGetData(invocation: Gio.DBusMethodInvocation): boolean
-    vfuncHandleGetTotal(invocation: Gio.DBusMethodInvocation): boolean
-    vfuncTotalChanged(argValue: number): void
-    /* Virtual methods of Gio.DBusProxy */
-    vfuncGPropertiesChanged(changedProperties: GLib.Variant, invalidatedProperties: string): void
-    vfuncGSignal(senderName: string, signalName: string, parameters: GLib.Variant): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gio.DBusProxy */
+    /* Signals of Gio-2.0.Gio.DBusProxy */
     connect(sigName: "g-properties-changed", callback: (($obj: WakeupsGlueProxy, changedProperties: GLib.Variant, invalidatedProperties: string[]) => void)): number
-    connect_after(sigName: "g-properties-changed", callback: (($obj: WakeupsGlueProxy, changedProperties: GLib.Variant, invalidatedProperties: string[]) => void)): number
+    on(sigName: "g-properties-changed", callback: (changedProperties: GLib.Variant, invalidatedProperties: string[]) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "g-properties-changed", callback: (changedProperties: GLib.Variant, invalidatedProperties: string[]) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "g-properties-changed", callback: (changedProperties: GLib.Variant, invalidatedProperties: string[]) => void): NodeJS.EventEmitter
     emit(sigName: "g-properties-changed", changedProperties: GLib.Variant, invalidatedProperties: string[]): void
-    on(sigName: "g-properties-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "g-properties-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "g-properties-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "g-signal", callback: (($obj: WakeupsGlueProxy, senderName: string | null, signalName: string, parameters: GLib.Variant) => void)): number
-    connect_after(sigName: "g-signal", callback: (($obj: WakeupsGlueProxy, senderName: string | null, signalName: string, parameters: GLib.Variant) => void)): number
+    on(sigName: "g-signal", callback: (senderName: string | null, signalName: string, parameters: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "g-signal", callback: (senderName: string | null, signalName: string, parameters: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "g-signal", callback: (senderName: string | null, signalName: string, parameters: GLib.Variant) => void): NodeJS.EventEmitter
     emit(sigName: "g-signal", senderName: string | null, signalName: string, parameters: GLib.Variant): void
-    on(sigName: "g-signal", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "g-signal", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "g-signal", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: WakeupsGlueProxy, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: WakeupsGlueProxy, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of UPowerGlib.WakeupsGlue */
+    /* Signals of UPowerGlib-1.0.UPowerGlib.WakeupsGlue */
     connect(sigName: "data-changed", callback: (($obj: WakeupsGlueProxy) => void)): number
-    connect_after(sigName: "data-changed", callback: (($obj: WakeupsGlueProxy) => void)): number
+    on(sigName: "data-changed", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "data-changed", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "data-changed", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "data-changed"): void
-    on(sigName: "data-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "data-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "data-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "handle-get-data", callback: (($obj: WakeupsGlueProxy, invocation: Gio.DBusMethodInvocation) => boolean)): number
-    connect_after(sigName: "handle-get-data", callback: (($obj: WakeupsGlueProxy, invocation: Gio.DBusMethodInvocation) => boolean)): number
+    on(sigName: "handle-get-data", callback: (invocation: Gio.DBusMethodInvocation) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-get-data", callback: (invocation: Gio.DBusMethodInvocation) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-get-data", callback: (invocation: Gio.DBusMethodInvocation) => void): NodeJS.EventEmitter
     emit(sigName: "handle-get-data", invocation: Gio.DBusMethodInvocation): void
-    on(sigName: "handle-get-data", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-get-data", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-get-data", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "handle-get-total", callback: (($obj: WakeupsGlueProxy, invocation: Gio.DBusMethodInvocation) => boolean)): number
-    connect_after(sigName: "handle-get-total", callback: (($obj: WakeupsGlueProxy, invocation: Gio.DBusMethodInvocation) => boolean)): number
+    on(sigName: "handle-get-total", callback: (invocation: Gio.DBusMethodInvocation) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-get-total", callback: (invocation: Gio.DBusMethodInvocation) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-get-total", callback: (invocation: Gio.DBusMethodInvocation) => void): NodeJS.EventEmitter
     emit(sigName: "handle-get-total", invocation: Gio.DBusMethodInvocation): void
-    on(sigName: "handle-get-total", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-get-total", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-get-total", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "total-changed", callback: (($obj: WakeupsGlueProxy, argValue: number) => void)): number
-    connect_after(sigName: "total-changed", callback: (($obj: WakeupsGlueProxy, argValue: number) => void)): number
+    on(sigName: "total-changed", callback: (argValue: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "total-changed", callback: (argValue: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "total-changed", callback: (argValue: number) => void): NodeJS.EventEmitter
     emit(sigName: "total-changed", argValue: number): void
-    on(sigName: "total-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "total-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "total-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::g-default-timeout", callback: (($obj: WakeupsGlueProxy, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::g-default-timeout", callback: (($obj: WakeupsGlueProxy, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::g-default-timeout", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -2276,13 +2044,13 @@ export interface WakeupsGlueSkeleton_ConstructProps extends Gio.DBusInterfaceSke
     hasCapability?: boolean
 }
 export class WakeupsGlueSkeleton {
-    /* Properties of Gio.DBusInterfaceSkeleton */
+    /* Properties of Gio-2.0.Gio.DBusInterfaceSkeleton */
     gFlags: Gio.DBusInterfaceSkeletonFlags
-    /* Properties of UPowerGlib.WakeupsGlue */
+    /* Properties of UPowerGlib-1.0.UPowerGlib.WakeupsGlue */
     hasCapability: boolean
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Gio.DBusInterfaceSkeleton */
+    /* Methods of Gio-2.0.Gio.DBusInterfaceSkeleton */
     export(connection: Gio.DBusConnection, objectPath: string): boolean
     flush(): void
     getConnection(): Gio.DBusConnection | null
@@ -2295,7 +2063,7 @@ export class WakeupsGlueSkeleton {
     setFlags(flags: Gio.DBusInterfaceSkeletonFlags): void
     unexport(): void
     unexportFromConnection(connection: Gio.DBusConnection): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -2317,80 +2085,53 @@ export class WakeupsGlueSkeleton {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of Gio.DBusInterface */
+    /* Methods of Gio-2.0.Gio.DBusInterface */
     getObject(): Gio.DBusObject | null
     setObject(object?: Gio.DBusObject | null): void
-    /* Methods of UPowerGlib.WakeupsGlue */
+    /* Methods of UPowerGlib-1.0.UPowerGlib.WakeupsGlue */
     callGetData(cancellable: Gio.Cancellable | null, callback: Gio.AsyncReadyCallback | null): void
-    callGetDataFinish(res: Gio.AsyncResult): [ /* returnType */ boolean, /* outData */ GLib.Variant ]
-    callGetDataSync(cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* outData */ GLib.Variant ]
+    callGetDataFinish(res: Gio.AsyncResult): { returnType: boolean, outData: GLib.Variant }
+    callGetDataSync(cancellable?: Gio.Cancellable | null): { returnType: boolean, outData: GLib.Variant }
     callGetTotal(cancellable: Gio.Cancellable | null, callback: Gio.AsyncReadyCallback | null): void
-    callGetTotalFinish(res: Gio.AsyncResult): [ /* returnType */ boolean, /* outValue */ number ]
-    callGetTotalSync(cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* outValue */ number ]
+    callGetTotalFinish(res: Gio.AsyncResult): { returnType: boolean, outValue: number }
+    callGetTotalSync(cancellable?: Gio.Cancellable | null): { returnType: boolean, outValue: number }
     completeGetData(invocation: Gio.DBusMethodInvocation, data: GLib.Variant): void
     completeGetTotal(invocation: Gio.DBusMethodInvocation, value: number): void
     emitDataChanged(): void
     emitTotalChanged(argValue: number): void
-    /* Virtual methods of UPowerGlib.WakeupsGlueSkeleton */
-    vfuncDupObject(): Gio.DBusObject | null
-    vfuncGetInfo(): Gio.DBusInterfaceInfo
-    vfuncSetObject(object?: Gio.DBusObject | null): void
-    vfuncDataChanged(): void
-    vfuncHandleGetData(invocation: Gio.DBusMethodInvocation): boolean
-    vfuncHandleGetTotal(invocation: Gio.DBusMethodInvocation): boolean
-    vfuncTotalChanged(argValue: number): void
-    /* Virtual methods of Gio.DBusInterfaceSkeleton */
-    vfuncFlush(): void
-    vfuncGAuthorizeMethod(invocation: Gio.DBusMethodInvocation): boolean
-    vfuncGetInfo(): Gio.DBusInterfaceInfo
-    vfuncGetProperties(): GLib.Variant
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gio.DBusInterfaceSkeleton */
+    /* Signals of Gio-2.0.Gio.DBusInterfaceSkeleton */
     connect(sigName: "g-authorize-method", callback: (($obj: WakeupsGlueSkeleton, invocation: Gio.DBusMethodInvocation) => boolean)): number
-    connect_after(sigName: "g-authorize-method", callback: (($obj: WakeupsGlueSkeleton, invocation: Gio.DBusMethodInvocation) => boolean)): number
+    on(sigName: "g-authorize-method", callback: (invocation: Gio.DBusMethodInvocation) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "g-authorize-method", callback: (invocation: Gio.DBusMethodInvocation) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "g-authorize-method", callback: (invocation: Gio.DBusMethodInvocation) => void): NodeJS.EventEmitter
     emit(sigName: "g-authorize-method", invocation: Gio.DBusMethodInvocation): void
-    on(sigName: "g-authorize-method", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "g-authorize-method", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "g-authorize-method", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: WakeupsGlueSkeleton, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: WakeupsGlueSkeleton, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of UPowerGlib.WakeupsGlue */
+    /* Signals of UPowerGlib-1.0.UPowerGlib.WakeupsGlue */
     connect(sigName: "data-changed", callback: (($obj: WakeupsGlueSkeleton) => void)): number
-    connect_after(sigName: "data-changed", callback: (($obj: WakeupsGlueSkeleton) => void)): number
+    on(sigName: "data-changed", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "data-changed", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "data-changed", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "data-changed"): void
-    on(sigName: "data-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "data-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "data-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "handle-get-data", callback: (($obj: WakeupsGlueSkeleton, invocation: Gio.DBusMethodInvocation) => boolean)): number
-    connect_after(sigName: "handle-get-data", callback: (($obj: WakeupsGlueSkeleton, invocation: Gio.DBusMethodInvocation) => boolean)): number
+    on(sigName: "handle-get-data", callback: (invocation: Gio.DBusMethodInvocation) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-get-data", callback: (invocation: Gio.DBusMethodInvocation) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-get-data", callback: (invocation: Gio.DBusMethodInvocation) => void): NodeJS.EventEmitter
     emit(sigName: "handle-get-data", invocation: Gio.DBusMethodInvocation): void
-    on(sigName: "handle-get-data", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-get-data", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-get-data", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "handle-get-total", callback: (($obj: WakeupsGlueSkeleton, invocation: Gio.DBusMethodInvocation) => boolean)): number
-    connect_after(sigName: "handle-get-total", callback: (($obj: WakeupsGlueSkeleton, invocation: Gio.DBusMethodInvocation) => boolean)): number
+    on(sigName: "handle-get-total", callback: (invocation: Gio.DBusMethodInvocation) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-get-total", callback: (invocation: Gio.DBusMethodInvocation) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-get-total", callback: (invocation: Gio.DBusMethodInvocation) => void): NodeJS.EventEmitter
     emit(sigName: "handle-get-total", invocation: Gio.DBusMethodInvocation): void
-    on(sigName: "handle-get-total", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-get-total", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-get-total", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "total-changed", callback: (($obj: WakeupsGlueSkeleton, argValue: number) => void)): number
-    connect_after(sigName: "total-changed", callback: (($obj: WakeupsGlueSkeleton, argValue: number) => void)): number
+    on(sigName: "total-changed", callback: (argValue: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "total-changed", callback: (argValue: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "total-changed", callback: (argValue: number) => void): NodeJS.EventEmitter
     emit(sigName: "total-changed", argValue: number): void
-    on(sigName: "total-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "total-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "total-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::g-flags", callback: (($obj: WakeupsGlueSkeleton, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::g-flags", callback: (($obj: WakeupsGlueSkeleton, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::g-flags", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -2418,14 +2159,14 @@ export class WakeupsGlueSkeleton {
     static $gtype: GObject.Type
 }
 export abstract class ClientClass {
-    /* Fields of UPowerGlib.ClientClass */
+    /* Fields of UPowerGlib-1.0.UPowerGlib.ClientClass */
     parentClass: GObject.ObjectClass
     deviceAdded: (client: Client, device: Device) => void
     deviceRemoved: (client: Client, objectPath: string) => void
     static name: string
 }
 export abstract class ClientGlueIface {
-    /* Fields of UPowerGlib.ClientGlueIface */
+    /* Fields of UPowerGlib-1.0.UPowerGlib.ClientGlueIface */
     parentIface: GObject.TypeInterface
     handleEnumerateDevices: (object: ClientGlue, invocation: Gio.DBusMethodInvocation) => boolean
     handleGetCriticalAction: (object: ClientGlue, invocation: Gio.DBusMethodInvocation) => boolean
@@ -2439,7 +2180,7 @@ export abstract class ClientGlueIface {
     static name: string
 }
 export abstract class ClientGlueProxyClass {
-    /* Fields of UPowerGlib.ClientGlueProxyClass */
+    /* Fields of UPowerGlib-1.0.UPowerGlib.ClientGlueProxyClass */
     parentClass: Gio.DBusProxyClass
     static name: string
 }
@@ -2447,7 +2188,7 @@ export class ClientGlueProxyPrivate {
     static name: string
 }
 export abstract class ClientGlueSkeletonClass {
-    /* Fields of UPowerGlib.ClientGlueSkeletonClass */
+    /* Fields of UPowerGlib-1.0.UPowerGlib.ClientGlueSkeletonClass */
     parentClass: Gio.DBusInterfaceSkeletonClass
     static name: string
 }
@@ -2458,12 +2199,12 @@ export class ClientPrivate {
     static name: string
 }
 export abstract class DeviceClass {
-    /* Fields of UPowerGlib.DeviceClass */
+    /* Fields of UPowerGlib-1.0.UPowerGlib.DeviceClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
 export abstract class DeviceGlueIface {
-    /* Fields of UPowerGlib.DeviceGlueIface */
+    /* Fields of UPowerGlib-1.0.UPowerGlib.DeviceGlueIface */
     parentIface: GObject.TypeInterface
     handleGetHistory: (object: DeviceGlue, invocation: Gio.DBusMethodInvocation, argType: string, argTimespan: number, argResolution: number) => boolean
     handleGetStatistics: (object: DeviceGlue, invocation: Gio.DBusMethodInvocation, argType: string) => boolean
@@ -2499,7 +2240,7 @@ export abstract class DeviceGlueIface {
     static name: string
 }
 export abstract class DeviceGlueProxyClass {
-    /* Fields of UPowerGlib.DeviceGlueProxyClass */
+    /* Fields of UPowerGlib-1.0.UPowerGlib.DeviceGlueProxyClass */
     parentClass: Gio.DBusProxyClass
     static name: string
 }
@@ -2507,7 +2248,7 @@ export class DeviceGlueProxyPrivate {
     static name: string
 }
 export abstract class DeviceGlueSkeletonClass {
-    /* Fields of UPowerGlib.DeviceGlueSkeletonClass */
+    /* Fields of UPowerGlib-1.0.UPowerGlib.DeviceGlueSkeletonClass */
     parentClass: Gio.DBusInterfaceSkeletonClass
     static name: string
 }
@@ -2518,7 +2259,7 @@ export class DevicePrivate {
     static name: string
 }
 export abstract class HistoryItemClass {
-    /* Fields of UPowerGlib.HistoryItemClass */
+    /* Fields of UPowerGlib-1.0.UPowerGlib.HistoryItemClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
@@ -2526,7 +2267,7 @@ export class HistoryItemPrivate {
     static name: string
 }
 export abstract class StatsItemClass {
-    /* Fields of UPowerGlib.StatsItemClass */
+    /* Fields of UPowerGlib-1.0.UPowerGlib.StatsItemClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
@@ -2534,7 +2275,7 @@ export class StatsItemPrivate {
     static name: string
 }
 export abstract class WakeupItemClass {
-    /* Fields of UPowerGlib.WakeupItemClass */
+    /* Fields of UPowerGlib-1.0.UPowerGlib.WakeupItemClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
@@ -2542,14 +2283,14 @@ export class WakeupItemPrivate {
     static name: string
 }
 export abstract class WakeupsClass {
-    /* Fields of UPowerGlib.WakeupsClass */
+    /* Fields of UPowerGlib-1.0.UPowerGlib.WakeupsClass */
     parentClass: GObject.ObjectClass
     dataChanged: (wakeups: Wakeups) => void
     totalChanged: (wakeups: Wakeups, value: number) => void
     static name: string
 }
 export abstract class WakeupsGlueIface {
-    /* Fields of UPowerGlib.WakeupsGlueIface */
+    /* Fields of UPowerGlib-1.0.UPowerGlib.WakeupsGlueIface */
     parentIface: GObject.TypeInterface
     handleGetData: (object: WakeupsGlue, invocation: Gio.DBusMethodInvocation) => boolean
     handleGetTotal: (object: WakeupsGlue, invocation: Gio.DBusMethodInvocation) => boolean
@@ -2559,7 +2300,7 @@ export abstract class WakeupsGlueIface {
     static name: string
 }
 export abstract class WakeupsGlueProxyClass {
-    /* Fields of UPowerGlib.WakeupsGlueProxyClass */
+    /* Fields of UPowerGlib-1.0.UPowerGlib.WakeupsGlueProxyClass */
     parentClass: Gio.DBusProxyClass
     static name: string
 }
@@ -2567,7 +2308,7 @@ export class WakeupsGlueProxyPrivate {
     static name: string
 }
 export abstract class WakeupsGlueSkeletonClass {
-    /* Fields of UPowerGlib.WakeupsGlueSkeletonClass */
+    /* Fields of UPowerGlib-1.0.UPowerGlib.WakeupsGlueSkeletonClass */
     parentClass: Gio.DBusInterfaceSkeletonClass
     static name: string
 }

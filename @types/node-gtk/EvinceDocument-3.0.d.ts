@@ -249,23 +249,23 @@ export interface AnnotationMarkup_ConstructProps extends Annotation_ConstructPro
     rectangle?: Rectangle
 }
 export class AnnotationMarkup {
-    /* Properties of EvinceDocument.AnnotationMarkup */
+    /* Properties of EvinceDocument-3.0.EvinceDocument.AnnotationMarkup */
     canHavePopup: boolean
     hasPopup: boolean
     label: string
     opacity: number
     popupIsOpen: boolean
     rectangle: Rectangle
-    /* Properties of EvinceDocument.Annotation */
+    /* Properties of EvinceDocument-3.0.EvinceDocument.Annotation */
     area: Rectangle
     color: object
     contents: string
     modified: string
     name: string
     rgba: Gdk.RGBA
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of EvinceDocument.AnnotationMarkup */
+    /* Methods of EvinceDocument-3.0.EvinceDocument.AnnotationMarkup */
     getLabel(): string
     getOpacity(): number
     getPopupIsOpen(): boolean
@@ -275,17 +275,17 @@ export class AnnotationMarkup {
     setOpacity(opacity: number): boolean
     setPopupIsOpen(isOpen: boolean): boolean
     setRectangle(evRect: Rectangle): boolean
-    /* Methods of EvinceDocument.Annotation */
+    /* Methods of EvinceDocument-3.0.EvinceDocument.Annotation */
     equal(other: Annotation): boolean
     getAnnotationType(): AnnotationType
     getArea(area: Rectangle): void
-    getColor(): /* color */ Gdk.Color
+    getColor(): { color: Gdk.Color }
     getContents(): string
     getModified(): string
     getName(): string
     getPage(): Page
     getPageIndex(): number
-    getRgba(): /* rgba */ Gdk.RGBA
+    getRgba(): { rgba: Gdk.RGBA }
     setArea(area: Rectangle): boolean
     setColor(color: Gdk.Color): boolean
     setContents(contents: string): boolean
@@ -293,7 +293,7 @@ export class AnnotationMarkup {
     setModifiedFromTime(utime: GLib.Time): boolean
     setName(name: string): boolean
     setRgba(rgba: Gdk.RGBA): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -315,21 +315,12 @@ export class AnnotationMarkup {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: AnnotationMarkup, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: AnnotationMarkup, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::can-have-popup", callback: (($obj: AnnotationMarkup, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::can-have-popup", callback: (($obj: AnnotationMarkup, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::can-have-popup", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -403,22 +394,18 @@ export class AnnotationMarkup {
     static $gtype: GObject.Type
 }
 export class AsyncRenderer {
-    /* Methods of EvinceDocument.AsyncRenderer */
+    /* Methods of EvinceDocument-3.0.EvinceDocument.AsyncRenderer */
     renderPixbuf(page: number, scale: number, rotation: number): void
-    /* Virtual methods of EvinceDocument.AsyncRenderer */
-    vfuncRenderFinished(pixbuf: GdkPixbuf.Pixbuf): void
-    vfuncRenderPixbuf(page: number, scale: number, rotation: number): void
-    /* Signals of EvinceDocument.AsyncRenderer */
+    /* Signals of EvinceDocument-3.0.EvinceDocument.AsyncRenderer */
     connect(sigName: "render-finished", callback: (($obj: AsyncRenderer, object: GdkPixbuf.Pixbuf) => void)): number
-    connect_after(sigName: "render-finished", callback: (($obj: AsyncRenderer, object: GdkPixbuf.Pixbuf) => void)): number
+    on(sigName: "render-finished", callback: (object: GdkPixbuf.Pixbuf) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "render-finished", callback: (object: GdkPixbuf.Pixbuf) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "render-finished", callback: (object: GdkPixbuf.Pixbuf) => void): NodeJS.EventEmitter
     emit(sigName: "render-finished", object: GdkPixbuf.Pixbuf): void
-    on(sigName: "render-finished", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "render-finished", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "render-finished", callback: (...args: any[]) => void): NodeJS.EventEmitter
     static name: string
 }
 export class DocumentAnnotations {
-    /* Methods of EvinceDocument.DocumentAnnotations */
+    /* Methods of EvinceDocument-3.0.EvinceDocument.DocumentAnnotations */
     addAnnotation(annot: Annotation, rect: Rectangle): void
     canAddAnnotation(): boolean
     canRemoveAnnotation(): boolean
@@ -427,50 +414,31 @@ export class DocumentAnnotations {
     overMarkup(annot: Annotation, x: number, y: number): AnnotationsOverMarkup
     removeAnnotation(annot: Annotation): void
     saveAnnotation(annot: Annotation, mask: AnnotationsSaveMask): void
-    /* Virtual methods of EvinceDocument.DocumentAnnotations */
-    vfuncAddAnnotation(annot: Annotation, rect: Rectangle): void
-    vfuncDocumentIsModified(): boolean
-    vfuncGetAnnotations(page: Page): MappingList
-    vfuncOverMarkup(annot: Annotation, x: number, y: number): AnnotationsOverMarkup
-    vfuncRemoveAnnotation(annot: Annotation): void
-    vfuncSaveAnnotation(annot: Annotation, mask: AnnotationsSaveMask): void
     static name: string
 }
 export class DocumentAttachments {
-    /* Methods of EvinceDocument.DocumentAttachments */
+    /* Methods of EvinceDocument-3.0.EvinceDocument.DocumentAttachments */
     getAttachments(): Attachment[]
     hasAttachments(): boolean
-    /* Virtual methods of EvinceDocument.DocumentAttachments */
-    vfuncGetAttachments(): Attachment[]
-    vfuncHasAttachments(): boolean
     static name: string
 }
 export class DocumentFind {
-    /* Methods of EvinceDocument.DocumentFind */
+    /* Methods of EvinceDocument-3.0.EvinceDocument.DocumentFind */
     findText(page: Page, text: string, caseSensitive: boolean): Rectangle[]
     findTextWithOptions(page: Page, text: string, options: FindOptions): Rectangle[]
     getSupportedOptions(): FindOptions
-    /* Virtual methods of EvinceDocument.DocumentFind */
-    vfuncFindText(page: Page, text: string, caseSensitive: boolean): Rectangle[]
-    vfuncFindTextWithOptions(page: Page, text: string, options: FindOptions): Rectangle[]
-    vfuncGetSupportedOptions(): FindOptions
     static name: string
 }
 export class DocumentFonts {
-    /* Methods of EvinceDocument.DocumentFonts */
+    /* Methods of EvinceDocument-3.0.EvinceDocument.DocumentFonts */
     fillModel(model: Gtk.TreeModel): void
     getFontsSummary(): string
     getProgress(): number
     scan(nPages: number): boolean
-    /* Virtual methods of EvinceDocument.DocumentFonts */
-    vfuncFillModel(model: Gtk.TreeModel): void
-    vfuncGetFontsSummary(): string
-    vfuncGetProgress(): number
-    vfuncScan(nPages: number): boolean
     static name: string
 }
 export class DocumentForms {
-    /* Methods of EvinceDocument.DocumentForms */
+    /* Methods of EvinceDocument-3.0.EvinceDocument.DocumentForms */
     documentIsModified(): boolean
     formFieldButtonGetState(field: FormField): boolean
     formFieldButtonSetState(field: FormField, state: boolean): void
@@ -486,50 +454,25 @@ export class DocumentForms {
     formFieldTextSetText(field: FormField, text: string): void
     getFormFields(page: Page): MappingList
     resetForm(action: LinkAction): void
-    /* Virtual methods of EvinceDocument.DocumentForms */
-    vfuncDocumentIsModified(): boolean
-    vfuncFormFieldButtonGetState(field: FormField): boolean
-    vfuncFormFieldButtonSetState(field: FormField, state: boolean): void
-    vfuncFormFieldChoiceGetItem(field: FormField, index: number): string
-    vfuncFormFieldChoiceGetNItems(field: FormField): number
-    vfuncFormFieldChoiceGetText(field: FormField): string
-    vfuncFormFieldChoiceIsItemSelected(field: FormField, index: number): boolean
-    vfuncFormFieldChoiceSelectItem(field: FormField, index: number): void
-    vfuncFormFieldChoiceSetText(field: FormField, text: string): void
-    vfuncFormFieldChoiceToggleItem(field: FormField, index: number): void
-    vfuncFormFieldChoiceUnselectAll(field: FormField): void
-    vfuncFormFieldTextGetText(field: FormField): string
-    vfuncFormFieldTextSetText(field: FormField, text: string): void
-    vfuncGetFormFields(page: Page): MappingList
-    vfuncResetForm(action: LinkAction): void
     static name: string
 }
 export class DocumentImages {
-    /* Methods of EvinceDocument.DocumentImages */
+    /* Methods of EvinceDocument-3.0.EvinceDocument.DocumentImages */
     getImage(image: Image): GdkPixbuf.Pixbuf
     getImageMapping(page: Page): MappingList
-    /* Virtual methods of EvinceDocument.DocumentImages */
-    vfuncGetImage(image: Image): GdkPixbuf.Pixbuf
-    vfuncGetImageMapping(page: Page): MappingList
     static name: string
 }
 export class DocumentLayers {
-    /* Methods of EvinceDocument.DocumentLayers */
+    /* Methods of EvinceDocument-3.0.EvinceDocument.DocumentLayers */
     getLayers(): Gtk.TreeModel
     hasLayers(): boolean
     hideLayer(layer: Layer): void
     layerIsVisible(layer: Layer): boolean
     showLayer(layer: Layer): void
-    /* Virtual methods of EvinceDocument.DocumentLayers */
-    vfuncGetLayers(): Gtk.TreeModel
-    vfuncHasLayers(): boolean
-    vfuncHideLayer(layer: Layer): void
-    vfuncLayerIsVisible(layer: Layer): boolean
-    vfuncShowLayer(layer: Layer): void
     static name: string
 }
 export class DocumentLinks {
-    /* Methods of EvinceDocument.DocumentLinks */
+    /* Methods of EvinceDocument-3.0.EvinceDocument.DocumentLinks */
     findLinkDest(linkName: string): LinkDest
     findLinkPage(linkName: string): number
     getDestPage(dest: LinkDest): number
@@ -539,85 +482,53 @@ export class DocumentLinks {
     getLinks(page: Page): MappingList
     getLinksModel(): Gtk.TreeModel
     hasDocumentLinks(): boolean
-    /* Virtual methods of EvinceDocument.DocumentLinks */
-    vfuncFindLinkDest(linkName: string): LinkDest
-    vfuncFindLinkPage(linkName: string): number
-    vfuncGetLinks(page: Page): MappingList
-    vfuncGetLinksModel(): Gtk.TreeModel
-    vfuncHasDocumentLinks(): boolean
     static name: string
 }
 export class DocumentMedia {
-    /* Methods of EvinceDocument.DocumentMedia */
+    /* Methods of EvinceDocument-3.0.EvinceDocument.DocumentMedia */
     getMediaMapping(page: Page): MappingList
-    /* Virtual methods of EvinceDocument.DocumentMedia */
-    vfuncGetMediaMapping(page: Page): MappingList
     static name: string
 }
 export class DocumentPrint {
-    /* Methods of EvinceDocument.DocumentPrint */
+    /* Methods of EvinceDocument-3.0.EvinceDocument.DocumentPrint */
     printPage(page: Page, cr: cairo.Context): void
-    /* Virtual methods of EvinceDocument.DocumentPrint */
-    vfuncPrintPage(page: Page, cr: cairo.Context): void
     static name: string
 }
 export class DocumentSecurity {
-    /* Methods of EvinceDocument.DocumentSecurity */
+    /* Methods of EvinceDocument-3.0.EvinceDocument.DocumentSecurity */
     hasDocumentSecurity(): boolean
     setPassword(password: string): void
-    /* Virtual methods of EvinceDocument.DocumentSecurity */
-    vfuncHasDocumentSecurity(): boolean
-    vfuncSetPassword(password: string): void
     static name: string
 }
 export class DocumentText {
-    /* Methods of EvinceDocument.DocumentText */
+    /* Methods of EvinceDocument-3.0.EvinceDocument.DocumentText */
     getText(page: Page): string
     getTextAttrs(page: Page): Pango.AttrList
     getTextLayout(page: Page, areas: Rectangle, nAreas: number): boolean
     getTextMapping(page: Page): cairo.Region
-    /* Virtual methods of EvinceDocument.DocumentText */
-    vfuncGetText(page: Page): string
-    vfuncGetTextAttrs(page: Page): Pango.AttrList
-    vfuncGetTextLayout(page: Page, areas: Rectangle, nAreas: number): boolean
-    vfuncGetTextMapping(page: Page): cairo.Region
     static name: string
 }
 export class DocumentTransition {
-    /* Methods of EvinceDocument.DocumentTransition */
+    /* Methods of EvinceDocument-3.0.EvinceDocument.DocumentTransition */
     getEffect(page: number): TransitionEffect
     getPageDuration(page: number): number
-    /* Virtual methods of EvinceDocument.DocumentTransition */
-    vfuncGetEffect(page: number): TransitionEffect
-    vfuncGetPageDuration(page: number): number
     static name: string
 }
 export class FileExporter {
-    /* Methods of EvinceDocument.FileExporter */
+    /* Methods of EvinceDocument-3.0.EvinceDocument.FileExporter */
     begin(fc: FileExporterContext): void
     beginPage(): void
     doPage(rc: RenderContext): void
     end(): void
     endPage(): void
     getCapabilities(): FileExporterCapabilities
-    /* Virtual methods of EvinceDocument.FileExporter */
-    vfuncBegin(fc: FileExporterContext): void
-    vfuncBeginPage(): void
-    vfuncDoPage(rc: RenderContext): void
-    vfuncEnd(): void
-    vfuncEndPage(): void
-    vfuncGetCapabilities(): FileExporterCapabilities
     static name: string
 }
 export class Selection {
-    /* Methods of EvinceDocument.Selection */
+    /* Methods of EvinceDocument-3.0.EvinceDocument.Selection */
     getSelectedText(page: Page, style: SelectionStyle, points: Rectangle): string
     getSelectionRegion(rc: RenderContext, style: SelectionStyle, points: Rectangle): cairo.Region
     renderSelection(rc: RenderContext, surface: cairo.Surface, points: Rectangle, oldPoints: Rectangle, style: SelectionStyle, text: Gdk.Color, base: Gdk.Color): void
-    /* Virtual methods of EvinceDocument.Selection */
-    vfuncGetSelectedText(page: Page, style: SelectionStyle, points: Rectangle): string
-    vfuncGetSelectionRegion(rc: RenderContext, style: SelectionStyle, points: Rectangle): cairo.Region
-    vfuncRenderSelection(rc: RenderContext, surface: cairo.Surface, points: Rectangle, oldPoints: Rectangle, style: SelectionStyle, text: Gdk.Color, base: Gdk.Color): void
     static name: string
 }
 export interface Annotation_ConstructProps extends GObject.Object_ConstructProps {
@@ -630,26 +541,26 @@ export interface Annotation_ConstructProps extends GObject.Object_ConstructProps
     rgba?: Gdk.RGBA
 }
 export class Annotation {
-    /* Properties of EvinceDocument.Annotation */
+    /* Properties of EvinceDocument-3.0.EvinceDocument.Annotation */
     area: Rectangle
     color: object
     contents: string
     modified: string
     name: string
     rgba: Gdk.RGBA
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of EvinceDocument.Annotation */
+    /* Methods of EvinceDocument-3.0.EvinceDocument.Annotation */
     equal(other: Annotation): boolean
     getAnnotationType(): AnnotationType
     getArea(area: Rectangle): void
-    getColor(): /* color */ Gdk.Color
+    getColor(): { color: Gdk.Color }
     getContents(): string
     getModified(): string
     getName(): string
     getPage(): Page
     getPageIndex(): number
-    getRgba(): /* rgba */ Gdk.RGBA
+    getRgba(): { rgba: Gdk.RGBA }
     setArea(area: Rectangle): boolean
     setColor(color: Gdk.Color): boolean
     setContents(contents: string): boolean
@@ -657,7 +568,7 @@ export class Annotation {
     setModifiedFromTime(utime: GLib.Time): boolean
     setName(name: string): boolean
     setRgba(rgba: Gdk.RGBA): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -679,21 +590,12 @@ export class Annotation {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Annotation, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Annotation, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::area", callback: (($obj: Annotation, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::area", callback: (($obj: Annotation, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::area", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -746,38 +648,38 @@ export interface AnnotationAttachment_ConstructProps extends Annotation_Construc
     rectangle?: Rectangle
 }
 export class AnnotationAttachment {
-    /* Properties of EvinceDocument.AnnotationAttachment */
+    /* Properties of EvinceDocument-3.0.EvinceDocument.AnnotationAttachment */
     attachment: Attachment
-    /* Properties of EvinceDocument.Annotation */
+    /* Properties of EvinceDocument-3.0.EvinceDocument.Annotation */
     area: Rectangle
     color: object
     contents: string
     modified: string
     name: string
     rgba: Gdk.RGBA
-    /* Properties of EvinceDocument.AnnotationMarkup */
+    /* Properties of EvinceDocument-3.0.EvinceDocument.AnnotationMarkup */
     canHavePopup: boolean
     hasPopup: boolean
     label: string
     opacity: number
     popupIsOpen: boolean
     rectangle: Rectangle
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of EvinceDocument.AnnotationAttachment */
+    /* Methods of EvinceDocument-3.0.EvinceDocument.AnnotationAttachment */
     getAttachment(): Attachment
     setAttachment(attachment: Attachment): boolean
-    /* Methods of EvinceDocument.Annotation */
+    /* Methods of EvinceDocument-3.0.EvinceDocument.Annotation */
     equal(other: Annotation): boolean
     getAnnotationType(): AnnotationType
     getArea(area: Rectangle): void
-    getColor(): /* color */ Gdk.Color
+    getColor(): { color: Gdk.Color }
     getContents(): string
     getModified(): string
     getName(): string
     getPage(): Page
     getPageIndex(): number
-    getRgba(): /* rgba */ Gdk.RGBA
+    getRgba(): { rgba: Gdk.RGBA }
     setArea(area: Rectangle): boolean
     setColor(color: Gdk.Color): boolean
     setContents(contents: string): boolean
@@ -785,7 +687,7 @@ export class AnnotationAttachment {
     setModifiedFromTime(utime: GLib.Time): boolean
     setName(name: string): boolean
     setRgba(rgba: Gdk.RGBA): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -807,7 +709,7 @@ export class AnnotationAttachment {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of EvinceDocument.AnnotationMarkup */
+    /* Methods of EvinceDocument-3.0.EvinceDocument.AnnotationMarkup */
     getLabel(): string
     getOpacity(): number
     getPopupIsOpen(): boolean
@@ -817,21 +719,12 @@ export class AnnotationAttachment {
     setOpacity(opacity: number): boolean
     setPopupIsOpen(isOpen: boolean): boolean
     setRectangle(evRect: Rectangle): boolean
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: AnnotationAttachment, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: AnnotationAttachment, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::attachment", callback: (($obj: AnnotationAttachment, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::attachment", callback: (($obj: AnnotationAttachment, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::attachment", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -922,41 +815,41 @@ export interface AnnotationText_ConstructProps extends Annotation_ConstructProps
     rectangle?: Rectangle
 }
 export class AnnotationText {
-    /* Properties of EvinceDocument.AnnotationText */
+    /* Properties of EvinceDocument-3.0.EvinceDocument.AnnotationText */
     icon: AnnotationTextIcon
     isOpen: boolean
-    /* Properties of EvinceDocument.Annotation */
+    /* Properties of EvinceDocument-3.0.EvinceDocument.Annotation */
     area: Rectangle
     color: object
     contents: string
     modified: string
     name: string
     rgba: Gdk.RGBA
-    /* Properties of EvinceDocument.AnnotationMarkup */
+    /* Properties of EvinceDocument-3.0.EvinceDocument.AnnotationMarkup */
     canHavePopup: boolean
     hasPopup: boolean
     label: string
     opacity: number
     popupIsOpen: boolean
     rectangle: Rectangle
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of EvinceDocument.AnnotationText */
+    /* Methods of EvinceDocument-3.0.EvinceDocument.AnnotationText */
     getIcon(): AnnotationTextIcon
     getIsOpen(): boolean
     setIcon(icon: AnnotationTextIcon): boolean
     setIsOpen(isOpen: boolean): boolean
-    /* Methods of EvinceDocument.Annotation */
+    /* Methods of EvinceDocument-3.0.EvinceDocument.Annotation */
     equal(other: Annotation): boolean
     getAnnotationType(): AnnotationType
     getArea(area: Rectangle): void
-    getColor(): /* color */ Gdk.Color
+    getColor(): { color: Gdk.Color }
     getContents(): string
     getModified(): string
     getName(): string
     getPage(): Page
     getPageIndex(): number
-    getRgba(): /* rgba */ Gdk.RGBA
+    getRgba(): { rgba: Gdk.RGBA }
     setArea(area: Rectangle): boolean
     setColor(color: Gdk.Color): boolean
     setContents(contents: string): boolean
@@ -964,7 +857,7 @@ export class AnnotationText {
     setModifiedFromTime(utime: GLib.Time): boolean
     setName(name: string): boolean
     setRgba(rgba: Gdk.RGBA): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -986,7 +879,7 @@ export class AnnotationText {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of EvinceDocument.AnnotationMarkup */
+    /* Methods of EvinceDocument-3.0.EvinceDocument.AnnotationMarkup */
     getLabel(): string
     getOpacity(): number
     getPopupIsOpen(): boolean
@@ -996,21 +889,12 @@ export class AnnotationText {
     setOpacity(opacity: number): boolean
     setPopupIsOpen(isOpen: boolean): boolean
     setRectangle(evRect: Rectangle): boolean
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: AnnotationText, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: AnnotationText, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::icon", callback: (($obj: AnnotationText, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::icon", callback: (($obj: AnnotationText, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::icon", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -1105,38 +989,38 @@ export interface AnnotationTextMarkup_ConstructProps extends Annotation_Construc
     rectangle?: Rectangle
 }
 export class AnnotationTextMarkup {
-    /* Properties of EvinceDocument.AnnotationTextMarkup */
+    /* Properties of EvinceDocument-3.0.EvinceDocument.AnnotationTextMarkup */
     type: AnnotationTextMarkupType
-    /* Properties of EvinceDocument.Annotation */
+    /* Properties of EvinceDocument-3.0.EvinceDocument.Annotation */
     area: Rectangle
     color: object
     contents: string
     modified: string
     name: string
     rgba: Gdk.RGBA
-    /* Properties of EvinceDocument.AnnotationMarkup */
+    /* Properties of EvinceDocument-3.0.EvinceDocument.AnnotationMarkup */
     canHavePopup: boolean
     hasPopup: boolean
     label: string
     opacity: number
     popupIsOpen: boolean
     rectangle: Rectangle
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of EvinceDocument.AnnotationTextMarkup */
+    /* Methods of EvinceDocument-3.0.EvinceDocument.AnnotationTextMarkup */
     getMarkupType(): AnnotationTextMarkupType
     setMarkupType(markupType: AnnotationTextMarkupType): boolean
-    /* Methods of EvinceDocument.Annotation */
+    /* Methods of EvinceDocument-3.0.EvinceDocument.Annotation */
     equal(other: Annotation): boolean
     getAnnotationType(): AnnotationType
     getArea(area: Rectangle): void
-    getColor(): /* color */ Gdk.Color
+    getColor(): { color: Gdk.Color }
     getContents(): string
     getModified(): string
     getName(): string
     getPage(): Page
     getPageIndex(): number
-    getRgba(): /* rgba */ Gdk.RGBA
+    getRgba(): { rgba: Gdk.RGBA }
     setArea(area: Rectangle): boolean
     setColor(color: Gdk.Color): boolean
     setContents(contents: string): boolean
@@ -1144,7 +1028,7 @@ export class AnnotationTextMarkup {
     setModifiedFromTime(utime: GLib.Time): boolean
     setName(name: string): boolean
     setRgba(rgba: Gdk.RGBA): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -1166,7 +1050,7 @@ export class AnnotationTextMarkup {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of EvinceDocument.AnnotationMarkup */
+    /* Methods of EvinceDocument-3.0.EvinceDocument.AnnotationMarkup */
     getLabel(): string
     getOpacity(): number
     getPopupIsOpen(): boolean
@@ -1176,21 +1060,12 @@ export class AnnotationTextMarkup {
     setOpacity(opacity: number): boolean
     setPopupIsOpen(isOpen: boolean): boolean
     setRectangle(evRect: Rectangle): boolean
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: AnnotationTextMarkup, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: AnnotationTextMarkup, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::type", callback: (($obj: AnnotationTextMarkup, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::type", callback: (($obj: AnnotationTextMarkup, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::type", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -1282,11 +1157,11 @@ export interface Attachment_ConstructProps extends GObject.Object_ConstructProps
     size?: number
 }
 export class Attachment {
-    /* Fields of EvinceDocument.Attachment */
+    /* Fields of EvinceDocument-3.0.EvinceDocument.Attachment */
     baseInstance: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of EvinceDocument.Attachment */
+    /* Methods of EvinceDocument-3.0.EvinceDocument.Attachment */
     getCreationDate(): GLib.Time
     getDescription(): string
     getMimeType(): string
@@ -1294,7 +1169,7 @@ export class Attachment {
     getName(): string
     open(screen: Gdk.Screen, timestamp: number): boolean
     save(file: Gio.File): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -1316,21 +1191,12 @@ export class Attachment {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Attachment, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Attachment, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -1350,14 +1216,14 @@ export interface Document_ConstructProps extends GObject.Object_ConstructProps {
     modified?: boolean
 }
 export class Document {
-    /* Properties of EvinceDocument.Document */
+    /* Properties of EvinceDocument-3.0.EvinceDocument.Document */
     modified: boolean
-    /* Fields of EvinceDocument.Document */
+    /* Fields of EvinceDocument-3.0.EvinceDocument.Document */
     base: GObject.Object
     priv: DocumentPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of EvinceDocument.Document */
+    /* Methods of EvinceDocument-3.0.EvinceDocument.Document */
     checkDimensions(): boolean
     findPageByLabel(pageLabel: string, pageIndex: number): boolean
     getBackendInfo(info: DocumentBackendInfo): boolean
@@ -1369,7 +1235,7 @@ export class Document {
     getNPages(): number
     getPage(index: number): Page
     getPageLabel(pageIndex: number): string
-    getPageSize(pageIndex: number): [ /* width */ number | null, /* height */ number | null ]
+    getPageSize(pageIndex: number): { width: number | null, height: number | null }
     getSize(): number
     getThumbnail(rc: RenderContext): GdkPixbuf.Pixbuf
     getThumbnailSurface(rc: RenderContext): cairo.Surface
@@ -1386,7 +1252,7 @@ export class Document {
     save(uri: string): boolean
     setModified(modified: boolean): void
     synctexBackwardSearch(pageIndex: number, x: number, y: number): SourceLink
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -1408,36 +1274,12 @@ export class Document {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of EvinceDocument.Document */
-    vfuncGetBackendInfo(info: DocumentBackendInfo): boolean
-    vfuncGetInfo(): DocumentInfo
-    vfuncGetNPages(): number
-    vfuncGetPage(index: number): Page
-    vfuncGetPageLabel(page: Page): string
-    vfuncGetPageSize(page: Page): [ /* width */ number | null, /* height */ number | null ]
-    vfuncGetThumbnail(rc: RenderContext): GdkPixbuf.Pixbuf
-    vfuncGetThumbnailSurface(rc: RenderContext): cairo.Surface
-    vfuncLoad(uri: string): boolean
-    vfuncLoadGfile(file: Gio.File, flags: DocumentLoadFlags, cancellable?: Gio.Cancellable | null): boolean
-    vfuncLoadStream(stream: Gio.InputStream, flags: DocumentLoadFlags, cancellable?: Gio.Cancellable | null): boolean
-    vfuncRender(rc: RenderContext): cairo.Surface
-    vfuncSave(uri: string): boolean
-    vfuncSupportSynctex(): boolean
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Document, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Document, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::modified", callback: (($obj: Document, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::modified", callback: (($obj: Document, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::modified", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -1469,7 +1311,7 @@ export class Document {
     static miscFormatDatetime(dt: GLib.DateTime): string
     static miscGetLoadingThumbnail(width: number, height: number, invertedColors: boolean): GdkPixbuf.Pixbuf
     static miscGetPageBorderSize(pageWidth: number, pageHeight: number, border: Gtk.Border): void
-    static miscGetPointerPosition(widget: Gtk.Widget): [ /* x */ number, /* y */ number ]
+    static miscGetPointerPosition(widget: Gtk.Widget): { x: number, y: number }
     static miscGetScreenDpi(screen: Gdk.Screen): number
     static miscGetThumbnailFrame(width: number, height: number, sourcePixbuf: GdkPixbuf.Pixbuf): GdkPixbuf.Pixbuf
     static miscGetWidgetDpi(widget: Gtk.Widget): number
@@ -1488,7 +1330,7 @@ export class Document {
 export interface FormField_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class FormField {
-    /* Fields of EvinceDocument.FormField */
+    /* Fields of EvinceDocument-3.0.EvinceDocument.FormField */
     parent: GObject.Object
     id: number
     isReadOnly: boolean
@@ -1496,12 +1338,12 @@ export class FormField {
     activationLink: Link
     page: Page
     changed: boolean
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of EvinceDocument.FormField */
+    /* Methods of EvinceDocument-3.0.EvinceDocument.FormField */
     getAlternateName(): string
     setAlternateName(alternativeText: string): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -1523,21 +1365,12 @@ export class FormField {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: FormField, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: FormField, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -1553,23 +1386,23 @@ export class FormField {
 export interface FormFieldButton_ConstructProps extends FormField_ConstructProps {
 }
 export class FormFieldButton {
-    /* Fields of EvinceDocument.FormFieldButton */
+    /* Fields of EvinceDocument-3.0.EvinceDocument.FormFieldButton */
     parent: FormField
     type: FormFieldButtonType
     state: boolean
-    /* Fields of EvinceDocument.FormField */
+    /* Fields of EvinceDocument-3.0.EvinceDocument.FormField */
     id: number
     isReadOnly: boolean
     fontSize: number
     activationLink: Link
     page: Page
     changed: boolean
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of EvinceDocument.FormField */
+    /* Methods of EvinceDocument-3.0.EvinceDocument.FormField */
     getAlternateName(): string
     setAlternateName(alternativeText: string): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -1591,21 +1424,12 @@ export class FormFieldButton {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: FormFieldButton, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: FormFieldButton, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -1623,7 +1447,7 @@ export class FormFieldButton {
 export interface FormFieldChoice_ConstructProps extends FormField_ConstructProps {
 }
 export class FormFieldChoice {
-    /* Fields of EvinceDocument.FormFieldChoice */
+    /* Fields of EvinceDocument-3.0.EvinceDocument.FormFieldChoice */
     parent: FormField
     type: FormFieldChoiceType
     multiSelect: boolean
@@ -1632,19 +1456,19 @@ export class FormFieldChoice {
     commitOnSelChange: boolean
     selectedItems: object[]
     text: string
-    /* Fields of EvinceDocument.FormField */
+    /* Fields of EvinceDocument-3.0.EvinceDocument.FormField */
     id: number
     isReadOnly: boolean
     fontSize: number
     activationLink: Link
     page: Page
     changed: boolean
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of EvinceDocument.FormField */
+    /* Methods of EvinceDocument-3.0.EvinceDocument.FormField */
     getAlternateName(): string
     setAlternateName(alternativeText: string): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -1666,21 +1490,12 @@ export class FormFieldChoice {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: FormFieldChoice, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: FormFieldChoice, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -1698,21 +1513,21 @@ export class FormFieldChoice {
 export interface FormFieldSignature_ConstructProps extends FormField_ConstructProps {
 }
 export class FormFieldSignature {
-    /* Fields of EvinceDocument.FormFieldSignature */
+    /* Fields of EvinceDocument-3.0.EvinceDocument.FormFieldSignature */
     parent: FormField
-    /* Fields of EvinceDocument.FormField */
+    /* Fields of EvinceDocument-3.0.EvinceDocument.FormField */
     id: number
     isReadOnly: boolean
     fontSize: number
     activationLink: Link
     page: Page
     changed: boolean
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of EvinceDocument.FormField */
+    /* Methods of EvinceDocument-3.0.EvinceDocument.FormField */
     getAlternateName(): string
     setAlternateName(alternativeText: string): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -1734,21 +1549,12 @@ export class FormFieldSignature {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: FormFieldSignature, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: FormFieldSignature, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -1766,7 +1572,7 @@ export class FormFieldSignature {
 export interface FormFieldText_ConstructProps extends FormField_ConstructProps {
 }
 export class FormFieldText {
-    /* Fields of EvinceDocument.FormFieldText */
+    /* Fields of EvinceDocument-3.0.EvinceDocument.FormFieldText */
     parent: FormField
     type: FormFieldTextType
     doSpellCheck: boolean
@@ -1776,19 +1582,19 @@ export class FormFieldText {
     isPassword: boolean
     maxLen: number
     text: string
-    /* Fields of EvinceDocument.FormField */
+    /* Fields of EvinceDocument-3.0.EvinceDocument.FormField */
     id: number
     isReadOnly: boolean
     fontSize: number
     activationLink: Link
     page: Page
     changed: boolean
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of EvinceDocument.FormField */
+    /* Methods of EvinceDocument-3.0.EvinceDocument.FormField */
     getAlternateName(): string
     setAlternateName(alternativeText: string): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -1810,21 +1616,12 @@ export class FormFieldText {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: FormFieldText, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: FormFieldText, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -1842,18 +1639,18 @@ export class FormFieldText {
 export interface Image_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class Image {
-    /* Fields of EvinceDocument.Image */
+    /* Fields of EvinceDocument-3.0.EvinceDocument.Image */
     baseInstance: GObject.Object
     priv: ImagePrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of EvinceDocument.Image */
+    /* Methods of EvinceDocument-3.0.EvinceDocument.Image */
     getId(): number
     getPage(): number
     getPixbuf(): GdkPixbuf.Pixbuf
     getTmpUri(): string
     saveTmp(pixbuf: GdkPixbuf.Pixbuf): string
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -1875,21 +1672,12 @@ export class Image {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Image, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Image, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -1908,15 +1696,15 @@ export class Image {
 export interface Layer_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class Layer {
-    /* Fields of EvinceDocument.Layer */
+    /* Fields of EvinceDocument-3.0.EvinceDocument.Layer */
     baseInstance: GObject.Object
     priv: LayerPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of EvinceDocument.Layer */
+    /* Methods of EvinceDocument-3.0.EvinceDocument.Layer */
     getRbGroup(): number
     isParent(): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -1938,21 +1726,12 @@ export class Layer {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Layer, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Layer, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -1972,12 +1751,12 @@ export interface Link_ConstructProps extends GObject.Object_ConstructProps {
     title?: string
 }
 export class Link {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of EvinceDocument.Link */
+    /* Methods of EvinceDocument-3.0.EvinceDocument.Link */
     getAction(): LinkAction
     getTitle(): string
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -1999,21 +1778,12 @@ export class Link {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Link, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Link, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -2042,9 +1812,9 @@ export interface LinkAction_ConstructProps extends GObject.Object_ConstructProps
     uri?: string
 }
 export class LinkAction {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of EvinceDocument.LinkAction */
+    /* Methods of EvinceDocument-3.0.EvinceDocument.LinkAction */
     equal(b: LinkAction): boolean
     getActionType(): LinkActionType
     getDest(): LinkDest
@@ -2056,7 +1826,7 @@ export class LinkAction {
     getShowList(): Layer[]
     getToggleList(): Layer[]
     getUri(): string
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -2078,21 +1848,12 @@ export class LinkAction {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: LinkAction, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: LinkAction, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -2125,9 +1886,9 @@ export interface LinkDest_ConstructProps extends GObject.Object_ConstructProps {
     zoom?: number
 }
 export class LinkDest {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of EvinceDocument.LinkDest */
+    /* Methods of EvinceDocument-3.0.EvinceDocument.LinkDest */
     equal(b: LinkDest): boolean
     getBottom(): number
     getDestType(): LinkDestType
@@ -2138,7 +1899,7 @@ export class LinkDest {
     getRight(): number
     getTop(changeTop: boolean): number
     getZoom(changeZoom: boolean): number
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -2160,21 +1921,12 @@ export class LinkDest {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: LinkDest, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: LinkDest, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -2199,17 +1951,17 @@ export class LinkDest {
 export interface Media_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class Media {
-    /* Fields of EvinceDocument.Media */
+    /* Fields of EvinceDocument-3.0.EvinceDocument.Media */
     baseInstance: GObject.Object
     priv: MediaPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of EvinceDocument.Media */
+    /* Methods of EvinceDocument-3.0.EvinceDocument.Media */
     getPageIndex(): number
     getShowControls(): boolean
     getUri(): string
     setShowControls(showControls: boolean): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -2231,21 +1983,12 @@ export class Media {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Media, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Media, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -2263,14 +2006,14 @@ export class Media {
 export interface Page_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class Page {
-    /* Fields of EvinceDocument.Page */
+    /* Fields of EvinceDocument-3.0.EvinceDocument.Page */
     baseInstance: GObject.Object
     index: number
     backendPage: BackendPage
     backendDestroyFunc: BackendPageDestroyFunc
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -2292,21 +2035,12 @@ export class Page {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Page, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Page, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -2324,16 +2058,16 @@ export class Page {
 export interface RenderContext_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class RenderContext {
-    /* Fields of EvinceDocument.RenderContext */
+    /* Fields of EvinceDocument-3.0.EvinceDocument.RenderContext */
     parent: GObject.Object
     page: Page
     rotation: number
     scale: number
     targetWidth: number
     targetHeight: number
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of EvinceDocument.RenderContext */
+    /* Methods of EvinceDocument-3.0.EvinceDocument.RenderContext */
     computeScaledSize(widthPoints: number, heightPoints: number, scaledWidth: number, scaledHeight: number): void
     computeScales(widthPoints: number, heightPoints: number, scaleX: number, scaleY: number): void
     computeTransformedSize(widthPoints: number, heightPoints: number, transformedWidth: number, transformedHeight: number): void
@@ -2341,7 +2075,7 @@ export class RenderContext {
     setRotation(rotation: number): void
     setScale(scale: number): void
     setTargetSize(targetWidth: number, targetHeight: number): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -2363,21 +2097,12 @@ export class RenderContext {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: RenderContext, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: RenderContext, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -2402,7 +2127,7 @@ export interface TransitionEffect_ConstructProps extends GObject.Object_Construc
     type?: TransitionEffectType
 }
 export class TransitionEffect {
-    /* Properties of EvinceDocument.TransitionEffect */
+    /* Properties of EvinceDocument-3.0.EvinceDocument.TransitionEffect */
     alignment: TransitionEffectAlignment
     angle: number
     direction: TransitionEffectDirection
@@ -2410,11 +2135,11 @@ export class TransitionEffect {
     rectangular: boolean
     scale: number
     type: TransitionEffectType
-    /* Fields of EvinceDocument.TransitionEffect */
+    /* Fields of EvinceDocument-3.0.EvinceDocument.TransitionEffect */
     parentInstance: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -2436,21 +2161,12 @@ export class TransitionEffect {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: TransitionEffect, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: TransitionEffect, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::alignment", callback: (($obj: TransitionEffect, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::alignment", callback: (($obj: TransitionEffect, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::alignment", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -2514,19 +2230,19 @@ export abstract class AnnotationTextMarkupClass {
     static name: string
 }
 export abstract class AsyncRendererInterface {
-    /* Fields of EvinceDocument.AsyncRendererInterface */
+    /* Fields of EvinceDocument-3.0.EvinceDocument.AsyncRendererInterface */
     baseIface: GObject.TypeInterface
     renderFinished: (renderer: AsyncRenderer, pixbuf: GdkPixbuf.Pixbuf) => void
     renderPixbuf: (renderer: AsyncRenderer, page: number, scale: number, rotation: number) => void
     static name: string
 }
 export abstract class AttachmentClass {
-    /* Fields of EvinceDocument.AttachmentClass */
+    /* Fields of EvinceDocument-3.0.EvinceDocument.AttachmentClass */
     baseClass: GObject.ObjectClass
     static name: string
 }
 export abstract class DocumentAnnotationsInterface {
-    /* Fields of EvinceDocument.DocumentAnnotationsInterface */
+    /* Fields of EvinceDocument-3.0.EvinceDocument.DocumentAnnotationsInterface */
     baseIface: GObject.TypeInterface
     getAnnotations: (documentAnnots: DocumentAnnotations, page: Page) => MappingList
     documentIsModified: (documentAnnots: DocumentAnnotations) => boolean
@@ -2537,26 +2253,26 @@ export abstract class DocumentAnnotationsInterface {
     static name: string
 }
 export abstract class DocumentAttachmentsInterface {
-    /* Fields of EvinceDocument.DocumentAttachmentsInterface */
+    /* Fields of EvinceDocument-3.0.EvinceDocument.DocumentAttachmentsInterface */
     baseIface: GObject.TypeInterface
     hasAttachments: (documentAttachments: DocumentAttachments) => boolean
     getAttachments: (documentAttachments: DocumentAttachments) => Attachment[]
     static name: string
 }
 export class DocumentBackendInfo {
-    /* Fields of EvinceDocument.DocumentBackendInfo */
+    /* Fields of EvinceDocument-3.0.EvinceDocument.DocumentBackendInfo */
     name: string
     version: string
     static name: string
 }
 export abstract class DocumentClass {
-    /* Fields of EvinceDocument.DocumentClass */
+    /* Fields of EvinceDocument-3.0.EvinceDocument.DocumentClass */
     baseClass: GObject.ObjectClass
     load: (document: Document, uri: string) => boolean
     save: (document: Document, uri: string) => boolean
     getNPages: (document: Document) => number
     getPage: (document: Document, index: number) => Page
-    getPageSize: (document: Document, page: Page) => [ /* width */ number | null, /* height */ number | null ]
+    getPageSize: (document: Document, page: Page) => { width: number | null, height: number | null }
     getPageLabel: (document: Document, page: Page) => string
     render: (document: Document, rc: RenderContext) => cairo.Surface
     getThumbnail: (document: Document, rc: RenderContext) => GdkPixbuf.Pixbuf
@@ -2569,7 +2285,7 @@ export abstract class DocumentClass {
     static name: string
 }
 export abstract class DocumentFindInterface {
-    /* Fields of EvinceDocument.DocumentFindInterface */
+    /* Fields of EvinceDocument-3.0.EvinceDocument.DocumentFindInterface */
     baseIface: GObject.TypeInterface
     findText: (documentFind: DocumentFind, page: Page, text: string, caseSensitive: boolean) => Rectangle[]
     findTextWithOptions: (documentFind: DocumentFind, page: Page, text: string, options: FindOptions) => Rectangle[]
@@ -2577,7 +2293,7 @@ export abstract class DocumentFindInterface {
     static name: string
 }
 export abstract class DocumentFontsInterface {
-    /* Fields of EvinceDocument.DocumentFontsInterface */
+    /* Fields of EvinceDocument-3.0.EvinceDocument.DocumentFontsInterface */
     baseIface: GObject.TypeInterface
     scan: (documentFonts: DocumentFonts, nPages: number) => boolean
     getProgress: (documentFonts: DocumentFonts) => number
@@ -2586,7 +2302,7 @@ export abstract class DocumentFontsInterface {
     static name: string
 }
 export abstract class DocumentFormsInterface {
-    /* Fields of EvinceDocument.DocumentFormsInterface */
+    /* Fields of EvinceDocument-3.0.EvinceDocument.DocumentFormsInterface */
     baseIface: GObject.TypeInterface
     getFormFields: (documentForms: DocumentForms, page: Page) => MappingList
     documentIsModified: (documentForms: DocumentForms) => boolean
@@ -2606,14 +2322,14 @@ export abstract class DocumentFormsInterface {
     static name: string
 }
 export abstract class DocumentImagesInterface {
-    /* Fields of EvinceDocument.DocumentImagesInterface */
+    /* Fields of EvinceDocument-3.0.EvinceDocument.DocumentImagesInterface */
     baseIface: GObject.TypeInterface
     getImageMapping: (documentImages: DocumentImages, page: Page) => MappingList
     getImage: (documentImages: DocumentImages, image: Image) => GdkPixbuf.Pixbuf
     static name: string
 }
 export class DocumentInfo {
-    /* Fields of EvinceDocument.DocumentInfo */
+    /* Fields of EvinceDocument-3.0.EvinceDocument.DocumentInfo */
     title: string
     format: string
     author: string
@@ -2635,13 +2351,13 @@ export class DocumentInfo {
     license: DocumentLicense
     containsJs: DocumentContainsJS
     fieldsMask: number
-    /* Methods of EvinceDocument.DocumentInfo */
+    /* Methods of EvinceDocument-3.0.EvinceDocument.DocumentInfo */
     copy(): DocumentInfo
     free(): void
     static name: string
 }
 export abstract class DocumentLayersInterface {
-    /* Fields of EvinceDocument.DocumentLayersInterface */
+    /* Fields of EvinceDocument-3.0.EvinceDocument.DocumentLayersInterface */
     baseIface: GObject.TypeInterface
     hasLayers: (documentLayers: DocumentLayers) => boolean
     getLayers: (documentLayers: DocumentLayers) => Gtk.TreeModel
@@ -2651,11 +2367,11 @@ export abstract class DocumentLayersInterface {
     static name: string
 }
 export class DocumentLicense {
-    /* Fields of EvinceDocument.DocumentLicense */
+    /* Fields of EvinceDocument-3.0.EvinceDocument.DocumentLicense */
     text: string
     uri: string
     webStatement: string
-    /* Methods of EvinceDocument.DocumentLicense */
+    /* Methods of EvinceDocument-3.0.EvinceDocument.DocumentLicense */
     copy(): DocumentLicense
     free(): void
     getText(): string
@@ -2668,7 +2384,7 @@ export class DocumentLicense {
     static new(): DocumentLicense
 }
 export abstract class DocumentLinksInterface {
-    /* Fields of EvinceDocument.DocumentLinksInterface */
+    /* Fields of EvinceDocument-3.0.EvinceDocument.DocumentLinksInterface */
     baseIface: GObject.TypeInterface
     hasDocumentLinks: (documentLinks: DocumentLinks) => boolean
     getLinksModel: (documentLinks: DocumentLinks) => Gtk.TreeModel
@@ -2678,13 +2394,13 @@ export abstract class DocumentLinksInterface {
     static name: string
 }
 export abstract class DocumentMediaInterface {
-    /* Fields of EvinceDocument.DocumentMediaInterface */
+    /* Fields of EvinceDocument-3.0.EvinceDocument.DocumentMediaInterface */
     baseIface: GObject.TypeInterface
     getMediaMapping: (documentMedia: DocumentMedia, page: Page) => MappingList
     static name: string
 }
 export abstract class DocumentPrintInterface {
-    /* Fields of EvinceDocument.DocumentPrintInterface */
+    /* Fields of EvinceDocument-3.0.EvinceDocument.DocumentPrintInterface */
     baseIface: GObject.TypeInterface
     printPage: (documentPrint: DocumentPrint, page: Page, cr: cairo.Context) => void
     static name: string
@@ -2693,14 +2409,14 @@ export class DocumentPrivate {
     static name: string
 }
 export abstract class DocumentSecurityInterface {
-    /* Fields of EvinceDocument.DocumentSecurityInterface */
+    /* Fields of EvinceDocument-3.0.EvinceDocument.DocumentSecurityInterface */
     baseIface: GObject.TypeInterface
     hasDocumentSecurity: (documentSecurity: DocumentSecurity) => boolean
     setPassword: (documentSecurity: DocumentSecurity, password: string) => void
     static name: string
 }
 export abstract class DocumentTextInterface {
-    /* Fields of EvinceDocument.DocumentTextInterface */
+    /* Fields of EvinceDocument-3.0.EvinceDocument.DocumentTextInterface */
     baseIface: GObject.TypeInterface
     getTextMapping: (documentText: DocumentText, page: Page) => cairo.Region
     getText: (documentText: DocumentText, page: Page) => string
@@ -2709,14 +2425,14 @@ export abstract class DocumentTextInterface {
     static name: string
 }
 export abstract class DocumentTransitionInterface {
-    /* Fields of EvinceDocument.DocumentTransitionInterface */
+    /* Fields of EvinceDocument-3.0.EvinceDocument.DocumentTransitionInterface */
     baseIface: GObject.TypeInterface
     getPageDuration: (documentTrans: DocumentTransition, page: number) => number
     getEffect: (documentTrans: DocumentTransition, page: number) => TransitionEffect
     static name: string
 }
 export class FileExporterContext {
-    /* Fields of EvinceDocument.FileExporterContext */
+    /* Fields of EvinceDocument-3.0.EvinceDocument.FileExporterContext */
     format: FileExporterFormat
     filename: string
     firstPage: number
@@ -2728,7 +2444,7 @@ export class FileExporterContext {
     static name: string
 }
 export abstract class FileExporterInterface {
-    /* Fields of EvinceDocument.FileExporterInterface */
+    /* Fields of EvinceDocument-3.0.EvinceDocument.FileExporterInterface */
     baseIface: GObject.TypeInterface
     begin: (exporter: FileExporter, fc: FileExporterContext) => void
     beginPage: (exporter: FileExporter) => void
@@ -2739,32 +2455,32 @@ export abstract class FileExporterInterface {
     static name: string
 }
 export abstract class FormFieldButtonClass {
-    /* Fields of EvinceDocument.FormFieldButtonClass */
+    /* Fields of EvinceDocument-3.0.EvinceDocument.FormFieldButtonClass */
     parentClass: FormFieldClass
     static name: string
 }
 export abstract class FormFieldChoiceClass {
-    /* Fields of EvinceDocument.FormFieldChoiceClass */
+    /* Fields of EvinceDocument-3.0.EvinceDocument.FormFieldChoiceClass */
     parentClass: FormFieldClass
     static name: string
 }
 export abstract class FormFieldClass {
-    /* Fields of EvinceDocument.FormFieldClass */
+    /* Fields of EvinceDocument-3.0.EvinceDocument.FormFieldClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
 export abstract class FormFieldSignatureClass {
-    /* Fields of EvinceDocument.FormFieldSignatureClass */
+    /* Fields of EvinceDocument-3.0.EvinceDocument.FormFieldSignatureClass */
     parentClass: FormFieldClass
     static name: string
 }
 export abstract class FormFieldTextClass {
-    /* Fields of EvinceDocument.FormFieldTextClass */
+    /* Fields of EvinceDocument-3.0.EvinceDocument.FormFieldTextClass */
     parentClass: FormFieldClass
     static name: string
 }
 export abstract class ImageClass {
-    /* Fields of EvinceDocument.ImageClass */
+    /* Fields of EvinceDocument-3.0.EvinceDocument.ImageClass */
     baseClass: GObject.ObjectClass
     static name: string
 }
@@ -2772,7 +2488,7 @@ export class ImagePrivate {
     static name: string
 }
 export abstract class LayerClass {
-    /* Fields of EvinceDocument.LayerClass */
+    /* Fields of EvinceDocument-3.0.EvinceDocument.LayerClass */
     baseClass: GObject.ObjectClass
     static name: string
 }
@@ -2798,13 +2514,13 @@ export class LinkPrivate {
     static name: string
 }
 export class Mapping {
-    /* Fields of EvinceDocument.Mapping */
+    /* Fields of EvinceDocument-3.0.EvinceDocument.Mapping */
     area: Rectangle
     data: object
     static name: string
 }
 export class MappingList {
-    /* Methods of EvinceDocument.MappingList */
+    /* Methods of EvinceDocument-3.0.EvinceDocument.MappingList */
     find(data?: object | null): Mapping
     findCustom(data: object | null, func: GLib.CompareFunc): Mapping
     get(x: number, y: number): Mapping
@@ -2823,7 +2539,7 @@ export class MappingList {
     static new(page: number, list: Mapping[], dataDestroyFunc: GLib.DestroyNotify): MappingList
 }
 export abstract class MediaClass {
-    /* Fields of EvinceDocument.MediaClass */
+    /* Fields of EvinceDocument-3.0.EvinceDocument.MediaClass */
     baseClass: GObject.ObjectClass
     static name: string
 }
@@ -2831,23 +2547,23 @@ export class MediaPrivate {
     static name: string
 }
 export abstract class PageClass {
-    /* Fields of EvinceDocument.PageClass */
+    /* Fields of EvinceDocument-3.0.EvinceDocument.PageClass */
     baseClass: GObject.ObjectClass
     static name: string
 }
 export class Point {
-    /* Fields of EvinceDocument.Point */
+    /* Fields of EvinceDocument-3.0.EvinceDocument.Point */
     x: number
     y: number
     static name: string
 }
 export class Rectangle {
-    /* Fields of EvinceDocument.Rectangle */
+    /* Fields of EvinceDocument-3.0.EvinceDocument.Rectangle */
     x1: number
     y1: number
     x2: number
     y2: number
-    /* Methods of EvinceDocument.Rectangle */
+    /* Methods of EvinceDocument-3.0.EvinceDocument.Rectangle */
     copy(): Rectangle
     free(): void
     static name: string
@@ -2857,12 +2573,12 @@ export class Rectangle {
     static new(): Rectangle
 }
 export abstract class RenderContextClass {
-    /* Fields of EvinceDocument.RenderContextClass */
+    /* Fields of EvinceDocument-3.0.EvinceDocument.RenderContextClass */
     klass: GObject.ObjectClass
     static name: string
 }
 export abstract class SelectionInterface {
-    /* Fields of EvinceDocument.SelectionInterface */
+    /* Fields of EvinceDocument-3.0.EvinceDocument.SelectionInterface */
     baseIface: GObject.TypeInterface
     renderSelection: (selection: Selection, rc: RenderContext, surface: cairo.Surface, points: Rectangle, oldPoints: Rectangle, style: SelectionStyle, text: Gdk.Color, base: Gdk.Color) => void
     getSelectedText: (selection: Selection, page: Page, style: SelectionStyle, points: Rectangle) => string
@@ -2870,11 +2586,11 @@ export abstract class SelectionInterface {
     static name: string
 }
 export class SourceLink {
-    /* Fields of EvinceDocument.SourceLink */
+    /* Fields of EvinceDocument-3.0.EvinceDocument.SourceLink */
     filename: string
     line: number
     col: number
-    /* Methods of EvinceDocument.SourceLink */
+    /* Methods of EvinceDocument-3.0.EvinceDocument.SourceLink */
     copy(): SourceLink
     free(): void
     static name: string
@@ -2884,12 +2600,12 @@ export class SourceLink {
     static new(filename: string, line: number, col: number): SourceLink
 }
 export abstract class TransitionEffectClass {
-    /* Fields of EvinceDocument.TransitionEffectClass */
+    /* Fields of EvinceDocument-3.0.EvinceDocument.TransitionEffectClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
 export class TypeInfo {
-    /* Fields of EvinceDocument.TypeInfo */
+    /* Fields of EvinceDocument-3.0.EvinceDocument.TypeInfo */
     desc: string
     mimeTypes: string
     static name: string

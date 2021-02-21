@@ -74,23 +74,23 @@ export function utils_str_end_truncate(str: string, truncate_length: number): st
 export function utils_str_middle_truncate(str: string, truncate_length: number): string
 export function utils_str_replace(string: string, search: string, replacement: string): string
 export class LanguageChooser {
-    /* Methods of Tepl.LanguageChooser */
+    /* Methods of Tepl-6.Tepl.LanguageChooser */
     select_language(language?: GtkSource.Language | null): void
-    /* Virtual methods of Tepl.LanguageChooser */
+    /* Virtual methods of Tepl-6.Tepl.LanguageChooser */
     vfunc_language_activated(language: GtkSource.Language): void
     vfunc_select_language(language?: GtkSource.Language | null): void
-    /* Signals of Tepl.LanguageChooser */
+    /* Signals of Tepl-6.Tepl.LanguageChooser */
     connect(sigName: "language-activated", callback: (($obj: LanguageChooser, language?: GtkSource.Language | null) => void)): number
     connect_after(sigName: "language-activated", callback: (($obj: LanguageChooser, language?: GtkSource.Language | null) => void)): number
     emit(sigName: "language-activated", language?: GtkSource.Language | null): void
     static name: string
 }
 export class TabGroup {
-    /* Properties of Tepl.TabGroup */
+    /* Properties of Tepl-6.Tepl.TabGroup */
     readonly active_buffer: Buffer
     active_tab: Tab
     readonly active_view: View
-    /* Methods of Tepl.TabGroup */
+    /* Methods of Tepl-6.Tepl.TabGroup */
     append_tab(tab: Tab, jump_to: boolean): void
     get_active_buffer(): Buffer | null
     get_active_tab(): Tab | null
@@ -99,7 +99,7 @@ export class TabGroup {
     get_tabs(): Tab[]
     get_views(): View[]
     set_active_tab(tab: Tab): void
-    /* Virtual methods of Tepl.TabGroup */
+    /* Virtual methods of Tepl-6.Tepl.TabGroup */
     vfunc_append_tab_vfunc(tab: Tab): void
     vfunc_get_active_tab(): Tab | null
     vfunc_get_tabs(): Tab[]
@@ -109,18 +109,18 @@ export class TabGroup {
 export interface AbstractFactory_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class AbstractFactory {
-    /* Fields of Tepl.AbstractFactory */
+    /* Fields of Tepl-6.Tepl.AbstractFactory */
     parent: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Tepl.AbstractFactory */
+    /* Methods of Tepl-6.Tepl.AbstractFactory */
     create_file(): File
     create_main_window(app: Gtk.Application): Gtk.ApplicationWindow | null
     create_metadata_manager_file(): Gio.File | null
     create_tab(): Tab
     create_tab_label(tab: Tab): Gtk.Widget | null
     set_singleton(): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -142,13 +142,13 @@ export class AbstractFactory {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Tepl.AbstractFactory */
+    /* Virtual methods of Tepl-6.Tepl.AbstractFactory */
     vfunc_create_file(): File
     vfunc_create_main_window(app: Gtk.Application): Gtk.ApplicationWindow | null
     vfunc_create_metadata_manager_file(): Gio.File | null
     vfunc_create_tab(): Tab
     vfunc_create_tab_label(tab: Tab): Gtk.Widget | null
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -156,7 +156,7 @@ export class AbstractFactory {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: AbstractFactory, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: AbstractFactory, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -175,12 +175,12 @@ export interface Application_ConstructProps extends GObject.Object_ConstructProp
     application?: Gtk.Application
 }
 export class Application {
-    /* Fields of Tepl.Application */
+    /* Fields of Tepl-6.Tepl.Application */
     parent: GObject.Object
     priv: ApplicationPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Tepl.Application */
+    /* Methods of Tepl-6.Tepl.Application */
     get_active_main_window(): Gtk.ApplicationWindow | null
     get_app_action_info_store(): Amtk.ActionInfoStore
     get_application(): Gtk.Application
@@ -189,7 +189,7 @@ export class Application {
     handle_metadata(): void
     handle_open(): void
     open_simple(file: Gio.File): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -211,7 +211,7 @@ export class Application {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -219,7 +219,7 @@ export class Application {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Application, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Application, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -241,25 +241,25 @@ export interface ApplicationWindow_ConstructProps extends GObject.Object_Constru
     active_tab?: Tab
 }
 export class ApplicationWindow {
-    /* Properties of Tepl.ApplicationWindow */
+    /* Properties of Tepl-6.Tepl.ApplicationWindow */
     handle_title: boolean
-    /* Properties of Tepl.TabGroup */
+    /* Properties of Tepl-6.Tepl.TabGroup */
     readonly active_buffer: Buffer
     active_tab: Tab
     readonly active_view: View
-    /* Fields of Tepl.ApplicationWindow */
+    /* Fields of Tepl-6.Tepl.ApplicationWindow */
     parent: GObject.Object
     priv: ApplicationWindowPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Tepl.ApplicationWindow */
+    /* Methods of Tepl-6.Tepl.ApplicationWindow */
     get_application_window(): Gtk.ApplicationWindow
     get_handle_title(): boolean
     get_window_group(): Gtk.WindowGroup
     open_file(location: Gio.File, jump_to: boolean): void
     set_handle_title(handle_title: boolean): void
     set_tab_group(tab_group: TabGroup): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -281,7 +281,7 @@ export class ApplicationWindow {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of Tepl.TabGroup */
+    /* Methods of Tepl-6.Tepl.TabGroup */
     append_tab(tab: Tab, jump_to: boolean): void
     get_active_buffer(): Buffer | null
     get_active_tab(): Tab | null
@@ -290,12 +290,12 @@ export class ApplicationWindow {
     get_tabs(): Tab[]
     get_views(): View[]
     set_active_tab(tab: Tab): void
-    /* Virtual methods of Tepl.ApplicationWindow */
+    /* Virtual methods of Tepl-6.Tepl.ApplicationWindow */
     vfunc_append_tab_vfunc(tab: Tab): void
     vfunc_get_active_tab(): Tab | null
     vfunc_get_tabs(): Tab[]
     vfunc_set_active_tab(tab: Tab): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -303,7 +303,7 @@ export class ApplicationWindow {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: ApplicationWindow, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: ApplicationWindow, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -331,11 +331,11 @@ export interface Buffer_ConstructProps extends GtkSource.Buffer_ConstructProps {
     tepl_style_scheme_id?: string
 }
 export class Buffer {
-    /* Properties of Tepl.Buffer */
+    /* Properties of Tepl-6.Tepl.Buffer */
     readonly tepl_full_title: string
     readonly tepl_short_title: string
     tepl_style_scheme_id: string
-    /* Properties of GtkSource.Buffer */
+    /* Properties of GtkSource-4.GtkSource.Buffer */
     readonly can_redo: boolean
     readonly can_undo: boolean
     highlight_matching_brackets: boolean
@@ -345,19 +345,19 @@ export class Buffer {
     max_undo_levels: number
     style_scheme: GtkSource.StyleScheme
     undo_manager: GtkSource.UndoManager
-    /* Properties of Gtk.TextBuffer */
+    /* Properties of Gtk-3.0.Gtk.TextBuffer */
     readonly copy_target_list: Gtk.TargetList
     readonly cursor_position: number
     readonly has_selection: boolean
     readonly paste_target_list: Gtk.TargetList
     text: string
-    /* Fields of Tepl.Buffer */
+    /* Fields of Tepl-6.Tepl.Buffer */
     parent_instance: GtkSource.Buffer
-    /* Fields of GtkSource.Buffer */
+    /* Fields of GtkSource-4.GtkSource.Buffer */
     priv: GtkSource.BufferPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Tepl.Buffer */
+    /* Methods of Tepl-6.Tepl.Buffer */
     get_file(): File
     get_full_title(): string
     get_metadata(): Metadata
@@ -368,7 +368,7 @@ export class Buffer {
     load_metadata_from_metadata_manager(): void
     save_metadata_into_metadata_manager(): void
     set_style_scheme_id(style_scheme_id: string): void
-    /* Methods of GtkSource.Buffer */
+    /* Methods of GtkSource-4.GtkSource.Buffer */
     backward_iter_to_source_mark(iter: Gtk.TextIter, category?: string | null): [ /* returnType */ boolean, /* iter */ Gtk.TextIter ]
     begin_not_undoable_action(): void
     change_case(case_type: GtkSource.ChangeCaseType, start: Gtk.TextIter, end: Gtk.TextIter): void
@@ -401,7 +401,7 @@ export class Buffer {
     set_undo_manager(manager?: GtkSource.UndoManager | null): void
     sort_lines(start: Gtk.TextIter, end: Gtk.TextIter, flags: GtkSource.SortFlags, column: number): void
     undo(): void
-    /* Methods of Gtk.TextBuffer */
+    /* Methods of Gtk-3.0.Gtk.TextBuffer */
     add_mark(mark: Gtk.TextMark, where: Gtk.TextIter): void
     add_selection_clipboard(clipboard: Gtk.Clipboard): void
     apply_tag(tag: Gtk.TextTag, start: Gtk.TextIter, end: Gtk.TextIter): void
@@ -472,7 +472,7 @@ export class Buffer {
     set_text(text: string, len: number): void
     unregister_deserialize_format(format: Gdk.Atom): void
     unregister_serialize_format(format: Gdk.Atom): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -494,13 +494,13 @@ export class Buffer {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Tepl.Buffer */
+    /* Virtual methods of Tepl-6.Tepl.Buffer */
     vfunc_tepl_cursor_moved(): void
-    /* Virtual methods of GtkSource.Buffer */
+    /* Virtual methods of GtkSource-4.GtkSource.Buffer */
     vfunc_bracket_matched(iter: Gtk.TextIter, state: GtkSource.BracketMatchType): void
     vfunc_redo(): void
     vfunc_undo(): void
-    /* Virtual methods of Gtk.TextBuffer */
+    /* Virtual methods of Gtk-3.0.Gtk.TextBuffer */
     vfunc_apply_tag(tag: Gtk.TextTag, start: Gtk.TextIter, end: Gtk.TextIter): void
     vfunc_begin_user_action(): void
     vfunc_changed(): void
@@ -514,7 +514,7 @@ export class Buffer {
     vfunc_modified_changed(): void
     vfunc_paste_done(clipboard: Gtk.Clipboard): void
     vfunc_remove_tag(tag: Gtk.TextTag, start: Gtk.TextIter, end: Gtk.TextIter): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -522,11 +522,11 @@ export class Buffer {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Tepl.Buffer */
+    /* Signals of Tepl-6.Tepl.Buffer */
     connect(sigName: "tepl-cursor-moved", callback: (($obj: Buffer) => void)): number
     connect_after(sigName: "tepl-cursor-moved", callback: (($obj: Buffer) => void)): number
     emit(sigName: "tepl-cursor-moved"): void
-    /* Signals of GtkSource.Buffer */
+    /* Signals of GtkSource-4.GtkSource.Buffer */
     connect(sigName: "bracket-matched", callback: (($obj: Buffer, iter: Gtk.TextIter | null, state: GtkSource.BracketMatchType) => void)): number
     connect_after(sigName: "bracket-matched", callback: (($obj: Buffer, iter: Gtk.TextIter | null, state: GtkSource.BracketMatchType) => void)): number
     emit(sigName: "bracket-matched", iter: Gtk.TextIter | null, state: GtkSource.BracketMatchType): void
@@ -542,7 +542,7 @@ export class Buffer {
     connect(sigName: "undo", callback: (($obj: Buffer) => void)): number
     connect_after(sigName: "undo", callback: (($obj: Buffer) => void)): number
     emit(sigName: "undo"): void
-    /* Signals of Gtk.TextBuffer */
+    /* Signals of Gtk-3.0.Gtk.TextBuffer */
     connect(sigName: "apply-tag", callback: (($obj: Buffer, tag: Gtk.TextTag, start: Gtk.TextIter, end: Gtk.TextIter) => void)): number
     connect_after(sigName: "apply-tag", callback: (($obj: Buffer, tag: Gtk.TextTag, start: Gtk.TextIter, end: Gtk.TextIter) => void)): number
     emit(sigName: "apply-tag", tag: Gtk.TextTag, start: Gtk.TextIter, end: Gtk.TextIter): void
@@ -582,7 +582,7 @@ export class Buffer {
     connect(sigName: "remove-tag", callback: (($obj: Buffer, tag: Gtk.TextTag, start: Gtk.TextIter, end: Gtk.TextIter) => void)): number
     connect_after(sigName: "remove-tag", callback: (($obj: Buffer, tag: Gtk.TextTag, start: Gtk.TextIter, end: Gtk.TextIter) => void)): number
     emit(sigName: "remove-tag", tag: Gtk.TextTag, start: Gtk.TextIter, end: Gtk.TextIter): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Buffer, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Buffer, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -636,22 +636,22 @@ export interface File_ConstructProps extends GObject.Object_ConstructProps {
     location?: Gio.File
 }
 export class File {
-    /* Properties of Tepl.File */
+    /* Properties of Tepl-6.Tepl.File */
     location: Gio.File
     readonly newline_type: NewlineType
     readonly short_name: string
-    /* Fields of Tepl.File */
+    /* Fields of Tepl-6.Tepl.File */
     parent: GObject.Object
     priv: FilePrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Tepl.File */
+    /* Methods of Tepl-6.Tepl.File */
     add_uri_to_recent_manager(): void
     get_location(): Gio.File
     get_newline_type(): NewlineType
     get_short_name(): string
     set_location(location?: Gio.File | null): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -673,7 +673,7 @@ export class File {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -681,7 +681,7 @@ export class File {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: File, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: File, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -711,18 +711,18 @@ export interface FileLoader_ConstructProps extends GObject.Object_ConstructProps
     location?: Gio.File
 }
 export class FileLoader {
-    /* Fields of Tepl.FileLoader */
+    /* Fields of Tepl-6.Tepl.FileLoader */
     parent: GObject.Object
     priv: FileLoaderPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Tepl.FileLoader */
+    /* Methods of Tepl-6.Tepl.FileLoader */
     get_buffer(): Buffer | null
     get_file(): File | null
     get_location(): Gio.File | null
     load_async(io_priority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     load_finish(result: Gio.AsyncResult): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -744,7 +744,7 @@ export class FileLoader {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -752,7 +752,7 @@ export class FileLoader {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: FileLoader, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: FileLoader, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -775,15 +775,15 @@ export interface FileSaver_ConstructProps extends GObject.Object_ConstructProps 
     newline_type?: NewlineType
 }
 export class FileSaver {
-    /* Properties of Tepl.FileSaver */
+    /* Properties of Tepl-6.Tepl.FileSaver */
     flags: FileSaverFlags
     newline_type: NewlineType
-    /* Fields of Tepl.FileSaver */
+    /* Fields of Tepl-6.Tepl.FileSaver */
     object: GObject.Object
     priv: FileSaverPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Tepl.FileSaver */
+    /* Methods of Tepl-6.Tepl.FileSaver */
     get_buffer(): Buffer
     get_file(): File
     get_flags(): FileSaverFlags
@@ -793,7 +793,7 @@ export class FileSaver {
     save_finish(result: Gio.AsyncResult): boolean
     set_flags(flags: FileSaverFlags): void
     set_newline_type(newline_type: NewlineType): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -815,7 +815,7 @@ export class FileSaver {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -823,7 +823,7 @@ export class FileSaver {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: FileSaver, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: FileSaver, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -848,19 +848,19 @@ export interface FoldRegion_ConstructProps extends GObject.Object_ConstructProps
     folded?: boolean
 }
 export class FoldRegion {
-    /* Properties of Tepl.FoldRegion */
+    /* Properties of Tepl-6.Tepl.FoldRegion */
     folded: boolean
-    /* Fields of Tepl.FoldRegion */
+    /* Fields of Tepl-6.Tepl.FoldRegion */
     parent_instance: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Tepl.FoldRegion */
+    /* Methods of Tepl-6.Tepl.FoldRegion */
     get_bounds(): [ /* returnType */ boolean, /* start */ Gtk.TextIter, /* end */ Gtk.TextIter ]
     get_buffer(): Gtk.TextBuffer | null
     get_folded(): boolean
     set_bounds(start: Gtk.TextIter, end: Gtk.TextIter): void
     set_folded(folded: boolean): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -882,7 +882,7 @@ export class FoldRegion {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -890,7 +890,7 @@ export class FoldRegion {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: FoldRegion, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: FoldRegion, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -911,17 +911,17 @@ export interface GotoLineBar_ConstructProps extends Gtk.Grid_ConstructProps {
     orientation?: Gtk.Orientation
 }
 export class GotoLineBar {
-    /* Properties of Gtk.Grid */
+    /* Properties of Gtk-3.0.Gtk.Grid */
     baseline_row: number
     column_homogeneous: boolean
     column_spacing: number
     row_homogeneous: boolean
     row_spacing: number
-    /* Properties of Gtk.Container */
+    /* Properties of Gtk-3.0.Gtk.Container */
     border_width: number
     child: Gtk.Widget
     resize_mode: Gtk.ResizeMode
-    /* Properties of Gtk.Widget */
+    /* Properties of Gtk-3.0.Gtk.Widget */
     app_paintable: boolean
     can_default: boolean
     can_focus: boolean
@@ -961,20 +961,20 @@ export class GotoLineBar {
     visible: boolean
     width_request: number
     readonly window: Gdk.Window
-    /* Properties of Gtk.Orientable */
+    /* Properties of Gtk-3.0.Gtk.Orientable */
     orientation: Gtk.Orientation
-    /* Fields of Tepl.GotoLineBar */
+    /* Fields of Tepl-6.Tepl.GotoLineBar */
     priv: GotoLineBarPrivate
-    /* Fields of Gtk.Container */
+    /* Fields of Gtk-3.0.Gtk.Container */
     widget: Gtk.Widget
-    /* Fields of Gtk.Widget */
+    /* Fields of Gtk-3.0.Gtk.Widget */
     parent_instance: GObject.InitiallyUnowned
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Tepl.GotoLineBar */
+    /* Methods of Tepl-6.Tepl.GotoLineBar */
     grab_focus_to_entry(): void
     set_view(view: View): void
-    /* Methods of Gtk.Grid */
+    /* Methods of Gtk-3.0.Gtk.Grid */
     attach(child: Gtk.Widget, left: number, top: number, width: number, height: number): void
     attach_next_to(child: Gtk.Widget, sibling: Gtk.Widget | null, side: Gtk.PositionType, width: number, height: number): void
     get_baseline_row(): number
@@ -995,7 +995,7 @@ export class GotoLineBar {
     set_row_baseline_position(row: number, pos: Gtk.BaselinePosition): void
     set_row_homogeneous(homogeneous: boolean): void
     set_row_spacing(spacing: number): void
-    /* Methods of Gtk.Container */
+    /* Methods of Gtk-3.0.Gtk.Container */
     add(widget: Gtk.Widget): void
     check_resize(): void
     child_get_property(child: Gtk.Widget, property_name: string, value: any): void
@@ -1023,7 +1023,7 @@ export class GotoLineBar {
     set_reallocate_redraws(needs_redraws: boolean): void
     set_resize_mode(resize_mode: Gtk.ResizeMode): void
     unset_focus_chain(): void
-    /* Methods of Gtk.Widget */
+    /* Methods of Gtk-3.0.Gtk.Widget */
     activate(): boolean
     add_accelerator(accel_signal: string, accel_group: Gtk.AccelGroup, accel_key: number, accel_mods: Gdk.ModifierType, accel_flags: Gtk.AccelFlags): void
     add_device_events(device: Gdk.Device, events: Gdk.EventMask): void
@@ -1282,7 +1282,7 @@ export class GotoLineBar {
     unrealize(): void
     unregister_window(window: Gdk.Window): void
     unset_state_flags(flags: Gtk.StateFlags): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -1304,7 +1304,7 @@ export class GotoLineBar {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of Gtk.Buildable */
+    /* Methods of Gtk-3.0.Gtk.Buildable */
     add_child(builder: Gtk.Builder, child: GObject.Object, type?: string | null): void
     construct_child(builder: Gtk.Builder, name: string): GObject.Object
     custom_finished(builder: Gtk.Builder, child: GObject.Object | null, tagname: string, data?: object | null): void
@@ -1313,10 +1313,10 @@ export class GotoLineBar {
     get_internal_child(builder: Gtk.Builder, childname: string): GObject.Object
     parser_finished(builder: Gtk.Builder): void
     set_buildable_property(builder: Gtk.Builder, name: string, value: any): void
-    /* Methods of Gtk.Orientable */
+    /* Methods of Gtk-3.0.Gtk.Orientable */
     get_orientation(): Gtk.Orientation
     set_orientation(orientation: Gtk.Orientation): void
-    /* Virtual methods of Tepl.GotoLineBar */
+    /* Virtual methods of Tepl-6.Tepl.GotoLineBar */
     vfunc_add_child(builder: Gtk.Builder, child: GObject.Object, type?: string | null): void
     vfunc_construct_child(builder: Gtk.Builder, name: string): GObject.Object
     vfunc_custom_finished(builder: Gtk.Builder, child: GObject.Object | null, tagname: string, data?: object | null): void
@@ -1327,7 +1327,7 @@ export class GotoLineBar {
     vfunc_parser_finished(builder: Gtk.Builder): void
     vfunc_set_buildable_property(builder: Gtk.Builder, name: string, value: any): void
     vfunc_set_name(name: string): void
-    /* Virtual methods of Gtk.Container */
+    /* Virtual methods of Gtk-3.0.Gtk.Container */
     vfunc_add(widget: Gtk.Widget): void
     vfunc_check_resize(): void
     vfunc_child_type(): GObject.Type
@@ -1338,7 +1338,7 @@ export class GotoLineBar {
     vfunc_remove(widget: Gtk.Widget): void
     vfunc_set_child_property(child: Gtk.Widget, property_id: number, value: any, pspec: GObject.ParamSpec): void
     vfunc_set_focus_child(child?: Gtk.Widget | null): void
-    /* Virtual methods of Gtk.Widget */
+    /* Virtual methods of Gtk-3.0.Gtk.Widget */
     vfunc_adjust_baseline_allocation(baseline: number): void
     vfunc_adjust_baseline_request(minimum_baseline: number, natural_baseline: number): void
     vfunc_adjust_size_allocation(orientation: Gtk.Orientation, minimum_size: number, natural_size: number, allocated_pos: number, allocated_size: number): void
@@ -1421,7 +1421,7 @@ export class GotoLineBar {
     vfunc_unrealize(): void
     vfunc_visibility_notify_event(event: Gdk.EventVisibility): boolean
     vfunc_window_state_event(event: Gdk.EventWindowState): boolean
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -1429,7 +1429,7 @@ export class GotoLineBar {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gtk.Container */
+    /* Signals of Gtk-3.0.Gtk.Container */
     connect(sigName: "add", callback: (($obj: GotoLineBar, object: Gtk.Widget) => void)): number
     connect_after(sigName: "add", callback: (($obj: GotoLineBar, object: Gtk.Widget) => void)): number
     emit(sigName: "add", object: Gtk.Widget): void
@@ -1442,7 +1442,7 @@ export class GotoLineBar {
     connect(sigName: "set-focus-child", callback: (($obj: GotoLineBar, object: Gtk.Widget) => void)): number
     connect_after(sigName: "set-focus-child", callback: (($obj: GotoLineBar, object: Gtk.Widget) => void)): number
     emit(sigName: "set-focus-child", object: Gtk.Widget): void
-    /* Signals of Gtk.Widget */
+    /* Signals of Gtk-3.0.Gtk.Widget */
     connect(sigName: "accel-closures-changed", callback: (($obj: GotoLineBar) => void)): number
     connect_after(sigName: "accel-closures-changed", callback: (($obj: GotoLineBar) => void)): number
     emit(sigName: "accel-closures-changed"): void
@@ -1650,7 +1650,7 @@ export class GotoLineBar {
     connect(sigName: "window-state-event", callback: (($obj: GotoLineBar, event: Gdk.EventWindowState) => boolean)): number
     connect_after(sigName: "window-state-event", callback: (($obj: GotoLineBar, event: Gdk.EventWindowState) => boolean)): number
     emit(sigName: "window-state-event", event: Gdk.EventWindowState): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: GotoLineBar, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: GotoLineBar, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -1764,7 +1764,7 @@ export class GotoLineBar {
 export interface GutterRendererFolds_ConstructProps extends GtkSource.GutterRenderer_ConstructProps {
 }
 export class GutterRendererFolds {
-    /* Properties of GtkSource.GutterRenderer */
+    /* Properties of GtkSource-4.GtkSource.GutterRenderer */
     alignment_mode: GtkSource.GutterRendererAlignmentMode
     background_rgba: Gdk.RGBA
     background_set: boolean
@@ -1776,15 +1776,15 @@ export class GutterRendererFolds {
     xpad: number
     yalign: number
     ypad: number
-    /* Fields of Tepl.GutterRendererFolds */
+    /* Fields of Tepl-6.Tepl.GutterRendererFolds */
     parent_instance: GtkSource.GutterRenderer
-    /* Fields of GtkSource.GutterRenderer */
+    /* Fields of GtkSource-4.GtkSource.GutterRenderer */
     parent: GObject.InitiallyUnowned
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Tepl.GutterRendererFolds */
+    /* Methods of Tepl-6.Tepl.GutterRendererFolds */
     set_state(state: GutterRendererFoldsState): void
-    /* Methods of GtkSource.GutterRenderer */
+    /* Methods of GtkSource-4.GtkSource.GutterRenderer */
     activate(iter: Gtk.TextIter, area: Gdk.Rectangle, event: Gdk.Event): void
     begin(cr: cairo.Context, background_area: Gdk.Rectangle, cell_area: Gdk.Rectangle, start: Gtk.TextIter, end: Gtk.TextIter): void
     draw(cr: cairo.Context, background_area: Gdk.Rectangle, cell_area: Gdk.Rectangle, start: Gtk.TextIter, end: Gtk.TextIter, state: GtkSource.GutterRendererState): void
@@ -1807,7 +1807,7 @@ export class GutterRendererFolds {
     set_padding(xpad: number, ypad: number): void
     set_size(size: number): void
     set_visible(visible: boolean): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -1829,7 +1829,7 @@ export class GutterRendererFolds {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GtkSource.GutterRenderer */
+    /* Virtual methods of GtkSource-4.GtkSource.GutterRenderer */
     vfunc_activate(iter: Gtk.TextIter, area: Gdk.Rectangle, event: Gdk.Event): void
     vfunc_begin(cr: cairo.Context, background_area: Gdk.Rectangle, cell_area: Gdk.Rectangle, start: Gtk.TextIter, end: Gtk.TextIter): void
     vfunc_change_buffer(old_buffer?: Gtk.TextBuffer | null): void
@@ -1840,7 +1840,7 @@ export class GutterRendererFolds {
     vfunc_query_data(start: Gtk.TextIter, end: Gtk.TextIter, state: GtkSource.GutterRendererState): void
     vfunc_query_tooltip(iter: Gtk.TextIter, area: Gdk.Rectangle, x: number, y: number, tooltip: Gtk.Tooltip): boolean
     vfunc_queue_draw(): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -1848,7 +1848,7 @@ export class GutterRendererFolds {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GtkSource.GutterRenderer */
+    /* Signals of GtkSource-4.GtkSource.GutterRenderer */
     connect(sigName: "activate", callback: (($obj: GutterRendererFolds, iter: Gtk.TextIter, area: Gdk.Rectangle, event: Gdk.Event) => void)): number
     connect_after(sigName: "activate", callback: (($obj: GutterRendererFolds, iter: Gtk.TextIter, area: Gdk.Rectangle, event: Gdk.Event) => void)): number
     emit(sigName: "activate", iter: Gtk.TextIter, area: Gdk.Rectangle, event: Gdk.Event): void
@@ -1864,7 +1864,7 @@ export class GutterRendererFolds {
     connect(sigName: "queue-draw", callback: (($obj: GutterRendererFolds) => void)): number
     connect_after(sigName: "queue-draw", callback: (($obj: GutterRendererFolds) => void)): number
     emit(sigName: "queue-draw"): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: GutterRendererFolds, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: GutterRendererFolds, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -1908,23 +1908,23 @@ export interface InfoBar_ConstructProps extends Gtk.InfoBar_ConstructProps {
     orientation?: Gtk.Orientation
 }
 export class InfoBar {
-    /* Properties of Tepl.InfoBar */
+    /* Properties of Tepl-6.Tepl.InfoBar */
     handle_close_response: boolean
     icon_from_message_type: boolean
     icon_name: string
-    /* Properties of Gtk.InfoBar */
+    /* Properties of Gtk-3.0.Gtk.InfoBar */
     message_type: Gtk.MessageType
     revealed: boolean
     show_close_button: boolean
-    /* Properties of Gtk.Box */
+    /* Properties of Gtk-3.0.Gtk.Box */
     baseline_position: Gtk.BaselinePosition
     homogeneous: boolean
     spacing: number
-    /* Properties of Gtk.Container */
+    /* Properties of Gtk-3.0.Gtk.Container */
     border_width: number
     child: Gtk.Widget
     resize_mode: Gtk.ResizeMode
-    /* Properties of Gtk.Widget */
+    /* Properties of Gtk-3.0.Gtk.Widget */
     app_paintable: boolean
     can_default: boolean
     can_focus: boolean
@@ -1964,19 +1964,19 @@ export class InfoBar {
     visible: boolean
     width_request: number
     readonly window: Gdk.Window
-    /* Properties of Gtk.Orientable */
+    /* Properties of Gtk-3.0.Gtk.Orientable */
     orientation: Gtk.Orientation
-    /* Fields of Tepl.InfoBar */
+    /* Fields of Tepl-6.Tepl.InfoBar */
     priv: InfoBarPrivate
-    /* Fields of Gtk.Box */
+    /* Fields of Gtk-3.0.Gtk.Box */
     container: Gtk.Container
-    /* Fields of Gtk.Container */
+    /* Fields of Gtk-3.0.Gtk.Container */
     widget: Gtk.Widget
-    /* Fields of Gtk.Widget */
+    /* Fields of Gtk-3.0.Gtk.Widget */
     parent_instance: GObject.InitiallyUnowned
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Tepl.InfoBar */
+    /* Methods of Tepl-6.Tepl.InfoBar */
     add_content_widget(widget: Gtk.Widget, location: InfoBarLocation): void
     add_primary_message(primary_msg: string): void
     add_secondary_message(secondary_msg: string): void
@@ -1987,7 +1987,7 @@ export class InfoBar {
     set_icon_from_message_type(icon_from_message_type: boolean): void
     set_icon_name(icon_name: string): void
     setup_close_button(): void
-    /* Methods of Gtk.InfoBar */
+    /* Methods of Gtk-3.0.Gtk.InfoBar */
     add_action_widget(child: Gtk.Widget, response_id: number): void
     add_button(button_text: string, response_id: number): Gtk.Button
     get_action_area(): Gtk.Box
@@ -2001,7 +2001,7 @@ export class InfoBar {
     set_response_sensitive(response_id: number, setting: boolean): void
     set_revealed(revealed: boolean): void
     set_show_close_button(setting: boolean): void
-    /* Methods of Gtk.Box */
+    /* Methods of Gtk-3.0.Gtk.Box */
     get_baseline_position(): Gtk.BaselinePosition
     get_center_widget(): Gtk.Widget | null
     get_homogeneous(): boolean
@@ -2015,7 +2015,7 @@ export class InfoBar {
     set_child_packing(child: Gtk.Widget, expand: boolean, fill: boolean, padding: number, pack_type: Gtk.PackType): void
     set_homogeneous(homogeneous: boolean): void
     set_spacing(spacing: number): void
-    /* Methods of Gtk.Container */
+    /* Methods of Gtk-3.0.Gtk.Container */
     add(widget: Gtk.Widget): void
     check_resize(): void
     child_get_property(child: Gtk.Widget, property_name: string, value: any): void
@@ -2043,7 +2043,7 @@ export class InfoBar {
     set_reallocate_redraws(needs_redraws: boolean): void
     set_resize_mode(resize_mode: Gtk.ResizeMode): void
     unset_focus_chain(): void
-    /* Methods of Gtk.Widget */
+    /* Methods of Gtk-3.0.Gtk.Widget */
     activate(): boolean
     add_accelerator(accel_signal: string, accel_group: Gtk.AccelGroup, accel_key: number, accel_mods: Gdk.ModifierType, accel_flags: Gtk.AccelFlags): void
     add_device_events(device: Gdk.Device, events: Gdk.EventMask): void
@@ -2302,7 +2302,7 @@ export class InfoBar {
     unrealize(): void
     unregister_window(window: Gdk.Window): void
     unset_state_flags(flags: Gtk.StateFlags): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -2324,7 +2324,7 @@ export class InfoBar {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of Gtk.Buildable */
+    /* Methods of Gtk-3.0.Gtk.Buildable */
     add_child(builder: Gtk.Builder, child: GObject.Object, type?: string | null): void
     construct_child(builder: Gtk.Builder, name: string): GObject.Object
     custom_finished(builder: Gtk.Builder, child: GObject.Object | null, tagname: string, data?: object | null): void
@@ -2333,10 +2333,10 @@ export class InfoBar {
     get_internal_child(builder: Gtk.Builder, childname: string): GObject.Object
     parser_finished(builder: Gtk.Builder): void
     set_buildable_property(builder: Gtk.Builder, name: string, value: any): void
-    /* Methods of Gtk.Orientable */
+    /* Methods of Gtk-3.0.Gtk.Orientable */
     get_orientation(): Gtk.Orientation
     set_orientation(orientation: Gtk.Orientation): void
-    /* Virtual methods of Tepl.InfoBar */
+    /* Virtual methods of Tepl-6.Tepl.InfoBar */
     vfunc_add_child(builder: Gtk.Builder, child: GObject.Object, type?: string | null): void
     vfunc_construct_child(builder: Gtk.Builder, name: string): GObject.Object
     vfunc_custom_finished(builder: Gtk.Builder, child: GObject.Object | null, tagname: string, data?: object | null): void
@@ -2347,10 +2347,10 @@ export class InfoBar {
     vfunc_parser_finished(builder: Gtk.Builder): void
     vfunc_set_buildable_property(builder: Gtk.Builder, name: string, value: any): void
     vfunc_set_name(name: string): void
-    /* Virtual methods of Gtk.InfoBar */
+    /* Virtual methods of Gtk-3.0.Gtk.InfoBar */
     vfunc_close(): void
     vfunc_response(response_id: number): void
-    /* Virtual methods of Gtk.Container */
+    /* Virtual methods of Gtk-3.0.Gtk.Container */
     vfunc_add(widget: Gtk.Widget): void
     vfunc_check_resize(): void
     vfunc_child_type(): GObject.Type
@@ -2361,7 +2361,7 @@ export class InfoBar {
     vfunc_remove(widget: Gtk.Widget): void
     vfunc_set_child_property(child: Gtk.Widget, property_id: number, value: any, pspec: GObject.ParamSpec): void
     vfunc_set_focus_child(child?: Gtk.Widget | null): void
-    /* Virtual methods of Gtk.Widget */
+    /* Virtual methods of Gtk-3.0.Gtk.Widget */
     vfunc_adjust_baseline_allocation(baseline: number): void
     vfunc_adjust_baseline_request(minimum_baseline: number, natural_baseline: number): void
     vfunc_adjust_size_allocation(orientation: Gtk.Orientation, minimum_size: number, natural_size: number, allocated_pos: number, allocated_size: number): void
@@ -2444,7 +2444,7 @@ export class InfoBar {
     vfunc_unrealize(): void
     vfunc_visibility_notify_event(event: Gdk.EventVisibility): boolean
     vfunc_window_state_event(event: Gdk.EventWindowState): boolean
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -2452,14 +2452,14 @@ export class InfoBar {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gtk.InfoBar */
+    /* Signals of Gtk-3.0.Gtk.InfoBar */
     connect(sigName: "close", callback: (($obj: InfoBar) => void)): number
     connect_after(sigName: "close", callback: (($obj: InfoBar) => void)): number
     emit(sigName: "close"): void
     connect(sigName: "response", callback: (($obj: InfoBar, response_id: number) => void)): number
     connect_after(sigName: "response", callback: (($obj: InfoBar, response_id: number) => void)): number
     emit(sigName: "response", response_id: number): void
-    /* Signals of Gtk.Container */
+    /* Signals of Gtk-3.0.Gtk.Container */
     connect(sigName: "add", callback: (($obj: InfoBar, object: Gtk.Widget) => void)): number
     connect_after(sigName: "add", callback: (($obj: InfoBar, object: Gtk.Widget) => void)): number
     emit(sigName: "add", object: Gtk.Widget): void
@@ -2472,7 +2472,7 @@ export class InfoBar {
     connect(sigName: "set-focus-child", callback: (($obj: InfoBar, object: Gtk.Widget) => void)): number
     connect_after(sigName: "set-focus-child", callback: (($obj: InfoBar, object: Gtk.Widget) => void)): number
     emit(sigName: "set-focus-child", object: Gtk.Widget): void
-    /* Signals of Gtk.Widget */
+    /* Signals of Gtk-3.0.Gtk.Widget */
     connect(sigName: "accel-closures-changed", callback: (($obj: InfoBar) => void)): number
     connect_after(sigName: "accel-closures-changed", callback: (($obj: InfoBar) => void)): number
     emit(sigName: "accel-closures-changed"): void
@@ -2680,7 +2680,7 @@ export class InfoBar {
     connect(sigName: "window-state-event", callback: (($obj: InfoBar, event: Gdk.EventWindowState) => boolean)): number
     connect_after(sigName: "window-state-event", callback: (($obj: InfoBar, event: Gdk.EventWindowState) => boolean)): number
     emit(sigName: "window-state-event", event: Gdk.EventWindowState): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: InfoBar, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: InfoBar, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -2806,7 +2806,7 @@ export class InfoBar {
 export interface LanguageChooserDialog_ConstructProps extends Gtk.Dialog_ConstructProps {
 }
 export class LanguageChooserDialog {
-    /* Properties of Gtk.Window */
+    /* Properties of Gtk-3.0.Gtk.Window */
     accept_focus: boolean
     application: Gtk.Application
     attached_to: Gtk.Widget
@@ -2839,11 +2839,11 @@ export class LanguageChooserDialog {
     type_hint: Gdk.WindowTypeHint
     urgency_hint: boolean
     window_position: Gtk.WindowPosition
-    /* Properties of Gtk.Container */
+    /* Properties of Gtk-3.0.Gtk.Container */
     border_width: number
     child: Gtk.Widget
     resize_mode: Gtk.ResizeMode
-    /* Properties of Gtk.Widget */
+    /* Properties of Gtk-3.0.Gtk.Widget */
     app_paintable: boolean
     can_default: boolean
     can_focus: boolean
@@ -2883,19 +2883,19 @@ export class LanguageChooserDialog {
     visible: boolean
     width_request: number
     readonly window: Gdk.Window
-    /* Fields of Tepl.LanguageChooserDialog */
+    /* Fields of Tepl-6.Tepl.LanguageChooserDialog */
     priv: LanguageChooserDialogPrivate
-    /* Fields of Gtk.Window */
+    /* Fields of Gtk-3.0.Gtk.Window */
     bin: Gtk.Bin
-    /* Fields of Gtk.Bin */
+    /* Fields of Gtk-3.0.Gtk.Bin */
     container: Gtk.Container
-    /* Fields of Gtk.Container */
+    /* Fields of Gtk-3.0.Gtk.Container */
     widget: Gtk.Widget
-    /* Fields of Gtk.Widget */
+    /* Fields of Gtk-3.0.Gtk.Widget */
     parent_instance: GObject.InitiallyUnowned
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Gtk.Dialog */
+    /* Methods of Gtk-3.0.Gtk.Dialog */
     add_action_widget(child: Gtk.Widget, response_id: number): void
     add_button(button_text: string, response_id: number): Gtk.Widget
     get_action_area(): Gtk.Box
@@ -2908,7 +2908,7 @@ export class LanguageChooserDialog {
     set_alternative_button_order_from_array(new_order: number[]): void
     set_default_response(response_id: number): void
     set_response_sensitive(response_id: number, setting: boolean): void
-    /* Methods of Gtk.Window */
+    /* Methods of Gtk-3.0.Gtk.Window */
     activate_default(): boolean
     activate_focus(): boolean
     activate_key(event: Gdk.EventKey): boolean
@@ -3015,9 +3015,9 @@ export class LanguageChooserDialog {
     unfullscreen(): void
     unmaximize(): void
     unstick(): void
-    /* Methods of Gtk.Bin */
+    /* Methods of Gtk-3.0.Gtk.Bin */
     get_child(): Gtk.Widget | null
-    /* Methods of Gtk.Container */
+    /* Methods of Gtk-3.0.Gtk.Container */
     add(widget: Gtk.Widget): void
     check_resize(): void
     child_get_property(child: Gtk.Widget, property_name: string, value: any): void
@@ -3045,7 +3045,7 @@ export class LanguageChooserDialog {
     set_reallocate_redraws(needs_redraws: boolean): void
     set_resize_mode(resize_mode: Gtk.ResizeMode): void
     unset_focus_chain(): void
-    /* Methods of Gtk.Widget */
+    /* Methods of Gtk-3.0.Gtk.Widget */
     activate(): boolean
     add_accelerator(accel_signal: string, accel_group: Gtk.AccelGroup, accel_key: number, accel_mods: Gdk.ModifierType, accel_flags: Gtk.AccelFlags): void
     add_device_events(device: Gdk.Device, events: Gdk.EventMask): void
@@ -3301,7 +3301,7 @@ export class LanguageChooserDialog {
     unrealize(): void
     unregister_window(window: Gdk.Window): void
     unset_state_flags(flags: Gtk.StateFlags): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -3323,7 +3323,7 @@ export class LanguageChooserDialog {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of Gtk.Buildable */
+    /* Methods of Gtk-3.0.Gtk.Buildable */
     add_child(builder: Gtk.Builder, child: GObject.Object, type?: string | null): void
     construct_child(builder: Gtk.Builder, name: string): GObject.Object
     custom_finished(builder: Gtk.Builder, child: GObject.Object | null, tagname: string, data?: object | null): void
@@ -3332,9 +3332,9 @@ export class LanguageChooserDialog {
     get_internal_child(builder: Gtk.Builder, childname: string): GObject.Object
     parser_finished(builder: Gtk.Builder): void
     set_buildable_property(builder: Gtk.Builder, name: string, value: any): void
-    /* Methods of Tepl.LanguageChooser */
+    /* Methods of Tepl-6.Tepl.LanguageChooser */
     select_language(language?: GtkSource.Language | null): void
-    /* Virtual methods of Tepl.LanguageChooserDialog */
+    /* Virtual methods of Tepl-6.Tepl.LanguageChooserDialog */
     vfunc_add_child(builder: Gtk.Builder, child: GObject.Object, type?: string | null): void
     vfunc_construct_child(builder: Gtk.Builder, name: string): GObject.Object
     vfunc_custom_finished(builder: Gtk.Builder, child: GObject.Object | null, tagname: string, data?: object | null): void
@@ -3347,16 +3347,16 @@ export class LanguageChooserDialog {
     vfunc_set_name(name: string): void
     vfunc_language_activated(language: GtkSource.Language): void
     vfunc_select_language(language?: GtkSource.Language | null): void
-    /* Virtual methods of Gtk.Dialog */
+    /* Virtual methods of Gtk-3.0.Gtk.Dialog */
     vfunc_close(): void
     vfunc_response(response_id: number): void
-    /* Virtual methods of Gtk.Window */
+    /* Virtual methods of Gtk-3.0.Gtk.Window */
     vfunc_activate_default(): void
     vfunc_activate_focus(): void
     vfunc_enable_debugging(toggle: boolean): boolean
     vfunc_keys_changed(): void
     vfunc_set_focus(focus?: Gtk.Widget | null): void
-    /* Virtual methods of Gtk.Container */
+    /* Virtual methods of Gtk-3.0.Gtk.Container */
     vfunc_add(widget: Gtk.Widget): void
     vfunc_check_resize(): void
     vfunc_child_type(): GObject.Type
@@ -3367,7 +3367,7 @@ export class LanguageChooserDialog {
     vfunc_remove(widget: Gtk.Widget): void
     vfunc_set_child_property(child: Gtk.Widget, property_id: number, value: any, pspec: GObject.ParamSpec): void
     vfunc_set_focus_child(child?: Gtk.Widget | null): void
-    /* Virtual methods of Gtk.Widget */
+    /* Virtual methods of Gtk-3.0.Gtk.Widget */
     vfunc_adjust_baseline_allocation(baseline: number): void
     vfunc_adjust_baseline_request(minimum_baseline: number, natural_baseline: number): void
     vfunc_adjust_size_allocation(orientation: Gtk.Orientation, minimum_size: number, natural_size: number, allocated_pos: number, allocated_size: number): void
@@ -3450,7 +3450,7 @@ export class LanguageChooserDialog {
     vfunc_unrealize(): void
     vfunc_visibility_notify_event(event: Gdk.EventVisibility): boolean
     vfunc_window_state_event(event: Gdk.EventWindowState): boolean
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -3458,14 +3458,14 @@ export class LanguageChooserDialog {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gtk.Dialog */
+    /* Signals of Gtk-3.0.Gtk.Dialog */
     connect(sigName: "close", callback: (($obj: LanguageChooserDialog) => void)): number
     connect_after(sigName: "close", callback: (($obj: LanguageChooserDialog) => void)): number
     emit(sigName: "close"): void
     connect(sigName: "response", callback: (($obj: LanguageChooserDialog, response_id: number) => void)): number
     connect_after(sigName: "response", callback: (($obj: LanguageChooserDialog, response_id: number) => void)): number
     emit(sigName: "response", response_id: number): void
-    /* Signals of Gtk.Window */
+    /* Signals of Gtk-3.0.Gtk.Window */
     connect(sigName: "activate-default", callback: (($obj: LanguageChooserDialog) => void)): number
     connect_after(sigName: "activate-default", callback: (($obj: LanguageChooserDialog) => void)): number
     emit(sigName: "activate-default"): void
@@ -3481,7 +3481,7 @@ export class LanguageChooserDialog {
     connect(sigName: "set-focus", callback: (($obj: LanguageChooserDialog, widget?: Gtk.Widget | null) => void)): number
     connect_after(sigName: "set-focus", callback: (($obj: LanguageChooserDialog, widget?: Gtk.Widget | null) => void)): number
     emit(sigName: "set-focus", widget?: Gtk.Widget | null): void
-    /* Signals of Gtk.Container */
+    /* Signals of Gtk-3.0.Gtk.Container */
     connect(sigName: "add", callback: (($obj: LanguageChooserDialog, object: Gtk.Widget) => void)): number
     connect_after(sigName: "add", callback: (($obj: LanguageChooserDialog, object: Gtk.Widget) => void)): number
     emit(sigName: "add", object: Gtk.Widget): void
@@ -3494,7 +3494,7 @@ export class LanguageChooserDialog {
     connect(sigName: "set-focus-child", callback: (($obj: LanguageChooserDialog, object: Gtk.Widget) => void)): number
     connect_after(sigName: "set-focus-child", callback: (($obj: LanguageChooserDialog, object: Gtk.Widget) => void)): number
     emit(sigName: "set-focus-child", object: Gtk.Widget): void
-    /* Signals of Gtk.Widget */
+    /* Signals of Gtk-3.0.Gtk.Widget */
     connect(sigName: "accel-closures-changed", callback: (($obj: LanguageChooserDialog) => void)): number
     connect_after(sigName: "accel-closures-changed", callback: (($obj: LanguageChooserDialog) => void)): number
     emit(sigName: "accel-closures-changed"): void
@@ -3702,11 +3702,11 @@ export class LanguageChooserDialog {
     connect(sigName: "window-state-event", callback: (($obj: LanguageChooserDialog, event: Gdk.EventWindowState) => boolean)): number
     connect_after(sigName: "window-state-event", callback: (($obj: LanguageChooserDialog, event: Gdk.EventWindowState) => boolean)): number
     emit(sigName: "window-state-event", event: Gdk.EventWindowState): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: LanguageChooserDialog, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: LanguageChooserDialog, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    /* Signals of Tepl.LanguageChooser */
+    /* Signals of Tepl-6.Tepl.LanguageChooser */
     connect(sigName: "language-activated", callback: (($obj: LanguageChooserDialog, language?: GtkSource.Language | null) => void)): number
     connect_after(sigName: "language-activated", callback: (($obj: LanguageChooserDialog, language?: GtkSource.Language | null) => void)): number
     emit(sigName: "language-activated", language?: GtkSource.Language | null): void
@@ -3875,17 +3875,17 @@ export interface LanguageChooserWidget_ConstructProps extends Gtk.Grid_Construct
     orientation?: Gtk.Orientation
 }
 export class LanguageChooserWidget {
-    /* Properties of Gtk.Grid */
+    /* Properties of Gtk-3.0.Gtk.Grid */
     baseline_row: number
     column_homogeneous: boolean
     column_spacing: number
     row_homogeneous: boolean
     row_spacing: number
-    /* Properties of Gtk.Container */
+    /* Properties of Gtk-3.0.Gtk.Container */
     border_width: number
     child: Gtk.Widget
     resize_mode: Gtk.ResizeMode
-    /* Properties of Gtk.Widget */
+    /* Properties of Gtk-3.0.Gtk.Widget */
     app_paintable: boolean
     can_default: boolean
     can_focus: boolean
@@ -3925,17 +3925,17 @@ export class LanguageChooserWidget {
     visible: boolean
     width_request: number
     readonly window: Gdk.Window
-    /* Properties of Gtk.Orientable */
+    /* Properties of Gtk-3.0.Gtk.Orientable */
     orientation: Gtk.Orientation
-    /* Fields of Tepl.LanguageChooserWidget */
+    /* Fields of Tepl-6.Tepl.LanguageChooserWidget */
     priv: LanguageChooserWidgetPrivate
-    /* Fields of Gtk.Container */
+    /* Fields of Gtk-3.0.Gtk.Container */
     widget: Gtk.Widget
-    /* Fields of Gtk.Widget */
+    /* Fields of Gtk-3.0.Gtk.Widget */
     parent_instance: GObject.InitiallyUnowned
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Gtk.Grid */
+    /* Methods of Gtk-3.0.Gtk.Grid */
     attach(child: Gtk.Widget, left: number, top: number, width: number, height: number): void
     attach_next_to(child: Gtk.Widget, sibling: Gtk.Widget | null, side: Gtk.PositionType, width: number, height: number): void
     get_baseline_row(): number
@@ -3956,7 +3956,7 @@ export class LanguageChooserWidget {
     set_row_baseline_position(row: number, pos: Gtk.BaselinePosition): void
     set_row_homogeneous(homogeneous: boolean): void
     set_row_spacing(spacing: number): void
-    /* Methods of Gtk.Container */
+    /* Methods of Gtk-3.0.Gtk.Container */
     add(widget: Gtk.Widget): void
     check_resize(): void
     child_get_property(child: Gtk.Widget, property_name: string, value: any): void
@@ -3984,7 +3984,7 @@ export class LanguageChooserWidget {
     set_reallocate_redraws(needs_redraws: boolean): void
     set_resize_mode(resize_mode: Gtk.ResizeMode): void
     unset_focus_chain(): void
-    /* Methods of Gtk.Widget */
+    /* Methods of Gtk-3.0.Gtk.Widget */
     activate(): boolean
     add_accelerator(accel_signal: string, accel_group: Gtk.AccelGroup, accel_key: number, accel_mods: Gdk.ModifierType, accel_flags: Gtk.AccelFlags): void
     add_device_events(device: Gdk.Device, events: Gdk.EventMask): void
@@ -4243,7 +4243,7 @@ export class LanguageChooserWidget {
     unrealize(): void
     unregister_window(window: Gdk.Window): void
     unset_state_flags(flags: Gtk.StateFlags): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -4265,7 +4265,7 @@ export class LanguageChooserWidget {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of Gtk.Buildable */
+    /* Methods of Gtk-3.0.Gtk.Buildable */
     add_child(builder: Gtk.Builder, child: GObject.Object, type?: string | null): void
     construct_child(builder: Gtk.Builder, name: string): GObject.Object
     custom_finished(builder: Gtk.Builder, child: GObject.Object | null, tagname: string, data?: object | null): void
@@ -4274,12 +4274,12 @@ export class LanguageChooserWidget {
     get_internal_child(builder: Gtk.Builder, childname: string): GObject.Object
     parser_finished(builder: Gtk.Builder): void
     set_buildable_property(builder: Gtk.Builder, name: string, value: any): void
-    /* Methods of Gtk.Orientable */
+    /* Methods of Gtk-3.0.Gtk.Orientable */
     get_orientation(): Gtk.Orientation
     set_orientation(orientation: Gtk.Orientation): void
-    /* Methods of Tepl.LanguageChooser */
+    /* Methods of Tepl-6.Tepl.LanguageChooser */
     select_language(language?: GtkSource.Language | null): void
-    /* Virtual methods of Tepl.LanguageChooserWidget */
+    /* Virtual methods of Tepl-6.Tepl.LanguageChooserWidget */
     vfunc_add_child(builder: Gtk.Builder, child: GObject.Object, type?: string | null): void
     vfunc_construct_child(builder: Gtk.Builder, name: string): GObject.Object
     vfunc_custom_finished(builder: Gtk.Builder, child: GObject.Object | null, tagname: string, data?: object | null): void
@@ -4292,7 +4292,7 @@ export class LanguageChooserWidget {
     vfunc_set_name(name: string): void
     vfunc_language_activated(language: GtkSource.Language): void
     vfunc_select_language(language?: GtkSource.Language | null): void
-    /* Virtual methods of Gtk.Container */
+    /* Virtual methods of Gtk-3.0.Gtk.Container */
     vfunc_add(widget: Gtk.Widget): void
     vfunc_check_resize(): void
     vfunc_child_type(): GObject.Type
@@ -4303,7 +4303,7 @@ export class LanguageChooserWidget {
     vfunc_remove(widget: Gtk.Widget): void
     vfunc_set_child_property(child: Gtk.Widget, property_id: number, value: any, pspec: GObject.ParamSpec): void
     vfunc_set_focus_child(child?: Gtk.Widget | null): void
-    /* Virtual methods of Gtk.Widget */
+    /* Virtual methods of Gtk-3.0.Gtk.Widget */
     vfunc_adjust_baseline_allocation(baseline: number): void
     vfunc_adjust_baseline_request(minimum_baseline: number, natural_baseline: number): void
     vfunc_adjust_size_allocation(orientation: Gtk.Orientation, minimum_size: number, natural_size: number, allocated_pos: number, allocated_size: number): void
@@ -4386,7 +4386,7 @@ export class LanguageChooserWidget {
     vfunc_unrealize(): void
     vfunc_visibility_notify_event(event: Gdk.EventVisibility): boolean
     vfunc_window_state_event(event: Gdk.EventWindowState): boolean
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -4394,7 +4394,7 @@ export class LanguageChooserWidget {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gtk.Container */
+    /* Signals of Gtk-3.0.Gtk.Container */
     connect(sigName: "add", callback: (($obj: LanguageChooserWidget, object: Gtk.Widget) => void)): number
     connect_after(sigName: "add", callback: (($obj: LanguageChooserWidget, object: Gtk.Widget) => void)): number
     emit(sigName: "add", object: Gtk.Widget): void
@@ -4407,7 +4407,7 @@ export class LanguageChooserWidget {
     connect(sigName: "set-focus-child", callback: (($obj: LanguageChooserWidget, object: Gtk.Widget) => void)): number
     connect_after(sigName: "set-focus-child", callback: (($obj: LanguageChooserWidget, object: Gtk.Widget) => void)): number
     emit(sigName: "set-focus-child", object: Gtk.Widget): void
-    /* Signals of Gtk.Widget */
+    /* Signals of Gtk-3.0.Gtk.Widget */
     connect(sigName: "accel-closures-changed", callback: (($obj: LanguageChooserWidget) => void)): number
     connect_after(sigName: "accel-closures-changed", callback: (($obj: LanguageChooserWidget) => void)): number
     emit(sigName: "accel-closures-changed"): void
@@ -4615,11 +4615,11 @@ export class LanguageChooserWidget {
     connect(sigName: "window-state-event", callback: (($obj: LanguageChooserWidget, event: Gdk.EventWindowState) => boolean)): number
     connect_after(sigName: "window-state-event", callback: (($obj: LanguageChooserWidget, event: Gdk.EventWindowState) => boolean)): number
     emit(sigName: "window-state-event", event: Gdk.EventWindowState): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: LanguageChooserWidget, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: LanguageChooserWidget, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    /* Signals of Tepl.LanguageChooser */
+    /* Signals of Tepl-6.Tepl.LanguageChooser */
     connect(sigName: "language-activated", callback: (($obj: LanguageChooserWidget, language?: GtkSource.Language | null) => void)): number
     connect_after(sigName: "language-activated", callback: (($obj: LanguageChooserWidget, language?: GtkSource.Language | null) => void)): number
     emit(sigName: "language-activated", language?: GtkSource.Language | null): void
@@ -4733,15 +4733,15 @@ export class LanguageChooserWidget {
 export interface Metadata_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class Metadata {
-    /* Fields of Tepl.Metadata */
+    /* Fields of Tepl-6.Tepl.Metadata */
     parent: GObject.Object
     priv: MetadataPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Tepl.Metadata */
+    /* Methods of Tepl-6.Tepl.Metadata */
     get(key: string): string | null
     set(key: string, value?: string | null): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -4763,7 +4763,7 @@ export class Metadata {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -4771,7 +4771,7 @@ export class Metadata {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Metadata, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Metadata, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -4789,18 +4789,18 @@ export class Metadata {
 export interface MetadataManager_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class MetadataManager {
-    /* Fields of Tepl.MetadataManager */
+    /* Fields of Tepl-6.Tepl.MetadataManager */
     parent: GObject.Object
     priv: MetadataManagerPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Tepl.MetadataManager */
+    /* Methods of Tepl-6.Tepl.MetadataManager */
     copy_from(for_location: Gio.File, to_metadata: Metadata): void
     load_from_disk(from_file: Gio.File): boolean
     merge_into(for_location: Gio.File, from_metadata: Metadata): void
     save_to_disk(to_file: Gio.File, trim: boolean): boolean
     trim(max_number_of_locations: number): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -4822,7 +4822,7 @@ export class MetadataManager {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -4830,7 +4830,7 @@ export class MetadataManager {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: MetadataManager, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: MetadataManager, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -4849,7 +4849,7 @@ export interface Notebook_ConstructProps extends Gtk.Notebook_ConstructProps {
     active_tab?: Tab
 }
 export class Notebook {
-    /* Properties of Gtk.Notebook */
+    /* Properties of Gtk-3.0.Gtk.Notebook */
     enable_popup: boolean
     group_name: string
     page: number
@@ -4857,11 +4857,11 @@ export class Notebook {
     show_border: boolean
     show_tabs: boolean
     tab_pos: Gtk.PositionType
-    /* Properties of Gtk.Container */
+    /* Properties of Gtk-3.0.Gtk.Container */
     border_width: number
     child: Gtk.Widget
     resize_mode: Gtk.ResizeMode
-    /* Properties of Gtk.Widget */
+    /* Properties of Gtk-3.0.Gtk.Widget */
     app_paintable: boolean
     can_default: boolean
     can_focus: boolean
@@ -4901,19 +4901,19 @@ export class Notebook {
     visible: boolean
     width_request: number
     readonly window: Gdk.Window
-    /* Properties of Tepl.TabGroup */
+    /* Properties of Tepl-6.Tepl.TabGroup */
     readonly active_buffer: Buffer
     active_tab: Tab
     readonly active_view: View
-    /* Fields of Tepl.Notebook */
+    /* Fields of Tepl-6.Tepl.Notebook */
     priv: NotebookPrivate
-    /* Fields of Gtk.Container */
+    /* Fields of Gtk-3.0.Gtk.Container */
     widget: Gtk.Widget
-    /* Fields of Gtk.Widget */
+    /* Fields of Gtk-3.0.Gtk.Widget */
     parent_instance: GObject.InitiallyUnowned
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Gtk.Notebook */
+    /* Methods of Gtk-3.0.Gtk.Notebook */
     append_page(child: Gtk.Widget, tab_label?: Gtk.Widget | null): number
     append_page_menu(child: Gtk.Widget, tab_label?: Gtk.Widget | null, menu_label?: Gtk.Widget | null): number
     detach_tab(child: Gtk.Widget): void
@@ -4958,7 +4958,7 @@ export class Notebook {
     set_tab_label_text(child: Gtk.Widget, tab_text: string): void
     set_tab_pos(pos: Gtk.PositionType): void
     set_tab_reorderable(child: Gtk.Widget, reorderable: boolean): void
-    /* Methods of Gtk.Container */
+    /* Methods of Gtk-3.0.Gtk.Container */
     add(widget: Gtk.Widget): void
     check_resize(): void
     child_get_property(child: Gtk.Widget, property_name: string, value: any): void
@@ -4986,7 +4986,7 @@ export class Notebook {
     set_reallocate_redraws(needs_redraws: boolean): void
     set_resize_mode(resize_mode: Gtk.ResizeMode): void
     unset_focus_chain(): void
-    /* Methods of Gtk.Widget */
+    /* Methods of Gtk-3.0.Gtk.Widget */
     activate(): boolean
     add_accelerator(accel_signal: string, accel_group: Gtk.AccelGroup, accel_key: number, accel_mods: Gdk.ModifierType, accel_flags: Gtk.AccelFlags): void
     add_device_events(device: Gdk.Device, events: Gdk.EventMask): void
@@ -5245,7 +5245,7 @@ export class Notebook {
     unrealize(): void
     unregister_window(window: Gdk.Window): void
     unset_state_flags(flags: Gtk.StateFlags): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -5267,7 +5267,7 @@ export class Notebook {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of Gtk.Buildable */
+    /* Methods of Gtk-3.0.Gtk.Buildable */
     add_child(builder: Gtk.Builder, child: GObject.Object, type?: string | null): void
     construct_child(builder: Gtk.Builder, name: string): GObject.Object
     custom_finished(builder: Gtk.Builder, child: GObject.Object | null, tagname: string, data?: object | null): void
@@ -5276,7 +5276,7 @@ export class Notebook {
     get_internal_child(builder: Gtk.Builder, childname: string): GObject.Object
     parser_finished(builder: Gtk.Builder): void
     set_buildable_property(builder: Gtk.Builder, name: string, value: any): void
-    /* Methods of Tepl.TabGroup */
+    /* Methods of Tepl-6.Tepl.TabGroup */
     append_tab(tab: Tab, jump_to: boolean): void
     get_active_buffer(): Buffer | null
     get_active_tab(): Tab | null
@@ -5285,7 +5285,7 @@ export class Notebook {
     get_tabs(): Tab[]
     get_views(): View[]
     set_active_tab(tab: Tab): void
-    /* Virtual methods of Tepl.Notebook */
+    /* Virtual methods of Tepl-6.Tepl.Notebook */
     vfunc_add_child(builder: Gtk.Builder, child: GObject.Object, type?: string | null): void
     vfunc_construct_child(builder: Gtk.Builder, name: string): GObject.Object
     vfunc_custom_finished(builder: Gtk.Builder, child: GObject.Object | null, tagname: string, data?: object | null): void
@@ -5300,7 +5300,7 @@ export class Notebook {
     vfunc_get_active_tab(): Tab | null
     vfunc_get_tabs(): Tab[]
     vfunc_set_active_tab(tab: Tab): void
-    /* Virtual methods of Gtk.Notebook */
+    /* Virtual methods of Gtk-3.0.Gtk.Notebook */
     vfunc_change_current_page(offset: number): boolean
     vfunc_focus_tab(type: Gtk.NotebookTab): boolean
     vfunc_insert_page(child: Gtk.Widget, tab_label: Gtk.Widget, menu_label: Gtk.Widget, position: number): number
@@ -5311,7 +5311,7 @@ export class Notebook {
     vfunc_reorder_tab(direction: Gtk.DirectionType, move_to_last: boolean): boolean
     vfunc_select_page(move_focus: boolean): boolean
     vfunc_switch_page(page: Gtk.Widget, page_num: number): void
-    /* Virtual methods of Gtk.Container */
+    /* Virtual methods of Gtk-3.0.Gtk.Container */
     vfunc_add(widget: Gtk.Widget): void
     vfunc_check_resize(): void
     vfunc_child_type(): GObject.Type
@@ -5322,7 +5322,7 @@ export class Notebook {
     vfunc_remove(widget: Gtk.Widget): void
     vfunc_set_child_property(child: Gtk.Widget, property_id: number, value: any, pspec: GObject.ParamSpec): void
     vfunc_set_focus_child(child?: Gtk.Widget | null): void
-    /* Virtual methods of Gtk.Widget */
+    /* Virtual methods of Gtk-3.0.Gtk.Widget */
     vfunc_adjust_baseline_allocation(baseline: number): void
     vfunc_adjust_baseline_request(minimum_baseline: number, natural_baseline: number): void
     vfunc_adjust_size_allocation(orientation: Gtk.Orientation, minimum_size: number, natural_size: number, allocated_pos: number, allocated_size: number): void
@@ -5405,7 +5405,7 @@ export class Notebook {
     vfunc_unrealize(): void
     vfunc_visibility_notify_event(event: Gdk.EventVisibility): boolean
     vfunc_window_state_event(event: Gdk.EventWindowState): boolean
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -5413,7 +5413,7 @@ export class Notebook {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gtk.Notebook */
+    /* Signals of Gtk-3.0.Gtk.Notebook */
     connect(sigName: "change-current-page", callback: (($obj: Notebook, object: number) => boolean)): number
     connect_after(sigName: "change-current-page", callback: (($obj: Notebook, object: number) => boolean)): number
     emit(sigName: "change-current-page", object: number): void
@@ -5444,7 +5444,7 @@ export class Notebook {
     connect(sigName: "switch-page", callback: (($obj: Notebook, page: Gtk.Widget, page_num: number) => void)): number
     connect_after(sigName: "switch-page", callback: (($obj: Notebook, page: Gtk.Widget, page_num: number) => void)): number
     emit(sigName: "switch-page", page: Gtk.Widget, page_num: number): void
-    /* Signals of Gtk.Container */
+    /* Signals of Gtk-3.0.Gtk.Container */
     connect(sigName: "add", callback: (($obj: Notebook, object: Gtk.Widget) => void)): number
     connect_after(sigName: "add", callback: (($obj: Notebook, object: Gtk.Widget) => void)): number
     emit(sigName: "add", object: Gtk.Widget): void
@@ -5457,7 +5457,7 @@ export class Notebook {
     connect(sigName: "set-focus-child", callback: (($obj: Notebook, object: Gtk.Widget) => void)): number
     connect_after(sigName: "set-focus-child", callback: (($obj: Notebook, object: Gtk.Widget) => void)): number
     emit(sigName: "set-focus-child", object: Gtk.Widget): void
-    /* Signals of Gtk.Widget */
+    /* Signals of Gtk-3.0.Gtk.Widget */
     connect(sigName: "accel-closures-changed", callback: (($obj: Notebook) => void)): number
     connect_after(sigName: "accel-closures-changed", callback: (($obj: Notebook) => void)): number
     emit(sigName: "accel-closures-changed"): void
@@ -5665,7 +5665,7 @@ export class Notebook {
     connect(sigName: "window-state-event", callback: (($obj: Notebook, event: Gdk.EventWindowState) => boolean)): number
     connect_after(sigName: "window-state-event", callback: (($obj: Notebook, event: Gdk.EventWindowState) => boolean)): number
     emit(sigName: "window-state-event", event: Gdk.EventWindowState): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Notebook, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Notebook, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -5788,17 +5788,17 @@ export interface Panel_ConstructProps extends Gtk.Grid_ConstructProps {
     orientation?: Gtk.Orientation
 }
 export class Panel {
-    /* Properties of Gtk.Grid */
+    /* Properties of Gtk-3.0.Gtk.Grid */
     baseline_row: number
     column_homogeneous: boolean
     column_spacing: number
     row_homogeneous: boolean
     row_spacing: number
-    /* Properties of Gtk.Container */
+    /* Properties of Gtk-3.0.Gtk.Container */
     border_width: number
     child: Gtk.Widget
     resize_mode: Gtk.ResizeMode
-    /* Properties of Gtk.Widget */
+    /* Properties of Gtk-3.0.Gtk.Widget */
     app_paintable: boolean
     can_default: boolean
     can_focus: boolean
@@ -5838,23 +5838,23 @@ export class Panel {
     visible: boolean
     width_request: number
     readonly window: Gdk.Window
-    /* Properties of Gtk.Orientable */
+    /* Properties of Gtk-3.0.Gtk.Orientable */
     orientation: Gtk.Orientation
-    /* Fields of Tepl.Panel */
+    /* Fields of Tepl-6.Tepl.Panel */
     priv: PanelPrivate
-    /* Fields of Gtk.Container */
+    /* Fields of Gtk-3.0.Gtk.Container */
     widget: Gtk.Widget
-    /* Fields of Gtk.Widget */
+    /* Fields of Gtk-3.0.Gtk.Widget */
     parent_instance: GObject.InitiallyUnowned
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Tepl.Panel */
+    /* Methods of Tepl-6.Tepl.Panel */
     add_component(component: Gtk.Widget, name: string, title: string, icon_name?: string | null): void
     get_stack(): Gtk.Stack
     provide_active_component_gsetting(settings: Gio.Settings, setting_key: string): void
     restore_state_from_gsettings(): void
     save_state_to_gsettings(): void
-    /* Methods of Gtk.Grid */
+    /* Methods of Gtk-3.0.Gtk.Grid */
     attach(child: Gtk.Widget, left: number, top: number, width: number, height: number): void
     attach_next_to(child: Gtk.Widget, sibling: Gtk.Widget | null, side: Gtk.PositionType, width: number, height: number): void
     get_baseline_row(): number
@@ -5875,7 +5875,7 @@ export class Panel {
     set_row_baseline_position(row: number, pos: Gtk.BaselinePosition): void
     set_row_homogeneous(homogeneous: boolean): void
     set_row_spacing(spacing: number): void
-    /* Methods of Gtk.Container */
+    /* Methods of Gtk-3.0.Gtk.Container */
     add(widget: Gtk.Widget): void
     check_resize(): void
     child_get_property(child: Gtk.Widget, property_name: string, value: any): void
@@ -5903,7 +5903,7 @@ export class Panel {
     set_reallocate_redraws(needs_redraws: boolean): void
     set_resize_mode(resize_mode: Gtk.ResizeMode): void
     unset_focus_chain(): void
-    /* Methods of Gtk.Widget */
+    /* Methods of Gtk-3.0.Gtk.Widget */
     activate(): boolean
     add_accelerator(accel_signal: string, accel_group: Gtk.AccelGroup, accel_key: number, accel_mods: Gdk.ModifierType, accel_flags: Gtk.AccelFlags): void
     add_device_events(device: Gdk.Device, events: Gdk.EventMask): void
@@ -6162,7 +6162,7 @@ export class Panel {
     unrealize(): void
     unregister_window(window: Gdk.Window): void
     unset_state_flags(flags: Gtk.StateFlags): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -6184,7 +6184,7 @@ export class Panel {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of Gtk.Buildable */
+    /* Methods of Gtk-3.0.Gtk.Buildable */
     add_child(builder: Gtk.Builder, child: GObject.Object, type?: string | null): void
     construct_child(builder: Gtk.Builder, name: string): GObject.Object
     custom_finished(builder: Gtk.Builder, child: GObject.Object | null, tagname: string, data?: object | null): void
@@ -6193,10 +6193,10 @@ export class Panel {
     get_internal_child(builder: Gtk.Builder, childname: string): GObject.Object
     parser_finished(builder: Gtk.Builder): void
     set_buildable_property(builder: Gtk.Builder, name: string, value: any): void
-    /* Methods of Gtk.Orientable */
+    /* Methods of Gtk-3.0.Gtk.Orientable */
     get_orientation(): Gtk.Orientation
     set_orientation(orientation: Gtk.Orientation): void
-    /* Virtual methods of Tepl.Panel */
+    /* Virtual methods of Tepl-6.Tepl.Panel */
     vfunc_add_child(builder: Gtk.Builder, child: GObject.Object, type?: string | null): void
     vfunc_construct_child(builder: Gtk.Builder, name: string): GObject.Object
     vfunc_custom_finished(builder: Gtk.Builder, child: GObject.Object | null, tagname: string, data?: object | null): void
@@ -6207,7 +6207,7 @@ export class Panel {
     vfunc_parser_finished(builder: Gtk.Builder): void
     vfunc_set_buildable_property(builder: Gtk.Builder, name: string, value: any): void
     vfunc_set_name(name: string): void
-    /* Virtual methods of Gtk.Container */
+    /* Virtual methods of Gtk-3.0.Gtk.Container */
     vfunc_add(widget: Gtk.Widget): void
     vfunc_check_resize(): void
     vfunc_child_type(): GObject.Type
@@ -6218,7 +6218,7 @@ export class Panel {
     vfunc_remove(widget: Gtk.Widget): void
     vfunc_set_child_property(child: Gtk.Widget, property_id: number, value: any, pspec: GObject.ParamSpec): void
     vfunc_set_focus_child(child?: Gtk.Widget | null): void
-    /* Virtual methods of Gtk.Widget */
+    /* Virtual methods of Gtk-3.0.Gtk.Widget */
     vfunc_adjust_baseline_allocation(baseline: number): void
     vfunc_adjust_baseline_request(minimum_baseline: number, natural_baseline: number): void
     vfunc_adjust_size_allocation(orientation: Gtk.Orientation, minimum_size: number, natural_size: number, allocated_pos: number, allocated_size: number): void
@@ -6301,7 +6301,7 @@ export class Panel {
     vfunc_unrealize(): void
     vfunc_visibility_notify_event(event: Gdk.EventVisibility): boolean
     vfunc_window_state_event(event: Gdk.EventWindowState): boolean
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -6309,7 +6309,7 @@ export class Panel {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gtk.Container */
+    /* Signals of Gtk-3.0.Gtk.Container */
     connect(sigName: "add", callback: (($obj: Panel, object: Gtk.Widget) => void)): number
     connect_after(sigName: "add", callback: (($obj: Panel, object: Gtk.Widget) => void)): number
     emit(sigName: "add", object: Gtk.Widget): void
@@ -6322,7 +6322,7 @@ export class Panel {
     connect(sigName: "set-focus-child", callback: (($obj: Panel, object: Gtk.Widget) => void)): number
     connect_after(sigName: "set-focus-child", callback: (($obj: Panel, object: Gtk.Widget) => void)): number
     emit(sigName: "set-focus-child", object: Gtk.Widget): void
-    /* Signals of Gtk.Widget */
+    /* Signals of Gtk-3.0.Gtk.Widget */
     connect(sigName: "accel-closures-changed", callback: (($obj: Panel) => void)): number
     connect_after(sigName: "accel-closures-changed", callback: (($obj: Panel) => void)): number
     emit(sigName: "accel-closures-changed"): void
@@ -6530,7 +6530,7 @@ export class Panel {
     connect(sigName: "window-state-event", callback: (($obj: Panel, event: Gdk.EventWindowState) => boolean)): number
     connect_after(sigName: "window-state-event", callback: (($obj: Panel, event: Gdk.EventWindowState) => boolean)): number
     emit(sigName: "window-state-event", event: Gdk.EventWindowState): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Panel, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Panel, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -6647,23 +6647,23 @@ export interface ProgressInfoBar_ConstructProps extends InfoBar_ConstructProps {
     orientation?: Gtk.Orientation
 }
 export class ProgressInfoBar {
-    /* Properties of Tepl.InfoBar */
+    /* Properties of Tepl-6.Tepl.InfoBar */
     handle_close_response: boolean
     icon_from_message_type: boolean
     icon_name: string
-    /* Properties of Gtk.InfoBar */
+    /* Properties of Gtk-3.0.Gtk.InfoBar */
     message_type: Gtk.MessageType
     revealed: boolean
     show_close_button: boolean
-    /* Properties of Gtk.Box */
+    /* Properties of Gtk-3.0.Gtk.Box */
     baseline_position: Gtk.BaselinePosition
     homogeneous: boolean
     spacing: number
-    /* Properties of Gtk.Container */
+    /* Properties of Gtk-3.0.Gtk.Container */
     border_width: number
     child: Gtk.Widget
     resize_mode: Gtk.ResizeMode
-    /* Properties of Gtk.Widget */
+    /* Properties of Gtk-3.0.Gtk.Widget */
     app_paintable: boolean
     can_default: boolean
     can_focus: boolean
@@ -6703,24 +6703,24 @@ export class ProgressInfoBar {
     visible: boolean
     width_request: number
     readonly window: Gdk.Window
-    /* Properties of Gtk.Orientable */
+    /* Properties of Gtk-3.0.Gtk.Orientable */
     orientation: Gtk.Orientation
-    /* Fields of Tepl.ProgressInfoBar */
+    /* Fields of Tepl-6.Tepl.ProgressInfoBar */
     priv: ProgressInfoBarPrivate
-    /* Fields of Gtk.Box */
+    /* Fields of Gtk-3.0.Gtk.Box */
     container: Gtk.Container
-    /* Fields of Gtk.Container */
+    /* Fields of Gtk-3.0.Gtk.Container */
     widget: Gtk.Widget
-    /* Fields of Gtk.Widget */
+    /* Fields of Gtk-3.0.Gtk.Widget */
     parent_instance: GObject.InitiallyUnowned
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Tepl.ProgressInfoBar */
+    /* Methods of Tepl-6.Tepl.ProgressInfoBar */
     pulse(): void
     set_fraction(fraction: number): void
     set_markup(markup: string): void
     set_text(text: string): void
-    /* Methods of Tepl.InfoBar */
+    /* Methods of Tepl-6.Tepl.InfoBar */
     add_content_widget(widget: Gtk.Widget, location: InfoBarLocation): void
     add_primary_message(primary_msg: string): void
     add_secondary_message(secondary_msg: string): void
@@ -6731,7 +6731,7 @@ export class ProgressInfoBar {
     set_icon_from_message_type(icon_from_message_type: boolean): void
     set_icon_name(icon_name: string): void
     setup_close_button(): void
-    /* Methods of Gtk.InfoBar */
+    /* Methods of Gtk-3.0.Gtk.InfoBar */
     add_action_widget(child: Gtk.Widget, response_id: number): void
     add_button(button_text: string, response_id: number): Gtk.Button
     get_action_area(): Gtk.Box
@@ -6745,7 +6745,7 @@ export class ProgressInfoBar {
     set_response_sensitive(response_id: number, setting: boolean): void
     set_revealed(revealed: boolean): void
     set_show_close_button(setting: boolean): void
-    /* Methods of Gtk.Box */
+    /* Methods of Gtk-3.0.Gtk.Box */
     get_baseline_position(): Gtk.BaselinePosition
     get_center_widget(): Gtk.Widget | null
     get_homogeneous(): boolean
@@ -6759,7 +6759,7 @@ export class ProgressInfoBar {
     set_child_packing(child: Gtk.Widget, expand: boolean, fill: boolean, padding: number, pack_type: Gtk.PackType): void
     set_homogeneous(homogeneous: boolean): void
     set_spacing(spacing: number): void
-    /* Methods of Gtk.Container */
+    /* Methods of Gtk-3.0.Gtk.Container */
     add(widget: Gtk.Widget): void
     check_resize(): void
     child_get_property(child: Gtk.Widget, property_name: string, value: any): void
@@ -6787,7 +6787,7 @@ export class ProgressInfoBar {
     set_reallocate_redraws(needs_redraws: boolean): void
     set_resize_mode(resize_mode: Gtk.ResizeMode): void
     unset_focus_chain(): void
-    /* Methods of Gtk.Widget */
+    /* Methods of Gtk-3.0.Gtk.Widget */
     activate(): boolean
     add_accelerator(accel_signal: string, accel_group: Gtk.AccelGroup, accel_key: number, accel_mods: Gdk.ModifierType, accel_flags: Gtk.AccelFlags): void
     add_device_events(device: Gdk.Device, events: Gdk.EventMask): void
@@ -7046,7 +7046,7 @@ export class ProgressInfoBar {
     unrealize(): void
     unregister_window(window: Gdk.Window): void
     unset_state_flags(flags: Gtk.StateFlags): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -7068,7 +7068,7 @@ export class ProgressInfoBar {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of Gtk.Buildable */
+    /* Methods of Gtk-3.0.Gtk.Buildable */
     add_child(builder: Gtk.Builder, child: GObject.Object, type?: string | null): void
     construct_child(builder: Gtk.Builder, name: string): GObject.Object
     custom_finished(builder: Gtk.Builder, child: GObject.Object | null, tagname: string, data?: object | null): void
@@ -7077,10 +7077,10 @@ export class ProgressInfoBar {
     get_internal_child(builder: Gtk.Builder, childname: string): GObject.Object
     parser_finished(builder: Gtk.Builder): void
     set_buildable_property(builder: Gtk.Builder, name: string, value: any): void
-    /* Methods of Gtk.Orientable */
+    /* Methods of Gtk-3.0.Gtk.Orientable */
     get_orientation(): Gtk.Orientation
     set_orientation(orientation: Gtk.Orientation): void
-    /* Virtual methods of Tepl.InfoBar */
+    /* Virtual methods of Tepl-6.Tepl.InfoBar */
     vfunc_add_child(builder: Gtk.Builder, child: GObject.Object, type?: string | null): void
     vfunc_construct_child(builder: Gtk.Builder, name: string): GObject.Object
     vfunc_custom_finished(builder: Gtk.Builder, child: GObject.Object | null, tagname: string, data?: object | null): void
@@ -7091,10 +7091,10 @@ export class ProgressInfoBar {
     vfunc_parser_finished(builder: Gtk.Builder): void
     vfunc_set_buildable_property(builder: Gtk.Builder, name: string, value: any): void
     vfunc_set_name(name: string): void
-    /* Virtual methods of Gtk.InfoBar */
+    /* Virtual methods of Gtk-3.0.Gtk.InfoBar */
     vfunc_close(): void
     vfunc_response(response_id: number): void
-    /* Virtual methods of Gtk.Container */
+    /* Virtual methods of Gtk-3.0.Gtk.Container */
     vfunc_add(widget: Gtk.Widget): void
     vfunc_check_resize(): void
     vfunc_child_type(): GObject.Type
@@ -7105,7 +7105,7 @@ export class ProgressInfoBar {
     vfunc_remove(widget: Gtk.Widget): void
     vfunc_set_child_property(child: Gtk.Widget, property_id: number, value: any, pspec: GObject.ParamSpec): void
     vfunc_set_focus_child(child?: Gtk.Widget | null): void
-    /* Virtual methods of Gtk.Widget */
+    /* Virtual methods of Gtk-3.0.Gtk.Widget */
     vfunc_adjust_baseline_allocation(baseline: number): void
     vfunc_adjust_baseline_request(minimum_baseline: number, natural_baseline: number): void
     vfunc_adjust_size_allocation(orientation: Gtk.Orientation, minimum_size: number, natural_size: number, allocated_pos: number, allocated_size: number): void
@@ -7188,7 +7188,7 @@ export class ProgressInfoBar {
     vfunc_unrealize(): void
     vfunc_visibility_notify_event(event: Gdk.EventVisibility): boolean
     vfunc_window_state_event(event: Gdk.EventWindowState): boolean
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -7196,14 +7196,14 @@ export class ProgressInfoBar {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gtk.InfoBar */
+    /* Signals of Gtk-3.0.Gtk.InfoBar */
     connect(sigName: "close", callback: (($obj: ProgressInfoBar) => void)): number
     connect_after(sigName: "close", callback: (($obj: ProgressInfoBar) => void)): number
     emit(sigName: "close"): void
     connect(sigName: "response", callback: (($obj: ProgressInfoBar, response_id: number) => void)): number
     connect_after(sigName: "response", callback: (($obj: ProgressInfoBar, response_id: number) => void)): number
     emit(sigName: "response", response_id: number): void
-    /* Signals of Gtk.Container */
+    /* Signals of Gtk-3.0.Gtk.Container */
     connect(sigName: "add", callback: (($obj: ProgressInfoBar, object: Gtk.Widget) => void)): number
     connect_after(sigName: "add", callback: (($obj: ProgressInfoBar, object: Gtk.Widget) => void)): number
     emit(sigName: "add", object: Gtk.Widget): void
@@ -7216,7 +7216,7 @@ export class ProgressInfoBar {
     connect(sigName: "set-focus-child", callback: (($obj: ProgressInfoBar, object: Gtk.Widget) => void)): number
     connect_after(sigName: "set-focus-child", callback: (($obj: ProgressInfoBar, object: Gtk.Widget) => void)): number
     emit(sigName: "set-focus-child", object: Gtk.Widget): void
-    /* Signals of Gtk.Widget */
+    /* Signals of Gtk-3.0.Gtk.Widget */
     connect(sigName: "accel-closures-changed", callback: (($obj: ProgressInfoBar) => void)): number
     connect_after(sigName: "accel-closures-changed", callback: (($obj: ProgressInfoBar) => void)): number
     emit(sigName: "accel-closures-changed"): void
@@ -7424,7 +7424,7 @@ export class ProgressInfoBar {
     connect(sigName: "window-state-event", callback: (($obj: ProgressInfoBar, event: Gdk.EventWindowState) => boolean)): number
     connect_after(sigName: "window-state-event", callback: (($obj: ProgressInfoBar, event: Gdk.EventWindowState) => boolean)): number
     emit(sigName: "window-state-event", event: Gdk.EventWindowState): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: ProgressInfoBar, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: ProgressInfoBar, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -7549,17 +7549,17 @@ export interface SpaceDrawerPrefs_ConstructProps extends Gtk.Grid_ConstructProps
     orientation?: Gtk.Orientation
 }
 export class SpaceDrawerPrefs {
-    /* Properties of Gtk.Grid */
+    /* Properties of Gtk-3.0.Gtk.Grid */
     baseline_row: number
     column_homogeneous: boolean
     column_spacing: number
     row_homogeneous: boolean
     row_spacing: number
-    /* Properties of Gtk.Container */
+    /* Properties of Gtk-3.0.Gtk.Container */
     border_width: number
     child: Gtk.Widget
     resize_mode: Gtk.ResizeMode
-    /* Properties of Gtk.Widget */
+    /* Properties of Gtk-3.0.Gtk.Widget */
     app_paintable: boolean
     can_default: boolean
     can_focus: boolean
@@ -7599,19 +7599,19 @@ export class SpaceDrawerPrefs {
     visible: boolean
     width_request: number
     readonly window: Gdk.Window
-    /* Properties of Gtk.Orientable */
+    /* Properties of Gtk-3.0.Gtk.Orientable */
     orientation: Gtk.Orientation
-    /* Fields of Tepl.SpaceDrawerPrefs */
+    /* Fields of Tepl-6.Tepl.SpaceDrawerPrefs */
     priv: SpaceDrawerPrefsPrivate
-    /* Fields of Gtk.Container */
+    /* Fields of Gtk-3.0.Gtk.Container */
     widget: Gtk.Widget
-    /* Fields of Gtk.Widget */
+    /* Fields of Gtk-3.0.Gtk.Widget */
     parent_instance: GObject.InitiallyUnowned
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Tepl.SpaceDrawerPrefs */
+    /* Methods of Tepl-6.Tepl.SpaceDrawerPrefs */
     get_space_drawer(): GtkSource.SpaceDrawer
-    /* Methods of Gtk.Grid */
+    /* Methods of Gtk-3.0.Gtk.Grid */
     attach(child: Gtk.Widget, left: number, top: number, width: number, height: number): void
     attach_next_to(child: Gtk.Widget, sibling: Gtk.Widget | null, side: Gtk.PositionType, width: number, height: number): void
     get_baseline_row(): number
@@ -7632,7 +7632,7 @@ export class SpaceDrawerPrefs {
     set_row_baseline_position(row: number, pos: Gtk.BaselinePosition): void
     set_row_homogeneous(homogeneous: boolean): void
     set_row_spacing(spacing: number): void
-    /* Methods of Gtk.Container */
+    /* Methods of Gtk-3.0.Gtk.Container */
     add(widget: Gtk.Widget): void
     check_resize(): void
     child_get_property(child: Gtk.Widget, property_name: string, value: any): void
@@ -7660,7 +7660,7 @@ export class SpaceDrawerPrefs {
     set_reallocate_redraws(needs_redraws: boolean): void
     set_resize_mode(resize_mode: Gtk.ResizeMode): void
     unset_focus_chain(): void
-    /* Methods of Gtk.Widget */
+    /* Methods of Gtk-3.0.Gtk.Widget */
     activate(): boolean
     add_accelerator(accel_signal: string, accel_group: Gtk.AccelGroup, accel_key: number, accel_mods: Gdk.ModifierType, accel_flags: Gtk.AccelFlags): void
     add_device_events(device: Gdk.Device, events: Gdk.EventMask): void
@@ -7919,7 +7919,7 @@ export class SpaceDrawerPrefs {
     unrealize(): void
     unregister_window(window: Gdk.Window): void
     unset_state_flags(flags: Gtk.StateFlags): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -7941,7 +7941,7 @@ export class SpaceDrawerPrefs {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of Gtk.Buildable */
+    /* Methods of Gtk-3.0.Gtk.Buildable */
     add_child(builder: Gtk.Builder, child: GObject.Object, type?: string | null): void
     construct_child(builder: Gtk.Builder, name: string): GObject.Object
     custom_finished(builder: Gtk.Builder, child: GObject.Object | null, tagname: string, data?: object | null): void
@@ -7950,10 +7950,10 @@ export class SpaceDrawerPrefs {
     get_internal_child(builder: Gtk.Builder, childname: string): GObject.Object
     parser_finished(builder: Gtk.Builder): void
     set_buildable_property(builder: Gtk.Builder, name: string, value: any): void
-    /* Methods of Gtk.Orientable */
+    /* Methods of Gtk-3.0.Gtk.Orientable */
     get_orientation(): Gtk.Orientation
     set_orientation(orientation: Gtk.Orientation): void
-    /* Virtual methods of Tepl.SpaceDrawerPrefs */
+    /* Virtual methods of Tepl-6.Tepl.SpaceDrawerPrefs */
     vfunc_add_child(builder: Gtk.Builder, child: GObject.Object, type?: string | null): void
     vfunc_construct_child(builder: Gtk.Builder, name: string): GObject.Object
     vfunc_custom_finished(builder: Gtk.Builder, child: GObject.Object | null, tagname: string, data?: object | null): void
@@ -7964,7 +7964,7 @@ export class SpaceDrawerPrefs {
     vfunc_parser_finished(builder: Gtk.Builder): void
     vfunc_set_buildable_property(builder: Gtk.Builder, name: string, value: any): void
     vfunc_set_name(name: string): void
-    /* Virtual methods of Gtk.Container */
+    /* Virtual methods of Gtk-3.0.Gtk.Container */
     vfunc_add(widget: Gtk.Widget): void
     vfunc_check_resize(): void
     vfunc_child_type(): GObject.Type
@@ -7975,7 +7975,7 @@ export class SpaceDrawerPrefs {
     vfunc_remove(widget: Gtk.Widget): void
     vfunc_set_child_property(child: Gtk.Widget, property_id: number, value: any, pspec: GObject.ParamSpec): void
     vfunc_set_focus_child(child?: Gtk.Widget | null): void
-    /* Virtual methods of Gtk.Widget */
+    /* Virtual methods of Gtk-3.0.Gtk.Widget */
     vfunc_adjust_baseline_allocation(baseline: number): void
     vfunc_adjust_baseline_request(minimum_baseline: number, natural_baseline: number): void
     vfunc_adjust_size_allocation(orientation: Gtk.Orientation, minimum_size: number, natural_size: number, allocated_pos: number, allocated_size: number): void
@@ -8058,7 +8058,7 @@ export class SpaceDrawerPrefs {
     vfunc_unrealize(): void
     vfunc_visibility_notify_event(event: Gdk.EventVisibility): boolean
     vfunc_window_state_event(event: Gdk.EventWindowState): boolean
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -8066,7 +8066,7 @@ export class SpaceDrawerPrefs {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gtk.Container */
+    /* Signals of Gtk-3.0.Gtk.Container */
     connect(sigName: "add", callback: (($obj: SpaceDrawerPrefs, object: Gtk.Widget) => void)): number
     connect_after(sigName: "add", callback: (($obj: SpaceDrawerPrefs, object: Gtk.Widget) => void)): number
     emit(sigName: "add", object: Gtk.Widget): void
@@ -8079,7 +8079,7 @@ export class SpaceDrawerPrefs {
     connect(sigName: "set-focus-child", callback: (($obj: SpaceDrawerPrefs, object: Gtk.Widget) => void)): number
     connect_after(sigName: "set-focus-child", callback: (($obj: SpaceDrawerPrefs, object: Gtk.Widget) => void)): number
     emit(sigName: "set-focus-child", object: Gtk.Widget): void
-    /* Signals of Gtk.Widget */
+    /* Signals of Gtk-3.0.Gtk.Widget */
     connect(sigName: "accel-closures-changed", callback: (($obj: SpaceDrawerPrefs) => void)): number
     connect_after(sigName: "accel-closures-changed", callback: (($obj: SpaceDrawerPrefs) => void)): number
     emit(sigName: "accel-closures-changed"): void
@@ -8287,7 +8287,7 @@ export class SpaceDrawerPrefs {
     connect(sigName: "window-state-event", callback: (($obj: SpaceDrawerPrefs, event: Gdk.EventWindowState) => boolean)): number
     connect_after(sigName: "window-state-event", callback: (($obj: SpaceDrawerPrefs, event: Gdk.EventWindowState) => boolean)): number
     emit(sigName: "window-state-event", event: Gdk.EventWindowState): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: SpaceDrawerPrefs, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: SpaceDrawerPrefs, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -8402,15 +8402,15 @@ export interface Statusbar_ConstructProps extends Gtk.Statusbar_ConstructProps {
     orientation?: Gtk.Orientation
 }
 export class Statusbar {
-    /* Properties of Gtk.Box */
+    /* Properties of Gtk-3.0.Gtk.Box */
     baseline_position: Gtk.BaselinePosition
     homogeneous: boolean
     spacing: number
-    /* Properties of Gtk.Container */
+    /* Properties of Gtk-3.0.Gtk.Container */
     border_width: number
     child: Gtk.Widget
     resize_mode: Gtk.ResizeMode
-    /* Properties of Gtk.Widget */
+    /* Properties of Gtk-3.0.Gtk.Widget */
     app_paintable: boolean
     can_default: boolean
     can_focus: boolean
@@ -8450,32 +8450,32 @@ export class Statusbar {
     visible: boolean
     width_request: number
     readonly window: Gdk.Window
-    /* Properties of Gtk.Orientable */
+    /* Properties of Gtk-3.0.Gtk.Orientable */
     orientation: Gtk.Orientation
-    /* Fields of Tepl.Statusbar */
+    /* Fields of Tepl-6.Tepl.Statusbar */
     priv: StatusbarPrivate
-    /* Fields of Gtk.Statusbar */
+    /* Fields of Gtk-3.0.Gtk.Statusbar */
     parent_widget: Gtk.Box
-    /* Fields of Gtk.Box */
+    /* Fields of Gtk-3.0.Gtk.Box */
     container: Gtk.Container
-    /* Fields of Gtk.Container */
+    /* Fields of Gtk-3.0.Gtk.Container */
     widget: Gtk.Widget
-    /* Fields of Gtk.Widget */
+    /* Fields of Gtk-3.0.Gtk.Widget */
     parent_instance: GObject.InitiallyUnowned
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Tepl.Statusbar */
+    /* Methods of Tepl-6.Tepl.Statusbar */
     hide_cursor_position(): void
     set_tab_group(tab_group: TabGroup): void
     show_cursor_position(line: number, column: number): void
-    /* Methods of Gtk.Statusbar */
+    /* Methods of Gtk-3.0.Gtk.Statusbar */
     get_context_id(context_description: string): number
     get_message_area(): Gtk.Box
     pop(context_id: number): void
     push(context_id: number, text: string): number
     remove(context_id: number, message_id: number): void
     remove_all(context_id: number): void
-    /* Methods of Gtk.Box */
+    /* Methods of Gtk-3.0.Gtk.Box */
     get_baseline_position(): Gtk.BaselinePosition
     get_center_widget(): Gtk.Widget | null
     get_homogeneous(): boolean
@@ -8489,7 +8489,7 @@ export class Statusbar {
     set_child_packing(child: Gtk.Widget, expand: boolean, fill: boolean, padding: number, pack_type: Gtk.PackType): void
     set_homogeneous(homogeneous: boolean): void
     set_spacing(spacing: number): void
-    /* Methods of Gtk.Container */
+    /* Methods of Gtk-3.0.Gtk.Container */
     add(widget: Gtk.Widget): void
     check_resize(): void
     child_get_property(child: Gtk.Widget, property_name: string, value: any): void
@@ -8517,7 +8517,7 @@ export class Statusbar {
     set_reallocate_redraws(needs_redraws: boolean): void
     set_resize_mode(resize_mode: Gtk.ResizeMode): void
     unset_focus_chain(): void
-    /* Methods of Gtk.Widget */
+    /* Methods of Gtk-3.0.Gtk.Widget */
     activate(): boolean
     add_accelerator(accel_signal: string, accel_group: Gtk.AccelGroup, accel_key: number, accel_mods: Gdk.ModifierType, accel_flags: Gtk.AccelFlags): void
     add_device_events(device: Gdk.Device, events: Gdk.EventMask): void
@@ -8776,7 +8776,7 @@ export class Statusbar {
     unrealize(): void
     unregister_window(window: Gdk.Window): void
     unset_state_flags(flags: Gtk.StateFlags): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -8798,7 +8798,7 @@ export class Statusbar {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of Gtk.Buildable */
+    /* Methods of Gtk-3.0.Gtk.Buildable */
     add_child(builder: Gtk.Builder, child: GObject.Object, type?: string | null): void
     construct_child(builder: Gtk.Builder, name: string): GObject.Object
     custom_finished(builder: Gtk.Builder, child: GObject.Object | null, tagname: string, data?: object | null): void
@@ -8807,10 +8807,10 @@ export class Statusbar {
     get_internal_child(builder: Gtk.Builder, childname: string): GObject.Object
     parser_finished(builder: Gtk.Builder): void
     set_buildable_property(builder: Gtk.Builder, name: string, value: any): void
-    /* Methods of Gtk.Orientable */
+    /* Methods of Gtk-3.0.Gtk.Orientable */
     get_orientation(): Gtk.Orientation
     set_orientation(orientation: Gtk.Orientation): void
-    /* Virtual methods of Tepl.Statusbar */
+    /* Virtual methods of Tepl-6.Tepl.Statusbar */
     vfunc_add_child(builder: Gtk.Builder, child: GObject.Object, type?: string | null): void
     vfunc_construct_child(builder: Gtk.Builder, name: string): GObject.Object
     vfunc_custom_finished(builder: Gtk.Builder, child: GObject.Object | null, tagname: string, data?: object | null): void
@@ -8821,10 +8821,10 @@ export class Statusbar {
     vfunc_parser_finished(builder: Gtk.Builder): void
     vfunc_set_buildable_property(builder: Gtk.Builder, name: string, value: any): void
     vfunc_set_name(name: string): void
-    /* Virtual methods of Gtk.Statusbar */
+    /* Virtual methods of Gtk-3.0.Gtk.Statusbar */
     vfunc_text_popped(context_id: number, text: string): void
     vfunc_text_pushed(context_id: number, text: string): void
-    /* Virtual methods of Gtk.Container */
+    /* Virtual methods of Gtk-3.0.Gtk.Container */
     vfunc_add(widget: Gtk.Widget): void
     vfunc_check_resize(): void
     vfunc_child_type(): GObject.Type
@@ -8835,7 +8835,7 @@ export class Statusbar {
     vfunc_remove(widget: Gtk.Widget): void
     vfunc_set_child_property(child: Gtk.Widget, property_id: number, value: any, pspec: GObject.ParamSpec): void
     vfunc_set_focus_child(child?: Gtk.Widget | null): void
-    /* Virtual methods of Gtk.Widget */
+    /* Virtual methods of Gtk-3.0.Gtk.Widget */
     vfunc_adjust_baseline_allocation(baseline: number): void
     vfunc_adjust_baseline_request(minimum_baseline: number, natural_baseline: number): void
     vfunc_adjust_size_allocation(orientation: Gtk.Orientation, minimum_size: number, natural_size: number, allocated_pos: number, allocated_size: number): void
@@ -8918,7 +8918,7 @@ export class Statusbar {
     vfunc_unrealize(): void
     vfunc_visibility_notify_event(event: Gdk.EventVisibility): boolean
     vfunc_window_state_event(event: Gdk.EventWindowState): boolean
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -8926,14 +8926,14 @@ export class Statusbar {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gtk.Statusbar */
+    /* Signals of Gtk-3.0.Gtk.Statusbar */
     connect(sigName: "text-popped", callback: (($obj: Statusbar, context_id: number, text: string) => void)): number
     connect_after(sigName: "text-popped", callback: (($obj: Statusbar, context_id: number, text: string) => void)): number
     emit(sigName: "text-popped", context_id: number, text: string): void
     connect(sigName: "text-pushed", callback: (($obj: Statusbar, context_id: number, text: string) => void)): number
     connect_after(sigName: "text-pushed", callback: (($obj: Statusbar, context_id: number, text: string) => void)): number
     emit(sigName: "text-pushed", context_id: number, text: string): void
-    /* Signals of Gtk.Container */
+    /* Signals of Gtk-3.0.Gtk.Container */
     connect(sigName: "add", callback: (($obj: Statusbar, object: Gtk.Widget) => void)): number
     connect_after(sigName: "add", callback: (($obj: Statusbar, object: Gtk.Widget) => void)): number
     emit(sigName: "add", object: Gtk.Widget): void
@@ -8946,7 +8946,7 @@ export class Statusbar {
     connect(sigName: "set-focus-child", callback: (($obj: Statusbar, object: Gtk.Widget) => void)): number
     connect_after(sigName: "set-focus-child", callback: (($obj: Statusbar, object: Gtk.Widget) => void)): number
     emit(sigName: "set-focus-child", object: Gtk.Widget): void
-    /* Signals of Gtk.Widget */
+    /* Signals of Gtk-3.0.Gtk.Widget */
     connect(sigName: "accel-closures-changed", callback: (($obj: Statusbar) => void)): number
     connect_after(sigName: "accel-closures-changed", callback: (($obj: Statusbar) => void)): number
     emit(sigName: "accel-closures-changed"): void
@@ -9154,7 +9154,7 @@ export class Statusbar {
     connect(sigName: "window-state-event", callback: (($obj: Statusbar, event: Gdk.EventWindowState) => boolean)): number
     connect_after(sigName: "window-state-event", callback: (($obj: Statusbar, event: Gdk.EventWindowState) => boolean)): number
     emit(sigName: "window-state-event", event: Gdk.EventWindowState): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Statusbar, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Statusbar, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -9267,13 +9267,13 @@ export interface StyleSchemeChooserWidget_ConstructProps extends Gtk.Bin_Constru
     style_scheme?: GtkSource.StyleScheme
 }
 export class StyleSchemeChooserWidget {
-    /* Properties of Tepl.StyleSchemeChooserWidget */
+    /* Properties of Tepl-6.Tepl.StyleSchemeChooserWidget */
     tepl_style_scheme_id: string
-    /* Properties of Gtk.Container */
+    /* Properties of Gtk-3.0.Gtk.Container */
     border_width: number
     child: Gtk.Widget
     resize_mode: Gtk.ResizeMode
-    /* Properties of Gtk.Widget */
+    /* Properties of Gtk-3.0.Gtk.Widget */
     app_paintable: boolean
     can_default: boolean
     can_focus: boolean
@@ -9313,24 +9313,24 @@ export class StyleSchemeChooserWidget {
     visible: boolean
     width_request: number
     readonly window: Gdk.Window
-    /* Properties of GtkSource.StyleSchemeChooser */
+    /* Properties of GtkSource-4.GtkSource.StyleSchemeChooser */
     style_scheme: GtkSource.StyleScheme
-    /* Fields of Tepl.StyleSchemeChooserWidget */
+    /* Fields of Tepl-6.Tepl.StyleSchemeChooserWidget */
     priv: StyleSchemeChooserWidgetPrivate
-    /* Fields of Gtk.Bin */
+    /* Fields of Gtk-3.0.Gtk.Bin */
     container: Gtk.Container
-    /* Fields of Gtk.Container */
+    /* Fields of Gtk-3.0.Gtk.Container */
     widget: Gtk.Widget
-    /* Fields of Gtk.Widget */
+    /* Fields of Gtk-3.0.Gtk.Widget */
     parent_instance: GObject.InitiallyUnowned
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Tepl.StyleSchemeChooserWidget */
+    /* Methods of Tepl-6.Tepl.StyleSchemeChooserWidget */
     get_style_scheme_id(): string
     set_style_scheme_id(style_scheme_id: string): void
-    /* Methods of Gtk.Bin */
+    /* Methods of Gtk-3.0.Gtk.Bin */
     get_child(): Gtk.Widget | null
-    /* Methods of Gtk.Container */
+    /* Methods of Gtk-3.0.Gtk.Container */
     add(widget: Gtk.Widget): void
     check_resize(): void
     child_get_property(child: Gtk.Widget, property_name: string, value: any): void
@@ -9358,7 +9358,7 @@ export class StyleSchemeChooserWidget {
     set_reallocate_redraws(needs_redraws: boolean): void
     set_resize_mode(resize_mode: Gtk.ResizeMode): void
     unset_focus_chain(): void
-    /* Methods of Gtk.Widget */
+    /* Methods of Gtk-3.0.Gtk.Widget */
     activate(): boolean
     add_accelerator(accel_signal: string, accel_group: Gtk.AccelGroup, accel_key: number, accel_mods: Gdk.ModifierType, accel_flags: Gtk.AccelFlags): void
     add_device_events(device: Gdk.Device, events: Gdk.EventMask): void
@@ -9617,7 +9617,7 @@ export class StyleSchemeChooserWidget {
     unrealize(): void
     unregister_window(window: Gdk.Window): void
     unset_state_flags(flags: Gtk.StateFlags): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -9639,7 +9639,7 @@ export class StyleSchemeChooserWidget {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of Gtk.Buildable */
+    /* Methods of Gtk-3.0.Gtk.Buildable */
     add_child(builder: Gtk.Builder, child: GObject.Object, type?: string | null): void
     construct_child(builder: Gtk.Builder, name: string): GObject.Object
     custom_finished(builder: Gtk.Builder, child: GObject.Object | null, tagname: string, data?: object | null): void
@@ -9648,10 +9648,10 @@ export class StyleSchemeChooserWidget {
     get_internal_child(builder: Gtk.Builder, childname: string): GObject.Object
     parser_finished(builder: Gtk.Builder): void
     set_buildable_property(builder: Gtk.Builder, name: string, value: any): void
-    /* Methods of GtkSource.StyleSchemeChooser */
+    /* Methods of GtkSource-4.GtkSource.StyleSchemeChooser */
     get_style_scheme(): GtkSource.StyleScheme
     set_style_scheme(scheme: GtkSource.StyleScheme): void
-    /* Virtual methods of Tepl.StyleSchemeChooserWidget */
+    /* Virtual methods of Tepl-6.Tepl.StyleSchemeChooserWidget */
     vfunc_add_child(builder: Gtk.Builder, child: GObject.Object, type?: string | null): void
     vfunc_construct_child(builder: Gtk.Builder, name: string): GObject.Object
     vfunc_custom_finished(builder: Gtk.Builder, child: GObject.Object | null, tagname: string, data?: object | null): void
@@ -9664,7 +9664,7 @@ export class StyleSchemeChooserWidget {
     vfunc_set_name(name: string): void
     vfunc_get_style_scheme(): GtkSource.StyleScheme
     vfunc_set_style_scheme(scheme: GtkSource.StyleScheme): void
-    /* Virtual methods of Gtk.Container */
+    /* Virtual methods of Gtk-3.0.Gtk.Container */
     vfunc_add(widget: Gtk.Widget): void
     vfunc_check_resize(): void
     vfunc_child_type(): GObject.Type
@@ -9675,7 +9675,7 @@ export class StyleSchemeChooserWidget {
     vfunc_remove(widget: Gtk.Widget): void
     vfunc_set_child_property(child: Gtk.Widget, property_id: number, value: any, pspec: GObject.ParamSpec): void
     vfunc_set_focus_child(child?: Gtk.Widget | null): void
-    /* Virtual methods of Gtk.Widget */
+    /* Virtual methods of Gtk-3.0.Gtk.Widget */
     vfunc_adjust_baseline_allocation(baseline: number): void
     vfunc_adjust_baseline_request(minimum_baseline: number, natural_baseline: number): void
     vfunc_adjust_size_allocation(orientation: Gtk.Orientation, minimum_size: number, natural_size: number, allocated_pos: number, allocated_size: number): void
@@ -9758,7 +9758,7 @@ export class StyleSchemeChooserWidget {
     vfunc_unrealize(): void
     vfunc_visibility_notify_event(event: Gdk.EventVisibility): boolean
     vfunc_window_state_event(event: Gdk.EventWindowState): boolean
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -9766,7 +9766,7 @@ export class StyleSchemeChooserWidget {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gtk.Container */
+    /* Signals of Gtk-3.0.Gtk.Container */
     connect(sigName: "add", callback: (($obj: StyleSchemeChooserWidget, object: Gtk.Widget) => void)): number
     connect_after(sigName: "add", callback: (($obj: StyleSchemeChooserWidget, object: Gtk.Widget) => void)): number
     emit(sigName: "add", object: Gtk.Widget): void
@@ -9779,7 +9779,7 @@ export class StyleSchemeChooserWidget {
     connect(sigName: "set-focus-child", callback: (($obj: StyleSchemeChooserWidget, object: Gtk.Widget) => void)): number
     connect_after(sigName: "set-focus-child", callback: (($obj: StyleSchemeChooserWidget, object: Gtk.Widget) => void)): number
     emit(sigName: "set-focus-child", object: Gtk.Widget): void
-    /* Signals of Gtk.Widget */
+    /* Signals of Gtk-3.0.Gtk.Widget */
     connect(sigName: "accel-closures-changed", callback: (($obj: StyleSchemeChooserWidget) => void)): number
     connect_after(sigName: "accel-closures-changed", callback: (($obj: StyleSchemeChooserWidget) => void)): number
     emit(sigName: "accel-closures-changed"): void
@@ -9987,7 +9987,7 @@ export class StyleSchemeChooserWidget {
     connect(sigName: "window-state-event", callback: (($obj: StyleSchemeChooserWidget, event: Gdk.EventWindowState) => boolean)): number
     connect_after(sigName: "window-state-event", callback: (($obj: StyleSchemeChooserWidget, event: Gdk.EventWindowState) => boolean)): number
     emit(sigName: "window-state-event", event: Gdk.EventWindowState): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: StyleSchemeChooserWidget, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: StyleSchemeChooserWidget, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -10096,17 +10096,17 @@ export interface Tab_ConstructProps extends Gtk.Grid_ConstructProps {
     active_tab?: Tab
 }
 export class Tab {
-    /* Properties of Gtk.Grid */
+    /* Properties of Gtk-3.0.Gtk.Grid */
     baseline_row: number
     column_homogeneous: boolean
     column_spacing: number
     row_homogeneous: boolean
     row_spacing: number
-    /* Properties of Gtk.Container */
+    /* Properties of Gtk-3.0.Gtk.Container */
     border_width: number
     child: Gtk.Widget
     resize_mode: Gtk.ResizeMode
-    /* Properties of Gtk.Widget */
+    /* Properties of Gtk-3.0.Gtk.Widget */
     app_paintable: boolean
     can_default: boolean
     can_focus: boolean
@@ -10146,21 +10146,21 @@ export class Tab {
     visible: boolean
     width_request: number
     readonly window: Gdk.Window
-    /* Properties of Gtk.Orientable */
+    /* Properties of Gtk-3.0.Gtk.Orientable */
     orientation: Gtk.Orientation
-    /* Properties of Tepl.TabGroup */
+    /* Properties of Tepl-6.Tepl.TabGroup */
     readonly active_buffer: Buffer
     active_tab: Tab
     readonly active_view: View
-    /* Fields of Tepl.Tab */
+    /* Fields of Tepl-6.Tepl.Tab */
     priv: TabPrivate
-    /* Fields of Gtk.Container */
+    /* Fields of Gtk-3.0.Gtk.Container */
     widget: Gtk.Widget
-    /* Fields of Gtk.Widget */
+    /* Fields of Gtk-3.0.Gtk.Widget */
     parent_instance: GObject.InitiallyUnowned
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Tepl.Tab */
+    /* Methods of Tepl-6.Tepl.Tab */
     add_info_bar(info_bar: Gtk.InfoBar): void
     get_buffer(): Buffer
     get_goto_line_bar(): GotoLineBar
@@ -10172,7 +10172,7 @@ export class Tab {
     save_async(callback?: Gio.AsyncReadyCallback | null): void
     save_async_simple(): void
     save_finish(result: Gio.AsyncResult): boolean
-    /* Methods of Gtk.Grid */
+    /* Methods of Gtk-3.0.Gtk.Grid */
     attach(child: Gtk.Widget, left: number, top: number, width: number, height: number): void
     attach_next_to(child: Gtk.Widget, sibling: Gtk.Widget | null, side: Gtk.PositionType, width: number, height: number): void
     get_baseline_row(): number
@@ -10193,7 +10193,7 @@ export class Tab {
     set_row_baseline_position(row: number, pos: Gtk.BaselinePosition): void
     set_row_homogeneous(homogeneous: boolean): void
     set_row_spacing(spacing: number): void
-    /* Methods of Gtk.Container */
+    /* Methods of Gtk-3.0.Gtk.Container */
     add(widget: Gtk.Widget): void
     check_resize(): void
     child_get_property(child: Gtk.Widget, property_name: string, value: any): void
@@ -10221,7 +10221,7 @@ export class Tab {
     set_reallocate_redraws(needs_redraws: boolean): void
     set_resize_mode(resize_mode: Gtk.ResizeMode): void
     unset_focus_chain(): void
-    /* Methods of Gtk.Widget */
+    /* Methods of Gtk-3.0.Gtk.Widget */
     activate(): boolean
     add_accelerator(accel_signal: string, accel_group: Gtk.AccelGroup, accel_key: number, accel_mods: Gdk.ModifierType, accel_flags: Gtk.AccelFlags): void
     add_device_events(device: Gdk.Device, events: Gdk.EventMask): void
@@ -10480,7 +10480,7 @@ export class Tab {
     unrealize(): void
     unregister_window(window: Gdk.Window): void
     unset_state_flags(flags: Gtk.StateFlags): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -10502,7 +10502,7 @@ export class Tab {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of Gtk.Buildable */
+    /* Methods of Gtk-3.0.Gtk.Buildable */
     add_child(builder: Gtk.Builder, child: GObject.Object, type?: string | null): void
     construct_child(builder: Gtk.Builder, name: string): GObject.Object
     custom_finished(builder: Gtk.Builder, child: GObject.Object | null, tagname: string, data?: object | null): void
@@ -10511,10 +10511,10 @@ export class Tab {
     get_internal_child(builder: Gtk.Builder, childname: string): GObject.Object
     parser_finished(builder: Gtk.Builder): void
     set_buildable_property(builder: Gtk.Builder, name: string, value: any): void
-    /* Methods of Gtk.Orientable */
+    /* Methods of Gtk-3.0.Gtk.Orientable */
     get_orientation(): Gtk.Orientation
     set_orientation(orientation: Gtk.Orientation): void
-    /* Methods of Tepl.TabGroup */
+    /* Methods of Tepl-6.Tepl.TabGroup */
     append_tab(tab: Tab, jump_to: boolean): void
     get_active_buffer(): Buffer | null
     get_active_tab(): Tab | null
@@ -10523,7 +10523,7 @@ export class Tab {
     get_tabs(): Tab[]
     get_views(): View[]
     set_active_tab(tab: Tab): void
-    /* Virtual methods of Tepl.Tab */
+    /* Virtual methods of Tepl-6.Tepl.Tab */
     vfunc_close_request(): void
     vfunc_pack_goto_line_bar(goto_line_bar: GotoLineBar): void
     vfunc_pack_info_bar(info_bar: Gtk.InfoBar): void
@@ -10542,7 +10542,7 @@ export class Tab {
     vfunc_get_active_tab(): Tab | null
     vfunc_get_tabs(): Tab[]
     vfunc_set_active_tab(tab: Tab): void
-    /* Virtual methods of Gtk.Container */
+    /* Virtual methods of Gtk-3.0.Gtk.Container */
     vfunc_add(widget: Gtk.Widget): void
     vfunc_check_resize(): void
     vfunc_child_type(): GObject.Type
@@ -10553,7 +10553,7 @@ export class Tab {
     vfunc_remove(widget: Gtk.Widget): void
     vfunc_set_child_property(child: Gtk.Widget, property_id: number, value: any, pspec: GObject.ParamSpec): void
     vfunc_set_focus_child(child?: Gtk.Widget | null): void
-    /* Virtual methods of Gtk.Widget */
+    /* Virtual methods of Gtk-3.0.Gtk.Widget */
     vfunc_adjust_baseline_allocation(baseline: number): void
     vfunc_adjust_baseline_request(minimum_baseline: number, natural_baseline: number): void
     vfunc_adjust_size_allocation(orientation: Gtk.Orientation, minimum_size: number, natural_size: number, allocated_pos: number, allocated_size: number): void
@@ -10636,7 +10636,7 @@ export class Tab {
     vfunc_unrealize(): void
     vfunc_visibility_notify_event(event: Gdk.EventVisibility): boolean
     vfunc_window_state_event(event: Gdk.EventWindowState): boolean
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -10644,11 +10644,11 @@ export class Tab {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Tepl.Tab */
+    /* Signals of Tepl-6.Tepl.Tab */
     connect(sigName: "close-request", callback: (($obj: Tab) => void)): number
     connect_after(sigName: "close-request", callback: (($obj: Tab) => void)): number
     emit(sigName: "close-request"): void
-    /* Signals of Gtk.Container */
+    /* Signals of Gtk-3.0.Gtk.Container */
     connect(sigName: "add", callback: (($obj: Tab, object: Gtk.Widget) => void)): number
     connect_after(sigName: "add", callback: (($obj: Tab, object: Gtk.Widget) => void)): number
     emit(sigName: "add", object: Gtk.Widget): void
@@ -10661,7 +10661,7 @@ export class Tab {
     connect(sigName: "set-focus-child", callback: (($obj: Tab, object: Gtk.Widget) => void)): number
     connect_after(sigName: "set-focus-child", callback: (($obj: Tab, object: Gtk.Widget) => void)): number
     emit(sigName: "set-focus-child", object: Gtk.Widget): void
-    /* Signals of Gtk.Widget */
+    /* Signals of Gtk-3.0.Gtk.Widget */
     connect(sigName: "accel-closures-changed", callback: (($obj: Tab) => void)): number
     connect_after(sigName: "accel-closures-changed", callback: (($obj: Tab) => void)): number
     emit(sigName: "accel-closures-changed"): void
@@ -10869,7 +10869,7 @@ export class Tab {
     connect(sigName: "window-state-event", callback: (($obj: Tab, event: Gdk.EventWindowState) => boolean)): number
     connect_after(sigName: "window-state-event", callback: (($obj: Tab, event: Gdk.EventWindowState) => boolean)): number
     emit(sigName: "window-state-event", event: Gdk.EventWindowState): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Tab, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Tab, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -10992,17 +10992,17 @@ export interface TabLabel_ConstructProps extends Gtk.Grid_ConstructProps {
     orientation?: Gtk.Orientation
 }
 export class TabLabel {
-    /* Properties of Gtk.Grid */
+    /* Properties of Gtk-3.0.Gtk.Grid */
     baseline_row: number
     column_homogeneous: boolean
     column_spacing: number
     row_homogeneous: boolean
     row_spacing: number
-    /* Properties of Gtk.Container */
+    /* Properties of Gtk-3.0.Gtk.Container */
     border_width: number
     child: Gtk.Widget
     resize_mode: Gtk.ResizeMode
-    /* Properties of Gtk.Widget */
+    /* Properties of Gtk-3.0.Gtk.Widget */
     app_paintable: boolean
     can_default: boolean
     can_focus: boolean
@@ -11042,20 +11042,20 @@ export class TabLabel {
     visible: boolean
     width_request: number
     readonly window: Gdk.Window
-    /* Properties of Gtk.Orientable */
+    /* Properties of Gtk-3.0.Gtk.Orientable */
     orientation: Gtk.Orientation
-    /* Fields of Tepl.TabLabel */
+    /* Fields of Tepl-6.Tepl.TabLabel */
     priv: TabLabelPrivate
-    /* Fields of Gtk.Container */
+    /* Fields of Gtk-3.0.Gtk.Container */
     widget: Gtk.Widget
-    /* Fields of Gtk.Widget */
+    /* Fields of Gtk-3.0.Gtk.Widget */
     parent_instance: GObject.InitiallyUnowned
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Tepl.TabLabel */
+    /* Methods of Tepl-6.Tepl.TabLabel */
     get_tab(): Tab | null
     update_tooltip(): void
-    /* Methods of Gtk.Grid */
+    /* Methods of Gtk-3.0.Gtk.Grid */
     attach(child: Gtk.Widget, left: number, top: number, width: number, height: number): void
     attach_next_to(child: Gtk.Widget, sibling: Gtk.Widget | null, side: Gtk.PositionType, width: number, height: number): void
     get_baseline_row(): number
@@ -11076,7 +11076,7 @@ export class TabLabel {
     set_row_baseline_position(row: number, pos: Gtk.BaselinePosition): void
     set_row_homogeneous(homogeneous: boolean): void
     set_row_spacing(spacing: number): void
-    /* Methods of Gtk.Container */
+    /* Methods of Gtk-3.0.Gtk.Container */
     add(widget: Gtk.Widget): void
     check_resize(): void
     child_get_property(child: Gtk.Widget, property_name: string, value: any): void
@@ -11104,7 +11104,7 @@ export class TabLabel {
     set_reallocate_redraws(needs_redraws: boolean): void
     set_resize_mode(resize_mode: Gtk.ResizeMode): void
     unset_focus_chain(): void
-    /* Methods of Gtk.Widget */
+    /* Methods of Gtk-3.0.Gtk.Widget */
     activate(): boolean
     add_accelerator(accel_signal: string, accel_group: Gtk.AccelGroup, accel_key: number, accel_mods: Gdk.ModifierType, accel_flags: Gtk.AccelFlags): void
     add_device_events(device: Gdk.Device, events: Gdk.EventMask): void
@@ -11363,7 +11363,7 @@ export class TabLabel {
     unrealize(): void
     unregister_window(window: Gdk.Window): void
     unset_state_flags(flags: Gtk.StateFlags): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -11385,7 +11385,7 @@ export class TabLabel {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of Gtk.Buildable */
+    /* Methods of Gtk-3.0.Gtk.Buildable */
     add_child(builder: Gtk.Builder, child: GObject.Object, type?: string | null): void
     construct_child(builder: Gtk.Builder, name: string): GObject.Object
     custom_finished(builder: Gtk.Builder, child: GObject.Object | null, tagname: string, data?: object | null): void
@@ -11394,10 +11394,10 @@ export class TabLabel {
     get_internal_child(builder: Gtk.Builder, childname: string): GObject.Object
     parser_finished(builder: Gtk.Builder): void
     set_buildable_property(builder: Gtk.Builder, name: string, value: any): void
-    /* Methods of Gtk.Orientable */
+    /* Methods of Gtk-3.0.Gtk.Orientable */
     get_orientation(): Gtk.Orientation
     set_orientation(orientation: Gtk.Orientation): void
-    /* Virtual methods of Tepl.TabLabel */
+    /* Virtual methods of Tepl-6.Tepl.TabLabel */
     vfunc_get_tooltip_markup(): string
     vfunc_add_child(builder: Gtk.Builder, child: GObject.Object, type?: string | null): void
     vfunc_construct_child(builder: Gtk.Builder, name: string): GObject.Object
@@ -11409,7 +11409,7 @@ export class TabLabel {
     vfunc_parser_finished(builder: Gtk.Builder): void
     vfunc_set_buildable_property(builder: Gtk.Builder, name: string, value: any): void
     vfunc_set_name(name: string): void
-    /* Virtual methods of Gtk.Container */
+    /* Virtual methods of Gtk-3.0.Gtk.Container */
     vfunc_add(widget: Gtk.Widget): void
     vfunc_check_resize(): void
     vfunc_child_type(): GObject.Type
@@ -11420,7 +11420,7 @@ export class TabLabel {
     vfunc_remove(widget: Gtk.Widget): void
     vfunc_set_child_property(child: Gtk.Widget, property_id: number, value: any, pspec: GObject.ParamSpec): void
     vfunc_set_focus_child(child?: Gtk.Widget | null): void
-    /* Virtual methods of Gtk.Widget */
+    /* Virtual methods of Gtk-3.0.Gtk.Widget */
     vfunc_adjust_baseline_allocation(baseline: number): void
     vfunc_adjust_baseline_request(minimum_baseline: number, natural_baseline: number): void
     vfunc_adjust_size_allocation(orientation: Gtk.Orientation, minimum_size: number, natural_size: number, allocated_pos: number, allocated_size: number): void
@@ -11503,7 +11503,7 @@ export class TabLabel {
     vfunc_unrealize(): void
     vfunc_visibility_notify_event(event: Gdk.EventVisibility): boolean
     vfunc_window_state_event(event: Gdk.EventWindowState): boolean
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -11511,7 +11511,7 @@ export class TabLabel {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gtk.Container */
+    /* Signals of Gtk-3.0.Gtk.Container */
     connect(sigName: "add", callback: (($obj: TabLabel, object: Gtk.Widget) => void)): number
     connect_after(sigName: "add", callback: (($obj: TabLabel, object: Gtk.Widget) => void)): number
     emit(sigName: "add", object: Gtk.Widget): void
@@ -11524,7 +11524,7 @@ export class TabLabel {
     connect(sigName: "set-focus-child", callback: (($obj: TabLabel, object: Gtk.Widget) => void)): number
     connect_after(sigName: "set-focus-child", callback: (($obj: TabLabel, object: Gtk.Widget) => void)): number
     emit(sigName: "set-focus-child", object: Gtk.Widget): void
-    /* Signals of Gtk.Widget */
+    /* Signals of Gtk-3.0.Gtk.Widget */
     connect(sigName: "accel-closures-changed", callback: (($obj: TabLabel) => void)): number
     connect_after(sigName: "accel-closures-changed", callback: (($obj: TabLabel) => void)): number
     emit(sigName: "accel-closures-changed"): void
@@ -11732,7 +11732,7 @@ export class TabLabel {
     connect(sigName: "window-state-event", callback: (($obj: TabLabel, event: Gdk.EventWindowState) => boolean)): number
     connect_after(sigName: "window-state-event", callback: (($obj: TabLabel, event: Gdk.EventWindowState) => boolean)): number
     emit(sigName: "window-state-event", event: Gdk.EventWindowState): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: TabLabel, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: TabLabel, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -11851,7 +11851,7 @@ export interface View_ConstructProps extends GtkSource.View_ConstructProps {
     vscroll_policy?: Gtk.ScrollablePolicy
 }
 export class View {
-    /* Properties of GtkSource.View */
+    /* Properties of GtkSource-4.GtkSource.View */
     auto_indent: boolean
     background_pattern: GtkSource.BackgroundPatternType
     readonly completion: GtkSource.Completion
@@ -11867,7 +11867,7 @@ export class View {
     smart_home_end: GtkSource.SmartHomeEndType
     readonly space_drawer: GtkSource.SpaceDrawer
     tab_width: number
-    /* Properties of Gtk.TextView */
+    /* Properties of Gtk-3.0.Gtk.TextView */
     accepts_tab: boolean
     bottom_margin: number
     buffer: Gtk.TextBuffer
@@ -11889,11 +11889,11 @@ export class View {
     tabs: Pango.TabArray
     top_margin: number
     wrap_mode: Gtk.WrapMode
-    /* Properties of Gtk.Container */
+    /* Properties of Gtk-3.0.Gtk.Container */
     border_width: number
     child: Gtk.Widget
     resize_mode: Gtk.ResizeMode
-    /* Properties of Gtk.Widget */
+    /* Properties of Gtk-3.0.Gtk.Widget */
     app_paintable: boolean
     can_default: boolean
     can_focus: boolean
@@ -11933,20 +11933,20 @@ export class View {
     visible: boolean
     width_request: number
     readonly window: Gdk.Window
-    /* Properties of Gtk.Scrollable */
+    /* Properties of Gtk-3.0.Gtk.Scrollable */
     hadjustment: Gtk.Adjustment
     hscroll_policy: Gtk.ScrollablePolicy
     vadjustment: Gtk.Adjustment
     vscroll_policy: Gtk.ScrollablePolicy
-    /* Fields of Tepl.View */
+    /* Fields of Tepl-6.Tepl.View */
     parent_instance: GtkSource.View
-    /* Fields of GtkSource.View */
+    /* Fields of GtkSource-4.GtkSource.View */
     priv: GtkSource.ViewPrivate
-    /* Fields of Gtk.Container */
+    /* Fields of Gtk-3.0.Gtk.Container */
     widget: Gtk.Widget
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Tepl.View */
+    /* Methods of Tepl-6.Tepl.View */
     copy_clipboard(): void
     cut_clipboard(): void
     delete_selection(): void
@@ -11956,7 +11956,7 @@ export class View {
     scroll_to_cursor(): void
     select_all(): void
     select_lines(start_line: number, end_line: number): void
-    /* Methods of GtkSource.View */
+    /* Methods of GtkSource-4.GtkSource.View */
     get_auto_indent(): boolean
     get_background_pattern(): GtkSource.BackgroundPatternType
     get_completion(): GtkSource.Completion
@@ -11991,7 +11991,7 @@ export class View {
     set_smart_home_end(smart_home_end: GtkSource.SmartHomeEndType): void
     set_tab_width(width: number): void
     unindent_lines(start: Gtk.TextIter, end: Gtk.TextIter): void
-    /* Methods of Gtk.TextView */
+    /* Methods of Gtk-3.0.Gtk.TextView */
     add_child_at_anchor(child: Gtk.Widget, anchor: Gtk.TextChildAnchor): void
     add_child_in_window(child: Gtk.Widget, which_window: Gtk.TextWindowType, xpos: number, ypos: number): void
     backward_display_line(iter: Gtk.TextIter): boolean
@@ -12062,7 +12062,7 @@ export class View {
     set_wrap_mode(wrap_mode: Gtk.WrapMode): void
     starts_display_line(iter: Gtk.TextIter): boolean
     window_to_buffer_coords(win: Gtk.TextWindowType, window_x: number, window_y: number): [ /* buffer_x */ number | null, /* buffer_y */ number | null ]
-    /* Methods of Gtk.Container */
+    /* Methods of Gtk-3.0.Gtk.Container */
     add(widget: Gtk.Widget): void
     check_resize(): void
     child_get_property(child: Gtk.Widget, property_name: string, value: any): void
@@ -12090,7 +12090,7 @@ export class View {
     set_reallocate_redraws(needs_redraws: boolean): void
     set_resize_mode(resize_mode: Gtk.ResizeMode): void
     unset_focus_chain(): void
-    /* Methods of Gtk.Widget */
+    /* Methods of Gtk-3.0.Gtk.Widget */
     activate(): boolean
     add_accelerator(accel_signal: string, accel_group: Gtk.AccelGroup, accel_key: number, accel_mods: Gdk.ModifierType, accel_flags: Gtk.AccelFlags): void
     add_device_events(device: Gdk.Device, events: Gdk.EventMask): void
@@ -12349,7 +12349,7 @@ export class View {
     unrealize(): void
     unregister_window(window: Gdk.Window): void
     unset_state_flags(flags: Gtk.StateFlags): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -12371,7 +12371,7 @@ export class View {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of Gtk.Buildable */
+    /* Methods of Gtk-3.0.Gtk.Buildable */
     add_child(builder: Gtk.Builder, child: GObject.Object, type?: string | null): void
     construct_child(builder: Gtk.Builder, name: string): GObject.Object
     custom_finished(builder: Gtk.Builder, child: GObject.Object | null, tagname: string, data?: object | null): void
@@ -12380,7 +12380,7 @@ export class View {
     get_internal_child(builder: Gtk.Builder, childname: string): GObject.Object
     parser_finished(builder: Gtk.Builder): void
     set_buildable_property(builder: Gtk.Builder, name: string, value: any): void
-    /* Methods of Gtk.Scrollable */
+    /* Methods of Gtk-3.0.Gtk.Scrollable */
     get_border(): [ /* returnType */ boolean, /* border */ Gtk.Border ]
     get_hscroll_policy(): Gtk.ScrollablePolicy
     get_vscroll_policy(): Gtk.ScrollablePolicy
@@ -12388,7 +12388,7 @@ export class View {
     set_hscroll_policy(policy: Gtk.ScrollablePolicy): void
     set_vadjustment(vadjustment?: Gtk.Adjustment | null): void
     set_vscroll_policy(policy: Gtk.ScrollablePolicy): void
-    /* Virtual methods of GtkSource.View */
+    /* Virtual methods of GtkSource-4.GtkSource.View */
     vfunc_line_mark_activated(iter: Gtk.TextIter, event: Gdk.Event): void
     vfunc_move_lines(down: boolean): void
     vfunc_move_words(step: number): void
@@ -12406,7 +12406,7 @@ export class View {
     vfunc_set_buildable_property(builder: Gtk.Builder, name: string, value: any): void
     vfunc_set_name(name: string): void
     vfunc_get_border(): [ /* returnType */ boolean, /* border */ Gtk.Border ]
-    /* Virtual methods of Gtk.TextView */
+    /* Virtual methods of Gtk-3.0.Gtk.TextView */
     vfunc_backspace(): void
     vfunc_copy_clipboard(): void
     vfunc_cut_clipboard(): void
@@ -12420,7 +12420,7 @@ export class View {
     vfunc_populate_popup(popup: Gtk.Widget): void
     vfunc_set_anchor(): void
     vfunc_toggle_overwrite(): void
-    /* Virtual methods of Gtk.Container */
+    /* Virtual methods of Gtk-3.0.Gtk.Container */
     vfunc_add(widget: Gtk.Widget): void
     vfunc_check_resize(): void
     vfunc_child_type(): GObject.Type
@@ -12431,7 +12431,7 @@ export class View {
     vfunc_remove(widget: Gtk.Widget): void
     vfunc_set_child_property(child: Gtk.Widget, property_id: number, value: any, pspec: GObject.ParamSpec): void
     vfunc_set_focus_child(child?: Gtk.Widget | null): void
-    /* Virtual methods of Gtk.Widget */
+    /* Virtual methods of Gtk-3.0.Gtk.Widget */
     vfunc_adjust_baseline_allocation(baseline: number): void
     vfunc_adjust_baseline_request(minimum_baseline: number, natural_baseline: number): void
     vfunc_adjust_size_allocation(orientation: Gtk.Orientation, minimum_size: number, natural_size: number, allocated_pos: number, allocated_size: number): void
@@ -12514,7 +12514,7 @@ export class View {
     vfunc_unrealize(): void
     vfunc_visibility_notify_event(event: Gdk.EventVisibility): boolean
     vfunc_window_state_event(event: Gdk.EventWindowState): boolean
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -12522,7 +12522,7 @@ export class View {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GtkSource.View */
+    /* Signals of GtkSource-4.GtkSource.View */
     connect(sigName: "change-case", callback: (($obj: View, case_type: GtkSource.ChangeCaseType) => void)): number
     connect_after(sigName: "change-case", callback: (($obj: View, case_type: GtkSource.ChangeCaseType) => void)): number
     emit(sigName: "change-case", case_type: GtkSource.ChangeCaseType): void
@@ -12556,7 +12556,7 @@ export class View {
     connect(sigName: "undo", callback: (($obj: View) => void)): number
     connect_after(sigName: "undo", callback: (($obj: View) => void)): number
     emit(sigName: "undo"): void
-    /* Signals of Gtk.TextView */
+    /* Signals of Gtk-3.0.Gtk.TextView */
     connect(sigName: "backspace", callback: (($obj: View) => void)): number
     connect_after(sigName: "backspace", callback: (($obj: View) => void)): number
     emit(sigName: "backspace"): void
@@ -12605,7 +12605,7 @@ export class View {
     connect(sigName: "toggle-overwrite", callback: (($obj: View) => void)): number
     connect_after(sigName: "toggle-overwrite", callback: (($obj: View) => void)): number
     emit(sigName: "toggle-overwrite"): void
-    /* Signals of Gtk.Container */
+    /* Signals of Gtk-3.0.Gtk.Container */
     connect(sigName: "add", callback: (($obj: View, object: Gtk.Widget) => void)): number
     connect_after(sigName: "add", callback: (($obj: View, object: Gtk.Widget) => void)): number
     emit(sigName: "add", object: Gtk.Widget): void
@@ -12618,7 +12618,7 @@ export class View {
     connect(sigName: "set-focus-child", callback: (($obj: View, object: Gtk.Widget) => void)): number
     connect_after(sigName: "set-focus-child", callback: (($obj: View, object: Gtk.Widget) => void)): number
     emit(sigName: "set-focus-child", object: Gtk.Widget): void
-    /* Signals of Gtk.Widget */
+    /* Signals of Gtk-3.0.Gtk.Widget */
     connect(sigName: "accel-closures-changed", callback: (($obj: View) => void)): number
     connect_after(sigName: "accel-closures-changed", callback: (($obj: View) => void)): number
     emit(sigName: "accel-closures-changed"): void
@@ -12826,7 +12826,7 @@ export class View {
     connect(sigName: "window-state-event", callback: (($obj: View, event: Gdk.EventWindowState) => boolean)): number
     connect_after(sigName: "window-state-event", callback: (($obj: View, event: Gdk.EventWindowState) => boolean)): number
     emit(sigName: "window-state-event", event: Gdk.EventWindowState): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: View, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: View, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -13008,7 +13008,7 @@ export class View {
     static $gtype: GObject.Type
 }
 export abstract class AbstractFactoryClass {
-    /* Fields of Tepl.AbstractFactoryClass */
+    /* Fields of Tepl-6.Tepl.AbstractFactoryClass */
     parent_class: GObject.ObjectClass
     create_main_window: (factory: AbstractFactory, app: Gtk.Application) => Gtk.ApplicationWindow | null
     create_tab: (factory: AbstractFactory) => Tab
@@ -13018,7 +13018,7 @@ export abstract class AbstractFactoryClass {
     static name: string
 }
 export abstract class ApplicationClass {
-    /* Fields of Tepl.ApplicationClass */
+    /* Fields of Tepl-6.Tepl.ApplicationClass */
     parent_class: GObject.ObjectClass
     padding: object[]
     static name: string
@@ -13027,7 +13027,7 @@ export class ApplicationPrivate {
     static name: string
 }
 export abstract class ApplicationWindowClass {
-    /* Fields of Tepl.ApplicationWindowClass */
+    /* Fields of Tepl-6.Tepl.ApplicationWindowClass */
     parent_class: GObject.ObjectClass
     padding: object[]
     static name: string
@@ -13036,20 +13036,20 @@ export class ApplicationWindowPrivate {
     static name: string
 }
 export abstract class BufferClass {
-    /* Fields of Tepl.BufferClass */
+    /* Fields of Tepl-6.Tepl.BufferClass */
     parent_class: GtkSource.BufferClass
     tepl_cursor_moved: (buffer: Buffer) => void
     padding: object[]
     static name: string
 }
 export abstract class FileClass {
-    /* Fields of Tepl.FileClass */
+    /* Fields of Tepl-6.Tepl.FileClass */
     parent_class: GObject.ObjectClass
     padding: object[]
     static name: string
 }
 export abstract class FileLoaderClass {
-    /* Fields of Tepl.FileLoaderClass */
+    /* Fields of Tepl-6.Tepl.FileLoaderClass */
     parent_class: GObject.ObjectClass
     padding: object[]
     static name: string
@@ -13061,7 +13061,7 @@ export class FilePrivate {
     static name: string
 }
 export abstract class FileSaverClass {
-    /* Fields of Tepl.FileSaverClass */
+    /* Fields of Tepl-6.Tepl.FileSaverClass */
     parent_class: GObject.ObjectClass
     padding: object[]
     static name: string
@@ -13070,13 +13070,13 @@ export class FileSaverPrivate {
     static name: string
 }
 export abstract class FoldRegionClass {
-    /* Fields of Tepl.FoldRegionClass */
+    /* Fields of Tepl-6.Tepl.FoldRegionClass */
     parent_class: GObject.ObjectClass
     padding: object[]
     static name: string
 }
 export abstract class GotoLineBarClass {
-    /* Fields of Tepl.GotoLineBarClass */
+    /* Fields of Tepl-6.Tepl.GotoLineBarClass */
     parent_class: Gtk.GridClass
     padding: object[]
     static name: string
@@ -13085,13 +13085,13 @@ export class GotoLineBarPrivate {
     static name: string
 }
 export abstract class GutterRendererFoldsClass {
-    /* Fields of Tepl.GutterRendererFoldsClass */
+    /* Fields of Tepl-6.Tepl.GutterRendererFoldsClass */
     parent_class: GtkSource.GutterRendererClass
     padding: object[]
     static name: string
 }
 export abstract class InfoBarClass {
-    /* Fields of Tepl.InfoBarClass */
+    /* Fields of Tepl-6.Tepl.InfoBarClass */
     parent_class: Gtk.InfoBarClass
     padding: object[]
     static name: string
@@ -13100,7 +13100,7 @@ export class InfoBarPrivate {
     static name: string
 }
 export abstract class LanguageChooserDialogClass {
-    /* Fields of Tepl.LanguageChooserDialogClass */
+    /* Fields of Tepl-6.Tepl.LanguageChooserDialogClass */
     parent_class: Gtk.DialogClass
     padding: object[]
     static name: string
@@ -13109,14 +13109,14 @@ export class LanguageChooserDialogPrivate {
     static name: string
 }
 export abstract class LanguageChooserInterface {
-    /* Fields of Tepl.LanguageChooserInterface */
+    /* Fields of Tepl-6.Tepl.LanguageChooserInterface */
     parent_interface: GObject.TypeInterface
     select_language: (chooser: LanguageChooser, language?: GtkSource.Language | null) => void
     language_activated: (chooser: LanguageChooser, language: GtkSource.Language) => void
     static name: string
 }
 export abstract class LanguageChooserWidgetClass {
-    /* Fields of Tepl.LanguageChooserWidgetClass */
+    /* Fields of Tepl-6.Tepl.LanguageChooserWidgetClass */
     parent_class: Gtk.GridClass
     padding: object[]
     static name: string
@@ -13125,13 +13125,13 @@ export class LanguageChooserWidgetPrivate {
     static name: string
 }
 export abstract class MetadataClass {
-    /* Fields of Tepl.MetadataClass */
+    /* Fields of Tepl-6.Tepl.MetadataClass */
     parent_class: GObject.ObjectClass
     padding: object[]
     static name: string
 }
 export abstract class MetadataManagerClass {
-    /* Fields of Tepl.MetadataManagerClass */
+    /* Fields of Tepl-6.Tepl.MetadataManagerClass */
     parent_class: GObject.ObjectClass
     padding: object[]
     static name: string
@@ -13143,7 +13143,7 @@ export class MetadataPrivate {
     static name: string
 }
 export abstract class NotebookClass {
-    /* Fields of Tepl.NotebookClass */
+    /* Fields of Tepl-6.Tepl.NotebookClass */
     parent_class: Gtk.NotebookClass
     padding: object[]
     static name: string
@@ -13152,7 +13152,7 @@ export class NotebookPrivate {
     static name: string
 }
 export abstract class PanelClass {
-    /* Fields of Tepl.PanelClass */
+    /* Fields of Tepl-6.Tepl.PanelClass */
     parent_class: Gtk.GridClass
     padding: object[]
     static name: string
@@ -13161,7 +13161,7 @@ export class PanelPrivate {
     static name: string
 }
 export abstract class ProgressInfoBarClass {
-    /* Fields of Tepl.ProgressInfoBarClass */
+    /* Fields of Tepl-6.Tepl.ProgressInfoBarClass */
     parent_class: InfoBarClass
     padding: object[]
     static name: string
@@ -13173,7 +13173,7 @@ export class SignalGroup {
     static name: string
 }
 export abstract class SpaceDrawerPrefsClass {
-    /* Fields of Tepl.SpaceDrawerPrefsClass */
+    /* Fields of Tepl-6.Tepl.SpaceDrawerPrefsClass */
     parent_class: Gtk.GridClass
     padding: object[]
     static name: string
@@ -13182,7 +13182,7 @@ export class SpaceDrawerPrefsPrivate {
     static name: string
 }
 export abstract class StatusbarClass {
-    /* Fields of Tepl.StatusbarClass */
+    /* Fields of Tepl-6.Tepl.StatusbarClass */
     parent_class: Gtk.StatusbarClass
     padding: object[]
     static name: string
@@ -13191,7 +13191,7 @@ export class StatusbarPrivate {
     static name: string
 }
 export abstract class StyleSchemeChooserWidgetClass {
-    /* Fields of Tepl.StyleSchemeChooserWidgetClass */
+    /* Fields of Tepl-6.Tepl.StyleSchemeChooserWidgetClass */
     parent_class: Gtk.BinClass
     padding: object[]
     static name: string
@@ -13200,7 +13200,7 @@ export class StyleSchemeChooserWidgetPrivate {
     static name: string
 }
 export abstract class TabClass {
-    /* Fields of Tepl.TabClass */
+    /* Fields of Tepl-6.Tepl.TabClass */
     parent_class: Gtk.GridClass
     pack_view: (tab: Tab, view: View) => void
     pack_info_bar: (tab: Tab, info_bar: Gtk.InfoBar) => void
@@ -13209,7 +13209,7 @@ export abstract class TabClass {
     static name: string
 }
 export abstract class TabGroupInterface {
-    /* Fields of Tepl.TabGroupInterface */
+    /* Fields of Tepl-6.Tepl.TabGroupInterface */
     parent_interface: GObject.TypeInterface
     get_tabs: (tab_group: TabGroup) => Tab[]
     get_active_tab: (tab_group: TabGroup) => Tab | null
@@ -13218,7 +13218,7 @@ export abstract class TabGroupInterface {
     static name: string
 }
 export abstract class TabLabelClass {
-    /* Fields of Tepl.TabLabelClass */
+    /* Fields of Tepl-6.Tepl.TabLabelClass */
     parent_class: Gtk.GridClass
     get_tooltip_markup: (tab_label: TabLabel) => string
     static name: string
@@ -13230,7 +13230,7 @@ export class TabPrivate {
     static name: string
 }
 export abstract class ViewClass {
-    /* Fields of Tepl.ViewClass */
+    /* Fields of Tepl-6.Tepl.ViewClass */
     parent_class: GtkSource.ViewClass
     padding: object[]
     static name: string

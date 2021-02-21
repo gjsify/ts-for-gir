@@ -73,12 +73,12 @@ export function thumbnailer_shutdown(): void
 export interface Crawler_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class Crawler {
-    /* Fields of TrackerMiner.Crawler */
+    /* Fields of TrackerMiner-0.16.TrackerMiner.Crawler */
     parent: GObject.Object
     priv: CrawlerPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of TrackerMiner.Crawler */
+    /* Methods of TrackerMiner-0.16.TrackerMiner.Crawler */
     get_file_attributes(): string
     get_file_info(file: Gio.File): Gio.FileInfo
     pause(): void
@@ -87,7 +87,7 @@ export class Crawler {
     set_throttle(throttle: number): void
     start(file: Gio.File, recurse: boolean): boolean
     stop(): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -109,12 +109,12 @@ export class Crawler {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of TrackerMiner.Crawler */
+    /* Virtual methods of TrackerMiner-0.16.TrackerMiner.Crawler */
     vfunc_check_directory(file: Gio.File): boolean
     vfunc_check_file(file: Gio.File): boolean
     vfunc_directory_crawled(directory: Gio.File, tree: GLib.Node, directories_found: number, directories_ignored: number, files_found: number, files_ignored: number): void
     vfunc_finished(interrupted: boolean): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -122,7 +122,7 @@ export class Crawler {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of TrackerMiner.Crawler */
+    /* Signals of TrackerMiner-0.16.TrackerMiner.Crawler */
     connect(sigName: "check-directory", callback: (($obj: Crawler, object: Gio.File) => boolean)): number
     connect_after(sigName: "check-directory", callback: (($obj: Crawler, object: Gio.File) => boolean)): number
     emit(sigName: "check-directory", object: Gio.File): void
@@ -138,7 +138,7 @@ export class Crawler {
     connect(sigName: "finished", callback: (($obj: Crawler, object: boolean) => void)): number
     connect_after(sigName: "finished", callback: (($obj: Crawler, object: boolean) => void)): number
     emit(sigName: "finished", object: boolean): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Crawler, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Crawler, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -157,14 +157,14 @@ export interface IndexingTree_ConstructProps extends GObject.Object_ConstructPro
     filter_hidden?: boolean
 }
 export class IndexingTree {
-    /* Properties of TrackerMiner.IndexingTree */
+    /* Properties of TrackerMiner-0.16.TrackerMiner.IndexingTree */
     filter_hidden: boolean
-    /* Fields of TrackerMiner.IndexingTree */
+    /* Fields of TrackerMiner-0.16.TrackerMiner.IndexingTree */
     parent_instance: GObject.Object
     priv: object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of TrackerMiner.IndexingTree */
+    /* Methods of TrackerMiner-0.16.TrackerMiner.IndexingTree */
     add(directory: Gio.File, flags: DirectoryFlags): void
     add_filter(filter: FilterType, glob_string: string): void
     clear_filters(type: FilterType): void
@@ -179,7 +179,7 @@ export class IndexingTree {
     remove(directory: Gio.File): void
     set_default_policy(filter: FilterType, policy: FilterPolicy): void
     set_filter_hidden(filter_hidden: boolean): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -201,11 +201,11 @@ export class IndexingTree {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of TrackerMiner.IndexingTree */
+    /* Virtual methods of TrackerMiner-0.16.TrackerMiner.IndexingTree */
     vfunc_directory_added(directory: Gio.File): void
     vfunc_directory_removed(directory: Gio.File): void
     vfunc_directory_updated(directory: Gio.File): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -213,7 +213,7 @@ export class IndexingTree {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of TrackerMiner.IndexingTree */
+    /* Signals of TrackerMiner-0.16.TrackerMiner.IndexingTree */
     connect(sigName: "directory-added", callback: (($obj: IndexingTree, object: Gio.File) => void)): number
     connect_after(sigName: "directory-added", callback: (($obj: IndexingTree, object: Gio.File) => void)): number
     emit(sigName: "directory-added", object: Gio.File): void
@@ -223,7 +223,7 @@ export class IndexingTree {
     connect(sigName: "directory-updated", callback: (($obj: IndexingTree, object: Gio.File) => void)): number
     connect_after(sigName: "directory-updated", callback: (($obj: IndexingTree, object: Gio.File) => void)): number
     emit(sigName: "directory-updated", object: Gio.File): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: IndexingTree, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: IndexingTree, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -247,16 +247,16 @@ export interface Miner_ConstructProps extends GObject.Object_ConstructProps {
     status?: string
 }
 export class Miner {
-    /* Properties of TrackerMiner.Miner */
+    /* Properties of TrackerMiner-0.16.TrackerMiner.Miner */
     progress: number
     remaining_time: number
     status: string
-    /* Fields of TrackerMiner.Miner */
+    /* Fields of TrackerMiner-0.16.TrackerMiner.Miner */
     parent_instance: GObject.Object
     priv: MinerPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of TrackerMiner.Miner */
+    /* Methods of TrackerMiner-0.16.TrackerMiner.Miner */
     get_connection(): Tracker.SparqlConnection
     get_dbus_connection(): Gio.DBusConnection
     get_dbus_full_name(): string
@@ -269,7 +269,7 @@ export class Miner {
     resume(cookie: number): boolean
     start(): void
     stop(): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -291,9 +291,9 @@ export class Miner {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of Gio.Initable */
+    /* Methods of Gio-2.0.Gio.Initable */
     init(cancellable?: Gio.Cancellable | null): boolean
-    /* Virtual methods of TrackerMiner.Miner */
+    /* Virtual methods of TrackerMiner-0.16.TrackerMiner.Miner */
     vfunc_ignore_next_update(urls: string[]): void
     vfunc_paused(): void
     vfunc_progress(status: string, progress: number): void
@@ -301,7 +301,7 @@ export class Miner {
     vfunc_started(): void
     vfunc_stopped(): void
     vfunc_init(cancellable?: Gio.Cancellable | null): boolean
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -309,7 +309,7 @@ export class Miner {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of TrackerMiner.Miner */
+    /* Signals of TrackerMiner-0.16.TrackerMiner.Miner */
     connect(sigName: "ignore-next-update", callback: (($obj: Miner, urls: string[]) => void)): number
     connect_after(sigName: "ignore-next-update", callback: (($obj: Miner, urls: string[]) => void)): number
     emit(sigName: "ignore-next-update", urls: string[]): void
@@ -328,7 +328,7 @@ export class Miner {
     connect(sigName: "stopped", callback: (($obj: Miner) => void)): number
     connect_after(sigName: "stopped", callback: (($obj: Miner) => void)): number
     emit(sigName: "stopped"): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Miner, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Miner, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -358,24 +358,24 @@ export interface MinerFS_ConstructProps extends Miner_ConstructProps {
     throttle?: number
 }
 export class MinerFS {
-    /* Properties of TrackerMiner.MinerFS */
+    /* Properties of TrackerMiner-0.16.TrackerMiner.MinerFS */
     initial_crawling: boolean
     mtime_checking: boolean
     processing_pool_ready_limit: number
     processing_pool_wait_limit: number
     throttle: number
-    /* Properties of TrackerMiner.Miner */
+    /* Properties of TrackerMiner-0.16.TrackerMiner.Miner */
     progress: number
     remaining_time: number
     status: string
-    /* Fields of TrackerMiner.MinerFS */
+    /* Fields of TrackerMiner-0.16.TrackerMiner.MinerFS */
     parent: Miner
     priv: MinerFSPrivate
-    /* Fields of TrackerMiner.Miner */
+    /* Fields of TrackerMiner-0.16.TrackerMiner.Miner */
     parent_instance: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of TrackerMiner.MinerFS */
+    /* Methods of TrackerMiner-0.16.TrackerMiner.MinerFS */
     add_directory_without_parent(file: Gio.File): void
     check_directory(file: Gio.File, check_parents: boolean): void
     check_directory_with_priority(file: Gio.File, priority: number, check_parents: boolean): void
@@ -400,7 +400,7 @@ export class MinerFS {
     set_throttle(throttle: number): void
     writeback_file(file: Gio.File, rdf_types: string[], results: any[]): void
     writeback_notify(file: Gio.File, error: GLib.Error): void
-    /* Methods of TrackerMiner.Miner */
+    /* Methods of TrackerMiner-0.16.TrackerMiner.Miner */
     get_connection(): Tracker.SparqlConnection
     get_dbus_connection(): Gio.DBusConnection
     get_dbus_full_name(): string
@@ -413,7 +413,7 @@ export class MinerFS {
     resume(cookie: number): boolean
     start(): void
     stop(): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -435,14 +435,14 @@ export class MinerFS {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of Gio.Initable */
+    /* Methods of Gio-2.0.Gio.Initable */
     init(cancellable?: Gio.Cancellable | null): boolean
-    /* Virtual methods of TrackerMiner.MinerFS */
+    /* Virtual methods of TrackerMiner-0.16.TrackerMiner.MinerFS */
     vfunc_finished(): void
     vfunc_ignore_next_update_file(file: Gio.File, builder: Tracker.SparqlBuilder, cancellable?: Gio.Cancellable | null): boolean
     vfunc_process_file(file: Gio.File, builder: Tracker.SparqlBuilder, cancellable?: Gio.Cancellable | null): boolean
     vfunc_process_file_attributes(file: Gio.File, builder: Tracker.SparqlBuilder, cancellable?: Gio.Cancellable | null): boolean
-    /* Virtual methods of TrackerMiner.Miner */
+    /* Virtual methods of TrackerMiner-0.16.TrackerMiner.Miner */
     vfunc_ignore_next_update(urls: string[]): void
     vfunc_paused(): void
     vfunc_progress(status: string, progress: number): void
@@ -450,7 +450,7 @@ export class MinerFS {
     vfunc_started(): void
     vfunc_stopped(): void
     vfunc_init(cancellable?: Gio.Cancellable | null): boolean
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -458,7 +458,7 @@ export class MinerFS {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of TrackerMiner.MinerFS */
+    /* Signals of TrackerMiner-0.16.TrackerMiner.MinerFS */
     connect(sigName: "finished", callback: (($obj: MinerFS, elapsed: number, directories_found: number, directories_ignored: number, files_found: number, files_ignored: number) => void)): number
     connect_after(sigName: "finished", callback: (($obj: MinerFS, elapsed: number, directories_found: number, directories_ignored: number, files_found: number, files_ignored: number) => void)): number
     emit(sigName: "finished", elapsed: number, directories_found: number, directories_ignored: number, files_found: number, files_ignored: number): void
@@ -474,7 +474,7 @@ export class MinerFS {
     connect(sigName: "writeback-file", callback: (($obj: MinerFS, file: Gio.File, rdf_types: string[], results: any[], cancellable?: Gio.Cancellable | null) => boolean)): number
     connect_after(sigName: "writeback-file", callback: (($obj: MinerFS, file: Gio.File, rdf_types: string[], results: any[], cancellable?: Gio.Cancellable | null) => boolean)): number
     emit(sigName: "writeback-file", file: Gio.File, rdf_types: string[], results: any[], cancellable?: Gio.Cancellable | null): void
-    /* Signals of TrackerMiner.Miner */
+    /* Signals of TrackerMiner-0.16.TrackerMiner.Miner */
     connect(sigName: "ignore-next-update", callback: (($obj: MinerFS, urls: string[]) => void)): number
     connect_after(sigName: "ignore-next-update", callback: (($obj: MinerFS, urls: string[]) => void)): number
     emit(sigName: "ignore-next-update", urls: string[]): void
@@ -493,7 +493,7 @@ export class MinerFS {
     connect(sigName: "stopped", callback: (($obj: MinerFS) => void)): number
     connect_after(sigName: "stopped", callback: (($obj: MinerFS) => void)): number
     emit(sigName: "stopped"): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: MinerFS, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: MinerFS, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -526,11 +526,11 @@ export interface MinerManager_ConstructProps extends GObject.Object_ConstructPro
     auto_start?: boolean
 }
 export class MinerManager {
-    /* Fields of TrackerMiner.MinerManager */
+    /* Fields of TrackerMiner-0.16.TrackerMiner.MinerManager */
     parent_instance: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of TrackerMiner.MinerManager */
+    /* Methods of TrackerMiner-0.16.TrackerMiner.MinerManager */
     get_available(): string[]
     get_description(miner: string): string
     get_display_name(miner: string): string
@@ -546,7 +546,7 @@ export class MinerManager {
     pause_for_process(miner: string, reason: string): [ /* returnType */ boolean, /* cookie */ number | null ]
     reindex_by_mimetype(mimetypes: string[]): boolean
     resume(miner: string, cookie: number): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -568,16 +568,16 @@ export class MinerManager {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of Gio.Initable */
+    /* Methods of Gio-2.0.Gio.Initable */
     init(cancellable?: Gio.Cancellable | null): boolean
-    /* Virtual methods of TrackerMiner.MinerManager */
+    /* Virtual methods of TrackerMiner-0.16.TrackerMiner.MinerManager */
     vfunc_miner_activated(miner_name: string): void
     vfunc_miner_deactivated(miner_name: string): void
     vfunc_miner_paused(miner_name: string): void
     vfunc_miner_progress(miner_name: string, status: string, progress: number): void
     vfunc_miner_resumed(miner_name: string): void
     vfunc_init(cancellable?: Gio.Cancellable | null): boolean
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -585,7 +585,7 @@ export class MinerManager {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of TrackerMiner.MinerManager */
+    /* Signals of TrackerMiner-0.16.TrackerMiner.MinerManager */
     connect(sigName: "miner-activated", callback: (($obj: MinerManager, miner: string) => void)): number
     connect_after(sigName: "miner-activated", callback: (($obj: MinerManager, miner: string) => void)): number
     emit(sigName: "miner-activated", miner: string): void
@@ -601,7 +601,7 @@ export class MinerManager {
     connect(sigName: "miner-resumed", callback: (($obj: MinerManager, miner: string) => void)): number
     connect_after(sigName: "miner-resumed", callback: (($obj: MinerManager, miner: string) => void)): number
     emit(sigName: "miner-resumed", miner: string): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: MinerManager, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: MinerManager, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -623,23 +623,23 @@ export interface MinerWeb_ConstructProps extends Miner_ConstructProps {
     associated?: boolean
 }
 export class MinerWeb {
-    /* Properties of TrackerMiner.MinerWeb */
+    /* Properties of TrackerMiner-0.16.TrackerMiner.MinerWeb */
     associated: boolean
-    /* Properties of TrackerMiner.Miner */
+    /* Properties of TrackerMiner-0.16.TrackerMiner.Miner */
     progress: number
     remaining_time: number
     status: string
-    /* Fields of TrackerMiner.MinerWeb */
+    /* Fields of TrackerMiner-0.16.TrackerMiner.MinerWeb */
     parent_instance: Miner
     priv: MinerWebPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of TrackerMiner.MinerWeb */
+    /* Methods of TrackerMiner-0.16.TrackerMiner.MinerWeb */
     associate(association_data: GLib.HashTable): void
     authenticate(): void
     dissociate(): void
     get_association_data(): GLib.HashTable
-    /* Methods of TrackerMiner.Miner */
+    /* Methods of TrackerMiner-0.16.TrackerMiner.Miner */
     get_connection(): Tracker.SparqlConnection
     get_dbus_connection(): Gio.DBusConnection
     get_dbus_full_name(): string
@@ -652,7 +652,7 @@ export class MinerWeb {
     resume(cookie: number): boolean
     start(): void
     stop(): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -674,14 +674,14 @@ export class MinerWeb {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of Gio.Initable */
+    /* Methods of Gio-2.0.Gio.Initable */
     init(cancellable?: Gio.Cancellable | null): boolean
-    /* Virtual methods of TrackerMiner.MinerWeb */
+    /* Virtual methods of TrackerMiner-0.16.TrackerMiner.MinerWeb */
     vfunc_associate(association_data: GLib.HashTable): void
     vfunc_authenticate(): void
     vfunc_dissociate(): void
     vfunc_get_association_data(): GLib.HashTable
-    /* Virtual methods of TrackerMiner.Miner */
+    /* Virtual methods of TrackerMiner-0.16.TrackerMiner.Miner */
     vfunc_ignore_next_update(urls: string[]): void
     vfunc_paused(): void
     vfunc_progress(status: string, progress: number): void
@@ -689,7 +689,7 @@ export class MinerWeb {
     vfunc_started(): void
     vfunc_stopped(): void
     vfunc_init(cancellable?: Gio.Cancellable | null): boolean
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -697,7 +697,7 @@ export class MinerWeb {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of TrackerMiner.Miner */
+    /* Signals of TrackerMiner-0.16.TrackerMiner.Miner */
     connect(sigName: "ignore-next-update", callback: (($obj: MinerWeb, urls: string[]) => void)): number
     connect_after(sigName: "ignore-next-update", callback: (($obj: MinerWeb, urls: string[]) => void)): number
     emit(sigName: "ignore-next-update", urls: string[]): void
@@ -716,7 +716,7 @@ export class MinerWeb {
     connect(sigName: "stopped", callback: (($obj: MinerWeb) => void)): number
     connect_after(sigName: "stopped", callback: (($obj: MinerWeb) => void)): number
     emit(sigName: "stopped"): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: MinerWeb, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: MinerWeb, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -740,7 +740,7 @@ export class MinerWeb {
     static $gtype: GObject.Type
 }
 export abstract class CrawlerClass {
-    /* Fields of TrackerMiner.CrawlerClass */
+    /* Fields of TrackerMiner-0.16.TrackerMiner.CrawlerClass */
     parent: GObject.ObjectClass
     check_directory: (crawler: Crawler, file: Gio.File) => boolean
     check_file: (crawler: Crawler, file: Gio.File) => boolean
@@ -752,7 +752,7 @@ export class CrawlerPrivate {
     static name: string
 }
 export abstract class IndexingTreeClass {
-    /* Fields of TrackerMiner.IndexingTreeClass */
+    /* Fields of TrackerMiner-0.16.TrackerMiner.IndexingTreeClass */
     parent_class: GObject.ObjectClass
     directory_added: (indexing_tree: IndexingTree, directory: Gio.File) => void
     directory_removed: (indexing_tree: IndexingTree, directory: Gio.File) => void
@@ -760,7 +760,7 @@ export abstract class IndexingTreeClass {
     static name: string
 }
 export abstract class MinerClass {
-    /* Fields of TrackerMiner.MinerClass */
+    /* Fields of TrackerMiner-0.16.TrackerMiner.MinerClass */
     parent_class: GObject.ObjectClass
     started: (miner: Miner) => void
     stopped: (miner: Miner) => void
@@ -771,7 +771,7 @@ export abstract class MinerClass {
     static name: string
 }
 export abstract class MinerFSClass {
-    /* Fields of TrackerMiner.MinerFSClass */
+    /* Fields of TrackerMiner-0.16.TrackerMiner.MinerFSClass */
     parent: MinerClass
     process_file: (fs: MinerFS, file: Gio.File, builder: Tracker.SparqlBuilder, cancellable?: Gio.Cancellable | null) => boolean
     ignore_next_update_file: (fs: MinerFS, file: Gio.File, builder: Tracker.SparqlBuilder, cancellable?: Gio.Cancellable | null) => boolean
@@ -783,7 +783,7 @@ export class MinerFSPrivate {
     static name: string
 }
 export abstract class MinerManagerClass {
-    /* Fields of TrackerMiner.MinerManagerClass */
+    /* Fields of TrackerMiner-0.16.TrackerMiner.MinerManagerClass */
     parent_class: GObject.ObjectClass
     miner_progress: (manager: MinerManager, miner_name: string, status: string, progress: number) => void
     miner_paused: (manager: MinerManager, miner_name: string) => void
@@ -796,7 +796,7 @@ export class MinerPrivate {
     static name: string
 }
 export abstract class MinerWebClass {
-    /* Fields of TrackerMiner.MinerWebClass */
+    /* Fields of TrackerMiner-0.16.TrackerMiner.MinerWebClass */
     parent_class: MinerClass
     authenticate: (miner: MinerWeb) => void
     get_association_data: (miner: MinerWeb) => GLib.HashTable

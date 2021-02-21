@@ -122,16 +122,16 @@ export interface AliasDetails_ConstructProps extends GObject.Object_ConstructPro
     alias?: string
 }
 export class AliasDetails {
-    /* Properties of Folks.AliasDetails */
+    /* Properties of Folks-0.6.Folks.AliasDetails */
     alias: string
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Folks.AliasDetails */
+    /* Methods of Folks-0.6.Folks.AliasDetails */
     changeAlias(alias: string, callback?: Gio.AsyncReadyCallback | null): void
     changeAliasFinish(res: Gio.AsyncResult): void
     getAlias(): string
     setAlias(value: string): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -153,26 +153,12 @@ export class AliasDetails {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of Folks.AliasDetails */
-    vfuncChangeAlias(alias: string, callback?: Gio.AsyncReadyCallback | null): void
-    vfuncChangeAliasFinish(res: Gio.AsyncResult): void
-    vfuncGetAlias(): string
-    vfuncSetAlias(value: string): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: AliasDetails, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: AliasDetails, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::alias", callback: (($obj: AliasDetails, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::alias", callback: (($obj: AliasDetails, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::alias", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -194,15 +180,15 @@ export interface AntiLinkable_ConstructProps extends Persona_ConstructProps {
     antiLinks?: Gee.Set
 }
 export class AntiLinkable {
-    /* Properties of Folks.AntiLinkable */
+    /* Properties of Folks-0.6.Folks.AntiLinkable */
     antiLinks: Gee.Set
-    /* Properties of Folks.Persona */
+    /* Properties of Folks-0.6.Folks.Persona */
     individual: Individual
     readonly linkableProperties: string[]
     readonly writeableProperties: string[]
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Folks.AntiLinkable */
+    /* Methods of Folks-0.6.Folks.AntiLinkable */
     changeAntiLinks(antiLinks: Gee.Set, callback?: Gio.AsyncReadyCallback | null): void
     changeAntiLinksFinish(res: Gio.AsyncResult): void
     hasAntiLinkWithPersona(otherPersona: Persona): boolean
@@ -217,7 +203,7 @@ export class AntiLinkable {
     hasGlobalAntiLink(): boolean
     getAntiLinks(): Gee.Set
     setAntiLinks(value: Gee.Set): void
-    /* Methods of Folks.Persona */
+    /* Methods of Folks-0.6.Folks.Persona */
     linkablePropertyToLinks(propName: string, callback: any): void
     getIid(): string
     getUid(): string
@@ -227,7 +213,7 @@ export class AntiLinkable {
     getIndividual(): Individual | null
     getLinkableProperties(): string[]
     getWriteableProperties(): string[]
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -249,30 +235,12 @@ export class AntiLinkable {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of Folks.AntiLinkable */
-    vfuncChangeAntiLinks(antiLinks: Gee.Set, callback?: Gio.AsyncReadyCallback | null): void
-    vfuncChangeAntiLinksFinish(res: Gio.AsyncResult): void
-    vfuncGetAntiLinks(): Gee.Set
-    vfuncSetAntiLinks(value: Gee.Set): void
-    /* Virtual methods of Folks.Persona */
-    vfuncLinkablePropertyToLinks(propName: string, callback: any): void
-    vfuncGetLinkableProperties(): string[]
-    vfuncGetWriteableProperties(): string[]
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: AntiLinkable, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: AntiLinkable, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::anti-links", callback: (($obj: AntiLinkable, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::anti-links", callback: (($obj: AntiLinkable, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::anti-links", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -309,16 +277,16 @@ export interface AvatarDetails_ConstructProps extends GObject.Object_ConstructPr
     avatar?: Gio.LoadableIcon
 }
 export class AvatarDetails {
-    /* Properties of Folks.AvatarDetails */
+    /* Properties of Folks-0.6.Folks.AvatarDetails */
     avatar: Gio.LoadableIcon
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Folks.AvatarDetails */
+    /* Methods of Folks-0.6.Folks.AvatarDetails */
     changeAvatar(avatar?: Gio.LoadableIcon | null, callback?: Gio.AsyncReadyCallback | null): void
     changeAvatarFinish(res: Gio.AsyncResult): void
     getAvatar(): Gio.LoadableIcon | null
     setAvatar(value?: Gio.LoadableIcon | null): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -340,26 +308,12 @@ export class AvatarDetails {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of Folks.AvatarDetails */
-    vfuncChangeAvatar(avatar?: Gio.LoadableIcon | null, callback?: Gio.AsyncReadyCallback | null): void
-    vfuncChangeAvatarFinish(res: Gio.AsyncResult): void
-    vfuncGetAvatar(): Gio.LoadableIcon | null
-    vfuncSetAvatar(value?: Gio.LoadableIcon | null): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: AvatarDetails, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: AvatarDetails, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::avatar", callback: (($obj: AvatarDetails, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::avatar", callback: (($obj: AvatarDetails, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::avatar", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -382,12 +336,12 @@ export interface BirthdayDetails_ConstructProps extends GObject.Object_Construct
     calendarEventId?: string
 }
 export class BirthdayDetails {
-    /* Properties of Folks.BirthdayDetails */
+    /* Properties of Folks-0.6.Folks.BirthdayDetails */
     birthday: GLib.DateTime
     calendarEventId: string
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Folks.BirthdayDetails */
+    /* Methods of Folks-0.6.Folks.BirthdayDetails */
     changeBirthday(birthday?: GLib.DateTime | null, callback?: Gio.AsyncReadyCallback | null): void
     changeBirthdayFinish(res: Gio.AsyncResult): void
     changeCalendarEventId(eventId?: string | null, callback?: Gio.AsyncReadyCallback | null): void
@@ -396,7 +350,7 @@ export class BirthdayDetails {
     setBirthday(value?: GLib.DateTime | null): void
     getCalendarEventId(): string | null
     setCalendarEventId(value?: string | null): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -418,30 +372,12 @@ export class BirthdayDetails {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of Folks.BirthdayDetails */
-    vfuncChangeBirthday(birthday?: GLib.DateTime | null, callback?: Gio.AsyncReadyCallback | null): void
-    vfuncChangeBirthdayFinish(res: Gio.AsyncResult): void
-    vfuncChangeCalendarEventId(eventId?: string | null, callback?: Gio.AsyncReadyCallback | null): void
-    vfuncChangeCalendarEventIdFinish(res: Gio.AsyncResult): void
-    vfuncGetBirthday(): GLib.DateTime | null
-    vfuncSetBirthday(value?: GLib.DateTime | null): void
-    vfuncGetCalendarEventId(): string | null
-    vfuncSetCalendarEventId(value?: string | null): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: BirthdayDetails, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: BirthdayDetails, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::birthday", callback: (($obj: BirthdayDetails, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::birthday", callback: (($obj: BirthdayDetails, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::birthday", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -468,16 +404,16 @@ export interface EmailDetails_ConstructProps extends GObject.Object_ConstructPro
     emailAddresses?: Gee.Set
 }
 export class EmailDetails {
-    /* Properties of Folks.EmailDetails */
+    /* Properties of Folks-0.6.Folks.EmailDetails */
     emailAddresses: Gee.Set
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Folks.EmailDetails */
+    /* Methods of Folks-0.6.Folks.EmailDetails */
     changeEmailAddresses(emailAddresses: Gee.Set, callback?: Gio.AsyncReadyCallback | null): void
     changeEmailAddressesFinish(res: Gio.AsyncResult): void
     getEmailAddresses(): Gee.Set
     setEmailAddresses(value: Gee.Set): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -499,26 +435,12 @@ export class EmailDetails {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of Folks.EmailDetails */
-    vfuncChangeEmailAddresses(emailAddresses: Gee.Set, callback?: Gio.AsyncReadyCallback | null): void
-    vfuncChangeEmailAddressesFinish(res: Gio.AsyncResult): void
-    vfuncGetEmailAddresses(): Gee.Set
-    vfuncSetEmailAddresses(value: Gee.Set): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: EmailDetails, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: EmailDetails, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::email-addresses", callback: (($obj: EmailDetails, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::email-addresses", callback: (($obj: EmailDetails, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::email-addresses", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -539,15 +461,15 @@ export class EmailDetails {
 export interface ExtendedInfo_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class ExtendedInfo {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Folks.ExtendedInfo */
+    /* Methods of Folks-0.6.Folks.ExtendedInfo */
     getExtendedField(name: string): ExtendedFieldDetails | null
     changeExtendedField(name: string, value: ExtendedFieldDetails, callback?: Gio.AsyncReadyCallback | null): void
     changeExtendedFieldFinish(res: Gio.AsyncResult): void
     removeExtendedField(name: string, callback?: Gio.AsyncReadyCallback | null): void
     removeExtendedFieldFinish(res: Gio.AsyncResult): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -569,27 +491,12 @@ export class ExtendedInfo {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of Folks.ExtendedInfo */
-    vfuncGetExtendedField(name: string): ExtendedFieldDetails | null
-    vfuncChangeExtendedField(name: string, value: ExtendedFieldDetails, callback?: Gio.AsyncReadyCallback | null): void
-    vfuncChangeExtendedFieldFinish(res: Gio.AsyncResult): void
-    vfuncRemoveExtendedField(name: string, callback?: Gio.AsyncReadyCallback | null): void
-    vfuncRemoveExtendedFieldFinish(res: Gio.AsyncResult): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: ExtendedInfo, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: ExtendedInfo, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -606,16 +513,16 @@ export interface FavouriteDetails_ConstructProps extends GObject.Object_Construc
     isFavourite?: boolean
 }
 export class FavouriteDetails {
-    /* Properties of Folks.FavouriteDetails */
+    /* Properties of Folks-0.6.Folks.FavouriteDetails */
     isFavourite: boolean
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Folks.FavouriteDetails */
+    /* Methods of Folks-0.6.Folks.FavouriteDetails */
     changeIsFavourite(isFavourite: boolean, callback?: Gio.AsyncReadyCallback | null): void
     changeIsFavouriteFinish(res: Gio.AsyncResult): void
     getIsFavourite(): boolean
     setIsFavourite(value: boolean): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -637,26 +544,12 @@ export class FavouriteDetails {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of Folks.FavouriteDetails */
-    vfuncChangeIsFavourite(isFavourite: boolean, callback?: Gio.AsyncReadyCallback | null): void
-    vfuncChangeIsFavouriteFinish(res: Gio.AsyncResult): void
-    vfuncGetIsFavourite(): boolean
-    vfuncSetIsFavourite(value: boolean): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: FavouriteDetails, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: FavouriteDetails, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::is-favourite", callback: (($obj: FavouriteDetails, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::is-favourite", callback: (($obj: FavouriteDetails, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::is-favourite", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -678,16 +571,16 @@ export interface GenderDetails_ConstructProps extends GObject.Object_ConstructPr
     gender?: Gender
 }
 export class GenderDetails {
-    /* Properties of Folks.GenderDetails */
+    /* Properties of Folks-0.6.Folks.GenderDetails */
     gender: Gender
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Folks.GenderDetails */
+    /* Methods of Folks-0.6.Folks.GenderDetails */
     changeGender(gender: Gender, callback?: Gio.AsyncReadyCallback | null): void
     changeGenderFinish(res: Gio.AsyncResult): void
     getGender(): Gender
     setGender(value: Gender): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -709,26 +602,12 @@ export class GenderDetails {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of Folks.GenderDetails */
-    vfuncChangeGender(gender: Gender, callback?: Gio.AsyncReadyCallback | null): void
-    vfuncChangeGenderFinish(res: Gio.AsyncResult): void
-    vfuncGetGender(): Gender
-    vfuncSetGender(value: Gender): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: GenderDetails, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: GenderDetails, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::gender", callback: (($obj: GenderDetails, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::gender", callback: (($obj: GenderDetails, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::gender", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -750,18 +629,18 @@ export interface GroupDetails_ConstructProps extends GObject.Object_ConstructPro
     groups?: Gee.Set
 }
 export class GroupDetails {
-    /* Properties of Folks.GroupDetails */
+    /* Properties of Folks-0.6.Folks.GroupDetails */
     groups: Gee.Set
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Folks.GroupDetails */
+    /* Methods of Folks-0.6.Folks.GroupDetails */
     changeGroup(group: string, isMember: boolean, callback?: Gio.AsyncReadyCallback | null): void
     changeGroupFinish(res: Gio.AsyncResult): void
     changeGroups(groups: Gee.Set, callback?: Gio.AsyncReadyCallback | null): void
     changeGroupsFinish(res: Gio.AsyncResult): void
     getGroups(): Gee.Set
     setGroups(value: Gee.Set): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -783,35 +662,18 @@ export class GroupDetails {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of Folks.GroupDetails */
-    vfuncChangeGroup(group: string, isMember: boolean, callback?: Gio.AsyncReadyCallback | null): void
-    vfuncChangeGroupFinish(res: Gio.AsyncResult): void
-    vfuncChangeGroups(groups: Gee.Set, callback?: Gio.AsyncReadyCallback | null): void
-    vfuncChangeGroupsFinish(res: Gio.AsyncResult): void
-    vfuncGetGroups(): Gee.Set
-    vfuncSetGroups(value: Gee.Set): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Folks.GroupDetails */
+    /* Signals of Folks-0.6.Folks.GroupDetails */
     connect(sigName: "group-changed", callback: (($obj: GroupDetails, group: string, isMember: boolean) => void)): number
-    connect_after(sigName: "group-changed", callback: (($obj: GroupDetails, group: string, isMember: boolean) => void)): number
+    on(sigName: "group-changed", callback: (group: string, isMember: boolean) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "group-changed", callback: (group: string, isMember: boolean) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "group-changed", callback: (group: string, isMember: boolean) => void): NodeJS.EventEmitter
     emit(sigName: "group-changed", group: string, isMember: boolean): void
-    on(sigName: "group-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "group-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "group-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: GroupDetails, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: GroupDetails, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::groups", callback: (($obj: GroupDetails, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::groups", callback: (($obj: GroupDetails, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::groups", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -833,16 +695,16 @@ export interface ImDetails_ConstructProps extends GObject.Object_ConstructProps 
     imAddresses?: Gee.MultiMap
 }
 export class ImDetails {
-    /* Properties of Folks.ImDetails */
+    /* Properties of Folks-0.6.Folks.ImDetails */
     imAddresses: Gee.MultiMap
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Folks.ImDetails */
+    /* Methods of Folks-0.6.Folks.ImDetails */
     changeImAddresses(imAddresses: Gee.MultiMap, callback?: Gio.AsyncReadyCallback | null): void
     changeImAddressesFinish(res: Gio.AsyncResult): void
     getImAddresses(): Gee.MultiMap
     setImAddresses(value: Gee.MultiMap): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -864,26 +726,12 @@ export class ImDetails {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of Folks.ImDetails */
-    vfuncChangeImAddresses(imAddresses: Gee.MultiMap, callback?: Gio.AsyncReadyCallback | null): void
-    vfuncChangeImAddressesFinish(res: Gio.AsyncResult): void
-    vfuncGetImAddresses(): Gee.MultiMap
-    vfuncSetImAddresses(value: Gee.MultiMap): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: ImDetails, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: ImDetails, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::im-addresses", callback: (($obj: ImDetails, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::im-addresses", callback: (($obj: ImDetails, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::im-addresses", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -906,19 +754,19 @@ export class ImDetails {
 export interface InteractionDetails_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class InteractionDetails {
-    /* Properties of Folks.InteractionDetails */
+    /* Properties of Folks-0.6.Folks.InteractionDetails */
     readonly imInteractionCount: number
     readonly lastImInteractionDatetime: GLib.DateTime
     readonly callInteractionCount: number
     readonly lastCallInteractionDatetime: GLib.DateTime
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Folks.InteractionDetails */
+    /* Methods of Folks-0.6.Folks.InteractionDetails */
     getImInteractionCount(): number
     getLastImInteractionDatetime(): GLib.DateTime | null
     getCallInteractionCount(): number
     getLastCallInteractionDatetime(): GLib.DateTime | null
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -940,26 +788,12 @@ export class InteractionDetails {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of Folks.InteractionDetails */
-    vfuncGetImInteractionCount(): number
-    vfuncGetLastImInteractionDatetime(): GLib.DateTime | null
-    vfuncGetCallInteractionCount(): number
-    vfuncGetLastCallInteractionDatetime(): GLib.DateTime | null
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: InteractionDetails, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: InteractionDetails, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::im-interaction-count", callback: (($obj: InteractionDetails, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::im-interaction-count", callback: (($obj: InteractionDetails, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::im-interaction-count", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -996,16 +830,16 @@ export interface LocalIdDetails_ConstructProps extends GObject.Object_ConstructP
     localIds?: Gee.Set
 }
 export class LocalIdDetails {
-    /* Properties of Folks.LocalIdDetails */
+    /* Properties of Folks-0.6.Folks.LocalIdDetails */
     localIds: Gee.Set
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Folks.LocalIdDetails */
+    /* Methods of Folks-0.6.Folks.LocalIdDetails */
     changeLocalIds(localIds: Gee.Set, callback?: Gio.AsyncReadyCallback | null): void
     changeLocalIdsFinish(res: Gio.AsyncResult): void
     getLocalIds(): Gee.Set
     setLocalIds(value: Gee.Set): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -1027,26 +861,12 @@ export class LocalIdDetails {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of Folks.LocalIdDetails */
-    vfuncChangeLocalIds(localIds: Gee.Set, callback?: Gio.AsyncReadyCallback | null): void
-    vfuncChangeLocalIdsFinish(res: Gio.AsyncResult): void
-    vfuncGetLocalIds(): Gee.Set
-    vfuncSetLocalIds(value: Gee.Set): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: LocalIdDetails, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: LocalIdDetails, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::local-ids", callback: (($obj: LocalIdDetails, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::local-ids", callback: (($obj: LocalIdDetails, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::local-ids", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -1068,16 +888,16 @@ export interface LocationDetails_ConstructProps extends GObject.Object_Construct
     location?: Location
 }
 export class LocationDetails {
-    /* Properties of Folks.LocationDetails */
+    /* Properties of Folks-0.6.Folks.LocationDetails */
     location: Location
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Folks.LocationDetails */
+    /* Methods of Folks-0.6.Folks.LocationDetails */
     changeLocation(location?: Location | null, callback?: Gio.AsyncReadyCallback | null): void
     changeLocationFinish(res: Gio.AsyncResult): void
     getLocation(): Location | null
     setLocation(value?: Location | null): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -1099,26 +919,12 @@ export class LocationDetails {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of Folks.LocationDetails */
-    vfuncChangeLocation(location?: Location | null, callback?: Gio.AsyncReadyCallback | null): void
-    vfuncChangeLocationFinish(res: Gio.AsyncResult): void
-    vfuncGetLocation(): Location | null
-    vfuncSetLocation(value?: Location | null): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: LocationDetails, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: LocationDetails, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::location", callback: (($obj: LocationDetails, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::location", callback: (($obj: LocationDetails, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::location", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -1142,13 +948,13 @@ export interface NameDetails_ConstructProps extends GObject.Object_ConstructProp
     nickname?: string
 }
 export class NameDetails {
-    /* Properties of Folks.NameDetails */
+    /* Properties of Folks-0.6.Folks.NameDetails */
     structuredName: StructuredName
     fullName: string
     nickname: string
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Folks.NameDetails */
+    /* Methods of Folks-0.6.Folks.NameDetails */
     changeStructuredName(name?: StructuredName | null, callback?: Gio.AsyncReadyCallback | null): void
     changeStructuredNameFinish(res: Gio.AsyncResult): void
     changeFullName(fullName: string, callback?: Gio.AsyncReadyCallback | null): void
@@ -1161,7 +967,7 @@ export class NameDetails {
     setFullName(value: string): void
     getNickname(): string
     setNickname(value: string): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -1183,34 +989,12 @@ export class NameDetails {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of Folks.NameDetails */
-    vfuncChangeStructuredName(name?: StructuredName | null, callback?: Gio.AsyncReadyCallback | null): void
-    vfuncChangeStructuredNameFinish(res: Gio.AsyncResult): void
-    vfuncChangeFullName(fullName: string, callback?: Gio.AsyncReadyCallback | null): void
-    vfuncChangeFullNameFinish(res: Gio.AsyncResult): void
-    vfuncChangeNickname(nickname: string, callback?: Gio.AsyncReadyCallback | null): void
-    vfuncChangeNicknameFinish(res: Gio.AsyncResult): void
-    vfuncGetStructuredName(): StructuredName | null
-    vfuncSetStructuredName(value?: StructuredName | null): void
-    vfuncGetFullName(): string
-    vfuncSetFullName(value: string): void
-    vfuncGetNickname(): string
-    vfuncSetNickname(value: string): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: NameDetails, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: NameDetails, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::structured-name", callback: (($obj: NameDetails, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::structured-name", callback: (($obj: NameDetails, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::structured-name", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -1242,16 +1026,16 @@ export interface NoteDetails_ConstructProps extends GObject.Object_ConstructProp
     notes?: Gee.Set
 }
 export class NoteDetails {
-    /* Properties of Folks.NoteDetails */
+    /* Properties of Folks-0.6.Folks.NoteDetails */
     notes: Gee.Set
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Folks.NoteDetails */
+    /* Methods of Folks-0.6.Folks.NoteDetails */
     changeNotes(notes: Gee.Set, callback?: Gio.AsyncReadyCallback | null): void
     changeNotesFinish(res: Gio.AsyncResult): void
     getNotes(): Gee.Set
     setNotes(value: Gee.Set): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -1273,26 +1057,12 @@ export class NoteDetails {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of Folks.NoteDetails */
-    vfuncChangeNotes(notes: Gee.Set, callback?: Gio.AsyncReadyCallback | null): void
-    vfuncChangeNotesFinish(res: Gio.AsyncResult): void
-    vfuncGetNotes(): Gee.Set
-    vfuncSetNotes(value: Gee.Set): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: NoteDetails, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: NoteDetails, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::notes", callback: (($obj: NoteDetails, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::notes", callback: (($obj: NoteDetails, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::notes", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -1314,16 +1084,16 @@ export interface PhoneDetails_ConstructProps extends GObject.Object_ConstructPro
     phoneNumbers?: Gee.Set
 }
 export class PhoneDetails {
-    /* Properties of Folks.PhoneDetails */
+    /* Properties of Folks-0.6.Folks.PhoneDetails */
     phoneNumbers: Gee.Set
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Folks.PhoneDetails */
+    /* Methods of Folks-0.6.Folks.PhoneDetails */
     changePhoneNumbers(phoneNumbers: Gee.Set, callback?: Gio.AsyncReadyCallback | null): void
     changePhoneNumbersFinish(res: Gio.AsyncResult): void
     getPhoneNumbers(): Gee.Set
     setPhoneNumbers(value: Gee.Set): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -1345,26 +1115,12 @@ export class PhoneDetails {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of Folks.PhoneDetails */
-    vfuncChangePhoneNumbers(phoneNumbers: Gee.Set, callback?: Gio.AsyncReadyCallback | null): void
-    vfuncChangePhoneNumbersFinish(res: Gio.AsyncResult): void
-    vfuncGetPhoneNumbers(): Gee.Set
-    vfuncSetPhoneNumbers(value: Gee.Set): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: PhoneDetails, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: PhoneDetails, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::phone-numbers", callback: (($obj: PhoneDetails, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::phone-numbers", callback: (($obj: PhoneDetails, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::phone-numbers", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -1386,16 +1142,16 @@ export interface PostalAddressDetails_ConstructProps extends GObject.Object_Cons
     postalAddresses?: Gee.Set
 }
 export class PostalAddressDetails {
-    /* Properties of Folks.PostalAddressDetails */
+    /* Properties of Folks-0.6.Folks.PostalAddressDetails */
     postalAddresses: Gee.Set
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Folks.PostalAddressDetails */
+    /* Methods of Folks-0.6.Folks.PostalAddressDetails */
     changePostalAddresses(postalAddresses: Gee.Set, callback?: Gio.AsyncReadyCallback | null): void
     changePostalAddressesFinish(res: Gio.AsyncResult): void
     getPostalAddresses(): Gee.Set
     setPostalAddresses(value: Gee.Set): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -1417,26 +1173,12 @@ export class PostalAddressDetails {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of Folks.PostalAddressDetails */
-    vfuncChangePostalAddresses(postalAddresses: Gee.Set, callback?: Gio.AsyncReadyCallback | null): void
-    vfuncChangePostalAddressesFinish(res: Gio.AsyncResult): void
-    vfuncGetPostalAddresses(): Gee.Set
-    vfuncSetPostalAddresses(value: Gee.Set): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: PostalAddressDetails, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: PostalAddressDetails, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::postal-addresses", callback: (($obj: PostalAddressDetails, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::postal-addresses", callback: (($obj: PostalAddressDetails, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::postal-addresses", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -1461,14 +1203,14 @@ export interface PresenceDetails_ConstructProps extends GObject.Object_Construct
     presenceStatus?: string
 }
 export class PresenceDetails {
-    /* Properties of Folks.PresenceDetails */
+    /* Properties of Folks-0.6.Folks.PresenceDetails */
     presenceType: PresenceType
     presenceMessage: string
     clientTypes: string[]
     presenceStatus: string
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Folks.PresenceDetails */
+    /* Methods of Folks-0.6.Folks.PresenceDetails */
     isOnline(): boolean
     getPresenceType(): PresenceType
     setPresenceType(value: PresenceType): void
@@ -1478,7 +1220,7 @@ export class PresenceDetails {
     setClientTypes(value: string[]): void
     getPresenceStatus(): string
     setPresenceStatus(value: string): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -1500,30 +1242,12 @@ export class PresenceDetails {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of Folks.PresenceDetails */
-    vfuncGetPresenceType(): PresenceType
-    vfuncSetPresenceType(value: PresenceType): void
-    vfuncGetPresenceMessage(): string
-    vfuncSetPresenceMessage(value: string): void
-    vfuncGetClientTypes(): string[]
-    vfuncSetClientTypes(value: string[]): void
-    vfuncGetPresenceStatus(): string
-    vfuncSetPresenceStatus(value: string): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: PresenceDetails, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: PresenceDetails, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::presence-type", callback: (($obj: PresenceDetails, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::presence-type", callback: (($obj: PresenceDetails, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::presence-type", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -1563,16 +1287,16 @@ export interface RoleDetails_ConstructProps extends GObject.Object_ConstructProp
     roles?: Gee.Set
 }
 export class RoleDetails {
-    /* Properties of Folks.RoleDetails */
+    /* Properties of Folks-0.6.Folks.RoleDetails */
     roles: Gee.Set
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Folks.RoleDetails */
+    /* Methods of Folks-0.6.Folks.RoleDetails */
     changeRoles(roles: Gee.Set, callback?: Gio.AsyncReadyCallback | null): void
     changeRolesFinish(res: Gio.AsyncResult): void
     getRoles(): Gee.Set
     setRoles(value: Gee.Set): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -1594,26 +1318,12 @@ export class RoleDetails {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of Folks.RoleDetails */
-    vfuncChangeRoles(roles: Gee.Set, callback?: Gio.AsyncReadyCallback | null): void
-    vfuncChangeRolesFinish(res: Gio.AsyncResult): void
-    vfuncGetRoles(): Gee.Set
-    vfuncSetRoles(value: Gee.Set): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: RoleDetails, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: RoleDetails, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::roles", callback: (($obj: RoleDetails, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::roles", callback: (($obj: RoleDetails, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::roles", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -1635,16 +1345,16 @@ export interface UrlDetails_ConstructProps extends GObject.Object_ConstructProps
     urls?: Gee.Set
 }
 export class UrlDetails {
-    /* Properties of Folks.UrlDetails */
+    /* Properties of Folks-0.6.Folks.UrlDetails */
     urls: Gee.Set
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Folks.UrlDetails */
+    /* Methods of Folks-0.6.Folks.UrlDetails */
     changeUrls(urls: Gee.Set, callback?: Gio.AsyncReadyCallback | null): void
     changeUrlsFinish(res: Gio.AsyncResult): void
     getUrls(): Gee.Set
     setUrls(value: Gee.Set): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -1666,26 +1376,12 @@ export class UrlDetails {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of Folks.UrlDetails */
-    vfuncChangeUrls(urls: Gee.Set, callback?: Gio.AsyncReadyCallback | null): void
-    vfuncChangeUrlsFinish(res: Gio.AsyncResult): void
-    vfuncGetUrls(): Gee.Set
-    vfuncSetUrls(value: Gee.Set): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: UrlDetails, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: UrlDetails, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::urls", callback: (($obj: UrlDetails, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::urls", callback: (($obj: UrlDetails, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::urls", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -1707,16 +1403,16 @@ export interface WebServiceDetails_ConstructProps extends GObject.Object_Constru
     webServiceAddresses?: Gee.MultiMap
 }
 export class WebServiceDetails {
-    /* Properties of Folks.WebServiceDetails */
+    /* Properties of Folks-0.6.Folks.WebServiceDetails */
     webServiceAddresses: Gee.MultiMap
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Folks.WebServiceDetails */
+    /* Methods of Folks-0.6.Folks.WebServiceDetails */
     changeWebServiceAddresses(webServiceAddresses: Gee.MultiMap, callback?: Gio.AsyncReadyCallback | null): void
     changeWebServiceAddressesFinish(res: Gio.AsyncResult): void
     getWebServiceAddresses(): Gee.MultiMap
     setWebServiceAddresses(value: Gee.MultiMap): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -1738,26 +1434,12 @@ export class WebServiceDetails {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of Folks.WebServiceDetails */
-    vfuncChangeWebServiceAddresses(webServiceAddresses: Gee.MultiMap, callback?: Gio.AsyncReadyCallback | null): void
-    vfuncChangeWebServiceAddressesFinish(res: Gio.AsyncResult): void
-    vfuncGetWebServiceAddresses(): Gee.MultiMap
-    vfuncSetWebServiceAddresses(value: Gee.MultiMap): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: WebServiceDetails, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: WebServiceDetails, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::web-service-addresses", callback: (($obj: WebServiceDetails, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::web-service-addresses", callback: (($obj: WebServiceDetails, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::web-service-addresses", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -1784,14 +1466,14 @@ export interface AbstractFieldDetails_ConstructProps extends GObject.Object_Cons
     parameters?: Gee.MultiMap
 }
 export class AbstractFieldDetails {
-    /* Properties of Folks.AbstractFieldDetails */
+    /* Properties of Folks-0.6.Folks.AbstractFieldDetails */
     value: object
     readonly valueType: GObject.Type
     id: string
     parameters: Gee.MultiMap
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Folks.AbstractFieldDetails */
+    /* Methods of Folks-0.6.Folks.AbstractFieldDetails */
     getParameterValues(parameterName: string): Gee.Collection | null
     addParameter(parameterName: string, parameterValue: string): void
     setParameter(parameterName: string, parameterValue: string): void
@@ -1808,7 +1490,7 @@ export class AbstractFieldDetails {
     setId(value: string): void
     getParameters(): Gee.MultiMap
     setParameters(value: Gee.MultiMap): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -1830,32 +1512,12 @@ export class AbstractFieldDetails {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of Folks.AbstractFieldDetails */
-    vfuncEqual(that: AbstractFieldDetails): boolean
-    vfuncParametersEqual(that: AbstractFieldDetails): boolean
-    vfuncValuesEqual(that: AbstractFieldDetails): boolean
-    vfuncHash(): number
-    vfuncGetValue(): object | null
-    vfuncSetValue(value?: object | null): void
-    vfuncGetId(): string
-    vfuncSetId(value: string): void
-    vfuncGetParameters(): Gee.MultiMap
-    vfuncSetParameters(value: Gee.MultiMap): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: AbstractFieldDetails, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: AbstractFieldDetails, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::value", callback: (($obj: AbstractFieldDetails, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::value", callback: (($obj: AbstractFieldDetails, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::value", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -1894,9 +1556,9 @@ export class AbstractFieldDetails {
 export interface AvatarCache_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class AvatarCache {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Folks.AvatarCache */
+    /* Methods of Folks-0.6.Folks.AvatarCache */
     loadAvatar(id: string, callback?: Gio.AsyncReadyCallback | null): void
     loadAvatarFinish(res: Gio.AsyncResult): Gio.LoadableIcon | null
     storeAvatar(id: string, avatar: Gio.LoadableIcon, callback?: Gio.AsyncReadyCallback | null): void
@@ -1904,7 +1566,7 @@ export class AvatarCache {
     removeAvatar(id: string, callback?: Gio.AsyncReadyCallback | null): void
     removeAvatarFinish(res: Gio.AsyncResult): void
     buildUriForAvatar(id: string): string
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -1926,21 +1588,12 @@ export class AvatarCache {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: AvatarCache, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: AvatarCache, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -1960,14 +1613,14 @@ export interface BackendStore_ConstructProps extends GObject.Object_ConstructPro
     isPrepared?: boolean
 }
 export class BackendStore {
-    /* Properties of Folks.BackendStore */
+    /* Properties of Folks-0.6.Folks.BackendStore */
     enabledBackends: Gee.Map
     isPrepared: boolean
-    /* Fields of Folks.BackendStore */
+    /* Fields of Folks-0.6.Folks.BackendStore */
     folksBackendStoreKEYFILEGROUPALLOTHERS: string
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Folks.BackendStore */
+    /* Methods of Folks-0.6.Folks.BackendStore */
     prepare(callback?: Gio.AsyncReadyCallback | null): void
     prepareFinish(res: Gio.AsyncResult): void
     loadBackends(callback?: Gio.AsyncReadyCallback | null): void
@@ -1981,7 +1634,7 @@ export class BackendStore {
     disableBackendFinish(res: Gio.AsyncResult): void
     getEnabledBackends(): Gee.Map
     getIsPrepared(): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -2003,28 +1656,18 @@ export class BackendStore {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Folks.BackendStore */
+    /* Signals of Folks-0.6.Folks.BackendStore */
     connect(sigName: "backend-available", callback: (($obj: BackendStore, backend: Backend) => void)): number
-    connect_after(sigName: "backend-available", callback: (($obj: BackendStore, backend: Backend) => void)): number
+    on(sigName: "backend-available", callback: (backend: Backend) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "backend-available", callback: (backend: Backend) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "backend-available", callback: (backend: Backend) => void): NodeJS.EventEmitter
     emit(sigName: "backend-available", backend: Backend): void
-    on(sigName: "backend-available", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "backend-available", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "backend-available", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: BackendStore, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: BackendStore, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::enabled-backends", callback: (($obj: BackendStore, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::enabled-backends", callback: (($obj: BackendStore, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::enabled-backends", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -2052,14 +1695,14 @@ export class BackendStore {
 export interface Backend_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class Backend {
-    /* Properties of Folks.Backend */
+    /* Properties of Folks-0.6.Folks.Backend */
     readonly isPrepared: boolean
     readonly isQuiescent: boolean
     readonly name: string
     readonly personaStores: Gee.Map
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Folks.Backend */
+    /* Methods of Folks-0.6.Folks.Backend */
     disablePersonaStore(store: PersonaStore): void
     enablePersonaStore(store: PersonaStore): void
     setPersonaStores(storeids?: Gee.Set | null): void
@@ -2071,7 +1714,7 @@ export class Backend {
     getIsQuiescent(): boolean
     getName(): string
     getPersonaStores(): Gee.Map
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -2093,46 +1736,23 @@ export class Backend {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of Folks.Backend */
-    vfuncDisablePersonaStore(store: PersonaStore): void
-    vfuncEnablePersonaStore(store: PersonaStore): void
-    vfuncSetPersonaStores(storeids?: Gee.Set | null): void
-    vfuncPrepare(callback?: Gio.AsyncReadyCallback | null): void
-    vfuncPrepareFinish(res: Gio.AsyncResult): void
-    vfuncUnprepare(callback?: Gio.AsyncReadyCallback | null): void
-    vfuncUnprepareFinish(res: Gio.AsyncResult): void
-    vfuncGetIsPrepared(): boolean
-    vfuncGetIsQuiescent(): boolean
-    vfuncGetName(): string
-    vfuncGetPersonaStores(): Gee.Map
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Folks.Backend */
+    /* Signals of Folks-0.6.Folks.Backend */
     connect(sigName: "persona-store-added", callback: (($obj: Backend, store: PersonaStore) => void)): number
-    connect_after(sigName: "persona-store-added", callback: (($obj: Backend, store: PersonaStore) => void)): number
+    on(sigName: "persona-store-added", callback: (store: PersonaStore) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "persona-store-added", callback: (store: PersonaStore) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "persona-store-added", callback: (store: PersonaStore) => void): NodeJS.EventEmitter
     emit(sigName: "persona-store-added", store: PersonaStore): void
-    on(sigName: "persona-store-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "persona-store-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "persona-store-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "persona-store-removed", callback: (($obj: Backend, store: PersonaStore) => void)): number
-    connect_after(sigName: "persona-store-removed", callback: (($obj: Backend, store: PersonaStore) => void)): number
+    on(sigName: "persona-store-removed", callback: (store: PersonaStore) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "persona-store-removed", callback: (store: PersonaStore) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "persona-store-removed", callback: (store: PersonaStore) => void): NodeJS.EventEmitter
     emit(sigName: "persona-store-removed", store: PersonaStore): void
-    on(sigName: "persona-store-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "persona-store-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "persona-store-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Backend, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Backend, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::is-prepared", callback: (($obj: Backend, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::is-prepared", callback: (($obj: Backend, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::is-prepared", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -2170,12 +1790,12 @@ export interface Debug_ConstructProps extends GObject.Object_ConstructProps {
     debugOutputEnabled?: boolean
 }
 export class Debug {
-    /* Properties of Folks.Debug */
+    /* Properties of Folks-0.6.Folks.Debug */
     colourEnabled: boolean
     debugOutputEnabled: boolean
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Folks.Debug */
+    /* Methods of Folks-0.6.Folks.Debug */
     emitPrintStatus(): void
     indent(): void
     unindent(): void
@@ -2183,7 +1803,7 @@ export class Debug {
     setColourEnabled(value: boolean): void
     getDebugOutputEnabled(): boolean
     setDebugOutputEnabled(value: boolean): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -2205,28 +1825,18 @@ export class Debug {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Folks.Debug */
+    /* Signals of Folks-0.6.Folks.Debug */
     connect(sigName: "print-status", callback: (($obj: Debug) => void)): number
-    connect_after(sigName: "print-status", callback: (($obj: Debug) => void)): number
+    on(sigName: "print-status", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "print-status", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "print-status", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "print-status"): void
-    on(sigName: "print-status", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "print-status", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "print-status", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Debug, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Debug, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::colour-enabled", callback: (($obj: Debug, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::colour-enabled", callback: (($obj: Debug, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::colour-enabled", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -2255,14 +1865,14 @@ export class Debug {
 export interface EmailFieldDetails_ConstructProps extends AbstractFieldDetails_ConstructProps {
 }
 export class EmailFieldDetails {
-    /* Properties of Folks.AbstractFieldDetails */
+    /* Properties of Folks-0.6.Folks.AbstractFieldDetails */
     value: object
     readonly valueType: GObject.Type
     id: string
     parameters: Gee.MultiMap
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Folks.AbstractFieldDetails */
+    /* Methods of Folks-0.6.Folks.AbstractFieldDetails */
     getParameterValues(parameterName: string): Gee.Collection | null
     addParameter(parameterName: string, parameterValue: string): void
     setParameter(parameterName: string, parameterValue: string): void
@@ -2279,7 +1889,7 @@ export class EmailFieldDetails {
     setId(value: string): void
     getParameters(): Gee.MultiMap
     setParameters(value: Gee.MultiMap): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -2301,32 +1911,12 @@ export class EmailFieldDetails {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of Folks.AbstractFieldDetails */
-    vfuncEqual(that: AbstractFieldDetails): boolean
-    vfuncParametersEqual(that: AbstractFieldDetails): boolean
-    vfuncValuesEqual(that: AbstractFieldDetails): boolean
-    vfuncHash(): number
-    vfuncGetValue(): object | null
-    vfuncSetValue(value?: object | null): void
-    vfuncGetId(): string
-    vfuncSetId(value: string): void
-    vfuncGetParameters(): Gee.MultiMap
-    vfuncSetParameters(value: Gee.MultiMap): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: EmailFieldDetails, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: EmailFieldDetails, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::value", callback: (($obj: EmailFieldDetails, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::value", callback: (($obj: EmailFieldDetails, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::value", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -2364,14 +1954,14 @@ export class EmailFieldDetails {
 export interface ExtendedFieldDetails_ConstructProps extends AbstractFieldDetails_ConstructProps {
 }
 export class ExtendedFieldDetails {
-    /* Properties of Folks.AbstractFieldDetails */
+    /* Properties of Folks-0.6.Folks.AbstractFieldDetails */
     value: object
     readonly valueType: GObject.Type
     id: string
     parameters: Gee.MultiMap
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Folks.AbstractFieldDetails */
+    /* Methods of Folks-0.6.Folks.AbstractFieldDetails */
     getParameterValues(parameterName: string): Gee.Collection | null
     addParameter(parameterName: string, parameterValue: string): void
     setParameter(parameterName: string, parameterValue: string): void
@@ -2388,7 +1978,7 @@ export class ExtendedFieldDetails {
     setId(value: string): void
     getParameters(): Gee.MultiMap
     setParameters(value: Gee.MultiMap): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -2410,32 +2000,12 @@ export class ExtendedFieldDetails {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of Folks.AbstractFieldDetails */
-    vfuncEqual(that: AbstractFieldDetails): boolean
-    vfuncParametersEqual(that: AbstractFieldDetails): boolean
-    vfuncValuesEqual(that: AbstractFieldDetails): boolean
-    vfuncHash(): number
-    vfuncGetValue(): object | null
-    vfuncSetValue(value?: object | null): void
-    vfuncGetId(): string
-    vfuncSetId(value: string): void
-    vfuncGetParameters(): Gee.MultiMap
-    vfuncSetParameters(value: Gee.MultiMap): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: ExtendedFieldDetails, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: ExtendedFieldDetails, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::value", callback: (($obj: ExtendedFieldDetails, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::value", callback: (($obj: ExtendedFieldDetails, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::value", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -2473,14 +2043,14 @@ export class ExtendedFieldDetails {
 export interface ImFieldDetails_ConstructProps extends AbstractFieldDetails_ConstructProps {
 }
 export class ImFieldDetails {
-    /* Properties of Folks.AbstractFieldDetails */
+    /* Properties of Folks-0.6.Folks.AbstractFieldDetails */
     value: object
     readonly valueType: GObject.Type
     id: string
     parameters: Gee.MultiMap
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Folks.AbstractFieldDetails */
+    /* Methods of Folks-0.6.Folks.AbstractFieldDetails */
     getParameterValues(parameterName: string): Gee.Collection | null
     addParameter(parameterName: string, parameterValue: string): void
     setParameter(parameterName: string, parameterValue: string): void
@@ -2497,7 +2067,7 @@ export class ImFieldDetails {
     setId(value: string): void
     getParameters(): Gee.MultiMap
     setParameters(value: Gee.MultiMap): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -2519,32 +2089,12 @@ export class ImFieldDetails {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of Folks.AbstractFieldDetails */
-    vfuncEqual(that: AbstractFieldDetails): boolean
-    vfuncParametersEqual(that: AbstractFieldDetails): boolean
-    vfuncValuesEqual(that: AbstractFieldDetails): boolean
-    vfuncHash(): number
-    vfuncGetValue(): object | null
-    vfuncSetValue(value?: object | null): void
-    vfuncGetId(): string
-    vfuncSetId(value: string): void
-    vfuncGetParameters(): Gee.MultiMap
-    vfuncSetParameters(value: Gee.MultiMap): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: ImFieldDetails, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: ImFieldDetails, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::value", callback: (($obj: ImFieldDetails, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::value", callback: (($obj: ImFieldDetails, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::value", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -2585,15 +2135,15 @@ export interface IndividualAggregator_ConstructProps extends GObject.Object_Cons
     user?: Individual
 }
 export class IndividualAggregator {
-    /* Properties of Folks.IndividualAggregator */
+    /* Properties of Folks-0.6.Folks.IndividualAggregator */
     readonly isPrepared: boolean
     readonly isQuiescent: boolean
     readonly primaryStore: PersonaStore
     individuals: Gee.Map
     user: Individual
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Folks.IndividualAggregator */
+    /* Methods of Folks-0.6.Folks.IndividualAggregator */
     prepare(callback?: Gio.AsyncReadyCallback | null): void
     prepareFinish(res: Gio.AsyncResult): void
     unprepare(callback?: Gio.AsyncReadyCallback | null): void
@@ -2620,7 +2170,7 @@ export class IndividualAggregator {
     getBackendStore(): BackendStore
     getIndividuals(): Gee.Map
     getUser(): Individual | null
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -2642,34 +2192,23 @@ export class IndividualAggregator {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Folks.IndividualAggregator */
+    /* Signals of Folks-0.6.Folks.IndividualAggregator */
     connect(sigName: "individuals-changed", callback: (($obj: IndividualAggregator, added: Gee.Set, removed: Gee.Set, message: string | null, actor: Persona | null, reason: GroupDetailsChangeReason) => void)): number
-    connect_after(sigName: "individuals-changed", callback: (($obj: IndividualAggregator, added: Gee.Set, removed: Gee.Set, message: string | null, actor: Persona | null, reason: GroupDetailsChangeReason) => void)): number
+    on(sigName: "individuals-changed", callback: (added: Gee.Set, removed: Gee.Set, message: string | null, actor: Persona | null, reason: GroupDetailsChangeReason) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "individuals-changed", callback: (added: Gee.Set, removed: Gee.Set, message: string | null, actor: Persona | null, reason: GroupDetailsChangeReason) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "individuals-changed", callback: (added: Gee.Set, removed: Gee.Set, message: string | null, actor: Persona | null, reason: GroupDetailsChangeReason) => void): NodeJS.EventEmitter
     emit(sigName: "individuals-changed", added: Gee.Set, removed: Gee.Set, message: string | null, actor: Persona | null, reason: GroupDetailsChangeReason): void
-    on(sigName: "individuals-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "individuals-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "individuals-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "individuals-changed-detailed", callback: (($obj: IndividualAggregator, changes: Gee.MultiMap) => void)): number
-    connect_after(sigName: "individuals-changed-detailed", callback: (($obj: IndividualAggregator, changes: Gee.MultiMap) => void)): number
+    on(sigName: "individuals-changed-detailed", callback: (changes: Gee.MultiMap) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "individuals-changed-detailed", callback: (changes: Gee.MultiMap) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "individuals-changed-detailed", callback: (changes: Gee.MultiMap) => void): NodeJS.EventEmitter
     emit(sigName: "individuals-changed-detailed", changes: Gee.MultiMap): void
-    on(sigName: "individuals-changed-detailed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "individuals-changed-detailed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "individuals-changed-detailed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: IndividualAggregator, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: IndividualAggregator, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::is-prepared", callback: (($obj: IndividualAggregator, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::is-prepared", callback: (($obj: IndividualAggregator, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::is-prepared", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -2743,62 +2282,62 @@ export interface Individual_ConstructProps extends GObject.Object_ConstructProps
     webServiceAddresses?: Gee.MultiMap
 }
 export class Individual {
-    /* Properties of Folks.Individual */
+    /* Properties of Folks-0.6.Folks.Individual */
     trustLevel: TrustLevel
     isUser: boolean
     id: string
     readonly displayName: string
     personas: Gee.Set
-    /* Properties of Folks.AliasDetails */
+    /* Properties of Folks-0.6.Folks.AliasDetails */
     alias: string
-    /* Properties of Folks.AvatarDetails */
+    /* Properties of Folks-0.6.Folks.AvatarDetails */
     avatar: Gio.LoadableIcon
-    /* Properties of Folks.BirthdayDetails */
+    /* Properties of Folks-0.6.Folks.BirthdayDetails */
     birthday: GLib.DateTime
     calendarEventId: string
-    /* Properties of Folks.EmailDetails */
+    /* Properties of Folks-0.6.Folks.EmailDetails */
     emailAddresses: Gee.Set
-    /* Properties of Folks.FavouriteDetails */
+    /* Properties of Folks-0.6.Folks.FavouriteDetails */
     isFavourite: boolean
-    /* Properties of Folks.GenderDetails */
+    /* Properties of Folks-0.6.Folks.GenderDetails */
     gender: Gender
-    /* Properties of Folks.GroupDetails */
+    /* Properties of Folks-0.6.Folks.GroupDetails */
     groups: Gee.Set
-    /* Properties of Folks.ImDetails */
+    /* Properties of Folks-0.6.Folks.ImDetails */
     imAddresses: Gee.MultiMap
-    /* Properties of Folks.InteractionDetails */
+    /* Properties of Folks-0.6.Folks.InteractionDetails */
     readonly imInteractionCount: number
     readonly lastImInteractionDatetime: GLib.DateTime
     readonly callInteractionCount: number
     readonly lastCallInteractionDatetime: GLib.DateTime
-    /* Properties of Folks.LocalIdDetails */
+    /* Properties of Folks-0.6.Folks.LocalIdDetails */
     localIds: Gee.Set
-    /* Properties of Folks.LocationDetails */
+    /* Properties of Folks-0.6.Folks.LocationDetails */
     location: Location
-    /* Properties of Folks.NameDetails */
+    /* Properties of Folks-0.6.Folks.NameDetails */
     structuredName: StructuredName
     fullName: string
     nickname: string
-    /* Properties of Folks.NoteDetails */
+    /* Properties of Folks-0.6.Folks.NoteDetails */
     notes: Gee.Set
-    /* Properties of Folks.PresenceDetails */
+    /* Properties of Folks-0.6.Folks.PresenceDetails */
     presenceType: PresenceType
     presenceMessage: string
     clientTypes: string[]
     presenceStatus: string
-    /* Properties of Folks.PhoneDetails */
+    /* Properties of Folks-0.6.Folks.PhoneDetails */
     phoneNumbers: Gee.Set
-    /* Properties of Folks.PostalAddressDetails */
+    /* Properties of Folks-0.6.Folks.PostalAddressDetails */
     postalAddresses: Gee.Set
-    /* Properties of Folks.RoleDetails */
+    /* Properties of Folks-0.6.Folks.RoleDetails */
     roles: Gee.Set
-    /* Properties of Folks.UrlDetails */
+    /* Properties of Folks-0.6.Folks.UrlDetails */
     urls: Gee.Set
-    /* Properties of Folks.WebServiceDetails */
+    /* Properties of Folks-0.6.Folks.WebServiceDetails */
     webServiceAddresses: Gee.MultiMap
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Folks.Individual */
+    /* Methods of Folks-0.6.Folks.Individual */
     hasAntiLinkWithPersona(p: Persona): boolean
     hasAntiLinkWithIndividual(i: Individual): boolean
     getTrustLevel(): TrustLevel
@@ -2807,7 +2346,7 @@ export class Individual {
     getDisplayName(): string
     getPersonas(): Gee.Set
     setPersonas(value: Gee.Set): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -2829,17 +2368,17 @@ export class Individual {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of Folks.AliasDetails */
+    /* Methods of Folks-0.6.Folks.AliasDetails */
     changeAlias(alias: string, callback?: Gio.AsyncReadyCallback | null): void
     changeAliasFinish(res: Gio.AsyncResult): void
     getAlias(): string
     setAlias(value: string): void
-    /* Methods of Folks.AvatarDetails */
+    /* Methods of Folks-0.6.Folks.AvatarDetails */
     changeAvatar(avatar?: Gio.LoadableIcon | null, callback?: Gio.AsyncReadyCallback | null): void
     changeAvatarFinish(res: Gio.AsyncResult): void
     getAvatar(): Gio.LoadableIcon | null
     setAvatar(value?: Gio.LoadableIcon | null): void
-    /* Methods of Folks.BirthdayDetails */
+    /* Methods of Folks-0.6.Folks.BirthdayDetails */
     changeBirthday(birthday?: GLib.DateTime | null, callback?: Gio.AsyncReadyCallback | null): void
     changeBirthdayFinish(res: Gio.AsyncResult): void
     changeCalendarEventId(eventId?: string | null, callback?: Gio.AsyncReadyCallback | null): void
@@ -2848,55 +2387,55 @@ export class Individual {
     setBirthday(value?: GLib.DateTime | null): void
     getCalendarEventId(): string | null
     setCalendarEventId(value?: string | null): void
-    /* Methods of Folks.EmailDetails */
+    /* Methods of Folks-0.6.Folks.EmailDetails */
     changeEmailAddresses(emailAddresses: Gee.Set, callback?: Gio.AsyncReadyCallback | null): void
     changeEmailAddressesFinish(res: Gio.AsyncResult): void
     getEmailAddresses(): Gee.Set
     setEmailAddresses(value: Gee.Set): void
-    /* Methods of Folks.ExtendedInfo */
+    /* Methods of Folks-0.6.Folks.ExtendedInfo */
     getExtendedField(name: string): ExtendedFieldDetails | null
     changeExtendedField(name: string, value: ExtendedFieldDetails, callback?: Gio.AsyncReadyCallback | null): void
     changeExtendedFieldFinish(res: Gio.AsyncResult): void
     removeExtendedField(name: string, callback?: Gio.AsyncReadyCallback | null): void
     removeExtendedFieldFinish(res: Gio.AsyncResult): void
-    /* Methods of Folks.FavouriteDetails */
+    /* Methods of Folks-0.6.Folks.FavouriteDetails */
     changeIsFavourite(isFavourite: boolean, callback?: Gio.AsyncReadyCallback | null): void
     changeIsFavouriteFinish(res: Gio.AsyncResult): void
     getIsFavourite(): boolean
     setIsFavourite(value: boolean): void
-    /* Methods of Folks.GenderDetails */
+    /* Methods of Folks-0.6.Folks.GenderDetails */
     changeGender(gender: Gender, callback?: Gio.AsyncReadyCallback | null): void
     changeGenderFinish(res: Gio.AsyncResult): void
     getGender(): Gender
     setGender(value: Gender): void
-    /* Methods of Folks.GroupDetails */
+    /* Methods of Folks-0.6.Folks.GroupDetails */
     changeGroup(group: string, isMember: boolean, callback?: Gio.AsyncReadyCallback | null): void
     changeGroupFinish(res: Gio.AsyncResult): void
     changeGroups(groups: Gee.Set, callback?: Gio.AsyncReadyCallback | null): void
     changeGroupsFinish(res: Gio.AsyncResult): void
     getGroups(): Gee.Set
     setGroups(value: Gee.Set): void
-    /* Methods of Folks.ImDetails */
+    /* Methods of Folks-0.6.Folks.ImDetails */
     changeImAddresses(imAddresses: Gee.MultiMap, callback?: Gio.AsyncReadyCallback | null): void
     changeImAddressesFinish(res: Gio.AsyncResult): void
     getImAddresses(): Gee.MultiMap
     setImAddresses(value: Gee.MultiMap): void
-    /* Methods of Folks.InteractionDetails */
+    /* Methods of Folks-0.6.Folks.InteractionDetails */
     getImInteractionCount(): number
     getLastImInteractionDatetime(): GLib.DateTime | null
     getCallInteractionCount(): number
     getLastCallInteractionDatetime(): GLib.DateTime | null
-    /* Methods of Folks.LocalIdDetails */
+    /* Methods of Folks-0.6.Folks.LocalIdDetails */
     changeLocalIds(localIds: Gee.Set, callback?: Gio.AsyncReadyCallback | null): void
     changeLocalIdsFinish(res: Gio.AsyncResult): void
     getLocalIds(): Gee.Set
     setLocalIds(value: Gee.Set): void
-    /* Methods of Folks.LocationDetails */
+    /* Methods of Folks-0.6.Folks.LocationDetails */
     changeLocation(location?: Location | null, callback?: Gio.AsyncReadyCallback | null): void
     changeLocationFinish(res: Gio.AsyncResult): void
     getLocation(): Location | null
     setLocation(value?: Location | null): void
-    /* Methods of Folks.NameDetails */
+    /* Methods of Folks-0.6.Folks.NameDetails */
     changeStructuredName(name?: StructuredName | null, callback?: Gio.AsyncReadyCallback | null): void
     changeStructuredNameFinish(res: Gio.AsyncResult): void
     changeFullName(fullName: string, callback?: Gio.AsyncReadyCallback | null): void
@@ -2909,12 +2448,12 @@ export class Individual {
     setFullName(value: string): void
     getNickname(): string
     setNickname(value: string): void
-    /* Methods of Folks.NoteDetails */
+    /* Methods of Folks-0.6.Folks.NoteDetails */
     changeNotes(notes: Gee.Set, callback?: Gio.AsyncReadyCallback | null): void
     changeNotesFinish(res: Gio.AsyncResult): void
     getNotes(): Gee.Set
     setNotes(value: Gee.Set): void
-    /* Methods of Folks.PresenceDetails */
+    /* Methods of Folks-0.6.Folks.PresenceDetails */
     isOnline(): boolean
     getPresenceType(): PresenceType
     setPresenceType(value: PresenceType): void
@@ -2924,166 +2463,54 @@ export class Individual {
     setClientTypes(value: string[]): void
     getPresenceStatus(): string
     setPresenceStatus(value: string): void
-    /* Methods of Folks.PhoneDetails */
+    /* Methods of Folks-0.6.Folks.PhoneDetails */
     changePhoneNumbers(phoneNumbers: Gee.Set, callback?: Gio.AsyncReadyCallback | null): void
     changePhoneNumbersFinish(res: Gio.AsyncResult): void
     getPhoneNumbers(): Gee.Set
     setPhoneNumbers(value: Gee.Set): void
-    /* Methods of Folks.PostalAddressDetails */
+    /* Methods of Folks-0.6.Folks.PostalAddressDetails */
     changePostalAddresses(postalAddresses: Gee.Set, callback?: Gio.AsyncReadyCallback | null): void
     changePostalAddressesFinish(res: Gio.AsyncResult): void
     getPostalAddresses(): Gee.Set
     setPostalAddresses(value: Gee.Set): void
-    /* Methods of Folks.RoleDetails */
+    /* Methods of Folks-0.6.Folks.RoleDetails */
     changeRoles(roles: Gee.Set, callback?: Gio.AsyncReadyCallback | null): void
     changeRolesFinish(res: Gio.AsyncResult): void
     getRoles(): Gee.Set
     setRoles(value: Gee.Set): void
-    /* Methods of Folks.UrlDetails */
+    /* Methods of Folks-0.6.Folks.UrlDetails */
     changeUrls(urls: Gee.Set, callback?: Gio.AsyncReadyCallback | null): void
     changeUrlsFinish(res: Gio.AsyncResult): void
     getUrls(): Gee.Set
     setUrls(value: Gee.Set): void
-    /* Methods of Folks.WebServiceDetails */
+    /* Methods of Folks-0.6.Folks.WebServiceDetails */
     changeWebServiceAddresses(webServiceAddresses: Gee.MultiMap, callback?: Gio.AsyncReadyCallback | null): void
     changeWebServiceAddressesFinish(res: Gio.AsyncResult): void
     getWebServiceAddresses(): Gee.MultiMap
     setWebServiceAddresses(value: Gee.MultiMap): void
-    /* Virtual methods of Folks.Individual */
-    vfuncChangeAlias(alias: string, callback?: Gio.AsyncReadyCallback | null): void
-    vfuncChangeAliasFinish(res: Gio.AsyncResult): void
-    vfuncGetAlias(): string
-    vfuncSetAlias(value: string): void
-    vfuncChangeAvatar(avatar?: Gio.LoadableIcon | null, callback?: Gio.AsyncReadyCallback | null): void
-    vfuncChangeAvatarFinish(res: Gio.AsyncResult): void
-    vfuncGetAvatar(): Gio.LoadableIcon | null
-    vfuncSetAvatar(value?: Gio.LoadableIcon | null): void
-    vfuncChangeBirthday(birthday?: GLib.DateTime | null, callback?: Gio.AsyncReadyCallback | null): void
-    vfuncChangeBirthdayFinish(res: Gio.AsyncResult): void
-    vfuncChangeCalendarEventId(eventId?: string | null, callback?: Gio.AsyncReadyCallback | null): void
-    vfuncChangeCalendarEventIdFinish(res: Gio.AsyncResult): void
-    vfuncGetBirthday(): GLib.DateTime | null
-    vfuncSetBirthday(value?: GLib.DateTime | null): void
-    vfuncGetCalendarEventId(): string | null
-    vfuncSetCalendarEventId(value?: string | null): void
-    vfuncChangeEmailAddresses(emailAddresses: Gee.Set, callback?: Gio.AsyncReadyCallback | null): void
-    vfuncChangeEmailAddressesFinish(res: Gio.AsyncResult): void
-    vfuncGetEmailAddresses(): Gee.Set
-    vfuncSetEmailAddresses(value: Gee.Set): void
-    vfuncGetExtendedField(name: string): ExtendedFieldDetails | null
-    vfuncChangeExtendedField(name: string, value: ExtendedFieldDetails, callback?: Gio.AsyncReadyCallback | null): void
-    vfuncChangeExtendedFieldFinish(res: Gio.AsyncResult): void
-    vfuncRemoveExtendedField(name: string, callback?: Gio.AsyncReadyCallback | null): void
-    vfuncRemoveExtendedFieldFinish(res: Gio.AsyncResult): void
-    vfuncChangeIsFavourite(isFavourite: boolean, callback?: Gio.AsyncReadyCallback | null): void
-    vfuncChangeIsFavouriteFinish(res: Gio.AsyncResult): void
-    vfuncGetIsFavourite(): boolean
-    vfuncSetIsFavourite(value: boolean): void
-    vfuncChangeGender(gender: Gender, callback?: Gio.AsyncReadyCallback | null): void
-    vfuncChangeGenderFinish(res: Gio.AsyncResult): void
-    vfuncGetGender(): Gender
-    vfuncSetGender(value: Gender): void
-    vfuncChangeGroup(group: string, isMember: boolean, callback?: Gio.AsyncReadyCallback | null): void
-    vfuncChangeGroupFinish(res: Gio.AsyncResult): void
-    vfuncChangeGroups(groups: Gee.Set, callback?: Gio.AsyncReadyCallback | null): void
-    vfuncChangeGroupsFinish(res: Gio.AsyncResult): void
-    vfuncGetGroups(): Gee.Set
-    vfuncSetGroups(value: Gee.Set): void
-    vfuncChangeImAddresses(imAddresses: Gee.MultiMap, callback?: Gio.AsyncReadyCallback | null): void
-    vfuncChangeImAddressesFinish(res: Gio.AsyncResult): void
-    vfuncGetImAddresses(): Gee.MultiMap
-    vfuncSetImAddresses(value: Gee.MultiMap): void
-    vfuncGetImInteractionCount(): number
-    vfuncGetLastImInteractionDatetime(): GLib.DateTime | null
-    vfuncGetCallInteractionCount(): number
-    vfuncGetLastCallInteractionDatetime(): GLib.DateTime | null
-    vfuncChangeLocalIds(localIds: Gee.Set, callback?: Gio.AsyncReadyCallback | null): void
-    vfuncChangeLocalIdsFinish(res: Gio.AsyncResult): void
-    vfuncGetLocalIds(): Gee.Set
-    vfuncSetLocalIds(value: Gee.Set): void
-    vfuncChangeLocation(location?: Location | null, callback?: Gio.AsyncReadyCallback | null): void
-    vfuncChangeLocationFinish(res: Gio.AsyncResult): void
-    vfuncGetLocation(): Location | null
-    vfuncSetLocation(value?: Location | null): void
-    vfuncChangeStructuredName(name?: StructuredName | null, callback?: Gio.AsyncReadyCallback | null): void
-    vfuncChangeStructuredNameFinish(res: Gio.AsyncResult): void
-    vfuncChangeFullName(fullName: string, callback?: Gio.AsyncReadyCallback | null): void
-    vfuncChangeFullNameFinish(res: Gio.AsyncResult): void
-    vfuncChangeNickname(nickname: string, callback?: Gio.AsyncReadyCallback | null): void
-    vfuncChangeNicknameFinish(res: Gio.AsyncResult): void
-    vfuncGetStructuredName(): StructuredName | null
-    vfuncSetStructuredName(value?: StructuredName | null): void
-    vfuncGetFullName(): string
-    vfuncSetFullName(value: string): void
-    vfuncGetNickname(): string
-    vfuncSetNickname(value: string): void
-    vfuncChangeNotes(notes: Gee.Set, callback?: Gio.AsyncReadyCallback | null): void
-    vfuncChangeNotesFinish(res: Gio.AsyncResult): void
-    vfuncGetNotes(): Gee.Set
-    vfuncSetNotes(value: Gee.Set): void
-    vfuncGetPresenceType(): PresenceType
-    vfuncSetPresenceType(value: PresenceType): void
-    vfuncGetPresenceMessage(): string
-    vfuncSetPresenceMessage(value: string): void
-    vfuncGetClientTypes(): string[]
-    vfuncSetClientTypes(value: string[]): void
-    vfuncGetPresenceStatus(): string
-    vfuncSetPresenceStatus(value: string): void
-    vfuncChangePhoneNumbers(phoneNumbers: Gee.Set, callback?: Gio.AsyncReadyCallback | null): void
-    vfuncChangePhoneNumbersFinish(res: Gio.AsyncResult): void
-    vfuncGetPhoneNumbers(): Gee.Set
-    vfuncSetPhoneNumbers(value: Gee.Set): void
-    vfuncChangePostalAddresses(postalAddresses: Gee.Set, callback?: Gio.AsyncReadyCallback | null): void
-    vfuncChangePostalAddressesFinish(res: Gio.AsyncResult): void
-    vfuncGetPostalAddresses(): Gee.Set
-    vfuncSetPostalAddresses(value: Gee.Set): void
-    vfuncChangeRoles(roles: Gee.Set, callback?: Gio.AsyncReadyCallback | null): void
-    vfuncChangeRolesFinish(res: Gio.AsyncResult): void
-    vfuncGetRoles(): Gee.Set
-    vfuncSetRoles(value: Gee.Set): void
-    vfuncChangeUrls(urls: Gee.Set, callback?: Gio.AsyncReadyCallback | null): void
-    vfuncChangeUrlsFinish(res: Gio.AsyncResult): void
-    vfuncGetUrls(): Gee.Set
-    vfuncSetUrls(value: Gee.Set): void
-    vfuncChangeWebServiceAddresses(webServiceAddresses: Gee.MultiMap, callback?: Gio.AsyncReadyCallback | null): void
-    vfuncChangeWebServiceAddressesFinish(res: Gio.AsyncResult): void
-    vfuncGetWebServiceAddresses(): Gee.MultiMap
-    vfuncSetWebServiceAddresses(value: Gee.MultiMap): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Folks.Individual */
+    /* Signals of Folks-0.6.Folks.Individual */
     connect(sigName: "removed", callback: (($obj: Individual, replacementIndividual?: Individual | null) => void)): number
-    connect_after(sigName: "removed", callback: (($obj: Individual, replacementIndividual?: Individual | null) => void)): number
+    on(sigName: "removed", callback: (replacementIndividual?: Individual | null) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "removed", callback: (replacementIndividual?: Individual | null) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "removed", callback: (replacementIndividual?: Individual | null) => void): NodeJS.EventEmitter
     emit(sigName: "removed", replacementIndividual?: Individual | null): void
-    on(sigName: "removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "personas-changed", callback: (($obj: Individual, added: Gee.Set, removed: Gee.Set) => void)): number
-    connect_after(sigName: "personas-changed", callback: (($obj: Individual, added: Gee.Set, removed: Gee.Set) => void)): number
+    on(sigName: "personas-changed", callback: (added: Gee.Set, removed: Gee.Set) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "personas-changed", callback: (added: Gee.Set, removed: Gee.Set) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "personas-changed", callback: (added: Gee.Set, removed: Gee.Set) => void): NodeJS.EventEmitter
     emit(sigName: "personas-changed", added: Gee.Set, removed: Gee.Set): void
-    on(sigName: "personas-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "personas-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "personas-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Individual, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Individual, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of Folks.GroupDetails */
+    /* Signals of Folks-0.6.Folks.GroupDetails */
     connect(sigName: "group-changed", callback: (($obj: Individual, group: string, isMember: boolean) => void)): number
-    connect_after(sigName: "group-changed", callback: (($obj: Individual, group: string, isMember: boolean) => void)): number
+    on(sigName: "group-changed", callback: (group: string, isMember: boolean) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "group-changed", callback: (group: string, isMember: boolean) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "group-changed", callback: (group: string, isMember: boolean) => void): NodeJS.EventEmitter
     emit(sigName: "group-changed", group: string, isMember: boolean): void
-    on(sigName: "group-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "group-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "group-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::trust-level", callback: (($obj: Individual, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::trust-level", callback: (($obj: Individual, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::trust-level", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -3269,15 +2696,15 @@ export class Individual {
 export interface Location_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class Location {
-    /* Fields of Folks.Location */
+    /* Fields of Folks-0.6.Folks.Location */
     latitude: number
     longitude: number
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Folks.Location */
+    /* Methods of Folks-0.6.Folks.Location */
     equal(other: Location): boolean
     equalCoordinates(latitude: number, longitude: number): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -3299,21 +2726,12 @@ export class Location {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Location, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Location, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -3336,15 +2754,15 @@ export interface StructuredName_ConstructProps extends GObject.Object_ConstructP
     suffixes?: string
 }
 export class StructuredName {
-    /* Properties of Folks.StructuredName */
+    /* Properties of Folks-0.6.Folks.StructuredName */
     familyName: string
     givenName: string
     additionalNames: string
     prefixes: string
     suffixes: string
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Folks.StructuredName */
+    /* Methods of Folks-0.6.Folks.StructuredName */
     isEmpty(): boolean
     equal(other: StructuredName): boolean
     toString(): string
@@ -3359,7 +2777,7 @@ export class StructuredName {
     setPrefixes(value: string): void
     getSuffixes(): string
     setSuffixes(value: string): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -3381,21 +2799,12 @@ export class StructuredName {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: StructuredName, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: StructuredName, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::family-name", callback: (($obj: StructuredName, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::family-name", callback: (($obj: StructuredName, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::family-name", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -3440,19 +2849,19 @@ export interface NoteFieldDetails_ConstructProps extends AbstractFieldDetails_Co
     uid?: string
 }
 export class NoteFieldDetails {
-    /* Properties of Folks.NoteFieldDetails */
+    /* Properties of Folks-0.6.Folks.NoteFieldDetails */
     uid: string
-    /* Properties of Folks.AbstractFieldDetails */
+    /* Properties of Folks-0.6.Folks.AbstractFieldDetails */
     value: object
     readonly valueType: GObject.Type
     id: string
     parameters: Gee.MultiMap
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Folks.NoteFieldDetails */
+    /* Methods of Folks-0.6.Folks.NoteFieldDetails */
     getUid(): string
     setUid(value: string): void
-    /* Methods of Folks.AbstractFieldDetails */
+    /* Methods of Folks-0.6.Folks.AbstractFieldDetails */
     getParameterValues(parameterName: string): Gee.Collection | null
     addParameter(parameterName: string, parameterValue: string): void
     setParameter(parameterName: string, parameterValue: string): void
@@ -3469,7 +2878,7 @@ export class NoteFieldDetails {
     setId(value: string): void
     getParameters(): Gee.MultiMap
     setParameters(value: Gee.MultiMap): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -3491,32 +2900,12 @@ export class NoteFieldDetails {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of Folks.AbstractFieldDetails */
-    vfuncEqual(that: AbstractFieldDetails): boolean
-    vfuncParametersEqual(that: AbstractFieldDetails): boolean
-    vfuncValuesEqual(that: AbstractFieldDetails): boolean
-    vfuncHash(): number
-    vfuncGetValue(): object | null
-    vfuncSetValue(value?: object | null): void
-    vfuncGetId(): string
-    vfuncSetId(value: string): void
-    vfuncGetParameters(): Gee.MultiMap
-    vfuncSetParameters(value: Gee.MultiMap): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: NoteFieldDetails, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: NoteFieldDetails, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::uid", callback: (($obj: NoteFieldDetails, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::uid", callback: (($obj: NoteFieldDetails, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::uid", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -3564,9 +2953,9 @@ export interface ObjectCache_ConstructProps extends GObject.Object_ConstructProp
     id?: string
 }
 export class ObjectCache {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Folks.ObjectCache */
+    /* Methods of Folks-0.6.Folks.ObjectCache */
     getSerialisedObjectType(objectVersion: number): GLib.VariantType | null
     getSerialisedObjectVersion(): number
     serialiseObject(object?: object | null): GLib.Variant
@@ -3579,7 +2968,7 @@ export class ObjectCache {
     clearCacheFinish(res: Gio.AsyncResult): void
     getTypeId(): string
     getId(): string
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -3601,26 +2990,12 @@ export class ObjectCache {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of Folks.ObjectCache */
-    vfuncGetSerialisedObjectType(objectVersion: number): GLib.VariantType | null
-    vfuncGetSerialisedObjectVersion(): number
-    vfuncSerialiseObject(object?: object | null): GLib.Variant
-    vfuncDeserialiseObject(variant: GLib.Variant, objectVersion: number): object | null
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: ObjectCache, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: ObjectCache, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -3642,7 +3017,7 @@ export interface PersonaStore_ConstructProps extends GObject.Object_ConstructPro
     isUserSetDefault?: boolean
 }
 export class PersonaStore {
-    /* Properties of Folks.PersonaStore */
+    /* Properties of Folks-0.6.Folks.PersonaStore */
     readonly typeId: string
     readonly personas: Gee.Map
     readonly canAddPersonas: MaybeBool
@@ -3656,9 +3031,9 @@ export class PersonaStore {
     readonly alwaysWriteableProperties: string[]
     isPrimaryStore: boolean
     isUserSetDefault: boolean
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Folks.PersonaStore */
+    /* Methods of Folks-0.6.Folks.PersonaStore */
     emitPersonasChanged(added: Gee.Set | null, removed: Gee.Set | null, message: string | null, actor: Persona | null, reason: GroupDetailsChangeReason): void
     prepare(callback?: Gio.AsyncReadyCallback | null): void
     prepareFinish(res: Gio.AsyncResult): void
@@ -3685,7 +3060,7 @@ export class PersonaStore {
     getAlwaysWriteableProperties(): string[]
     getIsPrimaryStore(): boolean
     getIsUserSetDefault(): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -3707,52 +3082,23 @@ export class PersonaStore {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of Folks.PersonaStore */
-    vfuncPrepare(callback?: Gio.AsyncReadyCallback | null): void
-    vfuncPrepareFinish(res: Gio.AsyncResult): void
-    vfuncFlush(callback?: Gio.AsyncReadyCallback | null): void
-    vfuncFlushFinish(res: Gio.AsyncResult): void
-    vfuncAddPersonaFromDetails(details: GLib.HashTable, callback?: Gio.AsyncReadyCallback | null): void
-    vfuncAddPersonaFromDetailsFinish(res: Gio.AsyncResult): Persona | null
-    vfuncRemovePersona(persona: Persona, callback?: Gio.AsyncReadyCallback | null): void
-    vfuncRemovePersonaFinish(res: Gio.AsyncResult): void
-    vfuncGetTypeId(): string
-    vfuncGetPersonas(): Gee.Map
-    vfuncGetCanAddPersonas(): MaybeBool
-    vfuncGetCanAliasPersonas(): MaybeBool
-    vfuncGetCanGroupPersonas(): MaybeBool
-    vfuncGetCanRemovePersonas(): MaybeBool
-    vfuncGetIsPrepared(): boolean
-    vfuncGetIsQuiescent(): boolean
-    vfuncGetAlwaysWriteableProperties(): string[]
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Folks.PersonaStore */
+    /* Signals of Folks-0.6.Folks.PersonaStore */
     connect(sigName: "personas-changed", callback: (($obj: PersonaStore, added: Gee.Set, removed: Gee.Set, message: string | null, actor: Persona | null, reason: GroupDetailsChangeReason) => void)): number
-    connect_after(sigName: "personas-changed", callback: (($obj: PersonaStore, added: Gee.Set, removed: Gee.Set, message: string | null, actor: Persona | null, reason: GroupDetailsChangeReason) => void)): number
+    on(sigName: "personas-changed", callback: (added: Gee.Set, removed: Gee.Set, message: string | null, actor: Persona | null, reason: GroupDetailsChangeReason) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "personas-changed", callback: (added: Gee.Set, removed: Gee.Set, message: string | null, actor: Persona | null, reason: GroupDetailsChangeReason) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "personas-changed", callback: (added: Gee.Set, removed: Gee.Set, message: string | null, actor: Persona | null, reason: GroupDetailsChangeReason) => void): NodeJS.EventEmitter
     emit(sigName: "personas-changed", added: Gee.Set, removed: Gee.Set, message: string | null, actor: Persona | null, reason: GroupDetailsChangeReason): void
-    on(sigName: "personas-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "personas-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "personas-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "removed", callback: (($obj: PersonaStore) => void)): number
-    connect_after(sigName: "removed", callback: (($obj: PersonaStore) => void)): number
+    on(sigName: "removed", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "removed", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "removed", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "removed"): void
-    on(sigName: "removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: PersonaStore, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: PersonaStore, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::type-id", callback: (($obj: PersonaStore, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::type-id", callback: (($obj: PersonaStore, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::type-id", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -3841,13 +3187,13 @@ export interface Persona_ConstructProps extends GObject.Object_ConstructProps {
     individual?: Individual
 }
 export class Persona {
-    /* Properties of Folks.Persona */
+    /* Properties of Folks-0.6.Folks.Persona */
     individual: Individual
     readonly linkableProperties: string[]
     readonly writeableProperties: string[]
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Folks.Persona */
+    /* Methods of Folks-0.6.Folks.Persona */
     linkablePropertyToLinks(propName: string, callback: any): void
     getIid(): string
     getUid(): string
@@ -3857,7 +3203,7 @@ export class Persona {
     getIndividual(): Individual | null
     getLinkableProperties(): string[]
     getWriteableProperties(): string[]
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -3879,25 +3225,12 @@ export class Persona {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of Folks.Persona */
-    vfuncLinkablePropertyToLinks(propName: string, callback: any): void
-    vfuncGetLinkableProperties(): string[]
-    vfuncGetWriteableProperties(): string[]
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Persona, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Persona, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::individual", callback: (($obj: Persona, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::individual", callback: (($obj: Persona, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::individual", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -3925,22 +3258,22 @@ export class Persona {
     _init (config?: Persona_ConstructProps): void
     /* Static methods and pseudo-constructors */
     static buildUid(backendName: string, personaStoreId: string, personaId: string): string
-    static splitUid(uid: string): [ /* backendName */ string, /* personaStoreId */ string, /* personaId */ string ]
+    static splitUid(uid: string): { backendName: string, personaStoreId: string, personaId: string }
     static $gtype: GObject.Type
 }
 export interface PhoneFieldDetails_ConstructProps extends AbstractFieldDetails_ConstructProps {
 }
 export class PhoneFieldDetails {
-    /* Properties of Folks.AbstractFieldDetails */
+    /* Properties of Folks-0.6.Folks.AbstractFieldDetails */
     value: object
     readonly valueType: GObject.Type
     id: string
     parameters: Gee.MultiMap
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Folks.PhoneFieldDetails */
+    /* Methods of Folks-0.6.Folks.PhoneFieldDetails */
     getNormalised(): string
-    /* Methods of Folks.AbstractFieldDetails */
+    /* Methods of Folks-0.6.Folks.AbstractFieldDetails */
     getParameterValues(parameterName: string): Gee.Collection | null
     addParameter(parameterName: string, parameterValue: string): void
     setParameter(parameterName: string, parameterValue: string): void
@@ -3957,7 +3290,7 @@ export class PhoneFieldDetails {
     setId(value: string): void
     getParameters(): Gee.MultiMap
     setParameters(value: Gee.MultiMap): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -3979,32 +3312,12 @@ export class PhoneFieldDetails {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of Folks.AbstractFieldDetails */
-    vfuncEqual(that: AbstractFieldDetails): boolean
-    vfuncParametersEqual(that: AbstractFieldDetails): boolean
-    vfuncValuesEqual(that: AbstractFieldDetails): boolean
-    vfuncHash(): number
-    vfuncGetValue(): object | null
-    vfuncSetValue(value?: object | null): void
-    vfuncGetId(): string
-    vfuncSetId(value: string): void
-    vfuncGetParameters(): Gee.MultiMap
-    vfuncSetParameters(value: Gee.MultiMap): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: PhoneFieldDetails, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: PhoneFieldDetails, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::value", callback: (($obj: PhoneFieldDetails, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::value", callback: (($obj: PhoneFieldDetails, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::value", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -4051,7 +3364,7 @@ export interface PostalAddress_ConstructProps extends GObject.Object_ConstructPr
     uid?: string
 }
 export class PostalAddress {
-    /* Properties of Folks.PostalAddress */
+    /* Properties of Folks-0.6.Folks.PostalAddress */
     poBox: string
     extension: string
     street: string
@@ -4061,9 +3374,9 @@ export class PostalAddress {
     country: string
     addressFormat: string
     uid: string
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Folks.PostalAddress */
+    /* Methods of Folks-0.6.Folks.PostalAddress */
     isEmpty(): boolean
     equal(with_: PostalAddress): boolean
     toString(): string
@@ -4085,7 +3398,7 @@ export class PostalAddress {
     setAddressFormat(value: string): void
     getUid(): string
     setUid(value: string): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -4107,21 +3420,12 @@ export class PostalAddress {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: PostalAddress, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: PostalAddress, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::po-box", callback: (($obj: PostalAddress, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::po-box", callback: (($obj: PostalAddress, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::po-box", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -4184,14 +3488,14 @@ export class PostalAddress {
 export interface PostalAddressFieldDetails_ConstructProps extends AbstractFieldDetails_ConstructProps {
 }
 export class PostalAddressFieldDetails {
-    /* Properties of Folks.AbstractFieldDetails */
+    /* Properties of Folks-0.6.Folks.AbstractFieldDetails */
     value: object
     readonly valueType: GObject.Type
     id: string
     parameters: Gee.MultiMap
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Folks.AbstractFieldDetails */
+    /* Methods of Folks-0.6.Folks.AbstractFieldDetails */
     getParameterValues(parameterName: string): Gee.Collection | null
     addParameter(parameterName: string, parameterValue: string): void
     setParameter(parameterName: string, parameterValue: string): void
@@ -4208,7 +3512,7 @@ export class PostalAddressFieldDetails {
     setId(value: string): void
     getParameters(): Gee.MultiMap
     setParameters(value: Gee.MultiMap): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -4230,32 +3534,12 @@ export class PostalAddressFieldDetails {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of Folks.AbstractFieldDetails */
-    vfuncEqual(that: AbstractFieldDetails): boolean
-    vfuncParametersEqual(that: AbstractFieldDetails): boolean
-    vfuncValuesEqual(that: AbstractFieldDetails): boolean
-    vfuncHash(): number
-    vfuncGetValue(): object | null
-    vfuncSetValue(value?: object | null): void
-    vfuncGetId(): string
-    vfuncSetId(value: string): void
-    vfuncGetParameters(): Gee.MultiMap
-    vfuncSetParameters(value: Gee.MultiMap): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: PostalAddressFieldDetails, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: PostalAddressFieldDetails, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::value", callback: (($obj: PostalAddressFieldDetails, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::value", callback: (($obj: PostalAddressFieldDetails, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::value", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -4293,13 +3577,13 @@ export class PostalAddressFieldDetails {
 export interface PotentialMatch_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class PotentialMatch {
-    /* Fields of Folks.PotentialMatch */
+    /* Fields of Folks-0.6.Folks.PotentialMatch */
     folksPotentialMatchKnownEmailAliases: Gee.Set
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Folks.PotentialMatch */
+    /* Methods of Folks-0.6.Folks.PotentialMatch */
     potentialMatch(a: Individual, b: Individual): MatchResult
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -4321,21 +3605,12 @@ export class PotentialMatch {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: PotentialMatch, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: PotentialMatch, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -4354,12 +3629,12 @@ export interface Query_ConstructProps extends GObject.Object_ConstructProps {
     matchFields?: string[]
 }
 export class Query {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Folks.Query */
+    /* Methods of Folks-0.6.Folks.Query */
     isMatch(individual: Individual): number
     getMatchFields(): string[]
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -4381,24 +3656,12 @@ export class Query {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of Folks.Query */
-    vfuncIsMatch(individual: Individual): number
-    vfuncGetMatchFields(): string[]
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Query, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Query, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -4418,14 +3681,14 @@ export interface Role_ConstructProps extends GObject.Object_ConstructProps {
     uid?: string
 }
 export class Role {
-    /* Properties of Folks.Role */
+    /* Properties of Folks-0.6.Folks.Role */
     organisationName: string
     title: string
     role: string
     uid: string
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Folks.Role */
+    /* Methods of Folks-0.6.Folks.Role */
     isEmpty(): boolean
     toString(): string
     getOrganisationName(): string
@@ -4436,7 +3699,7 @@ export class Role {
     setRole(value: string): void
     getUid(): string
     setUid(value: string): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -4458,21 +3721,12 @@ export class Role {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Role, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Role, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::organisation-name", callback: (($obj: Role, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::organisation-name", callback: (($obj: Role, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::organisation-name", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -4512,14 +3766,14 @@ export class Role {
 export interface RoleFieldDetails_ConstructProps extends AbstractFieldDetails_ConstructProps {
 }
 export class RoleFieldDetails {
-    /* Properties of Folks.AbstractFieldDetails */
+    /* Properties of Folks-0.6.Folks.AbstractFieldDetails */
     value: object
     readonly valueType: GObject.Type
     id: string
     parameters: Gee.MultiMap
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Folks.AbstractFieldDetails */
+    /* Methods of Folks-0.6.Folks.AbstractFieldDetails */
     getParameterValues(parameterName: string): Gee.Collection | null
     addParameter(parameterName: string, parameterValue: string): void
     setParameter(parameterName: string, parameterValue: string): void
@@ -4536,7 +3790,7 @@ export class RoleFieldDetails {
     setId(value: string): void
     getParameters(): Gee.MultiMap
     setParameters(value: Gee.MultiMap): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -4558,32 +3812,12 @@ export class RoleFieldDetails {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of Folks.AbstractFieldDetails */
-    vfuncEqual(that: AbstractFieldDetails): boolean
-    vfuncParametersEqual(that: AbstractFieldDetails): boolean
-    vfuncValuesEqual(that: AbstractFieldDetails): boolean
-    vfuncHash(): number
-    vfuncGetValue(): object | null
-    vfuncSetValue(value?: object | null): void
-    vfuncGetId(): string
-    vfuncSetId(value: string): void
-    vfuncGetParameters(): Gee.MultiMap
-    vfuncSetParameters(value: Gee.MultiMap): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: RoleFieldDetails, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: RoleFieldDetails, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::value", callback: (($obj: RoleFieldDetails, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::value", callback: (($obj: RoleFieldDetails, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::value", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -4622,15 +3856,15 @@ export interface SearchView_ConstructProps extends GObject.Object_ConstructProps
     query?: Query
 }
 export class SearchView {
-    /* Properties of Folks.SearchView */
+    /* Properties of Folks-0.6.Folks.SearchView */
     readonly aggregator: IndividualAggregator
     query: Query
     readonly individuals: Gee.SortedSet
     readonly isPrepared: boolean
     readonly isQuiescent: boolean
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Folks.SearchView */
+    /* Methods of Folks-0.6.Folks.SearchView */
     prepare(callback?: Gio.AsyncReadyCallback | null): void
     prepareFinish(res: Gio.AsyncResult): void
     unprepare(callback?: Gio.AsyncReadyCallback | null): void
@@ -4643,7 +3877,7 @@ export class SearchView {
     getIndividuals(): Gee.SortedSet
     getIsPrepared(): boolean
     getIsQuiescent(): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -4665,28 +3899,18 @@ export class SearchView {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Folks.SearchView */
+    /* Signals of Folks-0.6.Folks.SearchView */
     connect(sigName: "individuals-changed-detailed", callback: (($obj: SearchView, added: Gee.SortedSet, removed: Gee.SortedSet) => void)): number
-    connect_after(sigName: "individuals-changed-detailed", callback: (($obj: SearchView, added: Gee.SortedSet, removed: Gee.SortedSet) => void)): number
+    on(sigName: "individuals-changed-detailed", callback: (added: Gee.SortedSet, removed: Gee.SortedSet) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "individuals-changed-detailed", callback: (added: Gee.SortedSet, removed: Gee.SortedSet) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "individuals-changed-detailed", callback: (added: Gee.SortedSet, removed: Gee.SortedSet) => void): NodeJS.EventEmitter
     emit(sigName: "individuals-changed-detailed", added: Gee.SortedSet, removed: Gee.SortedSet): void
-    on(sigName: "individuals-changed-detailed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "individuals-changed-detailed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "individuals-changed-detailed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: SearchView, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: SearchView, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::aggregator", callback: (($obj: SearchView, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::aggregator", callback: (($obj: SearchView, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::aggregator", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -4731,20 +3955,20 @@ export interface SimpleQuery_ConstructProps extends Query_ConstructProps {
     queryLocale?: string
 }
 export class SimpleQuery {
-    /* Properties of Folks.SimpleQuery */
+    /* Properties of Folks-0.6.Folks.SimpleQuery */
     queryString: string
     queryLocale: string
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Folks.SimpleQuery */
+    /* Methods of Folks-0.6.Folks.SimpleQuery */
     getQueryString(): string
     setQueryString(value: string): void
     getQueryLocale(): string | null
     setQueryLocale(value?: string | null): void
-    /* Methods of Folks.Query */
+    /* Methods of Folks-0.6.Folks.Query */
     isMatch(individual: Individual): number
     getMatchFields(): string[]
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -4766,24 +3990,12 @@ export class SimpleQuery {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of Folks.Query */
-    vfuncIsMatch(individual: Individual): number
-    vfuncGetMatchFields(): string[]
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: SimpleQuery, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: SimpleQuery, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::query-string", callback: (($obj: SimpleQuery, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::query-string", callback: (($obj: SimpleQuery, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::query-string", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -4811,14 +4023,14 @@ export class SimpleQuery {
 export interface UrlFieldDetails_ConstructProps extends AbstractFieldDetails_ConstructProps {
 }
 export class UrlFieldDetails {
-    /* Properties of Folks.AbstractFieldDetails */
+    /* Properties of Folks-0.6.Folks.AbstractFieldDetails */
     value: object
     readonly valueType: GObject.Type
     id: string
     parameters: Gee.MultiMap
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Folks.AbstractFieldDetails */
+    /* Methods of Folks-0.6.Folks.AbstractFieldDetails */
     getParameterValues(parameterName: string): Gee.Collection | null
     addParameter(parameterName: string, parameterValue: string): void
     setParameter(parameterName: string, parameterValue: string): void
@@ -4835,7 +4047,7 @@ export class UrlFieldDetails {
     setId(value: string): void
     getParameters(): Gee.MultiMap
     setParameters(value: Gee.MultiMap): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -4857,32 +4069,12 @@ export class UrlFieldDetails {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of Folks.AbstractFieldDetails */
-    vfuncEqual(that: AbstractFieldDetails): boolean
-    vfuncParametersEqual(that: AbstractFieldDetails): boolean
-    vfuncValuesEqual(that: AbstractFieldDetails): boolean
-    vfuncHash(): number
-    vfuncGetValue(): object | null
-    vfuncSetValue(value?: object | null): void
-    vfuncGetId(): string
-    vfuncSetId(value: string): void
-    vfuncGetParameters(): Gee.MultiMap
-    vfuncSetParameters(value: Gee.MultiMap): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: UrlFieldDetails, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: UrlFieldDetails, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::value", callback: (($obj: UrlFieldDetails, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::value", callback: (($obj: UrlFieldDetails, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::value", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -4920,9 +4112,9 @@ export class UrlFieldDetails {
 export interface Utils_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class Utils {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -4944,21 +4136,12 @@ export class Utils {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Utils, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Utils, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -4980,14 +4163,14 @@ export class Utils {
 export interface WebServiceFieldDetails_ConstructProps extends AbstractFieldDetails_ConstructProps {
 }
 export class WebServiceFieldDetails {
-    /* Properties of Folks.AbstractFieldDetails */
+    /* Properties of Folks-0.6.Folks.AbstractFieldDetails */
     value: object
     readonly valueType: GObject.Type
     id: string
     parameters: Gee.MultiMap
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Folks.AbstractFieldDetails */
+    /* Methods of Folks-0.6.Folks.AbstractFieldDetails */
     getParameterValues(parameterName: string): Gee.Collection | null
     addParameter(parameterName: string, parameterValue: string): void
     setParameter(parameterName: string, parameterValue: string): void
@@ -5004,7 +4187,7 @@ export class WebServiceFieldDetails {
     setId(value: string): void
     getParameters(): Gee.MultiMap
     setParameters(value: Gee.MultiMap): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -5026,32 +4209,12 @@ export class WebServiceFieldDetails {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of Folks.AbstractFieldDetails */
-    vfuncEqual(that: AbstractFieldDetails): boolean
-    vfuncParametersEqual(that: AbstractFieldDetails): boolean
-    vfuncValuesEqual(that: AbstractFieldDetails): boolean
-    vfuncHash(): number
-    vfuncGetValue(): object | null
-    vfuncSetValue(value?: object | null): void
-    vfuncGetId(): string
-    vfuncSetId(value: string): void
-    vfuncGetParameters(): Gee.MultiMap
-    vfuncSetParameters(value: Gee.MultiMap): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: WebServiceFieldDetails, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: WebServiceFieldDetails, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::value", callback: (($obj: WebServiceFieldDetails, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::value", callback: (($obj: WebServiceFieldDetails, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::value", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -5087,7 +4250,7 @@ export class WebServiceFieldDetails {
     static $gtype: GObject.Type
 }
 export abstract class AbstractFieldDetailsClass {
-    /* Fields of Folks.AbstractFieldDetailsClass */
+    /* Fields of Folks-0.6.Folks.AbstractFieldDetailsClass */
     equal: (that: AbstractFieldDetails) => boolean
     parametersEqual: (that: AbstractFieldDetails) => boolean
     valuesEqual: (that: AbstractFieldDetails) => boolean
@@ -5110,7 +4273,7 @@ export class BackendStorePrivate {
     static name: string
 }
 export abstract class BackendClass {
-    /* Fields of Folks.BackendClass */
+    /* Fields of Folks-0.6.Folks.BackendClass */
     disablePersonaStore: (store: PersonaStore) => void
     enablePersonaStore: (store: PersonaStore) => void
     setPersonaStores: (storeids?: Gee.Set | null) => void
@@ -5178,7 +4341,7 @@ export class NoteFieldDetailsPrivate {
     static name: string
 }
 export abstract class ObjectCacheClass {
-    /* Fields of Folks.ObjectCacheClass */
+    /* Fields of Folks-0.6.Folks.ObjectCacheClass */
     getSerialisedObjectType: (objectVersion: number) => GLib.VariantType | null
     getSerialisedObjectVersion: () => number
     serialiseObject: (object?: object | null) => GLib.Variant
@@ -5189,7 +4352,7 @@ export class ObjectCachePrivate {
     static name: string
 }
 export abstract class PersonaStoreClass {
-    /* Fields of Folks.PersonaStoreClass */
+    /* Fields of Folks-0.6.Folks.PersonaStoreClass */
     prepare: (callback?: Gio.AsyncReadyCallback | null) => void
     prepareFinish: (res: Gio.AsyncResult) => void
     flush: (callback?: Gio.AsyncReadyCallback | null) => void
@@ -5204,7 +4367,7 @@ export class PersonaStorePrivate {
     static name: string
 }
 export abstract class PersonaClass {
-    /* Fields of Folks.PersonaClass */
+    /* Fields of Folks-0.6.Folks.PersonaClass */
     linkablePropertyToLinks: (propName: string, callback: any) => void
     static name: string
 }
@@ -5236,7 +4399,7 @@ export class PotentialMatchPrivate {
     static name: string
 }
 export abstract class QueryClass {
-    /* Fields of Folks.QueryClass */
+    /* Fields of Folks-0.6.Folks.QueryClass */
     isMatch: (individual: Individual) => number
     static name: string
 }
@@ -5286,7 +4449,7 @@ export class WebServiceFieldDetailsPrivate {
     static name: string
 }
 export abstract class AliasDetailsIface {
-    /* Fields of Folks.AliasDetailsIface */
+    /* Fields of Folks-0.6.Folks.AliasDetailsIface */
     changeAlias: (alias: string, callback?: Gio.AsyncReadyCallback | null) => void
     changeAliasFinish: (res: Gio.AsyncResult) => void
     getAlias: () => string
@@ -5294,7 +4457,7 @@ export abstract class AliasDetailsIface {
     static name: string
 }
 export abstract class AntiLinkableIface {
-    /* Fields of Folks.AntiLinkableIface */
+    /* Fields of Folks-0.6.Folks.AntiLinkableIface */
     changeAntiLinks: (antiLinks: Gee.Set, callback?: Gio.AsyncReadyCallback | null) => void
     changeAntiLinksFinish: (res: Gio.AsyncResult) => void
     getAntiLinks: () => Gee.Set
@@ -5302,7 +4465,7 @@ export abstract class AntiLinkableIface {
     static name: string
 }
 export abstract class AvatarDetailsIface {
-    /* Fields of Folks.AvatarDetailsIface */
+    /* Fields of Folks-0.6.Folks.AvatarDetailsIface */
     changeAvatar: (avatar?: Gio.LoadableIcon | null, callback?: Gio.AsyncReadyCallback | null) => void
     changeAvatarFinish: (res: Gio.AsyncResult) => void
     getAvatar: () => Gio.LoadableIcon | null
@@ -5310,7 +4473,7 @@ export abstract class AvatarDetailsIface {
     static name: string
 }
 export abstract class BirthdayDetailsIface {
-    /* Fields of Folks.BirthdayDetailsIface */
+    /* Fields of Folks-0.6.Folks.BirthdayDetailsIface */
     changeBirthday: (birthday?: GLib.DateTime | null, callback?: Gio.AsyncReadyCallback | null) => void
     changeBirthdayFinish: (res: Gio.AsyncResult) => void
     changeCalendarEventId: (eventId?: string | null, callback?: Gio.AsyncReadyCallback | null) => void
@@ -5322,7 +4485,7 @@ export abstract class BirthdayDetailsIface {
     static name: string
 }
 export abstract class EmailDetailsIface {
-    /* Fields of Folks.EmailDetailsIface */
+    /* Fields of Folks-0.6.Folks.EmailDetailsIface */
     changeEmailAddresses: (emailAddresses: Gee.Set, callback?: Gio.AsyncReadyCallback | null) => void
     changeEmailAddressesFinish: (res: Gio.AsyncResult) => void
     getEmailAddresses: () => Gee.Set
@@ -5330,7 +4493,7 @@ export abstract class EmailDetailsIface {
     static name: string
 }
 export abstract class ExtendedInfoIface {
-    /* Fields of Folks.ExtendedInfoIface */
+    /* Fields of Folks-0.6.Folks.ExtendedInfoIface */
     getExtendedField: (name: string) => ExtendedFieldDetails | null
     changeExtendedField: (name: string, value: ExtendedFieldDetails, callback?: Gio.AsyncReadyCallback | null) => void
     changeExtendedFieldFinish: (res: Gio.AsyncResult) => void
@@ -5339,7 +4502,7 @@ export abstract class ExtendedInfoIface {
     static name: string
 }
 export abstract class FavouriteDetailsIface {
-    /* Fields of Folks.FavouriteDetailsIface */
+    /* Fields of Folks-0.6.Folks.FavouriteDetailsIface */
     changeIsFavourite: (isFavourite: boolean, callback?: Gio.AsyncReadyCallback | null) => void
     changeIsFavouriteFinish: (res: Gio.AsyncResult) => void
     getIsFavourite: () => boolean
@@ -5347,7 +4510,7 @@ export abstract class FavouriteDetailsIface {
     static name: string
 }
 export abstract class GenderDetailsIface {
-    /* Fields of Folks.GenderDetailsIface */
+    /* Fields of Folks-0.6.Folks.GenderDetailsIface */
     changeGender: (gender: Gender, callback?: Gio.AsyncReadyCallback | null) => void
     changeGenderFinish: (res: Gio.AsyncResult) => void
     getGender: () => Gender
@@ -5355,7 +4518,7 @@ export abstract class GenderDetailsIface {
     static name: string
 }
 export abstract class GroupDetailsIface {
-    /* Fields of Folks.GroupDetailsIface */
+    /* Fields of Folks-0.6.Folks.GroupDetailsIface */
     changeGroup: (group: string, isMember: boolean, callback?: Gio.AsyncReadyCallback | null) => void
     changeGroupFinish: (res: Gio.AsyncResult) => void
     changeGroups: (groups: Gee.Set, callback?: Gio.AsyncReadyCallback | null) => void
@@ -5365,7 +4528,7 @@ export abstract class GroupDetailsIface {
     static name: string
 }
 export abstract class ImDetailsIface {
-    /* Fields of Folks.ImDetailsIface */
+    /* Fields of Folks-0.6.Folks.ImDetailsIface */
     changeImAddresses: (imAddresses: Gee.MultiMap, callback?: Gio.AsyncReadyCallback | null) => void
     changeImAddressesFinish: (res: Gio.AsyncResult) => void
     getImAddresses: () => Gee.MultiMap
@@ -5373,7 +4536,7 @@ export abstract class ImDetailsIface {
     static name: string
 }
 export abstract class InteractionDetailsIface {
-    /* Fields of Folks.InteractionDetailsIface */
+    /* Fields of Folks-0.6.Folks.InteractionDetailsIface */
     getImInteractionCount: () => number
     getLastImInteractionDatetime: () => GLib.DateTime | null
     getCallInteractionCount: () => number
@@ -5381,7 +4544,7 @@ export abstract class InteractionDetailsIface {
     static name: string
 }
 export abstract class LocalIdDetailsIface {
-    /* Fields of Folks.LocalIdDetailsIface */
+    /* Fields of Folks-0.6.Folks.LocalIdDetailsIface */
     changeLocalIds: (localIds: Gee.Set, callback?: Gio.AsyncReadyCallback | null) => void
     changeLocalIdsFinish: (res: Gio.AsyncResult) => void
     getLocalIds: () => Gee.Set
@@ -5389,7 +4552,7 @@ export abstract class LocalIdDetailsIface {
     static name: string
 }
 export abstract class LocationDetailsIface {
-    /* Fields of Folks.LocationDetailsIface */
+    /* Fields of Folks-0.6.Folks.LocationDetailsIface */
     changeLocation: (location?: Location | null, callback?: Gio.AsyncReadyCallback | null) => void
     changeLocationFinish: (res: Gio.AsyncResult) => void
     getLocation: () => Location | null
@@ -5397,7 +4560,7 @@ export abstract class LocationDetailsIface {
     static name: string
 }
 export abstract class NameDetailsIface {
-    /* Fields of Folks.NameDetailsIface */
+    /* Fields of Folks-0.6.Folks.NameDetailsIface */
     changeStructuredName: (name?: StructuredName | null, callback?: Gio.AsyncReadyCallback | null) => void
     changeStructuredNameFinish: (res: Gio.AsyncResult) => void
     changeFullName: (fullName: string, callback?: Gio.AsyncReadyCallback | null) => void
@@ -5413,7 +4576,7 @@ export abstract class NameDetailsIface {
     static name: string
 }
 export abstract class NoteDetailsIface {
-    /* Fields of Folks.NoteDetailsIface */
+    /* Fields of Folks-0.6.Folks.NoteDetailsIface */
     changeNotes: (notes: Gee.Set, callback?: Gio.AsyncReadyCallback | null) => void
     changeNotesFinish: (res: Gio.AsyncResult) => void
     getNotes: () => Gee.Set
@@ -5421,7 +4584,7 @@ export abstract class NoteDetailsIface {
     static name: string
 }
 export abstract class PhoneDetailsIface {
-    /* Fields of Folks.PhoneDetailsIface */
+    /* Fields of Folks-0.6.Folks.PhoneDetailsIface */
     changePhoneNumbers: (phoneNumbers: Gee.Set, callback?: Gio.AsyncReadyCallback | null) => void
     changePhoneNumbersFinish: (res: Gio.AsyncResult) => void
     getPhoneNumbers: () => Gee.Set
@@ -5429,7 +4592,7 @@ export abstract class PhoneDetailsIface {
     static name: string
 }
 export abstract class PostalAddressDetailsIface {
-    /* Fields of Folks.PostalAddressDetailsIface */
+    /* Fields of Folks-0.6.Folks.PostalAddressDetailsIface */
     changePostalAddresses: (postalAddresses: Gee.Set, callback?: Gio.AsyncReadyCallback | null) => void
     changePostalAddressesFinish: (res: Gio.AsyncResult) => void
     getPostalAddresses: () => Gee.Set
@@ -5437,7 +4600,7 @@ export abstract class PostalAddressDetailsIface {
     static name: string
 }
 export abstract class PresenceDetailsIface {
-    /* Fields of Folks.PresenceDetailsIface */
+    /* Fields of Folks-0.6.Folks.PresenceDetailsIface */
     getPresenceType: () => PresenceType
     setPresenceType: (value: PresenceType) => void
     getPresenceMessage: () => string
@@ -5449,7 +4612,7 @@ export abstract class PresenceDetailsIface {
     static name: string
 }
 export abstract class RoleDetailsIface {
-    /* Fields of Folks.RoleDetailsIface */
+    /* Fields of Folks-0.6.Folks.RoleDetailsIface */
     changeRoles: (roles: Gee.Set, callback?: Gio.AsyncReadyCallback | null) => void
     changeRolesFinish: (res: Gio.AsyncResult) => void
     getRoles: () => Gee.Set
@@ -5457,7 +4620,7 @@ export abstract class RoleDetailsIface {
     static name: string
 }
 export abstract class UrlDetailsIface {
-    /* Fields of Folks.UrlDetailsIface */
+    /* Fields of Folks-0.6.Folks.UrlDetailsIface */
     changeUrls: (urls: Gee.Set, callback?: Gio.AsyncReadyCallback | null) => void
     changeUrlsFinish: (res: Gio.AsyncResult) => void
     getUrls: () => Gee.Set
@@ -5465,7 +4628,7 @@ export abstract class UrlDetailsIface {
     static name: string
 }
 export abstract class WebServiceDetailsIface {
-    /* Fields of Folks.WebServiceDetailsIface */
+    /* Fields of Folks-0.6.Folks.WebServiceDetailsIface */
     changeWebServiceAddresses: (webServiceAddresses: Gee.MultiMap, callback?: Gio.AsyncReadyCallback | null) => void
     changeWebServiceAddressesFinish: (res: Gio.AsyncResult) => void
     getWebServiceAddresses: () => Gee.MultiMap

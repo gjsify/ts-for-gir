@@ -41,21 +41,21 @@ export interface Contact_ConstructProps extends GObject.Object_ConstructProps {
     name?: string
 }
 export class Contact {
-    /* Properties of GnomeMaps.Contact */
+    /* Properties of GnomeMaps-1.0.GnomeMaps.Contact */
     readonly bounding_box: Champlain.BoundingBox
     icon: Gio.Icon
     id: string
     name: string
-    /* Fields of GnomeMaps.Contact */
+    /* Fields of GnomeMaps-1.0.GnomeMaps.Contact */
     parent_instance: GObject.Object
     priv: ContactPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GnomeMaps.Contact */
+    /* Methods of GnomeMaps-1.0.GnomeMaps.Contact */
     add_place(place: GeocodeGlib.Place): void
     geocode(callback: ContactGeocodeCallback): void
     get_places(): GeocodeGlib.Place[]
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -77,7 +77,7 @@ export class Contact {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -85,7 +85,7 @@ export class Contact {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Contact, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Contact, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -111,18 +111,18 @@ export class Contact {
 export interface ContactStore_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class ContactStore {
-    /* Properties of GnomeMaps.ContactStore */
+    /* Properties of GnomeMaps-1.0.GnomeMaps.ContactStore */
     readonly state: ContactStoreState
-    /* Fields of GnomeMaps.ContactStore */
+    /* Fields of GnomeMaps-1.0.GnomeMaps.ContactStore */
     parent_instance: GObject.Object
     priv: ContactStorePrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GnomeMaps.ContactStore */
+    /* Methods of GnomeMaps-1.0.GnomeMaps.ContactStore */
     get_contacts(): Contact[]
     load(): void
     lookup(id: string, callback: ContactStoreLookupCallback): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -144,7 +144,7 @@ export class ContactStore {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -152,7 +152,7 @@ export class ContactStore {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: ContactStore, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: ContactStore, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -173,12 +173,12 @@ export interface FileTileSource_ConstructProps extends Champlain.TileSource_Cons
     path?: string
 }
 export class FileTileSource {
-    /* Properties of GnomeMaps.FileTileSource */
+    /* Properties of GnomeMaps-1.0.GnomeMaps.FileTileSource */
     readonly max_zoom: number
     readonly min_zoom: number
     path: string
     readonly world: Champlain.BoundingBox
-    /* Properties of Champlain.TileSource */
+    /* Properties of Champlain-0.12.Champlain.TileSource */
     cache: Champlain.TileCache
     id: string
     license: string
@@ -188,17 +188,17 @@ export class FileTileSource {
     name: string
     projection: Champlain.MapProjection
     tile_size: number
-    /* Properties of Champlain.MapSource */
+    /* Properties of Champlain-0.12.Champlain.MapSource */
     next_source: Champlain.MapSource
     renderer: Champlain.Renderer
-    /* Fields of GnomeMaps.FileTileSource */
+    /* Fields of GnomeMaps-1.0.GnomeMaps.FileTileSource */
     parent_instance: Champlain.TileSource
     priv: FileTileSourcePrivate
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GnomeMaps.FileTileSource */
+    /* Methods of GnomeMaps-1.0.GnomeMaps.FileTileSource */
     prepare(): boolean
-    /* Methods of Champlain.TileSource */
+    /* Methods of Champlain-0.12.Champlain.TileSource */
     get_cache(): Champlain.TileCache
     set_cache(cache: Champlain.TileCache): void
     set_id(id: string): void
@@ -209,7 +209,7 @@ export class FileTileSource {
     set_name(name: string): void
     set_projection(projection: Champlain.MapProjection): void
     set_tile_size(tile_size: number): void
-    /* Methods of Champlain.MapSource */
+    /* Methods of Champlain-0.12.Champlain.MapSource */
     fill_tile(tile: Champlain.Tile): void
     get_column_count(zoom_level: number): number
     get_id(): string
@@ -230,7 +230,7 @@ export class FileTileSource {
     get_y(zoom_level: number, latitude: number): number
     set_next_source(next_source: Champlain.MapSource): void
     set_renderer(renderer: Champlain.Renderer): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -252,7 +252,7 @@ export class FileTileSource {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Champlain.MapSource */
+    /* Virtual methods of Champlain-0.12.Champlain.MapSource */
     vfunc_fill_tile(tile: Champlain.Tile): void
     vfunc_get_id(): string
     vfunc_get_license(): string
@@ -262,7 +262,7 @@ export class FileTileSource {
     vfunc_get_name(): string
     vfunc_get_projection(): Champlain.MapProjection
     vfunc_get_tile_size(): number
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -270,7 +270,7 @@ export class FileTileSource {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: FileTileSource, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: FileTileSource, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -318,17 +318,17 @@ export interface OSMChangeset_ConstructProps extends GObject.Object_ConstructPro
     created_by?: string
 }
 export class OSMChangeset {
-    /* Properties of GnomeMaps.OSMChangeset */
+    /* Properties of GnomeMaps-1.0.GnomeMaps.OSMChangeset */
     comment: string
     created_by: string
-    /* Fields of GnomeMaps.OSMChangeset */
+    /* Fields of GnomeMaps-1.0.GnomeMaps.OSMChangeset */
     parent_instance: GObject.Object
     priv: OSMChangesetPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GnomeMaps.OSMChangeset */
+    /* Methods of GnomeMaps-1.0.GnomeMaps.OSMChangeset */
     serialize(): string
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -350,7 +350,7 @@ export class OSMChangeset {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -358,7 +358,7 @@ export class OSMChangeset {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: OSMChangeset, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: OSMChangeset, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -382,24 +382,24 @@ export interface OSMNode_ConstructProps extends OSMObject_ConstructProps {
     longitude?: number
 }
 export class OSMNode {
-    /* Properties of GnomeMaps.OSMNode */
+    /* Properties of GnomeMaps-1.0.GnomeMaps.OSMNode */
     latitude: number
     longitude: number
-    /* Properties of GnomeMaps.OSMObject */
+    /* Properties of GnomeMaps-1.0.GnomeMaps.OSMObject */
     changeset: number
     id: number
     version: number
-    /* Fields of GnomeMaps.OSMNode */
+    /* Fields of GnomeMaps-1.0.GnomeMaps.OSMNode */
     parent_instance: OSMObject
     priv: OSMNodePrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GnomeMaps.OSMObject */
+    /* Methods of GnomeMaps-1.0.GnomeMaps.OSMObject */
     delete_tag(key: string): void
     get_tag(key: string): string
     serialize(): string
     set_tag(key: string, value: string): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -421,7 +421,7 @@ export class OSMNode {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -429,7 +429,7 @@ export class OSMNode {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: OSMNode, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: OSMNode, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -457,15 +457,15 @@ export class OSMNode {
 export interface OSMOAuthProxyCall_ConstructProps extends Rest.OAuthProxyCall_ConstructProps {
 }
 export class OSMOAuthProxyCall {
-    /* Fields of GnomeMaps.OSMOAuthProxyCall */
+    /* Fields of GnomeMaps-1.0.GnomeMaps.OSMOAuthProxyCall */
     parent: Rest.OAuthProxyCall
     priv: OSMOAuthProxyCallPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Rest.OAuthProxyCall */
+    /* Methods of Rest-0.7.Rest.OAuthProxyCall */
     parse_token_reponse(): void
     parse_token_response(): void
-    /* Methods of Rest.ProxyCall */
+    /* Methods of Rest-0.7.Rest.ProxyCall */
     add_header(header: string, value: string): void
     add_param(name: string, value: string): void
     add_param_full(param: Rest.Param): void
@@ -490,7 +490,7 @@ export class OSMOAuthProxyCall {
     set_method(method: string): void
     sync(): boolean
     upload(callback: Rest.ProxyCallUploadCallback, weak_object: GObject.Object): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -512,10 +512,10 @@ export class OSMOAuthProxyCall {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Rest.ProxyCall */
+    /* Virtual methods of Rest-0.7.Rest.ProxyCall */
     vfunc_prepare(): boolean
     vfunc_serialize_params(): [ /* returnType */ boolean, /* content_type */ string, /* content */ string, /* content_len */ number ]
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -523,7 +523,7 @@ export class OSMOAuthProxyCall {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: OSMOAuthProxyCall, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: OSMOAuthProxyCall, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -544,20 +544,20 @@ export interface OSMObject_ConstructProps extends GObject.Object_ConstructProps 
     version?: number
 }
 export class OSMObject {
-    /* Properties of GnomeMaps.OSMObject */
+    /* Properties of GnomeMaps-1.0.GnomeMaps.OSMObject */
     changeset: number
     id: number
     version: number
-    /* Fields of GnomeMaps.OSMObject */
+    /* Fields of GnomeMaps-1.0.GnomeMaps.OSMObject */
     parent_instance: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GnomeMaps.OSMObject */
+    /* Methods of GnomeMaps-1.0.GnomeMaps.OSMObject */
     delete_tag(key: string): void
     get_tag(key: string): string
     serialize(): string
     set_tag(key: string, value: string): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -579,7 +579,7 @@ export class OSMObject {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -587,7 +587,7 @@ export class OSMObject {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: OSMObject, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: OSMObject, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -609,23 +609,23 @@ export class OSMObject {
 export interface OSMRelation_ConstructProps extends OSMObject_ConstructProps {
 }
 export class OSMRelation {
-    /* Properties of GnomeMaps.OSMObject */
+    /* Properties of GnomeMaps-1.0.GnomeMaps.OSMObject */
     changeset: number
     id: number
     version: number
-    /* Fields of GnomeMaps.OSMRelation */
+    /* Fields of GnomeMaps-1.0.GnomeMaps.OSMRelation */
     parent_instance: OSMObject
     priv: OSMRelationPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GnomeMaps.OSMRelation */
+    /* Methods of GnomeMaps-1.0.GnomeMaps.OSMRelation */
     add_member(role: string, type: number, ref: number): void
-    /* Methods of GnomeMaps.OSMObject */
+    /* Methods of GnomeMaps-1.0.GnomeMaps.OSMObject */
     delete_tag(key: string): void
     get_tag(key: string): string
     serialize(): string
     set_tag(key: string, value: string): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -647,7 +647,7 @@ export class OSMRelation {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -655,7 +655,7 @@ export class OSMRelation {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: OSMRelation, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: OSMRelation, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -679,23 +679,23 @@ export class OSMRelation {
 export interface OSMWay_ConstructProps extends OSMObject_ConstructProps {
 }
 export class OSMWay {
-    /* Properties of GnomeMaps.OSMObject */
+    /* Properties of GnomeMaps-1.0.GnomeMaps.OSMObject */
     changeset: number
     id: number
     version: number
-    /* Fields of GnomeMaps.OSMWay */
+    /* Fields of GnomeMaps-1.0.GnomeMaps.OSMWay */
     parent_instance: OSMObject
     priv: OSMWayPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GnomeMaps.OSMWay */
+    /* Methods of GnomeMaps-1.0.GnomeMaps.OSMWay */
     add_node_id(id: number): void
-    /* Methods of GnomeMaps.OSMObject */
+    /* Methods of GnomeMaps-1.0.GnomeMaps.OSMObject */
     delete_tag(key: string): void
     get_tag(key: string): string
     serialize(): string
     set_tag(key: string, value: string): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -717,7 +717,7 @@ export class OSMWay {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -725,7 +725,7 @@ export class OSMWay {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: OSMWay, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: OSMWay, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -747,7 +747,7 @@ export class OSMWay {
     static $gtype: GObject.Type
 }
 export abstract class ContactClass {
-    /* Fields of GnomeMaps.ContactClass */
+    /* Fields of GnomeMaps-1.0.GnomeMaps.ContactClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
@@ -755,7 +755,7 @@ export class ContactPrivate {
     static name: string
 }
 export abstract class ContactStoreClass {
-    /* Fields of GnomeMaps.ContactStoreClass */
+    /* Fields of GnomeMaps-1.0.GnomeMaps.ContactStoreClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
@@ -763,7 +763,7 @@ export class ContactStorePrivate {
     static name: string
 }
 export abstract class FileTileSourceClass {
-    /* Fields of GnomeMaps.FileTileSourceClass */
+    /* Fields of GnomeMaps-1.0.GnomeMaps.FileTileSourceClass */
     parent_class: Champlain.TileSourceClass
     static name: string
 }
@@ -771,7 +771,7 @@ export class FileTileSourcePrivate {
     static name: string
 }
 export abstract class OSMChangesetClass {
-    /* Fields of GnomeMaps.OSMChangesetClass */
+    /* Fields of GnomeMaps-1.0.GnomeMaps.OSMChangesetClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
@@ -779,7 +779,7 @@ export class OSMChangesetPrivate {
     static name: string
 }
 export abstract class OSMNodeClass {
-    /* Fields of GnomeMaps.OSMNodeClass */
+    /* Fields of GnomeMaps-1.0.GnomeMaps.OSMNodeClass */
     parent_class: OSMObjectClass
     static name: string
 }
@@ -787,7 +787,7 @@ export class OSMNodePrivate {
     static name: string
 }
 export abstract class OSMOAuthProxyCallClass {
-    /* Fields of GnomeMaps.OSMOAuthProxyCallClass */
+    /* Fields of GnomeMaps-1.0.GnomeMaps.OSMOAuthProxyCallClass */
     parent_class: Rest.OAuthProxyCallClass
     static name: string
 }
@@ -795,7 +795,7 @@ export class OSMOAuthProxyCallPrivate {
     static name: string
 }
 export abstract class OSMObjectClass {
-    /* Fields of GnomeMaps.OSMObjectClass */
+    /* Fields of GnomeMaps-1.0.GnomeMaps.OSMObjectClass */
     parent_class: GObject.ObjectClass
     get_xml_tag_name: () => string
     static name: string
@@ -804,7 +804,7 @@ export class OSMObjectPrivate {
     static name: string
 }
 export abstract class OSMRelationClass {
-    /* Fields of GnomeMaps.OSMRelationClass */
+    /* Fields of GnomeMaps-1.0.GnomeMaps.OSMRelationClass */
     parent_class: OSMObjectClass
     static name: string
 }
@@ -812,7 +812,7 @@ export class OSMRelationPrivate {
     static name: string
 }
 export abstract class OSMWayClass {
-    /* Fields of GnomeMaps.OSMWayClass */
+    /* Fields of GnomeMaps-1.0.GnomeMaps.OSMWayClass */
     parent_class: OSMObjectClass
     static name: string
 }
@@ -820,32 +820,32 @@ export class OSMWayPrivate {
     static name: string
 }
 export class _ContactClass {
-    /* Fields of GnomeMaps._ContactClass */
+    /* Fields of GnomeMaps-1.0.GnomeMaps._ContactClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
 export class _ContactStoreClass {
-    /* Fields of GnomeMaps._ContactStoreClass */
+    /* Fields of GnomeMaps-1.0.GnomeMaps._ContactStoreClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
 export class _OSMChangesetClass {
-    /* Fields of GnomeMaps._OSMChangesetClass */
+    /* Fields of GnomeMaps-1.0.GnomeMaps._OSMChangesetClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
 export class _OSMNodeClass {
-    /* Fields of GnomeMaps._OSMNodeClass */
+    /* Fields of GnomeMaps-1.0.GnomeMaps._OSMNodeClass */
     parent_class: OSMObjectClass
     static name: string
 }
 export class _OSMRelationClass {
-    /* Fields of GnomeMaps._OSMRelationClass */
+    /* Fields of GnomeMaps-1.0.GnomeMaps._OSMRelationClass */
     parent_class: OSMObjectClass
     static name: string
 }
 export class _OSMWayClass {
-    /* Fields of GnomeMaps._OSMWayClass */
+    /* Fields of GnomeMaps-1.0.GnomeMaps._OSMWayClass */
     parent_class: OSMObjectClass
     static name: string
 }

@@ -248,13 +248,13 @@ export interface MetaForeachFunc {
 export interface Extractable_ConstructProps extends GObject.InitiallyUnowned_ConstructProps {
 }
 export class Extractable {
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GES.Extractable */
+    /* Methods of GES-1.0.GES.Extractable */
     get_asset(): Asset | null
     get_id(): string
     set_asset(asset: Asset): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -276,11 +276,11 @@ export class Extractable {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GES.Extractable */
+    /* Virtual methods of GES-1.0.GES.Extractable */
     vfunc_get_id(): string
     vfunc_set_asset(asset: Asset): void
     vfunc_set_asset_full(asset: Asset): boolean
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -288,7 +288,7 @@ export class Extractable {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Extractable, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Extractable, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -302,7 +302,7 @@ export class Extractable {
     static $gtype: GObject.Type
 }
 export class MetaContainer {
-    /* Methods of GES.MetaContainer */
+    /* Methods of GES-1.0.GES.MetaContainer */
     add_metas_from_string(str: string): boolean
     check_meta_registered(meta_item: string): [ /* returnType */ boolean, /* flags */ MetaFlag | null, /* type */ GObject.Type | null ]
     foreach(func: MetaForeachFunc): void
@@ -343,7 +343,7 @@ export class MetaContainer {
     set_string(meta_item: string, value: string): boolean
     set_uint(meta_item: string, value: number): boolean
     set_uint64(meta_item: string, value: number): boolean
-    /* Signals of GES.MetaContainer */
+    /* Signals of GES-1.0.GES.MetaContainer */
     connect(sigName: "notify-meta", callback: (($obj: MetaContainer, key: string, value?: any | null) => void)): number
     connect_after(sigName: "notify-meta", callback: (($obj: MetaContainer, key: string, value?: any | null) => void)): number
     emit(sigName: "notify-meta", key: string, value?: any | null): void
@@ -355,14 +355,14 @@ export interface Asset_ConstructProps extends GObject.Object_ConstructProps {
     proxy?: Asset
 }
 export class Asset {
-    /* Properties of GES.Asset */
+    /* Properties of GES-1.0.GES.Asset */
     proxy: Asset
     readonly proxy_target: Asset
-    /* Fields of GES.Asset */
+    /* Fields of GES-1.0.GES.Asset */
     parent: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GES.Asset */
+    /* Methods of GES-1.0.GES.Asset */
     extract(): Extractable
     get_error(): GLib.Error | null
     get_extractable_type(): GObject.Type
@@ -372,7 +372,7 @@ export class Asset {
     list_proxies(): Asset[]
     set_proxy(proxy?: Asset | null): boolean
     unproxy(proxy: Asset): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -394,7 +394,7 @@ export class Asset {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of GES.MetaContainer */
+    /* Methods of GES-1.0.GES.MetaContainer */
     add_metas_from_string(str: string): boolean
     check_meta_registered(meta_item: string): [ /* returnType */ boolean, /* flags */ MetaFlag | null, /* type */ GObject.Type | null ]
     foreach(func: MetaForeachFunc): void
@@ -435,13 +435,13 @@ export class Asset {
     set_string(meta_item: string, value: string): boolean
     set_uint(meta_item: string, value: number): boolean
     set_uint64(meta_item: string, value: number): boolean
-    /* Methods of Gio.AsyncInitable */
+    /* Methods of Gio-2.0.Gio.AsyncInitable */
     init_async(io_priority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     init_finish(res: Gio.AsyncResult): boolean
     new_finish(res: Gio.AsyncResult): GObject.Object
-    /* Methods of Gio.Initable */
+    /* Methods of Gio-2.0.Gio.Initable */
     init(cancellable?: Gio.Cancellable | null): boolean
-    /* Virtual methods of GES.Asset */
+    /* Virtual methods of GES-1.0.GES.Asset */
     vfunc_extract(): Extractable
     vfunc_inform_proxy(proxy_id: string): void
     vfunc_proxied(proxy: Asset): void
@@ -450,7 +450,7 @@ export class Asset {
     vfunc_init_async(io_priority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     vfunc_init_finish(res: Gio.AsyncResult): boolean
     vfunc_init(cancellable?: Gio.Cancellable | null): boolean
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -458,11 +458,11 @@ export class Asset {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Asset, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Asset, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    /* Signals of GES.MetaContainer */
+    /* Signals of GES-1.0.GES.MetaContainer */
     connect(sigName: "notify-meta", callback: (($obj: Asset, key: string, value?: any | null) => void)): number
     connect_after(sigName: "notify-meta", callback: (($obj: Asset, key: string, value?: any | null) => void)): number
     emit(sigName: "notify-meta", key: string, value?: any | null): void
@@ -489,13 +489,13 @@ export class Asset {
 export interface AudioSource_ConstructProps extends Source_ConstructProps {
 }
 export class AudioSource {
-    /* Properties of GES.TrackElement */
+    /* Properties of GES-1.0.GES.TrackElement */
     active: boolean
     auto_clamp_control_sources: boolean
     has_internal_source: boolean
     readonly track: Track
     track_type: TrackType
-    /* Properties of GES.TimelineElement */
+    /* Properties of GES-1.0.GES.TimelineElement */
     duration: number
     in_point: number
     max_duration: number
@@ -505,14 +505,14 @@ export class AudioSource {
     serialize: boolean
     start: number
     timeline: Timeline
-    /* Fields of GES.TimelineElement */
+    /* Fields of GES-1.0.GES.TimelineElement */
     parent_instance: GObject.InitiallyUnowned
     asset: Asset
     inpoint: Gst.ClockTime
     maxduration: Gst.ClockTime
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GES.TrackElement */
+    /* Methods of GES-1.0.GES.TrackElement */
     add_children_props(element: Gst.Element, wanted_categories?: string[] | null, blacklist?: string[] | null, whitelist?: string[] | null): void
     clamp_control_source(property_name: string): void
     edit(layers: Layer[] | null, mode: EditMode, edge: Edge, position: number): boolean
@@ -534,7 +534,7 @@ export class AudioSource {
     set_control_source(source: Gst.ControlSource, property_name: string, binding_type: string): boolean
     set_has_internal_source(has_internal_source: boolean): boolean
     set_track_type(type: TrackType): void
-    /* Methods of GES.TimelineElement */
+    /* Methods of GES-1.0.GES.TimelineElement */
     add_child_property(pspec: GObject.ParamSpec, child: GObject.Object): boolean
     copy(deep: boolean): TimelineElement
     edit(layers: Layer[] | null, new_layer_priority: number, mode: EditMode, edge: Edge, position: number): boolean
@@ -572,7 +572,7 @@ export class AudioSource {
     set_start(start: Gst.ClockTime): boolean
     set_timeline(timeline: Timeline): boolean
     trim(start: Gst.ClockTime): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -594,11 +594,11 @@ export class AudioSource {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of GES.Extractable */
+    /* Methods of GES-1.0.GES.Extractable */
     get_asset(): Asset | null
     get_id(): string
     set_asset(asset: Asset): boolean
-    /* Methods of GES.MetaContainer */
+    /* Methods of GES-1.0.GES.MetaContainer */
     add_metas_from_string(str: string): boolean
     check_meta_registered(meta_item: string): [ /* returnType */ boolean, /* flags */ MetaFlag | null, /* type */ GObject.Type | null ]
     foreach(func: MetaForeachFunc): void
@@ -639,13 +639,13 @@ export class AudioSource {
     set_string(meta_item: string, value: string): boolean
     set_uint(meta_item: string, value: number): boolean
     set_uint64(meta_item: string, value: number): boolean
-    /* Virtual methods of GES.Source */
+    /* Virtual methods of GES-1.0.GES.Source */
     vfunc_select_pad(pad: Gst.Pad): boolean
-    /* Virtual methods of GES.TrackElement */
+    /* Virtual methods of GES-1.0.GES.TrackElement */
     vfunc_active_changed(active: boolean): void
     vfunc_changed(): void
     vfunc_lookup_child(prop_name: string): [ /* returnType */ boolean, /* element */ Gst.Element | null, /* pspec */ GObject.ParamSpec | null ]
-    /* Virtual methods of GES.TimelineElement */
+    /* Virtual methods of GES-1.0.GES.TimelineElement */
     vfunc_deep_copy(copy: TimelineElement): void
     vfunc_get_layer_priority(): number
     vfunc_get_natural_framerate(): [ /* returnType */ boolean, /* framerate_n */ number, /* framerate_d */ number ]
@@ -667,7 +667,7 @@ export class AudioSource {
     vfunc_get_id(): string
     vfunc_set_asset(asset: Asset): void
     vfunc_set_asset_full(asset: Asset): boolean
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -675,14 +675,14 @@ export class AudioSource {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GES.TrackElement */
+    /* Signals of GES-1.0.GES.TrackElement */
     connect(sigName: "control-binding-added", callback: (($obj: AudioSource, control_binding: Gst.ControlBinding) => void)): number
     connect_after(sigName: "control-binding-added", callback: (($obj: AudioSource, control_binding: Gst.ControlBinding) => void)): number
     emit(sigName: "control-binding-added", control_binding: Gst.ControlBinding): void
     connect(sigName: "control-binding-removed", callback: (($obj: AudioSource, control_binding: Gst.ControlBinding) => void)): number
     connect_after(sigName: "control-binding-removed", callback: (($obj: AudioSource, control_binding: Gst.ControlBinding) => void)): number
     emit(sigName: "control-binding-removed", control_binding: Gst.ControlBinding): void
-    /* Signals of GES.TimelineElement */
+    /* Signals of GES-1.0.GES.TimelineElement */
     connect(sigName: "child-property-added", callback: (($obj: AudioSource, prop_object: GObject.Object, prop: GObject.ParamSpec) => void)): number
     connect_after(sigName: "child-property-added", callback: (($obj: AudioSource, prop_object: GObject.Object, prop: GObject.ParamSpec) => void)): number
     emit(sigName: "child-property-added", prop_object: GObject.Object, prop: GObject.ParamSpec): void
@@ -692,11 +692,11 @@ export class AudioSource {
     connect(sigName: "deep-notify", callback: (($obj: AudioSource, prop_object: GObject.Object, prop: GObject.ParamSpec) => void)): number
     connect_after(sigName: "deep-notify", callback: (($obj: AudioSource, prop_object: GObject.Object, prop: GObject.ParamSpec) => void)): number
     emit(sigName: "deep-notify", prop_object: GObject.Object, prop: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: AudioSource, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: AudioSource, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    /* Signals of GES.MetaContainer */
+    /* Signals of GES-1.0.GES.MetaContainer */
     connect(sigName: "notify-meta", callback: (($obj: AudioSource, key: string, value?: any | null) => void)): number
     connect_after(sigName: "notify-meta", callback: (($obj: AudioSource, key: string, value?: any | null) => void)): number
     emit(sigName: "notify-meta", key: string, value?: any | null): void
@@ -740,13 +740,13 @@ export class AudioSource {
 export interface AudioTestSource_ConstructProps extends AudioSource_ConstructProps {
 }
 export class AudioTestSource {
-    /* Properties of GES.TrackElement */
+    /* Properties of GES-1.0.GES.TrackElement */
     active: boolean
     auto_clamp_control_sources: boolean
     has_internal_source: boolean
     readonly track: Track
     track_type: TrackType
-    /* Properties of GES.TimelineElement */
+    /* Properties of GES-1.0.GES.TimelineElement */
     duration: number
     in_point: number
     max_duration: number
@@ -756,19 +756,19 @@ export class AudioTestSource {
     serialize: boolean
     start: number
     timeline: Timeline
-    /* Fields of GES.TimelineElement */
+    /* Fields of GES-1.0.GES.TimelineElement */
     parent_instance: GObject.InitiallyUnowned
     asset: Asset
     inpoint: Gst.ClockTime
     maxduration: Gst.ClockTime
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GES.AudioTestSource */
+    /* Methods of GES-1.0.GES.AudioTestSource */
     get_freq(): number
     get_volume(): number
     set_freq(freq: number): void
     set_volume(volume: number): void
-    /* Methods of GES.TrackElement */
+    /* Methods of GES-1.0.GES.TrackElement */
     add_children_props(element: Gst.Element, wanted_categories?: string[] | null, blacklist?: string[] | null, whitelist?: string[] | null): void
     clamp_control_source(property_name: string): void
     edit(layers: Layer[] | null, mode: EditMode, edge: Edge, position: number): boolean
@@ -790,7 +790,7 @@ export class AudioTestSource {
     set_control_source(source: Gst.ControlSource, property_name: string, binding_type: string): boolean
     set_has_internal_source(has_internal_source: boolean): boolean
     set_track_type(type: TrackType): void
-    /* Methods of GES.TimelineElement */
+    /* Methods of GES-1.0.GES.TimelineElement */
     add_child_property(pspec: GObject.ParamSpec, child: GObject.Object): boolean
     copy(deep: boolean): TimelineElement
     edit(layers: Layer[] | null, new_layer_priority: number, mode: EditMode, edge: Edge, position: number): boolean
@@ -828,7 +828,7 @@ export class AudioTestSource {
     set_start(start: Gst.ClockTime): boolean
     set_timeline(timeline: Timeline): boolean
     trim(start: Gst.ClockTime): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -850,11 +850,11 @@ export class AudioTestSource {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of GES.Extractable */
+    /* Methods of GES-1.0.GES.Extractable */
     get_asset(): Asset | null
     get_id(): string
     set_asset(asset: Asset): boolean
-    /* Methods of GES.MetaContainer */
+    /* Methods of GES-1.0.GES.MetaContainer */
     add_metas_from_string(str: string): boolean
     check_meta_registered(meta_item: string): [ /* returnType */ boolean, /* flags */ MetaFlag | null, /* type */ GObject.Type | null ]
     foreach(func: MetaForeachFunc): void
@@ -895,13 +895,13 @@ export class AudioTestSource {
     set_string(meta_item: string, value: string): boolean
     set_uint(meta_item: string, value: number): boolean
     set_uint64(meta_item: string, value: number): boolean
-    /* Virtual methods of GES.Source */
+    /* Virtual methods of GES-1.0.GES.Source */
     vfunc_select_pad(pad: Gst.Pad): boolean
-    /* Virtual methods of GES.TrackElement */
+    /* Virtual methods of GES-1.0.GES.TrackElement */
     vfunc_active_changed(active: boolean): void
     vfunc_changed(): void
     vfunc_lookup_child(prop_name: string): [ /* returnType */ boolean, /* element */ Gst.Element | null, /* pspec */ GObject.ParamSpec | null ]
-    /* Virtual methods of GES.TimelineElement */
+    /* Virtual methods of GES-1.0.GES.TimelineElement */
     vfunc_deep_copy(copy: TimelineElement): void
     vfunc_get_layer_priority(): number
     vfunc_get_natural_framerate(): [ /* returnType */ boolean, /* framerate_n */ number, /* framerate_d */ number ]
@@ -923,7 +923,7 @@ export class AudioTestSource {
     vfunc_get_id(): string
     vfunc_set_asset(asset: Asset): void
     vfunc_set_asset_full(asset: Asset): boolean
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -931,14 +931,14 @@ export class AudioTestSource {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GES.TrackElement */
+    /* Signals of GES-1.0.GES.TrackElement */
     connect(sigName: "control-binding-added", callback: (($obj: AudioTestSource, control_binding: Gst.ControlBinding) => void)): number
     connect_after(sigName: "control-binding-added", callback: (($obj: AudioTestSource, control_binding: Gst.ControlBinding) => void)): number
     emit(sigName: "control-binding-added", control_binding: Gst.ControlBinding): void
     connect(sigName: "control-binding-removed", callback: (($obj: AudioTestSource, control_binding: Gst.ControlBinding) => void)): number
     connect_after(sigName: "control-binding-removed", callback: (($obj: AudioTestSource, control_binding: Gst.ControlBinding) => void)): number
     emit(sigName: "control-binding-removed", control_binding: Gst.ControlBinding): void
-    /* Signals of GES.TimelineElement */
+    /* Signals of GES-1.0.GES.TimelineElement */
     connect(sigName: "child-property-added", callback: (($obj: AudioTestSource, prop_object: GObject.Object, prop: GObject.ParamSpec) => void)): number
     connect_after(sigName: "child-property-added", callback: (($obj: AudioTestSource, prop_object: GObject.Object, prop: GObject.ParamSpec) => void)): number
     emit(sigName: "child-property-added", prop_object: GObject.Object, prop: GObject.ParamSpec): void
@@ -948,11 +948,11 @@ export class AudioTestSource {
     connect(sigName: "deep-notify", callback: (($obj: AudioTestSource, prop_object: GObject.Object, prop: GObject.ParamSpec) => void)): number
     connect_after(sigName: "deep-notify", callback: (($obj: AudioTestSource, prop_object: GObject.Object, prop: GObject.ParamSpec) => void)): number
     emit(sigName: "deep-notify", prop_object: GObject.Object, prop: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: AudioTestSource, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: AudioTestSource, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    /* Signals of GES.MetaContainer */
+    /* Signals of GES-1.0.GES.MetaContainer */
     connect(sigName: "notify-meta", callback: (($obj: AudioTestSource, key: string, value?: any | null) => void)): number
     connect_after(sigName: "notify-meta", callback: (($obj: AudioTestSource, key: string, value?: any | null) => void)): number
     emit(sigName: "notify-meta", key: string, value?: any | null): void
@@ -996,22 +996,22 @@ export class AudioTestSource {
 export interface AudioTrack_ConstructProps extends Track_ConstructProps {
 }
 export class AudioTrack {
-    /* Properties of GES.Track */
+    /* Properties of GES-1.0.GES.Track */
     readonly duration: number
     id: string
     mixing: boolean
     restriction_caps: Gst.Caps
-    /* Properties of Gst.Bin */
+    /* Properties of Gst-1.0.Gst.Bin */
     async_handling: boolean
     message_forward: boolean
-    /* Properties of Gst.Object */
+    /* Properties of Gst-1.0.Gst.Object */
     name: string
     parent: Gst.Object
-    /* Fields of GES.AudioTrack */
+    /* Fields of GES-1.0.GES.AudioTrack */
     parent_instance: Track
-    /* Fields of GES.Track */
+    /* Fields of GES-1.0.GES.Track */
     type: TrackType
-    /* Fields of Gst.Bin */
+    /* Fields of Gst-1.0.Gst.Bin */
     element: Gst.Element
     numchildren: number
     children: Gst.Element[]
@@ -1023,7 +1023,7 @@ export class AudioTrack {
     clock_dirty: boolean
     provided_clock: Gst.Clock
     clock_provider: Gst.Element
-    /* Fields of Gst.Element */
+    /* Fields of Gst-1.0.Gst.Element */
     object: Gst.Object
     state_lock: GLib.RecMutex
     state_cond: GLib.Cond
@@ -1045,12 +1045,12 @@ export class AudioTrack {
     sinkpads: Gst.Pad[]
     pads_cookie: number
     contexts: Gst.Context[]
-    /* Fields of Gst.Object */
+    /* Fields of Gst-1.0.Gst.Object */
     lock: GLib.Mutex
     flags: number
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GES.Track */
+    /* Methods of GES-1.0.GES.Track */
     add_element(object: TrackElement): boolean
     add_element_full(object: TrackElement): boolean
     commit(): boolean
@@ -1065,7 +1065,7 @@ export class AudioTrack {
     set_restriction_caps(caps: Gst.Caps): void
     set_timeline(timeline: Timeline): void
     update_restriction_caps(caps: Gst.Caps): void
-    /* Methods of Gst.Bin */
+    /* Methods of Gst-1.0.Gst.Bin */
     add(element: Gst.Element): boolean
     find_unlinked_pad(direction: Gst.PadDirection): Gst.Pad | null
     get_by_interface(iface: GObject.Type): Gst.Element | null
@@ -1083,7 +1083,7 @@ export class AudioTrack {
     remove(element: Gst.Element): boolean
     set_suppressed_flags(flags: Gst.ElementFlags): void
     sync_children_states(): boolean
-    /* Methods of Gst.Element */
+    /* Methods of Gst-1.0.Gst.Element */
     abort_state(): void
     add_pad(pad: Gst.Pad): boolean
     add_property_deep_notify_watch(property_name: string | null, include_value: boolean): number
@@ -1149,7 +1149,7 @@ export class AudioTrack {
     sync_state_with_parent(): boolean
     unlink(dest: Gst.Element): void
     unlink_pads(srcpadname: string, dest: Gst.Element, destpadname: string): void
-    /* Methods of Gst.Object */
+    /* Methods of Gst-1.0.Gst.Object */
     add_control_binding(binding: Gst.ControlBinding): boolean
     default_error(error: GLib.Error, debug?: string | null): void
     get_control_binding(property_name: string): Gst.ControlBinding | null
@@ -1174,7 +1174,7 @@ export class AudioTrack {
     sync_values(timestamp: Gst.ClockTime): boolean
     unparent(): void
     unref(): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -1195,7 +1195,7 @@ export class AudioTrack {
     steal_qdata(quark: GLib.Quark): object | null
     thaw_notify(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of GES.MetaContainer */
+    /* Methods of GES-1.0.GES.MetaContainer */
     add_metas_from_string(str: string): boolean
     check_meta_registered(meta_item: string): [ /* returnType */ boolean, /* flags */ MetaFlag | null, /* type */ GObject.Type | null ]
     foreach(func: MetaForeachFunc): void
@@ -1236,7 +1236,7 @@ export class AudioTrack {
     set_string(meta_item: string, value: string): boolean
     set_uint(meta_item: string, value: number): boolean
     set_uint64(meta_item: string, value: number): boolean
-    /* Methods of Gst.ChildProxy */
+    /* Methods of Gst-1.0.Gst.ChildProxy */
     child_added(child: GObject.Object, name: string): void
     child_removed(child: GObject.Object, name: string): void
     get_child_by_index(index: number): GObject.Object | null
@@ -1245,13 +1245,13 @@ export class AudioTrack {
     get_property(name: string): /* value */ any
     lookup(name: string): [ /* returnType */ boolean, /* target */ GObject.Object | null, /* pspec */ GObject.ParamSpec | null ]
     set_property(name: string, value: any): void
-    /* Virtual methods of GES.Track */
+    /* Virtual methods of GES-1.0.GES.Track */
     vfunc_child_added(child: GObject.Object, name: string): void
     vfunc_child_removed(child: GObject.Object, name: string): void
     vfunc_get_child_by_index(index: number): GObject.Object | null
     vfunc_get_child_by_name(name: string): GObject.Object | null
     vfunc_get_children_count(): number
-    /* Virtual methods of Gst.Bin */
+    /* Virtual methods of Gst-1.0.Gst.Bin */
     vfunc_add_element(element: Gst.Element): boolean
     vfunc_deep_element_added(sub_bin: Gst.Bin, child: Gst.Element): void
     vfunc_deep_element_removed(sub_bin: Gst.Bin, child: Gst.Element): void
@@ -1260,7 +1260,7 @@ export class AudioTrack {
     vfunc_element_removed(child: Gst.Element): void
     vfunc_handle_message(message: Gst.Message): void
     vfunc_remove_element(element: Gst.Element): boolean
-    /* Virtual methods of Gst.Element */
+    /* Virtual methods of Gst-1.0.Gst.Element */
     vfunc_change_state(transition: Gst.StateChange): Gst.StateChangeReturn
     vfunc_get_state(timeout: Gst.ClockTime): [ /* returnType */ Gst.StateChangeReturn, /* state */ Gst.State | null, /* pending */ Gst.State | null ]
     vfunc_no_more_pads(): void
@@ -1277,9 +1277,9 @@ export class AudioTrack {
     vfunc_set_context(context: Gst.Context): void
     vfunc_set_state(state: Gst.State): Gst.StateChangeReturn
     vfunc_state_changed(oldstate: Gst.State, newstate: Gst.State, pending: Gst.State): void
-    /* Virtual methods of Gst.Object */
+    /* Virtual methods of Gst-1.0.Gst.Object */
     vfunc_deep_notify(orig: Gst.Object, pspec: GObject.ParamSpec): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -1287,7 +1287,7 @@ export class AudioTrack {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GES.Track */
+    /* Signals of GES-1.0.GES.Track */
     connect(sigName: "commited", callback: (($obj: AudioTrack) => void)): number
     connect_after(sigName: "commited", callback: (($obj: AudioTrack) => void)): number
     emit(sigName: "commited"): void
@@ -1297,7 +1297,7 @@ export class AudioTrack {
     connect(sigName: "track-element-removed", callback: (($obj: AudioTrack, effect: TrackElement) => void)): number
     connect_after(sigName: "track-element-removed", callback: (($obj: AudioTrack, effect: TrackElement) => void)): number
     emit(sigName: "track-element-removed", effect: TrackElement): void
-    /* Signals of Gst.Bin */
+    /* Signals of Gst-1.0.Gst.Bin */
     connect(sigName: "deep-element-added", callback: (($obj: AudioTrack, sub_bin: Gst.Bin, element: Gst.Element) => void)): number
     connect_after(sigName: "deep-element-added", callback: (($obj: AudioTrack, sub_bin: Gst.Bin, element: Gst.Element) => void)): number
     emit(sigName: "deep-element-added", sub_bin: Gst.Bin, element: Gst.Element): void
@@ -1313,7 +1313,7 @@ export class AudioTrack {
     connect(sigName: "element-removed", callback: (($obj: AudioTrack, element: Gst.Element) => void)): number
     connect_after(sigName: "element-removed", callback: (($obj: AudioTrack, element: Gst.Element) => void)): number
     emit(sigName: "element-removed", element: Gst.Element): void
-    /* Signals of Gst.Element */
+    /* Signals of Gst-1.0.Gst.Element */
     connect(sigName: "no-more-pads", callback: (($obj: AudioTrack) => void)): number
     connect_after(sigName: "no-more-pads", callback: (($obj: AudioTrack) => void)): number
     emit(sigName: "no-more-pads"): void
@@ -1323,19 +1323,19 @@ export class AudioTrack {
     connect(sigName: "pad-removed", callback: (($obj: AudioTrack, old_pad: Gst.Pad) => void)): number
     connect_after(sigName: "pad-removed", callback: (($obj: AudioTrack, old_pad: Gst.Pad) => void)): number
     emit(sigName: "pad-removed", old_pad: Gst.Pad): void
-    /* Signals of Gst.Object */
+    /* Signals of Gst-1.0.Gst.Object */
     connect(sigName: "deep-notify", callback: (($obj: AudioTrack, prop_object: Gst.Object, prop: GObject.ParamSpec) => void)): number
     connect_after(sigName: "deep-notify", callback: (($obj: AudioTrack, prop_object: Gst.Object, prop: GObject.ParamSpec) => void)): number
     emit(sigName: "deep-notify", prop_object: Gst.Object, prop: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: AudioTrack, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: AudioTrack, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    /* Signals of GES.MetaContainer */
+    /* Signals of GES-1.0.GES.MetaContainer */
     connect(sigName: "notify-meta", callback: (($obj: AudioTrack, key: string, value?: any | null) => void)): number
     connect_after(sigName: "notify-meta", callback: (($obj: AudioTrack, key: string, value?: any | null) => void)): number
     emit(sigName: "notify-meta", key: string, value?: any | null): void
-    /* Signals of Gst.ChildProxy */
+    /* Signals of Gst-1.0.Gst.ChildProxy */
     connect(sigName: "child-added", callback: (($obj: AudioTrack, object: GObject.Object, name: string) => void)): number
     connect_after(sigName: "child-added", callback: (($obj: AudioTrack, object: GObject.Object, name: string) => void)): number
     emit(sigName: "child-added", object: GObject.Object, name: string): void
@@ -1374,13 +1374,13 @@ export class AudioTrack {
 export interface AudioTransition_ConstructProps extends Transition_ConstructProps {
 }
 export class AudioTransition {
-    /* Properties of GES.TrackElement */
+    /* Properties of GES-1.0.GES.TrackElement */
     active: boolean
     auto_clamp_control_sources: boolean
     has_internal_source: boolean
     readonly track: Track
     track_type: TrackType
-    /* Properties of GES.TimelineElement */
+    /* Properties of GES-1.0.GES.TimelineElement */
     duration: number
     in_point: number
     max_duration: number
@@ -1390,14 +1390,14 @@ export class AudioTransition {
     serialize: boolean
     start: number
     timeline: Timeline
-    /* Fields of GES.TimelineElement */
+    /* Fields of GES-1.0.GES.TimelineElement */
     parent_instance: GObject.InitiallyUnowned
     asset: Asset
     inpoint: Gst.ClockTime
     maxduration: Gst.ClockTime
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GES.TrackElement */
+    /* Methods of GES-1.0.GES.TrackElement */
     add_children_props(element: Gst.Element, wanted_categories?: string[] | null, blacklist?: string[] | null, whitelist?: string[] | null): void
     clamp_control_source(property_name: string): void
     edit(layers: Layer[] | null, mode: EditMode, edge: Edge, position: number): boolean
@@ -1419,7 +1419,7 @@ export class AudioTransition {
     set_control_source(source: Gst.ControlSource, property_name: string, binding_type: string): boolean
     set_has_internal_source(has_internal_source: boolean): boolean
     set_track_type(type: TrackType): void
-    /* Methods of GES.TimelineElement */
+    /* Methods of GES-1.0.GES.TimelineElement */
     add_child_property(pspec: GObject.ParamSpec, child: GObject.Object): boolean
     copy(deep: boolean): TimelineElement
     edit(layers: Layer[] | null, new_layer_priority: number, mode: EditMode, edge: Edge, position: number): boolean
@@ -1457,7 +1457,7 @@ export class AudioTransition {
     set_start(start: Gst.ClockTime): boolean
     set_timeline(timeline: Timeline): boolean
     trim(start: Gst.ClockTime): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -1479,11 +1479,11 @@ export class AudioTransition {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of GES.Extractable */
+    /* Methods of GES-1.0.GES.Extractable */
     get_asset(): Asset | null
     get_id(): string
     set_asset(asset: Asset): boolean
-    /* Methods of GES.MetaContainer */
+    /* Methods of GES-1.0.GES.MetaContainer */
     add_metas_from_string(str: string): boolean
     check_meta_registered(meta_item: string): [ /* returnType */ boolean, /* flags */ MetaFlag | null, /* type */ GObject.Type | null ]
     foreach(func: MetaForeachFunc): void
@@ -1524,11 +1524,11 @@ export class AudioTransition {
     set_string(meta_item: string, value: string): boolean
     set_uint(meta_item: string, value: number): boolean
     set_uint64(meta_item: string, value: number): boolean
-    /* Virtual methods of GES.TrackElement */
+    /* Virtual methods of GES-1.0.GES.TrackElement */
     vfunc_active_changed(active: boolean): void
     vfunc_changed(): void
     vfunc_lookup_child(prop_name: string): [ /* returnType */ boolean, /* element */ Gst.Element | null, /* pspec */ GObject.ParamSpec | null ]
-    /* Virtual methods of GES.TimelineElement */
+    /* Virtual methods of GES-1.0.GES.TimelineElement */
     vfunc_deep_copy(copy: TimelineElement): void
     vfunc_get_layer_priority(): number
     vfunc_get_natural_framerate(): [ /* returnType */ boolean, /* framerate_n */ number, /* framerate_d */ number ]
@@ -1550,7 +1550,7 @@ export class AudioTransition {
     vfunc_get_id(): string
     vfunc_set_asset(asset: Asset): void
     vfunc_set_asset_full(asset: Asset): boolean
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -1558,14 +1558,14 @@ export class AudioTransition {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GES.TrackElement */
+    /* Signals of GES-1.0.GES.TrackElement */
     connect(sigName: "control-binding-added", callback: (($obj: AudioTransition, control_binding: Gst.ControlBinding) => void)): number
     connect_after(sigName: "control-binding-added", callback: (($obj: AudioTransition, control_binding: Gst.ControlBinding) => void)): number
     emit(sigName: "control-binding-added", control_binding: Gst.ControlBinding): void
     connect(sigName: "control-binding-removed", callback: (($obj: AudioTransition, control_binding: Gst.ControlBinding) => void)): number
     connect_after(sigName: "control-binding-removed", callback: (($obj: AudioTransition, control_binding: Gst.ControlBinding) => void)): number
     emit(sigName: "control-binding-removed", control_binding: Gst.ControlBinding): void
-    /* Signals of GES.TimelineElement */
+    /* Signals of GES-1.0.GES.TimelineElement */
     connect(sigName: "child-property-added", callback: (($obj: AudioTransition, prop_object: GObject.Object, prop: GObject.ParamSpec) => void)): number
     connect_after(sigName: "child-property-added", callback: (($obj: AudioTransition, prop_object: GObject.Object, prop: GObject.ParamSpec) => void)): number
     emit(sigName: "child-property-added", prop_object: GObject.Object, prop: GObject.ParamSpec): void
@@ -1575,11 +1575,11 @@ export class AudioTransition {
     connect(sigName: "deep-notify", callback: (($obj: AudioTransition, prop_object: GObject.Object, prop: GObject.ParamSpec) => void)): number
     connect_after(sigName: "deep-notify", callback: (($obj: AudioTransition, prop_object: GObject.Object, prop: GObject.ParamSpec) => void)): number
     emit(sigName: "deep-notify", prop_object: GObject.Object, prop: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: AudioTransition, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: AudioTransition, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    /* Signals of GES.MetaContainer */
+    /* Signals of GES-1.0.GES.MetaContainer */
     connect(sigName: "notify-meta", callback: (($obj: AudioTransition, key: string, value?: any | null) => void)): number
     connect_after(sigName: "notify-meta", callback: (($obj: AudioTransition, key: string, value?: any | null) => void)): number
     emit(sigName: "notify-meta", key: string, value?: any | null): void
@@ -1626,13 +1626,13 @@ export interface AudioUriSource_ConstructProps extends AudioSource_ConstructProp
     uri?: string
 }
 export class AudioUriSource {
-    /* Properties of GES.TrackElement */
+    /* Properties of GES-1.0.GES.TrackElement */
     active: boolean
     auto_clamp_control_sources: boolean
     has_internal_source: boolean
     readonly track: Track
     track_type: TrackType
-    /* Properties of GES.TimelineElement */
+    /* Properties of GES-1.0.GES.TimelineElement */
     duration: number
     in_point: number
     max_duration: number
@@ -1642,14 +1642,14 @@ export class AudioUriSource {
     serialize: boolean
     start: number
     timeline: Timeline
-    /* Fields of GES.TimelineElement */
+    /* Fields of GES-1.0.GES.TimelineElement */
     parent_instance: GObject.InitiallyUnowned
     asset: Asset
     inpoint: Gst.ClockTime
     maxduration: Gst.ClockTime
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GES.TrackElement */
+    /* Methods of GES-1.0.GES.TrackElement */
     add_children_props(element: Gst.Element, wanted_categories?: string[] | null, blacklist?: string[] | null, whitelist?: string[] | null): void
     clamp_control_source(property_name: string): void
     edit(layers: Layer[] | null, mode: EditMode, edge: Edge, position: number): boolean
@@ -1671,7 +1671,7 @@ export class AudioUriSource {
     set_control_source(source: Gst.ControlSource, property_name: string, binding_type: string): boolean
     set_has_internal_source(has_internal_source: boolean): boolean
     set_track_type(type: TrackType): void
-    /* Methods of GES.TimelineElement */
+    /* Methods of GES-1.0.GES.TimelineElement */
     add_child_property(pspec: GObject.ParamSpec, child: GObject.Object): boolean
     copy(deep: boolean): TimelineElement
     edit(layers: Layer[] | null, new_layer_priority: number, mode: EditMode, edge: Edge, position: number): boolean
@@ -1709,7 +1709,7 @@ export class AudioUriSource {
     set_start(start: Gst.ClockTime): boolean
     set_timeline(timeline: Timeline): boolean
     trim(start: Gst.ClockTime): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -1731,11 +1731,11 @@ export class AudioUriSource {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of GES.Extractable */
+    /* Methods of GES-1.0.GES.Extractable */
     get_asset(): Asset | null
     get_id(): string
     set_asset(asset: Asset): boolean
-    /* Methods of GES.MetaContainer */
+    /* Methods of GES-1.0.GES.MetaContainer */
     add_metas_from_string(str: string): boolean
     check_meta_registered(meta_item: string): [ /* returnType */ boolean, /* flags */ MetaFlag | null, /* type */ GObject.Type | null ]
     foreach(func: MetaForeachFunc): void
@@ -1776,13 +1776,13 @@ export class AudioUriSource {
     set_string(meta_item: string, value: string): boolean
     set_uint(meta_item: string, value: number): boolean
     set_uint64(meta_item: string, value: number): boolean
-    /* Virtual methods of GES.Source */
+    /* Virtual methods of GES-1.0.GES.Source */
     vfunc_select_pad(pad: Gst.Pad): boolean
-    /* Virtual methods of GES.TrackElement */
+    /* Virtual methods of GES-1.0.GES.TrackElement */
     vfunc_active_changed(active: boolean): void
     vfunc_changed(): void
     vfunc_lookup_child(prop_name: string): [ /* returnType */ boolean, /* element */ Gst.Element | null, /* pspec */ GObject.ParamSpec | null ]
-    /* Virtual methods of GES.TimelineElement */
+    /* Virtual methods of GES-1.0.GES.TimelineElement */
     vfunc_deep_copy(copy: TimelineElement): void
     vfunc_get_layer_priority(): number
     vfunc_get_natural_framerate(): [ /* returnType */ boolean, /* framerate_n */ number, /* framerate_d */ number ]
@@ -1804,7 +1804,7 @@ export class AudioUriSource {
     vfunc_get_id(): string
     vfunc_set_asset(asset: Asset): void
     vfunc_set_asset_full(asset: Asset): boolean
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -1812,14 +1812,14 @@ export class AudioUriSource {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GES.TrackElement */
+    /* Signals of GES-1.0.GES.TrackElement */
     connect(sigName: "control-binding-added", callback: (($obj: AudioUriSource, control_binding: Gst.ControlBinding) => void)): number
     connect_after(sigName: "control-binding-added", callback: (($obj: AudioUriSource, control_binding: Gst.ControlBinding) => void)): number
     emit(sigName: "control-binding-added", control_binding: Gst.ControlBinding): void
     connect(sigName: "control-binding-removed", callback: (($obj: AudioUriSource, control_binding: Gst.ControlBinding) => void)): number
     connect_after(sigName: "control-binding-removed", callback: (($obj: AudioUriSource, control_binding: Gst.ControlBinding) => void)): number
     emit(sigName: "control-binding-removed", control_binding: Gst.ControlBinding): void
-    /* Signals of GES.TimelineElement */
+    /* Signals of GES-1.0.GES.TimelineElement */
     connect(sigName: "child-property-added", callback: (($obj: AudioUriSource, prop_object: GObject.Object, prop: GObject.ParamSpec) => void)): number
     connect_after(sigName: "child-property-added", callback: (($obj: AudioUriSource, prop_object: GObject.Object, prop: GObject.ParamSpec) => void)): number
     emit(sigName: "child-property-added", prop_object: GObject.Object, prop: GObject.ParamSpec): void
@@ -1829,11 +1829,11 @@ export class AudioUriSource {
     connect(sigName: "deep-notify", callback: (($obj: AudioUriSource, prop_object: GObject.Object, prop: GObject.ParamSpec) => void)): number
     connect_after(sigName: "deep-notify", callback: (($obj: AudioUriSource, prop_object: GObject.Object, prop: GObject.ParamSpec) => void)): number
     emit(sigName: "deep-notify", prop_object: GObject.Object, prop: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: AudioUriSource, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: AudioUriSource, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    /* Signals of GES.MetaContainer */
+    /* Signals of GES-1.0.GES.MetaContainer */
     connect(sigName: "notify-meta", callback: (($obj: AudioUriSource, key: string, value?: any | null) => void)): number
     connect_after(sigName: "notify-meta", callback: (($obj: AudioUriSource, key: string, value?: any | null) => void)): number
     emit(sigName: "notify-meta", key: string, value?: any | null): void
@@ -1877,13 +1877,13 @@ export class AudioUriSource {
 export interface BaseEffect_ConstructProps extends Operation_ConstructProps {
 }
 export class BaseEffect {
-    /* Properties of GES.TrackElement */
+    /* Properties of GES-1.0.GES.TrackElement */
     active: boolean
     auto_clamp_control_sources: boolean
     has_internal_source: boolean
     readonly track: Track
     track_type: TrackType
-    /* Properties of GES.TimelineElement */
+    /* Properties of GES-1.0.GES.TimelineElement */
     duration: number
     in_point: number
     max_duration: number
@@ -1893,18 +1893,18 @@ export class BaseEffect {
     serialize: boolean
     start: number
     timeline: Timeline
-    /* Fields of GES.TimelineElement */
+    /* Fields of GES-1.0.GES.TimelineElement */
     parent_instance: GObject.InitiallyUnowned
     asset: Asset
     inpoint: Gst.ClockTime
     maxduration: Gst.ClockTime
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GES.BaseEffect */
+    /* Methods of GES-1.0.GES.BaseEffect */
     is_time_effect(): boolean
     register_time_property(child_property_name: string): boolean
     set_time_translation_funcs(source_to_sink_func?: BaseEffectTimeTranslationFunc | null, sink_to_source_func?: BaseEffectTimeTranslationFunc | null): boolean
-    /* Methods of GES.TrackElement */
+    /* Methods of GES-1.0.GES.TrackElement */
     add_children_props(element: Gst.Element, wanted_categories?: string[] | null, blacklist?: string[] | null, whitelist?: string[] | null): void
     clamp_control_source(property_name: string): void
     edit(layers: Layer[] | null, mode: EditMode, edge: Edge, position: number): boolean
@@ -1926,7 +1926,7 @@ export class BaseEffect {
     set_control_source(source: Gst.ControlSource, property_name: string, binding_type: string): boolean
     set_has_internal_source(has_internal_source: boolean): boolean
     set_track_type(type: TrackType): void
-    /* Methods of GES.TimelineElement */
+    /* Methods of GES-1.0.GES.TimelineElement */
     add_child_property(pspec: GObject.ParamSpec, child: GObject.Object): boolean
     copy(deep: boolean): TimelineElement
     edit(layers: Layer[] | null, new_layer_priority: number, mode: EditMode, edge: Edge, position: number): boolean
@@ -1964,7 +1964,7 @@ export class BaseEffect {
     set_start(start: Gst.ClockTime): boolean
     set_timeline(timeline: Timeline): boolean
     trim(start: Gst.ClockTime): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -1986,11 +1986,11 @@ export class BaseEffect {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of GES.Extractable */
+    /* Methods of GES-1.0.GES.Extractable */
     get_asset(): Asset | null
     get_id(): string
     set_asset(asset: Asset): boolean
-    /* Methods of GES.MetaContainer */
+    /* Methods of GES-1.0.GES.MetaContainer */
     add_metas_from_string(str: string): boolean
     check_meta_registered(meta_item: string): [ /* returnType */ boolean, /* flags */ MetaFlag | null, /* type */ GObject.Type | null ]
     foreach(func: MetaForeachFunc): void
@@ -2031,11 +2031,11 @@ export class BaseEffect {
     set_string(meta_item: string, value: string): boolean
     set_uint(meta_item: string, value: number): boolean
     set_uint64(meta_item: string, value: number): boolean
-    /* Virtual methods of GES.TrackElement */
+    /* Virtual methods of GES-1.0.GES.TrackElement */
     vfunc_active_changed(active: boolean): void
     vfunc_changed(): void
     vfunc_lookup_child(prop_name: string): [ /* returnType */ boolean, /* element */ Gst.Element | null, /* pspec */ GObject.ParamSpec | null ]
-    /* Virtual methods of GES.TimelineElement */
+    /* Virtual methods of GES-1.0.GES.TimelineElement */
     vfunc_deep_copy(copy: TimelineElement): void
     vfunc_get_layer_priority(): number
     vfunc_get_natural_framerate(): [ /* returnType */ boolean, /* framerate_n */ number, /* framerate_d */ number ]
@@ -2057,7 +2057,7 @@ export class BaseEffect {
     vfunc_get_id(): string
     vfunc_set_asset(asset: Asset): void
     vfunc_set_asset_full(asset: Asset): boolean
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -2065,14 +2065,14 @@ export class BaseEffect {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GES.TrackElement */
+    /* Signals of GES-1.0.GES.TrackElement */
     connect(sigName: "control-binding-added", callback: (($obj: BaseEffect, control_binding: Gst.ControlBinding) => void)): number
     connect_after(sigName: "control-binding-added", callback: (($obj: BaseEffect, control_binding: Gst.ControlBinding) => void)): number
     emit(sigName: "control-binding-added", control_binding: Gst.ControlBinding): void
     connect(sigName: "control-binding-removed", callback: (($obj: BaseEffect, control_binding: Gst.ControlBinding) => void)): number
     connect_after(sigName: "control-binding-removed", callback: (($obj: BaseEffect, control_binding: Gst.ControlBinding) => void)): number
     emit(sigName: "control-binding-removed", control_binding: Gst.ControlBinding): void
-    /* Signals of GES.TimelineElement */
+    /* Signals of GES-1.0.GES.TimelineElement */
     connect(sigName: "child-property-added", callback: (($obj: BaseEffect, prop_object: GObject.Object, prop: GObject.ParamSpec) => void)): number
     connect_after(sigName: "child-property-added", callback: (($obj: BaseEffect, prop_object: GObject.Object, prop: GObject.ParamSpec) => void)): number
     emit(sigName: "child-property-added", prop_object: GObject.Object, prop: GObject.ParamSpec): void
@@ -2082,11 +2082,11 @@ export class BaseEffect {
     connect(sigName: "deep-notify", callback: (($obj: BaseEffect, prop_object: GObject.Object, prop: GObject.ParamSpec) => void)): number
     connect_after(sigName: "deep-notify", callback: (($obj: BaseEffect, prop_object: GObject.Object, prop: GObject.ParamSpec) => void)): number
     emit(sigName: "deep-notify", prop_object: GObject.Object, prop: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: BaseEffect, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: BaseEffect, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    /* Signals of GES.MetaContainer */
+    /* Signals of GES-1.0.GES.MetaContainer */
     connect(sigName: "notify-meta", callback: (($obj: BaseEffect, key: string, value?: any | null) => void)): number
     connect_after(sigName: "notify-meta", callback: (($obj: BaseEffect, key: string, value?: any | null) => void)): number
     emit(sigName: "notify-meta", key: string, value?: any | null): void
@@ -2130,13 +2130,13 @@ export class BaseEffect {
 export interface BaseEffectClip_ConstructProps extends OperationClip_ConstructProps {
 }
 export class BaseEffectClip {
-    /* Properties of GES.Clip */
+    /* Properties of GES-1.0.GES.Clip */
     readonly duration_limit: number
     readonly layer: Layer
     supported_formats: TrackType
-    /* Properties of GES.Container */
+    /* Properties of GES-1.0.GES.Container */
     readonly height: number
-    /* Properties of GES.TimelineElement */
+    /* Properties of GES-1.0.GES.TimelineElement */
     duration: number
     in_point: number
     max_duration: number
@@ -2146,18 +2146,18 @@ export class BaseEffectClip {
     serialize: boolean
     start: number
     timeline: Timeline
-    /* Fields of GES.Container */
+    /* Fields of GES-1.0.GES.Container */
     children: TimelineElement[]
     children_control_mode: ChildrenControlMode
     initiated_move: TimelineElement
-    /* Fields of GES.TimelineElement */
+    /* Fields of GES-1.0.GES.TimelineElement */
     parent_instance: GObject.InitiallyUnowned
     asset: Asset
     inpoint: Gst.ClockTime
     maxduration: Gst.ClockTime
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GES.Clip */
+    /* Methods of GES-1.0.GES.Clip */
     add_asset(asset: Asset): TrackElement | null
     add_child_to_track(child: TrackElement, track: Track): TrackElement
     add_top_effect(effect: BaseEffect, index: number): boolean
@@ -2181,13 +2181,13 @@ export class BaseEffectClip {
     set_top_effect_priority(effect: BaseEffect, newpriority: number): boolean
     split(position: number): Clip | null
     split_full(position: number): Clip | null
-    /* Methods of GES.Container */
+    /* Methods of GES-1.0.GES.Container */
     add(child: TimelineElement): boolean
     edit(layers: Layer[] | null, new_layer_priority: number, mode: EditMode, edge: Edge, position: number): boolean
     get_children(recursive: boolean): TimelineElement[]
     remove(child: TimelineElement): boolean
     ungroup(recursive: boolean): Container[]
-    /* Methods of GES.TimelineElement */
+    /* Methods of GES-1.0.GES.TimelineElement */
     add_child_property(pspec: GObject.ParamSpec, child: GObject.Object): boolean
     copy(deep: boolean): TimelineElement
     edit_full(new_layer_priority: number, mode: EditMode, edge: Edge, position: number): boolean
@@ -2225,7 +2225,7 @@ export class BaseEffectClip {
     set_start(start: Gst.ClockTime): boolean
     set_timeline(timeline: Timeline): boolean
     trim(start: Gst.ClockTime): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -2247,11 +2247,11 @@ export class BaseEffectClip {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of GES.Extractable */
+    /* Methods of GES-1.0.GES.Extractable */
     get_asset(): Asset | null
     get_id(): string
     set_asset(asset: Asset): boolean
-    /* Methods of GES.MetaContainer */
+    /* Methods of GES-1.0.GES.MetaContainer */
     add_metas_from_string(str: string): boolean
     check_meta_registered(meta_item: string): [ /* returnType */ boolean, /* flags */ MetaFlag | null, /* type */ GObject.Type | null ]
     foreach(func: MetaForeachFunc): void
@@ -2292,17 +2292,17 @@ export class BaseEffectClip {
     set_string(meta_item: string, value: string): boolean
     set_uint(meta_item: string, value: number): boolean
     set_uint64(meta_item: string, value: number): boolean
-    /* Virtual methods of GES.Clip */
+    /* Virtual methods of GES-1.0.GES.Clip */
     vfunc_create_track_element(type: TrackType): TrackElement | null
     vfunc_create_track_elements(type: TrackType): TrackElement[]
-    /* Virtual methods of GES.Container */
+    /* Virtual methods of GES-1.0.GES.Container */
     vfunc_add_child(element: TimelineElement): boolean
     vfunc_child_added(element: TimelineElement): void
     vfunc_child_removed(element: TimelineElement): void
     vfunc_edit(layers: Layer[] | null, new_layer_priority: number, mode: EditMode, edge: Edge, position: number): boolean
     vfunc_remove_child(element: TimelineElement): boolean
     vfunc_ungroup(recursive: boolean): Container[]
-    /* Virtual methods of GES.TimelineElement */
+    /* Virtual methods of GES-1.0.GES.TimelineElement */
     vfunc_deep_copy(copy: TimelineElement): void
     vfunc_get_layer_priority(): number
     vfunc_get_natural_framerate(): [ /* returnType */ boolean, /* framerate_n */ number, /* framerate_d */ number ]
@@ -2324,7 +2324,7 @@ export class BaseEffectClip {
     vfunc_get_id(): string
     vfunc_set_asset(asset: Asset): void
     vfunc_set_asset_full(asset: Asset): boolean
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -2332,14 +2332,14 @@ export class BaseEffectClip {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GES.Container */
+    /* Signals of GES-1.0.GES.Container */
     connect(sigName: "child-added", callback: (($obj: BaseEffectClip, element: TimelineElement) => void)): number
     connect_after(sigName: "child-added", callback: (($obj: BaseEffectClip, element: TimelineElement) => void)): number
     emit(sigName: "child-added", element: TimelineElement): void
     connect(sigName: "child-removed", callback: (($obj: BaseEffectClip, element: TimelineElement) => void)): number
     connect_after(sigName: "child-removed", callback: (($obj: BaseEffectClip, element: TimelineElement) => void)): number
     emit(sigName: "child-removed", element: TimelineElement): void
-    /* Signals of GES.TimelineElement */
+    /* Signals of GES-1.0.GES.TimelineElement */
     connect(sigName: "child-property-added", callback: (($obj: BaseEffectClip, prop_object: GObject.Object, prop: GObject.ParamSpec) => void)): number
     connect_after(sigName: "child-property-added", callback: (($obj: BaseEffectClip, prop_object: GObject.Object, prop: GObject.ParamSpec) => void)): number
     emit(sigName: "child-property-added", prop_object: GObject.Object, prop: GObject.ParamSpec): void
@@ -2349,11 +2349,11 @@ export class BaseEffectClip {
     connect(sigName: "deep-notify", callback: (($obj: BaseEffectClip, prop_object: GObject.Object, prop: GObject.ParamSpec) => void)): number
     connect_after(sigName: "deep-notify", callback: (($obj: BaseEffectClip, prop_object: GObject.Object, prop: GObject.ParamSpec) => void)): number
     emit(sigName: "deep-notify", prop_object: GObject.Object, prop: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: BaseEffectClip, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: BaseEffectClip, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    /* Signals of GES.MetaContainer */
+    /* Signals of GES-1.0.GES.MetaContainer */
     connect(sigName: "notify-meta", callback: (($obj: BaseEffectClip, key: string, value?: any | null) => void)): number
     connect_after(sigName: "notify-meta", callback: (($obj: BaseEffectClip, key: string, value?: any | null) => void)): number
     emit(sigName: "notify-meta", key: string, value?: any | null): void
@@ -2395,13 +2395,13 @@ export class BaseEffectClip {
 export interface BaseTransitionClip_ConstructProps extends OperationClip_ConstructProps {
 }
 export class BaseTransitionClip {
-    /* Properties of GES.Clip */
+    /* Properties of GES-1.0.GES.Clip */
     readonly duration_limit: number
     readonly layer: Layer
     supported_formats: TrackType
-    /* Properties of GES.Container */
+    /* Properties of GES-1.0.GES.Container */
     readonly height: number
-    /* Properties of GES.TimelineElement */
+    /* Properties of GES-1.0.GES.TimelineElement */
     duration: number
     in_point: number
     max_duration: number
@@ -2411,18 +2411,18 @@ export class BaseTransitionClip {
     serialize: boolean
     start: number
     timeline: Timeline
-    /* Fields of GES.Container */
+    /* Fields of GES-1.0.GES.Container */
     children: TimelineElement[]
     children_control_mode: ChildrenControlMode
     initiated_move: TimelineElement
-    /* Fields of GES.TimelineElement */
+    /* Fields of GES-1.0.GES.TimelineElement */
     parent_instance: GObject.InitiallyUnowned
     asset: Asset
     inpoint: Gst.ClockTime
     maxduration: Gst.ClockTime
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GES.Clip */
+    /* Methods of GES-1.0.GES.Clip */
     add_asset(asset: Asset): TrackElement | null
     add_child_to_track(child: TrackElement, track: Track): TrackElement
     add_top_effect(effect: BaseEffect, index: number): boolean
@@ -2446,13 +2446,13 @@ export class BaseTransitionClip {
     set_top_effect_priority(effect: BaseEffect, newpriority: number): boolean
     split(position: number): Clip | null
     split_full(position: number): Clip | null
-    /* Methods of GES.Container */
+    /* Methods of GES-1.0.GES.Container */
     add(child: TimelineElement): boolean
     edit(layers: Layer[] | null, new_layer_priority: number, mode: EditMode, edge: Edge, position: number): boolean
     get_children(recursive: boolean): TimelineElement[]
     remove(child: TimelineElement): boolean
     ungroup(recursive: boolean): Container[]
-    /* Methods of GES.TimelineElement */
+    /* Methods of GES-1.0.GES.TimelineElement */
     add_child_property(pspec: GObject.ParamSpec, child: GObject.Object): boolean
     copy(deep: boolean): TimelineElement
     edit_full(new_layer_priority: number, mode: EditMode, edge: Edge, position: number): boolean
@@ -2490,7 +2490,7 @@ export class BaseTransitionClip {
     set_start(start: Gst.ClockTime): boolean
     set_timeline(timeline: Timeline): boolean
     trim(start: Gst.ClockTime): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -2512,11 +2512,11 @@ export class BaseTransitionClip {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of GES.Extractable */
+    /* Methods of GES-1.0.GES.Extractable */
     get_asset(): Asset | null
     get_id(): string
     set_asset(asset: Asset): boolean
-    /* Methods of GES.MetaContainer */
+    /* Methods of GES-1.0.GES.MetaContainer */
     add_metas_from_string(str: string): boolean
     check_meta_registered(meta_item: string): [ /* returnType */ boolean, /* flags */ MetaFlag | null, /* type */ GObject.Type | null ]
     foreach(func: MetaForeachFunc): void
@@ -2557,17 +2557,17 @@ export class BaseTransitionClip {
     set_string(meta_item: string, value: string): boolean
     set_uint(meta_item: string, value: number): boolean
     set_uint64(meta_item: string, value: number): boolean
-    /* Virtual methods of GES.Clip */
+    /* Virtual methods of GES-1.0.GES.Clip */
     vfunc_create_track_element(type: TrackType): TrackElement | null
     vfunc_create_track_elements(type: TrackType): TrackElement[]
-    /* Virtual methods of GES.Container */
+    /* Virtual methods of GES-1.0.GES.Container */
     vfunc_add_child(element: TimelineElement): boolean
     vfunc_child_added(element: TimelineElement): void
     vfunc_child_removed(element: TimelineElement): void
     vfunc_edit(layers: Layer[] | null, new_layer_priority: number, mode: EditMode, edge: Edge, position: number): boolean
     vfunc_remove_child(element: TimelineElement): boolean
     vfunc_ungroup(recursive: boolean): Container[]
-    /* Virtual methods of GES.TimelineElement */
+    /* Virtual methods of GES-1.0.GES.TimelineElement */
     vfunc_deep_copy(copy: TimelineElement): void
     vfunc_get_layer_priority(): number
     vfunc_get_natural_framerate(): [ /* returnType */ boolean, /* framerate_n */ number, /* framerate_d */ number ]
@@ -2589,7 +2589,7 @@ export class BaseTransitionClip {
     vfunc_get_id(): string
     vfunc_set_asset(asset: Asset): void
     vfunc_set_asset_full(asset: Asset): boolean
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -2597,14 +2597,14 @@ export class BaseTransitionClip {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GES.Container */
+    /* Signals of GES-1.0.GES.Container */
     connect(sigName: "child-added", callback: (($obj: BaseTransitionClip, element: TimelineElement) => void)): number
     connect_after(sigName: "child-added", callback: (($obj: BaseTransitionClip, element: TimelineElement) => void)): number
     emit(sigName: "child-added", element: TimelineElement): void
     connect(sigName: "child-removed", callback: (($obj: BaseTransitionClip, element: TimelineElement) => void)): number
     connect_after(sigName: "child-removed", callback: (($obj: BaseTransitionClip, element: TimelineElement) => void)): number
     emit(sigName: "child-removed", element: TimelineElement): void
-    /* Signals of GES.TimelineElement */
+    /* Signals of GES-1.0.GES.TimelineElement */
     connect(sigName: "child-property-added", callback: (($obj: BaseTransitionClip, prop_object: GObject.Object, prop: GObject.ParamSpec) => void)): number
     connect_after(sigName: "child-property-added", callback: (($obj: BaseTransitionClip, prop_object: GObject.Object, prop: GObject.ParamSpec) => void)): number
     emit(sigName: "child-property-added", prop_object: GObject.Object, prop: GObject.ParamSpec): void
@@ -2614,11 +2614,11 @@ export class BaseTransitionClip {
     connect(sigName: "deep-notify", callback: (($obj: BaseTransitionClip, prop_object: GObject.Object, prop: GObject.ParamSpec) => void)): number
     connect_after(sigName: "deep-notify", callback: (($obj: BaseTransitionClip, prop_object: GObject.Object, prop: GObject.ParamSpec) => void)): number
     emit(sigName: "deep-notify", prop_object: GObject.Object, prop: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: BaseTransitionClip, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: BaseTransitionClip, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    /* Signals of GES.MetaContainer */
+    /* Signals of GES-1.0.GES.MetaContainer */
     connect(sigName: "notify-meta", callback: (($obj: BaseTransitionClip, key: string, value?: any | null) => void)): number
     connect_after(sigName: "notify-meta", callback: (($obj: BaseTransitionClip, key: string, value?: any | null) => void)): number
     emit(sigName: "notify-meta", key: string, value?: any | null): void
@@ -2660,14 +2660,14 @@ export class BaseTransitionClip {
 export interface BaseXmlFormatter_ConstructProps extends Formatter_ConstructProps {
 }
 export class BaseXmlFormatter {
-    /* Fields of GES.BaseXmlFormatter */
+    /* Fields of GES-1.0.GES.BaseXmlFormatter */
     parent: Formatter
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GES.Formatter */
+    /* Methods of GES-1.0.GES.Formatter */
     load_from_uri(timeline: Timeline, uri: string): boolean
     save_to_uri(timeline: Timeline, uri: string, overwrite: boolean): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -2689,18 +2689,18 @@ export class BaseXmlFormatter {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of GES.Extractable */
+    /* Methods of GES-1.0.GES.Extractable */
     get_asset(): Asset | null
     get_id(): string
     set_asset(asset: Asset): boolean
-    /* Virtual methods of GES.Formatter */
+    /* Virtual methods of GES-1.0.GES.Formatter */
     vfunc_can_load_uri(uri: string): boolean
     vfunc_load_from_uri(timeline: Timeline, uri: string): boolean
     vfunc_save_to_uri(timeline: Timeline, uri: string, overwrite: boolean): boolean
     vfunc_get_id(): string
     vfunc_set_asset(asset: Asset): void
     vfunc_set_asset_full(asset: Asset): boolean
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -2708,7 +2708,7 @@ export class BaseXmlFormatter {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: BaseXmlFormatter, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: BaseXmlFormatter, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -2725,13 +2725,13 @@ export interface Clip_ConstructProps extends Container_ConstructProps {
     supported_formats?: TrackType
 }
 export class Clip {
-    /* Properties of GES.Clip */
+    /* Properties of GES-1.0.GES.Clip */
     readonly duration_limit: number
     readonly layer: Layer
     supported_formats: TrackType
-    /* Properties of GES.Container */
+    /* Properties of GES-1.0.GES.Container */
     readonly height: number
-    /* Properties of GES.TimelineElement */
+    /* Properties of GES-1.0.GES.TimelineElement */
     duration: number
     in_point: number
     max_duration: number
@@ -2741,18 +2741,18 @@ export class Clip {
     serialize: boolean
     start: number
     timeline: Timeline
-    /* Fields of GES.Container */
+    /* Fields of GES-1.0.GES.Container */
     children: TimelineElement[]
     children_control_mode: ChildrenControlMode
     initiated_move: TimelineElement
-    /* Fields of GES.TimelineElement */
+    /* Fields of GES-1.0.GES.TimelineElement */
     parent_instance: GObject.InitiallyUnowned
     asset: Asset
     inpoint: Gst.ClockTime
     maxduration: Gst.ClockTime
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GES.Clip */
+    /* Methods of GES-1.0.GES.Clip */
     add_asset(asset: Asset): TrackElement | null
     add_child_to_track(child: TrackElement, track: Track): TrackElement
     add_top_effect(effect: BaseEffect, index: number): boolean
@@ -2776,13 +2776,13 @@ export class Clip {
     set_top_effect_priority(effect: BaseEffect, newpriority: number): boolean
     split(position: number): Clip | null
     split_full(position: number): Clip | null
-    /* Methods of GES.Container */
+    /* Methods of GES-1.0.GES.Container */
     add(child: TimelineElement): boolean
     edit(layers: Layer[] | null, new_layer_priority: number, mode: EditMode, edge: Edge, position: number): boolean
     get_children(recursive: boolean): TimelineElement[]
     remove(child: TimelineElement): boolean
     ungroup(recursive: boolean): Container[]
-    /* Methods of GES.TimelineElement */
+    /* Methods of GES-1.0.GES.TimelineElement */
     add_child_property(pspec: GObject.ParamSpec, child: GObject.Object): boolean
     copy(deep: boolean): TimelineElement
     edit_full(new_layer_priority: number, mode: EditMode, edge: Edge, position: number): boolean
@@ -2820,7 +2820,7 @@ export class Clip {
     set_start(start: Gst.ClockTime): boolean
     set_timeline(timeline: Timeline): boolean
     trim(start: Gst.ClockTime): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -2842,11 +2842,11 @@ export class Clip {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of GES.Extractable */
+    /* Methods of GES-1.0.GES.Extractable */
     get_asset(): Asset | null
     get_id(): string
     set_asset(asset: Asset): boolean
-    /* Methods of GES.MetaContainer */
+    /* Methods of GES-1.0.GES.MetaContainer */
     add_metas_from_string(str: string): boolean
     check_meta_registered(meta_item: string): [ /* returnType */ boolean, /* flags */ MetaFlag | null, /* type */ GObject.Type | null ]
     foreach(func: MetaForeachFunc): void
@@ -2887,17 +2887,17 @@ export class Clip {
     set_string(meta_item: string, value: string): boolean
     set_uint(meta_item: string, value: number): boolean
     set_uint64(meta_item: string, value: number): boolean
-    /* Virtual methods of GES.Clip */
+    /* Virtual methods of GES-1.0.GES.Clip */
     vfunc_create_track_element(type: TrackType): TrackElement | null
     vfunc_create_track_elements(type: TrackType): TrackElement[]
-    /* Virtual methods of GES.Container */
+    /* Virtual methods of GES-1.0.GES.Container */
     vfunc_add_child(element: TimelineElement): boolean
     vfunc_child_added(element: TimelineElement): void
     vfunc_child_removed(element: TimelineElement): void
     vfunc_edit(layers: Layer[] | null, new_layer_priority: number, mode: EditMode, edge: Edge, position: number): boolean
     vfunc_remove_child(element: TimelineElement): boolean
     vfunc_ungroup(recursive: boolean): Container[]
-    /* Virtual methods of GES.TimelineElement */
+    /* Virtual methods of GES-1.0.GES.TimelineElement */
     vfunc_deep_copy(copy: TimelineElement): void
     vfunc_get_layer_priority(): number
     vfunc_get_natural_framerate(): [ /* returnType */ boolean, /* framerate_n */ number, /* framerate_d */ number ]
@@ -2919,7 +2919,7 @@ export class Clip {
     vfunc_get_id(): string
     vfunc_set_asset(asset: Asset): void
     vfunc_set_asset_full(asset: Asset): boolean
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -2927,14 +2927,14 @@ export class Clip {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GES.Container */
+    /* Signals of GES-1.0.GES.Container */
     connect(sigName: "child-added", callback: (($obj: Clip, element: TimelineElement) => void)): number
     connect_after(sigName: "child-added", callback: (($obj: Clip, element: TimelineElement) => void)): number
     emit(sigName: "child-added", element: TimelineElement): void
     connect(sigName: "child-removed", callback: (($obj: Clip, element: TimelineElement) => void)): number
     connect_after(sigName: "child-removed", callback: (($obj: Clip, element: TimelineElement) => void)): number
     emit(sigName: "child-removed", element: TimelineElement): void
-    /* Signals of GES.TimelineElement */
+    /* Signals of GES-1.0.GES.TimelineElement */
     connect(sigName: "child-property-added", callback: (($obj: Clip, prop_object: GObject.Object, prop: GObject.ParamSpec) => void)): number
     connect_after(sigName: "child-property-added", callback: (($obj: Clip, prop_object: GObject.Object, prop: GObject.ParamSpec) => void)): number
     emit(sigName: "child-property-added", prop_object: GObject.Object, prop: GObject.ParamSpec): void
@@ -2944,11 +2944,11 @@ export class Clip {
     connect(sigName: "deep-notify", callback: (($obj: Clip, prop_object: GObject.Object, prop: GObject.ParamSpec) => void)): number
     connect_after(sigName: "deep-notify", callback: (($obj: Clip, prop_object: GObject.Object, prop: GObject.ParamSpec) => void)): number
     emit(sigName: "deep-notify", prop_object: GObject.Object, prop: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Clip, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Clip, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    /* Signals of GES.MetaContainer */
+    /* Signals of GES-1.0.GES.MetaContainer */
     connect(sigName: "notify-meta", callback: (($obj: Clip, key: string, value?: any | null) => void)): number
     connect_after(sigName: "notify-meta", callback: (($obj: Clip, key: string, value?: any | null) => void)): number
     emit(sigName: "notify-meta", key: string, value?: any | null): void
@@ -2991,21 +2991,21 @@ export interface ClipAsset_ConstructProps extends Asset_ConstructProps {
     supported_formats?: TrackType
 }
 export class ClipAsset {
-    /* Properties of GES.ClipAsset */
+    /* Properties of GES-1.0.GES.ClipAsset */
     supported_formats: TrackType
-    /* Properties of GES.Asset */
+    /* Properties of GES-1.0.GES.Asset */
     proxy: Asset
     readonly proxy_target: Asset
-    /* Fields of GES.ClipAsset */
+    /* Fields of GES-1.0.GES.ClipAsset */
     parent: Asset
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GES.ClipAsset */
+    /* Methods of GES-1.0.GES.ClipAsset */
     get_frame_time(frame_number: FrameNumber): Gst.ClockTime
     get_natural_framerate(framerate_n: number, framerate_d: number): boolean
     get_supported_formats(): TrackType
     set_supported_formats(supportedformats: TrackType): void
-    /* Methods of GES.Asset */
+    /* Methods of GES-1.0.GES.Asset */
     extract(): Extractable
     get_error(): GLib.Error | null
     get_extractable_type(): GObject.Type
@@ -3015,7 +3015,7 @@ export class ClipAsset {
     list_proxies(): Asset[]
     set_proxy(proxy?: Asset | null): boolean
     unproxy(proxy: Asset): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -3037,7 +3037,7 @@ export class ClipAsset {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of GES.MetaContainer */
+    /* Methods of GES-1.0.GES.MetaContainer */
     add_metas_from_string(str: string): boolean
     check_meta_registered(meta_item: string): [ /* returnType */ boolean, /* flags */ MetaFlag | null, /* type */ GObject.Type | null ]
     foreach(func: MetaForeachFunc): void
@@ -3078,15 +3078,15 @@ export class ClipAsset {
     set_string(meta_item: string, value: string): boolean
     set_uint(meta_item: string, value: number): boolean
     set_uint64(meta_item: string, value: number): boolean
-    /* Methods of Gio.AsyncInitable */
+    /* Methods of Gio-2.0.Gio.AsyncInitable */
     init_async(io_priority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     init_finish(res: Gio.AsyncResult): boolean
     new_finish(res: Gio.AsyncResult): GObject.Object
-    /* Methods of Gio.Initable */
+    /* Methods of Gio-2.0.Gio.Initable */
     init(cancellable?: Gio.Cancellable | null): boolean
-    /* Virtual methods of GES.ClipAsset */
+    /* Virtual methods of GES-1.0.GES.ClipAsset */
     vfunc_get_natural_framerate(framerate_n: number, framerate_d: number): boolean
-    /* Virtual methods of GES.Asset */
+    /* Virtual methods of GES-1.0.GES.Asset */
     vfunc_extract(): Extractable
     vfunc_inform_proxy(proxy_id: string): void
     vfunc_proxied(proxy: Asset): void
@@ -3095,7 +3095,7 @@ export class ClipAsset {
     vfunc_init_async(io_priority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     vfunc_init_finish(res: Gio.AsyncResult): boolean
     vfunc_init(cancellable?: Gio.Cancellable | null): boolean
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -3103,11 +3103,11 @@ export class ClipAsset {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: ClipAsset, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: ClipAsset, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    /* Signals of GES.MetaContainer */
+    /* Signals of GES-1.0.GES.MetaContainer */
     connect(sigName: "notify-meta", callback: (($obj: ClipAsset, key: string, value?: any | null) => void)): number
     connect_after(sigName: "notify-meta", callback: (($obj: ClipAsset, key: string, value?: any | null) => void)): number
     emit(sigName: "notify-meta", key: string, value?: any | null): void
@@ -3129,17 +3129,17 @@ export class ClipAsset {
 export interface CommandLineFormatter_ConstructProps extends Formatter_ConstructProps {
 }
 export class CommandLineFormatter {
-    /* Fields of GES.CommandLineFormatter */
+    /* Fields of GES-1.0.GES.CommandLineFormatter */
     parent_instance: Formatter
     priv: CommandLineFormatterPrivate
-    /* Fields of GES.Formatter */
+    /* Fields of GES-1.0.GES.Formatter */
     parent: GObject.InitiallyUnowned
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GES.Formatter */
+    /* Methods of GES-1.0.GES.Formatter */
     load_from_uri(timeline: Timeline, uri: string): boolean
     save_to_uri(timeline: Timeline, uri: string, overwrite: boolean): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -3161,18 +3161,18 @@ export class CommandLineFormatter {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of GES.Extractable */
+    /* Methods of GES-1.0.GES.Extractable */
     get_asset(): Asset | null
     get_id(): string
     set_asset(asset: Asset): boolean
-    /* Virtual methods of GES.Formatter */
+    /* Virtual methods of GES-1.0.GES.Formatter */
     vfunc_can_load_uri(uri: string): boolean
     vfunc_load_from_uri(timeline: Timeline, uri: string): boolean
     vfunc_save_to_uri(timeline: Timeline, uri: string, overwrite: boolean): boolean
     vfunc_get_id(): string
     vfunc_set_asset(asset: Asset): void
     vfunc_set_asset_full(asset: Asset): boolean
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -3180,7 +3180,7 @@ export class CommandLineFormatter {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: CommandLineFormatter, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: CommandLineFormatter, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -3199,9 +3199,9 @@ export class CommandLineFormatter {
 export interface Container_ConstructProps extends TimelineElement_ConstructProps {
 }
 export class Container {
-    /* Properties of GES.Container */
+    /* Properties of GES-1.0.GES.Container */
     readonly height: number
-    /* Properties of GES.TimelineElement */
+    /* Properties of GES-1.0.GES.TimelineElement */
     duration: number
     in_point: number
     max_duration: number
@@ -3211,24 +3211,24 @@ export class Container {
     serialize: boolean
     start: number
     timeline: Timeline
-    /* Fields of GES.Container */
+    /* Fields of GES-1.0.GES.Container */
     children: TimelineElement[]
     children_control_mode: ChildrenControlMode
     initiated_move: TimelineElement
-    /* Fields of GES.TimelineElement */
+    /* Fields of GES-1.0.GES.TimelineElement */
     parent_instance: GObject.InitiallyUnowned
     asset: Asset
     inpoint: Gst.ClockTime
     maxduration: Gst.ClockTime
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GES.Container */
+    /* Methods of GES-1.0.GES.Container */
     add(child: TimelineElement): boolean
     edit(layers: Layer[] | null, new_layer_priority: number, mode: EditMode, edge: Edge, position: number): boolean
     get_children(recursive: boolean): TimelineElement[]
     remove(child: TimelineElement): boolean
     ungroup(recursive: boolean): Container[]
-    /* Methods of GES.TimelineElement */
+    /* Methods of GES-1.0.GES.TimelineElement */
     add_child_property(pspec: GObject.ParamSpec, child: GObject.Object): boolean
     copy(deep: boolean): TimelineElement
     edit_full(new_layer_priority: number, mode: EditMode, edge: Edge, position: number): boolean
@@ -3266,7 +3266,7 @@ export class Container {
     set_start(start: Gst.ClockTime): boolean
     set_timeline(timeline: Timeline): boolean
     trim(start: Gst.ClockTime): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -3288,11 +3288,11 @@ export class Container {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of GES.Extractable */
+    /* Methods of GES-1.0.GES.Extractable */
     get_asset(): Asset | null
     get_id(): string
     set_asset(asset: Asset): boolean
-    /* Methods of GES.MetaContainer */
+    /* Methods of GES-1.0.GES.MetaContainer */
     add_metas_from_string(str: string): boolean
     check_meta_registered(meta_item: string): [ /* returnType */ boolean, /* flags */ MetaFlag | null, /* type */ GObject.Type | null ]
     foreach(func: MetaForeachFunc): void
@@ -3333,14 +3333,14 @@ export class Container {
     set_string(meta_item: string, value: string): boolean
     set_uint(meta_item: string, value: number): boolean
     set_uint64(meta_item: string, value: number): boolean
-    /* Virtual methods of GES.Container */
+    /* Virtual methods of GES-1.0.GES.Container */
     vfunc_add_child(element: TimelineElement): boolean
     vfunc_child_added(element: TimelineElement): void
     vfunc_child_removed(element: TimelineElement): void
     vfunc_edit(layers: Layer[] | null, new_layer_priority: number, mode: EditMode, edge: Edge, position: number): boolean
     vfunc_remove_child(element: TimelineElement): boolean
     vfunc_ungroup(recursive: boolean): Container[]
-    /* Virtual methods of GES.TimelineElement */
+    /* Virtual methods of GES-1.0.GES.TimelineElement */
     vfunc_deep_copy(copy: TimelineElement): void
     vfunc_get_layer_priority(): number
     vfunc_get_natural_framerate(): [ /* returnType */ boolean, /* framerate_n */ number, /* framerate_d */ number ]
@@ -3362,7 +3362,7 @@ export class Container {
     vfunc_get_id(): string
     vfunc_set_asset(asset: Asset): void
     vfunc_set_asset_full(asset: Asset): boolean
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -3370,14 +3370,14 @@ export class Container {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GES.Container */
+    /* Signals of GES-1.0.GES.Container */
     connect(sigName: "child-added", callback: (($obj: Container, element: TimelineElement) => void)): number
     connect_after(sigName: "child-added", callback: (($obj: Container, element: TimelineElement) => void)): number
     emit(sigName: "child-added", element: TimelineElement): void
     connect(sigName: "child-removed", callback: (($obj: Container, element: TimelineElement) => void)): number
     connect_after(sigName: "child-removed", callback: (($obj: Container, element: TimelineElement) => void)): number
     emit(sigName: "child-removed", element: TimelineElement): void
-    /* Signals of GES.TimelineElement */
+    /* Signals of GES-1.0.GES.TimelineElement */
     connect(sigName: "child-property-added", callback: (($obj: Container, prop_object: GObject.Object, prop: GObject.ParamSpec) => void)): number
     connect_after(sigName: "child-property-added", callback: (($obj: Container, prop_object: GObject.Object, prop: GObject.ParamSpec) => void)): number
     emit(sigName: "child-property-added", prop_object: GObject.Object, prop: GObject.ParamSpec): void
@@ -3387,11 +3387,11 @@ export class Container {
     connect(sigName: "deep-notify", callback: (($obj: Container, prop_object: GObject.Object, prop: GObject.ParamSpec) => void)): number
     connect_after(sigName: "deep-notify", callback: (($obj: Container, prop_object: GObject.Object, prop: GObject.ParamSpec) => void)): number
     emit(sigName: "deep-notify", prop_object: GObject.Object, prop: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Container, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Container, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    /* Signals of GES.MetaContainer */
+    /* Signals of GES-1.0.GES.MetaContainer */
     connect(sigName: "notify-meta", callback: (($obj: Container, key: string, value?: any | null) => void)): number
     connect_after(sigName: "notify-meta", callback: (($obj: Container, key: string, value?: any | null) => void)): number
     emit(sigName: "notify-meta", key: string, value?: any | null): void
@@ -3430,13 +3430,13 @@ export interface Effect_ConstructProps extends BaseEffect_ConstructProps {
     bin_description?: string
 }
 export class Effect {
-    /* Properties of GES.TrackElement */
+    /* Properties of GES-1.0.GES.TrackElement */
     active: boolean
     auto_clamp_control_sources: boolean
     has_internal_source: boolean
     readonly track: Track
     track_type: TrackType
-    /* Properties of GES.TimelineElement */
+    /* Properties of GES-1.0.GES.TimelineElement */
     duration: number
     in_point: number
     max_duration: number
@@ -3446,18 +3446,18 @@ export class Effect {
     serialize: boolean
     start: number
     timeline: Timeline
-    /* Fields of GES.TimelineElement */
+    /* Fields of GES-1.0.GES.TimelineElement */
     parent_instance: GObject.InitiallyUnowned
     asset: Asset
     inpoint: Gst.ClockTime
     maxduration: Gst.ClockTime
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GES.BaseEffect */
+    /* Methods of GES-1.0.GES.BaseEffect */
     is_time_effect(): boolean
     register_time_property(child_property_name: string): boolean
     set_time_translation_funcs(source_to_sink_func?: BaseEffectTimeTranslationFunc | null, sink_to_source_func?: BaseEffectTimeTranslationFunc | null): boolean
-    /* Methods of GES.TrackElement */
+    /* Methods of GES-1.0.GES.TrackElement */
     add_children_props(element: Gst.Element, wanted_categories?: string[] | null, blacklist?: string[] | null, whitelist?: string[] | null): void
     clamp_control_source(property_name: string): void
     edit(layers: Layer[] | null, mode: EditMode, edge: Edge, position: number): boolean
@@ -3479,7 +3479,7 @@ export class Effect {
     set_control_source(source: Gst.ControlSource, property_name: string, binding_type: string): boolean
     set_has_internal_source(has_internal_source: boolean): boolean
     set_track_type(type: TrackType): void
-    /* Methods of GES.TimelineElement */
+    /* Methods of GES-1.0.GES.TimelineElement */
     add_child_property(pspec: GObject.ParamSpec, child: GObject.Object): boolean
     copy(deep: boolean): TimelineElement
     edit(layers: Layer[] | null, new_layer_priority: number, mode: EditMode, edge: Edge, position: number): boolean
@@ -3517,7 +3517,7 @@ export class Effect {
     set_start(start: Gst.ClockTime): boolean
     set_timeline(timeline: Timeline): boolean
     trim(start: Gst.ClockTime): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -3539,11 +3539,11 @@ export class Effect {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of GES.Extractable */
+    /* Methods of GES-1.0.GES.Extractable */
     get_asset(): Asset | null
     get_id(): string
     set_asset(asset: Asset): boolean
-    /* Methods of GES.MetaContainer */
+    /* Methods of GES-1.0.GES.MetaContainer */
     add_metas_from_string(str: string): boolean
     check_meta_registered(meta_item: string): [ /* returnType */ boolean, /* flags */ MetaFlag | null, /* type */ GObject.Type | null ]
     foreach(func: MetaForeachFunc): void
@@ -3584,11 +3584,11 @@ export class Effect {
     set_string(meta_item: string, value: string): boolean
     set_uint(meta_item: string, value: number): boolean
     set_uint64(meta_item: string, value: number): boolean
-    /* Virtual methods of GES.TrackElement */
+    /* Virtual methods of GES-1.0.GES.TrackElement */
     vfunc_active_changed(active: boolean): void
     vfunc_changed(): void
     vfunc_lookup_child(prop_name: string): [ /* returnType */ boolean, /* element */ Gst.Element | null, /* pspec */ GObject.ParamSpec | null ]
-    /* Virtual methods of GES.TimelineElement */
+    /* Virtual methods of GES-1.0.GES.TimelineElement */
     vfunc_deep_copy(copy: TimelineElement): void
     vfunc_get_layer_priority(): number
     vfunc_get_natural_framerate(): [ /* returnType */ boolean, /* framerate_n */ number, /* framerate_d */ number ]
@@ -3610,7 +3610,7 @@ export class Effect {
     vfunc_get_id(): string
     vfunc_set_asset(asset: Asset): void
     vfunc_set_asset_full(asset: Asset): boolean
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -3618,14 +3618,14 @@ export class Effect {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GES.TrackElement */
+    /* Signals of GES-1.0.GES.TrackElement */
     connect(sigName: "control-binding-added", callback: (($obj: Effect, control_binding: Gst.ControlBinding) => void)): number
     connect_after(sigName: "control-binding-added", callback: (($obj: Effect, control_binding: Gst.ControlBinding) => void)): number
     emit(sigName: "control-binding-added", control_binding: Gst.ControlBinding): void
     connect(sigName: "control-binding-removed", callback: (($obj: Effect, control_binding: Gst.ControlBinding) => void)): number
     connect_after(sigName: "control-binding-removed", callback: (($obj: Effect, control_binding: Gst.ControlBinding) => void)): number
     emit(sigName: "control-binding-removed", control_binding: Gst.ControlBinding): void
-    /* Signals of GES.TimelineElement */
+    /* Signals of GES-1.0.GES.TimelineElement */
     connect(sigName: "child-property-added", callback: (($obj: Effect, prop_object: GObject.Object, prop: GObject.ParamSpec) => void)): number
     connect_after(sigName: "child-property-added", callback: (($obj: Effect, prop_object: GObject.Object, prop: GObject.ParamSpec) => void)): number
     emit(sigName: "child-property-added", prop_object: GObject.Object, prop: GObject.ParamSpec): void
@@ -3635,11 +3635,11 @@ export class Effect {
     connect(sigName: "deep-notify", callback: (($obj: Effect, prop_object: GObject.Object, prop: GObject.ParamSpec) => void)): number
     connect_after(sigName: "deep-notify", callback: (($obj: Effect, prop_object: GObject.Object, prop: GObject.ParamSpec) => void)): number
     emit(sigName: "deep-notify", prop_object: GObject.Object, prop: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Effect, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Effect, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    /* Signals of GES.MetaContainer */
+    /* Signals of GES-1.0.GES.MetaContainer */
     connect(sigName: "notify-meta", callback: (($obj: Effect, key: string, value?: any | null) => void)): number
     connect_after(sigName: "notify-meta", callback: (($obj: Effect, key: string, value?: any | null) => void)): number
     emit(sigName: "notify-meta", key: string, value?: any | null): void
@@ -3686,24 +3686,24 @@ export class Effect {
 export interface EffectAsset_ConstructProps extends TrackElementAsset_ConstructProps {
 }
 export class EffectAsset {
-    /* Properties of GES.TrackElementAsset */
+    /* Properties of GES-1.0.GES.TrackElementAsset */
     track_type: TrackType
-    /* Properties of GES.Asset */
+    /* Properties of GES-1.0.GES.Asset */
     proxy: Asset
     readonly proxy_target: Asset
-    /* Fields of GES.EffectAsset */
+    /* Fields of GES-1.0.GES.EffectAsset */
     parent_instance: TrackElementAsset
     priv: EffectAssetPrivate
     _ges_reserved: object[]
-    /* Fields of GES.TrackElementAsset */
+    /* Fields of GES-1.0.GES.TrackElementAsset */
     parent: Asset
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GES.TrackElementAsset */
+    /* Methods of GES-1.0.GES.TrackElementAsset */
     get_natural_framerate(framerate_n: number, framerate_d: number): boolean
     get_track_type(): TrackType
     set_track_type(type: TrackType): void
-    /* Methods of GES.Asset */
+    /* Methods of GES-1.0.GES.Asset */
     extract(): Extractable
     get_error(): GLib.Error | null
     get_extractable_type(): GObject.Type
@@ -3713,7 +3713,7 @@ export class EffectAsset {
     list_proxies(): Asset[]
     set_proxy(proxy?: Asset | null): boolean
     unproxy(proxy: Asset): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -3735,7 +3735,7 @@ export class EffectAsset {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of GES.MetaContainer */
+    /* Methods of GES-1.0.GES.MetaContainer */
     add_metas_from_string(str: string): boolean
     check_meta_registered(meta_item: string): [ /* returnType */ boolean, /* flags */ MetaFlag | null, /* type */ GObject.Type | null ]
     foreach(func: MetaForeachFunc): void
@@ -3776,15 +3776,15 @@ export class EffectAsset {
     set_string(meta_item: string, value: string): boolean
     set_uint(meta_item: string, value: number): boolean
     set_uint64(meta_item: string, value: number): boolean
-    /* Methods of Gio.AsyncInitable */
+    /* Methods of Gio-2.0.Gio.AsyncInitable */
     init_async(io_priority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     init_finish(res: Gio.AsyncResult): boolean
     new_finish(res: Gio.AsyncResult): GObject.Object
-    /* Methods of Gio.Initable */
+    /* Methods of Gio-2.0.Gio.Initable */
     init(cancellable?: Gio.Cancellable | null): boolean
-    /* Virtual methods of GES.TrackElementAsset */
+    /* Virtual methods of GES-1.0.GES.TrackElementAsset */
     vfunc_get_natural_framerate(framerate_n: number, framerate_d: number): boolean
-    /* Virtual methods of GES.Asset */
+    /* Virtual methods of GES-1.0.GES.Asset */
     vfunc_extract(): Extractable
     vfunc_inform_proxy(proxy_id: string): void
     vfunc_proxied(proxy: Asset): void
@@ -3793,7 +3793,7 @@ export class EffectAsset {
     vfunc_init_async(io_priority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     vfunc_init_finish(res: Gio.AsyncResult): boolean
     vfunc_init(cancellable?: Gio.Cancellable | null): boolean
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -3801,11 +3801,11 @@ export class EffectAsset {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: EffectAsset, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: EffectAsset, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    /* Signals of GES.MetaContainer */
+    /* Signals of GES-1.0.GES.MetaContainer */
     connect(sigName: "notify-meta", callback: (($obj: EffectAsset, key: string, value?: any | null) => void)): number
     connect_after(sigName: "notify-meta", callback: (($obj: EffectAsset, key: string, value?: any | null) => void)): number
     emit(sigName: "notify-meta", key: string, value?: any | null): void
@@ -3829,13 +3829,13 @@ export interface EffectClip_ConstructProps extends BaseEffectClip_ConstructProps
     video_bin_description?: string
 }
 export class EffectClip {
-    /* Properties of GES.Clip */
+    /* Properties of GES-1.0.GES.Clip */
     readonly duration_limit: number
     readonly layer: Layer
     supported_formats: TrackType
-    /* Properties of GES.Container */
+    /* Properties of GES-1.0.GES.Container */
     readonly height: number
-    /* Properties of GES.TimelineElement */
+    /* Properties of GES-1.0.GES.TimelineElement */
     duration: number
     in_point: number
     max_duration: number
@@ -3845,18 +3845,18 @@ export class EffectClip {
     serialize: boolean
     start: number
     timeline: Timeline
-    /* Fields of GES.Container */
+    /* Fields of GES-1.0.GES.Container */
     children: TimelineElement[]
     children_control_mode: ChildrenControlMode
     initiated_move: TimelineElement
-    /* Fields of GES.TimelineElement */
+    /* Fields of GES-1.0.GES.TimelineElement */
     parent_instance: GObject.InitiallyUnowned
     asset: Asset
     inpoint: Gst.ClockTime
     maxduration: Gst.ClockTime
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GES.Clip */
+    /* Methods of GES-1.0.GES.Clip */
     add_asset(asset: Asset): TrackElement | null
     add_child_to_track(child: TrackElement, track: Track): TrackElement
     add_top_effect(effect: BaseEffect, index: number): boolean
@@ -3880,13 +3880,13 @@ export class EffectClip {
     set_top_effect_priority(effect: BaseEffect, newpriority: number): boolean
     split(position: number): Clip | null
     split_full(position: number): Clip | null
-    /* Methods of GES.Container */
+    /* Methods of GES-1.0.GES.Container */
     add(child: TimelineElement): boolean
     edit(layers: Layer[] | null, new_layer_priority: number, mode: EditMode, edge: Edge, position: number): boolean
     get_children(recursive: boolean): TimelineElement[]
     remove(child: TimelineElement): boolean
     ungroup(recursive: boolean): Container[]
-    /* Methods of GES.TimelineElement */
+    /* Methods of GES-1.0.GES.TimelineElement */
     add_child_property(pspec: GObject.ParamSpec, child: GObject.Object): boolean
     copy(deep: boolean): TimelineElement
     edit_full(new_layer_priority: number, mode: EditMode, edge: Edge, position: number): boolean
@@ -3924,7 +3924,7 @@ export class EffectClip {
     set_start(start: Gst.ClockTime): boolean
     set_timeline(timeline: Timeline): boolean
     trim(start: Gst.ClockTime): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -3946,11 +3946,11 @@ export class EffectClip {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of GES.Extractable */
+    /* Methods of GES-1.0.GES.Extractable */
     get_asset(): Asset | null
     get_id(): string
     set_asset(asset: Asset): boolean
-    /* Methods of GES.MetaContainer */
+    /* Methods of GES-1.0.GES.MetaContainer */
     add_metas_from_string(str: string): boolean
     check_meta_registered(meta_item: string): [ /* returnType */ boolean, /* flags */ MetaFlag | null, /* type */ GObject.Type | null ]
     foreach(func: MetaForeachFunc): void
@@ -3991,17 +3991,17 @@ export class EffectClip {
     set_string(meta_item: string, value: string): boolean
     set_uint(meta_item: string, value: number): boolean
     set_uint64(meta_item: string, value: number): boolean
-    /* Virtual methods of GES.Clip */
+    /* Virtual methods of GES-1.0.GES.Clip */
     vfunc_create_track_element(type: TrackType): TrackElement | null
     vfunc_create_track_elements(type: TrackType): TrackElement[]
-    /* Virtual methods of GES.Container */
+    /* Virtual methods of GES-1.0.GES.Container */
     vfunc_add_child(element: TimelineElement): boolean
     vfunc_child_added(element: TimelineElement): void
     vfunc_child_removed(element: TimelineElement): void
     vfunc_edit(layers: Layer[] | null, new_layer_priority: number, mode: EditMode, edge: Edge, position: number): boolean
     vfunc_remove_child(element: TimelineElement): boolean
     vfunc_ungroup(recursive: boolean): Container[]
-    /* Virtual methods of GES.TimelineElement */
+    /* Virtual methods of GES-1.0.GES.TimelineElement */
     vfunc_deep_copy(copy: TimelineElement): void
     vfunc_get_layer_priority(): number
     vfunc_get_natural_framerate(): [ /* returnType */ boolean, /* framerate_n */ number, /* framerate_d */ number ]
@@ -4023,7 +4023,7 @@ export class EffectClip {
     vfunc_get_id(): string
     vfunc_set_asset(asset: Asset): void
     vfunc_set_asset_full(asset: Asset): boolean
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -4031,14 +4031,14 @@ export class EffectClip {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GES.Container */
+    /* Signals of GES-1.0.GES.Container */
     connect(sigName: "child-added", callback: (($obj: EffectClip, element: TimelineElement) => void)): number
     connect_after(sigName: "child-added", callback: (($obj: EffectClip, element: TimelineElement) => void)): number
     emit(sigName: "child-added", element: TimelineElement): void
     connect(sigName: "child-removed", callback: (($obj: EffectClip, element: TimelineElement) => void)): number
     connect_after(sigName: "child-removed", callback: (($obj: EffectClip, element: TimelineElement) => void)): number
     emit(sigName: "child-removed", element: TimelineElement): void
-    /* Signals of GES.TimelineElement */
+    /* Signals of GES-1.0.GES.TimelineElement */
     connect(sigName: "child-property-added", callback: (($obj: EffectClip, prop_object: GObject.Object, prop: GObject.ParamSpec) => void)): number
     connect_after(sigName: "child-property-added", callback: (($obj: EffectClip, prop_object: GObject.Object, prop: GObject.ParamSpec) => void)): number
     emit(sigName: "child-property-added", prop_object: GObject.Object, prop: GObject.ParamSpec): void
@@ -4048,11 +4048,11 @@ export class EffectClip {
     connect(sigName: "deep-notify", callback: (($obj: EffectClip, prop_object: GObject.Object, prop: GObject.ParamSpec) => void)): number
     connect_after(sigName: "deep-notify", callback: (($obj: EffectClip, prop_object: GObject.Object, prop: GObject.ParamSpec) => void)): number
     emit(sigName: "deep-notify", prop_object: GObject.Object, prop: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: EffectClip, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: EffectClip, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    /* Signals of GES.MetaContainer */
+    /* Signals of GES-1.0.GES.MetaContainer */
     connect(sigName: "notify-meta", callback: (($obj: EffectClip, key: string, value?: any | null) => void)): number
     connect_after(sigName: "notify-meta", callback: (($obj: EffectClip, key: string, value?: any | null) => void)): number
     emit(sigName: "notify-meta", key: string, value?: any | null): void
@@ -4096,14 +4096,14 @@ export class EffectClip {
 export interface Formatter_ConstructProps extends GObject.InitiallyUnowned_ConstructProps {
 }
 export class Formatter {
-    /* Fields of GES.Formatter */
+    /* Fields of GES-1.0.GES.Formatter */
     parent: GObject.InitiallyUnowned
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GES.Formatter */
+    /* Methods of GES-1.0.GES.Formatter */
     load_from_uri(timeline: Timeline, uri: string): boolean
     save_to_uri(timeline: Timeline, uri: string, overwrite: boolean): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -4125,18 +4125,18 @@ export class Formatter {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of GES.Extractable */
+    /* Methods of GES-1.0.GES.Extractable */
     get_asset(): Asset | null
     get_id(): string
     set_asset(asset: Asset): boolean
-    /* Virtual methods of GES.Formatter */
+    /* Virtual methods of GES-1.0.GES.Formatter */
     vfunc_can_load_uri(uri: string): boolean
     vfunc_load_from_uri(timeline: Timeline, uri: string): boolean
     vfunc_save_to_uri(timeline: Timeline, uri: string, overwrite: boolean): boolean
     vfunc_get_id(): string
     vfunc_set_asset(asset: Asset): void
     vfunc_set_asset_full(asset: Asset): boolean
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -4144,7 +4144,7 @@ export class Formatter {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Formatter, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Formatter, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -4170,37 +4170,37 @@ export interface Group_ConstructProps extends Container_ConstructProps {
     start?: number
 }
 export class Group {
-    /* Properties of GES.Group */
+    /* Properties of GES-1.0.GES.Group */
     duration: number
     in_point: number
     max_duration: number
     priority: number
     start: number
-    /* Properties of GES.Container */
+    /* Properties of GES-1.0.GES.Container */
     readonly height: number
-    /* Properties of GES.TimelineElement */
+    /* Properties of GES-1.0.GES.TimelineElement */
     name: string
     parent: TimelineElement
     serialize: boolean
     timeline: Timeline
-    /* Fields of GES.Container */
+    /* Fields of GES-1.0.GES.Container */
     children: TimelineElement[]
     children_control_mode: ChildrenControlMode
     initiated_move: TimelineElement
-    /* Fields of GES.TimelineElement */
+    /* Fields of GES-1.0.GES.TimelineElement */
     parent_instance: GObject.InitiallyUnowned
     asset: Asset
     inpoint: Gst.ClockTime
     maxduration: Gst.ClockTime
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GES.Container */
+    /* Methods of GES-1.0.GES.Container */
     add(child: TimelineElement): boolean
     edit(layers: Layer[] | null, new_layer_priority: number, mode: EditMode, edge: Edge, position: number): boolean
     get_children(recursive: boolean): TimelineElement[]
     remove(child: TimelineElement): boolean
     ungroup(recursive: boolean): Container[]
-    /* Methods of GES.TimelineElement */
+    /* Methods of GES-1.0.GES.TimelineElement */
     add_child_property(pspec: GObject.ParamSpec, child: GObject.Object): boolean
     copy(deep: boolean): TimelineElement
     edit_full(new_layer_priority: number, mode: EditMode, edge: Edge, position: number): boolean
@@ -4238,7 +4238,7 @@ export class Group {
     set_start(start: Gst.ClockTime): boolean
     set_timeline(timeline: Timeline): boolean
     trim(start: Gst.ClockTime): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -4260,11 +4260,11 @@ export class Group {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of GES.Extractable */
+    /* Methods of GES-1.0.GES.Extractable */
     get_asset(): Asset | null
     get_id(): string
     set_asset(asset: Asset): boolean
-    /* Methods of GES.MetaContainer */
+    /* Methods of GES-1.0.GES.MetaContainer */
     add_metas_from_string(str: string): boolean
     check_meta_registered(meta_item: string): [ /* returnType */ boolean, /* flags */ MetaFlag | null, /* type */ GObject.Type | null ]
     foreach(func: MetaForeachFunc): void
@@ -4305,14 +4305,14 @@ export class Group {
     set_string(meta_item: string, value: string): boolean
     set_uint(meta_item: string, value: number): boolean
     set_uint64(meta_item: string, value: number): boolean
-    /* Virtual methods of GES.Container */
+    /* Virtual methods of GES-1.0.GES.Container */
     vfunc_add_child(element: TimelineElement): boolean
     vfunc_child_added(element: TimelineElement): void
     vfunc_child_removed(element: TimelineElement): void
     vfunc_edit(layers: Layer[] | null, new_layer_priority: number, mode: EditMode, edge: Edge, position: number): boolean
     vfunc_remove_child(element: TimelineElement): boolean
     vfunc_ungroup(recursive: boolean): Container[]
-    /* Virtual methods of GES.TimelineElement */
+    /* Virtual methods of GES-1.0.GES.TimelineElement */
     vfunc_deep_copy(copy: TimelineElement): void
     vfunc_get_layer_priority(): number
     vfunc_get_natural_framerate(): [ /* returnType */ boolean, /* framerate_n */ number, /* framerate_d */ number ]
@@ -4334,7 +4334,7 @@ export class Group {
     vfunc_get_id(): string
     vfunc_set_asset(asset: Asset): void
     vfunc_set_asset_full(asset: Asset): boolean
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -4342,14 +4342,14 @@ export class Group {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GES.Container */
+    /* Signals of GES-1.0.GES.Container */
     connect(sigName: "child-added", callback: (($obj: Group, element: TimelineElement) => void)): number
     connect_after(sigName: "child-added", callback: (($obj: Group, element: TimelineElement) => void)): number
     emit(sigName: "child-added", element: TimelineElement): void
     connect(sigName: "child-removed", callback: (($obj: Group, element: TimelineElement) => void)): number
     connect_after(sigName: "child-removed", callback: (($obj: Group, element: TimelineElement) => void)): number
     emit(sigName: "child-removed", element: TimelineElement): void
-    /* Signals of GES.TimelineElement */
+    /* Signals of GES-1.0.GES.TimelineElement */
     connect(sigName: "child-property-added", callback: (($obj: Group, prop_object: GObject.Object, prop: GObject.ParamSpec) => void)): number
     connect_after(sigName: "child-property-added", callback: (($obj: Group, prop_object: GObject.Object, prop: GObject.ParamSpec) => void)): number
     emit(sigName: "child-property-added", prop_object: GObject.Object, prop: GObject.ParamSpec): void
@@ -4359,11 +4359,11 @@ export class Group {
     connect(sigName: "deep-notify", callback: (($obj: Group, prop_object: GObject.Object, prop: GObject.ParamSpec) => void)): number
     connect_after(sigName: "deep-notify", callback: (($obj: Group, prop_object: GObject.Object, prop: GObject.ParamSpec) => void)): number
     emit(sigName: "deep-notify", prop_object: GObject.Object, prop: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Group, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Group, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    /* Signals of GES.MetaContainer */
+    /* Signals of GES-1.0.GES.MetaContainer */
     connect(sigName: "notify-meta", callback: (($obj: Group, key: string, value?: any | null) => void)): number
     connect_after(sigName: "notify-meta", callback: (($obj: Group, key: string, value?: any | null) => void)): number
     emit(sigName: "notify-meta", key: string, value?: any | null): void
@@ -4402,13 +4402,13 @@ export interface ImageSource_ConstructProps extends VideoSource_ConstructProps {
     uri?: string
 }
 export class ImageSource {
-    /* Properties of GES.TrackElement */
+    /* Properties of GES-1.0.GES.TrackElement */
     active: boolean
     auto_clamp_control_sources: boolean
     has_internal_source: boolean
     readonly track: Track
     track_type: TrackType
-    /* Properties of GES.TimelineElement */
+    /* Properties of GES-1.0.GES.TimelineElement */
     duration: number
     in_point: number
     max_duration: number
@@ -4418,16 +4418,16 @@ export class ImageSource {
     serialize: boolean
     start: number
     timeline: Timeline
-    /* Fields of GES.TimelineElement */
+    /* Fields of GES-1.0.GES.TimelineElement */
     parent_instance: GObject.InitiallyUnowned
     asset: Asset
     inpoint: Gst.ClockTime
     maxduration: Gst.ClockTime
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GES.VideoSource */
+    /* Methods of GES-1.0.GES.VideoSource */
     get_natural_size(): [ /* returnType */ boolean, /* width */ number, /* height */ number ]
-    /* Methods of GES.TrackElement */
+    /* Methods of GES-1.0.GES.TrackElement */
     add_children_props(element: Gst.Element, wanted_categories?: string[] | null, blacklist?: string[] | null, whitelist?: string[] | null): void
     clamp_control_source(property_name: string): void
     edit(layers: Layer[] | null, mode: EditMode, edge: Edge, position: number): boolean
@@ -4449,7 +4449,7 @@ export class ImageSource {
     set_control_source(source: Gst.ControlSource, property_name: string, binding_type: string): boolean
     set_has_internal_source(has_internal_source: boolean): boolean
     set_track_type(type: TrackType): void
-    /* Methods of GES.TimelineElement */
+    /* Methods of GES-1.0.GES.TimelineElement */
     add_child_property(pspec: GObject.ParamSpec, child: GObject.Object): boolean
     copy(deep: boolean): TimelineElement
     edit(layers: Layer[] | null, new_layer_priority: number, mode: EditMode, edge: Edge, position: number): boolean
@@ -4487,7 +4487,7 @@ export class ImageSource {
     set_start(start: Gst.ClockTime): boolean
     set_timeline(timeline: Timeline): boolean
     trim(start: Gst.ClockTime): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -4509,11 +4509,11 @@ export class ImageSource {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of GES.Extractable */
+    /* Methods of GES-1.0.GES.Extractable */
     get_asset(): Asset | null
     get_id(): string
     set_asset(asset: Asset): boolean
-    /* Methods of GES.MetaContainer */
+    /* Methods of GES-1.0.GES.MetaContainer */
     add_metas_from_string(str: string): boolean
     check_meta_registered(meta_item: string): [ /* returnType */ boolean, /* flags */ MetaFlag | null, /* type */ GObject.Type | null ]
     foreach(func: MetaForeachFunc): void
@@ -4554,13 +4554,13 @@ export class ImageSource {
     set_string(meta_item: string, value: string): boolean
     set_uint(meta_item: string, value: number): boolean
     set_uint64(meta_item: string, value: number): boolean
-    /* Virtual methods of GES.Source */
+    /* Virtual methods of GES-1.0.GES.Source */
     vfunc_select_pad(pad: Gst.Pad): boolean
-    /* Virtual methods of GES.TrackElement */
+    /* Virtual methods of GES-1.0.GES.TrackElement */
     vfunc_active_changed(active: boolean): void
     vfunc_changed(): void
     vfunc_lookup_child(prop_name: string): [ /* returnType */ boolean, /* element */ Gst.Element | null, /* pspec */ GObject.ParamSpec | null ]
-    /* Virtual methods of GES.TimelineElement */
+    /* Virtual methods of GES-1.0.GES.TimelineElement */
     vfunc_deep_copy(copy: TimelineElement): void
     vfunc_get_layer_priority(): number
     vfunc_get_natural_framerate(): [ /* returnType */ boolean, /* framerate_n */ number, /* framerate_d */ number ]
@@ -4582,7 +4582,7 @@ export class ImageSource {
     vfunc_get_id(): string
     vfunc_set_asset(asset: Asset): void
     vfunc_set_asset_full(asset: Asset): boolean
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -4590,14 +4590,14 @@ export class ImageSource {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GES.TrackElement */
+    /* Signals of GES-1.0.GES.TrackElement */
     connect(sigName: "control-binding-added", callback: (($obj: ImageSource, control_binding: Gst.ControlBinding) => void)): number
     connect_after(sigName: "control-binding-added", callback: (($obj: ImageSource, control_binding: Gst.ControlBinding) => void)): number
     emit(sigName: "control-binding-added", control_binding: Gst.ControlBinding): void
     connect(sigName: "control-binding-removed", callback: (($obj: ImageSource, control_binding: Gst.ControlBinding) => void)): number
     connect_after(sigName: "control-binding-removed", callback: (($obj: ImageSource, control_binding: Gst.ControlBinding) => void)): number
     emit(sigName: "control-binding-removed", control_binding: Gst.ControlBinding): void
-    /* Signals of GES.TimelineElement */
+    /* Signals of GES-1.0.GES.TimelineElement */
     connect(sigName: "child-property-added", callback: (($obj: ImageSource, prop_object: GObject.Object, prop: GObject.ParamSpec) => void)): number
     connect_after(sigName: "child-property-added", callback: (($obj: ImageSource, prop_object: GObject.Object, prop: GObject.ParamSpec) => void)): number
     emit(sigName: "child-property-added", prop_object: GObject.Object, prop: GObject.ParamSpec): void
@@ -4607,11 +4607,11 @@ export class ImageSource {
     connect(sigName: "deep-notify", callback: (($obj: ImageSource, prop_object: GObject.Object, prop: GObject.ParamSpec) => void)): number
     connect_after(sigName: "deep-notify", callback: (($obj: ImageSource, prop_object: GObject.Object, prop: GObject.ParamSpec) => void)): number
     emit(sigName: "deep-notify", prop_object: GObject.Object, prop: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: ImageSource, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: ImageSource, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    /* Signals of GES.MetaContainer */
+    /* Signals of GES-1.0.GES.MetaContainer */
     connect(sigName: "notify-meta", callback: (($obj: ImageSource, key: string, value?: any | null) => void)): number
     connect_after(sigName: "notify-meta", callback: (($obj: ImageSource, key: string, value?: any | null) => void)): number
     emit(sigName: "notify-meta", key: string, value?: any | null): void
@@ -4657,19 +4657,19 @@ export interface Layer_ConstructProps extends GObject.InitiallyUnowned_Construct
     priority?: number
 }
 export class Layer {
-    /* Properties of GES.Layer */
+    /* Properties of GES-1.0.GES.Layer */
     auto_transition: boolean
     priority: number
-    /* Fields of GES.Layer */
+    /* Fields of GES-1.0.GES.Layer */
     parent: GObject.InitiallyUnowned
     timeline: Timeline
     min_nle_priority: number
     max_nle_priority: number
     priv: LayerPrivate
     _ges_reserved: object[]
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GES.Layer */
+    /* Methods of GES-1.0.GES.Layer */
     add_asset(asset: Asset, start: Gst.ClockTime, inpoint: Gst.ClockTime, duration: Gst.ClockTime, track_types: TrackType): Clip
     add_asset_full(asset: Asset, start: Gst.ClockTime, inpoint: Gst.ClockTime, duration: Gst.ClockTime, track_types: TrackType): Clip
     add_clip(clip: Clip): boolean
@@ -4687,7 +4687,7 @@ export class Layer {
     set_auto_transition(auto_transition: boolean): void
     set_priority(priority: number): void
     set_timeline(timeline: Timeline): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -4709,11 +4709,11 @@ export class Layer {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of GES.Extractable */
+    /* Methods of GES-1.0.GES.Extractable */
     get_asset(): Asset | null
     get_id(): string
     set_asset(asset: Asset): boolean
-    /* Methods of GES.MetaContainer */
+    /* Methods of GES-1.0.GES.MetaContainer */
     add_metas_from_string(str: string): boolean
     check_meta_registered(meta_item: string): [ /* returnType */ boolean, /* flags */ MetaFlag | null, /* type */ GObject.Type | null ]
     foreach(func: MetaForeachFunc): void
@@ -4754,13 +4754,13 @@ export class Layer {
     set_string(meta_item: string, value: string): boolean
     set_uint(meta_item: string, value: number): boolean
     set_uint64(meta_item: string, value: number): boolean
-    /* Virtual methods of GES.Layer */
+    /* Virtual methods of GES-1.0.GES.Layer */
     vfunc_object_added(object: Clip): void
     vfunc_object_removed(object: Clip): void
     vfunc_get_id(): string
     vfunc_set_asset(asset: Asset): void
     vfunc_set_asset_full(asset: Asset): boolean
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -4768,7 +4768,7 @@ export class Layer {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GES.Layer */
+    /* Signals of GES-1.0.GES.Layer */
     connect(sigName: "active-changed", callback: (($obj: Layer, active: boolean, tracks: Track[]) => void)): number
     connect_after(sigName: "active-changed", callback: (($obj: Layer, active: boolean, tracks: Track[]) => void)): number
     emit(sigName: "active-changed", active: boolean, tracks: Track[]): void
@@ -4778,11 +4778,11 @@ export class Layer {
     connect(sigName: "clip-removed", callback: (($obj: Layer, clip: Clip) => void)): number
     connect_after(sigName: "clip-removed", callback: (($obj: Layer, clip: Clip) => void)): number
     emit(sigName: "clip-removed", clip: Clip): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Layer, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Layer, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    /* Signals of GES.MetaContainer */
+    /* Signals of GES-1.0.GES.MetaContainer */
     connect(sigName: "notify-meta", callback: (($obj: Layer, key: string, value?: any | null) => void)): number
     connect_after(sigName: "notify-meta", callback: (($obj: Layer, key: string, value?: any | null) => void)): number
     emit(sigName: "notify-meta", key: string, value?: any | null): void
@@ -4804,11 +4804,11 @@ export class Layer {
 export interface Marker_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class Marker {
-    /* Properties of GES.Marker */
+    /* Properties of GES-1.0.GES.Marker */
     readonly position: number
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -4830,7 +4830,7 @@ export class Marker {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of GES.MetaContainer */
+    /* Methods of GES-1.0.GES.MetaContainer */
     add_metas_from_string(str: string): boolean
     check_meta_registered(meta_item: string): [ /* returnType */ boolean, /* flags */ MetaFlag | null, /* type */ GObject.Type | null ]
     foreach(func: MetaForeachFunc): void
@@ -4871,7 +4871,7 @@ export class Marker {
     set_string(meta_item: string, value: string): boolean
     set_uint(meta_item: string, value: number): boolean
     set_uint64(meta_item: string, value: number): boolean
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -4879,11 +4879,11 @@ export class Marker {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Marker, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Marker, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    /* Signals of GES.MetaContainer */
+    /* Signals of GES-1.0.GES.MetaContainer */
     connect(sigName: "notify-meta", callback: (($obj: Marker, key: string, value?: any | null) => void)): number
     connect_after(sigName: "notify-meta", callback: (($obj: Marker, key: string, value?: any | null) => void)): number
     emit(sigName: "notify-meta", key: string, value?: any | null): void
@@ -4901,15 +4901,15 @@ export class Marker {
 export interface MarkerList_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class MarkerList {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GES.MarkerList */
+    /* Methods of GES-1.0.GES.MarkerList */
     add(position: Gst.ClockTime): Marker
     get_markers(): Marker[]
     move(marker: Marker, position: Gst.ClockTime): boolean
     remove(marker: Marker): boolean
     size(): number
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -4931,7 +4931,7 @@ export class MarkerList {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -4939,7 +4939,7 @@ export class MarkerList {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GES.MarkerList */
+    /* Signals of GES-1.0.GES.MarkerList */
     connect(sigName: "marker-added", callback: (($obj: MarkerList, position: number, marker: Marker) => void)): number
     connect_after(sigName: "marker-added", callback: (($obj: MarkerList, position: number, marker: Marker) => void)): number
     emit(sigName: "marker-added", position: number, marker: Marker): void
@@ -4949,7 +4949,7 @@ export class MarkerList {
     connect(sigName: "marker-removed", callback: (($obj: MarkerList, marker: Marker) => void)): number
     connect_after(sigName: "marker-removed", callback: (($obj: MarkerList, marker: Marker) => void)): number
     emit(sigName: "marker-removed", marker: Marker): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: MarkerList, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: MarkerList, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -4968,13 +4968,13 @@ export interface MultiFileSource_ConstructProps extends VideoSource_ConstructPro
     uri?: string
 }
 export class MultiFileSource {
-    /* Properties of GES.TrackElement */
+    /* Properties of GES-1.0.GES.TrackElement */
     active: boolean
     auto_clamp_control_sources: boolean
     has_internal_source: boolean
     readonly track: Track
     track_type: TrackType
-    /* Properties of GES.TimelineElement */
+    /* Properties of GES-1.0.GES.TimelineElement */
     duration: number
     in_point: number
     max_duration: number
@@ -4984,16 +4984,16 @@ export class MultiFileSource {
     serialize: boolean
     start: number
     timeline: Timeline
-    /* Fields of GES.TimelineElement */
+    /* Fields of GES-1.0.GES.TimelineElement */
     parent_instance: GObject.InitiallyUnowned
     asset: Asset
     inpoint: Gst.ClockTime
     maxduration: Gst.ClockTime
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GES.VideoSource */
+    /* Methods of GES-1.0.GES.VideoSource */
     get_natural_size(): [ /* returnType */ boolean, /* width */ number, /* height */ number ]
-    /* Methods of GES.TrackElement */
+    /* Methods of GES-1.0.GES.TrackElement */
     add_children_props(element: Gst.Element, wanted_categories?: string[] | null, blacklist?: string[] | null, whitelist?: string[] | null): void
     clamp_control_source(property_name: string): void
     edit(layers: Layer[] | null, mode: EditMode, edge: Edge, position: number): boolean
@@ -5015,7 +5015,7 @@ export class MultiFileSource {
     set_control_source(source: Gst.ControlSource, property_name: string, binding_type: string): boolean
     set_has_internal_source(has_internal_source: boolean): boolean
     set_track_type(type: TrackType): void
-    /* Methods of GES.TimelineElement */
+    /* Methods of GES-1.0.GES.TimelineElement */
     add_child_property(pspec: GObject.ParamSpec, child: GObject.Object): boolean
     copy(deep: boolean): TimelineElement
     edit(layers: Layer[] | null, new_layer_priority: number, mode: EditMode, edge: Edge, position: number): boolean
@@ -5053,7 +5053,7 @@ export class MultiFileSource {
     set_start(start: Gst.ClockTime): boolean
     set_timeline(timeline: Timeline): boolean
     trim(start: Gst.ClockTime): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -5075,11 +5075,11 @@ export class MultiFileSource {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of GES.Extractable */
+    /* Methods of GES-1.0.GES.Extractable */
     get_asset(): Asset | null
     get_id(): string
     set_asset(asset: Asset): boolean
-    /* Methods of GES.MetaContainer */
+    /* Methods of GES-1.0.GES.MetaContainer */
     add_metas_from_string(str: string): boolean
     check_meta_registered(meta_item: string): [ /* returnType */ boolean, /* flags */ MetaFlag | null, /* type */ GObject.Type | null ]
     foreach(func: MetaForeachFunc): void
@@ -5120,13 +5120,13 @@ export class MultiFileSource {
     set_string(meta_item: string, value: string): boolean
     set_uint(meta_item: string, value: number): boolean
     set_uint64(meta_item: string, value: number): boolean
-    /* Virtual methods of GES.Source */
+    /* Virtual methods of GES-1.0.GES.Source */
     vfunc_select_pad(pad: Gst.Pad): boolean
-    /* Virtual methods of GES.TrackElement */
+    /* Virtual methods of GES-1.0.GES.TrackElement */
     vfunc_active_changed(active: boolean): void
     vfunc_changed(): void
     vfunc_lookup_child(prop_name: string): [ /* returnType */ boolean, /* element */ Gst.Element | null, /* pspec */ GObject.ParamSpec | null ]
-    /* Virtual methods of GES.TimelineElement */
+    /* Virtual methods of GES-1.0.GES.TimelineElement */
     vfunc_deep_copy(copy: TimelineElement): void
     vfunc_get_layer_priority(): number
     vfunc_get_natural_framerate(): [ /* returnType */ boolean, /* framerate_n */ number, /* framerate_d */ number ]
@@ -5148,7 +5148,7 @@ export class MultiFileSource {
     vfunc_get_id(): string
     vfunc_set_asset(asset: Asset): void
     vfunc_set_asset_full(asset: Asset): boolean
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -5156,14 +5156,14 @@ export class MultiFileSource {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GES.TrackElement */
+    /* Signals of GES-1.0.GES.TrackElement */
     connect(sigName: "control-binding-added", callback: (($obj: MultiFileSource, control_binding: Gst.ControlBinding) => void)): number
     connect_after(sigName: "control-binding-added", callback: (($obj: MultiFileSource, control_binding: Gst.ControlBinding) => void)): number
     emit(sigName: "control-binding-added", control_binding: Gst.ControlBinding): void
     connect(sigName: "control-binding-removed", callback: (($obj: MultiFileSource, control_binding: Gst.ControlBinding) => void)): number
     connect_after(sigName: "control-binding-removed", callback: (($obj: MultiFileSource, control_binding: Gst.ControlBinding) => void)): number
     emit(sigName: "control-binding-removed", control_binding: Gst.ControlBinding): void
-    /* Signals of GES.TimelineElement */
+    /* Signals of GES-1.0.GES.TimelineElement */
     connect(sigName: "child-property-added", callback: (($obj: MultiFileSource, prop_object: GObject.Object, prop: GObject.ParamSpec) => void)): number
     connect_after(sigName: "child-property-added", callback: (($obj: MultiFileSource, prop_object: GObject.Object, prop: GObject.ParamSpec) => void)): number
     emit(sigName: "child-property-added", prop_object: GObject.Object, prop: GObject.ParamSpec): void
@@ -5173,11 +5173,11 @@ export class MultiFileSource {
     connect(sigName: "deep-notify", callback: (($obj: MultiFileSource, prop_object: GObject.Object, prop: GObject.ParamSpec) => void)): number
     connect_after(sigName: "deep-notify", callback: (($obj: MultiFileSource, prop_object: GObject.Object, prop: GObject.ParamSpec) => void)): number
     emit(sigName: "deep-notify", prop_object: GObject.Object, prop: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: MultiFileSource, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: MultiFileSource, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    /* Signals of GES.MetaContainer */
+    /* Signals of GES-1.0.GES.MetaContainer */
     connect(sigName: "notify-meta", callback: (($obj: MultiFileSource, key: string, value?: any | null) => void)): number
     connect_after(sigName: "notify-meta", callback: (($obj: MultiFileSource, key: string, value?: any | null) => void)): number
     emit(sigName: "notify-meta", key: string, value?: any | null): void
@@ -5223,13 +5223,13 @@ export class MultiFileSource {
 export interface Operation_ConstructProps extends TrackElement_ConstructProps {
 }
 export class Operation {
-    /* Properties of GES.TrackElement */
+    /* Properties of GES-1.0.GES.TrackElement */
     active: boolean
     auto_clamp_control_sources: boolean
     has_internal_source: boolean
     readonly track: Track
     track_type: TrackType
-    /* Properties of GES.TimelineElement */
+    /* Properties of GES-1.0.GES.TimelineElement */
     duration: number
     in_point: number
     max_duration: number
@@ -5239,14 +5239,14 @@ export class Operation {
     serialize: boolean
     start: number
     timeline: Timeline
-    /* Fields of GES.TimelineElement */
+    /* Fields of GES-1.0.GES.TimelineElement */
     parent_instance: GObject.InitiallyUnowned
     asset: Asset
     inpoint: Gst.ClockTime
     maxduration: Gst.ClockTime
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GES.TrackElement */
+    /* Methods of GES-1.0.GES.TrackElement */
     add_children_props(element: Gst.Element, wanted_categories?: string[] | null, blacklist?: string[] | null, whitelist?: string[] | null): void
     clamp_control_source(property_name: string): void
     edit(layers: Layer[] | null, mode: EditMode, edge: Edge, position: number): boolean
@@ -5268,7 +5268,7 @@ export class Operation {
     set_control_source(source: Gst.ControlSource, property_name: string, binding_type: string): boolean
     set_has_internal_source(has_internal_source: boolean): boolean
     set_track_type(type: TrackType): void
-    /* Methods of GES.TimelineElement */
+    /* Methods of GES-1.0.GES.TimelineElement */
     add_child_property(pspec: GObject.ParamSpec, child: GObject.Object): boolean
     copy(deep: boolean): TimelineElement
     edit(layers: Layer[] | null, new_layer_priority: number, mode: EditMode, edge: Edge, position: number): boolean
@@ -5306,7 +5306,7 @@ export class Operation {
     set_start(start: Gst.ClockTime): boolean
     set_timeline(timeline: Timeline): boolean
     trim(start: Gst.ClockTime): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -5328,11 +5328,11 @@ export class Operation {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of GES.Extractable */
+    /* Methods of GES-1.0.GES.Extractable */
     get_asset(): Asset | null
     get_id(): string
     set_asset(asset: Asset): boolean
-    /* Methods of GES.MetaContainer */
+    /* Methods of GES-1.0.GES.MetaContainer */
     add_metas_from_string(str: string): boolean
     check_meta_registered(meta_item: string): [ /* returnType */ boolean, /* flags */ MetaFlag | null, /* type */ GObject.Type | null ]
     foreach(func: MetaForeachFunc): void
@@ -5373,11 +5373,11 @@ export class Operation {
     set_string(meta_item: string, value: string): boolean
     set_uint(meta_item: string, value: number): boolean
     set_uint64(meta_item: string, value: number): boolean
-    /* Virtual methods of GES.TrackElement */
+    /* Virtual methods of GES-1.0.GES.TrackElement */
     vfunc_active_changed(active: boolean): void
     vfunc_changed(): void
     vfunc_lookup_child(prop_name: string): [ /* returnType */ boolean, /* element */ Gst.Element | null, /* pspec */ GObject.ParamSpec | null ]
-    /* Virtual methods of GES.TimelineElement */
+    /* Virtual methods of GES-1.0.GES.TimelineElement */
     vfunc_deep_copy(copy: TimelineElement): void
     vfunc_get_layer_priority(): number
     vfunc_get_natural_framerate(): [ /* returnType */ boolean, /* framerate_n */ number, /* framerate_d */ number ]
@@ -5399,7 +5399,7 @@ export class Operation {
     vfunc_get_id(): string
     vfunc_set_asset(asset: Asset): void
     vfunc_set_asset_full(asset: Asset): boolean
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -5407,14 +5407,14 @@ export class Operation {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GES.TrackElement */
+    /* Signals of GES-1.0.GES.TrackElement */
     connect(sigName: "control-binding-added", callback: (($obj: Operation, control_binding: Gst.ControlBinding) => void)): number
     connect_after(sigName: "control-binding-added", callback: (($obj: Operation, control_binding: Gst.ControlBinding) => void)): number
     emit(sigName: "control-binding-added", control_binding: Gst.ControlBinding): void
     connect(sigName: "control-binding-removed", callback: (($obj: Operation, control_binding: Gst.ControlBinding) => void)): number
     connect_after(sigName: "control-binding-removed", callback: (($obj: Operation, control_binding: Gst.ControlBinding) => void)): number
     emit(sigName: "control-binding-removed", control_binding: Gst.ControlBinding): void
-    /* Signals of GES.TimelineElement */
+    /* Signals of GES-1.0.GES.TimelineElement */
     connect(sigName: "child-property-added", callback: (($obj: Operation, prop_object: GObject.Object, prop: GObject.ParamSpec) => void)): number
     connect_after(sigName: "child-property-added", callback: (($obj: Operation, prop_object: GObject.Object, prop: GObject.ParamSpec) => void)): number
     emit(sigName: "child-property-added", prop_object: GObject.Object, prop: GObject.ParamSpec): void
@@ -5424,11 +5424,11 @@ export class Operation {
     connect(sigName: "deep-notify", callback: (($obj: Operation, prop_object: GObject.Object, prop: GObject.ParamSpec) => void)): number
     connect_after(sigName: "deep-notify", callback: (($obj: Operation, prop_object: GObject.Object, prop: GObject.ParamSpec) => void)): number
     emit(sigName: "deep-notify", prop_object: GObject.Object, prop: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Operation, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Operation, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    /* Signals of GES.MetaContainer */
+    /* Signals of GES-1.0.GES.MetaContainer */
     connect(sigName: "notify-meta", callback: (($obj: Operation, key: string, value?: any | null) => void)): number
     connect_after(sigName: "notify-meta", callback: (($obj: Operation, key: string, value?: any | null) => void)): number
     emit(sigName: "notify-meta", key: string, value?: any | null): void
@@ -5472,13 +5472,13 @@ export class Operation {
 export interface OperationClip_ConstructProps extends Clip_ConstructProps {
 }
 export class OperationClip {
-    /* Properties of GES.Clip */
+    /* Properties of GES-1.0.GES.Clip */
     readonly duration_limit: number
     readonly layer: Layer
     supported_formats: TrackType
-    /* Properties of GES.Container */
+    /* Properties of GES-1.0.GES.Container */
     readonly height: number
-    /* Properties of GES.TimelineElement */
+    /* Properties of GES-1.0.GES.TimelineElement */
     duration: number
     in_point: number
     max_duration: number
@@ -5488,18 +5488,18 @@ export class OperationClip {
     serialize: boolean
     start: number
     timeline: Timeline
-    /* Fields of GES.Container */
+    /* Fields of GES-1.0.GES.Container */
     children: TimelineElement[]
     children_control_mode: ChildrenControlMode
     initiated_move: TimelineElement
-    /* Fields of GES.TimelineElement */
+    /* Fields of GES-1.0.GES.TimelineElement */
     parent_instance: GObject.InitiallyUnowned
     asset: Asset
     inpoint: Gst.ClockTime
     maxduration: Gst.ClockTime
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GES.Clip */
+    /* Methods of GES-1.0.GES.Clip */
     add_asset(asset: Asset): TrackElement | null
     add_child_to_track(child: TrackElement, track: Track): TrackElement
     add_top_effect(effect: BaseEffect, index: number): boolean
@@ -5523,13 +5523,13 @@ export class OperationClip {
     set_top_effect_priority(effect: BaseEffect, newpriority: number): boolean
     split(position: number): Clip | null
     split_full(position: number): Clip | null
-    /* Methods of GES.Container */
+    /* Methods of GES-1.0.GES.Container */
     add(child: TimelineElement): boolean
     edit(layers: Layer[] | null, new_layer_priority: number, mode: EditMode, edge: Edge, position: number): boolean
     get_children(recursive: boolean): TimelineElement[]
     remove(child: TimelineElement): boolean
     ungroup(recursive: boolean): Container[]
-    /* Methods of GES.TimelineElement */
+    /* Methods of GES-1.0.GES.TimelineElement */
     add_child_property(pspec: GObject.ParamSpec, child: GObject.Object): boolean
     copy(deep: boolean): TimelineElement
     edit_full(new_layer_priority: number, mode: EditMode, edge: Edge, position: number): boolean
@@ -5567,7 +5567,7 @@ export class OperationClip {
     set_start(start: Gst.ClockTime): boolean
     set_timeline(timeline: Timeline): boolean
     trim(start: Gst.ClockTime): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -5589,11 +5589,11 @@ export class OperationClip {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of GES.Extractable */
+    /* Methods of GES-1.0.GES.Extractable */
     get_asset(): Asset | null
     get_id(): string
     set_asset(asset: Asset): boolean
-    /* Methods of GES.MetaContainer */
+    /* Methods of GES-1.0.GES.MetaContainer */
     add_metas_from_string(str: string): boolean
     check_meta_registered(meta_item: string): [ /* returnType */ boolean, /* flags */ MetaFlag | null, /* type */ GObject.Type | null ]
     foreach(func: MetaForeachFunc): void
@@ -5634,17 +5634,17 @@ export class OperationClip {
     set_string(meta_item: string, value: string): boolean
     set_uint(meta_item: string, value: number): boolean
     set_uint64(meta_item: string, value: number): boolean
-    /* Virtual methods of GES.Clip */
+    /* Virtual methods of GES-1.0.GES.Clip */
     vfunc_create_track_element(type: TrackType): TrackElement | null
     vfunc_create_track_elements(type: TrackType): TrackElement[]
-    /* Virtual methods of GES.Container */
+    /* Virtual methods of GES-1.0.GES.Container */
     vfunc_add_child(element: TimelineElement): boolean
     vfunc_child_added(element: TimelineElement): void
     vfunc_child_removed(element: TimelineElement): void
     vfunc_edit(layers: Layer[] | null, new_layer_priority: number, mode: EditMode, edge: Edge, position: number): boolean
     vfunc_remove_child(element: TimelineElement): boolean
     vfunc_ungroup(recursive: boolean): Container[]
-    /* Virtual methods of GES.TimelineElement */
+    /* Virtual methods of GES-1.0.GES.TimelineElement */
     vfunc_deep_copy(copy: TimelineElement): void
     vfunc_get_layer_priority(): number
     vfunc_get_natural_framerate(): [ /* returnType */ boolean, /* framerate_n */ number, /* framerate_d */ number ]
@@ -5666,7 +5666,7 @@ export class OperationClip {
     vfunc_get_id(): string
     vfunc_set_asset(asset: Asset): void
     vfunc_set_asset_full(asset: Asset): boolean
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -5674,14 +5674,14 @@ export class OperationClip {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GES.Container */
+    /* Signals of GES-1.0.GES.Container */
     connect(sigName: "child-added", callback: (($obj: OperationClip, element: TimelineElement) => void)): number
     connect_after(sigName: "child-added", callback: (($obj: OperationClip, element: TimelineElement) => void)): number
     emit(sigName: "child-added", element: TimelineElement): void
     connect(sigName: "child-removed", callback: (($obj: OperationClip, element: TimelineElement) => void)): number
     connect_after(sigName: "child-removed", callback: (($obj: OperationClip, element: TimelineElement) => void)): number
     emit(sigName: "child-removed", element: TimelineElement): void
-    /* Signals of GES.TimelineElement */
+    /* Signals of GES-1.0.GES.TimelineElement */
     connect(sigName: "child-property-added", callback: (($obj: OperationClip, prop_object: GObject.Object, prop: GObject.ParamSpec) => void)): number
     connect_after(sigName: "child-property-added", callback: (($obj: OperationClip, prop_object: GObject.Object, prop: GObject.ParamSpec) => void)): number
     emit(sigName: "child-property-added", prop_object: GObject.Object, prop: GObject.ParamSpec): void
@@ -5691,11 +5691,11 @@ export class OperationClip {
     connect(sigName: "deep-notify", callback: (($obj: OperationClip, prop_object: GObject.Object, prop: GObject.ParamSpec) => void)): number
     connect_after(sigName: "deep-notify", callback: (($obj: OperationClip, prop_object: GObject.Object, prop: GObject.ParamSpec) => void)): number
     emit(sigName: "deep-notify", prop_object: GObject.Object, prop: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: OperationClip, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: OperationClip, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    /* Signals of GES.MetaContainer */
+    /* Signals of GES-1.0.GES.MetaContainer */
     connect(sigName: "notify-meta", callback: (($obj: OperationClip, key: string, value?: any | null) => void)): number
     connect_after(sigName: "notify-meta", callback: (($obj: OperationClip, key: string, value?: any | null) => void)): number
     emit(sigName: "notify-meta", key: string, value?: any | null): void
@@ -5737,13 +5737,13 @@ export class OperationClip {
 export interface OverlayClip_ConstructProps extends OperationClip_ConstructProps {
 }
 export class OverlayClip {
-    /* Properties of GES.Clip */
+    /* Properties of GES-1.0.GES.Clip */
     readonly duration_limit: number
     readonly layer: Layer
     supported_formats: TrackType
-    /* Properties of GES.Container */
+    /* Properties of GES-1.0.GES.Container */
     readonly height: number
-    /* Properties of GES.TimelineElement */
+    /* Properties of GES-1.0.GES.TimelineElement */
     duration: number
     in_point: number
     max_duration: number
@@ -5753,18 +5753,18 @@ export class OverlayClip {
     serialize: boolean
     start: number
     timeline: Timeline
-    /* Fields of GES.Container */
+    /* Fields of GES-1.0.GES.Container */
     children: TimelineElement[]
     children_control_mode: ChildrenControlMode
     initiated_move: TimelineElement
-    /* Fields of GES.TimelineElement */
+    /* Fields of GES-1.0.GES.TimelineElement */
     parent_instance: GObject.InitiallyUnowned
     asset: Asset
     inpoint: Gst.ClockTime
     maxduration: Gst.ClockTime
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GES.Clip */
+    /* Methods of GES-1.0.GES.Clip */
     add_asset(asset: Asset): TrackElement | null
     add_child_to_track(child: TrackElement, track: Track): TrackElement
     add_top_effect(effect: BaseEffect, index: number): boolean
@@ -5788,13 +5788,13 @@ export class OverlayClip {
     set_top_effect_priority(effect: BaseEffect, newpriority: number): boolean
     split(position: number): Clip | null
     split_full(position: number): Clip | null
-    /* Methods of GES.Container */
+    /* Methods of GES-1.0.GES.Container */
     add(child: TimelineElement): boolean
     edit(layers: Layer[] | null, new_layer_priority: number, mode: EditMode, edge: Edge, position: number): boolean
     get_children(recursive: boolean): TimelineElement[]
     remove(child: TimelineElement): boolean
     ungroup(recursive: boolean): Container[]
-    /* Methods of GES.TimelineElement */
+    /* Methods of GES-1.0.GES.TimelineElement */
     add_child_property(pspec: GObject.ParamSpec, child: GObject.Object): boolean
     copy(deep: boolean): TimelineElement
     edit_full(new_layer_priority: number, mode: EditMode, edge: Edge, position: number): boolean
@@ -5832,7 +5832,7 @@ export class OverlayClip {
     set_start(start: Gst.ClockTime): boolean
     set_timeline(timeline: Timeline): boolean
     trim(start: Gst.ClockTime): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -5854,11 +5854,11 @@ export class OverlayClip {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of GES.Extractable */
+    /* Methods of GES-1.0.GES.Extractable */
     get_asset(): Asset | null
     get_id(): string
     set_asset(asset: Asset): boolean
-    /* Methods of GES.MetaContainer */
+    /* Methods of GES-1.0.GES.MetaContainer */
     add_metas_from_string(str: string): boolean
     check_meta_registered(meta_item: string): [ /* returnType */ boolean, /* flags */ MetaFlag | null, /* type */ GObject.Type | null ]
     foreach(func: MetaForeachFunc): void
@@ -5899,17 +5899,17 @@ export class OverlayClip {
     set_string(meta_item: string, value: string): boolean
     set_uint(meta_item: string, value: number): boolean
     set_uint64(meta_item: string, value: number): boolean
-    /* Virtual methods of GES.Clip */
+    /* Virtual methods of GES-1.0.GES.Clip */
     vfunc_create_track_element(type: TrackType): TrackElement | null
     vfunc_create_track_elements(type: TrackType): TrackElement[]
-    /* Virtual methods of GES.Container */
+    /* Virtual methods of GES-1.0.GES.Container */
     vfunc_add_child(element: TimelineElement): boolean
     vfunc_child_added(element: TimelineElement): void
     vfunc_child_removed(element: TimelineElement): void
     vfunc_edit(layers: Layer[] | null, new_layer_priority: number, mode: EditMode, edge: Edge, position: number): boolean
     vfunc_remove_child(element: TimelineElement): boolean
     vfunc_ungroup(recursive: boolean): Container[]
-    /* Virtual methods of GES.TimelineElement */
+    /* Virtual methods of GES-1.0.GES.TimelineElement */
     vfunc_deep_copy(copy: TimelineElement): void
     vfunc_get_layer_priority(): number
     vfunc_get_natural_framerate(): [ /* returnType */ boolean, /* framerate_n */ number, /* framerate_d */ number ]
@@ -5931,7 +5931,7 @@ export class OverlayClip {
     vfunc_get_id(): string
     vfunc_set_asset(asset: Asset): void
     vfunc_set_asset_full(asset: Asset): boolean
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -5939,14 +5939,14 @@ export class OverlayClip {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GES.Container */
+    /* Signals of GES-1.0.GES.Container */
     connect(sigName: "child-added", callback: (($obj: OverlayClip, element: TimelineElement) => void)): number
     connect_after(sigName: "child-added", callback: (($obj: OverlayClip, element: TimelineElement) => void)): number
     emit(sigName: "child-added", element: TimelineElement): void
     connect(sigName: "child-removed", callback: (($obj: OverlayClip, element: TimelineElement) => void)): number
     connect_after(sigName: "child-removed", callback: (($obj: OverlayClip, element: TimelineElement) => void)): number
     emit(sigName: "child-removed", element: TimelineElement): void
-    /* Signals of GES.TimelineElement */
+    /* Signals of GES-1.0.GES.TimelineElement */
     connect(sigName: "child-property-added", callback: (($obj: OverlayClip, prop_object: GObject.Object, prop: GObject.ParamSpec) => void)): number
     connect_after(sigName: "child-property-added", callback: (($obj: OverlayClip, prop_object: GObject.Object, prop: GObject.ParamSpec) => void)): number
     emit(sigName: "child-property-added", prop_object: GObject.Object, prop: GObject.ParamSpec): void
@@ -5956,11 +5956,11 @@ export class OverlayClip {
     connect(sigName: "deep-notify", callback: (($obj: OverlayClip, prop_object: GObject.Object, prop: GObject.ParamSpec) => void)): number
     connect_after(sigName: "deep-notify", callback: (($obj: OverlayClip, prop_object: GObject.Object, prop: GObject.ParamSpec) => void)): number
     emit(sigName: "deep-notify", prop_object: GObject.Object, prop: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: OverlayClip, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: OverlayClip, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    /* Signals of GES.MetaContainer */
+    /* Signals of GES-1.0.GES.MetaContainer */
     connect(sigName: "notify-meta", callback: (($obj: OverlayClip, key: string, value?: any | null) => void)): number
     connect_after(sigName: "notify-meta", callback: (($obj: OverlayClip, key: string, value?: any | null) => void)): number
     emit(sigName: "notify-meta", key: string, value?: any | null): void
@@ -6008,28 +6008,28 @@ export interface Pipeline_ConstructProps extends Gst.Pipeline_ConstructProps {
     video_sink?: Gst.Element
 }
 export class Pipeline {
-    /* Properties of GES.Pipeline */
+    /* Properties of GES-1.0.GES.Pipeline */
     audio_filter: Gst.Element
     audio_sink: Gst.Element
     mode: PipelineFlags
     timeline: Timeline
     video_filter: Gst.Element
     video_sink: Gst.Element
-    /* Properties of Gst.Pipeline */
+    /* Properties of Gst-1.0.Gst.Pipeline */
     auto_flush_bus: boolean
     delay: number
     latency: number
-    /* Properties of Gst.Bin */
+    /* Properties of Gst-1.0.Gst.Bin */
     async_handling: boolean
     message_forward: boolean
-    /* Properties of Gst.Object */
+    /* Properties of Gst-1.0.Gst.Object */
     name: string
     parent: Gst.Object
-    /* Fields of Gst.Pipeline */
+    /* Fields of Gst-1.0.Gst.Pipeline */
     bin: Gst.Bin
     fixed_clock: Gst.Clock
     stream_time: Gst.ClockTime
-    /* Fields of Gst.Bin */
+    /* Fields of Gst-1.0.Gst.Bin */
     element: Gst.Element
     numchildren: number
     children: Gst.Element[]
@@ -6041,7 +6041,7 @@ export class Pipeline {
     clock_dirty: boolean
     provided_clock: Gst.Clock
     clock_provider: Gst.Element
-    /* Fields of Gst.Element */
+    /* Fields of Gst-1.0.Gst.Element */
     object: Gst.Object
     state_lock: GLib.RecMutex
     state_cond: GLib.Cond
@@ -6063,12 +6063,12 @@ export class Pipeline {
     sinkpads: Gst.Pad[]
     pads_cookie: number
     contexts: Gst.Context[]
-    /* Fields of Gst.Object */
+    /* Fields of Gst-1.0.Gst.Object */
     lock: GLib.Mutex
     flags: number
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GES.Pipeline */
+    /* Methods of GES-1.0.GES.Pipeline */
     get_mode(): PipelineFlags
     get_thumbnail(caps: Gst.Caps): Gst.Sample
     get_thumbnail_rgb24(width: number, height: number): Gst.Sample
@@ -6080,7 +6080,7 @@ export class Pipeline {
     set_mode(mode: PipelineFlags): boolean
     set_render_settings(output_uri: string, profile: GstPbutils.EncodingProfile): boolean
     set_timeline(timeline: Timeline): boolean
-    /* Methods of Gst.Pipeline */
+    /* Methods of Gst-1.0.Gst.Pipeline */
     auto_clock(): void
     get_auto_flush_bus(): boolean
     get_bus(): Gst.Bus
@@ -6091,7 +6091,7 @@ export class Pipeline {
     set_delay(delay: Gst.ClockTime): void
     set_latency(latency: Gst.ClockTime): void
     use_clock(clock?: Gst.Clock | null): void
-    /* Methods of Gst.Bin */
+    /* Methods of Gst-1.0.Gst.Bin */
     add(element: Gst.Element): boolean
     find_unlinked_pad(direction: Gst.PadDirection): Gst.Pad | null
     get_by_interface(iface: GObject.Type): Gst.Element | null
@@ -6109,7 +6109,7 @@ export class Pipeline {
     remove(element: Gst.Element): boolean
     set_suppressed_flags(flags: Gst.ElementFlags): void
     sync_children_states(): boolean
-    /* Methods of Gst.Element */
+    /* Methods of Gst-1.0.Gst.Element */
     abort_state(): void
     add_pad(pad: Gst.Pad): boolean
     add_property_deep_notify_watch(property_name: string | null, include_value: boolean): number
@@ -6175,7 +6175,7 @@ export class Pipeline {
     sync_state_with_parent(): boolean
     unlink(dest: Gst.Element): void
     unlink_pads(srcpadname: string, dest: Gst.Element, destpadname: string): void
-    /* Methods of Gst.Object */
+    /* Methods of Gst-1.0.Gst.Object */
     add_control_binding(binding: Gst.ControlBinding): boolean
     default_error(error: GLib.Error, debug?: string | null): void
     get_control_binding(property_name: string): Gst.ControlBinding | null
@@ -6200,7 +6200,7 @@ export class Pipeline {
     sync_values(timestamp: Gst.ClockTime): boolean
     unparent(): void
     unref(): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -6221,7 +6221,7 @@ export class Pipeline {
     steal_qdata(quark: GLib.Quark): object | null
     thaw_notify(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of Gst.ChildProxy */
+    /* Methods of Gst-1.0.Gst.ChildProxy */
     child_added(child: GObject.Object, name: string): void
     child_removed(child: GObject.Object, name: string): void
     get_child_by_index(index: number): GObject.Object | null
@@ -6230,14 +6230,14 @@ export class Pipeline {
     get_property(name: string): /* value */ any
     lookup(name: string): [ /* returnType */ boolean, /* target */ GObject.Object | null, /* pspec */ GObject.ParamSpec | null ]
     set_property(name: string, value: any): void
-    /* Methods of GstVideo.VideoOverlay */
+    /* Methods of GstVideo-1.0.GstVideo.VideoOverlay */
     expose(): void
     got_window_handle(handle: number): void
     handle_events(handle_events: boolean): void
     prepare_window_handle(): void
     set_render_rectangle(x: number, y: number, width: number, height: number): boolean
     set_window_handle(handle: number): void
-    /* Virtual methods of GES.Pipeline */
+    /* Virtual methods of GES-1.0.GES.Pipeline */
     vfunc_child_added(child: GObject.Object, name: string): void
     vfunc_child_removed(child: GObject.Object, name: string): void
     vfunc_get_child_by_index(index: number): GObject.Object | null
@@ -6247,7 +6247,7 @@ export class Pipeline {
     vfunc_handle_events(handle_events: boolean): void
     vfunc_set_render_rectangle(x: number, y: number, width: number, height: number): void
     vfunc_set_window_handle(handle: number): void
-    /* Virtual methods of Gst.Bin */
+    /* Virtual methods of Gst-1.0.Gst.Bin */
     vfunc_add_element(element: Gst.Element): boolean
     vfunc_deep_element_added(sub_bin: Gst.Bin, child: Gst.Element): void
     vfunc_deep_element_removed(sub_bin: Gst.Bin, child: Gst.Element): void
@@ -6256,7 +6256,7 @@ export class Pipeline {
     vfunc_element_removed(child: Gst.Element): void
     vfunc_handle_message(message: Gst.Message): void
     vfunc_remove_element(element: Gst.Element): boolean
-    /* Virtual methods of Gst.Element */
+    /* Virtual methods of Gst-1.0.Gst.Element */
     vfunc_change_state(transition: Gst.StateChange): Gst.StateChangeReturn
     vfunc_get_state(timeout: Gst.ClockTime): [ /* returnType */ Gst.StateChangeReturn, /* state */ Gst.State | null, /* pending */ Gst.State | null ]
     vfunc_no_more_pads(): void
@@ -6273,9 +6273,9 @@ export class Pipeline {
     vfunc_set_context(context: Gst.Context): void
     vfunc_set_state(state: Gst.State): Gst.StateChangeReturn
     vfunc_state_changed(oldstate: Gst.State, newstate: Gst.State, pending: Gst.State): void
-    /* Virtual methods of Gst.Object */
+    /* Virtual methods of Gst-1.0.Gst.Object */
     vfunc_deep_notify(orig: Gst.Object, pspec: GObject.ParamSpec): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -6283,7 +6283,7 @@ export class Pipeline {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gst.Bin */
+    /* Signals of Gst-1.0.Gst.Bin */
     connect(sigName: "deep-element-added", callback: (($obj: Pipeline, sub_bin: Gst.Bin, element: Gst.Element) => void)): number
     connect_after(sigName: "deep-element-added", callback: (($obj: Pipeline, sub_bin: Gst.Bin, element: Gst.Element) => void)): number
     emit(sigName: "deep-element-added", sub_bin: Gst.Bin, element: Gst.Element): void
@@ -6299,7 +6299,7 @@ export class Pipeline {
     connect(sigName: "element-removed", callback: (($obj: Pipeline, element: Gst.Element) => void)): number
     connect_after(sigName: "element-removed", callback: (($obj: Pipeline, element: Gst.Element) => void)): number
     emit(sigName: "element-removed", element: Gst.Element): void
-    /* Signals of Gst.Element */
+    /* Signals of Gst-1.0.Gst.Element */
     connect(sigName: "no-more-pads", callback: (($obj: Pipeline) => void)): number
     connect_after(sigName: "no-more-pads", callback: (($obj: Pipeline) => void)): number
     emit(sigName: "no-more-pads"): void
@@ -6309,15 +6309,15 @@ export class Pipeline {
     connect(sigName: "pad-removed", callback: (($obj: Pipeline, old_pad: Gst.Pad) => void)): number
     connect_after(sigName: "pad-removed", callback: (($obj: Pipeline, old_pad: Gst.Pad) => void)): number
     emit(sigName: "pad-removed", old_pad: Gst.Pad): void
-    /* Signals of Gst.Object */
+    /* Signals of Gst-1.0.Gst.Object */
     connect(sigName: "deep-notify", callback: (($obj: Pipeline, prop_object: Gst.Object, prop: GObject.ParamSpec) => void)): number
     connect_after(sigName: "deep-notify", callback: (($obj: Pipeline, prop_object: Gst.Object, prop: GObject.ParamSpec) => void)): number
     emit(sigName: "deep-notify", prop_object: Gst.Object, prop: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Pipeline, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Pipeline, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    /* Signals of Gst.ChildProxy */
+    /* Signals of Gst-1.0.Gst.ChildProxy */
     connect(sigName: "child-added", callback: (($obj: Pipeline, object: GObject.Object, name: string) => void)): number
     connect_after(sigName: "child-added", callback: (($obj: Pipeline, object: GObject.Object, name: string) => void)): number
     emit(sigName: "child-added", object: GObject.Object, name: string): void
@@ -6367,14 +6367,14 @@ export class Pipeline {
 export interface PitiviFormatter_ConstructProps extends Formatter_ConstructProps {
 }
 export class PitiviFormatter {
-    /* Fields of GES.PitiviFormatter */
+    /* Fields of GES-1.0.GES.PitiviFormatter */
     parent: Formatter
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GES.Formatter */
+    /* Methods of GES-1.0.GES.Formatter */
     load_from_uri(timeline: Timeline, uri: string): boolean
     save_to_uri(timeline: Timeline, uri: string, overwrite: boolean): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -6396,18 +6396,18 @@ export class PitiviFormatter {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of GES.Extractable */
+    /* Methods of GES-1.0.GES.Extractable */
     get_asset(): Asset | null
     get_id(): string
     set_asset(asset: Asset): boolean
-    /* Virtual methods of GES.Formatter */
+    /* Virtual methods of GES-1.0.GES.Formatter */
     vfunc_can_load_uri(uri: string): boolean
     vfunc_load_from_uri(timeline: Timeline, uri: string): boolean
     vfunc_save_to_uri(timeline: Timeline, uri: string, overwrite: boolean): boolean
     vfunc_get_id(): string
     vfunc_set_asset(asset: Asset): void
     vfunc_set_asset_full(asset: Asset): boolean
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -6415,7 +6415,7 @@ export class PitiviFormatter {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: PitiviFormatter, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: PitiviFormatter, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -6434,14 +6434,14 @@ export interface Project_ConstructProps extends Asset_ConstructProps {
     uri?: string
 }
 export class Project {
-    /* Properties of GES.Asset */
+    /* Properties of GES-1.0.GES.Asset */
     proxy: Asset
     readonly proxy_target: Asset
-    /* Fields of GES.Project */
+    /* Fields of GES-1.0.GES.Project */
     parent: Asset
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GES.Project */
+    /* Methods of GES-1.0.GES.Project */
     add_asset(asset: Asset): boolean
     add_encoding_profile(profile: GstPbutils.EncodingProfile): boolean
     add_formatter(formatter: Formatter): void
@@ -6455,7 +6455,7 @@ export class Project {
     load(timeline: Timeline): boolean
     remove_asset(asset: Asset): boolean
     save(timeline: Timeline, uri: string, formatter_asset: Asset | null, overwrite: boolean): boolean
-    /* Methods of GES.Asset */
+    /* Methods of GES-1.0.GES.Asset */
     extract(): Extractable
     get_error(): GLib.Error | null
     get_extractable_type(): GObject.Type
@@ -6465,7 +6465,7 @@ export class Project {
     list_proxies(): Asset[]
     set_proxy(proxy?: Asset | null): boolean
     unproxy(proxy: Asset): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -6487,7 +6487,7 @@ export class Project {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of GES.MetaContainer */
+    /* Methods of GES-1.0.GES.MetaContainer */
     add_metas_from_string(str: string): boolean
     check_meta_registered(meta_item: string): [ /* returnType */ boolean, /* flags */ MetaFlag | null, /* type */ GObject.Type | null ]
     foreach(func: MetaForeachFunc): void
@@ -6528,13 +6528,13 @@ export class Project {
     set_string(meta_item: string, value: string): boolean
     set_uint(meta_item: string, value: number): boolean
     set_uint64(meta_item: string, value: number): boolean
-    /* Methods of Gio.AsyncInitable */
+    /* Methods of Gio-2.0.Gio.AsyncInitable */
     init_async(io_priority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     init_finish(res: Gio.AsyncResult): boolean
     new_finish(res: Gio.AsyncResult): GObject.Object
-    /* Methods of Gio.Initable */
+    /* Methods of Gio-2.0.Gio.Initable */
     init(cancellable?: Gio.Cancellable | null): boolean
-    /* Virtual methods of GES.Project */
+    /* Virtual methods of GES-1.0.GES.Project */
     vfunc_asset_added(asset: Asset): void
     vfunc_asset_loading(asset: Asset): void
     vfunc_asset_removed(asset: Asset): void
@@ -6542,7 +6542,7 @@ export class Project {
     vfunc_loading(timeline: Timeline): void
     vfunc_loading_error(error: GLib.Error, id: string, extractable_type: GObject.Type): boolean
     vfunc_missing_uri(error: GLib.Error, wrong_asset: Asset): string
-    /* Virtual methods of GES.Asset */
+    /* Virtual methods of GES-1.0.GES.Asset */
     vfunc_extract(): Extractable
     vfunc_inform_proxy(proxy_id: string): void
     vfunc_proxied(proxy: Asset): void
@@ -6551,7 +6551,7 @@ export class Project {
     vfunc_init_async(io_priority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     vfunc_init_finish(res: Gio.AsyncResult): boolean
     vfunc_init(cancellable?: Gio.Cancellable | null): boolean
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -6559,7 +6559,7 @@ export class Project {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GES.Project */
+    /* Signals of GES-1.0.GES.Project */
     connect(sigName: "asset-added", callback: (($obj: Project, asset: Asset) => void)): number
     connect_after(sigName: "asset-added", callback: (($obj: Project, asset: Asset) => void)): number
     emit(sigName: "asset-added", asset: Asset): void
@@ -6584,11 +6584,11 @@ export class Project {
     connect(sigName: "missing-uri", callback: (($obj: Project, error: GLib.Error, wrong_asset: Asset) => string | null)): number
     connect_after(sigName: "missing-uri", callback: (($obj: Project, error: GLib.Error, wrong_asset: Asset) => string | null)): number
     emit(sigName: "missing-uri", error: GLib.Error, wrong_asset: Asset): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Project, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Project, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    /* Signals of GES.MetaContainer */
+    /* Signals of GES-1.0.GES.MetaContainer */
     connect(sigName: "notify-meta", callback: (($obj: Project, key: string, value?: any | null) => void)): number
     connect_after(sigName: "notify-meta", callback: (($obj: Project, key: string, value?: any | null) => void)): number
     emit(sigName: "notify-meta", key: string, value?: any | null): void
@@ -6610,13 +6610,13 @@ export class Project {
 export interface Source_ConstructProps extends TrackElement_ConstructProps {
 }
 export class Source {
-    /* Properties of GES.TrackElement */
+    /* Properties of GES-1.0.GES.TrackElement */
     active: boolean
     auto_clamp_control_sources: boolean
     has_internal_source: boolean
     readonly track: Track
     track_type: TrackType
-    /* Properties of GES.TimelineElement */
+    /* Properties of GES-1.0.GES.TimelineElement */
     duration: number
     in_point: number
     max_duration: number
@@ -6626,14 +6626,14 @@ export class Source {
     serialize: boolean
     start: number
     timeline: Timeline
-    /* Fields of GES.TimelineElement */
+    /* Fields of GES-1.0.GES.TimelineElement */
     parent_instance: GObject.InitiallyUnowned
     asset: Asset
     inpoint: Gst.ClockTime
     maxduration: Gst.ClockTime
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GES.TrackElement */
+    /* Methods of GES-1.0.GES.TrackElement */
     add_children_props(element: Gst.Element, wanted_categories?: string[] | null, blacklist?: string[] | null, whitelist?: string[] | null): void
     clamp_control_source(property_name: string): void
     edit(layers: Layer[] | null, mode: EditMode, edge: Edge, position: number): boolean
@@ -6655,7 +6655,7 @@ export class Source {
     set_control_source(source: Gst.ControlSource, property_name: string, binding_type: string): boolean
     set_has_internal_source(has_internal_source: boolean): boolean
     set_track_type(type: TrackType): void
-    /* Methods of GES.TimelineElement */
+    /* Methods of GES-1.0.GES.TimelineElement */
     add_child_property(pspec: GObject.ParamSpec, child: GObject.Object): boolean
     copy(deep: boolean): TimelineElement
     edit(layers: Layer[] | null, new_layer_priority: number, mode: EditMode, edge: Edge, position: number): boolean
@@ -6693,7 +6693,7 @@ export class Source {
     set_start(start: Gst.ClockTime): boolean
     set_timeline(timeline: Timeline): boolean
     trim(start: Gst.ClockTime): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -6715,11 +6715,11 @@ export class Source {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of GES.Extractable */
+    /* Methods of GES-1.0.GES.Extractable */
     get_asset(): Asset | null
     get_id(): string
     set_asset(asset: Asset): boolean
-    /* Methods of GES.MetaContainer */
+    /* Methods of GES-1.0.GES.MetaContainer */
     add_metas_from_string(str: string): boolean
     check_meta_registered(meta_item: string): [ /* returnType */ boolean, /* flags */ MetaFlag | null, /* type */ GObject.Type | null ]
     foreach(func: MetaForeachFunc): void
@@ -6760,13 +6760,13 @@ export class Source {
     set_string(meta_item: string, value: string): boolean
     set_uint(meta_item: string, value: number): boolean
     set_uint64(meta_item: string, value: number): boolean
-    /* Virtual methods of GES.Source */
+    /* Virtual methods of GES-1.0.GES.Source */
     vfunc_select_pad(pad: Gst.Pad): boolean
-    /* Virtual methods of GES.TrackElement */
+    /* Virtual methods of GES-1.0.GES.TrackElement */
     vfunc_active_changed(active: boolean): void
     vfunc_changed(): void
     vfunc_lookup_child(prop_name: string): [ /* returnType */ boolean, /* element */ Gst.Element | null, /* pspec */ GObject.ParamSpec | null ]
-    /* Virtual methods of GES.TimelineElement */
+    /* Virtual methods of GES-1.0.GES.TimelineElement */
     vfunc_deep_copy(copy: TimelineElement): void
     vfunc_get_layer_priority(): number
     vfunc_get_natural_framerate(): [ /* returnType */ boolean, /* framerate_n */ number, /* framerate_d */ number ]
@@ -6788,7 +6788,7 @@ export class Source {
     vfunc_get_id(): string
     vfunc_set_asset(asset: Asset): void
     vfunc_set_asset_full(asset: Asset): boolean
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -6796,14 +6796,14 @@ export class Source {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GES.TrackElement */
+    /* Signals of GES-1.0.GES.TrackElement */
     connect(sigName: "control-binding-added", callback: (($obj: Source, control_binding: Gst.ControlBinding) => void)): number
     connect_after(sigName: "control-binding-added", callback: (($obj: Source, control_binding: Gst.ControlBinding) => void)): number
     emit(sigName: "control-binding-added", control_binding: Gst.ControlBinding): void
     connect(sigName: "control-binding-removed", callback: (($obj: Source, control_binding: Gst.ControlBinding) => void)): number
     connect_after(sigName: "control-binding-removed", callback: (($obj: Source, control_binding: Gst.ControlBinding) => void)): number
     emit(sigName: "control-binding-removed", control_binding: Gst.ControlBinding): void
-    /* Signals of GES.TimelineElement */
+    /* Signals of GES-1.0.GES.TimelineElement */
     connect(sigName: "child-property-added", callback: (($obj: Source, prop_object: GObject.Object, prop: GObject.ParamSpec) => void)): number
     connect_after(sigName: "child-property-added", callback: (($obj: Source, prop_object: GObject.Object, prop: GObject.ParamSpec) => void)): number
     emit(sigName: "child-property-added", prop_object: GObject.Object, prop: GObject.ParamSpec): void
@@ -6813,11 +6813,11 @@ export class Source {
     connect(sigName: "deep-notify", callback: (($obj: Source, prop_object: GObject.Object, prop: GObject.ParamSpec) => void)): number
     connect_after(sigName: "deep-notify", callback: (($obj: Source, prop_object: GObject.Object, prop: GObject.ParamSpec) => void)): number
     emit(sigName: "deep-notify", prop_object: GObject.Object, prop: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Source, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Source, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    /* Signals of GES.MetaContainer */
+    /* Signals of GES-1.0.GES.MetaContainer */
     connect(sigName: "notify-meta", callback: (($obj: Source, key: string, value?: any | null) => void)): number
     connect_after(sigName: "notify-meta", callback: (($obj: Source, key: string, value?: any | null) => void)): number
     emit(sigName: "notify-meta", key: string, value?: any | null): void
@@ -6861,13 +6861,13 @@ export class Source {
 export interface SourceClip_ConstructProps extends Clip_ConstructProps {
 }
 export class SourceClip {
-    /* Properties of GES.Clip */
+    /* Properties of GES-1.0.GES.Clip */
     readonly duration_limit: number
     readonly layer: Layer
     supported_formats: TrackType
-    /* Properties of GES.Container */
+    /* Properties of GES-1.0.GES.Container */
     readonly height: number
-    /* Properties of GES.TimelineElement */
+    /* Properties of GES-1.0.GES.TimelineElement */
     duration: number
     in_point: number
     max_duration: number
@@ -6877,18 +6877,18 @@ export class SourceClip {
     serialize: boolean
     start: number
     timeline: Timeline
-    /* Fields of GES.Container */
+    /* Fields of GES-1.0.GES.Container */
     children: TimelineElement[]
     children_control_mode: ChildrenControlMode
     initiated_move: TimelineElement
-    /* Fields of GES.TimelineElement */
+    /* Fields of GES-1.0.GES.TimelineElement */
     parent_instance: GObject.InitiallyUnowned
     asset: Asset
     inpoint: Gst.ClockTime
     maxduration: Gst.ClockTime
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GES.Clip */
+    /* Methods of GES-1.0.GES.Clip */
     add_asset(asset: Asset): TrackElement | null
     add_child_to_track(child: TrackElement, track: Track): TrackElement
     add_top_effect(effect: BaseEffect, index: number): boolean
@@ -6912,13 +6912,13 @@ export class SourceClip {
     set_top_effect_priority(effect: BaseEffect, newpriority: number): boolean
     split(position: number): Clip | null
     split_full(position: number): Clip | null
-    /* Methods of GES.Container */
+    /* Methods of GES-1.0.GES.Container */
     add(child: TimelineElement): boolean
     edit(layers: Layer[] | null, new_layer_priority: number, mode: EditMode, edge: Edge, position: number): boolean
     get_children(recursive: boolean): TimelineElement[]
     remove(child: TimelineElement): boolean
     ungroup(recursive: boolean): Container[]
-    /* Methods of GES.TimelineElement */
+    /* Methods of GES-1.0.GES.TimelineElement */
     add_child_property(pspec: GObject.ParamSpec, child: GObject.Object): boolean
     copy(deep: boolean): TimelineElement
     edit_full(new_layer_priority: number, mode: EditMode, edge: Edge, position: number): boolean
@@ -6956,7 +6956,7 @@ export class SourceClip {
     set_start(start: Gst.ClockTime): boolean
     set_timeline(timeline: Timeline): boolean
     trim(start: Gst.ClockTime): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -6978,11 +6978,11 @@ export class SourceClip {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of GES.Extractable */
+    /* Methods of GES-1.0.GES.Extractable */
     get_asset(): Asset | null
     get_id(): string
     set_asset(asset: Asset): boolean
-    /* Methods of GES.MetaContainer */
+    /* Methods of GES-1.0.GES.MetaContainer */
     add_metas_from_string(str: string): boolean
     check_meta_registered(meta_item: string): [ /* returnType */ boolean, /* flags */ MetaFlag | null, /* type */ GObject.Type | null ]
     foreach(func: MetaForeachFunc): void
@@ -7023,17 +7023,17 @@ export class SourceClip {
     set_string(meta_item: string, value: string): boolean
     set_uint(meta_item: string, value: number): boolean
     set_uint64(meta_item: string, value: number): boolean
-    /* Virtual methods of GES.Clip */
+    /* Virtual methods of GES-1.0.GES.Clip */
     vfunc_create_track_element(type: TrackType): TrackElement | null
     vfunc_create_track_elements(type: TrackType): TrackElement[]
-    /* Virtual methods of GES.Container */
+    /* Virtual methods of GES-1.0.GES.Container */
     vfunc_add_child(element: TimelineElement): boolean
     vfunc_child_added(element: TimelineElement): void
     vfunc_child_removed(element: TimelineElement): void
     vfunc_edit(layers: Layer[] | null, new_layer_priority: number, mode: EditMode, edge: Edge, position: number): boolean
     vfunc_remove_child(element: TimelineElement): boolean
     vfunc_ungroup(recursive: boolean): Container[]
-    /* Virtual methods of GES.TimelineElement */
+    /* Virtual methods of GES-1.0.GES.TimelineElement */
     vfunc_deep_copy(copy: TimelineElement): void
     vfunc_get_layer_priority(): number
     vfunc_get_natural_framerate(): [ /* returnType */ boolean, /* framerate_n */ number, /* framerate_d */ number ]
@@ -7055,7 +7055,7 @@ export class SourceClip {
     vfunc_get_id(): string
     vfunc_set_asset(asset: Asset): void
     vfunc_set_asset_full(asset: Asset): boolean
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -7063,14 +7063,14 @@ export class SourceClip {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GES.Container */
+    /* Signals of GES-1.0.GES.Container */
     connect(sigName: "child-added", callback: (($obj: SourceClip, element: TimelineElement) => void)): number
     connect_after(sigName: "child-added", callback: (($obj: SourceClip, element: TimelineElement) => void)): number
     emit(sigName: "child-added", element: TimelineElement): void
     connect(sigName: "child-removed", callback: (($obj: SourceClip, element: TimelineElement) => void)): number
     connect_after(sigName: "child-removed", callback: (($obj: SourceClip, element: TimelineElement) => void)): number
     emit(sigName: "child-removed", element: TimelineElement): void
-    /* Signals of GES.TimelineElement */
+    /* Signals of GES-1.0.GES.TimelineElement */
     connect(sigName: "child-property-added", callback: (($obj: SourceClip, prop_object: GObject.Object, prop: GObject.ParamSpec) => void)): number
     connect_after(sigName: "child-property-added", callback: (($obj: SourceClip, prop_object: GObject.Object, prop: GObject.ParamSpec) => void)): number
     emit(sigName: "child-property-added", prop_object: GObject.Object, prop: GObject.ParamSpec): void
@@ -7080,11 +7080,11 @@ export class SourceClip {
     connect(sigName: "deep-notify", callback: (($obj: SourceClip, prop_object: GObject.Object, prop: GObject.ParamSpec) => void)): number
     connect_after(sigName: "deep-notify", callback: (($obj: SourceClip, prop_object: GObject.Object, prop: GObject.ParamSpec) => void)): number
     emit(sigName: "deep-notify", prop_object: GObject.Object, prop: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: SourceClip, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: SourceClip, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    /* Signals of GES.MetaContainer */
+    /* Signals of GES-1.0.GES.MetaContainer */
     connect(sigName: "notify-meta", callback: (($obj: SourceClip, key: string, value?: any | null) => void)): number
     connect_after(sigName: "notify-meta", callback: (($obj: SourceClip, key: string, value?: any | null) => void)): number
     emit(sigName: "notify-meta", key: string, value?: any | null): void
@@ -7128,23 +7128,23 @@ export class SourceClip {
 export interface SourceClipAsset_ConstructProps extends ClipAsset_ConstructProps {
 }
 export class SourceClipAsset {
-    /* Properties of GES.ClipAsset */
+    /* Properties of GES-1.0.GES.ClipAsset */
     supported_formats: TrackType
-    /* Properties of GES.Asset */
+    /* Properties of GES-1.0.GES.Asset */
     proxy: Asset
     readonly proxy_target: Asset
-    /* Fields of GES.SourceClipAsset */
+    /* Fields of GES-1.0.GES.SourceClipAsset */
     parent_instance: ClipAsset
-    /* Fields of GES.ClipAsset */
+    /* Fields of GES-1.0.GES.ClipAsset */
     parent: Asset
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GES.ClipAsset */
+    /* Methods of GES-1.0.GES.ClipAsset */
     get_frame_time(frame_number: FrameNumber): Gst.ClockTime
     get_natural_framerate(framerate_n: number, framerate_d: number): boolean
     get_supported_formats(): TrackType
     set_supported_formats(supportedformats: TrackType): void
-    /* Methods of GES.Asset */
+    /* Methods of GES-1.0.GES.Asset */
     extract(): Extractable
     get_error(): GLib.Error | null
     get_extractable_type(): GObject.Type
@@ -7154,7 +7154,7 @@ export class SourceClipAsset {
     list_proxies(): Asset[]
     set_proxy(proxy?: Asset | null): boolean
     unproxy(proxy: Asset): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -7176,7 +7176,7 @@ export class SourceClipAsset {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of GES.MetaContainer */
+    /* Methods of GES-1.0.GES.MetaContainer */
     add_metas_from_string(str: string): boolean
     check_meta_registered(meta_item: string): [ /* returnType */ boolean, /* flags */ MetaFlag | null, /* type */ GObject.Type | null ]
     foreach(func: MetaForeachFunc): void
@@ -7217,15 +7217,15 @@ export class SourceClipAsset {
     set_string(meta_item: string, value: string): boolean
     set_uint(meta_item: string, value: number): boolean
     set_uint64(meta_item: string, value: number): boolean
-    /* Methods of Gio.AsyncInitable */
+    /* Methods of Gio-2.0.Gio.AsyncInitable */
     init_async(io_priority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     init_finish(res: Gio.AsyncResult): boolean
     new_finish(res: Gio.AsyncResult): GObject.Object
-    /* Methods of Gio.Initable */
+    /* Methods of Gio-2.0.Gio.Initable */
     init(cancellable?: Gio.Cancellable | null): boolean
-    /* Virtual methods of GES.ClipAsset */
+    /* Virtual methods of GES-1.0.GES.ClipAsset */
     vfunc_get_natural_framerate(framerate_n: number, framerate_d: number): boolean
-    /* Virtual methods of GES.Asset */
+    /* Virtual methods of GES-1.0.GES.Asset */
     vfunc_extract(): Extractable
     vfunc_inform_proxy(proxy_id: string): void
     vfunc_proxied(proxy: Asset): void
@@ -7234,7 +7234,7 @@ export class SourceClipAsset {
     vfunc_init_async(io_priority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     vfunc_init_finish(res: Gio.AsyncResult): boolean
     vfunc_init(cancellable?: Gio.Cancellable | null): boolean
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -7242,11 +7242,11 @@ export class SourceClipAsset {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: SourceClipAsset, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: SourceClipAsset, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    /* Signals of GES.MetaContainer */
+    /* Signals of GES-1.0.GES.MetaContainer */
     connect(sigName: "notify-meta", callback: (($obj: SourceClipAsset, key: string, value?: any | null) => void)): number
     connect_after(sigName: "notify-meta", callback: (($obj: SourceClipAsset, key: string, value?: any | null) => void)): number
     emit(sigName: "notify-meta", key: string, value?: any | null): void
@@ -7272,18 +7272,18 @@ export interface TestClip_ConstructProps extends SourceClip_ConstructProps {
     vpattern?: VideoTestPattern
 }
 export class TestClip {
-    /* Properties of GES.TestClip */
+    /* Properties of GES-1.0.GES.TestClip */
     freq: number
     mute: boolean
     volume: number
     vpattern: VideoTestPattern
-    /* Properties of GES.Clip */
+    /* Properties of GES-1.0.GES.Clip */
     readonly duration_limit: number
     readonly layer: Layer
     supported_formats: TrackType
-    /* Properties of GES.Container */
+    /* Properties of GES-1.0.GES.Container */
     readonly height: number
-    /* Properties of GES.TimelineElement */
+    /* Properties of GES-1.0.GES.TimelineElement */
     duration: number
     in_point: number
     max_duration: number
@@ -7293,18 +7293,18 @@ export class TestClip {
     serialize: boolean
     start: number
     timeline: Timeline
-    /* Fields of GES.Container */
+    /* Fields of GES-1.0.GES.Container */
     children: TimelineElement[]
     children_control_mode: ChildrenControlMode
     initiated_move: TimelineElement
-    /* Fields of GES.TimelineElement */
+    /* Fields of GES-1.0.GES.TimelineElement */
     parent_instance: GObject.InitiallyUnowned
     asset: Asset
     inpoint: Gst.ClockTime
     maxduration: Gst.ClockTime
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GES.TestClip */
+    /* Methods of GES-1.0.GES.TestClip */
     get_frequency(): number
     get_volume(): number
     get_vpattern(): VideoTestPattern
@@ -7313,7 +7313,7 @@ export class TestClip {
     set_mute(mute: boolean): void
     set_volume(volume: number): void
     set_vpattern(vpattern: VideoTestPattern): void
-    /* Methods of GES.Clip */
+    /* Methods of GES-1.0.GES.Clip */
     add_asset(asset: Asset): TrackElement | null
     add_child_to_track(child: TrackElement, track: Track): TrackElement
     add_top_effect(effect: BaseEffect, index: number): boolean
@@ -7337,13 +7337,13 @@ export class TestClip {
     set_top_effect_priority(effect: BaseEffect, newpriority: number): boolean
     split(position: number): Clip | null
     split_full(position: number): Clip | null
-    /* Methods of GES.Container */
+    /* Methods of GES-1.0.GES.Container */
     add(child: TimelineElement): boolean
     edit(layers: Layer[] | null, new_layer_priority: number, mode: EditMode, edge: Edge, position: number): boolean
     get_children(recursive: boolean): TimelineElement[]
     remove(child: TimelineElement): boolean
     ungroup(recursive: boolean): Container[]
-    /* Methods of GES.TimelineElement */
+    /* Methods of GES-1.0.GES.TimelineElement */
     add_child_property(pspec: GObject.ParamSpec, child: GObject.Object): boolean
     copy(deep: boolean): TimelineElement
     edit_full(new_layer_priority: number, mode: EditMode, edge: Edge, position: number): boolean
@@ -7381,7 +7381,7 @@ export class TestClip {
     set_start(start: Gst.ClockTime): boolean
     set_timeline(timeline: Timeline): boolean
     trim(start: Gst.ClockTime): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -7403,11 +7403,11 @@ export class TestClip {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of GES.Extractable */
+    /* Methods of GES-1.0.GES.Extractable */
     get_asset(): Asset | null
     get_id(): string
     set_asset(asset: Asset): boolean
-    /* Methods of GES.MetaContainer */
+    /* Methods of GES-1.0.GES.MetaContainer */
     add_metas_from_string(str: string): boolean
     check_meta_registered(meta_item: string): [ /* returnType */ boolean, /* flags */ MetaFlag | null, /* type */ GObject.Type | null ]
     foreach(func: MetaForeachFunc): void
@@ -7448,17 +7448,17 @@ export class TestClip {
     set_string(meta_item: string, value: string): boolean
     set_uint(meta_item: string, value: number): boolean
     set_uint64(meta_item: string, value: number): boolean
-    /* Virtual methods of GES.Clip */
+    /* Virtual methods of GES-1.0.GES.Clip */
     vfunc_create_track_element(type: TrackType): TrackElement | null
     vfunc_create_track_elements(type: TrackType): TrackElement[]
-    /* Virtual methods of GES.Container */
+    /* Virtual methods of GES-1.0.GES.Container */
     vfunc_add_child(element: TimelineElement): boolean
     vfunc_child_added(element: TimelineElement): void
     vfunc_child_removed(element: TimelineElement): void
     vfunc_edit(layers: Layer[] | null, new_layer_priority: number, mode: EditMode, edge: Edge, position: number): boolean
     vfunc_remove_child(element: TimelineElement): boolean
     vfunc_ungroup(recursive: boolean): Container[]
-    /* Virtual methods of GES.TimelineElement */
+    /* Virtual methods of GES-1.0.GES.TimelineElement */
     vfunc_deep_copy(copy: TimelineElement): void
     vfunc_get_layer_priority(): number
     vfunc_get_natural_framerate(): [ /* returnType */ boolean, /* framerate_n */ number, /* framerate_d */ number ]
@@ -7480,7 +7480,7 @@ export class TestClip {
     vfunc_get_id(): string
     vfunc_set_asset(asset: Asset): void
     vfunc_set_asset_full(asset: Asset): boolean
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -7488,14 +7488,14 @@ export class TestClip {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GES.Container */
+    /* Signals of GES-1.0.GES.Container */
     connect(sigName: "child-added", callback: (($obj: TestClip, element: TimelineElement) => void)): number
     connect_after(sigName: "child-added", callback: (($obj: TestClip, element: TimelineElement) => void)): number
     emit(sigName: "child-added", element: TimelineElement): void
     connect(sigName: "child-removed", callback: (($obj: TestClip, element: TimelineElement) => void)): number
     connect_after(sigName: "child-removed", callback: (($obj: TestClip, element: TimelineElement) => void)): number
     emit(sigName: "child-removed", element: TimelineElement): void
-    /* Signals of GES.TimelineElement */
+    /* Signals of GES-1.0.GES.TimelineElement */
     connect(sigName: "child-property-added", callback: (($obj: TestClip, prop_object: GObject.Object, prop: GObject.ParamSpec) => void)): number
     connect_after(sigName: "child-property-added", callback: (($obj: TestClip, prop_object: GObject.Object, prop: GObject.ParamSpec) => void)): number
     emit(sigName: "child-property-added", prop_object: GObject.Object, prop: GObject.ParamSpec): void
@@ -7505,11 +7505,11 @@ export class TestClip {
     connect(sigName: "deep-notify", callback: (($obj: TestClip, prop_object: GObject.Object, prop: GObject.ParamSpec) => void)): number
     connect_after(sigName: "deep-notify", callback: (($obj: TestClip, prop_object: GObject.Object, prop: GObject.ParamSpec) => void)): number
     emit(sigName: "deep-notify", prop_object: GObject.Object, prop: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: TestClip, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: TestClip, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    /* Signals of GES.MetaContainer */
+    /* Signals of GES-1.0.GES.MetaContainer */
     connect(sigName: "notify-meta", callback: (($obj: TestClip, key: string, value?: any | null) => void)): number
     connect_after(sigName: "notify-meta", callback: (($obj: TestClip, key: string, value?: any | null) => void)): number
     emit(sigName: "notify-meta", key: string, value?: any | null): void
@@ -7562,13 +7562,13 @@ export class TestClip {
 export interface TextOverlay_ConstructProps extends Operation_ConstructProps {
 }
 export class TextOverlay {
-    /* Properties of GES.TrackElement */
+    /* Properties of GES-1.0.GES.TrackElement */
     active: boolean
     auto_clamp_control_sources: boolean
     has_internal_source: boolean
     readonly track: Track
     track_type: TrackType
-    /* Properties of GES.TimelineElement */
+    /* Properties of GES-1.0.GES.TimelineElement */
     duration: number
     in_point: number
     max_duration: number
@@ -7578,14 +7578,14 @@ export class TextOverlay {
     serialize: boolean
     start: number
     timeline: Timeline
-    /* Fields of GES.TimelineElement */
+    /* Fields of GES-1.0.GES.TimelineElement */
     parent_instance: GObject.InitiallyUnowned
     asset: Asset
     inpoint: Gst.ClockTime
     maxduration: Gst.ClockTime
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GES.TextOverlay */
+    /* Methods of GES-1.0.GES.TextOverlay */
     get_color(): number
     get_font_desc(): string
     get_halignment(): TextHAlign
@@ -7600,7 +7600,7 @@ export class TextOverlay {
     set_valignment(valign: TextVAlign): void
     set_xpos(position: number): void
     set_ypos(position: number): void
-    /* Methods of GES.TrackElement */
+    /* Methods of GES-1.0.GES.TrackElement */
     add_children_props(element: Gst.Element, wanted_categories?: string[] | null, blacklist?: string[] | null, whitelist?: string[] | null): void
     clamp_control_source(property_name: string): void
     edit(layers: Layer[] | null, mode: EditMode, edge: Edge, position: number): boolean
@@ -7622,7 +7622,7 @@ export class TextOverlay {
     set_control_source(source: Gst.ControlSource, property_name: string, binding_type: string): boolean
     set_has_internal_source(has_internal_source: boolean): boolean
     set_track_type(type: TrackType): void
-    /* Methods of GES.TimelineElement */
+    /* Methods of GES-1.0.GES.TimelineElement */
     add_child_property(pspec: GObject.ParamSpec, child: GObject.Object): boolean
     copy(deep: boolean): TimelineElement
     edit(layers: Layer[] | null, new_layer_priority: number, mode: EditMode, edge: Edge, position: number): boolean
@@ -7660,7 +7660,7 @@ export class TextOverlay {
     set_start(start: Gst.ClockTime): boolean
     set_timeline(timeline: Timeline): boolean
     trim(start: Gst.ClockTime): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -7682,11 +7682,11 @@ export class TextOverlay {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of GES.Extractable */
+    /* Methods of GES-1.0.GES.Extractable */
     get_asset(): Asset | null
     get_id(): string
     set_asset(asset: Asset): boolean
-    /* Methods of GES.MetaContainer */
+    /* Methods of GES-1.0.GES.MetaContainer */
     add_metas_from_string(str: string): boolean
     check_meta_registered(meta_item: string): [ /* returnType */ boolean, /* flags */ MetaFlag | null, /* type */ GObject.Type | null ]
     foreach(func: MetaForeachFunc): void
@@ -7727,11 +7727,11 @@ export class TextOverlay {
     set_string(meta_item: string, value: string): boolean
     set_uint(meta_item: string, value: number): boolean
     set_uint64(meta_item: string, value: number): boolean
-    /* Virtual methods of GES.TrackElement */
+    /* Virtual methods of GES-1.0.GES.TrackElement */
     vfunc_active_changed(active: boolean): void
     vfunc_changed(): void
     vfunc_lookup_child(prop_name: string): [ /* returnType */ boolean, /* element */ Gst.Element | null, /* pspec */ GObject.ParamSpec | null ]
-    /* Virtual methods of GES.TimelineElement */
+    /* Virtual methods of GES-1.0.GES.TimelineElement */
     vfunc_deep_copy(copy: TimelineElement): void
     vfunc_get_layer_priority(): number
     vfunc_get_natural_framerate(): [ /* returnType */ boolean, /* framerate_n */ number, /* framerate_d */ number ]
@@ -7753,7 +7753,7 @@ export class TextOverlay {
     vfunc_get_id(): string
     vfunc_set_asset(asset: Asset): void
     vfunc_set_asset_full(asset: Asset): boolean
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -7761,14 +7761,14 @@ export class TextOverlay {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GES.TrackElement */
+    /* Signals of GES-1.0.GES.TrackElement */
     connect(sigName: "control-binding-added", callback: (($obj: TextOverlay, control_binding: Gst.ControlBinding) => void)): number
     connect_after(sigName: "control-binding-added", callback: (($obj: TextOverlay, control_binding: Gst.ControlBinding) => void)): number
     emit(sigName: "control-binding-added", control_binding: Gst.ControlBinding): void
     connect(sigName: "control-binding-removed", callback: (($obj: TextOverlay, control_binding: Gst.ControlBinding) => void)): number
     connect_after(sigName: "control-binding-removed", callback: (($obj: TextOverlay, control_binding: Gst.ControlBinding) => void)): number
     emit(sigName: "control-binding-removed", control_binding: Gst.ControlBinding): void
-    /* Signals of GES.TimelineElement */
+    /* Signals of GES-1.0.GES.TimelineElement */
     connect(sigName: "child-property-added", callback: (($obj: TextOverlay, prop_object: GObject.Object, prop: GObject.ParamSpec) => void)): number
     connect_after(sigName: "child-property-added", callback: (($obj: TextOverlay, prop_object: GObject.Object, prop: GObject.ParamSpec) => void)): number
     emit(sigName: "child-property-added", prop_object: GObject.Object, prop: GObject.ParamSpec): void
@@ -7778,11 +7778,11 @@ export class TextOverlay {
     connect(sigName: "deep-notify", callback: (($obj: TextOverlay, prop_object: GObject.Object, prop: GObject.ParamSpec) => void)): number
     connect_after(sigName: "deep-notify", callback: (($obj: TextOverlay, prop_object: GObject.Object, prop: GObject.ParamSpec) => void)): number
     emit(sigName: "deep-notify", prop_object: GObject.Object, prop: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: TextOverlay, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: TextOverlay, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    /* Signals of GES.MetaContainer */
+    /* Signals of GES-1.0.GES.MetaContainer */
     connect(sigName: "notify-meta", callback: (($obj: TextOverlay, key: string, value?: any | null) => void)): number
     connect_after(sigName: "notify-meta", callback: (($obj: TextOverlay, key: string, value?: any | null) => void)): number
     emit(sigName: "notify-meta", key: string, value?: any | null): void
@@ -7835,7 +7835,7 @@ export interface TextOverlayClip_ConstructProps extends OverlayClip_ConstructPro
     ypos?: number
 }
 export class TextOverlayClip {
-    /* Properties of GES.TextOverlayClip */
+    /* Properties of GES-1.0.GES.TextOverlayClip */
     color: number
     font_desc: string
     halignment: TextHAlign
@@ -7843,13 +7843,13 @@ export class TextOverlayClip {
     valignment: TextVAlign
     xpos: number
     ypos: number
-    /* Properties of GES.Clip */
+    /* Properties of GES-1.0.GES.Clip */
     readonly duration_limit: number
     readonly layer: Layer
     supported_formats: TrackType
-    /* Properties of GES.Container */
+    /* Properties of GES-1.0.GES.Container */
     readonly height: number
-    /* Properties of GES.TimelineElement */
+    /* Properties of GES-1.0.GES.TimelineElement */
     duration: number
     in_point: number
     max_duration: number
@@ -7859,18 +7859,18 @@ export class TextOverlayClip {
     serialize: boolean
     start: number
     timeline: Timeline
-    /* Fields of GES.Container */
+    /* Fields of GES-1.0.GES.Container */
     children: TimelineElement[]
     children_control_mode: ChildrenControlMode
     initiated_move: TimelineElement
-    /* Fields of GES.TimelineElement */
+    /* Fields of GES-1.0.GES.TimelineElement */
     parent_instance: GObject.InitiallyUnowned
     asset: Asset
     inpoint: Gst.ClockTime
     maxduration: Gst.ClockTime
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GES.TextOverlayClip */
+    /* Methods of GES-1.0.GES.TextOverlayClip */
     get_color(): number
     get_font_desc(): string
     get_halignment(): TextHAlign
@@ -7885,7 +7885,7 @@ export class TextOverlayClip {
     set_valign(valign: TextVAlign): void
     set_xpos(position: number): void
     set_ypos(position: number): void
-    /* Methods of GES.Clip */
+    /* Methods of GES-1.0.GES.Clip */
     add_asset(asset: Asset): TrackElement | null
     add_child_to_track(child: TrackElement, track: Track): TrackElement
     add_top_effect(effect: BaseEffect, index: number): boolean
@@ -7909,13 +7909,13 @@ export class TextOverlayClip {
     set_top_effect_priority(effect: BaseEffect, newpriority: number): boolean
     split(position: number): Clip | null
     split_full(position: number): Clip | null
-    /* Methods of GES.Container */
+    /* Methods of GES-1.0.GES.Container */
     add(child: TimelineElement): boolean
     edit(layers: Layer[] | null, new_layer_priority: number, mode: EditMode, edge: Edge, position: number): boolean
     get_children(recursive: boolean): TimelineElement[]
     remove(child: TimelineElement): boolean
     ungroup(recursive: boolean): Container[]
-    /* Methods of GES.TimelineElement */
+    /* Methods of GES-1.0.GES.TimelineElement */
     add_child_property(pspec: GObject.ParamSpec, child: GObject.Object): boolean
     copy(deep: boolean): TimelineElement
     edit_full(new_layer_priority: number, mode: EditMode, edge: Edge, position: number): boolean
@@ -7953,7 +7953,7 @@ export class TextOverlayClip {
     set_start(start: Gst.ClockTime): boolean
     set_timeline(timeline: Timeline): boolean
     trim(start: Gst.ClockTime): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -7975,11 +7975,11 @@ export class TextOverlayClip {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of GES.Extractable */
+    /* Methods of GES-1.0.GES.Extractable */
     get_asset(): Asset | null
     get_id(): string
     set_asset(asset: Asset): boolean
-    /* Methods of GES.MetaContainer */
+    /* Methods of GES-1.0.GES.MetaContainer */
     add_metas_from_string(str: string): boolean
     check_meta_registered(meta_item: string): [ /* returnType */ boolean, /* flags */ MetaFlag | null, /* type */ GObject.Type | null ]
     foreach(func: MetaForeachFunc): void
@@ -8020,17 +8020,17 @@ export class TextOverlayClip {
     set_string(meta_item: string, value: string): boolean
     set_uint(meta_item: string, value: number): boolean
     set_uint64(meta_item: string, value: number): boolean
-    /* Virtual methods of GES.Clip */
+    /* Virtual methods of GES-1.0.GES.Clip */
     vfunc_create_track_element(type: TrackType): TrackElement | null
     vfunc_create_track_elements(type: TrackType): TrackElement[]
-    /* Virtual methods of GES.Container */
+    /* Virtual methods of GES-1.0.GES.Container */
     vfunc_add_child(element: TimelineElement): boolean
     vfunc_child_added(element: TimelineElement): void
     vfunc_child_removed(element: TimelineElement): void
     vfunc_edit(layers: Layer[] | null, new_layer_priority: number, mode: EditMode, edge: Edge, position: number): boolean
     vfunc_remove_child(element: TimelineElement): boolean
     vfunc_ungroup(recursive: boolean): Container[]
-    /* Virtual methods of GES.TimelineElement */
+    /* Virtual methods of GES-1.0.GES.TimelineElement */
     vfunc_deep_copy(copy: TimelineElement): void
     vfunc_get_layer_priority(): number
     vfunc_get_natural_framerate(): [ /* returnType */ boolean, /* framerate_n */ number, /* framerate_d */ number ]
@@ -8052,7 +8052,7 @@ export class TextOverlayClip {
     vfunc_get_id(): string
     vfunc_set_asset(asset: Asset): void
     vfunc_set_asset_full(asset: Asset): boolean
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -8060,14 +8060,14 @@ export class TextOverlayClip {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GES.Container */
+    /* Signals of GES-1.0.GES.Container */
     connect(sigName: "child-added", callback: (($obj: TextOverlayClip, element: TimelineElement) => void)): number
     connect_after(sigName: "child-added", callback: (($obj: TextOverlayClip, element: TimelineElement) => void)): number
     emit(sigName: "child-added", element: TimelineElement): void
     connect(sigName: "child-removed", callback: (($obj: TextOverlayClip, element: TimelineElement) => void)): number
     connect_after(sigName: "child-removed", callback: (($obj: TextOverlayClip, element: TimelineElement) => void)): number
     emit(sigName: "child-removed", element: TimelineElement): void
-    /* Signals of GES.TimelineElement */
+    /* Signals of GES-1.0.GES.TimelineElement */
     connect(sigName: "child-property-added", callback: (($obj: TextOverlayClip, prop_object: GObject.Object, prop: GObject.ParamSpec) => void)): number
     connect_after(sigName: "child-property-added", callback: (($obj: TextOverlayClip, prop_object: GObject.Object, prop: GObject.ParamSpec) => void)): number
     emit(sigName: "child-property-added", prop_object: GObject.Object, prop: GObject.ParamSpec): void
@@ -8077,11 +8077,11 @@ export class TextOverlayClip {
     connect(sigName: "deep-notify", callback: (($obj: TextOverlayClip, prop_object: GObject.Object, prop: GObject.ParamSpec) => void)): number
     connect_after(sigName: "deep-notify", callback: (($obj: TextOverlayClip, prop_object: GObject.Object, prop: GObject.ParamSpec) => void)): number
     emit(sigName: "deep-notify", prop_object: GObject.Object, prop: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: TextOverlayClip, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: TextOverlayClip, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    /* Signals of GES.MetaContainer */
+    /* Signals of GES-1.0.GES.MetaContainer */
     connect(sigName: "notify-meta", callback: (($obj: TextOverlayClip, key: string, value?: any | null) => void)): number
     connect_after(sigName: "notify-meta", callback: (($obj: TextOverlayClip, key: string, value?: any | null) => void)): number
     emit(sigName: "notify-meta", key: string, value?: any | null): void
@@ -8141,20 +8141,20 @@ export interface Timeline_ConstructProps extends Gst.Bin_ConstructProps {
     snapping_distance?: number
 }
 export class Timeline {
-    /* Properties of GES.Timeline */
+    /* Properties of GES-1.0.GES.Timeline */
     auto_transition: boolean
     readonly duration: number
     snapping_distance: number
-    /* Properties of Gst.Bin */
+    /* Properties of Gst-1.0.Gst.Bin */
     async_handling: boolean
     message_forward: boolean
-    /* Properties of Gst.Object */
+    /* Properties of Gst-1.0.Gst.Object */
     name: string
     parent: Gst.Object
-    /* Fields of GES.Timeline */
+    /* Fields of GES-1.0.GES.Timeline */
     layers: Layer[]
     tracks: object[]
-    /* Fields of Gst.Bin */
+    /* Fields of Gst-1.0.Gst.Bin */
     element: Gst.Element
     numchildren: number
     children: Gst.Element[]
@@ -8166,7 +8166,7 @@ export class Timeline {
     clock_dirty: boolean
     provided_clock: Gst.Clock
     clock_provider: Gst.Element
-    /* Fields of Gst.Element */
+    /* Fields of Gst-1.0.Gst.Element */
     object: Gst.Object
     state_lock: GLib.RecMutex
     state_cond: GLib.Cond
@@ -8188,12 +8188,12 @@ export class Timeline {
     sinkpads: Gst.Pad[]
     pads_cookie: number
     contexts: Gst.Context[]
-    /* Fields of Gst.Object */
+    /* Fields of Gst-1.0.Gst.Object */
     lock: GLib.Mutex
     flags: number
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GES.Timeline */
+    /* Methods of GES-1.0.GES.Timeline */
     add_layer(layer: Layer): boolean
     add_track(track: Track): boolean
     append_layer(): Layer
@@ -8220,7 +8220,7 @@ export class Timeline {
     save_to_uri(uri: string, formatter_asset: Asset | null, overwrite: boolean): boolean
     set_auto_transition(auto_transition: boolean): void
     set_snapping_distance(snapping_distance: Gst.ClockTime): void
-    /* Methods of Gst.Bin */
+    /* Methods of Gst-1.0.Gst.Bin */
     add(element: Gst.Element): boolean
     find_unlinked_pad(direction: Gst.PadDirection): Gst.Pad | null
     get_by_interface(iface: GObject.Type): Gst.Element | null
@@ -8238,7 +8238,7 @@ export class Timeline {
     remove(element: Gst.Element): boolean
     set_suppressed_flags(flags: Gst.ElementFlags): void
     sync_children_states(): boolean
-    /* Methods of Gst.Element */
+    /* Methods of Gst-1.0.Gst.Element */
     abort_state(): void
     add_pad(pad: Gst.Pad): boolean
     add_property_deep_notify_watch(property_name: string | null, include_value: boolean): number
@@ -8304,7 +8304,7 @@ export class Timeline {
     sync_state_with_parent(): boolean
     unlink(dest: Gst.Element): void
     unlink_pads(srcpadname: string, dest: Gst.Element, destpadname: string): void
-    /* Methods of Gst.Object */
+    /* Methods of Gst-1.0.Gst.Object */
     add_control_binding(binding: Gst.ControlBinding): boolean
     default_error(error: GLib.Error, debug?: string | null): void
     get_control_binding(property_name: string): Gst.ControlBinding | null
@@ -8329,7 +8329,7 @@ export class Timeline {
     sync_values(timestamp: Gst.ClockTime): boolean
     unparent(): void
     unref(): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -8350,11 +8350,11 @@ export class Timeline {
     steal_qdata(quark: GLib.Quark): object | null
     thaw_notify(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of GES.Extractable */
+    /* Methods of GES-1.0.GES.Extractable */
     get_asset(): Asset | null
     get_id(): string
     set_asset(asset: Asset): boolean
-    /* Methods of GES.MetaContainer */
+    /* Methods of GES-1.0.GES.MetaContainer */
     add_metas_from_string(str: string): boolean
     check_meta_registered(meta_item: string): [ /* returnType */ boolean, /* flags */ MetaFlag | null, /* type */ GObject.Type | null ]
     foreach(func: MetaForeachFunc): void
@@ -8395,7 +8395,7 @@ export class Timeline {
     set_string(meta_item: string, value: string): boolean
     set_uint(meta_item: string, value: number): boolean
     set_uint64(meta_item: string, value: number): boolean
-    /* Methods of Gst.ChildProxy */
+    /* Methods of Gst-1.0.Gst.ChildProxy */
     child_added(child: GObject.Object, name: string): void
     child_removed(child: GObject.Object, name: string): void
     get_child_by_index(index: number): GObject.Object | null
@@ -8404,7 +8404,7 @@ export class Timeline {
     get_property(name: string): /* value */ any
     lookup(name: string): [ /* returnType */ boolean, /* target */ GObject.Object | null, /* pspec */ GObject.ParamSpec | null ]
     set_property(name: string, value: any): void
-    /* Virtual methods of GES.Timeline */
+    /* Virtual methods of GES-1.0.GES.Timeline */
     vfunc_group_added(group: Group): void
     vfunc_layer_added(layer: Layer): void
     vfunc_layer_removed(layer: Layer): void
@@ -8418,7 +8418,7 @@ export class Timeline {
     vfunc_get_child_by_index(index: number): GObject.Object | null
     vfunc_get_child_by_name(name: string): GObject.Object | null
     vfunc_get_children_count(): number
-    /* Virtual methods of Gst.Bin */
+    /* Virtual methods of Gst-1.0.Gst.Bin */
     vfunc_add_element(element: Gst.Element): boolean
     vfunc_deep_element_added(sub_bin: Gst.Bin, child: Gst.Element): void
     vfunc_deep_element_removed(sub_bin: Gst.Bin, child: Gst.Element): void
@@ -8427,7 +8427,7 @@ export class Timeline {
     vfunc_element_removed(child: Gst.Element): void
     vfunc_handle_message(message: Gst.Message): void
     vfunc_remove_element(element: Gst.Element): boolean
-    /* Virtual methods of Gst.Element */
+    /* Virtual methods of Gst-1.0.Gst.Element */
     vfunc_change_state(transition: Gst.StateChange): Gst.StateChangeReturn
     vfunc_get_state(timeout: Gst.ClockTime): [ /* returnType */ Gst.StateChangeReturn, /* state */ Gst.State | null, /* pending */ Gst.State | null ]
     vfunc_no_more_pads(): void
@@ -8444,9 +8444,9 @@ export class Timeline {
     vfunc_set_context(context: Gst.Context): void
     vfunc_set_state(state: Gst.State): Gst.StateChangeReturn
     vfunc_state_changed(oldstate: Gst.State, newstate: Gst.State, pending: Gst.State): void
-    /* Virtual methods of Gst.Object */
+    /* Virtual methods of Gst-1.0.Gst.Object */
     vfunc_deep_notify(orig: Gst.Object, pspec: GObject.ParamSpec): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -8454,7 +8454,7 @@ export class Timeline {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GES.Timeline */
+    /* Signals of GES-1.0.GES.Timeline */
     connect(sigName: "commited", callback: (($obj: Timeline) => void)): number
     connect_after(sigName: "commited", callback: (($obj: Timeline) => void)): number
     emit(sigName: "commited"): void
@@ -8488,7 +8488,7 @@ export class Timeline {
     connect(sigName: "track-removed", callback: (($obj: Timeline, track: Track) => void)): number
     connect_after(sigName: "track-removed", callback: (($obj: Timeline, track: Track) => void)): number
     emit(sigName: "track-removed", track: Track): void
-    /* Signals of Gst.Bin */
+    /* Signals of Gst-1.0.Gst.Bin */
     connect(sigName: "deep-element-added", callback: (($obj: Timeline, sub_bin: Gst.Bin, element: Gst.Element) => void)): number
     connect_after(sigName: "deep-element-added", callback: (($obj: Timeline, sub_bin: Gst.Bin, element: Gst.Element) => void)): number
     emit(sigName: "deep-element-added", sub_bin: Gst.Bin, element: Gst.Element): void
@@ -8504,7 +8504,7 @@ export class Timeline {
     connect(sigName: "element-removed", callback: (($obj: Timeline, element: Gst.Element) => void)): number
     connect_after(sigName: "element-removed", callback: (($obj: Timeline, element: Gst.Element) => void)): number
     emit(sigName: "element-removed", element: Gst.Element): void
-    /* Signals of Gst.Element */
+    /* Signals of Gst-1.0.Gst.Element */
     connect(sigName: "no-more-pads", callback: (($obj: Timeline) => void)): number
     connect_after(sigName: "no-more-pads", callback: (($obj: Timeline) => void)): number
     emit(sigName: "no-more-pads"): void
@@ -8514,19 +8514,19 @@ export class Timeline {
     connect(sigName: "pad-removed", callback: (($obj: Timeline, old_pad: Gst.Pad) => void)): number
     connect_after(sigName: "pad-removed", callback: (($obj: Timeline, old_pad: Gst.Pad) => void)): number
     emit(sigName: "pad-removed", old_pad: Gst.Pad): void
-    /* Signals of Gst.Object */
+    /* Signals of Gst-1.0.Gst.Object */
     connect(sigName: "deep-notify", callback: (($obj: Timeline, prop_object: Gst.Object, prop: GObject.ParamSpec) => void)): number
     connect_after(sigName: "deep-notify", callback: (($obj: Timeline, prop_object: Gst.Object, prop: GObject.ParamSpec) => void)): number
     emit(sigName: "deep-notify", prop_object: Gst.Object, prop: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Timeline, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Timeline, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    /* Signals of GES.MetaContainer */
+    /* Signals of GES-1.0.GES.MetaContainer */
     connect(sigName: "notify-meta", callback: (($obj: Timeline, key: string, value?: any | null) => void)): number
     connect_after(sigName: "notify-meta", callback: (($obj: Timeline, key: string, value?: any | null) => void)): number
     emit(sigName: "notify-meta", key: string, value?: any | null): void
-    /* Signals of Gst.ChildProxy */
+    /* Signals of Gst-1.0.Gst.ChildProxy */
     connect(sigName: "child-added", callback: (($obj: Timeline, object: GObject.Object, name: string) => void)): number
     connect_after(sigName: "child-added", callback: (($obj: Timeline, object: GObject.Object, name: string) => void)): number
     emit(sigName: "child-added", object: GObject.Object, name: string): void
@@ -8573,7 +8573,7 @@ export interface TimelineElement_ConstructProps extends GObject.InitiallyUnowned
     timeline?: Timeline
 }
 export class TimelineElement {
-    /* Properties of GES.TimelineElement */
+    /* Properties of GES-1.0.GES.TimelineElement */
     duration: number
     in_point: number
     max_duration: number
@@ -8583,14 +8583,14 @@ export class TimelineElement {
     serialize: boolean
     start: number
     timeline: Timeline
-    /* Fields of GES.TimelineElement */
+    /* Fields of GES-1.0.GES.TimelineElement */
     parent_instance: GObject.InitiallyUnowned
     asset: Asset
     inpoint: Gst.ClockTime
     maxduration: Gst.ClockTime
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GES.TimelineElement */
+    /* Methods of GES-1.0.GES.TimelineElement */
     add_child_property(pspec: GObject.ParamSpec, child: GObject.Object): boolean
     copy(deep: boolean): TimelineElement
     edit(layers: Layer[] | null, new_layer_priority: number, mode: EditMode, edge: Edge, position: number): boolean
@@ -8629,7 +8629,7 @@ export class TimelineElement {
     set_start(start: Gst.ClockTime): boolean
     set_timeline(timeline: Timeline): boolean
     trim(start: Gst.ClockTime): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -8651,11 +8651,11 @@ export class TimelineElement {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of GES.Extractable */
+    /* Methods of GES-1.0.GES.Extractable */
     get_asset(): Asset | null
     get_id(): string
     set_asset(asset: Asset): boolean
-    /* Methods of GES.MetaContainer */
+    /* Methods of GES-1.0.GES.MetaContainer */
     add_metas_from_string(str: string): boolean
     check_meta_registered(meta_item: string): [ /* returnType */ boolean, /* flags */ MetaFlag | null, /* type */ GObject.Type | null ]
     foreach(func: MetaForeachFunc): void
@@ -8696,7 +8696,7 @@ export class TimelineElement {
     set_string(meta_item: string, value: string): boolean
     set_uint(meta_item: string, value: number): boolean
     set_uint64(meta_item: string, value: number): boolean
-    /* Virtual methods of GES.TimelineElement */
+    /* Virtual methods of GES-1.0.GES.TimelineElement */
     vfunc_deep_copy(copy: TimelineElement): void
     vfunc_get_layer_priority(): number
     vfunc_get_natural_framerate(): [ /* returnType */ boolean, /* framerate_n */ number, /* framerate_d */ number ]
@@ -8718,7 +8718,7 @@ export class TimelineElement {
     vfunc_get_id(): string
     vfunc_set_asset(asset: Asset): void
     vfunc_set_asset_full(asset: Asset): boolean
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -8726,7 +8726,7 @@ export class TimelineElement {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GES.TimelineElement */
+    /* Signals of GES-1.0.GES.TimelineElement */
     connect(sigName: "child-property-added", callback: (($obj: TimelineElement, prop_object: GObject.Object, prop: GObject.ParamSpec) => void)): number
     connect_after(sigName: "child-property-added", callback: (($obj: TimelineElement, prop_object: GObject.Object, prop: GObject.ParamSpec) => void)): number
     emit(sigName: "child-property-added", prop_object: GObject.Object, prop: GObject.ParamSpec): void
@@ -8736,11 +8736,11 @@ export class TimelineElement {
     connect(sigName: "deep-notify", callback: (($obj: TimelineElement, prop_object: GObject.Object, prop: GObject.ParamSpec) => void)): number
     connect_after(sigName: "deep-notify", callback: (($obj: TimelineElement, prop_object: GObject.Object, prop: GObject.ParamSpec) => void)): number
     emit(sigName: "deep-notify", prop_object: GObject.Object, prop: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: TimelineElement, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: TimelineElement, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    /* Signals of GES.MetaContainer */
+    /* Signals of GES-1.0.GES.MetaContainer */
     connect(sigName: "notify-meta", callback: (($obj: TimelineElement, key: string, value?: any | null) => void)): number
     connect_after(sigName: "notify-meta", callback: (($obj: TimelineElement, key: string, value?: any | null) => void)): number
     emit(sigName: "notify-meta", key: string, value?: any | null): void
@@ -8782,7 +8782,7 @@ export interface TitleClip_ConstructProps extends SourceClip_ConstructProps {
     ypos?: number
 }
 export class TitleClip {
-    /* Properties of GES.TitleClip */
+    /* Properties of GES-1.0.GES.TitleClip */
     background: number
     color: number
     font_desc: string
@@ -8791,13 +8791,13 @@ export class TitleClip {
     valignment: TextVAlign
     xpos: number
     ypos: number
-    /* Properties of GES.Clip */
+    /* Properties of GES-1.0.GES.Clip */
     readonly duration_limit: number
     readonly layer: Layer
     supported_formats: TrackType
-    /* Properties of GES.Container */
+    /* Properties of GES-1.0.GES.Container */
     readonly height: number
-    /* Properties of GES.TimelineElement */
+    /* Properties of GES-1.0.GES.TimelineElement */
     duration: number
     in_point: number
     max_duration: number
@@ -8807,18 +8807,18 @@ export class TitleClip {
     serialize: boolean
     start: number
     timeline: Timeline
-    /* Fields of GES.Container */
+    /* Fields of GES-1.0.GES.Container */
     children: TimelineElement[]
     children_control_mode: ChildrenControlMode
     initiated_move: TimelineElement
-    /* Fields of GES.TimelineElement */
+    /* Fields of GES-1.0.GES.TimelineElement */
     parent_instance: GObject.InitiallyUnowned
     asset: Asset
     inpoint: Gst.ClockTime
     maxduration: Gst.ClockTime
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GES.TitleClip */
+    /* Methods of GES-1.0.GES.TitleClip */
     get_background_color(): number
     get_font_desc(): string
     get_halignment(): TextHAlign
@@ -8835,7 +8835,7 @@ export class TitleClip {
     set_valignment(valign: TextVAlign): void
     set_xpos(position: number): void
     set_ypos(position: number): void
-    /* Methods of GES.Clip */
+    /* Methods of GES-1.0.GES.Clip */
     add_asset(asset: Asset): TrackElement | null
     add_child_to_track(child: TrackElement, track: Track): TrackElement
     add_top_effect(effect: BaseEffect, index: number): boolean
@@ -8859,13 +8859,13 @@ export class TitleClip {
     set_top_effect_priority(effect: BaseEffect, newpriority: number): boolean
     split(position: number): Clip | null
     split_full(position: number): Clip | null
-    /* Methods of GES.Container */
+    /* Methods of GES-1.0.GES.Container */
     add(child: TimelineElement): boolean
     edit(layers: Layer[] | null, new_layer_priority: number, mode: EditMode, edge: Edge, position: number): boolean
     get_children(recursive: boolean): TimelineElement[]
     remove(child: TimelineElement): boolean
     ungroup(recursive: boolean): Container[]
-    /* Methods of GES.TimelineElement */
+    /* Methods of GES-1.0.GES.TimelineElement */
     add_child_property(pspec: GObject.ParamSpec, child: GObject.Object): boolean
     copy(deep: boolean): TimelineElement
     edit_full(new_layer_priority: number, mode: EditMode, edge: Edge, position: number): boolean
@@ -8903,7 +8903,7 @@ export class TitleClip {
     set_start(start: Gst.ClockTime): boolean
     set_timeline(timeline: Timeline): boolean
     trim(start: Gst.ClockTime): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -8925,11 +8925,11 @@ export class TitleClip {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of GES.Extractable */
+    /* Methods of GES-1.0.GES.Extractable */
     get_asset(): Asset | null
     get_id(): string
     set_asset(asset: Asset): boolean
-    /* Methods of GES.MetaContainer */
+    /* Methods of GES-1.0.GES.MetaContainer */
     add_metas_from_string(str: string): boolean
     check_meta_registered(meta_item: string): [ /* returnType */ boolean, /* flags */ MetaFlag | null, /* type */ GObject.Type | null ]
     foreach(func: MetaForeachFunc): void
@@ -8970,17 +8970,17 @@ export class TitleClip {
     set_string(meta_item: string, value: string): boolean
     set_uint(meta_item: string, value: number): boolean
     set_uint64(meta_item: string, value: number): boolean
-    /* Virtual methods of GES.Clip */
+    /* Virtual methods of GES-1.0.GES.Clip */
     vfunc_create_track_element(type: TrackType): TrackElement | null
     vfunc_create_track_elements(type: TrackType): TrackElement[]
-    /* Virtual methods of GES.Container */
+    /* Virtual methods of GES-1.0.GES.Container */
     vfunc_add_child(element: TimelineElement): boolean
     vfunc_child_added(element: TimelineElement): void
     vfunc_child_removed(element: TimelineElement): void
     vfunc_edit(layers: Layer[] | null, new_layer_priority: number, mode: EditMode, edge: Edge, position: number): boolean
     vfunc_remove_child(element: TimelineElement): boolean
     vfunc_ungroup(recursive: boolean): Container[]
-    /* Virtual methods of GES.TimelineElement */
+    /* Virtual methods of GES-1.0.GES.TimelineElement */
     vfunc_deep_copy(copy: TimelineElement): void
     vfunc_get_layer_priority(): number
     vfunc_get_natural_framerate(): [ /* returnType */ boolean, /* framerate_n */ number, /* framerate_d */ number ]
@@ -9002,7 +9002,7 @@ export class TitleClip {
     vfunc_get_id(): string
     vfunc_set_asset(asset: Asset): void
     vfunc_set_asset_full(asset: Asset): boolean
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -9010,14 +9010,14 @@ export class TitleClip {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GES.Container */
+    /* Signals of GES-1.0.GES.Container */
     connect(sigName: "child-added", callback: (($obj: TitleClip, element: TimelineElement) => void)): number
     connect_after(sigName: "child-added", callback: (($obj: TitleClip, element: TimelineElement) => void)): number
     emit(sigName: "child-added", element: TimelineElement): void
     connect(sigName: "child-removed", callback: (($obj: TitleClip, element: TimelineElement) => void)): number
     connect_after(sigName: "child-removed", callback: (($obj: TitleClip, element: TimelineElement) => void)): number
     emit(sigName: "child-removed", element: TimelineElement): void
-    /* Signals of GES.TimelineElement */
+    /* Signals of GES-1.0.GES.TimelineElement */
     connect(sigName: "child-property-added", callback: (($obj: TitleClip, prop_object: GObject.Object, prop: GObject.ParamSpec) => void)): number
     connect_after(sigName: "child-property-added", callback: (($obj: TitleClip, prop_object: GObject.Object, prop: GObject.ParamSpec) => void)): number
     emit(sigName: "child-property-added", prop_object: GObject.Object, prop: GObject.ParamSpec): void
@@ -9027,11 +9027,11 @@ export class TitleClip {
     connect(sigName: "deep-notify", callback: (($obj: TitleClip, prop_object: GObject.Object, prop: GObject.ParamSpec) => void)): number
     connect_after(sigName: "deep-notify", callback: (($obj: TitleClip, prop_object: GObject.Object, prop: GObject.ParamSpec) => void)): number
     emit(sigName: "deep-notify", prop_object: GObject.Object, prop: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: TitleClip, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: TitleClip, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    /* Signals of GES.MetaContainer */
+    /* Signals of GES-1.0.GES.MetaContainer */
     connect(sigName: "notify-meta", callback: (($obj: TitleClip, key: string, value?: any | null) => void)): number
     connect_after(sigName: "notify-meta", callback: (($obj: TitleClip, key: string, value?: any | null) => void)): number
     emit(sigName: "notify-meta", key: string, value?: any | null): void
@@ -9091,13 +9091,13 @@ export class TitleClip {
 export interface TitleSource_ConstructProps extends VideoSource_ConstructProps {
 }
 export class TitleSource {
-    /* Properties of GES.TrackElement */
+    /* Properties of GES-1.0.GES.TrackElement */
     active: boolean
     auto_clamp_control_sources: boolean
     has_internal_source: boolean
     readonly track: Track
     track_type: TrackType
-    /* Properties of GES.TimelineElement */
+    /* Properties of GES-1.0.GES.TimelineElement */
     duration: number
     in_point: number
     max_duration: number
@@ -9107,14 +9107,14 @@ export class TitleSource {
     serialize: boolean
     start: number
     timeline: Timeline
-    /* Fields of GES.TimelineElement */
+    /* Fields of GES-1.0.GES.TimelineElement */
     parent_instance: GObject.InitiallyUnowned
     asset: Asset
     inpoint: Gst.ClockTime
     maxduration: Gst.ClockTime
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GES.TitleSource */
+    /* Methods of GES-1.0.GES.TitleSource */
     get_background_color(): number
     get_font_desc(): string
     get_halignment(): TextHAlign
@@ -9131,9 +9131,9 @@ export class TitleSource {
     set_valignment(valign: TextVAlign): void
     set_xpos(position: number): void
     set_ypos(position: number): void
-    /* Methods of GES.VideoSource */
+    /* Methods of GES-1.0.GES.VideoSource */
     get_natural_size(): [ /* returnType */ boolean, /* width */ number, /* height */ number ]
-    /* Methods of GES.TrackElement */
+    /* Methods of GES-1.0.GES.TrackElement */
     add_children_props(element: Gst.Element, wanted_categories?: string[] | null, blacklist?: string[] | null, whitelist?: string[] | null): void
     clamp_control_source(property_name: string): void
     edit(layers: Layer[] | null, mode: EditMode, edge: Edge, position: number): boolean
@@ -9155,7 +9155,7 @@ export class TitleSource {
     set_control_source(source: Gst.ControlSource, property_name: string, binding_type: string): boolean
     set_has_internal_source(has_internal_source: boolean): boolean
     set_track_type(type: TrackType): void
-    /* Methods of GES.TimelineElement */
+    /* Methods of GES-1.0.GES.TimelineElement */
     add_child_property(pspec: GObject.ParamSpec, child: GObject.Object): boolean
     copy(deep: boolean): TimelineElement
     edit(layers: Layer[] | null, new_layer_priority: number, mode: EditMode, edge: Edge, position: number): boolean
@@ -9193,7 +9193,7 @@ export class TitleSource {
     set_start(start: Gst.ClockTime): boolean
     set_timeline(timeline: Timeline): boolean
     trim(start: Gst.ClockTime): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -9215,11 +9215,11 @@ export class TitleSource {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of GES.Extractable */
+    /* Methods of GES-1.0.GES.Extractable */
     get_asset(): Asset | null
     get_id(): string
     set_asset(asset: Asset): boolean
-    /* Methods of GES.MetaContainer */
+    /* Methods of GES-1.0.GES.MetaContainer */
     add_metas_from_string(str: string): boolean
     check_meta_registered(meta_item: string): [ /* returnType */ boolean, /* flags */ MetaFlag | null, /* type */ GObject.Type | null ]
     foreach(func: MetaForeachFunc): void
@@ -9260,13 +9260,13 @@ export class TitleSource {
     set_string(meta_item: string, value: string): boolean
     set_uint(meta_item: string, value: number): boolean
     set_uint64(meta_item: string, value: number): boolean
-    /* Virtual methods of GES.Source */
+    /* Virtual methods of GES-1.0.GES.Source */
     vfunc_select_pad(pad: Gst.Pad): boolean
-    /* Virtual methods of GES.TrackElement */
+    /* Virtual methods of GES-1.0.GES.TrackElement */
     vfunc_active_changed(active: boolean): void
     vfunc_changed(): void
     vfunc_lookup_child(prop_name: string): [ /* returnType */ boolean, /* element */ Gst.Element | null, /* pspec */ GObject.ParamSpec | null ]
-    /* Virtual methods of GES.TimelineElement */
+    /* Virtual methods of GES-1.0.GES.TimelineElement */
     vfunc_deep_copy(copy: TimelineElement): void
     vfunc_get_layer_priority(): number
     vfunc_get_natural_framerate(): [ /* returnType */ boolean, /* framerate_n */ number, /* framerate_d */ number ]
@@ -9288,7 +9288,7 @@ export class TitleSource {
     vfunc_get_id(): string
     vfunc_set_asset(asset: Asset): void
     vfunc_set_asset_full(asset: Asset): boolean
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -9296,14 +9296,14 @@ export class TitleSource {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GES.TrackElement */
+    /* Signals of GES-1.0.GES.TrackElement */
     connect(sigName: "control-binding-added", callback: (($obj: TitleSource, control_binding: Gst.ControlBinding) => void)): number
     connect_after(sigName: "control-binding-added", callback: (($obj: TitleSource, control_binding: Gst.ControlBinding) => void)): number
     emit(sigName: "control-binding-added", control_binding: Gst.ControlBinding): void
     connect(sigName: "control-binding-removed", callback: (($obj: TitleSource, control_binding: Gst.ControlBinding) => void)): number
     connect_after(sigName: "control-binding-removed", callback: (($obj: TitleSource, control_binding: Gst.ControlBinding) => void)): number
     emit(sigName: "control-binding-removed", control_binding: Gst.ControlBinding): void
-    /* Signals of GES.TimelineElement */
+    /* Signals of GES-1.0.GES.TimelineElement */
     connect(sigName: "child-property-added", callback: (($obj: TitleSource, prop_object: GObject.Object, prop: GObject.ParamSpec) => void)): number
     connect_after(sigName: "child-property-added", callback: (($obj: TitleSource, prop_object: GObject.Object, prop: GObject.ParamSpec) => void)): number
     emit(sigName: "child-property-added", prop_object: GObject.Object, prop: GObject.ParamSpec): void
@@ -9313,11 +9313,11 @@ export class TitleSource {
     connect(sigName: "deep-notify", callback: (($obj: TitleSource, prop_object: GObject.Object, prop: GObject.ParamSpec) => void)): number
     connect_after(sigName: "deep-notify", callback: (($obj: TitleSource, prop_object: GObject.Object, prop: GObject.ParamSpec) => void)): number
     emit(sigName: "deep-notify", prop_object: GObject.Object, prop: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: TitleSource, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: TitleSource, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    /* Signals of GES.MetaContainer */
+    /* Signals of GES-1.0.GES.MetaContainer */
     connect(sigName: "notify-meta", callback: (($obj: TitleSource, key: string, value?: any | null) => void)): number
     connect_after(sigName: "notify-meta", callback: (($obj: TitleSource, key: string, value?: any | null) => void)): number
     emit(sigName: "notify-meta", key: string, value?: any | null): void
@@ -9366,20 +9366,20 @@ export interface Track_ConstructProps extends Gst.Bin_ConstructProps {
     track_type?: TrackType
 }
 export class Track {
-    /* Properties of GES.Track */
+    /* Properties of GES-1.0.GES.Track */
     readonly duration: number
     id: string
     mixing: boolean
     restriction_caps: Gst.Caps
-    /* Properties of Gst.Bin */
+    /* Properties of Gst-1.0.Gst.Bin */
     async_handling: boolean
     message_forward: boolean
-    /* Properties of Gst.Object */
+    /* Properties of Gst-1.0.Gst.Object */
     name: string
     parent: Gst.Object
-    /* Fields of GES.Track */
+    /* Fields of GES-1.0.GES.Track */
     type: TrackType
-    /* Fields of Gst.Bin */
+    /* Fields of Gst-1.0.Gst.Bin */
     element: Gst.Element
     numchildren: number
     children: Gst.Element[]
@@ -9391,7 +9391,7 @@ export class Track {
     clock_dirty: boolean
     provided_clock: Gst.Clock
     clock_provider: Gst.Element
-    /* Fields of Gst.Element */
+    /* Fields of Gst-1.0.Gst.Element */
     object: Gst.Object
     state_lock: GLib.RecMutex
     state_cond: GLib.Cond
@@ -9413,12 +9413,12 @@ export class Track {
     sinkpads: Gst.Pad[]
     pads_cookie: number
     contexts: Gst.Context[]
-    /* Fields of Gst.Object */
+    /* Fields of Gst-1.0.Gst.Object */
     lock: GLib.Mutex
     flags: number
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GES.Track */
+    /* Methods of GES-1.0.GES.Track */
     add_element(object: TrackElement): boolean
     add_element_full(object: TrackElement): boolean
     commit(): boolean
@@ -9433,7 +9433,7 @@ export class Track {
     set_restriction_caps(caps: Gst.Caps): void
     set_timeline(timeline: Timeline): void
     update_restriction_caps(caps: Gst.Caps): void
-    /* Methods of Gst.Bin */
+    /* Methods of Gst-1.0.Gst.Bin */
     add(element: Gst.Element): boolean
     find_unlinked_pad(direction: Gst.PadDirection): Gst.Pad | null
     get_by_interface(iface: GObject.Type): Gst.Element | null
@@ -9451,7 +9451,7 @@ export class Track {
     remove(element: Gst.Element): boolean
     set_suppressed_flags(flags: Gst.ElementFlags): void
     sync_children_states(): boolean
-    /* Methods of Gst.Element */
+    /* Methods of Gst-1.0.Gst.Element */
     abort_state(): void
     add_pad(pad: Gst.Pad): boolean
     add_property_deep_notify_watch(property_name: string | null, include_value: boolean): number
@@ -9517,7 +9517,7 @@ export class Track {
     sync_state_with_parent(): boolean
     unlink(dest: Gst.Element): void
     unlink_pads(srcpadname: string, dest: Gst.Element, destpadname: string): void
-    /* Methods of Gst.Object */
+    /* Methods of Gst-1.0.Gst.Object */
     add_control_binding(binding: Gst.ControlBinding): boolean
     default_error(error: GLib.Error, debug?: string | null): void
     get_control_binding(property_name: string): Gst.ControlBinding | null
@@ -9542,7 +9542,7 @@ export class Track {
     sync_values(timestamp: Gst.ClockTime): boolean
     unparent(): void
     unref(): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -9563,7 +9563,7 @@ export class Track {
     steal_qdata(quark: GLib.Quark): object | null
     thaw_notify(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of GES.MetaContainer */
+    /* Methods of GES-1.0.GES.MetaContainer */
     add_metas_from_string(str: string): boolean
     check_meta_registered(meta_item: string): [ /* returnType */ boolean, /* flags */ MetaFlag | null, /* type */ GObject.Type | null ]
     foreach(func: MetaForeachFunc): void
@@ -9604,7 +9604,7 @@ export class Track {
     set_string(meta_item: string, value: string): boolean
     set_uint(meta_item: string, value: number): boolean
     set_uint64(meta_item: string, value: number): boolean
-    /* Methods of Gst.ChildProxy */
+    /* Methods of Gst-1.0.Gst.ChildProxy */
     child_added(child: GObject.Object, name: string): void
     child_removed(child: GObject.Object, name: string): void
     get_child_by_index(index: number): GObject.Object | null
@@ -9613,13 +9613,13 @@ export class Track {
     get_property(name: string): /* value */ any
     lookup(name: string): [ /* returnType */ boolean, /* target */ GObject.Object | null, /* pspec */ GObject.ParamSpec | null ]
     set_property(name: string, value: any): void
-    /* Virtual methods of GES.Track */
+    /* Virtual methods of GES-1.0.GES.Track */
     vfunc_child_added(child: GObject.Object, name: string): void
     vfunc_child_removed(child: GObject.Object, name: string): void
     vfunc_get_child_by_index(index: number): GObject.Object | null
     vfunc_get_child_by_name(name: string): GObject.Object | null
     vfunc_get_children_count(): number
-    /* Virtual methods of Gst.Bin */
+    /* Virtual methods of Gst-1.0.Gst.Bin */
     vfunc_add_element(element: Gst.Element): boolean
     vfunc_deep_element_added(sub_bin: Gst.Bin, child: Gst.Element): void
     vfunc_deep_element_removed(sub_bin: Gst.Bin, child: Gst.Element): void
@@ -9628,7 +9628,7 @@ export class Track {
     vfunc_element_removed(child: Gst.Element): void
     vfunc_handle_message(message: Gst.Message): void
     vfunc_remove_element(element: Gst.Element): boolean
-    /* Virtual methods of Gst.Element */
+    /* Virtual methods of Gst-1.0.Gst.Element */
     vfunc_change_state(transition: Gst.StateChange): Gst.StateChangeReturn
     vfunc_get_state(timeout: Gst.ClockTime): [ /* returnType */ Gst.StateChangeReturn, /* state */ Gst.State | null, /* pending */ Gst.State | null ]
     vfunc_no_more_pads(): void
@@ -9645,9 +9645,9 @@ export class Track {
     vfunc_set_context(context: Gst.Context): void
     vfunc_set_state(state: Gst.State): Gst.StateChangeReturn
     vfunc_state_changed(oldstate: Gst.State, newstate: Gst.State, pending: Gst.State): void
-    /* Virtual methods of Gst.Object */
+    /* Virtual methods of Gst-1.0.Gst.Object */
     vfunc_deep_notify(orig: Gst.Object, pspec: GObject.ParamSpec): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -9655,7 +9655,7 @@ export class Track {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GES.Track */
+    /* Signals of GES-1.0.GES.Track */
     connect(sigName: "commited", callback: (($obj: Track) => void)): number
     connect_after(sigName: "commited", callback: (($obj: Track) => void)): number
     emit(sigName: "commited"): void
@@ -9665,7 +9665,7 @@ export class Track {
     connect(sigName: "track-element-removed", callback: (($obj: Track, effect: TrackElement) => void)): number
     connect_after(sigName: "track-element-removed", callback: (($obj: Track, effect: TrackElement) => void)): number
     emit(sigName: "track-element-removed", effect: TrackElement): void
-    /* Signals of Gst.Bin */
+    /* Signals of Gst-1.0.Gst.Bin */
     connect(sigName: "deep-element-added", callback: (($obj: Track, sub_bin: Gst.Bin, element: Gst.Element) => void)): number
     connect_after(sigName: "deep-element-added", callback: (($obj: Track, sub_bin: Gst.Bin, element: Gst.Element) => void)): number
     emit(sigName: "deep-element-added", sub_bin: Gst.Bin, element: Gst.Element): void
@@ -9681,7 +9681,7 @@ export class Track {
     connect(sigName: "element-removed", callback: (($obj: Track, element: Gst.Element) => void)): number
     connect_after(sigName: "element-removed", callback: (($obj: Track, element: Gst.Element) => void)): number
     emit(sigName: "element-removed", element: Gst.Element): void
-    /* Signals of Gst.Element */
+    /* Signals of Gst-1.0.Gst.Element */
     connect(sigName: "no-more-pads", callback: (($obj: Track) => void)): number
     connect_after(sigName: "no-more-pads", callback: (($obj: Track) => void)): number
     emit(sigName: "no-more-pads"): void
@@ -9691,19 +9691,19 @@ export class Track {
     connect(sigName: "pad-removed", callback: (($obj: Track, old_pad: Gst.Pad) => void)): number
     connect_after(sigName: "pad-removed", callback: (($obj: Track, old_pad: Gst.Pad) => void)): number
     emit(sigName: "pad-removed", old_pad: Gst.Pad): void
-    /* Signals of Gst.Object */
+    /* Signals of Gst-1.0.Gst.Object */
     connect(sigName: "deep-notify", callback: (($obj: Track, prop_object: Gst.Object, prop: GObject.ParamSpec) => void)): number
     connect_after(sigName: "deep-notify", callback: (($obj: Track, prop_object: Gst.Object, prop: GObject.ParamSpec) => void)): number
     emit(sigName: "deep-notify", prop_object: Gst.Object, prop: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Track, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Track, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    /* Signals of GES.MetaContainer */
+    /* Signals of GES-1.0.GES.MetaContainer */
     connect(sigName: "notify-meta", callback: (($obj: Track, key: string, value?: any | null) => void)): number
     connect_after(sigName: "notify-meta", callback: (($obj: Track, key: string, value?: any | null) => void)): number
     emit(sigName: "notify-meta", key: string, value?: any | null): void
-    /* Signals of Gst.ChildProxy */
+    /* Signals of Gst-1.0.Gst.ChildProxy */
     connect(sigName: "child-added", callback: (($obj: Track, object: GObject.Object, name: string) => void)): number
     connect_after(sigName: "child-added", callback: (($obj: Track, object: GObject.Object, name: string) => void)): number
     emit(sigName: "child-added", object: GObject.Object, name: string): void
@@ -9745,13 +9745,13 @@ export interface TrackElement_ConstructProps extends TimelineElement_ConstructPr
     track_type?: TrackType
 }
 export class TrackElement {
-    /* Properties of GES.TrackElement */
+    /* Properties of GES-1.0.GES.TrackElement */
     active: boolean
     auto_clamp_control_sources: boolean
     has_internal_source: boolean
     readonly track: Track
     track_type: TrackType
-    /* Properties of GES.TimelineElement */
+    /* Properties of GES-1.0.GES.TimelineElement */
     duration: number
     in_point: number
     max_duration: number
@@ -9761,14 +9761,14 @@ export class TrackElement {
     serialize: boolean
     start: number
     timeline: Timeline
-    /* Fields of GES.TimelineElement */
+    /* Fields of GES-1.0.GES.TimelineElement */
     parent_instance: GObject.InitiallyUnowned
     asset: Asset
     inpoint: Gst.ClockTime
     maxduration: Gst.ClockTime
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GES.TrackElement */
+    /* Methods of GES-1.0.GES.TrackElement */
     add_children_props(element: Gst.Element, wanted_categories?: string[] | null, blacklist?: string[] | null, whitelist?: string[] | null): void
     clamp_control_source(property_name: string): void
     edit(layers: Layer[] | null, mode: EditMode, edge: Edge, position: number): boolean
@@ -9790,7 +9790,7 @@ export class TrackElement {
     set_control_source(source: Gst.ControlSource, property_name: string, binding_type: string): boolean
     set_has_internal_source(has_internal_source: boolean): boolean
     set_track_type(type: TrackType): void
-    /* Methods of GES.TimelineElement */
+    /* Methods of GES-1.0.GES.TimelineElement */
     add_child_property(pspec: GObject.ParamSpec, child: GObject.Object): boolean
     copy(deep: boolean): TimelineElement
     edit(layers: Layer[] | null, new_layer_priority: number, mode: EditMode, edge: Edge, position: number): boolean
@@ -9828,7 +9828,7 @@ export class TrackElement {
     set_start(start: Gst.ClockTime): boolean
     set_timeline(timeline: Timeline): boolean
     trim(start: Gst.ClockTime): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -9850,11 +9850,11 @@ export class TrackElement {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of GES.Extractable */
+    /* Methods of GES-1.0.GES.Extractable */
     get_asset(): Asset | null
     get_id(): string
     set_asset(asset: Asset): boolean
-    /* Methods of GES.MetaContainer */
+    /* Methods of GES-1.0.GES.MetaContainer */
     add_metas_from_string(str: string): boolean
     check_meta_registered(meta_item: string): [ /* returnType */ boolean, /* flags */ MetaFlag | null, /* type */ GObject.Type | null ]
     foreach(func: MetaForeachFunc): void
@@ -9895,11 +9895,11 @@ export class TrackElement {
     set_string(meta_item: string, value: string): boolean
     set_uint(meta_item: string, value: number): boolean
     set_uint64(meta_item: string, value: number): boolean
-    /* Virtual methods of GES.TrackElement */
+    /* Virtual methods of GES-1.0.GES.TrackElement */
     vfunc_active_changed(active: boolean): void
     vfunc_changed(): void
     vfunc_lookup_child(prop_name: string): [ /* returnType */ boolean, /* element */ Gst.Element | null, /* pspec */ GObject.ParamSpec | null ]
-    /* Virtual methods of GES.TimelineElement */
+    /* Virtual methods of GES-1.0.GES.TimelineElement */
     vfunc_deep_copy(copy: TimelineElement): void
     vfunc_get_layer_priority(): number
     vfunc_get_natural_framerate(): [ /* returnType */ boolean, /* framerate_n */ number, /* framerate_d */ number ]
@@ -9921,7 +9921,7 @@ export class TrackElement {
     vfunc_get_id(): string
     vfunc_set_asset(asset: Asset): void
     vfunc_set_asset_full(asset: Asset): boolean
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -9929,14 +9929,14 @@ export class TrackElement {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GES.TrackElement */
+    /* Signals of GES-1.0.GES.TrackElement */
     connect(sigName: "control-binding-added", callback: (($obj: TrackElement, control_binding: Gst.ControlBinding) => void)): number
     connect_after(sigName: "control-binding-added", callback: (($obj: TrackElement, control_binding: Gst.ControlBinding) => void)): number
     emit(sigName: "control-binding-added", control_binding: Gst.ControlBinding): void
     connect(sigName: "control-binding-removed", callback: (($obj: TrackElement, control_binding: Gst.ControlBinding) => void)): number
     connect_after(sigName: "control-binding-removed", callback: (($obj: TrackElement, control_binding: Gst.ControlBinding) => void)): number
     emit(sigName: "control-binding-removed", control_binding: Gst.ControlBinding): void
-    /* Signals of GES.TimelineElement */
+    /* Signals of GES-1.0.GES.TimelineElement */
     connect(sigName: "child-property-added", callback: (($obj: TrackElement, prop_object: GObject.Object, prop: GObject.ParamSpec) => void)): number
     connect_after(sigName: "child-property-added", callback: (($obj: TrackElement, prop_object: GObject.Object, prop: GObject.ParamSpec) => void)): number
     emit(sigName: "child-property-added", prop_object: GObject.Object, prop: GObject.ParamSpec): void
@@ -9946,11 +9946,11 @@ export class TrackElement {
     connect(sigName: "deep-notify", callback: (($obj: TrackElement, prop_object: GObject.Object, prop: GObject.ParamSpec) => void)): number
     connect_after(sigName: "deep-notify", callback: (($obj: TrackElement, prop_object: GObject.Object, prop: GObject.ParamSpec) => void)): number
     emit(sigName: "deep-notify", prop_object: GObject.Object, prop: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: TrackElement, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: TrackElement, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    /* Signals of GES.MetaContainer */
+    /* Signals of GES-1.0.GES.MetaContainer */
     connect(sigName: "notify-meta", callback: (($obj: TrackElement, key: string, value?: any | null) => void)): number
     connect_after(sigName: "notify-meta", callback: (($obj: TrackElement, key: string, value?: any | null) => void)): number
     emit(sigName: "notify-meta", key: string, value?: any | null): void
@@ -9995,20 +9995,20 @@ export interface TrackElementAsset_ConstructProps extends Asset_ConstructProps {
     track_type?: TrackType
 }
 export class TrackElementAsset {
-    /* Properties of GES.TrackElementAsset */
+    /* Properties of GES-1.0.GES.TrackElementAsset */
     track_type: TrackType
-    /* Properties of GES.Asset */
+    /* Properties of GES-1.0.GES.Asset */
     proxy: Asset
     readonly proxy_target: Asset
-    /* Fields of GES.TrackElementAsset */
+    /* Fields of GES-1.0.GES.TrackElementAsset */
     parent: Asset
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GES.TrackElementAsset */
+    /* Methods of GES-1.0.GES.TrackElementAsset */
     get_natural_framerate(framerate_n: number, framerate_d: number): boolean
     get_track_type(): TrackType
     set_track_type(type: TrackType): void
-    /* Methods of GES.Asset */
+    /* Methods of GES-1.0.GES.Asset */
     extract(): Extractable
     get_error(): GLib.Error | null
     get_extractable_type(): GObject.Type
@@ -10018,7 +10018,7 @@ export class TrackElementAsset {
     list_proxies(): Asset[]
     set_proxy(proxy?: Asset | null): boolean
     unproxy(proxy: Asset): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -10040,7 +10040,7 @@ export class TrackElementAsset {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of GES.MetaContainer */
+    /* Methods of GES-1.0.GES.MetaContainer */
     add_metas_from_string(str: string): boolean
     check_meta_registered(meta_item: string): [ /* returnType */ boolean, /* flags */ MetaFlag | null, /* type */ GObject.Type | null ]
     foreach(func: MetaForeachFunc): void
@@ -10081,15 +10081,15 @@ export class TrackElementAsset {
     set_string(meta_item: string, value: string): boolean
     set_uint(meta_item: string, value: number): boolean
     set_uint64(meta_item: string, value: number): boolean
-    /* Methods of Gio.AsyncInitable */
+    /* Methods of Gio-2.0.Gio.AsyncInitable */
     init_async(io_priority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     init_finish(res: Gio.AsyncResult): boolean
     new_finish(res: Gio.AsyncResult): GObject.Object
-    /* Methods of Gio.Initable */
+    /* Methods of Gio-2.0.Gio.Initable */
     init(cancellable?: Gio.Cancellable | null): boolean
-    /* Virtual methods of GES.TrackElementAsset */
+    /* Virtual methods of GES-1.0.GES.TrackElementAsset */
     vfunc_get_natural_framerate(framerate_n: number, framerate_d: number): boolean
-    /* Virtual methods of GES.Asset */
+    /* Virtual methods of GES-1.0.GES.Asset */
     vfunc_extract(): Extractable
     vfunc_inform_proxy(proxy_id: string): void
     vfunc_proxied(proxy: Asset): void
@@ -10098,7 +10098,7 @@ export class TrackElementAsset {
     vfunc_init_async(io_priority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     vfunc_init_finish(res: Gio.AsyncResult): boolean
     vfunc_init(cancellable?: Gio.Cancellable | null): boolean
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -10106,11 +10106,11 @@ export class TrackElementAsset {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: TrackElementAsset, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: TrackElementAsset, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    /* Signals of GES.MetaContainer */
+    /* Signals of GES-1.0.GES.MetaContainer */
     connect(sigName: "notify-meta", callback: (($obj: TrackElementAsset, key: string, value?: any | null) => void)): number
     connect_after(sigName: "notify-meta", callback: (($obj: TrackElementAsset, key: string, value?: any | null) => void)): number
     emit(sigName: "notify-meta", key: string, value?: any | null): void
@@ -10132,13 +10132,13 @@ export class TrackElementAsset {
 export interface Transition_ConstructProps extends Operation_ConstructProps {
 }
 export class Transition {
-    /* Properties of GES.TrackElement */
+    /* Properties of GES-1.0.GES.TrackElement */
     active: boolean
     auto_clamp_control_sources: boolean
     has_internal_source: boolean
     readonly track: Track
     track_type: TrackType
-    /* Properties of GES.TimelineElement */
+    /* Properties of GES-1.0.GES.TimelineElement */
     duration: number
     in_point: number
     max_duration: number
@@ -10148,14 +10148,14 @@ export class Transition {
     serialize: boolean
     start: number
     timeline: Timeline
-    /* Fields of GES.TimelineElement */
+    /* Fields of GES-1.0.GES.TimelineElement */
     parent_instance: GObject.InitiallyUnowned
     asset: Asset
     inpoint: Gst.ClockTime
     maxduration: Gst.ClockTime
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GES.TrackElement */
+    /* Methods of GES-1.0.GES.TrackElement */
     add_children_props(element: Gst.Element, wanted_categories?: string[] | null, blacklist?: string[] | null, whitelist?: string[] | null): void
     clamp_control_source(property_name: string): void
     edit(layers: Layer[] | null, mode: EditMode, edge: Edge, position: number): boolean
@@ -10177,7 +10177,7 @@ export class Transition {
     set_control_source(source: Gst.ControlSource, property_name: string, binding_type: string): boolean
     set_has_internal_source(has_internal_source: boolean): boolean
     set_track_type(type: TrackType): void
-    /* Methods of GES.TimelineElement */
+    /* Methods of GES-1.0.GES.TimelineElement */
     add_child_property(pspec: GObject.ParamSpec, child: GObject.Object): boolean
     copy(deep: boolean): TimelineElement
     edit(layers: Layer[] | null, new_layer_priority: number, mode: EditMode, edge: Edge, position: number): boolean
@@ -10215,7 +10215,7 @@ export class Transition {
     set_start(start: Gst.ClockTime): boolean
     set_timeline(timeline: Timeline): boolean
     trim(start: Gst.ClockTime): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -10237,11 +10237,11 @@ export class Transition {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of GES.Extractable */
+    /* Methods of GES-1.0.GES.Extractable */
     get_asset(): Asset | null
     get_id(): string
     set_asset(asset: Asset): boolean
-    /* Methods of GES.MetaContainer */
+    /* Methods of GES-1.0.GES.MetaContainer */
     add_metas_from_string(str: string): boolean
     check_meta_registered(meta_item: string): [ /* returnType */ boolean, /* flags */ MetaFlag | null, /* type */ GObject.Type | null ]
     foreach(func: MetaForeachFunc): void
@@ -10282,11 +10282,11 @@ export class Transition {
     set_string(meta_item: string, value: string): boolean
     set_uint(meta_item: string, value: number): boolean
     set_uint64(meta_item: string, value: number): boolean
-    /* Virtual methods of GES.TrackElement */
+    /* Virtual methods of GES-1.0.GES.TrackElement */
     vfunc_active_changed(active: boolean): void
     vfunc_changed(): void
     vfunc_lookup_child(prop_name: string): [ /* returnType */ boolean, /* element */ Gst.Element | null, /* pspec */ GObject.ParamSpec | null ]
-    /* Virtual methods of GES.TimelineElement */
+    /* Virtual methods of GES-1.0.GES.TimelineElement */
     vfunc_deep_copy(copy: TimelineElement): void
     vfunc_get_layer_priority(): number
     vfunc_get_natural_framerate(): [ /* returnType */ boolean, /* framerate_n */ number, /* framerate_d */ number ]
@@ -10308,7 +10308,7 @@ export class Transition {
     vfunc_get_id(): string
     vfunc_set_asset(asset: Asset): void
     vfunc_set_asset_full(asset: Asset): boolean
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -10316,14 +10316,14 @@ export class Transition {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GES.TrackElement */
+    /* Signals of GES-1.0.GES.TrackElement */
     connect(sigName: "control-binding-added", callback: (($obj: Transition, control_binding: Gst.ControlBinding) => void)): number
     connect_after(sigName: "control-binding-added", callback: (($obj: Transition, control_binding: Gst.ControlBinding) => void)): number
     emit(sigName: "control-binding-added", control_binding: Gst.ControlBinding): void
     connect(sigName: "control-binding-removed", callback: (($obj: Transition, control_binding: Gst.ControlBinding) => void)): number
     connect_after(sigName: "control-binding-removed", callback: (($obj: Transition, control_binding: Gst.ControlBinding) => void)): number
     emit(sigName: "control-binding-removed", control_binding: Gst.ControlBinding): void
-    /* Signals of GES.TimelineElement */
+    /* Signals of GES-1.0.GES.TimelineElement */
     connect(sigName: "child-property-added", callback: (($obj: Transition, prop_object: GObject.Object, prop: GObject.ParamSpec) => void)): number
     connect_after(sigName: "child-property-added", callback: (($obj: Transition, prop_object: GObject.Object, prop: GObject.ParamSpec) => void)): number
     emit(sigName: "child-property-added", prop_object: GObject.Object, prop: GObject.ParamSpec): void
@@ -10333,11 +10333,11 @@ export class Transition {
     connect(sigName: "deep-notify", callback: (($obj: Transition, prop_object: GObject.Object, prop: GObject.ParamSpec) => void)): number
     connect_after(sigName: "deep-notify", callback: (($obj: Transition, prop_object: GObject.Object, prop: GObject.ParamSpec) => void)): number
     emit(sigName: "deep-notify", prop_object: GObject.Object, prop: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Transition, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Transition, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    /* Signals of GES.MetaContainer */
+    /* Signals of GES-1.0.GES.MetaContainer */
     connect(sigName: "notify-meta", callback: (($obj: Transition, key: string, value?: any | null) => void)): number
     connect_after(sigName: "notify-meta", callback: (($obj: Transition, key: string, value?: any | null) => void)): number
     emit(sigName: "notify-meta", key: string, value?: any | null): void
@@ -10382,15 +10382,15 @@ export interface TransitionClip_ConstructProps extends BaseTransitionClip_Constr
     vtype?: VideoStandardTransitionType
 }
 export class TransitionClip {
-    /* Properties of GES.TransitionClip */
+    /* Properties of GES-1.0.GES.TransitionClip */
     vtype: VideoStandardTransitionType
-    /* Properties of GES.Clip */
+    /* Properties of GES-1.0.GES.Clip */
     readonly duration_limit: number
     readonly layer: Layer
     supported_formats: TrackType
-    /* Properties of GES.Container */
+    /* Properties of GES-1.0.GES.Container */
     readonly height: number
-    /* Properties of GES.TimelineElement */
+    /* Properties of GES-1.0.GES.TimelineElement */
     duration: number
     in_point: number
     max_duration: number
@@ -10400,18 +10400,18 @@ export class TransitionClip {
     serialize: boolean
     start: number
     timeline: Timeline
-    /* Fields of GES.Container */
+    /* Fields of GES-1.0.GES.Container */
     children: TimelineElement[]
     children_control_mode: ChildrenControlMode
     initiated_move: TimelineElement
-    /* Fields of GES.TimelineElement */
+    /* Fields of GES-1.0.GES.TimelineElement */
     parent_instance: GObject.InitiallyUnowned
     asset: Asset
     inpoint: Gst.ClockTime
     maxduration: Gst.ClockTime
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GES.Clip */
+    /* Methods of GES-1.0.GES.Clip */
     add_asset(asset: Asset): TrackElement | null
     add_child_to_track(child: TrackElement, track: Track): TrackElement
     add_top_effect(effect: BaseEffect, index: number): boolean
@@ -10435,13 +10435,13 @@ export class TransitionClip {
     set_top_effect_priority(effect: BaseEffect, newpriority: number): boolean
     split(position: number): Clip | null
     split_full(position: number): Clip | null
-    /* Methods of GES.Container */
+    /* Methods of GES-1.0.GES.Container */
     add(child: TimelineElement): boolean
     edit(layers: Layer[] | null, new_layer_priority: number, mode: EditMode, edge: Edge, position: number): boolean
     get_children(recursive: boolean): TimelineElement[]
     remove(child: TimelineElement): boolean
     ungroup(recursive: boolean): Container[]
-    /* Methods of GES.TimelineElement */
+    /* Methods of GES-1.0.GES.TimelineElement */
     add_child_property(pspec: GObject.ParamSpec, child: GObject.Object): boolean
     copy(deep: boolean): TimelineElement
     edit_full(new_layer_priority: number, mode: EditMode, edge: Edge, position: number): boolean
@@ -10479,7 +10479,7 @@ export class TransitionClip {
     set_start(start: Gst.ClockTime): boolean
     set_timeline(timeline: Timeline): boolean
     trim(start: Gst.ClockTime): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -10501,11 +10501,11 @@ export class TransitionClip {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of GES.Extractable */
+    /* Methods of GES-1.0.GES.Extractable */
     get_asset(): Asset | null
     get_id(): string
     set_asset(asset: Asset): boolean
-    /* Methods of GES.MetaContainer */
+    /* Methods of GES-1.0.GES.MetaContainer */
     add_metas_from_string(str: string): boolean
     check_meta_registered(meta_item: string): [ /* returnType */ boolean, /* flags */ MetaFlag | null, /* type */ GObject.Type | null ]
     foreach(func: MetaForeachFunc): void
@@ -10546,17 +10546,17 @@ export class TransitionClip {
     set_string(meta_item: string, value: string): boolean
     set_uint(meta_item: string, value: number): boolean
     set_uint64(meta_item: string, value: number): boolean
-    /* Virtual methods of GES.Clip */
+    /* Virtual methods of GES-1.0.GES.Clip */
     vfunc_create_track_element(type: TrackType): TrackElement | null
     vfunc_create_track_elements(type: TrackType): TrackElement[]
-    /* Virtual methods of GES.Container */
+    /* Virtual methods of GES-1.0.GES.Container */
     vfunc_add_child(element: TimelineElement): boolean
     vfunc_child_added(element: TimelineElement): void
     vfunc_child_removed(element: TimelineElement): void
     vfunc_edit(layers: Layer[] | null, new_layer_priority: number, mode: EditMode, edge: Edge, position: number): boolean
     vfunc_remove_child(element: TimelineElement): boolean
     vfunc_ungroup(recursive: boolean): Container[]
-    /* Virtual methods of GES.TimelineElement */
+    /* Virtual methods of GES-1.0.GES.TimelineElement */
     vfunc_deep_copy(copy: TimelineElement): void
     vfunc_get_layer_priority(): number
     vfunc_get_natural_framerate(): [ /* returnType */ boolean, /* framerate_n */ number, /* framerate_d */ number ]
@@ -10578,7 +10578,7 @@ export class TransitionClip {
     vfunc_get_id(): string
     vfunc_set_asset(asset: Asset): void
     vfunc_set_asset_full(asset: Asset): boolean
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -10586,14 +10586,14 @@ export class TransitionClip {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GES.Container */
+    /* Signals of GES-1.0.GES.Container */
     connect(sigName: "child-added", callback: (($obj: TransitionClip, element: TimelineElement) => void)): number
     connect_after(sigName: "child-added", callback: (($obj: TransitionClip, element: TimelineElement) => void)): number
     emit(sigName: "child-added", element: TimelineElement): void
     connect(sigName: "child-removed", callback: (($obj: TransitionClip, element: TimelineElement) => void)): number
     connect_after(sigName: "child-removed", callback: (($obj: TransitionClip, element: TimelineElement) => void)): number
     emit(sigName: "child-removed", element: TimelineElement): void
-    /* Signals of GES.TimelineElement */
+    /* Signals of GES-1.0.GES.TimelineElement */
     connect(sigName: "child-property-added", callback: (($obj: TransitionClip, prop_object: GObject.Object, prop: GObject.ParamSpec) => void)): number
     connect_after(sigName: "child-property-added", callback: (($obj: TransitionClip, prop_object: GObject.Object, prop: GObject.ParamSpec) => void)): number
     emit(sigName: "child-property-added", prop_object: GObject.Object, prop: GObject.ParamSpec): void
@@ -10603,11 +10603,11 @@ export class TransitionClip {
     connect(sigName: "deep-notify", callback: (($obj: TransitionClip, prop_object: GObject.Object, prop: GObject.ParamSpec) => void)): number
     connect_after(sigName: "deep-notify", callback: (($obj: TransitionClip, prop_object: GObject.Object, prop: GObject.ParamSpec) => void)): number
     emit(sigName: "deep-notify", prop_object: GObject.Object, prop: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: TransitionClip, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: TransitionClip, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    /* Signals of GES.MetaContainer */
+    /* Signals of GES-1.0.GES.MetaContainer */
     connect(sigName: "notify-meta", callback: (($obj: TransitionClip, key: string, value?: any | null) => void)): number
     connect_after(sigName: "notify-meta", callback: (($obj: TransitionClip, key: string, value?: any | null) => void)): number
     emit(sigName: "notify-meta", key: string, value?: any | null): void
@@ -10658,16 +10658,16 @@ export interface UriClip_ConstructProps extends SourceClip_ConstructProps {
     uri?: string
 }
 export class UriClip {
-    /* Properties of GES.UriClip */
+    /* Properties of GES-1.0.GES.UriClip */
     is_image: boolean
     mute: boolean
     supported_formats: TrackType
-    /* Properties of GES.Clip */
+    /* Properties of GES-1.0.GES.Clip */
     readonly duration_limit: number
     readonly layer: Layer
-    /* Properties of GES.Container */
+    /* Properties of GES-1.0.GES.Container */
     readonly height: number
-    /* Properties of GES.TimelineElement */
+    /* Properties of GES-1.0.GES.TimelineElement */
     duration: number
     in_point: number
     max_duration: number
@@ -10677,23 +10677,23 @@ export class UriClip {
     serialize: boolean
     start: number
     timeline: Timeline
-    /* Fields of GES.Container */
+    /* Fields of GES-1.0.GES.Container */
     children: TimelineElement[]
     children_control_mode: ChildrenControlMode
     initiated_move: TimelineElement
-    /* Fields of GES.TimelineElement */
+    /* Fields of GES-1.0.GES.TimelineElement */
     parent_instance: GObject.InitiallyUnowned
     asset: Asset
     inpoint: Gst.ClockTime
     maxduration: Gst.ClockTime
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GES.UriClip */
+    /* Methods of GES-1.0.GES.UriClip */
     get_uri(): string
     is_muted(): boolean
     set_is_image(is_image: boolean): void
     set_mute(mute: boolean): void
-    /* Methods of GES.Clip */
+    /* Methods of GES-1.0.GES.Clip */
     add_asset(asset: Asset): TrackElement | null
     add_child_to_track(child: TrackElement, track: Track): TrackElement
     add_top_effect(effect: BaseEffect, index: number): boolean
@@ -10717,13 +10717,13 @@ export class UriClip {
     set_top_effect_priority(effect: BaseEffect, newpriority: number): boolean
     split(position: number): Clip | null
     split_full(position: number): Clip | null
-    /* Methods of GES.Container */
+    /* Methods of GES-1.0.GES.Container */
     add(child: TimelineElement): boolean
     edit(layers: Layer[] | null, new_layer_priority: number, mode: EditMode, edge: Edge, position: number): boolean
     get_children(recursive: boolean): TimelineElement[]
     remove(child: TimelineElement): boolean
     ungroup(recursive: boolean): Container[]
-    /* Methods of GES.TimelineElement */
+    /* Methods of GES-1.0.GES.TimelineElement */
     add_child_property(pspec: GObject.ParamSpec, child: GObject.Object): boolean
     copy(deep: boolean): TimelineElement
     edit_full(new_layer_priority: number, mode: EditMode, edge: Edge, position: number): boolean
@@ -10761,7 +10761,7 @@ export class UriClip {
     set_start(start: Gst.ClockTime): boolean
     set_timeline(timeline: Timeline): boolean
     trim(start: Gst.ClockTime): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -10783,11 +10783,11 @@ export class UriClip {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of GES.Extractable */
+    /* Methods of GES-1.0.GES.Extractable */
     get_asset(): Asset | null
     get_id(): string
     set_asset(asset: Asset): boolean
-    /* Methods of GES.MetaContainer */
+    /* Methods of GES-1.0.GES.MetaContainer */
     add_metas_from_string(str: string): boolean
     check_meta_registered(meta_item: string): [ /* returnType */ boolean, /* flags */ MetaFlag | null, /* type */ GObject.Type | null ]
     foreach(func: MetaForeachFunc): void
@@ -10828,17 +10828,17 @@ export class UriClip {
     set_string(meta_item: string, value: string): boolean
     set_uint(meta_item: string, value: number): boolean
     set_uint64(meta_item: string, value: number): boolean
-    /* Virtual methods of GES.Clip */
+    /* Virtual methods of GES-1.0.GES.Clip */
     vfunc_create_track_element(type: TrackType): TrackElement | null
     vfunc_create_track_elements(type: TrackType): TrackElement[]
-    /* Virtual methods of GES.Container */
+    /* Virtual methods of GES-1.0.GES.Container */
     vfunc_add_child(element: TimelineElement): boolean
     vfunc_child_added(element: TimelineElement): void
     vfunc_child_removed(element: TimelineElement): void
     vfunc_edit(layers: Layer[] | null, new_layer_priority: number, mode: EditMode, edge: Edge, position: number): boolean
     vfunc_remove_child(element: TimelineElement): boolean
     vfunc_ungroup(recursive: boolean): Container[]
-    /* Virtual methods of GES.TimelineElement */
+    /* Virtual methods of GES-1.0.GES.TimelineElement */
     vfunc_deep_copy(copy: TimelineElement): void
     vfunc_get_layer_priority(): number
     vfunc_get_natural_framerate(): [ /* returnType */ boolean, /* framerate_n */ number, /* framerate_d */ number ]
@@ -10860,7 +10860,7 @@ export class UriClip {
     vfunc_get_id(): string
     vfunc_set_asset(asset: Asset): void
     vfunc_set_asset_full(asset: Asset): boolean
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -10868,14 +10868,14 @@ export class UriClip {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GES.Container */
+    /* Signals of GES-1.0.GES.Container */
     connect(sigName: "child-added", callback: (($obj: UriClip, element: TimelineElement) => void)): number
     connect_after(sigName: "child-added", callback: (($obj: UriClip, element: TimelineElement) => void)): number
     emit(sigName: "child-added", element: TimelineElement): void
     connect(sigName: "child-removed", callback: (($obj: UriClip, element: TimelineElement) => void)): number
     connect_after(sigName: "child-removed", callback: (($obj: UriClip, element: TimelineElement) => void)): number
     emit(sigName: "child-removed", element: TimelineElement): void
-    /* Signals of GES.TimelineElement */
+    /* Signals of GES-1.0.GES.TimelineElement */
     connect(sigName: "child-property-added", callback: (($obj: UriClip, prop_object: GObject.Object, prop: GObject.ParamSpec) => void)): number
     connect_after(sigName: "child-property-added", callback: (($obj: UriClip, prop_object: GObject.Object, prop: GObject.ParamSpec) => void)): number
     emit(sigName: "child-property-added", prop_object: GObject.Object, prop: GObject.ParamSpec): void
@@ -10885,11 +10885,11 @@ export class UriClip {
     connect(sigName: "deep-notify", callback: (($obj: UriClip, prop_object: GObject.Object, prop: GObject.ParamSpec) => void)): number
     connect_after(sigName: "deep-notify", callback: (($obj: UriClip, prop_object: GObject.Object, prop: GObject.ParamSpec) => void)): number
     emit(sigName: "deep-notify", prop_object: GObject.Object, prop: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: UriClip, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: UriClip, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    /* Signals of GES.MetaContainer */
+    /* Signals of GES-1.0.GES.MetaContainer */
     connect(sigName: "notify-meta", callback: (($obj: UriClip, key: string, value?: any | null) => void)): number
     connect_after(sigName: "notify-meta", callback: (($obj: UriClip, key: string, value?: any | null) => void)): number
     emit(sigName: "notify-meta", key: string, value?: any | null): void
@@ -10938,32 +10938,32 @@ export interface UriClipAsset_ConstructProps extends SourceClipAsset_ConstructPr
     duration?: number
 }
 export class UriClipAsset {
-    /* Properties of GES.UriClipAsset */
+    /* Properties of GES-1.0.GES.UriClipAsset */
     duration: number
     readonly is_nested_timeline: boolean
-    /* Properties of GES.ClipAsset */
+    /* Properties of GES-1.0.GES.ClipAsset */
     supported_formats: TrackType
-    /* Properties of GES.Asset */
+    /* Properties of GES-1.0.GES.Asset */
     proxy: Asset
     readonly proxy_target: Asset
-    /* Fields of GES.UriClipAsset */
+    /* Fields of GES-1.0.GES.UriClipAsset */
     parent: SourceClipAsset
-    /* Fields of GES.SourceClipAsset */
+    /* Fields of GES-1.0.GES.SourceClipAsset */
     parent_instance: ClipAsset
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GES.UriClipAsset */
+    /* Methods of GES-1.0.GES.UriClipAsset */
     get_duration(): Gst.ClockTime
     get_info(): GstPbutils.DiscovererInfo
     get_max_duration(): Gst.ClockTime
     get_stream_assets(): UriSourceAsset[]
     is_image(): boolean
-    /* Methods of GES.ClipAsset */
+    /* Methods of GES-1.0.GES.ClipAsset */
     get_frame_time(frame_number: FrameNumber): Gst.ClockTime
     get_natural_framerate(framerate_n: number, framerate_d: number): boolean
     get_supported_formats(): TrackType
     set_supported_formats(supportedformats: TrackType): void
-    /* Methods of GES.Asset */
+    /* Methods of GES-1.0.GES.Asset */
     extract(): Extractable
     get_error(): GLib.Error | null
     get_extractable_type(): GObject.Type
@@ -10973,7 +10973,7 @@ export class UriClipAsset {
     list_proxies(): Asset[]
     set_proxy(proxy?: Asset | null): boolean
     unproxy(proxy: Asset): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -10995,7 +10995,7 @@ export class UriClipAsset {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of GES.MetaContainer */
+    /* Methods of GES-1.0.GES.MetaContainer */
     add_metas_from_string(str: string): boolean
     check_meta_registered(meta_item: string): [ /* returnType */ boolean, /* flags */ MetaFlag | null, /* type */ GObject.Type | null ]
     foreach(func: MetaForeachFunc): void
@@ -11036,15 +11036,15 @@ export class UriClipAsset {
     set_string(meta_item: string, value: string): boolean
     set_uint(meta_item: string, value: number): boolean
     set_uint64(meta_item: string, value: number): boolean
-    /* Methods of Gio.AsyncInitable */
+    /* Methods of Gio-2.0.Gio.AsyncInitable */
     init_async(io_priority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     init_finish(res: Gio.AsyncResult): boolean
     new_finish(res: Gio.AsyncResult): GObject.Object
-    /* Methods of Gio.Initable */
+    /* Methods of Gio-2.0.Gio.Initable */
     init(cancellable?: Gio.Cancellable | null): boolean
-    /* Virtual methods of GES.ClipAsset */
+    /* Virtual methods of GES-1.0.GES.ClipAsset */
     vfunc_get_natural_framerate(framerate_n: number, framerate_d: number): boolean
-    /* Virtual methods of GES.Asset */
+    /* Virtual methods of GES-1.0.GES.Asset */
     vfunc_extract(): Extractable
     vfunc_inform_proxy(proxy_id: string): void
     vfunc_proxied(proxy: Asset): void
@@ -11053,7 +11053,7 @@ export class UriClipAsset {
     vfunc_init_async(io_priority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     vfunc_init_finish(res: Gio.AsyncResult): boolean
     vfunc_init(cancellable?: Gio.Cancellable | null): boolean
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -11061,11 +11061,11 @@ export class UriClipAsset {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: UriClipAsset, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: UriClipAsset, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    /* Signals of GES.MetaContainer */
+    /* Signals of GES-1.0.GES.MetaContainer */
     connect(sigName: "notify-meta", callback: (($obj: UriClipAsset, key: string, value?: any | null) => void)): number
     connect_after(sigName: "notify-meta", callback: (($obj: UriClipAsset, key: string, value?: any | null) => void)): number
     emit(sigName: "notify-meta", key: string, value?: any | null): void
@@ -11095,25 +11095,25 @@ export class UriClipAsset {
 export interface UriSourceAsset_ConstructProps extends TrackElementAsset_ConstructProps {
 }
 export class UriSourceAsset {
-    /* Properties of GES.TrackElementAsset */
+    /* Properties of GES-1.0.GES.TrackElementAsset */
     track_type: TrackType
-    /* Properties of GES.Asset */
+    /* Properties of GES-1.0.GES.Asset */
     proxy: Asset
     readonly proxy_target: Asset
-    /* Fields of GES.UriSourceAsset */
+    /* Fields of GES-1.0.GES.UriSourceAsset */
     parent: TrackElementAsset
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GES.UriSourceAsset */
+    /* Methods of GES-1.0.GES.UriSourceAsset */
     get_filesource_asset(): UriClipAsset
     get_stream_info(): GstPbutils.DiscovererStreamInfo
     get_stream_uri(): string
     is_image(): boolean
-    /* Methods of GES.TrackElementAsset */
+    /* Methods of GES-1.0.GES.TrackElementAsset */
     get_natural_framerate(framerate_n: number, framerate_d: number): boolean
     get_track_type(): TrackType
     set_track_type(type: TrackType): void
-    /* Methods of GES.Asset */
+    /* Methods of GES-1.0.GES.Asset */
     extract(): Extractable
     get_error(): GLib.Error | null
     get_extractable_type(): GObject.Type
@@ -11123,7 +11123,7 @@ export class UriSourceAsset {
     list_proxies(): Asset[]
     set_proxy(proxy?: Asset | null): boolean
     unproxy(proxy: Asset): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -11145,7 +11145,7 @@ export class UriSourceAsset {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of GES.MetaContainer */
+    /* Methods of GES-1.0.GES.MetaContainer */
     add_metas_from_string(str: string): boolean
     check_meta_registered(meta_item: string): [ /* returnType */ boolean, /* flags */ MetaFlag | null, /* type */ GObject.Type | null ]
     foreach(func: MetaForeachFunc): void
@@ -11186,15 +11186,15 @@ export class UriSourceAsset {
     set_string(meta_item: string, value: string): boolean
     set_uint(meta_item: string, value: number): boolean
     set_uint64(meta_item: string, value: number): boolean
-    /* Methods of Gio.AsyncInitable */
+    /* Methods of Gio-2.0.Gio.AsyncInitable */
     init_async(io_priority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     init_finish(res: Gio.AsyncResult): boolean
     new_finish(res: Gio.AsyncResult): GObject.Object
-    /* Methods of Gio.Initable */
+    /* Methods of Gio-2.0.Gio.Initable */
     init(cancellable?: Gio.Cancellable | null): boolean
-    /* Virtual methods of GES.TrackElementAsset */
+    /* Virtual methods of GES-1.0.GES.TrackElementAsset */
     vfunc_get_natural_framerate(framerate_n: number, framerate_d: number): boolean
-    /* Virtual methods of GES.Asset */
+    /* Virtual methods of GES-1.0.GES.Asset */
     vfunc_extract(): Extractable
     vfunc_inform_proxy(proxy_id: string): void
     vfunc_proxied(proxy: Asset): void
@@ -11203,7 +11203,7 @@ export class UriSourceAsset {
     vfunc_init_async(io_priority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     vfunc_init_finish(res: Gio.AsyncResult): boolean
     vfunc_init(cancellable?: Gio.Cancellable | null): boolean
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -11211,11 +11211,11 @@ export class UriSourceAsset {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: UriSourceAsset, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: UriSourceAsset, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    /* Signals of GES.MetaContainer */
+    /* Signals of GES-1.0.GES.MetaContainer */
     connect(sigName: "notify-meta", callback: (($obj: UriSourceAsset, key: string, value?: any | null) => void)): number
     connect_after(sigName: "notify-meta", callback: (($obj: UriSourceAsset, key: string, value?: any | null) => void)): number
     emit(sigName: "notify-meta", key: string, value?: any | null): void
@@ -11237,13 +11237,13 @@ export class UriSourceAsset {
 export interface VideoSource_ConstructProps extends Source_ConstructProps {
 }
 export class VideoSource {
-    /* Properties of GES.TrackElement */
+    /* Properties of GES-1.0.GES.TrackElement */
     active: boolean
     auto_clamp_control_sources: boolean
     has_internal_source: boolean
     readonly track: Track
     track_type: TrackType
-    /* Properties of GES.TimelineElement */
+    /* Properties of GES-1.0.GES.TimelineElement */
     duration: number
     in_point: number
     max_duration: number
@@ -11253,16 +11253,16 @@ export class VideoSource {
     serialize: boolean
     start: number
     timeline: Timeline
-    /* Fields of GES.TimelineElement */
+    /* Fields of GES-1.0.GES.TimelineElement */
     parent_instance: GObject.InitiallyUnowned
     asset: Asset
     inpoint: Gst.ClockTime
     maxduration: Gst.ClockTime
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GES.VideoSource */
+    /* Methods of GES-1.0.GES.VideoSource */
     get_natural_size(): [ /* returnType */ boolean, /* width */ number, /* height */ number ]
-    /* Methods of GES.TrackElement */
+    /* Methods of GES-1.0.GES.TrackElement */
     add_children_props(element: Gst.Element, wanted_categories?: string[] | null, blacklist?: string[] | null, whitelist?: string[] | null): void
     clamp_control_source(property_name: string): void
     edit(layers: Layer[] | null, mode: EditMode, edge: Edge, position: number): boolean
@@ -11284,7 +11284,7 @@ export class VideoSource {
     set_control_source(source: Gst.ControlSource, property_name: string, binding_type: string): boolean
     set_has_internal_source(has_internal_source: boolean): boolean
     set_track_type(type: TrackType): void
-    /* Methods of GES.TimelineElement */
+    /* Methods of GES-1.0.GES.TimelineElement */
     add_child_property(pspec: GObject.ParamSpec, child: GObject.Object): boolean
     copy(deep: boolean): TimelineElement
     edit(layers: Layer[] | null, new_layer_priority: number, mode: EditMode, edge: Edge, position: number): boolean
@@ -11322,7 +11322,7 @@ export class VideoSource {
     set_start(start: Gst.ClockTime): boolean
     set_timeline(timeline: Timeline): boolean
     trim(start: Gst.ClockTime): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -11344,11 +11344,11 @@ export class VideoSource {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of GES.Extractable */
+    /* Methods of GES-1.0.GES.Extractable */
     get_asset(): Asset | null
     get_id(): string
     set_asset(asset: Asset): boolean
-    /* Methods of GES.MetaContainer */
+    /* Methods of GES-1.0.GES.MetaContainer */
     add_metas_from_string(str: string): boolean
     check_meta_registered(meta_item: string): [ /* returnType */ boolean, /* flags */ MetaFlag | null, /* type */ GObject.Type | null ]
     foreach(func: MetaForeachFunc): void
@@ -11389,13 +11389,13 @@ export class VideoSource {
     set_string(meta_item: string, value: string): boolean
     set_uint(meta_item: string, value: number): boolean
     set_uint64(meta_item: string, value: number): boolean
-    /* Virtual methods of GES.Source */
+    /* Virtual methods of GES-1.0.GES.Source */
     vfunc_select_pad(pad: Gst.Pad): boolean
-    /* Virtual methods of GES.TrackElement */
+    /* Virtual methods of GES-1.0.GES.TrackElement */
     vfunc_active_changed(active: boolean): void
     vfunc_changed(): void
     vfunc_lookup_child(prop_name: string): [ /* returnType */ boolean, /* element */ Gst.Element | null, /* pspec */ GObject.ParamSpec | null ]
-    /* Virtual methods of GES.TimelineElement */
+    /* Virtual methods of GES-1.0.GES.TimelineElement */
     vfunc_deep_copy(copy: TimelineElement): void
     vfunc_get_layer_priority(): number
     vfunc_get_natural_framerate(): [ /* returnType */ boolean, /* framerate_n */ number, /* framerate_d */ number ]
@@ -11417,7 +11417,7 @@ export class VideoSource {
     vfunc_get_id(): string
     vfunc_set_asset(asset: Asset): void
     vfunc_set_asset_full(asset: Asset): boolean
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -11425,14 +11425,14 @@ export class VideoSource {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GES.TrackElement */
+    /* Signals of GES-1.0.GES.TrackElement */
     connect(sigName: "control-binding-added", callback: (($obj: VideoSource, control_binding: Gst.ControlBinding) => void)): number
     connect_after(sigName: "control-binding-added", callback: (($obj: VideoSource, control_binding: Gst.ControlBinding) => void)): number
     emit(sigName: "control-binding-added", control_binding: Gst.ControlBinding): void
     connect(sigName: "control-binding-removed", callback: (($obj: VideoSource, control_binding: Gst.ControlBinding) => void)): number
     connect_after(sigName: "control-binding-removed", callback: (($obj: VideoSource, control_binding: Gst.ControlBinding) => void)): number
     emit(sigName: "control-binding-removed", control_binding: Gst.ControlBinding): void
-    /* Signals of GES.TimelineElement */
+    /* Signals of GES-1.0.GES.TimelineElement */
     connect(sigName: "child-property-added", callback: (($obj: VideoSource, prop_object: GObject.Object, prop: GObject.ParamSpec) => void)): number
     connect_after(sigName: "child-property-added", callback: (($obj: VideoSource, prop_object: GObject.Object, prop: GObject.ParamSpec) => void)): number
     emit(sigName: "child-property-added", prop_object: GObject.Object, prop: GObject.ParamSpec): void
@@ -11442,11 +11442,11 @@ export class VideoSource {
     connect(sigName: "deep-notify", callback: (($obj: VideoSource, prop_object: GObject.Object, prop: GObject.ParamSpec) => void)): number
     connect_after(sigName: "deep-notify", callback: (($obj: VideoSource, prop_object: GObject.Object, prop: GObject.ParamSpec) => void)): number
     emit(sigName: "deep-notify", prop_object: GObject.Object, prop: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: VideoSource, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: VideoSource, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    /* Signals of GES.MetaContainer */
+    /* Signals of GES-1.0.GES.MetaContainer */
     connect(sigName: "notify-meta", callback: (($obj: VideoSource, key: string, value?: any | null) => void)): number
     connect_after(sigName: "notify-meta", callback: (($obj: VideoSource, key: string, value?: any | null) => void)): number
     emit(sigName: "notify-meta", key: string, value?: any | null): void
@@ -11490,13 +11490,13 @@ export class VideoSource {
 export interface VideoTestSource_ConstructProps extends VideoSource_ConstructProps {
 }
 export class VideoTestSource {
-    /* Properties of GES.TrackElement */
+    /* Properties of GES-1.0.GES.TrackElement */
     active: boolean
     auto_clamp_control_sources: boolean
     has_internal_source: boolean
     readonly track: Track
     track_type: TrackType
-    /* Properties of GES.TimelineElement */
+    /* Properties of GES-1.0.GES.TimelineElement */
     duration: number
     in_point: number
     max_duration: number
@@ -11506,19 +11506,19 @@ export class VideoTestSource {
     serialize: boolean
     start: number
     timeline: Timeline
-    /* Fields of GES.TimelineElement */
+    /* Fields of GES-1.0.GES.TimelineElement */
     parent_instance: GObject.InitiallyUnowned
     asset: Asset
     inpoint: Gst.ClockTime
     maxduration: Gst.ClockTime
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GES.VideoTestSource */
+    /* Methods of GES-1.0.GES.VideoTestSource */
     get_pattern(): VideoTestPattern
     set_pattern(pattern: VideoTestPattern): void
-    /* Methods of GES.VideoSource */
+    /* Methods of GES-1.0.GES.VideoSource */
     get_natural_size(): [ /* returnType */ boolean, /* width */ number, /* height */ number ]
-    /* Methods of GES.TrackElement */
+    /* Methods of GES-1.0.GES.TrackElement */
     add_children_props(element: Gst.Element, wanted_categories?: string[] | null, blacklist?: string[] | null, whitelist?: string[] | null): void
     clamp_control_source(property_name: string): void
     edit(layers: Layer[] | null, mode: EditMode, edge: Edge, position: number): boolean
@@ -11540,7 +11540,7 @@ export class VideoTestSource {
     set_control_source(source: Gst.ControlSource, property_name: string, binding_type: string): boolean
     set_has_internal_source(has_internal_source: boolean): boolean
     set_track_type(type: TrackType): void
-    /* Methods of GES.TimelineElement */
+    /* Methods of GES-1.0.GES.TimelineElement */
     add_child_property(pspec: GObject.ParamSpec, child: GObject.Object): boolean
     copy(deep: boolean): TimelineElement
     edit(layers: Layer[] | null, new_layer_priority: number, mode: EditMode, edge: Edge, position: number): boolean
@@ -11578,7 +11578,7 @@ export class VideoTestSource {
     set_start(start: Gst.ClockTime): boolean
     set_timeline(timeline: Timeline): boolean
     trim(start: Gst.ClockTime): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -11600,11 +11600,11 @@ export class VideoTestSource {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of GES.Extractable */
+    /* Methods of GES-1.0.GES.Extractable */
     get_asset(): Asset | null
     get_id(): string
     set_asset(asset: Asset): boolean
-    /* Methods of GES.MetaContainer */
+    /* Methods of GES-1.0.GES.MetaContainer */
     add_metas_from_string(str: string): boolean
     check_meta_registered(meta_item: string): [ /* returnType */ boolean, /* flags */ MetaFlag | null, /* type */ GObject.Type | null ]
     foreach(func: MetaForeachFunc): void
@@ -11645,13 +11645,13 @@ export class VideoTestSource {
     set_string(meta_item: string, value: string): boolean
     set_uint(meta_item: string, value: number): boolean
     set_uint64(meta_item: string, value: number): boolean
-    /* Virtual methods of GES.Source */
+    /* Virtual methods of GES-1.0.GES.Source */
     vfunc_select_pad(pad: Gst.Pad): boolean
-    /* Virtual methods of GES.TrackElement */
+    /* Virtual methods of GES-1.0.GES.TrackElement */
     vfunc_active_changed(active: boolean): void
     vfunc_changed(): void
     vfunc_lookup_child(prop_name: string): [ /* returnType */ boolean, /* element */ Gst.Element | null, /* pspec */ GObject.ParamSpec | null ]
-    /* Virtual methods of GES.TimelineElement */
+    /* Virtual methods of GES-1.0.GES.TimelineElement */
     vfunc_deep_copy(copy: TimelineElement): void
     vfunc_get_layer_priority(): number
     vfunc_get_natural_framerate(): [ /* returnType */ boolean, /* framerate_n */ number, /* framerate_d */ number ]
@@ -11673,7 +11673,7 @@ export class VideoTestSource {
     vfunc_get_id(): string
     vfunc_set_asset(asset: Asset): void
     vfunc_set_asset_full(asset: Asset): boolean
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -11681,14 +11681,14 @@ export class VideoTestSource {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GES.TrackElement */
+    /* Signals of GES-1.0.GES.TrackElement */
     connect(sigName: "control-binding-added", callback: (($obj: VideoTestSource, control_binding: Gst.ControlBinding) => void)): number
     connect_after(sigName: "control-binding-added", callback: (($obj: VideoTestSource, control_binding: Gst.ControlBinding) => void)): number
     emit(sigName: "control-binding-added", control_binding: Gst.ControlBinding): void
     connect(sigName: "control-binding-removed", callback: (($obj: VideoTestSource, control_binding: Gst.ControlBinding) => void)): number
     connect_after(sigName: "control-binding-removed", callback: (($obj: VideoTestSource, control_binding: Gst.ControlBinding) => void)): number
     emit(sigName: "control-binding-removed", control_binding: Gst.ControlBinding): void
-    /* Signals of GES.TimelineElement */
+    /* Signals of GES-1.0.GES.TimelineElement */
     connect(sigName: "child-property-added", callback: (($obj: VideoTestSource, prop_object: GObject.Object, prop: GObject.ParamSpec) => void)): number
     connect_after(sigName: "child-property-added", callback: (($obj: VideoTestSource, prop_object: GObject.Object, prop: GObject.ParamSpec) => void)): number
     emit(sigName: "child-property-added", prop_object: GObject.Object, prop: GObject.ParamSpec): void
@@ -11698,11 +11698,11 @@ export class VideoTestSource {
     connect(sigName: "deep-notify", callback: (($obj: VideoTestSource, prop_object: GObject.Object, prop: GObject.ParamSpec) => void)): number
     connect_after(sigName: "deep-notify", callback: (($obj: VideoTestSource, prop_object: GObject.Object, prop: GObject.ParamSpec) => void)): number
     emit(sigName: "deep-notify", prop_object: GObject.Object, prop: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: VideoTestSource, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: VideoTestSource, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    /* Signals of GES.MetaContainer */
+    /* Signals of GES-1.0.GES.MetaContainer */
     connect(sigName: "notify-meta", callback: (($obj: VideoTestSource, key: string, value?: any | null) => void)): number
     connect_after(sigName: "notify-meta", callback: (($obj: VideoTestSource, key: string, value?: any | null) => void)): number
     emit(sigName: "notify-meta", key: string, value?: any | null): void
@@ -11746,22 +11746,22 @@ export class VideoTestSource {
 export interface VideoTrack_ConstructProps extends Track_ConstructProps {
 }
 export class VideoTrack {
-    /* Properties of GES.Track */
+    /* Properties of GES-1.0.GES.Track */
     readonly duration: number
     id: string
     mixing: boolean
     restriction_caps: Gst.Caps
-    /* Properties of Gst.Bin */
+    /* Properties of Gst-1.0.Gst.Bin */
     async_handling: boolean
     message_forward: boolean
-    /* Properties of Gst.Object */
+    /* Properties of Gst-1.0.Gst.Object */
     name: string
     parent: Gst.Object
-    /* Fields of GES.VideoTrack */
+    /* Fields of GES-1.0.GES.VideoTrack */
     parent_instance: Track
-    /* Fields of GES.Track */
+    /* Fields of GES-1.0.GES.Track */
     type: TrackType
-    /* Fields of Gst.Bin */
+    /* Fields of Gst-1.0.Gst.Bin */
     element: Gst.Element
     numchildren: number
     children: Gst.Element[]
@@ -11773,7 +11773,7 @@ export class VideoTrack {
     clock_dirty: boolean
     provided_clock: Gst.Clock
     clock_provider: Gst.Element
-    /* Fields of Gst.Element */
+    /* Fields of Gst-1.0.Gst.Element */
     object: Gst.Object
     state_lock: GLib.RecMutex
     state_cond: GLib.Cond
@@ -11795,12 +11795,12 @@ export class VideoTrack {
     sinkpads: Gst.Pad[]
     pads_cookie: number
     contexts: Gst.Context[]
-    /* Fields of Gst.Object */
+    /* Fields of Gst-1.0.Gst.Object */
     lock: GLib.Mutex
     flags: number
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GES.Track */
+    /* Methods of GES-1.0.GES.Track */
     add_element(object: TrackElement): boolean
     add_element_full(object: TrackElement): boolean
     commit(): boolean
@@ -11815,7 +11815,7 @@ export class VideoTrack {
     set_restriction_caps(caps: Gst.Caps): void
     set_timeline(timeline: Timeline): void
     update_restriction_caps(caps: Gst.Caps): void
-    /* Methods of Gst.Bin */
+    /* Methods of Gst-1.0.Gst.Bin */
     add(element: Gst.Element): boolean
     find_unlinked_pad(direction: Gst.PadDirection): Gst.Pad | null
     get_by_interface(iface: GObject.Type): Gst.Element | null
@@ -11833,7 +11833,7 @@ export class VideoTrack {
     remove(element: Gst.Element): boolean
     set_suppressed_flags(flags: Gst.ElementFlags): void
     sync_children_states(): boolean
-    /* Methods of Gst.Element */
+    /* Methods of Gst-1.0.Gst.Element */
     abort_state(): void
     add_pad(pad: Gst.Pad): boolean
     add_property_deep_notify_watch(property_name: string | null, include_value: boolean): number
@@ -11899,7 +11899,7 @@ export class VideoTrack {
     sync_state_with_parent(): boolean
     unlink(dest: Gst.Element): void
     unlink_pads(srcpadname: string, dest: Gst.Element, destpadname: string): void
-    /* Methods of Gst.Object */
+    /* Methods of Gst-1.0.Gst.Object */
     add_control_binding(binding: Gst.ControlBinding): boolean
     default_error(error: GLib.Error, debug?: string | null): void
     get_control_binding(property_name: string): Gst.ControlBinding | null
@@ -11924,7 +11924,7 @@ export class VideoTrack {
     sync_values(timestamp: Gst.ClockTime): boolean
     unparent(): void
     unref(): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -11945,7 +11945,7 @@ export class VideoTrack {
     steal_qdata(quark: GLib.Quark): object | null
     thaw_notify(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of GES.MetaContainer */
+    /* Methods of GES-1.0.GES.MetaContainer */
     add_metas_from_string(str: string): boolean
     check_meta_registered(meta_item: string): [ /* returnType */ boolean, /* flags */ MetaFlag | null, /* type */ GObject.Type | null ]
     foreach(func: MetaForeachFunc): void
@@ -11986,7 +11986,7 @@ export class VideoTrack {
     set_string(meta_item: string, value: string): boolean
     set_uint(meta_item: string, value: number): boolean
     set_uint64(meta_item: string, value: number): boolean
-    /* Methods of Gst.ChildProxy */
+    /* Methods of Gst-1.0.Gst.ChildProxy */
     child_added(child: GObject.Object, name: string): void
     child_removed(child: GObject.Object, name: string): void
     get_child_by_index(index: number): GObject.Object | null
@@ -11995,13 +11995,13 @@ export class VideoTrack {
     get_property(name: string): /* value */ any
     lookup(name: string): [ /* returnType */ boolean, /* target */ GObject.Object | null, /* pspec */ GObject.ParamSpec | null ]
     set_property(name: string, value: any): void
-    /* Virtual methods of GES.Track */
+    /* Virtual methods of GES-1.0.GES.Track */
     vfunc_child_added(child: GObject.Object, name: string): void
     vfunc_child_removed(child: GObject.Object, name: string): void
     vfunc_get_child_by_index(index: number): GObject.Object | null
     vfunc_get_child_by_name(name: string): GObject.Object | null
     vfunc_get_children_count(): number
-    /* Virtual methods of Gst.Bin */
+    /* Virtual methods of Gst-1.0.Gst.Bin */
     vfunc_add_element(element: Gst.Element): boolean
     vfunc_deep_element_added(sub_bin: Gst.Bin, child: Gst.Element): void
     vfunc_deep_element_removed(sub_bin: Gst.Bin, child: Gst.Element): void
@@ -12010,7 +12010,7 @@ export class VideoTrack {
     vfunc_element_removed(child: Gst.Element): void
     vfunc_handle_message(message: Gst.Message): void
     vfunc_remove_element(element: Gst.Element): boolean
-    /* Virtual methods of Gst.Element */
+    /* Virtual methods of Gst-1.0.Gst.Element */
     vfunc_change_state(transition: Gst.StateChange): Gst.StateChangeReturn
     vfunc_get_state(timeout: Gst.ClockTime): [ /* returnType */ Gst.StateChangeReturn, /* state */ Gst.State | null, /* pending */ Gst.State | null ]
     vfunc_no_more_pads(): void
@@ -12027,9 +12027,9 @@ export class VideoTrack {
     vfunc_set_context(context: Gst.Context): void
     vfunc_set_state(state: Gst.State): Gst.StateChangeReturn
     vfunc_state_changed(oldstate: Gst.State, newstate: Gst.State, pending: Gst.State): void
-    /* Virtual methods of Gst.Object */
+    /* Virtual methods of Gst-1.0.Gst.Object */
     vfunc_deep_notify(orig: Gst.Object, pspec: GObject.ParamSpec): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -12037,7 +12037,7 @@ export class VideoTrack {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GES.Track */
+    /* Signals of GES-1.0.GES.Track */
     connect(sigName: "commited", callback: (($obj: VideoTrack) => void)): number
     connect_after(sigName: "commited", callback: (($obj: VideoTrack) => void)): number
     emit(sigName: "commited"): void
@@ -12047,7 +12047,7 @@ export class VideoTrack {
     connect(sigName: "track-element-removed", callback: (($obj: VideoTrack, effect: TrackElement) => void)): number
     connect_after(sigName: "track-element-removed", callback: (($obj: VideoTrack, effect: TrackElement) => void)): number
     emit(sigName: "track-element-removed", effect: TrackElement): void
-    /* Signals of Gst.Bin */
+    /* Signals of Gst-1.0.Gst.Bin */
     connect(sigName: "deep-element-added", callback: (($obj: VideoTrack, sub_bin: Gst.Bin, element: Gst.Element) => void)): number
     connect_after(sigName: "deep-element-added", callback: (($obj: VideoTrack, sub_bin: Gst.Bin, element: Gst.Element) => void)): number
     emit(sigName: "deep-element-added", sub_bin: Gst.Bin, element: Gst.Element): void
@@ -12063,7 +12063,7 @@ export class VideoTrack {
     connect(sigName: "element-removed", callback: (($obj: VideoTrack, element: Gst.Element) => void)): number
     connect_after(sigName: "element-removed", callback: (($obj: VideoTrack, element: Gst.Element) => void)): number
     emit(sigName: "element-removed", element: Gst.Element): void
-    /* Signals of Gst.Element */
+    /* Signals of Gst-1.0.Gst.Element */
     connect(sigName: "no-more-pads", callback: (($obj: VideoTrack) => void)): number
     connect_after(sigName: "no-more-pads", callback: (($obj: VideoTrack) => void)): number
     emit(sigName: "no-more-pads"): void
@@ -12073,19 +12073,19 @@ export class VideoTrack {
     connect(sigName: "pad-removed", callback: (($obj: VideoTrack, old_pad: Gst.Pad) => void)): number
     connect_after(sigName: "pad-removed", callback: (($obj: VideoTrack, old_pad: Gst.Pad) => void)): number
     emit(sigName: "pad-removed", old_pad: Gst.Pad): void
-    /* Signals of Gst.Object */
+    /* Signals of Gst-1.0.Gst.Object */
     connect(sigName: "deep-notify", callback: (($obj: VideoTrack, prop_object: Gst.Object, prop: GObject.ParamSpec) => void)): number
     connect_after(sigName: "deep-notify", callback: (($obj: VideoTrack, prop_object: Gst.Object, prop: GObject.ParamSpec) => void)): number
     emit(sigName: "deep-notify", prop_object: Gst.Object, prop: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: VideoTrack, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: VideoTrack, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    /* Signals of GES.MetaContainer */
+    /* Signals of GES-1.0.GES.MetaContainer */
     connect(sigName: "notify-meta", callback: (($obj: VideoTrack, key: string, value?: any | null) => void)): number
     connect_after(sigName: "notify-meta", callback: (($obj: VideoTrack, key: string, value?: any | null) => void)): number
     emit(sigName: "notify-meta", key: string, value?: any | null): void
-    /* Signals of Gst.ChildProxy */
+    /* Signals of Gst-1.0.Gst.ChildProxy */
     connect(sigName: "child-added", callback: (($obj: VideoTrack, object: GObject.Object, name: string) => void)): number
     connect_after(sigName: "child-added", callback: (($obj: VideoTrack, object: GObject.Object, name: string) => void)): number
     emit(sigName: "child-added", object: GObject.Object, name: string): void
@@ -12127,17 +12127,17 @@ export interface VideoTransition_ConstructProps extends Transition_ConstructProp
     transition_type?: VideoStandardTransitionType
 }
 export class VideoTransition {
-    /* Properties of GES.VideoTransition */
+    /* Properties of GES-1.0.GES.VideoTransition */
     border: number
     invert: boolean
     transition_type: VideoStandardTransitionType
-    /* Properties of GES.TrackElement */
+    /* Properties of GES-1.0.GES.TrackElement */
     active: boolean
     auto_clamp_control_sources: boolean
     has_internal_source: boolean
     readonly track: Track
     track_type: TrackType
-    /* Properties of GES.TimelineElement */
+    /* Properties of GES-1.0.GES.TimelineElement */
     duration: number
     in_point: number
     max_duration: number
@@ -12147,21 +12147,21 @@ export class VideoTransition {
     serialize: boolean
     start: number
     timeline: Timeline
-    /* Fields of GES.TimelineElement */
+    /* Fields of GES-1.0.GES.TimelineElement */
     parent_instance: GObject.InitiallyUnowned
     asset: Asset
     inpoint: Gst.ClockTime
     maxduration: Gst.ClockTime
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GES.VideoTransition */
+    /* Methods of GES-1.0.GES.VideoTransition */
     get_border(): number
     get_transition_type(): VideoStandardTransitionType
     is_inverted(): boolean
     set_border(value: number): void
     set_inverted(inverted: boolean): void
     set_transition_type(type: VideoStandardTransitionType): boolean
-    /* Methods of GES.TrackElement */
+    /* Methods of GES-1.0.GES.TrackElement */
     add_children_props(element: Gst.Element, wanted_categories?: string[] | null, blacklist?: string[] | null, whitelist?: string[] | null): void
     clamp_control_source(property_name: string): void
     edit(layers: Layer[] | null, mode: EditMode, edge: Edge, position: number): boolean
@@ -12183,7 +12183,7 @@ export class VideoTransition {
     set_control_source(source: Gst.ControlSource, property_name: string, binding_type: string): boolean
     set_has_internal_source(has_internal_source: boolean): boolean
     set_track_type(type: TrackType): void
-    /* Methods of GES.TimelineElement */
+    /* Methods of GES-1.0.GES.TimelineElement */
     add_child_property(pspec: GObject.ParamSpec, child: GObject.Object): boolean
     copy(deep: boolean): TimelineElement
     edit(layers: Layer[] | null, new_layer_priority: number, mode: EditMode, edge: Edge, position: number): boolean
@@ -12221,7 +12221,7 @@ export class VideoTransition {
     set_start(start: Gst.ClockTime): boolean
     set_timeline(timeline: Timeline): boolean
     trim(start: Gst.ClockTime): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -12243,11 +12243,11 @@ export class VideoTransition {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of GES.Extractable */
+    /* Methods of GES-1.0.GES.Extractable */
     get_asset(): Asset | null
     get_id(): string
     set_asset(asset: Asset): boolean
-    /* Methods of GES.MetaContainer */
+    /* Methods of GES-1.0.GES.MetaContainer */
     add_metas_from_string(str: string): boolean
     check_meta_registered(meta_item: string): [ /* returnType */ boolean, /* flags */ MetaFlag | null, /* type */ GObject.Type | null ]
     foreach(func: MetaForeachFunc): void
@@ -12288,11 +12288,11 @@ export class VideoTransition {
     set_string(meta_item: string, value: string): boolean
     set_uint(meta_item: string, value: number): boolean
     set_uint64(meta_item: string, value: number): boolean
-    /* Virtual methods of GES.TrackElement */
+    /* Virtual methods of GES-1.0.GES.TrackElement */
     vfunc_active_changed(active: boolean): void
     vfunc_changed(): void
     vfunc_lookup_child(prop_name: string): [ /* returnType */ boolean, /* element */ Gst.Element | null, /* pspec */ GObject.ParamSpec | null ]
-    /* Virtual methods of GES.TimelineElement */
+    /* Virtual methods of GES-1.0.GES.TimelineElement */
     vfunc_deep_copy(copy: TimelineElement): void
     vfunc_get_layer_priority(): number
     vfunc_get_natural_framerate(): [ /* returnType */ boolean, /* framerate_n */ number, /* framerate_d */ number ]
@@ -12314,7 +12314,7 @@ export class VideoTransition {
     vfunc_get_id(): string
     vfunc_set_asset(asset: Asset): void
     vfunc_set_asset_full(asset: Asset): boolean
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -12322,14 +12322,14 @@ export class VideoTransition {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GES.TrackElement */
+    /* Signals of GES-1.0.GES.TrackElement */
     connect(sigName: "control-binding-added", callback: (($obj: VideoTransition, control_binding: Gst.ControlBinding) => void)): number
     connect_after(sigName: "control-binding-added", callback: (($obj: VideoTransition, control_binding: Gst.ControlBinding) => void)): number
     emit(sigName: "control-binding-added", control_binding: Gst.ControlBinding): void
     connect(sigName: "control-binding-removed", callback: (($obj: VideoTransition, control_binding: Gst.ControlBinding) => void)): number
     connect_after(sigName: "control-binding-removed", callback: (($obj: VideoTransition, control_binding: Gst.ControlBinding) => void)): number
     emit(sigName: "control-binding-removed", control_binding: Gst.ControlBinding): void
-    /* Signals of GES.TimelineElement */
+    /* Signals of GES-1.0.GES.TimelineElement */
     connect(sigName: "child-property-added", callback: (($obj: VideoTransition, prop_object: GObject.Object, prop: GObject.ParamSpec) => void)): number
     connect_after(sigName: "child-property-added", callback: (($obj: VideoTransition, prop_object: GObject.Object, prop: GObject.ParamSpec) => void)): number
     emit(sigName: "child-property-added", prop_object: GObject.Object, prop: GObject.ParamSpec): void
@@ -12339,11 +12339,11 @@ export class VideoTransition {
     connect(sigName: "deep-notify", callback: (($obj: VideoTransition, prop_object: GObject.Object, prop: GObject.ParamSpec) => void)): number
     connect_after(sigName: "deep-notify", callback: (($obj: VideoTransition, prop_object: GObject.Object, prop: GObject.ParamSpec) => void)): number
     emit(sigName: "deep-notify", prop_object: GObject.Object, prop: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: VideoTransition, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: VideoTransition, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    /* Signals of GES.MetaContainer */
+    /* Signals of GES-1.0.GES.MetaContainer */
     connect(sigName: "notify-meta", callback: (($obj: VideoTransition, key: string, value?: any | null) => void)): number
     connect_after(sigName: "notify-meta", callback: (($obj: VideoTransition, key: string, value?: any | null) => void)): number
     emit(sigName: "notify-meta", key: string, value?: any | null): void
@@ -12396,13 +12396,13 @@ export interface VideoUriSource_ConstructProps extends VideoSource_ConstructProp
     uri?: string
 }
 export class VideoUriSource {
-    /* Properties of GES.TrackElement */
+    /* Properties of GES-1.0.GES.TrackElement */
     active: boolean
     auto_clamp_control_sources: boolean
     has_internal_source: boolean
     readonly track: Track
     track_type: TrackType
-    /* Properties of GES.TimelineElement */
+    /* Properties of GES-1.0.GES.TimelineElement */
     duration: number
     in_point: number
     max_duration: number
@@ -12412,16 +12412,16 @@ export class VideoUriSource {
     serialize: boolean
     start: number
     timeline: Timeline
-    /* Fields of GES.TimelineElement */
+    /* Fields of GES-1.0.GES.TimelineElement */
     parent_instance: GObject.InitiallyUnowned
     asset: Asset
     inpoint: Gst.ClockTime
     maxduration: Gst.ClockTime
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GES.VideoSource */
+    /* Methods of GES-1.0.GES.VideoSource */
     get_natural_size(): [ /* returnType */ boolean, /* width */ number, /* height */ number ]
-    /* Methods of GES.TrackElement */
+    /* Methods of GES-1.0.GES.TrackElement */
     add_children_props(element: Gst.Element, wanted_categories?: string[] | null, blacklist?: string[] | null, whitelist?: string[] | null): void
     clamp_control_source(property_name: string): void
     edit(layers: Layer[] | null, mode: EditMode, edge: Edge, position: number): boolean
@@ -12443,7 +12443,7 @@ export class VideoUriSource {
     set_control_source(source: Gst.ControlSource, property_name: string, binding_type: string): boolean
     set_has_internal_source(has_internal_source: boolean): boolean
     set_track_type(type: TrackType): void
-    /* Methods of GES.TimelineElement */
+    /* Methods of GES-1.0.GES.TimelineElement */
     add_child_property(pspec: GObject.ParamSpec, child: GObject.Object): boolean
     copy(deep: boolean): TimelineElement
     edit(layers: Layer[] | null, new_layer_priority: number, mode: EditMode, edge: Edge, position: number): boolean
@@ -12481,7 +12481,7 @@ export class VideoUriSource {
     set_start(start: Gst.ClockTime): boolean
     set_timeline(timeline: Timeline): boolean
     trim(start: Gst.ClockTime): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -12503,11 +12503,11 @@ export class VideoUriSource {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of GES.Extractable */
+    /* Methods of GES-1.0.GES.Extractable */
     get_asset(): Asset | null
     get_id(): string
     set_asset(asset: Asset): boolean
-    /* Methods of GES.MetaContainer */
+    /* Methods of GES-1.0.GES.MetaContainer */
     add_metas_from_string(str: string): boolean
     check_meta_registered(meta_item: string): [ /* returnType */ boolean, /* flags */ MetaFlag | null, /* type */ GObject.Type | null ]
     foreach(func: MetaForeachFunc): void
@@ -12548,13 +12548,13 @@ export class VideoUriSource {
     set_string(meta_item: string, value: string): boolean
     set_uint(meta_item: string, value: number): boolean
     set_uint64(meta_item: string, value: number): boolean
-    /* Virtual methods of GES.Source */
+    /* Virtual methods of GES-1.0.GES.Source */
     vfunc_select_pad(pad: Gst.Pad): boolean
-    /* Virtual methods of GES.TrackElement */
+    /* Virtual methods of GES-1.0.GES.TrackElement */
     vfunc_active_changed(active: boolean): void
     vfunc_changed(): void
     vfunc_lookup_child(prop_name: string): [ /* returnType */ boolean, /* element */ Gst.Element | null, /* pspec */ GObject.ParamSpec | null ]
-    /* Virtual methods of GES.TimelineElement */
+    /* Virtual methods of GES-1.0.GES.TimelineElement */
     vfunc_deep_copy(copy: TimelineElement): void
     vfunc_get_layer_priority(): number
     vfunc_get_natural_framerate(): [ /* returnType */ boolean, /* framerate_n */ number, /* framerate_d */ number ]
@@ -12576,7 +12576,7 @@ export class VideoUriSource {
     vfunc_get_id(): string
     vfunc_set_asset(asset: Asset): void
     vfunc_set_asset_full(asset: Asset): boolean
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -12584,14 +12584,14 @@ export class VideoUriSource {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GES.TrackElement */
+    /* Signals of GES-1.0.GES.TrackElement */
     connect(sigName: "control-binding-added", callback: (($obj: VideoUriSource, control_binding: Gst.ControlBinding) => void)): number
     connect_after(sigName: "control-binding-added", callback: (($obj: VideoUriSource, control_binding: Gst.ControlBinding) => void)): number
     emit(sigName: "control-binding-added", control_binding: Gst.ControlBinding): void
     connect(sigName: "control-binding-removed", callback: (($obj: VideoUriSource, control_binding: Gst.ControlBinding) => void)): number
     connect_after(sigName: "control-binding-removed", callback: (($obj: VideoUriSource, control_binding: Gst.ControlBinding) => void)): number
     emit(sigName: "control-binding-removed", control_binding: Gst.ControlBinding): void
-    /* Signals of GES.TimelineElement */
+    /* Signals of GES-1.0.GES.TimelineElement */
     connect(sigName: "child-property-added", callback: (($obj: VideoUriSource, prop_object: GObject.Object, prop: GObject.ParamSpec) => void)): number
     connect_after(sigName: "child-property-added", callback: (($obj: VideoUriSource, prop_object: GObject.Object, prop: GObject.ParamSpec) => void)): number
     emit(sigName: "child-property-added", prop_object: GObject.Object, prop: GObject.ParamSpec): void
@@ -12601,11 +12601,11 @@ export class VideoUriSource {
     connect(sigName: "deep-notify", callback: (($obj: VideoUriSource, prop_object: GObject.Object, prop: GObject.ParamSpec) => void)): number
     connect_after(sigName: "deep-notify", callback: (($obj: VideoUriSource, prop_object: GObject.Object, prop: GObject.ParamSpec) => void)): number
     emit(sigName: "deep-notify", prop_object: GObject.Object, prop: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: VideoUriSource, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: VideoUriSource, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    /* Signals of GES.MetaContainer */
+    /* Signals of GES-1.0.GES.MetaContainer */
     connect(sigName: "notify-meta", callback: (($obj: VideoUriSource, key: string, value?: any | null) => void)): number
     connect_after(sigName: "notify-meta", callback: (($obj: VideoUriSource, key: string, value?: any | null) => void)): number
     emit(sigName: "notify-meta", key: string, value?: any | null): void
@@ -12649,16 +12649,16 @@ export class VideoUriSource {
 export interface XmlFormatter_ConstructProps extends BaseXmlFormatter_ConstructProps {
 }
 export class XmlFormatter {
-    /* Fields of GES.XmlFormatter */
+    /* Fields of GES-1.0.GES.XmlFormatter */
     parent: BaseXmlFormatter
     priv: XmlFormatterPrivate
     _ges_reserved: object[]
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GES.Formatter */
+    /* Methods of GES-1.0.GES.Formatter */
     load_from_uri(timeline: Timeline, uri: string): boolean
     save_to_uri(timeline: Timeline, uri: string, overwrite: boolean): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -12680,18 +12680,18 @@ export class XmlFormatter {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of GES.Extractable */
+    /* Methods of GES-1.0.GES.Extractable */
     get_asset(): Asset | null
     get_id(): string
     set_asset(asset: Asset): boolean
-    /* Virtual methods of GES.Formatter */
+    /* Virtual methods of GES-1.0.GES.Formatter */
     vfunc_can_load_uri(uri: string): boolean
     vfunc_load_from_uri(timeline: Timeline, uri: string): boolean
     vfunc_save_to_uri(timeline: Timeline, uri: string, overwrite: boolean): boolean
     vfunc_get_id(): string
     vfunc_set_asset(asset: Asset): void
     vfunc_set_asset_full(asset: Asset): boolean
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -12699,7 +12699,7 @@ export class XmlFormatter {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: XmlFormatter, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: XmlFormatter, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -12713,7 +12713,7 @@ export class XmlFormatter {
     static $gtype: GObject.Type
 }
 export abstract class AssetClass {
-    /* Fields of GES.AssetClass */
+    /* Fields of GES-1.0.GES.AssetClass */
     parent: GObject.ObjectClass
     start_loading: (self: Asset) => AssetLoadingReturn
     extract: (self: Asset) => Extractable
@@ -12739,7 +12739,7 @@ export class AudioTestSourcePrivate {
     static name: string
 }
 export abstract class AudioTrackClass {
-    /* Fields of GES.AudioTrackClass */
+    /* Fields of GES-1.0.GES.AudioTrackClass */
     parent_class: TrackClass
     _ges_reserved: object[]
     static name: string
@@ -12748,7 +12748,7 @@ export class AudioTrackPrivate {
     static name: string
 }
 export abstract class AudioTransitionClass {
-    /* Fields of GES.AudioTransitionClass */
+    /* Fields of GES-1.0.GES.AudioTransitionClass */
     parent_class: TransitionClass
     _ges_reserved: object[]
     static name: string
@@ -12781,7 +12781,7 @@ export class BaseTransitionClipPrivate {
     static name: string
 }
 export abstract class BaseXmlFormatterClass {
-    /* Fields of GES.BaseXmlFormatterClass */
+    /* Fields of GES-1.0.GES.BaseXmlFormatterClass */
     parent: FormatterClass
     content_parser: GLib.MarkupParser
     save: (formatter: Formatter, timeline: Timeline) => GLib.String
@@ -12792,7 +12792,7 @@ export class BaseXmlFormatterPrivate {
     static name: string
 }
 export abstract class ClipAssetClass {
-    /* Fields of GES.ClipAssetClass */
+    /* Fields of GES-1.0.GES.ClipAssetClass */
     parent: AssetClass
     get_natural_framerate: (self: ClipAsset, framerate_n: number, framerate_d: number) => boolean
     _ges_reserved: object[]
@@ -12802,7 +12802,7 @@ export class ClipAssetPrivate {
     static name: string
 }
 export abstract class ClipClass {
-    /* Fields of GES.ClipClass */
+    /* Fields of GES-1.0.GES.ClipClass */
     create_track_element: CreateTrackElementFunc
     create_track_elements: CreateTrackElementsFunc
     static name: string
@@ -12811,7 +12811,7 @@ export class ClipPrivate {
     static name: string
 }
 export abstract class CommandLineFormatterClass {
-    /* Fields of GES.CommandLineFormatterClass */
+    /* Fields of GES-1.0.GES.CommandLineFormatterClass */
     parent_class: FormatterClass
     static name: string
 }
@@ -12819,7 +12819,7 @@ export class CommandLineFormatterPrivate {
     static name: string
 }
 export abstract class ContainerClass {
-    /* Fields of GES.ContainerClass */
+    /* Fields of GES-1.0.GES.ContainerClass */
     child_added: (container: Container, element: TimelineElement) => void
     child_removed: (container: Container, element: TimelineElement) => void
     add_child: (container: Container, element: TimelineElement) => boolean
@@ -12832,7 +12832,7 @@ export class ContainerPrivate {
     static name: string
 }
 export abstract class EffectAssetClass {
-    /* Fields of GES.EffectAssetClass */
+    /* Fields of GES-1.0.GES.EffectAssetClass */
     parent_class: TrackElementAssetClass
     _ges_reserved: object[]
     static name: string
@@ -12841,7 +12841,7 @@ export class EffectAssetPrivate {
     static name: string
 }
 export abstract class EffectClass {
-    /* Methods of GES.EffectClass */
+    /* Methods of GES-1.0.GES.EffectClass */
     register_rate_property(klass: Effect | Function | GObject.Type, element_name: string, property_name: string): boolean
     static name: string
 }
@@ -12855,7 +12855,7 @@ export class EffectPrivate {
     static name: string
 }
 export abstract class ExtractableInterface {
-    /* Fields of GES.ExtractableInterface */
+    /* Fields of GES-1.0.GES.ExtractableInterface */
     parent: GObject.TypeInterface
     asset_type: GObject.Type
     check_id: ExtractableCheckId
@@ -12869,12 +12869,12 @@ export abstract class ExtractableInterface {
     static name: string
 }
 export abstract class FormatterClass {
-    /* Fields of GES.FormatterClass */
+    /* Fields of GES-1.0.GES.FormatterClass */
     parent_class: GObject.InitiallyUnownedClass
     can_load_uri: FormatterCanLoadURIMethod
     load_from_uri: FormatterLoadFromURIMethod
     save_to_uri: FormatterSaveToURIMethod
-    /* Methods of GES.FormatterClass */
+    /* Methods of GES-1.0.GES.FormatterClass */
     register_metas(klass: Formatter | Function | GObject.Type, name: string, description: string, extensions: string, caps: string, version: number, rank: Gst.Rank): void
     static name: string
 }
@@ -12882,7 +12882,7 @@ export class FormatterPrivate {
     static name: string
 }
 export abstract class GroupClass {
-    /* Fields of GES.GroupClass */
+    /* Fields of GES-1.0.GES.GroupClass */
     parent_class: ContainerClass
     _ges_reserved: object[]
     static name: string
@@ -12891,7 +12891,7 @@ export class GroupPrivate {
     static name: string
 }
 export abstract class ImageSourceClass {
-    /* Fields of GES.ImageSourceClass */
+    /* Fields of GES-1.0.GES.ImageSourceClass */
     parent_class: VideoSourceClass
     _ges_reserved: object[]
     static name: string
@@ -12900,7 +12900,7 @@ export class ImageSourcePrivate {
     static name: string
 }
 export abstract class LayerClass {
-    /* Fields of GES.LayerClass */
+    /* Fields of GES-1.0.GES.LayerClass */
     object_added: (layer: Layer, object: Clip) => void
     object_removed: (layer: Layer, object: Clip) => void
     static name: string
@@ -12909,23 +12909,23 @@ export class LayerPrivate {
     static name: string
 }
 export abstract class MarkerClass {
-    /* Fields of GES.MarkerClass */
+    /* Fields of GES-1.0.GES.MarkerClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
 export abstract class MarkerListClass {
-    /* Fields of GES.MarkerListClass */
+    /* Fields of GES-1.0.GES.MarkerListClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
 export abstract class MetaContainerInterface {
-    /* Fields of GES.MetaContainerInterface */
+    /* Fields of GES-1.0.GES.MetaContainerInterface */
     parent_iface: GObject.TypeInterface
     _ges_reserved: object[]
     static name: string
 }
 export abstract class MultiFileSourceClass {
-    /* Fields of GES.MultiFileSourceClass */
+    /* Fields of GES-1.0.GES.MultiFileSourceClass */
     parent_class: VideoSourceClass
     _ges_reserved: object[]
     static name: string
@@ -12946,7 +12946,7 @@ export class OperationPrivate {
     static name: string
 }
 export abstract class OverlayClipClass {
-    /* Fields of GES.OverlayClipClass */
+    /* Fields of GES-1.0.GES.OverlayClipClass */
     parent_class: OperationClipClass
     static name: string
 }
@@ -12966,7 +12966,7 @@ export class PitiviFormatterPrivate {
     static name: string
 }
 export abstract class ProjectClass {
-    /* Fields of GES.ProjectClass */
+    /* Fields of GES-1.0.GES.ProjectClass */
     parent_class: AssetClass
     asset_added: (self: Project, asset: Asset) => void
     asset_loading: (self: Project, asset: Asset) => void
@@ -12982,12 +12982,12 @@ export class ProjectPrivate {
     static name: string
 }
 export abstract class SourceClass {
-    /* Fields of GES.SourceClass */
+    /* Fields of GES-1.0.GES.SourceClass */
     select_pad: (source: Source, pad: Gst.Pad) => boolean
     static name: string
 }
 export abstract class SourceClipAssetClass {
-    /* Fields of GES.SourceClipAssetClass */
+    /* Fields of GES-1.0.GES.SourceClipAssetClass */
     parent_class: ClipAssetClass
     static name: string
 }
@@ -13007,7 +13007,7 @@ export class TestClipPrivate {
     static name: string
 }
 export abstract class TextOverlayClass {
-    /* Fields of GES.TextOverlayClass */
+    /* Fields of GES-1.0.GES.TextOverlayClass */
     parent_class: OperationClass
     static name: string
 }
@@ -13021,7 +13021,7 @@ export class TextOverlayPrivate {
     static name: string
 }
 export abstract class TimelineClass {
-    /* Fields of GES.TimelineClass */
+    /* Fields of GES-1.0.GES.TimelineClass */
     parent_class: Gst.BinClass
     track_added: (timeline: Timeline, track: Track) => void
     track_removed: (timeline: Timeline, track: Track) => void
@@ -13031,7 +13031,7 @@ export abstract class TimelineClass {
     static name: string
 }
 export abstract class TimelineElementClass {
-    /* Fields of GES.TimelineElementClass */
+    /* Fields of GES-1.0.GES.TimelineElementClass */
     parent_class: GObject.InitiallyUnownedClass
     set_parent: (self: TimelineElement, parent: TimelineElement) => boolean
     set_start: (self: TimelineElement, start: Gst.ClockTime) => boolean
@@ -13067,7 +13067,7 @@ export class TitleClipPrivate {
     static name: string
 }
 export abstract class TitleSourceClass {
-    /* Fields of GES.TitleSourceClass */
+    /* Fields of GES-1.0.GES.TitleSourceClass */
     parent_class: VideoSourceClass
     static name: string
 }
@@ -13078,7 +13078,7 @@ export abstract class TrackClass {
     static name: string
 }
 export abstract class TrackElementAssetClass {
-    /* Fields of GES.TrackElementAssetClass */
+    /* Fields of GES-1.0.GES.TrackElementAssetClass */
     parent_class: AssetClass
     get_natural_framerate: (self: TrackElementAsset, framerate_n: number, framerate_d: number) => boolean
     _ges_reserved: object[]
@@ -13088,7 +13088,7 @@ export class TrackElementAssetPrivate {
     static name: string
 }
 export abstract class TrackElementClass {
-    /* Fields of GES.TrackElementClass */
+    /* Fields of GES-1.0.GES.TrackElementClass */
     nleobject_factorytype: string
     active_changed: (object: TrackElement, active: boolean) => void
     changed: (object: TrackElement) => void
@@ -13114,10 +13114,10 @@ export class TransitionPrivate {
     static name: string
 }
 export abstract class UriClipAssetClass {
-    /* Fields of GES.UriClipAssetClass */
+    /* Fields of GES-1.0.GES.UriClipAssetClass */
     parent_class: SourceClipAssetClass
     discovered: (discoverer: GstPbutils.Discoverer, info: GstPbutils.DiscovererInfo, err: GLib.Error) => void
-    /* Methods of GES.UriClipAssetClass */
+    /* Methods of GES-1.0.GES.UriClipAssetClass */
     set_timeout(klass: UriClipAsset | Function | GObject.Type, timeout: Gst.ClockTime): void
     static name: string
 }
@@ -13134,7 +13134,7 @@ export class UriSource {
     static name: string
 }
 export abstract class UriSourceAssetClass {
-    /* Fields of GES.UriSourceAssetClass */
+    /* Fields of GES-1.0.GES.UriSourceAssetClass */
     parent_class: TrackElementAssetClass
     _ges_reserved: object[]
     static name: string
@@ -13149,7 +13149,7 @@ export class VideoSourcePrivate {
     static name: string
 }
 export abstract class VideoTestSourceClass {
-    /* Fields of GES.VideoTestSourceClass */
+    /* Fields of GES-1.0.GES.VideoTestSourceClass */
     parent_class: VideoSourceClass
     _ges_reserved: object[]
     static name: string
@@ -13158,7 +13158,7 @@ export class VideoTestSourcePrivate {
     static name: string
 }
 export abstract class VideoTrackClass {
-    /* Fields of GES.VideoTrackClass */
+    /* Fields of GES-1.0.GES.VideoTrackClass */
     parent_class: TrackClass
     _ges_reserved: object[]
     static name: string
@@ -13167,7 +13167,7 @@ export class VideoTrackPrivate {
     static name: string
 }
 export abstract class VideoTransitionClass {
-    /* Fields of GES.VideoTransitionClass */
+    /* Fields of GES-1.0.GES.VideoTransitionClass */
     parent_class: TransitionClass
     static name: string
 }
@@ -13181,7 +13181,7 @@ export class VideoUriSourcePrivate {
     static name: string
 }
 export abstract class XmlFormatterClass {
-    /* Fields of GES.XmlFormatterClass */
+    /* Fields of GES-1.0.GES.XmlFormatterClass */
     parent: BaseXmlFormatterClass
     _ges_reserved: object[]
     static name: string

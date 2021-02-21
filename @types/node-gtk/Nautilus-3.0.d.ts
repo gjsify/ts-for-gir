@@ -31,15 +31,15 @@ export function fileInfoLookup(location: Gio.File): FileInfo
 export function fileInfoLookupForUri(uri: string): FileInfo
 export function infoProviderUpdateCompleteInvoke(updateComplete: Function, provider: InfoProvider, handle: OperationHandle, result: OperationResult): void
 export function moduleInitialize(module: GObject.TypeModule): void
-export function moduleListTypes(): /* types */ GObject.Type[]
+export function moduleListTypes(): { types: GObject.Type[] }
 export function moduleShutdown(): void
 export class ColumnProvider {
-    /* Methods of Nautilus.ColumnProvider */
+    /* Methods of Nautilus-3.0.Nautilus.ColumnProvider */
     getColumns(): Column[]
     static name: string
 }
 export class FileInfo {
-    /* Methods of Nautilus.FileInfo */
+    /* Methods of Nautilus-3.0.Nautilus.FileInfo */
     addEmblem(emblemName: string): void
     addStringAttribute(attributeName: string, value: string): void
     canWrite(): boolean
@@ -59,26 +59,6 @@ export class FileInfo {
     isDirectory(): boolean
     isGone(): boolean
     isMimeType(mimeType: string): boolean
-    /* Virtual methods of Nautilus.FileInfo */
-    vfuncAddEmblem(emblemName: string): void
-    vfuncAddStringAttribute(attributeName: string, value: string): void
-    vfuncCanWrite(): boolean
-    vfuncGetActivationUri(): string
-    vfuncGetFileType(): Gio.FileType
-    vfuncGetLocation(): Gio.File
-    vfuncGetMimeType(): string
-    vfuncGetMount(): Gio.Mount | null
-    vfuncGetName(): string
-    vfuncGetParentInfo(): FileInfo | null
-    vfuncGetParentLocation(): Gio.File | null
-    vfuncGetParentUri(): string
-    vfuncGetStringAttribute(attributeName: string): string
-    vfuncGetUri(): string
-    vfuncGetUriScheme(): string
-    vfuncInvalidateExtensionInfo(): void
-    vfuncIsDirectory(): boolean
-    vfuncIsGone(): boolean
-    vfuncIsMimeType(mimeType: string): boolean
     static name: string
     /* Static methods and pseudo-constructors */
     static create(location: Gio.File): FileInfo
@@ -89,7 +69,7 @@ export class FileInfo {
     static lookupForUri(uri: string): FileInfo
 }
 export class InfoProvider {
-    /* Methods of Nautilus.InfoProvider */
+    /* Methods of Nautilus-3.0.Nautilus.InfoProvider */
     cancelUpdate(handle: OperationHandle): void
     updateFileInfo(file: FileInfo, updateComplete: Function, handle: OperationHandle): OperationResult
     static name: string
@@ -97,26 +77,25 @@ export class InfoProvider {
     static updateCompleteInvoke(updateComplete: Function, provider: InfoProvider, handle: OperationHandle, result: OperationResult): void
 }
 export class LocationWidgetProvider {
-    /* Methods of Nautilus.LocationWidgetProvider */
+    /* Methods of Nautilus-3.0.Nautilus.LocationWidgetProvider */
     getWidget(uri: string, window: Gtk.Widget): Gtk.Widget
     static name: string
 }
 export class MenuProvider {
-    /* Methods of Nautilus.MenuProvider */
+    /* Methods of Nautilus-3.0.Nautilus.MenuProvider */
     emitItemsUpdatedSignal(): void
     getBackgroundItems(window: Gtk.Widget, currentFolder: FileInfo): MenuItem[] | null
     getFileItems(window: Gtk.Widget, files: FileInfo[]): MenuItem[] | null
-    /* Signals of Nautilus.MenuProvider */
+    /* Signals of Nautilus-3.0.Nautilus.MenuProvider */
     connect(sigName: "items-updated", callback: (($obj: MenuProvider) => void)): number
-    connect_after(sigName: "items-updated", callback: (($obj: MenuProvider) => void)): number
+    on(sigName: "items-updated", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "items-updated", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "items-updated", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "items-updated"): void
-    on(sigName: "items-updated", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "items-updated", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "items-updated", callback: (...args: any[]) => void): NodeJS.EventEmitter
     static name: string
 }
 export class PropertyPageProvider {
-    /* Methods of Nautilus.PropertyPageProvider */
+    /* Methods of Nautilus-3.0.Nautilus.PropertyPageProvider */
     getPages(files: FileInfo[]): PropertyPage[]
     static name: string
 }
@@ -129,16 +108,16 @@ export interface Column_ConstructProps extends GObject.Object_ConstructProps {
     xalign?: number
 }
 export class Column {
-    /* Properties of Nautilus.Column */
+    /* Properties of Nautilus-3.0.Nautilus.Column */
     attribute: string
     readonly attributeQ: number
     defaultSortOrder: Gtk.SortType
     description: string
     label: string
     xalign: number
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -160,21 +139,12 @@ export class Column {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Column, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Column, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::attribute", callback: (($obj: Column, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::attribute", callback: (($obj: Column, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::attribute", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -222,12 +192,12 @@ export class Column {
 export interface Menu_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class Menu {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Nautilus.Menu */
+    /* Methods of Nautilus-3.0.Nautilus.Menu */
     appendItem(item: MenuItem): void
     getItems(): MenuItem[]
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -249,21 +219,12 @@ export class Menu {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Menu, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Menu, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -288,21 +249,21 @@ export interface MenuItem_ConstructProps extends GObject.Object_ConstructProps {
     tip?: string
 }
 export class MenuItem {
-    /* Properties of Nautilus.MenuItem */
+    /* Properties of Nautilus-3.0.Nautilus.MenuItem */
     icon: string
     label: string
     menu: Menu
     priority: boolean
     sensitive: boolean
     tip: string
-    /* Fields of Nautilus.MenuItem */
+    /* Fields of Nautilus-3.0.Nautilus.MenuItem */
     parentInstance: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Nautilus.MenuItem */
+    /* Methods of Nautilus-3.0.Nautilus.MenuItem */
     activate(): void
     setSubmenu(menu: Menu): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -324,30 +285,18 @@ export class MenuItem {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of Nautilus.MenuItem */
-    vfuncActivate(): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Nautilus.MenuItem */
+    /* Signals of Nautilus-3.0.Nautilus.MenuItem */
     connect(sigName: "activate", callback: (($obj: MenuItem) => void)): number
-    connect_after(sigName: "activate", callback: (($obj: MenuItem) => void)): number
+    on(sigName: "activate", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "activate", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "activate", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "activate"): void
-    on(sigName: "activate", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "activate", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "activate", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: MenuItem, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: MenuItem, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::icon", callback: (($obj: MenuItem, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::icon", callback: (($obj: MenuItem, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::icon", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -399,12 +348,12 @@ export interface PropertyPage_ConstructProps extends GObject.Object_ConstructPro
     page?: Gtk.Widget
 }
 export class PropertyPage {
-    /* Properties of Nautilus.PropertyPage */
+    /* Properties of Nautilus-3.0.Nautilus.PropertyPage */
     label: Gtk.Widget
     page: Gtk.Widget
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -426,21 +375,12 @@ export class PropertyPage {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: PropertyPage, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: PropertyPage, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::label", callback: (($obj: PropertyPage, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::label", callback: (($obj: PropertyPage, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::label", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -466,12 +406,12 @@ export class PropertyPage {
     static $gtype: GObject.Type
 }
 export abstract class ColumnClass {
-    /* Fields of Nautilus.ColumnClass */
+    /* Fields of Nautilus-3.0.Nautilus.ColumnClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
 export class ColumnProviderInterface {
-    /* Fields of Nautilus.ColumnProviderInterface */
+    /* Fields of Nautilus-3.0.Nautilus.ColumnProviderInterface */
     gIface: GObject.TypeInterface
     static name: string
 }
@@ -479,7 +419,7 @@ export class File {
     static name: string
 }
 export abstract class FileInfoInterface {
-    /* Fields of Nautilus.FileInfoInterface */
+    /* Fields of Nautilus-3.0.Nautilus.FileInfoInterface */
     gIface: GObject.TypeInterface
     isGone: (fileInfo: FileInfo) => boolean
     getName: (fileInfo: FileInfo) => string
@@ -503,30 +443,30 @@ export abstract class FileInfoInterface {
     static name: string
 }
 export class InfoProviderInterface {
-    /* Fields of Nautilus.InfoProviderInterface */
+    /* Fields of Nautilus-3.0.Nautilus.InfoProviderInterface */
     gIface: GObject.TypeInterface
     updateFileInfo: (provider: InfoProvider, file: FileInfo, updateComplete: Function, handle: OperationHandle) => OperationResult
     cancelUpdate: (provider: InfoProvider, handle: OperationHandle) => void
     static name: string
 }
 export class LocationWidgetProviderInterface {
-    /* Fields of Nautilus.LocationWidgetProviderInterface */
+    /* Fields of Nautilus-3.0.Nautilus.LocationWidgetProviderInterface */
     gIface: GObject.TypeInterface
     static name: string
 }
 export abstract class MenuClass {
-    /* Fields of Nautilus.MenuClass */
+    /* Fields of Nautilus-3.0.Nautilus.MenuClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
 export abstract class MenuItemClass {
-    /* Fields of Nautilus.MenuItemClass */
+    /* Fields of Nautilus-3.0.Nautilus.MenuItemClass */
     parent: GObject.ObjectClass
     activate: (item: MenuItem) => void
     static name: string
 }
 export class MenuProviderInterface {
-    /* Fields of Nautilus.MenuProviderInterface */
+    /* Fields of Nautilus-3.0.Nautilus.MenuProviderInterface */
     gIface: GObject.TypeInterface
     static name: string
 }
@@ -534,12 +474,12 @@ export class OperationHandle {
     static name: string
 }
 export abstract class PropertyPageClass {
-    /* Fields of Nautilus.PropertyPageClass */
+    /* Fields of Nautilus-3.0.Nautilus.PropertyPageClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
 export class PropertyPageProviderInterface {
-    /* Fields of Nautilus.PropertyPageProviderInterface */
+    /* Fields of Nautilus-3.0.Nautilus.PropertyPageProviderInterface */
     gIface: GObject.TypeInterface
     static name: string
 }

@@ -33,7 +33,7 @@ export const PIXBUF_MAGIC_NUMBER: number
 export const PIXDATA_HEADER_LENGTH: number
 export function pixbuf_from_pixdata(pixdata: Pixdata, copy_pixels: boolean): GdkPixbuf.Pixbuf
 export class Pixdata {
-    /* Fields of GdkPixdata.Pixdata */
+    /* Fields of GdkPixdata-2.0.GdkPixdata.Pixdata */
     magic: number
     length: number
     pixdata_type: number
@@ -41,7 +41,7 @@ export class Pixdata {
     width: number
     height: number
     pixel_data: Uint8Array[]
-    /* Methods of GdkPixdata.Pixdata */
+    /* Methods of GdkPixdata-2.0.GdkPixdata.Pixdata */
     deserialize(stream: Uint8Array[]): boolean
     serialize(): Uint8Array[]
     to_csource(name: string, dump_type: PixdataDumpType): GLib.String

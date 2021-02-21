@@ -182,13 +182,13 @@ export function eventsFromVariant(vevents: GLib.Variant): Event[]
 export function eventsToVariant(events: Event[]): GLib.Variant
 export function eventsToVariantWithLimit(events: Event[], limit: number): GLib.Variant
 export function timestampFromTimeval(timeval: GLib.TimeVal): number
-export function timestampToTimeval(timestamp: number): /* result */ GLib.TimeVal
+export function timestampToTimeval(timestamp: number): { result: GLib.TimeVal }
 export function timestampFromNow(): number
 export function timestampFromIso8601(datetime: string): number
 export function timestampToIso8601(timestamp: number): string
 export function timestampFromDate(date: GLib.Date): number
 export function timestampFromDmy(day: GLib.DateDay, month: GLib.DateMonth, year: GLib.DateYear): number
-export function timestampToDate(timestamp: number): /* result */ GLib.Date
+export function timestampToDate(timestamp: number): { result: GLib.Date }
 export function timestampNextMidnight(timestamp: number): number
 export function timestampPrevMidnight(timestamp: number): number
 export function symbolGetDisplayName(symbolUri: string): string
@@ -207,9 +207,9 @@ export function utilsGetDatabaseFileRetireName(): string
 export function utilsGetLocalExtensionsPath(): string
 export function utilsUsingInMemoryDatabase(): boolean
 export function utilsBackupDatabase(): void
-export function utilsParseNegation(val: string): [ /* returnType */ boolean, /* val */ string ]
-export function utilsParseNoexpand(val: string): [ /* returnType */ boolean, /* val */ string ]
-export function utilsParseWildcard(val: string): [ /* returnType */ boolean, /* val */ string ]
+export function utilsParseNegation(val: string): { returnType: boolean, val: string }
+export function utilsParseNoexpand(val: string): { returnType: boolean, val: string }
+export function utilsParseWildcard(val: string): { returnType: boolean, val: string }
 export function utilsIsEmptyString(s?: string | null): boolean
 export function utilsLogMayReadDirectly(): boolean
 export function resultTypeIsSortOrderAsc(resultType: ResultType): boolean
@@ -221,9 +221,9 @@ export function manifestationForUri(uri: string): string | null
 export interface RemoteRegistry_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class RemoteRegistry {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Zeitgeist.RemoteRegistry */
+    /* Methods of Zeitgeist-2.0.Zeitgeist.RemoteRegistry */
     getDataSources(cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     getDataSourcesFinish(res: Gio.AsyncResult): GLib.Variant
     registerDataSource(uniqueId: string, name: string, description: string, eventTemplates: GLib.Variant, cancellable?: Gio.Cancellable | null, sender?: any | null, callback?: Gio.AsyncReadyCallback | null): void
@@ -232,7 +232,7 @@ export class RemoteRegistry {
     setDataSourceEnabledFinish(res: Gio.AsyncResult): void
     getDataSourceFromId(uniqueId: string, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     getDataSourceFromIdFinish(res: Gio.AsyncResult): GLib.Variant
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -254,49 +254,28 @@ export class RemoteRegistry {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of Zeitgeist.RemoteRegistry */
-    vfuncGetDataSources(cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    vfuncGetDataSourcesFinish(res: Gio.AsyncResult): GLib.Variant
-    vfuncRegisterDataSource(uniqueId: string, name: string, description: string, eventTemplates: GLib.Variant, cancellable?: Gio.Cancellable | null, sender?: any | null, callback?: Gio.AsyncReadyCallback | null): void
-    vfuncRegisterDataSourceFinish(res: Gio.AsyncResult): boolean
-    vfuncSetDataSourceEnabled(uniqueId: string, enabled: boolean, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    vfuncSetDataSourceEnabledFinish(res: Gio.AsyncResult): void
-    vfuncGetDataSourceFromId(uniqueId: string, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    vfuncGetDataSourceFromIdFinish(res: Gio.AsyncResult): GLib.Variant
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Zeitgeist.RemoteRegistry */
+    /* Signals of Zeitgeist-2.0.Zeitgeist.RemoteRegistry */
     connect(sigName: "data-source-disconnected", callback: (($obj: RemoteRegistry, dataSource: GLib.Variant) => void)): number
-    connect_after(sigName: "data-source-disconnected", callback: (($obj: RemoteRegistry, dataSource: GLib.Variant) => void)): number
+    on(sigName: "data-source-disconnected", callback: (dataSource: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "data-source-disconnected", callback: (dataSource: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "data-source-disconnected", callback: (dataSource: GLib.Variant) => void): NodeJS.EventEmitter
     emit(sigName: "data-source-disconnected", dataSource: GLib.Variant): void
-    on(sigName: "data-source-disconnected", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "data-source-disconnected", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "data-source-disconnected", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "data-source-enabled", callback: (($obj: RemoteRegistry, uniqueId: string, enabled: boolean) => void)): number
-    connect_after(sigName: "data-source-enabled", callback: (($obj: RemoteRegistry, uniqueId: string, enabled: boolean) => void)): number
+    on(sigName: "data-source-enabled", callback: (uniqueId: string, enabled: boolean) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "data-source-enabled", callback: (uniqueId: string, enabled: boolean) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "data-source-enabled", callback: (uniqueId: string, enabled: boolean) => void): NodeJS.EventEmitter
     emit(sigName: "data-source-enabled", uniqueId: string, enabled: boolean): void
-    on(sigName: "data-source-enabled", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "data-source-enabled", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "data-source-enabled", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "data-source-registered", callback: (($obj: RemoteRegistry, dataSource: GLib.Variant) => void)): number
-    connect_after(sigName: "data-source-registered", callback: (($obj: RemoteRegistry, dataSource: GLib.Variant) => void)): number
+    on(sigName: "data-source-registered", callback: (dataSource: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "data-source-registered", callback: (dataSource: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "data-source-registered", callback: (dataSource: GLib.Variant) => void): NodeJS.EventEmitter
     emit(sigName: "data-source-registered", dataSource: GLib.Variant): void
-    on(sigName: "data-source-registered", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "data-source-registered", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "data-source-registered", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: RemoteRegistry, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: RemoteRegistry, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -312,9 +291,9 @@ export class RemoteRegistry {
 export interface RemoteLog_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class RemoteLog {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Zeitgeist.RemoteLog */
+    /* Methods of Zeitgeist-2.0.Zeitgeist.RemoteLog */
     deleteEvents(eventIds: number[], cancellable?: Gio.Cancellable | null, sender?: any | null, callback?: Gio.AsyncReadyCallback | null): void
     deleteEventsFinish(res: Gio.AsyncResult): GLib.Variant
     findEventIds(timeRange: GLib.Variant, eventTemplates: GLib.Variant, storageState: number, numEvents: number, resultType: number, cancellable?: Gio.Cancellable | null, sender?: any | null, callback?: Gio.AsyncReadyCallback | null): void
@@ -334,9 +313,9 @@ export class RemoteLog {
     quit(cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     quitFinish(res: Gio.AsyncResult): void
     getExtensions(): string[]
-    getVersion(): /* result */ VersionStruct
+    getVersion(): { result: VersionStruct }
     getDatapath(): string
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -358,43 +337,12 @@ export class RemoteLog {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of Zeitgeist.RemoteLog */
-    vfuncDeleteEvents(eventIds: number[], cancellable?: Gio.Cancellable | null, sender?: any | null, callback?: Gio.AsyncReadyCallback | null): void
-    vfuncDeleteEventsFinish(res: Gio.AsyncResult): GLib.Variant
-    vfuncFindEventIds(timeRange: GLib.Variant, eventTemplates: GLib.Variant, storageState: number, numEvents: number, resultType: number, cancellable?: Gio.Cancellable | null, sender?: any | null, callback?: Gio.AsyncReadyCallback | null): void
-    vfuncFindEventIdsFinish(res: Gio.AsyncResult): number[]
-    vfuncFindEvents(timeRange: GLib.Variant, eventTemplates: GLib.Variant, storageState: number, numEvents: number, resultType: number, cancellable?: Gio.Cancellable | null, sender?: any | null, callback?: Gio.AsyncReadyCallback | null): void
-    vfuncFindEventsFinish(res: Gio.AsyncResult): GLib.Variant
-    vfuncFindRelatedUris(timeRange: GLib.Variant, eventTemplates: GLib.Variant, resultEventTemplates: GLib.Variant, storageState: number, numEvents: number, resultType: number, cancellable?: Gio.Cancellable | null, sender?: any | null, callback?: Gio.AsyncReadyCallback | null): void
-    vfuncFindRelatedUrisFinish(res: Gio.AsyncResult): string[]
-    vfuncGetEvents(eventIds: number[], cancellable?: Gio.Cancellable | null, sender?: any | null, callback?: Gio.AsyncReadyCallback | null): void
-    vfuncGetEventsFinish(res: Gio.AsyncResult): GLib.Variant
-    vfuncInsertEvents(events: GLib.Variant, cancellable?: Gio.Cancellable | null, sender?: any | null, callback?: Gio.AsyncReadyCallback | null): void
-    vfuncInsertEventsFinish(res: Gio.AsyncResult): number[]
-    vfuncInstallMonitor(monitorPath: any, timeRange: GLib.Variant, eventTemplates: GLib.Variant, owner?: any | null, callback?: Gio.AsyncReadyCallback | null): void
-    vfuncInstallMonitorFinish(res: Gio.AsyncResult): void
-    vfuncRemoveMonitor(monitorPath: any, owner?: any | null, callback?: Gio.AsyncReadyCallback | null): void
-    vfuncRemoveMonitorFinish(res: Gio.AsyncResult): void
-    vfuncQuit(cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    vfuncQuitFinish(res: Gio.AsyncResult): void
-    vfuncGetExtensions(): string[]
-    vfuncGetVersion(): /* result */ VersionStruct
-    vfuncGetDatapath(): string
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: RemoteLog, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: RemoteLog, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -410,14 +358,14 @@ export class RemoteLog {
 export interface RemoteMonitor_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class RemoteMonitor {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Zeitgeist.RemoteMonitor */
+    /* Methods of Zeitgeist-2.0.Zeitgeist.RemoteMonitor */
     notifyInsert(timeRange: GLib.Variant, events: GLib.Variant, callback?: Gio.AsyncReadyCallback | null): void
     notifyInsertFinish(res: Gio.AsyncResult): void
     notifyDelete(timeRange: GLib.Variant, eventIds: number[], callback?: Gio.AsyncReadyCallback | null): void
     notifyDeleteFinish(res: Gio.AsyncResult): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -439,26 +387,12 @@ export class RemoteMonitor {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of Zeitgeist.RemoteMonitor */
-    vfuncNotifyInsert(timeRange: GLib.Variant, events: GLib.Variant, callback?: Gio.AsyncReadyCallback | null): void
-    vfuncNotifyInsertFinish(res: Gio.AsyncResult): void
-    vfuncNotifyDelete(timeRange: GLib.Variant, eventIds: number[], callback?: Gio.AsyncReadyCallback | null): void
-    vfuncNotifyDeleteFinish(res: Gio.AsyncResult): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: RemoteMonitor, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: RemoteMonitor, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -474,14 +408,14 @@ export class RemoteMonitor {
 export interface RemoteSimpleIndexer_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class RemoteSimpleIndexer {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Zeitgeist.RemoteSimpleIndexer */
+    /* Methods of Zeitgeist-2.0.Zeitgeist.RemoteSimpleIndexer */
     search(queryString: string, timeRange: GLib.Variant, filterTemplates: GLib.Variant, offset: number, count: number, resultType: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    searchFinish(res: Gio.AsyncResult): [ /* events */ GLib.Variant, /* matches */ number ]
+    searchFinish(res: Gio.AsyncResult): { events: GLib.Variant, matches: number }
     searchWithRelevancies(queryString: string, timeRange: GLib.Variant, filterTemplates: GLib.Variant, storageState: number, offset: number, count: number, resultType: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    searchWithRelevanciesFinish(res: Gio.AsyncResult): [ /* events */ GLib.Variant, /* relevancies */ number[], /* matches */ number ]
-    /* Methods of GObject.Object */
+    searchWithRelevanciesFinish(res: Gio.AsyncResult): { events: GLib.Variant, relevancies: number[], matches: number }
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -503,26 +437,12 @@ export class RemoteSimpleIndexer {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of Zeitgeist.RemoteSimpleIndexer */
-    vfuncSearch(queryString: string, timeRange: GLib.Variant, filterTemplates: GLib.Variant, offset: number, count: number, resultType: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    vfuncSearchFinish(res: Gio.AsyncResult): [ /* events */ GLib.Variant, /* matches */ number ]
-    vfuncSearchWithRelevancies(queryString: string, timeRange: GLib.Variant, filterTemplates: GLib.Variant, storageState: number, offset: number, count: number, resultType: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    vfuncSearchWithRelevanciesFinish(res: Gio.AsyncResult): [ /* events */ GLib.Variant, /* relevancies */ number[], /* matches */ number ]
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: RemoteSimpleIndexer, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: RemoteSimpleIndexer, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -538,11 +458,11 @@ export class RemoteSimpleIndexer {
 export interface NetworkManagerDBus_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class NetworkManagerDBus {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Zeitgeist.NetworkManagerDBus */
+    /* Methods of Zeitgeist-2.0.Zeitgeist.NetworkManagerDBus */
     state(): number
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -564,30 +484,18 @@ export class NetworkManagerDBus {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of Zeitgeist.NetworkManagerDBus */
-    vfuncState(): number
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Zeitgeist.NetworkManagerDBus */
+    /* Signals of Zeitgeist-2.0.Zeitgeist.NetworkManagerDBus */
     connect(sigName: "state-changed", callback: (($obj: NetworkManagerDBus, state: number) => void)): number
-    connect_after(sigName: "state-changed", callback: (($obj: NetworkManagerDBus, state: number) => void)): number
+    on(sigName: "state-changed", callback: (state: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "state-changed", callback: (state: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "state-changed", callback: (state: number) => void): NodeJS.EventEmitter
     emit(sigName: "state-changed", state: number): void
-    on(sigName: "state-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "state-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "state-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: NetworkManagerDBus, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: NetworkManagerDBus, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -603,11 +511,11 @@ export class NetworkManagerDBus {
 export interface ConnmanManagerDBus_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class ConnmanManagerDBus {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Zeitgeist.ConnmanManagerDBus */
+    /* Methods of Zeitgeist-2.0.Zeitgeist.ConnmanManagerDBus */
     getState(): string
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -629,30 +537,18 @@ export class ConnmanManagerDBus {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of Zeitgeist.ConnmanManagerDBus */
-    vfuncGetState(): string
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Zeitgeist.ConnmanManagerDBus */
+    /* Signals of Zeitgeist-2.0.Zeitgeist.ConnmanManagerDBus */
     connect(sigName: "state-changed", callback: (($obj: ConnmanManagerDBus, state: string) => void)): number
-    connect_after(sigName: "state-changed", callback: (($obj: ConnmanManagerDBus, state: string) => void)): number
+    on(sigName: "state-changed", callback: (state: string) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "state-changed", callback: (state: string) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "state-changed", callback: (state: string) => void): NodeJS.EventEmitter
     emit(sigName: "state-changed", state: string): void
-    on(sigName: "state-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "state-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "state-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: ConnmanManagerDBus, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: ConnmanManagerDBus, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -668,9 +564,9 @@ export class ConnmanManagerDBus {
 export interface ResultSet_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class ResultSet {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Zeitgeist.ResultSet */
+    /* Methods of Zeitgeist-2.0.Zeitgeist.ResultSet */
     size(): number
     estimatedMatches(): number
     nextValue(): Event | null
@@ -678,7 +574,7 @@ export class ResultSet {
     tell(): number
     reset(): void
     iterator(): ResultSet
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -700,28 +596,12 @@ export class ResultSet {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of Zeitgeist.ResultSet */
-    vfuncSize(): number
-    vfuncEstimatedMatches(): number
-    vfuncNextValue(): Event | null
-    vfuncHasNext(): boolean
-    vfuncTell(): number
-    vfuncReset(): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: ResultSet, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: ResultSet, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -737,12 +617,12 @@ export class ResultSet {
 export interface DataSourceRegistry_ConstructProps extends QueuedProxyWrapper_ConstructProps {
 }
 export class DataSourceRegistry {
-    /* Properties of Zeitgeist.QueuedProxyWrapper */
+    /* Properties of Zeitgeist-2.0.Zeitgeist.QueuedProxyWrapper */
     proxyCreated: boolean
     isConnected: boolean
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Zeitgeist.DataSourceRegistry */
+    /* Methods of Zeitgeist-2.0.Zeitgeist.DataSourceRegistry */
     getDataSources(cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     getDataSourcesFinish(res: Gio.AsyncResult): DataSource[]
     getDataSourceFromId(uniqueId: string, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
@@ -751,7 +631,7 @@ export class DataSourceRegistry {
     registerDataSourceFinish(res: Gio.AsyncResult): boolean
     setDataSourceEnabled(uniqueId: string, enabled: boolean, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     setDataSourceEnabledFinish(res: Gio.AsyncResult): void
-    /* Methods of Zeitgeist.QueuedProxyWrapper */
+    /* Methods of Zeitgeist-2.0.Zeitgeist.QueuedProxyWrapper */
     proxyAcquired(proxy: GObject.Object): void
     proxyUnavailable(err: Gio.IOErrorEnum): void
     processQueuedMethods(): void
@@ -762,7 +642,7 @@ export class DataSourceRegistry {
     waitForProxyFinish(res: Gio.AsyncResult): void
     getProxyCreated(): boolean
     getIsConnected(): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -784,43 +664,28 @@ export class DataSourceRegistry {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of Zeitgeist.QueuedProxyWrapper */
-    vfuncOnConnectionEstablished(): void
-    vfuncOnConnectionLost(): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Zeitgeist.DataSourceRegistry */
+    /* Signals of Zeitgeist-2.0.Zeitgeist.DataSourceRegistry */
     connect(sigName: "source-disconnected", callback: (($obj: DataSourceRegistry, dataSource: DataSource) => void)): number
-    connect_after(sigName: "source-disconnected", callback: (($obj: DataSourceRegistry, dataSource: DataSource) => void)): number
+    on(sigName: "source-disconnected", callback: (dataSource: DataSource) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "source-disconnected", callback: (dataSource: DataSource) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "source-disconnected", callback: (dataSource: DataSource) => void): NodeJS.EventEmitter
     emit(sigName: "source-disconnected", dataSource: DataSource): void
-    on(sigName: "source-disconnected", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "source-disconnected", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "source-disconnected", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "source-enabled", callback: (($obj: DataSourceRegistry, uniqueId: string, enabled: boolean) => void)): number
-    connect_after(sigName: "source-enabled", callback: (($obj: DataSourceRegistry, uniqueId: string, enabled: boolean) => void)): number
+    on(sigName: "source-enabled", callback: (uniqueId: string, enabled: boolean) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "source-enabled", callback: (uniqueId: string, enabled: boolean) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "source-enabled", callback: (uniqueId: string, enabled: boolean) => void): NodeJS.EventEmitter
     emit(sigName: "source-enabled", uniqueId: string, enabled: boolean): void
-    on(sigName: "source-enabled", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "source-enabled", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "source-enabled", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "source-registered", callback: (($obj: DataSourceRegistry, dataSource: DataSource) => void)): number
-    connect_after(sigName: "source-registered", callback: (($obj: DataSourceRegistry, dataSource: DataSource) => void)): number
+    on(sigName: "source-registered", callback: (dataSource: DataSource) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "source-registered", callback: (dataSource: DataSource) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "source-registered", callback: (dataSource: DataSource) => void): NodeJS.EventEmitter
     emit(sigName: "source-registered", dataSource: DataSource): void
-    on(sigName: "source-registered", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "source-registered", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "source-registered", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: DataSourceRegistry, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: DataSourceRegistry, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::proxy-created", callback: (($obj: DataSourceRegistry, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::proxy-created", callback: (($obj: DataSourceRegistry, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::proxy-created", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -848,17 +713,17 @@ export class DataSourceRegistry {
 export interface Index_ConstructProps extends QueuedProxyWrapper_ConstructProps {
 }
 export class Index {
-    /* Properties of Zeitgeist.QueuedProxyWrapper */
+    /* Properties of Zeitgeist-2.0.Zeitgeist.QueuedProxyWrapper */
     proxyCreated: boolean
     isConnected: boolean
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Zeitgeist.Index */
+    /* Methods of Zeitgeist-2.0.Zeitgeist.Index */
     search(query: string, timeRange: TimeRange, eventTemplates: Event[], offset: number, numEvents: number, resultType: ResultType, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     searchFinish(res: Gio.AsyncResult): ResultSet
     searchWithRelevancies(query: string, timeRange: TimeRange, eventTemplates: Event[], storageState: StorageState, offset: number, numEvents: number, resultType: ResultType, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    searchWithRelevanciesFinish(res: Gio.AsyncResult): [ /* returnType */ ResultSet, /* relevancies */ number[] ]
-    /* Methods of Zeitgeist.QueuedProxyWrapper */
+    searchWithRelevanciesFinish(res: Gio.AsyncResult): { returnType: ResultSet, relevancies: number[] }
+    /* Methods of Zeitgeist-2.0.Zeitgeist.QueuedProxyWrapper */
     proxyAcquired(proxy: GObject.Object): void
     proxyUnavailable(err: Gio.IOErrorEnum): void
     processQueuedMethods(): void
@@ -869,7 +734,7 @@ export class Index {
     waitForProxyFinish(res: Gio.AsyncResult): void
     getProxyCreated(): boolean
     getIsConnected(): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -891,24 +756,12 @@ export class Index {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of Zeitgeist.QueuedProxyWrapper */
-    vfuncOnConnectionEstablished(): void
-    vfuncOnConnectionLost(): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Index, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Index, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::proxy-created", callback: (($obj: Index, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::proxy-created", callback: (($obj: Index, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::proxy-created", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -936,12 +789,12 @@ export class Index {
 export interface Log_ConstructProps extends QueuedProxyWrapper_ConstructProps {
 }
 export class Log {
-    /* Properties of Zeitgeist.QueuedProxyWrapper */
+    /* Properties of Zeitgeist-2.0.Zeitgeist.QueuedProxyWrapper */
     proxyCreated: boolean
     isConnected: boolean
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Zeitgeist.Log */
+    /* Methods of Zeitgeist-2.0.Zeitgeist.Log */
     insertEvent(event: Event, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     insertEventFinish(res: Gio.AsyncResult): number[]
     insertEvents(events: Event[], cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
@@ -962,10 +815,10 @@ export class Log {
     quitFinish(res: Gio.AsyncResult): void
     installMonitor(monitor: Monitor): void
     removeMonitor(monitor: Monitor): void
-    getVersion(): [ /* major */ number, /* minor */ number, /* micro */ number ]
+    getVersion(): { major: number, minor: number, micro: number }
     getExtensions(): string[]
     datapath(): string
-    /* Methods of Zeitgeist.QueuedProxyWrapper */
+    /* Methods of Zeitgeist-2.0.Zeitgeist.QueuedProxyWrapper */
     proxyAcquired(proxy: GObject.Object): void
     proxyUnavailable(err: Gio.IOErrorEnum): void
     processQueuedMethods(): void
@@ -976,7 +829,7 @@ export class Log {
     waitForProxyFinish(res: Gio.AsyncResult): void
     getProxyCreated(): boolean
     getIsConnected(): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -998,24 +851,12 @@ export class Log {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of Zeitgeist.QueuedProxyWrapper */
-    vfuncOnConnectionEstablished(): void
-    vfuncOnConnectionLost(): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Log, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Log, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::proxy-created", callback: (($obj: Log, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::proxy-created", callback: (($obj: Log, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::proxy-created", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -1046,19 +887,19 @@ export interface Monitor_ConstructProps extends GObject.Object_ConstructProps {
     eventTemplates?: Event[]
 }
 export class Monitor {
-    /* Properties of Zeitgeist.Monitor */
+    /* Properties of Zeitgeist-2.0.Zeitgeist.Monitor */
     timeRange: TimeRange
     eventTemplates: Event[]
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Zeitgeist.Monitor */
+    /* Methods of Zeitgeist-2.0.Zeitgeist.Monitor */
     getTemplates(): Event[]
     getPath(): string
     getTimeRange(): TimeRange
     setTimeRange(value: TimeRange): void
     getEventTemplates(): Event[]
     setEventTemplates(value: Event[]): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -1080,44 +921,28 @@ export class Monitor {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of Zeitgeist.RemoteMonitor */
+    /* Methods of Zeitgeist-2.0.Zeitgeist.RemoteMonitor */
     notifyInsert(timeRange: GLib.Variant, events: GLib.Variant, callback?: Gio.AsyncReadyCallback | null): void
     notifyInsertFinish(res: Gio.AsyncResult): void
     notifyDelete(timeRange: GLib.Variant, eventIds: number[], callback?: Gio.AsyncReadyCallback | null): void
     notifyDeleteFinish(res: Gio.AsyncResult): void
-    /* Virtual methods of Zeitgeist.Monitor */
-    vfuncNotifyInsert(timeRange: GLib.Variant, events: GLib.Variant, callback?: Gio.AsyncReadyCallback | null): void
-    vfuncNotifyInsertFinish(res: Gio.AsyncResult): void
-    vfuncNotifyDelete(timeRange: GLib.Variant, eventIds: number[], callback?: Gio.AsyncReadyCallback | null): void
-    vfuncNotifyDeleteFinish(res: Gio.AsyncResult): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Zeitgeist.Monitor */
+    /* Signals of Zeitgeist-2.0.Zeitgeist.Monitor */
     connect(sigName: "events-inserted", callback: (($obj: Monitor, timeRange: TimeRange, events: ResultSet) => void)): number
-    connect_after(sigName: "events-inserted", callback: (($obj: Monitor, timeRange: TimeRange, events: ResultSet) => void)): number
+    on(sigName: "events-inserted", callback: (timeRange: TimeRange, events: ResultSet) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "events-inserted", callback: (timeRange: TimeRange, events: ResultSet) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "events-inserted", callback: (timeRange: TimeRange, events: ResultSet) => void): NodeJS.EventEmitter
     emit(sigName: "events-inserted", timeRange: TimeRange, events: ResultSet): void
-    on(sigName: "events-inserted", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "events-inserted", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "events-inserted", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "events-deleted", callback: (($obj: Monitor, timeRange: TimeRange, eventIds: number[]) => void)): number
-    connect_after(sigName: "events-deleted", callback: (($obj: Monitor, timeRange: TimeRange, eventIds: number[]) => void)): number
+    on(sigName: "events-deleted", callback: (timeRange: TimeRange, eventIds: number[]) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "events-deleted", callback: (timeRange: TimeRange, eventIds: number[]) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "events-deleted", callback: (timeRange: TimeRange, eventIds: number[]) => void): NodeJS.EventEmitter
     emit(sigName: "events-deleted", timeRange: TimeRange, eventIds: number[]): void
-    on(sigName: "events-deleted", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "events-deleted", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "events-deleted", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Monitor, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Monitor, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::time-range", callback: (($obj: Monitor, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::time-range", callback: (($obj: Monitor, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::time-range", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -1147,12 +972,12 @@ export interface QueuedProxyWrapper_ConstructProps extends GObject.Object_Constr
     isConnected?: boolean
 }
 export class QueuedProxyWrapper {
-    /* Properties of Zeitgeist.QueuedProxyWrapper */
+    /* Properties of Zeitgeist-2.0.Zeitgeist.QueuedProxyWrapper */
     proxyCreated: boolean
     isConnected: boolean
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Zeitgeist.QueuedProxyWrapper */
+    /* Methods of Zeitgeist-2.0.Zeitgeist.QueuedProxyWrapper */
     proxyAcquired(proxy: GObject.Object): void
     proxyUnavailable(err: Gio.IOErrorEnum): void
     processQueuedMethods(): void
@@ -1163,7 +988,7 @@ export class QueuedProxyWrapper {
     waitForProxyFinish(res: Gio.AsyncResult): void
     getProxyCreated(): boolean
     getIsConnected(): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -1185,24 +1010,12 @@ export class QueuedProxyWrapper {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of Zeitgeist.QueuedProxyWrapper */
-    vfuncOnConnectionEstablished(): void
-    vfuncOnConnectionLost(): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: QueuedProxyWrapper, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: QueuedProxyWrapper, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::proxy-created", callback: (($obj: QueuedProxyWrapper, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::proxy-created", callback: (($obj: QueuedProxyWrapper, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::proxy-created", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -1226,10 +1039,10 @@ export class QueuedProxyWrapper {
     static $gtype: GObject.Type
 }
 export class QueuedProxyWrapperQueuedMethod {
-    /* Fields of Zeitgeist.QueuedProxyWrapperQueuedMethod */
+    /* Fields of Zeitgeist-2.0.Zeitgeist.QueuedProxyWrapperQueuedMethod */
     refCount: number
-    /* Methods of Zeitgeist.QueuedProxyWrapperQueuedMethod */
-    getQueuedMethod(): [ /* returnType */ GLib.SourceFunc, /* resultTarget */ object | null ]
+    /* Methods of Zeitgeist-2.0.Zeitgeist.QueuedProxyWrapperQueuedMethod */
+    getQueuedMethod(): { returnType: GLib.SourceFunc, resultTarget: object | null }
     static name: string
     static new(callback: GLib.SourceFunc): QueuedProxyWrapperQueuedMethod
     constructor(callback: GLib.SourceFunc)
@@ -1246,7 +1059,7 @@ export interface DataSource_ConstructProps extends GObject.Object_ConstructProps
     timestamp?: number
 }
 export class DataSource {
-    /* Properties of Zeitgeist.DataSource */
+    /* Properties of Zeitgeist-2.0.Zeitgeist.DataSource */
     uniqueId: string
     name: string
     description: string
@@ -1254,9 +1067,9 @@ export class DataSource {
     enabled: boolean
     running: boolean
     timestamp: number
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Zeitgeist.DataSource */
+    /* Methods of Zeitgeist-2.0.Zeitgeist.DataSource */
     toVariant(): GLib.Variant
     getUniqueId(): string
     setUniqueId(value: string): void
@@ -1272,7 +1085,7 @@ export class DataSource {
     setRunning(value: boolean): void
     getTimestamp(): number
     setTimestamp(value: number): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -1294,21 +1107,12 @@ export class DataSource {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: DataSource, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: DataSource, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::unique-id", callback: (($obj: DataSource, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::unique-id", callback: (($obj: DataSource, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::unique-id", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -1371,7 +1175,7 @@ export interface Event_ConstructProps extends GObject.Object_ConstructProps {
     payload?: any
 }
 export class Event {
-    /* Properties of Zeitgeist.Event */
+    /* Properties of Zeitgeist-2.0.Zeitgeist.Event */
     id: number
     timestamp: number
     origin: string
@@ -1380,9 +1184,9 @@ export class Event {
     manifestation: string
     subjects: Subject[]
     payload: any
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Zeitgeist.Event */
+    /* Methods of Zeitgeist-2.0.Zeitgeist.Event */
     getSubject(index: number): Subject
     numSubjects(): number
     addSubject(subject: Subject): void
@@ -1407,7 +1211,7 @@ export class Event {
     setSubjects(value: Subject[]): void
     getPayload(): any | null
     setPayload(value?: any | null): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -1429,21 +1233,12 @@ export class Event {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Event, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Event, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::id", callback: (($obj: Event, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::id", callback: (($obj: Event, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::id", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -1511,7 +1306,7 @@ export interface Subject_ConstructProps extends GObject.Object_ConstructProps {
     manifestation?: string
 }
 export class Subject {
-    /* Properties of Zeitgeist.Subject */
+    /* Properties of Zeitgeist-2.0.Zeitgeist.Subject */
     uri: string
     origin: string
     text: string
@@ -1521,9 +1316,9 @@ export class Subject {
     mimetype: string
     interpretation: string
     manifestation: string
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Zeitgeist.Subject */
+    /* Methods of Zeitgeist-2.0.Zeitgeist.Subject */
     toVariant(): GLib.Variant
     matchesTemplate(templateSubject: Subject): boolean
     getUri(): string | null
@@ -1544,7 +1339,7 @@ export class Subject {
     setInterpretation(value?: string | null): void
     getManifestation(): string | null
     setManifestation(value?: string | null): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -1566,21 +1361,12 @@ export class Subject {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Subject, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Subject, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::uri", callback: (($obj: Subject, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::uri", callback: (($obj: Subject, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::uri", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -1648,17 +1434,17 @@ export interface TimeRange_ConstructProps extends GObject.Object_ConstructProps 
     end?: number
 }
 export class TimeRange {
-    /* Properties of Zeitgeist.TimeRange */
+    /* Properties of Zeitgeist-2.0.Zeitgeist.TimeRange */
     start: number
     end: number
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Zeitgeist.TimeRange */
+    /* Methods of Zeitgeist-2.0.Zeitgeist.TimeRange */
     toVariant(): GLib.Variant
     intersect(timeRange: TimeRange): TimeRange | null
     getStart(): number
     getEnd(): number
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -1680,21 +1466,12 @@ export class TimeRange {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: TimeRange, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: TimeRange, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::start", callback: (($obj: TimeRange, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::start", callback: (($obj: TimeRange, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::start", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -1726,9 +1503,9 @@ export class TimeRange {
 export interface SimpleResultSet_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class SimpleResultSet {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -1750,7 +1527,7 @@ export class SimpleResultSet {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of Zeitgeist.ResultSet */
+    /* Methods of Zeitgeist-2.0.Zeitgeist.ResultSet */
     size(): number
     estimatedMatches(): number
     nextValue(): Event | null
@@ -1758,28 +1535,12 @@ export class SimpleResultSet {
     tell(): number
     reset(): void
     iterator(): ResultSet
-    /* Virtual methods of Zeitgeist.SimpleResultSet */
-    vfuncSize(): number
-    vfuncEstimatedMatches(): number
-    vfuncNextValue(): Event | null
-    vfuncHasNext(): boolean
-    vfuncTell(): number
-    vfuncReset(): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: SimpleResultSet, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: SimpleResultSet, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -1820,7 +1581,7 @@ export class MonitorPrivate {
     static name: string
 }
 export abstract class QueuedProxyWrapperClass {
-    /* Fields of Zeitgeist.QueuedProxyWrapperClass */
+    /* Fields of Zeitgeist-2.0.Zeitgeist.QueuedProxyWrapperClass */
     onConnectionEstablished: () => void
     onConnectionLost: () => void
     static name: string
@@ -1865,7 +1626,7 @@ export class SimpleResultSetPrivate {
     static name: string
 }
 export abstract class RemoteRegistryIface {
-    /* Fields of Zeitgeist.RemoteRegistryIface */
+    /* Fields of Zeitgeist-2.0.Zeitgeist.RemoteRegistryIface */
     getDataSources: (cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null) => void
     getDataSourcesFinish: (res: Gio.AsyncResult) => GLib.Variant
     registerDataSource: (uniqueId: string, name: string, description: string, eventTemplates: GLib.Variant, cancellable?: Gio.Cancellable | null, sender?: any | null, callback?: Gio.AsyncReadyCallback | null) => void
@@ -1877,7 +1638,7 @@ export abstract class RemoteRegistryIface {
     static name: string
 }
 export abstract class RemoteLogIface {
-    /* Fields of Zeitgeist.RemoteLogIface */
+    /* Fields of Zeitgeist-2.0.Zeitgeist.RemoteLogIface */
     deleteEvents: (eventIds: number[], cancellable?: Gio.Cancellable | null, sender?: any | null, callback?: Gio.AsyncReadyCallback | null) => void
     deleteEventsFinish: (res: Gio.AsyncResult) => GLib.Variant
     findEventIds: (timeRange: GLib.Variant, eventTemplates: GLib.Variant, storageState: number, numEvents: number, resultType: number, cancellable?: Gio.Cancellable | null, sender?: any | null, callback?: Gio.AsyncReadyCallback | null) => void
@@ -1897,12 +1658,12 @@ export abstract class RemoteLogIface {
     quit: (cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null) => void
     quitFinish: (res: Gio.AsyncResult) => void
     getExtensions: () => string[]
-    getVersion: () => /* result */ VersionStruct
+    getVersion: () => { result: VersionStruct }
     getDatapath: () => string
     static name: string
 }
 export abstract class RemoteMonitorIface {
-    /* Fields of Zeitgeist.RemoteMonitorIface */
+    /* Fields of Zeitgeist-2.0.Zeitgeist.RemoteMonitorIface */
     notifyInsert: (timeRange: GLib.Variant, events: GLib.Variant, callback?: Gio.AsyncReadyCallback | null) => void
     notifyInsertFinish: (res: Gio.AsyncResult) => void
     notifyDelete: (timeRange: GLib.Variant, eventIds: number[], callback?: Gio.AsyncReadyCallback | null) => void
@@ -1910,25 +1671,25 @@ export abstract class RemoteMonitorIface {
     static name: string
 }
 export abstract class RemoteSimpleIndexerIface {
-    /* Fields of Zeitgeist.RemoteSimpleIndexerIface */
+    /* Fields of Zeitgeist-2.0.Zeitgeist.RemoteSimpleIndexerIface */
     search: (queryString: string, timeRange: GLib.Variant, filterTemplates: GLib.Variant, offset: number, count: number, resultType: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null) => void
-    searchFinish: (res: Gio.AsyncResult) => [ /* events */ GLib.Variant, /* matches */ number ]
+    searchFinish: (res: Gio.AsyncResult) => { events: GLib.Variant, matches: number }
     searchWithRelevancies: (queryString: string, timeRange: GLib.Variant, filterTemplates: GLib.Variant, storageState: number, offset: number, count: number, resultType: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null) => void
-    searchWithRelevanciesFinish: (res: Gio.AsyncResult) => [ /* events */ GLib.Variant, /* relevancies */ number[], /* matches */ number ]
+    searchWithRelevanciesFinish: (res: Gio.AsyncResult) => { events: GLib.Variant, relevancies: number[], matches: number }
     static name: string
 }
 export abstract class NetworkManagerDBusIface {
-    /* Fields of Zeitgeist.NetworkManagerDBusIface */
+    /* Fields of Zeitgeist-2.0.Zeitgeist.NetworkManagerDBusIface */
     state: () => number
     static name: string
 }
 export abstract class ConnmanManagerDBusIface {
-    /* Fields of Zeitgeist.ConnmanManagerDBusIface */
+    /* Fields of Zeitgeist-2.0.Zeitgeist.ConnmanManagerDBusIface */
     getState: () => string
     static name: string
 }
 export abstract class ResultSetIface {
-    /* Fields of Zeitgeist.ResultSetIface */
+    /* Fields of Zeitgeist-2.0.Zeitgeist.ResultSetIface */
     size: () => number
     estimatedMatches: () => number
     nextValue: () => Event | null
@@ -1938,7 +1699,7 @@ export abstract class ResultSetIface {
     static name: string
 }
 export class VersionStruct {
-    /* Fields of Zeitgeist.VersionStruct */
+    /* Fields of Zeitgeist-2.0.Zeitgeist.VersionStruct */
     major: number
     minor: number
     micro: number

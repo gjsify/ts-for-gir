@@ -37,12 +37,12 @@ export interface Cabinet_ConstructProps extends GObject.Object_ConstructProps {
     signature?: Uint8Array[]
 }
 export class Cabinet {
-    /* Properties of GCab.Cabinet */
+    /* Properties of GCab-1.0.GCab.Cabinet */
     reserved: Uint8Array[]
     signature: Uint8Array[]
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GCab.Cabinet */
+    /* Methods of GCab-1.0.GCab.Cabinet */
     add_folder(folder: Folder): boolean
     extract(path?: Gio.File | null, file_callback?: FileCallback | null, progress_callback?: Gio.FileProgressCallback | null, cancellable?: Gio.Cancellable | null): boolean
     extract_simple(path: Gio.File, file_callback?: FileCallback | null, cancellable?: Gio.Cancellable | null): boolean
@@ -52,7 +52,7 @@ export class Cabinet {
     load(stream: Gio.InputStream, cancellable?: Gio.Cancellable | null): boolean
     write(stream: Gio.OutputStream, file_callback?: FileCallback | null, progress_callback?: Gio.FileProgressCallback | null, cancellable?: Gio.Cancellable | null): boolean
     write_simple(stream: Gio.OutputStream, file_callback?: FileCallback | null, cancellable?: Gio.Cancellable | null): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -74,7 +74,7 @@ export class Cabinet {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -82,7 +82,7 @@ export class Cabinet {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Cabinet, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Cabinet, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -107,13 +107,13 @@ export interface File_ConstructProps extends GObject.Object_ConstructProps {
     name?: string
 }
 export class File {
-    /* Properties of GCab.File */
+    /* Properties of GCab-1.0.GCab.File */
     bytes: GLib.Bytes
     file: Gio.File
     name: string
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GCab.File */
+    /* Methods of GCab-1.0.GCab.File */
     get_attributes(): number
     get_bytes(): GLib.Bytes
     get_date(result: GLib.TimeVal): boolean
@@ -126,7 +126,7 @@ export class File {
     set_date(tv: GLib.TimeVal): void
     set_date_time(dt: GLib.DateTime): void
     set_extract_name(name?: string | null): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -148,7 +148,7 @@ export class File {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -156,7 +156,7 @@ export class File {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: File, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: File, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -183,18 +183,18 @@ export interface Folder_ConstructProps extends GObject.Object_ConstructProps {
     reserved?: Uint8Array[]
 }
 export class Folder {
-    /* Properties of GCab.Folder */
+    /* Properties of GCab-1.0.GCab.Folder */
     readonly compression: Compression
     reserved: Uint8Array[]
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GCab.Folder */
+    /* Methods of GCab-1.0.GCab.Folder */
     add_file(cabfile: File, recurse: boolean, cancellable?: Gio.Cancellable | null): boolean
     get_comptype(): number
     get_file_by_name(name: string): File
     get_files(): File[]
     get_nfiles(): number
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -216,7 +216,7 @@ export class Folder {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -224,7 +224,7 @@ export class Folder {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Folder, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Folder, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -244,17 +244,17 @@ export class Folder {
     static $gtype: GObject.Type
 }
 export abstract class CabinetClass {
-    /* Fields of GCab.CabinetClass */
+    /* Fields of GCab-1.0.GCab.CabinetClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
 export abstract class FileClass {
-    /* Fields of GCab.FileClass */
+    /* Fields of GCab-1.0.GCab.FileClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
 export abstract class FolderClass {
-    /* Fields of GCab.FolderClass */
+    /* Fields of GCab-1.0.GCab.FolderClass */
     parent_class: GObject.ObjectClass
     static name: string
 }

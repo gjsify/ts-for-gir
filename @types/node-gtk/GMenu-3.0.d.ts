@@ -32,15 +32,15 @@ export interface Tree_ConstructProps extends GObject.Object_ConstructProps {
     menuPath?: string
 }
 export class Tree {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GMenu.Tree */
+    /* Methods of GMenu-3.0.GMenu.Tree */
     getCanonicalMenuPath(): string
     getDirectoryFromPath(path: string): TreeDirectory
     getEntryById(id: string): TreeEntry
     getRootDirectory(): TreeDirectory
     loadSync(): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -62,28 +62,18 @@ export class Tree {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GMenu.Tree */
+    /* Signals of GMenu-3.0.GMenu.Tree */
     connect(sigName: "changed", callback: (($obj: Tree) => void)): number
-    connect_after(sigName: "changed", callback: (($obj: Tree) => void)): number
+    on(sigName: "changed", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "changed", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "changed", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "changed"): void
-    on(sigName: "changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Tree, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Tree, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -102,7 +92,7 @@ export class Tree {
     static $gtype: GObject.Type
 }
 export class TreeAlias {
-    /* Methods of GMenu.TreeAlias */
+    /* Methods of GMenu-3.0.GMenu.TreeAlias */
     getAliasedDirectory(): TreeDirectory
     getAliasedEntry(): TreeEntry
     getAliasedItemType(): TreeItemType
@@ -112,12 +102,12 @@ export class TreeAlias {
     static name: string
 }
 export abstract class TreeClass {
-    /* Fields of GMenu.TreeClass */
+    /* Fields of GMenu-3.0.GMenu.TreeClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
 export class TreeDirectory {
-    /* Methods of GMenu.TreeDirectory */
+    /* Methods of GMenu-3.0.GMenu.TreeDirectory */
     getComment(): string
     getDesktopFilePath(): string
     getGenericName(): string
@@ -132,7 +122,7 @@ export class TreeDirectory {
     static name: string
 }
 export class TreeEntry {
-    /* Methods of GMenu.TreeEntry */
+    /* Methods of GMenu-3.0.GMenu.TreeEntry */
     getAppInfo(): Gio.DesktopAppInfo
     getDesktopFileId(): string
     getDesktopFilePath(): string
@@ -144,14 +134,14 @@ export class TreeEntry {
     static name: string
 }
 export class TreeHeader {
-    /* Methods of GMenu.TreeHeader */
+    /* Methods of GMenu-3.0.GMenu.TreeHeader */
     getDirectory(): TreeDirectory
     getParent(): TreeDirectory
     getTree(): Tree
     static name: string
 }
 export class TreeIter {
-    /* Methods of GMenu.TreeIter */
+    /* Methods of GMenu-3.0.GMenu.TreeIter */
     getAlias(): TreeAlias
     getDirectory(): TreeDirectory
     getEntry(): TreeEntry
@@ -161,7 +151,7 @@ export class TreeIter {
     static name: string
 }
 export class TreeSeparator {
-    /* Methods of GMenu.TreeSeparator */
+    /* Methods of GMenu-3.0.GMenu.TreeSeparator */
     getParent(): TreeDirectory
     getTree(): Tree
     static name: string

@@ -61,11 +61,11 @@ export interface LogHandler {
 export interface Metadata_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class Metadata {
-    /* Fields of GExiv2.Metadata */
+    /* Fields of GExiv2-0.10.GExiv2.Metadata */
     parentInstance: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GExiv2.Metadata */
+    /* Methods of GExiv2-0.10.GExiv2.Metadata */
     clear(): void
     clearComment(): void
     clearExif(): void
@@ -80,16 +80,16 @@ export class Metadata {
     generateXmpPacket(xmpFormatFlags: XmpFormatFlags, padding: number): string | null
     getComment(): string | null
     getExifData(byteOrder: ByteOrder): any | null
-    getExifTagRational(tag: string): [ /* returnType */ boolean, /* nom */ number, /* den */ number ]
+    getExifTagRational(tag: string): { returnType: boolean, nom: number, den: number }
     getExifTags(): string[]
-    getExifThumbnail(): [ /* returnType */ boolean, /* buffer */ any[] ]
-    getExposureTime(): [ /* returnType */ boolean, /* nom */ number, /* den */ number ]
+    getExifThumbnail(): { returnType: boolean, buffer: any[] }
+    getExposureTime(): { returnType: boolean, nom: number, den: number }
     getFnumber(): number
     getFocalLength(): number
-    getGpsAltitude(): [ /* returnType */ boolean, /* altitude */ number ]
-    getGpsInfo(): [ /* returnType */ boolean, /* longitude */ number, /* latitude */ number, /* altitude */ number ]
-    getGpsLatitude(): [ /* returnType */ boolean, /* latitude */ number ]
-    getGpsLongitude(): [ /* returnType */ boolean, /* longitude */ number ]
+    getGpsAltitude(): { returnType: boolean, altitude: number }
+    getGpsInfo(): { returnType: boolean, longitude: number, latitude: number, altitude: number }
+    getGpsLatitude(): { returnType: boolean, latitude: number }
+    getGpsLongitude(): { returnType: boolean, longitude: number }
     getIptcTags(): string[]
     getIsoSpeed(): number
     getMetadataPixelHeight(): number
@@ -135,7 +135,7 @@ export class Metadata {
     trySetTagMultiple(tag: string, values: string[]): boolean
     trySetTagString(tag: string, value: string): boolean
     updateGpsInfo(longitude: number, latitude: number, altitude: number): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -157,21 +157,12 @@ export class Metadata {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Metadata, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Metadata, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -199,11 +190,11 @@ export class Metadata {
 export interface PreviewImage_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class PreviewImage {
-    /* Fields of GExiv2.PreviewImage */
+    /* Fields of GExiv2-0.10.GExiv2.PreviewImage */
     parentInstance: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GExiv2.PreviewImage */
+    /* Methods of GExiv2-0.10.GExiv2.PreviewImage */
     free(): void
     getData(): any[]
     getExtension(): string
@@ -211,7 +202,7 @@ export class PreviewImage {
     getMimeType(): string
     getWidth(): number
     writeFile(path: string): number
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -233,21 +224,12 @@ export class PreviewImage {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: PreviewImage, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: PreviewImage, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -263,17 +245,17 @@ export class PreviewImage {
 export interface PreviewProperties_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class PreviewProperties {
-    /* Fields of GExiv2.PreviewProperties */
+    /* Fields of GExiv2-0.10.GExiv2.PreviewProperties */
     parentInstance: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GExiv2.PreviewProperties */
+    /* Methods of GExiv2-0.10.GExiv2.PreviewProperties */
     getExtension(): string
     getHeight(): number
     getMimeType(): string
     getSize(): number
     getWidth(): number
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -295,21 +277,12 @@ export class PreviewProperties {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: PreviewProperties, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: PreviewProperties, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -323,7 +296,7 @@ export class PreviewProperties {
     static $gtype: GObject.Type
 }
 export abstract class MetadataClass {
-    /* Fields of GExiv2.MetadataClass */
+    /* Fields of GExiv2-0.10.GExiv2.MetadataClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
@@ -331,7 +304,7 @@ export class MetadataPrivate {
     static name: string
 }
 export abstract class PreviewImageClass {
-    /* Fields of GExiv2.PreviewImageClass */
+    /* Fields of GExiv2-0.10.GExiv2.PreviewImageClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
@@ -339,7 +312,7 @@ export class PreviewImagePrivate {
     static name: string
 }
 export abstract class PreviewPropertiesClass {
-    /* Fields of GExiv2.PreviewPropertiesClass */
+    /* Fields of GExiv2-0.10.GExiv2.PreviewPropertiesClass */
     parentClass: GObject.ObjectClass
     static name: string
 }

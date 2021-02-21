@@ -21,7 +21,7 @@ export interface WaylandToplevelExported {
 export interface WaylandDevice_ConstructProps extends Gdk.Device_ConstructProps {
 }
 export class WaylandDevice {
-    /* Properties of Gdk.Device */
+    /* Properties of Gdk-4.0.Gdk.Device */
     readonly capsLockState: boolean
     readonly direction: Pango.Direction
     readonly hasBidiLayouts: boolean
@@ -31,11 +31,11 @@ export class WaylandDevice {
     readonly scrollLockState: boolean
     seat: Gdk.Seat
     readonly tool: Gdk.DeviceTool
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GdkWayland.WaylandDevice */
+    /* Methods of GdkWayland-4.0.GdkWayland.WaylandDevice */
     getNodePath(): string | null
-    /* Methods of Gdk.Device */
+    /* Methods of Gdk-4.0.Gdk.Device */
     getCapsLockState(): boolean
     getDeviceTool(): Gdk.DeviceTool
     getDirection(): Pango.Direction
@@ -49,9 +49,9 @@ export class WaylandDevice {
     getScrollLockState(): boolean
     getSeat(): Gdk.Seat
     getSource(): Gdk.InputSource
-    getSurfaceAtPosition(): [ /* returnType */ Gdk.Surface | null, /* winX */ number | null, /* winY */ number | null ]
+    getSurfaceAtPosition(): { returnType: Gdk.Surface | null, winX: number | null, winY: number | null }
     getVendorId(): string | null
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -73,34 +73,23 @@ export class WaylandDevice {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gdk.Device */
+    /* Signals of Gdk-4.0.Gdk.Device */
     connect(sigName: "changed", callback: (($obj: WaylandDevice) => void)): number
-    connect_after(sigName: "changed", callback: (($obj: WaylandDevice) => void)): number
+    on(sigName: "changed", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "changed", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "changed", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "changed"): void
-    on(sigName: "changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "tool-changed", callback: (($obj: WaylandDevice, tool: Gdk.DeviceTool) => void)): number
-    connect_after(sigName: "tool-changed", callback: (($obj: WaylandDevice, tool: Gdk.DeviceTool) => void)): number
+    on(sigName: "tool-changed", callback: (tool: Gdk.DeviceTool) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "tool-changed", callback: (tool: Gdk.DeviceTool) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "tool-changed", callback: (tool: Gdk.DeviceTool) => void): NodeJS.EventEmitter
     emit(sigName: "tool-changed", tool: Gdk.DeviceTool): void
-    on(sigName: "tool-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "tool-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "tool-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: WaylandDevice, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: WaylandDevice, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::caps-lock-state", callback: (($obj: WaylandDevice, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::caps-lock-state", callback: (($obj: WaylandDevice, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::caps-lock-state", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -161,18 +150,18 @@ export class WaylandDevice {
 export interface WaylandDisplay_ConstructProps extends Gdk.Display_ConstructProps {
 }
 export class WaylandDisplay {
-    /* Properties of Gdk.Display */
+    /* Properties of Gdk-4.0.Gdk.Display */
     readonly composited: boolean
     readonly inputShapes: boolean
     readonly rgba: boolean
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GdkWayland.WaylandDisplay */
+    /* Methods of GdkWayland-4.0.GdkWayland.WaylandDisplay */
     getStartupNotificationId(): string | null
     queryRegistry(global: string): boolean
     setCursorTheme(name: string, size: number): void
     setStartupNotificationId(startupId: string): void
-    /* Methods of Gdk.Display */
+    /* Methods of Gdk-4.0.Gdk.Display */
     beep(): void
     close(): void
     deviceIsGrabbed(device: Gdk.Device): boolean
@@ -189,14 +178,14 @@ export class WaylandDisplay {
     isComposited(): boolean
     isRgba(): boolean
     listSeats(): Gdk.Seat[]
-    mapKeycode(keycode: number): [ /* returnType */ boolean, /* keys */ Gdk.KeymapKey[] | null, /* keyvals */ number[] | null ]
-    mapKeyval(keyval: number): [ /* returnType */ boolean, /* keys */ Gdk.KeymapKey[] ]
+    mapKeycode(keycode: number): { returnType: boolean, keys: Gdk.KeymapKey[] | null, keyvals: number[] | null }
+    mapKeyval(keyval: number): { returnType: boolean, keys: Gdk.KeymapKey[] }
     notifyStartupComplete(startupId: string): void
     putEvent(event: Gdk.Event): void
     supportsInputShapes(): boolean
     sync(): void
-    translateKey(keycode: number, state: Gdk.ModifierType, group: number): [ /* returnType */ boolean, /* keyval */ number | null, /* effectiveGroup */ number | null, /* level */ number | null, /* consumed */ Gdk.ModifierType | null ]
-    /* Methods of GObject.Object */
+    translateKey(keycode: number, state: Gdk.ModifierType, group: number): { returnType: boolean, keyval: number | null, effectiveGroup: number | null, level: number | null, consumed: Gdk.ModifierType | null }
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -218,52 +207,38 @@ export class WaylandDisplay {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gdk.Display */
+    /* Signals of Gdk-4.0.Gdk.Display */
     connect(sigName: "closed", callback: (($obj: WaylandDisplay, isError: boolean) => void)): number
-    connect_after(sigName: "closed", callback: (($obj: WaylandDisplay, isError: boolean) => void)): number
+    on(sigName: "closed", callback: (isError: boolean) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "closed", callback: (isError: boolean) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "closed", callback: (isError: boolean) => void): NodeJS.EventEmitter
     emit(sigName: "closed", isError: boolean): void
-    on(sigName: "closed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "closed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "closed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "opened", callback: (($obj: WaylandDisplay) => void)): number
-    connect_after(sigName: "opened", callback: (($obj: WaylandDisplay) => void)): number
+    on(sigName: "opened", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "opened", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "opened", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "opened"): void
-    on(sigName: "opened", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "opened", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "opened", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "seat-added", callback: (($obj: WaylandDisplay, seat: Gdk.Seat) => void)): number
-    connect_after(sigName: "seat-added", callback: (($obj: WaylandDisplay, seat: Gdk.Seat) => void)): number
+    on(sigName: "seat-added", callback: (seat: Gdk.Seat) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "seat-added", callback: (seat: Gdk.Seat) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "seat-added", callback: (seat: Gdk.Seat) => void): NodeJS.EventEmitter
     emit(sigName: "seat-added", seat: Gdk.Seat): void
-    on(sigName: "seat-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "seat-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "seat-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "seat-removed", callback: (($obj: WaylandDisplay, seat: Gdk.Seat) => void)): number
-    connect_after(sigName: "seat-removed", callback: (($obj: WaylandDisplay, seat: Gdk.Seat) => void)): number
+    on(sigName: "seat-removed", callback: (seat: Gdk.Seat) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "seat-removed", callback: (seat: Gdk.Seat) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "seat-removed", callback: (seat: Gdk.Seat) => void): NodeJS.EventEmitter
     emit(sigName: "seat-removed", seat: Gdk.Seat): void
-    on(sigName: "seat-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "seat-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "seat-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "setting-changed", callback: (($obj: WaylandDisplay, setting: string) => void)): number
-    connect_after(sigName: "setting-changed", callback: (($obj: WaylandDisplay, setting: string) => void)): number
+    on(sigName: "setting-changed", callback: (setting: string) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "setting-changed", callback: (setting: string) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "setting-changed", callback: (setting: string) => void): NodeJS.EventEmitter
     emit(sigName: "setting-changed", setting: string): void
-    on(sigName: "setting-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "setting-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "setting-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: WaylandDisplay, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: WaylandDisplay, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::composited", callback: (($obj: WaylandDisplay, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::composited", callback: (($obj: WaylandDisplay, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::composited", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -294,19 +269,19 @@ export class WaylandDisplay {
 export interface WaylandGLContext_ConstructProps extends Gdk.GLContext_ConstructProps {
 }
 export class WaylandGLContext {
-    /* Properties of Gdk.DrawContext */
+    /* Properties of Gdk-4.0.Gdk.DrawContext */
     readonly display: Gdk.Display
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Gdk.GLContext */
+    /* Methods of Gdk-4.0.Gdk.GLContext */
     getDebugEnabled(): boolean
     getDisplay(): Gdk.Display | null
     getForwardCompatible(): boolean
-    getRequiredVersion(): [ /* major */ number | null, /* minor */ number | null ]
+    getRequiredVersion(): { major: number | null, minor: number | null }
     getSharedContext(): Gdk.GLContext | null
     getSurface(): Gdk.Surface | null
     getUseEs(): boolean
-    getVersion(): [ /* major */ number, /* minor */ number ]
+    getVersion(): { major: number, minor: number }
     isLegacy(): boolean
     makeCurrent(): void
     realize(): boolean
@@ -314,12 +289,12 @@ export class WaylandGLContext {
     setForwardCompatible(compatible: boolean): void
     setRequiredVersion(major: number, minor: number): void
     setUseEs(useEs: number): void
-    /* Methods of Gdk.DrawContext */
+    /* Methods of Gdk-4.0.Gdk.DrawContext */
     beginFrame(region: cairo.Region): void
     endFrame(): void
     getFrameRegion(): cairo.Region | null
     isInFrame(): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -341,21 +316,12 @@ export class WaylandGLContext {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: WaylandGLContext, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: WaylandGLContext, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::display", callback: (($obj: WaylandGLContext, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::display", callback: (($obj: WaylandGLContext, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::display", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -376,7 +342,7 @@ export class WaylandGLContext {
 export interface WaylandMonitor_ConstructProps extends Gdk.Monitor_ConstructProps {
 }
 export class WaylandMonitor {
-    /* Properties of Gdk.Monitor */
+    /* Properties of Gdk-4.0.Gdk.Monitor */
     readonly connector: string
     readonly geometry: Gdk.Rectangle
     readonly heightMm: number
@@ -387,12 +353,12 @@ export class WaylandMonitor {
     readonly subpixelLayout: Gdk.SubpixelLayout
     readonly valid: boolean
     readonly widthMm: number
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Gdk.Monitor */
+    /* Methods of Gdk-4.0.Gdk.Monitor */
     getConnector(): string | null
     getDisplay(): Gdk.Display
-    getGeometry(): /* geometry */ Gdk.Rectangle
+    getGeometry(): { geometry: Gdk.Rectangle }
     getHeightMm(): number
     getManufacturer(): string | null
     getModel(): string | null
@@ -401,7 +367,7 @@ export class WaylandMonitor {
     getSubpixelLayout(): Gdk.SubpixelLayout
     getWidthMm(): number
     isValid(): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -423,28 +389,18 @@ export class WaylandMonitor {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gdk.Monitor */
+    /* Signals of Gdk-4.0.Gdk.Monitor */
     connect(sigName: "invalidate", callback: (($obj: WaylandMonitor) => void)): number
-    connect_after(sigName: "invalidate", callback: (($obj: WaylandMonitor) => void)): number
+    on(sigName: "invalidate", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "invalidate", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "invalidate", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "invalidate"): void
-    on(sigName: "invalidate", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "invalidate", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "invalidate", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: WaylandMonitor, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: WaylandMonitor, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::connector", callback: (($obj: WaylandMonitor, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::connector", callback: (($obj: WaylandMonitor, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::connector", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -512,15 +468,15 @@ export interface WaylandPopup_ConstructProps extends WaylandSurface_ConstructPro
     parent?: Gdk.Surface
 }
 export class WaylandPopup {
-    /* Properties of Gdk.Surface */
+    /* Properties of Gdk-4.0.Gdk.Surface */
     cursor: Gdk.Cursor
     readonly height: number
     readonly mapped: boolean
     readonly scaleFactor: number
     readonly width: number
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Gdk.Surface */
+    /* Methods of Gdk-4.0.Gdk.Surface */
     beep(): void
     createCairoContext(): Gdk.CairoContext
     createGlContext(): Gdk.GLContext
@@ -529,7 +485,7 @@ export class WaylandPopup {
     destroy(): void
     getCursor(): Gdk.Cursor | null
     getDeviceCursor(device: Gdk.Device): Gdk.Cursor | null
-    getDevicePosition(device: Gdk.Device): [ /* returnType */ boolean, /* x */ number | null, /* y */ number | null, /* mask */ Gdk.ModifierType | null ]
+    getDevicePosition(device: Gdk.Device): { returnType: boolean, x: number | null, y: number | null, mask: Gdk.ModifierType | null }
     getDisplay(): Gdk.Display
     getFrameClock(): Gdk.FrameClock
     getHeight(): number
@@ -544,8 +500,8 @@ export class WaylandPopup {
     setDeviceCursor(device: Gdk.Device, cursor: Gdk.Cursor): void
     setInputRegion(region: cairo.Region): void
     setOpaqueRegion(region?: cairo.Region | null): void
-    translateCoordinates(to: Gdk.Surface, x: number, y: number): [ /* returnType */ boolean, /* x */ number, /* y */ number ]
-    /* Methods of GObject.Object */
+    translateCoordinates(to: Gdk.Surface, x: number, y: number): { returnType: boolean, x: number, y: number }
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -567,7 +523,7 @@ export class WaylandPopup {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of Gdk.Popup */
+    /* Methods of Gdk-4.0.Gdk.Popup */
     getAutohide(): boolean
     getParent(): Gdk.Surface
     getPositionX(): number
@@ -575,52 +531,38 @@ export class WaylandPopup {
     getRectAnchor(): Gdk.Gravity
     getSurfaceAnchor(): Gdk.Gravity
     present(width: number, height: number, layout: Gdk.PopupLayout): boolean
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gdk.Surface */
+    /* Signals of Gdk-4.0.Gdk.Surface */
     connect(sigName: "enter-monitor", callback: (($obj: WaylandPopup, monitor: Gdk.Monitor) => void)): number
-    connect_after(sigName: "enter-monitor", callback: (($obj: WaylandPopup, monitor: Gdk.Monitor) => void)): number
+    on(sigName: "enter-monitor", callback: (monitor: Gdk.Monitor) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "enter-monitor", callback: (monitor: Gdk.Monitor) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "enter-monitor", callback: (monitor: Gdk.Monitor) => void): NodeJS.EventEmitter
     emit(sigName: "enter-monitor", monitor: Gdk.Monitor): void
-    on(sigName: "enter-monitor", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "enter-monitor", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "enter-monitor", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "event", callback: (($obj: WaylandPopup, event: Gdk.Event) => boolean)): number
-    connect_after(sigName: "event", callback: (($obj: WaylandPopup, event: Gdk.Event) => boolean)): number
+    on(sigName: "event", callback: (event: Gdk.Event) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "event", callback: (event: Gdk.Event) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "event", callback: (event: Gdk.Event) => void): NodeJS.EventEmitter
     emit(sigName: "event", event: Gdk.Event): void
-    on(sigName: "event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "layout", callback: (($obj: WaylandPopup, width: number, height: number) => void)): number
-    connect_after(sigName: "layout", callback: (($obj: WaylandPopup, width: number, height: number) => void)): number
+    on(sigName: "layout", callback: (width: number, height: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "layout", callback: (width: number, height: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "layout", callback: (width: number, height: number) => void): NodeJS.EventEmitter
     emit(sigName: "layout", width: number, height: number): void
-    on(sigName: "layout", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "layout", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "layout", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "leave-monitor", callback: (($obj: WaylandPopup, monitor: Gdk.Monitor) => void)): number
-    connect_after(sigName: "leave-monitor", callback: (($obj: WaylandPopup, monitor: Gdk.Monitor) => void)): number
+    on(sigName: "leave-monitor", callback: (monitor: Gdk.Monitor) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "leave-monitor", callback: (monitor: Gdk.Monitor) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "leave-monitor", callback: (monitor: Gdk.Monitor) => void): NodeJS.EventEmitter
     emit(sigName: "leave-monitor", monitor: Gdk.Monitor): void
-    on(sigName: "leave-monitor", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "leave-monitor", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "leave-monitor", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "render", callback: (($obj: WaylandPopup, region: cairo.Region) => boolean)): number
-    connect_after(sigName: "render", callback: (($obj: WaylandPopup, region: cairo.Region) => boolean)): number
+    on(sigName: "render", callback: (region: cairo.Region) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "render", callback: (region: cairo.Region) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "render", callback: (region: cairo.Region) => void): NodeJS.EventEmitter
     emit(sigName: "render", region: cairo.Region): void
-    on(sigName: "render", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "render", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "render", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: WaylandPopup, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: WaylandPopup, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::cursor", callback: (($obj: WaylandPopup, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::cursor", callback: (($obj: WaylandPopup, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::cursor", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -661,18 +603,18 @@ export class WaylandPopup {
 export interface WaylandSeat_ConstructProps extends Gdk.Seat_ConstructProps {
 }
 export class WaylandSeat {
-    /* Fields of Gdk.Seat */
+    /* Fields of Gdk-4.0.Gdk.Seat */
     parentInstance: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Gdk.Seat */
+    /* Methods of Gdk-4.0.Gdk.Seat */
     getCapabilities(): Gdk.SeatCapabilities
     getDevices(capabilities: Gdk.SeatCapabilities): Gdk.Device[]
     getDisplay(): Gdk.Display
     getKeyboard(): Gdk.Device | null
     getPointer(): Gdk.Device | null
     getTools(): Gdk.DeviceTool[]
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -694,46 +636,33 @@ export class WaylandSeat {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gdk.Seat */
+    /* Signals of Gdk-4.0.Gdk.Seat */
     connect(sigName: "device-added", callback: (($obj: WaylandSeat, device: Gdk.Device) => void)): number
-    connect_after(sigName: "device-added", callback: (($obj: WaylandSeat, device: Gdk.Device) => void)): number
+    on(sigName: "device-added", callback: (device: Gdk.Device) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "device-added", callback: (device: Gdk.Device) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "device-added", callback: (device: Gdk.Device) => void): NodeJS.EventEmitter
     emit(sigName: "device-added", device: Gdk.Device): void
-    on(sigName: "device-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "device-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "device-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "device-removed", callback: (($obj: WaylandSeat, device: Gdk.Device) => void)): number
-    connect_after(sigName: "device-removed", callback: (($obj: WaylandSeat, device: Gdk.Device) => void)): number
+    on(sigName: "device-removed", callback: (device: Gdk.Device) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "device-removed", callback: (device: Gdk.Device) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "device-removed", callback: (device: Gdk.Device) => void): NodeJS.EventEmitter
     emit(sigName: "device-removed", device: Gdk.Device): void
-    on(sigName: "device-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "device-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "device-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "tool-added", callback: (($obj: WaylandSeat, tool: Gdk.DeviceTool) => void)): number
-    connect_after(sigName: "tool-added", callback: (($obj: WaylandSeat, tool: Gdk.DeviceTool) => void)): number
+    on(sigName: "tool-added", callback: (tool: Gdk.DeviceTool) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "tool-added", callback: (tool: Gdk.DeviceTool) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "tool-added", callback: (tool: Gdk.DeviceTool) => void): NodeJS.EventEmitter
     emit(sigName: "tool-added", tool: Gdk.DeviceTool): void
-    on(sigName: "tool-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "tool-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "tool-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "tool-removed", callback: (($obj: WaylandSeat, tool: Gdk.DeviceTool) => void)): number
-    connect_after(sigName: "tool-removed", callback: (($obj: WaylandSeat, tool: Gdk.DeviceTool) => void)): number
+    on(sigName: "tool-removed", callback: (tool: Gdk.DeviceTool) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "tool-removed", callback: (tool: Gdk.DeviceTool) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "tool-removed", callback: (tool: Gdk.DeviceTool) => void): NodeJS.EventEmitter
     emit(sigName: "tool-removed", tool: Gdk.DeviceTool): void
-    on(sigName: "tool-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "tool-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "tool-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: WaylandSeat, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: WaylandSeat, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -749,15 +678,15 @@ export class WaylandSeat {
 export interface WaylandSurface_ConstructProps extends Gdk.Surface_ConstructProps {
 }
 export class WaylandSurface {
-    /* Properties of Gdk.Surface */
+    /* Properties of Gdk-4.0.Gdk.Surface */
     cursor: Gdk.Cursor
     readonly height: number
     readonly mapped: boolean
     readonly scaleFactor: number
     readonly width: number
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Gdk.Surface */
+    /* Methods of Gdk-4.0.Gdk.Surface */
     beep(): void
     createCairoContext(): Gdk.CairoContext
     createGlContext(): Gdk.GLContext
@@ -766,7 +695,7 @@ export class WaylandSurface {
     destroy(): void
     getCursor(): Gdk.Cursor | null
     getDeviceCursor(device: Gdk.Device): Gdk.Cursor | null
-    getDevicePosition(device: Gdk.Device): [ /* returnType */ boolean, /* x */ number | null, /* y */ number | null, /* mask */ Gdk.ModifierType | null ]
+    getDevicePosition(device: Gdk.Device): { returnType: boolean, x: number | null, y: number | null, mask: Gdk.ModifierType | null }
     getDisplay(): Gdk.Display
     getFrameClock(): Gdk.FrameClock
     getHeight(): number
@@ -781,8 +710,8 @@ export class WaylandSurface {
     setDeviceCursor(device: Gdk.Device, cursor: Gdk.Cursor): void
     setInputRegion(region: cairo.Region): void
     setOpaqueRegion(region?: cairo.Region | null): void
-    translateCoordinates(to: Gdk.Surface, x: number, y: number): [ /* returnType */ boolean, /* x */ number, /* y */ number ]
-    /* Methods of GObject.Object */
+    translateCoordinates(to: Gdk.Surface, x: number, y: number): { returnType: boolean, x: number, y: number }
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -804,52 +733,38 @@ export class WaylandSurface {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gdk.Surface */
+    /* Signals of Gdk-4.0.Gdk.Surface */
     connect(sigName: "enter-monitor", callback: (($obj: WaylandSurface, monitor: Gdk.Monitor) => void)): number
-    connect_after(sigName: "enter-monitor", callback: (($obj: WaylandSurface, monitor: Gdk.Monitor) => void)): number
+    on(sigName: "enter-monitor", callback: (monitor: Gdk.Monitor) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "enter-monitor", callback: (monitor: Gdk.Monitor) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "enter-monitor", callback: (monitor: Gdk.Monitor) => void): NodeJS.EventEmitter
     emit(sigName: "enter-monitor", monitor: Gdk.Monitor): void
-    on(sigName: "enter-monitor", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "enter-monitor", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "enter-monitor", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "event", callback: (($obj: WaylandSurface, event: Gdk.Event) => boolean)): number
-    connect_after(sigName: "event", callback: (($obj: WaylandSurface, event: Gdk.Event) => boolean)): number
+    on(sigName: "event", callback: (event: Gdk.Event) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "event", callback: (event: Gdk.Event) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "event", callback: (event: Gdk.Event) => void): NodeJS.EventEmitter
     emit(sigName: "event", event: Gdk.Event): void
-    on(sigName: "event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "layout", callback: (($obj: WaylandSurface, width: number, height: number) => void)): number
-    connect_after(sigName: "layout", callback: (($obj: WaylandSurface, width: number, height: number) => void)): number
+    on(sigName: "layout", callback: (width: number, height: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "layout", callback: (width: number, height: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "layout", callback: (width: number, height: number) => void): NodeJS.EventEmitter
     emit(sigName: "layout", width: number, height: number): void
-    on(sigName: "layout", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "layout", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "layout", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "leave-monitor", callback: (($obj: WaylandSurface, monitor: Gdk.Monitor) => void)): number
-    connect_after(sigName: "leave-monitor", callback: (($obj: WaylandSurface, monitor: Gdk.Monitor) => void)): number
+    on(sigName: "leave-monitor", callback: (monitor: Gdk.Monitor) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "leave-monitor", callback: (monitor: Gdk.Monitor) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "leave-monitor", callback: (monitor: Gdk.Monitor) => void): NodeJS.EventEmitter
     emit(sigName: "leave-monitor", monitor: Gdk.Monitor): void
-    on(sigName: "leave-monitor", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "leave-monitor", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "leave-monitor", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "render", callback: (($obj: WaylandSurface, region: cairo.Region) => boolean)): number
-    connect_after(sigName: "render", callback: (($obj: WaylandSurface, region: cairo.Region) => boolean)): number
+    on(sigName: "render", callback: (region: cairo.Region) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "render", callback: (region: cairo.Region) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "render", callback: (region: cairo.Region) => void): NodeJS.EventEmitter
     emit(sigName: "render", region: cairo.Region): void
-    on(sigName: "render", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "render", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "render", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: WaylandSurface, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: WaylandSurface, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::cursor", callback: (($obj: WaylandSurface, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::cursor", callback: (($obj: WaylandSurface, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::cursor", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -898,13 +813,13 @@ export interface WaylandToplevel_ConstructProps extends WaylandSurface_Construct
     transientFor?: Gdk.Surface
 }
 export class WaylandToplevel {
-    /* Properties of Gdk.Surface */
+    /* Properties of Gdk-4.0.Gdk.Surface */
     cursor: Gdk.Cursor
     readonly height: number
     readonly mapped: boolean
     readonly scaleFactor: number
     readonly width: number
-    /* Properties of Gdk.Toplevel */
+    /* Properties of Gdk-4.0.Gdk.Toplevel */
     decorated: boolean
     deletable: boolean
     fullscreenMode: Gdk.FullscreenMode
@@ -915,14 +830,14 @@ export class WaylandToplevel {
     readonly state: Gdk.ToplevelState
     title: string
     transientFor: Gdk.Surface
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GdkWayland.WaylandToplevel */
+    /* Methods of GdkWayland-4.0.GdkWayland.WaylandToplevel */
     exportHandle(callback: WaylandToplevelExported): boolean
     setApplicationId(applicationId: string): void
     setTransientForExported(parentHandleStr: string): boolean
     unexportHandle(): void
-    /* Methods of Gdk.Surface */
+    /* Methods of Gdk-4.0.Gdk.Surface */
     beep(): void
     createCairoContext(): Gdk.CairoContext
     createGlContext(): Gdk.GLContext
@@ -931,7 +846,7 @@ export class WaylandToplevel {
     destroy(): void
     getCursor(): Gdk.Cursor | null
     getDeviceCursor(device: Gdk.Device): Gdk.Cursor | null
-    getDevicePosition(device: Gdk.Device): [ /* returnType */ boolean, /* x */ number | null, /* y */ number | null, /* mask */ Gdk.ModifierType | null ]
+    getDevicePosition(device: Gdk.Device): { returnType: boolean, x: number | null, y: number | null, mask: Gdk.ModifierType | null }
     getDisplay(): Gdk.Display
     getFrameClock(): Gdk.FrameClock
     getHeight(): number
@@ -946,8 +861,8 @@ export class WaylandToplevel {
     setDeviceCursor(device: Gdk.Device, cursor: Gdk.Cursor): void
     setInputRegion(region: cairo.Region): void
     setOpaqueRegion(region?: cairo.Region | null): void
-    translateCoordinates(to: Gdk.Surface, x: number, y: number): [ /* returnType */ boolean, /* x */ number, /* y */ number ]
-    /* Methods of GObject.Object */
+    translateCoordinates(to: Gdk.Surface, x: number, y: number): { returnType: boolean, x: number, y: number }
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -969,7 +884,7 @@ export class WaylandToplevel {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of Gdk.Toplevel */
+    /* Methods of Gdk-4.0.Gdk.Toplevel */
     beginMove(device: Gdk.Device, button: number, x: number, y: number, timestamp: number): void
     beginResize(edge: Gdk.SurfaceEdge, device: Gdk.Device | null, button: number, x: number, y: number, timestamp: number): void
     focus(timestamp: number): void
@@ -988,59 +903,44 @@ export class WaylandToplevel {
     setTransientFor(parent: Gdk.Surface): void
     showWindowMenu(event: Gdk.Event): boolean
     supportsEdgeConstraints(): boolean
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gdk.Surface */
+    /* Signals of Gdk-4.0.Gdk.Surface */
     connect(sigName: "enter-monitor", callback: (($obj: WaylandToplevel, monitor: Gdk.Monitor) => void)): number
-    connect_after(sigName: "enter-monitor", callback: (($obj: WaylandToplevel, monitor: Gdk.Monitor) => void)): number
+    on(sigName: "enter-monitor", callback: (monitor: Gdk.Monitor) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "enter-monitor", callback: (monitor: Gdk.Monitor) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "enter-monitor", callback: (monitor: Gdk.Monitor) => void): NodeJS.EventEmitter
     emit(sigName: "enter-monitor", monitor: Gdk.Monitor): void
-    on(sigName: "enter-monitor", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "enter-monitor", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "enter-monitor", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "event", callback: (($obj: WaylandToplevel, event: Gdk.Event) => boolean)): number
-    connect_after(sigName: "event", callback: (($obj: WaylandToplevel, event: Gdk.Event) => boolean)): number
+    on(sigName: "event", callback: (event: Gdk.Event) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "event", callback: (event: Gdk.Event) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "event", callback: (event: Gdk.Event) => void): NodeJS.EventEmitter
     emit(sigName: "event", event: Gdk.Event): void
-    on(sigName: "event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "layout", callback: (($obj: WaylandToplevel, width: number, height: number) => void)): number
-    connect_after(sigName: "layout", callback: (($obj: WaylandToplevel, width: number, height: number) => void)): number
+    on(sigName: "layout", callback: (width: number, height: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "layout", callback: (width: number, height: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "layout", callback: (width: number, height: number) => void): NodeJS.EventEmitter
     emit(sigName: "layout", width: number, height: number): void
-    on(sigName: "layout", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "layout", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "layout", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "leave-monitor", callback: (($obj: WaylandToplevel, monitor: Gdk.Monitor) => void)): number
-    connect_after(sigName: "leave-monitor", callback: (($obj: WaylandToplevel, monitor: Gdk.Monitor) => void)): number
+    on(sigName: "leave-monitor", callback: (monitor: Gdk.Monitor) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "leave-monitor", callback: (monitor: Gdk.Monitor) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "leave-monitor", callback: (monitor: Gdk.Monitor) => void): NodeJS.EventEmitter
     emit(sigName: "leave-monitor", monitor: Gdk.Monitor): void
-    on(sigName: "leave-monitor", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "leave-monitor", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "leave-monitor", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "render", callback: (($obj: WaylandToplevel, region: cairo.Region) => boolean)): number
-    connect_after(sigName: "render", callback: (($obj: WaylandToplevel, region: cairo.Region) => boolean)): number
+    on(sigName: "render", callback: (region: cairo.Region) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "render", callback: (region: cairo.Region) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "render", callback: (region: cairo.Region) => void): NodeJS.EventEmitter
     emit(sigName: "render", region: cairo.Region): void
-    on(sigName: "render", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "render", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "render", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: WaylandToplevel, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: WaylandToplevel, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of Gdk.Toplevel */
+    /* Signals of Gdk-4.0.Gdk.Toplevel */
     connect(sigName: "compute-size", callback: (($obj: WaylandToplevel) => void)): number
-    connect_after(sigName: "compute-size", callback: (($obj: WaylandToplevel) => void)): number
+    on(sigName: "compute-size", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "compute-size", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "compute-size", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "compute-size"): void
-    on(sigName: "compute-size", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "compute-size", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "compute-size", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::cursor", callback: (($obj: WaylandToplevel, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::cursor", callback: (($obj: WaylandToplevel, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::cursor", callback: (...args: any[]) => void): NodeJS.EventEmitter

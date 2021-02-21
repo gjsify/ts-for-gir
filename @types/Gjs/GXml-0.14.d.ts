@@ -172,16 +172,16 @@ export interface Attribute_ConstructProps extends GObject.Object_ConstructProps 
     namespace?: Namespace
 }
 export class Attribute {
-    /* Properties of GXml.Attribute */
+    /* Properties of GXml-0.14.GXml.Attribute */
     namespace: Namespace
     readonly prefix: string
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GXml.Attribute */
+    /* Methods of GXml-0.14.GXml.Attribute */
     get_namespace(): Namespace | null
     set_namespace(value?: Namespace | null): void
     get_prefix(): string | null
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -203,11 +203,11 @@ export class Attribute {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GXml.Attribute */
+    /* Virtual methods of GXml-0.14.GXml.Attribute */
     vfunc_get_namespace(): Namespace | null
     vfunc_set_namespace(value?: Namespace | null): void
     vfunc_get_prefix(): string | null
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -215,7 +215,7 @@ export class Attribute {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Attribute, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Attribute, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -236,14 +236,14 @@ export interface Comment_ConstructProps extends GObject.Object_ConstructProps {
     str?: string
 }
 export class Comment {
-    /* Properties of GXml.Comment */
+    /* Properties of GXml-0.14.GXml.Comment */
     str: string
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GXml.Comment */
+    /* Methods of GXml-0.14.GXml.Comment */
     get_str(): string
     set_str(value: string): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -265,10 +265,10 @@ export class Comment {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GXml.Comment */
+    /* Virtual methods of GXml-0.14.GXml.Comment */
     vfunc_get_str(): string
     vfunc_set_str(value: string): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -276,7 +276,7 @@ export class Comment {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Comment, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Comment, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -294,13 +294,13 @@ export class Comment {
 export interface CDATA_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class CDATA {
-    /* Properties of GXml.CDATA */
+    /* Properties of GXml-0.14.GXml.CDATA */
     readonly str: string
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GXml.CDATA */
+    /* Methods of GXml-0.14.GXml.CDATA */
     get_str(): string
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -322,9 +322,9 @@ export class CDATA {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GXml.CDATA */
+    /* Virtual methods of GXml-0.14.GXml.CDATA */
     vfunc_get_str(): string
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -332,7 +332,7 @@ export class CDATA {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: CDATA, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: CDATA, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -351,14 +351,14 @@ export interface Character_ConstructProps extends GObject.Object_ConstructProps 
     str?: string
 }
 export class Character {
-    /* Properties of GXml.Character */
+    /* Properties of GXml-0.14.GXml.Character */
     str: string
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GXml.Character */
+    /* Methods of GXml-0.14.GXml.Character */
     get_str(): string
     set_str(value: string): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -380,10 +380,10 @@ export class Character {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GXml.Character */
+    /* Virtual methods of GXml-0.14.GXml.Character */
     vfunc_get_str(): string
     vfunc_set_str(value: string): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -391,7 +391,7 @@ export class Character {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Character, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Character, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -414,16 +414,16 @@ export interface Document_ConstructProps extends GObject.Object_ConstructProps {
     file?: Gio.File
 }
 export class Document {
-    /* Properties of GXml.Document */
+    /* Properties of GXml-0.14.GXml.Document */
     indent: boolean
     ns_top: boolean
     prefix_default_ns: boolean
     backup: boolean
     readonly root: Node
     file: Gio.File
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GXml.Document */
+    /* Methods of GXml-0.14.GXml.Document */
     create_element(name: string): Node
     create_text(text: string): Node
     create_comment(text: string): Node
@@ -442,7 +442,7 @@ export class Document {
     get_root(): Node
     get_file(): Gio.File
     set_file(value: Gio.File): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -464,7 +464,7 @@ export class Document {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GXml.Document */
+    /* Virtual methods of GXml-0.14.GXml.Document */
     vfunc_create_element(name: string): Node
     vfunc_create_text(text: string): Node
     vfunc_create_comment(text: string): Node
@@ -483,7 +483,7 @@ export class Document {
     vfunc_get_root(): Node
     vfunc_get_file(): Gio.File
     vfunc_set_file(value: Gio.File): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -491,7 +491,7 @@ export class Document {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Document, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Document, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -523,9 +523,9 @@ export class Document {
 export interface DocumentType_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class DocumentType {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -547,7 +547,7 @@ export class DocumentType {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -555,7 +555,7 @@ export class DocumentType {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: DocumentType, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: DocumentType, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -572,12 +572,12 @@ export interface Element_ConstructProps extends GObject.Object_ConstructProps {
     content?: string
 }
 export class Element {
-    /* Properties of GXml.Element */
+    /* Properties of GXml-0.14.GXml.Element */
     readonly tag_name: string
     content: string
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GXml.Element */
+    /* Methods of GXml-0.14.GXml.Element */
     normalize(): void
     set_attr(name: string, value: string): void
     get_attr(name: string): Node | null
@@ -588,7 +588,7 @@ export class Element {
     get_tag_name(): string
     get_content(): string
     set_content(value: string): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -610,7 +610,7 @@ export class Element {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GXml.Element */
+    /* Virtual methods of GXml-0.14.GXml.Element */
     vfunc_normalize(): void
     vfunc_set_attr(name: string, value: string): void
     vfunc_get_attr(name: string): Node | null
@@ -621,7 +621,7 @@ export class Element {
     vfunc_get_tag_name(): string
     vfunc_get_content(): string
     vfunc_set_content(value: string): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -629,7 +629,7 @@ export class Element {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Element, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Element, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -649,15 +649,15 @@ export class Element {
 export interface Namespace_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class Namespace {
-    /* Properties of GXml.Namespace */
+    /* Properties of GXml-0.14.GXml.Namespace */
     readonly uri: string
     readonly prefix: string
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GXml.Namespace */
+    /* Methods of GXml-0.14.GXml.Namespace */
     get_uri(): string | null
     get_prefix(): string | null
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -679,10 +679,10 @@ export class Namespace {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GXml.Namespace */
+    /* Virtual methods of GXml-0.14.GXml.Namespace */
     vfunc_get_uri(): string | null
     vfunc_get_prefix(): string | null
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -690,7 +690,7 @@ export class Namespace {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Namespace, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Namespace, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -711,7 +711,7 @@ export interface Node_ConstructProps extends GObject.Object_ConstructProps {
     value?: string
 }
 export class Node {
-    /* Properties of GXml.Node */
+    /* Properties of GXml-0.14.GXml.Node */
     readonly namespaces: Gee.List
     readonly children_nodes: Gee.BidirList
     readonly attrs: Gee.Map
@@ -720,9 +720,9 @@ export class Node {
     readonly type_node: NodeType
     readonly document: Document
     readonly parent: Node
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GXml.Node */
+    /* Methods of GXml-0.14.GXml.Node */
     get(key: string): Node | null
     get_elements_by_property_value(property: string, value: string): ElementList
     get_elements_by_name(name: string): ElementList
@@ -740,7 +740,7 @@ export class Node {
     get_type_node(): NodeType
     get_document(): Document
     get_parent(): Node
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -762,7 +762,7 @@ export class Node {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GXml.Node */
+    /* Virtual methods of GXml-0.14.GXml.Node */
     vfunc_get(key: string): Node | null
     vfunc_get_elements_by_property_value(property: string, value: string): ElementList
     vfunc_get_elements_by_name(name: string): ElementList
@@ -780,7 +780,7 @@ export class Node {
     vfunc_get_type_node(): NodeType
     vfunc_get_document(): Document
     vfunc_get_parent(): Node
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -788,7 +788,7 @@ export class Node {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Node, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Node, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -822,15 +822,15 @@ export class Node {
 export interface Notation_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class Notation {
-    /* Properties of GXml.Notation */
+    /* Properties of GXml-0.14.GXml.Notation */
     readonly public_id: string
     readonly external_id: string
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GXml.Notation */
+    /* Methods of GXml-0.14.GXml.Notation */
     get_public_id(): string | null
     get_external_id(): string | null
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -852,10 +852,10 @@ export class Notation {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GXml.Notation */
+    /* Virtual methods of GXml-0.14.GXml.Notation */
     vfunc_get_public_id(): string | null
     vfunc_get_external_id(): string | null
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -863,7 +863,7 @@ export class Notation {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Notation, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Notation, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -883,9 +883,9 @@ export class Notation {
 export interface Entity_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class Entity {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -907,7 +907,7 @@ export class Entity {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -915,7 +915,7 @@ export class Entity {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Entity, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Entity, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -932,16 +932,16 @@ export interface ProcessingInstruction_ConstructProps extends GObject.Object_Con
     data?: string
 }
 export class ProcessingInstruction {
-    /* Properties of GXml.ProcessingInstruction */
+    /* Properties of GXml-0.14.GXml.ProcessingInstruction */
     readonly target: string
     data: string
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GXml.ProcessingInstruction */
+    /* Methods of GXml-0.14.GXml.ProcessingInstruction */
     get_target(): string
     get_data(): string
     set_data(value: string): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -963,11 +963,11 @@ export class ProcessingInstruction {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GXml.ProcessingInstruction */
+    /* Virtual methods of GXml-0.14.GXml.ProcessingInstruction */
     vfunc_get_target(): string
     vfunc_get_data(): string
     vfunc_set_data(value: string): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -975,7 +975,7 @@ export class ProcessingInstruction {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: ProcessingInstruction, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: ProcessingInstruction, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -996,14 +996,14 @@ export interface Text_ConstructProps extends GObject.Object_ConstructProps {
     str?: string
 }
 export class Text {
-    /* Properties of GXml.Text */
+    /* Properties of GXml-0.14.GXml.Text */
     str: string
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GXml.Text */
+    /* Methods of GXml-0.14.GXml.Text */
     get_str(): string
     set_str(value: string): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -1025,10 +1025,10 @@ export class Text {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GXml.Text */
+    /* Virtual methods of GXml-0.14.GXml.Text */
     vfunc_get_str(): string
     vfunc_set_str(value: string): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -1036,7 +1036,7 @@ export class Text {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Text, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Text, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -1055,13 +1055,13 @@ export interface Serializable_ConstructProps extends GObject.Object_ConstructPro
     serialized_xml_node_value?: string
 }
 export class Serializable {
-    /* Properties of GXml.Serializable */
+    /* Properties of GXml-0.14.GXml.Serializable */
     readonly unknown_serializable_properties: Gee.Map
     readonly unknown_serializable_nodes: Gee.Collection
     serialized_xml_node_value: string
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GXml.Serializable */
+    /* Methods of GXml-0.14.GXml.Serializable */
     get_enable_unknown_serializable_property(): boolean
     set_default_namespace(node: Node): boolean
     serialize_use_xml_node_value(): boolean
@@ -1079,7 +1079,7 @@ export class Serializable {
     get_unknown_serializable_nodes(): Gee.Collection
     get_serialized_xml_node_value(): string | null
     set_serialized_xml_node_value(value?: string | null): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -1101,7 +1101,7 @@ export class Serializable {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GXml.Serializable */
+    /* Virtual methods of GXml-0.14.GXml.Serializable */
     vfunc_get_enable_unknown_serializable_property(): boolean
     vfunc_set_default_namespace(node: Node): boolean
     vfunc_serialize_use_xml_node_value(): boolean
@@ -1119,7 +1119,7 @@ export class Serializable {
     vfunc_get_unknown_serializable_nodes(): Gee.Collection
     vfunc_get_serialized_xml_node_value(): string | null
     vfunc_set_serialized_xml_node_value(value?: string | null): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -1127,7 +1127,7 @@ export class Serializable {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GXml.Serializable */
+    /* Signals of GXml-0.14.GXml.Serializable */
     connect(sigName: "serialize-unknown-property", callback: (($obj: Serializable, element: Node, prop: GObject.ParamSpec) => void)): number
     connect_after(sigName: "serialize-unknown-property", callback: (($obj: Serializable, element: Node, prop: GObject.ParamSpec) => void)): number
     emit(sigName: "serialize-unknown-property", element: Node, prop: GObject.ParamSpec): void
@@ -1140,7 +1140,7 @@ export class Serializable {
     connect(sigName: "deserialize-unknown-property-type", callback: (($obj: Serializable, node: Node, prop: GObject.ParamSpec) => void)): number
     connect_after(sigName: "deserialize-unknown-property-type", callback: (($obj: Serializable, node: Node, prop: GObject.ParamSpec) => void)): number
     emit(sigName: "deserialize-unknown-property-type", node: Node, prop: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Serializable, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Serializable, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -1165,16 +1165,16 @@ export class Serializable {
 export interface SerializableProperty_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class SerializableProperty {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GXml.SerializableProperty */
+    /* Methods of GXml-0.14.GXml.SerializableProperty */
     get_serializable_property_value(): string
     set_serializable_property_value(val?: string | null): void
     deserialize_property(property_node: Node, prop: GObject.ParamSpec, nick: boolean): boolean
     serialize_property(property_node: Node, prop: GObject.ParamSpec, nick: boolean): Node | null
     default_serializable_property_serialize_property(element: Node, prop: GObject.ParamSpec, nick: boolean): Node | null
     default_serializable_property_deserialize_property(property_node: Node, prop: GObject.ParamSpec, nick: boolean): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -1196,12 +1196,12 @@ export class SerializableProperty {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GXml.SerializableProperty */
+    /* Virtual methods of GXml-0.14.GXml.SerializableProperty */
     vfunc_get_serializable_property_value(): string
     vfunc_set_serializable_property_value(val?: string | null): void
     vfunc_deserialize_property(property_node: Node, prop: GObject.ParamSpec, nick: boolean): boolean
     vfunc_serialize_property(property_node: Node, prop: GObject.ParamSpec, nick: boolean): Node | null
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -1209,7 +1209,7 @@ export class SerializableProperty {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: SerializableProperty, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: SerializableProperty, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -1225,11 +1225,11 @@ export class SerializableProperty {
 export interface SerializableMapKey_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class SerializableMapKey {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GXml.SerializableMapKey */
+    /* Methods of GXml-0.14.GXml.SerializableMapKey */
     get_map_key(): object | null
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -1251,9 +1251,9 @@ export class SerializableMapKey {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GXml.SerializableMapKey */
+    /* Virtual methods of GXml-0.14.GXml.SerializableMapKey */
     vfunc_get_map_key(): object | null
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -1261,7 +1261,7 @@ export class SerializableMapKey {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: SerializableMapKey, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: SerializableMapKey, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -1277,12 +1277,12 @@ export class SerializableMapKey {
 export interface SerializableMapDualKey_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class SerializableMapDualKey {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GXml.SerializableMapDualKey */
+    /* Methods of GXml-0.14.GXml.SerializableMapDualKey */
     get_map_primary_key(): object | null
     get_map_secondary_key(): object | null
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -1304,10 +1304,10 @@ export class SerializableMapDualKey {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GXml.SerializableMapDualKey */
+    /* Virtual methods of GXml-0.14.GXml.SerializableMapDualKey */
     vfunc_get_map_primary_key(): object | null
     vfunc_get_map_secondary_key(): object | null
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -1315,7 +1315,7 @@ export class SerializableMapDualKey {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: SerializableMapDualKey, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: SerializableMapDualKey, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -1331,15 +1331,15 @@ export class SerializableMapDualKey {
 export interface SerializableCollection_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class SerializableCollection {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GXml.SerializableCollection */
+    /* Methods of GXml-0.14.GXml.SerializableCollection */
     deserialize_proceed(): boolean
     deserialized(): boolean
     deserialize_node(node: Node): boolean
     deserialize_children(): boolean
     is_collection(): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -1361,13 +1361,13 @@ export class SerializableCollection {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GXml.SerializableCollection */
+    /* Virtual methods of GXml-0.14.GXml.SerializableCollection */
     vfunc_deserialize_proceed(): boolean
     vfunc_deserialized(): boolean
     vfunc_deserialize_node(node: Node): boolean
     vfunc_deserialize_children(): boolean
     vfunc_is_collection(): boolean
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -1375,7 +1375,7 @@ export class SerializableCollection {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: SerializableCollection, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: SerializableCollection, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -1392,16 +1392,16 @@ export interface DomAttr_ConstructProps extends GObject.Object_ConstructProps {
     value?: string
 }
 export class DomAttr {
-    /* Properties of GXml.DomAttr */
+    /* Properties of GXml-0.14.GXml.DomAttr */
     readonly namespace_uri: string
     readonly prefix: string
     readonly local_name: string
     readonly name: string
     value: string
     readonly specified: boolean
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GXml.DomAttr */
+    /* Methods of GXml-0.14.GXml.DomAttr */
     get_namespace_uri(): string | null
     get_prefix(): string | null
     get_local_name(): string
@@ -1409,7 +1409,7 @@ export class DomAttr {
     get_value(): string
     set_value(value: string): void
     get_specified(): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -1431,7 +1431,7 @@ export class DomAttr {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GXml.DomAttr */
+    /* Virtual methods of GXml-0.14.GXml.DomAttr */
     vfunc_get_namespace_uri(): string | null
     vfunc_get_prefix(): string | null
     vfunc_get_local_name(): string
@@ -1439,7 +1439,7 @@ export class DomAttr {
     vfunc_get_value(): string
     vfunc_set_value(value: string): void
     vfunc_get_specified(): boolean
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -1447,7 +1447,7 @@ export class DomAttr {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: DomAttr, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: DomAttr, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -1476,12 +1476,12 @@ export interface DomCharacterData_ConstructProps extends GObject.Object_Construc
     data?: string
 }
 export class DomCharacterData {
-    /* Properties of GXml.DomCharacterData */
+    /* Properties of GXml-0.14.GXml.DomCharacterData */
     data: string
     readonly length: number
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GXml.DomCharacterData */
+    /* Methods of GXml-0.14.GXml.DomCharacterData */
     substring_data(offset: number, count: number): string
     append_data(data: string): void
     insert_data(offset: number, data: string): void
@@ -1490,7 +1490,7 @@ export class DomCharacterData {
     get_data(): string
     set_data(value: string): void
     get_length(): number
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -1512,7 +1512,7 @@ export class DomCharacterData {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GXml.DomCharacterData */
+    /* Virtual methods of GXml-0.14.GXml.DomCharacterData */
     vfunc_substring_data(offset: number, count: number): string
     vfunc_append_data(data: string): void
     vfunc_insert_data(offset: number, data: string): void
@@ -1521,7 +1521,7 @@ export class DomCharacterData {
     vfunc_get_data(): string
     vfunc_set_data(value: string): void
     vfunc_get_length(): number
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -1529,7 +1529,7 @@ export class DomCharacterData {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: DomCharacterData, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: DomCharacterData, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -1549,17 +1549,17 @@ export class DomCharacterData {
 export interface DomText_ConstructProps extends DomCharacterData_ConstructProps {
 }
 export class DomText {
-    /* Properties of GXml.DomText */
+    /* Properties of GXml-0.14.GXml.DomText */
     readonly whole_text: string
-    /* Properties of GXml.DomCharacterData */
+    /* Properties of GXml-0.14.GXml.DomCharacterData */
     data: string
     readonly length: number
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GXml.DomText */
+    /* Methods of GXml-0.14.GXml.DomText */
     split_text(offset: number): DomText
     get_whole_text(): string
-    /* Methods of GXml.DomCharacterData */
+    /* Methods of GXml-0.14.GXml.DomCharacterData */
     substring_data(offset: number, count: number): string
     append_data(data: string): void
     insert_data(offset: number, data: string): void
@@ -1568,7 +1568,7 @@ export class DomText {
     get_data(): string
     set_data(value: string): void
     get_length(): number
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -1590,10 +1590,10 @@ export class DomText {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of GXml.DomCharacterData */
+    /* Methods of GXml-0.14.GXml.DomCharacterData */
     get_data(): string
     set_data(value: string): void
-    /* Virtual methods of GXml.DomText */
+    /* Virtual methods of GXml-0.14.GXml.DomText */
     vfunc_split_text(offset: number): DomText
     vfunc_get_whole_text(): string
     vfunc_substring_data(offset: number, count: number): string
@@ -1604,7 +1604,7 @@ export class DomText {
     vfunc_get_data(): string
     vfunc_set_data(value: string): void
     vfunc_get_length(): number
-    /* Virtual methods of GXml.DomCharacterData */
+    /* Virtual methods of GXml-0.14.GXml.DomCharacterData */
     vfunc_substring_data(offset: number, count: number): string
     vfunc_append_data(data: string): void
     vfunc_insert_data(offset: number, data: string): void
@@ -1613,7 +1613,7 @@ export class DomText {
     vfunc_get_data(): string
     vfunc_set_data(value: string): void
     vfunc_get_length(): number
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -1621,7 +1621,7 @@ export class DomText {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: DomText, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: DomText, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -1643,16 +1643,16 @@ export class DomText {
 export interface DomProcessingInstruction_ConstructProps extends DomCharacterData_ConstructProps {
 }
 export class DomProcessingInstruction {
-    /* Properties of GXml.DomProcessingInstruction */
+    /* Properties of GXml-0.14.GXml.DomProcessingInstruction */
     readonly target: string
-    /* Properties of GXml.DomCharacterData */
+    /* Properties of GXml-0.14.GXml.DomCharacterData */
     data: string
     readonly length: number
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GXml.DomProcessingInstruction */
+    /* Methods of GXml-0.14.GXml.DomProcessingInstruction */
     get_target(): string
-    /* Methods of GXml.DomCharacterData */
+    /* Methods of GXml-0.14.GXml.DomCharacterData */
     substring_data(offset: number, count: number): string
     append_data(data: string): void
     insert_data(offset: number, data: string): void
@@ -1661,7 +1661,7 @@ export class DomProcessingInstruction {
     get_data(): string
     set_data(value: string): void
     get_length(): number
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -1683,10 +1683,10 @@ export class DomProcessingInstruction {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of GXml.DomCharacterData */
+    /* Methods of GXml-0.14.GXml.DomCharacterData */
     get_data(): string
     set_data(value: string): void
-    /* Virtual methods of GXml.DomProcessingInstruction */
+    /* Virtual methods of GXml-0.14.GXml.DomProcessingInstruction */
     vfunc_get_target(): string
     vfunc_substring_data(offset: number, count: number): string
     vfunc_append_data(data: string): void
@@ -1696,7 +1696,7 @@ export class DomProcessingInstruction {
     vfunc_get_data(): string
     vfunc_set_data(value: string): void
     vfunc_get_length(): number
-    /* Virtual methods of GXml.DomCharacterData */
+    /* Virtual methods of GXml-0.14.GXml.DomCharacterData */
     vfunc_substring_data(offset: number, count: number): string
     vfunc_append_data(data: string): void
     vfunc_insert_data(offset: number, data: string): void
@@ -1705,7 +1705,7 @@ export class DomProcessingInstruction {
     vfunc_get_data(): string
     vfunc_set_data(value: string): void
     vfunc_get_length(): number
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -1713,7 +1713,7 @@ export class DomProcessingInstruction {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: DomProcessingInstruction, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: DomProcessingInstruction, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -1735,12 +1735,12 @@ export class DomProcessingInstruction {
 export interface DomComment_ConstructProps extends DomCharacterData_ConstructProps {
 }
 export class DomComment {
-    /* Properties of GXml.DomCharacterData */
+    /* Properties of GXml-0.14.GXml.DomCharacterData */
     data: string
     readonly length: number
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GXml.DomCharacterData */
+    /* Methods of GXml-0.14.GXml.DomCharacterData */
     substring_data(offset: number, count: number): string
     append_data(data: string): void
     insert_data(offset: number, data: string): void
@@ -1749,7 +1749,7 @@ export class DomComment {
     get_data(): string
     set_data(value: string): void
     get_length(): number
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -1771,10 +1771,10 @@ export class DomComment {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of GXml.DomCharacterData */
+    /* Methods of GXml-0.14.GXml.DomCharacterData */
     get_data(): string
     set_data(value: string): void
-    /* Virtual methods of GXml.DomComment */
+    /* Virtual methods of GXml-0.14.GXml.DomComment */
     vfunc_substring_data(offset: number, count: number): string
     vfunc_append_data(data: string): void
     vfunc_insert_data(offset: number, data: string): void
@@ -1783,7 +1783,7 @@ export class DomComment {
     vfunc_get_data(): string
     vfunc_set_data(value: string): void
     vfunc_get_length(): number
-    /* Virtual methods of GXml.DomCharacterData */
+    /* Virtual methods of GXml-0.14.GXml.DomCharacterData */
     vfunc_substring_data(offset: number, count: number): string
     vfunc_append_data(data: string): void
     vfunc_insert_data(offset: number, data: string): void
@@ -1792,7 +1792,7 @@ export class DomComment {
     vfunc_get_data(): string
     vfunc_set_data(value: string): void
     vfunc_get_length(): number
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -1800,7 +1800,7 @@ export class DomComment {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: DomComment, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: DomComment, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -1820,11 +1820,11 @@ export class DomComment {
 export interface DomNonElementParentNode_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class DomNonElementParentNode {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GXml.DomNonElementParentNode */
+    /* Methods of GXml-0.14.GXml.DomNonElementParentNode */
     get_element_by_id(element_id: string): DomElement | null
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -1846,9 +1846,9 @@ export class DomNonElementParentNode {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GXml.DomNonElementParentNode */
+    /* Virtual methods of GXml-0.14.GXml.DomNonElementParentNode */
     vfunc_get_element_by_id(element_id: string): DomElement | null
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -1856,7 +1856,7 @@ export class DomNonElementParentNode {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: DomNonElementParentNode, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: DomNonElementParentNode, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -1872,14 +1872,14 @@ export class DomNonElementParentNode {
 export interface DomParentNode_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class DomParentNode {
-    /* Properties of GXml.DomParentNode */
+    /* Properties of GXml-0.14.GXml.DomParentNode */
     readonly children: DomHTMLCollection
     readonly first_element_child: DomElement
     readonly last_element_child: DomElement
     readonly child_element_count: number
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GXml.DomParentNode */
+    /* Methods of GXml-0.14.GXml.DomParentNode */
     query_selector(selectors: string): DomElement | null
     query_selector_all(selectors: string): DomNodeList
     get_elements_by_property_value(property: string, value: string): DomElementList
@@ -1887,7 +1887,7 @@ export class DomParentNode {
     get_first_element_child(): DomElement | null
     get_last_element_child(): DomElement | null
     get_child_element_count(): number
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -1909,7 +1909,7 @@ export class DomParentNode {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GXml.DomParentNode */
+    /* Virtual methods of GXml-0.14.GXml.DomParentNode */
     vfunc_query_selector(selectors: string): DomElement | null
     vfunc_query_selector_all(selectors: string): DomNodeList
     vfunc_get_elements_by_property_value(property: string, value: string): DomElementList
@@ -1917,7 +1917,7 @@ export class DomParentNode {
     vfunc_get_first_element_child(): DomElement | null
     vfunc_get_last_element_child(): DomElement | null
     vfunc_get_child_element_count(): number
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -1925,7 +1925,7 @@ export class DomParentNode {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: DomParentNode, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: DomParentNode, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -1949,15 +1949,15 @@ export class DomParentNode {
 export interface DomNonDocumentTypeChildNode_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class DomNonDocumentTypeChildNode {
-    /* Properties of GXml.DomNonDocumentTypeChildNode */
+    /* Properties of GXml-0.14.GXml.DomNonDocumentTypeChildNode */
     readonly previous_element_sibling: DomElement
     readonly next_element_sibling: DomElement
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GXml.DomNonDocumentTypeChildNode */
+    /* Methods of GXml-0.14.GXml.DomNonDocumentTypeChildNode */
     get_previous_element_sibling(): DomElement | null
     get_next_element_sibling(): DomElement | null
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -1979,10 +1979,10 @@ export class DomNonDocumentTypeChildNode {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GXml.DomNonDocumentTypeChildNode */
+    /* Virtual methods of GXml-0.14.GXml.DomNonDocumentTypeChildNode */
     vfunc_get_previous_element_sibling(): DomElement | null
     vfunc_get_next_element_sibling(): DomElement | null
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -1990,7 +1990,7 @@ export class DomNonDocumentTypeChildNode {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: DomNonDocumentTypeChildNode, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: DomNonDocumentTypeChildNode, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -2010,11 +2010,11 @@ export class DomNonDocumentTypeChildNode {
 export interface DomChildNode_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class DomChildNode {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GXml.DomChildNode */
+    /* Methods of GXml-0.14.GXml.DomChildNode */
     remove(): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -2036,9 +2036,9 @@ export class DomChildNode {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GXml.DomChildNode */
+    /* Virtual methods of GXml-0.14.GXml.DomChildNode */
     vfunc_remove(): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -2046,7 +2046,7 @@ export class DomChildNode {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: DomChildNode, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: DomChildNode, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -2062,14 +2062,14 @@ export class DomChildNode {
 export interface DomNodeList_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class DomNodeList {
-    /* Properties of GXml.DomNodeList */
+    /* Properties of GXml-0.14.GXml.DomNodeList */
     readonly length: number
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GXml.DomNodeList */
+    /* Methods of GXml-0.14.GXml.DomNodeList */
     item(index: number): DomNode | null
     get_length(): number
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -2091,10 +2091,10 @@ export class DomNodeList {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GXml.DomNodeList */
+    /* Virtual methods of GXml-0.14.GXml.DomNodeList */
     vfunc_item(index: number): DomNode | null
     vfunc_get_length(): number
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -2102,7 +2102,7 @@ export class DomNodeList {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: DomNodeList, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: DomNodeList, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -2120,17 +2120,17 @@ export class DomNodeList {
 export interface DomHTMLCollection_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class DomHTMLCollection {
-    /* Properties of GXml.DomHTMLCollection */
+    /* Properties of GXml-0.14.GXml.DomHTMLCollection */
     readonly length: number
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GXml.DomHTMLCollection */
+    /* Methods of GXml-0.14.GXml.DomHTMLCollection */
     get_element(index: number): DomElement | null
     to_array(): DomElement[]
     item(index: number): DomElement | null
     named_item(name: string): DomElement | null
     get_length(): number
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -2152,13 +2152,13 @@ export class DomHTMLCollection {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GXml.DomHTMLCollection */
+    /* Virtual methods of GXml-0.14.GXml.DomHTMLCollection */
     vfunc_get_element(index: number): DomElement | null
     vfunc_to_array(): DomElement[]
     vfunc_item(index: number): DomElement | null
     vfunc_named_item(name: string): DomElement | null
     vfunc_get_length(): number
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -2166,7 +2166,7 @@ export class DomHTMLCollection {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: DomHTMLCollection, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: DomHTMLCollection, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -2182,13 +2182,13 @@ export class DomHTMLCollection {
     static $gtype: GObject.Type
 }
 export class DomNodeIterator {
-    /* Properties of GXml.DomNodeIterator */
+    /* Properties of GXml-0.14.GXml.DomNodeIterator */
     readonly root: DomNode
     readonly reference_node: DomNode
     readonly pointer_before_reference_node: boolean
     readonly what_to_show: number
     readonly filter: DomNodeFilter
-    /* Methods of GXml.DomNodeIterator */
+    /* Methods of GXml-0.14.GXml.DomNodeIterator */
     next_node(): DomNode | null
     previous_node(): DomNode | null
     detach(): void
@@ -2197,7 +2197,7 @@ export class DomNodeIterator {
     get_pointer_before_reference_node(): boolean
     get_what_to_show(): number
     get_filter(): DomNodeFilter | null
-    /* Virtual methods of GXml.DomNodeIterator */
+    /* Virtual methods of GXml-0.14.GXml.DomNodeIterator */
     vfunc_next_node(): DomNode | null
     vfunc_previous_node(): DomNode | null
     vfunc_detach(): void
@@ -2211,14 +2211,14 @@ export class DomNodeIterator {
 export interface DomTreeWalker_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class DomTreeWalker {
-    /* Properties of GXml.DomTreeWalker */
+    /* Properties of GXml-0.14.GXml.DomTreeWalker */
     readonly root: DomNode
     readonly what_to_show: number
     readonly filter: DomNodeFilter
     readonly current_node: DomNode
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GXml.DomTreeWalker */
+    /* Methods of GXml-0.14.GXml.DomTreeWalker */
     parentNode(): DomNode | null
     firstChild(): DomNode | null
     lastChild(): DomNode | null
@@ -2230,7 +2230,7 @@ export class DomTreeWalker {
     get_what_to_show(): number
     get_filter(): DomNodeFilter | null
     get_current_node(): DomNode
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -2252,7 +2252,7 @@ export class DomTreeWalker {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GXml.DomTreeWalker */
+    /* Virtual methods of GXml-0.14.GXml.DomTreeWalker */
     vfunc_parentNode(): DomNode | null
     vfunc_firstChild(): DomNode | null
     vfunc_lastChild(): DomNode | null
@@ -2264,7 +2264,7 @@ export class DomTreeWalker {
     vfunc_get_what_to_show(): number
     vfunc_get_filter(): DomNodeFilter | null
     vfunc_get_current_node(): DomNode
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -2272,7 +2272,7 @@ export class DomTreeWalker {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: DomTreeWalker, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: DomTreeWalker, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -2296,11 +2296,11 @@ export class DomTreeWalker {
 export interface DomNamedNodeMap_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class DomNamedNodeMap {
-    /* Properties of GXml.DomNamedNodeMap */
+    /* Properties of GXml-0.14.GXml.DomNamedNodeMap */
     readonly length: number
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GXml.DomNamedNodeMap */
+    /* Methods of GXml-0.14.GXml.DomNamedNodeMap */
     item(index: number): DomNode | null
     get_named_item(name: string): DomNode | null
     set_named_item(node: DomNode): DomNode | null
@@ -2309,7 +2309,7 @@ export class DomNamedNodeMap {
     get_named_item_ns(namespace_uri: string, local_name: string): DomNode | null
     set_named_item_ns(node: DomNode): DomNode | null
     get_length(): number
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -2331,7 +2331,7 @@ export class DomNamedNodeMap {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GXml.DomNamedNodeMap */
+    /* Virtual methods of GXml-0.14.GXml.DomNamedNodeMap */
     vfunc_item(index: number): DomNode | null
     vfunc_get_named_item(name: string): DomNode | null
     vfunc_set_named_item(node: DomNode): DomNode | null
@@ -2340,7 +2340,7 @@ export class DomNamedNodeMap {
     vfunc_get_named_item_ns(namespace_uri: string, local_name: string): DomNode | null
     vfunc_set_named_item_ns(node: DomNode): DomNode | null
     vfunc_get_length(): number
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -2348,7 +2348,7 @@ export class DomNamedNodeMap {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: DomNamedNodeMap, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: DomNamedNodeMap, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -2366,11 +2366,11 @@ export class DomNamedNodeMap {
 export interface DomTokenList_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class DomTokenList {
-    /* Properties of GXml.DomTokenList */
+    /* Properties of GXml-0.14.GXml.DomTokenList */
     readonly length: number
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GXml.DomTokenList */
+    /* Methods of GXml-0.14.GXml.DomTokenList */
     item(index: number): string | null
     contains(token: string): boolean
     add(tokens: string[]): void
@@ -2378,7 +2378,7 @@ export class DomTokenList {
     toggle(token: string, force: boolean, auto: boolean): boolean
     to_string(): string
     get_length(): number
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -2400,7 +2400,7 @@ export class DomTokenList {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GXml.DomTokenList */
+    /* Virtual methods of GXml-0.14.GXml.DomTokenList */
     vfunc_item(index: number): string | null
     vfunc_contains(token: string): boolean
     vfunc_add(tokens: string[]): void
@@ -2408,7 +2408,7 @@ export class DomTokenList {
     vfunc_toggle(token: string, force: boolean, auto: boolean): boolean
     vfunc_to_string(): string
     vfunc_get_length(): number
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -2416,7 +2416,7 @@ export class DomTokenList {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: DomTokenList, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: DomTokenList, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -2435,16 +2435,16 @@ export interface DomSettableTokenList_ConstructProps extends DomTokenList_Constr
     value?: string
 }
 export class DomSettableTokenList {
-    /* Properties of GXml.DomSettableTokenList */
+    /* Properties of GXml-0.14.GXml.DomSettableTokenList */
     value: string
-    /* Properties of GXml.DomTokenList */
+    /* Properties of GXml-0.14.GXml.DomTokenList */
     readonly length: number
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GXml.DomSettableTokenList */
+    /* Methods of GXml-0.14.GXml.DomSettableTokenList */
     get_value(): string
     set_value(value: string): void
-    /* Methods of GXml.DomTokenList */
+    /* Methods of GXml-0.14.GXml.DomTokenList */
     item(index: number): string | null
     contains(token: string): boolean
     add(tokens: string[]): void
@@ -2452,7 +2452,7 @@ export class DomSettableTokenList {
     toggle(token: string, force: boolean, auto: boolean): boolean
     to_string(): string
     get_length(): number
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -2474,7 +2474,7 @@ export class DomSettableTokenList {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GXml.DomSettableTokenList */
+    /* Virtual methods of GXml-0.14.GXml.DomSettableTokenList */
     vfunc_get_value(): string
     vfunc_set_value(value: string): void
     vfunc_item(index: number): string | null
@@ -2484,7 +2484,7 @@ export class DomSettableTokenList {
     vfunc_toggle(token: string, force: boolean, auto: boolean): boolean
     vfunc_to_string(): string
     vfunc_get_length(): number
-    /* Virtual methods of GXml.DomTokenList */
+    /* Virtual methods of GXml-0.14.GXml.DomTokenList */
     vfunc_item(index: number): string | null
     vfunc_contains(token: string): boolean
     vfunc_add(tokens: string[]): void
@@ -2492,7 +2492,7 @@ export class DomSettableTokenList {
     vfunc_toggle(token: string, force: boolean, auto: boolean): boolean
     vfunc_to_string(): string
     vfunc_get_length(): number
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -2500,7 +2500,7 @@ export class DomSettableTokenList {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: DomSettableTokenList, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: DomSettableTokenList, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -2520,7 +2520,7 @@ export class DomSettableTokenList {
 export interface DomDocument_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class DomDocument {
-    /* Properties of GXml.DomDocument */
+    /* Properties of GXml-0.14.GXml.DomDocument */
     readonly implementation: DomImplementation
     readonly url: string
     readonly document_uri: string
@@ -2530,9 +2530,9 @@ export class DomDocument {
     readonly content_type: string
     readonly doctype: DomDocumentType
     readonly document_element: DomElement
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GXml.DomDocument */
+    /* Methods of GXml-0.14.GXml.DomDocument */
     get_elements_by_tag_name(local_name: string): DomHTMLCollection
     get_elements_by_tag_name_ns(namespace: string | null, local_name: string): DomHTMLCollection
     get_elements_by_class_name(classNames: string): DomHTMLCollection
@@ -2557,7 +2557,7 @@ export class DomDocument {
     get_content_type(): string
     get_doctype(): DomDocumentType | null
     get_document_element(): DomElement | null
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -2579,7 +2579,7 @@ export class DomDocument {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GXml.DomDocument */
+    /* Virtual methods of GXml-0.14.GXml.DomDocument */
     vfunc_get_elements_by_tag_name(local_name: string): DomHTMLCollection
     vfunc_get_elements_by_tag_name_ns(namespace: string | null, local_name: string): DomHTMLCollection
     vfunc_get_elements_by_class_name(classNames: string): DomHTMLCollection
@@ -2604,7 +2604,7 @@ export class DomDocument {
     vfunc_get_content_type(): string
     vfunc_get_doctype(): DomDocumentType | null
     vfunc_get_document_element(): DomElement | null
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -2612,7 +2612,7 @@ export class DomDocument {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: DomDocument, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: DomDocument, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -2646,9 +2646,9 @@ export class DomDocument {
 export interface DomXMLDocument_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class DomXMLDocument {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -2670,7 +2670,7 @@ export class DomXMLDocument {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -2678,7 +2678,7 @@ export class DomXMLDocument {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: DomXMLDocument, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: DomXMLDocument, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -2694,14 +2694,14 @@ export class DomXMLDocument {
 export interface DomImplementation_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class DomImplementation {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GXml.DomImplementation */
+    /* Methods of GXml-0.14.GXml.DomImplementation */
     create_document_type(qualified_name: string, public_id: string, system_id: string): DomDocumentType
     create_document(nspace?: string | null, qualified_name?: string | null, doctype?: DomDocumentType | null): DomXMLDocument
     create_html_document(title: string): Document
     has_feature(): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -2723,12 +2723,12 @@ export class DomImplementation {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GXml.DomImplementation */
+    /* Virtual methods of GXml-0.14.GXml.DomImplementation */
     vfunc_create_document_type(qualified_name: string, public_id: string, system_id: string): DomDocumentType
     vfunc_create_document(nspace?: string | null, qualified_name?: string | null, doctype?: DomDocumentType | null): DomXMLDocument
     vfunc_create_html_document(title: string): Document
     vfunc_has_feature(): boolean
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -2736,7 +2736,7 @@ export class DomImplementation {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: DomImplementation, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: DomImplementation, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -2752,9 +2752,9 @@ export class DomImplementation {
 export interface DomDocumentFragment_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class DomDocumentFragment {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -2776,7 +2776,7 @@ export class DomDocumentFragment {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -2784,7 +2784,7 @@ export class DomDocumentFragment {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: DomDocumentFragment, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: DomDocumentFragment, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -2800,17 +2800,17 @@ export class DomDocumentFragment {
 export interface DomDocumentType_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class DomDocumentType {
-    /* Properties of GXml.DomDocumentType */
+    /* Properties of GXml-0.14.GXml.DomDocumentType */
     readonly name: string
     readonly public_id: string
     readonly system_id: string
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GXml.DomDocumentType */
+    /* Methods of GXml-0.14.GXml.DomDocumentType */
     get_name(): string
     get_public_id(): string
     get_system_id(): string
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -2832,11 +2832,11 @@ export class DomDocumentType {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GXml.DomDocumentType */
+    /* Virtual methods of GXml-0.14.GXml.DomDocumentType */
     vfunc_get_name(): string
     vfunc_get_public_id(): string
     vfunc_get_system_id(): string
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -2844,7 +2844,7 @@ export class DomDocumentType {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: DomDocumentType, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: DomDocumentType, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -2868,7 +2868,7 @@ export interface DomElement_ConstructProps extends GObject.Object_ConstructProps
     class_name?: string
 }
 export class DomElement {
-    /* Properties of GXml.DomElement */
+    /* Properties of GXml-0.14.GXml.DomElement */
     readonly namespace_uri: string
     readonly prefix: string
     readonly local_name: string
@@ -2877,9 +2877,9 @@ export class DomElement {
     class_name: string
     readonly class_list: DomTokenList
     readonly attributes: DomNamedNodeMap
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GXml.DomElement */
+    /* Methods of GXml-0.14.GXml.DomElement */
     get_attribute(name: string): string | null
     get_attribute_ns(namespace: string | null, local_name: string): string | null
     set_attribute(name: string, value: string): void
@@ -2901,7 +2901,7 @@ export class DomElement {
     set_class_name(value?: string | null): void
     get_class_list(): DomTokenList
     get_attributes(): DomNamedNodeMap
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -2923,7 +2923,7 @@ export class DomElement {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GXml.DomElement */
+    /* Virtual methods of GXml-0.14.GXml.DomElement */
     vfunc_get_attribute(name: string): string | null
     vfunc_get_attribute_ns(namespace: string | null, local_name: string): string | null
     vfunc_set_attribute(name: string, value: string): void
@@ -2945,7 +2945,7 @@ export class DomElement {
     vfunc_set_class_name(value?: string | null): void
     vfunc_get_class_list(): DomTokenList
     vfunc_get_attributes(): DomNamedNodeMap
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -2953,7 +2953,7 @@ export class DomElement {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: DomElement, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: DomElement, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -2985,13 +2985,13 @@ export class DomElement {
 export interface DomEventTarget_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class DomEventTarget {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GXml.DomEventTarget */
+    /* Methods of GXml-0.14.GXml.DomEventTarget */
     add_event_listener(type: string, callback: DomEventListener | null, capture: boolean): void
     remove_event_listener(type: string, callback: DomEventListener | null, capture: boolean): void
     dispatch_event(event: DomEvent): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -3013,11 +3013,11 @@ export class DomEventTarget {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GXml.DomEventTarget */
+    /* Virtual methods of GXml-0.14.GXml.DomEventTarget */
     vfunc_add_event_listener(type: string, callback: DomEventListener | null, capture: boolean): void
     vfunc_remove_event_listener(type: string, callback: DomEventListener | null, capture: boolean): void
     vfunc_dispatch_event(event: DomEvent): boolean
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -3025,7 +3025,7 @@ export class DomEventTarget {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: DomEventTarget, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: DomEventTarget, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -3041,11 +3041,11 @@ export class DomEventTarget {
 export interface DomEventListener_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class DomEventListener {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GXml.DomEventListener */
+    /* Methods of GXml-0.14.GXml.DomEventListener */
     handle_event(event: DomEvent): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -3067,9 +3067,9 @@ export class DomEventListener {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GXml.DomEventListener */
+    /* Virtual methods of GXml-0.14.GXml.DomEventListener */
     vfunc_handle_event(event: DomEvent): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -3077,7 +3077,7 @@ export class DomEventListener {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: DomEventListener, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: DomEventListener, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -3093,7 +3093,7 @@ export class DomEventListener {
 export interface DomEvent_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class DomEvent {
-    /* Properties of GXml.DomEvent */
+    /* Properties of GXml-0.14.GXml.DomEvent */
     readonly etype: string
     readonly event_target: DomEventTarget
     readonly current_target: DomEventTarget
@@ -3103,9 +3103,9 @@ export class DomEvent {
     readonly time_stamp: DomTimeStamp
     readonly default_prevented: boolean
     readonly event_phase: DomEventPhase
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GXml.DomEvent */
+    /* Methods of GXml-0.14.GXml.DomEvent */
     stop_propagation(): void
     stop_immediate_propagation(): void
     prevent_default(): void
@@ -3119,7 +3119,7 @@ export class DomEvent {
     get_time_stamp(): DomTimeStamp
     get_default_prevented(): boolean
     get_event_phase(): DomEventPhase
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -3141,7 +3141,7 @@ export class DomEvent {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GXml.DomEvent */
+    /* Virtual methods of GXml-0.14.GXml.DomEvent */
     vfunc_stop_propagation(): void
     vfunc_stop_immediate_propagation(): void
     vfunc_prevent_default(): void
@@ -3155,7 +3155,7 @@ export class DomEvent {
     vfunc_get_time_stamp(): DomTimeStamp
     vfunc_get_default_prevented(): boolean
     vfunc_get_event_phase(): DomEventPhase
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -3163,7 +3163,7 @@ export class DomEvent {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: DomEvent, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: DomEvent, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -3197,14 +3197,14 @@ export class DomEvent {
 export interface DomCustomEvent_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class DomCustomEvent {
-    /* Properties of GXml.DomCustomEvent */
+    /* Properties of GXml-0.14.GXml.DomCustomEvent */
     readonly detail: any
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GXml.DomCustomEvent */
+    /* Methods of GXml-0.14.GXml.DomCustomEvent */
     init_custom_event(type: string, bubbles: boolean, cancelable: boolean, detail?: any | null): void
     get_detail(): any | null
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -3226,10 +3226,10 @@ export class DomCustomEvent {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GXml.DomCustomEvent */
+    /* Virtual methods of GXml-0.14.GXml.DomCustomEvent */
     vfunc_init_custom_event(type: string, bubbles: boolean, cancelable: boolean, detail?: any | null): void
     vfunc_get_detail(): any | null
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -3237,7 +3237,7 @@ export class DomCustomEvent {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: DomCustomEvent, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: DomCustomEvent, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -3255,13 +3255,13 @@ export class DomCustomEvent {
 export interface DomMutationObserver_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class DomMutationObserver {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GXml.DomMutationObserver */
+    /* Methods of GXml-0.14.GXml.DomMutationObserver */
     observe(target: Node, options: DomMutationObserverInit): void
     disconnect(): void
     take_records(): Gee.List
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -3283,11 +3283,11 @@ export class DomMutationObserver {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GXml.DomMutationObserver */
+    /* Virtual methods of GXml-0.14.GXml.DomMutationObserver */
     vfunc_observe(target: Node, options: DomMutationObserverInit): void
     vfunc_disconnect(): void
     vfunc_take_records(): Gee.List
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -3295,7 +3295,7 @@ export class DomMutationObserver {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: DomMutationObserver, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: DomMutationObserver, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -3313,7 +3313,7 @@ export interface DomMutationRecord_ConstructProps extends GObject.Object_Constru
     removed_nodes?: DomNodeList
 }
 export class DomMutationRecord {
-    /* Properties of GXml.DomMutationRecord */
+    /* Properties of GXml-0.14.GXml.DomMutationRecord */
     readonly mtype: string
     readonly target: DomNode
     added_nodes: DomNodeList
@@ -3323,9 +3323,9 @@ export class DomMutationRecord {
     readonly attribute_name: string
     readonly attribute_namespace: string
     readonly old_value: string
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GXml.DomMutationRecord */
+    /* Methods of GXml-0.14.GXml.DomMutationRecord */
     get_mtype(): string
     get_target(): DomNode
     get_added_nodes(): DomNodeList
@@ -3337,7 +3337,7 @@ export class DomMutationRecord {
     get_attribute_name(): string | null
     get_attribute_namespace(): string | null
     get_old_value(): string | null
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -3359,7 +3359,7 @@ export class DomMutationRecord {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GXml.DomMutationRecord */
+    /* Virtual methods of GXml-0.14.GXml.DomMutationRecord */
     vfunc_get_mtype(): string
     vfunc_get_target(): DomNode
     vfunc_get_added_nodes(): DomNodeList
@@ -3371,7 +3371,7 @@ export class DomMutationRecord {
     vfunc_get_attribute_name(): string | null
     vfunc_get_attribute_namespace(): string | null
     vfunc_get_old_value(): string | null
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -3379,7 +3379,7 @@ export class DomMutationRecord {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: DomMutationRecord, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: DomMutationRecord, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -3416,7 +3416,7 @@ export interface DomNode_ConstructProps extends GObject.Object_ConstructProps {
     text_content?: string
 }
 export class DomNode {
-    /* Properties of GXml.DomNode */
+    /* Properties of GXml-0.14.GXml.DomNode */
     readonly node_type: DomNodeNodeType
     readonly node_name: string
     readonly base_uri: string
@@ -3430,9 +3430,9 @@ export class DomNode {
     readonly next_sibling: DomNode
     node_value: string
     text_content: string
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GXml.DomNode */
+    /* Methods of GXml-0.14.GXml.DomNode */
     has_child_nodes(): boolean
     normalize(): void
     is_equal_node(node?: DomNode | null): boolean
@@ -3462,7 +3462,7 @@ export class DomNode {
     set_node_value(value?: string | null): void
     get_text_content(): string | null
     set_text_content(value?: string | null): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -3484,7 +3484,7 @@ export class DomNode {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GXml.DomNode */
+    /* Virtual methods of GXml-0.14.GXml.DomNode */
     vfunc_has_child_nodes(): boolean
     vfunc_normalize(): void
     vfunc_is_equal_node(node?: DomNode | null): boolean
@@ -3514,7 +3514,7 @@ export class DomNode {
     vfunc_set_node_value(value?: string | null): void
     vfunc_get_text_content(): string | null
     vfunc_set_text_content(value?: string | null): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -3522,7 +3522,7 @@ export class DomNode {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: DomNode, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: DomNode, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -3566,16 +3566,16 @@ export class DomNode {
 export interface DomRange_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class DomRange {
-    /* Properties of GXml.DomRange */
+    /* Properties of GXml-0.14.GXml.DomRange */
     readonly start_container: DomNode
     readonly start_offset: number
     readonly end_container: DomNode
     readonly end_offset: number
     readonly collapsed: boolean
     readonly common_ancestor_container: DomNode
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GXml.DomRange */
+    /* Methods of GXml-0.14.GXml.DomRange */
     set_start(node: DomNode, offset: number): void
     set_end(node: DomNode, offset: number): void
     set_start_before(node: DomNode): void
@@ -3603,7 +3603,7 @@ export class DomRange {
     get_end_offset(): number
     get_collapsed(): boolean
     get_common_ancestor_container(): DomNode
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -3625,7 +3625,7 @@ export class DomRange {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GXml.DomRange */
+    /* Virtual methods of GXml-0.14.GXml.DomRange */
     vfunc_set_start(node: DomNode, offset: number): void
     vfunc_set_end(node: DomNode, offset: number): void
     vfunc_set_start_before(node: DomNode): void
@@ -3653,7 +3653,7 @@ export class DomRange {
     vfunc_get_end_offset(): number
     vfunc_get_collapsed(): boolean
     vfunc_get_common_ancestor_container(): DomNode
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -3661,7 +3661,7 @@ export class DomRange {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: DomRange, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: DomRange, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -3689,11 +3689,11 @@ export class DomRange {
 export interface XPathContext_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class XPathContext {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GXml.XPathContext */
+    /* Methods of GXml-0.14.GXml.XPathContext */
     evaluate(expression: string, resolver?: Gee.List | null): XPathObject
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -3715,9 +3715,9 @@ export class XPathContext {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GXml.XPathContext */
+    /* Virtual methods of GXml-0.14.GXml.XPathContext */
     vfunc_evaluate(expression: string, resolver?: Gee.List | null): XPathObject
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -3725,7 +3725,7 @@ export class XPathContext {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: XPathContext, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: XPathContext, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -3741,21 +3741,21 @@ export class XPathContext {
 export interface XPathObject_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class XPathObject {
-    /* Properties of GXml.XPathObject */
+    /* Properties of GXml-0.14.GXml.XPathObject */
     readonly object_type: XPathObjectType
     readonly boolean_value: boolean
     readonly string_value: string
     readonly number_value: number
     readonly nodeset: DomHTMLCollection
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GXml.XPathObject */
+    /* Methods of GXml-0.14.GXml.XPathObject */
     get_object_type(): XPathObjectType
     get_boolean_value(): boolean
     get_string_value(): string
     get_number_value(): number
     get_nodeset(): DomHTMLCollection
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -3777,13 +3777,13 @@ export class XPathObject {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GXml.XPathObject */
+    /* Virtual methods of GXml-0.14.GXml.XPathObject */
     vfunc_get_object_type(): XPathObjectType
     vfunc_get_boolean_value(): boolean
     vfunc_get_string_value(): string
     vfunc_get_number_value(): number
     vfunc_get_nodeset(): DomHTMLCollection
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -3791,7 +3791,7 @@ export class XPathObject {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: XPathObject, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: XPathObject, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -3817,9 +3817,9 @@ export class XPathObject {
 export interface GomObject_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class GomObject {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GXml.GomObject */
+    /* Methods of GXml-0.14.GXml.GomObject */
     get_properties_list(): GObject.ParamSpec[]
     find_property_name(pname: string): GObject.ParamSpec | null
     find_object_property_name(pname: string): GObject.ParamSpec | null
@@ -3832,7 +3832,7 @@ export class GomObject {
     remove_attribute(name: string): boolean
     set_instance_property(name: string): boolean
     clean_property_elements(name: string): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -3854,7 +3854,7 @@ export class GomObject {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GXml.GomObject */
+    /* Virtual methods of GXml-0.14.GXml.GomObject */
     vfunc_get_properties_list(): GObject.ParamSpec[]
     vfunc_find_property_name(pname: string): GObject.ParamSpec | null
     vfunc_find_object_property_name(pname: string): GObject.ParamSpec | null
@@ -3867,7 +3867,7 @@ export class GomObject {
     vfunc_remove_attribute(name: string): boolean
     vfunc_set_instance_property(name: string): boolean
     vfunc_clean_property_elements(name: string): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -3875,7 +3875,7 @@ export class GomObject {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: GomObject, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: GomObject, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -3893,15 +3893,15 @@ export interface GomCollection_ConstructProps extends GObject.Object_ConstructPr
     items_type?: GObject.Type
 }
 export class GomCollection {
-    /* Properties of GXml.GomCollection */
+    /* Properties of GXml-0.14.GXml.GomCollection */
     readonly nodes_index: GLib.Queue
     element: GomElement
     readonly items_name: string
     items_type: GObject.Type
     readonly length: number
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GXml.GomCollection */
+    /* Methods of GXml-0.14.GXml.GomCollection */
     search(): void
     get_item(index: number): DomElement | null
     append(node: DomElement): void
@@ -3915,7 +3915,7 @@ export class GomCollection {
     get_items_type(): GObject.Type
     set_items_type(value: GObject.Type): void
     get_length(): number
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -3937,7 +3937,7 @@ export class GomCollection {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GXml.GomCollection */
+    /* Virtual methods of GXml-0.14.GXml.GomCollection */
     vfunc_search(): void
     vfunc_get_item(index: number): DomElement | null
     vfunc_append(node: DomElement): void
@@ -3951,7 +3951,7 @@ export class GomCollection {
     vfunc_get_items_type(): GObject.Type
     vfunc_set_items_type(value: GObject.Type): void
     vfunc_get_length(): number
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -3959,7 +3959,7 @@ export class GomCollection {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: GomCollection, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: GomCollection, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -3985,11 +3985,11 @@ export class GomCollection {
 export interface MappeableElement_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class MappeableElement {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GXml.MappeableElement */
+    /* Methods of GXml-0.14.GXml.MappeableElement */
     get_map_key(): string
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -4011,9 +4011,9 @@ export class MappeableElement {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GXml.MappeableElement */
+    /* Virtual methods of GXml-0.14.GXml.MappeableElement */
     vfunc_get_map_key(): string
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -4021,7 +4021,7 @@ export class MappeableElement {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: MappeableElement, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: MappeableElement, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -4037,12 +4037,12 @@ export class MappeableElement {
 export interface MappeableElementPairKey_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class MappeableElementPairKey {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GXml.MappeableElementPairKey */
+    /* Methods of GXml-0.14.GXml.MappeableElementPairKey */
     get_map_primary_key(): string
     get_map_secondary_key(): string
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -4064,10 +4064,10 @@ export class MappeableElementPairKey {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GXml.MappeableElementPairKey */
+    /* Virtual methods of GXml-0.14.GXml.MappeableElementPairKey */
     vfunc_get_map_primary_key(): string
     vfunc_get_map_secondary_key(): string
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -4075,7 +4075,7 @@ export class MappeableElementPairKey {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: MappeableElementPairKey, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: MappeableElementPairKey, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -4091,13 +4091,13 @@ export class MappeableElementPairKey {
 export interface MappeableElementThreeKey_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class MappeableElementThreeKey {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GXml.MappeableElementThreeKey */
+    /* Methods of GXml-0.14.GXml.MappeableElementThreeKey */
     get_map_pkey(): string
     get_map_skey(): string
     get_map_tkey(): string
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -4119,11 +4119,11 @@ export class MappeableElementThreeKey {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GXml.MappeableElementThreeKey */
+    /* Virtual methods of GXml-0.14.GXml.MappeableElementThreeKey */
     vfunc_get_map_pkey(): string
     vfunc_get_map_skey(): string
     vfunc_get_map_tkey(): string
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -4131,7 +4131,7 @@ export class MappeableElementThreeKey {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: MappeableElementThreeKey, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: MappeableElementThreeKey, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -4148,15 +4148,15 @@ export interface GomProperty_ConstructProps extends GObject.Object_ConstructProp
     value?: string
 }
 export class GomProperty {
-    /* Properties of GXml.GomProperty */
+    /* Properties of GXml-0.14.GXml.GomProperty */
     value: string
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GXml.GomProperty */
+    /* Methods of GXml-0.14.GXml.GomProperty */
     validate_value(val: string): boolean
     get_value(): string | null
     set_value(value?: string | null): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -4178,11 +4178,11 @@ export class GomProperty {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GXml.GomProperty */
+    /* Virtual methods of GXml-0.14.GXml.GomProperty */
     vfunc_validate_value(val: string): boolean
     vfunc_get_value(): string | null
     vfunc_set_value(value?: string | null): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -4190,7 +4190,7 @@ export class GomProperty {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: GomProperty, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: GomProperty, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -4210,13 +4210,13 @@ export interface Parser_ConstructProps extends GObject.Object_ConstructProps {
     indent?: boolean
 }
 export class Parser {
-    /* Properties of GXml.Parser */
+    /* Properties of GXml-0.14.GXml.Parser */
     backup: boolean
     indent: boolean
     readonly node: DomNode
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GXml.Parser */
+    /* Methods of GXml-0.14.GXml.Parser */
     write_file(file: Gio.File, cancellable?: Gio.Cancellable | null): void
     write_string(): string
     write_stream(stream: Gio.OutputStream, cancellable?: Gio.Cancellable | null): void
@@ -4228,7 +4228,7 @@ export class Parser {
     get_indent(): boolean
     set_indent(value: boolean): void
     get_node(): DomNode
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -4250,7 +4250,7 @@ export class Parser {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GXml.Parser */
+    /* Virtual methods of GXml-0.14.GXml.Parser */
     vfunc_write_file(file: Gio.File, cancellable?: Gio.Cancellable | null): void
     vfunc_write_string(): string
     vfunc_write_stream(stream: Gio.OutputStream, cancellable?: Gio.Cancellable | null): void
@@ -4262,7 +4262,7 @@ export class Parser {
     vfunc_get_indent(): boolean
     vfunc_set_indent(value: boolean): void
     vfunc_get_node(): DomNode
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -4270,7 +4270,7 @@ export class Parser {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Parser, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Parser, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -4295,20 +4295,20 @@ export interface IXsdSchema_ConstructProps extends GObject.Object_ConstructProps
     complex_type_definitions?: IXsdListComplexTypes
 }
 export class IXsdSchema {
-    /* Properties of GXml.IXsdSchema */
+    /* Properties of GXml-0.14.GXml.IXsdSchema */
     element_definitions: IXsdListElements
     simple_type_definitions: IXsdListSimpleTypes
     complex_type_definitions: IXsdListComplexTypes
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GXml.IXsdSchema */
+    /* Methods of GXml-0.14.GXml.IXsdSchema */
     get_element_definitions(): IXsdListElements
     set_element_definitions(value: IXsdListElements): void
     get_simple_type_definitions(): IXsdListSimpleTypes
     set_simple_type_definitions(value: IXsdListSimpleTypes): void
     get_complex_type_definitions(): IXsdListComplexTypes
     set_complex_type_definitions(value: IXsdListComplexTypes): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -4330,14 +4330,14 @@ export class IXsdSchema {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GXml.IXsdSchema */
+    /* Virtual methods of GXml-0.14.GXml.IXsdSchema */
     vfunc_get_element_definitions(): IXsdListElements
     vfunc_set_element_definitions(value: IXsdListElements): void
     vfunc_get_simple_type_definitions(): IXsdListSimpleTypes
     vfunc_set_simple_type_definitions(value: IXsdListSimpleTypes): void
     vfunc_get_complex_type_definitions(): IXsdListComplexTypes
     vfunc_set_complex_type_definitions(value: IXsdListComplexTypes): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -4345,7 +4345,7 @@ export class IXsdSchema {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: IXsdSchema, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: IXsdSchema, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -4368,14 +4368,14 @@ export interface IXsdBaseType_ConstructProps extends GObject.Object_ConstructPro
     anotation?: IXsdAnnotation
 }
 export class IXsdBaseType {
-    /* Properties of GXml.IXsdBaseType */
+    /* Properties of GXml-0.14.GXml.IXsdBaseType */
     anotation: IXsdAnnotation
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GXml.IXsdBaseType */
+    /* Methods of GXml-0.14.GXml.IXsdBaseType */
     get_anotation(): IXsdAnnotation
     set_anotation(value: IXsdAnnotation): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -4397,10 +4397,10 @@ export class IXsdBaseType {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GXml.IXsdBaseType */
+    /* Virtual methods of GXml-0.14.GXml.IXsdBaseType */
     vfunc_get_anotation(): IXsdAnnotation
     vfunc_set_anotation(value: IXsdAnnotation): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -4408,7 +4408,7 @@ export class IXsdBaseType {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: IXsdBaseType, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: IXsdBaseType, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -4433,7 +4433,7 @@ export interface IXsdSimpleType_ConstructProps extends GObject.Object_ConstructP
     restriction?: IXsdTypeRestriction
 }
 export class IXsdSimpleType {
-    /* Properties of GXml.IXsdSimpleType */
+    /* Properties of GXml-0.14.GXml.IXsdSimpleType */
     final: string
     id: string
     name: string
@@ -4441,9 +4441,9 @@ export class IXsdSimpleType {
     list: IXsdTypeList
     union: IXsdTypeUnion
     restriction: IXsdTypeRestriction
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GXml.IXsdSimpleType */
+    /* Methods of GXml-0.14.GXml.IXsdSimpleType */
     get_final(): string
     set_final(value: string): void
     get_id(): string
@@ -4458,7 +4458,7 @@ export class IXsdSimpleType {
     set_union(value: IXsdTypeUnion): void
     get_restriction(): IXsdTypeRestriction
     set_restriction(value: IXsdTypeRestriction): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -4480,7 +4480,7 @@ export class IXsdSimpleType {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GXml.IXsdSimpleType */
+    /* Virtual methods of GXml-0.14.GXml.IXsdSimpleType */
     vfunc_get_final(): string
     vfunc_set_final(value: string): void
     vfunc_get_id(): string
@@ -4495,7 +4495,7 @@ export class IXsdSimpleType {
     vfunc_set_union(value: IXsdTypeUnion): void
     vfunc_get_restriction(): IXsdTypeRestriction
     vfunc_set_restriction(value: IXsdTypeRestriction): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -4503,7 +4503,7 @@ export class IXsdSimpleType {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: IXsdSimpleType, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: IXsdSimpleType, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -4533,9 +4533,9 @@ export class IXsdSimpleType {
 export interface IXsdTypeDef_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class IXsdTypeDef {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -4557,7 +4557,7 @@ export class IXsdTypeDef {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -4565,7 +4565,7 @@ export class IXsdTypeDef {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: IXsdTypeDef, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: IXsdTypeDef, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -4586,15 +4586,15 @@ export interface IXsdTypeRestriction_ConstructProps extends GObject.Object_Const
     white_spaces?: IXsdListTypeRestrictionWhiteSpaces
 }
 export class IXsdTypeRestriction {
-    /* Properties of GXml.IXsdTypeRestriction */
+    /* Properties of GXml-0.14.GXml.IXsdTypeRestriction */
     base: string
     id: string
     simple_type: IXsdSimpleType
     enumerations: IXsdListTypeRestrictionEnumerations
     white_spaces: IXsdListTypeRestrictionWhiteSpaces
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GXml.IXsdTypeRestriction */
+    /* Methods of GXml-0.14.GXml.IXsdTypeRestriction */
     get_base(): string
     set_base(value: string): void
     get_id(): string
@@ -4605,7 +4605,7 @@ export class IXsdTypeRestriction {
     set_enumerations(value: IXsdListTypeRestrictionEnumerations): void
     get_white_spaces(): IXsdListTypeRestrictionWhiteSpaces
     set_white_spaces(value: IXsdListTypeRestrictionWhiteSpaces): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -4627,7 +4627,7 @@ export class IXsdTypeRestriction {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GXml.IXsdTypeRestriction */
+    /* Virtual methods of GXml-0.14.GXml.IXsdTypeRestriction */
     vfunc_get_base(): string
     vfunc_set_base(value: string): void
     vfunc_get_id(): string
@@ -4638,7 +4638,7 @@ export class IXsdTypeRestriction {
     vfunc_set_enumerations(value: IXsdListTypeRestrictionEnumerations): void
     vfunc_get_white_spaces(): IXsdListTypeRestrictionWhiteSpaces
     vfunc_set_white_spaces(value: IXsdListTypeRestrictionWhiteSpaces): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -4646,7 +4646,7 @@ export class IXsdTypeRestriction {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: IXsdTypeRestriction, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: IXsdTypeRestriction, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -4672,9 +4672,9 @@ export class IXsdTypeRestriction {
 export interface IXsdTypeList_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class IXsdTypeList {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -4696,7 +4696,7 @@ export class IXsdTypeList {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -4704,7 +4704,7 @@ export class IXsdTypeList {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: IXsdTypeList, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: IXsdTypeList, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -4720,9 +4720,9 @@ export class IXsdTypeList {
 export interface IXsdTypeUnion_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class IXsdTypeUnion {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -4744,7 +4744,7 @@ export class IXsdTypeUnion {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -4752,7 +4752,7 @@ export class IXsdTypeUnion {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: IXsdTypeUnion, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: IXsdTypeUnion, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -4769,14 +4769,14 @@ export interface IXsdTypeRestrictionDef_ConstructProps extends GObject.Object_Co
     annotation?: IXsdAnnotation
 }
 export class IXsdTypeRestrictionDef {
-    /* Properties of GXml.IXsdTypeRestrictionDef */
+    /* Properties of GXml-0.14.GXml.IXsdTypeRestrictionDef */
     annotation: IXsdAnnotation
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GXml.IXsdTypeRestrictionDef */
+    /* Methods of GXml-0.14.GXml.IXsdTypeRestrictionDef */
     get_annotation(): IXsdAnnotation
     set_annotation(value: IXsdAnnotation): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -4798,10 +4798,10 @@ export class IXsdTypeRestrictionDef {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GXml.IXsdTypeRestrictionDef */
+    /* Virtual methods of GXml-0.14.GXml.IXsdTypeRestrictionDef */
     vfunc_get_annotation(): IXsdAnnotation
     vfunc_set_annotation(value: IXsdAnnotation): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -4809,7 +4809,7 @@ export class IXsdTypeRestrictionDef {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: IXsdTypeRestrictionDef, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: IXsdTypeRestrictionDef, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -4827,9 +4827,9 @@ export class IXsdTypeRestrictionDef {
 export interface IXsdTypeRestrictionMinExclusive_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class IXsdTypeRestrictionMinExclusive {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -4851,7 +4851,7 @@ export class IXsdTypeRestrictionMinExclusive {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -4859,7 +4859,7 @@ export class IXsdTypeRestrictionMinExclusive {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: IXsdTypeRestrictionMinExclusive, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: IXsdTypeRestrictionMinExclusive, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -4875,9 +4875,9 @@ export class IXsdTypeRestrictionMinExclusive {
 export interface IXsdTypeRestrictionMinInclusive_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class IXsdTypeRestrictionMinInclusive {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -4899,7 +4899,7 @@ export class IXsdTypeRestrictionMinInclusive {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -4907,7 +4907,7 @@ export class IXsdTypeRestrictionMinInclusive {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: IXsdTypeRestrictionMinInclusive, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: IXsdTypeRestrictionMinInclusive, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -4923,9 +4923,9 @@ export class IXsdTypeRestrictionMinInclusive {
 export interface IXsdTypeRestrictionMaxExclusive_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class IXsdTypeRestrictionMaxExclusive {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -4947,7 +4947,7 @@ export class IXsdTypeRestrictionMaxExclusive {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -4955,7 +4955,7 @@ export class IXsdTypeRestrictionMaxExclusive {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: IXsdTypeRestrictionMaxExclusive, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: IXsdTypeRestrictionMaxExclusive, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -4971,9 +4971,9 @@ export class IXsdTypeRestrictionMaxExclusive {
 export interface IXsdTypeRestrictionMaxInclusive_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class IXsdTypeRestrictionMaxInclusive {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -4995,7 +4995,7 @@ export class IXsdTypeRestrictionMaxInclusive {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -5003,7 +5003,7 @@ export class IXsdTypeRestrictionMaxInclusive {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: IXsdTypeRestrictionMaxInclusive, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: IXsdTypeRestrictionMaxInclusive, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -5019,9 +5019,9 @@ export class IXsdTypeRestrictionMaxInclusive {
 export interface IXsdTypeRestrictionTotalDigits_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class IXsdTypeRestrictionTotalDigits {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -5043,7 +5043,7 @@ export class IXsdTypeRestrictionTotalDigits {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -5051,7 +5051,7 @@ export class IXsdTypeRestrictionTotalDigits {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: IXsdTypeRestrictionTotalDigits, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: IXsdTypeRestrictionTotalDigits, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -5067,9 +5067,9 @@ export class IXsdTypeRestrictionTotalDigits {
 export interface IXsdTypeRestrictionFractionDigits_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class IXsdTypeRestrictionFractionDigits {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -5091,7 +5091,7 @@ export class IXsdTypeRestrictionFractionDigits {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -5099,7 +5099,7 @@ export class IXsdTypeRestrictionFractionDigits {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: IXsdTypeRestrictionFractionDigits, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: IXsdTypeRestrictionFractionDigits, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -5115,9 +5115,9 @@ export class IXsdTypeRestrictionFractionDigits {
 export interface IXsdTypeRestrictionLength_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class IXsdTypeRestrictionLength {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -5139,7 +5139,7 @@ export class IXsdTypeRestrictionLength {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -5147,7 +5147,7 @@ export class IXsdTypeRestrictionLength {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: IXsdTypeRestrictionLength, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: IXsdTypeRestrictionLength, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -5163,9 +5163,9 @@ export class IXsdTypeRestrictionLength {
 export interface IXsdTypeRestrictionMinLength_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class IXsdTypeRestrictionMinLength {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -5187,7 +5187,7 @@ export class IXsdTypeRestrictionMinLength {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -5195,7 +5195,7 @@ export class IXsdTypeRestrictionMinLength {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: IXsdTypeRestrictionMinLength, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: IXsdTypeRestrictionMinLength, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -5211,9 +5211,9 @@ export class IXsdTypeRestrictionMinLength {
 export interface IXsdTypeRestrictionMaxLength_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class IXsdTypeRestrictionMaxLength {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -5235,7 +5235,7 @@ export class IXsdTypeRestrictionMaxLength {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -5243,7 +5243,7 @@ export class IXsdTypeRestrictionMaxLength {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: IXsdTypeRestrictionMaxLength, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: IXsdTypeRestrictionMaxLength, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -5261,17 +5261,17 @@ export interface IXsdTypeRestrictionEnumeration_ConstructProps extends GObject.O
     value?: string
 }
 export class IXsdTypeRestrictionEnumeration {
-    /* Properties of GXml.IXsdTypeRestrictionEnumeration */
+    /* Properties of GXml-0.14.GXml.IXsdTypeRestrictionEnumeration */
     id: string
     value: string
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GXml.IXsdTypeRestrictionEnumeration */
+    /* Methods of GXml-0.14.GXml.IXsdTypeRestrictionEnumeration */
     get_id(): string
     set_id(value: string): void
     get_value(): string
     set_value(value: string): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -5293,12 +5293,12 @@ export class IXsdTypeRestrictionEnumeration {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GXml.IXsdTypeRestrictionEnumeration */
+    /* Virtual methods of GXml-0.14.GXml.IXsdTypeRestrictionEnumeration */
     vfunc_get_id(): string
     vfunc_set_id(value: string): void
     vfunc_get_value(): string
     vfunc_set_value(value: string): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -5306,7 +5306,7 @@ export class IXsdTypeRestrictionEnumeration {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: IXsdTypeRestrictionEnumeration, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: IXsdTypeRestrictionEnumeration, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -5329,20 +5329,20 @@ export interface IXsdTypeRestrictionWhiteSpace_ConstructProps extends GObject.Ob
     value?: string
 }
 export class IXsdTypeRestrictionWhiteSpace {
-    /* Properties of GXml.IXsdTypeRestrictionWhiteSpace */
+    /* Properties of GXml-0.14.GXml.IXsdTypeRestrictionWhiteSpace */
     fixed: boolean
     id: string
     value: string
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GXml.IXsdTypeRestrictionWhiteSpace */
+    /* Methods of GXml-0.14.GXml.IXsdTypeRestrictionWhiteSpace */
     get_fixed(): boolean
     set_fixed(value: boolean): void
     get_id(): string
     set_id(value: string): void
     get_value(): string
     set_value(value: string): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -5364,14 +5364,14 @@ export class IXsdTypeRestrictionWhiteSpace {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GXml.IXsdTypeRestrictionWhiteSpace */
+    /* Virtual methods of GXml-0.14.GXml.IXsdTypeRestrictionWhiteSpace */
     vfunc_get_fixed(): boolean
     vfunc_set_fixed(value: boolean): void
     vfunc_get_id(): string
     vfunc_set_id(value: string): void
     vfunc_get_value(): string
     vfunc_set_value(value: string): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -5379,7 +5379,7 @@ export class IXsdTypeRestrictionWhiteSpace {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: IXsdTypeRestrictionWhiteSpace, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: IXsdTypeRestrictionWhiteSpace, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -5401,9 +5401,9 @@ export class IXsdTypeRestrictionWhiteSpace {
 export interface IXsdTypeRestrictionPattern_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class IXsdTypeRestrictionPattern {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -5425,7 +5425,7 @@ export class IXsdTypeRestrictionPattern {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -5433,7 +5433,7 @@ export class IXsdTypeRestrictionPattern {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: IXsdTypeRestrictionPattern, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: IXsdTypeRestrictionPattern, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -5449,9 +5449,9 @@ export class IXsdTypeRestrictionPattern {
 export interface IXsdTypeRestrictionAssertion_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class IXsdTypeRestrictionAssertion {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -5473,7 +5473,7 @@ export class IXsdTypeRestrictionAssertion {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -5481,7 +5481,7 @@ export class IXsdTypeRestrictionAssertion {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: IXsdTypeRestrictionAssertion, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: IXsdTypeRestrictionAssertion, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -5497,9 +5497,9 @@ export class IXsdTypeRestrictionAssertion {
 export interface IXsdTypeRestrictionExplicitTimezone_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class IXsdTypeRestrictionExplicitTimezone {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -5521,7 +5521,7 @@ export class IXsdTypeRestrictionExplicitTimezone {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -5529,7 +5529,7 @@ export class IXsdTypeRestrictionExplicitTimezone {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: IXsdTypeRestrictionExplicitTimezone, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: IXsdTypeRestrictionExplicitTimezone, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -5552,7 +5552,7 @@ export interface IXsdComplexType_ConstructProps extends GObject.Object_Construct
     content_type?: IXsdBaseContent
 }
 export class IXsdComplexType {
-    /* Properties of GXml.IXsdComplexType */
+    /* Properties of GXml-0.14.GXml.IXsdComplexType */
     abstract: boolean
     block: string
     final: string
@@ -5562,9 +5562,9 @@ export class IXsdComplexType {
     content_type: IXsdBaseContent
     readonly type_attributes: IXsdListAttributes
     readonly group_attributes: IXsdListAttributesGroup
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GXml.IXsdComplexType */
+    /* Methods of GXml-0.14.GXml.IXsdComplexType */
     get_abstract(): boolean
     set_abstract(value: boolean): void
     get_block(): string
@@ -5581,7 +5581,7 @@ export class IXsdComplexType {
     set_content_type(value: IXsdBaseContent): void
     get_type_attributes(): IXsdListAttributes
     get_group_attributes(): IXsdListAttributesGroup
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -5603,7 +5603,7 @@ export class IXsdComplexType {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GXml.IXsdComplexType */
+    /* Virtual methods of GXml-0.14.GXml.IXsdComplexType */
     vfunc_get_abstract(): boolean
     vfunc_set_abstract(value: boolean): void
     vfunc_get_block(): string
@@ -5620,7 +5620,7 @@ export class IXsdComplexType {
     vfunc_set_content_type(value: IXsdBaseContent): void
     vfunc_get_type_attributes(): IXsdListAttributes
     vfunc_get_group_attributes(): IXsdListAttributesGroup
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -5628,7 +5628,7 @@ export class IXsdComplexType {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: IXsdComplexType, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: IXsdComplexType, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -5663,14 +5663,14 @@ export interface IXsdExtension_ConstructProps extends GObject.Object_ConstructPr
     base?: string
 }
 export class IXsdExtension {
-    /* Properties of GXml.IXsdExtension */
+    /* Properties of GXml-0.14.GXml.IXsdExtension */
     base: string
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GXml.IXsdExtension */
+    /* Methods of GXml-0.14.GXml.IXsdExtension */
     get_base(): string
     set_base(value: string): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -5692,10 +5692,10 @@ export class IXsdExtension {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GXml.IXsdExtension */
+    /* Virtual methods of GXml-0.14.GXml.IXsdExtension */
     vfunc_get_base(): string
     vfunc_set_base(value: string): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -5703,7 +5703,7 @@ export class IXsdExtension {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: IXsdExtension, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: IXsdExtension, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -5739,7 +5739,7 @@ export interface IXsdElement_ConstructProps extends GObject.Object_ConstructProp
     complex_type?: IXsdComplexType
 }
 export class IXsdElement {
-    /* Properties of GXml.IXsdElement */
+    /* Properties of GXml-0.14.GXml.IXsdElement */
     abstract: boolean
     block: string
     "default": string
@@ -5758,9 +5758,9 @@ export class IXsdElement {
     anotation: IXsdAnnotation
     simple_type: IXsdSimpleType
     complex_type: IXsdComplexType
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GXml.IXsdElement */
+    /* Methods of GXml-0.14.GXml.IXsdElement */
     get_abstract(): boolean
     set_abstract(value: boolean): void
     get_block(): string
@@ -5797,7 +5797,7 @@ export class IXsdElement {
     set_simple_type(value: IXsdSimpleType): void
     get_complex_type(): IXsdComplexType
     set_complex_type(value: IXsdComplexType): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -5818,7 +5818,7 @@ export class IXsdElement {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GXml.IXsdElement */
+    /* Virtual methods of GXml-0.14.GXml.IXsdElement */
     vfunc_get_abstract(): boolean
     vfunc_set_abstract(value: boolean): void
     vfunc_get_block(): string
@@ -5855,7 +5855,7 @@ export class IXsdElement {
     vfunc_set_simple_type(value: IXsdSimpleType): void
     vfunc_get_complex_type(): IXsdComplexType
     vfunc_set_complex_type(value: IXsdComplexType): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -5863,7 +5863,7 @@ export class IXsdElement {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: IXsdElement, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: IXsdElement, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -5915,9 +5915,9 @@ export class IXsdElement {
 export interface IXsdAnnotation_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class IXsdAnnotation {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -5939,7 +5939,7 @@ export class IXsdAnnotation {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -5947,7 +5947,7 @@ export class IXsdAnnotation {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: IXsdAnnotation, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: IXsdAnnotation, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -5964,14 +5964,14 @@ export interface IXsdBaseContent_ConstructProps extends GObject.Object_Construct
     anotation?: IXsdAnnotation
 }
 export class IXsdBaseContent {
-    /* Properties of GXml.IXsdBaseContent */
+    /* Properties of GXml-0.14.GXml.IXsdBaseContent */
     anotation: IXsdAnnotation
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GXml.IXsdBaseContent */
+    /* Methods of GXml-0.14.GXml.IXsdBaseContent */
     get_anotation(): IXsdAnnotation
     set_anotation(value: IXsdAnnotation): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -5993,10 +5993,10 @@ export class IXsdBaseContent {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GXml.IXsdBaseContent */
+    /* Virtual methods of GXml-0.14.GXml.IXsdBaseContent */
     vfunc_get_anotation(): IXsdAnnotation
     vfunc_set_anotation(value: IXsdAnnotation): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -6004,7 +6004,7 @@ export class IXsdBaseContent {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: IXsdBaseContent, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: IXsdBaseContent, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -6022,9 +6022,9 @@ export class IXsdBaseContent {
 export interface IXsdSimpleContent_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class IXsdSimpleContent {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -6046,7 +6046,7 @@ export class IXsdSimpleContent {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -6054,7 +6054,7 @@ export class IXsdSimpleContent {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: IXsdSimpleContent, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: IXsdSimpleContent, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -6070,9 +6070,9 @@ export class IXsdSimpleContent {
 export interface IXsdComplexContent_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class IXsdComplexContent {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -6094,7 +6094,7 @@ export class IXsdComplexContent {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -6102,7 +6102,7 @@ export class IXsdComplexContent {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: IXsdComplexContent, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: IXsdComplexContent, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -6118,9 +6118,9 @@ export class IXsdComplexContent {
 export interface IXsdOpenContent_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class IXsdOpenContent {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -6142,7 +6142,7 @@ export class IXsdOpenContent {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -6150,7 +6150,7 @@ export class IXsdOpenContent {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: IXsdOpenContent, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: IXsdOpenContent, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -6167,14 +6167,14 @@ export interface IXsdBaseAttribute_ConstructProps extends GObject.Object_Constru
     anotation?: IXsdAnnotation
 }
 export class IXsdBaseAttribute {
-    /* Properties of GXml.IXsdBaseAttribute */
+    /* Properties of GXml-0.14.GXml.IXsdBaseAttribute */
     anotation: IXsdAnnotation
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GXml.IXsdBaseAttribute */
+    /* Methods of GXml-0.14.GXml.IXsdBaseAttribute */
     get_anotation(): IXsdAnnotation
     set_anotation(value: IXsdAnnotation): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -6196,10 +6196,10 @@ export class IXsdBaseAttribute {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GXml.IXsdBaseAttribute */
+    /* Virtual methods of GXml-0.14.GXml.IXsdBaseAttribute */
     vfunc_get_anotation(): IXsdAnnotation
     vfunc_set_anotation(value: IXsdAnnotation): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -6207,7 +6207,7 @@ export class IXsdBaseAttribute {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: IXsdBaseAttribute, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: IXsdBaseAttribute, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -6225,9 +6225,9 @@ export class IXsdBaseAttribute {
 export interface IXsdAttribute_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class IXsdAttribute {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -6249,7 +6249,7 @@ export class IXsdAttribute {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -6257,7 +6257,7 @@ export class IXsdAttribute {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: IXsdAttribute, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: IXsdAttribute, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -6273,9 +6273,9 @@ export class IXsdAttribute {
 export interface IXsdAttributeGroup_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class IXsdAttributeGroup {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -6297,7 +6297,7 @@ export class IXsdAttributeGroup {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -6305,7 +6305,7 @@ export class IXsdAttributeGroup {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: IXsdAttributeGroup, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: IXsdAttributeGroup, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -6324,14 +6324,14 @@ export interface IXsdList_ConstructProps extends GObject.Object_ConstructProps {
     items_name?: GObject.Type
 }
 export class IXsdList {
-    /* Properties of GXml.IXsdList */
+    /* Properties of GXml-0.14.GXml.IXsdList */
     element: DomElement
     items_type: GObject.Type
     items_name: GObject.Type
     readonly length: number
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GXml.IXsdList */
+    /* Methods of GXml-0.14.GXml.IXsdList */
     get_item(index: number): DomElement | null
     append(element: DomElement): void
     remove(index: number): void
@@ -6343,7 +6343,7 @@ export class IXsdList {
     get_items_name(): GObject.Type
     set_items_name(value: GObject.Type): void
     get_length(): number
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -6365,7 +6365,7 @@ export class IXsdList {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GXml.IXsdList */
+    /* Virtual methods of GXml-0.14.GXml.IXsdList */
     vfunc_get_item(index: number): DomElement | null
     vfunc_append(element: DomElement): void
     vfunc_remove(index: number): void
@@ -6377,7 +6377,7 @@ export class IXsdList {
     vfunc_get_items_name(): GObject.Type
     vfunc_set_items_name(value: GObject.Type): void
     vfunc_get_length(): number
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -6385,7 +6385,7 @@ export class IXsdList {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: IXsdList, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: IXsdList, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -6409,9 +6409,9 @@ export class IXsdList {
 export interface IXsdListElements_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class IXsdListElements {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -6433,7 +6433,7 @@ export class IXsdListElements {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -6441,7 +6441,7 @@ export class IXsdListElements {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: IXsdListElements, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: IXsdListElements, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -6457,9 +6457,9 @@ export class IXsdListElements {
 export interface IXsdListSimpleTypes_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class IXsdListSimpleTypes {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -6481,7 +6481,7 @@ export class IXsdListSimpleTypes {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -6489,7 +6489,7 @@ export class IXsdListSimpleTypes {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: IXsdListSimpleTypes, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: IXsdListSimpleTypes, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -6505,9 +6505,9 @@ export class IXsdListSimpleTypes {
 export interface IXsdListComplexTypes_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class IXsdListComplexTypes {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -6529,7 +6529,7 @@ export class IXsdListComplexTypes {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -6537,7 +6537,7 @@ export class IXsdListComplexTypes {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: IXsdListComplexTypes, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: IXsdListComplexTypes, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -6553,9 +6553,9 @@ export class IXsdListComplexTypes {
 export interface IXsdListAttributes_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class IXsdListAttributes {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -6577,7 +6577,7 @@ export class IXsdListAttributes {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -6585,7 +6585,7 @@ export class IXsdListAttributes {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: IXsdListAttributes, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: IXsdListAttributes, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -6601,9 +6601,9 @@ export class IXsdListAttributes {
 export interface IXsdListAttributesGroup_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class IXsdListAttributesGroup {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -6625,7 +6625,7 @@ export class IXsdListAttributesGroup {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -6633,7 +6633,7 @@ export class IXsdListAttributesGroup {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: IXsdListAttributesGroup, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: IXsdListAttributesGroup, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -6649,9 +6649,9 @@ export class IXsdListAttributesGroup {
 export interface IXsdListTypeRestrictionEnumerations_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class IXsdListTypeRestrictionEnumerations {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -6673,7 +6673,7 @@ export class IXsdListTypeRestrictionEnumerations {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -6681,7 +6681,7 @@ export class IXsdListTypeRestrictionEnumerations {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: IXsdListTypeRestrictionEnumerations, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: IXsdListTypeRestrictionEnumerations, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -6697,9 +6697,9 @@ export class IXsdListTypeRestrictionEnumerations {
 export interface IXsdListTypeRestrictionWhiteSpaces_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class IXsdListTypeRestrictionWhiteSpaces {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -6721,7 +6721,7 @@ export class IXsdListTypeRestrictionWhiteSpaces {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -6729,7 +6729,7 @@ export class IXsdListTypeRestrictionWhiteSpaces {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: IXsdListTypeRestrictionWhiteSpaces, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: IXsdListTypeRestrictionWhiteSpaces, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -6745,26 +6745,26 @@ export class IXsdListTypeRestrictionWhiteSpaces {
 export interface ElementList_ConstructProps extends Gee.ArrayList_ConstructProps {
 }
 export class ElementList {
-    /* Properties of Gee.AbstractBidirList */
+    /* Properties of Gee-0.8.Gee.AbstractBidirList */
     readonly read_only_view: Gee.BidirList
-    /* Properties of Gee.AbstractCollection */
+    /* Properties of Gee-0.8.Gee.AbstractCollection */
     readonly size: number
     readonly read_only: boolean
-    /* Properties of GXml.DomHTMLCollection */
+    /* Properties of GXml-0.14.GXml.DomHTMLCollection */
     readonly length: number
-    /* Fields of GXml.ElementList */
+    /* Fields of GXml-0.14.GXml.ElementList */
     parent_instance: Gee.ArrayList
     priv: ElementListPrivate
-    /* Fields of Gee.ArrayList */
+    /* Fields of Gee-0.8.Gee.ArrayList */
     _items: object[]
     _items_length1: number
     _size: number
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Gee.ArrayList */
+    /* Methods of Gee-0.8.Gee.ArrayList */
     add_all(collection: Gee.Collection): boolean
     get_equal_func(): [ /* returnType */ Gee.EqualDataFunc, /* result_target */ object | null ]
-    /* Methods of Gee.AbstractBidirList */
+    /* Methods of Gee-0.8.Gee.AbstractBidirList */
     bidir_list_iterator(): Gee.BidirListIterator
     reserved0(): void
     reserved1(): void
@@ -6777,7 +6777,7 @@ export class ElementList {
     reserved8(): void
     reserved9(): void
     get_read_only_view(): Gee.BidirList
-    /* Methods of Gee.AbstractList */
+    /* Methods of Gee-0.8.Gee.AbstractList */
     list_iterator(): Gee.ListIterator
     get(index: number): object | null
     set(index: number, item?: object | null): void
@@ -6786,7 +6786,7 @@ export class ElementList {
     remove_at(index: number): object | null
     slice(start: number, stop: number): Gee.List | null
     get_read_only_view(): Gee.List
-    /* Methods of Gee.AbstractCollection */
+    /* Methods of Gee-0.8.Gee.AbstractCollection */
     contains(item?: object | null): boolean
     add(item?: object | null): boolean
     remove(item?: object | null): boolean
@@ -6796,7 +6796,7 @@ export class ElementList {
     get_size(): number
     get_read_only(): boolean
     get_read_only_view(): Gee.Collection
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -6818,13 +6818,13 @@ export class ElementList {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of GXml.DomHTMLCollection */
+    /* Methods of GXml-0.14.GXml.DomHTMLCollection */
     get_element(index: number): DomElement | null
     to_array(): DomElement[]
     item(index: number): DomElement | null
     named_item(name: string): DomElement | null
     get_length(): number
-    /* Virtual methods of GXml.ElementList */
+    /* Virtual methods of GXml-0.14.GXml.ElementList */
     vfunc_get_element(index: number): DomElement | null
     vfunc_to_array(): DomElement[]
     vfunc_to_array(): object[]
@@ -6834,11 +6834,11 @@ export class ElementList {
     vfunc_get_read_only_view(): Gee.BidirList
     vfunc_get_read_only_view(): Gee.List
     vfunc_get_read_only_view(): Gee.Collection
-    /* Virtual methods of Gee.ArrayList */
+    /* Virtual methods of Gee-0.8.Gee.ArrayList */
     vfunc_get_read_only_view(): Gee.BidirList
     vfunc_get_read_only_view(): Gee.List
     vfunc_get_read_only_view(): Gee.Collection
-    /* Virtual methods of Gee.AbstractBidirList */
+    /* Virtual methods of Gee-0.8.Gee.AbstractBidirList */
     vfunc_bidir_list_iterator(): Gee.BidirListIterator
     vfunc_reserved0(): void
     vfunc_reserved1(): void
@@ -6853,7 +6853,7 @@ export class ElementList {
     vfunc_get_read_only_view(): Gee.BidirList
     vfunc_get_read_only_view(): Gee.List
     vfunc_get_read_only_view(): Gee.Collection
-    /* Virtual methods of Gee.AbstractList */
+    /* Virtual methods of Gee-0.8.Gee.AbstractList */
     vfunc_list_iterator(): Gee.ListIterator
     vfunc_get(index: number): object | null
     vfunc_set(index: number, item?: object | null): void
@@ -6877,7 +6877,7 @@ export class ElementList {
     vfunc_last(): object | null
     vfunc_insert_all(index: number, collection: Gee.Collection): void
     vfunc_sort(compare_func: GLib.CompareDataFunc | null): void
-    /* Virtual methods of Gee.AbstractCollection */
+    /* Virtual methods of Gee-0.8.Gee.AbstractCollection */
     vfunc_contains(item?: object | null): boolean
     vfunc_add(item?: object | null): boolean
     vfunc_remove(item?: object | null): boolean
@@ -6924,7 +6924,7 @@ export class ElementList {
     vfunc_contains_all_iterator(iter: Gee.Iterator): boolean
     vfunc_remove_all_iterator(iter: Gee.Iterator): boolean
     vfunc_get_is_empty(): boolean
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -6932,7 +6932,7 @@ export class ElementList {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: ElementList, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: ElementList, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -6959,27 +6959,27 @@ export class ElementList {
 export interface NodeList_ConstructProps extends Gee.ArrayList_ConstructProps {
 }
 export class NodeList {
-    /* Properties of Gee.AbstractBidirList */
+    /* Properties of Gee-0.8.Gee.AbstractBidirList */
     readonly read_only_view: Gee.BidirList
-    /* Properties of Gee.AbstractCollection */
+    /* Properties of Gee-0.8.Gee.AbstractCollection */
     readonly size: number
     readonly read_only: boolean
-    /* Fields of GXml.NodeList */
+    /* Fields of GXml-0.14.GXml.NodeList */
     parent_instance: Gee.ArrayList
     priv: NodeListPrivate
-    /* Fields of Gee.ArrayList */
+    /* Fields of Gee-0.8.Gee.ArrayList */
     _items: object[]
     _items_length1: number
     _size: number
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GXml.NodeList */
+    /* Methods of GXml-0.14.GXml.NodeList */
     get(index: number): Node
     to_array(): Node[]
-    /* Methods of Gee.ArrayList */
+    /* Methods of Gee-0.8.Gee.ArrayList */
     add_all(collection: Gee.Collection): boolean
     get_equal_func(): [ /* returnType */ Gee.EqualDataFunc, /* result_target */ object | null ]
-    /* Methods of Gee.AbstractBidirList */
+    /* Methods of Gee-0.8.Gee.AbstractBidirList */
     bidir_list_iterator(): Gee.BidirListIterator
     reserved0(): void
     reserved1(): void
@@ -6992,7 +6992,7 @@ export class NodeList {
     reserved8(): void
     reserved9(): void
     get_read_only_view(): Gee.BidirList
-    /* Methods of Gee.AbstractList */
+    /* Methods of Gee-0.8.Gee.AbstractList */
     list_iterator(): Gee.ListIterator
     get(index: number): object | null
     set(index: number, item?: object | null): void
@@ -7001,7 +7001,7 @@ export class NodeList {
     remove_at(index: number): object | null
     slice(start: number, stop: number): Gee.List | null
     get_read_only_view(): Gee.List
-    /* Methods of Gee.AbstractCollection */
+    /* Methods of Gee-0.8.Gee.AbstractCollection */
     contains(item?: object | null): boolean
     add(item?: object | null): boolean
     remove(item?: object | null): boolean
@@ -7011,7 +7011,7 @@ export class NodeList {
     get_size(): number
     get_read_only(): boolean
     get_read_only_view(): Gee.Collection
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -7033,15 +7033,15 @@ export class NodeList {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GXml.NodeList */
+    /* Virtual methods of GXml-0.14.GXml.NodeList */
     vfunc_get_read_only_view(): Gee.BidirList
     vfunc_get_read_only_view(): Gee.List
     vfunc_get_read_only_view(): Gee.Collection
-    /* Virtual methods of Gee.ArrayList */
+    /* Virtual methods of Gee-0.8.Gee.ArrayList */
     vfunc_get_read_only_view(): Gee.BidirList
     vfunc_get_read_only_view(): Gee.List
     vfunc_get_read_only_view(): Gee.Collection
-    /* Virtual methods of Gee.AbstractBidirList */
+    /* Virtual methods of Gee-0.8.Gee.AbstractBidirList */
     vfunc_bidir_list_iterator(): Gee.BidirListIterator
     vfunc_reserved0(): void
     vfunc_reserved1(): void
@@ -7056,7 +7056,7 @@ export class NodeList {
     vfunc_get_read_only_view(): Gee.BidirList
     vfunc_get_read_only_view(): Gee.List
     vfunc_get_read_only_view(): Gee.Collection
-    /* Virtual methods of Gee.AbstractList */
+    /* Virtual methods of Gee-0.8.Gee.AbstractList */
     vfunc_list_iterator(): Gee.ListIterator
     vfunc_get(index: number): object | null
     vfunc_set(index: number, item?: object | null): void
@@ -7080,7 +7080,7 @@ export class NodeList {
     vfunc_last(): object | null
     vfunc_insert_all(index: number, collection: Gee.Collection): void
     vfunc_sort(compare_func: GLib.CompareDataFunc | null): void
-    /* Virtual methods of Gee.AbstractCollection */
+    /* Virtual methods of Gee-0.8.Gee.AbstractCollection */
     vfunc_contains(item?: object | null): boolean
     vfunc_add(item?: object | null): boolean
     vfunc_remove(item?: object | null): boolean
@@ -7127,7 +7127,7 @@ export class NodeList {
     vfunc_contains_all_iterator(iter: Gee.Iterator): boolean
     vfunc_remove_all_iterator(iter: Gee.Iterator): boolean
     vfunc_get_is_empty(): boolean
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -7135,7 +7135,7 @@ export class NodeList {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: NodeList, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: NodeList, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -7160,16 +7160,16 @@ export class NodeList {
 export interface SerializableBool_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class SerializableBool {
-    /* Fields of GXml.SerializableBool */
+    /* Fields of GXml-0.14.GXml.SerializableBool */
     parent_instance: GObject.Object
     priv: SerializableBoolPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GXml.SerializableBool */
+    /* Methods of GXml-0.14.GXml.SerializableBool */
     get_value(): boolean
     set_value(val: boolean): void
     to_string(): string
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -7191,19 +7191,19 @@ export class SerializableBool {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of GXml.SerializableProperty */
+    /* Methods of GXml-0.14.GXml.SerializableProperty */
     get_serializable_property_value(): string
     set_serializable_property_value(val?: string | null): void
     deserialize_property(property_node: Node, prop: GObject.ParamSpec, nick: boolean): boolean
     serialize_property(property_node: Node, prop: GObject.ParamSpec, nick: boolean): Node | null
     default_serializable_property_serialize_property(element: Node, prop: GObject.ParamSpec, nick: boolean): Node | null
     default_serializable_property_deserialize_property(property_node: Node, prop: GObject.ParamSpec, nick: boolean): boolean
-    /* Virtual methods of GXml.SerializableBool */
+    /* Virtual methods of GXml-0.14.GXml.SerializableBool */
     vfunc_get_serializable_property_value(): string
     vfunc_set_serializable_property_value(val?: string | null): void
     vfunc_deserialize_property(property_node: Node, prop: GObject.ParamSpec, nick: boolean): boolean
     vfunc_serialize_property(property_node: Node, prop: GObject.ParamSpec, nick: boolean): Node | null
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -7211,7 +7211,7 @@ export class SerializableBool {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: SerializableBool, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: SerializableBool, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -7229,21 +7229,21 @@ export class SerializableBool {
 export interface SerializableDouble_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class SerializableDouble {
-    /* Fields of GXml.SerializableDouble */
+    /* Fields of GXml-0.14.GXml.SerializableDouble */
     parent_instance: GObject.Object
     priv: SerializableDoublePrivate
     _val: string
     _fraction: number
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GXml.SerializableDouble */
+    /* Methods of GXml-0.14.GXml.SerializableDouble */
     get_fraction(): number
     set_fraction(fraction: number): void
     get_value(): number
     set_value(val: number): void
     to_string(): string
     format(f: string): string
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -7265,19 +7265,19 @@ export class SerializableDouble {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of GXml.SerializableProperty */
+    /* Methods of GXml-0.14.GXml.SerializableProperty */
     get_serializable_property_value(): string
     set_serializable_property_value(val?: string | null): void
     deserialize_property(property_node: Node, prop: GObject.ParamSpec, nick: boolean): boolean
     serialize_property(property_node: Node, prop: GObject.ParamSpec, nick: boolean): Node | null
     default_serializable_property_serialize_property(element: Node, prop: GObject.ParamSpec, nick: boolean): Node | null
     default_serializable_property_deserialize_property(property_node: Node, prop: GObject.ParamSpec, nick: boolean): boolean
-    /* Virtual methods of GXml.SerializableDouble */
+    /* Virtual methods of GXml-0.14.GXml.SerializableDouble */
     vfunc_get_serializable_property_value(): string
     vfunc_set_serializable_property_value(val?: string | null): void
     vfunc_deserialize_property(property_node: Node, prop: GObject.ParamSpec, nick: boolean): boolean
     vfunc_serialize_property(property_node: Node, prop: GObject.ParamSpec, nick: boolean): Node | null
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -7285,7 +7285,7 @@ export class SerializableDouble {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: SerializableDouble, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: SerializableDouble, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -7303,23 +7303,23 @@ export class SerializableDouble {
 export interface SerializableFloat_ConstructProps extends SerializableDouble_ConstructProps {
 }
 export class SerializableFloat {
-    /* Fields of GXml.SerializableFloat */
+    /* Fields of GXml-0.14.GXml.SerializableFloat */
     parent_instance: SerializableDouble
     priv: SerializableFloatPrivate
-    /* Fields of GXml.SerializableDouble */
+    /* Fields of GXml-0.14.GXml.SerializableDouble */
     _val: string
     _fraction: number
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GXml.SerializableFloat */
+    /* Methods of GXml-0.14.GXml.SerializableFloat */
     get_value(): number
     set_value(val: number): void
-    /* Methods of GXml.SerializableDouble */
+    /* Methods of GXml-0.14.GXml.SerializableDouble */
     get_fraction(): number
     set_fraction(fraction: number): void
     to_string(): string
     format(f: string): string
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -7341,12 +7341,12 @@ export class SerializableFloat {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GXml.SerializableDouble */
+    /* Virtual methods of GXml-0.14.GXml.SerializableDouble */
     vfunc_get_serializable_property_value(): string
     vfunc_set_serializable_property_value(val?: string | null): void
     vfunc_deserialize_property(property_node: Node, prop: GObject.ParamSpec, nick: boolean): boolean
     vfunc_serialize_property(property_node: Node, prop: GObject.ParamSpec, nick: boolean): Node | null
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -7354,7 +7354,7 @@ export class SerializableFloat {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: SerializableFloat, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: SerializableFloat, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -7372,21 +7372,21 @@ export class SerializableFloat {
 export interface SerializableEnum_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class SerializableEnum {
-    /* Fields of GXml.SerializableEnum */
+    /* Fields of GXml-0.14.GXml.SerializableEnum */
     parent_instance: GObject.Object
     priv: SerializableEnumPrivate
     _val: string
     _enumtype: GObject.Type
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GXml.SerializableEnum */
+    /* Methods of GXml-0.14.GXml.SerializableEnum */
     set_enum_type(type: GObject.Type): void
     get_enum_type(): GObject.Type
     parse(str: string): void
     parse_integer(v: number): void
     to_integer(): number
     to_string(): string
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -7408,19 +7408,19 @@ export class SerializableEnum {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of GXml.SerializableProperty */
+    /* Methods of GXml-0.14.GXml.SerializableProperty */
     get_serializable_property_value(): string
     set_serializable_property_value(val?: string | null): void
     deserialize_property(property_node: Node, prop: GObject.ParamSpec, nick: boolean): boolean
     serialize_property(property_node: Node, prop: GObject.ParamSpec, nick: boolean): Node | null
     default_serializable_property_serialize_property(element: Node, prop: GObject.ParamSpec, nick: boolean): Node | null
     default_serializable_property_deserialize_property(property_node: Node, prop: GObject.ParamSpec, nick: boolean): boolean
-    /* Virtual methods of GXml.SerializableEnum */
+    /* Virtual methods of GXml-0.14.GXml.SerializableEnum */
     vfunc_get_serializable_property_value(): string
     vfunc_set_serializable_property_value(val?: string | null): void
     vfunc_deserialize_property(property_node: Node, prop: GObject.ParamSpec, nick: boolean): boolean
     vfunc_serialize_property(property_node: Node, prop: GObject.ParamSpec, nick: boolean): Node | null
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -7428,7 +7428,7 @@ export class SerializableEnum {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: SerializableEnum, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: SerializableEnum, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -7447,23 +7447,23 @@ export class SerializableEnum {
 export interface SerializableInt_ConstructProps extends SerializableDouble_ConstructProps {
 }
 export class SerializableInt {
-    /* Fields of GXml.SerializableInt */
+    /* Fields of GXml-0.14.GXml.SerializableInt */
     parent_instance: SerializableDouble
     priv: SerializableIntPrivate
-    /* Fields of GXml.SerializableDouble */
+    /* Fields of GXml-0.14.GXml.SerializableDouble */
     _val: string
     _fraction: number
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GXml.SerializableInt */
+    /* Methods of GXml-0.14.GXml.SerializableInt */
     get_value(): number
     set_value(val: number): void
-    /* Methods of GXml.SerializableDouble */
+    /* Methods of GXml-0.14.GXml.SerializableDouble */
     get_fraction(): number
     set_fraction(fraction: number): void
     to_string(): string
     format(f: string): string
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -7485,12 +7485,12 @@ export class SerializableInt {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GXml.SerializableDouble */
+    /* Virtual methods of GXml-0.14.GXml.SerializableDouble */
     vfunc_get_serializable_property_value(): string
     vfunc_set_serializable_property_value(val?: string | null): void
     vfunc_deserialize_property(property_node: Node, prop: GObject.ParamSpec, nick: boolean): boolean
     vfunc_serialize_property(property_node: Node, prop: GObject.ParamSpec, nick: boolean): Node | null
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -7498,7 +7498,7 @@ export class SerializableInt {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: SerializableInt, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: SerializableInt, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -7516,14 +7516,14 @@ export class SerializableInt {
 export interface SerializableValueList_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class SerializableValueList {
-    /* Fields of GXml.SerializableValueList */
+    /* Fields of GXml-0.14.GXml.SerializableValueList */
     parent_instance: GObject.Object
     priv: SerializableValueListPrivate
     _vals: string[]
     extra: Gee.ArrayList
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GXml.SerializableValueList */
+    /* Methods of GXml-0.14.GXml.SerializableValueList */
     get_values(): Gee.List
     add_values(vals: string[]): void
     get_value_at(index: number): string | null
@@ -7531,7 +7531,7 @@ export class SerializableValueList {
     get_values_array(): string[]
     is_value(): boolean
     to_string(): string
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -7553,14 +7553,14 @@ export class SerializableValueList {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of GXml.SerializableProperty */
+    /* Methods of GXml-0.14.GXml.SerializableProperty */
     get_serializable_property_value(): string
     set_serializable_property_value(val?: string | null): void
     deserialize_property(property_node: Node, prop: GObject.ParamSpec, nick: boolean): boolean
     serialize_property(property_node: Node, prop: GObject.ParamSpec, nick: boolean): Node | null
     default_serializable_property_serialize_property(element: Node, prop: GObject.ParamSpec, nick: boolean): Node | null
     default_serializable_property_deserialize_property(property_node: Node, prop: GObject.ParamSpec, nick: boolean): boolean
-    /* Virtual methods of GXml.SerializableValueList */
+    /* Virtual methods of GXml-0.14.GXml.SerializableValueList */
     vfunc_get_values(): Gee.List
     vfunc_add_values(vals: string[]): void
     vfunc_get_value_at(index: number): string | null
@@ -7571,7 +7571,7 @@ export class SerializableValueList {
     vfunc_set_serializable_property_value(val?: string | null): void
     vfunc_deserialize_property(property_node: Node, prop: GObject.ParamSpec, nick: boolean): boolean
     vfunc_serialize_property(property_node: Node, prop: GObject.ParamSpec, nick: boolean): Node | null
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -7579,7 +7579,7 @@ export class SerializableValueList {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: SerializableValueList, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: SerializableValueList, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -7600,20 +7600,20 @@ export interface SerializableObjectModel_ConstructProps extends GObject.Object_C
     serialized_xml_node_value?: string
 }
 export class SerializableObjectModel {
-    /* Properties of GXml.SerializableObjectModel */
+    /* Properties of GXml-0.14.GXml.SerializableObjectModel */
     properties: GObject.ParamSpec[]
     ignored_serializable_properties: GLib.HashTable
-    /* Properties of GXml.Serializable */
+    /* Properties of GXml-0.14.GXml.Serializable */
     readonly unknown_serializable_properties: Gee.Map
     readonly unknown_serializable_nodes: Gee.Collection
     serialized_xml_node_value: string
-    /* Fields of GXml.SerializableObjectModel */
+    /* Fields of GXml-0.14.GXml.SerializableObjectModel */
     parent_instance: GObject.Object
     priv: SerializableObjectModelPrivate
     _node: Node
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GXml.SerializableObjectModel */
+    /* Methods of GXml-0.14.GXml.SerializableObjectModel */
     get_enable_unknown_serializable_property(): boolean
     serialize_use_xml_node_value(): boolean
     property_use_nick(): boolean
@@ -7635,7 +7635,7 @@ export class SerializableObjectModel {
     set_properties(value: GObject.ParamSpec[]): void
     get_ignored_serializable_properties(): GLib.HashTable
     set_ignored_serializable_properties(value: GLib.HashTable): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -7657,14 +7657,14 @@ export class SerializableObjectModel {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of GXml.Serializable */
+    /* Methods of GXml-0.14.GXml.Serializable */
     default_find_property_spec(property_name: string): GObject.ParamSpec | null
     default_list_serializable_properties(): GObject.ParamSpec[]
     get_unknown_serializable_properties(): Gee.Map
     get_unknown_serializable_nodes(): Gee.Collection
     get_serialized_xml_node_value(): string | null
     set_serialized_xml_node_value(value?: string | null): void
-    /* Virtual methods of GXml.SerializableObjectModel */
+    /* Virtual methods of GXml-0.14.GXml.SerializableObjectModel */
     vfunc_get_enable_unknown_serializable_property(): boolean
     vfunc_serialize_use_xml_node_value(): boolean
     vfunc_property_use_nick(): boolean
@@ -7683,7 +7683,7 @@ export class SerializableObjectModel {
     vfunc_get_unknown_serializable_nodes(): Gee.Collection
     vfunc_get_serialized_xml_node_value(): string | null
     vfunc_set_serialized_xml_node_value(value?: string | null): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -7691,11 +7691,11 @@ export class SerializableObjectModel {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: SerializableObjectModel, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: SerializableObjectModel, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    /* Signals of GXml.Serializable */
+    /* Signals of GXml-0.14.GXml.Serializable */
     connect(sigName: "serialize-unknown-property", callback: (($obj: SerializableObjectModel, element: Node, prop: GObject.ParamSpec) => void)): number
     connect_after(sigName: "serialize-unknown-property", callback: (($obj: SerializableObjectModel, element: Node, prop: GObject.ParamSpec) => void)): number
     emit(sigName: "serialize-unknown-property", element: Node, prop: GObject.ParamSpec): void
@@ -7736,32 +7736,32 @@ export interface SerializableTreeMap_ConstructProps extends Gee.TreeMap_Construc
     serialized_xml_node_value?: string
 }
 export class SerializableTreeMap {
-    /* Properties of GXml.SerializableTreeMap */
+    /* Properties of GXml-0.14.GXml.SerializableTreeMap */
     properties: GObject.ParamSpec[]
     ignored_serializable_properties: GLib.HashTable
-    /* Properties of Gee.AbstractBidirSortedMap */
+    /* Properties of Gee-0.8.Gee.AbstractBidirSortedMap */
     readonly read_only_view: Gee.BidirSortedMap
-    /* Properties of Gee.AbstractSortedMap */
+    /* Properties of Gee-0.8.Gee.AbstractSortedMap */
     readonly ascending_keys: Gee.SortedSet
     readonly ascending_entries: Gee.SortedSet
-    /* Properties of Gee.AbstractMap */
+    /* Properties of Gee-0.8.Gee.AbstractMap */
     readonly size: number
     readonly read_only: boolean
     readonly keys: Gee.Set
     readonly values: Gee.Collection
     readonly entries: Gee.Set
-    /* Properties of GXml.Serializable */
+    /* Properties of GXml-0.14.GXml.Serializable */
     readonly unknown_serializable_properties: Gee.Map
     readonly unknown_serializable_nodes: Gee.Collection
     serialized_xml_node_value: string
-    /* Fields of GXml.SerializableTreeMap */
+    /* Fields of GXml-0.14.GXml.SerializableTreeMap */
     parent_instance: Gee.TreeMap
     priv: SerializableTreeMapPrivate
     _node: Node
     _deserialized: boolean
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GXml.SerializableTreeMap */
+    /* Methods of GXml-0.14.GXml.SerializableTreeMap */
     deserialize_proceed(): boolean
     deserialized(): boolean
     deserialize_node(node: Node): boolean
@@ -7784,10 +7784,10 @@ export class SerializableTreeMap {
     set_properties(value: GObject.ParamSpec[]): void
     get_ignored_serializable_properties(): GLib.HashTable
     set_ignored_serializable_properties(value: GLib.HashTable): void
-    /* Methods of Gee.TreeMap */
+    /* Methods of Gee-0.8.Gee.TreeMap */
     get_key_compare_func(): [ /* returnType */ GLib.CompareDataFunc, /* result_target */ object | null ]
     get_value_equal_func(): [ /* returnType */ Gee.EqualDataFunc, /* result_target */ object | null ]
-    /* Methods of Gee.AbstractBidirSortedMap */
+    /* Methods of Gee-0.8.Gee.AbstractBidirSortedMap */
     bidir_map_iterator(): Gee.BidirMapIterator
     reserved0(): void
     reserved1(): void
@@ -7800,13 +7800,13 @@ export class SerializableTreeMap {
     reserved8(): void
     reserved9(): void
     get_read_only_view(): Gee.BidirSortedMap
-    /* Methods of Gee.AbstractSortedMap */
+    /* Methods of Gee-0.8.Gee.AbstractSortedMap */
     head_map(before?: object | null): Gee.SortedMap
     tail_map(after?: object | null): Gee.SortedMap
     sub_map(before?: object | null, after?: object | null): Gee.SortedMap
     get_ascending_keys(): Gee.SortedSet
     get_ascending_entries(): Gee.SortedSet
-    /* Methods of Gee.AbstractMap */
+    /* Methods of Gee-0.8.Gee.AbstractMap */
     has_key(key?: object | null): boolean
     has(key?: object | null, value?: object | null): boolean
     get(key?: object | null): object | null
@@ -7822,7 +7822,7 @@ export class SerializableTreeMap {
     get_values(): Gee.Collection
     get_entries(): Gee.Set
     get_read_only_view(): Gee.Map
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -7844,7 +7844,7 @@ export class SerializableTreeMap {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of GXml.Serializable */
+    /* Methods of GXml-0.14.GXml.Serializable */
     get_enable_unknown_serializable_property(): boolean
     default_find_property_spec(property_name: string): GObject.ParamSpec | null
     default_list_serializable_properties(): GObject.ParamSpec[]
@@ -7852,9 +7852,9 @@ export class SerializableTreeMap {
     get_unknown_serializable_nodes(): Gee.Collection
     get_serialized_xml_node_value(): string | null
     set_serialized_xml_node_value(value?: string | null): void
-    /* Methods of GXml.SerializableCollection */
+    /* Methods of GXml-0.14.GXml.SerializableCollection */
     is_collection(): boolean
-    /* Virtual methods of GXml.SerializableTreeMap */
+    /* Virtual methods of GXml-0.14.GXml.SerializableTreeMap */
     vfunc_deserialize_proceed(): boolean
     vfunc_deserialized(): boolean
     vfunc_deserialize_node(node: Node): boolean
@@ -7880,11 +7880,11 @@ export class SerializableTreeMap {
     vfunc_get_read_only_view(): Gee.BidirSortedMap
     vfunc_get_read_only_view(): Gee.SortedMap
     vfunc_get_read_only_view(): Gee.Map
-    /* Virtual methods of Gee.TreeMap */
+    /* Virtual methods of Gee-0.8.Gee.TreeMap */
     vfunc_get_read_only_view(): Gee.BidirSortedMap
     vfunc_get_read_only_view(): Gee.SortedMap
     vfunc_get_read_only_view(): Gee.Map
-    /* Virtual methods of Gee.AbstractBidirSortedMap */
+    /* Virtual methods of Gee-0.8.Gee.AbstractBidirSortedMap */
     vfunc_bidir_map_iterator(): Gee.BidirMapIterator
     vfunc_reserved0(): void
     vfunc_reserved1(): void
@@ -7899,7 +7899,7 @@ export class SerializableTreeMap {
     vfunc_get_read_only_view(): Gee.BidirSortedMap
     vfunc_get_read_only_view(): Gee.SortedMap
     vfunc_get_read_only_view(): Gee.Map
-    /* Virtual methods of Gee.AbstractSortedMap */
+    /* Virtual methods of Gee-0.8.Gee.AbstractSortedMap */
     vfunc_head_map(before?: object | null): Gee.SortedMap
     vfunc_tail_map(after?: object | null): Gee.SortedMap
     vfunc_sub_map(before?: object | null, after?: object | null): Gee.SortedMap
@@ -7917,7 +7917,7 @@ export class SerializableTreeMap {
     vfunc_get_ascending_entries(): Gee.SortedSet
     vfunc_get_read_only_view(): Gee.SortedMap
     vfunc_get_read_only_view(): Gee.Map
-    /* Virtual methods of Gee.AbstractMap */
+    /* Virtual methods of Gee-0.8.Gee.AbstractMap */
     vfunc_has_key(key?: object | null): boolean
     vfunc_has(key?: object | null, value?: object | null): boolean
     vfunc_get(key?: object | null): object | null
@@ -7962,7 +7962,7 @@ export class SerializableTreeMap {
     vfunc_unset_all(map: Gee.Map): boolean
     vfunc_has_all(map: Gee.Map): boolean
     vfunc_get_is_empty(): boolean
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -7970,11 +7970,11 @@ export class SerializableTreeMap {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: SerializableTreeMap, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: SerializableTreeMap, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    /* Signals of GXml.Serializable */
+    /* Signals of GXml-0.14.GXml.Serializable */
     connect(sigName: "serialize-unknown-property", callback: (($obj: SerializableTreeMap, element: Node, prop: GObject.ParamSpec) => void)): number
     connect_after(sigName: "serialize-unknown-property", callback: (($obj: SerializableTreeMap, element: Node, prop: GObject.ParamSpec) => void)): number
     emit(sigName: "serialize-unknown-property", element: Node, prop: GObject.ParamSpec): void
@@ -8033,28 +8033,28 @@ export interface SerializableHashMap_ConstructProps extends Gee.HashMap_Construc
     serialized_xml_node_value?: string
 }
 export class SerializableHashMap {
-    /* Properties of GXml.SerializableHashMap */
+    /* Properties of GXml-0.14.GXml.SerializableHashMap */
     properties: GObject.ParamSpec[]
     ignored_serializable_properties: GLib.HashTable
-    /* Properties of Gee.AbstractMap */
+    /* Properties of Gee-0.8.Gee.AbstractMap */
     readonly size: number
     readonly read_only: boolean
     readonly keys: Gee.Set
     readonly values: Gee.Collection
     readonly entries: Gee.Set
     readonly read_only_view: Gee.Map
-    /* Properties of GXml.Serializable */
+    /* Properties of GXml-0.14.GXml.Serializable */
     readonly unknown_serializable_properties: Gee.Map
     readonly unknown_serializable_nodes: Gee.Collection
     serialized_xml_node_value: string
-    /* Fields of GXml.SerializableHashMap */
+    /* Fields of GXml-0.14.GXml.SerializableHashMap */
     parent_instance: Gee.HashMap
     priv: SerializableHashMapPrivate
     _node: Node
     _deserialized: boolean
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GXml.SerializableHashMap */
+    /* Methods of GXml-0.14.GXml.SerializableHashMap */
     deserialize_proceed(): boolean
     deserialized(): boolean
     deserialize_node(node: Node): boolean
@@ -8078,11 +8078,11 @@ export class SerializableHashMap {
     set_properties(value: GObject.ParamSpec[]): void
     get_ignored_serializable_properties(): GLib.HashTable
     set_ignored_serializable_properties(value: GLib.HashTable): void
-    /* Methods of Gee.HashMap */
+    /* Methods of Gee-0.8.Gee.HashMap */
     get_key_hash_func(): [ /* returnType */ Gee.HashDataFunc, /* result_target */ object | null ]
     get_key_equal_func(): [ /* returnType */ Gee.EqualDataFunc, /* result_target */ object | null ]
     get_value_equal_func(): [ /* returnType */ Gee.EqualDataFunc, /* result_target */ object | null ]
-    /* Methods of Gee.AbstractMap */
+    /* Methods of Gee-0.8.Gee.AbstractMap */
     has_key(key?: object | null): boolean
     has(key?: object | null, value?: object | null): boolean
     get(key?: object | null): object | null
@@ -8108,7 +8108,7 @@ export class SerializableHashMap {
     get_values(): Gee.Collection
     get_entries(): Gee.Set
     get_read_only_view(): Gee.Map
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -8130,16 +8130,16 @@ export class SerializableHashMap {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of GXml.Serializable */
+    /* Methods of GXml-0.14.GXml.Serializable */
     default_find_property_spec(property_name: string): GObject.ParamSpec | null
     default_list_serializable_properties(): GObject.ParamSpec[]
     get_unknown_serializable_properties(): Gee.Map
     get_unknown_serializable_nodes(): Gee.Collection
     get_serialized_xml_node_value(): string | null
     set_serialized_xml_node_value(value?: string | null): void
-    /* Methods of GXml.SerializableCollection */
+    /* Methods of GXml-0.14.GXml.SerializableCollection */
     is_collection(): boolean
-    /* Virtual methods of GXml.SerializableHashMap */
+    /* Virtual methods of GXml-0.14.GXml.SerializableHashMap */
     vfunc_deserialize_proceed(): boolean
     vfunc_deserialized(): boolean
     vfunc_deserialize_node(node: Node): boolean
@@ -8162,7 +8162,7 @@ export class SerializableHashMap {
     vfunc_get_serialized_xml_node_value(): string | null
     vfunc_set_serialized_xml_node_value(value?: string | null): void
     vfunc_is_collection(): boolean
-    /* Virtual methods of Gee.AbstractMap */
+    /* Virtual methods of Gee-0.8.Gee.AbstractMap */
     vfunc_has_key(key?: object | null): boolean
     vfunc_has(key?: object | null, value?: object | null): boolean
     vfunc_get(key?: object | null): object | null
@@ -8207,7 +8207,7 @@ export class SerializableHashMap {
     vfunc_unset_all(map: Gee.Map): boolean
     vfunc_has_all(map: Gee.Map): boolean
     vfunc_get_is_empty(): boolean
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -8215,11 +8215,11 @@ export class SerializableHashMap {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: SerializableHashMap, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: SerializableHashMap, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    /* Signals of GXml.Serializable */
+    /* Signals of GXml-0.14.GXml.Serializable */
     connect(sigName: "serialize-unknown-property", callback: (($obj: SerializableHashMap, element: Node, prop: GObject.ParamSpec) => void)): number
     connect_after(sigName: "serialize-unknown-property", callback: (($obj: SerializableHashMap, element: Node, prop: GObject.ParamSpec) => void)): number
     emit(sigName: "serialize-unknown-property", element: Node, prop: GObject.ParamSpec): void
@@ -8274,7 +8274,7 @@ export interface SerializableDualKeyMap_ConstructProps extends GObject.Object_Co
     serialized_xml_node_value?: string
 }
 export class SerializableDualKeyMap {
-    /* Properties of GXml.SerializableDualKeyMap */
+    /* Properties of GXml-0.14.GXml.SerializableDualKeyMap */
     readonly value_type: GObject.Type
     readonly primary_key_type: GObject.Type
     readonly secondary_key_type: GObject.Type
@@ -8282,19 +8282,19 @@ export class SerializableDualKeyMap {
     readonly size: number
     properties: GObject.ParamSpec[]
     ignored_serializable_properties: GLib.HashTable
-    /* Properties of GXml.Serializable */
+    /* Properties of GXml-0.14.GXml.Serializable */
     readonly unknown_serializable_properties: Gee.Map
     readonly unknown_serializable_nodes: Gee.Collection
     serialized_xml_node_value: string
-    /* Fields of GXml.SerializableDualKeyMap */
+    /* Fields of GXml-0.14.GXml.SerializableDualKeyMap */
     parent_instance: GObject.Object
     priv: SerializableDualKeyMapPrivate
     storage: Gee.HashMultiMap
     _node: Node
     _deserialized: boolean
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GXml.SerializableDualKeyMap */
+    /* Methods of GXml-0.14.GXml.SerializableDualKeyMap */
     deserialize_proceed(): boolean
     deserialized(): boolean
     deserialize_node(node: Node): boolean
@@ -8328,7 +8328,7 @@ export class SerializableDualKeyMap {
     set_properties(value: GObject.ParamSpec[]): void
     get_ignored_serializable_properties(): GLib.HashTable
     set_ignored_serializable_properties(value: GLib.HashTable): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -8350,7 +8350,7 @@ export class SerializableDualKeyMap {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of Gee.Traversable */
+    /* Methods of Gee-0.8.Gee.Traversable */
     foreach(f: Gee.ForallFunc): boolean
     stream(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.StreamFunc): Gee.Iterator
     fold(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.FoldFunc, seed?: object | null): object | null
@@ -8367,16 +8367,16 @@ export class SerializableDualKeyMap {
     min(compare: GLib.CompareDataFunc): object | null
     order_by(compare: GLib.CompareDataFunc | null): Gee.Iterator
     get_element_type(): GObject.Type
-    /* Methods of GXml.Serializable */
+    /* Methods of GXml-0.14.GXml.Serializable */
     default_find_property_spec(property_name: string): GObject.ParamSpec | null
     default_list_serializable_properties(): GObject.ParamSpec[]
     get_unknown_serializable_properties(): Gee.Map
     get_unknown_serializable_nodes(): Gee.Collection
     get_serialized_xml_node_value(): string | null
     set_serialized_xml_node_value(value?: string | null): void
-    /* Methods of GXml.SerializableCollection */
+    /* Methods of GXml-0.14.GXml.SerializableCollection */
     is_collection(): boolean
-    /* Virtual methods of GXml.SerializableDualKeyMap */
+    /* Virtual methods of GXml-0.14.GXml.SerializableDualKeyMap */
     vfunc_deserialize_proceed(): boolean
     vfunc_deserialized(): boolean
     vfunc_deserialize_node(node: Node): boolean
@@ -8415,7 +8415,7 @@ export class SerializableDualKeyMap {
     vfunc_get_serialized_xml_node_value(): string | null
     vfunc_set_serialized_xml_node_value(value?: string | null): void
     vfunc_is_collection(): boolean
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -8423,11 +8423,11 @@ export class SerializableDualKeyMap {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: SerializableDualKeyMap, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: SerializableDualKeyMap, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    /* Signals of GXml.Serializable */
+    /* Signals of GXml-0.14.GXml.Serializable */
     connect(sigName: "serialize-unknown-property", callback: (($obj: SerializableDualKeyMap, element: Node, prop: GObject.ParamSpec) => void)): number
     connect_after(sigName: "serialize-unknown-property", callback: (($obj: SerializableDualKeyMap, element: Node, prop: GObject.ParamSpec) => void)): number
     emit(sigName: "serialize-unknown-property", element: Node, prop: GObject.ParamSpec): void
@@ -8479,30 +8479,30 @@ export interface SerializableArrayList_ConstructProps extends Gee.ArrayList_Cons
     serialized_xml_node_value?: string
 }
 export class SerializableArrayList {
-    /* Properties of GXml.SerializableArrayList */
+    /* Properties of GXml-0.14.GXml.SerializableArrayList */
     properties: GObject.ParamSpec[]
     ignored_serializable_properties: GLib.HashTable
-    /* Properties of Gee.AbstractBidirList */
+    /* Properties of Gee-0.8.Gee.AbstractBidirList */
     readonly read_only_view: Gee.BidirList
-    /* Properties of Gee.AbstractCollection */
+    /* Properties of Gee-0.8.Gee.AbstractCollection */
     readonly size: number
     readonly read_only: boolean
-    /* Properties of GXml.Serializable */
+    /* Properties of GXml-0.14.GXml.Serializable */
     readonly unknown_serializable_properties: Gee.Map
     readonly unknown_serializable_nodes: Gee.Collection
     serialized_xml_node_value: string
-    /* Fields of GXml.SerializableArrayList */
+    /* Fields of GXml-0.14.GXml.SerializableArrayList */
     parent_instance: Gee.ArrayList
     priv: SerializableArrayListPrivate
     _node: Node
     _deserialized: boolean
-    /* Fields of Gee.ArrayList */
+    /* Fields of Gee-0.8.Gee.ArrayList */
     _items: object[]
     _items_length1: number
     _size: number
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GXml.SerializableArrayList */
+    /* Methods of GXml-0.14.GXml.SerializableArrayList */
     deserialize_proceed(): boolean
     deserialized(): boolean
     deserialize_node(node: Node): boolean
@@ -8525,10 +8525,10 @@ export class SerializableArrayList {
     set_properties(value: GObject.ParamSpec[]): void
     get_ignored_serializable_properties(): GLib.HashTable
     set_ignored_serializable_properties(value: GLib.HashTable): void
-    /* Methods of Gee.ArrayList */
+    /* Methods of Gee-0.8.Gee.ArrayList */
     add_all(collection: Gee.Collection): boolean
     get_equal_func(): [ /* returnType */ Gee.EqualDataFunc, /* result_target */ object | null ]
-    /* Methods of Gee.AbstractBidirList */
+    /* Methods of Gee-0.8.Gee.AbstractBidirList */
     bidir_list_iterator(): Gee.BidirListIterator
     reserved0(): void
     reserved1(): void
@@ -8541,7 +8541,7 @@ export class SerializableArrayList {
     reserved8(): void
     reserved9(): void
     get_read_only_view(): Gee.BidirList
-    /* Methods of Gee.AbstractList */
+    /* Methods of Gee-0.8.Gee.AbstractList */
     list_iterator(): Gee.ListIterator
     get(index: number): object | null
     set(index: number, item?: object | null): void
@@ -8550,7 +8550,7 @@ export class SerializableArrayList {
     remove_at(index: number): object | null
     slice(start: number, stop: number): Gee.List | null
     get_read_only_view(): Gee.List
-    /* Methods of Gee.AbstractCollection */
+    /* Methods of Gee-0.8.Gee.AbstractCollection */
     contains(item?: object | null): boolean
     add(item?: object | null): boolean
     remove(item?: object | null): boolean
@@ -8560,7 +8560,7 @@ export class SerializableArrayList {
     get_size(): number
     get_read_only(): boolean
     get_read_only_view(): Gee.Collection
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -8582,7 +8582,7 @@ export class SerializableArrayList {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of GXml.Serializable */
+    /* Methods of GXml-0.14.GXml.Serializable */
     get_enable_unknown_serializable_property(): boolean
     default_find_property_spec(property_name: string): GObject.ParamSpec | null
     default_list_serializable_properties(): GObject.ParamSpec[]
@@ -8590,9 +8590,9 @@ export class SerializableArrayList {
     get_unknown_serializable_nodes(): Gee.Collection
     get_serialized_xml_node_value(): string | null
     set_serialized_xml_node_value(value?: string | null): void
-    /* Methods of GXml.SerializableCollection */
+    /* Methods of GXml-0.14.GXml.SerializableCollection */
     is_collection(): boolean
-    /* Virtual methods of GXml.SerializableArrayList */
+    /* Virtual methods of GXml-0.14.GXml.SerializableArrayList */
     vfunc_deserialize_proceed(): boolean
     vfunc_deserialized(): boolean
     vfunc_deserialize_node(node: Node): boolean
@@ -8618,11 +8618,11 @@ export class SerializableArrayList {
     vfunc_get_read_only_view(): Gee.BidirList
     vfunc_get_read_only_view(): Gee.List
     vfunc_get_read_only_view(): Gee.Collection
-    /* Virtual methods of Gee.ArrayList */
+    /* Virtual methods of Gee-0.8.Gee.ArrayList */
     vfunc_get_read_only_view(): Gee.BidirList
     vfunc_get_read_only_view(): Gee.List
     vfunc_get_read_only_view(): Gee.Collection
-    /* Virtual methods of Gee.AbstractBidirList */
+    /* Virtual methods of Gee-0.8.Gee.AbstractBidirList */
     vfunc_bidir_list_iterator(): Gee.BidirListIterator
     vfunc_reserved0(): void
     vfunc_reserved1(): void
@@ -8637,7 +8637,7 @@ export class SerializableArrayList {
     vfunc_get_read_only_view(): Gee.BidirList
     vfunc_get_read_only_view(): Gee.List
     vfunc_get_read_only_view(): Gee.Collection
-    /* Virtual methods of Gee.AbstractList */
+    /* Virtual methods of Gee-0.8.Gee.AbstractList */
     vfunc_list_iterator(): Gee.ListIterator
     vfunc_get(index: number): object | null
     vfunc_set(index: number, item?: object | null): void
@@ -8661,7 +8661,7 @@ export class SerializableArrayList {
     vfunc_last(): object | null
     vfunc_insert_all(index: number, collection: Gee.Collection): void
     vfunc_sort(compare_func: GLib.CompareDataFunc | null): void
-    /* Virtual methods of Gee.AbstractCollection */
+    /* Virtual methods of Gee-0.8.Gee.AbstractCollection */
     vfunc_contains(item?: object | null): boolean
     vfunc_add(item?: object | null): boolean
     vfunc_remove(item?: object | null): boolean
@@ -8708,7 +8708,7 @@ export class SerializableArrayList {
     vfunc_contains_all_iterator(iter: Gee.Iterator): boolean
     vfunc_remove_all_iterator(iter: Gee.Iterator): boolean
     vfunc_get_is_empty(): boolean
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -8716,11 +8716,11 @@ export class SerializableArrayList {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: SerializableArrayList, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: SerializableArrayList, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    /* Signals of GXml.Serializable */
+    /* Signals of GXml-0.14.GXml.Serializable */
     connect(sigName: "serialize-unknown-property", callback: (($obj: SerializableArrayList, element: Node, prop: GObject.ParamSpec) => void)): number
     connect_after(sigName: "serialize-unknown-property", callback: (($obj: SerializableArrayList, element: Node, prop: GObject.ParamSpec) => void)): number
     emit(sigName: "serialize-unknown-property", element: Node, prop: GObject.ParamSpec): void
@@ -8766,19 +8766,19 @@ export class SerializableArrayList {
 export interface SerializableContainer_ConstructProps extends SerializableObjectModel_ConstructProps {
 }
 export class SerializableContainer {
-    /* Properties of GXml.SerializableObjectModel */
+    /* Properties of GXml-0.14.GXml.SerializableObjectModel */
     properties: GObject.ParamSpec[]
     ignored_serializable_properties: GLib.HashTable
-    /* Fields of GXml.SerializableContainer */
+    /* Fields of GXml-0.14.GXml.SerializableContainer */
     parent_instance: SerializableObjectModel
     priv: SerializableContainerPrivate
-    /* Fields of GXml.SerializableObjectModel */
+    /* Fields of GXml-0.14.GXml.SerializableObjectModel */
     _node: Node
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GXml.SerializableContainer */
+    /* Methods of GXml-0.14.GXml.SerializableContainer */
     init_containers(): void
-    /* Methods of GXml.SerializableObjectModel */
+    /* Methods of GXml-0.14.GXml.SerializableObjectModel */
     get_enable_unknown_serializable_property(): boolean
     serialize_use_xml_node_value(): boolean
     property_use_nick(): boolean
@@ -8800,7 +8800,7 @@ export class SerializableContainer {
     set_properties(value: GObject.ParamSpec[]): void
     get_ignored_serializable_properties(): GLib.HashTable
     set_ignored_serializable_properties(value: GLib.HashTable): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -8822,9 +8822,9 @@ export class SerializableContainer {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GXml.SerializableContainer */
+    /* Virtual methods of GXml-0.14.GXml.SerializableContainer */
     vfunc_init_containers(): void
-    /* Virtual methods of GXml.SerializableObjectModel */
+    /* Virtual methods of GXml-0.14.GXml.SerializableObjectModel */
     vfunc_get_enable_unknown_serializable_property(): boolean
     vfunc_serialize_use_xml_node_value(): boolean
     vfunc_property_use_nick(): boolean
@@ -8843,7 +8843,7 @@ export class SerializableContainer {
     vfunc_get_unknown_serializable_nodes(): Gee.Collection
     vfunc_get_serialized_xml_node_value(): string | null
     vfunc_set_serialized_xml_node_value(value?: string | null): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -8851,7 +8851,7 @@ export class SerializableContainer {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: SerializableContainer, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: SerializableContainer, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -8872,7 +8872,7 @@ export interface TAttribute_ConstructProps extends TNode_ConstructProps {
     namespace?: Namespace
 }
 export class TAttribute {
-    /* Properties of GXml.TNode */
+    /* Properties of GXml-0.14.GXml.TNode */
     readonly attrs: Gee.Map
     readonly children_nodes: Gee.BidirList
     readonly document: Document
@@ -8881,22 +8881,22 @@ export class TAttribute {
     readonly type_node: NodeType
     value: string
     readonly parent: Node
-    /* Properties of GXml.Attribute */
+    /* Properties of GXml-0.14.GXml.Attribute */
     namespace: Namespace
     readonly prefix: string
-    /* Fields of GXml.TAttribute */
+    /* Fields of GXml-0.14.GXml.TAttribute */
     parent_instance: TNode
     priv: TAttributePrivate
     _namespaces: Gee.ArrayList
-    /* Fields of GXml.TNode */
+    /* Fields of GXml-0.14.GXml.TNode */
     _name: string
     _value: string
     _doc: Document
     _parent: Node
     _node_type: NodeType
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GXml.TNode */
+    /* Methods of GXml-0.14.GXml.TNode */
     set_namespace(uri: string, prefix?: string | null): boolean
     to_string(): string
     set_parent(node: Node): void
@@ -8909,7 +8909,7 @@ export class TAttribute {
     get_value(): string
     set_value(value: string): void
     get_parent(): Node
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -8931,16 +8931,16 @@ export class TAttribute {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of GXml.Attribute */
+    /* Methods of GXml-0.14.GXml.Attribute */
     get_namespace(): Namespace | null
     set_namespace(value?: Namespace | null): void
     get_prefix(): string | null
-    /* Virtual methods of GXml.TAttribute */
+    /* Virtual methods of GXml-0.14.GXml.TAttribute */
     vfunc_get_namespace(): Namespace | null
     vfunc_set_namespace(value?: Namespace | null): void
     vfunc_set_namespace(uri: string, prefix?: string | null): boolean
     vfunc_get_prefix(): string | null
-    /* Virtual methods of GXml.TNode */
+    /* Virtual methods of GXml-0.14.GXml.TNode */
     vfunc_set_namespace(uri: string, prefix?: string | null): boolean
     vfunc_to_string(): string
     vfunc_set_parent(node: Node): void
@@ -8959,7 +8959,7 @@ export class TAttribute {
     vfunc_get_elements_by_name_ns(name: string, ns?: string | null): ElementList
     vfunc_ns_prefix(): string
     vfunc_ns_uri(): string
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -8967,7 +8967,7 @@ export class TAttribute {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: TAttribute, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: TAttribute, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -9006,7 +9006,7 @@ export interface TComment_ConstructProps extends TNode_ConstructProps {
     str?: string
 }
 export class TComment {
-    /* Properties of GXml.TNode */
+    /* Properties of GXml-0.14.GXml.TNode */
     readonly attrs: Gee.Map
     readonly children_nodes: Gee.BidirList
     readonly document: Document
@@ -9015,20 +9015,20 @@ export class TComment {
     readonly type_node: NodeType
     value: string
     readonly parent: Node
-    /* Properties of GXml.Comment */
+    /* Properties of GXml-0.14.GXml.Comment */
     str: string
-    /* Fields of GXml.TComment */
+    /* Fields of GXml-0.14.GXml.TComment */
     parent_instance: TNode
     priv: TCommentPrivate
-    /* Fields of GXml.TNode */
+    /* Fields of GXml-0.14.GXml.TNode */
     _name: string
     _value: string
     _doc: Document
     _parent: Node
     _node_type: NodeType
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GXml.TNode */
+    /* Methods of GXml-0.14.GXml.TNode */
     set_namespace(uri: string, prefix?: string | null): boolean
     to_string(): string
     set_parent(node: Node): void
@@ -9041,7 +9041,7 @@ export class TComment {
     get_value(): string
     set_value(value: string): void
     get_parent(): Node
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -9063,13 +9063,13 @@ export class TComment {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of GXml.Comment */
+    /* Methods of GXml-0.14.GXml.Comment */
     get_str(): string
     set_str(value: string): void
-    /* Virtual methods of GXml.TComment */
+    /* Virtual methods of GXml-0.14.GXml.TComment */
     vfunc_get_str(): string
     vfunc_set_str(value: string): void
-    /* Virtual methods of GXml.TNode */
+    /* Virtual methods of GXml-0.14.GXml.TNode */
     vfunc_set_namespace(uri: string, prefix?: string | null): boolean
     vfunc_to_string(): string
     vfunc_set_parent(node: Node): void
@@ -9088,7 +9088,7 @@ export class TComment {
     vfunc_get_elements_by_name_ns(name: string, ns?: string | null): ElementList
     vfunc_ns_prefix(): string
     vfunc_ns_uri(): string
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -9096,7 +9096,7 @@ export class TComment {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: TComment, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: TComment, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -9132,7 +9132,7 @@ export class TComment {
 export interface TCDATA_ConstructProps extends TNode_ConstructProps {
 }
 export class TCDATA {
-    /* Properties of GXml.TNode */
+    /* Properties of GXml-0.14.GXml.TNode */
     readonly attrs: Gee.Map
     readonly children_nodes: Gee.BidirList
     readonly document: Document
@@ -9141,20 +9141,20 @@ export class TCDATA {
     readonly type_node: NodeType
     value: string
     readonly parent: Node
-    /* Properties of GXml.CDATA */
+    /* Properties of GXml-0.14.GXml.CDATA */
     readonly str: string
-    /* Fields of GXml.TCDATA */
+    /* Fields of GXml-0.14.GXml.TCDATA */
     parent_instance: TNode
     priv: TCDATAPrivate
-    /* Fields of GXml.TNode */
+    /* Fields of GXml-0.14.GXml.TNode */
     _name: string
     _value: string
     _doc: Document
     _parent: Node
     _node_type: NodeType
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GXml.TNode */
+    /* Methods of GXml-0.14.GXml.TNode */
     set_namespace(uri: string, prefix?: string | null): boolean
     to_string(): string
     set_parent(node: Node): void
@@ -9167,7 +9167,7 @@ export class TCDATA {
     get_value(): string
     set_value(value: string): void
     get_parent(): Node
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -9189,11 +9189,11 @@ export class TCDATA {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of GXml.CDATA */
+    /* Methods of GXml-0.14.GXml.CDATA */
     get_str(): string
-    /* Virtual methods of GXml.TCDATA */
+    /* Virtual methods of GXml-0.14.GXml.TCDATA */
     vfunc_get_str(): string
-    /* Virtual methods of GXml.TNode */
+    /* Virtual methods of GXml-0.14.GXml.TNode */
     vfunc_set_namespace(uri: string, prefix?: string | null): boolean
     vfunc_to_string(): string
     vfunc_set_parent(node: Node): void
@@ -9212,7 +9212,7 @@ export class TCDATA {
     vfunc_get_elements_by_name_ns(name: string, ns?: string | null): ElementList
     vfunc_ns_prefix(): string
     vfunc_ns_uri(): string
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -9220,7 +9220,7 @@ export class TCDATA {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: TCDATA, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: TCDATA, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -9261,7 +9261,7 @@ export interface TDocument_ConstructProps extends TNode_ConstructProps {
     file?: Gio.File
 }
 export class TDocument {
-    /* Properties of GXml.TNode */
+    /* Properties of GXml-0.14.GXml.TNode */
     readonly attrs: Gee.Map
     readonly children_nodes: Gee.BidirList
     readonly document: Document
@@ -9270,29 +9270,29 @@ export class TDocument {
     readonly type_node: NodeType
     value: string
     readonly parent: Node
-    /* Properties of GXml.Document */
+    /* Properties of GXml-0.14.GXml.Document */
     indent: boolean
     ns_top: boolean
     prefix_default_ns: boolean
     backup: boolean
     readonly root: Node
     file: Gio.File
-    /* Fields of GXml.TDocument */
+    /* Fields of GXml-0.14.GXml.TDocument */
     parent_instance: TNode
     priv: TDocumentPrivate
     _namespaces: Gee.ArrayList
     _children: Gee.ArrayList
-    /* Fields of GXml.TNode */
+    /* Fields of GXml-0.14.GXml.TNode */
     _name: string
     _value: string
     _doc: Document
     _parent: Node
     _node_type: NodeType
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GXml.TDocument */
+    /* Methods of GXml-0.14.GXml.TDocument */
     save_to(f: Gio.File, cancellable?: Gio.Cancellable | null): boolean
-    /* Methods of GXml.TNode */
+    /* Methods of GXml-0.14.GXml.TNode */
     set_namespace(uri: string, prefix?: string | null): boolean
     to_string(): string
     set_parent(node: Node): void
@@ -9305,7 +9305,7 @@ export class TDocument {
     get_value(): string
     set_value(value: string): void
     get_parent(): Node
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -9327,7 +9327,7 @@ export class TDocument {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of GXml.Document */
+    /* Methods of GXml-0.14.GXml.Document */
     create_element(name: string): Node
     create_text(text: string): Node
     create_comment(text: string): Node
@@ -9346,7 +9346,7 @@ export class TDocument {
     get_root(): Node
     get_file(): Gio.File
     set_file(value: Gio.File): void
-    /* Virtual methods of GXml.TDocument */
+    /* Virtual methods of GXml-0.14.GXml.TDocument */
     vfunc_create_element(name: string): Node
     vfunc_create_text(text: string): Node
     vfunc_create_comment(text: string): Node
@@ -9365,7 +9365,7 @@ export class TDocument {
     vfunc_get_root(): Node
     vfunc_get_file(): Gio.File
     vfunc_set_file(value: Gio.File): void
-    /* Virtual methods of GXml.TNode */
+    /* Virtual methods of GXml-0.14.GXml.TNode */
     vfunc_set_namespace(uri: string, prefix?: string | null): boolean
     vfunc_to_string(): string
     vfunc_set_parent(node: Node): void
@@ -9384,7 +9384,7 @@ export class TDocument {
     vfunc_get_elements_by_name_ns(name: string, ns?: string | null): ElementList
     vfunc_ns_prefix(): string
     vfunc_ns_uri(): string
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -9392,7 +9392,7 @@ export class TDocument {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: TDocument, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: TDocument, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -9458,7 +9458,7 @@ export interface TElement_ConstructProps extends TNode_ConstructProps {
     content?: string
 }
 export class TElement {
-    /* Properties of GXml.TNode */
+    /* Properties of GXml-0.14.GXml.TNode */
     readonly attrs: Gee.Map
     readonly children_nodes: Gee.BidirList
     readonly document: Document
@@ -9467,24 +9467,24 @@ export class TElement {
     readonly type_node: NodeType
     value: string
     readonly parent: Node
-    /* Properties of GXml.Element */
+    /* Properties of GXml-0.14.GXml.Element */
     readonly tag_name: string
     content: string
-    /* Fields of GXml.TElement */
+    /* Fields of GXml-0.14.GXml.TElement */
     parent_instance: TNode
     priv: TElementPrivate
     _attrs: Gee.HashMap
     _children: TNodeTChildrenList
     _namespaces: Gee.ArrayList
-    /* Fields of GXml.TNode */
+    /* Fields of GXml-0.14.GXml.TNode */
     _name: string
     _value: string
     _doc: Document
     _parent: Node
     _node_type: NodeType
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GXml.TNode */
+    /* Methods of GXml-0.14.GXml.TNode */
     set_namespace(uri: string, prefix?: string | null): boolean
     to_string(): string
     set_parent(node: Node): void
@@ -9497,7 +9497,7 @@ export class TElement {
     get_value(): string
     set_value(value: string): void
     get_parent(): Node
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -9519,7 +9519,7 @@ export class TElement {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of GXml.Element */
+    /* Methods of GXml-0.14.GXml.Element */
     normalize(): void
     set_attr(name: string, value: string): void
     get_attr(name: string): Node | null
@@ -9530,7 +9530,7 @@ export class TElement {
     get_tag_name(): string
     get_content(): string
     set_content(value: string): void
-    /* Virtual methods of GXml.TElement */
+    /* Virtual methods of GXml-0.14.GXml.TElement */
     vfunc_normalize(): void
     vfunc_set_attr(name: string, value: string): void
     vfunc_get_attr(name: string): Node | null
@@ -9541,7 +9541,7 @@ export class TElement {
     vfunc_get_tag_name(): string
     vfunc_get_content(): string
     vfunc_set_content(value: string): void
-    /* Virtual methods of GXml.TNode */
+    /* Virtual methods of GXml-0.14.GXml.TNode */
     vfunc_set_namespace(uri: string, prefix?: string | null): boolean
     vfunc_to_string(): string
     vfunc_set_parent(node: Node): void
@@ -9560,7 +9560,7 @@ export class TElement {
     vfunc_get_elements_by_name_ns(name: string, ns?: string | null): ElementList
     vfunc_ns_prefix(): string
     vfunc_ns_uri(): string
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -9568,7 +9568,7 @@ export class TElement {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: TElement, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: TElement, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -9606,7 +9606,7 @@ export class TElement {
 export interface TNamespace_ConstructProps extends TNode_ConstructProps {
 }
 export class TNamespace {
-    /* Properties of GXml.TNode */
+    /* Properties of GXml-0.14.GXml.TNode */
     readonly attrs: Gee.Map
     readonly children_nodes: Gee.BidirList
     readonly document: Document
@@ -9615,21 +9615,21 @@ export class TNamespace {
     readonly type_node: NodeType
     value: string
     readonly parent: Node
-    /* Properties of GXml.Namespace */
+    /* Properties of GXml-0.14.GXml.Namespace */
     readonly uri: string
     readonly prefix: string
-    /* Fields of GXml.TNamespace */
+    /* Fields of GXml-0.14.GXml.TNamespace */
     parent_instance: TNode
     priv: TNamespacePrivate
-    /* Fields of GXml.TNode */
+    /* Fields of GXml-0.14.GXml.TNode */
     _name: string
     _value: string
     _doc: Document
     _parent: Node
     _node_type: NodeType
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GXml.TNode */
+    /* Methods of GXml-0.14.GXml.TNode */
     set_namespace(uri: string, prefix?: string | null): boolean
     to_string(): string
     set_parent(node: Node): void
@@ -9642,7 +9642,7 @@ export class TNamespace {
     get_value(): string
     set_value(value: string): void
     get_parent(): Node
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -9664,13 +9664,13 @@ export class TNamespace {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of GXml.Namespace */
+    /* Methods of GXml-0.14.GXml.Namespace */
     get_uri(): string | null
     get_prefix(): string | null
-    /* Virtual methods of GXml.TNamespace */
+    /* Virtual methods of GXml-0.14.GXml.TNamespace */
     vfunc_get_uri(): string | null
     vfunc_get_prefix(): string | null
-    /* Virtual methods of GXml.TNode */
+    /* Virtual methods of GXml-0.14.GXml.TNode */
     vfunc_set_namespace(uri: string, prefix?: string | null): boolean
     vfunc_to_string(): string
     vfunc_set_parent(node: Node): void
@@ -9689,7 +9689,7 @@ export class TNamespace {
     vfunc_get_elements_by_name_ns(name: string, ns?: string | null): ElementList
     vfunc_ns_prefix(): string
     vfunc_ns_uri(): string
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -9697,7 +9697,7 @@ export class TNamespace {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: TNamespace, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: TNamespace, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -9736,7 +9736,7 @@ export interface TNode_ConstructProps extends GObject.Object_ConstructProps {
     value?: string
 }
 export class TNode {
-    /* Properties of GXml.TNode */
+    /* Properties of GXml-0.14.GXml.TNode */
     readonly attrs: Gee.Map
     readonly children_nodes: Gee.BidirList
     readonly document: Document
@@ -9745,7 +9745,7 @@ export class TNode {
     readonly type_node: NodeType
     value: string
     readonly parent: Node
-    /* Fields of GXml.TNode */
+    /* Fields of GXml-0.14.GXml.TNode */
     parent_instance: GObject.Object
     priv: TNodePrivate
     _name: string
@@ -9753,9 +9753,9 @@ export class TNode {
     _doc: Document
     _parent: Node
     _node_type: NodeType
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GXml.TNode */
+    /* Methods of GXml-0.14.GXml.TNode */
     set_namespace(uri: string, prefix?: string | null): boolean
     to_string(): string
     set_parent(node: Node): void
@@ -9768,7 +9768,7 @@ export class TNode {
     get_value(): string
     set_value(value: string): void
     get_parent(): Node
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -9790,14 +9790,14 @@ export class TNode {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of GXml.Node */
+    /* Methods of GXml-0.14.GXml.Node */
     get(key: string): Node | null
     get_elements_by_property_value(property: string, value: string): ElementList
     get_elements_by_name(name: string): ElementList
     get_elements_by_name_ns(name: string, ns?: string | null): ElementList
     ns_prefix(): string
     ns_uri(): string
-    /* Virtual methods of GXml.TNode */
+    /* Virtual methods of GXml-0.14.GXml.TNode */
     vfunc_set_namespace(uri: string, prefix?: string | null): boolean
     vfunc_to_string(): string
     vfunc_set_parent(node: Node): void
@@ -9816,7 +9816,7 @@ export class TNode {
     vfunc_get_elements_by_name_ns(name: string, ns?: string | null): ElementList
     vfunc_ns_prefix(): string
     vfunc_ns_uri(): string
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -9824,7 +9824,7 @@ export class TNode {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: TNode, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: TNode, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -9858,17 +9858,17 @@ export class TNode {
 export interface TNodeTChildrenList_ConstructProps extends Gee.AbstractBidirList_ConstructProps {
 }
 export class TNodeTChildrenList {
-    /* Properties of Gee.AbstractBidirList */
+    /* Properties of Gee-0.8.Gee.AbstractBidirList */
     readonly read_only_view: Gee.BidirList
-    /* Properties of Gee.AbstractCollection */
+    /* Properties of Gee-0.8.Gee.AbstractCollection */
     readonly size: number
     readonly read_only: boolean
-    /* Fields of GXml.TNodeTChildrenList */
+    /* Fields of GXml-0.14.GXml.TNodeTChildrenList */
     parent_instance: Gee.AbstractBidirList
     priv: TNodeTChildrenListPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Gee.AbstractBidirList */
+    /* Methods of Gee-0.8.Gee.AbstractBidirList */
     bidir_list_iterator(): Gee.BidirListIterator
     reserved0(): void
     reserved1(): void
@@ -9881,7 +9881,7 @@ export class TNodeTChildrenList {
     reserved8(): void
     reserved9(): void
     get_read_only_view(): Gee.BidirList
-    /* Methods of Gee.AbstractList */
+    /* Methods of Gee-0.8.Gee.AbstractList */
     list_iterator(): Gee.ListIterator
     get(index: number): object | null
     set(index: number, item?: object | null): void
@@ -9890,7 +9890,7 @@ export class TNodeTChildrenList {
     remove_at(index: number): object | null
     slice(start: number, stop: number): Gee.List | null
     get_read_only_view(): Gee.List
-    /* Methods of Gee.AbstractCollection */
+    /* Methods of Gee-0.8.Gee.AbstractCollection */
     contains(item?: object | null): boolean
     add(item?: object | null): boolean
     remove(item?: object | null): boolean
@@ -9900,7 +9900,7 @@ export class TNodeTChildrenList {
     get_size(): number
     get_read_only(): boolean
     get_read_only_view(): Gee.Collection
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -9922,11 +9922,11 @@ export class TNodeTChildrenList {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GXml.TNodeTChildrenList */
+    /* Virtual methods of GXml-0.14.GXml.TNodeTChildrenList */
     vfunc_get_read_only_view(): Gee.BidirList
     vfunc_get_read_only_view(): Gee.List
     vfunc_get_read_only_view(): Gee.Collection
-    /* Virtual methods of Gee.AbstractBidirList */
+    /* Virtual methods of Gee-0.8.Gee.AbstractBidirList */
     vfunc_bidir_list_iterator(): Gee.BidirListIterator
     vfunc_reserved0(): void
     vfunc_reserved1(): void
@@ -9941,7 +9941,7 @@ export class TNodeTChildrenList {
     vfunc_get_read_only_view(): Gee.BidirList
     vfunc_get_read_only_view(): Gee.List
     vfunc_get_read_only_view(): Gee.Collection
-    /* Virtual methods of Gee.AbstractList */
+    /* Virtual methods of Gee-0.8.Gee.AbstractList */
     vfunc_list_iterator(): Gee.ListIterator
     vfunc_get(index: number): object | null
     vfunc_set(index: number, item?: object | null): void
@@ -9965,7 +9965,7 @@ export class TNodeTChildrenList {
     vfunc_last(): object | null
     vfunc_insert_all(index: number, collection: Gee.Collection): void
     vfunc_sort(compare_func: GLib.CompareDataFunc | null): void
-    /* Virtual methods of Gee.AbstractCollection */
+    /* Virtual methods of Gee-0.8.Gee.AbstractCollection */
     vfunc_contains(item?: object | null): boolean
     vfunc_add(item?: object | null): boolean
     vfunc_remove(item?: object | null): boolean
@@ -10012,7 +10012,7 @@ export class TNodeTChildrenList {
     vfunc_contains_all_iterator(iter: Gee.Iterator): boolean
     vfunc_remove_all_iterator(iter: Gee.Iterator): boolean
     vfunc_get_is_empty(): boolean
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -10020,7 +10020,7 @@ export class TNodeTChildrenList {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: TNodeTChildrenList, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: TNodeTChildrenList, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -10045,7 +10045,7 @@ export interface TProcessingInstruction_ConstructProps extends TNode_ConstructPr
     data?: string
 }
 export class TProcessingInstruction {
-    /* Properties of GXml.TNode */
+    /* Properties of GXml-0.14.GXml.TNode */
     readonly attrs: Gee.Map
     readonly children_nodes: Gee.BidirList
     readonly document: Document
@@ -10054,21 +10054,21 @@ export class TProcessingInstruction {
     readonly type_node: NodeType
     value: string
     readonly parent: Node
-    /* Properties of GXml.ProcessingInstruction */
+    /* Properties of GXml-0.14.GXml.ProcessingInstruction */
     readonly target: string
     data: string
-    /* Fields of GXml.TProcessingInstruction */
+    /* Fields of GXml-0.14.GXml.TProcessingInstruction */
     parent_instance: TNode
     priv: TProcessingInstructionPrivate
-    /* Fields of GXml.TNode */
+    /* Fields of GXml-0.14.GXml.TNode */
     _name: string
     _value: string
     _doc: Document
     _parent: Node
     _node_type: NodeType
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GXml.TNode */
+    /* Methods of GXml-0.14.GXml.TNode */
     set_namespace(uri: string, prefix?: string | null): boolean
     to_string(): string
     set_parent(node: Node): void
@@ -10081,7 +10081,7 @@ export class TProcessingInstruction {
     get_value(): string
     set_value(value: string): void
     get_parent(): Node
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -10103,15 +10103,15 @@ export class TProcessingInstruction {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of GXml.ProcessingInstruction */
+    /* Methods of GXml-0.14.GXml.ProcessingInstruction */
     get_target(): string
     get_data(): string
     set_data(value: string): void
-    /* Virtual methods of GXml.TProcessingInstruction */
+    /* Virtual methods of GXml-0.14.GXml.TProcessingInstruction */
     vfunc_get_target(): string
     vfunc_get_data(): string
     vfunc_set_data(value: string): void
-    /* Virtual methods of GXml.TNode */
+    /* Virtual methods of GXml-0.14.GXml.TNode */
     vfunc_set_namespace(uri: string, prefix?: string | null): boolean
     vfunc_to_string(): string
     vfunc_set_parent(node: Node): void
@@ -10130,7 +10130,7 @@ export class TProcessingInstruction {
     vfunc_get_elements_by_name_ns(name: string, ns?: string | null): ElementList
     vfunc_ns_prefix(): string
     vfunc_ns_uri(): string
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -10138,7 +10138,7 @@ export class TProcessingInstruction {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: TProcessingInstruction, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: TProcessingInstruction, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -10177,7 +10177,7 @@ export interface TText_ConstructProps extends TNode_ConstructProps {
     str?: string
 }
 export class TText {
-    /* Properties of GXml.TNode */
+    /* Properties of GXml-0.14.GXml.TNode */
     readonly attrs: Gee.Map
     readonly children_nodes: Gee.BidirList
     readonly document: Document
@@ -10186,20 +10186,20 @@ export class TText {
     readonly type_node: NodeType
     value: string
     readonly parent: Node
-    /* Properties of GXml.Text */
+    /* Properties of GXml-0.14.GXml.Text */
     str: string
-    /* Fields of GXml.TText */
+    /* Fields of GXml-0.14.GXml.TText */
     parent_instance: TNode
     priv: TTextPrivate
-    /* Fields of GXml.TNode */
+    /* Fields of GXml-0.14.GXml.TNode */
     _name: string
     _value: string
     _doc: Document
     _parent: Node
     _node_type: NodeType
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GXml.TNode */
+    /* Methods of GXml-0.14.GXml.TNode */
     set_namespace(uri: string, prefix?: string | null): boolean
     to_string(): string
     set_parent(node: Node): void
@@ -10212,7 +10212,7 @@ export class TText {
     get_value(): string
     set_value(value: string): void
     get_parent(): Node
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -10234,13 +10234,13 @@ export class TText {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of GXml.Text */
+    /* Methods of GXml-0.14.GXml.Text */
     get_str(): string
     set_str(value: string): void
-    /* Virtual methods of GXml.TText */
+    /* Virtual methods of GXml-0.14.GXml.TText */
     vfunc_get_str(): string
     vfunc_set_str(value: string): void
-    /* Virtual methods of GXml.TNode */
+    /* Virtual methods of GXml-0.14.GXml.TNode */
     vfunc_set_namespace(uri: string, prefix?: string | null): boolean
     vfunc_to_string(): string
     vfunc_set_parent(node: Node): void
@@ -10259,7 +10259,7 @@ export class TText {
     vfunc_get_elements_by_name_ns(name: string, ns?: string | null): ElementList
     vfunc_ns_prefix(): string
     vfunc_ns_uri(): string
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -10267,7 +10267,7 @@ export class TText {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: TText, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: TText, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -10303,9 +10303,9 @@ export class TText {
 export interface HtmlDocument_ConstructProps extends GDocument_ConstructProps {
 }
 export class HtmlDocument {
-    /* Properties of GXml.HtmlDocument */
+    /* Properties of GXml-0.14.GXml.HtmlDocument */
     readonly default_options: number
-    /* Properties of GXml.GNode */
+    /* Properties of GXml-0.14.GXml.GNode */
     readonly attrs: Gee.Map
     readonly children_nodes: Gee.BidirList
     readonly namespaces: Gee.List
@@ -10314,10 +10314,10 @@ export class HtmlDocument {
     readonly type_node: NodeType
     readonly name: string
     value: string
-    /* Fields of GXml.HtmlDocument */
+    /* Fields of GXml-0.14.GXml.HtmlDocument */
     parent_instance: GDocument
     priv: HtmlDocumentPrivate
-    /* Fields of GXml.GDocument */
+    /* Fields of GXml-0.14.GXml.GDocument */
     doc: object | null
     _buffer: any
     _implementation: GImplementation
@@ -10327,17 +10327,17 @@ export class HtmlDocument {
     _character_set: string
     _content_type: string
     _constructor: DomEvent
-    /* Fields of GXml.GNode */
+    /* Fields of GXml-0.14.GXml.GNode */
     _doc: GDocument
     _node: object | null
     _base_uri: string
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GXml.GDocument */
+    /* Methods of GXml-0.14.GXml.GDocument */
     libxml_to_string(): string
     save(cancellable?: Gio.Cancellable | null): boolean
     save_as(f: Gio.File, cancellable?: Gio.Cancellable | null): boolean
-    /* Methods of GXml.GNode */
+    /* Methods of GXml-0.14.GXml.GNode */
     set_namespace(uri: string, prefix?: string | null): boolean
     to_string(): string
     get_internal_node(): object | null
@@ -10350,7 +10350,7 @@ export class HtmlDocument {
     get_name(): string
     get_value(): string
     set_value(value: string): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -10372,14 +10372,14 @@ export class HtmlDocument {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GXml.HtmlDocument */
+    /* Virtual methods of GXml-0.14.GXml.HtmlDocument */
     vfunc_create_element(name: string): Node
     vfunc_create_element(local_name: string): DomElement
     vfunc_create_comment(text: string): Node
     vfunc_create_comment(data: string): DomComment
     vfunc_get_elements_by_property_value(property: string, value: string): DomElementList
     vfunc_get_elements_by_property_value(property: string, value: string): ElementList
-    /* Virtual methods of GXml.GDocument */
+    /* Virtual methods of GXml-0.14.GXml.GDocument */
     vfunc_save(cancellable?: Gio.Cancellable | null): boolean
     vfunc_save_as(f: Gio.File, cancellable?: Gio.Cancellable | null): boolean
     vfunc_create_element(name: string): Node
@@ -10432,7 +10432,7 @@ export class HtmlDocument {
     vfunc_get_doctype(): DomDocumentType | null
     vfunc_get_document_element(): DomElement | null
     vfunc_evaluate(expression: string, resolver?: Gee.List | null): XPathObject
-    /* Virtual methods of GXml.GNode */
+    /* Virtual methods of GXml-0.14.GXml.GNode */
     vfunc_set_namespace(uri: string, prefix?: string | null): boolean
     vfunc_to_string(): string
     vfunc_get_attrs(): Gee.Map
@@ -10482,7 +10482,7 @@ export class HtmlDocument {
     vfunc_get_elements_by_name_ns(name: string, ns?: string | null): ElementList
     vfunc_ns_prefix(): string
     vfunc_ns_uri(): string
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -10490,7 +10490,7 @@ export class HtmlDocument {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: HtmlDocument, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: HtmlDocument, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -10533,7 +10533,7 @@ export interface GAttribute_ConstructProps extends GNode_ConstructProps {
     value?: string
 }
 export class GAttribute {
-    /* Properties of GXml.GNode */
+    /* Properties of GXml-0.14.GXml.GNode */
     readonly attrs: Gee.Map
     readonly children_nodes: Gee.BidirList
     readonly namespaces: Gee.List
@@ -10542,23 +10542,23 @@ export class GAttribute {
     readonly type_node: NodeType
     readonly name: string
     value: string
-    /* Properties of GXml.Attribute */
+    /* Properties of GXml-0.14.GXml.Attribute */
     namespace: Namespace
     readonly prefix: string
-    /* Properties of GXml.DomAttr */
+    /* Properties of GXml-0.14.GXml.DomAttr */
     readonly namespace_uri: string
     readonly local_name: string
     readonly specified: boolean
-    /* Fields of GXml.GAttribute */
+    /* Fields of GXml-0.14.GXml.GAttribute */
     parent_instance: GNode
     priv: GAttributePrivate
-    /* Fields of GXml.GNode */
+    /* Fields of GXml-0.14.GXml.GNode */
     _doc: GDocument
     _node: object | null
     _base_uri: string
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GXml.GNode */
+    /* Methods of GXml-0.14.GXml.GNode */
     set_namespace(uri: string, prefix?: string | null): boolean
     to_string(): string
     get_internal_node(): object | null
@@ -10571,7 +10571,7 @@ export class GAttribute {
     get_name(): string
     get_value(): string
     set_value(value: string): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -10593,15 +10593,15 @@ export class GAttribute {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of GXml.Attribute */
+    /* Methods of GXml-0.14.GXml.Attribute */
     get_namespace(): Namespace | null
     set_namespace(value?: Namespace | null): void
     get_prefix(): string | null
-    /* Methods of GXml.DomAttr */
+    /* Methods of GXml-0.14.GXml.DomAttr */
     get_namespace_uri(): string | null
     get_local_name(): string
     get_specified(): boolean
-    /* Virtual methods of GXml.GAttribute */
+    /* Virtual methods of GXml-0.14.GXml.GAttribute */
     vfunc_get_namespace(): Namespace | null
     vfunc_set_namespace(value?: Namespace | null): void
     vfunc_set_namespace(uri: string, prefix?: string | null): boolean
@@ -10612,7 +10612,7 @@ export class GAttribute {
     vfunc_get_value(): string
     vfunc_set_value(value: string): void
     vfunc_get_specified(): boolean
-    /* Virtual methods of GXml.GNode */
+    /* Virtual methods of GXml-0.14.GXml.GNode */
     vfunc_set_namespace(uri: string, prefix?: string | null): boolean
     vfunc_to_string(): string
     vfunc_get_attrs(): Gee.Map
@@ -10662,7 +10662,7 @@ export class GAttribute {
     vfunc_get_elements_by_name_ns(name: string, ns?: string | null): ElementList
     vfunc_ns_prefix(): string
     vfunc_ns_uri(): string
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -10670,7 +10670,7 @@ export class GAttribute {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: GAttribute, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: GAttribute, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -10716,7 +10716,7 @@ export interface GComment_ConstructProps extends GCharacterData_ConstructProps {
     data?: string
 }
 export class GComment {
-    /* Properties of GXml.GNode */
+    /* Properties of GXml-0.14.GXml.GNode */
     readonly attrs: Gee.Map
     readonly children_nodes: Gee.BidirList
     readonly namespaces: Gee.List
@@ -10725,21 +10725,21 @@ export class GComment {
     readonly type_node: NodeType
     readonly name: string
     value: string
-    /* Properties of GXml.Comment */
+    /* Properties of GXml-0.14.GXml.Comment */
     str: string
-    /* Properties of GXml.DomCharacterData */
+    /* Properties of GXml-0.14.GXml.DomCharacterData */
     data: string
     readonly length: number
-    /* Fields of GXml.GComment */
+    /* Fields of GXml-0.14.GXml.GComment */
     parent_instance: GCharacterData
     priv: GCommentPrivate
-    /* Fields of GXml.GNode */
+    /* Fields of GXml-0.14.GXml.GNode */
     _doc: GDocument
     _node: object | null
     _base_uri: string
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GXml.GNode */
+    /* Methods of GXml-0.14.GXml.GNode */
     set_namespace(uri: string, prefix?: string | null): boolean
     to_string(): string
     get_internal_node(): object | null
@@ -10752,7 +10752,7 @@ export class GComment {
     get_name(): string
     get_value(): string
     set_value(value: string): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -10774,10 +10774,10 @@ export class GComment {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of GXml.Comment */
+    /* Methods of GXml-0.14.GXml.Comment */
     get_str(): string
     set_str(value: string): void
-    /* Methods of GXml.DomCharacterData */
+    /* Methods of GXml-0.14.GXml.DomCharacterData */
     substring_data(offset: number, count: number): string
     append_data(data: string): void
     insert_data(offset: number, data: string): void
@@ -10786,10 +10786,10 @@ export class GComment {
     get_data(): string
     set_data(value: string): void
     get_length(): number
-    /* Virtual methods of GXml.GComment */
+    /* Virtual methods of GXml-0.14.GXml.GComment */
     vfunc_get_str(): string
     vfunc_set_str(value: string): void
-    /* Virtual methods of GXml.GCharacterData */
+    /* Virtual methods of GXml-0.14.GXml.GCharacterData */
     vfunc_get_str(): string
     vfunc_set_str(value: string): void
     vfunc_substring_data(offset: number, count: number): string
@@ -10800,12 +10800,12 @@ export class GComment {
     vfunc_get_data(): string
     vfunc_set_data(value: string): void
     vfunc_get_length(): number
-    /* Virtual methods of GXml.GNonDocumentChildNode */
+    /* Virtual methods of GXml-0.14.GXml.GNonDocumentChildNode */
     vfunc_get_previous_element_sibling(): DomElement | null
     vfunc_get_next_element_sibling(): DomElement | null
-    /* Virtual methods of GXml.GChildNode */
+    /* Virtual methods of GXml-0.14.GXml.GChildNode */
     vfunc_remove(): void
-    /* Virtual methods of GXml.GNode */
+    /* Virtual methods of GXml-0.14.GXml.GNode */
     vfunc_set_namespace(uri: string, prefix?: string | null): boolean
     vfunc_to_string(): string
     vfunc_get_attrs(): Gee.Map
@@ -10855,7 +10855,7 @@ export class GComment {
     vfunc_get_elements_by_name_ns(name: string, ns?: string | null): ElementList
     vfunc_ns_prefix(): string
     vfunc_ns_uri(): string
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -10863,7 +10863,7 @@ export class GComment {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: GComment, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: GComment, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -10906,7 +10906,7 @@ export interface GCharacterData_ConstructProps extends GNonDocumentChildNode_Con
     data?: string
 }
 export class GCharacterData {
-    /* Properties of GXml.GNode */
+    /* Properties of GXml-0.14.GXml.GNode */
     readonly attrs: Gee.Map
     readonly children_nodes: Gee.BidirList
     readonly namespaces: Gee.List
@@ -10915,21 +10915,21 @@ export class GCharacterData {
     readonly type_node: NodeType
     readonly name: string
     value: string
-    /* Properties of GXml.Character */
+    /* Properties of GXml-0.14.GXml.Character */
     str: string
-    /* Properties of GXml.DomCharacterData */
+    /* Properties of GXml-0.14.GXml.DomCharacterData */
     data: string
     readonly length: number
-    /* Fields of GXml.GCharacterData */
+    /* Fields of GXml-0.14.GXml.GCharacterData */
     parent_instance: GNonDocumentChildNode
     priv: GCharacterDataPrivate
-    /* Fields of GXml.GNode */
+    /* Fields of GXml-0.14.GXml.GNode */
     _doc: GDocument
     _node: object | null
     _base_uri: string
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GXml.GNode */
+    /* Methods of GXml-0.14.GXml.GNode */
     set_namespace(uri: string, prefix?: string | null): boolean
     to_string(): string
     get_internal_node(): object | null
@@ -10942,7 +10942,7 @@ export class GCharacterData {
     get_name(): string
     get_value(): string
     set_value(value: string): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -10964,10 +10964,10 @@ export class GCharacterData {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of GXml.Character */
+    /* Methods of GXml-0.14.GXml.Character */
     get_str(): string
     set_str(value: string): void
-    /* Methods of GXml.DomCharacterData */
+    /* Methods of GXml-0.14.GXml.DomCharacterData */
     substring_data(offset: number, count: number): string
     append_data(data: string): void
     insert_data(offset: number, data: string): void
@@ -10976,7 +10976,7 @@ export class GCharacterData {
     get_data(): string
     set_data(value: string): void
     get_length(): number
-    /* Virtual methods of GXml.GCharacterData */
+    /* Virtual methods of GXml-0.14.GXml.GCharacterData */
     vfunc_get_str(): string
     vfunc_set_str(value: string): void
     vfunc_substring_data(offset: number, count: number): string
@@ -10987,12 +10987,12 @@ export class GCharacterData {
     vfunc_get_data(): string
     vfunc_set_data(value: string): void
     vfunc_get_length(): number
-    /* Virtual methods of GXml.GNonDocumentChildNode */
+    /* Virtual methods of GXml-0.14.GXml.GNonDocumentChildNode */
     vfunc_get_previous_element_sibling(): DomElement | null
     vfunc_get_next_element_sibling(): DomElement | null
-    /* Virtual methods of GXml.GChildNode */
+    /* Virtual methods of GXml-0.14.GXml.GChildNode */
     vfunc_remove(): void
-    /* Virtual methods of GXml.GNode */
+    /* Virtual methods of GXml-0.14.GXml.GNode */
     vfunc_set_namespace(uri: string, prefix?: string | null): boolean
     vfunc_to_string(): string
     vfunc_get_attrs(): Gee.Map
@@ -11042,7 +11042,7 @@ export class GCharacterData {
     vfunc_get_elements_by_name_ns(name: string, ns?: string | null): ElementList
     vfunc_ns_prefix(): string
     vfunc_ns_uri(): string
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -11050,7 +11050,7 @@ export class GCharacterData {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: GCharacterData, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: GCharacterData, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -11090,7 +11090,7 @@ export class GCharacterData {
 export interface GChildNode_ConstructProps extends GNode_ConstructProps {
 }
 export class GChildNode {
-    /* Properties of GXml.GNode */
+    /* Properties of GXml-0.14.GXml.GNode */
     readonly attrs: Gee.Map
     readonly children_nodes: Gee.BidirList
     readonly namespaces: Gee.List
@@ -11099,16 +11099,16 @@ export class GChildNode {
     readonly type_node: NodeType
     readonly name: string
     value: string
-    /* Fields of GXml.GChildNode */
+    /* Fields of GXml-0.14.GXml.GChildNode */
     parent_instance: GNode
     priv: GChildNodePrivate
-    /* Fields of GXml.GNode */
+    /* Fields of GXml-0.14.GXml.GNode */
     _doc: GDocument
     _node: object | null
     _base_uri: string
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GXml.GNode */
+    /* Methods of GXml-0.14.GXml.GNode */
     set_namespace(uri: string, prefix?: string | null): boolean
     to_string(): string
     get_internal_node(): object | null
@@ -11121,7 +11121,7 @@ export class GChildNode {
     get_name(): string
     get_value(): string
     set_value(value: string): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -11143,11 +11143,11 @@ export class GChildNode {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of GXml.DomChildNode */
+    /* Methods of GXml-0.14.GXml.DomChildNode */
     remove(): void
-    /* Virtual methods of GXml.GChildNode */
+    /* Virtual methods of GXml-0.14.GXml.GChildNode */
     vfunc_remove(): void
-    /* Virtual methods of GXml.GNode */
+    /* Virtual methods of GXml-0.14.GXml.GNode */
     vfunc_set_namespace(uri: string, prefix?: string | null): boolean
     vfunc_to_string(): string
     vfunc_get_attrs(): Gee.Map
@@ -11197,7 +11197,7 @@ export class GChildNode {
     vfunc_get_elements_by_name_ns(name: string, ns?: string | null): ElementList
     vfunc_ns_prefix(): string
     vfunc_ns_uri(): string
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -11205,7 +11205,7 @@ export class GChildNode {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: GChildNode, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: GChildNode, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -11239,7 +11239,7 @@ export class GChildNode {
 export interface GNonDocumentChildNode_ConstructProps extends GChildNode_ConstructProps {
 }
 export class GNonDocumentChildNode {
-    /* Properties of GXml.GNode */
+    /* Properties of GXml-0.14.GXml.GNode */
     readonly attrs: Gee.Map
     readonly children_nodes: Gee.BidirList
     readonly namespaces: Gee.List
@@ -11248,19 +11248,19 @@ export class GNonDocumentChildNode {
     readonly type_node: NodeType
     readonly name: string
     value: string
-    /* Properties of GXml.DomNonDocumentTypeChildNode */
+    /* Properties of GXml-0.14.GXml.DomNonDocumentTypeChildNode */
     readonly previous_element_sibling: DomElement
     readonly next_element_sibling: DomElement
-    /* Fields of GXml.GNonDocumentChildNode */
+    /* Fields of GXml-0.14.GXml.GNonDocumentChildNode */
     parent_instance: GChildNode
     priv: GNonDocumentChildNodePrivate
-    /* Fields of GXml.GNode */
+    /* Fields of GXml-0.14.GXml.GNode */
     _doc: GDocument
     _node: object | null
     _base_uri: string
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GXml.GNode */
+    /* Methods of GXml-0.14.GXml.GNode */
     set_namespace(uri: string, prefix?: string | null): boolean
     to_string(): string
     get_internal_node(): object | null
@@ -11273,7 +11273,7 @@ export class GNonDocumentChildNode {
     get_name(): string
     get_value(): string
     set_value(value: string): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -11295,15 +11295,15 @@ export class GNonDocumentChildNode {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of GXml.DomNonDocumentTypeChildNode */
+    /* Methods of GXml-0.14.GXml.DomNonDocumentTypeChildNode */
     get_previous_element_sibling(): DomElement | null
     get_next_element_sibling(): DomElement | null
-    /* Virtual methods of GXml.GNonDocumentChildNode */
+    /* Virtual methods of GXml-0.14.GXml.GNonDocumentChildNode */
     vfunc_get_previous_element_sibling(): DomElement | null
     vfunc_get_next_element_sibling(): DomElement | null
-    /* Virtual methods of GXml.GChildNode */
+    /* Virtual methods of GXml-0.14.GXml.GChildNode */
     vfunc_remove(): void
-    /* Virtual methods of GXml.GNode */
+    /* Virtual methods of GXml-0.14.GXml.GNode */
     vfunc_set_namespace(uri: string, prefix?: string | null): boolean
     vfunc_to_string(): string
     vfunc_get_attrs(): Gee.Map
@@ -11353,7 +11353,7 @@ export class GNonDocumentChildNode {
     vfunc_get_elements_by_name_ns(name: string, ns?: string | null): ElementList
     vfunc_ns_prefix(): string
     vfunc_ns_uri(): string
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -11361,7 +11361,7 @@ export class GNonDocumentChildNode {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: GNonDocumentChildNode, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: GNonDocumentChildNode, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -11399,7 +11399,7 @@ export class GNonDocumentChildNode {
 export interface GCDATA_ConstructProps extends GNode_ConstructProps {
 }
 export class GCDATA {
-    /* Properties of GXml.GNode */
+    /* Properties of GXml-0.14.GXml.GNode */
     readonly attrs: Gee.Map
     readonly children_nodes: Gee.BidirList
     readonly namespaces: Gee.List
@@ -11408,18 +11408,18 @@ export class GCDATA {
     readonly type_node: NodeType
     readonly name: string
     value: string
-    /* Properties of GXml.CDATA */
+    /* Properties of GXml-0.14.GXml.CDATA */
     readonly str: string
-    /* Fields of GXml.GCDATA */
+    /* Fields of GXml-0.14.GXml.GCDATA */
     parent_instance: GNode
     priv: GCDATAPrivate
-    /* Fields of GXml.GNode */
+    /* Fields of GXml-0.14.GXml.GNode */
     _doc: GDocument
     _node: object | null
     _base_uri: string
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GXml.GNode */
+    /* Methods of GXml-0.14.GXml.GNode */
     set_namespace(uri: string, prefix?: string | null): boolean
     to_string(): string
     get_internal_node(): object | null
@@ -11432,7 +11432,7 @@ export class GCDATA {
     get_name(): string
     get_value(): string
     set_value(value: string): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -11454,11 +11454,11 @@ export class GCDATA {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of GXml.CDATA */
+    /* Methods of GXml-0.14.GXml.CDATA */
     get_str(): string
-    /* Virtual methods of GXml.GCDATA */
+    /* Virtual methods of GXml-0.14.GXml.GCDATA */
     vfunc_get_str(): string
-    /* Virtual methods of GXml.GNode */
+    /* Virtual methods of GXml-0.14.GXml.GNode */
     vfunc_set_namespace(uri: string, prefix?: string | null): boolean
     vfunc_to_string(): string
     vfunc_get_attrs(): Gee.Map
@@ -11508,7 +11508,7 @@ export class GCDATA {
     vfunc_get_elements_by_name_ns(name: string, ns?: string | null): ElementList
     vfunc_ns_prefix(): string
     vfunc_ns_uri(): string
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -11516,7 +11516,7 @@ export class GCDATA {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: GCDATA, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: GCDATA, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -11557,7 +11557,7 @@ export interface GDocument_ConstructProps extends GNode_ConstructProps {
     file?: Gio.File
 }
 export class GDocument {
-    /* Properties of GXml.GNode */
+    /* Properties of GXml-0.14.GXml.GNode */
     readonly attrs: Gee.Map
     readonly children_nodes: Gee.BidirList
     readonly namespaces: Gee.List
@@ -11566,19 +11566,19 @@ export class GDocument {
     readonly type_node: NodeType
     readonly name: string
     value: string
-    /* Properties of GXml.Document */
+    /* Properties of GXml-0.14.GXml.Document */
     indent: boolean
     ns_top: boolean
     prefix_default_ns: boolean
     backup: boolean
     readonly root: Node
     file: Gio.File
-    /* Properties of GXml.DomParentNode */
+    /* Properties of GXml-0.14.GXml.DomParentNode */
     readonly children: DomHTMLCollection
     readonly first_element_child: DomElement
     readonly last_element_child: DomElement
     readonly child_element_count: number
-    /* Properties of GXml.DomDocument */
+    /* Properties of GXml-0.14.GXml.DomDocument */
     readonly implementation: DomImplementation
     readonly url: string
     readonly document_uri: string
@@ -11588,7 +11588,7 @@ export class GDocument {
     readonly content_type: string
     readonly doctype: DomDocumentType
     readonly document_element: DomElement
-    /* Fields of GXml.GDocument */
+    /* Fields of GXml-0.14.GXml.GDocument */
     parent_instance: GNode
     priv: GDocumentPrivate
     doc: object | null
@@ -11600,17 +11600,17 @@ export class GDocument {
     _character_set: string
     _content_type: string
     _constructor: DomEvent
-    /* Fields of GXml.GNode */
+    /* Fields of GXml-0.14.GXml.GNode */
     _doc: GDocument
     _node: object | null
     _base_uri: string
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GXml.GDocument */
+    /* Methods of GXml-0.14.GXml.GDocument */
     libxml_to_string(): string
     save(cancellable?: Gio.Cancellable | null): boolean
     save_as(f: Gio.File, cancellable?: Gio.Cancellable | null): boolean
-    /* Methods of GXml.GNode */
+    /* Methods of GXml-0.14.GXml.GNode */
     set_namespace(uri: string, prefix?: string | null): boolean
     to_string(): string
     get_internal_node(): object | null
@@ -11623,7 +11623,7 @@ export class GDocument {
     get_name(): string
     get_value(): string
     set_value(value: string): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -11645,7 +11645,7 @@ export class GDocument {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of GXml.Document */
+    /* Methods of GXml-0.14.GXml.Document */
     create_element(name: string): Node
     create_text(text: string): Node
     create_comment(text: string): Node
@@ -11662,7 +11662,7 @@ export class GDocument {
     get_root(): Node
     get_file(): Gio.File
     set_file(value: Gio.File): void
-    /* Methods of GXml.DomParentNode */
+    /* Methods of GXml-0.14.GXml.DomParentNode */
     query_selector(selectors: string): DomElement | null
     query_selector_all(selectors: string): DomNodeList
     get_elements_by_property_value(property: string, value: string): DomElementList
@@ -11670,9 +11670,9 @@ export class GDocument {
     get_first_element_child(): DomElement | null
     get_last_element_child(): DomElement | null
     get_child_element_count(): number
-    /* Methods of GXml.DomNonElementParentNode */
+    /* Methods of GXml-0.14.GXml.DomNonElementParentNode */
     get_element_by_id(element_id: string): DomElement | null
-    /* Methods of GXml.DomDocument */
+    /* Methods of GXml-0.14.GXml.DomDocument */
     get_elements_by_tag_name(local_name: string): DomHTMLCollection
     get_elements_by_tag_name_ns(namespace: string | null, local_name: string): DomHTMLCollection
     get_elements_by_class_name(classNames: string): DomHTMLCollection
@@ -11697,9 +11697,9 @@ export class GDocument {
     get_content_type(): string
     get_doctype(): DomDocumentType | null
     get_document_element(): DomElement | null
-    /* Methods of GXml.XPathContext */
+    /* Methods of GXml-0.14.GXml.XPathContext */
     evaluate(expression: string, resolver?: Gee.List | null): XPathObject
-    /* Virtual methods of GXml.GDocument */
+    /* Virtual methods of GXml-0.14.GXml.GDocument */
     vfunc_save(cancellable?: Gio.Cancellable | null): boolean
     vfunc_save_as(f: Gio.File, cancellable?: Gio.Cancellable | null): boolean
     vfunc_create_element(name: string): Node
@@ -11752,7 +11752,7 @@ export class GDocument {
     vfunc_get_doctype(): DomDocumentType | null
     vfunc_get_document_element(): DomElement | null
     vfunc_evaluate(expression: string, resolver?: Gee.List | null): XPathObject
-    /* Virtual methods of GXml.GNode */
+    /* Virtual methods of GXml-0.14.GXml.GNode */
     vfunc_set_namespace(uri: string, prefix?: string | null): boolean
     vfunc_to_string(): string
     vfunc_get_attrs(): Gee.Map
@@ -11802,7 +11802,7 @@ export class GDocument {
     vfunc_get_elements_by_name_ns(name: string, ns?: string | null): ElementList
     vfunc_ns_prefix(): string
     vfunc_ns_uri(): string
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -11810,7 +11810,7 @@ export class GDocument {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: GDocument, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: GDocument, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -11891,12 +11891,12 @@ export class GDocument {
 export interface GImplementation_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class GImplementation {
-    /* Fields of GXml.GImplementation */
+    /* Fields of GXml-0.14.GXml.GImplementation */
     parent_instance: GObject.Object
     priv: GImplementationPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -11918,17 +11918,17 @@ export class GImplementation {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of GXml.DomImplementation */
+    /* Methods of GXml-0.14.GXml.DomImplementation */
     create_document_type(qualified_name: string, public_id: string, system_id: string): DomDocumentType
     create_document(nspace?: string | null, qualified_name?: string | null, doctype?: DomDocumentType | null): DomXMLDocument
     create_html_document(title: string): Document
     has_feature(): boolean
-    /* Virtual methods of GXml.GImplementation */
+    /* Virtual methods of GXml-0.14.GXml.GImplementation */
     vfunc_create_document_type(qualified_name: string, public_id: string, system_id: string): DomDocumentType
     vfunc_create_document(nspace?: string | null, qualified_name?: string | null, doctype?: DomDocumentType | null): DomXMLDocument
     vfunc_create_html_document(title: string): Document
     vfunc_has_feature(): boolean
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -11936,7 +11936,7 @@ export class GImplementation {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: GImplementation, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: GImplementation, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -11957,7 +11957,7 @@ export interface GDocumentType_ConstructProps extends GChildNode_ConstructProps 
     text_content?: string
 }
 export class GDocumentType {
-    /* Properties of GXml.GNode */
+    /* Properties of GXml-0.14.GXml.GNode */
     readonly attrs: Gee.Map
     readonly children_nodes: Gee.BidirList
     readonly namespaces: Gee.List
@@ -11966,7 +11966,7 @@ export class GDocumentType {
     readonly type_node: NodeType
     readonly name: string
     value: string
-    /* Properties of GXml.DomNode */
+    /* Properties of GXml-0.14.GXml.DomNode */
     readonly node_type: DomNodeNodeType
     readonly node_name: string
     readonly base_uri: string
@@ -11980,22 +11980,22 @@ export class GDocumentType {
     readonly next_sibling: DomNode
     node_value: string
     text_content: string
-    /* Properties of GXml.DomDocumentType */
+    /* Properties of GXml-0.14.GXml.DomDocumentType */
     readonly public_id: string
     readonly system_id: string
-    /* Fields of GXml.GDocumentType */
+    /* Fields of GXml-0.14.GXml.GDocumentType */
     parent_instance: GChildNode
     priv: GDocumentTypePrivate
     _name: string
     _public_id: string
     _system_id: string
-    /* Fields of GXml.GNode */
+    /* Fields of GXml-0.14.GXml.GNode */
     _doc: GDocument
     _node: object | null
     _base_uri: string
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GXml.GNode */
+    /* Methods of GXml-0.14.GXml.GNode */
     set_namespace(uri: string, prefix?: string | null): boolean
     to_string(): string
     get_internal_node(): object | null
@@ -12008,7 +12008,7 @@ export class GDocumentType {
     get_name(): string
     get_value(): string
     set_value(value: string): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -12030,7 +12030,7 @@ export class GDocumentType {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of GXml.DomNode */
+    /* Methods of GXml-0.14.GXml.DomNode */
     has_child_nodes(): boolean
     normalize(): void
     is_equal_node(node?: DomNode | null): boolean
@@ -12060,18 +12060,18 @@ export class GDocumentType {
     set_node_value(value?: string | null): void
     get_text_content(): string | null
     set_text_content(value?: string | null): void
-    /* Methods of GXml.DomChildNode */
+    /* Methods of GXml-0.14.GXml.DomChildNode */
     remove(): void
-    /* Methods of GXml.DomDocumentType */
+    /* Methods of GXml-0.14.GXml.DomDocumentType */
     get_public_id(): string
     get_system_id(): string
-    /* Virtual methods of GXml.GDocumentType */
+    /* Virtual methods of GXml-0.14.GXml.GDocumentType */
     vfunc_get_name(): string
     vfunc_get_public_id(): string
     vfunc_get_system_id(): string
-    /* Virtual methods of GXml.GChildNode */
+    /* Virtual methods of GXml-0.14.GXml.GChildNode */
     vfunc_remove(): void
-    /* Virtual methods of GXml.GNode */
+    /* Virtual methods of GXml-0.14.GXml.GNode */
     vfunc_set_namespace(uri: string, prefix?: string | null): boolean
     vfunc_to_string(): string
     vfunc_get_attrs(): Gee.Map
@@ -12121,7 +12121,7 @@ export class GDocumentType {
     vfunc_get_elements_by_name_ns(name: string, ns?: string | null): ElementList
     vfunc_ns_prefix(): string
     vfunc_ns_uri(): string
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -12129,7 +12129,7 @@ export class GDocumentType {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: GDocumentType, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: GDocumentType, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -12195,7 +12195,7 @@ export class GDocumentType {
 export interface GDocumentFragment_ConstructProps extends GDocument_ConstructProps {
 }
 export class GDocumentFragment {
-    /* Properties of GXml.GNode */
+    /* Properties of GXml-0.14.GXml.GNode */
     readonly attrs: Gee.Map
     readonly children_nodes: Gee.BidirList
     readonly namespaces: Gee.List
@@ -12204,10 +12204,10 @@ export class GDocumentFragment {
     readonly type_node: NodeType
     readonly name: string
     value: string
-    /* Fields of GXml.GDocumentFragment */
+    /* Fields of GXml-0.14.GXml.GDocumentFragment */
     parent_instance: GDocument
     priv: GDocumentFragmentPrivate
-    /* Fields of GXml.GDocument */
+    /* Fields of GXml-0.14.GXml.GDocument */
     doc: object | null
     _buffer: any
     _implementation: GImplementation
@@ -12217,17 +12217,17 @@ export class GDocumentFragment {
     _character_set: string
     _content_type: string
     _constructor: DomEvent
-    /* Fields of GXml.GNode */
+    /* Fields of GXml-0.14.GXml.GNode */
     _doc: GDocument
     _node: object | null
     _base_uri: string
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GXml.GDocument */
+    /* Methods of GXml-0.14.GXml.GDocument */
     libxml_to_string(): string
     save(cancellable?: Gio.Cancellable | null): boolean
     save_as(f: Gio.File, cancellable?: Gio.Cancellable | null): boolean
-    /* Methods of GXml.GNode */
+    /* Methods of GXml-0.14.GXml.GNode */
     set_namespace(uri: string, prefix?: string | null): boolean
     to_string(): string
     get_internal_node(): object | null
@@ -12240,7 +12240,7 @@ export class GDocumentFragment {
     get_name(): string
     get_value(): string
     set_value(value: string): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -12262,14 +12262,14 @@ export class GDocumentFragment {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GXml.GDocumentFragment */
+    /* Virtual methods of GXml-0.14.GXml.GDocumentFragment */
     vfunc_create_element(name: string): Node
     vfunc_create_element(local_name: string): DomElement
     vfunc_create_comment(text: string): Node
     vfunc_create_comment(data: string): DomComment
     vfunc_get_elements_by_property_value(property: string, value: string): DomElementList
     vfunc_get_elements_by_property_value(property: string, value: string): ElementList
-    /* Virtual methods of GXml.GDocument */
+    /* Virtual methods of GXml-0.14.GXml.GDocument */
     vfunc_save(cancellable?: Gio.Cancellable | null): boolean
     vfunc_save_as(f: Gio.File, cancellable?: Gio.Cancellable | null): boolean
     vfunc_create_element(name: string): Node
@@ -12322,7 +12322,7 @@ export class GDocumentFragment {
     vfunc_get_doctype(): DomDocumentType | null
     vfunc_get_document_element(): DomElement | null
     vfunc_evaluate(expression: string, resolver?: Gee.List | null): XPathObject
-    /* Virtual methods of GXml.GNode */
+    /* Virtual methods of GXml-0.14.GXml.GNode */
     vfunc_set_namespace(uri: string, prefix?: string | null): boolean
     vfunc_to_string(): string
     vfunc_get_attrs(): Gee.Map
@@ -12372,7 +12372,7 @@ export class GDocumentFragment {
     vfunc_get_elements_by_name_ns(name: string, ns?: string | null): ElementList
     vfunc_ns_prefix(): string
     vfunc_ns_uri(): string
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -12380,7 +12380,7 @@ export class GDocumentFragment {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: GDocumentFragment, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: GDocumentFragment, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -12415,13 +12415,13 @@ export class GDocumentFragment {
 export interface GDomNodeIterator_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class GDomNodeIterator {
-    /* Properties of GXml.DomNodeIterator */
+    /* Properties of GXml-0.14.GXml.DomNodeIterator */
     readonly root: DomNode
     readonly reference_node: DomNode
     readonly pointer_before_reference_node: boolean
     readonly what_to_show: number
     readonly filter: DomNodeFilter
-    /* Fields of GXml.GDomNodeIterator */
+    /* Fields of GXml-0.14.GXml.GDomNodeIterator */
     parent_instance: GObject.Object
     priv: GDomNodeIteratorPrivate
     _root: DomNode
@@ -12429,9 +12429,9 @@ export class GDomNodeIterator {
     _pointer_before_reference_node: boolean
     _what_to_show: number
     _filter: DomNodeFilter
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -12453,7 +12453,7 @@ export class GDomNodeIterator {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of GXml.DomNodeIterator */
+    /* Methods of GXml-0.14.GXml.DomNodeIterator */
     next_node(): DomNode | null
     previous_node(): DomNode | null
     detach(): void
@@ -12462,7 +12462,7 @@ export class GDomNodeIterator {
     get_pointer_before_reference_node(): boolean
     get_what_to_show(): number
     get_filter(): DomNodeFilter | null
-    /* Virtual methods of GXml.GDomNodeIterator */
+    /* Virtual methods of GXml-0.14.GXml.GDomNodeIterator */
     vfunc_next_node(): DomNode | null
     vfunc_previous_node(): DomNode | null
     vfunc_detach(): void
@@ -12471,7 +12471,7 @@ export class GDomNodeIterator {
     vfunc_get_pointer_before_reference_node(): boolean
     vfunc_get_what_to_show(): number
     vfunc_get_filter(): DomNodeFilter | null
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -12479,7 +12479,7 @@ export class GDomNodeIterator {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: GDomNodeIterator, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: GDomNodeIterator, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -12507,21 +12507,21 @@ export class GDomNodeIterator {
 export interface GDomTreeWalker_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class GDomTreeWalker {
-    /* Properties of GXml.DomTreeWalker */
+    /* Properties of GXml-0.14.GXml.DomTreeWalker */
     readonly root: DomNode
     readonly what_to_show: number
     readonly filter: DomNodeFilter
     readonly current_node: DomNode
-    /* Fields of GXml.GDomTreeWalker */
+    /* Fields of GXml-0.14.GXml.GDomTreeWalker */
     parent_instance: GObject.Object
     priv: GDomTreeWalkerPrivate
     _root: DomNode
     _what_to_show: number
     _filter: DomNodeFilter | null
     _current_node: DomNode
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -12543,7 +12543,7 @@ export class GDomTreeWalker {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of GXml.DomTreeWalker */
+    /* Methods of GXml-0.14.GXml.DomTreeWalker */
     parentNode(): DomNode | null
     firstChild(): DomNode | null
     lastChild(): DomNode | null
@@ -12555,7 +12555,7 @@ export class GDomTreeWalker {
     get_what_to_show(): number
     get_filter(): DomNodeFilter | null
     get_current_node(): DomNode
-    /* Virtual methods of GXml.GDomTreeWalker */
+    /* Virtual methods of GXml-0.14.GXml.GDomTreeWalker */
     vfunc_parentNode(): DomNode | null
     vfunc_firstChild(): DomNode | null
     vfunc_lastChild(): DomNode | null
@@ -12567,7 +12567,7 @@ export class GDomTreeWalker {
     vfunc_get_what_to_show(): number
     vfunc_get_filter(): DomNodeFilter | null
     vfunc_get_current_node(): DomNode
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -12575,7 +12575,7 @@ export class GDomTreeWalker {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: GDomTreeWalker, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: GDomTreeWalker, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -12601,30 +12601,30 @@ export class GDomTreeWalker {
 export interface GDomTokenList_ConstructProps extends Gee.ArrayList_ConstructProps {
 }
 export class GDomTokenList {
-    /* Properties of Gee.AbstractBidirList */
+    /* Properties of Gee-0.8.Gee.AbstractBidirList */
     readonly read_only_view: Gee.BidirList
-    /* Properties of Gee.AbstractCollection */
+    /* Properties of Gee-0.8.Gee.AbstractCollection */
     readonly size: number
     readonly read_only: boolean
-    /* Properties of GXml.DomTokenList */
+    /* Properties of GXml-0.14.GXml.DomTokenList */
     readonly length: number
-    /* Fields of GXml.GDomTokenList */
+    /* Fields of GXml-0.14.GXml.GDomTokenList */
     parent_instance: Gee.ArrayList
     priv: GDomTokenListPrivate
     _element: DomElement
     _attr: string
-    /* Fields of Gee.ArrayList */
+    /* Fields of Gee-0.8.Gee.ArrayList */
     _items: object[]
     _items_length1: number
     _size: number
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GXml.GDomTokenList */
+    /* Methods of GXml-0.14.GXml.GDomTokenList */
     update(): void
-    /* Methods of Gee.ArrayList */
+    /* Methods of Gee-0.8.Gee.ArrayList */
     add_all(collection: Gee.Collection): boolean
     get_equal_func(): [ /* returnType */ Gee.EqualDataFunc, /* result_target */ object | null ]
-    /* Methods of Gee.AbstractBidirList */
+    /* Methods of Gee-0.8.Gee.AbstractBidirList */
     bidir_list_iterator(): Gee.BidirListIterator
     reserved0(): void
     reserved1(): void
@@ -12637,7 +12637,7 @@ export class GDomTokenList {
     reserved8(): void
     reserved9(): void
     get_read_only_view(): Gee.BidirList
-    /* Methods of Gee.AbstractList */
+    /* Methods of Gee-0.8.Gee.AbstractList */
     list_iterator(): Gee.ListIterator
     get(index: number): object | null
     set(index: number, item?: object | null): void
@@ -12646,7 +12646,7 @@ export class GDomTokenList {
     remove_at(index: number): object | null
     slice(start: number, stop: number): Gee.List | null
     get_read_only_view(): Gee.List
-    /* Methods of Gee.AbstractCollection */
+    /* Methods of Gee-0.8.Gee.AbstractCollection */
     contains(item?: object | null): boolean
     add(item?: object | null): boolean
     remove(item?: object | null): boolean
@@ -12656,7 +12656,7 @@ export class GDomTokenList {
     get_size(): number
     get_read_only(): boolean
     get_read_only_view(): Gee.Collection
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -12678,7 +12678,7 @@ export class GDomTokenList {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of GXml.DomTokenList */
+    /* Methods of GXml-0.14.GXml.DomTokenList */
     item(index: number): string | null
     contains(token: string): boolean
     add(tokens: string[]): void
@@ -12686,7 +12686,7 @@ export class GDomTokenList {
     toggle(token: string, force: boolean, auto: boolean): boolean
     to_string(): string
     get_length(): number
-    /* Virtual methods of GXml.GDomTokenList */
+    /* Virtual methods of GXml-0.14.GXml.GDomTokenList */
     vfunc_item(index: number): string | null
     vfunc_contains(token: string): boolean
     vfunc_contains(item?: object | null): boolean
@@ -12700,11 +12700,11 @@ export class GDomTokenList {
     vfunc_get_read_only_view(): Gee.BidirList
     vfunc_get_read_only_view(): Gee.List
     vfunc_get_read_only_view(): Gee.Collection
-    /* Virtual methods of Gee.ArrayList */
+    /* Virtual methods of Gee-0.8.Gee.ArrayList */
     vfunc_get_read_only_view(): Gee.BidirList
     vfunc_get_read_only_view(): Gee.List
     vfunc_get_read_only_view(): Gee.Collection
-    /* Virtual methods of Gee.AbstractBidirList */
+    /* Virtual methods of Gee-0.8.Gee.AbstractBidirList */
     vfunc_bidir_list_iterator(): Gee.BidirListIterator
     vfunc_reserved0(): void
     vfunc_reserved1(): void
@@ -12719,7 +12719,7 @@ export class GDomTokenList {
     vfunc_get_read_only_view(): Gee.BidirList
     vfunc_get_read_only_view(): Gee.List
     vfunc_get_read_only_view(): Gee.Collection
-    /* Virtual methods of Gee.AbstractList */
+    /* Virtual methods of Gee-0.8.Gee.AbstractList */
     vfunc_list_iterator(): Gee.ListIterator
     vfunc_get(index: number): object | null
     vfunc_set(index: number, item?: object | null): void
@@ -12743,7 +12743,7 @@ export class GDomTokenList {
     vfunc_last(): object | null
     vfunc_insert_all(index: number, collection: Gee.Collection): void
     vfunc_sort(compare_func: GLib.CompareDataFunc | null): void
-    /* Virtual methods of Gee.AbstractCollection */
+    /* Virtual methods of Gee-0.8.Gee.AbstractCollection */
     vfunc_contains(item?: object | null): boolean
     vfunc_add(item?: object | null): boolean
     vfunc_remove(item?: object | null): boolean
@@ -12790,7 +12790,7 @@ export class GDomTokenList {
     vfunc_contains_all_iterator(iter: Gee.Iterator): boolean
     vfunc_remove_all_iterator(iter: Gee.Iterator): boolean
     vfunc_get_is_empty(): boolean
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -12798,7 +12798,7 @@ export class GDomTokenList {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: GDomTokenList, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: GDomTokenList, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -12826,33 +12826,33 @@ export interface GDomSettableTokenList_ConstructProps extends GDomTokenList_Cons
     value?: string
 }
 export class GDomSettableTokenList {
-    /* Properties of Gee.AbstractBidirList */
+    /* Properties of Gee-0.8.Gee.AbstractBidirList */
     readonly read_only_view: Gee.BidirList
-    /* Properties of Gee.AbstractCollection */
+    /* Properties of Gee-0.8.Gee.AbstractCollection */
     readonly size: number
     readonly read_only: boolean
-    /* Properties of GXml.DomSettableTokenList */
+    /* Properties of GXml-0.14.GXml.DomSettableTokenList */
     value: string
-    /* Properties of GXml.DomTokenList */
+    /* Properties of GXml-0.14.GXml.DomTokenList */
     readonly length: number
-    /* Fields of GXml.GDomSettableTokenList */
+    /* Fields of GXml-0.14.GXml.GDomSettableTokenList */
     parent_instance: GDomTokenList
     priv: GDomSettableTokenListPrivate
-    /* Fields of GXml.GDomTokenList */
+    /* Fields of GXml-0.14.GXml.GDomTokenList */
     _element: DomElement
     _attr: string
-    /* Fields of Gee.ArrayList */
+    /* Fields of Gee-0.8.Gee.ArrayList */
     _items: object[]
     _items_length1: number
     _size: number
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GXml.GDomTokenList */
+    /* Methods of GXml-0.14.GXml.GDomTokenList */
     update(): void
-    /* Methods of Gee.ArrayList */
+    /* Methods of Gee-0.8.Gee.ArrayList */
     add_all(collection: Gee.Collection): boolean
     get_equal_func(): [ /* returnType */ Gee.EqualDataFunc, /* result_target */ object | null ]
-    /* Methods of Gee.AbstractBidirList */
+    /* Methods of Gee-0.8.Gee.AbstractBidirList */
     bidir_list_iterator(): Gee.BidirListIterator
     reserved0(): void
     reserved1(): void
@@ -12865,7 +12865,7 @@ export class GDomSettableTokenList {
     reserved8(): void
     reserved9(): void
     get_read_only_view(): Gee.BidirList
-    /* Methods of Gee.AbstractList */
+    /* Methods of Gee-0.8.Gee.AbstractList */
     list_iterator(): Gee.ListIterator
     get(index: number): object | null
     set(index: number, item?: object | null): void
@@ -12874,7 +12874,7 @@ export class GDomSettableTokenList {
     remove_at(index: number): object | null
     slice(start: number, stop: number): Gee.List | null
     get_read_only_view(): Gee.List
-    /* Methods of Gee.AbstractCollection */
+    /* Methods of Gee-0.8.Gee.AbstractCollection */
     contains(item?: object | null): boolean
     add(item?: object | null): boolean
     remove(item?: object | null): boolean
@@ -12884,7 +12884,7 @@ export class GDomSettableTokenList {
     get_size(): number
     get_read_only(): boolean
     get_read_only_view(): Gee.Collection
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -12906,10 +12906,10 @@ export class GDomSettableTokenList {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of GXml.DomSettableTokenList */
+    /* Methods of GXml-0.14.GXml.DomSettableTokenList */
     get_value(): string
     set_value(value: string): void
-    /* Methods of GXml.DomTokenList */
+    /* Methods of GXml-0.14.GXml.DomTokenList */
     item(index: number): string | null
     contains(token: string): boolean
     add(tokens: string[]): void
@@ -12917,7 +12917,7 @@ export class GDomSettableTokenList {
     toggle(token: string, force: boolean, auto: boolean): boolean
     to_string(): string
     get_length(): number
-    /* Virtual methods of GXml.GDomSettableTokenList */
+    /* Virtual methods of GXml-0.14.GXml.GDomSettableTokenList */
     vfunc_get_value(): string
     vfunc_set_value(value: string): void
     vfunc_get_read_only_view(): Gee.BidirList
@@ -12929,7 +12929,7 @@ export class GDomSettableTokenList {
     vfunc_add(item?: object | null): boolean
     vfunc_remove(tokens: string[]): void
     vfunc_remove(item?: object | null): boolean
-    /* Virtual methods of GXml.GDomTokenList */
+    /* Virtual methods of GXml-0.14.GXml.GDomTokenList */
     vfunc_item(index: number): string | null
     vfunc_contains(token: string): boolean
     vfunc_contains(item?: object | null): boolean
@@ -12943,11 +12943,11 @@ export class GDomSettableTokenList {
     vfunc_get_read_only_view(): Gee.BidirList
     vfunc_get_read_only_view(): Gee.List
     vfunc_get_read_only_view(): Gee.Collection
-    /* Virtual methods of Gee.ArrayList */
+    /* Virtual methods of Gee-0.8.Gee.ArrayList */
     vfunc_get_read_only_view(): Gee.BidirList
     vfunc_get_read_only_view(): Gee.List
     vfunc_get_read_only_view(): Gee.Collection
-    /* Virtual methods of Gee.AbstractBidirList */
+    /* Virtual methods of Gee-0.8.Gee.AbstractBidirList */
     vfunc_bidir_list_iterator(): Gee.BidirListIterator
     vfunc_reserved0(): void
     vfunc_reserved1(): void
@@ -12962,7 +12962,7 @@ export class GDomSettableTokenList {
     vfunc_get_read_only_view(): Gee.BidirList
     vfunc_get_read_only_view(): Gee.List
     vfunc_get_read_only_view(): Gee.Collection
-    /* Virtual methods of Gee.AbstractList */
+    /* Virtual methods of Gee-0.8.Gee.AbstractList */
     vfunc_list_iterator(): Gee.ListIterator
     vfunc_get(index: number): object | null
     vfunc_set(index: number, item?: object | null): void
@@ -12986,7 +12986,7 @@ export class GDomSettableTokenList {
     vfunc_last(): object | null
     vfunc_insert_all(index: number, collection: Gee.Collection): void
     vfunc_sort(compare_func: GLib.CompareDataFunc | null): void
-    /* Virtual methods of Gee.AbstractCollection */
+    /* Virtual methods of Gee-0.8.Gee.AbstractCollection */
     vfunc_contains(item?: object | null): boolean
     vfunc_add(item?: object | null): boolean
     vfunc_remove(item?: object | null): boolean
@@ -13033,7 +13033,7 @@ export class GDomSettableTokenList {
     vfunc_contains_all_iterator(iter: Gee.Iterator): boolean
     vfunc_remove_all_iterator(iter: Gee.Iterator): boolean
     vfunc_get_is_empty(): boolean
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -13041,7 +13041,7 @@ export class GDomSettableTokenList {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: GDomSettableTokenList, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: GDomSettableTokenList, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -13070,26 +13070,26 @@ export class GDomSettableTokenList {
 export interface GDomHTMLCollection_ConstructProps extends Gee.ArrayList_ConstructProps {
 }
 export class GDomHTMLCollection {
-    /* Properties of Gee.AbstractBidirList */
+    /* Properties of Gee-0.8.Gee.AbstractBidirList */
     readonly read_only_view: Gee.BidirList
-    /* Properties of Gee.AbstractCollection */
+    /* Properties of Gee-0.8.Gee.AbstractCollection */
     readonly size: number
     readonly read_only: boolean
-    /* Properties of GXml.DomHTMLCollection */
+    /* Properties of GXml-0.14.GXml.DomHTMLCollection */
     readonly length: number
-    /* Fields of GXml.GDomHTMLCollection */
+    /* Fields of GXml-0.14.GXml.GDomHTMLCollection */
     parent_instance: Gee.ArrayList
     priv: GDomHTMLCollectionPrivate
-    /* Fields of Gee.ArrayList */
+    /* Fields of Gee-0.8.Gee.ArrayList */
     _items: object[]
     _items_length1: number
     _size: number
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Gee.ArrayList */
+    /* Methods of Gee-0.8.Gee.ArrayList */
     add_all(collection: Gee.Collection): boolean
     get_equal_func(): [ /* returnType */ Gee.EqualDataFunc, /* result_target */ object | null ]
-    /* Methods of Gee.AbstractBidirList */
+    /* Methods of Gee-0.8.Gee.AbstractBidirList */
     bidir_list_iterator(): Gee.BidirListIterator
     reserved0(): void
     reserved1(): void
@@ -13102,7 +13102,7 @@ export class GDomHTMLCollection {
     reserved8(): void
     reserved9(): void
     get_read_only_view(): Gee.BidirList
-    /* Methods of Gee.AbstractList */
+    /* Methods of Gee-0.8.Gee.AbstractList */
     list_iterator(): Gee.ListIterator
     get(index: number): object | null
     set(index: number, item?: object | null): void
@@ -13111,7 +13111,7 @@ export class GDomHTMLCollection {
     remove_at(index: number): object | null
     slice(start: number, stop: number): Gee.List | null
     get_read_only_view(): Gee.List
-    /* Methods of Gee.AbstractCollection */
+    /* Methods of Gee-0.8.Gee.AbstractCollection */
     contains(item?: object | null): boolean
     add(item?: object | null): boolean
     remove(item?: object | null): boolean
@@ -13121,7 +13121,7 @@ export class GDomHTMLCollection {
     get_size(): number
     get_read_only(): boolean
     get_read_only_view(): Gee.Collection
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -13143,13 +13143,13 @@ export class GDomHTMLCollection {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of GXml.DomHTMLCollection */
+    /* Methods of GXml-0.14.GXml.DomHTMLCollection */
     get_element(index: number): DomElement | null
     to_array(): DomElement[]
     item(index: number): DomElement | null
     named_item(name: string): DomElement | null
     get_length(): number
-    /* Virtual methods of GXml.GDomHTMLCollection */
+    /* Virtual methods of GXml-0.14.GXml.GDomHTMLCollection */
     vfunc_get_element(index: number): DomElement | null
     vfunc_to_array(): DomElement[]
     vfunc_to_array(): object[]
@@ -13159,11 +13159,11 @@ export class GDomHTMLCollection {
     vfunc_get_read_only_view(): Gee.BidirList
     vfunc_get_read_only_view(): Gee.List
     vfunc_get_read_only_view(): Gee.Collection
-    /* Virtual methods of Gee.ArrayList */
+    /* Virtual methods of Gee-0.8.Gee.ArrayList */
     vfunc_get_read_only_view(): Gee.BidirList
     vfunc_get_read_only_view(): Gee.List
     vfunc_get_read_only_view(): Gee.Collection
-    /* Virtual methods of Gee.AbstractBidirList */
+    /* Virtual methods of Gee-0.8.Gee.AbstractBidirList */
     vfunc_bidir_list_iterator(): Gee.BidirListIterator
     vfunc_reserved0(): void
     vfunc_reserved1(): void
@@ -13178,7 +13178,7 @@ export class GDomHTMLCollection {
     vfunc_get_read_only_view(): Gee.BidirList
     vfunc_get_read_only_view(): Gee.List
     vfunc_get_read_only_view(): Gee.Collection
-    /* Virtual methods of Gee.AbstractList */
+    /* Virtual methods of Gee-0.8.Gee.AbstractList */
     vfunc_list_iterator(): Gee.ListIterator
     vfunc_get(index: number): object | null
     vfunc_set(index: number, item?: object | null): void
@@ -13202,7 +13202,7 @@ export class GDomHTMLCollection {
     vfunc_last(): object | null
     vfunc_insert_all(index: number, collection: Gee.Collection): void
     vfunc_sort(compare_func: GLib.CompareDataFunc | null): void
-    /* Virtual methods of Gee.AbstractCollection */
+    /* Virtual methods of Gee-0.8.Gee.AbstractCollection */
     vfunc_contains(item?: object | null): boolean
     vfunc_add(item?: object | null): boolean
     vfunc_remove(item?: object | null): boolean
@@ -13249,7 +13249,7 @@ export class GDomHTMLCollection {
     vfunc_contains_all_iterator(iter: Gee.Iterator): boolean
     vfunc_remove_all_iterator(iter: Gee.Iterator): boolean
     vfunc_get_is_empty(): boolean
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -13257,7 +13257,7 @@ export class GDomHTMLCollection {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: GDomHTMLCollection, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: GDomHTMLCollection, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -13284,7 +13284,7 @@ export class GDomHTMLCollection {
 export interface GDomEvent_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class GDomEvent {
-    /* Properties of GXml.DomEvent */
+    /* Properties of GXml-0.14.GXml.DomEvent */
     readonly etype: string
     readonly event_target: DomEventTarget
     readonly current_target: DomEventTarget
@@ -13294,7 +13294,7 @@ export class GDomEvent {
     readonly time_stamp: DomTimeStamp
     readonly default_prevented: boolean
     readonly event_phase: DomEventPhase
-    /* Fields of GXml.GDomEvent */
+    /* Fields of GXml-0.14.GXml.GDomEvent */
     parent_instance: GObject.Object
     priv: GDomEventPrivate
     _etype: string
@@ -13307,9 +13307,9 @@ export class GDomEvent {
     _default_prevented: boolean
     _event_phase: DomEventPhase
     _flags: DomEventFlags
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -13331,7 +13331,7 @@ export class GDomEvent {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of GXml.DomEvent */
+    /* Methods of GXml-0.14.GXml.DomEvent */
     stop_propagation(): void
     stop_immediate_propagation(): void
     prevent_default(): void
@@ -13345,7 +13345,7 @@ export class GDomEvent {
     get_time_stamp(): DomTimeStamp
     get_default_prevented(): boolean
     get_event_phase(): DomEventPhase
-    /* Virtual methods of GXml.GDomEvent */
+    /* Virtual methods of GXml-0.14.GXml.GDomEvent */
     vfunc_stop_propagation(): void
     vfunc_stop_immediate_propagation(): void
     vfunc_prevent_default(): void
@@ -13359,7 +13359,7 @@ export class GDomEvent {
     vfunc_get_time_stamp(): DomTimeStamp
     vfunc_get_default_prevented(): boolean
     vfunc_get_event_phase(): DomEventPhase
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -13367,7 +13367,7 @@ export class GDomEvent {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: GDomEvent, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: GDomEvent, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -13403,13 +13403,13 @@ export class GDomEvent {
 export interface GDomCustomEvent_ConstructProps extends GDomEvent_ConstructProps {
 }
 export class GDomCustomEvent {
-    /* Properties of GXml.GDomCustomEvent */
+    /* Properties of GXml-0.14.GXml.GDomCustomEvent */
     readonly detail: any
-    /* Fields of GXml.GDomCustomEvent */
+    /* Fields of GXml-0.14.GXml.GDomCustomEvent */
     parent_instance: GDomEvent
     priv: GDomCustomEventPrivate
     _detail: any | null
-    /* Fields of GXml.GDomEvent */
+    /* Fields of GXml-0.14.GXml.GDomEvent */
     _etype: string
     _event_target: DomEventTarget
     _current_target: DomEventTarget
@@ -13420,12 +13420,12 @@ export class GDomCustomEvent {
     _default_prevented: boolean
     _event_phase: DomEventPhase
     _flags: DomEventFlags
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GXml.GDomCustomEvent */
+    /* Methods of GXml-0.14.GXml.GDomCustomEvent */
     init_custom_event(type: string, bubbles: boolean, cancelable: boolean, detail?: any | null): void
     get_detail(): any | null
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -13447,7 +13447,7 @@ export class GDomCustomEvent {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GXml.GDomEvent */
+    /* Virtual methods of GXml-0.14.GXml.GDomEvent */
     vfunc_stop_propagation(): void
     vfunc_stop_immediate_propagation(): void
     vfunc_prevent_default(): void
@@ -13461,7 +13461,7 @@ export class GDomCustomEvent {
     vfunc_get_time_stamp(): DomTimeStamp
     vfunc_get_default_prevented(): boolean
     vfunc_get_event_phase(): DomEventPhase
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -13469,7 +13469,7 @@ export class GDomCustomEvent {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: GDomCustomEvent, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: GDomCustomEvent, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -13489,14 +13489,14 @@ export class GDomCustomEvent {
 export interface GDomRange_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class GDomRange {
-    /* Properties of GXml.DomRange */
+    /* Properties of GXml-0.14.GXml.DomRange */
     readonly start_container: DomNode
     readonly start_offset: number
     readonly end_container: DomNode
     readonly end_offset: number
     readonly collapsed: boolean
     readonly common_ancestor_container: DomNode
-    /* Fields of GXml.GDomRange */
+    /* Fields of GXml-0.14.GXml.GDomRange */
     parent_instance: GObject.Object
     priv: GDomRangePrivate
     _document: DomDocument
@@ -13506,9 +13506,9 @@ export class GDomRange {
     _end_offset: number
     _collapse: boolean
     _common_ancestor_container: DomNode
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -13530,7 +13530,7 @@ export class GDomRange {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of GXml.DomRange */
+    /* Methods of GXml-0.14.GXml.DomRange */
     set_start(node: DomNode, offset: number): void
     set_end(node: DomNode, offset: number): void
     set_start_before(node: DomNode): void
@@ -13558,7 +13558,7 @@ export class GDomRange {
     get_end_offset(): number
     get_collapsed(): boolean
     get_common_ancestor_container(): DomNode
-    /* Virtual methods of GXml.GDomRange */
+    /* Virtual methods of GXml-0.14.GXml.GDomRange */
     vfunc_set_start(node: DomNode, offset: number): void
     vfunc_set_end(node: DomNode, offset: number): void
     vfunc_set_start_before(node: DomNode): void
@@ -13586,7 +13586,7 @@ export class GDomRange {
     vfunc_get_end_offset(): number
     vfunc_get_collapsed(): boolean
     vfunc_get_common_ancestor_container(): DomNode
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -13594,7 +13594,7 @@ export class GDomRange {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: GDomRange, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: GDomRange, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -13627,7 +13627,7 @@ export interface GElement_ConstructProps extends GNonDocumentChildNode_Construct
     content?: string
 }
 export class GElement {
-    /* Properties of GXml.GNode */
+    /* Properties of GXml-0.14.GXml.GNode */
     readonly attrs: Gee.Map
     readonly children_nodes: Gee.BidirList
     readonly namespaces: Gee.List
@@ -13636,12 +13636,12 @@ export class GElement {
     readonly type_node: NodeType
     readonly name: string
     value: string
-    /* Properties of GXml.DomParentNode */
+    /* Properties of GXml-0.14.GXml.DomParentNode */
     readonly children: DomHTMLCollection
     readonly first_element_child: DomElement
     readonly last_element_child: DomElement
     readonly child_element_count: number
-    /* Properties of GXml.DomElement */
+    /* Properties of GXml-0.14.GXml.DomElement */
     readonly namespace_uri: string
     readonly prefix: string
     readonly local_name: string
@@ -13650,18 +13650,18 @@ export class GElement {
     class_name: string
     readonly class_list: DomTokenList
     readonly attributes: DomNamedNodeMap
-    /* Properties of GXml.Element */
+    /* Properties of GXml-0.14.GXml.Element */
     content: string
-    /* Fields of GXml.GElement */
+    /* Fields of GXml-0.14.GXml.GElement */
     parent_instance: GNonDocumentChildNode
     priv: GElementPrivate
-    /* Fields of GXml.GNode */
+    /* Fields of GXml-0.14.GXml.GNode */
     _doc: GDocument
     _node: object | null
     _base_uri: string
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GXml.GNode */
+    /* Methods of GXml-0.14.GXml.GNode */
     set_namespace(uri: string, prefix?: string | null): boolean
     to_string(): string
     get_internal_node(): object | null
@@ -13674,7 +13674,7 @@ export class GElement {
     get_name(): string
     get_value(): string
     set_value(value: string): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -13696,7 +13696,7 @@ export class GElement {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of GXml.DomParentNode */
+    /* Methods of GXml-0.14.GXml.DomParentNode */
     query_selector(selectors: string): DomElement | null
     query_selector_all(selectors: string): DomNodeList
     get_elements_by_property_value(property: string, value: string): DomElementList
@@ -13704,7 +13704,7 @@ export class GElement {
     get_first_element_child(): DomElement | null
     get_last_element_child(): DomElement | null
     get_child_element_count(): number
-    /* Methods of GXml.DomElement */
+    /* Methods of GXml-0.14.GXml.DomElement */
     get_attribute(name: string): string | null
     get_attribute_ns(namespace: string | null, local_name: string): string | null
     set_attribute(name: string, value: string): void
@@ -13726,7 +13726,7 @@ export class GElement {
     set_class_name(value?: string | null): void
     get_class_list(): DomTokenList
     get_attributes(): DomNamedNodeMap
-    /* Methods of GXml.Element */
+    /* Methods of GXml-0.14.GXml.Element */
     normalize(): void
     set_attr(name: string, value: string): void
     get_attr(name: string): Node | null
@@ -13736,9 +13736,9 @@ export class GElement {
     get_ns_attr(name: string, uri: string): Node | null
     get_content(): string
     set_content(value: string): void
-    /* Methods of GXml.XPathContext */
+    /* Methods of GXml-0.14.GXml.XPathContext */
     evaluate(expression: string, resolver?: Gee.List | null): XPathObject
-    /* Virtual methods of GXml.GElement */
+    /* Virtual methods of GXml-0.14.GXml.GElement */
     vfunc_query_selector(selectors: string): DomElement | null
     vfunc_query_selector_all(selectors: string): DomNodeList
     vfunc_get_elements_by_property_value(property: string, value: string): DomElementList
@@ -13778,12 +13778,12 @@ export class GElement {
     vfunc_get_content(): string
     vfunc_set_content(value: string): void
     vfunc_evaluate(expression: string, resolver?: Gee.List | null): XPathObject
-    /* Virtual methods of GXml.GNonDocumentChildNode */
+    /* Virtual methods of GXml-0.14.GXml.GNonDocumentChildNode */
     vfunc_get_previous_element_sibling(): DomElement | null
     vfunc_get_next_element_sibling(): DomElement | null
-    /* Virtual methods of GXml.GChildNode */
+    /* Virtual methods of GXml-0.14.GXml.GChildNode */
     vfunc_remove(): void
-    /* Virtual methods of GXml.GNode */
+    /* Virtual methods of GXml-0.14.GXml.GNode */
     vfunc_set_namespace(uri: string, prefix?: string | null): boolean
     vfunc_to_string(): string
     vfunc_get_attrs(): Gee.Map
@@ -13833,7 +13833,7 @@ export class GElement {
     vfunc_get_elements_by_name_ns(name: string, ns?: string | null): ElementList
     vfunc_ns_prefix(): string
     vfunc_ns_uri(): string
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -13841,7 +13841,7 @@ export class GElement {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: GElement, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: GElement, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -13902,17 +13902,17 @@ export class GElement {
 export interface GNamespace_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class GNamespace {
-    /* Properties of GXml.Namespace */
+    /* Properties of GXml-0.14.GXml.Namespace */
     readonly uri: string
     readonly prefix: string
-    /* Fields of GXml.GNamespace */
+    /* Fields of GXml-0.14.GXml.GNamespace */
     parent_instance: GObject.Object
     priv: GNamespacePrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GXml.GNamespace */
+    /* Methods of GXml-0.14.GXml.GNamespace */
     get_internal_ns(): object | null
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -13934,13 +13934,13 @@ export class GNamespace {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of GXml.Namespace */
+    /* Methods of GXml-0.14.GXml.Namespace */
     get_uri(): string | null
     get_prefix(): string | null
-    /* Virtual methods of GXml.GNamespace */
+    /* Virtual methods of GXml-0.14.GXml.GNamespace */
     vfunc_get_uri(): string | null
     vfunc_get_prefix(): string | null
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -13948,7 +13948,7 @@ export class GNamespace {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: GNamespace, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: GNamespace, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -13974,7 +13974,7 @@ export interface GNode_ConstructProps extends GObject.Object_ConstructProps {
     text_content?: string
 }
 export class GNode {
-    /* Properties of GXml.GNode */
+    /* Properties of GXml-0.14.GXml.GNode */
     readonly attrs: Gee.Map
     readonly children_nodes: Gee.BidirList
     readonly namespaces: Gee.List
@@ -13983,7 +13983,7 @@ export class GNode {
     readonly type_node: NodeType
     readonly name: string
     value: string
-    /* Properties of GXml.DomNode */
+    /* Properties of GXml-0.14.GXml.DomNode */
     readonly node_type: DomNodeNodeType
     readonly node_name: string
     readonly base_uri: string
@@ -13997,15 +13997,15 @@ export class GNode {
     readonly next_sibling: DomNode
     node_value: string
     text_content: string
-    /* Fields of GXml.GNode */
+    /* Fields of GXml-0.14.GXml.GNode */
     parent_instance: GObject.Object
     priv: GNodePrivate
     _doc: GDocument
     _node: object | null
     _base_uri: string
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GXml.GNode */
+    /* Methods of GXml-0.14.GXml.GNode */
     set_namespace(uri: string, prefix?: string | null): boolean
     to_string(): string
     get_internal_node(): object | null
@@ -14018,7 +14018,7 @@ export class GNode {
     get_name(): string
     get_value(): string
     set_value(value: string): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -14040,11 +14040,11 @@ export class GNode {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of GXml.DomEventTarget */
+    /* Methods of GXml-0.14.GXml.DomEventTarget */
     add_event_listener(type: string, callback: DomEventListener | null, capture: boolean): void
     remove_event_listener(type: string, callback: DomEventListener | null, capture: boolean): void
     dispatch_event(event: DomEvent): boolean
-    /* Methods of GXml.DomNode */
+    /* Methods of GXml-0.14.GXml.DomNode */
     has_child_nodes(): boolean
     normalize(): void
     is_equal_node(node?: DomNode | null): boolean
@@ -14074,14 +14074,14 @@ export class GNode {
     set_node_value(value?: string | null): void
     get_text_content(): string | null
     set_text_content(value?: string | null): void
-    /* Methods of GXml.Node */
+    /* Methods of GXml-0.14.GXml.Node */
     get(key: string): Node | null
     get_elements_by_property_value(property: string, value: string): ElementList
     get_elements_by_name(name: string): ElementList
     get_elements_by_name_ns(name: string, ns?: string | null): ElementList
     ns_prefix(): string
     ns_uri(): string
-    /* Virtual methods of GXml.GNode */
+    /* Virtual methods of GXml-0.14.GXml.GNode */
     vfunc_set_namespace(uri: string, prefix?: string | null): boolean
     vfunc_to_string(): string
     vfunc_get_attrs(): Gee.Map
@@ -14131,7 +14131,7 @@ export class GNode {
     vfunc_get_elements_by_name_ns(name: string, ns?: string | null): ElementList
     vfunc_ns_prefix(): string
     vfunc_ns_uri(): string
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -14139,7 +14139,7 @@ export class GNode {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: GNode, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: GNode, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -14202,7 +14202,7 @@ export interface GProcessingInstruction_ConstructProps extends GCharacterData_Co
     data?: string
 }
 export class GProcessingInstruction {
-    /* Properties of GXml.GNode */
+    /* Properties of GXml-0.14.GXml.GNode */
     readonly attrs: Gee.Map
     readonly children_nodes: Gee.BidirList
     readonly namespaces: Gee.List
@@ -14211,21 +14211,21 @@ export class GProcessingInstruction {
     readonly type_node: NodeType
     readonly name: string
     value: string
-    /* Properties of GXml.ProcessingInstruction */
+    /* Properties of GXml-0.14.GXml.ProcessingInstruction */
     readonly target: string
     data: string
-    /* Properties of GXml.DomCharacterData */
+    /* Properties of GXml-0.14.GXml.DomCharacterData */
     readonly length: number
-    /* Fields of GXml.GProcessingInstruction */
+    /* Fields of GXml-0.14.GXml.GProcessingInstruction */
     parent_instance: GCharacterData
     priv: GProcessingInstructionPrivate
-    /* Fields of GXml.GNode */
+    /* Fields of GXml-0.14.GXml.GNode */
     _doc: GDocument
     _node: object | null
     _base_uri: string
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GXml.GNode */
+    /* Methods of GXml-0.14.GXml.GNode */
     set_namespace(uri: string, prefix?: string | null): boolean
     to_string(): string
     get_internal_node(): object | null
@@ -14238,7 +14238,7 @@ export class GProcessingInstruction {
     get_name(): string
     get_value(): string
     set_value(value: string): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -14260,22 +14260,22 @@ export class GProcessingInstruction {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of GXml.ProcessingInstruction */
+    /* Methods of GXml-0.14.GXml.ProcessingInstruction */
     get_target(): string
     get_data(): string
     set_data(value: string): void
-    /* Methods of GXml.DomCharacterData */
+    /* Methods of GXml-0.14.GXml.DomCharacterData */
     substring_data(offset: number, count: number): string
     append_data(data: string): void
     insert_data(offset: number, data: string): void
     delete_data(offset: number, count: number): void
     replace_data(offset: number, count: number, data: string): void
     get_length(): number
-    /* Virtual methods of GXml.GProcessingInstruction */
+    /* Virtual methods of GXml-0.14.GXml.GProcessingInstruction */
     vfunc_get_target(): string
     vfunc_get_data(): string
     vfunc_set_data(value: string): void
-    /* Virtual methods of GXml.GCharacterData */
+    /* Virtual methods of GXml-0.14.GXml.GCharacterData */
     vfunc_get_str(): string
     vfunc_set_str(value: string): void
     vfunc_substring_data(offset: number, count: number): string
@@ -14286,12 +14286,12 @@ export class GProcessingInstruction {
     vfunc_get_data(): string
     vfunc_set_data(value: string): void
     vfunc_get_length(): number
-    /* Virtual methods of GXml.GNonDocumentChildNode */
+    /* Virtual methods of GXml-0.14.GXml.GNonDocumentChildNode */
     vfunc_get_previous_element_sibling(): DomElement | null
     vfunc_get_next_element_sibling(): DomElement | null
-    /* Virtual methods of GXml.GChildNode */
+    /* Virtual methods of GXml-0.14.GXml.GChildNode */
     vfunc_remove(): void
-    /* Virtual methods of GXml.GNode */
+    /* Virtual methods of GXml-0.14.GXml.GNode */
     vfunc_set_namespace(uri: string, prefix?: string | null): boolean
     vfunc_to_string(): string
     vfunc_get_attrs(): Gee.Map
@@ -14341,7 +14341,7 @@ export class GProcessingInstruction {
     vfunc_get_elements_by_name_ns(name: string, ns?: string | null): ElementList
     vfunc_ns_prefix(): string
     vfunc_ns_uri(): string
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -14349,7 +14349,7 @@ export class GProcessingInstruction {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: GProcessingInstruction, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: GProcessingInstruction, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -14392,7 +14392,7 @@ export interface GText_ConstructProps extends GCharacterData_ConstructProps {
     data?: string
 }
 export class GText {
-    /* Properties of GXml.GNode */
+    /* Properties of GXml-0.14.GXml.GNode */
     readonly attrs: Gee.Map
     readonly children_nodes: Gee.BidirList
     readonly namespaces: Gee.List
@@ -14401,23 +14401,23 @@ export class GText {
     readonly type_node: NodeType
     readonly name: string
     value: string
-    /* Properties of GXml.Text */
+    /* Properties of GXml-0.14.GXml.Text */
     str: string
-    /* Properties of GXml.DomText */
+    /* Properties of GXml-0.14.GXml.DomText */
     readonly whole_text: string
-    /* Properties of GXml.DomCharacterData */
+    /* Properties of GXml-0.14.GXml.DomCharacterData */
     data: string
     readonly length: number
-    /* Fields of GXml.GText */
+    /* Fields of GXml-0.14.GXml.GText */
     parent_instance: GCharacterData
     priv: GTextPrivate
-    /* Fields of GXml.GNode */
+    /* Fields of GXml-0.14.GXml.GNode */
     _doc: GDocument
     _node: object | null
     _base_uri: string
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GXml.GNode */
+    /* Methods of GXml-0.14.GXml.GNode */
     set_namespace(uri: string, prefix?: string | null): boolean
     to_string(): string
     get_internal_node(): object | null
@@ -14430,7 +14430,7 @@ export class GText {
     get_name(): string
     get_value(): string
     set_value(value: string): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -14452,13 +14452,13 @@ export class GText {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of GXml.Text */
+    /* Methods of GXml-0.14.GXml.Text */
     get_str(): string
     set_str(value: string): void
-    /* Methods of GXml.DomText */
+    /* Methods of GXml-0.14.GXml.DomText */
     split_text(offset: number): DomText
     get_whole_text(): string
-    /* Methods of GXml.DomCharacterData */
+    /* Methods of GXml-0.14.GXml.DomCharacterData */
     substring_data(offset: number, count: number): string
     append_data(data: string): void
     insert_data(offset: number, data: string): void
@@ -14467,12 +14467,12 @@ export class GText {
     get_data(): string
     set_data(value: string): void
     get_length(): number
-    /* Virtual methods of GXml.GText */
+    /* Virtual methods of GXml-0.14.GXml.GText */
     vfunc_get_str(): string
     vfunc_set_str(value: string): void
     vfunc_split_text(offset: number): DomText
     vfunc_get_whole_text(): string
-    /* Virtual methods of GXml.GCharacterData */
+    /* Virtual methods of GXml-0.14.GXml.GCharacterData */
     vfunc_get_str(): string
     vfunc_set_str(value: string): void
     vfunc_substring_data(offset: number, count: number): string
@@ -14483,12 +14483,12 @@ export class GText {
     vfunc_get_data(): string
     vfunc_set_data(value: string): void
     vfunc_get_length(): number
-    /* Virtual methods of GXml.GNonDocumentChildNode */
+    /* Virtual methods of GXml-0.14.GXml.GNonDocumentChildNode */
     vfunc_get_previous_element_sibling(): DomElement | null
     vfunc_get_next_element_sibling(): DomElement | null
-    /* Virtual methods of GXml.GChildNode */
+    /* Virtual methods of GXml-0.14.GXml.GChildNode */
     vfunc_remove(): void
-    /* Virtual methods of GXml.GNode */
+    /* Virtual methods of GXml-0.14.GXml.GNode */
     vfunc_set_namespace(uri: string, prefix?: string | null): boolean
     vfunc_to_string(): string
     vfunc_get_attrs(): Gee.Map
@@ -14538,7 +14538,7 @@ export class GText {
     vfunc_get_elements_by_name_ns(name: string, ns?: string | null): ElementList
     vfunc_ns_prefix(): string
     vfunc_ns_uri(): string
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -14546,7 +14546,7 @@ export class GText {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: GText, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: GText, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -14589,21 +14589,21 @@ export class GText {
 export interface GHashMapAttr_ConstructProps extends Gee.AbstractMap_ConstructProps {
 }
 export class GHashMapAttr {
-    /* Properties of Gee.AbstractMap */
+    /* Properties of Gee-0.8.Gee.AbstractMap */
     readonly size: number
     readonly read_only: boolean
     readonly keys: Gee.Set
     readonly values: Gee.Collection
     readonly entries: Gee.Set
     readonly read_only_view: Gee.Map
-    /* Properties of GXml.DomNamedNodeMap */
+    /* Properties of GXml-0.14.GXml.DomNamedNodeMap */
     readonly length: number
-    /* Fields of GXml.GHashMapAttr */
+    /* Fields of GXml-0.14.GXml.GHashMapAttr */
     parent_instance: Gee.AbstractMap
     priv: GHashMapAttrPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Gee.AbstractMap */
+    /* Methods of Gee-0.8.Gee.AbstractMap */
     has_key(key?: object | null): boolean
     has(key?: object | null, value?: object | null): boolean
     get(key?: object | null): object | null
@@ -14629,7 +14629,7 @@ export class GHashMapAttr {
     get_values(): Gee.Collection
     get_entries(): Gee.Set
     get_read_only_view(): Gee.Map
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -14651,7 +14651,7 @@ export class GHashMapAttr {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of GXml.DomNamedNodeMap */
+    /* Methods of GXml-0.14.GXml.DomNamedNodeMap */
     item(index: number): DomNode | null
     get_named_item(name: string): DomNode | null
     set_named_item(node: DomNode): DomNode | null
@@ -14660,7 +14660,7 @@ export class GHashMapAttr {
     get_named_item_ns(namespace_uri: string, local_name: string): DomNode | null
     set_named_item_ns(node: DomNode): DomNode | null
     get_length(): number
-    /* Virtual methods of GXml.GHashMapAttr */
+    /* Virtual methods of GXml-0.14.GXml.GHashMapAttr */
     vfunc_item(index: number): DomNode | null
     vfunc_get_named_item(name: string): DomNode | null
     vfunc_set_named_item(node: DomNode): DomNode | null
@@ -14669,7 +14669,7 @@ export class GHashMapAttr {
     vfunc_get_named_item_ns(namespace_uri: string, local_name: string): DomNode | null
     vfunc_set_named_item_ns(node: DomNode): DomNode | null
     vfunc_get_length(): number
-    /* Virtual methods of Gee.AbstractMap */
+    /* Virtual methods of Gee-0.8.Gee.AbstractMap */
     vfunc_has_key(key?: object | null): boolean
     vfunc_has(key?: object | null, value?: object | null): boolean
     vfunc_get(key?: object | null): object | null
@@ -14714,7 +14714,7 @@ export class GHashMapAttr {
     vfunc_unset_all(map: Gee.Map): boolean
     vfunc_has_all(map: Gee.Map): boolean
     vfunc_get_is_empty(): boolean
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -14722,7 +14722,7 @@ export class GHashMapAttr {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: GHashMapAttr, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: GHashMapAttr, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -14754,21 +14754,21 @@ export class GHashMapAttr {
 export interface GHashMapAttrEntry_ConstructProps extends Gee.MapEntry_ConstructProps {
 }
 export class GHashMapAttrEntry {
-    /* Properties of Gee.MapEntry */
+    /* Properties of Gee-0.8.Gee.MapEntry */
     readonly key: object
     value: object
     readonly read_only: boolean
-    /* Fields of GXml.GHashMapAttrEntry */
+    /* Fields of GXml-0.14.GXml.GHashMapAttrEntry */
     parent_instance: Gee.MapEntry
     priv: GHashMapAttrEntryPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Gee.MapEntry */
+    /* Methods of Gee-0.8.Gee.MapEntry */
     get_key(): object | null
     get_value(): object | null
     set_value(value?: object | null): void
     get_read_only(): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -14790,12 +14790,12 @@ export class GHashMapAttrEntry {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Gee.MapEntry */
+    /* Virtual methods of Gee-0.8.Gee.MapEntry */
     vfunc_get_key(): object | null
     vfunc_get_value(): object | null
     vfunc_set_value(value?: object | null): void
     vfunc_get_read_only(): boolean
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -14803,7 +14803,7 @@ export class GHashMapAttrEntry {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: GHashMapAttrEntry, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: GHashMapAttrEntry, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -14827,16 +14827,16 @@ export class GHashMapAttrEntry {
 export interface GHashMapAttrIterator_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class GHashMapAttrIterator {
-    /* Properties of Gee.MapIterator */
+    /* Properties of Gee-0.8.Gee.MapIterator */
     readonly valid: boolean
     readonly mutable: boolean
     readonly read_only: boolean
-    /* Fields of GXml.GHashMapAttrIterator */
+    /* Fields of GXml-0.14.GXml.GHashMapAttrIterator */
     parent_instance: GObject.Object
     priv: GHashMapAttrIteratorPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -14858,7 +14858,7 @@ export class GHashMapAttrIterator {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of Gee.MapIterator */
+    /* Methods of Gee-0.8.Gee.MapIterator */
     next(): boolean
     has_next(): boolean
     get_key(): object | null
@@ -14870,7 +14870,7 @@ export class GHashMapAttrIterator {
     get_valid(): boolean
     get_mutable(): boolean
     get_read_only(): boolean
-    /* Virtual methods of GXml.GHashMapAttrIterator */
+    /* Virtual methods of GXml-0.14.GXml.GHashMapAttrIterator */
     vfunc_next(): boolean
     vfunc_has_next(): boolean
     vfunc_get_key(): object | null
@@ -14882,7 +14882,7 @@ export class GHashMapAttrIterator {
     vfunc_get_valid(): boolean
     vfunc_get_mutable(): boolean
     vfunc_get_read_only(): boolean
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -14890,7 +14890,7 @@ export class GHashMapAttrIterator {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: GHashMapAttrIterator, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: GHashMapAttrIterator, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -14914,19 +14914,19 @@ export class GHashMapAttrIterator {
 export interface GListChildren_ConstructProps extends Gee.AbstractBidirList_ConstructProps {
 }
 export class GListChildren {
-    /* Properties of Gee.AbstractBidirList */
+    /* Properties of Gee-0.8.Gee.AbstractBidirList */
     readonly read_only_view: Gee.BidirList
-    /* Properties of Gee.AbstractCollection */
+    /* Properties of Gee-0.8.Gee.AbstractCollection */
     readonly size: number
     readonly read_only: boolean
-    /* Properties of GXml.DomNodeList */
+    /* Properties of GXml-0.14.GXml.DomNodeList */
     readonly length: number
-    /* Fields of GXml.GListChildren */
+    /* Fields of GXml-0.14.GXml.GListChildren */
     parent_instance: Gee.AbstractBidirList
     priv: GListChildrenPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Gee.AbstractBidirList */
+    /* Methods of Gee-0.8.Gee.AbstractBidirList */
     bidir_list_iterator(): Gee.BidirListIterator
     reserved0(): void
     reserved1(): void
@@ -14939,7 +14939,7 @@ export class GListChildren {
     reserved8(): void
     reserved9(): void
     get_read_only_view(): Gee.BidirList
-    /* Methods of Gee.AbstractList */
+    /* Methods of Gee-0.8.Gee.AbstractList */
     list_iterator(): Gee.ListIterator
     get(index: number): object | null
     set(index: number, item?: object | null): void
@@ -14948,7 +14948,7 @@ export class GListChildren {
     remove_at(index: number): object | null
     slice(start: number, stop: number): Gee.List | null
     get_read_only_view(): Gee.List
-    /* Methods of Gee.AbstractCollection */
+    /* Methods of Gee-0.8.Gee.AbstractCollection */
     contains(item?: object | null): boolean
     add(item?: object | null): boolean
     remove(item?: object | null): boolean
@@ -14958,7 +14958,7 @@ export class GListChildren {
     get_size(): number
     get_read_only(): boolean
     get_read_only_view(): Gee.Collection
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -14980,15 +14980,15 @@ export class GListChildren {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of GXml.DomNodeList */
+    /* Methods of GXml-0.14.GXml.DomNodeList */
     item(index: number): DomNode | null
     get_length(): number
-    /* Methods of GXml.DomHTMLCollection */
+    /* Methods of GXml-0.14.GXml.DomHTMLCollection */
     get_element(index: number): DomElement | null
     to_array(): DomElement[]
     item(index: number): DomElement | null
     named_item(name: string): DomElement | null
-    /* Virtual methods of GXml.GListChildren */
+    /* Virtual methods of GXml-0.14.GXml.GListChildren */
     vfunc_item(index: number): DomNode | null
     vfunc_item(index: number): DomElement | null
     vfunc_get_length(): number
@@ -14999,7 +14999,7 @@ export class GListChildren {
     vfunc_get_read_only_view(): Gee.BidirList
     vfunc_get_read_only_view(): Gee.List
     vfunc_get_read_only_view(): Gee.Collection
-    /* Virtual methods of Gee.AbstractBidirList */
+    /* Virtual methods of Gee-0.8.Gee.AbstractBidirList */
     vfunc_bidir_list_iterator(): Gee.BidirListIterator
     vfunc_reserved0(): void
     vfunc_reserved1(): void
@@ -15014,7 +15014,7 @@ export class GListChildren {
     vfunc_get_read_only_view(): Gee.BidirList
     vfunc_get_read_only_view(): Gee.List
     vfunc_get_read_only_view(): Gee.Collection
-    /* Virtual methods of Gee.AbstractList */
+    /* Virtual methods of Gee-0.8.Gee.AbstractList */
     vfunc_list_iterator(): Gee.ListIterator
     vfunc_get(index: number): object | null
     vfunc_set(index: number, item?: object | null): void
@@ -15038,7 +15038,7 @@ export class GListChildren {
     vfunc_last(): object | null
     vfunc_insert_all(index: number, collection: Gee.Collection): void
     vfunc_sort(compare_func: GLib.CompareDataFunc | null): void
-    /* Virtual methods of Gee.AbstractCollection */
+    /* Virtual methods of Gee-0.8.Gee.AbstractCollection */
     vfunc_contains(item?: object | null): boolean
     vfunc_add(item?: object | null): boolean
     vfunc_remove(item?: object | null): boolean
@@ -15085,7 +15085,7 @@ export class GListChildren {
     vfunc_contains_all_iterator(iter: Gee.Iterator): boolean
     vfunc_remove_all_iterator(iter: Gee.Iterator): boolean
     vfunc_get_is_empty(): boolean
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -15093,7 +15093,7 @@ export class GListChildren {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: GListChildren, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: GListChildren, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -15119,15 +15119,15 @@ export class GListChildren {
 export interface GListChildrenIterator_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class GListChildrenIterator {
-    /* Properties of Gee.Iterator */
+    /* Properties of Gee-0.8.Gee.Iterator */
     readonly valid: boolean
     readonly read_only: boolean
-    /* Fields of GXml.GListChildrenIterator */
+    /* Fields of GXml-0.14.GXml.GListChildrenIterator */
     parent_instance: GObject.Object
     priv: GListChildrenIteratorPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -15149,7 +15149,7 @@ export class GListChildrenIterator {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of Gee.Traversable */
+    /* Methods of Gee-0.8.Gee.Traversable */
     foreach(f: Gee.ForallFunc): boolean
     stream(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.StreamFunc): Gee.Iterator
     fold(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.FoldFunc, seed?: object | null): object | null
@@ -15166,25 +15166,25 @@ export class GListChildrenIterator {
     min(compare: GLib.CompareDataFunc): object | null
     order_by(compare: GLib.CompareDataFunc | null): Gee.Iterator
     get_element_type(): GObject.Type
-    /* Methods of Gee.Iterator */
+    /* Methods of Gee-0.8.Gee.Iterator */
     next(): boolean
     has_next(): boolean
     get(): object | null
     remove(): void
     get_valid(): boolean
     get_read_only(): boolean
-    /* Methods of Gee.BidirIterator */
+    /* Methods of Gee-0.8.Gee.BidirIterator */
     previous(): boolean
     has_previous(): boolean
     first(): boolean
     last(): boolean
-    /* Methods of Gee.ListIterator */
+    /* Methods of Gee-0.8.Gee.ListIterator */
     set(item?: object | null): void
     add(item?: object | null): void
     index(): number
-    /* Methods of Gee.BidirListIterator */
+    /* Methods of Gee-0.8.Gee.BidirListIterator */
     insert(item?: object | null): void
-    /* Virtual methods of GXml.GListChildrenIterator */
+    /* Virtual methods of GXml-0.14.GXml.GListChildrenIterator */
     vfunc_foreach(f: Gee.ForallFunc): boolean
     vfunc_stream(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.StreamFunc): Gee.Iterator
     vfunc_fold(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.FoldFunc, seed?: object | null): object | null
@@ -15215,7 +15215,7 @@ export class GListChildrenIterator {
     vfunc_add(item?: object | null): void
     vfunc_index(): number
     vfunc_insert(item?: object | null): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -15223,7 +15223,7 @@ export class GListChildrenIterator {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: GListChildrenIterator, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: GListChildrenIterator, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -15247,17 +15247,17 @@ export class GListChildrenIterator {
 export interface GListNamespaces_ConstructProps extends Gee.AbstractList_ConstructProps {
 }
 export class GListNamespaces {
-    /* Properties of Gee.AbstractList */
+    /* Properties of Gee-0.8.Gee.AbstractList */
     readonly read_only_view: Gee.List
-    /* Properties of Gee.AbstractCollection */
+    /* Properties of Gee-0.8.Gee.AbstractCollection */
     readonly size: number
     readonly read_only: boolean
-    /* Fields of GXml.GListNamespaces */
+    /* Fields of GXml-0.14.GXml.GListNamespaces */
     parent_instance: Gee.AbstractList
     priv: GListNamespacesPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Gee.AbstractList */
+    /* Methods of Gee-0.8.Gee.AbstractList */
     list_iterator(): Gee.ListIterator
     get(index: number): object | null
     set(index: number, item?: object | null): void
@@ -15276,7 +15276,7 @@ export class GListNamespaces {
     reserved8(): void
     reserved9(): void
     get_read_only_view(): Gee.List
-    /* Methods of Gee.AbstractCollection */
+    /* Methods of Gee-0.8.Gee.AbstractCollection */
     contains(item?: object | null): boolean
     add(item?: object | null): boolean
     remove(item?: object | null): boolean
@@ -15286,7 +15286,7 @@ export class GListNamespaces {
     get_size(): number
     get_read_only(): boolean
     get_read_only_view(): Gee.Collection
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -15308,10 +15308,10 @@ export class GListNamespaces {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GXml.GListNamespaces */
+    /* Virtual methods of GXml-0.14.GXml.GListNamespaces */
     vfunc_get_read_only_view(): Gee.List
     vfunc_get_read_only_view(): Gee.Collection
-    /* Virtual methods of Gee.AbstractList */
+    /* Virtual methods of Gee-0.8.Gee.AbstractList */
     vfunc_list_iterator(): Gee.ListIterator
     vfunc_get(index: number): object | null
     vfunc_set(index: number, item?: object | null): void
@@ -15335,7 +15335,7 @@ export class GListNamespaces {
     vfunc_last(): object | null
     vfunc_insert_all(index: number, collection: Gee.Collection): void
     vfunc_sort(compare_func: GLib.CompareDataFunc | null): void
-    /* Virtual methods of Gee.AbstractCollection */
+    /* Virtual methods of Gee-0.8.Gee.AbstractCollection */
     vfunc_contains(item?: object | null): boolean
     vfunc_add(item?: object | null): boolean
     vfunc_remove(item?: object | null): boolean
@@ -15382,7 +15382,7 @@ export class GListNamespaces {
     vfunc_contains_all_iterator(iter: Gee.Iterator): boolean
     vfunc_remove_all_iterator(iter: Gee.Iterator): boolean
     vfunc_get_is_empty(): boolean
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -15390,7 +15390,7 @@ export class GListNamespaces {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: GListNamespaces, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: GListNamespaces, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -15414,15 +15414,15 @@ export class GListNamespaces {
 export interface GListNamespacesIterator_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class GListNamespacesIterator {
-    /* Properties of Gee.Iterator */
+    /* Properties of Gee-0.8.Gee.Iterator */
     readonly valid: boolean
     readonly read_only: boolean
-    /* Fields of GXml.GListNamespacesIterator */
+    /* Fields of GXml-0.14.GXml.GListNamespacesIterator */
     parent_instance: GObject.Object
     priv: GListNamespacesIteratorPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -15444,7 +15444,7 @@ export class GListNamespacesIterator {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of Gee.Traversable */
+    /* Methods of Gee-0.8.Gee.Traversable */
     foreach(f: Gee.ForallFunc): boolean
     stream(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.StreamFunc): Gee.Iterator
     fold(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.FoldFunc, seed?: object | null): object | null
@@ -15461,18 +15461,18 @@ export class GListNamespacesIterator {
     min(compare: GLib.CompareDataFunc): object | null
     order_by(compare: GLib.CompareDataFunc | null): Gee.Iterator
     get_element_type(): GObject.Type
-    /* Methods of Gee.Iterator */
+    /* Methods of Gee-0.8.Gee.Iterator */
     next(): boolean
     has_next(): boolean
     get(): object | null
     remove(): void
     get_valid(): boolean
     get_read_only(): boolean
-    /* Methods of Gee.ListIterator */
+    /* Methods of Gee-0.8.Gee.ListIterator */
     set(item?: object | null): void
     add(item?: object | null): void
     index(): number
-    /* Virtual methods of GXml.GListNamespacesIterator */
+    /* Virtual methods of GXml-0.14.GXml.GListNamespacesIterator */
     vfunc_foreach(f: Gee.ForallFunc): boolean
     vfunc_stream(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.StreamFunc): Gee.Iterator
     vfunc_fold(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.FoldFunc, seed?: object | null): object | null
@@ -15498,7 +15498,7 @@ export class GListNamespacesIterator {
     vfunc_set(item?: object | null): void
     vfunc_add(item?: object | null): void
     vfunc_index(): number
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -15506,7 +15506,7 @@ export class GListNamespacesIterator {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: GListNamespacesIterator, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: GListNamespacesIterator, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -15530,12 +15530,12 @@ export class GListNamespacesIterator {
 export interface DomNodeFilter_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class DomNodeFilter {
-    /* Fields of GXml.DomNodeFilter */
+    /* Fields of GXml-0.14.GXml.DomNodeFilter */
     parent_instance: GObject.Object
     priv: DomNodeFilterPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -15557,7 +15557,7 @@ export class DomNodeFilter {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -15565,7 +15565,7 @@ export class DomNodeFilter {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: DomNodeFilter, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: DomNodeFilter, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -15583,26 +15583,26 @@ export class DomNodeFilter {
 export interface DomElementList_ConstructProps extends Gee.ArrayList_ConstructProps {
 }
 export class DomElementList {
-    /* Properties of Gee.AbstractBidirList */
+    /* Properties of Gee-0.8.Gee.AbstractBidirList */
     readonly read_only_view: Gee.BidirList
-    /* Properties of Gee.AbstractCollection */
+    /* Properties of Gee-0.8.Gee.AbstractCollection */
     readonly size: number
     readonly read_only: boolean
-    /* Properties of GXml.DomHTMLCollection */
+    /* Properties of GXml-0.14.GXml.DomHTMLCollection */
     readonly length: number
-    /* Fields of GXml.DomElementList */
+    /* Fields of GXml-0.14.GXml.DomElementList */
     parent_instance: Gee.ArrayList
     priv: DomElementListPrivate
-    /* Fields of Gee.ArrayList */
+    /* Fields of Gee-0.8.Gee.ArrayList */
     _items: object[]
     _items_length1: number
     _size: number
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Gee.ArrayList */
+    /* Methods of Gee-0.8.Gee.ArrayList */
     add_all(collection: Gee.Collection): boolean
     get_equal_func(): [ /* returnType */ Gee.EqualDataFunc, /* result_target */ object | null ]
-    /* Methods of Gee.AbstractBidirList */
+    /* Methods of Gee-0.8.Gee.AbstractBidirList */
     bidir_list_iterator(): Gee.BidirListIterator
     reserved0(): void
     reserved1(): void
@@ -15615,7 +15615,7 @@ export class DomElementList {
     reserved8(): void
     reserved9(): void
     get_read_only_view(): Gee.BidirList
-    /* Methods of Gee.AbstractList */
+    /* Methods of Gee-0.8.Gee.AbstractList */
     list_iterator(): Gee.ListIterator
     get(index: number): object | null
     set(index: number, item?: object | null): void
@@ -15624,7 +15624,7 @@ export class DomElementList {
     remove_at(index: number): object | null
     slice(start: number, stop: number): Gee.List | null
     get_read_only_view(): Gee.List
-    /* Methods of Gee.AbstractCollection */
+    /* Methods of Gee-0.8.Gee.AbstractCollection */
     contains(item?: object | null): boolean
     add(item?: object | null): boolean
     remove(item?: object | null): boolean
@@ -15634,7 +15634,7 @@ export class DomElementList {
     get_size(): number
     get_read_only(): boolean
     get_read_only_view(): Gee.Collection
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -15656,13 +15656,13 @@ export class DomElementList {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of GXml.DomHTMLCollection */
+    /* Methods of GXml-0.14.GXml.DomHTMLCollection */
     get_element(index: number): DomElement | null
     to_array(): DomElement[]
     item(index: number): DomElement | null
     named_item(name: string): DomElement | null
     get_length(): number
-    /* Virtual methods of GXml.DomElementList */
+    /* Virtual methods of GXml-0.14.GXml.DomElementList */
     vfunc_get_element(index: number): DomElement | null
     vfunc_to_array(): DomElement[]
     vfunc_to_array(): object[]
@@ -15672,11 +15672,11 @@ export class DomElementList {
     vfunc_get_read_only_view(): Gee.BidirList
     vfunc_get_read_only_view(): Gee.List
     vfunc_get_read_only_view(): Gee.Collection
-    /* Virtual methods of Gee.ArrayList */
+    /* Virtual methods of Gee-0.8.Gee.ArrayList */
     vfunc_get_read_only_view(): Gee.BidirList
     vfunc_get_read_only_view(): Gee.List
     vfunc_get_read_only_view(): Gee.Collection
-    /* Virtual methods of Gee.AbstractBidirList */
+    /* Virtual methods of Gee-0.8.Gee.AbstractBidirList */
     vfunc_bidir_list_iterator(): Gee.BidirListIterator
     vfunc_reserved0(): void
     vfunc_reserved1(): void
@@ -15691,7 +15691,7 @@ export class DomElementList {
     vfunc_get_read_only_view(): Gee.BidirList
     vfunc_get_read_only_view(): Gee.List
     vfunc_get_read_only_view(): Gee.Collection
-    /* Virtual methods of Gee.AbstractList */
+    /* Virtual methods of Gee-0.8.Gee.AbstractList */
     vfunc_list_iterator(): Gee.ListIterator
     vfunc_get(index: number): object | null
     vfunc_set(index: number, item?: object | null): void
@@ -15715,7 +15715,7 @@ export class DomElementList {
     vfunc_last(): object | null
     vfunc_insert_all(index: number, collection: Gee.Collection): void
     vfunc_sort(compare_func: GLib.CompareDataFunc | null): void
-    /* Virtual methods of Gee.AbstractCollection */
+    /* Virtual methods of Gee-0.8.Gee.AbstractCollection */
     vfunc_contains(item?: object | null): boolean
     vfunc_add(item?: object | null): boolean
     vfunc_remove(item?: object | null): boolean
@@ -15762,7 +15762,7 @@ export class DomElementList {
     vfunc_contains_all_iterator(iter: Gee.Iterator): boolean
     vfunc_remove_all_iterator(iter: Gee.Iterator): boolean
     vfunc_get_is_empty(): boolean
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -15770,7 +15770,7 @@ export class DomElementList {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: DomElementList, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: DomElementList, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -15799,20 +15799,20 @@ export interface DomEventInit_ConstructProps extends GObject.Object_ConstructPro
     cancelable?: boolean
 }
 export class DomEventInit {
-    /* Properties of GXml.DomEventInit */
+    /* Properties of GXml-0.14.GXml.DomEventInit */
     bubbles: boolean
     cancelable: boolean
-    /* Fields of GXml.DomEventInit */
+    /* Fields of GXml-0.14.GXml.DomEventInit */
     parent_instance: GObject.Object
     priv: DomEventInitPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GXml.DomEventInit */
+    /* Methods of GXml-0.14.GXml.DomEventInit */
     get_bubbles(): boolean
     set_bubbles(value: boolean): void
     get_cancelable(): boolean
     set_cancelable(value: boolean): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -15834,7 +15834,7 @@ export class DomEventInit {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -15842,7 +15842,7 @@ export class DomEventInit {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: DomEventInit, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: DomEventInit, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -15865,25 +15865,25 @@ export interface DomCustomEventInit_ConstructProps extends DomEventInit_Construc
     detail?: any
 }
 export class DomCustomEventInit {
-    /* Properties of GXml.DomCustomEventInit */
+    /* Properties of GXml-0.14.GXml.DomCustomEventInit */
     detail: any
-    /* Properties of GXml.DomEventInit */
+    /* Properties of GXml-0.14.GXml.DomEventInit */
     bubbles: boolean
     cancelable: boolean
-    /* Fields of GXml.DomCustomEventInit */
+    /* Fields of GXml-0.14.GXml.DomCustomEventInit */
     parent_instance: DomEventInit
     priv: DomCustomEventInitPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GXml.DomCustomEventInit */
+    /* Methods of GXml-0.14.GXml.DomCustomEventInit */
     get_detail(): any | null
     set_detail(value?: any | null): void
-    /* Methods of GXml.DomEventInit */
+    /* Methods of GXml-0.14.GXml.DomEventInit */
     get_bubbles(): boolean
     set_bubbles(value: boolean): void
     get_cancelable(): boolean
     set_cancelable(value: boolean): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -15905,7 +15905,7 @@ export class DomCustomEventInit {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -15913,7 +15913,7 @@ export class DomCustomEventInit {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: DomCustomEventInit, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: DomCustomEventInit, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -15938,18 +15938,18 @@ export interface DomTimeStamp_ConstructProps extends GObject.Object_ConstructPro
     time?: GLib.DateTime
 }
 export class DomTimeStamp {
-    /* Properties of GXml.DomTimeStamp */
+    /* Properties of GXml-0.14.GXml.DomTimeStamp */
     time: GLib.DateTime
-    /* Fields of GXml.DomTimeStamp */
+    /* Fields of GXml-0.14.GXml.DomTimeStamp */
     parent_instance: GObject.Object
     priv: DomTimeStampPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GXml.DomTimeStamp */
+    /* Methods of GXml-0.14.GXml.DomTimeStamp */
     to_string(): string
     get_time(): GLib.DateTime
     set_time(value: GLib.DateTime): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -15971,7 +15971,7 @@ export class DomTimeStamp {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -15979,7 +15979,7 @@ export class DomTimeStamp {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: DomTimeStamp, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: DomTimeStamp, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -16006,7 +16006,7 @@ export interface DomMutationObserverInit_ConstructProps extends GObject.Object_C
     attribute_filter?: Gee.List
 }
 export class DomMutationObserverInit {
-    /* Properties of GXml.DomMutationObserverInit */
+    /* Properties of GXml-0.14.GXml.DomMutationObserverInit */
     child_list: boolean
     attributes: boolean
     character_data: boolean
@@ -16014,12 +16014,12 @@ export class DomMutationObserverInit {
     attribute_old_value: boolean
     character_data_old_value: boolean
     attribute_filter: Gee.List
-    /* Fields of GXml.DomMutationObserverInit */
+    /* Fields of GXml-0.14.GXml.DomMutationObserverInit */
     parent_instance: GObject.Object
     priv: DomMutationObserverInitPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GXml.DomMutationObserverInit */
+    /* Methods of GXml-0.14.GXml.DomMutationObserverInit */
     get_child_list(): boolean
     set_child_list(value: boolean): void
     get_attributes(): boolean
@@ -16034,7 +16034,7 @@ export class DomMutationObserverInit {
     set_character_data_old_value(value: boolean): void
     get_attribute_filter(): Gee.List
     set_attribute_filter(value: Gee.List): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -16056,7 +16056,7 @@ export class DomMutationObserverInit {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -16064,7 +16064,7 @@ export class DomMutationObserverInit {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: DomMutationObserverInit, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: DomMutationObserverInit, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -16096,15 +16096,15 @@ export class DomMutationObserverInit {
 export interface DomErrorName_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class DomErrorName {
-    /* Fields of GXml.DomErrorName */
+    /* Fields of GXml-0.14.GXml.DomErrorName */
     parent_instance: GObject.Object
     priv: DomErrorNamePrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GXml.DomErrorName */
+    /* Methods of GXml-0.14.GXml.DomErrorName */
     get_name(error_code: number): string
     get_code(error_name: string): number
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -16126,7 +16126,7 @@ export class DomErrorName {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -16134,7 +16134,7 @@ export class DomErrorName {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: DomErrorName, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: DomErrorName, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -16152,18 +16152,18 @@ export class DomErrorName {
 export interface GXPathObject_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class GXPathObject {
-    /* Properties of GXml.XPathObject */
+    /* Properties of GXml-0.14.GXml.XPathObject */
     readonly object_type: XPathObjectType
     readonly boolean_value: boolean
     readonly string_value: string
     readonly number_value: number
     readonly nodeset: DomHTMLCollection
-    /* Fields of GXml.GXPathObject */
+    /* Fields of GXml-0.14.GXml.GXPathObject */
     parent_instance: GObject.Object
     priv: GXPathObjectPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -16185,19 +16185,19 @@ export class GXPathObject {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of GXml.XPathObject */
+    /* Methods of GXml-0.14.GXml.XPathObject */
     get_object_type(): XPathObjectType
     get_boolean_value(): boolean
     get_string_value(): string
     get_number_value(): number
     get_nodeset(): DomHTMLCollection
-    /* Virtual methods of GXml.GXPathObject */
+    /* Virtual methods of GXml-0.14.GXml.GXPathObject */
     vfunc_get_object_type(): XPathObjectType
     vfunc_get_boolean_value(): boolean
     vfunc_get_string_value(): string
     vfunc_get_number_value(): number
     vfunc_get_nodeset(): DomHTMLCollection
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -16205,7 +16205,7 @@ export class GXPathObject {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: GXPathObject, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: GXPathObject, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -16233,12 +16233,12 @@ export class GXPathObject {
 export interface GomDocument_ConstructProps extends GomNode_ConstructProps {
 }
 export class GomDocument {
-    /* Properties of GXml.DomParentNode */
+    /* Properties of GXml-0.14.GXml.DomParentNode */
     readonly children: DomHTMLCollection
     readonly first_element_child: DomElement
     readonly last_element_child: DomElement
     readonly child_element_count: number
-    /* Properties of GXml.DomDocument */
+    /* Properties of GXml-0.14.GXml.DomDocument */
     readonly implementation: DomImplementation
     readonly url: string
     readonly document_uri: string
@@ -16248,7 +16248,7 @@ export class GomDocument {
     readonly content_type: string
     readonly doctype: DomDocumentType
     readonly document_element: DomElement
-    /* Fields of GXml.GomDocument */
+    /* Fields of GXml-0.14.GXml.GomDocument */
     parent_instance: GomNode
     priv: GomDocumentPrivate
     _implementation: DomImplementation
@@ -16258,7 +16258,7 @@ export class GomDocument {
     _character_set: string
     _content_type: string
     _constructor: DomEvent
-    /* Fields of GXml.GomNode */
+    /* Fields of GXml-0.14.GXml.GomNode */
     _local_name: string
     _prefix: string
     _base_uri: string
@@ -16267,16 +16267,16 @@ export class GomDocument {
     _node_type: DomNodeNodeType
     _child_nodes: GomNodeList
     _document: DomDocument
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GXml.GomDocument */
+    /* Methods of GXml-0.14.GXml.GomDocument */
     write_file(file: Gio.File): void
     write_stream(stream: Gio.OutputStream): void
     create_stream(): Gio.InputStream
     write_string(): string
     read_from_file(file: Gio.File): void
     read_from_string(str: string): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -16298,7 +16298,7 @@ export class GomDocument {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of GXml.DomParentNode */
+    /* Methods of GXml-0.14.GXml.DomParentNode */
     query_selector(selectors: string): DomElement | null
     query_selector_all(selectors: string): DomNodeList
     get_elements_by_property_value(property: string, value: string): DomElementList
@@ -16306,9 +16306,9 @@ export class GomDocument {
     get_first_element_child(): DomElement | null
     get_last_element_child(): DomElement | null
     get_child_element_count(): number
-    /* Methods of GXml.DomNonElementParentNode */
+    /* Methods of GXml-0.14.GXml.DomNonElementParentNode */
     get_element_by_id(element_id: string): DomElement | null
-    /* Methods of GXml.DomDocument */
+    /* Methods of GXml-0.14.GXml.DomDocument */
     get_elements_by_tag_name(local_name: string): DomHTMLCollection
     get_elements_by_tag_name_ns(namespace: string | null, local_name: string): DomHTMLCollection
     get_elements_by_class_name(classNames: string): DomHTMLCollection
@@ -16333,7 +16333,7 @@ export class GomDocument {
     get_content_type(): string
     get_doctype(): DomDocumentType | null
     get_document_element(): DomElement | null
-    /* Virtual methods of GXml.GomDocument */
+    /* Virtual methods of GXml-0.14.GXml.GomDocument */
     vfunc_query_selector(selectors: string): DomElement | null
     vfunc_query_selector_all(selectors: string): DomNodeList
     vfunc_get_elements_by_property_value(property: string, value: string): DomElementList
@@ -16366,7 +16366,7 @@ export class GomDocument {
     vfunc_get_content_type(): string
     vfunc_get_doctype(): DomDocumentType | null
     vfunc_get_document_element(): DomElement | null
-    /* Virtual methods of GXml.GomNode */
+    /* Virtual methods of GXml-0.14.GXml.GomNode */
     vfunc_add_event_listener(type: string, callback: DomEventListener | null, capture: boolean): void
     vfunc_remove_event_listener(type: string, callback: DomEventListener | null, capture: boolean): void
     vfunc_dispatch_event(event: DomEvent): boolean
@@ -16399,7 +16399,7 @@ export class GomDocument {
     vfunc_set_node_value(value?: string | null): void
     vfunc_get_text_content(): string | null
     vfunc_set_text_content(value?: string | null): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -16407,7 +16407,7 @@ export class GomDocument {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: GomDocument, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: GomDocument, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -16456,12 +16456,12 @@ export class GomDocument {
 export interface GomImplementation_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class GomImplementation {
-    /* Fields of GXml.GomImplementation */
+    /* Fields of GXml-0.14.GXml.GomImplementation */
     parent_instance: GObject.Object
     priv: GomImplementationPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -16483,17 +16483,17 @@ export class GomImplementation {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of GXml.DomImplementation */
+    /* Methods of GXml-0.14.GXml.DomImplementation */
     create_document_type(qualified_name: string, public_id: string, system_id: string): DomDocumentType
     create_document(nspace?: string | null, qualified_name?: string | null, doctype?: DomDocumentType | null): DomXMLDocument
     create_html_document(title: string): Document
     has_feature(): boolean
-    /* Virtual methods of GXml.GomImplementation */
+    /* Virtual methods of GXml-0.14.GXml.GomImplementation */
     vfunc_create_document_type(qualified_name: string, public_id: string, system_id: string): DomDocumentType
     vfunc_create_document(nspace?: string | null, qualified_name?: string | null, doctype?: DomDocumentType | null): DomXMLDocument
     vfunc_create_html_document(title: string): Document
     vfunc_has_feature(): boolean
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -16501,7 +16501,7 @@ export class GomImplementation {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: GomImplementation, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: GomImplementation, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -16522,7 +16522,7 @@ export interface GomDocumentType_ConstructProps extends GomNode_ConstructProps {
     text_content?: string
 }
 export class GomDocumentType {
-    /* Properties of GXml.DomNode */
+    /* Properties of GXml-0.14.GXml.DomNode */
     readonly node_type: DomNodeNodeType
     readonly node_name: string
     readonly base_uri: string
@@ -16536,17 +16536,17 @@ export class GomDocumentType {
     readonly next_sibling: DomNode
     node_value: string
     text_content: string
-    /* Properties of GXml.DomDocumentType */
+    /* Properties of GXml-0.14.GXml.DomDocumentType */
     readonly name: string
     readonly public_id: string
     readonly system_id: string
-    /* Fields of GXml.GomDocumentType */
+    /* Fields of GXml-0.14.GXml.GomDocumentType */
     parent_instance: GomNode
     priv: GomDocumentTypePrivate
     _name: string
     _public_id: string
     _system_id: string
-    /* Fields of GXml.GomNode */
+    /* Fields of GXml-0.14.GXml.GomNode */
     _local_name: string
     _prefix: string
     _base_uri: string
@@ -16555,9 +16555,9 @@ export class GomDocumentType {
     _node_type: DomNodeNodeType
     _child_nodes: GomNodeList
     _document: DomDocument
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -16579,7 +16579,7 @@ export class GomDocumentType {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of GXml.DomNode */
+    /* Methods of GXml-0.14.GXml.DomNode */
     has_child_nodes(): boolean
     normalize(): void
     is_equal_node(node?: DomNode | null): boolean
@@ -16609,18 +16609,18 @@ export class GomDocumentType {
     set_node_value(value?: string | null): void
     get_text_content(): string | null
     set_text_content(value?: string | null): void
-    /* Methods of GXml.DomChildNode */
+    /* Methods of GXml-0.14.GXml.DomChildNode */
     remove(): void
-    /* Methods of GXml.DomDocumentType */
+    /* Methods of GXml-0.14.GXml.DomDocumentType */
     get_name(): string
     get_public_id(): string
     get_system_id(): string
-    /* Virtual methods of GXml.GomDocumentType */
+    /* Virtual methods of GXml-0.14.GXml.GomDocumentType */
     vfunc_remove(): void
     vfunc_get_name(): string
     vfunc_get_public_id(): string
     vfunc_get_system_id(): string
-    /* Virtual methods of GXml.GomNode */
+    /* Virtual methods of GXml-0.14.GXml.GomNode */
     vfunc_add_event_listener(type: string, callback: DomEventListener | null, capture: boolean): void
     vfunc_remove_event_listener(type: string, callback: DomEventListener | null, capture: boolean): void
     vfunc_dispatch_event(event: DomEvent): boolean
@@ -16653,7 +16653,7 @@ export class GomDocumentType {
     vfunc_set_node_value(value?: string | null): void
     vfunc_get_text_content(): string | null
     vfunc_set_text_content(value?: string | null): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -16661,7 +16661,7 @@ export class GomDocumentType {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: GomDocumentType, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: GomDocumentType, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -16713,15 +16713,15 @@ export class GomDocumentType {
 export interface GomDocumentFragment_ConstructProps extends GomNode_ConstructProps {
 }
 export class GomDocumentFragment {
-    /* Properties of GXml.DomParentNode */
+    /* Properties of GXml-0.14.GXml.DomParentNode */
     readonly children: DomHTMLCollection
     readonly first_element_child: DomElement
     readonly last_element_child: DomElement
     readonly child_element_count: number
-    /* Fields of GXml.GomDocumentFragment */
+    /* Fields of GXml-0.14.GXml.GomDocumentFragment */
     parent_instance: GomNode
     priv: GomDocumentFragmentPrivate
-    /* Fields of GXml.GomNode */
+    /* Fields of GXml-0.14.GXml.GomNode */
     _local_name: string
     _prefix: string
     _base_uri: string
@@ -16730,9 +16730,9 @@ export class GomDocumentFragment {
     _node_type: DomNodeNodeType
     _child_nodes: GomNodeList
     _document: DomDocument
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -16754,7 +16754,7 @@ export class GomDocumentFragment {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of GXml.DomParentNode */
+    /* Methods of GXml-0.14.GXml.DomParentNode */
     query_selector(selectors: string): DomElement | null
     query_selector_all(selectors: string): DomNodeList
     get_elements_by_property_value(property: string, value: string): DomElementList
@@ -16762,9 +16762,9 @@ export class GomDocumentFragment {
     get_first_element_child(): DomElement | null
     get_last_element_child(): DomElement | null
     get_child_element_count(): number
-    /* Methods of GXml.DomNonElementParentNode */
+    /* Methods of GXml-0.14.GXml.DomNonElementParentNode */
     get_element_by_id(element_id: string): DomElement | null
-    /* Virtual methods of GXml.GomDocumentFragment */
+    /* Virtual methods of GXml-0.14.GXml.GomDocumentFragment */
     vfunc_query_selector(selectors: string): DomElement | null
     vfunc_query_selector_all(selectors: string): DomNodeList
     vfunc_get_elements_by_property_value(property: string, value: string): DomElementList
@@ -16773,7 +16773,7 @@ export class GomDocumentFragment {
     vfunc_get_last_element_child(): DomElement | null
     vfunc_get_child_element_count(): number
     vfunc_get_element_by_id(element_id: string): DomElement | null
-    /* Virtual methods of GXml.GomNode */
+    /* Virtual methods of GXml-0.14.GXml.GomNode */
     vfunc_add_event_listener(type: string, callback: DomEventListener | null, capture: boolean): void
     vfunc_remove_event_listener(type: string, callback: DomEventListener | null, capture: boolean): void
     vfunc_dispatch_event(event: DomEvent): boolean
@@ -16806,7 +16806,7 @@ export class GomDocumentFragment {
     vfunc_set_node_value(value?: string | null): void
     vfunc_get_text_content(): string | null
     vfunc_set_text_content(value?: string | null): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -16814,7 +16814,7 @@ export class GomDocumentFragment {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: GomDocumentFragment, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: GomDocumentFragment, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -16845,18 +16845,18 @@ export interface GomElement_ConstructProps extends GomNode_ConstructProps {
     class_name?: string
 }
 export class GomElement {
-    /* Properties of GXml.GomElement */
+    /* Properties of GXml-0.14.GXml.GomElement */
     parse_children: boolean
     unparsed: string
-    /* Properties of GXml.DomNonDocumentTypeChildNode */
+    /* Properties of GXml-0.14.GXml.DomNonDocumentTypeChildNode */
     readonly previous_element_sibling: DomElement
     readonly next_element_sibling: DomElement
-    /* Properties of GXml.DomParentNode */
+    /* Properties of GXml-0.14.GXml.DomParentNode */
     readonly children: DomHTMLCollection
     readonly first_element_child: DomElement
     readonly last_element_child: DomElement
     readonly child_element_count: number
-    /* Properties of GXml.DomElement */
+    /* Properties of GXml-0.14.GXml.DomElement */
     readonly namespace_uri: string
     readonly prefix: string
     readonly local_name: string
@@ -16865,12 +16865,12 @@ export class GomElement {
     class_name: string
     readonly class_list: DomTokenList
     readonly attributes: DomNamedNodeMap
-    /* Fields of GXml.GomElement */
+    /* Fields of GXml-0.14.GXml.GomElement */
     parent_instance: GomNode
     priv: GomElementPrivate
     _attributes: GomElementAttributes
     _namespace_uri: string
-    /* Fields of GXml.GomNode */
+    /* Fields of GXml-0.14.GXml.GomNode */
     _local_name: string
     _prefix: string
     _base_uri: string
@@ -16879,9 +16879,9 @@ export class GomElement {
     _node_type: DomNodeNodeType
     _child_nodes: GomNodeList
     _document: DomDocument
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GXml.GomElement */
+    /* Methods of GXml-0.14.GXml.GomElement */
     read_from_uri(uri: string): void
     read_from_file(f: Gio.File, cancellable?: Gio.Cancellable | null): void
     read_from_stream(istream: Gio.InputStream, cancellable?: Gio.Cancellable | null): void
@@ -16901,7 +16901,7 @@ export class GomElement {
     set_parse_children(value: boolean): void
     get_unparsed(): string
     set_unparsed(value: string): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -16923,12 +16923,12 @@ export class GomElement {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of GXml.DomChildNode */
+    /* Methods of GXml-0.14.GXml.DomChildNode */
     remove(): void
-    /* Methods of GXml.DomNonDocumentTypeChildNode */
+    /* Methods of GXml-0.14.GXml.DomNonDocumentTypeChildNode */
     get_previous_element_sibling(): DomElement | null
     get_next_element_sibling(): DomElement | null
-    /* Methods of GXml.DomParentNode */
+    /* Methods of GXml-0.14.GXml.DomParentNode */
     query_selector(selectors: string): DomElement | null
     query_selector_all(selectors: string): DomNodeList
     get_elements_by_property_value(property: string, value: string): DomElementList
@@ -16936,7 +16936,7 @@ export class GomElement {
     get_first_element_child(): DomElement | null
     get_last_element_child(): DomElement | null
     get_child_element_count(): number
-    /* Methods of GXml.DomElement */
+    /* Methods of GXml-0.14.GXml.DomElement */
     get_attribute(name: string): string | null
     get_attribute_ns(namespace: string | null, local_name: string): string | null
     set_attribute(name: string, value: string): void
@@ -16958,7 +16958,7 @@ export class GomElement {
     set_class_name(value?: string | null): void
     get_class_list(): DomTokenList
     get_attributes(): DomNamedNodeMap
-    /* Methods of GXml.GomObject */
+    /* Methods of GXml-0.14.GXml.GomObject */
     get_properties_list(): GObject.ParamSpec[]
     find_property_name(pname: string): GObject.ParamSpec | null
     find_object_property_name(pname: string): GObject.ParamSpec | null
@@ -16970,7 +16970,7 @@ export class GomElement {
     remove_attribute(name: string): boolean
     set_instance_property(name: string): boolean
     clean_property_elements(name: string): void
-    /* Virtual methods of GXml.GomElement */
+    /* Virtual methods of GXml-0.14.GXml.GomElement */
     vfunc_remove(): void
     vfunc_get_previous_element_sibling(): DomElement | null
     vfunc_get_next_element_sibling(): DomElement | null
@@ -17013,7 +17013,7 @@ export class GomElement {
     vfunc_find_elements(name: string): DomElementList
     vfunc_set_instance_property(name: string): boolean
     vfunc_clean_property_elements(name: string): void
-    /* Virtual methods of GXml.GomNode */
+    /* Virtual methods of GXml-0.14.GXml.GomNode */
     vfunc_add_event_listener(type: string, callback: DomEventListener | null, capture: boolean): void
     vfunc_remove_event_listener(type: string, callback: DomEventListener | null, capture: boolean): void
     vfunc_dispatch_event(event: DomEvent): boolean
@@ -17046,7 +17046,7 @@ export class GomElement {
     vfunc_set_node_value(value?: string | null): void
     vfunc_get_text_content(): string | null
     vfunc_set_text_content(value?: string | null): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -17054,7 +17054,7 @@ export class GomElement {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: GomElement, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: GomElement, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -17104,26 +17104,26 @@ export class GomElement {
 export interface GomElementAttributes_ConstructProps extends Gee.HashMap_ConstructProps {
 }
 export class GomElementAttributes {
-    /* Properties of Gee.AbstractMap */
+    /* Properties of Gee-0.8.Gee.AbstractMap */
     readonly size: number
     readonly read_only: boolean
     readonly keys: Gee.Set
     readonly values: Gee.Collection
     readonly entries: Gee.Set
     readonly read_only_view: Gee.Map
-    /* Properties of GXml.DomNamedNodeMap */
+    /* Properties of GXml-0.14.GXml.DomNamedNodeMap */
     readonly length: number
-    /* Fields of GXml.GomElementAttributes */
+    /* Fields of GXml-0.14.GXml.GomElementAttributes */
     parent_instance: Gee.HashMap
     priv: GomElementAttributesPrivate
     _element: GomElement
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Gee.HashMap */
+    /* Methods of Gee-0.8.Gee.HashMap */
     get_key_hash_func(): [ /* returnType */ Gee.HashDataFunc, /* result_target */ object | null ]
     get_key_equal_func(): [ /* returnType */ Gee.EqualDataFunc, /* result_target */ object | null ]
     get_value_equal_func(): [ /* returnType */ Gee.EqualDataFunc, /* result_target */ object | null ]
-    /* Methods of Gee.AbstractMap */
+    /* Methods of Gee-0.8.Gee.AbstractMap */
     has_key(key?: object | null): boolean
     has(key?: object | null, value?: object | null): boolean
     get(key?: object | null): object | null
@@ -17149,7 +17149,7 @@ export class GomElementAttributes {
     get_values(): Gee.Collection
     get_entries(): Gee.Set
     get_read_only_view(): Gee.Map
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -17171,7 +17171,7 @@ export class GomElementAttributes {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of GXml.DomNamedNodeMap */
+    /* Methods of GXml-0.14.GXml.DomNamedNodeMap */
     item(index: number): DomNode | null
     get_named_item(name: string): DomNode | null
     set_named_item(node: DomNode): DomNode | null
@@ -17180,7 +17180,7 @@ export class GomElementAttributes {
     get_named_item_ns(namespace_uri: string, local_name: string): DomNode | null
     set_named_item_ns(node: DomNode): DomNode | null
     get_length(): number
-    /* Virtual methods of GXml.GomElementAttributes */
+    /* Virtual methods of GXml-0.14.GXml.GomElementAttributes */
     vfunc_item(index: number): DomNode | null
     vfunc_get_named_item(name: string): DomNode | null
     vfunc_set_named_item(node: DomNode): DomNode | null
@@ -17189,7 +17189,7 @@ export class GomElementAttributes {
     vfunc_get_named_item_ns(namespace_uri: string, local_name: string): DomNode | null
     vfunc_set_named_item_ns(node: DomNode): DomNode | null
     vfunc_get_length(): number
-    /* Virtual methods of Gee.AbstractMap */
+    /* Virtual methods of Gee-0.8.Gee.AbstractMap */
     vfunc_has_key(key?: object | null): boolean
     vfunc_has(key?: object | null, value?: object | null): boolean
     vfunc_get(key?: object | null): object | null
@@ -17234,7 +17234,7 @@ export class GomElementAttributes {
     vfunc_unset_all(map: Gee.Map): boolean
     vfunc_has_all(map: Gee.Map): boolean
     vfunc_get_is_empty(): boolean
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -17242,7 +17242,7 @@ export class GomElementAttributes {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: GomElementAttributes, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: GomElementAttributes, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -17276,18 +17276,18 @@ export interface GomAttr_ConstructProps extends GomNode_ConstructProps {
     value?: string
 }
 export class GomAttr {
-    /* Properties of GXml.DomAttr */
+    /* Properties of GXml-0.14.GXml.DomAttr */
     readonly namespace_uri: string
     readonly prefix: string
     readonly local_name: string
     readonly name: string
     value: string
     readonly specified: boolean
-    /* Fields of GXml.GomAttr */
+    /* Fields of GXml-0.14.GXml.GomAttr */
     parent_instance: GomNode
     priv: GomAttrPrivate
     _namespace_uri: string
-    /* Fields of GXml.GomNode */
+    /* Fields of GXml-0.14.GXml.GomNode */
     _local_name: string
     _prefix: string
     _base_uri: string
@@ -17296,9 +17296,9 @@ export class GomAttr {
     _node_type: DomNodeNodeType
     _child_nodes: GomNodeList
     _document: DomDocument
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -17320,7 +17320,7 @@ export class GomAttr {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of GXml.DomAttr */
+    /* Methods of GXml-0.14.GXml.DomAttr */
     get_namespace_uri(): string | null
     get_prefix(): string | null
     get_local_name(): string
@@ -17328,7 +17328,7 @@ export class GomAttr {
     get_value(): string
     set_value(value: string): void
     get_specified(): boolean
-    /* Virtual methods of GXml.GomAttr */
+    /* Virtual methods of GXml-0.14.GXml.GomAttr */
     vfunc_get_namespace_uri(): string | null
     vfunc_get_prefix(): string | null
     vfunc_get_local_name(): string
@@ -17336,7 +17336,7 @@ export class GomAttr {
     vfunc_get_value(): string
     vfunc_set_value(value: string): void
     vfunc_get_specified(): boolean
-    /* Virtual methods of GXml.GomNode */
+    /* Virtual methods of GXml-0.14.GXml.GomNode */
     vfunc_add_event_listener(type: string, callback: DomEventListener | null, capture: boolean): void
     vfunc_remove_event_listener(type: string, callback: DomEventListener | null, capture: boolean): void
     vfunc_dispatch_event(event: DomEvent): boolean
@@ -17369,7 +17369,7 @@ export class GomAttr {
     vfunc_set_node_value(value?: string | null): void
     vfunc_get_text_content(): string | null
     vfunc_set_text_content(value?: string | null): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -17377,7 +17377,7 @@ export class GomAttr {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: GomAttr, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: GomAttr, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -17412,7 +17412,7 @@ export interface GomNode_ConstructProps extends GObject.Object_ConstructProps {
     text_content?: string
 }
 export class GomNode {
-    /* Properties of GXml.DomNode */
+    /* Properties of GXml-0.14.GXml.DomNode */
     readonly node_type: DomNodeNodeType
     readonly node_name: string
     readonly base_uri: string
@@ -17426,7 +17426,7 @@ export class GomNode {
     readonly next_sibling: DomNode
     node_value: string
     text_content: string
-    /* Fields of GXml.GomNode */
+    /* Fields of GXml-0.14.GXml.GomNode */
     parent_instance: GObject.Object
     priv: GomNodePrivate
     _local_name: string
@@ -17437,9 +17437,9 @@ export class GomNode {
     _node_type: DomNodeNodeType
     _child_nodes: GomNodeList
     _document: DomDocument
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -17461,11 +17461,11 @@ export class GomNode {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of GXml.DomEventTarget */
+    /* Methods of GXml-0.14.GXml.DomEventTarget */
     add_event_listener(type: string, callback: DomEventListener | null, capture: boolean): void
     remove_event_listener(type: string, callback: DomEventListener | null, capture: boolean): void
     dispatch_event(event: DomEvent): boolean
-    /* Methods of GXml.DomNode */
+    /* Methods of GXml-0.14.GXml.DomNode */
     has_child_nodes(): boolean
     normalize(): void
     is_equal_node(node?: DomNode | null): boolean
@@ -17495,7 +17495,7 @@ export class GomNode {
     set_node_value(value?: string | null): void
     get_text_content(): string | null
     set_text_content(value?: string | null): void
-    /* Virtual methods of GXml.GomNode */
+    /* Virtual methods of GXml-0.14.GXml.GomNode */
     vfunc_add_event_listener(type: string, callback: DomEventListener | null, capture: boolean): void
     vfunc_remove_event_listener(type: string, callback: DomEventListener | null, capture: boolean): void
     vfunc_dispatch_event(event: DomEvent): boolean
@@ -17528,7 +17528,7 @@ export class GomNode {
     vfunc_set_node_value(value?: string | null): void
     vfunc_get_text_content(): string | null
     vfunc_set_text_content(value?: string | null): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -17536,7 +17536,7 @@ export class GomNode {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: GomNode, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: GomNode, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -17581,26 +17581,26 @@ export class GomNode {
 export interface GomNodeList_ConstructProps extends Gee.ArrayList_ConstructProps {
 }
 export class GomNodeList {
-    /* Properties of Gee.AbstractBidirList */
+    /* Properties of Gee-0.8.Gee.AbstractBidirList */
     readonly read_only_view: Gee.BidirList
-    /* Properties of Gee.AbstractCollection */
+    /* Properties of Gee-0.8.Gee.AbstractCollection */
     readonly size: number
     readonly read_only: boolean
-    /* Properties of GXml.DomNodeList */
+    /* Properties of GXml-0.14.GXml.DomNodeList */
     readonly length: number
-    /* Fields of GXml.GomNodeList */
+    /* Fields of GXml-0.14.GXml.GomNodeList */
     parent_instance: Gee.ArrayList
     priv: GomNodeListPrivate
-    /* Fields of Gee.ArrayList */
+    /* Fields of Gee-0.8.Gee.ArrayList */
     _items: object[]
     _items_length1: number
     _size: number
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Gee.ArrayList */
+    /* Methods of Gee-0.8.Gee.ArrayList */
     add_all(collection: Gee.Collection): boolean
     get_equal_func(): [ /* returnType */ Gee.EqualDataFunc, /* result_target */ object | null ]
-    /* Methods of Gee.AbstractBidirList */
+    /* Methods of Gee-0.8.Gee.AbstractBidirList */
     bidir_list_iterator(): Gee.BidirListIterator
     reserved0(): void
     reserved1(): void
@@ -17613,7 +17613,7 @@ export class GomNodeList {
     reserved8(): void
     reserved9(): void
     get_read_only_view(): Gee.BidirList
-    /* Methods of Gee.AbstractList */
+    /* Methods of Gee-0.8.Gee.AbstractList */
     list_iterator(): Gee.ListIterator
     get(index: number): object | null
     set(index: number, item?: object | null): void
@@ -17622,7 +17622,7 @@ export class GomNodeList {
     remove_at(index: number): object | null
     slice(start: number, stop: number): Gee.List | null
     get_read_only_view(): Gee.List
-    /* Methods of Gee.AbstractCollection */
+    /* Methods of Gee-0.8.Gee.AbstractCollection */
     contains(item?: object | null): boolean
     add(item?: object | null): boolean
     remove(item?: object | null): boolean
@@ -17632,7 +17632,7 @@ export class GomNodeList {
     get_size(): number
     get_read_only(): boolean
     get_read_only_view(): Gee.Collection
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -17654,20 +17654,20 @@ export class GomNodeList {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of GXml.DomNodeList */
+    /* Methods of GXml-0.14.GXml.DomNodeList */
     item(index: number): DomNode | null
     get_length(): number
-    /* Virtual methods of GXml.GomNodeList */
+    /* Virtual methods of GXml-0.14.GXml.GomNodeList */
     vfunc_item(index: number): DomNode | null
     vfunc_get_length(): number
     vfunc_get_read_only_view(): Gee.BidirList
     vfunc_get_read_only_view(): Gee.List
     vfunc_get_read_only_view(): Gee.Collection
-    /* Virtual methods of Gee.ArrayList */
+    /* Virtual methods of Gee-0.8.Gee.ArrayList */
     vfunc_get_read_only_view(): Gee.BidirList
     vfunc_get_read_only_view(): Gee.List
     vfunc_get_read_only_view(): Gee.Collection
-    /* Virtual methods of Gee.AbstractBidirList */
+    /* Virtual methods of Gee-0.8.Gee.AbstractBidirList */
     vfunc_bidir_list_iterator(): Gee.BidirListIterator
     vfunc_reserved0(): void
     vfunc_reserved1(): void
@@ -17682,7 +17682,7 @@ export class GomNodeList {
     vfunc_get_read_only_view(): Gee.BidirList
     vfunc_get_read_only_view(): Gee.List
     vfunc_get_read_only_view(): Gee.Collection
-    /* Virtual methods of Gee.AbstractList */
+    /* Virtual methods of Gee-0.8.Gee.AbstractList */
     vfunc_list_iterator(): Gee.ListIterator
     vfunc_get(index: number): object | null
     vfunc_set(index: number, item?: object | null): void
@@ -17706,7 +17706,7 @@ export class GomNodeList {
     vfunc_last(): object | null
     vfunc_insert_all(index: number, collection: Gee.Collection): void
     vfunc_sort(compare_func: GLib.CompareDataFunc | null): void
-    /* Virtual methods of Gee.AbstractCollection */
+    /* Virtual methods of Gee-0.8.Gee.AbstractCollection */
     vfunc_contains(item?: object | null): boolean
     vfunc_add(item?: object | null): boolean
     vfunc_remove(item?: object | null): boolean
@@ -17753,7 +17753,7 @@ export class GomNodeList {
     vfunc_contains_all_iterator(iter: Gee.Iterator): boolean
     vfunc_remove_all_iterator(iter: Gee.Iterator): boolean
     vfunc_get_is_empty(): boolean
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -17761,7 +17761,7 @@ export class GomNodeList {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: GomNodeList, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: GomNodeList, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -17789,16 +17789,16 @@ export interface GomCharacterData_ConstructProps extends GomNode_ConstructProps 
     data?: string
 }
 export class GomCharacterData {
-    /* Properties of GXml.DomNonDocumentTypeChildNode */
+    /* Properties of GXml-0.14.GXml.DomNonDocumentTypeChildNode */
     readonly previous_element_sibling: DomElement
     readonly next_element_sibling: DomElement
-    /* Properties of GXml.DomCharacterData */
+    /* Properties of GXml-0.14.GXml.DomCharacterData */
     data: string
     readonly length: number
-    /* Fields of GXml.GomCharacterData */
+    /* Fields of GXml-0.14.GXml.GomCharacterData */
     parent_instance: GomNode
     priv: GomCharacterDataPrivate
-    /* Fields of GXml.GomNode */
+    /* Fields of GXml-0.14.GXml.GomNode */
     _local_name: string
     _prefix: string
     _base_uri: string
@@ -17807,9 +17807,9 @@ export class GomCharacterData {
     _node_type: DomNodeNodeType
     _child_nodes: GomNodeList
     _document: DomDocument
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -17831,12 +17831,12 @@ export class GomCharacterData {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of GXml.DomNonDocumentTypeChildNode */
+    /* Methods of GXml-0.14.GXml.DomNonDocumentTypeChildNode */
     get_previous_element_sibling(): DomElement | null
     get_next_element_sibling(): DomElement | null
-    /* Methods of GXml.DomChildNode */
+    /* Methods of GXml-0.14.GXml.DomChildNode */
     remove(): void
-    /* Methods of GXml.DomCharacterData */
+    /* Methods of GXml-0.14.GXml.DomCharacterData */
     substring_data(offset: number, count: number): string
     append_data(data: string): void
     insert_data(offset: number, data: string): void
@@ -17845,7 +17845,7 @@ export class GomCharacterData {
     get_data(): string
     set_data(value: string): void
     get_length(): number
-    /* Virtual methods of GXml.GomCharacterData */
+    /* Virtual methods of GXml-0.14.GXml.GomCharacterData */
     vfunc_get_previous_element_sibling(): DomElement | null
     vfunc_get_next_element_sibling(): DomElement | null
     vfunc_remove(): void
@@ -17857,7 +17857,7 @@ export class GomCharacterData {
     vfunc_get_data(): string
     vfunc_set_data(value: string): void
     vfunc_get_length(): number
-    /* Virtual methods of GXml.GomNode */
+    /* Virtual methods of GXml-0.14.GXml.GomNode */
     vfunc_add_event_listener(type: string, callback: DomEventListener | null, capture: boolean): void
     vfunc_remove_event_listener(type: string, callback: DomEventListener | null, capture: boolean): void
     vfunc_dispatch_event(event: DomEvent): boolean
@@ -17890,7 +17890,7 @@ export class GomCharacterData {
     vfunc_set_node_value(value?: string | null): void
     vfunc_get_text_content(): string | null
     vfunc_set_text_content(value?: string | null): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -17898,7 +17898,7 @@ export class GomCharacterData {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: GomCharacterData, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: GomCharacterData, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -17925,15 +17925,15 @@ export interface GomText_ConstructProps extends GomCharacterData_ConstructProps 
     data?: string
 }
 export class GomText {
-    /* Properties of GXml.DomText */
+    /* Properties of GXml-0.14.GXml.DomText */
     readonly whole_text: string
-    /* Properties of GXml.DomCharacterData */
+    /* Properties of GXml-0.14.GXml.DomCharacterData */
     data: string
     readonly length: number
-    /* Fields of GXml.GomText */
+    /* Fields of GXml-0.14.GXml.GomText */
     parent_instance: GomCharacterData
     priv: GomTextPrivate
-    /* Fields of GXml.GomNode */
+    /* Fields of GXml-0.14.GXml.GomNode */
     _local_name: string
     _prefix: string
     _base_uri: string
@@ -17942,9 +17942,9 @@ export class GomText {
     _node_type: DomNodeNodeType
     _child_nodes: GomNodeList
     _document: DomDocument
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -17966,10 +17966,10 @@ export class GomText {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of GXml.DomText */
+    /* Methods of GXml-0.14.GXml.DomText */
     split_text(offset: number): DomText
     get_whole_text(): string
-    /* Methods of GXml.DomCharacterData */
+    /* Methods of GXml-0.14.GXml.DomCharacterData */
     substring_data(offset: number, count: number): string
     append_data(data: string): void
     insert_data(offset: number, data: string): void
@@ -17978,10 +17978,10 @@ export class GomText {
     get_data(): string
     set_data(value: string): void
     get_length(): number
-    /* Virtual methods of GXml.GomText */
+    /* Virtual methods of GXml-0.14.GXml.GomText */
     vfunc_split_text(offset: number): DomText
     vfunc_get_whole_text(): string
-    /* Virtual methods of GXml.GomCharacterData */
+    /* Virtual methods of GXml-0.14.GXml.GomCharacterData */
     vfunc_get_previous_element_sibling(): DomElement | null
     vfunc_get_next_element_sibling(): DomElement | null
     vfunc_remove(): void
@@ -17993,7 +17993,7 @@ export class GomText {
     vfunc_get_data(): string
     vfunc_set_data(value: string): void
     vfunc_get_length(): number
-    /* Virtual methods of GXml.GomNode */
+    /* Virtual methods of GXml-0.14.GXml.GomNode */
     vfunc_add_event_listener(type: string, callback: DomEventListener | null, capture: boolean): void
     vfunc_remove_event_listener(type: string, callback: DomEventListener | null, capture: boolean): void
     vfunc_dispatch_event(event: DomEvent): boolean
@@ -18026,7 +18026,7 @@ export class GomText {
     vfunc_set_node_value(value?: string | null): void
     vfunc_get_text_content(): string | null
     vfunc_set_text_content(value?: string | null): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -18034,7 +18034,7 @@ export class GomText {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: GomText, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: GomText, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -18060,15 +18060,15 @@ export interface GomProcessingInstruction_ConstructProps extends GomCharacterDat
     data?: string
 }
 export class GomProcessingInstruction {
-    /* Properties of GXml.DomProcessingInstruction */
+    /* Properties of GXml-0.14.GXml.DomProcessingInstruction */
     readonly target: string
-    /* Properties of GXml.DomCharacterData */
+    /* Properties of GXml-0.14.GXml.DomCharacterData */
     data: string
     readonly length: number
-    /* Fields of GXml.GomProcessingInstruction */
+    /* Fields of GXml-0.14.GXml.GomProcessingInstruction */
     parent_instance: GomCharacterData
     priv: GomProcessingInstructionPrivate
-    /* Fields of GXml.GomNode */
+    /* Fields of GXml-0.14.GXml.GomNode */
     _local_name: string
     _prefix: string
     _base_uri: string
@@ -18077,9 +18077,9 @@ export class GomProcessingInstruction {
     _node_type: DomNodeNodeType
     _child_nodes: GomNodeList
     _document: DomDocument
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -18101,9 +18101,9 @@ export class GomProcessingInstruction {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of GXml.DomProcessingInstruction */
+    /* Methods of GXml-0.14.GXml.DomProcessingInstruction */
     get_target(): string
-    /* Methods of GXml.DomCharacterData */
+    /* Methods of GXml-0.14.GXml.DomCharacterData */
     substring_data(offset: number, count: number): string
     append_data(data: string): void
     insert_data(offset: number, data: string): void
@@ -18112,9 +18112,9 @@ export class GomProcessingInstruction {
     get_data(): string
     set_data(value: string): void
     get_length(): number
-    /* Virtual methods of GXml.GomProcessingInstruction */
+    /* Virtual methods of GXml-0.14.GXml.GomProcessingInstruction */
     vfunc_get_target(): string
-    /* Virtual methods of GXml.GomCharacterData */
+    /* Virtual methods of GXml-0.14.GXml.GomCharacterData */
     vfunc_get_previous_element_sibling(): DomElement | null
     vfunc_get_next_element_sibling(): DomElement | null
     vfunc_remove(): void
@@ -18126,7 +18126,7 @@ export class GomProcessingInstruction {
     vfunc_get_data(): string
     vfunc_set_data(value: string): void
     vfunc_get_length(): number
-    /* Virtual methods of GXml.GomNode */
+    /* Virtual methods of GXml-0.14.GXml.GomNode */
     vfunc_add_event_listener(type: string, callback: DomEventListener | null, capture: boolean): void
     vfunc_remove_event_listener(type: string, callback: DomEventListener | null, capture: boolean): void
     vfunc_dispatch_event(event: DomEvent): boolean
@@ -18159,7 +18159,7 @@ export class GomProcessingInstruction {
     vfunc_set_node_value(value?: string | null): void
     vfunc_get_text_content(): string | null
     vfunc_set_text_content(value?: string | null): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -18167,7 +18167,7 @@ export class GomProcessingInstruction {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: GomProcessingInstruction, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: GomProcessingInstruction, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -18193,13 +18193,13 @@ export interface GomComment_ConstructProps extends GomCharacterData_ConstructPro
     data?: string
 }
 export class GomComment {
-    /* Properties of GXml.DomCharacterData */
+    /* Properties of GXml-0.14.GXml.DomCharacterData */
     data: string
     readonly length: number
-    /* Fields of GXml.GomComment */
+    /* Fields of GXml-0.14.GXml.GomComment */
     parent_instance: GomCharacterData
     priv: GomCommentPrivate
-    /* Fields of GXml.GomNode */
+    /* Fields of GXml-0.14.GXml.GomNode */
     _local_name: string
     _prefix: string
     _base_uri: string
@@ -18208,9 +18208,9 @@ export class GomComment {
     _node_type: DomNodeNodeType
     _child_nodes: GomNodeList
     _document: DomDocument
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -18232,7 +18232,7 @@ export class GomComment {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of GXml.DomCharacterData */
+    /* Methods of GXml-0.14.GXml.DomCharacterData */
     substring_data(offset: number, count: number): string
     append_data(data: string): void
     insert_data(offset: number, data: string): void
@@ -18241,7 +18241,7 @@ export class GomComment {
     get_data(): string
     set_data(value: string): void
     get_length(): number
-    /* Virtual methods of GXml.GomCharacterData */
+    /* Virtual methods of GXml-0.14.GXml.GomCharacterData */
     vfunc_get_previous_element_sibling(): DomElement | null
     vfunc_get_next_element_sibling(): DomElement | null
     vfunc_remove(): void
@@ -18253,7 +18253,7 @@ export class GomComment {
     vfunc_get_data(): string
     vfunc_set_data(value: string): void
     vfunc_get_length(): number
-    /* Virtual methods of GXml.GomNode */
+    /* Virtual methods of GXml-0.14.GXml.GomNode */
     vfunc_add_event_listener(type: string, callback: DomEventListener | null, capture: boolean): void
     vfunc_remove_event_listener(type: string, callback: DomEventListener | null, capture: boolean): void
     vfunc_dispatch_event(event: DomEvent): boolean
@@ -18286,7 +18286,7 @@ export class GomComment {
     vfunc_set_node_value(value?: string | null): void
     vfunc_get_text_content(): string | null
     vfunc_set_text_content(value?: string | null): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -18294,7 +18294,7 @@ export class GomComment {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: GomComment, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: GomComment, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -18319,21 +18319,21 @@ export interface BaseCollection_ConstructProps extends GObject.Object_ConstructP
     element?: GomElement
 }
 export class BaseCollection {
-    /* Properties of GXml.BaseCollection */
+    /* Properties of GXml-0.14.GXml.BaseCollection */
     readonly items_name: string
     items_type: GObject.Type
     readonly nodes_index: GLib.Queue
     element: GomElement
-    /* Fields of GXml.BaseCollection */
+    /* Fields of GXml-0.14.GXml.BaseCollection */
     parent_instance: GObject.Object
     priv: BaseCollectionPrivate
     _nodes_index: GLib.Queue
     _element: GomElement
     _items_name: string
     _items_type: GObject.Type
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GXml.BaseCollection */
+    /* Methods of GXml-0.14.GXml.BaseCollection */
     initialize(items_type: GObject.Type): void
     initialize_element(e: GomElement): void
     append(node: DomElement): void
@@ -18345,7 +18345,7 @@ export class BaseCollection {
     get_nodes_index(): GLib.Queue
     get_element(): GomElement
     set_element(value: GomElement): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -18367,9 +18367,9 @@ export class BaseCollection {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GXml.BaseCollection */
+    /* Virtual methods of GXml-0.14.GXml.BaseCollection */
     vfunc_validate_append(index: number, element: DomElement): boolean
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -18377,7 +18377,7 @@ export class BaseCollection {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: BaseCollection, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: BaseCollection, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -18403,24 +18403,24 @@ export interface GomArrayList_ConstructProps extends BaseCollection_ConstructPro
     items_type?: GObject.Type
 }
 export class GomArrayList {
-    /* Properties of GXml.BaseCollection */
+    /* Properties of GXml-0.14.GXml.BaseCollection */
     readonly items_name: string
     items_type: GObject.Type
     readonly nodes_index: GLib.Queue
     element: GomElement
-    /* Properties of GXml.GomCollection */
+    /* Properties of GXml-0.14.GXml.GomCollection */
     readonly length: number
-    /* Fields of GXml.GomArrayList */
+    /* Fields of GXml-0.14.GXml.GomArrayList */
     parent_instance: BaseCollection
     priv: GomArrayListPrivate
-    /* Fields of GXml.BaseCollection */
+    /* Fields of GXml-0.14.GXml.BaseCollection */
     _nodes_index: GLib.Queue
     _element: GomElement
     _items_name: string
     _items_type: GObject.Type
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GXml.BaseCollection */
+    /* Methods of GXml-0.14.GXml.BaseCollection */
     initialize(items_type: GObject.Type): void
     initialize_element(e: GomElement): void
     append(node: DomElement): void
@@ -18432,7 +18432,7 @@ export class GomArrayList {
     get_nodes_index(): GLib.Queue
     get_element(): GomElement
     set_element(value: GomElement): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -18454,12 +18454,12 @@ export class GomArrayList {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of GXml.GomCollection */
+    /* Methods of GXml-0.14.GXml.GomCollection */
     get_item(index: number): DomElement | null
     initialize(t: GObject.Type): void
     create_item(): GomElement | null
     get_length(): number
-    /* Virtual methods of GXml.GomArrayList */
+    /* Virtual methods of GXml-0.14.GXml.GomArrayList */
     vfunc_search(): void
     vfunc_get_item(index: number): DomElement | null
     vfunc_append(node: DomElement): void
@@ -18473,9 +18473,9 @@ export class GomArrayList {
     vfunc_get_items_type(): GObject.Type
     vfunc_set_items_type(value: GObject.Type): void
     vfunc_get_length(): number
-    /* Virtual methods of GXml.BaseCollection */
+    /* Virtual methods of GXml-0.14.GXml.BaseCollection */
     vfunc_validate_append(index: number, element: DomElement): boolean
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -18483,7 +18483,7 @@ export class GomArrayList {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: GomArrayList, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: GomArrayList, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -18514,28 +18514,28 @@ export interface GomHashMap_ConstructProps extends BaseCollection_ConstructProps
     items_type?: GObject.Type
 }
 export class GomHashMap {
-    /* Properties of GXml.GomHashMap */
+    /* Properties of GXml-0.14.GXml.GomHashMap */
     attribute_key: string
-    /* Properties of GXml.BaseCollection */
+    /* Properties of GXml-0.14.GXml.BaseCollection */
     readonly items_name: string
     items_type: GObject.Type
     readonly nodes_index: GLib.Queue
     element: GomElement
-    /* Properties of GXml.GomCollection */
+    /* Properties of GXml-0.14.GXml.GomCollection */
     readonly length: number
-    /* Fields of GXml.GomHashMap */
+    /* Fields of GXml-0.14.GXml.GomHashMap */
     parent_instance: BaseCollection
     priv: GomHashMapPrivate
     _hashtable: GLib.HashTable
     _attribute_key: string
-    /* Fields of GXml.BaseCollection */
+    /* Fields of GXml-0.14.GXml.BaseCollection */
     _nodes_index: GLib.Queue
     _element: GomElement
     _items_name: string
     _items_type: GObject.Type
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GXml.GomHashMap */
+    /* Methods of GXml-0.14.GXml.GomHashMap */
     initialize_element_with_key(element: GomElement, items_type: GObject.Type, attribute_key: string): void
     initialize_with_key(items_type: GObject.Type, attribute_key: string): void
     get(key: string): DomElement | null
@@ -18543,7 +18543,7 @@ export class GomHashMap {
     get_keys(): string[]
     get_attribute_key(): string
     set_attribute_key(value: string): void
-    /* Methods of GXml.BaseCollection */
+    /* Methods of GXml-0.14.GXml.BaseCollection */
     initialize(items_type: GObject.Type): void
     initialize_element(e: GomElement): void
     append(node: DomElement): void
@@ -18555,7 +18555,7 @@ export class GomHashMap {
     get_nodes_index(): GLib.Queue
     get_element(): GomElement
     set_element(value: GomElement): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -18577,12 +18577,12 @@ export class GomHashMap {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of GXml.GomCollection */
+    /* Methods of GXml-0.14.GXml.GomCollection */
     get_item(index: number): DomElement | null
     initialize(t: GObject.Type): void
     create_item(): GomElement | null
     get_length(): number
-    /* Virtual methods of GXml.GomHashMap */
+    /* Virtual methods of GXml-0.14.GXml.GomHashMap */
     vfunc_search(): void
     vfunc_get_item(index: number): DomElement | null
     vfunc_append(node: DomElement): void
@@ -18596,9 +18596,9 @@ export class GomHashMap {
     vfunc_get_items_type(): GObject.Type
     vfunc_set_items_type(value: GObject.Type): void
     vfunc_get_length(): number
-    /* Virtual methods of GXml.BaseCollection */
+    /* Virtual methods of GXml-0.14.GXml.BaseCollection */
     vfunc_validate_append(index: number, element: DomElement): boolean
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -18606,7 +18606,7 @@ export class GomHashMap {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: GomHashMap, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: GomHashMap, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -18640,30 +18640,30 @@ export interface GomHashPairedMap_ConstructProps extends BaseCollection_Construc
     items_type?: GObject.Type
 }
 export class GomHashPairedMap {
-    /* Properties of GXml.GomHashPairedMap */
+    /* Properties of GXml-0.14.GXml.GomHashPairedMap */
     attribute_primary_key: string
     attribute_secondary_key: string
-    /* Properties of GXml.BaseCollection */
+    /* Properties of GXml-0.14.GXml.BaseCollection */
     readonly items_name: string
     items_type: GObject.Type
     readonly nodes_index: GLib.Queue
     element: GomElement
-    /* Properties of GXml.GomCollection */
+    /* Properties of GXml-0.14.GXml.GomCollection */
     readonly length: number
-    /* Fields of GXml.GomHashPairedMap */
+    /* Fields of GXml-0.14.GXml.GomHashPairedMap */
     parent_instance: BaseCollection
     priv: GomHashPairedMapPrivate
     _hashtable: GLib.HashTable
     _attribute_primary_key: string
     _attribute_secondary_key: string
-    /* Fields of GXml.BaseCollection */
+    /* Fields of GXml-0.14.GXml.BaseCollection */
     _nodes_index: GLib.Queue
     _element: GomElement
     _items_name: string
     _items_type: GObject.Type
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GXml.GomHashPairedMap */
+    /* Methods of GXml-0.14.GXml.GomHashPairedMap */
     initialize_element_with_keys(element: GomElement, items_type: GObject.Type, attribute_primary_key: string, attribute_secondary_key: string): void
     initialize_with_keys(items_type: GObject.Type, attribute_primary_key: string, attribute_secondary_key: string): void
     get(primary_key: string, secondary_key: string): DomElement | null
@@ -18675,7 +18675,7 @@ export class GomHashPairedMap {
     set_attribute_primary_key(value: string): void
     get_attribute_secondary_key(): string
     set_attribute_secondary_key(value: string): void
-    /* Methods of GXml.BaseCollection */
+    /* Methods of GXml-0.14.GXml.BaseCollection */
     initialize(items_type: GObject.Type): void
     initialize_element(e: GomElement): void
     append(node: DomElement): void
@@ -18687,7 +18687,7 @@ export class GomHashPairedMap {
     get_nodes_index(): GLib.Queue
     get_element(): GomElement
     set_element(value: GomElement): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -18709,12 +18709,12 @@ export class GomHashPairedMap {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of GXml.GomCollection */
+    /* Methods of GXml-0.14.GXml.GomCollection */
     get_item(index: number): DomElement | null
     initialize(t: GObject.Type): void
     create_item(): GomElement | null
     get_length(): number
-    /* Virtual methods of GXml.GomHashPairedMap */
+    /* Virtual methods of GXml-0.14.GXml.GomHashPairedMap */
     vfunc_search(): void
     vfunc_get_item(index: number): DomElement | null
     vfunc_append(node: DomElement): void
@@ -18728,9 +18728,9 @@ export class GomHashPairedMap {
     vfunc_get_items_type(): GObject.Type
     vfunc_set_items_type(value: GObject.Type): void
     vfunc_get_length(): number
-    /* Virtual methods of GXml.BaseCollection */
+    /* Virtual methods of GXml-0.14.GXml.BaseCollection */
     vfunc_validate_append(index: number, element: DomElement): boolean
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -18738,7 +18738,7 @@ export class GomHashPairedMap {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: GomHashPairedMap, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: GomHashPairedMap, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -18775,32 +18775,32 @@ export interface GomHashThreeMap_ConstructProps extends BaseCollection_Construct
     items_type?: GObject.Type
 }
 export class GomHashThreeMap {
-    /* Properties of GXml.GomHashThreeMap */
+    /* Properties of GXml-0.14.GXml.GomHashThreeMap */
     attribute_primary_key: string
     attribute_secondary_key: string
     attribute_third_key: string
-    /* Properties of GXml.BaseCollection */
+    /* Properties of GXml-0.14.GXml.BaseCollection */
     readonly items_name: string
     items_type: GObject.Type
     readonly nodes_index: GLib.Queue
     element: GomElement
-    /* Properties of GXml.GomCollection */
+    /* Properties of GXml-0.14.GXml.GomCollection */
     readonly length: number
-    /* Fields of GXml.GomHashThreeMap */
+    /* Fields of GXml-0.14.GXml.GomHashThreeMap */
     parent_instance: BaseCollection
     priv: GomHashThreeMapPrivate
     _hashtable: GLib.HashTable
     _attribute_primary_key: string
     _attribute_secondary_key: string
     _attribute_third_key: string
-    /* Fields of GXml.BaseCollection */
+    /* Fields of GXml-0.14.GXml.BaseCollection */
     _nodes_index: GLib.Queue
     _element: GomElement
     _items_name: string
     _items_type: GObject.Type
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GXml.GomHashThreeMap */
+    /* Methods of GXml-0.14.GXml.GomHashThreeMap */
     initialize_element_with_keys(element: GomElement, items_type: GObject.Type, attribute_primary_key: string, attribute_secondary_key: string, attribute_third_key: string): void
     initialize_with_keys(items_type: GObject.Type, attribute_primary_key: string, attribute_secondary_key: string, attribute_third_key: string): void
     get(primary_key: string, secondary_key: string, third_key: string): DomElement | null
@@ -18816,7 +18816,7 @@ export class GomHashThreeMap {
     set_attribute_secondary_key(value: string): void
     get_attribute_third_key(): string
     set_attribute_third_key(value: string): void
-    /* Methods of GXml.BaseCollection */
+    /* Methods of GXml-0.14.GXml.BaseCollection */
     initialize(items_type: GObject.Type): void
     initialize_element(e: GomElement): void
     append(node: DomElement): void
@@ -18828,7 +18828,7 @@ export class GomHashThreeMap {
     get_nodes_index(): GLib.Queue
     get_element(): GomElement
     set_element(value: GomElement): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -18850,12 +18850,12 @@ export class GomHashThreeMap {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of GXml.GomCollection */
+    /* Methods of GXml-0.14.GXml.GomCollection */
     get_item(index: number): DomElement | null
     initialize(t: GObject.Type): void
     create_item(): GomElement | null
     get_length(): number
-    /* Virtual methods of GXml.GomHashThreeMap */
+    /* Virtual methods of GXml-0.14.GXml.GomHashThreeMap */
     vfunc_search(): void
     vfunc_get_item(index: number): DomElement | null
     vfunc_append(node: DomElement): void
@@ -18869,9 +18869,9 @@ export class GomHashThreeMap {
     vfunc_get_items_type(): GObject.Type
     vfunc_set_items_type(value: GObject.Type): void
     vfunc_get_length(): number
-    /* Virtual methods of GXml.BaseCollection */
+    /* Virtual methods of GXml-0.14.GXml.BaseCollection */
     vfunc_validate_append(index: number, element: DomElement): boolean
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -18879,7 +18879,7 @@ export class GomHashThreeMap {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: GomHashThreeMap, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: GomHashThreeMap, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -18914,18 +18914,18 @@ export interface GomBaseProperty_ConstructProps extends GObject.Object_Construct
     value?: string
 }
 export class GomBaseProperty {
-    /* Properties of GXml.GomBaseProperty */
+    /* Properties of GXml-0.14.GXml.GomBaseProperty */
     value: string
-    /* Fields of GXml.GomBaseProperty */
+    /* Fields of GXml-0.14.GXml.GomBaseProperty */
     parent_instance: GObject.Object
     priv: GomBasePropertyPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GXml.GomBaseProperty */
+    /* Methods of GXml-0.14.GXml.GomBaseProperty */
     validate_value(val: string): boolean
     get_value(): string | null
     set_value(value?: string | null): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -18947,11 +18947,11 @@ export class GomBaseProperty {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GXml.GomBaseProperty */
+    /* Virtual methods of GXml-0.14.GXml.GomBaseProperty */
     vfunc_validate_value(val: string): boolean
     vfunc_get_value(): string | null
     vfunc_set_value(value?: string | null): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -18959,7 +18959,7 @@ export class GomBaseProperty {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: GomBaseProperty, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: GomBaseProperty, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -18977,19 +18977,19 @@ export class GomBaseProperty {
 export interface GomString_ConstructProps extends GomBaseProperty_ConstructProps {
 }
 export class GomString {
-    /* Properties of GXml.GomBaseProperty */
+    /* Properties of GXml-0.14.GXml.GomBaseProperty */
     value: string
-    /* Fields of GXml.GomString */
+    /* Fields of GXml-0.14.GXml.GomString */
     parent_instance: GomBaseProperty
     priv: GomStringPrivate
     _value: string
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GXml.GomBaseProperty */
+    /* Methods of GXml-0.14.GXml.GomBaseProperty */
     validate_value(val: string): boolean
     get_value(): string | null
     set_value(value?: string | null): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -19011,11 +19011,11 @@ export class GomString {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GXml.GomBaseProperty */
+    /* Virtual methods of GXml-0.14.GXml.GomBaseProperty */
     vfunc_validate_value(val: string): boolean
     vfunc_get_value(): string | null
     vfunc_set_value(value?: string | null): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -19023,7 +19023,7 @@ export class GomString {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: GomString, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: GomString, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -19043,26 +19043,26 @@ export class GomString {
 export interface GomArrayString_ConstructProps extends GomBaseProperty_ConstructProps {
 }
 export class GomArrayString {
-    /* Properties of GXml.GomBaseProperty */
+    /* Properties of GXml-0.14.GXml.GomBaseProperty */
     value: string
-    /* Fields of GXml.GomArrayString */
+    /* Fields of GXml-0.14.GXml.GomArrayString */
     parent_instance: GomBaseProperty
     priv: GomArrayStringPrivate
     _value: string
     _values: string[]
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GXml.GomArrayString */
+    /* Methods of GXml-0.14.GXml.GomArrayString */
     get_values(): string[]
     initialize_strings(strs: string[]): void
     is_valid_value(): boolean
     select(index: number): void
     search(str: string): boolean
-    /* Methods of GXml.GomBaseProperty */
+    /* Methods of GXml-0.14.GXml.GomBaseProperty */
     validate_value(val: string): boolean
     get_value(): string | null
     set_value(value?: string | null): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -19084,11 +19084,11 @@ export class GomArrayString {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GXml.GomBaseProperty */
+    /* Virtual methods of GXml-0.14.GXml.GomBaseProperty */
     vfunc_validate_value(val: string): boolean
     vfunc_get_value(): string | null
     vfunc_set_value(value?: string | null): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -19096,7 +19096,7 @@ export class GomArrayString {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: GomArrayString, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: GomArrayString, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -19118,38 +19118,38 @@ export interface GomXsdArrayString_ConstructProps extends GomArrayString_Constru
     source?: Gio.File
 }
 export class GomXsdArrayString {
-    /* Properties of GXml.GomXsdArrayString */
+    /* Properties of GXml-0.14.GXml.GomXsdArrayString */
     simple_type: string
     source: Gio.File
-    /* Properties of GXml.GomBaseProperty */
+    /* Properties of GXml-0.14.GXml.GomBaseProperty */
     value: string
-    /* Fields of GXml.GomXsdArrayString */
+    /* Fields of GXml-0.14.GXml.GomXsdArrayString */
     parent_instance: GomArrayString
     priv: GomXsdArrayStringPrivate
     _source: Gio.File
     _simple_type: string
-    /* Fields of GXml.GomArrayString */
+    /* Fields of GXml-0.14.GXml.GomArrayString */
     _value: string
     _values: string[]
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GXml.GomXsdArrayString */
+    /* Methods of GXml-0.14.GXml.GomXsdArrayString */
     load(): void
     get_simple_type(): string
     set_simple_type(value: string): void
     get_source(): Gio.File
     set_source(value: Gio.File): void
-    /* Methods of GXml.GomArrayString */
+    /* Methods of GXml-0.14.GXml.GomArrayString */
     get_values(): string[]
     initialize_strings(strs: string[]): void
     is_valid_value(): boolean
     select(index: number): void
     search(str: string): boolean
-    /* Methods of GXml.GomBaseProperty */
+    /* Methods of GXml-0.14.GXml.GomBaseProperty */
     validate_value(val: string): boolean
     get_value(): string | null
     set_value(value?: string | null): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -19171,11 +19171,11 @@ export class GomXsdArrayString {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GXml.GomBaseProperty */
+    /* Virtual methods of GXml-0.14.GXml.GomBaseProperty */
     vfunc_validate_value(val: string): boolean
     vfunc_get_value(): string | null
     vfunc_set_value(value?: string | null): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -19183,7 +19183,7 @@ export class GomXsdArrayString {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: GomXsdArrayString, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: GomXsdArrayString, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -19208,26 +19208,26 @@ export interface GomDouble_ConstructProps extends GomBaseProperty_ConstructProps
     decimals?: number
 }
 export class GomDouble {
-    /* Properties of GXml.GomDouble */
+    /* Properties of GXml-0.14.GXml.GomDouble */
     decimals: number
-    /* Properties of GXml.GomBaseProperty */
+    /* Properties of GXml-0.14.GXml.GomBaseProperty */
     value: string
-    /* Fields of GXml.GomDouble */
+    /* Fields of GXml-0.14.GXml.GomDouble */
     parent_instance: GomBaseProperty
     priv: GomDoublePrivate
     _value: number
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GXml.GomDouble */
+    /* Methods of GXml-0.14.GXml.GomDouble */
     get_double(): number
     set_double(value: number): void
     get_decimals(): number
     set_decimals(value: number): void
-    /* Methods of GXml.GomBaseProperty */
+    /* Methods of GXml-0.14.GXml.GomBaseProperty */
     validate_value(val: string): boolean
     get_value(): string | null
     set_value(value?: string | null): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -19249,11 +19249,11 @@ export class GomDouble {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GXml.GomBaseProperty */
+    /* Virtual methods of GXml-0.14.GXml.GomBaseProperty */
     vfunc_validate_value(val: string): boolean
     vfunc_get_value(): string | null
     vfunc_set_value(value?: string | null): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -19261,7 +19261,7 @@ export class GomDouble {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: GomDouble, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: GomDouble, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -19283,30 +19283,30 @@ export class GomDouble {
 export interface GomFloat_ConstructProps extends GomDouble_ConstructProps {
 }
 export class GomFloat {
-    /* Properties of GXml.GomDouble */
+    /* Properties of GXml-0.14.GXml.GomDouble */
     decimals: number
-    /* Properties of GXml.GomBaseProperty */
+    /* Properties of GXml-0.14.GXml.GomBaseProperty */
     value: string
-    /* Fields of GXml.GomFloat */
+    /* Fields of GXml-0.14.GXml.GomFloat */
     parent_instance: GomDouble
     priv: GomFloatPrivate
-    /* Fields of GXml.GomDouble */
+    /* Fields of GXml-0.14.GXml.GomDouble */
     _value: number
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GXml.GomFloat */
+    /* Methods of GXml-0.14.GXml.GomFloat */
     get_float(): number
     set_float(value: number): void
-    /* Methods of GXml.GomDouble */
+    /* Methods of GXml-0.14.GXml.GomDouble */
     get_double(): number
     set_double(value: number): void
     get_decimals(): number
     set_decimals(value: number): void
-    /* Methods of GXml.GomBaseProperty */
+    /* Methods of GXml-0.14.GXml.GomBaseProperty */
     validate_value(val: string): boolean
     get_value(): string | null
     set_value(value?: string | null): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -19328,11 +19328,11 @@ export class GomFloat {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GXml.GomBaseProperty */
+    /* Virtual methods of GXml-0.14.GXml.GomBaseProperty */
     vfunc_validate_value(val: string): boolean
     vfunc_get_value(): string | null
     vfunc_set_value(value?: string | null): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -19340,7 +19340,7 @@ export class GomFloat {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: GomFloat, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: GomFloat, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -19362,22 +19362,22 @@ export class GomFloat {
 export interface GomInt_ConstructProps extends GomBaseProperty_ConstructProps {
 }
 export class GomInt {
-    /* Properties of GXml.GomBaseProperty */
+    /* Properties of GXml-0.14.GXml.GomBaseProperty */
     value: string
-    /* Fields of GXml.GomInt */
+    /* Fields of GXml-0.14.GXml.GomInt */
     parent_instance: GomBaseProperty
     priv: GomIntPrivate
     _value: number
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GXml.GomInt */
+    /* Methods of GXml-0.14.GXml.GomInt */
     get_integer(): number
     set_integer(value: number): void
-    /* Methods of GXml.GomBaseProperty */
+    /* Methods of GXml-0.14.GXml.GomBaseProperty */
     validate_value(val: string): boolean
     get_value(): string | null
     set_value(value?: string | null): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -19399,11 +19399,11 @@ export class GomInt {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GXml.GomBaseProperty */
+    /* Virtual methods of GXml-0.14.GXml.GomBaseProperty */
     vfunc_validate_value(val: string): boolean
     vfunc_get_value(): string | null
     vfunc_set_value(value?: string | null): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -19411,7 +19411,7 @@ export class GomInt {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: GomInt, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: GomInt, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -19431,22 +19431,22 @@ export class GomInt {
 export interface GomBoolean_ConstructProps extends GomBaseProperty_ConstructProps {
 }
 export class GomBoolean {
-    /* Properties of GXml.GomBaseProperty */
+    /* Properties of GXml-0.14.GXml.GomBaseProperty */
     value: string
-    /* Fields of GXml.GomBoolean */
+    /* Fields of GXml-0.14.GXml.GomBoolean */
     parent_instance: GomBaseProperty
     priv: GomBooleanPrivate
     _value: boolean
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GXml.GomBoolean */
+    /* Methods of GXml-0.14.GXml.GomBoolean */
     get_boolean(): boolean
     set_boolean(value: boolean): void
-    /* Methods of GXml.GomBaseProperty */
+    /* Methods of GXml-0.14.GXml.GomBaseProperty */
     validate_value(val: string): boolean
     get_value(): string | null
     set_value(value?: string | null): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -19468,11 +19468,11 @@ export class GomBoolean {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GXml.GomBaseProperty */
+    /* Virtual methods of GXml-0.14.GXml.GomBaseProperty */
     vfunc_validate_value(val: string): boolean
     vfunc_get_value(): string | null
     vfunc_set_value(value?: string | null): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -19480,7 +19480,7 @@ export class GomBoolean {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: GomBoolean, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: GomBoolean, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -19501,28 +19501,28 @@ export interface GomEnum_ConstructProps extends GomBaseProperty_ConstructProps {
     enum_type?: GObject.Type
 }
 export class GomEnum {
-    /* Properties of GXml.GomEnum */
+    /* Properties of GXml-0.14.GXml.GomEnum */
     enum_type: GObject.Type
-    /* Properties of GXml.GomBaseProperty */
+    /* Properties of GXml-0.14.GXml.GomBaseProperty */
     value: string
-    /* Fields of GXml.GomEnum */
+    /* Fields of GXml-0.14.GXml.GomEnum */
     parent_instance: GomBaseProperty
     priv: GomEnumPrivate
     _value: number
     _enum_type: GObject.Type
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GXml.GomEnum */
+    /* Methods of GXml-0.14.GXml.GomEnum */
     initialize_enum(enum_type: GObject.Type): void
     get_enum(): number
     set_enum(value: number): void
     get_enum_type(): GObject.Type
     set_enum_type(value: GObject.Type): void
-    /* Methods of GXml.GomBaseProperty */
+    /* Methods of GXml-0.14.GXml.GomBaseProperty */
     validate_value(val: string): boolean
     get_value(): string | null
     set_value(value?: string | null): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -19544,11 +19544,11 @@ export class GomEnum {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GXml.GomBaseProperty */
+    /* Virtual methods of GXml-0.14.GXml.GomBaseProperty */
     vfunc_validate_value(val: string): boolean
     vfunc_get_value(): string | null
     vfunc_set_value(value?: string | null): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -19556,7 +19556,7 @@ export class GomEnum {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: GomEnum, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: GomEnum, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -19578,22 +19578,22 @@ export class GomEnum {
 export interface GomDate_ConstructProps extends GomBaseProperty_ConstructProps {
 }
 export class GomDate {
-    /* Properties of GXml.GomBaseProperty */
+    /* Properties of GXml-0.14.GXml.GomBaseProperty */
     value: string
-    /* Fields of GXml.GomDate */
+    /* Fields of GXml-0.14.GXml.GomDate */
     parent_instance: GomBaseProperty
     priv: GomDatePrivate
     _value: GLib.Date
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GXml.GomDate */
+    /* Methods of GXml-0.14.GXml.GomDate */
     get_date(): /* result */ GLib.Date
     set_date(date: GLib.Date): void
-    /* Methods of GXml.GomBaseProperty */
+    /* Methods of GXml-0.14.GXml.GomBaseProperty */
     validate_value(val: string): boolean
     get_value(): string | null
     set_value(value?: string | null): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -19615,11 +19615,11 @@ export class GomDate {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GXml.GomBaseProperty */
+    /* Virtual methods of GXml-0.14.GXml.GomBaseProperty */
     vfunc_validate_value(val: string): boolean
     vfunc_get_value(): string | null
     vfunc_set_value(value?: string | null): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -19627,7 +19627,7 @@ export class GomDate {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: GomDate, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: GomDate, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -19648,26 +19648,26 @@ export interface GomDateTime_ConstructProps extends GomBaseProperty_ConstructPro
     format?: string
 }
 export class GomDateTime {
-    /* Properties of GXml.GomDateTime */
+    /* Properties of GXml-0.14.GXml.GomDateTime */
     format: string
-    /* Properties of GXml.GomBaseProperty */
+    /* Properties of GXml-0.14.GXml.GomBaseProperty */
     value: string
-    /* Fields of GXml.GomDateTime */
+    /* Fields of GXml-0.14.GXml.GomDateTime */
     parent_instance: GomBaseProperty
     priv: GomDateTimePrivate
     _value: GLib.DateTime
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GXml.GomDateTime */
+    /* Methods of GXml-0.14.GXml.GomDateTime */
     get_datetime(): GLib.DateTime
     set_datetime(dt: GLib.DateTime): void
     get_format(): string
     set_format(value: string): void
-    /* Methods of GXml.GomBaseProperty */
+    /* Methods of GXml-0.14.GXml.GomBaseProperty */
     validate_value(val: string): boolean
     get_value(): string | null
     set_value(value?: string | null): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -19689,11 +19689,11 @@ export class GomDateTime {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GXml.GomBaseProperty */
+    /* Virtual methods of GXml-0.14.GXml.GomBaseProperty */
     vfunc_validate_value(val: string): boolean
     vfunc_get_value(): string | null
     vfunc_set_value(value?: string | null): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -19701,7 +19701,7 @@ export class GomDateTime {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: GomDateTime, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: GomDateTime, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -19725,16 +19725,16 @@ export interface XParser_ConstructProps extends GObject.Object_ConstructProps {
     indent?: boolean
 }
 export class XParser {
-    /* Properties of GXml.Parser */
+    /* Properties of GXml-0.14.GXml.Parser */
     backup: boolean
     indent: boolean
     readonly node: DomNode
-    /* Fields of GXml.XParser */
+    /* Fields of GXml-0.14.GXml.XParser */
     parent_instance: GObject.Object
     priv: XParserPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GXml.XParser */
+    /* Methods of GXml-0.14.GXml.XParser */
     create_stream(cancellable?: Gio.Cancellable | null): Gio.InputStream
     read_child_nodes_stream(istream: Gio.InputStream, cancellable?: Gio.Cancellable | null): void
     read_child_nodes_string(str: string, cancellable?: Gio.Cancellable | null): void
@@ -19752,7 +19752,7 @@ export class XParser {
     read_child_element(parent: DomNode): boolean
     read_element_property(parent: DomNode): [ /* returnType */ boolean, /* element */ DomNode ]
     add_element_collection(parent: DomNode): [ /* returnType */ boolean, /* element */ DomNode ]
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -19774,7 +19774,7 @@ export class XParser {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of GXml.Parser */
+    /* Methods of GXml-0.14.GXml.Parser */
     write_file(file: Gio.File, cancellable?: Gio.Cancellable | null): void
     write_string(): string
     write_stream(stream: Gio.OutputStream, cancellable?: Gio.Cancellable | null): void
@@ -19786,7 +19786,7 @@ export class XParser {
     get_indent(): boolean
     set_indent(value: boolean): void
     get_node(): DomNode
-    /* Virtual methods of GXml.XParser */
+    /* Virtual methods of GXml-0.14.GXml.XParser */
     vfunc_write_file(file: Gio.File, cancellable?: Gio.Cancellable | null): void
     vfunc_write_string(): string
     vfunc_write_stream(stream: Gio.OutputStream, cancellable?: Gio.Cancellable | null): void
@@ -19798,7 +19798,7 @@ export class XParser {
     vfunc_get_indent(): boolean
     vfunc_set_indent(value: boolean): void
     vfunc_get_node(): DomNode
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -19806,7 +19806,7 @@ export class XParser {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: XParser, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: XParser, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -19833,20 +19833,20 @@ export interface GomXsdSchema_ConstructProps extends GomElement_ConstructProps {
     complex_type_definitions?: GomXsdListComplexTypes
 }
 export class GomXsdSchema {
-    /* Properties of GXml.GomXsdSchema */
+    /* Properties of GXml-0.14.GXml.GomXsdSchema */
     element_definitions: GomXsdListElements
     simple_type_definitions: GomXsdListSimpleTypes
     complex_type_definitions: GomXsdListComplexTypes
-    /* Properties of GXml.GomElement */
+    /* Properties of GXml-0.14.GXml.GomElement */
     parse_children: boolean
     unparsed: string
-    /* Fields of GXml.GomXsdSchema */
+    /* Fields of GXml-0.14.GXml.GomXsdSchema */
     parent_instance: GomElement
     priv: GomXsdSchemaPrivate
-    /* Fields of GXml.GomElement */
+    /* Fields of GXml-0.14.GXml.GomElement */
     _attributes: GomElementAttributes
     _namespace_uri: string
-    /* Fields of GXml.GomNode */
+    /* Fields of GXml-0.14.GXml.GomNode */
     _local_name: string
     _prefix: string
     _base_uri: string
@@ -19855,16 +19855,16 @@ export class GomXsdSchema {
     _node_type: DomNodeNodeType
     _child_nodes: GomNodeList
     _document: DomDocument
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GXml.GomXsdSchema */
+    /* Methods of GXml-0.14.GXml.GomXsdSchema */
     get_element_definitions(): GomXsdListElements
     set_element_definitions(value: GomXsdListElements): void
     get_simple_type_definitions(): GomXsdListSimpleTypes
     set_simple_type_definitions(value: GomXsdListSimpleTypes): void
     get_complex_type_definitions(): GomXsdListComplexTypes
     set_complex_type_definitions(value: GomXsdListComplexTypes): void
-    /* Methods of GXml.GomElement */
+    /* Methods of GXml-0.14.GXml.GomElement */
     read_from_uri(uri: string): void
     read_from_file(f: Gio.File, cancellable?: Gio.Cancellable | null): void
     read_from_stream(istream: Gio.InputStream, cancellable?: Gio.Cancellable | null): void
@@ -19884,7 +19884,7 @@ export class GomXsdSchema {
     set_parse_children(value: boolean): void
     get_unparsed(): string
     set_unparsed(value: string): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -19906,12 +19906,12 @@ export class GomXsdSchema {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GXml.GomXsdSchema */
+    /* Virtual methods of GXml-0.14.GXml.GomXsdSchema */
     vfunc_set_attribute(name: string, value: string): void
     vfunc_set_attribute(name: string, val: string): boolean
     vfunc_remove_attribute(name: string): void
     vfunc_remove_attribute(name: string): boolean
-    /* Virtual methods of GXml.GomElement */
+    /* Virtual methods of GXml-0.14.GXml.GomElement */
     vfunc_remove(): void
     vfunc_get_previous_element_sibling(): DomElement | null
     vfunc_get_next_element_sibling(): DomElement | null
@@ -19954,7 +19954,7 @@ export class GomXsdSchema {
     vfunc_find_elements(name: string): DomElementList
     vfunc_set_instance_property(name: string): boolean
     vfunc_clean_property_elements(name: string): void
-    /* Virtual methods of GXml.GomNode */
+    /* Virtual methods of GXml-0.14.GXml.GomNode */
     vfunc_add_event_listener(type: string, callback: DomEventListener | null, capture: boolean): void
     vfunc_remove_event_listener(type: string, callback: DomEventListener | null, capture: boolean): void
     vfunc_dispatch_event(event: DomEvent): boolean
@@ -19987,7 +19987,7 @@ export class GomXsdSchema {
     vfunc_set_node_value(value?: string | null): void
     vfunc_get_text_content(): string | null
     vfunc_set_text_content(value?: string | null): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -19995,7 +19995,7 @@ export class GomXsdSchema {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: GomXsdSchema, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: GomXsdSchema, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -20029,23 +20029,23 @@ export interface GomXsdSimpleType_ConstructProps extends GomElement_ConstructPro
     restriction?: GomXsdTypeRestriction
 }
 export class GomXsdSimpleType {
-    /* Properties of GXml.GomXsdSimpleType */
+    /* Properties of GXml-0.14.GXml.GomXsdSimpleType */
     final: string
     name: string
     annotation: GomXsdAnnotation
     list: GomXsdTypeList
     union: GomXsdTypeUnion
     restriction: GomXsdTypeRestriction
-    /* Properties of GXml.GomElement */
+    /* Properties of GXml-0.14.GXml.GomElement */
     parse_children: boolean
     unparsed: string
-    /* Fields of GXml.GomXsdSimpleType */
+    /* Fields of GXml-0.14.GXml.GomXsdSimpleType */
     parent_instance: GomElement
     priv: GomXsdSimpleTypePrivate
-    /* Fields of GXml.GomElement */
+    /* Fields of GXml-0.14.GXml.GomElement */
     _attributes: GomElementAttributes
     _namespace_uri: string
-    /* Fields of GXml.GomNode */
+    /* Fields of GXml-0.14.GXml.GomNode */
     _local_name: string
     _prefix: string
     _base_uri: string
@@ -20054,9 +20054,9 @@ export class GomXsdSimpleType {
     _node_type: DomNodeNodeType
     _child_nodes: GomNodeList
     _document: DomDocument
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GXml.GomXsdSimpleType */
+    /* Methods of GXml-0.14.GXml.GomXsdSimpleType */
     get_final(): string
     set_final(value: string): void
     get_name(): string
@@ -20069,7 +20069,7 @@ export class GomXsdSimpleType {
     set_union(value: GomXsdTypeUnion): void
     get_restriction(): GomXsdTypeRestriction
     set_restriction(value: GomXsdTypeRestriction): void
-    /* Methods of GXml.GomElement */
+    /* Methods of GXml-0.14.GXml.GomElement */
     read_from_uri(uri: string): void
     read_from_file(f: Gio.File, cancellable?: Gio.Cancellable | null): void
     read_from_stream(istream: Gio.InputStream, cancellable?: Gio.Cancellable | null): void
@@ -20089,7 +20089,7 @@ export class GomXsdSimpleType {
     set_parse_children(value: boolean): void
     get_unparsed(): string
     set_unparsed(value: string): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -20111,12 +20111,12 @@ export class GomXsdSimpleType {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GXml.GomXsdSimpleType */
+    /* Virtual methods of GXml-0.14.GXml.GomXsdSimpleType */
     vfunc_set_attribute(name: string, value: string): void
     vfunc_set_attribute(name: string, val: string): boolean
     vfunc_remove_attribute(name: string): void
     vfunc_remove_attribute(name: string): boolean
-    /* Virtual methods of GXml.GomElement */
+    /* Virtual methods of GXml-0.14.GXml.GomElement */
     vfunc_remove(): void
     vfunc_get_previous_element_sibling(): DomElement | null
     vfunc_get_next_element_sibling(): DomElement | null
@@ -20159,7 +20159,7 @@ export class GomXsdSimpleType {
     vfunc_find_elements(name: string): DomElementList
     vfunc_set_instance_property(name: string): boolean
     vfunc_clean_property_elements(name: string): void
-    /* Virtual methods of GXml.GomNode */
+    /* Virtual methods of GXml-0.14.GXml.GomNode */
     vfunc_add_event_listener(type: string, callback: DomEventListener | null, capture: boolean): void
     vfunc_remove_event_listener(type: string, callback: DomEventListener | null, capture: boolean): void
     vfunc_dispatch_event(event: DomEvent): boolean
@@ -20192,7 +20192,7 @@ export class GomXsdSimpleType {
     vfunc_set_node_value(value?: string | null): void
     vfunc_get_text_content(): string | null
     vfunc_set_text_content(value?: string | null): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -20200,7 +20200,7 @@ export class GomXsdSimpleType {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: GomXsdSimpleType, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: GomXsdSimpleType, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -20235,18 +20235,18 @@ export interface GomXsdTypeDefinition_ConstructProps extends GomElement_Construc
     annotation?: GomXsdAnnotation
 }
 export class GomXsdTypeDefinition {
-    /* Properties of GXml.GomXsdTypeDefinition */
+    /* Properties of GXml-0.14.GXml.GomXsdTypeDefinition */
     annotation: GomXsdAnnotation
-    /* Properties of GXml.GomElement */
+    /* Properties of GXml-0.14.GXml.GomElement */
     parse_children: boolean
     unparsed: string
-    /* Fields of GXml.GomXsdTypeDefinition */
+    /* Fields of GXml-0.14.GXml.GomXsdTypeDefinition */
     parent_instance: GomElement
     priv: GomXsdTypeDefinitionPrivate
-    /* Fields of GXml.GomElement */
+    /* Fields of GXml-0.14.GXml.GomElement */
     _attributes: GomElementAttributes
     _namespace_uri: string
-    /* Fields of GXml.GomNode */
+    /* Fields of GXml-0.14.GXml.GomNode */
     _local_name: string
     _prefix: string
     _base_uri: string
@@ -20255,12 +20255,12 @@ export class GomXsdTypeDefinition {
     _node_type: DomNodeNodeType
     _child_nodes: GomNodeList
     _document: DomDocument
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GXml.GomXsdTypeDefinition */
+    /* Methods of GXml-0.14.GXml.GomXsdTypeDefinition */
     get_annotation(): GomXsdAnnotation
     set_annotation(value: GomXsdAnnotation): void
-    /* Methods of GXml.GomElement */
+    /* Methods of GXml-0.14.GXml.GomElement */
     read_from_uri(uri: string): void
     read_from_file(f: Gio.File, cancellable?: Gio.Cancellable | null): void
     read_from_stream(istream: Gio.InputStream, cancellable?: Gio.Cancellable | null): void
@@ -20280,7 +20280,7 @@ export class GomXsdTypeDefinition {
     set_parse_children(value: boolean): void
     get_unparsed(): string
     set_unparsed(value: string): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -20302,12 +20302,12 @@ export class GomXsdTypeDefinition {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GXml.GomXsdTypeDefinition */
+    /* Virtual methods of GXml-0.14.GXml.GomXsdTypeDefinition */
     vfunc_set_attribute(name: string, value: string): void
     vfunc_set_attribute(name: string, val: string): boolean
     vfunc_remove_attribute(name: string): void
     vfunc_remove_attribute(name: string): boolean
-    /* Virtual methods of GXml.GomElement */
+    /* Virtual methods of GXml-0.14.GXml.GomElement */
     vfunc_remove(): void
     vfunc_get_previous_element_sibling(): DomElement | null
     vfunc_get_next_element_sibling(): DomElement | null
@@ -20350,7 +20350,7 @@ export class GomXsdTypeDefinition {
     vfunc_find_elements(name: string): DomElementList
     vfunc_set_instance_property(name: string): boolean
     vfunc_clean_property_elements(name: string): void
-    /* Virtual methods of GXml.GomNode */
+    /* Virtual methods of GXml-0.14.GXml.GomNode */
     vfunc_add_event_listener(type: string, callback: DomEventListener | null, capture: boolean): void
     vfunc_remove_event_listener(type: string, callback: DomEventListener | null, capture: boolean): void
     vfunc_dispatch_event(event: DomEvent): boolean
@@ -20383,7 +20383,7 @@ export class GomXsdTypeDefinition {
     vfunc_set_node_value(value?: string | null): void
     vfunc_get_text_content(): string | null
     vfunc_set_text_content(value?: string | null): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -20391,7 +20391,7 @@ export class GomXsdTypeDefinition {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: GomXsdTypeDefinition, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: GomXsdTypeDefinition, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -20415,18 +20415,18 @@ export class GomXsdTypeDefinition {
 export interface GomXsdTypeList_ConstructProps extends GomXsdTypeDefinition_ConstructProps {
 }
 export class GomXsdTypeList {
-    /* Properties of GXml.GomXsdTypeDefinition */
+    /* Properties of GXml-0.14.GXml.GomXsdTypeDefinition */
     annotation: GomXsdAnnotation
-    /* Properties of GXml.GomElement */
+    /* Properties of GXml-0.14.GXml.GomElement */
     parse_children: boolean
     unparsed: string
-    /* Fields of GXml.GomXsdTypeList */
+    /* Fields of GXml-0.14.GXml.GomXsdTypeList */
     parent_instance: GomXsdTypeDefinition
     priv: GomXsdTypeListPrivate
-    /* Fields of GXml.GomElement */
+    /* Fields of GXml-0.14.GXml.GomElement */
     _attributes: GomElementAttributes
     _namespace_uri: string
-    /* Fields of GXml.GomNode */
+    /* Fields of GXml-0.14.GXml.GomNode */
     _local_name: string
     _prefix: string
     _base_uri: string
@@ -20435,12 +20435,12 @@ export class GomXsdTypeList {
     _node_type: DomNodeNodeType
     _child_nodes: GomNodeList
     _document: DomDocument
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GXml.GomXsdTypeDefinition */
+    /* Methods of GXml-0.14.GXml.GomXsdTypeDefinition */
     get_annotation(): GomXsdAnnotation
     set_annotation(value: GomXsdAnnotation): void
-    /* Methods of GXml.GomElement */
+    /* Methods of GXml-0.14.GXml.GomElement */
     read_from_uri(uri: string): void
     read_from_file(f: Gio.File, cancellable?: Gio.Cancellable | null): void
     read_from_stream(istream: Gio.InputStream, cancellable?: Gio.Cancellable | null): void
@@ -20460,7 +20460,7 @@ export class GomXsdTypeList {
     set_parse_children(value: boolean): void
     get_unparsed(): string
     set_unparsed(value: string): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -20482,17 +20482,17 @@ export class GomXsdTypeList {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GXml.GomXsdTypeList */
+    /* Virtual methods of GXml-0.14.GXml.GomXsdTypeList */
     vfunc_set_attribute(name: string, value: string): void
     vfunc_set_attribute(name: string, val: string): boolean
     vfunc_remove_attribute(name: string): void
     vfunc_remove_attribute(name: string): boolean
-    /* Virtual methods of GXml.GomXsdTypeDefinition */
+    /* Virtual methods of GXml-0.14.GXml.GomXsdTypeDefinition */
     vfunc_set_attribute(name: string, value: string): void
     vfunc_set_attribute(name: string, val: string): boolean
     vfunc_remove_attribute(name: string): void
     vfunc_remove_attribute(name: string): boolean
-    /* Virtual methods of GXml.GomElement */
+    /* Virtual methods of GXml-0.14.GXml.GomElement */
     vfunc_remove(): void
     vfunc_get_previous_element_sibling(): DomElement | null
     vfunc_get_next_element_sibling(): DomElement | null
@@ -20535,7 +20535,7 @@ export class GomXsdTypeList {
     vfunc_find_elements(name: string): DomElementList
     vfunc_set_instance_property(name: string): boolean
     vfunc_clean_property_elements(name: string): void
-    /* Virtual methods of GXml.GomNode */
+    /* Virtual methods of GXml-0.14.GXml.GomNode */
     vfunc_add_event_listener(type: string, callback: DomEventListener | null, capture: boolean): void
     vfunc_remove_event_listener(type: string, callback: DomEventListener | null, capture: boolean): void
     vfunc_dispatch_event(event: DomEvent): boolean
@@ -20568,7 +20568,7 @@ export class GomXsdTypeList {
     vfunc_set_node_value(value?: string | null): void
     vfunc_get_text_content(): string | null
     vfunc_set_text_content(value?: string | null): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -20576,7 +20576,7 @@ export class GomXsdTypeList {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: GomXsdTypeList, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: GomXsdTypeList, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -20600,18 +20600,18 @@ export class GomXsdTypeList {
 export interface GomXsdTypeUnion_ConstructProps extends GomXsdTypeDefinition_ConstructProps {
 }
 export class GomXsdTypeUnion {
-    /* Properties of GXml.GomXsdTypeDefinition */
+    /* Properties of GXml-0.14.GXml.GomXsdTypeDefinition */
     annotation: GomXsdAnnotation
-    /* Properties of GXml.GomElement */
+    /* Properties of GXml-0.14.GXml.GomElement */
     parse_children: boolean
     unparsed: string
-    /* Fields of GXml.GomXsdTypeUnion */
+    /* Fields of GXml-0.14.GXml.GomXsdTypeUnion */
     parent_instance: GomXsdTypeDefinition
     priv: GomXsdTypeUnionPrivate
-    /* Fields of GXml.GomElement */
+    /* Fields of GXml-0.14.GXml.GomElement */
     _attributes: GomElementAttributes
     _namespace_uri: string
-    /* Fields of GXml.GomNode */
+    /* Fields of GXml-0.14.GXml.GomNode */
     _local_name: string
     _prefix: string
     _base_uri: string
@@ -20620,12 +20620,12 @@ export class GomXsdTypeUnion {
     _node_type: DomNodeNodeType
     _child_nodes: GomNodeList
     _document: DomDocument
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GXml.GomXsdTypeDefinition */
+    /* Methods of GXml-0.14.GXml.GomXsdTypeDefinition */
     get_annotation(): GomXsdAnnotation
     set_annotation(value: GomXsdAnnotation): void
-    /* Methods of GXml.GomElement */
+    /* Methods of GXml-0.14.GXml.GomElement */
     read_from_uri(uri: string): void
     read_from_file(f: Gio.File, cancellable?: Gio.Cancellable | null): void
     read_from_stream(istream: Gio.InputStream, cancellable?: Gio.Cancellable | null): void
@@ -20645,7 +20645,7 @@ export class GomXsdTypeUnion {
     set_parse_children(value: boolean): void
     get_unparsed(): string
     set_unparsed(value: string): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -20667,17 +20667,17 @@ export class GomXsdTypeUnion {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GXml.GomXsdTypeUnion */
+    /* Virtual methods of GXml-0.14.GXml.GomXsdTypeUnion */
     vfunc_set_attribute(name: string, value: string): void
     vfunc_set_attribute(name: string, val: string): boolean
     vfunc_remove_attribute(name: string): void
     vfunc_remove_attribute(name: string): boolean
-    /* Virtual methods of GXml.GomXsdTypeDefinition */
+    /* Virtual methods of GXml-0.14.GXml.GomXsdTypeDefinition */
     vfunc_set_attribute(name: string, value: string): void
     vfunc_set_attribute(name: string, val: string): boolean
     vfunc_remove_attribute(name: string): void
     vfunc_remove_attribute(name: string): boolean
-    /* Virtual methods of GXml.GomElement */
+    /* Virtual methods of GXml-0.14.GXml.GomElement */
     vfunc_remove(): void
     vfunc_get_previous_element_sibling(): DomElement | null
     vfunc_get_next_element_sibling(): DomElement | null
@@ -20720,7 +20720,7 @@ export class GomXsdTypeUnion {
     vfunc_find_elements(name: string): DomElementList
     vfunc_set_instance_property(name: string): boolean
     vfunc_clean_property_elements(name: string): void
-    /* Virtual methods of GXml.GomNode */
+    /* Virtual methods of GXml-0.14.GXml.GomNode */
     vfunc_add_event_listener(type: string, callback: DomEventListener | null, capture: boolean): void
     vfunc_remove_event_listener(type: string, callback: DomEventListener | null, capture: boolean): void
     vfunc_dispatch_event(event: DomEvent): boolean
@@ -20753,7 +20753,7 @@ export class GomXsdTypeUnion {
     vfunc_set_node_value(value?: string | null): void
     vfunc_get_text_content(): string | null
     vfunc_set_text_content(value?: string | null): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -20761,7 +20761,7 @@ export class GomXsdTypeUnion {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: GomXsdTypeUnion, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: GomXsdTypeUnion, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -20789,23 +20789,23 @@ export interface GomXsdTypeRestriction_ConstructProps extends GomXsdTypeDefiniti
     white_spaces?: GomXsdListTypeRestrictionWhiteSpaces
 }
 export class GomXsdTypeRestriction {
-    /* Properties of GXml.GomXsdTypeRestriction */
+    /* Properties of GXml-0.14.GXml.GomXsdTypeRestriction */
     base: string
     simple_type: GomXsdSimpleType
     enumerations: GomXsdListTypeRestrictionEnumerations
     white_spaces: GomXsdListTypeRestrictionWhiteSpaces
-    /* Properties of GXml.GomXsdTypeDefinition */
+    /* Properties of GXml-0.14.GXml.GomXsdTypeDefinition */
     annotation: GomXsdAnnotation
-    /* Properties of GXml.GomElement */
+    /* Properties of GXml-0.14.GXml.GomElement */
     parse_children: boolean
     unparsed: string
-    /* Fields of GXml.GomXsdTypeRestriction */
+    /* Fields of GXml-0.14.GXml.GomXsdTypeRestriction */
     parent_instance: GomXsdTypeDefinition
     priv: GomXsdTypeRestrictionPrivate
-    /* Fields of GXml.GomElement */
+    /* Fields of GXml-0.14.GXml.GomElement */
     _attributes: GomElementAttributes
     _namespace_uri: string
-    /* Fields of GXml.GomNode */
+    /* Fields of GXml-0.14.GXml.GomNode */
     _local_name: string
     _prefix: string
     _base_uri: string
@@ -20814,9 +20814,9 @@ export class GomXsdTypeRestriction {
     _node_type: DomNodeNodeType
     _child_nodes: GomNodeList
     _document: DomDocument
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GXml.GomXsdTypeRestriction */
+    /* Methods of GXml-0.14.GXml.GomXsdTypeRestriction */
     get_base(): string
     set_base(value: string): void
     get_simple_type(): GomXsdSimpleType
@@ -20825,10 +20825,10 @@ export class GomXsdTypeRestriction {
     set_enumerations(value: GomXsdListTypeRestrictionEnumerations): void
     get_white_spaces(): GomXsdListTypeRestrictionWhiteSpaces
     set_white_spaces(value: GomXsdListTypeRestrictionWhiteSpaces): void
-    /* Methods of GXml.GomXsdTypeDefinition */
+    /* Methods of GXml-0.14.GXml.GomXsdTypeDefinition */
     get_annotation(): GomXsdAnnotation
     set_annotation(value: GomXsdAnnotation): void
-    /* Methods of GXml.GomElement */
+    /* Methods of GXml-0.14.GXml.GomElement */
     read_from_uri(uri: string): void
     read_from_file(f: Gio.File, cancellable?: Gio.Cancellable | null): void
     read_from_stream(istream: Gio.InputStream, cancellable?: Gio.Cancellable | null): void
@@ -20848,7 +20848,7 @@ export class GomXsdTypeRestriction {
     set_parse_children(value: boolean): void
     get_unparsed(): string
     set_unparsed(value: string): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -20870,17 +20870,17 @@ export class GomXsdTypeRestriction {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GXml.GomXsdTypeRestriction */
+    /* Virtual methods of GXml-0.14.GXml.GomXsdTypeRestriction */
     vfunc_set_attribute(name: string, value: string): void
     vfunc_set_attribute(name: string, val: string): boolean
     vfunc_remove_attribute(name: string): void
     vfunc_remove_attribute(name: string): boolean
-    /* Virtual methods of GXml.GomXsdTypeDefinition */
+    /* Virtual methods of GXml-0.14.GXml.GomXsdTypeDefinition */
     vfunc_set_attribute(name: string, value: string): void
     vfunc_set_attribute(name: string, val: string): boolean
     vfunc_remove_attribute(name: string): void
     vfunc_remove_attribute(name: string): boolean
-    /* Virtual methods of GXml.GomElement */
+    /* Virtual methods of GXml-0.14.GXml.GomElement */
     vfunc_remove(): void
     vfunc_get_previous_element_sibling(): DomElement | null
     vfunc_get_next_element_sibling(): DomElement | null
@@ -20923,7 +20923,7 @@ export class GomXsdTypeRestriction {
     vfunc_find_elements(name: string): DomElementList
     vfunc_set_instance_property(name: string): boolean
     vfunc_clean_property_elements(name: string): void
-    /* Virtual methods of GXml.GomNode */
+    /* Virtual methods of GXml-0.14.GXml.GomNode */
     vfunc_add_event_listener(type: string, callback: DomEventListener | null, capture: boolean): void
     vfunc_remove_event_listener(type: string, callback: DomEventListener | null, capture: boolean): void
     vfunc_dispatch_event(event: DomEvent): boolean
@@ -20956,7 +20956,7 @@ export class GomXsdTypeRestriction {
     vfunc_set_node_value(value?: string | null): void
     vfunc_get_text_content(): string | null
     vfunc_set_text_content(value?: string | null): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -20964,7 +20964,7 @@ export class GomXsdTypeRestriction {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: GomXsdTypeRestriction, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: GomXsdTypeRestriction, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -20997,18 +20997,18 @@ export interface GomXsdTypeRestrictionDef_ConstructProps extends GomElement_Cons
     annotation?: GomXsdAnnotation
 }
 export class GomXsdTypeRestrictionDef {
-    /* Properties of GXml.GomXsdTypeRestrictionDef */
+    /* Properties of GXml-0.14.GXml.GomXsdTypeRestrictionDef */
     annotation: GomXsdAnnotation
-    /* Properties of GXml.GomElement */
+    /* Properties of GXml-0.14.GXml.GomElement */
     parse_children: boolean
     unparsed: string
-    /* Fields of GXml.GomXsdTypeRestrictionDef */
+    /* Fields of GXml-0.14.GXml.GomXsdTypeRestrictionDef */
     parent_instance: GomElement
     priv: GomXsdTypeRestrictionDefPrivate
-    /* Fields of GXml.GomElement */
+    /* Fields of GXml-0.14.GXml.GomElement */
     _attributes: GomElementAttributes
     _namespace_uri: string
-    /* Fields of GXml.GomNode */
+    /* Fields of GXml-0.14.GXml.GomNode */
     _local_name: string
     _prefix: string
     _base_uri: string
@@ -21017,12 +21017,12 @@ export class GomXsdTypeRestrictionDef {
     _node_type: DomNodeNodeType
     _child_nodes: GomNodeList
     _document: DomDocument
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GXml.GomXsdTypeRestrictionDef */
+    /* Methods of GXml-0.14.GXml.GomXsdTypeRestrictionDef */
     get_annotation(): GomXsdAnnotation
     set_annotation(value: GomXsdAnnotation): void
-    /* Methods of GXml.GomElement */
+    /* Methods of GXml-0.14.GXml.GomElement */
     read_from_uri(uri: string): void
     read_from_file(f: Gio.File, cancellable?: Gio.Cancellable | null): void
     read_from_stream(istream: Gio.InputStream, cancellable?: Gio.Cancellable | null): void
@@ -21042,7 +21042,7 @@ export class GomXsdTypeRestrictionDef {
     set_parse_children(value: boolean): void
     get_unparsed(): string
     set_unparsed(value: string): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -21064,12 +21064,12 @@ export class GomXsdTypeRestrictionDef {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GXml.GomXsdTypeRestrictionDef */
+    /* Virtual methods of GXml-0.14.GXml.GomXsdTypeRestrictionDef */
     vfunc_set_attribute(name: string, value: string): void
     vfunc_set_attribute(name: string, val: string): boolean
     vfunc_remove_attribute(name: string): void
     vfunc_remove_attribute(name: string): boolean
-    /* Virtual methods of GXml.GomElement */
+    /* Virtual methods of GXml-0.14.GXml.GomElement */
     vfunc_remove(): void
     vfunc_get_previous_element_sibling(): DomElement | null
     vfunc_get_next_element_sibling(): DomElement | null
@@ -21112,7 +21112,7 @@ export class GomXsdTypeRestrictionDef {
     vfunc_find_elements(name: string): DomElementList
     vfunc_set_instance_property(name: string): boolean
     vfunc_clean_property_elements(name: string): void
-    /* Virtual methods of GXml.GomNode */
+    /* Virtual methods of GXml-0.14.GXml.GomNode */
     vfunc_add_event_listener(type: string, callback: DomEventListener | null, capture: boolean): void
     vfunc_remove_event_listener(type: string, callback: DomEventListener | null, capture: boolean): void
     vfunc_dispatch_event(event: DomEvent): boolean
@@ -21145,7 +21145,7 @@ export class GomXsdTypeRestrictionDef {
     vfunc_set_node_value(value?: string | null): void
     vfunc_get_text_content(): string | null
     vfunc_set_text_content(value?: string | null): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -21153,7 +21153,7 @@ export class GomXsdTypeRestrictionDef {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: GomXsdTypeRestrictionDef, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: GomXsdTypeRestrictionDef, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -21177,18 +21177,18 @@ export class GomXsdTypeRestrictionDef {
 export interface GomXsdTypeRestrictionMinExclusive_ConstructProps extends GomXsdTypeRestrictionDef_ConstructProps {
 }
 export class GomXsdTypeRestrictionMinExclusive {
-    /* Properties of GXml.GomXsdTypeRestrictionDef */
+    /* Properties of GXml-0.14.GXml.GomXsdTypeRestrictionDef */
     annotation: GomXsdAnnotation
-    /* Properties of GXml.GomElement */
+    /* Properties of GXml-0.14.GXml.GomElement */
     parse_children: boolean
     unparsed: string
-    /* Fields of GXml.GomXsdTypeRestrictionMinExclusive */
+    /* Fields of GXml-0.14.GXml.GomXsdTypeRestrictionMinExclusive */
     parent_instance: GomXsdTypeRestrictionDef
     priv: GomXsdTypeRestrictionMinExclusivePrivate
-    /* Fields of GXml.GomElement */
+    /* Fields of GXml-0.14.GXml.GomElement */
     _attributes: GomElementAttributes
     _namespace_uri: string
-    /* Fields of GXml.GomNode */
+    /* Fields of GXml-0.14.GXml.GomNode */
     _local_name: string
     _prefix: string
     _base_uri: string
@@ -21197,12 +21197,12 @@ export class GomXsdTypeRestrictionMinExclusive {
     _node_type: DomNodeNodeType
     _child_nodes: GomNodeList
     _document: DomDocument
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GXml.GomXsdTypeRestrictionDef */
+    /* Methods of GXml-0.14.GXml.GomXsdTypeRestrictionDef */
     get_annotation(): GomXsdAnnotation
     set_annotation(value: GomXsdAnnotation): void
-    /* Methods of GXml.GomElement */
+    /* Methods of GXml-0.14.GXml.GomElement */
     read_from_uri(uri: string): void
     read_from_file(f: Gio.File, cancellable?: Gio.Cancellable | null): void
     read_from_stream(istream: Gio.InputStream, cancellable?: Gio.Cancellable | null): void
@@ -21222,7 +21222,7 @@ export class GomXsdTypeRestrictionMinExclusive {
     set_parse_children(value: boolean): void
     get_unparsed(): string
     set_unparsed(value: string): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -21244,17 +21244,17 @@ export class GomXsdTypeRestrictionMinExclusive {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GXml.GomXsdTypeRestrictionMinExclusive */
+    /* Virtual methods of GXml-0.14.GXml.GomXsdTypeRestrictionMinExclusive */
     vfunc_set_attribute(name: string, value: string): void
     vfunc_set_attribute(name: string, val: string): boolean
     vfunc_remove_attribute(name: string): void
     vfunc_remove_attribute(name: string): boolean
-    /* Virtual methods of GXml.GomXsdTypeRestrictionDef */
+    /* Virtual methods of GXml-0.14.GXml.GomXsdTypeRestrictionDef */
     vfunc_set_attribute(name: string, value: string): void
     vfunc_set_attribute(name: string, val: string): boolean
     vfunc_remove_attribute(name: string): void
     vfunc_remove_attribute(name: string): boolean
-    /* Virtual methods of GXml.GomElement */
+    /* Virtual methods of GXml-0.14.GXml.GomElement */
     vfunc_remove(): void
     vfunc_get_previous_element_sibling(): DomElement | null
     vfunc_get_next_element_sibling(): DomElement | null
@@ -21297,7 +21297,7 @@ export class GomXsdTypeRestrictionMinExclusive {
     vfunc_find_elements(name: string): DomElementList
     vfunc_set_instance_property(name: string): boolean
     vfunc_clean_property_elements(name: string): void
-    /* Virtual methods of GXml.GomNode */
+    /* Virtual methods of GXml-0.14.GXml.GomNode */
     vfunc_add_event_listener(type: string, callback: DomEventListener | null, capture: boolean): void
     vfunc_remove_event_listener(type: string, callback: DomEventListener | null, capture: boolean): void
     vfunc_dispatch_event(event: DomEvent): boolean
@@ -21330,7 +21330,7 @@ export class GomXsdTypeRestrictionMinExclusive {
     vfunc_set_node_value(value?: string | null): void
     vfunc_get_text_content(): string | null
     vfunc_set_text_content(value?: string | null): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -21338,7 +21338,7 @@ export class GomXsdTypeRestrictionMinExclusive {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: GomXsdTypeRestrictionMinExclusive, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: GomXsdTypeRestrictionMinExclusive, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -21362,18 +21362,18 @@ export class GomXsdTypeRestrictionMinExclusive {
 export interface GomXsdTypeRestrictionMinInclusive_ConstructProps extends GomXsdTypeRestrictionDef_ConstructProps {
 }
 export class GomXsdTypeRestrictionMinInclusive {
-    /* Properties of GXml.GomXsdTypeRestrictionDef */
+    /* Properties of GXml-0.14.GXml.GomXsdTypeRestrictionDef */
     annotation: GomXsdAnnotation
-    /* Properties of GXml.GomElement */
+    /* Properties of GXml-0.14.GXml.GomElement */
     parse_children: boolean
     unparsed: string
-    /* Fields of GXml.GomXsdTypeRestrictionMinInclusive */
+    /* Fields of GXml-0.14.GXml.GomXsdTypeRestrictionMinInclusive */
     parent_instance: GomXsdTypeRestrictionDef
     priv: GomXsdTypeRestrictionMinInclusivePrivate
-    /* Fields of GXml.GomElement */
+    /* Fields of GXml-0.14.GXml.GomElement */
     _attributes: GomElementAttributes
     _namespace_uri: string
-    /* Fields of GXml.GomNode */
+    /* Fields of GXml-0.14.GXml.GomNode */
     _local_name: string
     _prefix: string
     _base_uri: string
@@ -21382,12 +21382,12 @@ export class GomXsdTypeRestrictionMinInclusive {
     _node_type: DomNodeNodeType
     _child_nodes: GomNodeList
     _document: DomDocument
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GXml.GomXsdTypeRestrictionDef */
+    /* Methods of GXml-0.14.GXml.GomXsdTypeRestrictionDef */
     get_annotation(): GomXsdAnnotation
     set_annotation(value: GomXsdAnnotation): void
-    /* Methods of GXml.GomElement */
+    /* Methods of GXml-0.14.GXml.GomElement */
     read_from_uri(uri: string): void
     read_from_file(f: Gio.File, cancellable?: Gio.Cancellable | null): void
     read_from_stream(istream: Gio.InputStream, cancellable?: Gio.Cancellable | null): void
@@ -21407,7 +21407,7 @@ export class GomXsdTypeRestrictionMinInclusive {
     set_parse_children(value: boolean): void
     get_unparsed(): string
     set_unparsed(value: string): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -21429,17 +21429,17 @@ export class GomXsdTypeRestrictionMinInclusive {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GXml.GomXsdTypeRestrictionMinInclusive */
+    /* Virtual methods of GXml-0.14.GXml.GomXsdTypeRestrictionMinInclusive */
     vfunc_set_attribute(name: string, value: string): void
     vfunc_set_attribute(name: string, val: string): boolean
     vfunc_remove_attribute(name: string): void
     vfunc_remove_attribute(name: string): boolean
-    /* Virtual methods of GXml.GomXsdTypeRestrictionDef */
+    /* Virtual methods of GXml-0.14.GXml.GomXsdTypeRestrictionDef */
     vfunc_set_attribute(name: string, value: string): void
     vfunc_set_attribute(name: string, val: string): boolean
     vfunc_remove_attribute(name: string): void
     vfunc_remove_attribute(name: string): boolean
-    /* Virtual methods of GXml.GomElement */
+    /* Virtual methods of GXml-0.14.GXml.GomElement */
     vfunc_remove(): void
     vfunc_get_previous_element_sibling(): DomElement | null
     vfunc_get_next_element_sibling(): DomElement | null
@@ -21482,7 +21482,7 @@ export class GomXsdTypeRestrictionMinInclusive {
     vfunc_find_elements(name: string): DomElementList
     vfunc_set_instance_property(name: string): boolean
     vfunc_clean_property_elements(name: string): void
-    /* Virtual methods of GXml.GomNode */
+    /* Virtual methods of GXml-0.14.GXml.GomNode */
     vfunc_add_event_listener(type: string, callback: DomEventListener | null, capture: boolean): void
     vfunc_remove_event_listener(type: string, callback: DomEventListener | null, capture: boolean): void
     vfunc_dispatch_event(event: DomEvent): boolean
@@ -21515,7 +21515,7 @@ export class GomXsdTypeRestrictionMinInclusive {
     vfunc_set_node_value(value?: string | null): void
     vfunc_get_text_content(): string | null
     vfunc_set_text_content(value?: string | null): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -21523,7 +21523,7 @@ export class GomXsdTypeRestrictionMinInclusive {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: GomXsdTypeRestrictionMinInclusive, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: GomXsdTypeRestrictionMinInclusive, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -21547,18 +21547,18 @@ export class GomXsdTypeRestrictionMinInclusive {
 export interface GomXsdTypeRestrictionMaxExclusive_ConstructProps extends GomXsdTypeRestrictionDef_ConstructProps {
 }
 export class GomXsdTypeRestrictionMaxExclusive {
-    /* Properties of GXml.GomXsdTypeRestrictionDef */
+    /* Properties of GXml-0.14.GXml.GomXsdTypeRestrictionDef */
     annotation: GomXsdAnnotation
-    /* Properties of GXml.GomElement */
+    /* Properties of GXml-0.14.GXml.GomElement */
     parse_children: boolean
     unparsed: string
-    /* Fields of GXml.GomXsdTypeRestrictionMaxExclusive */
+    /* Fields of GXml-0.14.GXml.GomXsdTypeRestrictionMaxExclusive */
     parent_instance: GomXsdTypeRestrictionDef
     priv: GomXsdTypeRestrictionMaxExclusivePrivate
-    /* Fields of GXml.GomElement */
+    /* Fields of GXml-0.14.GXml.GomElement */
     _attributes: GomElementAttributes
     _namespace_uri: string
-    /* Fields of GXml.GomNode */
+    /* Fields of GXml-0.14.GXml.GomNode */
     _local_name: string
     _prefix: string
     _base_uri: string
@@ -21567,12 +21567,12 @@ export class GomXsdTypeRestrictionMaxExclusive {
     _node_type: DomNodeNodeType
     _child_nodes: GomNodeList
     _document: DomDocument
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GXml.GomXsdTypeRestrictionDef */
+    /* Methods of GXml-0.14.GXml.GomXsdTypeRestrictionDef */
     get_annotation(): GomXsdAnnotation
     set_annotation(value: GomXsdAnnotation): void
-    /* Methods of GXml.GomElement */
+    /* Methods of GXml-0.14.GXml.GomElement */
     read_from_uri(uri: string): void
     read_from_file(f: Gio.File, cancellable?: Gio.Cancellable | null): void
     read_from_stream(istream: Gio.InputStream, cancellable?: Gio.Cancellable | null): void
@@ -21592,7 +21592,7 @@ export class GomXsdTypeRestrictionMaxExclusive {
     set_parse_children(value: boolean): void
     get_unparsed(): string
     set_unparsed(value: string): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -21614,17 +21614,17 @@ export class GomXsdTypeRestrictionMaxExclusive {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GXml.GomXsdTypeRestrictionMaxExclusive */
+    /* Virtual methods of GXml-0.14.GXml.GomXsdTypeRestrictionMaxExclusive */
     vfunc_set_attribute(name: string, value: string): void
     vfunc_set_attribute(name: string, val: string): boolean
     vfunc_remove_attribute(name: string): void
     vfunc_remove_attribute(name: string): boolean
-    /* Virtual methods of GXml.GomXsdTypeRestrictionDef */
+    /* Virtual methods of GXml-0.14.GXml.GomXsdTypeRestrictionDef */
     vfunc_set_attribute(name: string, value: string): void
     vfunc_set_attribute(name: string, val: string): boolean
     vfunc_remove_attribute(name: string): void
     vfunc_remove_attribute(name: string): boolean
-    /* Virtual methods of GXml.GomElement */
+    /* Virtual methods of GXml-0.14.GXml.GomElement */
     vfunc_remove(): void
     vfunc_get_previous_element_sibling(): DomElement | null
     vfunc_get_next_element_sibling(): DomElement | null
@@ -21667,7 +21667,7 @@ export class GomXsdTypeRestrictionMaxExclusive {
     vfunc_find_elements(name: string): DomElementList
     vfunc_set_instance_property(name: string): boolean
     vfunc_clean_property_elements(name: string): void
-    /* Virtual methods of GXml.GomNode */
+    /* Virtual methods of GXml-0.14.GXml.GomNode */
     vfunc_add_event_listener(type: string, callback: DomEventListener | null, capture: boolean): void
     vfunc_remove_event_listener(type: string, callback: DomEventListener | null, capture: boolean): void
     vfunc_dispatch_event(event: DomEvent): boolean
@@ -21700,7 +21700,7 @@ export class GomXsdTypeRestrictionMaxExclusive {
     vfunc_set_node_value(value?: string | null): void
     vfunc_get_text_content(): string | null
     vfunc_set_text_content(value?: string | null): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -21708,7 +21708,7 @@ export class GomXsdTypeRestrictionMaxExclusive {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: GomXsdTypeRestrictionMaxExclusive, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: GomXsdTypeRestrictionMaxExclusive, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -21732,18 +21732,18 @@ export class GomXsdTypeRestrictionMaxExclusive {
 export interface GomXsdTypeRestrictionMaxInclusive_ConstructProps extends GomXsdTypeRestrictionDef_ConstructProps {
 }
 export class GomXsdTypeRestrictionMaxInclusive {
-    /* Properties of GXml.GomXsdTypeRestrictionDef */
+    /* Properties of GXml-0.14.GXml.GomXsdTypeRestrictionDef */
     annotation: GomXsdAnnotation
-    /* Properties of GXml.GomElement */
+    /* Properties of GXml-0.14.GXml.GomElement */
     parse_children: boolean
     unparsed: string
-    /* Fields of GXml.GomXsdTypeRestrictionMaxInclusive */
+    /* Fields of GXml-0.14.GXml.GomXsdTypeRestrictionMaxInclusive */
     parent_instance: GomXsdTypeRestrictionDef
     priv: GomXsdTypeRestrictionMaxInclusivePrivate
-    /* Fields of GXml.GomElement */
+    /* Fields of GXml-0.14.GXml.GomElement */
     _attributes: GomElementAttributes
     _namespace_uri: string
-    /* Fields of GXml.GomNode */
+    /* Fields of GXml-0.14.GXml.GomNode */
     _local_name: string
     _prefix: string
     _base_uri: string
@@ -21752,12 +21752,12 @@ export class GomXsdTypeRestrictionMaxInclusive {
     _node_type: DomNodeNodeType
     _child_nodes: GomNodeList
     _document: DomDocument
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GXml.GomXsdTypeRestrictionDef */
+    /* Methods of GXml-0.14.GXml.GomXsdTypeRestrictionDef */
     get_annotation(): GomXsdAnnotation
     set_annotation(value: GomXsdAnnotation): void
-    /* Methods of GXml.GomElement */
+    /* Methods of GXml-0.14.GXml.GomElement */
     read_from_uri(uri: string): void
     read_from_file(f: Gio.File, cancellable?: Gio.Cancellable | null): void
     read_from_stream(istream: Gio.InputStream, cancellable?: Gio.Cancellable | null): void
@@ -21777,7 +21777,7 @@ export class GomXsdTypeRestrictionMaxInclusive {
     set_parse_children(value: boolean): void
     get_unparsed(): string
     set_unparsed(value: string): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -21799,17 +21799,17 @@ export class GomXsdTypeRestrictionMaxInclusive {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GXml.GomXsdTypeRestrictionMaxInclusive */
+    /* Virtual methods of GXml-0.14.GXml.GomXsdTypeRestrictionMaxInclusive */
     vfunc_set_attribute(name: string, value: string): void
     vfunc_set_attribute(name: string, val: string): boolean
     vfunc_remove_attribute(name: string): void
     vfunc_remove_attribute(name: string): boolean
-    /* Virtual methods of GXml.GomXsdTypeRestrictionDef */
+    /* Virtual methods of GXml-0.14.GXml.GomXsdTypeRestrictionDef */
     vfunc_set_attribute(name: string, value: string): void
     vfunc_set_attribute(name: string, val: string): boolean
     vfunc_remove_attribute(name: string): void
     vfunc_remove_attribute(name: string): boolean
-    /* Virtual methods of GXml.GomElement */
+    /* Virtual methods of GXml-0.14.GXml.GomElement */
     vfunc_remove(): void
     vfunc_get_previous_element_sibling(): DomElement | null
     vfunc_get_next_element_sibling(): DomElement | null
@@ -21852,7 +21852,7 @@ export class GomXsdTypeRestrictionMaxInclusive {
     vfunc_find_elements(name: string): DomElementList
     vfunc_set_instance_property(name: string): boolean
     vfunc_clean_property_elements(name: string): void
-    /* Virtual methods of GXml.GomNode */
+    /* Virtual methods of GXml-0.14.GXml.GomNode */
     vfunc_add_event_listener(type: string, callback: DomEventListener | null, capture: boolean): void
     vfunc_remove_event_listener(type: string, callback: DomEventListener | null, capture: boolean): void
     vfunc_dispatch_event(event: DomEvent): boolean
@@ -21885,7 +21885,7 @@ export class GomXsdTypeRestrictionMaxInclusive {
     vfunc_set_node_value(value?: string | null): void
     vfunc_get_text_content(): string | null
     vfunc_set_text_content(value?: string | null): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -21893,7 +21893,7 @@ export class GomXsdTypeRestrictionMaxInclusive {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: GomXsdTypeRestrictionMaxInclusive, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: GomXsdTypeRestrictionMaxInclusive, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -21917,18 +21917,18 @@ export class GomXsdTypeRestrictionMaxInclusive {
 export interface GomXsdTypeRestrictionTotalDigits_ConstructProps extends GomXsdTypeRestrictionDef_ConstructProps {
 }
 export class GomXsdTypeRestrictionTotalDigits {
-    /* Properties of GXml.GomXsdTypeRestrictionDef */
+    /* Properties of GXml-0.14.GXml.GomXsdTypeRestrictionDef */
     annotation: GomXsdAnnotation
-    /* Properties of GXml.GomElement */
+    /* Properties of GXml-0.14.GXml.GomElement */
     parse_children: boolean
     unparsed: string
-    /* Fields of GXml.GomXsdTypeRestrictionTotalDigits */
+    /* Fields of GXml-0.14.GXml.GomXsdTypeRestrictionTotalDigits */
     parent_instance: GomXsdTypeRestrictionDef
     priv: GomXsdTypeRestrictionTotalDigitsPrivate
-    /* Fields of GXml.GomElement */
+    /* Fields of GXml-0.14.GXml.GomElement */
     _attributes: GomElementAttributes
     _namespace_uri: string
-    /* Fields of GXml.GomNode */
+    /* Fields of GXml-0.14.GXml.GomNode */
     _local_name: string
     _prefix: string
     _base_uri: string
@@ -21937,12 +21937,12 @@ export class GomXsdTypeRestrictionTotalDigits {
     _node_type: DomNodeNodeType
     _child_nodes: GomNodeList
     _document: DomDocument
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GXml.GomXsdTypeRestrictionDef */
+    /* Methods of GXml-0.14.GXml.GomXsdTypeRestrictionDef */
     get_annotation(): GomXsdAnnotation
     set_annotation(value: GomXsdAnnotation): void
-    /* Methods of GXml.GomElement */
+    /* Methods of GXml-0.14.GXml.GomElement */
     read_from_uri(uri: string): void
     read_from_file(f: Gio.File, cancellable?: Gio.Cancellable | null): void
     read_from_stream(istream: Gio.InputStream, cancellable?: Gio.Cancellable | null): void
@@ -21962,7 +21962,7 @@ export class GomXsdTypeRestrictionTotalDigits {
     set_parse_children(value: boolean): void
     get_unparsed(): string
     set_unparsed(value: string): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -21984,17 +21984,17 @@ export class GomXsdTypeRestrictionTotalDigits {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GXml.GomXsdTypeRestrictionTotalDigits */
+    /* Virtual methods of GXml-0.14.GXml.GomXsdTypeRestrictionTotalDigits */
     vfunc_set_attribute(name: string, value: string): void
     vfunc_set_attribute(name: string, val: string): boolean
     vfunc_remove_attribute(name: string): void
     vfunc_remove_attribute(name: string): boolean
-    /* Virtual methods of GXml.GomXsdTypeRestrictionDef */
+    /* Virtual methods of GXml-0.14.GXml.GomXsdTypeRestrictionDef */
     vfunc_set_attribute(name: string, value: string): void
     vfunc_set_attribute(name: string, val: string): boolean
     vfunc_remove_attribute(name: string): void
     vfunc_remove_attribute(name: string): boolean
-    /* Virtual methods of GXml.GomElement */
+    /* Virtual methods of GXml-0.14.GXml.GomElement */
     vfunc_remove(): void
     vfunc_get_previous_element_sibling(): DomElement | null
     vfunc_get_next_element_sibling(): DomElement | null
@@ -22037,7 +22037,7 @@ export class GomXsdTypeRestrictionTotalDigits {
     vfunc_find_elements(name: string): DomElementList
     vfunc_set_instance_property(name: string): boolean
     vfunc_clean_property_elements(name: string): void
-    /* Virtual methods of GXml.GomNode */
+    /* Virtual methods of GXml-0.14.GXml.GomNode */
     vfunc_add_event_listener(type: string, callback: DomEventListener | null, capture: boolean): void
     vfunc_remove_event_listener(type: string, callback: DomEventListener | null, capture: boolean): void
     vfunc_dispatch_event(event: DomEvent): boolean
@@ -22070,7 +22070,7 @@ export class GomXsdTypeRestrictionTotalDigits {
     vfunc_set_node_value(value?: string | null): void
     vfunc_get_text_content(): string | null
     vfunc_set_text_content(value?: string | null): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -22078,7 +22078,7 @@ export class GomXsdTypeRestrictionTotalDigits {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: GomXsdTypeRestrictionTotalDigits, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: GomXsdTypeRestrictionTotalDigits, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -22102,18 +22102,18 @@ export class GomXsdTypeRestrictionTotalDigits {
 export interface GomXsdTypeRestrictionFractionDigits_ConstructProps extends GomXsdTypeRestrictionDef_ConstructProps {
 }
 export class GomXsdTypeRestrictionFractionDigits {
-    /* Properties of GXml.GomXsdTypeRestrictionDef */
+    /* Properties of GXml-0.14.GXml.GomXsdTypeRestrictionDef */
     annotation: GomXsdAnnotation
-    /* Properties of GXml.GomElement */
+    /* Properties of GXml-0.14.GXml.GomElement */
     parse_children: boolean
     unparsed: string
-    /* Fields of GXml.GomXsdTypeRestrictionFractionDigits */
+    /* Fields of GXml-0.14.GXml.GomXsdTypeRestrictionFractionDigits */
     parent_instance: GomXsdTypeRestrictionDef
     priv: GomXsdTypeRestrictionFractionDigitsPrivate
-    /* Fields of GXml.GomElement */
+    /* Fields of GXml-0.14.GXml.GomElement */
     _attributes: GomElementAttributes
     _namespace_uri: string
-    /* Fields of GXml.GomNode */
+    /* Fields of GXml-0.14.GXml.GomNode */
     _local_name: string
     _prefix: string
     _base_uri: string
@@ -22122,12 +22122,12 @@ export class GomXsdTypeRestrictionFractionDigits {
     _node_type: DomNodeNodeType
     _child_nodes: GomNodeList
     _document: DomDocument
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GXml.GomXsdTypeRestrictionDef */
+    /* Methods of GXml-0.14.GXml.GomXsdTypeRestrictionDef */
     get_annotation(): GomXsdAnnotation
     set_annotation(value: GomXsdAnnotation): void
-    /* Methods of GXml.GomElement */
+    /* Methods of GXml-0.14.GXml.GomElement */
     read_from_uri(uri: string): void
     read_from_file(f: Gio.File, cancellable?: Gio.Cancellable | null): void
     read_from_stream(istream: Gio.InputStream, cancellable?: Gio.Cancellable | null): void
@@ -22147,7 +22147,7 @@ export class GomXsdTypeRestrictionFractionDigits {
     set_parse_children(value: boolean): void
     get_unparsed(): string
     set_unparsed(value: string): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -22169,17 +22169,17 @@ export class GomXsdTypeRestrictionFractionDigits {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GXml.GomXsdTypeRestrictionFractionDigits */
+    /* Virtual methods of GXml-0.14.GXml.GomXsdTypeRestrictionFractionDigits */
     vfunc_set_attribute(name: string, value: string): void
     vfunc_set_attribute(name: string, val: string): boolean
     vfunc_remove_attribute(name: string): void
     vfunc_remove_attribute(name: string): boolean
-    /* Virtual methods of GXml.GomXsdTypeRestrictionDef */
+    /* Virtual methods of GXml-0.14.GXml.GomXsdTypeRestrictionDef */
     vfunc_set_attribute(name: string, value: string): void
     vfunc_set_attribute(name: string, val: string): boolean
     vfunc_remove_attribute(name: string): void
     vfunc_remove_attribute(name: string): boolean
-    /* Virtual methods of GXml.GomElement */
+    /* Virtual methods of GXml-0.14.GXml.GomElement */
     vfunc_remove(): void
     vfunc_get_previous_element_sibling(): DomElement | null
     vfunc_get_next_element_sibling(): DomElement | null
@@ -22222,7 +22222,7 @@ export class GomXsdTypeRestrictionFractionDigits {
     vfunc_find_elements(name: string): DomElementList
     vfunc_set_instance_property(name: string): boolean
     vfunc_clean_property_elements(name: string): void
-    /* Virtual methods of GXml.GomNode */
+    /* Virtual methods of GXml-0.14.GXml.GomNode */
     vfunc_add_event_listener(type: string, callback: DomEventListener | null, capture: boolean): void
     vfunc_remove_event_listener(type: string, callback: DomEventListener | null, capture: boolean): void
     vfunc_dispatch_event(event: DomEvent): boolean
@@ -22255,7 +22255,7 @@ export class GomXsdTypeRestrictionFractionDigits {
     vfunc_set_node_value(value?: string | null): void
     vfunc_get_text_content(): string | null
     vfunc_set_text_content(value?: string | null): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -22263,7 +22263,7 @@ export class GomXsdTypeRestrictionFractionDigits {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: GomXsdTypeRestrictionFractionDigits, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: GomXsdTypeRestrictionFractionDigits, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -22287,18 +22287,18 @@ export class GomXsdTypeRestrictionFractionDigits {
 export interface GomXsdTypeRestrictionLength_ConstructProps extends GomXsdTypeRestrictionDef_ConstructProps {
 }
 export class GomXsdTypeRestrictionLength {
-    /* Properties of GXml.GomXsdTypeRestrictionDef */
+    /* Properties of GXml-0.14.GXml.GomXsdTypeRestrictionDef */
     annotation: GomXsdAnnotation
-    /* Properties of GXml.GomElement */
+    /* Properties of GXml-0.14.GXml.GomElement */
     parse_children: boolean
     unparsed: string
-    /* Fields of GXml.GomXsdTypeRestrictionLength */
+    /* Fields of GXml-0.14.GXml.GomXsdTypeRestrictionLength */
     parent_instance: GomXsdTypeRestrictionDef
     priv: GomXsdTypeRestrictionLengthPrivate
-    /* Fields of GXml.GomElement */
+    /* Fields of GXml-0.14.GXml.GomElement */
     _attributes: GomElementAttributes
     _namespace_uri: string
-    /* Fields of GXml.GomNode */
+    /* Fields of GXml-0.14.GXml.GomNode */
     _local_name: string
     _prefix: string
     _base_uri: string
@@ -22307,12 +22307,12 @@ export class GomXsdTypeRestrictionLength {
     _node_type: DomNodeNodeType
     _child_nodes: GomNodeList
     _document: DomDocument
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GXml.GomXsdTypeRestrictionDef */
+    /* Methods of GXml-0.14.GXml.GomXsdTypeRestrictionDef */
     get_annotation(): GomXsdAnnotation
     set_annotation(value: GomXsdAnnotation): void
-    /* Methods of GXml.GomElement */
+    /* Methods of GXml-0.14.GXml.GomElement */
     read_from_uri(uri: string): void
     read_from_file(f: Gio.File, cancellable?: Gio.Cancellable | null): void
     read_from_stream(istream: Gio.InputStream, cancellable?: Gio.Cancellable | null): void
@@ -22332,7 +22332,7 @@ export class GomXsdTypeRestrictionLength {
     set_parse_children(value: boolean): void
     get_unparsed(): string
     set_unparsed(value: string): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -22354,17 +22354,17 @@ export class GomXsdTypeRestrictionLength {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GXml.GomXsdTypeRestrictionLength */
+    /* Virtual methods of GXml-0.14.GXml.GomXsdTypeRestrictionLength */
     vfunc_set_attribute(name: string, value: string): void
     vfunc_set_attribute(name: string, val: string): boolean
     vfunc_remove_attribute(name: string): void
     vfunc_remove_attribute(name: string): boolean
-    /* Virtual methods of GXml.GomXsdTypeRestrictionDef */
+    /* Virtual methods of GXml-0.14.GXml.GomXsdTypeRestrictionDef */
     vfunc_set_attribute(name: string, value: string): void
     vfunc_set_attribute(name: string, val: string): boolean
     vfunc_remove_attribute(name: string): void
     vfunc_remove_attribute(name: string): boolean
-    /* Virtual methods of GXml.GomElement */
+    /* Virtual methods of GXml-0.14.GXml.GomElement */
     vfunc_remove(): void
     vfunc_get_previous_element_sibling(): DomElement | null
     vfunc_get_next_element_sibling(): DomElement | null
@@ -22407,7 +22407,7 @@ export class GomXsdTypeRestrictionLength {
     vfunc_find_elements(name: string): DomElementList
     vfunc_set_instance_property(name: string): boolean
     vfunc_clean_property_elements(name: string): void
-    /* Virtual methods of GXml.GomNode */
+    /* Virtual methods of GXml-0.14.GXml.GomNode */
     vfunc_add_event_listener(type: string, callback: DomEventListener | null, capture: boolean): void
     vfunc_remove_event_listener(type: string, callback: DomEventListener | null, capture: boolean): void
     vfunc_dispatch_event(event: DomEvent): boolean
@@ -22440,7 +22440,7 @@ export class GomXsdTypeRestrictionLength {
     vfunc_set_node_value(value?: string | null): void
     vfunc_get_text_content(): string | null
     vfunc_set_text_content(value?: string | null): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -22448,7 +22448,7 @@ export class GomXsdTypeRestrictionLength {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: GomXsdTypeRestrictionLength, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: GomXsdTypeRestrictionLength, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -22472,18 +22472,18 @@ export class GomXsdTypeRestrictionLength {
 export interface GomXsdTypeRestrictionMinLength_ConstructProps extends GomXsdTypeRestrictionDef_ConstructProps {
 }
 export class GomXsdTypeRestrictionMinLength {
-    /* Properties of GXml.GomXsdTypeRestrictionDef */
+    /* Properties of GXml-0.14.GXml.GomXsdTypeRestrictionDef */
     annotation: GomXsdAnnotation
-    /* Properties of GXml.GomElement */
+    /* Properties of GXml-0.14.GXml.GomElement */
     parse_children: boolean
     unparsed: string
-    /* Fields of GXml.GomXsdTypeRestrictionMinLength */
+    /* Fields of GXml-0.14.GXml.GomXsdTypeRestrictionMinLength */
     parent_instance: GomXsdTypeRestrictionDef
     priv: GomXsdTypeRestrictionMinLengthPrivate
-    /* Fields of GXml.GomElement */
+    /* Fields of GXml-0.14.GXml.GomElement */
     _attributes: GomElementAttributes
     _namespace_uri: string
-    /* Fields of GXml.GomNode */
+    /* Fields of GXml-0.14.GXml.GomNode */
     _local_name: string
     _prefix: string
     _base_uri: string
@@ -22492,12 +22492,12 @@ export class GomXsdTypeRestrictionMinLength {
     _node_type: DomNodeNodeType
     _child_nodes: GomNodeList
     _document: DomDocument
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GXml.GomXsdTypeRestrictionDef */
+    /* Methods of GXml-0.14.GXml.GomXsdTypeRestrictionDef */
     get_annotation(): GomXsdAnnotation
     set_annotation(value: GomXsdAnnotation): void
-    /* Methods of GXml.GomElement */
+    /* Methods of GXml-0.14.GXml.GomElement */
     read_from_uri(uri: string): void
     read_from_file(f: Gio.File, cancellable?: Gio.Cancellable | null): void
     read_from_stream(istream: Gio.InputStream, cancellable?: Gio.Cancellable | null): void
@@ -22517,7 +22517,7 @@ export class GomXsdTypeRestrictionMinLength {
     set_parse_children(value: boolean): void
     get_unparsed(): string
     set_unparsed(value: string): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -22539,17 +22539,17 @@ export class GomXsdTypeRestrictionMinLength {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GXml.GomXsdTypeRestrictionMinLength */
+    /* Virtual methods of GXml-0.14.GXml.GomXsdTypeRestrictionMinLength */
     vfunc_set_attribute(name: string, value: string): void
     vfunc_set_attribute(name: string, val: string): boolean
     vfunc_remove_attribute(name: string): void
     vfunc_remove_attribute(name: string): boolean
-    /* Virtual methods of GXml.GomXsdTypeRestrictionDef */
+    /* Virtual methods of GXml-0.14.GXml.GomXsdTypeRestrictionDef */
     vfunc_set_attribute(name: string, value: string): void
     vfunc_set_attribute(name: string, val: string): boolean
     vfunc_remove_attribute(name: string): void
     vfunc_remove_attribute(name: string): boolean
-    /* Virtual methods of GXml.GomElement */
+    /* Virtual methods of GXml-0.14.GXml.GomElement */
     vfunc_remove(): void
     vfunc_get_previous_element_sibling(): DomElement | null
     vfunc_get_next_element_sibling(): DomElement | null
@@ -22592,7 +22592,7 @@ export class GomXsdTypeRestrictionMinLength {
     vfunc_find_elements(name: string): DomElementList
     vfunc_set_instance_property(name: string): boolean
     vfunc_clean_property_elements(name: string): void
-    /* Virtual methods of GXml.GomNode */
+    /* Virtual methods of GXml-0.14.GXml.GomNode */
     vfunc_add_event_listener(type: string, callback: DomEventListener | null, capture: boolean): void
     vfunc_remove_event_listener(type: string, callback: DomEventListener | null, capture: boolean): void
     vfunc_dispatch_event(event: DomEvent): boolean
@@ -22625,7 +22625,7 @@ export class GomXsdTypeRestrictionMinLength {
     vfunc_set_node_value(value?: string | null): void
     vfunc_get_text_content(): string | null
     vfunc_set_text_content(value?: string | null): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -22633,7 +22633,7 @@ export class GomXsdTypeRestrictionMinLength {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: GomXsdTypeRestrictionMinLength, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: GomXsdTypeRestrictionMinLength, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -22657,18 +22657,18 @@ export class GomXsdTypeRestrictionMinLength {
 export interface GomXsdTypeRestrictionMaxLength_ConstructProps extends GomXsdTypeRestrictionDef_ConstructProps {
 }
 export class GomXsdTypeRestrictionMaxLength {
-    /* Properties of GXml.GomXsdTypeRestrictionDef */
+    /* Properties of GXml-0.14.GXml.GomXsdTypeRestrictionDef */
     annotation: GomXsdAnnotation
-    /* Properties of GXml.GomElement */
+    /* Properties of GXml-0.14.GXml.GomElement */
     parse_children: boolean
     unparsed: string
-    /* Fields of GXml.GomXsdTypeRestrictionMaxLength */
+    /* Fields of GXml-0.14.GXml.GomXsdTypeRestrictionMaxLength */
     parent_instance: GomXsdTypeRestrictionDef
     priv: GomXsdTypeRestrictionMaxLengthPrivate
-    /* Fields of GXml.GomElement */
+    /* Fields of GXml-0.14.GXml.GomElement */
     _attributes: GomElementAttributes
     _namespace_uri: string
-    /* Fields of GXml.GomNode */
+    /* Fields of GXml-0.14.GXml.GomNode */
     _local_name: string
     _prefix: string
     _base_uri: string
@@ -22677,12 +22677,12 @@ export class GomXsdTypeRestrictionMaxLength {
     _node_type: DomNodeNodeType
     _child_nodes: GomNodeList
     _document: DomDocument
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GXml.GomXsdTypeRestrictionDef */
+    /* Methods of GXml-0.14.GXml.GomXsdTypeRestrictionDef */
     get_annotation(): GomXsdAnnotation
     set_annotation(value: GomXsdAnnotation): void
-    /* Methods of GXml.GomElement */
+    /* Methods of GXml-0.14.GXml.GomElement */
     read_from_uri(uri: string): void
     read_from_file(f: Gio.File, cancellable?: Gio.Cancellable | null): void
     read_from_stream(istream: Gio.InputStream, cancellable?: Gio.Cancellable | null): void
@@ -22702,7 +22702,7 @@ export class GomXsdTypeRestrictionMaxLength {
     set_parse_children(value: boolean): void
     get_unparsed(): string
     set_unparsed(value: string): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -22724,17 +22724,17 @@ export class GomXsdTypeRestrictionMaxLength {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GXml.GomXsdTypeRestrictionMaxLength */
+    /* Virtual methods of GXml-0.14.GXml.GomXsdTypeRestrictionMaxLength */
     vfunc_set_attribute(name: string, value: string): void
     vfunc_set_attribute(name: string, val: string): boolean
     vfunc_remove_attribute(name: string): void
     vfunc_remove_attribute(name: string): boolean
-    /* Virtual methods of GXml.GomXsdTypeRestrictionDef */
+    /* Virtual methods of GXml-0.14.GXml.GomXsdTypeRestrictionDef */
     vfunc_set_attribute(name: string, value: string): void
     vfunc_set_attribute(name: string, val: string): boolean
     vfunc_remove_attribute(name: string): void
     vfunc_remove_attribute(name: string): boolean
-    /* Virtual methods of GXml.GomElement */
+    /* Virtual methods of GXml-0.14.GXml.GomElement */
     vfunc_remove(): void
     vfunc_get_previous_element_sibling(): DomElement | null
     vfunc_get_next_element_sibling(): DomElement | null
@@ -22777,7 +22777,7 @@ export class GomXsdTypeRestrictionMaxLength {
     vfunc_find_elements(name: string): DomElementList
     vfunc_set_instance_property(name: string): boolean
     vfunc_clean_property_elements(name: string): void
-    /* Virtual methods of GXml.GomNode */
+    /* Virtual methods of GXml-0.14.GXml.GomNode */
     vfunc_add_event_listener(type: string, callback: DomEventListener | null, capture: boolean): void
     vfunc_remove_event_listener(type: string, callback: DomEventListener | null, capture: boolean): void
     vfunc_dispatch_event(event: DomEvent): boolean
@@ -22810,7 +22810,7 @@ export class GomXsdTypeRestrictionMaxLength {
     vfunc_set_node_value(value?: string | null): void
     vfunc_get_text_content(): string | null
     vfunc_set_text_content(value?: string | null): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -22818,7 +22818,7 @@ export class GomXsdTypeRestrictionMaxLength {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: GomXsdTypeRestrictionMaxLength, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: GomXsdTypeRestrictionMaxLength, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -22843,20 +22843,20 @@ export interface GomXsdTypeRestrictionEnumeration_ConstructProps extends GomXsdT
     value?: string
 }
 export class GomXsdTypeRestrictionEnumeration {
-    /* Properties of GXml.GomXsdTypeRestrictionEnumeration */
+    /* Properties of GXml-0.14.GXml.GomXsdTypeRestrictionEnumeration */
     value: string
-    /* Properties of GXml.GomXsdTypeRestrictionDef */
+    /* Properties of GXml-0.14.GXml.GomXsdTypeRestrictionDef */
     annotation: GomXsdAnnotation
-    /* Properties of GXml.GomElement */
+    /* Properties of GXml-0.14.GXml.GomElement */
     parse_children: boolean
     unparsed: string
-    /* Fields of GXml.GomXsdTypeRestrictionEnumeration */
+    /* Fields of GXml-0.14.GXml.GomXsdTypeRestrictionEnumeration */
     parent_instance: GomXsdTypeRestrictionDef
     priv: GomXsdTypeRestrictionEnumerationPrivate
-    /* Fields of GXml.GomElement */
+    /* Fields of GXml-0.14.GXml.GomElement */
     _attributes: GomElementAttributes
     _namespace_uri: string
-    /* Fields of GXml.GomNode */
+    /* Fields of GXml-0.14.GXml.GomNode */
     _local_name: string
     _prefix: string
     _base_uri: string
@@ -22865,15 +22865,15 @@ export class GomXsdTypeRestrictionEnumeration {
     _node_type: DomNodeNodeType
     _child_nodes: GomNodeList
     _document: DomDocument
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GXml.GomXsdTypeRestrictionEnumeration */
+    /* Methods of GXml-0.14.GXml.GomXsdTypeRestrictionEnumeration */
     get_value(): string
     set_value(value: string): void
-    /* Methods of GXml.GomXsdTypeRestrictionDef */
+    /* Methods of GXml-0.14.GXml.GomXsdTypeRestrictionDef */
     get_annotation(): GomXsdAnnotation
     set_annotation(value: GomXsdAnnotation): void
-    /* Methods of GXml.GomElement */
+    /* Methods of GXml-0.14.GXml.GomElement */
     read_from_uri(uri: string): void
     read_from_file(f: Gio.File, cancellable?: Gio.Cancellable | null): void
     read_from_stream(istream: Gio.InputStream, cancellable?: Gio.Cancellable | null): void
@@ -22893,7 +22893,7 @@ export class GomXsdTypeRestrictionEnumeration {
     set_parse_children(value: boolean): void
     get_unparsed(): string
     set_unparsed(value: string): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -22915,17 +22915,17 @@ export class GomXsdTypeRestrictionEnumeration {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GXml.GomXsdTypeRestrictionEnumeration */
+    /* Virtual methods of GXml-0.14.GXml.GomXsdTypeRestrictionEnumeration */
     vfunc_set_attribute(name: string, value: string): void
     vfunc_set_attribute(name: string, val: string): boolean
     vfunc_remove_attribute(name: string): void
     vfunc_remove_attribute(name: string): boolean
-    /* Virtual methods of GXml.GomXsdTypeRestrictionDef */
+    /* Virtual methods of GXml-0.14.GXml.GomXsdTypeRestrictionDef */
     vfunc_set_attribute(name: string, value: string): void
     vfunc_set_attribute(name: string, val: string): boolean
     vfunc_remove_attribute(name: string): void
     vfunc_remove_attribute(name: string): boolean
-    /* Virtual methods of GXml.GomElement */
+    /* Virtual methods of GXml-0.14.GXml.GomElement */
     vfunc_remove(): void
     vfunc_get_previous_element_sibling(): DomElement | null
     vfunc_get_next_element_sibling(): DomElement | null
@@ -22968,7 +22968,7 @@ export class GomXsdTypeRestrictionEnumeration {
     vfunc_find_elements(name: string): DomElementList
     vfunc_set_instance_property(name: string): boolean
     vfunc_clean_property_elements(name: string): void
-    /* Virtual methods of GXml.GomNode */
+    /* Virtual methods of GXml-0.14.GXml.GomNode */
     vfunc_add_event_listener(type: string, callback: DomEventListener | null, capture: boolean): void
     vfunc_remove_event_listener(type: string, callback: DomEventListener | null, capture: boolean): void
     vfunc_dispatch_event(event: DomEvent): boolean
@@ -23001,7 +23001,7 @@ export class GomXsdTypeRestrictionEnumeration {
     vfunc_set_node_value(value?: string | null): void
     vfunc_get_text_content(): string | null
     vfunc_set_text_content(value?: string | null): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -23009,7 +23009,7 @@ export class GomXsdTypeRestrictionEnumeration {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: GomXsdTypeRestrictionEnumeration, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: GomXsdTypeRestrictionEnumeration, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -23037,21 +23037,21 @@ export interface GomXsdTypeRestrictionWhiteSpace_ConstructProps extends GomXsdTy
     value?: string
 }
 export class GomXsdTypeRestrictionWhiteSpace {
-    /* Properties of GXml.GomXsdTypeRestrictionWhiteSpace */
+    /* Properties of GXml-0.14.GXml.GomXsdTypeRestrictionWhiteSpace */
     fixed: GomXsdTypeRestrictionWhiteSpaceFixed
     value: string
-    /* Properties of GXml.GomXsdTypeRestrictionDef */
+    /* Properties of GXml-0.14.GXml.GomXsdTypeRestrictionDef */
     annotation: GomXsdAnnotation
-    /* Properties of GXml.GomElement */
+    /* Properties of GXml-0.14.GXml.GomElement */
     parse_children: boolean
     unparsed: string
-    /* Fields of GXml.GomXsdTypeRestrictionWhiteSpace */
+    /* Fields of GXml-0.14.GXml.GomXsdTypeRestrictionWhiteSpace */
     parent_instance: GomXsdTypeRestrictionDef
     priv: GomXsdTypeRestrictionWhiteSpacePrivate
-    /* Fields of GXml.GomElement */
+    /* Fields of GXml-0.14.GXml.GomElement */
     _attributes: GomElementAttributes
     _namespace_uri: string
-    /* Fields of GXml.GomNode */
+    /* Fields of GXml-0.14.GXml.GomNode */
     _local_name: string
     _prefix: string
     _base_uri: string
@@ -23060,17 +23060,17 @@ export class GomXsdTypeRestrictionWhiteSpace {
     _node_type: DomNodeNodeType
     _child_nodes: GomNodeList
     _document: DomDocument
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GXml.GomXsdTypeRestrictionWhiteSpace */
+    /* Methods of GXml-0.14.GXml.GomXsdTypeRestrictionWhiteSpace */
     get_fixed(): GomXsdTypeRestrictionWhiteSpaceFixed
     set_fixed(value: GomXsdTypeRestrictionWhiteSpaceFixed): void
     get_value(): string
     set_value(value: string): void
-    /* Methods of GXml.GomXsdTypeRestrictionDef */
+    /* Methods of GXml-0.14.GXml.GomXsdTypeRestrictionDef */
     get_annotation(): GomXsdAnnotation
     set_annotation(value: GomXsdAnnotation): void
-    /* Methods of GXml.GomElement */
+    /* Methods of GXml-0.14.GXml.GomElement */
     read_from_uri(uri: string): void
     read_from_file(f: Gio.File, cancellable?: Gio.Cancellable | null): void
     read_from_stream(istream: Gio.InputStream, cancellable?: Gio.Cancellable | null): void
@@ -23090,7 +23090,7 @@ export class GomXsdTypeRestrictionWhiteSpace {
     set_parse_children(value: boolean): void
     get_unparsed(): string
     set_unparsed(value: string): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -23112,17 +23112,17 @@ export class GomXsdTypeRestrictionWhiteSpace {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GXml.GomXsdTypeRestrictionWhiteSpace */
+    /* Virtual methods of GXml-0.14.GXml.GomXsdTypeRestrictionWhiteSpace */
     vfunc_set_attribute(name: string, value: string): void
     vfunc_set_attribute(name: string, val: string): boolean
     vfunc_remove_attribute(name: string): void
     vfunc_remove_attribute(name: string): boolean
-    /* Virtual methods of GXml.GomXsdTypeRestrictionDef */
+    /* Virtual methods of GXml-0.14.GXml.GomXsdTypeRestrictionDef */
     vfunc_set_attribute(name: string, value: string): void
     vfunc_set_attribute(name: string, val: string): boolean
     vfunc_remove_attribute(name: string): void
     vfunc_remove_attribute(name: string): boolean
-    /* Virtual methods of GXml.GomElement */
+    /* Virtual methods of GXml-0.14.GXml.GomElement */
     vfunc_remove(): void
     vfunc_get_previous_element_sibling(): DomElement | null
     vfunc_get_next_element_sibling(): DomElement | null
@@ -23165,7 +23165,7 @@ export class GomXsdTypeRestrictionWhiteSpace {
     vfunc_find_elements(name: string): DomElementList
     vfunc_set_instance_property(name: string): boolean
     vfunc_clean_property_elements(name: string): void
-    /* Virtual methods of GXml.GomNode */
+    /* Virtual methods of GXml-0.14.GXml.GomNode */
     vfunc_add_event_listener(type: string, callback: DomEventListener | null, capture: boolean): void
     vfunc_remove_event_listener(type: string, callback: DomEventListener | null, capture: boolean): void
     vfunc_dispatch_event(event: DomEvent): boolean
@@ -23198,7 +23198,7 @@ export class GomXsdTypeRestrictionWhiteSpace {
     vfunc_set_node_value(value?: string | null): void
     vfunc_get_text_content(): string | null
     vfunc_set_text_content(value?: string | null): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -23206,7 +23206,7 @@ export class GomXsdTypeRestrictionWhiteSpace {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: GomXsdTypeRestrictionWhiteSpace, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: GomXsdTypeRestrictionWhiteSpace, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -23234,23 +23234,23 @@ export class GomXsdTypeRestrictionWhiteSpace {
 export interface GomXsdTypeRestrictionWhiteSpaceFixed_ConstructProps extends GomBoolean_ConstructProps {
 }
 export class GomXsdTypeRestrictionWhiteSpaceFixed {
-    /* Properties of GXml.GomBaseProperty */
+    /* Properties of GXml-0.14.GXml.GomBaseProperty */
     value: string
-    /* Fields of GXml.GomXsdTypeRestrictionWhiteSpaceFixed */
+    /* Fields of GXml-0.14.GXml.GomXsdTypeRestrictionWhiteSpaceFixed */
     parent_instance: GomBoolean
     priv: GomXsdTypeRestrictionWhiteSpaceFixedPrivate
-    /* Fields of GXml.GomBoolean */
+    /* Fields of GXml-0.14.GXml.GomBoolean */
     _value: boolean
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GXml.GomBoolean */
+    /* Methods of GXml-0.14.GXml.GomBoolean */
     get_boolean(): boolean
     set_boolean(value: boolean): void
-    /* Methods of GXml.GomBaseProperty */
+    /* Methods of GXml-0.14.GXml.GomBaseProperty */
     validate_value(val: string): boolean
     get_value(): string | null
     set_value(value?: string | null): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -23272,11 +23272,11 @@ export class GomXsdTypeRestrictionWhiteSpaceFixed {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GXml.GomBaseProperty */
+    /* Virtual methods of GXml-0.14.GXml.GomBaseProperty */
     vfunc_validate_value(val: string): boolean
     vfunc_get_value(): string | null
     vfunc_set_value(value?: string | null): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -23284,7 +23284,7 @@ export class GomXsdTypeRestrictionWhiteSpaceFixed {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: GomXsdTypeRestrictionWhiteSpaceFixed, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: GomXsdTypeRestrictionWhiteSpaceFixed, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -23304,18 +23304,18 @@ export class GomXsdTypeRestrictionWhiteSpaceFixed {
 export interface GomXsdTypeRestrictionPattern_ConstructProps extends GomXsdTypeRestrictionDef_ConstructProps {
 }
 export class GomXsdTypeRestrictionPattern {
-    /* Properties of GXml.GomXsdTypeRestrictionDef */
+    /* Properties of GXml-0.14.GXml.GomXsdTypeRestrictionDef */
     annotation: GomXsdAnnotation
-    /* Properties of GXml.GomElement */
+    /* Properties of GXml-0.14.GXml.GomElement */
     parse_children: boolean
     unparsed: string
-    /* Fields of GXml.GomXsdTypeRestrictionPattern */
+    /* Fields of GXml-0.14.GXml.GomXsdTypeRestrictionPattern */
     parent_instance: GomXsdTypeRestrictionDef
     priv: GomXsdTypeRestrictionPatternPrivate
-    /* Fields of GXml.GomElement */
+    /* Fields of GXml-0.14.GXml.GomElement */
     _attributes: GomElementAttributes
     _namespace_uri: string
-    /* Fields of GXml.GomNode */
+    /* Fields of GXml-0.14.GXml.GomNode */
     _local_name: string
     _prefix: string
     _base_uri: string
@@ -23324,12 +23324,12 @@ export class GomXsdTypeRestrictionPattern {
     _node_type: DomNodeNodeType
     _child_nodes: GomNodeList
     _document: DomDocument
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GXml.GomXsdTypeRestrictionDef */
+    /* Methods of GXml-0.14.GXml.GomXsdTypeRestrictionDef */
     get_annotation(): GomXsdAnnotation
     set_annotation(value: GomXsdAnnotation): void
-    /* Methods of GXml.GomElement */
+    /* Methods of GXml-0.14.GXml.GomElement */
     read_from_uri(uri: string): void
     read_from_file(f: Gio.File, cancellable?: Gio.Cancellable | null): void
     read_from_stream(istream: Gio.InputStream, cancellable?: Gio.Cancellable | null): void
@@ -23349,7 +23349,7 @@ export class GomXsdTypeRestrictionPattern {
     set_parse_children(value: boolean): void
     get_unparsed(): string
     set_unparsed(value: string): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -23371,17 +23371,17 @@ export class GomXsdTypeRestrictionPattern {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GXml.GomXsdTypeRestrictionPattern */
+    /* Virtual methods of GXml-0.14.GXml.GomXsdTypeRestrictionPattern */
     vfunc_set_attribute(name: string, value: string): void
     vfunc_set_attribute(name: string, val: string): boolean
     vfunc_remove_attribute(name: string): void
     vfunc_remove_attribute(name: string): boolean
-    /* Virtual methods of GXml.GomXsdTypeRestrictionDef */
+    /* Virtual methods of GXml-0.14.GXml.GomXsdTypeRestrictionDef */
     vfunc_set_attribute(name: string, value: string): void
     vfunc_set_attribute(name: string, val: string): boolean
     vfunc_remove_attribute(name: string): void
     vfunc_remove_attribute(name: string): boolean
-    /* Virtual methods of GXml.GomElement */
+    /* Virtual methods of GXml-0.14.GXml.GomElement */
     vfunc_remove(): void
     vfunc_get_previous_element_sibling(): DomElement | null
     vfunc_get_next_element_sibling(): DomElement | null
@@ -23424,7 +23424,7 @@ export class GomXsdTypeRestrictionPattern {
     vfunc_find_elements(name: string): DomElementList
     vfunc_set_instance_property(name: string): boolean
     vfunc_clean_property_elements(name: string): void
-    /* Virtual methods of GXml.GomNode */
+    /* Virtual methods of GXml-0.14.GXml.GomNode */
     vfunc_add_event_listener(type: string, callback: DomEventListener | null, capture: boolean): void
     vfunc_remove_event_listener(type: string, callback: DomEventListener | null, capture: boolean): void
     vfunc_dispatch_event(event: DomEvent): boolean
@@ -23457,7 +23457,7 @@ export class GomXsdTypeRestrictionPattern {
     vfunc_set_node_value(value?: string | null): void
     vfunc_get_text_content(): string | null
     vfunc_set_text_content(value?: string | null): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -23465,7 +23465,7 @@ export class GomXsdTypeRestrictionPattern {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: GomXsdTypeRestrictionPattern, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: GomXsdTypeRestrictionPattern, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -23489,18 +23489,18 @@ export class GomXsdTypeRestrictionPattern {
 export interface GomXsdTypeRestrictionAssertion_ConstructProps extends GomXsdTypeRestrictionDef_ConstructProps {
 }
 export class GomXsdTypeRestrictionAssertion {
-    /* Properties of GXml.GomXsdTypeRestrictionDef */
+    /* Properties of GXml-0.14.GXml.GomXsdTypeRestrictionDef */
     annotation: GomXsdAnnotation
-    /* Properties of GXml.GomElement */
+    /* Properties of GXml-0.14.GXml.GomElement */
     parse_children: boolean
     unparsed: string
-    /* Fields of GXml.GomXsdTypeRestrictionAssertion */
+    /* Fields of GXml-0.14.GXml.GomXsdTypeRestrictionAssertion */
     parent_instance: GomXsdTypeRestrictionDef
     priv: GomXsdTypeRestrictionAssertionPrivate
-    /* Fields of GXml.GomElement */
+    /* Fields of GXml-0.14.GXml.GomElement */
     _attributes: GomElementAttributes
     _namespace_uri: string
-    /* Fields of GXml.GomNode */
+    /* Fields of GXml-0.14.GXml.GomNode */
     _local_name: string
     _prefix: string
     _base_uri: string
@@ -23509,12 +23509,12 @@ export class GomXsdTypeRestrictionAssertion {
     _node_type: DomNodeNodeType
     _child_nodes: GomNodeList
     _document: DomDocument
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GXml.GomXsdTypeRestrictionDef */
+    /* Methods of GXml-0.14.GXml.GomXsdTypeRestrictionDef */
     get_annotation(): GomXsdAnnotation
     set_annotation(value: GomXsdAnnotation): void
-    /* Methods of GXml.GomElement */
+    /* Methods of GXml-0.14.GXml.GomElement */
     read_from_uri(uri: string): void
     read_from_file(f: Gio.File, cancellable?: Gio.Cancellable | null): void
     read_from_stream(istream: Gio.InputStream, cancellable?: Gio.Cancellable | null): void
@@ -23534,7 +23534,7 @@ export class GomXsdTypeRestrictionAssertion {
     set_parse_children(value: boolean): void
     get_unparsed(): string
     set_unparsed(value: string): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -23556,17 +23556,17 @@ export class GomXsdTypeRestrictionAssertion {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GXml.GomXsdTypeRestrictionAssertion */
+    /* Virtual methods of GXml-0.14.GXml.GomXsdTypeRestrictionAssertion */
     vfunc_set_attribute(name: string, value: string): void
     vfunc_set_attribute(name: string, val: string): boolean
     vfunc_remove_attribute(name: string): void
     vfunc_remove_attribute(name: string): boolean
-    /* Virtual methods of GXml.GomXsdTypeRestrictionDef */
+    /* Virtual methods of GXml-0.14.GXml.GomXsdTypeRestrictionDef */
     vfunc_set_attribute(name: string, value: string): void
     vfunc_set_attribute(name: string, val: string): boolean
     vfunc_remove_attribute(name: string): void
     vfunc_remove_attribute(name: string): boolean
-    /* Virtual methods of GXml.GomElement */
+    /* Virtual methods of GXml-0.14.GXml.GomElement */
     vfunc_remove(): void
     vfunc_get_previous_element_sibling(): DomElement | null
     vfunc_get_next_element_sibling(): DomElement | null
@@ -23609,7 +23609,7 @@ export class GomXsdTypeRestrictionAssertion {
     vfunc_find_elements(name: string): DomElementList
     vfunc_set_instance_property(name: string): boolean
     vfunc_clean_property_elements(name: string): void
-    /* Virtual methods of GXml.GomNode */
+    /* Virtual methods of GXml-0.14.GXml.GomNode */
     vfunc_add_event_listener(type: string, callback: DomEventListener | null, capture: boolean): void
     vfunc_remove_event_listener(type: string, callback: DomEventListener | null, capture: boolean): void
     vfunc_dispatch_event(event: DomEvent): boolean
@@ -23642,7 +23642,7 @@ export class GomXsdTypeRestrictionAssertion {
     vfunc_set_node_value(value?: string | null): void
     vfunc_get_text_content(): string | null
     vfunc_set_text_content(value?: string | null): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -23650,7 +23650,7 @@ export class GomXsdTypeRestrictionAssertion {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: GomXsdTypeRestrictionAssertion, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: GomXsdTypeRestrictionAssertion, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -23674,18 +23674,18 @@ export class GomXsdTypeRestrictionAssertion {
 export interface GomXsdTypeRestrictionExplicitTimezone_ConstructProps extends GomXsdTypeRestrictionDef_ConstructProps {
 }
 export class GomXsdTypeRestrictionExplicitTimezone {
-    /* Properties of GXml.GomXsdTypeRestrictionDef */
+    /* Properties of GXml-0.14.GXml.GomXsdTypeRestrictionDef */
     annotation: GomXsdAnnotation
-    /* Properties of GXml.GomElement */
+    /* Properties of GXml-0.14.GXml.GomElement */
     parse_children: boolean
     unparsed: string
-    /* Fields of GXml.GomXsdTypeRestrictionExplicitTimezone */
+    /* Fields of GXml-0.14.GXml.GomXsdTypeRestrictionExplicitTimezone */
     parent_instance: GomXsdTypeRestrictionDef
     priv: GomXsdTypeRestrictionExplicitTimezonePrivate
-    /* Fields of GXml.GomElement */
+    /* Fields of GXml-0.14.GXml.GomElement */
     _attributes: GomElementAttributes
     _namespace_uri: string
-    /* Fields of GXml.GomNode */
+    /* Fields of GXml-0.14.GXml.GomNode */
     _local_name: string
     _prefix: string
     _base_uri: string
@@ -23694,12 +23694,12 @@ export class GomXsdTypeRestrictionExplicitTimezone {
     _node_type: DomNodeNodeType
     _child_nodes: GomNodeList
     _document: DomDocument
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GXml.GomXsdTypeRestrictionDef */
+    /* Methods of GXml-0.14.GXml.GomXsdTypeRestrictionDef */
     get_annotation(): GomXsdAnnotation
     set_annotation(value: GomXsdAnnotation): void
-    /* Methods of GXml.GomElement */
+    /* Methods of GXml-0.14.GXml.GomElement */
     read_from_uri(uri: string): void
     read_from_file(f: Gio.File, cancellable?: Gio.Cancellable | null): void
     read_from_stream(istream: Gio.InputStream, cancellable?: Gio.Cancellable | null): void
@@ -23719,7 +23719,7 @@ export class GomXsdTypeRestrictionExplicitTimezone {
     set_parse_children(value: boolean): void
     get_unparsed(): string
     set_unparsed(value: string): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -23741,17 +23741,17 @@ export class GomXsdTypeRestrictionExplicitTimezone {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GXml.GomXsdTypeRestrictionExplicitTimezone */
+    /* Virtual methods of GXml-0.14.GXml.GomXsdTypeRestrictionExplicitTimezone */
     vfunc_set_attribute(name: string, value: string): void
     vfunc_set_attribute(name: string, val: string): boolean
     vfunc_remove_attribute(name: string): void
     vfunc_remove_attribute(name: string): boolean
-    /* Virtual methods of GXml.GomXsdTypeRestrictionDef */
+    /* Virtual methods of GXml-0.14.GXml.GomXsdTypeRestrictionDef */
     vfunc_set_attribute(name: string, value: string): void
     vfunc_set_attribute(name: string, val: string): boolean
     vfunc_remove_attribute(name: string): void
     vfunc_remove_attribute(name: string): boolean
-    /* Virtual methods of GXml.GomElement */
+    /* Virtual methods of GXml-0.14.GXml.GomElement */
     vfunc_remove(): void
     vfunc_get_previous_element_sibling(): DomElement | null
     vfunc_get_next_element_sibling(): DomElement | null
@@ -23794,7 +23794,7 @@ export class GomXsdTypeRestrictionExplicitTimezone {
     vfunc_find_elements(name: string): DomElementList
     vfunc_set_instance_property(name: string): boolean
     vfunc_clean_property_elements(name: string): void
-    /* Virtual methods of GXml.GomNode */
+    /* Virtual methods of GXml-0.14.GXml.GomNode */
     vfunc_add_event_listener(type: string, callback: DomEventListener | null, capture: boolean): void
     vfunc_remove_event_listener(type: string, callback: DomEventListener | null, capture: boolean): void
     vfunc_dispatch_event(event: DomEvent): boolean
@@ -23827,7 +23827,7 @@ export class GomXsdTypeRestrictionExplicitTimezone {
     vfunc_set_node_value(value?: string | null): void
     vfunc_get_text_content(): string | null
     vfunc_set_text_content(value?: string | null): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -23835,7 +23835,7 @@ export class GomXsdTypeRestrictionExplicitTimezone {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: GomXsdTypeRestrictionExplicitTimezone, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: GomXsdTypeRestrictionExplicitTimezone, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -23866,7 +23866,7 @@ export interface GomXsdComplexType_ConstructProps extends GomXsdBaseType_Constru
     content_type?: GomXsdBaseContent
 }
 export class GomXsdComplexType {
-    /* Properties of GXml.GomXsdComplexType */
+    /* Properties of GXml-0.14.GXml.GomXsdComplexType */
     abstract: boolean
     block: string
     final: string
@@ -23876,20 +23876,20 @@ export class GomXsdComplexType {
     content_type: GomXsdBaseContent
     readonly type_attributes: GomXsdList
     readonly group_attributes: GomXsdList
-    /* Properties of GXml.GomXsdBaseType */
+    /* Properties of GXml-0.14.GXml.GomXsdBaseType */
     anotation: GomXsdAnnotation
-    /* Properties of GXml.GomElement */
+    /* Properties of GXml-0.14.GXml.GomElement */
     parse_children: boolean
     unparsed: string
-    /* Fields of GXml.GomXsdComplexType */
+    /* Fields of GXml-0.14.GXml.GomXsdComplexType */
     parent_instance: GomXsdBaseType
     priv: GomXsdComplexTypePrivate
     _type_attributes: GomXsdList
     _group_attributes: GomXsdList
-    /* Fields of GXml.GomElement */
+    /* Fields of GXml-0.14.GXml.GomElement */
     _attributes: GomElementAttributes
     _namespace_uri: string
-    /* Fields of GXml.GomNode */
+    /* Fields of GXml-0.14.GXml.GomNode */
     _local_name: string
     _prefix: string
     _base_uri: string
@@ -23898,9 +23898,9 @@ export class GomXsdComplexType {
     _node_type: DomNodeNodeType
     _child_nodes: GomNodeList
     _document: DomDocument
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GXml.GomXsdComplexType */
+    /* Methods of GXml-0.14.GXml.GomXsdComplexType */
     get_abstract(): boolean
     set_abstract(value: boolean): void
     get_block(): string
@@ -23917,10 +23917,10 @@ export class GomXsdComplexType {
     set_content_type(value: GomXsdBaseContent): void
     get_type_attributes(): GomXsdList
     get_group_attributes(): GomXsdList
-    /* Methods of GXml.GomXsdBaseType */
+    /* Methods of GXml-0.14.GXml.GomXsdBaseType */
     get_anotation(): GomXsdAnnotation
     set_anotation(value: GomXsdAnnotation): void
-    /* Methods of GXml.GomElement */
+    /* Methods of GXml-0.14.GXml.GomElement */
     read_from_uri(uri: string): void
     read_from_file(f: Gio.File, cancellable?: Gio.Cancellable | null): void
     read_from_stream(istream: Gio.InputStream, cancellable?: Gio.Cancellable | null): void
@@ -23940,7 +23940,7 @@ export class GomXsdComplexType {
     set_parse_children(value: boolean): void
     get_unparsed(): string
     set_unparsed(value: string): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -23962,17 +23962,17 @@ export class GomXsdComplexType {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GXml.GomXsdComplexType */
+    /* Virtual methods of GXml-0.14.GXml.GomXsdComplexType */
     vfunc_set_attribute(name: string, value: string): void
     vfunc_set_attribute(name: string, val: string): boolean
     vfunc_remove_attribute(name: string): void
     vfunc_remove_attribute(name: string): boolean
-    /* Virtual methods of GXml.GomXsdBaseType */
+    /* Virtual methods of GXml-0.14.GXml.GomXsdBaseType */
     vfunc_set_attribute(name: string, value: string): void
     vfunc_set_attribute(name: string, val: string): boolean
     vfunc_remove_attribute(name: string): void
     vfunc_remove_attribute(name: string): boolean
-    /* Virtual methods of GXml.GomElement */
+    /* Virtual methods of GXml-0.14.GXml.GomElement */
     vfunc_remove(): void
     vfunc_get_previous_element_sibling(): DomElement | null
     vfunc_get_next_element_sibling(): DomElement | null
@@ -24015,7 +24015,7 @@ export class GomXsdComplexType {
     vfunc_find_elements(name: string): DomElementList
     vfunc_set_instance_property(name: string): boolean
     vfunc_clean_property_elements(name: string): void
-    /* Virtual methods of GXml.GomNode */
+    /* Virtual methods of GXml-0.14.GXml.GomNode */
     vfunc_add_event_listener(type: string, callback: DomEventListener | null, capture: boolean): void
     vfunc_remove_event_listener(type: string, callback: DomEventListener | null, capture: boolean): void
     vfunc_dispatch_event(event: DomEvent): boolean
@@ -24048,7 +24048,7 @@ export class GomXsdComplexType {
     vfunc_set_node_value(value?: string | null): void
     vfunc_get_text_content(): string | null
     vfunc_set_text_content(value?: string | null): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -24056,7 +24056,7 @@ export class GomXsdComplexType {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: GomXsdComplexType, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: GomXsdComplexType, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -24099,18 +24099,18 @@ export interface GomXsdExtension_ConstructProps extends GomElement_ConstructProp
     base?: string
 }
 export class GomXsdExtension {
-    /* Properties of GXml.GomXsdExtension */
+    /* Properties of GXml-0.14.GXml.GomXsdExtension */
     base: string
-    /* Properties of GXml.GomElement */
+    /* Properties of GXml-0.14.GXml.GomElement */
     parse_children: boolean
     unparsed: string
-    /* Fields of GXml.GomXsdExtension */
+    /* Fields of GXml-0.14.GXml.GomXsdExtension */
     parent_instance: GomElement
     priv: GomXsdExtensionPrivate
-    /* Fields of GXml.GomElement */
+    /* Fields of GXml-0.14.GXml.GomElement */
     _attributes: GomElementAttributes
     _namespace_uri: string
-    /* Fields of GXml.GomNode */
+    /* Fields of GXml-0.14.GXml.GomNode */
     _local_name: string
     _prefix: string
     _base_uri: string
@@ -24119,12 +24119,12 @@ export class GomXsdExtension {
     _node_type: DomNodeNodeType
     _child_nodes: GomNodeList
     _document: DomDocument
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GXml.GomXsdExtension */
+    /* Methods of GXml-0.14.GXml.GomXsdExtension */
     get_base(): string
     set_base(value: string): void
-    /* Methods of GXml.GomElement */
+    /* Methods of GXml-0.14.GXml.GomElement */
     read_from_uri(uri: string): void
     read_from_file(f: Gio.File, cancellable?: Gio.Cancellable | null): void
     read_from_stream(istream: Gio.InputStream, cancellable?: Gio.Cancellable | null): void
@@ -24144,7 +24144,7 @@ export class GomXsdExtension {
     set_parse_children(value: boolean): void
     get_unparsed(): string
     set_unparsed(value: string): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -24166,12 +24166,12 @@ export class GomXsdExtension {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GXml.GomXsdExtension */
+    /* Virtual methods of GXml-0.14.GXml.GomXsdExtension */
     vfunc_set_attribute(name: string, value: string): void
     vfunc_set_attribute(name: string, val: string): boolean
     vfunc_remove_attribute(name: string): void
     vfunc_remove_attribute(name: string): boolean
-    /* Virtual methods of GXml.GomElement */
+    /* Virtual methods of GXml-0.14.GXml.GomElement */
     vfunc_remove(): void
     vfunc_get_previous_element_sibling(): DomElement | null
     vfunc_get_next_element_sibling(): DomElement | null
@@ -24214,7 +24214,7 @@ export class GomXsdExtension {
     vfunc_find_elements(name: string): DomElementList
     vfunc_set_instance_property(name: string): boolean
     vfunc_clean_property_elements(name: string): void
-    /* Virtual methods of GXml.GomNode */
+    /* Virtual methods of GXml-0.14.GXml.GomNode */
     vfunc_add_event_listener(type: string, callback: DomEventListener | null, capture: boolean): void
     vfunc_remove_event_listener(type: string, callback: DomEventListener | null, capture: boolean): void
     vfunc_dispatch_event(event: DomEvent): boolean
@@ -24247,7 +24247,7 @@ export class GomXsdExtension {
     vfunc_set_node_value(value?: string | null): void
     vfunc_get_text_content(): string | null
     vfunc_set_text_content(value?: string | null): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -24255,7 +24255,7 @@ export class GomXsdExtension {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: GomXsdExtension, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: GomXsdExtension, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -24296,7 +24296,7 @@ export interface GomXsdElement_ConstructProps extends GomElement_ConstructProps 
     complex_type?: GomXsdComplexType
 }
 export class GomXsdElement {
-    /* Properties of GXml.GomXsdElement */
+    /* Properties of GXml-0.14.GXml.GomXsdElement */
     abstract: boolean
     block: string
     "default": string
@@ -24314,16 +24314,16 @@ export class GomXsdElement {
     anotation: GomXsdAnnotation
     simple_type: GomXsdSimpleType
     complex_type: GomXsdComplexType
-    /* Properties of GXml.GomElement */
+    /* Properties of GXml-0.14.GXml.GomElement */
     parse_children: boolean
     unparsed: string
-    /* Fields of GXml.GomXsdElement */
+    /* Fields of GXml-0.14.GXml.GomXsdElement */
     parent_instance: GomElement
     priv: GomXsdElementPrivate
-    /* Fields of GXml.GomElement */
+    /* Fields of GXml-0.14.GXml.GomElement */
     _attributes: GomElementAttributes
     _namespace_uri: string
-    /* Fields of GXml.GomNode */
+    /* Fields of GXml-0.14.GXml.GomNode */
     _local_name: string
     _prefix: string
     _base_uri: string
@@ -24332,9 +24332,9 @@ export class GomXsdElement {
     _node_type: DomNodeNodeType
     _child_nodes: GomNodeList
     _document: DomDocument
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GXml.GomXsdElement */
+    /* Methods of GXml-0.14.GXml.GomXsdElement */
     get_abstract(): boolean
     set_abstract(value: boolean): void
     get_block(): string
@@ -24369,7 +24369,7 @@ export class GomXsdElement {
     set_simple_type(value: GomXsdSimpleType): void
     get_complex_type(): GomXsdComplexType
     set_complex_type(value: GomXsdComplexType): void
-    /* Methods of GXml.GomElement */
+    /* Methods of GXml-0.14.GXml.GomElement */
     read_from_uri(uri: string): void
     read_from_file(f: Gio.File, cancellable?: Gio.Cancellable | null): void
     read_from_stream(istream: Gio.InputStream, cancellable?: Gio.Cancellable | null): void
@@ -24389,7 +24389,7 @@ export class GomXsdElement {
     set_parse_children(value: boolean): void
     get_unparsed(): string
     set_unparsed(value: string): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -24410,12 +24410,12 @@ export class GomXsdElement {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GXml.GomXsdElement */
+    /* Virtual methods of GXml-0.14.GXml.GomXsdElement */
     vfunc_set_attribute(name: string, value: string): void
     vfunc_set_attribute(name: string, val: string): boolean
     vfunc_remove_attribute(name: string): void
     vfunc_remove_attribute(name: string): boolean
-    /* Virtual methods of GXml.GomElement */
+    /* Virtual methods of GXml-0.14.GXml.GomElement */
     vfunc_remove(): void
     vfunc_get_previous_element_sibling(): DomElement | null
     vfunc_get_next_element_sibling(): DomElement | null
@@ -24458,7 +24458,7 @@ export class GomXsdElement {
     vfunc_find_elements(name: string): DomElementList
     vfunc_set_instance_property(name: string): boolean
     vfunc_clean_property_elements(name: string): void
-    /* Virtual methods of GXml.GomNode */
+    /* Virtual methods of GXml-0.14.GXml.GomNode */
     vfunc_add_event_listener(type: string, callback: DomEventListener | null, capture: boolean): void
     vfunc_remove_event_listener(type: string, callback: DomEventListener | null, capture: boolean): void
     vfunc_dispatch_event(event: DomEvent): boolean
@@ -24491,7 +24491,7 @@ export class GomXsdElement {
     vfunc_set_node_value(value?: string | null): void
     vfunc_get_text_content(): string | null
     vfunc_set_text_content(value?: string | null): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -24499,7 +24499,7 @@ export class GomXsdElement {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: GomXsdElement, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: GomXsdElement, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -24555,16 +24555,16 @@ export class GomXsdElement {
 export interface GomXsdAnnotation_ConstructProps extends GomElement_ConstructProps {
 }
 export class GomXsdAnnotation {
-    /* Properties of GXml.GomElement */
+    /* Properties of GXml-0.14.GXml.GomElement */
     parse_children: boolean
     unparsed: string
-    /* Fields of GXml.GomXsdAnnotation */
+    /* Fields of GXml-0.14.GXml.GomXsdAnnotation */
     parent_instance: GomElement
     priv: GomXsdAnnotationPrivate
-    /* Fields of GXml.GomElement */
+    /* Fields of GXml-0.14.GXml.GomElement */
     _attributes: GomElementAttributes
     _namespace_uri: string
-    /* Fields of GXml.GomNode */
+    /* Fields of GXml-0.14.GXml.GomNode */
     _local_name: string
     _prefix: string
     _base_uri: string
@@ -24573,9 +24573,9 @@ export class GomXsdAnnotation {
     _node_type: DomNodeNodeType
     _child_nodes: GomNodeList
     _document: DomDocument
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GXml.GomElement */
+    /* Methods of GXml-0.14.GXml.GomElement */
     read_from_uri(uri: string): void
     read_from_file(f: Gio.File, cancellable?: Gio.Cancellable | null): void
     read_from_stream(istream: Gio.InputStream, cancellable?: Gio.Cancellable | null): void
@@ -24595,7 +24595,7 @@ export class GomXsdAnnotation {
     set_parse_children(value: boolean): void
     get_unparsed(): string
     set_unparsed(value: string): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -24617,12 +24617,12 @@ export class GomXsdAnnotation {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GXml.GomXsdAnnotation */
+    /* Virtual methods of GXml-0.14.GXml.GomXsdAnnotation */
     vfunc_set_attribute(name: string, value: string): void
     vfunc_set_attribute(name: string, val: string): boolean
     vfunc_remove_attribute(name: string): void
     vfunc_remove_attribute(name: string): boolean
-    /* Virtual methods of GXml.GomElement */
+    /* Virtual methods of GXml-0.14.GXml.GomElement */
     vfunc_remove(): void
     vfunc_get_previous_element_sibling(): DomElement | null
     vfunc_get_next_element_sibling(): DomElement | null
@@ -24665,7 +24665,7 @@ export class GomXsdAnnotation {
     vfunc_find_elements(name: string): DomElementList
     vfunc_set_instance_property(name: string): boolean
     vfunc_clean_property_elements(name: string): void
-    /* Virtual methods of GXml.GomNode */
+    /* Virtual methods of GXml-0.14.GXml.GomNode */
     vfunc_add_event_listener(type: string, callback: DomEventListener | null, capture: boolean): void
     vfunc_remove_event_listener(type: string, callback: DomEventListener | null, capture: boolean): void
     vfunc_dispatch_event(event: DomEvent): boolean
@@ -24698,7 +24698,7 @@ export class GomXsdAnnotation {
     vfunc_set_node_value(value?: string | null): void
     vfunc_get_text_content(): string | null
     vfunc_set_text_content(value?: string | null): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -24706,7 +24706,7 @@ export class GomXsdAnnotation {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: GomXsdAnnotation, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: GomXsdAnnotation, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -24729,18 +24729,18 @@ export interface GomXsdBaseType_ConstructProps extends GomElement_ConstructProps
     anotation?: GomXsdAnnotation
 }
 export class GomXsdBaseType {
-    /* Properties of GXml.GomXsdBaseType */
+    /* Properties of GXml-0.14.GXml.GomXsdBaseType */
     anotation: GomXsdAnnotation
-    /* Properties of GXml.GomElement */
+    /* Properties of GXml-0.14.GXml.GomElement */
     parse_children: boolean
     unparsed: string
-    /* Fields of GXml.GomXsdBaseType */
+    /* Fields of GXml-0.14.GXml.GomXsdBaseType */
     parent_instance: GomElement
     priv: GomXsdBaseTypePrivate
-    /* Fields of GXml.GomElement */
+    /* Fields of GXml-0.14.GXml.GomElement */
     _attributes: GomElementAttributes
     _namespace_uri: string
-    /* Fields of GXml.GomNode */
+    /* Fields of GXml-0.14.GXml.GomNode */
     _local_name: string
     _prefix: string
     _base_uri: string
@@ -24749,12 +24749,12 @@ export class GomXsdBaseType {
     _node_type: DomNodeNodeType
     _child_nodes: GomNodeList
     _document: DomDocument
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GXml.GomXsdBaseType */
+    /* Methods of GXml-0.14.GXml.GomXsdBaseType */
     get_anotation(): GomXsdAnnotation
     set_anotation(value: GomXsdAnnotation): void
-    /* Methods of GXml.GomElement */
+    /* Methods of GXml-0.14.GXml.GomElement */
     read_from_uri(uri: string): void
     read_from_file(f: Gio.File, cancellable?: Gio.Cancellable | null): void
     read_from_stream(istream: Gio.InputStream, cancellable?: Gio.Cancellable | null): void
@@ -24774,7 +24774,7 @@ export class GomXsdBaseType {
     set_parse_children(value: boolean): void
     get_unparsed(): string
     set_unparsed(value: string): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -24796,12 +24796,12 @@ export class GomXsdBaseType {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GXml.GomXsdBaseType */
+    /* Virtual methods of GXml-0.14.GXml.GomXsdBaseType */
     vfunc_set_attribute(name: string, value: string): void
     vfunc_set_attribute(name: string, val: string): boolean
     vfunc_remove_attribute(name: string): void
     vfunc_remove_attribute(name: string): boolean
-    /* Virtual methods of GXml.GomElement */
+    /* Virtual methods of GXml-0.14.GXml.GomElement */
     vfunc_remove(): void
     vfunc_get_previous_element_sibling(): DomElement | null
     vfunc_get_next_element_sibling(): DomElement | null
@@ -24844,7 +24844,7 @@ export class GomXsdBaseType {
     vfunc_find_elements(name: string): DomElementList
     vfunc_set_instance_property(name: string): boolean
     vfunc_clean_property_elements(name: string): void
-    /* Virtual methods of GXml.GomNode */
+    /* Virtual methods of GXml-0.14.GXml.GomNode */
     vfunc_add_event_listener(type: string, callback: DomEventListener | null, capture: boolean): void
     vfunc_remove_event_listener(type: string, callback: DomEventListener | null, capture: boolean): void
     vfunc_dispatch_event(event: DomEvent): boolean
@@ -24877,7 +24877,7 @@ export class GomXsdBaseType {
     vfunc_set_node_value(value?: string | null): void
     vfunc_get_text_content(): string | null
     vfunc_set_text_content(value?: string | null): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -24885,7 +24885,7 @@ export class GomXsdBaseType {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: GomXsdBaseType, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: GomXsdBaseType, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -24910,18 +24910,18 @@ export interface GomXsdBaseContent_ConstructProps extends GomElement_ConstructPr
     anotation?: GomXsdAnnotation
 }
 export class GomXsdBaseContent {
-    /* Properties of GXml.GomXsdBaseContent */
+    /* Properties of GXml-0.14.GXml.GomXsdBaseContent */
     anotation: GomXsdAnnotation
-    /* Properties of GXml.GomElement */
+    /* Properties of GXml-0.14.GXml.GomElement */
     parse_children: boolean
     unparsed: string
-    /* Fields of GXml.GomXsdBaseContent */
+    /* Fields of GXml-0.14.GXml.GomXsdBaseContent */
     parent_instance: GomElement
     priv: GomXsdBaseContentPrivate
-    /* Fields of GXml.GomElement */
+    /* Fields of GXml-0.14.GXml.GomElement */
     _attributes: GomElementAttributes
     _namespace_uri: string
-    /* Fields of GXml.GomNode */
+    /* Fields of GXml-0.14.GXml.GomNode */
     _local_name: string
     _prefix: string
     _base_uri: string
@@ -24930,12 +24930,12 @@ export class GomXsdBaseContent {
     _node_type: DomNodeNodeType
     _child_nodes: GomNodeList
     _document: DomDocument
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GXml.GomXsdBaseContent */
+    /* Methods of GXml-0.14.GXml.GomXsdBaseContent */
     get_anotation(): GomXsdAnnotation
     set_anotation(value: GomXsdAnnotation): void
-    /* Methods of GXml.GomElement */
+    /* Methods of GXml-0.14.GXml.GomElement */
     read_from_uri(uri: string): void
     read_from_file(f: Gio.File, cancellable?: Gio.Cancellable | null): void
     read_from_stream(istream: Gio.InputStream, cancellable?: Gio.Cancellable | null): void
@@ -24955,7 +24955,7 @@ export class GomXsdBaseContent {
     set_parse_children(value: boolean): void
     get_unparsed(): string
     set_unparsed(value: string): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -24977,12 +24977,12 @@ export class GomXsdBaseContent {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GXml.GomXsdBaseContent */
+    /* Virtual methods of GXml-0.14.GXml.GomXsdBaseContent */
     vfunc_set_attribute(name: string, value: string): void
     vfunc_set_attribute(name: string, val: string): boolean
     vfunc_remove_attribute(name: string): void
     vfunc_remove_attribute(name: string): boolean
-    /* Virtual methods of GXml.GomElement */
+    /* Virtual methods of GXml-0.14.GXml.GomElement */
     vfunc_remove(): void
     vfunc_get_previous_element_sibling(): DomElement | null
     vfunc_get_next_element_sibling(): DomElement | null
@@ -25025,7 +25025,7 @@ export class GomXsdBaseContent {
     vfunc_find_elements(name: string): DomElementList
     vfunc_set_instance_property(name: string): boolean
     vfunc_clean_property_elements(name: string): void
-    /* Virtual methods of GXml.GomNode */
+    /* Virtual methods of GXml-0.14.GXml.GomNode */
     vfunc_add_event_listener(type: string, callback: DomEventListener | null, capture: boolean): void
     vfunc_remove_event_listener(type: string, callback: DomEventListener | null, capture: boolean): void
     vfunc_dispatch_event(event: DomEvent): boolean
@@ -25058,7 +25058,7 @@ export class GomXsdBaseContent {
     vfunc_set_node_value(value?: string | null): void
     vfunc_get_text_content(): string | null
     vfunc_set_text_content(value?: string | null): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -25066,7 +25066,7 @@ export class GomXsdBaseContent {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: GomXsdBaseContent, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: GomXsdBaseContent, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -25090,18 +25090,18 @@ export class GomXsdBaseContent {
 export interface GomXsdSimpleContent_ConstructProps extends GomXsdBaseContent_ConstructProps {
 }
 export class GomXsdSimpleContent {
-    /* Properties of GXml.GomXsdBaseContent */
+    /* Properties of GXml-0.14.GXml.GomXsdBaseContent */
     anotation: GomXsdAnnotation
-    /* Properties of GXml.GomElement */
+    /* Properties of GXml-0.14.GXml.GomElement */
     parse_children: boolean
     unparsed: string
-    /* Fields of GXml.GomXsdSimpleContent */
+    /* Fields of GXml-0.14.GXml.GomXsdSimpleContent */
     parent_instance: GomXsdBaseContent
     priv: GomXsdSimpleContentPrivate
-    /* Fields of GXml.GomElement */
+    /* Fields of GXml-0.14.GXml.GomElement */
     _attributes: GomElementAttributes
     _namespace_uri: string
-    /* Fields of GXml.GomNode */
+    /* Fields of GXml-0.14.GXml.GomNode */
     _local_name: string
     _prefix: string
     _base_uri: string
@@ -25110,12 +25110,12 @@ export class GomXsdSimpleContent {
     _node_type: DomNodeNodeType
     _child_nodes: GomNodeList
     _document: DomDocument
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GXml.GomXsdBaseContent */
+    /* Methods of GXml-0.14.GXml.GomXsdBaseContent */
     get_anotation(): GomXsdAnnotation
     set_anotation(value: GomXsdAnnotation): void
-    /* Methods of GXml.GomElement */
+    /* Methods of GXml-0.14.GXml.GomElement */
     read_from_uri(uri: string): void
     read_from_file(f: Gio.File, cancellable?: Gio.Cancellable | null): void
     read_from_stream(istream: Gio.InputStream, cancellable?: Gio.Cancellable | null): void
@@ -25135,7 +25135,7 @@ export class GomXsdSimpleContent {
     set_parse_children(value: boolean): void
     get_unparsed(): string
     set_unparsed(value: string): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -25157,17 +25157,17 @@ export class GomXsdSimpleContent {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GXml.GomXsdSimpleContent */
+    /* Virtual methods of GXml-0.14.GXml.GomXsdSimpleContent */
     vfunc_set_attribute(name: string, value: string): void
     vfunc_set_attribute(name: string, val: string): boolean
     vfunc_remove_attribute(name: string): void
     vfunc_remove_attribute(name: string): boolean
-    /* Virtual methods of GXml.GomXsdBaseContent */
+    /* Virtual methods of GXml-0.14.GXml.GomXsdBaseContent */
     vfunc_set_attribute(name: string, value: string): void
     vfunc_set_attribute(name: string, val: string): boolean
     vfunc_remove_attribute(name: string): void
     vfunc_remove_attribute(name: string): boolean
-    /* Virtual methods of GXml.GomElement */
+    /* Virtual methods of GXml-0.14.GXml.GomElement */
     vfunc_remove(): void
     vfunc_get_previous_element_sibling(): DomElement | null
     vfunc_get_next_element_sibling(): DomElement | null
@@ -25210,7 +25210,7 @@ export class GomXsdSimpleContent {
     vfunc_find_elements(name: string): DomElementList
     vfunc_set_instance_property(name: string): boolean
     vfunc_clean_property_elements(name: string): void
-    /* Virtual methods of GXml.GomNode */
+    /* Virtual methods of GXml-0.14.GXml.GomNode */
     vfunc_add_event_listener(type: string, callback: DomEventListener | null, capture: boolean): void
     vfunc_remove_event_listener(type: string, callback: DomEventListener | null, capture: boolean): void
     vfunc_dispatch_event(event: DomEvent): boolean
@@ -25243,7 +25243,7 @@ export class GomXsdSimpleContent {
     vfunc_set_node_value(value?: string | null): void
     vfunc_get_text_content(): string | null
     vfunc_set_text_content(value?: string | null): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -25251,7 +25251,7 @@ export class GomXsdSimpleContent {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: GomXsdSimpleContent, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: GomXsdSimpleContent, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -25275,18 +25275,18 @@ export class GomXsdSimpleContent {
 export interface GomXsdComplexContent_ConstructProps extends GomXsdBaseContent_ConstructProps {
 }
 export class GomXsdComplexContent {
-    /* Properties of GXml.GomXsdBaseContent */
+    /* Properties of GXml-0.14.GXml.GomXsdBaseContent */
     anotation: GomXsdAnnotation
-    /* Properties of GXml.GomElement */
+    /* Properties of GXml-0.14.GXml.GomElement */
     parse_children: boolean
     unparsed: string
-    /* Fields of GXml.GomXsdComplexContent */
+    /* Fields of GXml-0.14.GXml.GomXsdComplexContent */
     parent_instance: GomXsdBaseContent
     priv: GomXsdComplexContentPrivate
-    /* Fields of GXml.GomElement */
+    /* Fields of GXml-0.14.GXml.GomElement */
     _attributes: GomElementAttributes
     _namespace_uri: string
-    /* Fields of GXml.GomNode */
+    /* Fields of GXml-0.14.GXml.GomNode */
     _local_name: string
     _prefix: string
     _base_uri: string
@@ -25295,12 +25295,12 @@ export class GomXsdComplexContent {
     _node_type: DomNodeNodeType
     _child_nodes: GomNodeList
     _document: DomDocument
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GXml.GomXsdBaseContent */
+    /* Methods of GXml-0.14.GXml.GomXsdBaseContent */
     get_anotation(): GomXsdAnnotation
     set_anotation(value: GomXsdAnnotation): void
-    /* Methods of GXml.GomElement */
+    /* Methods of GXml-0.14.GXml.GomElement */
     read_from_uri(uri: string): void
     read_from_file(f: Gio.File, cancellable?: Gio.Cancellable | null): void
     read_from_stream(istream: Gio.InputStream, cancellable?: Gio.Cancellable | null): void
@@ -25320,7 +25320,7 @@ export class GomXsdComplexContent {
     set_parse_children(value: boolean): void
     get_unparsed(): string
     set_unparsed(value: string): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -25342,17 +25342,17 @@ export class GomXsdComplexContent {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GXml.GomXsdComplexContent */
+    /* Virtual methods of GXml-0.14.GXml.GomXsdComplexContent */
     vfunc_set_attribute(name: string, value: string): void
     vfunc_set_attribute(name: string, val: string): boolean
     vfunc_remove_attribute(name: string): void
     vfunc_remove_attribute(name: string): boolean
-    /* Virtual methods of GXml.GomXsdBaseContent */
+    /* Virtual methods of GXml-0.14.GXml.GomXsdBaseContent */
     vfunc_set_attribute(name: string, value: string): void
     vfunc_set_attribute(name: string, val: string): boolean
     vfunc_remove_attribute(name: string): void
     vfunc_remove_attribute(name: string): boolean
-    /* Virtual methods of GXml.GomElement */
+    /* Virtual methods of GXml-0.14.GXml.GomElement */
     vfunc_remove(): void
     vfunc_get_previous_element_sibling(): DomElement | null
     vfunc_get_next_element_sibling(): DomElement | null
@@ -25395,7 +25395,7 @@ export class GomXsdComplexContent {
     vfunc_find_elements(name: string): DomElementList
     vfunc_set_instance_property(name: string): boolean
     vfunc_clean_property_elements(name: string): void
-    /* Virtual methods of GXml.GomNode */
+    /* Virtual methods of GXml-0.14.GXml.GomNode */
     vfunc_add_event_listener(type: string, callback: DomEventListener | null, capture: boolean): void
     vfunc_remove_event_listener(type: string, callback: DomEventListener | null, capture: boolean): void
     vfunc_dispatch_event(event: DomEvent): boolean
@@ -25428,7 +25428,7 @@ export class GomXsdComplexContent {
     vfunc_set_node_value(value?: string | null): void
     vfunc_get_text_content(): string | null
     vfunc_set_text_content(value?: string | null): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -25436,7 +25436,7 @@ export class GomXsdComplexContent {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: GomXsdComplexContent, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: GomXsdComplexContent, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -25460,18 +25460,18 @@ export class GomXsdComplexContent {
 export interface GomXsdOpenContent_ConstructProps extends GomXsdBaseContent_ConstructProps {
 }
 export class GomXsdOpenContent {
-    /* Properties of GXml.GomXsdBaseContent */
+    /* Properties of GXml-0.14.GXml.GomXsdBaseContent */
     anotation: GomXsdAnnotation
-    /* Properties of GXml.GomElement */
+    /* Properties of GXml-0.14.GXml.GomElement */
     parse_children: boolean
     unparsed: string
-    /* Fields of GXml.GomXsdOpenContent */
+    /* Fields of GXml-0.14.GXml.GomXsdOpenContent */
     parent_instance: GomXsdBaseContent
     priv: GomXsdOpenContentPrivate
-    /* Fields of GXml.GomElement */
+    /* Fields of GXml-0.14.GXml.GomElement */
     _attributes: GomElementAttributes
     _namespace_uri: string
-    /* Fields of GXml.GomNode */
+    /* Fields of GXml-0.14.GXml.GomNode */
     _local_name: string
     _prefix: string
     _base_uri: string
@@ -25480,12 +25480,12 @@ export class GomXsdOpenContent {
     _node_type: DomNodeNodeType
     _child_nodes: GomNodeList
     _document: DomDocument
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GXml.GomXsdBaseContent */
+    /* Methods of GXml-0.14.GXml.GomXsdBaseContent */
     get_anotation(): GomXsdAnnotation
     set_anotation(value: GomXsdAnnotation): void
-    /* Methods of GXml.GomElement */
+    /* Methods of GXml-0.14.GXml.GomElement */
     read_from_uri(uri: string): void
     read_from_file(f: Gio.File, cancellable?: Gio.Cancellable | null): void
     read_from_stream(istream: Gio.InputStream, cancellable?: Gio.Cancellable | null): void
@@ -25505,7 +25505,7 @@ export class GomXsdOpenContent {
     set_parse_children(value: boolean): void
     get_unparsed(): string
     set_unparsed(value: string): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -25527,17 +25527,17 @@ export class GomXsdOpenContent {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GXml.GomXsdOpenContent */
+    /* Virtual methods of GXml-0.14.GXml.GomXsdOpenContent */
     vfunc_set_attribute(name: string, value: string): void
     vfunc_set_attribute(name: string, val: string): boolean
     vfunc_remove_attribute(name: string): void
     vfunc_remove_attribute(name: string): boolean
-    /* Virtual methods of GXml.GomXsdBaseContent */
+    /* Virtual methods of GXml-0.14.GXml.GomXsdBaseContent */
     vfunc_set_attribute(name: string, value: string): void
     vfunc_set_attribute(name: string, val: string): boolean
     vfunc_remove_attribute(name: string): void
     vfunc_remove_attribute(name: string): boolean
-    /* Virtual methods of GXml.GomElement */
+    /* Virtual methods of GXml-0.14.GXml.GomElement */
     vfunc_remove(): void
     vfunc_get_previous_element_sibling(): DomElement | null
     vfunc_get_next_element_sibling(): DomElement | null
@@ -25580,7 +25580,7 @@ export class GomXsdOpenContent {
     vfunc_find_elements(name: string): DomElementList
     vfunc_set_instance_property(name: string): boolean
     vfunc_clean_property_elements(name: string): void
-    /* Virtual methods of GXml.GomNode */
+    /* Virtual methods of GXml-0.14.GXml.GomNode */
     vfunc_add_event_listener(type: string, callback: DomEventListener | null, capture: boolean): void
     vfunc_remove_event_listener(type: string, callback: DomEventListener | null, capture: boolean): void
     vfunc_dispatch_event(event: DomEvent): boolean
@@ -25613,7 +25613,7 @@ export class GomXsdOpenContent {
     vfunc_set_node_value(value?: string | null): void
     vfunc_get_text_content(): string | null
     vfunc_set_text_content(value?: string | null): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -25621,7 +25621,7 @@ export class GomXsdOpenContent {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: GomXsdOpenContent, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: GomXsdOpenContent, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -25646,18 +25646,18 @@ export interface GomXsdBaseAttribute_ConstructProps extends GomElement_Construct
     anotation?: GomXsdAnnotation
 }
 export class GomXsdBaseAttribute {
-    /* Properties of GXml.GomXsdBaseAttribute */
+    /* Properties of GXml-0.14.GXml.GomXsdBaseAttribute */
     anotation: GomXsdAnnotation
-    /* Properties of GXml.GomElement */
+    /* Properties of GXml-0.14.GXml.GomElement */
     parse_children: boolean
     unparsed: string
-    /* Fields of GXml.GomXsdBaseAttribute */
+    /* Fields of GXml-0.14.GXml.GomXsdBaseAttribute */
     parent_instance: GomElement
     priv: GomXsdBaseAttributePrivate
-    /* Fields of GXml.GomElement */
+    /* Fields of GXml-0.14.GXml.GomElement */
     _attributes: GomElementAttributes
     _namespace_uri: string
-    /* Fields of GXml.GomNode */
+    /* Fields of GXml-0.14.GXml.GomNode */
     _local_name: string
     _prefix: string
     _base_uri: string
@@ -25666,12 +25666,12 @@ export class GomXsdBaseAttribute {
     _node_type: DomNodeNodeType
     _child_nodes: GomNodeList
     _document: DomDocument
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GXml.GomXsdBaseAttribute */
+    /* Methods of GXml-0.14.GXml.GomXsdBaseAttribute */
     get_anotation(): GomXsdAnnotation
     set_anotation(value: GomXsdAnnotation): void
-    /* Methods of GXml.GomElement */
+    /* Methods of GXml-0.14.GXml.GomElement */
     read_from_uri(uri: string): void
     read_from_file(f: Gio.File, cancellable?: Gio.Cancellable | null): void
     read_from_stream(istream: Gio.InputStream, cancellable?: Gio.Cancellable | null): void
@@ -25691,7 +25691,7 @@ export class GomXsdBaseAttribute {
     set_parse_children(value: boolean): void
     get_unparsed(): string
     set_unparsed(value: string): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -25713,12 +25713,12 @@ export class GomXsdBaseAttribute {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GXml.GomXsdBaseAttribute */
+    /* Virtual methods of GXml-0.14.GXml.GomXsdBaseAttribute */
     vfunc_set_attribute(name: string, value: string): void
     vfunc_set_attribute(name: string, val: string): boolean
     vfunc_remove_attribute(name: string): void
     vfunc_remove_attribute(name: string): boolean
-    /* Virtual methods of GXml.GomElement */
+    /* Virtual methods of GXml-0.14.GXml.GomElement */
     vfunc_remove(): void
     vfunc_get_previous_element_sibling(): DomElement | null
     vfunc_get_next_element_sibling(): DomElement | null
@@ -25761,7 +25761,7 @@ export class GomXsdBaseAttribute {
     vfunc_find_elements(name: string): DomElementList
     vfunc_set_instance_property(name: string): boolean
     vfunc_clean_property_elements(name: string): void
-    /* Virtual methods of GXml.GomNode */
+    /* Virtual methods of GXml-0.14.GXml.GomNode */
     vfunc_add_event_listener(type: string, callback: DomEventListener | null, capture: boolean): void
     vfunc_remove_event_listener(type: string, callback: DomEventListener | null, capture: boolean): void
     vfunc_dispatch_event(event: DomEvent): boolean
@@ -25794,7 +25794,7 @@ export class GomXsdBaseAttribute {
     vfunc_set_node_value(value?: string | null): void
     vfunc_get_text_content(): string | null
     vfunc_set_text_content(value?: string | null): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -25802,7 +25802,7 @@ export class GomXsdBaseAttribute {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: GomXsdBaseAttribute, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: GomXsdBaseAttribute, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -25826,18 +25826,18 @@ export class GomXsdBaseAttribute {
 export interface GomXsdAttribute_ConstructProps extends GomXsdBaseAttribute_ConstructProps {
 }
 export class GomXsdAttribute {
-    /* Properties of GXml.GomXsdBaseAttribute */
+    /* Properties of GXml-0.14.GXml.GomXsdBaseAttribute */
     anotation: GomXsdAnnotation
-    /* Properties of GXml.GomElement */
+    /* Properties of GXml-0.14.GXml.GomElement */
     parse_children: boolean
     unparsed: string
-    /* Fields of GXml.GomXsdAttribute */
+    /* Fields of GXml-0.14.GXml.GomXsdAttribute */
     parent_instance: GomXsdBaseAttribute
     priv: GomXsdAttributePrivate
-    /* Fields of GXml.GomElement */
+    /* Fields of GXml-0.14.GXml.GomElement */
     _attributes: GomElementAttributes
     _namespace_uri: string
-    /* Fields of GXml.GomNode */
+    /* Fields of GXml-0.14.GXml.GomNode */
     _local_name: string
     _prefix: string
     _base_uri: string
@@ -25846,12 +25846,12 @@ export class GomXsdAttribute {
     _node_type: DomNodeNodeType
     _child_nodes: GomNodeList
     _document: DomDocument
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GXml.GomXsdBaseAttribute */
+    /* Methods of GXml-0.14.GXml.GomXsdBaseAttribute */
     get_anotation(): GomXsdAnnotation
     set_anotation(value: GomXsdAnnotation): void
-    /* Methods of GXml.GomElement */
+    /* Methods of GXml-0.14.GXml.GomElement */
     read_from_uri(uri: string): void
     read_from_file(f: Gio.File, cancellable?: Gio.Cancellable | null): void
     read_from_stream(istream: Gio.InputStream, cancellable?: Gio.Cancellable | null): void
@@ -25871,7 +25871,7 @@ export class GomXsdAttribute {
     set_parse_children(value: boolean): void
     get_unparsed(): string
     set_unparsed(value: string): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -25893,17 +25893,17 @@ export class GomXsdAttribute {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GXml.GomXsdAttribute */
+    /* Virtual methods of GXml-0.14.GXml.GomXsdAttribute */
     vfunc_set_attribute(name: string, value: string): void
     vfunc_set_attribute(name: string, val: string): boolean
     vfunc_remove_attribute(name: string): void
     vfunc_remove_attribute(name: string): boolean
-    /* Virtual methods of GXml.GomXsdBaseAttribute */
+    /* Virtual methods of GXml-0.14.GXml.GomXsdBaseAttribute */
     vfunc_set_attribute(name: string, value: string): void
     vfunc_set_attribute(name: string, val: string): boolean
     vfunc_remove_attribute(name: string): void
     vfunc_remove_attribute(name: string): boolean
-    /* Virtual methods of GXml.GomElement */
+    /* Virtual methods of GXml-0.14.GXml.GomElement */
     vfunc_remove(): void
     vfunc_get_previous_element_sibling(): DomElement | null
     vfunc_get_next_element_sibling(): DomElement | null
@@ -25946,7 +25946,7 @@ export class GomXsdAttribute {
     vfunc_find_elements(name: string): DomElementList
     vfunc_set_instance_property(name: string): boolean
     vfunc_clean_property_elements(name: string): void
-    /* Virtual methods of GXml.GomNode */
+    /* Virtual methods of GXml-0.14.GXml.GomNode */
     vfunc_add_event_listener(type: string, callback: DomEventListener | null, capture: boolean): void
     vfunc_remove_event_listener(type: string, callback: DomEventListener | null, capture: boolean): void
     vfunc_dispatch_event(event: DomEvent): boolean
@@ -25979,7 +25979,7 @@ export class GomXsdAttribute {
     vfunc_set_node_value(value?: string | null): void
     vfunc_get_text_content(): string | null
     vfunc_set_text_content(value?: string | null): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -25987,7 +25987,7 @@ export class GomXsdAttribute {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: GomXsdAttribute, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: GomXsdAttribute, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -26011,18 +26011,18 @@ export class GomXsdAttribute {
 export interface GomXsdAttributeGroup_ConstructProps extends GomXsdBaseAttribute_ConstructProps {
 }
 export class GomXsdAttributeGroup {
-    /* Properties of GXml.GomXsdBaseAttribute */
+    /* Properties of GXml-0.14.GXml.GomXsdBaseAttribute */
     anotation: GomXsdAnnotation
-    /* Properties of GXml.GomElement */
+    /* Properties of GXml-0.14.GXml.GomElement */
     parse_children: boolean
     unparsed: string
-    /* Fields of GXml.GomXsdAttributeGroup */
+    /* Fields of GXml-0.14.GXml.GomXsdAttributeGroup */
     parent_instance: GomXsdBaseAttribute
     priv: GomXsdAttributeGroupPrivate
-    /* Fields of GXml.GomElement */
+    /* Fields of GXml-0.14.GXml.GomElement */
     _attributes: GomElementAttributes
     _namespace_uri: string
-    /* Fields of GXml.GomNode */
+    /* Fields of GXml-0.14.GXml.GomNode */
     _local_name: string
     _prefix: string
     _base_uri: string
@@ -26031,12 +26031,12 @@ export class GomXsdAttributeGroup {
     _node_type: DomNodeNodeType
     _child_nodes: GomNodeList
     _document: DomDocument
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GXml.GomXsdBaseAttribute */
+    /* Methods of GXml-0.14.GXml.GomXsdBaseAttribute */
     get_anotation(): GomXsdAnnotation
     set_anotation(value: GomXsdAnnotation): void
-    /* Methods of GXml.GomElement */
+    /* Methods of GXml-0.14.GXml.GomElement */
     read_from_uri(uri: string): void
     read_from_file(f: Gio.File, cancellable?: Gio.Cancellable | null): void
     read_from_stream(istream: Gio.InputStream, cancellable?: Gio.Cancellable | null): void
@@ -26056,7 +26056,7 @@ export class GomXsdAttributeGroup {
     set_parse_children(value: boolean): void
     get_unparsed(): string
     set_unparsed(value: string): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -26078,17 +26078,17 @@ export class GomXsdAttributeGroup {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GXml.GomXsdAttributeGroup */
+    /* Virtual methods of GXml-0.14.GXml.GomXsdAttributeGroup */
     vfunc_set_attribute(name: string, value: string): void
     vfunc_set_attribute(name: string, val: string): boolean
     vfunc_remove_attribute(name: string): void
     vfunc_remove_attribute(name: string): boolean
-    /* Virtual methods of GXml.GomXsdBaseAttribute */
+    /* Virtual methods of GXml-0.14.GXml.GomXsdBaseAttribute */
     vfunc_set_attribute(name: string, value: string): void
     vfunc_set_attribute(name: string, val: string): boolean
     vfunc_remove_attribute(name: string): void
     vfunc_remove_attribute(name: string): boolean
-    /* Virtual methods of GXml.GomElement */
+    /* Virtual methods of GXml-0.14.GXml.GomElement */
     vfunc_remove(): void
     vfunc_get_previous_element_sibling(): DomElement | null
     vfunc_get_next_element_sibling(): DomElement | null
@@ -26131,7 +26131,7 @@ export class GomXsdAttributeGroup {
     vfunc_find_elements(name: string): DomElementList
     vfunc_set_instance_property(name: string): boolean
     vfunc_clean_property_elements(name: string): void
-    /* Virtual methods of GXml.GomNode */
+    /* Virtual methods of GXml-0.14.GXml.GomNode */
     vfunc_add_event_listener(type: string, callback: DomEventListener | null, capture: boolean): void
     vfunc_remove_event_listener(type: string, callback: DomEventListener | null, capture: boolean): void
     vfunc_dispatch_event(event: DomEvent): boolean
@@ -26164,7 +26164,7 @@ export class GomXsdAttributeGroup {
     vfunc_set_node_value(value?: string | null): void
     vfunc_get_text_content(): string | null
     vfunc_set_text_content(value?: string | null): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -26172,7 +26172,7 @@ export class GomXsdAttributeGroup {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: GomXsdAttributeGroup, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: GomXsdAttributeGroup, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -26196,28 +26196,28 @@ export class GomXsdAttributeGroup {
 export interface GomXsdList_ConstructProps extends GomArrayList_ConstructProps {
 }
 export class GomXsdList {
-    /* Properties of GXml.GomXsdList */
+    /* Properties of GXml-0.14.GXml.GomXsdList */
     readonly length: number
-    /* Properties of GXml.BaseCollection */
+    /* Properties of GXml-0.14.GXml.BaseCollection */
     readonly items_name: string
     items_type: GObject.Type
     readonly nodes_index: GLib.Queue
     element: GomElement
-    /* Fields of GXml.GomXsdList */
+    /* Fields of GXml-0.14.GXml.GomXsdList */
     parent_instance: GomArrayList
     priv: GomXsdListPrivate
-    /* Fields of GXml.BaseCollection */
+    /* Fields of GXml-0.14.GXml.BaseCollection */
     _nodes_index: GLib.Queue
     _element: GomElement
     _items_name: string
     _items_type: GObject.Type
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GXml.GomXsdList */
+    /* Methods of GXml-0.14.GXml.GomXsdList */
     remove(index: number): void
     index_of(element: DomElement): number
     get_length(): number
-    /* Methods of GXml.BaseCollection */
+    /* Methods of GXml-0.14.GXml.BaseCollection */
     initialize(items_type: GObject.Type): void
     initialize_element(e: GomElement): void
     append(node: DomElement): void
@@ -26229,7 +26229,7 @@ export class GomXsdList {
     get_nodes_index(): GLib.Queue
     get_element(): GomElement
     set_element(value: GomElement): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -26251,7 +26251,7 @@ export class GomXsdList {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GXml.GomArrayList */
+    /* Virtual methods of GXml-0.14.GXml.GomArrayList */
     vfunc_search(): void
     vfunc_get_item(index: number): DomElement | null
     vfunc_append(node: DomElement): void
@@ -26265,9 +26265,9 @@ export class GomXsdList {
     vfunc_get_items_type(): GObject.Type
     vfunc_set_items_type(value: GObject.Type): void
     vfunc_get_length(): number
-    /* Virtual methods of GXml.BaseCollection */
+    /* Virtual methods of GXml-0.14.GXml.BaseCollection */
     vfunc_validate_append(index: number, element: DomElement): boolean
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -26275,7 +26275,7 @@ export class GomXsdList {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: GomXsdList, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: GomXsdList, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -26303,28 +26303,28 @@ export class GomXsdList {
 export interface GomXsdListElements_ConstructProps extends GomXsdList_ConstructProps {
 }
 export class GomXsdListElements {
-    /* Properties of GXml.GomXsdList */
+    /* Properties of GXml-0.14.GXml.GomXsdList */
     readonly length: number
-    /* Properties of GXml.BaseCollection */
+    /* Properties of GXml-0.14.GXml.BaseCollection */
     readonly items_name: string
     items_type: GObject.Type
     readonly nodes_index: GLib.Queue
     element: GomElement
-    /* Fields of GXml.GomXsdListElements */
+    /* Fields of GXml-0.14.GXml.GomXsdListElements */
     parent_instance: GomXsdList
     priv: GomXsdListElementsPrivate
-    /* Fields of GXml.BaseCollection */
+    /* Fields of GXml-0.14.GXml.BaseCollection */
     _nodes_index: GLib.Queue
     _element: GomElement
     _items_name: string
     _items_type: GObject.Type
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GXml.GomXsdList */
+    /* Methods of GXml-0.14.GXml.GomXsdList */
     remove(index: number): void
     index_of(element: DomElement): number
     get_length(): number
-    /* Methods of GXml.BaseCollection */
+    /* Methods of GXml-0.14.GXml.BaseCollection */
     initialize(items_type: GObject.Type): void
     initialize_element(e: GomElement): void
     append(node: DomElement): void
@@ -26336,7 +26336,7 @@ export class GomXsdListElements {
     get_nodes_index(): GLib.Queue
     get_element(): GomElement
     set_element(value: GomElement): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -26358,7 +26358,7 @@ export class GomXsdListElements {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GXml.GomArrayList */
+    /* Virtual methods of GXml-0.14.GXml.GomArrayList */
     vfunc_search(): void
     vfunc_get_item(index: number): DomElement | null
     vfunc_append(node: DomElement): void
@@ -26372,9 +26372,9 @@ export class GomXsdListElements {
     vfunc_get_items_type(): GObject.Type
     vfunc_set_items_type(value: GObject.Type): void
     vfunc_get_length(): number
-    /* Virtual methods of GXml.BaseCollection */
+    /* Virtual methods of GXml-0.14.GXml.BaseCollection */
     vfunc_validate_append(index: number, element: DomElement): boolean
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -26382,7 +26382,7 @@ export class GomXsdListElements {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: GomXsdListElements, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: GomXsdListElements, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -26410,28 +26410,28 @@ export class GomXsdListElements {
 export interface GomXsdListSimpleTypes_ConstructProps extends GomXsdList_ConstructProps {
 }
 export class GomXsdListSimpleTypes {
-    /* Properties of GXml.GomXsdList */
+    /* Properties of GXml-0.14.GXml.GomXsdList */
     readonly length: number
-    /* Properties of GXml.BaseCollection */
+    /* Properties of GXml-0.14.GXml.BaseCollection */
     readonly items_name: string
     items_type: GObject.Type
     readonly nodes_index: GLib.Queue
     element: GomElement
-    /* Fields of GXml.GomXsdListSimpleTypes */
+    /* Fields of GXml-0.14.GXml.GomXsdListSimpleTypes */
     parent_instance: GomXsdList
     priv: GomXsdListSimpleTypesPrivate
-    /* Fields of GXml.BaseCollection */
+    /* Fields of GXml-0.14.GXml.BaseCollection */
     _nodes_index: GLib.Queue
     _element: GomElement
     _items_name: string
     _items_type: GObject.Type
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GXml.GomXsdList */
+    /* Methods of GXml-0.14.GXml.GomXsdList */
     remove(index: number): void
     index_of(element: DomElement): number
     get_length(): number
-    /* Methods of GXml.BaseCollection */
+    /* Methods of GXml-0.14.GXml.BaseCollection */
     initialize(items_type: GObject.Type): void
     initialize_element(e: GomElement): void
     append(node: DomElement): void
@@ -26443,7 +26443,7 @@ export class GomXsdListSimpleTypes {
     get_nodes_index(): GLib.Queue
     get_element(): GomElement
     set_element(value: GomElement): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -26465,7 +26465,7 @@ export class GomXsdListSimpleTypes {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GXml.GomArrayList */
+    /* Virtual methods of GXml-0.14.GXml.GomArrayList */
     vfunc_search(): void
     vfunc_get_item(index: number): DomElement | null
     vfunc_append(node: DomElement): void
@@ -26479,9 +26479,9 @@ export class GomXsdListSimpleTypes {
     vfunc_get_items_type(): GObject.Type
     vfunc_set_items_type(value: GObject.Type): void
     vfunc_get_length(): number
-    /* Virtual methods of GXml.BaseCollection */
+    /* Virtual methods of GXml-0.14.GXml.BaseCollection */
     vfunc_validate_append(index: number, element: DomElement): boolean
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -26489,7 +26489,7 @@ export class GomXsdListSimpleTypes {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: GomXsdListSimpleTypes, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: GomXsdListSimpleTypes, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -26517,28 +26517,28 @@ export class GomXsdListSimpleTypes {
 export interface GomXsdListComplexTypes_ConstructProps extends GomXsdList_ConstructProps {
 }
 export class GomXsdListComplexTypes {
-    /* Properties of GXml.GomXsdList */
+    /* Properties of GXml-0.14.GXml.GomXsdList */
     readonly length: number
-    /* Properties of GXml.BaseCollection */
+    /* Properties of GXml-0.14.GXml.BaseCollection */
     readonly items_name: string
     items_type: GObject.Type
     readonly nodes_index: GLib.Queue
     element: GomElement
-    /* Fields of GXml.GomXsdListComplexTypes */
+    /* Fields of GXml-0.14.GXml.GomXsdListComplexTypes */
     parent_instance: GomXsdList
     priv: GomXsdListComplexTypesPrivate
-    /* Fields of GXml.BaseCollection */
+    /* Fields of GXml-0.14.GXml.BaseCollection */
     _nodes_index: GLib.Queue
     _element: GomElement
     _items_name: string
     _items_type: GObject.Type
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GXml.GomXsdList */
+    /* Methods of GXml-0.14.GXml.GomXsdList */
     remove(index: number): void
     index_of(element: DomElement): number
     get_length(): number
-    /* Methods of GXml.BaseCollection */
+    /* Methods of GXml-0.14.GXml.BaseCollection */
     initialize(items_type: GObject.Type): void
     initialize_element(e: GomElement): void
     append(node: DomElement): void
@@ -26550,7 +26550,7 @@ export class GomXsdListComplexTypes {
     get_nodes_index(): GLib.Queue
     get_element(): GomElement
     set_element(value: GomElement): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -26572,7 +26572,7 @@ export class GomXsdListComplexTypes {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GXml.GomArrayList */
+    /* Virtual methods of GXml-0.14.GXml.GomArrayList */
     vfunc_search(): void
     vfunc_get_item(index: number): DomElement | null
     vfunc_append(node: DomElement): void
@@ -26586,9 +26586,9 @@ export class GomXsdListComplexTypes {
     vfunc_get_items_type(): GObject.Type
     vfunc_set_items_type(value: GObject.Type): void
     vfunc_get_length(): number
-    /* Virtual methods of GXml.BaseCollection */
+    /* Virtual methods of GXml-0.14.GXml.BaseCollection */
     vfunc_validate_append(index: number, element: DomElement): boolean
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -26596,7 +26596,7 @@ export class GomXsdListComplexTypes {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: GomXsdListComplexTypes, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: GomXsdListComplexTypes, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -26624,28 +26624,28 @@ export class GomXsdListComplexTypes {
 export interface GomXsdListTypeRestrictionEnumerations_ConstructProps extends GomXsdList_ConstructProps {
 }
 export class GomXsdListTypeRestrictionEnumerations {
-    /* Properties of GXml.GomXsdList */
+    /* Properties of GXml-0.14.GXml.GomXsdList */
     readonly length: number
-    /* Properties of GXml.BaseCollection */
+    /* Properties of GXml-0.14.GXml.BaseCollection */
     readonly items_name: string
     items_type: GObject.Type
     readonly nodes_index: GLib.Queue
     element: GomElement
-    /* Fields of GXml.GomXsdListTypeRestrictionEnumerations */
+    /* Fields of GXml-0.14.GXml.GomXsdListTypeRestrictionEnumerations */
     parent_instance: GomXsdList
     priv: GomXsdListTypeRestrictionEnumerationsPrivate
-    /* Fields of GXml.BaseCollection */
+    /* Fields of GXml-0.14.GXml.BaseCollection */
     _nodes_index: GLib.Queue
     _element: GomElement
     _items_name: string
     _items_type: GObject.Type
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GXml.GomXsdList */
+    /* Methods of GXml-0.14.GXml.GomXsdList */
     remove(index: number): void
     index_of(element: DomElement): number
     get_length(): number
-    /* Methods of GXml.BaseCollection */
+    /* Methods of GXml-0.14.GXml.BaseCollection */
     initialize(items_type: GObject.Type): void
     initialize_element(e: GomElement): void
     append(node: DomElement): void
@@ -26657,7 +26657,7 @@ export class GomXsdListTypeRestrictionEnumerations {
     get_nodes_index(): GLib.Queue
     get_element(): GomElement
     set_element(value: GomElement): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -26679,7 +26679,7 @@ export class GomXsdListTypeRestrictionEnumerations {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GXml.GomArrayList */
+    /* Virtual methods of GXml-0.14.GXml.GomArrayList */
     vfunc_search(): void
     vfunc_get_item(index: number): DomElement | null
     vfunc_append(node: DomElement): void
@@ -26693,9 +26693,9 @@ export class GomXsdListTypeRestrictionEnumerations {
     vfunc_get_items_type(): GObject.Type
     vfunc_set_items_type(value: GObject.Type): void
     vfunc_get_length(): number
-    /* Virtual methods of GXml.BaseCollection */
+    /* Virtual methods of GXml-0.14.GXml.BaseCollection */
     vfunc_validate_append(index: number, element: DomElement): boolean
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -26703,7 +26703,7 @@ export class GomXsdListTypeRestrictionEnumerations {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: GomXsdListTypeRestrictionEnumerations, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: GomXsdListTypeRestrictionEnumerations, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -26731,28 +26731,28 @@ export class GomXsdListTypeRestrictionEnumerations {
 export interface GomXsdListTypeRestrictionWhiteSpaces_ConstructProps extends GomXsdList_ConstructProps {
 }
 export class GomXsdListTypeRestrictionWhiteSpaces {
-    /* Properties of GXml.GomXsdList */
+    /* Properties of GXml-0.14.GXml.GomXsdList */
     readonly length: number
-    /* Properties of GXml.BaseCollection */
+    /* Properties of GXml-0.14.GXml.BaseCollection */
     readonly items_name: string
     items_type: GObject.Type
     readonly nodes_index: GLib.Queue
     element: GomElement
-    /* Fields of GXml.GomXsdListTypeRestrictionWhiteSpaces */
+    /* Fields of GXml-0.14.GXml.GomXsdListTypeRestrictionWhiteSpaces */
     parent_instance: GomXsdList
     priv: GomXsdListTypeRestrictionWhiteSpacesPrivate
-    /* Fields of GXml.BaseCollection */
+    /* Fields of GXml-0.14.GXml.BaseCollection */
     _nodes_index: GLib.Queue
     _element: GomElement
     _items_name: string
     _items_type: GObject.Type
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GXml.GomXsdList */
+    /* Methods of GXml-0.14.GXml.GomXsdList */
     remove(index: number): void
     index_of(element: DomElement): number
     get_length(): number
-    /* Methods of GXml.BaseCollection */
+    /* Methods of GXml-0.14.GXml.BaseCollection */
     initialize(items_type: GObject.Type): void
     initialize_element(e: GomElement): void
     append(node: DomElement): void
@@ -26764,7 +26764,7 @@ export class GomXsdListTypeRestrictionWhiteSpaces {
     get_nodes_index(): GLib.Queue
     get_element(): GomElement
     set_element(value: GomElement): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -26786,7 +26786,7 @@ export class GomXsdListTypeRestrictionWhiteSpaces {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GXml.GomArrayList */
+    /* Virtual methods of GXml-0.14.GXml.GomArrayList */
     vfunc_search(): void
     vfunc_get_item(index: number): DomElement | null
     vfunc_append(node: DomElement): void
@@ -26800,9 +26800,9 @@ export class GomXsdListTypeRestrictionWhiteSpaces {
     vfunc_get_items_type(): GObject.Type
     vfunc_set_items_type(value: GObject.Type): void
     vfunc_get_length(): number
-    /* Virtual methods of GXml.BaseCollection */
+    /* Virtual methods of GXml-0.14.GXml.BaseCollection */
     vfunc_validate_append(index: number, element: DomElement): boolean
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -26810,7 +26810,7 @@ export class GomXsdListTypeRestrictionWhiteSpaces {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: GomXsdListTypeRestrictionWhiteSpaces, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: GomXsdListTypeRestrictionWhiteSpaces, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -26836,7 +26836,7 @@ export class GomXsdListTypeRestrictionWhiteSpaces {
     static $gtype: GObject.Type
 }
 export abstract class ElementListClass {
-    /* Fields of GXml.ElementListClass */
+    /* Fields of GXml-0.14.GXml.ElementListClass */
     parent_class: Gee.ArrayListClass
     static name: string
 }
@@ -26844,7 +26844,7 @@ export class ElementListPrivate {
     static name: string
 }
 export abstract class NodeListClass {
-    /* Fields of GXml.NodeListClass */
+    /* Fields of GXml-0.14.GXml.NodeListClass */
     parent_class: Gee.ArrayListClass
     static name: string
 }
@@ -26852,7 +26852,7 @@ export class NodeListPrivate {
     static name: string
 }
 export abstract class SerializableBoolClass {
-    /* Fields of GXml.SerializableBoolClass */
+    /* Fields of GXml-0.14.GXml.SerializableBoolClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
@@ -26860,7 +26860,7 @@ export class SerializableBoolPrivate {
     static name: string
 }
 export abstract class SerializableDoubleClass {
-    /* Fields of GXml.SerializableDoubleClass */
+    /* Fields of GXml-0.14.GXml.SerializableDoubleClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
@@ -26868,7 +26868,7 @@ export class SerializableDoublePrivate {
     static name: string
 }
 export abstract class SerializableFloatClass {
-    /* Fields of GXml.SerializableFloatClass */
+    /* Fields of GXml-0.14.GXml.SerializableFloatClass */
     parent_class: SerializableDoubleClass
     static name: string
 }
@@ -26876,7 +26876,7 @@ export class SerializableFloatPrivate {
     static name: string
 }
 export abstract class SerializableEnumClass {
-    /* Fields of GXml.SerializableEnumClass */
+    /* Fields of GXml-0.14.GXml.SerializableEnumClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
@@ -26884,7 +26884,7 @@ export class SerializableEnumPrivate {
     static name: string
 }
 export abstract class SerializableIntClass {
-    /* Fields of GXml.SerializableIntClass */
+    /* Fields of GXml-0.14.GXml.SerializableIntClass */
     parent_class: SerializableDoubleClass
     static name: string
 }
@@ -26892,7 +26892,7 @@ export class SerializableIntPrivate {
     static name: string
 }
 export abstract class SerializableValueListClass {
-    /* Fields of GXml.SerializableValueListClass */
+    /* Fields of GXml-0.14.GXml.SerializableValueListClass */
     parent_class: GObject.ObjectClass
     get_values: (self: SerializableValueList) => Gee.List
     add_values: (self: SerializableValueList, vals: string[]) => void
@@ -26920,7 +26920,7 @@ export class Enumeration {
     static to_string_array(enumeration: GObject.Type): string[]
 }
 export abstract class SerializableObjectModelClass {
-    /* Fields of GXml.SerializableObjectModelClass */
+    /* Fields of GXml-0.14.GXml.SerializableObjectModelClass */
     parent_class: GObject.ObjectClass
     get_enable_unknown_serializable_property: (self: SerializableObjectModel) => boolean
     serialize_use_xml_node_value: (self: SerializableObjectModel) => boolean
@@ -26940,7 +26940,7 @@ export class SerializableObjectModelPrivate {
     static name: string
 }
 export abstract class SerializableTreeMapClass {
-    /* Fields of GXml.SerializableTreeMapClass */
+    /* Fields of GXml-0.14.GXml.SerializableTreeMapClass */
     parent_class: Gee.TreeMapClass
     deserialize_proceed: (self: SerializableTreeMap) => boolean
     deserialized: (self: SerializableTreeMap) => boolean
@@ -26962,7 +26962,7 @@ export class SerializableTreeMapPrivate {
     static name: string
 }
 export abstract class SerializableHashMapClass {
-    /* Fields of GXml.SerializableHashMapClass */
+    /* Fields of GXml-0.14.GXml.SerializableHashMapClass */
     parent_class: Gee.HashMapClass
     deserialize_proceed: (self: SerializableHashMap) => boolean
     deserialized: (self: SerializableHashMap) => boolean
@@ -26985,7 +26985,7 @@ export class SerializableHashMapPrivate {
     static name: string
 }
 export abstract class SerializableDualKeyMapClass {
-    /* Fields of GXml.SerializableDualKeyMapClass */
+    /* Fields of GXml-0.14.GXml.SerializableDualKeyMapClass */
     parent_class: GObject.ObjectClass
     deserialize_proceed: (self: SerializableDualKeyMap) => boolean
     deserialized: (self: SerializableDualKeyMap) => boolean
@@ -27008,7 +27008,7 @@ export class SerializableDualKeyMapPrivate {
     static name: string
 }
 export abstract class SerializableArrayListClass {
-    /* Fields of GXml.SerializableArrayListClass */
+    /* Fields of GXml-0.14.GXml.SerializableArrayListClass */
     parent_class: Gee.ArrayListClass
     deserialize_proceed: (self: SerializableArrayList) => boolean
     deserialized: (self: SerializableArrayList) => boolean
@@ -27030,7 +27030,7 @@ export class SerializableArrayListPrivate {
     static name: string
 }
 export abstract class SerializableContainerClass {
-    /* Fields of GXml.SerializableContainerClass */
+    /* Fields of GXml-0.14.GXml.SerializableContainerClass */
     parent_class: SerializableObjectModelClass
     init_containers: (self: SerializableContainer) => void
     static name: string
@@ -27039,7 +27039,7 @@ export class SerializableContainerPrivate {
     static name: string
 }
 export abstract class TAttributeClass {
-    /* Fields of GXml.TAttributeClass */
+    /* Fields of GXml-0.14.GXml.TAttributeClass */
     parent_class: TNodeClass
     static name: string
 }
@@ -27047,7 +27047,7 @@ export class TAttributePrivate {
     static name: string
 }
 export abstract class TCommentClass {
-    /* Fields of GXml.TCommentClass */
+    /* Fields of GXml-0.14.GXml.TCommentClass */
     parent_class: TNodeClass
     static name: string
 }
@@ -27055,7 +27055,7 @@ export class TCommentPrivate {
     static name: string
 }
 export abstract class TCDATAClass {
-    /* Fields of GXml.TCDATAClass */
+    /* Fields of GXml-0.14.GXml.TCDATAClass */
     parent_class: TNodeClass
     static name: string
 }
@@ -27063,7 +27063,7 @@ export class TCDATAPrivate {
     static name: string
 }
 export abstract class TDocumentClass {
-    /* Fields of GXml.TDocumentClass */
+    /* Fields of GXml-0.14.GXml.TDocumentClass */
     parent_class: TNodeClass
     static name: string
 }
@@ -27071,7 +27071,7 @@ export class TDocumentPrivate {
     static name: string
 }
 export abstract class TElementClass {
-    /* Fields of GXml.TElementClass */
+    /* Fields of GXml-0.14.GXml.TElementClass */
     parent_class: TNodeClass
     static name: string
 }
@@ -27079,7 +27079,7 @@ export class TElementPrivate {
     static name: string
 }
 export abstract class TNamespaceClass {
-    /* Fields of GXml.TNamespaceClass */
+    /* Fields of GXml-0.14.GXml.TNamespaceClass */
     parent_class: TNodeClass
     static name: string
 }
@@ -27087,7 +27087,7 @@ export class TNamespacePrivate {
     static name: string
 }
 export abstract class TNodeClass {
-    /* Fields of GXml.TNodeClass */
+    /* Fields of GXml-0.14.GXml.TNodeClass */
     parent_class: GObject.ObjectClass
     set_namespace: (self: TNode, uri: string, prefix?: string | null) => boolean
     to_string: (self: TNode) => string
@@ -27098,7 +27098,7 @@ export class TNodePrivate {
     static name: string
 }
 export abstract class TNodeTChildrenListClass {
-    /* Fields of GXml.TNodeTChildrenListClass */
+    /* Fields of GXml-0.14.GXml.TNodeTChildrenListClass */
     parent_class: Gee.AbstractBidirListClass
     static name: string
 }
@@ -27106,7 +27106,7 @@ export class TNodeTChildrenListPrivate {
     static name: string
 }
 export abstract class TProcessingInstructionClass {
-    /* Fields of GXml.TProcessingInstructionClass */
+    /* Fields of GXml-0.14.GXml.TProcessingInstructionClass */
     parent_class: TNodeClass
     static name: string
 }
@@ -27114,7 +27114,7 @@ export class TProcessingInstructionPrivate {
     static name: string
 }
 export abstract class TTextClass {
-    /* Fields of GXml.TTextClass */
+    /* Fields of GXml-0.14.GXml.TTextClass */
     parent_class: TNodeClass
     static name: string
 }
@@ -27122,7 +27122,7 @@ export class TTextPrivate {
     static name: string
 }
 export abstract class HtmlDocumentClass {
-    /* Fields of GXml.HtmlDocumentClass */
+    /* Fields of GXml-0.14.GXml.HtmlDocumentClass */
     parent_class: GDocumentClass
     static name: string
 }
@@ -27130,7 +27130,7 @@ export class HtmlDocumentPrivate {
     static name: string
 }
 export abstract class GAttributeClass {
-    /* Fields of GXml.GAttributeClass */
+    /* Fields of GXml-0.14.GXml.GAttributeClass */
     parent_class: GNodeClass
     static name: string
 }
@@ -27138,7 +27138,7 @@ export class GAttributePrivate {
     static name: string
 }
 export abstract class GCommentClass {
-    /* Fields of GXml.GCommentClass */
+    /* Fields of GXml-0.14.GXml.GCommentClass */
     parent_class: GCharacterDataClass
     static name: string
 }
@@ -27146,7 +27146,7 @@ export class GCommentPrivate {
     static name: string
 }
 export abstract class GCharacterDataClass {
-    /* Fields of GXml.GCharacterDataClass */
+    /* Fields of GXml-0.14.GXml.GCharacterDataClass */
     parent_class: GNonDocumentChildNodeClass
     static name: string
 }
@@ -27154,7 +27154,7 @@ export class GCharacterDataPrivate {
     static name: string
 }
 export abstract class GChildNodeClass {
-    /* Fields of GXml.GChildNodeClass */
+    /* Fields of GXml-0.14.GXml.GChildNodeClass */
     parent_class: GNodeClass
     static name: string
 }
@@ -27162,7 +27162,7 @@ export class GChildNodePrivate {
     static name: string
 }
 export abstract class GNonDocumentChildNodeClass {
-    /* Fields of GXml.GNonDocumentChildNodeClass */
+    /* Fields of GXml-0.14.GXml.GNonDocumentChildNodeClass */
     parent_class: GChildNodeClass
     static name: string
 }
@@ -27170,7 +27170,7 @@ export class GNonDocumentChildNodePrivate {
     static name: string
 }
 export abstract class GCDATAClass {
-    /* Fields of GXml.GCDATAClass */
+    /* Fields of GXml-0.14.GXml.GCDATAClass */
     parent_class: GNodeClass
     static name: string
 }
@@ -27178,7 +27178,7 @@ export class GCDATAPrivate {
     static name: string
 }
 export abstract class GDocumentClass {
-    /* Fields of GXml.GDocumentClass */
+    /* Fields of GXml-0.14.GXml.GDocumentClass */
     parent_class: GNodeClass
     save: (self: GDocument, cancellable?: Gio.Cancellable | null) => boolean
     save_as: (self: GDocument, f: Gio.File, cancellable?: Gio.Cancellable | null) => boolean
@@ -27188,7 +27188,7 @@ export class GDocumentPrivate {
     static name: string
 }
 export abstract class GImplementationClass {
-    /* Fields of GXml.GImplementationClass */
+    /* Fields of GXml-0.14.GXml.GImplementationClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
@@ -27196,7 +27196,7 @@ export class GImplementationPrivate {
     static name: string
 }
 export abstract class GDocumentTypeClass {
-    /* Fields of GXml.GDocumentTypeClass */
+    /* Fields of GXml-0.14.GXml.GDocumentTypeClass */
     parent_class: GChildNodeClass
     static name: string
 }
@@ -27204,7 +27204,7 @@ export class GDocumentTypePrivate {
     static name: string
 }
 export abstract class GDocumentFragmentClass {
-    /* Fields of GXml.GDocumentFragmentClass */
+    /* Fields of GXml-0.14.GXml.GDocumentFragmentClass */
     parent_class: GDocumentClass
     static name: string
 }
@@ -27212,7 +27212,7 @@ export class GDocumentFragmentPrivate {
     static name: string
 }
 export abstract class GDomNodeIteratorClass {
-    /* Fields of GXml.GDomNodeIteratorClass */
+    /* Fields of GXml-0.14.GXml.GDomNodeIteratorClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
@@ -27220,7 +27220,7 @@ export class GDomNodeIteratorPrivate {
     static name: string
 }
 export abstract class GDomTreeWalkerClass {
-    /* Fields of GXml.GDomTreeWalkerClass */
+    /* Fields of GXml-0.14.GXml.GDomTreeWalkerClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
@@ -27228,7 +27228,7 @@ export class GDomTreeWalkerPrivate {
     static name: string
 }
 export abstract class GDomTokenListClass {
-    /* Fields of GXml.GDomTokenListClass */
+    /* Fields of GXml-0.14.GXml.GDomTokenListClass */
     parent_class: Gee.ArrayListClass
     static name: string
 }
@@ -27236,7 +27236,7 @@ export class GDomTokenListPrivate {
     static name: string
 }
 export abstract class GDomSettableTokenListClass {
-    /* Fields of GXml.GDomSettableTokenListClass */
+    /* Fields of GXml-0.14.GXml.GDomSettableTokenListClass */
     parent_class: GDomTokenListClass
     static name: string
 }
@@ -27244,7 +27244,7 @@ export class GDomSettableTokenListPrivate {
     static name: string
 }
 export abstract class GDomHTMLCollectionClass {
-    /* Fields of GXml.GDomHTMLCollectionClass */
+    /* Fields of GXml-0.14.GXml.GDomHTMLCollectionClass */
     parent_class: Gee.ArrayListClass
     static name: string
 }
@@ -27252,7 +27252,7 @@ export class GDomHTMLCollectionPrivate {
     static name: string
 }
 export abstract class GDomEventClass {
-    /* Fields of GXml.GDomEventClass */
+    /* Fields of GXml-0.14.GXml.GDomEventClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
@@ -27260,7 +27260,7 @@ export class GDomEventPrivate {
     static name: string
 }
 export abstract class GDomCustomEventClass {
-    /* Fields of GXml.GDomCustomEventClass */
+    /* Fields of GXml-0.14.GXml.GDomCustomEventClass */
     parent_class: GDomEventClass
     static name: string
 }
@@ -27268,7 +27268,7 @@ export class GDomCustomEventPrivate {
     static name: string
 }
 export abstract class GDomRangeClass {
-    /* Fields of GXml.GDomRangeClass */
+    /* Fields of GXml-0.14.GXml.GDomRangeClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
@@ -27276,7 +27276,7 @@ export class GDomRangePrivate {
     static name: string
 }
 export abstract class GElementClass {
-    /* Fields of GXml.GElementClass */
+    /* Fields of GXml-0.14.GXml.GElementClass */
     parent_class: GNonDocumentChildNodeClass
     static name: string
 }
@@ -27284,7 +27284,7 @@ export class GElementPrivate {
     static name: string
 }
 export abstract class GNamespaceClass {
-    /* Fields of GXml.GNamespaceClass */
+    /* Fields of GXml-0.14.GXml.GNamespaceClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
@@ -27292,7 +27292,7 @@ export class GNamespacePrivate {
     static name: string
 }
 export abstract class GNodeClass {
-    /* Fields of GXml.GNodeClass */
+    /* Fields of GXml-0.14.GXml.GNodeClass */
     parent_class: GObject.ObjectClass
     set_namespace: (self: GNode, uri: string, prefix?: string | null) => boolean
     to_string: (self: GNode) => string
@@ -27302,7 +27302,7 @@ export class GNodePrivate {
     static name: string
 }
 export abstract class GProcessingInstructionClass {
-    /* Fields of GXml.GProcessingInstructionClass */
+    /* Fields of GXml-0.14.GXml.GProcessingInstructionClass */
     parent_class: GCharacterDataClass
     static name: string
 }
@@ -27310,7 +27310,7 @@ export class GProcessingInstructionPrivate {
     static name: string
 }
 export abstract class GTextClass {
-    /* Fields of GXml.GTextClass */
+    /* Fields of GXml-0.14.GXml.GTextClass */
     parent_class: GCharacterDataClass
     static name: string
 }
@@ -27318,7 +27318,7 @@ export class GTextPrivate {
     static name: string
 }
 export abstract class GHashMapAttrClass {
-    /* Fields of GXml.GHashMapAttrClass */
+    /* Fields of GXml-0.14.GXml.GHashMapAttrClass */
     parent_class: Gee.AbstractMapClass
     static name: string
 }
@@ -27326,7 +27326,7 @@ export class GHashMapAttrPrivate {
     static name: string
 }
 export abstract class GHashMapAttrEntryClass {
-    /* Fields of GXml.GHashMapAttrEntryClass */
+    /* Fields of GXml-0.14.GXml.GHashMapAttrEntryClass */
     parent_class: Gee.MapEntryClass
     static name: string
 }
@@ -27334,7 +27334,7 @@ export class GHashMapAttrEntryPrivate {
     static name: string
 }
 export abstract class GHashMapAttrIteratorClass {
-    /* Fields of GXml.GHashMapAttrIteratorClass */
+    /* Fields of GXml-0.14.GXml.GHashMapAttrIteratorClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
@@ -27342,7 +27342,7 @@ export class GHashMapAttrIteratorPrivate {
     static name: string
 }
 export abstract class GListChildrenClass {
-    /* Fields of GXml.GListChildrenClass */
+    /* Fields of GXml-0.14.GXml.GListChildrenClass */
     parent_class: Gee.AbstractBidirListClass
     static name: string
 }
@@ -27350,7 +27350,7 @@ export class GListChildrenPrivate {
     static name: string
 }
 export abstract class GListChildrenIteratorClass {
-    /* Fields of GXml.GListChildrenIteratorClass */
+    /* Fields of GXml-0.14.GXml.GListChildrenIteratorClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
@@ -27358,7 +27358,7 @@ export class GListChildrenIteratorPrivate {
     static name: string
 }
 export abstract class GListNamespacesClass {
-    /* Fields of GXml.GListNamespacesClass */
+    /* Fields of GXml-0.14.GXml.GListNamespacesClass */
     parent_class: Gee.AbstractListClass
     static name: string
 }
@@ -27366,7 +27366,7 @@ export class GListNamespacesPrivate {
     static name: string
 }
 export abstract class GListNamespacesIteratorClass {
-    /* Fields of GXml.GListNamespacesIteratorClass */
+    /* Fields of GXml-0.14.GXml.GListNamespacesIteratorClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
@@ -27374,7 +27374,7 @@ export class GListNamespacesIteratorPrivate {
     static name: string
 }
 export abstract class DomNodeFilterClass {
-    /* Fields of GXml.DomNodeFilterClass */
+    /* Fields of GXml-0.14.GXml.DomNodeFilterClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
@@ -27382,7 +27382,7 @@ export class DomNodeFilterPrivate {
     static name: string
 }
 export abstract class DomElementListClass {
-    /* Fields of GXml.DomElementListClass */
+    /* Fields of GXml-0.14.GXml.DomElementListClass */
     parent_class: Gee.ArrayListClass
     static name: string
 }
@@ -27390,7 +27390,7 @@ export class DomElementListPrivate {
     static name: string
 }
 export abstract class DomEventInitClass {
-    /* Fields of GXml.DomEventInitClass */
+    /* Fields of GXml-0.14.GXml.DomEventInitClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
@@ -27398,7 +27398,7 @@ export class DomEventInitPrivate {
     static name: string
 }
 export abstract class DomCustomEventInitClass {
-    /* Fields of GXml.DomCustomEventInitClass */
+    /* Fields of GXml-0.14.GXml.DomCustomEventInitClass */
     parent_class: DomEventInitClass
     static name: string
 }
@@ -27406,7 +27406,7 @@ export class DomCustomEventInitPrivate {
     static name: string
 }
 export abstract class DomTimeStampClass {
-    /* Fields of GXml.DomTimeStampClass */
+    /* Fields of GXml-0.14.GXml.DomTimeStampClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
@@ -27414,7 +27414,7 @@ export class DomTimeStampPrivate {
     static name: string
 }
 export abstract class DomMutationObserverInitClass {
-    /* Fields of GXml.DomMutationObserverInitClass */
+    /* Fields of GXml-0.14.GXml.DomMutationObserverInitClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
@@ -27422,7 +27422,7 @@ export class DomMutationObserverInitPrivate {
     static name: string
 }
 export abstract class DomErrorNameClass {
-    /* Fields of GXml.DomErrorNameClass */
+    /* Fields of GXml-0.14.GXml.DomErrorNameClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
@@ -27430,7 +27430,7 @@ export class DomErrorNamePrivate {
     static name: string
 }
 export abstract class GXPathObjectClass {
-    /* Fields of GXml.GXPathObjectClass */
+    /* Fields of GXml-0.14.GXml.GXPathObjectClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
@@ -27438,7 +27438,7 @@ export class GXPathObjectPrivate {
     static name: string
 }
 export abstract class GomDocumentClass {
-    /* Fields of GXml.GomDocumentClass */
+    /* Fields of GXml-0.14.GXml.GomDocumentClass */
     parent_class: GomNodeClass
     static name: string
 }
@@ -27446,7 +27446,7 @@ export class GomDocumentPrivate {
     static name: string
 }
 export abstract class GomImplementationClass {
-    /* Fields of GXml.GomImplementationClass */
+    /* Fields of GXml-0.14.GXml.GomImplementationClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
@@ -27454,7 +27454,7 @@ export class GomImplementationPrivate {
     static name: string
 }
 export abstract class GomDocumentTypeClass {
-    /* Fields of GXml.GomDocumentTypeClass */
+    /* Fields of GXml-0.14.GXml.GomDocumentTypeClass */
     parent_class: GomNodeClass
     static name: string
 }
@@ -27462,7 +27462,7 @@ export class GomDocumentTypePrivate {
     static name: string
 }
 export abstract class GomDocumentFragmentClass {
-    /* Fields of GXml.GomDocumentFragmentClass */
+    /* Fields of GXml-0.14.GXml.GomDocumentFragmentClass */
     parent_class: GomNodeClass
     static name: string
 }
@@ -27470,7 +27470,7 @@ export class GomDocumentFragmentPrivate {
     static name: string
 }
 export abstract class GomElementClass {
-    /* Fields of GXml.GomElementClass */
+    /* Fields of GXml-0.14.GXml.GomElementClass */
     parent_class: GomNodeClass
     static name: string
 }
@@ -27478,7 +27478,7 @@ export class GomElementPrivate {
     static name: string
 }
 export abstract class GomElementAttributesClass {
-    /* Fields of GXml.GomElementAttributesClass */
+    /* Fields of GXml-0.14.GXml.GomElementAttributesClass */
     parent_class: Gee.HashMapClass
     static name: string
 }
@@ -27486,7 +27486,7 @@ export class GomElementAttributesPrivate {
     static name: string
 }
 export abstract class GomAttrClass {
-    /* Fields of GXml.GomAttrClass */
+    /* Fields of GXml-0.14.GXml.GomAttrClass */
     parent_class: GomNodeClass
     static name: string
 }
@@ -27494,7 +27494,7 @@ export class GomAttrPrivate {
     static name: string
 }
 export abstract class GomNodeClass {
-    /* Fields of GXml.GomNodeClass */
+    /* Fields of GXml-0.14.GXml.GomNodeClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
@@ -27502,7 +27502,7 @@ export class GomNodePrivate {
     static name: string
 }
 export abstract class GomNodeListClass {
-    /* Fields of GXml.GomNodeListClass */
+    /* Fields of GXml-0.14.GXml.GomNodeListClass */
     parent_class: Gee.ArrayListClass
     static name: string
 }
@@ -27510,7 +27510,7 @@ export class GomNodeListPrivate {
     static name: string
 }
 export abstract class GomCharacterDataClass {
-    /* Fields of GXml.GomCharacterDataClass */
+    /* Fields of GXml-0.14.GXml.GomCharacterDataClass */
     parent_class: GomNodeClass
     static name: string
 }
@@ -27518,7 +27518,7 @@ export class GomCharacterDataPrivate {
     static name: string
 }
 export abstract class GomTextClass {
-    /* Fields of GXml.GomTextClass */
+    /* Fields of GXml-0.14.GXml.GomTextClass */
     parent_class: GomCharacterDataClass
     static name: string
 }
@@ -27526,7 +27526,7 @@ export class GomTextPrivate {
     static name: string
 }
 export abstract class GomProcessingInstructionClass {
-    /* Fields of GXml.GomProcessingInstructionClass */
+    /* Fields of GXml-0.14.GXml.GomProcessingInstructionClass */
     parent_class: GomCharacterDataClass
     static name: string
 }
@@ -27534,7 +27534,7 @@ export class GomProcessingInstructionPrivate {
     static name: string
 }
 export abstract class GomCommentClass {
-    /* Fields of GXml.GomCommentClass */
+    /* Fields of GXml-0.14.GXml.GomCommentClass */
     parent_class: GomCharacterDataClass
     static name: string
 }
@@ -27542,7 +27542,7 @@ export class GomCommentPrivate {
     static name: string
 }
 export abstract class BaseCollectionClass {
-    /* Fields of GXml.BaseCollectionClass */
+    /* Fields of GXml-0.14.GXml.BaseCollectionClass */
     parent_class: GObject.ObjectClass
     validate_append: (self: BaseCollection, index: number, element: DomElement) => boolean
     static name: string
@@ -27551,7 +27551,7 @@ export class BaseCollectionPrivate {
     static name: string
 }
 export abstract class GomArrayListClass {
-    /* Fields of GXml.GomArrayListClass */
+    /* Fields of GXml-0.14.GXml.GomArrayListClass */
     parent_class: BaseCollectionClass
     static name: string
 }
@@ -27559,7 +27559,7 @@ export class GomArrayListPrivate {
     static name: string
 }
 export abstract class GomHashMapClass {
-    /* Fields of GXml.GomHashMapClass */
+    /* Fields of GXml-0.14.GXml.GomHashMapClass */
     parent_class: BaseCollectionClass
     static name: string
 }
@@ -27567,7 +27567,7 @@ export class GomHashMapPrivate {
     static name: string
 }
 export abstract class GomHashPairedMapClass {
-    /* Fields of GXml.GomHashPairedMapClass */
+    /* Fields of GXml-0.14.GXml.GomHashPairedMapClass */
     parent_class: BaseCollectionClass
     static name: string
 }
@@ -27575,7 +27575,7 @@ export class GomHashPairedMapPrivate {
     static name: string
 }
 export abstract class GomHashThreeMapClass {
-    /* Fields of GXml.GomHashThreeMapClass */
+    /* Fields of GXml-0.14.GXml.GomHashThreeMapClass */
     parent_class: BaseCollectionClass
     static name: string
 }
@@ -27583,7 +27583,7 @@ export class GomHashThreeMapPrivate {
     static name: string
 }
 export abstract class GomBasePropertyClass {
-    /* Fields of GXml.GomBasePropertyClass */
+    /* Fields of GXml-0.14.GXml.GomBasePropertyClass */
     parent_class: GObject.ObjectClass
     validate_value: (self: GomBaseProperty, val: string) => boolean
     static name: string
@@ -27592,7 +27592,7 @@ export class GomBasePropertyPrivate {
     static name: string
 }
 export abstract class GomStringClass {
-    /* Fields of GXml.GomStringClass */
+    /* Fields of GXml-0.14.GXml.GomStringClass */
     parent_class: GomBasePropertyClass
     static name: string
 }
@@ -27600,7 +27600,7 @@ export class GomStringPrivate {
     static name: string
 }
 export abstract class GomArrayStringClass {
-    /* Fields of GXml.GomArrayStringClass */
+    /* Fields of GXml-0.14.GXml.GomArrayStringClass */
     parent_class: GomBasePropertyClass
     static name: string
 }
@@ -27608,7 +27608,7 @@ export class GomArrayStringPrivate {
     static name: string
 }
 export abstract class GomXsdArrayStringClass {
-    /* Fields of GXml.GomXsdArrayStringClass */
+    /* Fields of GXml-0.14.GXml.GomXsdArrayStringClass */
     parent_class: GomArrayStringClass
     static name: string
 }
@@ -27616,7 +27616,7 @@ export class GomXsdArrayStringPrivate {
     static name: string
 }
 export abstract class GomDoubleClass {
-    /* Fields of GXml.GomDoubleClass */
+    /* Fields of GXml-0.14.GXml.GomDoubleClass */
     parent_class: GomBasePropertyClass
     static name: string
 }
@@ -27624,7 +27624,7 @@ export class GomDoublePrivate {
     static name: string
 }
 export abstract class GomFloatClass {
-    /* Fields of GXml.GomFloatClass */
+    /* Fields of GXml-0.14.GXml.GomFloatClass */
     parent_class: GomDoubleClass
     static name: string
 }
@@ -27632,7 +27632,7 @@ export class GomFloatPrivate {
     static name: string
 }
 export abstract class GomIntClass {
-    /* Fields of GXml.GomIntClass */
+    /* Fields of GXml-0.14.GXml.GomIntClass */
     parent_class: GomBasePropertyClass
     static name: string
 }
@@ -27640,7 +27640,7 @@ export class GomIntPrivate {
     static name: string
 }
 export abstract class GomBooleanClass {
-    /* Fields of GXml.GomBooleanClass */
+    /* Fields of GXml-0.14.GXml.GomBooleanClass */
     parent_class: GomBasePropertyClass
     static name: string
 }
@@ -27648,7 +27648,7 @@ export class GomBooleanPrivate {
     static name: string
 }
 export abstract class GomEnumClass {
-    /* Fields of GXml.GomEnumClass */
+    /* Fields of GXml-0.14.GXml.GomEnumClass */
     parent_class: GomBasePropertyClass
     static name: string
 }
@@ -27656,7 +27656,7 @@ export class GomEnumPrivate {
     static name: string
 }
 export abstract class GomDateClass {
-    /* Fields of GXml.GomDateClass */
+    /* Fields of GXml-0.14.GXml.GomDateClass */
     parent_class: GomBasePropertyClass
     static name: string
 }
@@ -27664,7 +27664,7 @@ export class GomDatePrivate {
     static name: string
 }
 export abstract class GomDateTimeClass {
-    /* Fields of GXml.GomDateTimeClass */
+    /* Fields of GXml-0.14.GXml.GomDateTimeClass */
     parent_class: GomBasePropertyClass
     static name: string
 }
@@ -27672,7 +27672,7 @@ export class GomDateTimePrivate {
     static name: string
 }
 export abstract class XParserClass {
-    /* Fields of GXml.XParserClass */
+    /* Fields of GXml-0.14.GXml.XParserClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
@@ -27680,7 +27680,7 @@ export class XParserPrivate {
     static name: string
 }
 export abstract class GomXsdSchemaClass {
-    /* Fields of GXml.GomXsdSchemaClass */
+    /* Fields of GXml-0.14.GXml.GomXsdSchemaClass */
     parent_class: GomElementClass
     static name: string
 }
@@ -27688,7 +27688,7 @@ export class GomXsdSchemaPrivate {
     static name: string
 }
 export abstract class GomXsdSimpleTypeClass {
-    /* Fields of GXml.GomXsdSimpleTypeClass */
+    /* Fields of GXml-0.14.GXml.GomXsdSimpleTypeClass */
     parent_class: GomElementClass
     static name: string
 }
@@ -27696,7 +27696,7 @@ export class GomXsdSimpleTypePrivate {
     static name: string
 }
 export abstract class GomXsdTypeDefinitionClass {
-    /* Fields of GXml.GomXsdTypeDefinitionClass */
+    /* Fields of GXml-0.14.GXml.GomXsdTypeDefinitionClass */
     parent_class: GomElementClass
     static name: string
 }
@@ -27704,7 +27704,7 @@ export class GomXsdTypeDefinitionPrivate {
     static name: string
 }
 export abstract class GomXsdTypeListClass {
-    /* Fields of GXml.GomXsdTypeListClass */
+    /* Fields of GXml-0.14.GXml.GomXsdTypeListClass */
     parent_class: GomXsdTypeDefinitionClass
     static name: string
 }
@@ -27712,7 +27712,7 @@ export class GomXsdTypeListPrivate {
     static name: string
 }
 export abstract class GomXsdTypeUnionClass {
-    /* Fields of GXml.GomXsdTypeUnionClass */
+    /* Fields of GXml-0.14.GXml.GomXsdTypeUnionClass */
     parent_class: GomXsdTypeDefinitionClass
     static name: string
 }
@@ -27720,7 +27720,7 @@ export class GomXsdTypeUnionPrivate {
     static name: string
 }
 export abstract class GomXsdTypeRestrictionClass {
-    /* Fields of GXml.GomXsdTypeRestrictionClass */
+    /* Fields of GXml-0.14.GXml.GomXsdTypeRestrictionClass */
     parent_class: GomXsdTypeDefinitionClass
     static name: string
 }
@@ -27728,7 +27728,7 @@ export class GomXsdTypeRestrictionPrivate {
     static name: string
 }
 export abstract class GomXsdTypeRestrictionDefClass {
-    /* Fields of GXml.GomXsdTypeRestrictionDefClass */
+    /* Fields of GXml-0.14.GXml.GomXsdTypeRestrictionDefClass */
     parent_class: GomElementClass
     static name: string
 }
@@ -27736,7 +27736,7 @@ export class GomXsdTypeRestrictionDefPrivate {
     static name: string
 }
 export abstract class GomXsdTypeRestrictionMinExclusiveClass {
-    /* Fields of GXml.GomXsdTypeRestrictionMinExclusiveClass */
+    /* Fields of GXml-0.14.GXml.GomXsdTypeRestrictionMinExclusiveClass */
     parent_class: GomXsdTypeRestrictionDefClass
     static name: string
 }
@@ -27744,7 +27744,7 @@ export class GomXsdTypeRestrictionMinExclusivePrivate {
     static name: string
 }
 export abstract class GomXsdTypeRestrictionMinInclusiveClass {
-    /* Fields of GXml.GomXsdTypeRestrictionMinInclusiveClass */
+    /* Fields of GXml-0.14.GXml.GomXsdTypeRestrictionMinInclusiveClass */
     parent_class: GomXsdTypeRestrictionDefClass
     static name: string
 }
@@ -27752,7 +27752,7 @@ export class GomXsdTypeRestrictionMinInclusivePrivate {
     static name: string
 }
 export abstract class GomXsdTypeRestrictionMaxExclusiveClass {
-    /* Fields of GXml.GomXsdTypeRestrictionMaxExclusiveClass */
+    /* Fields of GXml-0.14.GXml.GomXsdTypeRestrictionMaxExclusiveClass */
     parent_class: GomXsdTypeRestrictionDefClass
     static name: string
 }
@@ -27760,7 +27760,7 @@ export class GomXsdTypeRestrictionMaxExclusivePrivate {
     static name: string
 }
 export abstract class GomXsdTypeRestrictionMaxInclusiveClass {
-    /* Fields of GXml.GomXsdTypeRestrictionMaxInclusiveClass */
+    /* Fields of GXml-0.14.GXml.GomXsdTypeRestrictionMaxInclusiveClass */
     parent_class: GomXsdTypeRestrictionDefClass
     static name: string
 }
@@ -27768,7 +27768,7 @@ export class GomXsdTypeRestrictionMaxInclusivePrivate {
     static name: string
 }
 export abstract class GomXsdTypeRestrictionTotalDigitsClass {
-    /* Fields of GXml.GomXsdTypeRestrictionTotalDigitsClass */
+    /* Fields of GXml-0.14.GXml.GomXsdTypeRestrictionTotalDigitsClass */
     parent_class: GomXsdTypeRestrictionDefClass
     static name: string
 }
@@ -27776,7 +27776,7 @@ export class GomXsdTypeRestrictionTotalDigitsPrivate {
     static name: string
 }
 export abstract class GomXsdTypeRestrictionFractionDigitsClass {
-    /* Fields of GXml.GomXsdTypeRestrictionFractionDigitsClass */
+    /* Fields of GXml-0.14.GXml.GomXsdTypeRestrictionFractionDigitsClass */
     parent_class: GomXsdTypeRestrictionDefClass
     static name: string
 }
@@ -27784,7 +27784,7 @@ export class GomXsdTypeRestrictionFractionDigitsPrivate {
     static name: string
 }
 export abstract class GomXsdTypeRestrictionLengthClass {
-    /* Fields of GXml.GomXsdTypeRestrictionLengthClass */
+    /* Fields of GXml-0.14.GXml.GomXsdTypeRestrictionLengthClass */
     parent_class: GomXsdTypeRestrictionDefClass
     static name: string
 }
@@ -27792,7 +27792,7 @@ export class GomXsdTypeRestrictionLengthPrivate {
     static name: string
 }
 export abstract class GomXsdTypeRestrictionMinLengthClass {
-    /* Fields of GXml.GomXsdTypeRestrictionMinLengthClass */
+    /* Fields of GXml-0.14.GXml.GomXsdTypeRestrictionMinLengthClass */
     parent_class: GomXsdTypeRestrictionDefClass
     static name: string
 }
@@ -27800,7 +27800,7 @@ export class GomXsdTypeRestrictionMinLengthPrivate {
     static name: string
 }
 export abstract class GomXsdTypeRestrictionMaxLengthClass {
-    /* Fields of GXml.GomXsdTypeRestrictionMaxLengthClass */
+    /* Fields of GXml-0.14.GXml.GomXsdTypeRestrictionMaxLengthClass */
     parent_class: GomXsdTypeRestrictionDefClass
     static name: string
 }
@@ -27808,7 +27808,7 @@ export class GomXsdTypeRestrictionMaxLengthPrivate {
     static name: string
 }
 export abstract class GomXsdTypeRestrictionEnumerationClass {
-    /* Fields of GXml.GomXsdTypeRestrictionEnumerationClass */
+    /* Fields of GXml-0.14.GXml.GomXsdTypeRestrictionEnumerationClass */
     parent_class: GomXsdTypeRestrictionDefClass
     static name: string
 }
@@ -27816,7 +27816,7 @@ export class GomXsdTypeRestrictionEnumerationPrivate {
     static name: string
 }
 export abstract class GomXsdTypeRestrictionWhiteSpaceClass {
-    /* Fields of GXml.GomXsdTypeRestrictionWhiteSpaceClass */
+    /* Fields of GXml-0.14.GXml.GomXsdTypeRestrictionWhiteSpaceClass */
     parent_class: GomXsdTypeRestrictionDefClass
     static name: string
 }
@@ -27824,7 +27824,7 @@ export class GomXsdTypeRestrictionWhiteSpacePrivate {
     static name: string
 }
 export abstract class GomXsdTypeRestrictionWhiteSpaceFixedClass {
-    /* Fields of GXml.GomXsdTypeRestrictionWhiteSpaceFixedClass */
+    /* Fields of GXml-0.14.GXml.GomXsdTypeRestrictionWhiteSpaceFixedClass */
     parent_class: GomBooleanClass
     static name: string
 }
@@ -27832,7 +27832,7 @@ export class GomXsdTypeRestrictionWhiteSpaceFixedPrivate {
     static name: string
 }
 export abstract class GomXsdTypeRestrictionPatternClass {
-    /* Fields of GXml.GomXsdTypeRestrictionPatternClass */
+    /* Fields of GXml-0.14.GXml.GomXsdTypeRestrictionPatternClass */
     parent_class: GomXsdTypeRestrictionDefClass
     static name: string
 }
@@ -27840,7 +27840,7 @@ export class GomXsdTypeRestrictionPatternPrivate {
     static name: string
 }
 export abstract class GomXsdTypeRestrictionAssertionClass {
-    /* Fields of GXml.GomXsdTypeRestrictionAssertionClass */
+    /* Fields of GXml-0.14.GXml.GomXsdTypeRestrictionAssertionClass */
     parent_class: GomXsdTypeRestrictionDefClass
     static name: string
 }
@@ -27848,7 +27848,7 @@ export class GomXsdTypeRestrictionAssertionPrivate {
     static name: string
 }
 export abstract class GomXsdTypeRestrictionExplicitTimezoneClass {
-    /* Fields of GXml.GomXsdTypeRestrictionExplicitTimezoneClass */
+    /* Fields of GXml-0.14.GXml.GomXsdTypeRestrictionExplicitTimezoneClass */
     parent_class: GomXsdTypeRestrictionDefClass
     static name: string
 }
@@ -27856,7 +27856,7 @@ export class GomXsdTypeRestrictionExplicitTimezonePrivate {
     static name: string
 }
 export abstract class GomXsdComplexTypeClass {
-    /* Fields of GXml.GomXsdComplexTypeClass */
+    /* Fields of GXml-0.14.GXml.GomXsdComplexTypeClass */
     parent_class: GomXsdBaseTypeClass
     static name: string
 }
@@ -27864,7 +27864,7 @@ export class GomXsdComplexTypePrivate {
     static name: string
 }
 export abstract class GomXsdExtensionClass {
-    /* Fields of GXml.GomXsdExtensionClass */
+    /* Fields of GXml-0.14.GXml.GomXsdExtensionClass */
     parent_class: GomElementClass
     static name: string
 }
@@ -27872,7 +27872,7 @@ export class GomXsdExtensionPrivate {
     static name: string
 }
 export abstract class GomXsdElementClass {
-    /* Fields of GXml.GomXsdElementClass */
+    /* Fields of GXml-0.14.GXml.GomXsdElementClass */
     parent_class: GomElementClass
     static name: string
 }
@@ -27880,7 +27880,7 @@ export class GomXsdElementPrivate {
     static name: string
 }
 export abstract class GomXsdAnnotationClass {
-    /* Fields of GXml.GomXsdAnnotationClass */
+    /* Fields of GXml-0.14.GXml.GomXsdAnnotationClass */
     parent_class: GomElementClass
     static name: string
 }
@@ -27888,7 +27888,7 @@ export class GomXsdAnnotationPrivate {
     static name: string
 }
 export abstract class GomXsdBaseTypeClass {
-    /* Fields of GXml.GomXsdBaseTypeClass */
+    /* Fields of GXml-0.14.GXml.GomXsdBaseTypeClass */
     parent_class: GomElementClass
     static name: string
 }
@@ -27896,7 +27896,7 @@ export class GomXsdBaseTypePrivate {
     static name: string
 }
 export abstract class GomXsdBaseContentClass {
-    /* Fields of GXml.GomXsdBaseContentClass */
+    /* Fields of GXml-0.14.GXml.GomXsdBaseContentClass */
     parent_class: GomElementClass
     static name: string
 }
@@ -27904,7 +27904,7 @@ export class GomXsdBaseContentPrivate {
     static name: string
 }
 export abstract class GomXsdSimpleContentClass {
-    /* Fields of GXml.GomXsdSimpleContentClass */
+    /* Fields of GXml-0.14.GXml.GomXsdSimpleContentClass */
     parent_class: GomXsdBaseContentClass
     static name: string
 }
@@ -27912,7 +27912,7 @@ export class GomXsdSimpleContentPrivate {
     static name: string
 }
 export abstract class GomXsdComplexContentClass {
-    /* Fields of GXml.GomXsdComplexContentClass */
+    /* Fields of GXml-0.14.GXml.GomXsdComplexContentClass */
     parent_class: GomXsdBaseContentClass
     static name: string
 }
@@ -27920,7 +27920,7 @@ export class GomXsdComplexContentPrivate {
     static name: string
 }
 export abstract class GomXsdOpenContentClass {
-    /* Fields of GXml.GomXsdOpenContentClass */
+    /* Fields of GXml-0.14.GXml.GomXsdOpenContentClass */
     parent_class: GomXsdBaseContentClass
     static name: string
 }
@@ -27928,7 +27928,7 @@ export class GomXsdOpenContentPrivate {
     static name: string
 }
 export abstract class GomXsdBaseAttributeClass {
-    /* Fields of GXml.GomXsdBaseAttributeClass */
+    /* Fields of GXml-0.14.GXml.GomXsdBaseAttributeClass */
     parent_class: GomElementClass
     static name: string
 }
@@ -27936,7 +27936,7 @@ export class GomXsdBaseAttributePrivate {
     static name: string
 }
 export abstract class GomXsdAttributeClass {
-    /* Fields of GXml.GomXsdAttributeClass */
+    /* Fields of GXml-0.14.GXml.GomXsdAttributeClass */
     parent_class: GomXsdBaseAttributeClass
     static name: string
 }
@@ -27944,7 +27944,7 @@ export class GomXsdAttributePrivate {
     static name: string
 }
 export abstract class GomXsdAttributeGroupClass {
-    /* Fields of GXml.GomXsdAttributeGroupClass */
+    /* Fields of GXml-0.14.GXml.GomXsdAttributeGroupClass */
     parent_class: GomXsdBaseAttributeClass
     static name: string
 }
@@ -27952,7 +27952,7 @@ export class GomXsdAttributeGroupPrivate {
     static name: string
 }
 export abstract class GomXsdListClass {
-    /* Fields of GXml.GomXsdListClass */
+    /* Fields of GXml-0.14.GXml.GomXsdListClass */
     parent_class: GomArrayListClass
     static name: string
 }
@@ -27960,7 +27960,7 @@ export class GomXsdListPrivate {
     static name: string
 }
 export abstract class GomXsdListElementsClass {
-    /* Fields of GXml.GomXsdListElementsClass */
+    /* Fields of GXml-0.14.GXml.GomXsdListElementsClass */
     parent_class: GomXsdListClass
     static name: string
 }
@@ -27968,7 +27968,7 @@ export class GomXsdListElementsPrivate {
     static name: string
 }
 export abstract class GomXsdListSimpleTypesClass {
-    /* Fields of GXml.GomXsdListSimpleTypesClass */
+    /* Fields of GXml-0.14.GXml.GomXsdListSimpleTypesClass */
     parent_class: GomXsdListClass
     static name: string
 }
@@ -27976,7 +27976,7 @@ export class GomXsdListSimpleTypesPrivate {
     static name: string
 }
 export abstract class GomXsdListComplexTypesClass {
-    /* Fields of GXml.GomXsdListComplexTypesClass */
+    /* Fields of GXml-0.14.GXml.GomXsdListComplexTypesClass */
     parent_class: GomXsdListClass
     static name: string
 }
@@ -27984,7 +27984,7 @@ export class GomXsdListComplexTypesPrivate {
     static name: string
 }
 export abstract class GomXsdListTypeRestrictionEnumerationsClass {
-    /* Fields of GXml.GomXsdListTypeRestrictionEnumerationsClass */
+    /* Fields of GXml-0.14.GXml.GomXsdListTypeRestrictionEnumerationsClass */
     parent_class: GomXsdListClass
     static name: string
 }
@@ -27992,7 +27992,7 @@ export class GomXsdListTypeRestrictionEnumerationsPrivate {
     static name: string
 }
 export abstract class GomXsdListTypeRestrictionWhiteSpacesClass {
-    /* Fields of GXml.GomXsdListTypeRestrictionWhiteSpacesClass */
+    /* Fields of GXml-0.14.GXml.GomXsdListTypeRestrictionWhiteSpacesClass */
     parent_class: GomXsdListClass
     static name: string
 }
@@ -28000,7 +28000,7 @@ export class GomXsdListTypeRestrictionWhiteSpacesPrivate {
     static name: string
 }
 export abstract class AttributeIface {
-    /* Fields of GXml.AttributeIface */
+    /* Fields of GXml-0.14.GXml.AttributeIface */
     parent_iface: GObject.TypeInterface
     get_namespace: (self: Attribute) => Namespace | null
     set_namespace: (self: Attribute, value?: Namespace | null) => void
@@ -28008,27 +28008,27 @@ export abstract class AttributeIface {
     static name: string
 }
 export abstract class CommentIface {
-    /* Fields of GXml.CommentIface */
+    /* Fields of GXml-0.14.GXml.CommentIface */
     parent_iface: GObject.TypeInterface
     get_str: (self: Comment) => string
     set_str: (self: Comment, value: string) => void
     static name: string
 }
 export abstract class CDATAIface {
-    /* Fields of GXml.CDATAIface */
+    /* Fields of GXml-0.14.GXml.CDATAIface */
     parent_iface: GObject.TypeInterface
     get_str: (self: CDATA) => string
     static name: string
 }
 export abstract class CharacterIface {
-    /* Fields of GXml.CharacterIface */
+    /* Fields of GXml-0.14.GXml.CharacterIface */
     parent_iface: GObject.TypeInterface
     get_str: (self: Character) => string
     set_str: (self: Character, value: string) => void
     static name: string
 }
 export abstract class DocumentIface {
-    /* Fields of GXml.DocumentIface */
+    /* Fields of GXml-0.14.GXml.DocumentIface */
     parent_iface: GObject.TypeInterface
     create_element: (self: Document, name: string) => Node
     create_text: (self: Document, text: string) => Node
@@ -28051,12 +28051,12 @@ export abstract class DocumentIface {
     static name: string
 }
 export abstract class DocumentTypeIface {
-    /* Fields of GXml.DocumentTypeIface */
+    /* Fields of GXml-0.14.GXml.DocumentTypeIface */
     parent_iface: GObject.TypeInterface
     static name: string
 }
 export abstract class ElementIface {
-    /* Fields of GXml.ElementIface */
+    /* Fields of GXml-0.14.GXml.ElementIface */
     parent_iface: GObject.TypeInterface
     normalize: (self: Element) => void
     set_attr: (self: Element, name: string, value: string) => void
@@ -28071,14 +28071,14 @@ export abstract class ElementIface {
     static name: string
 }
 export abstract class NamespaceIface {
-    /* Fields of GXml.NamespaceIface */
+    /* Fields of GXml-0.14.GXml.NamespaceIface */
     parent_iface: GObject.TypeInterface
     get_uri: (self: Namespace) => string | null
     get_prefix: (self: Namespace) => string | null
     static name: string
 }
 export abstract class NodeIface {
-    /* Fields of GXml.NodeIface */
+    /* Fields of GXml-0.14.GXml.NodeIface */
     parent_iface: GObject.TypeInterface
     get: (self: Node, key: string) => Node | null
     get_elements_by_property_value: (self: Node, property: string, value: string) => ElementList
@@ -28100,19 +28100,19 @@ export abstract class NodeIface {
     static name: string
 }
 export abstract class NotationIface {
-    /* Fields of GXml.NotationIface */
+    /* Fields of GXml-0.14.GXml.NotationIface */
     parent_iface: GObject.TypeInterface
     get_public_id: (self: Notation) => string | null
     get_external_id: (self: Notation) => string | null
     static name: string
 }
 export abstract class EntityIface {
-    /* Fields of GXml.EntityIface */
+    /* Fields of GXml-0.14.GXml.EntityIface */
     parent_iface: GObject.TypeInterface
     static name: string
 }
 export abstract class ProcessingInstructionIface {
-    /* Fields of GXml.ProcessingInstructionIface */
+    /* Fields of GXml-0.14.GXml.ProcessingInstructionIface */
     parent_iface: GObject.TypeInterface
     get_target: (self: ProcessingInstruction) => string
     get_data: (self: ProcessingInstruction) => string
@@ -28120,14 +28120,14 @@ export abstract class ProcessingInstructionIface {
     static name: string
 }
 export abstract class TextIface {
-    /* Fields of GXml.TextIface */
+    /* Fields of GXml-0.14.GXml.TextIface */
     parent_iface: GObject.TypeInterface
     get_str: (self: Text) => string
     set_str: (self: Text, value: string) => void
     static name: string
 }
 export abstract class SerializableIface {
-    /* Fields of GXml.SerializableIface */
+    /* Fields of GXml-0.14.GXml.SerializableIface */
     parent_iface: GObject.TypeInterface
     get_enable_unknown_serializable_property: (self: Serializable) => boolean
     set_default_namespace: (self: Serializable, node: Node) => boolean
@@ -28149,7 +28149,7 @@ export abstract class SerializableIface {
     static name: string
 }
 export abstract class SerializablePropertyIface {
-    /* Fields of GXml.SerializablePropertyIface */
+    /* Fields of GXml-0.14.GXml.SerializablePropertyIface */
     parent_iface: GObject.TypeInterface
     get_serializable_property_value: (self: SerializableProperty) => string
     set_serializable_property_value: (self: SerializableProperty, val?: string | null) => void
@@ -28158,20 +28158,20 @@ export abstract class SerializablePropertyIface {
     static name: string
 }
 export abstract class SerializableMapKeyIface {
-    /* Fields of GXml.SerializableMapKeyIface */
+    /* Fields of GXml-0.14.GXml.SerializableMapKeyIface */
     parent_iface: GObject.TypeInterface
     get_map_key: (self: SerializableMapKey) => object | null
     static name: string
 }
 export abstract class SerializableMapDualKeyIface {
-    /* Fields of GXml.SerializableMapDualKeyIface */
+    /* Fields of GXml-0.14.GXml.SerializableMapDualKeyIface */
     parent_iface: GObject.TypeInterface
     get_map_primary_key: (self: SerializableMapDualKey) => object | null
     get_map_secondary_key: (self: SerializableMapDualKey) => object | null
     static name: string
 }
 export abstract class SerializableCollectionIface {
-    /* Fields of GXml.SerializableCollectionIface */
+    /* Fields of GXml-0.14.GXml.SerializableCollectionIface */
     parent_iface: GObject.TypeInterface
     deserialize_proceed: (self: SerializableCollection) => boolean
     deserialized: (self: SerializableCollection) => boolean
@@ -28181,7 +28181,7 @@ export abstract class SerializableCollectionIface {
     static name: string
 }
 export abstract class DomAttrIface {
-    /* Fields of GXml.DomAttrIface */
+    /* Fields of GXml-0.14.GXml.DomAttrIface */
     parent_iface: GObject.TypeInterface
     get_namespace_uri: (self: DomAttr) => string | null
     get_prefix: (self: DomAttr) => string | null
@@ -28193,7 +28193,7 @@ export abstract class DomAttrIface {
     static name: string
 }
 export abstract class DomCharacterDataIface {
-    /* Fields of GXml.DomCharacterDataIface */
+    /* Fields of GXml-0.14.GXml.DomCharacterDataIface */
     parent_iface: GObject.TypeInterface
     substring_data: (self: DomCharacterData, offset: number, count: number) => string
     append_data: (self: DomCharacterData, data: string) => void
@@ -28206,31 +28206,31 @@ export abstract class DomCharacterDataIface {
     static name: string
 }
 export abstract class DomTextIface {
-    /* Fields of GXml.DomTextIface */
+    /* Fields of GXml-0.14.GXml.DomTextIface */
     parent_iface: GObject.TypeInterface
     split_text: (self: DomText, offset: number) => DomText
     get_whole_text: (self: DomText) => string
     static name: string
 }
 export abstract class DomProcessingInstructionIface {
-    /* Fields of GXml.DomProcessingInstructionIface */
+    /* Fields of GXml-0.14.GXml.DomProcessingInstructionIface */
     parent_iface: GObject.TypeInterface
     get_target: (self: DomProcessingInstruction) => string
     static name: string
 }
 export abstract class DomCommentIface {
-    /* Fields of GXml.DomCommentIface */
+    /* Fields of GXml-0.14.GXml.DomCommentIface */
     parent_iface: GObject.TypeInterface
     static name: string
 }
 export abstract class DomNonElementParentNodeIface {
-    /* Fields of GXml.DomNonElementParentNodeIface */
+    /* Fields of GXml-0.14.GXml.DomNonElementParentNodeIface */
     parent_iface: GObject.TypeInterface
     get_element_by_id: (self: DomNonElementParentNode, element_id: string) => DomElement | null
     static name: string
 }
 export abstract class DomParentNodeIface {
-    /* Fields of GXml.DomParentNodeIface */
+    /* Fields of GXml-0.14.GXml.DomParentNodeIface */
     parent_iface: GObject.TypeInterface
     query_selector: (self: DomParentNode, selectors: string) => DomElement | null
     query_selector_all: (self: DomParentNode, selectors: string) => DomNodeList
@@ -28242,27 +28242,27 @@ export abstract class DomParentNodeIface {
     static name: string
 }
 export abstract class DomNonDocumentTypeChildNodeIface {
-    /* Fields of GXml.DomNonDocumentTypeChildNodeIface */
+    /* Fields of GXml-0.14.GXml.DomNonDocumentTypeChildNodeIface */
     parent_iface: GObject.TypeInterface
     get_previous_element_sibling: (self: DomNonDocumentTypeChildNode) => DomElement | null
     get_next_element_sibling: (self: DomNonDocumentTypeChildNode) => DomElement | null
     static name: string
 }
 export abstract class DomChildNodeIface {
-    /* Fields of GXml.DomChildNodeIface */
+    /* Fields of GXml-0.14.GXml.DomChildNodeIface */
     parent_iface: GObject.TypeInterface
     remove: (self: DomChildNode) => void
     static name: string
 }
 export abstract class DomNodeListIface {
-    /* Fields of GXml.DomNodeListIface */
+    /* Fields of GXml-0.14.GXml.DomNodeListIface */
     parent_iface: GObject.TypeInterface
     item: (self: DomNodeList, index: number) => DomNode | null
     get_length: (self: DomNodeList) => number
     static name: string
 }
 export abstract class DomHTMLCollectionIface {
-    /* Fields of GXml.DomHTMLCollectionIface */
+    /* Fields of GXml-0.14.GXml.DomHTMLCollectionIface */
     parent_iface: GObject.TypeInterface
     get_element: (self: DomHTMLCollection, index: number) => DomElement | null
     to_array: (self: DomHTMLCollection) => DomElement[]
@@ -28272,7 +28272,7 @@ export abstract class DomHTMLCollectionIface {
     static name: string
 }
 export abstract class DomNodeIteratorIface {
-    /* Fields of GXml.DomNodeIteratorIface */
+    /* Fields of GXml-0.14.GXml.DomNodeIteratorIface */
     parent_iface: GObject.TypeInterface
     next_node: (self: DomNodeIterator) => DomNode | null
     previous_node: (self: DomNodeIterator) => DomNode | null
@@ -28285,7 +28285,7 @@ export abstract class DomNodeIteratorIface {
     static name: string
 }
 export abstract class DomTreeWalkerIface {
-    /* Fields of GXml.DomTreeWalkerIface */
+    /* Fields of GXml-0.14.GXml.DomTreeWalkerIface */
     parent_iface: GObject.TypeInterface
     parentNode: (self: DomTreeWalker) => DomNode | null
     firstChild: (self: DomTreeWalker) => DomNode | null
@@ -28301,7 +28301,7 @@ export abstract class DomTreeWalkerIface {
     static name: string
 }
 export abstract class DomNamedNodeMapIface {
-    /* Fields of GXml.DomNamedNodeMapIface */
+    /* Fields of GXml-0.14.GXml.DomNamedNodeMapIface */
     parent_iface: GObject.TypeInterface
     item: (self: DomNamedNodeMap, index: number) => DomNode | null
     get_named_item: (self: DomNamedNodeMap, name: string) => DomNode | null
@@ -28314,7 +28314,7 @@ export abstract class DomNamedNodeMapIface {
     static name: string
 }
 export abstract class DomTokenListIface {
-    /* Fields of GXml.DomTokenListIface */
+    /* Fields of GXml-0.14.GXml.DomTokenListIface */
     parent_iface: GObject.TypeInterface
     item: (self: DomTokenList, index: number) => string | null
     contains: (self: DomTokenList, token: string) => boolean
@@ -28326,14 +28326,14 @@ export abstract class DomTokenListIface {
     static name: string
 }
 export abstract class DomSettableTokenListIface {
-    /* Fields of GXml.DomSettableTokenListIface */
+    /* Fields of GXml-0.14.GXml.DomSettableTokenListIface */
     parent_iface: GObject.TypeInterface
     get_value: (self: DomSettableTokenList) => string
     set_value: (self: DomSettableTokenList, value: string) => void
     static name: string
 }
 export abstract class DomDocumentIface {
-    /* Fields of GXml.DomDocumentIface */
+    /* Fields of GXml-0.14.GXml.DomDocumentIface */
     parent_iface: GObject.TypeInterface
     get_elements_by_tag_name: (self: DomDocument, local_name: string) => DomHTMLCollection
     get_elements_by_tag_name_ns: (self: DomDocument, namespace: string | null, local_name: string) => DomHTMLCollection
@@ -28362,12 +28362,12 @@ export abstract class DomDocumentIface {
     static name: string
 }
 export abstract class DomXMLDocumentIface {
-    /* Fields of GXml.DomXMLDocumentIface */
+    /* Fields of GXml-0.14.GXml.DomXMLDocumentIface */
     parent_iface: GObject.TypeInterface
     static name: string
 }
 export abstract class DomImplementationIface {
-    /* Fields of GXml.DomImplementationIface */
+    /* Fields of GXml-0.14.GXml.DomImplementationIface */
     parent_iface: GObject.TypeInterface
     create_document_type: (self: DomImplementation, qualified_name: string, public_id: string, system_id: string) => DomDocumentType
     create_document: (self: DomImplementation, nspace?: string | null, qualified_name?: string | null, doctype?: DomDocumentType | null) => DomXMLDocument
@@ -28376,12 +28376,12 @@ export abstract class DomImplementationIface {
     static name: string
 }
 export abstract class DomDocumentFragmentIface {
-    /* Fields of GXml.DomDocumentFragmentIface */
+    /* Fields of GXml-0.14.GXml.DomDocumentFragmentIface */
     parent_iface: GObject.TypeInterface
     static name: string
 }
 export abstract class DomDocumentTypeIface {
-    /* Fields of GXml.DomDocumentTypeIface */
+    /* Fields of GXml-0.14.GXml.DomDocumentTypeIface */
     parent_iface: GObject.TypeInterface
     get_name: (self: DomDocumentType) => string
     get_public_id: (self: DomDocumentType) => string
@@ -28389,7 +28389,7 @@ export abstract class DomDocumentTypeIface {
     static name: string
 }
 export abstract class DomElementIface {
-    /* Fields of GXml.DomElementIface */
+    /* Fields of GXml-0.14.GXml.DomElementIface */
     parent_iface: GObject.TypeInterface
     get_attribute: (self: DomElement, name: string) => string | null
     get_attribute_ns: (self: DomElement, namespace: string | null, local_name: string) => string | null
@@ -28415,7 +28415,7 @@ export abstract class DomElementIface {
     static name: string
 }
 export abstract class DomEventTargetIface {
-    /* Fields of GXml.DomEventTargetIface */
+    /* Fields of GXml-0.14.GXml.DomEventTargetIface */
     parent_iface: GObject.TypeInterface
     add_event_listener: (self: DomEventTarget, type: string, callback: DomEventListener | null, capture: boolean) => void
     remove_event_listener: (self: DomEventTarget, type: string, callback: DomEventListener | null, capture: boolean) => void
@@ -28423,13 +28423,13 @@ export abstract class DomEventTargetIface {
     static name: string
 }
 export abstract class DomEventListenerIface {
-    /* Fields of GXml.DomEventListenerIface */
+    /* Fields of GXml-0.14.GXml.DomEventListenerIface */
     parent_iface: GObject.TypeInterface
     handle_event: (self: DomEventListener, event: DomEvent) => void
     static name: string
 }
 export abstract class DomEventIface {
-    /* Fields of GXml.DomEventIface */
+    /* Fields of GXml-0.14.GXml.DomEventIface */
     parent_iface: GObject.TypeInterface
     stop_propagation: (self: DomEvent) => void
     stop_immediate_propagation: (self: DomEvent) => void
@@ -28447,14 +28447,14 @@ export abstract class DomEventIface {
     static name: string
 }
 export abstract class DomCustomEventIface {
-    /* Fields of GXml.DomCustomEventIface */
+    /* Fields of GXml-0.14.GXml.DomCustomEventIface */
     parent_iface: GObject.TypeInterface
     init_custom_event: (self: DomCustomEvent, type: string, bubbles: boolean, cancelable: boolean, detail?: any | null) => void
     get_detail: (self: DomCustomEvent) => any | null
     static name: string
 }
 export abstract class DomMutationObserverIface {
-    /* Fields of GXml.DomMutationObserverIface */
+    /* Fields of GXml-0.14.GXml.DomMutationObserverIface */
     parent_iface: GObject.TypeInterface
     observe: (self: DomMutationObserver, target: Node, options: DomMutationObserverInit) => void
     disconnect: (self: DomMutationObserver) => void
@@ -28462,7 +28462,7 @@ export abstract class DomMutationObserverIface {
     static name: string
 }
 export abstract class DomMutationRecordIface {
-    /* Fields of GXml.DomMutationRecordIface */
+    /* Fields of GXml-0.14.GXml.DomMutationRecordIface */
     parent_iface: GObject.TypeInterface
     get_mtype: (self: DomMutationRecord) => string
     get_target: (self: DomMutationRecord) => DomNode
@@ -28478,7 +28478,7 @@ export abstract class DomMutationRecordIface {
     static name: string
 }
 export abstract class DomNodeIface {
-    /* Fields of GXml.DomNodeIface */
+    /* Fields of GXml-0.14.GXml.DomNodeIface */
     parent_iface: GObject.TypeInterface
     has_child_nodes: (self: DomNode) => boolean
     normalize: (self: DomNode) => void
@@ -28512,7 +28512,7 @@ export abstract class DomNodeIface {
     static name: string
 }
 export abstract class DomRangeIface {
-    /* Fields of GXml.DomRangeIface */
+    /* Fields of GXml-0.14.GXml.DomRangeIface */
     parent_iface: GObject.TypeInterface
     set_start: (self: DomRange, node: DomNode, offset: number) => void
     set_end: (self: DomRange, node: DomNode, offset: number) => void
@@ -28544,13 +28544,13 @@ export abstract class DomRangeIface {
     static name: string
 }
 export abstract class XPathContextIface {
-    /* Fields of GXml.XPathContextIface */
+    /* Fields of GXml-0.14.GXml.XPathContextIface */
     parent_iface: GObject.TypeInterface
     evaluate: (self: XPathContext, expression: string, resolver?: Gee.List | null) => XPathObject
     static name: string
 }
 export abstract class XPathObjectIface {
-    /* Fields of GXml.XPathObjectIface */
+    /* Fields of GXml-0.14.GXml.XPathObjectIface */
     parent_iface: GObject.TypeInterface
     get_object_type: (self: XPathObject) => XPathObjectType
     get_boolean_value: (self: XPathObject) => boolean
@@ -28560,7 +28560,7 @@ export abstract class XPathObjectIface {
     static name: string
 }
 export abstract class GomObjectIface {
-    /* Fields of GXml.GomObjectIface */
+    /* Fields of GXml-0.14.GXml.GomObjectIface */
     parent_iface: GObject.TypeInterface
     get_properties_list: (self: GomObject) => GObject.ParamSpec[]
     find_property_name: (self: GomObject, pname: string) => GObject.ParamSpec | null
@@ -28577,7 +28577,7 @@ export abstract class GomObjectIface {
     static name: string
 }
 export abstract class GomCollectionIface {
-    /* Fields of GXml.GomCollectionIface */
+    /* Fields of GXml-0.14.GXml.GomCollectionIface */
     parent_iface: GObject.TypeInterface
     search: (self: GomCollection) => void
     get_item: (self: GomCollection, index: number) => DomElement | null
@@ -28595,20 +28595,20 @@ export abstract class GomCollectionIface {
     static name: string
 }
 export abstract class MappeableElementIface {
-    /* Fields of GXml.MappeableElementIface */
+    /* Fields of GXml-0.14.GXml.MappeableElementIface */
     parent_iface: GObject.TypeInterface
     get_map_key: (self: MappeableElement) => string
     static name: string
 }
 export abstract class MappeableElementPairKeyIface {
-    /* Fields of GXml.MappeableElementPairKeyIface */
+    /* Fields of GXml-0.14.GXml.MappeableElementPairKeyIface */
     parent_iface: GObject.TypeInterface
     get_map_primary_key: (self: MappeableElementPairKey) => string
     get_map_secondary_key: (self: MappeableElementPairKey) => string
     static name: string
 }
 export abstract class MappeableElementThreeKeyIface {
-    /* Fields of GXml.MappeableElementThreeKeyIface */
+    /* Fields of GXml-0.14.GXml.MappeableElementThreeKeyIface */
     parent_iface: GObject.TypeInterface
     get_map_pkey: (self: MappeableElementThreeKey) => string
     get_map_skey: (self: MappeableElementThreeKey) => string
@@ -28616,7 +28616,7 @@ export abstract class MappeableElementThreeKeyIface {
     static name: string
 }
 export abstract class GomPropertyIface {
-    /* Fields of GXml.GomPropertyIface */
+    /* Fields of GXml-0.14.GXml.GomPropertyIface */
     parent_iface: GObject.TypeInterface
     validate_value: (self: GomProperty, val: string) => boolean
     get_value: (self: GomProperty) => string | null
@@ -28624,7 +28624,7 @@ export abstract class GomPropertyIface {
     static name: string
 }
 export abstract class ParserIface {
-    /* Fields of GXml.ParserIface */
+    /* Fields of GXml-0.14.GXml.ParserIface */
     parent_iface: GObject.TypeInterface
     write_file: (self: Parser, file: Gio.File, cancellable?: Gio.Cancellable | null) => void
     write_string: (self: Parser) => string
@@ -28640,7 +28640,7 @@ export abstract class ParserIface {
     static name: string
 }
 export abstract class IXsdSchemaIface {
-    /* Fields of GXml.IXsdSchemaIface */
+    /* Fields of GXml-0.14.GXml.IXsdSchemaIface */
     parent_iface: GObject.TypeInterface
     get_element_definitions: (self: IXsdSchema) => IXsdListElements
     set_element_definitions: (self: IXsdSchema, value: IXsdListElements) => void
@@ -28651,14 +28651,14 @@ export abstract class IXsdSchemaIface {
     static name: string
 }
 export abstract class IXsdBaseTypeIface {
-    /* Fields of GXml.IXsdBaseTypeIface */
+    /* Fields of GXml-0.14.GXml.IXsdBaseTypeIface */
     parent_iface: GObject.TypeInterface
     get_anotation: (self: IXsdBaseType) => IXsdAnnotation
     set_anotation: (self: IXsdBaseType, value: IXsdAnnotation) => void
     static name: string
 }
 export abstract class IXsdSimpleTypeIface {
-    /* Fields of GXml.IXsdSimpleTypeIface */
+    /* Fields of GXml-0.14.GXml.IXsdSimpleTypeIface */
     parent_iface: GObject.TypeInterface
     get_final: (self: IXsdSimpleType) => string
     set_final: (self: IXsdSimpleType, value: string) => void
@@ -28677,12 +28677,12 @@ export abstract class IXsdSimpleTypeIface {
     static name: string
 }
 export abstract class IXsdTypeDefIface {
-    /* Fields of GXml.IXsdTypeDefIface */
+    /* Fields of GXml-0.14.GXml.IXsdTypeDefIface */
     parent_iface: GObject.TypeInterface
     static name: string
 }
 export abstract class IXsdTypeRestrictionIface {
-    /* Fields of GXml.IXsdTypeRestrictionIface */
+    /* Fields of GXml-0.14.GXml.IXsdTypeRestrictionIface */
     parent_iface: GObject.TypeInterface
     get_base: (self: IXsdTypeRestriction) => string
     set_base: (self: IXsdTypeRestriction, value: string) => void
@@ -28697,69 +28697,69 @@ export abstract class IXsdTypeRestrictionIface {
     static name: string
 }
 export abstract class IXsdTypeListIface {
-    /* Fields of GXml.IXsdTypeListIface */
+    /* Fields of GXml-0.14.GXml.IXsdTypeListIface */
     parent_iface: GObject.TypeInterface
     static name: string
 }
 export abstract class IXsdTypeUnionIface {
-    /* Fields of GXml.IXsdTypeUnionIface */
+    /* Fields of GXml-0.14.GXml.IXsdTypeUnionIface */
     parent_iface: GObject.TypeInterface
     static name: string
 }
 export abstract class IXsdTypeRestrictionDefIface {
-    /* Fields of GXml.IXsdTypeRestrictionDefIface */
+    /* Fields of GXml-0.14.GXml.IXsdTypeRestrictionDefIface */
     parent_iface: GObject.TypeInterface
     get_annotation: (self: IXsdTypeRestrictionDef) => IXsdAnnotation
     set_annotation: (self: IXsdTypeRestrictionDef, value: IXsdAnnotation) => void
     static name: string
 }
 export abstract class IXsdTypeRestrictionMinExclusiveIface {
-    /* Fields of GXml.IXsdTypeRestrictionMinExclusiveIface */
+    /* Fields of GXml-0.14.GXml.IXsdTypeRestrictionMinExclusiveIface */
     parent_iface: GObject.TypeInterface
     static name: string
 }
 export abstract class IXsdTypeRestrictionMinInclusiveIface {
-    /* Fields of GXml.IXsdTypeRestrictionMinInclusiveIface */
+    /* Fields of GXml-0.14.GXml.IXsdTypeRestrictionMinInclusiveIface */
     parent_iface: GObject.TypeInterface
     static name: string
 }
 export abstract class IXsdTypeRestrictionMaxExclusiveIface {
-    /* Fields of GXml.IXsdTypeRestrictionMaxExclusiveIface */
+    /* Fields of GXml-0.14.GXml.IXsdTypeRestrictionMaxExclusiveIface */
     parent_iface: GObject.TypeInterface
     static name: string
 }
 export abstract class IXsdTypeRestrictionMaxInclusiveIface {
-    /* Fields of GXml.IXsdTypeRestrictionMaxInclusiveIface */
+    /* Fields of GXml-0.14.GXml.IXsdTypeRestrictionMaxInclusiveIface */
     parent_iface: GObject.TypeInterface
     static name: string
 }
 export abstract class IXsdTypeRestrictionTotalDigitsIface {
-    /* Fields of GXml.IXsdTypeRestrictionTotalDigitsIface */
+    /* Fields of GXml-0.14.GXml.IXsdTypeRestrictionTotalDigitsIface */
     parent_iface: GObject.TypeInterface
     static name: string
 }
 export abstract class IXsdTypeRestrictionFractionDigitsIface {
-    /* Fields of GXml.IXsdTypeRestrictionFractionDigitsIface */
+    /* Fields of GXml-0.14.GXml.IXsdTypeRestrictionFractionDigitsIface */
     parent_iface: GObject.TypeInterface
     static name: string
 }
 export abstract class IXsdTypeRestrictionLengthIface {
-    /* Fields of GXml.IXsdTypeRestrictionLengthIface */
+    /* Fields of GXml-0.14.GXml.IXsdTypeRestrictionLengthIface */
     parent_iface: GObject.TypeInterface
     static name: string
 }
 export abstract class IXsdTypeRestrictionMinLengthIface {
-    /* Fields of GXml.IXsdTypeRestrictionMinLengthIface */
+    /* Fields of GXml-0.14.GXml.IXsdTypeRestrictionMinLengthIface */
     parent_iface: GObject.TypeInterface
     static name: string
 }
 export abstract class IXsdTypeRestrictionMaxLengthIface {
-    /* Fields of GXml.IXsdTypeRestrictionMaxLengthIface */
+    /* Fields of GXml-0.14.GXml.IXsdTypeRestrictionMaxLengthIface */
     parent_iface: GObject.TypeInterface
     static name: string
 }
 export abstract class IXsdTypeRestrictionEnumerationIface {
-    /* Fields of GXml.IXsdTypeRestrictionEnumerationIface */
+    /* Fields of GXml-0.14.GXml.IXsdTypeRestrictionEnumerationIface */
     parent_iface: GObject.TypeInterface
     get_id: (self: IXsdTypeRestrictionEnumeration) => string
     set_id: (self: IXsdTypeRestrictionEnumeration, value: string) => void
@@ -28768,7 +28768,7 @@ export abstract class IXsdTypeRestrictionEnumerationIface {
     static name: string
 }
 export abstract class IXsdTypeRestrictionWhiteSpaceIface {
-    /* Fields of GXml.IXsdTypeRestrictionWhiteSpaceIface */
+    /* Fields of GXml-0.14.GXml.IXsdTypeRestrictionWhiteSpaceIface */
     parent_iface: GObject.TypeInterface
     get_fixed: (self: IXsdTypeRestrictionWhiteSpace) => boolean
     set_fixed: (self: IXsdTypeRestrictionWhiteSpace, value: boolean) => void
@@ -28779,22 +28779,22 @@ export abstract class IXsdTypeRestrictionWhiteSpaceIface {
     static name: string
 }
 export abstract class IXsdTypeRestrictionPatternIface {
-    /* Fields of GXml.IXsdTypeRestrictionPatternIface */
+    /* Fields of GXml-0.14.GXml.IXsdTypeRestrictionPatternIface */
     parent_iface: GObject.TypeInterface
     static name: string
 }
 export abstract class IXsdTypeRestrictionAssertionIface {
-    /* Fields of GXml.IXsdTypeRestrictionAssertionIface */
+    /* Fields of GXml-0.14.GXml.IXsdTypeRestrictionAssertionIface */
     parent_iface: GObject.TypeInterface
     static name: string
 }
 export abstract class IXsdTypeRestrictionExplicitTimezoneIface {
-    /* Fields of GXml.IXsdTypeRestrictionExplicitTimezoneIface */
+    /* Fields of GXml-0.14.GXml.IXsdTypeRestrictionExplicitTimezoneIface */
     parent_iface: GObject.TypeInterface
     static name: string
 }
 export abstract class IXsdComplexTypeIface {
-    /* Fields of GXml.IXsdComplexTypeIface */
+    /* Fields of GXml-0.14.GXml.IXsdComplexTypeIface */
     parent_iface: GObject.TypeInterface
     get_abstract: (self: IXsdComplexType) => boolean
     set_abstract: (self: IXsdComplexType, value: boolean) => void
@@ -28815,14 +28815,14 @@ export abstract class IXsdComplexTypeIface {
     static name: string
 }
 export abstract class IXsdExtensionIface {
-    /* Fields of GXml.IXsdExtensionIface */
+    /* Fields of GXml-0.14.GXml.IXsdExtensionIface */
     parent_iface: GObject.TypeInterface
     get_base: (self: IXsdExtension) => string
     set_base: (self: IXsdExtension, value: string) => void
     static name: string
 }
 export abstract class IXsdElementIface {
-    /* Fields of GXml.IXsdElementIface */
+    /* Fields of GXml-0.14.GXml.IXsdElementIface */
     parent_iface: GObject.TypeInterface
     get_abstract: (self: IXsdElement) => boolean
     set_abstract: (self: IXsdElement, value: boolean) => void
@@ -28863,51 +28863,51 @@ export abstract class IXsdElementIface {
     static name: string
 }
 export abstract class IXsdAnnotationIface {
-    /* Fields of GXml.IXsdAnnotationIface */
+    /* Fields of GXml-0.14.GXml.IXsdAnnotationIface */
     parent_iface: GObject.TypeInterface
     static name: string
 }
 export abstract class IXsdBaseContentIface {
-    /* Fields of GXml.IXsdBaseContentIface */
+    /* Fields of GXml-0.14.GXml.IXsdBaseContentIface */
     parent_iface: GObject.TypeInterface
     get_anotation: (self: IXsdBaseContent) => IXsdAnnotation
     set_anotation: (self: IXsdBaseContent, value: IXsdAnnotation) => void
     static name: string
 }
 export abstract class IXsdSimpleContentIface {
-    /* Fields of GXml.IXsdSimpleContentIface */
+    /* Fields of GXml-0.14.GXml.IXsdSimpleContentIface */
     parent_iface: GObject.TypeInterface
     static name: string
 }
 export abstract class IXsdComplexContentIface {
-    /* Fields of GXml.IXsdComplexContentIface */
+    /* Fields of GXml-0.14.GXml.IXsdComplexContentIface */
     parent_iface: GObject.TypeInterface
     static name: string
 }
 export abstract class IXsdOpenContentIface {
-    /* Fields of GXml.IXsdOpenContentIface */
+    /* Fields of GXml-0.14.GXml.IXsdOpenContentIface */
     parent_iface: GObject.TypeInterface
     static name: string
 }
 export abstract class IXsdBaseAttributeIface {
-    /* Fields of GXml.IXsdBaseAttributeIface */
+    /* Fields of GXml-0.14.GXml.IXsdBaseAttributeIface */
     parent_iface: GObject.TypeInterface
     get_anotation: (self: IXsdBaseAttribute) => IXsdAnnotation
     set_anotation: (self: IXsdBaseAttribute, value: IXsdAnnotation) => void
     static name: string
 }
 export abstract class IXsdAttributeIface {
-    /* Fields of GXml.IXsdAttributeIface */
+    /* Fields of GXml-0.14.GXml.IXsdAttributeIface */
     parent_iface: GObject.TypeInterface
     static name: string
 }
 export abstract class IXsdAttributeGroupIface {
-    /* Fields of GXml.IXsdAttributeGroupIface */
+    /* Fields of GXml-0.14.GXml.IXsdAttributeGroupIface */
     parent_iface: GObject.TypeInterface
     static name: string
 }
 export abstract class IXsdListIface {
-    /* Fields of GXml.IXsdListIface */
+    /* Fields of GXml-0.14.GXml.IXsdListIface */
     parent_iface: GObject.TypeInterface
     get_item: (self: IXsdList, index: number) => DomElement | null
     append: (self: IXsdList, element: DomElement) => void
@@ -28923,37 +28923,37 @@ export abstract class IXsdListIface {
     static name: string
 }
 export abstract class IXsdListElementsIface {
-    /* Fields of GXml.IXsdListElementsIface */
+    /* Fields of GXml-0.14.GXml.IXsdListElementsIface */
     parent_iface: GObject.TypeInterface
     static name: string
 }
 export abstract class IXsdListSimpleTypesIface {
-    /* Fields of GXml.IXsdListSimpleTypesIface */
+    /* Fields of GXml-0.14.GXml.IXsdListSimpleTypesIface */
     parent_iface: GObject.TypeInterface
     static name: string
 }
 export abstract class IXsdListComplexTypesIface {
-    /* Fields of GXml.IXsdListComplexTypesIface */
+    /* Fields of GXml-0.14.GXml.IXsdListComplexTypesIface */
     parent_iface: GObject.TypeInterface
     static name: string
 }
 export abstract class IXsdListAttributesIface {
-    /* Fields of GXml.IXsdListAttributesIface */
+    /* Fields of GXml-0.14.GXml.IXsdListAttributesIface */
     parent_iface: GObject.TypeInterface
     static name: string
 }
 export abstract class IXsdListAttributesGroupIface {
-    /* Fields of GXml.IXsdListAttributesGroupIface */
+    /* Fields of GXml-0.14.GXml.IXsdListAttributesGroupIface */
     parent_iface: GObject.TypeInterface
     static name: string
 }
 export abstract class IXsdListTypeRestrictionEnumerationsIface {
-    /* Fields of GXml.IXsdListTypeRestrictionEnumerationsIface */
+    /* Fields of GXml-0.14.GXml.IXsdListTypeRestrictionEnumerationsIface */
     parent_iface: GObject.TypeInterface
     static name: string
 }
 export abstract class IXsdListTypeRestrictionWhiteSpacesIface {
-    /* Fields of GXml.IXsdListTypeRestrictionWhiteSpacesIface */
+    /* Fields of GXml-0.14.GXml.IXsdListTypeRestrictionWhiteSpacesIface */
     parent_iface: GObject.TypeInterface
     static name: string
 }

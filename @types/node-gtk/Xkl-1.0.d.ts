@@ -43,21 +43,21 @@ export interface TwoConfigItemsProcessFunc {
 export interface ConfigItem_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class ConfigItem {
-    /* Fields of Xkl.ConfigItem */
+    /* Fields of Xkl-1.0.Xkl.ConfigItem */
     parent: GObject.Object
     name: number[]
     shortDescription: number[]
     description: number[]
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Xkl.ConfigItem */
+    /* Methods of Xkl-1.0.Xkl.ConfigItem */
     getDescription(): string
     getName(): string
     getShortDescription(): string
     setDescription(description?: string | null): void
     setName(name?: string | null): void
     setShortDescription(shortDescription?: string | null): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -79,21 +79,12 @@ export class ConfigItem {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: ConfigItem, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: ConfigItem, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -111,15 +102,15 @@ export class ConfigItem {
 export interface ConfigRec_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class ConfigRec {
-    /* Fields of Xkl.ConfigRec */
+    /* Fields of Xkl-1.0.Xkl.ConfigRec */
     parent: GObject.Object
     model: string
     layouts: string[]
     variants: string[]
     options: string[]
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Xkl.ConfigRec */
+    /* Methods of Xkl-1.0.Xkl.ConfigRec */
     activate(engine: Engine): boolean
     equals(data2: ConfigRec): boolean
     getFromBackup(engine: Engine): boolean
@@ -131,7 +122,7 @@ export class ConfigRec {
     setOptions(newOptions: string[]): void
     setToRootWindowProperty(rulesAtomName: xlib.Atom, rulesFile: string, engine: Engine): boolean
     setVariants(newVariants: string[]): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -153,21 +144,12 @@ export class ConfigRec {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: ConfigRec, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: ConfigRec, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -187,11 +169,11 @@ export interface ConfigRegistry_ConstructProps extends GObject.Object_ConstructP
     engine?: Engine
 }
 export class ConfigRegistry {
-    /* Fields of Xkl.ConfigRegistry */
+    /* Fields of Xkl-1.0.Xkl.ConfigRegistry */
     parent: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Xkl.ConfigRegistry */
+    /* Methods of Xkl-1.0.Xkl.ConfigRegistry */
     findLayout(item: ConfigItem): boolean
     findModel(item: ConfigItem): boolean
     findOption(optionGroupName: string, item: ConfigItem): boolean
@@ -208,7 +190,7 @@ export class ConfigRegistry {
     foreachOptionGroup(func: ConfigItemProcessFunc): void
     load(ifExtrasNeeded: boolean): boolean
     searchByPattern(pattern: string, func: TwoConfigItemsProcessFunc): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -230,21 +212,12 @@ export class ConfigRegistry {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: ConfigRegistry, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: ConfigRegistry, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -263,7 +236,7 @@ export interface Engine_ConstructProps extends GObject.Object_ConstructProps {
     display?: object
 }
 export class Engine {
-    /* Properties of Xkl.Engine */
+    /* Properties of Xkl-1.0.Xkl.Engine */
     readonly backendName: string
     readonly defaultGroup: number
     readonly features: EngineFeatures
@@ -271,11 +244,11 @@ export class Engine {
     readonly maxNumGroups: number
     readonly numGroups: number
     readonly secondaryGroupsMask: number
-    /* Fields of Xkl.Engine */
+    /* Fields of Xkl-1.0.Xkl.Engine */
     parent: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Xkl.Engine */
+    /* Methods of Xkl-1.0.Xkl.Engine */
     allowOneSwitchToSecondaryGroup(): void
     backupNamesProp(): boolean
     deleteState(win: xlib.Window): void
@@ -312,7 +285,7 @@ export class Engine {
     startListen(flags: number): number
     stopListen(flags: number): number
     ungrabKey(keycode: number, modifiers: number): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -334,51 +307,33 @@ export class Engine {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of Xkl.Engine */
-    vfuncConfigNotify(): void
-    vfuncNewDeviceNotify(): void
-    vfuncNewWindowNotify(win: xlib.Window, parent: xlib.Window): number
-    vfuncStateNotify(changeType: EngineStateChange, group: number, restore: boolean): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Xkl.Engine */
+    /* Signals of Xkl-1.0.Xkl.Engine */
     connect(sigName: "X-config-changed", callback: (($obj: Engine) => void)): number
-    connect_after(sigName: "X-config-changed", callback: (($obj: Engine) => void)): number
+    on(sigName: "X-config-changed", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "X-config-changed", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "X-config-changed", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "X-config-changed"): void
-    on(sigName: "X-config-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "X-config-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "X-config-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "X-new-device", callback: (($obj: Engine) => void)): number
-    connect_after(sigName: "X-new-device", callback: (($obj: Engine) => void)): number
+    on(sigName: "X-new-device", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "X-new-device", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "X-new-device", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "X-new-device"): void
-    on(sigName: "X-new-device", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "X-new-device", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "X-new-device", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "X-state-changed", callback: (($obj: Engine, object: EngineStateChange, p0: number, p1: boolean) => void)): number
-    connect_after(sigName: "X-state-changed", callback: (($obj: Engine, object: EngineStateChange, p0: number, p1: boolean) => void)): number
+    on(sigName: "X-state-changed", callback: (object: EngineStateChange, p0: number, p1: boolean) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "X-state-changed", callback: (object: EngineStateChange, p0: number, p1: boolean) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "X-state-changed", callback: (object: EngineStateChange, p0: number, p1: boolean) => void): NodeJS.EventEmitter
     emit(sigName: "X-state-changed", object: EngineStateChange, p0: number, p1: boolean): void
-    on(sigName: "X-state-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "X-state-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "X-state-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "new-toplevel-window", callback: (($obj: Engine, object: number, p0: number) => number)): number
-    connect_after(sigName: "new-toplevel-window", callback: (($obj: Engine, object: number, p0: number) => number)): number
+    on(sigName: "new-toplevel-window", callback: (object: number, p0: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "new-toplevel-window", callback: (object: number, p0: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "new-toplevel-window", callback: (object: number, p0: number) => void): NodeJS.EventEmitter
     emit(sigName: "new-toplevel-window", object: number, p0: number): void
-    on(sigName: "new-toplevel-window", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "new-toplevel-window", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "new-toplevel-window", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Engine, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Engine, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::backendName", callback: (($obj: Engine, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::backendName", callback: (($obj: Engine, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::backendName", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -431,17 +386,17 @@ export class Engine {
     static $gtype: GObject.Type
 }
 export abstract class ConfigItemClass {
-    /* Fields of Xkl.ConfigItemClass */
+    /* Fields of Xkl-1.0.Xkl.ConfigItemClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
 export abstract class ConfigRecClass {
-    /* Fields of Xkl.ConfigRecClass */
+    /* Fields of Xkl-1.0.Xkl.ConfigRecClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
 export abstract class ConfigRegistryClass {
-    /* Fields of Xkl.ConfigRegistryClass */
+    /* Fields of Xkl-1.0.Xkl.ConfigRegistryClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
@@ -449,7 +404,7 @@ export class ConfigRegistryPrivate {
     static name: string
 }
 export abstract class EngineClass {
-    /* Fields of Xkl.EngineClass */
+    /* Fields of Xkl-1.0.Xkl.EngineClass */
     parentClass: GObject.ObjectClass
     configNotify: (engine: Engine) => void
     newWindowNotify: (engine: Engine, win: xlib.Window, parent: xlib.Window) => number
@@ -461,7 +416,7 @@ export class EnginePrivate {
     static name: string
 }
 export class State {
-    /* Fields of Xkl.State */
+    /* Fields of Xkl-1.0.Xkl.State */
     group: number
     indicators: number
     static name: string

@@ -42,7 +42,7 @@ export const MICRO_VERSION: number
 export const MINOR_VERSION: number
 export const VERSION_S: string
 export function boxedCanDeserialize(gboxedType: GObject.Type, nodeType: NodeType): boolean
-export function boxedCanSerialize(gboxedType: GObject.Type): [ /* returnType */ boolean, /* nodeType */ NodeType ]
+export function boxedCanSerialize(gboxedType: GObject.Type): { returnType: boolean, nodeType: NodeType }
 export function boxedDeserialize(gboxedType: GObject.Type, node: Node): object | null
 export function boxedSerialize(gboxedType: GObject.Type, boxed?: object | null): Node | null
 export function constructGobject(gtype: GObject.Type, data: string, length: number): GObject.Object
@@ -50,15 +50,15 @@ export function fromString(str: string): Node | null
 export function gobjectDeserialize(gtype: GObject.Type, node: Node): GObject.Object
 export function gobjectFromData(gtype: GObject.Type, data: string, length: number): GObject.Object
 export function gobjectSerialize(gobject: GObject.Object): Node
-export function gobjectToData(gobject: GObject.Object): [ /* returnType */ string, /* length */ number ]
+export function gobjectToData(gobject: GObject.Object): { returnType: string, length: number }
 export function gvariantDeserialize(jsonNode: Node, signature?: string | null): GLib.Variant
 export function gvariantDeserializeData(json: string, length: number, signature?: string | null): GLib.Variant
 export function gvariantSerialize(variant: GLib.Variant): Node
-export function gvariantSerializeData(variant: GLib.Variant): [ /* returnType */ string, /* length */ number | null ]
+export function gvariantSerializeData(variant: GLib.Variant): { returnType: string, length: number | null }
 export function parserErrorQuark(): GLib.Quark
 export function pathErrorQuark(): GLib.Quark
 export function readerErrorQuark(): GLib.Quark
-export function serializeGobject(gobject: GObject.Object): [ /* returnType */ string, /* length */ number ]
+export function serializeGobject(gobject: GObject.Object): { returnType: string, length: number }
 export function stringCompare(a: string, b: string): number
 export function stringEqual(a: string, b: string): boolean
 export function stringHash(key: string): number
@@ -76,30 +76,24 @@ export interface ObjectForeach {
     (object: Object, memberName: string, memberNode: Node): void
 }
 export class Serializable {
-    /* Methods of Json.Serializable */
+    /* Methods of Json-1.0.Json.Serializable */
     defaultDeserializeProperty(propertyName: string, value: any, pspec: GObject.ParamSpec, propertyNode: Node): boolean
     defaultSerializeProperty(propertyName: string, value: any, pspec: GObject.ParamSpec): Node | null
-    deserializeProperty(propertyName: string, pspec: GObject.ParamSpec, propertyNode: Node): [ /* returnType */ boolean, /* value */ any ]
+    deserializeProperty(propertyName: string, pspec: GObject.ParamSpec, propertyNode: Node): { returnType: boolean, value: any }
     findProperty(name: string): GObject.ParamSpec | null
-    getProperty(pspec: GObject.ParamSpec): /* value */ any
+    getProperty(pspec: GObject.ParamSpec): { value: any }
     listProperties(): GObject.ParamSpec[]
     serializeProperty(propertyName: string, value: any, pspec: GObject.ParamSpec): Node
     setProperty(pspec: GObject.ParamSpec, value: any): void
-    /* Virtual methods of Json.Serializable */
-    vfuncDeserializeProperty(propertyName: string, pspec: GObject.ParamSpec, propertyNode: Node): [ /* returnType */ boolean, /* value */ any ]
-    vfuncFindProperty(name: string): GObject.ParamSpec | null
-    vfuncGetProperty(pspec: GObject.ParamSpec): /* value */ any
-    vfuncSerializeProperty(propertyName: string, value: any, pspec: GObject.ParamSpec): Node
-    vfuncSetProperty(pspec: GObject.ParamSpec, value: any): void
     static name: string
 }
 export interface Builder_ConstructProps extends GObject.Object_ConstructProps {
     immutable?: boolean
 }
 export class Builder {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Json.Builder */
+    /* Methods of Json-1.0.Json.Builder */
     addBooleanValue(value: boolean): Builder | null
     addDoubleValue(value: number): Builder | null
     addIntValue(value: number): Builder | null
@@ -113,7 +107,7 @@ export class Builder {
     getRoot(): Node | null
     reset(): void
     setMemberName(memberName: string): Builder | null
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -135,21 +129,12 @@ export class Builder {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Builder, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Builder, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -172,14 +157,14 @@ export interface Generator_ConstructProps extends GObject.Object_ConstructProps 
     root?: Node
 }
 export class Generator {
-    /* Properties of Json.Generator */
+    /* Properties of Json-1.0.Json.Generator */
     indent: number
     indentChar: number
     pretty: boolean
     root: Node
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Json.Generator */
+    /* Methods of Json-1.0.Json.Generator */
     getIndent(): number
     getIndentChar(): number
     getPretty(): boolean
@@ -188,11 +173,11 @@ export class Generator {
     setIndentChar(indentChar: number): void
     setPretty(isPretty: boolean): void
     setRoot(node: Node): void
-    toData(): [ /* returnType */ string, /* length */ number ]
+    toData(): { returnType: string, length: number }
     toFile(filename: string): boolean
     toGstring(string: GLib.String): GLib.String
     toStream(stream: Gio.OutputStream, cancellable?: Gio.Cancellable | null): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -214,21 +199,12 @@ export class Generator {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Generator, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Generator, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::indent", callback: (($obj: Generator, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::indent", callback: (($obj: Generator, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::indent", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -267,13 +243,13 @@ export interface Parser_ConstructProps extends GObject.Object_ConstructProps {
     immutable?: boolean
 }
 export class Parser {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Json.Parser */
+    /* Methods of Json-1.0.Json.Parser */
     getCurrentLine(): number
     getCurrentPos(): number
     getRoot(): Node | null
-    hasAssignment(): [ /* returnType */ boolean, /* variableName */ string | null ]
+    hasAssignment(): { returnType: boolean, variableName: string | null }
     loadFromData(data: string, length: number): boolean
     loadFromFile(filename: string): boolean
     loadFromMappedFile(filename: string): boolean
@@ -281,7 +257,7 @@ export class Parser {
     loadFromStreamAsync(stream: Gio.InputStream, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     loadFromStreamFinish(result: Gio.AsyncResult): boolean
     stealRoot(): Node | null
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -303,86 +279,58 @@ export class Parser {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of Json.Parser */
-    vfuncArrayElement(array: Array, index: number): void
-    vfuncArrayEnd(array: Array): void
-    vfuncArrayStart(): void
-    vfuncError(error: GLib.Error): void
-    vfuncObjectEnd(object: Object): void
-    vfuncObjectMember(object: Object, memberName: string): void
-    vfuncObjectStart(): void
-    vfuncParseEnd(): void
-    vfuncParseStart(): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Json.Parser */
+    /* Signals of Json-1.0.Json.Parser */
     connect(sigName: "array-element", callback: (($obj: Parser, array: Array, index: number) => void)): number
-    connect_after(sigName: "array-element", callback: (($obj: Parser, array: Array, index: number) => void)): number
+    on(sigName: "array-element", callback: (array: Array, index: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "array-element", callback: (array: Array, index: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "array-element", callback: (array: Array, index: number) => void): NodeJS.EventEmitter
     emit(sigName: "array-element", array: Array, index: number): void
-    on(sigName: "array-element", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "array-element", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "array-element", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "array-end", callback: (($obj: Parser, array: Array) => void)): number
-    connect_after(sigName: "array-end", callback: (($obj: Parser, array: Array) => void)): number
+    on(sigName: "array-end", callback: (array: Array) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "array-end", callback: (array: Array) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "array-end", callback: (array: Array) => void): NodeJS.EventEmitter
     emit(sigName: "array-end", array: Array): void
-    on(sigName: "array-end", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "array-end", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "array-end", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "array-start", callback: (($obj: Parser) => void)): number
-    connect_after(sigName: "array-start", callback: (($obj: Parser) => void)): number
+    on(sigName: "array-start", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "array-start", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "array-start", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "array-start"): void
-    on(sigName: "array-start", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "array-start", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "array-start", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "error", callback: (($obj: Parser, error?: object | null) => void)): number
-    connect_after(sigName: "error", callback: (($obj: Parser, error?: object | null) => void)): number
+    on(sigName: "error", callback: (error?: object | null) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "error", callback: (error?: object | null) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "error", callback: (error?: object | null) => void): NodeJS.EventEmitter
     emit(sigName: "error", error?: object | null): void
-    on(sigName: "error", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "error", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "error", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "object-end", callback: (($obj: Parser, object: Object) => void)): number
-    connect_after(sigName: "object-end", callback: (($obj: Parser, object: Object) => void)): number
+    on(sigName: "object-end", callback: (object: Object) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "object-end", callback: (object: Object) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "object-end", callback: (object: Object) => void): NodeJS.EventEmitter
     emit(sigName: "object-end", object: Object): void
-    on(sigName: "object-end", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "object-end", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "object-end", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "object-member", callback: (($obj: Parser, object: Object, memberName: string) => void)): number
-    connect_after(sigName: "object-member", callback: (($obj: Parser, object: Object, memberName: string) => void)): number
+    on(sigName: "object-member", callback: (object: Object, memberName: string) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "object-member", callback: (object: Object, memberName: string) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "object-member", callback: (object: Object, memberName: string) => void): NodeJS.EventEmitter
     emit(sigName: "object-member", object: Object, memberName: string): void
-    on(sigName: "object-member", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "object-member", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "object-member", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "object-start", callback: (($obj: Parser) => void)): number
-    connect_after(sigName: "object-start", callback: (($obj: Parser) => void)): number
+    on(sigName: "object-start", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "object-start", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "object-start", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "object-start"): void
-    on(sigName: "object-start", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "object-start", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "object-start", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "parse-end", callback: (($obj: Parser) => void)): number
-    connect_after(sigName: "parse-end", callback: (($obj: Parser) => void)): number
+    on(sigName: "parse-end", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "parse-end", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "parse-end", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "parse-end"): void
-    on(sigName: "parse-end", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "parse-end", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "parse-end", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "parse-start", callback: (($obj: Parser) => void)): number
-    connect_after(sigName: "parse-start", callback: (($obj: Parser) => void)): number
+    on(sigName: "parse-start", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "parse-start", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "parse-start", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "parse-start"): void
-    on(sigName: "parse-start", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "parse-start", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "parse-start", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Parser, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Parser, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -401,12 +349,12 @@ export class Parser {
 export interface Path_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class Path {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Json.Path */
+    /* Methods of Json-1.0.Json.Path */
     compile(expression: string): boolean
     match(root: Node): Node
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -428,21 +376,12 @@ export class Path {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Path, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Path, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -462,11 +401,11 @@ export interface Reader_ConstructProps extends GObject.Object_ConstructProps {
     root?: Node
 }
 export class Reader {
-    /* Properties of Json.Reader */
+    /* Properties of Json-1.0.Json.Reader */
     root: Node
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Json.Reader */
+    /* Methods of Json-1.0.Json.Reader */
     countElements(): number
     countMembers(): number
     endElement(): void
@@ -486,7 +425,7 @@ export class Reader {
     readElement(index: number): boolean
     readMember(memberName: string): boolean
     setRoot(root?: Node | null): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -508,21 +447,12 @@ export class Reader {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Reader, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Reader, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::root", callback: (($obj: Reader, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::root", callback: (($obj: Reader, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::root", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -543,7 +473,7 @@ export class Reader {
     static $gtype: GObject.Type
 }
 export class Array {
-    /* Methods of Json.Array */
+    /* Methods of Json-1.0.Json.Array */
     addArrayElement(value?: Array | null): void
     addBooleanElement(value: boolean): void
     addDoubleElement(value: number): void
@@ -591,7 +521,7 @@ export class GeneratorPrivate {
     static name: string
 }
 export class Node {
-    /* Methods of Json.Node */
+    /* Methods of Json-1.0.Json.Node */
     copy(): Node
     dupArray(): Array | null
     dupObject(): Object | null
@@ -606,7 +536,7 @@ export class Node {
     getObject(): Object | null
     getParent(): Node | null
     getString(): string | null
-    getValue(): /* value */ any
+    getValue(): { value: any }
     getValueType(): GObject.Type
     hash(): number
     init(type: NodeType): Node
@@ -641,7 +571,7 @@ export class Node {
     static new(type: NodeType): Node
 }
 export class Object {
-    /* Methods of Json.Object */
+    /* Methods of Json-1.0.Json.Object */
     addMember(memberName: string, node: Node): void
     dupMember(memberName: string): Node | null
     equal(b: Object): boolean
@@ -683,15 +613,15 @@ export class Object {
     static new(): Object
 }
 export class ObjectIter {
-    /* Methods of Json.ObjectIter */
+    /* Methods of Json-1.0.Json.ObjectIter */
     init(object: Object): void
     initOrdered(object: Object): void
-    next(): [ /* returnType */ boolean, /* memberName */ string | null, /* memberNode */ Node | null ]
-    nextOrdered(): [ /* returnType */ boolean, /* memberName */ string | null, /* memberNode */ Node | null ]
+    next(): { returnType: boolean, memberName: string | null, memberNode: Node | null }
+    nextOrdered(): { returnType: boolean, memberName: string | null, memberNode: Node | null }
     static name: string
 }
 export abstract class ParserClass {
-    /* Fields of Json.ParserClass */
+    /* Fields of Json-1.0.Json.ParserClass */
     parseStart: (parser: Parser) => void
     objectStart: (parser: Parser) => void
     objectMember: (parser: Parser, object: Object, memberName: string) => void
@@ -716,12 +646,12 @@ export class ReaderPrivate {
     static name: string
 }
 export abstract class SerializableIface {
-    /* Fields of Json.SerializableIface */
+    /* Fields of Json-1.0.Json.SerializableIface */
     serializeProperty: (serializable: Serializable, propertyName: string, value: any, pspec: GObject.ParamSpec) => Node
-    deserializeProperty: (serializable: Serializable, propertyName: string, pspec: GObject.ParamSpec, propertyNode: Node) => [ /* returnType */ boolean, /* value */ any ]
+    deserializeProperty: (serializable: Serializable, propertyName: string, pspec: GObject.ParamSpec, propertyNode: Node) => { returnType: boolean, value: any }
     findProperty: (serializable: Serializable, name: string) => GObject.ParamSpec | null
     setProperty: (serializable: Serializable, pspec: GObject.ParamSpec, value: any) => void
-    getProperty: (serializable: Serializable, pspec: GObject.ParamSpec) => /* value */ any
+    getProperty: (serializable: Serializable, pspec: GObject.ParamSpec) => { value: any }
     static name: string
 }
 }

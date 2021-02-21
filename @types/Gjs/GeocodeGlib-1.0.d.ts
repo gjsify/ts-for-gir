@@ -73,14 +73,14 @@ export const LOCATION_ACCURACY_STREET: number
 export const LOCATION_ACCURACY_UNKNOWN: number
 export function error_quark(): GLib.Quark
 export class Backend {
-    /* Methods of GeocodeGlib.Backend */
+    /* Methods of GeocodeGlib-1.0.GeocodeGlib.Backend */
     forward_search(params: GLib.HashTable, cancellable?: Gio.Cancellable | null): Place[]
     forward_search_async(params: GLib.HashTable, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     forward_search_finish(result: Gio.AsyncResult): Place[]
     reverse_resolve(params: GLib.HashTable, cancellable?: Gio.Cancellable | null): Place[]
     reverse_resolve_async(params: GLib.HashTable, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     reverse_resolve_finish(result: Gio.AsyncResult): Place[]
-    /* Virtual methods of GeocodeGlib.Backend */
+    /* Virtual methods of GeocodeGlib-1.0.GeocodeGlib.Backend */
     vfunc_forward_search(params: GLib.HashTable, cancellable?: Gio.Cancellable | null): Place[]
     vfunc_forward_search_async(params: GLib.HashTable, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     vfunc_forward_search_finish(result: Gio.AsyncResult): Place[]
@@ -96,15 +96,15 @@ export interface BoundingBox_ConstructProps extends GObject.Object_ConstructProp
     top?: number
 }
 export class BoundingBox {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GeocodeGlib.BoundingBox */
+    /* Methods of GeocodeGlib-1.0.GeocodeGlib.BoundingBox */
     equal(b: BoundingBox): boolean
     get_bottom(): number
     get_left(): number
     get_right(): number
     get_top(): number
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -126,7 +126,7 @@ export class BoundingBox {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -134,7 +134,7 @@ export class BoundingBox {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: BoundingBox, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: BoundingBox, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -155,13 +155,13 @@ export interface Forward_ConstructProps extends GObject.Object_ConstructProps {
     search_area?: BoundingBox
 }
 export class Forward {
-    /* Properties of GeocodeGlib.Forward */
+    /* Properties of GeocodeGlib-1.0.GeocodeGlib.Forward */
     answer_count: number
     bounded: boolean
     search_area: BoundingBox
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GeocodeGlib.Forward */
+    /* Methods of GeocodeGlib-1.0.GeocodeGlib.Forward */
     get_answer_count(): number
     get_bounded(): boolean
     get_search_area(): BoundingBox | null
@@ -172,7 +172,7 @@ export class Forward {
     set_backend(backend?: Backend | null): void
     set_bounded(bounded: boolean): void
     set_search_area(box: BoundingBox): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -194,7 +194,7 @@ export class Forward {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -202,7 +202,7 @@ export class Forward {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Forward, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Forward, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -234,15 +234,15 @@ export interface Location_ConstructProps extends GObject.Object_ConstructProps {
     timestamp?: number
 }
 export class Location {
-    /* Properties of GeocodeGlib.Location */
+    /* Properties of GeocodeGlib-1.0.GeocodeGlib.Location */
     accuracy: number
     altitude: number
     description: string
     latitude: number
     longitude: number
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GeocodeGlib.Location */
+    /* Methods of GeocodeGlib-1.0.GeocodeGlib.Location */
     equal(b: Location): boolean
     get_accuracy(): number
     get_altitude(): number
@@ -255,7 +255,7 @@ export class Location {
     set_description(description: string): void
     set_from_uri(uri: string): boolean
     to_uri(scheme: LocationURIScheme): string
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -277,7 +277,7 @@ export class Location {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -285,7 +285,7 @@ export class Location {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Location, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Location, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -314,14 +314,14 @@ export class Location {
 export interface MockBackend_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class MockBackend {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GeocodeGlib.MockBackend */
+    /* Methods of GeocodeGlib-1.0.GeocodeGlib.MockBackend */
     add_forward_result(params: GLib.HashTable, results?: Place[] | null, error?: GLib.Error | null): void
     add_reverse_result(params: GLib.HashTable, results?: Place[] | null, error?: GLib.Error | null): void
     clear(): void
     get_query_log(): MockBackendQuery[]
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -343,21 +343,21 @@ export class MockBackend {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of GeocodeGlib.Backend */
+    /* Methods of GeocodeGlib-1.0.GeocodeGlib.Backend */
     forward_search(params: GLib.HashTable, cancellable?: Gio.Cancellable | null): Place[]
     forward_search_async(params: GLib.HashTable, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     forward_search_finish(result: Gio.AsyncResult): Place[]
     reverse_resolve(params: GLib.HashTable, cancellable?: Gio.Cancellable | null): Place[]
     reverse_resolve_async(params: GLib.HashTable, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     reverse_resolve_finish(result: Gio.AsyncResult): Place[]
-    /* Virtual methods of GeocodeGlib.MockBackend */
+    /* Virtual methods of GeocodeGlib-1.0.GeocodeGlib.MockBackend */
     vfunc_forward_search(params: GLib.HashTable, cancellable?: Gio.Cancellable | null): Place[]
     vfunc_forward_search_async(params: GLib.HashTable, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     vfunc_forward_search_finish(result: Gio.AsyncResult): Place[]
     vfunc_reverse_resolve(params: GLib.HashTable, cancellable?: Gio.Cancellable | null): Place[]
     vfunc_reverse_resolve_async(params: GLib.HashTable, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     vfunc_reverse_resolve_finish(result: Gio.AsyncResult): Place[]
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -365,7 +365,7 @@ export class MockBackend {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: MockBackend, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: MockBackend, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -386,13 +386,13 @@ export interface Nominatim_ConstructProps extends GObject.Object_ConstructProps 
     user_agent?: string
 }
 export class Nominatim {
-    /* Properties of GeocodeGlib.Nominatim */
+    /* Properties of GeocodeGlib-1.0.GeocodeGlib.Nominatim */
     user_agent: string
-    /* Fields of GeocodeGlib.Nominatim */
+    /* Fields of GeocodeGlib-1.0.GeocodeGlib.Nominatim */
     parent_instance: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -414,14 +414,14 @@ export class Nominatim {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of GeocodeGlib.Backend */
+    /* Methods of GeocodeGlib-1.0.GeocodeGlib.Backend */
     forward_search(params: GLib.HashTable, cancellable?: Gio.Cancellable | null): Place[]
     forward_search_async(params: GLib.HashTable, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     forward_search_finish(result: Gio.AsyncResult): Place[]
     reverse_resolve(params: GLib.HashTable, cancellable?: Gio.Cancellable | null): Place[]
     reverse_resolve_async(params: GLib.HashTable, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     reverse_resolve_finish(result: Gio.AsyncResult): Place[]
-    /* Virtual methods of GeocodeGlib.Nominatim */
+    /* Virtual methods of GeocodeGlib-1.0.GeocodeGlib.Nominatim */
     vfunc_query(uri: string, cancellable?: Gio.Cancellable | null): string
     vfunc_query_async(uri: string, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     vfunc_query_finish(res: Gio.AsyncResult): string
@@ -431,7 +431,7 @@ export class Nominatim {
     vfunc_reverse_resolve(params: GLib.HashTable, cancellable?: Gio.Cancellable | null): Place[]
     vfunc_reverse_resolve_async(params: GLib.HashTable, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     vfunc_reverse_resolve_finish(result: Gio.AsyncResult): Place[]
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -439,7 +439,7 @@ export class Nominatim {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Nominatim, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Nominatim, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -478,7 +478,7 @@ export interface Place_ConstructProps extends GObject.Object_ConstructProps {
     town?: string
 }
 export class Place {
-    /* Properties of GeocodeGlib.Place */
+    /* Properties of GeocodeGlib-1.0.GeocodeGlib.Place */
     administrative_area: string
     area: string
     bounding_box: BoundingBox
@@ -497,9 +497,9 @@ export class Place {
     street: string
     street_address: string
     town: string
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GeocodeGlib.Place */
+    /* Methods of GeocodeGlib-1.0.GeocodeGlib.Place */
     equal(b: Place): boolean
     get_administrative_area(): string
     get_area(): string
@@ -535,7 +535,7 @@ export class Place {
     set_street(street: string): void
     set_street_address(street_address: string): void
     set_town(town: string): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -557,7 +557,7 @@ export class Place {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -565,7 +565,7 @@ export class Place {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Place, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Place, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -620,14 +620,14 @@ export class Place {
 export interface Reverse_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class Reverse {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GeocodeGlib.Reverse */
+    /* Methods of GeocodeGlib-1.0.GeocodeGlib.Reverse */
     resolve(): Place
     resolve_async(cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     resolve_finish(res: Gio.AsyncResult): Place
     set_backend(backend?: Backend | null): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -649,7 +649,7 @@ export class Reverse {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -657,7 +657,7 @@ export class Reverse {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Reverse, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Reverse, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -673,7 +673,7 @@ export class Reverse {
     static $gtype: GObject.Type
 }
 export abstract class BackendInterface {
-    /* Fields of GeocodeGlib.BackendInterface */
+    /* Fields of GeocodeGlib-1.0.GeocodeGlib.BackendInterface */
     forward_search: (backend: Backend, params: GLib.HashTable, cancellable?: Gio.Cancellable | null) => Place[]
     forward_search_async: (backend: Backend, params: GLib.HashTable, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null) => void
     forward_search_finish: (backend: Backend, result: Gio.AsyncResult) => Place[]
@@ -701,12 +701,12 @@ export class LocationPrivate {
     static name: string
 }
 export abstract class MockBackendClass {
-    /* Fields of GeocodeGlib.MockBackendClass */
+    /* Fields of GeocodeGlib-1.0.GeocodeGlib.MockBackendClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
 export class MockBackendQuery {
-    /* Fields of GeocodeGlib.MockBackendQuery */
+    /* Fields of GeocodeGlib-1.0.GeocodeGlib.MockBackendQuery */
     params: GLib.HashTable
     is_forward: boolean
     results: Place[]
@@ -714,7 +714,7 @@ export class MockBackendQuery {
     static name: string
 }
 export abstract class NominatimClass {
-    /* Fields of GeocodeGlib.NominatimClass */
+    /* Fields of GeocodeGlib-1.0.GeocodeGlib.NominatimClass */
     parent_class: GObject.ObjectClass
     query: (self: Nominatim, uri: string, cancellable?: Gio.Cancellable | null) => string
     query_async: (self: Nominatim, uri: string, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null) => void

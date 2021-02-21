@@ -35,29 +35,29 @@ export interface ARGBControlBinding_ConstructProps extends Gst.ControlBinding_Co
     control_source_r?: Gst.ControlSource
 }
 export class ARGBControlBinding {
-    /* Properties of GstController.ARGBControlBinding */
+    /* Properties of GstController-1.0.GstController.ARGBControlBinding */
     control_source_a: Gst.ControlSource
     control_source_b: Gst.ControlSource
     control_source_g: Gst.ControlSource
     control_source_r: Gst.ControlSource
-    /* Properties of Gst.Object */
+    /* Properties of Gst-1.0.Gst.Object */
     name: string
     parent: Gst.Object
-    /* Fields of Gst.ControlBinding */
+    /* Fields of Gst-1.0.Gst.ControlBinding */
     pspec: GObject.ParamSpec
-    /* Fields of Gst.Object */
+    /* Fields of Gst-1.0.Gst.Object */
     object: GObject.InitiallyUnowned
     lock: GLib.Mutex
     flags: number
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Gst.ControlBinding */
+    /* Methods of Gst-1.0.Gst.ControlBinding */
     get_g_value_array(timestamp: Gst.ClockTime, interval: Gst.ClockTime, values: any[]): boolean
     get_value(timestamp: Gst.ClockTime): any | null
     is_disabled(): boolean
     set_disabled(disabled: boolean): void
     sync_values(object: Gst.Object, timestamp: Gst.ClockTime, last_sync: Gst.ClockTime): boolean
-    /* Methods of Gst.Object */
+    /* Methods of Gst-1.0.Gst.Object */
     add_control_binding(binding: Gst.ControlBinding): boolean
     default_error(error: GLib.Error, debug?: string | null): void
     get_control_binding(property_name: string): Gst.ControlBinding | null
@@ -82,7 +82,7 @@ export class ARGBControlBinding {
     sync_values(timestamp: Gst.ClockTime): boolean
     unparent(): void
     unref(): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -103,13 +103,13 @@ export class ARGBControlBinding {
     steal_qdata(quark: GLib.Quark): object | null
     thaw_notify(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Gst.ControlBinding */
+    /* Virtual methods of Gst-1.0.Gst.ControlBinding */
     vfunc_get_g_value_array(timestamp: Gst.ClockTime, interval: Gst.ClockTime, values: any[]): boolean
     vfunc_get_value(timestamp: Gst.ClockTime): any | null
     vfunc_sync_values(object: Gst.Object, timestamp: Gst.ClockTime, last_sync: Gst.ClockTime): boolean
-    /* Virtual methods of Gst.Object */
+    /* Virtual methods of Gst-1.0.Gst.Object */
     vfunc_deep_notify(orig: Gst.Object, pspec: GObject.ParamSpec): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -117,11 +117,11 @@ export class ARGBControlBinding {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gst.Object */
+    /* Signals of Gst-1.0.Gst.Object */
     connect(sigName: "deep-notify", callback: (($obj: ARGBControlBinding, prop_object: Gst.Object, prop: GObject.ParamSpec) => void)): number
     connect_after(sigName: "deep-notify", callback: (($obj: ARGBControlBinding, prop_object: Gst.Object, prop: GObject.ParamSpec) => void)): number
     emit(sigName: "deep-notify", prop_object: Gst.Object, prop: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: ARGBControlBinding, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: ARGBControlBinding, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -153,26 +153,26 @@ export interface DirectControlBinding_ConstructProps extends Gst.ControlBinding_
     control_source?: Gst.ControlSource
 }
 export class DirectControlBinding {
-    /* Properties of GstController.DirectControlBinding */
+    /* Properties of GstController-1.0.GstController.DirectControlBinding */
     control_source: Gst.ControlSource
-    /* Properties of Gst.Object */
+    /* Properties of Gst-1.0.Gst.Object */
     name: string
     parent: Gst.Object
-    /* Fields of Gst.ControlBinding */
+    /* Fields of Gst-1.0.Gst.ControlBinding */
     pspec: GObject.ParamSpec
-    /* Fields of Gst.Object */
+    /* Fields of Gst-1.0.Gst.Object */
     object: GObject.InitiallyUnowned
     lock: GLib.Mutex
     flags: number
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Gst.ControlBinding */
+    /* Methods of Gst-1.0.Gst.ControlBinding */
     get_g_value_array(timestamp: Gst.ClockTime, interval: Gst.ClockTime, values: any[]): boolean
     get_value(timestamp: Gst.ClockTime): any | null
     is_disabled(): boolean
     set_disabled(disabled: boolean): void
     sync_values(object: Gst.Object, timestamp: Gst.ClockTime, last_sync: Gst.ClockTime): boolean
-    /* Methods of Gst.Object */
+    /* Methods of Gst-1.0.Gst.Object */
     add_control_binding(binding: Gst.ControlBinding): boolean
     default_error(error: GLib.Error, debug?: string | null): void
     get_control_binding(property_name: string): Gst.ControlBinding | null
@@ -197,7 +197,7 @@ export class DirectControlBinding {
     sync_values(timestamp: Gst.ClockTime): boolean
     unparent(): void
     unref(): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -218,13 +218,13 @@ export class DirectControlBinding {
     steal_qdata(quark: GLib.Quark): object | null
     thaw_notify(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Gst.ControlBinding */
+    /* Virtual methods of Gst-1.0.Gst.ControlBinding */
     vfunc_get_g_value_array(timestamp: Gst.ClockTime, interval: Gst.ClockTime, values: any[]): boolean
     vfunc_get_value(timestamp: Gst.ClockTime): any | null
     vfunc_sync_values(object: Gst.Object, timestamp: Gst.ClockTime, last_sync: Gst.ClockTime): boolean
-    /* Virtual methods of Gst.Object */
+    /* Virtual methods of Gst-1.0.Gst.Object */
     vfunc_deep_notify(orig: Gst.Object, pspec: GObject.ParamSpec): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -232,11 +232,11 @@ export class DirectControlBinding {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gst.Object */
+    /* Signals of Gst-1.0.Gst.Object */
     connect(sigName: "deep-notify", callback: (($obj: DirectControlBinding, prop_object: Gst.Object, prop: GObject.ParamSpec) => void)): number
     connect_after(sigName: "deep-notify", callback: (($obj: DirectControlBinding, prop_object: Gst.Object, prop: GObject.ParamSpec) => void)): number
     emit(sigName: "deep-notify", prop_object: Gst.Object, prop: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: DirectControlBinding, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: DirectControlBinding, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -262,25 +262,25 @@ export interface InterpolationControlSource_ConstructProps extends TimedValueCon
     mode?: InterpolationMode
 }
 export class InterpolationControlSource {
-    /* Properties of GstController.InterpolationControlSource */
+    /* Properties of GstController-1.0.GstController.InterpolationControlSource */
     mode: InterpolationMode
-    /* Properties of Gst.Object */
+    /* Properties of Gst-1.0.Gst.Object */
     name: string
     parent: Gst.Object
-    /* Fields of GstController.TimedValueControlSource */
+    /* Fields of GstController-1.0.GstController.TimedValueControlSource */
     lock: GLib.Mutex
     values: GLib.Sequence
     nvalues: number
     valid_cache: boolean
-    /* Fields of Gst.ControlSource */
+    /* Fields of Gst-1.0.Gst.ControlSource */
     get_value: Gst.ControlSourceGetValue
     get_value_array: Gst.ControlSourceGetValueArray
-    /* Fields of Gst.Object */
+    /* Fields of Gst-1.0.Gst.Object */
     object: GObject.InitiallyUnowned
     flags: number
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GstController.TimedValueControlSource */
+    /* Methods of GstController-1.0.GstController.TimedValueControlSource */
     find_control_point_iter(timestamp: Gst.ClockTime): GLib.SequenceIter
     get_all(): Gst.TimedValue[]
     get_count(): number
@@ -288,10 +288,10 @@ export class InterpolationControlSource {
     set_from_list(timedvalues: Gst.TimedValue[]): boolean
     unset(timestamp: Gst.ClockTime): boolean
     unset_all(): void
-    /* Methods of Gst.ControlSource */
+    /* Methods of Gst-1.0.Gst.ControlSource */
     control_source_get_value(timestamp: Gst.ClockTime): [ /* returnType */ boolean, /* value */ number ]
     control_source_get_value_array(timestamp: Gst.ClockTime, interval: Gst.ClockTime, values: number[]): boolean
-    /* Methods of Gst.Object */
+    /* Methods of Gst-1.0.Gst.Object */
     add_control_binding(binding: Gst.ControlBinding): boolean
     default_error(error: GLib.Error, debug?: string | null): void
     get_control_binding(property_name: string): Gst.ControlBinding | null
@@ -315,7 +315,7 @@ export class InterpolationControlSource {
     sync_values(timestamp: Gst.ClockTime): boolean
     unparent(): void
     unref(): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -336,9 +336,9 @@ export class InterpolationControlSource {
     steal_qdata(quark: GLib.Quark): object | null
     thaw_notify(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Gst.Object */
+    /* Virtual methods of Gst-1.0.Gst.Object */
     vfunc_deep_notify(orig: Gst.Object, pspec: GObject.ParamSpec): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -346,7 +346,7 @@ export class InterpolationControlSource {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GstController.TimedValueControlSource */
+    /* Signals of GstController-1.0.GstController.TimedValueControlSource */
     connect(sigName: "value-added", callback: (($obj: InterpolationControlSource, timed_value: ControlPoint) => void)): number
     connect_after(sigName: "value-added", callback: (($obj: InterpolationControlSource, timed_value: ControlPoint) => void)): number
     emit(sigName: "value-added", timed_value: ControlPoint): void
@@ -356,11 +356,11 @@ export class InterpolationControlSource {
     connect(sigName: "value-removed", callback: (($obj: InterpolationControlSource, timed_value: ControlPoint) => void)): number
     connect_after(sigName: "value-removed", callback: (($obj: InterpolationControlSource, timed_value: ControlPoint) => void)): number
     emit(sigName: "value-removed", timed_value: ControlPoint): void
-    /* Signals of Gst.Object */
+    /* Signals of Gst-1.0.Gst.Object */
     connect(sigName: "deep-notify", callback: (($obj: InterpolationControlSource, prop_object: Gst.Object, prop: GObject.ParamSpec) => void)): number
     connect_after(sigName: "deep-notify", callback: (($obj: InterpolationControlSource, prop_object: Gst.Object, prop: GObject.ParamSpec) => void)): number
     emit(sigName: "deep-notify", prop_object: Gst.Object, prop: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: InterpolationControlSource, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: InterpolationControlSource, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -389,28 +389,28 @@ export interface LFOControlSource_ConstructProps extends Gst.ControlSource_Const
     waveform?: LFOWaveform
 }
 export class LFOControlSource {
-    /* Properties of GstController.LFOControlSource */
+    /* Properties of GstController-1.0.GstController.LFOControlSource */
     amplitude: number
     frequency: number
     offset: number
     timeshift: number
     waveform: LFOWaveform
-    /* Properties of Gst.Object */
+    /* Properties of Gst-1.0.Gst.Object */
     name: string
     parent: Gst.Object
-    /* Fields of Gst.ControlSource */
+    /* Fields of Gst-1.0.Gst.ControlSource */
     get_value: Gst.ControlSourceGetValue
     get_value_array: Gst.ControlSourceGetValueArray
-    /* Fields of Gst.Object */
+    /* Fields of Gst-1.0.Gst.Object */
     object: GObject.InitiallyUnowned
     lock: GLib.Mutex
     flags: number
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Gst.ControlSource */
+    /* Methods of Gst-1.0.Gst.ControlSource */
     control_source_get_value(timestamp: Gst.ClockTime): [ /* returnType */ boolean, /* value */ number ]
     control_source_get_value_array(timestamp: Gst.ClockTime, interval: Gst.ClockTime, values: number[]): boolean
-    /* Methods of Gst.Object */
+    /* Methods of Gst-1.0.Gst.Object */
     add_control_binding(binding: Gst.ControlBinding): boolean
     default_error(error: GLib.Error, debug?: string | null): void
     get_control_binding(property_name: string): Gst.ControlBinding | null
@@ -434,7 +434,7 @@ export class LFOControlSource {
     sync_values(timestamp: Gst.ClockTime): boolean
     unparent(): void
     unref(): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -455,9 +455,9 @@ export class LFOControlSource {
     steal_qdata(quark: GLib.Quark): object | null
     thaw_notify(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Gst.Object */
+    /* Virtual methods of Gst-1.0.Gst.Object */
     vfunc_deep_notify(orig: Gst.Object, pspec: GObject.ParamSpec): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -465,11 +465,11 @@ export class LFOControlSource {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gst.Object */
+    /* Signals of Gst-1.0.Gst.Object */
     connect(sigName: "deep-notify", callback: (($obj: LFOControlSource, prop_object: Gst.Object, prop: GObject.ParamSpec) => void)): number
     connect_after(sigName: "deep-notify", callback: (($obj: LFOControlSource, prop_object: Gst.Object, prop: GObject.ParamSpec) => void)): number
     emit(sigName: "deep-notify", prop_object: Gst.Object, prop: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: LFOControlSource, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: LFOControlSource, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -501,24 +501,24 @@ export class LFOControlSource {
 export interface ProxyControlBinding_ConstructProps extends Gst.ControlBinding_ConstructProps {
 }
 export class ProxyControlBinding {
-    /* Properties of Gst.Object */
+    /* Properties of Gst-1.0.Gst.Object */
     name: string
     parent: Gst.Object
-    /* Fields of Gst.ControlBinding */
+    /* Fields of Gst-1.0.Gst.ControlBinding */
     pspec: GObject.ParamSpec
-    /* Fields of Gst.Object */
+    /* Fields of Gst-1.0.Gst.Object */
     object: GObject.InitiallyUnowned
     lock: GLib.Mutex
     flags: number
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Gst.ControlBinding */
+    /* Methods of Gst-1.0.Gst.ControlBinding */
     get_g_value_array(timestamp: Gst.ClockTime, interval: Gst.ClockTime, values: any[]): boolean
     get_value(timestamp: Gst.ClockTime): any | null
     is_disabled(): boolean
     set_disabled(disabled: boolean): void
     sync_values(object: Gst.Object, timestamp: Gst.ClockTime, last_sync: Gst.ClockTime): boolean
-    /* Methods of Gst.Object */
+    /* Methods of Gst-1.0.Gst.Object */
     add_control_binding(binding: Gst.ControlBinding): boolean
     default_error(error: GLib.Error, debug?: string | null): void
     get_control_binding(property_name: string): Gst.ControlBinding | null
@@ -543,7 +543,7 @@ export class ProxyControlBinding {
     sync_values(timestamp: Gst.ClockTime): boolean
     unparent(): void
     unref(): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -564,13 +564,13 @@ export class ProxyControlBinding {
     steal_qdata(quark: GLib.Quark): object | null
     thaw_notify(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Gst.ControlBinding */
+    /* Virtual methods of Gst-1.0.Gst.ControlBinding */
     vfunc_get_g_value_array(timestamp: Gst.ClockTime, interval: Gst.ClockTime, values: any[]): boolean
     vfunc_get_value(timestamp: Gst.ClockTime): any | null
     vfunc_sync_values(object: Gst.Object, timestamp: Gst.ClockTime, last_sync: Gst.ClockTime): boolean
-    /* Virtual methods of Gst.Object */
+    /* Virtual methods of Gst-1.0.Gst.Object */
     vfunc_deep_notify(orig: Gst.Object, pspec: GObject.ParamSpec): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -578,11 +578,11 @@ export class ProxyControlBinding {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gst.Object */
+    /* Signals of Gst-1.0.Gst.Object */
     connect(sigName: "deep-notify", callback: (($obj: ProxyControlBinding, prop_object: Gst.Object, prop: GObject.ParamSpec) => void)): number
     connect_after(sigName: "deep-notify", callback: (($obj: ProxyControlBinding, prop_object: Gst.Object, prop: GObject.ParamSpec) => void)): number
     emit(sigName: "deep-notify", prop_object: Gst.Object, prop: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: ProxyControlBinding, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: ProxyControlBinding, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -604,23 +604,23 @@ export class ProxyControlBinding {
 export interface TimedValueControlSource_ConstructProps extends Gst.ControlSource_ConstructProps {
 }
 export class TimedValueControlSource {
-    /* Properties of Gst.Object */
+    /* Properties of Gst-1.0.Gst.Object */
     name: string
     parent: Gst.Object
-    /* Fields of GstController.TimedValueControlSource */
+    /* Fields of GstController-1.0.GstController.TimedValueControlSource */
     lock: GLib.Mutex
     values: GLib.Sequence
     nvalues: number
     valid_cache: boolean
-    /* Fields of Gst.ControlSource */
+    /* Fields of Gst-1.0.Gst.ControlSource */
     get_value: Gst.ControlSourceGetValue
     get_value_array: Gst.ControlSourceGetValueArray
-    /* Fields of Gst.Object */
+    /* Fields of Gst-1.0.Gst.Object */
     object: GObject.InitiallyUnowned
     flags: number
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GstController.TimedValueControlSource */
+    /* Methods of GstController-1.0.GstController.TimedValueControlSource */
     find_control_point_iter(timestamp: Gst.ClockTime): GLib.SequenceIter
     get_all(): Gst.TimedValue[]
     get_count(): number
@@ -628,10 +628,10 @@ export class TimedValueControlSource {
     set_from_list(timedvalues: Gst.TimedValue[]): boolean
     unset(timestamp: Gst.ClockTime): boolean
     unset_all(): void
-    /* Methods of Gst.ControlSource */
+    /* Methods of Gst-1.0.Gst.ControlSource */
     control_source_get_value(timestamp: Gst.ClockTime): [ /* returnType */ boolean, /* value */ number ]
     control_source_get_value_array(timestamp: Gst.ClockTime, interval: Gst.ClockTime, values: number[]): boolean
-    /* Methods of Gst.Object */
+    /* Methods of Gst-1.0.Gst.Object */
     add_control_binding(binding: Gst.ControlBinding): boolean
     default_error(error: GLib.Error, debug?: string | null): void
     get_control_binding(property_name: string): Gst.ControlBinding | null
@@ -655,7 +655,7 @@ export class TimedValueControlSource {
     sync_values(timestamp: Gst.ClockTime): boolean
     unparent(): void
     unref(): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -676,9 +676,9 @@ export class TimedValueControlSource {
     steal_qdata(quark: GLib.Quark): object | null
     thaw_notify(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Gst.Object */
+    /* Virtual methods of Gst-1.0.Gst.Object */
     vfunc_deep_notify(orig: Gst.Object, pspec: GObject.ParamSpec): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -686,7 +686,7 @@ export class TimedValueControlSource {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GstController.TimedValueControlSource */
+    /* Signals of GstController-1.0.GstController.TimedValueControlSource */
     connect(sigName: "value-added", callback: (($obj: TimedValueControlSource, timed_value: ControlPoint) => void)): number
     connect_after(sigName: "value-added", callback: (($obj: TimedValueControlSource, timed_value: ControlPoint) => void)): number
     emit(sigName: "value-added", timed_value: ControlPoint): void
@@ -696,11 +696,11 @@ export class TimedValueControlSource {
     connect(sigName: "value-removed", callback: (($obj: TimedValueControlSource, timed_value: ControlPoint) => void)): number
     connect_after(sigName: "value-removed", callback: (($obj: TimedValueControlSource, timed_value: ControlPoint) => void)): number
     emit(sigName: "value-removed", timed_value: ControlPoint): void
-    /* Signals of Gst.Object */
+    /* Signals of Gst-1.0.Gst.Object */
     connect(sigName: "deep-notify", callback: (($obj: TimedValueControlSource, prop_object: Gst.Object, prop: GObject.ParamSpec) => void)): number
     connect_after(sigName: "deep-notify", callback: (($obj: TimedValueControlSource, prop_object: Gst.Object, prop: GObject.ParamSpec) => void)): number
     emit(sigName: "deep-notify", prop_object: Gst.Object, prop: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: TimedValueControlSource, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: TimedValueControlSource, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -721,25 +721,25 @@ export interface TriggerControlSource_ConstructProps extends TimedValueControlSo
     tolerance?: number
 }
 export class TriggerControlSource {
-    /* Properties of GstController.TriggerControlSource */
+    /* Properties of GstController-1.0.GstController.TriggerControlSource */
     tolerance: number
-    /* Properties of Gst.Object */
+    /* Properties of Gst-1.0.Gst.Object */
     name: string
     parent: Gst.Object
-    /* Fields of GstController.TimedValueControlSource */
+    /* Fields of GstController-1.0.GstController.TimedValueControlSource */
     lock: GLib.Mutex
     values: GLib.Sequence
     nvalues: number
     valid_cache: boolean
-    /* Fields of Gst.ControlSource */
+    /* Fields of Gst-1.0.Gst.ControlSource */
     get_value: Gst.ControlSourceGetValue
     get_value_array: Gst.ControlSourceGetValueArray
-    /* Fields of Gst.Object */
+    /* Fields of Gst-1.0.Gst.Object */
     object: GObject.InitiallyUnowned
     flags: number
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GstController.TimedValueControlSource */
+    /* Methods of GstController-1.0.GstController.TimedValueControlSource */
     find_control_point_iter(timestamp: Gst.ClockTime): GLib.SequenceIter
     get_all(): Gst.TimedValue[]
     get_count(): number
@@ -747,10 +747,10 @@ export class TriggerControlSource {
     set_from_list(timedvalues: Gst.TimedValue[]): boolean
     unset(timestamp: Gst.ClockTime): boolean
     unset_all(): void
-    /* Methods of Gst.ControlSource */
+    /* Methods of Gst-1.0.Gst.ControlSource */
     control_source_get_value(timestamp: Gst.ClockTime): [ /* returnType */ boolean, /* value */ number ]
     control_source_get_value_array(timestamp: Gst.ClockTime, interval: Gst.ClockTime, values: number[]): boolean
-    /* Methods of Gst.Object */
+    /* Methods of Gst-1.0.Gst.Object */
     add_control_binding(binding: Gst.ControlBinding): boolean
     default_error(error: GLib.Error, debug?: string | null): void
     get_control_binding(property_name: string): Gst.ControlBinding | null
@@ -774,7 +774,7 @@ export class TriggerControlSource {
     sync_values(timestamp: Gst.ClockTime): boolean
     unparent(): void
     unref(): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -795,9 +795,9 @@ export class TriggerControlSource {
     steal_qdata(quark: GLib.Quark): object | null
     thaw_notify(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Gst.Object */
+    /* Virtual methods of Gst-1.0.Gst.Object */
     vfunc_deep_notify(orig: Gst.Object, pspec: GObject.ParamSpec): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -805,7 +805,7 @@ export class TriggerControlSource {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GstController.TimedValueControlSource */
+    /* Signals of GstController-1.0.GstController.TimedValueControlSource */
     connect(sigName: "value-added", callback: (($obj: TriggerControlSource, timed_value: ControlPoint) => void)): number
     connect_after(sigName: "value-added", callback: (($obj: TriggerControlSource, timed_value: ControlPoint) => void)): number
     emit(sigName: "value-added", timed_value: ControlPoint): void
@@ -815,11 +815,11 @@ export class TriggerControlSource {
     connect(sigName: "value-removed", callback: (($obj: TriggerControlSource, timed_value: ControlPoint) => void)): number
     connect_after(sigName: "value-removed", callback: (($obj: TriggerControlSource, timed_value: ControlPoint) => void)): number
     emit(sigName: "value-removed", timed_value: ControlPoint): void
-    /* Signals of Gst.Object */
+    /* Signals of Gst-1.0.Gst.Object */
     connect(sigName: "deep-notify", callback: (($obj: TriggerControlSource, prop_object: Gst.Object, prop: GObject.ParamSpec) => void)): number
     connect_after(sigName: "deep-notify", callback: (($obj: TriggerControlSource, prop_object: Gst.Object, prop: GObject.ParamSpec) => void)): number
     emit(sigName: "deep-notify", prop_object: Gst.Object, prop: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: TriggerControlSource, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: TriggerControlSource, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -841,26 +841,26 @@ export class TriggerControlSource {
     static $gtype: GObject.Type
 }
 export abstract class ARGBControlBindingClass {
-    /* Fields of GstController.ARGBControlBindingClass */
+    /* Fields of GstController-1.0.GstController.ARGBControlBindingClass */
     parent_class: Gst.ControlBindingClass
     static name: string
 }
 export class ControlPoint {
-    /* Fields of GstController.ControlPoint */
+    /* Fields of GstController-1.0.GstController.ControlPoint */
     timestamp: Gst.ClockTime
     value: number
-    /* Methods of GstController.ControlPoint */
+    /* Methods of GstController-1.0.GstController.ControlPoint */
     copy(): ControlPoint
     free(): void
     static name: string
 }
 export abstract class DirectControlBindingClass {
-    /* Fields of GstController.DirectControlBindingClass */
+    /* Fields of GstController-1.0.GstController.DirectControlBindingClass */
     parent_class: Gst.ControlBindingClass
     static name: string
 }
 export abstract class InterpolationControlSourceClass {
-    /* Fields of GstController.InterpolationControlSourceClass */
+    /* Fields of GstController-1.0.GstController.InterpolationControlSourceClass */
     parent_class: TimedValueControlSourceClass
     static name: string
 }
@@ -868,7 +868,7 @@ export class InterpolationControlSourcePrivate {
     static name: string
 }
 export abstract class LFOControlSourceClass {
-    /* Fields of GstController.LFOControlSourceClass */
+    /* Fields of GstController-1.0.GstController.LFOControlSourceClass */
     parent_class: Gst.ControlSourceClass
     static name: string
 }
@@ -879,7 +879,7 @@ export abstract class ProxyControlBindingClass {
     static name: string
 }
 export abstract class TimedValueControlSourceClass {
-    /* Fields of GstController.TimedValueControlSourceClass */
+    /* Fields of GstController-1.0.GstController.TimedValueControlSourceClass */
     parent_class: Gst.ControlSourceClass
     static name: string
 }
@@ -887,7 +887,7 @@ export class TimedValueControlSourcePrivate {
     static name: string
 }
 export abstract class TriggerControlSourceClass {
-    /* Fields of GstController.TriggerControlSourceClass */
+    /* Fields of GstController-1.0.GstController.TriggerControlSourceClass */
     parent_class: TimedValueControlSourceClass
     static name: string
 }

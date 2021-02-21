@@ -56,35 +56,35 @@ export function collectorsFilter(aType: GObject.Type, aDupFunc: GObject.BoxedCop
 export function collectorsTee(aType: GObject.Type, aDupFunc: GObject.BoxedCopyFunc, aDestroyFunc: GLib.DestroyNotify, gType: GObject.Type, gDupFunc: GObject.BoxedCopyFunc, gDestroyFunc: GLib.DestroyNotify, downstreams: Collector[], merger: TeeMergeFunc): Collector
 export function collectorsMap(rType: GObject.Type, rDupFunc: GObject.BoxedCopyFunc, rDestroyFunc: GLib.DestroyNotify, aType: GObject.Type, aDupFunc: GObject.BoxedCopyFunc, aDestroyFunc: GLib.DestroyNotify, gType: GObject.Type, gDupFunc: GObject.BoxedCopyFunc, gDestroyFunc: GLib.DestroyNotify, mapper: MapFunc, downstream: Collector): Collector
 export function collectorsWrap(aType: GObject.Type, aDupFunc: GObject.BoxedCopyFunc, aDestroyFunc: GLib.DestroyNotify, gType: GObject.Type, gDupFunc: GObject.BoxedCopyFunc, gDestroyFunc: GLib.DestroyNotify, collector: Collector): Collector
-export function comparesReverse(gType: GObject.Type, gDupFunc: GObject.BoxedCopyFunc, gDestroyFunc: GLib.DestroyNotify, cmp: GLib.CompareDataFunc | null): [ /* returnType */ GLib.CompareDataFunc, /* resultTarget */ object | null, /* resultTargetDestroyNotify */ GLib.DestroyNotify ]
-export function comparesJoin(gType: GObject.Type, gDupFunc: GObject.BoxedCopyFunc, gDestroyFunc: GLib.DestroyNotify, cmp: GLib.CompareDataFunc, cmp2: GLib.CompareDataFunc): [ /* returnType */ GLib.CompareDataFunc, /* resultTarget */ object | null, /* resultTargetDestroyNotify */ GLib.DestroyNotify ]
-export function overflowIntAdd(a: number, b: number): [ /* returnType */ boolean, /* result */ number ]
-export function overflowIntSub(a: number, b: number): [ /* returnType */ boolean, /* result */ number ]
-export function overflowIntMul(a: number, b: number): [ /* returnType */ boolean, /* result */ number ]
-export function overflowLongAdd(a: number, b: number): [ /* returnType */ boolean, /* result */ number ]
-export function overflowLongSub(a: number, b: number): [ /* returnType */ boolean, /* result */ number ]
-export function overflowLongMul(a: number, b: number): [ /* returnType */ boolean, /* result */ number ]
-export function overflowInt32Add(a: number, b: number): [ /* returnType */ boolean, /* result */ number ]
-export function overflowInt32Sub(a: number, b: number): [ /* returnType */ boolean, /* result */ number ]
-export function overflowInt32Mul(a: number, b: number): [ /* returnType */ boolean, /* result */ number ]
-export function overflowInt64Add(a: number, b: number): [ /* returnType */ boolean, /* result */ number ]
-export function overflowInt64Sub(a: number, b: number): [ /* returnType */ boolean, /* result */ number ]
-export function overflowInt64Mul(a: number, b: number): [ /* returnType */ boolean, /* result */ number ]
+export function comparesReverse(gType: GObject.Type, gDupFunc: GObject.BoxedCopyFunc, gDestroyFunc: GLib.DestroyNotify, cmp: GLib.CompareDataFunc | null): { returnType: GLib.CompareDataFunc, resultTarget: object | null, resultTargetDestroyNotify: GLib.DestroyNotify }
+export function comparesJoin(gType: GObject.Type, gDupFunc: GObject.BoxedCopyFunc, gDestroyFunc: GLib.DestroyNotify, cmp: GLib.CompareDataFunc, cmp2: GLib.CompareDataFunc): { returnType: GLib.CompareDataFunc, resultTarget: object | null, resultTargetDestroyNotify: GLib.DestroyNotify }
+export function overflowIntAdd(a: number, b: number): { returnType: boolean, result: number }
+export function overflowIntSub(a: number, b: number): { returnType: boolean, result: number }
+export function overflowIntMul(a: number, b: number): { returnType: boolean, result: number }
+export function overflowLongAdd(a: number, b: number): { returnType: boolean, result: number }
+export function overflowLongSub(a: number, b: number): { returnType: boolean, result: number }
+export function overflowLongMul(a: number, b: number): { returnType: boolean, result: number }
+export function overflowInt32Add(a: number, b: number): { returnType: boolean, result: number }
+export function overflowInt32Sub(a: number, b: number): { returnType: boolean, result: number }
+export function overflowInt32Mul(a: number, b: number): { returnType: boolean, result: number }
+export function overflowInt64Add(a: number, b: number): { returnType: boolean, result: number }
+export function overflowInt64Sub(a: number, b: number): { returnType: boolean, result: number }
+export function overflowInt64Mul(a: number, b: number): { returnType: boolean, result: number }
 export function parallelSort(gType: GObject.Type, gDupFunc: GObject.BoxedCopyFunc, gDestroyFunc: GLib.DestroyNotify, array: object[], compare: GLib.CompareDataFunc | null): Future
 export function task(gType: GObject.Type, gDupFunc: GObject.BoxedCopyFunc, gDestroyFunc: GLib.DestroyNotify, func: TaskFunc): Future
 export function run(func: VoidTaskFunc): Future
 export function blocking(func: VoidTaskFunc): void
 export function blockingGet(gType: GObject.Type, gDupFunc: GObject.BoxedCopyFunc, gDestroyFunc: GLib.DestroyNotify, func: TaskFunc): object | null
-export function join(gType: GObject.Type, gDupFunc: GObject.BoxedCopyFunc, gDestroyFunc: GLib.DestroyNotify, left: TaskFunc): [ /* returnType */ object[], /* resultLength1 */ number ]
-export function atomicInt64Get(atomic: number): [ /* returnType */ number, /* atomic */ number ]
-export function atomicInt64Set(atomic: number, newval: number): /* atomic */ number
-export function atomicInt64Inc(atomic: number): /* atomic */ number
-export function atomicInt64DecAndTest(atomic: number): [ /* returnType */ boolean, /* atomic */ number ]
-export function atomicInt64CompareAndExchange(atomic: number, oldval: number, newval: number): [ /* returnType */ boolean, /* atomic */ number ]
-export function atomicInt64Add(atomic: number, val: number): [ /* returnType */ number, /* atomic */ number ]
-export function atomicInt64And(atomic: number, val: number): [ /* returnType */ number, /* atomic */ number ]
-export function atomicInt64Or(atomic: number, val: number): [ /* returnType */ number, /* atomic */ number ]
-export function atomicInt64Xor(atomic: number, val: number): [ /* returnType */ number, /* atomic */ number ]
+export function join(gType: GObject.Type, gDupFunc: GObject.BoxedCopyFunc, gDestroyFunc: GLib.DestroyNotify, left: TaskFunc): { returnType: object[], resultLength1: number }
+export function atomicInt64Get(atomic: number): { returnType: number, atomic: number }
+export function atomicInt64Set(atomic: number, newval: number): { atomic: number }
+export function atomicInt64Inc(atomic: number): { atomic: number }
+export function atomicInt64DecAndTest(atomic: number): { returnType: boolean, atomic: number }
+export function atomicInt64CompareAndExchange(atomic: number, oldval: number, newval: number): { returnType: boolean, atomic: number }
+export function atomicInt64Add(atomic: number, val: number): { returnType: number, atomic: number }
+export function atomicInt64And(atomic: number, val: number): { returnType: number, atomic: number }
+export function atomicInt64Or(atomic: number, val: number): { returnType: number, atomic: number }
+export function atomicInt64Xor(atomic: number, val: number): { returnType: number, atomic: number }
 export interface CombineFunc {
     (gType: GObject.Type, gDupFunc: GObject.BoxedCopyFunc, gDestroyFunc: GLib.DestroyNotify, a: object | null, b: object | null): object | null
 }
@@ -124,22 +124,22 @@ export interface VoidTaskFunc {
 export interface Channel_ConstructProps extends Sender_ConstructProps {
 }
 export class Channel {
-    /* Properties of Gpseq.ChannelBase */
+    /* Properties of Gpseq-1.0.Gpseq.ChannelBase */
     readonly capacity: Optional
     readonly length: number
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Gpseq.Sender */
+    /* Methods of Gpseq-1.0.Gpseq.Sender */
     send(data?: object | null): Result
     sendUntil(data: object | null, endTime: number): Result
     trySend(data?: object | null): Result
-    /* Methods of Gpseq.ChannelBase */
+    /* Methods of Gpseq-1.0.Gpseq.ChannelBase */
     getCapacity(): Optional
     getLength(): number
     getIsFull(): boolean
     getIsEmpty(): boolean
     close(): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -161,40 +161,12 @@ export class Channel {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of Gpseq.Channel */
-    vfuncSend(data?: object | null): Result
-    vfuncSendUntil(data: object | null, endTime: number): Result
-    vfuncTrySend(data?: object | null): Result
-    /* Virtual methods of Gpseq.Sender */
-    vfuncSend(data?: object | null): Result
-    vfuncSendUntil(data: object | null, endTime: number): Result
-    vfuncTrySend(data?: object | null): Result
-    vfuncGetCapacity(): Optional
-    vfuncGetLength(): number
-    vfuncGetIsFull(): boolean
-    vfuncGetIsEmpty(): boolean
-    vfuncClose(): void
-    /* Virtual methods of Gpseq.ChannelBase */
-    vfuncGetCapacity(): Optional
-    vfuncGetLength(): number
-    vfuncGetIsFull(): boolean
-    vfuncGetIsEmpty(): boolean
-    vfuncClose(): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Channel, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Channel, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::capacity", callback: (($obj: Channel, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::capacity", callback: (($obj: Channel, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::capacity", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -223,18 +195,18 @@ export class Channel {
 export interface ChannelBase_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class ChannelBase {
-    /* Properties of Gpseq.ChannelBase */
+    /* Properties of Gpseq-1.0.Gpseq.ChannelBase */
     readonly capacity: Optional
     readonly length: number
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Gpseq.ChannelBase */
+    /* Methods of Gpseq-1.0.Gpseq.ChannelBase */
     getCapacity(): Optional
     getLength(): number
     getIsFull(): boolean
     getIsEmpty(): boolean
     close(): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -256,27 +228,12 @@ export class ChannelBase {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of Gpseq.ChannelBase */
-    vfuncGetCapacity(): Optional
-    vfuncGetLength(): number
-    vfuncGetIsFull(): boolean
-    vfuncGetIsEmpty(): boolean
-    vfuncClose(): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: ChannelBase, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: ChannelBase, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::capacity", callback: (($obj: ChannelBase, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::capacity", callback: (($obj: ChannelBase, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::capacity", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -302,17 +259,17 @@ export class ChannelBase {
 export interface Collector_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class Collector {
-    /* Properties of Gpseq.Collector */
+    /* Properties of Gpseq-1.0.Gpseq.Collector */
     readonly features: CollectorFeatures
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Gpseq.Collector */
+    /* Methods of Gpseq-1.0.Gpseq.Collector */
     getFeatures(): CollectorFeatures
     createAccumulator(): object | null
     accumulate(g?: object | null, a?: object | null): void
     combine(a?: object | null, b?: object | null): object | null
     finish(a?: object | null): object | null
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -334,27 +291,12 @@ export class Collector {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of Gpseq.Collector */
-    vfuncGetFeatures(): CollectorFeatures
-    vfuncCreateAccumulator(): object | null
-    vfuncAccumulate(g?: object | null, a?: object | null): void
-    vfuncCombine(a?: object | null, b?: object | null): object | null
-    vfuncFinish(a?: object | null): object | null
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Collector, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Collector, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::features", callback: (($obj: Collector, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::features", callback: (($obj: Collector, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::features", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -375,14 +317,14 @@ export class Collector {
 export interface Executor_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class Executor {
-    /* Properties of Gpseq.Executor */
+    /* Properties of Gpseq-1.0.Gpseq.Executor */
     readonly parallels: number
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Gpseq.Executor */
+    /* Methods of Gpseq-1.0.Gpseq.Executor */
     submit(task: Task): void
     getParallels(): number
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -404,24 +346,12 @@ export class Executor {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of Gpseq.Executor */
-    vfuncSubmit(task: Task): void
-    vfuncGetParallels(): number
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Executor, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Executor, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::parallels", callback: (($obj: Executor, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::parallels", callback: (($obj: Executor, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::parallels", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -442,22 +372,22 @@ export class Executor {
 export interface Receiver_ConstructProps extends ChannelBase_ConstructProps {
 }
 export class Receiver {
-    /* Properties of Gpseq.ChannelBase */
+    /* Properties of Gpseq-1.0.Gpseq.ChannelBase */
     readonly capacity: Optional
     readonly length: number
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Gpseq.Receiver */
+    /* Methods of Gpseq-1.0.Gpseq.Receiver */
     recv(): Result
     recvUntil(endTime: number): Result
     tryRecv(): Result
-    /* Methods of Gpseq.ChannelBase */
+    /* Methods of Gpseq-1.0.Gpseq.ChannelBase */
     getCapacity(): Optional
     getLength(): number
     getIsFull(): boolean
     getIsEmpty(): boolean
     close(): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -479,36 +409,12 @@ export class Receiver {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of Gpseq.Receiver */
-    vfuncRecv(): Result
-    vfuncRecvUntil(endTime: number): Result
-    vfuncTryRecv(): Result
-    vfuncGetCapacity(): Optional
-    vfuncGetLength(): number
-    vfuncGetIsFull(): boolean
-    vfuncGetIsEmpty(): boolean
-    vfuncClose(): void
-    /* Virtual methods of Gpseq.ChannelBase */
-    vfuncGetCapacity(): Optional
-    vfuncGetLength(): number
-    vfuncGetIsFull(): boolean
-    vfuncGetIsEmpty(): boolean
-    vfuncClose(): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Receiver, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Receiver, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::capacity", callback: (($obj: Receiver, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::capacity", callback: (($obj: Receiver, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::capacity", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -534,9 +440,9 @@ export class Receiver {
 export interface Result_ConstructProps extends Gee.Hashable_ConstructProps {
 }
 export class Result {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Gpseq.Result */
+    /* Methods of Gpseq-1.0.Gpseq.Result */
     getValueType(): GObject.Type
     getValue(): object | null
     getException(): GLib.Error | null
@@ -552,10 +458,10 @@ export class Result {
     zip(aType: GObject.Type, aDupFunc: GObject.BoxedCopyFunc, aDestroyFunc: GLib.DestroyNotify, bType: GObject.Type, bDupFunc: GObject.BoxedCopyFunc, bDestroyFunc: GLib.DestroyNotify, zipFunc: any, second: Result): Result
     then(func: GLib.Func): Result
     andThen(func: Func): Result
-    /* Methods of Gee.Hashable */
+    /* Methods of Gee-0.8.Gee.Hashable */
     hash(): number
     equalTo(object?: object | null): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -577,36 +483,12 @@ export class Result {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of Gpseq.Result */
-    vfuncFuture(): Future
-    vfuncGet(): object | null
-    vfuncTransform(aType: GObject.Type, aDupFunc: GObject.BoxedCopyFunc, aDestroyFunc: GLib.DestroyNotify, func: any): Result
-    vfuncFlatMap(aType: GObject.Type, aDupFunc: GObject.BoxedCopyFunc, aDestroyFunc: GLib.DestroyNotify, func: any): Result
-    vfuncMap(aType: GObject.Type, aDupFunc: GObject.BoxedCopyFunc, aDestroyFunc: GLib.DestroyNotify, func: any): Result
-    vfuncMapErr(func: any): Result
-    vfuncZip(aType: GObject.Type, aDupFunc: GObject.BoxedCopyFunc, aDestroyFunc: GLib.DestroyNotify, bType: GObject.Type, bDupFunc: GObject.BoxedCopyFunc, bDestroyFunc: GLib.DestroyNotify, zipFunc: any, second: Result): Result
-    vfuncThen(func: GLib.Func): Result
-    vfuncAndThen(func: Func): Result
-    vfuncHash(): number
-    vfuncEqualTo(object?: object | null): boolean
-    /* Virtual methods of Gee.Hashable */
-    vfuncHash(): number
-    vfuncEqualTo(object?: object | null): boolean
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Result, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Result, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -625,22 +507,22 @@ export class Result {
 export interface Sender_ConstructProps extends ChannelBase_ConstructProps {
 }
 export class Sender {
-    /* Properties of Gpseq.ChannelBase */
+    /* Properties of Gpseq-1.0.Gpseq.ChannelBase */
     readonly capacity: Optional
     readonly length: number
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Gpseq.Sender */
+    /* Methods of Gpseq-1.0.Gpseq.Sender */
     send(data?: object | null): Result
     sendUntil(data: object | null, endTime: number): Result
     trySend(data?: object | null): Result
-    /* Methods of Gpseq.ChannelBase */
+    /* Methods of Gpseq-1.0.Gpseq.ChannelBase */
     getCapacity(): Optional
     getLength(): number
     getIsFull(): boolean
     getIsEmpty(): boolean
     close(): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -662,36 +544,12 @@ export class Sender {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of Gpseq.Sender */
-    vfuncSend(data?: object | null): Result
-    vfuncSendUntil(data: object | null, endTime: number): Result
-    vfuncTrySend(data?: object | null): Result
-    vfuncGetCapacity(): Optional
-    vfuncGetLength(): number
-    vfuncGetIsFull(): boolean
-    vfuncGetIsEmpty(): boolean
-    vfuncClose(): void
-    /* Virtual methods of Gpseq.ChannelBase */
-    vfuncGetCapacity(): Optional
-    vfuncGetLength(): number
-    vfuncGetIsFull(): boolean
-    vfuncGetIsEmpty(): boolean
-    vfuncClose(): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Sender, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Sender, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::capacity", callback: (($obj: Sender, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::capacity", callback: (($obj: Sender, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::capacity", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -717,12 +575,12 @@ export class Sender {
 export interface Spliterator_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class Spliterator {
-    /* Properties of Gpseq.Spliterator */
+    /* Properties of Gpseq-1.0.Gpseq.Spliterator */
     readonly estimatedSize: number
     readonly isSizeKnown: boolean
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Gpseq.Spliterator */
+    /* Methods of Gpseq-1.0.Gpseq.Spliterator */
     getElementType(): GObject.Type
     trySplit(): Spliterator | null
     tryAdvance(consumer: Func): boolean
@@ -730,7 +588,7 @@ export class Spliterator {
     getIsSizeKnown(): boolean
     each(f: Func): void
     eachChunk(f: EachChunkFunc): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -752,28 +610,12 @@ export class Spliterator {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of Gpseq.Spliterator */
-    vfuncTrySplit(): Spliterator | null
-    vfuncTryAdvance(consumer: Func): boolean
-    vfuncGetEstimatedSize(): number
-    vfuncGetIsSizeKnown(): boolean
-    vfuncEach(f: Func): void
-    vfuncEachChunk(f: EachChunkFunc): boolean
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Spliterator, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Spliterator, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::estimated-size", callback: (($obj: Spliterator, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::estimated-size", callback: (($obj: Spliterator, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::estimated-size", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -801,11 +643,11 @@ export class Spliterator {
 export interface Supplier_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class Supplier {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Gpseq.Supplier */
+    /* Methods of Gpseq-1.0.Gpseq.Supplier */
     supply(): object | null
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -827,23 +669,12 @@ export class Supplier {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of Gpseq.Supplier */
-    vfuncSupply(): object | null
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Supplier, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Supplier, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -861,15 +692,15 @@ export class Supplier {
 export interface Task_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class Task {
-    /* Properties of Gpseq.Task */
+    /* Properties of Gpseq-1.0.Gpseq.Task */
     readonly future: Future
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Gpseq.Task */
+    /* Methods of Gpseq-1.0.Gpseq.Task */
     getFuture(): Future
     compute(): void
     invoke(): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -891,24 +722,12 @@ export class Task {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of Gpseq.Task */
-    vfuncGetFuture(): Future
-    vfuncCompute(): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Task, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Task, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::future", callback: (($obj: Task, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::future", callback: (($obj: Task, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::future", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -929,11 +748,11 @@ export class Task {
 export interface ThreadFactory_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class ThreadFactory {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Gpseq.ThreadFactory */
+    /* Methods of Gpseq-1.0.Gpseq.ThreadFactory */
     createThread(pool: WorkerPool): WorkerThread
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -955,23 +774,12 @@ export class ThreadFactory {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of Gpseq.ThreadFactory */
-    vfuncCreateThread(pool: WorkerPool): WorkerThread
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: ThreadFactory, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: ThreadFactory, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -990,12 +798,12 @@ export interface ArraySpliterator_ConstructProps extends GObject.Object_Construc
     gDestroyFunc?: GLib.DestroyNotify
 }
 export class ArraySpliterator {
-    /* Properties of Gpseq.Spliterator */
+    /* Properties of Gpseq-1.0.Gpseq.Spliterator */
     readonly estimatedSize: number
     readonly isSizeKnown: boolean
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -1017,7 +825,7 @@ export class ArraySpliterator {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of Gpseq.Spliterator */
+    /* Methods of Gpseq-1.0.Gpseq.Spliterator */
     getElementType(): GObject.Type
     trySplit(): Spliterator | null
     tryAdvance(consumer: Func): boolean
@@ -1025,28 +833,12 @@ export class ArraySpliterator {
     getIsSizeKnown(): boolean
     each(f: Func): void
     eachChunk(f: EachChunkFunc): boolean
-    /* Virtual methods of Gpseq.ArraySpliterator */
-    vfuncTrySplit(): Spliterator | null
-    vfuncTryAdvance(consumer: Func): boolean
-    vfuncGetEstimatedSize(): number
-    vfuncGetIsSizeKnown(): boolean
-    vfuncEach(f: Func): void
-    vfuncEachChunk(f: EachChunkFunc): boolean
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: ArraySpliterator, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: ArraySpliterator, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::estimated-size", callback: (($obj: ArraySpliterator, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::estimated-size", callback: (($obj: ArraySpliterator, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::estimated-size", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -1079,7 +871,7 @@ export interface ForkJoinTask_ConstructProps extends GObject.Object_ConstructPro
     depth?: number
 }
 export class ForkJoinTask {
-    /* Properties of Gpseq.ForkJoinTask */
+    /* Properties of Gpseq-1.0.Gpseq.ForkJoinTask */
     readonly parent: ForkJoinTask
     readonly root: ForkJoinTask
     readonly isRoot: boolean
@@ -1090,11 +882,11 @@ export class ForkJoinTask {
     readonly promise: Promise
     readonly sharedResult: ForkJoinTaskSharedResult
     readonly isCancelled: boolean
-    /* Properties of Gpseq.Task */
+    /* Properties of Gpseq-1.0.Gpseq.Task */
     readonly future: Future
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Gpseq.ForkJoinTask */
+    /* Methods of Gpseq-1.0.Gpseq.ForkJoinTask */
     getParent(): ForkJoinTask | null
     getRoot(): ForkJoinTask
     getIsRoot(): boolean
@@ -1110,7 +902,7 @@ export class ForkJoinTask {
     cancel(): void
     getIsCancelled(): boolean
     compute(): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -1132,27 +924,15 @@ export class ForkJoinTask {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of Gpseq.Task */
+    /* Methods of Gpseq-1.0.Gpseq.Task */
     getFuture(): Future
     invoke(): void
-    /* Virtual methods of Gpseq.ForkJoinTask */
-    vfuncCompute(): void
-    vfuncGetFuture(): Future
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: ForkJoinTask, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: ForkJoinTask, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::parent", callback: (($obj: ForkJoinTask, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::parent", callback: (($obj: ForkJoinTask, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::parent", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -1221,9 +1001,9 @@ export class ForkJoinTask {
     static $gtype: GObject.Type
 }
 export class ForkJoinTaskSharedResult {
-    /* Fields of Gpseq.ForkJoinTaskSharedResult */
+    /* Fields of Gpseq-1.0.Gpseq.ForkJoinTaskSharedResult */
     refCount: number
-    /* Methods of Gpseq.ForkJoinTaskSharedResult */
+    /* Methods of Gpseq-1.0.Gpseq.ForkJoinTaskSharedResult */
     getReady(): boolean
     getValue(): object | null
     setValue(value?: object | null): void
@@ -1242,11 +1022,11 @@ export interface FuncTask_ConstructProps extends GObject.Object_ConstructProps {
     gDestroyFunc?: GLib.DestroyNotify
 }
 export class FuncTask {
-    /* Properties of Gpseq.Task */
+    /* Properties of Gpseq-1.0.Gpseq.Task */
     readonly future: Future
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -1268,28 +1048,16 @@ export class FuncTask {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of Gpseq.Task */
+    /* Methods of Gpseq-1.0.Gpseq.Task */
     getFuture(): Future
     compute(): void
     invoke(): void
-    /* Virtual methods of Gpseq.FuncTask */
-    vfuncGetFuture(): Future
-    vfuncCompute(): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: FuncTask, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: FuncTask, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::future", callback: (($obj: FuncTask, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::future", callback: (($obj: FuncTask, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::future", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -1315,16 +1083,16 @@ export interface Future_ConstructProps extends GObject.Object_ConstructProps {
     gDestroyFunc?: GLib.DestroyNotify
 }
 export class Future {
-    /* Properties of Gpseq.Future */
+    /* Properties of Gpseq-1.0.Gpseq.Future */
     readonly ready: boolean
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Gpseq.Future */
+    /* Methods of Gpseq-1.0.Gpseq.Future */
     getReady(): boolean
     wait(): object | null
-    waitUntil(endTime: number): [ /* returnType */ boolean, /* value */ object | null ]
+    waitUntil(endTime: number): { returnType: boolean, value: object | null }
     transform(aType: GObject.Type, aDupFunc: GObject.BoxedCopyFunc, aDestroyFunc: GLib.DestroyNotify, func: any): Result
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -1346,10 +1114,10 @@ export class Future {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of Gee.Hashable */
+    /* Methods of Gee-0.8.Gee.Hashable */
     hash(): number
     equalTo(object?: object | null): boolean
-    /* Methods of Gpseq.Result */
+    /* Methods of Gpseq-1.0.Gpseq.Result */
     getValueType(): GObject.Type
     getValue(): object | null
     getException(): GLib.Error | null
@@ -1364,36 +1132,12 @@ export class Future {
     zip(aType: GObject.Type, aDupFunc: GObject.BoxedCopyFunc, aDestroyFunc: GLib.DestroyNotify, bType: GObject.Type, bDupFunc: GObject.BoxedCopyFunc, bDestroyFunc: GLib.DestroyNotify, zipFunc: any, second: Result): Result
     then(func: GLib.Func): Result
     andThen(func: Func): Result
-    /* Virtual methods of Gpseq.Future */
-    vfuncGetReady(): boolean
-    vfuncWait(): object | null
-    vfuncWaitUntil(endTime: number): [ /* returnType */ boolean, /* value */ object | null ]
-    vfuncTransform(aType: GObject.Type, aDupFunc: GObject.BoxedCopyFunc, aDestroyFunc: GLib.DestroyNotify, func: any): Result
-    vfuncHash(): number
-    vfuncEqualTo(object?: object | null): boolean
-    vfuncFuture(): Future
-    vfuncGet(): object | null
-    vfuncFlatMap(aType: GObject.Type, aDupFunc: GObject.BoxedCopyFunc, aDestroyFunc: GLib.DestroyNotify, func: any): Result
-    vfuncMap(aType: GObject.Type, aDupFunc: GObject.BoxedCopyFunc, aDestroyFunc: GLib.DestroyNotify, func: any): Result
-    vfuncMapErr(func: any): Result
-    vfuncZip(aType: GObject.Type, aDupFunc: GObject.BoxedCopyFunc, aDestroyFunc: GLib.DestroyNotify, bType: GObject.Type, bDupFunc: GObject.BoxedCopyFunc, bDestroyFunc: GLib.DestroyNotify, zipFunc: any, second: Result): Result
-    vfuncThen(func: GLib.Func): Result
-    vfuncAndThen(func: Func): Result
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Future, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Future, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::ready", callback: (($obj: Future, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::ready", callback: (($obj: Future, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::ready", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -1423,12 +1167,12 @@ export interface GenericArraySpliterator_ConstructProps extends GObject.Object_C
     gDestroyFunc?: GLib.DestroyNotify
 }
 export class GenericArraySpliterator {
-    /* Properties of Gpseq.Spliterator */
+    /* Properties of Gpseq-1.0.Gpseq.Spliterator */
     readonly estimatedSize: number
     readonly isSizeKnown: boolean
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -1450,7 +1194,7 @@ export class GenericArraySpliterator {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of Gpseq.Spliterator */
+    /* Methods of Gpseq-1.0.Gpseq.Spliterator */
     getElementType(): GObject.Type
     trySplit(): Spliterator | null
     tryAdvance(consumer: Func): boolean
@@ -1458,28 +1202,12 @@ export class GenericArraySpliterator {
     getIsSizeKnown(): boolean
     each(f: Func): void
     eachChunk(f: EachChunkFunc): boolean
-    /* Virtual methods of Gpseq.GenericArraySpliterator */
-    vfuncTrySplit(): Spliterator | null
-    vfuncTryAdvance(consumer: Func): boolean
-    vfuncGetEstimatedSize(): number
-    vfuncGetIsSizeKnown(): boolean
-    vfuncEach(f: Func): void
-    vfuncEachChunk(f: EachChunkFunc): boolean
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: GenericArraySpliterator, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: GenericArraySpliterator, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::estimated-size", callback: (($obj: GenericArraySpliterator, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::estimated-size", callback: (($obj: GenericArraySpliterator, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::estimated-size", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -1511,12 +1239,12 @@ export interface IteratorSpliterator_ConstructProps extends GObject.Object_Const
     gDestroyFunc?: GLib.DestroyNotify
 }
 export class IteratorSpliterator {
-    /* Properties of Gpseq.Spliterator */
+    /* Properties of Gpseq-1.0.Gpseq.Spliterator */
     readonly estimatedSize: number
     readonly isSizeKnown: boolean
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -1538,7 +1266,7 @@ export class IteratorSpliterator {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of Gpseq.Spliterator */
+    /* Methods of Gpseq-1.0.Gpseq.Spliterator */
     getElementType(): GObject.Type
     trySplit(): Spliterator | null
     tryAdvance(consumer: Func): boolean
@@ -1546,28 +1274,12 @@ export class IteratorSpliterator {
     getIsSizeKnown(): boolean
     each(f: Func): void
     eachChunk(f: EachChunkFunc): boolean
-    /* Virtual methods of Gpseq.IteratorSpliterator */
-    vfuncTrySplit(): Spliterator | null
-    vfuncTryAdvance(consumer: Func): boolean
-    vfuncGetEstimatedSize(): number
-    vfuncGetIsSizeKnown(): boolean
-    vfuncEach(f: Func): void
-    vfuncEachChunk(f: EachChunkFunc): boolean
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: IteratorSpliterator, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: IteratorSpliterator, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::estimated-size", callback: (($obj: IteratorSpliterator, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::estimated-size", callback: (($obj: IteratorSpliterator, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::estimated-size", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -1600,12 +1312,12 @@ export interface ListSpliterator_ConstructProps extends GObject.Object_Construct
     gDestroyFunc?: GLib.DestroyNotify
 }
 export class ListSpliterator {
-    /* Properties of Gpseq.Spliterator */
+    /* Properties of Gpseq-1.0.Gpseq.Spliterator */
     readonly estimatedSize: number
     readonly isSizeKnown: boolean
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -1627,7 +1339,7 @@ export class ListSpliterator {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of Gpseq.Spliterator */
+    /* Methods of Gpseq-1.0.Gpseq.Spliterator */
     getElementType(): GObject.Type
     trySplit(): Spliterator | null
     tryAdvance(consumer: Func): boolean
@@ -1635,28 +1347,12 @@ export class ListSpliterator {
     getIsSizeKnown(): boolean
     each(f: Func): void
     eachChunk(f: EachChunkFunc): boolean
-    /* Virtual methods of Gpseq.ListSpliterator */
-    vfuncTrySplit(): Spliterator | null
-    vfuncTryAdvance(consumer: Func): boolean
-    vfuncGetEstimatedSize(): number
-    vfuncGetIsSizeKnown(): boolean
-    vfuncEach(f: Func): void
-    vfuncEachChunk(f: EachChunkFunc): boolean
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: ListSpliterator, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: ListSpliterator, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::estimated-size", callback: (($obj: ListSpliterator, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::estimated-size", callback: (($obj: ListSpliterator, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::estimated-size", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -1688,13 +1384,13 @@ export interface Optional_ConstructProps extends GObject.Object_ConstructProps {
     gDestroyFunc?: GLib.DestroyNotify
 }
 export class Optional {
-    /* Properties of Gpseq.Optional */
+    /* Properties of Gpseq-1.0.Gpseq.Optional */
     readonly valueType: GObject.Type
     readonly value: object
     readonly isPresent: boolean
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Gpseq.Optional */
+    /* Methods of Gpseq-1.0.Gpseq.Optional */
     getValueType(): GObject.Type
     getValue(): object | null
     getIsPresent(): boolean
@@ -1706,7 +1402,7 @@ export class Optional {
     orElseFail(): object | null
     filter(pred: Gee.Predicate): Optional
     map(aType: GObject.Type, aDupFunc: GObject.BoxedCopyFunc, aDestroyFunc: GLib.DestroyNotify, mapper: Gee.MapFunc): Optional
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -1728,21 +1424,12 @@ export class Optional {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Optional, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Optional, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::value-type", callback: (($obj: Optional, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::value-type", callback: (($obj: Optional, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::value-type", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -1775,9 +1462,9 @@ export class Optional {
     static $gtype: GObject.Type
 }
 export class Promise {
-    /* Fields of Gpseq.Promise */
+    /* Fields of Gpseq-1.0.Gpseq.Promise */
     refCount: number
-    /* Methods of Gpseq.Promise */
+    /* Methods of Gpseq-1.0.Gpseq.Promise */
     getFuture(): Future
     setValue(value?: object | null): void
     setException(exception: GLib.Error): void
@@ -1793,14 +1480,14 @@ export interface Seq_ConstructProps extends GObject.Object_ConstructProps {
     gDestroyFunc?: GLib.DestroyNotify
 }
 export class Seq {
-    /* Properties of Gpseq.Seq */
+    /* Properties of Gpseq-1.0.Gpseq.Seq */
     readonly elementType: GObject.Type
     readonly taskEnv: TaskEnv
     readonly isClosed: boolean
     readonly isParallel: boolean
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Gpseq.Seq */
+    /* Methods of Gpseq-1.0.Gpseq.Seq */
     getElementType(): GObject.Type
     getTaskEnv(): TaskEnv
     getIsClosed(): boolean
@@ -1841,7 +1528,7 @@ export class Seq {
     toList(): Future
     toSet(hash: Gee.HashDataFunc | null, equal: Gee.EqualDataFunc | null): Future
     toMap(kType: GObject.Type, kDupFunc: GObject.BoxedCopyFunc, kDestroyFunc: GLib.DestroyNotify, vType: GObject.Type, vDupFunc: GObject.BoxedCopyFunc, vDestroyFunc: GLib.DestroyNotify, keyMapper: MapFunc, valMapper: MapFunc, merger: CombineFunc | null, keyHash: Gee.HashDataFunc | null, keyEqual: Gee.EqualDataFunc | null, valueEqual: Gee.EqualDataFunc | null): Future
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -1863,21 +1550,12 @@ export class Seq {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Seq, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Seq, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::element-type", callback: (($obj: Seq, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::element-type", callback: (($obj: Seq, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::element-type", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -1931,14 +1609,14 @@ export interface SpliteratorTask_ConstructProps extends ForkJoinTask_ConstructPr
     gDestroyFunc?: GLib.DestroyNotify
 }
 export class SpliteratorTask {
-    /* Properties of Gpseq.SpliteratorTask */
+    /* Properties of Gpseq-1.0.Gpseq.SpliteratorTask */
     readonly spliterator: Spliterator
     readonly leftChild: SpliteratorTask
     readonly rightChild: SpliteratorTask
     readonly isLeaf: boolean
     readonly isLeftmost: boolean
     readonly emptyResult: object
-    /* Properties of Gpseq.ForkJoinTask */
+    /* Properties of Gpseq-1.0.Gpseq.ForkJoinTask */
     readonly parent: ForkJoinTask
     readonly root: ForkJoinTask
     readonly isRoot: boolean
@@ -1949,9 +1627,9 @@ export class SpliteratorTask {
     readonly promise: Promise
     readonly sharedResult: ForkJoinTaskSharedResult
     readonly isCancelled: boolean
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Gpseq.SpliteratorTask */
+    /* Methods of Gpseq-1.0.Gpseq.SpliteratorTask */
     getSpliterator(): Spliterator
     getLeftChild(): SpliteratorTask | null
     getRightChild(): SpliteratorTask | null
@@ -1962,7 +1640,7 @@ export class SpliteratorTask {
     leafCompute(): object | null
     mergeResults(left?: object | null, right?: object | null): object | null
     makeChild(spliterator: Spliterator): SpliteratorTask
-    /* Methods of Gpseq.ForkJoinTask */
+    /* Methods of Gpseq-1.0.Gpseq.ForkJoinTask */
     getParent(): ForkJoinTask | null
     getRoot(): ForkJoinTask
     getIsRoot(): boolean
@@ -1978,7 +1656,7 @@ export class SpliteratorTask {
     cancel(): void
     getIsCancelled(): boolean
     compute(): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -2000,29 +1678,12 @@ export class SpliteratorTask {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of Gpseq.SpliteratorTask */
-    vfuncGetEmptyResult(): object | null
-    vfuncLeafCompute(): object | null
-    vfuncMergeResults(left?: object | null, right?: object | null): object | null
-    vfuncMakeChild(spliterator: Spliterator): SpliteratorTask
-    /* Virtual methods of Gpseq.ForkJoinTask */
-    vfuncCompute(): void
-    vfuncGetFuture(): Future
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: SpliteratorTask, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: SpliteratorTask, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::spliterator", callback: (($obj: SpliteratorTask, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::spliterator", callback: (($obj: SpliteratorTask, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::spliterator", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -2121,11 +1782,11 @@ export interface SubArray_ConstructProps extends GObject.Object_ConstructProps {
     gDestroyFunc?: GLib.DestroyNotify
 }
 export class SubArray {
-    /* Properties of Gpseq.SubArray */
+    /* Properties of Gpseq-1.0.Gpseq.SubArray */
     readonly size: number
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Gpseq.SubArray */
+    /* Methods of Gpseq-1.0.Gpseq.SubArray */
     getData(): object[]
     getSize(): number
     get(index: number): object | null
@@ -2134,7 +1795,7 @@ export class SubArray {
     copy(start: number, src: SubArray, srcStart: number, count: number): void
     copyArray(start: number, src: object[], srcStart: number, count: number): void
     subArray(start: number, stop: number): SubArray
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -2156,7 +1817,7 @@ export class SubArray {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of Gee.Traversable */
+    /* Methods of Gee-0.8.Gee.Traversable */
     foreach(f: Gee.ForallFunc): boolean
     stream(aType: GObject.Type, aDupFunc: GObject.BoxedCopyFunc, aDestroyFunc: GLib.DestroyNotify, f: Gee.StreamFunc): Gee.Iterator
     fold(aType: GObject.Type, aDupFunc: GObject.BoxedCopyFunc, aDestroyFunc: GLib.DestroyNotify, f: Gee.FoldFunc, seed?: object | null): object | null
@@ -2173,41 +1834,14 @@ export class SubArray {
     min(compare: GLib.CompareDataFunc): object | null
     orderBy(compare: GLib.CompareDataFunc | null): Gee.Iterator
     getElementType(): GObject.Type
-    /* Methods of Gee.Iterable */
+    /* Methods of Gee-0.8.Gee.Iterable */
     iterator(): Gee.Iterator
-    /* Virtual methods of Gpseq.SubArray */
-    vfuncForeach(f: Gee.ForallFunc): boolean
-    vfuncStream(aType: GObject.Type, aDupFunc: GObject.BoxedCopyFunc, aDestroyFunc: GLib.DestroyNotify, f: Gee.StreamFunc): Gee.Iterator
-    vfuncFold(aType: GObject.Type, aDupFunc: GObject.BoxedCopyFunc, aDestroyFunc: GLib.DestroyNotify, f: Gee.FoldFunc, seed?: object | null): object | null
-    vfuncMap(aType: GObject.Type, aDupFunc: GObject.BoxedCopyFunc, aDestroyFunc: GLib.DestroyNotify, f: Gee.MapFunc): Gee.Iterator
-    vfuncScan(aType: GObject.Type, aDupFunc: GObject.BoxedCopyFunc, aDestroyFunc: GLib.DestroyNotify, f: Gee.FoldFunc, seed?: object | null): Gee.Iterator
-    vfuncFilter(pred: Gee.Predicate): Gee.Iterator
-    vfuncChop(offset: number, length: number): Gee.Iterator
-    vfuncFlatMap(aType: GObject.Type, aDupFunc: GObject.BoxedCopyFunc, aDestroyFunc: GLib.DestroyNotify, f: Gee.FlatMapFunc): Gee.Iterator
-    vfuncTee(forks: number): Gee.Iterator[]
-    vfuncFirstMatch(pred: Gee.Predicate): object | null
-    vfuncAnyMatch(pred: Gee.Predicate): boolean
-    vfuncAllMatch(pred: Gee.Predicate): boolean
-    vfuncMax(compare: GLib.CompareDataFunc): object | null
-    vfuncMin(compare: GLib.CompareDataFunc): object | null
-    vfuncOrderBy(compare: GLib.CompareDataFunc | null): Gee.Iterator
-    vfuncGetElementType(): GObject.Type
-    vfuncIterator(): Gee.Iterator
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: SubArray, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: SubArray, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::size", callback: (($obj: SubArray, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::size", callback: (($obj: SubArray, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::size", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -2234,12 +1868,12 @@ export interface SubArraySpliterator_ConstructProps extends GObject.Object_Const
     gDestroyFunc?: GLib.DestroyNotify
 }
 export class SubArraySpliterator {
-    /* Properties of Gpseq.Spliterator */
+    /* Properties of Gpseq-1.0.Gpseq.Spliterator */
     readonly estimatedSize: number
     readonly isSizeKnown: boolean
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -2261,7 +1895,7 @@ export class SubArraySpliterator {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of Gpseq.Spliterator */
+    /* Methods of Gpseq-1.0.Gpseq.Spliterator */
     getElementType(): GObject.Type
     trySplit(): Spliterator | null
     tryAdvance(consumer: Func): boolean
@@ -2269,28 +1903,12 @@ export class SubArraySpliterator {
     getIsSizeKnown(): boolean
     each(f: Func): void
     eachChunk(f: EachChunkFunc): boolean
-    /* Virtual methods of Gpseq.SubArraySpliterator */
-    vfuncTrySplit(): Spliterator | null
-    vfuncTryAdvance(consumer: Func): boolean
-    vfuncGetEstimatedSize(): number
-    vfuncGetIsSizeKnown(): boolean
-    vfuncEach(f: Func): void
-    vfuncEachChunk(f: EachChunkFunc): boolean
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: SubArraySpliterator, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: SubArraySpliterator, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::estimated-size", callback: (($obj: SubArraySpliterator, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::estimated-size", callback: (($obj: SubArraySpliterator, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::estimated-size", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -2322,12 +1940,12 @@ export interface SupplierSpliterator_ConstructProps extends GObject.Object_Const
     gDestroyFunc?: GLib.DestroyNotify
 }
 export class SupplierSpliterator {
-    /* Properties of Gpseq.Spliterator */
+    /* Properties of Gpseq-1.0.Gpseq.Spliterator */
     readonly estimatedSize: number
     readonly isSizeKnown: boolean
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -2349,7 +1967,7 @@ export class SupplierSpliterator {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of Gpseq.Spliterator */
+    /* Methods of Gpseq-1.0.Gpseq.Spliterator */
     getElementType(): GObject.Type
     trySplit(): Spliterator | null
     tryAdvance(consumer: Func): boolean
@@ -2357,28 +1975,12 @@ export class SupplierSpliterator {
     getIsSizeKnown(): boolean
     each(f: Func): void
     eachChunk(f: EachChunkFunc): boolean
-    /* Virtual methods of Gpseq.SupplierSpliterator */
-    vfuncTrySplit(): Spliterator | null
-    vfuncTryAdvance(consumer: Func): boolean
-    vfuncGetEstimatedSize(): number
-    vfuncGetIsSizeKnown(): boolean
-    vfuncEach(f: Func): void
-    vfuncEachChunk(f: EachChunkFunc): boolean
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: SupplierSpliterator, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: SupplierSpliterator, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::estimated-size", callback: (($obj: SupplierSpliterator, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::estimated-size", callback: (($obj: SupplierSpliterator, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::estimated-size", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -2407,15 +2009,15 @@ export class SupplierSpliterator {
 export interface TaskEnv_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class TaskEnv {
-    /* Properties of Gpseq.TaskEnv */
+    /* Properties of Gpseq-1.0.Gpseq.TaskEnv */
     readonly executor: Executor
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Gpseq.TaskEnv */
+    /* Methods of Gpseq-1.0.Gpseq.TaskEnv */
     getExecutor(): Executor
     resolveThreshold(elements: number, threads: number): number
     resolveMaxDepth(elements: number, threads: number): number
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -2437,25 +2039,12 @@ export class TaskEnv {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of Gpseq.TaskEnv */
-    vfuncGetExecutor(): Executor
-    vfuncResolveThreshold(elements: number, threads: number): number
-    vfuncResolveMaxDepth(elements: number, threads: number): number
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: TaskEnv, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: TaskEnv, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::executor", callback: (($obj: TaskEnv, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::executor", callback: (($obj: TaskEnv, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::executor", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -2483,16 +2072,16 @@ export class TaskEnv {
 export interface WaitGroup_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class WaitGroup {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Gpseq.WaitGroup */
+    /* Methods of Gpseq-1.0.Gpseq.WaitGroup */
     add(delta: number): void
     done(): void
     task(gType: GObject.Type, gDupFunc: GObject.BoxedCopyFunc, gDestroyFunc: GLib.DestroyNotify, func: TaskFunc): Future
     run(func: VoidTaskFunc): Future
     wait(): void
     waitUntil(endTime: number): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -2514,21 +2103,12 @@ export class WaitGroup {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: WaitGroup, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: WaitGroup, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -2547,18 +2127,18 @@ export interface WorkerPool_ConstructProps extends GObject.Object_ConstructProps
     maxThreads?: number
 }
 export class WorkerPool {
-    /* Properties of Gpseq.WorkerPool */
+    /* Properties of Gpseq-1.0.Gpseq.WorkerPool */
     maxThreads: number
     readonly numThreads: number
     readonly factory: ThreadFactory
     readonly isTerminating: boolean
     readonly isTerminated: boolean
     readonly isTerminatingStarted: boolean
-    /* Properties of Gpseq.Executor */
+    /* Properties of Gpseq-1.0.Gpseq.Executor */
     readonly parallels: number
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Gpseq.WorkerPool */
+    /* Methods of Gpseq-1.0.Gpseq.WorkerPool */
     getMaxThreads(): number
     setMaxThreads(value: number): void
     getNumThreads(): number
@@ -2570,7 +2150,7 @@ export class WorkerPool {
     terminateNow(): void
     waitTermination(): void
     waitTerminationUntil(endTime: number): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -2592,27 +2172,15 @@ export class WorkerPool {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of Gpseq.Executor */
+    /* Methods of Gpseq-1.0.Gpseq.Executor */
     submit(task: Task): void
     getParallels(): number
-    /* Virtual methods of Gpseq.WorkerPool */
-    vfuncSubmit(task: Task): void
-    vfuncGetParallels(): number
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: WorkerPool, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: WorkerPool, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::max-threads", callback: (($obj: WorkerPool, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::max-threads", callback: (($obj: WorkerPool, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::max-threads", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -2667,16 +2235,16 @@ export class WorkerPool {
 export interface WorkerThread_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class WorkerThread {
-    /* Properties of Gpseq.WorkerThread */
+    /* Properties of Gpseq-1.0.Gpseq.WorkerThread */
     readonly thread: GLib.Thread
     readonly pool: WorkerPool
     readonly name: string
     readonly isStarted: boolean
     readonly isTerminated: boolean
     readonly isAlive: boolean
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Gpseq.WorkerThread */
+    /* Methods of Gpseq-1.0.Gpseq.WorkerThread */
     getThread(): GLib.Thread | null
     getPool(): WorkerPool
     getName(): string
@@ -2686,7 +2254,7 @@ export class WorkerThread {
     start(): void
     join(): void
     blocking(gType: GObject.Type, gDupFunc: GObject.BoxedCopyFunc, gDestroyFunc: GLib.DestroyNotify, func: TaskFunc): object | null
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -2708,21 +2276,12 @@ export class WorkerThread {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: WorkerThread, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: WorkerThread, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::thread", callback: (($obj: WorkerThread, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::thread", callback: (($obj: WorkerThread, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::thread", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -2775,15 +2334,15 @@ export interface Wrapper_ConstructProps extends GObject.Object_ConstructProps {
     gDestroyFunc?: GLib.DestroyNotify
 }
 export class Wrapper {
-    /* Properties of Gpseq.Wrapper */
+    /* Properties of Gpseq-1.0.Gpseq.Wrapper */
     readonly value: object
     readonly valueType: GObject.Type
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Gpseq.Wrapper */
+    /* Methods of Gpseq-1.0.Gpseq.Wrapper */
     getValue(): object | null
     getValueType(): GObject.Type
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -2805,21 +2364,12 @@ export class Wrapper {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Wrapper, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Wrapper, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::value", callback: (($obj: Wrapper, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::value", callback: (($obj: Wrapper, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::value", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -2851,7 +2401,7 @@ export class ArraySpliteratorPrivate {
     static name: string
 }
 export abstract class ForkJoinTaskClass {
-    /* Fields of Gpseq.ForkJoinTaskClass */
+    /* Fields of Gpseq-1.0.Gpseq.ForkJoinTaskClass */
     compute: (self: ForkJoinTask) => void
     static name: string
 }
@@ -2871,9 +2421,9 @@ export class FuncTaskPrivate {
     static name: string
 }
 export abstract class FutureClass {
-    /* Fields of Gpseq.FutureClass */
+    /* Fields of Gpseq-1.0.Gpseq.FutureClass */
     wait: (self: Future) => object | null
-    waitUntil: (self: Future, endTime: number) => [ /* returnType */ boolean, /* value */ object | null ]
+    waitUntil: (self: Future, endTime: number) => { returnType: boolean, value: object | null }
     transform: (self: Future, aType: GObject.Type, aDupFunc: GObject.BoxedCopyFunc, aDestroyFunc: GLib.DestroyNotify, func: any) => Result
     static name: string
 }
@@ -2917,7 +2467,7 @@ export class SeqPrivate {
     static name: string
 }
 export abstract class SpliteratorTaskClass {
-    /* Fields of Gpseq.SpliteratorTaskClass */
+    /* Fields of Gpseq-1.0.Gpseq.SpliteratorTaskClass */
     leafCompute: (self: SpliteratorTask) => object | null
     mergeResults: (self: SpliteratorTask, left?: object | null, right?: object | null) => object | null
     makeChild: (self: SpliteratorTask, spliterator: Spliterator) => SpliteratorTask
@@ -2945,7 +2495,7 @@ export class SupplierSpliteratorPrivate {
     static name: string
 }
 export abstract class TaskEnvClass {
-    /* Fields of Gpseq.TaskEnvClass */
+    /* Fields of Gpseq-1.0.Gpseq.TaskEnvClass */
     resolveThreshold: (self: TaskEnv, elements: number, threads: number) => number
     resolveMaxDepth: (self: TaskEnv, elements: number, threads: number) => number
     static name: string
@@ -2981,7 +2531,7 @@ export abstract class ChannelIface {
     static name: string
 }
 export abstract class ChannelBaseIface {
-    /* Fields of Gpseq.ChannelBaseIface */
+    /* Fields of Gpseq-1.0.Gpseq.ChannelBaseIface */
     close: (self: ChannelBase) => void
     getCapacity: (self: ChannelBase) => Optional
     getLength: (self: ChannelBase) => number
@@ -2990,7 +2540,7 @@ export abstract class ChannelBaseIface {
     static name: string
 }
 export abstract class CollectorIface {
-    /* Fields of Gpseq.CollectorIface */
+    /* Fields of Gpseq-1.0.Gpseq.CollectorIface */
     createAccumulator: (self: Collector) => object | null
     accumulate: (self: Collector, g?: object | null, a?: object | null) => void
     combine: (self: Collector, a?: object | null, b?: object | null) => object | null
@@ -2999,20 +2549,20 @@ export abstract class CollectorIface {
     static name: string
 }
 export abstract class ExecutorIface {
-    /* Fields of Gpseq.ExecutorIface */
+    /* Fields of Gpseq-1.0.Gpseq.ExecutorIface */
     submit: (self: Executor, task: Task) => void
     getParallels: (self: Executor) => number
     static name: string
 }
 export abstract class ReceiverIface {
-    /* Fields of Gpseq.ReceiverIface */
+    /* Fields of Gpseq-1.0.Gpseq.ReceiverIface */
     recv: (self: Receiver) => Result
     recvUntil: (self: Receiver, endTime: number) => Result
     tryRecv: (self: Receiver) => Result
     static name: string
 }
 export abstract class ResultIface {
-    /* Fields of Gpseq.ResultIface */
+    /* Fields of Gpseq-1.0.Gpseq.ResultIface */
     future: (self: Result) => Future
     get: (self: Result) => object | null
     transform: (self: Result, aType: GObject.Type, aDupFunc: GObject.BoxedCopyFunc, aDestroyFunc: GLib.DestroyNotify, func: any) => Result
@@ -3025,14 +2575,14 @@ export abstract class ResultIface {
     static name: string
 }
 export abstract class SenderIface {
-    /* Fields of Gpseq.SenderIface */
+    /* Fields of Gpseq-1.0.Gpseq.SenderIface */
     send: (self: Sender, data?: object | null) => Result
     sendUntil: (self: Sender, data: object | null, endTime: number) => Result
     trySend: (self: Sender, data?: object | null) => Result
     static name: string
 }
 export abstract class SpliteratorIface {
-    /* Fields of Gpseq.SpliteratorIface */
+    /* Fields of Gpseq-1.0.Gpseq.SpliteratorIface */
     trySplit: (self: Spliterator) => Spliterator | null
     tryAdvance: (self: Spliterator, consumer: Func) => boolean
     each: (self: Spliterator, f: Func) => void
@@ -3042,18 +2592,18 @@ export abstract class SpliteratorIface {
     static name: string
 }
 export abstract class SupplierIface {
-    /* Fields of Gpseq.SupplierIface */
+    /* Fields of Gpseq-1.0.Gpseq.SupplierIface */
     supply: (self: Supplier) => object | null
     static name: string
 }
 export abstract class TaskIface {
-    /* Fields of Gpseq.TaskIface */
+    /* Fields of Gpseq-1.0.Gpseq.TaskIface */
     compute: (self: Task) => void
     getFuture: (self: Task) => Future
     static name: string
 }
 export abstract class ThreadFactoryIface {
-    /* Fields of Gpseq.ThreadFactoryIface */
+    /* Fields of Gpseq-1.0.Gpseq.ThreadFactoryIface */
     createThread: (self: ThreadFactory, pool: WorkerPool) => WorkerThread
     static name: string
 }

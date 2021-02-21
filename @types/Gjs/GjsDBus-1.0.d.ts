@@ -11,17 +11,17 @@ export interface Implementation_ConstructProps extends Gio.DBusInterfaceSkeleton
     g_interface_info?: Gio.DBusInterfaceInfo
 }
 export class Implementation {
-    /* Properties of Gio.DBusInterfaceSkeleton */
+    /* Properties of Gio-2.0.Gio.DBusInterfaceSkeleton */
     g_flags: Gio.DBusInterfaceSkeletonFlags
-    /* Fields of GjsDBus.Implementation */
+    /* Fields of GjsDBus-1.0.GjsDBus.Implementation */
     parent: Gio.DBusInterfaceSkeleton
     priv: ImplementationPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GjsDBus.Implementation */
+    /* Methods of GjsDBus-1.0.GjsDBus.Implementation */
     emit_property_changed(property: string, newvalue?: GLib.Variant | null): void
     emit_signal(signal_name: string, parameters?: GLib.Variant | null): void
-    /* Methods of Gio.DBusInterfaceSkeleton */
+    /* Methods of Gio-2.0.Gio.DBusInterfaceSkeleton */
     export(connection: Gio.DBusConnection, object_path: string): boolean
     flush(): void
     get_connection(): Gio.DBusConnection | null
@@ -34,7 +34,7 @@ export class Implementation {
     set_flags(flags: Gio.DBusInterfaceSkeletonFlags): void
     unexport(): void
     unexport_from_connection(connection: Gio.DBusConnection): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -56,19 +56,19 @@ export class Implementation {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of Gio.DBusInterface */
+    /* Methods of Gio-2.0.Gio.DBusInterface */
     get_object(): Gio.DBusObject | null
     set_object(object?: Gio.DBusObject | null): void
-    /* Virtual methods of GjsDBus.Implementation */
+    /* Virtual methods of GjsDBus-1.0.GjsDBus.Implementation */
     vfunc_dup_object(): Gio.DBusObject | null
     vfunc_get_info(): Gio.DBusInterfaceInfo
     vfunc_set_object(object?: Gio.DBusObject | null): void
-    /* Virtual methods of Gio.DBusInterfaceSkeleton */
+    /* Virtual methods of Gio-2.0.Gio.DBusInterfaceSkeleton */
     vfunc_flush(): void
     vfunc_g_authorize_method(invocation: Gio.DBusMethodInvocation): boolean
     vfunc_get_info(): Gio.DBusInterfaceInfo
     vfunc_get_properties(): GLib.Variant
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -76,7 +76,7 @@ export class Implementation {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GjsDBus.Implementation */
+    /* Signals of GjsDBus-1.0.GjsDBus.Implementation */
     connect(sigName: "handle-method-call", callback: (($obj: Implementation, object: string, p0: GLib.Variant, p1: Gio.DBusMethodInvocation) => void)): number
     connect_after(sigName: "handle-method-call", callback: (($obj: Implementation, object: string, p0: GLib.Variant, p1: Gio.DBusMethodInvocation) => void)): number
     emit(sigName: "handle-method-call", object: string, p0: GLib.Variant, p1: Gio.DBusMethodInvocation): void
@@ -86,11 +86,11 @@ export class Implementation {
     connect(sigName: "handle-property-set", callback: (($obj: Implementation, object: string, p0: GLib.Variant) => void)): number
     connect_after(sigName: "handle-property-set", callback: (($obj: Implementation, object: string, p0: GLib.Variant) => void)): number
     emit(sigName: "handle-property-set", object: string, p0: GLib.Variant): void
-    /* Signals of Gio.DBusInterfaceSkeleton */
+    /* Signals of Gio-2.0.Gio.DBusInterfaceSkeleton */
     connect(sigName: "g-authorize-method", callback: (($obj: Implementation, invocation: Gio.DBusMethodInvocation) => boolean)): number
     connect_after(sigName: "g-authorize-method", callback: (($obj: Implementation, invocation: Gio.DBusMethodInvocation) => boolean)): number
     emit(sigName: "g-authorize-method", invocation: Gio.DBusMethodInvocation): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Implementation, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Implementation, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -106,7 +106,7 @@ export class Implementation {
     static $gtype: GObject.Type
 }
 export abstract class ImplementationClass {
-    /* Fields of GjsDBus.ImplementationClass */
+    /* Fields of GjsDBus-1.0.GjsDBus.ImplementationClass */
     parent_class: Gio.DBusInterfaceSkeletonClass
     static name: string
 }

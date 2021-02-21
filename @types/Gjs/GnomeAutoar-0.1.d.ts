@@ -72,7 +72,7 @@ export interface Compressor_ConstructProps extends GObject.Object_ConstructProps
     source_files?: object
 }
 export class Compressor {
-    /* Properties of GnomeAutoar.Compressor */
+    /* Properties of GnomeAutoar-0.1.GnomeAutoar.Compressor */
     readonly completed_files: number
     readonly completed_size: number
     create_top_level_directory: boolean
@@ -80,9 +80,9 @@ export class Compressor {
     notify_interval: number
     output_is_dest: boolean
     readonly size: number
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GnomeAutoar.Compressor */
+    /* Methods of GnomeAutoar-0.1.GnomeAutoar.Compressor */
     get_completed_files(): number
     get_completed_size(): number
     get_create_top_level_directory(): boolean
@@ -98,7 +98,7 @@ export class Compressor {
     set_output_is_dest(output_is_dest: boolean): void
     start(cancellable?: Gio.Cancellable | null): void
     start_async(cancellable?: Gio.Cancellable | null): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -120,7 +120,7 @@ export class Compressor {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -128,7 +128,7 @@ export class Compressor {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GnomeAutoar.Compressor */
+    /* Signals of GnomeAutoar-0.1.GnomeAutoar.Compressor */
     connect(sigName: "cancelled", callback: (($obj: Compressor) => void)): number
     connect_after(sigName: "cancelled", callback: (($obj: Compressor) => void)): number
     emit(sigName: "cancelled"): void
@@ -144,7 +144,7 @@ export class Compressor {
     connect(sigName: "progress", callback: (($obj: Compressor, completed_size: number, completed_files: number) => void)): number
     connect_after(sigName: "progress", callback: (($obj: Compressor, completed_size: number, completed_files: number) => void)): number
     emit(sigName: "progress", completed_size: number, completed_files: number): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Compressor, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Compressor, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -182,7 +182,7 @@ export interface Extractor_ConstructProps extends GObject.Object_ConstructProps 
     source_file?: Gio.File
 }
 export class Extractor {
-    /* Properties of GnomeAutoar.Extractor */
+    /* Properties of GnomeAutoar-0.1.GnomeAutoar.Extractor */
     readonly completed_files: number
     readonly completed_size: number
     delete_after_extraction: boolean
@@ -190,9 +190,9 @@ export class Extractor {
     output_is_dest: boolean
     readonly total_files: number
     readonly total_size: number
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GnomeAutoar.Extractor */
+    /* Methods of GnomeAutoar-0.1.GnomeAutoar.Extractor */
     get_completed_files(): number
     get_completed_size(): number
     get_delete_after_extraction(): boolean
@@ -207,7 +207,7 @@ export class Extractor {
     set_output_is_dest(output_is_dest: boolean): void
     start(cancellable?: Gio.Cancellable | null): void
     start_async(cancellable?: Gio.Cancellable | null): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -229,7 +229,7 @@ export class Extractor {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -237,7 +237,7 @@ export class Extractor {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GnomeAutoar.Extractor */
+    /* Signals of GnomeAutoar-0.1.GnomeAutoar.Extractor */
     connect(sigName: "cancelled", callback: (($obj: Extractor) => void)): number
     connect_after(sigName: "cancelled", callback: (($obj: Extractor) => void)): number
     emit(sigName: "cancelled"): void
@@ -262,7 +262,7 @@ export class Extractor {
     connect(sigName: "scanned", callback: (($obj: Extractor, files: number) => void)): number
     connect_after(sigName: "scanned", callback: (($obj: Extractor, files: number) => void)): number
     emit(sigName: "scanned", files: number): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Extractor, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Extractor, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -293,12 +293,12 @@ export class Extractor {
     static $gtype: GObject.Type
 }
 export abstract class CompressorClass {
-    /* Fields of GnomeAutoar.CompressorClass */
+    /* Fields of GnomeAutoar-0.1.GnomeAutoar.CompressorClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
 export abstract class ExtractorClass {
-    /* Fields of GnomeAutoar.ExtractorClass */
+    /* Fields of GnomeAutoar-0.1.GnomeAutoar.ExtractorClass */
     parent_class: GObject.ObjectClass
     static name: string
 }

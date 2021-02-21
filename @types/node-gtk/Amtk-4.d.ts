@@ -40,14 +40,14 @@ export function utilsRecentChooserMenuGetItemUri(menu: Gtk.RecentChooserMenu, it
 export interface ActionInfoCentralStore_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class ActionInfoCentralStore {
-    /* Fields of Amtk.ActionInfoCentralStore */
+    /* Fields of Amtk-4.Amtk.ActionInfoCentralStore */
     parent: GObject.Object
     priv: ActionInfoCentralStorePrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Amtk.ActionInfoCentralStore */
+    /* Methods of Amtk-4.Amtk.ActionInfoCentralStore */
     lookup(actionName: string): ActionInfo
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -69,21 +69,12 @@ export class ActionInfoCentralStore {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: ActionInfoCentralStore, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: ActionInfoCentralStore, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -101,17 +92,17 @@ export class ActionInfoCentralStore {
 export interface ActionInfoStore_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class ActionInfoStore {
-    /* Fields of Amtk.ActionInfoStore */
+    /* Fields of Amtk-4.Amtk.ActionInfoStore */
     parent: GObject.Object
     priv: ActionInfoStorePrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Amtk.ActionInfoStore */
+    /* Methods of Amtk-4.Amtk.ActionInfoStore */
     add(info: ActionInfo): void
     addEntries(entries: ActionInfoEntry[], translationDomain?: string | null): void
     checkAllUsed(): void
     lookup(actionName: string): ActionInfo
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -133,21 +124,12 @@ export class ActionInfoStore {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: ActionInfoStore, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: ActionInfoStore, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -167,14 +149,14 @@ export interface ApplicationWindow_ConstructProps extends GObject.Object_Constru
     statusbar?: Gtk.Statusbar
 }
 export class ApplicationWindow {
-    /* Properties of Amtk.ApplicationWindow */
+    /* Properties of Amtk-4.Amtk.ApplicationWindow */
     statusbar: Gtk.Statusbar
-    /* Fields of Amtk.ApplicationWindow */
+    /* Fields of Amtk-4.Amtk.ApplicationWindow */
     parent: GObject.Object
     priv: ApplicationWindowPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Amtk.ApplicationWindow */
+    /* Methods of Amtk-4.Amtk.ApplicationWindow */
     connectMenuToStatusbar(menuShell: Gtk.MenuShell): void
     connectRecentChooserMenuToStatusbar(menu: Gtk.RecentChooserMenu): void
     createOpenRecentMenu(): Gtk.Widget
@@ -182,7 +164,7 @@ export class ApplicationWindow {
     getApplicationWindow(): Gtk.ApplicationWindow
     getStatusbar(): Gtk.Statusbar | null
     setStatusbar(statusbar?: Gtk.Statusbar | null): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -204,21 +186,12 @@ export class ApplicationWindow {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: ApplicationWindow, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: ApplicationWindow, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::statusbar", callback: (($obj: ApplicationWindow, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::statusbar", callback: (($obj: ApplicationWindow, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::statusbar", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -243,14 +216,14 @@ export interface Factory_ConstructProps extends GObject.Object_ConstructProps {
     defaultFlags?: FactoryFlags
 }
 export class Factory {
-    /* Properties of Amtk.Factory */
+    /* Properties of Amtk-4.Amtk.Factory */
     defaultFlags: FactoryFlags
-    /* Fields of Amtk.Factory */
+    /* Fields of Amtk-4.Amtk.Factory */
     parent: GObject.Object
     priv: FactoryPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Amtk.Factory */
+    /* Methods of Amtk-4.Amtk.Factory */
     createCheckMenuItem(actionName: string): Gtk.Widget
     createCheckMenuItemFull(actionName: string, flags: FactoryFlags): Gtk.Widget
     createMenuItem(actionName: string): Gtk.Widget
@@ -262,7 +235,7 @@ export class Factory {
     getApplication(): Gtk.Application | null
     getDefaultFlags(): FactoryFlags
     setDefaultFlags(defaultFlags: FactoryFlags): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -284,21 +257,12 @@ export class Factory {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Factory, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Factory, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::default-flags", callback: (($obj: Factory, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::default-flags", callback: (($obj: Factory, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::default-flags", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -323,14 +287,14 @@ export interface MenuShell_ConstructProps extends GObject.Object_ConstructProps 
     menuShell?: Gtk.MenuShell
 }
 export class MenuShell {
-    /* Fields of Amtk.MenuShell */
+    /* Fields of Amtk-4.Amtk.MenuShell */
     parent: GObject.Object
     priv: MenuShellPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Amtk.MenuShell */
+    /* Methods of Amtk-4.Amtk.MenuShell */
     getMenuShell(): Gtk.MenuShell
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -352,37 +316,23 @@ export class MenuShell {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of Amtk.MenuShell */
-    vfuncMenuItemDeselected(menuItem: Gtk.MenuItem): void
-    vfuncMenuItemSelected(menuItem: Gtk.MenuItem): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Amtk.MenuShell */
+    /* Signals of Amtk-4.Amtk.MenuShell */
     connect(sigName: "menu-item-deselected", callback: (($obj: MenuShell, menuItem: Gtk.MenuItem) => void)): number
-    connect_after(sigName: "menu-item-deselected", callback: (($obj: MenuShell, menuItem: Gtk.MenuItem) => void)): number
+    on(sigName: "menu-item-deselected", callback: (menuItem: Gtk.MenuItem) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "menu-item-deselected", callback: (menuItem: Gtk.MenuItem) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "menu-item-deselected", callback: (menuItem: Gtk.MenuItem) => void): NodeJS.EventEmitter
     emit(sigName: "menu-item-deselected", menuItem: Gtk.MenuItem): void
-    on(sigName: "menu-item-deselected", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "menu-item-deselected", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "menu-item-deselected", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "menu-item-selected", callback: (($obj: MenuShell, menuItem: Gtk.MenuItem) => void)): number
-    connect_after(sigName: "menu-item-selected", callback: (($obj: MenuShell, menuItem: Gtk.MenuItem) => void)): number
+    on(sigName: "menu-item-selected", callback: (menuItem: Gtk.MenuItem) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "menu-item-selected", callback: (menuItem: Gtk.MenuItem) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "menu-item-selected", callback: (menuItem: Gtk.MenuItem) => void): NodeJS.EventEmitter
     emit(sigName: "menu-item-selected", menuItem: Gtk.MenuItem): void
-    on(sigName: "menu-item-selected", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "menu-item-selected", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "menu-item-selected", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: MenuShell, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: MenuShell, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -398,7 +348,7 @@ export class MenuShell {
     static $gtype: GObject.Type
 }
 export class ActionInfo {
-    /* Methods of Amtk.ActionInfo */
+    /* Methods of Amtk-4.Amtk.ActionInfo */
     copy(): ActionInfo
     getAccels(): string[]
     getActionName(): string | null
@@ -422,7 +372,7 @@ export class ActionInfo {
     static newFromEntry(infoEntry: ActionInfoEntry, translationDomain?: string | null): ActionInfo
 }
 export abstract class ActionInfoCentralStoreClass {
-    /* Fields of Amtk.ActionInfoCentralStoreClass */
+    /* Fields of Amtk-4.Amtk.ActionInfoCentralStoreClass */
     parentClass: GObject.ObjectClass
     padding: object[]
     static name: string
@@ -431,7 +381,7 @@ export class ActionInfoCentralStorePrivate {
     static name: string
 }
 export class ActionInfoEntry {
-    /* Fields of Amtk.ActionInfoEntry */
+    /* Fields of Amtk-4.Amtk.ActionInfoEntry */
     actionName: string
     iconName: string
     label: string
@@ -440,7 +390,7 @@ export class ActionInfoEntry {
     static name: string
 }
 export abstract class ActionInfoStoreClass {
-    /* Fields of Amtk.ActionInfoStoreClass */
+    /* Fields of Amtk-4.Amtk.ActionInfoStoreClass */
     parentClass: GObject.ObjectClass
     padding: object[]
     static name: string
@@ -449,7 +399,7 @@ export class ActionInfoStorePrivate {
     static name: string
 }
 export abstract class ApplicationWindowClass {
-    /* Fields of Amtk.ApplicationWindowClass */
+    /* Fields of Amtk-4.Amtk.ApplicationWindowClass */
     parentClass: GObject.ObjectClass
     padding: object[]
     static name: string
@@ -458,7 +408,7 @@ export class ApplicationWindowPrivate {
     static name: string
 }
 export abstract class FactoryClass {
-    /* Fields of Amtk.FactoryClass */
+    /* Fields of Amtk-4.Amtk.FactoryClass */
     parentClass: GObject.ObjectClass
     padding: object[]
     static name: string
@@ -467,7 +417,7 @@ export class FactoryPrivate {
     static name: string
 }
 export abstract class MenuShellClass {
-    /* Fields of Amtk.MenuShellClass */
+    /* Fields of Amtk-4.Amtk.MenuShellClass */
     parentClass: GObject.ObjectClass
     menuItemSelected: (amtkMenuShell: MenuShell, menuItem: Gtk.MenuItem) => void
     menuItemDeselected: (amtkMenuShell: MenuShell, menuItem: Gtk.MenuItem) => void

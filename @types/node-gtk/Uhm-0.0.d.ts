@@ -19,16 +19,16 @@ export const MINOR_VERSION: number
 export interface Resolver_ConstructProps extends Gio.Resolver_ConstructProps {
 }
 export class Resolver {
-    /* Fields of Gio.Resolver */
+    /* Fields of Gio-2.0.Gio.Resolver */
     parentInstance: GObject.Object
     priv: Gio.ResolverPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Uhm.Resolver */
+    /* Methods of Uhm-0.0.Uhm.Resolver */
     addA(hostname: string, addr: string): boolean
     addSRV(service: string, protocol: string, domain: string, addr: string, port: number): boolean
     reset(): void
-    /* Methods of Gio.Resolver */
+    /* Methods of Gio-2.0.Gio.Resolver */
     lookupByAddress(address: Gio.InetAddress, cancellable?: Gio.Cancellable | null): string
     lookupByAddressAsync(address: Gio.InetAddress, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     lookupByAddressFinish(result: Gio.AsyncResult): string
@@ -45,7 +45,7 @@ export class Resolver {
     lookupServiceAsync(service: string, protocol: string, domain: string, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     lookupServiceFinish(result: Gio.AsyncResult): Gio.SrvTarget[]
     setDefault(): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -67,44 +67,18 @@ export class Resolver {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of Gio.Resolver */
-    vfuncLookupByAddress(address: Gio.InetAddress, cancellable?: Gio.Cancellable | null): string
-    vfuncLookupByAddressAsync(address: Gio.InetAddress, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    vfuncLookupByAddressFinish(result: Gio.AsyncResult): string
-    vfuncLookupByName(hostname: string, cancellable?: Gio.Cancellable | null): Gio.InetAddress[]
-    vfuncLookupByNameAsync(hostname: string, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    vfuncLookupByNameFinish(result: Gio.AsyncResult): Gio.InetAddress[]
-    vfuncLookupByNameWithFlags(hostname: string, flags: Gio.ResolverNameLookupFlags, cancellable?: Gio.Cancellable | null): Gio.InetAddress[]
-    vfuncLookupByNameWithFlagsAsync(hostname: string, flags: Gio.ResolverNameLookupFlags, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    vfuncLookupByNameWithFlagsFinish(result: Gio.AsyncResult): Gio.InetAddress[]
-    vfuncLookupRecords(rrname: string, recordType: Gio.ResolverRecordType, cancellable?: Gio.Cancellable | null): GLib.Variant[]
-    vfuncLookupRecordsAsync(rrname: string, recordType: Gio.ResolverRecordType, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    vfuncLookupRecordsFinish(result: Gio.AsyncResult): GLib.Variant[]
-    vfuncLookupServiceAsync(rrname: string, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    vfuncLookupServiceFinish(result: Gio.AsyncResult): Gio.SrvTarget[]
-    vfuncReload(): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gio.Resolver */
+    /* Signals of Gio-2.0.Gio.Resolver */
     connect(sigName: "reload", callback: (($obj: Resolver) => void)): number
-    connect_after(sigName: "reload", callback: (($obj: Resolver) => void)): number
+    on(sigName: "reload", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "reload", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "reload", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "reload"): void
-    on(sigName: "reload", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "reload", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "reload", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Resolver, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Resolver, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -126,7 +100,7 @@ export interface Server_ConstructProps extends GObject.Object_ConstructProps {
     traceDirectory?: Gio.File
 }
 export class Server {
-    /* Properties of Uhm.Server */
+    /* Properties of Uhm-0.0.Uhm.Server */
     readonly address: string
     enableLogging: boolean
     enableOnline: boolean
@@ -134,9 +108,9 @@ export class Server {
     readonly resolver: Resolver
     tlsCertificate: Gio.TlsCertificate
     traceDirectory: Gio.File
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Uhm.Server */
+    /* Methods of Uhm-0.0.Uhm.Server */
     compareMessagesRemoveFilter(filterId: number): void
     endTrace(): void
     filterIgnoreParameterValues(parameterNames: string[]): number
@@ -163,7 +137,7 @@ export class Server {
     startTraceFull(traceFile: Gio.File): void
     stop(): void
     unloadTrace(): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -185,37 +159,23 @@ export class Server {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of Uhm.Server */
-    vfuncCompareMessages(expectedMessage: Soup.Message, actualMessage: Soup.Message, actualClient: Soup.ClientContext): boolean
-    vfuncHandleMessage(message: Soup.Message, client: Soup.ClientContext): boolean
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Uhm.Server */
+    /* Signals of Uhm-0.0.Uhm.Server */
     connect(sigName: "compare-messages", callback: (($obj: Server, expectedMessage: Soup.Message, actualMessage: Soup.Message, actualClient: Soup.ClientContext) => boolean)): number
-    connect_after(sigName: "compare-messages", callback: (($obj: Server, expectedMessage: Soup.Message, actualMessage: Soup.Message, actualClient: Soup.ClientContext) => boolean)): number
+    on(sigName: "compare-messages", callback: (expectedMessage: Soup.Message, actualMessage: Soup.Message, actualClient: Soup.ClientContext) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "compare-messages", callback: (expectedMessage: Soup.Message, actualMessage: Soup.Message, actualClient: Soup.ClientContext) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "compare-messages", callback: (expectedMessage: Soup.Message, actualMessage: Soup.Message, actualClient: Soup.ClientContext) => void): NodeJS.EventEmitter
     emit(sigName: "compare-messages", expectedMessage: Soup.Message, actualMessage: Soup.Message, actualClient: Soup.ClientContext): void
-    on(sigName: "compare-messages", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "compare-messages", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "compare-messages", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "handle-message", callback: (($obj: Server, message: Soup.Message, client: Soup.ClientContext) => boolean)): number
-    connect_after(sigName: "handle-message", callback: (($obj: Server, message: Soup.Message, client: Soup.ClientContext) => boolean)): number
+    on(sigName: "handle-message", callback: (message: Soup.Message, client: Soup.ClientContext) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-message", callback: (message: Soup.Message, client: Soup.ClientContext) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-message", callback: (message: Soup.Message, client: Soup.ClientContext) => void): NodeJS.EventEmitter
     emit(sigName: "handle-message", message: Soup.Message, client: Soup.ClientContext): void
-    on(sigName: "handle-message", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-message", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-message", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Server, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Server, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::address", callback: (($obj: Server, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::address", callback: (($obj: Server, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::address", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -274,7 +234,7 @@ export class ResolverPrivate {
     static name: string
 }
 export abstract class ServerClass {
-    /* Fields of Uhm.ServerClass */
+    /* Fields of Uhm-0.0.Uhm.ServerClass */
     handleMessage: (self: Server, message: Soup.Message, client: Soup.ClientContext) => boolean
     compareMessages: (self: Server, expectedMessage: Soup.Message, actualMessage: Soup.Message, actualClient: Soup.ClientContext) => boolean
     static name: string

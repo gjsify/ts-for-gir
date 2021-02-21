@@ -69,7 +69,7 @@ export function remoteSettingQuark(): GLib.Quark
 export interface Object_ConstructProps extends Gtk.Application_ConstructProps {
 }
 export class Object {
-    /* Properties of Totem.Object */
+    /* Properties of Totem-1.0.Totem.Object */
     readonly currentContentType: string
     readonly currentDisplayName: string
     readonly currentMrl: string
@@ -79,13 +79,13 @@ export class Object {
     readonly playing: boolean
     readonly seekable: boolean
     readonly streamLength: number
-    /* Properties of Gtk.Application */
+    /* Properties of Gtk-3.0.Gtk.Application */
     readonly activeWindow: Gtk.Window
     appMenu: Gio.MenuModel
     menubar: Gio.MenuModel
     registerSession: boolean
     readonly screensaverActive: boolean
-    /* Properties of Gio.Application */
+    /* Properties of Gio-2.0.Gio.Application */
     actionGroup: Gio.ActionGroup
     applicationId: string
     flags: Gio.ApplicationFlags
@@ -94,11 +94,11 @@ export class Object {
     readonly isRegistered: boolean
     readonly isRemote: boolean
     resourceBasePath: string
-    /* Fields of Gtk.Application */
+    /* Fields of Gtk-3.0.Gtk.Application */
     parent: Gio.Application
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Totem.Object */
+    /* Methods of Totem-1.0.Totem.Object */
     addToPlaylist(uri: string, displayName: string, play: boolean): void
     addToView(file: Gio.File, title: string): void
     canSeekNext(): boolean
@@ -137,7 +137,7 @@ export class Object {
     setVolume(volume: number): void
     showError(title: string, reason: string): void
     stop(): void
-    /* Methods of Gtk.Application */
+    /* Methods of Gtk-3.0.Gtk.Application */
     addAccelerator(accelerator: string, actionName: string, parameter?: GLib.Variant | null): void
     addWindow(window: Gtk.Window): void
     getAccelsForAction(detailedActionName: string): string[]
@@ -158,7 +158,7 @@ export class Object {
     setAppMenu(appMenu?: Gio.MenuModel | null): void
     setMenubar(menubar?: Gio.MenuModel | null): void
     uninhibit(cookie: number): void
-    /* Methods of Gio.Application */
+    /* Methods of Gio-2.0.Gio.Application */
     activate(): void
     addMainOption(longName: string, shortName: number, flags: GLib.OptionFlags, arg: GLib.OptionArg, description: string, argDescription?: string | null): void
     addMainOptionEntries(entries: GLib.OptionEntry[]): void
@@ -193,7 +193,7 @@ export class Object {
     unbindBusyProperty(object: GObject.Object, property: string): void
     unmarkBusy(): void
     withdrawNotification(id: string): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -215,7 +215,7 @@ export class Object {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of Gio.ActionGroup */
+    /* Methods of Gio-2.0.Gio.ActionGroup */
     actionAdded(actionName: string): void
     actionEnabledChanged(actionName: string, enabled: boolean): void
     actionRemoved(actionName: string): void
@@ -229,194 +229,122 @@ export class Object {
     getActionStateType(actionName: string): GLib.VariantType | null
     hasAction(actionName: string): boolean
     listActions(): string[]
-    queryAction(actionName: string): [ /* returnType */ boolean, /* enabled */ boolean, /* parameterType */ GLib.VariantType | null, /* stateType */ GLib.VariantType | null, /* stateHint */ GLib.Variant | null, /* state */ GLib.Variant | null ]
-    /* Methods of Gio.ActionMap */
+    queryAction(actionName: string): { returnType: boolean, enabled: boolean, parameterType: GLib.VariantType | null, stateType: GLib.VariantType | null, stateHint: GLib.Variant | null, state: GLib.Variant | null }
+    /* Methods of Gio-2.0.Gio.ActionMap */
     addAction(action: Gio.Action): void
     addActionEntries(entries: Gio.ActionEntry[], userData?: object | null): void
     lookupAction(actionName: string): Gio.Action | null
     removeAction(actionName: string): void
-    /* Virtual methods of Totem.Object */
-    vfuncFileClosed(): void
-    vfuncFileHasPlayed(mrl: string): void
-    vfuncFileOpened(mrl: string): void
-    vfuncGetTextSubtitle(mrl: string): string
-    vfuncGetUserAgent(mrl: string): string
-    vfuncMetadataUpdated(artist: string, title: string, album: string, trackNum: number): void
-    /* Virtual methods of Gtk.Application */
-    vfuncWindowAdded(window: Gtk.Window): void
-    vfuncWindowRemoved(window: Gtk.Window): void
-    vfuncActionAdded(actionName: string): void
-    vfuncActionEnabledChanged(actionName: string, enabled: boolean): void
-    vfuncActionRemoved(actionName: string): void
-    vfuncActionStateChanged(actionName: string, state: GLib.Variant): void
-    vfuncActivateAction(actionName: string, parameter?: GLib.Variant | null): void
-    vfuncChangeActionState(actionName: string, value: GLib.Variant): void
-    vfuncGetActionEnabled(actionName: string): boolean
-    vfuncGetActionParameterType(actionName: string): GLib.VariantType | null
-    vfuncGetActionState(actionName: string): GLib.Variant | null
-    vfuncGetActionStateHint(actionName: string): GLib.Variant | null
-    vfuncGetActionStateType(actionName: string): GLib.VariantType | null
-    vfuncHasAction(actionName: string): boolean
-    vfuncListActions(): string[]
-    vfuncQueryAction(actionName: string): [ /* returnType */ boolean, /* enabled */ boolean, /* parameterType */ GLib.VariantType | null, /* stateType */ GLib.VariantType | null, /* stateHint */ GLib.Variant | null, /* state */ GLib.Variant | null ]
-    vfuncAddAction(action: Gio.Action): void
-    vfuncLookupAction(actionName: string): Gio.Action | null
-    vfuncRemoveAction(actionName: string): void
-    /* Virtual methods of Gio.Application */
-    vfuncActivate(): void
-    vfuncAddPlatformData(builder: GLib.VariantBuilder): void
-    vfuncAfterEmit(platformData: GLib.Variant): void
-    vfuncBeforeEmit(platformData: GLib.Variant): void
-    vfuncCommandLine(commandLine: Gio.ApplicationCommandLine): number
-    vfuncDbusRegister(connection: Gio.DBusConnection, objectPath: string): boolean
-    vfuncDbusUnregister(connection: Gio.DBusConnection, objectPath: string): void
-    vfuncHandleLocalOptions(options: GLib.VariantDict): number
-    vfuncLocalCommandLine(arguments_: string[]): [ /* returnType */ boolean, /* arguments_ */ string[], /* exitStatus */ number ]
-    vfuncNameLost(): boolean
-    vfuncOpen(files: Gio.File[], hint: string): void
-    vfuncQuitMainloop(): void
-    vfuncRunMainloop(): void
-    vfuncShutdown(): void
-    vfuncStartup(): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Totem.Object */
+    /* Signals of Totem-1.0.Totem.Object */
     connect(sigName: "file-closed", callback: (($obj: Object) => void)): number
-    connect_after(sigName: "file-closed", callback: (($obj: Object) => void)): number
+    on(sigName: "file-closed", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "file-closed", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "file-closed", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "file-closed"): void
-    on(sigName: "file-closed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "file-closed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "file-closed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "file-has-played", callback: (($obj: Object, mrl: string) => void)): number
-    connect_after(sigName: "file-has-played", callback: (($obj: Object, mrl: string) => void)): number
+    on(sigName: "file-has-played", callback: (mrl: string) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "file-has-played", callback: (mrl: string) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "file-has-played", callback: (mrl: string) => void): NodeJS.EventEmitter
     emit(sigName: "file-has-played", mrl: string): void
-    on(sigName: "file-has-played", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "file-has-played", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "file-has-played", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "file-opened", callback: (($obj: Object, mrl: string) => void)): number
-    connect_after(sigName: "file-opened", callback: (($obj: Object, mrl: string) => void)): number
+    on(sigName: "file-opened", callback: (mrl: string) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "file-opened", callback: (mrl: string) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "file-opened", callback: (mrl: string) => void): NodeJS.EventEmitter
     emit(sigName: "file-opened", mrl: string): void
-    on(sigName: "file-opened", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "file-opened", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "file-opened", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "get-text-subtitle", callback: (($obj: Object, mrl: string) => string)): number
-    connect_after(sigName: "get-text-subtitle", callback: (($obj: Object, mrl: string) => string)): number
+    on(sigName: "get-text-subtitle", callback: (mrl: string) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "get-text-subtitle", callback: (mrl: string) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "get-text-subtitle", callback: (mrl: string) => void): NodeJS.EventEmitter
     emit(sigName: "get-text-subtitle", mrl: string): void
-    on(sigName: "get-text-subtitle", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "get-text-subtitle", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "get-text-subtitle", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "get-user-agent", callback: (($obj: Object, mrl: string) => string)): number
-    connect_after(sigName: "get-user-agent", callback: (($obj: Object, mrl: string) => string)): number
+    on(sigName: "get-user-agent", callback: (mrl: string) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "get-user-agent", callback: (mrl: string) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "get-user-agent", callback: (mrl: string) => void): NodeJS.EventEmitter
     emit(sigName: "get-user-agent", mrl: string): void
-    on(sigName: "get-user-agent", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "get-user-agent", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "get-user-agent", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "metadata-updated", callback: (($obj: Object, artist: string, title: string, album: string, trackNumber: number) => void)): number
-    connect_after(sigName: "metadata-updated", callback: (($obj: Object, artist: string, title: string, album: string, trackNumber: number) => void)): number
+    on(sigName: "metadata-updated", callback: (artist: string, title: string, album: string, trackNumber: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "metadata-updated", callback: (artist: string, title: string, album: string, trackNumber: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "metadata-updated", callback: (artist: string, title: string, album: string, trackNumber: number) => void): NodeJS.EventEmitter
     emit(sigName: "metadata-updated", artist: string, title: string, album: string, trackNumber: number): void
-    on(sigName: "metadata-updated", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "metadata-updated", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "metadata-updated", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of Gtk.Application */
+    /* Signals of Gtk-3.0.Gtk.Application */
     connect(sigName: "query-end", callback: (($obj: Object) => void)): number
-    connect_after(sigName: "query-end", callback: (($obj: Object) => void)): number
+    on(sigName: "query-end", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "query-end", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "query-end", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "query-end"): void
-    on(sigName: "query-end", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "query-end", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "query-end", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "window-added", callback: (($obj: Object, window: Gtk.Window) => void)): number
-    connect_after(sigName: "window-added", callback: (($obj: Object, window: Gtk.Window) => void)): number
+    on(sigName: "window-added", callback: (window: Gtk.Window) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "window-added", callback: (window: Gtk.Window) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "window-added", callback: (window: Gtk.Window) => void): NodeJS.EventEmitter
     emit(sigName: "window-added", window: Gtk.Window): void
-    on(sigName: "window-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "window-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "window-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "window-removed", callback: (($obj: Object, window: Gtk.Window) => void)): number
-    connect_after(sigName: "window-removed", callback: (($obj: Object, window: Gtk.Window) => void)): number
+    on(sigName: "window-removed", callback: (window: Gtk.Window) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "window-removed", callback: (window: Gtk.Window) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "window-removed", callback: (window: Gtk.Window) => void): NodeJS.EventEmitter
     emit(sigName: "window-removed", window: Gtk.Window): void
-    on(sigName: "window-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "window-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "window-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of Gio.Application */
+    /* Signals of Gio-2.0.Gio.Application */
     connect(sigName: "activate", callback: (($obj: Object) => void)): number
-    connect_after(sigName: "activate", callback: (($obj: Object) => void)): number
+    on(sigName: "activate", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "activate", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "activate", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "activate"): void
-    on(sigName: "activate", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "activate", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "activate", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "command-line", callback: (($obj: Object, commandLine: Gio.ApplicationCommandLine) => number)): number
-    connect_after(sigName: "command-line", callback: (($obj: Object, commandLine: Gio.ApplicationCommandLine) => number)): number
+    on(sigName: "command-line", callback: (commandLine: Gio.ApplicationCommandLine) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "command-line", callback: (commandLine: Gio.ApplicationCommandLine) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "command-line", callback: (commandLine: Gio.ApplicationCommandLine) => void): NodeJS.EventEmitter
     emit(sigName: "command-line", commandLine: Gio.ApplicationCommandLine): void
-    on(sigName: "command-line", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "command-line", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "command-line", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "handle-local-options", callback: (($obj: Object, options: GLib.VariantDict) => number)): number
-    connect_after(sigName: "handle-local-options", callback: (($obj: Object, options: GLib.VariantDict) => number)): number
+    on(sigName: "handle-local-options", callback: (options: GLib.VariantDict) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "handle-local-options", callback: (options: GLib.VariantDict) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "handle-local-options", callback: (options: GLib.VariantDict) => void): NodeJS.EventEmitter
     emit(sigName: "handle-local-options", options: GLib.VariantDict): void
-    on(sigName: "handle-local-options", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "handle-local-options", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "handle-local-options", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "name-lost", callback: (($obj: Object) => boolean)): number
-    connect_after(sigName: "name-lost", callback: (($obj: Object) => boolean)): number
+    on(sigName: "name-lost", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "name-lost", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "name-lost", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "name-lost"): void
-    on(sigName: "name-lost", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "name-lost", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "name-lost", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "open", callback: (($obj: Object, files: Gio.File[], hint: string) => void)): number
-    connect_after(sigName: "open", callback: (($obj: Object, files: Gio.File[], hint: string) => void)): number
+    on(sigName: "open", callback: (files: Gio.File[], hint: string) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "open", callback: (files: Gio.File[], hint: string) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "open", callback: (files: Gio.File[], hint: string) => void): NodeJS.EventEmitter
     emit(sigName: "open", files: Gio.File[], hint: string): void
-    on(sigName: "open", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "open", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "open", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "shutdown", callback: (($obj: Object) => void)): number
-    connect_after(sigName: "shutdown", callback: (($obj: Object) => void)): number
+    on(sigName: "shutdown", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "shutdown", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "shutdown", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "shutdown"): void
-    on(sigName: "shutdown", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "shutdown", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "shutdown", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "startup", callback: (($obj: Object) => void)): number
-    connect_after(sigName: "startup", callback: (($obj: Object) => void)): number
+    on(sigName: "startup", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "startup", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "startup", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "startup"): void
-    on(sigName: "startup", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "startup", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "startup", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Object, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Object, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of Gio.ActionGroup */
+    /* Signals of Gio-2.0.Gio.ActionGroup */
     connect(sigName: "action-added", callback: (($obj: Object, actionName: string) => void)): number
-    connect_after(sigName: "action-added", callback: (($obj: Object, actionName: string) => void)): number
+    on(sigName: "action-added", callback: (actionName: string) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "action-added", callback: (actionName: string) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "action-added", callback: (actionName: string) => void): NodeJS.EventEmitter
     emit(sigName: "action-added", actionName: string): void
-    on(sigName: "action-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "action-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "action-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "action-enabled-changed", callback: (($obj: Object, actionName: string, enabled: boolean) => void)): number
-    connect_after(sigName: "action-enabled-changed", callback: (($obj: Object, actionName: string, enabled: boolean) => void)): number
+    on(sigName: "action-enabled-changed", callback: (actionName: string, enabled: boolean) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "action-enabled-changed", callback: (actionName: string, enabled: boolean) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "action-enabled-changed", callback: (actionName: string, enabled: boolean) => void): NodeJS.EventEmitter
     emit(sigName: "action-enabled-changed", actionName: string, enabled: boolean): void
-    on(sigName: "action-enabled-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "action-enabled-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "action-enabled-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "action-removed", callback: (($obj: Object, actionName: string) => void)): number
-    connect_after(sigName: "action-removed", callback: (($obj: Object, actionName: string) => void)): number
+    on(sigName: "action-removed", callback: (actionName: string) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "action-removed", callback: (actionName: string) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "action-removed", callback: (actionName: string) => void): NodeJS.EventEmitter
     emit(sigName: "action-removed", actionName: string): void
-    on(sigName: "action-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "action-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "action-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "action-state-changed", callback: (($obj: Object, actionName: string, value: GLib.Variant) => void)): number
-    connect_after(sigName: "action-state-changed", callback: (($obj: Object, actionName: string, value: GLib.Variant) => void)): number
+    on(sigName: "action-state-changed", callback: (actionName: string, value: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "action-state-changed", callback: (actionName: string, value: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "action-state-changed", callback: (actionName: string, value: GLib.Variant) => void): NodeJS.EventEmitter
     emit(sigName: "action-state-changed", actionName: string, value: GLib.Variant): void
-    on(sigName: "action-state-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "action-state-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "action-state-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::current-content-type", callback: (($obj: Object, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::current-content-type", callback: (($obj: Object, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::current-content-type", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -543,7 +471,7 @@ export class Object {
     static $gtype: GObject.Type
 }
 export abstract class ObjectClass {
-    /* Fields of Totem.ObjectClass */
+    /* Fields of Totem-1.0.Totem.ObjectClass */
     parentClass: Gtk.ApplicationClass
     fileOpened: (totem: Object, mrl: string) => void
     fileClosed: (totem: Object) => void

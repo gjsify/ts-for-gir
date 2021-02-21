@@ -102,7 +102,7 @@ export const PLUGIN_LIST_VAR: string
 export const PLUGIN_PATH_VAR: string
 export const PLUGIN_RANKS_VAR: string
 export const SOURCE_REMAINING_UNKNOWN: number
-export function init(argv?: string[] | null): /* argv */ string[] | null
+export function init(argv?: string[] | null): { argv: string[] | null }
 export function logConfigure(config: string): void
 export function marshalVOIDBOXEDENUMBOOLEAN(closure: Function, returnValue: any, nParamValues: number, paramValues: any, invocationHint: object, marshalData: object): void
 export function metadataKeyGetDesc(key: GObject.ParamSpec): string
@@ -137,13 +137,13 @@ export interface MetadataSourceSetMetadataCb {
 export interface Config_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class Config {
-    /* Fields of Grl.Config */
+    /* Fields of Grl-0.1.Grl.Config */
     parent: GObject.Object
     priv: ConfigPrivate
     grlReserved: object[]
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Grl.Config */
+    /* Methods of Grl-0.1.Grl.Config */
     getApiKey(): string
     getApiKeyBlob(size: number): number
     getApiSecret(): string
@@ -171,7 +171,7 @@ export class Config {
     setSource(source: string): void
     setString(param: string, value: string): void
     setUsername(username: string): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -193,21 +193,12 @@ export class Config {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Config, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Config, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -226,15 +217,15 @@ export interface Data_ConstructProps extends GObject.Object_ConstructProps {
     overwrite?: boolean
 }
 export class Data {
-    /* Properties of Grl.Data */
+    /* Properties of Grl-0.1.Grl.Data */
     overwrite: boolean
-    /* Fields of Grl.Data */
+    /* Fields of Grl-0.1.Grl.Data */
     parent: GObject.Object
     priv: DataPrivate
     grlReserved: object[]
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Grl.Data */
+    /* Methods of Grl-0.1.Grl.Data */
     add(key: GObject.ParamSpec): void
     addBinary(key: GObject.ParamSpec, buf: number, size: number): void
     addFloat(key: GObject.ParamSpec, floatvalue: number): void
@@ -245,7 +236,7 @@ export class Data {
     get(key: GObject.ParamSpec): any
     getAllSingleRelatedKeys(key: KeyID): any[]
     getAllSingleRelatedKeysString(key: KeyID): string[]
-    getBinary(key: GObject.ParamSpec): [ /* returnType */ number, /* size */ number ]
+    getBinary(key: GObject.ParamSpec): { returnType: number, size: number }
     getFloat(key: GObject.ParamSpec): number
     getInt(key: GObject.ParamSpec): number
     getKeys(): GObject.ParamSpec[]
@@ -266,7 +257,7 @@ export class Data {
     setOverwrite(overwrite: boolean): void
     setRelatedKeys(relkeys: RelatedKeys, index: number): void
     setString(key: GObject.ParamSpec, strvalue: string): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -288,21 +279,12 @@ export class Data {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Data, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Data, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::overwrite", callback: (($obj: Data, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::overwrite", callback: (($obj: Data, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::overwrite", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -325,16 +307,16 @@ export class Data {
 export interface Media_ConstructProps extends Data_ConstructProps {
 }
 export class Media {
-    /* Properties of Grl.Data */
+    /* Properties of Grl-0.1.Grl.Data */
     overwrite: boolean
-    /* Fields of Grl.Media */
+    /* Fields of Grl-0.1.Grl.Media */
     parent: Data
-    /* Fields of Grl.Data */
+    /* Fields of Grl-0.1.Grl.Data */
     priv: DataPrivate
     grlReserved: object[]
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Grl.Media */
+    /* Methods of Grl-0.1.Grl.Media */
     addAuthor(author: string): void
     addExternalPlayer(player: string): void
     addExternalUrl(url: string): void
@@ -368,8 +350,8 @@ export class Media {
     getThumbnailNth(index: number): string
     getTitle(): string
     getUrl(): string
-    getUrlData(): [ /* returnType */ string, /* mime */ string ]
-    getUrlDataNth(index: number): [ /* returnType */ string, /* mime */ string ]
+    getUrlData(): { returnType: string, mime: string }
+    getUrlDataNth(index: number): { returnType: string, mime: string }
     serialize(): string
     setAuthor(author: string): void
     setCertificate(certificate: string): void
@@ -394,7 +376,7 @@ export class Media {
     setTitle(title: string): void
     setUrl(url: string): void
     setUrlData(url: string, mime: string): void
-    /* Methods of Grl.Data */
+    /* Methods of Grl-0.1.Grl.Data */
     add(key: GObject.ParamSpec): void
     addBinary(key: GObject.ParamSpec, buf: number, size: number): void
     addFloat(key: GObject.ParamSpec, floatvalue: number): void
@@ -405,7 +387,7 @@ export class Media {
     get(key: GObject.ParamSpec): any
     getAllSingleRelatedKeys(key: KeyID): any[]
     getAllSingleRelatedKeysString(key: KeyID): string[]
-    getBinary(key: GObject.ParamSpec): [ /* returnType */ number, /* size */ number ]
+    getBinary(key: GObject.ParamSpec): { returnType: number, size: number }
     getFloat(key: GObject.ParamSpec): number
     getInt(key: GObject.ParamSpec): number
     getKeys(): GObject.ParamSpec[]
@@ -426,7 +408,7 @@ export class Media {
     setOverwrite(overwrite: boolean): void
     setRelatedKeys(relkeys: RelatedKeys, index: number): void
     setString(key: GObject.ParamSpec, strvalue: string): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -448,21 +430,12 @@ export class Media {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Media, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Media, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::overwrite", callback: (($obj: Media, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::overwrite", callback: (($obj: Media, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::overwrite", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -486,16 +459,16 @@ export class Media {
 export interface MediaAudio_ConstructProps extends Media_ConstructProps {
 }
 export class MediaAudio {
-    /* Properties of Grl.Data */
+    /* Properties of Grl-0.1.Grl.Data */
     overwrite: boolean
-    /* Fields of Grl.MediaAudio */
+    /* Fields of Grl-0.1.Grl.MediaAudio */
     parent: Media
-    /* Fields of Grl.Data */
+    /* Fields of Grl-0.1.Grl.Data */
     priv: DataPrivate
     grlReserved: object[]
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Grl.MediaAudio */
+    /* Methods of Grl-0.1.Grl.MediaAudio */
     addArtist(artist: string): void
     addGenre(genre: string): void
     addLyrics(lyrics: string): void
@@ -509,8 +482,8 @@ export class MediaAudio {
     getLyrics(): string
     getLyricsNth(index: number): string
     getTrackNumber(): number
-    getUrlData(): [ /* returnType */ string, /* mime */ string, /* bitrate */ number ]
-    getUrlDataNth(index: number): [ /* returnType */ string, /* mime */ string, /* bitrate */ number ]
+    getUrlData(): { returnType: string, mime: string, bitrate: number }
+    getUrlDataNth(index: number): { returnType: string, mime: string, bitrate: number }
     setAlbum(album: string): void
     setArtist(artist: string): void
     setBitrate(bitrate: number): void
@@ -518,7 +491,7 @@ export class MediaAudio {
     setLyrics(lyrics: string): void
     setTrackNumber(trackNumber: number): void
     setUrlData(url: string, mime: string, bitrate: number): void
-    /* Methods of Grl.Media */
+    /* Methods of Grl-0.1.Grl.Media */
     addAuthor(author: string): void
     addExternalPlayer(player: string): void
     addExternalUrl(url: string): void
@@ -552,8 +525,8 @@ export class MediaAudio {
     getThumbnailNth(index: number): string
     getTitle(): string
     getUrl(): string
-    getUrlData(): [ /* returnType */ string, /* mime */ string ]
-    getUrlDataNth(index: number): [ /* returnType */ string, /* mime */ string ]
+    getUrlData(): { returnType: string, mime: string }
+    getUrlDataNth(index: number): { returnType: string, mime: string }
     serialize(): string
     setAuthor(author: string): void
     setCertificate(certificate: string): void
@@ -578,7 +551,7 @@ export class MediaAudio {
     setTitle(title: string): void
     setUrl(url: string): void
     setUrlData(url: string, mime: string): void
-    /* Methods of Grl.Data */
+    /* Methods of Grl-0.1.Grl.Data */
     add(key: GObject.ParamSpec): void
     addBinary(key: GObject.ParamSpec, buf: number, size: number): void
     addFloat(key: GObject.ParamSpec, floatvalue: number): void
@@ -589,7 +562,7 @@ export class MediaAudio {
     get(key: GObject.ParamSpec): any
     getAllSingleRelatedKeys(key: KeyID): any[]
     getAllSingleRelatedKeysString(key: KeyID): string[]
-    getBinary(key: GObject.ParamSpec): [ /* returnType */ number, /* size */ number ]
+    getBinary(key: GObject.ParamSpec): { returnType: number, size: number }
     getFloat(key: GObject.ParamSpec): number
     getInt(key: GObject.ParamSpec): number
     getKeys(): GObject.ParamSpec[]
@@ -610,7 +583,7 @@ export class MediaAudio {
     setOverwrite(overwrite: boolean): void
     setRelatedKeys(relkeys: RelatedKeys, index: number): void
     setString(key: GObject.ParamSpec, strvalue: string): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -632,21 +605,12 @@ export class MediaAudio {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: MediaAudio, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: MediaAudio, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::overwrite", callback: (($obj: MediaAudio, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::overwrite", callback: (($obj: MediaAudio, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::overwrite", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -669,19 +633,19 @@ export class MediaAudio {
 export interface MediaBox_ConstructProps extends Media_ConstructProps {
 }
 export class MediaBox {
-    /* Properties of Grl.Data */
+    /* Properties of Grl-0.1.Grl.Data */
     overwrite: boolean
-    /* Fields of Grl.MediaBox */
+    /* Fields of Grl-0.1.Grl.MediaBox */
     parent: Media
-    /* Fields of Grl.Data */
+    /* Fields of Grl-0.1.Grl.Data */
     priv: DataPrivate
     grlReserved: object[]
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Grl.MediaBox */
+    /* Methods of Grl-0.1.Grl.MediaBox */
     getChildcount(): number
     setChildcount(childcount: number): void
-    /* Methods of Grl.Media */
+    /* Methods of Grl-0.1.Grl.Media */
     addAuthor(author: string): void
     addExternalPlayer(player: string): void
     addExternalUrl(url: string): void
@@ -715,8 +679,8 @@ export class MediaBox {
     getThumbnailNth(index: number): string
     getTitle(): string
     getUrl(): string
-    getUrlData(): [ /* returnType */ string, /* mime */ string ]
-    getUrlDataNth(index: number): [ /* returnType */ string, /* mime */ string ]
+    getUrlData(): { returnType: string, mime: string }
+    getUrlDataNth(index: number): { returnType: string, mime: string }
     serialize(): string
     setAuthor(author: string): void
     setCertificate(certificate: string): void
@@ -741,7 +705,7 @@ export class MediaBox {
     setTitle(title: string): void
     setUrl(url: string): void
     setUrlData(url: string, mime: string): void
-    /* Methods of Grl.Data */
+    /* Methods of Grl-0.1.Grl.Data */
     add(key: GObject.ParamSpec): void
     addBinary(key: GObject.ParamSpec, buf: number, size: number): void
     addFloat(key: GObject.ParamSpec, floatvalue: number): void
@@ -752,7 +716,7 @@ export class MediaBox {
     get(key: GObject.ParamSpec): any
     getAllSingleRelatedKeys(key: KeyID): any[]
     getAllSingleRelatedKeysString(key: KeyID): string[]
-    getBinary(key: GObject.ParamSpec): [ /* returnType */ number, /* size */ number ]
+    getBinary(key: GObject.ParamSpec): { returnType: number, size: number }
     getFloat(key: GObject.ParamSpec): number
     getInt(key: GObject.ParamSpec): number
     getKeys(): GObject.ParamSpec[]
@@ -773,7 +737,7 @@ export class MediaBox {
     setOverwrite(overwrite: boolean): void
     setRelatedKeys(relkeys: RelatedKeys, index: number): void
     setString(key: GObject.ParamSpec, strvalue: string): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -795,21 +759,12 @@ export class MediaBox {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: MediaBox, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: MediaBox, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::overwrite", callback: (($obj: MediaBox, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::overwrite", callback: (($obj: MediaBox, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::overwrite", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -832,16 +787,16 @@ export class MediaBox {
 export interface MediaImage_ConstructProps extends Media_ConstructProps {
 }
 export class MediaImage {
-    /* Properties of Grl.Data */
+    /* Properties of Grl-0.1.Grl.Data */
     overwrite: boolean
-    /* Fields of Grl.MediaImage */
+    /* Fields of Grl-0.1.Grl.MediaImage */
     parent: Media
-    /* Fields of Grl.Data */
+    /* Fields of Grl-0.1.Grl.Data */
     priv: DataPrivate
     grlReserved: object[]
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Grl.MediaImage */
+    /* Methods of Grl-0.1.Grl.MediaImage */
     addUrlData(url: string, mime: string, width: number, height: number): void
     getCameraModel(): string
     getExposureTime(): number
@@ -849,8 +804,8 @@ export class MediaImage {
     getHeight(): number
     getIsoSpeed(): number
     getOrientation(): number
-    getUrlData(width: number, height: number): [ /* returnType */ string, /* mime */ string ]
-    getUrlDataNth(index: number, width: number, height: number): [ /* returnType */ string, /* mime */ string ]
+    getUrlData(width: number, height: number): { returnType: string, mime: string }
+    getUrlDataNth(index: number, width: number, height: number): { returnType: string, mime: string }
     getWidth(): number
     setCameraModel(cameraModel: string): void
     setExposureTime(exposureTime: number): void
@@ -861,7 +816,7 @@ export class MediaImage {
     setSize(width: number, height: number): void
     setUrlData(url: string, mime: string, width: number, height: number): void
     setWidth(width: number): void
-    /* Methods of Grl.Media */
+    /* Methods of Grl-0.1.Grl.Media */
     addAuthor(author: string): void
     addExternalPlayer(player: string): void
     addExternalUrl(url: string): void
@@ -895,8 +850,8 @@ export class MediaImage {
     getThumbnailNth(index: number): string
     getTitle(): string
     getUrl(): string
-    getUrlData(): [ /* returnType */ string, /* mime */ string ]
-    getUrlDataNth(index: number): [ /* returnType */ string, /* mime */ string ]
+    getUrlData(): { returnType: string, mime: string }
+    getUrlDataNth(index: number): { returnType: string, mime: string }
     serialize(): string
     setAuthor(author: string): void
     setCertificate(certificate: string): void
@@ -921,7 +876,7 @@ export class MediaImage {
     setTitle(title: string): void
     setUrl(url: string): void
     setUrlData(url: string, mime: string): void
-    /* Methods of Grl.Data */
+    /* Methods of Grl-0.1.Grl.Data */
     add(key: GObject.ParamSpec): void
     addBinary(key: GObject.ParamSpec, buf: number, size: number): void
     addFloat(key: GObject.ParamSpec, floatvalue: number): void
@@ -932,7 +887,7 @@ export class MediaImage {
     get(key: GObject.ParamSpec): any
     getAllSingleRelatedKeys(key: KeyID): any[]
     getAllSingleRelatedKeysString(key: KeyID): string[]
-    getBinary(key: GObject.ParamSpec): [ /* returnType */ number, /* size */ number ]
+    getBinary(key: GObject.ParamSpec): { returnType: number, size: number }
     getFloat(key: GObject.ParamSpec): number
     getInt(key: GObject.ParamSpec): number
     getKeys(): GObject.ParamSpec[]
@@ -953,7 +908,7 @@ export class MediaImage {
     setOverwrite(overwrite: boolean): void
     setRelatedKeys(relkeys: RelatedKeys, index: number): void
     setString(key: GObject.ParamSpec, strvalue: string): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -975,21 +930,12 @@ export class MediaImage {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: MediaImage, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: MediaImage, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::overwrite", callback: (($obj: MediaImage, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::overwrite", callback: (($obj: MediaImage, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::overwrite", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -1012,11 +958,11 @@ export class MediaImage {
 export interface MediaPlugin_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class MediaPlugin {
-    /* Fields of Grl.MediaPlugin */
+    /* Fields of Grl-0.1.Grl.MediaPlugin */
     parent: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Grl.MediaPlugin */
+    /* Methods of Grl-0.1.Grl.MediaPlugin */
     getAuthor(): string
     getDescription(): string
     getFilename(): string
@@ -1029,7 +975,7 @@ export class MediaPlugin {
     getSite(): string
     getVersion(): string
     setPluginInfo(info: PluginInfo): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -1051,21 +997,12 @@ export class MediaPlugin {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: MediaPlugin, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: MediaPlugin, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -1082,17 +1019,17 @@ export interface MediaSource_ConstructProps extends MetadataSource_ConstructProp
     autoSplitThreshold?: number
 }
 export class MediaSource {
-    /* Properties of Grl.MediaSource */
+    /* Properties of Grl-0.1.Grl.MediaSource */
     autoSplitThreshold: number
-    /* Properties of Grl.MetadataSource */
+    /* Properties of Grl-0.1.Grl.MetadataSource */
     sourceDesc: string
     sourceId: string
     sourceName: string
-    /* Fields of Grl.MediaSource */
+    /* Fields of Grl-0.1.Grl.MediaSource */
     parent: MetadataSource
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Grl.MediaSource */
+    /* Methods of Grl-0.1.Grl.MediaSource */
     browse(container: Media | null, keys: GObject.ParamSpec[], skip: number, count: number, flags: MetadataResolutionFlags, callback: MediaSourceResultCb): number
     browseSync(container: Media | null, keys: GObject.ParamSpec[], skip: number, count: number, flags: MetadataResolutionFlags): Media[]
     cancel(operationId: number): void
@@ -1117,16 +1054,16 @@ export class MediaSource {
     store(parent: MediaBox | null, media: Media, callback: MediaSourceStoreCb): void
     storeSync(parent: MediaBox | null, media: Media): void
     testMediaFromUri(uri: string): boolean
-    /* Methods of Grl.MetadataSource */
-    filterSlow(keys: GObject.ParamSpec[] | null, returnFiltered: boolean): [ /* returnType */ GObject.ParamSpec[], /* keys */ GObject.ParamSpec[] | null ]
-    filterSupported(keys: GObject.ParamSpec[] | null, returnFiltered: boolean): [ /* returnType */ GObject.ParamSpec[], /* keys */ GObject.ParamSpec[] | null ]
-    filterWritable(keys: GObject.ParamSpec[] | null, returnFiltered: boolean): [ /* returnType */ GObject.ParamSpec[], /* keys */ GObject.ParamSpec[] | null ]
+    /* Methods of Grl-0.1.Grl.MetadataSource */
+    filterSlow(keys: GObject.ParamSpec[] | null, returnFiltered: boolean): { returnType: GObject.ParamSpec[], keys: GObject.ParamSpec[] | null }
+    filterSupported(keys: GObject.ParamSpec[] | null, returnFiltered: boolean): { returnType: GObject.ParamSpec[], keys: GObject.ParamSpec[] | null }
+    filterWritable(keys: GObject.ParamSpec[] | null, returnFiltered: boolean): { returnType: GObject.ParamSpec[], keys: GObject.ParamSpec[] | null }
     genOperationId(): number
     getDescription(): string
     getId(): string
     getName(): string
     keyDepends(keyId: GObject.ParamSpec): GObject.ParamSpec[]
-    mayResolve(media: Media, keyId: KeyID): [ /* returnType */ boolean, /* missingKeys */ KeyID[] ]
+    mayResolve(media: Media, keyId: KeyID): { returnType: boolean, missingKeys: KeyID[] }
     operationIsCancelled(operationId: number): boolean
     operationIsCompleted(operationId: number): boolean
     operationIsFinished(operationId: number): boolean
@@ -1143,7 +1080,7 @@ export class MediaSource {
     supportedKeys(): GObject.ParamSpec[]
     supportedOperations(): number
     writableKeys(): GObject.ParamSpec[]
-    /* Methods of Grl.MediaPlugin */
+    /* Methods of Grl-0.1.Grl.MediaPlugin */
     getAuthor(): string
     getFilename(): string
     getInfo(key: string): string
@@ -1153,7 +1090,7 @@ export class MediaSource {
     getSite(): string
     getVersion(): string
     setPluginInfo(info: PluginInfo): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -1175,50 +1112,18 @@ export class MediaSource {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of Grl.MediaSource */
-    vfuncBrowse(bs: MediaSourceBrowseSpec): void
-    vfuncCancel(operationId: number): void
-    vfuncMediaFromUri(mfss: MediaSourceMediaFromUriSpec): void
-    vfuncMetadata(ms: MediaSourceMetadataSpec): void
-    vfuncNotifyChangeStart(): boolean
-    vfuncNotifyChangeStop(): boolean
-    vfuncQuery(qs: MediaSourceQuerySpec): void
-    vfuncRemove(ss: MediaSourceRemoveSpec): void
-    vfuncSearch(ss: MediaSourceSearchSpec): void
-    vfuncStore(ss: MediaSourceStoreSpec): void
-    vfuncTestMediaFromUri(uri: string): boolean
-    /* Virtual methods of Grl.MetadataSource */
-    vfuncCancel(operationId: number): void
-    vfuncKeyDepends(keyId: GObject.ParamSpec): GObject.ParamSpec[]
-    vfuncMayResolve(media: Media, keyId: KeyID): [ /* returnType */ boolean, /* missingKeys */ KeyID[] ]
-    vfuncResolve(rs: MetadataSourceResolveSpec): void
-    vfuncSetMetadata(sms: MetadataSourceSetMetadataSpec): void
-    vfuncSlowKeys(): GObject.ParamSpec[]
-    vfuncSupportedKeys(): GObject.ParamSpec[]
-    vfuncSupportedOperations(): SupportedOps
-    vfuncWritableKeys(): GObject.ParamSpec[]
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Grl.MediaSource */
+    /* Signals of Grl-0.1.Grl.MediaSource */
     connect(sigName: "content-changed", callback: (($obj: MediaSource, changedMedias: object[], changeType: MediaSourceChangeType, locationUnknown: boolean) => void)): number
-    connect_after(sigName: "content-changed", callback: (($obj: MediaSource, changedMedias: object[], changeType: MediaSourceChangeType, locationUnknown: boolean) => void)): number
+    on(sigName: "content-changed", callback: (changedMedias: object[], changeType: MediaSourceChangeType, locationUnknown: boolean) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "content-changed", callback: (changedMedias: object[], changeType: MediaSourceChangeType, locationUnknown: boolean) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "content-changed", callback: (changedMedias: object[], changeType: MediaSourceChangeType, locationUnknown: boolean) => void): NodeJS.EventEmitter
     emit(sigName: "content-changed", changedMedias: object[], changeType: MediaSourceChangeType, locationUnknown: boolean): void
-    on(sigName: "content-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "content-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "content-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: MediaSource, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: MediaSource, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::auto-split-threshold", callback: (($obj: MediaSource, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::auto-split-threshold", callback: (($obj: MediaSource, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::auto-split-threshold", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -1254,24 +1159,24 @@ export class MediaSource {
 export interface MediaVideo_ConstructProps extends Media_ConstructProps {
 }
 export class MediaVideo {
-    /* Properties of Grl.Data */
+    /* Properties of Grl-0.1.Grl.Data */
     overwrite: boolean
-    /* Fields of Grl.MediaVideo */
+    /* Fields of Grl-0.1.Grl.MediaVideo */
     parent: Media
-    /* Fields of Grl.Data */
+    /* Fields of Grl-0.1.Grl.Data */
     priv: DataPrivate
     grlReserved: object[]
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Grl.MediaVideo */
+    /* Methods of Grl-0.1.Grl.MediaVideo */
     addUrlData(url: string, mime: string, framerate: number, width: number, height: number): void
     getEpisode(): number
     getFramerate(): number
     getHeight(): number
     getSeason(): number
     getShow(): string
-    getUrlData(framerate: number, width: number, height: number): [ /* returnType */ string, /* mime */ string ]
-    getUrlDataNth(index: number, framerate: number, width: number, height: number): [ /* returnType */ string, /* mime */ string ]
+    getUrlData(framerate: number, width: number, height: number): { returnType: string, mime: string }
+    getUrlDataNth(index: number, framerate: number, width: number, height: number): { returnType: string, mime: string }
     getWidth(): number
     setEpisode(episode: number): void
     setFramerate(framerate: number): void
@@ -1281,7 +1186,7 @@ export class MediaVideo {
     setSize(width: number, height: number): void
     setUrlData(url: string, mime: string, framerate: number, width: number, height: number): void
     setWidth(width: number): void
-    /* Methods of Grl.Media */
+    /* Methods of Grl-0.1.Grl.Media */
     addAuthor(author: string): void
     addExternalPlayer(player: string): void
     addExternalUrl(url: string): void
@@ -1315,8 +1220,8 @@ export class MediaVideo {
     getThumbnailNth(index: number): string
     getTitle(): string
     getUrl(): string
-    getUrlData(): [ /* returnType */ string, /* mime */ string ]
-    getUrlDataNth(index: number): [ /* returnType */ string, /* mime */ string ]
+    getUrlData(): { returnType: string, mime: string }
+    getUrlDataNth(index: number): { returnType: string, mime: string }
     serialize(): string
     setAuthor(author: string): void
     setCertificate(certificate: string): void
@@ -1341,7 +1246,7 @@ export class MediaVideo {
     setTitle(title: string): void
     setUrl(url: string): void
     setUrlData(url: string, mime: string): void
-    /* Methods of Grl.Data */
+    /* Methods of Grl-0.1.Grl.Data */
     add(key: GObject.ParamSpec): void
     addBinary(key: GObject.ParamSpec, buf: number, size: number): void
     addFloat(key: GObject.ParamSpec, floatvalue: number): void
@@ -1352,7 +1257,7 @@ export class MediaVideo {
     get(key: GObject.ParamSpec): any
     getAllSingleRelatedKeys(key: KeyID): any[]
     getAllSingleRelatedKeysString(key: KeyID): string[]
-    getBinary(key: GObject.ParamSpec): [ /* returnType */ number, /* size */ number ]
+    getBinary(key: GObject.ParamSpec): { returnType: number, size: number }
     getFloat(key: GObject.ParamSpec): number
     getInt(key: GObject.ParamSpec): number
     getKeys(): GObject.ParamSpec[]
@@ -1373,7 +1278,7 @@ export class MediaVideo {
     setOverwrite(overwrite: boolean): void
     setRelatedKeys(relkeys: RelatedKeys, index: number): void
     setString(key: GObject.ParamSpec, strvalue: string): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -1395,21 +1300,12 @@ export class MediaVideo {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: MediaVideo, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: MediaVideo, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::overwrite", callback: (($obj: MediaVideo, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::overwrite", callback: (($obj: MediaVideo, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::overwrite", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -1435,26 +1331,26 @@ export interface MetadataSource_ConstructProps extends MediaPlugin_ConstructProp
     sourceName?: string
 }
 export class MetadataSource {
-    /* Properties of Grl.MetadataSource */
+    /* Properties of Grl-0.1.Grl.MetadataSource */
     sourceDesc: string
     sourceId: string
     sourceName: string
-    /* Fields of Grl.MetadataSource */
+    /* Fields of Grl-0.1.Grl.MetadataSource */
     parent: MediaPlugin
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Grl.MetadataSource */
+    /* Methods of Grl-0.1.Grl.MetadataSource */
     cancel(operationId: number): void
-    filterSlow(keys: GObject.ParamSpec[] | null, returnFiltered: boolean): [ /* returnType */ GObject.ParamSpec[], /* keys */ GObject.ParamSpec[] | null ]
-    filterSupported(keys: GObject.ParamSpec[] | null, returnFiltered: boolean): [ /* returnType */ GObject.ParamSpec[], /* keys */ GObject.ParamSpec[] | null ]
-    filterWritable(keys: GObject.ParamSpec[] | null, returnFiltered: boolean): [ /* returnType */ GObject.ParamSpec[], /* keys */ GObject.ParamSpec[] | null ]
+    filterSlow(keys: GObject.ParamSpec[] | null, returnFiltered: boolean): { returnType: GObject.ParamSpec[], keys: GObject.ParamSpec[] | null }
+    filterSupported(keys: GObject.ParamSpec[] | null, returnFiltered: boolean): { returnType: GObject.ParamSpec[], keys: GObject.ParamSpec[] | null }
+    filterWritable(keys: GObject.ParamSpec[] | null, returnFiltered: boolean): { returnType: GObject.ParamSpec[], keys: GObject.ParamSpec[] | null }
     genOperationId(): number
     getDescription(): string
     getId(): string
     getName(): string
     getOperationData(operationId: number): object
     keyDepends(keyId: GObject.ParamSpec): GObject.ParamSpec[]
-    mayResolve(media: Media, keyId: KeyID): [ /* returnType */ boolean, /* missingKeys */ KeyID[] ]
+    mayResolve(media: Media, keyId: KeyID): { returnType: boolean, missingKeys: KeyID[] }
     operationIsCancelled(operationId: number): boolean
     operationIsCompleted(operationId: number): boolean
     operationIsFinished(operationId: number): boolean
@@ -1472,7 +1368,7 @@ export class MetadataSource {
     supportedKeys(): GObject.ParamSpec[]
     supportedOperations(): number
     writableKeys(): GObject.ParamSpec[]
-    /* Methods of Grl.MediaPlugin */
+    /* Methods of Grl-0.1.Grl.MediaPlugin */
     getAuthor(): string
     getFilename(): string
     getInfo(key: string): string
@@ -1482,7 +1378,7 @@ export class MetadataSource {
     getSite(): string
     getVersion(): string
     setPluginInfo(info: PluginInfo): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -1504,31 +1400,12 @@ export class MetadataSource {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of Grl.MetadataSource */
-    vfuncCancel(operationId: number): void
-    vfuncKeyDepends(keyId: GObject.ParamSpec): GObject.ParamSpec[]
-    vfuncMayResolve(media: Media, keyId: KeyID): [ /* returnType */ boolean, /* missingKeys */ KeyID[] ]
-    vfuncResolve(rs: MetadataSourceResolveSpec): void
-    vfuncSetMetadata(sms: MetadataSourceSetMetadataSpec): void
-    vfuncSlowKeys(): GObject.ParamSpec[]
-    vfuncSupportedKeys(): GObject.ParamSpec[]
-    vfuncSupportedOperations(): SupportedOps
-    vfuncWritableKeys(): GObject.ParamSpec[]
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: MetadataSource, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: MetadataSource, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::source-desc", callback: (($obj: MetadataSource, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::source-desc", callback: (($obj: MetadataSource, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::source-desc", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -1559,11 +1436,11 @@ export class MetadataSource {
 export interface PluginRegistry_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class PluginRegistry {
-    /* Fields of Grl.PluginRegistry */
+    /* Fields of Grl-0.1.Grl.PluginRegistry */
     parent: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Grl.PluginRegistry */
+    /* Methods of Grl-0.1.Grl.PluginRegistry */
     addConfig(config: Config): boolean
     addConfigFromFile(configFile: string): boolean
     addDirectory(path: string): void
@@ -1583,7 +1460,7 @@ export class PluginRegistry {
     restrictPlugins(plugins: string): void
     unload(pluginId: string): boolean
     unregisterSource(source: MediaPlugin): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -1605,34 +1482,23 @@ export class PluginRegistry {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Grl.PluginRegistry */
+    /* Signals of Grl-0.1.Grl.PluginRegistry */
     connect(sigName: "source-added", callback: (($obj: PluginRegistry, plugin: MediaPlugin) => void)): number
-    connect_after(sigName: "source-added", callback: (($obj: PluginRegistry, plugin: MediaPlugin) => void)): number
+    on(sigName: "source-added", callback: (plugin: MediaPlugin) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "source-added", callback: (plugin: MediaPlugin) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "source-added", callback: (plugin: MediaPlugin) => void): NodeJS.EventEmitter
     emit(sigName: "source-added", plugin: MediaPlugin): void
-    on(sigName: "source-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "source-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "source-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "source-removed", callback: (($obj: PluginRegistry, plugin: MediaPlugin) => void)): number
-    connect_after(sigName: "source-removed", callback: (($obj: PluginRegistry, plugin: MediaPlugin) => void)): number
+    on(sigName: "source-removed", callback: (plugin: MediaPlugin) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "source-removed", callback: (plugin: MediaPlugin) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "source-removed", callback: (plugin: MediaPlugin) => void): NodeJS.EventEmitter
     emit(sigName: "source-removed", plugin: MediaPlugin): void
-    on(sigName: "source-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "source-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "source-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: PluginRegistry, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: PluginRegistry, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -1650,15 +1516,15 @@ export class PluginRegistry {
 export interface RelatedKeys_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class RelatedKeys {
-    /* Fields of Grl.RelatedKeys */
+    /* Fields of Grl-0.1.Grl.RelatedKeys */
     parent: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Grl.RelatedKeys */
+    /* Methods of Grl-0.1.Grl.RelatedKeys */
     add(key: GObject.ParamSpec): void
     dup(): RelatedKeys
     get(key: GObject.ParamSpec): any
-    getBinary(key: GObject.ParamSpec): [ /* returnType */ number, /* size */ number ]
+    getBinary(key: GObject.ParamSpec): { returnType: number, size: number }
     getFloat(key: GObject.ParamSpec): number
     getInt(key: GObject.ParamSpec): number
     getKeys(): GObject.ParamSpec[]
@@ -1670,7 +1536,7 @@ export class RelatedKeys {
     setFloat(key: GObject.ParamSpec, floatvalue: number): void
     setInt(key: GObject.ParamSpec, intvalue: number): void
     setString(key: GObject.ParamSpec, strvalue: string): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -1692,21 +1558,12 @@ export class RelatedKeys {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: RelatedKeys, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: RelatedKeys, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -1722,7 +1579,7 @@ export class RelatedKeys {
     static $gtype: GObject.Type
 }
 export abstract class ConfigClass {
-    /* Fields of Grl.ConfigClass */
+    /* Fields of Grl-0.1.Grl.ConfigClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
@@ -1730,7 +1587,7 @@ export class ConfigPrivate {
     static name: string
 }
 export abstract class DataClass {
-    /* Fields of Grl.DataClass */
+    /* Fields of Grl-0.1.Grl.DataClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
@@ -1738,32 +1595,32 @@ export class DataPrivate {
     static name: string
 }
 export class LogDomain {
-    /* Methods of Grl.LogDomain */
+    /* Methods of Grl-0.1.Grl.LogDomain */
     free(): void
     static name: string
 }
 export abstract class MediaAudioClass {
-    /* Fields of Grl.MediaAudioClass */
+    /* Fields of Grl-0.1.Grl.MediaAudioClass */
     parentClass: MediaClass
     static name: string
 }
 export abstract class MediaBoxClass {
-    /* Fields of Grl.MediaBoxClass */
+    /* Fields of Grl-0.1.Grl.MediaBoxClass */
     parentClass: MediaClass
     static name: string
 }
 export abstract class MediaClass {
-    /* Fields of Grl.MediaClass */
+    /* Fields of Grl-0.1.Grl.MediaClass */
     parentClass: DataClass
     static name: string
 }
 export abstract class MediaImageClass {
-    /* Fields of Grl.MediaImageClass */
+    /* Fields of Grl-0.1.Grl.MediaImageClass */
     parentClass: MediaClass
     static name: string
 }
 export abstract class MediaPluginClass {
-    /* Fields of Grl.MediaPluginClass */
+    /* Fields of Grl-0.1.Grl.MediaPluginClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
@@ -1771,7 +1628,7 @@ export class MediaPluginPrivate {
     static name: string
 }
 export class MediaSourceBrowseSpec {
-    /* Fields of Grl.MediaSourceBrowseSpec */
+    /* Fields of Grl-0.1.Grl.MediaSourceBrowseSpec */
     source: MediaSource
     browseId: number
     container: Media
@@ -1784,7 +1641,7 @@ export class MediaSourceBrowseSpec {
     static name: string
 }
 export abstract class MediaSourceClass {
-    /* Fields of Grl.MediaSourceClass */
+    /* Fields of Grl-0.1.Grl.MediaSourceClass */
     parentClass: MetadataSourceClass
     browse: (source: MediaSource, bs: MediaSourceBrowseSpec) => void
     search: (source: MediaSource, ss: MediaSourceSearchSpec) => void
@@ -1800,7 +1657,7 @@ export abstract class MediaSourceClass {
     static name: string
 }
 export class MediaSourceMediaFromUriSpec {
-    /* Fields of Grl.MediaSourceMediaFromUriSpec */
+    /* Fields of Grl-0.1.Grl.MediaSourceMediaFromUriSpec */
     source: MediaSource
     mediaFromUriId: number
     uri: string
@@ -1811,7 +1668,7 @@ export class MediaSourceMediaFromUriSpec {
     static name: string
 }
 export class MediaSourceMetadataSpec {
-    /* Fields of Grl.MediaSourceMetadataSpec */
+    /* Fields of Grl-0.1.Grl.MediaSourceMetadataSpec */
     source: MediaSource
     metadataId: number
     media: Media
@@ -1825,7 +1682,7 @@ export class MediaSourcePrivate {
     static name: string
 }
 export class MediaSourceQuerySpec {
-    /* Fields of Grl.MediaSourceQuerySpec */
+    /* Fields of Grl-0.1.Grl.MediaSourceQuerySpec */
     source: MediaSource
     queryId: number
     query: string
@@ -1838,7 +1695,7 @@ export class MediaSourceQuerySpec {
     static name: string
 }
 export class MediaSourceRemoveSpec {
-    /* Fields of Grl.MediaSourceRemoveSpec */
+    /* Fields of Grl-0.1.Grl.MediaSourceRemoveSpec */
     source: MediaSource
     mediaId: string
     media: Media
@@ -1847,7 +1704,7 @@ export class MediaSourceRemoveSpec {
     static name: string
 }
 export class MediaSourceSearchSpec {
-    /* Fields of Grl.MediaSourceSearchSpec */
+    /* Fields of Grl-0.1.Grl.MediaSourceSearchSpec */
     source: MediaSource
     searchId: number
     text: string
@@ -1860,7 +1717,7 @@ export class MediaSourceSearchSpec {
     static name: string
 }
 export class MediaSourceStoreSpec {
-    /* Fields of Grl.MediaSourceStoreSpec */
+    /* Fields of Grl-0.1.Grl.MediaSourceStoreSpec */
     source: MediaSource
     parent: MediaBox
     media: Media
@@ -1869,12 +1726,12 @@ export class MediaSourceStoreSpec {
     static name: string
 }
 export abstract class MediaVideoClass {
-    /* Fields of Grl.MediaVideoClass */
+    /* Fields of Grl-0.1.Grl.MediaVideoClass */
     parentClass: MediaClass
     static name: string
 }
 export abstract class MetadataSourceClass {
-    /* Fields of Grl.MetadataSourceClass */
+    /* Fields of Grl-0.1.Grl.MetadataSourceClass */
     parentClass: MediaPluginClass
     operationId: number
     supportedOperations: (source: MetadataSource) => SupportedOps
@@ -1884,7 +1741,7 @@ export abstract class MetadataSourceClass {
     writableKeys: (source: MetadataSource) => GObject.ParamSpec[]
     resolve: (source: MetadataSource, rs: MetadataSourceResolveSpec) => void
     setMetadata: (source: MetadataSource, sms: MetadataSourceSetMetadataSpec) => void
-    mayResolve: (source: MetadataSource, media: Media, keyId: KeyID) => [ /* returnType */ boolean, /* missingKeys */ KeyID[] ]
+    mayResolve: (source: MetadataSource, media: Media, keyId: KeyID) => { returnType: boolean, missingKeys: KeyID[] }
     cancel: (source: MetadataSource, operationId: number) => void
     static name: string
 }
@@ -1892,7 +1749,7 @@ export class MetadataSourcePrivate {
     static name: string
 }
 export class MetadataSourceResolveSpec {
-    /* Fields of Grl.MetadataSourceResolveSpec */
+    /* Fields of Grl-0.1.Grl.MetadataSourceResolveSpec */
     source: MetadataSource
     resolveId: number
     keys: object[]
@@ -1903,7 +1760,7 @@ export class MetadataSourceResolveSpec {
     static name: string
 }
 export class MetadataSourceSetMetadataSpec {
-    /* Fields of Grl.MetadataSourceSetMetadataSpec */
+    /* Fields of Grl-0.1.Grl.MetadataSourceSetMetadataSpec */
     source: MetadataSource
     media: Media
     keys: object[]
@@ -1914,14 +1771,14 @@ export class MetadataSourceSetMetadataSpec {
     static name: string
 }
 export class PluginDescriptor {
-    /* Fields of Grl.PluginDescriptor */
+    /* Fields of Grl-0.1.Grl.PluginDescriptor */
     pluginId: string
     pluginDeinit: () => void
     module: GModule.Module
     static name: string
 }
 export class PluginInfo {
-    /* Fields of Grl.PluginInfo */
+    /* Fields of Grl-0.1.Grl.PluginInfo */
     id: string
     filename: string
     optionalInfo: GLib.HashTable
@@ -1929,7 +1786,7 @@ export class PluginInfo {
     static name: string
 }
 export abstract class PluginRegistryClass {
-    /* Fields of Grl.PluginRegistryClass */
+    /* Fields of Grl-0.1.Grl.PluginRegistryClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
@@ -1937,7 +1794,7 @@ export class PluginRegistryPrivate {
     static name: string
 }
 export abstract class RelatedKeysClass {
-    /* Fields of Grl.RelatedKeysClass */
+    /* Fields of Grl-0.1.Grl.RelatedKeysClass */
     parentClass: GObject.ObjectClass
     static name: string
 }

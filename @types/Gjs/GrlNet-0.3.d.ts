@@ -27,17 +27,17 @@ export interface Wc_ConstructProps extends GObject.Object_ConstructProps {
     user_agent?: string
 }
 export class Wc {
-    /* Properties of GrlNet.Wc */
+    /* Properties of GrlNet-0.3.GrlNet.Wc */
     cache: boolean
     cache_size: number
     loglevel: number
     throttling: number
     user_agent: string
-    /* Fields of GrlNet.Wc */
+    /* Fields of GrlNet-0.3.GrlNet.Wc */
     parent: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GrlNet.Wc */
+    /* Methods of GrlNet-0.3.GrlNet.Wc */
     flush_delayed_requests(): void
     request_async(uri: string, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     request_finish(result: Gio.AsyncResult): [ /* returnType */ boolean, /* content */ Uint8Array[] | null ]
@@ -46,7 +46,7 @@ export class Wc {
     set_cache_size(cache_size: number): void
     set_log_level(log_level: number): void
     set_throttling(throttling: number): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -68,7 +68,7 @@ export class Wc {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -76,7 +76,7 @@ export class Wc {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Wc, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Wc, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -103,7 +103,7 @@ export class Wc {
     static $gtype: GObject.Type
 }
 export abstract class WcClass {
-    /* Fields of GrlNet.WcClass */
+    /* Fields of GrlNet-0.3.GrlNet.WcClass */
     parent_class: GObject.ObjectClass
     static name: string
 }

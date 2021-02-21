@@ -763,12 +763,12 @@ export interface Device_ConstructProps extends GObject.Object_ConstructProps {
     deviceTransactionId?: number
 }
 export class Device {
-    /* Properties of Mbim.Device */
+    /* Properties of Mbim-1.0.Mbim.Device */
     deviceInSession: boolean
     deviceTransactionId: number
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Mbim.Device */
+    /* Methods of Mbim-1.0.Mbim.Device */
     close(timeout: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     closeFinish(res: Gio.AsyncResult): boolean
     closeForce(): boolean
@@ -783,7 +783,7 @@ export class Device {
     openFinish(res: Gio.AsyncResult): boolean
     openFull(flags: DeviceOpenFlags, timeout: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     openFullFinish(res: Gio.AsyncResult): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -805,47 +805,32 @@ export class Device {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of Gio.AsyncInitable */
+    /* Methods of Gio-2.0.Gio.AsyncInitable */
     initAsync(ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     initFinish(res: Gio.AsyncResult): boolean
     newFinish(res: Gio.AsyncResult): GObject.Object
-    /* Virtual methods of Mbim.Device */
-    vfuncInitAsync(ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    vfuncInitFinish(res: Gio.AsyncResult): boolean
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Mbim.Device */
+    /* Signals of Mbim-1.0.Mbim.Device */
     connect(sigName: "device-error", callback: (($obj: Device, object: GLib.Error) => void)): number
-    connect_after(sigName: "device-error", callback: (($obj: Device, object: GLib.Error) => void)): number
+    on(sigName: "device-error", callback: (object: GLib.Error) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "device-error", callback: (object: GLib.Error) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "device-error", callback: (object: GLib.Error) => void): NodeJS.EventEmitter
     emit(sigName: "device-error", object: GLib.Error): void
-    on(sigName: "device-error", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "device-error", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "device-error", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "device-indicate-status", callback: (($obj: Device, object: Message) => void)): number
-    connect_after(sigName: "device-indicate-status", callback: (($obj: Device, object: Message) => void)): number
+    on(sigName: "device-indicate-status", callback: (object: Message) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "device-indicate-status", callback: (object: Message) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "device-indicate-status", callback: (object: Message) => void): NodeJS.EventEmitter
     emit(sigName: "device-indicate-status", object: Message): void
-    on(sigName: "device-indicate-status", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "device-indicate-status", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "device-indicate-status", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "device-removed", callback: (($obj: Device) => void)): number
-    connect_after(sigName: "device-removed", callback: (($obj: Device) => void)): number
+    on(sigName: "device-removed", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "device-removed", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "device-removed", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "device-removed"): void
-    on(sigName: "device-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "device-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "device-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Device, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Device, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::device-in-session", callback: (($obj: Device, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::device-in-session", callback: (($obj: Device, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::device-in-session", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -874,15 +859,15 @@ export class Device {
 export interface Proxy_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class Proxy {
-    /* Properties of Mbim.Proxy */
+    /* Properties of Mbim-1.0.Mbim.Proxy */
     readonly mbimProxyNClients: number
     readonly mbimProxyNDevices: number
-    /* Fields of Mbim.Proxy */
+    /* Fields of Mbim-1.0.Mbim.Proxy */
     parent: GObject.Object
     priv: ProxyPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -904,21 +889,12 @@ export class Proxy {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Proxy, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Proxy, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::mbim-proxy-n-clients", callback: (($obj: Proxy, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::mbim-proxy-n-clients", callback: (($obj: Proxy, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::mbim-proxy-n-clients", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -944,7 +920,7 @@ export class Proxy {
     static $gtype: GObject.Type
 }
 export class AtdsProvider {
-    /* Fields of Mbim.AtdsProvider */
+    /* Fields of Mbim-1.0.Mbim.AtdsProvider */
     providerId: string
     providerState: number
     providerName: string
@@ -962,7 +938,7 @@ export class DevicePrivate {
     static name: string
 }
 export class DeviceServiceElement {
-    /* Fields of Mbim.DeviceServiceElement */
+    /* Fields of Mbim-1.0.Mbim.DeviceServiceElement */
     deviceServiceId: Uuid
     dssPayload: number
     maxDssInstances: number
@@ -973,7 +949,7 @@ export class DeviceServiceElement {
     static arrayFree(array: DeviceServiceElementArray): void
 }
 export class EventEntry {
-    /* Fields of Mbim.EventEntry */
+    /* Fields of Mbim-1.0.Mbim.EventEntry */
     deviceServiceId: Uuid
     cidsCount: number
     cids: number
@@ -982,12 +958,12 @@ export class EventEntry {
     static arrayFree(array: EventEntryArray): void
 }
 export class IPv4 {
-    /* Fields of Mbim.IPv4 */
+    /* Fields of Mbim-1.0.Mbim.IPv4 */
     addr: any[]
     static name: string
 }
 export class IPv4Element {
-    /* Fields of Mbim.IPv4Element */
+    /* Fields of Mbim-1.0.Mbim.IPv4Element */
     onLinkPrefixLength: number
     ipv4Address: IPv4
     static name: string
@@ -995,12 +971,12 @@ export class IPv4Element {
     static arrayFree(array: IPv4ElementArray): void
 }
 export class IPv6 {
-    /* Fields of Mbim.IPv6 */
+    /* Fields of Mbim-1.0.Mbim.IPv6 */
     addr: any[]
     static name: string
 }
 export class IPv6Element {
-    /* Fields of Mbim.IPv6Element */
+    /* Fields of Mbim-1.0.Mbim.IPv6Element */
     onLinkPrefixLength: number
     ipv6Address: IPv6
     static name: string
@@ -1008,7 +984,7 @@ export class IPv6Element {
     static arrayFree(array: IPv6ElementArray): void
 }
 export class LteAttachConfiguration {
-    /* Fields of Mbim.LteAttachConfiguration */
+    /* Fields of Mbim-1.0.Mbim.LteAttachConfiguration */
     ipType: number
     roaming: number
     source: number
@@ -1022,7 +998,7 @@ export class LteAttachConfiguration {
     static arrayFree(array: LteAttachConfigurationArray): void
 }
 export class LteAttachStatus {
-    /* Fields of Mbim.LteAttachStatus */
+    /* Fields of Mbim-1.0.Mbim.LteAttachStatus */
     lteAttachState: number
     ipType: number
     accessString: string
@@ -1030,119 +1006,119 @@ export class LteAttachStatus {
     password: string
     compression: number
     authProtocol: number
-    /* Methods of Mbim.LteAttachStatus */
+    /* Methods of Mbim-1.0.Mbim.LteAttachStatus */
     free(): void
     static name: string
 }
 export class Message {
-    /* Methods of Mbim.Message */
-    atdsLocationResponseParse(): [ /* returnType */ boolean, /* outLac */ number | null, /* outTac */ number | null, /* outCellId */ number | null ]
-    atdsOperatorsResponseParse(): [ /* returnType */ boolean, /* outProvidersCount */ number | null, /* outProviders */ AtdsProvider[] | null ]
-    atdsRatResponseParse(): [ /* returnType */ boolean, /* outMode */ AtdsRatMode | null ]
-    atdsRegisterStateResponseParse(): [ /* returnType */ boolean, /* outNwError */ NwError | null, /* outRegisterState */ RegisterState | null, /* outRegisterMode */ RegisterMode | null, /* outAvailableDataClasses */ DataClass | null, /* outCurrentCellularClass */ CellularClass | null, /* outProviderId */ string | null, /* outProviderName */ string | null, /* outRoamingText */ string | null, /* outRegistrationFlag */ RegistrationFlag | null ]
-    atdsSignalResponseParse(): [ /* returnType */ boolean, /* outRssi */ number | null, /* outErrorRate */ number | null, /* outRscp */ number | null, /* outEcno */ number | null, /* outRsrq */ number | null, /* outRsrp */ number | null, /* outRssnr */ number | null ]
-    authAkaResponseParse(): [ /* returnType */ boolean, /* outRes */ any[] | null, /* outResLen */ number | null, /* outIntegratingKey */ any[] | null, /* outCipheringKey */ any[] | null, /* outAuts */ any[] | null ]
-    authAkapResponseParse(): [ /* returnType */ boolean, /* outRes */ any[] | null, /* outResLen */ number | null, /* outIntegratingKey */ any[] | null, /* outCipheringKey */ any[] | null, /* outAuts */ any[] | null ]
-    authSimResponseParse(): [ /* returnType */ boolean, /* outSres1 */ number | null, /* outKc1 */ number | null, /* outSres2 */ number | null, /* outKc2 */ number | null, /* outSres3 */ number | null, /* outKc3 */ number | null, /* outN */ number | null ]
+    /* Methods of Mbim-1.0.Mbim.Message */
+    atdsLocationResponseParse(): { returnType: boolean, outLac: number | null, outTac: number | null, outCellId: number | null }
+    atdsOperatorsResponseParse(): { returnType: boolean, outProvidersCount: number | null, outProviders: AtdsProvider[] | null }
+    atdsRatResponseParse(): { returnType: boolean, outMode: AtdsRatMode | null }
+    atdsRegisterStateResponseParse(): { returnType: boolean, outNwError: NwError | null, outRegisterState: RegisterState | null, outRegisterMode: RegisterMode | null, outAvailableDataClasses: DataClass | null, outCurrentCellularClass: CellularClass | null, outProviderId: string | null, outProviderName: string | null, outRoamingText: string | null, outRegistrationFlag: RegistrationFlag | null }
+    atdsSignalResponseParse(): { returnType: boolean, outRssi: number | null, outErrorRate: number | null, outRscp: number | null, outEcno: number | null, outRsrq: number | null, outRsrp: number | null, outRssnr: number | null }
+    authAkaResponseParse(): { returnType: boolean, outRes: any[] | null, outResLen: number | null, outIntegratingKey: any[] | null, outCipheringKey: any[] | null, outAuts: any[] | null }
+    authAkapResponseParse(): { returnType: boolean, outRes: any[] | null, outResLen: number | null, outIntegratingKey: any[] | null, outCipheringKey: any[] | null, outAuts: any[] | null }
+    authSimResponseParse(): { returnType: boolean, outSres1: number | null, outKc1: number | null, outSres2: number | null, outKc2: number | null, outSres3: number | null, outKc3: number | null, outN: number | null }
     closeDoneGetResult(): boolean
     closeDoneGetStatusCode(): StatusError
     commandAppend(buffer: number, bufferSize: number): void
     commandDoneGetCid(): number
-    commandDoneGetRawInformationBuffer(): [ /* returnType */ number, /* outLength */ number ]
+    commandDoneGetRawInformationBuffer(): { returnType: number, outLength: number }
     commandDoneGetResult(): boolean
     commandDoneGetService(): Service
     commandDoneGetServiceId(): Uuid
     commandDoneGetStatusCode(): StatusError
     commandGetCid(): number
     commandGetCommandType(): MessageCommandType
-    commandGetRawInformationBuffer(): [ /* returnType */ number, /* outLength */ number ]
+    commandGetRawInformationBuffer(): { returnType: number, outLength: number }
     commandGetService(): Service
     commandGetServiceId(): Uuid
-    connectNotificationParse(): [ /* returnType */ boolean, /* outSessionId */ number | null, /* outActivationState */ ActivationState | null, /* outVoiceCallState */ VoiceCallState | null, /* outIpType */ ContextIpType | null, /* outContextType */ Uuid | null, /* outNwError */ number | null ]
-    connectResponseParse(): [ /* returnType */ boolean, /* outSessionId */ number | null, /* outActivationState */ ActivationState | null, /* outVoiceCallState */ VoiceCallState | null, /* outIpType */ ContextIpType | null, /* outContextType */ Uuid | null, /* outNwError */ number | null ]
-    deviceCapsResponseParse(): [ /* returnType */ boolean, /* outDeviceType */ DeviceType | null, /* outCellularClass */ CellularClass | null, /* outVoiceClass */ VoiceClass | null, /* outSimClass */ SimClass | null, /* outDataClass */ DataClass | null, /* outSmsCaps */ SmsCaps | null, /* outControlCaps */ CtrlCaps | null, /* outMaxSessions */ number | null, /* outCustomDataClass */ string | null, /* outDeviceId */ string | null, /* outFirmwareInfo */ string | null, /* outHardwareInfo */ string | null ]
-    deviceServiceSubscribeListResponseParse(): [ /* returnType */ boolean, /* outEventsCount */ number | null, /* outEvents */ EventEntry[] | null ]
+    connectNotificationParse(): { returnType: boolean, outSessionId: number | null, outActivationState: ActivationState | null, outVoiceCallState: VoiceCallState | null, outIpType: ContextIpType | null, outContextType: Uuid | null, outNwError: number | null }
+    connectResponseParse(): { returnType: boolean, outSessionId: number | null, outActivationState: ActivationState | null, outVoiceCallState: VoiceCallState | null, outIpType: ContextIpType | null, outContextType: Uuid | null, outNwError: number | null }
+    deviceCapsResponseParse(): { returnType: boolean, outDeviceType: DeviceType | null, outCellularClass: CellularClass | null, outVoiceClass: VoiceClass | null, outSimClass: SimClass | null, outDataClass: DataClass | null, outSmsCaps: SmsCaps | null, outControlCaps: CtrlCaps | null, outMaxSessions: number | null, outCustomDataClass: string | null, outDeviceId: string | null, outFirmwareInfo: string | null, outHardwareInfo: string | null }
+    deviceServiceSubscribeListResponseParse(): { returnType: boolean, outEventsCount: number | null, outEvents: EventEntry[] | null }
     deviceServiceSubscriberListResponseParse(eventsCount: number, events: EventEntry): boolean
-    deviceServicesResponseParse(): [ /* returnType */ boolean, /* outDeviceServicesCount */ number | null, /* outMaxDssSessions */ number | null, /* outDeviceServices */ DeviceServiceElement[] | null ]
+    deviceServicesResponseParse(): { returnType: boolean, outDeviceServicesCount: number | null, outMaxDssSessions: number | null, outDeviceServices: DeviceServiceElement[] | null }
     dssConnectResponseParse(): boolean
     dup(): Message
-    emergencyModeNotificationParse(): [ /* returnType */ boolean, /* outState */ EmergencyModeState | null ]
-    emergencyModeResponseParse(): [ /* returnType */ boolean, /* outState */ EmergencyModeState | null ]
+    emergencyModeNotificationParse(): { returnType: boolean, outState: EmergencyModeState | null }
+    emergencyModeResponseParse(): { returnType: boolean, outState: EmergencyModeState | null }
     errorGetError(): GLib.Error
     errorGetErrorStatusCode(): ProtocolError
     getMessageLength(): number
     getMessageType(): MessageType
     getPrintable(linePrefix: string, headersOnly: boolean): string
-    getRaw(): [ /* returnType */ number, /* length */ number ]
+    getRaw(): { returnType: number, length: number }
     getTransactionId(): number
-    homeProviderResponseParse(): [ /* returnType */ boolean, /* outProvider */ Provider | null ]
+    homeProviderResponseParse(): { returnType: boolean, outProvider: Provider | null }
     indicateStatusGetCid(): number
-    indicateStatusGetRawInformationBuffer(): [ /* returnType */ number, /* outLength */ number ]
+    indicateStatusGetRawInformationBuffer(): { returnType: number, outLength: number }
     indicateStatusGetService(): Service
     indicateStatusGetServiceId(): Uuid
-    ipConfigurationNotificationParse(): [ /* returnType */ boolean, /* outSessionId */ number | null, /* outIpv4ConfigurationAvailable */ IPConfigurationAvailableFlag | null, /* outIpv6ConfigurationAvailable */ IPConfigurationAvailableFlag | null, /* outIpv4AddressCount */ number | null, /* outIpv4Address */ IPv4Element[] | null, /* outIpv6AddressCount */ number | null, /* outIpv6Address */ IPv6Element[] | null, /* outIpv4Gateway */ IPv4 | null, /* outIpv6Gateway */ IPv6 | null, /* outIpv4DnsServerCount */ number | null, /* outIpv4DnsServer */ IPv4[] | null, /* outIpv6DnsServerCount */ number | null, /* outIpv6DnsServer */ IPv6[] | null, /* outIpv4Mtu */ number | null, /* outIpv6Mtu */ number | null ]
-    ipConfigurationResponseParse(): [ /* returnType */ boolean, /* outSessionId */ number | null, /* outIpv4ConfigurationAvailable */ IPConfigurationAvailableFlag | null, /* outIpv6ConfigurationAvailable */ IPConfigurationAvailableFlag | null, /* outIpv4AddressCount */ number | null, /* outIpv4Address */ IPv4Element[] | null, /* outIpv6AddressCount */ number | null, /* outIpv6Address */ IPv6Element[] | null, /* outIpv4Gateway */ IPv4 | null, /* outIpv6Gateway */ IPv6 | null, /* outIpv4DnsServerCount */ number | null, /* outIpv4DnsServer */ IPv4[] | null, /* outIpv6DnsServerCount */ number | null, /* outIpv6DnsServer */ IPv6[] | null, /* outIpv4Mtu */ number | null, /* outIpv6Mtu */ number | null ]
-    ipPacketFiltersResponseParse(): [ /* returnType */ boolean, /* outSessionId */ number | null, /* outPacketFiltersCount */ number | null, /* outPacketFilters */ PacketFilter[] | null ]
-    msBasicConnectExtensionsLteAttachConfigurationNotificationParse(): [ /* returnType */ boolean, /* outConfigurationCount */ number | null, /* outConfigurations */ LteAttachConfiguration[] | null ]
-    msBasicConnectExtensionsLteAttachConfigurationResponseParse(): [ /* returnType */ boolean, /* outConfigurationCount */ number | null, /* outConfigurations */ LteAttachConfiguration[] | null ]
-    msBasicConnectExtensionsLteAttachStatusNotificationParse(): [ /* returnType */ boolean, /* outLteAttachStatus */ LteAttachStatus | null ]
-    msBasicConnectExtensionsLteAttachStatusResponseParse(): [ /* returnType */ boolean, /* outLteAttachStatus */ LteAttachStatus | null ]
-    msBasicConnectExtensionsPcoNotificationParse(): [ /* returnType */ boolean, /* outPcoValue */ PcoValue | null ]
-    msBasicConnectExtensionsPcoResponseParse(): [ /* returnType */ boolean, /* outPcoValue */ PcoValue | null ]
-    msFirmwareIdGetResponseParse(): [ /* returnType */ boolean, /* outFirmwareId */ Uuid | null ]
-    msSarConfigResponseParse(): [ /* returnType */ boolean, /* outMode */ SarControlMode | null, /* outBackoffState */ SarBackoffState | null, /* outWifiIntegration */ SarWifiHardwareState | null, /* outConfigStatesCount */ number | null, /* outConfigStates */ SarConfigState[] | null ]
-    msSarTransmissionStatusNotificationParse(): [ /* returnType */ boolean, /* outChannelNotification */ TransmissionNotificationStatus | null, /* outTransmissionStatus */ TransmissionState | null, /* outHysteresisTimer */ number | null ]
-    msSarTransmissionStatusResponseParse(): [ /* returnType */ boolean, /* outChannelNotification */ TransmissionNotificationStatus | null, /* outTransmissionStatus */ TransmissionState | null, /* outHysteresisTimer */ number | null ]
-    multicarrierProvidersNotificationParse(): [ /* returnType */ boolean, /* outProvidersCount */ number | null, /* outProviders */ Provider[] | null ]
-    multicarrierProvidersResponseParse(): [ /* returnType */ boolean, /* outProvidersCount */ number | null, /* outProviders */ Provider[] | null ]
-    networkIdleHintResponseParse(): [ /* returnType */ boolean, /* outState */ NetworkIdleHintState | null ]
+    ipConfigurationNotificationParse(): { returnType: boolean, outSessionId: number | null, outIpv4ConfigurationAvailable: IPConfigurationAvailableFlag | null, outIpv6ConfigurationAvailable: IPConfigurationAvailableFlag | null, outIpv4AddressCount: number | null, outIpv4Address: IPv4Element[] | null, outIpv6AddressCount: number | null, outIpv6Address: IPv6Element[] | null, outIpv4Gateway: IPv4 | null, outIpv6Gateway: IPv6 | null, outIpv4DnsServerCount: number | null, outIpv4DnsServer: IPv4[] | null, outIpv6DnsServerCount: number | null, outIpv6DnsServer: IPv6[] | null, outIpv4Mtu: number | null, outIpv6Mtu: number | null }
+    ipConfigurationResponseParse(): { returnType: boolean, outSessionId: number | null, outIpv4ConfigurationAvailable: IPConfigurationAvailableFlag | null, outIpv6ConfigurationAvailable: IPConfigurationAvailableFlag | null, outIpv4AddressCount: number | null, outIpv4Address: IPv4Element[] | null, outIpv6AddressCount: number | null, outIpv6Address: IPv6Element[] | null, outIpv4Gateway: IPv4 | null, outIpv6Gateway: IPv6 | null, outIpv4DnsServerCount: number | null, outIpv4DnsServer: IPv4[] | null, outIpv6DnsServerCount: number | null, outIpv6DnsServer: IPv6[] | null, outIpv4Mtu: number | null, outIpv6Mtu: number | null }
+    ipPacketFiltersResponseParse(): { returnType: boolean, outSessionId: number | null, outPacketFiltersCount: number | null, outPacketFilters: PacketFilter[] | null }
+    msBasicConnectExtensionsLteAttachConfigurationNotificationParse(): { returnType: boolean, outConfigurationCount: number | null, outConfigurations: LteAttachConfiguration[] | null }
+    msBasicConnectExtensionsLteAttachConfigurationResponseParse(): { returnType: boolean, outConfigurationCount: number | null, outConfigurations: LteAttachConfiguration[] | null }
+    msBasicConnectExtensionsLteAttachStatusNotificationParse(): { returnType: boolean, outLteAttachStatus: LteAttachStatus | null }
+    msBasicConnectExtensionsLteAttachStatusResponseParse(): { returnType: boolean, outLteAttachStatus: LteAttachStatus | null }
+    msBasicConnectExtensionsPcoNotificationParse(): { returnType: boolean, outPcoValue: PcoValue | null }
+    msBasicConnectExtensionsPcoResponseParse(): { returnType: boolean, outPcoValue: PcoValue | null }
+    msFirmwareIdGetResponseParse(): { returnType: boolean, outFirmwareId: Uuid | null }
+    msSarConfigResponseParse(): { returnType: boolean, outMode: SarControlMode | null, outBackoffState: SarBackoffState | null, outWifiIntegration: SarWifiHardwareState | null, outConfigStatesCount: number | null, outConfigStates: SarConfigState[] | null }
+    msSarTransmissionStatusNotificationParse(): { returnType: boolean, outChannelNotification: TransmissionNotificationStatus | null, outTransmissionStatus: TransmissionState | null, outHysteresisTimer: number | null }
+    msSarTransmissionStatusResponseParse(): { returnType: boolean, outChannelNotification: TransmissionNotificationStatus | null, outTransmissionStatus: TransmissionState | null, outHysteresisTimer: number | null }
+    multicarrierProvidersNotificationParse(): { returnType: boolean, outProvidersCount: number | null, outProviders: Provider[] | null }
+    multicarrierProvidersResponseParse(): { returnType: boolean, outProvidersCount: number | null, outProviders: Provider[] | null }
+    networkIdleHintResponseParse(): { returnType: boolean, outState: NetworkIdleHintState | null }
     openDoneGetResult(): boolean
     openDoneGetStatusCode(): StatusError
     openGetMaxControlTransfer(): number
-    packetServiceNotificationParse(): [ /* returnType */ boolean, /* outNwError */ number | null, /* outPacketServiceState */ PacketServiceState | null, /* outHighestAvailableDataClass */ DataClass | null, /* outUplinkSpeed */ number | null, /* outDownlinkSpeed */ number | null ]
-    packetServiceResponseParse(): [ /* returnType */ boolean, /* outNwError */ number | null, /* outPacketServiceState */ PacketServiceState | null, /* outHighestAvailableDataClass */ DataClass | null, /* outUplinkSpeed */ number | null, /* outDownlinkSpeed */ number | null ]
-    packetStatisticsResponseParse(): [ /* returnType */ boolean, /* outInDiscards */ number | null, /* outInErrors */ number | null, /* outInOctets */ number | null, /* outInPackets */ number | null, /* outOutOctets */ number | null, /* outOutPackets */ number | null, /* outOutErrors */ number | null, /* outOutDiscards */ number | null ]
-    phonebookConfigurationNotificationParse(): [ /* returnType */ boolean, /* outState */ PhonebookState | null, /* outNumberOfEntries */ number | null, /* outUsedEntries */ number | null, /* outMaxNumberLength */ number | null, /* outMaxName */ number | null ]
-    phonebookConfigurationResponseParse(): [ /* returnType */ boolean, /* outState */ PhonebookState | null, /* outNumberOfEntries */ number | null, /* outUsedEntries */ number | null, /* outMaxNumberLength */ number | null, /* outMaxName */ number | null ]
+    packetServiceNotificationParse(): { returnType: boolean, outNwError: number | null, outPacketServiceState: PacketServiceState | null, outHighestAvailableDataClass: DataClass | null, outUplinkSpeed: number | null, outDownlinkSpeed: number | null }
+    packetServiceResponseParse(): { returnType: boolean, outNwError: number | null, outPacketServiceState: PacketServiceState | null, outHighestAvailableDataClass: DataClass | null, outUplinkSpeed: number | null, outDownlinkSpeed: number | null }
+    packetStatisticsResponseParse(): { returnType: boolean, outInDiscards: number | null, outInErrors: number | null, outInOctets: number | null, outInPackets: number | null, outOutOctets: number | null, outOutPackets: number | null, outOutErrors: number | null, outOutDiscards: number | null }
+    phonebookConfigurationNotificationParse(): { returnType: boolean, outState: PhonebookState | null, outNumberOfEntries: number | null, outUsedEntries: number | null, outMaxNumberLength: number | null, outMaxName: number | null }
+    phonebookConfigurationResponseParse(): { returnType: boolean, outState: PhonebookState | null, outNumberOfEntries: number | null, outUsedEntries: number | null, outMaxNumberLength: number | null, outMaxName: number | null }
     phonebookDeleteResponseParse(): boolean
-    phonebookReadResponseParse(): [ /* returnType */ boolean, /* outEntryCount */ number | null, /* outEntries */ PhonebookEntry[] | null ]
+    phonebookReadResponseParse(): { returnType: boolean, outEntryCount: number | null, outEntries: PhonebookEntry[] | null }
     phonebookWriteResponseParse(): boolean
-    pinListResponseParse(): [ /* returnType */ boolean, /* outPinDescPin1 */ PinDesc | null, /* outPinDescPin2 */ PinDesc | null, /* outPinDescDeviceSimPin */ PinDesc | null, /* outPinDescDeviceFirstSimPin */ PinDesc | null, /* outPinDescNetworkPin */ PinDesc | null, /* outPinDescNetworkSubsetPin */ PinDesc | null, /* outPinDescServiceProviderPin */ PinDesc | null, /* outPinDescCorporatePin */ PinDesc | null, /* outPinDescSubsidyLock */ PinDesc | null, /* outPinDescCustom */ PinDesc | null ]
-    pinResponseParse(): [ /* returnType */ boolean, /* outPinType */ PinType | null, /* outPinState */ PinState | null, /* outRemainingAttempts */ number | null ]
-    preferredProvidersNotificationParse(): [ /* returnType */ boolean, /* outProvidersCount */ number | null, /* outProviders */ Provider[] | null ]
-    preferredProvidersResponseParse(): [ /* returnType */ boolean, /* outProvidersCount */ number | null, /* outProviders */ Provider[] | null ]
-    provisionedContextsNotificationParse(): [ /* returnType */ boolean, /* outProvisionedContextsCount */ number | null, /* outProvisionedContexts */ ProvisionedContextElement[] | null ]
-    provisionedContextsResponseParse(): [ /* returnType */ boolean, /* outProvisionedContextsCount */ number | null, /* outProvisionedContexts */ ProvisionedContextElement[] | null ]
+    pinListResponseParse(): { returnType: boolean, outPinDescPin1: PinDesc | null, outPinDescPin2: PinDesc | null, outPinDescDeviceSimPin: PinDesc | null, outPinDescDeviceFirstSimPin: PinDesc | null, outPinDescNetworkPin: PinDesc | null, outPinDescNetworkSubsetPin: PinDesc | null, outPinDescServiceProviderPin: PinDesc | null, outPinDescCorporatePin: PinDesc | null, outPinDescSubsidyLock: PinDesc | null, outPinDescCustom: PinDesc | null }
+    pinResponseParse(): { returnType: boolean, outPinType: PinType | null, outPinState: PinState | null, outRemainingAttempts: number | null }
+    preferredProvidersNotificationParse(): { returnType: boolean, outProvidersCount: number | null, outProviders: Provider[] | null }
+    preferredProvidersResponseParse(): { returnType: boolean, outProvidersCount: number | null, outProviders: Provider[] | null }
+    provisionedContextsNotificationParse(): { returnType: boolean, outProvisionedContextsCount: number | null, outProvisionedContexts: ProvisionedContextElement[] | null }
+    provisionedContextsResponseParse(): { returnType: boolean, outProvisionedContextsCount: number | null, outProvisionedContexts: ProvisionedContextElement[] | null }
     proxyControlConfigurationResponseParse(): boolean
-    qmiMsgNotificationParse(): [ /* returnType */ boolean, /* outQmux */ any[] | null ]
-    qmiMsgResponseParse(): [ /* returnType */ boolean, /* outQmux */ any[] | null ]
-    radioStateNotificationParse(): [ /* returnType */ boolean, /* outHwRadioState */ RadioSwitchState | null, /* outSwRadioState */ RadioSwitchState | null ]
-    radioStateResponseParse(): [ /* returnType */ boolean, /* outHwRadioState */ RadioSwitchState | null, /* outSwRadioState */ RadioSwitchState | null ]
+    qmiMsgNotificationParse(): { returnType: boolean, outQmux: any[] | null }
+    qmiMsgResponseParse(): { returnType: boolean, outQmux: any[] | null }
+    radioStateNotificationParse(): { returnType: boolean, outHwRadioState: RadioSwitchState | null, outSwRadioState: RadioSwitchState | null }
+    radioStateResponseParse(): { returnType: boolean, outHwRadioState: RadioSwitchState | null, outSwRadioState: RadioSwitchState | null }
     ref(): Message
-    registerStateNotificationParse(): [ /* returnType */ boolean, /* outNwError */ NwError | null, /* outRegisterState */ RegisterState | null, /* outRegisterMode */ RegisterMode | null, /* outAvailableDataClasses */ DataClass | null, /* outCurrentCellularClass */ CellularClass | null, /* outProviderId */ string | null, /* outProviderName */ string | null, /* outRoamingText */ string | null, /* outRegistrationFlag */ RegistrationFlag | null ]
-    registerStateResponseParse(): [ /* returnType */ boolean, /* outNwError */ NwError | null, /* outRegisterState */ RegisterState | null, /* outRegisterMode */ RegisterMode | null, /* outAvailableDataClasses */ DataClass | null, /* outCurrentCellularClass */ CellularClass | null, /* outProviderId */ string | null, /* outProviderName */ string | null, /* outRoamingText */ string | null, /* outRegistrationFlag */ RegistrationFlag | null ]
+    registerStateNotificationParse(): { returnType: boolean, outNwError: NwError | null, outRegisterState: RegisterState | null, outRegisterMode: RegisterMode | null, outAvailableDataClasses: DataClass | null, outCurrentCellularClass: CellularClass | null, outProviderId: string | null, outProviderName: string | null, outRoamingText: string | null, outRegistrationFlag: RegistrationFlag | null }
+    registerStateResponseParse(): { returnType: boolean, outNwError: NwError | null, outRegisterState: RegisterState | null, outRegisterMode: RegisterMode | null, outAvailableDataClasses: DataClass | null, outCurrentCellularClass: CellularClass | null, outProviderId: string | null, outProviderName: string | null, outRoamingText: string | null, outRegistrationFlag: RegistrationFlag | null }
     responseGetResult(expected: MessageType): boolean
-    serviceActivationResponseParse(): [ /* returnType */ boolean, /* outNwError */ NwError | null, /* outBuffer */ any[] | null ]
+    serviceActivationResponseParse(): { returnType: boolean, outNwError: NwError | null, outBuffer: any[] | null }
     setTransactionId(transactionId: number): void
-    signalStateNotificationParse(): [ /* returnType */ boolean, /* outRssi */ number | null, /* outErrorRate */ number | null, /* outSignalStrengthInterval */ number | null, /* outRssiThreshold */ number | null, /* outErrorRateThreshold */ number | null ]
-    signalStateResponseParse(): [ /* returnType */ boolean, /* outRssi */ number | null, /* outErrorRate */ number | null, /* outSignalStrengthInterval */ number | null, /* outRssiThreshold */ number | null, /* outErrorRateThreshold */ number | null ]
-    smsConfigurationResponseParse(): [ /* returnType */ boolean, /* outSmsStorageState */ SmsStorageState | null, /* outFormat */ SmsFormat | null, /* outMaxMessages */ number | null, /* outCdmaShortMessageSize */ number | null, /* outScAddress */ string | null ]
+    signalStateNotificationParse(): { returnType: boolean, outRssi: number | null, outErrorRate: number | null, outSignalStrengthInterval: number | null, outRssiThreshold: number | null, outErrorRateThreshold: number | null }
+    signalStateResponseParse(): { returnType: boolean, outRssi: number | null, outErrorRate: number | null, outSignalStrengthInterval: number | null, outRssiThreshold: number | null, outErrorRateThreshold: number | null }
+    smsConfigurationResponseParse(): { returnType: boolean, outSmsStorageState: SmsStorageState | null, outFormat: SmsFormat | null, outMaxMessages: number | null, outCdmaShortMessageSize: number | null, outScAddress: string | null }
     smsDeleteResponseParse(): boolean
-    smsMessageStoreStatusNotificationParse(): [ /* returnType */ boolean, /* outFlag */ SmsStatusFlag | null, /* outMessageIndex */ number | null ]
-    smsMessageStoreStatusResponseParse(): [ /* returnType */ boolean, /* outFlag */ SmsStatusFlag | null, /* outMessageIndex */ number | null ]
-    smsReadNotificationParse(): [ /* returnType */ boolean, /* outFormat */ SmsFormat | null, /* outMessagesCount */ number | null, /* outPduMessages */ SmsPduReadRecord[] | null, /* outCdmaMessages */ SmsCdmaReadRecord[] | null ]
-    smsReadResponseParse(): [ /* returnType */ boolean, /* outFormat */ SmsFormat | null, /* outMessagesCount */ number | null, /* outPduMessages */ SmsPduReadRecord[] | null, /* outCdmaMessages */ SmsCdmaReadRecord[] | null ]
-    smsSendResponseParse(): [ /* returnType */ boolean, /* outMessageReference */ number | null ]
-    stkEnvelopeResponseParse(): [ /* returnType */ boolean, /* outEnvelopeSupport */ any[] | null ]
-    stkPacNotificationParse(): [ /* returnType */ boolean, /* outPacType */ StkPacType | null, /* outDataBuffer */ any[] | null ]
-    stkPacResponseParse(): [ /* returnType */ boolean, /* outPacSupport */ any[] | null ]
-    stkTerminalResponseResponseParse(): [ /* returnType */ boolean, /* outResultData */ any[] | null, /* outStatusWords */ number | null ]
-    subscriberReadyStatusNotificationParse(): [ /* returnType */ boolean, /* outReadyState */ SubscriberReadyState | null, /* outSubscriberId */ string | null, /* outSimIccId */ string | null, /* outReadyInfo */ ReadyInfoFlag | null, /* outTelephoneNumbersCount */ number | null, /* outTelephoneNumbers */ string[] | null ]
-    subscriberReadyStatusResponseParse(): [ /* returnType */ boolean, /* outReadyState */ SubscriberReadyState | null, /* outSubscriberId */ string | null, /* outSimIccId */ string | null, /* outReadyInfo */ ReadyInfoFlag | null, /* outTelephoneNumbersCount */ number | null, /* outTelephoneNumbers */ string[] | null ]
+    smsMessageStoreStatusNotificationParse(): { returnType: boolean, outFlag: SmsStatusFlag | null, outMessageIndex: number | null }
+    smsMessageStoreStatusResponseParse(): { returnType: boolean, outFlag: SmsStatusFlag | null, outMessageIndex: number | null }
+    smsReadNotificationParse(): { returnType: boolean, outFormat: SmsFormat | null, outMessagesCount: number | null, outPduMessages: SmsPduReadRecord[] | null, outCdmaMessages: SmsCdmaReadRecord[] | null }
+    smsReadResponseParse(): { returnType: boolean, outFormat: SmsFormat | null, outMessagesCount: number | null, outPduMessages: SmsPduReadRecord[] | null, outCdmaMessages: SmsCdmaReadRecord[] | null }
+    smsSendResponseParse(): { returnType: boolean, outMessageReference: number | null }
+    stkEnvelopeResponseParse(): { returnType: boolean, outEnvelopeSupport: any[] | null }
+    stkPacNotificationParse(): { returnType: boolean, outPacType: StkPacType | null, outDataBuffer: any[] | null }
+    stkPacResponseParse(): { returnType: boolean, outPacSupport: any[] | null }
+    stkTerminalResponseResponseParse(): { returnType: boolean, outResultData: any[] | null, outStatusWords: number | null }
+    subscriberReadyStatusNotificationParse(): { returnType: boolean, outReadyState: SubscriberReadyState | null, outSubscriberId: string | null, outSimIccId: string | null, outReadyInfo: ReadyInfoFlag | null, outTelephoneNumbersCount: number | null, outTelephoneNumbers: string[] | null }
+    subscriberReadyStatusResponseParse(): { returnType: boolean, outReadyState: SubscriberReadyState | null, outSubscriberId: string | null, outSimIccId: string | null, outReadyInfo: ReadyInfoFlag | null, outTelephoneNumbersCount: number | null, outTelephoneNumbers: string[] | null }
     unref(): void
-    ussdNotificationParse(): [ /* returnType */ boolean, /* outResponse */ UssdResponse | null, /* outSessionState */ UssdSessionState | null, /* outDataCodingScheme */ number | null, /* outPayload */ any[] | null ]
-    ussdResponseParse(): [ /* returnType */ boolean, /* outResponse */ UssdResponse | null, /* outSessionState */ UssdSessionState | null, /* outDataCodingScheme */ number | null, /* outPayload */ any[] | null ]
-    visibleProvidersResponseParse(): [ /* returnType */ boolean, /* outProvidersCount */ number | null, /* outProviders */ Provider[] | null ]
+    ussdNotificationParse(): { returnType: boolean, outResponse: UssdResponse | null, outSessionState: UssdSessionState | null, outDataCodingScheme: number | null, outPayload: any[] | null }
+    ussdResponseParse(): { returnType: boolean, outResponse: UssdResponse | null, outSessionState: UssdSessionState | null, outDataCodingScheme: number | null, outPayload: any[] | null }
+    visibleProvidersResponseParse(): { returnType: boolean, outProvidersCount: number | null, outProviders: Provider[] | null }
     static name: string
     static new(data: number, dataLength: number): Message
     constructor(data: number, dataLength: number)
@@ -1232,7 +1208,7 @@ export class Message {
     static visibleProvidersQueryNew(action: VisibleProvidersAction): Message
 }
 export class PacketFilter {
-    /* Fields of Mbim.PacketFilter */
+    /* Fields of Mbim-1.0.Mbim.PacketFilter */
     filterSize: number
     packetFilter: number
     packetMask: number
@@ -1241,17 +1217,17 @@ export class PacketFilter {
     static arrayFree(array: PacketFilterArray): void
 }
 export class PcoValue {
-    /* Fields of Mbim.PcoValue */
+    /* Fields of Mbim-1.0.Mbim.PcoValue */
     sessionId: number
     pcoDataSize: number
     pcoDataType: number
     pcoDataBuffer: number
-    /* Methods of Mbim.PcoValue */
+    /* Methods of Mbim-1.0.Mbim.PcoValue */
     free(): void
     static name: string
 }
 export class PhonebookEntry {
-    /* Fields of Mbim.PhonebookEntry */
+    /* Fields of Mbim-1.0.Mbim.PhonebookEntry */
     entryIndex: number
     number: string
     name: string
@@ -1260,31 +1236,31 @@ export class PhonebookEntry {
     static arrayFree(array: PhonebookEntryArray): void
 }
 export class PinDesc {
-    /* Fields of Mbim.PinDesc */
+    /* Fields of Mbim-1.0.Mbim.PinDesc */
     pinMode: number
     pinFormat: number
     pinLengthMin: number
     pinLengthMax: number
-    /* Methods of Mbim.PinDesc */
+    /* Methods of Mbim-1.0.Mbim.PinDesc */
     free(): void
     static name: string
 }
 export class Provider {
-    /* Fields of Mbim.Provider */
+    /* Fields of Mbim-1.0.Mbim.Provider */
     providerId: string
     providerState: number
     providerName: string
     cellularClass: number
     rssi: number
     errorRate: number
-    /* Methods of Mbim.Provider */
+    /* Methods of Mbim-1.0.Mbim.Provider */
     free(): void
     static name: string
     /* Static methods and pseudo-constructors */
     static arrayFree(array: ProviderArray): void
 }
 export class ProvisionedContextElement {
-    /* Fields of Mbim.ProvisionedContextElement */
+    /* Fields of Mbim-1.0.Mbim.ProvisionedContextElement */
     contextId: number
     contextType: Uuid
     accessString: string
@@ -1297,7 +1273,7 @@ export class ProvisionedContextElement {
     static arrayFree(array: ProvisionedContextElementArray): void
 }
 export abstract class ProxyClass {
-    /* Fields of Mbim.ProxyClass */
+    /* Fields of Mbim-1.0.Mbim.ProxyClass */
     parent: GObject.ObjectClass
     static name: string
 }
@@ -1305,7 +1281,7 @@ export class ProxyPrivate {
     static name: string
 }
 export class SarConfigState {
-    /* Fields of Mbim.SarConfigState */
+    /* Fields of Mbim-1.0.Mbim.SarConfigState */
     antennaIndex: number
     backoffIndex: number
     static name: string
@@ -1313,7 +1289,7 @@ export class SarConfigState {
     static arrayFree(array: SarConfigStateArray): void
 }
 export class SmsCdmaReadRecord {
-    /* Fields of Mbim.SmsCdmaReadRecord */
+    /* Fields of Mbim-1.0.Mbim.SmsCdmaReadRecord */
     messageIndex: number
     messageStatus: number
     address: string
@@ -1328,19 +1304,19 @@ export class SmsCdmaReadRecord {
     static arrayFree(array: SmsCdmaReadRecordArray): void
 }
 export class SmsCdmaSendRecord {
-    /* Fields of Mbim.SmsCdmaSendRecord */
+    /* Fields of Mbim-1.0.Mbim.SmsCdmaSendRecord */
     encoding: number
     language: number
     address: string
     encodedMessageSize: number
     encodedMessage: number
     encodedMessageSizeInCharacters: number
-    /* Methods of Mbim.SmsCdmaSendRecord */
+    /* Methods of Mbim-1.0.Mbim.SmsCdmaSendRecord */
     free(): void
     static name: string
 }
 export class SmsPduReadRecord {
-    /* Fields of Mbim.SmsPduReadRecord */
+    /* Fields of Mbim-1.0.Mbim.SmsPduReadRecord */
     messageIndex: number
     messageStatus: number
     pduDataSize: number
@@ -1350,21 +1326,21 @@ export class SmsPduReadRecord {
     static arrayFree(array: SmsPduReadRecordArray): void
 }
 export class SmsPduSendRecord {
-    /* Fields of Mbim.SmsPduSendRecord */
+    /* Fields of Mbim-1.0.Mbim.SmsPduSendRecord */
     pduDataSize: number
     pduData: number
-    /* Methods of Mbim.SmsPduSendRecord */
+    /* Methods of Mbim-1.0.Mbim.SmsPduSendRecord */
     free(): void
     static name: string
 }
 export class Uuid {
-    /* Fields of Mbim.Uuid */
+    /* Fields of Mbim-1.0.Mbim.Uuid */
     a: any[]
     b: any[]
     c: any[]
     d: any[]
     e: any[]
-    /* Methods of Mbim.Uuid */
+    /* Methods of Mbim-1.0.Mbim.Uuid */
     cmp(b: Uuid): boolean
     getPrintable(): string
     toContextType(): ContextType

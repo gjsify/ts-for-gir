@@ -105,18 +105,14 @@ export function utilGetVersion(): number
 export function utilGetVersionString(): string
 export function utilSetDebug(enabled: boolean): void
 export class Audio {
-    /* Methods of GVnc.Audio */
+    /* Methods of GVnc-1.0.GVnc.Audio */
     playbackData(sample: AudioSample): void
     playbackStart(format: AudioFormat): void
     playbackStop(): void
-    /* Virtual methods of GVnc.Audio */
-    vfuncPlaybackData(sample: AudioSample): boolean
-    vfuncPlaybackStart(format: AudioFormat): boolean
-    vfuncPlaybackStop(): boolean
     static name: string
 }
 export class Framebuffer {
-    /* Methods of GVnc.Framebuffer */
+    /* Methods of GVnc-1.0.GVnc.Framebuffer */
     blt(src: number, rowstride: number, x: number, y: number, width: number, height: number): void
     copyrect(srcx: number, srcy: number, dstx: number, dsty: number, width: number, height: number): void
     fill(src: any[], x: number, y: number, width: number, height: number): void
@@ -130,31 +126,17 @@ export class Framebuffer {
     rgb24Blt(src: any[], rowstride: number, x: number, y: number, width: number, height: number): void
     setColorMap(map: ColorMap): void
     setPixelAt(src: any[], x: number, y: number): void
-    /* Virtual methods of GVnc.Framebuffer */
-    vfuncBlt(src: number, rowstride: number, x: number, y: number, width: number, height: number): void
-    vfuncCopyrect(srcx: number, srcy: number, dstx: number, dsty: number, width: number, height: number): void
-    vfuncFill(src: any[], x: number, y: number, width: number, height: number): void
-    vfuncGetBuffer(): number
-    vfuncGetHeight(): number
-    vfuncGetLocalFormat(): PixelFormat
-    vfuncGetRemoteFormat(): PixelFormat
-    vfuncGetRowstride(): number
-    vfuncGetWidth(): number
-    vfuncPerfectFormatMatch(): boolean
-    vfuncRgb24Blt(src: any[], rowstride: number, x: number, y: number, width: number, height: number): void
-    vfuncSetColorMap(map: ColorMap): void
-    vfuncSetPixelAt(src: any[], x: number, y: number): void
     static name: string
 }
 export interface BaseAudio_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class BaseAudio {
-    /* Fields of GVnc.BaseAudio */
+    /* Fields of GVnc-1.0.GVnc.BaseAudio */
     parent: GObject.Object
     priv: BaseAudioPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -176,48 +158,32 @@ export class BaseAudio {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of GVnc.Audio */
+    /* Methods of GVnc-1.0.GVnc.Audio */
     playbackData(sample: AudioSample): void
     playbackStart(format: AudioFormat): void
     playbackStop(): void
-    /* Virtual methods of GVnc.BaseAudio */
-    vfuncPlaybackData(sample: AudioSample): boolean
-    vfuncPlaybackStart(format: AudioFormat): boolean
-    vfuncPlaybackStop(): boolean
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GVnc.BaseAudio */
+    /* Signals of GVnc-1.0.GVnc.BaseAudio */
     connect(sigName: "vnc-audio-playback-data", callback: (($obj: BaseAudio, object: AudioSample) => void)): number
-    connect_after(sigName: "vnc-audio-playback-data", callback: (($obj: BaseAudio, object: AudioSample) => void)): number
+    on(sigName: "vnc-audio-playback-data", callback: (object: AudioSample) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "vnc-audio-playback-data", callback: (object: AudioSample) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "vnc-audio-playback-data", callback: (object: AudioSample) => void): NodeJS.EventEmitter
     emit(sigName: "vnc-audio-playback-data", object: AudioSample): void
-    on(sigName: "vnc-audio-playback-data", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "vnc-audio-playback-data", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "vnc-audio-playback-data", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "vnc-audio-playback-start", callback: (($obj: BaseAudio, object: AudioFormat) => void)): number
-    connect_after(sigName: "vnc-audio-playback-start", callback: (($obj: BaseAudio, object: AudioFormat) => void)): number
+    on(sigName: "vnc-audio-playback-start", callback: (object: AudioFormat) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "vnc-audio-playback-start", callback: (object: AudioFormat) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "vnc-audio-playback-start", callback: (object: AudioFormat) => void): NodeJS.EventEmitter
     emit(sigName: "vnc-audio-playback-start", object: AudioFormat): void
-    on(sigName: "vnc-audio-playback-start", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "vnc-audio-playback-start", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "vnc-audio-playback-start", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "vnc-audio-playback-stop", callback: (($obj: BaseAudio) => void)): number
-    connect_after(sigName: "vnc-audio-playback-stop", callback: (($obj: BaseAudio) => void)): number
+    on(sigName: "vnc-audio-playback-stop", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "vnc-audio-playback-stop", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "vnc-audio-playback-stop", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "vnc-audio-playback-stop"): void
-    on(sigName: "vnc-audio-playback-stop", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "vnc-audio-playback-stop", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "vnc-audio-playback-stop", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: BaseAudio, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: BaseAudio, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -242,14 +208,14 @@ export interface BaseFramebuffer_ConstructProps extends GObject.Object_Construct
     width?: number
 }
 export class BaseFramebuffer {
-    /* Properties of GVnc.BaseFramebuffer */
+    /* Properties of GVnc-1.0.GVnc.BaseFramebuffer */
     colorMap: ColorMap
-    /* Fields of GVnc.BaseFramebuffer */
+    /* Fields of GVnc-1.0.GVnc.BaseFramebuffer */
     parent: GObject.Object
     priv: BaseFramebufferPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -271,7 +237,7 @@ export class BaseFramebuffer {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of GVnc.Framebuffer */
+    /* Methods of GVnc-1.0.GVnc.Framebuffer */
     blt(src: number, rowstride: number, x: number, y: number, width: number, height: number): void
     copyrect(srcx: number, srcy: number, dstx: number, dsty: number, width: number, height: number): void
     fill(src: any[], x: number, y: number, width: number, height: number): void
@@ -285,35 +251,12 @@ export class BaseFramebuffer {
     rgb24Blt(src: any[], rowstride: number, x: number, y: number, width: number, height: number): void
     setColorMap(map: ColorMap): void
     setPixelAt(src: any[], x: number, y: number): void
-    /* Virtual methods of GVnc.BaseFramebuffer */
-    vfuncBlt(src: number, rowstride: number, x: number, y: number, width: number, height: number): void
-    vfuncCopyrect(srcx: number, srcy: number, dstx: number, dsty: number, width: number, height: number): void
-    vfuncFill(src: any[], x: number, y: number, width: number, height: number): void
-    vfuncGetBuffer(): number
-    vfuncGetHeight(): number
-    vfuncGetLocalFormat(): PixelFormat
-    vfuncGetRemoteFormat(): PixelFormat
-    vfuncGetRowstride(): number
-    vfuncGetWidth(): number
-    vfuncPerfectFormatMatch(): boolean
-    vfuncRgb24Blt(src: any[], rowstride: number, x: number, y: number, width: number, height: number): void
-    vfuncSetColorMap(map: ColorMap): void
-    vfuncSetPixelAt(src: any[], x: number, y: number): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: BaseFramebuffer, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: BaseFramebuffer, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::color-map", callback: (($obj: BaseFramebuffer, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::color-map", callback: (($obj: BaseFramebuffer, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::color-map", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -337,14 +280,14 @@ export interface Connection_ConstructProps extends GObject.Object_ConstructProps
     framebuffer?: Framebuffer
 }
 export class Connection {
-    /* Properties of GVnc.Connection */
+    /* Properties of GVnc-1.0.GVnc.Connection */
     framebuffer: Framebuffer
-    /* Fields of GVnc.Connection */
+    /* Fields of GVnc-1.0.GVnc.Connection */
     parent: GObject.Object
     priv: ConnectionPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GVnc.Connection */
+    /* Methods of GVnc-1.0.GVnc.Connection */
     audioDisable(): boolean
     audioEnable(): boolean
     clientCutText(data: object | null, length: number): boolean
@@ -381,7 +324,7 @@ export class Connection {
     setShared(sharedFlag: boolean): boolean
     setSize(width: number, height: number): ConnectionResizeStatus
     shutdown(): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -403,163 +346,113 @@ export class Connection {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GVnc.Connection */
-    vfuncVncAuthChooseSubtype(type: number, subtypes: GObject.ValueArray): void
-    vfuncVncAuthChooseType(types: GObject.ValueArray): void
-    vfuncVncAuthCredential(creds: GObject.ValueArray): void
-    vfuncVncAuthFailure(reason: string): void
-    vfuncVncAuthUnsupported(authType: number): void
-    vfuncVncBell(): void
-    vfuncVncConnected(): void
-    vfuncVncCursorChanged(cursor: Cursor): void
-    vfuncVncDesktopRename(name: string): void
-    vfuncVncDesktopResize(width: number, height: number): void
-    vfuncVncDisconnected(): void
-    vfuncVncError(message: string): void
-    vfuncVncFramebufferUpdate(x: number, y: number, width: number, height: number): void
-    vfuncVncInitialized(): void
-    vfuncVncLedState(): void
-    vfuncVncPixelFormatChanged(format: PixelFormat): void
-    vfuncVncPointerModeChanged(absPointer: boolean): void
-    vfuncVncPowerControlFailed(): void
-    vfuncVncPowerControlInitialized(): void
-    vfuncVncServerCutText(text: GLib.String): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GVnc.Connection */
+    /* Signals of GVnc-1.0.GVnc.Connection */
     connect(sigName: "vnc-auth-choose-subtype", callback: (($obj: Connection, object: number, p0: GObject.ValueArray) => void)): number
-    connect_after(sigName: "vnc-auth-choose-subtype", callback: (($obj: Connection, object: number, p0: GObject.ValueArray) => void)): number
+    on(sigName: "vnc-auth-choose-subtype", callback: (object: number, p0: GObject.ValueArray) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "vnc-auth-choose-subtype", callback: (object: number, p0: GObject.ValueArray) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "vnc-auth-choose-subtype", callback: (object: number, p0: GObject.ValueArray) => void): NodeJS.EventEmitter
     emit(sigName: "vnc-auth-choose-subtype", object: number, p0: GObject.ValueArray): void
-    on(sigName: "vnc-auth-choose-subtype", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "vnc-auth-choose-subtype", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "vnc-auth-choose-subtype", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "vnc-auth-choose-type", callback: (($obj: Connection, object: GObject.ValueArray) => void)): number
-    connect_after(sigName: "vnc-auth-choose-type", callback: (($obj: Connection, object: GObject.ValueArray) => void)): number
+    on(sigName: "vnc-auth-choose-type", callback: (object: GObject.ValueArray) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "vnc-auth-choose-type", callback: (object: GObject.ValueArray) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "vnc-auth-choose-type", callback: (object: GObject.ValueArray) => void): NodeJS.EventEmitter
     emit(sigName: "vnc-auth-choose-type", object: GObject.ValueArray): void
-    on(sigName: "vnc-auth-choose-type", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "vnc-auth-choose-type", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "vnc-auth-choose-type", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "vnc-auth-credential", callback: (($obj: Connection, object: GObject.ValueArray) => void)): number
-    connect_after(sigName: "vnc-auth-credential", callback: (($obj: Connection, object: GObject.ValueArray) => void)): number
+    on(sigName: "vnc-auth-credential", callback: (object: GObject.ValueArray) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "vnc-auth-credential", callback: (object: GObject.ValueArray) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "vnc-auth-credential", callback: (object: GObject.ValueArray) => void): NodeJS.EventEmitter
     emit(sigName: "vnc-auth-credential", object: GObject.ValueArray): void
-    on(sigName: "vnc-auth-credential", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "vnc-auth-credential", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "vnc-auth-credential", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "vnc-auth-failure", callback: (($obj: Connection, object: string) => void)): number
-    connect_after(sigName: "vnc-auth-failure", callback: (($obj: Connection, object: string) => void)): number
+    on(sigName: "vnc-auth-failure", callback: (object: string) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "vnc-auth-failure", callback: (object: string) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "vnc-auth-failure", callback: (object: string) => void): NodeJS.EventEmitter
     emit(sigName: "vnc-auth-failure", object: string): void
-    on(sigName: "vnc-auth-failure", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "vnc-auth-failure", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "vnc-auth-failure", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "vnc-auth-unsupported", callback: (($obj: Connection, object: number) => void)): number
-    connect_after(sigName: "vnc-auth-unsupported", callback: (($obj: Connection, object: number) => void)): number
+    on(sigName: "vnc-auth-unsupported", callback: (object: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "vnc-auth-unsupported", callback: (object: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "vnc-auth-unsupported", callback: (object: number) => void): NodeJS.EventEmitter
     emit(sigName: "vnc-auth-unsupported", object: number): void
-    on(sigName: "vnc-auth-unsupported", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "vnc-auth-unsupported", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "vnc-auth-unsupported", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "vnc-bell", callback: (($obj: Connection) => void)): number
-    connect_after(sigName: "vnc-bell", callback: (($obj: Connection) => void)): number
+    on(sigName: "vnc-bell", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "vnc-bell", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "vnc-bell", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "vnc-bell"): void
-    on(sigName: "vnc-bell", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "vnc-bell", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "vnc-bell", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "vnc-connected", callback: (($obj: Connection) => void)): number
-    connect_after(sigName: "vnc-connected", callback: (($obj: Connection) => void)): number
+    on(sigName: "vnc-connected", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "vnc-connected", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "vnc-connected", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "vnc-connected"): void
-    on(sigName: "vnc-connected", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "vnc-connected", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "vnc-connected", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "vnc-cursor-changed", callback: (($obj: Connection, object: Cursor) => void)): number
-    connect_after(sigName: "vnc-cursor-changed", callback: (($obj: Connection, object: Cursor) => void)): number
+    on(sigName: "vnc-cursor-changed", callback: (object: Cursor) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "vnc-cursor-changed", callback: (object: Cursor) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "vnc-cursor-changed", callback: (object: Cursor) => void): NodeJS.EventEmitter
     emit(sigName: "vnc-cursor-changed", object: Cursor): void
-    on(sigName: "vnc-cursor-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "vnc-cursor-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "vnc-cursor-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "vnc-desktop-rename", callback: (($obj: Connection, object: string) => void)): number
-    connect_after(sigName: "vnc-desktop-rename", callback: (($obj: Connection, object: string) => void)): number
+    on(sigName: "vnc-desktop-rename", callback: (object: string) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "vnc-desktop-rename", callback: (object: string) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "vnc-desktop-rename", callback: (object: string) => void): NodeJS.EventEmitter
     emit(sigName: "vnc-desktop-rename", object: string): void
-    on(sigName: "vnc-desktop-rename", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "vnc-desktop-rename", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "vnc-desktop-rename", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "vnc-desktop-resize", callback: (($obj: Connection, object: number, p0: number) => void)): number
-    connect_after(sigName: "vnc-desktop-resize", callback: (($obj: Connection, object: number, p0: number) => void)): number
+    on(sigName: "vnc-desktop-resize", callback: (object: number, p0: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "vnc-desktop-resize", callback: (object: number, p0: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "vnc-desktop-resize", callback: (object: number, p0: number) => void): NodeJS.EventEmitter
     emit(sigName: "vnc-desktop-resize", object: number, p0: number): void
-    on(sigName: "vnc-desktop-resize", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "vnc-desktop-resize", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "vnc-desktop-resize", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "vnc-disconnected", callback: (($obj: Connection) => void)): number
-    connect_after(sigName: "vnc-disconnected", callback: (($obj: Connection) => void)): number
+    on(sigName: "vnc-disconnected", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "vnc-disconnected", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "vnc-disconnected", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "vnc-disconnected"): void
-    on(sigName: "vnc-disconnected", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "vnc-disconnected", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "vnc-disconnected", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "vnc-error", callback: (($obj: Connection, object: string) => void)): number
-    connect_after(sigName: "vnc-error", callback: (($obj: Connection, object: string) => void)): number
+    on(sigName: "vnc-error", callback: (object: string) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "vnc-error", callback: (object: string) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "vnc-error", callback: (object: string) => void): NodeJS.EventEmitter
     emit(sigName: "vnc-error", object: string): void
-    on(sigName: "vnc-error", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "vnc-error", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "vnc-error", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "vnc-framebuffer-update", callback: (($obj: Connection, object: number, p0: number, p1: number, p2: number) => void)): number
-    connect_after(sigName: "vnc-framebuffer-update", callback: (($obj: Connection, object: number, p0: number, p1: number, p2: number) => void)): number
+    on(sigName: "vnc-framebuffer-update", callback: (object: number, p0: number, p1: number, p2: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "vnc-framebuffer-update", callback: (object: number, p0: number, p1: number, p2: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "vnc-framebuffer-update", callback: (object: number, p0: number, p1: number, p2: number) => void): NodeJS.EventEmitter
     emit(sigName: "vnc-framebuffer-update", object: number, p0: number, p1: number, p2: number): void
-    on(sigName: "vnc-framebuffer-update", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "vnc-framebuffer-update", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "vnc-framebuffer-update", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "vnc-initialized", callback: (($obj: Connection) => void)): number
-    connect_after(sigName: "vnc-initialized", callback: (($obj: Connection) => void)): number
+    on(sigName: "vnc-initialized", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "vnc-initialized", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "vnc-initialized", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "vnc-initialized"): void
-    on(sigName: "vnc-initialized", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "vnc-initialized", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "vnc-initialized", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "vnc-led-state", callback: (($obj: Connection) => void)): number
-    connect_after(sigName: "vnc-led-state", callback: (($obj: Connection) => void)): number
+    on(sigName: "vnc-led-state", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "vnc-led-state", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "vnc-led-state", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "vnc-led-state"): void
-    on(sigName: "vnc-led-state", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "vnc-led-state", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "vnc-led-state", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "vnc-pixel-format-changed", callback: (($obj: Connection, object?: object | null) => void)): number
-    connect_after(sigName: "vnc-pixel-format-changed", callback: (($obj: Connection, object?: object | null) => void)): number
+    on(sigName: "vnc-pixel-format-changed", callback: (object?: object | null) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "vnc-pixel-format-changed", callback: (object?: object | null) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "vnc-pixel-format-changed", callback: (object?: object | null) => void): NodeJS.EventEmitter
     emit(sigName: "vnc-pixel-format-changed", object?: object | null): void
-    on(sigName: "vnc-pixel-format-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "vnc-pixel-format-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "vnc-pixel-format-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "vnc-pointer-mode-changed", callback: (($obj: Connection, object: boolean) => void)): number
-    connect_after(sigName: "vnc-pointer-mode-changed", callback: (($obj: Connection, object: boolean) => void)): number
+    on(sigName: "vnc-pointer-mode-changed", callback: (object: boolean) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "vnc-pointer-mode-changed", callback: (object: boolean) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "vnc-pointer-mode-changed", callback: (object: boolean) => void): NodeJS.EventEmitter
     emit(sigName: "vnc-pointer-mode-changed", object: boolean): void
-    on(sigName: "vnc-pointer-mode-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "vnc-pointer-mode-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "vnc-pointer-mode-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "vnc-power-control-failed", callback: (($obj: Connection) => void)): number
-    connect_after(sigName: "vnc-power-control-failed", callback: (($obj: Connection) => void)): number
+    on(sigName: "vnc-power-control-failed", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "vnc-power-control-failed", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "vnc-power-control-failed", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "vnc-power-control-failed"): void
-    on(sigName: "vnc-power-control-failed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "vnc-power-control-failed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "vnc-power-control-failed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "vnc-power-control-initialized", callback: (($obj: Connection) => void)): number
-    connect_after(sigName: "vnc-power-control-initialized", callback: (($obj: Connection) => void)): number
+    on(sigName: "vnc-power-control-initialized", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "vnc-power-control-initialized", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "vnc-power-control-initialized", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "vnc-power-control-initialized"): void
-    on(sigName: "vnc-power-control-initialized", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "vnc-power-control-initialized", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "vnc-power-control-initialized", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "vnc-server-cut-text", callback: (($obj: Connection, object: string) => void)): number
-    connect_after(sigName: "vnc-server-cut-text", callback: (($obj: Connection, object: string) => void)): number
+    on(sigName: "vnc-server-cut-text", callback: (object: string) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "vnc-server-cut-text", callback: (object: string) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "vnc-server-cut-text", callback: (object: string) => void): NodeJS.EventEmitter
     emit(sigName: "vnc-server-cut-text", object: string): void
-    on(sigName: "vnc-server-cut-text", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "vnc-server-cut-text", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "vnc-server-cut-text", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Connection, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Connection, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::framebuffer", callback: (($obj: Connection, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::framebuffer", callback: (($obj: Connection, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::framebuffer", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -587,24 +480,24 @@ export interface Cursor_ConstructProps extends GObject.Object_ConstructProps {
     width?: number
 }
 export class Cursor {
-    /* Properties of GVnc.Cursor */
+    /* Properties of GVnc-1.0.GVnc.Cursor */
     data: object
     height: number
     hotx: number
     hoty: number
     width: number
-    /* Fields of GVnc.Cursor */
+    /* Fields of GVnc-1.0.GVnc.Cursor */
     parent: GObject.Object
     priv: CursorPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GVnc.Cursor */
+    /* Methods of GVnc-1.0.GVnc.Cursor */
     getData(): any[]
     getHeight(): number
     getHotx(): number
     getHoty(): number
     getWidth(): number
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -626,21 +519,12 @@ export class Cursor {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Cursor, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Cursor, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::data", callback: (($obj: Cursor, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::data", callback: (($obj: Cursor, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::data", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -681,11 +565,11 @@ export class Cursor {
     static $gtype: GObject.Type
 }
 export class AudioFormat {
-    /* Fields of GVnc.AudioFormat */
+    /* Fields of GVnc-1.0.GVnc.AudioFormat */
     format: number
     nchannels: number
     frequency: number
-    /* Methods of GVnc.AudioFormat */
+    /* Methods of GVnc-1.0.GVnc.AudioFormat */
     copy(): AudioFormat
     free(): void
     static name: string
@@ -695,7 +579,7 @@ export class AudioFormat {
     static new(): AudioFormat
 }
 export abstract class AudioInterface {
-    /* Fields of GVnc.AudioInterface */
+    /* Fields of GVnc-1.0.GVnc.AudioInterface */
     parent: GObject.TypeInterface
     playbackStart: (audio: Audio, format: AudioFormat) => boolean
     playbackStop: (audio: Audio) => boolean
@@ -703,11 +587,11 @@ export abstract class AudioInterface {
     static name: string
 }
 export class AudioSample {
-    /* Fields of GVnc.AudioSample */
+    /* Fields of GVnc-1.0.GVnc.AudioSample */
     data: number
     length: number
     capacity: number
-    /* Methods of GVnc.AudioSample */
+    /* Methods of GVnc-1.0.GVnc.AudioSample */
     copy(): AudioSample
     free(): void
     static name: string
@@ -717,7 +601,7 @@ export class AudioSample {
     static new(capacity: number): AudioSample
 }
 export abstract class BaseAudioClass {
-    /* Fields of GVnc.BaseAudioClass */
+    /* Fields of GVnc-1.0.GVnc.BaseAudioClass */
     parentClass: GObject.ObjectClass
     playbackStart: (audio: BaseAudio, format: AudioFormat) => boolean
     playbackStop: (audio: BaseAudio) => boolean
@@ -728,7 +612,7 @@ export class BaseAudioPrivate {
     static name: string
 }
 export abstract class BaseFramebufferClass {
-    /* Fields of GVnc.BaseFramebufferClass */
+    /* Fields of GVnc-1.0.GVnc.BaseFramebufferClass */
     parentClass: GObject.ObjectClass
     vncReserved: object[]
     static name: string
@@ -737,11 +621,11 @@ export class BaseFramebufferPrivate {
     static name: string
 }
 export class ColorMap {
-    /* Fields of GVnc.ColorMap */
+    /* Fields of GVnc-1.0.GVnc.ColorMap */
     offset: number
     size: number
     colors: ColorMapEntry
-    /* Methods of GVnc.ColorMap */
+    /* Methods of GVnc-1.0.GVnc.ColorMap */
     copy(): ColorMap
     free(): void
     lookup(idx: number, red: number, green: number, blue: number): boolean
@@ -753,14 +637,14 @@ export class ColorMap {
     static new(offset: number, size: number): ColorMap
 }
 export class ColorMapEntry {
-    /* Fields of GVnc.ColorMapEntry */
+    /* Fields of GVnc-1.0.GVnc.ColorMapEntry */
     red: number
     green: number
     blue: number
     static name: string
 }
 export abstract class ConnectionClass {
-    /* Fields of GVnc.ConnectionClass */
+    /* Fields of GVnc-1.0.GVnc.ConnectionClass */
     parentClass: GObject.ObjectClass
     vncCursorChanged: (conn: Connection, cursor: Cursor) => void
     vncPointerModeChanged: (conn: Connection, absPointer: boolean) => void
@@ -789,7 +673,7 @@ export class ConnectionPrivate {
     static name: string
 }
 export abstract class CursorClass {
-    /* Fields of GVnc.CursorClass */
+    /* Fields of GVnc-1.0.GVnc.CursorClass */
     parentClass: GObject.ObjectClass
     vncReserved: object[]
     static name: string
@@ -798,7 +682,7 @@ export class CursorPrivate {
     static name: string
 }
 export abstract class FramebufferInterface {
-    /* Fields of GVnc.FramebufferInterface */
+    /* Fields of GVnc-1.0.GVnc.FramebufferInterface */
     parent: GObject.TypeInterface
     getWidth: (fb: Framebuffer) => number
     getHeight: (fb: Framebuffer) => number
@@ -816,7 +700,7 @@ export abstract class FramebufferInterface {
     static name: string
 }
 export class PixelFormat {
-    /* Fields of GVnc.PixelFormat */
+    /* Fields of GVnc-1.0.GVnc.PixelFormat */
     bitsPerPixel: number
     depth: number
     byteOrder: number
@@ -827,7 +711,7 @@ export class PixelFormat {
     redShift: number
     greenShift: number
     blueShift: number
-    /* Methods of GVnc.PixelFormat */
+    /* Methods of GVnc-1.0.GVnc.PixelFormat */
     copy(): PixelFormat
     free(): void
     match(other: PixelFormat): boolean

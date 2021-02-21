@@ -303,10 +303,10 @@ export interface AudioRingBufferCallback {
     (rbuf: AudioRingBuffer, data: Uint8Array[]): void
 }
 export class StreamVolume {
-    /* Properties of GstAudio.StreamVolume */
+    /* Properties of GstAudio-1.0.GstAudio.StreamVolume */
     mute: boolean
     volume: number
-    /* Methods of GstAudio.StreamVolume */
+    /* Methods of GstAudio-1.0.GstAudio.StreamVolume */
     get_mute(): boolean
     get_volume(format: StreamVolumeFormat): number
     set_mute(mute: boolean): void
@@ -322,25 +322,25 @@ export interface AudioAggregator_ConstructProps extends GstBase.Aggregator_Const
     output_buffer_duration_fraction?: Gst.Fraction
 }
 export class AudioAggregator {
-    /* Properties of GstAudio.AudioAggregator */
+    /* Properties of GstAudio-1.0.GstAudio.AudioAggregator */
     alignment_threshold: number
     discont_wait: number
     output_buffer_duration: number
     output_buffer_duration_fraction: Gst.Fraction
-    /* Properties of GstBase.Aggregator */
+    /* Properties of GstBase-1.0.GstBase.Aggregator */
     emit_signals: boolean
     latency: number
     min_upstream_latency: number
     start_time: number
     start_time_selection: GstBase.AggregatorStartTimeSelection
-    /* Properties of Gst.Object */
+    /* Properties of Gst-1.0.Gst.Object */
     name: string
     parent: Gst.Object
-    /* Fields of GstAudio.AudioAggregator */
+    /* Fields of GstAudio-1.0.GstAudio.AudioAggregator */
     current_caps: Gst.Caps
-    /* Fields of GstBase.Aggregator */
+    /* Fields of GstBase-1.0.GstBase.Aggregator */
     srcpad: Gst.Pad
-    /* Fields of Gst.Element */
+    /* Fields of Gst-1.0.Gst.Element */
     object: Gst.Object
     state_lock: GLib.RecMutex
     state_cond: GLib.Cond
@@ -361,14 +361,14 @@ export class AudioAggregator {
     sinkpads: Gst.Pad[]
     pads_cookie: number
     contexts: Gst.Context[]
-    /* Fields of Gst.Object */
+    /* Fields of Gst-1.0.Gst.Object */
     lock: GLib.Mutex
     flags: number
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GstAudio.AudioAggregator */
+    /* Methods of GstAudio-1.0.GstAudio.AudioAggregator */
     set_sink_caps(pad: AudioAggregatorPad, caps: Gst.Caps): void
-    /* Methods of GstBase.Aggregator */
+    /* Methods of GstBase-1.0.GstBase.Aggregator */
     finish_buffer(buffer: Gst.Buffer): Gst.FlowReturn
     finish_buffer_list(bufferlist: Gst.BufferList): Gst.FlowReturn
     get_allocator(): [ /* allocator */ Gst.Allocator | null, /* params */ Gst.AllocationParams | null ]
@@ -381,7 +381,7 @@ export class AudioAggregator {
     set_src_caps(caps: Gst.Caps): void
     simple_get_next_time(): Gst.ClockTime
     update_segment(segment: Gst.Segment): void
-    /* Methods of Gst.Element */
+    /* Methods of Gst-1.0.Gst.Element */
     abort_state(): void
     add_pad(pad: Gst.Pad): boolean
     add_property_deep_notify_watch(property_name: string | null, include_value: boolean): number
@@ -447,7 +447,7 @@ export class AudioAggregator {
     sync_state_with_parent(): boolean
     unlink(dest: Gst.Element): void
     unlink_pads(srcpadname: string, dest: Gst.Element, destpadname: string): void
-    /* Methods of Gst.Object */
+    /* Methods of Gst-1.0.Gst.Object */
     add_control_binding(binding: Gst.ControlBinding): boolean
     default_error(error: GLib.Error, debug?: string | null): void
     get_control_binding(property_name: string): Gst.ControlBinding | null
@@ -472,7 +472,7 @@ export class AudioAggregator {
     sync_values(timestamp: Gst.ClockTime): boolean
     unparent(): void
     unref(): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -493,10 +493,10 @@ export class AudioAggregator {
     steal_qdata(quark: GLib.Quark): object | null
     thaw_notify(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GstAudio.AudioAggregator */
+    /* Virtual methods of GstAudio-1.0.GstAudio.AudioAggregator */
     vfunc_aggregate_one_buffer(pad: AudioAggregatorPad, inbuf: Gst.Buffer, in_offset: number, outbuf: Gst.Buffer, out_offset: number, num_frames: number): boolean
     vfunc_create_output_buffer(num_frames: number): Gst.Buffer
-    /* Virtual methods of GstBase.Aggregator */
+    /* Virtual methods of GstBase-1.0.GstBase.Aggregator */
     vfunc_aggregate(timeout: boolean): Gst.FlowReturn
     vfunc_clip(aggregator_pad: GstBase.AggregatorPad, buf: Gst.Buffer): Gst.Buffer
     vfunc_decide_allocation(query: Gst.Query): boolean
@@ -519,7 +519,7 @@ export class AudioAggregator {
     vfunc_start(): boolean
     vfunc_stop(): boolean
     vfunc_update_src_caps(caps: Gst.Caps): [ /* returnType */ Gst.FlowReturn, /* ret */ Gst.Caps | null ]
-    /* Virtual methods of Gst.Element */
+    /* Virtual methods of Gst-1.0.Gst.Element */
     vfunc_change_state(transition: Gst.StateChange): Gst.StateChangeReturn
     vfunc_get_state(timeout: Gst.ClockTime): [ /* returnType */ Gst.StateChangeReturn, /* state */ Gst.State | null, /* pending */ Gst.State | null ]
     vfunc_no_more_pads(): void
@@ -536,9 +536,9 @@ export class AudioAggregator {
     vfunc_set_context(context: Gst.Context): void
     vfunc_set_state(state: Gst.State): Gst.StateChangeReturn
     vfunc_state_changed(oldstate: Gst.State, newstate: Gst.State, pending: Gst.State): void
-    /* Virtual methods of Gst.Object */
+    /* Virtual methods of Gst-1.0.Gst.Object */
     vfunc_deep_notify(orig: Gst.Object, pspec: GObject.ParamSpec): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -546,11 +546,11 @@ export class AudioAggregator {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GstBase.Aggregator */
+    /* Signals of GstBase-1.0.GstBase.Aggregator */
     connect(sigName: "samples-selected", callback: (($obj: AudioAggregator, segment: Gst.Segment, pts: number, dts: number, duration: number, info?: Gst.Structure | null) => void)): number
     connect_after(sigName: "samples-selected", callback: (($obj: AudioAggregator, segment: Gst.Segment, pts: number, dts: number, duration: number, info?: Gst.Structure | null) => void)): number
     emit(sigName: "samples-selected", segment: Gst.Segment, pts: number, dts: number, duration: number, info?: Gst.Structure | null): void
-    /* Signals of Gst.Element */
+    /* Signals of Gst-1.0.Gst.Element */
     connect(sigName: "no-more-pads", callback: (($obj: AudioAggregator) => void)): number
     connect_after(sigName: "no-more-pads", callback: (($obj: AudioAggregator) => void)): number
     emit(sigName: "no-more-pads"): void
@@ -560,11 +560,11 @@ export class AudioAggregator {
     connect(sigName: "pad-removed", callback: (($obj: AudioAggregator, old_pad: Gst.Pad) => void)): number
     connect_after(sigName: "pad-removed", callback: (($obj: AudioAggregator, old_pad: Gst.Pad) => void)): number
     emit(sigName: "pad-removed", old_pad: Gst.Pad): void
-    /* Signals of Gst.Object */
+    /* Signals of Gst-1.0.Gst.Object */
     connect(sigName: "deep-notify", callback: (($obj: AudioAggregator, prop_object: Gst.Object, prop: GObject.ParamSpec) => void)): number
     connect_after(sigName: "deep-notify", callback: (($obj: AudioAggregator, prop_object: Gst.Object, prop: GObject.ParamSpec) => void)): number
     emit(sigName: "deep-notify", prop_object: Gst.Object, prop: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: AudioAggregator, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: AudioAggregator, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -603,38 +603,38 @@ export interface AudioAggregatorConvertPad_ConstructProps extends AudioAggregato
     converter_config?: Gst.Structure
 }
 export class AudioAggregatorConvertPad {
-    /* Properties of GstAudio.AudioAggregatorConvertPad */
+    /* Properties of GstAudio-1.0.GstAudio.AudioAggregatorConvertPad */
     converter_config: Gst.Structure
-    /* Properties of GstBase.AggregatorPad */
+    /* Properties of GstBase-1.0.GstBase.AggregatorPad */
     emit_signals: boolean
-    /* Properties of Gst.Pad */
+    /* Properties of Gst-1.0.Gst.Pad */
     readonly caps: Gst.Caps
     offset: number
     template: Gst.PadTemplate
-    /* Properties of Gst.Object */
+    /* Properties of Gst-1.0.Gst.Object */
     name: string
     parent: Gst.Object
-    /* Fields of GstAudio.AudioAggregatorPad */
+    /* Fields of GstAudio-1.0.GstAudio.AudioAggregatorPad */
     info: AudioInfo
-    /* Fields of GstBase.AggregatorPad */
+    /* Fields of GstBase-1.0.GstBase.AggregatorPad */
     segment: Gst.Segment
-    /* Fields of Gst.Pad */
+    /* Fields of Gst-1.0.Gst.Pad */
     object: Gst.Object
     element_private: object
     padtemplate: Gst.PadTemplate
     direction: Gst.PadDirection
-    /* Fields of Gst.Object */
+    /* Fields of Gst-1.0.Gst.Object */
     lock: GLib.Mutex
     flags: number
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GstBase.AggregatorPad */
+    /* Methods of GstBase-1.0.GstBase.AggregatorPad */
     drop_buffer(): boolean
     has_buffer(): boolean
     is_eos(): boolean
     peek_buffer(): Gst.Buffer | null
     pop_buffer(): Gst.Buffer | null
-    /* Methods of Gst.Pad */
+    /* Methods of Gst-1.0.Gst.Pad */
     activate_mode(mode: Gst.PadMode, active: boolean): boolean
     add_probe(mask: Gst.PadProbeType, callback: Gst.PadProbeCallback): number
     can_link(sinkpad: Gst.Pad): boolean
@@ -715,7 +715,7 @@ export class AudioAggregatorConvertPad {
     store_sticky_event(event: Gst.Event): Gst.FlowReturn
     unlink(sinkpad: Gst.Pad): boolean
     use_fixed_caps(): void
-    /* Methods of Gst.Object */
+    /* Methods of Gst-1.0.Gst.Object */
     add_control_binding(binding: Gst.ControlBinding): boolean
     default_error(error: GLib.Error, debug?: string | null): void
     get_control_binding(property_name: string): Gst.ControlBinding | null
@@ -740,7 +740,7 @@ export class AudioAggregatorConvertPad {
     sync_values(timestamp: Gst.ClockTime): boolean
     unparent(): void
     unref(): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -761,18 +761,18 @@ export class AudioAggregatorConvertPad {
     steal_qdata(quark: GLib.Quark): object | null
     thaw_notify(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GstAudio.AudioAggregatorPad */
+    /* Virtual methods of GstAudio-1.0.GstAudio.AudioAggregatorPad */
     vfunc_convert_buffer(in_info: AudioInfo, out_info: AudioInfo, buffer: Gst.Buffer): Gst.Buffer
     vfunc_update_conversion_info(): void
-    /* Virtual methods of GstBase.AggregatorPad */
+    /* Virtual methods of GstBase-1.0.GstBase.AggregatorPad */
     vfunc_flush(aggregator: GstBase.Aggregator): Gst.FlowReturn
     vfunc_skip_buffer(aggregator: GstBase.Aggregator, buffer: Gst.Buffer): boolean
-    /* Virtual methods of Gst.Pad */
+    /* Virtual methods of Gst-1.0.Gst.Pad */
     vfunc_linked(peer: Gst.Pad): void
     vfunc_unlinked(peer: Gst.Pad): void
-    /* Virtual methods of Gst.Object */
+    /* Virtual methods of Gst-1.0.Gst.Object */
     vfunc_deep_notify(orig: Gst.Object, pspec: GObject.ParamSpec): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -780,22 +780,22 @@ export class AudioAggregatorConvertPad {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GstBase.AggregatorPad */
+    /* Signals of GstBase-1.0.GstBase.AggregatorPad */
     connect(sigName: "buffer-consumed", callback: (($obj: AudioAggregatorConvertPad, object: Gst.Buffer) => void)): number
     connect_after(sigName: "buffer-consumed", callback: (($obj: AudioAggregatorConvertPad, object: Gst.Buffer) => void)): number
     emit(sigName: "buffer-consumed", object: Gst.Buffer): void
-    /* Signals of Gst.Pad */
+    /* Signals of Gst-1.0.Gst.Pad */
     connect(sigName: "linked", callback: (($obj: AudioAggregatorConvertPad, peer: Gst.Pad) => void)): number
     connect_after(sigName: "linked", callback: (($obj: AudioAggregatorConvertPad, peer: Gst.Pad) => void)): number
     emit(sigName: "linked", peer: Gst.Pad): void
     connect(sigName: "unlinked", callback: (($obj: AudioAggregatorConvertPad, peer: Gst.Pad) => void)): number
     connect_after(sigName: "unlinked", callback: (($obj: AudioAggregatorConvertPad, peer: Gst.Pad) => void)): number
     emit(sigName: "unlinked", peer: Gst.Pad): void
-    /* Signals of Gst.Object */
+    /* Signals of Gst-1.0.Gst.Object */
     connect(sigName: "deep-notify", callback: (($obj: AudioAggregatorConvertPad, prop_object: Gst.Object, prop: GObject.ParamSpec) => void)): number
     connect_after(sigName: "deep-notify", callback: (($obj: AudioAggregatorConvertPad, prop_object: Gst.Object, prop: GObject.ParamSpec) => void)): number
     emit(sigName: "deep-notify", prop_object: Gst.Object, prop: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: AudioAggregatorConvertPad, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: AudioAggregatorConvertPad, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -825,36 +825,36 @@ export class AudioAggregatorConvertPad {
 export interface AudioAggregatorPad_ConstructProps extends GstBase.AggregatorPad_ConstructProps {
 }
 export class AudioAggregatorPad {
-    /* Properties of GstBase.AggregatorPad */
+    /* Properties of GstBase-1.0.GstBase.AggregatorPad */
     emit_signals: boolean
-    /* Properties of Gst.Pad */
+    /* Properties of Gst-1.0.Gst.Pad */
     readonly caps: Gst.Caps
     offset: number
     template: Gst.PadTemplate
-    /* Properties of Gst.Object */
+    /* Properties of Gst-1.0.Gst.Object */
     name: string
     parent: Gst.Object
-    /* Fields of GstAudio.AudioAggregatorPad */
+    /* Fields of GstAudio-1.0.GstAudio.AudioAggregatorPad */
     info: AudioInfo
-    /* Fields of GstBase.AggregatorPad */
+    /* Fields of GstBase-1.0.GstBase.AggregatorPad */
     segment: Gst.Segment
-    /* Fields of Gst.Pad */
+    /* Fields of Gst-1.0.Gst.Pad */
     object: Gst.Object
     element_private: object
     padtemplate: Gst.PadTemplate
     direction: Gst.PadDirection
-    /* Fields of Gst.Object */
+    /* Fields of Gst-1.0.Gst.Object */
     lock: GLib.Mutex
     flags: number
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GstBase.AggregatorPad */
+    /* Methods of GstBase-1.0.GstBase.AggregatorPad */
     drop_buffer(): boolean
     has_buffer(): boolean
     is_eos(): boolean
     peek_buffer(): Gst.Buffer | null
     pop_buffer(): Gst.Buffer | null
-    /* Methods of Gst.Pad */
+    /* Methods of Gst-1.0.Gst.Pad */
     activate_mode(mode: Gst.PadMode, active: boolean): boolean
     add_probe(mask: Gst.PadProbeType, callback: Gst.PadProbeCallback): number
     can_link(sinkpad: Gst.Pad): boolean
@@ -935,7 +935,7 @@ export class AudioAggregatorPad {
     store_sticky_event(event: Gst.Event): Gst.FlowReturn
     unlink(sinkpad: Gst.Pad): boolean
     use_fixed_caps(): void
-    /* Methods of Gst.Object */
+    /* Methods of Gst-1.0.Gst.Object */
     add_control_binding(binding: Gst.ControlBinding): boolean
     default_error(error: GLib.Error, debug?: string | null): void
     get_control_binding(property_name: string): Gst.ControlBinding | null
@@ -960,7 +960,7 @@ export class AudioAggregatorPad {
     sync_values(timestamp: Gst.ClockTime): boolean
     unparent(): void
     unref(): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -981,18 +981,18 @@ export class AudioAggregatorPad {
     steal_qdata(quark: GLib.Quark): object | null
     thaw_notify(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GstAudio.AudioAggregatorPad */
+    /* Virtual methods of GstAudio-1.0.GstAudio.AudioAggregatorPad */
     vfunc_convert_buffer(in_info: AudioInfo, out_info: AudioInfo, buffer: Gst.Buffer): Gst.Buffer
     vfunc_update_conversion_info(): void
-    /* Virtual methods of GstBase.AggregatorPad */
+    /* Virtual methods of GstBase-1.0.GstBase.AggregatorPad */
     vfunc_flush(aggregator: GstBase.Aggregator): Gst.FlowReturn
     vfunc_skip_buffer(aggregator: GstBase.Aggregator, buffer: Gst.Buffer): boolean
-    /* Virtual methods of Gst.Pad */
+    /* Virtual methods of Gst-1.0.Gst.Pad */
     vfunc_linked(peer: Gst.Pad): void
     vfunc_unlinked(peer: Gst.Pad): void
-    /* Virtual methods of Gst.Object */
+    /* Virtual methods of Gst-1.0.Gst.Object */
     vfunc_deep_notify(orig: Gst.Object, pspec: GObject.ParamSpec): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -1000,22 +1000,22 @@ export class AudioAggregatorPad {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GstBase.AggregatorPad */
+    /* Signals of GstBase-1.0.GstBase.AggregatorPad */
     connect(sigName: "buffer-consumed", callback: (($obj: AudioAggregatorPad, object: Gst.Buffer) => void)): number
     connect_after(sigName: "buffer-consumed", callback: (($obj: AudioAggregatorPad, object: Gst.Buffer) => void)): number
     emit(sigName: "buffer-consumed", object: Gst.Buffer): void
-    /* Signals of Gst.Pad */
+    /* Signals of Gst-1.0.Gst.Pad */
     connect(sigName: "linked", callback: (($obj: AudioAggregatorPad, peer: Gst.Pad) => void)): number
     connect_after(sigName: "linked", callback: (($obj: AudioAggregatorPad, peer: Gst.Pad) => void)): number
     emit(sigName: "linked", peer: Gst.Pad): void
     connect(sigName: "unlinked", callback: (($obj: AudioAggregatorPad, peer: Gst.Pad) => void)): number
     connect_after(sigName: "unlinked", callback: (($obj: AudioAggregatorPad, peer: Gst.Pad) => void)): number
     emit(sigName: "unlinked", peer: Gst.Pad): void
-    /* Signals of Gst.Object */
+    /* Signals of Gst-1.0.Gst.Object */
     connect(sigName: "deep-notify", callback: (($obj: AudioAggregatorPad, prop_object: Gst.Object, prop: GObject.ParamSpec) => void)): number
     connect_after(sigName: "deep-notify", callback: (($obj: AudioAggregatorPad, prop_object: Gst.Object, prop: GObject.ParamSpec) => void)): number
     emit(sigName: "deep-notify", prop_object: Gst.Object, prop: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: AudioAggregatorPad, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: AudioAggregatorPad, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -1051,7 +1051,7 @@ export interface AudioBaseSink_ConstructProps extends GstBase.BaseSink_Construct
     slave_method?: AudioBaseSinkSlaveMethod
 }
 export class AudioBaseSink {
-    /* Properties of GstAudio.AudioBaseSink */
+    /* Properties of GstAudio-1.0.GstAudio.AudioBaseSink */
     alignment_threshold: number
     buffer_time: number
     can_activate_pull: boolean
@@ -1060,7 +1060,7 @@ export class AudioBaseSink {
     latency_time: number
     provide_clock: boolean
     slave_method: AudioBaseSinkSlaveMethod
-    /* Properties of GstBase.BaseSink */
+    /* Properties of GstBase-1.0.GstBase.BaseSink */
     async: boolean
     blocksize: number
     enable_last_sample: boolean
@@ -1074,16 +1074,16 @@ export class AudioBaseSink {
     sync: boolean
     throttle_time: number
     ts_offset: number
-    /* Properties of Gst.Object */
+    /* Properties of Gst-1.0.Gst.Object */
     name: string
     parent: Gst.Object
-    /* Fields of GstAudio.AudioBaseSink */
+    /* Fields of GstAudio-1.0.GstAudio.AudioBaseSink */
     element: GstBase.BaseSink
     ringbuffer: AudioRingBuffer
     next_sample: number
     provided_clock: Gst.Clock
     eos_rendering: boolean
-    /* Fields of GstBase.BaseSink */
+    /* Fields of GstBase-1.0.GstBase.BaseSink */
     sinkpad: Gst.Pad
     pad_mode: Gst.PadMode
     offset: number
@@ -1096,7 +1096,7 @@ export class AudioBaseSink {
     playing_async: boolean
     have_newsegment: boolean
     segment: Gst.Segment
-    /* Fields of Gst.Element */
+    /* Fields of Gst-1.0.Gst.Element */
     object: Gst.Object
     state_lock: GLib.RecMutex
     state_cond: GLib.Cond
@@ -1118,12 +1118,12 @@ export class AudioBaseSink {
     sinkpads: Gst.Pad[]
     pads_cookie: number
     contexts: Gst.Context[]
-    /* Fields of Gst.Object */
+    /* Fields of Gst-1.0.Gst.Object */
     lock: GLib.Mutex
     flags: number
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GstAudio.AudioBaseSink */
+    /* Methods of GstAudio-1.0.GstAudio.AudioBaseSink */
     create_ringbuffer(): AudioRingBuffer
     get_alignment_threshold(): Gst.ClockTime
     get_discont_wait(): Gst.ClockTime
@@ -1137,7 +1137,7 @@ export class AudioBaseSink {
     set_drift_tolerance(drift_tolerance: number): void
     set_provide_clock(provide: boolean): void
     set_slave_method(method: AudioBaseSinkSlaveMethod): void
-    /* Methods of GstBase.BaseSink */
+    /* Methods of GstBase-1.0.GstBase.BaseSink */
     do_preroll(obj: Gst.MiniObject): Gst.FlowReturn
     get_blocksize(): number
     get_drop_out_of_segment(): boolean
@@ -1170,7 +1170,7 @@ export class AudioBaseSink {
     wait(time: Gst.ClockTime): [ /* returnType */ Gst.FlowReturn, /* jitter */ Gst.ClockTimeDiff | null ]
     wait_clock(time: Gst.ClockTime): [ /* returnType */ Gst.ClockReturn, /* jitter */ Gst.ClockTimeDiff | null ]
     wait_preroll(): Gst.FlowReturn
-    /* Methods of Gst.Element */
+    /* Methods of Gst-1.0.Gst.Element */
     abort_state(): void
     add_pad(pad: Gst.Pad): boolean
     add_property_deep_notify_watch(property_name: string | null, include_value: boolean): number
@@ -1235,7 +1235,7 @@ export class AudioBaseSink {
     sync_state_with_parent(): boolean
     unlink(dest: Gst.Element): void
     unlink_pads(srcpadname: string, dest: Gst.Element, destpadname: string): void
-    /* Methods of Gst.Object */
+    /* Methods of Gst-1.0.Gst.Object */
     add_control_binding(binding: Gst.ControlBinding): boolean
     default_error(error: GLib.Error, debug?: string | null): void
     get_control_binding(property_name: string): Gst.ControlBinding | null
@@ -1260,7 +1260,7 @@ export class AudioBaseSink {
     sync_values(timestamp: Gst.ClockTime): boolean
     unparent(): void
     unref(): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -1281,10 +1281,10 @@ export class AudioBaseSink {
     steal_qdata(quark: GLib.Quark): object | null
     thaw_notify(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GstAudio.AudioBaseSink */
+    /* Virtual methods of GstAudio-1.0.GstAudio.AudioBaseSink */
     vfunc_create_ringbuffer(): AudioRingBuffer
     vfunc_payload(buffer: Gst.Buffer): Gst.Buffer
-    /* Virtual methods of GstBase.BaseSink */
+    /* Virtual methods of GstBase-1.0.GstBase.BaseSink */
     vfunc_activate_pull(active: boolean): boolean
     vfunc_event(event: Gst.Event): boolean
     vfunc_fixate(caps: Gst.Caps): Gst.Caps
@@ -1303,7 +1303,7 @@ export class AudioBaseSink {
     vfunc_unlock(): boolean
     vfunc_unlock_stop(): boolean
     vfunc_wait_event(event: Gst.Event): Gst.FlowReturn
-    /* Virtual methods of Gst.Element */
+    /* Virtual methods of Gst-1.0.Gst.Element */
     vfunc_change_state(transition: Gst.StateChange): Gst.StateChangeReturn
     vfunc_get_state(timeout: Gst.ClockTime): [ /* returnType */ Gst.StateChangeReturn, /* state */ Gst.State | null, /* pending */ Gst.State | null ]
     vfunc_no_more_pads(): void
@@ -1320,9 +1320,9 @@ export class AudioBaseSink {
     vfunc_set_context(context: Gst.Context): void
     vfunc_set_state(state: Gst.State): Gst.StateChangeReturn
     vfunc_state_changed(oldstate: Gst.State, newstate: Gst.State, pending: Gst.State): void
-    /* Virtual methods of Gst.Object */
+    /* Virtual methods of Gst-1.0.Gst.Object */
     vfunc_deep_notify(orig: Gst.Object, pspec: GObject.ParamSpec): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -1330,7 +1330,7 @@ export class AudioBaseSink {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gst.Element */
+    /* Signals of Gst-1.0.Gst.Element */
     connect(sigName: "no-more-pads", callback: (($obj: AudioBaseSink) => void)): number
     connect_after(sigName: "no-more-pads", callback: (($obj: AudioBaseSink) => void)): number
     emit(sigName: "no-more-pads"): void
@@ -1340,11 +1340,11 @@ export class AudioBaseSink {
     connect(sigName: "pad-removed", callback: (($obj: AudioBaseSink, old_pad: Gst.Pad) => void)): number
     connect_after(sigName: "pad-removed", callback: (($obj: AudioBaseSink, old_pad: Gst.Pad) => void)): number
     emit(sigName: "pad-removed", old_pad: Gst.Pad): void
-    /* Signals of Gst.Object */
+    /* Signals of Gst-1.0.Gst.Object */
     connect(sigName: "deep-notify", callback: (($obj: AudioBaseSink, prop_object: Gst.Object, prop: GObject.ParamSpec) => void)): number
     connect_after(sigName: "deep-notify", callback: (($obj: AudioBaseSink, prop_object: Gst.Object, prop: GObject.ParamSpec) => void)): number
     emit(sigName: "deep-notify", prop_object: Gst.Object, prop: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: AudioBaseSink, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: AudioBaseSink, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -1410,27 +1410,27 @@ export interface AudioBaseSrc_ConstructProps extends GstBase.PushSrc_ConstructPr
     slave_method?: AudioBaseSrcSlaveMethod
 }
 export class AudioBaseSrc {
-    /* Properties of GstAudio.AudioBaseSrc */
+    /* Properties of GstAudio-1.0.GstAudio.AudioBaseSrc */
     readonly actual_buffer_time: number
     readonly actual_latency_time: number
     buffer_time: number
     latency_time: number
     provide_clock: boolean
     slave_method: AudioBaseSrcSlaveMethod
-    /* Properties of GstBase.BaseSrc */
+    /* Properties of GstBase-1.0.GstBase.BaseSrc */
     blocksize: number
     do_timestamp: boolean
     num_buffers: number
     typefind: boolean
-    /* Properties of Gst.Object */
+    /* Properties of Gst-1.0.Gst.Object */
     name: string
     parent: Gst.Object
-    /* Fields of GstAudio.AudioBaseSrc */
+    /* Fields of GstAudio-1.0.GstAudio.AudioBaseSrc */
     element: GstBase.PushSrc
     ringbuffer: AudioRingBuffer
     next_sample: number
     clock: Gst.Clock
-    /* Fields of GstBase.BaseSrc */
+    /* Fields of GstBase-1.0.GstBase.BaseSrc */
     srcpad: Gst.Pad
     live_lock: GLib.Mutex
     live_cond: GLib.Cond
@@ -1445,7 +1445,7 @@ export class AudioBaseSrc {
     running: boolean
     pending_seek: Gst.Event
     priv: GstBase.BaseSrcPrivate
-    /* Fields of Gst.Element */
+    /* Fields of Gst-1.0.Gst.Element */
     object: Gst.Object
     state_lock: GLib.RecMutex
     state_cond: GLib.Cond
@@ -1466,18 +1466,18 @@ export class AudioBaseSrc {
     sinkpads: Gst.Pad[]
     pads_cookie: number
     contexts: Gst.Context[]
-    /* Fields of Gst.Object */
+    /* Fields of Gst-1.0.Gst.Object */
     lock: GLib.Mutex
     flags: number
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GstAudio.AudioBaseSrc */
+    /* Methods of GstAudio-1.0.GstAudio.AudioBaseSrc */
     create_ringbuffer(): AudioRingBuffer
     get_provide_clock(): boolean
     get_slave_method(): AudioBaseSrcSlaveMethod
     set_provide_clock(provide: boolean): void
     set_slave_method(method: AudioBaseSrcSlaveMethod): void
-    /* Methods of GstBase.BaseSrc */
+    /* Methods of GstBase-1.0.GstBase.BaseSrc */
     get_allocator(): [ /* allocator */ Gst.Allocator | null, /* params */ Gst.AllocationParams | null ]
     get_blocksize(): number
     get_buffer_pool(): Gst.BufferPool | null
@@ -1499,7 +1499,7 @@ export class AudioBaseSrc {
     start_wait(): Gst.FlowReturn
     submit_buffer_list(buffer_list: Gst.BufferList): void
     wait_playing(): Gst.FlowReturn
-    /* Methods of Gst.Element */
+    /* Methods of Gst-1.0.Gst.Element */
     abort_state(): void
     add_pad(pad: Gst.Pad): boolean
     add_property_deep_notify_watch(property_name: string | null, include_value: boolean): number
@@ -1564,7 +1564,7 @@ export class AudioBaseSrc {
     sync_state_with_parent(): boolean
     unlink(dest: Gst.Element): void
     unlink_pads(srcpadname: string, dest: Gst.Element, destpadname: string): void
-    /* Methods of Gst.Object */
+    /* Methods of Gst-1.0.Gst.Object */
     add_control_binding(binding: Gst.ControlBinding): boolean
     default_error(error: GLib.Error, debug?: string | null): void
     get_control_binding(property_name: string): Gst.ControlBinding | null
@@ -1589,7 +1589,7 @@ export class AudioBaseSrc {
     sync_values(timestamp: Gst.ClockTime): boolean
     unparent(): void
     unref(): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -1610,7 +1610,7 @@ export class AudioBaseSrc {
     steal_qdata(quark: GLib.Quark): object | null
     thaw_notify(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GstAudio.AudioBaseSrc */
+    /* Virtual methods of GstAudio-1.0.GstAudio.AudioBaseSrc */
     vfunc_create_ringbuffer(): AudioRingBuffer
     vfunc_alloc(buf: Gst.Buffer): Gst.FlowReturn
     vfunc_alloc(offset: number, size: number, buf: Gst.Buffer): Gst.FlowReturn
@@ -1618,14 +1618,14 @@ export class AudioBaseSrc {
     vfunc_create(offset: number, size: number): [ /* returnType */ Gst.FlowReturn, /* buf */ Gst.Buffer ]
     vfunc_fill(buf: Gst.Buffer): Gst.FlowReturn
     vfunc_fill(offset: number, size: number, buf: Gst.Buffer): Gst.FlowReturn
-    /* Virtual methods of GstBase.PushSrc */
+    /* Virtual methods of GstBase-1.0.GstBase.PushSrc */
     vfunc_alloc(buf: Gst.Buffer): Gst.FlowReturn
     vfunc_alloc(offset: number, size: number, buf: Gst.Buffer): Gst.FlowReturn
     vfunc_create(buf: Gst.Buffer): Gst.FlowReturn
     vfunc_create(offset: number, size: number): [ /* returnType */ Gst.FlowReturn, /* buf */ Gst.Buffer ]
     vfunc_fill(buf: Gst.Buffer): Gst.FlowReturn
     vfunc_fill(offset: number, size: number, buf: Gst.Buffer): Gst.FlowReturn
-    /* Virtual methods of GstBase.BaseSrc */
+    /* Virtual methods of GstBase-1.0.GstBase.BaseSrc */
     vfunc_alloc(offset: number, size: number, buf: Gst.Buffer): Gst.FlowReturn
     vfunc_create(offset: number, size: number): [ /* returnType */ Gst.FlowReturn, /* buf */ Gst.Buffer ]
     vfunc_decide_allocation(query: Gst.Query): boolean
@@ -1645,7 +1645,7 @@ export class AudioBaseSrc {
     vfunc_stop(): boolean
     vfunc_unlock(): boolean
     vfunc_unlock_stop(): boolean
-    /* Virtual methods of Gst.Element */
+    /* Virtual methods of Gst-1.0.Gst.Element */
     vfunc_change_state(transition: Gst.StateChange): Gst.StateChangeReturn
     vfunc_get_state(timeout: Gst.ClockTime): [ /* returnType */ Gst.StateChangeReturn, /* state */ Gst.State | null, /* pending */ Gst.State | null ]
     vfunc_no_more_pads(): void
@@ -1662,9 +1662,9 @@ export class AudioBaseSrc {
     vfunc_set_context(context: Gst.Context): void
     vfunc_set_state(state: Gst.State): Gst.StateChangeReturn
     vfunc_state_changed(oldstate: Gst.State, newstate: Gst.State, pending: Gst.State): void
-    /* Virtual methods of Gst.Object */
+    /* Virtual methods of Gst-1.0.Gst.Object */
     vfunc_deep_notify(orig: Gst.Object, pspec: GObject.ParamSpec): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -1672,7 +1672,7 @@ export class AudioBaseSrc {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gst.Element */
+    /* Signals of Gst-1.0.Gst.Element */
     connect(sigName: "no-more-pads", callback: (($obj: AudioBaseSrc) => void)): number
     connect_after(sigName: "no-more-pads", callback: (($obj: AudioBaseSrc) => void)): number
     emit(sigName: "no-more-pads"): void
@@ -1682,11 +1682,11 @@ export class AudioBaseSrc {
     connect(sigName: "pad-removed", callback: (($obj: AudioBaseSrc, old_pad: Gst.Pad) => void)): number
     connect_after(sigName: "pad-removed", callback: (($obj: AudioBaseSrc, old_pad: Gst.Pad) => void)): number
     emit(sigName: "pad-removed", old_pad: Gst.Pad): void
-    /* Signals of Gst.Object */
+    /* Signals of Gst-1.0.Gst.Object */
     connect(sigName: "deep-notify", callback: (($obj: AudioBaseSrc, prop_object: Gst.Object, prop: GObject.ParamSpec) => void)): number
     connect_after(sigName: "deep-notify", callback: (($obj: AudioBaseSrc, prop_object: Gst.Object, prop: GObject.ParamSpec) => void)): number
     emit(sigName: "deep-notify", prop_object: Gst.Object, prop: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: AudioBaseSrc, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: AudioBaseSrc, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -1729,22 +1729,22 @@ export interface AudioCdSrc_ConstructProps extends GstBase.PushSrc_ConstructProp
     track?: number
 }
 export class AudioCdSrc {
-    /* Properties of GstAudio.AudioCdSrc */
+    /* Properties of GstAudio-1.0.GstAudio.AudioCdSrc */
     device: string
     mode: AudioCdSrcMode
     track: number
-    /* Properties of GstBase.BaseSrc */
+    /* Properties of GstBase-1.0.GstBase.BaseSrc */
     blocksize: number
     do_timestamp: boolean
     num_buffers: number
     typefind: boolean
-    /* Properties of Gst.Object */
+    /* Properties of Gst-1.0.Gst.Object */
     name: string
     parent: Gst.Object
-    /* Fields of GstAudio.AudioCdSrc */
+    /* Fields of GstAudio-1.0.GstAudio.AudioCdSrc */
     pushsrc: GstBase.PushSrc
     tags: Gst.TagList
-    /* Fields of GstBase.BaseSrc */
+    /* Fields of GstBase-1.0.GstBase.BaseSrc */
     element: Gst.Element
     srcpad: Gst.Pad
     live_lock: GLib.Mutex
@@ -1760,7 +1760,7 @@ export class AudioCdSrc {
     running: boolean
     pending_seek: Gst.Event
     priv: GstBase.BaseSrcPrivate
-    /* Fields of Gst.Element */
+    /* Fields of Gst-1.0.Gst.Element */
     object: Gst.Object
     state_lock: GLib.RecMutex
     state_cond: GLib.Cond
@@ -1782,14 +1782,14 @@ export class AudioCdSrc {
     sinkpads: Gst.Pad[]
     pads_cookie: number
     contexts: Gst.Context[]
-    /* Fields of Gst.Object */
+    /* Fields of Gst-1.0.Gst.Object */
     lock: GLib.Mutex
     flags: number
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GstAudio.AudioCdSrc */
+    /* Methods of GstAudio-1.0.GstAudio.AudioCdSrc */
     add_track(track: AudioCdSrcTrack): boolean
-    /* Methods of GstBase.BaseSrc */
+    /* Methods of GstBase-1.0.GstBase.BaseSrc */
     get_allocator(): [ /* allocator */ Gst.Allocator | null, /* params */ Gst.AllocationParams | null ]
     get_blocksize(): number
     get_buffer_pool(): Gst.BufferPool | null
@@ -1811,7 +1811,7 @@ export class AudioCdSrc {
     start_wait(): Gst.FlowReturn
     submit_buffer_list(buffer_list: Gst.BufferList): void
     wait_playing(): Gst.FlowReturn
-    /* Methods of Gst.Element */
+    /* Methods of Gst-1.0.Gst.Element */
     abort_state(): void
     add_pad(pad: Gst.Pad): boolean
     add_property_deep_notify_watch(property_name: string | null, include_value: boolean): number
@@ -1877,7 +1877,7 @@ export class AudioCdSrc {
     sync_state_with_parent(): boolean
     unlink(dest: Gst.Element): void
     unlink_pads(srcpadname: string, dest: Gst.Element, destpadname: string): void
-    /* Methods of Gst.Object */
+    /* Methods of Gst-1.0.Gst.Object */
     add_control_binding(binding: Gst.ControlBinding): boolean
     default_error(error: GLib.Error, debug?: string | null): void
     get_control_binding(property_name: string): Gst.ControlBinding | null
@@ -1902,7 +1902,7 @@ export class AudioCdSrc {
     sync_values(timestamp: Gst.ClockTime): boolean
     unparent(): void
     unref(): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -1923,12 +1923,12 @@ export class AudioCdSrc {
     steal_qdata(quark: GLib.Quark): object | null
     thaw_notify(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of Gst.URIHandler */
+    /* Methods of Gst-1.0.Gst.URIHandler */
     get_protocols(): string[] | null
     get_uri(): string | null
     get_uri_type(): Gst.URIType
     set_uri(uri: string): boolean
-    /* Virtual methods of GstAudio.AudioCdSrc */
+    /* Virtual methods of GstAudio-1.0.GstAudio.AudioCdSrc */
     vfunc_close(): void
     vfunc_open(device: string): boolean
     vfunc_read_sector(sector: number): Gst.Buffer
@@ -1940,14 +1940,14 @@ export class AudioCdSrc {
     vfunc_create(offset: number, size: number): [ /* returnType */ Gst.FlowReturn, /* buf */ Gst.Buffer ]
     vfunc_fill(buf: Gst.Buffer): Gst.FlowReturn
     vfunc_fill(offset: number, size: number, buf: Gst.Buffer): Gst.FlowReturn
-    /* Virtual methods of GstBase.PushSrc */
+    /* Virtual methods of GstBase-1.0.GstBase.PushSrc */
     vfunc_alloc(buf: Gst.Buffer): Gst.FlowReturn
     vfunc_alloc(offset: number, size: number, buf: Gst.Buffer): Gst.FlowReturn
     vfunc_create(buf: Gst.Buffer): Gst.FlowReturn
     vfunc_create(offset: number, size: number): [ /* returnType */ Gst.FlowReturn, /* buf */ Gst.Buffer ]
     vfunc_fill(buf: Gst.Buffer): Gst.FlowReturn
     vfunc_fill(offset: number, size: number, buf: Gst.Buffer): Gst.FlowReturn
-    /* Virtual methods of GstBase.BaseSrc */
+    /* Virtual methods of GstBase-1.0.GstBase.BaseSrc */
     vfunc_alloc(offset: number, size: number, buf: Gst.Buffer): Gst.FlowReturn
     vfunc_create(offset: number, size: number): [ /* returnType */ Gst.FlowReturn, /* buf */ Gst.Buffer ]
     vfunc_decide_allocation(query: Gst.Query): boolean
@@ -1967,7 +1967,7 @@ export class AudioCdSrc {
     vfunc_stop(): boolean
     vfunc_unlock(): boolean
     vfunc_unlock_stop(): boolean
-    /* Virtual methods of Gst.Element */
+    /* Virtual methods of Gst-1.0.Gst.Element */
     vfunc_change_state(transition: Gst.StateChange): Gst.StateChangeReturn
     vfunc_get_state(timeout: Gst.ClockTime): [ /* returnType */ Gst.StateChangeReturn, /* state */ Gst.State | null, /* pending */ Gst.State | null ]
     vfunc_no_more_pads(): void
@@ -1984,9 +1984,9 @@ export class AudioCdSrc {
     vfunc_set_context(context: Gst.Context): void
     vfunc_set_state(state: Gst.State): Gst.StateChangeReturn
     vfunc_state_changed(oldstate: Gst.State, newstate: Gst.State, pending: Gst.State): void
-    /* Virtual methods of Gst.Object */
+    /* Virtual methods of Gst-1.0.Gst.Object */
     vfunc_deep_notify(orig: Gst.Object, pspec: GObject.ParamSpec): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -1994,7 +1994,7 @@ export class AudioCdSrc {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gst.Element */
+    /* Signals of Gst-1.0.Gst.Element */
     connect(sigName: "no-more-pads", callback: (($obj: AudioCdSrc) => void)): number
     connect_after(sigName: "no-more-pads", callback: (($obj: AudioCdSrc) => void)): number
     emit(sigName: "no-more-pads"): void
@@ -2004,11 +2004,11 @@ export class AudioCdSrc {
     connect(sigName: "pad-removed", callback: (($obj: AudioCdSrc, old_pad: Gst.Pad) => void)): number
     connect_after(sigName: "pad-removed", callback: (($obj: AudioCdSrc, old_pad: Gst.Pad) => void)): number
     emit(sigName: "pad-removed", old_pad: Gst.Pad): void
-    /* Signals of Gst.Object */
+    /* Signals of Gst-1.0.Gst.Object */
     connect(sigName: "deep-notify", callback: (($obj: AudioCdSrc, prop_object: Gst.Object, prop: GObject.ParamSpec) => void)): number
     connect_after(sigName: "deep-notify", callback: (($obj: AudioCdSrc, prop_object: Gst.Object, prop: GObject.ParamSpec) => void)): number
     emit(sigName: "deep-notify", prop_object: Gst.Object, prop: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: AudioCdSrc, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: AudioCdSrc, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -2042,33 +2042,33 @@ export class AudioCdSrc {
 export interface AudioClock_ConstructProps extends Gst.SystemClock_ConstructProps {
 }
 export class AudioClock {
-    /* Properties of Gst.SystemClock */
+    /* Properties of Gst-1.0.Gst.SystemClock */
     clock_type: Gst.ClockType
-    /* Properties of Gst.Clock */
+    /* Properties of Gst-1.0.Gst.Clock */
     timeout: number
     window_size: number
     window_threshold: number
-    /* Properties of Gst.Object */
+    /* Properties of Gst-1.0.Gst.Object */
     name: string
     parent: Gst.Object
-    /* Fields of GstAudio.AudioClock */
+    /* Fields of GstAudio-1.0.GstAudio.AudioClock */
     clock: Gst.SystemClock
     func: AudioClockGetTimeFunc
     user_data: object
     destroy_notify: GLib.DestroyNotify
-    /* Fields of Gst.Clock */
+    /* Fields of Gst-1.0.Gst.Clock */
     object: Gst.Object
-    /* Fields of Gst.Object */
+    /* Fields of Gst-1.0.Gst.Object */
     lock: GLib.Mutex
     flags: number
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GstAudio.AudioClock */
+    /* Methods of GstAudio-1.0.GstAudio.AudioClock */
     adjust(time: Gst.ClockTime): Gst.ClockTime
     get_time(): Gst.ClockTime
     invalidate(): void
     reset(time: Gst.ClockTime): void
-    /* Methods of Gst.Clock */
+    /* Methods of Gst-1.0.Gst.Clock */
     add_observation(slave: Gst.ClockTime, master: Gst.ClockTime): [ /* returnType */ boolean, /* r_squared */ number ]
     add_observation_unapplied(slave: Gst.ClockTime, master: Gst.ClockTime): [ /* returnType */ boolean, /* r_squared */ number, /* internal */ Gst.ClockTime | null, /* external */ Gst.ClockTime | null, /* rate_num */ Gst.ClockTime | null, /* rate_denom */ Gst.ClockTime | null ]
     adjust_unlocked(internal: Gst.ClockTime): Gst.ClockTime
@@ -2091,7 +2091,7 @@ export class AudioClock {
     unadjust_unlocked(external: Gst.ClockTime): Gst.ClockTime
     unadjust_with_calibration(external_target: Gst.ClockTime, cinternal: Gst.ClockTime, cexternal: Gst.ClockTime, cnum: Gst.ClockTime, cdenom: Gst.ClockTime): Gst.ClockTime
     wait_for_sync(timeout: Gst.ClockTime): boolean
-    /* Methods of Gst.Object */
+    /* Methods of Gst-1.0.Gst.Object */
     add_control_binding(binding: Gst.ControlBinding): boolean
     default_error(error: GLib.Error, debug?: string | null): void
     get_control_binding(property_name: string): Gst.ControlBinding | null
@@ -2116,7 +2116,7 @@ export class AudioClock {
     sync_values(timestamp: Gst.ClockTime): boolean
     unparent(): void
     unref(): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -2137,16 +2137,16 @@ export class AudioClock {
     steal_qdata(quark: GLib.Quark): object | null
     thaw_notify(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Gst.Clock */
+    /* Virtual methods of Gst-1.0.Gst.Clock */
     vfunc_change_resolution(old_resolution: Gst.ClockTime, new_resolution: Gst.ClockTime): Gst.ClockTime
     vfunc_get_internal_time(): Gst.ClockTime
     vfunc_get_resolution(): Gst.ClockTime
     vfunc_unschedule(entry: Gst.ClockEntry): void
     vfunc_wait(entry: Gst.ClockEntry, jitter: Gst.ClockTimeDiff): Gst.ClockReturn
     vfunc_wait_async(entry: Gst.ClockEntry): Gst.ClockReturn
-    /* Virtual methods of Gst.Object */
+    /* Virtual methods of Gst-1.0.Gst.Object */
     vfunc_deep_notify(orig: Gst.Object, pspec: GObject.ParamSpec): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -2154,15 +2154,15 @@ export class AudioClock {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gst.Clock */
+    /* Signals of Gst-1.0.Gst.Clock */
     connect(sigName: "synced", callback: (($obj: AudioClock, synced: boolean) => void)): number
     connect_after(sigName: "synced", callback: (($obj: AudioClock, synced: boolean) => void)): number
     emit(sigName: "synced", synced: boolean): void
-    /* Signals of Gst.Object */
+    /* Signals of Gst-1.0.Gst.Object */
     connect(sigName: "deep-notify", callback: (($obj: AudioClock, prop_object: Gst.Object, prop: GObject.ParamSpec) => void)): number
     connect_after(sigName: "deep-notify", callback: (($obj: AudioClock, prop_object: Gst.Object, prop: GObject.ParamSpec) => void)): number
     emit(sigName: "deep-notify", prop_object: Gst.Object, prop: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: AudioClock, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: AudioClock, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -2196,22 +2196,22 @@ export interface AudioDecoder_ConstructProps extends Gst.Element_ConstructProps 
     tolerance?: number
 }
 export class AudioDecoder {
-    /* Properties of GstAudio.AudioDecoder */
+    /* Properties of GstAudio-1.0.GstAudio.AudioDecoder */
     max_errors: number
     min_latency: number
     plc: boolean
     tolerance: number
-    /* Properties of Gst.Object */
+    /* Properties of Gst-1.0.Gst.Object */
     name: string
     parent: Gst.Object
-    /* Fields of GstAudio.AudioDecoder */
+    /* Fields of GstAudio-1.0.GstAudio.AudioDecoder */
     element: Gst.Element
     sinkpad: Gst.Pad
     srcpad: Gst.Pad
     stream_lock: GLib.RecMutex
     input_segment: Gst.Segment
     output_segment: Gst.Segment
-    /* Fields of Gst.Element */
+    /* Fields of Gst-1.0.Gst.Element */
     object: Gst.Object
     state_lock: GLib.RecMutex
     state_cond: GLib.Cond
@@ -2233,12 +2233,12 @@ export class AudioDecoder {
     sinkpads: Gst.Pad[]
     pads_cookie: number
     contexts: Gst.Context[]
-    /* Fields of Gst.Object */
+    /* Fields of Gst-1.0.Gst.Object */
     lock: GLib.Mutex
     flags: number
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GstAudio.AudioDecoder */
+    /* Methods of GstAudio-1.0.GstAudio.AudioDecoder */
     allocate_output_buffer(size: number): Gst.Buffer
     finish_frame(buf: Gst.Buffer | null, frames: number): Gst.FlowReturn
     finish_subframe(buf?: Gst.Buffer | null): Gst.FlowReturn
@@ -2271,7 +2271,7 @@ export class AudioDecoder {
     set_plc_aware(plc: boolean): void
     set_tolerance(tolerance: Gst.ClockTime): void
     set_use_default_pad_acceptcaps(use: boolean): void
-    /* Methods of Gst.Element */
+    /* Methods of Gst-1.0.Gst.Element */
     abort_state(): void
     add_pad(pad: Gst.Pad): boolean
     add_property_deep_notify_watch(property_name: string | null, include_value: boolean): number
@@ -2337,7 +2337,7 @@ export class AudioDecoder {
     sync_state_with_parent(): boolean
     unlink(dest: Gst.Element): void
     unlink_pads(srcpadname: string, dest: Gst.Element, destpadname: string): void
-    /* Methods of Gst.Object */
+    /* Methods of Gst-1.0.Gst.Object */
     add_control_binding(binding: Gst.ControlBinding): boolean
     default_error(error: GLib.Error, debug?: string | null): void
     get_control_binding(property_name: string): Gst.ControlBinding | null
@@ -2362,7 +2362,7 @@ export class AudioDecoder {
     sync_values(timestamp: Gst.ClockTime): boolean
     unparent(): void
     unref(): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -2383,7 +2383,7 @@ export class AudioDecoder {
     steal_qdata(quark: GLib.Quark): object | null
     thaw_notify(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GstAudio.AudioDecoder */
+    /* Virtual methods of GstAudio-1.0.GstAudio.AudioDecoder */
     vfunc_close(): boolean
     vfunc_decide_allocation(query: Gst.Query): boolean
     vfunc_flush(hard: boolean): void
@@ -2402,7 +2402,7 @@ export class AudioDecoder {
     vfunc_start(): boolean
     vfunc_stop(): boolean
     vfunc_transform_meta(outbuf: Gst.Buffer, meta: Gst.Meta, inbuf: Gst.Buffer): boolean
-    /* Virtual methods of Gst.Element */
+    /* Virtual methods of Gst-1.0.Gst.Element */
     vfunc_change_state(transition: Gst.StateChange): Gst.StateChangeReturn
     vfunc_get_state(timeout: Gst.ClockTime): [ /* returnType */ Gst.StateChangeReturn, /* state */ Gst.State | null, /* pending */ Gst.State | null ]
     vfunc_no_more_pads(): void
@@ -2419,9 +2419,9 @@ export class AudioDecoder {
     vfunc_set_context(context: Gst.Context): void
     vfunc_set_state(state: Gst.State): Gst.StateChangeReturn
     vfunc_state_changed(oldstate: Gst.State, newstate: Gst.State, pending: Gst.State): void
-    /* Virtual methods of Gst.Object */
+    /* Virtual methods of Gst-1.0.Gst.Object */
     vfunc_deep_notify(orig: Gst.Object, pspec: GObject.ParamSpec): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -2429,7 +2429,7 @@ export class AudioDecoder {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gst.Element */
+    /* Signals of Gst-1.0.Gst.Element */
     connect(sigName: "no-more-pads", callback: (($obj: AudioDecoder) => void)): number
     connect_after(sigName: "no-more-pads", callback: (($obj: AudioDecoder) => void)): number
     emit(sigName: "no-more-pads"): void
@@ -2439,11 +2439,11 @@ export class AudioDecoder {
     connect(sigName: "pad-removed", callback: (($obj: AudioDecoder, old_pad: Gst.Pad) => void)): number
     connect_after(sigName: "pad-removed", callback: (($obj: AudioDecoder, old_pad: Gst.Pad) => void)): number
     emit(sigName: "pad-removed", old_pad: Gst.Pad): void
-    /* Signals of Gst.Object */
+    /* Signals of Gst-1.0.Gst.Object */
     connect(sigName: "deep-notify", callback: (($obj: AudioDecoder, prop_object: Gst.Object, prop: GObject.ParamSpec) => void)): number
     connect_after(sigName: "deep-notify", callback: (($obj: AudioDecoder, prop_object: Gst.Object, prop: GObject.ParamSpec) => void)): number
     emit(sigName: "deep-notify", prop_object: Gst.Object, prop: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: AudioDecoder, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: AudioDecoder, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -2474,22 +2474,22 @@ export interface AudioEncoder_ConstructProps extends Gst.Element_ConstructProps 
     tolerance?: number
 }
 export class AudioEncoder {
-    /* Properties of GstAudio.AudioEncoder */
+    /* Properties of GstAudio-1.0.GstAudio.AudioEncoder */
     hard_resync: boolean
     readonly mark_granule: boolean
     perfect_timestamp: boolean
     tolerance: number
-    /* Properties of Gst.Object */
+    /* Properties of Gst-1.0.Gst.Object */
     name: string
     parent: Gst.Object
-    /* Fields of GstAudio.AudioEncoder */
+    /* Fields of GstAudio-1.0.GstAudio.AudioEncoder */
     element: Gst.Element
     sinkpad: Gst.Pad
     srcpad: Gst.Pad
     stream_lock: GLib.RecMutex
     input_segment: Gst.Segment
     output_segment: Gst.Segment
-    /* Fields of Gst.Element */
+    /* Fields of Gst-1.0.Gst.Element */
     object: Gst.Object
     state_lock: GLib.RecMutex
     state_cond: GLib.Cond
@@ -2511,12 +2511,12 @@ export class AudioEncoder {
     sinkpads: Gst.Pad[]
     pads_cookie: number
     contexts: Gst.Context[]
-    /* Fields of Gst.Object */
+    /* Fields of Gst-1.0.Gst.Object */
     lock: GLib.Mutex
     flags: number
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GstAudio.AudioEncoder */
+    /* Methods of GstAudio-1.0.GstAudio.AudioEncoder */
     allocate_output_buffer(size: number): Gst.Buffer
     finish_frame(buffer: Gst.Buffer | null, samples: number): Gst.FlowReturn
     get_allocator(): [ /* allocator */ Gst.Allocator | null, /* params */ Gst.AllocationParams | null ]
@@ -2549,7 +2549,7 @@ export class AudioEncoder {
     set_output_format(caps: Gst.Caps): boolean
     set_perfect_timestamp(enabled: boolean): void
     set_tolerance(tolerance: Gst.ClockTime): void
-    /* Methods of Gst.Element */
+    /* Methods of Gst-1.0.Gst.Element */
     abort_state(): void
     add_pad(pad: Gst.Pad): boolean
     add_property_deep_notify_watch(property_name: string | null, include_value: boolean): number
@@ -2615,7 +2615,7 @@ export class AudioEncoder {
     sync_state_with_parent(): boolean
     unlink(dest: Gst.Element): void
     unlink_pads(srcpadname: string, dest: Gst.Element, destpadname: string): void
-    /* Methods of Gst.Object */
+    /* Methods of Gst-1.0.Gst.Object */
     add_control_binding(binding: Gst.ControlBinding): boolean
     default_error(error: GLib.Error, debug?: string | null): void
     get_control_binding(property_name: string): Gst.ControlBinding | null
@@ -2640,7 +2640,7 @@ export class AudioEncoder {
     sync_values(timestamp: Gst.ClockTime): boolean
     unparent(): void
     unref(): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -2661,7 +2661,7 @@ export class AudioEncoder {
     steal_qdata(quark: GLib.Quark): object | null
     thaw_notify(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of Gst.Preset */
+    /* Methods of Gst-1.0.Gst.Preset */
     delete_preset(name: string): boolean
     get_meta(name: string, tag: string): [ /* returnType */ boolean, /* value */ string ]
     get_preset_names(): string[]
@@ -2671,7 +2671,7 @@ export class AudioEncoder {
     rename_preset(old_name: string, new_name: string): boolean
     save_preset(name: string): boolean
     set_meta(name: string, tag: string, value?: string | null): boolean
-    /* Virtual methods of GstAudio.AudioEncoder */
+    /* Virtual methods of GstAudio-1.0.GstAudio.AudioEncoder */
     vfunc_close(): boolean
     vfunc_decide_allocation(query: Gst.Query): boolean
     vfunc_flush(): void
@@ -2697,7 +2697,7 @@ export class AudioEncoder {
     vfunc_rename_preset(old_name: string, new_name: string): boolean
     vfunc_save_preset(name: string): boolean
     vfunc_set_meta(name: string, tag: string, value?: string | null): boolean
-    /* Virtual methods of Gst.Element */
+    /* Virtual methods of Gst-1.0.Gst.Element */
     vfunc_change_state(transition: Gst.StateChange): Gst.StateChangeReturn
     vfunc_get_state(timeout: Gst.ClockTime): [ /* returnType */ Gst.StateChangeReturn, /* state */ Gst.State | null, /* pending */ Gst.State | null ]
     vfunc_no_more_pads(): void
@@ -2714,9 +2714,9 @@ export class AudioEncoder {
     vfunc_set_context(context: Gst.Context): void
     vfunc_set_state(state: Gst.State): Gst.StateChangeReturn
     vfunc_state_changed(oldstate: Gst.State, newstate: Gst.State, pending: Gst.State): void
-    /* Virtual methods of Gst.Object */
+    /* Virtual methods of Gst-1.0.Gst.Object */
     vfunc_deep_notify(orig: Gst.Object, pspec: GObject.ParamSpec): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -2724,7 +2724,7 @@ export class AudioEncoder {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gst.Element */
+    /* Signals of Gst-1.0.Gst.Element */
     connect(sigName: "no-more-pads", callback: (($obj: AudioEncoder) => void)): number
     connect_after(sigName: "no-more-pads", callback: (($obj: AudioEncoder) => void)): number
     emit(sigName: "no-more-pads"): void
@@ -2734,11 +2734,11 @@ export class AudioEncoder {
     connect(sigName: "pad-removed", callback: (($obj: AudioEncoder, old_pad: Gst.Pad) => void)): number
     connect_after(sigName: "pad-removed", callback: (($obj: AudioEncoder, old_pad: Gst.Pad) => void)): number
     emit(sigName: "pad-removed", old_pad: Gst.Pad): void
-    /* Signals of Gst.Object */
+    /* Signals of Gst-1.0.Gst.Object */
     connect(sigName: "deep-notify", callback: (($obj: AudioEncoder, prop_object: Gst.Object, prop: GObject.ParamSpec) => void)): number
     connect_after(sigName: "deep-notify", callback: (($obj: AudioEncoder, prop_object: Gst.Object, prop: GObject.ParamSpec) => void)): number
     emit(sigName: "deep-notify", prop_object: Gst.Object, prop: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: AudioEncoder, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: AudioEncoder, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -2769,22 +2769,22 @@ export class AudioEncoder {
 export interface AudioFilter_ConstructProps extends GstBase.BaseTransform_ConstructProps {
 }
 export class AudioFilter {
-    /* Properties of GstBase.BaseTransform */
+    /* Properties of GstBase-1.0.GstBase.BaseTransform */
     qos: boolean
-    /* Properties of Gst.Object */
+    /* Properties of Gst-1.0.Gst.Object */
     name: string
     parent: Gst.Object
-    /* Fields of GstAudio.AudioFilter */
+    /* Fields of GstAudio-1.0.GstAudio.AudioFilter */
     basetransform: GstBase.BaseTransform
     info: AudioInfo
-    /* Fields of GstBase.BaseTransform */
+    /* Fields of GstBase-1.0.GstBase.BaseTransform */
     element: Gst.Element
     sinkpad: Gst.Pad
     srcpad: Gst.Pad
     have_segment: boolean
     segment: Gst.Segment
     queued_buf: Gst.Buffer
-    /* Fields of Gst.Element */
+    /* Fields of Gst-1.0.Gst.Element */
     object: Gst.Object
     state_lock: GLib.RecMutex
     state_cond: GLib.Cond
@@ -2806,12 +2806,12 @@ export class AudioFilter {
     sinkpads: Gst.Pad[]
     pads_cookie: number
     contexts: Gst.Context[]
-    /* Fields of Gst.Object */
+    /* Fields of Gst-1.0.Gst.Object */
     lock: GLib.Mutex
     flags: number
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GstBase.BaseTransform */
+    /* Methods of GstBase-1.0.GstBase.BaseTransform */
     get_allocator(): [ /* allocator */ Gst.Allocator | null, /* params */ Gst.AllocationParams | null ]
     get_buffer_pool(): Gst.BufferPool | null
     is_in_place(): boolean
@@ -2827,7 +2827,7 @@ export class AudioFilter {
     set_qos_enabled(enabled: boolean): void
     update_qos(proportion: number, diff: Gst.ClockTimeDiff, timestamp: Gst.ClockTime): void
     update_src_caps(updated_caps: Gst.Caps): boolean
-    /* Methods of Gst.Element */
+    /* Methods of Gst-1.0.Gst.Element */
     abort_state(): void
     add_pad(pad: Gst.Pad): boolean
     add_property_deep_notify_watch(property_name: string | null, include_value: boolean): number
@@ -2893,7 +2893,7 @@ export class AudioFilter {
     sync_state_with_parent(): boolean
     unlink(dest: Gst.Element): void
     unlink_pads(srcpadname: string, dest: Gst.Element, destpadname: string): void
-    /* Methods of Gst.Object */
+    /* Methods of Gst-1.0.Gst.Object */
     add_control_binding(binding: Gst.ControlBinding): boolean
     default_error(error: GLib.Error, debug?: string | null): void
     get_control_binding(property_name: string): Gst.ControlBinding | null
@@ -2918,7 +2918,7 @@ export class AudioFilter {
     sync_values(timestamp: Gst.ClockTime): boolean
     unparent(): void
     unref(): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -2939,11 +2939,11 @@ export class AudioFilter {
     steal_qdata(quark: GLib.Quark): object | null
     thaw_notify(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GstAudio.AudioFilter */
+    /* Virtual methods of GstAudio-1.0.GstAudio.AudioFilter */
     vfunc_setup(info: AudioInfo): boolean
     vfunc_query(direction: Gst.PadDirection, query: Gst.Query): boolean
     vfunc_query(query: Gst.Query): boolean
-    /* Virtual methods of GstBase.BaseTransform */
+    /* Virtual methods of GstBase-1.0.GstBase.BaseTransform */
     vfunc_accept_caps(direction: Gst.PadDirection, caps: Gst.Caps): boolean
     vfunc_before_transform(buffer: Gst.Buffer): void
     vfunc_copy_metadata(input: Gst.Buffer, outbuf: Gst.Buffer): boolean
@@ -2967,7 +2967,7 @@ export class AudioFilter {
     vfunc_transform_ip(buf: Gst.Buffer): Gst.FlowReturn
     vfunc_transform_meta(outbuf: Gst.Buffer, meta: Gst.Meta, inbuf: Gst.Buffer): boolean
     vfunc_transform_size(direction: Gst.PadDirection, caps: Gst.Caps, size: number, othercaps: Gst.Caps): [ /* returnType */ boolean, /* othersize */ number ]
-    /* Virtual methods of Gst.Element */
+    /* Virtual methods of Gst-1.0.Gst.Element */
     vfunc_change_state(transition: Gst.StateChange): Gst.StateChangeReturn
     vfunc_get_state(timeout: Gst.ClockTime): [ /* returnType */ Gst.StateChangeReturn, /* state */ Gst.State | null, /* pending */ Gst.State | null ]
     vfunc_no_more_pads(): void
@@ -2984,9 +2984,9 @@ export class AudioFilter {
     vfunc_set_context(context: Gst.Context): void
     vfunc_set_state(state: Gst.State): Gst.StateChangeReturn
     vfunc_state_changed(oldstate: Gst.State, newstate: Gst.State, pending: Gst.State): void
-    /* Virtual methods of Gst.Object */
+    /* Virtual methods of Gst-1.0.Gst.Object */
     vfunc_deep_notify(orig: Gst.Object, pspec: GObject.ParamSpec): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -2994,7 +2994,7 @@ export class AudioFilter {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gst.Element */
+    /* Signals of Gst-1.0.Gst.Element */
     connect(sigName: "no-more-pads", callback: (($obj: AudioFilter) => void)): number
     connect_after(sigName: "no-more-pads", callback: (($obj: AudioFilter) => void)): number
     emit(sigName: "no-more-pads"): void
@@ -3004,11 +3004,11 @@ export class AudioFilter {
     connect(sigName: "pad-removed", callback: (($obj: AudioFilter, old_pad: Gst.Pad) => void)): number
     connect_after(sigName: "pad-removed", callback: (($obj: AudioFilter, old_pad: Gst.Pad) => void)): number
     emit(sigName: "pad-removed", old_pad: Gst.Pad): void
-    /* Signals of Gst.Object */
+    /* Signals of Gst-1.0.Gst.Object */
     connect(sigName: "deep-notify", callback: (($obj: AudioFilter, prop_object: Gst.Object, prop: GObject.ParamSpec) => void)): number
     connect_after(sigName: "deep-notify", callback: (($obj: AudioFilter, prop_object: Gst.Object, prop: GObject.ParamSpec) => void)): number
     emit(sigName: "deep-notify", prop_object: Gst.Object, prop: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: AudioFilter, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: AudioFilter, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -3032,10 +3032,10 @@ export class AudioFilter {
 export interface AudioRingBuffer_ConstructProps extends Gst.Object_ConstructProps {
 }
 export class AudioRingBuffer {
-    /* Properties of Gst.Object */
+    /* Properties of Gst-1.0.Gst.Object */
     name: string
     parent: Gst.Object
-    /* Fields of GstAudio.AudioRingBuffer */
+    /* Fields of GstAudio-1.0.GstAudio.AudioRingBuffer */
     object: Gst.Object
     cond: GLib.Cond
     open: boolean
@@ -3049,12 +3049,12 @@ export class AudioRingBuffer {
     segdone: number
     segbase: number
     waiting: number
-    /* Fields of Gst.Object */
+    /* Fields of Gst-1.0.Gst.Object */
     lock: GLib.Mutex
     flags: number
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GstAudio.AudioRingBuffer */
+    /* Methods of GstAudio-1.0.GstAudio.AudioRingBuffer */
     acquire(spec: AudioRingBufferSpec): boolean
     activate(active: boolean): boolean
     advance(advance: number): void
@@ -3082,7 +3082,7 @@ export class AudioRingBuffer {
     set_timestamp(readseg: number, timestamp: Gst.ClockTime): void
     start(): boolean
     stop(): boolean
-    /* Methods of Gst.Object */
+    /* Methods of Gst-1.0.Gst.Object */
     add_control_binding(binding: Gst.ControlBinding): boolean
     default_error(error: GLib.Error, debug?: string | null): void
     get_control_binding(property_name: string): Gst.ControlBinding | null
@@ -3107,7 +3107,7 @@ export class AudioRingBuffer {
     sync_values(timestamp: Gst.ClockTime): boolean
     unparent(): void
     unref(): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -3128,7 +3128,7 @@ export class AudioRingBuffer {
     steal_qdata(quark: GLib.Quark): object | null
     thaw_notify(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GstAudio.AudioRingBuffer */
+    /* Virtual methods of GstAudio-1.0.GstAudio.AudioRingBuffer */
     vfunc_acquire(spec: AudioRingBufferSpec): boolean
     vfunc_activate(active: boolean): boolean
     vfunc_clear_all(): void
@@ -3141,9 +3141,9 @@ export class AudioRingBuffer {
     vfunc_resume(): boolean
     vfunc_start(): boolean
     vfunc_stop(): boolean
-    /* Virtual methods of Gst.Object */
+    /* Virtual methods of Gst-1.0.Gst.Object */
     vfunc_deep_notify(orig: Gst.Object, pspec: GObject.ParamSpec): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -3151,11 +3151,11 @@ export class AudioRingBuffer {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gst.Object */
+    /* Signals of Gst-1.0.Gst.Object */
     connect(sigName: "deep-notify", callback: (($obj: AudioRingBuffer, prop_object: Gst.Object, prop: GObject.ParamSpec) => void)): number
     connect_after(sigName: "deep-notify", callback: (($obj: AudioRingBuffer, prop_object: Gst.Object, prop: GObject.ParamSpec) => void)): number
     emit(sigName: "deep-notify", prop_object: Gst.Object, prop: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: AudioRingBuffer, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: AudioRingBuffer, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -3179,7 +3179,7 @@ export class AudioRingBuffer {
 export interface AudioSink_ConstructProps extends AudioBaseSink_ConstructProps {
 }
 export class AudioSink {
-    /* Properties of GstAudio.AudioBaseSink */
+    /* Properties of GstAudio-1.0.GstAudio.AudioBaseSink */
     alignment_threshold: number
     buffer_time: number
     can_activate_pull: boolean
@@ -3188,7 +3188,7 @@ export class AudioSink {
     latency_time: number
     provide_clock: boolean
     slave_method: AudioBaseSinkSlaveMethod
-    /* Properties of GstBase.BaseSink */
+    /* Properties of GstBase-1.0.GstBase.BaseSink */
     async: boolean
     blocksize: number
     enable_last_sample: boolean
@@ -3202,17 +3202,17 @@ export class AudioSink {
     sync: boolean
     throttle_time: number
     ts_offset: number
-    /* Properties of Gst.Object */
+    /* Properties of Gst-1.0.Gst.Object */
     name: string
     parent: Gst.Object
-    /* Fields of GstAudio.AudioSink */
+    /* Fields of GstAudio-1.0.GstAudio.AudioSink */
     element: AudioBaseSink
-    /* Fields of GstAudio.AudioBaseSink */
+    /* Fields of GstAudio-1.0.GstAudio.AudioBaseSink */
     ringbuffer: AudioRingBuffer
     next_sample: number
     provided_clock: Gst.Clock
     eos_rendering: boolean
-    /* Fields of GstBase.BaseSink */
+    /* Fields of GstBase-1.0.GstBase.BaseSink */
     sinkpad: Gst.Pad
     pad_mode: Gst.PadMode
     offset: number
@@ -3225,7 +3225,7 @@ export class AudioSink {
     playing_async: boolean
     have_newsegment: boolean
     segment: Gst.Segment
-    /* Fields of Gst.Element */
+    /* Fields of Gst-1.0.Gst.Element */
     object: Gst.Object
     state_lock: GLib.RecMutex
     state_cond: GLib.Cond
@@ -3247,12 +3247,12 @@ export class AudioSink {
     sinkpads: Gst.Pad[]
     pads_cookie: number
     contexts: Gst.Context[]
-    /* Fields of Gst.Object */
+    /* Fields of Gst-1.0.Gst.Object */
     lock: GLib.Mutex
     flags: number
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GstAudio.AudioBaseSink */
+    /* Methods of GstAudio-1.0.GstAudio.AudioBaseSink */
     create_ringbuffer(): AudioRingBuffer
     get_alignment_threshold(): Gst.ClockTime
     get_discont_wait(): Gst.ClockTime
@@ -3266,7 +3266,7 @@ export class AudioSink {
     set_drift_tolerance(drift_tolerance: number): void
     set_provide_clock(provide: boolean): void
     set_slave_method(method: AudioBaseSinkSlaveMethod): void
-    /* Methods of GstBase.BaseSink */
+    /* Methods of GstBase-1.0.GstBase.BaseSink */
     do_preroll(obj: Gst.MiniObject): Gst.FlowReturn
     get_blocksize(): number
     get_drop_out_of_segment(): boolean
@@ -3299,7 +3299,7 @@ export class AudioSink {
     wait(time: Gst.ClockTime): [ /* returnType */ Gst.FlowReturn, /* jitter */ Gst.ClockTimeDiff | null ]
     wait_clock(time: Gst.ClockTime): [ /* returnType */ Gst.ClockReturn, /* jitter */ Gst.ClockTimeDiff | null ]
     wait_preroll(): Gst.FlowReturn
-    /* Methods of Gst.Element */
+    /* Methods of Gst-1.0.Gst.Element */
     abort_state(): void
     add_pad(pad: Gst.Pad): boolean
     add_property_deep_notify_watch(property_name: string | null, include_value: boolean): number
@@ -3364,7 +3364,7 @@ export class AudioSink {
     sync_state_with_parent(): boolean
     unlink(dest: Gst.Element): void
     unlink_pads(srcpadname: string, dest: Gst.Element, destpadname: string): void
-    /* Methods of Gst.Object */
+    /* Methods of Gst-1.0.Gst.Object */
     add_control_binding(binding: Gst.ControlBinding): boolean
     default_error(error: GLib.Error, debug?: string | null): void
     get_control_binding(property_name: string): Gst.ControlBinding | null
@@ -3389,7 +3389,7 @@ export class AudioSink {
     sync_values(timestamp: Gst.ClockTime): boolean
     unparent(): void
     unref(): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -3410,7 +3410,7 @@ export class AudioSink {
     steal_qdata(quark: GLib.Quark): object | null
     thaw_notify(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GstAudio.AudioSink */
+    /* Virtual methods of GstAudio-1.0.GstAudio.AudioSink */
     vfunc_close(): boolean
     vfunc_delay(): number
     vfunc_open(): boolean
@@ -3423,10 +3423,10 @@ export class AudioSink {
     vfunc_stop(): boolean
     vfunc_unprepare(): boolean
     vfunc_write(data: object | null, length: number): number
-    /* Virtual methods of GstAudio.AudioBaseSink */
+    /* Virtual methods of GstAudio-1.0.GstAudio.AudioBaseSink */
     vfunc_create_ringbuffer(): AudioRingBuffer
     vfunc_payload(buffer: Gst.Buffer): Gst.Buffer
-    /* Virtual methods of GstBase.BaseSink */
+    /* Virtual methods of GstBase-1.0.GstBase.BaseSink */
     vfunc_activate_pull(active: boolean): boolean
     vfunc_event(event: Gst.Event): boolean
     vfunc_fixate(caps: Gst.Caps): Gst.Caps
@@ -3445,7 +3445,7 @@ export class AudioSink {
     vfunc_unlock(): boolean
     vfunc_unlock_stop(): boolean
     vfunc_wait_event(event: Gst.Event): Gst.FlowReturn
-    /* Virtual methods of Gst.Element */
+    /* Virtual methods of Gst-1.0.Gst.Element */
     vfunc_change_state(transition: Gst.StateChange): Gst.StateChangeReturn
     vfunc_get_state(timeout: Gst.ClockTime): [ /* returnType */ Gst.StateChangeReturn, /* state */ Gst.State | null, /* pending */ Gst.State | null ]
     vfunc_no_more_pads(): void
@@ -3462,9 +3462,9 @@ export class AudioSink {
     vfunc_set_context(context: Gst.Context): void
     vfunc_set_state(state: Gst.State): Gst.StateChangeReturn
     vfunc_state_changed(oldstate: Gst.State, newstate: Gst.State, pending: Gst.State): void
-    /* Virtual methods of Gst.Object */
+    /* Virtual methods of Gst-1.0.Gst.Object */
     vfunc_deep_notify(orig: Gst.Object, pspec: GObject.ParamSpec): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -3472,7 +3472,7 @@ export class AudioSink {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gst.Element */
+    /* Signals of Gst-1.0.Gst.Element */
     connect(sigName: "no-more-pads", callback: (($obj: AudioSink) => void)): number
     connect_after(sigName: "no-more-pads", callback: (($obj: AudioSink) => void)): number
     emit(sigName: "no-more-pads"): void
@@ -3482,11 +3482,11 @@ export class AudioSink {
     connect(sigName: "pad-removed", callback: (($obj: AudioSink, old_pad: Gst.Pad) => void)): number
     connect_after(sigName: "pad-removed", callback: (($obj: AudioSink, old_pad: Gst.Pad) => void)): number
     emit(sigName: "pad-removed", old_pad: Gst.Pad): void
-    /* Signals of Gst.Object */
+    /* Signals of Gst-1.0.Gst.Object */
     connect(sigName: "deep-notify", callback: (($obj: AudioSink, prop_object: Gst.Object, prop: GObject.ParamSpec) => void)): number
     connect_after(sigName: "deep-notify", callback: (($obj: AudioSink, prop_object: Gst.Object, prop: GObject.ParamSpec) => void)): number
     emit(sigName: "deep-notify", prop_object: Gst.Object, prop: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: AudioSink, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: AudioSink, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -3548,28 +3548,28 @@ export class AudioSink {
 export interface AudioSrc_ConstructProps extends AudioBaseSrc_ConstructProps {
 }
 export class AudioSrc {
-    /* Properties of GstAudio.AudioBaseSrc */
+    /* Properties of GstAudio-1.0.GstAudio.AudioBaseSrc */
     readonly actual_buffer_time: number
     readonly actual_latency_time: number
     buffer_time: number
     latency_time: number
     provide_clock: boolean
     slave_method: AudioBaseSrcSlaveMethod
-    /* Properties of GstBase.BaseSrc */
+    /* Properties of GstBase-1.0.GstBase.BaseSrc */
     blocksize: number
     do_timestamp: boolean
     num_buffers: number
     typefind: boolean
-    /* Properties of Gst.Object */
+    /* Properties of Gst-1.0.Gst.Object */
     name: string
     parent: Gst.Object
-    /* Fields of GstAudio.AudioSrc */
+    /* Fields of GstAudio-1.0.GstAudio.AudioSrc */
     element: AudioBaseSrc
-    /* Fields of GstAudio.AudioBaseSrc */
+    /* Fields of GstAudio-1.0.GstAudio.AudioBaseSrc */
     ringbuffer: AudioRingBuffer
     next_sample: number
     clock: Gst.Clock
-    /* Fields of GstBase.BaseSrc */
+    /* Fields of GstBase-1.0.GstBase.BaseSrc */
     srcpad: Gst.Pad
     live_lock: GLib.Mutex
     live_cond: GLib.Cond
@@ -3584,7 +3584,7 @@ export class AudioSrc {
     running: boolean
     pending_seek: Gst.Event
     priv: GstBase.BaseSrcPrivate
-    /* Fields of Gst.Element */
+    /* Fields of Gst-1.0.Gst.Element */
     object: Gst.Object
     state_lock: GLib.RecMutex
     state_cond: GLib.Cond
@@ -3605,18 +3605,18 @@ export class AudioSrc {
     sinkpads: Gst.Pad[]
     pads_cookie: number
     contexts: Gst.Context[]
-    /* Fields of Gst.Object */
+    /* Fields of Gst-1.0.Gst.Object */
     lock: GLib.Mutex
     flags: number
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GstAudio.AudioBaseSrc */
+    /* Methods of GstAudio-1.0.GstAudio.AudioBaseSrc */
     create_ringbuffer(): AudioRingBuffer
     get_provide_clock(): boolean
     get_slave_method(): AudioBaseSrcSlaveMethod
     set_provide_clock(provide: boolean): void
     set_slave_method(method: AudioBaseSrcSlaveMethod): void
-    /* Methods of GstBase.BaseSrc */
+    /* Methods of GstBase-1.0.GstBase.BaseSrc */
     get_allocator(): [ /* allocator */ Gst.Allocator | null, /* params */ Gst.AllocationParams | null ]
     get_blocksize(): number
     get_buffer_pool(): Gst.BufferPool | null
@@ -3638,7 +3638,7 @@ export class AudioSrc {
     start_wait(): Gst.FlowReturn
     submit_buffer_list(buffer_list: Gst.BufferList): void
     wait_playing(): Gst.FlowReturn
-    /* Methods of Gst.Element */
+    /* Methods of Gst-1.0.Gst.Element */
     abort_state(): void
     add_pad(pad: Gst.Pad): boolean
     add_property_deep_notify_watch(property_name: string | null, include_value: boolean): number
@@ -3703,7 +3703,7 @@ export class AudioSrc {
     sync_state_with_parent(): boolean
     unlink(dest: Gst.Element): void
     unlink_pads(srcpadname: string, dest: Gst.Element, destpadname: string): void
-    /* Methods of Gst.Object */
+    /* Methods of Gst-1.0.Gst.Object */
     add_control_binding(binding: Gst.ControlBinding): boolean
     default_error(error: GLib.Error, debug?: string | null): void
     get_control_binding(property_name: string): Gst.ControlBinding | null
@@ -3728,7 +3728,7 @@ export class AudioSrc {
     sync_values(timestamp: Gst.ClockTime): boolean
     unparent(): void
     unref(): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -3749,7 +3749,7 @@ export class AudioSrc {
     steal_qdata(quark: GLib.Quark): object | null
     thaw_notify(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GstAudio.AudioSrc */
+    /* Virtual methods of GstAudio-1.0.GstAudio.AudioSrc */
     vfunc_close(): boolean
     vfunc_delay(): number
     vfunc_open(): boolean
@@ -3763,7 +3763,7 @@ export class AudioSrc {
     vfunc_create(offset: number, size: number): [ /* returnType */ Gst.FlowReturn, /* buf */ Gst.Buffer ]
     vfunc_fill(buf: Gst.Buffer): Gst.FlowReturn
     vfunc_fill(offset: number, size: number, buf: Gst.Buffer): Gst.FlowReturn
-    /* Virtual methods of GstAudio.AudioBaseSrc */
+    /* Virtual methods of GstAudio-1.0.GstAudio.AudioBaseSrc */
     vfunc_create_ringbuffer(): AudioRingBuffer
     vfunc_alloc(buf: Gst.Buffer): Gst.FlowReturn
     vfunc_alloc(offset: number, size: number, buf: Gst.Buffer): Gst.FlowReturn
@@ -3771,14 +3771,14 @@ export class AudioSrc {
     vfunc_create(offset: number, size: number): [ /* returnType */ Gst.FlowReturn, /* buf */ Gst.Buffer ]
     vfunc_fill(buf: Gst.Buffer): Gst.FlowReturn
     vfunc_fill(offset: number, size: number, buf: Gst.Buffer): Gst.FlowReturn
-    /* Virtual methods of GstBase.PushSrc */
+    /* Virtual methods of GstBase-1.0.GstBase.PushSrc */
     vfunc_alloc(buf: Gst.Buffer): Gst.FlowReturn
     vfunc_alloc(offset: number, size: number, buf: Gst.Buffer): Gst.FlowReturn
     vfunc_create(buf: Gst.Buffer): Gst.FlowReturn
     vfunc_create(offset: number, size: number): [ /* returnType */ Gst.FlowReturn, /* buf */ Gst.Buffer ]
     vfunc_fill(buf: Gst.Buffer): Gst.FlowReturn
     vfunc_fill(offset: number, size: number, buf: Gst.Buffer): Gst.FlowReturn
-    /* Virtual methods of GstBase.BaseSrc */
+    /* Virtual methods of GstBase-1.0.GstBase.BaseSrc */
     vfunc_alloc(offset: number, size: number, buf: Gst.Buffer): Gst.FlowReturn
     vfunc_create(offset: number, size: number): [ /* returnType */ Gst.FlowReturn, /* buf */ Gst.Buffer ]
     vfunc_decide_allocation(query: Gst.Query): boolean
@@ -3798,7 +3798,7 @@ export class AudioSrc {
     vfunc_stop(): boolean
     vfunc_unlock(): boolean
     vfunc_unlock_stop(): boolean
-    /* Virtual methods of Gst.Element */
+    /* Virtual methods of Gst-1.0.Gst.Element */
     vfunc_change_state(transition: Gst.StateChange): Gst.StateChangeReturn
     vfunc_get_state(timeout: Gst.ClockTime): [ /* returnType */ Gst.StateChangeReturn, /* state */ Gst.State | null, /* pending */ Gst.State | null ]
     vfunc_no_more_pads(): void
@@ -3815,9 +3815,9 @@ export class AudioSrc {
     vfunc_set_context(context: Gst.Context): void
     vfunc_set_state(state: Gst.State): Gst.StateChangeReturn
     vfunc_state_changed(oldstate: Gst.State, newstate: Gst.State, pending: Gst.State): void
-    /* Virtual methods of Gst.Object */
+    /* Virtual methods of Gst-1.0.Gst.Object */
     vfunc_deep_notify(orig: Gst.Object, pspec: GObject.ParamSpec): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -3825,7 +3825,7 @@ export class AudioSrc {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gst.Element */
+    /* Signals of Gst-1.0.Gst.Element */
     connect(sigName: "no-more-pads", callback: (($obj: AudioSrc) => void)): number
     connect_after(sigName: "no-more-pads", callback: (($obj: AudioSrc) => void)): number
     emit(sigName: "no-more-pads"): void
@@ -3835,11 +3835,11 @@ export class AudioSrc {
     connect(sigName: "pad-removed", callback: (($obj: AudioSrc, old_pad: Gst.Pad) => void)): number
     connect_after(sigName: "pad-removed", callback: (($obj: AudioSrc, old_pad: Gst.Pad) => void)): number
     emit(sigName: "pad-removed", old_pad: Gst.Pad): void
-    /* Signals of Gst.Object */
+    /* Signals of Gst-1.0.Gst.Object */
     connect(sigName: "deep-notify", callback: (($obj: AudioSrc, prop_object: Gst.Object, prop: GObject.ParamSpec) => void)): number
     connect_after(sigName: "deep-notify", callback: (($obj: AudioSrc, prop_object: Gst.Object, prop: GObject.ParamSpec) => void)): number
     emit(sigName: "deep-notify", prop_object: Gst.Object, prop: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: AudioSrc, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: AudioSrc, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -3877,14 +3877,14 @@ export class AudioSrc {
     static $gtype: GObject.Type
 }
 export abstract class AudioAggregatorClass {
-    /* Fields of GstAudio.AudioAggregatorClass */
+    /* Fields of GstAudio-1.0.GstAudio.AudioAggregatorClass */
     parent_class: GstBase.AggregatorClass
     create_output_buffer: (aagg: AudioAggregator, num_frames: number) => Gst.Buffer
     aggregate_one_buffer: (aagg: AudioAggregator, pad: AudioAggregatorPad, inbuf: Gst.Buffer, in_offset: number, outbuf: Gst.Buffer, out_offset: number, num_frames: number) => boolean
     static name: string
 }
 export abstract class AudioAggregatorConvertPadClass {
-    /* Fields of GstAudio.AudioAggregatorConvertPadClass */
+    /* Fields of GstAudio-1.0.GstAudio.AudioAggregatorConvertPadClass */
     parent_class: AudioAggregatorPadClass
     static name: string
 }
@@ -3892,7 +3892,7 @@ export class AudioAggregatorConvertPadPrivate {
     static name: string
 }
 export abstract class AudioAggregatorPadClass {
-    /* Fields of GstAudio.AudioAggregatorPadClass */
+    /* Fields of GstAudio-1.0.GstAudio.AudioAggregatorPadClass */
     parent_class: GstBase.AggregatorPadClass
     convert_buffer: (pad: AudioAggregatorPad, in_info: AudioInfo, out_info: AudioInfo, buffer: Gst.Buffer) => Gst.Buffer
     update_conversion_info: (pad: AudioAggregatorPad) => void
@@ -3905,7 +3905,7 @@ export class AudioAggregatorPrivate {
     static name: string
 }
 export abstract class AudioBaseSinkClass {
-    /* Fields of GstAudio.AudioBaseSinkClass */
+    /* Fields of GstAudio-1.0.GstAudio.AudioBaseSinkClass */
     parent_class: GstBase.BaseSinkClass
     create_ringbuffer: (sink: AudioBaseSink) => AudioRingBuffer
     payload: (sink: AudioBaseSink, buffer: Gst.Buffer) => Gst.Buffer
@@ -3915,7 +3915,7 @@ export class AudioBaseSinkPrivate {
     static name: string
 }
 export abstract class AudioBaseSrcClass {
-    /* Fields of GstAudio.AudioBaseSrcClass */
+    /* Fields of GstAudio-1.0.GstAudio.AudioBaseSrcClass */
     parent_class: GstBase.PushSrcClass
     create_ringbuffer: (src: AudioBaseSrc) => AudioRingBuffer
     static name: string
@@ -3924,13 +3924,13 @@ export class AudioBaseSrcPrivate {
     static name: string
 }
 export class AudioBuffer {
-    /* Fields of GstAudio.AudioBuffer */
+    /* Fields of GstAudio-1.0.GstAudio.AudioBuffer */
     info: AudioInfo
     n_samples: number
     n_planes: number
     planes: object
     buffer: Gst.Buffer
-    /* Methods of GstAudio.AudioBuffer */
+    /* Methods of GstAudio-1.0.GstAudio.AudioBuffer */
     unmap(): void
     static name: string
     /* Static methods and pseudo-constructors */
@@ -3940,7 +3940,7 @@ export class AudioBuffer {
     static truncate(buffer: Gst.Buffer, bpf: number, trim: number, samples: number): Gst.Buffer
 }
 export abstract class AudioCdSrcClass {
-    /* Fields of GstAudio.AudioCdSrcClass */
+    /* Fields of GstAudio-1.0.GstAudio.AudioCdSrcClass */
     pushsrc_class: GstBase.PushSrcClass
     open: (src: AudioCdSrc, device: string) => boolean
     close: (src: AudioCdSrc) => void
@@ -3951,7 +3951,7 @@ export class AudioCdSrcPrivate {
     static name: string
 }
 export class AudioCdSrcTrack {
-    /* Fields of GstAudio.AudioCdSrcTrack */
+    /* Fields of GstAudio-1.0.GstAudio.AudioCdSrcTrack */
     is_audio: boolean
     num: number
     start: number
@@ -3960,14 +3960,14 @@ export class AudioCdSrcTrack {
     static name: string
 }
 export class AudioChannelMixer {
-    /* Methods of GstAudio.AudioChannelMixer */
+    /* Methods of GstAudio-1.0.GstAudio.AudioChannelMixer */
     free(): void
     is_passthrough(): boolean
     samples(in_: object | null, out: object | null, samples: number): void
     static name: string
 }
 export class AudioClippingMeta {
-    /* Fields of GstAudio.AudioClippingMeta */
+    /* Fields of GstAudio-1.0.GstAudio.AudioClippingMeta */
     meta: Gst.Meta
     format: Gst.Format
     start: number
@@ -3977,12 +3977,12 @@ export class AudioClippingMeta {
     static get_info(): Gst.MetaInfo
 }
 export abstract class AudioClockClass {
-    /* Fields of GstAudio.AudioClockClass */
+    /* Fields of GstAudio-1.0.GstAudio.AudioClockClass */
     parent_class: Gst.SystemClockClass
     static name: string
 }
 export class AudioConverter {
-    /* Methods of GstAudio.AudioConverter */
+    /* Methods of GstAudio-1.0.GstAudio.AudioConverter */
     convert(flags: AudioConverterFlags, in_: Uint8Array[]): [ /* returnType */ boolean, /* out */ Uint8Array[] ]
     free(): void
     get_config(): [ /* returnType */ Gst.Structure, /* in_rate */ number | null, /* out_rate */ number | null ]
@@ -4001,7 +4001,7 @@ export class AudioConverter {
     static new(flags: AudioConverterFlags, in_info: AudioInfo, out_info: AudioInfo, config?: Gst.Structure | null): AudioConverter
 }
 export abstract class AudioDecoderClass {
-    /* Fields of GstAudio.AudioDecoderClass */
+    /* Fields of GstAudio-1.0.GstAudio.AudioDecoderClass */
     element_class: Gst.ElementClass
     start: (dec: AudioDecoder) => boolean
     stop: (dec: AudioDecoder) => boolean
@@ -4027,7 +4027,7 @@ export class AudioDecoderPrivate {
     static name: string
 }
 export class AudioDownmixMeta {
-    /* Fields of GstAudio.AudioDownmixMeta */
+    /* Fields of GstAudio-1.0.GstAudio.AudioDownmixMeta */
     meta: Gst.Meta
     from_position: AudioChannelPosition
     to_position: AudioChannelPosition
@@ -4039,7 +4039,7 @@ export class AudioDownmixMeta {
     static get_info(): Gst.MetaInfo
 }
 export abstract class AudioEncoderClass {
-    /* Fields of GstAudio.AudioEncoderClass */
+    /* Fields of GstAudio-1.0.GstAudio.AudioEncoderClass */
     element_class: Gst.ElementClass
     start: (enc: AudioEncoder) => boolean
     stop: (enc: AudioEncoder) => boolean
@@ -4064,15 +4064,15 @@ export class AudioEncoderPrivate {
     static name: string
 }
 export abstract class AudioFilterClass {
-    /* Fields of GstAudio.AudioFilterClass */
+    /* Fields of GstAudio-1.0.GstAudio.AudioFilterClass */
     basetransformclass: GstBase.BaseTransformClass
     setup: (filter: AudioFilter, info: AudioInfo) => boolean
-    /* Methods of GstAudio.AudioFilterClass */
+    /* Methods of GstAudio-1.0.GstAudio.AudioFilterClass */
     add_pad_templates(klass: AudioFilter | Function | GObject.Type, allowed_caps: Gst.Caps): void
     static name: string
 }
 export class AudioFormatInfo {
-    /* Fields of GstAudio.AudioFormatInfo */
+    /* Fields of GstAudio-1.0.GstAudio.AudioFormatInfo */
     format: AudioFormat
     name: string
     description: string
@@ -4084,12 +4084,12 @@ export class AudioFormatInfo {
     unpack_format: AudioFormat
     unpack_func: AudioFormatUnpack
     pack_func: AudioFormatPack
-    /* Methods of GstAudio.AudioFormatInfo */
+    /* Methods of GstAudio-1.0.GstAudio.AudioFormatInfo */
     fill_silence(dest: Uint8Array[]): void
     static name: string
 }
 export class AudioInfo {
-    /* Fields of GstAudio.AudioInfo */
+    /* Fields of GstAudio-1.0.GstAudio.AudioInfo */
     finfo: AudioFormatInfo
     flags: AudioFlags
     layout: AudioLayout
@@ -4097,7 +4097,7 @@ export class AudioInfo {
     channels: number
     bpf: number
     position: AudioChannelPosition[]
-    /* Methods of GstAudio.AudioInfo */
+    /* Methods of GstAudio-1.0.GstAudio.AudioInfo */
     convert(src_fmt: Gst.Format, src_val: number, dest_fmt: Gst.Format): [ /* returnType */ boolean, /* dest_val */ number ]
     copy(): AudioInfo
     free(): void
@@ -4113,7 +4113,7 @@ export class AudioInfo {
     static init(): /* info */ AudioInfo
 }
 export class AudioLevelMeta {
-    /* Fields of GstAudio.AudioLevelMeta */
+    /* Fields of GstAudio-1.0.GstAudio.AudioLevelMeta */
     meta: Gst.Meta
     level: number
     voice_activity: boolean
@@ -4122,7 +4122,7 @@ export class AudioLevelMeta {
     static get_info(): Gst.MetaInfo
 }
 export class AudioMeta {
-    /* Fields of GstAudio.AudioMeta */
+    /* Fields of GstAudio-1.0.GstAudio.AudioMeta */
     meta: Gst.Meta
     info: AudioInfo
     samples: number
@@ -4132,14 +4132,14 @@ export class AudioMeta {
     static get_info(): Gst.MetaInfo
 }
 export class AudioQuantize {
-    /* Methods of GstAudio.AudioQuantize */
+    /* Methods of GstAudio-1.0.GstAudio.AudioQuantize */
     free(): void
     reset(): void
     samples(in_: object | null, out: object | null, samples: number): void
     static name: string
 }
 export class AudioResampler {
-    /* Methods of GstAudio.AudioResampler */
+    /* Methods of GstAudio-1.0.GstAudio.AudioResampler */
     free(): void
     get_in_frames(out_frames: number): number
     get_max_latency(): number
@@ -4152,7 +4152,7 @@ export class AudioResampler {
     static options_set_quality(method: AudioResamplerMethod, quality: number, in_rate: number, out_rate: number, options: Gst.Structure): void
 }
 export abstract class AudioRingBufferClass {
-    /* Fields of GstAudio.AudioRingBufferClass */
+    /* Fields of GstAudio-1.0.GstAudio.AudioRingBufferClass */
     parent_class: Gst.ObjectClass
     open_device: (buf: AudioRingBuffer) => boolean
     acquire: (buf: AudioRingBuffer, spec: AudioRingBufferSpec) => boolean
@@ -4169,7 +4169,7 @@ export abstract class AudioRingBufferClass {
     static name: string
 }
 export class AudioRingBufferSpec {
-    /* Fields of GstAudio.AudioRingBufferSpec */
+    /* Fields of GstAudio-1.0.GstAudio.AudioRingBufferSpec */
     caps: Gst.Caps
     type: AudioRingBufferFormatType
     info: AudioInfo
@@ -4181,7 +4181,7 @@ export class AudioRingBufferSpec {
     static name: string
 }
 export abstract class AudioSinkClass {
-    /* Fields of GstAudio.AudioSinkClass */
+    /* Fields of GstAudio-1.0.GstAudio.AudioSinkClass */
     parent_class: AudioBaseSinkClass
     open: (sink: AudioSink) => boolean
     prepare: (sink: AudioSink, spec: AudioRingBufferSpec) => boolean
@@ -4197,12 +4197,12 @@ export abstract class AudioSinkClass {
     static name: string
 }
 export class AudioSinkClassExtension {
-    /* Fields of GstAudio.AudioSinkClassExtension */
+    /* Fields of GstAudio-1.0.GstAudio.AudioSinkClassExtension */
     clear_all: (sink: AudioSink) => void
     static name: string
 }
 export abstract class AudioSrcClass {
-    /* Fields of GstAudio.AudioSrcClass */
+    /* Fields of GstAudio-1.0.GstAudio.AudioSrcClass */
     parent_class: AudioBaseSrcClass
     open: (src: AudioSrc) => boolean
     prepare: (src: AudioSrc, spec: AudioRingBufferSpec) => boolean
@@ -4214,7 +4214,7 @@ export abstract class AudioSrcClass {
     static name: string
 }
 export class AudioStreamAlign {
-    /* Methods of GstAudio.AudioStreamAlign */
+    /* Methods of GstAudio-1.0.GstAudio.AudioStreamAlign */
     copy(): AudioStreamAlign
     free(): void
     get_alignment_threshold(): Gst.ClockTime
@@ -4234,7 +4234,7 @@ export class AudioStreamAlign {
     static new(rate: number, alignment_threshold: Gst.ClockTime, discont_wait: Gst.ClockTime): AudioStreamAlign
 }
 export abstract class StreamVolumeInterface {
-    /* Fields of GstAudio.StreamVolumeInterface */
+    /* Fields of GstAudio-1.0.GstAudio.StreamVolumeInterface */
     iface: GObject.TypeInterface
     static name: string
 }

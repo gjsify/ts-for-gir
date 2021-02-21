@@ -44,9 +44,9 @@ export interface CellRendererColor_ConstructProps extends Gtk.CellRenderer_Const
     rgba?: Gdk.RGBA
 }
 export class CellRendererColor {
-    /* Properties of EDataServerUI.CellRendererColor */
+    /* Properties of EDataServerUI-1.2.EDataServerUI.CellRendererColor */
     rgba: Gdk.RGBA
-    /* Properties of Gtk.CellRenderer */
+    /* Properties of Gtk-3.0.Gtk.CellRenderer */
     cell_background: string
     cell_background_gdk: Gdk.Color
     cell_background_rgba: Gdk.RGBA
@@ -63,14 +63,14 @@ export class CellRendererColor {
     xpad: number
     yalign: number
     ypad: number
-    /* Fields of EDataServerUI.CellRendererColor */
+    /* Fields of EDataServerUI-1.2.EDataServerUI.CellRendererColor */
     parent: Gtk.CellRenderer
     priv: CellRendererColorPrivate
-    /* Fields of Gtk.CellRenderer */
+    /* Fields of Gtk-3.0.Gtk.CellRenderer */
     parent_instance: GObject.InitiallyUnowned
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Gtk.CellRenderer */
+    /* Methods of Gtk-3.0.Gtk.CellRenderer */
     activate(event: Gdk.Event, widget: Gtk.Widget, path: string, background_area: Gdk.Rectangle, cell_area: Gdk.Rectangle, flags: Gtk.CellRendererState): boolean
     get_aligned_area(widget: Gtk.Widget, flags: Gtk.CellRendererState, cell_area: Gdk.Rectangle): /* aligned_area */ Gdk.Rectangle
     get_alignment(): [ /* xalign */ number | null, /* yalign */ number | null ]
@@ -95,7 +95,7 @@ export class CellRendererColor {
     set_visible(visible: boolean): void
     start_editing(event: Gdk.Event | null, widget: Gtk.Widget, path: string, background_area: Gdk.Rectangle, cell_area: Gdk.Rectangle, flags: Gtk.CellRendererState): Gtk.CellEditable | null
     stop_editing(canceled: boolean): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -117,7 +117,7 @@ export class CellRendererColor {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Gtk.CellRenderer */
+    /* Virtual methods of Gtk-3.0.Gtk.CellRenderer */
     vfunc_activate(event: Gdk.Event, widget: Gtk.Widget, path: string, background_area: Gdk.Rectangle, cell_area: Gdk.Rectangle, flags: Gtk.CellRendererState): boolean
     vfunc_editing_canceled(): void
     vfunc_editing_started(editable: Gtk.CellEditable, path: string): void
@@ -130,7 +130,7 @@ export class CellRendererColor {
     vfunc_get_size(widget: Gtk.Widget, cell_area?: Gdk.Rectangle | null): [ /* x_offset */ number | null, /* y_offset */ number | null, /* width */ number | null, /* height */ number | null ]
     vfunc_render(cr: cairo.Context, widget: Gtk.Widget, background_area: Gdk.Rectangle, cell_area: Gdk.Rectangle, flags: Gtk.CellRendererState): void
     vfunc_start_editing(event: Gdk.Event | null, widget: Gtk.Widget, path: string, background_area: Gdk.Rectangle, cell_area: Gdk.Rectangle, flags: Gtk.CellRendererState): Gtk.CellEditable | null
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -138,14 +138,14 @@ export class CellRendererColor {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gtk.CellRenderer */
+    /* Signals of Gtk-3.0.Gtk.CellRenderer */
     connect(sigName: "editing-canceled", callback: (($obj: CellRendererColor) => void)): number
     connect_after(sigName: "editing-canceled", callback: (($obj: CellRendererColor) => void)): number
     emit(sigName: "editing-canceled"): void
     connect(sigName: "editing-started", callback: (($obj: CellRendererColor, editable: Gtk.CellEditable, path: string) => void)): number
     connect_after(sigName: "editing-started", callback: (($obj: CellRendererColor, editable: Gtk.CellEditable, path: string) => void)): number
     emit(sigName: "editing-started", editable: Gtk.CellEditable, path: string): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: CellRendererColor, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: CellRendererColor, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -199,15 +199,15 @@ export interface CredentialsPrompter_ConstructProps extends GObject.Object_Const
     registry?: EDataServer.SourceRegistry
 }
 export class CredentialsPrompter {
-    /* Properties of EDataServerUI.CredentialsPrompter */
+    /* Properties of EDataServerUI-1.2.EDataServerUI.CredentialsPrompter */
     auto_prompt: boolean
     readonly provider: EDataServer.SourceCredentialsProvider
-    /* Fields of EDataServerUI.CredentialsPrompter */
+    /* Fields of EDataServerUI-1.2.EDataServerUI.CredentialsPrompter */
     parent: GObject.Object
     priv: CredentialsPrompterPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of EDataServerUI.CredentialsPrompter */
+    /* Methods of EDataServerUI-1.2.EDataServerUI.CredentialsPrompter */
     complete_prompt_call(async_result: Gio.SimpleAsyncResult, source: EDataServer.Source, credentials?: EDataServer.NamedParameters | null, error?: GLib.Error | null): void
     get_auto_prompt(): boolean
     get_auto_prompt_disabled_for(source: EDataServer.Source): boolean
@@ -223,7 +223,7 @@ export class CredentialsPrompter {
     set_auto_prompt(auto_prompt: boolean): void
     set_auto_prompt_disabled_for(source: EDataServer.Source, is_disabled: boolean): void
     unregister_impl(authentication_method: string | null, prompter_impl: CredentialsPrompterImpl): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -245,12 +245,12 @@ export class CredentialsPrompter {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of EDataServer.Extensible */
+    /* Methods of EDataServer-1.2.EDataServer.Extensible */
     list_extensions(extension_type: GObject.Type): EDataServer.Extension[]
     load_extensions(): void
-    /* Virtual methods of EDataServerUI.CredentialsPrompter */
+    /* Virtual methods of EDataServerUI-1.2.EDataServerUI.CredentialsPrompter */
     vfunc_get_dialog_parent(): Gtk.Window
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -258,11 +258,11 @@ export class CredentialsPrompter {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of EDataServerUI.CredentialsPrompter */
+    /* Signals of EDataServerUI-1.2.EDataServerUI.CredentialsPrompter */
     connect(sigName: "get-dialog-parent", callback: (($obj: CredentialsPrompter) => Gtk.Window)): number
     connect_after(sigName: "get-dialog-parent", callback: (($obj: CredentialsPrompter) => Gtk.Window)): number
     emit(sigName: "get-dialog-parent"): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: CredentialsPrompter, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: CredentialsPrompter, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -284,19 +284,19 @@ export class CredentialsPrompter {
 export interface CredentialsPrompterImpl_ConstructProps extends EDataServer.Extension_ConstructProps {
 }
 export class CredentialsPrompterImpl {
-    /* Fields of EDataServerUI.CredentialsPrompterImpl */
+    /* Fields of EDataServerUI-1.2.EDataServerUI.CredentialsPrompterImpl */
     parent: EDataServer.Extension
     priv: CredentialsPrompterImplPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of EDataServerUI.CredentialsPrompterImpl */
+    /* Methods of EDataServerUI-1.2.EDataServerUI.CredentialsPrompterImpl */
     cancel_prompt(prompt_id?: object | null): void
     get_credentials_prompter(): object | null
     prompt(prompt_id: object | null, auth_source: EDataServer.Source, cred_source: EDataServer.Source, error_text: string | null, credentials: EDataServer.NamedParameters): void
     prompt_finish(prompt_id?: object | null, credentials?: EDataServer.NamedParameters | null): void
-    /* Methods of EDataServer.Extension */
+    /* Methods of EDataServer-1.2.EDataServer.Extension */
     get_extensible(): EDataServer.Extensible
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -318,11 +318,11 @@ export class CredentialsPrompterImpl {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of EDataServerUI.CredentialsPrompterImpl */
+    /* Virtual methods of EDataServerUI-1.2.EDataServerUI.CredentialsPrompterImpl */
     vfunc_cancel_prompt(prompt_id?: object | null): void
     vfunc_process_prompt(prompt_id: object | null, auth_source: EDataServer.Source, cred_source: EDataServer.Source, error_text: string, credentials: EDataServer.NamedParameters): void
     vfunc_prompt_finished(prompt_id: object | null, credentials: EDataServer.NamedParameters): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -330,11 +330,11 @@ export class CredentialsPrompterImpl {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of EDataServerUI.CredentialsPrompterImpl */
+    /* Signals of EDataServerUI-1.2.EDataServerUI.CredentialsPrompterImpl */
     connect(sigName: "prompt-finished", callback: (($obj: CredentialsPrompterImpl, prompt_id?: object | null, credentials?: EDataServer.NamedParameters | null) => void)): number
     connect_after(sigName: "prompt-finished", callback: (($obj: CredentialsPrompterImpl, prompt_id?: object | null, credentials?: EDataServer.NamedParameters | null) => void)): number
     emit(sigName: "prompt-finished", prompt_id?: object | null, credentials?: EDataServer.NamedParameters | null): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: CredentialsPrompterImpl, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: CredentialsPrompterImpl, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -350,19 +350,19 @@ export class CredentialsPrompterImpl {
 export interface CredentialsPrompterImplOAuth2_ConstructProps extends CredentialsPrompterImpl_ConstructProps {
 }
 export class CredentialsPrompterImplOAuth2 {
-    /* Fields of EDataServerUI.CredentialsPrompterImplOAuth2 */
+    /* Fields of EDataServerUI-1.2.EDataServerUI.CredentialsPrompterImplOAuth2 */
     parent: CredentialsPrompterImpl
     priv: CredentialsPrompterImplOAuth2Private
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of EDataServerUI.CredentialsPrompterImpl */
+    /* Methods of EDataServerUI-1.2.EDataServerUI.CredentialsPrompterImpl */
     cancel_prompt(prompt_id?: object | null): void
     get_credentials_prompter(): object | null
     prompt(prompt_id: object | null, auth_source: EDataServer.Source, cred_source: EDataServer.Source, error_text: string | null, credentials: EDataServer.NamedParameters): void
     prompt_finish(prompt_id?: object | null, credentials?: EDataServer.NamedParameters | null): void
-    /* Methods of EDataServer.Extension */
+    /* Methods of EDataServer-1.2.EDataServer.Extension */
     get_extensible(): EDataServer.Extensible
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -384,11 +384,11 @@ export class CredentialsPrompterImplOAuth2 {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of EDataServerUI.CredentialsPrompterImpl */
+    /* Virtual methods of EDataServerUI-1.2.EDataServerUI.CredentialsPrompterImpl */
     vfunc_cancel_prompt(prompt_id?: object | null): void
     vfunc_process_prompt(prompt_id: object | null, auth_source: EDataServer.Source, cred_source: EDataServer.Source, error_text: string, credentials: EDataServer.NamedParameters): void
     vfunc_prompt_finished(prompt_id: object | null, credentials: EDataServer.NamedParameters): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -396,11 +396,11 @@ export class CredentialsPrompterImplOAuth2 {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of EDataServerUI.CredentialsPrompterImpl */
+    /* Signals of EDataServerUI-1.2.EDataServerUI.CredentialsPrompterImpl */
     connect(sigName: "prompt-finished", callback: (($obj: CredentialsPrompterImplOAuth2, prompt_id?: object | null, credentials?: EDataServer.NamedParameters | null) => void)): number
     connect_after(sigName: "prompt-finished", callback: (($obj: CredentialsPrompterImplOAuth2, prompt_id?: object | null, credentials?: EDataServer.NamedParameters | null) => void)): number
     emit(sigName: "prompt-finished", prompt_id?: object | null, credentials?: EDataServer.NamedParameters | null): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: CredentialsPrompterImplOAuth2, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: CredentialsPrompterImplOAuth2, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -418,19 +418,19 @@ export class CredentialsPrompterImplOAuth2 {
 export interface CredentialsPrompterImplPassword_ConstructProps extends CredentialsPrompterImpl_ConstructProps {
 }
 export class CredentialsPrompterImplPassword {
-    /* Fields of EDataServerUI.CredentialsPrompterImplPassword */
+    /* Fields of EDataServerUI-1.2.EDataServerUI.CredentialsPrompterImplPassword */
     parent: CredentialsPrompterImpl
     priv: CredentialsPrompterImplPasswordPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of EDataServerUI.CredentialsPrompterImpl */
+    /* Methods of EDataServerUI-1.2.EDataServerUI.CredentialsPrompterImpl */
     cancel_prompt(prompt_id?: object | null): void
     get_credentials_prompter(): object | null
     prompt(prompt_id: object | null, auth_source: EDataServer.Source, cred_source: EDataServer.Source, error_text: string | null, credentials: EDataServer.NamedParameters): void
     prompt_finish(prompt_id?: object | null, credentials?: EDataServer.NamedParameters | null): void
-    /* Methods of EDataServer.Extension */
+    /* Methods of EDataServer-1.2.EDataServer.Extension */
     get_extensible(): EDataServer.Extensible
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -452,11 +452,11 @@ export class CredentialsPrompterImplPassword {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of EDataServerUI.CredentialsPrompterImpl */
+    /* Virtual methods of EDataServerUI-1.2.EDataServerUI.CredentialsPrompterImpl */
     vfunc_cancel_prompt(prompt_id?: object | null): void
     vfunc_process_prompt(prompt_id: object | null, auth_source: EDataServer.Source, cred_source: EDataServer.Source, error_text: string, credentials: EDataServer.NamedParameters): void
     vfunc_prompt_finished(prompt_id: object | null, credentials: EDataServer.NamedParameters): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -464,11 +464,11 @@ export class CredentialsPrompterImplPassword {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of EDataServerUI.CredentialsPrompterImpl */
+    /* Signals of EDataServerUI-1.2.EDataServerUI.CredentialsPrompterImpl */
     connect(sigName: "prompt-finished", callback: (($obj: CredentialsPrompterImplPassword, prompt_id?: object | null, credentials?: EDataServer.NamedParameters | null) => void)): number
     connect_after(sigName: "prompt-finished", callback: (($obj: CredentialsPrompterImplPassword, prompt_id?: object | null, credentials?: EDataServer.NamedParameters | null) => void)): number
     emit(sigName: "prompt-finished", prompt_id?: object | null, credentials?: EDataServer.NamedParameters | null): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: CredentialsPrompterImplPassword, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: CredentialsPrompterImplPassword, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -488,19 +488,19 @@ export interface RemindersWidget_ConstructProps extends Gtk.Grid_ConstructProps 
     orientation?: Gtk.Orientation
 }
 export class RemindersWidget {
-    /* Properties of EDataServerUI.RemindersWidget */
+    /* Properties of EDataServerUI-1.2.EDataServerUI.RemindersWidget */
     readonly empty: boolean
-    /* Properties of Gtk.Grid */
+    /* Properties of Gtk-3.0.Gtk.Grid */
     baseline_row: number
     column_homogeneous: boolean
     column_spacing: number
     row_homogeneous: boolean
     row_spacing: number
-    /* Properties of Gtk.Container */
+    /* Properties of Gtk-3.0.Gtk.Container */
     border_width: number
     child: Gtk.Widget
     resize_mode: Gtk.ResizeMode
-    /* Properties of Gtk.Widget */
+    /* Properties of Gtk-3.0.Gtk.Widget */
     app_paintable: boolean
     can_default: boolean
     can_focus: boolean
@@ -540,22 +540,22 @@ export class RemindersWidget {
     visible: boolean
     width_request: number
     readonly window: Gdk.Window
-    /* Properties of Gtk.Orientable */
+    /* Properties of Gtk-3.0.Gtk.Orientable */
     orientation: Gtk.Orientation
-    /* Fields of Gtk.Container */
+    /* Fields of Gtk-3.0.Gtk.Container */
     widget: Gtk.Widget
-    /* Fields of Gtk.Widget */
+    /* Fields of Gtk-3.0.Gtk.Widget */
     parent_instance: GObject.InitiallyUnowned
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     g_type_instance: GObject.TypeInstance
-    /* Methods of EDataServerUI.RemindersWidget */
+    /* Methods of EDataServerUI-1.2.EDataServerUI.RemindersWidget */
     get_paned(): Gtk.Paned
     get_settings(): Gio.Settings
     get_tree_view(): Gtk.TreeView
     get_watcher(): ECal.ReminderWatcher
     is_empty(): boolean
     report_error(prefix?: string | null, error?: GLib.Error | null): void
-    /* Methods of Gtk.Grid */
+    /* Methods of Gtk-3.0.Gtk.Grid */
     attach(child: Gtk.Widget, left: number, top: number, width: number, height: number): void
     attach_next_to(child: Gtk.Widget, sibling: Gtk.Widget | null, side: Gtk.PositionType, width: number, height: number): void
     get_baseline_row(): number
@@ -576,7 +576,7 @@ export class RemindersWidget {
     set_row_baseline_position(row: number, pos: Gtk.BaselinePosition): void
     set_row_homogeneous(homogeneous: boolean): void
     set_row_spacing(spacing: number): void
-    /* Methods of Gtk.Container */
+    /* Methods of Gtk-3.0.Gtk.Container */
     add(widget: Gtk.Widget): void
     check_resize(): void
     child_get_property(child: Gtk.Widget, property_name: string, value: any): void
@@ -604,7 +604,7 @@ export class RemindersWidget {
     set_reallocate_redraws(needs_redraws: boolean): void
     set_resize_mode(resize_mode: Gtk.ResizeMode): void
     unset_focus_chain(): void
-    /* Methods of Gtk.Widget */
+    /* Methods of Gtk-3.0.Gtk.Widget */
     activate(): boolean
     add_accelerator(accel_signal: string, accel_group: Gtk.AccelGroup, accel_key: number, accel_mods: Gdk.ModifierType, accel_flags: Gtk.AccelFlags): void
     add_device_events(device: Gdk.Device, events: Gdk.EventMask): void
@@ -863,7 +863,7 @@ export class RemindersWidget {
     unrealize(): void
     unregister_window(window: Gdk.Window): void
     unset_state_flags(flags: Gtk.StateFlags): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -885,10 +885,10 @@ export class RemindersWidget {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of EDataServer.Extensible */
+    /* Methods of EDataServer-1.2.EDataServer.Extensible */
     list_extensions(extension_type: GObject.Type): EDataServer.Extension[]
     load_extensions(): void
-    /* Methods of Gtk.Buildable */
+    /* Methods of Gtk-3.0.Gtk.Buildable */
     add_child(builder: Gtk.Builder, child: GObject.Object, type?: string | null): void
     construct_child(builder: Gtk.Builder, name: string): GObject.Object
     custom_finished(builder: Gtk.Builder, child: GObject.Object | null, tagname: string, data?: object | null): void
@@ -897,10 +897,10 @@ export class RemindersWidget {
     get_internal_child(builder: Gtk.Builder, childname: string): GObject.Object
     parser_finished(builder: Gtk.Builder): void
     set_buildable_property(builder: Gtk.Builder, name: string, value: any): void
-    /* Methods of Gtk.Orientable */
+    /* Methods of Gtk-3.0.Gtk.Orientable */
     get_orientation(): Gtk.Orientation
     set_orientation(orientation: Gtk.Orientation): void
-    /* Virtual methods of EDataServerUI.RemindersWidget */
+    /* Virtual methods of EDataServerUI-1.2.EDataServerUI.RemindersWidget */
     vfunc_activated(rd: ECal.ReminderData): boolean
     vfunc_changed(): void
     vfunc_add_child(builder: Gtk.Builder, child: GObject.Object, type?: string | null): void
@@ -913,7 +913,7 @@ export class RemindersWidget {
     vfunc_parser_finished(builder: Gtk.Builder): void
     vfunc_set_buildable_property(builder: Gtk.Builder, name: string, value: any): void
     vfunc_set_name(name: string): void
-    /* Virtual methods of Gtk.Container */
+    /* Virtual methods of Gtk-3.0.Gtk.Container */
     vfunc_add(widget: Gtk.Widget): void
     vfunc_check_resize(): void
     vfunc_child_type(): GObject.Type
@@ -924,7 +924,7 @@ export class RemindersWidget {
     vfunc_remove(widget: Gtk.Widget): void
     vfunc_set_child_property(child: Gtk.Widget, property_id: number, value: any, pspec: GObject.ParamSpec): void
     vfunc_set_focus_child(child?: Gtk.Widget | null): void
-    /* Virtual methods of Gtk.Widget */
+    /* Virtual methods of Gtk-3.0.Gtk.Widget */
     vfunc_adjust_baseline_allocation(baseline: number): void
     vfunc_adjust_baseline_request(minimum_baseline: number, natural_baseline: number): void
     vfunc_adjust_size_allocation(orientation: Gtk.Orientation, minimum_size: number, natural_size: number, allocated_pos: number, allocated_size: number): void
@@ -1007,7 +1007,7 @@ export class RemindersWidget {
     vfunc_unrealize(): void
     vfunc_visibility_notify_event(event: Gdk.EventVisibility): boolean
     vfunc_window_state_event(event: Gdk.EventWindowState): boolean
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -1015,14 +1015,14 @@ export class RemindersWidget {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of EDataServerUI.RemindersWidget */
+    /* Signals of EDataServerUI-1.2.EDataServerUI.RemindersWidget */
     connect(sigName: "activated", callback: (($obj: RemindersWidget, object: ECal.ReminderData) => boolean)): number
     connect_after(sigName: "activated", callback: (($obj: RemindersWidget, object: ECal.ReminderData) => boolean)): number
     emit(sigName: "activated", object: ECal.ReminderData): void
     connect(sigName: "changed", callback: (($obj: RemindersWidget) => void)): number
     connect_after(sigName: "changed", callback: (($obj: RemindersWidget) => void)): number
     emit(sigName: "changed"): void
-    /* Signals of Gtk.Container */
+    /* Signals of Gtk-3.0.Gtk.Container */
     connect(sigName: "add", callback: (($obj: RemindersWidget, object: Gtk.Widget) => void)): number
     connect_after(sigName: "add", callback: (($obj: RemindersWidget, object: Gtk.Widget) => void)): number
     emit(sigName: "add", object: Gtk.Widget): void
@@ -1035,7 +1035,7 @@ export class RemindersWidget {
     connect(sigName: "set-focus-child", callback: (($obj: RemindersWidget, object: Gtk.Widget) => void)): number
     connect_after(sigName: "set-focus-child", callback: (($obj: RemindersWidget, object: Gtk.Widget) => void)): number
     emit(sigName: "set-focus-child", object: Gtk.Widget): void
-    /* Signals of Gtk.Widget */
+    /* Signals of Gtk-3.0.Gtk.Widget */
     connect(sigName: "accel-closures-changed", callback: (($obj: RemindersWidget) => void)): number
     connect_after(sigName: "accel-closures-changed", callback: (($obj: RemindersWidget) => void)): number
     emit(sigName: "accel-closures-changed"): void
@@ -1243,7 +1243,7 @@ export class RemindersWidget {
     connect(sigName: "window-state-event", callback: (($obj: RemindersWidget, event: Gdk.EventWindowState) => boolean)): number
     connect_after(sigName: "window-state-event", callback: (($obj: RemindersWidget, event: Gdk.EventWindowState) => boolean)): number
     emit(sigName: "window-state-event", event: Gdk.EventWindowState): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: RemindersWidget, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: RemindersWidget, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -1361,17 +1361,17 @@ export interface WebDAVDiscoverContent_ConstructProps extends Gtk.Grid_Construct
     orientation?: Gtk.Orientation
 }
 export class WebDAVDiscoverContent {
-    /* Properties of Gtk.Grid */
+    /* Properties of Gtk-3.0.Gtk.Grid */
     baseline_row: number
     column_homogeneous: boolean
     column_spacing: number
     row_homogeneous: boolean
     row_spacing: number
-    /* Properties of Gtk.Container */
+    /* Properties of Gtk-3.0.Gtk.Container */
     border_width: number
     child: Gtk.Widget
     resize_mode: Gtk.ResizeMode
-    /* Properties of Gtk.Widget */
+    /* Properties of Gtk-3.0.Gtk.Widget */
     app_paintable: boolean
     can_default: boolean
     can_focus: boolean
@@ -1411,15 +1411,15 @@ export class WebDAVDiscoverContent {
     visible: boolean
     width_request: number
     readonly window: Gdk.Window
-    /* Properties of Gtk.Orientable */
+    /* Properties of Gtk-3.0.Gtk.Orientable */
     orientation: Gtk.Orientation
-    /* Fields of Gtk.Container */
+    /* Fields of Gtk-3.0.Gtk.Container */
     widget: Gtk.Widget
-    /* Fields of Gtk.Widget */
+    /* Fields of Gtk-3.0.Gtk.Widget */
     parent_instance: GObject.InitiallyUnowned
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     g_type_instance: GObject.TypeInstance
-    /* Methods of EDataServerUI.WebDAVDiscoverContent */
+    /* Methods of EDataServerUI-1.2.EDataServerUI.WebDAVDiscoverContent */
     get_base_url(): string
     get_multiselect(): boolean
     get_selected(index: number): [ /* returnType */ boolean, /* out_href */ string, /* out_supports */ number, /* out_display_name */ string, /* out_color */ string, /* out_order */ number ]
@@ -1430,7 +1430,7 @@ export class WebDAVDiscoverContent {
     set_base_url(base_url: string): void
     set_multiselect(multiselect: boolean): void
     show_error(error?: GLib.Error | null): void
-    /* Methods of Gtk.Grid */
+    /* Methods of Gtk-3.0.Gtk.Grid */
     attach(child: Gtk.Widget, left: number, top: number, width: number, height: number): void
     attach_next_to(child: Gtk.Widget, sibling: Gtk.Widget | null, side: Gtk.PositionType, width: number, height: number): void
     get_baseline_row(): number
@@ -1451,7 +1451,7 @@ export class WebDAVDiscoverContent {
     set_row_baseline_position(row: number, pos: Gtk.BaselinePosition): void
     set_row_homogeneous(homogeneous: boolean): void
     set_row_spacing(spacing: number): void
-    /* Methods of Gtk.Container */
+    /* Methods of Gtk-3.0.Gtk.Container */
     add(widget: Gtk.Widget): void
     check_resize(): void
     child_get_property(child: Gtk.Widget, property_name: string, value: any): void
@@ -1479,7 +1479,7 @@ export class WebDAVDiscoverContent {
     set_reallocate_redraws(needs_redraws: boolean): void
     set_resize_mode(resize_mode: Gtk.ResizeMode): void
     unset_focus_chain(): void
-    /* Methods of Gtk.Widget */
+    /* Methods of Gtk-3.0.Gtk.Widget */
     activate(): boolean
     add_accelerator(accel_signal: string, accel_group: Gtk.AccelGroup, accel_key: number, accel_mods: Gdk.ModifierType, accel_flags: Gtk.AccelFlags): void
     add_device_events(device: Gdk.Device, events: Gdk.EventMask): void
@@ -1738,7 +1738,7 @@ export class WebDAVDiscoverContent {
     unrealize(): void
     unregister_window(window: Gdk.Window): void
     unset_state_flags(flags: Gtk.StateFlags): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -1760,7 +1760,7 @@ export class WebDAVDiscoverContent {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of Gtk.Buildable */
+    /* Methods of Gtk-3.0.Gtk.Buildable */
     add_child(builder: Gtk.Builder, child: GObject.Object, type?: string | null): void
     construct_child(builder: Gtk.Builder, name: string): GObject.Object
     custom_finished(builder: Gtk.Builder, child: GObject.Object | null, tagname: string, data?: object | null): void
@@ -1769,10 +1769,10 @@ export class WebDAVDiscoverContent {
     get_internal_child(builder: Gtk.Builder, childname: string): GObject.Object
     parser_finished(builder: Gtk.Builder): void
     set_buildable_property(builder: Gtk.Builder, name: string, value: any): void
-    /* Methods of Gtk.Orientable */
+    /* Methods of Gtk-3.0.Gtk.Orientable */
     get_orientation(): Gtk.Orientation
     set_orientation(orientation: Gtk.Orientation): void
-    /* Virtual methods of EDataServerUI.WebDAVDiscoverContent */
+    /* Virtual methods of EDataServerUI-1.2.EDataServerUI.WebDAVDiscoverContent */
     vfunc_add_child(builder: Gtk.Builder, child: GObject.Object, type?: string | null): void
     vfunc_construct_child(builder: Gtk.Builder, name: string): GObject.Object
     vfunc_custom_finished(builder: Gtk.Builder, child: GObject.Object | null, tagname: string, data?: object | null): void
@@ -1783,7 +1783,7 @@ export class WebDAVDiscoverContent {
     vfunc_parser_finished(builder: Gtk.Builder): void
     vfunc_set_buildable_property(builder: Gtk.Builder, name: string, value: any): void
     vfunc_set_name(name: string): void
-    /* Virtual methods of Gtk.Container */
+    /* Virtual methods of Gtk-3.0.Gtk.Container */
     vfunc_add(widget: Gtk.Widget): void
     vfunc_check_resize(): void
     vfunc_child_type(): GObject.Type
@@ -1794,7 +1794,7 @@ export class WebDAVDiscoverContent {
     vfunc_remove(widget: Gtk.Widget): void
     vfunc_set_child_property(child: Gtk.Widget, property_id: number, value: any, pspec: GObject.ParamSpec): void
     vfunc_set_focus_child(child?: Gtk.Widget | null): void
-    /* Virtual methods of Gtk.Widget */
+    /* Virtual methods of Gtk-3.0.Gtk.Widget */
     vfunc_adjust_baseline_allocation(baseline: number): void
     vfunc_adjust_baseline_request(minimum_baseline: number, natural_baseline: number): void
     vfunc_adjust_size_allocation(orientation: Gtk.Orientation, minimum_size: number, natural_size: number, allocated_pos: number, allocated_size: number): void
@@ -1877,7 +1877,7 @@ export class WebDAVDiscoverContent {
     vfunc_unrealize(): void
     vfunc_visibility_notify_event(event: Gdk.EventVisibility): boolean
     vfunc_window_state_event(event: Gdk.EventWindowState): boolean
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -1885,7 +1885,7 @@ export class WebDAVDiscoverContent {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gtk.Container */
+    /* Signals of Gtk-3.0.Gtk.Container */
     connect(sigName: "add", callback: (($obj: WebDAVDiscoverContent, object: Gtk.Widget) => void)): number
     connect_after(sigName: "add", callback: (($obj: WebDAVDiscoverContent, object: Gtk.Widget) => void)): number
     emit(sigName: "add", object: Gtk.Widget): void
@@ -1898,7 +1898,7 @@ export class WebDAVDiscoverContent {
     connect(sigName: "set-focus-child", callback: (($obj: WebDAVDiscoverContent, object: Gtk.Widget) => void)): number
     connect_after(sigName: "set-focus-child", callback: (($obj: WebDAVDiscoverContent, object: Gtk.Widget) => void)): number
     emit(sigName: "set-focus-child", object: Gtk.Widget): void
-    /* Signals of Gtk.Widget */
+    /* Signals of Gtk-3.0.Gtk.Widget */
     connect(sigName: "accel-closures-changed", callback: (($obj: WebDAVDiscoverContent) => void)): number
     connect_after(sigName: "accel-closures-changed", callback: (($obj: WebDAVDiscoverContent) => void)): number
     emit(sigName: "accel-closures-changed"): void
@@ -2106,7 +2106,7 @@ export class WebDAVDiscoverContent {
     connect(sigName: "window-state-event", callback: (($obj: WebDAVDiscoverContent, event: Gdk.EventWindowState) => boolean)): number
     connect_after(sigName: "window-state-event", callback: (($obj: WebDAVDiscoverContent, event: Gdk.EventWindowState) => boolean)): number
     emit(sigName: "window-state-event", event: Gdk.EventWindowState): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: WebDAVDiscoverContent, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: WebDAVDiscoverContent, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -2221,7 +2221,7 @@ export class WebDAVDiscoverContent {
 export interface WebDAVDiscoverDialog_ConstructProps extends Gtk.Dialog_ConstructProps {
 }
 export class WebDAVDiscoverDialog {
-    /* Properties of Gtk.Window */
+    /* Properties of Gtk-3.0.Gtk.Window */
     accept_focus: boolean
     application: Gtk.Application
     attached_to: Gtk.Widget
@@ -2254,11 +2254,11 @@ export class WebDAVDiscoverDialog {
     type_hint: Gdk.WindowTypeHint
     urgency_hint: boolean
     window_position: Gtk.WindowPosition
-    /* Properties of Gtk.Container */
+    /* Properties of Gtk-3.0.Gtk.Container */
     border_width: number
     child: Gtk.Widget
     resize_mode: Gtk.ResizeMode
-    /* Properties of Gtk.Widget */
+    /* Properties of Gtk-3.0.Gtk.Widget */
     app_paintable: boolean
     can_default: boolean
     can_focus: boolean
@@ -2298,21 +2298,21 @@ export class WebDAVDiscoverDialog {
     visible: boolean
     width_request: number
     readonly window: Gdk.Window
-    /* Fields of Gtk.Window */
+    /* Fields of Gtk-3.0.Gtk.Window */
     bin: Gtk.Bin
     priv: Gtk.WindowPrivate
-    /* Fields of Gtk.Bin */
+    /* Fields of Gtk-3.0.Gtk.Bin */
     container: Gtk.Container
-    /* Fields of Gtk.Container */
+    /* Fields of Gtk-3.0.Gtk.Container */
     widget: Gtk.Widget
-    /* Fields of Gtk.Widget */
+    /* Fields of Gtk-3.0.Gtk.Widget */
     parent_instance: GObject.InitiallyUnowned
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     g_type_instance: GObject.TypeInstance
-    /* Methods of EDataServerUI.WebDAVDiscoverDialog */
+    /* Methods of EDataServerUI-1.2.EDataServerUI.WebDAVDiscoverDialog */
     get_content(): WebDAVDiscoverContent
     refresh(): void
-    /* Methods of Gtk.Dialog */
+    /* Methods of Gtk-3.0.Gtk.Dialog */
     add_action_widget(child: Gtk.Widget, response_id: number): void
     add_button(button_text: string, response_id: number): Gtk.Widget
     get_action_area(): Gtk.Box
@@ -2325,7 +2325,7 @@ export class WebDAVDiscoverDialog {
     set_alternative_button_order_from_array(new_order: number[]): void
     set_default_response(response_id: number): void
     set_response_sensitive(response_id: number, setting: boolean): void
-    /* Methods of Gtk.Window */
+    /* Methods of Gtk-3.0.Gtk.Window */
     activate_default(): boolean
     activate_focus(): boolean
     activate_key(event: Gdk.EventKey): boolean
@@ -2432,9 +2432,9 @@ export class WebDAVDiscoverDialog {
     unfullscreen(): void
     unmaximize(): void
     unstick(): void
-    /* Methods of Gtk.Bin */
+    /* Methods of Gtk-3.0.Gtk.Bin */
     get_child(): Gtk.Widget | null
-    /* Methods of Gtk.Container */
+    /* Methods of Gtk-3.0.Gtk.Container */
     add(widget: Gtk.Widget): void
     check_resize(): void
     child_get_property(child: Gtk.Widget, property_name: string, value: any): void
@@ -2462,7 +2462,7 @@ export class WebDAVDiscoverDialog {
     set_reallocate_redraws(needs_redraws: boolean): void
     set_resize_mode(resize_mode: Gtk.ResizeMode): void
     unset_focus_chain(): void
-    /* Methods of Gtk.Widget */
+    /* Methods of Gtk-3.0.Gtk.Widget */
     activate(): boolean
     add_accelerator(accel_signal: string, accel_group: Gtk.AccelGroup, accel_key: number, accel_mods: Gdk.ModifierType, accel_flags: Gtk.AccelFlags): void
     add_device_events(device: Gdk.Device, events: Gdk.EventMask): void
@@ -2718,7 +2718,7 @@ export class WebDAVDiscoverDialog {
     unrealize(): void
     unregister_window(window: Gdk.Window): void
     unset_state_flags(flags: Gtk.StateFlags): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -2740,7 +2740,7 @@ export class WebDAVDiscoverDialog {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of Gtk.Buildable */
+    /* Methods of Gtk-3.0.Gtk.Buildable */
     add_child(builder: Gtk.Builder, child: GObject.Object, type?: string | null): void
     construct_child(builder: Gtk.Builder, name: string): GObject.Object
     custom_finished(builder: Gtk.Builder, child: GObject.Object | null, tagname: string, data?: object | null): void
@@ -2749,7 +2749,7 @@ export class WebDAVDiscoverDialog {
     get_internal_child(builder: Gtk.Builder, childname: string): GObject.Object
     parser_finished(builder: Gtk.Builder): void
     set_buildable_property(builder: Gtk.Builder, name: string, value: any): void
-    /* Virtual methods of EDataServerUI.WebDAVDiscoverDialog */
+    /* Virtual methods of EDataServerUI-1.2.EDataServerUI.WebDAVDiscoverDialog */
     vfunc_add_child(builder: Gtk.Builder, child: GObject.Object, type?: string | null): void
     vfunc_construct_child(builder: Gtk.Builder, name: string): GObject.Object
     vfunc_custom_finished(builder: Gtk.Builder, child: GObject.Object | null, tagname: string, data?: object | null): void
@@ -2760,16 +2760,16 @@ export class WebDAVDiscoverDialog {
     vfunc_parser_finished(builder: Gtk.Builder): void
     vfunc_set_buildable_property(builder: Gtk.Builder, name: string, value: any): void
     vfunc_set_name(name: string): void
-    /* Virtual methods of Gtk.Dialog */
+    /* Virtual methods of Gtk-3.0.Gtk.Dialog */
     vfunc_close(): void
     vfunc_response(response_id: number): void
-    /* Virtual methods of Gtk.Window */
+    /* Virtual methods of Gtk-3.0.Gtk.Window */
     vfunc_activate_default(): void
     vfunc_activate_focus(): void
     vfunc_enable_debugging(toggle: boolean): boolean
     vfunc_keys_changed(): void
     vfunc_set_focus(focus?: Gtk.Widget | null): void
-    /* Virtual methods of Gtk.Container */
+    /* Virtual methods of Gtk-3.0.Gtk.Container */
     vfunc_add(widget: Gtk.Widget): void
     vfunc_check_resize(): void
     vfunc_child_type(): GObject.Type
@@ -2780,7 +2780,7 @@ export class WebDAVDiscoverDialog {
     vfunc_remove(widget: Gtk.Widget): void
     vfunc_set_child_property(child: Gtk.Widget, property_id: number, value: any, pspec: GObject.ParamSpec): void
     vfunc_set_focus_child(child?: Gtk.Widget | null): void
-    /* Virtual methods of Gtk.Widget */
+    /* Virtual methods of Gtk-3.0.Gtk.Widget */
     vfunc_adjust_baseline_allocation(baseline: number): void
     vfunc_adjust_baseline_request(minimum_baseline: number, natural_baseline: number): void
     vfunc_adjust_size_allocation(orientation: Gtk.Orientation, minimum_size: number, natural_size: number, allocated_pos: number, allocated_size: number): void
@@ -2863,7 +2863,7 @@ export class WebDAVDiscoverDialog {
     vfunc_unrealize(): void
     vfunc_visibility_notify_event(event: Gdk.EventVisibility): boolean
     vfunc_window_state_event(event: Gdk.EventWindowState): boolean
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -2871,14 +2871,14 @@ export class WebDAVDiscoverDialog {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gtk.Dialog */
+    /* Signals of Gtk-3.0.Gtk.Dialog */
     connect(sigName: "close", callback: (($obj: WebDAVDiscoverDialog) => void)): number
     connect_after(sigName: "close", callback: (($obj: WebDAVDiscoverDialog) => void)): number
     emit(sigName: "close"): void
     connect(sigName: "response", callback: (($obj: WebDAVDiscoverDialog, response_id: number) => void)): number
     connect_after(sigName: "response", callback: (($obj: WebDAVDiscoverDialog, response_id: number) => void)): number
     emit(sigName: "response", response_id: number): void
-    /* Signals of Gtk.Window */
+    /* Signals of Gtk-3.0.Gtk.Window */
     connect(sigName: "activate-default", callback: (($obj: WebDAVDiscoverDialog) => void)): number
     connect_after(sigName: "activate-default", callback: (($obj: WebDAVDiscoverDialog) => void)): number
     emit(sigName: "activate-default"): void
@@ -2894,7 +2894,7 @@ export class WebDAVDiscoverDialog {
     connect(sigName: "set-focus", callback: (($obj: WebDAVDiscoverDialog, widget?: Gtk.Widget | null) => void)): number
     connect_after(sigName: "set-focus", callback: (($obj: WebDAVDiscoverDialog, widget?: Gtk.Widget | null) => void)): number
     emit(sigName: "set-focus", widget?: Gtk.Widget | null): void
-    /* Signals of Gtk.Container */
+    /* Signals of Gtk-3.0.Gtk.Container */
     connect(sigName: "add", callback: (($obj: WebDAVDiscoverDialog, object: Gtk.Widget) => void)): number
     connect_after(sigName: "add", callback: (($obj: WebDAVDiscoverDialog, object: Gtk.Widget) => void)): number
     emit(sigName: "add", object: Gtk.Widget): void
@@ -2907,7 +2907,7 @@ export class WebDAVDiscoverDialog {
     connect(sigName: "set-focus-child", callback: (($obj: WebDAVDiscoverDialog, object: Gtk.Widget) => void)): number
     connect_after(sigName: "set-focus-child", callback: (($obj: WebDAVDiscoverDialog, object: Gtk.Widget) => void)): number
     emit(sigName: "set-focus-child", object: Gtk.Widget): void
-    /* Signals of Gtk.Widget */
+    /* Signals of Gtk-3.0.Gtk.Widget */
     connect(sigName: "accel-closures-changed", callback: (($obj: WebDAVDiscoverDialog) => void)): number
     connect_after(sigName: "accel-closures-changed", callback: (($obj: WebDAVDiscoverDialog) => void)): number
     emit(sigName: "accel-closures-changed"): void
@@ -3115,7 +3115,7 @@ export class WebDAVDiscoverDialog {
     connect(sigName: "window-state-event", callback: (($obj: WebDAVDiscoverDialog, event: Gdk.EventWindowState) => boolean)): number
     connect_after(sigName: "window-state-event", callback: (($obj: WebDAVDiscoverDialog, event: Gdk.EventWindowState) => boolean)): number
     emit(sigName: "window-state-event", event: Gdk.EventWindowState): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: WebDAVDiscoverDialog, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: WebDAVDiscoverDialog, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -3281,7 +3281,7 @@ export class WebDAVDiscoverDialog {
     static $gtype: GObject.Type
 }
 export abstract class CellRendererColorClass {
-    /* Fields of EDataServerUI.CellRendererColorClass */
+    /* Fields of EDataServerUI-1.2.EDataServerUI.CellRendererColorClass */
     parent_class: Gtk.CellRendererClass
     static name: string
 }
@@ -3289,13 +3289,13 @@ export class CellRendererColorPrivate {
     static name: string
 }
 export abstract class CredentialsPrompterClass {
-    /* Fields of EDataServerUI.CredentialsPrompterClass */
+    /* Fields of EDataServerUI-1.2.EDataServerUI.CredentialsPrompterClass */
     parent_class: GObject.ObjectClass
     get_dialog_parent: (prompter: CredentialsPrompter) => Gtk.Window
     static name: string
 }
 export abstract class CredentialsPrompterImplClass {
-    /* Fields of EDataServerUI.CredentialsPrompterImplClass */
+    /* Fields of EDataServerUI-1.2.EDataServerUI.CredentialsPrompterImplClass */
     parent_class: EDataServer.ExtensionClass
     authentication_methods: string
     process_prompt: (prompter_impl: CredentialsPrompterImpl, prompt_id: object | null, auth_source: EDataServer.Source, cred_source: EDataServer.Source, error_text: string, credentials: EDataServer.NamedParameters) => void
@@ -3304,7 +3304,7 @@ export abstract class CredentialsPrompterImplClass {
     static name: string
 }
 export abstract class CredentialsPrompterImplOAuth2Class {
-    /* Fields of EDataServerUI.CredentialsPrompterImplOAuth2Class */
+    /* Fields of EDataServerUI-1.2.EDataServerUI.CredentialsPrompterImplOAuth2Class */
     parent_class: CredentialsPrompterImplClass
     static name: string
 }
@@ -3312,7 +3312,7 @@ export class CredentialsPrompterImplOAuth2Private {
     static name: string
 }
 export abstract class CredentialsPrompterImplPasswordClass {
-    /* Fields of EDataServerUI.CredentialsPrompterImplPasswordClass */
+    /* Fields of EDataServerUI-1.2.EDataServerUI.CredentialsPrompterImplPasswordClass */
     parent_class: CredentialsPrompterImplClass
     static name: string
 }
@@ -3326,7 +3326,7 @@ export class CredentialsPrompterPrivate {
     static name: string
 }
 export abstract class RemindersWidgetClass {
-    /* Fields of EDataServerUI.RemindersWidgetClass */
+    /* Fields of EDataServerUI-1.2.EDataServerUI.RemindersWidgetClass */
     changed: (reminders: RemindersWidget) => void
     activated: (reminders: RemindersWidget, rd: ECal.ReminderData) => boolean
     static name: string
@@ -3335,12 +3335,12 @@ export class RemindersWidgetPrivate {
     static name: string
 }
 export abstract class WebDAVDiscoverContentClass {
-    /* Fields of EDataServerUI.WebDAVDiscoverContentClass */
+    /* Fields of EDataServerUI-1.2.EDataServerUI.WebDAVDiscoverContentClass */
     parent_class: Gtk.GridClass
     static name: string
 }
 export abstract class WebDAVDiscoverDialogClass {
-    /* Fields of EDataServerUI.WebDAVDiscoverDialogClass */
+    /* Fields of EDataServerUI-1.2.EDataServerUI.WebDAVDiscoverDialogClass */
     parent_class: Gtk.DialogClass
     static name: string
 }

@@ -71,16 +71,16 @@ export function errorQuark(): GLib.Quark
 export interface AuthService_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class AuthService {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Signon.AuthService */
+    /* Methods of Signon-2.0.Signon.AuthService */
     getMechanisms(method: string, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     getMechanismsFinish(result: Gio.AsyncResult): string[]
     getMechanismsSync(method: string, cancellable?: Gio.Cancellable | null): string[]
     getMethods(cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     getMethodsFinish(result: Gio.AsyncResult): string[]
     getMethodsSync(cancellable?: Gio.Cancellable | null): string[]
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -102,21 +102,12 @@ export class AuthService {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: AuthService, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: AuthService, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -134,14 +125,14 @@ export class AuthService {
 export interface AuthSession_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class AuthSession {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Signon.AuthSession */
+    /* Methods of Signon-2.0.Signon.AuthSession */
     cancel(): void
     getMethod(): string
     process(sessionData: GLib.Variant, mechanism: string, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     processFinish(res: Gio.AsyncResult): GLib.Variant
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -163,28 +154,18 @@ export class AuthSession {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Signon.AuthSession */
+    /* Signals of Signon-2.0.Signon.AuthSession */
     connect(sigName: "state-changed", callback: (($obj: AuthSession, state: number, message: string) => void)): number
-    connect_after(sigName: "state-changed", callback: (($obj: AuthSession, state: number, message: string) => void)): number
+    on(sigName: "state-changed", callback: (state: number, message: string) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "state-changed", callback: (state: number, message: string) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "state-changed", callback: (state: number, message: string) => void): NodeJS.EventEmitter
     emit(sigName: "state-changed", state: number, message: string): void
-    on(sigName: "state-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "state-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "state-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: AuthSession, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: AuthSession, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -203,9 +184,9 @@ export interface Identity_ConstructProps extends GObject.Object_ConstructProps {
     id?: number
 }
 export class Identity {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Signon.Identity */
+    /* Methods of Signon-2.0.Signon.Identity */
     createSession(method: string): AuthSession
     getId(): number
     getLastError(): GLib.Error
@@ -219,7 +200,7 @@ export class Identity {
     storeInfoFinish(res: Gio.AsyncResult): boolean
     verifySecret(secret: string, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     verifySecretFinish(res: Gio.AsyncResult): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -241,28 +222,18 @@ export class Identity {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Signon.Identity */
+    /* Signals of Signon-2.0.Signon.Identity */
     connect(sigName: "signed-out", callback: (($obj: Identity) => void)): number
-    connect_after(sigName: "signed-out", callback: (($obj: Identity) => void)): number
+    on(sigName: "signed-out", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "signed-out", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "signed-out", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "signed-out"): void
-    on(sigName: "signed-out", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "signed-out", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "signed-out", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Identity, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Identity, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -279,22 +250,22 @@ export class Identity {
     static $gtype: GObject.Type
 }
 export abstract class AuthServiceClass {
-    /* Fields of Signon.AuthServiceClass */
+    /* Fields of Signon-2.0.Signon.AuthServiceClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
 export abstract class AuthSessionClass {
-    /* Fields of Signon.AuthSessionClass */
+    /* Fields of Signon-2.0.Signon.AuthSessionClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
 export abstract class IdentityClass {
-    /* Fields of Signon.IdentityClass */
+    /* Fields of Signon-2.0.Signon.IdentityClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
 export class IdentityInfo {
-    /* Methods of Signon.IdentityInfo */
+    /* Methods of Signon-2.0.Signon.IdentityInfo */
     addAccessControl(systemContext: string, applicationContext: string): void
     copy(): IdentityInfo
     free(): void
@@ -321,7 +292,7 @@ export class IdentityInfo {
     static new(): IdentityInfo
 }
 export class SecurityContext {
-    /* Methods of Signon.SecurityContext */
+    /* Methods of Signon-2.0.Signon.SecurityContext */
     copy(): SecurityContext
     free(): void
     getApplicationContext(): string

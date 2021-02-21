@@ -56,23 +56,23 @@ export interface TestClock_ConstructProps extends Gst.Clock_ConstructProps {
     start_time?: number
 }
 export class TestClock {
-    /* Properties of GstCheck.TestClock */
+    /* Properties of GstCheck-1.0.GstCheck.TestClock */
     clock_type: Gst.ClockType
-    /* Properties of Gst.Clock */
+    /* Properties of Gst-1.0.Gst.Clock */
     timeout: number
     window_size: number
     window_threshold: number
-    /* Properties of Gst.Object */
+    /* Properties of Gst-1.0.Gst.Object */
     name: string
     parent: Gst.Object
-    /* Fields of Gst.Clock */
+    /* Fields of Gst-1.0.Gst.Clock */
     object: Gst.Object
-    /* Fields of Gst.Object */
+    /* Fields of Gst-1.0.Gst.Object */
     lock: GLib.Mutex
     flags: number
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GstCheck.TestClock */
+    /* Methods of GstCheck-1.0.GstCheck.TestClock */
     advance_time(delta: Gst.ClockTimeDiff): void
     crank(): boolean
     get_next_entry_time(): Gst.ClockTime
@@ -87,7 +87,7 @@ export class TestClock {
     wait_for_multiple_pending_ids(count: number): /* pending_list */ Gst.ClockID[] | null
     wait_for_next_pending_id(): /* pending_id */ Gst.ClockID | null
     wait_for_pending_id_count(count: number): void
-    /* Methods of Gst.Clock */
+    /* Methods of Gst-1.0.Gst.Clock */
     add_observation(slave: Gst.ClockTime, master: Gst.ClockTime): [ /* returnType */ boolean, /* r_squared */ number ]
     add_observation_unapplied(slave: Gst.ClockTime, master: Gst.ClockTime): [ /* returnType */ boolean, /* r_squared */ number, /* internal */ Gst.ClockTime | null, /* external */ Gst.ClockTime | null, /* rate_num */ Gst.ClockTime | null, /* rate_denom */ Gst.ClockTime | null ]
     adjust_unlocked(internal: Gst.ClockTime): Gst.ClockTime
@@ -111,7 +111,7 @@ export class TestClock {
     unadjust_unlocked(external: Gst.ClockTime): Gst.ClockTime
     unadjust_with_calibration(external_target: Gst.ClockTime, cinternal: Gst.ClockTime, cexternal: Gst.ClockTime, cnum: Gst.ClockTime, cdenom: Gst.ClockTime): Gst.ClockTime
     wait_for_sync(timeout: Gst.ClockTime): boolean
-    /* Methods of Gst.Object */
+    /* Methods of Gst-1.0.Gst.Object */
     add_control_binding(binding: Gst.ControlBinding): boolean
     default_error(error: GLib.Error, debug?: string | null): void
     get_control_binding(property_name: string): Gst.ControlBinding | null
@@ -136,7 +136,7 @@ export class TestClock {
     sync_values(timestamp: Gst.ClockTime): boolean
     unparent(): void
     unref(): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -157,16 +157,16 @@ export class TestClock {
     steal_qdata(quark: GLib.Quark): object | null
     thaw_notify(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Gst.Clock */
+    /* Virtual methods of Gst-1.0.Gst.Clock */
     vfunc_change_resolution(old_resolution: Gst.ClockTime, new_resolution: Gst.ClockTime): Gst.ClockTime
     vfunc_get_internal_time(): Gst.ClockTime
     vfunc_get_resolution(): Gst.ClockTime
     vfunc_unschedule(entry: Gst.ClockEntry): void
     vfunc_wait(entry: Gst.ClockEntry, jitter: Gst.ClockTimeDiff): Gst.ClockReturn
     vfunc_wait_async(entry: Gst.ClockEntry): Gst.ClockReturn
-    /* Virtual methods of Gst.Object */
+    /* Virtual methods of Gst-1.0.Gst.Object */
     vfunc_deep_notify(orig: Gst.Object, pspec: GObject.ParamSpec): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -174,15 +174,15 @@ export class TestClock {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gst.Clock */
+    /* Signals of Gst-1.0.Gst.Clock */
     connect(sigName: "synced", callback: (($obj: TestClock, synced: boolean) => void)): number
     connect_after(sigName: "synced", callback: (($obj: TestClock, synced: boolean) => void)): number
     emit(sigName: "synced", synced: boolean): void
-    /* Signals of Gst.Object */
+    /* Signals of Gst-1.0.Gst.Object */
     connect(sigName: "deep-notify", callback: (($obj: TestClock, prop_object: Gst.Object, prop: GObject.ParamSpec) => void)): number
     connect_after(sigName: "deep-notify", callback: (($obj: TestClock, prop_object: Gst.Object, prop: GObject.ParamSpec) => void)): number
     emit(sigName: "deep-notify", prop_object: Gst.Object, prop: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: TestClock, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: TestClock, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -212,7 +212,7 @@ export class TestClock {
     static $gtype: GObject.Type
 }
 export class CheckABIStruct {
-    /* Fields of GstCheck.CheckABIStruct */
+    /* Fields of GstCheck-1.0.GstCheck.CheckABIStruct */
     name: string
     size: number
     abi_size: number
@@ -222,13 +222,13 @@ export class CheckLogFilter {
     static name: string
 }
 export class Harness {
-    /* Fields of GstCheck.Harness */
+    /* Fields of GstCheck-1.0.GstCheck.Harness */
     element: Gst.Element
     srcpad: Gst.Pad
     sinkpad: Gst.Pad
     src_harness: Harness
     sink_harness: Harness
-    /* Methods of GstCheck.Harness */
+    /* Methods of GstCheck-1.0.GstCheck.Harness */
     add_element_sink_pad(sinkpad: Gst.Pad): void
     add_element_src_pad(srcpad: Gst.Pad): void
     add_probe(element_name: string, pad_name: string, mask: Gst.PadProbeType, callback: Gst.PadProbeCallback): void
@@ -304,7 +304,7 @@ export class StreamConsistency {
     static name: string
 }
 export abstract class TestClockClass {
-    /* Fields of GstCheck.TestClockClass */
+    /* Fields of GstCheck-1.0.GstCheck.TestClockClass */
     parent_class: Gst.ClockClass
     static name: string
 }

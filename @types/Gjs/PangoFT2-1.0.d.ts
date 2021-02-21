@@ -28,29 +28,29 @@ export interface SubstituteFunc {
 export interface FontMap_ConstructProps extends PangoFc.FontMap_ConstructProps {
 }
 export class FontMap {
-    /* Fields of Pango.FontMap */
+    /* Fields of Pango-1.0.Pango.FontMap */
     parent_instance: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of PangoFT2.FontMap */
+    /* Methods of PangoFT2-1.0.PangoFT2.FontMap */
     set_default_substitute(func: SubstituteFunc): void
     set_resolution(dpi_x: number, dpi_y: number): void
     substitute_changed(): void
-    /* Methods of PangoFc.FontMap */
+    /* Methods of PangoFc-1.0.PangoFc.FontMap */
     cache_clear(): void
     config_changed(): void
     create_context(): Pango.Context
     find_decoder(pattern: fontconfig.Pattern): PangoFc.Decoder | null
     set_default_substitute(func: PangoFc.SubstituteFunc): void
     shutdown(): void
-    /* Methods of Pango.FontMap */
+    /* Methods of Pango-1.0.Pango.FontMap */
     changed(): void
     get_family(name: string): Pango.FontFamily
     get_serial(): number
     list_families(): /* families */ Pango.FontFamily[]
     load_font(context: Pango.Context, desc: Pango.FontDescription): Pango.Font | null
     load_fontset(context: Pango.Context, desc: Pango.FontDescription, language: Pango.Language): Pango.Fontset | null
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -72,14 +72,14 @@ export class FontMap {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Pango.FontMap */
+    /* Virtual methods of Pango-1.0.Pango.FontMap */
     vfunc_changed(): void
     vfunc_get_family(name: string): Pango.FontFamily
     vfunc_get_serial(): number
     vfunc_list_families(): /* families */ Pango.FontFamily[]
     vfunc_load_font(context: Pango.Context, desc: Pango.FontDescription): Pango.Font | null
     vfunc_load_fontset(context: Pango.Context, desc: Pango.FontDescription, language: Pango.Language): Pango.Fontset | null
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -87,7 +87,7 @@ export class FontMap {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: FontMap, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: FontMap, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void

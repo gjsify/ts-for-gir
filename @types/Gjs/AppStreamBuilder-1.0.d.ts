@@ -57,16 +57,16 @@ export const PACKAGE_ENSURE_VCS: number
 export interface App_ConstructProps extends AppStreamGlib.App_ConstructProps {
 }
 export class App {
-    /* Fields of AppStreamBuilder.App */
+    /* Fields of AppStreamBuilder-1.0.AppStreamBuilder.App */
     parent_instance: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of AppStreamBuilder.App */
+    /* Methods of AppStreamBuilder-1.0.AppStreamBuilder.App */
     get_package(): Package
     save_resources(save_flags: AppSaveFlags): boolean
     set_hidpi_enabled(hidpi_enabled: boolean): void
     set_package(pkg: Package): void
-    /* Methods of AppStreamGlib.App */
+    /* Methods of AppStreamGlib-1.0.AppStreamGlib.App */
     add_addon(addon: AppStreamGlib.App): void
     add_agreement(agreement: AppStreamGlib.Agreement): void
     add_arch(arch: string): void
@@ -216,7 +216,7 @@ export class App {
     to_file(file: Gio.File, cancellable?: Gio.Cancellable | null): boolean
     to_xml(): GLib.String
     validate(flags: number): AppStreamGlib.Problem[]
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -238,7 +238,7 @@ export class App {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -246,7 +246,7 @@ export class App {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: App, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: App, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -265,11 +265,11 @@ export class App {
 export interface Context_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class Context {
-    /* Fields of AppStreamBuilder.Context */
+    /* Fields of AppStreamBuilder-1.0.AppStreamBuilder.Context */
     parent_instance: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of AppStreamBuilder.Context */
+    /* Methods of AppStreamBuilder-1.0.AppStreamBuilder.Context */
     add_app(app: App): void
     add_app_ignore(pkg: Package): void
     add_filename(filename: string): boolean
@@ -298,7 +298,7 @@ export class Context {
     set_screenshot_dir(screenshot_dir: string): void
     set_temp_dir(temp_dir: string): void
     setup(): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -320,7 +320,7 @@ export class Context {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -328,7 +328,7 @@ export class Context {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Context, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Context, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -346,11 +346,11 @@ export class Context {
 export interface Package_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class Package {
-    /* Fields of AppStreamBuilder.Package */
+    /* Fields of AppStreamBuilder-1.0.AppStreamBuilder.Package */
     parent_instance: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of AppStreamBuilder.Package */
+    /* Methods of AppStreamBuilder-1.0.AppStreamBuilder.Package */
     add_dep(dep: string): void
     add_release(version: string, release: AppStreamGlib.Release): void
     clear(flags: PackageEnsureFlags): void
@@ -398,7 +398,7 @@ export class Package {
     set_url(url: string): void
     set_vcs(vcs: string): void
     set_version(version: string): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -420,13 +420,13 @@ export class Package {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of AppStreamBuilder.Package */
+    /* Virtual methods of AppStreamBuilder-1.0.AppStreamBuilder.Package */
     vfunc_close(): boolean
     vfunc_compare(pkg2: Package): number
     vfunc_ensure(flags: PackageEnsureFlags): boolean
     vfunc_explode(dir: string, glob: string[]): boolean
     vfunc_open(filename: string): boolean
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -434,7 +434,7 @@ export class Package {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Package, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Package, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -452,14 +452,14 @@ export class Package {
 export interface Task_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class Task {
-    /* Fields of AppStreamBuilder.Task */
+    /* Fields of AppStreamBuilder-1.0.AppStreamBuilder.Task */
     parent_instance: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of AppStreamBuilder.Task */
+    /* Methods of AppStreamBuilder-1.0.AppStreamBuilder.Task */
     process(): boolean
     set_package(pkg: Package): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -481,7 +481,7 @@ export class Task {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -489,7 +489,7 @@ export class Task {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Task, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Task, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -505,17 +505,17 @@ export class Task {
     static $gtype: GObject.Type
 }
 export abstract class AppClass {
-    /* Fields of AppStreamBuilder.AppClass */
+    /* Fields of AppStreamBuilder-1.0.AppStreamBuilder.AppClass */
     parent_class: AppStreamGlib.AppClass
     static name: string
 }
 export abstract class ContextClass {
-    /* Fields of AppStreamBuilder.ContextClass */
+    /* Fields of AppStreamBuilder-1.0.AppStreamBuilder.ContextClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
 export abstract class PackageClass {
-    /* Fields of AppStreamBuilder.PackageClass */
+    /* Fields of AppStreamBuilder-1.0.AppStreamBuilder.PackageClass */
     parent_class: GObject.ObjectClass
     open: (pkg: Package, filename: string) => boolean
     ensure: (pkg: Package, flags: PackageEnsureFlags) => boolean
@@ -525,7 +525,7 @@ export abstract class PackageClass {
     static name: string
 }
 export abstract class TaskClass {
-    /* Fields of AppStreamBuilder.TaskClass */
+    /* Fields of AppStreamBuilder-1.0.AppStreamBuilder.TaskClass */
     parent_class: GObject.ObjectClass
     static name: string
 }

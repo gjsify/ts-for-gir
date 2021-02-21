@@ -320,7 +320,7 @@ export const YOUTUBE_RATING_TYPE_MPAA: string
 export const YOUTUBE_RATING_TYPE_SIMPLE: string
 export const YOUTUBE_RATING_TYPE_V_CHIP: string
 export function clientLoginAuthorizerErrorQuark(): GLib.Quark
-export function colorFromHexadecimal(hexadecimal: string): [ /* returnType */ boolean, /* color */ Color ]
+export function colorFromHexadecimal(hexadecimal: string): { returnType: boolean, color: Color }
 export function documentsServiceErrorQuark(): GLib.Quark
 export function parserErrorQuark(): GLib.Quark
 export function serviceErrorQuark(): GLib.Quark
@@ -334,7 +334,7 @@ export interface QueryProgressCallback {
 export interface AccessHandler_ConstructProps extends Entry_ConstructProps {
 }
 export class AccessHandler {
-    /* Properties of GData.Entry */
+    /* Properties of GData-0.0.GData.Entry */
     content: string
     contentUri: string
     readonly isInserted: boolean
@@ -343,15 +343,15 @@ export class AccessHandler {
     summary: string
     title: string
     readonly updated: number
-    /* Fields of GData.Entry */
+    /* Fields of GData-0.0.GData.Entry */
     parent: Parsable
     priv: EntryPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GData.AccessHandler */
+    /* Methods of GData-0.0.GData.AccessHandler */
     getRules(service: Service, cancellable?: Gio.Cancellable | null, progressCallback?: QueryProgressCallback | null): Feed
     getRulesAsync(service: Service, cancellable?: Gio.Cancellable | null, progressCallback?: QueryProgressCallback | null, callback?: Gio.AsyncReadyCallback | null): void
-    /* Methods of GData.Entry */
+    /* Methods of GData-0.0.GData.Entry */
     addAuthor(author: Author): void
     addCategory(category: Category): void
     addLink(link: Link): void
@@ -374,11 +374,11 @@ export class AccessHandler {
     setRights(rights?: string | null): void
     setSummary(summary?: string | null): void
     setTitle(title?: string | null): void
-    /* Methods of GData.Parsable */
+    /* Methods of GData-0.0.GData.Parsable */
     getContentType(): string
     getJson(): string
     getXml(): string
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -400,33 +400,12 @@ export class AccessHandler {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GData.AccessHandler */
-    vfuncGetRules(service: Service, cancellable?: Gio.Cancellable | null, progressCallback?: QueryProgressCallback | null): Feed
-    /* Virtual methods of GData.Parsable */
-    vfuncGetJson(builder: Json.Builder): void
-    vfuncGetNamespaces(namespaces: GLib.HashTable): void
-    vfuncGetXml(xmlString: GLib.String): void
-    vfuncParseJson(reader: Json.Reader): boolean
-    vfuncParseXml(doc: libxml2.Doc, node: libxml2.Node): boolean
-    vfuncPostParseJson(): boolean
-    vfuncPostParseXml(): boolean
-    vfuncPreGetXml(xmlString: GLib.String): void
-    vfuncPreParseXml(doc: libxml2.Doc, rootNode: libxml2.Node): boolean
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: AccessHandler, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: AccessHandler, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::content", callback: (($obj: AccessHandler, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::content", callback: (($obj: AccessHandler, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::content", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -480,37 +459,31 @@ export class AccessHandler {
     static $gtype: GObject.Type
 }
 export class Authorizer {
-    /* Methods of GData.Authorizer */
+    /* Methods of GData-0.0.GData.Authorizer */
     isAuthorizedForDomain(domain: AuthorizationDomain): boolean
     processRequest(domain: AuthorizationDomain | null, message: Soup.Message): void
     refreshAuthorization(cancellable?: Gio.Cancellable | null): boolean
     refreshAuthorizationAsync(cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     refreshAuthorizationFinish(asyncResult: Gio.AsyncResult): boolean
-    /* Virtual methods of GData.Authorizer */
-    vfuncIsAuthorizedForDomain(domain: AuthorizationDomain): boolean
-    vfuncProcessRequest(domain: AuthorizationDomain | null, message: Soup.Message): void
-    vfuncRefreshAuthorization(cancellable?: Gio.Cancellable | null): boolean
-    vfuncRefreshAuthorizationAsync(cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    vfuncRefreshAuthorizationFinish(asyncResult: Gio.AsyncResult): boolean
     static name: string
 }
 export interface Batchable_ConstructProps extends Service_ConstructProps {
 }
 export class Batchable {
-    /* Properties of GData.Service */
+    /* Properties of GData-0.0.GData.Service */
     authorizer: Authorizer
     locale: string
     proxyResolver: Gio.ProxyResolver
     proxyUri: Soup.URI
     timeout: number
-    /* Fields of GData.Service */
+    /* Fields of GData-0.0.GData.Service */
     parent: GObject.Object
     priv: ServicePrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GData.Batchable */
+    /* Methods of GData-0.0.GData.Batchable */
     createOperation(domain: AuthorizationDomain | null, feedUri: string): BatchOperation
-    /* Methods of GData.Service */
+    /* Methods of GData-0.0.GData.Service */
     deleteEntry(domain: AuthorizationDomain | null, entry: Entry, cancellable?: Gio.Cancellable | null): boolean
     deleteEntryAsync(domain: AuthorizationDomain | null, entry: Entry, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     deleteEntryFinish(asyncResult: Gio.AsyncResult): boolean
@@ -537,7 +510,7 @@ export class Batchable {
     updateEntry(domain: AuthorizationDomain | null, entry: Entry, cancellable?: Gio.Cancellable | null): Entry
     updateEntryAsync(domain: AuthorizationDomain | null, entry: Entry, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     updateEntryFinish(asyncResult: Gio.AsyncResult): Entry
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -559,24 +532,12 @@ export class Batchable {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GData.Service */
-    vfuncAppendQueryHeaders(domain: AuthorizationDomain, message: Soup.Message): void
-    vfuncParseErrorResponse(operationType: OperationType, status: number, reasonPhrase: string, responseBody: string, length: number): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Batchable, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Batchable, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::authorizer", callback: (($obj: Batchable, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::authorizer", callback: (($obj: Batchable, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::authorizer", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -617,7 +578,7 @@ export class Batchable {
 export interface Commentable_ConstructProps extends Entry_ConstructProps {
 }
 export class Commentable {
-    /* Properties of GData.Entry */
+    /* Properties of GData-0.0.GData.Entry */
     content: string
     contentUri: string
     readonly isInserted: boolean
@@ -626,12 +587,12 @@ export class Commentable {
     summary: string
     title: string
     readonly updated: number
-    /* Fields of GData.Entry */
+    /* Fields of GData-0.0.GData.Entry */
     parent: Parsable
     priv: EntryPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GData.Commentable */
+    /* Methods of GData-0.0.GData.Commentable */
     deleteComment(service: Service, comment: Comment, cancellable?: Gio.Cancellable | null): boolean
     deleteCommentAsync(service: Service, comment: Comment, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     deleteCommentFinish(result: Gio.AsyncResult): boolean
@@ -641,7 +602,7 @@ export class Commentable {
     queryComments(service: Service, query?: Query | null, cancellable?: Gio.Cancellable | null, progressCallback?: QueryProgressCallback | null): Feed | null
     queryCommentsAsync(service: Service, query?: Query | null, cancellable?: Gio.Cancellable | null, progressCallback?: QueryProgressCallback | null, callback?: Gio.AsyncReadyCallback | null): void
     queryCommentsFinish(result: Gio.AsyncResult): Feed | null
-    /* Methods of GData.Entry */
+    /* Methods of GData-0.0.GData.Entry */
     addAuthor(author: Author): void
     addCategory(category: Category): void
     addLink(link: Link): void
@@ -664,11 +625,11 @@ export class Commentable {
     setRights(rights?: string | null): void
     setSummary(summary?: string | null): void
     setTitle(title?: string | null): void
-    /* Methods of GData.Parsable */
+    /* Methods of GData-0.0.GData.Parsable */
     getContentType(): string
     getJson(): string
     getXml(): string
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -690,35 +651,12 @@ export class Commentable {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GData.Commentable */
-    vfuncGetInsertCommentUri(comment: Comment): string
-    vfuncGetQueryCommentsUri(): string
-    vfuncIsCommentDeletable(comment: Comment): boolean
-    /* Virtual methods of GData.Parsable */
-    vfuncGetJson(builder: Json.Builder): void
-    vfuncGetNamespaces(namespaces: GLib.HashTable): void
-    vfuncGetXml(xmlString: GLib.String): void
-    vfuncParseJson(reader: Json.Reader): boolean
-    vfuncParseXml(doc: libxml2.Doc, node: libxml2.Node): boolean
-    vfuncPostParseJson(): boolean
-    vfuncPostParseXml(): boolean
-    vfuncPreGetXml(xmlString: GLib.String): void
-    vfuncPreParseXml(doc: libxml2.Doc, rootNode: libxml2.Node): boolean
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Commentable, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Commentable, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::content", callback: (($obj: Commentable, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::content", callback: (($obj: Commentable, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::content", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -772,29 +710,27 @@ export class Commentable {
     static $gtype: GObject.Type
 }
 export class Comparable {
-    /* Methods of GData.Comparable */
+    /* Methods of GData-0.0.GData.Comparable */
     compare(other?: Comparable | null): number
-    /* Virtual methods of GData.Comparable */
-    vfuncCompareWith(other: Comparable): number
     static name: string
 }
 export interface APPCategories_ConstructProps extends Parsable_ConstructProps {
 }
 export class APPCategories {
-    /* Properties of GData.APPCategories */
+    /* Properties of GData-0.0.GData.APPCategories */
     readonly isFixed: boolean
-    /* Fields of GData.Parsable */
+    /* Fields of GData-0.0.GData.Parsable */
     parent: GObject.Object
     priv: ParsablePrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GData.APPCategories */
+    /* Methods of GData-0.0.GData.APPCategories */
     getCategories(): Category[]
-    /* Methods of GData.Parsable */
+    /* Methods of GData-0.0.GData.Parsable */
     getContentType(): string
     getJson(): string
     getXml(): string
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -816,31 +752,12 @@ export class APPCategories {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GData.Parsable */
-    vfuncGetJson(builder: Json.Builder): void
-    vfuncGetNamespaces(namespaces: GLib.HashTable): void
-    vfuncGetXml(xmlString: GLib.String): void
-    vfuncParseJson(reader: Json.Reader): boolean
-    vfuncParseXml(doc: libxml2.Doc, node: libxml2.Node): boolean
-    vfuncPostParseJson(): boolean
-    vfuncPostParseXml(): boolean
-    vfuncPreGetXml(xmlString: GLib.String): void
-    vfuncPreParseXml(doc: libxml2.Doc, rootNode: libxml2.Node): boolean
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: APPCategories, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: APPCategories, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::is-fixed", callback: (($obj: APPCategories, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::is-fixed", callback: (($obj: APPCategories, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::is-fixed", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -864,13 +781,13 @@ export interface AccessRule_ConstructProps extends Entry_ConstructProps {
     scopeValue?: string
 }
 export class AccessRule {
-    /* Properties of GData.AccessRule */
+    /* Properties of GData-0.0.GData.AccessRule */
     readonly edited: number
     readonly key: string
     role: string
     scopeType: string
     scopeValue: string
-    /* Properties of GData.Entry */
+    /* Properties of GData-0.0.GData.Entry */
     content: string
     contentUri: string
     readonly isInserted: boolean
@@ -879,19 +796,19 @@ export class AccessRule {
     summary: string
     title: string
     readonly updated: number
-    /* Fields of GData.AccessRule */
+    /* Fields of GData-0.0.GData.AccessRule */
     parent: Entry
     priv: AccessRulePrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GData.AccessRule */
+    /* Methods of GData-0.0.GData.AccessRule */
     getEdited(): number
     getKey(): string
     getRole(): string
-    getScope(): [ /* type */ string | null, /* value */ string | null ]
+    getScope(): { type: string | null, value: string | null }
     setRole(role: string): void
     setScope(type: string, value?: string | null): void
-    /* Methods of GData.Entry */
+    /* Methods of GData-0.0.GData.Entry */
     addAuthor(author: Author): void
     addCategory(category: Category): void
     addLink(link: Link): void
@@ -914,11 +831,11 @@ export class AccessRule {
     setRights(rights?: string | null): void
     setSummary(summary?: string | null): void
     setTitle(title?: string | null): void
-    /* Methods of GData.Parsable */
+    /* Methods of GData-0.0.GData.Parsable */
     getContentType(): string
     getJson(): string
     getXml(): string
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -940,31 +857,12 @@ export class AccessRule {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GData.Parsable */
-    vfuncGetJson(builder: Json.Builder): void
-    vfuncGetNamespaces(namespaces: GLib.HashTable): void
-    vfuncGetXml(xmlString: GLib.String): void
-    vfuncParseJson(reader: Json.Reader): boolean
-    vfuncParseXml(doc: libxml2.Doc, node: libxml2.Node): boolean
-    vfuncPostParseJson(): boolean
-    vfuncPostParseXml(): boolean
-    vfuncPreGetXml(xmlString: GLib.String): void
-    vfuncPreParseXml(doc: libxml2.Doc, rootNode: libxml2.Node): boolean
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: AccessRule, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: AccessRule, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::edited", callback: (($obj: AccessRule, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::edited", callback: (($obj: AccessRule, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::edited", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -1051,27 +949,27 @@ export interface Author_ConstructProps extends Parsable_ConstructProps {
     uri?: string
 }
 export class Author {
-    /* Properties of GData.Author */
+    /* Properties of GData-0.0.GData.Author */
     emailAddress: string
     name: string
     uri: string
-    /* Fields of GData.Author */
+    /* Fields of GData-0.0.GData.Author */
     parent: Parsable
     priv: AuthorPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GData.Author */
+    /* Methods of GData-0.0.GData.Author */
     getEmailAddress(): string
     getName(): string
     getUri(): string
     setEmailAddress(emailAddress?: string | null): void
     setName(name: string): void
     setUri(uri?: string | null): void
-    /* Methods of GData.Parsable */
+    /* Methods of GData-0.0.GData.Parsable */
     getContentType(): string
     getJson(): string
     getXml(): string
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -1093,35 +991,14 @@ export class Author {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of GData.Comparable */
+    /* Methods of GData-0.0.GData.Comparable */
     compare(other?: Comparable | null): number
-    /* Virtual methods of GData.Author */
-    vfuncCompareWith(other: Comparable): number
-    /* Virtual methods of GData.Parsable */
-    vfuncGetJson(builder: Json.Builder): void
-    vfuncGetNamespaces(namespaces: GLib.HashTable): void
-    vfuncGetXml(xmlString: GLib.String): void
-    vfuncParseJson(reader: Json.Reader): boolean
-    vfuncParseXml(doc: libxml2.Doc, node: libxml2.Node): boolean
-    vfuncPostParseJson(): boolean
-    vfuncPostParseXml(): boolean
-    vfuncPreGetXml(xmlString: GLib.String): void
-    vfuncPreParseXml(doc: libxml2.Doc, rootNode: libxml2.Node): boolean
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Author, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Author, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::email-address", callback: (($obj: Author, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::email-address", callback: (($obj: Author, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::email-address", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -1156,12 +1033,12 @@ export interface AuthorizationDomain_ConstructProps extends GObject.Object_Const
     serviceName?: string
 }
 export class AuthorizationDomain {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GData.AuthorizationDomain */
+    /* Methods of GData-0.0.GData.AuthorizationDomain */
     getScope(): string
     getServiceName(): string
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -1183,21 +1060,12 @@ export class AuthorizationDomain {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: AuthorizationDomain, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: AuthorizationDomain, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -1216,12 +1084,12 @@ export interface BatchOperation_ConstructProps extends GObject.Object_ConstructP
     service?: Service
 }
 export class BatchOperation {
-    /* Fields of GData.BatchOperation */
+    /* Fields of GData-0.0.GData.BatchOperation */
     parent: GObject.Object
     priv: BatchOperationPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GData.BatchOperation */
+    /* Methods of GData-0.0.GData.BatchOperation */
     addDeletion(entry: Entry, callback: BatchOperationCallback): number
     addInsertion(entry: Entry, callback: BatchOperationCallback): number
     addQuery(id: string, entryType: GObject.Type, callback: BatchOperationCallback): number
@@ -1232,7 +1100,7 @@ export class BatchOperation {
     run(cancellable?: Gio.Cancellable | null): boolean
     runAsync(cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     runFinish(asyncResult: Gio.AsyncResult): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -1254,21 +1122,12 @@ export class BatchOperation {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: BatchOperation, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: BatchOperation, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -1284,13 +1143,13 @@ export class BatchOperation {
 export interface CalendarAccessRule_ConstructProps extends AccessRule_ConstructProps {
 }
 export class CalendarAccessRule {
-    /* Properties of GData.AccessRule */
+    /* Properties of GData-0.0.GData.AccessRule */
     readonly edited: number
     readonly key: string
     role: string
     scopeType: string
     scopeValue: string
-    /* Properties of GData.Entry */
+    /* Properties of GData-0.0.GData.Entry */
     content: string
     contentUri: string
     readonly isInserted: boolean
@@ -1299,20 +1158,20 @@ export class CalendarAccessRule {
     summary: string
     title: string
     readonly updated: number
-    /* Fields of GData.CalendarAccessRule */
+    /* Fields of GData-0.0.GData.CalendarAccessRule */
     parent: AccessRule
-    /* Fields of GData.AccessRule */
+    /* Fields of GData-0.0.GData.AccessRule */
     priv: AccessRulePrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GData.AccessRule */
+    /* Methods of GData-0.0.GData.AccessRule */
     getEdited(): number
     getKey(): string
     getRole(): string
-    getScope(): [ /* type */ string | null, /* value */ string | null ]
+    getScope(): { type: string | null, value: string | null }
     setRole(role: string): void
     setScope(type: string, value?: string | null): void
-    /* Methods of GData.Entry */
+    /* Methods of GData-0.0.GData.Entry */
     addAuthor(author: Author): void
     addCategory(category: Category): void
     addLink(link: Link): void
@@ -1335,11 +1194,11 @@ export class CalendarAccessRule {
     setRights(rights?: string | null): void
     setSummary(summary?: string | null): void
     setTitle(title?: string | null): void
-    /* Methods of GData.Parsable */
+    /* Methods of GData-0.0.GData.Parsable */
     getContentType(): string
     getJson(): string
     getXml(): string
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -1361,31 +1220,12 @@ export class CalendarAccessRule {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GData.Parsable */
-    vfuncGetJson(builder: Json.Builder): void
-    vfuncGetNamespaces(namespaces: GLib.HashTable): void
-    vfuncGetXml(xmlString: GLib.String): void
-    vfuncParseJson(reader: Json.Reader): boolean
-    vfuncParseXml(doc: libxml2.Doc, node: libxml2.Node): boolean
-    vfuncPostParseJson(): boolean
-    vfuncPostParseXml(): boolean
-    vfuncPreGetXml(xmlString: GLib.String): void
-    vfuncPreParseXml(doc: libxml2.Doc, rootNode: libxml2.Node): boolean
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: CalendarAccessRule, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: CalendarAccessRule, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::edited", callback: (($obj: CalendarAccessRule, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::edited", callback: (($obj: CalendarAccessRule, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::edited", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -1473,7 +1313,7 @@ export interface CalendarCalendar_ConstructProps extends Entry_ConstructProps {
     timezone?: string
 }
 export class CalendarCalendar {
-    /* Properties of GData.CalendarCalendar */
+    /* Properties of GData-0.0.GData.CalendarCalendar */
     readonly accessLevel: string
     color: Color
     readonly edited: number
@@ -1481,7 +1321,7 @@ export class CalendarCalendar {
     isSelected: boolean
     readonly timesCleaned: number
     timezone: string
-    /* Properties of GData.Entry */
+    /* Properties of GData-0.0.GData.Entry */
     content: string
     contentUri: string
     readonly isInserted: boolean
@@ -1490,14 +1330,14 @@ export class CalendarCalendar {
     summary: string
     title: string
     readonly updated: number
-    /* Fields of GData.CalendarCalendar */
+    /* Fields of GData-0.0.GData.CalendarCalendar */
     parent: Entry
     priv: CalendarCalendarPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GData.CalendarCalendar */
+    /* Methods of GData-0.0.GData.CalendarCalendar */
     getAccessLevel(): string
-    getColor(): /* color */ Color
+    getColor(): { color: Color }
     getEdited(): number
     getTimesCleaned(): number
     getTimezone(): string
@@ -1505,7 +1345,7 @@ export class CalendarCalendar {
     setIsHidden(isHidden: boolean): void
     setIsSelected(isSelected: boolean): void
     setTimezone(timezone?: string | null): void
-    /* Methods of GData.Entry */
+    /* Methods of GData-0.0.GData.Entry */
     addAuthor(author: Author): void
     addCategory(category: Category): void
     addLink(link: Link): void
@@ -1528,11 +1368,11 @@ export class CalendarCalendar {
     setRights(rights?: string | null): void
     setSummary(summary?: string | null): void
     setTitle(title?: string | null): void
-    /* Methods of GData.Parsable */
+    /* Methods of GData-0.0.GData.Parsable */
     getContentType(): string
     getJson(): string
     getXml(): string
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -1554,36 +1394,15 @@ export class CalendarCalendar {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of GData.AccessHandler */
+    /* Methods of GData-0.0.GData.AccessHandler */
     getRules(service: Service, cancellable?: Gio.Cancellable | null, progressCallback?: QueryProgressCallback | null): Feed
     getRulesAsync(service: Service, cancellable?: Gio.Cancellable | null, progressCallback?: QueryProgressCallback | null, callback?: Gio.AsyncReadyCallback | null): void
-    /* Virtual methods of GData.CalendarCalendar */
-    vfuncGetRules(service: Service, cancellable?: Gio.Cancellable | null, progressCallback?: QueryProgressCallback | null): Feed
-    /* Virtual methods of GData.Parsable */
-    vfuncGetJson(builder: Json.Builder): void
-    vfuncGetNamespaces(namespaces: GLib.HashTable): void
-    vfuncGetXml(xmlString: GLib.String): void
-    vfuncParseJson(reader: Json.Reader): boolean
-    vfuncParseXml(doc: libxml2.Doc, node: libxml2.Node): boolean
-    vfuncPostParseJson(): boolean
-    vfuncPostParseXml(): boolean
-    vfuncPreGetXml(xmlString: GLib.String): void
-    vfuncPreParseXml(doc: libxml2.Doc, rootNode: libxml2.Node): boolean
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: CalendarCalendar, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: CalendarCalendar, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::access-level", callback: (($obj: CalendarCalendar, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::access-level", callback: (($obj: CalendarCalendar, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::access-level", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -1686,7 +1505,7 @@ export interface CalendarEvent_ConstructProps extends Entry_ConstructProps {
     visibility?: string
 }
 export class CalendarEvent {
-    /* Properties of GData.CalendarEvent */
+    /* Properties of GData-0.0.GData.CalendarEvent */
     anyoneCanAddSelf: boolean
     readonly edited: number
     guestsCanInviteOthers: boolean
@@ -1700,7 +1519,7 @@ export class CalendarEvent {
     transparency: string
     uid: string
     visibility: string
-    /* Properties of GData.Entry */
+    /* Properties of GData-0.0.GData.Entry */
     content: string
     contentUri: string
     readonly isInserted: boolean
@@ -1709,12 +1528,12 @@ export class CalendarEvent {
     summary: string
     title: string
     readonly updated: number
-    /* Fields of GData.CalendarEvent */
+    /* Fields of GData-0.0.GData.CalendarEvent */
     parent: Entry
     priv: CalendarEventPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GData.CalendarEvent */
+    /* Methods of GData-0.0.GData.CalendarEvent */
     addPerson(who: GDWho): void
     addPlace(where: GDWhere): void
     addTime(when: GDWhen): void
@@ -1723,10 +1542,10 @@ export class CalendarEvent {
     getGuestsCanInviteOthers(): boolean
     getGuestsCanModify(): boolean
     getGuestsCanSeeGuests(): boolean
-    getOriginalEventDetails(): [ /* eventId */ string, /* eventUri */ string ]
+    getOriginalEventDetails(): { eventId: string, eventUri: string }
     getPeople(): GDWho[]
     getPlaces(): GDWhere[]
-    getPrimaryTime(): [ /* returnType */ boolean, /* startTime */ number, /* endTime */ number, /* when */ GDWhen ]
+    getPrimaryTime(): { returnType: boolean, startTime: number, endTime: number, when: GDWhen }
     getRecurrence(): string
     getSequence(): number
     getStatus(): string
@@ -1745,7 +1564,7 @@ export class CalendarEvent {
     setTransparency(transparency?: string | null): void
     setUid(uid?: string | null): void
     setVisibility(visibility?: string | null): void
-    /* Methods of GData.Entry */
+    /* Methods of GData-0.0.GData.Entry */
     addAuthor(author: Author): void
     addCategory(category: Category): void
     addLink(link: Link): void
@@ -1768,11 +1587,11 @@ export class CalendarEvent {
     setRights(rights?: string | null): void
     setSummary(summary?: string | null): void
     setTitle(title?: string | null): void
-    /* Methods of GData.Parsable */
+    /* Methods of GData-0.0.GData.Parsable */
     getContentType(): string
     getJson(): string
     getXml(): string
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -1794,31 +1613,12 @@ export class CalendarEvent {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GData.Parsable */
-    vfuncGetJson(builder: Json.Builder): void
-    vfuncGetNamespaces(namespaces: GLib.HashTable): void
-    vfuncGetXml(xmlString: GLib.String): void
-    vfuncParseJson(reader: Json.Reader): boolean
-    vfuncParseXml(doc: libxml2.Doc, node: libxml2.Node): boolean
-    vfuncPostParseJson(): boolean
-    vfuncPostParseXml(): boolean
-    vfuncPreGetXml(xmlString: GLib.String): void
-    vfuncPreParseXml(doc: libxml2.Doc, rootNode: libxml2.Node): boolean
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: CalendarEvent, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: CalendarEvent, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::anyone-can-add-self", callback: (($obj: CalendarEvent, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::anyone-can-add-self", callback: (($obj: CalendarEvent, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::anyone-can-add-self", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -1941,10 +1741,10 @@ export class CalendarEvent {
 export interface CalendarFeed_ConstructProps extends Feed_ConstructProps {
 }
 export class CalendarFeed {
-    /* Properties of GData.CalendarFeed */
+    /* Properties of GData-0.0.GData.CalendarFeed */
     readonly timesCleaned: number
     readonly timezone: string
-    /* Properties of GData.Feed */
+    /* Properties of GData-0.0.GData.Feed */
     readonly etag: string
     readonly generator: Generator
     readonly icon: string
@@ -1958,15 +1758,15 @@ export class CalendarFeed {
     readonly title: string
     readonly totalResults: number
     readonly updated: number
-    /* Fields of GData.CalendarFeed */
+    /* Fields of GData-0.0.GData.CalendarFeed */
     parent: Feed
     priv: CalendarFeedPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GData.CalendarFeed */
+    /* Methods of GData-0.0.GData.CalendarFeed */
     getTimesCleaned(): number
     getTimezone(): string
-    /* Methods of GData.Feed */
+    /* Methods of GData-0.0.GData.Feed */
     getAuthors(): Author[]
     getCategories(): Category[]
     getEntries(): Entry[]
@@ -1986,11 +1786,11 @@ export class CalendarFeed {
     getUpdated(): number
     lookUpEntry(id: string): Entry
     lookUpLink(rel: string): Link
-    /* Methods of GData.Parsable */
+    /* Methods of GData-0.0.GData.Parsable */
     getContentType(): string
     getJson(): string
     getXml(): string
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -2012,31 +1812,12 @@ export class CalendarFeed {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GData.Parsable */
-    vfuncGetJson(builder: Json.Builder): void
-    vfuncGetNamespaces(namespaces: GLib.HashTable): void
-    vfuncGetXml(xmlString: GLib.String): void
-    vfuncParseJson(reader: Json.Reader): boolean
-    vfuncParseXml(doc: libxml2.Doc, node: libxml2.Node): boolean
-    vfuncPostParseJson(): boolean
-    vfuncPostParseXml(): boolean
-    vfuncPreGetXml(xmlString: GLib.String): void
-    vfuncPreParseXml(doc: libxml2.Doc, rootNode: libxml2.Node): boolean
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: CalendarFeed, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: CalendarFeed, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::times-cleaned", callback: (($obj: CalendarFeed, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::times-cleaned", callback: (($obj: CalendarFeed, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::times-cleaned", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -2138,7 +1919,7 @@ export interface CalendarQuery_ConstructProps extends Query_ConstructProps {
     timezone?: string
 }
 export class CalendarQuery {
-    /* Properties of GData.CalendarQuery */
+    /* Properties of GData-0.0.GData.CalendarQuery */
     futureEvents: boolean
     maxAttendees: number
     orderBy: string
@@ -2150,7 +1931,7 @@ export class CalendarQuery {
     startMax: number
     startMin: number
     timezone: string
-    /* Properties of GData.Query */
+    /* Properties of GData-0.0.GData.Query */
     author: string
     categories: string
     etag: string
@@ -2162,12 +1943,12 @@ export class CalendarQuery {
     startIndex: number
     updatedMax: number
     updatedMin: number
-    /* Fields of GData.CalendarQuery */
+    /* Fields of GData-0.0.GData.CalendarQuery */
     parent: Query
     priv: CalendarQueryPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GData.CalendarQuery */
+    /* Methods of GData-0.0.GData.CalendarQuery */
     getFutureEvents(): boolean
     getMaxAttendees(): number
     getOrderBy(): string
@@ -2189,7 +1970,7 @@ export class CalendarQuery {
     setStartMax(startMax: number): void
     setStartMin(startMin: number): void
     setTimezone(timezone?: string | null): void
-    /* Methods of GData.Query */
+    /* Methods of GData-0.0.GData.Query */
     getAuthor(): string
     getCategories(): string
     getEtag(): string
@@ -2214,7 +1995,7 @@ export class CalendarQuery {
     setStartIndex(startIndex: number): void
     setUpdatedMax(updatedMax: number): void
     setUpdatedMin(updatedMin: number): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -2236,23 +2017,12 @@ export class CalendarQuery {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GData.Query */
-    vfuncGetQueryUri(feedUri: string, queryUri: GLib.String, paramsStarted: boolean): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: CalendarQuery, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: CalendarQuery, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::future-events", callback: (($obj: CalendarQuery, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::future-events", callback: (($obj: CalendarQuery, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::future-events", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -2381,19 +2151,19 @@ export class CalendarQuery {
 export interface CalendarService_ConstructProps extends Service_ConstructProps {
 }
 export class CalendarService {
-    /* Properties of GData.Service */
+    /* Properties of GData-0.0.GData.Service */
     authorizer: Authorizer
     locale: string
     proxyResolver: Gio.ProxyResolver
     proxyUri: Soup.URI
     timeout: number
-    /* Fields of GData.CalendarService */
+    /* Fields of GData-0.0.GData.CalendarService */
     parent: Service
-    /* Fields of GData.Service */
+    /* Fields of GData-0.0.GData.Service */
     priv: ServicePrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GData.CalendarService */
+    /* Methods of GData-0.0.GData.CalendarService */
     insertCalendarEvent(calendar: CalendarCalendar, event: CalendarEvent, cancellable?: Gio.Cancellable | null): CalendarEvent
     insertCalendarEventAsync(calendar: CalendarCalendar, event: CalendarEvent, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     insertEvent(event: CalendarEvent, cancellable?: Gio.Cancellable | null): CalendarEvent
@@ -2404,7 +2174,7 @@ export class CalendarService {
     queryEventsAsync(calendar: CalendarCalendar, query?: Query | null, cancellable?: Gio.Cancellable | null, progressCallback?: QueryProgressCallback | null, callback?: Gio.AsyncReadyCallback | null): void
     queryOwnCalendars(query?: Query | null, cancellable?: Gio.Cancellable | null, progressCallback?: QueryProgressCallback | null): Feed
     queryOwnCalendarsAsync(query?: Query | null, cancellable?: Gio.Cancellable | null, progressCallback?: QueryProgressCallback | null, callback?: Gio.AsyncReadyCallback | null): void
-    /* Methods of GData.Service */
+    /* Methods of GData-0.0.GData.Service */
     deleteEntry(domain: AuthorizationDomain | null, entry: Entry, cancellable?: Gio.Cancellable | null): boolean
     deleteEntryAsync(domain: AuthorizationDomain | null, entry: Entry, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     deleteEntryFinish(asyncResult: Gio.AsyncResult): boolean
@@ -2431,7 +2201,7 @@ export class CalendarService {
     updateEntry(domain: AuthorizationDomain | null, entry: Entry, cancellable?: Gio.Cancellable | null): Entry
     updateEntryAsync(domain: AuthorizationDomain | null, entry: Entry, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     updateEntryFinish(asyncResult: Gio.AsyncResult): Entry
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -2453,26 +2223,14 @@ export class CalendarService {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of GData.Batchable */
+    /* Methods of GData-0.0.GData.Batchable */
     createOperation(domain: AuthorizationDomain | null, feedUri: string): BatchOperation
-    /* Virtual methods of GData.Service */
-    vfuncAppendQueryHeaders(domain: AuthorizationDomain, message: Soup.Message): void
-    vfuncParseErrorResponse(operationType: OperationType, status: number, reasonPhrase: string, responseBody: string, length: number): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: CalendarService, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: CalendarService, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::authorizer", callback: (($obj: CalendarService, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::authorizer", callback: (($obj: CalendarService, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::authorizer", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -2519,27 +2277,27 @@ export interface Category_ConstructProps extends Parsable_ConstructProps {
     term?: string
 }
 export class Category {
-    /* Properties of GData.Category */
+    /* Properties of GData-0.0.GData.Category */
     label: string
     scheme: string
     term: string
-    /* Fields of GData.Category */
+    /* Fields of GData-0.0.GData.Category */
     parent: Parsable
     priv: CategoryPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GData.Category */
+    /* Methods of GData-0.0.GData.Category */
     getLabel(): string
     getScheme(): string
     getTerm(): string
     setLabel(label?: string | null): void
     setScheme(scheme?: string | null): void
     setTerm(term: string): void
-    /* Methods of GData.Parsable */
+    /* Methods of GData-0.0.GData.Parsable */
     getContentType(): string
     getJson(): string
     getXml(): string
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -2561,35 +2319,14 @@ export class Category {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of GData.Comparable */
+    /* Methods of GData-0.0.GData.Comparable */
     compare(other?: Comparable | null): number
-    /* Virtual methods of GData.Category */
-    vfuncCompareWith(other: Comparable): number
-    /* Virtual methods of GData.Parsable */
-    vfuncGetJson(builder: Json.Builder): void
-    vfuncGetNamespaces(namespaces: GLib.HashTable): void
-    vfuncGetXml(xmlString: GLib.String): void
-    vfuncParseJson(reader: Json.Reader): boolean
-    vfuncParseXml(doc: libxml2.Doc, node: libxml2.Node): boolean
-    vfuncPostParseJson(): boolean
-    vfuncPostParseXml(): boolean
-    vfuncPreGetXml(xmlString: GLib.String): void
-    vfuncPreParseXml(doc: libxml2.Doc, rootNode: libxml2.Node): boolean
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Category, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Category, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::label", callback: (($obj: Category, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::label", callback: (($obj: Category, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::label", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -2626,15 +2363,15 @@ export interface ClientLoginAuthorizer_ConstructProps extends GObject.Object_Con
     timeout?: number
 }
 export class ClientLoginAuthorizer {
-    /* Properties of GData.ClientLoginAuthorizer */
+    /* Properties of GData-0.0.GData.ClientLoginAuthorizer */
     readonly password: string
     proxyResolver: Gio.ProxyResolver
     proxyUri: Soup.URI
     timeout: number
     readonly username: string
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GData.ClientLoginAuthorizer */
+    /* Methods of GData-0.0.GData.ClientLoginAuthorizer */
     authenticate(username: string, password: string, cancellable?: Gio.Cancellable | null): boolean
     authenticateAsync(username: string, password: string, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     authenticateFinish(asyncResult: Gio.AsyncResult): boolean
@@ -2647,7 +2384,7 @@ export class ClientLoginAuthorizer {
     setProxyResolver(proxyResolver?: Gio.ProxyResolver | null): void
     setProxyUri(proxyUri?: Soup.URI | null): void
     setTimeout(timeout: number): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -2669,40 +2406,24 @@ export class ClientLoginAuthorizer {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of GData.Authorizer */
+    /* Methods of GData-0.0.GData.Authorizer */
     isAuthorizedForDomain(domain: AuthorizationDomain): boolean
     processRequest(domain: AuthorizationDomain | null, message: Soup.Message): void
     refreshAuthorization(cancellable?: Gio.Cancellable | null): boolean
     refreshAuthorizationAsync(cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     refreshAuthorizationFinish(asyncResult: Gio.AsyncResult): boolean
-    /* Virtual methods of GData.ClientLoginAuthorizer */
-    vfuncIsAuthorizedForDomain(domain: AuthorizationDomain): boolean
-    vfuncProcessRequest(domain: AuthorizationDomain | null, message: Soup.Message): void
-    vfuncRefreshAuthorization(cancellable?: Gio.Cancellable | null): boolean
-    vfuncRefreshAuthorizationAsync(cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    vfuncRefreshAuthorizationFinish(asyncResult: Gio.AsyncResult): boolean
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GData.ClientLoginAuthorizer */
+    /* Signals of GData-0.0.GData.ClientLoginAuthorizer */
     connect(sigName: "captcha-challenge", callback: (($obj: ClientLoginAuthorizer, uri: string) => string)): number
-    connect_after(sigName: "captcha-challenge", callback: (($obj: ClientLoginAuthorizer, uri: string) => string)): number
+    on(sigName: "captcha-challenge", callback: (uri: string) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "captcha-challenge", callback: (uri: string) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "captcha-challenge", callback: (uri: string) => void): NodeJS.EventEmitter
     emit(sigName: "captcha-challenge", uri: string): void
-    on(sigName: "captcha-challenge", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "captcha-challenge", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "captcha-challenge", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: ClientLoginAuthorizer, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: ClientLoginAuthorizer, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::password", callback: (($obj: ClientLoginAuthorizer, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::password", callback: (($obj: ClientLoginAuthorizer, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::password", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -2746,7 +2467,7 @@ export class ClientLoginAuthorizer {
 export interface Comment_ConstructProps extends Entry_ConstructProps {
 }
 export class Comment {
-    /* Properties of GData.Entry */
+    /* Properties of GData-0.0.GData.Entry */
     content: string
     contentUri: string
     readonly isInserted: boolean
@@ -2755,12 +2476,12 @@ export class Comment {
     summary: string
     title: string
     readonly updated: number
-    /* Fields of GData.Comment */
+    /* Fields of GData-0.0.GData.Comment */
     parent: Entry
     priv: CommentPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GData.Entry */
+    /* Methods of GData-0.0.GData.Entry */
     addAuthor(author: Author): void
     addCategory(category: Category): void
     addLink(link: Link): void
@@ -2783,11 +2504,11 @@ export class Comment {
     setRights(rights?: string | null): void
     setSummary(summary?: string | null): void
     setTitle(title?: string | null): void
-    /* Methods of GData.Parsable */
+    /* Methods of GData-0.0.GData.Parsable */
     getContentType(): string
     getJson(): string
     getXml(): string
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -2809,31 +2530,12 @@ export class Comment {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GData.Parsable */
-    vfuncGetJson(builder: Json.Builder): void
-    vfuncGetNamespaces(namespaces: GLib.HashTable): void
-    vfuncGetXml(xmlString: GLib.String): void
-    vfuncParseJson(reader: Json.Reader): boolean
-    vfuncParseXml(doc: libxml2.Doc, node: libxml2.Node): boolean
-    vfuncPostParseJson(): boolean
-    vfuncPostParseXml(): boolean
-    vfuncPreGetXml(xmlString: GLib.String): void
-    vfuncPreParseXml(doc: libxml2.Doc, rootNode: libxml2.Node): boolean
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Comment, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Comment, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::content", callback: (($obj: Comment, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::content", callback: (($obj: Comment, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::content", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -2905,7 +2607,7 @@ export interface ContactsContact_ConstructProps extends Entry_ConstructProps {
     subject?: string
 }
 export class ContactsContact {
-    /* Properties of GData.ContactsContact */
+    /* Properties of GData-0.0.GData.ContactsContact */
     billingInformation: string
     birthday: GLib.Date
     birthdayHasYear: boolean
@@ -2925,7 +2627,7 @@ export class ContactsContact {
     sensitivity: string
     shortName: string
     subject: string
-    /* Properties of GData.Entry */
+    /* Properties of GData-0.0.GData.Entry */
     content: string
     contentUri: string
     readonly isInserted: boolean
@@ -2934,12 +2636,12 @@ export class ContactsContact {
     summary: string
     title: string
     readonly updated: number
-    /* Fields of GData.ContactsContact */
+    /* Fields of GData-0.0.GData.ContactsContact */
     parent: Entry
     priv: ContactsContactPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GData.ContactsContact */
+    /* Methods of GData-0.0.GData.ContactsContact */
     addCalendar(calendar: GContactCalendar): void
     addEmailAddress(emailAddress: GDEmailAddress): void
     addEvent(event: GContactEvent): void
@@ -2955,7 +2657,7 @@ export class ContactsContact {
     addRelation(relation: GContactRelation): void
     addWebsite(website: GContactWebsite): void
     getBillingInformation(): string
-    getBirthday(): [ /* returnType */ boolean, /* birthday */ GLib.Date | null ]
+    getBirthday(): { returnType: boolean, birthday: GLib.Date | null }
     getCalendars(): GContactCalendar[]
     getDirectoryServer(): string
     getEdited(): number
@@ -2979,10 +2681,10 @@ export class ContactsContact {
     getOccupation(): string
     getOrganizations(): GDOrganization[]
     getPhoneNumbers(): GDPhoneNumber[]
-    getPhoto(service: ContactsService, cancellable?: Gio.Cancellable | null): [ /* returnType */ any[], /* contentType */ string | null ]
+    getPhoto(service: ContactsService, cancellable?: Gio.Cancellable | null): { returnType: any[], contentType: string | null }
     getPhotoAsync(service: ContactsService, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     getPhotoEtag(): string
-    getPhotoFinish(asyncResult: Gio.AsyncResult): [ /* returnType */ any[], /* contentType */ string | null ]
+    getPhotoFinish(asyncResult: Gio.AsyncResult): { returnType: any[], contentType: string | null }
     getPostalAddresses(): GDPostalAddress[]
     getPrimaryCalendar(): GContactCalendar
     getPrimaryEmailAddress(): GDEmailAddress
@@ -3035,7 +2737,7 @@ export class ContactsContact {
     setShortName(shortName?: string | null): void
     setSubject(subject?: string | null): void
     setUserDefinedField(name: string, value?: string | null): void
-    /* Methods of GData.Entry */
+    /* Methods of GData-0.0.GData.Entry */
     addAuthor(author: Author): void
     addCategory(category: Category): void
     addLink(link: Link): void
@@ -3058,11 +2760,11 @@ export class ContactsContact {
     setRights(rights?: string | null): void
     setSummary(summary?: string | null): void
     setTitle(title?: string | null): void
-    /* Methods of GData.Parsable */
+    /* Methods of GData-0.0.GData.Parsable */
     getContentType(): string
     getJson(): string
     getXml(): string
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -3084,31 +2786,12 @@ export class ContactsContact {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GData.Parsable */
-    vfuncGetJson(builder: Json.Builder): void
-    vfuncGetNamespaces(namespaces: GLib.HashTable): void
-    vfuncGetXml(xmlString: GLib.String): void
-    vfuncParseJson(reader: Json.Reader): boolean
-    vfuncParseXml(doc: libxml2.Doc, node: libxml2.Node): boolean
-    vfuncPostParseJson(): boolean
-    vfuncPostParseXml(): boolean
-    vfuncPreGetXml(xmlString: GLib.String): void
-    vfuncPreParseXml(doc: libxml2.Doc, rootNode: libxml2.Node): boolean
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: ContactsContact, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: ContactsContact, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::billing-information", callback: (($obj: ContactsContact, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::billing-information", callback: (($obj: ContactsContact, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::billing-information", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -3261,11 +2944,11 @@ export class ContactsContact {
 export interface ContactsGroup_ConstructProps extends Entry_ConstructProps {
 }
 export class ContactsGroup {
-    /* Properties of GData.ContactsGroup */
+    /* Properties of GData-0.0.GData.ContactsGroup */
     readonly deleted: boolean
     readonly edited: number
     readonly systemGroupId: string
-    /* Properties of GData.Entry */
+    /* Properties of GData-0.0.GData.Entry */
     content: string
     contentUri: string
     readonly isInserted: boolean
@@ -3274,19 +2957,19 @@ export class ContactsGroup {
     summary: string
     title: string
     readonly updated: number
-    /* Fields of GData.ContactsGroup */
+    /* Fields of GData-0.0.GData.ContactsGroup */
     parent: Entry
     priv: ContactsGroupPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GData.ContactsGroup */
+    /* Methods of GData-0.0.GData.ContactsGroup */
     getEdited(): number
     getExtendedProperties(): GLib.HashTable
     getExtendedProperty(name: string): string
     getSystemGroupId(): string
     isDeleted(): boolean
     setExtendedProperty(name: string, value?: string | null): boolean
-    /* Methods of GData.Entry */
+    /* Methods of GData-0.0.GData.Entry */
     addAuthor(author: Author): void
     addCategory(category: Category): void
     addLink(link: Link): void
@@ -3309,11 +2992,11 @@ export class ContactsGroup {
     setRights(rights?: string | null): void
     setSummary(summary?: string | null): void
     setTitle(title?: string | null): void
-    /* Methods of GData.Parsable */
+    /* Methods of GData-0.0.GData.Parsable */
     getContentType(): string
     getJson(): string
     getXml(): string
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -3335,31 +3018,12 @@ export class ContactsGroup {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GData.Parsable */
-    vfuncGetJson(builder: Json.Builder): void
-    vfuncGetNamespaces(namespaces: GLib.HashTable): void
-    vfuncGetXml(xmlString: GLib.String): void
-    vfuncParseJson(reader: Json.Reader): boolean
-    vfuncParseXml(doc: libxml2.Doc, node: libxml2.Node): boolean
-    vfuncPostParseJson(): boolean
-    vfuncPostParseXml(): boolean
-    vfuncPreGetXml(xmlString: GLib.String): void
-    vfuncPreParseXml(doc: libxml2.Doc, rootNode: libxml2.Node): boolean
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: ContactsGroup, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: ContactsGroup, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::deleted", callback: (($obj: ContactsGroup, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::deleted", callback: (($obj: ContactsGroup, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::deleted", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -3436,12 +3100,12 @@ export interface ContactsQuery_ConstructProps extends Query_ConstructProps {
     sortOrder?: string
 }
 export class ContactsQuery {
-    /* Properties of GData.ContactsQuery */
+    /* Properties of GData-0.0.GData.ContactsQuery */
     group: string
     orderBy: string
     showDeleted: boolean
     sortOrder: string
-    /* Properties of GData.Query */
+    /* Properties of GData-0.0.GData.Query */
     author: string
     categories: string
     etag: string
@@ -3453,12 +3117,12 @@ export class ContactsQuery {
     startIndex: number
     updatedMax: number
     updatedMin: number
-    /* Fields of GData.ContactsQuery */
+    /* Fields of GData-0.0.GData.ContactsQuery */
     parent: Query
     priv: ContactsQueryPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GData.ContactsQuery */
+    /* Methods of GData-0.0.GData.ContactsQuery */
     getGroup(): string
     getOrderBy(): string
     getSortOrder(): string
@@ -3466,7 +3130,7 @@ export class ContactsQuery {
     setOrderBy(orderBy?: string | null): void
     setShowDeleted(showDeleted: boolean): void
     setSortOrder(sortOrder?: string | null): void
-    /* Methods of GData.Query */
+    /* Methods of GData-0.0.GData.Query */
     getAuthor(): string
     getCategories(): string
     getEtag(): string
@@ -3491,7 +3155,7 @@ export class ContactsQuery {
     setStartIndex(startIndex: number): void
     setUpdatedMax(updatedMax: number): void
     setUpdatedMin(updatedMin: number): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -3513,23 +3177,12 @@ export class ContactsQuery {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GData.Query */
-    vfuncGetQueryUri(feedUri: string, queryUri: GLib.String, paramsStarted: boolean): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: ContactsQuery, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: ContactsQuery, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::group", callback: (($obj: ContactsQuery, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::group", callback: (($obj: ContactsQuery, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::group", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -3623,19 +3276,19 @@ export class ContactsQuery {
 export interface ContactsService_ConstructProps extends Service_ConstructProps {
 }
 export class ContactsService {
-    /* Properties of GData.Service */
+    /* Properties of GData-0.0.GData.Service */
     authorizer: Authorizer
     locale: string
     proxyResolver: Gio.ProxyResolver
     proxyUri: Soup.URI
     timeout: number
-    /* Fields of GData.ContactsService */
+    /* Fields of GData-0.0.GData.ContactsService */
     parent: Service
-    /* Fields of GData.Service */
+    /* Fields of GData-0.0.GData.Service */
     priv: ServicePrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GData.ContactsService */
+    /* Methods of GData-0.0.GData.ContactsService */
     insertContact(contact: ContactsContact, cancellable?: Gio.Cancellable | null): ContactsContact
     insertContactAsync(contact: ContactsContact, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     insertGroup(group: ContactsGroup, cancellable?: Gio.Cancellable | null): ContactsGroup
@@ -3644,7 +3297,7 @@ export class ContactsService {
     queryContactsAsync(query?: Query | null, cancellable?: Gio.Cancellable | null, progressCallback?: QueryProgressCallback | null, callback?: Gio.AsyncReadyCallback | null): void
     queryGroups(query?: Query | null, cancellable?: Gio.Cancellable | null, progressCallback?: QueryProgressCallback | null): Feed
     queryGroupsAsync(query?: Query | null, cancellable?: Gio.Cancellable | null, progressCallback?: QueryProgressCallback | null, callback?: Gio.AsyncReadyCallback | null): void
-    /* Methods of GData.Service */
+    /* Methods of GData-0.0.GData.Service */
     deleteEntry(domain: AuthorizationDomain | null, entry: Entry, cancellable?: Gio.Cancellable | null): boolean
     deleteEntryAsync(domain: AuthorizationDomain | null, entry: Entry, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     deleteEntryFinish(asyncResult: Gio.AsyncResult): boolean
@@ -3671,7 +3324,7 @@ export class ContactsService {
     updateEntry(domain: AuthorizationDomain | null, entry: Entry, cancellable?: Gio.Cancellable | null): Entry
     updateEntryAsync(domain: AuthorizationDomain | null, entry: Entry, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     updateEntryFinish(asyncResult: Gio.AsyncResult): Entry
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -3693,26 +3346,14 @@ export class ContactsService {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of GData.Batchable */
+    /* Methods of GData-0.0.GData.Batchable */
     createOperation(domain: AuthorizationDomain | null, feedUri: string): BatchOperation
-    /* Virtual methods of GData.Service */
-    vfuncAppendQueryHeaders(domain: AuthorizationDomain, message: Soup.Message): void
-    vfuncParseErrorResponse(operationType: OperationType, status: number, reasonPhrase: string, responseBody: string, length: number): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: ContactsService, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: ContactsService, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::authorizer", callback: (($obj: ContactsService, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::authorizer", callback: (($obj: ContactsService, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::authorizer", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -3756,13 +3397,13 @@ export class ContactsService {
 export interface DocumentsAccessRule_ConstructProps extends AccessRule_ConstructProps {
 }
 export class DocumentsAccessRule {
-    /* Properties of GData.AccessRule */
+    /* Properties of GData-0.0.GData.AccessRule */
     readonly edited: number
     readonly key: string
     role: string
     scopeType: string
     scopeValue: string
-    /* Properties of GData.Entry */
+    /* Properties of GData-0.0.GData.Entry */
     content: string
     contentUri: string
     readonly isInserted: boolean
@@ -3771,20 +3412,20 @@ export class DocumentsAccessRule {
     summary: string
     title: string
     readonly updated: number
-    /* Fields of GData.DocumentsAccessRule */
+    /* Fields of GData-0.0.GData.DocumentsAccessRule */
     parent: AccessRule
-    /* Fields of GData.AccessRule */
+    /* Fields of GData-0.0.GData.AccessRule */
     priv: AccessRulePrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GData.AccessRule */
+    /* Methods of GData-0.0.GData.AccessRule */
     getEdited(): number
     getKey(): string
     getRole(): string
-    getScope(): [ /* type */ string | null, /* value */ string | null ]
+    getScope(): { type: string | null, value: string | null }
     setRole(role: string): void
     setScope(type: string, value?: string | null): void
-    /* Methods of GData.Entry */
+    /* Methods of GData-0.0.GData.Entry */
     addAuthor(author: Author): void
     addCategory(category: Category): void
     addLink(link: Link): void
@@ -3807,11 +3448,11 @@ export class DocumentsAccessRule {
     setRights(rights?: string | null): void
     setSummary(summary?: string | null): void
     setTitle(title?: string | null): void
-    /* Methods of GData.Parsable */
+    /* Methods of GData-0.0.GData.Parsable */
     getContentType(): string
     getJson(): string
     getXml(): string
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -3833,31 +3474,12 @@ export class DocumentsAccessRule {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GData.Parsable */
-    vfuncGetJson(builder: Json.Builder): void
-    vfuncGetNamespaces(namespaces: GLib.HashTable): void
-    vfuncGetXml(xmlString: GLib.String): void
-    vfuncParseJson(reader: Json.Reader): boolean
-    vfuncParseXml(doc: libxml2.Doc, node: libxml2.Node): boolean
-    vfuncPostParseJson(): boolean
-    vfuncPostParseXml(): boolean
-    vfuncPreGetXml(xmlString: GLib.String): void
-    vfuncPreParseXml(doc: libxml2.Doc, rootNode: libxml2.Node): boolean
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: DocumentsAccessRule, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: DocumentsAccessRule, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::edited", callback: (($obj: DocumentsAccessRule, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::edited", callback: (($obj: DocumentsAccessRule, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::edited", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -3941,7 +3563,7 @@ export class DocumentsAccessRule {
 export interface DocumentsDocument_ConstructProps extends DocumentsEntry_ConstructProps {
 }
 export class DocumentsDocument {
-    /* Properties of GData.DocumentsEntry */
+    /* Properties of GData-0.0.GData.DocumentsEntry */
     readonly canEdit: boolean
     readonly documentId: string
     readonly edited: number
@@ -3953,7 +3575,7 @@ export class DocumentsDocument {
     readonly resourceId: string
     readonly sharedWithMeDate: number
     writersCanInvite: boolean
-    /* Properties of GData.Entry */
+    /* Properties of GData-0.0.GData.Entry */
     content: string
     contentUri: string
     readonly isInserted: boolean
@@ -3962,16 +3584,16 @@ export class DocumentsDocument {
     summary: string
     title: string
     readonly updated: number
-    /* Fields of GData.DocumentsDocument */
+    /* Fields of GData-0.0.GData.DocumentsDocument */
     parent: DocumentsEntry
     priv: DocumentsDocumentPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GData.DocumentsDocument */
+    /* Methods of GData-0.0.GData.DocumentsDocument */
     download(service: DocumentsService, exportFormat: string, cancellable?: Gio.Cancellable | null): DownloadStream
     getDownloadUri(exportFormat: string): string | null
     getThumbnailUri(): string | null
-    /* Methods of GData.DocumentsEntry */
+    /* Methods of GData-0.0.GData.DocumentsEntry */
     addDocumentsProperty(property: DocumentsProperty): boolean
     getDocumentId(): string
     getDocumentProperties(): DocumentsProperty[]
@@ -3985,7 +3607,7 @@ export class DocumentsDocument {
     getSharedWithMeDate(): number
     removeDocumentsProperty(property: DocumentsProperty): boolean
     setWritersCanInvite(writersCanInvite: boolean): void
-    /* Methods of GData.Entry */
+    /* Methods of GData-0.0.GData.Entry */
     addAuthor(author: Author): void
     addCategory(category: Category): void
     addLink(link: Link): void
@@ -4008,11 +3630,11 @@ export class DocumentsDocument {
     setRights(rights?: string | null): void
     setSummary(summary?: string | null): void
     setTitle(title?: string | null): void
-    /* Methods of GData.Parsable */
+    /* Methods of GData-0.0.GData.Parsable */
     getContentType(): string
     getJson(): string
     getXml(): string
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -4034,36 +3656,15 @@ export class DocumentsDocument {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of GData.AccessHandler */
+    /* Methods of GData-0.0.GData.AccessHandler */
     getRules(service: Service, cancellable?: Gio.Cancellable | null, progressCallback?: QueryProgressCallback | null): Feed
     getRulesAsync(service: Service, cancellable?: Gio.Cancellable | null, progressCallback?: QueryProgressCallback | null, callback?: Gio.AsyncReadyCallback | null): void
-    /* Virtual methods of GData.DocumentsEntry */
-    vfuncGetRules(service: Service, cancellable?: Gio.Cancellable | null, progressCallback?: QueryProgressCallback | null): Feed
-    /* Virtual methods of GData.Parsable */
-    vfuncGetJson(builder: Json.Builder): void
-    vfuncGetNamespaces(namespaces: GLib.HashTable): void
-    vfuncGetXml(xmlString: GLib.String): void
-    vfuncParseJson(reader: Json.Reader): boolean
-    vfuncParseXml(doc: libxml2.Doc, node: libxml2.Node): boolean
-    vfuncPostParseJson(): boolean
-    vfuncPostParseXml(): boolean
-    vfuncPreGetXml(xmlString: GLib.String): void
-    vfuncPreParseXml(doc: libxml2.Doc, rootNode: libxml2.Node): boolean
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: DocumentsDocument, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: DocumentsDocument, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::can-edit", callback: (($obj: DocumentsDocument, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::can-edit", callback: (($obj: DocumentsDocument, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::can-edit", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -4176,7 +3777,7 @@ export class DocumentsDocument {
 export interface DocumentsDrawing_ConstructProps extends DocumentsDocument_ConstructProps {
 }
 export class DocumentsDrawing {
-    /* Properties of GData.DocumentsEntry */
+    /* Properties of GData-0.0.GData.DocumentsEntry */
     readonly canEdit: boolean
     readonly documentId: string
     readonly edited: number
@@ -4188,7 +3789,7 @@ export class DocumentsDrawing {
     readonly resourceId: string
     readonly sharedWithMeDate: number
     writersCanInvite: boolean
-    /* Properties of GData.Entry */
+    /* Properties of GData-0.0.GData.Entry */
     content: string
     contentUri: string
     readonly isInserted: boolean
@@ -4197,16 +3798,16 @@ export class DocumentsDrawing {
     summary: string
     title: string
     readonly updated: number
-    /* Fields of GData.DocumentsDrawing */
+    /* Fields of GData-0.0.GData.DocumentsDrawing */
     parent: DocumentsDocument
     priv: DocumentsDrawingPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GData.DocumentsDocument */
+    /* Methods of GData-0.0.GData.DocumentsDocument */
     download(service: DocumentsService, exportFormat: string, cancellable?: Gio.Cancellable | null): DownloadStream
     getDownloadUri(exportFormat: string): string | null
     getThumbnailUri(): string | null
-    /* Methods of GData.DocumentsEntry */
+    /* Methods of GData-0.0.GData.DocumentsEntry */
     addDocumentsProperty(property: DocumentsProperty): boolean
     getDocumentId(): string
     getDocumentProperties(): DocumentsProperty[]
@@ -4220,7 +3821,7 @@ export class DocumentsDrawing {
     getSharedWithMeDate(): number
     removeDocumentsProperty(property: DocumentsProperty): boolean
     setWritersCanInvite(writersCanInvite: boolean): void
-    /* Methods of GData.Entry */
+    /* Methods of GData-0.0.GData.Entry */
     addAuthor(author: Author): void
     addCategory(category: Category): void
     addLink(link: Link): void
@@ -4243,11 +3844,11 @@ export class DocumentsDrawing {
     setRights(rights?: string | null): void
     setSummary(summary?: string | null): void
     setTitle(title?: string | null): void
-    /* Methods of GData.Parsable */
+    /* Methods of GData-0.0.GData.Parsable */
     getContentType(): string
     getJson(): string
     getXml(): string
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -4269,36 +3870,15 @@ export class DocumentsDrawing {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of GData.AccessHandler */
+    /* Methods of GData-0.0.GData.AccessHandler */
     getRules(service: Service, cancellable?: Gio.Cancellable | null, progressCallback?: QueryProgressCallback | null): Feed
     getRulesAsync(service: Service, cancellable?: Gio.Cancellable | null, progressCallback?: QueryProgressCallback | null, callback?: Gio.AsyncReadyCallback | null): void
-    /* Virtual methods of GData.DocumentsEntry */
-    vfuncGetRules(service: Service, cancellable?: Gio.Cancellable | null, progressCallback?: QueryProgressCallback | null): Feed
-    /* Virtual methods of GData.Parsable */
-    vfuncGetJson(builder: Json.Builder): void
-    vfuncGetNamespaces(namespaces: GLib.HashTable): void
-    vfuncGetXml(xmlString: GLib.String): void
-    vfuncParseJson(reader: Json.Reader): boolean
-    vfuncParseXml(doc: libxml2.Doc, node: libxml2.Node): boolean
-    vfuncPostParseJson(): boolean
-    vfuncPostParseXml(): boolean
-    vfuncPreGetXml(xmlString: GLib.String): void
-    vfuncPreParseXml(doc: libxml2.Doc, rootNode: libxml2.Node): boolean
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: DocumentsDrawing, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: DocumentsDrawing, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::can-edit", callback: (($obj: DocumentsDrawing, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::can-edit", callback: (($obj: DocumentsDrawing, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::can-edit", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -4411,9 +3991,9 @@ export class DocumentsDrawing {
 export interface DocumentsDrive_ConstructProps extends Entry_ConstructProps {
 }
 export class DocumentsDrive {
-    /* Properties of GData.DocumentsDrive */
+    /* Properties of GData-0.0.GData.DocumentsDrive */
     readonly name: string
-    /* Properties of GData.Entry */
+    /* Properties of GData-0.0.GData.Entry */
     content: string
     contentUri: string
     readonly isInserted: boolean
@@ -4422,16 +4002,16 @@ export class DocumentsDrive {
     summary: string
     title: string
     readonly updated: number
-    /* Fields of GData.DocumentsDrive */
+    /* Fields of GData-0.0.GData.DocumentsDrive */
     parentInstance: Entry
-    /* Fields of GData.Entry */
+    /* Fields of GData-0.0.GData.Entry */
     parent: Parsable
     priv: EntryPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GData.DocumentsDrive */
+    /* Methods of GData-0.0.GData.DocumentsDrive */
     getName(): string | null
-    /* Methods of GData.Entry */
+    /* Methods of GData-0.0.GData.Entry */
     addAuthor(author: Author): void
     addCategory(category: Category): void
     addLink(link: Link): void
@@ -4454,11 +4034,11 @@ export class DocumentsDrive {
     setRights(rights?: string | null): void
     setSummary(summary?: string | null): void
     setTitle(title?: string | null): void
-    /* Methods of GData.Parsable */
+    /* Methods of GData-0.0.GData.Parsable */
     getContentType(): string
     getJson(): string
     getXml(): string
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -4480,31 +4060,12 @@ export class DocumentsDrive {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GData.Parsable */
-    vfuncGetJson(builder: Json.Builder): void
-    vfuncGetNamespaces(namespaces: GLib.HashTable): void
-    vfuncGetXml(xmlString: GLib.String): void
-    vfuncParseJson(reader: Json.Reader): boolean
-    vfuncParseXml(doc: libxml2.Doc, node: libxml2.Node): boolean
-    vfuncPostParseJson(): boolean
-    vfuncPostParseXml(): boolean
-    vfuncPreGetXml(xmlString: GLib.String): void
-    vfuncPreParseXml(doc: libxml2.Doc, rootNode: libxml2.Node): boolean
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: DocumentsDrive, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: DocumentsDrive, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::name", callback: (($obj: DocumentsDrive, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::name", callback: (($obj: DocumentsDrive, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::name", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -4565,7 +4126,7 @@ export class DocumentsDrive {
 export interface DocumentsDriveQuery_ConstructProps extends Query_ConstructProps {
 }
 export class DocumentsDriveQuery {
-    /* Properties of GData.Query */
+    /* Properties of GData-0.0.GData.Query */
     author: string
     categories: string
     etag: string
@@ -4577,14 +4138,14 @@ export class DocumentsDriveQuery {
     startIndex: number
     updatedMax: number
     updatedMin: number
-    /* Fields of GData.DocumentsDriveQuery */
+    /* Fields of GData-0.0.GData.DocumentsDriveQuery */
     parentInstance: Query
-    /* Fields of GData.Query */
+    /* Fields of GData-0.0.GData.Query */
     parent: GObject.Object
     priv: QueryPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GData.Query */
+    /* Methods of GData-0.0.GData.Query */
     getAuthor(): string
     getCategories(): string
     getEtag(): string
@@ -4609,7 +4170,7 @@ export class DocumentsDriveQuery {
     setStartIndex(startIndex: number): void
     setUpdatedMax(updatedMax: number): void
     setUpdatedMin(updatedMin: number): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -4631,23 +4192,12 @@ export class DocumentsDriveQuery {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GData.Query */
-    vfuncGetQueryUri(feedUri: string, queryUri: GLib.String, paramsStarted: boolean): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: DocumentsDriveQuery, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: DocumentsDriveQuery, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::author", callback: (($obj: DocumentsDriveQuery, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::author", callback: (($obj: DocumentsDriveQuery, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::author", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -4722,7 +4272,7 @@ export interface DocumentsEntry_ConstructProps extends Entry_ConstructProps {
     writersCanInvite?: boolean
 }
 export class DocumentsEntry {
-    /* Properties of GData.DocumentsEntry */
+    /* Properties of GData-0.0.GData.DocumentsEntry */
     readonly canEdit: boolean
     readonly documentId: string
     readonly edited: number
@@ -4734,7 +4284,7 @@ export class DocumentsEntry {
     readonly resourceId: string
     readonly sharedWithMeDate: number
     writersCanInvite: boolean
-    /* Properties of GData.Entry */
+    /* Properties of GData-0.0.GData.Entry */
     content: string
     contentUri: string
     readonly isInserted: boolean
@@ -4743,12 +4293,12 @@ export class DocumentsEntry {
     summary: string
     title: string
     readonly updated: number
-    /* Fields of GData.DocumentsEntry */
+    /* Fields of GData-0.0.GData.DocumentsEntry */
     parent: Entry
     priv: DocumentsEntryPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GData.DocumentsEntry */
+    /* Methods of GData-0.0.GData.DocumentsEntry */
     addDocumentsProperty(property: DocumentsProperty): boolean
     getDocumentId(): string
     getDocumentProperties(): DocumentsProperty[]
@@ -4762,7 +4312,7 @@ export class DocumentsEntry {
     getSharedWithMeDate(): number
     removeDocumentsProperty(property: DocumentsProperty): boolean
     setWritersCanInvite(writersCanInvite: boolean): void
-    /* Methods of GData.Entry */
+    /* Methods of GData-0.0.GData.Entry */
     addAuthor(author: Author): void
     addCategory(category: Category): void
     addLink(link: Link): void
@@ -4785,11 +4335,11 @@ export class DocumentsEntry {
     setRights(rights?: string | null): void
     setSummary(summary?: string | null): void
     setTitle(title?: string | null): void
-    /* Methods of GData.Parsable */
+    /* Methods of GData-0.0.GData.Parsable */
     getContentType(): string
     getJson(): string
     getXml(): string
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -4811,36 +4361,15 @@ export class DocumentsEntry {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of GData.AccessHandler */
+    /* Methods of GData-0.0.GData.AccessHandler */
     getRules(service: Service, cancellable?: Gio.Cancellable | null, progressCallback?: QueryProgressCallback | null): Feed
     getRulesAsync(service: Service, cancellable?: Gio.Cancellable | null, progressCallback?: QueryProgressCallback | null, callback?: Gio.AsyncReadyCallback | null): void
-    /* Virtual methods of GData.DocumentsEntry */
-    vfuncGetRules(service: Service, cancellable?: Gio.Cancellable | null, progressCallback?: QueryProgressCallback | null): Feed
-    /* Virtual methods of GData.Parsable */
-    vfuncGetJson(builder: Json.Builder): void
-    vfuncGetNamespaces(namespaces: GLib.HashTable): void
-    vfuncGetXml(xmlString: GLib.String): void
-    vfuncParseJson(reader: Json.Reader): boolean
-    vfuncParseXml(doc: libxml2.Doc, node: libxml2.Node): boolean
-    vfuncPostParseJson(): boolean
-    vfuncPostParseXml(): boolean
-    vfuncPreGetXml(xmlString: GLib.String): void
-    vfuncPreParseXml(doc: libxml2.Doc, rootNode: libxml2.Node): boolean
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: DocumentsEntry, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: DocumentsEntry, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::can-edit", callback: (($obj: DocumentsEntry, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::can-edit", callback: (($obj: DocumentsEntry, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::can-edit", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -4951,7 +4480,7 @@ export class DocumentsEntry {
 export interface DocumentsFeed_ConstructProps extends Feed_ConstructProps {
 }
 export class DocumentsFeed {
-    /* Properties of GData.Feed */
+    /* Properties of GData-0.0.GData.Feed */
     readonly etag: string
     readonly generator: Generator
     readonly icon: string
@@ -4965,12 +4494,12 @@ export class DocumentsFeed {
     readonly title: string
     readonly totalResults: number
     readonly updated: number
-    /* Fields of GData.Parsable */
+    /* Fields of GData-0.0.GData.Parsable */
     parent: GObject.Object
     priv: ParsablePrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GData.Feed */
+    /* Methods of GData-0.0.GData.Feed */
     getAuthors(): Author[]
     getCategories(): Category[]
     getEntries(): Entry[]
@@ -4990,11 +4519,11 @@ export class DocumentsFeed {
     getUpdated(): number
     lookUpEntry(id: string): Entry
     lookUpLink(rel: string): Link
-    /* Methods of GData.Parsable */
+    /* Methods of GData-0.0.GData.Parsable */
     getContentType(): string
     getJson(): string
     getXml(): string
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -5016,31 +4545,12 @@ export class DocumentsFeed {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GData.Parsable */
-    vfuncGetJson(builder: Json.Builder): void
-    vfuncGetNamespaces(namespaces: GLib.HashTable): void
-    vfuncGetXml(xmlString: GLib.String): void
-    vfuncParseJson(reader: Json.Reader): boolean
-    vfuncParseXml(doc: libxml2.Doc, node: libxml2.Node): boolean
-    vfuncPostParseJson(): boolean
-    vfuncPostParseXml(): boolean
-    vfuncPreGetXml(xmlString: GLib.String): void
-    vfuncPreParseXml(doc: libxml2.Doc, rootNode: libxml2.Node): boolean
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: DocumentsFeed, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: DocumentsFeed, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::etag", callback: (($obj: DocumentsFeed, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::etag", callback: (($obj: DocumentsFeed, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::etag", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -5121,7 +4631,7 @@ export class DocumentsFeed {
 export interface DocumentsFolder_ConstructProps extends DocumentsEntry_ConstructProps {
 }
 export class DocumentsFolder {
-    /* Properties of GData.DocumentsEntry */
+    /* Properties of GData-0.0.GData.DocumentsEntry */
     readonly canEdit: boolean
     readonly documentId: string
     readonly edited: number
@@ -5133,7 +4643,7 @@ export class DocumentsFolder {
     readonly resourceId: string
     readonly sharedWithMeDate: number
     writersCanInvite: boolean
-    /* Properties of GData.Entry */
+    /* Properties of GData-0.0.GData.Entry */
     content: string
     contentUri: string
     readonly isInserted: boolean
@@ -5142,12 +4652,12 @@ export class DocumentsFolder {
     summary: string
     title: string
     readonly updated: number
-    /* Fields of GData.DocumentsFolder */
+    /* Fields of GData-0.0.GData.DocumentsFolder */
     parent: DocumentsEntry
     priv: DocumentsFolderPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GData.DocumentsEntry */
+    /* Methods of GData-0.0.GData.DocumentsEntry */
     addDocumentsProperty(property: DocumentsProperty): boolean
     getDocumentId(): string
     getDocumentProperties(): DocumentsProperty[]
@@ -5161,7 +4671,7 @@ export class DocumentsFolder {
     getSharedWithMeDate(): number
     removeDocumentsProperty(property: DocumentsProperty): boolean
     setWritersCanInvite(writersCanInvite: boolean): void
-    /* Methods of GData.Entry */
+    /* Methods of GData-0.0.GData.Entry */
     addAuthor(author: Author): void
     addCategory(category: Category): void
     addLink(link: Link): void
@@ -5184,11 +4694,11 @@ export class DocumentsFolder {
     setRights(rights?: string | null): void
     setSummary(summary?: string | null): void
     setTitle(title?: string | null): void
-    /* Methods of GData.Parsable */
+    /* Methods of GData-0.0.GData.Parsable */
     getContentType(): string
     getJson(): string
     getXml(): string
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -5210,36 +4720,15 @@ export class DocumentsFolder {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of GData.AccessHandler */
+    /* Methods of GData-0.0.GData.AccessHandler */
     getRules(service: Service, cancellable?: Gio.Cancellable | null, progressCallback?: QueryProgressCallback | null): Feed
     getRulesAsync(service: Service, cancellable?: Gio.Cancellable | null, progressCallback?: QueryProgressCallback | null, callback?: Gio.AsyncReadyCallback | null): void
-    /* Virtual methods of GData.DocumentsEntry */
-    vfuncGetRules(service: Service, cancellable?: Gio.Cancellable | null, progressCallback?: QueryProgressCallback | null): Feed
-    /* Virtual methods of GData.Parsable */
-    vfuncGetJson(builder: Json.Builder): void
-    vfuncGetNamespaces(namespaces: GLib.HashTable): void
-    vfuncGetXml(xmlString: GLib.String): void
-    vfuncParseJson(reader: Json.Reader): boolean
-    vfuncParseXml(doc: libxml2.Doc, node: libxml2.Node): boolean
-    vfuncPostParseJson(): boolean
-    vfuncPostParseXml(): boolean
-    vfuncPreGetXml(xmlString: GLib.String): void
-    vfuncPreParseXml(doc: libxml2.Doc, rootNode: libxml2.Node): boolean
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: DocumentsFolder, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: DocumentsFolder, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::can-edit", callback: (($obj: DocumentsFolder, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::can-edit", callback: (($obj: DocumentsFolder, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::can-edit", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -5352,22 +4841,22 @@ export class DocumentsFolder {
 export interface DocumentsMetadata_ConstructProps extends Parsable_ConstructProps {
 }
 export class DocumentsMetadata {
-    /* Properties of GData.DocumentsMetadata */
+    /* Properties of GData-0.0.GData.DocumentsMetadata */
     readonly quotaTotal: number
     readonly quotaUsed: number
-    /* Fields of GData.DocumentsMetadata */
+    /* Fields of GData-0.0.GData.DocumentsMetadata */
     parent: Parsable
     priv: DocumentsMetadataPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GData.DocumentsMetadata */
+    /* Methods of GData-0.0.GData.DocumentsMetadata */
     getQuotaTotal(): number
     getQuotaUsed(): number
-    /* Methods of GData.Parsable */
+    /* Methods of GData-0.0.GData.Parsable */
     getContentType(): string
     getJson(): string
     getXml(): string
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -5389,31 +4878,12 @@ export class DocumentsMetadata {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GData.Parsable */
-    vfuncGetJson(builder: Json.Builder): void
-    vfuncGetNamespaces(namespaces: GLib.HashTable): void
-    vfuncGetXml(xmlString: GLib.String): void
-    vfuncParseJson(reader: Json.Reader): boolean
-    vfuncParseXml(doc: libxml2.Doc, node: libxml2.Node): boolean
-    vfuncPostParseJson(): boolean
-    vfuncPostParseXml(): boolean
-    vfuncPreGetXml(xmlString: GLib.String): void
-    vfuncPreParseXml(doc: libxml2.Doc, rootNode: libxml2.Node): boolean
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: DocumentsMetadata, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: DocumentsMetadata, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::quota-total", callback: (($obj: DocumentsMetadata, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::quota-total", callback: (($obj: DocumentsMetadata, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::quota-total", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -5439,7 +4909,7 @@ export class DocumentsMetadata {
 export interface DocumentsPdf_ConstructProps extends DocumentsDocument_ConstructProps {
 }
 export class DocumentsPdf {
-    /* Properties of GData.DocumentsEntry */
+    /* Properties of GData-0.0.GData.DocumentsEntry */
     readonly canEdit: boolean
     readonly documentId: string
     readonly edited: number
@@ -5451,7 +4921,7 @@ export class DocumentsPdf {
     readonly resourceId: string
     readonly sharedWithMeDate: number
     writersCanInvite: boolean
-    /* Properties of GData.Entry */
+    /* Properties of GData-0.0.GData.Entry */
     content: string
     contentUri: string
     readonly isInserted: boolean
@@ -5460,16 +4930,16 @@ export class DocumentsPdf {
     summary: string
     title: string
     readonly updated: number
-    /* Fields of GData.DocumentsPdf */
+    /* Fields of GData-0.0.GData.DocumentsPdf */
     parent: DocumentsDocument
     priv: DocumentsPdfPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GData.DocumentsDocument */
+    /* Methods of GData-0.0.GData.DocumentsDocument */
     download(service: DocumentsService, exportFormat: string, cancellable?: Gio.Cancellable | null): DownloadStream
     getDownloadUri(exportFormat: string): string | null
     getThumbnailUri(): string | null
-    /* Methods of GData.DocumentsEntry */
+    /* Methods of GData-0.0.GData.DocumentsEntry */
     addDocumentsProperty(property: DocumentsProperty): boolean
     getDocumentId(): string
     getDocumentProperties(): DocumentsProperty[]
@@ -5483,7 +4953,7 @@ export class DocumentsPdf {
     getSharedWithMeDate(): number
     removeDocumentsProperty(property: DocumentsProperty): boolean
     setWritersCanInvite(writersCanInvite: boolean): void
-    /* Methods of GData.Entry */
+    /* Methods of GData-0.0.GData.Entry */
     addAuthor(author: Author): void
     addCategory(category: Category): void
     addLink(link: Link): void
@@ -5506,11 +4976,11 @@ export class DocumentsPdf {
     setRights(rights?: string | null): void
     setSummary(summary?: string | null): void
     setTitle(title?: string | null): void
-    /* Methods of GData.Parsable */
+    /* Methods of GData-0.0.GData.Parsable */
     getContentType(): string
     getJson(): string
     getXml(): string
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -5532,36 +5002,15 @@ export class DocumentsPdf {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of GData.AccessHandler */
+    /* Methods of GData-0.0.GData.AccessHandler */
     getRules(service: Service, cancellable?: Gio.Cancellable | null, progressCallback?: QueryProgressCallback | null): Feed
     getRulesAsync(service: Service, cancellable?: Gio.Cancellable | null, progressCallback?: QueryProgressCallback | null, callback?: Gio.AsyncReadyCallback | null): void
-    /* Virtual methods of GData.DocumentsEntry */
-    vfuncGetRules(service: Service, cancellable?: Gio.Cancellable | null, progressCallback?: QueryProgressCallback | null): Feed
-    /* Virtual methods of GData.Parsable */
-    vfuncGetJson(builder: Json.Builder): void
-    vfuncGetNamespaces(namespaces: GLib.HashTable): void
-    vfuncGetXml(xmlString: GLib.String): void
-    vfuncParseJson(reader: Json.Reader): boolean
-    vfuncParseXml(doc: libxml2.Doc, node: libxml2.Node): boolean
-    vfuncPostParseJson(): boolean
-    vfuncPostParseXml(): boolean
-    vfuncPreGetXml(xmlString: GLib.String): void
-    vfuncPreParseXml(doc: libxml2.Doc, rootNode: libxml2.Node): boolean
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: DocumentsPdf, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: DocumentsPdf, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::can-edit", callback: (($obj: DocumentsPdf, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::can-edit", callback: (($obj: DocumentsPdf, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::can-edit", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -5674,7 +5123,7 @@ export class DocumentsPdf {
 export interface DocumentsPresentation_ConstructProps extends DocumentsDocument_ConstructProps {
 }
 export class DocumentsPresentation {
-    /* Properties of GData.DocumentsEntry */
+    /* Properties of GData-0.0.GData.DocumentsEntry */
     readonly canEdit: boolean
     readonly documentId: string
     readonly edited: number
@@ -5686,7 +5135,7 @@ export class DocumentsPresentation {
     readonly resourceId: string
     readonly sharedWithMeDate: number
     writersCanInvite: boolean
-    /* Properties of GData.Entry */
+    /* Properties of GData-0.0.GData.Entry */
     content: string
     contentUri: string
     readonly isInserted: boolean
@@ -5695,16 +5144,16 @@ export class DocumentsPresentation {
     summary: string
     title: string
     readonly updated: number
-    /* Fields of GData.DocumentsPresentation */
+    /* Fields of GData-0.0.GData.DocumentsPresentation */
     parent: DocumentsDocument
     priv: DocumentsPresentationPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GData.DocumentsDocument */
+    /* Methods of GData-0.0.GData.DocumentsDocument */
     download(service: DocumentsService, exportFormat: string, cancellable?: Gio.Cancellable | null): DownloadStream
     getDownloadUri(exportFormat: string): string | null
     getThumbnailUri(): string | null
-    /* Methods of GData.DocumentsEntry */
+    /* Methods of GData-0.0.GData.DocumentsEntry */
     addDocumentsProperty(property: DocumentsProperty): boolean
     getDocumentId(): string
     getDocumentProperties(): DocumentsProperty[]
@@ -5718,7 +5167,7 @@ export class DocumentsPresentation {
     getSharedWithMeDate(): number
     removeDocumentsProperty(property: DocumentsProperty): boolean
     setWritersCanInvite(writersCanInvite: boolean): void
-    /* Methods of GData.Entry */
+    /* Methods of GData-0.0.GData.Entry */
     addAuthor(author: Author): void
     addCategory(category: Category): void
     addLink(link: Link): void
@@ -5741,11 +5190,11 @@ export class DocumentsPresentation {
     setRights(rights?: string | null): void
     setSummary(summary?: string | null): void
     setTitle(title?: string | null): void
-    /* Methods of GData.Parsable */
+    /* Methods of GData-0.0.GData.Parsable */
     getContentType(): string
     getJson(): string
     getXml(): string
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -5767,36 +5216,15 @@ export class DocumentsPresentation {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of GData.AccessHandler */
+    /* Methods of GData-0.0.GData.AccessHandler */
     getRules(service: Service, cancellable?: Gio.Cancellable | null, progressCallback?: QueryProgressCallback | null): Feed
     getRulesAsync(service: Service, cancellable?: Gio.Cancellable | null, progressCallback?: QueryProgressCallback | null, callback?: Gio.AsyncReadyCallback | null): void
-    /* Virtual methods of GData.DocumentsEntry */
-    vfuncGetRules(service: Service, cancellable?: Gio.Cancellable | null, progressCallback?: QueryProgressCallback | null): Feed
-    /* Virtual methods of GData.Parsable */
-    vfuncGetJson(builder: Json.Builder): void
-    vfuncGetNamespaces(namespaces: GLib.HashTable): void
-    vfuncGetXml(xmlString: GLib.String): void
-    vfuncParseJson(reader: Json.Reader): boolean
-    vfuncParseXml(doc: libxml2.Doc, node: libxml2.Node): boolean
-    vfuncPostParseJson(): boolean
-    vfuncPostParseXml(): boolean
-    vfuncPreGetXml(xmlString: GLib.String): void
-    vfuncPreParseXml(doc: libxml2.Doc, rootNode: libxml2.Node): boolean
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: DocumentsPresentation, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: DocumentsPresentation, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::can-edit", callback: (($obj: DocumentsPresentation, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::can-edit", callback: (($obj: DocumentsPresentation, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::can-edit", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -5913,27 +5341,27 @@ export interface DocumentsProperty_ConstructProps extends Parsable_ConstructProp
     visibility?: string
 }
 export class DocumentsProperty {
-    /* Properties of GData.DocumentsProperty */
+    /* Properties of GData-0.0.GData.DocumentsProperty */
     key: string
     value: string
     visibility: string
-    /* Fields of GData.DocumentsProperty */
+    /* Fields of GData-0.0.GData.DocumentsProperty */
     parent: Parsable
     priv: DocumentsPropertyPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GData.DocumentsProperty */
+    /* Methods of GData-0.0.GData.DocumentsProperty */
     getEtag(): string
     getKey(): string
     getValue(): string | null
     getVisibility(): string
     setValue(value?: string | null): void
     setVisibility(visibility: string): void
-    /* Methods of GData.Parsable */
+    /* Methods of GData-0.0.GData.Parsable */
     getContentType(): string
     getJson(): string
     getXml(): string
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -5955,35 +5383,14 @@ export class DocumentsProperty {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of GData.Comparable */
+    /* Methods of GData-0.0.GData.Comparable */
     compare(other?: Comparable | null): number
-    /* Virtual methods of GData.DocumentsProperty */
-    vfuncCompareWith(other: Comparable): number
-    /* Virtual methods of GData.Parsable */
-    vfuncGetJson(builder: Json.Builder): void
-    vfuncGetNamespaces(namespaces: GLib.HashTable): void
-    vfuncGetXml(xmlString: GLib.String): void
-    vfuncParseJson(reader: Json.Reader): boolean
-    vfuncParseXml(doc: libxml2.Doc, node: libxml2.Node): boolean
-    vfuncPostParseJson(): boolean
-    vfuncPostParseXml(): boolean
-    vfuncPreGetXml(xmlString: GLib.String): void
-    vfuncPreParseXml(doc: libxml2.Doc, rootNode: libxml2.Node): boolean
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: DocumentsProperty, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: DocumentsProperty, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::key", callback: (($obj: DocumentsProperty, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::key", callback: (($obj: DocumentsProperty, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::key", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -6021,13 +5428,13 @@ export interface DocumentsQuery_ConstructProps extends Query_ConstructProps {
     title?: string
 }
 export class DocumentsQuery {
-    /* Properties of GData.DocumentsQuery */
+    /* Properties of GData-0.0.GData.DocumentsQuery */
     exactTitle: boolean
     folderId: string
     showDeleted: boolean
     showFolders: boolean
     title: string
-    /* Properties of GData.Query */
+    /* Properties of GData-0.0.GData.Query */
     author: string
     categories: string
     etag: string
@@ -6039,12 +5446,12 @@ export class DocumentsQuery {
     startIndex: number
     updatedMax: number
     updatedMin: number
-    /* Fields of GData.DocumentsQuery */
+    /* Fields of GData-0.0.GData.DocumentsQuery */
     parent: Query
     priv: DocumentsQueryPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GData.DocumentsQuery */
+    /* Methods of GData-0.0.GData.DocumentsQuery */
     addCollaborator(emailAddress: string): void
     addReader(emailAddress: string): void
     getCollaboratorAddresses(): GDEmailAddress[]
@@ -6056,7 +5463,7 @@ export class DocumentsQuery {
     setShowDeleted(showDeleted: boolean): void
     setShowFolders(showFolders: boolean): void
     setTitle(title: string | null, exactTitle: boolean): void
-    /* Methods of GData.Query */
+    /* Methods of GData-0.0.GData.Query */
     getAuthor(): string
     getCategories(): string
     getEtag(): string
@@ -6081,7 +5488,7 @@ export class DocumentsQuery {
     setStartIndex(startIndex: number): void
     setUpdatedMax(updatedMax: number): void
     setUpdatedMin(updatedMin: number): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -6103,23 +5510,12 @@ export class DocumentsQuery {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GData.Query */
-    vfuncGetQueryUri(feedUri: string, queryUri: GLib.String, paramsStarted: boolean): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: DocumentsQuery, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: DocumentsQuery, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::exact-title", callback: (($obj: DocumentsQuery, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::exact-title", callback: (($obj: DocumentsQuery, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::exact-title", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -6218,18 +5614,18 @@ export class DocumentsQuery {
 export interface DocumentsService_ConstructProps extends Service_ConstructProps {
 }
 export class DocumentsService {
-    /* Properties of GData.Service */
+    /* Properties of GData-0.0.GData.Service */
     authorizer: Authorizer
     locale: string
     proxyResolver: Gio.ProxyResolver
     proxyUri: Soup.URI
     timeout: number
-    /* Fields of GData.DocumentsService */
+    /* Fields of GData-0.0.GData.DocumentsService */
     parent: Service
     priv: DocumentsServicePrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GData.DocumentsService */
+    /* Methods of GData-0.0.GData.DocumentsService */
     addEntryToFolder(entry: DocumentsEntry, folder: DocumentsFolder, cancellable?: Gio.Cancellable | null): DocumentsEntry
     addEntryToFolderAsync(entry: DocumentsEntry, folder: DocumentsFolder, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     addEntryToFolderFinish(asyncResult: Gio.AsyncResult): DocumentsEntry
@@ -6251,7 +5647,7 @@ export class DocumentsService {
     updateDocumentResumable(document: DocumentsDocument, slug: string, contentType: string, contentLength: number, cancellable?: Gio.Cancellable | null): UploadStream
     uploadDocument(document: DocumentsDocument | null, slug: string, contentType: string, folder?: DocumentsFolder | null, cancellable?: Gio.Cancellable | null): UploadStream
     uploadDocumentResumable(document: DocumentsDocument | null, slug: string, contentType: string, contentLength: number, query?: DocumentsUploadQuery | null, cancellable?: Gio.Cancellable | null): UploadStream
-    /* Methods of GData.Service */
+    /* Methods of GData-0.0.GData.Service */
     deleteEntry(domain: AuthorizationDomain | null, entry: Entry, cancellable?: Gio.Cancellable | null): boolean
     deleteEntryAsync(domain: AuthorizationDomain | null, entry: Entry, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     deleteEntryFinish(asyncResult: Gio.AsyncResult): boolean
@@ -6278,7 +5674,7 @@ export class DocumentsService {
     updateEntry(domain: AuthorizationDomain | null, entry: Entry, cancellable?: Gio.Cancellable | null): Entry
     updateEntryAsync(domain: AuthorizationDomain | null, entry: Entry, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     updateEntryFinish(asyncResult: Gio.AsyncResult): Entry
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -6300,26 +5696,14 @@ export class DocumentsService {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of GData.Batchable */
+    /* Methods of GData-0.0.GData.Batchable */
     createOperation(domain: AuthorizationDomain | null, feedUri: string): BatchOperation
-    /* Virtual methods of GData.Service */
-    vfuncAppendQueryHeaders(domain: AuthorizationDomain, message: Soup.Message): void
-    vfuncParseErrorResponse(operationType: OperationType, status: number, reasonPhrase: string, responseBody: string, length: number): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: DocumentsService, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: DocumentsService, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::authorizer", callback: (($obj: DocumentsService, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::authorizer", callback: (($obj: DocumentsService, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::authorizer", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -6365,7 +5749,7 @@ export class DocumentsService {
 export interface DocumentsSpreadsheet_ConstructProps extends DocumentsDocument_ConstructProps {
 }
 export class DocumentsSpreadsheet {
-    /* Properties of GData.DocumentsEntry */
+    /* Properties of GData-0.0.GData.DocumentsEntry */
     readonly canEdit: boolean
     readonly documentId: string
     readonly edited: number
@@ -6377,7 +5761,7 @@ export class DocumentsSpreadsheet {
     readonly resourceId: string
     readonly sharedWithMeDate: number
     writersCanInvite: boolean
-    /* Properties of GData.Entry */
+    /* Properties of GData-0.0.GData.Entry */
     content: string
     contentUri: string
     readonly isInserted: boolean
@@ -6386,18 +5770,18 @@ export class DocumentsSpreadsheet {
     summary: string
     title: string
     readonly updated: number
-    /* Fields of GData.DocumentsSpreadsheet */
+    /* Fields of GData-0.0.GData.DocumentsSpreadsheet */
     parent: DocumentsDocument
     priv: DocumentsSpreadsheetPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GData.DocumentsSpreadsheet */
+    /* Methods of GData-0.0.GData.DocumentsSpreadsheet */
     getDownloadUri(exportFormat: string, gid: number): string
-    /* Methods of GData.DocumentsDocument */
+    /* Methods of GData-0.0.GData.DocumentsDocument */
     download(service: DocumentsService, exportFormat: string, cancellable?: Gio.Cancellable | null): DownloadStream
     getDownloadUri(exportFormat: string): string | null
     getThumbnailUri(): string | null
-    /* Methods of GData.DocumentsEntry */
+    /* Methods of GData-0.0.GData.DocumentsEntry */
     addDocumentsProperty(property: DocumentsProperty): boolean
     getDocumentId(): string
     getDocumentProperties(): DocumentsProperty[]
@@ -6411,7 +5795,7 @@ export class DocumentsSpreadsheet {
     getSharedWithMeDate(): number
     removeDocumentsProperty(property: DocumentsProperty): boolean
     setWritersCanInvite(writersCanInvite: boolean): void
-    /* Methods of GData.Entry */
+    /* Methods of GData-0.0.GData.Entry */
     addAuthor(author: Author): void
     addCategory(category: Category): void
     addLink(link: Link): void
@@ -6434,11 +5818,11 @@ export class DocumentsSpreadsheet {
     setRights(rights?: string | null): void
     setSummary(summary?: string | null): void
     setTitle(title?: string | null): void
-    /* Methods of GData.Parsable */
+    /* Methods of GData-0.0.GData.Parsable */
     getContentType(): string
     getJson(): string
     getXml(): string
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -6460,36 +5844,15 @@ export class DocumentsSpreadsheet {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of GData.AccessHandler */
+    /* Methods of GData-0.0.GData.AccessHandler */
     getRules(service: Service, cancellable?: Gio.Cancellable | null, progressCallback?: QueryProgressCallback | null): Feed
     getRulesAsync(service: Service, cancellable?: Gio.Cancellable | null, progressCallback?: QueryProgressCallback | null, callback?: Gio.AsyncReadyCallback | null): void
-    /* Virtual methods of GData.DocumentsEntry */
-    vfuncGetRules(service: Service, cancellable?: Gio.Cancellable | null, progressCallback?: QueryProgressCallback | null): Feed
-    /* Virtual methods of GData.Parsable */
-    vfuncGetJson(builder: Json.Builder): void
-    vfuncGetNamespaces(namespaces: GLib.HashTable): void
-    vfuncGetXml(xmlString: GLib.String): void
-    vfuncParseJson(reader: Json.Reader): boolean
-    vfuncParseXml(doc: libxml2.Doc, node: libxml2.Node): boolean
-    vfuncPostParseJson(): boolean
-    vfuncPostParseXml(): boolean
-    vfuncPreGetXml(xmlString: GLib.String): void
-    vfuncPreParseXml(doc: libxml2.Doc, rootNode: libxml2.Node): boolean
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: DocumentsSpreadsheet, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: DocumentsSpreadsheet, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::can-edit", callback: (($obj: DocumentsSpreadsheet, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::can-edit", callback: (($obj: DocumentsSpreadsheet, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::can-edit", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -6602,7 +5965,7 @@ export class DocumentsSpreadsheet {
 export interface DocumentsText_ConstructProps extends DocumentsDocument_ConstructProps {
 }
 export class DocumentsText {
-    /* Properties of GData.DocumentsEntry */
+    /* Properties of GData-0.0.GData.DocumentsEntry */
     readonly canEdit: boolean
     readonly documentId: string
     readonly edited: number
@@ -6614,7 +5977,7 @@ export class DocumentsText {
     readonly resourceId: string
     readonly sharedWithMeDate: number
     writersCanInvite: boolean
-    /* Properties of GData.Entry */
+    /* Properties of GData-0.0.GData.Entry */
     content: string
     contentUri: string
     readonly isInserted: boolean
@@ -6623,16 +5986,16 @@ export class DocumentsText {
     summary: string
     title: string
     readonly updated: number
-    /* Fields of GData.DocumentsText */
+    /* Fields of GData-0.0.GData.DocumentsText */
     parent: DocumentsDocument
     priv: DocumentsTextPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GData.DocumentsDocument */
+    /* Methods of GData-0.0.GData.DocumentsDocument */
     download(service: DocumentsService, exportFormat: string, cancellable?: Gio.Cancellable | null): DownloadStream
     getDownloadUri(exportFormat: string): string | null
     getThumbnailUri(): string | null
-    /* Methods of GData.DocumentsEntry */
+    /* Methods of GData-0.0.GData.DocumentsEntry */
     addDocumentsProperty(property: DocumentsProperty): boolean
     getDocumentId(): string
     getDocumentProperties(): DocumentsProperty[]
@@ -6646,7 +6009,7 @@ export class DocumentsText {
     getSharedWithMeDate(): number
     removeDocumentsProperty(property: DocumentsProperty): boolean
     setWritersCanInvite(writersCanInvite: boolean): void
-    /* Methods of GData.Entry */
+    /* Methods of GData-0.0.GData.Entry */
     addAuthor(author: Author): void
     addCategory(category: Category): void
     addLink(link: Link): void
@@ -6669,11 +6032,11 @@ export class DocumentsText {
     setRights(rights?: string | null): void
     setSummary(summary?: string | null): void
     setTitle(title?: string | null): void
-    /* Methods of GData.Parsable */
+    /* Methods of GData-0.0.GData.Parsable */
     getContentType(): string
     getJson(): string
     getXml(): string
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -6695,36 +6058,15 @@ export class DocumentsText {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of GData.AccessHandler */
+    /* Methods of GData-0.0.GData.AccessHandler */
     getRules(service: Service, cancellable?: Gio.Cancellable | null, progressCallback?: QueryProgressCallback | null): Feed
     getRulesAsync(service: Service, cancellable?: Gio.Cancellable | null, progressCallback?: QueryProgressCallback | null, callback?: Gio.AsyncReadyCallback | null): void
-    /* Virtual methods of GData.DocumentsEntry */
-    vfuncGetRules(service: Service, cancellable?: Gio.Cancellable | null, progressCallback?: QueryProgressCallback | null): Feed
-    /* Virtual methods of GData.Parsable */
-    vfuncGetJson(builder: Json.Builder): void
-    vfuncGetNamespaces(namespaces: GLib.HashTable): void
-    vfuncGetXml(xmlString: GLib.String): void
-    vfuncParseJson(reader: Json.Reader): boolean
-    vfuncParseXml(doc: libxml2.Doc, node: libxml2.Node): boolean
-    vfuncPostParseJson(): boolean
-    vfuncPostParseXml(): boolean
-    vfuncPreGetXml(xmlString: GLib.String): void
-    vfuncPreParseXml(doc: libxml2.Doc, rootNode: libxml2.Node): boolean
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: DocumentsText, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: DocumentsText, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::can-edit", callback: (($obj: DocumentsText, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::can-edit", callback: (($obj: DocumentsText, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::can-edit", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -6839,21 +6181,21 @@ export interface DocumentsUploadQuery_ConstructProps extends GObject.Object_Cons
     folder?: DocumentsFolder
 }
 export class DocumentsUploadQuery {
-    /* Properties of GData.DocumentsUploadQuery */
+    /* Properties of GData-0.0.GData.DocumentsUploadQuery */
     convert: boolean
     folder: DocumentsFolder
-    /* Fields of GData.DocumentsUploadQuery */
+    /* Fields of GData-0.0.GData.DocumentsUploadQuery */
     parent: GObject.Object
     priv: DocumentsUploadQueryPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GData.DocumentsUploadQuery */
+    /* Methods of GData-0.0.GData.DocumentsUploadQuery */
     buildUri(): string
     getConvert(): boolean
     getFolder(): DocumentsFolder | null
     setConvert(convert: boolean): void
     setFolder(folder?: DocumentsFolder | null): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -6875,21 +6217,12 @@ export class DocumentsUploadQuery {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: DocumentsUploadQuery, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: DocumentsUploadQuery, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::convert", callback: (($obj: DocumentsUploadQuery, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::convert", callback: (($obj: DocumentsUploadQuery, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::convert", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -6921,35 +6254,35 @@ export interface DownloadStream_ConstructProps extends Gio.InputStream_Construct
     service?: Service
 }
 export class DownloadStream {
-    /* Properties of GData.DownloadStream */
+    /* Properties of GData-0.0.GData.DownloadStream */
     readonly contentLength: number
     readonly contentType: string
-    /* Fields of GData.DownloadStream */
+    /* Fields of GData-0.0.GData.DownloadStream */
     parent: Gio.InputStream
     priv: DownloadStreamPrivate
-    /* Fields of Gio.InputStream */
+    /* Fields of Gio-2.0.Gio.InputStream */
     parentInstance: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GData.DownloadStream */
+    /* Methods of GData-0.0.GData.DownloadStream */
     getAuthorizationDomain(): AuthorizationDomain | null
     getCancellable(): Gio.Cancellable
     getContentLength(): number
     getContentType(): string
     getDownloadUri(): string
     getService(): Service
-    /* Methods of Gio.InputStream */
+    /* Methods of Gio-2.0.Gio.InputStream */
     clearPending(): void
     close(cancellable?: Gio.Cancellable | null): boolean
     closeAsync(ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     closeFinish(result: Gio.AsyncResult): boolean
     hasPending(): boolean
     isClosed(): boolean
-    read(cancellable?: Gio.Cancellable | null): [ /* returnType */ number, /* buffer */ any[] ]
-    readAll(cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* buffer */ any[], /* bytesRead */ number ]
-    readAllAsync(ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): /* buffer */ any[]
-    readAllFinish(result: Gio.AsyncResult): [ /* returnType */ boolean, /* bytesRead */ number ]
-    readAsync(ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): /* buffer */ any[]
+    read(cancellable?: Gio.Cancellable | null): { returnType: number, buffer: any[] }
+    readAll(cancellable?: Gio.Cancellable | null): { returnType: boolean, buffer: any[], bytesRead: number }
+    readAllAsync(ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): { buffer: any[] }
+    readAllFinish(result: Gio.AsyncResult): { returnType: boolean, bytesRead: number }
+    readAsync(ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): { buffer: any[] }
     readBytes(count: number, cancellable?: Gio.Cancellable | null): any
     readBytesAsync(count: number, ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     readBytesFinish(result: Gio.AsyncResult): any
@@ -6958,7 +6291,7 @@ export class DownloadStream {
     skip(count: number, cancellable?: Gio.Cancellable | null): number
     skipAsync(count: number, ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     skipFinish(result: Gio.AsyncResult): number
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -6980,43 +6313,18 @@ export class DownloadStream {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of Gio.Seekable */
+    /* Methods of Gio-2.0.Gio.Seekable */
     canSeek(): boolean
     canTruncate(): boolean
     seek(offset: number, type: GLib.SeekType, cancellable?: Gio.Cancellable | null): boolean
     tell(): number
     truncate(offset: number, cancellable?: Gio.Cancellable | null): boolean
-    /* Virtual methods of GData.DownloadStream */
-    vfuncCanSeek(): boolean
-    vfuncCanTruncate(): boolean
-    vfuncSeek(offset: number, type: GLib.SeekType, cancellable?: Gio.Cancellable | null): boolean
-    vfuncTell(): number
-    vfuncTruncateFn(offset: number, cancellable?: Gio.Cancellable | null): boolean
-    /* Virtual methods of Gio.InputStream */
-    vfuncCloseAsync(ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    vfuncCloseFinish(result: Gio.AsyncResult): boolean
-    vfuncCloseFn(cancellable?: Gio.Cancellable | null): boolean
-    vfuncReadAsync(ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): /* buffer */ any[] | null
-    vfuncReadFinish(result: Gio.AsyncResult): number
-    vfuncReadFn(buffer: object | null, count: number, cancellable?: Gio.Cancellable | null): number
-    vfuncSkip(count: number, cancellable?: Gio.Cancellable | null): number
-    vfuncSkipAsync(count: number, ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    vfuncSkipFinish(result: Gio.AsyncResult): number
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: DownloadStream, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: DownloadStream, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::content-length", callback: (($obj: DownloadStream, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::content-length", callback: (($obj: DownloadStream, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::content-length", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -7051,7 +6359,7 @@ export interface Entry_ConstructProps extends Parsable_ConstructProps {
     title?: string
 }
 export class Entry {
-    /* Properties of GData.Entry */
+    /* Properties of GData-0.0.GData.Entry */
     content: string
     contentUri: string
     readonly isInserted: boolean
@@ -7060,12 +6368,12 @@ export class Entry {
     summary: string
     title: string
     readonly updated: number
-    /* Fields of GData.Entry */
+    /* Fields of GData-0.0.GData.Entry */
     parent: Parsable
     priv: EntryPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GData.Entry */
+    /* Methods of GData-0.0.GData.Entry */
     addAuthor(author: Author): void
     addCategory(category: Category): void
     addLink(link: Link): void
@@ -7088,11 +6396,11 @@ export class Entry {
     setRights(rights?: string | null): void
     setSummary(summary?: string | null): void
     setTitle(title?: string | null): void
-    /* Methods of GData.Parsable */
+    /* Methods of GData-0.0.GData.Parsable */
     getContentType(): string
     getJson(): string
     getXml(): string
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -7114,31 +6422,12 @@ export class Entry {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GData.Parsable */
-    vfuncGetJson(builder: Json.Builder): void
-    vfuncGetNamespaces(namespaces: GLib.HashTable): void
-    vfuncGetXml(xmlString: GLib.String): void
-    vfuncParseJson(reader: Json.Reader): boolean
-    vfuncParseXml(doc: libxml2.Doc, node: libxml2.Node): boolean
-    vfuncPostParseJson(): boolean
-    vfuncPostParseXml(): boolean
-    vfuncPreGetXml(xmlString: GLib.String): void
-    vfuncPreParseXml(doc: libxml2.Doc, rootNode: libxml2.Node): boolean
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Entry, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Entry, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::content", callback: (($obj: Entry, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::content", callback: (($obj: Entry, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::content", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -7196,7 +6485,7 @@ export class Entry {
 export interface Feed_ConstructProps extends Parsable_ConstructProps {
 }
 export class Feed {
-    /* Properties of GData.Feed */
+    /* Properties of GData-0.0.GData.Feed */
     readonly etag: string
     readonly generator: Generator
     readonly icon: string
@@ -7210,12 +6499,12 @@ export class Feed {
     readonly title: string
     readonly totalResults: number
     readonly updated: number
-    /* Fields of GData.Parsable */
+    /* Fields of GData-0.0.GData.Parsable */
     parent: GObject.Object
     priv: ParsablePrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GData.Feed */
+    /* Methods of GData-0.0.GData.Feed */
     getAuthors(): Author[]
     getCategories(): Category[]
     getEntries(): Entry[]
@@ -7235,11 +6524,11 @@ export class Feed {
     getUpdated(): number
     lookUpEntry(id: string): Entry
     lookUpLink(rel: string): Link
-    /* Methods of GData.Parsable */
+    /* Methods of GData-0.0.GData.Parsable */
     getContentType(): string
     getJson(): string
     getXml(): string
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -7261,31 +6550,12 @@ export class Feed {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GData.Parsable */
-    vfuncGetJson(builder: Json.Builder): void
-    vfuncGetNamespaces(namespaces: GLib.HashTable): void
-    vfuncGetXml(xmlString: GLib.String): void
-    vfuncParseJson(reader: Json.Reader): boolean
-    vfuncParseXml(doc: libxml2.Doc, node: libxml2.Node): boolean
-    vfuncPostParseJson(): boolean
-    vfuncPostParseXml(): boolean
-    vfuncPreGetXml(xmlString: GLib.String): void
-    vfuncPreParseXml(doc: libxml2.Doc, rootNode: libxml2.Node): boolean
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Feed, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Feed, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::etag", callback: (($obj: Feed, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::etag", callback: (($obj: Feed, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::etag", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -7367,7 +6637,7 @@ export interface FreebaseQuery_ConstructProps extends Query_ConstructProps {
     variant?: GLib.Variant
 }
 export class FreebaseQuery {
-    /* Properties of GData.Query */
+    /* Properties of GData-0.0.GData.Query */
     author: string
     categories: string
     etag: string
@@ -7379,13 +6649,13 @@ export class FreebaseQuery {
     startIndex: number
     updatedMax: number
     updatedMin: number
-    /* Fields of GData.FreebaseQuery */
+    /* Fields of GData-0.0.GData.FreebaseQuery */
     parent: Query
-    /* Fields of GData.Query */
+    /* Fields of GData-0.0.GData.Query */
     priv: QueryPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GData.Query */
+    /* Methods of GData-0.0.GData.Query */
     getAuthor(): string
     getCategories(): string
     getEtag(): string
@@ -7410,7 +6680,7 @@ export class FreebaseQuery {
     setStartIndex(startIndex: number): void
     setUpdatedMax(updatedMax: number): void
     setUpdatedMin(updatedMin: number): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -7432,23 +6702,12 @@ export class FreebaseQuery {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GData.Query */
-    vfuncGetQueryUri(feedUri: string, queryUri: GLib.String, paramsStarted: boolean): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: FreebaseQuery, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: FreebaseQuery, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::author", callback: (($obj: FreebaseQuery, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::author", callback: (($obj: FreebaseQuery, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::author", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -7523,9 +6782,9 @@ export class FreebaseQuery {
 export interface FreebaseResult_ConstructProps extends Entry_ConstructProps {
 }
 export class FreebaseResult {
-    /* Properties of GData.FreebaseResult */
+    /* Properties of GData-0.0.GData.FreebaseResult */
     readonly variant: GLib.Variant
-    /* Properties of GData.Entry */
+    /* Properties of GData-0.0.GData.Entry */
     content: string
     contentUri: string
     readonly isInserted: boolean
@@ -7534,14 +6793,14 @@ export class FreebaseResult {
     summary: string
     title: string
     readonly updated: number
-    /* Fields of GData.FreebaseResult */
+    /* Fields of GData-0.0.GData.FreebaseResult */
     parent: Entry
     priv: FreebaseResultPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GData.FreebaseResult */
+    /* Methods of GData-0.0.GData.FreebaseResult */
     dupVariant(): GLib.Variant | null
-    /* Methods of GData.Entry */
+    /* Methods of GData-0.0.GData.Entry */
     addAuthor(author: Author): void
     addCategory(category: Category): void
     addLink(link: Link): void
@@ -7564,11 +6823,11 @@ export class FreebaseResult {
     setRights(rights?: string | null): void
     setSummary(summary?: string | null): void
     setTitle(title?: string | null): void
-    /* Methods of GData.Parsable */
+    /* Methods of GData-0.0.GData.Parsable */
     getContentType(): string
     getJson(): string
     getXml(): string
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -7590,31 +6849,12 @@ export class FreebaseResult {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GData.Parsable */
-    vfuncGetJson(builder: Json.Builder): void
-    vfuncGetNamespaces(namespaces: GLib.HashTable): void
-    vfuncGetXml(xmlString: GLib.String): void
-    vfuncParseJson(reader: Json.Reader): boolean
-    vfuncParseXml(doc: libxml2.Doc, node: libxml2.Node): boolean
-    vfuncPostParseJson(): boolean
-    vfuncPostParseXml(): boolean
-    vfuncPreGetXml(xmlString: GLib.String): void
-    vfuncPreParseXml(doc: libxml2.Doc, rootNode: libxml2.Node): boolean
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: FreebaseResult, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: FreebaseResult, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::variant", callback: (($obj: FreebaseResult, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::variant", callback: (($obj: FreebaseResult, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::variant", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -7680,10 +6920,10 @@ export interface FreebaseSearchQuery_ConstructProps extends Query_ConstructProps
     stemmed?: boolean
 }
 export class FreebaseSearchQuery {
-    /* Properties of GData.FreebaseSearchQuery */
+    /* Properties of GData-0.0.GData.FreebaseSearchQuery */
     language: string
     stemmed: boolean
-    /* Properties of GData.Query */
+    /* Properties of GData-0.0.GData.Query */
     author: string
     categories: string
     etag: string
@@ -7695,12 +6935,12 @@ export class FreebaseSearchQuery {
     startIndex: number
     updatedMax: number
     updatedMin: number
-    /* Fields of GData.FreebaseSearchQuery */
+    /* Fields of GData-0.0.GData.FreebaseSearchQuery */
     parent: Query
     priv: FreebaseSearchQueryPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GData.FreebaseSearchQuery */
+    /* Methods of GData-0.0.GData.FreebaseSearchQuery */
     addFilter(property: string, value: string): void
     addLocation(radius: number, lat: number, lon: number): void
     closeFilter(): void
@@ -7709,7 +6949,7 @@ export class FreebaseSearchQuery {
     openFilter(filterType: FreebaseSearchFilterType): void
     setLanguage(lang?: string | null): void
     setStemmed(stemmed: boolean): void
-    /* Methods of GData.Query */
+    /* Methods of GData-0.0.GData.Query */
     getAuthor(): string
     getCategories(): string
     getEtag(): string
@@ -7734,7 +6974,7 @@ export class FreebaseSearchQuery {
     setStartIndex(startIndex: number): void
     setUpdatedMax(updatedMax: number): void
     setUpdatedMin(updatedMin: number): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -7756,23 +6996,12 @@ export class FreebaseSearchQuery {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GData.Query */
-    vfuncGetQueryUri(feedUri: string, queryUri: GLib.String, paramsStarted: boolean): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: FreebaseSearchQuery, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: FreebaseSearchQuery, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::language", callback: (($obj: FreebaseSearchQuery, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::language", callback: (($obj: FreebaseSearchQuery, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::language", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -7856,9 +7085,9 @@ export class FreebaseSearchQuery {
 export interface FreebaseSearchResult_ConstructProps extends FreebaseResult_ConstructProps {
 }
 export class FreebaseSearchResult {
-    /* Properties of GData.FreebaseResult */
+    /* Properties of GData-0.0.GData.FreebaseResult */
     readonly variant: GLib.Variant
-    /* Properties of GData.Entry */
+    /* Properties of GData-0.0.GData.Entry */
     content: string
     contentUri: string
     readonly isInserted: boolean
@@ -7867,18 +7096,18 @@ export class FreebaseSearchResult {
     summary: string
     title: string
     readonly updated: number
-    /* Fields of GData.FreebaseSearchResult */
+    /* Fields of GData-0.0.GData.FreebaseSearchResult */
     parent: FreebaseResult
     priv: FreebaseSearchResultPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GData.FreebaseSearchResult */
+    /* Methods of GData-0.0.GData.FreebaseSearchResult */
     getItem(i: number): FreebaseSearchResultItem | null
     getNumItems(): number
     getTotalHits(): number
-    /* Methods of GData.FreebaseResult */
+    /* Methods of GData-0.0.GData.FreebaseResult */
     dupVariant(): GLib.Variant | null
-    /* Methods of GData.Entry */
+    /* Methods of GData-0.0.GData.Entry */
     addAuthor(author: Author): void
     addCategory(category: Category): void
     addLink(link: Link): void
@@ -7901,11 +7130,11 @@ export class FreebaseSearchResult {
     setRights(rights?: string | null): void
     setSummary(summary?: string | null): void
     setTitle(title?: string | null): void
-    /* Methods of GData.Parsable */
+    /* Methods of GData-0.0.GData.Parsable */
     getContentType(): string
     getJson(): string
     getXml(): string
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -7927,31 +7156,12 @@ export class FreebaseSearchResult {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GData.Parsable */
-    vfuncGetJson(builder: Json.Builder): void
-    vfuncGetNamespaces(namespaces: GLib.HashTable): void
-    vfuncGetXml(xmlString: GLib.String): void
-    vfuncParseJson(reader: Json.Reader): boolean
-    vfuncParseXml(doc: libxml2.Doc, node: libxml2.Node): boolean
-    vfuncPostParseJson(): boolean
-    vfuncPostParseXml(): boolean
-    vfuncPreGetXml(xmlString: GLib.String): void
-    vfuncPreParseXml(doc: libxml2.Doc, rootNode: libxml2.Node): boolean
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: FreebaseSearchResult, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: FreebaseSearchResult, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::variant", callback: (($obj: FreebaseSearchResult, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::variant", callback: (($obj: FreebaseSearchResult, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::variant", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -8016,19 +7226,19 @@ export interface FreebaseService_ConstructProps extends Service_ConstructProps {
     developerKey?: string
 }
 export class FreebaseService {
-    /* Properties of GData.Service */
+    /* Properties of GData-0.0.GData.Service */
     authorizer: Authorizer
     locale: string
     proxyResolver: Gio.ProxyResolver
     proxyUri: Soup.URI
     timeout: number
-    /* Fields of GData.FreebaseService */
+    /* Fields of GData-0.0.GData.FreebaseService */
     parent: Service
-    /* Fields of GData.Service */
+    /* Fields of GData-0.0.GData.Service */
     priv: ServicePrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GData.FreebaseService */
+    /* Methods of GData-0.0.GData.FreebaseService */
     getImage(value: FreebaseTopicValue, cancellable: Gio.Cancellable | null, maxWidth: number, maxHeight: number): Gio.InputStream
     getTopic(query: FreebaseTopicQuery, cancellable?: Gio.Cancellable | null): FreebaseTopicResult
     getTopicAsync(query: FreebaseTopicQuery, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
@@ -8036,7 +7246,7 @@ export class FreebaseService {
     queryAsync(query: FreebaseQuery, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     search(query: FreebaseSearchQuery, cancellable?: Gio.Cancellable | null): FreebaseSearchResult
     searchAsync(query: FreebaseSearchQuery, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    /* Methods of GData.Service */
+    /* Methods of GData-0.0.GData.Service */
     deleteEntry(domain: AuthorizationDomain | null, entry: Entry, cancellable?: Gio.Cancellable | null): boolean
     deleteEntryAsync(domain: AuthorizationDomain | null, entry: Entry, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     deleteEntryFinish(asyncResult: Gio.AsyncResult): boolean
@@ -8063,7 +7273,7 @@ export class FreebaseService {
     updateEntry(domain: AuthorizationDomain | null, entry: Entry, cancellable?: Gio.Cancellable | null): Entry
     updateEntryAsync(domain: AuthorizationDomain | null, entry: Entry, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     updateEntryFinish(asyncResult: Gio.AsyncResult): Entry
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -8085,24 +7295,12 @@ export class FreebaseService {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GData.Service */
-    vfuncAppendQueryHeaders(domain: AuthorizationDomain, message: Soup.Message): void
-    vfuncParseErrorResponse(operationType: OperationType, status: number, reasonPhrase: string, responseBody: string, length: number): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: FreebaseService, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: FreebaseService, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::authorizer", callback: (($obj: FreebaseService, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::authorizer", callback: (($obj: FreebaseService, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::authorizer", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -8148,10 +7346,10 @@ export interface FreebaseTopicQuery_ConstructProps extends Query_ConstructProps 
     language?: string
 }
 export class FreebaseTopicQuery {
-    /* Properties of GData.FreebaseTopicQuery */
+    /* Properties of GData-0.0.GData.FreebaseTopicQuery */
     filter: string[]
     language: string
-    /* Properties of GData.Query */
+    /* Properties of GData-0.0.GData.Query */
     author: string
     categories: string
     etag: string
@@ -8163,17 +7361,17 @@ export class FreebaseTopicQuery {
     startIndex: number
     updatedMax: number
     updatedMin: number
-    /* Fields of GData.FreebaseTopicQuery */
+    /* Fields of GData-0.0.GData.FreebaseTopicQuery */
     parent: Query
     priv: FreebaseTopicQueryPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GData.FreebaseTopicQuery */
+    /* Methods of GData-0.0.GData.FreebaseTopicQuery */
     getFilter(): string[] | null
     getLanguage(): string | null
     setFilter(filter?: string[] | null): void
     setLanguage(lang?: string | null): void
-    /* Methods of GData.Query */
+    /* Methods of GData-0.0.GData.Query */
     getAuthor(): string
     getCategories(): string
     getEtag(): string
@@ -8198,7 +7396,7 @@ export class FreebaseTopicQuery {
     setStartIndex(startIndex: number): void
     setUpdatedMax(updatedMax: number): void
     setUpdatedMin(updatedMin: number): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -8220,23 +7418,12 @@ export class FreebaseTopicQuery {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GData.Query */
-    vfuncGetQueryUri(feedUri: string, queryUri: GLib.String, paramsStarted: boolean): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: FreebaseTopicQuery, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: FreebaseTopicQuery, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::filter", callback: (($obj: FreebaseTopicQuery, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::filter", callback: (($obj: FreebaseTopicQuery, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::filter", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -8320,9 +7507,9 @@ export class FreebaseTopicQuery {
 export interface FreebaseTopicResult_ConstructProps extends FreebaseResult_ConstructProps {
 }
 export class FreebaseTopicResult {
-    /* Properties of GData.FreebaseResult */
+    /* Properties of GData-0.0.GData.FreebaseResult */
     readonly variant: GLib.Variant
-    /* Properties of GData.Entry */
+    /* Properties of GData-0.0.GData.Entry */
     content: string
     contentUri: string
     readonly isInserted: boolean
@@ -8331,16 +7518,16 @@ export class FreebaseTopicResult {
     summary: string
     title: string
     readonly updated: number
-    /* Fields of GData.FreebaseTopicResult */
+    /* Fields of GData-0.0.GData.FreebaseTopicResult */
     parent: FreebaseResult
     priv: FreebaseTopicResultPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GData.FreebaseTopicResult */
+    /* Methods of GData-0.0.GData.FreebaseTopicResult */
     dupObject(): FreebaseTopicObject
-    /* Methods of GData.FreebaseResult */
+    /* Methods of GData-0.0.GData.FreebaseResult */
     dupVariant(): GLib.Variant | null
-    /* Methods of GData.Entry */
+    /* Methods of GData-0.0.GData.Entry */
     addAuthor(author: Author): void
     addCategory(category: Category): void
     addLink(link: Link): void
@@ -8363,11 +7550,11 @@ export class FreebaseTopicResult {
     setRights(rights?: string | null): void
     setSummary(summary?: string | null): void
     setTitle(title?: string | null): void
-    /* Methods of GData.Parsable */
+    /* Methods of GData-0.0.GData.Parsable */
     getContentType(): string
     getJson(): string
     getXml(): string
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -8389,31 +7576,12 @@ export class FreebaseTopicResult {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GData.Parsable */
-    vfuncGetJson(builder: Json.Builder): void
-    vfuncGetNamespaces(namespaces: GLib.HashTable): void
-    vfuncGetXml(xmlString: GLib.String): void
-    vfuncParseJson(reader: Json.Reader): boolean
-    vfuncParseXml(doc: libxml2.Doc, node: libxml2.Node): boolean
-    vfuncPostParseJson(): boolean
-    vfuncPostParseXml(): boolean
-    vfuncPreGetXml(xmlString: GLib.String): void
-    vfuncPreParseXml(doc: libxml2.Doc, rootNode: libxml2.Node): boolean
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: FreebaseTopicResult, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: FreebaseTopicResult, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::variant", callback: (($obj: FreebaseTopicResult, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::variant", callback: (($obj: FreebaseTopicResult, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::variant", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -8481,17 +7649,17 @@ export interface GContactCalendar_ConstructProps extends Parsable_ConstructProps
     uri?: string
 }
 export class GContactCalendar {
-    /* Properties of GData.GContactCalendar */
+    /* Properties of GData-0.0.GData.GContactCalendar */
     isPrimary: boolean
     label: string
     relationType: string
     uri: string
-    /* Fields of GData.GContactCalendar */
+    /* Fields of GData-0.0.GData.GContactCalendar */
     parent: Parsable
     priv: GContactCalendarPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GData.GContactCalendar */
+    /* Methods of GData-0.0.GData.GContactCalendar */
     getLabel(): string
     getRelationType(): string
     getUri(): string
@@ -8499,11 +7667,11 @@ export class GContactCalendar {
     setLabel(label?: string | null): void
     setRelationType(relationType?: string | null): void
     setUri(uri: string): void
-    /* Methods of GData.Parsable */
+    /* Methods of GData-0.0.GData.Parsable */
     getContentType(): string
     getJson(): string
     getXml(): string
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -8525,35 +7693,14 @@ export class GContactCalendar {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of GData.Comparable */
+    /* Methods of GData-0.0.GData.Comparable */
     compare(other?: Comparable | null): number
-    /* Virtual methods of GData.GContactCalendar */
-    vfuncCompareWith(other: Comparable): number
-    /* Virtual methods of GData.Parsable */
-    vfuncGetJson(builder: Json.Builder): void
-    vfuncGetNamespaces(namespaces: GLib.HashTable): void
-    vfuncGetXml(xmlString: GLib.String): void
-    vfuncParseJson(reader: Json.Reader): boolean
-    vfuncParseXml(doc: libxml2.Doc, node: libxml2.Node): boolean
-    vfuncPostParseJson(): boolean
-    vfuncPostParseXml(): boolean
-    vfuncPreGetXml(xmlString: GLib.String): void
-    vfuncPreParseXml(doc: libxml2.Doc, rootNode: libxml2.Node): boolean
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: GContactCalendar, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: GContactCalendar, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::is-primary", callback: (($obj: GContactCalendar, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::is-primary", callback: (($obj: GContactCalendar, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::is-primary", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -8594,27 +7741,27 @@ export interface GContactEvent_ConstructProps extends Parsable_ConstructProps {
     relationType?: string
 }
 export class GContactEvent {
-    /* Properties of GData.GContactEvent */
+    /* Properties of GData-0.0.GData.GContactEvent */
     date: GLib.Date
     label: string
     relationType: string
-    /* Fields of GData.GContactEvent */
+    /* Fields of GData-0.0.GData.GContactEvent */
     parent: Parsable
     priv: GContactEventPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GData.GContactEvent */
-    getDate(): /* date */ GLib.Date
+    /* Methods of GData-0.0.GData.GContactEvent */
+    getDate(): { date: GLib.Date }
     getLabel(): string
     getRelationType(): string
     setDate(date: GLib.Date): void
     setLabel(label?: string | null): void
     setRelationType(relationType?: string | null): void
-    /* Methods of GData.Parsable */
+    /* Methods of GData-0.0.GData.Parsable */
     getContentType(): string
     getJson(): string
     getXml(): string
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -8636,31 +7783,12 @@ export class GContactEvent {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GData.Parsable */
-    vfuncGetJson(builder: Json.Builder): void
-    vfuncGetNamespaces(namespaces: GLib.HashTable): void
-    vfuncGetXml(xmlString: GLib.String): void
-    vfuncParseJson(reader: Json.Reader): boolean
-    vfuncParseXml(doc: libxml2.Doc, node: libxml2.Node): boolean
-    vfuncPostParseJson(): boolean
-    vfuncPostParseXml(): boolean
-    vfuncPreGetXml(xmlString: GLib.String): void
-    vfuncPreParseXml(doc: libxml2.Doc, rootNode: libxml2.Node): boolean
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: GContactEvent, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: GContactEvent, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::date", callback: (($obj: GContactEvent, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::date", callback: (($obj: GContactEvent, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::date", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -8696,27 +7824,27 @@ export interface GContactExternalID_ConstructProps extends Parsable_ConstructPro
     value?: string
 }
 export class GContactExternalID {
-    /* Properties of GData.GContactExternalID */
+    /* Properties of GData-0.0.GData.GContactExternalID */
     label: string
     relationType: string
     value: string
-    /* Fields of GData.GContactExternalID */
+    /* Fields of GData-0.0.GData.GContactExternalID */
     parent: Parsable
     priv: GContactExternalIDPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GData.GContactExternalID */
+    /* Methods of GData-0.0.GData.GContactExternalID */
     getLabel(): string
     getRelationType(): string
     getValue(): string
     setLabel(label?: string | null): void
     setRelationType(relationType?: string | null): void
     setValue(value: string): void
-    /* Methods of GData.Parsable */
+    /* Methods of GData-0.0.GData.Parsable */
     getContentType(): string
     getJson(): string
     getXml(): string
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -8738,35 +7866,14 @@ export class GContactExternalID {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of GData.Comparable */
+    /* Methods of GData-0.0.GData.Comparable */
     compare(other?: Comparable | null): number
-    /* Virtual methods of GData.GContactExternalID */
-    vfuncCompareWith(other: Comparable): number
-    /* Virtual methods of GData.Parsable */
-    vfuncGetJson(builder: Json.Builder): void
-    vfuncGetNamespaces(namespaces: GLib.HashTable): void
-    vfuncGetXml(xmlString: GLib.String): void
-    vfuncParseJson(reader: Json.Reader): boolean
-    vfuncParseXml(doc: libxml2.Doc, node: libxml2.Node): boolean
-    vfuncPostParseJson(): boolean
-    vfuncPostParseXml(): boolean
-    vfuncPreGetXml(xmlString: GLib.String): void
-    vfuncPreParseXml(doc: libxml2.Doc, rootNode: libxml2.Node): boolean
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: GContactExternalID, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: GContactExternalID, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::label", callback: (($obj: GContactExternalID, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::label", callback: (($obj: GContactExternalID, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::label", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -8801,24 +7908,24 @@ export interface GContactJot_ConstructProps extends Parsable_ConstructProps {
     relationType?: string
 }
 export class GContactJot {
-    /* Properties of GData.GContactJot */
+    /* Properties of GData-0.0.GData.GContactJot */
     content: string
     relationType: string
-    /* Fields of GData.GContactJot */
+    /* Fields of GData-0.0.GData.GContactJot */
     parent: Parsable
     priv: GContactJotPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GData.GContactJot */
+    /* Methods of GData-0.0.GData.GContactJot */
     getContent(): string
     getRelationType(): string
     setContent(content: string): void
     setRelationType(relationType: string): void
-    /* Methods of GData.Parsable */
+    /* Methods of GData-0.0.GData.Parsable */
     getContentType(): string
     getJson(): string
     getXml(): string
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -8840,31 +7947,12 @@ export class GContactJot {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GData.Parsable */
-    vfuncGetJson(builder: Json.Builder): void
-    vfuncGetNamespaces(namespaces: GLib.HashTable): void
-    vfuncGetXml(xmlString: GLib.String): void
-    vfuncParseJson(reader: Json.Reader): boolean
-    vfuncParseXml(doc: libxml2.Doc, node: libxml2.Node): boolean
-    vfuncPostParseJson(): boolean
-    vfuncPostParseXml(): boolean
-    vfuncPreGetXml(xmlString: GLib.String): void
-    vfuncPreParseXml(doc: libxml2.Doc, rootNode: libxml2.Node): boolean
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: GContactJot, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: GContactJot, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::content", callback: (($obj: GContactJot, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::content", callback: (($obj: GContactJot, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::content", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -8894,24 +7982,24 @@ export interface GContactLanguage_ConstructProps extends Parsable_ConstructProps
     label?: string
 }
 export class GContactLanguage {
-    /* Properties of GData.GContactLanguage */
+    /* Properties of GData-0.0.GData.GContactLanguage */
     code: string
     label: string
-    /* Fields of GData.GContactLanguage */
+    /* Fields of GData-0.0.GData.GContactLanguage */
     parent: Parsable
     priv: GContactLanguagePrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GData.GContactLanguage */
+    /* Methods of GData-0.0.GData.GContactLanguage */
     getCode(): string
     getLabel(): string
     setCode(code?: string | null): void
     setLabel(label?: string | null): void
-    /* Methods of GData.Parsable */
+    /* Methods of GData-0.0.GData.Parsable */
     getContentType(): string
     getJson(): string
     getXml(): string
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -8933,35 +8021,14 @@ export class GContactLanguage {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of GData.Comparable */
+    /* Methods of GData-0.0.GData.Comparable */
     compare(other?: Comparable | null): number
-    /* Virtual methods of GData.GContactLanguage */
-    vfuncCompareWith(other: Comparable): number
-    /* Virtual methods of GData.Parsable */
-    vfuncGetJson(builder: Json.Builder): void
-    vfuncGetNamespaces(namespaces: GLib.HashTable): void
-    vfuncGetXml(xmlString: GLib.String): void
-    vfuncParseJson(reader: Json.Reader): boolean
-    vfuncParseXml(doc: libxml2.Doc, node: libxml2.Node): boolean
-    vfuncPostParseJson(): boolean
-    vfuncPostParseXml(): boolean
-    vfuncPreGetXml(xmlString: GLib.String): void
-    vfuncPreParseXml(doc: libxml2.Doc, rootNode: libxml2.Node): boolean
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: GContactLanguage, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: GContactLanguage, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::code", callback: (($obj: GContactLanguage, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::code", callback: (($obj: GContactLanguage, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::code", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -8992,27 +8059,27 @@ export interface GContactRelation_ConstructProps extends Parsable_ConstructProps
     relationType?: string
 }
 export class GContactRelation {
-    /* Properties of GData.GContactRelation */
+    /* Properties of GData-0.0.GData.GContactRelation */
     label: string
     name: string
     relationType: string
-    /* Fields of GData.GContactRelation */
+    /* Fields of GData-0.0.GData.GContactRelation */
     parent: Parsable
     priv: GContactRelationPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GData.GContactRelation */
+    /* Methods of GData-0.0.GData.GContactRelation */
     getLabel(): string
     getName(): string
     getRelationType(): string
     setLabel(label?: string | null): void
     setName(name?: string | null): void
     setRelationType(relationType?: string | null): void
-    /* Methods of GData.Parsable */
+    /* Methods of GData-0.0.GData.Parsable */
     getContentType(): string
     getJson(): string
     getXml(): string
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -9034,31 +8101,12 @@ export class GContactRelation {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GData.Parsable */
-    vfuncGetJson(builder: Json.Builder): void
-    vfuncGetNamespaces(namespaces: GLib.HashTable): void
-    vfuncGetXml(xmlString: GLib.String): void
-    vfuncParseJson(reader: Json.Reader): boolean
-    vfuncParseXml(doc: libxml2.Doc, node: libxml2.Node): boolean
-    vfuncPostParseJson(): boolean
-    vfuncPostParseXml(): boolean
-    vfuncPreGetXml(xmlString: GLib.String): void
-    vfuncPreParseXml(doc: libxml2.Doc, rootNode: libxml2.Node): boolean
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: GContactRelation, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: GContactRelation, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::label", callback: (($obj: GContactRelation, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::label", callback: (($obj: GContactRelation, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::label", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -9095,17 +8143,17 @@ export interface GContactWebsite_ConstructProps extends Parsable_ConstructProps 
     uri?: string
 }
 export class GContactWebsite {
-    /* Properties of GData.GContactWebsite */
+    /* Properties of GData-0.0.GData.GContactWebsite */
     isPrimary: boolean
     label: string
     relationType: string
     uri: string
-    /* Fields of GData.GContactWebsite */
+    /* Fields of GData-0.0.GData.GContactWebsite */
     parent: Parsable
     priv: GContactWebsitePrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GData.GContactWebsite */
+    /* Methods of GData-0.0.GData.GContactWebsite */
     getLabel(): string
     getRelationType(): string
     getUri(): string
@@ -9113,11 +8161,11 @@ export class GContactWebsite {
     setLabel(label?: string | null): void
     setRelationType(relationType: string): void
     setUri(uri: string): void
-    /* Methods of GData.Parsable */
+    /* Methods of GData-0.0.GData.Parsable */
     getContentType(): string
     getJson(): string
     getXml(): string
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -9139,35 +8187,14 @@ export class GContactWebsite {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of GData.Comparable */
+    /* Methods of GData-0.0.GData.Comparable */
     compare(other?: Comparable | null): number
-    /* Virtual methods of GData.GContactWebsite */
-    vfuncCompareWith(other: Comparable): number
-    /* Virtual methods of GData.Parsable */
-    vfuncGetJson(builder: Json.Builder): void
-    vfuncGetNamespaces(namespaces: GLib.HashTable): void
-    vfuncGetXml(xmlString: GLib.String): void
-    vfuncParseJson(reader: Json.Reader): boolean
-    vfuncParseXml(doc: libxml2.Doc, node: libxml2.Node): boolean
-    vfuncPostParseJson(): boolean
-    vfuncPostParseXml(): boolean
-    vfuncPreGetXml(xmlString: GLib.String): void
-    vfuncPreParseXml(doc: libxml2.Doc, rootNode: libxml2.Node): boolean
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: GContactWebsite, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: GContactWebsite, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::is-primary", callback: (($obj: GContactWebsite, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::is-primary", callback: (($obj: GContactWebsite, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::is-primary", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -9210,18 +8237,18 @@ export interface GDEmailAddress_ConstructProps extends Parsable_ConstructProps {
     relationType?: string
 }
 export class GDEmailAddress {
-    /* Properties of GData.GDEmailAddress */
+    /* Properties of GData-0.0.GData.GDEmailAddress */
     address: string
     displayName: string
     isPrimary: boolean
     label: string
     relationType: string
-    /* Fields of GData.GDEmailAddress */
+    /* Fields of GData-0.0.GData.GDEmailAddress */
     parent: Parsable
     priv: GDEmailAddressPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GData.GDEmailAddress */
+    /* Methods of GData-0.0.GData.GDEmailAddress */
     getAddress(): string
     getDisplayName(): string
     getLabel(): string
@@ -9231,11 +8258,11 @@ export class GDEmailAddress {
     setIsPrimary(isPrimary: boolean): void
     setLabel(label?: string | null): void
     setRelationType(relationType?: string | null): void
-    /* Methods of GData.Parsable */
+    /* Methods of GData-0.0.GData.Parsable */
     getContentType(): string
     getJson(): string
     getXml(): string
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -9257,35 +8284,14 @@ export class GDEmailAddress {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of GData.Comparable */
+    /* Methods of GData-0.0.GData.Comparable */
     compare(other?: Comparable | null): number
-    /* Virtual methods of GData.GDEmailAddress */
-    vfuncCompareWith(other: Comparable): number
-    /* Virtual methods of GData.Parsable */
-    vfuncGetJson(builder: Json.Builder): void
-    vfuncGetNamespaces(namespaces: GLib.HashTable): void
-    vfuncGetXml(xmlString: GLib.String): void
-    vfuncParseJson(reader: Json.Reader): boolean
-    vfuncParseXml(doc: libxml2.Doc, node: libxml2.Node): boolean
-    vfuncPostParseJson(): boolean
-    vfuncPostParseXml(): boolean
-    vfuncPreGetXml(xmlString: GLib.String): void
-    vfuncPreParseXml(doc: libxml2.Doc, rootNode: libxml2.Node): boolean
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: GDEmailAddress, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: GDEmailAddress, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::address", callback: (($obj: GDEmailAddress, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::address", callback: (($obj: GDEmailAddress, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::address", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -9333,18 +8339,18 @@ export interface GDIMAddress_ConstructProps extends Parsable_ConstructProps {
     relationType?: string
 }
 export class GDIMAddress {
-    /* Properties of GData.GDIMAddress */
+    /* Properties of GData-0.0.GData.GDIMAddress */
     address: string
     isPrimary: boolean
     label: string
     protocol: string
     relationType: string
-    /* Fields of GData.GDIMAddress */
+    /* Fields of GData-0.0.GData.GDIMAddress */
     parent: Parsable
     priv: GDIMAddressPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GData.GDIMAddress */
+    /* Methods of GData-0.0.GData.GDIMAddress */
     getAddress(): string
     getLabel(): string
     getProtocol(): string
@@ -9354,11 +8360,11 @@ export class GDIMAddress {
     setLabel(label?: string | null): void
     setProtocol(protocol?: string | null): void
     setRelationType(relationType?: string | null): void
-    /* Methods of GData.Parsable */
+    /* Methods of GData-0.0.GData.Parsable */
     getContentType(): string
     getJson(): string
     getXml(): string
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -9380,35 +8386,14 @@ export class GDIMAddress {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of GData.Comparable */
+    /* Methods of GData-0.0.GData.Comparable */
     compare(other?: Comparable | null): number
-    /* Virtual methods of GData.GDIMAddress */
-    vfuncCompareWith(other: Comparable): number
-    /* Virtual methods of GData.Parsable */
-    vfuncGetJson(builder: Json.Builder): void
-    vfuncGetNamespaces(namespaces: GLib.HashTable): void
-    vfuncGetXml(xmlString: GLib.String): void
-    vfuncParseJson(reader: Json.Reader): boolean
-    vfuncParseXml(doc: libxml2.Doc, node: libxml2.Node): boolean
-    vfuncPostParseJson(): boolean
-    vfuncPostParseXml(): boolean
-    vfuncPreGetXml(xmlString: GLib.String): void
-    vfuncPreParseXml(doc: libxml2.Doc, rootNode: libxml2.Node): boolean
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: GDIMAddress, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: GDIMAddress, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::address", callback: (($obj: GDIMAddress, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::address", callback: (($obj: GDIMAddress, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::address", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -9457,19 +8442,19 @@ export interface GDName_ConstructProps extends Parsable_ConstructProps {
     suffix?: string
 }
 export class GDName {
-    /* Properties of GData.GDName */
+    /* Properties of GData-0.0.GData.GDName */
     additionalName: string
     familyName: string
     fullName: string
     givenName: string
     prefix: string
     suffix: string
-    /* Fields of GData.GDName */
+    /* Fields of GData-0.0.GData.GDName */
     parent: Parsable
     priv: GDNamePrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GData.GDName */
+    /* Methods of GData-0.0.GData.GDName */
     getAdditionalName(): string
     getFamilyName(): string
     getFullName(): string
@@ -9482,11 +8467,11 @@ export class GDName {
     setGivenName(givenName?: string | null): void
     setPrefix(prefix?: string | null): void
     setSuffix(suffix?: string | null): void
-    /* Methods of GData.Parsable */
+    /* Methods of GData-0.0.GData.Parsable */
     getContentType(): string
     getJson(): string
     getXml(): string
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -9508,35 +8493,14 @@ export class GDName {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of GData.Comparable */
+    /* Methods of GData-0.0.GData.Comparable */
     compare(other?: Comparable | null): number
-    /* Virtual methods of GData.GDName */
-    vfuncCompareWith(other: Comparable): number
-    /* Virtual methods of GData.Parsable */
-    vfuncGetJson(builder: Json.Builder): void
-    vfuncGetNamespaces(namespaces: GLib.HashTable): void
-    vfuncGetXml(xmlString: GLib.String): void
-    vfuncParseJson(reader: Json.Reader): boolean
-    vfuncParseXml(doc: libxml2.Doc, node: libxml2.Node): boolean
-    vfuncPostParseJson(): boolean
-    vfuncPostParseXml(): boolean
-    vfuncPreGetXml(xmlString: GLib.String): void
-    vfuncPreParseXml(doc: libxml2.Doc, rootNode: libxml2.Node): boolean
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: GDName, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: GDName, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::additional-name", callback: (($obj: GDName, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::additional-name", callback: (($obj: GDName, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::additional-name", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -9593,7 +8557,7 @@ export interface GDOrganization_ConstructProps extends Parsable_ConstructProps {
     title?: string
 }
 export class GDOrganization {
-    /* Properties of GData.GDOrganization */
+    /* Properties of GData-0.0.GData.GDOrganization */
     department: string
     isPrimary: boolean
     jobDescription: string
@@ -9603,12 +8567,12 @@ export class GDOrganization {
     relationType: string
     symbol: string
     title: string
-    /* Fields of GData.GDOrganization */
+    /* Fields of GData-0.0.GData.GDOrganization */
     parent: Parsable
     priv: GDOrganizationPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GData.GDOrganization */
+    /* Methods of GData-0.0.GData.GDOrganization */
     getDepartment(): string
     getJobDescription(): string
     getLabel(): string
@@ -9626,11 +8590,11 @@ export class GDOrganization {
     setRelationType(relationType?: string | null): void
     setSymbol(symbol?: string | null): void
     setTitle(title?: string | null): void
-    /* Methods of GData.Parsable */
+    /* Methods of GData-0.0.GData.Parsable */
     getContentType(): string
     getJson(): string
     getXml(): string
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -9652,35 +8616,14 @@ export class GDOrganization {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of GData.Comparable */
+    /* Methods of GData-0.0.GData.Comparable */
     compare(other?: Comparable | null): number
-    /* Virtual methods of GData.GDOrganization */
-    vfuncCompareWith(other: Comparable): number
-    /* Virtual methods of GData.Parsable */
-    vfuncGetJson(builder: Json.Builder): void
-    vfuncGetNamespaces(namespaces: GLib.HashTable): void
-    vfuncGetXml(xmlString: GLib.String): void
-    vfuncParseJson(reader: Json.Reader): boolean
-    vfuncParseXml(doc: libxml2.Doc, node: libxml2.Node): boolean
-    vfuncPostParseJson(): boolean
-    vfuncPostParseXml(): boolean
-    vfuncPreGetXml(xmlString: GLib.String): void
-    vfuncPreParseXml(doc: libxml2.Doc, rootNode: libxml2.Node): boolean
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: GDOrganization, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: GDOrganization, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::department", callback: (($obj: GDOrganization, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::department", callback: (($obj: GDOrganization, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::department", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -9748,18 +8691,18 @@ export interface GDPhoneNumber_ConstructProps extends Parsable_ConstructProps {
     uri?: string
 }
 export class GDPhoneNumber {
-    /* Properties of GData.GDPhoneNumber */
+    /* Properties of GData-0.0.GData.GDPhoneNumber */
     isPrimary: boolean
     label: string
     number: string
     relationType: string
     uri: string
-    /* Fields of GData.GDPhoneNumber */
+    /* Fields of GData-0.0.GData.GDPhoneNumber */
     parent: Parsable
     priv: GDPhoneNumberPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GData.GDPhoneNumber */
+    /* Methods of GData-0.0.GData.GDPhoneNumber */
     getLabel(): string
     getNumber(): string
     getRelationType(): string
@@ -9769,11 +8712,11 @@ export class GDPhoneNumber {
     setNumber(number: string): void
     setRelationType(relationType?: string | null): void
     setUri(uri?: string | null): void
-    /* Methods of GData.Parsable */
+    /* Methods of GData-0.0.GData.Parsable */
     getContentType(): string
     getJson(): string
     getXml(): string
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -9795,35 +8738,14 @@ export class GDPhoneNumber {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of GData.Comparable */
+    /* Methods of GData-0.0.GData.Comparable */
     compare(other?: Comparable | null): number
-    /* Virtual methods of GData.GDPhoneNumber */
-    vfuncCompareWith(other: Comparable): number
-    /* Virtual methods of GData.Parsable */
-    vfuncGetJson(builder: Json.Builder): void
-    vfuncGetNamespaces(namespaces: GLib.HashTable): void
-    vfuncGetXml(xmlString: GLib.String): void
-    vfuncParseJson(reader: Json.Reader): boolean
-    vfuncParseXml(doc: libxml2.Doc, node: libxml2.Node): boolean
-    vfuncPostParseJson(): boolean
-    vfuncPostParseXml(): boolean
-    vfuncPreGetXml(xmlString: GLib.String): void
-    vfuncPreParseXml(doc: libxml2.Doc, rootNode: libxml2.Node): boolean
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: GDPhoneNumber, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: GDPhoneNumber, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::is-primary", callback: (($obj: GDPhoneNumber, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::is-primary", callback: (($obj: GDPhoneNumber, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::is-primary", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -9881,7 +8803,7 @@ export interface GDPostalAddress_ConstructProps extends Parsable_ConstructProps 
     usage?: string
 }
 export class GDPostalAddress {
-    /* Properties of GData.GDPostalAddress */
+    /* Properties of GData-0.0.GData.GDPostalAddress */
     address: string
     agent: string
     city: string
@@ -9899,12 +8821,12 @@ export class GDPostalAddress {
     street: string
     subregion: string
     usage: string
-    /* Fields of GData.GDPostalAddress */
+    /* Fields of GData-0.0.GData.GDPostalAddress */
     parent: Parsable
     priv: GDPostalAddressPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GData.GDPostalAddress */
+    /* Methods of GData-0.0.GData.GDPostalAddress */
     getAddress(): string
     getAgent(): string
     getCity(): string
@@ -9937,11 +8859,11 @@ export class GDPostalAddress {
     setStreet(street?: string | null): void
     setSubregion(subregion?: string | null): void
     setUsage(usage?: string | null): void
-    /* Methods of GData.Parsable */
+    /* Methods of GData-0.0.GData.Parsable */
     getContentType(): string
     getJson(): string
     getXml(): string
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -9963,35 +8885,14 @@ export class GDPostalAddress {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of GData.Comparable */
+    /* Methods of GData-0.0.GData.Comparable */
     compare(other?: Comparable | null): number
-    /* Virtual methods of GData.GDPostalAddress */
-    vfuncCompareWith(other: Comparable): number
-    /* Virtual methods of GData.Parsable */
-    vfuncGetJson(builder: Json.Builder): void
-    vfuncGetNamespaces(namespaces: GLib.HashTable): void
-    vfuncGetXml(xmlString: GLib.String): void
-    vfuncParseJson(reader: Json.Reader): boolean
-    vfuncParseXml(doc: libxml2.Doc, node: libxml2.Node): boolean
-    vfuncPostParseJson(): boolean
-    vfuncPostParseXml(): boolean
-    vfuncPreGetXml(xmlString: GLib.String): void
-    vfuncPreParseXml(doc: libxml2.Doc, rootNode: libxml2.Node): boolean
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: GDPostalAddress, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: GDPostalAddress, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::address", callback: (($obj: GDPostalAddress, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::address", callback: (($obj: GDPostalAddress, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::address", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -10097,28 +8998,28 @@ export interface GDReminder_ConstructProps extends Parsable_ConstructProps {
     relativeTime?: number
 }
 export class GDReminder {
-    /* Properties of GData.GDReminder */
+    /* Properties of GData-0.0.GData.GDReminder */
     absoluteTime: number
     readonly isAbsoluteTime: boolean
     method: string
     relativeTime: number
-    /* Fields of GData.GDReminder */
+    /* Fields of GData-0.0.GData.GDReminder */
     parent: Parsable
     priv: GDReminderPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GData.GDReminder */
+    /* Methods of GData-0.0.GData.GDReminder */
     getAbsoluteTime(): number
     getMethod(): string
     getRelativeTime(): number
     setAbsoluteTime(absoluteTime: number): void
     setMethod(method?: string | null): void
     setRelativeTime(relativeTime: number): void
-    /* Methods of GData.Parsable */
+    /* Methods of GData-0.0.GData.Parsable */
     getContentType(): string
     getJson(): string
     getXml(): string
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -10140,35 +9041,14 @@ export class GDReminder {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of GData.Comparable */
+    /* Methods of GData-0.0.GData.Comparable */
     compare(other?: Comparable | null): number
-    /* Virtual methods of GData.GDReminder */
-    vfuncCompareWith(other: Comparable): number
-    /* Virtual methods of GData.Parsable */
-    vfuncGetJson(builder: Json.Builder): void
-    vfuncGetNamespaces(namespaces: GLib.HashTable): void
-    vfuncGetXml(xmlString: GLib.String): void
-    vfuncParseJson(reader: Json.Reader): boolean
-    vfuncParseXml(doc: libxml2.Doc, node: libxml2.Node): boolean
-    vfuncPostParseJson(): boolean
-    vfuncPostParseXml(): boolean
-    vfuncPreGetXml(xmlString: GLib.String): void
-    vfuncPreParseXml(doc: libxml2.Doc, rootNode: libxml2.Node): boolean
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: GDReminder, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: GDReminder, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::absolute-time", callback: (($obj: GDReminder, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::absolute-time", callback: (($obj: GDReminder, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::absolute-time", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -10210,17 +9090,17 @@ export interface GDWhen_ConstructProps extends Parsable_ConstructProps {
     valueString?: string
 }
 export class GDWhen {
-    /* Properties of GData.GDWhen */
+    /* Properties of GData-0.0.GData.GDWhen */
     endTime: number
     isDate: boolean
     startTime: number
     valueString: string
-    /* Fields of GData.GDWhen */
+    /* Fields of GData-0.0.GData.GDWhen */
     parent: Parsable
     priv: GDWhenPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GData.GDWhen */
+    /* Methods of GData-0.0.GData.GDWhen */
     addReminder(reminder: GDReminder): void
     getEndTime(): number
     getReminders(): GDReminder[]
@@ -10230,11 +9110,11 @@ export class GDWhen {
     setIsDate(isDate: boolean): void
     setStartTime(startTime: number): void
     setValueString(valueString?: string | null): void
-    /* Methods of GData.Parsable */
+    /* Methods of GData-0.0.GData.Parsable */
     getContentType(): string
     getJson(): string
     getXml(): string
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -10256,35 +9136,14 @@ export class GDWhen {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of GData.Comparable */
+    /* Methods of GData-0.0.GData.Comparable */
     compare(other?: Comparable | null): number
-    /* Virtual methods of GData.GDWhen */
-    vfuncCompareWith(other: Comparable): number
-    /* Virtual methods of GData.Parsable */
-    vfuncGetJson(builder: Json.Builder): void
-    vfuncGetNamespaces(namespaces: GLib.HashTable): void
-    vfuncGetXml(xmlString: GLib.String): void
-    vfuncParseJson(reader: Json.Reader): boolean
-    vfuncParseXml(doc: libxml2.Doc, node: libxml2.Node): boolean
-    vfuncPostParseJson(): boolean
-    vfuncPostParseXml(): boolean
-    vfuncPreGetXml(xmlString: GLib.String): void
-    vfuncPreParseXml(doc: libxml2.Doc, rootNode: libxml2.Node): boolean
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: GDWhen, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: GDWhen, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::end-time", callback: (($obj: GDWhen, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::end-time", callback: (($obj: GDWhen, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::end-time", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -10325,27 +9184,27 @@ export interface GDWhere_ConstructProps extends Parsable_ConstructProps {
     valueString?: string
 }
 export class GDWhere {
-    /* Properties of GData.GDWhere */
+    /* Properties of GData-0.0.GData.GDWhere */
     label: string
     relationType: string
     valueString: string
-    /* Fields of GData.GDWhere */
+    /* Fields of GData-0.0.GData.GDWhere */
     parent: Parsable
     priv: GDWherePrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GData.GDWhere */
+    /* Methods of GData-0.0.GData.GDWhere */
     getLabel(): string
     getRelationType(): string
     getValueString(): string
     setLabel(label?: string | null): void
     setRelationType(relationType?: string | null): void
     setValueString(valueString?: string | null): void
-    /* Methods of GData.Parsable */
+    /* Methods of GData-0.0.GData.Parsable */
     getContentType(): string
     getJson(): string
     getXml(): string
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -10367,35 +9226,14 @@ export class GDWhere {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of GData.Comparable */
+    /* Methods of GData-0.0.GData.Comparable */
     compare(other?: Comparable | null): number
-    /* Virtual methods of GData.GDWhere */
-    vfuncCompareWith(other: Comparable): number
-    /* Virtual methods of GData.Parsable */
-    vfuncGetJson(builder: Json.Builder): void
-    vfuncGetNamespaces(namespaces: GLib.HashTable): void
-    vfuncGetXml(xmlString: GLib.String): void
-    vfuncParseJson(reader: Json.Reader): boolean
-    vfuncParseXml(doc: libxml2.Doc, node: libxml2.Node): boolean
-    vfuncPostParseJson(): boolean
-    vfuncPostParseXml(): boolean
-    vfuncPreGetXml(xmlString: GLib.String): void
-    vfuncPreParseXml(doc: libxml2.Doc, rootNode: libxml2.Node): boolean
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: GDWhere, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: GDWhere, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::label", callback: (($obj: GDWhere, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::label", callback: (($obj: GDWhere, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::label", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -10431,27 +9269,27 @@ export interface GDWho_ConstructProps extends Parsable_ConstructProps {
     valueString?: string
 }
 export class GDWho {
-    /* Properties of GData.GDWho */
+    /* Properties of GData-0.0.GData.GDWho */
     emailAddress: string
     relationType: string
     valueString: string
-    /* Fields of GData.GDWho */
+    /* Fields of GData-0.0.GData.GDWho */
     parent: Parsable
     priv: GDWhoPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GData.GDWho */
+    /* Methods of GData-0.0.GData.GDWho */
     getEmailAddress(): string
     getRelationType(): string
     getValueString(): string
     setEmailAddress(emailAddress?: string | null): void
     setRelationType(relationType?: string | null): void
     setValueString(valueString?: string | null): void
-    /* Methods of GData.Parsable */
+    /* Methods of GData-0.0.GData.Parsable */
     getContentType(): string
     getJson(): string
     getXml(): string
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -10473,35 +9311,14 @@ export class GDWho {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of GData.Comparable */
+    /* Methods of GData-0.0.GData.Comparable */
     compare(other?: Comparable | null): number
-    /* Virtual methods of GData.GDWho */
-    vfuncCompareWith(other: Comparable): number
-    /* Virtual methods of GData.Parsable */
-    vfuncGetJson(builder: Json.Builder): void
-    vfuncGetNamespaces(namespaces: GLib.HashTable): void
-    vfuncGetXml(xmlString: GLib.String): void
-    vfuncParseJson(reader: Json.Reader): boolean
-    vfuncParseXml(doc: libxml2.Doc, node: libxml2.Node): boolean
-    vfuncPostParseJson(): boolean
-    vfuncPostParseXml(): boolean
-    vfuncPreGetXml(xmlString: GLib.String): void
-    vfuncPreParseXml(doc: libxml2.Doc, rootNode: libxml2.Node): boolean
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: GDWho, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: GDWho, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::email-address", callback: (($obj: GDWho, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::email-address", callback: (($obj: GDWho, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::email-address", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -10534,24 +9351,24 @@ export class GDWho {
 export interface Generator_ConstructProps extends Parsable_ConstructProps {
 }
 export class Generator {
-    /* Properties of GData.Generator */
+    /* Properties of GData-0.0.GData.Generator */
     readonly name: string
     readonly uri: string
     readonly version: string
-    /* Fields of GData.Generator */
+    /* Fields of GData-0.0.GData.Generator */
     parent: Parsable
     priv: GeneratorPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GData.Generator */
+    /* Methods of GData-0.0.GData.Generator */
     getName(): string | null
     getUri(): string | null
     getVersion(): string
-    /* Methods of GData.Parsable */
+    /* Methods of GData-0.0.GData.Parsable */
     getContentType(): string
     getJson(): string
     getXml(): string
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -10573,35 +9390,14 @@ export class Generator {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of GData.Comparable */
+    /* Methods of GData-0.0.GData.Comparable */
     compare(other?: Comparable | null): number
-    /* Virtual methods of GData.Generator */
-    vfuncCompareWith(other: Comparable): number
-    /* Virtual methods of GData.Parsable */
-    vfuncGetJson(builder: Json.Builder): void
-    vfuncGetNamespaces(namespaces: GLib.HashTable): void
-    vfuncGetXml(xmlString: GLib.String): void
-    vfuncParseJson(reader: Json.Reader): boolean
-    vfuncParseXml(doc: libxml2.Doc, node: libxml2.Node): boolean
-    vfuncPostParseJson(): boolean
-    vfuncPostParseXml(): boolean
-    vfuncPreGetXml(xmlString: GLib.String): void
-    vfuncPreParseXml(doc: libxml2.Doc, rootNode: libxml2.Node): boolean
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Generator, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Generator, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::name", callback: (($obj: Generator, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::name", callback: (($obj: Generator, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::name", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -10633,11 +9429,11 @@ export interface GoaAuthorizer_ConstructProps extends GObject.Object_ConstructPr
     goaObject?: Goa.Object
 }
 export class GoaAuthorizer {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GData.GoaAuthorizer */
+    /* Methods of GData-0.0.GData.GoaAuthorizer */
     getGoaObject(): Goa.Object
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -10659,33 +9455,18 @@ export class GoaAuthorizer {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of GData.Authorizer */
+    /* Methods of GData-0.0.GData.Authorizer */
     isAuthorizedForDomain(domain: AuthorizationDomain): boolean
     processRequest(domain: AuthorizationDomain | null, message: Soup.Message): void
     refreshAuthorization(cancellable?: Gio.Cancellable | null): boolean
     refreshAuthorizationAsync(cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     refreshAuthorizationFinish(asyncResult: Gio.AsyncResult): boolean
-    /* Virtual methods of GData.GoaAuthorizer */
-    vfuncIsAuthorizedForDomain(domain: AuthorizationDomain): boolean
-    vfuncProcessRequest(domain: AuthorizationDomain | null, message: Soup.Message): void
-    vfuncRefreshAuthorization(cancellable?: Gio.Cancellable | null): boolean
-    vfuncRefreshAuthorizationAsync(cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    vfuncRefreshAuthorizationFinish(asyncResult: Gio.AsyncResult): boolean
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: GoaAuthorizer, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: GoaAuthorizer, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -10709,19 +9490,19 @@ export interface Link_ConstructProps extends Parsable_ConstructProps {
     uri?: string
 }
 export class Link {
-    /* Properties of GData.Link */
+    /* Properties of GData-0.0.GData.Link */
     contentType: string
     language: string
     length: number
     relationType: string
     title: string
     uri: string
-    /* Fields of GData.Link */
+    /* Fields of GData-0.0.GData.Link */
     parent: Parsable
     priv: LinkPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GData.Link */
+    /* Methods of GData-0.0.GData.Link */
     getContentType(): string | null
     getLanguage(): string | null
     getLength(): number
@@ -10734,11 +9515,11 @@ export class Link {
     setRelationType(relationType?: string | null): void
     setTitle(title?: string | null): void
     setUri(uri: string): void
-    /* Methods of GData.Parsable */
+    /* Methods of GData-0.0.GData.Parsable */
     getContentType(): string
     getJson(): string
     getXml(): string
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -10760,35 +9541,14 @@ export class Link {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of GData.Comparable */
+    /* Methods of GData-0.0.GData.Comparable */
     compare(other?: Comparable | null): number
-    /* Virtual methods of GData.Link */
-    vfuncCompareWith(other: Comparable): number
-    /* Virtual methods of GData.Parsable */
-    vfuncGetJson(builder: Json.Builder): void
-    vfuncGetNamespaces(namespaces: GLib.HashTable): void
-    vfuncGetXml(xmlString: GLib.String): void
-    vfuncParseJson(reader: Json.Reader): boolean
-    vfuncParseXml(doc: libxml2.Doc, node: libxml2.Node): boolean
-    vfuncPostParseJson(): boolean
-    vfuncPostParseXml(): boolean
-    vfuncPreGetXml(xmlString: GLib.String): void
-    vfuncPreParseXml(doc: libxml2.Doc, rootNode: libxml2.Node): boolean
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Link, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Link, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::content-type", callback: (($obj: Link, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::content-type", callback: (($obj: Link, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::content-type", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -10839,27 +9599,27 @@ export interface MediaCategory_ConstructProps extends Parsable_ConstructProps {
     scheme?: string
 }
 export class MediaCategory {
-    /* Properties of GData.MediaCategory */
+    /* Properties of GData-0.0.GData.MediaCategory */
     category: string
     label: string
     scheme: string
-    /* Fields of GData.MediaCategory */
+    /* Fields of GData-0.0.GData.MediaCategory */
     parent: Parsable
     priv: MediaCategoryPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GData.MediaCategory */
+    /* Methods of GData-0.0.GData.MediaCategory */
     getCategory(): string
     getLabel(): string
     getScheme(): string
     setCategory(category: string): void
     setLabel(label?: string | null): void
     setScheme(scheme?: string | null): void
-    /* Methods of GData.Parsable */
+    /* Methods of GData-0.0.GData.Parsable */
     getContentType(): string
     getJson(): string
     getXml(): string
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -10881,31 +9641,12 @@ export class MediaCategory {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GData.Parsable */
-    vfuncGetJson(builder: Json.Builder): void
-    vfuncGetNamespaces(namespaces: GLib.HashTable): void
-    vfuncGetXml(xmlString: GLib.String): void
-    vfuncParseJson(reader: Json.Reader): boolean
-    vfuncParseXml(doc: libxml2.Doc, node: libxml2.Node): boolean
-    vfuncPostParseJson(): boolean
-    vfuncPostParseXml(): boolean
-    vfuncPreGetXml(xmlString: GLib.String): void
-    vfuncPreParseXml(doc: libxml2.Doc, rootNode: libxml2.Node): boolean
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: MediaCategory, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: MediaCategory, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::category", callback: (($obj: MediaCategory, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::category", callback: (($obj: MediaCategory, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::category", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -10938,7 +9679,7 @@ export class MediaCategory {
 export interface MediaContent_ConstructProps extends Parsable_ConstructProps {
 }
 export class MediaContent {
-    /* Properties of GData.MediaContent */
+    /* Properties of GData-0.0.GData.MediaContent */
     readonly contentType: string
     readonly duration: number
     readonly expression: MediaExpression
@@ -10948,12 +9689,12 @@ export class MediaContent {
     readonly medium: MediaMedium
     readonly uri: string
     readonly width: number
-    /* Fields of GData.MediaContent */
+    /* Fields of GData-0.0.GData.MediaContent */
     parent: Parsable
     priv: MediaContentPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GData.MediaContent */
+    /* Methods of GData-0.0.GData.MediaContent */
     download(service: Service, cancellable?: Gio.Cancellable | null): DownloadStream
     getContentType(): string
     getDuration(): number
@@ -10963,10 +9704,10 @@ export class MediaContent {
     getMedium(): MediaMedium
     getUri(): string
     getWidth(): number
-    /* Methods of GData.Parsable */
+    /* Methods of GData-0.0.GData.Parsable */
     getJson(): string
     getXml(): string
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -10988,31 +9729,12 @@ export class MediaContent {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GData.Parsable */
-    vfuncGetJson(builder: Json.Builder): void
-    vfuncGetNamespaces(namespaces: GLib.HashTable): void
-    vfuncGetXml(xmlString: GLib.String): void
-    vfuncParseJson(reader: Json.Reader): boolean
-    vfuncParseXml(doc: libxml2.Doc, node: libxml2.Node): boolean
-    vfuncPostParseJson(): boolean
-    vfuncPostParseXml(): boolean
-    vfuncPreGetXml(xmlString: GLib.String): void
-    vfuncPreParseXml(doc: libxml2.Doc, rootNode: libxml2.Node): boolean
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: MediaContent, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: MediaContent, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::content-type", callback: (($obj: MediaContent, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::content-type", callback: (($obj: MediaContent, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::content-type", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -11073,24 +9795,24 @@ export class MediaContent {
 export interface MediaCredit_ConstructProps extends Parsable_ConstructProps {
 }
 export class MediaCredit {
-    /* Properties of GData.MediaCredit */
+    /* Properties of GData-0.0.GData.MediaCredit */
     readonly credit: string
     readonly role: string
     readonly scheme: string
-    /* Fields of GData.MediaCredit */
+    /* Fields of GData-0.0.GData.MediaCredit */
     parent: Parsable
     priv: MediaCreditPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GData.MediaCredit */
+    /* Methods of GData-0.0.GData.MediaCredit */
     getCredit(): string
     getRole(): string
     getScheme(): string
-    /* Methods of GData.Parsable */
+    /* Methods of GData-0.0.GData.Parsable */
     getContentType(): string
     getJson(): string
     getXml(): string
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -11112,31 +9834,12 @@ export class MediaCredit {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GData.Parsable */
-    vfuncGetJson(builder: Json.Builder): void
-    vfuncGetNamespaces(namespaces: GLib.HashTable): void
-    vfuncGetXml(xmlString: GLib.String): void
-    vfuncParseJson(reader: Json.Reader): boolean
-    vfuncParseXml(doc: libxml2.Doc, node: libxml2.Node): boolean
-    vfuncPostParseJson(): boolean
-    vfuncPostParseXml(): boolean
-    vfuncPreGetXml(xmlString: GLib.String): void
-    vfuncPreParseXml(doc: libxml2.Doc, rootNode: libxml2.Node): boolean
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: MediaCredit, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: MediaCredit, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::credit", callback: (($obj: MediaCredit, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::credit", callback: (($obj: MediaCredit, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::credit", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -11167,27 +9870,27 @@ export class MediaCredit {
 export interface MediaThumbnail_ConstructProps extends Parsable_ConstructProps {
 }
 export class MediaThumbnail {
-    /* Properties of GData.MediaThumbnail */
+    /* Properties of GData-0.0.GData.MediaThumbnail */
     readonly height: number
     readonly time: number
     readonly uri: string
     readonly width: number
-    /* Fields of GData.MediaThumbnail */
+    /* Fields of GData-0.0.GData.MediaThumbnail */
     parent: Parsable
     priv: MediaThumbnailPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GData.MediaThumbnail */
+    /* Methods of GData-0.0.GData.MediaThumbnail */
     download(service: Service, cancellable?: Gio.Cancellable | null): DownloadStream
     getHeight(): number
     getTime(): number
     getUri(): string
     getWidth(): number
-    /* Methods of GData.Parsable */
+    /* Methods of GData-0.0.GData.Parsable */
     getContentType(): string
     getJson(): string
     getXml(): string
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -11209,31 +9912,12 @@ export class MediaThumbnail {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GData.Parsable */
-    vfuncGetJson(builder: Json.Builder): void
-    vfuncGetNamespaces(namespaces: GLib.HashTable): void
-    vfuncGetXml(xmlString: GLib.String): void
-    vfuncParseJson(reader: Json.Reader): boolean
-    vfuncParseXml(doc: libxml2.Doc, node: libxml2.Node): boolean
-    vfuncPostParseJson(): boolean
-    vfuncPostParseXml(): boolean
-    vfuncPreGetXml(xmlString: GLib.String): void
-    vfuncPreParseXml(doc: libxml2.Doc, rootNode: libxml2.Node): boolean
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: MediaThumbnail, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: MediaThumbnail, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::height", callback: (($obj: MediaThumbnail, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::height", callback: (($obj: MediaThumbnail, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::height", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -11274,22 +9958,22 @@ export interface OAuth1Authorizer_ConstructProps extends GObject.Object_Construc
     timeout?: number
 }
 export class OAuth1Authorizer {
-    /* Properties of GData.OAuth1Authorizer */
+    /* Properties of GData-0.0.GData.OAuth1Authorizer */
     locale: string
     proxyResolver: Gio.ProxyResolver
     proxyUri: Soup.URI
     timeout: number
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GData.OAuth1Authorizer */
+    /* Methods of GData-0.0.GData.OAuth1Authorizer */
     getApplicationName(): string | null
     getLocale(): string | null
     getProxyResolver(): Gio.ProxyResolver | null
     getProxyUri(): Soup.URI | null
     getTimeout(): number
-    requestAuthenticationUri(cancellable?: Gio.Cancellable | null): [ /* returnType */ string, /* token */ string, /* tokenSecret */ string ]
+    requestAuthenticationUri(cancellable?: Gio.Cancellable | null): { returnType: string, token: string, tokenSecret: string }
     requestAuthenticationUriAsync(cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    requestAuthenticationUriFinish(asyncResult: Gio.AsyncResult): [ /* returnType */ string, /* token */ string, /* tokenSecret */ string ]
+    requestAuthenticationUriFinish(asyncResult: Gio.AsyncResult): { returnType: string, token: string, tokenSecret: string }
     requestAuthorization(token: string, tokenSecret: string, verifier: string, cancellable?: Gio.Cancellable | null): boolean
     requestAuthorizationAsync(token: string, tokenSecret: string, verifier: string, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     requestAuthorizationFinish(asyncResult: Gio.AsyncResult): boolean
@@ -11297,7 +9981,7 @@ export class OAuth1Authorizer {
     setProxyResolver(proxyResolver?: Gio.ProxyResolver | null): void
     setProxyUri(proxyUri?: Soup.URI | null): void
     setTimeout(timeout: number): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -11319,33 +10003,18 @@ export class OAuth1Authorizer {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of GData.Authorizer */
+    /* Methods of GData-0.0.GData.Authorizer */
     isAuthorizedForDomain(domain: AuthorizationDomain): boolean
     processRequest(domain: AuthorizationDomain | null, message: Soup.Message): void
     refreshAuthorization(cancellable?: Gio.Cancellable | null): boolean
     refreshAuthorizationAsync(cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     refreshAuthorizationFinish(asyncResult: Gio.AsyncResult): boolean
-    /* Virtual methods of GData.OAuth1Authorizer */
-    vfuncIsAuthorizedForDomain(domain: AuthorizationDomain): boolean
-    vfuncProcessRequest(domain: AuthorizationDomain | null, message: Soup.Message): void
-    vfuncRefreshAuthorization(cancellable?: Gio.Cancellable | null): boolean
-    vfuncRefreshAuthorizationAsync(cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    vfuncRefreshAuthorizationFinish(asyncResult: Gio.AsyncResult): boolean
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: OAuth1Authorizer, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: OAuth1Authorizer, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::locale", callback: (($obj: OAuth1Authorizer, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::locale", callback: (($obj: OAuth1Authorizer, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::locale", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -11391,14 +10060,14 @@ export interface OAuth2Authorizer_ConstructProps extends GObject.Object_Construc
     timeout?: number
 }
 export class OAuth2Authorizer {
-    /* Properties of GData.OAuth2Authorizer */
+    /* Properties of GData-0.0.GData.OAuth2Authorizer */
     locale: string
     proxyResolver: Gio.ProxyResolver
     refreshToken: string
     timeout: number
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GData.OAuth2Authorizer */
+    /* Methods of GData-0.0.GData.OAuth2Authorizer */
     buildAuthenticationUri(loginHint: string | null, includeGrantedScopes: boolean): string
     dupRefreshToken(): string
     getClientId(): string
@@ -11414,7 +10083,7 @@ export class OAuth2Authorizer {
     setProxyResolver(proxyResolver?: Gio.ProxyResolver | null): void
     setRefreshToken(refreshToken?: string | null): void
     setTimeout(timeout: number): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -11436,33 +10105,18 @@ export class OAuth2Authorizer {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of GData.Authorizer */
+    /* Methods of GData-0.0.GData.Authorizer */
     isAuthorizedForDomain(domain: AuthorizationDomain): boolean
     processRequest(domain: AuthorizationDomain | null, message: Soup.Message): void
     refreshAuthorization(cancellable?: Gio.Cancellable | null): boolean
     refreshAuthorizationAsync(cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     refreshAuthorizationFinish(asyncResult: Gio.AsyncResult): boolean
-    /* Virtual methods of GData.OAuth2Authorizer */
-    vfuncIsAuthorizedForDomain(domain: AuthorizationDomain): boolean
-    vfuncProcessRequest(domain: AuthorizationDomain | null, message: Soup.Message): void
-    vfuncRefreshAuthorization(cancellable?: Gio.Cancellable | null): boolean
-    vfuncRefreshAuthorizationAsync(cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    vfuncRefreshAuthorizationFinish(asyncResult: Gio.AsyncResult): boolean
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: OAuth2Authorizer, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: OAuth2Authorizer, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::locale", callback: (($obj: OAuth2Authorizer, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::locale", callback: (($obj: OAuth2Authorizer, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::locale", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -11502,16 +10156,16 @@ export interface Parsable_ConstructProps extends GObject.Object_ConstructProps {
     constructedFromXml?: boolean
 }
 export class Parsable {
-    /* Fields of GData.Parsable */
+    /* Fields of GData-0.0.GData.Parsable */
     parent: GObject.Object
     priv: ParsablePrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GData.Parsable */
+    /* Methods of GData-0.0.GData.Parsable */
     getContentType(): string
     getJson(): string
     getXml(): string
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -11533,31 +10187,12 @@ export class Parsable {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GData.Parsable */
-    vfuncGetJson(builder: Json.Builder): void
-    vfuncGetNamespaces(namespaces: GLib.HashTable): void
-    vfuncGetXml(xmlString: GLib.String): void
-    vfuncParseJson(reader: Json.Reader): boolean
-    vfuncParseXml(doc: libxml2.Doc, node: libxml2.Node): boolean
-    vfuncPostParseJson(): boolean
-    vfuncPostParseXml(): boolean
-    vfuncPreGetXml(xmlString: GLib.String): void
-    vfuncPreParseXml(doc: libxml2.Doc, rootNode: libxml2.Node): boolean
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Parsable, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Parsable, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -11584,7 +10219,7 @@ export interface PicasaWebAlbum_ConstructProps extends Entry_ConstructProps {
     visibility?: PicasaWebVisibility
 }
 export class PicasaWebAlbum {
-    /* Properties of GData.PicasaWebAlbum */
+    /* Properties of GData-0.0.GData.PicasaWebAlbum */
     readonly bytesUsed: number
     readonly commentCount: number
     readonly edited: number
@@ -11599,7 +10234,7 @@ export class PicasaWebAlbum {
     timestamp: number
     readonly user: string
     visibility: PicasaWebVisibility
-    /* Properties of GData.Entry */
+    /* Properties of GData-0.0.GData.Entry */
     content: string
     contentUri: string
     readonly isInserted: boolean
@@ -11608,16 +10243,16 @@ export class PicasaWebAlbum {
     summary: string
     title: string
     readonly updated: number
-    /* Fields of GData.PicasaWebAlbum */
+    /* Fields of GData-0.0.GData.PicasaWebAlbum */
     parent: Entry
     priv: PicasaWebAlbumPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GData.PicasaWebAlbum */
+    /* Methods of GData-0.0.GData.PicasaWebAlbum */
     getBytesUsed(): number
     getCommentCount(): number
     getContents(): MediaContent[]
-    getCoordinates(): [ /* latitude */ number | null, /* longitude */ number | null ]
+    getCoordinates(): { latitude: number | null, longitude: number | null }
     getEdited(): number
     getId(): string
     getLocation(): string
@@ -11635,7 +10270,7 @@ export class PicasaWebAlbum {
     setTags(tags?: string[] | null): void
     setTimestamp(timestamp: number): void
     setVisibility(visibility: PicasaWebVisibility): void
-    /* Methods of GData.Entry */
+    /* Methods of GData-0.0.GData.Entry */
     addAuthor(author: Author): void
     addCategory(category: Category): void
     addLink(link: Link): void
@@ -11658,11 +10293,11 @@ export class PicasaWebAlbum {
     setRights(rights?: string | null): void
     setSummary(summary?: string | null): void
     setTitle(title?: string | null): void
-    /* Methods of GData.Parsable */
+    /* Methods of GData-0.0.GData.Parsable */
     getContentType(): string
     getJson(): string
     getXml(): string
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -11684,31 +10319,12 @@ export class PicasaWebAlbum {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GData.Parsable */
-    vfuncGetJson(builder: Json.Builder): void
-    vfuncGetNamespaces(namespaces: GLib.HashTable): void
-    vfuncGetXml(xmlString: GLib.String): void
-    vfuncParseJson(reader: Json.Reader): boolean
-    vfuncParseXml(doc: libxml2.Doc, node: libxml2.Node): boolean
-    vfuncPostParseJson(): boolean
-    vfuncPostParseXml(): boolean
-    vfuncPreGetXml(xmlString: GLib.String): void
-    vfuncPreParseXml(doc: libxml2.Doc, rootNode: libxml2.Node): boolean
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: PicasaWebAlbum, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: PicasaWebAlbum, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::bytes-used", callback: (($obj: PicasaWebAlbum, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::bytes-used", callback: (($obj: PicasaWebAlbum, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::bytes-used", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -11836,7 +10452,7 @@ export class PicasaWebAlbum {
 export interface PicasaWebComment_ConstructProps extends Comment_ConstructProps {
 }
 export class PicasaWebComment {
-    /* Properties of GData.Entry */
+    /* Properties of GData-0.0.GData.Entry */
     content: string
     contentUri: string
     readonly isInserted: boolean
@@ -11845,12 +10461,12 @@ export class PicasaWebComment {
     summary: string
     title: string
     readonly updated: number
-    /* Fields of GData.PicasaWebComment */
+    /* Fields of GData-0.0.GData.PicasaWebComment */
     parent: Comment
     priv: PicasaWebCommentPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GData.Entry */
+    /* Methods of GData-0.0.GData.Entry */
     addAuthor(author: Author): void
     addCategory(category: Category): void
     addLink(link: Link): void
@@ -11873,11 +10489,11 @@ export class PicasaWebComment {
     setRights(rights?: string | null): void
     setSummary(summary?: string | null): void
     setTitle(title?: string | null): void
-    /* Methods of GData.Parsable */
+    /* Methods of GData-0.0.GData.Parsable */
     getContentType(): string
     getJson(): string
     getXml(): string
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -11899,31 +10515,12 @@ export class PicasaWebComment {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GData.Parsable */
-    vfuncGetJson(builder: Json.Builder): void
-    vfuncGetNamespaces(namespaces: GLib.HashTable): void
-    vfuncGetXml(xmlString: GLib.String): void
-    vfuncParseJson(reader: Json.Reader): boolean
-    vfuncParseXml(doc: libxml2.Doc, node: libxml2.Node): boolean
-    vfuncPostParseJson(): boolean
-    vfuncPostParseXml(): boolean
-    vfuncPreGetXml(xmlString: GLib.String): void
-    vfuncPreParseXml(doc: libxml2.Doc, rootNode: libxml2.Node): boolean
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: PicasaWebComment, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: PicasaWebComment, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::content", callback: (($obj: PicasaWebComment, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::content", callback: (($obj: PicasaWebComment, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::content", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -11982,7 +10579,7 @@ export class PicasaWebComment {
 export interface PicasaWebFeed_ConstructProps extends Feed_ConstructProps {
 }
 export class PicasaWebFeed {
-    /* Properties of GData.Feed */
+    /* Properties of GData-0.0.GData.Feed */
     readonly etag: string
     readonly generator: Generator
     readonly icon: string
@@ -11996,13 +10593,13 @@ export class PicasaWebFeed {
     readonly title: string
     readonly totalResults: number
     readonly updated: number
-    /* Fields of GData.PicasaWebFeed */
+    /* Fields of GData-0.0.GData.PicasaWebFeed */
     parent: Feed
-    /* Fields of GData.Parsable */
+    /* Fields of GData-0.0.GData.Parsable */
     priv: ParsablePrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GData.Feed */
+    /* Methods of GData-0.0.GData.Feed */
     getAuthors(): Author[]
     getCategories(): Category[]
     getEntries(): Entry[]
@@ -12022,11 +10619,11 @@ export class PicasaWebFeed {
     getUpdated(): number
     lookUpEntry(id: string): Entry
     lookUpLink(rel: string): Link
-    /* Methods of GData.Parsable */
+    /* Methods of GData-0.0.GData.Parsable */
     getContentType(): string
     getJson(): string
     getXml(): string
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -12048,31 +10645,12 @@ export class PicasaWebFeed {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GData.Parsable */
-    vfuncGetJson(builder: Json.Builder): void
-    vfuncGetNamespaces(namespaces: GLib.HashTable): void
-    vfuncGetXml(xmlString: GLib.String): void
-    vfuncParseJson(reader: Json.Reader): boolean
-    vfuncParseXml(doc: libxml2.Doc, node: libxml2.Node): boolean
-    vfuncPostParseJson(): boolean
-    vfuncPostParseXml(): boolean
-    vfuncPreGetXml(xmlString: GLib.String): void
-    vfuncPreParseXml(doc: libxml2.Doc, rootNode: libxml2.Node): boolean
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: PicasaWebFeed, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: PicasaWebFeed, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::etag", callback: (($obj: PicasaWebFeed, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::etag", callback: (($obj: PicasaWebFeed, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::etag", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -12164,7 +10742,7 @@ export interface PicasaWebFile_ConstructProps extends Entry_ConstructProps {
     version?: string
 }
 export class PicasaWebFile {
-    /* Properties of GData.PicasaWebFile */
+    /* Properties of GData-0.0.GData.PicasaWebFile */
     albumId: string
     caption: string
     checksum: string
@@ -12190,7 +10768,7 @@ export class PicasaWebFile {
     timestamp: number
     readonly videoStatus: string
     readonly width: number
-    /* Properties of GData.Entry */
+    /* Properties of GData-0.0.GData.Entry */
     content: string
     contentUri: string
     readonly isInserted: boolean
@@ -12199,18 +10777,18 @@ export class PicasaWebFile {
     summary: string
     title: string
     readonly updated: number
-    /* Fields of GData.PicasaWebFile */
+    /* Fields of GData-0.0.GData.PicasaWebFile */
     parent: Entry
     priv: PicasaWebFilePrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GData.PicasaWebFile */
+    /* Methods of GData-0.0.GData.PicasaWebFile */
     getAlbumId(): string
     getCaption(): string
     getChecksum(): string
     getCommentCount(): number
     getContents(): MediaContent[]
-    getCoordinates(): [ /* latitude */ number | null, /* longitude */ number | null ]
+    getCoordinates(): { latitude: number | null, longitude: number | null }
     getCredit(): string
     getDistance(): number
     getEdited(): number
@@ -12240,7 +10818,7 @@ export class PicasaWebFile {
     setRotation(rotation: number): void
     setTags(tags?: string[] | null): void
     setTimestamp(timestamp: number): void
-    /* Methods of GData.Entry */
+    /* Methods of GData-0.0.GData.Entry */
     addAuthor(author: Author): void
     addCategory(category: Category): void
     addLink(link: Link): void
@@ -12263,11 +10841,11 @@ export class PicasaWebFile {
     setRights(rights?: string | null): void
     setSummary(summary?: string | null): void
     setTitle(title?: string | null): void
-    /* Methods of GData.Parsable */
+    /* Methods of GData-0.0.GData.Parsable */
     getContentType(): string
     getJson(): string
     getXml(): string
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -12289,7 +10867,7 @@ export class PicasaWebFile {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of GData.Commentable */
+    /* Methods of GData-0.0.GData.Commentable */
     deleteComment(service: Service, comment: Comment, cancellable?: Gio.Cancellable | null): boolean
     deleteCommentAsync(service: Service, comment: Comment, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     deleteCommentFinish(result: Gio.AsyncResult): boolean
@@ -12299,35 +10877,12 @@ export class PicasaWebFile {
     queryComments(service: Service, query?: Query | null, cancellable?: Gio.Cancellable | null, progressCallback?: QueryProgressCallback | null): Feed | null
     queryCommentsAsync(service: Service, query?: Query | null, cancellable?: Gio.Cancellable | null, progressCallback?: QueryProgressCallback | null, callback?: Gio.AsyncReadyCallback | null): void
     queryCommentsFinish(result: Gio.AsyncResult): Feed | null
-    /* Virtual methods of GData.PicasaWebFile */
-    vfuncGetInsertCommentUri(comment: Comment): string
-    vfuncGetQueryCommentsUri(): string
-    vfuncIsCommentDeletable(comment: Comment): boolean
-    /* Virtual methods of GData.Parsable */
-    vfuncGetJson(builder: Json.Builder): void
-    vfuncGetNamespaces(namespaces: GLib.HashTable): void
-    vfuncGetXml(xmlString: GLib.String): void
-    vfuncParseJson(reader: Json.Reader): boolean
-    vfuncParseXml(doc: libxml2.Doc, node: libxml2.Node): boolean
-    vfuncPostParseJson(): boolean
-    vfuncPostParseXml(): boolean
-    vfuncPreGetXml(xmlString: GLib.String): void
-    vfuncPreParseXml(doc: libxml2.Doc, rootNode: libxml2.Node): boolean
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: PicasaWebFile, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: PicasaWebFile, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::album-id", callback: (($obj: PicasaWebFile, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::album-id", callback: (($obj: PicasaWebFile, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::album-id", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -12515,13 +11070,13 @@ export interface PicasaWebQuery_ConstructProps extends Query_ConstructProps {
     visibility?: number
 }
 export class PicasaWebQuery {
-    /* Properties of GData.PicasaWebQuery */
+    /* Properties of GData-0.0.GData.PicasaWebQuery */
     imageSize: string
     location: string
     tag: string
     thumbnailSize: string
     visibility: number
-    /* Properties of GData.Query */
+    /* Properties of GData-0.0.GData.Query */
     author: string
     categories: string
     etag: string
@@ -12533,13 +11088,13 @@ export class PicasaWebQuery {
     startIndex: number
     updatedMax: number
     updatedMin: number
-    /* Fields of GData.PicasaWebQuery */
+    /* Fields of GData-0.0.GData.PicasaWebQuery */
     parent: Query
     priv: PicasaWebQueryPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GData.PicasaWebQuery */
-    getBoundingBox(): [ /* north */ number | null, /* east */ number | null, /* south */ number | null, /* west */ number | null ]
+    /* Methods of GData-0.0.GData.PicasaWebQuery */
+    getBoundingBox(): { north: number | null, east: number | null, south: number | null, west: number | null }
     getImageSize(): string
     getLocation(): string
     getTag(): string
@@ -12551,7 +11106,7 @@ export class PicasaWebQuery {
     setTag(tag?: string | null): void
     setThumbnailSize(thumbnailSize?: string | null): void
     setVisibility(visibility: PicasaWebVisibility): void
-    /* Methods of GData.Query */
+    /* Methods of GData-0.0.GData.Query */
     getAuthor(): string
     getCategories(): string
     getEtag(): string
@@ -12576,7 +11131,7 @@ export class PicasaWebQuery {
     setStartIndex(startIndex: number): void
     setUpdatedMax(updatedMax: number): void
     setUpdatedMin(updatedMin: number): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -12598,23 +11153,12 @@ export class PicasaWebQuery {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GData.Query */
-    vfuncGetQueryUri(feedUri: string, queryUri: GLib.String, paramsStarted: boolean): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: PicasaWebQuery, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: PicasaWebQuery, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::image-size", callback: (($obj: PicasaWebQuery, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::image-size", callback: (($obj: PicasaWebQuery, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::image-size", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -12713,19 +11257,19 @@ export class PicasaWebQuery {
 export interface PicasaWebService_ConstructProps extends Service_ConstructProps {
 }
 export class PicasaWebService {
-    /* Properties of GData.Service */
+    /* Properties of GData-0.0.GData.Service */
     authorizer: Authorizer
     locale: string
     proxyResolver: Gio.ProxyResolver
     proxyUri: Soup.URI
     timeout: number
-    /* Fields of GData.PicasaWebService */
+    /* Fields of GData-0.0.GData.PicasaWebService */
     parent: Service
-    /* Fields of GData.Service */
+    /* Fields of GData-0.0.GData.Service */
     priv: ServicePrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GData.PicasaWebService */
+    /* Methods of GData-0.0.GData.PicasaWebService */
     finishFileUpload(uploadStream: UploadStream): PicasaWebFile
     getUser(username?: string | null, cancellable?: Gio.Cancellable | null): PicasaWebUser
     getUserAsync(username?: string | null, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
@@ -12737,7 +11281,7 @@ export class PicasaWebService {
     queryFiles(album?: PicasaWebAlbum | null, query?: Query | null, cancellable?: Gio.Cancellable | null, progressCallback?: QueryProgressCallback | null): Feed
     queryFilesAsync(album?: PicasaWebAlbum | null, query?: Query | null, cancellable?: Gio.Cancellable | null, progressCallback?: QueryProgressCallback | null, callback?: Gio.AsyncReadyCallback | null): void
     uploadFile(album: PicasaWebAlbum | null, fileEntry: PicasaWebFile, slug: string, contentType: string, cancellable?: Gio.Cancellable | null): UploadStream
-    /* Methods of GData.Service */
+    /* Methods of GData-0.0.GData.Service */
     deleteEntry(domain: AuthorizationDomain | null, entry: Entry, cancellable?: Gio.Cancellable | null): boolean
     deleteEntryAsync(domain: AuthorizationDomain | null, entry: Entry, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     deleteEntryFinish(asyncResult: Gio.AsyncResult): boolean
@@ -12764,7 +11308,7 @@ export class PicasaWebService {
     updateEntry(domain: AuthorizationDomain | null, entry: Entry, cancellable?: Gio.Cancellable | null): Entry
     updateEntryAsync(domain: AuthorizationDomain | null, entry: Entry, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     updateEntryFinish(asyncResult: Gio.AsyncResult): Entry
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -12786,24 +11330,12 @@ export class PicasaWebService {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GData.Service */
-    vfuncAppendQueryHeaders(domain: AuthorizationDomain, message: Soup.Message): void
-    vfuncParseErrorResponse(operationType: OperationType, status: number, reasonPhrase: string, responseBody: string, length: number): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: PicasaWebService, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: PicasaWebService, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::authorizer", callback: (($obj: PicasaWebService, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::authorizer", callback: (($obj: PicasaWebService, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::authorizer", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -12847,14 +11379,14 @@ export class PicasaWebService {
 export interface PicasaWebUser_ConstructProps extends Entry_ConstructProps {
 }
 export class PicasaWebUser {
-    /* Properties of GData.PicasaWebUser */
+    /* Properties of GData-0.0.GData.PicasaWebUser */
     readonly maxPhotosPerAlbum: number
     readonly nickname: string
     readonly quotaCurrent: number
     readonly quotaLimit: number
     readonly thumbnailUri: string
     readonly user: string
-    /* Properties of GData.Entry */
+    /* Properties of GData-0.0.GData.Entry */
     content: string
     contentUri: string
     readonly isInserted: boolean
@@ -12863,19 +11395,19 @@ export class PicasaWebUser {
     summary: string
     title: string
     readonly updated: number
-    /* Fields of GData.PicasaWebUser */
+    /* Fields of GData-0.0.GData.PicasaWebUser */
     parent: Entry
     priv: PicasaWebUserPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GData.PicasaWebUser */
+    /* Methods of GData-0.0.GData.PicasaWebUser */
     getMaxPhotosPerAlbum(): number
     getNickname(): string
     getQuotaCurrent(): number
     getQuotaLimit(): number
     getThumbnailUri(): string
     getUser(): string
-    /* Methods of GData.Entry */
+    /* Methods of GData-0.0.GData.Entry */
     addAuthor(author: Author): void
     addCategory(category: Category): void
     addLink(link: Link): void
@@ -12898,11 +11430,11 @@ export class PicasaWebUser {
     setRights(rights?: string | null): void
     setSummary(summary?: string | null): void
     setTitle(title?: string | null): void
-    /* Methods of GData.Parsable */
+    /* Methods of GData-0.0.GData.Parsable */
     getContentType(): string
     getJson(): string
     getXml(): string
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -12924,31 +11456,12 @@ export class PicasaWebUser {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GData.Parsable */
-    vfuncGetJson(builder: Json.Builder): void
-    vfuncGetNamespaces(namespaces: GLib.HashTable): void
-    vfuncGetXml(xmlString: GLib.String): void
-    vfuncParseJson(reader: Json.Reader): boolean
-    vfuncParseXml(doc: libxml2.Doc, node: libxml2.Node): boolean
-    vfuncPostParseJson(): boolean
-    vfuncPostParseXml(): boolean
-    vfuncPreGetXml(xmlString: GLib.String): void
-    vfuncPreParseXml(doc: libxml2.Doc, rootNode: libxml2.Node): boolean
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: PicasaWebUser, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: PicasaWebUser, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::max-photos-per-album", callback: (($obj: PicasaWebUser, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::max-photos-per-album", callback: (($obj: PicasaWebUser, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::max-photos-per-album", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -13045,7 +11558,7 @@ export interface Query_ConstructProps extends GObject.Object_ConstructProps {
     updatedMin?: number
 }
 export class Query {
-    /* Properties of GData.Query */
+    /* Properties of GData-0.0.GData.Query */
     author: string
     categories: string
     etag: string
@@ -13057,12 +11570,12 @@ export class Query {
     startIndex: number
     updatedMax: number
     updatedMin: number
-    /* Fields of GData.Query */
+    /* Fields of GData-0.0.GData.Query */
     parent: GObject.Object
     priv: QueryPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GData.Query */
+    /* Methods of GData-0.0.GData.Query */
     getAuthor(): string
     getCategories(): string
     getEtag(): string
@@ -13087,7 +11600,7 @@ export class Query {
     setStartIndex(startIndex: number): void
     setUpdatedMax(updatedMax: number): void
     setUpdatedMin(updatedMin: number): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -13109,23 +11622,12 @@ export class Query {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GData.Query */
-    vfuncGetQueryUri(feedUri: string, queryUri: GLib.String, paramsStarted: boolean): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Query, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Query, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::author", callback: (($obj: Query, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::author", callback: (($obj: Query, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::author", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -13204,18 +11706,18 @@ export interface Service_ConstructProps extends GObject.Object_ConstructProps {
     timeout?: number
 }
 export class Service {
-    /* Properties of GData.Service */
+    /* Properties of GData-0.0.GData.Service */
     authorizer: Authorizer
     locale: string
     proxyResolver: Gio.ProxyResolver
     proxyUri: Soup.URI
     timeout: number
-    /* Fields of GData.Service */
+    /* Fields of GData-0.0.GData.Service */
     parent: GObject.Object
     priv: ServicePrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GData.Service */
+    /* Methods of GData-0.0.GData.Service */
     deleteEntry(domain: AuthorizationDomain | null, entry: Entry, cancellable?: Gio.Cancellable | null): boolean
     deleteEntryAsync(domain: AuthorizationDomain | null, entry: Entry, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     deleteEntryFinish(asyncResult: Gio.AsyncResult): boolean
@@ -13242,7 +11744,7 @@ export class Service {
     updateEntry(domain: AuthorizationDomain | null, entry: Entry, cancellable?: Gio.Cancellable | null): Entry
     updateEntryAsync(domain: AuthorizationDomain | null, entry: Entry, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     updateEntryFinish(asyncResult: Gio.AsyncResult): Entry
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -13264,24 +11766,12 @@ export class Service {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GData.Service */
-    vfuncAppendQueryHeaders(domain: AuthorizationDomain, message: Soup.Message): void
-    vfuncParseErrorResponse(operationType: OperationType, status: number, reasonPhrase: string, responseBody: string, length: number): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Service, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Service, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::authorizer", callback: (($obj: Service, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::authorizer", callback: (($obj: Service, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::authorizer", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -13331,7 +11821,7 @@ export interface TasksQuery_ConstructProps extends Query_ConstructProps {
     showHidden?: boolean
 }
 export class TasksQuery {
-    /* Properties of GData.TasksQuery */
+    /* Properties of GData-0.0.GData.TasksQuery */
     completedMax: number
     completedMin: number
     dueMax: number
@@ -13339,7 +11829,7 @@ export class TasksQuery {
     showCompleted: boolean
     showDeleted: boolean
     showHidden: boolean
-    /* Properties of GData.Query */
+    /* Properties of GData-0.0.GData.Query */
     author: string
     categories: string
     etag: string
@@ -13351,12 +11841,12 @@ export class TasksQuery {
     startIndex: number
     updatedMax: number
     updatedMin: number
-    /* Fields of GData.TasksQuery */
+    /* Fields of GData-0.0.GData.TasksQuery */
     parent: Query
     priv: TasksQueryPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GData.TasksQuery */
+    /* Methods of GData-0.0.GData.TasksQuery */
     getCompletedMax(): number
     getCompletedMin(): number
     getDueMax(): number
@@ -13371,7 +11861,7 @@ export class TasksQuery {
     setShowCompleted(showCompleted: boolean): void
     setShowDeleted(showDeleted: boolean): void
     setShowHidden(showHidden: boolean): void
-    /* Methods of GData.Query */
+    /* Methods of GData-0.0.GData.Query */
     getAuthor(): string
     getCategories(): string
     getEtag(): string
@@ -13396,7 +11886,7 @@ export class TasksQuery {
     setStartIndex(startIndex: number): void
     setUpdatedMax(updatedMax: number): void
     setUpdatedMin(updatedMin: number): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -13418,23 +11908,12 @@ export class TasksQuery {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GData.Query */
-    vfuncGetQueryUri(feedUri: string, queryUri: GLib.String, paramsStarted: boolean): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: TasksQuery, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: TasksQuery, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::completed-max", callback: (($obj: TasksQuery, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::completed-max", callback: (($obj: TasksQuery, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::completed-max", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -13542,19 +12021,19 @@ export class TasksQuery {
 export interface TasksService_ConstructProps extends Service_ConstructProps {
 }
 export class TasksService {
-    /* Properties of GData.Service */
+    /* Properties of GData-0.0.GData.Service */
     authorizer: Authorizer
     locale: string
     proxyResolver: Gio.ProxyResolver
     proxyUri: Soup.URI
     timeout: number
-    /* Fields of GData.TasksService */
+    /* Fields of GData-0.0.GData.TasksService */
     parent: Service
-    /* Fields of GData.Service */
+    /* Fields of GData-0.0.GData.Service */
     priv: ServicePrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GData.TasksService */
+    /* Methods of GData-0.0.GData.TasksService */
     deleteTask(task: TasksTask, cancellable?: Gio.Cancellable | null): boolean
     deleteTaskAsync(task: TasksTask, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     deleteTasklist(tasklist: TasksTasklist, cancellable?: Gio.Cancellable | null): boolean
@@ -13571,7 +12050,7 @@ export class TasksService {
     updateTaskAsync(task: TasksTask, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     updateTasklist(tasklist: TasksTasklist, cancellable?: Gio.Cancellable | null): TasksTasklist
     updateTasklistAsync(tasklist: TasksTasklist, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    /* Methods of GData.Service */
+    /* Methods of GData-0.0.GData.Service */
     deleteEntry(domain: AuthorizationDomain | null, entry: Entry, cancellable?: Gio.Cancellable | null): boolean
     deleteEntryAsync(domain: AuthorizationDomain | null, entry: Entry, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     deleteEntryFinish(asyncResult: Gio.AsyncResult): boolean
@@ -13598,7 +12077,7 @@ export class TasksService {
     updateEntry(domain: AuthorizationDomain | null, entry: Entry, cancellable?: Gio.Cancellable | null): Entry
     updateEntryAsync(domain: AuthorizationDomain | null, entry: Entry, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     updateEntryFinish(asyncResult: Gio.AsyncResult): Entry
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -13620,24 +12099,12 @@ export class TasksService {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GData.Service */
-    vfuncAppendQueryHeaders(domain: AuthorizationDomain, message: Soup.Message): void
-    vfuncParseErrorResponse(operationType: OperationType, status: number, reasonPhrase: string, responseBody: string, length: number): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: TasksService, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: TasksService, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::authorizer", callback: (($obj: TasksService, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::authorizer", callback: (($obj: TasksService, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::authorizer", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -13688,7 +12155,7 @@ export interface TasksTask_ConstructProps extends Entry_ConstructProps {
     status?: string
 }
 export class TasksTask {
-    /* Properties of GData.TasksTask */
+    /* Properties of GData-0.0.GData.TasksTask */
     completed: number
     due: number
     isDeleted: boolean
@@ -13697,7 +12164,7 @@ export class TasksTask {
     parent: string
     position: string
     status: string
-    /* Properties of GData.Entry */
+    /* Properties of GData-0.0.GData.Entry */
     content: string
     contentUri: string
     readonly isInserted: boolean
@@ -13706,11 +12173,11 @@ export class TasksTask {
     summary: string
     title: string
     readonly updated: number
-    /* Fields of GData.TasksTask */
+    /* Fields of GData-0.0.GData.TasksTask */
     priv: TasksTaskPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GData.TasksTask */
+    /* Methods of GData-0.0.GData.TasksTask */
     getCompleted(): number
     getDue(): number
     getNotes(): string | null
@@ -13724,7 +12191,7 @@ export class TasksTask {
     setParent(parent?: string | null): void
     setPosition(position: string): void
     setStatus(status?: string | null): void
-    /* Methods of GData.Entry */
+    /* Methods of GData-0.0.GData.Entry */
     addAuthor(author: Author): void
     addCategory(category: Category): void
     addLink(link: Link): void
@@ -13747,11 +12214,11 @@ export class TasksTask {
     setRights(rights?: string | null): void
     setSummary(summary?: string | null): void
     setTitle(title?: string | null): void
-    /* Methods of GData.Parsable */
+    /* Methods of GData-0.0.GData.Parsable */
     getContentType(): string
     getJson(): string
     getXml(): string
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -13773,31 +12240,12 @@ export class TasksTask {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GData.Parsable */
-    vfuncGetJson(builder: Json.Builder): void
-    vfuncGetNamespaces(namespaces: GLib.HashTable): void
-    vfuncGetXml(xmlString: GLib.String): void
-    vfuncParseJson(reader: Json.Reader): boolean
-    vfuncParseXml(doc: libxml2.Doc, node: libxml2.Node): boolean
-    vfuncPostParseJson(): boolean
-    vfuncPostParseXml(): boolean
-    vfuncPreGetXml(xmlString: GLib.String): void
-    vfuncPreParseXml(doc: libxml2.Doc, rootNode: libxml2.Node): boolean
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: TasksTask, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: TasksTask, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::completed", callback: (($obj: TasksTask, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::completed", callback: (($obj: TasksTask, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::completed", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -13895,7 +12343,7 @@ export class TasksTask {
 export interface TasksTasklist_ConstructProps extends Entry_ConstructProps {
 }
 export class TasksTasklist {
-    /* Properties of GData.Entry */
+    /* Properties of GData-0.0.GData.Entry */
     content: string
     contentUri: string
     readonly isInserted: boolean
@@ -13904,13 +12352,13 @@ export class TasksTasklist {
     summary: string
     title: string
     readonly updated: number
-    /* Fields of GData.TasksTasklist */
+    /* Fields of GData-0.0.GData.TasksTasklist */
     parent: Entry
-    /* Fields of GData.Entry */
+    /* Fields of GData-0.0.GData.Entry */
     priv: EntryPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GData.Entry */
+    /* Methods of GData-0.0.GData.Entry */
     addAuthor(author: Author): void
     addCategory(category: Category): void
     addLink(link: Link): void
@@ -13933,11 +12381,11 @@ export class TasksTasklist {
     setRights(rights?: string | null): void
     setSummary(summary?: string | null): void
     setTitle(title?: string | null): void
-    /* Methods of GData.Parsable */
+    /* Methods of GData-0.0.GData.Parsable */
     getContentType(): string
     getJson(): string
     getXml(): string
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -13959,31 +12407,12 @@ export class TasksTasklist {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GData.Parsable */
-    vfuncGetJson(builder: Json.Builder): void
-    vfuncGetNamespaces(namespaces: GLib.HashTable): void
-    vfuncGetXml(xmlString: GLib.String): void
-    vfuncParseJson(reader: Json.Reader): boolean
-    vfuncParseXml(doc: libxml2.Doc, node: libxml2.Node): boolean
-    vfuncPostParseJson(): boolean
-    vfuncPostParseXml(): boolean
-    vfuncPreGetXml(xmlString: GLib.String): void
-    vfuncPreParseXml(doc: libxml2.Doc, rootNode: libxml2.Node): boolean
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: TasksTasklist, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: TasksTasklist, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::content", callback: (($obj: TasksTasklist, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::content", callback: (($obj: TasksTasklist, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::content", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -14050,25 +12479,25 @@ export interface UploadStream_ConstructProps extends Gio.OutputStream_ConstructP
     uploadUri?: string
 }
 export class UploadStream {
-    /* Fields of GData.UploadStream */
+    /* Fields of GData-0.0.GData.UploadStream */
     parent: Gio.OutputStream
     priv: UploadStreamPrivate
-    /* Fields of Gio.OutputStream */
+    /* Fields of Gio-2.0.Gio.OutputStream */
     parentInstance: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GData.UploadStream */
+    /* Methods of GData-0.0.GData.UploadStream */
     getAuthorizationDomain(): AuthorizationDomain | null
     getCancellable(): Gio.Cancellable
     getContentLength(): number
     getContentType(): string
     getEntry(): Entry
     getMethod(): string
-    getResponse(): [ /* returnType */ string, /* length */ number | null ]
+    getResponse(): { returnType: string, length: number | null }
     getService(): Service
     getSlug(): string
     getUploadUri(): string
-    /* Methods of Gio.OutputStream */
+    /* Methods of Gio-2.0.Gio.OutputStream */
     clearPending(): void
     close(cancellable?: Gio.Cancellable | null): boolean
     closeAsync(ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
@@ -14084,21 +12513,21 @@ export class UploadStream {
     spliceAsync(source: Gio.InputStream, flags: Gio.OutputStreamSpliceFlags, ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     spliceFinish(result: Gio.AsyncResult): number
     write(buffer: any[], cancellable?: Gio.Cancellable | null): number
-    writeAll(buffer: any[], cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* bytesWritten */ number | null ]
+    writeAll(buffer: any[], cancellable?: Gio.Cancellable | null): { returnType: boolean, bytesWritten: number | null }
     writeAllAsync(buffer: any[], ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    writeAllFinish(result: Gio.AsyncResult): [ /* returnType */ boolean, /* bytesWritten */ number | null ]
+    writeAllFinish(result: Gio.AsyncResult): { returnType: boolean, bytesWritten: number | null }
     writeAsync(buffer: any[], ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     writeBytes(bytes: any, cancellable?: Gio.Cancellable | null): number
     writeBytesAsync(bytes: any, ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     writeBytesFinish(result: Gio.AsyncResult): number
     writeFinish(result: Gio.AsyncResult): number
-    writev(vectors: Gio.OutputVector[], cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* bytesWritten */ number | null ]
-    writevAll(vectors: Gio.OutputVector[], cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* bytesWritten */ number | null ]
+    writev(vectors: Gio.OutputVector[], cancellable?: Gio.Cancellable | null): { returnType: boolean, bytesWritten: number | null }
+    writevAll(vectors: Gio.OutputVector[], cancellable?: Gio.Cancellable | null): { returnType: boolean, bytesWritten: number | null }
     writevAllAsync(vectors: Gio.OutputVector[], ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    writevAllFinish(result: Gio.AsyncResult): [ /* returnType */ boolean, /* bytesWritten */ number | null ]
+    writevAllFinish(result: Gio.AsyncResult): { returnType: boolean, bytesWritten: number | null }
     writevAsync(vectors: Gio.OutputVector[], ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    writevFinish(result: Gio.AsyncResult): [ /* returnType */ boolean, /* bytesWritten */ number | null ]
-    /* Methods of GObject.Object */
+    writevFinish(result: Gio.AsyncResult): { returnType: boolean, bytesWritten: number | null }
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -14120,37 +12549,12 @@ export class UploadStream {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of Gio.OutputStream */
-    vfuncCloseAsync(ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    vfuncCloseFinish(result: Gio.AsyncResult): boolean
-    vfuncCloseFn(cancellable?: Gio.Cancellable | null): boolean
-    vfuncFlush(cancellable?: Gio.Cancellable | null): boolean
-    vfuncFlushAsync(ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    vfuncFlushFinish(result: Gio.AsyncResult): boolean
-    vfuncSplice(source: Gio.InputStream, flags: Gio.OutputStreamSpliceFlags, cancellable?: Gio.Cancellable | null): number
-    vfuncSpliceAsync(source: Gio.InputStream, flags: Gio.OutputStreamSpliceFlags, ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    vfuncSpliceFinish(result: Gio.AsyncResult): number
-    vfuncWriteAsync(buffer: any[] | null, ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    vfuncWriteFinish(result: Gio.AsyncResult): number
-    vfuncWriteFn(buffer: any[] | null, cancellable?: Gio.Cancellable | null): number
-    vfuncWritevAsync(vectors: Gio.OutputVector[], ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    vfuncWritevFinish(result: Gio.AsyncResult): [ /* returnType */ boolean, /* bytesWritten */ number | null ]
-    vfuncWritevFn(vectors: Gio.OutputVector[], cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* bytesWritten */ number | null ]
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: UploadStream, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: UploadStream, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -14169,32 +12573,32 @@ export class UploadStream {
 export interface YouTubeCategory_ConstructProps extends Category_ConstructProps {
 }
 export class YouTubeCategory {
-    /* Properties of GData.YouTubeCategory */
+    /* Properties of GData-0.0.GData.YouTubeCategory */
     readonly isAssignable: boolean
     readonly isDeprecated: boolean
-    /* Properties of GData.Category */
+    /* Properties of GData-0.0.GData.Category */
     label: string
     scheme: string
     term: string
-    /* Fields of GData.YouTubeCategory */
+    /* Fields of GData-0.0.GData.YouTubeCategory */
     parent: Category
     priv: YouTubeCategoryPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GData.YouTubeCategory */
+    /* Methods of GData-0.0.GData.YouTubeCategory */
     isBrowsable(region: string): boolean
-    /* Methods of GData.Category */
+    /* Methods of GData-0.0.GData.Category */
     getLabel(): string
     getScheme(): string
     getTerm(): string
     setLabel(label?: string | null): void
     setScheme(scheme?: string | null): void
     setTerm(term: string): void
-    /* Methods of GData.Parsable */
+    /* Methods of GData-0.0.GData.Parsable */
     getContentType(): string
     getJson(): string
     getXml(): string
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -14216,35 +12620,14 @@ export class YouTubeCategory {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of GData.Comparable */
+    /* Methods of GData-0.0.GData.Comparable */
     compare(other?: Comparable | null): number
-    /* Virtual methods of GData.Category */
-    vfuncCompareWith(other: Comparable): number
-    /* Virtual methods of GData.Parsable */
-    vfuncGetJson(builder: Json.Builder): void
-    vfuncGetNamespaces(namespaces: GLib.HashTable): void
-    vfuncGetXml(xmlString: GLib.String): void
-    vfuncParseJson(reader: Json.Reader): boolean
-    vfuncParseXml(doc: libxml2.Doc, node: libxml2.Node): boolean
-    vfuncPostParseJson(): boolean
-    vfuncPostParseXml(): boolean
-    vfuncPreGetXml(xmlString: GLib.String): void
-    vfuncPreParseXml(doc: libxml2.Doc, rootNode: libxml2.Node): boolean
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: YouTubeCategory, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: YouTubeCategory, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::is-assignable", callback: (($obj: YouTubeCategory, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::is-assignable", callback: (($obj: YouTubeCategory, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::is-assignable", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -14286,9 +12669,9 @@ export interface YouTubeComment_ConstructProps extends Comment_ConstructProps {
     parentCommentUri?: string
 }
 export class YouTubeComment {
-    /* Properties of GData.YouTubeComment */
+    /* Properties of GData-0.0.GData.YouTubeComment */
     parentCommentUri: string
-    /* Properties of GData.Entry */
+    /* Properties of GData-0.0.GData.Entry */
     content: string
     contentUri: string
     readonly isInserted: boolean
@@ -14297,15 +12680,15 @@ export class YouTubeComment {
     summary: string
     title: string
     readonly updated: number
-    /* Fields of GData.YouTubeComment */
+    /* Fields of GData-0.0.GData.YouTubeComment */
     parent: Comment
     priv: YouTubeCommentPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GData.YouTubeComment */
+    /* Methods of GData-0.0.GData.YouTubeComment */
     getParentCommentUri(): string
     setParentCommentUri(parentCommentUri: string): void
-    /* Methods of GData.Entry */
+    /* Methods of GData-0.0.GData.Entry */
     addAuthor(author: Author): void
     addCategory(category: Category): void
     addLink(link: Link): void
@@ -14328,11 +12711,11 @@ export class YouTubeComment {
     setRights(rights?: string | null): void
     setSummary(summary?: string | null): void
     setTitle(title?: string | null): void
-    /* Methods of GData.Parsable */
+    /* Methods of GData-0.0.GData.Parsable */
     getContentType(): string
     getJson(): string
     getXml(): string
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -14354,31 +12737,12 @@ export class YouTubeComment {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GData.Parsable */
-    vfuncGetJson(builder: Json.Builder): void
-    vfuncGetNamespaces(namespaces: GLib.HashTable): void
-    vfuncGetXml(xmlString: GLib.String): void
-    vfuncParseJson(reader: Json.Reader): boolean
-    vfuncParseXml(doc: libxml2.Doc, node: libxml2.Node): boolean
-    vfuncPostParseJson(): boolean
-    vfuncPostParseXml(): boolean
-    vfuncPreGetXml(xmlString: GLib.String): void
-    vfuncPreParseXml(doc: libxml2.Doc, rootNode: libxml2.Node): boolean
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: YouTubeComment, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: YouTubeComment, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::parent-comment-uri", callback: (($obj: YouTubeComment, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::parent-comment-uri", callback: (($obj: YouTubeComment, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::parent-comment-uri", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -14442,9 +12806,9 @@ export class YouTubeComment {
 export interface YouTubeContent_ConstructProps extends MediaContent_ConstructProps {
 }
 export class YouTubeContent {
-    /* Properties of GData.YouTubeContent */
+    /* Properties of GData-0.0.GData.YouTubeContent */
     readonly format: YouTubeFormat
-    /* Properties of GData.MediaContent */
+    /* Properties of GData-0.0.GData.MediaContent */
     readonly contentType: string
     readonly duration: number
     readonly expression: MediaExpression
@@ -14454,14 +12818,14 @@ export class YouTubeContent {
     readonly medium: MediaMedium
     readonly uri: string
     readonly width: number
-    /* Fields of GData.YouTubeContent */
+    /* Fields of GData-0.0.GData.YouTubeContent */
     parent: MediaContent
     priv: YouTubeContentPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GData.YouTubeContent */
+    /* Methods of GData-0.0.GData.YouTubeContent */
     getFormat(): YouTubeFormat
-    /* Methods of GData.MediaContent */
+    /* Methods of GData-0.0.GData.MediaContent */
     download(service: Service, cancellable?: Gio.Cancellable | null): DownloadStream
     getContentType(): string
     getDuration(): number
@@ -14471,10 +12835,10 @@ export class YouTubeContent {
     getMedium(): MediaMedium
     getUri(): string
     getWidth(): number
-    /* Methods of GData.Parsable */
+    /* Methods of GData-0.0.GData.Parsable */
     getJson(): string
     getXml(): string
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -14496,31 +12860,12 @@ export class YouTubeContent {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GData.Parsable */
-    vfuncGetJson(builder: Json.Builder): void
-    vfuncGetNamespaces(namespaces: GLib.HashTable): void
-    vfuncGetXml(xmlString: GLib.String): void
-    vfuncParseJson(reader: Json.Reader): boolean
-    vfuncParseXml(doc: libxml2.Doc, node: libxml2.Node): boolean
-    vfuncPostParseJson(): boolean
-    vfuncPostParseXml(): boolean
-    vfuncPreGetXml(xmlString: GLib.String): void
-    vfuncPreParseXml(doc: libxml2.Doc, rootNode: libxml2.Node): boolean
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: YouTubeContent, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: YouTubeContent, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::format", callback: (($obj: YouTubeContent, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::format", callback: (($obj: YouTubeContent, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::format", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -14586,28 +12931,28 @@ export class YouTubeContent {
 export interface YouTubeCredit_ConstructProps extends MediaCredit_ConstructProps {
 }
 export class YouTubeCredit {
-    /* Properties of GData.YouTubeCredit */
+    /* Properties of GData-0.0.GData.YouTubeCredit */
     readonly entityType: string
-    /* Properties of GData.MediaCredit */
+    /* Properties of GData-0.0.GData.MediaCredit */
     readonly credit: string
     readonly role: string
     readonly scheme: string
-    /* Fields of GData.YouTubeCredit */
+    /* Fields of GData-0.0.GData.YouTubeCredit */
     parent: MediaCredit
     priv: YouTubeCreditPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GData.YouTubeCredit */
+    /* Methods of GData-0.0.GData.YouTubeCredit */
     getEntityType(): string
-    /* Methods of GData.MediaCredit */
+    /* Methods of GData-0.0.GData.MediaCredit */
     getCredit(): string
     getRole(): string
     getScheme(): string
-    /* Methods of GData.Parsable */
+    /* Methods of GData-0.0.GData.Parsable */
     getContentType(): string
     getJson(): string
     getXml(): string
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -14629,31 +12974,12 @@ export class YouTubeCredit {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GData.Parsable */
-    vfuncGetJson(builder: Json.Builder): void
-    vfuncGetNamespaces(namespaces: GLib.HashTable): void
-    vfuncGetXml(xmlString: GLib.String): void
-    vfuncParseJson(reader: Json.Reader): boolean
-    vfuncParseXml(doc: libxml2.Doc, node: libxml2.Node): boolean
-    vfuncPostParseJson(): boolean
-    vfuncPostParseXml(): boolean
-    vfuncPreGetXml(xmlString: GLib.String): void
-    vfuncPreParseXml(doc: libxml2.Doc, rootNode: libxml2.Node): boolean
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: YouTubeCredit, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: YouTubeCredit, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::entity-type", callback: (($obj: YouTubeCredit, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::entity-type", callback: (($obj: YouTubeCredit, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::entity-type", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -14689,7 +13015,7 @@ export class YouTubeCredit {
 export interface YouTubeFeed_ConstructProps extends Feed_ConstructProps {
 }
 export class YouTubeFeed {
-    /* Properties of GData.Feed */
+    /* Properties of GData-0.0.GData.Feed */
     readonly etag: string
     readonly generator: Generator
     readonly icon: string
@@ -14703,12 +13029,12 @@ export class YouTubeFeed {
     readonly title: string
     readonly totalResults: number
     readonly updated: number
-    /* Fields of GData.Parsable */
+    /* Fields of GData-0.0.GData.Parsable */
     parent: GObject.Object
     priv: ParsablePrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GData.Feed */
+    /* Methods of GData-0.0.GData.Feed */
     getAuthors(): Author[]
     getCategories(): Category[]
     getEntries(): Entry[]
@@ -14728,11 +13054,11 @@ export class YouTubeFeed {
     getUpdated(): number
     lookUpEntry(id: string): Entry
     lookUpLink(rel: string): Link
-    /* Methods of GData.Parsable */
+    /* Methods of GData-0.0.GData.Parsable */
     getContentType(): string
     getJson(): string
     getXml(): string
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -14754,31 +13080,12 @@ export class YouTubeFeed {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GData.Parsable */
-    vfuncGetJson(builder: Json.Builder): void
-    vfuncGetNamespaces(namespaces: GLib.HashTable): void
-    vfuncGetXml(xmlString: GLib.String): void
-    vfuncParseJson(reader: Json.Reader): boolean
-    vfuncParseXml(doc: libxml2.Doc, node: libxml2.Node): boolean
-    vfuncPostParseJson(): boolean
-    vfuncPostParseXml(): boolean
-    vfuncPreGetXml(xmlString: GLib.String): void
-    vfuncPreParseXml(doc: libxml2.Doc, rootNode: libxml2.Node): boolean
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: YouTubeFeed, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: YouTubeFeed, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::etag", callback: (($obj: YouTubeFeed, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::etag", callback: (($obj: YouTubeFeed, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::etag", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -14872,7 +13179,7 @@ export interface YouTubeQuery_ConstructProps extends Query_ConstructProps {
     uploader?: YouTubeUploader
 }
 export class YouTubeQuery {
-    /* Properties of GData.YouTubeQuery */
+    /* Properties of GData-0.0.GData.YouTubeQuery */
     age: YouTubeAge
     format: YouTubeFormat
     hasLocation: boolean
@@ -14886,7 +13193,7 @@ export class YouTubeQuery {
     safeSearch: YouTubeSafeSearch
     sortOrder: YouTubeSortOrder
     uploader: YouTubeUploader
-    /* Properties of GData.Query */
+    /* Properties of GData-0.0.GData.Query */
     author: string
     categories: string
     etag: string
@@ -14898,17 +13205,17 @@ export class YouTubeQuery {
     startIndex: number
     updatedMax: number
     updatedMin: number
-    /* Fields of GData.YouTubeQuery */
+    /* Fields of GData-0.0.GData.YouTubeQuery */
     parent: Query
     priv: YouTubeQueryPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GData.YouTubeQuery */
+    /* Methods of GData-0.0.GData.YouTubeQuery */
     getAge(): YouTubeAge
     getFormat(): YouTubeFormat
     getLanguage(): string
     getLicense(): string
-    getLocation(): [ /* latitude */ number | null, /* longitude */ number | null, /* radius */ number | null, /* hasLocation */ boolean | null ]
+    getLocation(): { latitude: number | null, longitude: number | null, radius: number | null, hasLocation: boolean | null }
     getOrderBy(): string
     getRestriction(): string
     getSafeSearch(): YouTubeSafeSearch
@@ -14924,7 +13231,7 @@ export class YouTubeQuery {
     setSafeSearch(safeSearch: YouTubeSafeSearch): void
     setSortOrder(sortOrder: YouTubeSortOrder): void
     setUploader(uploader: YouTubeUploader): void
-    /* Methods of GData.Query */
+    /* Methods of GData-0.0.GData.Query */
     getAuthor(): string
     getCategories(): string
     getEtag(): string
@@ -14949,7 +13256,7 @@ export class YouTubeQuery {
     setStartIndex(startIndex: number): void
     setUpdatedMax(updatedMax: number): void
     setUpdatedMin(updatedMin: number): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -14971,23 +13278,12 @@ export class YouTubeQuery {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GData.Query */
-    vfuncGetQueryUri(feedUri: string, queryUri: GLib.String, paramsStarted: boolean): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: YouTubeQuery, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: YouTubeQuery, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::age", callback: (($obj: YouTubeQuery, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::age", callback: (($obj: YouTubeQuery, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::age", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -15126,18 +13422,18 @@ export interface YouTubeService_ConstructProps extends Service_ConstructProps {
     developerKey?: string
 }
 export class YouTubeService {
-    /* Properties of GData.Service */
+    /* Properties of GData-0.0.GData.Service */
     authorizer: Authorizer
     locale: string
     proxyResolver: Gio.ProxyResolver
     proxyUri: Soup.URI
     timeout: number
-    /* Fields of GData.YouTubeService */
+    /* Fields of GData-0.0.GData.YouTubeService */
     parent: Service
     priv: YouTubeServicePrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GData.YouTubeService */
+    /* Methods of GData-0.0.GData.YouTubeService */
     finishVideoUpload(uploadStream: UploadStream): YouTubeVideo
     getCategories(cancellable?: Gio.Cancellable | null): APPCategories
     getCategoriesAsync(cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
@@ -15150,7 +13446,7 @@ export class YouTubeService {
     queryVideos(query?: Query | null, cancellable?: Gio.Cancellable | null, progressCallback?: QueryProgressCallback | null): Feed
     queryVideosAsync(query?: Query | null, cancellable?: Gio.Cancellable | null, progressCallback?: QueryProgressCallback | null, callback?: Gio.AsyncReadyCallback | null): void
     uploadVideo(video: YouTubeVideo, slug: string, contentType: string, cancellable?: Gio.Cancellable | null): UploadStream
-    /* Methods of GData.Service */
+    /* Methods of GData-0.0.GData.Service */
     deleteEntry(domain: AuthorizationDomain | null, entry: Entry, cancellable?: Gio.Cancellable | null): boolean
     deleteEntryAsync(domain: AuthorizationDomain | null, entry: Entry, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     deleteEntryFinish(asyncResult: Gio.AsyncResult): boolean
@@ -15177,7 +13473,7 @@ export class YouTubeService {
     updateEntry(domain: AuthorizationDomain | null, entry: Entry, cancellable?: Gio.Cancellable | null): Entry
     updateEntryAsync(domain: AuthorizationDomain | null, entry: Entry, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     updateEntryFinish(asyncResult: Gio.AsyncResult): Entry
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -15199,26 +13495,14 @@ export class YouTubeService {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of GData.Batchable */
+    /* Methods of GData-0.0.GData.Batchable */
     createOperation(domain: AuthorizationDomain | null, feedUri: string): BatchOperation
-    /* Virtual methods of GData.Service */
-    vfuncAppendQueryHeaders(domain: AuthorizationDomain, message: Soup.Message): void
-    vfuncParseErrorResponse(operationType: OperationType, status: number, reasonPhrase: string, responseBody: string, length: number): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: YouTubeService, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: YouTubeService, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::authorizer", callback: (($obj: YouTubeService, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::authorizer", callback: (($obj: YouTubeService, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::authorizer", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -15266,21 +13550,21 @@ export interface YouTubeState_ConstructProps extends Parsable_ConstructProps {
     reasonCode?: string
 }
 export class YouTubeState {
-    /* Fields of GData.YouTubeState */
+    /* Fields of GData-0.0.GData.YouTubeState */
     parent: Parsable
     priv: YouTubeStatePrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GData.YouTubeState */
+    /* Methods of GData-0.0.GData.YouTubeState */
     getHelpUri(): string
     getMessage(): string
     getName(): string
     getReasonCode(): string
-    /* Methods of GData.Parsable */
+    /* Methods of GData-0.0.GData.Parsable */
     getContentType(): string
     getJson(): string
     getXml(): string
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -15302,31 +13586,12 @@ export class YouTubeState {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GData.Parsable */
-    vfuncGetJson(builder: Json.Builder): void
-    vfuncGetNamespaces(namespaces: GLib.HashTable): void
-    vfuncGetXml(xmlString: GLib.String): void
-    vfuncParseJson(reader: Json.Reader): boolean
-    vfuncParseXml(doc: libxml2.Doc, node: libxml2.Node): boolean
-    vfuncPostParseJson(): boolean
-    vfuncPostParseXml(): boolean
-    vfuncPreGetXml(xmlString: GLib.String): void
-    vfuncPreParseXml(doc: libxml2.Doc, rootNode: libxml2.Node): boolean
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: YouTubeState, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: YouTubeState, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -15352,7 +13617,7 @@ export interface YouTubeVideo_ConstructProps extends Entry_ConstructProps {
     recorded?: number
 }
 export class YouTubeVideo {
-    /* Properties of GData.YouTubeVideo */
+    /* Properties of GData-0.0.GData.YouTubeVideo */
     aspectRatio: string
     readonly averageRating: number
     category: MediaCategory
@@ -15375,7 +13640,7 @@ export class YouTubeVideo {
     readonly uploaded: number
     readonly videoId: string
     readonly viewCount: number
-    /* Properties of GData.Entry */
+    /* Properties of GData-0.0.GData.Entry */
     content: string
     contentUri: string
     readonly isInserted: boolean
@@ -15384,16 +13649,16 @@ export class YouTubeVideo {
     summary: string
     title: string
     readonly updated: number
-    /* Fields of GData.YouTubeVideo */
+    /* Fields of GData-0.0.GData.YouTubeVideo */
     parent: Entry
     priv: YouTubeVideoPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GData.YouTubeVideo */
+    /* Methods of GData-0.0.GData.YouTubeVideo */
     getAccessControl(action: string): YouTubePermission
     getAspectRatio(): string
     getCategory(): MediaCategory
-    getCoordinates(): [ /* latitude */ number | null, /* longitude */ number | null ]
+    getCoordinates(): { latitude: number | null, longitude: number | null }
     getCredit(): YouTubeCredit
     getDescription(): string
     getDuration(): number
@@ -15402,7 +13667,7 @@ export class YouTubeVideo {
     getLocation(): string
     getMediaRating(ratingType: string): string
     getPlayerUri(): string
-    getRating(): [ /* min */ number | null, /* max */ number | null, /* count */ number | null, /* average */ number | null ]
+    getRating(): { min: number | null, max: number | null, count: number | null, average: number | null }
     getRecorded(): number
     getState(): YouTubeState
     getThumbnails(): MediaThumbnail[]
@@ -15421,7 +13686,7 @@ export class YouTubeVideo {
     setKeywords(keywords: string[]): void
     setLocation(location?: string | null): void
     setRecorded(recorded: number): void
-    /* Methods of GData.Entry */
+    /* Methods of GData-0.0.GData.Entry */
     addAuthor(author: Author): void
     addCategory(category: Category): void
     addLink(link: Link): void
@@ -15444,11 +13709,11 @@ export class YouTubeVideo {
     setRights(rights?: string | null): void
     setSummary(summary?: string | null): void
     setTitle(title?: string | null): void
-    /* Methods of GData.Parsable */
+    /* Methods of GData-0.0.GData.Parsable */
     getContentType(): string
     getJson(): string
     getXml(): string
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -15470,7 +13735,7 @@ export class YouTubeVideo {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of GData.Commentable */
+    /* Methods of GData-0.0.GData.Commentable */
     deleteComment(service: Service, comment: Comment, cancellable?: Gio.Cancellable | null): boolean
     deleteCommentAsync(service: Service, comment: Comment, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     deleteCommentFinish(result: Gio.AsyncResult): boolean
@@ -15480,35 +13745,12 @@ export class YouTubeVideo {
     queryComments(service: Service, query?: Query | null, cancellable?: Gio.Cancellable | null, progressCallback?: QueryProgressCallback | null): Feed | null
     queryCommentsAsync(service: Service, query?: Query | null, cancellable?: Gio.Cancellable | null, progressCallback?: QueryProgressCallback | null, callback?: Gio.AsyncReadyCallback | null): void
     queryCommentsFinish(result: Gio.AsyncResult): Feed | null
-    /* Virtual methods of GData.YouTubeVideo */
-    vfuncGetInsertCommentUri(comment: Comment): string
-    vfuncGetQueryCommentsUri(): string
-    vfuncIsCommentDeletable(comment: Comment): boolean
-    /* Virtual methods of GData.Parsable */
-    vfuncGetJson(builder: Json.Builder): void
-    vfuncGetNamespaces(namespaces: GLib.HashTable): void
-    vfuncGetXml(xmlString: GLib.String): void
-    vfuncParseJson(reader: Json.Reader): boolean
-    vfuncParseXml(doc: libxml2.Doc, node: libxml2.Node): boolean
-    vfuncPostParseJson(): boolean
-    vfuncPostParseXml(): boolean
-    vfuncPreGetXml(xmlString: GLib.String): void
-    vfuncPreParseXml(doc: libxml2.Doc, rootNode: libxml2.Node): boolean
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: YouTubeVideo, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: YouTubeVideo, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::aspect-ratio", callback: (($obj: YouTubeVideo, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::aspect-ratio", callback: (($obj: YouTubeVideo, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::aspect-ratio", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -15681,7 +13923,7 @@ export class APPCategoriesPrivate {
     static name: string
 }
 export abstract class AccessHandlerIface {
-    /* Fields of GData.AccessHandlerIface */
+    /* Fields of GData-0.0.GData.AccessHandlerIface */
     parent: GObject.TypeInterface
     isOwnerRule: (rule: AccessRule) => boolean
     getRules: (self: AccessHandler, service: Service, cancellable?: Gio.Cancellable | null, progressCallback?: QueryProgressCallback | null) => Feed
@@ -15706,7 +13948,7 @@ export class AuthorizationDomainPrivate {
     static name: string
 }
 export abstract class AuthorizerInterface {
-    /* Fields of GData.AuthorizerInterface */
+    /* Fields of GData-0.0.GData.AuthorizerInterface */
     parent: GObject.TypeInterface
     processRequest: (self: Authorizer, domain: AuthorizationDomain | null, message: Soup.Message) => void
     isAuthorizedForDomain: (self: Authorizer | null, domain: AuthorizationDomain) => boolean
@@ -15722,7 +13964,7 @@ export class BatchOperationPrivate {
     static name: string
 }
 export abstract class BatchableIface {
-    /* Fields of GData.BatchableIface */
+    /* Fields of GData-0.0.GData.BatchableIface */
     isSupported: (operationType: BatchOperationType) => boolean
     static name: string
 }
@@ -15772,15 +14014,15 @@ export class ClientLoginAuthorizerPrivate {
     static name: string
 }
 export class Color {
-    /* Fields of GData.Color */
+    /* Fields of GData-0.0.GData.Color */
     red: number
     green: number
     blue: number
-    /* Methods of GData.Color */
+    /* Methods of GData-0.0.GData.Color */
     toHexadecimal(): string
     static name: string
     /* Static methods and pseudo-constructors */
-    static fromHexadecimal(hexadecimal: string): [ /* returnType */ boolean, /* color */ Color ]
+    static fromHexadecimal(hexadecimal: string): { returnType: boolean, color: Color }
 }
 export abstract class CommentClass {
     static name: string
@@ -15789,7 +14031,7 @@ export class CommentPrivate {
     static name: string
 }
 export abstract class CommentableInterface {
-    /* Fields of GData.CommentableInterface */
+    /* Fields of GData-0.0.GData.CommentableInterface */
     parent: GObject.TypeInterface
     commentType: GObject.Type
     getQueryCommentsUri: (self: Commentable) => string
@@ -15798,7 +14040,7 @@ export abstract class CommentableInterface {
     static name: string
 }
 export abstract class ComparableIface {
-    /* Fields of GData.ComparableIface */
+    /* Fields of GData-0.0.GData.ComparableIface */
     parent: GObject.TypeInterface
     compareWith: (self: Comparable, other: Comparable) => number
     static name: string
@@ -15927,7 +14169,7 @@ export class DownloadStreamPrivate {
     static name: string
 }
 export abstract class EntryClass {
-    /* Fields of GData.EntryClass */
+    /* Fields of GData-0.0.GData.EntryClass */
     parent: ParsableClass
     getEntryUri: (id: string) => string
     kindTerm: string
@@ -15964,7 +14206,7 @@ export abstract class FreebaseSearchResultClass {
     static name: string
 }
 export class FreebaseSearchResultItem {
-    /* Methods of GData.FreebaseSearchResultItem */
+    /* Methods of GData-0.0.GData.FreebaseSearchResultItem */
     getId(): string
     getLanguage(): string
     getMid(): string
@@ -15984,7 +14226,7 @@ export class FreebaseServicePrivate {
     static name: string
 }
 export class FreebaseTopicObject {
-    /* Methods of GData.FreebaseTopicObject */
+    /* Methods of GData-0.0.GData.FreebaseTopicObject */
     getId(): string
     getPropertyCount(property: string): number
     getPropertyHits(property: string): number
@@ -16007,8 +14249,8 @@ export class FreebaseTopicResultPrivate {
     static name: string
 }
 export class FreebaseTopicValue {
-    /* Methods of GData.FreebaseTopicValue */
-    copyValue(): /* gvalue */ any
+    /* Methods of GData-0.0.GData.FreebaseTopicValue */
+    copyValue(): { gvalue: any }
     getCreator(): string
     getDouble(): number
     getInt(): number
@@ -16181,7 +14423,7 @@ export class OAuth2AuthorizerPrivate {
     static name: string
 }
 export abstract class ParsableClass {
-    /* Fields of GData.ParsableClass */
+    /* Fields of GData-0.0.GData.ParsableClass */
     parent: GObject.ObjectClass
     preParseXml: (parsable: Parsable, doc: libxml2.Doc, rootNode: libxml2.Node) => boolean
     parseXml: (parsable: Parsable, doc: libxml2.Doc, node: libxml2.Node) => boolean
@@ -16237,7 +14479,7 @@ export class PicasaWebUserPrivate {
     static name: string
 }
 export abstract class QueryClass {
-    /* Fields of GData.QueryClass */
+    /* Fields of GData-0.0.GData.QueryClass */
     getQueryUri: (self: Query, feedUri: string, queryUri: GLib.String, paramsStarted: boolean) => void
     static name: string
 }
@@ -16245,7 +14487,7 @@ export class QueryPrivate {
     static name: string
 }
 export abstract class ServiceClass {
-    /* Fields of GData.ServiceClass */
+    /* Fields of GData-0.0.GData.ServiceClass */
     parent: GObject.ObjectClass
     apiVersion: string
     feedType: GObject.Type

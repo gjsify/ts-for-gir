@@ -76,16 +76,16 @@ export interface Attribute_ConstructProps extends GObject.Object_ConstructProps 
     namespace?: Namespace
 }
 export class Attribute {
-    /* Properties of GXml.Attribute */
+    /* Properties of GXml-0.10.GXml.Attribute */
     namespace: Namespace
     readonly prefix: string
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GXml.Attribute */
+    /* Methods of GXml-0.10.GXml.Attribute */
     getNamespace(): Namespace
     setNamespace(value: Namespace): void
     getPrefix(): string
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -107,25 +107,12 @@ export class Attribute {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GXml.Attribute */
-    vfuncGetNamespace(): Namespace
-    vfuncSetNamespace(value: Namespace): void
-    vfuncGetPrefix(): string
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Attribute, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Attribute, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::namespace", callback: (($obj: Attribute, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::namespace", callback: (($obj: Attribute, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::namespace", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -151,13 +138,13 @@ export class Attribute {
 export interface Comment_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class Comment {
-    /* Properties of GXml.Comment */
+    /* Properties of GXml-0.10.GXml.Comment */
     readonly str: string
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GXml.Comment */
+    /* Methods of GXml-0.10.GXml.Comment */
     getStr(): string
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -179,23 +166,12 @@ export class Comment {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GXml.Comment */
-    vfuncGetStr(): string
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Comment, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Comment, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::str", callback: (($obj: Comment, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::str", callback: (($obj: Comment, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::str", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -216,13 +192,13 @@ export class Comment {
 export interface CDATA_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class CDATA {
-    /* Properties of GXml.CDATA */
+    /* Properties of GXml-0.10.GXml.CDATA */
     readonly str: string
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GXml.CDATA */
+    /* Methods of GXml-0.10.GXml.CDATA */
     getStr(): string
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -244,23 +220,12 @@ export class CDATA {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GXml.CDATA */
-    vfuncGetStr(): string
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: CDATA, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: CDATA, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::str", callback: (($obj: CDATA, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::str", callback: (($obj: CDATA, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::str", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -286,16 +251,16 @@ export interface Document_ConstructProps extends GObject.Object_ConstructProps {
     file?: Gio.File
 }
 export class Document {
-    /* Properties of GXml.Document */
+    /* Properties of GXml-0.10.GXml.Document */
     indent: boolean
     nsTop: boolean
     prefixDefaultNs: boolean
     backup: boolean
     readonly root: Node
     file: Gio.File
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GXml.Document */
+    /* Methods of GXml-0.10.GXml.Document */
     createElement(name: string): Node
     createText(text: string): Node
     createComment(text: string): Node
@@ -314,7 +279,7 @@ export class Document {
     getRoot(): Node
     getFile(): Gio.File
     setFile(value: Gio.File): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -336,40 +301,12 @@ export class Document {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GXml.Document */
-    vfuncCreateElement(name: string): Node
-    vfuncCreateText(text: string): Node
-    vfuncCreateComment(text: string): Node
-    vfuncCreateCdata(text: string): Node
-    vfuncCreatePi(target: string, data: string): Node
-    vfuncSave(cancellable?: Gio.Cancellable | null): boolean
-    vfuncSaveAs(f: Gio.File, cancellable?: Gio.Cancellable | null): boolean
-    vfuncGetIndent(): boolean
-    vfuncSetIndent(value: boolean): void
-    vfuncGetNsTop(): boolean
-    vfuncSetNsTop(value: boolean): void
-    vfuncGetPrefixDefaultNs(): boolean
-    vfuncSetPrefixDefaultNs(value: boolean): void
-    vfuncGetBackup(): boolean
-    vfuncSetBackup(value: boolean): void
-    vfuncGetRoot(): Node
-    vfuncGetFile(): Gio.File
-    vfuncSetFile(value: Gio.File): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Document, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Document, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::indent", callback: (($obj: Document, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::indent", callback: (($obj: Document, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::indent", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -419,9 +356,9 @@ export class Document {
 export interface DocumentType_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class DocumentType {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -443,21 +380,12 @@ export class DocumentType {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: DocumentType, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: DocumentType, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -474,12 +402,12 @@ export interface Element_ConstructProps extends GObject.Object_ConstructProps {
     content?: string
 }
 export class Element {
-    /* Properties of GXml.Element */
+    /* Properties of GXml-0.10.GXml.Element */
     readonly tagName: string
     content: string
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GXml.Element */
+    /* Methods of GXml-0.10.GXml.Element */
     normalize(): void
     setAttr(name: string, value: string): void
     getAttr(name: string): Node
@@ -489,7 +417,7 @@ export class Element {
     getTagName(): string
     getContent(): string
     setContent(value: string): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -511,31 +439,12 @@ export class Element {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GXml.Element */
-    vfuncNormalize(): void
-    vfuncSetAttr(name: string, value: string): void
-    vfuncGetAttr(name: string): Node
-    vfuncRemoveAttr(name: string): void
-    vfuncSetNsAttr(ns: Namespace, name: string, value: string): void
-    vfuncGetNsAttr(name: string, uri: string): Node
-    vfuncGetTagName(): string
-    vfuncGetContent(): string
-    vfuncSetContent(value: string): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Element, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Element, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::tag-name", callback: (($obj: Element, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::tag-name", callback: (($obj: Element, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::tag-name", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -561,15 +470,15 @@ export class Element {
 export interface Namespace_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class Namespace {
-    /* Properties of GXml.Namespace */
+    /* Properties of GXml-0.10.GXml.Namespace */
     readonly uri: string
     readonly prefix: string
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GXml.Namespace */
+    /* Methods of GXml-0.10.GXml.Namespace */
     getUri(): string
     getPrefix(): string
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -591,24 +500,12 @@ export class Namespace {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GXml.Namespace */
-    vfuncGetUri(): string
-    vfuncGetPrefix(): string
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Namespace, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Namespace, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::uri", callback: (($obj: Namespace, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::uri", callback: (($obj: Namespace, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::uri", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -635,7 +532,7 @@ export interface Node_ConstructProps extends GObject.Object_ConstructProps {
     value?: string
 }
 export class Node {
-    /* Properties of GXml.Node */
+    /* Properties of GXml-0.10.GXml.Node */
     readonly namespaces: Gee.List
     readonly childs: Gee.BidirList
     readonly children: Gee.BidirList
@@ -645,9 +542,9 @@ export class Node {
     readonly typeNode: NodeType
     readonly document: Document
     readonly parent: Node
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GXml.Node */
+    /* Methods of GXml-0.10.GXml.Node */
     get(key: string): Node | null
     getElementsByPropertyValue(property: string, value: string): ElementList
     toString(): string
@@ -664,7 +561,7 @@ export class Node {
     getTypeNode(): NodeType
     getDocument(): Document
     getParent(): Node
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -686,38 +583,12 @@ export class Node {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GXml.Node */
-    vfuncGet(key: string): Node | null
-    vfuncGetElementsByPropertyValue(property: string, value: string): ElementList
-    vfuncToString(): string
-    vfuncSetNamespace(uri: string, prefix?: string | null): boolean
-    vfuncNsPrefix(): string
-    vfuncNsUri(): string
-    vfuncGetNamespaces(): Gee.List
-    vfuncGetChilds(): Gee.BidirList
-    vfuncGetChildren(): Gee.BidirList
-    vfuncGetAttrs(): Gee.Map
-    vfuncGetName(): string
-    vfuncGetValue(): string
-    vfuncSetValue(value: string): void
-    vfuncGetTypeNode(): NodeType
-    vfuncGetDocument(): Document
-    vfuncGetParent(): Node
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Node, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Node, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::namespaces", callback: (($obj: Node, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::namespaces", callback: (($obj: Node, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::namespaces", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -780,15 +651,15 @@ export class Node {
 export interface Notation_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class Notation {
-    /* Properties of GXml.Notation */
+    /* Properties of GXml-0.10.GXml.Notation */
     readonly publicId: string
     readonly externalId: string
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GXml.Notation */
+    /* Methods of GXml-0.10.GXml.Notation */
     getPublicId(): string | null
     getExternalId(): string | null
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -810,24 +681,12 @@ export class Notation {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GXml.Notation */
-    vfuncGetPublicId(): string | null
-    vfuncGetExternalId(): string | null
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Notation, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Notation, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::public-id", callback: (($obj: Notation, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::public-id", callback: (($obj: Notation, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::public-id", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -853,15 +712,15 @@ export class Notation {
 export interface ProcessingInstruction_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class ProcessingInstruction {
-    /* Properties of GXml.ProcessingInstruction */
+    /* Properties of GXml-0.10.GXml.ProcessingInstruction */
     readonly target: string
     readonly data: string
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GXml.ProcessingInstruction */
+    /* Methods of GXml-0.10.GXml.ProcessingInstruction */
     getTarget(): string
     getData(): string
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -883,24 +742,12 @@ export class ProcessingInstruction {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GXml.ProcessingInstruction */
-    vfuncGetTarget(): string
-    vfuncGetData(): string
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: ProcessingInstruction, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: ProcessingInstruction, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::target", callback: (($obj: ProcessingInstruction, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::target", callback: (($obj: ProcessingInstruction, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::target", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -926,13 +773,13 @@ export class ProcessingInstruction {
 export interface Text_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class Text {
-    /* Properties of GXml.Text */
+    /* Properties of GXml-0.10.GXml.Text */
     readonly str: string
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GXml.Text */
+    /* Methods of GXml-0.10.GXml.Text */
     getStr(): string
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -954,23 +801,12 @@ export class Text {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GXml.Text */
-    vfuncGetStr(): string
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Text, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Text, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::str", callback: (($obj: Text, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::str", callback: (($obj: Text, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::str", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -991,17 +827,17 @@ export class Text {
 export interface NamedNodeMap_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class NamedNodeMap {
-    /* Properties of GXml.NamedNodeMap */
+    /* Properties of GXml-0.10.GXml.NamedNodeMap */
     readonly length: number
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GXml.NamedNodeMap */
+    /* Methods of GXml-0.10.GXml.NamedNodeMap */
     getNamedItem(name: string): object | null
     setNamedItem(item?: object | null): object | null
     removeNamedItem(name: string): object | null
     item(index: number): object | null
     getLength(): number
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -1023,27 +859,12 @@ export class NamedNodeMap {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GXml.NamedNodeMap */
-    vfuncGetNamedItem(name: string): object | null
-    vfuncSetNamedItem(item?: object | null): object | null
-    vfuncRemoveNamedItem(name: string): object | null
-    vfuncItem(index: number): object | null
-    vfuncGetLength(): number
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: NamedNodeMap, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: NamedNodeMap, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::length", callback: (($obj: NamedNodeMap, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::length", callback: (($obj: NamedNodeMap, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::length", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -1065,11 +886,11 @@ export interface xNodeList_ConstructProps extends GObject.Object_ConstructProps 
     length?: number
 }
 export class xNodeList {
-    /* Properties of GXml.xNodeList */
+    /* Properties of GXml-0.10.GXml.xNodeList */
     length: number
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GXml.xNodeList */
+    /* Methods of GXml-0.10.GXml.xNodeList */
     item(idx: number): xNode
     insertBefore(newChild: xNode, refChild?: xNode | null): xNode | null
     replaceChild(newChild: xNode, oldChild: xNode): xNode | null
@@ -1081,7 +902,7 @@ export class xNodeList {
     get(n: number): xNode
     getLength(): number
     setLength(value: number): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -1103,33 +924,12 @@ export class xNodeList {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GXml.xNodeList */
-    vfuncItem(idx: number): xNode
-    vfuncInsertBefore(newChild: xNode, refChild?: xNode | null): xNode | null
-    vfuncReplaceChild(newChild: xNode, oldChild: xNode): xNode | null
-    vfuncRemoveChild(oldChild: xNode): xNode | null
-    vfuncAppendChild(newChild: xNode): xNode | null
-    vfuncToString(inLine: boolean): string
-    vfuncFirst(): xNode
-    vfuncLast(): xNode
-    vfuncGet(n: number): xNode
-    vfuncGetLength(): number
-    vfuncSetLength(value: number): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: xNodeList, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: xNodeList, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::length", callback: (($obj: xNodeList, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::length", callback: (($obj: xNodeList, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::length", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -1151,13 +951,13 @@ export interface Serializable_ConstructProps extends GObject.Object_ConstructPro
     serializedXmlNodeValue?: string
 }
 export class Serializable {
-    /* Properties of GXml.Serializable */
+    /* Properties of GXml-0.10.GXml.Serializable */
     readonly unknownSerializableProperties: Gee.Map
     readonly unknownSerializableNodes: Gee.Collection
     serializedXmlNodeValue: string
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GXml.Serializable */
+    /* Methods of GXml-0.10.GXml.Serializable */
     getEnableUnknownSerializableProperty(): boolean
     setDefaultNamespace(node: Node): boolean
     serializeUseXmlNodeValue(): boolean
@@ -1175,7 +975,7 @@ export class Serializable {
     getUnknownSerializableNodes(): Gee.Collection
     getSerializedXmlNodeValue(): string | null
     setSerializedXmlNodeValue(value?: string | null): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -1197,64 +997,33 @@ export class Serializable {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GXml.Serializable */
-    vfuncGetEnableUnknownSerializableProperty(): boolean
-    vfuncSetDefaultNamespace(node: Node): boolean
-    vfuncSerializeUseXmlNodeValue(): boolean
-    vfuncNodeName(): string
-    vfuncPropertyUseNick(): boolean
-    vfuncSerialize(node: Node): Node | null
-    vfuncSerializeProperty(element: Node, prop: GObject.ParamSpec): Node | null
-    vfuncDeserialize(node: Node): boolean
-    vfuncDeserializeProperty(propertyNode: Node): boolean
-    vfuncFindPropertySpec(propertyName: string): GObject.ParamSpec | null
-    vfuncDefaultFindPropertySpec(propertyName: string): GObject.ParamSpec | null
-    vfuncListSerializableProperties(): GObject.ParamSpec[]
-    vfuncDefaultListSerializableProperties(): GObject.ParamSpec[]
-    vfuncGetUnknownSerializableProperties(): Gee.Map
-    vfuncGetUnknownSerializableNodes(): Gee.Collection
-    vfuncGetSerializedXmlNodeValue(): string | null
-    vfuncSetSerializedXmlNodeValue(value?: string | null): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GXml.Serializable */
+    /* Signals of GXml-0.10.GXml.Serializable */
     connect(sigName: "serialize_unknown_property", callback: (($obj: Serializable, element: Node, prop: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "serialize_unknown_property", callback: (($obj: Serializable, element: Node, prop: GObject.ParamSpec) => void)): number
+    on(sigName: "serialize_unknown_property", callback: (element: Node, prop: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "serialize_unknown_property", callback: (element: Node, prop: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "serialize_unknown_property", callback: (element: Node, prop: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "serialize_unknown_property", element: Node, prop: GObject.ParamSpec): void
-    on(sigName: "serialize_unknown_property", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "serialize_unknown_property", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "serialize_unknown_property", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "serialize_unknown_property_type", callback: (($obj: Serializable, element: Node, prop: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "serialize_unknown_property_type", callback: (($obj: Serializable, element: Node, prop: GObject.ParamSpec) => void)): number
+    on(sigName: "serialize_unknown_property_type", callback: (element: Node, prop: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "serialize_unknown_property_type", callback: (element: Node, prop: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "serialize_unknown_property_type", callback: (element: Node, prop: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "serialize_unknown_property_type", element: Node, prop: GObject.ParamSpec): void
-    on(sigName: "serialize_unknown_property_type", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "serialize_unknown_property_type", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "serialize_unknown_property_type", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "deserialize_unknown_property", callback: (($obj: Serializable, node: Node, prop: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "deserialize_unknown_property", callback: (($obj: Serializable, node: Node, prop: GObject.ParamSpec) => void)): number
+    on(sigName: "deserialize_unknown_property", callback: (node: Node, prop: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "deserialize_unknown_property", callback: (node: Node, prop: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "deserialize_unknown_property", callback: (node: Node, prop: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "deserialize_unknown_property", node: Node, prop: GObject.ParamSpec): void
-    on(sigName: "deserialize_unknown_property", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "deserialize_unknown_property", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "deserialize_unknown_property", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "deserialize_unknown_property_type", callback: (($obj: Serializable, node: Node, prop: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "deserialize_unknown_property_type", callback: (($obj: Serializable, node: Node, prop: GObject.ParamSpec) => void)): number
+    on(sigName: "deserialize_unknown_property_type", callback: (node: Node, prop: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "deserialize_unknown_property_type", callback: (node: Node, prop: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "deserialize_unknown_property_type", callback: (node: Node, prop: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "deserialize_unknown_property_type", node: Node, prop: GObject.ParamSpec): void
-    on(sigName: "deserialize_unknown_property_type", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "deserialize_unknown_property_type", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "deserialize_unknown_property_type", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Serializable, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Serializable, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::unknown-serializable-properties", callback: (($obj: Serializable, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::unknown-serializable-properties", callback: (($obj: Serializable, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::unknown-serializable-properties", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -1281,23 +1050,23 @@ export class Serializable {
     constructor (config?: Serializable_ConstructProps)
     _init (config?: Serializable_ConstructProps): void
     /* Static methods and pseudo-constructors */
-    static stringToGvalue(str: string, dest: any): [ /* returnType */ boolean, /* dest */ any ]
+    static stringToGvalue(str: string, dest: any): { returnType: boolean, dest: any }
     static gvalueToString(val: any): string
     static $gtype: GObject.Type
 }
 export interface SerializableProperty_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class SerializableProperty {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GXml.SerializableProperty */
+    /* Methods of GXml-0.10.GXml.SerializableProperty */
     getSerializablePropertyValue(): string
     setSerializablePropertyValue(val?: string | null): void
     deserializeProperty(propertyNode: Node, prop: GObject.ParamSpec, nick: boolean): boolean
     serializeProperty(propertyNode: Node, prop: GObject.ParamSpec, nick: boolean): Node | null
     defaultSerializablePropertySerializeProperty(element: Node, prop: GObject.ParamSpec, nick: boolean): Node | null
     defaultSerializablePropertyDeserializeProperty(propertyNode: Node, prop: GObject.ParamSpec, nick: boolean): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -1319,26 +1088,12 @@ export class SerializableProperty {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GXml.SerializableProperty */
-    vfuncGetSerializablePropertyValue(): string
-    vfuncSetSerializablePropertyValue(val?: string | null): void
-    vfuncDeserializeProperty(propertyNode: Node, prop: GObject.ParamSpec, nick: boolean): boolean
-    vfuncSerializeProperty(propertyNode: Node, prop: GObject.ParamSpec, nick: boolean): Node | null
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: SerializableProperty, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: SerializableProperty, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -1354,11 +1109,11 @@ export class SerializableProperty {
 export interface SerializableMapKey_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class SerializableMapKey {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GXml.SerializableMapKey */
+    /* Methods of GXml-0.10.GXml.SerializableMapKey */
     getMapKey(): object | null
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -1380,23 +1135,12 @@ export class SerializableMapKey {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GXml.SerializableMapKey */
-    vfuncGetMapKey(): object | null
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: SerializableMapKey, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: SerializableMapKey, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -1412,12 +1156,12 @@ export class SerializableMapKey {
 export interface SerializableMapDualKey_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class SerializableMapDualKey {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GXml.SerializableMapDualKey */
+    /* Methods of GXml-0.10.GXml.SerializableMapDualKey */
     getMapPrimaryKey(): object | null
     getMapSecondaryKey(): object | null
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -1439,24 +1183,12 @@ export class SerializableMapDualKey {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GXml.SerializableMapDualKey */
-    vfuncGetMapPrimaryKey(): object | null
-    vfuncGetMapSecondaryKey(): object | null
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: SerializableMapDualKey, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: SerializableMapDualKey, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -1472,15 +1204,15 @@ export class SerializableMapDualKey {
 export interface SerializableCollection_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class SerializableCollection {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GXml.SerializableCollection */
+    /* Methods of GXml-0.10.GXml.SerializableCollection */
     deserializeProceed(): boolean
     deserialized(): boolean
     deserializeNode(node: Node): boolean
     deserializeChildren(): boolean
     isCollection(): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -1502,27 +1234,12 @@ export class SerializableCollection {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GXml.SerializableCollection */
-    vfuncDeserializeProceed(): boolean
-    vfuncDeserialized(): boolean
-    vfuncDeserializeNode(node: Node): boolean
-    vfuncDeserializeChildren(): boolean
-    vfuncIsCollection(): boolean
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: SerializableCollection, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: SerializableCollection, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -1538,26 +1255,26 @@ export class SerializableCollection {
 export interface ElementList_ConstructProps extends Gee.ArrayList_ConstructProps {
 }
 export class ElementList {
-    /* Properties of Gee.AbstractBidirList */
+    /* Properties of Gee-0.8.Gee.AbstractBidirList */
     readonly readOnlyView: Gee.BidirList
-    /* Properties of Gee.AbstractCollection */
+    /* Properties of Gee-0.8.Gee.AbstractCollection */
     readonly size: number
     readonly readOnly: boolean
-    /* Fields of GXml.ElementList */
+    /* Fields of GXml-0.10.GXml.ElementList */
     parentInstance: Gee.ArrayList
     priv: ElementListPrivate
-    /* Fields of Gee.ArrayList */
+    /* Fields of Gee-0.8.Gee.ArrayList */
     items: object[]
     itemsLength1: number
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GXml.ElementList */
+    /* Methods of GXml-0.10.GXml.ElementList */
     get(index: number): Element
     toArray(): Element[]
-    /* Methods of Gee.ArrayList */
+    /* Methods of Gee-0.8.Gee.ArrayList */
     addAll(collection: Gee.Collection): boolean
-    getEqualFunc(): [ /* returnType */ Gee.EqualDataFunc, /* resultTarget */ object | null ]
-    /* Methods of Gee.AbstractBidirList */
+    getEqualFunc(): { returnType: Gee.EqualDataFunc, resultTarget: object | null }
+    /* Methods of Gee-0.8.Gee.AbstractBidirList */
     bidirListIterator(): Gee.BidirListIterator
     reserved0(): void
     reserved1(): void
@@ -1570,7 +1287,7 @@ export class ElementList {
     reserved8(): void
     reserved9(): void
     getReadOnlyView(): Gee.BidirList
-    /* Methods of Gee.AbstractList */
+    /* Methods of Gee-0.8.Gee.AbstractList */
     listIterator(): Gee.ListIterator
     get(index: number): object | null
     set(index: number, item?: object | null): void
@@ -1579,7 +1296,7 @@ export class ElementList {
     removeAt(index: number): object | null
     slice(start: number, stop: number): Gee.List | null
     getReadOnlyView(): Gee.List
-    /* Methods of Gee.AbstractCollection */
+    /* Methods of Gee-0.8.Gee.AbstractCollection */
     contains(item?: object | null): boolean
     add(item?: object | null): boolean
     remove(item?: object | null): boolean
@@ -1589,7 +1306,7 @@ export class ElementList {
     getSize(): number
     getReadOnly(): boolean
     getReadOnlyView(): Gee.Collection
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -1611,115 +1328,12 @@ export class ElementList {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GXml.ElementList */
-    vfuncGetReadOnlyView(): Gee.BidirList
-    vfuncGetReadOnlyView(): Gee.List
-    vfuncGetReadOnlyView(): Gee.Collection
-    /* Virtual methods of Gee.ArrayList */
-    vfuncGetReadOnlyView(): Gee.BidirList
-    vfuncGetReadOnlyView(): Gee.List
-    vfuncGetReadOnlyView(): Gee.Collection
-    /* Virtual methods of Gee.AbstractBidirList */
-    vfuncBidirListIterator(): Gee.BidirListIterator
-    vfuncReserved0(): void
-    vfuncReserved1(): void
-    vfuncReserved2(): void
-    vfuncReserved3(): void
-    vfuncReserved4(): void
-    vfuncReserved5(): void
-    vfuncReserved6(): void
-    vfuncReserved7(): void
-    vfuncReserved8(): void
-    vfuncReserved9(): void
-    vfuncGetReadOnlyView(): Gee.BidirList
-    vfuncGetReadOnlyView(): Gee.List
-    vfuncGetReadOnlyView(): Gee.Collection
-    /* Virtual methods of Gee.AbstractList */
-    vfuncListIterator(): Gee.ListIterator
-    vfuncGet(index: number): object | null
-    vfuncSet(index: number, item?: object | null): void
-    vfuncIndexOf(item?: object | null): number
-    vfuncInsert(index: number, item?: object | null): void
-    vfuncRemoveAt(index: number): object | null
-    vfuncSlice(start: number, stop: number): Gee.List | null
-    vfuncReserved0(): void
-    vfuncReserved1(): void
-    vfuncReserved2(): void
-    vfuncReserved3(): void
-    vfuncReserved4(): void
-    vfuncReserved5(): void
-    vfuncReserved6(): void
-    vfuncReserved7(): void
-    vfuncReserved8(): void
-    vfuncReserved9(): void
-    vfuncGetReadOnlyView(): Gee.List
-    vfuncGetReadOnlyView(): Gee.Collection
-    vfuncFirst(): object | null
-    vfuncLast(): object | null
-    vfuncInsertAll(index: number, collection: Gee.Collection): void
-    vfuncSort(compareFunc: GLib.CompareDataFunc | null): void
-    /* Virtual methods of Gee.AbstractCollection */
-    vfuncContains(item?: object | null): boolean
-    vfuncAdd(item?: object | null): boolean
-    vfuncRemove(item?: object | null): boolean
-    vfuncClear(): void
-    vfuncIterator(): Gee.Iterator
-    vfuncForeach(f: Gee.ForallFunc): boolean
-    vfuncReserved0(): void
-    vfuncReserved1(): void
-    vfuncReserved2(): void
-    vfuncReserved3(): void
-    vfuncReserved4(): void
-    vfuncReserved5(): void
-    vfuncReserved6(): void
-    vfuncReserved7(): void
-    vfuncReserved8(): void
-    vfuncReserved9(): void
-    vfuncGetSize(): number
-    vfuncGetReadOnly(): boolean
-    vfuncGetReadOnlyView(): Gee.Collection
-    vfuncStream(aType: GObject.Type, aDupFunc: GObject.BoxedCopyFunc, aDestroyFunc: GLib.DestroyNotify, f: Gee.StreamFunc): Gee.Iterator
-    vfuncFold(aType: GObject.Type, aDupFunc: GObject.BoxedCopyFunc, aDestroyFunc: GLib.DestroyNotify, f: Gee.FoldFunc, seed?: object | null): object | null
-    vfuncMap(aType: GObject.Type, aDupFunc: GObject.BoxedCopyFunc, aDestroyFunc: GLib.DestroyNotify, f: Gee.MapFunc): Gee.Iterator
-    vfuncScan(aType: GObject.Type, aDupFunc: GObject.BoxedCopyFunc, aDestroyFunc: GLib.DestroyNotify, f: Gee.FoldFunc, seed?: object | null): Gee.Iterator
-    vfuncFilter(pred: Gee.Predicate): Gee.Iterator
-    vfuncChop(offset: number, length: number): Gee.Iterator
-    vfuncFlatMap(aType: GObject.Type, aDupFunc: GObject.BoxedCopyFunc, aDestroyFunc: GLib.DestroyNotify, f: Gee.FlatMapFunc): Gee.Iterator
-    vfuncTee(forks: number): Gee.Iterator[]
-    vfuncFirstMatch(pred: Gee.Predicate): object | null
-    vfuncAnyMatch(pred: Gee.Predicate): boolean
-    vfuncAllMatch(pred: Gee.Predicate): boolean
-    vfuncMax(compare: GLib.CompareDataFunc): object | null
-    vfuncMin(compare: GLib.CompareDataFunc): object | null
-    vfuncOrderBy(compare: GLib.CompareDataFunc | null): Gee.Iterator
-    vfuncGetElementType(): GObject.Type
-    vfuncAddAll(collection: Gee.Collection): boolean
-    vfuncContainsAll(collection: Gee.Collection): boolean
-    vfuncRemoveAll(collection: Gee.Collection): boolean
-    vfuncRetainAll(collection: Gee.Collection): boolean
-    vfuncToArray(): object[]
-    vfuncAddAllArray(array: object[]): boolean
-    vfuncContainsAllArray(array: object[]): boolean
-    vfuncRemoveAllArray(array: object[]): boolean
-    vfuncAddAllIterator(iter: Gee.Iterator): boolean
-    vfuncContainsAllIterator(iter: Gee.Iterator): boolean
-    vfuncRemoveAllIterator(iter: Gee.Iterator): boolean
-    vfuncGetIsEmpty(): boolean
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: ElementList, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: ElementList, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::read-only-view", callback: (($obj: ElementList, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::read-only-view", callback: (($obj: ElementList, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::read-only-view", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -1753,26 +1367,26 @@ export class ElementList {
 export interface NodeList_ConstructProps extends Gee.ArrayList_ConstructProps {
 }
 export class NodeList {
-    /* Properties of Gee.AbstractBidirList */
+    /* Properties of Gee-0.8.Gee.AbstractBidirList */
     readonly readOnlyView: Gee.BidirList
-    /* Properties of Gee.AbstractCollection */
+    /* Properties of Gee-0.8.Gee.AbstractCollection */
     readonly size: number
     readonly readOnly: boolean
-    /* Fields of GXml.NodeList */
+    /* Fields of GXml-0.10.GXml.NodeList */
     parentInstance: Gee.ArrayList
     priv: NodeListPrivate
-    /* Fields of Gee.ArrayList */
+    /* Fields of Gee-0.8.Gee.ArrayList */
     items: object[]
     itemsLength1: number
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GXml.NodeList */
+    /* Methods of GXml-0.10.GXml.NodeList */
     get(index: number): Node
     toArray(): Node[]
-    /* Methods of Gee.ArrayList */
+    /* Methods of Gee-0.8.Gee.ArrayList */
     addAll(collection: Gee.Collection): boolean
-    getEqualFunc(): [ /* returnType */ Gee.EqualDataFunc, /* resultTarget */ object | null ]
-    /* Methods of Gee.AbstractBidirList */
+    getEqualFunc(): { returnType: Gee.EqualDataFunc, resultTarget: object | null }
+    /* Methods of Gee-0.8.Gee.AbstractBidirList */
     bidirListIterator(): Gee.BidirListIterator
     reserved0(): void
     reserved1(): void
@@ -1785,7 +1399,7 @@ export class NodeList {
     reserved8(): void
     reserved9(): void
     getReadOnlyView(): Gee.BidirList
-    /* Methods of Gee.AbstractList */
+    /* Methods of Gee-0.8.Gee.AbstractList */
     listIterator(): Gee.ListIterator
     get(index: number): object | null
     set(index: number, item?: object | null): void
@@ -1794,7 +1408,7 @@ export class NodeList {
     removeAt(index: number): object | null
     slice(start: number, stop: number): Gee.List | null
     getReadOnlyView(): Gee.List
-    /* Methods of Gee.AbstractCollection */
+    /* Methods of Gee-0.8.Gee.AbstractCollection */
     contains(item?: object | null): boolean
     add(item?: object | null): boolean
     remove(item?: object | null): boolean
@@ -1804,7 +1418,7 @@ export class NodeList {
     getSize(): number
     getReadOnly(): boolean
     getReadOnlyView(): Gee.Collection
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -1826,115 +1440,12 @@ export class NodeList {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GXml.NodeList */
-    vfuncGetReadOnlyView(): Gee.BidirList
-    vfuncGetReadOnlyView(): Gee.List
-    vfuncGetReadOnlyView(): Gee.Collection
-    /* Virtual methods of Gee.ArrayList */
-    vfuncGetReadOnlyView(): Gee.BidirList
-    vfuncGetReadOnlyView(): Gee.List
-    vfuncGetReadOnlyView(): Gee.Collection
-    /* Virtual methods of Gee.AbstractBidirList */
-    vfuncBidirListIterator(): Gee.BidirListIterator
-    vfuncReserved0(): void
-    vfuncReserved1(): void
-    vfuncReserved2(): void
-    vfuncReserved3(): void
-    vfuncReserved4(): void
-    vfuncReserved5(): void
-    vfuncReserved6(): void
-    vfuncReserved7(): void
-    vfuncReserved8(): void
-    vfuncReserved9(): void
-    vfuncGetReadOnlyView(): Gee.BidirList
-    vfuncGetReadOnlyView(): Gee.List
-    vfuncGetReadOnlyView(): Gee.Collection
-    /* Virtual methods of Gee.AbstractList */
-    vfuncListIterator(): Gee.ListIterator
-    vfuncGet(index: number): object | null
-    vfuncSet(index: number, item?: object | null): void
-    vfuncIndexOf(item?: object | null): number
-    vfuncInsert(index: number, item?: object | null): void
-    vfuncRemoveAt(index: number): object | null
-    vfuncSlice(start: number, stop: number): Gee.List | null
-    vfuncReserved0(): void
-    vfuncReserved1(): void
-    vfuncReserved2(): void
-    vfuncReserved3(): void
-    vfuncReserved4(): void
-    vfuncReserved5(): void
-    vfuncReserved6(): void
-    vfuncReserved7(): void
-    vfuncReserved8(): void
-    vfuncReserved9(): void
-    vfuncGetReadOnlyView(): Gee.List
-    vfuncGetReadOnlyView(): Gee.Collection
-    vfuncFirst(): object | null
-    vfuncLast(): object | null
-    vfuncInsertAll(index: number, collection: Gee.Collection): void
-    vfuncSort(compareFunc: GLib.CompareDataFunc | null): void
-    /* Virtual methods of Gee.AbstractCollection */
-    vfuncContains(item?: object | null): boolean
-    vfuncAdd(item?: object | null): boolean
-    vfuncRemove(item?: object | null): boolean
-    vfuncClear(): void
-    vfuncIterator(): Gee.Iterator
-    vfuncForeach(f: Gee.ForallFunc): boolean
-    vfuncReserved0(): void
-    vfuncReserved1(): void
-    vfuncReserved2(): void
-    vfuncReserved3(): void
-    vfuncReserved4(): void
-    vfuncReserved5(): void
-    vfuncReserved6(): void
-    vfuncReserved7(): void
-    vfuncReserved8(): void
-    vfuncReserved9(): void
-    vfuncGetSize(): number
-    vfuncGetReadOnly(): boolean
-    vfuncGetReadOnlyView(): Gee.Collection
-    vfuncStream(aType: GObject.Type, aDupFunc: GObject.BoxedCopyFunc, aDestroyFunc: GLib.DestroyNotify, f: Gee.StreamFunc): Gee.Iterator
-    vfuncFold(aType: GObject.Type, aDupFunc: GObject.BoxedCopyFunc, aDestroyFunc: GLib.DestroyNotify, f: Gee.FoldFunc, seed?: object | null): object | null
-    vfuncMap(aType: GObject.Type, aDupFunc: GObject.BoxedCopyFunc, aDestroyFunc: GLib.DestroyNotify, f: Gee.MapFunc): Gee.Iterator
-    vfuncScan(aType: GObject.Type, aDupFunc: GObject.BoxedCopyFunc, aDestroyFunc: GLib.DestroyNotify, f: Gee.FoldFunc, seed?: object | null): Gee.Iterator
-    vfuncFilter(pred: Gee.Predicate): Gee.Iterator
-    vfuncChop(offset: number, length: number): Gee.Iterator
-    vfuncFlatMap(aType: GObject.Type, aDupFunc: GObject.BoxedCopyFunc, aDestroyFunc: GLib.DestroyNotify, f: Gee.FlatMapFunc): Gee.Iterator
-    vfuncTee(forks: number): Gee.Iterator[]
-    vfuncFirstMatch(pred: Gee.Predicate): object | null
-    vfuncAnyMatch(pred: Gee.Predicate): boolean
-    vfuncAllMatch(pred: Gee.Predicate): boolean
-    vfuncMax(compare: GLib.CompareDataFunc): object | null
-    vfuncMin(compare: GLib.CompareDataFunc): object | null
-    vfuncOrderBy(compare: GLib.CompareDataFunc | null): Gee.Iterator
-    vfuncGetElementType(): GObject.Type
-    vfuncAddAll(collection: Gee.Collection): boolean
-    vfuncContainsAll(collection: Gee.Collection): boolean
-    vfuncRemoveAll(collection: Gee.Collection): boolean
-    vfuncRetainAll(collection: Gee.Collection): boolean
-    vfuncToArray(): object[]
-    vfuncAddAllArray(array: object[]): boolean
-    vfuncContainsAllArray(array: object[]): boolean
-    vfuncRemoveAllArray(array: object[]): boolean
-    vfuncAddAllIterator(iter: Gee.Iterator): boolean
-    vfuncContainsAllIterator(iter: Gee.Iterator): boolean
-    vfuncRemoveAllIterator(iter: Gee.Iterator): boolean
-    vfuncGetIsEmpty(): boolean
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: NodeList, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: NodeList, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::read-only-view", callback: (($obj: NodeList, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::read-only-view", callback: (($obj: NodeList, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::read-only-view", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -1970,9 +1481,9 @@ export interface xAttr_ConstructProps extends BackedNode_ConstructProps {
     namespace?: Namespace
 }
 export class xAttr {
-    /* Properties of GXml.xAttr */
+    /* Properties of GXml-0.10.GXml.xAttr */
     specified: boolean
-    /* Properties of GXml.xNode */
+    /* Properties of GXml-0.10.GXml.xNode */
     namespaceDefinitions: Gee.List
     namespaceUri: string
     namespacePrefix: string
@@ -1994,17 +1505,17 @@ export class xAttr {
     readonly name: string
     value: string
     readonly parent: Node
-    /* Properties of GXml.Attribute */
+    /* Properties of GXml-0.10.GXml.Attribute */
     namespace: Namespace
     readonly prefix: string
-    /* Fields of GXml.xAttr */
+    /* Fields of GXml-0.10.GXml.xAttr */
     parentInstance: BackedNode
     priv: xAttrPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GXml.xAttr */
+    /* Methods of GXml-0.10.GXml.xAttr */
     getSpecified(): boolean
-    /* Methods of GXml.xNode */
+    /* Methods of GXml-0.10.GXml.xNode */
     addNamespaceAttr(uri: string, namespacePrefix?: string | null): NamespaceAttr | null
     setNamespace(uri: string, namespacePrefix?: string | null): boolean
     insertBefore(newChild: xNode, refChild?: xNode | null): xNode | null
@@ -2037,7 +1548,7 @@ export class xAttr {
     getValue(): string
     setValue(value: string): void
     getParent(): Node
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -2059,69 +1570,16 @@ export class xAttr {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of GXml.Attribute */
+    /* Methods of GXml-0.10.GXml.Attribute */
     getNamespace(): Namespace
     setNamespace(value: Namespace): void
     getPrefix(): string
-    /* Virtual methods of GXml.xAttr */
-    vfuncGetNamespace(): Namespace
-    vfuncSetNamespace(value: Namespace): void
-    vfuncSetNamespace(uri: string, namespacePrefix?: string | null): boolean
-    vfuncGetPrefix(): string
-    /* Virtual methods of GXml.xNode */
-    vfuncAddNamespaceAttr(uri: string, namespacePrefix?: string | null): NamespaceAttr | null
-    vfuncSetNamespace(uri: string, namespacePrefix?: string | null): boolean
-    vfuncInsertBefore(newChild: xNode, refChild?: xNode | null): xNode | null
-    vfuncReplaceChild(newChild: xNode, oldChild: xNode): xNode | null
-    vfuncRemoveChild(oldChild: xNode): xNode | null
-    vfuncAppendChild(newChild: xNode): xNode | null
-    vfuncHasChildNodes(): boolean
-    vfuncCloneNode(deep: boolean): xNode | null
-    vfuncStringify(format: boolean, level: number): string
-    vfuncToString(): string
-    vfuncGetNamespaceDefinitions(): Gee.List | null
-    vfuncGetNamespaceUri(): string | null
-    vfuncGetNamespacePrefix(): string | null
-    vfuncGetLocalName(): string | null
-    vfuncGetNodeName(): string
-    vfuncGetNodeValue(): string | null
-    vfuncGetNodeType(): NodeType
-    vfuncGetParentNode(): xNode | null
-    vfuncGetChildNodes(): xNodeList | null
-    vfuncGetFirstChild(): xNode | null
-    vfuncGetLastChild(): xNode | null
-    vfuncGetPreviousSibling(): xNode | null
-    vfuncGetNextSibling(): xNode | null
-    vfuncGetAttributes(): NamedAttrMap | null
-    vfuncGetNamespaces(): Gee.List
-    vfuncGetChildren(): Gee.BidirList
-    vfuncGetAttrs(): Gee.Map
-    vfuncGetName(): string
-    vfuncGetValue(): string
-    vfuncSetValue(value: string): void
-    vfuncGetParent(): Node
-    vfuncGet(key: string): Node | null
-    vfuncGetElementsByPropertyValue(property: string, value: string): ElementList
-    vfuncNsPrefix(): string
-    vfuncNsUri(): string
-    vfuncGetChilds(): Gee.BidirList
-    vfuncGetTypeNode(): NodeType
-    vfuncGetDocument(): Document
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: xAttr, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: xAttr, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::specified", callback: (($obj: xAttr, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::specified", callback: (($obj: xAttr, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::specified", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -2257,7 +1715,7 @@ export class xAttr {
 export interface BackedNode_ConstructProps extends xNode_ConstructProps {
 }
 export class BackedNode {
-    /* Properties of GXml.xNode */
+    /* Properties of GXml-0.10.GXml.xNode */
     namespaceDefinitions: Gee.List
     namespaceUri: string
     namespacePrefix: string
@@ -2279,12 +1737,12 @@ export class BackedNode {
     readonly name: string
     value: string
     readonly parent: Node
-    /* Fields of GXml.BackedNode */
+    /* Fields of GXml-0.10.GXml.BackedNode */
     parentInstance: xNode
     priv: BackedNodePrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GXml.xNode */
+    /* Methods of GXml-0.10.GXml.xNode */
     addNamespaceAttr(uri: string, namespacePrefix?: string | null): NamespaceAttr | null
     setNamespace(uri: string, namespacePrefix?: string | null): boolean
     insertBefore(newChild: xNode, refChild?: xNode | null): xNode | null
@@ -2317,7 +1775,7 @@ export class BackedNode {
     getValue(): string
     setValue(value: string): void
     getParent(): Node
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -2339,60 +1797,12 @@ export class BackedNode {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GXml.xNode */
-    vfuncAddNamespaceAttr(uri: string, namespacePrefix?: string | null): NamespaceAttr | null
-    vfuncSetNamespace(uri: string, namespacePrefix?: string | null): boolean
-    vfuncInsertBefore(newChild: xNode, refChild?: xNode | null): xNode | null
-    vfuncReplaceChild(newChild: xNode, oldChild: xNode): xNode | null
-    vfuncRemoveChild(oldChild: xNode): xNode | null
-    vfuncAppendChild(newChild: xNode): xNode | null
-    vfuncHasChildNodes(): boolean
-    vfuncCloneNode(deep: boolean): xNode | null
-    vfuncStringify(format: boolean, level: number): string
-    vfuncToString(): string
-    vfuncGetNamespaceDefinitions(): Gee.List | null
-    vfuncGetNamespaceUri(): string | null
-    vfuncGetNamespacePrefix(): string | null
-    vfuncGetLocalName(): string | null
-    vfuncGetNodeName(): string
-    vfuncGetNodeValue(): string | null
-    vfuncGetNodeType(): NodeType
-    vfuncGetParentNode(): xNode | null
-    vfuncGetChildNodes(): xNodeList | null
-    vfuncGetFirstChild(): xNode | null
-    vfuncGetLastChild(): xNode | null
-    vfuncGetPreviousSibling(): xNode | null
-    vfuncGetNextSibling(): xNode | null
-    vfuncGetAttributes(): NamedAttrMap | null
-    vfuncGetNamespaces(): Gee.List
-    vfuncGetChildren(): Gee.BidirList
-    vfuncGetAttrs(): Gee.Map
-    vfuncGetName(): string
-    vfuncGetValue(): string
-    vfuncSetValue(value: string): void
-    vfuncGetParent(): Node
-    vfuncGet(key: string): Node | null
-    vfuncGetElementsByPropertyValue(property: string, value: string): ElementList
-    vfuncNsPrefix(): string
-    vfuncNsUri(): string
-    vfuncGetChilds(): Gee.BidirList
-    vfuncGetTypeNode(): NodeType
-    vfuncGetDocument(): Document
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: BackedNode, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: BackedNode, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::namespace-definitions", callback: (($obj: BackedNode, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::namespace-definitions", callback: (($obj: BackedNode, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::namespace-definitions", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -2513,10 +1923,10 @@ export class BackedNode {
 export interface xCDATASection_ConstructProps extends xText_ConstructProps {
 }
 export class xCDATASection {
-    /* Properties of GXml.xCharacterData */
+    /* Properties of GXml-0.10.GXml.xCharacterData */
     data: string
     length: number
-    /* Properties of GXml.xNode */
+    /* Properties of GXml-0.10.GXml.xNode */
     namespaceDefinitions: Gee.List
     namespaceUri: string
     namespacePrefix: string
@@ -2538,16 +1948,16 @@ export class xCDATASection {
     readonly name: string
     value: string
     readonly parent: Node
-    /* Properties of GXml.CDATA */
+    /* Properties of GXml-0.10.GXml.CDATA */
     readonly str: string
-    /* Fields of GXml.xCDATASection */
+    /* Fields of GXml-0.10.GXml.xCDATASection */
     parentInstance: xText
     priv: xCDATASectionPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GXml.xText */
+    /* Methods of GXml-0.10.GXml.xText */
     splitText(offset: number): xText
-    /* Methods of GXml.xCharacterData */
+    /* Methods of GXml-0.10.GXml.xCharacterData */
     substringData(offset: number, count: number): string
     appendData(newSegment: string): void
     insertData(offset: number, newSegment: string): void
@@ -2556,7 +1966,7 @@ export class xCDATASection {
     getData(): string
     setData(value: string): void
     getLength(): number
-    /* Methods of GXml.xNode */
+    /* Methods of GXml-0.10.GXml.xNode */
     addNamespaceAttr(uri: string, namespacePrefix?: string | null): NamespaceAttr | null
     setNamespace(uri: string, namespacePrefix?: string | null): boolean
     insertBefore(newChild: xNode, refChild?: xNode | null): xNode | null
@@ -2589,7 +1999,7 @@ export class xCDATASection {
     getValue(): string
     setValue(value: string): void
     getParent(): Node
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -2611,66 +2021,14 @@ export class xCDATASection {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of GXml.CDATA */
+    /* Methods of GXml-0.10.GXml.CDATA */
     getStr(): string
-    /* Virtual methods of GXml.xCDATASection */
-    vfuncGetStr(): string
-    /* Virtual methods of GXml.xText */
-    vfuncGetStr(): string
-    /* Virtual methods of GXml.xNode */
-    vfuncAddNamespaceAttr(uri: string, namespacePrefix?: string | null): NamespaceAttr | null
-    vfuncSetNamespace(uri: string, namespacePrefix?: string | null): boolean
-    vfuncInsertBefore(newChild: xNode, refChild?: xNode | null): xNode | null
-    vfuncReplaceChild(newChild: xNode, oldChild: xNode): xNode | null
-    vfuncRemoveChild(oldChild: xNode): xNode | null
-    vfuncAppendChild(newChild: xNode): xNode | null
-    vfuncHasChildNodes(): boolean
-    vfuncCloneNode(deep: boolean): xNode | null
-    vfuncStringify(format: boolean, level: number): string
-    vfuncToString(): string
-    vfuncGetNamespaceDefinitions(): Gee.List | null
-    vfuncGetNamespaceUri(): string | null
-    vfuncGetNamespacePrefix(): string | null
-    vfuncGetLocalName(): string | null
-    vfuncGetNodeName(): string
-    vfuncGetNodeValue(): string | null
-    vfuncGetNodeType(): NodeType
-    vfuncGetParentNode(): xNode | null
-    vfuncGetChildNodes(): xNodeList | null
-    vfuncGetFirstChild(): xNode | null
-    vfuncGetLastChild(): xNode | null
-    vfuncGetPreviousSibling(): xNode | null
-    vfuncGetNextSibling(): xNode | null
-    vfuncGetAttributes(): NamedAttrMap | null
-    vfuncGetNamespaces(): Gee.List
-    vfuncGetChildren(): Gee.BidirList
-    vfuncGetAttrs(): Gee.Map
-    vfuncGetName(): string
-    vfuncGetValue(): string
-    vfuncSetValue(value: string): void
-    vfuncGetParent(): Node
-    vfuncGet(key: string): Node | null
-    vfuncGetElementsByPropertyValue(property: string, value: string): ElementList
-    vfuncNsPrefix(): string
-    vfuncNsUri(): string
-    vfuncGetChilds(): Gee.BidirList
-    vfuncGetTypeNode(): NodeType
-    vfuncGetDocument(): Document
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: xCDATASection, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: xCDATASection, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::data", callback: (($obj: xCDATASection, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::data", callback: (($obj: xCDATASection, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::data", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -2808,10 +2166,10 @@ export interface xCharacterData_ConstructProps extends BackedNode_ConstructProps
     length?: number
 }
 export class xCharacterData {
-    /* Properties of GXml.xCharacterData */
+    /* Properties of GXml-0.10.GXml.xCharacterData */
     data: string
     length: number
-    /* Properties of GXml.xNode */
+    /* Properties of GXml-0.10.GXml.xNode */
     namespaceDefinitions: Gee.List
     namespaceUri: string
     namespacePrefix: string
@@ -2833,12 +2191,12 @@ export class xCharacterData {
     readonly name: string
     value: string
     readonly parent: Node
-    /* Fields of GXml.xCharacterData */
+    /* Fields of GXml-0.10.GXml.xCharacterData */
     parentInstance: BackedNode
     priv: xCharacterDataPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GXml.xCharacterData */
+    /* Methods of GXml-0.10.GXml.xCharacterData */
     substringData(offset: number, count: number): string
     appendData(newSegment: string): void
     insertData(offset: number, newSegment: string): void
@@ -2847,7 +2205,7 @@ export class xCharacterData {
     getData(): string
     setData(value: string): void
     getLength(): number
-    /* Methods of GXml.xNode */
+    /* Methods of GXml-0.10.GXml.xNode */
     addNamespaceAttr(uri: string, namespacePrefix?: string | null): NamespaceAttr | null
     setNamespace(uri: string, namespacePrefix?: string | null): boolean
     insertBefore(newChild: xNode, refChild?: xNode | null): xNode | null
@@ -2880,7 +2238,7 @@ export class xCharacterData {
     getValue(): string
     setValue(value: string): void
     getParent(): Node
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -2902,60 +2260,12 @@ export class xCharacterData {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GXml.xNode */
-    vfuncAddNamespaceAttr(uri: string, namespacePrefix?: string | null): NamespaceAttr | null
-    vfuncSetNamespace(uri: string, namespacePrefix?: string | null): boolean
-    vfuncInsertBefore(newChild: xNode, refChild?: xNode | null): xNode | null
-    vfuncReplaceChild(newChild: xNode, oldChild: xNode): xNode | null
-    vfuncRemoveChild(oldChild: xNode): xNode | null
-    vfuncAppendChild(newChild: xNode): xNode | null
-    vfuncHasChildNodes(): boolean
-    vfuncCloneNode(deep: boolean): xNode | null
-    vfuncStringify(format: boolean, level: number): string
-    vfuncToString(): string
-    vfuncGetNamespaceDefinitions(): Gee.List | null
-    vfuncGetNamespaceUri(): string | null
-    vfuncGetNamespacePrefix(): string | null
-    vfuncGetLocalName(): string | null
-    vfuncGetNodeName(): string
-    vfuncGetNodeValue(): string | null
-    vfuncGetNodeType(): NodeType
-    vfuncGetParentNode(): xNode | null
-    vfuncGetChildNodes(): xNodeList | null
-    vfuncGetFirstChild(): xNode | null
-    vfuncGetLastChild(): xNode | null
-    vfuncGetPreviousSibling(): xNode | null
-    vfuncGetNextSibling(): xNode | null
-    vfuncGetAttributes(): NamedAttrMap | null
-    vfuncGetNamespaces(): Gee.List
-    vfuncGetChildren(): Gee.BidirList
-    vfuncGetAttrs(): Gee.Map
-    vfuncGetName(): string
-    vfuncGetValue(): string
-    vfuncSetValue(value: string): void
-    vfuncGetParent(): Node
-    vfuncGet(key: string): Node | null
-    vfuncGetElementsByPropertyValue(property: string, value: string): ElementList
-    vfuncNsPrefix(): string
-    vfuncNsUri(): string
-    vfuncGetChilds(): Gee.BidirList
-    vfuncGetTypeNode(): NodeType
-    vfuncGetDocument(): Document
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: xCharacterData, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: xCharacterData, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::data", callback: (($obj: xCharacterData, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::data", callback: (($obj: xCharacterData, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::data", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -3086,10 +2396,10 @@ export class xCharacterData {
 export interface xComment_ConstructProps extends xCharacterData_ConstructProps {
 }
 export class xComment {
-    /* Properties of GXml.xCharacterData */
+    /* Properties of GXml-0.10.GXml.xCharacterData */
     data: string
     length: number
-    /* Properties of GXml.xNode */
+    /* Properties of GXml-0.10.GXml.xNode */
     namespaceDefinitions: Gee.List
     namespaceUri: string
     namespacePrefix: string
@@ -3111,14 +2421,14 @@ export class xComment {
     readonly name: string
     value: string
     readonly parent: Node
-    /* Properties of GXml.Comment */
+    /* Properties of GXml-0.10.GXml.Comment */
     readonly str: string
-    /* Fields of GXml.xComment */
+    /* Fields of GXml-0.10.GXml.xComment */
     parentInstance: xCharacterData
     priv: xCommentPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GXml.xCharacterData */
+    /* Methods of GXml-0.10.GXml.xCharacterData */
     substringData(offset: number, count: number): string
     appendData(newSegment: string): void
     insertData(offset: number, newSegment: string): void
@@ -3127,7 +2437,7 @@ export class xComment {
     getData(): string
     setData(value: string): void
     getLength(): number
-    /* Methods of GXml.xNode */
+    /* Methods of GXml-0.10.GXml.xNode */
     addNamespaceAttr(uri: string, namespacePrefix?: string | null): NamespaceAttr | null
     setNamespace(uri: string, namespacePrefix?: string | null): boolean
     insertBefore(newChild: xNode, refChild?: xNode | null): xNode | null
@@ -3160,7 +2470,7 @@ export class xComment {
     getValue(): string
     setValue(value: string): void
     getParent(): Node
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -3182,64 +2492,14 @@ export class xComment {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of GXml.Comment */
+    /* Methods of GXml-0.10.GXml.Comment */
     getStr(): string
-    /* Virtual methods of GXml.xComment */
-    vfuncGetStr(): string
-    /* Virtual methods of GXml.xNode */
-    vfuncAddNamespaceAttr(uri: string, namespacePrefix?: string | null): NamespaceAttr | null
-    vfuncSetNamespace(uri: string, namespacePrefix?: string | null): boolean
-    vfuncInsertBefore(newChild: xNode, refChild?: xNode | null): xNode | null
-    vfuncReplaceChild(newChild: xNode, oldChild: xNode): xNode | null
-    vfuncRemoveChild(oldChild: xNode): xNode | null
-    vfuncAppendChild(newChild: xNode): xNode | null
-    vfuncHasChildNodes(): boolean
-    vfuncCloneNode(deep: boolean): xNode | null
-    vfuncStringify(format: boolean, level: number): string
-    vfuncToString(): string
-    vfuncGetNamespaceDefinitions(): Gee.List | null
-    vfuncGetNamespaceUri(): string | null
-    vfuncGetNamespacePrefix(): string | null
-    vfuncGetLocalName(): string | null
-    vfuncGetNodeName(): string
-    vfuncGetNodeValue(): string | null
-    vfuncGetNodeType(): NodeType
-    vfuncGetParentNode(): xNode | null
-    vfuncGetChildNodes(): xNodeList | null
-    vfuncGetFirstChild(): xNode | null
-    vfuncGetLastChild(): xNode | null
-    vfuncGetPreviousSibling(): xNode | null
-    vfuncGetNextSibling(): xNode | null
-    vfuncGetAttributes(): NamedAttrMap | null
-    vfuncGetNamespaces(): Gee.List
-    vfuncGetChildren(): Gee.BidirList
-    vfuncGetAttrs(): Gee.Map
-    vfuncGetName(): string
-    vfuncGetValue(): string
-    vfuncSetValue(value: string): void
-    vfuncGetParent(): Node
-    vfuncGet(key: string): Node | null
-    vfuncGetElementsByPropertyValue(property: string, value: string): ElementList
-    vfuncNsPrefix(): string
-    vfuncNsUri(): string
-    vfuncGetChilds(): Gee.BidirList
-    vfuncGetTypeNode(): NodeType
-    vfuncGetDocument(): Document
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: xComment, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: xComment, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::data", callback: (($obj: xComment, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::data", callback: (($obj: xComment, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::data", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -3375,7 +2635,7 @@ export class xComment {
 export interface DocumentFragment_ConstructProps extends BackedNode_ConstructProps {
 }
 export class DocumentFragment {
-    /* Properties of GXml.xNode */
+    /* Properties of GXml-0.10.GXml.xNode */
     namespaceDefinitions: Gee.List
     namespaceUri: string
     namespacePrefix: string
@@ -3397,12 +2657,12 @@ export class DocumentFragment {
     readonly name: string
     value: string
     readonly parent: Node
-    /* Fields of GXml.DocumentFragment */
+    /* Fields of GXml-0.10.GXml.DocumentFragment */
     parentInstance: BackedNode
     priv: DocumentFragmentPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GXml.xNode */
+    /* Methods of GXml-0.10.GXml.xNode */
     addNamespaceAttr(uri: string, namespacePrefix?: string | null): NamespaceAttr | null
     setNamespace(uri: string, namespacePrefix?: string | null): boolean
     insertBefore(newChild: xNode, refChild?: xNode | null): xNode | null
@@ -3435,7 +2695,7 @@ export class DocumentFragment {
     getValue(): string
     setValue(value: string): void
     getParent(): Node
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -3457,60 +2717,12 @@ export class DocumentFragment {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GXml.xNode */
-    vfuncAddNamespaceAttr(uri: string, namespacePrefix?: string | null): NamespaceAttr | null
-    vfuncSetNamespace(uri: string, namespacePrefix?: string | null): boolean
-    vfuncInsertBefore(newChild: xNode, refChild?: xNode | null): xNode | null
-    vfuncReplaceChild(newChild: xNode, oldChild: xNode): xNode | null
-    vfuncRemoveChild(oldChild: xNode): xNode | null
-    vfuncAppendChild(newChild: xNode): xNode | null
-    vfuncHasChildNodes(): boolean
-    vfuncCloneNode(deep: boolean): xNode | null
-    vfuncStringify(format: boolean, level: number): string
-    vfuncToString(): string
-    vfuncGetNamespaceDefinitions(): Gee.List | null
-    vfuncGetNamespaceUri(): string | null
-    vfuncGetNamespacePrefix(): string | null
-    vfuncGetLocalName(): string | null
-    vfuncGetNodeName(): string
-    vfuncGetNodeValue(): string | null
-    vfuncGetNodeType(): NodeType
-    vfuncGetParentNode(): xNode | null
-    vfuncGetChildNodes(): xNodeList | null
-    vfuncGetFirstChild(): xNode | null
-    vfuncGetLastChild(): xNode | null
-    vfuncGetPreviousSibling(): xNode | null
-    vfuncGetNextSibling(): xNode | null
-    vfuncGetAttributes(): NamedAttrMap | null
-    vfuncGetNamespaces(): Gee.List
-    vfuncGetChildren(): Gee.BidirList
-    vfuncGetAttrs(): Gee.Map
-    vfuncGetName(): string
-    vfuncGetValue(): string
-    vfuncSetValue(value: string): void
-    vfuncGetParent(): Node
-    vfuncGet(key: string): Node | null
-    vfuncGetElementsByPropertyValue(property: string, value: string): ElementList
-    vfuncNsPrefix(): string
-    vfuncNsUri(): string
-    vfuncGetChilds(): Gee.BidirList
-    vfuncGetTypeNode(): NodeType
-    vfuncGetDocument(): Document
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: DocumentFragment, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: DocumentFragment, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::namespace-definitions", callback: (($obj: DocumentFragment, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::namespace-definitions", callback: (($obj: DocumentFragment, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::namespace-definitions", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -3633,10 +2845,10 @@ export interface xDocumentType_ConstructProps extends xNode_ConstructProps {
     notations?: Gee.Map
 }
 export class xDocumentType {
-    /* Properties of GXml.xDocumentType */
+    /* Properties of GXml-0.10.GXml.xDocumentType */
     entities: Gee.Map
     notations: Gee.Map
-    /* Properties of GXml.xNode */
+    /* Properties of GXml-0.10.GXml.xNode */
     namespaceDefinitions: Gee.List
     namespaceUri: string
     namespacePrefix: string
@@ -3658,15 +2870,15 @@ export class xDocumentType {
     readonly name: string
     value: string
     readonly parent: Node
-    /* Fields of GXml.xDocumentType */
+    /* Fields of GXml-0.10.GXml.xDocumentType */
     parentInstance: xNode
     priv: xDocumentTypePrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GXml.xDocumentType */
+    /* Methods of GXml-0.10.GXml.xDocumentType */
     getEntities(): Gee.Map | null
     getNotations(): Gee.Map | null
-    /* Methods of GXml.xNode */
+    /* Methods of GXml-0.10.GXml.xNode */
     addNamespaceAttr(uri: string, namespacePrefix?: string | null): NamespaceAttr | null
     setNamespace(uri: string, namespacePrefix?: string | null): boolean
     insertBefore(newChild: xNode, refChild?: xNode | null): xNode | null
@@ -3699,7 +2911,7 @@ export class xDocumentType {
     getValue(): string
     setValue(value: string): void
     getParent(): Node
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -3721,60 +2933,12 @@ export class xDocumentType {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GXml.xNode */
-    vfuncAddNamespaceAttr(uri: string, namespacePrefix?: string | null): NamespaceAttr | null
-    vfuncSetNamespace(uri: string, namespacePrefix?: string | null): boolean
-    vfuncInsertBefore(newChild: xNode, refChild?: xNode | null): xNode | null
-    vfuncReplaceChild(newChild: xNode, oldChild: xNode): xNode | null
-    vfuncRemoveChild(oldChild: xNode): xNode | null
-    vfuncAppendChild(newChild: xNode): xNode | null
-    vfuncHasChildNodes(): boolean
-    vfuncCloneNode(deep: boolean): xNode | null
-    vfuncStringify(format: boolean, level: number): string
-    vfuncToString(): string
-    vfuncGetNamespaceDefinitions(): Gee.List | null
-    vfuncGetNamespaceUri(): string | null
-    vfuncGetNamespacePrefix(): string | null
-    vfuncGetLocalName(): string | null
-    vfuncGetNodeName(): string
-    vfuncGetNodeValue(): string | null
-    vfuncGetNodeType(): NodeType
-    vfuncGetParentNode(): xNode | null
-    vfuncGetChildNodes(): xNodeList | null
-    vfuncGetFirstChild(): xNode | null
-    vfuncGetLastChild(): xNode | null
-    vfuncGetPreviousSibling(): xNode | null
-    vfuncGetNextSibling(): xNode | null
-    vfuncGetAttributes(): NamedAttrMap | null
-    vfuncGetNamespaces(): Gee.List
-    vfuncGetChildren(): Gee.BidirList
-    vfuncGetAttrs(): Gee.Map
-    vfuncGetName(): string
-    vfuncGetValue(): string
-    vfuncSetValue(value: string): void
-    vfuncGetParent(): Node
-    vfuncGet(key: string): Node | null
-    vfuncGetElementsByPropertyValue(property: string, value: string): ElementList
-    vfuncNsPrefix(): string
-    vfuncNsUri(): string
-    vfuncGetChilds(): Gee.BidirList
-    vfuncGetTypeNode(): NodeType
-    vfuncGetDocument(): Document
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: xDocumentType, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: xDocumentType, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::entities", callback: (($obj: xDocumentType, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::entities", callback: (($obj: xDocumentType, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::entities", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -3913,12 +3077,12 @@ export interface xDocument_ConstructProps extends xNode_ConstructProps {
     file?: Gio.File
 }
 export class xDocument {
-    /* Properties of GXml.xDocument */
+    /* Properties of GXml-0.10.GXml.xDocument */
     doctype: xDocumentType
     implementation: Implementation
     documentElement: xElement
     readonly root: Node
-    /* Properties of GXml.xNode */
+    /* Properties of GXml-0.10.GXml.xNode */
     namespaceDefinitions: Gee.List
     namespaceUri: string
     namespacePrefix: string
@@ -3940,18 +3104,18 @@ export class xDocument {
     readonly name: string
     value: string
     readonly parent: Node
-    /* Properties of GXml.Document */
+    /* Properties of GXml-0.10.GXml.Document */
     indent: boolean
     nsTop: boolean
     prefixDefaultNs: boolean
     backup: boolean
     file: Gio.File
-    /* Fields of GXml.xDocument */
+    /* Fields of GXml-0.10.GXml.xDocument */
     parentInstance: xNode
     priv: xDocumentPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GXml.xDocument */
+    /* Methods of GXml-0.10.GXml.xDocument */
     saveToPath(filePath: string): void
     saveToStream(outstream: Gio.OutputStream, can?: Gio.Cancellable | null): void
     createDocumentFragment(): DocumentFragment
@@ -3967,7 +3131,7 @@ export class xDocument {
     getImplementation(): Implementation
     getDocumentElement(): xElement
     getRoot(): Node
-    /* Methods of GXml.xNode */
+    /* Methods of GXml-0.10.GXml.xNode */
     addNamespaceAttr(uri: string, namespacePrefix?: string | null): NamespaceAttr | null
     setNamespace(uri: string, namespacePrefix?: string | null): boolean
     insertBefore(newChild: xNode, refChild?: xNode | null): xNode | null
@@ -4000,7 +3164,7 @@ export class xDocument {
     getValue(): string
     setValue(value: string): void
     getParent(): Node
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -4022,7 +3186,7 @@ export class xDocument {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of GXml.Document */
+    /* Methods of GXml-0.10.GXml.Document */
     createElement(name: string): Node
     createText(text: string): Node
     createComment(text: string): Node
@@ -4040,79 +3204,12 @@ export class xDocument {
     setBackup(value: boolean): void
     getFile(): Gio.File
     setFile(value: Gio.File): void
-    /* Virtual methods of GXml.xDocument */
-    vfuncGetRoot(): Node
-    vfuncCreateElement(name: string): Node
-    vfuncCreateText(text: string): Node
-    vfuncCreateComment(text: string): Node
-    vfuncCreateCdata(text: string): Node
-    vfuncCreatePi(target: string, data: string): Node
-    vfuncSave(cancellable?: Gio.Cancellable | null): boolean
-    vfuncSaveAs(f: Gio.File, cancellable?: Gio.Cancellable | null): boolean
-    vfuncGetIndent(): boolean
-    vfuncSetIndent(value: boolean): void
-    vfuncGetNsTop(): boolean
-    vfuncSetNsTop(value: boolean): void
-    vfuncGetPrefixDefaultNs(): boolean
-    vfuncSetPrefixDefaultNs(value: boolean): void
-    vfuncGetBackup(): boolean
-    vfuncSetBackup(value: boolean): void
-    vfuncGetFile(): Gio.File
-    vfuncSetFile(value: Gio.File): void
-    /* Virtual methods of GXml.xNode */
-    vfuncAddNamespaceAttr(uri: string, namespacePrefix?: string | null): NamespaceAttr | null
-    vfuncSetNamespace(uri: string, namespacePrefix?: string | null): boolean
-    vfuncInsertBefore(newChild: xNode, refChild?: xNode | null): xNode | null
-    vfuncReplaceChild(newChild: xNode, oldChild: xNode): xNode | null
-    vfuncRemoveChild(oldChild: xNode): xNode | null
-    vfuncAppendChild(newChild: xNode): xNode | null
-    vfuncHasChildNodes(): boolean
-    vfuncCloneNode(deep: boolean): xNode | null
-    vfuncStringify(format: boolean, level: number): string
-    vfuncToString(): string
-    vfuncGetNamespaceDefinitions(): Gee.List | null
-    vfuncGetNamespaceUri(): string | null
-    vfuncGetNamespacePrefix(): string | null
-    vfuncGetLocalName(): string | null
-    vfuncGetNodeName(): string
-    vfuncGetNodeValue(): string | null
-    vfuncGetNodeType(): NodeType
-    vfuncGetParentNode(): xNode | null
-    vfuncGetChildNodes(): xNodeList | null
-    vfuncGetFirstChild(): xNode | null
-    vfuncGetLastChild(): xNode | null
-    vfuncGetPreviousSibling(): xNode | null
-    vfuncGetNextSibling(): xNode | null
-    vfuncGetAttributes(): NamedAttrMap | null
-    vfuncGetNamespaces(): Gee.List
-    vfuncGetChildren(): Gee.BidirList
-    vfuncGetAttrs(): Gee.Map
-    vfuncGetName(): string
-    vfuncGetValue(): string
-    vfuncSetValue(value: string): void
-    vfuncGetParent(): Node
-    vfuncGet(key: string): Node | null
-    vfuncGetElementsByPropertyValue(property: string, value: string): ElementList
-    vfuncNsPrefix(): string
-    vfuncNsUri(): string
-    vfuncGetChilds(): Gee.BidirList
-    vfuncGetTypeNode(): NodeType
-    vfuncGetDocument(): Document
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: xDocument, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: xDocument, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::doctype", callback: (($obj: xDocument, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::doctype", callback: (($obj: xDocument, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::doctype", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -4290,7 +3387,7 @@ export interface xElement_ConstructProps extends BackedNode_ConstructProps {
     content?: string
 }
 export class xElement {
-    /* Properties of GXml.xNode */
+    /* Properties of GXml-0.10.GXml.xNode */
     namespaceDefinitions: Gee.List
     namespaceUri: string
     namespacePrefix: string
@@ -4312,15 +3409,15 @@ export class xElement {
     readonly name: string
     value: string
     readonly parent: Node
-    /* Properties of GXml.Element */
+    /* Properties of GXml-0.10.GXml.Element */
     readonly tagName: string
     content: string
-    /* Fields of GXml.xElement */
+    /* Fields of GXml-0.10.GXml.xElement */
     parentInstance: BackedNode
     priv: xElementPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GXml.xElement */
+    /* Methods of GXml-0.10.GXml.xElement */
     getAttribute(name: string): string
     setAttribute(name: string, value: string): void
     removeAttribute(name: string): void
@@ -4328,7 +3425,7 @@ export class xElement {
     setAttributeNode(newAttr: xAttr): xAttr
     removeAttributeNode(oldAttr: xAttr): xAttr
     getElementsByTagName(tagName: string): xNodeList
-    /* Methods of GXml.xNode */
+    /* Methods of GXml-0.10.GXml.xNode */
     addNamespaceAttr(uri: string, namespacePrefix?: string | null): NamespaceAttr | null
     setNamespace(uri: string, namespacePrefix?: string | null): boolean
     insertBefore(newChild: xNode, refChild?: xNode | null): xNode | null
@@ -4361,7 +3458,7 @@ export class xElement {
     getValue(): string
     setValue(value: string): void
     getParent(): Node
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -4383,7 +3480,7 @@ export class xElement {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of GXml.Element */
+    /* Methods of GXml-0.10.GXml.Element */
     normalize(): void
     setAttr(name: string, value: string): void
     getAttr(name: string): Node
@@ -4393,70 +3490,12 @@ export class xElement {
     getTagName(): string
     getContent(): string
     setContent(value: string): void
-    /* Virtual methods of GXml.xElement */
-    vfuncNormalize(): void
-    vfuncSetAttr(name: string, value: string): void
-    vfuncGetAttr(name: string): Node
-    vfuncRemoveAttr(name: string): void
-    vfuncSetNsAttr(ns: Namespace, name: string, value: string): void
-    vfuncGetNsAttr(name: string, uri: string): Node
-    vfuncGetTagName(): string
-    vfuncGetContent(): string
-    vfuncSetContent(value: string): void
-    /* Virtual methods of GXml.xNode */
-    vfuncAddNamespaceAttr(uri: string, namespacePrefix?: string | null): NamespaceAttr | null
-    vfuncSetNamespace(uri: string, namespacePrefix?: string | null): boolean
-    vfuncInsertBefore(newChild: xNode, refChild?: xNode | null): xNode | null
-    vfuncReplaceChild(newChild: xNode, oldChild: xNode): xNode | null
-    vfuncRemoveChild(oldChild: xNode): xNode | null
-    vfuncAppendChild(newChild: xNode): xNode | null
-    vfuncHasChildNodes(): boolean
-    vfuncCloneNode(deep: boolean): xNode | null
-    vfuncStringify(format: boolean, level: number): string
-    vfuncToString(): string
-    vfuncGetNamespaceDefinitions(): Gee.List | null
-    vfuncGetNamespaceUri(): string | null
-    vfuncGetNamespacePrefix(): string | null
-    vfuncGetLocalName(): string | null
-    vfuncGetNodeName(): string
-    vfuncGetNodeValue(): string | null
-    vfuncGetNodeType(): NodeType
-    vfuncGetParentNode(): xNode | null
-    vfuncGetChildNodes(): xNodeList | null
-    vfuncGetFirstChild(): xNode | null
-    vfuncGetLastChild(): xNode | null
-    vfuncGetPreviousSibling(): xNode | null
-    vfuncGetNextSibling(): xNode | null
-    vfuncGetAttributes(): NamedAttrMap | null
-    vfuncGetNamespaces(): Gee.List
-    vfuncGetChildren(): Gee.BidirList
-    vfuncGetAttrs(): Gee.Map
-    vfuncGetName(): string
-    vfuncGetValue(): string
-    vfuncSetValue(value: string): void
-    vfuncGetParent(): Node
-    vfuncGet(key: string): Node | null
-    vfuncGetElementsByPropertyValue(property: string, value: string): ElementList
-    vfuncNsPrefix(): string
-    vfuncNsUri(): string
-    vfuncGetChilds(): Gee.BidirList
-    vfuncGetTypeNode(): NodeType
-    vfuncGetDocument(): Document
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: xElement, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: xElement, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::namespace-definitions", callback: (($obj: xElement, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::namespace-definitions", callback: (($obj: xElement, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::namespace-definitions", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -4590,11 +3629,11 @@ export interface Entity_ConstructProps extends xNode_ConstructProps {
     notationName?: string
 }
 export class Entity {
-    /* Properties of GXml.Entity */
+    /* Properties of GXml-0.10.GXml.Entity */
     publicId: string
     systemId: string
     notationName: string
-    /* Properties of GXml.xNode */
+    /* Properties of GXml-0.10.GXml.xNode */
     namespaceDefinitions: Gee.List
     namespaceUri: string
     namespacePrefix: string
@@ -4616,16 +3655,16 @@ export class Entity {
     readonly name: string
     value: string
     readonly parent: Node
-    /* Fields of GXml.Entity */
+    /* Fields of GXml-0.10.GXml.Entity */
     parentInstance: xNode
     priv: EntityPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GXml.Entity */
+    /* Methods of GXml-0.10.GXml.Entity */
     getPublicId(): string
     getSystemId(): string
     getNotationName(): string
-    /* Methods of GXml.xNode */
+    /* Methods of GXml-0.10.GXml.xNode */
     addNamespaceAttr(uri: string, namespacePrefix?: string | null): NamespaceAttr | null
     setNamespace(uri: string, namespacePrefix?: string | null): boolean
     insertBefore(newChild: xNode, refChild?: xNode | null): xNode | null
@@ -4658,7 +3697,7 @@ export class Entity {
     getValue(): string
     setValue(value: string): void
     getParent(): Node
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -4680,60 +3719,12 @@ export class Entity {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GXml.xNode */
-    vfuncAddNamespaceAttr(uri: string, namespacePrefix?: string | null): NamespaceAttr | null
-    vfuncSetNamespace(uri: string, namespacePrefix?: string | null): boolean
-    vfuncInsertBefore(newChild: xNode, refChild?: xNode | null): xNode | null
-    vfuncReplaceChild(newChild: xNode, oldChild: xNode): xNode | null
-    vfuncRemoveChild(oldChild: xNode): xNode | null
-    vfuncAppendChild(newChild: xNode): xNode | null
-    vfuncHasChildNodes(): boolean
-    vfuncCloneNode(deep: boolean): xNode | null
-    vfuncStringify(format: boolean, level: number): string
-    vfuncToString(): string
-    vfuncGetNamespaceDefinitions(): Gee.List | null
-    vfuncGetNamespaceUri(): string | null
-    vfuncGetNamespacePrefix(): string | null
-    vfuncGetLocalName(): string | null
-    vfuncGetNodeName(): string
-    vfuncGetNodeValue(): string | null
-    vfuncGetNodeType(): NodeType
-    vfuncGetParentNode(): xNode | null
-    vfuncGetChildNodes(): xNodeList | null
-    vfuncGetFirstChild(): xNode | null
-    vfuncGetLastChild(): xNode | null
-    vfuncGetPreviousSibling(): xNode | null
-    vfuncGetNextSibling(): xNode | null
-    vfuncGetAttributes(): NamedAttrMap | null
-    vfuncGetNamespaces(): Gee.List
-    vfuncGetChildren(): Gee.BidirList
-    vfuncGetAttrs(): Gee.Map
-    vfuncGetName(): string
-    vfuncGetValue(): string
-    vfuncSetValue(value: string): void
-    vfuncGetParent(): Node
-    vfuncGet(key: string): Node | null
-    vfuncGetElementsByPropertyValue(property: string, value: string): ElementList
-    vfuncNsPrefix(): string
-    vfuncNsUri(): string
-    vfuncGetChilds(): Gee.BidirList
-    vfuncGetTypeNode(): NodeType
-    vfuncGetDocument(): Document
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Entity, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Entity, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::public-id", callback: (($obj: Entity, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::public-id", callback: (($obj: Entity, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::public-id", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -4869,7 +3860,7 @@ export class Entity {
 export interface EntityReference_ConstructProps extends xNode_ConstructProps {
 }
 export class EntityReference {
-    /* Properties of GXml.xNode */
+    /* Properties of GXml-0.10.GXml.xNode */
     namespaceDefinitions: Gee.List
     namespaceUri: string
     namespacePrefix: string
@@ -4891,12 +3882,12 @@ export class EntityReference {
     readonly name: string
     value: string
     readonly parent: Node
-    /* Fields of GXml.EntityReference */
+    /* Fields of GXml-0.10.GXml.EntityReference */
     parentInstance: xNode
     priv: EntityReferencePrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GXml.xNode */
+    /* Methods of GXml-0.10.GXml.xNode */
     addNamespaceAttr(uri: string, namespacePrefix?: string | null): NamespaceAttr | null
     setNamespace(uri: string, namespacePrefix?: string | null): boolean
     insertBefore(newChild: xNode, refChild?: xNode | null): xNode | null
@@ -4929,7 +3920,7 @@ export class EntityReference {
     getValue(): string
     setValue(value: string): void
     getParent(): Node
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -4951,60 +3942,12 @@ export class EntityReference {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GXml.xNode */
-    vfuncAddNamespaceAttr(uri: string, namespacePrefix?: string | null): NamespaceAttr | null
-    vfuncSetNamespace(uri: string, namespacePrefix?: string | null): boolean
-    vfuncInsertBefore(newChild: xNode, refChild?: xNode | null): xNode | null
-    vfuncReplaceChild(newChild: xNode, oldChild: xNode): xNode | null
-    vfuncRemoveChild(oldChild: xNode): xNode | null
-    vfuncAppendChild(newChild: xNode): xNode | null
-    vfuncHasChildNodes(): boolean
-    vfuncCloneNode(deep: boolean): xNode | null
-    vfuncStringify(format: boolean, level: number): string
-    vfuncToString(): string
-    vfuncGetNamespaceDefinitions(): Gee.List | null
-    vfuncGetNamespaceUri(): string | null
-    vfuncGetNamespacePrefix(): string | null
-    vfuncGetLocalName(): string | null
-    vfuncGetNodeName(): string
-    vfuncGetNodeValue(): string | null
-    vfuncGetNodeType(): NodeType
-    vfuncGetParentNode(): xNode | null
-    vfuncGetChildNodes(): xNodeList | null
-    vfuncGetFirstChild(): xNode | null
-    vfuncGetLastChild(): xNode | null
-    vfuncGetPreviousSibling(): xNode | null
-    vfuncGetNextSibling(): xNode | null
-    vfuncGetAttributes(): NamedAttrMap | null
-    vfuncGetNamespaces(): Gee.List
-    vfuncGetChildren(): Gee.BidirList
-    vfuncGetAttrs(): Gee.Map
-    vfuncGetName(): string
-    vfuncGetValue(): string
-    vfuncSetValue(value: string): void
-    vfuncGetParent(): Node
-    vfuncGet(key: string): Node | null
-    vfuncGetElementsByPropertyValue(property: string, value: string): ElementList
-    vfuncNsPrefix(): string
-    vfuncNsUri(): string
-    vfuncGetChilds(): Gee.BidirList
-    vfuncGetTypeNode(): NodeType
-    vfuncGetDocument(): Document
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: EntityReference, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: EntityReference, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::namespace-definitions", callback: (($obj: EntityReference, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::namespace-definitions", callback: (($obj: EntityReference, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::namespace-definitions", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -5125,15 +4068,15 @@ export class EntityReference {
 export interface Implementation_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class Implementation {
-    /* Fields of GXml.Implementation */
+    /* Fields of GXml-0.10.GXml.Implementation */
     parentInstance: GObject.Object
     priv: ImplementationPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GXml.Implementation */
+    /* Methods of GXml-0.10.GXml.Implementation */
     createDocument(namespaceUri?: string | null, qualifiedName?: string | null, doctype?: xDocumentType | null): xDocument
     hasFeature(feature: string, version?: string | null): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -5155,21 +4098,12 @@ export class Implementation {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Implementation, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Implementation, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -5185,13 +4119,13 @@ export class Implementation {
 export interface AbstractNamedAttrMap_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class AbstractNamedAttrMap {
-    /* Fields of GXml.AbstractNamedAttrMap */
+    /* Fields of GXml-0.10.GXml.AbstractNamedAttrMap */
     parentInstance: GObject.Object
     priv: AbstractNamedAttrMapPrivate
     elem: xElement
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -5213,7 +4147,7 @@ export class AbstractNamedAttrMap {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of Gee.Traversable */
+    /* Methods of Gee-0.8.Gee.Traversable */
     foreach(f: Gee.ForallFunc): boolean
     stream(aType: GObject.Type, aDupFunc: GObject.BoxedCopyFunc, aDestroyFunc: GLib.DestroyNotify, f: Gee.StreamFunc): Gee.Iterator
     fold(aType: GObject.Type, aDupFunc: GObject.BoxedCopyFunc, aDestroyFunc: GLib.DestroyNotify, f: Gee.FoldFunc, seed?: object | null): object | null
@@ -5230,41 +4164,14 @@ export class AbstractNamedAttrMap {
     min(compare: GLib.CompareDataFunc): object | null
     orderBy(compare: GLib.CompareDataFunc | null): Gee.Iterator
     getElementType(): GObject.Type
-    /* Methods of Gee.Iterable */
+    /* Methods of Gee-0.8.Gee.Iterable */
     iterator(): Gee.Iterator
-    /* Virtual methods of GXml.AbstractNamedAttrMap */
-    vfuncForeach(f: Gee.ForallFunc): boolean
-    vfuncStream(aType: GObject.Type, aDupFunc: GObject.BoxedCopyFunc, aDestroyFunc: GLib.DestroyNotify, f: Gee.StreamFunc): Gee.Iterator
-    vfuncFold(aType: GObject.Type, aDupFunc: GObject.BoxedCopyFunc, aDestroyFunc: GLib.DestroyNotify, f: Gee.FoldFunc, seed?: object | null): object | null
-    vfuncMap(aType: GObject.Type, aDupFunc: GObject.BoxedCopyFunc, aDestroyFunc: GLib.DestroyNotify, f: Gee.MapFunc): Gee.Iterator
-    vfuncScan(aType: GObject.Type, aDupFunc: GObject.BoxedCopyFunc, aDestroyFunc: GLib.DestroyNotify, f: Gee.FoldFunc, seed?: object | null): Gee.Iterator
-    vfuncFilter(pred: Gee.Predicate): Gee.Iterator
-    vfuncChop(offset: number, length: number): Gee.Iterator
-    vfuncFlatMap(aType: GObject.Type, aDupFunc: GObject.BoxedCopyFunc, aDestroyFunc: GLib.DestroyNotify, f: Gee.FlatMapFunc): Gee.Iterator
-    vfuncTee(forks: number): Gee.Iterator[]
-    vfuncFirstMatch(pred: Gee.Predicate): object | null
-    vfuncAnyMatch(pred: Gee.Predicate): boolean
-    vfuncAllMatch(pred: Gee.Predicate): boolean
-    vfuncMax(compare: GLib.CompareDataFunc): object | null
-    vfuncMin(compare: GLib.CompareDataFunc): object | null
-    vfuncOrderBy(compare: GLib.CompareDataFunc | null): Gee.Iterator
-    vfuncGetElementType(): GObject.Type
-    vfuncIterator(): Gee.Iterator
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: AbstractNamedAttrMap, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: AbstractNamedAttrMap, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -5280,21 +4187,21 @@ export class AbstractNamedAttrMap {
 export interface AbstractNamedAttrMapEntry_ConstructProps extends Gee.MapEntry_ConstructProps {
 }
 export class AbstractNamedAttrMapEntry {
-    /* Properties of Gee.MapEntry */
+    /* Properties of Gee-0.8.Gee.MapEntry */
     readonly key: object
     value: object
     readonly readOnly: boolean
-    /* Fields of GXml.AbstractNamedAttrMapEntry */
+    /* Fields of GXml-0.10.GXml.AbstractNamedAttrMapEntry */
     parentInstance: Gee.MapEntry
     priv: AbstractNamedAttrMapEntryPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Gee.MapEntry */
+    /* Methods of Gee-0.8.Gee.MapEntry */
     getKey(): object | null
     getValue(): object | null
     setValue(value?: object | null): void
     getReadOnly(): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -5316,26 +4223,12 @@ export class AbstractNamedAttrMapEntry {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of Gee.MapEntry */
-    vfuncGetKey(): object | null
-    vfuncGetValue(): object | null
-    vfuncSetValue(value?: object | null): void
-    vfuncGetReadOnly(): boolean
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: AbstractNamedAttrMapEntry, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: AbstractNamedAttrMapEntry, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::key", callback: (($obj: AbstractNamedAttrMapEntry, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::key", callback: (($obj: AbstractNamedAttrMapEntry, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::key", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -5368,17 +4261,17 @@ export class AbstractNamedAttrMapEntry {
 export interface AbstractNamedAttrMapIterator_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class AbstractNamedAttrMapIterator {
-    /* Properties of Gee.Iterator */
+    /* Properties of Gee-0.8.Gee.Iterator */
     readonly valid: boolean
     readonly readOnly: boolean
-    /* Fields of GXml.AbstractNamedAttrMapIterator */
+    /* Fields of GXml-0.10.GXml.AbstractNamedAttrMapIterator */
     parentInstance: GObject.Object
     priv: AbstractNamedAttrMapIteratorPrivate
     nm: AbstractNamedAttrMap
     cur: object | null
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -5400,7 +4293,7 @@ export class AbstractNamedAttrMapIterator {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of Gee.Traversable */
+    /* Methods of Gee-0.8.Gee.Traversable */
     foreach(f: Gee.ForallFunc): boolean
     stream(aType: GObject.Type, aDupFunc: GObject.BoxedCopyFunc, aDestroyFunc: GLib.DestroyNotify, f: Gee.StreamFunc): Gee.Iterator
     fold(aType: GObject.Type, aDupFunc: GObject.BoxedCopyFunc, aDestroyFunc: GLib.DestroyNotify, f: Gee.FoldFunc, seed?: object | null): object | null
@@ -5417,51 +4310,19 @@ export class AbstractNamedAttrMapIterator {
     min(compare: GLib.CompareDataFunc): object | null
     orderBy(compare: GLib.CompareDataFunc | null): Gee.Iterator
     getElementType(): GObject.Type
-    /* Methods of Gee.Iterator */
+    /* Methods of Gee-0.8.Gee.Iterator */
     next(): boolean
     hasNext(): boolean
     get(): object | null
     remove(): void
     getValid(): boolean
     getReadOnly(): boolean
-    /* Virtual methods of GXml.AbstractNamedAttrMapIterator */
-    vfuncForeach(f: Gee.ForallFunc): boolean
-    vfuncStream(aType: GObject.Type, aDupFunc: GObject.BoxedCopyFunc, aDestroyFunc: GLib.DestroyNotify, f: Gee.StreamFunc): Gee.Iterator
-    vfuncFold(aType: GObject.Type, aDupFunc: GObject.BoxedCopyFunc, aDestroyFunc: GLib.DestroyNotify, f: Gee.FoldFunc, seed?: object | null): object | null
-    vfuncMap(aType: GObject.Type, aDupFunc: GObject.BoxedCopyFunc, aDestroyFunc: GLib.DestroyNotify, f: Gee.MapFunc): Gee.Iterator
-    vfuncScan(aType: GObject.Type, aDupFunc: GObject.BoxedCopyFunc, aDestroyFunc: GLib.DestroyNotify, f: Gee.FoldFunc, seed?: object | null): Gee.Iterator
-    vfuncFilter(pred: Gee.Predicate): Gee.Iterator
-    vfuncChop(offset: number, length: number): Gee.Iterator
-    vfuncFlatMap(aType: GObject.Type, aDupFunc: GObject.BoxedCopyFunc, aDestroyFunc: GLib.DestroyNotify, f: Gee.FlatMapFunc): Gee.Iterator
-    vfuncTee(forks: number): Gee.Iterator[]
-    vfuncFirstMatch(pred: Gee.Predicate): object | null
-    vfuncAnyMatch(pred: Gee.Predicate): boolean
-    vfuncAllMatch(pred: Gee.Predicate): boolean
-    vfuncMax(compare: GLib.CompareDataFunc): object | null
-    vfuncMin(compare: GLib.CompareDataFunc): object | null
-    vfuncOrderBy(compare: GLib.CompareDataFunc | null): Gee.Iterator
-    vfuncGetElementType(): GObject.Type
-    vfuncNext(): boolean
-    vfuncHasNext(): boolean
-    vfuncGet(): object | null
-    vfuncRemove(): void
-    vfuncGetValid(): boolean
-    vfuncGetReadOnly(): boolean
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: AbstractNamedAttrMapIterator, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: AbstractNamedAttrMapIterator, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::valid", callback: (($obj: AbstractNamedAttrMapIterator, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::valid", callback: (($obj: AbstractNamedAttrMapIterator, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::valid", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -5491,28 +4352,28 @@ export class AbstractNamedAttrMapIterator {
 export interface NamedAttrMap_ConstructProps extends AbstractNamedAttrMap_ConstructProps {
 }
 export class NamedAttrMap {
-    /* Properties of Gee.Map */
+    /* Properties of Gee-0.8.Gee.Map */
     readonly size: number
     readonly readOnly: boolean
     readonly keys: Gee.Set
     readonly values: Gee.Collection
     readonly entries: Gee.Set
     readonly readOnlyView: Gee.Map
-    /* Properties of GXml.NamedNodeMap */
+    /* Properties of GXml-0.10.GXml.NamedNodeMap */
     readonly length: number
-    /* Fields of GXml.NamedAttrMap */
+    /* Fields of GXml-0.10.GXml.NamedAttrMap */
     parentInstance: AbstractNamedAttrMap
     priv: NamedAttrMapPrivate
-    /* Fields of GXml.AbstractNamedAttrMap */
+    /* Fields of GXml-0.10.GXml.AbstractNamedAttrMap */
     elem: xElement
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GXml.NamedAttrMap */
+    /* Methods of GXml-0.10.GXml.NamedAttrMap */
     contains(key: string): boolean
     containsAll(map: Gee.Map): boolean
-    remove(key: string): [ /* returnType */ boolean, /* val */ Attribute ]
+    remove(key: string): { returnType: boolean, val: Attribute }
     removeAll(map: Gee.Map): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -5534,14 +4395,14 @@ export class NamedAttrMap {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of Gee.Map */
+    /* Methods of Gee-0.8.Gee.Map */
     hasKey(key?: object | null): boolean
     contains(key?: object | null): boolean
     has(key?: object | null, value?: object | null): boolean
     get(key?: object | null): object | null
     set(key?: object | null, value?: object | null): void
-    unset(key?: object | null): [ /* returnType */ boolean, /* value */ object | null ]
-    remove(key?: object | null): [ /* returnType */ boolean, /* value */ object | null ]
+    unset(key?: object | null): { returnType: boolean, value: object | null }
+    remove(key?: object | null): { returnType: boolean, value: object | null }
     clear(): void
     mapIterator(): Gee.MapIterator
     setAll(map: Gee.Map): void
@@ -5556,68 +4417,18 @@ export class NamedAttrMap {
     getReadOnlyView(): Gee.Map
     getKeyType(): GObject.Type
     getValueType(): GObject.Type
-    /* Methods of GXml.NamedNodeMap */
+    /* Methods of GXml-0.10.GXml.NamedNodeMap */
     getNamedItem(name: string): object | null
     setNamedItem(item?: object | null): object | null
     removeNamedItem(name: string): object | null
     item(index: number): object | null
     getLength(): number
-    /* Virtual methods of GXml.NamedAttrMap */
-    vfuncHasKey(key?: object | null): boolean
-    vfuncHas(key?: object | null, value?: object | null): boolean
-    vfuncGet(key?: object | null): object | null
-    vfuncSet(key?: object | null, value?: object | null): void
-    vfuncUnset(key?: object | null): [ /* returnType */ boolean, /* value */ object | null ]
-    vfuncClear(): void
-    vfuncMapIterator(): Gee.MapIterator
-    vfuncSetAll(map: Gee.Map): void
-    vfuncUnsetAll(map: Gee.Map): boolean
-    vfuncHasAll(map: Gee.Map): boolean
-    vfuncGetSize(): number
-    vfuncGetIsEmpty(): boolean
-    vfuncGetReadOnly(): boolean
-    vfuncGetKeys(): Gee.Set
-    vfuncGetValues(): Gee.Collection
-    vfuncGetEntries(): Gee.Set
-    vfuncGetReadOnlyView(): Gee.Map
-    vfuncGetNamedItem(name: string): object | null
-    vfuncSetNamedItem(item?: object | null): object | null
-    vfuncRemoveNamedItem(name: string): object | null
-    vfuncItem(index: number): object | null
-    vfuncGetLength(): number
-    /* Virtual methods of GXml.AbstractNamedAttrMap */
-    vfuncForeach(f: Gee.ForallFunc): boolean
-    vfuncStream(aType: GObject.Type, aDupFunc: GObject.BoxedCopyFunc, aDestroyFunc: GLib.DestroyNotify, f: Gee.StreamFunc): Gee.Iterator
-    vfuncFold(aType: GObject.Type, aDupFunc: GObject.BoxedCopyFunc, aDestroyFunc: GLib.DestroyNotify, f: Gee.FoldFunc, seed?: object | null): object | null
-    vfuncMap(aType: GObject.Type, aDupFunc: GObject.BoxedCopyFunc, aDestroyFunc: GLib.DestroyNotify, f: Gee.MapFunc): Gee.Iterator
-    vfuncScan(aType: GObject.Type, aDupFunc: GObject.BoxedCopyFunc, aDestroyFunc: GLib.DestroyNotify, f: Gee.FoldFunc, seed?: object | null): Gee.Iterator
-    vfuncFilter(pred: Gee.Predicate): Gee.Iterator
-    vfuncChop(offset: number, length: number): Gee.Iterator
-    vfuncFlatMap(aType: GObject.Type, aDupFunc: GObject.BoxedCopyFunc, aDestroyFunc: GLib.DestroyNotify, f: Gee.FlatMapFunc): Gee.Iterator
-    vfuncTee(forks: number): Gee.Iterator[]
-    vfuncFirstMatch(pred: Gee.Predicate): object | null
-    vfuncAnyMatch(pred: Gee.Predicate): boolean
-    vfuncAllMatch(pred: Gee.Predicate): boolean
-    vfuncMax(compare: GLib.CompareDataFunc): object | null
-    vfuncMin(compare: GLib.CompareDataFunc): object | null
-    vfuncOrderBy(compare: GLib.CompareDataFunc | null): Gee.Iterator
-    vfuncGetElementType(): GObject.Type
-    vfuncIterator(): Gee.Iterator
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: NamedAttrMap, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: NamedAttrMap, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::size", callback: (($obj: NamedAttrMap, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::size", callback: (($obj: NamedAttrMap, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::size", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -5672,10 +4483,10 @@ export interface NamespaceAttr_ConstructProps extends xNode_ConstructProps {
     definedNamespaceUri?: string
 }
 export class NamespaceAttr {
-    /* Properties of GXml.NamespaceAttr */
+    /* Properties of GXml-0.10.GXml.NamespaceAttr */
     definedPrefix: string
     definedNamespaceUri: string
-    /* Properties of GXml.xNode */
+    /* Properties of GXml-0.10.GXml.xNode */
     namespaceDefinitions: Gee.List
     namespaceUri: string
     namespacePrefix: string
@@ -5697,18 +4508,18 @@ export class NamespaceAttr {
     readonly name: string
     value: string
     readonly parent: Node
-    /* Properties of GXml.Namespace */
+    /* Properties of GXml-0.10.GXml.Namespace */
     readonly uri: string
     readonly prefix: string
-    /* Fields of GXml.NamespaceAttr */
+    /* Fields of GXml-0.10.GXml.NamespaceAttr */
     parentInstance: xNode
     priv: NamespaceAttrPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GXml.NamespaceAttr */
+    /* Methods of GXml-0.10.GXml.NamespaceAttr */
     getDefinedPrefix(): string
     getDefinedNamespaceUri(): string
-    /* Methods of GXml.xNode */
+    /* Methods of GXml-0.10.GXml.xNode */
     addNamespaceAttr(uri: string, namespacePrefix?: string | null): NamespaceAttr | null
     setNamespace(uri: string, namespacePrefix?: string | null): boolean
     insertBefore(newChild: xNode, refChild?: xNode | null): xNode | null
@@ -5741,7 +4552,7 @@ export class NamespaceAttr {
     getValue(): string
     setValue(value: string): void
     getParent(): Node
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -5763,66 +4574,15 @@ export class NamespaceAttr {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of GXml.Namespace */
+    /* Methods of GXml-0.10.GXml.Namespace */
     getUri(): string
     getPrefix(): string
-    /* Virtual methods of GXml.NamespaceAttr */
-    vfuncGetUri(): string
-    vfuncGetPrefix(): string
-    /* Virtual methods of GXml.xNode */
-    vfuncAddNamespaceAttr(uri: string, namespacePrefix?: string | null): NamespaceAttr | null
-    vfuncSetNamespace(uri: string, namespacePrefix?: string | null): boolean
-    vfuncInsertBefore(newChild: xNode, refChild?: xNode | null): xNode | null
-    vfuncReplaceChild(newChild: xNode, oldChild: xNode): xNode | null
-    vfuncRemoveChild(oldChild: xNode): xNode | null
-    vfuncAppendChild(newChild: xNode): xNode | null
-    vfuncHasChildNodes(): boolean
-    vfuncCloneNode(deep: boolean): xNode | null
-    vfuncStringify(format: boolean, level: number): string
-    vfuncToString(): string
-    vfuncGetNamespaceDefinitions(): Gee.List | null
-    vfuncGetNamespaceUri(): string | null
-    vfuncGetNamespacePrefix(): string | null
-    vfuncGetLocalName(): string | null
-    vfuncGetNodeName(): string
-    vfuncGetNodeValue(): string | null
-    vfuncGetNodeType(): NodeType
-    vfuncGetParentNode(): xNode | null
-    vfuncGetChildNodes(): xNodeList | null
-    vfuncGetFirstChild(): xNode | null
-    vfuncGetLastChild(): xNode | null
-    vfuncGetPreviousSibling(): xNode | null
-    vfuncGetNextSibling(): xNode | null
-    vfuncGetAttributes(): NamedAttrMap | null
-    vfuncGetNamespaces(): Gee.List
-    vfuncGetChildren(): Gee.BidirList
-    vfuncGetAttrs(): Gee.Map
-    vfuncGetName(): string
-    vfuncGetValue(): string
-    vfuncSetValue(value: string): void
-    vfuncGetParent(): Node
-    vfuncGet(key: string): Node | null
-    vfuncGetElementsByPropertyValue(property: string, value: string): ElementList
-    vfuncNsPrefix(): string
-    vfuncNsUri(): string
-    vfuncGetChilds(): Gee.BidirList
-    vfuncGetTypeNode(): NodeType
-    vfuncGetDocument(): Document
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: NamespaceAttr, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: NamespaceAttr, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::defined-prefix", callback: (($obj: NamespaceAttr, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::defined-prefix", callback: (($obj: NamespaceAttr, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::defined-prefix", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -5979,7 +4739,7 @@ export interface xNode_ConstructProps extends GObject.Object_ConstructProps {
     value?: string
 }
 export class xNode {
-    /* Properties of GXml.xNode */
+    /* Properties of GXml-0.10.GXml.xNode */
     namespaceDefinitions: Gee.List
     namespaceUri: string
     namespacePrefix: string
@@ -6001,16 +4761,16 @@ export class xNode {
     readonly name: string
     value: string
     readonly parent: Node
-    /* Properties of GXml.Node */
+    /* Properties of GXml-0.10.GXml.Node */
     readonly childs: Gee.BidirList
     readonly typeNode: NodeType
     readonly document: Document
-    /* Fields of GXml.xNode */
+    /* Fields of GXml-0.10.GXml.xNode */
     parentInstance: GObject.Object
     priv: xNodePrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GXml.xNode */
+    /* Methods of GXml-0.10.GXml.xNode */
     addNamespaceAttr(uri: string, namespacePrefix?: string | null): NamespaceAttr | null
     setNamespace(uri: string, namespacePrefix?: string | null): boolean
     insertBefore(newChild: xNode, refChild?: xNode | null): xNode | null
@@ -6043,7 +4803,7 @@ export class xNode {
     getValue(): string
     setValue(value: string): void
     getParent(): Node
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -6065,7 +4825,7 @@ export class xNode {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of GXml.Node */
+    /* Methods of GXml-0.10.GXml.Node */
     get(key: string): Node | null
     getElementsByPropertyValue(property: string, value: string): ElementList
     setNamespace(uri: string, prefix?: string | null): boolean
@@ -6074,60 +4834,12 @@ export class xNode {
     getChilds(): Gee.BidirList
     getTypeNode(): NodeType
     getDocument(): Document
-    /* Virtual methods of GXml.xNode */
-    vfuncAddNamespaceAttr(uri: string, namespacePrefix?: string | null): NamespaceAttr | null
-    vfuncSetNamespace(uri: string, namespacePrefix?: string | null): boolean
-    vfuncInsertBefore(newChild: xNode, refChild?: xNode | null): xNode | null
-    vfuncReplaceChild(newChild: xNode, oldChild: xNode): xNode | null
-    vfuncRemoveChild(oldChild: xNode): xNode | null
-    vfuncAppendChild(newChild: xNode): xNode | null
-    vfuncHasChildNodes(): boolean
-    vfuncCloneNode(deep: boolean): xNode | null
-    vfuncStringify(format: boolean, level: number): string
-    vfuncToString(): string
-    vfuncGetNamespaceDefinitions(): Gee.List | null
-    vfuncGetNamespaceUri(): string | null
-    vfuncGetNamespacePrefix(): string | null
-    vfuncGetLocalName(): string | null
-    vfuncGetNodeName(): string
-    vfuncGetNodeValue(): string | null
-    vfuncGetNodeType(): NodeType
-    vfuncGetParentNode(): xNode | null
-    vfuncGetChildNodes(): xNodeList | null
-    vfuncGetFirstChild(): xNode | null
-    vfuncGetLastChild(): xNode | null
-    vfuncGetPreviousSibling(): xNode | null
-    vfuncGetNextSibling(): xNode | null
-    vfuncGetAttributes(): NamedAttrMap | null
-    vfuncGetNamespaces(): Gee.List
-    vfuncGetChildren(): Gee.BidirList
-    vfuncGetAttrs(): Gee.Map
-    vfuncGetName(): string
-    vfuncGetValue(): string
-    vfuncSetValue(value: string): void
-    vfuncGetParent(): Node
-    vfuncGet(key: string): Node | null
-    vfuncGetElementsByPropertyValue(property: string, value: string): ElementList
-    vfuncNsPrefix(): string
-    vfuncNsUri(): string
-    vfuncGetChilds(): Gee.BidirList
-    vfuncGetTypeNode(): NodeType
-    vfuncGetDocument(): Document
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: xNode, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: xNode, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::namespace-definitions", callback: (($obj: xNode, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::namespace-definitions", callback: (($obj: xNode, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::namespace-definitions", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -6265,7 +4977,7 @@ export class xNode {
 export interface xNotation_ConstructProps extends xNode_ConstructProps {
 }
 export class xNotation {
-    /* Properties of GXml.xNode */
+    /* Properties of GXml-0.10.GXml.xNode */
     namespaceDefinitions: Gee.List
     namespaceUri: string
     namespacePrefix: string
@@ -6287,15 +4999,15 @@ export class xNotation {
     readonly name: string
     value: string
     readonly parent: Node
-    /* Properties of GXml.Notation */
+    /* Properties of GXml-0.10.GXml.Notation */
     readonly publicId: string
     readonly externalId: string
-    /* Fields of GXml.xNotation */
+    /* Fields of GXml-0.10.GXml.xNotation */
     parentInstance: xNode
     priv: xNotationPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GXml.xNode */
+    /* Methods of GXml-0.10.GXml.xNode */
     addNamespaceAttr(uri: string, namespacePrefix?: string | null): NamespaceAttr | null
     setNamespace(uri: string, namespacePrefix?: string | null): boolean
     insertBefore(newChild: xNode, refChild?: xNode | null): xNode | null
@@ -6328,7 +5040,7 @@ export class xNotation {
     getValue(): string
     setValue(value: string): void
     getParent(): Node
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -6350,66 +5062,15 @@ export class xNotation {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of GXml.Notation */
+    /* Methods of GXml-0.10.GXml.Notation */
     getPublicId(): string | null
     getExternalId(): string | null
-    /* Virtual methods of GXml.xNotation */
-    vfuncGetPublicId(): string | null
-    vfuncGetExternalId(): string | null
-    /* Virtual methods of GXml.xNode */
-    vfuncAddNamespaceAttr(uri: string, namespacePrefix?: string | null): NamespaceAttr | null
-    vfuncSetNamespace(uri: string, namespacePrefix?: string | null): boolean
-    vfuncInsertBefore(newChild: xNode, refChild?: xNode | null): xNode | null
-    vfuncReplaceChild(newChild: xNode, oldChild: xNode): xNode | null
-    vfuncRemoveChild(oldChild: xNode): xNode | null
-    vfuncAppendChild(newChild: xNode): xNode | null
-    vfuncHasChildNodes(): boolean
-    vfuncCloneNode(deep: boolean): xNode | null
-    vfuncStringify(format: boolean, level: number): string
-    vfuncToString(): string
-    vfuncGetNamespaceDefinitions(): Gee.List | null
-    vfuncGetNamespaceUri(): string | null
-    vfuncGetNamespacePrefix(): string | null
-    vfuncGetLocalName(): string | null
-    vfuncGetNodeName(): string
-    vfuncGetNodeValue(): string | null
-    vfuncGetNodeType(): NodeType
-    vfuncGetParentNode(): xNode | null
-    vfuncGetChildNodes(): xNodeList | null
-    vfuncGetFirstChild(): xNode | null
-    vfuncGetLastChild(): xNode | null
-    vfuncGetPreviousSibling(): xNode | null
-    vfuncGetNextSibling(): xNode | null
-    vfuncGetAttributes(): NamedAttrMap | null
-    vfuncGetNamespaces(): Gee.List
-    vfuncGetChildren(): Gee.BidirList
-    vfuncGetAttrs(): Gee.Map
-    vfuncGetName(): string
-    vfuncGetValue(): string
-    vfuncSetValue(value: string): void
-    vfuncGetParent(): Node
-    vfuncGet(key: string): Node | null
-    vfuncGetElementsByPropertyValue(property: string, value: string): ElementList
-    vfuncNsPrefix(): string
-    vfuncNsUri(): string
-    vfuncGetChilds(): Gee.BidirList
-    vfuncGetTypeNode(): NodeType
-    vfuncGetDocument(): Document
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: xNotation, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: xNotation, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::namespace-definitions", callback: (($obj: xNotation, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::namespace-definitions", callback: (($obj: xNotation, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::namespace-definitions", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -6540,7 +5201,7 @@ export class xNotation {
 export interface xProcessingInstruction_ConstructProps extends xNode_ConstructProps {
 }
 export class xProcessingInstruction {
-    /* Properties of GXml.xNode */
+    /* Properties of GXml-0.10.GXml.xNode */
     namespaceDefinitions: Gee.List
     namespaceUri: string
     namespacePrefix: string
@@ -6562,15 +5223,15 @@ export class xProcessingInstruction {
     readonly name: string
     value: string
     readonly parent: Node
-    /* Properties of GXml.ProcessingInstruction */
+    /* Properties of GXml-0.10.GXml.ProcessingInstruction */
     readonly target: string
     readonly data: string
-    /* Fields of GXml.xProcessingInstruction */
+    /* Fields of GXml-0.10.GXml.xProcessingInstruction */
     parentInstance: xNode
     priv: xProcessingInstructionPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GXml.xNode */
+    /* Methods of GXml-0.10.GXml.xNode */
     addNamespaceAttr(uri: string, namespacePrefix?: string | null): NamespaceAttr | null
     setNamespace(uri: string, namespacePrefix?: string | null): boolean
     insertBefore(newChild: xNode, refChild?: xNode | null): xNode | null
@@ -6603,7 +5264,7 @@ export class xProcessingInstruction {
     getValue(): string
     setValue(value: string): void
     getParent(): Node
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -6625,66 +5286,15 @@ export class xProcessingInstruction {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of GXml.ProcessingInstruction */
+    /* Methods of GXml-0.10.GXml.ProcessingInstruction */
     getTarget(): string
     getData(): string
-    /* Virtual methods of GXml.xProcessingInstruction */
-    vfuncGetTarget(): string
-    vfuncGetData(): string
-    /* Virtual methods of GXml.xNode */
-    vfuncAddNamespaceAttr(uri: string, namespacePrefix?: string | null): NamespaceAttr | null
-    vfuncSetNamespace(uri: string, namespacePrefix?: string | null): boolean
-    vfuncInsertBefore(newChild: xNode, refChild?: xNode | null): xNode | null
-    vfuncReplaceChild(newChild: xNode, oldChild: xNode): xNode | null
-    vfuncRemoveChild(oldChild: xNode): xNode | null
-    vfuncAppendChild(newChild: xNode): xNode | null
-    vfuncHasChildNodes(): boolean
-    vfuncCloneNode(deep: boolean): xNode | null
-    vfuncStringify(format: boolean, level: number): string
-    vfuncToString(): string
-    vfuncGetNamespaceDefinitions(): Gee.List | null
-    vfuncGetNamespaceUri(): string | null
-    vfuncGetNamespacePrefix(): string | null
-    vfuncGetLocalName(): string | null
-    vfuncGetNodeName(): string
-    vfuncGetNodeValue(): string | null
-    vfuncGetNodeType(): NodeType
-    vfuncGetParentNode(): xNode | null
-    vfuncGetChildNodes(): xNodeList | null
-    vfuncGetFirstChild(): xNode | null
-    vfuncGetLastChild(): xNode | null
-    vfuncGetPreviousSibling(): xNode | null
-    vfuncGetNextSibling(): xNode | null
-    vfuncGetAttributes(): NamedAttrMap | null
-    vfuncGetNamespaces(): Gee.List
-    vfuncGetChildren(): Gee.BidirList
-    vfuncGetAttrs(): Gee.Map
-    vfuncGetName(): string
-    vfuncGetValue(): string
-    vfuncSetValue(value: string): void
-    vfuncGetParent(): Node
-    vfuncGet(key: string): Node | null
-    vfuncGetElementsByPropertyValue(property: string, value: string): ElementList
-    vfuncNsPrefix(): string
-    vfuncNsUri(): string
-    vfuncGetChilds(): Gee.BidirList
-    vfuncGetTypeNode(): NodeType
-    vfuncGetDocument(): Document
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: xProcessingInstruction, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: xProcessingInstruction, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::namespace-definitions", callback: (($obj: xProcessingInstruction, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::namespace-definitions", callback: (($obj: xProcessingInstruction, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::namespace-definitions", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -6815,10 +5425,10 @@ export class xProcessingInstruction {
 export interface xText_ConstructProps extends xCharacterData_ConstructProps {
 }
 export class xText {
-    /* Properties of GXml.xCharacterData */
+    /* Properties of GXml-0.10.GXml.xCharacterData */
     data: string
     length: number
-    /* Properties of GXml.xNode */
+    /* Properties of GXml-0.10.GXml.xNode */
     namespaceDefinitions: Gee.List
     namespaceUri: string
     namespacePrefix: string
@@ -6840,16 +5450,16 @@ export class xText {
     readonly name: string
     value: string
     readonly parent: Node
-    /* Properties of GXml.Text */
+    /* Properties of GXml-0.10.GXml.Text */
     readonly str: string
-    /* Fields of GXml.xText */
+    /* Fields of GXml-0.10.GXml.xText */
     parentInstance: xCharacterData
     priv: xTextPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GXml.xText */
+    /* Methods of GXml-0.10.GXml.xText */
     splitText(offset: number): xText
-    /* Methods of GXml.xCharacterData */
+    /* Methods of GXml-0.10.GXml.xCharacterData */
     substringData(offset: number, count: number): string
     appendData(newSegment: string): void
     insertData(offset: number, newSegment: string): void
@@ -6858,7 +5468,7 @@ export class xText {
     getData(): string
     setData(value: string): void
     getLength(): number
-    /* Methods of GXml.xNode */
+    /* Methods of GXml-0.10.GXml.xNode */
     addNamespaceAttr(uri: string, namespacePrefix?: string | null): NamespaceAttr | null
     setNamespace(uri: string, namespacePrefix?: string | null): boolean
     insertBefore(newChild: xNode, refChild?: xNode | null): xNode | null
@@ -6891,7 +5501,7 @@ export class xText {
     getValue(): string
     setValue(value: string): void
     getParent(): Node
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -6913,64 +5523,14 @@ export class xText {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of GXml.Text */
+    /* Methods of GXml-0.10.GXml.Text */
     getStr(): string
-    /* Virtual methods of GXml.xText */
-    vfuncGetStr(): string
-    /* Virtual methods of GXml.xNode */
-    vfuncAddNamespaceAttr(uri: string, namespacePrefix?: string | null): NamespaceAttr | null
-    vfuncSetNamespace(uri: string, namespacePrefix?: string | null): boolean
-    vfuncInsertBefore(newChild: xNode, refChild?: xNode | null): xNode | null
-    vfuncReplaceChild(newChild: xNode, oldChild: xNode): xNode | null
-    vfuncRemoveChild(oldChild: xNode): xNode | null
-    vfuncAppendChild(newChild: xNode): xNode | null
-    vfuncHasChildNodes(): boolean
-    vfuncCloneNode(deep: boolean): xNode | null
-    vfuncStringify(format: boolean, level: number): string
-    vfuncToString(): string
-    vfuncGetNamespaceDefinitions(): Gee.List | null
-    vfuncGetNamespaceUri(): string | null
-    vfuncGetNamespacePrefix(): string | null
-    vfuncGetLocalName(): string | null
-    vfuncGetNodeName(): string
-    vfuncGetNodeValue(): string | null
-    vfuncGetNodeType(): NodeType
-    vfuncGetParentNode(): xNode | null
-    vfuncGetChildNodes(): xNodeList | null
-    vfuncGetFirstChild(): xNode | null
-    vfuncGetLastChild(): xNode | null
-    vfuncGetPreviousSibling(): xNode | null
-    vfuncGetNextSibling(): xNode | null
-    vfuncGetAttributes(): NamedAttrMap | null
-    vfuncGetNamespaces(): Gee.List
-    vfuncGetChildren(): Gee.BidirList
-    vfuncGetAttrs(): Gee.Map
-    vfuncGetName(): string
-    vfuncGetValue(): string
-    vfuncSetValue(value: string): void
-    vfuncGetParent(): Node
-    vfuncGet(key: string): Node | null
-    vfuncGetElementsByPropertyValue(property: string, value: string): ElementList
-    vfuncNsPrefix(): string
-    vfuncNsUri(): string
-    vfuncGetChilds(): Gee.BidirList
-    vfuncGetTypeNode(): NodeType
-    vfuncGetDocument(): Document
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: xText, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: xText, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::data", callback: (($obj: xText, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::data", callback: (($obj: xText, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::data", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -7106,16 +5666,16 @@ export class xText {
 export interface SerializableBool_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class SerializableBool {
-    /* Fields of GXml.SerializableBool */
+    /* Fields of GXml-0.10.GXml.SerializableBool */
     parentInstance: GObject.Object
     priv: SerializableBoolPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GXml.SerializableBool */
+    /* Methods of GXml-0.10.GXml.SerializableBool */
     getValue(): boolean
     setValue(val: boolean): void
     toString(): string
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -7137,33 +5697,19 @@ export class SerializableBool {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of GXml.SerializableProperty */
+    /* Methods of GXml-0.10.GXml.SerializableProperty */
     getSerializablePropertyValue(): string
     setSerializablePropertyValue(val?: string | null): void
     deserializeProperty(propertyNode: Node, prop: GObject.ParamSpec, nick: boolean): boolean
     serializeProperty(propertyNode: Node, prop: GObject.ParamSpec, nick: boolean): Node | null
     defaultSerializablePropertySerializeProperty(element: Node, prop: GObject.ParamSpec, nick: boolean): Node | null
     defaultSerializablePropertyDeserializeProperty(propertyNode: Node, prop: GObject.ParamSpec, nick: boolean): boolean
-    /* Virtual methods of GXml.SerializableBool */
-    vfuncGetSerializablePropertyValue(): string
-    vfuncSetSerializablePropertyValue(val?: string | null): void
-    vfuncDeserializeProperty(propertyNode: Node, prop: GObject.ParamSpec, nick: boolean): boolean
-    vfuncSerializeProperty(propertyNode: Node, prop: GObject.ParamSpec, nick: boolean): Node | null
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: SerializableBool, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: SerializableBool, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -7181,21 +5727,21 @@ export class SerializableBool {
 export interface SerializableDouble_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class SerializableDouble {
-    /* Fields of GXml.SerializableDouble */
+    /* Fields of GXml-0.10.GXml.SerializableDouble */
     parentInstance: GObject.Object
     priv: SerializableDoublePrivate
     val: string
     fraction: number
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GXml.SerializableDouble */
+    /* Methods of GXml-0.10.GXml.SerializableDouble */
     getFraction(): number
     setFraction(fraction: number): void
     getValue(): number
     setValue(val: number): void
     toString(): string
     format(f: string): string
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -7217,33 +5763,19 @@ export class SerializableDouble {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of GXml.SerializableProperty */
+    /* Methods of GXml-0.10.GXml.SerializableProperty */
     getSerializablePropertyValue(): string
     setSerializablePropertyValue(val?: string | null): void
     deserializeProperty(propertyNode: Node, prop: GObject.ParamSpec, nick: boolean): boolean
     serializeProperty(propertyNode: Node, prop: GObject.ParamSpec, nick: boolean): Node | null
     defaultSerializablePropertySerializeProperty(element: Node, prop: GObject.ParamSpec, nick: boolean): Node | null
     defaultSerializablePropertyDeserializeProperty(propertyNode: Node, prop: GObject.ParamSpec, nick: boolean): boolean
-    /* Virtual methods of GXml.SerializableDouble */
-    vfuncGetSerializablePropertyValue(): string
-    vfuncSetSerializablePropertyValue(val?: string | null): void
-    vfuncDeserializeProperty(propertyNode: Node, prop: GObject.ParamSpec, nick: boolean): boolean
-    vfuncSerializeProperty(propertyNode: Node, prop: GObject.ParamSpec, nick: boolean): Node | null
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: SerializableDouble, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: SerializableDouble, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -7261,23 +5793,23 @@ export class SerializableDouble {
 export interface SerializableFloat_ConstructProps extends SerializableDouble_ConstructProps {
 }
 export class SerializableFloat {
-    /* Fields of GXml.SerializableFloat */
+    /* Fields of GXml-0.10.GXml.SerializableFloat */
     parentInstance: SerializableDouble
     priv: SerializableFloatPrivate
-    /* Fields of GXml.SerializableDouble */
+    /* Fields of GXml-0.10.GXml.SerializableDouble */
     val: string
     fraction: number
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GXml.SerializableFloat */
+    /* Methods of GXml-0.10.GXml.SerializableFloat */
     getValue(): number
     setValue(val: number): void
-    /* Methods of GXml.SerializableDouble */
+    /* Methods of GXml-0.10.GXml.SerializableDouble */
     getFraction(): number
     setFraction(fraction: number): void
     toString(): string
     format(f: string): string
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -7299,26 +5831,12 @@ export class SerializableFloat {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GXml.SerializableDouble */
-    vfuncGetSerializablePropertyValue(): string
-    vfuncSetSerializablePropertyValue(val?: string | null): void
-    vfuncDeserializeProperty(propertyNode: Node, prop: GObject.ParamSpec, nick: boolean): boolean
-    vfuncSerializeProperty(propertyNode: Node, prop: GObject.ParamSpec, nick: boolean): Node | null
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: SerializableFloat, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: SerializableFloat, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -7336,21 +5854,21 @@ export class SerializableFloat {
 export interface SerializableEnum_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class SerializableEnum {
-    /* Fields of GXml.SerializableEnum */
+    /* Fields of GXml-0.10.GXml.SerializableEnum */
     parentInstance: GObject.Object
     priv: SerializableEnumPrivate
     val: string
     enumtype: GObject.Type
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GXml.SerializableEnum */
+    /* Methods of GXml-0.10.GXml.SerializableEnum */
     setEnumType(type: GObject.Type): void
     getEnumType(): GObject.Type
     parse(str: string): void
     parseInteger(v: number): void
     toInteger(): number
     toString(): string
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -7372,33 +5890,19 @@ export class SerializableEnum {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of GXml.SerializableProperty */
+    /* Methods of GXml-0.10.GXml.SerializableProperty */
     getSerializablePropertyValue(): string
     setSerializablePropertyValue(val?: string | null): void
     deserializeProperty(propertyNode: Node, prop: GObject.ParamSpec, nick: boolean): boolean
     serializeProperty(propertyNode: Node, prop: GObject.ParamSpec, nick: boolean): Node | null
     defaultSerializablePropertySerializeProperty(element: Node, prop: GObject.ParamSpec, nick: boolean): Node | null
     defaultSerializablePropertyDeserializeProperty(propertyNode: Node, prop: GObject.ParamSpec, nick: boolean): boolean
-    /* Virtual methods of GXml.SerializableEnum */
-    vfuncGetSerializablePropertyValue(): string
-    vfuncSetSerializablePropertyValue(val?: string | null): void
-    vfuncDeserializeProperty(propertyNode: Node, prop: GObject.ParamSpec, nick: boolean): boolean
-    vfuncSerializeProperty(propertyNode: Node, prop: GObject.ParamSpec, nick: boolean): Node | null
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: SerializableEnum, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: SerializableEnum, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -7417,23 +5921,23 @@ export class SerializableEnum {
 export interface SerializableInt_ConstructProps extends SerializableDouble_ConstructProps {
 }
 export class SerializableInt {
-    /* Fields of GXml.SerializableInt */
+    /* Fields of GXml-0.10.GXml.SerializableInt */
     parentInstance: SerializableDouble
     priv: SerializableIntPrivate
-    /* Fields of GXml.SerializableDouble */
+    /* Fields of GXml-0.10.GXml.SerializableDouble */
     val: string
     fraction: number
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GXml.SerializableInt */
+    /* Methods of GXml-0.10.GXml.SerializableInt */
     getValue(): number
     setValue(val: number): void
-    /* Methods of GXml.SerializableDouble */
+    /* Methods of GXml-0.10.GXml.SerializableDouble */
     getFraction(): number
     setFraction(fraction: number): void
     toString(): string
     format(f: string): string
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -7455,26 +5959,12 @@ export class SerializableInt {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GXml.SerializableDouble */
-    vfuncGetSerializablePropertyValue(): string
-    vfuncSetSerializablePropertyValue(val?: string | null): void
-    vfuncDeserializeProperty(propertyNode: Node, prop: GObject.ParamSpec, nick: boolean): boolean
-    vfuncSerializeProperty(propertyNode: Node, prop: GObject.ParamSpec, nick: boolean): Node | null
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: SerializableInt, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: SerializableInt, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -7492,14 +5982,14 @@ export class SerializableInt {
 export interface SerializableValueList_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class SerializableValueList {
-    /* Fields of GXml.SerializableValueList */
+    /* Fields of GXml-0.10.GXml.SerializableValueList */
     parentInstance: GObject.Object
     priv: SerializableValueListPrivate
     vals: string[]
     extra: Gee.ArrayList
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GXml.SerializableValueList */
+    /* Methods of GXml-0.10.GXml.SerializableValueList */
     getValues(): Gee.List
     addValues(vals: string[]): void
     getValueAt(index: number): string | null
@@ -7507,7 +5997,7 @@ export class SerializableValueList {
     getValuesArray(): string[]
     isValue(): boolean
     toString(): string
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -7529,39 +6019,19 @@ export class SerializableValueList {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of GXml.SerializableProperty */
+    /* Methods of GXml-0.10.GXml.SerializableProperty */
     getSerializablePropertyValue(): string
     setSerializablePropertyValue(val?: string | null): void
     deserializeProperty(propertyNode: Node, prop: GObject.ParamSpec, nick: boolean): boolean
     serializeProperty(propertyNode: Node, prop: GObject.ParamSpec, nick: boolean): Node | null
     defaultSerializablePropertySerializeProperty(element: Node, prop: GObject.ParamSpec, nick: boolean): Node | null
     defaultSerializablePropertyDeserializeProperty(propertyNode: Node, prop: GObject.ParamSpec, nick: boolean): boolean
-    /* Virtual methods of GXml.SerializableValueList */
-    vfuncGetValues(): Gee.List
-    vfuncAddValues(vals: string[]): void
-    vfuncGetValueAt(index: number): string | null
-    vfuncSelectValueAt(index: number): void
-    vfuncGetValuesArray(): string[]
-    vfuncIsValue(): boolean
-    vfuncGetSerializablePropertyValue(): string
-    vfuncSetSerializablePropertyValue(val?: string | null): void
-    vfuncDeserializeProperty(propertyNode: Node, prop: GObject.ParamSpec, nick: boolean): boolean
-    vfuncSerializeProperty(propertyNode: Node, prop: GObject.ParamSpec, nick: boolean): Node | null
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: SerializableValueList, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: SerializableValueList, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -7582,20 +6052,20 @@ export interface SerializableObjectModel_ConstructProps extends GObject.Object_C
     serializedXmlNodeValue?: string
 }
 export class SerializableObjectModel {
-    /* Properties of GXml.SerializableObjectModel */
+    /* Properties of GXml-0.10.GXml.SerializableObjectModel */
     properties: GObject.ParamSpec[]
     ignoredSerializableProperties: GLib.HashTable
-    /* Properties of GXml.Serializable */
+    /* Properties of GXml-0.10.GXml.Serializable */
     readonly unknownSerializableProperties: Gee.Map
     readonly unknownSerializableNodes: Gee.Collection
     serializedXmlNodeValue: string
-    /* Fields of GXml.SerializableObjectModel */
+    /* Fields of GXml-0.10.GXml.SerializableObjectModel */
     parentInstance: GObject.Object
     priv: SerializableObjectModelPrivate
     node: Node
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GXml.SerializableObjectModel */
+    /* Methods of GXml-0.10.GXml.SerializableObjectModel */
     getEnableUnknownSerializableProperty(): boolean
     serializeUseXmlNodeValue(): boolean
     propertyUseNick(): boolean
@@ -7617,7 +6087,7 @@ export class SerializableObjectModel {
     setProperties(value: GObject.ParamSpec[]): void
     getIgnoredSerializableProperties(): GLib.HashTable
     setIgnoredSerializableProperties(value: GLib.HashTable): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -7639,72 +6109,40 @@ export class SerializableObjectModel {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of GXml.Serializable */
+    /* Methods of GXml-0.10.GXml.Serializable */
     defaultFindPropertySpec(propertyName: string): GObject.ParamSpec | null
     defaultListSerializableProperties(): GObject.ParamSpec[]
     getUnknownSerializableProperties(): Gee.Map
     getUnknownSerializableNodes(): Gee.Collection
     getSerializedXmlNodeValue(): string | null
     setSerializedXmlNodeValue(value?: string | null): void
-    /* Virtual methods of GXml.SerializableObjectModel */
-    vfuncGetEnableUnknownSerializableProperty(): boolean
-    vfuncSerializeUseXmlNodeValue(): boolean
-    vfuncPropertyUseNick(): boolean
-    vfuncSetDefaultNamespace(node: Node): boolean
-    vfuncNodeName(): string
-    vfuncFindPropertySpec(propertyName: string): GObject.ParamSpec | null
-    vfuncListSerializableProperties(): GObject.ParamSpec[]
-    vfuncSerialize(node: Node): Node | null
-    vfuncSerializeProperty(element: Node, prop: GObject.ParamSpec): Node | null
-    vfuncDeserialize(node: Node): boolean
-    vfuncDeserializeProperty(propertyNode: Node): boolean
-    vfuncToString(): string
-    vfuncDefaultFindPropertySpec(propertyName: string): GObject.ParamSpec | null
-    vfuncDefaultListSerializableProperties(): GObject.ParamSpec[]
-    vfuncGetUnknownSerializableProperties(): Gee.Map
-    vfuncGetUnknownSerializableNodes(): Gee.Collection
-    vfuncGetSerializedXmlNodeValue(): string | null
-    vfuncSetSerializedXmlNodeValue(value?: string | null): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: SerializableObjectModel, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: SerializableObjectModel, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GXml.Serializable */
+    /* Signals of GXml-0.10.GXml.Serializable */
     connect(sigName: "serialize_unknown_property", callback: (($obj: SerializableObjectModel, element: Node, prop: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "serialize_unknown_property", callback: (($obj: SerializableObjectModel, element: Node, prop: GObject.ParamSpec) => void)): number
+    on(sigName: "serialize_unknown_property", callback: (element: Node, prop: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "serialize_unknown_property", callback: (element: Node, prop: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "serialize_unknown_property", callback: (element: Node, prop: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "serialize_unknown_property", element: Node, prop: GObject.ParamSpec): void
-    on(sigName: "serialize_unknown_property", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "serialize_unknown_property", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "serialize_unknown_property", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "serialize_unknown_property_type", callback: (($obj: SerializableObjectModel, element: Node, prop: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "serialize_unknown_property_type", callback: (($obj: SerializableObjectModel, element: Node, prop: GObject.ParamSpec) => void)): number
+    on(sigName: "serialize_unknown_property_type", callback: (element: Node, prop: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "serialize_unknown_property_type", callback: (element: Node, prop: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "serialize_unknown_property_type", callback: (element: Node, prop: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "serialize_unknown_property_type", element: Node, prop: GObject.ParamSpec): void
-    on(sigName: "serialize_unknown_property_type", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "serialize_unknown_property_type", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "serialize_unknown_property_type", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "deserialize_unknown_property", callback: (($obj: SerializableObjectModel, node: Node, prop: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "deserialize_unknown_property", callback: (($obj: SerializableObjectModel, node: Node, prop: GObject.ParamSpec) => void)): number
+    on(sigName: "deserialize_unknown_property", callback: (node: Node, prop: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "deserialize_unknown_property", callback: (node: Node, prop: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "deserialize_unknown_property", callback: (node: Node, prop: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "deserialize_unknown_property", node: Node, prop: GObject.ParamSpec): void
-    on(sigName: "deserialize_unknown_property", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "deserialize_unknown_property", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "deserialize_unknown_property", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "deserialize_unknown_property_type", callback: (($obj: SerializableObjectModel, node: Node, prop: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "deserialize_unknown_property_type", callback: (($obj: SerializableObjectModel, node: Node, prop: GObject.ParamSpec) => void)): number
+    on(sigName: "deserialize_unknown_property_type", callback: (node: Node, prop: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "deserialize_unknown_property_type", callback: (node: Node, prop: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "deserialize_unknown_property_type", callback: (node: Node, prop: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "deserialize_unknown_property_type", node: Node, prop: GObject.ParamSpec): void
-    on(sigName: "deserialize_unknown_property_type", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "deserialize_unknown_property_type", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "deserialize_unknown_property_type", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::properties", callback: (($obj: SerializableObjectModel, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::properties", callback: (($obj: SerializableObjectModel, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::properties", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -7741,7 +6179,7 @@ export class SerializableObjectModel {
     constructor (config?: SerializableObjectModel_ConstructProps)
     _init (config?: SerializableObjectModel_ConstructProps): void
     /* Static methods and pseudo-constructors */
-    static stringToGvalue(str: string, dest: any): [ /* returnType */ boolean, /* dest */ any ]
+    static stringToGvalue(str: string, dest: any): { returnType: boolean, dest: any }
     static gvalueToString(val: any): string
     static $gtype: GObject.Type
 }
@@ -7751,32 +6189,32 @@ export interface SerializableTreeMap_ConstructProps extends Gee.TreeMap_Construc
     serializedXmlNodeValue?: string
 }
 export class SerializableTreeMap {
-    /* Properties of GXml.SerializableTreeMap */
+    /* Properties of GXml-0.10.GXml.SerializableTreeMap */
     properties: GObject.ParamSpec[]
     ignoredSerializableProperties: GLib.HashTable
-    /* Properties of Gee.AbstractBidirSortedMap */
+    /* Properties of Gee-0.8.Gee.AbstractBidirSortedMap */
     readonly readOnlyView: Gee.BidirSortedMap
-    /* Properties of Gee.AbstractSortedMap */
+    /* Properties of Gee-0.8.Gee.AbstractSortedMap */
     readonly ascendingKeys: Gee.SortedSet
     readonly ascendingEntries: Gee.SortedSet
-    /* Properties of Gee.AbstractMap */
+    /* Properties of Gee-0.8.Gee.AbstractMap */
     readonly size: number
     readonly readOnly: boolean
     readonly keys: Gee.Set
     readonly values: Gee.Collection
     readonly entries: Gee.Set
-    /* Properties of GXml.Serializable */
+    /* Properties of GXml-0.10.GXml.Serializable */
     readonly unknownSerializableProperties: Gee.Map
     readonly unknownSerializableNodes: Gee.Collection
     serializedXmlNodeValue: string
-    /* Fields of GXml.SerializableTreeMap */
+    /* Fields of GXml-0.10.GXml.SerializableTreeMap */
     parentInstance: Gee.TreeMap
     priv: SerializableTreeMapPrivate
     node: Node
     deserialized: boolean
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GXml.SerializableTreeMap */
+    /* Methods of GXml-0.10.GXml.SerializableTreeMap */
     deserializeProceed(): boolean
     deserializeNode(node: Node): boolean
     deserializeChildren(): boolean
@@ -7798,10 +6236,10 @@ export class SerializableTreeMap {
     setProperties(value: GObject.ParamSpec[]): void
     getIgnoredSerializableProperties(): GLib.HashTable
     setIgnoredSerializableProperties(value: GLib.HashTable): void
-    /* Methods of Gee.TreeMap */
-    getKeyCompareFunc(): [ /* returnType */ GLib.CompareDataFunc, /* resultTarget */ object | null ]
-    getValueEqualFunc(): [ /* returnType */ Gee.EqualDataFunc, /* resultTarget */ object | null ]
-    /* Methods of Gee.AbstractBidirSortedMap */
+    /* Methods of Gee-0.8.Gee.TreeMap */
+    getKeyCompareFunc(): { returnType: GLib.CompareDataFunc, resultTarget: object | null }
+    getValueEqualFunc(): { returnType: Gee.EqualDataFunc, resultTarget: object | null }
+    /* Methods of Gee-0.8.Gee.AbstractBidirSortedMap */
     bidirMapIterator(): Gee.BidirMapIterator
     reserved0(): void
     reserved1(): void
@@ -7814,18 +6252,18 @@ export class SerializableTreeMap {
     reserved8(): void
     reserved9(): void
     getReadOnlyView(): Gee.BidirSortedMap
-    /* Methods of Gee.AbstractSortedMap */
+    /* Methods of Gee-0.8.Gee.AbstractSortedMap */
     headMap(before?: object | null): Gee.SortedMap
     tailMap(after?: object | null): Gee.SortedMap
     subMap(before?: object | null, after?: object | null): Gee.SortedMap
     getAscendingKeys(): Gee.SortedSet
     getAscendingEntries(): Gee.SortedSet
-    /* Methods of Gee.AbstractMap */
+    /* Methods of Gee-0.8.Gee.AbstractMap */
     hasKey(key?: object | null): boolean
     has(key?: object | null, value?: object | null): boolean
     get(key?: object | null): object | null
     set(key?: object | null, value?: object | null): void
-    unset(key?: object | null): [ /* returnType */ boolean, /* value */ object | null ]
+    unset(key?: object | null): { returnType: boolean, value: object | null }
     mapIterator(): Gee.MapIterator
     clear(): void
     foreach(f: Gee.ForallFunc): boolean
@@ -7836,7 +6274,7 @@ export class SerializableTreeMap {
     getValues(): Gee.Collection
     getEntries(): Gee.Set
     getReadOnlyView(): Gee.Map
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -7858,7 +6296,7 @@ export class SerializableTreeMap {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of GXml.Serializable */
+    /* Methods of GXml-0.10.GXml.Serializable */
     getEnableUnknownSerializableProperty(): boolean
     defaultFindPropertySpec(propertyName: string): GObject.ParamSpec | null
     defaultListSerializableProperties(): GObject.ParamSpec[]
@@ -7866,156 +6304,35 @@ export class SerializableTreeMap {
     getUnknownSerializableNodes(): Gee.Collection
     getSerializedXmlNodeValue(): string | null
     setSerializedXmlNodeValue(value?: string | null): void
-    /* Methods of GXml.SerializableCollection */
+    /* Methods of GXml-0.10.GXml.SerializableCollection */
     isCollection(): boolean
-    /* Virtual methods of GXml.SerializableTreeMap */
-    vfuncDeserializeProceed(): boolean
-    vfuncDeserialized(): boolean
-    vfuncDeserializeNode(node: Node): boolean
-    vfuncDeserializeChildren(): boolean
-    vfuncSetDefaultNamespace(node: Node): boolean
-    vfuncSerializeUseXmlNodeValue(): boolean
-    vfuncPropertyUseNick(): boolean
-    vfuncNodeName(): string
-    vfuncFindPropertySpec(propertyName: string): GObject.ParamSpec | null
-    vfuncListSerializableProperties(): GObject.ParamSpec[]
-    vfuncSerialize(node: Node): Node | null
-    vfuncSerializeProperty(element: Node, prop: GObject.ParamSpec): Node | null
-    vfuncDeserialize(node: Node): boolean
-    vfuncDeserializeProperty(propertyNode: Node): boolean
-    vfuncGetEnableUnknownSerializableProperty(): boolean
-    vfuncDefaultFindPropertySpec(propertyName: string): GObject.ParamSpec | null
-    vfuncDefaultListSerializableProperties(): GObject.ParamSpec[]
-    vfuncGetUnknownSerializableProperties(): Gee.Map
-    vfuncGetUnknownSerializableNodes(): Gee.Collection
-    vfuncGetSerializedXmlNodeValue(): string | null
-    vfuncSetSerializedXmlNodeValue(value?: string | null): void
-    vfuncIsCollection(): boolean
-    vfuncGetReadOnlyView(): Gee.BidirSortedMap
-    vfuncGetReadOnlyView(): Gee.SortedMap
-    vfuncGetReadOnlyView(): Gee.Map
-    /* Virtual methods of Gee.TreeMap */
-    vfuncGetReadOnlyView(): Gee.BidirSortedMap
-    vfuncGetReadOnlyView(): Gee.SortedMap
-    vfuncGetReadOnlyView(): Gee.Map
-    /* Virtual methods of Gee.AbstractBidirSortedMap */
-    vfuncBidirMapIterator(): Gee.BidirMapIterator
-    vfuncReserved0(): void
-    vfuncReserved1(): void
-    vfuncReserved2(): void
-    vfuncReserved3(): void
-    vfuncReserved4(): void
-    vfuncReserved5(): void
-    vfuncReserved6(): void
-    vfuncReserved7(): void
-    vfuncReserved8(): void
-    vfuncReserved9(): void
-    vfuncGetReadOnlyView(): Gee.BidirSortedMap
-    vfuncGetReadOnlyView(): Gee.SortedMap
-    vfuncGetReadOnlyView(): Gee.Map
-    /* Virtual methods of Gee.AbstractSortedMap */
-    vfuncHeadMap(before?: object | null): Gee.SortedMap
-    vfuncTailMap(after?: object | null): Gee.SortedMap
-    vfuncSubMap(before?: object | null, after?: object | null): Gee.SortedMap
-    vfuncReserved0(): void
-    vfuncReserved1(): void
-    vfuncReserved2(): void
-    vfuncReserved3(): void
-    vfuncReserved4(): void
-    vfuncReserved5(): void
-    vfuncReserved6(): void
-    vfuncReserved7(): void
-    vfuncReserved8(): void
-    vfuncReserved9(): void
-    vfuncGetAscendingKeys(): Gee.SortedSet
-    vfuncGetAscendingEntries(): Gee.SortedSet
-    vfuncGetReadOnlyView(): Gee.SortedMap
-    vfuncGetReadOnlyView(): Gee.Map
-    /* Virtual methods of Gee.AbstractMap */
-    vfuncHasKey(key?: object | null): boolean
-    vfuncHas(key?: object | null, value?: object | null): boolean
-    vfuncGet(key?: object | null): object | null
-    vfuncSet(key?: object | null, value?: object | null): void
-    vfuncUnset(key?: object | null): [ /* returnType */ boolean, /* value */ object | null ]
-    vfuncMapIterator(): Gee.MapIterator
-    vfuncClear(): void
-    vfuncForeach(f: Gee.ForallFunc): boolean
-    vfuncStream(aType: GObject.Type, aDupFunc: GObject.BoxedCopyFunc, aDestroyFunc: GLib.DestroyNotify, f: Gee.StreamFunc): Gee.Iterator
-    vfuncReserved0(): void
-    vfuncReserved1(): void
-    vfuncReserved2(): void
-    vfuncReserved3(): void
-    vfuncReserved4(): void
-    vfuncReserved5(): void
-    vfuncReserved6(): void
-    vfuncReserved7(): void
-    vfuncReserved8(): void
-    vfuncReserved9(): void
-    vfuncGetSize(): number
-    vfuncGetReadOnly(): boolean
-    vfuncGetKeys(): Gee.Set
-    vfuncGetValues(): Gee.Collection
-    vfuncGetEntries(): Gee.Set
-    vfuncGetReadOnlyView(): Gee.Map
-    vfuncFold(aType: GObject.Type, aDupFunc: GObject.BoxedCopyFunc, aDestroyFunc: GLib.DestroyNotify, f: Gee.FoldFunc, seed?: object | null): object | null
-    vfuncMap(aType: GObject.Type, aDupFunc: GObject.BoxedCopyFunc, aDestroyFunc: GLib.DestroyNotify, f: Gee.MapFunc): Gee.Iterator
-    vfuncScan(aType: GObject.Type, aDupFunc: GObject.BoxedCopyFunc, aDestroyFunc: GLib.DestroyNotify, f: Gee.FoldFunc, seed?: object | null): Gee.Iterator
-    vfuncFilter(pred: Gee.Predicate): Gee.Iterator
-    vfuncChop(offset: number, length: number): Gee.Iterator
-    vfuncFlatMap(aType: GObject.Type, aDupFunc: GObject.BoxedCopyFunc, aDestroyFunc: GLib.DestroyNotify, f: Gee.FlatMapFunc): Gee.Iterator
-    vfuncTee(forks: number): Gee.Iterator[]
-    vfuncFirstMatch(pred: Gee.Predicate): object | null
-    vfuncAnyMatch(pred: Gee.Predicate): boolean
-    vfuncAllMatch(pred: Gee.Predicate): boolean
-    vfuncMax(compare: GLib.CompareDataFunc): object | null
-    vfuncMin(compare: GLib.CompareDataFunc): object | null
-    vfuncOrderBy(compare: GLib.CompareDataFunc | null): Gee.Iterator
-    vfuncGetElementType(): GObject.Type
-    vfuncIterator(): Gee.Iterator
-    vfuncSetAll(map: Gee.Map): void
-    vfuncUnsetAll(map: Gee.Map): boolean
-    vfuncHasAll(map: Gee.Map): boolean
-    vfuncGetIsEmpty(): boolean
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: SerializableTreeMap, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: SerializableTreeMap, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GXml.Serializable */
+    /* Signals of GXml-0.10.GXml.Serializable */
     connect(sigName: "serialize_unknown_property", callback: (($obj: SerializableTreeMap, element: Node, prop: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "serialize_unknown_property", callback: (($obj: SerializableTreeMap, element: Node, prop: GObject.ParamSpec) => void)): number
+    on(sigName: "serialize_unknown_property", callback: (element: Node, prop: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "serialize_unknown_property", callback: (element: Node, prop: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "serialize_unknown_property", callback: (element: Node, prop: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "serialize_unknown_property", element: Node, prop: GObject.ParamSpec): void
-    on(sigName: "serialize_unknown_property", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "serialize_unknown_property", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "serialize_unknown_property", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "serialize_unknown_property_type", callback: (($obj: SerializableTreeMap, element: Node, prop: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "serialize_unknown_property_type", callback: (($obj: SerializableTreeMap, element: Node, prop: GObject.ParamSpec) => void)): number
+    on(sigName: "serialize_unknown_property_type", callback: (element: Node, prop: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "serialize_unknown_property_type", callback: (element: Node, prop: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "serialize_unknown_property_type", callback: (element: Node, prop: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "serialize_unknown_property_type", element: Node, prop: GObject.ParamSpec): void
-    on(sigName: "serialize_unknown_property_type", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "serialize_unknown_property_type", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "serialize_unknown_property_type", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "deserialize_unknown_property", callback: (($obj: SerializableTreeMap, node: Node, prop: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "deserialize_unknown_property", callback: (($obj: SerializableTreeMap, node: Node, prop: GObject.ParamSpec) => void)): number
+    on(sigName: "deserialize_unknown_property", callback: (node: Node, prop: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "deserialize_unknown_property", callback: (node: Node, prop: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "deserialize_unknown_property", callback: (node: Node, prop: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "deserialize_unknown_property", node: Node, prop: GObject.ParamSpec): void
-    on(sigName: "deserialize_unknown_property", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "deserialize_unknown_property", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "deserialize_unknown_property", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "deserialize_unknown_property_type", callback: (($obj: SerializableTreeMap, node: Node, prop: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "deserialize_unknown_property_type", callback: (($obj: SerializableTreeMap, node: Node, prop: GObject.ParamSpec) => void)): number
+    on(sigName: "deserialize_unknown_property_type", callback: (node: Node, prop: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "deserialize_unknown_property_type", callback: (node: Node, prop: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "deserialize_unknown_property_type", callback: (node: Node, prop: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "deserialize_unknown_property_type", node: Node, prop: GObject.ParamSpec): void
-    on(sigName: "deserialize_unknown_property_type", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "deserialize_unknown_property_type", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "deserialize_unknown_property_type", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::properties", callback: (($obj: SerializableTreeMap, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::properties", callback: (($obj: SerializableTreeMap, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::properties", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -8094,7 +6411,7 @@ export class SerializableTreeMap {
     /* Static methods and pseudo-constructors */
     static new(): SerializableTreeMap
     static new(kType: GObject.Type, kDupFunc: GObject.BoxedCopyFunc, kDestroyFunc: GLib.DestroyNotify, vType: GObject.Type, vDupFunc: GObject.BoxedCopyFunc, vDestroyFunc: GLib.DestroyNotify, keyCompareFunc: GLib.CompareDataFunc | null, valueEqualFunc: Gee.EqualDataFunc | null): SerializableTreeMap
-    static stringToGvalue(str: string, dest: any): [ /* returnType */ boolean, /* dest */ any ]
+    static stringToGvalue(str: string, dest: any): { returnType: boolean, dest: any }
     static gvalueToString(val: any): string
     static $gtype: GObject.Type
 }
@@ -8104,28 +6421,28 @@ export interface SerializableHashMap_ConstructProps extends Gee.HashMap_Construc
     serializedXmlNodeValue?: string
 }
 export class SerializableHashMap {
-    /* Properties of GXml.SerializableHashMap */
+    /* Properties of GXml-0.10.GXml.SerializableHashMap */
     properties: GObject.ParamSpec[]
     ignoredSerializableProperties: GLib.HashTable
-    /* Properties of Gee.AbstractMap */
+    /* Properties of Gee-0.8.Gee.AbstractMap */
     readonly size: number
     readonly readOnly: boolean
     readonly keys: Gee.Set
     readonly values: Gee.Collection
     readonly entries: Gee.Set
     readonly readOnlyView: Gee.Map
-    /* Properties of GXml.Serializable */
+    /* Properties of GXml-0.10.GXml.Serializable */
     readonly unknownSerializableProperties: Gee.Map
     readonly unknownSerializableNodes: Gee.Collection
     serializedXmlNodeValue: string
-    /* Fields of GXml.SerializableHashMap */
+    /* Fields of GXml-0.10.GXml.SerializableHashMap */
     parentInstance: Gee.HashMap
     priv: SerializableHashMapPrivate
     node: Node
     deserialized: boolean
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GXml.SerializableHashMap */
+    /* Methods of GXml-0.10.GXml.SerializableHashMap */
     deserializeProceed(): boolean
     deserializeNode(node: Node): boolean
     deserializeChildren(): boolean
@@ -8148,16 +6465,16 @@ export class SerializableHashMap {
     setProperties(value: GObject.ParamSpec[]): void
     getIgnoredSerializableProperties(): GLib.HashTable
     setIgnoredSerializableProperties(value: GLib.HashTable): void
-    /* Methods of Gee.HashMap */
-    getKeyHashFunc(): [ /* returnType */ Gee.HashDataFunc, /* resultTarget */ object | null ]
-    getKeyEqualFunc(): [ /* returnType */ Gee.EqualDataFunc, /* resultTarget */ object | null ]
-    getValueEqualFunc(): [ /* returnType */ Gee.EqualDataFunc, /* resultTarget */ object | null ]
-    /* Methods of Gee.AbstractMap */
+    /* Methods of Gee-0.8.Gee.HashMap */
+    getKeyHashFunc(): { returnType: Gee.HashDataFunc, resultTarget: object | null }
+    getKeyEqualFunc(): { returnType: Gee.EqualDataFunc, resultTarget: object | null }
+    getValueEqualFunc(): { returnType: Gee.EqualDataFunc, resultTarget: object | null }
+    /* Methods of Gee-0.8.Gee.AbstractMap */
     hasKey(key?: object | null): boolean
     has(key?: object | null, value?: object | null): boolean
     get(key?: object | null): object | null
     set(key?: object | null, value?: object | null): void
-    unset(key?: object | null): [ /* returnType */ boolean, /* value */ object | null ]
+    unset(key?: object | null): { returnType: boolean, value: object | null }
     mapIterator(): Gee.MapIterator
     clear(): void
     foreach(f: Gee.ForallFunc): boolean
@@ -8178,7 +6495,7 @@ export class SerializableHashMap {
     getValues(): Gee.Collection
     getEntries(): Gee.Set
     getReadOnlyView(): Gee.Map
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -8200,123 +6517,42 @@ export class SerializableHashMap {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of GXml.Serializable */
+    /* Methods of GXml-0.10.GXml.Serializable */
     defaultFindPropertySpec(propertyName: string): GObject.ParamSpec | null
     defaultListSerializableProperties(): GObject.ParamSpec[]
     getUnknownSerializableProperties(): Gee.Map
     getUnknownSerializableNodes(): Gee.Collection
     getSerializedXmlNodeValue(): string | null
     setSerializedXmlNodeValue(value?: string | null): void
-    /* Methods of GXml.SerializableCollection */
+    /* Methods of GXml-0.10.GXml.SerializableCollection */
     isCollection(): boolean
-    /* Virtual methods of GXml.SerializableHashMap */
-    vfuncDeserializeProceed(): boolean
-    vfuncDeserialized(): boolean
-    vfuncDeserializeNode(node: Node): boolean
-    vfuncDeserializeChildren(): boolean
-    vfuncSetDefaultNamespace(node: Node): boolean
-    vfuncGetEnableUnknownSerializableProperty(): boolean
-    vfuncSerializeUseXmlNodeValue(): boolean
-    vfuncPropertyUseNick(): boolean
-    vfuncNodeName(): string
-    vfuncFindPropertySpec(propertyName: string): GObject.ParamSpec | null
-    vfuncListSerializableProperties(): GObject.ParamSpec[]
-    vfuncSerialize(node: Node): Node | null
-    vfuncSerializeProperty(element: Node, prop: GObject.ParamSpec): Node | null
-    vfuncDeserialize(node: Node): boolean
-    vfuncDeserializeProperty(propertyNode: Node): boolean
-    vfuncDefaultFindPropertySpec(propertyName: string): GObject.ParamSpec | null
-    vfuncDefaultListSerializableProperties(): GObject.ParamSpec[]
-    vfuncGetUnknownSerializableProperties(): Gee.Map
-    vfuncGetUnknownSerializableNodes(): Gee.Collection
-    vfuncGetSerializedXmlNodeValue(): string | null
-    vfuncSetSerializedXmlNodeValue(value?: string | null): void
-    vfuncIsCollection(): boolean
-    /* Virtual methods of Gee.AbstractMap */
-    vfuncHasKey(key?: object | null): boolean
-    vfuncHas(key?: object | null, value?: object | null): boolean
-    vfuncGet(key?: object | null): object | null
-    vfuncSet(key?: object | null, value?: object | null): void
-    vfuncUnset(key?: object | null): [ /* returnType */ boolean, /* value */ object | null ]
-    vfuncMapIterator(): Gee.MapIterator
-    vfuncClear(): void
-    vfuncForeach(f: Gee.ForallFunc): boolean
-    vfuncStream(aType: GObject.Type, aDupFunc: GObject.BoxedCopyFunc, aDestroyFunc: GLib.DestroyNotify, f: Gee.StreamFunc): Gee.Iterator
-    vfuncReserved0(): void
-    vfuncReserved1(): void
-    vfuncReserved2(): void
-    vfuncReserved3(): void
-    vfuncReserved4(): void
-    vfuncReserved5(): void
-    vfuncReserved6(): void
-    vfuncReserved7(): void
-    vfuncReserved8(): void
-    vfuncReserved9(): void
-    vfuncGetSize(): number
-    vfuncGetReadOnly(): boolean
-    vfuncGetKeys(): Gee.Set
-    vfuncGetValues(): Gee.Collection
-    vfuncGetEntries(): Gee.Set
-    vfuncGetReadOnlyView(): Gee.Map
-    vfuncFold(aType: GObject.Type, aDupFunc: GObject.BoxedCopyFunc, aDestroyFunc: GLib.DestroyNotify, f: Gee.FoldFunc, seed?: object | null): object | null
-    vfuncMap(aType: GObject.Type, aDupFunc: GObject.BoxedCopyFunc, aDestroyFunc: GLib.DestroyNotify, f: Gee.MapFunc): Gee.Iterator
-    vfuncScan(aType: GObject.Type, aDupFunc: GObject.BoxedCopyFunc, aDestroyFunc: GLib.DestroyNotify, f: Gee.FoldFunc, seed?: object | null): Gee.Iterator
-    vfuncFilter(pred: Gee.Predicate): Gee.Iterator
-    vfuncChop(offset: number, length: number): Gee.Iterator
-    vfuncFlatMap(aType: GObject.Type, aDupFunc: GObject.BoxedCopyFunc, aDestroyFunc: GLib.DestroyNotify, f: Gee.FlatMapFunc): Gee.Iterator
-    vfuncTee(forks: number): Gee.Iterator[]
-    vfuncFirstMatch(pred: Gee.Predicate): object | null
-    vfuncAnyMatch(pred: Gee.Predicate): boolean
-    vfuncAllMatch(pred: Gee.Predicate): boolean
-    vfuncMax(compare: GLib.CompareDataFunc): object | null
-    vfuncMin(compare: GLib.CompareDataFunc): object | null
-    vfuncOrderBy(compare: GLib.CompareDataFunc | null): Gee.Iterator
-    vfuncGetElementType(): GObject.Type
-    vfuncIterator(): Gee.Iterator
-    vfuncSetAll(map: Gee.Map): void
-    vfuncUnsetAll(map: Gee.Map): boolean
-    vfuncHasAll(map: Gee.Map): boolean
-    vfuncGetIsEmpty(): boolean
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: SerializableHashMap, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: SerializableHashMap, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GXml.Serializable */
+    /* Signals of GXml-0.10.GXml.Serializable */
     connect(sigName: "serialize_unknown_property", callback: (($obj: SerializableHashMap, element: Node, prop: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "serialize_unknown_property", callback: (($obj: SerializableHashMap, element: Node, prop: GObject.ParamSpec) => void)): number
+    on(sigName: "serialize_unknown_property", callback: (element: Node, prop: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "serialize_unknown_property", callback: (element: Node, prop: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "serialize_unknown_property", callback: (element: Node, prop: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "serialize_unknown_property", element: Node, prop: GObject.ParamSpec): void
-    on(sigName: "serialize_unknown_property", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "serialize_unknown_property", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "serialize_unknown_property", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "serialize_unknown_property_type", callback: (($obj: SerializableHashMap, element: Node, prop: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "serialize_unknown_property_type", callback: (($obj: SerializableHashMap, element: Node, prop: GObject.ParamSpec) => void)): number
+    on(sigName: "serialize_unknown_property_type", callback: (element: Node, prop: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "serialize_unknown_property_type", callback: (element: Node, prop: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "serialize_unknown_property_type", callback: (element: Node, prop: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "serialize_unknown_property_type", element: Node, prop: GObject.ParamSpec): void
-    on(sigName: "serialize_unknown_property_type", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "serialize_unknown_property_type", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "serialize_unknown_property_type", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "deserialize_unknown_property", callback: (($obj: SerializableHashMap, node: Node, prop: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "deserialize_unknown_property", callback: (($obj: SerializableHashMap, node: Node, prop: GObject.ParamSpec) => void)): number
+    on(sigName: "deserialize_unknown_property", callback: (node: Node, prop: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "deserialize_unknown_property", callback: (node: Node, prop: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "deserialize_unknown_property", callback: (node: Node, prop: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "deserialize_unknown_property", node: Node, prop: GObject.ParamSpec): void
-    on(sigName: "deserialize_unknown_property", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "deserialize_unknown_property", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "deserialize_unknown_property", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "deserialize_unknown_property_type", callback: (($obj: SerializableHashMap, node: Node, prop: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "deserialize_unknown_property_type", callback: (($obj: SerializableHashMap, node: Node, prop: GObject.ParamSpec) => void)): number
+    on(sigName: "deserialize_unknown_property_type", callback: (node: Node, prop: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "deserialize_unknown_property_type", callback: (node: Node, prop: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "deserialize_unknown_property_type", callback: (node: Node, prop: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "deserialize_unknown_property_type", node: Node, prop: GObject.ParamSpec): void
-    on(sigName: "deserialize_unknown_property_type", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "deserialize_unknown_property_type", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "deserialize_unknown_property_type", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::properties", callback: (($obj: SerializableHashMap, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::properties", callback: (($obj: SerializableHashMap, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::properties", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -8385,7 +6621,7 @@ export class SerializableHashMap {
     /* Static methods and pseudo-constructors */
     static new(): SerializableHashMap
     static new(kType: GObject.Type, kDupFunc: GObject.BoxedCopyFunc, kDestroyFunc: GLib.DestroyNotify, vType: GObject.Type, vDupFunc: GObject.BoxedCopyFunc, vDestroyFunc: GLib.DestroyNotify, keyHashFunc: Gee.HashDataFunc | null, keyEqualFunc: Gee.EqualDataFunc | null, valueEqualFunc: Gee.EqualDataFunc | null): SerializableHashMap
-    static stringToGvalue(str: string, dest: any): [ /* returnType */ boolean, /* dest */ any ]
+    static stringToGvalue(str: string, dest: any): { returnType: boolean, dest: any }
     static gvalueToString(val: any): string
     static $gtype: GObject.Type
 }
@@ -8395,7 +6631,7 @@ export interface SerializableDualKeyMap_ConstructProps extends GObject.Object_Co
     serializedXmlNodeValue?: string
 }
 export class SerializableDualKeyMap {
-    /* Properties of GXml.SerializableDualKeyMap */
+    /* Properties of GXml-0.10.GXml.SerializableDualKeyMap */
     readonly valueType: GObject.Type
     readonly primaryKeyType: GObject.Type
     readonly secondaryKeyType: GObject.Type
@@ -8403,19 +6639,19 @@ export class SerializableDualKeyMap {
     readonly size: number
     properties: GObject.ParamSpec[]
     ignoredSerializableProperties: GLib.HashTable
-    /* Properties of GXml.Serializable */
+    /* Properties of GXml-0.10.GXml.Serializable */
     readonly unknownSerializableProperties: Gee.Map
     readonly unknownSerializableNodes: Gee.Collection
     serializedXmlNodeValue: string
-    /* Fields of GXml.SerializableDualKeyMap */
+    /* Fields of GXml-0.10.GXml.SerializableDualKeyMap */
     parentInstance: GObject.Object
     priv: SerializableDualKeyMapPrivate
     storage: Gee.HashMultiMap
     node: Node
     deserialized: boolean
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GXml.SerializableDualKeyMap */
+    /* Methods of GXml-0.10.GXml.SerializableDualKeyMap */
     deserializeProceed(): boolean
     deserializeNode(node: Node): boolean
     deserializeChildren(): boolean
@@ -8448,7 +6684,7 @@ export class SerializableDualKeyMap {
     setProperties(value: GObject.ParamSpec[]): void
     getIgnoredSerializableProperties(): GLib.HashTable
     setIgnoredSerializableProperties(value: GLib.HashTable): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -8470,7 +6706,7 @@ export class SerializableDualKeyMap {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of Gee.Traversable */
+    /* Methods of Gee-0.8.Gee.Traversable */
     foreach(f: Gee.ForallFunc): boolean
     stream(aType: GObject.Type, aDupFunc: GObject.BoxedCopyFunc, aDestroyFunc: GLib.DestroyNotify, f: Gee.StreamFunc): Gee.Iterator
     fold(aType: GObject.Type, aDupFunc: GObject.BoxedCopyFunc, aDestroyFunc: GLib.DestroyNotify, f: Gee.FoldFunc, seed?: object | null): object | null
@@ -8487,94 +6723,42 @@ export class SerializableDualKeyMap {
     min(compare: GLib.CompareDataFunc): object | null
     orderBy(compare: GLib.CompareDataFunc | null): Gee.Iterator
     getElementType(): GObject.Type
-    /* Methods of GXml.Serializable */
+    /* Methods of GXml-0.10.GXml.Serializable */
     defaultFindPropertySpec(propertyName: string): GObject.ParamSpec | null
     defaultListSerializableProperties(): GObject.ParamSpec[]
     getUnknownSerializableProperties(): Gee.Map
     getUnknownSerializableNodes(): Gee.Collection
     getSerializedXmlNodeValue(): string | null
     setSerializedXmlNodeValue(value?: string | null): void
-    /* Methods of GXml.SerializableCollection */
+    /* Methods of GXml-0.10.GXml.SerializableCollection */
     isCollection(): boolean
-    /* Virtual methods of GXml.SerializableDualKeyMap */
-    vfuncDeserializeProceed(): boolean
-    vfuncDeserialized(): boolean
-    vfuncDeserializeNode(node: Node): boolean
-    vfuncDeserializeChildren(): boolean
-    vfuncSetDefaultNamespace(node: Node): boolean
-    vfuncGetEnableUnknownSerializableProperty(): boolean
-    vfuncSerializeUseXmlNodeValue(): boolean
-    vfuncPropertyUseNick(): boolean
-    vfuncNodeName(): string
-    vfuncFindPropertySpec(propertyName: string): GObject.ParamSpec | null
-    vfuncListSerializableProperties(): GObject.ParamSpec[]
-    vfuncSerialize(node: Node): Node | null
-    vfuncSerializeProperty(element: Node, prop: GObject.ParamSpec): Node | null
-    vfuncDeserialize(node: Node): boolean
-    vfuncDeserializeProperty(propertyNode: Node): boolean
-    vfuncForeach(f: Gee.ForallFunc): boolean
-    vfuncStream(aType: GObject.Type, aDupFunc: GObject.BoxedCopyFunc, aDestroyFunc: GLib.DestroyNotify, f: Gee.StreamFunc): Gee.Iterator
-    vfuncFold(aType: GObject.Type, aDupFunc: GObject.BoxedCopyFunc, aDestroyFunc: GLib.DestroyNotify, f: Gee.FoldFunc, seed?: object | null): object | null
-    vfuncMap(aType: GObject.Type, aDupFunc: GObject.BoxedCopyFunc, aDestroyFunc: GLib.DestroyNotify, f: Gee.MapFunc): Gee.Iterator
-    vfuncScan(aType: GObject.Type, aDupFunc: GObject.BoxedCopyFunc, aDestroyFunc: GLib.DestroyNotify, f: Gee.FoldFunc, seed?: object | null): Gee.Iterator
-    vfuncFilter(pred: Gee.Predicate): Gee.Iterator
-    vfuncChop(offset: number, length: number): Gee.Iterator
-    vfuncFlatMap(aType: GObject.Type, aDupFunc: GObject.BoxedCopyFunc, aDestroyFunc: GLib.DestroyNotify, f: Gee.FlatMapFunc): Gee.Iterator
-    vfuncTee(forks: number): Gee.Iterator[]
-    vfuncFirstMatch(pred: Gee.Predicate): object | null
-    vfuncAnyMatch(pred: Gee.Predicate): boolean
-    vfuncAllMatch(pred: Gee.Predicate): boolean
-    vfuncMax(compare: GLib.CompareDataFunc): object | null
-    vfuncMin(compare: GLib.CompareDataFunc): object | null
-    vfuncOrderBy(compare: GLib.CompareDataFunc | null): Gee.Iterator
-    vfuncGetElementType(): GObject.Type
-    vfuncDefaultFindPropertySpec(propertyName: string): GObject.ParamSpec | null
-    vfuncDefaultListSerializableProperties(): GObject.ParamSpec[]
-    vfuncGetUnknownSerializableProperties(): Gee.Map
-    vfuncGetUnknownSerializableNodes(): Gee.Collection
-    vfuncGetSerializedXmlNodeValue(): string | null
-    vfuncSetSerializedXmlNodeValue(value?: string | null): void
-    vfuncIsCollection(): boolean
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: SerializableDualKeyMap, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: SerializableDualKeyMap, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GXml.Serializable */
+    /* Signals of GXml-0.10.GXml.Serializable */
     connect(sigName: "serialize_unknown_property", callback: (($obj: SerializableDualKeyMap, element: Node, prop: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "serialize_unknown_property", callback: (($obj: SerializableDualKeyMap, element: Node, prop: GObject.ParamSpec) => void)): number
+    on(sigName: "serialize_unknown_property", callback: (element: Node, prop: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "serialize_unknown_property", callback: (element: Node, prop: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "serialize_unknown_property", callback: (element: Node, prop: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "serialize_unknown_property", element: Node, prop: GObject.ParamSpec): void
-    on(sigName: "serialize_unknown_property", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "serialize_unknown_property", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "serialize_unknown_property", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "serialize_unknown_property_type", callback: (($obj: SerializableDualKeyMap, element: Node, prop: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "serialize_unknown_property_type", callback: (($obj: SerializableDualKeyMap, element: Node, prop: GObject.ParamSpec) => void)): number
+    on(sigName: "serialize_unknown_property_type", callback: (element: Node, prop: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "serialize_unknown_property_type", callback: (element: Node, prop: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "serialize_unknown_property_type", callback: (element: Node, prop: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "serialize_unknown_property_type", element: Node, prop: GObject.ParamSpec): void
-    on(sigName: "serialize_unknown_property_type", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "serialize_unknown_property_type", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "serialize_unknown_property_type", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "deserialize_unknown_property", callback: (($obj: SerializableDualKeyMap, node: Node, prop: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "deserialize_unknown_property", callback: (($obj: SerializableDualKeyMap, node: Node, prop: GObject.ParamSpec) => void)): number
+    on(sigName: "deserialize_unknown_property", callback: (node: Node, prop: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "deserialize_unknown_property", callback: (node: Node, prop: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "deserialize_unknown_property", callback: (node: Node, prop: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "deserialize_unknown_property", node: Node, prop: GObject.ParamSpec): void
-    on(sigName: "deserialize_unknown_property", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "deserialize_unknown_property", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "deserialize_unknown_property", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "deserialize_unknown_property_type", callback: (($obj: SerializableDualKeyMap, node: Node, prop: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "deserialize_unknown_property_type", callback: (($obj: SerializableDualKeyMap, node: Node, prop: GObject.ParamSpec) => void)): number
+    on(sigName: "deserialize_unknown_property_type", callback: (node: Node, prop: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "deserialize_unknown_property_type", callback: (node: Node, prop: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "deserialize_unknown_property_type", callback: (node: Node, prop: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "deserialize_unknown_property_type", node: Node, prop: GObject.ParamSpec): void
-    on(sigName: "deserialize_unknown_property_type", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "deserialize_unknown_property_type", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "deserialize_unknown_property_type", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::value-type", callback: (($obj: SerializableDualKeyMap, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::value-type", callback: (($obj: SerializableDualKeyMap, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::value-type", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -8637,7 +6821,7 @@ export class SerializableDualKeyMap {
     _init (config?: SerializableDualKeyMap_ConstructProps): void
     /* Static methods and pseudo-constructors */
     static new(): SerializableDualKeyMap
-    static stringToGvalue(str: string, dest: any): [ /* returnType */ boolean, /* dest */ any ]
+    static stringToGvalue(str: string, dest: any): { returnType: boolean, dest: any }
     static gvalueToString(val: any): string
     static $gtype: GObject.Type
 }
@@ -8647,29 +6831,29 @@ export interface SerializableArrayList_ConstructProps extends Gee.ArrayList_Cons
     serializedXmlNodeValue?: string
 }
 export class SerializableArrayList {
-    /* Properties of GXml.SerializableArrayList */
+    /* Properties of GXml-0.10.GXml.SerializableArrayList */
     properties: GObject.ParamSpec[]
     ignoredSerializableProperties: GLib.HashTable
-    /* Properties of Gee.AbstractBidirList */
+    /* Properties of Gee-0.8.Gee.AbstractBidirList */
     readonly readOnlyView: Gee.BidirList
-    /* Properties of Gee.AbstractCollection */
+    /* Properties of Gee-0.8.Gee.AbstractCollection */
     readonly size: number
     readonly readOnly: boolean
-    /* Properties of GXml.Serializable */
+    /* Properties of GXml-0.10.GXml.Serializable */
     readonly unknownSerializableProperties: Gee.Map
     readonly unknownSerializableNodes: Gee.Collection
     serializedXmlNodeValue: string
-    /* Fields of GXml.SerializableArrayList */
+    /* Fields of GXml-0.10.GXml.SerializableArrayList */
     parentInstance: Gee.ArrayList
     priv: SerializableArrayListPrivate
     node: Node
     deserialized: boolean
-    /* Fields of Gee.ArrayList */
+    /* Fields of Gee-0.8.Gee.ArrayList */
     items: object[]
     itemsLength1: number
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GXml.SerializableArrayList */
+    /* Methods of GXml-0.10.GXml.SerializableArrayList */
     deserializeProceed(): boolean
     deserializeNode(node: Node): boolean
     deserializeChildren(): boolean
@@ -8691,10 +6875,10 @@ export class SerializableArrayList {
     setProperties(value: GObject.ParamSpec[]): void
     getIgnoredSerializableProperties(): GLib.HashTable
     setIgnoredSerializableProperties(value: GLib.HashTable): void
-    /* Methods of Gee.ArrayList */
+    /* Methods of Gee-0.8.Gee.ArrayList */
     addAll(collection: Gee.Collection): boolean
-    getEqualFunc(): [ /* returnType */ Gee.EqualDataFunc, /* resultTarget */ object | null ]
-    /* Methods of Gee.AbstractBidirList */
+    getEqualFunc(): { returnType: Gee.EqualDataFunc, resultTarget: object | null }
+    /* Methods of Gee-0.8.Gee.AbstractBidirList */
     bidirListIterator(): Gee.BidirListIterator
     reserved0(): void
     reserved1(): void
@@ -8707,7 +6891,7 @@ export class SerializableArrayList {
     reserved8(): void
     reserved9(): void
     getReadOnlyView(): Gee.BidirList
-    /* Methods of Gee.AbstractList */
+    /* Methods of Gee-0.8.Gee.AbstractList */
     listIterator(): Gee.ListIterator
     get(index: number): object | null
     set(index: number, item?: object | null): void
@@ -8716,7 +6900,7 @@ export class SerializableArrayList {
     removeAt(index: number): object | null
     slice(start: number, stop: number): Gee.List | null
     getReadOnlyView(): Gee.List
-    /* Methods of Gee.AbstractCollection */
+    /* Methods of Gee-0.8.Gee.AbstractCollection */
     contains(item?: object | null): boolean
     add(item?: object | null): boolean
     remove(item?: object | null): boolean
@@ -8726,7 +6910,7 @@ export class SerializableArrayList {
     getSize(): number
     getReadOnly(): boolean
     getReadOnlyView(): Gee.Collection
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -8748,7 +6932,7 @@ export class SerializableArrayList {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of GXml.Serializable */
+    /* Methods of GXml-0.10.GXml.Serializable */
     getEnableUnknownSerializableProperty(): boolean
     defaultFindPropertySpec(propertyName: string): GObject.ParamSpec | null
     defaultListSerializableProperties(): GObject.ParamSpec[]
@@ -8756,164 +6940,35 @@ export class SerializableArrayList {
     getUnknownSerializableNodes(): Gee.Collection
     getSerializedXmlNodeValue(): string | null
     setSerializedXmlNodeValue(value?: string | null): void
-    /* Methods of GXml.SerializableCollection */
+    /* Methods of GXml-0.10.GXml.SerializableCollection */
     isCollection(): boolean
-    /* Virtual methods of GXml.SerializableArrayList */
-    vfuncDeserializeProceed(): boolean
-    vfuncDeserialized(): boolean
-    vfuncDeserializeNode(node: Node): boolean
-    vfuncDeserializeChildren(): boolean
-    vfuncSetDefaultNamespace(node: Node): boolean
-    vfuncSerializeUseXmlNodeValue(): boolean
-    vfuncPropertyUseNick(): boolean
-    vfuncNodeName(): string
-    vfuncFindPropertySpec(propertyName: string): GObject.ParamSpec | null
-    vfuncListSerializableProperties(): GObject.ParamSpec[]
-    vfuncSerialize(node: Node): Node | null
-    vfuncSerializeProperty(element: Node, prop: GObject.ParamSpec): Node | null
-    vfuncDeserialize(node: Node): boolean
-    vfuncDeserializeProperty(propertyNode: Node): boolean
-    vfuncGetEnableUnknownSerializableProperty(): boolean
-    vfuncDefaultFindPropertySpec(propertyName: string): GObject.ParamSpec | null
-    vfuncDefaultListSerializableProperties(): GObject.ParamSpec[]
-    vfuncGetUnknownSerializableProperties(): Gee.Map
-    vfuncGetUnknownSerializableNodes(): Gee.Collection
-    vfuncGetSerializedXmlNodeValue(): string | null
-    vfuncSetSerializedXmlNodeValue(value?: string | null): void
-    vfuncIsCollection(): boolean
-    vfuncGetReadOnlyView(): Gee.BidirList
-    vfuncGetReadOnlyView(): Gee.List
-    vfuncGetReadOnlyView(): Gee.Collection
-    /* Virtual methods of Gee.ArrayList */
-    vfuncGetReadOnlyView(): Gee.BidirList
-    vfuncGetReadOnlyView(): Gee.List
-    vfuncGetReadOnlyView(): Gee.Collection
-    /* Virtual methods of Gee.AbstractBidirList */
-    vfuncBidirListIterator(): Gee.BidirListIterator
-    vfuncReserved0(): void
-    vfuncReserved1(): void
-    vfuncReserved2(): void
-    vfuncReserved3(): void
-    vfuncReserved4(): void
-    vfuncReserved5(): void
-    vfuncReserved6(): void
-    vfuncReserved7(): void
-    vfuncReserved8(): void
-    vfuncReserved9(): void
-    vfuncGetReadOnlyView(): Gee.BidirList
-    vfuncGetReadOnlyView(): Gee.List
-    vfuncGetReadOnlyView(): Gee.Collection
-    /* Virtual methods of Gee.AbstractList */
-    vfuncListIterator(): Gee.ListIterator
-    vfuncGet(index: number): object | null
-    vfuncSet(index: number, item?: object | null): void
-    vfuncIndexOf(item?: object | null): number
-    vfuncInsert(index: number, item?: object | null): void
-    vfuncRemoveAt(index: number): object | null
-    vfuncSlice(start: number, stop: number): Gee.List | null
-    vfuncReserved0(): void
-    vfuncReserved1(): void
-    vfuncReserved2(): void
-    vfuncReserved3(): void
-    vfuncReserved4(): void
-    vfuncReserved5(): void
-    vfuncReserved6(): void
-    vfuncReserved7(): void
-    vfuncReserved8(): void
-    vfuncReserved9(): void
-    vfuncGetReadOnlyView(): Gee.List
-    vfuncGetReadOnlyView(): Gee.Collection
-    vfuncFirst(): object | null
-    vfuncLast(): object | null
-    vfuncInsertAll(index: number, collection: Gee.Collection): void
-    vfuncSort(compareFunc: GLib.CompareDataFunc | null): void
-    /* Virtual methods of Gee.AbstractCollection */
-    vfuncContains(item?: object | null): boolean
-    vfuncAdd(item?: object | null): boolean
-    vfuncRemove(item?: object | null): boolean
-    vfuncClear(): void
-    vfuncIterator(): Gee.Iterator
-    vfuncForeach(f: Gee.ForallFunc): boolean
-    vfuncReserved0(): void
-    vfuncReserved1(): void
-    vfuncReserved2(): void
-    vfuncReserved3(): void
-    vfuncReserved4(): void
-    vfuncReserved5(): void
-    vfuncReserved6(): void
-    vfuncReserved7(): void
-    vfuncReserved8(): void
-    vfuncReserved9(): void
-    vfuncGetSize(): number
-    vfuncGetReadOnly(): boolean
-    vfuncGetReadOnlyView(): Gee.Collection
-    vfuncStream(aType: GObject.Type, aDupFunc: GObject.BoxedCopyFunc, aDestroyFunc: GLib.DestroyNotify, f: Gee.StreamFunc): Gee.Iterator
-    vfuncFold(aType: GObject.Type, aDupFunc: GObject.BoxedCopyFunc, aDestroyFunc: GLib.DestroyNotify, f: Gee.FoldFunc, seed?: object | null): object | null
-    vfuncMap(aType: GObject.Type, aDupFunc: GObject.BoxedCopyFunc, aDestroyFunc: GLib.DestroyNotify, f: Gee.MapFunc): Gee.Iterator
-    vfuncScan(aType: GObject.Type, aDupFunc: GObject.BoxedCopyFunc, aDestroyFunc: GLib.DestroyNotify, f: Gee.FoldFunc, seed?: object | null): Gee.Iterator
-    vfuncFilter(pred: Gee.Predicate): Gee.Iterator
-    vfuncChop(offset: number, length: number): Gee.Iterator
-    vfuncFlatMap(aType: GObject.Type, aDupFunc: GObject.BoxedCopyFunc, aDestroyFunc: GLib.DestroyNotify, f: Gee.FlatMapFunc): Gee.Iterator
-    vfuncTee(forks: number): Gee.Iterator[]
-    vfuncFirstMatch(pred: Gee.Predicate): object | null
-    vfuncAnyMatch(pred: Gee.Predicate): boolean
-    vfuncAllMatch(pred: Gee.Predicate): boolean
-    vfuncMax(compare: GLib.CompareDataFunc): object | null
-    vfuncMin(compare: GLib.CompareDataFunc): object | null
-    vfuncOrderBy(compare: GLib.CompareDataFunc | null): Gee.Iterator
-    vfuncGetElementType(): GObject.Type
-    vfuncAddAll(collection: Gee.Collection): boolean
-    vfuncContainsAll(collection: Gee.Collection): boolean
-    vfuncRemoveAll(collection: Gee.Collection): boolean
-    vfuncRetainAll(collection: Gee.Collection): boolean
-    vfuncToArray(): object[]
-    vfuncAddAllArray(array: object[]): boolean
-    vfuncContainsAllArray(array: object[]): boolean
-    vfuncRemoveAllArray(array: object[]): boolean
-    vfuncAddAllIterator(iter: Gee.Iterator): boolean
-    vfuncContainsAllIterator(iter: Gee.Iterator): boolean
-    vfuncRemoveAllIterator(iter: Gee.Iterator): boolean
-    vfuncGetIsEmpty(): boolean
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: SerializableArrayList, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: SerializableArrayList, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GXml.Serializable */
+    /* Signals of GXml-0.10.GXml.Serializable */
     connect(sigName: "serialize_unknown_property", callback: (($obj: SerializableArrayList, element: Node, prop: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "serialize_unknown_property", callback: (($obj: SerializableArrayList, element: Node, prop: GObject.ParamSpec) => void)): number
+    on(sigName: "serialize_unknown_property", callback: (element: Node, prop: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "serialize_unknown_property", callback: (element: Node, prop: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "serialize_unknown_property", callback: (element: Node, prop: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "serialize_unknown_property", element: Node, prop: GObject.ParamSpec): void
-    on(sigName: "serialize_unknown_property", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "serialize_unknown_property", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "serialize_unknown_property", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "serialize_unknown_property_type", callback: (($obj: SerializableArrayList, element: Node, prop: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "serialize_unknown_property_type", callback: (($obj: SerializableArrayList, element: Node, prop: GObject.ParamSpec) => void)): number
+    on(sigName: "serialize_unknown_property_type", callback: (element: Node, prop: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "serialize_unknown_property_type", callback: (element: Node, prop: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "serialize_unknown_property_type", callback: (element: Node, prop: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "serialize_unknown_property_type", element: Node, prop: GObject.ParamSpec): void
-    on(sigName: "serialize_unknown_property_type", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "serialize_unknown_property_type", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "serialize_unknown_property_type", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "deserialize_unknown_property", callback: (($obj: SerializableArrayList, node: Node, prop: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "deserialize_unknown_property", callback: (($obj: SerializableArrayList, node: Node, prop: GObject.ParamSpec) => void)): number
+    on(sigName: "deserialize_unknown_property", callback: (node: Node, prop: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "deserialize_unknown_property", callback: (node: Node, prop: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "deserialize_unknown_property", callback: (node: Node, prop: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "deserialize_unknown_property", node: Node, prop: GObject.ParamSpec): void
-    on(sigName: "deserialize_unknown_property", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "deserialize_unknown_property", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "deserialize_unknown_property", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "deserialize_unknown_property_type", callback: (($obj: SerializableArrayList, node: Node, prop: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "deserialize_unknown_property_type", callback: (($obj: SerializableArrayList, node: Node, prop: GObject.ParamSpec) => void)): number
+    on(sigName: "deserialize_unknown_property_type", callback: (node: Node, prop: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "deserialize_unknown_property_type", callback: (node: Node, prop: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "deserialize_unknown_property_type", callback: (node: Node, prop: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "deserialize_unknown_property_type", node: Node, prop: GObject.ParamSpec): void
-    on(sigName: "deserialize_unknown_property_type", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "deserialize_unknown_property_type", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "deserialize_unknown_property_type", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::properties", callback: (($obj: SerializableArrayList, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::properties", callback: (($obj: SerializableArrayList, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::properties", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -8967,26 +7022,26 @@ export class SerializableArrayList {
     /* Static methods and pseudo-constructors */
     static new(): SerializableArrayList
     static new(gType: GObject.Type, gDupFunc: GObject.BoxedCopyFunc, gDestroyFunc: GLib.DestroyNotify, equalFunc: Gee.EqualDataFunc | null): SerializableArrayList
-    static stringToGvalue(str: string, dest: any): [ /* returnType */ boolean, /* dest */ any ]
+    static stringToGvalue(str: string, dest: any): { returnType: boolean, dest: any }
     static gvalueToString(val: any): string
     static $gtype: GObject.Type
 }
 export interface SerializableContainer_ConstructProps extends SerializableObjectModel_ConstructProps {
 }
 export class SerializableContainer {
-    /* Properties of GXml.SerializableObjectModel */
+    /* Properties of GXml-0.10.GXml.SerializableObjectModel */
     properties: GObject.ParamSpec[]
     ignoredSerializableProperties: GLib.HashTable
-    /* Fields of GXml.SerializableContainer */
+    /* Fields of GXml-0.10.GXml.SerializableContainer */
     parentInstance: SerializableObjectModel
     priv: SerializableContainerPrivate
-    /* Fields of GXml.SerializableObjectModel */
+    /* Fields of GXml-0.10.GXml.SerializableObjectModel */
     node: Node
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GXml.SerializableContainer */
+    /* Methods of GXml-0.10.GXml.SerializableContainer */
     initContainers(): void
-    /* Methods of GXml.SerializableObjectModel */
+    /* Methods of GXml-0.10.GXml.SerializableObjectModel */
     getEnableUnknownSerializableProperty(): boolean
     serializeUseXmlNodeValue(): boolean
     propertyUseNick(): boolean
@@ -9008,7 +7063,7 @@ export class SerializableContainer {
     setProperties(value: GObject.ParamSpec[]): void
     getIgnoredSerializableProperties(): GLib.HashTable
     setIgnoredSerializableProperties(value: GLib.HashTable): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -9030,42 +7085,12 @@ export class SerializableContainer {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GXml.SerializableContainer */
-    vfuncInitContainers(): void
-    /* Virtual methods of GXml.SerializableObjectModel */
-    vfuncGetEnableUnknownSerializableProperty(): boolean
-    vfuncSerializeUseXmlNodeValue(): boolean
-    vfuncPropertyUseNick(): boolean
-    vfuncSetDefaultNamespace(node: Node): boolean
-    vfuncNodeName(): string
-    vfuncFindPropertySpec(propertyName: string): GObject.ParamSpec | null
-    vfuncListSerializableProperties(): GObject.ParamSpec[]
-    vfuncSerialize(node: Node): Node | null
-    vfuncSerializeProperty(element: Node, prop: GObject.ParamSpec): Node | null
-    vfuncDeserialize(node: Node): boolean
-    vfuncDeserializeProperty(propertyNode: Node): boolean
-    vfuncToString(): string
-    vfuncDefaultFindPropertySpec(propertyName: string): GObject.ParamSpec | null
-    vfuncDefaultListSerializableProperties(): GObject.ParamSpec[]
-    vfuncGetUnknownSerializableProperties(): Gee.Map
-    vfuncGetUnknownSerializableNodes(): Gee.Collection
-    vfuncGetSerializedXmlNodeValue(): string | null
-    vfuncSetSerializedXmlNodeValue(value?: string | null): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: SerializableContainer, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: SerializableContainer, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::properties", callback: (($obj: SerializableContainer, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::properties", callback: (($obj: SerializableContainer, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::properties", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -9092,7 +7117,7 @@ export interface TAttribute_ConstructProps extends TNode_ConstructProps {
     namespace?: Namespace
 }
 export class TAttribute {
-    /* Properties of GXml.TNode */
+    /* Properties of GXml-0.10.GXml.TNode */
     readonly attrs: Gee.Map
     readonly children: Gee.BidirList
     readonly document: Document
@@ -9101,17 +7126,17 @@ export class TAttribute {
     readonly typeNode: NodeType
     value: string
     readonly parent: Node
-    /* Properties of GXml.Attribute */
+    /* Properties of GXml-0.10.GXml.Attribute */
     namespace: Namespace
     readonly prefix: string
-    /* Fields of GXml.TAttribute */
+    /* Fields of GXml-0.10.GXml.TAttribute */
     parentInstance: TNode
     priv: TAttributePrivate
-    /* Fields of GXml.TNode */
+    /* Fields of GXml-0.10.GXml.TNode */
     doc: Document
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GXml.TNode */
+    /* Methods of GXml-0.10.GXml.TNode */
     setNamespace(uri: string, prefix?: string | null): boolean
     toString(): string
     setParent(node: Node): void
@@ -9124,7 +7149,7 @@ export class TAttribute {
     getValue(): string
     setValue(value: string): void
     getParent(): Node
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -9146,48 +7171,16 @@ export class TAttribute {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of GXml.Attribute */
+    /* Methods of GXml-0.10.GXml.Attribute */
     getNamespace(): Namespace
     setNamespace(value: Namespace): void
     getPrefix(): string
-    /* Virtual methods of GXml.TAttribute */
-    vfuncGetNamespace(): Namespace
-    vfuncSetNamespace(value: Namespace): void
-    vfuncSetNamespace(uri: string, prefix?: string | null): boolean
-    vfuncGetPrefix(): string
-    /* Virtual methods of GXml.TNode */
-    vfuncSetNamespace(uri: string, prefix?: string | null): boolean
-    vfuncToString(): string
-    vfuncSetParent(node: Node): void
-    vfuncGetAttrs(): Gee.Map
-    vfuncGetChildren(): Gee.BidirList
-    vfuncGetDocument(): Document
-    vfuncGetName(): string
-    vfuncGetNamespaces(): Gee.List
-    vfuncGetTypeNode(): NodeType
-    vfuncGetValue(): string
-    vfuncSetValue(value: string): void
-    vfuncGetParent(): Node
-    vfuncGet(key: string): Node | null
-    vfuncGetElementsByPropertyValue(property: string, value: string): ElementList
-    vfuncNsPrefix(): string
-    vfuncNsUri(): string
-    vfuncGetChilds(): Gee.BidirList
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: TAttribute, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: TAttribute, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::attrs", callback: (($obj: TAttribute, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::attrs", callback: (($obj: TAttribute, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::attrs", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -9255,7 +7248,7 @@ export class TAttribute {
 export interface TComment_ConstructProps extends TNode_ConstructProps {
 }
 export class TComment {
-    /* Properties of GXml.TNode */
+    /* Properties of GXml-0.10.GXml.TNode */
     readonly attrs: Gee.Map
     readonly children: Gee.BidirList
     readonly document: Document
@@ -9264,16 +7257,16 @@ export class TComment {
     readonly typeNode: NodeType
     value: string
     readonly parent: Node
-    /* Properties of GXml.Comment */
+    /* Properties of GXml-0.10.GXml.Comment */
     readonly str: string
-    /* Fields of GXml.TComment */
+    /* Fields of GXml-0.10.GXml.TComment */
     parentInstance: TNode
     priv: TCommentPrivate
-    /* Fields of GXml.TNode */
+    /* Fields of GXml-0.10.GXml.TNode */
     doc: Document
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GXml.TNode */
+    /* Methods of GXml-0.10.GXml.TNode */
     setNamespace(uri: string, prefix?: string | null): boolean
     toString(): string
     setParent(node: Node): void
@@ -9286,7 +7279,7 @@ export class TComment {
     getValue(): string
     setValue(value: string): void
     getParent(): Node
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -9308,43 +7301,14 @@ export class TComment {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of GXml.Comment */
+    /* Methods of GXml-0.10.GXml.Comment */
     getStr(): string
-    /* Virtual methods of GXml.TComment */
-    vfuncGetStr(): string
-    /* Virtual methods of GXml.TNode */
-    vfuncSetNamespace(uri: string, prefix?: string | null): boolean
-    vfuncToString(): string
-    vfuncSetParent(node: Node): void
-    vfuncGetAttrs(): Gee.Map
-    vfuncGetChildren(): Gee.BidirList
-    vfuncGetDocument(): Document
-    vfuncGetName(): string
-    vfuncGetNamespaces(): Gee.List
-    vfuncGetTypeNode(): NodeType
-    vfuncGetValue(): string
-    vfuncSetValue(value: string): void
-    vfuncGetParent(): Node
-    vfuncGet(key: string): Node | null
-    vfuncGetElementsByPropertyValue(property: string, value: string): ElementList
-    vfuncNsPrefix(): string
-    vfuncNsUri(): string
-    vfuncGetChilds(): Gee.BidirList
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: TComment, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: TComment, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::attrs", callback: (($obj: TComment, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::attrs", callback: (($obj: TComment, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::attrs", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -9407,7 +7371,7 @@ export class TComment {
 export interface TCDATA_ConstructProps extends TNode_ConstructProps {
 }
 export class TCDATA {
-    /* Properties of GXml.TNode */
+    /* Properties of GXml-0.10.GXml.TNode */
     readonly attrs: Gee.Map
     readonly children: Gee.BidirList
     readonly document: Document
@@ -9416,16 +7380,16 @@ export class TCDATA {
     readonly typeNode: NodeType
     value: string
     readonly parent: Node
-    /* Properties of GXml.CDATA */
+    /* Properties of GXml-0.10.GXml.CDATA */
     readonly str: string
-    /* Fields of GXml.TCDATA */
+    /* Fields of GXml-0.10.GXml.TCDATA */
     parentInstance: TNode
     priv: TCDATAPrivate
-    /* Fields of GXml.TNode */
+    /* Fields of GXml-0.10.GXml.TNode */
     doc: Document
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GXml.TNode */
+    /* Methods of GXml-0.10.GXml.TNode */
     setNamespace(uri: string, prefix?: string | null): boolean
     toString(): string
     setParent(node: Node): void
@@ -9438,7 +7402,7 @@ export class TCDATA {
     getValue(): string
     setValue(value: string): void
     getParent(): Node
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -9460,43 +7424,14 @@ export class TCDATA {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of GXml.CDATA */
+    /* Methods of GXml-0.10.GXml.CDATA */
     getStr(): string
-    /* Virtual methods of GXml.TCDATA */
-    vfuncGetStr(): string
-    /* Virtual methods of GXml.TNode */
-    vfuncSetNamespace(uri: string, prefix?: string | null): boolean
-    vfuncToString(): string
-    vfuncSetParent(node: Node): void
-    vfuncGetAttrs(): Gee.Map
-    vfuncGetChildren(): Gee.BidirList
-    vfuncGetDocument(): Document
-    vfuncGetName(): string
-    vfuncGetNamespaces(): Gee.List
-    vfuncGetTypeNode(): NodeType
-    vfuncGetValue(): string
-    vfuncSetValue(value: string): void
-    vfuncGetParent(): Node
-    vfuncGet(key: string): Node | null
-    vfuncGetElementsByPropertyValue(property: string, value: string): ElementList
-    vfuncNsPrefix(): string
-    vfuncNsUri(): string
-    vfuncGetChilds(): Gee.BidirList
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: TCDATA, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: TCDATA, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::attrs", callback: (($obj: TCDATA, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::attrs", callback: (($obj: TCDATA, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::attrs", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -9564,7 +7499,7 @@ export interface TDocument_ConstructProps extends TNode_ConstructProps {
     file?: Gio.File
 }
 export class TDocument {
-    /* Properties of GXml.TNode */
+    /* Properties of GXml-0.10.GXml.TNode */
     readonly attrs: Gee.Map
     readonly children: Gee.BidirList
     readonly document: Document
@@ -9573,23 +7508,23 @@ export class TDocument {
     readonly typeNode: NodeType
     value: string
     readonly parent: Node
-    /* Properties of GXml.Document */
+    /* Properties of GXml-0.10.GXml.Document */
     indent: boolean
     nsTop: boolean
     prefixDefaultNs: boolean
     backup: boolean
     readonly root: Node
     file: Gio.File
-    /* Fields of GXml.TDocument */
+    /* Fields of GXml-0.10.GXml.TDocument */
     parentInstance: TNode
     priv: TDocumentPrivate
-    /* Fields of GXml.TNode */
+    /* Fields of GXml-0.10.GXml.TNode */
     doc: Document
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GXml.TDocument */
+    /* Methods of GXml-0.10.GXml.TDocument */
     saveTo(f: Gio.File, cancellable?: Gio.Cancellable | null): boolean
-    /* Methods of GXml.TNode */
+    /* Methods of GXml-0.10.GXml.TNode */
     setNamespace(uri: string, prefix?: string | null): boolean
     toString(): string
     setParent(node: Node): void
@@ -9602,7 +7537,7 @@ export class TDocument {
     getValue(): string
     setValue(value: string): void
     getParent(): Node
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -9624,7 +7559,7 @@ export class TDocument {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of GXml.Document */
+    /* Methods of GXml-0.10.GXml.Document */
     createElement(name: string): Node
     createText(text: string): Node
     createComment(text: string): Node
@@ -9643,58 +7578,12 @@ export class TDocument {
     getRoot(): Node
     getFile(): Gio.File
     setFile(value: Gio.File): void
-    /* Virtual methods of GXml.TDocument */
-    vfuncCreateElement(name: string): Node
-    vfuncCreateText(text: string): Node
-    vfuncCreateComment(text: string): Node
-    vfuncCreateCdata(text: string): Node
-    vfuncCreatePi(target: string, data: string): Node
-    vfuncSave(cancellable?: Gio.Cancellable | null): boolean
-    vfuncSaveAs(f: Gio.File, cancellable?: Gio.Cancellable | null): boolean
-    vfuncGetIndent(): boolean
-    vfuncSetIndent(value: boolean): void
-    vfuncGetNsTop(): boolean
-    vfuncSetNsTop(value: boolean): void
-    vfuncGetPrefixDefaultNs(): boolean
-    vfuncSetPrefixDefaultNs(value: boolean): void
-    vfuncGetBackup(): boolean
-    vfuncSetBackup(value: boolean): void
-    vfuncGetRoot(): Node
-    vfuncGetFile(): Gio.File
-    vfuncSetFile(value: Gio.File): void
-    /* Virtual methods of GXml.TNode */
-    vfuncSetNamespace(uri: string, prefix?: string | null): boolean
-    vfuncToString(): string
-    vfuncSetParent(node: Node): void
-    vfuncGetAttrs(): Gee.Map
-    vfuncGetChildren(): Gee.BidirList
-    vfuncGetDocument(): Document
-    vfuncGetName(): string
-    vfuncGetNamespaces(): Gee.List
-    vfuncGetTypeNode(): NodeType
-    vfuncGetValue(): string
-    vfuncSetValue(value: string): void
-    vfuncGetParent(): Node
-    vfuncGet(key: string): Node | null
-    vfuncGetElementsByPropertyValue(property: string, value: string): ElementList
-    vfuncNsPrefix(): string
-    vfuncNsUri(): string
-    vfuncGetChilds(): Gee.BidirList
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: TDocument, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: TDocument, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::attrs", callback: (($obj: TDocument, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::attrs", callback: (($obj: TDocument, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::attrs", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -9789,7 +7678,7 @@ export class TDocument {
     static fromStringWithReadtypeFunc(str: string, func: any): TDocument
     static twSaveAs(doc: Document, f: Gio.File, cancellable?: Gio.Cancellable | null): boolean
     static writeDocument(doc: Document, tw: libxml2.TextWriter): void
-    static startNode(doc: Document, tw: libxml2.TextWriter, node: Node, root: boolean, declaredNs: Gee.ArrayList): /* declaredNs */ Gee.ArrayList
+    static startNode(doc: Document, tw: libxml2.TextWriter, node: Node, root: boolean, declaredNs: Gee.ArrayList): { declaredNs: Gee.ArrayList }
     static readDoc(doc: Document, file: Gio.File, rtfunc?: any | null): void
     static readDocStream(doc: Document, istream: Gio.InputStream, rtfunc?: any | null): void
     static readNode(node: Node, tr: libxml2.TextReader, rntfunc?: any | null): TDocumentReadType
@@ -9802,7 +7691,7 @@ export interface TElement_ConstructProps extends TNode_ConstructProps {
     content?: string
 }
 export class TElement {
-    /* Properties of GXml.TNode */
+    /* Properties of GXml-0.10.GXml.TNode */
     readonly attrs: Gee.Map
     readonly children: Gee.BidirList
     readonly document: Document
@@ -9811,17 +7700,17 @@ export class TElement {
     readonly typeNode: NodeType
     value: string
     readonly parent: Node
-    /* Properties of GXml.Element */
+    /* Properties of GXml-0.10.GXml.Element */
     readonly tagName: string
     content: string
-    /* Fields of GXml.TElement */
+    /* Fields of GXml-0.10.GXml.TElement */
     parentInstance: TNode
     priv: TElementPrivate
-    /* Fields of GXml.TNode */
+    /* Fields of GXml-0.10.GXml.TNode */
     doc: Document
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GXml.TNode */
+    /* Methods of GXml-0.10.GXml.TNode */
     setNamespace(uri: string, prefix?: string | null): boolean
     toString(): string
     setParent(node: Node): void
@@ -9834,7 +7723,7 @@ export class TElement {
     getValue(): string
     setValue(value: string): void
     getParent(): Node
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -9856,7 +7745,7 @@ export class TElement {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of GXml.Element */
+    /* Methods of GXml-0.10.GXml.Element */
     normalize(): void
     setAttr(name: string, value: string): void
     getAttr(name: string): Node
@@ -9866,49 +7755,12 @@ export class TElement {
     getTagName(): string
     getContent(): string
     setContent(value: string): void
-    /* Virtual methods of GXml.TElement */
-    vfuncNormalize(): void
-    vfuncSetAttr(name: string, value: string): void
-    vfuncGetAttr(name: string): Node
-    vfuncRemoveAttr(name: string): void
-    vfuncSetNsAttr(ns: Namespace, name: string, value: string): void
-    vfuncGetNsAttr(name: string, uri: string): Node
-    vfuncGetTagName(): string
-    vfuncGetContent(): string
-    vfuncSetContent(value: string): void
-    /* Virtual methods of GXml.TNode */
-    vfuncSetNamespace(uri: string, prefix?: string | null): boolean
-    vfuncToString(): string
-    vfuncSetParent(node: Node): void
-    vfuncGetAttrs(): Gee.Map
-    vfuncGetChildren(): Gee.BidirList
-    vfuncGetDocument(): Document
-    vfuncGetName(): string
-    vfuncGetNamespaces(): Gee.List
-    vfuncGetTypeNode(): NodeType
-    vfuncGetValue(): string
-    vfuncSetValue(value: string): void
-    vfuncGetParent(): Node
-    vfuncGet(key: string): Node | null
-    vfuncGetElementsByPropertyValue(property: string, value: string): ElementList
-    vfuncNsPrefix(): string
-    vfuncNsUri(): string
-    vfuncGetChilds(): Gee.BidirList
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: TElement, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: TElement, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::attrs", callback: (($obj: TElement, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::attrs", callback: (($obj: TElement, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::attrs", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -9976,7 +7828,7 @@ export class TElement {
 export interface TNamespace_ConstructProps extends TNode_ConstructProps {
 }
 export class TNamespace {
-    /* Properties of GXml.TNode */
+    /* Properties of GXml-0.10.GXml.TNode */
     readonly attrs: Gee.Map
     readonly children: Gee.BidirList
     readonly document: Document
@@ -9985,17 +7837,17 @@ export class TNamespace {
     readonly typeNode: NodeType
     value: string
     readonly parent: Node
-    /* Properties of GXml.Namespace */
+    /* Properties of GXml-0.10.GXml.Namespace */
     readonly uri: string
     readonly prefix: string
-    /* Fields of GXml.TNamespace */
+    /* Fields of GXml-0.10.GXml.TNamespace */
     parentInstance: TNode
     priv: TNamespacePrivate
-    /* Fields of GXml.TNode */
+    /* Fields of GXml-0.10.GXml.TNode */
     doc: Document
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GXml.TNode */
+    /* Methods of GXml-0.10.GXml.TNode */
     setNamespace(uri: string, prefix?: string | null): boolean
     toString(): string
     setParent(node: Node): void
@@ -10008,7 +7860,7 @@ export class TNamespace {
     getValue(): string
     setValue(value: string): void
     getParent(): Node
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -10030,45 +7882,15 @@ export class TNamespace {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of GXml.Namespace */
+    /* Methods of GXml-0.10.GXml.Namespace */
     getUri(): string
     getPrefix(): string
-    /* Virtual methods of GXml.TNamespace */
-    vfuncGetUri(): string
-    vfuncGetPrefix(): string
-    /* Virtual methods of GXml.TNode */
-    vfuncSetNamespace(uri: string, prefix?: string | null): boolean
-    vfuncToString(): string
-    vfuncSetParent(node: Node): void
-    vfuncGetAttrs(): Gee.Map
-    vfuncGetChildren(): Gee.BidirList
-    vfuncGetDocument(): Document
-    vfuncGetName(): string
-    vfuncGetNamespaces(): Gee.List
-    vfuncGetTypeNode(): NodeType
-    vfuncGetValue(): string
-    vfuncSetValue(value: string): void
-    vfuncGetParent(): Node
-    vfuncGet(key: string): Node | null
-    vfuncGetElementsByPropertyValue(property: string, value: string): ElementList
-    vfuncNsPrefix(): string
-    vfuncNsUri(): string
-    vfuncGetChilds(): Gee.BidirList
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: TNamespace, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: TNamespace, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::attrs", callback: (($obj: TNamespace, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::attrs", callback: (($obj: TNamespace, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::attrs", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -10137,7 +7959,7 @@ export interface TNode_ConstructProps extends GObject.Object_ConstructProps {
     value?: string
 }
 export class TNode {
-    /* Properties of GXml.TNode */
+    /* Properties of GXml-0.10.GXml.TNode */
     readonly attrs: Gee.Map
     readonly children: Gee.BidirList
     readonly document: Document
@@ -10146,15 +7968,15 @@ export class TNode {
     readonly typeNode: NodeType
     value: string
     readonly parent: Node
-    /* Properties of GXml.Node */
+    /* Properties of GXml-0.10.GXml.Node */
     readonly childs: Gee.BidirList
-    /* Fields of GXml.TNode */
+    /* Fields of GXml-0.10.GXml.TNode */
     parentInstance: GObject.Object
     priv: TNodePrivate
     doc: Document
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GXml.TNode */
+    /* Methods of GXml-0.10.GXml.TNode */
     setNamespace(uri: string, prefix?: string | null): boolean
     toString(): string
     setParent(node: Node): void
@@ -10167,7 +7989,7 @@ export class TNode {
     getValue(): string
     setValue(value: string): void
     getParent(): Node
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -10189,45 +8011,18 @@ export class TNode {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of GXml.Node */
+    /* Methods of GXml-0.10.GXml.Node */
     get(key: string): Node | null
     getElementsByPropertyValue(property: string, value: string): ElementList
     nsPrefix(): string
     nsUri(): string
     getChilds(): Gee.BidirList
-    /* Virtual methods of GXml.TNode */
-    vfuncSetNamespace(uri: string, prefix?: string | null): boolean
-    vfuncToString(): string
-    vfuncSetParent(node: Node): void
-    vfuncGetAttrs(): Gee.Map
-    vfuncGetChildren(): Gee.BidirList
-    vfuncGetDocument(): Document
-    vfuncGetName(): string
-    vfuncGetNamespaces(): Gee.List
-    vfuncGetTypeNode(): NodeType
-    vfuncGetValue(): string
-    vfuncSetValue(value: string): void
-    vfuncGetParent(): Node
-    vfuncGet(key: string): Node | null
-    vfuncGetElementsByPropertyValue(property: string, value: string): ElementList
-    vfuncNsPrefix(): string
-    vfuncNsUri(): string
-    vfuncGetChilds(): Gee.BidirList
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: TNode, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: TNode, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::attrs", callback: (($obj: TNode, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::attrs", callback: (($obj: TNode, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::attrs", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -10290,17 +8085,17 @@ export class TNode {
 export interface TNodeTChildrenList_ConstructProps extends Gee.AbstractBidirList_ConstructProps {
 }
 export class TNodeTChildrenList {
-    /* Properties of Gee.AbstractBidirList */
+    /* Properties of Gee-0.8.Gee.AbstractBidirList */
     readonly readOnlyView: Gee.BidirList
-    /* Properties of Gee.AbstractCollection */
+    /* Properties of Gee-0.8.Gee.AbstractCollection */
     readonly size: number
     readonly readOnly: boolean
-    /* Fields of GXml.TNodeTChildrenList */
+    /* Fields of GXml-0.10.GXml.TNodeTChildrenList */
     parentInstance: Gee.AbstractBidirList
     priv: TNodeTChildrenListPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Gee.AbstractBidirList */
+    /* Methods of Gee-0.8.Gee.AbstractBidirList */
     bidirListIterator(): Gee.BidirListIterator
     reserved0(): void
     reserved1(): void
@@ -10313,7 +8108,7 @@ export class TNodeTChildrenList {
     reserved8(): void
     reserved9(): void
     getReadOnlyView(): Gee.BidirList
-    /* Methods of Gee.AbstractList */
+    /* Methods of Gee-0.8.Gee.AbstractList */
     listIterator(): Gee.ListIterator
     get(index: number): object | null
     set(index: number, item?: object | null): void
@@ -10322,7 +8117,7 @@ export class TNodeTChildrenList {
     removeAt(index: number): object | null
     slice(start: number, stop: number): Gee.List | null
     getReadOnlyView(): Gee.List
-    /* Methods of Gee.AbstractCollection */
+    /* Methods of Gee-0.8.Gee.AbstractCollection */
     contains(item?: object | null): boolean
     add(item?: object | null): boolean
     remove(item?: object | null): boolean
@@ -10332,7 +8127,7 @@ export class TNodeTChildrenList {
     getSize(): number
     getReadOnly(): boolean
     getReadOnlyView(): Gee.Collection
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -10354,111 +8149,12 @@ export class TNodeTChildrenList {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GXml.TNodeTChildrenList */
-    vfuncGetReadOnlyView(): Gee.BidirList
-    vfuncGetReadOnlyView(): Gee.List
-    vfuncGetReadOnlyView(): Gee.Collection
-    /* Virtual methods of Gee.AbstractBidirList */
-    vfuncBidirListIterator(): Gee.BidirListIterator
-    vfuncReserved0(): void
-    vfuncReserved1(): void
-    vfuncReserved2(): void
-    vfuncReserved3(): void
-    vfuncReserved4(): void
-    vfuncReserved5(): void
-    vfuncReserved6(): void
-    vfuncReserved7(): void
-    vfuncReserved8(): void
-    vfuncReserved9(): void
-    vfuncGetReadOnlyView(): Gee.BidirList
-    vfuncGetReadOnlyView(): Gee.List
-    vfuncGetReadOnlyView(): Gee.Collection
-    /* Virtual methods of Gee.AbstractList */
-    vfuncListIterator(): Gee.ListIterator
-    vfuncGet(index: number): object | null
-    vfuncSet(index: number, item?: object | null): void
-    vfuncIndexOf(item?: object | null): number
-    vfuncInsert(index: number, item?: object | null): void
-    vfuncRemoveAt(index: number): object | null
-    vfuncSlice(start: number, stop: number): Gee.List | null
-    vfuncReserved0(): void
-    vfuncReserved1(): void
-    vfuncReserved2(): void
-    vfuncReserved3(): void
-    vfuncReserved4(): void
-    vfuncReserved5(): void
-    vfuncReserved6(): void
-    vfuncReserved7(): void
-    vfuncReserved8(): void
-    vfuncReserved9(): void
-    vfuncGetReadOnlyView(): Gee.List
-    vfuncGetReadOnlyView(): Gee.Collection
-    vfuncFirst(): object | null
-    vfuncLast(): object | null
-    vfuncInsertAll(index: number, collection: Gee.Collection): void
-    vfuncSort(compareFunc: GLib.CompareDataFunc | null): void
-    /* Virtual methods of Gee.AbstractCollection */
-    vfuncContains(item?: object | null): boolean
-    vfuncAdd(item?: object | null): boolean
-    vfuncRemove(item?: object | null): boolean
-    vfuncClear(): void
-    vfuncIterator(): Gee.Iterator
-    vfuncForeach(f: Gee.ForallFunc): boolean
-    vfuncReserved0(): void
-    vfuncReserved1(): void
-    vfuncReserved2(): void
-    vfuncReserved3(): void
-    vfuncReserved4(): void
-    vfuncReserved5(): void
-    vfuncReserved6(): void
-    vfuncReserved7(): void
-    vfuncReserved8(): void
-    vfuncReserved9(): void
-    vfuncGetSize(): number
-    vfuncGetReadOnly(): boolean
-    vfuncGetReadOnlyView(): Gee.Collection
-    vfuncStream(aType: GObject.Type, aDupFunc: GObject.BoxedCopyFunc, aDestroyFunc: GLib.DestroyNotify, f: Gee.StreamFunc): Gee.Iterator
-    vfuncFold(aType: GObject.Type, aDupFunc: GObject.BoxedCopyFunc, aDestroyFunc: GLib.DestroyNotify, f: Gee.FoldFunc, seed?: object | null): object | null
-    vfuncMap(aType: GObject.Type, aDupFunc: GObject.BoxedCopyFunc, aDestroyFunc: GLib.DestroyNotify, f: Gee.MapFunc): Gee.Iterator
-    vfuncScan(aType: GObject.Type, aDupFunc: GObject.BoxedCopyFunc, aDestroyFunc: GLib.DestroyNotify, f: Gee.FoldFunc, seed?: object | null): Gee.Iterator
-    vfuncFilter(pred: Gee.Predicate): Gee.Iterator
-    vfuncChop(offset: number, length: number): Gee.Iterator
-    vfuncFlatMap(aType: GObject.Type, aDupFunc: GObject.BoxedCopyFunc, aDestroyFunc: GLib.DestroyNotify, f: Gee.FlatMapFunc): Gee.Iterator
-    vfuncTee(forks: number): Gee.Iterator[]
-    vfuncFirstMatch(pred: Gee.Predicate): object | null
-    vfuncAnyMatch(pred: Gee.Predicate): boolean
-    vfuncAllMatch(pred: Gee.Predicate): boolean
-    vfuncMax(compare: GLib.CompareDataFunc): object | null
-    vfuncMin(compare: GLib.CompareDataFunc): object | null
-    vfuncOrderBy(compare: GLib.CompareDataFunc | null): Gee.Iterator
-    vfuncGetElementType(): GObject.Type
-    vfuncAddAll(collection: Gee.Collection): boolean
-    vfuncContainsAll(collection: Gee.Collection): boolean
-    vfuncRemoveAll(collection: Gee.Collection): boolean
-    vfuncRetainAll(collection: Gee.Collection): boolean
-    vfuncToArray(): object[]
-    vfuncAddAllArray(array: object[]): boolean
-    vfuncContainsAllArray(array: object[]): boolean
-    vfuncRemoveAllArray(array: object[]): boolean
-    vfuncAddAllIterator(iter: Gee.Iterator): boolean
-    vfuncContainsAllIterator(iter: Gee.Iterator): boolean
-    vfuncRemoveAllIterator(iter: Gee.Iterator): boolean
-    vfuncGetIsEmpty(): boolean
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: TNodeTChildrenList, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: TNodeTChildrenList, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::read-only-view", callback: (($obj: TNodeTChildrenList, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::read-only-view", callback: (($obj: TNodeTChildrenList, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::read-only-view", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -10491,7 +8187,7 @@ export class TNodeTChildrenList {
 export interface TProcessingInstruction_ConstructProps extends TNode_ConstructProps {
 }
 export class TProcessingInstruction {
-    /* Properties of GXml.TNode */
+    /* Properties of GXml-0.10.GXml.TNode */
     readonly attrs: Gee.Map
     readonly children: Gee.BidirList
     readonly document: Document
@@ -10500,17 +8196,17 @@ export class TProcessingInstruction {
     readonly typeNode: NodeType
     value: string
     readonly parent: Node
-    /* Properties of GXml.ProcessingInstruction */
+    /* Properties of GXml-0.10.GXml.ProcessingInstruction */
     readonly target: string
     readonly data: string
-    /* Fields of GXml.TProcessingInstruction */
+    /* Fields of GXml-0.10.GXml.TProcessingInstruction */
     parentInstance: TNode
     priv: TProcessingInstructionPrivate
-    /* Fields of GXml.TNode */
+    /* Fields of GXml-0.10.GXml.TNode */
     doc: Document
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GXml.TNode */
+    /* Methods of GXml-0.10.GXml.TNode */
     setNamespace(uri: string, prefix?: string | null): boolean
     toString(): string
     setParent(node: Node): void
@@ -10523,7 +8219,7 @@ export class TProcessingInstruction {
     getValue(): string
     setValue(value: string): void
     getParent(): Node
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -10545,45 +8241,15 @@ export class TProcessingInstruction {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of GXml.ProcessingInstruction */
+    /* Methods of GXml-0.10.GXml.ProcessingInstruction */
     getTarget(): string
     getData(): string
-    /* Virtual methods of GXml.TProcessingInstruction */
-    vfuncGetTarget(): string
-    vfuncGetData(): string
-    /* Virtual methods of GXml.TNode */
-    vfuncSetNamespace(uri: string, prefix?: string | null): boolean
-    vfuncToString(): string
-    vfuncSetParent(node: Node): void
-    vfuncGetAttrs(): Gee.Map
-    vfuncGetChildren(): Gee.BidirList
-    vfuncGetDocument(): Document
-    vfuncGetName(): string
-    vfuncGetNamespaces(): Gee.List
-    vfuncGetTypeNode(): NodeType
-    vfuncGetValue(): string
-    vfuncSetValue(value: string): void
-    vfuncGetParent(): Node
-    vfuncGet(key: string): Node | null
-    vfuncGetElementsByPropertyValue(property: string, value: string): ElementList
-    vfuncNsPrefix(): string
-    vfuncNsUri(): string
-    vfuncGetChilds(): Gee.BidirList
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: TProcessingInstruction, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: TProcessingInstruction, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::attrs", callback: (($obj: TProcessingInstruction, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::attrs", callback: (($obj: TProcessingInstruction, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::attrs", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -10651,7 +8317,7 @@ export class TProcessingInstruction {
 export interface TText_ConstructProps extends TNode_ConstructProps {
 }
 export class TText {
-    /* Properties of GXml.TNode */
+    /* Properties of GXml-0.10.GXml.TNode */
     readonly attrs: Gee.Map
     readonly children: Gee.BidirList
     readonly document: Document
@@ -10660,16 +8326,16 @@ export class TText {
     readonly typeNode: NodeType
     value: string
     readonly parent: Node
-    /* Properties of GXml.Text */
+    /* Properties of GXml-0.10.GXml.Text */
     readonly str: string
-    /* Fields of GXml.TText */
+    /* Fields of GXml-0.10.GXml.TText */
     parentInstance: TNode
     priv: TTextPrivate
-    /* Fields of GXml.TNode */
+    /* Fields of GXml-0.10.GXml.TNode */
     doc: Document
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GXml.TNode */
+    /* Methods of GXml-0.10.GXml.TNode */
     setNamespace(uri: string, prefix?: string | null): boolean
     toString(): string
     setParent(node: Node): void
@@ -10682,7 +8348,7 @@ export class TText {
     getValue(): string
     setValue(value: string): void
     getParent(): Node
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -10704,43 +8370,14 @@ export class TText {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of GXml.Text */
+    /* Methods of GXml-0.10.GXml.Text */
     getStr(): string
-    /* Virtual methods of GXml.TText */
-    vfuncGetStr(): string
-    /* Virtual methods of GXml.TNode */
-    vfuncSetNamespace(uri: string, prefix?: string | null): boolean
-    vfuncToString(): string
-    vfuncSetParent(node: Node): void
-    vfuncGetAttrs(): Gee.Map
-    vfuncGetChildren(): Gee.BidirList
-    vfuncGetDocument(): Document
-    vfuncGetName(): string
-    vfuncGetNamespaces(): Gee.List
-    vfuncGetTypeNode(): NodeType
-    vfuncGetValue(): string
-    vfuncSetValue(value: string): void
-    vfuncGetParent(): Node
-    vfuncGet(key: string): Node | null
-    vfuncGetElementsByPropertyValue(property: string, value: string): ElementList
-    vfuncNsPrefix(): string
-    vfuncNsUri(): string
-    vfuncGetChilds(): Gee.BidirList
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: TText, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: TText, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::attrs", callback: (($obj: TText, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::attrs", callback: (($obj: TText, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::attrs", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -10803,14 +8440,14 @@ export class TText {
 export interface HtmlDocument_ConstructProps extends xDocument_ConstructProps {
 }
 export class HtmlDocument {
-    /* Properties of GXml.HtmlDocument */
+    /* Properties of GXml-0.10.GXml.HtmlDocument */
     readonly defaultOptions: number
-    /* Properties of GXml.xDocument */
+    /* Properties of GXml-0.10.GXml.xDocument */
     doctype: xDocumentType
     implementation: Implementation
     documentElement: xElement
     readonly root: Node
-    /* Properties of GXml.xNode */
+    /* Properties of GXml-0.10.GXml.xNode */
     namespaceDefinitions: Gee.List
     namespaceUri: string
     namespacePrefix: string
@@ -10832,15 +8469,15 @@ export class HtmlDocument {
     readonly name: string
     value: string
     readonly parent: Node
-    /* Fields of GXml.HtmlDocument */
+    /* Fields of GXml-0.10.GXml.HtmlDocument */
     parentInstance: xDocument
     priv: HtmlDocumentPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GXml.HtmlDocument */
+    /* Methods of GXml-0.10.GXml.HtmlDocument */
     getElementsByClassName(klass: string): ElementList
     getElementById(id: string): Element | null
-    /* Methods of GXml.xDocument */
+    /* Methods of GXml-0.10.GXml.xDocument */
     saveToPath(filePath: string): void
     saveToStream(outstream: Gio.OutputStream, can?: Gio.Cancellable | null): void
     createDocumentFragment(): DocumentFragment
@@ -10856,7 +8493,7 @@ export class HtmlDocument {
     getImplementation(): Implementation
     getDocumentElement(): xElement
     getRoot(): Node
-    /* Methods of GXml.xNode */
+    /* Methods of GXml-0.10.GXml.xNode */
     addNamespaceAttr(uri: string, namespacePrefix?: string | null): NamespaceAttr | null
     setNamespace(uri: string, namespacePrefix?: string | null): boolean
     insertBefore(newChild: xNode, refChild?: xNode | null): xNode | null
@@ -10889,7 +8526,7 @@ export class HtmlDocument {
     getValue(): string
     setValue(value: string): void
     getParent(): Node
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -10911,79 +8548,12 @@ export class HtmlDocument {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GXml.xDocument */
-    vfuncGetRoot(): Node
-    vfuncCreateElement(name: string): Node
-    vfuncCreateText(text: string): Node
-    vfuncCreateComment(text: string): Node
-    vfuncCreateCdata(text: string): Node
-    vfuncCreatePi(target: string, data: string): Node
-    vfuncSave(cancellable?: Gio.Cancellable | null): boolean
-    vfuncSaveAs(f: Gio.File, cancellable?: Gio.Cancellable | null): boolean
-    vfuncGetIndent(): boolean
-    vfuncSetIndent(value: boolean): void
-    vfuncGetNsTop(): boolean
-    vfuncSetNsTop(value: boolean): void
-    vfuncGetPrefixDefaultNs(): boolean
-    vfuncSetPrefixDefaultNs(value: boolean): void
-    vfuncGetBackup(): boolean
-    vfuncSetBackup(value: boolean): void
-    vfuncGetFile(): Gio.File
-    vfuncSetFile(value: Gio.File): void
-    /* Virtual methods of GXml.xNode */
-    vfuncAddNamespaceAttr(uri: string, namespacePrefix?: string | null): NamespaceAttr | null
-    vfuncSetNamespace(uri: string, namespacePrefix?: string | null): boolean
-    vfuncInsertBefore(newChild: xNode, refChild?: xNode | null): xNode | null
-    vfuncReplaceChild(newChild: xNode, oldChild: xNode): xNode | null
-    vfuncRemoveChild(oldChild: xNode): xNode | null
-    vfuncAppendChild(newChild: xNode): xNode | null
-    vfuncHasChildNodes(): boolean
-    vfuncCloneNode(deep: boolean): xNode | null
-    vfuncStringify(format: boolean, level: number): string
-    vfuncToString(): string
-    vfuncGetNamespaceDefinitions(): Gee.List | null
-    vfuncGetNamespaceUri(): string | null
-    vfuncGetNamespacePrefix(): string | null
-    vfuncGetLocalName(): string | null
-    vfuncGetNodeName(): string
-    vfuncGetNodeValue(): string | null
-    vfuncGetNodeType(): NodeType
-    vfuncGetParentNode(): xNode | null
-    vfuncGetChildNodes(): xNodeList | null
-    vfuncGetFirstChild(): xNode | null
-    vfuncGetLastChild(): xNode | null
-    vfuncGetPreviousSibling(): xNode | null
-    vfuncGetNextSibling(): xNode | null
-    vfuncGetAttributes(): NamedAttrMap | null
-    vfuncGetNamespaces(): Gee.List
-    vfuncGetChildren(): Gee.BidirList
-    vfuncGetAttrs(): Gee.Map
-    vfuncGetName(): string
-    vfuncGetValue(): string
-    vfuncSetValue(value: string): void
-    vfuncGetParent(): Node
-    vfuncGet(key: string): Node | null
-    vfuncGetElementsByPropertyValue(property: string, value: string): ElementList
-    vfuncNsPrefix(): string
-    vfuncNsUri(): string
-    vfuncGetChilds(): Gee.BidirList
-    vfuncGetTypeNode(): NodeType
-    vfuncGetDocument(): Document
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: HtmlDocument, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: HtmlDocument, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::default-options", callback: (($obj: HtmlDocument, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::default-options", callback: (($obj: HtmlDocument, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::default-options", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -11139,7 +8709,7 @@ export interface GAttribute_ConstructProps extends GNode_ConstructProps {
     namespace?: Namespace
 }
 export class GAttribute {
-    /* Properties of GXml.GNode */
+    /* Properties of GXml-0.10.GXml.GNode */
     readonly attrs: Gee.Map
     readonly children: Gee.BidirList
     readonly namespaces: Gee.List
@@ -11148,18 +8718,18 @@ export class GAttribute {
     readonly typeNode: NodeType
     readonly name: string
     value: string
-    /* Properties of GXml.Attribute */
+    /* Properties of GXml-0.10.GXml.Attribute */
     namespace: Namespace
     readonly prefix: string
-    /* Fields of GXml.GAttribute */
+    /* Fields of GXml-0.10.GXml.GAttribute */
     parentInstance: GNode
     priv: GAttributePrivate
-    /* Fields of GXml.GNode */
+    /* Fields of GXml-0.10.GXml.GNode */
     doc: GDocument
     node: object | null
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GXml.GNode */
+    /* Methods of GXml-0.10.GXml.GNode */
     setNamespace(uri: string, prefix?: string | null): boolean
     toString(): string
     getInternalNode(): object | null
@@ -11172,7 +8742,7 @@ export class GAttribute {
     getName(): string
     getValue(): string
     setValue(value: string): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -11194,47 +8764,16 @@ export class GAttribute {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of GXml.Attribute */
+    /* Methods of GXml-0.10.GXml.Attribute */
     getNamespace(): Namespace
     setNamespace(value: Namespace): void
     getPrefix(): string
-    /* Virtual methods of GXml.GAttribute */
-    vfuncGetNamespace(): Namespace
-    vfuncSetNamespace(value: Namespace): void
-    vfuncSetNamespace(uri: string, prefix?: string | null): boolean
-    vfuncGetPrefix(): string
-    /* Virtual methods of GXml.GNode */
-    vfuncSetNamespace(uri: string, prefix?: string | null): boolean
-    vfuncToString(): string
-    vfuncGetAttrs(): Gee.Map
-    vfuncGetChildren(): Gee.BidirList
-    vfuncGetNamespaces(): Gee.List
-    vfuncGetDocument(): Document
-    vfuncGetParent(): Node
-    vfuncGetTypeNode(): NodeType
-    vfuncGetName(): string
-    vfuncGetValue(): string
-    vfuncSetValue(value: string): void
-    vfuncGet(key: string): Node | null
-    vfuncGetElementsByPropertyValue(property: string, value: string): ElementList
-    vfuncNsPrefix(): string
-    vfuncNsUri(): string
-    vfuncGetChilds(): Gee.BidirList
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: GAttribute, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: GAttribute, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::attrs", callback: (($obj: GAttribute, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::attrs", callback: (($obj: GAttribute, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::attrs", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -11302,7 +8841,7 @@ export class GAttribute {
 export interface GComment_ConstructProps extends GNode_ConstructProps {
 }
 export class GComment {
-    /* Properties of GXml.GNode */
+    /* Properties of GXml-0.10.GXml.GNode */
     readonly attrs: Gee.Map
     readonly children: Gee.BidirList
     readonly namespaces: Gee.List
@@ -11311,17 +8850,17 @@ export class GComment {
     readonly typeNode: NodeType
     readonly name: string
     value: string
-    /* Properties of GXml.Comment */
+    /* Properties of GXml-0.10.GXml.Comment */
     readonly str: string
-    /* Fields of GXml.GComment */
+    /* Fields of GXml-0.10.GXml.GComment */
     parentInstance: GNode
     priv: GCommentPrivate
-    /* Fields of GXml.GNode */
+    /* Fields of GXml-0.10.GXml.GNode */
     doc: GDocument
     node: object | null
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GXml.GNode */
+    /* Methods of GXml-0.10.GXml.GNode */
     setNamespace(uri: string, prefix?: string | null): boolean
     toString(): string
     getInternalNode(): object | null
@@ -11334,7 +8873,7 @@ export class GComment {
     getName(): string
     getValue(): string
     setValue(value: string): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -11356,42 +8895,14 @@ export class GComment {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of GXml.Comment */
+    /* Methods of GXml-0.10.GXml.Comment */
     getStr(): string
-    /* Virtual methods of GXml.GComment */
-    vfuncGetStr(): string
-    /* Virtual methods of GXml.GNode */
-    vfuncSetNamespace(uri: string, prefix?: string | null): boolean
-    vfuncToString(): string
-    vfuncGetAttrs(): Gee.Map
-    vfuncGetChildren(): Gee.BidirList
-    vfuncGetNamespaces(): Gee.List
-    vfuncGetDocument(): Document
-    vfuncGetParent(): Node
-    vfuncGetTypeNode(): NodeType
-    vfuncGetName(): string
-    vfuncGetValue(): string
-    vfuncSetValue(value: string): void
-    vfuncGet(key: string): Node | null
-    vfuncGetElementsByPropertyValue(property: string, value: string): ElementList
-    vfuncNsPrefix(): string
-    vfuncNsUri(): string
-    vfuncGetChilds(): Gee.BidirList
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: GComment, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: GComment, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::attrs", callback: (($obj: GComment, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::attrs", callback: (($obj: GComment, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::attrs", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -11454,7 +8965,7 @@ export class GComment {
 export interface GCDATA_ConstructProps extends GNode_ConstructProps {
 }
 export class GCDATA {
-    /* Properties of GXml.GNode */
+    /* Properties of GXml-0.10.GXml.GNode */
     readonly attrs: Gee.Map
     readonly children: Gee.BidirList
     readonly namespaces: Gee.List
@@ -11463,17 +8974,17 @@ export class GCDATA {
     readonly typeNode: NodeType
     readonly name: string
     value: string
-    /* Properties of GXml.CDATA */
+    /* Properties of GXml-0.10.GXml.CDATA */
     readonly str: string
-    /* Fields of GXml.GCDATA */
+    /* Fields of GXml-0.10.GXml.GCDATA */
     parentInstance: GNode
     priv: GCDATAPrivate
-    /* Fields of GXml.GNode */
+    /* Fields of GXml-0.10.GXml.GNode */
     doc: GDocument
     node: object | null
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GXml.GNode */
+    /* Methods of GXml-0.10.GXml.GNode */
     setNamespace(uri: string, prefix?: string | null): boolean
     toString(): string
     getInternalNode(): object | null
@@ -11486,7 +8997,7 @@ export class GCDATA {
     getName(): string
     getValue(): string
     setValue(value: string): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -11508,42 +9019,14 @@ export class GCDATA {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of GXml.CDATA */
+    /* Methods of GXml-0.10.GXml.CDATA */
     getStr(): string
-    /* Virtual methods of GXml.GCDATA */
-    vfuncGetStr(): string
-    /* Virtual methods of GXml.GNode */
-    vfuncSetNamespace(uri: string, prefix?: string | null): boolean
-    vfuncToString(): string
-    vfuncGetAttrs(): Gee.Map
-    vfuncGetChildren(): Gee.BidirList
-    vfuncGetNamespaces(): Gee.List
-    vfuncGetDocument(): Document
-    vfuncGetParent(): Node
-    vfuncGetTypeNode(): NodeType
-    vfuncGetName(): string
-    vfuncGetValue(): string
-    vfuncSetValue(value: string): void
-    vfuncGet(key: string): Node | null
-    vfuncGetElementsByPropertyValue(property: string, value: string): ElementList
-    vfuncNsPrefix(): string
-    vfuncNsUri(): string
-    vfuncGetChilds(): Gee.BidirList
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: GCDATA, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: GCDATA, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::attrs", callback: (($obj: GCDATA, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::attrs", callback: (($obj: GCDATA, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::attrs", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -11611,7 +9094,7 @@ export interface GDocument_ConstructProps extends GNode_ConstructProps {
     file?: Gio.File
 }
 export class GDocument {
-    /* Properties of GXml.GNode */
+    /* Properties of GXml-0.10.GXml.GNode */
     readonly attrs: Gee.Map
     readonly children: Gee.BidirList
     readonly namespaces: Gee.List
@@ -11620,27 +9103,27 @@ export class GDocument {
     readonly typeNode: NodeType
     readonly name: string
     value: string
-    /* Properties of GXml.Document */
+    /* Properties of GXml-0.10.GXml.Document */
     indent: boolean
     nsTop: boolean
     prefixDefaultNs: boolean
     backup: boolean
     readonly root: Node
     file: Gio.File
-    /* Fields of GXml.GDocument */
+    /* Fields of GXml-0.10.GXml.GDocument */
     parentInstance: GNode
     priv: GDocumentPrivate
     doc: object | null
     buffer: any
-    /* Fields of GXml.GNode */
+    /* Fields of GXml-0.10.GXml.GNode */
     node: object | null
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GXml.GDocument */
+    /* Methods of GXml-0.10.GXml.GDocument */
     libxmlToString(): string
     save(cancellable?: Gio.Cancellable | null): boolean
     saveAs(f: Gio.File, cancellable?: Gio.Cancellable | null): boolean
-    /* Methods of GXml.GNode */
+    /* Methods of GXml-0.10.GXml.GNode */
     setNamespace(uri: string, prefix?: string | null): boolean
     toString(): string
     getInternalNode(): object | null
@@ -11653,7 +9136,7 @@ export class GDocument {
     getName(): string
     getValue(): string
     setValue(value: string): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -11675,7 +9158,7 @@ export class GDocument {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of GXml.Document */
+    /* Methods of GXml-0.10.GXml.Document */
     createElement(name: string): Node
     createText(text: string): Node
     createComment(text: string): Node
@@ -11692,57 +9175,12 @@ export class GDocument {
     getRoot(): Node
     getFile(): Gio.File
     setFile(value: Gio.File): void
-    /* Virtual methods of GXml.GDocument */
-    vfuncSave(cancellable?: Gio.Cancellable | null): boolean
-    vfuncSaveAs(f: Gio.File, cancellable?: Gio.Cancellable | null): boolean
-    vfuncCreateElement(name: string): Node
-    vfuncCreateText(text: string): Node
-    vfuncCreateComment(text: string): Node
-    vfuncCreateCdata(text: string): Node
-    vfuncCreatePi(target: string, data: string): Node
-    vfuncGetIndent(): boolean
-    vfuncSetIndent(value: boolean): void
-    vfuncGetNsTop(): boolean
-    vfuncSetNsTop(value: boolean): void
-    vfuncGetPrefixDefaultNs(): boolean
-    vfuncSetPrefixDefaultNs(value: boolean): void
-    vfuncGetBackup(): boolean
-    vfuncSetBackup(value: boolean): void
-    vfuncGetRoot(): Node
-    vfuncGetFile(): Gio.File
-    vfuncSetFile(value: Gio.File): void
-    /* Virtual methods of GXml.GNode */
-    vfuncSetNamespace(uri: string, prefix?: string | null): boolean
-    vfuncToString(): string
-    vfuncGetAttrs(): Gee.Map
-    vfuncGetChildren(): Gee.BidirList
-    vfuncGetNamespaces(): Gee.List
-    vfuncGetDocument(): Document
-    vfuncGetParent(): Node
-    vfuncGetTypeNode(): NodeType
-    vfuncGetName(): string
-    vfuncGetValue(): string
-    vfuncSetValue(value: string): void
-    vfuncGet(key: string): Node | null
-    vfuncGetElementsByPropertyValue(property: string, value: string): ElementList
-    vfuncNsPrefix(): string
-    vfuncNsUri(): string
-    vfuncGetChilds(): Gee.BidirList
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: GDocument, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: GDocument, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::attrs", callback: (($obj: GDocument, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::attrs", callback: (($obj: GDocument, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::attrs", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -11840,7 +9278,7 @@ export interface GElement_ConstructProps extends GNode_ConstructProps {
     content?: string
 }
 export class GElement {
-    /* Properties of GXml.GNode */
+    /* Properties of GXml-0.10.GXml.GNode */
     readonly attrs: Gee.Map
     readonly children: Gee.BidirList
     readonly namespaces: Gee.List
@@ -11849,18 +9287,18 @@ export class GElement {
     readonly typeNode: NodeType
     readonly name: string
     value: string
-    /* Properties of GXml.Element */
+    /* Properties of GXml-0.10.GXml.Element */
     readonly tagName: string
     content: string
-    /* Fields of GXml.GElement */
+    /* Fields of GXml-0.10.GXml.GElement */
     parentInstance: GNode
     priv: GElementPrivate
-    /* Fields of GXml.GNode */
+    /* Fields of GXml-0.10.GXml.GNode */
     doc: GDocument
     node: object | null
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GXml.GNode */
+    /* Methods of GXml-0.10.GXml.GNode */
     setNamespace(uri: string, prefix?: string | null): boolean
     toString(): string
     getInternalNode(): object | null
@@ -11873,7 +9311,7 @@ export class GElement {
     getName(): string
     getValue(): string
     setValue(value: string): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -11895,7 +9333,7 @@ export class GElement {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of GXml.Element */
+    /* Methods of GXml-0.10.GXml.Element */
     normalize(): void
     setAttr(name: string, value: string): void
     getAttr(name: string): Node
@@ -11905,48 +9343,12 @@ export class GElement {
     getTagName(): string
     getContent(): string
     setContent(value: string): void
-    /* Virtual methods of GXml.GElement */
-    vfuncNormalize(): void
-    vfuncSetAttr(name: string, value: string): void
-    vfuncGetAttr(name: string): Node
-    vfuncRemoveAttr(name: string): void
-    vfuncSetNsAttr(ns: Namespace, name: string, value: string): void
-    vfuncGetNsAttr(name: string, uri: string): Node
-    vfuncGetTagName(): string
-    vfuncGetContent(): string
-    vfuncSetContent(value: string): void
-    /* Virtual methods of GXml.GNode */
-    vfuncSetNamespace(uri: string, prefix?: string | null): boolean
-    vfuncToString(): string
-    vfuncGetAttrs(): Gee.Map
-    vfuncGetChildren(): Gee.BidirList
-    vfuncGetNamespaces(): Gee.List
-    vfuncGetDocument(): Document
-    vfuncGetParent(): Node
-    vfuncGetTypeNode(): NodeType
-    vfuncGetName(): string
-    vfuncGetValue(): string
-    vfuncSetValue(value: string): void
-    vfuncGet(key: string): Node | null
-    vfuncGetElementsByPropertyValue(property: string, value: string): ElementList
-    vfuncNsPrefix(): string
-    vfuncNsUri(): string
-    vfuncGetChilds(): Gee.BidirList
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: GElement, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: GElement, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::attrs", callback: (($obj: GElement, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::attrs", callback: (($obj: GElement, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::attrs", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -12014,7 +9416,7 @@ export class GElement {
 export interface GNamespace_ConstructProps extends GNode_ConstructProps {
 }
 export class GNamespace {
-    /* Properties of GXml.GNode */
+    /* Properties of GXml-0.10.GXml.GNode */
     readonly attrs: Gee.Map
     readonly children: Gee.BidirList
     readonly namespaces: Gee.List
@@ -12023,20 +9425,20 @@ export class GNamespace {
     readonly typeNode: NodeType
     readonly name: string
     value: string
-    /* Properties of GXml.Namespace */
+    /* Properties of GXml-0.10.GXml.Namespace */
     readonly uri: string
     readonly prefix: string
-    /* Fields of GXml.GNamespace */
+    /* Fields of GXml-0.10.GXml.GNamespace */
     parentInstance: GNode
     priv: GNamespacePrivate
-    /* Fields of GXml.GNode */
+    /* Fields of GXml-0.10.GXml.GNode */
     doc: GDocument
     node: object | null
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GXml.GNamespace */
+    /* Methods of GXml-0.10.GXml.GNamespace */
     getInternalNs(): object | null
-    /* Methods of GXml.GNode */
+    /* Methods of GXml-0.10.GXml.GNode */
     setNamespace(uri: string, prefix?: string | null): boolean
     toString(): string
     getInternalNode(): object | null
@@ -12049,7 +9451,7 @@ export class GNamespace {
     getName(): string
     getValue(): string
     setValue(value: string): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -12071,44 +9473,15 @@ export class GNamespace {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of GXml.Namespace */
+    /* Methods of GXml-0.10.GXml.Namespace */
     getUri(): string
     getPrefix(): string
-    /* Virtual methods of GXml.GNamespace */
-    vfuncGetUri(): string
-    vfuncGetPrefix(): string
-    /* Virtual methods of GXml.GNode */
-    vfuncSetNamespace(uri: string, prefix?: string | null): boolean
-    vfuncToString(): string
-    vfuncGetAttrs(): Gee.Map
-    vfuncGetChildren(): Gee.BidirList
-    vfuncGetNamespaces(): Gee.List
-    vfuncGetDocument(): Document
-    vfuncGetParent(): Node
-    vfuncGetTypeNode(): NodeType
-    vfuncGetName(): string
-    vfuncGetValue(): string
-    vfuncSetValue(value: string): void
-    vfuncGet(key: string): Node | null
-    vfuncGetElementsByPropertyValue(property: string, value: string): ElementList
-    vfuncNsPrefix(): string
-    vfuncNsUri(): string
-    vfuncGetChilds(): Gee.BidirList
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: GNamespace, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: GNamespace, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::attrs", callback: (($obj: GNamespace, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::attrs", callback: (($obj: GNamespace, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::attrs", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -12177,7 +9550,7 @@ export interface GNode_ConstructProps extends GObject.Object_ConstructProps {
     value?: string
 }
 export class GNode {
-    /* Properties of GXml.GNode */
+    /* Properties of GXml-0.10.GXml.GNode */
     readonly attrs: Gee.Map
     readonly children: Gee.BidirList
     readonly namespaces: Gee.List
@@ -12186,16 +9559,16 @@ export class GNode {
     readonly typeNode: NodeType
     readonly name: string
     value: string
-    /* Properties of GXml.Node */
+    /* Properties of GXml-0.10.GXml.Node */
     readonly childs: Gee.BidirList
-    /* Fields of GXml.GNode */
+    /* Fields of GXml-0.10.GXml.GNode */
     parentInstance: GObject.Object
     priv: GNodePrivate
     doc: GDocument
     node: object | null
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GXml.GNode */
+    /* Methods of GXml-0.10.GXml.GNode */
     setNamespace(uri: string, prefix?: string | null): boolean
     toString(): string
     getInternalNode(): object | null
@@ -12208,7 +9581,7 @@ export class GNode {
     getName(): string
     getValue(): string
     setValue(value: string): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -12230,44 +9603,18 @@ export class GNode {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of GXml.Node */
+    /* Methods of GXml-0.10.GXml.Node */
     get(key: string): Node | null
     getElementsByPropertyValue(property: string, value: string): ElementList
     nsPrefix(): string
     nsUri(): string
     getChilds(): Gee.BidirList
-    /* Virtual methods of GXml.GNode */
-    vfuncSetNamespace(uri: string, prefix?: string | null): boolean
-    vfuncToString(): string
-    vfuncGetAttrs(): Gee.Map
-    vfuncGetChildren(): Gee.BidirList
-    vfuncGetNamespaces(): Gee.List
-    vfuncGetDocument(): Document
-    vfuncGetParent(): Node
-    vfuncGetTypeNode(): NodeType
-    vfuncGetName(): string
-    vfuncGetValue(): string
-    vfuncSetValue(value: string): void
-    vfuncGet(key: string): Node | null
-    vfuncGetElementsByPropertyValue(property: string, value: string): ElementList
-    vfuncNsPrefix(): string
-    vfuncNsUri(): string
-    vfuncGetChilds(): Gee.BidirList
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: GNode, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: GNode, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::attrs", callback: (($obj: GNode, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::attrs", callback: (($obj: GNode, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::attrs", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -12331,7 +9678,7 @@ export class GNode {
 export interface GProcessingInstruction_ConstructProps extends GNode_ConstructProps {
 }
 export class GProcessingInstruction {
-    /* Properties of GXml.GNode */
+    /* Properties of GXml-0.10.GXml.GNode */
     readonly attrs: Gee.Map
     readonly children: Gee.BidirList
     readonly namespaces: Gee.List
@@ -12340,18 +9687,18 @@ export class GProcessingInstruction {
     readonly typeNode: NodeType
     readonly name: string
     value: string
-    /* Properties of GXml.ProcessingInstruction */
+    /* Properties of GXml-0.10.GXml.ProcessingInstruction */
     readonly target: string
     readonly data: string
-    /* Fields of GXml.GProcessingInstruction */
+    /* Fields of GXml-0.10.GXml.GProcessingInstruction */
     parentInstance: GNode
     priv: GProcessingInstructionPrivate
-    /* Fields of GXml.GNode */
+    /* Fields of GXml-0.10.GXml.GNode */
     doc: GDocument
     node: object | null
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GXml.GNode */
+    /* Methods of GXml-0.10.GXml.GNode */
     setNamespace(uri: string, prefix?: string | null): boolean
     toString(): string
     getInternalNode(): object | null
@@ -12364,7 +9711,7 @@ export class GProcessingInstruction {
     getName(): string
     getValue(): string
     setValue(value: string): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -12386,44 +9733,15 @@ export class GProcessingInstruction {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of GXml.ProcessingInstruction */
+    /* Methods of GXml-0.10.GXml.ProcessingInstruction */
     getTarget(): string
     getData(): string
-    /* Virtual methods of GXml.GProcessingInstruction */
-    vfuncGetTarget(): string
-    vfuncGetData(): string
-    /* Virtual methods of GXml.GNode */
-    vfuncSetNamespace(uri: string, prefix?: string | null): boolean
-    vfuncToString(): string
-    vfuncGetAttrs(): Gee.Map
-    vfuncGetChildren(): Gee.BidirList
-    vfuncGetNamespaces(): Gee.List
-    vfuncGetDocument(): Document
-    vfuncGetParent(): Node
-    vfuncGetTypeNode(): NodeType
-    vfuncGetName(): string
-    vfuncGetValue(): string
-    vfuncSetValue(value: string): void
-    vfuncGet(key: string): Node | null
-    vfuncGetElementsByPropertyValue(property: string, value: string): ElementList
-    vfuncNsPrefix(): string
-    vfuncNsUri(): string
-    vfuncGetChilds(): Gee.BidirList
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: GProcessingInstruction, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: GProcessingInstruction, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::attrs", callback: (($obj: GProcessingInstruction, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::attrs", callback: (($obj: GProcessingInstruction, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::attrs", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -12491,7 +9809,7 @@ export class GProcessingInstruction {
 export interface GText_ConstructProps extends GNode_ConstructProps {
 }
 export class GText {
-    /* Properties of GXml.GNode */
+    /* Properties of GXml-0.10.GXml.GNode */
     readonly attrs: Gee.Map
     readonly children: Gee.BidirList
     readonly namespaces: Gee.List
@@ -12500,17 +9818,17 @@ export class GText {
     readonly typeNode: NodeType
     readonly name: string
     value: string
-    /* Properties of GXml.Text */
+    /* Properties of GXml-0.10.GXml.Text */
     readonly str: string
-    /* Fields of GXml.GText */
+    /* Fields of GXml-0.10.GXml.GText */
     parentInstance: GNode
     priv: GTextPrivate
-    /* Fields of GXml.GNode */
+    /* Fields of GXml-0.10.GXml.GNode */
     doc: GDocument
     node: object | null
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GXml.GNode */
+    /* Methods of GXml-0.10.GXml.GNode */
     setNamespace(uri: string, prefix?: string | null): boolean
     toString(): string
     getInternalNode(): object | null
@@ -12523,7 +9841,7 @@ export class GText {
     getName(): string
     getValue(): string
     setValue(value: string): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -12545,42 +9863,14 @@ export class GText {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of GXml.Text */
+    /* Methods of GXml-0.10.GXml.Text */
     getStr(): string
-    /* Virtual methods of GXml.GText */
-    vfuncGetStr(): string
-    /* Virtual methods of GXml.GNode */
-    vfuncSetNamespace(uri: string, prefix?: string | null): boolean
-    vfuncToString(): string
-    vfuncGetAttrs(): Gee.Map
-    vfuncGetChildren(): Gee.BidirList
-    vfuncGetNamespaces(): Gee.List
-    vfuncGetDocument(): Document
-    vfuncGetParent(): Node
-    vfuncGetTypeNode(): NodeType
-    vfuncGetName(): string
-    vfuncGetValue(): string
-    vfuncSetValue(value: string): void
-    vfuncGet(key: string): Node | null
-    vfuncGetElementsByPropertyValue(property: string, value: string): ElementList
-    vfuncNsPrefix(): string
-    vfuncNsUri(): string
-    vfuncGetChilds(): Gee.BidirList
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: GText, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: GText, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::attrs", callback: (($obj: GText, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::attrs", callback: (($obj: GText, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::attrs", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -12643,24 +9933,24 @@ export class GText {
 export interface GHashMapAttr_ConstructProps extends Gee.AbstractMap_ConstructProps {
 }
 export class GHashMapAttr {
-    /* Properties of Gee.AbstractMap */
+    /* Properties of Gee-0.8.Gee.AbstractMap */
     readonly size: number
     readonly readOnly: boolean
     readonly keys: Gee.Set
     readonly values: Gee.Collection
     readonly entries: Gee.Set
     readonly readOnlyView: Gee.Map
-    /* Fields of GXml.GHashMapAttr */
+    /* Fields of GXml-0.10.GXml.GHashMapAttr */
     parentInstance: Gee.AbstractMap
     priv: GHashMapAttrPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Gee.AbstractMap */
+    /* Methods of Gee-0.8.Gee.AbstractMap */
     hasKey(key?: object | null): boolean
     has(key?: object | null, value?: object | null): boolean
     get(key?: object | null): object | null
     set(key?: object | null, value?: object | null): void
-    unset(key?: object | null): [ /* returnType */ boolean, /* value */ object | null ]
+    unset(key?: object | null): { returnType: boolean, value: object | null }
     mapIterator(): Gee.MapIterator
     clear(): void
     foreach(f: Gee.ForallFunc): boolean
@@ -12681,7 +9971,7 @@ export class GHashMapAttr {
     getValues(): Gee.Collection
     getEntries(): Gee.Set
     getReadOnlyView(): Gee.Map
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -12703,66 +9993,12 @@ export class GHashMapAttr {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of Gee.AbstractMap */
-    vfuncHasKey(key?: object | null): boolean
-    vfuncHas(key?: object | null, value?: object | null): boolean
-    vfuncGet(key?: object | null): object | null
-    vfuncSet(key?: object | null, value?: object | null): void
-    vfuncUnset(key?: object | null): [ /* returnType */ boolean, /* value */ object | null ]
-    vfuncMapIterator(): Gee.MapIterator
-    vfuncClear(): void
-    vfuncForeach(f: Gee.ForallFunc): boolean
-    vfuncStream(aType: GObject.Type, aDupFunc: GObject.BoxedCopyFunc, aDestroyFunc: GLib.DestroyNotify, f: Gee.StreamFunc): Gee.Iterator
-    vfuncReserved0(): void
-    vfuncReserved1(): void
-    vfuncReserved2(): void
-    vfuncReserved3(): void
-    vfuncReserved4(): void
-    vfuncReserved5(): void
-    vfuncReserved6(): void
-    vfuncReserved7(): void
-    vfuncReserved8(): void
-    vfuncReserved9(): void
-    vfuncGetSize(): number
-    vfuncGetReadOnly(): boolean
-    vfuncGetKeys(): Gee.Set
-    vfuncGetValues(): Gee.Collection
-    vfuncGetEntries(): Gee.Set
-    vfuncGetReadOnlyView(): Gee.Map
-    vfuncFold(aType: GObject.Type, aDupFunc: GObject.BoxedCopyFunc, aDestroyFunc: GLib.DestroyNotify, f: Gee.FoldFunc, seed?: object | null): object | null
-    vfuncMap(aType: GObject.Type, aDupFunc: GObject.BoxedCopyFunc, aDestroyFunc: GLib.DestroyNotify, f: Gee.MapFunc): Gee.Iterator
-    vfuncScan(aType: GObject.Type, aDupFunc: GObject.BoxedCopyFunc, aDestroyFunc: GLib.DestroyNotify, f: Gee.FoldFunc, seed?: object | null): Gee.Iterator
-    vfuncFilter(pred: Gee.Predicate): Gee.Iterator
-    vfuncChop(offset: number, length: number): Gee.Iterator
-    vfuncFlatMap(aType: GObject.Type, aDupFunc: GObject.BoxedCopyFunc, aDestroyFunc: GLib.DestroyNotify, f: Gee.FlatMapFunc): Gee.Iterator
-    vfuncTee(forks: number): Gee.Iterator[]
-    vfuncFirstMatch(pred: Gee.Predicate): object | null
-    vfuncAnyMatch(pred: Gee.Predicate): boolean
-    vfuncAllMatch(pred: Gee.Predicate): boolean
-    vfuncMax(compare: GLib.CompareDataFunc): object | null
-    vfuncMin(compare: GLib.CompareDataFunc): object | null
-    vfuncOrderBy(compare: GLib.CompareDataFunc | null): Gee.Iterator
-    vfuncGetElementType(): GObject.Type
-    vfuncIterator(): Gee.Iterator
-    vfuncSetAll(map: Gee.Map): void
-    vfuncUnsetAll(map: Gee.Map): boolean
-    vfuncHasAll(map: Gee.Map): boolean
-    vfuncGetIsEmpty(): boolean
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: GHashMapAttr, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: GHashMapAttr, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::size", callback: (($obj: GHashMapAttr, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::size", callback: (($obj: GHashMapAttr, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::size", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -12810,21 +10046,21 @@ export class GHashMapAttr {
 export interface GHashMapAttrEntry_ConstructProps extends Gee.MapEntry_ConstructProps {
 }
 export class GHashMapAttrEntry {
-    /* Properties of Gee.MapEntry */
+    /* Properties of Gee-0.8.Gee.MapEntry */
     readonly key: object
     value: object
     readonly readOnly: boolean
-    /* Fields of GXml.GHashMapAttrEntry */
+    /* Fields of GXml-0.10.GXml.GHashMapAttrEntry */
     parentInstance: Gee.MapEntry
     priv: GHashMapAttrEntryPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Gee.MapEntry */
+    /* Methods of Gee-0.8.Gee.MapEntry */
     getKey(): object | null
     getValue(): object | null
     setValue(value?: object | null): void
     getReadOnly(): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -12846,26 +10082,12 @@ export class GHashMapAttrEntry {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of Gee.MapEntry */
-    vfuncGetKey(): object | null
-    vfuncGetValue(): object | null
-    vfuncSetValue(value?: object | null): void
-    vfuncGetReadOnly(): boolean
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: GHashMapAttrEntry, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: GHashMapAttrEntry, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::key", callback: (($obj: GHashMapAttrEntry, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::key", callback: (($obj: GHashMapAttrEntry, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::key", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -12898,16 +10120,16 @@ export class GHashMapAttrEntry {
 export interface GHashMapAttrIterator_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class GHashMapAttrIterator {
-    /* Properties of Gee.MapIterator */
+    /* Properties of Gee-0.8.Gee.MapIterator */
     readonly valid: boolean
     readonly mutable: boolean
     readonly readOnly: boolean
-    /* Fields of GXml.GHashMapAttrIterator */
+    /* Fields of GXml-0.10.GXml.GHashMapAttrIterator */
     parentInstance: GObject.Object
     priv: GHashMapAttrIteratorPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -12929,7 +10151,7 @@ export class GHashMapAttrIterator {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of Gee.MapIterator */
+    /* Methods of Gee-0.8.Gee.MapIterator */
     next(): boolean
     hasNext(): boolean
     getKey(): object | null
@@ -12941,33 +10163,12 @@ export class GHashMapAttrIterator {
     getValid(): boolean
     getMutable(): boolean
     getReadOnly(): boolean
-    /* Virtual methods of GXml.GHashMapAttrIterator */
-    vfuncNext(): boolean
-    vfuncHasNext(): boolean
-    vfuncGetKey(): object | null
-    vfuncGetValue(): object | null
-    vfuncSetValue(value?: object | null): void
-    vfuncUnset(): void
-    vfuncFold(aType: GObject.Type, aDupFunc: GObject.BoxedCopyFunc, aDestroyFunc: GLib.DestroyNotify, f: Gee.FoldMapFunc, seed?: object | null): object | null
-    vfuncForeach(f: Gee.ForallMapFunc): boolean
-    vfuncGetValid(): boolean
-    vfuncGetMutable(): boolean
-    vfuncGetReadOnly(): boolean
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: GHashMapAttrIterator, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: GHashMapAttrIterator, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::valid", callback: (($obj: GHashMapAttrIterator, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::valid", callback: (($obj: GHashMapAttrIterator, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::valid", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -13000,17 +10201,17 @@ export class GHashMapAttrIterator {
 export interface GListChildren_ConstructProps extends Gee.AbstractBidirList_ConstructProps {
 }
 export class GListChildren {
-    /* Properties of Gee.AbstractBidirList */
+    /* Properties of Gee-0.8.Gee.AbstractBidirList */
     readonly readOnlyView: Gee.BidirList
-    /* Properties of Gee.AbstractCollection */
+    /* Properties of Gee-0.8.Gee.AbstractCollection */
     readonly size: number
     readonly readOnly: boolean
-    /* Fields of GXml.GListChildren */
+    /* Fields of GXml-0.10.GXml.GListChildren */
     parentInstance: Gee.AbstractBidirList
     priv: GListChildrenPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Gee.AbstractBidirList */
+    /* Methods of Gee-0.8.Gee.AbstractBidirList */
     bidirListIterator(): Gee.BidirListIterator
     reserved0(): void
     reserved1(): void
@@ -13023,7 +10224,7 @@ export class GListChildren {
     reserved8(): void
     reserved9(): void
     getReadOnlyView(): Gee.BidirList
-    /* Methods of Gee.AbstractList */
+    /* Methods of Gee-0.8.Gee.AbstractList */
     listIterator(): Gee.ListIterator
     get(index: number): object | null
     set(index: number, item?: object | null): void
@@ -13032,7 +10233,7 @@ export class GListChildren {
     removeAt(index: number): object | null
     slice(start: number, stop: number): Gee.List | null
     getReadOnlyView(): Gee.List
-    /* Methods of Gee.AbstractCollection */
+    /* Methods of Gee-0.8.Gee.AbstractCollection */
     contains(item?: object | null): boolean
     add(item?: object | null): boolean
     remove(item?: object | null): boolean
@@ -13042,7 +10243,7 @@ export class GListChildren {
     getSize(): number
     getReadOnly(): boolean
     getReadOnlyView(): Gee.Collection
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -13064,111 +10265,12 @@ export class GListChildren {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GXml.GListChildren */
-    vfuncGetReadOnlyView(): Gee.BidirList
-    vfuncGetReadOnlyView(): Gee.List
-    vfuncGetReadOnlyView(): Gee.Collection
-    /* Virtual methods of Gee.AbstractBidirList */
-    vfuncBidirListIterator(): Gee.BidirListIterator
-    vfuncReserved0(): void
-    vfuncReserved1(): void
-    vfuncReserved2(): void
-    vfuncReserved3(): void
-    vfuncReserved4(): void
-    vfuncReserved5(): void
-    vfuncReserved6(): void
-    vfuncReserved7(): void
-    vfuncReserved8(): void
-    vfuncReserved9(): void
-    vfuncGetReadOnlyView(): Gee.BidirList
-    vfuncGetReadOnlyView(): Gee.List
-    vfuncGetReadOnlyView(): Gee.Collection
-    /* Virtual methods of Gee.AbstractList */
-    vfuncListIterator(): Gee.ListIterator
-    vfuncGet(index: number): object | null
-    vfuncSet(index: number, item?: object | null): void
-    vfuncIndexOf(item?: object | null): number
-    vfuncInsert(index: number, item?: object | null): void
-    vfuncRemoveAt(index: number): object | null
-    vfuncSlice(start: number, stop: number): Gee.List | null
-    vfuncReserved0(): void
-    vfuncReserved1(): void
-    vfuncReserved2(): void
-    vfuncReserved3(): void
-    vfuncReserved4(): void
-    vfuncReserved5(): void
-    vfuncReserved6(): void
-    vfuncReserved7(): void
-    vfuncReserved8(): void
-    vfuncReserved9(): void
-    vfuncGetReadOnlyView(): Gee.List
-    vfuncGetReadOnlyView(): Gee.Collection
-    vfuncFirst(): object | null
-    vfuncLast(): object | null
-    vfuncInsertAll(index: number, collection: Gee.Collection): void
-    vfuncSort(compareFunc: GLib.CompareDataFunc | null): void
-    /* Virtual methods of Gee.AbstractCollection */
-    vfuncContains(item?: object | null): boolean
-    vfuncAdd(item?: object | null): boolean
-    vfuncRemove(item?: object | null): boolean
-    vfuncClear(): void
-    vfuncIterator(): Gee.Iterator
-    vfuncForeach(f: Gee.ForallFunc): boolean
-    vfuncReserved0(): void
-    vfuncReserved1(): void
-    vfuncReserved2(): void
-    vfuncReserved3(): void
-    vfuncReserved4(): void
-    vfuncReserved5(): void
-    vfuncReserved6(): void
-    vfuncReserved7(): void
-    vfuncReserved8(): void
-    vfuncReserved9(): void
-    vfuncGetSize(): number
-    vfuncGetReadOnly(): boolean
-    vfuncGetReadOnlyView(): Gee.Collection
-    vfuncStream(aType: GObject.Type, aDupFunc: GObject.BoxedCopyFunc, aDestroyFunc: GLib.DestroyNotify, f: Gee.StreamFunc): Gee.Iterator
-    vfuncFold(aType: GObject.Type, aDupFunc: GObject.BoxedCopyFunc, aDestroyFunc: GLib.DestroyNotify, f: Gee.FoldFunc, seed?: object | null): object | null
-    vfuncMap(aType: GObject.Type, aDupFunc: GObject.BoxedCopyFunc, aDestroyFunc: GLib.DestroyNotify, f: Gee.MapFunc): Gee.Iterator
-    vfuncScan(aType: GObject.Type, aDupFunc: GObject.BoxedCopyFunc, aDestroyFunc: GLib.DestroyNotify, f: Gee.FoldFunc, seed?: object | null): Gee.Iterator
-    vfuncFilter(pred: Gee.Predicate): Gee.Iterator
-    vfuncChop(offset: number, length: number): Gee.Iterator
-    vfuncFlatMap(aType: GObject.Type, aDupFunc: GObject.BoxedCopyFunc, aDestroyFunc: GLib.DestroyNotify, f: Gee.FlatMapFunc): Gee.Iterator
-    vfuncTee(forks: number): Gee.Iterator[]
-    vfuncFirstMatch(pred: Gee.Predicate): object | null
-    vfuncAnyMatch(pred: Gee.Predicate): boolean
-    vfuncAllMatch(pred: Gee.Predicate): boolean
-    vfuncMax(compare: GLib.CompareDataFunc): object | null
-    vfuncMin(compare: GLib.CompareDataFunc): object | null
-    vfuncOrderBy(compare: GLib.CompareDataFunc | null): Gee.Iterator
-    vfuncGetElementType(): GObject.Type
-    vfuncAddAll(collection: Gee.Collection): boolean
-    vfuncContainsAll(collection: Gee.Collection): boolean
-    vfuncRemoveAll(collection: Gee.Collection): boolean
-    vfuncRetainAll(collection: Gee.Collection): boolean
-    vfuncToArray(): object[]
-    vfuncAddAllArray(array: object[]): boolean
-    vfuncContainsAllArray(array: object[]): boolean
-    vfuncRemoveAllArray(array: object[]): boolean
-    vfuncAddAllIterator(iter: Gee.Iterator): boolean
-    vfuncContainsAllIterator(iter: Gee.Iterator): boolean
-    vfuncRemoveAllIterator(iter: Gee.Iterator): boolean
-    vfuncGetIsEmpty(): boolean
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: GListChildren, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: GListChildren, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::read-only-view", callback: (($obj: GListChildren, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::read-only-view", callback: (($obj: GListChildren, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::read-only-view", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -13201,15 +10303,15 @@ export class GListChildren {
 export interface GListChildrenIterator_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class GListChildrenIterator {
-    /* Properties of Gee.Iterator */
+    /* Properties of Gee-0.8.Gee.Iterator */
     readonly valid: boolean
     readonly readOnly: boolean
-    /* Fields of GXml.GListChildrenIterator */
+    /* Fields of GXml-0.10.GXml.GListChildrenIterator */
     parentInstance: GObject.Object
     priv: GListChildrenIteratorPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -13231,7 +10333,7 @@ export class GListChildrenIterator {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of Gee.Traversable */
+    /* Methods of Gee-0.8.Gee.Traversable */
     foreach(f: Gee.ForallFunc): boolean
     stream(aType: GObject.Type, aDupFunc: GObject.BoxedCopyFunc, aDestroyFunc: GLib.DestroyNotify, f: Gee.StreamFunc): Gee.Iterator
     fold(aType: GObject.Type, aDupFunc: GObject.BoxedCopyFunc, aDestroyFunc: GLib.DestroyNotify, f: Gee.FoldFunc, seed?: object | null): object | null
@@ -13248,70 +10350,30 @@ export class GListChildrenIterator {
     min(compare: GLib.CompareDataFunc): object | null
     orderBy(compare: GLib.CompareDataFunc | null): Gee.Iterator
     getElementType(): GObject.Type
-    /* Methods of Gee.Iterator */
+    /* Methods of Gee-0.8.Gee.Iterator */
     next(): boolean
     hasNext(): boolean
     get(): object | null
     remove(): void
     getValid(): boolean
     getReadOnly(): boolean
-    /* Methods of Gee.BidirIterator */
+    /* Methods of Gee-0.8.Gee.BidirIterator */
     previous(): boolean
     hasPrevious(): boolean
     first(): boolean
     last(): boolean
-    /* Methods of Gee.ListIterator */
+    /* Methods of Gee-0.8.Gee.ListIterator */
     set(item?: object | null): void
     add(item?: object | null): void
     index(): number
-    /* Methods of Gee.BidirListIterator */
+    /* Methods of Gee-0.8.Gee.BidirListIterator */
     insert(item?: object | null): void
-    /* Virtual methods of GXml.GListChildrenIterator */
-    vfuncForeach(f: Gee.ForallFunc): boolean
-    vfuncStream(aType: GObject.Type, aDupFunc: GObject.BoxedCopyFunc, aDestroyFunc: GLib.DestroyNotify, f: Gee.StreamFunc): Gee.Iterator
-    vfuncFold(aType: GObject.Type, aDupFunc: GObject.BoxedCopyFunc, aDestroyFunc: GLib.DestroyNotify, f: Gee.FoldFunc, seed?: object | null): object | null
-    vfuncMap(aType: GObject.Type, aDupFunc: GObject.BoxedCopyFunc, aDestroyFunc: GLib.DestroyNotify, f: Gee.MapFunc): Gee.Iterator
-    vfuncScan(aType: GObject.Type, aDupFunc: GObject.BoxedCopyFunc, aDestroyFunc: GLib.DestroyNotify, f: Gee.FoldFunc, seed?: object | null): Gee.Iterator
-    vfuncFilter(pred: Gee.Predicate): Gee.Iterator
-    vfuncChop(offset: number, length: number): Gee.Iterator
-    vfuncFlatMap(aType: GObject.Type, aDupFunc: GObject.BoxedCopyFunc, aDestroyFunc: GLib.DestroyNotify, f: Gee.FlatMapFunc): Gee.Iterator
-    vfuncTee(forks: number): Gee.Iterator[]
-    vfuncFirstMatch(pred: Gee.Predicate): object | null
-    vfuncAnyMatch(pred: Gee.Predicate): boolean
-    vfuncAllMatch(pred: Gee.Predicate): boolean
-    vfuncMax(compare: GLib.CompareDataFunc): object | null
-    vfuncMin(compare: GLib.CompareDataFunc): object | null
-    vfuncOrderBy(compare: GLib.CompareDataFunc | null): Gee.Iterator
-    vfuncGetElementType(): GObject.Type
-    vfuncNext(): boolean
-    vfuncHasNext(): boolean
-    vfuncGet(): object | null
-    vfuncRemove(): void
-    vfuncGetValid(): boolean
-    vfuncGetReadOnly(): boolean
-    vfuncPrevious(): boolean
-    vfuncHasPrevious(): boolean
-    vfuncFirst(): boolean
-    vfuncLast(): boolean
-    vfuncSet(item?: object | null): void
-    vfuncAdd(item?: object | null): void
-    vfuncIndex(): number
-    vfuncInsert(item?: object | null): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: GListChildrenIterator, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: GListChildrenIterator, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::valid", callback: (($obj: GListChildrenIterator, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::valid", callback: (($obj: GListChildrenIterator, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::valid", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -13341,17 +10403,17 @@ export class GListChildrenIterator {
 export interface GListNamespaces_ConstructProps extends Gee.AbstractList_ConstructProps {
 }
 export class GListNamespaces {
-    /* Properties of Gee.AbstractList */
+    /* Properties of Gee-0.8.Gee.AbstractList */
     readonly readOnlyView: Gee.List
-    /* Properties of Gee.AbstractCollection */
+    /* Properties of Gee-0.8.Gee.AbstractCollection */
     readonly size: number
     readonly readOnly: boolean
-    /* Fields of GXml.GListNamespaces */
+    /* Fields of GXml-0.10.GXml.GListNamespaces */
     parentInstance: Gee.AbstractList
     priv: GListNamespacesPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Gee.AbstractList */
+    /* Methods of Gee-0.8.Gee.AbstractList */
     listIterator(): Gee.ListIterator
     get(index: number): object | null
     set(index: number, item?: object | null): void
@@ -13370,7 +10432,7 @@ export class GListNamespaces {
     reserved8(): void
     reserved9(): void
     getReadOnlyView(): Gee.List
-    /* Methods of Gee.AbstractCollection */
+    /* Methods of Gee-0.8.Gee.AbstractCollection */
     contains(item?: object | null): boolean
     add(item?: object | null): boolean
     remove(item?: object | null): boolean
@@ -13380,7 +10442,7 @@ export class GListNamespaces {
     getSize(): number
     getReadOnly(): boolean
     getReadOnlyView(): Gee.Collection
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -13402,95 +10464,12 @@ export class GListNamespaces {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GXml.GListNamespaces */
-    vfuncGetReadOnlyView(): Gee.List
-    vfuncGetReadOnlyView(): Gee.Collection
-    /* Virtual methods of Gee.AbstractList */
-    vfuncListIterator(): Gee.ListIterator
-    vfuncGet(index: number): object | null
-    vfuncSet(index: number, item?: object | null): void
-    vfuncIndexOf(item?: object | null): number
-    vfuncInsert(index: number, item?: object | null): void
-    vfuncRemoveAt(index: number): object | null
-    vfuncSlice(start: number, stop: number): Gee.List | null
-    vfuncReserved0(): void
-    vfuncReserved1(): void
-    vfuncReserved2(): void
-    vfuncReserved3(): void
-    vfuncReserved4(): void
-    vfuncReserved5(): void
-    vfuncReserved6(): void
-    vfuncReserved7(): void
-    vfuncReserved8(): void
-    vfuncReserved9(): void
-    vfuncGetReadOnlyView(): Gee.List
-    vfuncGetReadOnlyView(): Gee.Collection
-    vfuncFirst(): object | null
-    vfuncLast(): object | null
-    vfuncInsertAll(index: number, collection: Gee.Collection): void
-    vfuncSort(compareFunc: GLib.CompareDataFunc | null): void
-    /* Virtual methods of Gee.AbstractCollection */
-    vfuncContains(item?: object | null): boolean
-    vfuncAdd(item?: object | null): boolean
-    vfuncRemove(item?: object | null): boolean
-    vfuncClear(): void
-    vfuncIterator(): Gee.Iterator
-    vfuncForeach(f: Gee.ForallFunc): boolean
-    vfuncReserved0(): void
-    vfuncReserved1(): void
-    vfuncReserved2(): void
-    vfuncReserved3(): void
-    vfuncReserved4(): void
-    vfuncReserved5(): void
-    vfuncReserved6(): void
-    vfuncReserved7(): void
-    vfuncReserved8(): void
-    vfuncReserved9(): void
-    vfuncGetSize(): number
-    vfuncGetReadOnly(): boolean
-    vfuncGetReadOnlyView(): Gee.Collection
-    vfuncStream(aType: GObject.Type, aDupFunc: GObject.BoxedCopyFunc, aDestroyFunc: GLib.DestroyNotify, f: Gee.StreamFunc): Gee.Iterator
-    vfuncFold(aType: GObject.Type, aDupFunc: GObject.BoxedCopyFunc, aDestroyFunc: GLib.DestroyNotify, f: Gee.FoldFunc, seed?: object | null): object | null
-    vfuncMap(aType: GObject.Type, aDupFunc: GObject.BoxedCopyFunc, aDestroyFunc: GLib.DestroyNotify, f: Gee.MapFunc): Gee.Iterator
-    vfuncScan(aType: GObject.Type, aDupFunc: GObject.BoxedCopyFunc, aDestroyFunc: GLib.DestroyNotify, f: Gee.FoldFunc, seed?: object | null): Gee.Iterator
-    vfuncFilter(pred: Gee.Predicate): Gee.Iterator
-    vfuncChop(offset: number, length: number): Gee.Iterator
-    vfuncFlatMap(aType: GObject.Type, aDupFunc: GObject.BoxedCopyFunc, aDestroyFunc: GLib.DestroyNotify, f: Gee.FlatMapFunc): Gee.Iterator
-    vfuncTee(forks: number): Gee.Iterator[]
-    vfuncFirstMatch(pred: Gee.Predicate): object | null
-    vfuncAnyMatch(pred: Gee.Predicate): boolean
-    vfuncAllMatch(pred: Gee.Predicate): boolean
-    vfuncMax(compare: GLib.CompareDataFunc): object | null
-    vfuncMin(compare: GLib.CompareDataFunc): object | null
-    vfuncOrderBy(compare: GLib.CompareDataFunc | null): Gee.Iterator
-    vfuncGetElementType(): GObject.Type
-    vfuncAddAll(collection: Gee.Collection): boolean
-    vfuncContainsAll(collection: Gee.Collection): boolean
-    vfuncRemoveAll(collection: Gee.Collection): boolean
-    vfuncRetainAll(collection: Gee.Collection): boolean
-    vfuncToArray(): object[]
-    vfuncAddAllArray(array: object[]): boolean
-    vfuncContainsAllArray(array: object[]): boolean
-    vfuncRemoveAllArray(array: object[]): boolean
-    vfuncAddAllIterator(iter: Gee.Iterator): boolean
-    vfuncContainsAllIterator(iter: Gee.Iterator): boolean
-    vfuncRemoveAllIterator(iter: Gee.Iterator): boolean
-    vfuncGetIsEmpty(): boolean
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: GListNamespaces, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: GListNamespaces, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::read-only-view", callback: (($obj: GListNamespaces, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::read-only-view", callback: (($obj: GListNamespaces, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::read-only-view", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -13523,15 +10502,15 @@ export class GListNamespaces {
 export interface GListNamespacesIterator_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class GListNamespacesIterator {
-    /* Properties of Gee.Iterator */
+    /* Properties of Gee-0.8.Gee.Iterator */
     readonly valid: boolean
     readonly readOnly: boolean
-    /* Fields of GXml.GListNamespacesIterator */
+    /* Fields of GXml-0.10.GXml.GListNamespacesIterator */
     parentInstance: GObject.Object
     priv: GListNamespacesIteratorPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -13553,7 +10532,7 @@ export class GListNamespacesIterator {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of Gee.Traversable */
+    /* Methods of Gee-0.8.Gee.Traversable */
     foreach(f: Gee.ForallFunc): boolean
     stream(aType: GObject.Type, aDupFunc: GObject.BoxedCopyFunc, aDestroyFunc: GLib.DestroyNotify, f: Gee.StreamFunc): Gee.Iterator
     fold(aType: GObject.Type, aDupFunc: GObject.BoxedCopyFunc, aDestroyFunc: GLib.DestroyNotify, f: Gee.FoldFunc, seed?: object | null): object | null
@@ -13570,58 +10549,23 @@ export class GListNamespacesIterator {
     min(compare: GLib.CompareDataFunc): object | null
     orderBy(compare: GLib.CompareDataFunc | null): Gee.Iterator
     getElementType(): GObject.Type
-    /* Methods of Gee.Iterator */
+    /* Methods of Gee-0.8.Gee.Iterator */
     next(): boolean
     hasNext(): boolean
     get(): object | null
     remove(): void
     getValid(): boolean
     getReadOnly(): boolean
-    /* Methods of Gee.ListIterator */
+    /* Methods of Gee-0.8.Gee.ListIterator */
     set(item?: object | null): void
     add(item?: object | null): void
     index(): number
-    /* Virtual methods of GXml.GListNamespacesIterator */
-    vfuncForeach(f: Gee.ForallFunc): boolean
-    vfuncStream(aType: GObject.Type, aDupFunc: GObject.BoxedCopyFunc, aDestroyFunc: GLib.DestroyNotify, f: Gee.StreamFunc): Gee.Iterator
-    vfuncFold(aType: GObject.Type, aDupFunc: GObject.BoxedCopyFunc, aDestroyFunc: GLib.DestroyNotify, f: Gee.FoldFunc, seed?: object | null): object | null
-    vfuncMap(aType: GObject.Type, aDupFunc: GObject.BoxedCopyFunc, aDestroyFunc: GLib.DestroyNotify, f: Gee.MapFunc): Gee.Iterator
-    vfuncScan(aType: GObject.Type, aDupFunc: GObject.BoxedCopyFunc, aDestroyFunc: GLib.DestroyNotify, f: Gee.FoldFunc, seed?: object | null): Gee.Iterator
-    vfuncFilter(pred: Gee.Predicate): Gee.Iterator
-    vfuncChop(offset: number, length: number): Gee.Iterator
-    vfuncFlatMap(aType: GObject.Type, aDupFunc: GObject.BoxedCopyFunc, aDestroyFunc: GLib.DestroyNotify, f: Gee.FlatMapFunc): Gee.Iterator
-    vfuncTee(forks: number): Gee.Iterator[]
-    vfuncFirstMatch(pred: Gee.Predicate): object | null
-    vfuncAnyMatch(pred: Gee.Predicate): boolean
-    vfuncAllMatch(pred: Gee.Predicate): boolean
-    vfuncMax(compare: GLib.CompareDataFunc): object | null
-    vfuncMin(compare: GLib.CompareDataFunc): object | null
-    vfuncOrderBy(compare: GLib.CompareDataFunc | null): Gee.Iterator
-    vfuncGetElementType(): GObject.Type
-    vfuncNext(): boolean
-    vfuncHasNext(): boolean
-    vfuncGet(): object | null
-    vfuncRemove(): void
-    vfuncGetValid(): boolean
-    vfuncGetReadOnly(): boolean
-    vfuncSet(item?: object | null): void
-    vfuncAdd(item?: object | null): void
-    vfuncIndex(): number
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: GListNamespacesIterator, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: GListNamespacesIterator, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::valid", callback: (($obj: GListNamespacesIterator, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::valid", callback: (($obj: GListNamespacesIterator, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::valid", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -13649,7 +10593,7 @@ export class GListNamespacesIterator {
     static $gtype: GObject.Type
 }
 export abstract class ElementListClass {
-    /* Fields of GXml.ElementListClass */
+    /* Fields of GXml-0.10.GXml.ElementListClass */
     parentClass: Gee.ArrayListClass
     static name: string
 }
@@ -13657,7 +10601,7 @@ export class ElementListPrivate {
     static name: string
 }
 export abstract class NodeListClass {
-    /* Fields of GXml.NodeListClass */
+    /* Fields of GXml-0.10.GXml.NodeListClass */
     parentClass: Gee.ArrayListClass
     static name: string
 }
@@ -13665,7 +10609,7 @@ export class NodeListPrivate {
     static name: string
 }
 export abstract class xAttrClass {
-    /* Fields of GXml.xAttrClass */
+    /* Fields of GXml-0.10.GXml.xAttrClass */
     parentClass: BackedNodeClass
     static name: string
 }
@@ -13673,7 +10617,7 @@ export class xAttrPrivate {
     static name: string
 }
 export abstract class BackedNodeClass {
-    /* Fields of GXml.BackedNodeClass */
+    /* Fields of GXml-0.10.GXml.BackedNodeClass */
     parentClass: xNodeClass
     static name: string
 }
@@ -13681,7 +10625,7 @@ export class BackedNodePrivate {
     static name: string
 }
 export abstract class xCDATASectionClass {
-    /* Fields of GXml.xCDATASectionClass */
+    /* Fields of GXml-0.10.GXml.xCDATASectionClass */
     parentClass: xTextClass
     static name: string
 }
@@ -13689,7 +10633,7 @@ export class xCDATASectionPrivate {
     static name: string
 }
 export abstract class xCharacterDataClass {
-    /* Fields of GXml.xCharacterDataClass */
+    /* Fields of GXml-0.10.GXml.xCharacterDataClass */
     parentClass: BackedNodeClass
     static name: string
 }
@@ -13697,7 +10641,7 @@ export class xCharacterDataPrivate {
     static name: string
 }
 export abstract class xCommentClass {
-    /* Fields of GXml.xCommentClass */
+    /* Fields of GXml-0.10.GXml.xCommentClass */
     parentClass: xCharacterDataClass
     static name: string
 }
@@ -13705,7 +10649,7 @@ export class xCommentPrivate {
     static name: string
 }
 export abstract class DocumentFragmentClass {
-    /* Fields of GXml.DocumentFragmentClass */
+    /* Fields of GXml-0.10.GXml.DocumentFragmentClass */
     parentClass: BackedNodeClass
     static name: string
 }
@@ -13713,7 +10657,7 @@ export class DocumentFragmentPrivate {
     static name: string
 }
 export abstract class xDocumentTypeClass {
-    /* Fields of GXml.xDocumentTypeClass */
+    /* Fields of GXml-0.10.GXml.xDocumentTypeClass */
     parentClass: xNodeClass
     static name: string
 }
@@ -13721,7 +10665,7 @@ export class xDocumentTypePrivate {
     static name: string
 }
 export abstract class xDocumentClass {
-    /* Fields of GXml.xDocumentClass */
+    /* Fields of GXml-0.10.GXml.xDocumentClass */
     parentClass: xNodeClass
     static name: string
 }
@@ -13729,7 +10673,7 @@ export class xDocumentPrivate {
     static name: string
 }
 export abstract class xElementClass {
-    /* Fields of GXml.xElementClass */
+    /* Fields of GXml-0.10.GXml.xElementClass */
     parentClass: BackedNodeClass
     static name: string
 }
@@ -13737,7 +10681,7 @@ export class xElementPrivate {
     static name: string
 }
 export abstract class EntityClass {
-    /* Fields of GXml.EntityClass */
+    /* Fields of GXml-0.10.GXml.EntityClass */
     parentClass: xNodeClass
     static name: string
 }
@@ -13745,7 +10689,7 @@ export class EntityPrivate {
     static name: string
 }
 export abstract class EntityReferenceClass {
-    /* Fields of GXml.EntityReferenceClass */
+    /* Fields of GXml-0.10.GXml.EntityReferenceClass */
     parentClass: xNodeClass
     static name: string
 }
@@ -13753,7 +10697,7 @@ export class EntityReferencePrivate {
     static name: string
 }
 export abstract class ImplementationClass {
-    /* Fields of GXml.ImplementationClass */
+    /* Fields of GXml-0.10.GXml.ImplementationClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
@@ -13761,7 +10705,7 @@ export class ImplementationPrivate {
     static name: string
 }
 export abstract class AbstractNamedAttrMapClass {
-    /* Fields of GXml.AbstractNamedAttrMapClass */
+    /* Fields of GXml-0.10.GXml.AbstractNamedAttrMapClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
@@ -13769,7 +10713,7 @@ export class AbstractNamedAttrMapPrivate {
     static name: string
 }
 export abstract class AbstractNamedAttrMapEntryClass {
-    /* Fields of GXml.AbstractNamedAttrMapEntryClass */
+    /* Fields of GXml-0.10.GXml.AbstractNamedAttrMapEntryClass */
     parentClass: Gee.MapEntryClass
     static name: string
 }
@@ -13777,7 +10721,7 @@ export class AbstractNamedAttrMapEntryPrivate {
     static name: string
 }
 export abstract class AbstractNamedAttrMapIteratorClass {
-    /* Fields of GXml.AbstractNamedAttrMapIteratorClass */
+    /* Fields of GXml-0.10.GXml.AbstractNamedAttrMapIteratorClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
@@ -13785,7 +10729,7 @@ export class AbstractNamedAttrMapIteratorPrivate {
     static name: string
 }
 export abstract class NamedAttrMapClass {
-    /* Fields of GXml.NamedAttrMapClass */
+    /* Fields of GXml-0.10.GXml.NamedAttrMapClass */
     parentClass: AbstractNamedAttrMapClass
     static name: string
 }
@@ -13793,7 +10737,7 @@ export class NamedAttrMapPrivate {
     static name: string
 }
 export abstract class NamespaceAttrClass {
-    /* Fields of GXml.NamespaceAttrClass */
+    /* Fields of GXml-0.10.GXml.NamespaceAttrClass */
     parentClass: xNodeClass
     static name: string
 }
@@ -13801,7 +10745,7 @@ export class NamespaceAttrPrivate {
     static name: string
 }
 export abstract class xNodeClass {
-    /* Fields of GXml.xNodeClass */
+    /* Fields of GXml-0.10.GXml.xNodeClass */
     parentClass: GObject.ObjectClass
     addNamespaceAttr: (self: xNode, uri: string, namespacePrefix?: string | null) => NamespaceAttr | null
     setNamespace: (self: xNode, uri: string, namespacePrefix?: string | null) => boolean
@@ -13819,7 +10763,7 @@ export class xNodePrivate {
     static name: string
 }
 export abstract class xNotationClass {
-    /* Fields of GXml.xNotationClass */
+    /* Fields of GXml-0.10.GXml.xNotationClass */
     parentClass: xNodeClass
     static name: string
 }
@@ -13827,7 +10771,7 @@ export class xNotationPrivate {
     static name: string
 }
 export abstract class xProcessingInstructionClass {
-    /* Fields of GXml.xProcessingInstructionClass */
+    /* Fields of GXml-0.10.GXml.xProcessingInstructionClass */
     parentClass: xNodeClass
     static name: string
 }
@@ -13835,7 +10779,7 @@ export class xProcessingInstructionPrivate {
     static name: string
 }
 export abstract class xTextClass {
-    /* Fields of GXml.xTextClass */
+    /* Fields of GXml-0.10.GXml.xTextClass */
     parentClass: xCharacterDataClass
     static name: string
 }
@@ -13843,7 +10787,7 @@ export class xTextPrivate {
     static name: string
 }
 export abstract class SerializableBoolClass {
-    /* Fields of GXml.SerializableBoolClass */
+    /* Fields of GXml-0.10.GXml.SerializableBoolClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
@@ -13851,7 +10795,7 @@ export class SerializableBoolPrivate {
     static name: string
 }
 export abstract class SerializableDoubleClass {
-    /* Fields of GXml.SerializableDoubleClass */
+    /* Fields of GXml-0.10.GXml.SerializableDoubleClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
@@ -13859,7 +10803,7 @@ export class SerializableDoublePrivate {
     static name: string
 }
 export abstract class SerializableFloatClass {
-    /* Fields of GXml.SerializableFloatClass */
+    /* Fields of GXml-0.10.GXml.SerializableFloatClass */
     parentClass: SerializableDoubleClass
     static name: string
 }
@@ -13867,7 +10811,7 @@ export class SerializableFloatPrivate {
     static name: string
 }
 export abstract class SerializableEnumClass {
-    /* Fields of GXml.SerializableEnumClass */
+    /* Fields of GXml-0.10.GXml.SerializableEnumClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
@@ -13875,7 +10819,7 @@ export class SerializableEnumPrivate {
     static name: string
 }
 export abstract class SerializableIntClass {
-    /* Fields of GXml.SerializableIntClass */
+    /* Fields of GXml-0.10.GXml.SerializableIntClass */
     parentClass: SerializableDoubleClass
     static name: string
 }
@@ -13883,7 +10827,7 @@ export class SerializableIntPrivate {
     static name: string
 }
 export abstract class SerializableValueListClass {
-    /* Fields of GXml.SerializableValueListClass */
+    /* Fields of GXml-0.10.GXml.SerializableValueListClass */
     parentClass: GObject.ObjectClass
     getValues: (self: SerializableValueList) => Gee.List
     addValues: (self: SerializableValueList, vals: string[]) => void
@@ -13911,7 +10855,7 @@ export class Enumeration {
     static toStringArray(enumeration: GObject.Type): string[]
 }
 export abstract class SerializableObjectModelClass {
-    /* Fields of GXml.SerializableObjectModelClass */
+    /* Fields of GXml-0.10.GXml.SerializableObjectModelClass */
     parentClass: GObject.ObjectClass
     getEnableUnknownSerializableProperty: (self: SerializableObjectModel) => boolean
     serializeUseXmlNodeValue: (self: SerializableObjectModel) => boolean
@@ -13931,7 +10875,7 @@ export class SerializableObjectModelPrivate {
     static name: string
 }
 export abstract class SerializableTreeMapClass {
-    /* Fields of GXml.SerializableTreeMapClass */
+    /* Fields of GXml-0.10.GXml.SerializableTreeMapClass */
     parentClass: Gee.TreeMapClass
     deserializeProceed: (self: SerializableTreeMap) => boolean
     deserialized: (self: SerializableTreeMap) => boolean
@@ -13953,7 +10897,7 @@ export class SerializableTreeMapPrivate {
     static name: string
 }
 export abstract class SerializableHashMapClass {
-    /* Fields of GXml.SerializableHashMapClass */
+    /* Fields of GXml-0.10.GXml.SerializableHashMapClass */
     parentClass: Gee.HashMapClass
     deserializeProceed: (self: SerializableHashMap) => boolean
     deserialized: (self: SerializableHashMap) => boolean
@@ -13976,7 +10920,7 @@ export class SerializableHashMapPrivate {
     static name: string
 }
 export abstract class SerializableDualKeyMapClass {
-    /* Fields of GXml.SerializableDualKeyMapClass */
+    /* Fields of GXml-0.10.GXml.SerializableDualKeyMapClass */
     parentClass: GObject.ObjectClass
     deserializeProceed: (self: SerializableDualKeyMap) => boolean
     deserialized: (self: SerializableDualKeyMap) => boolean
@@ -13999,7 +10943,7 @@ export class SerializableDualKeyMapPrivate {
     static name: string
 }
 export abstract class SerializableArrayListClass {
-    /* Fields of GXml.SerializableArrayListClass */
+    /* Fields of GXml-0.10.GXml.SerializableArrayListClass */
     parentClass: Gee.ArrayListClass
     deserializeProceed: (self: SerializableArrayList) => boolean
     deserialized: (self: SerializableArrayList) => boolean
@@ -14021,7 +10965,7 @@ export class SerializableArrayListPrivate {
     static name: string
 }
 export abstract class SerializableContainerClass {
-    /* Fields of GXml.SerializableContainerClass */
+    /* Fields of GXml-0.10.GXml.SerializableContainerClass */
     parentClass: SerializableObjectModelClass
     initContainers: (self: SerializableContainer) => void
     static name: string
@@ -14030,7 +10974,7 @@ export class SerializableContainerPrivate {
     static name: string
 }
 export abstract class TAttributeClass {
-    /* Fields of GXml.TAttributeClass */
+    /* Fields of GXml-0.10.GXml.TAttributeClass */
     parentClass: TNodeClass
     static name: string
 }
@@ -14038,7 +10982,7 @@ export class TAttributePrivate {
     static name: string
 }
 export abstract class TCommentClass {
-    /* Fields of GXml.TCommentClass */
+    /* Fields of GXml-0.10.GXml.TCommentClass */
     parentClass: TNodeClass
     static name: string
 }
@@ -14046,7 +10990,7 @@ export class TCommentPrivate {
     static name: string
 }
 export abstract class TCDATAClass {
-    /* Fields of GXml.TCDATAClass */
+    /* Fields of GXml-0.10.GXml.TCDATAClass */
     parentClass: TNodeClass
     static name: string
 }
@@ -14054,7 +10998,7 @@ export class TCDATAPrivate {
     static name: string
 }
 export abstract class TDocumentClass {
-    /* Fields of GXml.TDocumentClass */
+    /* Fields of GXml-0.10.GXml.TDocumentClass */
     parentClass: TNodeClass
     static name: string
 }
@@ -14062,7 +11006,7 @@ export class TDocumentPrivate {
     static name: string
 }
 export abstract class TElementClass {
-    /* Fields of GXml.TElementClass */
+    /* Fields of GXml-0.10.GXml.TElementClass */
     parentClass: TNodeClass
     static name: string
 }
@@ -14070,7 +11014,7 @@ export class TElementPrivate {
     static name: string
 }
 export abstract class TNamespaceClass {
-    /* Fields of GXml.TNamespaceClass */
+    /* Fields of GXml-0.10.GXml.TNamespaceClass */
     parentClass: TNodeClass
     static name: string
 }
@@ -14078,7 +11022,7 @@ export class TNamespacePrivate {
     static name: string
 }
 export abstract class TNodeClass {
-    /* Fields of GXml.TNodeClass */
+    /* Fields of GXml-0.10.GXml.TNodeClass */
     parentClass: GObject.ObjectClass
     setNamespace: (self: TNode, uri: string, prefix?: string | null) => boolean
     toString: (self: TNode) => string
@@ -14089,7 +11033,7 @@ export class TNodePrivate {
     static name: string
 }
 export abstract class TNodeTChildrenListClass {
-    /* Fields of GXml.TNodeTChildrenListClass */
+    /* Fields of GXml-0.10.GXml.TNodeTChildrenListClass */
     parentClass: Gee.AbstractBidirListClass
     static name: string
 }
@@ -14097,7 +11041,7 @@ export class TNodeTChildrenListPrivate {
     static name: string
 }
 export abstract class TProcessingInstructionClass {
-    /* Fields of GXml.TProcessingInstructionClass */
+    /* Fields of GXml-0.10.GXml.TProcessingInstructionClass */
     parentClass: TNodeClass
     static name: string
 }
@@ -14105,7 +11049,7 @@ export class TProcessingInstructionPrivate {
     static name: string
 }
 export abstract class TTextClass {
-    /* Fields of GXml.TTextClass */
+    /* Fields of GXml-0.10.GXml.TTextClass */
     parentClass: TNodeClass
     static name: string
 }
@@ -14113,7 +11057,7 @@ export class TTextPrivate {
     static name: string
 }
 export abstract class HtmlDocumentClass {
-    /* Fields of GXml.HtmlDocumentClass */
+    /* Fields of GXml-0.10.GXml.HtmlDocumentClass */
     parentClass: xDocumentClass
     static name: string
 }
@@ -14121,7 +11065,7 @@ export class HtmlDocumentPrivate {
     static name: string
 }
 export abstract class GAttributeClass {
-    /* Fields of GXml.GAttributeClass */
+    /* Fields of GXml-0.10.GXml.GAttributeClass */
     parentClass: GNodeClass
     static name: string
 }
@@ -14129,7 +11073,7 @@ export class GAttributePrivate {
     static name: string
 }
 export abstract class GCommentClass {
-    /* Fields of GXml.GCommentClass */
+    /* Fields of GXml-0.10.GXml.GCommentClass */
     parentClass: GNodeClass
     static name: string
 }
@@ -14137,7 +11081,7 @@ export class GCommentPrivate {
     static name: string
 }
 export abstract class GCDATAClass {
-    /* Fields of GXml.GCDATAClass */
+    /* Fields of GXml-0.10.GXml.GCDATAClass */
     parentClass: GNodeClass
     static name: string
 }
@@ -14145,7 +11089,7 @@ export class GCDATAPrivate {
     static name: string
 }
 export abstract class GDocumentClass {
-    /* Fields of GXml.GDocumentClass */
+    /* Fields of GXml-0.10.GXml.GDocumentClass */
     parentClass: GNodeClass
     save: (self: GDocument, cancellable?: Gio.Cancellable | null) => boolean
     saveAs: (self: GDocument, f: Gio.File, cancellable?: Gio.Cancellable | null) => boolean
@@ -14155,7 +11099,7 @@ export class GDocumentPrivate {
     static name: string
 }
 export abstract class GElementClass {
-    /* Fields of GXml.GElementClass */
+    /* Fields of GXml-0.10.GXml.GElementClass */
     parentClass: GNodeClass
     static name: string
 }
@@ -14163,7 +11107,7 @@ export class GElementPrivate {
     static name: string
 }
 export abstract class GNamespaceClass {
-    /* Fields of GXml.GNamespaceClass */
+    /* Fields of GXml-0.10.GXml.GNamespaceClass */
     parentClass: GNodeClass
     static name: string
 }
@@ -14171,7 +11115,7 @@ export class GNamespacePrivate {
     static name: string
 }
 export abstract class GNodeClass {
-    /* Fields of GXml.GNodeClass */
+    /* Fields of GXml-0.10.GXml.GNodeClass */
     parentClass: GObject.ObjectClass
     setNamespace: (self: GNode, uri: string, prefix?: string | null) => boolean
     toString: (self: GNode) => string
@@ -14181,7 +11125,7 @@ export class GNodePrivate {
     static name: string
 }
 export abstract class GProcessingInstructionClass {
-    /* Fields of GXml.GProcessingInstructionClass */
+    /* Fields of GXml-0.10.GXml.GProcessingInstructionClass */
     parentClass: GNodeClass
     static name: string
 }
@@ -14189,7 +11133,7 @@ export class GProcessingInstructionPrivate {
     static name: string
 }
 export abstract class GTextClass {
-    /* Fields of GXml.GTextClass */
+    /* Fields of GXml-0.10.GXml.GTextClass */
     parentClass: GNodeClass
     static name: string
 }
@@ -14197,7 +11141,7 @@ export class GTextPrivate {
     static name: string
 }
 export abstract class GHashMapAttrClass {
-    /* Fields of GXml.GHashMapAttrClass */
+    /* Fields of GXml-0.10.GXml.GHashMapAttrClass */
     parentClass: Gee.AbstractMapClass
     static name: string
 }
@@ -14205,7 +11149,7 @@ export class GHashMapAttrPrivate {
     static name: string
 }
 export abstract class GHashMapAttrEntryClass {
-    /* Fields of GXml.GHashMapAttrEntryClass */
+    /* Fields of GXml-0.10.GXml.GHashMapAttrEntryClass */
     parentClass: Gee.MapEntryClass
     static name: string
 }
@@ -14213,7 +11157,7 @@ export class GHashMapAttrEntryPrivate {
     static name: string
 }
 export abstract class GHashMapAttrIteratorClass {
-    /* Fields of GXml.GHashMapAttrIteratorClass */
+    /* Fields of GXml-0.10.GXml.GHashMapAttrIteratorClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
@@ -14221,7 +11165,7 @@ export class GHashMapAttrIteratorPrivate {
     static name: string
 }
 export abstract class GListChildrenClass {
-    /* Fields of GXml.GListChildrenClass */
+    /* Fields of GXml-0.10.GXml.GListChildrenClass */
     parentClass: Gee.AbstractBidirListClass
     static name: string
 }
@@ -14229,7 +11173,7 @@ export class GListChildrenPrivate {
     static name: string
 }
 export abstract class GListChildrenIteratorClass {
-    /* Fields of GXml.GListChildrenIteratorClass */
+    /* Fields of GXml-0.10.GXml.GListChildrenIteratorClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
@@ -14237,7 +11181,7 @@ export class GListChildrenIteratorPrivate {
     static name: string
 }
 export abstract class GListNamespacesClass {
-    /* Fields of GXml.GListNamespacesClass */
+    /* Fields of GXml-0.10.GXml.GListNamespacesClass */
     parentClass: Gee.AbstractListClass
     static name: string
 }
@@ -14245,7 +11189,7 @@ export class GListNamespacesPrivate {
     static name: string
 }
 export abstract class GListNamespacesIteratorClass {
-    /* Fields of GXml.GListNamespacesIteratorClass */
+    /* Fields of GXml-0.10.GXml.GListNamespacesIteratorClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
@@ -14253,7 +11197,7 @@ export class GListNamespacesIteratorPrivate {
     static name: string
 }
 export abstract class AttributeIface {
-    /* Fields of GXml.AttributeIface */
+    /* Fields of GXml-0.10.GXml.AttributeIface */
     parentIface: GObject.TypeInterface
     getNamespace: (self: Attribute) => Namespace
     setNamespace: (self: Attribute, value: Namespace) => void
@@ -14261,19 +11205,19 @@ export abstract class AttributeIface {
     static name: string
 }
 export abstract class CommentIface {
-    /* Fields of GXml.CommentIface */
+    /* Fields of GXml-0.10.GXml.CommentIface */
     parentIface: GObject.TypeInterface
     getStr: (self: Comment) => string
     static name: string
 }
 export abstract class CDATAIface {
-    /* Fields of GXml.CDATAIface */
+    /* Fields of GXml-0.10.GXml.CDATAIface */
     parentIface: GObject.TypeInterface
     getStr: (self: CDATA) => string
     static name: string
 }
 export abstract class DocumentIface {
-    /* Fields of GXml.DocumentIface */
+    /* Fields of GXml-0.10.GXml.DocumentIface */
     parentIface: GObject.TypeInterface
     createElement: (self: Document, name: string) => Node
     createText: (self: Document, text: string) => Node
@@ -14296,12 +11240,12 @@ export abstract class DocumentIface {
     static name: string
 }
 export abstract class DocumentTypeIface {
-    /* Fields of GXml.DocumentTypeIface */
+    /* Fields of GXml-0.10.GXml.DocumentTypeIface */
     parentIface: GObject.TypeInterface
     static name: string
 }
 export abstract class ElementIface {
-    /* Fields of GXml.ElementIface */
+    /* Fields of GXml-0.10.GXml.ElementIface */
     parentIface: GObject.TypeInterface
     normalize: (self: Element) => void
     setAttr: (self: Element, name: string, value: string) => void
@@ -14315,14 +11259,14 @@ export abstract class ElementIface {
     static name: string
 }
 export abstract class NamespaceIface {
-    /* Fields of GXml.NamespaceIface */
+    /* Fields of GXml-0.10.GXml.NamespaceIface */
     parentIface: GObject.TypeInterface
     getUri: (self: Namespace) => string
     getPrefix: (self: Namespace) => string
     static name: string
 }
 export abstract class NodeIface {
-    /* Fields of GXml.NodeIface */
+    /* Fields of GXml-0.10.GXml.NodeIface */
     parentIface: GObject.TypeInterface
     get: (self: Node, key: string) => Node | null
     getElementsByPropertyValue: (self: Node, property: string, value: string) => ElementList
@@ -14343,27 +11287,27 @@ export abstract class NodeIface {
     static name: string
 }
 export abstract class NotationIface {
-    /* Fields of GXml.NotationIface */
+    /* Fields of GXml-0.10.GXml.NotationIface */
     parentIface: GObject.TypeInterface
     getPublicId: (self: Notation) => string | null
     getExternalId: (self: Notation) => string | null
     static name: string
 }
 export abstract class ProcessingInstructionIface {
-    /* Fields of GXml.ProcessingInstructionIface */
+    /* Fields of GXml-0.10.GXml.ProcessingInstructionIface */
     parentIface: GObject.TypeInterface
     getTarget: (self: ProcessingInstruction) => string
     getData: (self: ProcessingInstruction) => string
     static name: string
 }
 export abstract class TextIface {
-    /* Fields of GXml.TextIface */
+    /* Fields of GXml-0.10.GXml.TextIface */
     parentIface: GObject.TypeInterface
     getStr: (self: Text) => string
     static name: string
 }
 export abstract class NamedNodeMapIface {
-    /* Fields of GXml.NamedNodeMapIface */
+    /* Fields of GXml-0.10.GXml.NamedNodeMapIface */
     parentIface: GObject.TypeInterface
     getNamedItem: (self: NamedNodeMap, name: string) => object | null
     setNamedItem: (self: NamedNodeMap, item?: object | null) => object | null
@@ -14373,7 +11317,7 @@ export abstract class NamedNodeMapIface {
     static name: string
 }
 export abstract class xNodeListIface {
-    /* Fields of GXml.xNodeListIface */
+    /* Fields of GXml-0.10.GXml.xNodeListIface */
     parentIface: GObject.TypeInterface
     item: (self: xNodeList, idx: number) => xNode
     insertBefore: (self: xNodeList, newChild: xNode, refChild?: xNode | null) => xNode | null
@@ -14389,7 +11333,7 @@ export abstract class xNodeListIface {
     static name: string
 }
 export abstract class SerializableIface {
-    /* Fields of GXml.SerializableIface */
+    /* Fields of GXml-0.10.GXml.SerializableIface */
     parentIface: GObject.TypeInterface
     getEnableUnknownSerializableProperty: (self: Serializable) => boolean
     setDefaultNamespace: (self: Serializable, node: Node) => boolean
@@ -14411,7 +11355,7 @@ export abstract class SerializableIface {
     static name: string
 }
 export abstract class SerializablePropertyIface {
-    /* Fields of GXml.SerializablePropertyIface */
+    /* Fields of GXml-0.10.GXml.SerializablePropertyIface */
     parentIface: GObject.TypeInterface
     getSerializablePropertyValue: (self: SerializableProperty) => string
     setSerializablePropertyValue: (self: SerializableProperty, val?: string | null) => void
@@ -14420,20 +11364,20 @@ export abstract class SerializablePropertyIface {
     static name: string
 }
 export abstract class SerializableMapKeyIface {
-    /* Fields of GXml.SerializableMapKeyIface */
+    /* Fields of GXml-0.10.GXml.SerializableMapKeyIface */
     parentIface: GObject.TypeInterface
     getMapKey: (self: SerializableMapKey) => object | null
     static name: string
 }
 export abstract class SerializableMapDualKeyIface {
-    /* Fields of GXml.SerializableMapDualKeyIface */
+    /* Fields of GXml-0.10.GXml.SerializableMapDualKeyIface */
     parentIface: GObject.TypeInterface
     getMapPrimaryKey: (self: SerializableMapDualKey) => object | null
     getMapSecondaryKey: (self: SerializableMapDualKey) => object | null
     static name: string
 }
 export abstract class SerializableCollectionIface {
-    /* Fields of GXml.SerializableCollectionIface */
+    /* Fields of GXml-0.10.GXml.SerializableCollectionIface */
     parentIface: GObject.TypeInterface
     deserializeProceed: (self: SerializableCollection) => boolean
     deserialized: (self: SerializableCollection) => boolean

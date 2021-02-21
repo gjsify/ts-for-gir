@@ -25,7 +25,7 @@ export interface ShutdownFunc {
     (): void
 }
 export class Info {
-    /* Methods of TrackerExtract.Info */
+    /* Methods of TrackerExtract-0.16.TrackerExtract.Info */
     getFile(): Gio.File
     getGraph(): string
     getMetadataBuilder(): Tracker.SparqlBuilder

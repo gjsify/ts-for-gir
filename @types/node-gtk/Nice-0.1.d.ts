@@ -139,7 +139,7 @@ export interface Agent_ConstructProps extends GObject.Object_ConstructProps {
     upnpTimeout?: number
 }
 export class Agent {
-    /* Properties of Nice.Agent */
+    /* Properties of Nice-0.1.Nice.Agent */
     readonly bytestreamTcp: boolean
     controllingMode: boolean
     forceRelay: boolean
@@ -163,9 +163,9 @@ export class Agent {
     supportRenomination: boolean
     upnp: boolean
     upnpTimeout: number
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Nice.Agent */
+    /* Methods of Nice-0.1.Nice.Agent */
     addLocalAddress(addr: Address): boolean
     addStream(nComponents: number): number
     closeAsync(callback?: Gio.AsyncReadyCallback | null): void
@@ -178,7 +178,7 @@ export class Agent {
     getDefaultLocalCandidate(streamId: number, componentId: number): Candidate
     getIoStream(streamId: number, componentId: number): Gio.IOStream
     getLocalCandidates(streamId: number, componentId: number): Candidate[]
-    getLocalCredentials(streamId: number): [ /* returnType */ boolean, /* ufrag */ string, /* pwd */ string ]
+    getLocalCredentials(streamId: number): { returnType: boolean, ufrag: string, pwd: string }
     getRemoteCandidates(streamId: number, componentId: number): Candidate[]
     getSelectedPair(streamId: number, componentId: number, local: Candidate, remote: Candidate): boolean
     getSelectedSocket(streamId: number, componentId: number): Gio.Socket | null
@@ -188,10 +188,10 @@ export class Agent {
     parseRemoteSdp(sdp: string): number
     parseRemoteStreamSdp(streamId: number, sdp: string, ufrag: string, pwd: string): Candidate[]
     peerCandidateGatheringDone(streamId: number): boolean
-    recv(streamId: number, componentId: number, cancellable?: Gio.Cancellable | null): [ /* returnType */ number, /* buf */ any[] ]
-    recvMessages(streamId: number, componentId: number, cancellable?: Gio.Cancellable | null): [ /* returnType */ number, /* messages */ InputMessage[] ]
-    recvMessagesNonblocking(streamId: number, componentId: number, cancellable?: Gio.Cancellable | null): [ /* returnType */ number, /* messages */ InputMessage[] ]
-    recvNonblocking(streamId: number, componentId: number, cancellable?: Gio.Cancellable | null): [ /* returnType */ number, /* buf */ any[] ]
+    recv(streamId: number, componentId: number, cancellable?: Gio.Cancellable | null): { returnType: number, buf: any[] }
+    recvMessages(streamId: number, componentId: number, cancellable?: Gio.Cancellable | null): { returnType: number, messages: InputMessage[] }
+    recvMessagesNonblocking(streamId: number, componentId: number, cancellable?: Gio.Cancellable | null): { returnType: number, messages: InputMessage[] }
+    recvNonblocking(streamId: number, componentId: number, cancellable?: Gio.Cancellable | null): { returnType: number, buf: any[] }
     removeStream(streamId: number): void
     restart(): boolean
     restartStream(streamId: number): boolean
@@ -207,7 +207,7 @@ export class Agent {
     setSoftware(software: string): void
     setStreamName(streamId: number, name: string): boolean
     setStreamTos(streamId: number, tos: number): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -229,88 +229,68 @@ export class Agent {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Nice.Agent */
+    /* Signals of Nice-0.1.Nice.Agent */
     connect(sigName: "candidate-gathering-done", callback: (($obj: Agent, streamId: number) => void)): number
-    connect_after(sigName: "candidate-gathering-done", callback: (($obj: Agent, streamId: number) => void)): number
+    on(sigName: "candidate-gathering-done", callback: (streamId: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "candidate-gathering-done", callback: (streamId: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "candidate-gathering-done", callback: (streamId: number) => void): NodeJS.EventEmitter
     emit(sigName: "candidate-gathering-done", streamId: number): void
-    on(sigName: "candidate-gathering-done", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "candidate-gathering-done", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "candidate-gathering-done", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "component-state-changed", callback: (($obj: Agent, streamId: number, componentId: number, state: number) => void)): number
-    connect_after(sigName: "component-state-changed", callback: (($obj: Agent, streamId: number, componentId: number, state: number) => void)): number
+    on(sigName: "component-state-changed", callback: (streamId: number, componentId: number, state: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "component-state-changed", callback: (streamId: number, componentId: number, state: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "component-state-changed", callback: (streamId: number, componentId: number, state: number) => void): NodeJS.EventEmitter
     emit(sigName: "component-state-changed", streamId: number, componentId: number, state: number): void
-    on(sigName: "component-state-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "component-state-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "component-state-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "initial-binding-request-received", callback: (($obj: Agent, streamId: number) => void)): number
-    connect_after(sigName: "initial-binding-request-received", callback: (($obj: Agent, streamId: number) => void)): number
+    on(sigName: "initial-binding-request-received", callback: (streamId: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "initial-binding-request-received", callback: (streamId: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "initial-binding-request-received", callback: (streamId: number) => void): NodeJS.EventEmitter
     emit(sigName: "initial-binding-request-received", streamId: number): void
-    on(sigName: "initial-binding-request-received", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "initial-binding-request-received", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "initial-binding-request-received", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "new-candidate", callback: (($obj: Agent, streamId: number, componentId: number, foundation: string) => void)): number
-    connect_after(sigName: "new-candidate", callback: (($obj: Agent, streamId: number, componentId: number, foundation: string) => void)): number
+    on(sigName: "new-candidate", callback: (streamId: number, componentId: number, foundation: string) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "new-candidate", callback: (streamId: number, componentId: number, foundation: string) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "new-candidate", callback: (streamId: number, componentId: number, foundation: string) => void): NodeJS.EventEmitter
     emit(sigName: "new-candidate", streamId: number, componentId: number, foundation: string): void
-    on(sigName: "new-candidate", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "new-candidate", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "new-candidate", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "new-candidate-full", callback: (($obj: Agent, candidate: Candidate) => void)): number
-    connect_after(sigName: "new-candidate-full", callback: (($obj: Agent, candidate: Candidate) => void)): number
+    on(sigName: "new-candidate-full", callback: (candidate: Candidate) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "new-candidate-full", callback: (candidate: Candidate) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "new-candidate-full", callback: (candidate: Candidate) => void): NodeJS.EventEmitter
     emit(sigName: "new-candidate-full", candidate: Candidate): void
-    on(sigName: "new-candidate-full", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "new-candidate-full", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "new-candidate-full", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "new-remote-candidate", callback: (($obj: Agent, streamId: number, componentId: number, foundation: string) => void)): number
-    connect_after(sigName: "new-remote-candidate", callback: (($obj: Agent, streamId: number, componentId: number, foundation: string) => void)): number
+    on(sigName: "new-remote-candidate", callback: (streamId: number, componentId: number, foundation: string) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "new-remote-candidate", callback: (streamId: number, componentId: number, foundation: string) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "new-remote-candidate", callback: (streamId: number, componentId: number, foundation: string) => void): NodeJS.EventEmitter
     emit(sigName: "new-remote-candidate", streamId: number, componentId: number, foundation: string): void
-    on(sigName: "new-remote-candidate", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "new-remote-candidate", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "new-remote-candidate", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "new-remote-candidate-full", callback: (($obj: Agent, candidate: Candidate) => void)): number
-    connect_after(sigName: "new-remote-candidate-full", callback: (($obj: Agent, candidate: Candidate) => void)): number
+    on(sigName: "new-remote-candidate-full", callback: (candidate: Candidate) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "new-remote-candidate-full", callback: (candidate: Candidate) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "new-remote-candidate-full", callback: (candidate: Candidate) => void): NodeJS.EventEmitter
     emit(sigName: "new-remote-candidate-full", candidate: Candidate): void
-    on(sigName: "new-remote-candidate-full", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "new-remote-candidate-full", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "new-remote-candidate-full", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "new-selected-pair", callback: (($obj: Agent, streamId: number, componentId: number, lfoundation: string, rfoundation: string) => void)): number
-    connect_after(sigName: "new-selected-pair", callback: (($obj: Agent, streamId: number, componentId: number, lfoundation: string, rfoundation: string) => void)): number
+    on(sigName: "new-selected-pair", callback: (streamId: number, componentId: number, lfoundation: string, rfoundation: string) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "new-selected-pair", callback: (streamId: number, componentId: number, lfoundation: string, rfoundation: string) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "new-selected-pair", callback: (streamId: number, componentId: number, lfoundation: string, rfoundation: string) => void): NodeJS.EventEmitter
     emit(sigName: "new-selected-pair", streamId: number, componentId: number, lfoundation: string, rfoundation: string): void
-    on(sigName: "new-selected-pair", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "new-selected-pair", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "new-selected-pair", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "new-selected-pair-full", callback: (($obj: Agent, streamId: number, componentId: number, lcandidate: Candidate, rcandidate: Candidate) => void)): number
-    connect_after(sigName: "new-selected-pair-full", callback: (($obj: Agent, streamId: number, componentId: number, lcandidate: Candidate, rcandidate: Candidate) => void)): number
+    on(sigName: "new-selected-pair-full", callback: (streamId: number, componentId: number, lcandidate: Candidate, rcandidate: Candidate) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "new-selected-pair-full", callback: (streamId: number, componentId: number, lcandidate: Candidate, rcandidate: Candidate) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "new-selected-pair-full", callback: (streamId: number, componentId: number, lcandidate: Candidate, rcandidate: Candidate) => void): NodeJS.EventEmitter
     emit(sigName: "new-selected-pair-full", streamId: number, componentId: number, lcandidate: Candidate, rcandidate: Candidate): void
-    on(sigName: "new-selected-pair-full", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "new-selected-pair-full", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "new-selected-pair-full", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "reliable-transport-writable", callback: (($obj: Agent, streamId: number, componentId: number) => void)): number
-    connect_after(sigName: "reliable-transport-writable", callback: (($obj: Agent, streamId: number, componentId: number) => void)): number
+    on(sigName: "reliable-transport-writable", callback: (streamId: number, componentId: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "reliable-transport-writable", callback: (streamId: number, componentId: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "reliable-transport-writable", callback: (streamId: number, componentId: number) => void): NodeJS.EventEmitter
     emit(sigName: "reliable-transport-writable", streamId: number, componentId: number): void
-    on(sigName: "reliable-transport-writable", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "reliable-transport-writable", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "reliable-transport-writable", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "streams-removed", callback: (($obj: Agent, streamIds: number[]) => void)): number
-    connect_after(sigName: "streams-removed", callback: (($obj: Agent, streamIds: number[]) => void)): number
+    on(sigName: "streams-removed", callback: (streamIds: number[]) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "streams-removed", callback: (streamIds: number[]) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "streams-removed", callback: (streamIds: number[]) => void): NodeJS.EventEmitter
     emit(sigName: "streams-removed", streamIds: number[]): void
-    on(sigName: "streams-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "streams-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "streams-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Agent, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Agent, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::bytestream-tcp", callback: (($obj: Agent, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::bytestream-tcp", callback: (($obj: Agent, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::bytestream-tcp", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -452,16 +432,16 @@ export interface PseudoTcpSocket_ConstructProps extends GObject.Object_Construct
     supportFinAck?: boolean
 }
 export class PseudoTcpSocket {
-    /* Properties of Nice.PseudoTcpSocket */
+    /* Properties of Nice-0.1.Nice.PseudoTcpSocket */
     ackDelay: number
     callbacks: object
     noDelay: boolean
     rcvBuf: number
     sndBuf: number
     readonly state: number
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Nice.PseudoTcpSocket */
+    /* Methods of Nice-0.1.Nice.PseudoTcpSocket */
     canSend(): boolean
     close(force: boolean): void
     connect(): boolean
@@ -479,7 +459,7 @@ export class PseudoTcpSocket {
     send(buffer: string, len: number): number
     setTime(currentTime: number): void
     shutdown(how: PseudoTcpShutdown): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -501,21 +481,12 @@ export class PseudoTcpSocket {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: PseudoTcpSocket, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: PseudoTcpSocket, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::ack-delay", callback: (($obj: PseudoTcpSocket, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::ack-delay", callback: (($obj: PseudoTcpSocket, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::ack-delay", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -561,7 +532,7 @@ export class PseudoTcpSocket {
     static $gtype: GObject.Type
 }
 export class Address {
-    /* Methods of Nice.Address */
+    /* Methods of Nice-0.1.Nice.Address */
     copyToSockaddr(sin?: object | null): void
     equal(b: Address): boolean
     equalNoPort(b: Address): boolean
@@ -580,12 +551,12 @@ export class Address {
     static name: string
 }
 export abstract class AgentClass {
-    /* Fields of Nice.AgentClass */
+    /* Fields of Nice-0.1.Nice.AgentClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
 export class Candidate {
-    /* Fields of Nice.Candidate */
+    /* Fields of Nice-0.1.Nice.Candidate */
     type: CandidateType
     transport: CandidateTransport
     addr: Address
@@ -596,7 +567,7 @@ export class Candidate {
     foundation: number[]
     username: string
     password: string
-    /* Methods of Nice.Candidate */
+    /* Methods of Nice-0.1.Nice.Candidate */
     copy(): Candidate
     equalTarget(candidate2: Candidate): boolean
     free(): void
@@ -609,7 +580,7 @@ export class Candidate {
     static typeToString(type: CandidateType): string
 }
 export class InputMessage {
-    /* Fields of Nice.InputMessage */
+    /* Fields of Nice-0.1.Nice.InputMessage */
     buffers: Gio.InputVector[]
     nBuffers: number
     from: Address
@@ -617,13 +588,13 @@ export class InputMessage {
     static name: string
 }
 export class OutputMessage {
-    /* Fields of Nice.OutputMessage */
+    /* Fields of Nice-0.1.Nice.OutputMessage */
     buffers: Gio.OutputVector[]
     nBuffers: number
     static name: string
 }
 export class PseudoTcpCallbacks {
-    /* Fields of Nice.PseudoTcpCallbacks */
+    /* Fields of Nice-0.1.Nice.PseudoTcpCallbacks */
     userData: object
     pseudoTcpOpened: (tcp: PseudoTcpSocket, data: object) => void
     pseudoTcpReadable: (tcp: PseudoTcpSocket, data: object) => void

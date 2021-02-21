@@ -30,29 +30,29 @@ export interface SubstituteFunc {
 export interface FontMap_ConstructProps extends PangoFc.FontMap_ConstructProps {
 }
 export class FontMap {
-    /* Fields of Pango.FontMap */
+    /* Fields of Pango-1.0.Pango.FontMap */
     parentInstance: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of PangoFT2.FontMap */
+    /* Methods of PangoFT2-1.0.PangoFT2.FontMap */
     setDefaultSubstitute(func: SubstituteFunc): void
     setResolution(dpiX: number, dpiY: number): void
     substituteChanged(): void
-    /* Methods of PangoFc.FontMap */
+    /* Methods of PangoFc-1.0.PangoFc.FontMap */
     cacheClear(): void
     configChanged(): void
     createContext(): Pango.Context
     findDecoder(pattern: fontconfig.Pattern): PangoFc.Decoder | null
     setDefaultSubstitute(func: PangoFc.SubstituteFunc): void
     shutdown(): void
-    /* Methods of Pango.FontMap */
+    /* Methods of Pango-1.0.Pango.FontMap */
     changed(): void
     getFamily(name: string): Pango.FontFamily
     getSerial(): number
-    listFamilies(): /* families */ Pango.FontFamily[]
+    listFamilies(): { families: Pango.FontFamily[] }
     loadFont(context: Pango.Context, desc: Pango.FontDescription): Pango.Font | null
     loadFontset(context: Pango.Context, desc: Pango.FontDescription, language: Pango.Language): Pango.Fontset | null
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -74,28 +74,12 @@ export class FontMap {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of Pango.FontMap */
-    vfuncChanged(): void
-    vfuncGetFamily(name: string): Pango.FontFamily
-    vfuncGetSerial(): number
-    vfuncListFamilies(): /* families */ Pango.FontFamily[]
-    vfuncLoadFont(context: Pango.Context, desc: Pango.FontDescription): Pango.Font | null
-    vfuncLoadFontset(context: Pango.Context, desc: Pango.FontDescription, language: Pango.Language): Pango.Fontset | null
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: FontMap, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: FontMap, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void

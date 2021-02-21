@@ -691,8 +691,8 @@ export function errorStrerror(e: ErrorEnum): string
 export function errorSupress(error: string): ErrorState
 export function getUnknownTokenHandlingSetting(): Unknowntokenhandling
 export function memoryAddTmpBuffer(buf?: object | null): void
-export function memoryAppendChar(buf: number[], pos: number[], ch: number): [ /* buf */ number[], /* pos */ number[] ]
-export function memoryAppendString(buf: number[], pos: number[], str: string): [ /* buf */ number[], /* pos */ number[] ]
+export function memoryAppendChar(buf: number[], pos: number[], ch: number): { buf: number[], pos: number[] }
+export function memoryAppendString(buf: number[], pos: number[], str: string): { buf: number[], pos: number[] }
 export function memoryFreeBuffer(buf?: object | null): void
 export function memoryNewBuffer(size: number): object | null
 export function memoryResizeBuffer(buf: object | null, size: number): object | null
@@ -724,18 +724,18 @@ export interface ParserLineGenFunc {
 export interface Array_ConstructProps extends Object_ConstructProps {
 }
 export class Array {
-    /* Properties of ICalGLib.Object */
+    /* Properties of ICalGLib-3.0.ICalGLib.Object */
     nativeDestroyFunc: object
     owner: GObject.Object
-    /* Fields of ICalGLib.Object */
+    /* Fields of ICalGLib-3.0.ICalGLib.Object */
     parentInstance: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of ICalGLib.Array */
+    /* Methods of ICalGLib-3.0.ICalGLib.Array */
     copy(): Array
     removeElementAt(position: number): void
     size(): number
-    /* Methods of ICalGLib.Object */
+    /* Methods of ICalGLib-3.0.ICalGLib.Object */
     addDepender(depender: GObject.Object): void
     getIsGlobalMemory(): boolean
     refOwner(): GObject.Object | null
@@ -744,7 +744,7 @@ export class Array {
     setNativeDestroyFunc(nativeDestroyFunc: GLib.DestroyNotify): void
     setOwner(owner: GObject.Object): void
     stealNative(): object | null
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -766,21 +766,12 @@ export class Array {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Array, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Array, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::native-destroy-func", callback: (($obj: Array, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::native-destroy-func", callback: (($obj: Array, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::native-destroy-func", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -806,18 +797,18 @@ export class Array {
 export interface Attach_ConstructProps extends Object_ConstructProps {
 }
 export class Attach {
-    /* Properties of ICalGLib.Object */
+    /* Properties of ICalGLib-3.0.ICalGLib.Object */
     nativeDestroyFunc: object
     owner: GObject.Object
-    /* Fields of ICalGLib.Object */
+    /* Fields of ICalGLib-3.0.ICalGLib.Object */
     parentInstance: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of ICalGLib.Attach */
+    /* Methods of ICalGLib-3.0.ICalGLib.Attach */
     getData(): string | null
     getIsUrl(): boolean
     getUrl(): string | null
-    /* Methods of ICalGLib.Object */
+    /* Methods of ICalGLib-3.0.ICalGLib.Object */
     addDepender(depender: GObject.Object): void
     getIsGlobalMemory(): boolean
     refOwner(): GObject.Object | null
@@ -826,7 +817,7 @@ export class Attach {
     setNativeDestroyFunc(nativeDestroyFunc: GLib.DestroyNotify): void
     setOwner(owner: GObject.Object): void
     stealNative(): object | null
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -848,21 +839,12 @@ export class Attach {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Attach, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Attach, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::native-destroy-func", callback: (($obj: Attach, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::native-destroy-func", callback: (($obj: Attach, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::native-destroy-func", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -892,18 +874,18 @@ export class Attach {
 export interface CompIter_ConstructProps extends Object_ConstructProps {
 }
 export class CompIter {
-    /* Properties of ICalGLib.Object */
+    /* Properties of ICalGLib-3.0.ICalGLib.Object */
     nativeDestroyFunc: object
     owner: GObject.Object
-    /* Fields of ICalGLib.Object */
+    /* Fields of ICalGLib-3.0.ICalGLib.Object */
     parentInstance: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of ICalGLib.CompIter */
+    /* Methods of ICalGLib-3.0.ICalGLib.CompIter */
     deref(): Component
     next(): Component
     prior(): Component
-    /* Methods of ICalGLib.Object */
+    /* Methods of ICalGLib-3.0.ICalGLib.Object */
     addDepender(depender: GObject.Object): void
     getIsGlobalMemory(): boolean
     refOwner(): GObject.Object | null
@@ -912,7 +894,7 @@ export class CompIter {
     setNativeDestroyFunc(nativeDestroyFunc: GLib.DestroyNotify): void
     setOwner(owner: GObject.Object): void
     stealNative(): object | null
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -934,21 +916,12 @@ export class CompIter {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: CompIter, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: CompIter, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::native-destroy-func", callback: (($obj: CompIter, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::native-destroy-func", callback: (($obj: CompIter, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::native-destroy-func", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -974,14 +947,14 @@ export class CompIter {
 export interface Component_ConstructProps extends Object_ConstructProps {
 }
 export class Component {
-    /* Properties of ICalGLib.Object */
+    /* Properties of ICalGLib-3.0.ICalGLib.Object */
     nativeDestroyFunc: object
     owner: GObject.Object
-    /* Fields of ICalGLib.Object */
+    /* Fields of ICalGLib-3.0.ICalGLib.Object */
     parentInstance: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of ICalGLib.Component */
+    /* Methods of ICalGLib-3.0.ICalGLib.Component */
     addComponent(child: Component): void
     addProperty(property: Property): void
     asIcalString(): string
@@ -1044,7 +1017,7 @@ export class Component {
     setSummary(v: string): void
     setUid(v: string): void
     stripErrors(): void
-    /* Methods of ICalGLib.Object */
+    /* Methods of ICalGLib-3.0.ICalGLib.Object */
     addDepender(depender: GObject.Object): void
     getIsGlobalMemory(): boolean
     refOwner(): GObject.Object | null
@@ -1053,7 +1026,7 @@ export class Component {
     setNativeDestroyFunc(nativeDestroyFunc: GLib.DestroyNotify): void
     setOwner(owner: GObject.Object): void
     stealNative(): object | null
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -1075,21 +1048,12 @@ export class Component {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Component, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Component, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::native-destroy-func", callback: (($obj: Component, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::native-destroy-func", callback: (($obj: Component, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::native-destroy-func", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -1138,19 +1102,19 @@ export class Component {
 export interface Datetimeperiod_ConstructProps extends Object_ConstructProps {
 }
 export class Datetimeperiod {
-    /* Properties of ICalGLib.Object */
+    /* Properties of ICalGLib-3.0.ICalGLib.Object */
     nativeDestroyFunc: object
     owner: GObject.Object
-    /* Fields of ICalGLib.Object */
+    /* Fields of ICalGLib-3.0.ICalGLib.Object */
     parentInstance: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of ICalGLib.Datetimeperiod */
+    /* Methods of ICalGLib-3.0.ICalGLib.Datetimeperiod */
     getPeriod(): Period
     getTime(): Time
     setPeriod(period: Period): void
     setTime(time: Time): void
-    /* Methods of ICalGLib.Object */
+    /* Methods of ICalGLib-3.0.ICalGLib.Object */
     addDepender(depender: GObject.Object): void
     getIsGlobalMemory(): boolean
     refOwner(): GObject.Object | null
@@ -1159,7 +1123,7 @@ export class Datetimeperiod {
     setNativeDestroyFunc(nativeDestroyFunc: GLib.DestroyNotify): void
     setOwner(owner: GObject.Object): void
     stealNative(): object | null
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -1181,21 +1145,12 @@ export class Datetimeperiod {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Datetimeperiod, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Datetimeperiod, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::native-destroy-func", callback: (($obj: Datetimeperiod, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::native-destroy-func", callback: (($obj: Datetimeperiod, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::native-destroy-func", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -1223,14 +1178,14 @@ export class Datetimeperiod {
 export interface Duration_ConstructProps extends Object_ConstructProps {
 }
 export class Duration {
-    /* Properties of ICalGLib.Object */
+    /* Properties of ICalGLib-3.0.ICalGLib.Object */
     nativeDestroyFunc: object
     owner: GObject.Object
-    /* Fields of ICalGLib.Object */
+    /* Fields of ICalGLib-3.0.ICalGLib.Object */
     parentInstance: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of ICalGLib.Duration */
+    /* Methods of ICalGLib-3.0.ICalGLib.Duration */
     asIcalString(): string
     asInt(): number
     getDays(): number
@@ -1247,7 +1202,7 @@ export class Duration {
     setMinutes(minutes: number): void
     setSeconds(seconds: number): void
     setWeeks(weeks: number): void
-    /* Methods of ICalGLib.Object */
+    /* Methods of ICalGLib-3.0.ICalGLib.Object */
     addDepender(depender: GObject.Object): void
     getIsGlobalMemory(): boolean
     refOwner(): GObject.Object | null
@@ -1256,7 +1211,7 @@ export class Duration {
     setNativeDestroyFunc(nativeDestroyFunc: GLib.DestroyNotify): void
     setOwner(owner: GObject.Object): void
     stealNative(): object | null
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -1278,21 +1233,12 @@ export class Duration {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Duration, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Duration, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::native-destroy-func", callback: (($obj: Duration, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::native-destroy-func", callback: (($obj: Duration, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::native-destroy-func", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -1323,20 +1269,20 @@ export class Duration {
 export interface Geo_ConstructProps extends Object_ConstructProps {
 }
 export class Geo {
-    /* Properties of ICalGLib.Object */
+    /* Properties of ICalGLib-3.0.ICalGLib.Object */
     nativeDestroyFunc: object
     owner: GObject.Object
-    /* Fields of ICalGLib.Object */
+    /* Fields of ICalGLib-3.0.ICalGLib.Object */
     parentInstance: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of ICalGLib.Geo */
+    /* Methods of ICalGLib-3.0.ICalGLib.Geo */
     clone(): Geo
     getLat(): number
     getLon(): number
     setLat(lat: number): void
     setLon(lon: number): void
-    /* Methods of ICalGLib.Object */
+    /* Methods of ICalGLib-3.0.ICalGLib.Object */
     addDepender(depender: GObject.Object): void
     getIsGlobalMemory(): boolean
     refOwner(): GObject.Object | null
@@ -1345,7 +1291,7 @@ export class Geo {
     setNativeDestroyFunc(nativeDestroyFunc: GLib.DestroyNotify): void
     setOwner(owner: GObject.Object): void
     stealNative(): object | null
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -1367,21 +1313,12 @@ export class Geo {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Geo, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Geo, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::native-destroy-func", callback: (($obj: Geo, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::native-destroy-func", callback: (($obj: Geo, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::native-destroy-func", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -1413,14 +1350,14 @@ export interface Object_ConstructProps extends GObject.Object_ConstructProps {
     owner?: GObject.Object
 }
 export class Object {
-    /* Properties of ICalGLib.Object */
+    /* Properties of ICalGLib-3.0.ICalGLib.Object */
     nativeDestroyFunc: object
     owner: GObject.Object
-    /* Fields of ICalGLib.Object */
+    /* Fields of ICalGLib-3.0.ICalGLib.Object */
     parentInstance: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of ICalGLib.Object */
+    /* Methods of ICalGLib-3.0.ICalGLib.Object */
     addDepender(depender: GObject.Object): void
     getIsGlobalMemory(): boolean
     refOwner(): GObject.Object | null
@@ -1429,7 +1366,7 @@ export class Object {
     setNativeDestroyFunc(nativeDestroyFunc: GLib.DestroyNotify): void
     setOwner(owner: GObject.Object): void
     stealNative(): object | null
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -1451,21 +1388,12 @@ export class Object {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Object, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Object, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::native-destroy-func", callback: (($obj: Object, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::native-destroy-func", callback: (($obj: Object, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::native-destroy-func", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -1493,14 +1421,14 @@ export class Object {
 export interface Parameter_ConstructProps extends Object_ConstructProps {
 }
 export class Parameter {
-    /* Properties of ICalGLib.Object */
+    /* Properties of ICalGLib-3.0.ICalGLib.Object */
     nativeDestroyFunc: object
     owner: GObject.Object
-    /* Fields of ICalGLib.Object */
+    /* Fields of ICalGLib-3.0.ICalGLib.Object */
     parentInstance: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of ICalGLib.Parameter */
+    /* Methods of ICalGLib-3.0.ICalGLib.Parameter */
     asIcalString(): string
     clone(): Parameter
     getActionparam(): ParameterAction
@@ -1606,7 +1534,7 @@ export class Parameter {
     setXlicerrortype(v: ParameterXlicerrortype): void
     setXname(v: string): void
     setXvalue(v: string): void
-    /* Methods of ICalGLib.Object */
+    /* Methods of ICalGLib-3.0.ICalGLib.Object */
     addDepender(depender: GObject.Object): void
     getIsGlobalMemory(): boolean
     refOwner(): GObject.Object | null
@@ -1615,7 +1543,7 @@ export class Parameter {
     setNativeDestroyFunc(nativeDestroyFunc: GLib.DestroyNotify): void
     setOwner(owner: GObject.Object): void
     stealNative(): object | null
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -1637,21 +1565,12 @@ export class Parameter {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Parameter, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Parameter, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::native-destroy-func", callback: (($obj: Parameter, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::native-destroy-func", callback: (($obj: Parameter, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::native-destroy-func", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -1730,21 +1649,21 @@ export class Parameter {
 export interface Parser_ConstructProps extends Object_ConstructProps {
 }
 export class Parser {
-    /* Properties of ICalGLib.Object */
+    /* Properties of ICalGLib-3.0.ICalGLib.Object */
     nativeDestroyFunc: object
     owner: GObject.Object
-    /* Fields of ICalGLib.Object */
+    /* Fields of ICalGLib-3.0.ICalGLib.Object */
     parentInstance: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of ICalGLib.Parser */
+    /* Methods of ICalGLib-3.0.ICalGLib.Parser */
     addLine(str?: string | null): Component | null
     clean(): Component | null
     free(): void
     getLine(func: ParserLineGenFunc): string
     getState(): ParserState
     parse(func: ParserLineGenFunc): Component
-    /* Methods of ICalGLib.Object */
+    /* Methods of ICalGLib-3.0.ICalGLib.Object */
     addDepender(depender: GObject.Object): void
     getIsGlobalMemory(): boolean
     refOwner(): GObject.Object | null
@@ -1753,7 +1672,7 @@ export class Parser {
     setNativeDestroyFunc(nativeDestroyFunc: GLib.DestroyNotify): void
     setOwner(owner: GObject.Object): void
     stealNative(): object | null
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -1775,21 +1694,12 @@ export class Parser {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Parser, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Parser, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::native-destroy-func", callback: (($obj: Parser, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::native-destroy-func", callback: (($obj: Parser, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::native-destroy-func", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -1818,14 +1728,14 @@ export class Parser {
 export interface Period_ConstructProps extends Object_ConstructProps {
 }
 export class Period {
-    /* Properties of ICalGLib.Object */
+    /* Properties of ICalGLib-3.0.ICalGLib.Object */
     nativeDestroyFunc: object
     owner: GObject.Object
-    /* Fields of ICalGLib.Object */
+    /* Fields of ICalGLib-3.0.ICalGLib.Object */
     parentInstance: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of ICalGLib.Period */
+    /* Methods of ICalGLib-3.0.ICalGLib.Period */
     asIcalString(): string
     getDuration(): Duration
     getEnd(): Time
@@ -1835,7 +1745,7 @@ export class Period {
     setDuration(duration: Duration): void
     setEnd(end: Time): void
     setStart(start: Time): void
-    /* Methods of ICalGLib.Object */
+    /* Methods of ICalGLib-3.0.ICalGLib.Object */
     addDepender(depender: GObject.Object): void
     getIsGlobalMemory(): boolean
     refOwner(): GObject.Object | null
@@ -1844,7 +1754,7 @@ export class Period {
     setNativeDestroyFunc(nativeDestroyFunc: GLib.DestroyNotify): void
     setOwner(owner: GObject.Object): void
     stealNative(): object | null
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -1866,21 +1776,12 @@ export class Period {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Period, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Period, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::native-destroy-func", callback: (($obj: Period, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::native-destroy-func", callback: (($obj: Period, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::native-destroy-func", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -1909,14 +1810,14 @@ export class Period {
 export interface Property_ConstructProps extends Object_ConstructProps {
 }
 export class Property {
-    /* Properties of ICalGLib.Object */
+    /* Properties of ICalGLib-3.0.ICalGLib.Object */
     nativeDestroyFunc: object
     owner: GObject.Object
-    /* Fields of ICalGLib.Object */
+    /* Fields of ICalGLib-3.0.ICalGLib.Object */
     parentInstance: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of ICalGLib.Property */
+    /* Methods of ICalGLib-3.0.ICalGLib.Property */
     addParameter(parameter: Parameter): void
     asIcalString(): string
     clone(): Property
@@ -2169,7 +2070,7 @@ export class Property {
     setXlicmimeencoding(v: string): void
     setXlicmimefilename(v: string): void
     setXlicmimeoptinfo(v: string): void
-    /* Methods of ICalGLib.Object */
+    /* Methods of ICalGLib-3.0.ICalGLib.Object */
     addDepender(depender: GObject.Object): void
     getIsGlobalMemory(): boolean
     refOwner(): GObject.Object | null
@@ -2178,7 +2079,7 @@ export class Property {
     setNativeDestroyFunc(nativeDestroyFunc: GLib.DestroyNotify): void
     setOwner(owner: GObject.Object): void
     stealNative(): object | null
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -2200,21 +2101,12 @@ export class Property {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Property, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Property, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::native-destroy-func", callback: (($obj: Property, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::native-destroy-func", callback: (($obj: Property, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::native-destroy-func", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -2369,18 +2261,18 @@ export class Property {
 export interface RecurIterator_ConstructProps extends Object_ConstructProps {
 }
 export class RecurIterator {
-    /* Properties of ICalGLib.Object */
+    /* Properties of ICalGLib-3.0.ICalGLib.Object */
     nativeDestroyFunc: object
     owner: GObject.Object
-    /* Fields of ICalGLib.Object */
+    /* Fields of ICalGLib-3.0.ICalGLib.Object */
     parentInstance: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of ICalGLib.RecurIterator */
+    /* Methods of ICalGLib-3.0.ICalGLib.RecurIterator */
     next(): Time
     setEnd(end: Time): number
     setStart(start: Time): number
-    /* Methods of ICalGLib.Object */
+    /* Methods of ICalGLib-3.0.ICalGLib.Object */
     addDepender(depender: GObject.Object): void
     getIsGlobalMemory(): boolean
     refOwner(): GObject.Object | null
@@ -2389,7 +2281,7 @@ export class RecurIterator {
     setNativeDestroyFunc(nativeDestroyFunc: GLib.DestroyNotify): void
     setOwner(owner: GObject.Object): void
     stealNative(): object | null
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -2411,21 +2303,12 @@ export class RecurIterator {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: RecurIterator, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: RecurIterator, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::native-destroy-func", callback: (($obj: RecurIterator, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::native-destroy-func", callback: (($obj: RecurIterator, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::native-destroy-func", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -2453,14 +2336,14 @@ export class RecurIterator {
 export interface Recurrence_ConstructProps extends Object_ConstructProps {
 }
 export class Recurrence {
-    /* Properties of ICalGLib.Object */
+    /* Properties of ICalGLib-3.0.ICalGLib.Object */
     nativeDestroyFunc: object
     owner: GObject.Object
-    /* Fields of ICalGLib.Object */
+    /* Fields of ICalGLib-3.0.ICalGLib.Object */
     parentInstance: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of ICalGLib.Recurrence */
+    /* Methods of ICalGLib-3.0.ICalGLib.Recurrence */
     clear(): void
     getByDay(index: number): number
     getByDayArray(): number[]
@@ -2509,7 +2392,7 @@ export class Recurrence {
     setUntil(until: Time): void
     setWeekStart(weekStart: RecurrenceWeekday): void
     toString(): string
-    /* Methods of ICalGLib.Object */
+    /* Methods of ICalGLib-3.0.ICalGLib.Object */
     addDepender(depender: GObject.Object): void
     getIsGlobalMemory(): boolean
     refOwner(): GObject.Object | null
@@ -2518,7 +2401,7 @@ export class Recurrence {
     setNativeDestroyFunc(nativeDestroyFunc: GLib.DestroyNotify): void
     setOwner(owner: GObject.Object): void
     stealNative(): object | null
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -2540,21 +2423,12 @@ export class Recurrence {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Recurrence, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Recurrence, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::native-destroy-func", callback: (($obj: Recurrence, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::native-destroy-func", callback: (($obj: Recurrence, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::native-destroy-func", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -2597,20 +2471,20 @@ export class Recurrence {
 export interface Reqstat_ConstructProps extends Object_ConstructProps {
 }
 export class Reqstat {
-    /* Properties of ICalGLib.Object */
+    /* Properties of ICalGLib-3.0.ICalGLib.Object */
     nativeDestroyFunc: object
     owner: GObject.Object
-    /* Fields of ICalGLib.Object */
+    /* Fields of ICalGLib-3.0.ICalGLib.Object */
     parentInstance: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of ICalGLib.Reqstat */
+    /* Methods of ICalGLib-3.0.ICalGLib.Reqstat */
     getCode(): RequestStatus
     getDebug(): string
     getDesc(): string
     setCode(code: RequestStatus): void
     toString(): string
-    /* Methods of ICalGLib.Object */
+    /* Methods of ICalGLib-3.0.ICalGLib.Object */
     addDepender(depender: GObject.Object): void
     getIsGlobalMemory(): boolean
     refOwner(): GObject.Object | null
@@ -2619,7 +2493,7 @@ export class Reqstat {
     setNativeDestroyFunc(nativeDestroyFunc: GLib.DestroyNotify): void
     setOwner(owner: GObject.Object): void
     stealNative(): object | null
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -2641,21 +2515,12 @@ export class Reqstat {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Reqstat, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Reqstat, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::native-destroy-func", callback: (($obj: Reqstat, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::native-destroy-func", callback: (($obj: Reqstat, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::native-destroy-func", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -2683,14 +2548,14 @@ export class Reqstat {
 export interface Time_ConstructProps extends Object_ConstructProps {
 }
 export class Time {
-    /* Properties of ICalGLib.Object */
+    /* Properties of ICalGLib-3.0.ICalGLib.Object */
     nativeDestroyFunc: object
     owner: GObject.Object
-    /* Fields of ICalGLib.Object */
+    /* Fields of ICalGLib-3.0.ICalGLib.Object */
     parentInstance: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of ICalGLib.Time */
+    /* Methods of ICalGLib-3.0.ICalGLib.Time */
     add(d: Duration): Time
     adjust(days: number, hours: number, minutes: number, seconds: number): void
     asIcalString(): string
@@ -2705,13 +2570,13 @@ export class Time {
     convertToZoneInplace(zone?: Timezone | null): void
     dayOfWeek(): number
     dayOfYear(): number
-    getDate(): [ /* year */ number | null, /* month */ number | null, /* day */ number | null ]
+    getDate(): { year: number | null, month: number | null, day: number | null }
     getDay(): number
     getHour(): number
     getMinute(): number
     getMonth(): number
     getSecond(): number
-    getTime(): [ /* hour */ number | null, /* minute */ number | null, /* second */ number | null ]
+    getTime(): { hour: number | null, minute: number | null, second: number | null }
     getTimezone(): Timezone
     getTzid(): string | null
     getYear(): number
@@ -2736,7 +2601,7 @@ export class Time {
     startDoyWeek(fdow: number): number
     subtract(t2: Time): Duration
     weekNumber(): number
-    /* Methods of ICalGLib.Object */
+    /* Methods of ICalGLib-3.0.ICalGLib.Object */
     addDepender(depender: GObject.Object): void
     getIsGlobalMemory(): boolean
     refOwner(): GObject.Object | null
@@ -2745,7 +2610,7 @@ export class Time {
     setNativeDestroyFunc(nativeDestroyFunc: GLib.DestroyNotify): void
     setOwner(owner: GObject.Object): void
     stealNative(): object | null
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -2767,21 +2632,12 @@ export class Time {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Time, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Time, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::native-destroy-func", callback: (($obj: Time, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::native-destroy-func", callback: (($obj: Time, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::native-destroy-func", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -2820,14 +2676,14 @@ export class Time {
 export interface TimeSpan_ConstructProps extends Object_ConstructProps {
 }
 export class TimeSpan {
-    /* Properties of ICalGLib.Object */
+    /* Properties of ICalGLib-3.0.ICalGLib.Object */
     nativeDestroyFunc: object
     owner: GObject.Object
-    /* Fields of ICalGLib.Object */
+    /* Fields of ICalGLib-3.0.ICalGLib.Object */
     parentInstance: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of ICalGLib.TimeSpan */
+    /* Methods of ICalGLib-3.0.ICalGLib.TimeSpan */
     clone(): TimeSpan
     contains(container: TimeSpan): number
     getEnd(): number
@@ -2837,7 +2693,7 @@ export class TimeSpan {
     setEnd(end: number): void
     setIsBusy(isBusy: boolean): void
     setStart(start: number): void
-    /* Methods of ICalGLib.Object */
+    /* Methods of ICalGLib-3.0.ICalGLib.Object */
     addDepender(depender: GObject.Object): void
     getIsGlobalMemory(): boolean
     refOwner(): GObject.Object | null
@@ -2846,7 +2702,7 @@ export class TimeSpan {
     setNativeDestroyFunc(nativeDestroyFunc: GLib.DestroyNotify): void
     setOwner(owner: GObject.Object): void
     stealNative(): object | null
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -2868,21 +2724,12 @@ export class TimeSpan {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: TimeSpan, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: TimeSpan, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::native-destroy-func", callback: (($obj: TimeSpan, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::native-destroy-func", callback: (($obj: TimeSpan, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::native-destroy-func", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -2911,14 +2758,14 @@ export class TimeSpan {
 export interface Timezone_ConstructProps extends Object_ConstructProps {
 }
 export class Timezone {
-    /* Properties of ICalGLib.Object */
+    /* Properties of ICalGLib-3.0.ICalGLib.Object */
     nativeDestroyFunc: object
     owner: GObject.Object
-    /* Fields of ICalGLib.Object */
+    /* Fields of ICalGLib-3.0.ICalGLib.Object */
     parentInstance: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of ICalGLib.Timezone */
+    /* Methods of ICalGLib-3.0.ICalGLib.Timezone */
     copy(): Timezone
     dumpChanges(maxYear: number, fp?: object | null): number
     getComponent(): Component
@@ -2928,10 +2775,10 @@ export class Timezone {
     getLongitude(): number
     getTzid(): string | null
     getTznames(): string | null
-    getUtcOffset(tt?: Time | null): [ /* returnType */ number, /* isDaylight */ number | null ]
-    getUtcOffsetOfUtcTime(tt: Time): [ /* returnType */ number, /* isDaylight */ number | null ]
+    getUtcOffset(tt?: Time | null): { returnType: number, isDaylight: number | null }
+    getUtcOffsetOfUtcTime(tt: Time): { returnType: number, isDaylight: number | null }
     setComponent(comp: Component): number
-    /* Methods of ICalGLib.Object */
+    /* Methods of ICalGLib-3.0.ICalGLib.Object */
     addDepender(depender: GObject.Object): void
     getIsGlobalMemory(): boolean
     refOwner(): GObject.Object | null
@@ -2940,7 +2787,7 @@ export class Timezone {
     setNativeDestroyFunc(nativeDestroyFunc: GLib.DestroyNotify): void
     setOwner(owner: GObject.Object): void
     stealNative(): object | null
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -2962,21 +2809,12 @@ export class Timezone {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Timezone, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Timezone, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::native-destroy-func", callback: (($obj: Timezone, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::native-destroy-func", callback: (($obj: Timezone, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::native-destroy-func", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -3021,21 +2859,21 @@ export class Timezone {
 export interface Trigger_ConstructProps extends Object_ConstructProps {
 }
 export class Trigger {
-    /* Properties of ICalGLib.Object */
+    /* Properties of ICalGLib-3.0.ICalGLib.Object */
     nativeDestroyFunc: object
     owner: GObject.Object
-    /* Fields of ICalGLib.Object */
+    /* Fields of ICalGLib-3.0.ICalGLib.Object */
     parentInstance: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of ICalGLib.Trigger */
+    /* Methods of ICalGLib-3.0.ICalGLib.Trigger */
     getDuration(): Duration
     getTime(): Time
     isBadTrigger(): boolean
     isNullTrigger(): boolean
     setDuration(duration: Duration): void
     setTime(time: Time): void
-    /* Methods of ICalGLib.Object */
+    /* Methods of ICalGLib-3.0.ICalGLib.Object */
     addDepender(depender: GObject.Object): void
     getIsGlobalMemory(): boolean
     refOwner(): GObject.Object | null
@@ -3044,7 +2882,7 @@ export class Trigger {
     setNativeDestroyFunc(nativeDestroyFunc: GLib.DestroyNotify): void
     setOwner(owner: GObject.Object): void
     stealNative(): object | null
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -3066,21 +2904,12 @@ export class Trigger {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Trigger, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Trigger, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::native-destroy-func", callback: (($obj: Trigger, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::native-destroy-func", callback: (($obj: Trigger, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::native-destroy-func", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -3109,14 +2938,14 @@ export class Trigger {
 export interface Value_ConstructProps extends Object_ConstructProps {
 }
 export class Value {
-    /* Properties of ICalGLib.Object */
+    /* Properties of ICalGLib-3.0.ICalGLib.Object */
     nativeDestroyFunc: object
     owner: GObject.Object
-    /* Fields of ICalGLib.Object */
+    /* Fields of ICalGLib-3.0.ICalGLib.Object */
     parentInstance: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of ICalGLib.Value */
+    /* Methods of ICalGLib-3.0.ICalGLib.Value */
     asIcalString(): string
     clone(): Value
     compare(b: Value): ParameterXliccomparetype
@@ -3196,7 +3025,7 @@ export class Value {
     setUtcoffset(v: number): void
     setX(v: string): void
     setXlicclass(v: PropertyXlicclass): void
-    /* Methods of ICalGLib.Object */
+    /* Methods of ICalGLib-3.0.ICalGLib.Object */
     addDepender(depender: GObject.Object): void
     getIsGlobalMemory(): boolean
     refOwner(): GObject.Object | null
@@ -3205,7 +3034,7 @@ export class Value {
     setNativeDestroyFunc(nativeDestroyFunc: GLib.DestroyNotify): void
     setOwner(owner: GObject.Object): void
     stealNative(): object | null
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -3227,21 +3056,12 @@ export class Value {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Value, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Value, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::native-destroy-func", callback: (($obj: Value, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::native-destroy-func", callback: (($obj: Value, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::native-destroy-func", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -3369,97 +3189,97 @@ export abstract class ValueClass {
     static name: string
 }
 export class _Array {
-    /* Fields of ICalGLib._Array */
+    /* Fields of ICalGLib-3.0.ICalGLib._Array */
     parentInstance: Object
     static name: string
 }
 export class _Attach {
-    /* Fields of ICalGLib._Attach */
+    /* Fields of ICalGLib-3.0.ICalGLib._Attach */
     parentInstance: Object
     static name: string
 }
 export class _CompIter {
-    /* Fields of ICalGLib._CompIter */
+    /* Fields of ICalGLib-3.0.ICalGLib._CompIter */
     parentInstance: Object
     static name: string
 }
 export class _Component {
-    /* Fields of ICalGLib._Component */
+    /* Fields of ICalGLib-3.0.ICalGLib._Component */
     parentInstance: Object
     static name: string
 }
 export class _Datetimeperiod {
-    /* Fields of ICalGLib._Datetimeperiod */
+    /* Fields of ICalGLib-3.0.ICalGLib._Datetimeperiod */
     parentInstance: Object
     static name: string
 }
 export class _Duration {
-    /* Fields of ICalGLib._Duration */
+    /* Fields of ICalGLib-3.0.ICalGLib._Duration */
     parentInstance: Object
     static name: string
 }
 export class _Geo {
-    /* Fields of ICalGLib._Geo */
+    /* Fields of ICalGLib-3.0.ICalGLib._Geo */
     parentInstance: Object
     static name: string
 }
 export class _Parameter {
-    /* Fields of ICalGLib._Parameter */
+    /* Fields of ICalGLib-3.0.ICalGLib._Parameter */
     parentInstance: Object
     static name: string
 }
 export class _Parser {
-    /* Fields of ICalGLib._Parser */
+    /* Fields of ICalGLib-3.0.ICalGLib._Parser */
     parentInstance: Object
     static name: string
 }
 export class _Period {
-    /* Fields of ICalGLib._Period */
+    /* Fields of ICalGLib-3.0.ICalGLib._Period */
     parentInstance: Object
     static name: string
 }
 export class _Property {
-    /* Fields of ICalGLib._Property */
+    /* Fields of ICalGLib-3.0.ICalGLib._Property */
     parentInstance: Object
     static name: string
 }
 export class _RecurIterator {
-    /* Fields of ICalGLib._RecurIterator */
+    /* Fields of ICalGLib-3.0.ICalGLib._RecurIterator */
     parentInstance: Object
     static name: string
 }
 export class _Recurrence {
-    /* Fields of ICalGLib._Recurrence */
+    /* Fields of ICalGLib-3.0.ICalGLib._Recurrence */
     parentInstance: Object
     static name: string
 }
 export class _Reqstat {
-    /* Fields of ICalGLib._Reqstat */
+    /* Fields of ICalGLib-3.0.ICalGLib._Reqstat */
     parentInstance: Object
     static name: string
 }
 export class _Time {
-    /* Fields of ICalGLib._Time */
+    /* Fields of ICalGLib-3.0.ICalGLib._Time */
     parentInstance: Object
     static name: string
 }
 export class _TimeSpan {
-    /* Fields of ICalGLib._TimeSpan */
+    /* Fields of ICalGLib-3.0.ICalGLib._TimeSpan */
     parentInstance: Object
     static name: string
 }
 export class _Timezone {
-    /* Fields of ICalGLib._Timezone */
+    /* Fields of ICalGLib-3.0.ICalGLib._Timezone */
     parentInstance: Object
     static name: string
 }
 export class _Trigger {
-    /* Fields of ICalGLib._Trigger */
+    /* Fields of ICalGLib-3.0.ICalGLib._Trigger */
     parentInstance: Object
     static name: string
 }
 export class _Value {
-    /* Fields of ICalGLib._Value */
+    /* Fields of ICalGLib-3.0.ICalGLib._Value */
     parentInstance: Object
     static name: string
 }

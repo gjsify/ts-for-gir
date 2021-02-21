@@ -422,7 +422,7 @@ export interface KeyCallback {
     (device: Device, pressed: boolean, keycode: number, keysym: number, modifiers: number, keystring: string): void
 }
 export class Action {
-    /* Methods of Atspi.Action */
+    /* Methods of Atspi-2.0.Atspi.Action */
     doAction(i: number): boolean
     getActionDescription(i: number): string
     getKeyBinding(i: number): string
@@ -432,7 +432,7 @@ export class Action {
     static name: string
 }
 export class Collection {
-    /* Methods of Atspi.Collection */
+    /* Methods of Atspi-2.0.Atspi.Collection */
     getActiveDescendant(): Accessible
     getMatches(rule: MatchRule, sortby: CollectionSortOrder, count: number, traverse: boolean): Accessible[]
     getMatchesFrom(currentObject: Accessible, rule: MatchRule, sortby: CollectionSortOrder, tree: CollectionTreeTraversalType, count: number, traverse: boolean): Accessible[]
@@ -441,7 +441,7 @@ export class Collection {
     static name: string
 }
 export class Component {
-    /* Methods of Atspi.Component */
+    /* Methods of Atspi-2.0.Atspi.Component */
     contains(x: number, y: number, ctype: CoordType): boolean
     getAccessibleAtPoint(x: number, y: number, ctype: CoordType): Accessible | null
     getAlpha(): number
@@ -459,7 +459,7 @@ export class Component {
     static name: string
 }
 export class Document {
-    /* Methods of Atspi.Document */
+    /* Methods of Atspi-2.0.Atspi.Document */
     getDocumentAttributeValue(attribute: string): string
     getDocumentAttributes(): GLib.HashTable
     getCurrentPageNumber(): number
@@ -468,7 +468,7 @@ export class Document {
     static name: string
 }
 export class EditableText {
-    /* Methods of Atspi.EditableText */
+    /* Methods of Atspi-2.0.Atspi.EditableText */
     copyText(startPos: number, endPos: number): boolean
     cutText(startPos: number, endPos: number): boolean
     deleteText(startPos: number, endPos: number): boolean
@@ -478,14 +478,14 @@ export class EditableText {
     static name: string
 }
 export class Hypertext {
-    /* Methods of Atspi.Hypertext */
+    /* Methods of Atspi-2.0.Atspi.Hypertext */
     getLink(linkIndex: number): Hyperlink | null
     getLinkIndex(characterOffset: number): number
     getNLinks(): number
     static name: string
 }
 export class Image {
-    /* Methods of Atspi.Image */
+    /* Methods of Atspi-2.0.Atspi.Image */
     getImageDescription(): string
     getImageExtents(ctype: CoordType): Rect
     getImageLocale(): string
@@ -494,7 +494,7 @@ export class Image {
     static name: string
 }
 export class Selection {
-    /* Methods of Atspi.Selection */
+    /* Methods of Atspi-2.0.Atspi.Selection */
     clearSelection(): boolean
     deselectChild(childIndex: number): boolean
     deselectSelectedChild(selectedChildIndex: number): boolean
@@ -506,7 +506,7 @@ export class Selection {
     static name: string
 }
 export class Table {
-    /* Methods of Atspi.Table */
+    /* Methods of Atspi-2.0.Atspi.Table */
     addColumnSelection(column: number): boolean
     addRowSelection(row: number): boolean
     getAccessibleAt(row: number, column: number): Accessible
@@ -521,7 +521,7 @@ export class Table {
     getNSelectedColumns(): number
     getNSelectedRows(): number
     getRowAtIndex(index: number): number
-    getRowColumnExtentsAtIndex(index: number): [ /* returnType */ boolean, /* row */ number, /* col */ number, /* rowExtents */ number, /* colExtents */ number, /* isSelected */ boolean ]
+    getRowColumnExtentsAtIndex(index: number): { returnType: boolean, row: number, col: number, rowExtents: number, colExtents: number, isSelected: boolean }
     getRowDescription(row: number): string
     getRowExtentAt(row: number, column: number): number
     getRowHeader(row: number): Accessible
@@ -536,23 +536,23 @@ export class Table {
     static name: string
 }
 export class TableCell {
-    /* Methods of Atspi.TableCell */
+    /* Methods of Atspi-2.0.Atspi.TableCell */
     getColumnHeaderCells(): Accessible[]
     getColumnIndex(): number
     getColumnSpan(): number
-    getPosition(): [ /* returnType */ number, /* row */ number, /* column */ number ]
-    getRowColumnSpan(): [ /* row */ number, /* column */ number, /* rowSpan */ number, /* columnSpan */ number ]
+    getPosition(): { returnType: number, row: number, column: number }
+    getRowColumnSpan(): { row: number, column: number, rowSpan: number, columnSpan: number }
     getRowHeaderCells(): Accessible[]
     getRowSpan(): number
     getTable(): Accessible
     static name: string
 }
 export class Text {
-    /* Methods of Atspi.Text */
+    /* Methods of Atspi-2.0.Atspi.Text */
     addSelection(startOffset: number, endOffset: number): boolean
-    getAttributeRun(offset: number, includeDefaults: boolean): [ /* returnType */ GLib.HashTable, /* startOffset */ number, /* endOffset */ number ]
+    getAttributeRun(offset: number, includeDefaults: boolean): { returnType: GLib.HashTable, startOffset: number, endOffset: number }
     getTextAttributeValue(offset: number, attributeName: string): string | null
-    getTextAttributes(offset: number): [ /* returnType */ GLib.HashTable, /* startOffset */ number, /* endOffset */ number ]
+    getTextAttributes(offset: number): { returnType: GLib.HashTable, startOffset: number, endOffset: number }
     getBoundedRanges(x: number, y: number, width: number, height: number, type: CoordType, clipTypeX: TextClipType, clipTypeY: TextClipType): TextRange[]
     getCaretOffset(): number
     getCharacterAtOffset(offset: number): number
@@ -576,7 +576,7 @@ export class Text {
     static name: string
 }
 export class Value {
-    /* Methods of Atspi.Value */
+    /* Methods of Atspi-2.0.Atspi.Value */
     getCurrentValue(): number
     getMaximumValue(): number
     getMinimumIncrement(): number
@@ -587,7 +587,7 @@ export class Value {
 export interface Accessible_ConstructProps extends Object_ConstructProps {
 }
 export class Accessible {
-    /* Fields of Atspi.Accessible */
+    /* Fields of Atspi-2.0.Atspi.Accessible */
     parent: Object
     accessibleParent: Accessible
     children: object[]
@@ -599,12 +599,12 @@ export class Accessible {
     attributes: GLib.HashTable
     cachedProperties: number
     priv: AccessiblePrivate
-    /* Fields of Atspi.Object */
+    /* Fields of Atspi-2.0.Atspi.Object */
     app: Application
     path: string
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Atspi.Accessible */
+    /* Methods of Atspi-2.0.Atspi.Accessible */
     clearCache(): void
     getAccessibleId(): string
     getActionIface(): Action
@@ -642,7 +642,7 @@ export class Accessible {
     getToolkitVersion(): string
     getValueIface(): Value
     setCacheMask(mask: Cache): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -664,20 +664,20 @@ export class Accessible {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of Atspi.Action */
+    /* Methods of Atspi-2.0.Atspi.Action */
     doAction(i: number): boolean
     getActionDescription(i: number): string
     getKeyBinding(i: number): string
     getLocalizedName(i: number): string
     getNActions(): number
     getActionName(i: number): string
-    /* Methods of Atspi.Collection */
+    /* Methods of Atspi-2.0.Atspi.Collection */
     getActiveDescendant(): Accessible
     getMatches(rule: MatchRule, sortby: CollectionSortOrder, count: number, traverse: boolean): Accessible[]
     getMatchesFrom(currentObject: Accessible, rule: MatchRule, sortby: CollectionSortOrder, tree: CollectionTreeTraversalType, count: number, traverse: boolean): Accessible[]
     getMatchesTo(currentObject: Accessible, rule: MatchRule, sortby: CollectionSortOrder, tree: CollectionTreeTraversalType, limitScope: boolean, count: number, traverse: boolean): Accessible[]
     isAncestorOf(test: Accessible): boolean
-    /* Methods of Atspi.Component */
+    /* Methods of Atspi-2.0.Atspi.Component */
     contains(x: number, y: number, ctype: CoordType): boolean
     getAccessibleAtPoint(x: number, y: number, ctype: CoordType): Accessible | null
     getAlpha(): number
@@ -692,30 +692,30 @@ export class Accessible {
     setExtents(x: number, y: number, width: number, height: number, ctype: CoordType): boolean
     setPosition(x: number, y: number, ctype: CoordType): boolean
     setSize(width: number, height: number): boolean
-    /* Methods of Atspi.Document */
+    /* Methods of Atspi-2.0.Atspi.Document */
     getDocumentAttributeValue(attribute: string): string
     getDocumentAttributes(): GLib.HashTable
     getCurrentPageNumber(): number
     getLocale(): string
     getPageCount(): number
-    /* Methods of Atspi.EditableText */
+    /* Methods of Atspi-2.0.Atspi.EditableText */
     copyText(startPos: number, endPos: number): boolean
     cutText(startPos: number, endPos: number): boolean
     deleteText(startPos: number, endPos: number): boolean
     insertText(position: number, text: string, length: number): boolean
     pasteText(position: number): boolean
     setTextContents(newContents: string): boolean
-    /* Methods of Atspi.Hypertext */
+    /* Methods of Atspi-2.0.Atspi.Hypertext */
     getLink(linkIndex: number): Hyperlink | null
     getLinkIndex(characterOffset: number): number
     getNLinks(): number
-    /* Methods of Atspi.Image */
+    /* Methods of Atspi-2.0.Atspi.Image */
     getImageDescription(): string
     getImageExtents(ctype: CoordType): Rect
     getImageLocale(): string
     getImagePosition(ctype: CoordType): Point
     getImageSize(): Point
-    /* Methods of Atspi.Selection */
+    /* Methods of Atspi-2.0.Atspi.Selection */
     clearSelection(): boolean
     deselectChild(childIndex: number): boolean
     deselectSelectedChild(selectedChildIndex: number): boolean
@@ -724,7 +724,7 @@ export class Accessible {
     isChildSelected(childIndex: number): boolean
     selectAll(): boolean
     selectChild(childIndex: number): boolean
-    /* Methods of Atspi.Table */
+    /* Methods of Atspi-2.0.Atspi.Table */
     addColumnSelection(column: number): boolean
     addRowSelection(row: number): boolean
     getAccessibleAt(row: number, column: number): Accessible
@@ -739,7 +739,7 @@ export class Accessible {
     getNSelectedColumns(): number
     getNSelectedRows(): number
     getRowAtIndex(index: number): number
-    getRowColumnExtentsAtIndex(index: number): [ /* returnType */ boolean, /* row */ number, /* col */ number, /* rowExtents */ number, /* colExtents */ number, /* isSelected */ boolean ]
+    getRowColumnExtentsAtIndex(index: number): { returnType: boolean, row: number, col: number, rowExtents: number, colExtents: number, isSelected: boolean }
     getRowDescription(row: number): string
     getRowExtentAt(row: number, column: number): number
     getRowHeader(row: number): Accessible
@@ -751,20 +751,20 @@ export class Accessible {
     isSelected(row: number, column: number): boolean
     removeColumnSelection(column: number): boolean
     removeRowSelection(row: number): boolean
-    /* Methods of Atspi.TableCell */
+    /* Methods of Atspi-2.0.Atspi.TableCell */
     getColumnHeaderCells(): Accessible[]
     getColumnIndex(): number
     getColumnSpan(): number
-    getPosition(): [ /* returnType */ number, /* row */ number, /* column */ number ]
-    getRowColumnSpan(): [ /* row */ number, /* column */ number, /* rowSpan */ number, /* columnSpan */ number ]
+    getPosition(): { returnType: number, row: number, column: number }
+    getRowColumnSpan(): { row: number, column: number, rowSpan: number, columnSpan: number }
     getRowHeaderCells(): Accessible[]
     getRowSpan(): number
     getTable(): Accessible
-    /* Methods of Atspi.Text */
+    /* Methods of Atspi-2.0.Atspi.Text */
     addSelection(startOffset: number, endOffset: number): boolean
-    getAttributeRun(offset: number, includeDefaults: boolean): [ /* returnType */ GLib.HashTable, /* startOffset */ number, /* endOffset */ number ]
+    getAttributeRun(offset: number, includeDefaults: boolean): { returnType: GLib.HashTable, startOffset: number, endOffset: number }
     getTextAttributeValue(offset: number, attributeName: string): string | null
-    getTextAttributes(offset: number): [ /* returnType */ GLib.HashTable, /* startOffset */ number, /* endOffset */ number ]
+    getTextAttributes(offset: number): { returnType: GLib.HashTable, startOffset: number, endOffset: number }
     getBoundedRanges(x: number, y: number, width: number, height: number, type: CoordType, clipTypeX: TextClipType, clipTypeY: TextClipType): TextRange[]
     getCaretOffset(): number
     getCharacterAtOffset(offset: number): number
@@ -785,43 +785,29 @@ export class Accessible {
     scrollSubstringToPoint(startOffset: number, endOffset: number, coords: CoordType, x: number, y: number): boolean
     setCaretOffset(newOffset: number): boolean
     setSelection(selectionNum: number, startOffset: number, endOffset: number): boolean
-    /* Methods of Atspi.Value */
+    /* Methods of Atspi-2.0.Atspi.Value */
     getCurrentValue(): number
     getMaximumValue(): number
     getMinimumIncrement(): number
     getMinimumValue(): number
     setCurrentValue(newValue: number): boolean
-    /* Virtual methods of Atspi.Accessible */
-    vfuncModeChanged(enabled: boolean): void
-    vfuncRegionChanged(currentOffset: number, lastOffset: number): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Atspi.Accessible */
+    /* Signals of Atspi-2.0.Atspi.Accessible */
     connect(sigName: "mode-changed", callback: (($obj: Accessible, arg1: number, why: string) => void)): number
-    connect_after(sigName: "mode-changed", callback: (($obj: Accessible, arg1: number, why: string) => void)): number
+    on(sigName: "mode-changed", callback: (arg1: number, why: string) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "mode-changed", callback: (arg1: number, why: string) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "mode-changed", callback: (arg1: number, why: string) => void): NodeJS.EventEmitter
     emit(sigName: "mode-changed", arg1: number, why: string): void
-    on(sigName: "mode-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "mode-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "mode-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "region-changed", callback: (($obj: Accessible, arg1: number, arg2: number) => void)): number
-    connect_after(sigName: "region-changed", callback: (($obj: Accessible, arg1: number, arg2: number) => void)): number
+    on(sigName: "region-changed", callback: (arg1: number, arg2: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "region-changed", callback: (arg1: number, arg2: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "region-changed", callback: (arg1: number, arg2: number) => void): NodeJS.EventEmitter
     emit(sigName: "region-changed", arg1: number, arg2: number): void
-    on(sigName: "region-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "region-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "region-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Accessible, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Accessible, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -837,7 +823,7 @@ export class Accessible {
 export interface Application_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class Application {
-    /* Fields of Atspi.Application */
+    /* Fields of Atspi-2.0.Atspi.Application */
     parent: GObject.Object
     hash: GLib.HashTable
     busName: string
@@ -848,9 +834,9 @@ export class Application {
     toolkitVersion: string
     atspiVersion: string
     timeAdded: object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -872,21 +858,12 @@ export class Application {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Application, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Application, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -902,11 +879,11 @@ export class Application {
 export interface Device_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class Device {
-    /* Fields of Atspi.Device */
+    /* Fields of Atspi-2.0.Atspi.Device */
     parent: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Atspi.Device */
+    /* Methods of Atspi-2.0.Atspi.Device */
     addKeyGrab(kd: KeyDefinition, callback: KeyCallback | null): number
     addKeyWatcher(): void
     getGrabById(id: number): KeyDefinition
@@ -918,7 +895,7 @@ export class Device {
     removeKeyGrab(id: number): void
     ungrabKeyboard(): void
     unmapModifier(keycode: number): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -940,30 +917,12 @@ export class Device {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of Atspi.Device */
-    vfuncAddKeyGrab(kd: KeyDefinition): void
-    vfuncGetLockedModifiers(): number
-    vfuncGetModifier(keycode: number): number
-    vfuncGrabKeyboard(): boolean
-    vfuncMapModifier(keycode: number): number
-    vfuncRemoveKeyGrab(id: number): void
-    vfuncUngrabKeyboard(): void
-    vfuncUnmapModifier(keycode: number): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Device, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Device, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -981,11 +940,11 @@ export class Device {
 export interface DeviceLegacy_ConstructProps extends Device_ConstructProps {
 }
 export class DeviceLegacy {
-    /* Fields of Atspi.DeviceLegacy */
+    /* Fields of Atspi-2.0.Atspi.DeviceLegacy */
     parent: Device
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Atspi.Device */
+    /* Methods of Atspi-2.0.Atspi.Device */
     addKeyGrab(kd: KeyDefinition, callback: KeyCallback | null): number
     addKeyWatcher(): void
     getGrabById(id: number): KeyDefinition
@@ -997,7 +956,7 @@ export class DeviceLegacy {
     removeKeyGrab(id: number): void
     ungrabKeyboard(): void
     unmapModifier(keycode: number): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -1019,30 +978,12 @@ export class DeviceLegacy {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of Atspi.Device */
-    vfuncAddKeyGrab(kd: KeyDefinition): void
-    vfuncGetLockedModifiers(): number
-    vfuncGetModifier(keycode: number): number
-    vfuncGrabKeyboard(): boolean
-    vfuncMapModifier(keycode: number): number
-    vfuncRemoveKeyGrab(id: number): void
-    vfuncUngrabKeyboard(): void
-    vfuncUnmapModifier(keycode: number): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: DeviceLegacy, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: DeviceLegacy, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -1060,16 +1001,16 @@ export class DeviceLegacy {
 export interface DeviceListener_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class DeviceListener {
-    /* Fields of Atspi.DeviceListener */
+    /* Fields of Atspi-2.0.Atspi.DeviceListener */
     parent: GObject.Object
     id: number
     callbacks: object[]
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Atspi.DeviceListener */
+    /* Methods of Atspi-2.0.Atspi.DeviceListener */
     addCallback(callback: DeviceListenerCB): void
     removeCallback(callback: DeviceListenerCB): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -1091,23 +1032,12 @@ export class DeviceListener {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of Atspi.DeviceListener */
-    vfuncDeviceEvent(event: DeviceEvent): boolean
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: DeviceListener, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: DeviceListener, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -1125,11 +1055,11 @@ export class DeviceListener {
 export interface DeviceX11_ConstructProps extends Device_ConstructProps {
 }
 export class DeviceX11 {
-    /* Fields of Atspi.DeviceX11 */
+    /* Fields of Atspi-2.0.Atspi.DeviceX11 */
     parent: Device
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Atspi.Device */
+    /* Methods of Atspi-2.0.Atspi.Device */
     addKeyGrab(kd: KeyDefinition, callback: KeyCallback | null): number
     addKeyWatcher(): void
     getGrabById(id: number): KeyDefinition
@@ -1141,7 +1071,7 @@ export class DeviceX11 {
     removeKeyGrab(id: number): void
     ungrabKeyboard(): void
     unmapModifier(keycode: number): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -1163,30 +1093,12 @@ export class DeviceX11 {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of Atspi.Device */
-    vfuncAddKeyGrab(kd: KeyDefinition): void
-    vfuncGetLockedModifiers(): number
-    vfuncGetModifier(keycode: number): number
-    vfuncGrabKeyboard(): boolean
-    vfuncMapModifier(keycode: number): number
-    vfuncRemoveKeyGrab(id: number): void
-    vfuncUngrabKeyboard(): void
-    vfuncUnmapModifier(keycode: number): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: DeviceX11, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: DeviceX11, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -1204,18 +1116,18 @@ export class DeviceX11 {
 export interface EventListener_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class EventListener {
-    /* Fields of Atspi.EventListener */
+    /* Fields of Atspi-2.0.Atspi.EventListener */
     parent: GObject.Object
     callback: EventListenerCB
     userData: object
     cbDestroyed: GLib.DestroyNotify
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Atspi.EventListener */
+    /* Methods of Atspi-2.0.Atspi.EventListener */
     deregister(eventType: string): boolean
     register(eventType: string): boolean
     registerFull(eventType: string, properties?: string[] | null): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -1237,21 +1149,12 @@ export class EventListener {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: EventListener, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: EventListener, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -1272,14 +1175,14 @@ export class EventListener {
 export interface Hyperlink_ConstructProps extends Object_ConstructProps {
 }
 export class Hyperlink {
-    /* Fields of Atspi.Hyperlink */
+    /* Fields of Atspi-2.0.Atspi.Hyperlink */
     parent: Object
-    /* Fields of Atspi.Object */
+    /* Fields of Atspi-2.0.Atspi.Object */
     app: Application
     path: string
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Atspi.Hyperlink */
+    /* Methods of Atspi-2.0.Atspi.Hyperlink */
     getEndIndex(): number
     getIndexRange(): Range
     getNAnchors(): number
@@ -1287,7 +1190,7 @@ export class Hyperlink {
     getStartIndex(): number
     getUri(i: number): string
     isValid(): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -1309,21 +1212,12 @@ export class Hyperlink {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Hyperlink, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Hyperlink, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -1339,7 +1233,7 @@ export class Hyperlink {
 export interface MatchRule_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class MatchRule {
-    /* Fields of Atspi.MatchRule */
+    /* Fields of Atspi-2.0.Atspi.MatchRule */
     parent: GObject.Object
     states: StateSet
     statematchtype: CollectionMatchType
@@ -1350,9 +1244,9 @@ export class MatchRule {
     roles: number[]
     rolematchtype: CollectionMatchType
     invert: boolean
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -1374,21 +1268,12 @@ export class MatchRule {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: MatchRule, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: MatchRule, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -1406,13 +1291,13 @@ export class MatchRule {
 export interface Object_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class Object {
-    /* Fields of Atspi.Object */
+    /* Fields of Atspi-2.0.Atspi.Object */
     parent: GObject.Object
     app: Application
     path: string
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -1434,21 +1319,12 @@ export class Object {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Object, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Object, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -1464,17 +1340,17 @@ export class Object {
 export interface Relation_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class Relation {
-    /* Fields of Atspi.Relation */
+    /* Fields of Atspi-2.0.Atspi.Relation */
     parent: GObject.Object
     relationType: RelationType
     targets: object[]
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Atspi.Relation */
+    /* Methods of Atspi-2.0.Atspi.Relation */
     getNTargets(): number
     getRelationType(): RelationType
     getTarget(i: number): Accessible
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -1496,21 +1372,12 @@ export class Relation {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Relation, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Relation, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -1526,13 +1393,13 @@ export class Relation {
 export interface StateSet_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class StateSet {
-    /* Fields of Atspi.StateSet */
+    /* Fields of Atspi-2.0.Atspi.StateSet */
     parent: GObject.Object
     accessible: object
     states: number
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Atspi.StateSet */
+    /* Methods of Atspi-2.0.Atspi.StateSet */
     add(state: StateType): void
     compare(set2: StateSet): StateSet
     contains(state: StateType): boolean
@@ -1541,7 +1408,7 @@ export class StateSet {
     isEmpty(): boolean
     remove(state: StateType): void
     setByName(name: string, enabled: boolean): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -1563,21 +1430,12 @@ export class StateSet {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: StateSet, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: StateSet, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -1593,7 +1451,7 @@ export class StateSet {
     static $gtype: GObject.Type
 }
 export abstract class AccessibleClass {
-    /* Fields of Atspi.AccessibleClass */
+    /* Fields of Atspi-2.0.Atspi.AccessibleClass */
     parentClass: ObjectClass
     regionChanged: (accessible: Accessible, currentOffset: number, lastOffset: number) => void
     modeChanged: (accessible: Accessible, enabled: boolean) => void
@@ -1603,12 +1461,12 @@ export class AccessiblePrivate {
     static name: string
 }
 export abstract class ApplicationClass {
-    /* Fields of Atspi.ApplicationClass */
+    /* Fields of Atspi-2.0.Atspi.ApplicationClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
 export abstract class DeviceClass {
-    /* Fields of Atspi.DeviceClass */
+    /* Fields of Atspi-2.0.Atspi.DeviceClass */
     parentClass: GObject.ObjectClass
     addKeyGrab: (device: Device, kd: KeyDefinition) => void
     removeKeyGrab: (device: Device, id: number) => void
@@ -1621,7 +1479,7 @@ export abstract class DeviceClass {
     static name: string
 }
 export class DeviceEvent {
-    /* Fields of Atspi.DeviceEvent */
+    /* Fields of Atspi-2.0.Atspi.DeviceEvent */
     type: EventType
     id: number
     hwCode: number
@@ -1632,23 +1490,23 @@ export class DeviceEvent {
     static name: string
 }
 export abstract class DeviceLegacyClass {
-    /* Fields of Atspi.DeviceLegacyClass */
+    /* Fields of Atspi-2.0.Atspi.DeviceLegacyClass */
     parentClass: DeviceClass
     static name: string
 }
 export abstract class DeviceListenerClass {
-    /* Fields of Atspi.DeviceListenerClass */
+    /* Fields of Atspi-2.0.Atspi.DeviceListenerClass */
     parentClass: GObject.ObjectClass
     deviceEvent: (listener: DeviceListener, event: DeviceEvent) => boolean
     static name: string
 }
 export abstract class DeviceX11Class {
-    /* Fields of Atspi.DeviceX11Class */
+    /* Fields of Atspi-2.0.Atspi.DeviceX11Class */
     parentClass: DeviceClass
     static name: string
 }
 export class Event {
-    /* Fields of Atspi.Event */
+    /* Fields of Atspi-2.0.Atspi.Event */
     type: string
     source: Accessible
     detail1: number
@@ -1661,24 +1519,24 @@ export class Event {
     static quit(): void
 }
 export abstract class EventListenerClass {
-    /* Fields of Atspi.EventListenerClass */
+    /* Fields of Atspi-2.0.Atspi.EventListenerClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
 export class EventListenerMode {
-    /* Fields of Atspi.EventListenerMode */
+    /* Fields of Atspi-2.0.Atspi.EventListenerMode */
     synchronous: boolean
     preemptive: boolean
     global: boolean
     static name: string
 }
 export abstract class HyperlinkClass {
-    /* Fields of Atspi.HyperlinkClass */
+    /* Fields of Atspi-2.0.Atspi.HyperlinkClass */
     parentClass: ObjectClass
     static name: string
 }
 export class KeyDefinition {
-    /* Fields of Atspi.KeyDefinition */
+    /* Fields of Atspi-2.0.Atspi.KeyDefinition */
     keycode: number
     keysym: number
     keystring: string
@@ -1686,7 +1544,7 @@ export class KeyDefinition {
     static name: string
 }
 export class KeySet {
-    /* Fields of Atspi.KeySet */
+    /* Fields of Atspi-2.0.Atspi.KeySet */
     keysyms: number
     keycodes: number
     keystrings: string
@@ -1694,53 +1552,53 @@ export class KeySet {
     static name: string
 }
 export abstract class MatchRuleClass {
-    /* Fields of Atspi.MatchRuleClass */
+    /* Fields of Atspi-2.0.Atspi.MatchRuleClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
 export abstract class ObjectClass {
-    /* Fields of Atspi.ObjectClass */
+    /* Fields of Atspi-2.0.Atspi.ObjectClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
 export class Point {
-    /* Fields of Atspi.Point */
+    /* Fields of Atspi-2.0.Atspi.Point */
     x: number
     y: number
-    /* Methods of Atspi.Point */
+    /* Methods of Atspi-2.0.Atspi.Point */
     copy(): Point
     static name: string
 }
 export class Range {
-    /* Fields of Atspi.Range */
+    /* Fields of Atspi-2.0.Atspi.Range */
     startOffset: number
     endOffset: number
-    /* Methods of Atspi.Range */
+    /* Methods of Atspi-2.0.Atspi.Range */
     copy(): Range
     static name: string
 }
 export class Rect {
-    /* Fields of Atspi.Rect */
+    /* Fields of Atspi-2.0.Atspi.Rect */
     x: number
     y: number
     width: number
     height: number
-    /* Methods of Atspi.Rect */
+    /* Methods of Atspi-2.0.Atspi.Rect */
     copy(): Rect
     static name: string
 }
 export abstract class RelationClass {
-    /* Fields of Atspi.RelationClass */
+    /* Fields of Atspi-2.0.Atspi.RelationClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
 export abstract class StateSetClass {
-    /* Fields of Atspi.StateSetClass */
+    /* Fields of Atspi-2.0.Atspi.StateSetClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
 export class TextRange {
-    /* Fields of Atspi.TextRange */
+    /* Fields of Atspi-2.0.Atspi.TextRange */
     startOffset: number
     endOffset: number
     content: string

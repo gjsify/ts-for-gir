@@ -211,7 +211,7 @@ export function edgeName(edge: Edge): string
 export function editModeName(mode: EditMode): string
 export function findFormatterForUri(uri: string): Asset
 export function init(): boolean
-export function initCheck(argv?: string[] | null): [ /* returnType */ boolean, /* argv */ string[] | null ]
+export function initCheck(argv?: string[] | null): { returnType: boolean, argv: string[] | null }
 export function isInitialized(): boolean
 export function listAssets(filter: GObject.Type): Asset[]
 export function playSinkConvertFrame(playsink: Gst.Element, caps: Gst.Caps): Gst.Sample
@@ -219,7 +219,7 @@ export function pspecEqual(keySpec1?: object | null, keySpec2?: object | null): 
 export function pspecHash(keySpec?: object | null): number
 export function trackTypeName(type: TrackType): string
 export function validateRegisterActionTypes(): boolean
-export function version(): [ /* major */ number, /* minor */ number, /* micro */ number, /* nano */ number ]
+export function version(): { major: number, minor: number, micro: number, nano: number }
 export interface BaseEffectTimeTranslationFunc {
     (effect: BaseEffect, time: Gst.ClockTime, timePropertyValues: GLib.HashTable): Gst.ClockTime
 }
@@ -250,13 +250,13 @@ export interface MetaForeachFunc {
 export interface Extractable_ConstructProps extends GObject.InitiallyUnowned_ConstructProps {
 }
 export class Extractable {
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GES.Extractable */
+    /* Methods of GES-1.0.GES.Extractable */
     getAsset(): Asset | null
     getId(): string
     setAsset(asset: Asset): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -278,25 +278,12 @@ export class Extractable {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GES.Extractable */
-    vfuncGetId(): string
-    vfuncSetAsset(asset: Asset): void
-    vfuncSetAssetFull(asset: Asset): boolean
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Extractable, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Extractable, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -310,22 +297,22 @@ export class Extractable {
     static $gtype: GObject.Type
 }
 export class MetaContainer {
-    /* Methods of GES.MetaContainer */
+    /* Methods of GES-1.0.GES.MetaContainer */
     addMetasFromString(str: string): boolean
-    checkMetaRegistered(metaItem: string): [ /* returnType */ boolean, /* flags */ MetaFlag | null, /* type */ GObject.Type | null ]
+    checkMetaRegistered(metaItem: string): { returnType: boolean, flags: MetaFlag | null, type: GObject.Type | null }
     foreach(func: MetaForeachFunc): void
-    getBoolean(metaItem: string): [ /* returnType */ boolean, /* dest */ boolean ]
-    getDate(metaItem: string): [ /* returnType */ boolean, /* dest */ GLib.Date ]
-    getDateTime(metaItem: string): [ /* returnType */ boolean, /* dest */ Gst.DateTime ]
-    getDouble(metaItem: string): [ /* returnType */ boolean, /* dest */ number ]
-    getFloat(metaItem: string): [ /* returnType */ boolean, /* dest */ number ]
-    getInt(metaItem: string): [ /* returnType */ boolean, /* dest */ number ]
-    getInt64(metaItem: string): [ /* returnType */ boolean, /* dest */ number ]
+    getBoolean(metaItem: string): { returnType: boolean, dest: boolean }
+    getDate(metaItem: string): { returnType: boolean, dest: GLib.Date }
+    getDateTime(metaItem: string): { returnType: boolean, dest: Gst.DateTime }
+    getDouble(metaItem: string): { returnType: boolean, dest: number }
+    getFloat(metaItem: string): { returnType: boolean, dest: number }
+    getInt(metaItem: string): { returnType: boolean, dest: number }
+    getInt64(metaItem: string): { returnType: boolean, dest: number }
     getMarkerList(key: string): MarkerList
     getMeta(key: string): any
     getString(metaItem: string): string
-    getUint(metaItem: string): [ /* returnType */ boolean, /* dest */ number ]
-    getUint64(metaItem: string): [ /* returnType */ boolean, /* dest */ number ]
+    getUint(metaItem: string): { returnType: boolean, dest: number }
+    getUint64(metaItem: string): { returnType: boolean, dest: number }
     metasToString(): string
     registerMeta(flags: MetaFlag, metaItem: string, value: any): boolean
     registerMetaBoolean(flags: MetaFlag, metaItem: string, value: boolean): boolean
@@ -351,13 +338,12 @@ export class MetaContainer {
     setString(metaItem: string, value: string): boolean
     setUint(metaItem: string, value: number): boolean
     setUint64(metaItem: string, value: number): boolean
-    /* Signals of GES.MetaContainer */
+    /* Signals of GES-1.0.GES.MetaContainer */
     connect(sigName: "notify-meta", callback: (($obj: MetaContainer, key: string, value?: any | null) => void)): number
-    connect_after(sigName: "notify-meta", callback: (($obj: MetaContainer, key: string, value?: any | null) => void)): number
+    on(sigName: "notify-meta", callback: (key: string, value?: any | null) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify-meta", callback: (key: string, value?: any | null) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify-meta", callback: (key: string, value?: any | null) => void): NodeJS.EventEmitter
     emit(sigName: "notify-meta", key: string, value?: any | null): void
-    on(sigName: "notify-meta", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify-meta", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify-meta", callback: (...args: any[]) => void): NodeJS.EventEmitter
     static name: string
 }
 export interface Asset_ConstructProps extends GObject.Object_ConstructProps {
@@ -366,14 +352,14 @@ export interface Asset_ConstructProps extends GObject.Object_ConstructProps {
     proxy?: Asset
 }
 export class Asset {
-    /* Properties of GES.Asset */
+    /* Properties of GES-1.0.GES.Asset */
     proxy: Asset
     readonly proxyTarget: Asset
-    /* Fields of GES.Asset */
+    /* Fields of GES-1.0.GES.Asset */
     parent: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GES.Asset */
+    /* Methods of GES-1.0.GES.Asset */
     extract(): Extractable
     getError(): GLib.Error | null
     getExtractableType(): GObject.Type
@@ -383,7 +369,7 @@ export class Asset {
     listProxies(): Asset[]
     setProxy(proxy?: Asset | null): boolean
     unproxy(proxy: Asset): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -405,22 +391,22 @@ export class Asset {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of GES.MetaContainer */
+    /* Methods of GES-1.0.GES.MetaContainer */
     addMetasFromString(str: string): boolean
-    checkMetaRegistered(metaItem: string): [ /* returnType */ boolean, /* flags */ MetaFlag | null, /* type */ GObject.Type | null ]
+    checkMetaRegistered(metaItem: string): { returnType: boolean, flags: MetaFlag | null, type: GObject.Type | null }
     foreach(func: MetaForeachFunc): void
-    getBoolean(metaItem: string): [ /* returnType */ boolean, /* dest */ boolean ]
-    getDate(metaItem: string): [ /* returnType */ boolean, /* dest */ GLib.Date ]
-    getDateTime(metaItem: string): [ /* returnType */ boolean, /* dest */ Gst.DateTime ]
-    getDouble(metaItem: string): [ /* returnType */ boolean, /* dest */ number ]
-    getFloat(metaItem: string): [ /* returnType */ boolean, /* dest */ number ]
-    getInt(metaItem: string): [ /* returnType */ boolean, /* dest */ number ]
-    getInt64(metaItem: string): [ /* returnType */ boolean, /* dest */ number ]
+    getBoolean(metaItem: string): { returnType: boolean, dest: boolean }
+    getDate(metaItem: string): { returnType: boolean, dest: GLib.Date }
+    getDateTime(metaItem: string): { returnType: boolean, dest: Gst.DateTime }
+    getDouble(metaItem: string): { returnType: boolean, dest: number }
+    getFloat(metaItem: string): { returnType: boolean, dest: number }
+    getInt(metaItem: string): { returnType: boolean, dest: number }
+    getInt64(metaItem: string): { returnType: boolean, dest: number }
     getMarkerList(key: string): MarkerList
     getMeta(key: string): any
     getString(metaItem: string): string
-    getUint(metaItem: string): [ /* returnType */ boolean, /* dest */ number ]
-    getUint64(metaItem: string): [ /* returnType */ boolean, /* dest */ number ]
+    getUint(metaItem: string): { returnType: boolean, dest: number }
+    getUint64(metaItem: string): { returnType: boolean, dest: number }
     metasToString(): string
     registerMeta(flags: MetaFlag, metaItem: string, value: any): boolean
     registerMetaBoolean(flags: MetaFlag, metaItem: string, value: boolean): boolean
@@ -446,43 +432,24 @@ export class Asset {
     setString(metaItem: string, value: string): boolean
     setUint(metaItem: string, value: number): boolean
     setUint64(metaItem: string, value: number): boolean
-    /* Methods of Gio.AsyncInitable */
+    /* Methods of Gio-2.0.Gio.AsyncInitable */
     initAsync(ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     initFinish(res: Gio.AsyncResult): boolean
     newFinish(res: Gio.AsyncResult): GObject.Object
-    /* Methods of Gio.Initable */
+    /* Methods of Gio-2.0.Gio.Initable */
     init(cancellable?: Gio.Cancellable | null): boolean
-    /* Virtual methods of GES.Asset */
-    vfuncExtract(): Extractable
-    vfuncInformProxy(proxyId: string): void
-    vfuncProxied(proxy: Asset): void
-    vfuncRequestIdUpdate(proposedNewId: string, error: GLib.Error): boolean
-    vfuncStartLoading(): AssetLoadingReturn
-    vfuncInitAsync(ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    vfuncInitFinish(res: Gio.AsyncResult): boolean
-    vfuncInit(cancellable?: Gio.Cancellable | null): boolean
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Asset, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Asset, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GES.MetaContainer */
+    /* Signals of GES-1.0.GES.MetaContainer */
     connect(sigName: "notify-meta", callback: (($obj: Asset, key: string, value?: any | null) => void)): number
-    connect_after(sigName: "notify-meta", callback: (($obj: Asset, key: string, value?: any | null) => void)): number
+    on(sigName: "notify-meta", callback: (key: string, value?: any | null) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify-meta", callback: (key: string, value?: any | null) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify-meta", callback: (key: string, value?: any | null) => void): NodeJS.EventEmitter
     emit(sigName: "notify-meta", key: string, value?: any | null): void
-    on(sigName: "notify-meta", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify-meta", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify-meta", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::proxy", callback: (($obj: Asset, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::proxy", callback: (($obj: Asset, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::proxy", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -515,13 +482,13 @@ export class Asset {
 export interface AudioSource_ConstructProps extends Source_ConstructProps {
 }
 export class AudioSource {
-    /* Properties of GES.TrackElement */
+    /* Properties of GES-1.0.GES.TrackElement */
     active: boolean
     autoClampControlSources: boolean
     hasInternalSource: boolean
     readonly track: Track
     trackType: TrackType
-    /* Properties of GES.TimelineElement */
+    /* Properties of GES-1.0.GES.TimelineElement */
     duration: number
     inPoint: number
     maxDuration: number
@@ -531,14 +498,14 @@ export class AudioSource {
     serialize: boolean
     start: number
     timeline: Timeline
-    /* Fields of GES.TimelineElement */
+    /* Fields of GES-1.0.GES.TimelineElement */
     parentInstance: GObject.InitiallyUnowned
     asset: Asset
     inpoint: Gst.ClockTime
     maxduration: Gst.ClockTime
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GES.TrackElement */
+    /* Methods of GES-1.0.GES.TrackElement */
     addChildrenProps(element: Gst.Element, wantedCategories?: string[] | null, blacklist?: string[] | null, whitelist?: string[] | null): void
     clampControlSource(propertyName: string): void
     edit(layers: Layer[] | null, mode: EditMode, edge: Edge, position: number): boolean
@@ -553,33 +520,33 @@ export class AudioSource {
     isActive(): boolean
     isCore(): boolean
     listChildrenProperties(): GObject.ParamSpec[]
-    lookupChild(propName: string): [ /* returnType */ boolean, /* element */ Gst.Element | null, /* pspec */ GObject.ParamSpec | null ]
+    lookupChild(propName: string): { returnType: boolean, element: Gst.Element | null, pspec: GObject.ParamSpec | null }
     removeControlBinding(propertyName: string): boolean
     setActive(active: boolean): boolean
     setAutoClampControlSources(autoClamp: boolean): void
     setControlSource(source: Gst.ControlSource, propertyName: string, bindingType: string): boolean
     setHasInternalSource(hasInternalSource: boolean): boolean
     setTrackType(type: TrackType): void
-    /* Methods of GES.TimelineElement */
+    /* Methods of GES-1.0.GES.TimelineElement */
     addChildProperty(pspec: GObject.ParamSpec, child: GObject.Object): boolean
     copy(deep: boolean): TimelineElement
     edit(layers: Layer[] | null, newLayerPriority: number, mode: EditMode, edge: Edge, position: number): boolean
     editFull(newLayerPriority: number, mode: EditMode, edge: Edge, position: number): boolean
-    getChildProperty(propertyName: string): [ /* returnType */ boolean, /* value */ any ]
-    getChildPropertyByPspec(pspec: GObject.ParamSpec): /* value */ any
+    getChildProperty(propertyName: string): { returnType: boolean, value: any }
+    getChildPropertyByPspec(pspec: GObject.ParamSpec): { value: any }
     getDuration(): Gst.ClockTime
     getInpoint(): Gst.ClockTime
     getLayerPriority(): number
     getMaxDuration(): Gst.ClockTime
     getName(): string
-    getNaturalFramerate(): [ /* returnType */ boolean, /* framerateN */ number, /* framerateD */ number ]
+    getNaturalFramerate(): { returnType: boolean, framerateN: number, framerateD: number }
     getParent(): TimelineElement | null
     getPriority(): number
     getStart(): Gst.ClockTime
     getTimeline(): Timeline | null
     getToplevelParent(): TimelineElement
     getTrackTypes(): TrackType
-    lookupChild(propName: string): [ /* returnType */ boolean, /* child */ GObject.Object | null, /* pspec */ GObject.ParamSpec | null ]
+    lookupChild(propName: string): { returnType: boolean, child: GObject.Object | null, pspec: GObject.ParamSpec | null }
     paste(pastePosition: Gst.ClockTime): TimelineElement | null
     removeChildProperty(pspec: GObject.ParamSpec): boolean
     ripple(start: Gst.ClockTime): boolean
@@ -598,7 +565,7 @@ export class AudioSource {
     setStart(start: Gst.ClockTime): boolean
     setTimeline(timeline: Timeline): boolean
     trim(start: Gst.ClockTime): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -620,26 +587,26 @@ export class AudioSource {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of GES.Extractable */
+    /* Methods of GES-1.0.GES.Extractable */
     getAsset(): Asset | null
     getId(): string
     setAsset(asset: Asset): boolean
-    /* Methods of GES.MetaContainer */
+    /* Methods of GES-1.0.GES.MetaContainer */
     addMetasFromString(str: string): boolean
-    checkMetaRegistered(metaItem: string): [ /* returnType */ boolean, /* flags */ MetaFlag | null, /* type */ GObject.Type | null ]
+    checkMetaRegistered(metaItem: string): { returnType: boolean, flags: MetaFlag | null, type: GObject.Type | null }
     foreach(func: MetaForeachFunc): void
-    getBoolean(metaItem: string): [ /* returnType */ boolean, /* dest */ boolean ]
-    getDate(metaItem: string): [ /* returnType */ boolean, /* dest */ GLib.Date ]
-    getDateTime(metaItem: string): [ /* returnType */ boolean, /* dest */ Gst.DateTime ]
-    getDouble(metaItem: string): [ /* returnType */ boolean, /* dest */ number ]
-    getFloat(metaItem: string): [ /* returnType */ boolean, /* dest */ number ]
-    getInt(metaItem: string): [ /* returnType */ boolean, /* dest */ number ]
-    getInt64(metaItem: string): [ /* returnType */ boolean, /* dest */ number ]
+    getBoolean(metaItem: string): { returnType: boolean, dest: boolean }
+    getDate(metaItem: string): { returnType: boolean, dest: GLib.Date }
+    getDateTime(metaItem: string): { returnType: boolean, dest: Gst.DateTime }
+    getDouble(metaItem: string): { returnType: boolean, dest: number }
+    getFloat(metaItem: string): { returnType: boolean, dest: number }
+    getInt(metaItem: string): { returnType: boolean, dest: number }
+    getInt64(metaItem: string): { returnType: boolean, dest: number }
     getMarkerList(key: string): MarkerList
     getMeta(key: string): any
     getString(metaItem: string): string
-    getUint(metaItem: string): [ /* returnType */ boolean, /* dest */ number ]
-    getUint64(metaItem: string): [ /* returnType */ boolean, /* dest */ number ]
+    getUint(metaItem: string): { returnType: boolean, dest: number }
+    getUint64(metaItem: string): { returnType: boolean, dest: number }
     metasToString(): string
     registerMeta(flags: MetaFlag, metaItem: string, value: any): boolean
     registerMetaBoolean(flags: MetaFlag, metaItem: string, value: boolean): boolean
@@ -665,88 +632,45 @@ export class AudioSource {
     setString(metaItem: string, value: string): boolean
     setUint(metaItem: string, value: number): boolean
     setUint64(metaItem: string, value: number): boolean
-    /* Virtual methods of GES.Source */
-    vfuncSelectPad(pad: Gst.Pad): boolean
-    /* Virtual methods of GES.TrackElement */
-    vfuncActiveChanged(active: boolean): void
-    vfuncChanged(): void
-    vfuncLookupChild(propName: string): [ /* returnType */ boolean, /* element */ Gst.Element | null, /* pspec */ GObject.ParamSpec | null ]
-    /* Virtual methods of GES.TimelineElement */
-    vfuncDeepCopy(copy: TimelineElement): void
-    vfuncGetLayerPriority(): number
-    vfuncGetNaturalFramerate(): [ /* returnType */ boolean, /* framerateN */ number, /* framerateD */ number ]
-    vfuncGetTrackTypes(): TrackType
-    vfuncLookupChild(propName: string): [ /* returnType */ boolean, /* child */ GObject.Object | null, /* pspec */ GObject.ParamSpec | null ]
-    vfuncRipple(start: number): boolean
-    vfuncRippleEnd(end: number): boolean
-    vfuncRollEnd(end: number): boolean
-    vfuncRollStart(start: number): boolean
-    vfuncSetChildProperty(child: GObject.Object, pspec: GObject.ParamSpec, value: any): void
-    vfuncSetChildPropertyFull(child: GObject.Object, pspec: GObject.ParamSpec, value: any): boolean
-    vfuncSetDuration(duration: Gst.ClockTime): boolean
-    vfuncSetInpoint(inpoint: Gst.ClockTime): boolean
-    vfuncSetMaxDuration(maxduration: Gst.ClockTime): boolean
-    vfuncSetParent(parent: TimelineElement): boolean
-    vfuncSetPriority(priority: number): boolean
-    vfuncSetStart(start: Gst.ClockTime): boolean
-    vfuncTrim(start: number): boolean
-    vfuncGetId(): string
-    vfuncSetAsset(asset: Asset): void
-    vfuncSetAssetFull(asset: Asset): boolean
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GES.TrackElement */
+    /* Signals of GES-1.0.GES.TrackElement */
     connect(sigName: "control-binding-added", callback: (($obj: AudioSource, controlBinding: Gst.ControlBinding) => void)): number
-    connect_after(sigName: "control-binding-added", callback: (($obj: AudioSource, controlBinding: Gst.ControlBinding) => void)): number
+    on(sigName: "control-binding-added", callback: (controlBinding: Gst.ControlBinding) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "control-binding-added", callback: (controlBinding: Gst.ControlBinding) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "control-binding-added", callback: (controlBinding: Gst.ControlBinding) => void): NodeJS.EventEmitter
     emit(sigName: "control-binding-added", controlBinding: Gst.ControlBinding): void
-    on(sigName: "control-binding-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "control-binding-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "control-binding-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "control-binding-removed", callback: (($obj: AudioSource, controlBinding: Gst.ControlBinding) => void)): number
-    connect_after(sigName: "control-binding-removed", callback: (($obj: AudioSource, controlBinding: Gst.ControlBinding) => void)): number
+    on(sigName: "control-binding-removed", callback: (controlBinding: Gst.ControlBinding) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "control-binding-removed", callback: (controlBinding: Gst.ControlBinding) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "control-binding-removed", callback: (controlBinding: Gst.ControlBinding) => void): NodeJS.EventEmitter
     emit(sigName: "control-binding-removed", controlBinding: Gst.ControlBinding): void
-    on(sigName: "control-binding-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "control-binding-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "control-binding-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GES.TimelineElement */
+    /* Signals of GES-1.0.GES.TimelineElement */
     connect(sigName: "child-property-added", callback: (($obj: AudioSource, propObject: GObject.Object, prop: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "child-property-added", callback: (($obj: AudioSource, propObject: GObject.Object, prop: GObject.ParamSpec) => void)): number
+    on(sigName: "child-property-added", callback: (propObject: GObject.Object, prop: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "child-property-added", callback: (propObject: GObject.Object, prop: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "child-property-added", callback: (propObject: GObject.Object, prop: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "child-property-added", propObject: GObject.Object, prop: GObject.ParamSpec): void
-    on(sigName: "child-property-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "child-property-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "child-property-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "child-property-removed", callback: (($obj: AudioSource, propObject: GObject.Object, prop: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "child-property-removed", callback: (($obj: AudioSource, propObject: GObject.Object, prop: GObject.ParamSpec) => void)): number
+    on(sigName: "child-property-removed", callback: (propObject: GObject.Object, prop: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "child-property-removed", callback: (propObject: GObject.Object, prop: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "child-property-removed", callback: (propObject: GObject.Object, prop: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "child-property-removed", propObject: GObject.Object, prop: GObject.ParamSpec): void
-    on(sigName: "child-property-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "child-property-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "child-property-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "deep-notify", callback: (($obj: AudioSource, propObject: GObject.Object, prop: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "deep-notify", callback: (($obj: AudioSource, propObject: GObject.Object, prop: GObject.ParamSpec) => void)): number
+    on(sigName: "deep-notify", callback: (propObject: GObject.Object, prop: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "deep-notify", callback: (propObject: GObject.Object, prop: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "deep-notify", callback: (propObject: GObject.Object, prop: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "deep-notify", propObject: GObject.Object, prop: GObject.ParamSpec): void
-    on(sigName: "deep-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "deep-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "deep-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: AudioSource, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: AudioSource, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GES.MetaContainer */
+    /* Signals of GES-1.0.GES.MetaContainer */
     connect(sigName: "notify-meta", callback: (($obj: AudioSource, key: string, value?: any | null) => void)): number
-    connect_after(sigName: "notify-meta", callback: (($obj: AudioSource, key: string, value?: any | null) => void)): number
+    on(sigName: "notify-meta", callback: (key: string, value?: any | null) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify-meta", callback: (key: string, value?: any | null) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify-meta", callback: (key: string, value?: any | null) => void): NodeJS.EventEmitter
     emit(sigName: "notify-meta", key: string, value?: any | null): void
-    on(sigName: "notify-meta", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify-meta", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify-meta", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::active", callback: (($obj: AudioSource, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::active", callback: (($obj: AudioSource, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::active", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -832,13 +756,13 @@ export class AudioSource {
 export interface AudioTestSource_ConstructProps extends AudioSource_ConstructProps {
 }
 export class AudioTestSource {
-    /* Properties of GES.TrackElement */
+    /* Properties of GES-1.0.GES.TrackElement */
     active: boolean
     autoClampControlSources: boolean
     hasInternalSource: boolean
     readonly track: Track
     trackType: TrackType
-    /* Properties of GES.TimelineElement */
+    /* Properties of GES-1.0.GES.TimelineElement */
     duration: number
     inPoint: number
     maxDuration: number
@@ -848,19 +772,19 @@ export class AudioTestSource {
     serialize: boolean
     start: number
     timeline: Timeline
-    /* Fields of GES.TimelineElement */
+    /* Fields of GES-1.0.GES.TimelineElement */
     parentInstance: GObject.InitiallyUnowned
     asset: Asset
     inpoint: Gst.ClockTime
     maxduration: Gst.ClockTime
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GES.AudioTestSource */
+    /* Methods of GES-1.0.GES.AudioTestSource */
     getFreq(): number
     getVolume(): number
     setFreq(freq: number): void
     setVolume(volume: number): void
-    /* Methods of GES.TrackElement */
+    /* Methods of GES-1.0.GES.TrackElement */
     addChildrenProps(element: Gst.Element, wantedCategories?: string[] | null, blacklist?: string[] | null, whitelist?: string[] | null): void
     clampControlSource(propertyName: string): void
     edit(layers: Layer[] | null, mode: EditMode, edge: Edge, position: number): boolean
@@ -875,33 +799,33 @@ export class AudioTestSource {
     isActive(): boolean
     isCore(): boolean
     listChildrenProperties(): GObject.ParamSpec[]
-    lookupChild(propName: string): [ /* returnType */ boolean, /* element */ Gst.Element | null, /* pspec */ GObject.ParamSpec | null ]
+    lookupChild(propName: string): { returnType: boolean, element: Gst.Element | null, pspec: GObject.ParamSpec | null }
     removeControlBinding(propertyName: string): boolean
     setActive(active: boolean): boolean
     setAutoClampControlSources(autoClamp: boolean): void
     setControlSource(source: Gst.ControlSource, propertyName: string, bindingType: string): boolean
     setHasInternalSource(hasInternalSource: boolean): boolean
     setTrackType(type: TrackType): void
-    /* Methods of GES.TimelineElement */
+    /* Methods of GES-1.0.GES.TimelineElement */
     addChildProperty(pspec: GObject.ParamSpec, child: GObject.Object): boolean
     copy(deep: boolean): TimelineElement
     edit(layers: Layer[] | null, newLayerPriority: number, mode: EditMode, edge: Edge, position: number): boolean
     editFull(newLayerPriority: number, mode: EditMode, edge: Edge, position: number): boolean
-    getChildProperty(propertyName: string): [ /* returnType */ boolean, /* value */ any ]
-    getChildPropertyByPspec(pspec: GObject.ParamSpec): /* value */ any
+    getChildProperty(propertyName: string): { returnType: boolean, value: any }
+    getChildPropertyByPspec(pspec: GObject.ParamSpec): { value: any }
     getDuration(): Gst.ClockTime
     getInpoint(): Gst.ClockTime
     getLayerPriority(): number
     getMaxDuration(): Gst.ClockTime
     getName(): string
-    getNaturalFramerate(): [ /* returnType */ boolean, /* framerateN */ number, /* framerateD */ number ]
+    getNaturalFramerate(): { returnType: boolean, framerateN: number, framerateD: number }
     getParent(): TimelineElement | null
     getPriority(): number
     getStart(): Gst.ClockTime
     getTimeline(): Timeline | null
     getToplevelParent(): TimelineElement
     getTrackTypes(): TrackType
-    lookupChild(propName: string): [ /* returnType */ boolean, /* child */ GObject.Object | null, /* pspec */ GObject.ParamSpec | null ]
+    lookupChild(propName: string): { returnType: boolean, child: GObject.Object | null, pspec: GObject.ParamSpec | null }
     paste(pastePosition: Gst.ClockTime): TimelineElement | null
     removeChildProperty(pspec: GObject.ParamSpec): boolean
     ripple(start: Gst.ClockTime): boolean
@@ -920,7 +844,7 @@ export class AudioTestSource {
     setStart(start: Gst.ClockTime): boolean
     setTimeline(timeline: Timeline): boolean
     trim(start: Gst.ClockTime): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -942,26 +866,26 @@ export class AudioTestSource {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of GES.Extractable */
+    /* Methods of GES-1.0.GES.Extractable */
     getAsset(): Asset | null
     getId(): string
     setAsset(asset: Asset): boolean
-    /* Methods of GES.MetaContainer */
+    /* Methods of GES-1.0.GES.MetaContainer */
     addMetasFromString(str: string): boolean
-    checkMetaRegistered(metaItem: string): [ /* returnType */ boolean, /* flags */ MetaFlag | null, /* type */ GObject.Type | null ]
+    checkMetaRegistered(metaItem: string): { returnType: boolean, flags: MetaFlag | null, type: GObject.Type | null }
     foreach(func: MetaForeachFunc): void
-    getBoolean(metaItem: string): [ /* returnType */ boolean, /* dest */ boolean ]
-    getDate(metaItem: string): [ /* returnType */ boolean, /* dest */ GLib.Date ]
-    getDateTime(metaItem: string): [ /* returnType */ boolean, /* dest */ Gst.DateTime ]
-    getDouble(metaItem: string): [ /* returnType */ boolean, /* dest */ number ]
-    getFloat(metaItem: string): [ /* returnType */ boolean, /* dest */ number ]
-    getInt(metaItem: string): [ /* returnType */ boolean, /* dest */ number ]
-    getInt64(metaItem: string): [ /* returnType */ boolean, /* dest */ number ]
+    getBoolean(metaItem: string): { returnType: boolean, dest: boolean }
+    getDate(metaItem: string): { returnType: boolean, dest: GLib.Date }
+    getDateTime(metaItem: string): { returnType: boolean, dest: Gst.DateTime }
+    getDouble(metaItem: string): { returnType: boolean, dest: number }
+    getFloat(metaItem: string): { returnType: boolean, dest: number }
+    getInt(metaItem: string): { returnType: boolean, dest: number }
+    getInt64(metaItem: string): { returnType: boolean, dest: number }
     getMarkerList(key: string): MarkerList
     getMeta(key: string): any
     getString(metaItem: string): string
-    getUint(metaItem: string): [ /* returnType */ boolean, /* dest */ number ]
-    getUint64(metaItem: string): [ /* returnType */ boolean, /* dest */ number ]
+    getUint(metaItem: string): { returnType: boolean, dest: number }
+    getUint64(metaItem: string): { returnType: boolean, dest: number }
     metasToString(): string
     registerMeta(flags: MetaFlag, metaItem: string, value: any): boolean
     registerMetaBoolean(flags: MetaFlag, metaItem: string, value: boolean): boolean
@@ -987,88 +911,45 @@ export class AudioTestSource {
     setString(metaItem: string, value: string): boolean
     setUint(metaItem: string, value: number): boolean
     setUint64(metaItem: string, value: number): boolean
-    /* Virtual methods of GES.Source */
-    vfuncSelectPad(pad: Gst.Pad): boolean
-    /* Virtual methods of GES.TrackElement */
-    vfuncActiveChanged(active: boolean): void
-    vfuncChanged(): void
-    vfuncLookupChild(propName: string): [ /* returnType */ boolean, /* element */ Gst.Element | null, /* pspec */ GObject.ParamSpec | null ]
-    /* Virtual methods of GES.TimelineElement */
-    vfuncDeepCopy(copy: TimelineElement): void
-    vfuncGetLayerPriority(): number
-    vfuncGetNaturalFramerate(): [ /* returnType */ boolean, /* framerateN */ number, /* framerateD */ number ]
-    vfuncGetTrackTypes(): TrackType
-    vfuncLookupChild(propName: string): [ /* returnType */ boolean, /* child */ GObject.Object | null, /* pspec */ GObject.ParamSpec | null ]
-    vfuncRipple(start: number): boolean
-    vfuncRippleEnd(end: number): boolean
-    vfuncRollEnd(end: number): boolean
-    vfuncRollStart(start: number): boolean
-    vfuncSetChildProperty(child: GObject.Object, pspec: GObject.ParamSpec, value: any): void
-    vfuncSetChildPropertyFull(child: GObject.Object, pspec: GObject.ParamSpec, value: any): boolean
-    vfuncSetDuration(duration: Gst.ClockTime): boolean
-    vfuncSetInpoint(inpoint: Gst.ClockTime): boolean
-    vfuncSetMaxDuration(maxduration: Gst.ClockTime): boolean
-    vfuncSetParent(parent: TimelineElement): boolean
-    vfuncSetPriority(priority: number): boolean
-    vfuncSetStart(start: Gst.ClockTime): boolean
-    vfuncTrim(start: number): boolean
-    vfuncGetId(): string
-    vfuncSetAsset(asset: Asset): void
-    vfuncSetAssetFull(asset: Asset): boolean
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GES.TrackElement */
+    /* Signals of GES-1.0.GES.TrackElement */
     connect(sigName: "control-binding-added", callback: (($obj: AudioTestSource, controlBinding: Gst.ControlBinding) => void)): number
-    connect_after(sigName: "control-binding-added", callback: (($obj: AudioTestSource, controlBinding: Gst.ControlBinding) => void)): number
+    on(sigName: "control-binding-added", callback: (controlBinding: Gst.ControlBinding) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "control-binding-added", callback: (controlBinding: Gst.ControlBinding) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "control-binding-added", callback: (controlBinding: Gst.ControlBinding) => void): NodeJS.EventEmitter
     emit(sigName: "control-binding-added", controlBinding: Gst.ControlBinding): void
-    on(sigName: "control-binding-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "control-binding-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "control-binding-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "control-binding-removed", callback: (($obj: AudioTestSource, controlBinding: Gst.ControlBinding) => void)): number
-    connect_after(sigName: "control-binding-removed", callback: (($obj: AudioTestSource, controlBinding: Gst.ControlBinding) => void)): number
+    on(sigName: "control-binding-removed", callback: (controlBinding: Gst.ControlBinding) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "control-binding-removed", callback: (controlBinding: Gst.ControlBinding) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "control-binding-removed", callback: (controlBinding: Gst.ControlBinding) => void): NodeJS.EventEmitter
     emit(sigName: "control-binding-removed", controlBinding: Gst.ControlBinding): void
-    on(sigName: "control-binding-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "control-binding-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "control-binding-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GES.TimelineElement */
+    /* Signals of GES-1.0.GES.TimelineElement */
     connect(sigName: "child-property-added", callback: (($obj: AudioTestSource, propObject: GObject.Object, prop: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "child-property-added", callback: (($obj: AudioTestSource, propObject: GObject.Object, prop: GObject.ParamSpec) => void)): number
+    on(sigName: "child-property-added", callback: (propObject: GObject.Object, prop: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "child-property-added", callback: (propObject: GObject.Object, prop: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "child-property-added", callback: (propObject: GObject.Object, prop: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "child-property-added", propObject: GObject.Object, prop: GObject.ParamSpec): void
-    on(sigName: "child-property-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "child-property-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "child-property-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "child-property-removed", callback: (($obj: AudioTestSource, propObject: GObject.Object, prop: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "child-property-removed", callback: (($obj: AudioTestSource, propObject: GObject.Object, prop: GObject.ParamSpec) => void)): number
+    on(sigName: "child-property-removed", callback: (propObject: GObject.Object, prop: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "child-property-removed", callback: (propObject: GObject.Object, prop: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "child-property-removed", callback: (propObject: GObject.Object, prop: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "child-property-removed", propObject: GObject.Object, prop: GObject.ParamSpec): void
-    on(sigName: "child-property-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "child-property-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "child-property-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "deep-notify", callback: (($obj: AudioTestSource, propObject: GObject.Object, prop: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "deep-notify", callback: (($obj: AudioTestSource, propObject: GObject.Object, prop: GObject.ParamSpec) => void)): number
+    on(sigName: "deep-notify", callback: (propObject: GObject.Object, prop: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "deep-notify", callback: (propObject: GObject.Object, prop: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "deep-notify", callback: (propObject: GObject.Object, prop: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "deep-notify", propObject: GObject.Object, prop: GObject.ParamSpec): void
-    on(sigName: "deep-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "deep-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "deep-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: AudioTestSource, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: AudioTestSource, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GES.MetaContainer */
+    /* Signals of GES-1.0.GES.MetaContainer */
     connect(sigName: "notify-meta", callback: (($obj: AudioTestSource, key: string, value?: any | null) => void)): number
-    connect_after(sigName: "notify-meta", callback: (($obj: AudioTestSource, key: string, value?: any | null) => void)): number
+    on(sigName: "notify-meta", callback: (key: string, value?: any | null) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify-meta", callback: (key: string, value?: any | null) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify-meta", callback: (key: string, value?: any | null) => void): NodeJS.EventEmitter
     emit(sigName: "notify-meta", key: string, value?: any | null): void
-    on(sigName: "notify-meta", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify-meta", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify-meta", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::active", callback: (($obj: AudioTestSource, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::active", callback: (($obj: AudioTestSource, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::active", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -1154,22 +1035,22 @@ export class AudioTestSource {
 export interface AudioTrack_ConstructProps extends Track_ConstructProps {
 }
 export class AudioTrack {
-    /* Properties of GES.Track */
+    /* Properties of GES-1.0.GES.Track */
     readonly duration: number
     id: string
     mixing: boolean
     restrictionCaps: Gst.Caps
-    /* Properties of Gst.Bin */
+    /* Properties of Gst-1.0.Gst.Bin */
     asyncHandling: boolean
     messageForward: boolean
-    /* Properties of Gst.Object */
+    /* Properties of Gst-1.0.Gst.Object */
     name: string
     parent: Gst.Object
-    /* Fields of GES.AudioTrack */
+    /* Fields of GES-1.0.GES.AudioTrack */
     parentInstance: Track
-    /* Fields of GES.Track */
+    /* Fields of GES-1.0.GES.Track */
     type: TrackType
-    /* Fields of Gst.Bin */
+    /* Fields of Gst-1.0.Gst.Bin */
     element: Gst.Element
     numchildren: number
     children: Gst.Element[]
@@ -1181,7 +1062,7 @@ export class AudioTrack {
     clockDirty: boolean
     providedClock: Gst.Clock
     clockProvider: Gst.Element
-    /* Fields of Gst.Element */
+    /* Fields of Gst-1.0.Gst.Element */
     object: Gst.Object
     stateLock: GLib.RecMutex
     stateCond: GLib.Cond
@@ -1203,12 +1084,12 @@ export class AudioTrack {
     sinkpads: Gst.Pad[]
     padsCookie: number
     contexts: Gst.Context[]
-    /* Fields of Gst.Object */
+    /* Fields of Gst-1.0.Gst.Object */
     lock: GLib.Mutex
     flags: number
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GES.Track */
+    /* Methods of GES-1.0.GES.Track */
     addElement(object: TrackElement): boolean
     addElementFull(object: TrackElement): boolean
     commit(): boolean
@@ -1223,7 +1104,7 @@ export class AudioTrack {
     setRestrictionCaps(caps: Gst.Caps): void
     setTimeline(timeline: Timeline): void
     updateRestrictionCaps(caps: Gst.Caps): void
-    /* Methods of Gst.Bin */
+    /* Methods of Gst-1.0.Gst.Bin */
     add(element: Gst.Element): boolean
     findUnlinkedPad(direction: Gst.PadDirection): Gst.Pad | null
     getByInterface(iface: GObject.Type): Gst.Element | null
@@ -1241,7 +1122,7 @@ export class AudioTrack {
     remove(element: Gst.Element): boolean
     setSuppressedFlags(flags: Gst.ElementFlags): void
     syncChildrenStates(): boolean
-    /* Methods of Gst.Element */
+    /* Methods of Gst-1.0.Gst.Element */
     abortState(): void
     addPad(pad: Gst.Pad): boolean
     addPropertyDeepNotifyWatch(propertyName: string | null, includeValue: boolean): number
@@ -1269,7 +1150,7 @@ export class AudioTrack {
     getPadTemplateList(): Gst.PadTemplate[]
     getRequestPad(name: string): Gst.Pad | null
     getStartTime(): Gst.ClockTime
-    getState(timeout: Gst.ClockTime): [ /* returnType */ Gst.StateChangeReturn, /* state */ Gst.State | null, /* pending */ Gst.State | null ]
+    getState(timeout: Gst.ClockTime): { returnType: Gst.StateChangeReturn, state: Gst.State | null, pending: Gst.State | null }
     getStaticPad(name: string): Gst.Pad | null
     isLockedState(): boolean
     iteratePads(): Gst.Iterator
@@ -1287,9 +1168,9 @@ export class AudioTrack {
     postMessage(message: Gst.Message): boolean
     provideClock(): Gst.Clock | null
     query(query: Gst.Query): boolean
-    queryConvert(srcFormat: Gst.Format, srcVal: number, destFormat: Gst.Format): [ /* returnType */ boolean, /* destVal */ number ]
-    queryDuration(format: Gst.Format): [ /* returnType */ boolean, /* duration */ number | null ]
-    queryPosition(format: Gst.Format): [ /* returnType */ boolean, /* cur */ number | null ]
+    queryConvert(srcFormat: Gst.Format, srcVal: number, destFormat: Gst.Format): { returnType: boolean, destVal: number }
+    queryDuration(format: Gst.Format): { returnType: boolean, duration: number | null }
+    queryPosition(format: Gst.Format): { returnType: boolean, cur: number | null }
     releaseRequestPad(pad: Gst.Pad): void
     removePad(pad: Gst.Pad): boolean
     removePropertyNotifyWatch(watchId: number): void
@@ -1307,7 +1188,7 @@ export class AudioTrack {
     syncStateWithParent(): boolean
     unlink(dest: Gst.Element): void
     unlinkPads(srcpadname: string, dest: Gst.Element, destpadname: string): void
-    /* Methods of Gst.Object */
+    /* Methods of Gst-1.0.Gst.Object */
     addControlBinding(binding: Gst.ControlBinding): boolean
     defaultError(error: GLib.Error, debug?: string | null): void
     getControlBinding(propertyName: string): Gst.ControlBinding | null
@@ -1332,7 +1213,7 @@ export class AudioTrack {
     syncValues(timestamp: Gst.ClockTime): boolean
     unparent(): void
     unref(): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -1353,22 +1234,22 @@ export class AudioTrack {
     stealQdata(quark: GLib.Quark): object | null
     thawNotify(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of GES.MetaContainer */
+    /* Methods of GES-1.0.GES.MetaContainer */
     addMetasFromString(str: string): boolean
-    checkMetaRegistered(metaItem: string): [ /* returnType */ boolean, /* flags */ MetaFlag | null, /* type */ GObject.Type | null ]
+    checkMetaRegistered(metaItem: string): { returnType: boolean, flags: MetaFlag | null, type: GObject.Type | null }
     foreach(func: MetaForeachFunc): void
-    getBoolean(metaItem: string): [ /* returnType */ boolean, /* dest */ boolean ]
-    getDate(metaItem: string): [ /* returnType */ boolean, /* dest */ GLib.Date ]
-    getDateTime(metaItem: string): [ /* returnType */ boolean, /* dest */ Gst.DateTime ]
-    getDouble(metaItem: string): [ /* returnType */ boolean, /* dest */ number ]
-    getFloat(metaItem: string): [ /* returnType */ boolean, /* dest */ number ]
-    getInt(metaItem: string): [ /* returnType */ boolean, /* dest */ number ]
-    getInt64(metaItem: string): [ /* returnType */ boolean, /* dest */ number ]
+    getBoolean(metaItem: string): { returnType: boolean, dest: boolean }
+    getDate(metaItem: string): { returnType: boolean, dest: GLib.Date }
+    getDateTime(metaItem: string): { returnType: boolean, dest: Gst.DateTime }
+    getDouble(metaItem: string): { returnType: boolean, dest: number }
+    getFloat(metaItem: string): { returnType: boolean, dest: number }
+    getInt(metaItem: string): { returnType: boolean, dest: number }
+    getInt64(metaItem: string): { returnType: boolean, dest: number }
     getMarkerList(key: string): MarkerList
     getMeta(key: string): any
     getString(metaItem: string): string
-    getUint(metaItem: string): [ /* returnType */ boolean, /* dest */ number ]
-    getUint64(metaItem: string): [ /* returnType */ boolean, /* dest */ number ]
+    getUint(metaItem: string): { returnType: boolean, dest: number }
+    getUint64(metaItem: string): { returnType: boolean, dest: number }
     metasToString(): string
     registerMeta(flags: MetaFlag, metaItem: string, value: any): boolean
     registerMetaBoolean(flags: MetaFlag, metaItem: string, value: boolean): boolean
@@ -1394,160 +1275,102 @@ export class AudioTrack {
     setString(metaItem: string, value: string): boolean
     setUint(metaItem: string, value: number): boolean
     setUint64(metaItem: string, value: number): boolean
-    /* Methods of Gst.ChildProxy */
+    /* Methods of Gst-1.0.Gst.ChildProxy */
     childAdded(child: GObject.Object, name: string): void
     childRemoved(child: GObject.Object, name: string): void
     getChildByIndex(index: number): GObject.Object | null
     getChildByName(name: string): GObject.Object | null
     getChildrenCount(): number
-    getProperty(name: string): /* value */ any
-    lookup(name: string): [ /* returnType */ boolean, /* target */ GObject.Object | null, /* pspec */ GObject.ParamSpec | null ]
+    getProperty(name: string): { value: any }
+    lookup(name: string): { returnType: boolean, target: GObject.Object | null, pspec: GObject.ParamSpec | null }
     setProperty(name: string, value: any): void
-    /* Virtual methods of GES.Track */
-    vfuncChildAdded(child: GObject.Object, name: string): void
-    vfuncChildRemoved(child: GObject.Object, name: string): void
-    vfuncGetChildByIndex(index: number): GObject.Object | null
-    vfuncGetChildByName(name: string): GObject.Object | null
-    vfuncGetChildrenCount(): number
-    /* Virtual methods of Gst.Bin */
-    vfuncAddElement(element: Gst.Element): boolean
-    vfuncDeepElementAdded(subBin: Gst.Bin, child: Gst.Element): void
-    vfuncDeepElementRemoved(subBin: Gst.Bin, child: Gst.Element): void
-    vfuncDoLatency(): boolean
-    vfuncElementAdded(child: Gst.Element): void
-    vfuncElementRemoved(child: Gst.Element): void
-    vfuncHandleMessage(message: Gst.Message): void
-    vfuncRemoveElement(element: Gst.Element): boolean
-    /* Virtual methods of Gst.Element */
-    vfuncChangeState(transition: Gst.StateChange): Gst.StateChangeReturn
-    vfuncGetState(timeout: Gst.ClockTime): [ /* returnType */ Gst.StateChangeReturn, /* state */ Gst.State | null, /* pending */ Gst.State | null ]
-    vfuncNoMorePads(): void
-    vfuncPadAdded(pad: Gst.Pad): void
-    vfuncPadRemoved(pad: Gst.Pad): void
-    vfuncPostMessage(message: Gst.Message): boolean
-    vfuncProvideClock(): Gst.Clock | null
-    vfuncQuery(query: Gst.Query): boolean
-    vfuncReleasePad(pad: Gst.Pad): void
-    vfuncRequestNewPad(templ: Gst.PadTemplate, name?: string | null, caps?: Gst.Caps | null): Gst.Pad | null
-    vfuncSendEvent(event: Gst.Event): boolean
-    vfuncSetBus(bus?: Gst.Bus | null): void
-    vfuncSetClock(clock?: Gst.Clock | null): boolean
-    vfuncSetContext(context: Gst.Context): void
-    vfuncSetState(state: Gst.State): Gst.StateChangeReturn
-    vfuncStateChanged(oldstate: Gst.State, newstate: Gst.State, pending: Gst.State): void
-    /* Virtual methods of Gst.Object */
-    vfuncDeepNotify(orig: Gst.Object, pspec: GObject.ParamSpec): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GES.Track */
+    /* Signals of GES-1.0.GES.Track */
     connect(sigName: "commited", callback: (($obj: AudioTrack) => void)): number
-    connect_after(sigName: "commited", callback: (($obj: AudioTrack) => void)): number
+    on(sigName: "commited", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "commited", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "commited", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "commited"): void
-    on(sigName: "commited", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "commited", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "commited", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "track-element-added", callback: (($obj: AudioTrack, effect: TrackElement) => void)): number
-    connect_after(sigName: "track-element-added", callback: (($obj: AudioTrack, effect: TrackElement) => void)): number
+    on(sigName: "track-element-added", callback: (effect: TrackElement) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "track-element-added", callback: (effect: TrackElement) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "track-element-added", callback: (effect: TrackElement) => void): NodeJS.EventEmitter
     emit(sigName: "track-element-added", effect: TrackElement): void
-    on(sigName: "track-element-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "track-element-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "track-element-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "track-element-removed", callback: (($obj: AudioTrack, effect: TrackElement) => void)): number
-    connect_after(sigName: "track-element-removed", callback: (($obj: AudioTrack, effect: TrackElement) => void)): number
+    on(sigName: "track-element-removed", callback: (effect: TrackElement) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "track-element-removed", callback: (effect: TrackElement) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "track-element-removed", callback: (effect: TrackElement) => void): NodeJS.EventEmitter
     emit(sigName: "track-element-removed", effect: TrackElement): void
-    on(sigName: "track-element-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "track-element-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "track-element-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of Gst.Bin */
+    /* Signals of Gst-1.0.Gst.Bin */
     connect(sigName: "deep-element-added", callback: (($obj: AudioTrack, subBin: Gst.Bin, element: Gst.Element) => void)): number
-    connect_after(sigName: "deep-element-added", callback: (($obj: AudioTrack, subBin: Gst.Bin, element: Gst.Element) => void)): number
+    on(sigName: "deep-element-added", callback: (subBin: Gst.Bin, element: Gst.Element) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "deep-element-added", callback: (subBin: Gst.Bin, element: Gst.Element) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "deep-element-added", callback: (subBin: Gst.Bin, element: Gst.Element) => void): NodeJS.EventEmitter
     emit(sigName: "deep-element-added", subBin: Gst.Bin, element: Gst.Element): void
-    on(sigName: "deep-element-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "deep-element-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "deep-element-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "deep-element-removed", callback: (($obj: AudioTrack, subBin: Gst.Bin, element: Gst.Element) => void)): number
-    connect_after(sigName: "deep-element-removed", callback: (($obj: AudioTrack, subBin: Gst.Bin, element: Gst.Element) => void)): number
+    on(sigName: "deep-element-removed", callback: (subBin: Gst.Bin, element: Gst.Element) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "deep-element-removed", callback: (subBin: Gst.Bin, element: Gst.Element) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "deep-element-removed", callback: (subBin: Gst.Bin, element: Gst.Element) => void): NodeJS.EventEmitter
     emit(sigName: "deep-element-removed", subBin: Gst.Bin, element: Gst.Element): void
-    on(sigName: "deep-element-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "deep-element-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "deep-element-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "do-latency", callback: (($obj: AudioTrack) => boolean)): number
-    connect_after(sigName: "do-latency", callback: (($obj: AudioTrack) => boolean)): number
+    on(sigName: "do-latency", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "do-latency", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "do-latency", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "do-latency"): void
-    on(sigName: "do-latency", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "do-latency", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "do-latency", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "element-added", callback: (($obj: AudioTrack, element: Gst.Element) => void)): number
-    connect_after(sigName: "element-added", callback: (($obj: AudioTrack, element: Gst.Element) => void)): number
+    on(sigName: "element-added", callback: (element: Gst.Element) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "element-added", callback: (element: Gst.Element) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "element-added", callback: (element: Gst.Element) => void): NodeJS.EventEmitter
     emit(sigName: "element-added", element: Gst.Element): void
-    on(sigName: "element-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "element-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "element-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "element-removed", callback: (($obj: AudioTrack, element: Gst.Element) => void)): number
-    connect_after(sigName: "element-removed", callback: (($obj: AudioTrack, element: Gst.Element) => void)): number
+    on(sigName: "element-removed", callback: (element: Gst.Element) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "element-removed", callback: (element: Gst.Element) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "element-removed", callback: (element: Gst.Element) => void): NodeJS.EventEmitter
     emit(sigName: "element-removed", element: Gst.Element): void
-    on(sigName: "element-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "element-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "element-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of Gst.Element */
+    /* Signals of Gst-1.0.Gst.Element */
     connect(sigName: "no-more-pads", callback: (($obj: AudioTrack) => void)): number
-    connect_after(sigName: "no-more-pads", callback: (($obj: AudioTrack) => void)): number
+    on(sigName: "no-more-pads", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "no-more-pads", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "no-more-pads", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "no-more-pads"): void
-    on(sigName: "no-more-pads", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "no-more-pads", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "no-more-pads", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "pad-added", callback: (($obj: AudioTrack, newPad: Gst.Pad) => void)): number
-    connect_after(sigName: "pad-added", callback: (($obj: AudioTrack, newPad: Gst.Pad) => void)): number
+    on(sigName: "pad-added", callback: (newPad: Gst.Pad) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "pad-added", callback: (newPad: Gst.Pad) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "pad-added", callback: (newPad: Gst.Pad) => void): NodeJS.EventEmitter
     emit(sigName: "pad-added", newPad: Gst.Pad): void
-    on(sigName: "pad-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "pad-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "pad-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "pad-removed", callback: (($obj: AudioTrack, oldPad: Gst.Pad) => void)): number
-    connect_after(sigName: "pad-removed", callback: (($obj: AudioTrack, oldPad: Gst.Pad) => void)): number
+    on(sigName: "pad-removed", callback: (oldPad: Gst.Pad) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "pad-removed", callback: (oldPad: Gst.Pad) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "pad-removed", callback: (oldPad: Gst.Pad) => void): NodeJS.EventEmitter
     emit(sigName: "pad-removed", oldPad: Gst.Pad): void
-    on(sigName: "pad-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "pad-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "pad-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of Gst.Object */
+    /* Signals of Gst-1.0.Gst.Object */
     connect(sigName: "deep-notify", callback: (($obj: AudioTrack, propObject: Gst.Object, prop: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "deep-notify", callback: (($obj: AudioTrack, propObject: Gst.Object, prop: GObject.ParamSpec) => void)): number
+    on(sigName: "deep-notify", callback: (propObject: Gst.Object, prop: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "deep-notify", callback: (propObject: Gst.Object, prop: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "deep-notify", callback: (propObject: Gst.Object, prop: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "deep-notify", propObject: Gst.Object, prop: GObject.ParamSpec): void
-    on(sigName: "deep-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "deep-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "deep-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: AudioTrack, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: AudioTrack, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GES.MetaContainer */
+    /* Signals of GES-1.0.GES.MetaContainer */
     connect(sigName: "notify-meta", callback: (($obj: AudioTrack, key: string, value?: any | null) => void)): number
-    connect_after(sigName: "notify-meta", callback: (($obj: AudioTrack, key: string, value?: any | null) => void)): number
+    on(sigName: "notify-meta", callback: (key: string, value?: any | null) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify-meta", callback: (key: string, value?: any | null) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify-meta", callback: (key: string, value?: any | null) => void): NodeJS.EventEmitter
     emit(sigName: "notify-meta", key: string, value?: any | null): void
-    on(sigName: "notify-meta", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify-meta", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify-meta", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of Gst.ChildProxy */
+    /* Signals of Gst-1.0.Gst.ChildProxy */
     connect(sigName: "child-added", callback: (($obj: AudioTrack, object: GObject.Object, name: string) => void)): number
-    connect_after(sigName: "child-added", callback: (($obj: AudioTrack, object: GObject.Object, name: string) => void)): number
+    on(sigName: "child-added", callback: (object: GObject.Object, name: string) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "child-added", callback: (object: GObject.Object, name: string) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "child-added", callback: (object: GObject.Object, name: string) => void): NodeJS.EventEmitter
     emit(sigName: "child-added", object: GObject.Object, name: string): void
-    on(sigName: "child-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "child-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "child-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "child-removed", callback: (($obj: AudioTrack, object: GObject.Object, name: string) => void)): number
-    connect_after(sigName: "child-removed", callback: (($obj: AudioTrack, object: GObject.Object, name: string) => void)): number
+    on(sigName: "child-removed", callback: (object: GObject.Object, name: string) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "child-removed", callback: (object: GObject.Object, name: string) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "child-removed", callback: (object: GObject.Object, name: string) => void): NodeJS.EventEmitter
     emit(sigName: "child-removed", object: GObject.Object, name: string): void
-    on(sigName: "child-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "child-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "child-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::duration", callback: (($obj: AudioTrack, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::duration", callback: (($obj: AudioTrack, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::duration", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -1607,13 +1430,13 @@ export class AudioTrack {
 export interface AudioTransition_ConstructProps extends Transition_ConstructProps {
 }
 export class AudioTransition {
-    /* Properties of GES.TrackElement */
+    /* Properties of GES-1.0.GES.TrackElement */
     active: boolean
     autoClampControlSources: boolean
     hasInternalSource: boolean
     readonly track: Track
     trackType: TrackType
-    /* Properties of GES.TimelineElement */
+    /* Properties of GES-1.0.GES.TimelineElement */
     duration: number
     inPoint: number
     maxDuration: number
@@ -1623,14 +1446,14 @@ export class AudioTransition {
     serialize: boolean
     start: number
     timeline: Timeline
-    /* Fields of GES.TimelineElement */
+    /* Fields of GES-1.0.GES.TimelineElement */
     parentInstance: GObject.InitiallyUnowned
     asset: Asset
     inpoint: Gst.ClockTime
     maxduration: Gst.ClockTime
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GES.TrackElement */
+    /* Methods of GES-1.0.GES.TrackElement */
     addChildrenProps(element: Gst.Element, wantedCategories?: string[] | null, blacklist?: string[] | null, whitelist?: string[] | null): void
     clampControlSource(propertyName: string): void
     edit(layers: Layer[] | null, mode: EditMode, edge: Edge, position: number): boolean
@@ -1645,33 +1468,33 @@ export class AudioTransition {
     isActive(): boolean
     isCore(): boolean
     listChildrenProperties(): GObject.ParamSpec[]
-    lookupChild(propName: string): [ /* returnType */ boolean, /* element */ Gst.Element | null, /* pspec */ GObject.ParamSpec | null ]
+    lookupChild(propName: string): { returnType: boolean, element: Gst.Element | null, pspec: GObject.ParamSpec | null }
     removeControlBinding(propertyName: string): boolean
     setActive(active: boolean): boolean
     setAutoClampControlSources(autoClamp: boolean): void
     setControlSource(source: Gst.ControlSource, propertyName: string, bindingType: string): boolean
     setHasInternalSource(hasInternalSource: boolean): boolean
     setTrackType(type: TrackType): void
-    /* Methods of GES.TimelineElement */
+    /* Methods of GES-1.0.GES.TimelineElement */
     addChildProperty(pspec: GObject.ParamSpec, child: GObject.Object): boolean
     copy(deep: boolean): TimelineElement
     edit(layers: Layer[] | null, newLayerPriority: number, mode: EditMode, edge: Edge, position: number): boolean
     editFull(newLayerPriority: number, mode: EditMode, edge: Edge, position: number): boolean
-    getChildProperty(propertyName: string): [ /* returnType */ boolean, /* value */ any ]
-    getChildPropertyByPspec(pspec: GObject.ParamSpec): /* value */ any
+    getChildProperty(propertyName: string): { returnType: boolean, value: any }
+    getChildPropertyByPspec(pspec: GObject.ParamSpec): { value: any }
     getDuration(): Gst.ClockTime
     getInpoint(): Gst.ClockTime
     getLayerPriority(): number
     getMaxDuration(): Gst.ClockTime
     getName(): string
-    getNaturalFramerate(): [ /* returnType */ boolean, /* framerateN */ number, /* framerateD */ number ]
+    getNaturalFramerate(): { returnType: boolean, framerateN: number, framerateD: number }
     getParent(): TimelineElement | null
     getPriority(): number
     getStart(): Gst.ClockTime
     getTimeline(): Timeline | null
     getToplevelParent(): TimelineElement
     getTrackTypes(): TrackType
-    lookupChild(propName: string): [ /* returnType */ boolean, /* child */ GObject.Object | null, /* pspec */ GObject.ParamSpec | null ]
+    lookupChild(propName: string): { returnType: boolean, child: GObject.Object | null, pspec: GObject.ParamSpec | null }
     paste(pastePosition: Gst.ClockTime): TimelineElement | null
     removeChildProperty(pspec: GObject.ParamSpec): boolean
     ripple(start: Gst.ClockTime): boolean
@@ -1690,7 +1513,7 @@ export class AudioTransition {
     setStart(start: Gst.ClockTime): boolean
     setTimeline(timeline: Timeline): boolean
     trim(start: Gst.ClockTime): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -1712,26 +1535,26 @@ export class AudioTransition {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of GES.Extractable */
+    /* Methods of GES-1.0.GES.Extractable */
     getAsset(): Asset | null
     getId(): string
     setAsset(asset: Asset): boolean
-    /* Methods of GES.MetaContainer */
+    /* Methods of GES-1.0.GES.MetaContainer */
     addMetasFromString(str: string): boolean
-    checkMetaRegistered(metaItem: string): [ /* returnType */ boolean, /* flags */ MetaFlag | null, /* type */ GObject.Type | null ]
+    checkMetaRegistered(metaItem: string): { returnType: boolean, flags: MetaFlag | null, type: GObject.Type | null }
     foreach(func: MetaForeachFunc): void
-    getBoolean(metaItem: string): [ /* returnType */ boolean, /* dest */ boolean ]
-    getDate(metaItem: string): [ /* returnType */ boolean, /* dest */ GLib.Date ]
-    getDateTime(metaItem: string): [ /* returnType */ boolean, /* dest */ Gst.DateTime ]
-    getDouble(metaItem: string): [ /* returnType */ boolean, /* dest */ number ]
-    getFloat(metaItem: string): [ /* returnType */ boolean, /* dest */ number ]
-    getInt(metaItem: string): [ /* returnType */ boolean, /* dest */ number ]
-    getInt64(metaItem: string): [ /* returnType */ boolean, /* dest */ number ]
+    getBoolean(metaItem: string): { returnType: boolean, dest: boolean }
+    getDate(metaItem: string): { returnType: boolean, dest: GLib.Date }
+    getDateTime(metaItem: string): { returnType: boolean, dest: Gst.DateTime }
+    getDouble(metaItem: string): { returnType: boolean, dest: number }
+    getFloat(metaItem: string): { returnType: boolean, dest: number }
+    getInt(metaItem: string): { returnType: boolean, dest: number }
+    getInt64(metaItem: string): { returnType: boolean, dest: number }
     getMarkerList(key: string): MarkerList
     getMeta(key: string): any
     getString(metaItem: string): string
-    getUint(metaItem: string): [ /* returnType */ boolean, /* dest */ number ]
-    getUint64(metaItem: string): [ /* returnType */ boolean, /* dest */ number ]
+    getUint(metaItem: string): { returnType: boolean, dest: number }
+    getUint64(metaItem: string): { returnType: boolean, dest: number }
     metasToString(): string
     registerMeta(flags: MetaFlag, metaItem: string, value: any): boolean
     registerMetaBoolean(flags: MetaFlag, metaItem: string, value: boolean): boolean
@@ -1757,86 +1580,45 @@ export class AudioTransition {
     setString(metaItem: string, value: string): boolean
     setUint(metaItem: string, value: number): boolean
     setUint64(metaItem: string, value: number): boolean
-    /* Virtual methods of GES.TrackElement */
-    vfuncActiveChanged(active: boolean): void
-    vfuncChanged(): void
-    vfuncLookupChild(propName: string): [ /* returnType */ boolean, /* element */ Gst.Element | null, /* pspec */ GObject.ParamSpec | null ]
-    /* Virtual methods of GES.TimelineElement */
-    vfuncDeepCopy(copy: TimelineElement): void
-    vfuncGetLayerPriority(): number
-    vfuncGetNaturalFramerate(): [ /* returnType */ boolean, /* framerateN */ number, /* framerateD */ number ]
-    vfuncGetTrackTypes(): TrackType
-    vfuncLookupChild(propName: string): [ /* returnType */ boolean, /* child */ GObject.Object | null, /* pspec */ GObject.ParamSpec | null ]
-    vfuncRipple(start: number): boolean
-    vfuncRippleEnd(end: number): boolean
-    vfuncRollEnd(end: number): boolean
-    vfuncRollStart(start: number): boolean
-    vfuncSetChildProperty(child: GObject.Object, pspec: GObject.ParamSpec, value: any): void
-    vfuncSetChildPropertyFull(child: GObject.Object, pspec: GObject.ParamSpec, value: any): boolean
-    vfuncSetDuration(duration: Gst.ClockTime): boolean
-    vfuncSetInpoint(inpoint: Gst.ClockTime): boolean
-    vfuncSetMaxDuration(maxduration: Gst.ClockTime): boolean
-    vfuncSetParent(parent: TimelineElement): boolean
-    vfuncSetPriority(priority: number): boolean
-    vfuncSetStart(start: Gst.ClockTime): boolean
-    vfuncTrim(start: number): boolean
-    vfuncGetId(): string
-    vfuncSetAsset(asset: Asset): void
-    vfuncSetAssetFull(asset: Asset): boolean
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GES.TrackElement */
+    /* Signals of GES-1.0.GES.TrackElement */
     connect(sigName: "control-binding-added", callback: (($obj: AudioTransition, controlBinding: Gst.ControlBinding) => void)): number
-    connect_after(sigName: "control-binding-added", callback: (($obj: AudioTransition, controlBinding: Gst.ControlBinding) => void)): number
+    on(sigName: "control-binding-added", callback: (controlBinding: Gst.ControlBinding) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "control-binding-added", callback: (controlBinding: Gst.ControlBinding) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "control-binding-added", callback: (controlBinding: Gst.ControlBinding) => void): NodeJS.EventEmitter
     emit(sigName: "control-binding-added", controlBinding: Gst.ControlBinding): void
-    on(sigName: "control-binding-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "control-binding-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "control-binding-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "control-binding-removed", callback: (($obj: AudioTransition, controlBinding: Gst.ControlBinding) => void)): number
-    connect_after(sigName: "control-binding-removed", callback: (($obj: AudioTransition, controlBinding: Gst.ControlBinding) => void)): number
+    on(sigName: "control-binding-removed", callback: (controlBinding: Gst.ControlBinding) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "control-binding-removed", callback: (controlBinding: Gst.ControlBinding) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "control-binding-removed", callback: (controlBinding: Gst.ControlBinding) => void): NodeJS.EventEmitter
     emit(sigName: "control-binding-removed", controlBinding: Gst.ControlBinding): void
-    on(sigName: "control-binding-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "control-binding-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "control-binding-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GES.TimelineElement */
+    /* Signals of GES-1.0.GES.TimelineElement */
     connect(sigName: "child-property-added", callback: (($obj: AudioTransition, propObject: GObject.Object, prop: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "child-property-added", callback: (($obj: AudioTransition, propObject: GObject.Object, prop: GObject.ParamSpec) => void)): number
+    on(sigName: "child-property-added", callback: (propObject: GObject.Object, prop: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "child-property-added", callback: (propObject: GObject.Object, prop: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "child-property-added", callback: (propObject: GObject.Object, prop: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "child-property-added", propObject: GObject.Object, prop: GObject.ParamSpec): void
-    on(sigName: "child-property-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "child-property-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "child-property-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "child-property-removed", callback: (($obj: AudioTransition, propObject: GObject.Object, prop: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "child-property-removed", callback: (($obj: AudioTransition, propObject: GObject.Object, prop: GObject.ParamSpec) => void)): number
+    on(sigName: "child-property-removed", callback: (propObject: GObject.Object, prop: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "child-property-removed", callback: (propObject: GObject.Object, prop: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "child-property-removed", callback: (propObject: GObject.Object, prop: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "child-property-removed", propObject: GObject.Object, prop: GObject.ParamSpec): void
-    on(sigName: "child-property-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "child-property-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "child-property-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "deep-notify", callback: (($obj: AudioTransition, propObject: GObject.Object, prop: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "deep-notify", callback: (($obj: AudioTransition, propObject: GObject.Object, prop: GObject.ParamSpec) => void)): number
+    on(sigName: "deep-notify", callback: (propObject: GObject.Object, prop: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "deep-notify", callback: (propObject: GObject.Object, prop: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "deep-notify", callback: (propObject: GObject.Object, prop: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "deep-notify", propObject: GObject.Object, prop: GObject.ParamSpec): void
-    on(sigName: "deep-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "deep-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "deep-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: AudioTransition, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: AudioTransition, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GES.MetaContainer */
+    /* Signals of GES-1.0.GES.MetaContainer */
     connect(sigName: "notify-meta", callback: (($obj: AudioTransition, key: string, value?: any | null) => void)): number
-    connect_after(sigName: "notify-meta", callback: (($obj: AudioTransition, key: string, value?: any | null) => void)): number
+    on(sigName: "notify-meta", callback: (key: string, value?: any | null) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify-meta", callback: (key: string, value?: any | null) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify-meta", callback: (key: string, value?: any | null) => void): NodeJS.EventEmitter
     emit(sigName: "notify-meta", key: string, value?: any | null): void
-    on(sigName: "notify-meta", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify-meta", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify-meta", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::active", callback: (($obj: AudioTransition, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::active", callback: (($obj: AudioTransition, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::active", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -1925,13 +1707,13 @@ export interface AudioUriSource_ConstructProps extends AudioSource_ConstructProp
     uri?: string
 }
 export class AudioUriSource {
-    /* Properties of GES.TrackElement */
+    /* Properties of GES-1.0.GES.TrackElement */
     active: boolean
     autoClampControlSources: boolean
     hasInternalSource: boolean
     readonly track: Track
     trackType: TrackType
-    /* Properties of GES.TimelineElement */
+    /* Properties of GES-1.0.GES.TimelineElement */
     duration: number
     inPoint: number
     maxDuration: number
@@ -1941,14 +1723,14 @@ export class AudioUriSource {
     serialize: boolean
     start: number
     timeline: Timeline
-    /* Fields of GES.TimelineElement */
+    /* Fields of GES-1.0.GES.TimelineElement */
     parentInstance: GObject.InitiallyUnowned
     asset: Asset
     inpoint: Gst.ClockTime
     maxduration: Gst.ClockTime
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GES.TrackElement */
+    /* Methods of GES-1.0.GES.TrackElement */
     addChildrenProps(element: Gst.Element, wantedCategories?: string[] | null, blacklist?: string[] | null, whitelist?: string[] | null): void
     clampControlSource(propertyName: string): void
     edit(layers: Layer[] | null, mode: EditMode, edge: Edge, position: number): boolean
@@ -1963,33 +1745,33 @@ export class AudioUriSource {
     isActive(): boolean
     isCore(): boolean
     listChildrenProperties(): GObject.ParamSpec[]
-    lookupChild(propName: string): [ /* returnType */ boolean, /* element */ Gst.Element | null, /* pspec */ GObject.ParamSpec | null ]
+    lookupChild(propName: string): { returnType: boolean, element: Gst.Element | null, pspec: GObject.ParamSpec | null }
     removeControlBinding(propertyName: string): boolean
     setActive(active: boolean): boolean
     setAutoClampControlSources(autoClamp: boolean): void
     setControlSource(source: Gst.ControlSource, propertyName: string, bindingType: string): boolean
     setHasInternalSource(hasInternalSource: boolean): boolean
     setTrackType(type: TrackType): void
-    /* Methods of GES.TimelineElement */
+    /* Methods of GES-1.0.GES.TimelineElement */
     addChildProperty(pspec: GObject.ParamSpec, child: GObject.Object): boolean
     copy(deep: boolean): TimelineElement
     edit(layers: Layer[] | null, newLayerPriority: number, mode: EditMode, edge: Edge, position: number): boolean
     editFull(newLayerPriority: number, mode: EditMode, edge: Edge, position: number): boolean
-    getChildProperty(propertyName: string): [ /* returnType */ boolean, /* value */ any ]
-    getChildPropertyByPspec(pspec: GObject.ParamSpec): /* value */ any
+    getChildProperty(propertyName: string): { returnType: boolean, value: any }
+    getChildPropertyByPspec(pspec: GObject.ParamSpec): { value: any }
     getDuration(): Gst.ClockTime
     getInpoint(): Gst.ClockTime
     getLayerPriority(): number
     getMaxDuration(): Gst.ClockTime
     getName(): string
-    getNaturalFramerate(): [ /* returnType */ boolean, /* framerateN */ number, /* framerateD */ number ]
+    getNaturalFramerate(): { returnType: boolean, framerateN: number, framerateD: number }
     getParent(): TimelineElement | null
     getPriority(): number
     getStart(): Gst.ClockTime
     getTimeline(): Timeline | null
     getToplevelParent(): TimelineElement
     getTrackTypes(): TrackType
-    lookupChild(propName: string): [ /* returnType */ boolean, /* child */ GObject.Object | null, /* pspec */ GObject.ParamSpec | null ]
+    lookupChild(propName: string): { returnType: boolean, child: GObject.Object | null, pspec: GObject.ParamSpec | null }
     paste(pastePosition: Gst.ClockTime): TimelineElement | null
     removeChildProperty(pspec: GObject.ParamSpec): boolean
     ripple(start: Gst.ClockTime): boolean
@@ -2008,7 +1790,7 @@ export class AudioUriSource {
     setStart(start: Gst.ClockTime): boolean
     setTimeline(timeline: Timeline): boolean
     trim(start: Gst.ClockTime): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -2030,26 +1812,26 @@ export class AudioUriSource {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of GES.Extractable */
+    /* Methods of GES-1.0.GES.Extractable */
     getAsset(): Asset | null
     getId(): string
     setAsset(asset: Asset): boolean
-    /* Methods of GES.MetaContainer */
+    /* Methods of GES-1.0.GES.MetaContainer */
     addMetasFromString(str: string): boolean
-    checkMetaRegistered(metaItem: string): [ /* returnType */ boolean, /* flags */ MetaFlag | null, /* type */ GObject.Type | null ]
+    checkMetaRegistered(metaItem: string): { returnType: boolean, flags: MetaFlag | null, type: GObject.Type | null }
     foreach(func: MetaForeachFunc): void
-    getBoolean(metaItem: string): [ /* returnType */ boolean, /* dest */ boolean ]
-    getDate(metaItem: string): [ /* returnType */ boolean, /* dest */ GLib.Date ]
-    getDateTime(metaItem: string): [ /* returnType */ boolean, /* dest */ Gst.DateTime ]
-    getDouble(metaItem: string): [ /* returnType */ boolean, /* dest */ number ]
-    getFloat(metaItem: string): [ /* returnType */ boolean, /* dest */ number ]
-    getInt(metaItem: string): [ /* returnType */ boolean, /* dest */ number ]
-    getInt64(metaItem: string): [ /* returnType */ boolean, /* dest */ number ]
+    getBoolean(metaItem: string): { returnType: boolean, dest: boolean }
+    getDate(metaItem: string): { returnType: boolean, dest: GLib.Date }
+    getDateTime(metaItem: string): { returnType: boolean, dest: Gst.DateTime }
+    getDouble(metaItem: string): { returnType: boolean, dest: number }
+    getFloat(metaItem: string): { returnType: boolean, dest: number }
+    getInt(metaItem: string): { returnType: boolean, dest: number }
+    getInt64(metaItem: string): { returnType: boolean, dest: number }
     getMarkerList(key: string): MarkerList
     getMeta(key: string): any
     getString(metaItem: string): string
-    getUint(metaItem: string): [ /* returnType */ boolean, /* dest */ number ]
-    getUint64(metaItem: string): [ /* returnType */ boolean, /* dest */ number ]
+    getUint(metaItem: string): { returnType: boolean, dest: number }
+    getUint64(metaItem: string): { returnType: boolean, dest: number }
     metasToString(): string
     registerMeta(flags: MetaFlag, metaItem: string, value: any): boolean
     registerMetaBoolean(flags: MetaFlag, metaItem: string, value: boolean): boolean
@@ -2075,88 +1857,45 @@ export class AudioUriSource {
     setString(metaItem: string, value: string): boolean
     setUint(metaItem: string, value: number): boolean
     setUint64(metaItem: string, value: number): boolean
-    /* Virtual methods of GES.Source */
-    vfuncSelectPad(pad: Gst.Pad): boolean
-    /* Virtual methods of GES.TrackElement */
-    vfuncActiveChanged(active: boolean): void
-    vfuncChanged(): void
-    vfuncLookupChild(propName: string): [ /* returnType */ boolean, /* element */ Gst.Element | null, /* pspec */ GObject.ParamSpec | null ]
-    /* Virtual methods of GES.TimelineElement */
-    vfuncDeepCopy(copy: TimelineElement): void
-    vfuncGetLayerPriority(): number
-    vfuncGetNaturalFramerate(): [ /* returnType */ boolean, /* framerateN */ number, /* framerateD */ number ]
-    vfuncGetTrackTypes(): TrackType
-    vfuncLookupChild(propName: string): [ /* returnType */ boolean, /* child */ GObject.Object | null, /* pspec */ GObject.ParamSpec | null ]
-    vfuncRipple(start: number): boolean
-    vfuncRippleEnd(end: number): boolean
-    vfuncRollEnd(end: number): boolean
-    vfuncRollStart(start: number): boolean
-    vfuncSetChildProperty(child: GObject.Object, pspec: GObject.ParamSpec, value: any): void
-    vfuncSetChildPropertyFull(child: GObject.Object, pspec: GObject.ParamSpec, value: any): boolean
-    vfuncSetDuration(duration: Gst.ClockTime): boolean
-    vfuncSetInpoint(inpoint: Gst.ClockTime): boolean
-    vfuncSetMaxDuration(maxduration: Gst.ClockTime): boolean
-    vfuncSetParent(parent: TimelineElement): boolean
-    vfuncSetPriority(priority: number): boolean
-    vfuncSetStart(start: Gst.ClockTime): boolean
-    vfuncTrim(start: number): boolean
-    vfuncGetId(): string
-    vfuncSetAsset(asset: Asset): void
-    vfuncSetAssetFull(asset: Asset): boolean
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GES.TrackElement */
+    /* Signals of GES-1.0.GES.TrackElement */
     connect(sigName: "control-binding-added", callback: (($obj: AudioUriSource, controlBinding: Gst.ControlBinding) => void)): number
-    connect_after(sigName: "control-binding-added", callback: (($obj: AudioUriSource, controlBinding: Gst.ControlBinding) => void)): number
+    on(sigName: "control-binding-added", callback: (controlBinding: Gst.ControlBinding) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "control-binding-added", callback: (controlBinding: Gst.ControlBinding) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "control-binding-added", callback: (controlBinding: Gst.ControlBinding) => void): NodeJS.EventEmitter
     emit(sigName: "control-binding-added", controlBinding: Gst.ControlBinding): void
-    on(sigName: "control-binding-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "control-binding-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "control-binding-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "control-binding-removed", callback: (($obj: AudioUriSource, controlBinding: Gst.ControlBinding) => void)): number
-    connect_after(sigName: "control-binding-removed", callback: (($obj: AudioUriSource, controlBinding: Gst.ControlBinding) => void)): number
+    on(sigName: "control-binding-removed", callback: (controlBinding: Gst.ControlBinding) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "control-binding-removed", callback: (controlBinding: Gst.ControlBinding) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "control-binding-removed", callback: (controlBinding: Gst.ControlBinding) => void): NodeJS.EventEmitter
     emit(sigName: "control-binding-removed", controlBinding: Gst.ControlBinding): void
-    on(sigName: "control-binding-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "control-binding-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "control-binding-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GES.TimelineElement */
+    /* Signals of GES-1.0.GES.TimelineElement */
     connect(sigName: "child-property-added", callback: (($obj: AudioUriSource, propObject: GObject.Object, prop: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "child-property-added", callback: (($obj: AudioUriSource, propObject: GObject.Object, prop: GObject.ParamSpec) => void)): number
+    on(sigName: "child-property-added", callback: (propObject: GObject.Object, prop: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "child-property-added", callback: (propObject: GObject.Object, prop: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "child-property-added", callback: (propObject: GObject.Object, prop: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "child-property-added", propObject: GObject.Object, prop: GObject.ParamSpec): void
-    on(sigName: "child-property-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "child-property-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "child-property-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "child-property-removed", callback: (($obj: AudioUriSource, propObject: GObject.Object, prop: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "child-property-removed", callback: (($obj: AudioUriSource, propObject: GObject.Object, prop: GObject.ParamSpec) => void)): number
+    on(sigName: "child-property-removed", callback: (propObject: GObject.Object, prop: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "child-property-removed", callback: (propObject: GObject.Object, prop: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "child-property-removed", callback: (propObject: GObject.Object, prop: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "child-property-removed", propObject: GObject.Object, prop: GObject.ParamSpec): void
-    on(sigName: "child-property-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "child-property-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "child-property-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "deep-notify", callback: (($obj: AudioUriSource, propObject: GObject.Object, prop: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "deep-notify", callback: (($obj: AudioUriSource, propObject: GObject.Object, prop: GObject.ParamSpec) => void)): number
+    on(sigName: "deep-notify", callback: (propObject: GObject.Object, prop: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "deep-notify", callback: (propObject: GObject.Object, prop: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "deep-notify", callback: (propObject: GObject.Object, prop: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "deep-notify", propObject: GObject.Object, prop: GObject.ParamSpec): void
-    on(sigName: "deep-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "deep-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "deep-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: AudioUriSource, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: AudioUriSource, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GES.MetaContainer */
+    /* Signals of GES-1.0.GES.MetaContainer */
     connect(sigName: "notify-meta", callback: (($obj: AudioUriSource, key: string, value?: any | null) => void)): number
-    connect_after(sigName: "notify-meta", callback: (($obj: AudioUriSource, key: string, value?: any | null) => void)): number
+    on(sigName: "notify-meta", callback: (key: string, value?: any | null) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify-meta", callback: (key: string, value?: any | null) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify-meta", callback: (key: string, value?: any | null) => void): NodeJS.EventEmitter
     emit(sigName: "notify-meta", key: string, value?: any | null): void
-    on(sigName: "notify-meta", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify-meta", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify-meta", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::active", callback: (($obj: AudioUriSource, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::active", callback: (($obj: AudioUriSource, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::active", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -2242,13 +1981,13 @@ export class AudioUriSource {
 export interface BaseEffect_ConstructProps extends Operation_ConstructProps {
 }
 export class BaseEffect {
-    /* Properties of GES.TrackElement */
+    /* Properties of GES-1.0.GES.TrackElement */
     active: boolean
     autoClampControlSources: boolean
     hasInternalSource: boolean
     readonly track: Track
     trackType: TrackType
-    /* Properties of GES.TimelineElement */
+    /* Properties of GES-1.0.GES.TimelineElement */
     duration: number
     inPoint: number
     maxDuration: number
@@ -2258,18 +1997,18 @@ export class BaseEffect {
     serialize: boolean
     start: number
     timeline: Timeline
-    /* Fields of GES.TimelineElement */
+    /* Fields of GES-1.0.GES.TimelineElement */
     parentInstance: GObject.InitiallyUnowned
     asset: Asset
     inpoint: Gst.ClockTime
     maxduration: Gst.ClockTime
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GES.BaseEffect */
+    /* Methods of GES-1.0.GES.BaseEffect */
     isTimeEffect(): boolean
     registerTimeProperty(childPropertyName: string): boolean
     setTimeTranslationFuncs(sourceToSinkFunc?: BaseEffectTimeTranslationFunc | null, sinkToSourceFunc?: BaseEffectTimeTranslationFunc | null): boolean
-    /* Methods of GES.TrackElement */
+    /* Methods of GES-1.0.GES.TrackElement */
     addChildrenProps(element: Gst.Element, wantedCategories?: string[] | null, blacklist?: string[] | null, whitelist?: string[] | null): void
     clampControlSource(propertyName: string): void
     edit(layers: Layer[] | null, mode: EditMode, edge: Edge, position: number): boolean
@@ -2284,33 +2023,33 @@ export class BaseEffect {
     isActive(): boolean
     isCore(): boolean
     listChildrenProperties(): GObject.ParamSpec[]
-    lookupChild(propName: string): [ /* returnType */ boolean, /* element */ Gst.Element | null, /* pspec */ GObject.ParamSpec | null ]
+    lookupChild(propName: string): { returnType: boolean, element: Gst.Element | null, pspec: GObject.ParamSpec | null }
     removeControlBinding(propertyName: string): boolean
     setActive(active: boolean): boolean
     setAutoClampControlSources(autoClamp: boolean): void
     setControlSource(source: Gst.ControlSource, propertyName: string, bindingType: string): boolean
     setHasInternalSource(hasInternalSource: boolean): boolean
     setTrackType(type: TrackType): void
-    /* Methods of GES.TimelineElement */
+    /* Methods of GES-1.0.GES.TimelineElement */
     addChildProperty(pspec: GObject.ParamSpec, child: GObject.Object): boolean
     copy(deep: boolean): TimelineElement
     edit(layers: Layer[] | null, newLayerPriority: number, mode: EditMode, edge: Edge, position: number): boolean
     editFull(newLayerPriority: number, mode: EditMode, edge: Edge, position: number): boolean
-    getChildProperty(propertyName: string): [ /* returnType */ boolean, /* value */ any ]
-    getChildPropertyByPspec(pspec: GObject.ParamSpec): /* value */ any
+    getChildProperty(propertyName: string): { returnType: boolean, value: any }
+    getChildPropertyByPspec(pspec: GObject.ParamSpec): { value: any }
     getDuration(): Gst.ClockTime
     getInpoint(): Gst.ClockTime
     getLayerPriority(): number
     getMaxDuration(): Gst.ClockTime
     getName(): string
-    getNaturalFramerate(): [ /* returnType */ boolean, /* framerateN */ number, /* framerateD */ number ]
+    getNaturalFramerate(): { returnType: boolean, framerateN: number, framerateD: number }
     getParent(): TimelineElement | null
     getPriority(): number
     getStart(): Gst.ClockTime
     getTimeline(): Timeline | null
     getToplevelParent(): TimelineElement
     getTrackTypes(): TrackType
-    lookupChild(propName: string): [ /* returnType */ boolean, /* child */ GObject.Object | null, /* pspec */ GObject.ParamSpec | null ]
+    lookupChild(propName: string): { returnType: boolean, child: GObject.Object | null, pspec: GObject.ParamSpec | null }
     paste(pastePosition: Gst.ClockTime): TimelineElement | null
     removeChildProperty(pspec: GObject.ParamSpec): boolean
     ripple(start: Gst.ClockTime): boolean
@@ -2329,7 +2068,7 @@ export class BaseEffect {
     setStart(start: Gst.ClockTime): boolean
     setTimeline(timeline: Timeline): boolean
     trim(start: Gst.ClockTime): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -2351,26 +2090,26 @@ export class BaseEffect {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of GES.Extractable */
+    /* Methods of GES-1.0.GES.Extractable */
     getAsset(): Asset | null
     getId(): string
     setAsset(asset: Asset): boolean
-    /* Methods of GES.MetaContainer */
+    /* Methods of GES-1.0.GES.MetaContainer */
     addMetasFromString(str: string): boolean
-    checkMetaRegistered(metaItem: string): [ /* returnType */ boolean, /* flags */ MetaFlag | null, /* type */ GObject.Type | null ]
+    checkMetaRegistered(metaItem: string): { returnType: boolean, flags: MetaFlag | null, type: GObject.Type | null }
     foreach(func: MetaForeachFunc): void
-    getBoolean(metaItem: string): [ /* returnType */ boolean, /* dest */ boolean ]
-    getDate(metaItem: string): [ /* returnType */ boolean, /* dest */ GLib.Date ]
-    getDateTime(metaItem: string): [ /* returnType */ boolean, /* dest */ Gst.DateTime ]
-    getDouble(metaItem: string): [ /* returnType */ boolean, /* dest */ number ]
-    getFloat(metaItem: string): [ /* returnType */ boolean, /* dest */ number ]
-    getInt(metaItem: string): [ /* returnType */ boolean, /* dest */ number ]
-    getInt64(metaItem: string): [ /* returnType */ boolean, /* dest */ number ]
+    getBoolean(metaItem: string): { returnType: boolean, dest: boolean }
+    getDate(metaItem: string): { returnType: boolean, dest: GLib.Date }
+    getDateTime(metaItem: string): { returnType: boolean, dest: Gst.DateTime }
+    getDouble(metaItem: string): { returnType: boolean, dest: number }
+    getFloat(metaItem: string): { returnType: boolean, dest: number }
+    getInt(metaItem: string): { returnType: boolean, dest: number }
+    getInt64(metaItem: string): { returnType: boolean, dest: number }
     getMarkerList(key: string): MarkerList
     getMeta(key: string): any
     getString(metaItem: string): string
-    getUint(metaItem: string): [ /* returnType */ boolean, /* dest */ number ]
-    getUint64(metaItem: string): [ /* returnType */ boolean, /* dest */ number ]
+    getUint(metaItem: string): { returnType: boolean, dest: number }
+    getUint64(metaItem: string): { returnType: boolean, dest: number }
     metasToString(): string
     registerMeta(flags: MetaFlag, metaItem: string, value: any): boolean
     registerMetaBoolean(flags: MetaFlag, metaItem: string, value: boolean): boolean
@@ -2396,86 +2135,45 @@ export class BaseEffect {
     setString(metaItem: string, value: string): boolean
     setUint(metaItem: string, value: number): boolean
     setUint64(metaItem: string, value: number): boolean
-    /* Virtual methods of GES.TrackElement */
-    vfuncActiveChanged(active: boolean): void
-    vfuncChanged(): void
-    vfuncLookupChild(propName: string): [ /* returnType */ boolean, /* element */ Gst.Element | null, /* pspec */ GObject.ParamSpec | null ]
-    /* Virtual methods of GES.TimelineElement */
-    vfuncDeepCopy(copy: TimelineElement): void
-    vfuncGetLayerPriority(): number
-    vfuncGetNaturalFramerate(): [ /* returnType */ boolean, /* framerateN */ number, /* framerateD */ number ]
-    vfuncGetTrackTypes(): TrackType
-    vfuncLookupChild(propName: string): [ /* returnType */ boolean, /* child */ GObject.Object | null, /* pspec */ GObject.ParamSpec | null ]
-    vfuncRipple(start: number): boolean
-    vfuncRippleEnd(end: number): boolean
-    vfuncRollEnd(end: number): boolean
-    vfuncRollStart(start: number): boolean
-    vfuncSetChildProperty(child: GObject.Object, pspec: GObject.ParamSpec, value: any): void
-    vfuncSetChildPropertyFull(child: GObject.Object, pspec: GObject.ParamSpec, value: any): boolean
-    vfuncSetDuration(duration: Gst.ClockTime): boolean
-    vfuncSetInpoint(inpoint: Gst.ClockTime): boolean
-    vfuncSetMaxDuration(maxduration: Gst.ClockTime): boolean
-    vfuncSetParent(parent: TimelineElement): boolean
-    vfuncSetPriority(priority: number): boolean
-    vfuncSetStart(start: Gst.ClockTime): boolean
-    vfuncTrim(start: number): boolean
-    vfuncGetId(): string
-    vfuncSetAsset(asset: Asset): void
-    vfuncSetAssetFull(asset: Asset): boolean
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GES.TrackElement */
+    /* Signals of GES-1.0.GES.TrackElement */
     connect(sigName: "control-binding-added", callback: (($obj: BaseEffect, controlBinding: Gst.ControlBinding) => void)): number
-    connect_after(sigName: "control-binding-added", callback: (($obj: BaseEffect, controlBinding: Gst.ControlBinding) => void)): number
+    on(sigName: "control-binding-added", callback: (controlBinding: Gst.ControlBinding) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "control-binding-added", callback: (controlBinding: Gst.ControlBinding) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "control-binding-added", callback: (controlBinding: Gst.ControlBinding) => void): NodeJS.EventEmitter
     emit(sigName: "control-binding-added", controlBinding: Gst.ControlBinding): void
-    on(sigName: "control-binding-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "control-binding-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "control-binding-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "control-binding-removed", callback: (($obj: BaseEffect, controlBinding: Gst.ControlBinding) => void)): number
-    connect_after(sigName: "control-binding-removed", callback: (($obj: BaseEffect, controlBinding: Gst.ControlBinding) => void)): number
+    on(sigName: "control-binding-removed", callback: (controlBinding: Gst.ControlBinding) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "control-binding-removed", callback: (controlBinding: Gst.ControlBinding) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "control-binding-removed", callback: (controlBinding: Gst.ControlBinding) => void): NodeJS.EventEmitter
     emit(sigName: "control-binding-removed", controlBinding: Gst.ControlBinding): void
-    on(sigName: "control-binding-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "control-binding-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "control-binding-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GES.TimelineElement */
+    /* Signals of GES-1.0.GES.TimelineElement */
     connect(sigName: "child-property-added", callback: (($obj: BaseEffect, propObject: GObject.Object, prop: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "child-property-added", callback: (($obj: BaseEffect, propObject: GObject.Object, prop: GObject.ParamSpec) => void)): number
+    on(sigName: "child-property-added", callback: (propObject: GObject.Object, prop: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "child-property-added", callback: (propObject: GObject.Object, prop: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "child-property-added", callback: (propObject: GObject.Object, prop: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "child-property-added", propObject: GObject.Object, prop: GObject.ParamSpec): void
-    on(sigName: "child-property-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "child-property-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "child-property-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "child-property-removed", callback: (($obj: BaseEffect, propObject: GObject.Object, prop: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "child-property-removed", callback: (($obj: BaseEffect, propObject: GObject.Object, prop: GObject.ParamSpec) => void)): number
+    on(sigName: "child-property-removed", callback: (propObject: GObject.Object, prop: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "child-property-removed", callback: (propObject: GObject.Object, prop: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "child-property-removed", callback: (propObject: GObject.Object, prop: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "child-property-removed", propObject: GObject.Object, prop: GObject.ParamSpec): void
-    on(sigName: "child-property-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "child-property-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "child-property-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "deep-notify", callback: (($obj: BaseEffect, propObject: GObject.Object, prop: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "deep-notify", callback: (($obj: BaseEffect, propObject: GObject.Object, prop: GObject.ParamSpec) => void)): number
+    on(sigName: "deep-notify", callback: (propObject: GObject.Object, prop: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "deep-notify", callback: (propObject: GObject.Object, prop: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "deep-notify", callback: (propObject: GObject.Object, prop: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "deep-notify", propObject: GObject.Object, prop: GObject.ParamSpec): void
-    on(sigName: "deep-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "deep-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "deep-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: BaseEffect, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: BaseEffect, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GES.MetaContainer */
+    /* Signals of GES-1.0.GES.MetaContainer */
     connect(sigName: "notify-meta", callback: (($obj: BaseEffect, key: string, value?: any | null) => void)): number
-    connect_after(sigName: "notify-meta", callback: (($obj: BaseEffect, key: string, value?: any | null) => void)): number
+    on(sigName: "notify-meta", callback: (key: string, value?: any | null) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify-meta", callback: (key: string, value?: any | null) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify-meta", callback: (key: string, value?: any | null) => void): NodeJS.EventEmitter
     emit(sigName: "notify-meta", key: string, value?: any | null): void
-    on(sigName: "notify-meta", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify-meta", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify-meta", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::active", callback: (($obj: BaseEffect, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::active", callback: (($obj: BaseEffect, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::active", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -2561,13 +2259,13 @@ export class BaseEffect {
 export interface BaseEffectClip_ConstructProps extends OperationClip_ConstructProps {
 }
 export class BaseEffectClip {
-    /* Properties of GES.Clip */
+    /* Properties of GES-1.0.GES.Clip */
     readonly durationLimit: number
     readonly layer: Layer
     supportedFormats: TrackType
-    /* Properties of GES.Container */
+    /* Properties of GES-1.0.GES.Container */
     readonly height: number
-    /* Properties of GES.TimelineElement */
+    /* Properties of GES-1.0.GES.TimelineElement */
     duration: number
     inPoint: number
     maxDuration: number
@@ -2577,18 +2275,18 @@ export class BaseEffectClip {
     serialize: boolean
     start: number
     timeline: Timeline
-    /* Fields of GES.Container */
+    /* Fields of GES-1.0.GES.Container */
     children: TimelineElement[]
     childrenControlMode: ChildrenControlMode
     initiatedMove: TimelineElement
-    /* Fields of GES.TimelineElement */
+    /* Fields of GES-1.0.GES.TimelineElement */
     parentInstance: GObject.InitiallyUnowned
     asset: Asset
     inpoint: Gst.ClockTime
     maxduration: Gst.ClockTime
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GES.Clip */
+    /* Methods of GES-1.0.GES.Clip */
     addAsset(asset: Asset): TrackElement | null
     addChildToTrack(child: TrackElement, track: Track): TrackElement
     addTopEffect(effect: BaseEffect, index: number): boolean
@@ -2612,24 +2310,24 @@ export class BaseEffectClip {
     setTopEffectPriority(effect: BaseEffect, newpriority: number): boolean
     split(position: number): Clip | null
     splitFull(position: number): Clip | null
-    /* Methods of GES.Container */
+    /* Methods of GES-1.0.GES.Container */
     add(child: TimelineElement): boolean
     edit(layers: Layer[] | null, newLayerPriority: number, mode: EditMode, edge: Edge, position: number): boolean
     getChildren(recursive: boolean): TimelineElement[]
     remove(child: TimelineElement): boolean
     ungroup(recursive: boolean): Container[]
-    /* Methods of GES.TimelineElement */
+    /* Methods of GES-1.0.GES.TimelineElement */
     addChildProperty(pspec: GObject.ParamSpec, child: GObject.Object): boolean
     copy(deep: boolean): TimelineElement
     editFull(newLayerPriority: number, mode: EditMode, edge: Edge, position: number): boolean
-    getChildProperty(propertyName: string): [ /* returnType */ boolean, /* value */ any ]
-    getChildPropertyByPspec(pspec: GObject.ParamSpec): /* value */ any
+    getChildProperty(propertyName: string): { returnType: boolean, value: any }
+    getChildPropertyByPspec(pspec: GObject.ParamSpec): { value: any }
     getDuration(): Gst.ClockTime
     getInpoint(): Gst.ClockTime
     getLayerPriority(): number
     getMaxDuration(): Gst.ClockTime
     getName(): string
-    getNaturalFramerate(): [ /* returnType */ boolean, /* framerateN */ number, /* framerateD */ number ]
+    getNaturalFramerate(): { returnType: boolean, framerateN: number, framerateD: number }
     getParent(): TimelineElement | null
     getPriority(): number
     getStart(): Gst.ClockTime
@@ -2637,7 +2335,7 @@ export class BaseEffectClip {
     getToplevelParent(): TimelineElement
     getTrackTypes(): TrackType
     listChildrenProperties(): GObject.ParamSpec[]
-    lookupChild(propName: string): [ /* returnType */ boolean, /* child */ GObject.Object | null, /* pspec */ GObject.ParamSpec | null ]
+    lookupChild(propName: string): { returnType: boolean, child: GObject.Object | null, pspec: GObject.ParamSpec | null }
     paste(pastePosition: Gst.ClockTime): TimelineElement | null
     removeChildProperty(pspec: GObject.ParamSpec): boolean
     ripple(start: Gst.ClockTime): boolean
@@ -2656,7 +2354,7 @@ export class BaseEffectClip {
     setStart(start: Gst.ClockTime): boolean
     setTimeline(timeline: Timeline): boolean
     trim(start: Gst.ClockTime): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -2678,26 +2376,26 @@ export class BaseEffectClip {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of GES.Extractable */
+    /* Methods of GES-1.0.GES.Extractable */
     getAsset(): Asset | null
     getId(): string
     setAsset(asset: Asset): boolean
-    /* Methods of GES.MetaContainer */
+    /* Methods of GES-1.0.GES.MetaContainer */
     addMetasFromString(str: string): boolean
-    checkMetaRegistered(metaItem: string): [ /* returnType */ boolean, /* flags */ MetaFlag | null, /* type */ GObject.Type | null ]
+    checkMetaRegistered(metaItem: string): { returnType: boolean, flags: MetaFlag | null, type: GObject.Type | null }
     foreach(func: MetaForeachFunc): void
-    getBoolean(metaItem: string): [ /* returnType */ boolean, /* dest */ boolean ]
-    getDate(metaItem: string): [ /* returnType */ boolean, /* dest */ GLib.Date ]
-    getDateTime(metaItem: string): [ /* returnType */ boolean, /* dest */ Gst.DateTime ]
-    getDouble(metaItem: string): [ /* returnType */ boolean, /* dest */ number ]
-    getFloat(metaItem: string): [ /* returnType */ boolean, /* dest */ number ]
-    getInt(metaItem: string): [ /* returnType */ boolean, /* dest */ number ]
-    getInt64(metaItem: string): [ /* returnType */ boolean, /* dest */ number ]
+    getBoolean(metaItem: string): { returnType: boolean, dest: boolean }
+    getDate(metaItem: string): { returnType: boolean, dest: GLib.Date }
+    getDateTime(metaItem: string): { returnType: boolean, dest: Gst.DateTime }
+    getDouble(metaItem: string): { returnType: boolean, dest: number }
+    getFloat(metaItem: string): { returnType: boolean, dest: number }
+    getInt(metaItem: string): { returnType: boolean, dest: number }
+    getInt64(metaItem: string): { returnType: boolean, dest: number }
     getMarkerList(key: string): MarkerList
     getMeta(key: string): any
     getString(metaItem: string): string
-    getUint(metaItem: string): [ /* returnType */ boolean, /* dest */ number ]
-    getUint64(metaItem: string): [ /* returnType */ boolean, /* dest */ number ]
+    getUint(metaItem: string): { returnType: boolean, dest: number }
+    getUint64(metaItem: string): { returnType: boolean, dest: number }
     metasToString(): string
     registerMeta(flags: MetaFlag, metaItem: string, value: any): boolean
     registerMetaBoolean(flags: MetaFlag, metaItem: string, value: boolean): boolean
@@ -2723,92 +2421,45 @@ export class BaseEffectClip {
     setString(metaItem: string, value: string): boolean
     setUint(metaItem: string, value: number): boolean
     setUint64(metaItem: string, value: number): boolean
-    /* Virtual methods of GES.Clip */
-    vfuncCreateTrackElement(type: TrackType): TrackElement | null
-    vfuncCreateTrackElements(type: TrackType): TrackElement[]
-    /* Virtual methods of GES.Container */
-    vfuncAddChild(element: TimelineElement): boolean
-    vfuncChildAdded(element: TimelineElement): void
-    vfuncChildRemoved(element: TimelineElement): void
-    vfuncEdit(layers: Layer[] | null, newLayerPriority: number, mode: EditMode, edge: Edge, position: number): boolean
-    vfuncRemoveChild(element: TimelineElement): boolean
-    vfuncUngroup(recursive: boolean): Container[]
-    /* Virtual methods of GES.TimelineElement */
-    vfuncDeepCopy(copy: TimelineElement): void
-    vfuncGetLayerPriority(): number
-    vfuncGetNaturalFramerate(): [ /* returnType */ boolean, /* framerateN */ number, /* framerateD */ number ]
-    vfuncGetTrackTypes(): TrackType
-    vfuncLookupChild(propName: string): [ /* returnType */ boolean, /* child */ GObject.Object | null, /* pspec */ GObject.ParamSpec | null ]
-    vfuncRipple(start: number): boolean
-    vfuncRippleEnd(end: number): boolean
-    vfuncRollEnd(end: number): boolean
-    vfuncRollStart(start: number): boolean
-    vfuncSetChildProperty(child: GObject.Object, pspec: GObject.ParamSpec, value: any): void
-    vfuncSetChildPropertyFull(child: GObject.Object, pspec: GObject.ParamSpec, value: any): boolean
-    vfuncSetDuration(duration: Gst.ClockTime): boolean
-    vfuncSetInpoint(inpoint: Gst.ClockTime): boolean
-    vfuncSetMaxDuration(maxduration: Gst.ClockTime): boolean
-    vfuncSetParent(parent: TimelineElement): boolean
-    vfuncSetPriority(priority: number): boolean
-    vfuncSetStart(start: Gst.ClockTime): boolean
-    vfuncTrim(start: number): boolean
-    vfuncGetId(): string
-    vfuncSetAsset(asset: Asset): void
-    vfuncSetAssetFull(asset: Asset): boolean
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GES.Container */
+    /* Signals of GES-1.0.GES.Container */
     connect(sigName: "child-added", callback: (($obj: BaseEffectClip, element: TimelineElement) => void)): number
-    connect_after(sigName: "child-added", callback: (($obj: BaseEffectClip, element: TimelineElement) => void)): number
+    on(sigName: "child-added", callback: (element: TimelineElement) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "child-added", callback: (element: TimelineElement) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "child-added", callback: (element: TimelineElement) => void): NodeJS.EventEmitter
     emit(sigName: "child-added", element: TimelineElement): void
-    on(sigName: "child-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "child-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "child-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "child-removed", callback: (($obj: BaseEffectClip, element: TimelineElement) => void)): number
-    connect_after(sigName: "child-removed", callback: (($obj: BaseEffectClip, element: TimelineElement) => void)): number
+    on(sigName: "child-removed", callback: (element: TimelineElement) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "child-removed", callback: (element: TimelineElement) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "child-removed", callback: (element: TimelineElement) => void): NodeJS.EventEmitter
     emit(sigName: "child-removed", element: TimelineElement): void
-    on(sigName: "child-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "child-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "child-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GES.TimelineElement */
+    /* Signals of GES-1.0.GES.TimelineElement */
     connect(sigName: "child-property-added", callback: (($obj: BaseEffectClip, propObject: GObject.Object, prop: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "child-property-added", callback: (($obj: BaseEffectClip, propObject: GObject.Object, prop: GObject.ParamSpec) => void)): number
+    on(sigName: "child-property-added", callback: (propObject: GObject.Object, prop: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "child-property-added", callback: (propObject: GObject.Object, prop: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "child-property-added", callback: (propObject: GObject.Object, prop: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "child-property-added", propObject: GObject.Object, prop: GObject.ParamSpec): void
-    on(sigName: "child-property-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "child-property-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "child-property-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "child-property-removed", callback: (($obj: BaseEffectClip, propObject: GObject.Object, prop: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "child-property-removed", callback: (($obj: BaseEffectClip, propObject: GObject.Object, prop: GObject.ParamSpec) => void)): number
+    on(sigName: "child-property-removed", callback: (propObject: GObject.Object, prop: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "child-property-removed", callback: (propObject: GObject.Object, prop: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "child-property-removed", callback: (propObject: GObject.Object, prop: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "child-property-removed", propObject: GObject.Object, prop: GObject.ParamSpec): void
-    on(sigName: "child-property-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "child-property-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "child-property-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "deep-notify", callback: (($obj: BaseEffectClip, propObject: GObject.Object, prop: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "deep-notify", callback: (($obj: BaseEffectClip, propObject: GObject.Object, prop: GObject.ParamSpec) => void)): number
+    on(sigName: "deep-notify", callback: (propObject: GObject.Object, prop: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "deep-notify", callback: (propObject: GObject.Object, prop: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "deep-notify", callback: (propObject: GObject.Object, prop: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "deep-notify", propObject: GObject.Object, prop: GObject.ParamSpec): void
-    on(sigName: "deep-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "deep-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "deep-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: BaseEffectClip, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: BaseEffectClip, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GES.MetaContainer */
+    /* Signals of GES-1.0.GES.MetaContainer */
     connect(sigName: "notify-meta", callback: (($obj: BaseEffectClip, key: string, value?: any | null) => void)): number
-    connect_after(sigName: "notify-meta", callback: (($obj: BaseEffectClip, key: string, value?: any | null) => void)): number
+    on(sigName: "notify-meta", callback: (key: string, value?: any | null) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify-meta", callback: (key: string, value?: any | null) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify-meta", callback: (key: string, value?: any | null) => void): NodeJS.EventEmitter
     emit(sigName: "notify-meta", key: string, value?: any | null): void
-    on(sigName: "notify-meta", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify-meta", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify-meta", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::duration-limit", callback: (($obj: BaseEffectClip, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::duration-limit", callback: (($obj: BaseEffectClip, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::duration-limit", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -2889,13 +2540,13 @@ export class BaseEffectClip {
 export interface BaseTransitionClip_ConstructProps extends OperationClip_ConstructProps {
 }
 export class BaseTransitionClip {
-    /* Properties of GES.Clip */
+    /* Properties of GES-1.0.GES.Clip */
     readonly durationLimit: number
     readonly layer: Layer
     supportedFormats: TrackType
-    /* Properties of GES.Container */
+    /* Properties of GES-1.0.GES.Container */
     readonly height: number
-    /* Properties of GES.TimelineElement */
+    /* Properties of GES-1.0.GES.TimelineElement */
     duration: number
     inPoint: number
     maxDuration: number
@@ -2905,18 +2556,18 @@ export class BaseTransitionClip {
     serialize: boolean
     start: number
     timeline: Timeline
-    /* Fields of GES.Container */
+    /* Fields of GES-1.0.GES.Container */
     children: TimelineElement[]
     childrenControlMode: ChildrenControlMode
     initiatedMove: TimelineElement
-    /* Fields of GES.TimelineElement */
+    /* Fields of GES-1.0.GES.TimelineElement */
     parentInstance: GObject.InitiallyUnowned
     asset: Asset
     inpoint: Gst.ClockTime
     maxduration: Gst.ClockTime
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GES.Clip */
+    /* Methods of GES-1.0.GES.Clip */
     addAsset(asset: Asset): TrackElement | null
     addChildToTrack(child: TrackElement, track: Track): TrackElement
     addTopEffect(effect: BaseEffect, index: number): boolean
@@ -2940,24 +2591,24 @@ export class BaseTransitionClip {
     setTopEffectPriority(effect: BaseEffect, newpriority: number): boolean
     split(position: number): Clip | null
     splitFull(position: number): Clip | null
-    /* Methods of GES.Container */
+    /* Methods of GES-1.0.GES.Container */
     add(child: TimelineElement): boolean
     edit(layers: Layer[] | null, newLayerPriority: number, mode: EditMode, edge: Edge, position: number): boolean
     getChildren(recursive: boolean): TimelineElement[]
     remove(child: TimelineElement): boolean
     ungroup(recursive: boolean): Container[]
-    /* Methods of GES.TimelineElement */
+    /* Methods of GES-1.0.GES.TimelineElement */
     addChildProperty(pspec: GObject.ParamSpec, child: GObject.Object): boolean
     copy(deep: boolean): TimelineElement
     editFull(newLayerPriority: number, mode: EditMode, edge: Edge, position: number): boolean
-    getChildProperty(propertyName: string): [ /* returnType */ boolean, /* value */ any ]
-    getChildPropertyByPspec(pspec: GObject.ParamSpec): /* value */ any
+    getChildProperty(propertyName: string): { returnType: boolean, value: any }
+    getChildPropertyByPspec(pspec: GObject.ParamSpec): { value: any }
     getDuration(): Gst.ClockTime
     getInpoint(): Gst.ClockTime
     getLayerPriority(): number
     getMaxDuration(): Gst.ClockTime
     getName(): string
-    getNaturalFramerate(): [ /* returnType */ boolean, /* framerateN */ number, /* framerateD */ number ]
+    getNaturalFramerate(): { returnType: boolean, framerateN: number, framerateD: number }
     getParent(): TimelineElement | null
     getPriority(): number
     getStart(): Gst.ClockTime
@@ -2965,7 +2616,7 @@ export class BaseTransitionClip {
     getToplevelParent(): TimelineElement
     getTrackTypes(): TrackType
     listChildrenProperties(): GObject.ParamSpec[]
-    lookupChild(propName: string): [ /* returnType */ boolean, /* child */ GObject.Object | null, /* pspec */ GObject.ParamSpec | null ]
+    lookupChild(propName: string): { returnType: boolean, child: GObject.Object | null, pspec: GObject.ParamSpec | null }
     paste(pastePosition: Gst.ClockTime): TimelineElement | null
     removeChildProperty(pspec: GObject.ParamSpec): boolean
     ripple(start: Gst.ClockTime): boolean
@@ -2984,7 +2635,7 @@ export class BaseTransitionClip {
     setStart(start: Gst.ClockTime): boolean
     setTimeline(timeline: Timeline): boolean
     trim(start: Gst.ClockTime): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -3006,26 +2657,26 @@ export class BaseTransitionClip {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of GES.Extractable */
+    /* Methods of GES-1.0.GES.Extractable */
     getAsset(): Asset | null
     getId(): string
     setAsset(asset: Asset): boolean
-    /* Methods of GES.MetaContainer */
+    /* Methods of GES-1.0.GES.MetaContainer */
     addMetasFromString(str: string): boolean
-    checkMetaRegistered(metaItem: string): [ /* returnType */ boolean, /* flags */ MetaFlag | null, /* type */ GObject.Type | null ]
+    checkMetaRegistered(metaItem: string): { returnType: boolean, flags: MetaFlag | null, type: GObject.Type | null }
     foreach(func: MetaForeachFunc): void
-    getBoolean(metaItem: string): [ /* returnType */ boolean, /* dest */ boolean ]
-    getDate(metaItem: string): [ /* returnType */ boolean, /* dest */ GLib.Date ]
-    getDateTime(metaItem: string): [ /* returnType */ boolean, /* dest */ Gst.DateTime ]
-    getDouble(metaItem: string): [ /* returnType */ boolean, /* dest */ number ]
-    getFloat(metaItem: string): [ /* returnType */ boolean, /* dest */ number ]
-    getInt(metaItem: string): [ /* returnType */ boolean, /* dest */ number ]
-    getInt64(metaItem: string): [ /* returnType */ boolean, /* dest */ number ]
+    getBoolean(metaItem: string): { returnType: boolean, dest: boolean }
+    getDate(metaItem: string): { returnType: boolean, dest: GLib.Date }
+    getDateTime(metaItem: string): { returnType: boolean, dest: Gst.DateTime }
+    getDouble(metaItem: string): { returnType: boolean, dest: number }
+    getFloat(metaItem: string): { returnType: boolean, dest: number }
+    getInt(metaItem: string): { returnType: boolean, dest: number }
+    getInt64(metaItem: string): { returnType: boolean, dest: number }
     getMarkerList(key: string): MarkerList
     getMeta(key: string): any
     getString(metaItem: string): string
-    getUint(metaItem: string): [ /* returnType */ boolean, /* dest */ number ]
-    getUint64(metaItem: string): [ /* returnType */ boolean, /* dest */ number ]
+    getUint(metaItem: string): { returnType: boolean, dest: number }
+    getUint64(metaItem: string): { returnType: boolean, dest: number }
     metasToString(): string
     registerMeta(flags: MetaFlag, metaItem: string, value: any): boolean
     registerMetaBoolean(flags: MetaFlag, metaItem: string, value: boolean): boolean
@@ -3051,92 +2702,45 @@ export class BaseTransitionClip {
     setString(metaItem: string, value: string): boolean
     setUint(metaItem: string, value: number): boolean
     setUint64(metaItem: string, value: number): boolean
-    /* Virtual methods of GES.Clip */
-    vfuncCreateTrackElement(type: TrackType): TrackElement | null
-    vfuncCreateTrackElements(type: TrackType): TrackElement[]
-    /* Virtual methods of GES.Container */
-    vfuncAddChild(element: TimelineElement): boolean
-    vfuncChildAdded(element: TimelineElement): void
-    vfuncChildRemoved(element: TimelineElement): void
-    vfuncEdit(layers: Layer[] | null, newLayerPriority: number, mode: EditMode, edge: Edge, position: number): boolean
-    vfuncRemoveChild(element: TimelineElement): boolean
-    vfuncUngroup(recursive: boolean): Container[]
-    /* Virtual methods of GES.TimelineElement */
-    vfuncDeepCopy(copy: TimelineElement): void
-    vfuncGetLayerPriority(): number
-    vfuncGetNaturalFramerate(): [ /* returnType */ boolean, /* framerateN */ number, /* framerateD */ number ]
-    vfuncGetTrackTypes(): TrackType
-    vfuncLookupChild(propName: string): [ /* returnType */ boolean, /* child */ GObject.Object | null, /* pspec */ GObject.ParamSpec | null ]
-    vfuncRipple(start: number): boolean
-    vfuncRippleEnd(end: number): boolean
-    vfuncRollEnd(end: number): boolean
-    vfuncRollStart(start: number): boolean
-    vfuncSetChildProperty(child: GObject.Object, pspec: GObject.ParamSpec, value: any): void
-    vfuncSetChildPropertyFull(child: GObject.Object, pspec: GObject.ParamSpec, value: any): boolean
-    vfuncSetDuration(duration: Gst.ClockTime): boolean
-    vfuncSetInpoint(inpoint: Gst.ClockTime): boolean
-    vfuncSetMaxDuration(maxduration: Gst.ClockTime): boolean
-    vfuncSetParent(parent: TimelineElement): boolean
-    vfuncSetPriority(priority: number): boolean
-    vfuncSetStart(start: Gst.ClockTime): boolean
-    vfuncTrim(start: number): boolean
-    vfuncGetId(): string
-    vfuncSetAsset(asset: Asset): void
-    vfuncSetAssetFull(asset: Asset): boolean
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GES.Container */
+    /* Signals of GES-1.0.GES.Container */
     connect(sigName: "child-added", callback: (($obj: BaseTransitionClip, element: TimelineElement) => void)): number
-    connect_after(sigName: "child-added", callback: (($obj: BaseTransitionClip, element: TimelineElement) => void)): number
+    on(sigName: "child-added", callback: (element: TimelineElement) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "child-added", callback: (element: TimelineElement) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "child-added", callback: (element: TimelineElement) => void): NodeJS.EventEmitter
     emit(sigName: "child-added", element: TimelineElement): void
-    on(sigName: "child-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "child-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "child-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "child-removed", callback: (($obj: BaseTransitionClip, element: TimelineElement) => void)): number
-    connect_after(sigName: "child-removed", callback: (($obj: BaseTransitionClip, element: TimelineElement) => void)): number
+    on(sigName: "child-removed", callback: (element: TimelineElement) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "child-removed", callback: (element: TimelineElement) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "child-removed", callback: (element: TimelineElement) => void): NodeJS.EventEmitter
     emit(sigName: "child-removed", element: TimelineElement): void
-    on(sigName: "child-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "child-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "child-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GES.TimelineElement */
+    /* Signals of GES-1.0.GES.TimelineElement */
     connect(sigName: "child-property-added", callback: (($obj: BaseTransitionClip, propObject: GObject.Object, prop: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "child-property-added", callback: (($obj: BaseTransitionClip, propObject: GObject.Object, prop: GObject.ParamSpec) => void)): number
+    on(sigName: "child-property-added", callback: (propObject: GObject.Object, prop: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "child-property-added", callback: (propObject: GObject.Object, prop: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "child-property-added", callback: (propObject: GObject.Object, prop: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "child-property-added", propObject: GObject.Object, prop: GObject.ParamSpec): void
-    on(sigName: "child-property-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "child-property-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "child-property-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "child-property-removed", callback: (($obj: BaseTransitionClip, propObject: GObject.Object, prop: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "child-property-removed", callback: (($obj: BaseTransitionClip, propObject: GObject.Object, prop: GObject.ParamSpec) => void)): number
+    on(sigName: "child-property-removed", callback: (propObject: GObject.Object, prop: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "child-property-removed", callback: (propObject: GObject.Object, prop: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "child-property-removed", callback: (propObject: GObject.Object, prop: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "child-property-removed", propObject: GObject.Object, prop: GObject.ParamSpec): void
-    on(sigName: "child-property-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "child-property-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "child-property-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "deep-notify", callback: (($obj: BaseTransitionClip, propObject: GObject.Object, prop: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "deep-notify", callback: (($obj: BaseTransitionClip, propObject: GObject.Object, prop: GObject.ParamSpec) => void)): number
+    on(sigName: "deep-notify", callback: (propObject: GObject.Object, prop: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "deep-notify", callback: (propObject: GObject.Object, prop: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "deep-notify", callback: (propObject: GObject.Object, prop: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "deep-notify", propObject: GObject.Object, prop: GObject.ParamSpec): void
-    on(sigName: "deep-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "deep-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "deep-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: BaseTransitionClip, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: BaseTransitionClip, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GES.MetaContainer */
+    /* Signals of GES-1.0.GES.MetaContainer */
     connect(sigName: "notify-meta", callback: (($obj: BaseTransitionClip, key: string, value?: any | null) => void)): number
-    connect_after(sigName: "notify-meta", callback: (($obj: BaseTransitionClip, key: string, value?: any | null) => void)): number
+    on(sigName: "notify-meta", callback: (key: string, value?: any | null) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify-meta", callback: (key: string, value?: any | null) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify-meta", callback: (key: string, value?: any | null) => void): NodeJS.EventEmitter
     emit(sigName: "notify-meta", key: string, value?: any | null): void
-    on(sigName: "notify-meta", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify-meta", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify-meta", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::duration-limit", callback: (($obj: BaseTransitionClip, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::duration-limit", callback: (($obj: BaseTransitionClip, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::duration-limit", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -3217,14 +2821,14 @@ export class BaseTransitionClip {
 export interface BaseXmlFormatter_ConstructProps extends Formatter_ConstructProps {
 }
 export class BaseXmlFormatter {
-    /* Fields of GES.BaseXmlFormatter */
+    /* Fields of GES-1.0.GES.BaseXmlFormatter */
     parent: Formatter
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GES.Formatter */
+    /* Methods of GES-1.0.GES.Formatter */
     loadFromUri(timeline: Timeline, uri: string): boolean
     saveToUri(timeline: Timeline, uri: string, overwrite: boolean): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -3246,32 +2850,16 @@ export class BaseXmlFormatter {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of GES.Extractable */
+    /* Methods of GES-1.0.GES.Extractable */
     getAsset(): Asset | null
     getId(): string
     setAsset(asset: Asset): boolean
-    /* Virtual methods of GES.Formatter */
-    vfuncCanLoadUri(uri: string): boolean
-    vfuncLoadFromUri(timeline: Timeline, uri: string): boolean
-    vfuncSaveToUri(timeline: Timeline, uri: string, overwrite: boolean): boolean
-    vfuncGetId(): string
-    vfuncSetAsset(asset: Asset): void
-    vfuncSetAssetFull(asset: Asset): boolean
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: BaseXmlFormatter, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: BaseXmlFormatter, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -3288,13 +2876,13 @@ export interface Clip_ConstructProps extends Container_ConstructProps {
     supportedFormats?: TrackType
 }
 export class Clip {
-    /* Properties of GES.Clip */
+    /* Properties of GES-1.0.GES.Clip */
     readonly durationLimit: number
     readonly layer: Layer
     supportedFormats: TrackType
-    /* Properties of GES.Container */
+    /* Properties of GES-1.0.GES.Container */
     readonly height: number
-    /* Properties of GES.TimelineElement */
+    /* Properties of GES-1.0.GES.TimelineElement */
     duration: number
     inPoint: number
     maxDuration: number
@@ -3304,18 +2892,18 @@ export class Clip {
     serialize: boolean
     start: number
     timeline: Timeline
-    /* Fields of GES.Container */
+    /* Fields of GES-1.0.GES.Container */
     children: TimelineElement[]
     childrenControlMode: ChildrenControlMode
     initiatedMove: TimelineElement
-    /* Fields of GES.TimelineElement */
+    /* Fields of GES-1.0.GES.TimelineElement */
     parentInstance: GObject.InitiallyUnowned
     asset: Asset
     inpoint: Gst.ClockTime
     maxduration: Gst.ClockTime
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GES.Clip */
+    /* Methods of GES-1.0.GES.Clip */
     addAsset(asset: Asset): TrackElement | null
     addChildToTrack(child: TrackElement, track: Track): TrackElement
     addTopEffect(effect: BaseEffect, index: number): boolean
@@ -3339,24 +2927,24 @@ export class Clip {
     setTopEffectPriority(effect: BaseEffect, newpriority: number): boolean
     split(position: number): Clip | null
     splitFull(position: number): Clip | null
-    /* Methods of GES.Container */
+    /* Methods of GES-1.0.GES.Container */
     add(child: TimelineElement): boolean
     edit(layers: Layer[] | null, newLayerPriority: number, mode: EditMode, edge: Edge, position: number): boolean
     getChildren(recursive: boolean): TimelineElement[]
     remove(child: TimelineElement): boolean
     ungroup(recursive: boolean): Container[]
-    /* Methods of GES.TimelineElement */
+    /* Methods of GES-1.0.GES.TimelineElement */
     addChildProperty(pspec: GObject.ParamSpec, child: GObject.Object): boolean
     copy(deep: boolean): TimelineElement
     editFull(newLayerPriority: number, mode: EditMode, edge: Edge, position: number): boolean
-    getChildProperty(propertyName: string): [ /* returnType */ boolean, /* value */ any ]
-    getChildPropertyByPspec(pspec: GObject.ParamSpec): /* value */ any
+    getChildProperty(propertyName: string): { returnType: boolean, value: any }
+    getChildPropertyByPspec(pspec: GObject.ParamSpec): { value: any }
     getDuration(): Gst.ClockTime
     getInpoint(): Gst.ClockTime
     getLayerPriority(): number
     getMaxDuration(): Gst.ClockTime
     getName(): string
-    getNaturalFramerate(): [ /* returnType */ boolean, /* framerateN */ number, /* framerateD */ number ]
+    getNaturalFramerate(): { returnType: boolean, framerateN: number, framerateD: number }
     getParent(): TimelineElement | null
     getPriority(): number
     getStart(): Gst.ClockTime
@@ -3364,7 +2952,7 @@ export class Clip {
     getToplevelParent(): TimelineElement
     getTrackTypes(): TrackType
     listChildrenProperties(): GObject.ParamSpec[]
-    lookupChild(propName: string): [ /* returnType */ boolean, /* child */ GObject.Object | null, /* pspec */ GObject.ParamSpec | null ]
+    lookupChild(propName: string): { returnType: boolean, child: GObject.Object | null, pspec: GObject.ParamSpec | null }
     paste(pastePosition: Gst.ClockTime): TimelineElement | null
     removeChildProperty(pspec: GObject.ParamSpec): boolean
     ripple(start: Gst.ClockTime): boolean
@@ -3383,7 +2971,7 @@ export class Clip {
     setStart(start: Gst.ClockTime): boolean
     setTimeline(timeline: Timeline): boolean
     trim(start: Gst.ClockTime): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -3405,26 +2993,26 @@ export class Clip {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of GES.Extractable */
+    /* Methods of GES-1.0.GES.Extractable */
     getAsset(): Asset | null
     getId(): string
     setAsset(asset: Asset): boolean
-    /* Methods of GES.MetaContainer */
+    /* Methods of GES-1.0.GES.MetaContainer */
     addMetasFromString(str: string): boolean
-    checkMetaRegistered(metaItem: string): [ /* returnType */ boolean, /* flags */ MetaFlag | null, /* type */ GObject.Type | null ]
+    checkMetaRegistered(metaItem: string): { returnType: boolean, flags: MetaFlag | null, type: GObject.Type | null }
     foreach(func: MetaForeachFunc): void
-    getBoolean(metaItem: string): [ /* returnType */ boolean, /* dest */ boolean ]
-    getDate(metaItem: string): [ /* returnType */ boolean, /* dest */ GLib.Date ]
-    getDateTime(metaItem: string): [ /* returnType */ boolean, /* dest */ Gst.DateTime ]
-    getDouble(metaItem: string): [ /* returnType */ boolean, /* dest */ number ]
-    getFloat(metaItem: string): [ /* returnType */ boolean, /* dest */ number ]
-    getInt(metaItem: string): [ /* returnType */ boolean, /* dest */ number ]
-    getInt64(metaItem: string): [ /* returnType */ boolean, /* dest */ number ]
+    getBoolean(metaItem: string): { returnType: boolean, dest: boolean }
+    getDate(metaItem: string): { returnType: boolean, dest: GLib.Date }
+    getDateTime(metaItem: string): { returnType: boolean, dest: Gst.DateTime }
+    getDouble(metaItem: string): { returnType: boolean, dest: number }
+    getFloat(metaItem: string): { returnType: boolean, dest: number }
+    getInt(metaItem: string): { returnType: boolean, dest: number }
+    getInt64(metaItem: string): { returnType: boolean, dest: number }
     getMarkerList(key: string): MarkerList
     getMeta(key: string): any
     getString(metaItem: string): string
-    getUint(metaItem: string): [ /* returnType */ boolean, /* dest */ number ]
-    getUint64(metaItem: string): [ /* returnType */ boolean, /* dest */ number ]
+    getUint(metaItem: string): { returnType: boolean, dest: number }
+    getUint64(metaItem: string): { returnType: boolean, dest: number }
     metasToString(): string
     registerMeta(flags: MetaFlag, metaItem: string, value: any): boolean
     registerMetaBoolean(flags: MetaFlag, metaItem: string, value: boolean): boolean
@@ -3450,92 +3038,45 @@ export class Clip {
     setString(metaItem: string, value: string): boolean
     setUint(metaItem: string, value: number): boolean
     setUint64(metaItem: string, value: number): boolean
-    /* Virtual methods of GES.Clip */
-    vfuncCreateTrackElement(type: TrackType): TrackElement | null
-    vfuncCreateTrackElements(type: TrackType): TrackElement[]
-    /* Virtual methods of GES.Container */
-    vfuncAddChild(element: TimelineElement): boolean
-    vfuncChildAdded(element: TimelineElement): void
-    vfuncChildRemoved(element: TimelineElement): void
-    vfuncEdit(layers: Layer[] | null, newLayerPriority: number, mode: EditMode, edge: Edge, position: number): boolean
-    vfuncRemoveChild(element: TimelineElement): boolean
-    vfuncUngroup(recursive: boolean): Container[]
-    /* Virtual methods of GES.TimelineElement */
-    vfuncDeepCopy(copy: TimelineElement): void
-    vfuncGetLayerPriority(): number
-    vfuncGetNaturalFramerate(): [ /* returnType */ boolean, /* framerateN */ number, /* framerateD */ number ]
-    vfuncGetTrackTypes(): TrackType
-    vfuncLookupChild(propName: string): [ /* returnType */ boolean, /* child */ GObject.Object | null, /* pspec */ GObject.ParamSpec | null ]
-    vfuncRipple(start: number): boolean
-    vfuncRippleEnd(end: number): boolean
-    vfuncRollEnd(end: number): boolean
-    vfuncRollStart(start: number): boolean
-    vfuncSetChildProperty(child: GObject.Object, pspec: GObject.ParamSpec, value: any): void
-    vfuncSetChildPropertyFull(child: GObject.Object, pspec: GObject.ParamSpec, value: any): boolean
-    vfuncSetDuration(duration: Gst.ClockTime): boolean
-    vfuncSetInpoint(inpoint: Gst.ClockTime): boolean
-    vfuncSetMaxDuration(maxduration: Gst.ClockTime): boolean
-    vfuncSetParent(parent: TimelineElement): boolean
-    vfuncSetPriority(priority: number): boolean
-    vfuncSetStart(start: Gst.ClockTime): boolean
-    vfuncTrim(start: number): boolean
-    vfuncGetId(): string
-    vfuncSetAsset(asset: Asset): void
-    vfuncSetAssetFull(asset: Asset): boolean
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GES.Container */
+    /* Signals of GES-1.0.GES.Container */
     connect(sigName: "child-added", callback: (($obj: Clip, element: TimelineElement) => void)): number
-    connect_after(sigName: "child-added", callback: (($obj: Clip, element: TimelineElement) => void)): number
+    on(sigName: "child-added", callback: (element: TimelineElement) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "child-added", callback: (element: TimelineElement) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "child-added", callback: (element: TimelineElement) => void): NodeJS.EventEmitter
     emit(sigName: "child-added", element: TimelineElement): void
-    on(sigName: "child-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "child-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "child-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "child-removed", callback: (($obj: Clip, element: TimelineElement) => void)): number
-    connect_after(sigName: "child-removed", callback: (($obj: Clip, element: TimelineElement) => void)): number
+    on(sigName: "child-removed", callback: (element: TimelineElement) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "child-removed", callback: (element: TimelineElement) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "child-removed", callback: (element: TimelineElement) => void): NodeJS.EventEmitter
     emit(sigName: "child-removed", element: TimelineElement): void
-    on(sigName: "child-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "child-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "child-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GES.TimelineElement */
+    /* Signals of GES-1.0.GES.TimelineElement */
     connect(sigName: "child-property-added", callback: (($obj: Clip, propObject: GObject.Object, prop: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "child-property-added", callback: (($obj: Clip, propObject: GObject.Object, prop: GObject.ParamSpec) => void)): number
+    on(sigName: "child-property-added", callback: (propObject: GObject.Object, prop: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "child-property-added", callback: (propObject: GObject.Object, prop: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "child-property-added", callback: (propObject: GObject.Object, prop: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "child-property-added", propObject: GObject.Object, prop: GObject.ParamSpec): void
-    on(sigName: "child-property-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "child-property-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "child-property-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "child-property-removed", callback: (($obj: Clip, propObject: GObject.Object, prop: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "child-property-removed", callback: (($obj: Clip, propObject: GObject.Object, prop: GObject.ParamSpec) => void)): number
+    on(sigName: "child-property-removed", callback: (propObject: GObject.Object, prop: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "child-property-removed", callback: (propObject: GObject.Object, prop: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "child-property-removed", callback: (propObject: GObject.Object, prop: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "child-property-removed", propObject: GObject.Object, prop: GObject.ParamSpec): void
-    on(sigName: "child-property-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "child-property-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "child-property-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "deep-notify", callback: (($obj: Clip, propObject: GObject.Object, prop: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "deep-notify", callback: (($obj: Clip, propObject: GObject.Object, prop: GObject.ParamSpec) => void)): number
+    on(sigName: "deep-notify", callback: (propObject: GObject.Object, prop: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "deep-notify", callback: (propObject: GObject.Object, prop: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "deep-notify", callback: (propObject: GObject.Object, prop: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "deep-notify", propObject: GObject.Object, prop: GObject.ParamSpec): void
-    on(sigName: "deep-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "deep-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "deep-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Clip, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Clip, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GES.MetaContainer */
+    /* Signals of GES-1.0.GES.MetaContainer */
     connect(sigName: "notify-meta", callback: (($obj: Clip, key: string, value?: any | null) => void)): number
-    connect_after(sigName: "notify-meta", callback: (($obj: Clip, key: string, value?: any | null) => void)): number
+    on(sigName: "notify-meta", callback: (key: string, value?: any | null) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify-meta", callback: (key: string, value?: any | null) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify-meta", callback: (key: string, value?: any | null) => void): NodeJS.EventEmitter
     emit(sigName: "notify-meta", key: string, value?: any | null): void
-    on(sigName: "notify-meta", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify-meta", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify-meta", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::duration-limit", callback: (($obj: Clip, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::duration-limit", callback: (($obj: Clip, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::duration-limit", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -3617,21 +3158,21 @@ export interface ClipAsset_ConstructProps extends Asset_ConstructProps {
     supportedFormats?: TrackType
 }
 export class ClipAsset {
-    /* Properties of GES.ClipAsset */
+    /* Properties of GES-1.0.GES.ClipAsset */
     supportedFormats: TrackType
-    /* Properties of GES.Asset */
+    /* Properties of GES-1.0.GES.Asset */
     proxy: Asset
     readonly proxyTarget: Asset
-    /* Fields of GES.ClipAsset */
+    /* Fields of GES-1.0.GES.ClipAsset */
     parent: Asset
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GES.ClipAsset */
+    /* Methods of GES-1.0.GES.ClipAsset */
     getFrameTime(frameNumber: FrameNumber): Gst.ClockTime
     getNaturalFramerate(framerateN: number, framerateD: number): boolean
     getSupportedFormats(): TrackType
     setSupportedFormats(supportedformats: TrackType): void
-    /* Methods of GES.Asset */
+    /* Methods of GES-1.0.GES.Asset */
     extract(): Extractable
     getError(): GLib.Error | null
     getExtractableType(): GObject.Type
@@ -3641,7 +3182,7 @@ export class ClipAsset {
     listProxies(): Asset[]
     setProxy(proxy?: Asset | null): boolean
     unproxy(proxy: Asset): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -3663,22 +3204,22 @@ export class ClipAsset {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of GES.MetaContainer */
+    /* Methods of GES-1.0.GES.MetaContainer */
     addMetasFromString(str: string): boolean
-    checkMetaRegistered(metaItem: string): [ /* returnType */ boolean, /* flags */ MetaFlag | null, /* type */ GObject.Type | null ]
+    checkMetaRegistered(metaItem: string): { returnType: boolean, flags: MetaFlag | null, type: GObject.Type | null }
     foreach(func: MetaForeachFunc): void
-    getBoolean(metaItem: string): [ /* returnType */ boolean, /* dest */ boolean ]
-    getDate(metaItem: string): [ /* returnType */ boolean, /* dest */ GLib.Date ]
-    getDateTime(metaItem: string): [ /* returnType */ boolean, /* dest */ Gst.DateTime ]
-    getDouble(metaItem: string): [ /* returnType */ boolean, /* dest */ number ]
-    getFloat(metaItem: string): [ /* returnType */ boolean, /* dest */ number ]
-    getInt(metaItem: string): [ /* returnType */ boolean, /* dest */ number ]
-    getInt64(metaItem: string): [ /* returnType */ boolean, /* dest */ number ]
+    getBoolean(metaItem: string): { returnType: boolean, dest: boolean }
+    getDate(metaItem: string): { returnType: boolean, dest: GLib.Date }
+    getDateTime(metaItem: string): { returnType: boolean, dest: Gst.DateTime }
+    getDouble(metaItem: string): { returnType: boolean, dest: number }
+    getFloat(metaItem: string): { returnType: boolean, dest: number }
+    getInt(metaItem: string): { returnType: boolean, dest: number }
+    getInt64(metaItem: string): { returnType: boolean, dest: number }
     getMarkerList(key: string): MarkerList
     getMeta(key: string): any
     getString(metaItem: string): string
-    getUint(metaItem: string): [ /* returnType */ boolean, /* dest */ number ]
-    getUint64(metaItem: string): [ /* returnType */ boolean, /* dest */ number ]
+    getUint(metaItem: string): { returnType: boolean, dest: number }
+    getUint64(metaItem: string): { returnType: boolean, dest: number }
     metasToString(): string
     registerMeta(flags: MetaFlag, metaItem: string, value: any): boolean
     registerMetaBoolean(flags: MetaFlag, metaItem: string, value: boolean): boolean
@@ -3704,45 +3245,24 @@ export class ClipAsset {
     setString(metaItem: string, value: string): boolean
     setUint(metaItem: string, value: number): boolean
     setUint64(metaItem: string, value: number): boolean
-    /* Methods of Gio.AsyncInitable */
+    /* Methods of Gio-2.0.Gio.AsyncInitable */
     initAsync(ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     initFinish(res: Gio.AsyncResult): boolean
     newFinish(res: Gio.AsyncResult): GObject.Object
-    /* Methods of Gio.Initable */
+    /* Methods of Gio-2.0.Gio.Initable */
     init(cancellable?: Gio.Cancellable | null): boolean
-    /* Virtual methods of GES.ClipAsset */
-    vfuncGetNaturalFramerate(framerateN: number, framerateD: number): boolean
-    /* Virtual methods of GES.Asset */
-    vfuncExtract(): Extractable
-    vfuncInformProxy(proxyId: string): void
-    vfuncProxied(proxy: Asset): void
-    vfuncRequestIdUpdate(proposedNewId: string, error: GLib.Error): boolean
-    vfuncStartLoading(): AssetLoadingReturn
-    vfuncInitAsync(ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    vfuncInitFinish(res: Gio.AsyncResult): boolean
-    vfuncInit(cancellable?: Gio.Cancellable | null): boolean
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: ClipAsset, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: ClipAsset, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GES.MetaContainer */
+    /* Signals of GES-1.0.GES.MetaContainer */
     connect(sigName: "notify-meta", callback: (($obj: ClipAsset, key: string, value?: any | null) => void)): number
-    connect_after(sigName: "notify-meta", callback: (($obj: ClipAsset, key: string, value?: any | null) => void)): number
+    on(sigName: "notify-meta", callback: (key: string, value?: any | null) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify-meta", callback: (key: string, value?: any | null) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify-meta", callback: (key: string, value?: any | null) => void): NodeJS.EventEmitter
     emit(sigName: "notify-meta", key: string, value?: any | null): void
-    on(sigName: "notify-meta", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify-meta", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify-meta", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::supported-formats", callback: (($obj: ClipAsset, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::supported-formats", callback: (($obj: ClipAsset, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::supported-formats", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -3773,17 +3293,17 @@ export class ClipAsset {
 export interface CommandLineFormatter_ConstructProps extends Formatter_ConstructProps {
 }
 export class CommandLineFormatter {
-    /* Fields of GES.CommandLineFormatter */
+    /* Fields of GES-1.0.GES.CommandLineFormatter */
     parentInstance: Formatter
     priv: CommandLineFormatterPrivate
-    /* Fields of GES.Formatter */
+    /* Fields of GES-1.0.GES.Formatter */
     parent: GObject.InitiallyUnowned
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GES.Formatter */
+    /* Methods of GES-1.0.GES.Formatter */
     loadFromUri(timeline: Timeline, uri: string): boolean
     saveToUri(timeline: Timeline, uri: string, overwrite: boolean): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -3805,32 +3325,16 @@ export class CommandLineFormatter {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of GES.Extractable */
+    /* Methods of GES-1.0.GES.Extractable */
     getAsset(): Asset | null
     getId(): string
     setAsset(asset: Asset): boolean
-    /* Virtual methods of GES.Formatter */
-    vfuncCanLoadUri(uri: string): boolean
-    vfuncLoadFromUri(timeline: Timeline, uri: string): boolean
-    vfuncSaveToUri(timeline: Timeline, uri: string, overwrite: boolean): boolean
-    vfuncGetId(): string
-    vfuncSetAsset(asset: Asset): void
-    vfuncSetAssetFull(asset: Asset): boolean
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: CommandLineFormatter, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: CommandLineFormatter, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -3849,9 +3353,9 @@ export class CommandLineFormatter {
 export interface Container_ConstructProps extends TimelineElement_ConstructProps {
 }
 export class Container {
-    /* Properties of GES.Container */
+    /* Properties of GES-1.0.GES.Container */
     readonly height: number
-    /* Properties of GES.TimelineElement */
+    /* Properties of GES-1.0.GES.TimelineElement */
     duration: number
     inPoint: number
     maxDuration: number
@@ -3861,35 +3365,35 @@ export class Container {
     serialize: boolean
     start: number
     timeline: Timeline
-    /* Fields of GES.Container */
+    /* Fields of GES-1.0.GES.Container */
     children: TimelineElement[]
     childrenControlMode: ChildrenControlMode
     initiatedMove: TimelineElement
-    /* Fields of GES.TimelineElement */
+    /* Fields of GES-1.0.GES.TimelineElement */
     parentInstance: GObject.InitiallyUnowned
     asset: Asset
     inpoint: Gst.ClockTime
     maxduration: Gst.ClockTime
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GES.Container */
+    /* Methods of GES-1.0.GES.Container */
     add(child: TimelineElement): boolean
     edit(layers: Layer[] | null, newLayerPriority: number, mode: EditMode, edge: Edge, position: number): boolean
     getChildren(recursive: boolean): TimelineElement[]
     remove(child: TimelineElement): boolean
     ungroup(recursive: boolean): Container[]
-    /* Methods of GES.TimelineElement */
+    /* Methods of GES-1.0.GES.TimelineElement */
     addChildProperty(pspec: GObject.ParamSpec, child: GObject.Object): boolean
     copy(deep: boolean): TimelineElement
     editFull(newLayerPriority: number, mode: EditMode, edge: Edge, position: number): boolean
-    getChildProperty(propertyName: string): [ /* returnType */ boolean, /* value */ any ]
-    getChildPropertyByPspec(pspec: GObject.ParamSpec): /* value */ any
+    getChildProperty(propertyName: string): { returnType: boolean, value: any }
+    getChildPropertyByPspec(pspec: GObject.ParamSpec): { value: any }
     getDuration(): Gst.ClockTime
     getInpoint(): Gst.ClockTime
     getLayerPriority(): number
     getMaxDuration(): Gst.ClockTime
     getName(): string
-    getNaturalFramerate(): [ /* returnType */ boolean, /* framerateN */ number, /* framerateD */ number ]
+    getNaturalFramerate(): { returnType: boolean, framerateN: number, framerateD: number }
     getParent(): TimelineElement | null
     getPriority(): number
     getStart(): Gst.ClockTime
@@ -3897,7 +3401,7 @@ export class Container {
     getToplevelParent(): TimelineElement
     getTrackTypes(): TrackType
     listChildrenProperties(): GObject.ParamSpec[]
-    lookupChild(propName: string): [ /* returnType */ boolean, /* child */ GObject.Object | null, /* pspec */ GObject.ParamSpec | null ]
+    lookupChild(propName: string): { returnType: boolean, child: GObject.Object | null, pspec: GObject.ParamSpec | null }
     paste(pastePosition: Gst.ClockTime): TimelineElement | null
     removeChildProperty(pspec: GObject.ParamSpec): boolean
     ripple(start: Gst.ClockTime): boolean
@@ -3916,7 +3420,7 @@ export class Container {
     setStart(start: Gst.ClockTime): boolean
     setTimeline(timeline: Timeline): boolean
     trim(start: Gst.ClockTime): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -3938,26 +3442,26 @@ export class Container {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of GES.Extractable */
+    /* Methods of GES-1.0.GES.Extractable */
     getAsset(): Asset | null
     getId(): string
     setAsset(asset: Asset): boolean
-    /* Methods of GES.MetaContainer */
+    /* Methods of GES-1.0.GES.MetaContainer */
     addMetasFromString(str: string): boolean
-    checkMetaRegistered(metaItem: string): [ /* returnType */ boolean, /* flags */ MetaFlag | null, /* type */ GObject.Type | null ]
+    checkMetaRegistered(metaItem: string): { returnType: boolean, flags: MetaFlag | null, type: GObject.Type | null }
     foreach(func: MetaForeachFunc): void
-    getBoolean(metaItem: string): [ /* returnType */ boolean, /* dest */ boolean ]
-    getDate(metaItem: string): [ /* returnType */ boolean, /* dest */ GLib.Date ]
-    getDateTime(metaItem: string): [ /* returnType */ boolean, /* dest */ Gst.DateTime ]
-    getDouble(metaItem: string): [ /* returnType */ boolean, /* dest */ number ]
-    getFloat(metaItem: string): [ /* returnType */ boolean, /* dest */ number ]
-    getInt(metaItem: string): [ /* returnType */ boolean, /* dest */ number ]
-    getInt64(metaItem: string): [ /* returnType */ boolean, /* dest */ number ]
+    getBoolean(metaItem: string): { returnType: boolean, dest: boolean }
+    getDate(metaItem: string): { returnType: boolean, dest: GLib.Date }
+    getDateTime(metaItem: string): { returnType: boolean, dest: Gst.DateTime }
+    getDouble(metaItem: string): { returnType: boolean, dest: number }
+    getFloat(metaItem: string): { returnType: boolean, dest: number }
+    getInt(metaItem: string): { returnType: boolean, dest: number }
+    getInt64(metaItem: string): { returnType: boolean, dest: number }
     getMarkerList(key: string): MarkerList
     getMeta(key: string): any
     getString(metaItem: string): string
-    getUint(metaItem: string): [ /* returnType */ boolean, /* dest */ number ]
-    getUint64(metaItem: string): [ /* returnType */ boolean, /* dest */ number ]
+    getUint(metaItem: string): { returnType: boolean, dest: number }
+    getUint64(metaItem: string): { returnType: boolean, dest: number }
     metasToString(): string
     registerMeta(flags: MetaFlag, metaItem: string, value: any): boolean
     registerMetaBoolean(flags: MetaFlag, metaItem: string, value: boolean): boolean
@@ -3983,89 +3487,45 @@ export class Container {
     setString(metaItem: string, value: string): boolean
     setUint(metaItem: string, value: number): boolean
     setUint64(metaItem: string, value: number): boolean
-    /* Virtual methods of GES.Container */
-    vfuncAddChild(element: TimelineElement): boolean
-    vfuncChildAdded(element: TimelineElement): void
-    vfuncChildRemoved(element: TimelineElement): void
-    vfuncEdit(layers: Layer[] | null, newLayerPriority: number, mode: EditMode, edge: Edge, position: number): boolean
-    vfuncRemoveChild(element: TimelineElement): boolean
-    vfuncUngroup(recursive: boolean): Container[]
-    /* Virtual methods of GES.TimelineElement */
-    vfuncDeepCopy(copy: TimelineElement): void
-    vfuncGetLayerPriority(): number
-    vfuncGetNaturalFramerate(): [ /* returnType */ boolean, /* framerateN */ number, /* framerateD */ number ]
-    vfuncGetTrackTypes(): TrackType
-    vfuncLookupChild(propName: string): [ /* returnType */ boolean, /* child */ GObject.Object | null, /* pspec */ GObject.ParamSpec | null ]
-    vfuncRipple(start: number): boolean
-    vfuncRippleEnd(end: number): boolean
-    vfuncRollEnd(end: number): boolean
-    vfuncRollStart(start: number): boolean
-    vfuncSetChildProperty(child: GObject.Object, pspec: GObject.ParamSpec, value: any): void
-    vfuncSetChildPropertyFull(child: GObject.Object, pspec: GObject.ParamSpec, value: any): boolean
-    vfuncSetDuration(duration: Gst.ClockTime): boolean
-    vfuncSetInpoint(inpoint: Gst.ClockTime): boolean
-    vfuncSetMaxDuration(maxduration: Gst.ClockTime): boolean
-    vfuncSetParent(parent: TimelineElement): boolean
-    vfuncSetPriority(priority: number): boolean
-    vfuncSetStart(start: Gst.ClockTime): boolean
-    vfuncTrim(start: number): boolean
-    vfuncGetId(): string
-    vfuncSetAsset(asset: Asset): void
-    vfuncSetAssetFull(asset: Asset): boolean
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GES.Container */
+    /* Signals of GES-1.0.GES.Container */
     connect(sigName: "child-added", callback: (($obj: Container, element: TimelineElement) => void)): number
-    connect_after(sigName: "child-added", callback: (($obj: Container, element: TimelineElement) => void)): number
+    on(sigName: "child-added", callback: (element: TimelineElement) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "child-added", callback: (element: TimelineElement) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "child-added", callback: (element: TimelineElement) => void): NodeJS.EventEmitter
     emit(sigName: "child-added", element: TimelineElement): void
-    on(sigName: "child-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "child-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "child-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "child-removed", callback: (($obj: Container, element: TimelineElement) => void)): number
-    connect_after(sigName: "child-removed", callback: (($obj: Container, element: TimelineElement) => void)): number
+    on(sigName: "child-removed", callback: (element: TimelineElement) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "child-removed", callback: (element: TimelineElement) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "child-removed", callback: (element: TimelineElement) => void): NodeJS.EventEmitter
     emit(sigName: "child-removed", element: TimelineElement): void
-    on(sigName: "child-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "child-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "child-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GES.TimelineElement */
+    /* Signals of GES-1.0.GES.TimelineElement */
     connect(sigName: "child-property-added", callback: (($obj: Container, propObject: GObject.Object, prop: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "child-property-added", callback: (($obj: Container, propObject: GObject.Object, prop: GObject.ParamSpec) => void)): number
+    on(sigName: "child-property-added", callback: (propObject: GObject.Object, prop: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "child-property-added", callback: (propObject: GObject.Object, prop: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "child-property-added", callback: (propObject: GObject.Object, prop: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "child-property-added", propObject: GObject.Object, prop: GObject.ParamSpec): void
-    on(sigName: "child-property-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "child-property-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "child-property-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "child-property-removed", callback: (($obj: Container, propObject: GObject.Object, prop: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "child-property-removed", callback: (($obj: Container, propObject: GObject.Object, prop: GObject.ParamSpec) => void)): number
+    on(sigName: "child-property-removed", callback: (propObject: GObject.Object, prop: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "child-property-removed", callback: (propObject: GObject.Object, prop: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "child-property-removed", callback: (propObject: GObject.Object, prop: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "child-property-removed", propObject: GObject.Object, prop: GObject.ParamSpec): void
-    on(sigName: "child-property-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "child-property-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "child-property-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "deep-notify", callback: (($obj: Container, propObject: GObject.Object, prop: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "deep-notify", callback: (($obj: Container, propObject: GObject.Object, prop: GObject.ParamSpec) => void)): number
+    on(sigName: "deep-notify", callback: (propObject: GObject.Object, prop: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "deep-notify", callback: (propObject: GObject.Object, prop: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "deep-notify", callback: (propObject: GObject.Object, prop: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "deep-notify", propObject: GObject.Object, prop: GObject.ParamSpec): void
-    on(sigName: "deep-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "deep-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "deep-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Container, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Container, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GES.MetaContainer */
+    /* Signals of GES-1.0.GES.MetaContainer */
     connect(sigName: "notify-meta", callback: (($obj: Container, key: string, value?: any | null) => void)): number
-    connect_after(sigName: "notify-meta", callback: (($obj: Container, key: string, value?: any | null) => void)): number
+    on(sigName: "notify-meta", callback: (key: string, value?: any | null) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify-meta", callback: (key: string, value?: any | null) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify-meta", callback: (key: string, value?: any | null) => void): NodeJS.EventEmitter
     emit(sigName: "notify-meta", key: string, value?: any | null): void
-    on(sigName: "notify-meta", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify-meta", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify-meta", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::height", callback: (($obj: Container, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::height", callback: (($obj: Container, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::height", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -4134,13 +3594,13 @@ export interface Effect_ConstructProps extends BaseEffect_ConstructProps {
     binDescription?: string
 }
 export class Effect {
-    /* Properties of GES.TrackElement */
+    /* Properties of GES-1.0.GES.TrackElement */
     active: boolean
     autoClampControlSources: boolean
     hasInternalSource: boolean
     readonly track: Track
     trackType: TrackType
-    /* Properties of GES.TimelineElement */
+    /* Properties of GES-1.0.GES.TimelineElement */
     duration: number
     inPoint: number
     maxDuration: number
@@ -4150,18 +3610,18 @@ export class Effect {
     serialize: boolean
     start: number
     timeline: Timeline
-    /* Fields of GES.TimelineElement */
+    /* Fields of GES-1.0.GES.TimelineElement */
     parentInstance: GObject.InitiallyUnowned
     asset: Asset
     inpoint: Gst.ClockTime
     maxduration: Gst.ClockTime
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GES.BaseEffect */
+    /* Methods of GES-1.0.GES.BaseEffect */
     isTimeEffect(): boolean
     registerTimeProperty(childPropertyName: string): boolean
     setTimeTranslationFuncs(sourceToSinkFunc?: BaseEffectTimeTranslationFunc | null, sinkToSourceFunc?: BaseEffectTimeTranslationFunc | null): boolean
-    /* Methods of GES.TrackElement */
+    /* Methods of GES-1.0.GES.TrackElement */
     addChildrenProps(element: Gst.Element, wantedCategories?: string[] | null, blacklist?: string[] | null, whitelist?: string[] | null): void
     clampControlSource(propertyName: string): void
     edit(layers: Layer[] | null, mode: EditMode, edge: Edge, position: number): boolean
@@ -4176,33 +3636,33 @@ export class Effect {
     isActive(): boolean
     isCore(): boolean
     listChildrenProperties(): GObject.ParamSpec[]
-    lookupChild(propName: string): [ /* returnType */ boolean, /* element */ Gst.Element | null, /* pspec */ GObject.ParamSpec | null ]
+    lookupChild(propName: string): { returnType: boolean, element: Gst.Element | null, pspec: GObject.ParamSpec | null }
     removeControlBinding(propertyName: string): boolean
     setActive(active: boolean): boolean
     setAutoClampControlSources(autoClamp: boolean): void
     setControlSource(source: Gst.ControlSource, propertyName: string, bindingType: string): boolean
     setHasInternalSource(hasInternalSource: boolean): boolean
     setTrackType(type: TrackType): void
-    /* Methods of GES.TimelineElement */
+    /* Methods of GES-1.0.GES.TimelineElement */
     addChildProperty(pspec: GObject.ParamSpec, child: GObject.Object): boolean
     copy(deep: boolean): TimelineElement
     edit(layers: Layer[] | null, newLayerPriority: number, mode: EditMode, edge: Edge, position: number): boolean
     editFull(newLayerPriority: number, mode: EditMode, edge: Edge, position: number): boolean
-    getChildProperty(propertyName: string): [ /* returnType */ boolean, /* value */ any ]
-    getChildPropertyByPspec(pspec: GObject.ParamSpec): /* value */ any
+    getChildProperty(propertyName: string): { returnType: boolean, value: any }
+    getChildPropertyByPspec(pspec: GObject.ParamSpec): { value: any }
     getDuration(): Gst.ClockTime
     getInpoint(): Gst.ClockTime
     getLayerPriority(): number
     getMaxDuration(): Gst.ClockTime
     getName(): string
-    getNaturalFramerate(): [ /* returnType */ boolean, /* framerateN */ number, /* framerateD */ number ]
+    getNaturalFramerate(): { returnType: boolean, framerateN: number, framerateD: number }
     getParent(): TimelineElement | null
     getPriority(): number
     getStart(): Gst.ClockTime
     getTimeline(): Timeline | null
     getToplevelParent(): TimelineElement
     getTrackTypes(): TrackType
-    lookupChild(propName: string): [ /* returnType */ boolean, /* child */ GObject.Object | null, /* pspec */ GObject.ParamSpec | null ]
+    lookupChild(propName: string): { returnType: boolean, child: GObject.Object | null, pspec: GObject.ParamSpec | null }
     paste(pastePosition: Gst.ClockTime): TimelineElement | null
     removeChildProperty(pspec: GObject.ParamSpec): boolean
     ripple(start: Gst.ClockTime): boolean
@@ -4221,7 +3681,7 @@ export class Effect {
     setStart(start: Gst.ClockTime): boolean
     setTimeline(timeline: Timeline): boolean
     trim(start: Gst.ClockTime): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -4243,26 +3703,26 @@ export class Effect {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of GES.Extractable */
+    /* Methods of GES-1.0.GES.Extractable */
     getAsset(): Asset | null
     getId(): string
     setAsset(asset: Asset): boolean
-    /* Methods of GES.MetaContainer */
+    /* Methods of GES-1.0.GES.MetaContainer */
     addMetasFromString(str: string): boolean
-    checkMetaRegistered(metaItem: string): [ /* returnType */ boolean, /* flags */ MetaFlag | null, /* type */ GObject.Type | null ]
+    checkMetaRegistered(metaItem: string): { returnType: boolean, flags: MetaFlag | null, type: GObject.Type | null }
     foreach(func: MetaForeachFunc): void
-    getBoolean(metaItem: string): [ /* returnType */ boolean, /* dest */ boolean ]
-    getDate(metaItem: string): [ /* returnType */ boolean, /* dest */ GLib.Date ]
-    getDateTime(metaItem: string): [ /* returnType */ boolean, /* dest */ Gst.DateTime ]
-    getDouble(metaItem: string): [ /* returnType */ boolean, /* dest */ number ]
-    getFloat(metaItem: string): [ /* returnType */ boolean, /* dest */ number ]
-    getInt(metaItem: string): [ /* returnType */ boolean, /* dest */ number ]
-    getInt64(metaItem: string): [ /* returnType */ boolean, /* dest */ number ]
+    getBoolean(metaItem: string): { returnType: boolean, dest: boolean }
+    getDate(metaItem: string): { returnType: boolean, dest: GLib.Date }
+    getDateTime(metaItem: string): { returnType: boolean, dest: Gst.DateTime }
+    getDouble(metaItem: string): { returnType: boolean, dest: number }
+    getFloat(metaItem: string): { returnType: boolean, dest: number }
+    getInt(metaItem: string): { returnType: boolean, dest: number }
+    getInt64(metaItem: string): { returnType: boolean, dest: number }
     getMarkerList(key: string): MarkerList
     getMeta(key: string): any
     getString(metaItem: string): string
-    getUint(metaItem: string): [ /* returnType */ boolean, /* dest */ number ]
-    getUint64(metaItem: string): [ /* returnType */ boolean, /* dest */ number ]
+    getUint(metaItem: string): { returnType: boolean, dest: number }
+    getUint64(metaItem: string): { returnType: boolean, dest: number }
     metasToString(): string
     registerMeta(flags: MetaFlag, metaItem: string, value: any): boolean
     registerMetaBoolean(flags: MetaFlag, metaItem: string, value: boolean): boolean
@@ -4288,86 +3748,45 @@ export class Effect {
     setString(metaItem: string, value: string): boolean
     setUint(metaItem: string, value: number): boolean
     setUint64(metaItem: string, value: number): boolean
-    /* Virtual methods of GES.TrackElement */
-    vfuncActiveChanged(active: boolean): void
-    vfuncChanged(): void
-    vfuncLookupChild(propName: string): [ /* returnType */ boolean, /* element */ Gst.Element | null, /* pspec */ GObject.ParamSpec | null ]
-    /* Virtual methods of GES.TimelineElement */
-    vfuncDeepCopy(copy: TimelineElement): void
-    vfuncGetLayerPriority(): number
-    vfuncGetNaturalFramerate(): [ /* returnType */ boolean, /* framerateN */ number, /* framerateD */ number ]
-    vfuncGetTrackTypes(): TrackType
-    vfuncLookupChild(propName: string): [ /* returnType */ boolean, /* child */ GObject.Object | null, /* pspec */ GObject.ParamSpec | null ]
-    vfuncRipple(start: number): boolean
-    vfuncRippleEnd(end: number): boolean
-    vfuncRollEnd(end: number): boolean
-    vfuncRollStart(start: number): boolean
-    vfuncSetChildProperty(child: GObject.Object, pspec: GObject.ParamSpec, value: any): void
-    vfuncSetChildPropertyFull(child: GObject.Object, pspec: GObject.ParamSpec, value: any): boolean
-    vfuncSetDuration(duration: Gst.ClockTime): boolean
-    vfuncSetInpoint(inpoint: Gst.ClockTime): boolean
-    vfuncSetMaxDuration(maxduration: Gst.ClockTime): boolean
-    vfuncSetParent(parent: TimelineElement): boolean
-    vfuncSetPriority(priority: number): boolean
-    vfuncSetStart(start: Gst.ClockTime): boolean
-    vfuncTrim(start: number): boolean
-    vfuncGetId(): string
-    vfuncSetAsset(asset: Asset): void
-    vfuncSetAssetFull(asset: Asset): boolean
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GES.TrackElement */
+    /* Signals of GES-1.0.GES.TrackElement */
     connect(sigName: "control-binding-added", callback: (($obj: Effect, controlBinding: Gst.ControlBinding) => void)): number
-    connect_after(sigName: "control-binding-added", callback: (($obj: Effect, controlBinding: Gst.ControlBinding) => void)): number
+    on(sigName: "control-binding-added", callback: (controlBinding: Gst.ControlBinding) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "control-binding-added", callback: (controlBinding: Gst.ControlBinding) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "control-binding-added", callback: (controlBinding: Gst.ControlBinding) => void): NodeJS.EventEmitter
     emit(sigName: "control-binding-added", controlBinding: Gst.ControlBinding): void
-    on(sigName: "control-binding-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "control-binding-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "control-binding-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "control-binding-removed", callback: (($obj: Effect, controlBinding: Gst.ControlBinding) => void)): number
-    connect_after(sigName: "control-binding-removed", callback: (($obj: Effect, controlBinding: Gst.ControlBinding) => void)): number
+    on(sigName: "control-binding-removed", callback: (controlBinding: Gst.ControlBinding) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "control-binding-removed", callback: (controlBinding: Gst.ControlBinding) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "control-binding-removed", callback: (controlBinding: Gst.ControlBinding) => void): NodeJS.EventEmitter
     emit(sigName: "control-binding-removed", controlBinding: Gst.ControlBinding): void
-    on(sigName: "control-binding-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "control-binding-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "control-binding-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GES.TimelineElement */
+    /* Signals of GES-1.0.GES.TimelineElement */
     connect(sigName: "child-property-added", callback: (($obj: Effect, propObject: GObject.Object, prop: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "child-property-added", callback: (($obj: Effect, propObject: GObject.Object, prop: GObject.ParamSpec) => void)): number
+    on(sigName: "child-property-added", callback: (propObject: GObject.Object, prop: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "child-property-added", callback: (propObject: GObject.Object, prop: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "child-property-added", callback: (propObject: GObject.Object, prop: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "child-property-added", propObject: GObject.Object, prop: GObject.ParamSpec): void
-    on(sigName: "child-property-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "child-property-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "child-property-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "child-property-removed", callback: (($obj: Effect, propObject: GObject.Object, prop: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "child-property-removed", callback: (($obj: Effect, propObject: GObject.Object, prop: GObject.ParamSpec) => void)): number
+    on(sigName: "child-property-removed", callback: (propObject: GObject.Object, prop: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "child-property-removed", callback: (propObject: GObject.Object, prop: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "child-property-removed", callback: (propObject: GObject.Object, prop: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "child-property-removed", propObject: GObject.Object, prop: GObject.ParamSpec): void
-    on(sigName: "child-property-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "child-property-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "child-property-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "deep-notify", callback: (($obj: Effect, propObject: GObject.Object, prop: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "deep-notify", callback: (($obj: Effect, propObject: GObject.Object, prop: GObject.ParamSpec) => void)): number
+    on(sigName: "deep-notify", callback: (propObject: GObject.Object, prop: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "deep-notify", callback: (propObject: GObject.Object, prop: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "deep-notify", callback: (propObject: GObject.Object, prop: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "deep-notify", propObject: GObject.Object, prop: GObject.ParamSpec): void
-    on(sigName: "deep-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "deep-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "deep-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Effect, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Effect, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GES.MetaContainer */
+    /* Signals of GES-1.0.GES.MetaContainer */
     connect(sigName: "notify-meta", callback: (($obj: Effect, key: string, value?: any | null) => void)): number
-    connect_after(sigName: "notify-meta", callback: (($obj: Effect, key: string, value?: any | null) => void)): number
+    on(sigName: "notify-meta", callback: (key: string, value?: any | null) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify-meta", callback: (key: string, value?: any | null) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify-meta", callback: (key: string, value?: any | null) => void): NodeJS.EventEmitter
     emit(sigName: "notify-meta", key: string, value?: any | null): void
-    on(sigName: "notify-meta", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify-meta", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify-meta", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::active", callback: (($obj: Effect, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::active", callback: (($obj: Effect, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::active", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -4456,24 +3875,24 @@ export class Effect {
 export interface EffectAsset_ConstructProps extends TrackElementAsset_ConstructProps {
 }
 export class EffectAsset {
-    /* Properties of GES.TrackElementAsset */
+    /* Properties of GES-1.0.GES.TrackElementAsset */
     trackType: TrackType
-    /* Properties of GES.Asset */
+    /* Properties of GES-1.0.GES.Asset */
     proxy: Asset
     readonly proxyTarget: Asset
-    /* Fields of GES.EffectAsset */
+    /* Fields of GES-1.0.GES.EffectAsset */
     parentInstance: TrackElementAsset
     priv: EffectAssetPrivate
     gesReserved: object[]
-    /* Fields of GES.TrackElementAsset */
+    /* Fields of GES-1.0.GES.TrackElementAsset */
     parent: Asset
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GES.TrackElementAsset */
+    /* Methods of GES-1.0.GES.TrackElementAsset */
     getNaturalFramerate(framerateN: number, framerateD: number): boolean
     getTrackType(): TrackType
     setTrackType(type: TrackType): void
-    /* Methods of GES.Asset */
+    /* Methods of GES-1.0.GES.Asset */
     extract(): Extractable
     getError(): GLib.Error | null
     getExtractableType(): GObject.Type
@@ -4483,7 +3902,7 @@ export class EffectAsset {
     listProxies(): Asset[]
     setProxy(proxy?: Asset | null): boolean
     unproxy(proxy: Asset): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -4505,22 +3924,22 @@ export class EffectAsset {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of GES.MetaContainer */
+    /* Methods of GES-1.0.GES.MetaContainer */
     addMetasFromString(str: string): boolean
-    checkMetaRegistered(metaItem: string): [ /* returnType */ boolean, /* flags */ MetaFlag | null, /* type */ GObject.Type | null ]
+    checkMetaRegistered(metaItem: string): { returnType: boolean, flags: MetaFlag | null, type: GObject.Type | null }
     foreach(func: MetaForeachFunc): void
-    getBoolean(metaItem: string): [ /* returnType */ boolean, /* dest */ boolean ]
-    getDate(metaItem: string): [ /* returnType */ boolean, /* dest */ GLib.Date ]
-    getDateTime(metaItem: string): [ /* returnType */ boolean, /* dest */ Gst.DateTime ]
-    getDouble(metaItem: string): [ /* returnType */ boolean, /* dest */ number ]
-    getFloat(metaItem: string): [ /* returnType */ boolean, /* dest */ number ]
-    getInt(metaItem: string): [ /* returnType */ boolean, /* dest */ number ]
-    getInt64(metaItem: string): [ /* returnType */ boolean, /* dest */ number ]
+    getBoolean(metaItem: string): { returnType: boolean, dest: boolean }
+    getDate(metaItem: string): { returnType: boolean, dest: GLib.Date }
+    getDateTime(metaItem: string): { returnType: boolean, dest: Gst.DateTime }
+    getDouble(metaItem: string): { returnType: boolean, dest: number }
+    getFloat(metaItem: string): { returnType: boolean, dest: number }
+    getInt(metaItem: string): { returnType: boolean, dest: number }
+    getInt64(metaItem: string): { returnType: boolean, dest: number }
     getMarkerList(key: string): MarkerList
     getMeta(key: string): any
     getString(metaItem: string): string
-    getUint(metaItem: string): [ /* returnType */ boolean, /* dest */ number ]
-    getUint64(metaItem: string): [ /* returnType */ boolean, /* dest */ number ]
+    getUint(metaItem: string): { returnType: boolean, dest: number }
+    getUint64(metaItem: string): { returnType: boolean, dest: number }
     metasToString(): string
     registerMeta(flags: MetaFlag, metaItem: string, value: any): boolean
     registerMetaBoolean(flags: MetaFlag, metaItem: string, value: boolean): boolean
@@ -4546,45 +3965,24 @@ export class EffectAsset {
     setString(metaItem: string, value: string): boolean
     setUint(metaItem: string, value: number): boolean
     setUint64(metaItem: string, value: number): boolean
-    /* Methods of Gio.AsyncInitable */
+    /* Methods of Gio-2.0.Gio.AsyncInitable */
     initAsync(ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     initFinish(res: Gio.AsyncResult): boolean
     newFinish(res: Gio.AsyncResult): GObject.Object
-    /* Methods of Gio.Initable */
+    /* Methods of Gio-2.0.Gio.Initable */
     init(cancellable?: Gio.Cancellable | null): boolean
-    /* Virtual methods of GES.TrackElementAsset */
-    vfuncGetNaturalFramerate(framerateN: number, framerateD: number): boolean
-    /* Virtual methods of GES.Asset */
-    vfuncExtract(): Extractable
-    vfuncInformProxy(proxyId: string): void
-    vfuncProxied(proxy: Asset): void
-    vfuncRequestIdUpdate(proposedNewId: string, error: GLib.Error): boolean
-    vfuncStartLoading(): AssetLoadingReturn
-    vfuncInitAsync(ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    vfuncInitFinish(res: Gio.AsyncResult): boolean
-    vfuncInit(cancellable?: Gio.Cancellable | null): boolean
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: EffectAsset, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: EffectAsset, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GES.MetaContainer */
+    /* Signals of GES-1.0.GES.MetaContainer */
     connect(sigName: "notify-meta", callback: (($obj: EffectAsset, key: string, value?: any | null) => void)): number
-    connect_after(sigName: "notify-meta", callback: (($obj: EffectAsset, key: string, value?: any | null) => void)): number
+    on(sigName: "notify-meta", callback: (key: string, value?: any | null) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify-meta", callback: (key: string, value?: any | null) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify-meta", callback: (key: string, value?: any | null) => void): NodeJS.EventEmitter
     emit(sigName: "notify-meta", key: string, value?: any | null): void
-    on(sigName: "notify-meta", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify-meta", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify-meta", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::track-type", callback: (($obj: EffectAsset, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::track-type", callback: (($obj: EffectAsset, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::track-type", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -4617,13 +4015,13 @@ export interface EffectClip_ConstructProps extends BaseEffectClip_ConstructProps
     videoBinDescription?: string
 }
 export class EffectClip {
-    /* Properties of GES.Clip */
+    /* Properties of GES-1.0.GES.Clip */
     readonly durationLimit: number
     readonly layer: Layer
     supportedFormats: TrackType
-    /* Properties of GES.Container */
+    /* Properties of GES-1.0.GES.Container */
     readonly height: number
-    /* Properties of GES.TimelineElement */
+    /* Properties of GES-1.0.GES.TimelineElement */
     duration: number
     inPoint: number
     maxDuration: number
@@ -4633,18 +4031,18 @@ export class EffectClip {
     serialize: boolean
     start: number
     timeline: Timeline
-    /* Fields of GES.Container */
+    /* Fields of GES-1.0.GES.Container */
     children: TimelineElement[]
     childrenControlMode: ChildrenControlMode
     initiatedMove: TimelineElement
-    /* Fields of GES.TimelineElement */
+    /* Fields of GES-1.0.GES.TimelineElement */
     parentInstance: GObject.InitiallyUnowned
     asset: Asset
     inpoint: Gst.ClockTime
     maxduration: Gst.ClockTime
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GES.Clip */
+    /* Methods of GES-1.0.GES.Clip */
     addAsset(asset: Asset): TrackElement | null
     addChildToTrack(child: TrackElement, track: Track): TrackElement
     addTopEffect(effect: BaseEffect, index: number): boolean
@@ -4668,24 +4066,24 @@ export class EffectClip {
     setTopEffectPriority(effect: BaseEffect, newpriority: number): boolean
     split(position: number): Clip | null
     splitFull(position: number): Clip | null
-    /* Methods of GES.Container */
+    /* Methods of GES-1.0.GES.Container */
     add(child: TimelineElement): boolean
     edit(layers: Layer[] | null, newLayerPriority: number, mode: EditMode, edge: Edge, position: number): boolean
     getChildren(recursive: boolean): TimelineElement[]
     remove(child: TimelineElement): boolean
     ungroup(recursive: boolean): Container[]
-    /* Methods of GES.TimelineElement */
+    /* Methods of GES-1.0.GES.TimelineElement */
     addChildProperty(pspec: GObject.ParamSpec, child: GObject.Object): boolean
     copy(deep: boolean): TimelineElement
     editFull(newLayerPriority: number, mode: EditMode, edge: Edge, position: number): boolean
-    getChildProperty(propertyName: string): [ /* returnType */ boolean, /* value */ any ]
-    getChildPropertyByPspec(pspec: GObject.ParamSpec): /* value */ any
+    getChildProperty(propertyName: string): { returnType: boolean, value: any }
+    getChildPropertyByPspec(pspec: GObject.ParamSpec): { value: any }
     getDuration(): Gst.ClockTime
     getInpoint(): Gst.ClockTime
     getLayerPriority(): number
     getMaxDuration(): Gst.ClockTime
     getName(): string
-    getNaturalFramerate(): [ /* returnType */ boolean, /* framerateN */ number, /* framerateD */ number ]
+    getNaturalFramerate(): { returnType: boolean, framerateN: number, framerateD: number }
     getParent(): TimelineElement | null
     getPriority(): number
     getStart(): Gst.ClockTime
@@ -4693,7 +4091,7 @@ export class EffectClip {
     getToplevelParent(): TimelineElement
     getTrackTypes(): TrackType
     listChildrenProperties(): GObject.ParamSpec[]
-    lookupChild(propName: string): [ /* returnType */ boolean, /* child */ GObject.Object | null, /* pspec */ GObject.ParamSpec | null ]
+    lookupChild(propName: string): { returnType: boolean, child: GObject.Object | null, pspec: GObject.ParamSpec | null }
     paste(pastePosition: Gst.ClockTime): TimelineElement | null
     removeChildProperty(pspec: GObject.ParamSpec): boolean
     ripple(start: Gst.ClockTime): boolean
@@ -4712,7 +4110,7 @@ export class EffectClip {
     setStart(start: Gst.ClockTime): boolean
     setTimeline(timeline: Timeline): boolean
     trim(start: Gst.ClockTime): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -4734,26 +4132,26 @@ export class EffectClip {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of GES.Extractable */
+    /* Methods of GES-1.0.GES.Extractable */
     getAsset(): Asset | null
     getId(): string
     setAsset(asset: Asset): boolean
-    /* Methods of GES.MetaContainer */
+    /* Methods of GES-1.0.GES.MetaContainer */
     addMetasFromString(str: string): boolean
-    checkMetaRegistered(metaItem: string): [ /* returnType */ boolean, /* flags */ MetaFlag | null, /* type */ GObject.Type | null ]
+    checkMetaRegistered(metaItem: string): { returnType: boolean, flags: MetaFlag | null, type: GObject.Type | null }
     foreach(func: MetaForeachFunc): void
-    getBoolean(metaItem: string): [ /* returnType */ boolean, /* dest */ boolean ]
-    getDate(metaItem: string): [ /* returnType */ boolean, /* dest */ GLib.Date ]
-    getDateTime(metaItem: string): [ /* returnType */ boolean, /* dest */ Gst.DateTime ]
-    getDouble(metaItem: string): [ /* returnType */ boolean, /* dest */ number ]
-    getFloat(metaItem: string): [ /* returnType */ boolean, /* dest */ number ]
-    getInt(metaItem: string): [ /* returnType */ boolean, /* dest */ number ]
-    getInt64(metaItem: string): [ /* returnType */ boolean, /* dest */ number ]
+    getBoolean(metaItem: string): { returnType: boolean, dest: boolean }
+    getDate(metaItem: string): { returnType: boolean, dest: GLib.Date }
+    getDateTime(metaItem: string): { returnType: boolean, dest: Gst.DateTime }
+    getDouble(metaItem: string): { returnType: boolean, dest: number }
+    getFloat(metaItem: string): { returnType: boolean, dest: number }
+    getInt(metaItem: string): { returnType: boolean, dest: number }
+    getInt64(metaItem: string): { returnType: boolean, dest: number }
     getMarkerList(key: string): MarkerList
     getMeta(key: string): any
     getString(metaItem: string): string
-    getUint(metaItem: string): [ /* returnType */ boolean, /* dest */ number ]
-    getUint64(metaItem: string): [ /* returnType */ boolean, /* dest */ number ]
+    getUint(metaItem: string): { returnType: boolean, dest: number }
+    getUint64(metaItem: string): { returnType: boolean, dest: number }
     metasToString(): string
     registerMeta(flags: MetaFlag, metaItem: string, value: any): boolean
     registerMetaBoolean(flags: MetaFlag, metaItem: string, value: boolean): boolean
@@ -4779,92 +4177,45 @@ export class EffectClip {
     setString(metaItem: string, value: string): boolean
     setUint(metaItem: string, value: number): boolean
     setUint64(metaItem: string, value: number): boolean
-    /* Virtual methods of GES.Clip */
-    vfuncCreateTrackElement(type: TrackType): TrackElement | null
-    vfuncCreateTrackElements(type: TrackType): TrackElement[]
-    /* Virtual methods of GES.Container */
-    vfuncAddChild(element: TimelineElement): boolean
-    vfuncChildAdded(element: TimelineElement): void
-    vfuncChildRemoved(element: TimelineElement): void
-    vfuncEdit(layers: Layer[] | null, newLayerPriority: number, mode: EditMode, edge: Edge, position: number): boolean
-    vfuncRemoveChild(element: TimelineElement): boolean
-    vfuncUngroup(recursive: boolean): Container[]
-    /* Virtual methods of GES.TimelineElement */
-    vfuncDeepCopy(copy: TimelineElement): void
-    vfuncGetLayerPriority(): number
-    vfuncGetNaturalFramerate(): [ /* returnType */ boolean, /* framerateN */ number, /* framerateD */ number ]
-    vfuncGetTrackTypes(): TrackType
-    vfuncLookupChild(propName: string): [ /* returnType */ boolean, /* child */ GObject.Object | null, /* pspec */ GObject.ParamSpec | null ]
-    vfuncRipple(start: number): boolean
-    vfuncRippleEnd(end: number): boolean
-    vfuncRollEnd(end: number): boolean
-    vfuncRollStart(start: number): boolean
-    vfuncSetChildProperty(child: GObject.Object, pspec: GObject.ParamSpec, value: any): void
-    vfuncSetChildPropertyFull(child: GObject.Object, pspec: GObject.ParamSpec, value: any): boolean
-    vfuncSetDuration(duration: Gst.ClockTime): boolean
-    vfuncSetInpoint(inpoint: Gst.ClockTime): boolean
-    vfuncSetMaxDuration(maxduration: Gst.ClockTime): boolean
-    vfuncSetParent(parent: TimelineElement): boolean
-    vfuncSetPriority(priority: number): boolean
-    vfuncSetStart(start: Gst.ClockTime): boolean
-    vfuncTrim(start: number): boolean
-    vfuncGetId(): string
-    vfuncSetAsset(asset: Asset): void
-    vfuncSetAssetFull(asset: Asset): boolean
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GES.Container */
+    /* Signals of GES-1.0.GES.Container */
     connect(sigName: "child-added", callback: (($obj: EffectClip, element: TimelineElement) => void)): number
-    connect_after(sigName: "child-added", callback: (($obj: EffectClip, element: TimelineElement) => void)): number
+    on(sigName: "child-added", callback: (element: TimelineElement) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "child-added", callback: (element: TimelineElement) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "child-added", callback: (element: TimelineElement) => void): NodeJS.EventEmitter
     emit(sigName: "child-added", element: TimelineElement): void
-    on(sigName: "child-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "child-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "child-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "child-removed", callback: (($obj: EffectClip, element: TimelineElement) => void)): number
-    connect_after(sigName: "child-removed", callback: (($obj: EffectClip, element: TimelineElement) => void)): number
+    on(sigName: "child-removed", callback: (element: TimelineElement) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "child-removed", callback: (element: TimelineElement) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "child-removed", callback: (element: TimelineElement) => void): NodeJS.EventEmitter
     emit(sigName: "child-removed", element: TimelineElement): void
-    on(sigName: "child-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "child-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "child-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GES.TimelineElement */
+    /* Signals of GES-1.0.GES.TimelineElement */
     connect(sigName: "child-property-added", callback: (($obj: EffectClip, propObject: GObject.Object, prop: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "child-property-added", callback: (($obj: EffectClip, propObject: GObject.Object, prop: GObject.ParamSpec) => void)): number
+    on(sigName: "child-property-added", callback: (propObject: GObject.Object, prop: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "child-property-added", callback: (propObject: GObject.Object, prop: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "child-property-added", callback: (propObject: GObject.Object, prop: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "child-property-added", propObject: GObject.Object, prop: GObject.ParamSpec): void
-    on(sigName: "child-property-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "child-property-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "child-property-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "child-property-removed", callback: (($obj: EffectClip, propObject: GObject.Object, prop: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "child-property-removed", callback: (($obj: EffectClip, propObject: GObject.Object, prop: GObject.ParamSpec) => void)): number
+    on(sigName: "child-property-removed", callback: (propObject: GObject.Object, prop: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "child-property-removed", callback: (propObject: GObject.Object, prop: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "child-property-removed", callback: (propObject: GObject.Object, prop: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "child-property-removed", propObject: GObject.Object, prop: GObject.ParamSpec): void
-    on(sigName: "child-property-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "child-property-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "child-property-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "deep-notify", callback: (($obj: EffectClip, propObject: GObject.Object, prop: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "deep-notify", callback: (($obj: EffectClip, propObject: GObject.Object, prop: GObject.ParamSpec) => void)): number
+    on(sigName: "deep-notify", callback: (propObject: GObject.Object, prop: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "deep-notify", callback: (propObject: GObject.Object, prop: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "deep-notify", callback: (propObject: GObject.Object, prop: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "deep-notify", propObject: GObject.Object, prop: GObject.ParamSpec): void
-    on(sigName: "deep-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "deep-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "deep-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: EffectClip, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: EffectClip, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GES.MetaContainer */
+    /* Signals of GES-1.0.GES.MetaContainer */
     connect(sigName: "notify-meta", callback: (($obj: EffectClip, key: string, value?: any | null) => void)): number
-    connect_after(sigName: "notify-meta", callback: (($obj: EffectClip, key: string, value?: any | null) => void)): number
+    on(sigName: "notify-meta", callback: (key: string, value?: any | null) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify-meta", callback: (key: string, value?: any | null) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify-meta", callback: (key: string, value?: any | null) => void): NodeJS.EventEmitter
     emit(sigName: "notify-meta", key: string, value?: any | null): void
-    on(sigName: "notify-meta", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify-meta", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify-meta", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::duration-limit", callback: (($obj: EffectClip, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::duration-limit", callback: (($obj: EffectClip, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::duration-limit", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -4947,14 +4298,14 @@ export class EffectClip {
 export interface Formatter_ConstructProps extends GObject.InitiallyUnowned_ConstructProps {
 }
 export class Formatter {
-    /* Fields of GES.Formatter */
+    /* Fields of GES-1.0.GES.Formatter */
     parent: GObject.InitiallyUnowned
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GES.Formatter */
+    /* Methods of GES-1.0.GES.Formatter */
     loadFromUri(timeline: Timeline, uri: string): boolean
     saveToUri(timeline: Timeline, uri: string, overwrite: boolean): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -4976,32 +4327,16 @@ export class Formatter {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of GES.Extractable */
+    /* Methods of GES-1.0.GES.Extractable */
     getAsset(): Asset | null
     getId(): string
     setAsset(asset: Asset): boolean
-    /* Virtual methods of GES.Formatter */
-    vfuncCanLoadUri(uri: string): boolean
-    vfuncLoadFromUri(timeline: Timeline, uri: string): boolean
-    vfuncSaveToUri(timeline: Timeline, uri: string, overwrite: boolean): boolean
-    vfuncGetId(): string
-    vfuncSetAsset(asset: Asset): void
-    vfuncSetAssetFull(asset: Asset): boolean
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Formatter, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Formatter, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -5027,48 +4362,48 @@ export interface Group_ConstructProps extends Container_ConstructProps {
     start?: number
 }
 export class Group {
-    /* Properties of GES.Group */
+    /* Properties of GES-1.0.GES.Group */
     duration: number
     inPoint: number
     maxDuration: number
     priority: number
     start: number
-    /* Properties of GES.Container */
+    /* Properties of GES-1.0.GES.Container */
     readonly height: number
-    /* Properties of GES.TimelineElement */
+    /* Properties of GES-1.0.GES.TimelineElement */
     name: string
     parent: TimelineElement
     serialize: boolean
     timeline: Timeline
-    /* Fields of GES.Container */
+    /* Fields of GES-1.0.GES.Container */
     children: TimelineElement[]
     childrenControlMode: ChildrenControlMode
     initiatedMove: TimelineElement
-    /* Fields of GES.TimelineElement */
+    /* Fields of GES-1.0.GES.TimelineElement */
     parentInstance: GObject.InitiallyUnowned
     asset: Asset
     inpoint: Gst.ClockTime
     maxduration: Gst.ClockTime
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GES.Container */
+    /* Methods of GES-1.0.GES.Container */
     add(child: TimelineElement): boolean
     edit(layers: Layer[] | null, newLayerPriority: number, mode: EditMode, edge: Edge, position: number): boolean
     getChildren(recursive: boolean): TimelineElement[]
     remove(child: TimelineElement): boolean
     ungroup(recursive: boolean): Container[]
-    /* Methods of GES.TimelineElement */
+    /* Methods of GES-1.0.GES.TimelineElement */
     addChildProperty(pspec: GObject.ParamSpec, child: GObject.Object): boolean
     copy(deep: boolean): TimelineElement
     editFull(newLayerPriority: number, mode: EditMode, edge: Edge, position: number): boolean
-    getChildProperty(propertyName: string): [ /* returnType */ boolean, /* value */ any ]
-    getChildPropertyByPspec(pspec: GObject.ParamSpec): /* value */ any
+    getChildProperty(propertyName: string): { returnType: boolean, value: any }
+    getChildPropertyByPspec(pspec: GObject.ParamSpec): { value: any }
     getDuration(): Gst.ClockTime
     getInpoint(): Gst.ClockTime
     getLayerPriority(): number
     getMaxDuration(): Gst.ClockTime
     getName(): string
-    getNaturalFramerate(): [ /* returnType */ boolean, /* framerateN */ number, /* framerateD */ number ]
+    getNaturalFramerate(): { returnType: boolean, framerateN: number, framerateD: number }
     getParent(): TimelineElement | null
     getPriority(): number
     getStart(): Gst.ClockTime
@@ -5076,7 +4411,7 @@ export class Group {
     getToplevelParent(): TimelineElement
     getTrackTypes(): TrackType
     listChildrenProperties(): GObject.ParamSpec[]
-    lookupChild(propName: string): [ /* returnType */ boolean, /* child */ GObject.Object | null, /* pspec */ GObject.ParamSpec | null ]
+    lookupChild(propName: string): { returnType: boolean, child: GObject.Object | null, pspec: GObject.ParamSpec | null }
     paste(pastePosition: Gst.ClockTime): TimelineElement | null
     removeChildProperty(pspec: GObject.ParamSpec): boolean
     ripple(start: Gst.ClockTime): boolean
@@ -5095,7 +4430,7 @@ export class Group {
     setStart(start: Gst.ClockTime): boolean
     setTimeline(timeline: Timeline): boolean
     trim(start: Gst.ClockTime): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -5117,26 +4452,26 @@ export class Group {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of GES.Extractable */
+    /* Methods of GES-1.0.GES.Extractable */
     getAsset(): Asset | null
     getId(): string
     setAsset(asset: Asset): boolean
-    /* Methods of GES.MetaContainer */
+    /* Methods of GES-1.0.GES.MetaContainer */
     addMetasFromString(str: string): boolean
-    checkMetaRegistered(metaItem: string): [ /* returnType */ boolean, /* flags */ MetaFlag | null, /* type */ GObject.Type | null ]
+    checkMetaRegistered(metaItem: string): { returnType: boolean, flags: MetaFlag | null, type: GObject.Type | null }
     foreach(func: MetaForeachFunc): void
-    getBoolean(metaItem: string): [ /* returnType */ boolean, /* dest */ boolean ]
-    getDate(metaItem: string): [ /* returnType */ boolean, /* dest */ GLib.Date ]
-    getDateTime(metaItem: string): [ /* returnType */ boolean, /* dest */ Gst.DateTime ]
-    getDouble(metaItem: string): [ /* returnType */ boolean, /* dest */ number ]
-    getFloat(metaItem: string): [ /* returnType */ boolean, /* dest */ number ]
-    getInt(metaItem: string): [ /* returnType */ boolean, /* dest */ number ]
-    getInt64(metaItem: string): [ /* returnType */ boolean, /* dest */ number ]
+    getBoolean(metaItem: string): { returnType: boolean, dest: boolean }
+    getDate(metaItem: string): { returnType: boolean, dest: GLib.Date }
+    getDateTime(metaItem: string): { returnType: boolean, dest: Gst.DateTime }
+    getDouble(metaItem: string): { returnType: boolean, dest: number }
+    getFloat(metaItem: string): { returnType: boolean, dest: number }
+    getInt(metaItem: string): { returnType: boolean, dest: number }
+    getInt64(metaItem: string): { returnType: boolean, dest: number }
     getMarkerList(key: string): MarkerList
     getMeta(key: string): any
     getString(metaItem: string): string
-    getUint(metaItem: string): [ /* returnType */ boolean, /* dest */ number ]
-    getUint64(metaItem: string): [ /* returnType */ boolean, /* dest */ number ]
+    getUint(metaItem: string): { returnType: boolean, dest: number }
+    getUint64(metaItem: string): { returnType: boolean, dest: number }
     metasToString(): string
     registerMeta(flags: MetaFlag, metaItem: string, value: any): boolean
     registerMetaBoolean(flags: MetaFlag, metaItem: string, value: boolean): boolean
@@ -5162,89 +4497,45 @@ export class Group {
     setString(metaItem: string, value: string): boolean
     setUint(metaItem: string, value: number): boolean
     setUint64(metaItem: string, value: number): boolean
-    /* Virtual methods of GES.Container */
-    vfuncAddChild(element: TimelineElement): boolean
-    vfuncChildAdded(element: TimelineElement): void
-    vfuncChildRemoved(element: TimelineElement): void
-    vfuncEdit(layers: Layer[] | null, newLayerPriority: number, mode: EditMode, edge: Edge, position: number): boolean
-    vfuncRemoveChild(element: TimelineElement): boolean
-    vfuncUngroup(recursive: boolean): Container[]
-    /* Virtual methods of GES.TimelineElement */
-    vfuncDeepCopy(copy: TimelineElement): void
-    vfuncGetLayerPriority(): number
-    vfuncGetNaturalFramerate(): [ /* returnType */ boolean, /* framerateN */ number, /* framerateD */ number ]
-    vfuncGetTrackTypes(): TrackType
-    vfuncLookupChild(propName: string): [ /* returnType */ boolean, /* child */ GObject.Object | null, /* pspec */ GObject.ParamSpec | null ]
-    vfuncRipple(start: number): boolean
-    vfuncRippleEnd(end: number): boolean
-    vfuncRollEnd(end: number): boolean
-    vfuncRollStart(start: number): boolean
-    vfuncSetChildProperty(child: GObject.Object, pspec: GObject.ParamSpec, value: any): void
-    vfuncSetChildPropertyFull(child: GObject.Object, pspec: GObject.ParamSpec, value: any): boolean
-    vfuncSetDuration(duration: Gst.ClockTime): boolean
-    vfuncSetInpoint(inpoint: Gst.ClockTime): boolean
-    vfuncSetMaxDuration(maxduration: Gst.ClockTime): boolean
-    vfuncSetParent(parent: TimelineElement): boolean
-    vfuncSetPriority(priority: number): boolean
-    vfuncSetStart(start: Gst.ClockTime): boolean
-    vfuncTrim(start: number): boolean
-    vfuncGetId(): string
-    vfuncSetAsset(asset: Asset): void
-    vfuncSetAssetFull(asset: Asset): boolean
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GES.Container */
+    /* Signals of GES-1.0.GES.Container */
     connect(sigName: "child-added", callback: (($obj: Group, element: TimelineElement) => void)): number
-    connect_after(sigName: "child-added", callback: (($obj: Group, element: TimelineElement) => void)): number
+    on(sigName: "child-added", callback: (element: TimelineElement) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "child-added", callback: (element: TimelineElement) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "child-added", callback: (element: TimelineElement) => void): NodeJS.EventEmitter
     emit(sigName: "child-added", element: TimelineElement): void
-    on(sigName: "child-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "child-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "child-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "child-removed", callback: (($obj: Group, element: TimelineElement) => void)): number
-    connect_after(sigName: "child-removed", callback: (($obj: Group, element: TimelineElement) => void)): number
+    on(sigName: "child-removed", callback: (element: TimelineElement) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "child-removed", callback: (element: TimelineElement) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "child-removed", callback: (element: TimelineElement) => void): NodeJS.EventEmitter
     emit(sigName: "child-removed", element: TimelineElement): void
-    on(sigName: "child-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "child-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "child-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GES.TimelineElement */
+    /* Signals of GES-1.0.GES.TimelineElement */
     connect(sigName: "child-property-added", callback: (($obj: Group, propObject: GObject.Object, prop: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "child-property-added", callback: (($obj: Group, propObject: GObject.Object, prop: GObject.ParamSpec) => void)): number
+    on(sigName: "child-property-added", callback: (propObject: GObject.Object, prop: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "child-property-added", callback: (propObject: GObject.Object, prop: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "child-property-added", callback: (propObject: GObject.Object, prop: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "child-property-added", propObject: GObject.Object, prop: GObject.ParamSpec): void
-    on(sigName: "child-property-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "child-property-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "child-property-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "child-property-removed", callback: (($obj: Group, propObject: GObject.Object, prop: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "child-property-removed", callback: (($obj: Group, propObject: GObject.Object, prop: GObject.ParamSpec) => void)): number
+    on(sigName: "child-property-removed", callback: (propObject: GObject.Object, prop: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "child-property-removed", callback: (propObject: GObject.Object, prop: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "child-property-removed", callback: (propObject: GObject.Object, prop: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "child-property-removed", propObject: GObject.Object, prop: GObject.ParamSpec): void
-    on(sigName: "child-property-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "child-property-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "child-property-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "deep-notify", callback: (($obj: Group, propObject: GObject.Object, prop: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "deep-notify", callback: (($obj: Group, propObject: GObject.Object, prop: GObject.ParamSpec) => void)): number
+    on(sigName: "deep-notify", callback: (propObject: GObject.Object, prop: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "deep-notify", callback: (propObject: GObject.Object, prop: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "deep-notify", callback: (propObject: GObject.Object, prop: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "deep-notify", propObject: GObject.Object, prop: GObject.ParamSpec): void
-    on(sigName: "deep-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "deep-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "deep-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Group, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Group, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GES.MetaContainer */
+    /* Signals of GES-1.0.GES.MetaContainer */
     connect(sigName: "notify-meta", callback: (($obj: Group, key: string, value?: any | null) => void)): number
-    connect_after(sigName: "notify-meta", callback: (($obj: Group, key: string, value?: any | null) => void)): number
+    on(sigName: "notify-meta", callback: (key: string, value?: any | null) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify-meta", callback: (key: string, value?: any | null) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify-meta", callback: (key: string, value?: any | null) => void): NodeJS.EventEmitter
     emit(sigName: "notify-meta", key: string, value?: any | null): void
-    on(sigName: "notify-meta", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify-meta", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify-meta", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::duration", callback: (($obj: Group, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::duration", callback: (($obj: Group, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::duration", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -5313,13 +4604,13 @@ export interface ImageSource_ConstructProps extends VideoSource_ConstructProps {
     uri?: string
 }
 export class ImageSource {
-    /* Properties of GES.TrackElement */
+    /* Properties of GES-1.0.GES.TrackElement */
     active: boolean
     autoClampControlSources: boolean
     hasInternalSource: boolean
     readonly track: Track
     trackType: TrackType
-    /* Properties of GES.TimelineElement */
+    /* Properties of GES-1.0.GES.TimelineElement */
     duration: number
     inPoint: number
     maxDuration: number
@@ -5329,16 +4620,16 @@ export class ImageSource {
     serialize: boolean
     start: number
     timeline: Timeline
-    /* Fields of GES.TimelineElement */
+    /* Fields of GES-1.0.GES.TimelineElement */
     parentInstance: GObject.InitiallyUnowned
     asset: Asset
     inpoint: Gst.ClockTime
     maxduration: Gst.ClockTime
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GES.VideoSource */
-    getNaturalSize(): [ /* returnType */ boolean, /* width */ number, /* height */ number ]
-    /* Methods of GES.TrackElement */
+    /* Methods of GES-1.0.GES.VideoSource */
+    getNaturalSize(): { returnType: boolean, width: number, height: number }
+    /* Methods of GES-1.0.GES.TrackElement */
     addChildrenProps(element: Gst.Element, wantedCategories?: string[] | null, blacklist?: string[] | null, whitelist?: string[] | null): void
     clampControlSource(propertyName: string): void
     edit(layers: Layer[] | null, mode: EditMode, edge: Edge, position: number): boolean
@@ -5353,33 +4644,33 @@ export class ImageSource {
     isActive(): boolean
     isCore(): boolean
     listChildrenProperties(): GObject.ParamSpec[]
-    lookupChild(propName: string): [ /* returnType */ boolean, /* element */ Gst.Element | null, /* pspec */ GObject.ParamSpec | null ]
+    lookupChild(propName: string): { returnType: boolean, element: Gst.Element | null, pspec: GObject.ParamSpec | null }
     removeControlBinding(propertyName: string): boolean
     setActive(active: boolean): boolean
     setAutoClampControlSources(autoClamp: boolean): void
     setControlSource(source: Gst.ControlSource, propertyName: string, bindingType: string): boolean
     setHasInternalSource(hasInternalSource: boolean): boolean
     setTrackType(type: TrackType): void
-    /* Methods of GES.TimelineElement */
+    /* Methods of GES-1.0.GES.TimelineElement */
     addChildProperty(pspec: GObject.ParamSpec, child: GObject.Object): boolean
     copy(deep: boolean): TimelineElement
     edit(layers: Layer[] | null, newLayerPriority: number, mode: EditMode, edge: Edge, position: number): boolean
     editFull(newLayerPriority: number, mode: EditMode, edge: Edge, position: number): boolean
-    getChildProperty(propertyName: string): [ /* returnType */ boolean, /* value */ any ]
-    getChildPropertyByPspec(pspec: GObject.ParamSpec): /* value */ any
+    getChildProperty(propertyName: string): { returnType: boolean, value: any }
+    getChildPropertyByPspec(pspec: GObject.ParamSpec): { value: any }
     getDuration(): Gst.ClockTime
     getInpoint(): Gst.ClockTime
     getLayerPriority(): number
     getMaxDuration(): Gst.ClockTime
     getName(): string
-    getNaturalFramerate(): [ /* returnType */ boolean, /* framerateN */ number, /* framerateD */ number ]
+    getNaturalFramerate(): { returnType: boolean, framerateN: number, framerateD: number }
     getParent(): TimelineElement | null
     getPriority(): number
     getStart(): Gst.ClockTime
     getTimeline(): Timeline | null
     getToplevelParent(): TimelineElement
     getTrackTypes(): TrackType
-    lookupChild(propName: string): [ /* returnType */ boolean, /* child */ GObject.Object | null, /* pspec */ GObject.ParamSpec | null ]
+    lookupChild(propName: string): { returnType: boolean, child: GObject.Object | null, pspec: GObject.ParamSpec | null }
     paste(pastePosition: Gst.ClockTime): TimelineElement | null
     removeChildProperty(pspec: GObject.ParamSpec): boolean
     ripple(start: Gst.ClockTime): boolean
@@ -5398,7 +4689,7 @@ export class ImageSource {
     setStart(start: Gst.ClockTime): boolean
     setTimeline(timeline: Timeline): boolean
     trim(start: Gst.ClockTime): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -5420,26 +4711,26 @@ export class ImageSource {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of GES.Extractable */
+    /* Methods of GES-1.0.GES.Extractable */
     getAsset(): Asset | null
     getId(): string
     setAsset(asset: Asset): boolean
-    /* Methods of GES.MetaContainer */
+    /* Methods of GES-1.0.GES.MetaContainer */
     addMetasFromString(str: string): boolean
-    checkMetaRegistered(metaItem: string): [ /* returnType */ boolean, /* flags */ MetaFlag | null, /* type */ GObject.Type | null ]
+    checkMetaRegistered(metaItem: string): { returnType: boolean, flags: MetaFlag | null, type: GObject.Type | null }
     foreach(func: MetaForeachFunc): void
-    getBoolean(metaItem: string): [ /* returnType */ boolean, /* dest */ boolean ]
-    getDate(metaItem: string): [ /* returnType */ boolean, /* dest */ GLib.Date ]
-    getDateTime(metaItem: string): [ /* returnType */ boolean, /* dest */ Gst.DateTime ]
-    getDouble(metaItem: string): [ /* returnType */ boolean, /* dest */ number ]
-    getFloat(metaItem: string): [ /* returnType */ boolean, /* dest */ number ]
-    getInt(metaItem: string): [ /* returnType */ boolean, /* dest */ number ]
-    getInt64(metaItem: string): [ /* returnType */ boolean, /* dest */ number ]
+    getBoolean(metaItem: string): { returnType: boolean, dest: boolean }
+    getDate(metaItem: string): { returnType: boolean, dest: GLib.Date }
+    getDateTime(metaItem: string): { returnType: boolean, dest: Gst.DateTime }
+    getDouble(metaItem: string): { returnType: boolean, dest: number }
+    getFloat(metaItem: string): { returnType: boolean, dest: number }
+    getInt(metaItem: string): { returnType: boolean, dest: number }
+    getInt64(metaItem: string): { returnType: boolean, dest: number }
     getMarkerList(key: string): MarkerList
     getMeta(key: string): any
     getString(metaItem: string): string
-    getUint(metaItem: string): [ /* returnType */ boolean, /* dest */ number ]
-    getUint64(metaItem: string): [ /* returnType */ boolean, /* dest */ number ]
+    getUint(metaItem: string): { returnType: boolean, dest: number }
+    getUint64(metaItem: string): { returnType: boolean, dest: number }
     metasToString(): string
     registerMeta(flags: MetaFlag, metaItem: string, value: any): boolean
     registerMetaBoolean(flags: MetaFlag, metaItem: string, value: boolean): boolean
@@ -5465,88 +4756,45 @@ export class ImageSource {
     setString(metaItem: string, value: string): boolean
     setUint(metaItem: string, value: number): boolean
     setUint64(metaItem: string, value: number): boolean
-    /* Virtual methods of GES.Source */
-    vfuncSelectPad(pad: Gst.Pad): boolean
-    /* Virtual methods of GES.TrackElement */
-    vfuncActiveChanged(active: boolean): void
-    vfuncChanged(): void
-    vfuncLookupChild(propName: string): [ /* returnType */ boolean, /* element */ Gst.Element | null, /* pspec */ GObject.ParamSpec | null ]
-    /* Virtual methods of GES.TimelineElement */
-    vfuncDeepCopy(copy: TimelineElement): void
-    vfuncGetLayerPriority(): number
-    vfuncGetNaturalFramerate(): [ /* returnType */ boolean, /* framerateN */ number, /* framerateD */ number ]
-    vfuncGetTrackTypes(): TrackType
-    vfuncLookupChild(propName: string): [ /* returnType */ boolean, /* child */ GObject.Object | null, /* pspec */ GObject.ParamSpec | null ]
-    vfuncRipple(start: number): boolean
-    vfuncRippleEnd(end: number): boolean
-    vfuncRollEnd(end: number): boolean
-    vfuncRollStart(start: number): boolean
-    vfuncSetChildProperty(child: GObject.Object, pspec: GObject.ParamSpec, value: any): void
-    vfuncSetChildPropertyFull(child: GObject.Object, pspec: GObject.ParamSpec, value: any): boolean
-    vfuncSetDuration(duration: Gst.ClockTime): boolean
-    vfuncSetInpoint(inpoint: Gst.ClockTime): boolean
-    vfuncSetMaxDuration(maxduration: Gst.ClockTime): boolean
-    vfuncSetParent(parent: TimelineElement): boolean
-    vfuncSetPriority(priority: number): boolean
-    vfuncSetStart(start: Gst.ClockTime): boolean
-    vfuncTrim(start: number): boolean
-    vfuncGetId(): string
-    vfuncSetAsset(asset: Asset): void
-    vfuncSetAssetFull(asset: Asset): boolean
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GES.TrackElement */
+    /* Signals of GES-1.0.GES.TrackElement */
     connect(sigName: "control-binding-added", callback: (($obj: ImageSource, controlBinding: Gst.ControlBinding) => void)): number
-    connect_after(sigName: "control-binding-added", callback: (($obj: ImageSource, controlBinding: Gst.ControlBinding) => void)): number
+    on(sigName: "control-binding-added", callback: (controlBinding: Gst.ControlBinding) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "control-binding-added", callback: (controlBinding: Gst.ControlBinding) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "control-binding-added", callback: (controlBinding: Gst.ControlBinding) => void): NodeJS.EventEmitter
     emit(sigName: "control-binding-added", controlBinding: Gst.ControlBinding): void
-    on(sigName: "control-binding-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "control-binding-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "control-binding-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "control-binding-removed", callback: (($obj: ImageSource, controlBinding: Gst.ControlBinding) => void)): number
-    connect_after(sigName: "control-binding-removed", callback: (($obj: ImageSource, controlBinding: Gst.ControlBinding) => void)): number
+    on(sigName: "control-binding-removed", callback: (controlBinding: Gst.ControlBinding) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "control-binding-removed", callback: (controlBinding: Gst.ControlBinding) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "control-binding-removed", callback: (controlBinding: Gst.ControlBinding) => void): NodeJS.EventEmitter
     emit(sigName: "control-binding-removed", controlBinding: Gst.ControlBinding): void
-    on(sigName: "control-binding-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "control-binding-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "control-binding-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GES.TimelineElement */
+    /* Signals of GES-1.0.GES.TimelineElement */
     connect(sigName: "child-property-added", callback: (($obj: ImageSource, propObject: GObject.Object, prop: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "child-property-added", callback: (($obj: ImageSource, propObject: GObject.Object, prop: GObject.ParamSpec) => void)): number
+    on(sigName: "child-property-added", callback: (propObject: GObject.Object, prop: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "child-property-added", callback: (propObject: GObject.Object, prop: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "child-property-added", callback: (propObject: GObject.Object, prop: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "child-property-added", propObject: GObject.Object, prop: GObject.ParamSpec): void
-    on(sigName: "child-property-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "child-property-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "child-property-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "child-property-removed", callback: (($obj: ImageSource, propObject: GObject.Object, prop: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "child-property-removed", callback: (($obj: ImageSource, propObject: GObject.Object, prop: GObject.ParamSpec) => void)): number
+    on(sigName: "child-property-removed", callback: (propObject: GObject.Object, prop: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "child-property-removed", callback: (propObject: GObject.Object, prop: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "child-property-removed", callback: (propObject: GObject.Object, prop: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "child-property-removed", propObject: GObject.Object, prop: GObject.ParamSpec): void
-    on(sigName: "child-property-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "child-property-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "child-property-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "deep-notify", callback: (($obj: ImageSource, propObject: GObject.Object, prop: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "deep-notify", callback: (($obj: ImageSource, propObject: GObject.Object, prop: GObject.ParamSpec) => void)): number
+    on(sigName: "deep-notify", callback: (propObject: GObject.Object, prop: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "deep-notify", callback: (propObject: GObject.Object, prop: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "deep-notify", callback: (propObject: GObject.Object, prop: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "deep-notify", propObject: GObject.Object, prop: GObject.ParamSpec): void
-    on(sigName: "deep-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "deep-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "deep-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: ImageSource, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: ImageSource, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GES.MetaContainer */
+    /* Signals of GES-1.0.GES.MetaContainer */
     connect(sigName: "notify-meta", callback: (($obj: ImageSource, key: string, value?: any | null) => void)): number
-    connect_after(sigName: "notify-meta", callback: (($obj: ImageSource, key: string, value?: any | null) => void)): number
+    on(sigName: "notify-meta", callback: (key: string, value?: any | null) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify-meta", callback: (key: string, value?: any | null) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify-meta", callback: (key: string, value?: any | null) => void): NodeJS.EventEmitter
     emit(sigName: "notify-meta", key: string, value?: any | null): void
-    on(sigName: "notify-meta", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify-meta", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify-meta", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::active", callback: (($obj: ImageSource, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::active", callback: (($obj: ImageSource, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::active", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -5634,19 +4882,19 @@ export interface Layer_ConstructProps extends GObject.InitiallyUnowned_Construct
     priority?: number
 }
 export class Layer {
-    /* Properties of GES.Layer */
+    /* Properties of GES-1.0.GES.Layer */
     autoTransition: boolean
     priority: number
-    /* Fields of GES.Layer */
+    /* Fields of GES-1.0.GES.Layer */
     parent: GObject.InitiallyUnowned
     timeline: Timeline
     minNlePriority: number
     maxNlePriority: number
     priv: LayerPrivate
     gesReserved: object[]
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GES.Layer */
+    /* Methods of GES-1.0.GES.Layer */
     addAsset(asset: Asset, start: Gst.ClockTime, inpoint: Gst.ClockTime, duration: Gst.ClockTime, trackTypes: TrackType): Clip
     addAssetFull(asset: Asset, start: Gst.ClockTime, inpoint: Gst.ClockTime, duration: Gst.ClockTime, trackTypes: TrackType): Clip
     addClip(clip: Clip): boolean
@@ -5664,7 +4912,7 @@ export class Layer {
     setAutoTransition(autoTransition: boolean): void
     setPriority(priority: number): void
     setTimeline(timeline: Timeline): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -5686,26 +4934,26 @@ export class Layer {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of GES.Extractable */
+    /* Methods of GES-1.0.GES.Extractable */
     getAsset(): Asset | null
     getId(): string
     setAsset(asset: Asset): boolean
-    /* Methods of GES.MetaContainer */
+    /* Methods of GES-1.0.GES.MetaContainer */
     addMetasFromString(str: string): boolean
-    checkMetaRegistered(metaItem: string): [ /* returnType */ boolean, /* flags */ MetaFlag | null, /* type */ GObject.Type | null ]
+    checkMetaRegistered(metaItem: string): { returnType: boolean, flags: MetaFlag | null, type: GObject.Type | null }
     foreach(func: MetaForeachFunc): void
-    getBoolean(metaItem: string): [ /* returnType */ boolean, /* dest */ boolean ]
-    getDate(metaItem: string): [ /* returnType */ boolean, /* dest */ GLib.Date ]
-    getDateTime(metaItem: string): [ /* returnType */ boolean, /* dest */ Gst.DateTime ]
-    getDouble(metaItem: string): [ /* returnType */ boolean, /* dest */ number ]
-    getFloat(metaItem: string): [ /* returnType */ boolean, /* dest */ number ]
-    getInt(metaItem: string): [ /* returnType */ boolean, /* dest */ number ]
-    getInt64(metaItem: string): [ /* returnType */ boolean, /* dest */ number ]
+    getBoolean(metaItem: string): { returnType: boolean, dest: boolean }
+    getDate(metaItem: string): { returnType: boolean, dest: GLib.Date }
+    getDateTime(metaItem: string): { returnType: boolean, dest: Gst.DateTime }
+    getDouble(metaItem: string): { returnType: boolean, dest: number }
+    getFloat(metaItem: string): { returnType: boolean, dest: number }
+    getInt(metaItem: string): { returnType: boolean, dest: number }
+    getInt64(metaItem: string): { returnType: boolean, dest: number }
     getMarkerList(key: string): MarkerList
     getMeta(key: string): any
     getString(metaItem: string): string
-    getUint(metaItem: string): [ /* returnType */ boolean, /* dest */ number ]
-    getUint64(metaItem: string): [ /* returnType */ boolean, /* dest */ number ]
+    getUint(metaItem: string): { returnType: boolean, dest: number }
+    getUint64(metaItem: string): { returnType: boolean, dest: number }
     metasToString(): string
     registerMeta(flags: MetaFlag, metaItem: string, value: any): boolean
     registerMetaBoolean(flags: MetaFlag, metaItem: string, value: boolean): boolean
@@ -5731,53 +4979,34 @@ export class Layer {
     setString(metaItem: string, value: string): boolean
     setUint(metaItem: string, value: number): boolean
     setUint64(metaItem: string, value: number): boolean
-    /* Virtual methods of GES.Layer */
-    vfuncObjectAdded(object: Clip): void
-    vfuncObjectRemoved(object: Clip): void
-    vfuncGetId(): string
-    vfuncSetAsset(asset: Asset): void
-    vfuncSetAssetFull(asset: Asset): boolean
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GES.Layer */
+    /* Signals of GES-1.0.GES.Layer */
     connect(sigName: "active-changed", callback: (($obj: Layer, active: boolean, tracks: Track[]) => void)): number
-    connect_after(sigName: "active-changed", callback: (($obj: Layer, active: boolean, tracks: Track[]) => void)): number
+    on(sigName: "active-changed", callback: (active: boolean, tracks: Track[]) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "active-changed", callback: (active: boolean, tracks: Track[]) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "active-changed", callback: (active: boolean, tracks: Track[]) => void): NodeJS.EventEmitter
     emit(sigName: "active-changed", active: boolean, tracks: Track[]): void
-    on(sigName: "active-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "active-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "active-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "clip-added", callback: (($obj: Layer, clip: Clip) => void)): number
-    connect_after(sigName: "clip-added", callback: (($obj: Layer, clip: Clip) => void)): number
+    on(sigName: "clip-added", callback: (clip: Clip) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "clip-added", callback: (clip: Clip) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "clip-added", callback: (clip: Clip) => void): NodeJS.EventEmitter
     emit(sigName: "clip-added", clip: Clip): void
-    on(sigName: "clip-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "clip-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "clip-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "clip-removed", callback: (($obj: Layer, clip: Clip) => void)): number
-    connect_after(sigName: "clip-removed", callback: (($obj: Layer, clip: Clip) => void)): number
+    on(sigName: "clip-removed", callback: (clip: Clip) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "clip-removed", callback: (clip: Clip) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "clip-removed", callback: (clip: Clip) => void): NodeJS.EventEmitter
     emit(sigName: "clip-removed", clip: Clip): void
-    on(sigName: "clip-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "clip-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "clip-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Layer, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Layer, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GES.MetaContainer */
+    /* Signals of GES-1.0.GES.MetaContainer */
     connect(sigName: "notify-meta", callback: (($obj: Layer, key: string, value?: any | null) => void)): number
-    connect_after(sigName: "notify-meta", callback: (($obj: Layer, key: string, value?: any | null) => void)): number
+    on(sigName: "notify-meta", callback: (key: string, value?: any | null) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify-meta", callback: (key: string, value?: any | null) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify-meta", callback: (key: string, value?: any | null) => void): NodeJS.EventEmitter
     emit(sigName: "notify-meta", key: string, value?: any | null): void
-    on(sigName: "notify-meta", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify-meta", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify-meta", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::auto-transition", callback: (($obj: Layer, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::auto-transition", callback: (($obj: Layer, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::auto-transition", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -5805,11 +5034,11 @@ export class Layer {
 export interface Marker_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class Marker {
-    /* Properties of GES.Marker */
+    /* Properties of GES-1.0.GES.Marker */
     readonly position: number
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -5831,22 +5060,22 @@ export class Marker {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of GES.MetaContainer */
+    /* Methods of GES-1.0.GES.MetaContainer */
     addMetasFromString(str: string): boolean
-    checkMetaRegistered(metaItem: string): [ /* returnType */ boolean, /* flags */ MetaFlag | null, /* type */ GObject.Type | null ]
+    checkMetaRegistered(metaItem: string): { returnType: boolean, flags: MetaFlag | null, type: GObject.Type | null }
     foreach(func: MetaForeachFunc): void
-    getBoolean(metaItem: string): [ /* returnType */ boolean, /* dest */ boolean ]
-    getDate(metaItem: string): [ /* returnType */ boolean, /* dest */ GLib.Date ]
-    getDateTime(metaItem: string): [ /* returnType */ boolean, /* dest */ Gst.DateTime ]
-    getDouble(metaItem: string): [ /* returnType */ boolean, /* dest */ number ]
-    getFloat(metaItem: string): [ /* returnType */ boolean, /* dest */ number ]
-    getInt(metaItem: string): [ /* returnType */ boolean, /* dest */ number ]
-    getInt64(metaItem: string): [ /* returnType */ boolean, /* dest */ number ]
+    getBoolean(metaItem: string): { returnType: boolean, dest: boolean }
+    getDate(metaItem: string): { returnType: boolean, dest: GLib.Date }
+    getDateTime(metaItem: string): { returnType: boolean, dest: Gst.DateTime }
+    getDouble(metaItem: string): { returnType: boolean, dest: number }
+    getFloat(metaItem: string): { returnType: boolean, dest: number }
+    getInt(metaItem: string): { returnType: boolean, dest: number }
+    getInt64(metaItem: string): { returnType: boolean, dest: number }
     getMarkerList(key: string): MarkerList
     getMeta(key: string): any
     getString(metaItem: string): string
-    getUint(metaItem: string): [ /* returnType */ boolean, /* dest */ number ]
-    getUint64(metaItem: string): [ /* returnType */ boolean, /* dest */ number ]
+    getUint(metaItem: string): { returnType: boolean, dest: number }
+    getUint64(metaItem: string): { returnType: boolean, dest: number }
     metasToString(): string
     registerMeta(flags: MetaFlag, metaItem: string, value: any): boolean
     registerMetaBoolean(flags: MetaFlag, metaItem: string, value: boolean): boolean
@@ -5872,28 +5101,18 @@ export class Marker {
     setString(metaItem: string, value: string): boolean
     setUint(metaItem: string, value: number): boolean
     setUint64(metaItem: string, value: number): boolean
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Marker, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Marker, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GES.MetaContainer */
+    /* Signals of GES-1.0.GES.MetaContainer */
     connect(sigName: "notify-meta", callback: (($obj: Marker, key: string, value?: any | null) => void)): number
-    connect_after(sigName: "notify-meta", callback: (($obj: Marker, key: string, value?: any | null) => void)): number
+    on(sigName: "notify-meta", callback: (key: string, value?: any | null) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify-meta", callback: (key: string, value?: any | null) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify-meta", callback: (key: string, value?: any | null) => void): NodeJS.EventEmitter
     emit(sigName: "notify-meta", key: string, value?: any | null): void
-    on(sigName: "notify-meta", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify-meta", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify-meta", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::position", callback: (($obj: Marker, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::position", callback: (($obj: Marker, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::position", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -5914,15 +5133,15 @@ export class Marker {
 export interface MarkerList_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class MarkerList {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GES.MarkerList */
+    /* Methods of GES-1.0.GES.MarkerList */
     add(position: Gst.ClockTime): Marker
     getMarkers(): Marker[]
     move(marker: Marker, position: Gst.ClockTime): boolean
     remove(marker: Marker): boolean
     size(): number
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -5944,40 +5163,28 @@ export class MarkerList {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GES.MarkerList */
+    /* Signals of GES-1.0.GES.MarkerList */
     connect(sigName: "marker-added", callback: (($obj: MarkerList, position: number, marker: Marker) => void)): number
-    connect_after(sigName: "marker-added", callback: (($obj: MarkerList, position: number, marker: Marker) => void)): number
+    on(sigName: "marker-added", callback: (position: number, marker: Marker) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "marker-added", callback: (position: number, marker: Marker) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "marker-added", callback: (position: number, marker: Marker) => void): NodeJS.EventEmitter
     emit(sigName: "marker-added", position: number, marker: Marker): void
-    on(sigName: "marker-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "marker-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "marker-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "marker-moved", callback: (($obj: MarkerList, previousPosition: number, newPosition: number, marker: Marker) => void)): number
-    connect_after(sigName: "marker-moved", callback: (($obj: MarkerList, previousPosition: number, newPosition: number, marker: Marker) => void)): number
+    on(sigName: "marker-moved", callback: (previousPosition: number, newPosition: number, marker: Marker) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "marker-moved", callback: (previousPosition: number, newPosition: number, marker: Marker) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "marker-moved", callback: (previousPosition: number, newPosition: number, marker: Marker) => void): NodeJS.EventEmitter
     emit(sigName: "marker-moved", previousPosition: number, newPosition: number, marker: Marker): void
-    on(sigName: "marker-moved", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "marker-moved", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "marker-moved", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "marker-removed", callback: (($obj: MarkerList, marker: Marker) => void)): number
-    connect_after(sigName: "marker-removed", callback: (($obj: MarkerList, marker: Marker) => void)): number
+    on(sigName: "marker-removed", callback: (marker: Marker) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "marker-removed", callback: (marker: Marker) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "marker-removed", callback: (marker: Marker) => void): NodeJS.EventEmitter
     emit(sigName: "marker-removed", marker: Marker): void
-    on(sigName: "marker-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "marker-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "marker-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: MarkerList, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: MarkerList, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -5996,13 +5203,13 @@ export interface MultiFileSource_ConstructProps extends VideoSource_ConstructPro
     uri?: string
 }
 export class MultiFileSource {
-    /* Properties of GES.TrackElement */
+    /* Properties of GES-1.0.GES.TrackElement */
     active: boolean
     autoClampControlSources: boolean
     hasInternalSource: boolean
     readonly track: Track
     trackType: TrackType
-    /* Properties of GES.TimelineElement */
+    /* Properties of GES-1.0.GES.TimelineElement */
     duration: number
     inPoint: number
     maxDuration: number
@@ -6012,16 +5219,16 @@ export class MultiFileSource {
     serialize: boolean
     start: number
     timeline: Timeline
-    /* Fields of GES.TimelineElement */
+    /* Fields of GES-1.0.GES.TimelineElement */
     parentInstance: GObject.InitiallyUnowned
     asset: Asset
     inpoint: Gst.ClockTime
     maxduration: Gst.ClockTime
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GES.VideoSource */
-    getNaturalSize(): [ /* returnType */ boolean, /* width */ number, /* height */ number ]
-    /* Methods of GES.TrackElement */
+    /* Methods of GES-1.0.GES.VideoSource */
+    getNaturalSize(): { returnType: boolean, width: number, height: number }
+    /* Methods of GES-1.0.GES.TrackElement */
     addChildrenProps(element: Gst.Element, wantedCategories?: string[] | null, blacklist?: string[] | null, whitelist?: string[] | null): void
     clampControlSource(propertyName: string): void
     edit(layers: Layer[] | null, mode: EditMode, edge: Edge, position: number): boolean
@@ -6036,33 +5243,33 @@ export class MultiFileSource {
     isActive(): boolean
     isCore(): boolean
     listChildrenProperties(): GObject.ParamSpec[]
-    lookupChild(propName: string): [ /* returnType */ boolean, /* element */ Gst.Element | null, /* pspec */ GObject.ParamSpec | null ]
+    lookupChild(propName: string): { returnType: boolean, element: Gst.Element | null, pspec: GObject.ParamSpec | null }
     removeControlBinding(propertyName: string): boolean
     setActive(active: boolean): boolean
     setAutoClampControlSources(autoClamp: boolean): void
     setControlSource(source: Gst.ControlSource, propertyName: string, bindingType: string): boolean
     setHasInternalSource(hasInternalSource: boolean): boolean
     setTrackType(type: TrackType): void
-    /* Methods of GES.TimelineElement */
+    /* Methods of GES-1.0.GES.TimelineElement */
     addChildProperty(pspec: GObject.ParamSpec, child: GObject.Object): boolean
     copy(deep: boolean): TimelineElement
     edit(layers: Layer[] | null, newLayerPriority: number, mode: EditMode, edge: Edge, position: number): boolean
     editFull(newLayerPriority: number, mode: EditMode, edge: Edge, position: number): boolean
-    getChildProperty(propertyName: string): [ /* returnType */ boolean, /* value */ any ]
-    getChildPropertyByPspec(pspec: GObject.ParamSpec): /* value */ any
+    getChildProperty(propertyName: string): { returnType: boolean, value: any }
+    getChildPropertyByPspec(pspec: GObject.ParamSpec): { value: any }
     getDuration(): Gst.ClockTime
     getInpoint(): Gst.ClockTime
     getLayerPriority(): number
     getMaxDuration(): Gst.ClockTime
     getName(): string
-    getNaturalFramerate(): [ /* returnType */ boolean, /* framerateN */ number, /* framerateD */ number ]
+    getNaturalFramerate(): { returnType: boolean, framerateN: number, framerateD: number }
     getParent(): TimelineElement | null
     getPriority(): number
     getStart(): Gst.ClockTime
     getTimeline(): Timeline | null
     getToplevelParent(): TimelineElement
     getTrackTypes(): TrackType
-    lookupChild(propName: string): [ /* returnType */ boolean, /* child */ GObject.Object | null, /* pspec */ GObject.ParamSpec | null ]
+    lookupChild(propName: string): { returnType: boolean, child: GObject.Object | null, pspec: GObject.ParamSpec | null }
     paste(pastePosition: Gst.ClockTime): TimelineElement | null
     removeChildProperty(pspec: GObject.ParamSpec): boolean
     ripple(start: Gst.ClockTime): boolean
@@ -6081,7 +5288,7 @@ export class MultiFileSource {
     setStart(start: Gst.ClockTime): boolean
     setTimeline(timeline: Timeline): boolean
     trim(start: Gst.ClockTime): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -6103,26 +5310,26 @@ export class MultiFileSource {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of GES.Extractable */
+    /* Methods of GES-1.0.GES.Extractable */
     getAsset(): Asset | null
     getId(): string
     setAsset(asset: Asset): boolean
-    /* Methods of GES.MetaContainer */
+    /* Methods of GES-1.0.GES.MetaContainer */
     addMetasFromString(str: string): boolean
-    checkMetaRegistered(metaItem: string): [ /* returnType */ boolean, /* flags */ MetaFlag | null, /* type */ GObject.Type | null ]
+    checkMetaRegistered(metaItem: string): { returnType: boolean, flags: MetaFlag | null, type: GObject.Type | null }
     foreach(func: MetaForeachFunc): void
-    getBoolean(metaItem: string): [ /* returnType */ boolean, /* dest */ boolean ]
-    getDate(metaItem: string): [ /* returnType */ boolean, /* dest */ GLib.Date ]
-    getDateTime(metaItem: string): [ /* returnType */ boolean, /* dest */ Gst.DateTime ]
-    getDouble(metaItem: string): [ /* returnType */ boolean, /* dest */ number ]
-    getFloat(metaItem: string): [ /* returnType */ boolean, /* dest */ number ]
-    getInt(metaItem: string): [ /* returnType */ boolean, /* dest */ number ]
-    getInt64(metaItem: string): [ /* returnType */ boolean, /* dest */ number ]
+    getBoolean(metaItem: string): { returnType: boolean, dest: boolean }
+    getDate(metaItem: string): { returnType: boolean, dest: GLib.Date }
+    getDateTime(metaItem: string): { returnType: boolean, dest: Gst.DateTime }
+    getDouble(metaItem: string): { returnType: boolean, dest: number }
+    getFloat(metaItem: string): { returnType: boolean, dest: number }
+    getInt(metaItem: string): { returnType: boolean, dest: number }
+    getInt64(metaItem: string): { returnType: boolean, dest: number }
     getMarkerList(key: string): MarkerList
     getMeta(key: string): any
     getString(metaItem: string): string
-    getUint(metaItem: string): [ /* returnType */ boolean, /* dest */ number ]
-    getUint64(metaItem: string): [ /* returnType */ boolean, /* dest */ number ]
+    getUint(metaItem: string): { returnType: boolean, dest: number }
+    getUint64(metaItem: string): { returnType: boolean, dest: number }
     metasToString(): string
     registerMeta(flags: MetaFlag, metaItem: string, value: any): boolean
     registerMetaBoolean(flags: MetaFlag, metaItem: string, value: boolean): boolean
@@ -6148,88 +5355,45 @@ export class MultiFileSource {
     setString(metaItem: string, value: string): boolean
     setUint(metaItem: string, value: number): boolean
     setUint64(metaItem: string, value: number): boolean
-    /* Virtual methods of GES.Source */
-    vfuncSelectPad(pad: Gst.Pad): boolean
-    /* Virtual methods of GES.TrackElement */
-    vfuncActiveChanged(active: boolean): void
-    vfuncChanged(): void
-    vfuncLookupChild(propName: string): [ /* returnType */ boolean, /* element */ Gst.Element | null, /* pspec */ GObject.ParamSpec | null ]
-    /* Virtual methods of GES.TimelineElement */
-    vfuncDeepCopy(copy: TimelineElement): void
-    vfuncGetLayerPriority(): number
-    vfuncGetNaturalFramerate(): [ /* returnType */ boolean, /* framerateN */ number, /* framerateD */ number ]
-    vfuncGetTrackTypes(): TrackType
-    vfuncLookupChild(propName: string): [ /* returnType */ boolean, /* child */ GObject.Object | null, /* pspec */ GObject.ParamSpec | null ]
-    vfuncRipple(start: number): boolean
-    vfuncRippleEnd(end: number): boolean
-    vfuncRollEnd(end: number): boolean
-    vfuncRollStart(start: number): boolean
-    vfuncSetChildProperty(child: GObject.Object, pspec: GObject.ParamSpec, value: any): void
-    vfuncSetChildPropertyFull(child: GObject.Object, pspec: GObject.ParamSpec, value: any): boolean
-    vfuncSetDuration(duration: Gst.ClockTime): boolean
-    vfuncSetInpoint(inpoint: Gst.ClockTime): boolean
-    vfuncSetMaxDuration(maxduration: Gst.ClockTime): boolean
-    vfuncSetParent(parent: TimelineElement): boolean
-    vfuncSetPriority(priority: number): boolean
-    vfuncSetStart(start: Gst.ClockTime): boolean
-    vfuncTrim(start: number): boolean
-    vfuncGetId(): string
-    vfuncSetAsset(asset: Asset): void
-    vfuncSetAssetFull(asset: Asset): boolean
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GES.TrackElement */
+    /* Signals of GES-1.0.GES.TrackElement */
     connect(sigName: "control-binding-added", callback: (($obj: MultiFileSource, controlBinding: Gst.ControlBinding) => void)): number
-    connect_after(sigName: "control-binding-added", callback: (($obj: MultiFileSource, controlBinding: Gst.ControlBinding) => void)): number
+    on(sigName: "control-binding-added", callback: (controlBinding: Gst.ControlBinding) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "control-binding-added", callback: (controlBinding: Gst.ControlBinding) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "control-binding-added", callback: (controlBinding: Gst.ControlBinding) => void): NodeJS.EventEmitter
     emit(sigName: "control-binding-added", controlBinding: Gst.ControlBinding): void
-    on(sigName: "control-binding-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "control-binding-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "control-binding-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "control-binding-removed", callback: (($obj: MultiFileSource, controlBinding: Gst.ControlBinding) => void)): number
-    connect_after(sigName: "control-binding-removed", callback: (($obj: MultiFileSource, controlBinding: Gst.ControlBinding) => void)): number
+    on(sigName: "control-binding-removed", callback: (controlBinding: Gst.ControlBinding) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "control-binding-removed", callback: (controlBinding: Gst.ControlBinding) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "control-binding-removed", callback: (controlBinding: Gst.ControlBinding) => void): NodeJS.EventEmitter
     emit(sigName: "control-binding-removed", controlBinding: Gst.ControlBinding): void
-    on(sigName: "control-binding-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "control-binding-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "control-binding-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GES.TimelineElement */
+    /* Signals of GES-1.0.GES.TimelineElement */
     connect(sigName: "child-property-added", callback: (($obj: MultiFileSource, propObject: GObject.Object, prop: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "child-property-added", callback: (($obj: MultiFileSource, propObject: GObject.Object, prop: GObject.ParamSpec) => void)): number
+    on(sigName: "child-property-added", callback: (propObject: GObject.Object, prop: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "child-property-added", callback: (propObject: GObject.Object, prop: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "child-property-added", callback: (propObject: GObject.Object, prop: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "child-property-added", propObject: GObject.Object, prop: GObject.ParamSpec): void
-    on(sigName: "child-property-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "child-property-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "child-property-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "child-property-removed", callback: (($obj: MultiFileSource, propObject: GObject.Object, prop: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "child-property-removed", callback: (($obj: MultiFileSource, propObject: GObject.Object, prop: GObject.ParamSpec) => void)): number
+    on(sigName: "child-property-removed", callback: (propObject: GObject.Object, prop: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "child-property-removed", callback: (propObject: GObject.Object, prop: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "child-property-removed", callback: (propObject: GObject.Object, prop: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "child-property-removed", propObject: GObject.Object, prop: GObject.ParamSpec): void
-    on(sigName: "child-property-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "child-property-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "child-property-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "deep-notify", callback: (($obj: MultiFileSource, propObject: GObject.Object, prop: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "deep-notify", callback: (($obj: MultiFileSource, propObject: GObject.Object, prop: GObject.ParamSpec) => void)): number
+    on(sigName: "deep-notify", callback: (propObject: GObject.Object, prop: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "deep-notify", callback: (propObject: GObject.Object, prop: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "deep-notify", callback: (propObject: GObject.Object, prop: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "deep-notify", propObject: GObject.Object, prop: GObject.ParamSpec): void
-    on(sigName: "deep-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "deep-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "deep-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: MultiFileSource, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: MultiFileSource, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GES.MetaContainer */
+    /* Signals of GES-1.0.GES.MetaContainer */
     connect(sigName: "notify-meta", callback: (($obj: MultiFileSource, key: string, value?: any | null) => void)): number
-    connect_after(sigName: "notify-meta", callback: (($obj: MultiFileSource, key: string, value?: any | null) => void)): number
+    on(sigName: "notify-meta", callback: (key: string, value?: any | null) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify-meta", callback: (key: string, value?: any | null) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify-meta", callback: (key: string, value?: any | null) => void): NodeJS.EventEmitter
     emit(sigName: "notify-meta", key: string, value?: any | null): void
-    on(sigName: "notify-meta", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify-meta", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify-meta", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::active", callback: (($obj: MultiFileSource, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::active", callback: (($obj: MultiFileSource, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::active", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -6317,13 +5481,13 @@ export class MultiFileSource {
 export interface Operation_ConstructProps extends TrackElement_ConstructProps {
 }
 export class Operation {
-    /* Properties of GES.TrackElement */
+    /* Properties of GES-1.0.GES.TrackElement */
     active: boolean
     autoClampControlSources: boolean
     hasInternalSource: boolean
     readonly track: Track
     trackType: TrackType
-    /* Properties of GES.TimelineElement */
+    /* Properties of GES-1.0.GES.TimelineElement */
     duration: number
     inPoint: number
     maxDuration: number
@@ -6333,14 +5497,14 @@ export class Operation {
     serialize: boolean
     start: number
     timeline: Timeline
-    /* Fields of GES.TimelineElement */
+    /* Fields of GES-1.0.GES.TimelineElement */
     parentInstance: GObject.InitiallyUnowned
     asset: Asset
     inpoint: Gst.ClockTime
     maxduration: Gst.ClockTime
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GES.TrackElement */
+    /* Methods of GES-1.0.GES.TrackElement */
     addChildrenProps(element: Gst.Element, wantedCategories?: string[] | null, blacklist?: string[] | null, whitelist?: string[] | null): void
     clampControlSource(propertyName: string): void
     edit(layers: Layer[] | null, mode: EditMode, edge: Edge, position: number): boolean
@@ -6355,33 +5519,33 @@ export class Operation {
     isActive(): boolean
     isCore(): boolean
     listChildrenProperties(): GObject.ParamSpec[]
-    lookupChild(propName: string): [ /* returnType */ boolean, /* element */ Gst.Element | null, /* pspec */ GObject.ParamSpec | null ]
+    lookupChild(propName: string): { returnType: boolean, element: Gst.Element | null, pspec: GObject.ParamSpec | null }
     removeControlBinding(propertyName: string): boolean
     setActive(active: boolean): boolean
     setAutoClampControlSources(autoClamp: boolean): void
     setControlSource(source: Gst.ControlSource, propertyName: string, bindingType: string): boolean
     setHasInternalSource(hasInternalSource: boolean): boolean
     setTrackType(type: TrackType): void
-    /* Methods of GES.TimelineElement */
+    /* Methods of GES-1.0.GES.TimelineElement */
     addChildProperty(pspec: GObject.ParamSpec, child: GObject.Object): boolean
     copy(deep: boolean): TimelineElement
     edit(layers: Layer[] | null, newLayerPriority: number, mode: EditMode, edge: Edge, position: number): boolean
     editFull(newLayerPriority: number, mode: EditMode, edge: Edge, position: number): boolean
-    getChildProperty(propertyName: string): [ /* returnType */ boolean, /* value */ any ]
-    getChildPropertyByPspec(pspec: GObject.ParamSpec): /* value */ any
+    getChildProperty(propertyName: string): { returnType: boolean, value: any }
+    getChildPropertyByPspec(pspec: GObject.ParamSpec): { value: any }
     getDuration(): Gst.ClockTime
     getInpoint(): Gst.ClockTime
     getLayerPriority(): number
     getMaxDuration(): Gst.ClockTime
     getName(): string
-    getNaturalFramerate(): [ /* returnType */ boolean, /* framerateN */ number, /* framerateD */ number ]
+    getNaturalFramerate(): { returnType: boolean, framerateN: number, framerateD: number }
     getParent(): TimelineElement | null
     getPriority(): number
     getStart(): Gst.ClockTime
     getTimeline(): Timeline | null
     getToplevelParent(): TimelineElement
     getTrackTypes(): TrackType
-    lookupChild(propName: string): [ /* returnType */ boolean, /* child */ GObject.Object | null, /* pspec */ GObject.ParamSpec | null ]
+    lookupChild(propName: string): { returnType: boolean, child: GObject.Object | null, pspec: GObject.ParamSpec | null }
     paste(pastePosition: Gst.ClockTime): TimelineElement | null
     removeChildProperty(pspec: GObject.ParamSpec): boolean
     ripple(start: Gst.ClockTime): boolean
@@ -6400,7 +5564,7 @@ export class Operation {
     setStart(start: Gst.ClockTime): boolean
     setTimeline(timeline: Timeline): boolean
     trim(start: Gst.ClockTime): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -6422,26 +5586,26 @@ export class Operation {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of GES.Extractable */
+    /* Methods of GES-1.0.GES.Extractable */
     getAsset(): Asset | null
     getId(): string
     setAsset(asset: Asset): boolean
-    /* Methods of GES.MetaContainer */
+    /* Methods of GES-1.0.GES.MetaContainer */
     addMetasFromString(str: string): boolean
-    checkMetaRegistered(metaItem: string): [ /* returnType */ boolean, /* flags */ MetaFlag | null, /* type */ GObject.Type | null ]
+    checkMetaRegistered(metaItem: string): { returnType: boolean, flags: MetaFlag | null, type: GObject.Type | null }
     foreach(func: MetaForeachFunc): void
-    getBoolean(metaItem: string): [ /* returnType */ boolean, /* dest */ boolean ]
-    getDate(metaItem: string): [ /* returnType */ boolean, /* dest */ GLib.Date ]
-    getDateTime(metaItem: string): [ /* returnType */ boolean, /* dest */ Gst.DateTime ]
-    getDouble(metaItem: string): [ /* returnType */ boolean, /* dest */ number ]
-    getFloat(metaItem: string): [ /* returnType */ boolean, /* dest */ number ]
-    getInt(metaItem: string): [ /* returnType */ boolean, /* dest */ number ]
-    getInt64(metaItem: string): [ /* returnType */ boolean, /* dest */ number ]
+    getBoolean(metaItem: string): { returnType: boolean, dest: boolean }
+    getDate(metaItem: string): { returnType: boolean, dest: GLib.Date }
+    getDateTime(metaItem: string): { returnType: boolean, dest: Gst.DateTime }
+    getDouble(metaItem: string): { returnType: boolean, dest: number }
+    getFloat(metaItem: string): { returnType: boolean, dest: number }
+    getInt(metaItem: string): { returnType: boolean, dest: number }
+    getInt64(metaItem: string): { returnType: boolean, dest: number }
     getMarkerList(key: string): MarkerList
     getMeta(key: string): any
     getString(metaItem: string): string
-    getUint(metaItem: string): [ /* returnType */ boolean, /* dest */ number ]
-    getUint64(metaItem: string): [ /* returnType */ boolean, /* dest */ number ]
+    getUint(metaItem: string): { returnType: boolean, dest: number }
+    getUint64(metaItem: string): { returnType: boolean, dest: number }
     metasToString(): string
     registerMeta(flags: MetaFlag, metaItem: string, value: any): boolean
     registerMetaBoolean(flags: MetaFlag, metaItem: string, value: boolean): boolean
@@ -6467,86 +5631,45 @@ export class Operation {
     setString(metaItem: string, value: string): boolean
     setUint(metaItem: string, value: number): boolean
     setUint64(metaItem: string, value: number): boolean
-    /* Virtual methods of GES.TrackElement */
-    vfuncActiveChanged(active: boolean): void
-    vfuncChanged(): void
-    vfuncLookupChild(propName: string): [ /* returnType */ boolean, /* element */ Gst.Element | null, /* pspec */ GObject.ParamSpec | null ]
-    /* Virtual methods of GES.TimelineElement */
-    vfuncDeepCopy(copy: TimelineElement): void
-    vfuncGetLayerPriority(): number
-    vfuncGetNaturalFramerate(): [ /* returnType */ boolean, /* framerateN */ number, /* framerateD */ number ]
-    vfuncGetTrackTypes(): TrackType
-    vfuncLookupChild(propName: string): [ /* returnType */ boolean, /* child */ GObject.Object | null, /* pspec */ GObject.ParamSpec | null ]
-    vfuncRipple(start: number): boolean
-    vfuncRippleEnd(end: number): boolean
-    vfuncRollEnd(end: number): boolean
-    vfuncRollStart(start: number): boolean
-    vfuncSetChildProperty(child: GObject.Object, pspec: GObject.ParamSpec, value: any): void
-    vfuncSetChildPropertyFull(child: GObject.Object, pspec: GObject.ParamSpec, value: any): boolean
-    vfuncSetDuration(duration: Gst.ClockTime): boolean
-    vfuncSetInpoint(inpoint: Gst.ClockTime): boolean
-    vfuncSetMaxDuration(maxduration: Gst.ClockTime): boolean
-    vfuncSetParent(parent: TimelineElement): boolean
-    vfuncSetPriority(priority: number): boolean
-    vfuncSetStart(start: Gst.ClockTime): boolean
-    vfuncTrim(start: number): boolean
-    vfuncGetId(): string
-    vfuncSetAsset(asset: Asset): void
-    vfuncSetAssetFull(asset: Asset): boolean
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GES.TrackElement */
+    /* Signals of GES-1.0.GES.TrackElement */
     connect(sigName: "control-binding-added", callback: (($obj: Operation, controlBinding: Gst.ControlBinding) => void)): number
-    connect_after(sigName: "control-binding-added", callback: (($obj: Operation, controlBinding: Gst.ControlBinding) => void)): number
+    on(sigName: "control-binding-added", callback: (controlBinding: Gst.ControlBinding) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "control-binding-added", callback: (controlBinding: Gst.ControlBinding) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "control-binding-added", callback: (controlBinding: Gst.ControlBinding) => void): NodeJS.EventEmitter
     emit(sigName: "control-binding-added", controlBinding: Gst.ControlBinding): void
-    on(sigName: "control-binding-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "control-binding-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "control-binding-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "control-binding-removed", callback: (($obj: Operation, controlBinding: Gst.ControlBinding) => void)): number
-    connect_after(sigName: "control-binding-removed", callback: (($obj: Operation, controlBinding: Gst.ControlBinding) => void)): number
+    on(sigName: "control-binding-removed", callback: (controlBinding: Gst.ControlBinding) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "control-binding-removed", callback: (controlBinding: Gst.ControlBinding) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "control-binding-removed", callback: (controlBinding: Gst.ControlBinding) => void): NodeJS.EventEmitter
     emit(sigName: "control-binding-removed", controlBinding: Gst.ControlBinding): void
-    on(sigName: "control-binding-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "control-binding-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "control-binding-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GES.TimelineElement */
+    /* Signals of GES-1.0.GES.TimelineElement */
     connect(sigName: "child-property-added", callback: (($obj: Operation, propObject: GObject.Object, prop: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "child-property-added", callback: (($obj: Operation, propObject: GObject.Object, prop: GObject.ParamSpec) => void)): number
+    on(sigName: "child-property-added", callback: (propObject: GObject.Object, prop: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "child-property-added", callback: (propObject: GObject.Object, prop: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "child-property-added", callback: (propObject: GObject.Object, prop: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "child-property-added", propObject: GObject.Object, prop: GObject.ParamSpec): void
-    on(sigName: "child-property-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "child-property-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "child-property-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "child-property-removed", callback: (($obj: Operation, propObject: GObject.Object, prop: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "child-property-removed", callback: (($obj: Operation, propObject: GObject.Object, prop: GObject.ParamSpec) => void)): number
+    on(sigName: "child-property-removed", callback: (propObject: GObject.Object, prop: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "child-property-removed", callback: (propObject: GObject.Object, prop: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "child-property-removed", callback: (propObject: GObject.Object, prop: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "child-property-removed", propObject: GObject.Object, prop: GObject.ParamSpec): void
-    on(sigName: "child-property-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "child-property-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "child-property-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "deep-notify", callback: (($obj: Operation, propObject: GObject.Object, prop: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "deep-notify", callback: (($obj: Operation, propObject: GObject.Object, prop: GObject.ParamSpec) => void)): number
+    on(sigName: "deep-notify", callback: (propObject: GObject.Object, prop: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "deep-notify", callback: (propObject: GObject.Object, prop: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "deep-notify", callback: (propObject: GObject.Object, prop: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "deep-notify", propObject: GObject.Object, prop: GObject.ParamSpec): void
-    on(sigName: "deep-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "deep-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "deep-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Operation, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Operation, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GES.MetaContainer */
+    /* Signals of GES-1.0.GES.MetaContainer */
     connect(sigName: "notify-meta", callback: (($obj: Operation, key: string, value?: any | null) => void)): number
-    connect_after(sigName: "notify-meta", callback: (($obj: Operation, key: string, value?: any | null) => void)): number
+    on(sigName: "notify-meta", callback: (key: string, value?: any | null) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify-meta", callback: (key: string, value?: any | null) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify-meta", callback: (key: string, value?: any | null) => void): NodeJS.EventEmitter
     emit(sigName: "notify-meta", key: string, value?: any | null): void
-    on(sigName: "notify-meta", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify-meta", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify-meta", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::active", callback: (($obj: Operation, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::active", callback: (($obj: Operation, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::active", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -6632,13 +5755,13 @@ export class Operation {
 export interface OperationClip_ConstructProps extends Clip_ConstructProps {
 }
 export class OperationClip {
-    /* Properties of GES.Clip */
+    /* Properties of GES-1.0.GES.Clip */
     readonly durationLimit: number
     readonly layer: Layer
     supportedFormats: TrackType
-    /* Properties of GES.Container */
+    /* Properties of GES-1.0.GES.Container */
     readonly height: number
-    /* Properties of GES.TimelineElement */
+    /* Properties of GES-1.0.GES.TimelineElement */
     duration: number
     inPoint: number
     maxDuration: number
@@ -6648,18 +5771,18 @@ export class OperationClip {
     serialize: boolean
     start: number
     timeline: Timeline
-    /* Fields of GES.Container */
+    /* Fields of GES-1.0.GES.Container */
     children: TimelineElement[]
     childrenControlMode: ChildrenControlMode
     initiatedMove: TimelineElement
-    /* Fields of GES.TimelineElement */
+    /* Fields of GES-1.0.GES.TimelineElement */
     parentInstance: GObject.InitiallyUnowned
     asset: Asset
     inpoint: Gst.ClockTime
     maxduration: Gst.ClockTime
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GES.Clip */
+    /* Methods of GES-1.0.GES.Clip */
     addAsset(asset: Asset): TrackElement | null
     addChildToTrack(child: TrackElement, track: Track): TrackElement
     addTopEffect(effect: BaseEffect, index: number): boolean
@@ -6683,24 +5806,24 @@ export class OperationClip {
     setTopEffectPriority(effect: BaseEffect, newpriority: number): boolean
     split(position: number): Clip | null
     splitFull(position: number): Clip | null
-    /* Methods of GES.Container */
+    /* Methods of GES-1.0.GES.Container */
     add(child: TimelineElement): boolean
     edit(layers: Layer[] | null, newLayerPriority: number, mode: EditMode, edge: Edge, position: number): boolean
     getChildren(recursive: boolean): TimelineElement[]
     remove(child: TimelineElement): boolean
     ungroup(recursive: boolean): Container[]
-    /* Methods of GES.TimelineElement */
+    /* Methods of GES-1.0.GES.TimelineElement */
     addChildProperty(pspec: GObject.ParamSpec, child: GObject.Object): boolean
     copy(deep: boolean): TimelineElement
     editFull(newLayerPriority: number, mode: EditMode, edge: Edge, position: number): boolean
-    getChildProperty(propertyName: string): [ /* returnType */ boolean, /* value */ any ]
-    getChildPropertyByPspec(pspec: GObject.ParamSpec): /* value */ any
+    getChildProperty(propertyName: string): { returnType: boolean, value: any }
+    getChildPropertyByPspec(pspec: GObject.ParamSpec): { value: any }
     getDuration(): Gst.ClockTime
     getInpoint(): Gst.ClockTime
     getLayerPriority(): number
     getMaxDuration(): Gst.ClockTime
     getName(): string
-    getNaturalFramerate(): [ /* returnType */ boolean, /* framerateN */ number, /* framerateD */ number ]
+    getNaturalFramerate(): { returnType: boolean, framerateN: number, framerateD: number }
     getParent(): TimelineElement | null
     getPriority(): number
     getStart(): Gst.ClockTime
@@ -6708,7 +5831,7 @@ export class OperationClip {
     getToplevelParent(): TimelineElement
     getTrackTypes(): TrackType
     listChildrenProperties(): GObject.ParamSpec[]
-    lookupChild(propName: string): [ /* returnType */ boolean, /* child */ GObject.Object | null, /* pspec */ GObject.ParamSpec | null ]
+    lookupChild(propName: string): { returnType: boolean, child: GObject.Object | null, pspec: GObject.ParamSpec | null }
     paste(pastePosition: Gst.ClockTime): TimelineElement | null
     removeChildProperty(pspec: GObject.ParamSpec): boolean
     ripple(start: Gst.ClockTime): boolean
@@ -6727,7 +5850,7 @@ export class OperationClip {
     setStart(start: Gst.ClockTime): boolean
     setTimeline(timeline: Timeline): boolean
     trim(start: Gst.ClockTime): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -6749,26 +5872,26 @@ export class OperationClip {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of GES.Extractable */
+    /* Methods of GES-1.0.GES.Extractable */
     getAsset(): Asset | null
     getId(): string
     setAsset(asset: Asset): boolean
-    /* Methods of GES.MetaContainer */
+    /* Methods of GES-1.0.GES.MetaContainer */
     addMetasFromString(str: string): boolean
-    checkMetaRegistered(metaItem: string): [ /* returnType */ boolean, /* flags */ MetaFlag | null, /* type */ GObject.Type | null ]
+    checkMetaRegistered(metaItem: string): { returnType: boolean, flags: MetaFlag | null, type: GObject.Type | null }
     foreach(func: MetaForeachFunc): void
-    getBoolean(metaItem: string): [ /* returnType */ boolean, /* dest */ boolean ]
-    getDate(metaItem: string): [ /* returnType */ boolean, /* dest */ GLib.Date ]
-    getDateTime(metaItem: string): [ /* returnType */ boolean, /* dest */ Gst.DateTime ]
-    getDouble(metaItem: string): [ /* returnType */ boolean, /* dest */ number ]
-    getFloat(metaItem: string): [ /* returnType */ boolean, /* dest */ number ]
-    getInt(metaItem: string): [ /* returnType */ boolean, /* dest */ number ]
-    getInt64(metaItem: string): [ /* returnType */ boolean, /* dest */ number ]
+    getBoolean(metaItem: string): { returnType: boolean, dest: boolean }
+    getDate(metaItem: string): { returnType: boolean, dest: GLib.Date }
+    getDateTime(metaItem: string): { returnType: boolean, dest: Gst.DateTime }
+    getDouble(metaItem: string): { returnType: boolean, dest: number }
+    getFloat(metaItem: string): { returnType: boolean, dest: number }
+    getInt(metaItem: string): { returnType: boolean, dest: number }
+    getInt64(metaItem: string): { returnType: boolean, dest: number }
     getMarkerList(key: string): MarkerList
     getMeta(key: string): any
     getString(metaItem: string): string
-    getUint(metaItem: string): [ /* returnType */ boolean, /* dest */ number ]
-    getUint64(metaItem: string): [ /* returnType */ boolean, /* dest */ number ]
+    getUint(metaItem: string): { returnType: boolean, dest: number }
+    getUint64(metaItem: string): { returnType: boolean, dest: number }
     metasToString(): string
     registerMeta(flags: MetaFlag, metaItem: string, value: any): boolean
     registerMetaBoolean(flags: MetaFlag, metaItem: string, value: boolean): boolean
@@ -6794,92 +5917,45 @@ export class OperationClip {
     setString(metaItem: string, value: string): boolean
     setUint(metaItem: string, value: number): boolean
     setUint64(metaItem: string, value: number): boolean
-    /* Virtual methods of GES.Clip */
-    vfuncCreateTrackElement(type: TrackType): TrackElement | null
-    vfuncCreateTrackElements(type: TrackType): TrackElement[]
-    /* Virtual methods of GES.Container */
-    vfuncAddChild(element: TimelineElement): boolean
-    vfuncChildAdded(element: TimelineElement): void
-    vfuncChildRemoved(element: TimelineElement): void
-    vfuncEdit(layers: Layer[] | null, newLayerPriority: number, mode: EditMode, edge: Edge, position: number): boolean
-    vfuncRemoveChild(element: TimelineElement): boolean
-    vfuncUngroup(recursive: boolean): Container[]
-    /* Virtual methods of GES.TimelineElement */
-    vfuncDeepCopy(copy: TimelineElement): void
-    vfuncGetLayerPriority(): number
-    vfuncGetNaturalFramerate(): [ /* returnType */ boolean, /* framerateN */ number, /* framerateD */ number ]
-    vfuncGetTrackTypes(): TrackType
-    vfuncLookupChild(propName: string): [ /* returnType */ boolean, /* child */ GObject.Object | null, /* pspec */ GObject.ParamSpec | null ]
-    vfuncRipple(start: number): boolean
-    vfuncRippleEnd(end: number): boolean
-    vfuncRollEnd(end: number): boolean
-    vfuncRollStart(start: number): boolean
-    vfuncSetChildProperty(child: GObject.Object, pspec: GObject.ParamSpec, value: any): void
-    vfuncSetChildPropertyFull(child: GObject.Object, pspec: GObject.ParamSpec, value: any): boolean
-    vfuncSetDuration(duration: Gst.ClockTime): boolean
-    vfuncSetInpoint(inpoint: Gst.ClockTime): boolean
-    vfuncSetMaxDuration(maxduration: Gst.ClockTime): boolean
-    vfuncSetParent(parent: TimelineElement): boolean
-    vfuncSetPriority(priority: number): boolean
-    vfuncSetStart(start: Gst.ClockTime): boolean
-    vfuncTrim(start: number): boolean
-    vfuncGetId(): string
-    vfuncSetAsset(asset: Asset): void
-    vfuncSetAssetFull(asset: Asset): boolean
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GES.Container */
+    /* Signals of GES-1.0.GES.Container */
     connect(sigName: "child-added", callback: (($obj: OperationClip, element: TimelineElement) => void)): number
-    connect_after(sigName: "child-added", callback: (($obj: OperationClip, element: TimelineElement) => void)): number
+    on(sigName: "child-added", callback: (element: TimelineElement) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "child-added", callback: (element: TimelineElement) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "child-added", callback: (element: TimelineElement) => void): NodeJS.EventEmitter
     emit(sigName: "child-added", element: TimelineElement): void
-    on(sigName: "child-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "child-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "child-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "child-removed", callback: (($obj: OperationClip, element: TimelineElement) => void)): number
-    connect_after(sigName: "child-removed", callback: (($obj: OperationClip, element: TimelineElement) => void)): number
+    on(sigName: "child-removed", callback: (element: TimelineElement) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "child-removed", callback: (element: TimelineElement) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "child-removed", callback: (element: TimelineElement) => void): NodeJS.EventEmitter
     emit(sigName: "child-removed", element: TimelineElement): void
-    on(sigName: "child-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "child-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "child-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GES.TimelineElement */
+    /* Signals of GES-1.0.GES.TimelineElement */
     connect(sigName: "child-property-added", callback: (($obj: OperationClip, propObject: GObject.Object, prop: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "child-property-added", callback: (($obj: OperationClip, propObject: GObject.Object, prop: GObject.ParamSpec) => void)): number
+    on(sigName: "child-property-added", callback: (propObject: GObject.Object, prop: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "child-property-added", callback: (propObject: GObject.Object, prop: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "child-property-added", callback: (propObject: GObject.Object, prop: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "child-property-added", propObject: GObject.Object, prop: GObject.ParamSpec): void
-    on(sigName: "child-property-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "child-property-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "child-property-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "child-property-removed", callback: (($obj: OperationClip, propObject: GObject.Object, prop: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "child-property-removed", callback: (($obj: OperationClip, propObject: GObject.Object, prop: GObject.ParamSpec) => void)): number
+    on(sigName: "child-property-removed", callback: (propObject: GObject.Object, prop: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "child-property-removed", callback: (propObject: GObject.Object, prop: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "child-property-removed", callback: (propObject: GObject.Object, prop: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "child-property-removed", propObject: GObject.Object, prop: GObject.ParamSpec): void
-    on(sigName: "child-property-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "child-property-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "child-property-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "deep-notify", callback: (($obj: OperationClip, propObject: GObject.Object, prop: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "deep-notify", callback: (($obj: OperationClip, propObject: GObject.Object, prop: GObject.ParamSpec) => void)): number
+    on(sigName: "deep-notify", callback: (propObject: GObject.Object, prop: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "deep-notify", callback: (propObject: GObject.Object, prop: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "deep-notify", callback: (propObject: GObject.Object, prop: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "deep-notify", propObject: GObject.Object, prop: GObject.ParamSpec): void
-    on(sigName: "deep-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "deep-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "deep-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: OperationClip, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: OperationClip, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GES.MetaContainer */
+    /* Signals of GES-1.0.GES.MetaContainer */
     connect(sigName: "notify-meta", callback: (($obj: OperationClip, key: string, value?: any | null) => void)): number
-    connect_after(sigName: "notify-meta", callback: (($obj: OperationClip, key: string, value?: any | null) => void)): number
+    on(sigName: "notify-meta", callback: (key: string, value?: any | null) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify-meta", callback: (key: string, value?: any | null) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify-meta", callback: (key: string, value?: any | null) => void): NodeJS.EventEmitter
     emit(sigName: "notify-meta", key: string, value?: any | null): void
-    on(sigName: "notify-meta", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify-meta", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify-meta", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::duration-limit", callback: (($obj: OperationClip, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::duration-limit", callback: (($obj: OperationClip, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::duration-limit", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -6960,13 +6036,13 @@ export class OperationClip {
 export interface OverlayClip_ConstructProps extends OperationClip_ConstructProps {
 }
 export class OverlayClip {
-    /* Properties of GES.Clip */
+    /* Properties of GES-1.0.GES.Clip */
     readonly durationLimit: number
     readonly layer: Layer
     supportedFormats: TrackType
-    /* Properties of GES.Container */
+    /* Properties of GES-1.0.GES.Container */
     readonly height: number
-    /* Properties of GES.TimelineElement */
+    /* Properties of GES-1.0.GES.TimelineElement */
     duration: number
     inPoint: number
     maxDuration: number
@@ -6976,18 +6052,18 @@ export class OverlayClip {
     serialize: boolean
     start: number
     timeline: Timeline
-    /* Fields of GES.Container */
+    /* Fields of GES-1.0.GES.Container */
     children: TimelineElement[]
     childrenControlMode: ChildrenControlMode
     initiatedMove: TimelineElement
-    /* Fields of GES.TimelineElement */
+    /* Fields of GES-1.0.GES.TimelineElement */
     parentInstance: GObject.InitiallyUnowned
     asset: Asset
     inpoint: Gst.ClockTime
     maxduration: Gst.ClockTime
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GES.Clip */
+    /* Methods of GES-1.0.GES.Clip */
     addAsset(asset: Asset): TrackElement | null
     addChildToTrack(child: TrackElement, track: Track): TrackElement
     addTopEffect(effect: BaseEffect, index: number): boolean
@@ -7011,24 +6087,24 @@ export class OverlayClip {
     setTopEffectPriority(effect: BaseEffect, newpriority: number): boolean
     split(position: number): Clip | null
     splitFull(position: number): Clip | null
-    /* Methods of GES.Container */
+    /* Methods of GES-1.0.GES.Container */
     add(child: TimelineElement): boolean
     edit(layers: Layer[] | null, newLayerPriority: number, mode: EditMode, edge: Edge, position: number): boolean
     getChildren(recursive: boolean): TimelineElement[]
     remove(child: TimelineElement): boolean
     ungroup(recursive: boolean): Container[]
-    /* Methods of GES.TimelineElement */
+    /* Methods of GES-1.0.GES.TimelineElement */
     addChildProperty(pspec: GObject.ParamSpec, child: GObject.Object): boolean
     copy(deep: boolean): TimelineElement
     editFull(newLayerPriority: number, mode: EditMode, edge: Edge, position: number): boolean
-    getChildProperty(propertyName: string): [ /* returnType */ boolean, /* value */ any ]
-    getChildPropertyByPspec(pspec: GObject.ParamSpec): /* value */ any
+    getChildProperty(propertyName: string): { returnType: boolean, value: any }
+    getChildPropertyByPspec(pspec: GObject.ParamSpec): { value: any }
     getDuration(): Gst.ClockTime
     getInpoint(): Gst.ClockTime
     getLayerPriority(): number
     getMaxDuration(): Gst.ClockTime
     getName(): string
-    getNaturalFramerate(): [ /* returnType */ boolean, /* framerateN */ number, /* framerateD */ number ]
+    getNaturalFramerate(): { returnType: boolean, framerateN: number, framerateD: number }
     getParent(): TimelineElement | null
     getPriority(): number
     getStart(): Gst.ClockTime
@@ -7036,7 +6112,7 @@ export class OverlayClip {
     getToplevelParent(): TimelineElement
     getTrackTypes(): TrackType
     listChildrenProperties(): GObject.ParamSpec[]
-    lookupChild(propName: string): [ /* returnType */ boolean, /* child */ GObject.Object | null, /* pspec */ GObject.ParamSpec | null ]
+    lookupChild(propName: string): { returnType: boolean, child: GObject.Object | null, pspec: GObject.ParamSpec | null }
     paste(pastePosition: Gst.ClockTime): TimelineElement | null
     removeChildProperty(pspec: GObject.ParamSpec): boolean
     ripple(start: Gst.ClockTime): boolean
@@ -7055,7 +6131,7 @@ export class OverlayClip {
     setStart(start: Gst.ClockTime): boolean
     setTimeline(timeline: Timeline): boolean
     trim(start: Gst.ClockTime): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -7077,26 +6153,26 @@ export class OverlayClip {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of GES.Extractable */
+    /* Methods of GES-1.0.GES.Extractable */
     getAsset(): Asset | null
     getId(): string
     setAsset(asset: Asset): boolean
-    /* Methods of GES.MetaContainer */
+    /* Methods of GES-1.0.GES.MetaContainer */
     addMetasFromString(str: string): boolean
-    checkMetaRegistered(metaItem: string): [ /* returnType */ boolean, /* flags */ MetaFlag | null, /* type */ GObject.Type | null ]
+    checkMetaRegistered(metaItem: string): { returnType: boolean, flags: MetaFlag | null, type: GObject.Type | null }
     foreach(func: MetaForeachFunc): void
-    getBoolean(metaItem: string): [ /* returnType */ boolean, /* dest */ boolean ]
-    getDate(metaItem: string): [ /* returnType */ boolean, /* dest */ GLib.Date ]
-    getDateTime(metaItem: string): [ /* returnType */ boolean, /* dest */ Gst.DateTime ]
-    getDouble(metaItem: string): [ /* returnType */ boolean, /* dest */ number ]
-    getFloat(metaItem: string): [ /* returnType */ boolean, /* dest */ number ]
-    getInt(metaItem: string): [ /* returnType */ boolean, /* dest */ number ]
-    getInt64(metaItem: string): [ /* returnType */ boolean, /* dest */ number ]
+    getBoolean(metaItem: string): { returnType: boolean, dest: boolean }
+    getDate(metaItem: string): { returnType: boolean, dest: GLib.Date }
+    getDateTime(metaItem: string): { returnType: boolean, dest: Gst.DateTime }
+    getDouble(metaItem: string): { returnType: boolean, dest: number }
+    getFloat(metaItem: string): { returnType: boolean, dest: number }
+    getInt(metaItem: string): { returnType: boolean, dest: number }
+    getInt64(metaItem: string): { returnType: boolean, dest: number }
     getMarkerList(key: string): MarkerList
     getMeta(key: string): any
     getString(metaItem: string): string
-    getUint(metaItem: string): [ /* returnType */ boolean, /* dest */ number ]
-    getUint64(metaItem: string): [ /* returnType */ boolean, /* dest */ number ]
+    getUint(metaItem: string): { returnType: boolean, dest: number }
+    getUint64(metaItem: string): { returnType: boolean, dest: number }
     metasToString(): string
     registerMeta(flags: MetaFlag, metaItem: string, value: any): boolean
     registerMetaBoolean(flags: MetaFlag, metaItem: string, value: boolean): boolean
@@ -7122,92 +6198,45 @@ export class OverlayClip {
     setString(metaItem: string, value: string): boolean
     setUint(metaItem: string, value: number): boolean
     setUint64(metaItem: string, value: number): boolean
-    /* Virtual methods of GES.Clip */
-    vfuncCreateTrackElement(type: TrackType): TrackElement | null
-    vfuncCreateTrackElements(type: TrackType): TrackElement[]
-    /* Virtual methods of GES.Container */
-    vfuncAddChild(element: TimelineElement): boolean
-    vfuncChildAdded(element: TimelineElement): void
-    vfuncChildRemoved(element: TimelineElement): void
-    vfuncEdit(layers: Layer[] | null, newLayerPriority: number, mode: EditMode, edge: Edge, position: number): boolean
-    vfuncRemoveChild(element: TimelineElement): boolean
-    vfuncUngroup(recursive: boolean): Container[]
-    /* Virtual methods of GES.TimelineElement */
-    vfuncDeepCopy(copy: TimelineElement): void
-    vfuncGetLayerPriority(): number
-    vfuncGetNaturalFramerate(): [ /* returnType */ boolean, /* framerateN */ number, /* framerateD */ number ]
-    vfuncGetTrackTypes(): TrackType
-    vfuncLookupChild(propName: string): [ /* returnType */ boolean, /* child */ GObject.Object | null, /* pspec */ GObject.ParamSpec | null ]
-    vfuncRipple(start: number): boolean
-    vfuncRippleEnd(end: number): boolean
-    vfuncRollEnd(end: number): boolean
-    vfuncRollStart(start: number): boolean
-    vfuncSetChildProperty(child: GObject.Object, pspec: GObject.ParamSpec, value: any): void
-    vfuncSetChildPropertyFull(child: GObject.Object, pspec: GObject.ParamSpec, value: any): boolean
-    vfuncSetDuration(duration: Gst.ClockTime): boolean
-    vfuncSetInpoint(inpoint: Gst.ClockTime): boolean
-    vfuncSetMaxDuration(maxduration: Gst.ClockTime): boolean
-    vfuncSetParent(parent: TimelineElement): boolean
-    vfuncSetPriority(priority: number): boolean
-    vfuncSetStart(start: Gst.ClockTime): boolean
-    vfuncTrim(start: number): boolean
-    vfuncGetId(): string
-    vfuncSetAsset(asset: Asset): void
-    vfuncSetAssetFull(asset: Asset): boolean
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GES.Container */
+    /* Signals of GES-1.0.GES.Container */
     connect(sigName: "child-added", callback: (($obj: OverlayClip, element: TimelineElement) => void)): number
-    connect_after(sigName: "child-added", callback: (($obj: OverlayClip, element: TimelineElement) => void)): number
+    on(sigName: "child-added", callback: (element: TimelineElement) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "child-added", callback: (element: TimelineElement) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "child-added", callback: (element: TimelineElement) => void): NodeJS.EventEmitter
     emit(sigName: "child-added", element: TimelineElement): void
-    on(sigName: "child-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "child-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "child-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "child-removed", callback: (($obj: OverlayClip, element: TimelineElement) => void)): number
-    connect_after(sigName: "child-removed", callback: (($obj: OverlayClip, element: TimelineElement) => void)): number
+    on(sigName: "child-removed", callback: (element: TimelineElement) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "child-removed", callback: (element: TimelineElement) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "child-removed", callback: (element: TimelineElement) => void): NodeJS.EventEmitter
     emit(sigName: "child-removed", element: TimelineElement): void
-    on(sigName: "child-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "child-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "child-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GES.TimelineElement */
+    /* Signals of GES-1.0.GES.TimelineElement */
     connect(sigName: "child-property-added", callback: (($obj: OverlayClip, propObject: GObject.Object, prop: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "child-property-added", callback: (($obj: OverlayClip, propObject: GObject.Object, prop: GObject.ParamSpec) => void)): number
+    on(sigName: "child-property-added", callback: (propObject: GObject.Object, prop: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "child-property-added", callback: (propObject: GObject.Object, prop: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "child-property-added", callback: (propObject: GObject.Object, prop: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "child-property-added", propObject: GObject.Object, prop: GObject.ParamSpec): void
-    on(sigName: "child-property-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "child-property-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "child-property-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "child-property-removed", callback: (($obj: OverlayClip, propObject: GObject.Object, prop: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "child-property-removed", callback: (($obj: OverlayClip, propObject: GObject.Object, prop: GObject.ParamSpec) => void)): number
+    on(sigName: "child-property-removed", callback: (propObject: GObject.Object, prop: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "child-property-removed", callback: (propObject: GObject.Object, prop: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "child-property-removed", callback: (propObject: GObject.Object, prop: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "child-property-removed", propObject: GObject.Object, prop: GObject.ParamSpec): void
-    on(sigName: "child-property-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "child-property-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "child-property-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "deep-notify", callback: (($obj: OverlayClip, propObject: GObject.Object, prop: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "deep-notify", callback: (($obj: OverlayClip, propObject: GObject.Object, prop: GObject.ParamSpec) => void)): number
+    on(sigName: "deep-notify", callback: (propObject: GObject.Object, prop: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "deep-notify", callback: (propObject: GObject.Object, prop: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "deep-notify", callback: (propObject: GObject.Object, prop: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "deep-notify", propObject: GObject.Object, prop: GObject.ParamSpec): void
-    on(sigName: "deep-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "deep-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "deep-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: OverlayClip, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: OverlayClip, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GES.MetaContainer */
+    /* Signals of GES-1.0.GES.MetaContainer */
     connect(sigName: "notify-meta", callback: (($obj: OverlayClip, key: string, value?: any | null) => void)): number
-    connect_after(sigName: "notify-meta", callback: (($obj: OverlayClip, key: string, value?: any | null) => void)): number
+    on(sigName: "notify-meta", callback: (key: string, value?: any | null) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify-meta", callback: (key: string, value?: any | null) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify-meta", callback: (key: string, value?: any | null) => void): NodeJS.EventEmitter
     emit(sigName: "notify-meta", key: string, value?: any | null): void
-    on(sigName: "notify-meta", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify-meta", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify-meta", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::duration-limit", callback: (($obj: OverlayClip, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::duration-limit", callback: (($obj: OverlayClip, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::duration-limit", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -7294,28 +6323,28 @@ export interface Pipeline_ConstructProps extends Gst.Pipeline_ConstructProps {
     videoSink?: Gst.Element
 }
 export class Pipeline {
-    /* Properties of GES.Pipeline */
+    /* Properties of GES-1.0.GES.Pipeline */
     audioFilter: Gst.Element
     audioSink: Gst.Element
     mode: PipelineFlags
     timeline: Timeline
     videoFilter: Gst.Element
     videoSink: Gst.Element
-    /* Properties of Gst.Pipeline */
+    /* Properties of Gst-1.0.Gst.Pipeline */
     autoFlushBus: boolean
     delay: number
     latency: number
-    /* Properties of Gst.Bin */
+    /* Properties of Gst-1.0.Gst.Bin */
     asyncHandling: boolean
     messageForward: boolean
-    /* Properties of Gst.Object */
+    /* Properties of Gst-1.0.Gst.Object */
     name: string
     parent: Gst.Object
-    /* Fields of Gst.Pipeline */
+    /* Fields of Gst-1.0.Gst.Pipeline */
     bin: Gst.Bin
     fixedClock: Gst.Clock
     streamTime: Gst.ClockTime
-    /* Fields of Gst.Bin */
+    /* Fields of Gst-1.0.Gst.Bin */
     element: Gst.Element
     numchildren: number
     children: Gst.Element[]
@@ -7327,7 +6356,7 @@ export class Pipeline {
     clockDirty: boolean
     providedClock: Gst.Clock
     clockProvider: Gst.Element
-    /* Fields of Gst.Element */
+    /* Fields of Gst-1.0.Gst.Element */
     object: Gst.Object
     stateLock: GLib.RecMutex
     stateCond: GLib.Cond
@@ -7349,12 +6378,12 @@ export class Pipeline {
     sinkpads: Gst.Pad[]
     padsCookie: number
     contexts: Gst.Context[]
-    /* Fields of Gst.Object */
+    /* Fields of Gst-1.0.Gst.Object */
     lock: GLib.Mutex
     flags: number
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GES.Pipeline */
+    /* Methods of GES-1.0.GES.Pipeline */
     getMode(): PipelineFlags
     getThumbnail(caps: Gst.Caps): Gst.Sample
     getThumbnailRgb24(width: number, height: number): Gst.Sample
@@ -7366,7 +6395,7 @@ export class Pipeline {
     setMode(mode: PipelineFlags): boolean
     setRenderSettings(outputUri: string, profile: GstPbutils.EncodingProfile): boolean
     setTimeline(timeline: Timeline): boolean
-    /* Methods of Gst.Pipeline */
+    /* Methods of Gst-1.0.Gst.Pipeline */
     autoClock(): void
     getAutoFlushBus(): boolean
     getBus(): Gst.Bus
@@ -7377,7 +6406,7 @@ export class Pipeline {
     setDelay(delay: Gst.ClockTime): void
     setLatency(latency: Gst.ClockTime): void
     useClock(clock?: Gst.Clock | null): void
-    /* Methods of Gst.Bin */
+    /* Methods of Gst-1.0.Gst.Bin */
     add(element: Gst.Element): boolean
     findUnlinkedPad(direction: Gst.PadDirection): Gst.Pad | null
     getByInterface(iface: GObject.Type): Gst.Element | null
@@ -7395,7 +6424,7 @@ export class Pipeline {
     remove(element: Gst.Element): boolean
     setSuppressedFlags(flags: Gst.ElementFlags): void
     syncChildrenStates(): boolean
-    /* Methods of Gst.Element */
+    /* Methods of Gst-1.0.Gst.Element */
     abortState(): void
     addPad(pad: Gst.Pad): boolean
     addPropertyDeepNotifyWatch(propertyName: string | null, includeValue: boolean): number
@@ -7423,7 +6452,7 @@ export class Pipeline {
     getPadTemplateList(): Gst.PadTemplate[]
     getRequestPad(name: string): Gst.Pad | null
     getStartTime(): Gst.ClockTime
-    getState(timeout: Gst.ClockTime): [ /* returnType */ Gst.StateChangeReturn, /* state */ Gst.State | null, /* pending */ Gst.State | null ]
+    getState(timeout: Gst.ClockTime): { returnType: Gst.StateChangeReturn, state: Gst.State | null, pending: Gst.State | null }
     getStaticPad(name: string): Gst.Pad | null
     isLockedState(): boolean
     iteratePads(): Gst.Iterator
@@ -7441,9 +6470,9 @@ export class Pipeline {
     postMessage(message: Gst.Message): boolean
     provideClock(): Gst.Clock | null
     query(query: Gst.Query): boolean
-    queryConvert(srcFormat: Gst.Format, srcVal: number, destFormat: Gst.Format): [ /* returnType */ boolean, /* destVal */ number ]
-    queryDuration(format: Gst.Format): [ /* returnType */ boolean, /* duration */ number | null ]
-    queryPosition(format: Gst.Format): [ /* returnType */ boolean, /* cur */ number | null ]
+    queryConvert(srcFormat: Gst.Format, srcVal: number, destFormat: Gst.Format): { returnType: boolean, destVal: number }
+    queryDuration(format: Gst.Format): { returnType: boolean, duration: number | null }
+    queryPosition(format: Gst.Format): { returnType: boolean, cur: number | null }
     releaseRequestPad(pad: Gst.Pad): void
     removePad(pad: Gst.Pad): boolean
     removePropertyNotifyWatch(watchId: number): void
@@ -7461,7 +6490,7 @@ export class Pipeline {
     syncStateWithParent(): boolean
     unlink(dest: Gst.Element): void
     unlinkPads(srcpadname: string, dest: Gst.Element, destpadname: string): void
-    /* Methods of Gst.Object */
+    /* Methods of Gst-1.0.Gst.Object */
     addControlBinding(binding: Gst.ControlBinding): boolean
     defaultError(error: GLib.Error, debug?: string | null): void
     getControlBinding(propertyName: string): Gst.ControlBinding | null
@@ -7486,7 +6515,7 @@ export class Pipeline {
     syncValues(timestamp: Gst.ClockTime): boolean
     unparent(): void
     unref(): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -7507,145 +6536,87 @@ export class Pipeline {
     stealQdata(quark: GLib.Quark): object | null
     thawNotify(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of Gst.ChildProxy */
+    /* Methods of Gst-1.0.Gst.ChildProxy */
     childAdded(child: GObject.Object, name: string): void
     childRemoved(child: GObject.Object, name: string): void
     getChildByIndex(index: number): GObject.Object | null
     getChildByName(name: string): GObject.Object | null
     getChildrenCount(): number
-    getProperty(name: string): /* value */ any
-    lookup(name: string): [ /* returnType */ boolean, /* target */ GObject.Object | null, /* pspec */ GObject.ParamSpec | null ]
+    getProperty(name: string): { value: any }
+    lookup(name: string): { returnType: boolean, target: GObject.Object | null, pspec: GObject.ParamSpec | null }
     setProperty(name: string, value: any): void
-    /* Methods of GstVideo.VideoOverlay */
+    /* Methods of GstVideo-1.0.GstVideo.VideoOverlay */
     expose(): void
     gotWindowHandle(handle: number): void
     handleEvents(handleEvents: boolean): void
     prepareWindowHandle(): void
     setRenderRectangle(x: number, y: number, width: number, height: number): boolean
     setWindowHandle(handle: number): void
-    /* Virtual methods of GES.Pipeline */
-    vfuncChildAdded(child: GObject.Object, name: string): void
-    vfuncChildRemoved(child: GObject.Object, name: string): void
-    vfuncGetChildByIndex(index: number): GObject.Object | null
-    vfuncGetChildByName(name: string): GObject.Object | null
-    vfuncGetChildrenCount(): number
-    vfuncExpose(): void
-    vfuncHandleEvents(handleEvents: boolean): void
-    vfuncSetRenderRectangle(x: number, y: number, width: number, height: number): void
-    vfuncSetWindowHandle(handle: number): void
-    /* Virtual methods of Gst.Bin */
-    vfuncAddElement(element: Gst.Element): boolean
-    vfuncDeepElementAdded(subBin: Gst.Bin, child: Gst.Element): void
-    vfuncDeepElementRemoved(subBin: Gst.Bin, child: Gst.Element): void
-    vfuncDoLatency(): boolean
-    vfuncElementAdded(child: Gst.Element): void
-    vfuncElementRemoved(child: Gst.Element): void
-    vfuncHandleMessage(message: Gst.Message): void
-    vfuncRemoveElement(element: Gst.Element): boolean
-    /* Virtual methods of Gst.Element */
-    vfuncChangeState(transition: Gst.StateChange): Gst.StateChangeReturn
-    vfuncGetState(timeout: Gst.ClockTime): [ /* returnType */ Gst.StateChangeReturn, /* state */ Gst.State | null, /* pending */ Gst.State | null ]
-    vfuncNoMorePads(): void
-    vfuncPadAdded(pad: Gst.Pad): void
-    vfuncPadRemoved(pad: Gst.Pad): void
-    vfuncPostMessage(message: Gst.Message): boolean
-    vfuncProvideClock(): Gst.Clock | null
-    vfuncQuery(query: Gst.Query): boolean
-    vfuncReleasePad(pad: Gst.Pad): void
-    vfuncRequestNewPad(templ: Gst.PadTemplate, name?: string | null, caps?: Gst.Caps | null): Gst.Pad | null
-    vfuncSendEvent(event: Gst.Event): boolean
-    vfuncSetBus(bus?: Gst.Bus | null): void
-    vfuncSetClock(clock?: Gst.Clock | null): boolean
-    vfuncSetContext(context: Gst.Context): void
-    vfuncSetState(state: Gst.State): Gst.StateChangeReturn
-    vfuncStateChanged(oldstate: Gst.State, newstate: Gst.State, pending: Gst.State): void
-    /* Virtual methods of Gst.Object */
-    vfuncDeepNotify(orig: Gst.Object, pspec: GObject.ParamSpec): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gst.Bin */
+    /* Signals of Gst-1.0.Gst.Bin */
     connect(sigName: "deep-element-added", callback: (($obj: Pipeline, subBin: Gst.Bin, element: Gst.Element) => void)): number
-    connect_after(sigName: "deep-element-added", callback: (($obj: Pipeline, subBin: Gst.Bin, element: Gst.Element) => void)): number
+    on(sigName: "deep-element-added", callback: (subBin: Gst.Bin, element: Gst.Element) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "deep-element-added", callback: (subBin: Gst.Bin, element: Gst.Element) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "deep-element-added", callback: (subBin: Gst.Bin, element: Gst.Element) => void): NodeJS.EventEmitter
     emit(sigName: "deep-element-added", subBin: Gst.Bin, element: Gst.Element): void
-    on(sigName: "deep-element-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "deep-element-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "deep-element-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "deep-element-removed", callback: (($obj: Pipeline, subBin: Gst.Bin, element: Gst.Element) => void)): number
-    connect_after(sigName: "deep-element-removed", callback: (($obj: Pipeline, subBin: Gst.Bin, element: Gst.Element) => void)): number
+    on(sigName: "deep-element-removed", callback: (subBin: Gst.Bin, element: Gst.Element) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "deep-element-removed", callback: (subBin: Gst.Bin, element: Gst.Element) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "deep-element-removed", callback: (subBin: Gst.Bin, element: Gst.Element) => void): NodeJS.EventEmitter
     emit(sigName: "deep-element-removed", subBin: Gst.Bin, element: Gst.Element): void
-    on(sigName: "deep-element-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "deep-element-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "deep-element-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "do-latency", callback: (($obj: Pipeline) => boolean)): number
-    connect_after(sigName: "do-latency", callback: (($obj: Pipeline) => boolean)): number
+    on(sigName: "do-latency", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "do-latency", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "do-latency", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "do-latency"): void
-    on(sigName: "do-latency", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "do-latency", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "do-latency", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "element-added", callback: (($obj: Pipeline, element: Gst.Element) => void)): number
-    connect_after(sigName: "element-added", callback: (($obj: Pipeline, element: Gst.Element) => void)): number
+    on(sigName: "element-added", callback: (element: Gst.Element) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "element-added", callback: (element: Gst.Element) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "element-added", callback: (element: Gst.Element) => void): NodeJS.EventEmitter
     emit(sigName: "element-added", element: Gst.Element): void
-    on(sigName: "element-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "element-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "element-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "element-removed", callback: (($obj: Pipeline, element: Gst.Element) => void)): number
-    connect_after(sigName: "element-removed", callback: (($obj: Pipeline, element: Gst.Element) => void)): number
+    on(sigName: "element-removed", callback: (element: Gst.Element) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "element-removed", callback: (element: Gst.Element) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "element-removed", callback: (element: Gst.Element) => void): NodeJS.EventEmitter
     emit(sigName: "element-removed", element: Gst.Element): void
-    on(sigName: "element-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "element-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "element-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of Gst.Element */
+    /* Signals of Gst-1.0.Gst.Element */
     connect(sigName: "no-more-pads", callback: (($obj: Pipeline) => void)): number
-    connect_after(sigName: "no-more-pads", callback: (($obj: Pipeline) => void)): number
+    on(sigName: "no-more-pads", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "no-more-pads", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "no-more-pads", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "no-more-pads"): void
-    on(sigName: "no-more-pads", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "no-more-pads", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "no-more-pads", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "pad-added", callback: (($obj: Pipeline, newPad: Gst.Pad) => void)): number
-    connect_after(sigName: "pad-added", callback: (($obj: Pipeline, newPad: Gst.Pad) => void)): number
+    on(sigName: "pad-added", callback: (newPad: Gst.Pad) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "pad-added", callback: (newPad: Gst.Pad) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "pad-added", callback: (newPad: Gst.Pad) => void): NodeJS.EventEmitter
     emit(sigName: "pad-added", newPad: Gst.Pad): void
-    on(sigName: "pad-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "pad-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "pad-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "pad-removed", callback: (($obj: Pipeline, oldPad: Gst.Pad) => void)): number
-    connect_after(sigName: "pad-removed", callback: (($obj: Pipeline, oldPad: Gst.Pad) => void)): number
+    on(sigName: "pad-removed", callback: (oldPad: Gst.Pad) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "pad-removed", callback: (oldPad: Gst.Pad) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "pad-removed", callback: (oldPad: Gst.Pad) => void): NodeJS.EventEmitter
     emit(sigName: "pad-removed", oldPad: Gst.Pad): void
-    on(sigName: "pad-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "pad-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "pad-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of Gst.Object */
+    /* Signals of Gst-1.0.Gst.Object */
     connect(sigName: "deep-notify", callback: (($obj: Pipeline, propObject: Gst.Object, prop: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "deep-notify", callback: (($obj: Pipeline, propObject: Gst.Object, prop: GObject.ParamSpec) => void)): number
+    on(sigName: "deep-notify", callback: (propObject: Gst.Object, prop: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "deep-notify", callback: (propObject: Gst.Object, prop: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "deep-notify", callback: (propObject: Gst.Object, prop: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "deep-notify", propObject: Gst.Object, prop: GObject.ParamSpec): void
-    on(sigName: "deep-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "deep-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "deep-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Pipeline, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Pipeline, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of Gst.ChildProxy */
+    /* Signals of Gst-1.0.Gst.ChildProxy */
     connect(sigName: "child-added", callback: (($obj: Pipeline, object: GObject.Object, name: string) => void)): number
-    connect_after(sigName: "child-added", callback: (($obj: Pipeline, object: GObject.Object, name: string) => void)): number
+    on(sigName: "child-added", callback: (object: GObject.Object, name: string) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "child-added", callback: (object: GObject.Object, name: string) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "child-added", callback: (object: GObject.Object, name: string) => void): NodeJS.EventEmitter
     emit(sigName: "child-added", object: GObject.Object, name: string): void
-    on(sigName: "child-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "child-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "child-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "child-removed", callback: (($obj: Pipeline, object: GObject.Object, name: string) => void)): number
-    connect_after(sigName: "child-removed", callback: (($obj: Pipeline, object: GObject.Object, name: string) => void)): number
+    on(sigName: "child-removed", callback: (object: GObject.Object, name: string) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "child-removed", callback: (object: GObject.Object, name: string) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "child-removed", callback: (object: GObject.Object, name: string) => void): NodeJS.EventEmitter
     emit(sigName: "child-removed", object: GObject.Object, name: string): void
-    on(sigName: "child-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "child-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "child-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::audio-filter", callback: (($obj: Pipeline, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::audio-filter", callback: (($obj: Pipeline, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::audio-filter", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -7731,14 +6702,14 @@ export class Pipeline {
 export interface PitiviFormatter_ConstructProps extends Formatter_ConstructProps {
 }
 export class PitiviFormatter {
-    /* Fields of GES.PitiviFormatter */
+    /* Fields of GES-1.0.GES.PitiviFormatter */
     parent: Formatter
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GES.Formatter */
+    /* Methods of GES-1.0.GES.Formatter */
     loadFromUri(timeline: Timeline, uri: string): boolean
     saveToUri(timeline: Timeline, uri: string, overwrite: boolean): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -7760,32 +6731,16 @@ export class PitiviFormatter {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of GES.Extractable */
+    /* Methods of GES-1.0.GES.Extractable */
     getAsset(): Asset | null
     getId(): string
     setAsset(asset: Asset): boolean
-    /* Virtual methods of GES.Formatter */
-    vfuncCanLoadUri(uri: string): boolean
-    vfuncLoadFromUri(timeline: Timeline, uri: string): boolean
-    vfuncSaveToUri(timeline: Timeline, uri: string, overwrite: boolean): boolean
-    vfuncGetId(): string
-    vfuncSetAsset(asset: Asset): void
-    vfuncSetAssetFull(asset: Asset): boolean
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: PitiviFormatter, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: PitiviFormatter, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -7804,14 +6759,14 @@ export interface Project_ConstructProps extends Asset_ConstructProps {
     uri?: string
 }
 export class Project {
-    /* Properties of GES.Asset */
+    /* Properties of GES-1.0.GES.Asset */
     proxy: Asset
     readonly proxyTarget: Asset
-    /* Fields of GES.Project */
+    /* Fields of GES-1.0.GES.Project */
     parent: Asset
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GES.Project */
+    /* Methods of GES-1.0.GES.Project */
     addAsset(asset: Asset): boolean
     addEncodingProfile(profile: GstPbutils.EncodingProfile): boolean
     addFormatter(formatter: Formatter): void
@@ -7825,7 +6780,7 @@ export class Project {
     load(timeline: Timeline): boolean
     removeAsset(asset: Asset): boolean
     save(timeline: Timeline, uri: string, formatterAsset: Asset | null, overwrite: boolean): boolean
-    /* Methods of GES.Asset */
+    /* Methods of GES-1.0.GES.Asset */
     extract(): Extractable
     getError(): GLib.Error | null
     getExtractableType(): GObject.Type
@@ -7835,7 +6790,7 @@ export class Project {
     listProxies(): Asset[]
     setProxy(proxy?: Asset | null): boolean
     unproxy(proxy: Asset): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -7857,22 +6812,22 @@ export class Project {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of GES.MetaContainer */
+    /* Methods of GES-1.0.GES.MetaContainer */
     addMetasFromString(str: string): boolean
-    checkMetaRegistered(metaItem: string): [ /* returnType */ boolean, /* flags */ MetaFlag | null, /* type */ GObject.Type | null ]
+    checkMetaRegistered(metaItem: string): { returnType: boolean, flags: MetaFlag | null, type: GObject.Type | null }
     foreach(func: MetaForeachFunc): void
-    getBoolean(metaItem: string): [ /* returnType */ boolean, /* dest */ boolean ]
-    getDate(metaItem: string): [ /* returnType */ boolean, /* dest */ GLib.Date ]
-    getDateTime(metaItem: string): [ /* returnType */ boolean, /* dest */ Gst.DateTime ]
-    getDouble(metaItem: string): [ /* returnType */ boolean, /* dest */ number ]
-    getFloat(metaItem: string): [ /* returnType */ boolean, /* dest */ number ]
-    getInt(metaItem: string): [ /* returnType */ boolean, /* dest */ number ]
-    getInt64(metaItem: string): [ /* returnType */ boolean, /* dest */ number ]
+    getBoolean(metaItem: string): { returnType: boolean, dest: boolean }
+    getDate(metaItem: string): { returnType: boolean, dest: GLib.Date }
+    getDateTime(metaItem: string): { returnType: boolean, dest: Gst.DateTime }
+    getDouble(metaItem: string): { returnType: boolean, dest: number }
+    getFloat(metaItem: string): { returnType: boolean, dest: number }
+    getInt(metaItem: string): { returnType: boolean, dest: number }
+    getInt64(metaItem: string): { returnType: boolean, dest: number }
     getMarkerList(key: string): MarkerList
     getMeta(key: string): any
     getString(metaItem: string): string
-    getUint(metaItem: string): [ /* returnType */ boolean, /* dest */ number ]
-    getUint64(metaItem: string): [ /* returnType */ boolean, /* dest */ number ]
+    getUint(metaItem: string): { returnType: boolean, dest: number }
+    getUint64(metaItem: string): { returnType: boolean, dest: number }
     metasToString(): string
     registerMeta(flags: MetaFlag, metaItem: string, value: any): boolean
     registerMetaBoolean(flags: MetaFlag, metaItem: string, value: boolean): boolean
@@ -7898,100 +6853,65 @@ export class Project {
     setString(metaItem: string, value: string): boolean
     setUint(metaItem: string, value: number): boolean
     setUint64(metaItem: string, value: number): boolean
-    /* Methods of Gio.AsyncInitable */
+    /* Methods of Gio-2.0.Gio.AsyncInitable */
     initAsync(ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     initFinish(res: Gio.AsyncResult): boolean
     newFinish(res: Gio.AsyncResult): GObject.Object
-    /* Methods of Gio.Initable */
+    /* Methods of Gio-2.0.Gio.Initable */
     init(cancellable?: Gio.Cancellable | null): boolean
-    /* Virtual methods of GES.Project */
-    vfuncAssetAdded(asset: Asset): void
-    vfuncAssetLoading(asset: Asset): void
-    vfuncAssetRemoved(asset: Asset): void
-    vfuncLoaded(timeline: Timeline): boolean
-    vfuncLoading(timeline: Timeline): void
-    vfuncLoadingError(error: GLib.Error, id: string, extractableType: GObject.Type): boolean
-    vfuncMissingUri(error: GLib.Error, wrongAsset: Asset): string
-    /* Virtual methods of GES.Asset */
-    vfuncExtract(): Extractable
-    vfuncInformProxy(proxyId: string): void
-    vfuncProxied(proxy: Asset): void
-    vfuncRequestIdUpdate(proposedNewId: string, error: GLib.Error): boolean
-    vfuncStartLoading(): AssetLoadingReturn
-    vfuncInitAsync(ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    vfuncInitFinish(res: Gio.AsyncResult): boolean
-    vfuncInit(cancellable?: Gio.Cancellable | null): boolean
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GES.Project */
+    /* Signals of GES-1.0.GES.Project */
     connect(sigName: "asset-added", callback: (($obj: Project, asset: Asset) => void)): number
-    connect_after(sigName: "asset-added", callback: (($obj: Project, asset: Asset) => void)): number
+    on(sigName: "asset-added", callback: (asset: Asset) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "asset-added", callback: (asset: Asset) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "asset-added", callback: (asset: Asset) => void): NodeJS.EventEmitter
     emit(sigName: "asset-added", asset: Asset): void
-    on(sigName: "asset-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "asset-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "asset-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "asset-loading", callback: (($obj: Project, asset: Asset) => void)): number
-    connect_after(sigName: "asset-loading", callback: (($obj: Project, asset: Asset) => void)): number
+    on(sigName: "asset-loading", callback: (asset: Asset) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "asset-loading", callback: (asset: Asset) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "asset-loading", callback: (asset: Asset) => void): NodeJS.EventEmitter
     emit(sigName: "asset-loading", asset: Asset): void
-    on(sigName: "asset-loading", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "asset-loading", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "asset-loading", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "asset-removed", callback: (($obj: Project, asset: Asset) => void)): number
-    connect_after(sigName: "asset-removed", callback: (($obj: Project, asset: Asset) => void)): number
+    on(sigName: "asset-removed", callback: (asset: Asset) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "asset-removed", callback: (asset: Asset) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "asset-removed", callback: (asset: Asset) => void): NodeJS.EventEmitter
     emit(sigName: "asset-removed", asset: Asset): void
-    on(sigName: "asset-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "asset-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "asset-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "error-loading", callback: (($obj: Project, timeline: Timeline, error: GLib.Error) => void)): number
-    connect_after(sigName: "error-loading", callback: (($obj: Project, timeline: Timeline, error: GLib.Error) => void)): number
+    on(sigName: "error-loading", callback: (timeline: Timeline, error: GLib.Error) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "error-loading", callback: (timeline: Timeline, error: GLib.Error) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "error-loading", callback: (timeline: Timeline, error: GLib.Error) => void): NodeJS.EventEmitter
     emit(sigName: "error-loading", timeline: Timeline, error: GLib.Error): void
-    on(sigName: "error-loading", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "error-loading", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "error-loading", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "error-loading-asset", callback: (($obj: Project, error: GLib.Error, id: string, extractableType: GObject.Type) => void)): number
-    connect_after(sigName: "error-loading-asset", callback: (($obj: Project, error: GLib.Error, id: string, extractableType: GObject.Type) => void)): number
+    on(sigName: "error-loading-asset", callback: (error: GLib.Error, id: string, extractableType: GObject.Type) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "error-loading-asset", callback: (error: GLib.Error, id: string, extractableType: GObject.Type) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "error-loading-asset", callback: (error: GLib.Error, id: string, extractableType: GObject.Type) => void): NodeJS.EventEmitter
     emit(sigName: "error-loading-asset", error: GLib.Error, id: string, extractableType: GObject.Type): void
-    on(sigName: "error-loading-asset", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "error-loading-asset", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "error-loading-asset", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "loaded", callback: (($obj: Project, timeline: Timeline) => void)): number
-    connect_after(sigName: "loaded", callback: (($obj: Project, timeline: Timeline) => void)): number
+    on(sigName: "loaded", callback: (timeline: Timeline) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "loaded", callback: (timeline: Timeline) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "loaded", callback: (timeline: Timeline) => void): NodeJS.EventEmitter
     emit(sigName: "loaded", timeline: Timeline): void
-    on(sigName: "loaded", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "loaded", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "loaded", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "loading", callback: (($obj: Project, timeline: Timeline) => void)): number
-    connect_after(sigName: "loading", callback: (($obj: Project, timeline: Timeline) => void)): number
+    on(sigName: "loading", callback: (timeline: Timeline) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "loading", callback: (timeline: Timeline) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "loading", callback: (timeline: Timeline) => void): NodeJS.EventEmitter
     emit(sigName: "loading", timeline: Timeline): void
-    on(sigName: "loading", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "loading", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "loading", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "missing-uri", callback: (($obj: Project, error: GLib.Error, wrongAsset: Asset) => string | null)): number
-    connect_after(sigName: "missing-uri", callback: (($obj: Project, error: GLib.Error, wrongAsset: Asset) => string | null)): number
+    on(sigName: "missing-uri", callback: (error: GLib.Error, wrongAsset: Asset) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "missing-uri", callback: (error: GLib.Error, wrongAsset: Asset) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "missing-uri", callback: (error: GLib.Error, wrongAsset: Asset) => void): NodeJS.EventEmitter
     emit(sigName: "missing-uri", error: GLib.Error, wrongAsset: Asset): void
-    on(sigName: "missing-uri", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "missing-uri", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "missing-uri", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Project, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Project, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GES.MetaContainer */
+    /* Signals of GES-1.0.GES.MetaContainer */
     connect(sigName: "notify-meta", callback: (($obj: Project, key: string, value?: any | null) => void)): number
-    connect_after(sigName: "notify-meta", callback: (($obj: Project, key: string, value?: any | null) => void)): number
+    on(sigName: "notify-meta", callback: (key: string, value?: any | null) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify-meta", callback: (key: string, value?: any | null) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify-meta", callback: (key: string, value?: any | null) => void): NodeJS.EventEmitter
     emit(sigName: "notify-meta", key: string, value?: any | null): void
-    on(sigName: "notify-meta", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify-meta", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify-meta", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::proxy", callback: (($obj: Project, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::proxy", callback: (($obj: Project, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::proxy", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -8019,13 +6939,13 @@ export class Project {
 export interface Source_ConstructProps extends TrackElement_ConstructProps {
 }
 export class Source {
-    /* Properties of GES.TrackElement */
+    /* Properties of GES-1.0.GES.TrackElement */
     active: boolean
     autoClampControlSources: boolean
     hasInternalSource: boolean
     readonly track: Track
     trackType: TrackType
-    /* Properties of GES.TimelineElement */
+    /* Properties of GES-1.0.GES.TimelineElement */
     duration: number
     inPoint: number
     maxDuration: number
@@ -8035,14 +6955,14 @@ export class Source {
     serialize: boolean
     start: number
     timeline: Timeline
-    /* Fields of GES.TimelineElement */
+    /* Fields of GES-1.0.GES.TimelineElement */
     parentInstance: GObject.InitiallyUnowned
     asset: Asset
     inpoint: Gst.ClockTime
     maxduration: Gst.ClockTime
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GES.TrackElement */
+    /* Methods of GES-1.0.GES.TrackElement */
     addChildrenProps(element: Gst.Element, wantedCategories?: string[] | null, blacklist?: string[] | null, whitelist?: string[] | null): void
     clampControlSource(propertyName: string): void
     edit(layers: Layer[] | null, mode: EditMode, edge: Edge, position: number): boolean
@@ -8057,33 +6977,33 @@ export class Source {
     isActive(): boolean
     isCore(): boolean
     listChildrenProperties(): GObject.ParamSpec[]
-    lookupChild(propName: string): [ /* returnType */ boolean, /* element */ Gst.Element | null, /* pspec */ GObject.ParamSpec | null ]
+    lookupChild(propName: string): { returnType: boolean, element: Gst.Element | null, pspec: GObject.ParamSpec | null }
     removeControlBinding(propertyName: string): boolean
     setActive(active: boolean): boolean
     setAutoClampControlSources(autoClamp: boolean): void
     setControlSource(source: Gst.ControlSource, propertyName: string, bindingType: string): boolean
     setHasInternalSource(hasInternalSource: boolean): boolean
     setTrackType(type: TrackType): void
-    /* Methods of GES.TimelineElement */
+    /* Methods of GES-1.0.GES.TimelineElement */
     addChildProperty(pspec: GObject.ParamSpec, child: GObject.Object): boolean
     copy(deep: boolean): TimelineElement
     edit(layers: Layer[] | null, newLayerPriority: number, mode: EditMode, edge: Edge, position: number): boolean
     editFull(newLayerPriority: number, mode: EditMode, edge: Edge, position: number): boolean
-    getChildProperty(propertyName: string): [ /* returnType */ boolean, /* value */ any ]
-    getChildPropertyByPspec(pspec: GObject.ParamSpec): /* value */ any
+    getChildProperty(propertyName: string): { returnType: boolean, value: any }
+    getChildPropertyByPspec(pspec: GObject.ParamSpec): { value: any }
     getDuration(): Gst.ClockTime
     getInpoint(): Gst.ClockTime
     getLayerPriority(): number
     getMaxDuration(): Gst.ClockTime
     getName(): string
-    getNaturalFramerate(): [ /* returnType */ boolean, /* framerateN */ number, /* framerateD */ number ]
+    getNaturalFramerate(): { returnType: boolean, framerateN: number, framerateD: number }
     getParent(): TimelineElement | null
     getPriority(): number
     getStart(): Gst.ClockTime
     getTimeline(): Timeline | null
     getToplevelParent(): TimelineElement
     getTrackTypes(): TrackType
-    lookupChild(propName: string): [ /* returnType */ boolean, /* child */ GObject.Object | null, /* pspec */ GObject.ParamSpec | null ]
+    lookupChild(propName: string): { returnType: boolean, child: GObject.Object | null, pspec: GObject.ParamSpec | null }
     paste(pastePosition: Gst.ClockTime): TimelineElement | null
     removeChildProperty(pspec: GObject.ParamSpec): boolean
     ripple(start: Gst.ClockTime): boolean
@@ -8102,7 +7022,7 @@ export class Source {
     setStart(start: Gst.ClockTime): boolean
     setTimeline(timeline: Timeline): boolean
     trim(start: Gst.ClockTime): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -8124,26 +7044,26 @@ export class Source {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of GES.Extractable */
+    /* Methods of GES-1.0.GES.Extractable */
     getAsset(): Asset | null
     getId(): string
     setAsset(asset: Asset): boolean
-    /* Methods of GES.MetaContainer */
+    /* Methods of GES-1.0.GES.MetaContainer */
     addMetasFromString(str: string): boolean
-    checkMetaRegistered(metaItem: string): [ /* returnType */ boolean, /* flags */ MetaFlag | null, /* type */ GObject.Type | null ]
+    checkMetaRegistered(metaItem: string): { returnType: boolean, flags: MetaFlag | null, type: GObject.Type | null }
     foreach(func: MetaForeachFunc): void
-    getBoolean(metaItem: string): [ /* returnType */ boolean, /* dest */ boolean ]
-    getDate(metaItem: string): [ /* returnType */ boolean, /* dest */ GLib.Date ]
-    getDateTime(metaItem: string): [ /* returnType */ boolean, /* dest */ Gst.DateTime ]
-    getDouble(metaItem: string): [ /* returnType */ boolean, /* dest */ number ]
-    getFloat(metaItem: string): [ /* returnType */ boolean, /* dest */ number ]
-    getInt(metaItem: string): [ /* returnType */ boolean, /* dest */ number ]
-    getInt64(metaItem: string): [ /* returnType */ boolean, /* dest */ number ]
+    getBoolean(metaItem: string): { returnType: boolean, dest: boolean }
+    getDate(metaItem: string): { returnType: boolean, dest: GLib.Date }
+    getDateTime(metaItem: string): { returnType: boolean, dest: Gst.DateTime }
+    getDouble(metaItem: string): { returnType: boolean, dest: number }
+    getFloat(metaItem: string): { returnType: boolean, dest: number }
+    getInt(metaItem: string): { returnType: boolean, dest: number }
+    getInt64(metaItem: string): { returnType: boolean, dest: number }
     getMarkerList(key: string): MarkerList
     getMeta(key: string): any
     getString(metaItem: string): string
-    getUint(metaItem: string): [ /* returnType */ boolean, /* dest */ number ]
-    getUint64(metaItem: string): [ /* returnType */ boolean, /* dest */ number ]
+    getUint(metaItem: string): { returnType: boolean, dest: number }
+    getUint64(metaItem: string): { returnType: boolean, dest: number }
     metasToString(): string
     registerMeta(flags: MetaFlag, metaItem: string, value: any): boolean
     registerMetaBoolean(flags: MetaFlag, metaItem: string, value: boolean): boolean
@@ -8169,88 +7089,45 @@ export class Source {
     setString(metaItem: string, value: string): boolean
     setUint(metaItem: string, value: number): boolean
     setUint64(metaItem: string, value: number): boolean
-    /* Virtual methods of GES.Source */
-    vfuncSelectPad(pad: Gst.Pad): boolean
-    /* Virtual methods of GES.TrackElement */
-    vfuncActiveChanged(active: boolean): void
-    vfuncChanged(): void
-    vfuncLookupChild(propName: string): [ /* returnType */ boolean, /* element */ Gst.Element | null, /* pspec */ GObject.ParamSpec | null ]
-    /* Virtual methods of GES.TimelineElement */
-    vfuncDeepCopy(copy: TimelineElement): void
-    vfuncGetLayerPriority(): number
-    vfuncGetNaturalFramerate(): [ /* returnType */ boolean, /* framerateN */ number, /* framerateD */ number ]
-    vfuncGetTrackTypes(): TrackType
-    vfuncLookupChild(propName: string): [ /* returnType */ boolean, /* child */ GObject.Object | null, /* pspec */ GObject.ParamSpec | null ]
-    vfuncRipple(start: number): boolean
-    vfuncRippleEnd(end: number): boolean
-    vfuncRollEnd(end: number): boolean
-    vfuncRollStart(start: number): boolean
-    vfuncSetChildProperty(child: GObject.Object, pspec: GObject.ParamSpec, value: any): void
-    vfuncSetChildPropertyFull(child: GObject.Object, pspec: GObject.ParamSpec, value: any): boolean
-    vfuncSetDuration(duration: Gst.ClockTime): boolean
-    vfuncSetInpoint(inpoint: Gst.ClockTime): boolean
-    vfuncSetMaxDuration(maxduration: Gst.ClockTime): boolean
-    vfuncSetParent(parent: TimelineElement): boolean
-    vfuncSetPriority(priority: number): boolean
-    vfuncSetStart(start: Gst.ClockTime): boolean
-    vfuncTrim(start: number): boolean
-    vfuncGetId(): string
-    vfuncSetAsset(asset: Asset): void
-    vfuncSetAssetFull(asset: Asset): boolean
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GES.TrackElement */
+    /* Signals of GES-1.0.GES.TrackElement */
     connect(sigName: "control-binding-added", callback: (($obj: Source, controlBinding: Gst.ControlBinding) => void)): number
-    connect_after(sigName: "control-binding-added", callback: (($obj: Source, controlBinding: Gst.ControlBinding) => void)): number
+    on(sigName: "control-binding-added", callback: (controlBinding: Gst.ControlBinding) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "control-binding-added", callback: (controlBinding: Gst.ControlBinding) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "control-binding-added", callback: (controlBinding: Gst.ControlBinding) => void): NodeJS.EventEmitter
     emit(sigName: "control-binding-added", controlBinding: Gst.ControlBinding): void
-    on(sigName: "control-binding-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "control-binding-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "control-binding-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "control-binding-removed", callback: (($obj: Source, controlBinding: Gst.ControlBinding) => void)): number
-    connect_after(sigName: "control-binding-removed", callback: (($obj: Source, controlBinding: Gst.ControlBinding) => void)): number
+    on(sigName: "control-binding-removed", callback: (controlBinding: Gst.ControlBinding) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "control-binding-removed", callback: (controlBinding: Gst.ControlBinding) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "control-binding-removed", callback: (controlBinding: Gst.ControlBinding) => void): NodeJS.EventEmitter
     emit(sigName: "control-binding-removed", controlBinding: Gst.ControlBinding): void
-    on(sigName: "control-binding-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "control-binding-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "control-binding-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GES.TimelineElement */
+    /* Signals of GES-1.0.GES.TimelineElement */
     connect(sigName: "child-property-added", callback: (($obj: Source, propObject: GObject.Object, prop: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "child-property-added", callback: (($obj: Source, propObject: GObject.Object, prop: GObject.ParamSpec) => void)): number
+    on(sigName: "child-property-added", callback: (propObject: GObject.Object, prop: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "child-property-added", callback: (propObject: GObject.Object, prop: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "child-property-added", callback: (propObject: GObject.Object, prop: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "child-property-added", propObject: GObject.Object, prop: GObject.ParamSpec): void
-    on(sigName: "child-property-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "child-property-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "child-property-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "child-property-removed", callback: (($obj: Source, propObject: GObject.Object, prop: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "child-property-removed", callback: (($obj: Source, propObject: GObject.Object, prop: GObject.ParamSpec) => void)): number
+    on(sigName: "child-property-removed", callback: (propObject: GObject.Object, prop: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "child-property-removed", callback: (propObject: GObject.Object, prop: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "child-property-removed", callback: (propObject: GObject.Object, prop: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "child-property-removed", propObject: GObject.Object, prop: GObject.ParamSpec): void
-    on(sigName: "child-property-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "child-property-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "child-property-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "deep-notify", callback: (($obj: Source, propObject: GObject.Object, prop: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "deep-notify", callback: (($obj: Source, propObject: GObject.Object, prop: GObject.ParamSpec) => void)): number
+    on(sigName: "deep-notify", callback: (propObject: GObject.Object, prop: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "deep-notify", callback: (propObject: GObject.Object, prop: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "deep-notify", callback: (propObject: GObject.Object, prop: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "deep-notify", propObject: GObject.Object, prop: GObject.ParamSpec): void
-    on(sigName: "deep-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "deep-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "deep-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Source, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Source, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GES.MetaContainer */
+    /* Signals of GES-1.0.GES.MetaContainer */
     connect(sigName: "notify-meta", callback: (($obj: Source, key: string, value?: any | null) => void)): number
-    connect_after(sigName: "notify-meta", callback: (($obj: Source, key: string, value?: any | null) => void)): number
+    on(sigName: "notify-meta", callback: (key: string, value?: any | null) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify-meta", callback: (key: string, value?: any | null) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify-meta", callback: (key: string, value?: any | null) => void): NodeJS.EventEmitter
     emit(sigName: "notify-meta", key: string, value?: any | null): void
-    on(sigName: "notify-meta", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify-meta", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify-meta", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::active", callback: (($obj: Source, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::active", callback: (($obj: Source, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::active", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -8336,13 +7213,13 @@ export class Source {
 export interface SourceClip_ConstructProps extends Clip_ConstructProps {
 }
 export class SourceClip {
-    /* Properties of GES.Clip */
+    /* Properties of GES-1.0.GES.Clip */
     readonly durationLimit: number
     readonly layer: Layer
     supportedFormats: TrackType
-    /* Properties of GES.Container */
+    /* Properties of GES-1.0.GES.Container */
     readonly height: number
-    /* Properties of GES.TimelineElement */
+    /* Properties of GES-1.0.GES.TimelineElement */
     duration: number
     inPoint: number
     maxDuration: number
@@ -8352,18 +7229,18 @@ export class SourceClip {
     serialize: boolean
     start: number
     timeline: Timeline
-    /* Fields of GES.Container */
+    /* Fields of GES-1.0.GES.Container */
     children: TimelineElement[]
     childrenControlMode: ChildrenControlMode
     initiatedMove: TimelineElement
-    /* Fields of GES.TimelineElement */
+    /* Fields of GES-1.0.GES.TimelineElement */
     parentInstance: GObject.InitiallyUnowned
     asset: Asset
     inpoint: Gst.ClockTime
     maxduration: Gst.ClockTime
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GES.Clip */
+    /* Methods of GES-1.0.GES.Clip */
     addAsset(asset: Asset): TrackElement | null
     addChildToTrack(child: TrackElement, track: Track): TrackElement
     addTopEffect(effect: BaseEffect, index: number): boolean
@@ -8387,24 +7264,24 @@ export class SourceClip {
     setTopEffectPriority(effect: BaseEffect, newpriority: number): boolean
     split(position: number): Clip | null
     splitFull(position: number): Clip | null
-    /* Methods of GES.Container */
+    /* Methods of GES-1.0.GES.Container */
     add(child: TimelineElement): boolean
     edit(layers: Layer[] | null, newLayerPriority: number, mode: EditMode, edge: Edge, position: number): boolean
     getChildren(recursive: boolean): TimelineElement[]
     remove(child: TimelineElement): boolean
     ungroup(recursive: boolean): Container[]
-    /* Methods of GES.TimelineElement */
+    /* Methods of GES-1.0.GES.TimelineElement */
     addChildProperty(pspec: GObject.ParamSpec, child: GObject.Object): boolean
     copy(deep: boolean): TimelineElement
     editFull(newLayerPriority: number, mode: EditMode, edge: Edge, position: number): boolean
-    getChildProperty(propertyName: string): [ /* returnType */ boolean, /* value */ any ]
-    getChildPropertyByPspec(pspec: GObject.ParamSpec): /* value */ any
+    getChildProperty(propertyName: string): { returnType: boolean, value: any }
+    getChildPropertyByPspec(pspec: GObject.ParamSpec): { value: any }
     getDuration(): Gst.ClockTime
     getInpoint(): Gst.ClockTime
     getLayerPriority(): number
     getMaxDuration(): Gst.ClockTime
     getName(): string
-    getNaturalFramerate(): [ /* returnType */ boolean, /* framerateN */ number, /* framerateD */ number ]
+    getNaturalFramerate(): { returnType: boolean, framerateN: number, framerateD: number }
     getParent(): TimelineElement | null
     getPriority(): number
     getStart(): Gst.ClockTime
@@ -8412,7 +7289,7 @@ export class SourceClip {
     getToplevelParent(): TimelineElement
     getTrackTypes(): TrackType
     listChildrenProperties(): GObject.ParamSpec[]
-    lookupChild(propName: string): [ /* returnType */ boolean, /* child */ GObject.Object | null, /* pspec */ GObject.ParamSpec | null ]
+    lookupChild(propName: string): { returnType: boolean, child: GObject.Object | null, pspec: GObject.ParamSpec | null }
     paste(pastePosition: Gst.ClockTime): TimelineElement | null
     removeChildProperty(pspec: GObject.ParamSpec): boolean
     ripple(start: Gst.ClockTime): boolean
@@ -8431,7 +7308,7 @@ export class SourceClip {
     setStart(start: Gst.ClockTime): boolean
     setTimeline(timeline: Timeline): boolean
     trim(start: Gst.ClockTime): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -8453,26 +7330,26 @@ export class SourceClip {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of GES.Extractable */
+    /* Methods of GES-1.0.GES.Extractable */
     getAsset(): Asset | null
     getId(): string
     setAsset(asset: Asset): boolean
-    /* Methods of GES.MetaContainer */
+    /* Methods of GES-1.0.GES.MetaContainer */
     addMetasFromString(str: string): boolean
-    checkMetaRegistered(metaItem: string): [ /* returnType */ boolean, /* flags */ MetaFlag | null, /* type */ GObject.Type | null ]
+    checkMetaRegistered(metaItem: string): { returnType: boolean, flags: MetaFlag | null, type: GObject.Type | null }
     foreach(func: MetaForeachFunc): void
-    getBoolean(metaItem: string): [ /* returnType */ boolean, /* dest */ boolean ]
-    getDate(metaItem: string): [ /* returnType */ boolean, /* dest */ GLib.Date ]
-    getDateTime(metaItem: string): [ /* returnType */ boolean, /* dest */ Gst.DateTime ]
-    getDouble(metaItem: string): [ /* returnType */ boolean, /* dest */ number ]
-    getFloat(metaItem: string): [ /* returnType */ boolean, /* dest */ number ]
-    getInt(metaItem: string): [ /* returnType */ boolean, /* dest */ number ]
-    getInt64(metaItem: string): [ /* returnType */ boolean, /* dest */ number ]
+    getBoolean(metaItem: string): { returnType: boolean, dest: boolean }
+    getDate(metaItem: string): { returnType: boolean, dest: GLib.Date }
+    getDateTime(metaItem: string): { returnType: boolean, dest: Gst.DateTime }
+    getDouble(metaItem: string): { returnType: boolean, dest: number }
+    getFloat(metaItem: string): { returnType: boolean, dest: number }
+    getInt(metaItem: string): { returnType: boolean, dest: number }
+    getInt64(metaItem: string): { returnType: boolean, dest: number }
     getMarkerList(key: string): MarkerList
     getMeta(key: string): any
     getString(metaItem: string): string
-    getUint(metaItem: string): [ /* returnType */ boolean, /* dest */ number ]
-    getUint64(metaItem: string): [ /* returnType */ boolean, /* dest */ number ]
+    getUint(metaItem: string): { returnType: boolean, dest: number }
+    getUint64(metaItem: string): { returnType: boolean, dest: number }
     metasToString(): string
     registerMeta(flags: MetaFlag, metaItem: string, value: any): boolean
     registerMetaBoolean(flags: MetaFlag, metaItem: string, value: boolean): boolean
@@ -8498,92 +7375,45 @@ export class SourceClip {
     setString(metaItem: string, value: string): boolean
     setUint(metaItem: string, value: number): boolean
     setUint64(metaItem: string, value: number): boolean
-    /* Virtual methods of GES.Clip */
-    vfuncCreateTrackElement(type: TrackType): TrackElement | null
-    vfuncCreateTrackElements(type: TrackType): TrackElement[]
-    /* Virtual methods of GES.Container */
-    vfuncAddChild(element: TimelineElement): boolean
-    vfuncChildAdded(element: TimelineElement): void
-    vfuncChildRemoved(element: TimelineElement): void
-    vfuncEdit(layers: Layer[] | null, newLayerPriority: number, mode: EditMode, edge: Edge, position: number): boolean
-    vfuncRemoveChild(element: TimelineElement): boolean
-    vfuncUngroup(recursive: boolean): Container[]
-    /* Virtual methods of GES.TimelineElement */
-    vfuncDeepCopy(copy: TimelineElement): void
-    vfuncGetLayerPriority(): number
-    vfuncGetNaturalFramerate(): [ /* returnType */ boolean, /* framerateN */ number, /* framerateD */ number ]
-    vfuncGetTrackTypes(): TrackType
-    vfuncLookupChild(propName: string): [ /* returnType */ boolean, /* child */ GObject.Object | null, /* pspec */ GObject.ParamSpec | null ]
-    vfuncRipple(start: number): boolean
-    vfuncRippleEnd(end: number): boolean
-    vfuncRollEnd(end: number): boolean
-    vfuncRollStart(start: number): boolean
-    vfuncSetChildProperty(child: GObject.Object, pspec: GObject.ParamSpec, value: any): void
-    vfuncSetChildPropertyFull(child: GObject.Object, pspec: GObject.ParamSpec, value: any): boolean
-    vfuncSetDuration(duration: Gst.ClockTime): boolean
-    vfuncSetInpoint(inpoint: Gst.ClockTime): boolean
-    vfuncSetMaxDuration(maxduration: Gst.ClockTime): boolean
-    vfuncSetParent(parent: TimelineElement): boolean
-    vfuncSetPriority(priority: number): boolean
-    vfuncSetStart(start: Gst.ClockTime): boolean
-    vfuncTrim(start: number): boolean
-    vfuncGetId(): string
-    vfuncSetAsset(asset: Asset): void
-    vfuncSetAssetFull(asset: Asset): boolean
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GES.Container */
+    /* Signals of GES-1.0.GES.Container */
     connect(sigName: "child-added", callback: (($obj: SourceClip, element: TimelineElement) => void)): number
-    connect_after(sigName: "child-added", callback: (($obj: SourceClip, element: TimelineElement) => void)): number
+    on(sigName: "child-added", callback: (element: TimelineElement) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "child-added", callback: (element: TimelineElement) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "child-added", callback: (element: TimelineElement) => void): NodeJS.EventEmitter
     emit(sigName: "child-added", element: TimelineElement): void
-    on(sigName: "child-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "child-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "child-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "child-removed", callback: (($obj: SourceClip, element: TimelineElement) => void)): number
-    connect_after(sigName: "child-removed", callback: (($obj: SourceClip, element: TimelineElement) => void)): number
+    on(sigName: "child-removed", callback: (element: TimelineElement) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "child-removed", callback: (element: TimelineElement) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "child-removed", callback: (element: TimelineElement) => void): NodeJS.EventEmitter
     emit(sigName: "child-removed", element: TimelineElement): void
-    on(sigName: "child-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "child-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "child-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GES.TimelineElement */
+    /* Signals of GES-1.0.GES.TimelineElement */
     connect(sigName: "child-property-added", callback: (($obj: SourceClip, propObject: GObject.Object, prop: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "child-property-added", callback: (($obj: SourceClip, propObject: GObject.Object, prop: GObject.ParamSpec) => void)): number
+    on(sigName: "child-property-added", callback: (propObject: GObject.Object, prop: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "child-property-added", callback: (propObject: GObject.Object, prop: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "child-property-added", callback: (propObject: GObject.Object, prop: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "child-property-added", propObject: GObject.Object, prop: GObject.ParamSpec): void
-    on(sigName: "child-property-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "child-property-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "child-property-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "child-property-removed", callback: (($obj: SourceClip, propObject: GObject.Object, prop: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "child-property-removed", callback: (($obj: SourceClip, propObject: GObject.Object, prop: GObject.ParamSpec) => void)): number
+    on(sigName: "child-property-removed", callback: (propObject: GObject.Object, prop: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "child-property-removed", callback: (propObject: GObject.Object, prop: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "child-property-removed", callback: (propObject: GObject.Object, prop: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "child-property-removed", propObject: GObject.Object, prop: GObject.ParamSpec): void
-    on(sigName: "child-property-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "child-property-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "child-property-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "deep-notify", callback: (($obj: SourceClip, propObject: GObject.Object, prop: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "deep-notify", callback: (($obj: SourceClip, propObject: GObject.Object, prop: GObject.ParamSpec) => void)): number
+    on(sigName: "deep-notify", callback: (propObject: GObject.Object, prop: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "deep-notify", callback: (propObject: GObject.Object, prop: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "deep-notify", callback: (propObject: GObject.Object, prop: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "deep-notify", propObject: GObject.Object, prop: GObject.ParamSpec): void
-    on(sigName: "deep-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "deep-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "deep-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: SourceClip, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: SourceClip, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GES.MetaContainer */
+    /* Signals of GES-1.0.GES.MetaContainer */
     connect(sigName: "notify-meta", callback: (($obj: SourceClip, key: string, value?: any | null) => void)): number
-    connect_after(sigName: "notify-meta", callback: (($obj: SourceClip, key: string, value?: any | null) => void)): number
+    on(sigName: "notify-meta", callback: (key: string, value?: any | null) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify-meta", callback: (key: string, value?: any | null) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify-meta", callback: (key: string, value?: any | null) => void): NodeJS.EventEmitter
     emit(sigName: "notify-meta", key: string, value?: any | null): void
-    on(sigName: "notify-meta", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify-meta", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify-meta", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::duration-limit", callback: (($obj: SourceClip, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::duration-limit", callback: (($obj: SourceClip, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::duration-limit", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -8666,23 +7496,23 @@ export class SourceClip {
 export interface SourceClipAsset_ConstructProps extends ClipAsset_ConstructProps {
 }
 export class SourceClipAsset {
-    /* Properties of GES.ClipAsset */
+    /* Properties of GES-1.0.GES.ClipAsset */
     supportedFormats: TrackType
-    /* Properties of GES.Asset */
+    /* Properties of GES-1.0.GES.Asset */
     proxy: Asset
     readonly proxyTarget: Asset
-    /* Fields of GES.SourceClipAsset */
+    /* Fields of GES-1.0.GES.SourceClipAsset */
     parentInstance: ClipAsset
-    /* Fields of GES.ClipAsset */
+    /* Fields of GES-1.0.GES.ClipAsset */
     parent: Asset
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GES.ClipAsset */
+    /* Methods of GES-1.0.GES.ClipAsset */
     getFrameTime(frameNumber: FrameNumber): Gst.ClockTime
     getNaturalFramerate(framerateN: number, framerateD: number): boolean
     getSupportedFormats(): TrackType
     setSupportedFormats(supportedformats: TrackType): void
-    /* Methods of GES.Asset */
+    /* Methods of GES-1.0.GES.Asset */
     extract(): Extractable
     getError(): GLib.Error | null
     getExtractableType(): GObject.Type
@@ -8692,7 +7522,7 @@ export class SourceClipAsset {
     listProxies(): Asset[]
     setProxy(proxy?: Asset | null): boolean
     unproxy(proxy: Asset): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -8714,22 +7544,22 @@ export class SourceClipAsset {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of GES.MetaContainer */
+    /* Methods of GES-1.0.GES.MetaContainer */
     addMetasFromString(str: string): boolean
-    checkMetaRegistered(metaItem: string): [ /* returnType */ boolean, /* flags */ MetaFlag | null, /* type */ GObject.Type | null ]
+    checkMetaRegistered(metaItem: string): { returnType: boolean, flags: MetaFlag | null, type: GObject.Type | null }
     foreach(func: MetaForeachFunc): void
-    getBoolean(metaItem: string): [ /* returnType */ boolean, /* dest */ boolean ]
-    getDate(metaItem: string): [ /* returnType */ boolean, /* dest */ GLib.Date ]
-    getDateTime(metaItem: string): [ /* returnType */ boolean, /* dest */ Gst.DateTime ]
-    getDouble(metaItem: string): [ /* returnType */ boolean, /* dest */ number ]
-    getFloat(metaItem: string): [ /* returnType */ boolean, /* dest */ number ]
-    getInt(metaItem: string): [ /* returnType */ boolean, /* dest */ number ]
-    getInt64(metaItem: string): [ /* returnType */ boolean, /* dest */ number ]
+    getBoolean(metaItem: string): { returnType: boolean, dest: boolean }
+    getDate(metaItem: string): { returnType: boolean, dest: GLib.Date }
+    getDateTime(metaItem: string): { returnType: boolean, dest: Gst.DateTime }
+    getDouble(metaItem: string): { returnType: boolean, dest: number }
+    getFloat(metaItem: string): { returnType: boolean, dest: number }
+    getInt(metaItem: string): { returnType: boolean, dest: number }
+    getInt64(metaItem: string): { returnType: boolean, dest: number }
     getMarkerList(key: string): MarkerList
     getMeta(key: string): any
     getString(metaItem: string): string
-    getUint(metaItem: string): [ /* returnType */ boolean, /* dest */ number ]
-    getUint64(metaItem: string): [ /* returnType */ boolean, /* dest */ number ]
+    getUint(metaItem: string): { returnType: boolean, dest: number }
+    getUint64(metaItem: string): { returnType: boolean, dest: number }
     metasToString(): string
     registerMeta(flags: MetaFlag, metaItem: string, value: any): boolean
     registerMetaBoolean(flags: MetaFlag, metaItem: string, value: boolean): boolean
@@ -8755,45 +7585,24 @@ export class SourceClipAsset {
     setString(metaItem: string, value: string): boolean
     setUint(metaItem: string, value: number): boolean
     setUint64(metaItem: string, value: number): boolean
-    /* Methods of Gio.AsyncInitable */
+    /* Methods of Gio-2.0.Gio.AsyncInitable */
     initAsync(ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     initFinish(res: Gio.AsyncResult): boolean
     newFinish(res: Gio.AsyncResult): GObject.Object
-    /* Methods of Gio.Initable */
+    /* Methods of Gio-2.0.Gio.Initable */
     init(cancellable?: Gio.Cancellable | null): boolean
-    /* Virtual methods of GES.ClipAsset */
-    vfuncGetNaturalFramerate(framerateN: number, framerateD: number): boolean
-    /* Virtual methods of GES.Asset */
-    vfuncExtract(): Extractable
-    vfuncInformProxy(proxyId: string): void
-    vfuncProxied(proxy: Asset): void
-    vfuncRequestIdUpdate(proposedNewId: string, error: GLib.Error): boolean
-    vfuncStartLoading(): AssetLoadingReturn
-    vfuncInitAsync(ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    vfuncInitFinish(res: Gio.AsyncResult): boolean
-    vfuncInit(cancellable?: Gio.Cancellable | null): boolean
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: SourceClipAsset, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: SourceClipAsset, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GES.MetaContainer */
+    /* Signals of GES-1.0.GES.MetaContainer */
     connect(sigName: "notify-meta", callback: (($obj: SourceClipAsset, key: string, value?: any | null) => void)): number
-    connect_after(sigName: "notify-meta", callback: (($obj: SourceClipAsset, key: string, value?: any | null) => void)): number
+    on(sigName: "notify-meta", callback: (key: string, value?: any | null) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify-meta", callback: (key: string, value?: any | null) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify-meta", callback: (key: string, value?: any | null) => void): NodeJS.EventEmitter
     emit(sigName: "notify-meta", key: string, value?: any | null): void
-    on(sigName: "notify-meta", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify-meta", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify-meta", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::supported-formats", callback: (($obj: SourceClipAsset, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::supported-formats", callback: (($obj: SourceClipAsset, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::supported-formats", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -8828,18 +7637,18 @@ export interface TestClip_ConstructProps extends SourceClip_ConstructProps {
     vpattern?: VideoTestPattern
 }
 export class TestClip {
-    /* Properties of GES.TestClip */
+    /* Properties of GES-1.0.GES.TestClip */
     freq: number
     mute: boolean
     volume: number
     vpattern: VideoTestPattern
-    /* Properties of GES.Clip */
+    /* Properties of GES-1.0.GES.Clip */
     readonly durationLimit: number
     readonly layer: Layer
     supportedFormats: TrackType
-    /* Properties of GES.Container */
+    /* Properties of GES-1.0.GES.Container */
     readonly height: number
-    /* Properties of GES.TimelineElement */
+    /* Properties of GES-1.0.GES.TimelineElement */
     duration: number
     inPoint: number
     maxDuration: number
@@ -8849,18 +7658,18 @@ export class TestClip {
     serialize: boolean
     start: number
     timeline: Timeline
-    /* Fields of GES.Container */
+    /* Fields of GES-1.0.GES.Container */
     children: TimelineElement[]
     childrenControlMode: ChildrenControlMode
     initiatedMove: TimelineElement
-    /* Fields of GES.TimelineElement */
+    /* Fields of GES-1.0.GES.TimelineElement */
     parentInstance: GObject.InitiallyUnowned
     asset: Asset
     inpoint: Gst.ClockTime
     maxduration: Gst.ClockTime
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GES.TestClip */
+    /* Methods of GES-1.0.GES.TestClip */
     getFrequency(): number
     getVolume(): number
     getVpattern(): VideoTestPattern
@@ -8869,7 +7678,7 @@ export class TestClip {
     setMute(mute: boolean): void
     setVolume(volume: number): void
     setVpattern(vpattern: VideoTestPattern): void
-    /* Methods of GES.Clip */
+    /* Methods of GES-1.0.GES.Clip */
     addAsset(asset: Asset): TrackElement | null
     addChildToTrack(child: TrackElement, track: Track): TrackElement
     addTopEffect(effect: BaseEffect, index: number): boolean
@@ -8893,24 +7702,24 @@ export class TestClip {
     setTopEffectPriority(effect: BaseEffect, newpriority: number): boolean
     split(position: number): Clip | null
     splitFull(position: number): Clip | null
-    /* Methods of GES.Container */
+    /* Methods of GES-1.0.GES.Container */
     add(child: TimelineElement): boolean
     edit(layers: Layer[] | null, newLayerPriority: number, mode: EditMode, edge: Edge, position: number): boolean
     getChildren(recursive: boolean): TimelineElement[]
     remove(child: TimelineElement): boolean
     ungroup(recursive: boolean): Container[]
-    /* Methods of GES.TimelineElement */
+    /* Methods of GES-1.0.GES.TimelineElement */
     addChildProperty(pspec: GObject.ParamSpec, child: GObject.Object): boolean
     copy(deep: boolean): TimelineElement
     editFull(newLayerPriority: number, mode: EditMode, edge: Edge, position: number): boolean
-    getChildProperty(propertyName: string): [ /* returnType */ boolean, /* value */ any ]
-    getChildPropertyByPspec(pspec: GObject.ParamSpec): /* value */ any
+    getChildProperty(propertyName: string): { returnType: boolean, value: any }
+    getChildPropertyByPspec(pspec: GObject.ParamSpec): { value: any }
     getDuration(): Gst.ClockTime
     getInpoint(): Gst.ClockTime
     getLayerPriority(): number
     getMaxDuration(): Gst.ClockTime
     getName(): string
-    getNaturalFramerate(): [ /* returnType */ boolean, /* framerateN */ number, /* framerateD */ number ]
+    getNaturalFramerate(): { returnType: boolean, framerateN: number, framerateD: number }
     getParent(): TimelineElement | null
     getPriority(): number
     getStart(): Gst.ClockTime
@@ -8918,7 +7727,7 @@ export class TestClip {
     getToplevelParent(): TimelineElement
     getTrackTypes(): TrackType
     listChildrenProperties(): GObject.ParamSpec[]
-    lookupChild(propName: string): [ /* returnType */ boolean, /* child */ GObject.Object | null, /* pspec */ GObject.ParamSpec | null ]
+    lookupChild(propName: string): { returnType: boolean, child: GObject.Object | null, pspec: GObject.ParamSpec | null }
     paste(pastePosition: Gst.ClockTime): TimelineElement | null
     removeChildProperty(pspec: GObject.ParamSpec): boolean
     ripple(start: Gst.ClockTime): boolean
@@ -8937,7 +7746,7 @@ export class TestClip {
     setStart(start: Gst.ClockTime): boolean
     setTimeline(timeline: Timeline): boolean
     trim(start: Gst.ClockTime): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -8959,26 +7768,26 @@ export class TestClip {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of GES.Extractable */
+    /* Methods of GES-1.0.GES.Extractable */
     getAsset(): Asset | null
     getId(): string
     setAsset(asset: Asset): boolean
-    /* Methods of GES.MetaContainer */
+    /* Methods of GES-1.0.GES.MetaContainer */
     addMetasFromString(str: string): boolean
-    checkMetaRegistered(metaItem: string): [ /* returnType */ boolean, /* flags */ MetaFlag | null, /* type */ GObject.Type | null ]
+    checkMetaRegistered(metaItem: string): { returnType: boolean, flags: MetaFlag | null, type: GObject.Type | null }
     foreach(func: MetaForeachFunc): void
-    getBoolean(metaItem: string): [ /* returnType */ boolean, /* dest */ boolean ]
-    getDate(metaItem: string): [ /* returnType */ boolean, /* dest */ GLib.Date ]
-    getDateTime(metaItem: string): [ /* returnType */ boolean, /* dest */ Gst.DateTime ]
-    getDouble(metaItem: string): [ /* returnType */ boolean, /* dest */ number ]
-    getFloat(metaItem: string): [ /* returnType */ boolean, /* dest */ number ]
-    getInt(metaItem: string): [ /* returnType */ boolean, /* dest */ number ]
-    getInt64(metaItem: string): [ /* returnType */ boolean, /* dest */ number ]
+    getBoolean(metaItem: string): { returnType: boolean, dest: boolean }
+    getDate(metaItem: string): { returnType: boolean, dest: GLib.Date }
+    getDateTime(metaItem: string): { returnType: boolean, dest: Gst.DateTime }
+    getDouble(metaItem: string): { returnType: boolean, dest: number }
+    getFloat(metaItem: string): { returnType: boolean, dest: number }
+    getInt(metaItem: string): { returnType: boolean, dest: number }
+    getInt64(metaItem: string): { returnType: boolean, dest: number }
     getMarkerList(key: string): MarkerList
     getMeta(key: string): any
     getString(metaItem: string): string
-    getUint(metaItem: string): [ /* returnType */ boolean, /* dest */ number ]
-    getUint64(metaItem: string): [ /* returnType */ boolean, /* dest */ number ]
+    getUint(metaItem: string): { returnType: boolean, dest: number }
+    getUint64(metaItem: string): { returnType: boolean, dest: number }
     metasToString(): string
     registerMeta(flags: MetaFlag, metaItem: string, value: any): boolean
     registerMetaBoolean(flags: MetaFlag, metaItem: string, value: boolean): boolean
@@ -9004,92 +7813,45 @@ export class TestClip {
     setString(metaItem: string, value: string): boolean
     setUint(metaItem: string, value: number): boolean
     setUint64(metaItem: string, value: number): boolean
-    /* Virtual methods of GES.Clip */
-    vfuncCreateTrackElement(type: TrackType): TrackElement | null
-    vfuncCreateTrackElements(type: TrackType): TrackElement[]
-    /* Virtual methods of GES.Container */
-    vfuncAddChild(element: TimelineElement): boolean
-    vfuncChildAdded(element: TimelineElement): void
-    vfuncChildRemoved(element: TimelineElement): void
-    vfuncEdit(layers: Layer[] | null, newLayerPriority: number, mode: EditMode, edge: Edge, position: number): boolean
-    vfuncRemoveChild(element: TimelineElement): boolean
-    vfuncUngroup(recursive: boolean): Container[]
-    /* Virtual methods of GES.TimelineElement */
-    vfuncDeepCopy(copy: TimelineElement): void
-    vfuncGetLayerPriority(): number
-    vfuncGetNaturalFramerate(): [ /* returnType */ boolean, /* framerateN */ number, /* framerateD */ number ]
-    vfuncGetTrackTypes(): TrackType
-    vfuncLookupChild(propName: string): [ /* returnType */ boolean, /* child */ GObject.Object | null, /* pspec */ GObject.ParamSpec | null ]
-    vfuncRipple(start: number): boolean
-    vfuncRippleEnd(end: number): boolean
-    vfuncRollEnd(end: number): boolean
-    vfuncRollStart(start: number): boolean
-    vfuncSetChildProperty(child: GObject.Object, pspec: GObject.ParamSpec, value: any): void
-    vfuncSetChildPropertyFull(child: GObject.Object, pspec: GObject.ParamSpec, value: any): boolean
-    vfuncSetDuration(duration: Gst.ClockTime): boolean
-    vfuncSetInpoint(inpoint: Gst.ClockTime): boolean
-    vfuncSetMaxDuration(maxduration: Gst.ClockTime): boolean
-    vfuncSetParent(parent: TimelineElement): boolean
-    vfuncSetPriority(priority: number): boolean
-    vfuncSetStart(start: Gst.ClockTime): boolean
-    vfuncTrim(start: number): boolean
-    vfuncGetId(): string
-    vfuncSetAsset(asset: Asset): void
-    vfuncSetAssetFull(asset: Asset): boolean
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GES.Container */
+    /* Signals of GES-1.0.GES.Container */
     connect(sigName: "child-added", callback: (($obj: TestClip, element: TimelineElement) => void)): number
-    connect_after(sigName: "child-added", callback: (($obj: TestClip, element: TimelineElement) => void)): number
+    on(sigName: "child-added", callback: (element: TimelineElement) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "child-added", callback: (element: TimelineElement) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "child-added", callback: (element: TimelineElement) => void): NodeJS.EventEmitter
     emit(sigName: "child-added", element: TimelineElement): void
-    on(sigName: "child-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "child-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "child-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "child-removed", callback: (($obj: TestClip, element: TimelineElement) => void)): number
-    connect_after(sigName: "child-removed", callback: (($obj: TestClip, element: TimelineElement) => void)): number
+    on(sigName: "child-removed", callback: (element: TimelineElement) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "child-removed", callback: (element: TimelineElement) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "child-removed", callback: (element: TimelineElement) => void): NodeJS.EventEmitter
     emit(sigName: "child-removed", element: TimelineElement): void
-    on(sigName: "child-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "child-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "child-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GES.TimelineElement */
+    /* Signals of GES-1.0.GES.TimelineElement */
     connect(sigName: "child-property-added", callback: (($obj: TestClip, propObject: GObject.Object, prop: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "child-property-added", callback: (($obj: TestClip, propObject: GObject.Object, prop: GObject.ParamSpec) => void)): number
+    on(sigName: "child-property-added", callback: (propObject: GObject.Object, prop: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "child-property-added", callback: (propObject: GObject.Object, prop: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "child-property-added", callback: (propObject: GObject.Object, prop: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "child-property-added", propObject: GObject.Object, prop: GObject.ParamSpec): void
-    on(sigName: "child-property-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "child-property-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "child-property-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "child-property-removed", callback: (($obj: TestClip, propObject: GObject.Object, prop: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "child-property-removed", callback: (($obj: TestClip, propObject: GObject.Object, prop: GObject.ParamSpec) => void)): number
+    on(sigName: "child-property-removed", callback: (propObject: GObject.Object, prop: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "child-property-removed", callback: (propObject: GObject.Object, prop: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "child-property-removed", callback: (propObject: GObject.Object, prop: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "child-property-removed", propObject: GObject.Object, prop: GObject.ParamSpec): void
-    on(sigName: "child-property-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "child-property-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "child-property-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "deep-notify", callback: (($obj: TestClip, propObject: GObject.Object, prop: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "deep-notify", callback: (($obj: TestClip, propObject: GObject.Object, prop: GObject.ParamSpec) => void)): number
+    on(sigName: "deep-notify", callback: (propObject: GObject.Object, prop: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "deep-notify", callback: (propObject: GObject.Object, prop: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "deep-notify", callback: (propObject: GObject.Object, prop: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "deep-notify", propObject: GObject.Object, prop: GObject.ParamSpec): void
-    on(sigName: "deep-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "deep-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "deep-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: TestClip, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: TestClip, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GES.MetaContainer */
+    /* Signals of GES-1.0.GES.MetaContainer */
     connect(sigName: "notify-meta", callback: (($obj: TestClip, key: string, value?: any | null) => void)): number
-    connect_after(sigName: "notify-meta", callback: (($obj: TestClip, key: string, value?: any | null) => void)): number
+    on(sigName: "notify-meta", callback: (key: string, value?: any | null) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify-meta", callback: (key: string, value?: any | null) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify-meta", callback: (key: string, value?: any | null) => void): NodeJS.EventEmitter
     emit(sigName: "notify-meta", key: string, value?: any | null): void
-    on(sigName: "notify-meta", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify-meta", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify-meta", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::freq", callback: (($obj: TestClip, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::freq", callback: (($obj: TestClip, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::freq", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -9193,13 +7955,13 @@ export class TestClip {
 export interface TextOverlay_ConstructProps extends Operation_ConstructProps {
 }
 export class TextOverlay {
-    /* Properties of GES.TrackElement */
+    /* Properties of GES-1.0.GES.TrackElement */
     active: boolean
     autoClampControlSources: boolean
     hasInternalSource: boolean
     readonly track: Track
     trackType: TrackType
-    /* Properties of GES.TimelineElement */
+    /* Properties of GES-1.0.GES.TimelineElement */
     duration: number
     inPoint: number
     maxDuration: number
@@ -9209,14 +7971,14 @@ export class TextOverlay {
     serialize: boolean
     start: number
     timeline: Timeline
-    /* Fields of GES.TimelineElement */
+    /* Fields of GES-1.0.GES.TimelineElement */
     parentInstance: GObject.InitiallyUnowned
     asset: Asset
     inpoint: Gst.ClockTime
     maxduration: Gst.ClockTime
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GES.TextOverlay */
+    /* Methods of GES-1.0.GES.TextOverlay */
     getColor(): number
     getFontDesc(): string
     getHalignment(): TextHAlign
@@ -9231,7 +7993,7 @@ export class TextOverlay {
     setValignment(valign: TextVAlign): void
     setXpos(position: number): void
     setYpos(position: number): void
-    /* Methods of GES.TrackElement */
+    /* Methods of GES-1.0.GES.TrackElement */
     addChildrenProps(element: Gst.Element, wantedCategories?: string[] | null, blacklist?: string[] | null, whitelist?: string[] | null): void
     clampControlSource(propertyName: string): void
     edit(layers: Layer[] | null, mode: EditMode, edge: Edge, position: number): boolean
@@ -9246,33 +8008,33 @@ export class TextOverlay {
     isActive(): boolean
     isCore(): boolean
     listChildrenProperties(): GObject.ParamSpec[]
-    lookupChild(propName: string): [ /* returnType */ boolean, /* element */ Gst.Element | null, /* pspec */ GObject.ParamSpec | null ]
+    lookupChild(propName: string): { returnType: boolean, element: Gst.Element | null, pspec: GObject.ParamSpec | null }
     removeControlBinding(propertyName: string): boolean
     setActive(active: boolean): boolean
     setAutoClampControlSources(autoClamp: boolean): void
     setControlSource(source: Gst.ControlSource, propertyName: string, bindingType: string): boolean
     setHasInternalSource(hasInternalSource: boolean): boolean
     setTrackType(type: TrackType): void
-    /* Methods of GES.TimelineElement */
+    /* Methods of GES-1.0.GES.TimelineElement */
     addChildProperty(pspec: GObject.ParamSpec, child: GObject.Object): boolean
     copy(deep: boolean): TimelineElement
     edit(layers: Layer[] | null, newLayerPriority: number, mode: EditMode, edge: Edge, position: number): boolean
     editFull(newLayerPriority: number, mode: EditMode, edge: Edge, position: number): boolean
-    getChildProperty(propertyName: string): [ /* returnType */ boolean, /* value */ any ]
-    getChildPropertyByPspec(pspec: GObject.ParamSpec): /* value */ any
+    getChildProperty(propertyName: string): { returnType: boolean, value: any }
+    getChildPropertyByPspec(pspec: GObject.ParamSpec): { value: any }
     getDuration(): Gst.ClockTime
     getInpoint(): Gst.ClockTime
     getLayerPriority(): number
     getMaxDuration(): Gst.ClockTime
     getName(): string
-    getNaturalFramerate(): [ /* returnType */ boolean, /* framerateN */ number, /* framerateD */ number ]
+    getNaturalFramerate(): { returnType: boolean, framerateN: number, framerateD: number }
     getParent(): TimelineElement | null
     getPriority(): number
     getStart(): Gst.ClockTime
     getTimeline(): Timeline | null
     getToplevelParent(): TimelineElement
     getTrackTypes(): TrackType
-    lookupChild(propName: string): [ /* returnType */ boolean, /* child */ GObject.Object | null, /* pspec */ GObject.ParamSpec | null ]
+    lookupChild(propName: string): { returnType: boolean, child: GObject.Object | null, pspec: GObject.ParamSpec | null }
     paste(pastePosition: Gst.ClockTime): TimelineElement | null
     removeChildProperty(pspec: GObject.ParamSpec): boolean
     ripple(start: Gst.ClockTime): boolean
@@ -9291,7 +8053,7 @@ export class TextOverlay {
     setStart(start: Gst.ClockTime): boolean
     setTimeline(timeline: Timeline): boolean
     trim(start: Gst.ClockTime): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -9313,26 +8075,26 @@ export class TextOverlay {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of GES.Extractable */
+    /* Methods of GES-1.0.GES.Extractable */
     getAsset(): Asset | null
     getId(): string
     setAsset(asset: Asset): boolean
-    /* Methods of GES.MetaContainer */
+    /* Methods of GES-1.0.GES.MetaContainer */
     addMetasFromString(str: string): boolean
-    checkMetaRegistered(metaItem: string): [ /* returnType */ boolean, /* flags */ MetaFlag | null, /* type */ GObject.Type | null ]
+    checkMetaRegistered(metaItem: string): { returnType: boolean, flags: MetaFlag | null, type: GObject.Type | null }
     foreach(func: MetaForeachFunc): void
-    getBoolean(metaItem: string): [ /* returnType */ boolean, /* dest */ boolean ]
-    getDate(metaItem: string): [ /* returnType */ boolean, /* dest */ GLib.Date ]
-    getDateTime(metaItem: string): [ /* returnType */ boolean, /* dest */ Gst.DateTime ]
-    getDouble(metaItem: string): [ /* returnType */ boolean, /* dest */ number ]
-    getFloat(metaItem: string): [ /* returnType */ boolean, /* dest */ number ]
-    getInt(metaItem: string): [ /* returnType */ boolean, /* dest */ number ]
-    getInt64(metaItem: string): [ /* returnType */ boolean, /* dest */ number ]
+    getBoolean(metaItem: string): { returnType: boolean, dest: boolean }
+    getDate(metaItem: string): { returnType: boolean, dest: GLib.Date }
+    getDateTime(metaItem: string): { returnType: boolean, dest: Gst.DateTime }
+    getDouble(metaItem: string): { returnType: boolean, dest: number }
+    getFloat(metaItem: string): { returnType: boolean, dest: number }
+    getInt(metaItem: string): { returnType: boolean, dest: number }
+    getInt64(metaItem: string): { returnType: boolean, dest: number }
     getMarkerList(key: string): MarkerList
     getMeta(key: string): any
     getString(metaItem: string): string
-    getUint(metaItem: string): [ /* returnType */ boolean, /* dest */ number ]
-    getUint64(metaItem: string): [ /* returnType */ boolean, /* dest */ number ]
+    getUint(metaItem: string): { returnType: boolean, dest: number }
+    getUint64(metaItem: string): { returnType: boolean, dest: number }
     metasToString(): string
     registerMeta(flags: MetaFlag, metaItem: string, value: any): boolean
     registerMetaBoolean(flags: MetaFlag, metaItem: string, value: boolean): boolean
@@ -9358,86 +8120,45 @@ export class TextOverlay {
     setString(metaItem: string, value: string): boolean
     setUint(metaItem: string, value: number): boolean
     setUint64(metaItem: string, value: number): boolean
-    /* Virtual methods of GES.TrackElement */
-    vfuncActiveChanged(active: boolean): void
-    vfuncChanged(): void
-    vfuncLookupChild(propName: string): [ /* returnType */ boolean, /* element */ Gst.Element | null, /* pspec */ GObject.ParamSpec | null ]
-    /* Virtual methods of GES.TimelineElement */
-    vfuncDeepCopy(copy: TimelineElement): void
-    vfuncGetLayerPriority(): number
-    vfuncGetNaturalFramerate(): [ /* returnType */ boolean, /* framerateN */ number, /* framerateD */ number ]
-    vfuncGetTrackTypes(): TrackType
-    vfuncLookupChild(propName: string): [ /* returnType */ boolean, /* child */ GObject.Object | null, /* pspec */ GObject.ParamSpec | null ]
-    vfuncRipple(start: number): boolean
-    vfuncRippleEnd(end: number): boolean
-    vfuncRollEnd(end: number): boolean
-    vfuncRollStart(start: number): boolean
-    vfuncSetChildProperty(child: GObject.Object, pspec: GObject.ParamSpec, value: any): void
-    vfuncSetChildPropertyFull(child: GObject.Object, pspec: GObject.ParamSpec, value: any): boolean
-    vfuncSetDuration(duration: Gst.ClockTime): boolean
-    vfuncSetInpoint(inpoint: Gst.ClockTime): boolean
-    vfuncSetMaxDuration(maxduration: Gst.ClockTime): boolean
-    vfuncSetParent(parent: TimelineElement): boolean
-    vfuncSetPriority(priority: number): boolean
-    vfuncSetStart(start: Gst.ClockTime): boolean
-    vfuncTrim(start: number): boolean
-    vfuncGetId(): string
-    vfuncSetAsset(asset: Asset): void
-    vfuncSetAssetFull(asset: Asset): boolean
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GES.TrackElement */
+    /* Signals of GES-1.0.GES.TrackElement */
     connect(sigName: "control-binding-added", callback: (($obj: TextOverlay, controlBinding: Gst.ControlBinding) => void)): number
-    connect_after(sigName: "control-binding-added", callback: (($obj: TextOverlay, controlBinding: Gst.ControlBinding) => void)): number
+    on(sigName: "control-binding-added", callback: (controlBinding: Gst.ControlBinding) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "control-binding-added", callback: (controlBinding: Gst.ControlBinding) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "control-binding-added", callback: (controlBinding: Gst.ControlBinding) => void): NodeJS.EventEmitter
     emit(sigName: "control-binding-added", controlBinding: Gst.ControlBinding): void
-    on(sigName: "control-binding-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "control-binding-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "control-binding-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "control-binding-removed", callback: (($obj: TextOverlay, controlBinding: Gst.ControlBinding) => void)): number
-    connect_after(sigName: "control-binding-removed", callback: (($obj: TextOverlay, controlBinding: Gst.ControlBinding) => void)): number
+    on(sigName: "control-binding-removed", callback: (controlBinding: Gst.ControlBinding) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "control-binding-removed", callback: (controlBinding: Gst.ControlBinding) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "control-binding-removed", callback: (controlBinding: Gst.ControlBinding) => void): NodeJS.EventEmitter
     emit(sigName: "control-binding-removed", controlBinding: Gst.ControlBinding): void
-    on(sigName: "control-binding-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "control-binding-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "control-binding-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GES.TimelineElement */
+    /* Signals of GES-1.0.GES.TimelineElement */
     connect(sigName: "child-property-added", callback: (($obj: TextOverlay, propObject: GObject.Object, prop: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "child-property-added", callback: (($obj: TextOverlay, propObject: GObject.Object, prop: GObject.ParamSpec) => void)): number
+    on(sigName: "child-property-added", callback: (propObject: GObject.Object, prop: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "child-property-added", callback: (propObject: GObject.Object, prop: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "child-property-added", callback: (propObject: GObject.Object, prop: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "child-property-added", propObject: GObject.Object, prop: GObject.ParamSpec): void
-    on(sigName: "child-property-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "child-property-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "child-property-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "child-property-removed", callback: (($obj: TextOverlay, propObject: GObject.Object, prop: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "child-property-removed", callback: (($obj: TextOverlay, propObject: GObject.Object, prop: GObject.ParamSpec) => void)): number
+    on(sigName: "child-property-removed", callback: (propObject: GObject.Object, prop: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "child-property-removed", callback: (propObject: GObject.Object, prop: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "child-property-removed", callback: (propObject: GObject.Object, prop: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "child-property-removed", propObject: GObject.Object, prop: GObject.ParamSpec): void
-    on(sigName: "child-property-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "child-property-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "child-property-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "deep-notify", callback: (($obj: TextOverlay, propObject: GObject.Object, prop: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "deep-notify", callback: (($obj: TextOverlay, propObject: GObject.Object, prop: GObject.ParamSpec) => void)): number
+    on(sigName: "deep-notify", callback: (propObject: GObject.Object, prop: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "deep-notify", callback: (propObject: GObject.Object, prop: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "deep-notify", callback: (propObject: GObject.Object, prop: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "deep-notify", propObject: GObject.Object, prop: GObject.ParamSpec): void
-    on(sigName: "deep-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "deep-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "deep-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: TextOverlay, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: TextOverlay, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GES.MetaContainer */
+    /* Signals of GES-1.0.GES.MetaContainer */
     connect(sigName: "notify-meta", callback: (($obj: TextOverlay, key: string, value?: any | null) => void)): number
-    connect_after(sigName: "notify-meta", callback: (($obj: TextOverlay, key: string, value?: any | null) => void)): number
+    on(sigName: "notify-meta", callback: (key: string, value?: any | null) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify-meta", callback: (key: string, value?: any | null) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify-meta", callback: (key: string, value?: any | null) => void): NodeJS.EventEmitter
     emit(sigName: "notify-meta", key: string, value?: any | null): void
-    on(sigName: "notify-meta", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify-meta", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify-meta", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::active", callback: (($obj: TextOverlay, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::active", callback: (($obj: TextOverlay, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::active", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -9532,7 +8253,7 @@ export interface TextOverlayClip_ConstructProps extends OverlayClip_ConstructPro
     ypos?: number
 }
 export class TextOverlayClip {
-    /* Properties of GES.TextOverlayClip */
+    /* Properties of GES-1.0.GES.TextOverlayClip */
     color: number
     fontDesc: string
     halignment: TextHAlign
@@ -9540,13 +8261,13 @@ export class TextOverlayClip {
     valignment: TextVAlign
     xpos: number
     ypos: number
-    /* Properties of GES.Clip */
+    /* Properties of GES-1.0.GES.Clip */
     readonly durationLimit: number
     readonly layer: Layer
     supportedFormats: TrackType
-    /* Properties of GES.Container */
+    /* Properties of GES-1.0.GES.Container */
     readonly height: number
-    /* Properties of GES.TimelineElement */
+    /* Properties of GES-1.0.GES.TimelineElement */
     duration: number
     inPoint: number
     maxDuration: number
@@ -9556,18 +8277,18 @@ export class TextOverlayClip {
     serialize: boolean
     start: number
     timeline: Timeline
-    /* Fields of GES.Container */
+    /* Fields of GES-1.0.GES.Container */
     children: TimelineElement[]
     childrenControlMode: ChildrenControlMode
     initiatedMove: TimelineElement
-    /* Fields of GES.TimelineElement */
+    /* Fields of GES-1.0.GES.TimelineElement */
     parentInstance: GObject.InitiallyUnowned
     asset: Asset
     inpoint: Gst.ClockTime
     maxduration: Gst.ClockTime
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GES.TextOverlayClip */
+    /* Methods of GES-1.0.GES.TextOverlayClip */
     getColor(): number
     getFontDesc(): string
     getHalignment(): TextHAlign
@@ -9582,7 +8303,7 @@ export class TextOverlayClip {
     setValign(valign: TextVAlign): void
     setXpos(position: number): void
     setYpos(position: number): void
-    /* Methods of GES.Clip */
+    /* Methods of GES-1.0.GES.Clip */
     addAsset(asset: Asset): TrackElement | null
     addChildToTrack(child: TrackElement, track: Track): TrackElement
     addTopEffect(effect: BaseEffect, index: number): boolean
@@ -9606,24 +8327,24 @@ export class TextOverlayClip {
     setTopEffectPriority(effect: BaseEffect, newpriority: number): boolean
     split(position: number): Clip | null
     splitFull(position: number): Clip | null
-    /* Methods of GES.Container */
+    /* Methods of GES-1.0.GES.Container */
     add(child: TimelineElement): boolean
     edit(layers: Layer[] | null, newLayerPriority: number, mode: EditMode, edge: Edge, position: number): boolean
     getChildren(recursive: boolean): TimelineElement[]
     remove(child: TimelineElement): boolean
     ungroup(recursive: boolean): Container[]
-    /* Methods of GES.TimelineElement */
+    /* Methods of GES-1.0.GES.TimelineElement */
     addChildProperty(pspec: GObject.ParamSpec, child: GObject.Object): boolean
     copy(deep: boolean): TimelineElement
     editFull(newLayerPriority: number, mode: EditMode, edge: Edge, position: number): boolean
-    getChildProperty(propertyName: string): [ /* returnType */ boolean, /* value */ any ]
-    getChildPropertyByPspec(pspec: GObject.ParamSpec): /* value */ any
+    getChildProperty(propertyName: string): { returnType: boolean, value: any }
+    getChildPropertyByPspec(pspec: GObject.ParamSpec): { value: any }
     getDuration(): Gst.ClockTime
     getInpoint(): Gst.ClockTime
     getLayerPriority(): number
     getMaxDuration(): Gst.ClockTime
     getName(): string
-    getNaturalFramerate(): [ /* returnType */ boolean, /* framerateN */ number, /* framerateD */ number ]
+    getNaturalFramerate(): { returnType: boolean, framerateN: number, framerateD: number }
     getParent(): TimelineElement | null
     getPriority(): number
     getStart(): Gst.ClockTime
@@ -9631,7 +8352,7 @@ export class TextOverlayClip {
     getToplevelParent(): TimelineElement
     getTrackTypes(): TrackType
     listChildrenProperties(): GObject.ParamSpec[]
-    lookupChild(propName: string): [ /* returnType */ boolean, /* child */ GObject.Object | null, /* pspec */ GObject.ParamSpec | null ]
+    lookupChild(propName: string): { returnType: boolean, child: GObject.Object | null, pspec: GObject.ParamSpec | null }
     paste(pastePosition: Gst.ClockTime): TimelineElement | null
     removeChildProperty(pspec: GObject.ParamSpec): boolean
     ripple(start: Gst.ClockTime): boolean
@@ -9650,7 +8371,7 @@ export class TextOverlayClip {
     setStart(start: Gst.ClockTime): boolean
     setTimeline(timeline: Timeline): boolean
     trim(start: Gst.ClockTime): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -9672,26 +8393,26 @@ export class TextOverlayClip {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of GES.Extractable */
+    /* Methods of GES-1.0.GES.Extractable */
     getAsset(): Asset | null
     getId(): string
     setAsset(asset: Asset): boolean
-    /* Methods of GES.MetaContainer */
+    /* Methods of GES-1.0.GES.MetaContainer */
     addMetasFromString(str: string): boolean
-    checkMetaRegistered(metaItem: string): [ /* returnType */ boolean, /* flags */ MetaFlag | null, /* type */ GObject.Type | null ]
+    checkMetaRegistered(metaItem: string): { returnType: boolean, flags: MetaFlag | null, type: GObject.Type | null }
     foreach(func: MetaForeachFunc): void
-    getBoolean(metaItem: string): [ /* returnType */ boolean, /* dest */ boolean ]
-    getDate(metaItem: string): [ /* returnType */ boolean, /* dest */ GLib.Date ]
-    getDateTime(metaItem: string): [ /* returnType */ boolean, /* dest */ Gst.DateTime ]
-    getDouble(metaItem: string): [ /* returnType */ boolean, /* dest */ number ]
-    getFloat(metaItem: string): [ /* returnType */ boolean, /* dest */ number ]
-    getInt(metaItem: string): [ /* returnType */ boolean, /* dest */ number ]
-    getInt64(metaItem: string): [ /* returnType */ boolean, /* dest */ number ]
+    getBoolean(metaItem: string): { returnType: boolean, dest: boolean }
+    getDate(metaItem: string): { returnType: boolean, dest: GLib.Date }
+    getDateTime(metaItem: string): { returnType: boolean, dest: Gst.DateTime }
+    getDouble(metaItem: string): { returnType: boolean, dest: number }
+    getFloat(metaItem: string): { returnType: boolean, dest: number }
+    getInt(metaItem: string): { returnType: boolean, dest: number }
+    getInt64(metaItem: string): { returnType: boolean, dest: number }
     getMarkerList(key: string): MarkerList
     getMeta(key: string): any
     getString(metaItem: string): string
-    getUint(metaItem: string): [ /* returnType */ boolean, /* dest */ number ]
-    getUint64(metaItem: string): [ /* returnType */ boolean, /* dest */ number ]
+    getUint(metaItem: string): { returnType: boolean, dest: number }
+    getUint64(metaItem: string): { returnType: boolean, dest: number }
     metasToString(): string
     registerMeta(flags: MetaFlag, metaItem: string, value: any): boolean
     registerMetaBoolean(flags: MetaFlag, metaItem: string, value: boolean): boolean
@@ -9717,92 +8438,45 @@ export class TextOverlayClip {
     setString(metaItem: string, value: string): boolean
     setUint(metaItem: string, value: number): boolean
     setUint64(metaItem: string, value: number): boolean
-    /* Virtual methods of GES.Clip */
-    vfuncCreateTrackElement(type: TrackType): TrackElement | null
-    vfuncCreateTrackElements(type: TrackType): TrackElement[]
-    /* Virtual methods of GES.Container */
-    vfuncAddChild(element: TimelineElement): boolean
-    vfuncChildAdded(element: TimelineElement): void
-    vfuncChildRemoved(element: TimelineElement): void
-    vfuncEdit(layers: Layer[] | null, newLayerPriority: number, mode: EditMode, edge: Edge, position: number): boolean
-    vfuncRemoveChild(element: TimelineElement): boolean
-    vfuncUngroup(recursive: boolean): Container[]
-    /* Virtual methods of GES.TimelineElement */
-    vfuncDeepCopy(copy: TimelineElement): void
-    vfuncGetLayerPriority(): number
-    vfuncGetNaturalFramerate(): [ /* returnType */ boolean, /* framerateN */ number, /* framerateD */ number ]
-    vfuncGetTrackTypes(): TrackType
-    vfuncLookupChild(propName: string): [ /* returnType */ boolean, /* child */ GObject.Object | null, /* pspec */ GObject.ParamSpec | null ]
-    vfuncRipple(start: number): boolean
-    vfuncRippleEnd(end: number): boolean
-    vfuncRollEnd(end: number): boolean
-    vfuncRollStart(start: number): boolean
-    vfuncSetChildProperty(child: GObject.Object, pspec: GObject.ParamSpec, value: any): void
-    vfuncSetChildPropertyFull(child: GObject.Object, pspec: GObject.ParamSpec, value: any): boolean
-    vfuncSetDuration(duration: Gst.ClockTime): boolean
-    vfuncSetInpoint(inpoint: Gst.ClockTime): boolean
-    vfuncSetMaxDuration(maxduration: Gst.ClockTime): boolean
-    vfuncSetParent(parent: TimelineElement): boolean
-    vfuncSetPriority(priority: number): boolean
-    vfuncSetStart(start: Gst.ClockTime): boolean
-    vfuncTrim(start: number): boolean
-    vfuncGetId(): string
-    vfuncSetAsset(asset: Asset): void
-    vfuncSetAssetFull(asset: Asset): boolean
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GES.Container */
+    /* Signals of GES-1.0.GES.Container */
     connect(sigName: "child-added", callback: (($obj: TextOverlayClip, element: TimelineElement) => void)): number
-    connect_after(sigName: "child-added", callback: (($obj: TextOverlayClip, element: TimelineElement) => void)): number
+    on(sigName: "child-added", callback: (element: TimelineElement) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "child-added", callback: (element: TimelineElement) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "child-added", callback: (element: TimelineElement) => void): NodeJS.EventEmitter
     emit(sigName: "child-added", element: TimelineElement): void
-    on(sigName: "child-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "child-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "child-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "child-removed", callback: (($obj: TextOverlayClip, element: TimelineElement) => void)): number
-    connect_after(sigName: "child-removed", callback: (($obj: TextOverlayClip, element: TimelineElement) => void)): number
+    on(sigName: "child-removed", callback: (element: TimelineElement) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "child-removed", callback: (element: TimelineElement) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "child-removed", callback: (element: TimelineElement) => void): NodeJS.EventEmitter
     emit(sigName: "child-removed", element: TimelineElement): void
-    on(sigName: "child-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "child-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "child-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GES.TimelineElement */
+    /* Signals of GES-1.0.GES.TimelineElement */
     connect(sigName: "child-property-added", callback: (($obj: TextOverlayClip, propObject: GObject.Object, prop: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "child-property-added", callback: (($obj: TextOverlayClip, propObject: GObject.Object, prop: GObject.ParamSpec) => void)): number
+    on(sigName: "child-property-added", callback: (propObject: GObject.Object, prop: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "child-property-added", callback: (propObject: GObject.Object, prop: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "child-property-added", callback: (propObject: GObject.Object, prop: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "child-property-added", propObject: GObject.Object, prop: GObject.ParamSpec): void
-    on(sigName: "child-property-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "child-property-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "child-property-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "child-property-removed", callback: (($obj: TextOverlayClip, propObject: GObject.Object, prop: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "child-property-removed", callback: (($obj: TextOverlayClip, propObject: GObject.Object, prop: GObject.ParamSpec) => void)): number
+    on(sigName: "child-property-removed", callback: (propObject: GObject.Object, prop: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "child-property-removed", callback: (propObject: GObject.Object, prop: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "child-property-removed", callback: (propObject: GObject.Object, prop: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "child-property-removed", propObject: GObject.Object, prop: GObject.ParamSpec): void
-    on(sigName: "child-property-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "child-property-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "child-property-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "deep-notify", callback: (($obj: TextOverlayClip, propObject: GObject.Object, prop: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "deep-notify", callback: (($obj: TextOverlayClip, propObject: GObject.Object, prop: GObject.ParamSpec) => void)): number
+    on(sigName: "deep-notify", callback: (propObject: GObject.Object, prop: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "deep-notify", callback: (propObject: GObject.Object, prop: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "deep-notify", callback: (propObject: GObject.Object, prop: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "deep-notify", propObject: GObject.Object, prop: GObject.ParamSpec): void
-    on(sigName: "deep-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "deep-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "deep-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: TextOverlayClip, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: TextOverlayClip, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GES.MetaContainer */
+    /* Signals of GES-1.0.GES.MetaContainer */
     connect(sigName: "notify-meta", callback: (($obj: TextOverlayClip, key: string, value?: any | null) => void)): number
-    connect_after(sigName: "notify-meta", callback: (($obj: TextOverlayClip, key: string, value?: any | null) => void)): number
+    on(sigName: "notify-meta", callback: (key: string, value?: any | null) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify-meta", callback: (key: string, value?: any | null) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify-meta", callback: (key: string, value?: any | null) => void): NodeJS.EventEmitter
     emit(sigName: "notify-meta", key: string, value?: any | null): void
-    on(sigName: "notify-meta", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify-meta", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify-meta", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::color", callback: (($obj: TextOverlayClip, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::color", callback: (($obj: TextOverlayClip, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::color", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -9922,20 +8596,20 @@ export interface Timeline_ConstructProps extends Gst.Bin_ConstructProps {
     snappingDistance?: number
 }
 export class Timeline {
-    /* Properties of GES.Timeline */
+    /* Properties of GES-1.0.GES.Timeline */
     autoTransition: boolean
     readonly duration: number
     snappingDistance: number
-    /* Properties of Gst.Bin */
+    /* Properties of Gst-1.0.Gst.Bin */
     asyncHandling: boolean
     messageForward: boolean
-    /* Properties of Gst.Object */
+    /* Properties of Gst-1.0.Gst.Object */
     name: string
     parent: Gst.Object
-    /* Fields of GES.Timeline */
+    /* Fields of GES-1.0.GES.Timeline */
     layers: Layer[]
     tracks: object[]
-    /* Fields of Gst.Bin */
+    /* Fields of Gst-1.0.Gst.Bin */
     element: Gst.Element
     numchildren: number
     children: Gst.Element[]
@@ -9947,7 +8621,7 @@ export class Timeline {
     clockDirty: boolean
     providedClock: Gst.Clock
     clockProvider: Gst.Element
-    /* Fields of Gst.Element */
+    /* Fields of Gst-1.0.Gst.Element */
     object: Gst.Object
     stateLock: GLib.RecMutex
     stateCond: GLib.Cond
@@ -9969,12 +8643,12 @@ export class Timeline {
     sinkpads: Gst.Pad[]
     padsCookie: number
     contexts: Gst.Context[]
-    /* Fields of Gst.Object */
+    /* Fields of Gst-1.0.Gst.Object */
     lock: GLib.Mutex
     flags: number
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GES.Timeline */
+    /* Methods of GES-1.0.GES.Timeline */
     addLayer(layer: Layer): boolean
     addTrack(track: Track): boolean
     appendLayer(): Layer
@@ -10001,7 +8675,7 @@ export class Timeline {
     saveToUri(uri: string, formatterAsset: Asset | null, overwrite: boolean): boolean
     setAutoTransition(autoTransition: boolean): void
     setSnappingDistance(snappingDistance: Gst.ClockTime): void
-    /* Methods of Gst.Bin */
+    /* Methods of Gst-1.0.Gst.Bin */
     add(element: Gst.Element): boolean
     findUnlinkedPad(direction: Gst.PadDirection): Gst.Pad | null
     getByInterface(iface: GObject.Type): Gst.Element | null
@@ -10019,7 +8693,7 @@ export class Timeline {
     remove(element: Gst.Element): boolean
     setSuppressedFlags(flags: Gst.ElementFlags): void
     syncChildrenStates(): boolean
-    /* Methods of Gst.Element */
+    /* Methods of Gst-1.0.Gst.Element */
     abortState(): void
     addPad(pad: Gst.Pad): boolean
     addPropertyDeepNotifyWatch(propertyName: string | null, includeValue: boolean): number
@@ -10047,7 +8721,7 @@ export class Timeline {
     getPadTemplateList(): Gst.PadTemplate[]
     getRequestPad(name: string): Gst.Pad | null
     getStartTime(): Gst.ClockTime
-    getState(timeout: Gst.ClockTime): [ /* returnType */ Gst.StateChangeReturn, /* state */ Gst.State | null, /* pending */ Gst.State | null ]
+    getState(timeout: Gst.ClockTime): { returnType: Gst.StateChangeReturn, state: Gst.State | null, pending: Gst.State | null }
     getStaticPad(name: string): Gst.Pad | null
     isLockedState(): boolean
     iteratePads(): Gst.Iterator
@@ -10065,9 +8739,9 @@ export class Timeline {
     postMessage(message: Gst.Message): boolean
     provideClock(): Gst.Clock | null
     query(query: Gst.Query): boolean
-    queryConvert(srcFormat: Gst.Format, srcVal: number, destFormat: Gst.Format): [ /* returnType */ boolean, /* destVal */ number ]
-    queryDuration(format: Gst.Format): [ /* returnType */ boolean, /* duration */ number | null ]
-    queryPosition(format: Gst.Format): [ /* returnType */ boolean, /* cur */ number | null ]
+    queryConvert(srcFormat: Gst.Format, srcVal: number, destFormat: Gst.Format): { returnType: boolean, destVal: number }
+    queryDuration(format: Gst.Format): { returnType: boolean, duration: number | null }
+    queryPosition(format: Gst.Format): { returnType: boolean, cur: number | null }
     releaseRequestPad(pad: Gst.Pad): void
     removePad(pad: Gst.Pad): boolean
     removePropertyNotifyWatch(watchId: number): void
@@ -10085,7 +8759,7 @@ export class Timeline {
     syncStateWithParent(): boolean
     unlink(dest: Gst.Element): void
     unlinkPads(srcpadname: string, dest: Gst.Element, destpadname: string): void
-    /* Methods of Gst.Object */
+    /* Methods of Gst-1.0.Gst.Object */
     addControlBinding(binding: Gst.ControlBinding): boolean
     defaultError(error: GLib.Error, debug?: string | null): void
     getControlBinding(propertyName: string): Gst.ControlBinding | null
@@ -10110,7 +8784,7 @@ export class Timeline {
     syncValues(timestamp: Gst.ClockTime): boolean
     unparent(): void
     unref(): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -10131,26 +8805,26 @@ export class Timeline {
     stealQdata(quark: GLib.Quark): object | null
     thawNotify(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of GES.Extractable */
+    /* Methods of GES-1.0.GES.Extractable */
     getAsset(): Asset | null
     getId(): string
     setAsset(asset: Asset): boolean
-    /* Methods of GES.MetaContainer */
+    /* Methods of GES-1.0.GES.MetaContainer */
     addMetasFromString(str: string): boolean
-    checkMetaRegistered(metaItem: string): [ /* returnType */ boolean, /* flags */ MetaFlag | null, /* type */ GObject.Type | null ]
+    checkMetaRegistered(metaItem: string): { returnType: boolean, flags: MetaFlag | null, type: GObject.Type | null }
     foreach(func: MetaForeachFunc): void
-    getBoolean(metaItem: string): [ /* returnType */ boolean, /* dest */ boolean ]
-    getDate(metaItem: string): [ /* returnType */ boolean, /* dest */ GLib.Date ]
-    getDateTime(metaItem: string): [ /* returnType */ boolean, /* dest */ Gst.DateTime ]
-    getDouble(metaItem: string): [ /* returnType */ boolean, /* dest */ number ]
-    getFloat(metaItem: string): [ /* returnType */ boolean, /* dest */ number ]
-    getInt(metaItem: string): [ /* returnType */ boolean, /* dest */ number ]
-    getInt64(metaItem: string): [ /* returnType */ boolean, /* dest */ number ]
+    getBoolean(metaItem: string): { returnType: boolean, dest: boolean }
+    getDate(metaItem: string): { returnType: boolean, dest: GLib.Date }
+    getDateTime(metaItem: string): { returnType: boolean, dest: Gst.DateTime }
+    getDouble(metaItem: string): { returnType: boolean, dest: number }
+    getFloat(metaItem: string): { returnType: boolean, dest: number }
+    getInt(metaItem: string): { returnType: boolean, dest: number }
+    getInt64(metaItem: string): { returnType: boolean, dest: number }
     getMarkerList(key: string): MarkerList
     getMeta(key: string): any
     getString(metaItem: string): string
-    getUint(metaItem: string): [ /* returnType */ boolean, /* dest */ number ]
-    getUint64(metaItem: string): [ /* returnType */ boolean, /* dest */ number ]
+    getUint(metaItem: string): { returnType: boolean, dest: number }
+    getUint64(metaItem: string): { returnType: boolean, dest: number }
     metasToString(): string
     registerMeta(flags: MetaFlag, metaItem: string, value: any): boolean
     registerMetaBoolean(flags: MetaFlag, metaItem: string, value: boolean): boolean
@@ -10176,216 +8850,142 @@ export class Timeline {
     setString(metaItem: string, value: string): boolean
     setUint(metaItem: string, value: number): boolean
     setUint64(metaItem: string, value: number): boolean
-    /* Methods of Gst.ChildProxy */
+    /* Methods of Gst-1.0.Gst.ChildProxy */
     childAdded(child: GObject.Object, name: string): void
     childRemoved(child: GObject.Object, name: string): void
     getChildByIndex(index: number): GObject.Object | null
     getChildByName(name: string): GObject.Object | null
     getChildrenCount(): number
-    getProperty(name: string): /* value */ any
-    lookup(name: string): [ /* returnType */ boolean, /* target */ GObject.Object | null, /* pspec */ GObject.ParamSpec | null ]
+    getProperty(name: string): { value: any }
+    lookup(name: string): { returnType: boolean, target: GObject.Object | null, pspec: GObject.ParamSpec | null }
     setProperty(name: string, value: any): void
-    /* Virtual methods of GES.Timeline */
-    vfuncGroupAdded(group: Group): void
-    vfuncLayerAdded(layer: Layer): void
-    vfuncLayerRemoved(layer: Layer): void
-    vfuncTrackAdded(track: Track): void
-    vfuncTrackRemoved(track: Track): void
-    vfuncGetId(): string
-    vfuncSetAsset(asset: Asset): void
-    vfuncSetAssetFull(asset: Asset): boolean
-    vfuncChildAdded(child: GObject.Object, name: string): void
-    vfuncChildRemoved(child: GObject.Object, name: string): void
-    vfuncGetChildByIndex(index: number): GObject.Object | null
-    vfuncGetChildByName(name: string): GObject.Object | null
-    vfuncGetChildrenCount(): number
-    /* Virtual methods of Gst.Bin */
-    vfuncAddElement(element: Gst.Element): boolean
-    vfuncDeepElementAdded(subBin: Gst.Bin, child: Gst.Element): void
-    vfuncDeepElementRemoved(subBin: Gst.Bin, child: Gst.Element): void
-    vfuncDoLatency(): boolean
-    vfuncElementAdded(child: Gst.Element): void
-    vfuncElementRemoved(child: Gst.Element): void
-    vfuncHandleMessage(message: Gst.Message): void
-    vfuncRemoveElement(element: Gst.Element): boolean
-    /* Virtual methods of Gst.Element */
-    vfuncChangeState(transition: Gst.StateChange): Gst.StateChangeReturn
-    vfuncGetState(timeout: Gst.ClockTime): [ /* returnType */ Gst.StateChangeReturn, /* state */ Gst.State | null, /* pending */ Gst.State | null ]
-    vfuncNoMorePads(): void
-    vfuncPadAdded(pad: Gst.Pad): void
-    vfuncPadRemoved(pad: Gst.Pad): void
-    vfuncPostMessage(message: Gst.Message): boolean
-    vfuncProvideClock(): Gst.Clock | null
-    vfuncQuery(query: Gst.Query): boolean
-    vfuncReleasePad(pad: Gst.Pad): void
-    vfuncRequestNewPad(templ: Gst.PadTemplate, name?: string | null, caps?: Gst.Caps | null): Gst.Pad | null
-    vfuncSendEvent(event: Gst.Event): boolean
-    vfuncSetBus(bus?: Gst.Bus | null): void
-    vfuncSetClock(clock?: Gst.Clock | null): boolean
-    vfuncSetContext(context: Gst.Context): void
-    vfuncSetState(state: Gst.State): Gst.StateChangeReturn
-    vfuncStateChanged(oldstate: Gst.State, newstate: Gst.State, pending: Gst.State): void
-    /* Virtual methods of Gst.Object */
-    vfuncDeepNotify(orig: Gst.Object, pspec: GObject.ParamSpec): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GES.Timeline */
+    /* Signals of GES-1.0.GES.Timeline */
     connect(sigName: "commited", callback: (($obj: Timeline) => void)): number
-    connect_after(sigName: "commited", callback: (($obj: Timeline) => void)): number
+    on(sigName: "commited", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "commited", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "commited", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "commited"): void
-    on(sigName: "commited", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "commited", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "commited", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "group-added", callback: (($obj: Timeline, group: Group) => void)): number
-    connect_after(sigName: "group-added", callback: (($obj: Timeline, group: Group) => void)): number
+    on(sigName: "group-added", callback: (group: Group) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "group-added", callback: (group: Group) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "group-added", callback: (group: Group) => void): NodeJS.EventEmitter
     emit(sigName: "group-added", group: Group): void
-    on(sigName: "group-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "group-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "group-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "group-removed", callback: (($obj: Timeline, group: Group, children: Container[]) => void)): number
-    connect_after(sigName: "group-removed", callback: (($obj: Timeline, group: Group, children: Container[]) => void)): number
+    on(sigName: "group-removed", callback: (group: Group, children: Container[]) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "group-removed", callback: (group: Group, children: Container[]) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "group-removed", callback: (group: Group, children: Container[]) => void): NodeJS.EventEmitter
     emit(sigName: "group-removed", group: Group, children: Container[]): void
-    on(sigName: "group-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "group-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "group-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "layer-added", callback: (($obj: Timeline, layer: Layer) => void)): number
-    connect_after(sigName: "layer-added", callback: (($obj: Timeline, layer: Layer) => void)): number
+    on(sigName: "layer-added", callback: (layer: Layer) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "layer-added", callback: (layer: Layer) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "layer-added", callback: (layer: Layer) => void): NodeJS.EventEmitter
     emit(sigName: "layer-added", layer: Layer): void
-    on(sigName: "layer-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "layer-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "layer-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "layer-removed", callback: (($obj: Timeline, layer: Layer) => void)): number
-    connect_after(sigName: "layer-removed", callback: (($obj: Timeline, layer: Layer) => void)): number
+    on(sigName: "layer-removed", callback: (layer: Layer) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "layer-removed", callback: (layer: Layer) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "layer-removed", callback: (layer: Layer) => void): NodeJS.EventEmitter
     emit(sigName: "layer-removed", layer: Layer): void
-    on(sigName: "layer-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "layer-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "layer-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "select-element-track", callback: (($obj: Timeline, clip: Clip, trackElement: TrackElement) => Track)): number
-    connect_after(sigName: "select-element-track", callback: (($obj: Timeline, clip: Clip, trackElement: TrackElement) => Track)): number
+    on(sigName: "select-element-track", callback: (clip: Clip, trackElement: TrackElement) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "select-element-track", callback: (clip: Clip, trackElement: TrackElement) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "select-element-track", callback: (clip: Clip, trackElement: TrackElement) => void): NodeJS.EventEmitter
     emit(sigName: "select-element-track", clip: Clip, trackElement: TrackElement): void
-    on(sigName: "select-element-track", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "select-element-track", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "select-element-track", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "select-tracks-for-object", callback: (($obj: Timeline, clip: Clip, trackElement: TrackElement) => Track[])): number
-    connect_after(sigName: "select-tracks-for-object", callback: (($obj: Timeline, clip: Clip, trackElement: TrackElement) => Track[])): number
+    on(sigName: "select-tracks-for-object", callback: (clip: Clip, trackElement: TrackElement) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "select-tracks-for-object", callback: (clip: Clip, trackElement: TrackElement) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "select-tracks-for-object", callback: (clip: Clip, trackElement: TrackElement) => void): NodeJS.EventEmitter
     emit(sigName: "select-tracks-for-object", clip: Clip, trackElement: TrackElement): void
-    on(sigName: "select-tracks-for-object", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "select-tracks-for-object", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "select-tracks-for-object", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "snapping-ended", callback: (($obj: Timeline, obj1: TrackElement, obj2: TrackElement, position: number) => void)): number
-    connect_after(sigName: "snapping-ended", callback: (($obj: Timeline, obj1: TrackElement, obj2: TrackElement, position: number) => void)): number
+    on(sigName: "snapping-ended", callback: (obj1: TrackElement, obj2: TrackElement, position: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "snapping-ended", callback: (obj1: TrackElement, obj2: TrackElement, position: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "snapping-ended", callback: (obj1: TrackElement, obj2: TrackElement, position: number) => void): NodeJS.EventEmitter
     emit(sigName: "snapping-ended", obj1: TrackElement, obj2: TrackElement, position: number): void
-    on(sigName: "snapping-ended", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "snapping-ended", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "snapping-ended", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "snapping-started", callback: (($obj: Timeline, obj1: TrackElement, obj2: TrackElement, position: number) => void)): number
-    connect_after(sigName: "snapping-started", callback: (($obj: Timeline, obj1: TrackElement, obj2: TrackElement, position: number) => void)): number
+    on(sigName: "snapping-started", callback: (obj1: TrackElement, obj2: TrackElement, position: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "snapping-started", callback: (obj1: TrackElement, obj2: TrackElement, position: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "snapping-started", callback: (obj1: TrackElement, obj2: TrackElement, position: number) => void): NodeJS.EventEmitter
     emit(sigName: "snapping-started", obj1: TrackElement, obj2: TrackElement, position: number): void
-    on(sigName: "snapping-started", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "snapping-started", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "snapping-started", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "track-added", callback: (($obj: Timeline, track: Track) => void)): number
-    connect_after(sigName: "track-added", callback: (($obj: Timeline, track: Track) => void)): number
+    on(sigName: "track-added", callback: (track: Track) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "track-added", callback: (track: Track) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "track-added", callback: (track: Track) => void): NodeJS.EventEmitter
     emit(sigName: "track-added", track: Track): void
-    on(sigName: "track-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "track-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "track-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "track-removed", callback: (($obj: Timeline, track: Track) => void)): number
-    connect_after(sigName: "track-removed", callback: (($obj: Timeline, track: Track) => void)): number
+    on(sigName: "track-removed", callback: (track: Track) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "track-removed", callback: (track: Track) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "track-removed", callback: (track: Track) => void): NodeJS.EventEmitter
     emit(sigName: "track-removed", track: Track): void
-    on(sigName: "track-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "track-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "track-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of Gst.Bin */
+    /* Signals of Gst-1.0.Gst.Bin */
     connect(sigName: "deep-element-added", callback: (($obj: Timeline, subBin: Gst.Bin, element: Gst.Element) => void)): number
-    connect_after(sigName: "deep-element-added", callback: (($obj: Timeline, subBin: Gst.Bin, element: Gst.Element) => void)): number
+    on(sigName: "deep-element-added", callback: (subBin: Gst.Bin, element: Gst.Element) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "deep-element-added", callback: (subBin: Gst.Bin, element: Gst.Element) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "deep-element-added", callback: (subBin: Gst.Bin, element: Gst.Element) => void): NodeJS.EventEmitter
     emit(sigName: "deep-element-added", subBin: Gst.Bin, element: Gst.Element): void
-    on(sigName: "deep-element-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "deep-element-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "deep-element-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "deep-element-removed", callback: (($obj: Timeline, subBin: Gst.Bin, element: Gst.Element) => void)): number
-    connect_after(sigName: "deep-element-removed", callback: (($obj: Timeline, subBin: Gst.Bin, element: Gst.Element) => void)): number
+    on(sigName: "deep-element-removed", callback: (subBin: Gst.Bin, element: Gst.Element) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "deep-element-removed", callback: (subBin: Gst.Bin, element: Gst.Element) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "deep-element-removed", callback: (subBin: Gst.Bin, element: Gst.Element) => void): NodeJS.EventEmitter
     emit(sigName: "deep-element-removed", subBin: Gst.Bin, element: Gst.Element): void
-    on(sigName: "deep-element-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "deep-element-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "deep-element-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "do-latency", callback: (($obj: Timeline) => boolean)): number
-    connect_after(sigName: "do-latency", callback: (($obj: Timeline) => boolean)): number
+    on(sigName: "do-latency", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "do-latency", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "do-latency", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "do-latency"): void
-    on(sigName: "do-latency", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "do-latency", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "do-latency", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "element-added", callback: (($obj: Timeline, element: Gst.Element) => void)): number
-    connect_after(sigName: "element-added", callback: (($obj: Timeline, element: Gst.Element) => void)): number
+    on(sigName: "element-added", callback: (element: Gst.Element) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "element-added", callback: (element: Gst.Element) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "element-added", callback: (element: Gst.Element) => void): NodeJS.EventEmitter
     emit(sigName: "element-added", element: Gst.Element): void
-    on(sigName: "element-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "element-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "element-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "element-removed", callback: (($obj: Timeline, element: Gst.Element) => void)): number
-    connect_after(sigName: "element-removed", callback: (($obj: Timeline, element: Gst.Element) => void)): number
+    on(sigName: "element-removed", callback: (element: Gst.Element) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "element-removed", callback: (element: Gst.Element) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "element-removed", callback: (element: Gst.Element) => void): NodeJS.EventEmitter
     emit(sigName: "element-removed", element: Gst.Element): void
-    on(sigName: "element-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "element-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "element-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of Gst.Element */
+    /* Signals of Gst-1.0.Gst.Element */
     connect(sigName: "no-more-pads", callback: (($obj: Timeline) => void)): number
-    connect_after(sigName: "no-more-pads", callback: (($obj: Timeline) => void)): number
+    on(sigName: "no-more-pads", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "no-more-pads", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "no-more-pads", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "no-more-pads"): void
-    on(sigName: "no-more-pads", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "no-more-pads", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "no-more-pads", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "pad-added", callback: (($obj: Timeline, newPad: Gst.Pad) => void)): number
-    connect_after(sigName: "pad-added", callback: (($obj: Timeline, newPad: Gst.Pad) => void)): number
+    on(sigName: "pad-added", callback: (newPad: Gst.Pad) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "pad-added", callback: (newPad: Gst.Pad) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "pad-added", callback: (newPad: Gst.Pad) => void): NodeJS.EventEmitter
     emit(sigName: "pad-added", newPad: Gst.Pad): void
-    on(sigName: "pad-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "pad-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "pad-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "pad-removed", callback: (($obj: Timeline, oldPad: Gst.Pad) => void)): number
-    connect_after(sigName: "pad-removed", callback: (($obj: Timeline, oldPad: Gst.Pad) => void)): number
+    on(sigName: "pad-removed", callback: (oldPad: Gst.Pad) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "pad-removed", callback: (oldPad: Gst.Pad) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "pad-removed", callback: (oldPad: Gst.Pad) => void): NodeJS.EventEmitter
     emit(sigName: "pad-removed", oldPad: Gst.Pad): void
-    on(sigName: "pad-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "pad-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "pad-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of Gst.Object */
+    /* Signals of Gst-1.0.Gst.Object */
     connect(sigName: "deep-notify", callback: (($obj: Timeline, propObject: Gst.Object, prop: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "deep-notify", callback: (($obj: Timeline, propObject: Gst.Object, prop: GObject.ParamSpec) => void)): number
+    on(sigName: "deep-notify", callback: (propObject: Gst.Object, prop: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "deep-notify", callback: (propObject: Gst.Object, prop: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "deep-notify", callback: (propObject: Gst.Object, prop: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "deep-notify", propObject: Gst.Object, prop: GObject.ParamSpec): void
-    on(sigName: "deep-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "deep-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "deep-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Timeline, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Timeline, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GES.MetaContainer */
+    /* Signals of GES-1.0.GES.MetaContainer */
     connect(sigName: "notify-meta", callback: (($obj: Timeline, key: string, value?: any | null) => void)): number
-    connect_after(sigName: "notify-meta", callback: (($obj: Timeline, key: string, value?: any | null) => void)): number
+    on(sigName: "notify-meta", callback: (key: string, value?: any | null) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify-meta", callback: (key: string, value?: any | null) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify-meta", callback: (key: string, value?: any | null) => void): NodeJS.EventEmitter
     emit(sigName: "notify-meta", key: string, value?: any | null): void
-    on(sigName: "notify-meta", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify-meta", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify-meta", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of Gst.ChildProxy */
+    /* Signals of Gst-1.0.Gst.ChildProxy */
     connect(sigName: "child-added", callback: (($obj: Timeline, object: GObject.Object, name: string) => void)): number
-    connect_after(sigName: "child-added", callback: (($obj: Timeline, object: GObject.Object, name: string) => void)): number
+    on(sigName: "child-added", callback: (object: GObject.Object, name: string) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "child-added", callback: (object: GObject.Object, name: string) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "child-added", callback: (object: GObject.Object, name: string) => void): NodeJS.EventEmitter
     emit(sigName: "child-added", object: GObject.Object, name: string): void
-    on(sigName: "child-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "child-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "child-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "child-removed", callback: (($obj: Timeline, object: GObject.Object, name: string) => void)): number
-    connect_after(sigName: "child-removed", callback: (($obj: Timeline, object: GObject.Object, name: string) => void)): number
+    on(sigName: "child-removed", callback: (object: GObject.Object, name: string) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "child-removed", callback: (object: GObject.Object, name: string) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "child-removed", callback: (object: GObject.Object, name: string) => void): NodeJS.EventEmitter
     emit(sigName: "child-removed", object: GObject.Object, name: string): void
-    on(sigName: "child-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "child-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "child-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::auto-transition", callback: (($obj: Timeline, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::auto-transition", callback: (($obj: Timeline, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::auto-transition", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -10450,7 +9050,7 @@ export interface TimelineElement_ConstructProps extends GObject.InitiallyUnowned
     timeline?: Timeline
 }
 export class TimelineElement {
-    /* Properties of GES.TimelineElement */
+    /* Properties of GES-1.0.GES.TimelineElement */
     duration: number
     inPoint: number
     maxDuration: number
@@ -10460,26 +9060,26 @@ export class TimelineElement {
     serialize: boolean
     start: number
     timeline: Timeline
-    /* Fields of GES.TimelineElement */
+    /* Fields of GES-1.0.GES.TimelineElement */
     parentInstance: GObject.InitiallyUnowned
     asset: Asset
     inpoint: Gst.ClockTime
     maxduration: Gst.ClockTime
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GES.TimelineElement */
+    /* Methods of GES-1.0.GES.TimelineElement */
     addChildProperty(pspec: GObject.ParamSpec, child: GObject.Object): boolean
     copy(deep: boolean): TimelineElement
     edit(layers: Layer[] | null, newLayerPriority: number, mode: EditMode, edge: Edge, position: number): boolean
     editFull(newLayerPriority: number, mode: EditMode, edge: Edge, position: number): boolean
-    getChildProperty(propertyName: string): [ /* returnType */ boolean, /* value */ any ]
-    getChildPropertyByPspec(pspec: GObject.ParamSpec): /* value */ any
+    getChildProperty(propertyName: string): { returnType: boolean, value: any }
+    getChildPropertyByPspec(pspec: GObject.ParamSpec): { value: any }
     getDuration(): Gst.ClockTime
     getInpoint(): Gst.ClockTime
     getLayerPriority(): number
     getMaxDuration(): Gst.ClockTime
     getName(): string
-    getNaturalFramerate(): [ /* returnType */ boolean, /* framerateN */ number, /* framerateD */ number ]
+    getNaturalFramerate(): { returnType: boolean, framerateN: number, framerateD: number }
     getParent(): TimelineElement | null
     getPriority(): number
     getStart(): Gst.ClockTime
@@ -10487,7 +9087,7 @@ export class TimelineElement {
     getToplevelParent(): TimelineElement
     getTrackTypes(): TrackType
     listChildrenProperties(): GObject.ParamSpec[]
-    lookupChild(propName: string): [ /* returnType */ boolean, /* child */ GObject.Object | null, /* pspec */ GObject.ParamSpec | null ]
+    lookupChild(propName: string): { returnType: boolean, child: GObject.Object | null, pspec: GObject.ParamSpec | null }
     paste(pastePosition: Gst.ClockTime): TimelineElement | null
     removeChildProperty(pspec: GObject.ParamSpec): boolean
     ripple(start: Gst.ClockTime): boolean
@@ -10506,7 +9106,7 @@ export class TimelineElement {
     setStart(start: Gst.ClockTime): boolean
     setTimeline(timeline: Timeline): boolean
     trim(start: Gst.ClockTime): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -10528,26 +9128,26 @@ export class TimelineElement {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of GES.Extractable */
+    /* Methods of GES-1.0.GES.Extractable */
     getAsset(): Asset | null
     getId(): string
     setAsset(asset: Asset): boolean
-    /* Methods of GES.MetaContainer */
+    /* Methods of GES-1.0.GES.MetaContainer */
     addMetasFromString(str: string): boolean
-    checkMetaRegistered(metaItem: string): [ /* returnType */ boolean, /* flags */ MetaFlag | null, /* type */ GObject.Type | null ]
+    checkMetaRegistered(metaItem: string): { returnType: boolean, flags: MetaFlag | null, type: GObject.Type | null }
     foreach(func: MetaForeachFunc): void
-    getBoolean(metaItem: string): [ /* returnType */ boolean, /* dest */ boolean ]
-    getDate(metaItem: string): [ /* returnType */ boolean, /* dest */ GLib.Date ]
-    getDateTime(metaItem: string): [ /* returnType */ boolean, /* dest */ Gst.DateTime ]
-    getDouble(metaItem: string): [ /* returnType */ boolean, /* dest */ number ]
-    getFloat(metaItem: string): [ /* returnType */ boolean, /* dest */ number ]
-    getInt(metaItem: string): [ /* returnType */ boolean, /* dest */ number ]
-    getInt64(metaItem: string): [ /* returnType */ boolean, /* dest */ number ]
+    getBoolean(metaItem: string): { returnType: boolean, dest: boolean }
+    getDate(metaItem: string): { returnType: boolean, dest: GLib.Date }
+    getDateTime(metaItem: string): { returnType: boolean, dest: Gst.DateTime }
+    getDouble(metaItem: string): { returnType: boolean, dest: number }
+    getFloat(metaItem: string): { returnType: boolean, dest: number }
+    getInt(metaItem: string): { returnType: boolean, dest: number }
+    getInt64(metaItem: string): { returnType: boolean, dest: number }
     getMarkerList(key: string): MarkerList
     getMeta(key: string): any
     getString(metaItem: string): string
-    getUint(metaItem: string): [ /* returnType */ boolean, /* dest */ number ]
-    getUint64(metaItem: string): [ /* returnType */ boolean, /* dest */ number ]
+    getUint(metaItem: string): { returnType: boolean, dest: number }
+    getUint64(metaItem: string): { returnType: boolean, dest: number }
     metasToString(): string
     registerMeta(flags: MetaFlag, metaItem: string, value: any): boolean
     registerMetaBoolean(flags: MetaFlag, metaItem: string, value: boolean): boolean
@@ -10573,69 +9173,34 @@ export class TimelineElement {
     setString(metaItem: string, value: string): boolean
     setUint(metaItem: string, value: number): boolean
     setUint64(metaItem: string, value: number): boolean
-    /* Virtual methods of GES.TimelineElement */
-    vfuncDeepCopy(copy: TimelineElement): void
-    vfuncGetLayerPriority(): number
-    vfuncGetNaturalFramerate(): [ /* returnType */ boolean, /* framerateN */ number, /* framerateD */ number ]
-    vfuncGetTrackTypes(): TrackType
-    vfuncLookupChild(propName: string): [ /* returnType */ boolean, /* child */ GObject.Object | null, /* pspec */ GObject.ParamSpec | null ]
-    vfuncRipple(start: number): boolean
-    vfuncRippleEnd(end: number): boolean
-    vfuncRollEnd(end: number): boolean
-    vfuncRollStart(start: number): boolean
-    vfuncSetChildProperty(child: GObject.Object, pspec: GObject.ParamSpec, value: any): void
-    vfuncSetChildPropertyFull(child: GObject.Object, pspec: GObject.ParamSpec, value: any): boolean
-    vfuncSetDuration(duration: Gst.ClockTime): boolean
-    vfuncSetInpoint(inpoint: Gst.ClockTime): boolean
-    vfuncSetMaxDuration(maxduration: Gst.ClockTime): boolean
-    vfuncSetParent(parent: TimelineElement): boolean
-    vfuncSetPriority(priority: number): boolean
-    vfuncSetStart(start: Gst.ClockTime): boolean
-    vfuncTrim(start: number): boolean
-    vfuncGetId(): string
-    vfuncSetAsset(asset: Asset): void
-    vfuncSetAssetFull(asset: Asset): boolean
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GES.TimelineElement */
+    /* Signals of GES-1.0.GES.TimelineElement */
     connect(sigName: "child-property-added", callback: (($obj: TimelineElement, propObject: GObject.Object, prop: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "child-property-added", callback: (($obj: TimelineElement, propObject: GObject.Object, prop: GObject.ParamSpec) => void)): number
+    on(sigName: "child-property-added", callback: (propObject: GObject.Object, prop: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "child-property-added", callback: (propObject: GObject.Object, prop: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "child-property-added", callback: (propObject: GObject.Object, prop: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "child-property-added", propObject: GObject.Object, prop: GObject.ParamSpec): void
-    on(sigName: "child-property-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "child-property-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "child-property-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "child-property-removed", callback: (($obj: TimelineElement, propObject: GObject.Object, prop: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "child-property-removed", callback: (($obj: TimelineElement, propObject: GObject.Object, prop: GObject.ParamSpec) => void)): number
+    on(sigName: "child-property-removed", callback: (propObject: GObject.Object, prop: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "child-property-removed", callback: (propObject: GObject.Object, prop: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "child-property-removed", callback: (propObject: GObject.Object, prop: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "child-property-removed", propObject: GObject.Object, prop: GObject.ParamSpec): void
-    on(sigName: "child-property-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "child-property-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "child-property-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "deep-notify", callback: (($obj: TimelineElement, propObject: GObject.Object, prop: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "deep-notify", callback: (($obj: TimelineElement, propObject: GObject.Object, prop: GObject.ParamSpec) => void)): number
+    on(sigName: "deep-notify", callback: (propObject: GObject.Object, prop: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "deep-notify", callback: (propObject: GObject.Object, prop: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "deep-notify", callback: (propObject: GObject.Object, prop: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "deep-notify", propObject: GObject.Object, prop: GObject.ParamSpec): void
-    on(sigName: "deep-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "deep-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "deep-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: TimelineElement, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: TimelineElement, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GES.MetaContainer */
+    /* Signals of GES-1.0.GES.MetaContainer */
     connect(sigName: "notify-meta", callback: (($obj: TimelineElement, key: string, value?: any | null) => void)): number
-    connect_after(sigName: "notify-meta", callback: (($obj: TimelineElement, key: string, value?: any | null) => void)): number
+    on(sigName: "notify-meta", callback: (key: string, value?: any | null) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify-meta", callback: (key: string, value?: any | null) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify-meta", callback: (key: string, value?: any | null) => void): NodeJS.EventEmitter
     emit(sigName: "notify-meta", key: string, value?: any | null): void
-    on(sigName: "notify-meta", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify-meta", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify-meta", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::duration", callback: (($obj: TimelineElement, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::duration", callback: (($obj: TimelineElement, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::duration", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -10704,7 +9269,7 @@ export interface TitleClip_ConstructProps extends SourceClip_ConstructProps {
     ypos?: number
 }
 export class TitleClip {
-    /* Properties of GES.TitleClip */
+    /* Properties of GES-1.0.GES.TitleClip */
     background: number
     color: number
     fontDesc: string
@@ -10713,13 +9278,13 @@ export class TitleClip {
     valignment: TextVAlign
     xpos: number
     ypos: number
-    /* Properties of GES.Clip */
+    /* Properties of GES-1.0.GES.Clip */
     readonly durationLimit: number
     readonly layer: Layer
     supportedFormats: TrackType
-    /* Properties of GES.Container */
+    /* Properties of GES-1.0.GES.Container */
     readonly height: number
-    /* Properties of GES.TimelineElement */
+    /* Properties of GES-1.0.GES.TimelineElement */
     duration: number
     inPoint: number
     maxDuration: number
@@ -10729,18 +9294,18 @@ export class TitleClip {
     serialize: boolean
     start: number
     timeline: Timeline
-    /* Fields of GES.Container */
+    /* Fields of GES-1.0.GES.Container */
     children: TimelineElement[]
     childrenControlMode: ChildrenControlMode
     initiatedMove: TimelineElement
-    /* Fields of GES.TimelineElement */
+    /* Fields of GES-1.0.GES.TimelineElement */
     parentInstance: GObject.InitiallyUnowned
     asset: Asset
     inpoint: Gst.ClockTime
     maxduration: Gst.ClockTime
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GES.TitleClip */
+    /* Methods of GES-1.0.GES.TitleClip */
     getBackgroundColor(): number
     getFontDesc(): string
     getHalignment(): TextHAlign
@@ -10757,7 +9322,7 @@ export class TitleClip {
     setValignment(valign: TextVAlign): void
     setXpos(position: number): void
     setYpos(position: number): void
-    /* Methods of GES.Clip */
+    /* Methods of GES-1.0.GES.Clip */
     addAsset(asset: Asset): TrackElement | null
     addChildToTrack(child: TrackElement, track: Track): TrackElement
     addTopEffect(effect: BaseEffect, index: number): boolean
@@ -10781,24 +9346,24 @@ export class TitleClip {
     setTopEffectPriority(effect: BaseEffect, newpriority: number): boolean
     split(position: number): Clip | null
     splitFull(position: number): Clip | null
-    /* Methods of GES.Container */
+    /* Methods of GES-1.0.GES.Container */
     add(child: TimelineElement): boolean
     edit(layers: Layer[] | null, newLayerPriority: number, mode: EditMode, edge: Edge, position: number): boolean
     getChildren(recursive: boolean): TimelineElement[]
     remove(child: TimelineElement): boolean
     ungroup(recursive: boolean): Container[]
-    /* Methods of GES.TimelineElement */
+    /* Methods of GES-1.0.GES.TimelineElement */
     addChildProperty(pspec: GObject.ParamSpec, child: GObject.Object): boolean
     copy(deep: boolean): TimelineElement
     editFull(newLayerPriority: number, mode: EditMode, edge: Edge, position: number): boolean
-    getChildProperty(propertyName: string): [ /* returnType */ boolean, /* value */ any ]
-    getChildPropertyByPspec(pspec: GObject.ParamSpec): /* value */ any
+    getChildProperty(propertyName: string): { returnType: boolean, value: any }
+    getChildPropertyByPspec(pspec: GObject.ParamSpec): { value: any }
     getDuration(): Gst.ClockTime
     getInpoint(): Gst.ClockTime
     getLayerPriority(): number
     getMaxDuration(): Gst.ClockTime
     getName(): string
-    getNaturalFramerate(): [ /* returnType */ boolean, /* framerateN */ number, /* framerateD */ number ]
+    getNaturalFramerate(): { returnType: boolean, framerateN: number, framerateD: number }
     getParent(): TimelineElement | null
     getPriority(): number
     getStart(): Gst.ClockTime
@@ -10806,7 +9371,7 @@ export class TitleClip {
     getToplevelParent(): TimelineElement
     getTrackTypes(): TrackType
     listChildrenProperties(): GObject.ParamSpec[]
-    lookupChild(propName: string): [ /* returnType */ boolean, /* child */ GObject.Object | null, /* pspec */ GObject.ParamSpec | null ]
+    lookupChild(propName: string): { returnType: boolean, child: GObject.Object | null, pspec: GObject.ParamSpec | null }
     paste(pastePosition: Gst.ClockTime): TimelineElement | null
     removeChildProperty(pspec: GObject.ParamSpec): boolean
     ripple(start: Gst.ClockTime): boolean
@@ -10825,7 +9390,7 @@ export class TitleClip {
     setStart(start: Gst.ClockTime): boolean
     setTimeline(timeline: Timeline): boolean
     trim(start: Gst.ClockTime): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -10847,26 +9412,26 @@ export class TitleClip {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of GES.Extractable */
+    /* Methods of GES-1.0.GES.Extractable */
     getAsset(): Asset | null
     getId(): string
     setAsset(asset: Asset): boolean
-    /* Methods of GES.MetaContainer */
+    /* Methods of GES-1.0.GES.MetaContainer */
     addMetasFromString(str: string): boolean
-    checkMetaRegistered(metaItem: string): [ /* returnType */ boolean, /* flags */ MetaFlag | null, /* type */ GObject.Type | null ]
+    checkMetaRegistered(metaItem: string): { returnType: boolean, flags: MetaFlag | null, type: GObject.Type | null }
     foreach(func: MetaForeachFunc): void
-    getBoolean(metaItem: string): [ /* returnType */ boolean, /* dest */ boolean ]
-    getDate(metaItem: string): [ /* returnType */ boolean, /* dest */ GLib.Date ]
-    getDateTime(metaItem: string): [ /* returnType */ boolean, /* dest */ Gst.DateTime ]
-    getDouble(metaItem: string): [ /* returnType */ boolean, /* dest */ number ]
-    getFloat(metaItem: string): [ /* returnType */ boolean, /* dest */ number ]
-    getInt(metaItem: string): [ /* returnType */ boolean, /* dest */ number ]
-    getInt64(metaItem: string): [ /* returnType */ boolean, /* dest */ number ]
+    getBoolean(metaItem: string): { returnType: boolean, dest: boolean }
+    getDate(metaItem: string): { returnType: boolean, dest: GLib.Date }
+    getDateTime(metaItem: string): { returnType: boolean, dest: Gst.DateTime }
+    getDouble(metaItem: string): { returnType: boolean, dest: number }
+    getFloat(metaItem: string): { returnType: boolean, dest: number }
+    getInt(metaItem: string): { returnType: boolean, dest: number }
+    getInt64(metaItem: string): { returnType: boolean, dest: number }
     getMarkerList(key: string): MarkerList
     getMeta(key: string): any
     getString(metaItem: string): string
-    getUint(metaItem: string): [ /* returnType */ boolean, /* dest */ number ]
-    getUint64(metaItem: string): [ /* returnType */ boolean, /* dest */ number ]
+    getUint(metaItem: string): { returnType: boolean, dest: number }
+    getUint64(metaItem: string): { returnType: boolean, dest: number }
     metasToString(): string
     registerMeta(flags: MetaFlag, metaItem: string, value: any): boolean
     registerMetaBoolean(flags: MetaFlag, metaItem: string, value: boolean): boolean
@@ -10892,92 +9457,45 @@ export class TitleClip {
     setString(metaItem: string, value: string): boolean
     setUint(metaItem: string, value: number): boolean
     setUint64(metaItem: string, value: number): boolean
-    /* Virtual methods of GES.Clip */
-    vfuncCreateTrackElement(type: TrackType): TrackElement | null
-    vfuncCreateTrackElements(type: TrackType): TrackElement[]
-    /* Virtual methods of GES.Container */
-    vfuncAddChild(element: TimelineElement): boolean
-    vfuncChildAdded(element: TimelineElement): void
-    vfuncChildRemoved(element: TimelineElement): void
-    vfuncEdit(layers: Layer[] | null, newLayerPriority: number, mode: EditMode, edge: Edge, position: number): boolean
-    vfuncRemoveChild(element: TimelineElement): boolean
-    vfuncUngroup(recursive: boolean): Container[]
-    /* Virtual methods of GES.TimelineElement */
-    vfuncDeepCopy(copy: TimelineElement): void
-    vfuncGetLayerPriority(): number
-    vfuncGetNaturalFramerate(): [ /* returnType */ boolean, /* framerateN */ number, /* framerateD */ number ]
-    vfuncGetTrackTypes(): TrackType
-    vfuncLookupChild(propName: string): [ /* returnType */ boolean, /* child */ GObject.Object | null, /* pspec */ GObject.ParamSpec | null ]
-    vfuncRipple(start: number): boolean
-    vfuncRippleEnd(end: number): boolean
-    vfuncRollEnd(end: number): boolean
-    vfuncRollStart(start: number): boolean
-    vfuncSetChildProperty(child: GObject.Object, pspec: GObject.ParamSpec, value: any): void
-    vfuncSetChildPropertyFull(child: GObject.Object, pspec: GObject.ParamSpec, value: any): boolean
-    vfuncSetDuration(duration: Gst.ClockTime): boolean
-    vfuncSetInpoint(inpoint: Gst.ClockTime): boolean
-    vfuncSetMaxDuration(maxduration: Gst.ClockTime): boolean
-    vfuncSetParent(parent: TimelineElement): boolean
-    vfuncSetPriority(priority: number): boolean
-    vfuncSetStart(start: Gst.ClockTime): boolean
-    vfuncTrim(start: number): boolean
-    vfuncGetId(): string
-    vfuncSetAsset(asset: Asset): void
-    vfuncSetAssetFull(asset: Asset): boolean
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GES.Container */
+    /* Signals of GES-1.0.GES.Container */
     connect(sigName: "child-added", callback: (($obj: TitleClip, element: TimelineElement) => void)): number
-    connect_after(sigName: "child-added", callback: (($obj: TitleClip, element: TimelineElement) => void)): number
+    on(sigName: "child-added", callback: (element: TimelineElement) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "child-added", callback: (element: TimelineElement) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "child-added", callback: (element: TimelineElement) => void): NodeJS.EventEmitter
     emit(sigName: "child-added", element: TimelineElement): void
-    on(sigName: "child-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "child-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "child-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "child-removed", callback: (($obj: TitleClip, element: TimelineElement) => void)): number
-    connect_after(sigName: "child-removed", callback: (($obj: TitleClip, element: TimelineElement) => void)): number
+    on(sigName: "child-removed", callback: (element: TimelineElement) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "child-removed", callback: (element: TimelineElement) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "child-removed", callback: (element: TimelineElement) => void): NodeJS.EventEmitter
     emit(sigName: "child-removed", element: TimelineElement): void
-    on(sigName: "child-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "child-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "child-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GES.TimelineElement */
+    /* Signals of GES-1.0.GES.TimelineElement */
     connect(sigName: "child-property-added", callback: (($obj: TitleClip, propObject: GObject.Object, prop: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "child-property-added", callback: (($obj: TitleClip, propObject: GObject.Object, prop: GObject.ParamSpec) => void)): number
+    on(sigName: "child-property-added", callback: (propObject: GObject.Object, prop: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "child-property-added", callback: (propObject: GObject.Object, prop: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "child-property-added", callback: (propObject: GObject.Object, prop: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "child-property-added", propObject: GObject.Object, prop: GObject.ParamSpec): void
-    on(sigName: "child-property-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "child-property-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "child-property-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "child-property-removed", callback: (($obj: TitleClip, propObject: GObject.Object, prop: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "child-property-removed", callback: (($obj: TitleClip, propObject: GObject.Object, prop: GObject.ParamSpec) => void)): number
+    on(sigName: "child-property-removed", callback: (propObject: GObject.Object, prop: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "child-property-removed", callback: (propObject: GObject.Object, prop: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "child-property-removed", callback: (propObject: GObject.Object, prop: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "child-property-removed", propObject: GObject.Object, prop: GObject.ParamSpec): void
-    on(sigName: "child-property-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "child-property-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "child-property-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "deep-notify", callback: (($obj: TitleClip, propObject: GObject.Object, prop: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "deep-notify", callback: (($obj: TitleClip, propObject: GObject.Object, prop: GObject.ParamSpec) => void)): number
+    on(sigName: "deep-notify", callback: (propObject: GObject.Object, prop: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "deep-notify", callback: (propObject: GObject.Object, prop: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "deep-notify", callback: (propObject: GObject.Object, prop: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "deep-notify", propObject: GObject.Object, prop: GObject.ParamSpec): void
-    on(sigName: "deep-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "deep-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "deep-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: TitleClip, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: TitleClip, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GES.MetaContainer */
+    /* Signals of GES-1.0.GES.MetaContainer */
     connect(sigName: "notify-meta", callback: (($obj: TitleClip, key: string, value?: any | null) => void)): number
-    connect_after(sigName: "notify-meta", callback: (($obj: TitleClip, key: string, value?: any | null) => void)): number
+    on(sigName: "notify-meta", callback: (key: string, value?: any | null) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify-meta", callback: (key: string, value?: any | null) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify-meta", callback: (key: string, value?: any | null) => void): NodeJS.EventEmitter
     emit(sigName: "notify-meta", key: string, value?: any | null): void
-    on(sigName: "notify-meta", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify-meta", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify-meta", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::background", callback: (($obj: TitleClip, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::background", callback: (($obj: TitleClip, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::background", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -11100,13 +9618,13 @@ export class TitleClip {
 export interface TitleSource_ConstructProps extends VideoSource_ConstructProps {
 }
 export class TitleSource {
-    /* Properties of GES.TrackElement */
+    /* Properties of GES-1.0.GES.TrackElement */
     active: boolean
     autoClampControlSources: boolean
     hasInternalSource: boolean
     readonly track: Track
     trackType: TrackType
-    /* Properties of GES.TimelineElement */
+    /* Properties of GES-1.0.GES.TimelineElement */
     duration: number
     inPoint: number
     maxDuration: number
@@ -11116,14 +9634,14 @@ export class TitleSource {
     serialize: boolean
     start: number
     timeline: Timeline
-    /* Fields of GES.TimelineElement */
+    /* Fields of GES-1.0.GES.TimelineElement */
     parentInstance: GObject.InitiallyUnowned
     asset: Asset
     inpoint: Gst.ClockTime
     maxduration: Gst.ClockTime
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GES.TitleSource */
+    /* Methods of GES-1.0.GES.TitleSource */
     getBackgroundColor(): number
     getFontDesc(): string
     getHalignment(): TextHAlign
@@ -11140,9 +9658,9 @@ export class TitleSource {
     setValignment(valign: TextVAlign): void
     setXpos(position: number): void
     setYpos(position: number): void
-    /* Methods of GES.VideoSource */
-    getNaturalSize(): [ /* returnType */ boolean, /* width */ number, /* height */ number ]
-    /* Methods of GES.TrackElement */
+    /* Methods of GES-1.0.GES.VideoSource */
+    getNaturalSize(): { returnType: boolean, width: number, height: number }
+    /* Methods of GES-1.0.GES.TrackElement */
     addChildrenProps(element: Gst.Element, wantedCategories?: string[] | null, blacklist?: string[] | null, whitelist?: string[] | null): void
     clampControlSource(propertyName: string): void
     edit(layers: Layer[] | null, mode: EditMode, edge: Edge, position: number): boolean
@@ -11157,33 +9675,33 @@ export class TitleSource {
     isActive(): boolean
     isCore(): boolean
     listChildrenProperties(): GObject.ParamSpec[]
-    lookupChild(propName: string): [ /* returnType */ boolean, /* element */ Gst.Element | null, /* pspec */ GObject.ParamSpec | null ]
+    lookupChild(propName: string): { returnType: boolean, element: Gst.Element | null, pspec: GObject.ParamSpec | null }
     removeControlBinding(propertyName: string): boolean
     setActive(active: boolean): boolean
     setAutoClampControlSources(autoClamp: boolean): void
     setControlSource(source: Gst.ControlSource, propertyName: string, bindingType: string): boolean
     setHasInternalSource(hasInternalSource: boolean): boolean
     setTrackType(type: TrackType): void
-    /* Methods of GES.TimelineElement */
+    /* Methods of GES-1.0.GES.TimelineElement */
     addChildProperty(pspec: GObject.ParamSpec, child: GObject.Object): boolean
     copy(deep: boolean): TimelineElement
     edit(layers: Layer[] | null, newLayerPriority: number, mode: EditMode, edge: Edge, position: number): boolean
     editFull(newLayerPriority: number, mode: EditMode, edge: Edge, position: number): boolean
-    getChildProperty(propertyName: string): [ /* returnType */ boolean, /* value */ any ]
-    getChildPropertyByPspec(pspec: GObject.ParamSpec): /* value */ any
+    getChildProperty(propertyName: string): { returnType: boolean, value: any }
+    getChildPropertyByPspec(pspec: GObject.ParamSpec): { value: any }
     getDuration(): Gst.ClockTime
     getInpoint(): Gst.ClockTime
     getLayerPriority(): number
     getMaxDuration(): Gst.ClockTime
     getName(): string
-    getNaturalFramerate(): [ /* returnType */ boolean, /* framerateN */ number, /* framerateD */ number ]
+    getNaturalFramerate(): { returnType: boolean, framerateN: number, framerateD: number }
     getParent(): TimelineElement | null
     getPriority(): number
     getStart(): Gst.ClockTime
     getTimeline(): Timeline | null
     getToplevelParent(): TimelineElement
     getTrackTypes(): TrackType
-    lookupChild(propName: string): [ /* returnType */ boolean, /* child */ GObject.Object | null, /* pspec */ GObject.ParamSpec | null ]
+    lookupChild(propName: string): { returnType: boolean, child: GObject.Object | null, pspec: GObject.ParamSpec | null }
     paste(pastePosition: Gst.ClockTime): TimelineElement | null
     removeChildProperty(pspec: GObject.ParamSpec): boolean
     ripple(start: Gst.ClockTime): boolean
@@ -11202,7 +9720,7 @@ export class TitleSource {
     setStart(start: Gst.ClockTime): boolean
     setTimeline(timeline: Timeline): boolean
     trim(start: Gst.ClockTime): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -11224,26 +9742,26 @@ export class TitleSource {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of GES.Extractable */
+    /* Methods of GES-1.0.GES.Extractable */
     getAsset(): Asset | null
     getId(): string
     setAsset(asset: Asset): boolean
-    /* Methods of GES.MetaContainer */
+    /* Methods of GES-1.0.GES.MetaContainer */
     addMetasFromString(str: string): boolean
-    checkMetaRegistered(metaItem: string): [ /* returnType */ boolean, /* flags */ MetaFlag | null, /* type */ GObject.Type | null ]
+    checkMetaRegistered(metaItem: string): { returnType: boolean, flags: MetaFlag | null, type: GObject.Type | null }
     foreach(func: MetaForeachFunc): void
-    getBoolean(metaItem: string): [ /* returnType */ boolean, /* dest */ boolean ]
-    getDate(metaItem: string): [ /* returnType */ boolean, /* dest */ GLib.Date ]
-    getDateTime(metaItem: string): [ /* returnType */ boolean, /* dest */ Gst.DateTime ]
-    getDouble(metaItem: string): [ /* returnType */ boolean, /* dest */ number ]
-    getFloat(metaItem: string): [ /* returnType */ boolean, /* dest */ number ]
-    getInt(metaItem: string): [ /* returnType */ boolean, /* dest */ number ]
-    getInt64(metaItem: string): [ /* returnType */ boolean, /* dest */ number ]
+    getBoolean(metaItem: string): { returnType: boolean, dest: boolean }
+    getDate(metaItem: string): { returnType: boolean, dest: GLib.Date }
+    getDateTime(metaItem: string): { returnType: boolean, dest: Gst.DateTime }
+    getDouble(metaItem: string): { returnType: boolean, dest: number }
+    getFloat(metaItem: string): { returnType: boolean, dest: number }
+    getInt(metaItem: string): { returnType: boolean, dest: number }
+    getInt64(metaItem: string): { returnType: boolean, dest: number }
     getMarkerList(key: string): MarkerList
     getMeta(key: string): any
     getString(metaItem: string): string
-    getUint(metaItem: string): [ /* returnType */ boolean, /* dest */ number ]
-    getUint64(metaItem: string): [ /* returnType */ boolean, /* dest */ number ]
+    getUint(metaItem: string): { returnType: boolean, dest: number }
+    getUint64(metaItem: string): { returnType: boolean, dest: number }
     metasToString(): string
     registerMeta(flags: MetaFlag, metaItem: string, value: any): boolean
     registerMetaBoolean(flags: MetaFlag, metaItem: string, value: boolean): boolean
@@ -11269,88 +9787,45 @@ export class TitleSource {
     setString(metaItem: string, value: string): boolean
     setUint(metaItem: string, value: number): boolean
     setUint64(metaItem: string, value: number): boolean
-    /* Virtual methods of GES.Source */
-    vfuncSelectPad(pad: Gst.Pad): boolean
-    /* Virtual methods of GES.TrackElement */
-    vfuncActiveChanged(active: boolean): void
-    vfuncChanged(): void
-    vfuncLookupChild(propName: string): [ /* returnType */ boolean, /* element */ Gst.Element | null, /* pspec */ GObject.ParamSpec | null ]
-    /* Virtual methods of GES.TimelineElement */
-    vfuncDeepCopy(copy: TimelineElement): void
-    vfuncGetLayerPriority(): number
-    vfuncGetNaturalFramerate(): [ /* returnType */ boolean, /* framerateN */ number, /* framerateD */ number ]
-    vfuncGetTrackTypes(): TrackType
-    vfuncLookupChild(propName: string): [ /* returnType */ boolean, /* child */ GObject.Object | null, /* pspec */ GObject.ParamSpec | null ]
-    vfuncRipple(start: number): boolean
-    vfuncRippleEnd(end: number): boolean
-    vfuncRollEnd(end: number): boolean
-    vfuncRollStart(start: number): boolean
-    vfuncSetChildProperty(child: GObject.Object, pspec: GObject.ParamSpec, value: any): void
-    vfuncSetChildPropertyFull(child: GObject.Object, pspec: GObject.ParamSpec, value: any): boolean
-    vfuncSetDuration(duration: Gst.ClockTime): boolean
-    vfuncSetInpoint(inpoint: Gst.ClockTime): boolean
-    vfuncSetMaxDuration(maxduration: Gst.ClockTime): boolean
-    vfuncSetParent(parent: TimelineElement): boolean
-    vfuncSetPriority(priority: number): boolean
-    vfuncSetStart(start: Gst.ClockTime): boolean
-    vfuncTrim(start: number): boolean
-    vfuncGetId(): string
-    vfuncSetAsset(asset: Asset): void
-    vfuncSetAssetFull(asset: Asset): boolean
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GES.TrackElement */
+    /* Signals of GES-1.0.GES.TrackElement */
     connect(sigName: "control-binding-added", callback: (($obj: TitleSource, controlBinding: Gst.ControlBinding) => void)): number
-    connect_after(sigName: "control-binding-added", callback: (($obj: TitleSource, controlBinding: Gst.ControlBinding) => void)): number
+    on(sigName: "control-binding-added", callback: (controlBinding: Gst.ControlBinding) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "control-binding-added", callback: (controlBinding: Gst.ControlBinding) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "control-binding-added", callback: (controlBinding: Gst.ControlBinding) => void): NodeJS.EventEmitter
     emit(sigName: "control-binding-added", controlBinding: Gst.ControlBinding): void
-    on(sigName: "control-binding-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "control-binding-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "control-binding-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "control-binding-removed", callback: (($obj: TitleSource, controlBinding: Gst.ControlBinding) => void)): number
-    connect_after(sigName: "control-binding-removed", callback: (($obj: TitleSource, controlBinding: Gst.ControlBinding) => void)): number
+    on(sigName: "control-binding-removed", callback: (controlBinding: Gst.ControlBinding) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "control-binding-removed", callback: (controlBinding: Gst.ControlBinding) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "control-binding-removed", callback: (controlBinding: Gst.ControlBinding) => void): NodeJS.EventEmitter
     emit(sigName: "control-binding-removed", controlBinding: Gst.ControlBinding): void
-    on(sigName: "control-binding-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "control-binding-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "control-binding-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GES.TimelineElement */
+    /* Signals of GES-1.0.GES.TimelineElement */
     connect(sigName: "child-property-added", callback: (($obj: TitleSource, propObject: GObject.Object, prop: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "child-property-added", callback: (($obj: TitleSource, propObject: GObject.Object, prop: GObject.ParamSpec) => void)): number
+    on(sigName: "child-property-added", callback: (propObject: GObject.Object, prop: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "child-property-added", callback: (propObject: GObject.Object, prop: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "child-property-added", callback: (propObject: GObject.Object, prop: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "child-property-added", propObject: GObject.Object, prop: GObject.ParamSpec): void
-    on(sigName: "child-property-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "child-property-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "child-property-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "child-property-removed", callback: (($obj: TitleSource, propObject: GObject.Object, prop: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "child-property-removed", callback: (($obj: TitleSource, propObject: GObject.Object, prop: GObject.ParamSpec) => void)): number
+    on(sigName: "child-property-removed", callback: (propObject: GObject.Object, prop: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "child-property-removed", callback: (propObject: GObject.Object, prop: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "child-property-removed", callback: (propObject: GObject.Object, prop: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "child-property-removed", propObject: GObject.Object, prop: GObject.ParamSpec): void
-    on(sigName: "child-property-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "child-property-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "child-property-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "deep-notify", callback: (($obj: TitleSource, propObject: GObject.Object, prop: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "deep-notify", callback: (($obj: TitleSource, propObject: GObject.Object, prop: GObject.ParamSpec) => void)): number
+    on(sigName: "deep-notify", callback: (propObject: GObject.Object, prop: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "deep-notify", callback: (propObject: GObject.Object, prop: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "deep-notify", callback: (propObject: GObject.Object, prop: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "deep-notify", propObject: GObject.Object, prop: GObject.ParamSpec): void
-    on(sigName: "deep-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "deep-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "deep-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: TitleSource, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: TitleSource, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GES.MetaContainer */
+    /* Signals of GES-1.0.GES.MetaContainer */
     connect(sigName: "notify-meta", callback: (($obj: TitleSource, key: string, value?: any | null) => void)): number
-    connect_after(sigName: "notify-meta", callback: (($obj: TitleSource, key: string, value?: any | null) => void)): number
+    on(sigName: "notify-meta", callback: (key: string, value?: any | null) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify-meta", callback: (key: string, value?: any | null) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify-meta", callback: (key: string, value?: any | null) => void): NodeJS.EventEmitter
     emit(sigName: "notify-meta", key: string, value?: any | null): void
-    on(sigName: "notify-meta", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify-meta", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify-meta", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::active", callback: (($obj: TitleSource, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::active", callback: (($obj: TitleSource, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::active", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -11441,20 +9916,20 @@ export interface Track_ConstructProps extends Gst.Bin_ConstructProps {
     trackType?: TrackType
 }
 export class Track {
-    /* Properties of GES.Track */
+    /* Properties of GES-1.0.GES.Track */
     readonly duration: number
     id: string
     mixing: boolean
     restrictionCaps: Gst.Caps
-    /* Properties of Gst.Bin */
+    /* Properties of Gst-1.0.Gst.Bin */
     asyncHandling: boolean
     messageForward: boolean
-    /* Properties of Gst.Object */
+    /* Properties of Gst-1.0.Gst.Object */
     name: string
     parent: Gst.Object
-    /* Fields of GES.Track */
+    /* Fields of GES-1.0.GES.Track */
     type: TrackType
-    /* Fields of Gst.Bin */
+    /* Fields of Gst-1.0.Gst.Bin */
     element: Gst.Element
     numchildren: number
     children: Gst.Element[]
@@ -11466,7 +9941,7 @@ export class Track {
     clockDirty: boolean
     providedClock: Gst.Clock
     clockProvider: Gst.Element
-    /* Fields of Gst.Element */
+    /* Fields of Gst-1.0.Gst.Element */
     object: Gst.Object
     stateLock: GLib.RecMutex
     stateCond: GLib.Cond
@@ -11488,12 +9963,12 @@ export class Track {
     sinkpads: Gst.Pad[]
     padsCookie: number
     contexts: Gst.Context[]
-    /* Fields of Gst.Object */
+    /* Fields of Gst-1.0.Gst.Object */
     lock: GLib.Mutex
     flags: number
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GES.Track */
+    /* Methods of GES-1.0.GES.Track */
     addElement(object: TrackElement): boolean
     addElementFull(object: TrackElement): boolean
     commit(): boolean
@@ -11508,7 +9983,7 @@ export class Track {
     setRestrictionCaps(caps: Gst.Caps): void
     setTimeline(timeline: Timeline): void
     updateRestrictionCaps(caps: Gst.Caps): void
-    /* Methods of Gst.Bin */
+    /* Methods of Gst-1.0.Gst.Bin */
     add(element: Gst.Element): boolean
     findUnlinkedPad(direction: Gst.PadDirection): Gst.Pad | null
     getByInterface(iface: GObject.Type): Gst.Element | null
@@ -11526,7 +10001,7 @@ export class Track {
     remove(element: Gst.Element): boolean
     setSuppressedFlags(flags: Gst.ElementFlags): void
     syncChildrenStates(): boolean
-    /* Methods of Gst.Element */
+    /* Methods of Gst-1.0.Gst.Element */
     abortState(): void
     addPad(pad: Gst.Pad): boolean
     addPropertyDeepNotifyWatch(propertyName: string | null, includeValue: boolean): number
@@ -11554,7 +10029,7 @@ export class Track {
     getPadTemplateList(): Gst.PadTemplate[]
     getRequestPad(name: string): Gst.Pad | null
     getStartTime(): Gst.ClockTime
-    getState(timeout: Gst.ClockTime): [ /* returnType */ Gst.StateChangeReturn, /* state */ Gst.State | null, /* pending */ Gst.State | null ]
+    getState(timeout: Gst.ClockTime): { returnType: Gst.StateChangeReturn, state: Gst.State | null, pending: Gst.State | null }
     getStaticPad(name: string): Gst.Pad | null
     isLockedState(): boolean
     iteratePads(): Gst.Iterator
@@ -11572,9 +10047,9 @@ export class Track {
     postMessage(message: Gst.Message): boolean
     provideClock(): Gst.Clock | null
     query(query: Gst.Query): boolean
-    queryConvert(srcFormat: Gst.Format, srcVal: number, destFormat: Gst.Format): [ /* returnType */ boolean, /* destVal */ number ]
-    queryDuration(format: Gst.Format): [ /* returnType */ boolean, /* duration */ number | null ]
-    queryPosition(format: Gst.Format): [ /* returnType */ boolean, /* cur */ number | null ]
+    queryConvert(srcFormat: Gst.Format, srcVal: number, destFormat: Gst.Format): { returnType: boolean, destVal: number }
+    queryDuration(format: Gst.Format): { returnType: boolean, duration: number | null }
+    queryPosition(format: Gst.Format): { returnType: boolean, cur: number | null }
     releaseRequestPad(pad: Gst.Pad): void
     removePad(pad: Gst.Pad): boolean
     removePropertyNotifyWatch(watchId: number): void
@@ -11592,7 +10067,7 @@ export class Track {
     syncStateWithParent(): boolean
     unlink(dest: Gst.Element): void
     unlinkPads(srcpadname: string, dest: Gst.Element, destpadname: string): void
-    /* Methods of Gst.Object */
+    /* Methods of Gst-1.0.Gst.Object */
     addControlBinding(binding: Gst.ControlBinding): boolean
     defaultError(error: GLib.Error, debug?: string | null): void
     getControlBinding(propertyName: string): Gst.ControlBinding | null
@@ -11617,7 +10092,7 @@ export class Track {
     syncValues(timestamp: Gst.ClockTime): boolean
     unparent(): void
     unref(): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -11638,22 +10113,22 @@ export class Track {
     stealQdata(quark: GLib.Quark): object | null
     thawNotify(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of GES.MetaContainer */
+    /* Methods of GES-1.0.GES.MetaContainer */
     addMetasFromString(str: string): boolean
-    checkMetaRegistered(metaItem: string): [ /* returnType */ boolean, /* flags */ MetaFlag | null, /* type */ GObject.Type | null ]
+    checkMetaRegistered(metaItem: string): { returnType: boolean, flags: MetaFlag | null, type: GObject.Type | null }
     foreach(func: MetaForeachFunc): void
-    getBoolean(metaItem: string): [ /* returnType */ boolean, /* dest */ boolean ]
-    getDate(metaItem: string): [ /* returnType */ boolean, /* dest */ GLib.Date ]
-    getDateTime(metaItem: string): [ /* returnType */ boolean, /* dest */ Gst.DateTime ]
-    getDouble(metaItem: string): [ /* returnType */ boolean, /* dest */ number ]
-    getFloat(metaItem: string): [ /* returnType */ boolean, /* dest */ number ]
-    getInt(metaItem: string): [ /* returnType */ boolean, /* dest */ number ]
-    getInt64(metaItem: string): [ /* returnType */ boolean, /* dest */ number ]
+    getBoolean(metaItem: string): { returnType: boolean, dest: boolean }
+    getDate(metaItem: string): { returnType: boolean, dest: GLib.Date }
+    getDateTime(metaItem: string): { returnType: boolean, dest: Gst.DateTime }
+    getDouble(metaItem: string): { returnType: boolean, dest: number }
+    getFloat(metaItem: string): { returnType: boolean, dest: number }
+    getInt(metaItem: string): { returnType: boolean, dest: number }
+    getInt64(metaItem: string): { returnType: boolean, dest: number }
     getMarkerList(key: string): MarkerList
     getMeta(key: string): any
     getString(metaItem: string): string
-    getUint(metaItem: string): [ /* returnType */ boolean, /* dest */ number ]
-    getUint64(metaItem: string): [ /* returnType */ boolean, /* dest */ number ]
+    getUint(metaItem: string): { returnType: boolean, dest: number }
+    getUint64(metaItem: string): { returnType: boolean, dest: number }
     metasToString(): string
     registerMeta(flags: MetaFlag, metaItem: string, value: any): boolean
     registerMetaBoolean(flags: MetaFlag, metaItem: string, value: boolean): boolean
@@ -11679,160 +10154,102 @@ export class Track {
     setString(metaItem: string, value: string): boolean
     setUint(metaItem: string, value: number): boolean
     setUint64(metaItem: string, value: number): boolean
-    /* Methods of Gst.ChildProxy */
+    /* Methods of Gst-1.0.Gst.ChildProxy */
     childAdded(child: GObject.Object, name: string): void
     childRemoved(child: GObject.Object, name: string): void
     getChildByIndex(index: number): GObject.Object | null
     getChildByName(name: string): GObject.Object | null
     getChildrenCount(): number
-    getProperty(name: string): /* value */ any
-    lookup(name: string): [ /* returnType */ boolean, /* target */ GObject.Object | null, /* pspec */ GObject.ParamSpec | null ]
+    getProperty(name: string): { value: any }
+    lookup(name: string): { returnType: boolean, target: GObject.Object | null, pspec: GObject.ParamSpec | null }
     setProperty(name: string, value: any): void
-    /* Virtual methods of GES.Track */
-    vfuncChildAdded(child: GObject.Object, name: string): void
-    vfuncChildRemoved(child: GObject.Object, name: string): void
-    vfuncGetChildByIndex(index: number): GObject.Object | null
-    vfuncGetChildByName(name: string): GObject.Object | null
-    vfuncGetChildrenCount(): number
-    /* Virtual methods of Gst.Bin */
-    vfuncAddElement(element: Gst.Element): boolean
-    vfuncDeepElementAdded(subBin: Gst.Bin, child: Gst.Element): void
-    vfuncDeepElementRemoved(subBin: Gst.Bin, child: Gst.Element): void
-    vfuncDoLatency(): boolean
-    vfuncElementAdded(child: Gst.Element): void
-    vfuncElementRemoved(child: Gst.Element): void
-    vfuncHandleMessage(message: Gst.Message): void
-    vfuncRemoveElement(element: Gst.Element): boolean
-    /* Virtual methods of Gst.Element */
-    vfuncChangeState(transition: Gst.StateChange): Gst.StateChangeReturn
-    vfuncGetState(timeout: Gst.ClockTime): [ /* returnType */ Gst.StateChangeReturn, /* state */ Gst.State | null, /* pending */ Gst.State | null ]
-    vfuncNoMorePads(): void
-    vfuncPadAdded(pad: Gst.Pad): void
-    vfuncPadRemoved(pad: Gst.Pad): void
-    vfuncPostMessage(message: Gst.Message): boolean
-    vfuncProvideClock(): Gst.Clock | null
-    vfuncQuery(query: Gst.Query): boolean
-    vfuncReleasePad(pad: Gst.Pad): void
-    vfuncRequestNewPad(templ: Gst.PadTemplate, name?: string | null, caps?: Gst.Caps | null): Gst.Pad | null
-    vfuncSendEvent(event: Gst.Event): boolean
-    vfuncSetBus(bus?: Gst.Bus | null): void
-    vfuncSetClock(clock?: Gst.Clock | null): boolean
-    vfuncSetContext(context: Gst.Context): void
-    vfuncSetState(state: Gst.State): Gst.StateChangeReturn
-    vfuncStateChanged(oldstate: Gst.State, newstate: Gst.State, pending: Gst.State): void
-    /* Virtual methods of Gst.Object */
-    vfuncDeepNotify(orig: Gst.Object, pspec: GObject.ParamSpec): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GES.Track */
+    /* Signals of GES-1.0.GES.Track */
     connect(sigName: "commited", callback: (($obj: Track) => void)): number
-    connect_after(sigName: "commited", callback: (($obj: Track) => void)): number
+    on(sigName: "commited", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "commited", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "commited", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "commited"): void
-    on(sigName: "commited", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "commited", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "commited", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "track-element-added", callback: (($obj: Track, effect: TrackElement) => void)): number
-    connect_after(sigName: "track-element-added", callback: (($obj: Track, effect: TrackElement) => void)): number
+    on(sigName: "track-element-added", callback: (effect: TrackElement) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "track-element-added", callback: (effect: TrackElement) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "track-element-added", callback: (effect: TrackElement) => void): NodeJS.EventEmitter
     emit(sigName: "track-element-added", effect: TrackElement): void
-    on(sigName: "track-element-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "track-element-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "track-element-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "track-element-removed", callback: (($obj: Track, effect: TrackElement) => void)): number
-    connect_after(sigName: "track-element-removed", callback: (($obj: Track, effect: TrackElement) => void)): number
+    on(sigName: "track-element-removed", callback: (effect: TrackElement) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "track-element-removed", callback: (effect: TrackElement) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "track-element-removed", callback: (effect: TrackElement) => void): NodeJS.EventEmitter
     emit(sigName: "track-element-removed", effect: TrackElement): void
-    on(sigName: "track-element-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "track-element-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "track-element-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of Gst.Bin */
+    /* Signals of Gst-1.0.Gst.Bin */
     connect(sigName: "deep-element-added", callback: (($obj: Track, subBin: Gst.Bin, element: Gst.Element) => void)): number
-    connect_after(sigName: "deep-element-added", callback: (($obj: Track, subBin: Gst.Bin, element: Gst.Element) => void)): number
+    on(sigName: "deep-element-added", callback: (subBin: Gst.Bin, element: Gst.Element) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "deep-element-added", callback: (subBin: Gst.Bin, element: Gst.Element) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "deep-element-added", callback: (subBin: Gst.Bin, element: Gst.Element) => void): NodeJS.EventEmitter
     emit(sigName: "deep-element-added", subBin: Gst.Bin, element: Gst.Element): void
-    on(sigName: "deep-element-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "deep-element-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "deep-element-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "deep-element-removed", callback: (($obj: Track, subBin: Gst.Bin, element: Gst.Element) => void)): number
-    connect_after(sigName: "deep-element-removed", callback: (($obj: Track, subBin: Gst.Bin, element: Gst.Element) => void)): number
+    on(sigName: "deep-element-removed", callback: (subBin: Gst.Bin, element: Gst.Element) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "deep-element-removed", callback: (subBin: Gst.Bin, element: Gst.Element) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "deep-element-removed", callback: (subBin: Gst.Bin, element: Gst.Element) => void): NodeJS.EventEmitter
     emit(sigName: "deep-element-removed", subBin: Gst.Bin, element: Gst.Element): void
-    on(sigName: "deep-element-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "deep-element-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "deep-element-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "do-latency", callback: (($obj: Track) => boolean)): number
-    connect_after(sigName: "do-latency", callback: (($obj: Track) => boolean)): number
+    on(sigName: "do-latency", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "do-latency", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "do-latency", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "do-latency"): void
-    on(sigName: "do-latency", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "do-latency", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "do-latency", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "element-added", callback: (($obj: Track, element: Gst.Element) => void)): number
-    connect_after(sigName: "element-added", callback: (($obj: Track, element: Gst.Element) => void)): number
+    on(sigName: "element-added", callback: (element: Gst.Element) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "element-added", callback: (element: Gst.Element) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "element-added", callback: (element: Gst.Element) => void): NodeJS.EventEmitter
     emit(sigName: "element-added", element: Gst.Element): void
-    on(sigName: "element-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "element-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "element-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "element-removed", callback: (($obj: Track, element: Gst.Element) => void)): number
-    connect_after(sigName: "element-removed", callback: (($obj: Track, element: Gst.Element) => void)): number
+    on(sigName: "element-removed", callback: (element: Gst.Element) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "element-removed", callback: (element: Gst.Element) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "element-removed", callback: (element: Gst.Element) => void): NodeJS.EventEmitter
     emit(sigName: "element-removed", element: Gst.Element): void
-    on(sigName: "element-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "element-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "element-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of Gst.Element */
+    /* Signals of Gst-1.0.Gst.Element */
     connect(sigName: "no-more-pads", callback: (($obj: Track) => void)): number
-    connect_after(sigName: "no-more-pads", callback: (($obj: Track) => void)): number
+    on(sigName: "no-more-pads", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "no-more-pads", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "no-more-pads", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "no-more-pads"): void
-    on(sigName: "no-more-pads", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "no-more-pads", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "no-more-pads", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "pad-added", callback: (($obj: Track, newPad: Gst.Pad) => void)): number
-    connect_after(sigName: "pad-added", callback: (($obj: Track, newPad: Gst.Pad) => void)): number
+    on(sigName: "pad-added", callback: (newPad: Gst.Pad) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "pad-added", callback: (newPad: Gst.Pad) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "pad-added", callback: (newPad: Gst.Pad) => void): NodeJS.EventEmitter
     emit(sigName: "pad-added", newPad: Gst.Pad): void
-    on(sigName: "pad-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "pad-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "pad-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "pad-removed", callback: (($obj: Track, oldPad: Gst.Pad) => void)): number
-    connect_after(sigName: "pad-removed", callback: (($obj: Track, oldPad: Gst.Pad) => void)): number
+    on(sigName: "pad-removed", callback: (oldPad: Gst.Pad) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "pad-removed", callback: (oldPad: Gst.Pad) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "pad-removed", callback: (oldPad: Gst.Pad) => void): NodeJS.EventEmitter
     emit(sigName: "pad-removed", oldPad: Gst.Pad): void
-    on(sigName: "pad-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "pad-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "pad-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of Gst.Object */
+    /* Signals of Gst-1.0.Gst.Object */
     connect(sigName: "deep-notify", callback: (($obj: Track, propObject: Gst.Object, prop: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "deep-notify", callback: (($obj: Track, propObject: Gst.Object, prop: GObject.ParamSpec) => void)): number
+    on(sigName: "deep-notify", callback: (propObject: Gst.Object, prop: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "deep-notify", callback: (propObject: Gst.Object, prop: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "deep-notify", callback: (propObject: Gst.Object, prop: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "deep-notify", propObject: Gst.Object, prop: GObject.ParamSpec): void
-    on(sigName: "deep-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "deep-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "deep-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Track, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Track, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GES.MetaContainer */
+    /* Signals of GES-1.0.GES.MetaContainer */
     connect(sigName: "notify-meta", callback: (($obj: Track, key: string, value?: any | null) => void)): number
-    connect_after(sigName: "notify-meta", callback: (($obj: Track, key: string, value?: any | null) => void)): number
+    on(sigName: "notify-meta", callback: (key: string, value?: any | null) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify-meta", callback: (key: string, value?: any | null) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify-meta", callback: (key: string, value?: any | null) => void): NodeJS.EventEmitter
     emit(sigName: "notify-meta", key: string, value?: any | null): void
-    on(sigName: "notify-meta", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify-meta", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify-meta", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of Gst.ChildProxy */
+    /* Signals of Gst-1.0.Gst.ChildProxy */
     connect(sigName: "child-added", callback: (($obj: Track, object: GObject.Object, name: string) => void)): number
-    connect_after(sigName: "child-added", callback: (($obj: Track, object: GObject.Object, name: string) => void)): number
+    on(sigName: "child-added", callback: (object: GObject.Object, name: string) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "child-added", callback: (object: GObject.Object, name: string) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "child-added", callback: (object: GObject.Object, name: string) => void): NodeJS.EventEmitter
     emit(sigName: "child-added", object: GObject.Object, name: string): void
-    on(sigName: "child-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "child-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "child-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "child-removed", callback: (($obj: Track, object: GObject.Object, name: string) => void)): number
-    connect_after(sigName: "child-removed", callback: (($obj: Track, object: GObject.Object, name: string) => void)): number
+    on(sigName: "child-removed", callback: (object: GObject.Object, name: string) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "child-removed", callback: (object: GObject.Object, name: string) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "child-removed", callback: (object: GObject.Object, name: string) => void): NodeJS.EventEmitter
     emit(sigName: "child-removed", object: GObject.Object, name: string): void
-    on(sigName: "child-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "child-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "child-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::duration", callback: (($obj: Track, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::duration", callback: (($obj: Track, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::duration", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -11895,13 +10312,13 @@ export interface TrackElement_ConstructProps extends TimelineElement_ConstructPr
     trackType?: TrackType
 }
 export class TrackElement {
-    /* Properties of GES.TrackElement */
+    /* Properties of GES-1.0.GES.TrackElement */
     active: boolean
     autoClampControlSources: boolean
     hasInternalSource: boolean
     readonly track: Track
     trackType: TrackType
-    /* Properties of GES.TimelineElement */
+    /* Properties of GES-1.0.GES.TimelineElement */
     duration: number
     inPoint: number
     maxDuration: number
@@ -11911,14 +10328,14 @@ export class TrackElement {
     serialize: boolean
     start: number
     timeline: Timeline
-    /* Fields of GES.TimelineElement */
+    /* Fields of GES-1.0.GES.TimelineElement */
     parentInstance: GObject.InitiallyUnowned
     asset: Asset
     inpoint: Gst.ClockTime
     maxduration: Gst.ClockTime
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GES.TrackElement */
+    /* Methods of GES-1.0.GES.TrackElement */
     addChildrenProps(element: Gst.Element, wantedCategories?: string[] | null, blacklist?: string[] | null, whitelist?: string[] | null): void
     clampControlSource(propertyName: string): void
     edit(layers: Layer[] | null, mode: EditMode, edge: Edge, position: number): boolean
@@ -11933,33 +10350,33 @@ export class TrackElement {
     isActive(): boolean
     isCore(): boolean
     listChildrenProperties(): GObject.ParamSpec[]
-    lookupChild(propName: string): [ /* returnType */ boolean, /* element */ Gst.Element | null, /* pspec */ GObject.ParamSpec | null ]
+    lookupChild(propName: string): { returnType: boolean, element: Gst.Element | null, pspec: GObject.ParamSpec | null }
     removeControlBinding(propertyName: string): boolean
     setActive(active: boolean): boolean
     setAutoClampControlSources(autoClamp: boolean): void
     setControlSource(source: Gst.ControlSource, propertyName: string, bindingType: string): boolean
     setHasInternalSource(hasInternalSource: boolean): boolean
     setTrackType(type: TrackType): void
-    /* Methods of GES.TimelineElement */
+    /* Methods of GES-1.0.GES.TimelineElement */
     addChildProperty(pspec: GObject.ParamSpec, child: GObject.Object): boolean
     copy(deep: boolean): TimelineElement
     edit(layers: Layer[] | null, newLayerPriority: number, mode: EditMode, edge: Edge, position: number): boolean
     editFull(newLayerPriority: number, mode: EditMode, edge: Edge, position: number): boolean
-    getChildProperty(propertyName: string): [ /* returnType */ boolean, /* value */ any ]
-    getChildPropertyByPspec(pspec: GObject.ParamSpec): /* value */ any
+    getChildProperty(propertyName: string): { returnType: boolean, value: any }
+    getChildPropertyByPspec(pspec: GObject.ParamSpec): { value: any }
     getDuration(): Gst.ClockTime
     getInpoint(): Gst.ClockTime
     getLayerPriority(): number
     getMaxDuration(): Gst.ClockTime
     getName(): string
-    getNaturalFramerate(): [ /* returnType */ boolean, /* framerateN */ number, /* framerateD */ number ]
+    getNaturalFramerate(): { returnType: boolean, framerateN: number, framerateD: number }
     getParent(): TimelineElement | null
     getPriority(): number
     getStart(): Gst.ClockTime
     getTimeline(): Timeline | null
     getToplevelParent(): TimelineElement
     getTrackTypes(): TrackType
-    lookupChild(propName: string): [ /* returnType */ boolean, /* child */ GObject.Object | null, /* pspec */ GObject.ParamSpec | null ]
+    lookupChild(propName: string): { returnType: boolean, child: GObject.Object | null, pspec: GObject.ParamSpec | null }
     paste(pastePosition: Gst.ClockTime): TimelineElement | null
     removeChildProperty(pspec: GObject.ParamSpec): boolean
     ripple(start: Gst.ClockTime): boolean
@@ -11978,7 +10395,7 @@ export class TrackElement {
     setStart(start: Gst.ClockTime): boolean
     setTimeline(timeline: Timeline): boolean
     trim(start: Gst.ClockTime): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -12000,26 +10417,26 @@ export class TrackElement {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of GES.Extractable */
+    /* Methods of GES-1.0.GES.Extractable */
     getAsset(): Asset | null
     getId(): string
     setAsset(asset: Asset): boolean
-    /* Methods of GES.MetaContainer */
+    /* Methods of GES-1.0.GES.MetaContainer */
     addMetasFromString(str: string): boolean
-    checkMetaRegistered(metaItem: string): [ /* returnType */ boolean, /* flags */ MetaFlag | null, /* type */ GObject.Type | null ]
+    checkMetaRegistered(metaItem: string): { returnType: boolean, flags: MetaFlag | null, type: GObject.Type | null }
     foreach(func: MetaForeachFunc): void
-    getBoolean(metaItem: string): [ /* returnType */ boolean, /* dest */ boolean ]
-    getDate(metaItem: string): [ /* returnType */ boolean, /* dest */ GLib.Date ]
-    getDateTime(metaItem: string): [ /* returnType */ boolean, /* dest */ Gst.DateTime ]
-    getDouble(metaItem: string): [ /* returnType */ boolean, /* dest */ number ]
-    getFloat(metaItem: string): [ /* returnType */ boolean, /* dest */ number ]
-    getInt(metaItem: string): [ /* returnType */ boolean, /* dest */ number ]
-    getInt64(metaItem: string): [ /* returnType */ boolean, /* dest */ number ]
+    getBoolean(metaItem: string): { returnType: boolean, dest: boolean }
+    getDate(metaItem: string): { returnType: boolean, dest: GLib.Date }
+    getDateTime(metaItem: string): { returnType: boolean, dest: Gst.DateTime }
+    getDouble(metaItem: string): { returnType: boolean, dest: number }
+    getFloat(metaItem: string): { returnType: boolean, dest: number }
+    getInt(metaItem: string): { returnType: boolean, dest: number }
+    getInt64(metaItem: string): { returnType: boolean, dest: number }
     getMarkerList(key: string): MarkerList
     getMeta(key: string): any
     getString(metaItem: string): string
-    getUint(metaItem: string): [ /* returnType */ boolean, /* dest */ number ]
-    getUint64(metaItem: string): [ /* returnType */ boolean, /* dest */ number ]
+    getUint(metaItem: string): { returnType: boolean, dest: number }
+    getUint64(metaItem: string): { returnType: boolean, dest: number }
     metasToString(): string
     registerMeta(flags: MetaFlag, metaItem: string, value: any): boolean
     registerMetaBoolean(flags: MetaFlag, metaItem: string, value: boolean): boolean
@@ -12045,86 +10462,45 @@ export class TrackElement {
     setString(metaItem: string, value: string): boolean
     setUint(metaItem: string, value: number): boolean
     setUint64(metaItem: string, value: number): boolean
-    /* Virtual methods of GES.TrackElement */
-    vfuncActiveChanged(active: boolean): void
-    vfuncChanged(): void
-    vfuncLookupChild(propName: string): [ /* returnType */ boolean, /* element */ Gst.Element | null, /* pspec */ GObject.ParamSpec | null ]
-    /* Virtual methods of GES.TimelineElement */
-    vfuncDeepCopy(copy: TimelineElement): void
-    vfuncGetLayerPriority(): number
-    vfuncGetNaturalFramerate(): [ /* returnType */ boolean, /* framerateN */ number, /* framerateD */ number ]
-    vfuncGetTrackTypes(): TrackType
-    vfuncLookupChild(propName: string): [ /* returnType */ boolean, /* child */ GObject.Object | null, /* pspec */ GObject.ParamSpec | null ]
-    vfuncRipple(start: number): boolean
-    vfuncRippleEnd(end: number): boolean
-    vfuncRollEnd(end: number): boolean
-    vfuncRollStart(start: number): boolean
-    vfuncSetChildProperty(child: GObject.Object, pspec: GObject.ParamSpec, value: any): void
-    vfuncSetChildPropertyFull(child: GObject.Object, pspec: GObject.ParamSpec, value: any): boolean
-    vfuncSetDuration(duration: Gst.ClockTime): boolean
-    vfuncSetInpoint(inpoint: Gst.ClockTime): boolean
-    vfuncSetMaxDuration(maxduration: Gst.ClockTime): boolean
-    vfuncSetParent(parent: TimelineElement): boolean
-    vfuncSetPriority(priority: number): boolean
-    vfuncSetStart(start: Gst.ClockTime): boolean
-    vfuncTrim(start: number): boolean
-    vfuncGetId(): string
-    vfuncSetAsset(asset: Asset): void
-    vfuncSetAssetFull(asset: Asset): boolean
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GES.TrackElement */
+    /* Signals of GES-1.0.GES.TrackElement */
     connect(sigName: "control-binding-added", callback: (($obj: TrackElement, controlBinding: Gst.ControlBinding) => void)): number
-    connect_after(sigName: "control-binding-added", callback: (($obj: TrackElement, controlBinding: Gst.ControlBinding) => void)): number
+    on(sigName: "control-binding-added", callback: (controlBinding: Gst.ControlBinding) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "control-binding-added", callback: (controlBinding: Gst.ControlBinding) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "control-binding-added", callback: (controlBinding: Gst.ControlBinding) => void): NodeJS.EventEmitter
     emit(sigName: "control-binding-added", controlBinding: Gst.ControlBinding): void
-    on(sigName: "control-binding-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "control-binding-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "control-binding-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "control-binding-removed", callback: (($obj: TrackElement, controlBinding: Gst.ControlBinding) => void)): number
-    connect_after(sigName: "control-binding-removed", callback: (($obj: TrackElement, controlBinding: Gst.ControlBinding) => void)): number
+    on(sigName: "control-binding-removed", callback: (controlBinding: Gst.ControlBinding) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "control-binding-removed", callback: (controlBinding: Gst.ControlBinding) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "control-binding-removed", callback: (controlBinding: Gst.ControlBinding) => void): NodeJS.EventEmitter
     emit(sigName: "control-binding-removed", controlBinding: Gst.ControlBinding): void
-    on(sigName: "control-binding-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "control-binding-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "control-binding-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GES.TimelineElement */
+    /* Signals of GES-1.0.GES.TimelineElement */
     connect(sigName: "child-property-added", callback: (($obj: TrackElement, propObject: GObject.Object, prop: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "child-property-added", callback: (($obj: TrackElement, propObject: GObject.Object, prop: GObject.ParamSpec) => void)): number
+    on(sigName: "child-property-added", callback: (propObject: GObject.Object, prop: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "child-property-added", callback: (propObject: GObject.Object, prop: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "child-property-added", callback: (propObject: GObject.Object, prop: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "child-property-added", propObject: GObject.Object, prop: GObject.ParamSpec): void
-    on(sigName: "child-property-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "child-property-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "child-property-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "child-property-removed", callback: (($obj: TrackElement, propObject: GObject.Object, prop: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "child-property-removed", callback: (($obj: TrackElement, propObject: GObject.Object, prop: GObject.ParamSpec) => void)): number
+    on(sigName: "child-property-removed", callback: (propObject: GObject.Object, prop: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "child-property-removed", callback: (propObject: GObject.Object, prop: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "child-property-removed", callback: (propObject: GObject.Object, prop: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "child-property-removed", propObject: GObject.Object, prop: GObject.ParamSpec): void
-    on(sigName: "child-property-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "child-property-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "child-property-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "deep-notify", callback: (($obj: TrackElement, propObject: GObject.Object, prop: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "deep-notify", callback: (($obj: TrackElement, propObject: GObject.Object, prop: GObject.ParamSpec) => void)): number
+    on(sigName: "deep-notify", callback: (propObject: GObject.Object, prop: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "deep-notify", callback: (propObject: GObject.Object, prop: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "deep-notify", callback: (propObject: GObject.Object, prop: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "deep-notify", propObject: GObject.Object, prop: GObject.ParamSpec): void
-    on(sigName: "deep-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "deep-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "deep-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: TrackElement, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: TrackElement, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GES.MetaContainer */
+    /* Signals of GES-1.0.GES.MetaContainer */
     connect(sigName: "notify-meta", callback: (($obj: TrackElement, key: string, value?: any | null) => void)): number
-    connect_after(sigName: "notify-meta", callback: (($obj: TrackElement, key: string, value?: any | null) => void)): number
+    on(sigName: "notify-meta", callback: (key: string, value?: any | null) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify-meta", callback: (key: string, value?: any | null) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify-meta", callback: (key: string, value?: any | null) => void): NodeJS.EventEmitter
     emit(sigName: "notify-meta", key: string, value?: any | null): void
-    on(sigName: "notify-meta", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify-meta", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify-meta", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::active", callback: (($obj: TrackElement, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::active", callback: (($obj: TrackElement, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::active", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -12211,20 +10587,20 @@ export interface TrackElementAsset_ConstructProps extends Asset_ConstructProps {
     trackType?: TrackType
 }
 export class TrackElementAsset {
-    /* Properties of GES.TrackElementAsset */
+    /* Properties of GES-1.0.GES.TrackElementAsset */
     trackType: TrackType
-    /* Properties of GES.Asset */
+    /* Properties of GES-1.0.GES.Asset */
     proxy: Asset
     readonly proxyTarget: Asset
-    /* Fields of GES.TrackElementAsset */
+    /* Fields of GES-1.0.GES.TrackElementAsset */
     parent: Asset
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GES.TrackElementAsset */
+    /* Methods of GES-1.0.GES.TrackElementAsset */
     getNaturalFramerate(framerateN: number, framerateD: number): boolean
     getTrackType(): TrackType
     setTrackType(type: TrackType): void
-    /* Methods of GES.Asset */
+    /* Methods of GES-1.0.GES.Asset */
     extract(): Extractable
     getError(): GLib.Error | null
     getExtractableType(): GObject.Type
@@ -12234,7 +10610,7 @@ export class TrackElementAsset {
     listProxies(): Asset[]
     setProxy(proxy?: Asset | null): boolean
     unproxy(proxy: Asset): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -12256,22 +10632,22 @@ export class TrackElementAsset {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of GES.MetaContainer */
+    /* Methods of GES-1.0.GES.MetaContainer */
     addMetasFromString(str: string): boolean
-    checkMetaRegistered(metaItem: string): [ /* returnType */ boolean, /* flags */ MetaFlag | null, /* type */ GObject.Type | null ]
+    checkMetaRegistered(metaItem: string): { returnType: boolean, flags: MetaFlag | null, type: GObject.Type | null }
     foreach(func: MetaForeachFunc): void
-    getBoolean(metaItem: string): [ /* returnType */ boolean, /* dest */ boolean ]
-    getDate(metaItem: string): [ /* returnType */ boolean, /* dest */ GLib.Date ]
-    getDateTime(metaItem: string): [ /* returnType */ boolean, /* dest */ Gst.DateTime ]
-    getDouble(metaItem: string): [ /* returnType */ boolean, /* dest */ number ]
-    getFloat(metaItem: string): [ /* returnType */ boolean, /* dest */ number ]
-    getInt(metaItem: string): [ /* returnType */ boolean, /* dest */ number ]
-    getInt64(metaItem: string): [ /* returnType */ boolean, /* dest */ number ]
+    getBoolean(metaItem: string): { returnType: boolean, dest: boolean }
+    getDate(metaItem: string): { returnType: boolean, dest: GLib.Date }
+    getDateTime(metaItem: string): { returnType: boolean, dest: Gst.DateTime }
+    getDouble(metaItem: string): { returnType: boolean, dest: number }
+    getFloat(metaItem: string): { returnType: boolean, dest: number }
+    getInt(metaItem: string): { returnType: boolean, dest: number }
+    getInt64(metaItem: string): { returnType: boolean, dest: number }
     getMarkerList(key: string): MarkerList
     getMeta(key: string): any
     getString(metaItem: string): string
-    getUint(metaItem: string): [ /* returnType */ boolean, /* dest */ number ]
-    getUint64(metaItem: string): [ /* returnType */ boolean, /* dest */ number ]
+    getUint(metaItem: string): { returnType: boolean, dest: number }
+    getUint64(metaItem: string): { returnType: boolean, dest: number }
     metasToString(): string
     registerMeta(flags: MetaFlag, metaItem: string, value: any): boolean
     registerMetaBoolean(flags: MetaFlag, metaItem: string, value: boolean): boolean
@@ -12297,45 +10673,24 @@ export class TrackElementAsset {
     setString(metaItem: string, value: string): boolean
     setUint(metaItem: string, value: number): boolean
     setUint64(metaItem: string, value: number): boolean
-    /* Methods of Gio.AsyncInitable */
+    /* Methods of Gio-2.0.Gio.AsyncInitable */
     initAsync(ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     initFinish(res: Gio.AsyncResult): boolean
     newFinish(res: Gio.AsyncResult): GObject.Object
-    /* Methods of Gio.Initable */
+    /* Methods of Gio-2.0.Gio.Initable */
     init(cancellable?: Gio.Cancellable | null): boolean
-    /* Virtual methods of GES.TrackElementAsset */
-    vfuncGetNaturalFramerate(framerateN: number, framerateD: number): boolean
-    /* Virtual methods of GES.Asset */
-    vfuncExtract(): Extractable
-    vfuncInformProxy(proxyId: string): void
-    vfuncProxied(proxy: Asset): void
-    vfuncRequestIdUpdate(proposedNewId: string, error: GLib.Error): boolean
-    vfuncStartLoading(): AssetLoadingReturn
-    vfuncInitAsync(ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    vfuncInitFinish(res: Gio.AsyncResult): boolean
-    vfuncInit(cancellable?: Gio.Cancellable | null): boolean
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: TrackElementAsset, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: TrackElementAsset, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GES.MetaContainer */
+    /* Signals of GES-1.0.GES.MetaContainer */
     connect(sigName: "notify-meta", callback: (($obj: TrackElementAsset, key: string, value?: any | null) => void)): number
-    connect_after(sigName: "notify-meta", callback: (($obj: TrackElementAsset, key: string, value?: any | null) => void)): number
+    on(sigName: "notify-meta", callback: (key: string, value?: any | null) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify-meta", callback: (key: string, value?: any | null) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify-meta", callback: (key: string, value?: any | null) => void): NodeJS.EventEmitter
     emit(sigName: "notify-meta", key: string, value?: any | null): void
-    on(sigName: "notify-meta", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify-meta", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify-meta", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::track-type", callback: (($obj: TrackElementAsset, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::track-type", callback: (($obj: TrackElementAsset, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::track-type", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -12366,13 +10721,13 @@ export class TrackElementAsset {
 export interface Transition_ConstructProps extends Operation_ConstructProps {
 }
 export class Transition {
-    /* Properties of GES.TrackElement */
+    /* Properties of GES-1.0.GES.TrackElement */
     active: boolean
     autoClampControlSources: boolean
     hasInternalSource: boolean
     readonly track: Track
     trackType: TrackType
-    /* Properties of GES.TimelineElement */
+    /* Properties of GES-1.0.GES.TimelineElement */
     duration: number
     inPoint: number
     maxDuration: number
@@ -12382,14 +10737,14 @@ export class Transition {
     serialize: boolean
     start: number
     timeline: Timeline
-    /* Fields of GES.TimelineElement */
+    /* Fields of GES-1.0.GES.TimelineElement */
     parentInstance: GObject.InitiallyUnowned
     asset: Asset
     inpoint: Gst.ClockTime
     maxduration: Gst.ClockTime
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GES.TrackElement */
+    /* Methods of GES-1.0.GES.TrackElement */
     addChildrenProps(element: Gst.Element, wantedCategories?: string[] | null, blacklist?: string[] | null, whitelist?: string[] | null): void
     clampControlSource(propertyName: string): void
     edit(layers: Layer[] | null, mode: EditMode, edge: Edge, position: number): boolean
@@ -12404,33 +10759,33 @@ export class Transition {
     isActive(): boolean
     isCore(): boolean
     listChildrenProperties(): GObject.ParamSpec[]
-    lookupChild(propName: string): [ /* returnType */ boolean, /* element */ Gst.Element | null, /* pspec */ GObject.ParamSpec | null ]
+    lookupChild(propName: string): { returnType: boolean, element: Gst.Element | null, pspec: GObject.ParamSpec | null }
     removeControlBinding(propertyName: string): boolean
     setActive(active: boolean): boolean
     setAutoClampControlSources(autoClamp: boolean): void
     setControlSource(source: Gst.ControlSource, propertyName: string, bindingType: string): boolean
     setHasInternalSource(hasInternalSource: boolean): boolean
     setTrackType(type: TrackType): void
-    /* Methods of GES.TimelineElement */
+    /* Methods of GES-1.0.GES.TimelineElement */
     addChildProperty(pspec: GObject.ParamSpec, child: GObject.Object): boolean
     copy(deep: boolean): TimelineElement
     edit(layers: Layer[] | null, newLayerPriority: number, mode: EditMode, edge: Edge, position: number): boolean
     editFull(newLayerPriority: number, mode: EditMode, edge: Edge, position: number): boolean
-    getChildProperty(propertyName: string): [ /* returnType */ boolean, /* value */ any ]
-    getChildPropertyByPspec(pspec: GObject.ParamSpec): /* value */ any
+    getChildProperty(propertyName: string): { returnType: boolean, value: any }
+    getChildPropertyByPspec(pspec: GObject.ParamSpec): { value: any }
     getDuration(): Gst.ClockTime
     getInpoint(): Gst.ClockTime
     getLayerPriority(): number
     getMaxDuration(): Gst.ClockTime
     getName(): string
-    getNaturalFramerate(): [ /* returnType */ boolean, /* framerateN */ number, /* framerateD */ number ]
+    getNaturalFramerate(): { returnType: boolean, framerateN: number, framerateD: number }
     getParent(): TimelineElement | null
     getPriority(): number
     getStart(): Gst.ClockTime
     getTimeline(): Timeline | null
     getToplevelParent(): TimelineElement
     getTrackTypes(): TrackType
-    lookupChild(propName: string): [ /* returnType */ boolean, /* child */ GObject.Object | null, /* pspec */ GObject.ParamSpec | null ]
+    lookupChild(propName: string): { returnType: boolean, child: GObject.Object | null, pspec: GObject.ParamSpec | null }
     paste(pastePosition: Gst.ClockTime): TimelineElement | null
     removeChildProperty(pspec: GObject.ParamSpec): boolean
     ripple(start: Gst.ClockTime): boolean
@@ -12449,7 +10804,7 @@ export class Transition {
     setStart(start: Gst.ClockTime): boolean
     setTimeline(timeline: Timeline): boolean
     trim(start: Gst.ClockTime): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -12471,26 +10826,26 @@ export class Transition {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of GES.Extractable */
+    /* Methods of GES-1.0.GES.Extractable */
     getAsset(): Asset | null
     getId(): string
     setAsset(asset: Asset): boolean
-    /* Methods of GES.MetaContainer */
+    /* Methods of GES-1.0.GES.MetaContainer */
     addMetasFromString(str: string): boolean
-    checkMetaRegistered(metaItem: string): [ /* returnType */ boolean, /* flags */ MetaFlag | null, /* type */ GObject.Type | null ]
+    checkMetaRegistered(metaItem: string): { returnType: boolean, flags: MetaFlag | null, type: GObject.Type | null }
     foreach(func: MetaForeachFunc): void
-    getBoolean(metaItem: string): [ /* returnType */ boolean, /* dest */ boolean ]
-    getDate(metaItem: string): [ /* returnType */ boolean, /* dest */ GLib.Date ]
-    getDateTime(metaItem: string): [ /* returnType */ boolean, /* dest */ Gst.DateTime ]
-    getDouble(metaItem: string): [ /* returnType */ boolean, /* dest */ number ]
-    getFloat(metaItem: string): [ /* returnType */ boolean, /* dest */ number ]
-    getInt(metaItem: string): [ /* returnType */ boolean, /* dest */ number ]
-    getInt64(metaItem: string): [ /* returnType */ boolean, /* dest */ number ]
+    getBoolean(metaItem: string): { returnType: boolean, dest: boolean }
+    getDate(metaItem: string): { returnType: boolean, dest: GLib.Date }
+    getDateTime(metaItem: string): { returnType: boolean, dest: Gst.DateTime }
+    getDouble(metaItem: string): { returnType: boolean, dest: number }
+    getFloat(metaItem: string): { returnType: boolean, dest: number }
+    getInt(metaItem: string): { returnType: boolean, dest: number }
+    getInt64(metaItem: string): { returnType: boolean, dest: number }
     getMarkerList(key: string): MarkerList
     getMeta(key: string): any
     getString(metaItem: string): string
-    getUint(metaItem: string): [ /* returnType */ boolean, /* dest */ number ]
-    getUint64(metaItem: string): [ /* returnType */ boolean, /* dest */ number ]
+    getUint(metaItem: string): { returnType: boolean, dest: number }
+    getUint64(metaItem: string): { returnType: boolean, dest: number }
     metasToString(): string
     registerMeta(flags: MetaFlag, metaItem: string, value: any): boolean
     registerMetaBoolean(flags: MetaFlag, metaItem: string, value: boolean): boolean
@@ -12516,86 +10871,45 @@ export class Transition {
     setString(metaItem: string, value: string): boolean
     setUint(metaItem: string, value: number): boolean
     setUint64(metaItem: string, value: number): boolean
-    /* Virtual methods of GES.TrackElement */
-    vfuncActiveChanged(active: boolean): void
-    vfuncChanged(): void
-    vfuncLookupChild(propName: string): [ /* returnType */ boolean, /* element */ Gst.Element | null, /* pspec */ GObject.ParamSpec | null ]
-    /* Virtual methods of GES.TimelineElement */
-    vfuncDeepCopy(copy: TimelineElement): void
-    vfuncGetLayerPriority(): number
-    vfuncGetNaturalFramerate(): [ /* returnType */ boolean, /* framerateN */ number, /* framerateD */ number ]
-    vfuncGetTrackTypes(): TrackType
-    vfuncLookupChild(propName: string): [ /* returnType */ boolean, /* child */ GObject.Object | null, /* pspec */ GObject.ParamSpec | null ]
-    vfuncRipple(start: number): boolean
-    vfuncRippleEnd(end: number): boolean
-    vfuncRollEnd(end: number): boolean
-    vfuncRollStart(start: number): boolean
-    vfuncSetChildProperty(child: GObject.Object, pspec: GObject.ParamSpec, value: any): void
-    vfuncSetChildPropertyFull(child: GObject.Object, pspec: GObject.ParamSpec, value: any): boolean
-    vfuncSetDuration(duration: Gst.ClockTime): boolean
-    vfuncSetInpoint(inpoint: Gst.ClockTime): boolean
-    vfuncSetMaxDuration(maxduration: Gst.ClockTime): boolean
-    vfuncSetParent(parent: TimelineElement): boolean
-    vfuncSetPriority(priority: number): boolean
-    vfuncSetStart(start: Gst.ClockTime): boolean
-    vfuncTrim(start: number): boolean
-    vfuncGetId(): string
-    vfuncSetAsset(asset: Asset): void
-    vfuncSetAssetFull(asset: Asset): boolean
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GES.TrackElement */
+    /* Signals of GES-1.0.GES.TrackElement */
     connect(sigName: "control-binding-added", callback: (($obj: Transition, controlBinding: Gst.ControlBinding) => void)): number
-    connect_after(sigName: "control-binding-added", callback: (($obj: Transition, controlBinding: Gst.ControlBinding) => void)): number
+    on(sigName: "control-binding-added", callback: (controlBinding: Gst.ControlBinding) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "control-binding-added", callback: (controlBinding: Gst.ControlBinding) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "control-binding-added", callback: (controlBinding: Gst.ControlBinding) => void): NodeJS.EventEmitter
     emit(sigName: "control-binding-added", controlBinding: Gst.ControlBinding): void
-    on(sigName: "control-binding-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "control-binding-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "control-binding-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "control-binding-removed", callback: (($obj: Transition, controlBinding: Gst.ControlBinding) => void)): number
-    connect_after(sigName: "control-binding-removed", callback: (($obj: Transition, controlBinding: Gst.ControlBinding) => void)): number
+    on(sigName: "control-binding-removed", callback: (controlBinding: Gst.ControlBinding) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "control-binding-removed", callback: (controlBinding: Gst.ControlBinding) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "control-binding-removed", callback: (controlBinding: Gst.ControlBinding) => void): NodeJS.EventEmitter
     emit(sigName: "control-binding-removed", controlBinding: Gst.ControlBinding): void
-    on(sigName: "control-binding-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "control-binding-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "control-binding-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GES.TimelineElement */
+    /* Signals of GES-1.0.GES.TimelineElement */
     connect(sigName: "child-property-added", callback: (($obj: Transition, propObject: GObject.Object, prop: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "child-property-added", callback: (($obj: Transition, propObject: GObject.Object, prop: GObject.ParamSpec) => void)): number
+    on(sigName: "child-property-added", callback: (propObject: GObject.Object, prop: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "child-property-added", callback: (propObject: GObject.Object, prop: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "child-property-added", callback: (propObject: GObject.Object, prop: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "child-property-added", propObject: GObject.Object, prop: GObject.ParamSpec): void
-    on(sigName: "child-property-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "child-property-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "child-property-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "child-property-removed", callback: (($obj: Transition, propObject: GObject.Object, prop: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "child-property-removed", callback: (($obj: Transition, propObject: GObject.Object, prop: GObject.ParamSpec) => void)): number
+    on(sigName: "child-property-removed", callback: (propObject: GObject.Object, prop: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "child-property-removed", callback: (propObject: GObject.Object, prop: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "child-property-removed", callback: (propObject: GObject.Object, prop: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "child-property-removed", propObject: GObject.Object, prop: GObject.ParamSpec): void
-    on(sigName: "child-property-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "child-property-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "child-property-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "deep-notify", callback: (($obj: Transition, propObject: GObject.Object, prop: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "deep-notify", callback: (($obj: Transition, propObject: GObject.Object, prop: GObject.ParamSpec) => void)): number
+    on(sigName: "deep-notify", callback: (propObject: GObject.Object, prop: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "deep-notify", callback: (propObject: GObject.Object, prop: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "deep-notify", callback: (propObject: GObject.Object, prop: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "deep-notify", propObject: GObject.Object, prop: GObject.ParamSpec): void
-    on(sigName: "deep-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "deep-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "deep-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Transition, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Transition, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GES.MetaContainer */
+    /* Signals of GES-1.0.GES.MetaContainer */
     connect(sigName: "notify-meta", callback: (($obj: Transition, key: string, value?: any | null) => void)): number
-    connect_after(sigName: "notify-meta", callback: (($obj: Transition, key: string, value?: any | null) => void)): number
+    on(sigName: "notify-meta", callback: (key: string, value?: any | null) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify-meta", callback: (key: string, value?: any | null) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify-meta", callback: (key: string, value?: any | null) => void): NodeJS.EventEmitter
     emit(sigName: "notify-meta", key: string, value?: any | null): void
-    on(sigName: "notify-meta", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify-meta", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify-meta", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::active", callback: (($obj: Transition, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::active", callback: (($obj: Transition, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::active", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -12682,15 +10996,15 @@ export interface TransitionClip_ConstructProps extends BaseTransitionClip_Constr
     vtype?: VideoStandardTransitionType
 }
 export class TransitionClip {
-    /* Properties of GES.TransitionClip */
+    /* Properties of GES-1.0.GES.TransitionClip */
     vtype: VideoStandardTransitionType
-    /* Properties of GES.Clip */
+    /* Properties of GES-1.0.GES.Clip */
     readonly durationLimit: number
     readonly layer: Layer
     supportedFormats: TrackType
-    /* Properties of GES.Container */
+    /* Properties of GES-1.0.GES.Container */
     readonly height: number
-    /* Properties of GES.TimelineElement */
+    /* Properties of GES-1.0.GES.TimelineElement */
     duration: number
     inPoint: number
     maxDuration: number
@@ -12700,18 +11014,18 @@ export class TransitionClip {
     serialize: boolean
     start: number
     timeline: Timeline
-    /* Fields of GES.Container */
+    /* Fields of GES-1.0.GES.Container */
     children: TimelineElement[]
     childrenControlMode: ChildrenControlMode
     initiatedMove: TimelineElement
-    /* Fields of GES.TimelineElement */
+    /* Fields of GES-1.0.GES.TimelineElement */
     parentInstance: GObject.InitiallyUnowned
     asset: Asset
     inpoint: Gst.ClockTime
     maxduration: Gst.ClockTime
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GES.Clip */
+    /* Methods of GES-1.0.GES.Clip */
     addAsset(asset: Asset): TrackElement | null
     addChildToTrack(child: TrackElement, track: Track): TrackElement
     addTopEffect(effect: BaseEffect, index: number): boolean
@@ -12735,24 +11049,24 @@ export class TransitionClip {
     setTopEffectPriority(effect: BaseEffect, newpriority: number): boolean
     split(position: number): Clip | null
     splitFull(position: number): Clip | null
-    /* Methods of GES.Container */
+    /* Methods of GES-1.0.GES.Container */
     add(child: TimelineElement): boolean
     edit(layers: Layer[] | null, newLayerPriority: number, mode: EditMode, edge: Edge, position: number): boolean
     getChildren(recursive: boolean): TimelineElement[]
     remove(child: TimelineElement): boolean
     ungroup(recursive: boolean): Container[]
-    /* Methods of GES.TimelineElement */
+    /* Methods of GES-1.0.GES.TimelineElement */
     addChildProperty(pspec: GObject.ParamSpec, child: GObject.Object): boolean
     copy(deep: boolean): TimelineElement
     editFull(newLayerPriority: number, mode: EditMode, edge: Edge, position: number): boolean
-    getChildProperty(propertyName: string): [ /* returnType */ boolean, /* value */ any ]
-    getChildPropertyByPspec(pspec: GObject.ParamSpec): /* value */ any
+    getChildProperty(propertyName: string): { returnType: boolean, value: any }
+    getChildPropertyByPspec(pspec: GObject.ParamSpec): { value: any }
     getDuration(): Gst.ClockTime
     getInpoint(): Gst.ClockTime
     getLayerPriority(): number
     getMaxDuration(): Gst.ClockTime
     getName(): string
-    getNaturalFramerate(): [ /* returnType */ boolean, /* framerateN */ number, /* framerateD */ number ]
+    getNaturalFramerate(): { returnType: boolean, framerateN: number, framerateD: number }
     getParent(): TimelineElement | null
     getPriority(): number
     getStart(): Gst.ClockTime
@@ -12760,7 +11074,7 @@ export class TransitionClip {
     getToplevelParent(): TimelineElement
     getTrackTypes(): TrackType
     listChildrenProperties(): GObject.ParamSpec[]
-    lookupChild(propName: string): [ /* returnType */ boolean, /* child */ GObject.Object | null, /* pspec */ GObject.ParamSpec | null ]
+    lookupChild(propName: string): { returnType: boolean, child: GObject.Object | null, pspec: GObject.ParamSpec | null }
     paste(pastePosition: Gst.ClockTime): TimelineElement | null
     removeChildProperty(pspec: GObject.ParamSpec): boolean
     ripple(start: Gst.ClockTime): boolean
@@ -12779,7 +11093,7 @@ export class TransitionClip {
     setStart(start: Gst.ClockTime): boolean
     setTimeline(timeline: Timeline): boolean
     trim(start: Gst.ClockTime): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -12801,26 +11115,26 @@ export class TransitionClip {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of GES.Extractable */
+    /* Methods of GES-1.0.GES.Extractable */
     getAsset(): Asset | null
     getId(): string
     setAsset(asset: Asset): boolean
-    /* Methods of GES.MetaContainer */
+    /* Methods of GES-1.0.GES.MetaContainer */
     addMetasFromString(str: string): boolean
-    checkMetaRegistered(metaItem: string): [ /* returnType */ boolean, /* flags */ MetaFlag | null, /* type */ GObject.Type | null ]
+    checkMetaRegistered(metaItem: string): { returnType: boolean, flags: MetaFlag | null, type: GObject.Type | null }
     foreach(func: MetaForeachFunc): void
-    getBoolean(metaItem: string): [ /* returnType */ boolean, /* dest */ boolean ]
-    getDate(metaItem: string): [ /* returnType */ boolean, /* dest */ GLib.Date ]
-    getDateTime(metaItem: string): [ /* returnType */ boolean, /* dest */ Gst.DateTime ]
-    getDouble(metaItem: string): [ /* returnType */ boolean, /* dest */ number ]
-    getFloat(metaItem: string): [ /* returnType */ boolean, /* dest */ number ]
-    getInt(metaItem: string): [ /* returnType */ boolean, /* dest */ number ]
-    getInt64(metaItem: string): [ /* returnType */ boolean, /* dest */ number ]
+    getBoolean(metaItem: string): { returnType: boolean, dest: boolean }
+    getDate(metaItem: string): { returnType: boolean, dest: GLib.Date }
+    getDateTime(metaItem: string): { returnType: boolean, dest: Gst.DateTime }
+    getDouble(metaItem: string): { returnType: boolean, dest: number }
+    getFloat(metaItem: string): { returnType: boolean, dest: number }
+    getInt(metaItem: string): { returnType: boolean, dest: number }
+    getInt64(metaItem: string): { returnType: boolean, dest: number }
     getMarkerList(key: string): MarkerList
     getMeta(key: string): any
     getString(metaItem: string): string
-    getUint(metaItem: string): [ /* returnType */ boolean, /* dest */ number ]
-    getUint64(metaItem: string): [ /* returnType */ boolean, /* dest */ number ]
+    getUint(metaItem: string): { returnType: boolean, dest: number }
+    getUint64(metaItem: string): { returnType: boolean, dest: number }
     metasToString(): string
     registerMeta(flags: MetaFlag, metaItem: string, value: any): boolean
     registerMetaBoolean(flags: MetaFlag, metaItem: string, value: boolean): boolean
@@ -12846,92 +11160,45 @@ export class TransitionClip {
     setString(metaItem: string, value: string): boolean
     setUint(metaItem: string, value: number): boolean
     setUint64(metaItem: string, value: number): boolean
-    /* Virtual methods of GES.Clip */
-    vfuncCreateTrackElement(type: TrackType): TrackElement | null
-    vfuncCreateTrackElements(type: TrackType): TrackElement[]
-    /* Virtual methods of GES.Container */
-    vfuncAddChild(element: TimelineElement): boolean
-    vfuncChildAdded(element: TimelineElement): void
-    vfuncChildRemoved(element: TimelineElement): void
-    vfuncEdit(layers: Layer[] | null, newLayerPriority: number, mode: EditMode, edge: Edge, position: number): boolean
-    vfuncRemoveChild(element: TimelineElement): boolean
-    vfuncUngroup(recursive: boolean): Container[]
-    /* Virtual methods of GES.TimelineElement */
-    vfuncDeepCopy(copy: TimelineElement): void
-    vfuncGetLayerPriority(): number
-    vfuncGetNaturalFramerate(): [ /* returnType */ boolean, /* framerateN */ number, /* framerateD */ number ]
-    vfuncGetTrackTypes(): TrackType
-    vfuncLookupChild(propName: string): [ /* returnType */ boolean, /* child */ GObject.Object | null, /* pspec */ GObject.ParamSpec | null ]
-    vfuncRipple(start: number): boolean
-    vfuncRippleEnd(end: number): boolean
-    vfuncRollEnd(end: number): boolean
-    vfuncRollStart(start: number): boolean
-    vfuncSetChildProperty(child: GObject.Object, pspec: GObject.ParamSpec, value: any): void
-    vfuncSetChildPropertyFull(child: GObject.Object, pspec: GObject.ParamSpec, value: any): boolean
-    vfuncSetDuration(duration: Gst.ClockTime): boolean
-    vfuncSetInpoint(inpoint: Gst.ClockTime): boolean
-    vfuncSetMaxDuration(maxduration: Gst.ClockTime): boolean
-    vfuncSetParent(parent: TimelineElement): boolean
-    vfuncSetPriority(priority: number): boolean
-    vfuncSetStart(start: Gst.ClockTime): boolean
-    vfuncTrim(start: number): boolean
-    vfuncGetId(): string
-    vfuncSetAsset(asset: Asset): void
-    vfuncSetAssetFull(asset: Asset): boolean
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GES.Container */
+    /* Signals of GES-1.0.GES.Container */
     connect(sigName: "child-added", callback: (($obj: TransitionClip, element: TimelineElement) => void)): number
-    connect_after(sigName: "child-added", callback: (($obj: TransitionClip, element: TimelineElement) => void)): number
+    on(sigName: "child-added", callback: (element: TimelineElement) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "child-added", callback: (element: TimelineElement) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "child-added", callback: (element: TimelineElement) => void): NodeJS.EventEmitter
     emit(sigName: "child-added", element: TimelineElement): void
-    on(sigName: "child-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "child-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "child-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "child-removed", callback: (($obj: TransitionClip, element: TimelineElement) => void)): number
-    connect_after(sigName: "child-removed", callback: (($obj: TransitionClip, element: TimelineElement) => void)): number
+    on(sigName: "child-removed", callback: (element: TimelineElement) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "child-removed", callback: (element: TimelineElement) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "child-removed", callback: (element: TimelineElement) => void): NodeJS.EventEmitter
     emit(sigName: "child-removed", element: TimelineElement): void
-    on(sigName: "child-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "child-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "child-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GES.TimelineElement */
+    /* Signals of GES-1.0.GES.TimelineElement */
     connect(sigName: "child-property-added", callback: (($obj: TransitionClip, propObject: GObject.Object, prop: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "child-property-added", callback: (($obj: TransitionClip, propObject: GObject.Object, prop: GObject.ParamSpec) => void)): number
+    on(sigName: "child-property-added", callback: (propObject: GObject.Object, prop: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "child-property-added", callback: (propObject: GObject.Object, prop: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "child-property-added", callback: (propObject: GObject.Object, prop: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "child-property-added", propObject: GObject.Object, prop: GObject.ParamSpec): void
-    on(sigName: "child-property-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "child-property-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "child-property-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "child-property-removed", callback: (($obj: TransitionClip, propObject: GObject.Object, prop: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "child-property-removed", callback: (($obj: TransitionClip, propObject: GObject.Object, prop: GObject.ParamSpec) => void)): number
+    on(sigName: "child-property-removed", callback: (propObject: GObject.Object, prop: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "child-property-removed", callback: (propObject: GObject.Object, prop: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "child-property-removed", callback: (propObject: GObject.Object, prop: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "child-property-removed", propObject: GObject.Object, prop: GObject.ParamSpec): void
-    on(sigName: "child-property-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "child-property-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "child-property-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "deep-notify", callback: (($obj: TransitionClip, propObject: GObject.Object, prop: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "deep-notify", callback: (($obj: TransitionClip, propObject: GObject.Object, prop: GObject.ParamSpec) => void)): number
+    on(sigName: "deep-notify", callback: (propObject: GObject.Object, prop: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "deep-notify", callback: (propObject: GObject.Object, prop: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "deep-notify", callback: (propObject: GObject.Object, prop: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "deep-notify", propObject: GObject.Object, prop: GObject.ParamSpec): void
-    on(sigName: "deep-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "deep-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "deep-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: TransitionClip, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: TransitionClip, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GES.MetaContainer */
+    /* Signals of GES-1.0.GES.MetaContainer */
     connect(sigName: "notify-meta", callback: (($obj: TransitionClip, key: string, value?: any | null) => void)): number
-    connect_after(sigName: "notify-meta", callback: (($obj: TransitionClip, key: string, value?: any | null) => void)): number
+    on(sigName: "notify-meta", callback: (key: string, value?: any | null) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify-meta", callback: (key: string, value?: any | null) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify-meta", callback: (key: string, value?: any | null) => void): NodeJS.EventEmitter
     emit(sigName: "notify-meta", key: string, value?: any | null): void
-    on(sigName: "notify-meta", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify-meta", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify-meta", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::vtype", callback: (($obj: TransitionClip, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::vtype", callback: (($obj: TransitionClip, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::vtype", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -13024,16 +11291,16 @@ export interface UriClip_ConstructProps extends SourceClip_ConstructProps {
     uri?: string
 }
 export class UriClip {
-    /* Properties of GES.UriClip */
+    /* Properties of GES-1.0.GES.UriClip */
     isImage: boolean
     mute: boolean
     supportedFormats: TrackType
-    /* Properties of GES.Clip */
+    /* Properties of GES-1.0.GES.Clip */
     readonly durationLimit: number
     readonly layer: Layer
-    /* Properties of GES.Container */
+    /* Properties of GES-1.0.GES.Container */
     readonly height: number
-    /* Properties of GES.TimelineElement */
+    /* Properties of GES-1.0.GES.TimelineElement */
     duration: number
     inPoint: number
     maxDuration: number
@@ -13043,23 +11310,23 @@ export class UriClip {
     serialize: boolean
     start: number
     timeline: Timeline
-    /* Fields of GES.Container */
+    /* Fields of GES-1.0.GES.Container */
     children: TimelineElement[]
     childrenControlMode: ChildrenControlMode
     initiatedMove: TimelineElement
-    /* Fields of GES.TimelineElement */
+    /* Fields of GES-1.0.GES.TimelineElement */
     parentInstance: GObject.InitiallyUnowned
     asset: Asset
     inpoint: Gst.ClockTime
     maxduration: Gst.ClockTime
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GES.UriClip */
+    /* Methods of GES-1.0.GES.UriClip */
     getUri(): string
     isMuted(): boolean
     setIsImage(isImage: boolean): void
     setMute(mute: boolean): void
-    /* Methods of GES.Clip */
+    /* Methods of GES-1.0.GES.Clip */
     addAsset(asset: Asset): TrackElement | null
     addChildToTrack(child: TrackElement, track: Track): TrackElement
     addTopEffect(effect: BaseEffect, index: number): boolean
@@ -13083,24 +11350,24 @@ export class UriClip {
     setTopEffectPriority(effect: BaseEffect, newpriority: number): boolean
     split(position: number): Clip | null
     splitFull(position: number): Clip | null
-    /* Methods of GES.Container */
+    /* Methods of GES-1.0.GES.Container */
     add(child: TimelineElement): boolean
     edit(layers: Layer[] | null, newLayerPriority: number, mode: EditMode, edge: Edge, position: number): boolean
     getChildren(recursive: boolean): TimelineElement[]
     remove(child: TimelineElement): boolean
     ungroup(recursive: boolean): Container[]
-    /* Methods of GES.TimelineElement */
+    /* Methods of GES-1.0.GES.TimelineElement */
     addChildProperty(pspec: GObject.ParamSpec, child: GObject.Object): boolean
     copy(deep: boolean): TimelineElement
     editFull(newLayerPriority: number, mode: EditMode, edge: Edge, position: number): boolean
-    getChildProperty(propertyName: string): [ /* returnType */ boolean, /* value */ any ]
-    getChildPropertyByPspec(pspec: GObject.ParamSpec): /* value */ any
+    getChildProperty(propertyName: string): { returnType: boolean, value: any }
+    getChildPropertyByPspec(pspec: GObject.ParamSpec): { value: any }
     getDuration(): Gst.ClockTime
     getInpoint(): Gst.ClockTime
     getLayerPriority(): number
     getMaxDuration(): Gst.ClockTime
     getName(): string
-    getNaturalFramerate(): [ /* returnType */ boolean, /* framerateN */ number, /* framerateD */ number ]
+    getNaturalFramerate(): { returnType: boolean, framerateN: number, framerateD: number }
     getParent(): TimelineElement | null
     getPriority(): number
     getStart(): Gst.ClockTime
@@ -13108,7 +11375,7 @@ export class UriClip {
     getToplevelParent(): TimelineElement
     getTrackTypes(): TrackType
     listChildrenProperties(): GObject.ParamSpec[]
-    lookupChild(propName: string): [ /* returnType */ boolean, /* child */ GObject.Object | null, /* pspec */ GObject.ParamSpec | null ]
+    lookupChild(propName: string): { returnType: boolean, child: GObject.Object | null, pspec: GObject.ParamSpec | null }
     paste(pastePosition: Gst.ClockTime): TimelineElement | null
     removeChildProperty(pspec: GObject.ParamSpec): boolean
     ripple(start: Gst.ClockTime): boolean
@@ -13127,7 +11394,7 @@ export class UriClip {
     setStart(start: Gst.ClockTime): boolean
     setTimeline(timeline: Timeline): boolean
     trim(start: Gst.ClockTime): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -13149,26 +11416,26 @@ export class UriClip {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of GES.Extractable */
+    /* Methods of GES-1.0.GES.Extractable */
     getAsset(): Asset | null
     getId(): string
     setAsset(asset: Asset): boolean
-    /* Methods of GES.MetaContainer */
+    /* Methods of GES-1.0.GES.MetaContainer */
     addMetasFromString(str: string): boolean
-    checkMetaRegistered(metaItem: string): [ /* returnType */ boolean, /* flags */ MetaFlag | null, /* type */ GObject.Type | null ]
+    checkMetaRegistered(metaItem: string): { returnType: boolean, flags: MetaFlag | null, type: GObject.Type | null }
     foreach(func: MetaForeachFunc): void
-    getBoolean(metaItem: string): [ /* returnType */ boolean, /* dest */ boolean ]
-    getDate(metaItem: string): [ /* returnType */ boolean, /* dest */ GLib.Date ]
-    getDateTime(metaItem: string): [ /* returnType */ boolean, /* dest */ Gst.DateTime ]
-    getDouble(metaItem: string): [ /* returnType */ boolean, /* dest */ number ]
-    getFloat(metaItem: string): [ /* returnType */ boolean, /* dest */ number ]
-    getInt(metaItem: string): [ /* returnType */ boolean, /* dest */ number ]
-    getInt64(metaItem: string): [ /* returnType */ boolean, /* dest */ number ]
+    getBoolean(metaItem: string): { returnType: boolean, dest: boolean }
+    getDate(metaItem: string): { returnType: boolean, dest: GLib.Date }
+    getDateTime(metaItem: string): { returnType: boolean, dest: Gst.DateTime }
+    getDouble(metaItem: string): { returnType: boolean, dest: number }
+    getFloat(metaItem: string): { returnType: boolean, dest: number }
+    getInt(metaItem: string): { returnType: boolean, dest: number }
+    getInt64(metaItem: string): { returnType: boolean, dest: number }
     getMarkerList(key: string): MarkerList
     getMeta(key: string): any
     getString(metaItem: string): string
-    getUint(metaItem: string): [ /* returnType */ boolean, /* dest */ number ]
-    getUint64(metaItem: string): [ /* returnType */ boolean, /* dest */ number ]
+    getUint(metaItem: string): { returnType: boolean, dest: number }
+    getUint64(metaItem: string): { returnType: boolean, dest: number }
     metasToString(): string
     registerMeta(flags: MetaFlag, metaItem: string, value: any): boolean
     registerMetaBoolean(flags: MetaFlag, metaItem: string, value: boolean): boolean
@@ -13194,92 +11461,45 @@ export class UriClip {
     setString(metaItem: string, value: string): boolean
     setUint(metaItem: string, value: number): boolean
     setUint64(metaItem: string, value: number): boolean
-    /* Virtual methods of GES.Clip */
-    vfuncCreateTrackElement(type: TrackType): TrackElement | null
-    vfuncCreateTrackElements(type: TrackType): TrackElement[]
-    /* Virtual methods of GES.Container */
-    vfuncAddChild(element: TimelineElement): boolean
-    vfuncChildAdded(element: TimelineElement): void
-    vfuncChildRemoved(element: TimelineElement): void
-    vfuncEdit(layers: Layer[] | null, newLayerPriority: number, mode: EditMode, edge: Edge, position: number): boolean
-    vfuncRemoveChild(element: TimelineElement): boolean
-    vfuncUngroup(recursive: boolean): Container[]
-    /* Virtual methods of GES.TimelineElement */
-    vfuncDeepCopy(copy: TimelineElement): void
-    vfuncGetLayerPriority(): number
-    vfuncGetNaturalFramerate(): [ /* returnType */ boolean, /* framerateN */ number, /* framerateD */ number ]
-    vfuncGetTrackTypes(): TrackType
-    vfuncLookupChild(propName: string): [ /* returnType */ boolean, /* child */ GObject.Object | null, /* pspec */ GObject.ParamSpec | null ]
-    vfuncRipple(start: number): boolean
-    vfuncRippleEnd(end: number): boolean
-    vfuncRollEnd(end: number): boolean
-    vfuncRollStart(start: number): boolean
-    vfuncSetChildProperty(child: GObject.Object, pspec: GObject.ParamSpec, value: any): void
-    vfuncSetChildPropertyFull(child: GObject.Object, pspec: GObject.ParamSpec, value: any): boolean
-    vfuncSetDuration(duration: Gst.ClockTime): boolean
-    vfuncSetInpoint(inpoint: Gst.ClockTime): boolean
-    vfuncSetMaxDuration(maxduration: Gst.ClockTime): boolean
-    vfuncSetParent(parent: TimelineElement): boolean
-    vfuncSetPriority(priority: number): boolean
-    vfuncSetStart(start: Gst.ClockTime): boolean
-    vfuncTrim(start: number): boolean
-    vfuncGetId(): string
-    vfuncSetAsset(asset: Asset): void
-    vfuncSetAssetFull(asset: Asset): boolean
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GES.Container */
+    /* Signals of GES-1.0.GES.Container */
     connect(sigName: "child-added", callback: (($obj: UriClip, element: TimelineElement) => void)): number
-    connect_after(sigName: "child-added", callback: (($obj: UriClip, element: TimelineElement) => void)): number
+    on(sigName: "child-added", callback: (element: TimelineElement) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "child-added", callback: (element: TimelineElement) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "child-added", callback: (element: TimelineElement) => void): NodeJS.EventEmitter
     emit(sigName: "child-added", element: TimelineElement): void
-    on(sigName: "child-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "child-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "child-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "child-removed", callback: (($obj: UriClip, element: TimelineElement) => void)): number
-    connect_after(sigName: "child-removed", callback: (($obj: UriClip, element: TimelineElement) => void)): number
+    on(sigName: "child-removed", callback: (element: TimelineElement) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "child-removed", callback: (element: TimelineElement) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "child-removed", callback: (element: TimelineElement) => void): NodeJS.EventEmitter
     emit(sigName: "child-removed", element: TimelineElement): void
-    on(sigName: "child-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "child-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "child-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GES.TimelineElement */
+    /* Signals of GES-1.0.GES.TimelineElement */
     connect(sigName: "child-property-added", callback: (($obj: UriClip, propObject: GObject.Object, prop: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "child-property-added", callback: (($obj: UriClip, propObject: GObject.Object, prop: GObject.ParamSpec) => void)): number
+    on(sigName: "child-property-added", callback: (propObject: GObject.Object, prop: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "child-property-added", callback: (propObject: GObject.Object, prop: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "child-property-added", callback: (propObject: GObject.Object, prop: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "child-property-added", propObject: GObject.Object, prop: GObject.ParamSpec): void
-    on(sigName: "child-property-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "child-property-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "child-property-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "child-property-removed", callback: (($obj: UriClip, propObject: GObject.Object, prop: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "child-property-removed", callback: (($obj: UriClip, propObject: GObject.Object, prop: GObject.ParamSpec) => void)): number
+    on(sigName: "child-property-removed", callback: (propObject: GObject.Object, prop: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "child-property-removed", callback: (propObject: GObject.Object, prop: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "child-property-removed", callback: (propObject: GObject.Object, prop: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "child-property-removed", propObject: GObject.Object, prop: GObject.ParamSpec): void
-    on(sigName: "child-property-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "child-property-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "child-property-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "deep-notify", callback: (($obj: UriClip, propObject: GObject.Object, prop: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "deep-notify", callback: (($obj: UriClip, propObject: GObject.Object, prop: GObject.ParamSpec) => void)): number
+    on(sigName: "deep-notify", callback: (propObject: GObject.Object, prop: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "deep-notify", callback: (propObject: GObject.Object, prop: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "deep-notify", callback: (propObject: GObject.Object, prop: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "deep-notify", propObject: GObject.Object, prop: GObject.ParamSpec): void
-    on(sigName: "deep-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "deep-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "deep-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: UriClip, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: UriClip, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GES.MetaContainer */
+    /* Signals of GES-1.0.GES.MetaContainer */
     connect(sigName: "notify-meta", callback: (($obj: UriClip, key: string, value?: any | null) => void)): number
-    connect_after(sigName: "notify-meta", callback: (($obj: UriClip, key: string, value?: any | null) => void)): number
+    on(sigName: "notify-meta", callback: (key: string, value?: any | null) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify-meta", callback: (key: string, value?: any | null) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify-meta", callback: (key: string, value?: any | null) => void): NodeJS.EventEmitter
     emit(sigName: "notify-meta", key: string, value?: any | null): void
-    on(sigName: "notify-meta", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify-meta", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify-meta", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::is-image", callback: (($obj: UriClip, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::is-image", callback: (($obj: UriClip, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::is-image", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -13373,32 +11593,32 @@ export interface UriClipAsset_ConstructProps extends SourceClipAsset_ConstructPr
     duration?: number
 }
 export class UriClipAsset {
-    /* Properties of GES.UriClipAsset */
+    /* Properties of GES-1.0.GES.UriClipAsset */
     duration: number
     readonly isNestedTimeline: boolean
-    /* Properties of GES.ClipAsset */
+    /* Properties of GES-1.0.GES.ClipAsset */
     supportedFormats: TrackType
-    /* Properties of GES.Asset */
+    /* Properties of GES-1.0.GES.Asset */
     proxy: Asset
     readonly proxyTarget: Asset
-    /* Fields of GES.UriClipAsset */
+    /* Fields of GES-1.0.GES.UriClipAsset */
     parent: SourceClipAsset
-    /* Fields of GES.SourceClipAsset */
+    /* Fields of GES-1.0.GES.SourceClipAsset */
     parentInstance: ClipAsset
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GES.UriClipAsset */
+    /* Methods of GES-1.0.GES.UriClipAsset */
     getDuration(): Gst.ClockTime
     getInfo(): GstPbutils.DiscovererInfo
     getMaxDuration(): Gst.ClockTime
     getStreamAssets(): UriSourceAsset[]
     isImage(): boolean
-    /* Methods of GES.ClipAsset */
+    /* Methods of GES-1.0.GES.ClipAsset */
     getFrameTime(frameNumber: FrameNumber): Gst.ClockTime
     getNaturalFramerate(framerateN: number, framerateD: number): boolean
     getSupportedFormats(): TrackType
     setSupportedFormats(supportedformats: TrackType): void
-    /* Methods of GES.Asset */
+    /* Methods of GES-1.0.GES.Asset */
     extract(): Extractable
     getError(): GLib.Error | null
     getExtractableType(): GObject.Type
@@ -13408,7 +11628,7 @@ export class UriClipAsset {
     listProxies(): Asset[]
     setProxy(proxy?: Asset | null): boolean
     unproxy(proxy: Asset): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -13430,22 +11650,22 @@ export class UriClipAsset {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of GES.MetaContainer */
+    /* Methods of GES-1.0.GES.MetaContainer */
     addMetasFromString(str: string): boolean
-    checkMetaRegistered(metaItem: string): [ /* returnType */ boolean, /* flags */ MetaFlag | null, /* type */ GObject.Type | null ]
+    checkMetaRegistered(metaItem: string): { returnType: boolean, flags: MetaFlag | null, type: GObject.Type | null }
     foreach(func: MetaForeachFunc): void
-    getBoolean(metaItem: string): [ /* returnType */ boolean, /* dest */ boolean ]
-    getDate(metaItem: string): [ /* returnType */ boolean, /* dest */ GLib.Date ]
-    getDateTime(metaItem: string): [ /* returnType */ boolean, /* dest */ Gst.DateTime ]
-    getDouble(metaItem: string): [ /* returnType */ boolean, /* dest */ number ]
-    getFloat(metaItem: string): [ /* returnType */ boolean, /* dest */ number ]
-    getInt(metaItem: string): [ /* returnType */ boolean, /* dest */ number ]
-    getInt64(metaItem: string): [ /* returnType */ boolean, /* dest */ number ]
+    getBoolean(metaItem: string): { returnType: boolean, dest: boolean }
+    getDate(metaItem: string): { returnType: boolean, dest: GLib.Date }
+    getDateTime(metaItem: string): { returnType: boolean, dest: Gst.DateTime }
+    getDouble(metaItem: string): { returnType: boolean, dest: number }
+    getFloat(metaItem: string): { returnType: boolean, dest: number }
+    getInt(metaItem: string): { returnType: boolean, dest: number }
+    getInt64(metaItem: string): { returnType: boolean, dest: number }
     getMarkerList(key: string): MarkerList
     getMeta(key: string): any
     getString(metaItem: string): string
-    getUint(metaItem: string): [ /* returnType */ boolean, /* dest */ number ]
-    getUint64(metaItem: string): [ /* returnType */ boolean, /* dest */ number ]
+    getUint(metaItem: string): { returnType: boolean, dest: number }
+    getUint64(metaItem: string): { returnType: boolean, dest: number }
     metasToString(): string
     registerMeta(flags: MetaFlag, metaItem: string, value: any): boolean
     registerMetaBoolean(flags: MetaFlag, metaItem: string, value: boolean): boolean
@@ -13471,45 +11691,24 @@ export class UriClipAsset {
     setString(metaItem: string, value: string): boolean
     setUint(metaItem: string, value: number): boolean
     setUint64(metaItem: string, value: number): boolean
-    /* Methods of Gio.AsyncInitable */
+    /* Methods of Gio-2.0.Gio.AsyncInitable */
     initAsync(ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     initFinish(res: Gio.AsyncResult): boolean
     newFinish(res: Gio.AsyncResult): GObject.Object
-    /* Methods of Gio.Initable */
+    /* Methods of Gio-2.0.Gio.Initable */
     init(cancellable?: Gio.Cancellable | null): boolean
-    /* Virtual methods of GES.ClipAsset */
-    vfuncGetNaturalFramerate(framerateN: number, framerateD: number): boolean
-    /* Virtual methods of GES.Asset */
-    vfuncExtract(): Extractable
-    vfuncInformProxy(proxyId: string): void
-    vfuncProxied(proxy: Asset): void
-    vfuncRequestIdUpdate(proposedNewId: string, error: GLib.Error): boolean
-    vfuncStartLoading(): AssetLoadingReturn
-    vfuncInitAsync(ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    vfuncInitFinish(res: Gio.AsyncResult): boolean
-    vfuncInit(cancellable?: Gio.Cancellable | null): boolean
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: UriClipAsset, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: UriClipAsset, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GES.MetaContainer */
+    /* Signals of GES-1.0.GES.MetaContainer */
     connect(sigName: "notify-meta", callback: (($obj: UriClipAsset, key: string, value?: any | null) => void)): number
-    connect_after(sigName: "notify-meta", callback: (($obj: UriClipAsset, key: string, value?: any | null) => void)): number
+    on(sigName: "notify-meta", callback: (key: string, value?: any | null) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify-meta", callback: (key: string, value?: any | null) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify-meta", callback: (key: string, value?: any | null) => void): NodeJS.EventEmitter
     emit(sigName: "notify-meta", key: string, value?: any | null): void
-    on(sigName: "notify-meta", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify-meta", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify-meta", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::duration", callback: (($obj: UriClipAsset, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::duration", callback: (($obj: UriClipAsset, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::duration", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -13554,25 +11753,25 @@ export class UriClipAsset {
 export interface UriSourceAsset_ConstructProps extends TrackElementAsset_ConstructProps {
 }
 export class UriSourceAsset {
-    /* Properties of GES.TrackElementAsset */
+    /* Properties of GES-1.0.GES.TrackElementAsset */
     trackType: TrackType
-    /* Properties of GES.Asset */
+    /* Properties of GES-1.0.GES.Asset */
     proxy: Asset
     readonly proxyTarget: Asset
-    /* Fields of GES.UriSourceAsset */
+    /* Fields of GES-1.0.GES.UriSourceAsset */
     parent: TrackElementAsset
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GES.UriSourceAsset */
+    /* Methods of GES-1.0.GES.UriSourceAsset */
     getFilesourceAsset(): UriClipAsset
     getStreamInfo(): GstPbutils.DiscovererStreamInfo
     getStreamUri(): string
     isImage(): boolean
-    /* Methods of GES.TrackElementAsset */
+    /* Methods of GES-1.0.GES.TrackElementAsset */
     getNaturalFramerate(framerateN: number, framerateD: number): boolean
     getTrackType(): TrackType
     setTrackType(type: TrackType): void
-    /* Methods of GES.Asset */
+    /* Methods of GES-1.0.GES.Asset */
     extract(): Extractable
     getError(): GLib.Error | null
     getExtractableType(): GObject.Type
@@ -13582,7 +11781,7 @@ export class UriSourceAsset {
     listProxies(): Asset[]
     setProxy(proxy?: Asset | null): boolean
     unproxy(proxy: Asset): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -13604,22 +11803,22 @@ export class UriSourceAsset {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of GES.MetaContainer */
+    /* Methods of GES-1.0.GES.MetaContainer */
     addMetasFromString(str: string): boolean
-    checkMetaRegistered(metaItem: string): [ /* returnType */ boolean, /* flags */ MetaFlag | null, /* type */ GObject.Type | null ]
+    checkMetaRegistered(metaItem: string): { returnType: boolean, flags: MetaFlag | null, type: GObject.Type | null }
     foreach(func: MetaForeachFunc): void
-    getBoolean(metaItem: string): [ /* returnType */ boolean, /* dest */ boolean ]
-    getDate(metaItem: string): [ /* returnType */ boolean, /* dest */ GLib.Date ]
-    getDateTime(metaItem: string): [ /* returnType */ boolean, /* dest */ Gst.DateTime ]
-    getDouble(metaItem: string): [ /* returnType */ boolean, /* dest */ number ]
-    getFloat(metaItem: string): [ /* returnType */ boolean, /* dest */ number ]
-    getInt(metaItem: string): [ /* returnType */ boolean, /* dest */ number ]
-    getInt64(metaItem: string): [ /* returnType */ boolean, /* dest */ number ]
+    getBoolean(metaItem: string): { returnType: boolean, dest: boolean }
+    getDate(metaItem: string): { returnType: boolean, dest: GLib.Date }
+    getDateTime(metaItem: string): { returnType: boolean, dest: Gst.DateTime }
+    getDouble(metaItem: string): { returnType: boolean, dest: number }
+    getFloat(metaItem: string): { returnType: boolean, dest: number }
+    getInt(metaItem: string): { returnType: boolean, dest: number }
+    getInt64(metaItem: string): { returnType: boolean, dest: number }
     getMarkerList(key: string): MarkerList
     getMeta(key: string): any
     getString(metaItem: string): string
-    getUint(metaItem: string): [ /* returnType */ boolean, /* dest */ number ]
-    getUint64(metaItem: string): [ /* returnType */ boolean, /* dest */ number ]
+    getUint(metaItem: string): { returnType: boolean, dest: number }
+    getUint64(metaItem: string): { returnType: boolean, dest: number }
     metasToString(): string
     registerMeta(flags: MetaFlag, metaItem: string, value: any): boolean
     registerMetaBoolean(flags: MetaFlag, metaItem: string, value: boolean): boolean
@@ -13645,45 +11844,24 @@ export class UriSourceAsset {
     setString(metaItem: string, value: string): boolean
     setUint(metaItem: string, value: number): boolean
     setUint64(metaItem: string, value: number): boolean
-    /* Methods of Gio.AsyncInitable */
+    /* Methods of Gio-2.0.Gio.AsyncInitable */
     initAsync(ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     initFinish(res: Gio.AsyncResult): boolean
     newFinish(res: Gio.AsyncResult): GObject.Object
-    /* Methods of Gio.Initable */
+    /* Methods of Gio-2.0.Gio.Initable */
     init(cancellable?: Gio.Cancellable | null): boolean
-    /* Virtual methods of GES.TrackElementAsset */
-    vfuncGetNaturalFramerate(framerateN: number, framerateD: number): boolean
-    /* Virtual methods of GES.Asset */
-    vfuncExtract(): Extractable
-    vfuncInformProxy(proxyId: string): void
-    vfuncProxied(proxy: Asset): void
-    vfuncRequestIdUpdate(proposedNewId: string, error: GLib.Error): boolean
-    vfuncStartLoading(): AssetLoadingReturn
-    vfuncInitAsync(ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    vfuncInitFinish(res: Gio.AsyncResult): boolean
-    vfuncInit(cancellable?: Gio.Cancellable | null): boolean
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: UriSourceAsset, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: UriSourceAsset, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GES.MetaContainer */
+    /* Signals of GES-1.0.GES.MetaContainer */
     connect(sigName: "notify-meta", callback: (($obj: UriSourceAsset, key: string, value?: any | null) => void)): number
-    connect_after(sigName: "notify-meta", callback: (($obj: UriSourceAsset, key: string, value?: any | null) => void)): number
+    on(sigName: "notify-meta", callback: (key: string, value?: any | null) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify-meta", callback: (key: string, value?: any | null) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify-meta", callback: (key: string, value?: any | null) => void): NodeJS.EventEmitter
     emit(sigName: "notify-meta", key: string, value?: any | null): void
-    on(sigName: "notify-meta", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify-meta", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify-meta", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::track-type", callback: (($obj: UriSourceAsset, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::track-type", callback: (($obj: UriSourceAsset, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::track-type", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -13714,13 +11892,13 @@ export class UriSourceAsset {
 export interface VideoSource_ConstructProps extends Source_ConstructProps {
 }
 export class VideoSource {
-    /* Properties of GES.TrackElement */
+    /* Properties of GES-1.0.GES.TrackElement */
     active: boolean
     autoClampControlSources: boolean
     hasInternalSource: boolean
     readonly track: Track
     trackType: TrackType
-    /* Properties of GES.TimelineElement */
+    /* Properties of GES-1.0.GES.TimelineElement */
     duration: number
     inPoint: number
     maxDuration: number
@@ -13730,16 +11908,16 @@ export class VideoSource {
     serialize: boolean
     start: number
     timeline: Timeline
-    /* Fields of GES.TimelineElement */
+    /* Fields of GES-1.0.GES.TimelineElement */
     parentInstance: GObject.InitiallyUnowned
     asset: Asset
     inpoint: Gst.ClockTime
     maxduration: Gst.ClockTime
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GES.VideoSource */
-    getNaturalSize(): [ /* returnType */ boolean, /* width */ number, /* height */ number ]
-    /* Methods of GES.TrackElement */
+    /* Methods of GES-1.0.GES.VideoSource */
+    getNaturalSize(): { returnType: boolean, width: number, height: number }
+    /* Methods of GES-1.0.GES.TrackElement */
     addChildrenProps(element: Gst.Element, wantedCategories?: string[] | null, blacklist?: string[] | null, whitelist?: string[] | null): void
     clampControlSource(propertyName: string): void
     edit(layers: Layer[] | null, mode: EditMode, edge: Edge, position: number): boolean
@@ -13754,33 +11932,33 @@ export class VideoSource {
     isActive(): boolean
     isCore(): boolean
     listChildrenProperties(): GObject.ParamSpec[]
-    lookupChild(propName: string): [ /* returnType */ boolean, /* element */ Gst.Element | null, /* pspec */ GObject.ParamSpec | null ]
+    lookupChild(propName: string): { returnType: boolean, element: Gst.Element | null, pspec: GObject.ParamSpec | null }
     removeControlBinding(propertyName: string): boolean
     setActive(active: boolean): boolean
     setAutoClampControlSources(autoClamp: boolean): void
     setControlSource(source: Gst.ControlSource, propertyName: string, bindingType: string): boolean
     setHasInternalSource(hasInternalSource: boolean): boolean
     setTrackType(type: TrackType): void
-    /* Methods of GES.TimelineElement */
+    /* Methods of GES-1.0.GES.TimelineElement */
     addChildProperty(pspec: GObject.ParamSpec, child: GObject.Object): boolean
     copy(deep: boolean): TimelineElement
     edit(layers: Layer[] | null, newLayerPriority: number, mode: EditMode, edge: Edge, position: number): boolean
     editFull(newLayerPriority: number, mode: EditMode, edge: Edge, position: number): boolean
-    getChildProperty(propertyName: string): [ /* returnType */ boolean, /* value */ any ]
-    getChildPropertyByPspec(pspec: GObject.ParamSpec): /* value */ any
+    getChildProperty(propertyName: string): { returnType: boolean, value: any }
+    getChildPropertyByPspec(pspec: GObject.ParamSpec): { value: any }
     getDuration(): Gst.ClockTime
     getInpoint(): Gst.ClockTime
     getLayerPriority(): number
     getMaxDuration(): Gst.ClockTime
     getName(): string
-    getNaturalFramerate(): [ /* returnType */ boolean, /* framerateN */ number, /* framerateD */ number ]
+    getNaturalFramerate(): { returnType: boolean, framerateN: number, framerateD: number }
     getParent(): TimelineElement | null
     getPriority(): number
     getStart(): Gst.ClockTime
     getTimeline(): Timeline | null
     getToplevelParent(): TimelineElement
     getTrackTypes(): TrackType
-    lookupChild(propName: string): [ /* returnType */ boolean, /* child */ GObject.Object | null, /* pspec */ GObject.ParamSpec | null ]
+    lookupChild(propName: string): { returnType: boolean, child: GObject.Object | null, pspec: GObject.ParamSpec | null }
     paste(pastePosition: Gst.ClockTime): TimelineElement | null
     removeChildProperty(pspec: GObject.ParamSpec): boolean
     ripple(start: Gst.ClockTime): boolean
@@ -13799,7 +11977,7 @@ export class VideoSource {
     setStart(start: Gst.ClockTime): boolean
     setTimeline(timeline: Timeline): boolean
     trim(start: Gst.ClockTime): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -13821,26 +11999,26 @@ export class VideoSource {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of GES.Extractable */
+    /* Methods of GES-1.0.GES.Extractable */
     getAsset(): Asset | null
     getId(): string
     setAsset(asset: Asset): boolean
-    /* Methods of GES.MetaContainer */
+    /* Methods of GES-1.0.GES.MetaContainer */
     addMetasFromString(str: string): boolean
-    checkMetaRegistered(metaItem: string): [ /* returnType */ boolean, /* flags */ MetaFlag | null, /* type */ GObject.Type | null ]
+    checkMetaRegistered(metaItem: string): { returnType: boolean, flags: MetaFlag | null, type: GObject.Type | null }
     foreach(func: MetaForeachFunc): void
-    getBoolean(metaItem: string): [ /* returnType */ boolean, /* dest */ boolean ]
-    getDate(metaItem: string): [ /* returnType */ boolean, /* dest */ GLib.Date ]
-    getDateTime(metaItem: string): [ /* returnType */ boolean, /* dest */ Gst.DateTime ]
-    getDouble(metaItem: string): [ /* returnType */ boolean, /* dest */ number ]
-    getFloat(metaItem: string): [ /* returnType */ boolean, /* dest */ number ]
-    getInt(metaItem: string): [ /* returnType */ boolean, /* dest */ number ]
-    getInt64(metaItem: string): [ /* returnType */ boolean, /* dest */ number ]
+    getBoolean(metaItem: string): { returnType: boolean, dest: boolean }
+    getDate(metaItem: string): { returnType: boolean, dest: GLib.Date }
+    getDateTime(metaItem: string): { returnType: boolean, dest: Gst.DateTime }
+    getDouble(metaItem: string): { returnType: boolean, dest: number }
+    getFloat(metaItem: string): { returnType: boolean, dest: number }
+    getInt(metaItem: string): { returnType: boolean, dest: number }
+    getInt64(metaItem: string): { returnType: boolean, dest: number }
     getMarkerList(key: string): MarkerList
     getMeta(key: string): any
     getString(metaItem: string): string
-    getUint(metaItem: string): [ /* returnType */ boolean, /* dest */ number ]
-    getUint64(metaItem: string): [ /* returnType */ boolean, /* dest */ number ]
+    getUint(metaItem: string): { returnType: boolean, dest: number }
+    getUint64(metaItem: string): { returnType: boolean, dest: number }
     metasToString(): string
     registerMeta(flags: MetaFlag, metaItem: string, value: any): boolean
     registerMetaBoolean(flags: MetaFlag, metaItem: string, value: boolean): boolean
@@ -13866,88 +12044,45 @@ export class VideoSource {
     setString(metaItem: string, value: string): boolean
     setUint(metaItem: string, value: number): boolean
     setUint64(metaItem: string, value: number): boolean
-    /* Virtual methods of GES.Source */
-    vfuncSelectPad(pad: Gst.Pad): boolean
-    /* Virtual methods of GES.TrackElement */
-    vfuncActiveChanged(active: boolean): void
-    vfuncChanged(): void
-    vfuncLookupChild(propName: string): [ /* returnType */ boolean, /* element */ Gst.Element | null, /* pspec */ GObject.ParamSpec | null ]
-    /* Virtual methods of GES.TimelineElement */
-    vfuncDeepCopy(copy: TimelineElement): void
-    vfuncGetLayerPriority(): number
-    vfuncGetNaturalFramerate(): [ /* returnType */ boolean, /* framerateN */ number, /* framerateD */ number ]
-    vfuncGetTrackTypes(): TrackType
-    vfuncLookupChild(propName: string): [ /* returnType */ boolean, /* child */ GObject.Object | null, /* pspec */ GObject.ParamSpec | null ]
-    vfuncRipple(start: number): boolean
-    vfuncRippleEnd(end: number): boolean
-    vfuncRollEnd(end: number): boolean
-    vfuncRollStart(start: number): boolean
-    vfuncSetChildProperty(child: GObject.Object, pspec: GObject.ParamSpec, value: any): void
-    vfuncSetChildPropertyFull(child: GObject.Object, pspec: GObject.ParamSpec, value: any): boolean
-    vfuncSetDuration(duration: Gst.ClockTime): boolean
-    vfuncSetInpoint(inpoint: Gst.ClockTime): boolean
-    vfuncSetMaxDuration(maxduration: Gst.ClockTime): boolean
-    vfuncSetParent(parent: TimelineElement): boolean
-    vfuncSetPriority(priority: number): boolean
-    vfuncSetStart(start: Gst.ClockTime): boolean
-    vfuncTrim(start: number): boolean
-    vfuncGetId(): string
-    vfuncSetAsset(asset: Asset): void
-    vfuncSetAssetFull(asset: Asset): boolean
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GES.TrackElement */
+    /* Signals of GES-1.0.GES.TrackElement */
     connect(sigName: "control-binding-added", callback: (($obj: VideoSource, controlBinding: Gst.ControlBinding) => void)): number
-    connect_after(sigName: "control-binding-added", callback: (($obj: VideoSource, controlBinding: Gst.ControlBinding) => void)): number
+    on(sigName: "control-binding-added", callback: (controlBinding: Gst.ControlBinding) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "control-binding-added", callback: (controlBinding: Gst.ControlBinding) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "control-binding-added", callback: (controlBinding: Gst.ControlBinding) => void): NodeJS.EventEmitter
     emit(sigName: "control-binding-added", controlBinding: Gst.ControlBinding): void
-    on(sigName: "control-binding-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "control-binding-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "control-binding-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "control-binding-removed", callback: (($obj: VideoSource, controlBinding: Gst.ControlBinding) => void)): number
-    connect_after(sigName: "control-binding-removed", callback: (($obj: VideoSource, controlBinding: Gst.ControlBinding) => void)): number
+    on(sigName: "control-binding-removed", callback: (controlBinding: Gst.ControlBinding) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "control-binding-removed", callback: (controlBinding: Gst.ControlBinding) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "control-binding-removed", callback: (controlBinding: Gst.ControlBinding) => void): NodeJS.EventEmitter
     emit(sigName: "control-binding-removed", controlBinding: Gst.ControlBinding): void
-    on(sigName: "control-binding-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "control-binding-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "control-binding-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GES.TimelineElement */
+    /* Signals of GES-1.0.GES.TimelineElement */
     connect(sigName: "child-property-added", callback: (($obj: VideoSource, propObject: GObject.Object, prop: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "child-property-added", callback: (($obj: VideoSource, propObject: GObject.Object, prop: GObject.ParamSpec) => void)): number
+    on(sigName: "child-property-added", callback: (propObject: GObject.Object, prop: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "child-property-added", callback: (propObject: GObject.Object, prop: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "child-property-added", callback: (propObject: GObject.Object, prop: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "child-property-added", propObject: GObject.Object, prop: GObject.ParamSpec): void
-    on(sigName: "child-property-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "child-property-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "child-property-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "child-property-removed", callback: (($obj: VideoSource, propObject: GObject.Object, prop: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "child-property-removed", callback: (($obj: VideoSource, propObject: GObject.Object, prop: GObject.ParamSpec) => void)): number
+    on(sigName: "child-property-removed", callback: (propObject: GObject.Object, prop: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "child-property-removed", callback: (propObject: GObject.Object, prop: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "child-property-removed", callback: (propObject: GObject.Object, prop: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "child-property-removed", propObject: GObject.Object, prop: GObject.ParamSpec): void
-    on(sigName: "child-property-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "child-property-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "child-property-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "deep-notify", callback: (($obj: VideoSource, propObject: GObject.Object, prop: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "deep-notify", callback: (($obj: VideoSource, propObject: GObject.Object, prop: GObject.ParamSpec) => void)): number
+    on(sigName: "deep-notify", callback: (propObject: GObject.Object, prop: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "deep-notify", callback: (propObject: GObject.Object, prop: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "deep-notify", callback: (propObject: GObject.Object, prop: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "deep-notify", propObject: GObject.Object, prop: GObject.ParamSpec): void
-    on(sigName: "deep-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "deep-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "deep-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: VideoSource, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: VideoSource, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GES.MetaContainer */
+    /* Signals of GES-1.0.GES.MetaContainer */
     connect(sigName: "notify-meta", callback: (($obj: VideoSource, key: string, value?: any | null) => void)): number
-    connect_after(sigName: "notify-meta", callback: (($obj: VideoSource, key: string, value?: any | null) => void)): number
+    on(sigName: "notify-meta", callback: (key: string, value?: any | null) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify-meta", callback: (key: string, value?: any | null) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify-meta", callback: (key: string, value?: any | null) => void): NodeJS.EventEmitter
     emit(sigName: "notify-meta", key: string, value?: any | null): void
-    on(sigName: "notify-meta", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify-meta", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify-meta", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::active", callback: (($obj: VideoSource, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::active", callback: (($obj: VideoSource, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::active", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -14033,13 +12168,13 @@ export class VideoSource {
 export interface VideoTestSource_ConstructProps extends VideoSource_ConstructProps {
 }
 export class VideoTestSource {
-    /* Properties of GES.TrackElement */
+    /* Properties of GES-1.0.GES.TrackElement */
     active: boolean
     autoClampControlSources: boolean
     hasInternalSource: boolean
     readonly track: Track
     trackType: TrackType
-    /* Properties of GES.TimelineElement */
+    /* Properties of GES-1.0.GES.TimelineElement */
     duration: number
     inPoint: number
     maxDuration: number
@@ -14049,19 +12184,19 @@ export class VideoTestSource {
     serialize: boolean
     start: number
     timeline: Timeline
-    /* Fields of GES.TimelineElement */
+    /* Fields of GES-1.0.GES.TimelineElement */
     parentInstance: GObject.InitiallyUnowned
     asset: Asset
     inpoint: Gst.ClockTime
     maxduration: Gst.ClockTime
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GES.VideoTestSource */
+    /* Methods of GES-1.0.GES.VideoTestSource */
     getPattern(): VideoTestPattern
     setPattern(pattern: VideoTestPattern): void
-    /* Methods of GES.VideoSource */
-    getNaturalSize(): [ /* returnType */ boolean, /* width */ number, /* height */ number ]
-    /* Methods of GES.TrackElement */
+    /* Methods of GES-1.0.GES.VideoSource */
+    getNaturalSize(): { returnType: boolean, width: number, height: number }
+    /* Methods of GES-1.0.GES.TrackElement */
     addChildrenProps(element: Gst.Element, wantedCategories?: string[] | null, blacklist?: string[] | null, whitelist?: string[] | null): void
     clampControlSource(propertyName: string): void
     edit(layers: Layer[] | null, mode: EditMode, edge: Edge, position: number): boolean
@@ -14076,33 +12211,33 @@ export class VideoTestSource {
     isActive(): boolean
     isCore(): boolean
     listChildrenProperties(): GObject.ParamSpec[]
-    lookupChild(propName: string): [ /* returnType */ boolean, /* element */ Gst.Element | null, /* pspec */ GObject.ParamSpec | null ]
+    lookupChild(propName: string): { returnType: boolean, element: Gst.Element | null, pspec: GObject.ParamSpec | null }
     removeControlBinding(propertyName: string): boolean
     setActive(active: boolean): boolean
     setAutoClampControlSources(autoClamp: boolean): void
     setControlSource(source: Gst.ControlSource, propertyName: string, bindingType: string): boolean
     setHasInternalSource(hasInternalSource: boolean): boolean
     setTrackType(type: TrackType): void
-    /* Methods of GES.TimelineElement */
+    /* Methods of GES-1.0.GES.TimelineElement */
     addChildProperty(pspec: GObject.ParamSpec, child: GObject.Object): boolean
     copy(deep: boolean): TimelineElement
     edit(layers: Layer[] | null, newLayerPriority: number, mode: EditMode, edge: Edge, position: number): boolean
     editFull(newLayerPriority: number, mode: EditMode, edge: Edge, position: number): boolean
-    getChildProperty(propertyName: string): [ /* returnType */ boolean, /* value */ any ]
-    getChildPropertyByPspec(pspec: GObject.ParamSpec): /* value */ any
+    getChildProperty(propertyName: string): { returnType: boolean, value: any }
+    getChildPropertyByPspec(pspec: GObject.ParamSpec): { value: any }
     getDuration(): Gst.ClockTime
     getInpoint(): Gst.ClockTime
     getLayerPriority(): number
     getMaxDuration(): Gst.ClockTime
     getName(): string
-    getNaturalFramerate(): [ /* returnType */ boolean, /* framerateN */ number, /* framerateD */ number ]
+    getNaturalFramerate(): { returnType: boolean, framerateN: number, framerateD: number }
     getParent(): TimelineElement | null
     getPriority(): number
     getStart(): Gst.ClockTime
     getTimeline(): Timeline | null
     getToplevelParent(): TimelineElement
     getTrackTypes(): TrackType
-    lookupChild(propName: string): [ /* returnType */ boolean, /* child */ GObject.Object | null, /* pspec */ GObject.ParamSpec | null ]
+    lookupChild(propName: string): { returnType: boolean, child: GObject.Object | null, pspec: GObject.ParamSpec | null }
     paste(pastePosition: Gst.ClockTime): TimelineElement | null
     removeChildProperty(pspec: GObject.ParamSpec): boolean
     ripple(start: Gst.ClockTime): boolean
@@ -14121,7 +12256,7 @@ export class VideoTestSource {
     setStart(start: Gst.ClockTime): boolean
     setTimeline(timeline: Timeline): boolean
     trim(start: Gst.ClockTime): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -14143,26 +12278,26 @@ export class VideoTestSource {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of GES.Extractable */
+    /* Methods of GES-1.0.GES.Extractable */
     getAsset(): Asset | null
     getId(): string
     setAsset(asset: Asset): boolean
-    /* Methods of GES.MetaContainer */
+    /* Methods of GES-1.0.GES.MetaContainer */
     addMetasFromString(str: string): boolean
-    checkMetaRegistered(metaItem: string): [ /* returnType */ boolean, /* flags */ MetaFlag | null, /* type */ GObject.Type | null ]
+    checkMetaRegistered(metaItem: string): { returnType: boolean, flags: MetaFlag | null, type: GObject.Type | null }
     foreach(func: MetaForeachFunc): void
-    getBoolean(metaItem: string): [ /* returnType */ boolean, /* dest */ boolean ]
-    getDate(metaItem: string): [ /* returnType */ boolean, /* dest */ GLib.Date ]
-    getDateTime(metaItem: string): [ /* returnType */ boolean, /* dest */ Gst.DateTime ]
-    getDouble(metaItem: string): [ /* returnType */ boolean, /* dest */ number ]
-    getFloat(metaItem: string): [ /* returnType */ boolean, /* dest */ number ]
-    getInt(metaItem: string): [ /* returnType */ boolean, /* dest */ number ]
-    getInt64(metaItem: string): [ /* returnType */ boolean, /* dest */ number ]
+    getBoolean(metaItem: string): { returnType: boolean, dest: boolean }
+    getDate(metaItem: string): { returnType: boolean, dest: GLib.Date }
+    getDateTime(metaItem: string): { returnType: boolean, dest: Gst.DateTime }
+    getDouble(metaItem: string): { returnType: boolean, dest: number }
+    getFloat(metaItem: string): { returnType: boolean, dest: number }
+    getInt(metaItem: string): { returnType: boolean, dest: number }
+    getInt64(metaItem: string): { returnType: boolean, dest: number }
     getMarkerList(key: string): MarkerList
     getMeta(key: string): any
     getString(metaItem: string): string
-    getUint(metaItem: string): [ /* returnType */ boolean, /* dest */ number ]
-    getUint64(metaItem: string): [ /* returnType */ boolean, /* dest */ number ]
+    getUint(metaItem: string): { returnType: boolean, dest: number }
+    getUint64(metaItem: string): { returnType: boolean, dest: number }
     metasToString(): string
     registerMeta(flags: MetaFlag, metaItem: string, value: any): boolean
     registerMetaBoolean(flags: MetaFlag, metaItem: string, value: boolean): boolean
@@ -14188,88 +12323,45 @@ export class VideoTestSource {
     setString(metaItem: string, value: string): boolean
     setUint(metaItem: string, value: number): boolean
     setUint64(metaItem: string, value: number): boolean
-    /* Virtual methods of GES.Source */
-    vfuncSelectPad(pad: Gst.Pad): boolean
-    /* Virtual methods of GES.TrackElement */
-    vfuncActiveChanged(active: boolean): void
-    vfuncChanged(): void
-    vfuncLookupChild(propName: string): [ /* returnType */ boolean, /* element */ Gst.Element | null, /* pspec */ GObject.ParamSpec | null ]
-    /* Virtual methods of GES.TimelineElement */
-    vfuncDeepCopy(copy: TimelineElement): void
-    vfuncGetLayerPriority(): number
-    vfuncGetNaturalFramerate(): [ /* returnType */ boolean, /* framerateN */ number, /* framerateD */ number ]
-    vfuncGetTrackTypes(): TrackType
-    vfuncLookupChild(propName: string): [ /* returnType */ boolean, /* child */ GObject.Object | null, /* pspec */ GObject.ParamSpec | null ]
-    vfuncRipple(start: number): boolean
-    vfuncRippleEnd(end: number): boolean
-    vfuncRollEnd(end: number): boolean
-    vfuncRollStart(start: number): boolean
-    vfuncSetChildProperty(child: GObject.Object, pspec: GObject.ParamSpec, value: any): void
-    vfuncSetChildPropertyFull(child: GObject.Object, pspec: GObject.ParamSpec, value: any): boolean
-    vfuncSetDuration(duration: Gst.ClockTime): boolean
-    vfuncSetInpoint(inpoint: Gst.ClockTime): boolean
-    vfuncSetMaxDuration(maxduration: Gst.ClockTime): boolean
-    vfuncSetParent(parent: TimelineElement): boolean
-    vfuncSetPriority(priority: number): boolean
-    vfuncSetStart(start: Gst.ClockTime): boolean
-    vfuncTrim(start: number): boolean
-    vfuncGetId(): string
-    vfuncSetAsset(asset: Asset): void
-    vfuncSetAssetFull(asset: Asset): boolean
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GES.TrackElement */
+    /* Signals of GES-1.0.GES.TrackElement */
     connect(sigName: "control-binding-added", callback: (($obj: VideoTestSource, controlBinding: Gst.ControlBinding) => void)): number
-    connect_after(sigName: "control-binding-added", callback: (($obj: VideoTestSource, controlBinding: Gst.ControlBinding) => void)): number
+    on(sigName: "control-binding-added", callback: (controlBinding: Gst.ControlBinding) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "control-binding-added", callback: (controlBinding: Gst.ControlBinding) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "control-binding-added", callback: (controlBinding: Gst.ControlBinding) => void): NodeJS.EventEmitter
     emit(sigName: "control-binding-added", controlBinding: Gst.ControlBinding): void
-    on(sigName: "control-binding-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "control-binding-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "control-binding-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "control-binding-removed", callback: (($obj: VideoTestSource, controlBinding: Gst.ControlBinding) => void)): number
-    connect_after(sigName: "control-binding-removed", callback: (($obj: VideoTestSource, controlBinding: Gst.ControlBinding) => void)): number
+    on(sigName: "control-binding-removed", callback: (controlBinding: Gst.ControlBinding) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "control-binding-removed", callback: (controlBinding: Gst.ControlBinding) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "control-binding-removed", callback: (controlBinding: Gst.ControlBinding) => void): NodeJS.EventEmitter
     emit(sigName: "control-binding-removed", controlBinding: Gst.ControlBinding): void
-    on(sigName: "control-binding-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "control-binding-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "control-binding-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GES.TimelineElement */
+    /* Signals of GES-1.0.GES.TimelineElement */
     connect(sigName: "child-property-added", callback: (($obj: VideoTestSource, propObject: GObject.Object, prop: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "child-property-added", callback: (($obj: VideoTestSource, propObject: GObject.Object, prop: GObject.ParamSpec) => void)): number
+    on(sigName: "child-property-added", callback: (propObject: GObject.Object, prop: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "child-property-added", callback: (propObject: GObject.Object, prop: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "child-property-added", callback: (propObject: GObject.Object, prop: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "child-property-added", propObject: GObject.Object, prop: GObject.ParamSpec): void
-    on(sigName: "child-property-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "child-property-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "child-property-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "child-property-removed", callback: (($obj: VideoTestSource, propObject: GObject.Object, prop: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "child-property-removed", callback: (($obj: VideoTestSource, propObject: GObject.Object, prop: GObject.ParamSpec) => void)): number
+    on(sigName: "child-property-removed", callback: (propObject: GObject.Object, prop: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "child-property-removed", callback: (propObject: GObject.Object, prop: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "child-property-removed", callback: (propObject: GObject.Object, prop: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "child-property-removed", propObject: GObject.Object, prop: GObject.ParamSpec): void
-    on(sigName: "child-property-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "child-property-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "child-property-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "deep-notify", callback: (($obj: VideoTestSource, propObject: GObject.Object, prop: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "deep-notify", callback: (($obj: VideoTestSource, propObject: GObject.Object, prop: GObject.ParamSpec) => void)): number
+    on(sigName: "deep-notify", callback: (propObject: GObject.Object, prop: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "deep-notify", callback: (propObject: GObject.Object, prop: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "deep-notify", callback: (propObject: GObject.Object, prop: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "deep-notify", propObject: GObject.Object, prop: GObject.ParamSpec): void
-    on(sigName: "deep-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "deep-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "deep-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: VideoTestSource, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: VideoTestSource, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GES.MetaContainer */
+    /* Signals of GES-1.0.GES.MetaContainer */
     connect(sigName: "notify-meta", callback: (($obj: VideoTestSource, key: string, value?: any | null) => void)): number
-    connect_after(sigName: "notify-meta", callback: (($obj: VideoTestSource, key: string, value?: any | null) => void)): number
+    on(sigName: "notify-meta", callback: (key: string, value?: any | null) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify-meta", callback: (key: string, value?: any | null) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify-meta", callback: (key: string, value?: any | null) => void): NodeJS.EventEmitter
     emit(sigName: "notify-meta", key: string, value?: any | null): void
-    on(sigName: "notify-meta", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify-meta", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify-meta", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::active", callback: (($obj: VideoTestSource, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::active", callback: (($obj: VideoTestSource, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::active", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -14355,22 +12447,22 @@ export class VideoTestSource {
 export interface VideoTrack_ConstructProps extends Track_ConstructProps {
 }
 export class VideoTrack {
-    /* Properties of GES.Track */
+    /* Properties of GES-1.0.GES.Track */
     readonly duration: number
     id: string
     mixing: boolean
     restrictionCaps: Gst.Caps
-    /* Properties of Gst.Bin */
+    /* Properties of Gst-1.0.Gst.Bin */
     asyncHandling: boolean
     messageForward: boolean
-    /* Properties of Gst.Object */
+    /* Properties of Gst-1.0.Gst.Object */
     name: string
     parent: Gst.Object
-    /* Fields of GES.VideoTrack */
+    /* Fields of GES-1.0.GES.VideoTrack */
     parentInstance: Track
-    /* Fields of GES.Track */
+    /* Fields of GES-1.0.GES.Track */
     type: TrackType
-    /* Fields of Gst.Bin */
+    /* Fields of Gst-1.0.Gst.Bin */
     element: Gst.Element
     numchildren: number
     children: Gst.Element[]
@@ -14382,7 +12474,7 @@ export class VideoTrack {
     clockDirty: boolean
     providedClock: Gst.Clock
     clockProvider: Gst.Element
-    /* Fields of Gst.Element */
+    /* Fields of Gst-1.0.Gst.Element */
     object: Gst.Object
     stateLock: GLib.RecMutex
     stateCond: GLib.Cond
@@ -14404,12 +12496,12 @@ export class VideoTrack {
     sinkpads: Gst.Pad[]
     padsCookie: number
     contexts: Gst.Context[]
-    /* Fields of Gst.Object */
+    /* Fields of Gst-1.0.Gst.Object */
     lock: GLib.Mutex
     flags: number
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GES.Track */
+    /* Methods of GES-1.0.GES.Track */
     addElement(object: TrackElement): boolean
     addElementFull(object: TrackElement): boolean
     commit(): boolean
@@ -14424,7 +12516,7 @@ export class VideoTrack {
     setRestrictionCaps(caps: Gst.Caps): void
     setTimeline(timeline: Timeline): void
     updateRestrictionCaps(caps: Gst.Caps): void
-    /* Methods of Gst.Bin */
+    /* Methods of Gst-1.0.Gst.Bin */
     add(element: Gst.Element): boolean
     findUnlinkedPad(direction: Gst.PadDirection): Gst.Pad | null
     getByInterface(iface: GObject.Type): Gst.Element | null
@@ -14442,7 +12534,7 @@ export class VideoTrack {
     remove(element: Gst.Element): boolean
     setSuppressedFlags(flags: Gst.ElementFlags): void
     syncChildrenStates(): boolean
-    /* Methods of Gst.Element */
+    /* Methods of Gst-1.0.Gst.Element */
     abortState(): void
     addPad(pad: Gst.Pad): boolean
     addPropertyDeepNotifyWatch(propertyName: string | null, includeValue: boolean): number
@@ -14470,7 +12562,7 @@ export class VideoTrack {
     getPadTemplateList(): Gst.PadTemplate[]
     getRequestPad(name: string): Gst.Pad | null
     getStartTime(): Gst.ClockTime
-    getState(timeout: Gst.ClockTime): [ /* returnType */ Gst.StateChangeReturn, /* state */ Gst.State | null, /* pending */ Gst.State | null ]
+    getState(timeout: Gst.ClockTime): { returnType: Gst.StateChangeReturn, state: Gst.State | null, pending: Gst.State | null }
     getStaticPad(name: string): Gst.Pad | null
     isLockedState(): boolean
     iteratePads(): Gst.Iterator
@@ -14488,9 +12580,9 @@ export class VideoTrack {
     postMessage(message: Gst.Message): boolean
     provideClock(): Gst.Clock | null
     query(query: Gst.Query): boolean
-    queryConvert(srcFormat: Gst.Format, srcVal: number, destFormat: Gst.Format): [ /* returnType */ boolean, /* destVal */ number ]
-    queryDuration(format: Gst.Format): [ /* returnType */ boolean, /* duration */ number | null ]
-    queryPosition(format: Gst.Format): [ /* returnType */ boolean, /* cur */ number | null ]
+    queryConvert(srcFormat: Gst.Format, srcVal: number, destFormat: Gst.Format): { returnType: boolean, destVal: number }
+    queryDuration(format: Gst.Format): { returnType: boolean, duration: number | null }
+    queryPosition(format: Gst.Format): { returnType: boolean, cur: number | null }
     releaseRequestPad(pad: Gst.Pad): void
     removePad(pad: Gst.Pad): boolean
     removePropertyNotifyWatch(watchId: number): void
@@ -14508,7 +12600,7 @@ export class VideoTrack {
     syncStateWithParent(): boolean
     unlink(dest: Gst.Element): void
     unlinkPads(srcpadname: string, dest: Gst.Element, destpadname: string): void
-    /* Methods of Gst.Object */
+    /* Methods of Gst-1.0.Gst.Object */
     addControlBinding(binding: Gst.ControlBinding): boolean
     defaultError(error: GLib.Error, debug?: string | null): void
     getControlBinding(propertyName: string): Gst.ControlBinding | null
@@ -14533,7 +12625,7 @@ export class VideoTrack {
     syncValues(timestamp: Gst.ClockTime): boolean
     unparent(): void
     unref(): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -14554,22 +12646,22 @@ export class VideoTrack {
     stealQdata(quark: GLib.Quark): object | null
     thawNotify(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of GES.MetaContainer */
+    /* Methods of GES-1.0.GES.MetaContainer */
     addMetasFromString(str: string): boolean
-    checkMetaRegistered(metaItem: string): [ /* returnType */ boolean, /* flags */ MetaFlag | null, /* type */ GObject.Type | null ]
+    checkMetaRegistered(metaItem: string): { returnType: boolean, flags: MetaFlag | null, type: GObject.Type | null }
     foreach(func: MetaForeachFunc): void
-    getBoolean(metaItem: string): [ /* returnType */ boolean, /* dest */ boolean ]
-    getDate(metaItem: string): [ /* returnType */ boolean, /* dest */ GLib.Date ]
-    getDateTime(metaItem: string): [ /* returnType */ boolean, /* dest */ Gst.DateTime ]
-    getDouble(metaItem: string): [ /* returnType */ boolean, /* dest */ number ]
-    getFloat(metaItem: string): [ /* returnType */ boolean, /* dest */ number ]
-    getInt(metaItem: string): [ /* returnType */ boolean, /* dest */ number ]
-    getInt64(metaItem: string): [ /* returnType */ boolean, /* dest */ number ]
+    getBoolean(metaItem: string): { returnType: boolean, dest: boolean }
+    getDate(metaItem: string): { returnType: boolean, dest: GLib.Date }
+    getDateTime(metaItem: string): { returnType: boolean, dest: Gst.DateTime }
+    getDouble(metaItem: string): { returnType: boolean, dest: number }
+    getFloat(metaItem: string): { returnType: boolean, dest: number }
+    getInt(metaItem: string): { returnType: boolean, dest: number }
+    getInt64(metaItem: string): { returnType: boolean, dest: number }
     getMarkerList(key: string): MarkerList
     getMeta(key: string): any
     getString(metaItem: string): string
-    getUint(metaItem: string): [ /* returnType */ boolean, /* dest */ number ]
-    getUint64(metaItem: string): [ /* returnType */ boolean, /* dest */ number ]
+    getUint(metaItem: string): { returnType: boolean, dest: number }
+    getUint64(metaItem: string): { returnType: boolean, dest: number }
     metasToString(): string
     registerMeta(flags: MetaFlag, metaItem: string, value: any): boolean
     registerMetaBoolean(flags: MetaFlag, metaItem: string, value: boolean): boolean
@@ -14595,160 +12687,102 @@ export class VideoTrack {
     setString(metaItem: string, value: string): boolean
     setUint(metaItem: string, value: number): boolean
     setUint64(metaItem: string, value: number): boolean
-    /* Methods of Gst.ChildProxy */
+    /* Methods of Gst-1.0.Gst.ChildProxy */
     childAdded(child: GObject.Object, name: string): void
     childRemoved(child: GObject.Object, name: string): void
     getChildByIndex(index: number): GObject.Object | null
     getChildByName(name: string): GObject.Object | null
     getChildrenCount(): number
-    getProperty(name: string): /* value */ any
-    lookup(name: string): [ /* returnType */ boolean, /* target */ GObject.Object | null, /* pspec */ GObject.ParamSpec | null ]
+    getProperty(name: string): { value: any }
+    lookup(name: string): { returnType: boolean, target: GObject.Object | null, pspec: GObject.ParamSpec | null }
     setProperty(name: string, value: any): void
-    /* Virtual methods of GES.Track */
-    vfuncChildAdded(child: GObject.Object, name: string): void
-    vfuncChildRemoved(child: GObject.Object, name: string): void
-    vfuncGetChildByIndex(index: number): GObject.Object | null
-    vfuncGetChildByName(name: string): GObject.Object | null
-    vfuncGetChildrenCount(): number
-    /* Virtual methods of Gst.Bin */
-    vfuncAddElement(element: Gst.Element): boolean
-    vfuncDeepElementAdded(subBin: Gst.Bin, child: Gst.Element): void
-    vfuncDeepElementRemoved(subBin: Gst.Bin, child: Gst.Element): void
-    vfuncDoLatency(): boolean
-    vfuncElementAdded(child: Gst.Element): void
-    vfuncElementRemoved(child: Gst.Element): void
-    vfuncHandleMessage(message: Gst.Message): void
-    vfuncRemoveElement(element: Gst.Element): boolean
-    /* Virtual methods of Gst.Element */
-    vfuncChangeState(transition: Gst.StateChange): Gst.StateChangeReturn
-    vfuncGetState(timeout: Gst.ClockTime): [ /* returnType */ Gst.StateChangeReturn, /* state */ Gst.State | null, /* pending */ Gst.State | null ]
-    vfuncNoMorePads(): void
-    vfuncPadAdded(pad: Gst.Pad): void
-    vfuncPadRemoved(pad: Gst.Pad): void
-    vfuncPostMessage(message: Gst.Message): boolean
-    vfuncProvideClock(): Gst.Clock | null
-    vfuncQuery(query: Gst.Query): boolean
-    vfuncReleasePad(pad: Gst.Pad): void
-    vfuncRequestNewPad(templ: Gst.PadTemplate, name?: string | null, caps?: Gst.Caps | null): Gst.Pad | null
-    vfuncSendEvent(event: Gst.Event): boolean
-    vfuncSetBus(bus?: Gst.Bus | null): void
-    vfuncSetClock(clock?: Gst.Clock | null): boolean
-    vfuncSetContext(context: Gst.Context): void
-    vfuncSetState(state: Gst.State): Gst.StateChangeReturn
-    vfuncStateChanged(oldstate: Gst.State, newstate: Gst.State, pending: Gst.State): void
-    /* Virtual methods of Gst.Object */
-    vfuncDeepNotify(orig: Gst.Object, pspec: GObject.ParamSpec): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GES.Track */
+    /* Signals of GES-1.0.GES.Track */
     connect(sigName: "commited", callback: (($obj: VideoTrack) => void)): number
-    connect_after(sigName: "commited", callback: (($obj: VideoTrack) => void)): number
+    on(sigName: "commited", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "commited", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "commited", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "commited"): void
-    on(sigName: "commited", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "commited", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "commited", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "track-element-added", callback: (($obj: VideoTrack, effect: TrackElement) => void)): number
-    connect_after(sigName: "track-element-added", callback: (($obj: VideoTrack, effect: TrackElement) => void)): number
+    on(sigName: "track-element-added", callback: (effect: TrackElement) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "track-element-added", callback: (effect: TrackElement) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "track-element-added", callback: (effect: TrackElement) => void): NodeJS.EventEmitter
     emit(sigName: "track-element-added", effect: TrackElement): void
-    on(sigName: "track-element-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "track-element-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "track-element-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "track-element-removed", callback: (($obj: VideoTrack, effect: TrackElement) => void)): number
-    connect_after(sigName: "track-element-removed", callback: (($obj: VideoTrack, effect: TrackElement) => void)): number
+    on(sigName: "track-element-removed", callback: (effect: TrackElement) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "track-element-removed", callback: (effect: TrackElement) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "track-element-removed", callback: (effect: TrackElement) => void): NodeJS.EventEmitter
     emit(sigName: "track-element-removed", effect: TrackElement): void
-    on(sigName: "track-element-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "track-element-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "track-element-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of Gst.Bin */
+    /* Signals of Gst-1.0.Gst.Bin */
     connect(sigName: "deep-element-added", callback: (($obj: VideoTrack, subBin: Gst.Bin, element: Gst.Element) => void)): number
-    connect_after(sigName: "deep-element-added", callback: (($obj: VideoTrack, subBin: Gst.Bin, element: Gst.Element) => void)): number
+    on(sigName: "deep-element-added", callback: (subBin: Gst.Bin, element: Gst.Element) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "deep-element-added", callback: (subBin: Gst.Bin, element: Gst.Element) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "deep-element-added", callback: (subBin: Gst.Bin, element: Gst.Element) => void): NodeJS.EventEmitter
     emit(sigName: "deep-element-added", subBin: Gst.Bin, element: Gst.Element): void
-    on(sigName: "deep-element-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "deep-element-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "deep-element-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "deep-element-removed", callback: (($obj: VideoTrack, subBin: Gst.Bin, element: Gst.Element) => void)): number
-    connect_after(sigName: "deep-element-removed", callback: (($obj: VideoTrack, subBin: Gst.Bin, element: Gst.Element) => void)): number
+    on(sigName: "deep-element-removed", callback: (subBin: Gst.Bin, element: Gst.Element) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "deep-element-removed", callback: (subBin: Gst.Bin, element: Gst.Element) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "deep-element-removed", callback: (subBin: Gst.Bin, element: Gst.Element) => void): NodeJS.EventEmitter
     emit(sigName: "deep-element-removed", subBin: Gst.Bin, element: Gst.Element): void
-    on(sigName: "deep-element-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "deep-element-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "deep-element-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "do-latency", callback: (($obj: VideoTrack) => boolean)): number
-    connect_after(sigName: "do-latency", callback: (($obj: VideoTrack) => boolean)): number
+    on(sigName: "do-latency", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "do-latency", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "do-latency", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "do-latency"): void
-    on(sigName: "do-latency", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "do-latency", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "do-latency", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "element-added", callback: (($obj: VideoTrack, element: Gst.Element) => void)): number
-    connect_after(sigName: "element-added", callback: (($obj: VideoTrack, element: Gst.Element) => void)): number
+    on(sigName: "element-added", callback: (element: Gst.Element) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "element-added", callback: (element: Gst.Element) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "element-added", callback: (element: Gst.Element) => void): NodeJS.EventEmitter
     emit(sigName: "element-added", element: Gst.Element): void
-    on(sigName: "element-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "element-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "element-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "element-removed", callback: (($obj: VideoTrack, element: Gst.Element) => void)): number
-    connect_after(sigName: "element-removed", callback: (($obj: VideoTrack, element: Gst.Element) => void)): number
+    on(sigName: "element-removed", callback: (element: Gst.Element) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "element-removed", callback: (element: Gst.Element) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "element-removed", callback: (element: Gst.Element) => void): NodeJS.EventEmitter
     emit(sigName: "element-removed", element: Gst.Element): void
-    on(sigName: "element-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "element-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "element-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of Gst.Element */
+    /* Signals of Gst-1.0.Gst.Element */
     connect(sigName: "no-more-pads", callback: (($obj: VideoTrack) => void)): number
-    connect_after(sigName: "no-more-pads", callback: (($obj: VideoTrack) => void)): number
+    on(sigName: "no-more-pads", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "no-more-pads", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "no-more-pads", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "no-more-pads"): void
-    on(sigName: "no-more-pads", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "no-more-pads", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "no-more-pads", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "pad-added", callback: (($obj: VideoTrack, newPad: Gst.Pad) => void)): number
-    connect_after(sigName: "pad-added", callback: (($obj: VideoTrack, newPad: Gst.Pad) => void)): number
+    on(sigName: "pad-added", callback: (newPad: Gst.Pad) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "pad-added", callback: (newPad: Gst.Pad) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "pad-added", callback: (newPad: Gst.Pad) => void): NodeJS.EventEmitter
     emit(sigName: "pad-added", newPad: Gst.Pad): void
-    on(sigName: "pad-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "pad-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "pad-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "pad-removed", callback: (($obj: VideoTrack, oldPad: Gst.Pad) => void)): number
-    connect_after(sigName: "pad-removed", callback: (($obj: VideoTrack, oldPad: Gst.Pad) => void)): number
+    on(sigName: "pad-removed", callback: (oldPad: Gst.Pad) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "pad-removed", callback: (oldPad: Gst.Pad) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "pad-removed", callback: (oldPad: Gst.Pad) => void): NodeJS.EventEmitter
     emit(sigName: "pad-removed", oldPad: Gst.Pad): void
-    on(sigName: "pad-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "pad-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "pad-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of Gst.Object */
+    /* Signals of Gst-1.0.Gst.Object */
     connect(sigName: "deep-notify", callback: (($obj: VideoTrack, propObject: Gst.Object, prop: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "deep-notify", callback: (($obj: VideoTrack, propObject: Gst.Object, prop: GObject.ParamSpec) => void)): number
+    on(sigName: "deep-notify", callback: (propObject: Gst.Object, prop: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "deep-notify", callback: (propObject: Gst.Object, prop: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "deep-notify", callback: (propObject: Gst.Object, prop: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "deep-notify", propObject: Gst.Object, prop: GObject.ParamSpec): void
-    on(sigName: "deep-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "deep-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "deep-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: VideoTrack, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: VideoTrack, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GES.MetaContainer */
+    /* Signals of GES-1.0.GES.MetaContainer */
     connect(sigName: "notify-meta", callback: (($obj: VideoTrack, key: string, value?: any | null) => void)): number
-    connect_after(sigName: "notify-meta", callback: (($obj: VideoTrack, key: string, value?: any | null) => void)): number
+    on(sigName: "notify-meta", callback: (key: string, value?: any | null) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify-meta", callback: (key: string, value?: any | null) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify-meta", callback: (key: string, value?: any | null) => void): NodeJS.EventEmitter
     emit(sigName: "notify-meta", key: string, value?: any | null): void
-    on(sigName: "notify-meta", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify-meta", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify-meta", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of Gst.ChildProxy */
+    /* Signals of Gst-1.0.Gst.ChildProxy */
     connect(sigName: "child-added", callback: (($obj: VideoTrack, object: GObject.Object, name: string) => void)): number
-    connect_after(sigName: "child-added", callback: (($obj: VideoTrack, object: GObject.Object, name: string) => void)): number
+    on(sigName: "child-added", callback: (object: GObject.Object, name: string) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "child-added", callback: (object: GObject.Object, name: string) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "child-added", callback: (object: GObject.Object, name: string) => void): NodeJS.EventEmitter
     emit(sigName: "child-added", object: GObject.Object, name: string): void
-    on(sigName: "child-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "child-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "child-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "child-removed", callback: (($obj: VideoTrack, object: GObject.Object, name: string) => void)): number
-    connect_after(sigName: "child-removed", callback: (($obj: VideoTrack, object: GObject.Object, name: string) => void)): number
+    on(sigName: "child-removed", callback: (object: GObject.Object, name: string) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "child-removed", callback: (object: GObject.Object, name: string) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "child-removed", callback: (object: GObject.Object, name: string) => void): NodeJS.EventEmitter
     emit(sigName: "child-removed", object: GObject.Object, name: string): void
-    on(sigName: "child-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "child-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "child-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::duration", callback: (($obj: VideoTrack, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::duration", callback: (($obj: VideoTrack, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::duration", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -14811,17 +12845,17 @@ export interface VideoTransition_ConstructProps extends Transition_ConstructProp
     transitionType?: VideoStandardTransitionType
 }
 export class VideoTransition {
-    /* Properties of GES.VideoTransition */
+    /* Properties of GES-1.0.GES.VideoTransition */
     border: number
     invert: boolean
     transitionType: VideoStandardTransitionType
-    /* Properties of GES.TrackElement */
+    /* Properties of GES-1.0.GES.TrackElement */
     active: boolean
     autoClampControlSources: boolean
     hasInternalSource: boolean
     readonly track: Track
     trackType: TrackType
-    /* Properties of GES.TimelineElement */
+    /* Properties of GES-1.0.GES.TimelineElement */
     duration: number
     inPoint: number
     maxDuration: number
@@ -14831,21 +12865,21 @@ export class VideoTransition {
     serialize: boolean
     start: number
     timeline: Timeline
-    /* Fields of GES.TimelineElement */
+    /* Fields of GES-1.0.GES.TimelineElement */
     parentInstance: GObject.InitiallyUnowned
     asset: Asset
     inpoint: Gst.ClockTime
     maxduration: Gst.ClockTime
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GES.VideoTransition */
+    /* Methods of GES-1.0.GES.VideoTransition */
     getBorder(): number
     getTransitionType(): VideoStandardTransitionType
     isInverted(): boolean
     setBorder(value: number): void
     setInverted(inverted: boolean): void
     setTransitionType(type: VideoStandardTransitionType): boolean
-    /* Methods of GES.TrackElement */
+    /* Methods of GES-1.0.GES.TrackElement */
     addChildrenProps(element: Gst.Element, wantedCategories?: string[] | null, blacklist?: string[] | null, whitelist?: string[] | null): void
     clampControlSource(propertyName: string): void
     edit(layers: Layer[] | null, mode: EditMode, edge: Edge, position: number): boolean
@@ -14860,33 +12894,33 @@ export class VideoTransition {
     isActive(): boolean
     isCore(): boolean
     listChildrenProperties(): GObject.ParamSpec[]
-    lookupChild(propName: string): [ /* returnType */ boolean, /* element */ Gst.Element | null, /* pspec */ GObject.ParamSpec | null ]
+    lookupChild(propName: string): { returnType: boolean, element: Gst.Element | null, pspec: GObject.ParamSpec | null }
     removeControlBinding(propertyName: string): boolean
     setActive(active: boolean): boolean
     setAutoClampControlSources(autoClamp: boolean): void
     setControlSource(source: Gst.ControlSource, propertyName: string, bindingType: string): boolean
     setHasInternalSource(hasInternalSource: boolean): boolean
     setTrackType(type: TrackType): void
-    /* Methods of GES.TimelineElement */
+    /* Methods of GES-1.0.GES.TimelineElement */
     addChildProperty(pspec: GObject.ParamSpec, child: GObject.Object): boolean
     copy(deep: boolean): TimelineElement
     edit(layers: Layer[] | null, newLayerPriority: number, mode: EditMode, edge: Edge, position: number): boolean
     editFull(newLayerPriority: number, mode: EditMode, edge: Edge, position: number): boolean
-    getChildProperty(propertyName: string): [ /* returnType */ boolean, /* value */ any ]
-    getChildPropertyByPspec(pspec: GObject.ParamSpec): /* value */ any
+    getChildProperty(propertyName: string): { returnType: boolean, value: any }
+    getChildPropertyByPspec(pspec: GObject.ParamSpec): { value: any }
     getDuration(): Gst.ClockTime
     getInpoint(): Gst.ClockTime
     getLayerPriority(): number
     getMaxDuration(): Gst.ClockTime
     getName(): string
-    getNaturalFramerate(): [ /* returnType */ boolean, /* framerateN */ number, /* framerateD */ number ]
+    getNaturalFramerate(): { returnType: boolean, framerateN: number, framerateD: number }
     getParent(): TimelineElement | null
     getPriority(): number
     getStart(): Gst.ClockTime
     getTimeline(): Timeline | null
     getToplevelParent(): TimelineElement
     getTrackTypes(): TrackType
-    lookupChild(propName: string): [ /* returnType */ boolean, /* child */ GObject.Object | null, /* pspec */ GObject.ParamSpec | null ]
+    lookupChild(propName: string): { returnType: boolean, child: GObject.Object | null, pspec: GObject.ParamSpec | null }
     paste(pastePosition: Gst.ClockTime): TimelineElement | null
     removeChildProperty(pspec: GObject.ParamSpec): boolean
     ripple(start: Gst.ClockTime): boolean
@@ -14905,7 +12939,7 @@ export class VideoTransition {
     setStart(start: Gst.ClockTime): boolean
     setTimeline(timeline: Timeline): boolean
     trim(start: Gst.ClockTime): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -14927,26 +12961,26 @@ export class VideoTransition {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of GES.Extractable */
+    /* Methods of GES-1.0.GES.Extractable */
     getAsset(): Asset | null
     getId(): string
     setAsset(asset: Asset): boolean
-    /* Methods of GES.MetaContainer */
+    /* Methods of GES-1.0.GES.MetaContainer */
     addMetasFromString(str: string): boolean
-    checkMetaRegistered(metaItem: string): [ /* returnType */ boolean, /* flags */ MetaFlag | null, /* type */ GObject.Type | null ]
+    checkMetaRegistered(metaItem: string): { returnType: boolean, flags: MetaFlag | null, type: GObject.Type | null }
     foreach(func: MetaForeachFunc): void
-    getBoolean(metaItem: string): [ /* returnType */ boolean, /* dest */ boolean ]
-    getDate(metaItem: string): [ /* returnType */ boolean, /* dest */ GLib.Date ]
-    getDateTime(metaItem: string): [ /* returnType */ boolean, /* dest */ Gst.DateTime ]
-    getDouble(metaItem: string): [ /* returnType */ boolean, /* dest */ number ]
-    getFloat(metaItem: string): [ /* returnType */ boolean, /* dest */ number ]
-    getInt(metaItem: string): [ /* returnType */ boolean, /* dest */ number ]
-    getInt64(metaItem: string): [ /* returnType */ boolean, /* dest */ number ]
+    getBoolean(metaItem: string): { returnType: boolean, dest: boolean }
+    getDate(metaItem: string): { returnType: boolean, dest: GLib.Date }
+    getDateTime(metaItem: string): { returnType: boolean, dest: Gst.DateTime }
+    getDouble(metaItem: string): { returnType: boolean, dest: number }
+    getFloat(metaItem: string): { returnType: boolean, dest: number }
+    getInt(metaItem: string): { returnType: boolean, dest: number }
+    getInt64(metaItem: string): { returnType: boolean, dest: number }
     getMarkerList(key: string): MarkerList
     getMeta(key: string): any
     getString(metaItem: string): string
-    getUint(metaItem: string): [ /* returnType */ boolean, /* dest */ number ]
-    getUint64(metaItem: string): [ /* returnType */ boolean, /* dest */ number ]
+    getUint(metaItem: string): { returnType: boolean, dest: number }
+    getUint64(metaItem: string): { returnType: boolean, dest: number }
     metasToString(): string
     registerMeta(flags: MetaFlag, metaItem: string, value: any): boolean
     registerMetaBoolean(flags: MetaFlag, metaItem: string, value: boolean): boolean
@@ -14972,86 +13006,45 @@ export class VideoTransition {
     setString(metaItem: string, value: string): boolean
     setUint(metaItem: string, value: number): boolean
     setUint64(metaItem: string, value: number): boolean
-    /* Virtual methods of GES.TrackElement */
-    vfuncActiveChanged(active: boolean): void
-    vfuncChanged(): void
-    vfuncLookupChild(propName: string): [ /* returnType */ boolean, /* element */ Gst.Element | null, /* pspec */ GObject.ParamSpec | null ]
-    /* Virtual methods of GES.TimelineElement */
-    vfuncDeepCopy(copy: TimelineElement): void
-    vfuncGetLayerPriority(): number
-    vfuncGetNaturalFramerate(): [ /* returnType */ boolean, /* framerateN */ number, /* framerateD */ number ]
-    vfuncGetTrackTypes(): TrackType
-    vfuncLookupChild(propName: string): [ /* returnType */ boolean, /* child */ GObject.Object | null, /* pspec */ GObject.ParamSpec | null ]
-    vfuncRipple(start: number): boolean
-    vfuncRippleEnd(end: number): boolean
-    vfuncRollEnd(end: number): boolean
-    vfuncRollStart(start: number): boolean
-    vfuncSetChildProperty(child: GObject.Object, pspec: GObject.ParamSpec, value: any): void
-    vfuncSetChildPropertyFull(child: GObject.Object, pspec: GObject.ParamSpec, value: any): boolean
-    vfuncSetDuration(duration: Gst.ClockTime): boolean
-    vfuncSetInpoint(inpoint: Gst.ClockTime): boolean
-    vfuncSetMaxDuration(maxduration: Gst.ClockTime): boolean
-    vfuncSetParent(parent: TimelineElement): boolean
-    vfuncSetPriority(priority: number): boolean
-    vfuncSetStart(start: Gst.ClockTime): boolean
-    vfuncTrim(start: number): boolean
-    vfuncGetId(): string
-    vfuncSetAsset(asset: Asset): void
-    vfuncSetAssetFull(asset: Asset): boolean
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GES.TrackElement */
+    /* Signals of GES-1.0.GES.TrackElement */
     connect(sigName: "control-binding-added", callback: (($obj: VideoTransition, controlBinding: Gst.ControlBinding) => void)): number
-    connect_after(sigName: "control-binding-added", callback: (($obj: VideoTransition, controlBinding: Gst.ControlBinding) => void)): number
+    on(sigName: "control-binding-added", callback: (controlBinding: Gst.ControlBinding) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "control-binding-added", callback: (controlBinding: Gst.ControlBinding) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "control-binding-added", callback: (controlBinding: Gst.ControlBinding) => void): NodeJS.EventEmitter
     emit(sigName: "control-binding-added", controlBinding: Gst.ControlBinding): void
-    on(sigName: "control-binding-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "control-binding-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "control-binding-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "control-binding-removed", callback: (($obj: VideoTransition, controlBinding: Gst.ControlBinding) => void)): number
-    connect_after(sigName: "control-binding-removed", callback: (($obj: VideoTransition, controlBinding: Gst.ControlBinding) => void)): number
+    on(sigName: "control-binding-removed", callback: (controlBinding: Gst.ControlBinding) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "control-binding-removed", callback: (controlBinding: Gst.ControlBinding) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "control-binding-removed", callback: (controlBinding: Gst.ControlBinding) => void): NodeJS.EventEmitter
     emit(sigName: "control-binding-removed", controlBinding: Gst.ControlBinding): void
-    on(sigName: "control-binding-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "control-binding-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "control-binding-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GES.TimelineElement */
+    /* Signals of GES-1.0.GES.TimelineElement */
     connect(sigName: "child-property-added", callback: (($obj: VideoTransition, propObject: GObject.Object, prop: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "child-property-added", callback: (($obj: VideoTransition, propObject: GObject.Object, prop: GObject.ParamSpec) => void)): number
+    on(sigName: "child-property-added", callback: (propObject: GObject.Object, prop: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "child-property-added", callback: (propObject: GObject.Object, prop: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "child-property-added", callback: (propObject: GObject.Object, prop: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "child-property-added", propObject: GObject.Object, prop: GObject.ParamSpec): void
-    on(sigName: "child-property-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "child-property-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "child-property-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "child-property-removed", callback: (($obj: VideoTransition, propObject: GObject.Object, prop: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "child-property-removed", callback: (($obj: VideoTransition, propObject: GObject.Object, prop: GObject.ParamSpec) => void)): number
+    on(sigName: "child-property-removed", callback: (propObject: GObject.Object, prop: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "child-property-removed", callback: (propObject: GObject.Object, prop: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "child-property-removed", callback: (propObject: GObject.Object, prop: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "child-property-removed", propObject: GObject.Object, prop: GObject.ParamSpec): void
-    on(sigName: "child-property-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "child-property-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "child-property-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "deep-notify", callback: (($obj: VideoTransition, propObject: GObject.Object, prop: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "deep-notify", callback: (($obj: VideoTransition, propObject: GObject.Object, prop: GObject.ParamSpec) => void)): number
+    on(sigName: "deep-notify", callback: (propObject: GObject.Object, prop: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "deep-notify", callback: (propObject: GObject.Object, prop: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "deep-notify", callback: (propObject: GObject.Object, prop: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "deep-notify", propObject: GObject.Object, prop: GObject.ParamSpec): void
-    on(sigName: "deep-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "deep-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "deep-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: VideoTransition, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: VideoTransition, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GES.MetaContainer */
+    /* Signals of GES-1.0.GES.MetaContainer */
     connect(sigName: "notify-meta", callback: (($obj: VideoTransition, key: string, value?: any | null) => void)): number
-    connect_after(sigName: "notify-meta", callback: (($obj: VideoTransition, key: string, value?: any | null) => void)): number
+    on(sigName: "notify-meta", callback: (key: string, value?: any | null) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify-meta", callback: (key: string, value?: any | null) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify-meta", callback: (key: string, value?: any | null) => void): NodeJS.EventEmitter
     emit(sigName: "notify-meta", key: string, value?: any | null): void
-    on(sigName: "notify-meta", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify-meta", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify-meta", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::border", callback: (($obj: VideoTransition, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::border", callback: (($obj: VideoTransition, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::border", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -15155,13 +13148,13 @@ export interface VideoUriSource_ConstructProps extends VideoSource_ConstructProp
     uri?: string
 }
 export class VideoUriSource {
-    /* Properties of GES.TrackElement */
+    /* Properties of GES-1.0.GES.TrackElement */
     active: boolean
     autoClampControlSources: boolean
     hasInternalSource: boolean
     readonly track: Track
     trackType: TrackType
-    /* Properties of GES.TimelineElement */
+    /* Properties of GES-1.0.GES.TimelineElement */
     duration: number
     inPoint: number
     maxDuration: number
@@ -15171,16 +13164,16 @@ export class VideoUriSource {
     serialize: boolean
     start: number
     timeline: Timeline
-    /* Fields of GES.TimelineElement */
+    /* Fields of GES-1.0.GES.TimelineElement */
     parentInstance: GObject.InitiallyUnowned
     asset: Asset
     inpoint: Gst.ClockTime
     maxduration: Gst.ClockTime
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GES.VideoSource */
-    getNaturalSize(): [ /* returnType */ boolean, /* width */ number, /* height */ number ]
-    /* Methods of GES.TrackElement */
+    /* Methods of GES-1.0.GES.VideoSource */
+    getNaturalSize(): { returnType: boolean, width: number, height: number }
+    /* Methods of GES-1.0.GES.TrackElement */
     addChildrenProps(element: Gst.Element, wantedCategories?: string[] | null, blacklist?: string[] | null, whitelist?: string[] | null): void
     clampControlSource(propertyName: string): void
     edit(layers: Layer[] | null, mode: EditMode, edge: Edge, position: number): boolean
@@ -15195,33 +13188,33 @@ export class VideoUriSource {
     isActive(): boolean
     isCore(): boolean
     listChildrenProperties(): GObject.ParamSpec[]
-    lookupChild(propName: string): [ /* returnType */ boolean, /* element */ Gst.Element | null, /* pspec */ GObject.ParamSpec | null ]
+    lookupChild(propName: string): { returnType: boolean, element: Gst.Element | null, pspec: GObject.ParamSpec | null }
     removeControlBinding(propertyName: string): boolean
     setActive(active: boolean): boolean
     setAutoClampControlSources(autoClamp: boolean): void
     setControlSource(source: Gst.ControlSource, propertyName: string, bindingType: string): boolean
     setHasInternalSource(hasInternalSource: boolean): boolean
     setTrackType(type: TrackType): void
-    /* Methods of GES.TimelineElement */
+    /* Methods of GES-1.0.GES.TimelineElement */
     addChildProperty(pspec: GObject.ParamSpec, child: GObject.Object): boolean
     copy(deep: boolean): TimelineElement
     edit(layers: Layer[] | null, newLayerPriority: number, mode: EditMode, edge: Edge, position: number): boolean
     editFull(newLayerPriority: number, mode: EditMode, edge: Edge, position: number): boolean
-    getChildProperty(propertyName: string): [ /* returnType */ boolean, /* value */ any ]
-    getChildPropertyByPspec(pspec: GObject.ParamSpec): /* value */ any
+    getChildProperty(propertyName: string): { returnType: boolean, value: any }
+    getChildPropertyByPspec(pspec: GObject.ParamSpec): { value: any }
     getDuration(): Gst.ClockTime
     getInpoint(): Gst.ClockTime
     getLayerPriority(): number
     getMaxDuration(): Gst.ClockTime
     getName(): string
-    getNaturalFramerate(): [ /* returnType */ boolean, /* framerateN */ number, /* framerateD */ number ]
+    getNaturalFramerate(): { returnType: boolean, framerateN: number, framerateD: number }
     getParent(): TimelineElement | null
     getPriority(): number
     getStart(): Gst.ClockTime
     getTimeline(): Timeline | null
     getToplevelParent(): TimelineElement
     getTrackTypes(): TrackType
-    lookupChild(propName: string): [ /* returnType */ boolean, /* child */ GObject.Object | null, /* pspec */ GObject.ParamSpec | null ]
+    lookupChild(propName: string): { returnType: boolean, child: GObject.Object | null, pspec: GObject.ParamSpec | null }
     paste(pastePosition: Gst.ClockTime): TimelineElement | null
     removeChildProperty(pspec: GObject.ParamSpec): boolean
     ripple(start: Gst.ClockTime): boolean
@@ -15240,7 +13233,7 @@ export class VideoUriSource {
     setStart(start: Gst.ClockTime): boolean
     setTimeline(timeline: Timeline): boolean
     trim(start: Gst.ClockTime): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -15262,26 +13255,26 @@ export class VideoUriSource {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of GES.Extractable */
+    /* Methods of GES-1.0.GES.Extractable */
     getAsset(): Asset | null
     getId(): string
     setAsset(asset: Asset): boolean
-    /* Methods of GES.MetaContainer */
+    /* Methods of GES-1.0.GES.MetaContainer */
     addMetasFromString(str: string): boolean
-    checkMetaRegistered(metaItem: string): [ /* returnType */ boolean, /* flags */ MetaFlag | null, /* type */ GObject.Type | null ]
+    checkMetaRegistered(metaItem: string): { returnType: boolean, flags: MetaFlag | null, type: GObject.Type | null }
     foreach(func: MetaForeachFunc): void
-    getBoolean(metaItem: string): [ /* returnType */ boolean, /* dest */ boolean ]
-    getDate(metaItem: string): [ /* returnType */ boolean, /* dest */ GLib.Date ]
-    getDateTime(metaItem: string): [ /* returnType */ boolean, /* dest */ Gst.DateTime ]
-    getDouble(metaItem: string): [ /* returnType */ boolean, /* dest */ number ]
-    getFloat(metaItem: string): [ /* returnType */ boolean, /* dest */ number ]
-    getInt(metaItem: string): [ /* returnType */ boolean, /* dest */ number ]
-    getInt64(metaItem: string): [ /* returnType */ boolean, /* dest */ number ]
+    getBoolean(metaItem: string): { returnType: boolean, dest: boolean }
+    getDate(metaItem: string): { returnType: boolean, dest: GLib.Date }
+    getDateTime(metaItem: string): { returnType: boolean, dest: Gst.DateTime }
+    getDouble(metaItem: string): { returnType: boolean, dest: number }
+    getFloat(metaItem: string): { returnType: boolean, dest: number }
+    getInt(metaItem: string): { returnType: boolean, dest: number }
+    getInt64(metaItem: string): { returnType: boolean, dest: number }
     getMarkerList(key: string): MarkerList
     getMeta(key: string): any
     getString(metaItem: string): string
-    getUint(metaItem: string): [ /* returnType */ boolean, /* dest */ number ]
-    getUint64(metaItem: string): [ /* returnType */ boolean, /* dest */ number ]
+    getUint(metaItem: string): { returnType: boolean, dest: number }
+    getUint64(metaItem: string): { returnType: boolean, dest: number }
     metasToString(): string
     registerMeta(flags: MetaFlag, metaItem: string, value: any): boolean
     registerMetaBoolean(flags: MetaFlag, metaItem: string, value: boolean): boolean
@@ -15307,88 +13300,45 @@ export class VideoUriSource {
     setString(metaItem: string, value: string): boolean
     setUint(metaItem: string, value: number): boolean
     setUint64(metaItem: string, value: number): boolean
-    /* Virtual methods of GES.Source */
-    vfuncSelectPad(pad: Gst.Pad): boolean
-    /* Virtual methods of GES.TrackElement */
-    vfuncActiveChanged(active: boolean): void
-    vfuncChanged(): void
-    vfuncLookupChild(propName: string): [ /* returnType */ boolean, /* element */ Gst.Element | null, /* pspec */ GObject.ParamSpec | null ]
-    /* Virtual methods of GES.TimelineElement */
-    vfuncDeepCopy(copy: TimelineElement): void
-    vfuncGetLayerPriority(): number
-    vfuncGetNaturalFramerate(): [ /* returnType */ boolean, /* framerateN */ number, /* framerateD */ number ]
-    vfuncGetTrackTypes(): TrackType
-    vfuncLookupChild(propName: string): [ /* returnType */ boolean, /* child */ GObject.Object | null, /* pspec */ GObject.ParamSpec | null ]
-    vfuncRipple(start: number): boolean
-    vfuncRippleEnd(end: number): boolean
-    vfuncRollEnd(end: number): boolean
-    vfuncRollStart(start: number): boolean
-    vfuncSetChildProperty(child: GObject.Object, pspec: GObject.ParamSpec, value: any): void
-    vfuncSetChildPropertyFull(child: GObject.Object, pspec: GObject.ParamSpec, value: any): boolean
-    vfuncSetDuration(duration: Gst.ClockTime): boolean
-    vfuncSetInpoint(inpoint: Gst.ClockTime): boolean
-    vfuncSetMaxDuration(maxduration: Gst.ClockTime): boolean
-    vfuncSetParent(parent: TimelineElement): boolean
-    vfuncSetPriority(priority: number): boolean
-    vfuncSetStart(start: Gst.ClockTime): boolean
-    vfuncTrim(start: number): boolean
-    vfuncGetId(): string
-    vfuncSetAsset(asset: Asset): void
-    vfuncSetAssetFull(asset: Asset): boolean
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GES.TrackElement */
+    /* Signals of GES-1.0.GES.TrackElement */
     connect(sigName: "control-binding-added", callback: (($obj: VideoUriSource, controlBinding: Gst.ControlBinding) => void)): number
-    connect_after(sigName: "control-binding-added", callback: (($obj: VideoUriSource, controlBinding: Gst.ControlBinding) => void)): number
+    on(sigName: "control-binding-added", callback: (controlBinding: Gst.ControlBinding) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "control-binding-added", callback: (controlBinding: Gst.ControlBinding) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "control-binding-added", callback: (controlBinding: Gst.ControlBinding) => void): NodeJS.EventEmitter
     emit(sigName: "control-binding-added", controlBinding: Gst.ControlBinding): void
-    on(sigName: "control-binding-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "control-binding-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "control-binding-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "control-binding-removed", callback: (($obj: VideoUriSource, controlBinding: Gst.ControlBinding) => void)): number
-    connect_after(sigName: "control-binding-removed", callback: (($obj: VideoUriSource, controlBinding: Gst.ControlBinding) => void)): number
+    on(sigName: "control-binding-removed", callback: (controlBinding: Gst.ControlBinding) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "control-binding-removed", callback: (controlBinding: Gst.ControlBinding) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "control-binding-removed", callback: (controlBinding: Gst.ControlBinding) => void): NodeJS.EventEmitter
     emit(sigName: "control-binding-removed", controlBinding: Gst.ControlBinding): void
-    on(sigName: "control-binding-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "control-binding-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "control-binding-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GES.TimelineElement */
+    /* Signals of GES-1.0.GES.TimelineElement */
     connect(sigName: "child-property-added", callback: (($obj: VideoUriSource, propObject: GObject.Object, prop: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "child-property-added", callback: (($obj: VideoUriSource, propObject: GObject.Object, prop: GObject.ParamSpec) => void)): number
+    on(sigName: "child-property-added", callback: (propObject: GObject.Object, prop: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "child-property-added", callback: (propObject: GObject.Object, prop: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "child-property-added", callback: (propObject: GObject.Object, prop: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "child-property-added", propObject: GObject.Object, prop: GObject.ParamSpec): void
-    on(sigName: "child-property-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "child-property-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "child-property-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "child-property-removed", callback: (($obj: VideoUriSource, propObject: GObject.Object, prop: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "child-property-removed", callback: (($obj: VideoUriSource, propObject: GObject.Object, prop: GObject.ParamSpec) => void)): number
+    on(sigName: "child-property-removed", callback: (propObject: GObject.Object, prop: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "child-property-removed", callback: (propObject: GObject.Object, prop: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "child-property-removed", callback: (propObject: GObject.Object, prop: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "child-property-removed", propObject: GObject.Object, prop: GObject.ParamSpec): void
-    on(sigName: "child-property-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "child-property-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "child-property-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "deep-notify", callback: (($obj: VideoUriSource, propObject: GObject.Object, prop: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "deep-notify", callback: (($obj: VideoUriSource, propObject: GObject.Object, prop: GObject.ParamSpec) => void)): number
+    on(sigName: "deep-notify", callback: (propObject: GObject.Object, prop: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "deep-notify", callback: (propObject: GObject.Object, prop: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "deep-notify", callback: (propObject: GObject.Object, prop: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "deep-notify", propObject: GObject.Object, prop: GObject.ParamSpec): void
-    on(sigName: "deep-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "deep-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "deep-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: VideoUriSource, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: VideoUriSource, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GES.MetaContainer */
+    /* Signals of GES-1.0.GES.MetaContainer */
     connect(sigName: "notify-meta", callback: (($obj: VideoUriSource, key: string, value?: any | null) => void)): number
-    connect_after(sigName: "notify-meta", callback: (($obj: VideoUriSource, key: string, value?: any | null) => void)): number
+    on(sigName: "notify-meta", callback: (key: string, value?: any | null) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify-meta", callback: (key: string, value?: any | null) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify-meta", callback: (key: string, value?: any | null) => void): NodeJS.EventEmitter
     emit(sigName: "notify-meta", key: string, value?: any | null): void
-    on(sigName: "notify-meta", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify-meta", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify-meta", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::active", callback: (($obj: VideoUriSource, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::active", callback: (($obj: VideoUriSource, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::active", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -15474,16 +13424,16 @@ export class VideoUriSource {
 export interface XmlFormatter_ConstructProps extends BaseXmlFormatter_ConstructProps {
 }
 export class XmlFormatter {
-    /* Fields of GES.XmlFormatter */
+    /* Fields of GES-1.0.GES.XmlFormatter */
     parent: BaseXmlFormatter
     priv: XmlFormatterPrivate
     gesReserved: object[]
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GES.Formatter */
+    /* Methods of GES-1.0.GES.Formatter */
     loadFromUri(timeline: Timeline, uri: string): boolean
     saveToUri(timeline: Timeline, uri: string, overwrite: boolean): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -15505,32 +13455,16 @@ export class XmlFormatter {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of GES.Extractable */
+    /* Methods of GES-1.0.GES.Extractable */
     getAsset(): Asset | null
     getId(): string
     setAsset(asset: Asset): boolean
-    /* Virtual methods of GES.Formatter */
-    vfuncCanLoadUri(uri: string): boolean
-    vfuncLoadFromUri(timeline: Timeline, uri: string): boolean
-    vfuncSaveToUri(timeline: Timeline, uri: string, overwrite: boolean): boolean
-    vfuncGetId(): string
-    vfuncSetAsset(asset: Asset): void
-    vfuncSetAssetFull(asset: Asset): boolean
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: XmlFormatter, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: XmlFormatter, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -15544,7 +13478,7 @@ export class XmlFormatter {
     static $gtype: GObject.Type
 }
 export abstract class AssetClass {
-    /* Fields of GES.AssetClass */
+    /* Fields of GES-1.0.GES.AssetClass */
     parent: GObject.ObjectClass
     startLoading: (self: Asset) => AssetLoadingReturn
     extract: (self: Asset) => Extractable
@@ -15570,7 +13504,7 @@ export class AudioTestSourcePrivate {
     static name: string
 }
 export abstract class AudioTrackClass {
-    /* Fields of GES.AudioTrackClass */
+    /* Fields of GES-1.0.GES.AudioTrackClass */
     parentClass: TrackClass
     gesReserved: object[]
     static name: string
@@ -15579,7 +13513,7 @@ export class AudioTrackPrivate {
     static name: string
 }
 export abstract class AudioTransitionClass {
-    /* Fields of GES.AudioTransitionClass */
+    /* Fields of GES-1.0.GES.AudioTransitionClass */
     parentClass: TransitionClass
     gesReserved: object[]
     static name: string
@@ -15612,7 +13546,7 @@ export class BaseTransitionClipPrivate {
     static name: string
 }
 export abstract class BaseXmlFormatterClass {
-    /* Fields of GES.BaseXmlFormatterClass */
+    /* Fields of GES-1.0.GES.BaseXmlFormatterClass */
     parent: FormatterClass
     contentParser: GLib.MarkupParser
     save: (formatter: Formatter, timeline: Timeline) => GLib.String
@@ -15623,7 +13557,7 @@ export class BaseXmlFormatterPrivate {
     static name: string
 }
 export abstract class ClipAssetClass {
-    /* Fields of GES.ClipAssetClass */
+    /* Fields of GES-1.0.GES.ClipAssetClass */
     parent: AssetClass
     getNaturalFramerate: (self: ClipAsset, framerateN: number, framerateD: number) => boolean
     gesReserved: object[]
@@ -15633,7 +13567,7 @@ export class ClipAssetPrivate {
     static name: string
 }
 export abstract class ClipClass {
-    /* Fields of GES.ClipClass */
+    /* Fields of GES-1.0.GES.ClipClass */
     createTrackElement: CreateTrackElementFunc
     createTrackElements: CreateTrackElementsFunc
     static name: string
@@ -15642,7 +13576,7 @@ export class ClipPrivate {
     static name: string
 }
 export abstract class CommandLineFormatterClass {
-    /* Fields of GES.CommandLineFormatterClass */
+    /* Fields of GES-1.0.GES.CommandLineFormatterClass */
     parentClass: FormatterClass
     static name: string
 }
@@ -15650,7 +13584,7 @@ export class CommandLineFormatterPrivate {
     static name: string
 }
 export abstract class ContainerClass {
-    /* Fields of GES.ContainerClass */
+    /* Fields of GES-1.0.GES.ContainerClass */
     childAdded: (container: Container, element: TimelineElement) => void
     childRemoved: (container: Container, element: TimelineElement) => void
     addChild: (container: Container, element: TimelineElement) => boolean
@@ -15663,7 +13597,7 @@ export class ContainerPrivate {
     static name: string
 }
 export abstract class EffectAssetClass {
-    /* Fields of GES.EffectAssetClass */
+    /* Fields of GES-1.0.GES.EffectAssetClass */
     parentClass: TrackElementAssetClass
     gesReserved: object[]
     static name: string
@@ -15672,7 +13606,7 @@ export class EffectAssetPrivate {
     static name: string
 }
 export abstract class EffectClass {
-    /* Methods of GES.EffectClass */
+    /* Methods of GES-1.0.GES.EffectClass */
     registerRateProperty(klass: Effect | Function | GObject.Type, elementName: string, propertyName: string): boolean
     static name: string
 }
@@ -15686,7 +13620,7 @@ export class EffectPrivate {
     static name: string
 }
 export abstract class ExtractableInterface {
-    /* Fields of GES.ExtractableInterface */
+    /* Fields of GES-1.0.GES.ExtractableInterface */
     parent: GObject.TypeInterface
     assetType: GObject.Type
     checkId: ExtractableCheckId
@@ -15700,12 +13634,12 @@ export abstract class ExtractableInterface {
     static name: string
 }
 export abstract class FormatterClass {
-    /* Fields of GES.FormatterClass */
+    /* Fields of GES-1.0.GES.FormatterClass */
     parentClass: GObject.InitiallyUnownedClass
     canLoadUri: FormatterCanLoadURIMethod
     loadFromUri: FormatterLoadFromURIMethod
     saveToUri: FormatterSaveToURIMethod
-    /* Methods of GES.FormatterClass */
+    /* Methods of GES-1.0.GES.FormatterClass */
     registerMetas(klass: Formatter | Function | GObject.Type, name: string, description: string, extensions: string, caps: string, version: number, rank: Gst.Rank): void
     static name: string
 }
@@ -15713,7 +13647,7 @@ export class FormatterPrivate {
     static name: string
 }
 export abstract class GroupClass {
-    /* Fields of GES.GroupClass */
+    /* Fields of GES-1.0.GES.GroupClass */
     parentClass: ContainerClass
     gesReserved: object[]
     static name: string
@@ -15722,7 +13656,7 @@ export class GroupPrivate {
     static name: string
 }
 export abstract class ImageSourceClass {
-    /* Fields of GES.ImageSourceClass */
+    /* Fields of GES-1.0.GES.ImageSourceClass */
     parentClass: VideoSourceClass
     gesReserved: object[]
     static name: string
@@ -15731,7 +13665,7 @@ export class ImageSourcePrivate {
     static name: string
 }
 export abstract class LayerClass {
-    /* Fields of GES.LayerClass */
+    /* Fields of GES-1.0.GES.LayerClass */
     objectAdded: (layer: Layer, object: Clip) => void
     objectRemoved: (layer: Layer, object: Clip) => void
     static name: string
@@ -15740,23 +13674,23 @@ export class LayerPrivate {
     static name: string
 }
 export abstract class MarkerClass {
-    /* Fields of GES.MarkerClass */
+    /* Fields of GES-1.0.GES.MarkerClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
 export abstract class MarkerListClass {
-    /* Fields of GES.MarkerListClass */
+    /* Fields of GES-1.0.GES.MarkerListClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
 export abstract class MetaContainerInterface {
-    /* Fields of GES.MetaContainerInterface */
+    /* Fields of GES-1.0.GES.MetaContainerInterface */
     parentIface: GObject.TypeInterface
     gesReserved: object[]
     static name: string
 }
 export abstract class MultiFileSourceClass {
-    /* Fields of GES.MultiFileSourceClass */
+    /* Fields of GES-1.0.GES.MultiFileSourceClass */
     parentClass: VideoSourceClass
     gesReserved: object[]
     static name: string
@@ -15777,7 +13711,7 @@ export class OperationPrivate {
     static name: string
 }
 export abstract class OverlayClipClass {
-    /* Fields of GES.OverlayClipClass */
+    /* Fields of GES-1.0.GES.OverlayClipClass */
     parentClass: OperationClipClass
     static name: string
 }
@@ -15797,7 +13731,7 @@ export class PitiviFormatterPrivate {
     static name: string
 }
 export abstract class ProjectClass {
-    /* Fields of GES.ProjectClass */
+    /* Fields of GES-1.0.GES.ProjectClass */
     parentClass: AssetClass
     assetAdded: (self: Project, asset: Asset) => void
     assetLoading: (self: Project, asset: Asset) => void
@@ -15813,12 +13747,12 @@ export class ProjectPrivate {
     static name: string
 }
 export abstract class SourceClass {
-    /* Fields of GES.SourceClass */
+    /* Fields of GES-1.0.GES.SourceClass */
     selectPad: (source: Source, pad: Gst.Pad) => boolean
     static name: string
 }
 export abstract class SourceClipAssetClass {
-    /* Fields of GES.SourceClipAssetClass */
+    /* Fields of GES-1.0.GES.SourceClipAssetClass */
     parentClass: ClipAssetClass
     static name: string
 }
@@ -15838,7 +13772,7 @@ export class TestClipPrivate {
     static name: string
 }
 export abstract class TextOverlayClass {
-    /* Fields of GES.TextOverlayClass */
+    /* Fields of GES-1.0.GES.TextOverlayClass */
     parentClass: OperationClass
     static name: string
 }
@@ -15852,7 +13786,7 @@ export class TextOverlayPrivate {
     static name: string
 }
 export abstract class TimelineClass {
-    /* Fields of GES.TimelineClass */
+    /* Fields of GES-1.0.GES.TimelineClass */
     parentClass: Gst.BinClass
     trackAdded: (timeline: Timeline, track: Track) => void
     trackRemoved: (timeline: Timeline, track: Track) => void
@@ -15862,7 +13796,7 @@ export abstract class TimelineClass {
     static name: string
 }
 export abstract class TimelineElementClass {
-    /* Fields of GES.TimelineElementClass */
+    /* Fields of GES-1.0.GES.TimelineElementClass */
     parentClass: GObject.InitiallyUnownedClass
     setParent: (self: TimelineElement, parent: TimelineElement) => boolean
     setStart: (self: TimelineElement, start: Gst.ClockTime) => boolean
@@ -15876,11 +13810,11 @@ export abstract class TimelineElementClass {
     rollEnd: (self: TimelineElement, end: number) => boolean
     trim: (self: TimelineElement, start: number) => boolean
     deepCopy: (self: TimelineElement, copy: TimelineElement) => void
-    lookupChild: (self: TimelineElement, propName: string) => [ /* returnType */ boolean, /* child */ GObject.Object | null, /* pspec */ GObject.ParamSpec | null ]
+    lookupChild: (self: TimelineElement, propName: string) => { returnType: boolean, child: GObject.Object | null, pspec: GObject.ParamSpec | null }
     getTrackTypes: (self: TimelineElement) => TrackType
     setChildProperty: (self: TimelineElement, child: GObject.Object, pspec: GObject.ParamSpec, value: any) => void
     getLayerPriority: (self: TimelineElement) => number
-    getNaturalFramerate: (self: TimelineElement) => [ /* returnType */ boolean, /* framerateN */ number, /* framerateD */ number ]
+    getNaturalFramerate: (self: TimelineElement) => { returnType: boolean, framerateN: number, framerateD: number }
     setChildPropertyFull: (self: TimelineElement, child: GObject.Object, pspec: GObject.ParamSpec, value: any) => boolean
     gesReserved: object[]
     static name: string
@@ -15898,7 +13832,7 @@ export class TitleClipPrivate {
     static name: string
 }
 export abstract class TitleSourceClass {
-    /* Fields of GES.TitleSourceClass */
+    /* Fields of GES-1.0.GES.TitleSourceClass */
     parentClass: VideoSourceClass
     static name: string
 }
@@ -15909,7 +13843,7 @@ export abstract class TrackClass {
     static name: string
 }
 export abstract class TrackElementAssetClass {
-    /* Fields of GES.TrackElementAssetClass */
+    /* Fields of GES-1.0.GES.TrackElementAssetClass */
     parentClass: AssetClass
     getNaturalFramerate: (self: TrackElementAsset, framerateN: number, framerateD: number) => boolean
     gesReserved: object[]
@@ -15919,11 +13853,11 @@ export class TrackElementAssetPrivate {
     static name: string
 }
 export abstract class TrackElementClass {
-    /* Fields of GES.TrackElementClass */
+    /* Fields of GES-1.0.GES.TrackElementClass */
     nleobjectFactorytype: string
     activeChanged: (object: TrackElement, active: boolean) => void
     changed: (object: TrackElement) => void
-    lookupChild: (object: TrackElement, propName: string) => [ /* returnType */ boolean, /* element */ Gst.Element | null, /* pspec */ GObject.ParamSpec | null ]
+    lookupChild: (object: TrackElement, propName: string) => { returnType: boolean, element: Gst.Element | null, pspec: GObject.ParamSpec | null }
     static name: string
 }
 export class TrackElementPrivate {
@@ -15945,10 +13879,10 @@ export class TransitionPrivate {
     static name: string
 }
 export abstract class UriClipAssetClass {
-    /* Fields of GES.UriClipAssetClass */
+    /* Fields of GES-1.0.GES.UriClipAssetClass */
     parentClass: SourceClipAssetClass
     discovered: (discoverer: GstPbutils.Discoverer, info: GstPbutils.DiscovererInfo, err: GLib.Error) => void
-    /* Methods of GES.UriClipAssetClass */
+    /* Methods of GES-1.0.GES.UriClipAssetClass */
     setTimeout(klass: UriClipAsset | Function | GObject.Type, timeout: Gst.ClockTime): void
     static name: string
 }
@@ -15965,7 +13899,7 @@ export class UriSource {
     static name: string
 }
 export abstract class UriSourceAssetClass {
-    /* Fields of GES.UriSourceAssetClass */
+    /* Fields of GES-1.0.GES.UriSourceAssetClass */
     parentClass: TrackElementAssetClass
     gesReserved: object[]
     static name: string
@@ -15980,7 +13914,7 @@ export class VideoSourcePrivate {
     static name: string
 }
 export abstract class VideoTestSourceClass {
-    /* Fields of GES.VideoTestSourceClass */
+    /* Fields of GES-1.0.GES.VideoTestSourceClass */
     parentClass: VideoSourceClass
     gesReserved: object[]
     static name: string
@@ -15989,7 +13923,7 @@ export class VideoTestSourcePrivate {
     static name: string
 }
 export abstract class VideoTrackClass {
-    /* Fields of GES.VideoTrackClass */
+    /* Fields of GES-1.0.GES.VideoTrackClass */
     parentClass: TrackClass
     gesReserved: object[]
     static name: string
@@ -15998,7 +13932,7 @@ export class VideoTrackPrivate {
     static name: string
 }
 export abstract class VideoTransitionClass {
-    /* Fields of GES.VideoTransitionClass */
+    /* Fields of GES-1.0.GES.VideoTransitionClass */
     parentClass: TransitionClass
     static name: string
 }
@@ -16012,7 +13946,7 @@ export class VideoUriSourcePrivate {
     static name: string
 }
 export abstract class XmlFormatterClass {
-    /* Fields of GES.XmlFormatterClass */
+    /* Fields of GES-1.0.GES.XmlFormatterClass */
     parent: BaseXmlFormatterClass
     gesReserved: object[]
     static name: string

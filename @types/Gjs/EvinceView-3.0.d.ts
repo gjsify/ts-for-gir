@@ -98,7 +98,7 @@ export interface DocumentModel_ConstructProps extends GObject.Object_ConstructPr
     sizing_mode?: SizingMode
 }
 export class DocumentModel {
-    /* Properties of EvinceView.DocumentModel */
+    /* Properties of EvinceView-3.0.EvinceView.DocumentModel */
     continuous: boolean
     document: EvinceDocument.Document
     dual_odd_left: boolean
@@ -113,9 +113,9 @@ export class DocumentModel {
     rtl: boolean
     scale: number
     sizing_mode: SizingMode
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of EvinceView.DocumentModel */
+    /* Methods of EvinceView-3.0.EvinceView.DocumentModel */
     get_continuous(): boolean
     get_document(): EvinceDocument.Document
     get_dual_page(): boolean
@@ -145,7 +145,7 @@ export class DocumentModel {
     set_rtl(rtl: boolean): void
     set_scale(scale: number): void
     set_sizing_mode(mode: SizingMode): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -167,7 +167,7 @@ export class DocumentModel {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -175,11 +175,11 @@ export class DocumentModel {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of EvinceView.DocumentModel */
+    /* Signals of EvinceView-3.0.EvinceView.DocumentModel */
     connect(sigName: "page-changed", callback: (($obj: DocumentModel, object: number, p0: number) => void)): number
     connect_after(sigName: "page-changed", callback: (($obj: DocumentModel, object: number, p0: number) => void)): number
     emit(sigName: "page-changed", object: number, p0: number): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: DocumentModel, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: DocumentModel, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -226,7 +226,7 @@ export class DocumentModel {
 export interface Job_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class Job {
-    /* Fields of EvinceView.Job */
+    /* Fields of EvinceView-3.0.EvinceView.Job */
     parent: GObject.Object
     document: EvinceDocument.Document
     run_mode: JobRunMode
@@ -237,9 +237,9 @@ export class Job {
     cancellable: Gio.Cancellable
     idle_finished_id: number
     idle_cancelled_id: number
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of EvinceView.Job */
+    /* Methods of EvinceView-3.0.EvinceView.Job */
     cancel(): void
     get_run_mode(): JobRunMode
     is_failed(): boolean
@@ -249,7 +249,7 @@ export class Job {
     scheduler_update_job(priority: JobPriority): void
     set_run_mode(run_mode: JobRunMode): void
     succeeded(): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -271,11 +271,11 @@ export class Job {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of EvinceView.Job */
+    /* Virtual methods of EvinceView-3.0.EvinceView.Job */
     vfunc_cancelled(): void
     vfunc_finished(): void
     vfunc_run(): boolean
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -283,14 +283,14 @@ export class Job {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of EvinceView.Job */
+    /* Signals of EvinceView-3.0.EvinceView.Job */
     connect(sigName: "cancelled", callback: (($obj: Job) => void)): number
     connect_after(sigName: "cancelled", callback: (($obj: Job) => void)): number
     emit(sigName: "cancelled"): void
     connect(sigName: "finished", callback: (($obj: Job) => void)): number
     connect_after(sigName: "finished", callback: (($obj: Job) => void)): number
     emit(sigName: "finished"): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Job, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Job, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -308,10 +308,10 @@ export class Job {
 export interface JobAnnots_ConstructProps extends Job_ConstructProps {
 }
 export class JobAnnots {
-    /* Fields of EvinceView.JobAnnots */
+    /* Fields of EvinceView-3.0.EvinceView.JobAnnots */
     parent: Job
     annots: object[]
-    /* Fields of EvinceView.Job */
+    /* Fields of EvinceView-3.0.EvinceView.Job */
     document: EvinceDocument.Document
     run_mode: JobRunMode
     cancelled: number
@@ -321,9 +321,9 @@ export class JobAnnots {
     cancellable: Gio.Cancellable
     idle_finished_id: number
     idle_cancelled_id: number
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of EvinceView.Job */
+    /* Methods of EvinceView-3.0.EvinceView.Job */
     cancel(): void
     get_run_mode(): JobRunMode
     is_failed(): boolean
@@ -333,7 +333,7 @@ export class JobAnnots {
     scheduler_update_job(priority: JobPriority): void
     set_run_mode(run_mode: JobRunMode): void
     succeeded(): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -355,11 +355,11 @@ export class JobAnnots {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of EvinceView.Job */
+    /* Virtual methods of EvinceView-3.0.EvinceView.Job */
     vfunc_cancelled(): void
     vfunc_finished(): void
     vfunc_run(): boolean
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -367,14 +367,14 @@ export class JobAnnots {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of EvinceView.Job */
+    /* Signals of EvinceView-3.0.EvinceView.Job */
     connect(sigName: "cancelled", callback: (($obj: JobAnnots) => void)): number
     connect_after(sigName: "cancelled", callback: (($obj: JobAnnots) => void)): number
     emit(sigName: "cancelled"): void
     connect(sigName: "finished", callback: (($obj: JobAnnots) => void)): number
     connect_after(sigName: "finished", callback: (($obj: JobAnnots) => void)): number
     emit(sigName: "finished"): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: JobAnnots, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: JobAnnots, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -392,10 +392,10 @@ export class JobAnnots {
 export interface JobAttachments_ConstructProps extends Job_ConstructProps {
 }
 export class JobAttachments {
-    /* Fields of EvinceView.JobAttachments */
+    /* Fields of EvinceView-3.0.EvinceView.JobAttachments */
     parent: Job
     attachments: object[]
-    /* Fields of EvinceView.Job */
+    /* Fields of EvinceView-3.0.EvinceView.Job */
     document: EvinceDocument.Document
     run_mode: JobRunMode
     cancelled: number
@@ -405,9 +405,9 @@ export class JobAttachments {
     cancellable: Gio.Cancellable
     idle_finished_id: number
     idle_cancelled_id: number
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of EvinceView.Job */
+    /* Methods of EvinceView-3.0.EvinceView.Job */
     cancel(): void
     get_run_mode(): JobRunMode
     is_failed(): boolean
@@ -417,7 +417,7 @@ export class JobAttachments {
     scheduler_update_job(priority: JobPriority): void
     set_run_mode(run_mode: JobRunMode): void
     succeeded(): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -439,11 +439,11 @@ export class JobAttachments {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of EvinceView.Job */
+    /* Virtual methods of EvinceView-3.0.EvinceView.Job */
     vfunc_cancelled(): void
     vfunc_finished(): void
     vfunc_run(): boolean
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -451,14 +451,14 @@ export class JobAttachments {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of EvinceView.Job */
+    /* Signals of EvinceView-3.0.EvinceView.Job */
     connect(sigName: "cancelled", callback: (($obj: JobAttachments) => void)): number
     connect_after(sigName: "cancelled", callback: (($obj: JobAttachments) => void)): number
     emit(sigName: "cancelled"): void
     connect(sigName: "finished", callback: (($obj: JobAttachments) => void)): number
     connect_after(sigName: "finished", callback: (($obj: JobAttachments) => void)): number
     emit(sigName: "finished"): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: JobAttachments, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: JobAttachments, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -476,11 +476,11 @@ export class JobAttachments {
 export interface JobExport_ConstructProps extends Job_ConstructProps {
 }
 export class JobExport {
-    /* Fields of EvinceView.JobExport */
+    /* Fields of EvinceView-3.0.EvinceView.JobExport */
     parent: Job
     page: number
     rc: EvinceDocument.RenderContext
-    /* Fields of EvinceView.Job */
+    /* Fields of EvinceView-3.0.EvinceView.Job */
     document: EvinceDocument.Document
     run_mode: JobRunMode
     cancelled: number
@@ -490,11 +490,11 @@ export class JobExport {
     cancellable: Gio.Cancellable
     idle_finished_id: number
     idle_cancelled_id: number
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of EvinceView.JobExport */
+    /* Methods of EvinceView-3.0.EvinceView.JobExport */
     set_page(page: number): void
-    /* Methods of EvinceView.Job */
+    /* Methods of EvinceView-3.0.EvinceView.Job */
     cancel(): void
     get_run_mode(): JobRunMode
     is_failed(): boolean
@@ -504,7 +504,7 @@ export class JobExport {
     scheduler_update_job(priority: JobPriority): void
     set_run_mode(run_mode: JobRunMode): void
     succeeded(): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -526,11 +526,11 @@ export class JobExport {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of EvinceView.Job */
+    /* Virtual methods of EvinceView-3.0.EvinceView.Job */
     vfunc_cancelled(): void
     vfunc_finished(): void
     vfunc_run(): boolean
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -538,14 +538,14 @@ export class JobExport {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of EvinceView.Job */
+    /* Signals of EvinceView-3.0.EvinceView.Job */
     connect(sigName: "cancelled", callback: (($obj: JobExport) => void)): number
     connect_after(sigName: "cancelled", callback: (($obj: JobExport) => void)): number
     emit(sigName: "cancelled"): void
     connect(sigName: "finished", callback: (($obj: JobExport) => void)): number
     connect_after(sigName: "finished", callback: (($obj: JobExport) => void)): number
     emit(sigName: "finished"): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: JobExport, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: JobExport, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -563,7 +563,7 @@ export class JobExport {
 export interface JobFind_ConstructProps extends Job_ConstructProps {
 }
 export class JobFind {
-    /* Fields of EvinceView.JobFind */
+    /* Fields of EvinceView-3.0.EvinceView.JobFind */
     parent: Job
     start_page: number
     current_page: number
@@ -573,7 +573,7 @@ export class JobFind {
     case_sensitive: boolean
     has_results: boolean
     options: EvinceDocument.FindOptions
-    /* Fields of EvinceView.Job */
+    /* Fields of EvinceView-3.0.EvinceView.Job */
     document: EvinceDocument.Document
     run_mode: JobRunMode
     cancelled: number
@@ -583,14 +583,14 @@ export class JobFind {
     cancellable: Gio.Cancellable
     idle_finished_id: number
     idle_cancelled_id: number
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of EvinceView.JobFind */
+    /* Methods of EvinceView-3.0.EvinceView.JobFind */
     get_n_results(pages: number): number
     get_options(): EvinceDocument.FindOptions
     get_progress(): number
     set_options(options: EvinceDocument.FindOptions): void
-    /* Methods of EvinceView.Job */
+    /* Methods of EvinceView-3.0.EvinceView.Job */
     cancel(): void
     get_run_mode(): JobRunMode
     is_failed(): boolean
@@ -600,7 +600,7 @@ export class JobFind {
     scheduler_update_job(priority: JobPriority): void
     set_run_mode(run_mode: JobRunMode): void
     succeeded(): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -622,13 +622,13 @@ export class JobFind {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of EvinceView.JobFind */
+    /* Virtual methods of EvinceView-3.0.EvinceView.JobFind */
     vfunc_updated(page: number): void
-    /* Virtual methods of EvinceView.Job */
+    /* Virtual methods of EvinceView-3.0.EvinceView.Job */
     vfunc_cancelled(): void
     vfunc_finished(): void
     vfunc_run(): boolean
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -636,18 +636,18 @@ export class JobFind {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of EvinceView.JobFind */
+    /* Signals of EvinceView-3.0.EvinceView.JobFind */
     connect(sigName: "updated", callback: (($obj: JobFind, object: number) => void)): number
     connect_after(sigName: "updated", callback: (($obj: JobFind, object: number) => void)): number
     emit(sigName: "updated", object: number): void
-    /* Signals of EvinceView.Job */
+    /* Signals of EvinceView-3.0.EvinceView.Job */
     connect(sigName: "cancelled", callback: (($obj: JobFind) => void)): number
     connect_after(sigName: "cancelled", callback: (($obj: JobFind) => void)): number
     emit(sigName: "cancelled"): void
     connect(sigName: "finished", callback: (($obj: JobFind) => void)): number
     connect_after(sigName: "finished", callback: (($obj: JobFind) => void)): number
     emit(sigName: "finished"): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: JobFind, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: JobFind, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -665,10 +665,10 @@ export class JobFind {
 export interface JobFonts_ConstructProps extends Job_ConstructProps {
 }
 export class JobFonts {
-    /* Fields of EvinceView.JobFonts */
+    /* Fields of EvinceView-3.0.EvinceView.JobFonts */
     parent: Job
     scan_completed: boolean
-    /* Fields of EvinceView.Job */
+    /* Fields of EvinceView-3.0.EvinceView.Job */
     document: EvinceDocument.Document
     run_mode: JobRunMode
     cancelled: number
@@ -678,9 +678,9 @@ export class JobFonts {
     cancellable: Gio.Cancellable
     idle_finished_id: number
     idle_cancelled_id: number
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of EvinceView.Job */
+    /* Methods of EvinceView-3.0.EvinceView.Job */
     cancel(): void
     get_run_mode(): JobRunMode
     is_failed(): boolean
@@ -690,7 +690,7 @@ export class JobFonts {
     scheduler_update_job(priority: JobPriority): void
     set_run_mode(run_mode: JobRunMode): void
     succeeded(): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -712,13 +712,13 @@ export class JobFonts {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of EvinceView.JobFonts */
+    /* Virtual methods of EvinceView-3.0.EvinceView.JobFonts */
     vfunc_updated(progress: number): void
-    /* Virtual methods of EvinceView.Job */
+    /* Virtual methods of EvinceView-3.0.EvinceView.Job */
     vfunc_cancelled(): void
     vfunc_finished(): void
     vfunc_run(): boolean
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -726,18 +726,18 @@ export class JobFonts {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of EvinceView.JobFonts */
+    /* Signals of EvinceView-3.0.EvinceView.JobFonts */
     connect(sigName: "updated", callback: (($obj: JobFonts, object: number) => void)): number
     connect_after(sigName: "updated", callback: (($obj: JobFonts, object: number) => void)): number
     emit(sigName: "updated", object: number): void
-    /* Signals of EvinceView.Job */
+    /* Signals of EvinceView-3.0.EvinceView.Job */
     connect(sigName: "cancelled", callback: (($obj: JobFonts) => void)): number
     connect_after(sigName: "cancelled", callback: (($obj: JobFonts) => void)): number
     emit(sigName: "cancelled"): void
     connect(sigName: "finished", callback: (($obj: JobFonts) => void)): number
     connect_after(sigName: "finished", callback: (($obj: JobFonts) => void)): number
     emit(sigName: "finished"): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: JobFonts, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: JobFonts, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -755,10 +755,10 @@ export class JobFonts {
 export interface JobLayers_ConstructProps extends Job_ConstructProps {
 }
 export class JobLayers {
-    /* Fields of EvinceView.JobLayers */
+    /* Fields of EvinceView-3.0.EvinceView.JobLayers */
     parent: Job
     model: Gtk.TreeModel
-    /* Fields of EvinceView.Job */
+    /* Fields of EvinceView-3.0.EvinceView.Job */
     document: EvinceDocument.Document
     run_mode: JobRunMode
     cancelled: number
@@ -768,9 +768,9 @@ export class JobLayers {
     cancellable: Gio.Cancellable
     idle_finished_id: number
     idle_cancelled_id: number
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of EvinceView.Job */
+    /* Methods of EvinceView-3.0.EvinceView.Job */
     cancel(): void
     get_run_mode(): JobRunMode
     is_failed(): boolean
@@ -780,7 +780,7 @@ export class JobLayers {
     scheduler_update_job(priority: JobPriority): void
     set_run_mode(run_mode: JobRunMode): void
     succeeded(): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -802,11 +802,11 @@ export class JobLayers {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of EvinceView.Job */
+    /* Virtual methods of EvinceView-3.0.EvinceView.Job */
     vfunc_cancelled(): void
     vfunc_finished(): void
     vfunc_run(): boolean
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -814,14 +814,14 @@ export class JobLayers {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of EvinceView.Job */
+    /* Signals of EvinceView-3.0.EvinceView.Job */
     connect(sigName: "cancelled", callback: (($obj: JobLayers) => void)): number
     connect_after(sigName: "cancelled", callback: (($obj: JobLayers) => void)): number
     emit(sigName: "cancelled"): void
     connect(sigName: "finished", callback: (($obj: JobLayers) => void)): number
     connect_after(sigName: "finished", callback: (($obj: JobLayers) => void)): number
     emit(sigName: "finished"): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: JobLayers, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: JobLayers, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -839,10 +839,10 @@ export class JobLayers {
 export interface JobLinks_ConstructProps extends Job_ConstructProps {
 }
 export class JobLinks {
-    /* Fields of EvinceView.JobLinks */
+    /* Fields of EvinceView-3.0.EvinceView.JobLinks */
     parent: Job
     model: Gtk.TreeModel
-    /* Fields of EvinceView.Job */
+    /* Fields of EvinceView-3.0.EvinceView.Job */
     document: EvinceDocument.Document
     run_mode: JobRunMode
     cancelled: number
@@ -852,11 +852,11 @@ export class JobLinks {
     cancellable: Gio.Cancellable
     idle_finished_id: number
     idle_cancelled_id: number
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of EvinceView.JobLinks */
+    /* Methods of EvinceView-3.0.EvinceView.JobLinks */
     get_model(): Gtk.TreeModel
-    /* Methods of EvinceView.Job */
+    /* Methods of EvinceView-3.0.EvinceView.Job */
     cancel(): void
     get_run_mode(): JobRunMode
     is_failed(): boolean
@@ -866,7 +866,7 @@ export class JobLinks {
     scheduler_update_job(priority: JobPriority): void
     set_run_mode(run_mode: JobRunMode): void
     succeeded(): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -888,11 +888,11 @@ export class JobLinks {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of EvinceView.Job */
+    /* Virtual methods of EvinceView-3.0.EvinceView.Job */
     vfunc_cancelled(): void
     vfunc_finished(): void
     vfunc_run(): boolean
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -900,14 +900,14 @@ export class JobLinks {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of EvinceView.Job */
+    /* Signals of EvinceView-3.0.EvinceView.Job */
     connect(sigName: "cancelled", callback: (($obj: JobLinks) => void)): number
     connect_after(sigName: "cancelled", callback: (($obj: JobLinks) => void)): number
     emit(sigName: "cancelled"): void
     connect(sigName: "finished", callback: (($obj: JobLinks) => void)): number
     connect_after(sigName: "finished", callback: (($obj: JobLinks) => void)): number
     emit(sigName: "finished"): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: JobLinks, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: JobLinks, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -925,11 +925,11 @@ export class JobLinks {
 export interface JobLoad_ConstructProps extends Job_ConstructProps {
 }
 export class JobLoad {
-    /* Fields of EvinceView.JobLoad */
+    /* Fields of EvinceView-3.0.EvinceView.JobLoad */
     parent: Job
     uri: string
     password: string
-    /* Fields of EvinceView.Job */
+    /* Fields of EvinceView-3.0.EvinceView.Job */
     document: EvinceDocument.Document
     run_mode: JobRunMode
     cancelled: number
@@ -939,12 +939,12 @@ export class JobLoad {
     cancellable: Gio.Cancellable
     idle_finished_id: number
     idle_cancelled_id: number
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of EvinceView.JobLoad */
+    /* Methods of EvinceView-3.0.EvinceView.JobLoad */
     set_password(password: string): void
     set_uri(uri: string): void
-    /* Methods of EvinceView.Job */
+    /* Methods of EvinceView-3.0.EvinceView.Job */
     cancel(): void
     get_run_mode(): JobRunMode
     is_failed(): boolean
@@ -954,7 +954,7 @@ export class JobLoad {
     scheduler_update_job(priority: JobPriority): void
     set_run_mode(run_mode: JobRunMode): void
     succeeded(): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -976,11 +976,11 @@ export class JobLoad {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of EvinceView.Job */
+    /* Virtual methods of EvinceView-3.0.EvinceView.Job */
     vfunc_cancelled(): void
     vfunc_finished(): void
     vfunc_run(): boolean
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -988,14 +988,14 @@ export class JobLoad {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of EvinceView.Job */
+    /* Signals of EvinceView-3.0.EvinceView.Job */
     connect(sigName: "cancelled", callback: (($obj: JobLoad) => void)): number
     connect_after(sigName: "cancelled", callback: (($obj: JobLoad) => void)): number
     emit(sigName: "cancelled"): void
     connect(sigName: "finished", callback: (($obj: JobLoad) => void)): number
     connect_after(sigName: "finished", callback: (($obj: JobLoad) => void)): number
     emit(sigName: "finished"): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: JobLoad, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: JobLoad, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -1013,12 +1013,12 @@ export class JobLoad {
 export interface JobLoadGFile_ConstructProps extends Job_ConstructProps {
 }
 export class JobLoadGFile {
-    /* Fields of EvinceView.JobLoadGFile */
+    /* Fields of EvinceView-3.0.EvinceView.JobLoadGFile */
     parent: Job
     password: string
     gfile: Gio.File
     flags: EvinceDocument.DocumentLoadFlags
-    /* Fields of EvinceView.Job */
+    /* Fields of EvinceView-3.0.EvinceView.Job */
     document: EvinceDocument.Document
     run_mode: JobRunMode
     cancelled: number
@@ -1028,13 +1028,13 @@ export class JobLoadGFile {
     cancellable: Gio.Cancellable
     idle_finished_id: number
     idle_cancelled_id: number
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of EvinceView.JobLoadGFile */
+    /* Methods of EvinceView-3.0.EvinceView.JobLoadGFile */
     set_gfile(gfile: Gio.File): void
     set_load_flags(flags: EvinceDocument.DocumentLoadFlags): void
     set_password(password: string): void
-    /* Methods of EvinceView.Job */
+    /* Methods of EvinceView-3.0.EvinceView.Job */
     cancel(): void
     get_run_mode(): JobRunMode
     is_failed(): boolean
@@ -1044,7 +1044,7 @@ export class JobLoadGFile {
     scheduler_update_job(priority: JobPriority): void
     set_run_mode(run_mode: JobRunMode): void
     succeeded(): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -1066,11 +1066,11 @@ export class JobLoadGFile {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of EvinceView.Job */
+    /* Virtual methods of EvinceView-3.0.EvinceView.Job */
     vfunc_cancelled(): void
     vfunc_finished(): void
     vfunc_run(): boolean
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -1078,14 +1078,14 @@ export class JobLoadGFile {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of EvinceView.Job */
+    /* Signals of EvinceView-3.0.EvinceView.Job */
     connect(sigName: "cancelled", callback: (($obj: JobLoadGFile) => void)): number
     connect_after(sigName: "cancelled", callback: (($obj: JobLoadGFile) => void)): number
     emit(sigName: "cancelled"): void
     connect(sigName: "finished", callback: (($obj: JobLoadGFile) => void)): number
     connect_after(sigName: "finished", callback: (($obj: JobLoadGFile) => void)): number
     emit(sigName: "finished"): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: JobLoadGFile, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: JobLoadGFile, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -1103,12 +1103,12 @@ export class JobLoadGFile {
 export interface JobLoadStream_ConstructProps extends Job_ConstructProps {
 }
 export class JobLoadStream {
-    /* Fields of EvinceView.JobLoadStream */
+    /* Fields of EvinceView-3.0.EvinceView.JobLoadStream */
     parent: Job
     password: string
     stream: Gio.InputStream
     flags: EvinceDocument.DocumentLoadFlags
-    /* Fields of EvinceView.Job */
+    /* Fields of EvinceView-3.0.EvinceView.Job */
     document: EvinceDocument.Document
     run_mode: JobRunMode
     cancelled: number
@@ -1118,13 +1118,13 @@ export class JobLoadStream {
     cancellable: Gio.Cancellable
     idle_finished_id: number
     idle_cancelled_id: number
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of EvinceView.JobLoadStream */
+    /* Methods of EvinceView-3.0.EvinceView.JobLoadStream */
     set_load_flags(flags: EvinceDocument.DocumentLoadFlags): void
     set_password(password: string): void
     set_stream(stream: Gio.InputStream): void
-    /* Methods of EvinceView.Job */
+    /* Methods of EvinceView-3.0.EvinceView.Job */
     cancel(): void
     get_run_mode(): JobRunMode
     is_failed(): boolean
@@ -1134,7 +1134,7 @@ export class JobLoadStream {
     scheduler_update_job(priority: JobPriority): void
     set_run_mode(run_mode: JobRunMode): void
     succeeded(): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -1156,11 +1156,11 @@ export class JobLoadStream {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of EvinceView.Job */
+    /* Virtual methods of EvinceView-3.0.EvinceView.Job */
     vfunc_cancelled(): void
     vfunc_finished(): void
     vfunc_run(): boolean
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -1168,14 +1168,14 @@ export class JobLoadStream {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of EvinceView.Job */
+    /* Signals of EvinceView-3.0.EvinceView.Job */
     connect(sigName: "cancelled", callback: (($obj: JobLoadStream) => void)): number
     connect_after(sigName: "cancelled", callback: (($obj: JobLoadStream) => void)): number
     emit(sigName: "cancelled"): void
     connect(sigName: "finished", callback: (($obj: JobLoadStream) => void)): number
     connect_after(sigName: "finished", callback: (($obj: JobLoadStream) => void)): number
     emit(sigName: "finished"): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: JobLoadStream, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: JobLoadStream, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -1193,7 +1193,7 @@ export class JobLoadStream {
 export interface JobPageData_ConstructProps extends Job_ConstructProps {
 }
 export class JobPageData {
-    /* Fields of EvinceView.JobPageData */
+    /* Fields of EvinceView-3.0.EvinceView.JobPageData */
     parent: Job
     page: number
     flags: JobPageDataFlags
@@ -1209,7 +1209,7 @@ export class JobPageData {
     text_attrs: Pango.AttrList
     text_log_attrs: Pango.LogAttr
     text_log_attrs_length: number
-    /* Fields of EvinceView.Job */
+    /* Fields of EvinceView-3.0.EvinceView.Job */
     document: EvinceDocument.Document
     run_mode: JobRunMode
     cancelled: number
@@ -1219,9 +1219,9 @@ export class JobPageData {
     cancellable: Gio.Cancellable
     idle_finished_id: number
     idle_cancelled_id: number
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of EvinceView.Job */
+    /* Methods of EvinceView-3.0.EvinceView.Job */
     cancel(): void
     get_run_mode(): JobRunMode
     is_failed(): boolean
@@ -1231,7 +1231,7 @@ export class JobPageData {
     scheduler_update_job(priority: JobPriority): void
     set_run_mode(run_mode: JobRunMode): void
     succeeded(): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -1253,11 +1253,11 @@ export class JobPageData {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of EvinceView.Job */
+    /* Virtual methods of EvinceView-3.0.EvinceView.Job */
     vfunc_cancelled(): void
     vfunc_finished(): void
     vfunc_run(): boolean
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -1265,14 +1265,14 @@ export class JobPageData {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of EvinceView.Job */
+    /* Signals of EvinceView-3.0.EvinceView.Job */
     connect(sigName: "cancelled", callback: (($obj: JobPageData) => void)): number
     connect_after(sigName: "cancelled", callback: (($obj: JobPageData) => void)): number
     emit(sigName: "cancelled"): void
     connect(sigName: "finished", callback: (($obj: JobPageData) => void)): number
     connect_after(sigName: "finished", callback: (($obj: JobPageData) => void)): number
     emit(sigName: "finished"): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: JobPageData, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: JobPageData, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -1290,11 +1290,11 @@ export class JobPageData {
 export interface JobPrint_ConstructProps extends Job_ConstructProps {
 }
 export class JobPrint {
-    /* Fields of EvinceView.JobPrint */
+    /* Fields of EvinceView-3.0.EvinceView.JobPrint */
     parent: Job
     page: number
     cr: cairo.Context
-    /* Fields of EvinceView.Job */
+    /* Fields of EvinceView-3.0.EvinceView.Job */
     document: EvinceDocument.Document
     run_mode: JobRunMode
     cancelled: number
@@ -1304,12 +1304,12 @@ export class JobPrint {
     cancellable: Gio.Cancellable
     idle_finished_id: number
     idle_cancelled_id: number
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of EvinceView.JobPrint */
+    /* Methods of EvinceView-3.0.EvinceView.JobPrint */
     set_cairo(cr: cairo.Context): void
     set_page(page: number): void
-    /* Methods of EvinceView.Job */
+    /* Methods of EvinceView-3.0.EvinceView.Job */
     cancel(): void
     get_run_mode(): JobRunMode
     is_failed(): boolean
@@ -1319,7 +1319,7 @@ export class JobPrint {
     scheduler_update_job(priority: JobPriority): void
     set_run_mode(run_mode: JobRunMode): void
     succeeded(): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -1341,11 +1341,11 @@ export class JobPrint {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of EvinceView.Job */
+    /* Virtual methods of EvinceView-3.0.EvinceView.Job */
     vfunc_cancelled(): void
     vfunc_finished(): void
     vfunc_run(): boolean
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -1353,14 +1353,14 @@ export class JobPrint {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of EvinceView.Job */
+    /* Signals of EvinceView-3.0.EvinceView.Job */
     connect(sigName: "cancelled", callback: (($obj: JobPrint) => void)): number
     connect_after(sigName: "cancelled", callback: (($obj: JobPrint) => void)): number
     emit(sigName: "cancelled"): void
     connect(sigName: "finished", callback: (($obj: JobPrint) => void)): number
     connect_after(sigName: "finished", callback: (($obj: JobPrint) => void)): number
     emit(sigName: "finished"): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: JobPrint, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: JobPrint, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -1378,7 +1378,7 @@ export class JobPrint {
 export interface JobRender_ConstructProps extends Job_ConstructProps {
 }
 export class JobRender {
-    /* Fields of EvinceView.JobRender */
+    /* Fields of EvinceView-3.0.EvinceView.JobRender */
     parent: Job
     page: number
     rotation: number
@@ -1394,7 +1394,7 @@ export class JobRender {
     selection_style: EvinceDocument.SelectionStyle
     base: Gdk.Color
     text: Gdk.Color
-    /* Fields of EvinceView.Job */
+    /* Fields of EvinceView-3.0.EvinceView.Job */
     document: EvinceDocument.Document
     run_mode: JobRunMode
     cancelled: number
@@ -1404,11 +1404,11 @@ export class JobRender {
     cancellable: Gio.Cancellable
     idle_finished_id: number
     idle_cancelled_id: number
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of EvinceView.JobRender */
+    /* Methods of EvinceView-3.0.EvinceView.JobRender */
     set_selection_info(selection_points: EvinceDocument.Rectangle, selection_style: EvinceDocument.SelectionStyle, text: Gdk.Color, base: Gdk.Color): void
-    /* Methods of EvinceView.Job */
+    /* Methods of EvinceView-3.0.EvinceView.Job */
     cancel(): void
     get_run_mode(): JobRunMode
     is_failed(): boolean
@@ -1418,7 +1418,7 @@ export class JobRender {
     scheduler_update_job(priority: JobPriority): void
     set_run_mode(run_mode: JobRunMode): void
     succeeded(): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -1440,11 +1440,11 @@ export class JobRender {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of EvinceView.Job */
+    /* Virtual methods of EvinceView-3.0.EvinceView.Job */
     vfunc_cancelled(): void
     vfunc_finished(): void
     vfunc_run(): boolean
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -1452,14 +1452,14 @@ export class JobRender {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of EvinceView.Job */
+    /* Signals of EvinceView-3.0.EvinceView.Job */
     connect(sigName: "cancelled", callback: (($obj: JobRender) => void)): number
     connect_after(sigName: "cancelled", callback: (($obj: JobRender) => void)): number
     emit(sigName: "cancelled"): void
     connect(sigName: "finished", callback: (($obj: JobRender) => void)): number
     connect_after(sigName: "finished", callback: (($obj: JobRender) => void)): number
     emit(sigName: "finished"): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: JobRender, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: JobRender, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -1477,11 +1477,11 @@ export class JobRender {
 export interface JobSave_ConstructProps extends Job_ConstructProps {
 }
 export class JobSave {
-    /* Fields of EvinceView.JobSave */
+    /* Fields of EvinceView-3.0.EvinceView.JobSave */
     parent: Job
     uri: string
     document_uri: string
-    /* Fields of EvinceView.Job */
+    /* Fields of EvinceView-3.0.EvinceView.Job */
     document: EvinceDocument.Document
     run_mode: JobRunMode
     cancelled: number
@@ -1491,9 +1491,9 @@ export class JobSave {
     cancellable: Gio.Cancellable
     idle_finished_id: number
     idle_cancelled_id: number
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of EvinceView.Job */
+    /* Methods of EvinceView-3.0.EvinceView.Job */
     cancel(): void
     get_run_mode(): JobRunMode
     is_failed(): boolean
@@ -1503,7 +1503,7 @@ export class JobSave {
     scheduler_update_job(priority: JobPriority): void
     set_run_mode(run_mode: JobRunMode): void
     succeeded(): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -1525,11 +1525,11 @@ export class JobSave {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of EvinceView.Job */
+    /* Virtual methods of EvinceView-3.0.EvinceView.Job */
     vfunc_cancelled(): void
     vfunc_finished(): void
     vfunc_run(): boolean
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -1537,14 +1537,14 @@ export class JobSave {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of EvinceView.Job */
+    /* Signals of EvinceView-3.0.EvinceView.Job */
     connect(sigName: "cancelled", callback: (($obj: JobSave) => void)): number
     connect_after(sigName: "cancelled", callback: (($obj: JobSave) => void)): number
     emit(sigName: "cancelled"): void
     connect(sigName: "finished", callback: (($obj: JobSave) => void)): number
     connect_after(sigName: "finished", callback: (($obj: JobSave) => void)): number
     emit(sigName: "finished"): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: JobSave, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: JobSave, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -1562,7 +1562,7 @@ export class JobSave {
 export interface JobThumbnail_ConstructProps extends Job_ConstructProps {
 }
 export class JobThumbnail {
-    /* Fields of EvinceView.JobThumbnail */
+    /* Fields of EvinceView-3.0.EvinceView.JobThumbnail */
     parent: Job
     page: number
     rotation: number
@@ -1573,7 +1573,7 @@ export class JobThumbnail {
     has_frame: boolean
     format: JobThumbnailFormat
     thumbnail_surface: cairo.Surface
-    /* Fields of EvinceView.Job */
+    /* Fields of EvinceView-3.0.EvinceView.Job */
     document: EvinceDocument.Document
     run_mode: JobRunMode
     cancelled: number
@@ -1583,12 +1583,12 @@ export class JobThumbnail {
     cancellable: Gio.Cancellable
     idle_finished_id: number
     idle_cancelled_id: number
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of EvinceView.JobThumbnail */
+    /* Methods of EvinceView-3.0.EvinceView.JobThumbnail */
     set_has_frame(has_frame: boolean): void
     set_output_format(format: JobThumbnailFormat): void
-    /* Methods of EvinceView.Job */
+    /* Methods of EvinceView-3.0.EvinceView.Job */
     cancel(): void
     get_run_mode(): JobRunMode
     is_failed(): boolean
@@ -1598,7 +1598,7 @@ export class JobThumbnail {
     scheduler_update_job(priority: JobPriority): void
     set_run_mode(run_mode: JobRunMode): void
     succeeded(): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -1620,11 +1620,11 @@ export class JobThumbnail {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of EvinceView.Job */
+    /* Virtual methods of EvinceView-3.0.EvinceView.Job */
     vfunc_cancelled(): void
     vfunc_finished(): void
     vfunc_run(): boolean
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -1632,14 +1632,14 @@ export class JobThumbnail {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of EvinceView.Job */
+    /* Signals of EvinceView-3.0.EvinceView.Job */
     connect(sigName: "cancelled", callback: (($obj: JobThumbnail) => void)): number
     connect_after(sigName: "cancelled", callback: (($obj: JobThumbnail) => void)): number
     emit(sigName: "cancelled"): void
     connect(sigName: "finished", callback: (($obj: JobThumbnail) => void)): number
     connect_after(sigName: "finished", callback: (($obj: JobThumbnail) => void)): number
     emit(sigName: "finished"): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: JobThumbnail, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: JobThumbnail, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -1659,9 +1659,9 @@ export interface PrintOperation_ConstructProps extends GObject.Object_ConstructP
     document?: EvinceDocument.Document
 }
 export class PrintOperation {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of EvinceView.PrintOperation */
+    /* Methods of EvinceView-3.0.EvinceView.PrintOperation */
     cancel(): void
     get_default_page_setup(): Gtk.PageSetup
     get_embed_page_setup(): boolean
@@ -1676,7 +1676,7 @@ export class PrintOperation {
     set_embed_page_setup(embed: boolean): void
     set_job_name(job_name: string): void
     set_print_settings(print_settings: Gtk.PrintSettings): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -1698,7 +1698,7 @@ export class PrintOperation {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -1706,7 +1706,7 @@ export class PrintOperation {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of EvinceView.PrintOperation */
+    /* Signals of EvinceView-3.0.EvinceView.PrintOperation */
     connect(sigName: "begin-print", callback: (($obj: PrintOperation) => void)): number
     connect_after(sigName: "begin-print", callback: (($obj: PrintOperation) => void)): number
     emit(sigName: "begin-print"): void
@@ -1716,7 +1716,7 @@ export class PrintOperation {
     connect(sigName: "status-changed", callback: (($obj: PrintOperation) => void)): number
     connect_after(sigName: "status-changed", callback: (($obj: PrintOperation) => void)): number
     emit(sigName: "status-changed"): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: PrintOperation, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: PrintOperation, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -1739,15 +1739,15 @@ export interface View_ConstructProps extends Gtk.Container_ConstructProps {
     vscroll_policy?: Gtk.ScrollablePolicy
 }
 export class View {
-    /* Properties of EvinceView.View */
+    /* Properties of EvinceView-3.0.EvinceView.View */
     readonly can_zoom_in: boolean
     readonly can_zoom_out: boolean
     readonly is_loading: boolean
-    /* Properties of Gtk.Container */
+    /* Properties of Gtk-3.0.Gtk.Container */
     border_width: number
     child: Gtk.Widget
     resize_mode: Gtk.ResizeMode
-    /* Properties of Gtk.Widget */
+    /* Properties of Gtk-3.0.Gtk.Widget */
     app_paintable: boolean
     can_default: boolean
     can_focus: boolean
@@ -1787,18 +1787,18 @@ export class View {
     visible: boolean
     width_request: number
     readonly window: Gdk.Window
-    /* Properties of Gtk.Scrollable */
+    /* Properties of Gtk-3.0.Gtk.Scrollable */
     hadjustment: Gtk.Adjustment
     hscroll_policy: Gtk.ScrollablePolicy
     vadjustment: Gtk.Adjustment
     vscroll_policy: Gtk.ScrollablePolicy
-    /* Fields of Gtk.Container */
+    /* Fields of Gtk-3.0.Gtk.Container */
     widget: Gtk.Widget
-    /* Fields of Gtk.Widget */
+    /* Fields of Gtk-3.0.Gtk.Widget */
     parent_instance: GObject.InitiallyUnowned
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     g_type_instance: GObject.TypeInstance
-    /* Methods of EvinceView.View */
+    /* Methods of EvinceView-3.0.EvinceView.View */
     add_text_markup_annotation_for_selected_text(): boolean
     autoscroll_start(): void
     autoscroll_stop(): void
@@ -1842,7 +1842,7 @@ export class View {
     supports_caret_navigation(): boolean
     zoom_in(): void
     zoom_out(): void
-    /* Methods of Gtk.Container */
+    /* Methods of Gtk-3.0.Gtk.Container */
     add(widget: Gtk.Widget): void
     check_resize(): void
     child_get_property(child: Gtk.Widget, property_name: string, value: any): void
@@ -1870,7 +1870,7 @@ export class View {
     set_reallocate_redraws(needs_redraws: boolean): void
     set_resize_mode(resize_mode: Gtk.ResizeMode): void
     unset_focus_chain(): void
-    /* Methods of Gtk.Widget */
+    /* Methods of Gtk-3.0.Gtk.Widget */
     activate(): boolean
     add_accelerator(accel_signal: string, accel_group: Gtk.AccelGroup, accel_key: number, accel_mods: Gdk.ModifierType, accel_flags: Gtk.AccelFlags): void
     add_device_events(device: Gdk.Device, events: Gdk.EventMask): void
@@ -2129,7 +2129,7 @@ export class View {
     unrealize(): void
     unregister_window(window: Gdk.Window): void
     unset_state_flags(flags: Gtk.StateFlags): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -2151,7 +2151,7 @@ export class View {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of Gtk.Buildable */
+    /* Methods of Gtk-3.0.Gtk.Buildable */
     add_child(builder: Gtk.Builder, child: GObject.Object, type?: string | null): void
     construct_child(builder: Gtk.Builder, name: string): GObject.Object
     custom_finished(builder: Gtk.Builder, child: GObject.Object | null, tagname: string, data?: object | null): void
@@ -2160,7 +2160,7 @@ export class View {
     get_internal_child(builder: Gtk.Builder, childname: string): GObject.Object
     parser_finished(builder: Gtk.Builder): void
     set_buildable_property(builder: Gtk.Builder, name: string, value: any): void
-    /* Methods of Gtk.Scrollable */
+    /* Methods of Gtk-3.0.Gtk.Scrollable */
     get_border(): [ /* returnType */ boolean, /* border */ Gtk.Border ]
     get_hadjustment(): Gtk.Adjustment
     get_hscroll_policy(): Gtk.ScrollablePolicy
@@ -2170,7 +2170,7 @@ export class View {
     set_hscroll_policy(policy: Gtk.ScrollablePolicy): void
     set_vadjustment(vadjustment?: Gtk.Adjustment | null): void
     set_vscroll_policy(policy: Gtk.ScrollablePolicy): void
-    /* Virtual methods of EvinceView.View */
+    /* Virtual methods of EvinceView-3.0.EvinceView.View */
     vfunc_add_child(builder: Gtk.Builder, child: GObject.Object, type?: string | null): void
     vfunc_construct_child(builder: Gtk.Builder, name: string): GObject.Object
     vfunc_custom_finished(builder: Gtk.Builder, child: GObject.Object | null, tagname: string, data?: object | null): void
@@ -2182,7 +2182,7 @@ export class View {
     vfunc_set_buildable_property(builder: Gtk.Builder, name: string, value: any): void
     vfunc_set_name(name: string): void
     vfunc_get_border(): [ /* returnType */ boolean, /* border */ Gtk.Border ]
-    /* Virtual methods of Gtk.Container */
+    /* Virtual methods of Gtk-3.0.Gtk.Container */
     vfunc_add(widget: Gtk.Widget): void
     vfunc_check_resize(): void
     vfunc_child_type(): GObject.Type
@@ -2193,7 +2193,7 @@ export class View {
     vfunc_remove(widget: Gtk.Widget): void
     vfunc_set_child_property(child: Gtk.Widget, property_id: number, value: any, pspec: GObject.ParamSpec): void
     vfunc_set_focus_child(child?: Gtk.Widget | null): void
-    /* Virtual methods of Gtk.Widget */
+    /* Virtual methods of Gtk-3.0.Gtk.Widget */
     vfunc_adjust_baseline_allocation(baseline: number): void
     vfunc_adjust_baseline_request(minimum_baseline: number, natural_baseline: number): void
     vfunc_adjust_size_allocation(orientation: Gtk.Orientation, minimum_size: number, natural_size: number, allocated_pos: number, allocated_size: number): void
@@ -2276,7 +2276,7 @@ export class View {
     vfunc_unrealize(): void
     vfunc_visibility_notify_event(event: Gdk.EventVisibility): boolean
     vfunc_window_state_event(event: Gdk.EventWindowState): boolean
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -2284,7 +2284,7 @@ export class View {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of EvinceView.View */
+    /* Signals of EvinceView-3.0.EvinceView.View */
     connect(sigName: "activate", callback: (($obj: View) => void)): number
     connect_after(sigName: "activate", callback: (($obj: View) => void)): number
     emit(sigName: "activate"): void
@@ -2321,7 +2321,7 @@ export class View {
     connect(sigName: "sync-source", callback: (($obj: View, object: EvinceDocument.SourceLink) => void)): number
     connect_after(sigName: "sync-source", callback: (($obj: View, object: EvinceDocument.SourceLink) => void)): number
     emit(sigName: "sync-source", object: EvinceDocument.SourceLink): void
-    /* Signals of Gtk.Container */
+    /* Signals of Gtk-3.0.Gtk.Container */
     connect(sigName: "add", callback: (($obj: View, object: Gtk.Widget) => void)): number
     connect_after(sigName: "add", callback: (($obj: View, object: Gtk.Widget) => void)): number
     emit(sigName: "add", object: Gtk.Widget): void
@@ -2334,7 +2334,7 @@ export class View {
     connect(sigName: "set-focus-child", callback: (($obj: View, object: Gtk.Widget) => void)): number
     connect_after(sigName: "set-focus-child", callback: (($obj: View, object: Gtk.Widget) => void)): number
     emit(sigName: "set-focus-child", object: Gtk.Widget): void
-    /* Signals of Gtk.Widget */
+    /* Signals of Gtk-3.0.Gtk.Widget */
     connect(sigName: "accel-closures-changed", callback: (($obj: View) => void)): number
     connect_after(sigName: "accel-closures-changed", callback: (($obj: View) => void)): number
     emit(sigName: "accel-closures-changed"): void
@@ -2542,7 +2542,7 @@ export class View {
     connect(sigName: "window-state-event", callback: (($obj: View, event: Gdk.EventWindowState) => boolean)): number
     connect_after(sigName: "window-state-event", callback: (($obj: View, event: Gdk.EventWindowState) => boolean)): number
     emit(sigName: "window-state-event", event: Gdk.EventWindowState): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: View, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: View, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -2662,10 +2662,10 @@ export interface ViewPresentation_ConstructProps extends Gtk.Widget_ConstructPro
     rotation?: number
 }
 export class ViewPresentation {
-    /* Properties of EvinceView.ViewPresentation */
+    /* Properties of EvinceView-3.0.EvinceView.ViewPresentation */
     current_page: number
     rotation: number
-    /* Properties of Gtk.Widget */
+    /* Properties of Gtk-3.0.Gtk.Widget */
     app_paintable: boolean
     can_default: boolean
     can_focus: boolean
@@ -2705,17 +2705,17 @@ export class ViewPresentation {
     visible: boolean
     width_request: number
     readonly window: Gdk.Window
-    /* Fields of Gtk.Widget */
+    /* Fields of Gtk-3.0.Gtk.Widget */
     parent_instance: GObject.InitiallyUnowned
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     g_type_instance: GObject.TypeInstance
-    /* Methods of EvinceView.ViewPresentation */
+    /* Methods of EvinceView-3.0.EvinceView.ViewPresentation */
     get_current_page(): number
     get_rotation(): number
     next_page(): void
     previous_page(): void
     set_rotation(rotation: number): void
-    /* Methods of Gtk.Widget */
+    /* Methods of Gtk-3.0.Gtk.Widget */
     activate(): boolean
     add_accelerator(accel_signal: string, accel_group: Gtk.AccelGroup, accel_key: number, accel_mods: Gdk.ModifierType, accel_flags: Gtk.AccelFlags): void
     add_device_events(device: Gdk.Device, events: Gdk.EventMask): void
@@ -2974,7 +2974,7 @@ export class ViewPresentation {
     unrealize(): void
     unregister_window(window: Gdk.Window): void
     unset_state_flags(flags: Gtk.StateFlags): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -2996,7 +2996,7 @@ export class ViewPresentation {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of Gtk.Buildable */
+    /* Methods of Gtk-3.0.Gtk.Buildable */
     add_child(builder: Gtk.Builder, child: GObject.Object, type?: string | null): void
     construct_child(builder: Gtk.Builder, name: string): GObject.Object
     custom_finished(builder: Gtk.Builder, child: GObject.Object | null, tagname: string, data?: object | null): void
@@ -3005,7 +3005,7 @@ export class ViewPresentation {
     get_internal_child(builder: Gtk.Builder, childname: string): GObject.Object
     parser_finished(builder: Gtk.Builder): void
     set_buildable_property(builder: Gtk.Builder, name: string, value: any): void
-    /* Virtual methods of EvinceView.ViewPresentation */
+    /* Virtual methods of EvinceView-3.0.EvinceView.ViewPresentation */
     vfunc_add_child(builder: Gtk.Builder, child: GObject.Object, type?: string | null): void
     vfunc_construct_child(builder: Gtk.Builder, name: string): GObject.Object
     vfunc_custom_finished(builder: Gtk.Builder, child: GObject.Object | null, tagname: string, data?: object | null): void
@@ -3016,7 +3016,7 @@ export class ViewPresentation {
     vfunc_parser_finished(builder: Gtk.Builder): void
     vfunc_set_buildable_property(builder: Gtk.Builder, name: string, value: any): void
     vfunc_set_name(name: string): void
-    /* Virtual methods of Gtk.Widget */
+    /* Virtual methods of Gtk-3.0.Gtk.Widget */
     vfunc_adjust_baseline_allocation(baseline: number): void
     vfunc_adjust_baseline_request(minimum_baseline: number, natural_baseline: number): void
     vfunc_adjust_size_allocation(orientation: Gtk.Orientation, minimum_size: number, natural_size: number, allocated_pos: number, allocated_size: number): void
@@ -3099,7 +3099,7 @@ export class ViewPresentation {
     vfunc_unrealize(): void
     vfunc_visibility_notify_event(event: Gdk.EventVisibility): boolean
     vfunc_window_state_event(event: Gdk.EventWindowState): boolean
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -3107,7 +3107,7 @@ export class ViewPresentation {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of EvinceView.ViewPresentation */
+    /* Signals of EvinceView-3.0.EvinceView.ViewPresentation */
     connect(sigName: "change-page", callback: (($obj: ViewPresentation, object: Gtk.ScrollType) => void)): number
     connect_after(sigName: "change-page", callback: (($obj: ViewPresentation, object: Gtk.ScrollType) => void)): number
     emit(sigName: "change-page", object: Gtk.ScrollType): void
@@ -3117,7 +3117,7 @@ export class ViewPresentation {
     connect(sigName: "finished", callback: (($obj: ViewPresentation) => void)): number
     connect_after(sigName: "finished", callback: (($obj: ViewPresentation) => void)): number
     emit(sigName: "finished"): void
-    /* Signals of Gtk.Widget */
+    /* Signals of Gtk-3.0.Gtk.Widget */
     connect(sigName: "accel-closures-changed", callback: (($obj: ViewPresentation) => void)): number
     connect_after(sigName: "accel-closures-changed", callback: (($obj: ViewPresentation) => void)): number
     emit(sigName: "accel-closures-changed"): void
@@ -3325,7 +3325,7 @@ export class ViewPresentation {
     connect(sigName: "window-state-event", callback: (($obj: ViewPresentation, event: Gdk.EventWindowState) => boolean)): number
     connect_after(sigName: "window-state-event", callback: (($obj: ViewPresentation, event: Gdk.EventWindowState) => boolean)): number
     emit(sigName: "window-state-event", event: Gdk.EventWindowState): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: ViewPresentation, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: ViewPresentation, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -3423,22 +3423,22 @@ export class ViewPresentation {
     static $gtype: GObject.Type
 }
 export abstract class DocumentModelClass {
-    /* Fields of EvinceView.DocumentModelClass */
+    /* Fields of EvinceView-3.0.EvinceView.DocumentModelClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
 export abstract class JobAnnotsClass {
-    /* Fields of EvinceView.JobAnnotsClass */
+    /* Fields of EvinceView-3.0.EvinceView.JobAnnotsClass */
     parent_class: JobClass
     static name: string
 }
 export abstract class JobAttachmentsClass {
-    /* Fields of EvinceView.JobAttachmentsClass */
+    /* Fields of EvinceView-3.0.EvinceView.JobAttachmentsClass */
     parent_class: JobClass
     static name: string
 }
 export abstract class JobClass {
-    /* Fields of EvinceView.JobClass */
+    /* Fields of EvinceView-3.0.EvinceView.JobClass */
     parent_class: GObject.ObjectClass
     run: (job: Job) => boolean
     cancelled: (job: Job) => void
@@ -3446,69 +3446,69 @@ export abstract class JobClass {
     static name: string
 }
 export abstract class JobExportClass {
-    /* Fields of EvinceView.JobExportClass */
+    /* Fields of EvinceView-3.0.EvinceView.JobExportClass */
     parent_class: JobClass
     static name: string
 }
 export abstract class JobFindClass {
-    /* Fields of EvinceView.JobFindClass */
+    /* Fields of EvinceView-3.0.EvinceView.JobFindClass */
     parent_class: JobClass
     updated: (job: JobFind, page: number) => void
     static name: string
 }
 export abstract class JobFontsClass {
-    /* Fields of EvinceView.JobFontsClass */
+    /* Fields of EvinceView-3.0.EvinceView.JobFontsClass */
     parent_class: JobClass
     updated: (job: JobFonts, progress: number) => void
     static name: string
 }
 export abstract class JobLayersClass {
-    /* Fields of EvinceView.JobLayersClass */
+    /* Fields of EvinceView-3.0.EvinceView.JobLayersClass */
     parent_class: JobClass
     static name: string
 }
 export abstract class JobLinksClass {
-    /* Fields of EvinceView.JobLinksClass */
+    /* Fields of EvinceView-3.0.EvinceView.JobLinksClass */
     parent_class: JobClass
     static name: string
 }
 export abstract class JobLoadClass {
-    /* Fields of EvinceView.JobLoadClass */
+    /* Fields of EvinceView-3.0.EvinceView.JobLoadClass */
     parent_class: JobClass
     static name: string
 }
 export abstract class JobLoadGFileClass {
-    /* Fields of EvinceView.JobLoadGFileClass */
+    /* Fields of EvinceView-3.0.EvinceView.JobLoadGFileClass */
     parent_class: JobClass
     static name: string
 }
 export abstract class JobLoadStreamClass {
-    /* Fields of EvinceView.JobLoadStreamClass */
+    /* Fields of EvinceView-3.0.EvinceView.JobLoadStreamClass */
     parent_class: JobClass
     static name: string
 }
 export abstract class JobPageDataClass {
-    /* Fields of EvinceView.JobPageDataClass */
+    /* Fields of EvinceView-3.0.EvinceView.JobPageDataClass */
     parent_class: JobClass
     static name: string
 }
 export abstract class JobPrintClass {
-    /* Fields of EvinceView.JobPrintClass */
+    /* Fields of EvinceView-3.0.EvinceView.JobPrintClass */
     parent_class: JobClass
     static name: string
 }
 export abstract class JobRenderClass {
-    /* Fields of EvinceView.JobRenderClass */
+    /* Fields of EvinceView-3.0.EvinceView.JobRenderClass */
     parent_class: JobClass
     static name: string
 }
 export abstract class JobSaveClass {
-    /* Fields of EvinceView.JobSaveClass */
+    /* Fields of EvinceView-3.0.EvinceView.JobSaveClass */
     parent_class: JobClass
     static name: string
 }
 export abstract class JobThumbnailClass {
-    /* Fields of EvinceView.JobThumbnailClass */
+    /* Fields of EvinceView-3.0.EvinceView.JobThumbnailClass */
     parent_class: JobClass
     static name: string
 }

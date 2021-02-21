@@ -17,14 +17,14 @@ export interface Channel_ConstructProps extends GObject.Object_ConstructProps {
     channel?: TelepathyGLib.Channel
 }
 export class Channel {
-    /* Properties of TelepathyFarstream.Channel */
+    /* Properties of TelepathyFarstream-0.6.TelepathyFarstream.Channel */
     readonly fsConferences: object[]
     readonly objectPath: string
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of TelepathyFarstream.Channel */
+    /* Methods of TelepathyFarstream-0.6.TelepathyFarstream.Channel */
     busMessage(message: Gst.Message): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -46,59 +46,42 @@ export class Channel {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of Gio.AsyncInitable */
+    /* Methods of Gio-2.0.Gio.AsyncInitable */
     initAsync(ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     initFinish(res: Gio.AsyncResult): boolean
     newFinish(res: Gio.AsyncResult): GObject.Object
-    /* Virtual methods of TelepathyFarstream.Channel */
-    vfuncInitAsync(ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    vfuncInitFinish(res: Gio.AsyncResult): boolean
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of TelepathyFarstream.Channel */
+    /* Signals of TelepathyFarstream-0.6.TelepathyFarstream.Channel */
     connect(sigName: "closed", callback: (($obj: Channel) => void)): number
-    connect_after(sigName: "closed", callback: (($obj: Channel) => void)): number
+    on(sigName: "closed", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "closed", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "closed", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "closed"): void
-    on(sigName: "closed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "closed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "closed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "content-added", callback: (($obj: Channel, content: Content) => void)): number
-    connect_after(sigName: "content-added", callback: (($obj: Channel, content: Content) => void)): number
+    on(sigName: "content-added", callback: (content: Content) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "content-added", callback: (content: Content) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "content-added", callback: (content: Content) => void): NodeJS.EventEmitter
     emit(sigName: "content-added", content: Content): void
-    on(sigName: "content-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "content-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "content-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "content-removed", callback: (($obj: Channel, content: Content) => void)): number
-    connect_after(sigName: "content-removed", callback: (($obj: Channel, content: Content) => void)): number
+    on(sigName: "content-removed", callback: (content: Content) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "content-removed", callback: (content: Content) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "content-removed", callback: (content: Content) => void): NodeJS.EventEmitter
     emit(sigName: "content-removed", content: Content): void
-    on(sigName: "content-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "content-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "content-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "fs-conference-added", callback: (($obj: Channel, conf: Farstream.Conference) => void)): number
-    connect_after(sigName: "fs-conference-added", callback: (($obj: Channel, conf: Farstream.Conference) => void)): number
+    on(sigName: "fs-conference-added", callback: (conf: Farstream.Conference) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "fs-conference-added", callback: (conf: Farstream.Conference) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "fs-conference-added", callback: (conf: Farstream.Conference) => void): NodeJS.EventEmitter
     emit(sigName: "fs-conference-added", conf: Farstream.Conference): void
-    on(sigName: "fs-conference-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "fs-conference-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "fs-conference-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "fs-conference-removed", callback: (($obj: Channel, conf: Farstream.Conference) => void)): number
-    connect_after(sigName: "fs-conference-removed", callback: (($obj: Channel, conf: Farstream.Conference) => void)): number
+    on(sigName: "fs-conference-removed", callback: (conf: Farstream.Conference) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "fs-conference-removed", callback: (conf: Farstream.Conference) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "fs-conference-removed", callback: (conf: Farstream.Conference) => void): NodeJS.EventEmitter
     emit(sigName: "fs-conference-removed", conf: Farstream.Conference): void
-    on(sigName: "fs-conference-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "fs-conference-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "fs-conference-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Channel, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Channel, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::fs-conferences", callback: (($obj: Channel, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::fs-conferences", callback: (($obj: Channel, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::fs-conferences", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -128,21 +111,21 @@ export class Channel {
 export interface Content_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class Content {
-    /* Properties of TelepathyFarstream.Content */
+    /* Properties of TelepathyFarstream-0.6.TelepathyFarstream.Content */
     readonly fsConference: Farstream.Conference
     readonly fsSession: Farstream.Session
     readonly mediaType: Farstream.MediaType
     readonly objectPath: string
     readonly sinkPad: Gst.Pad
     readonly tfChannel: Channel
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of TelepathyFarstream.Content */
+    /* Methods of TelepathyFarstream-0.6.TelepathyFarstream.Content */
     error(message: string): void
     iterateSrcPads(handles: number, handleCount: number): Gst.Iterator
     receivingFailed(handles: number, handleCount: number, message: string): void
     sendingFailed(message: string): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -164,58 +147,43 @@ export class Content {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of TelepathyFarstream.Content */
+    /* Signals of TelepathyFarstream-0.6.TelepathyFarstream.Content */
     connect(sigName: "restart-source", callback: (($obj: Content) => void)): number
-    connect_after(sigName: "restart-source", callback: (($obj: Content) => void)): number
+    on(sigName: "restart-source", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "restart-source", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "restart-source", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "restart-source"): void
-    on(sigName: "restart-source", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "restart-source", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "restart-source", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "src-pad-added", callback: (($obj: Content, handle: number, stream: Farstream.Stream, pad: Gst.Pad, codec: Farstream.Codec) => void)): number
-    connect_after(sigName: "src-pad-added", callback: (($obj: Content, handle: number, stream: Farstream.Stream, pad: Gst.Pad, codec: Farstream.Codec) => void)): number
+    on(sigName: "src-pad-added", callback: (handle: number, stream: Farstream.Stream, pad: Gst.Pad, codec: Farstream.Codec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "src-pad-added", callback: (handle: number, stream: Farstream.Stream, pad: Gst.Pad, codec: Farstream.Codec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "src-pad-added", callback: (handle: number, stream: Farstream.Stream, pad: Gst.Pad, codec: Farstream.Codec) => void): NodeJS.EventEmitter
     emit(sigName: "src-pad-added", handle: number, stream: Farstream.Stream, pad: Gst.Pad, codec: Farstream.Codec): void
-    on(sigName: "src-pad-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "src-pad-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "src-pad-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "start-receiving", callback: (($obj: Content, handles: object, handleCount: number) => boolean)): number
-    connect_after(sigName: "start-receiving", callback: (($obj: Content, handles: object, handleCount: number) => boolean)): number
+    on(sigName: "start-receiving", callback: (handles: object, handleCount: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "start-receiving", callback: (handles: object, handleCount: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "start-receiving", callback: (handles: object, handleCount: number) => void): NodeJS.EventEmitter
     emit(sigName: "start-receiving", handles: object, handleCount: number): void
-    on(sigName: "start-receiving", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "start-receiving", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "start-receiving", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "start-sending", callback: (($obj: Content) => boolean)): number
-    connect_after(sigName: "start-sending", callback: (($obj: Content) => boolean)): number
+    on(sigName: "start-sending", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "start-sending", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "start-sending", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "start-sending"): void
-    on(sigName: "start-sending", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "start-sending", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "start-sending", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "stop-receiving", callback: (($obj: Content, handles: object, handleCount: number) => void)): number
-    connect_after(sigName: "stop-receiving", callback: (($obj: Content, handles: object, handleCount: number) => void)): number
+    on(sigName: "stop-receiving", callback: (handles: object, handleCount: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "stop-receiving", callback: (handles: object, handleCount: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "stop-receiving", callback: (handles: object, handleCount: number) => void): NodeJS.EventEmitter
     emit(sigName: "stop-receiving", handles: object, handleCount: number): void
-    on(sigName: "stop-receiving", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "stop-receiving", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "stop-receiving", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "stop-sending", callback: (($obj: Content) => void)): number
-    connect_after(sigName: "stop-sending", callback: (($obj: Content) => void)): number
+    on(sigName: "stop-sending", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "stop-sending", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "stop-sending", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "stop-sending"): void
-    on(sigName: "stop-sending", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "stop-sending", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "stop-sending", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Content, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Content, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::fs-conference", callback: (($obj: Content, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::fs-conference", callback: (($obj: Content, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::fs-conference", callback: (...args: any[]) => void): NodeJS.EventEmitter

@@ -44,7 +44,7 @@ export interface Handle_ConstructProps extends GObject.Object_ConstructProps {
     flags?: HandleFlags
 }
 export class Handle {
-    /* Properties of Rsvg.Handle */
+    /* Properties of Rsvg-2.0.Rsvg.Handle */
     base_uri: string
     readonly desc: string
     dpi_x: number
@@ -55,11 +55,11 @@ export class Handle {
     readonly metadata: string
     readonly title: string
     readonly width: number
-    /* Fields of Rsvg.Handle */
+    /* Fields of Rsvg-2.0.Rsvg.Handle */
     parent: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Rsvg.Handle */
+    /* Methods of Rsvg-2.0.Rsvg.Handle */
     close(): boolean
     get_base_uri(): string
     get_dimensions(): /* dimension_data */ DimensionData
@@ -85,7 +85,7 @@ export class Handle {
     set_dpi_x_y(dpi_x: number, dpi_y: number): void
     set_stylesheet(css: Uint8Array[]): boolean
     write(buf: Uint8Array[]): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -107,7 +107,7 @@ export class Handle {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -115,7 +115,7 @@ export class Handle {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Handle, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Handle, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -156,7 +156,7 @@ export class Handle {
     static $gtype: GObject.Type
 }
 export class DimensionData {
-    /* Fields of Rsvg.DimensionData */
+    /* Fields of Rsvg-2.0.Rsvg.DimensionData */
     width: number
     height: number
     em: number
@@ -164,24 +164,24 @@ export class DimensionData {
     static name: string
 }
 export abstract class HandleClass {
-    /* Fields of Rsvg.HandleClass */
+    /* Fields of Rsvg-2.0.Rsvg.HandleClass */
     parent: GObject.ObjectClass
     static name: string
 }
 export class Length {
-    /* Fields of Rsvg.Length */
+    /* Fields of Rsvg-2.0.Rsvg.Length */
     length: number
     unit: Unit
     static name: string
 }
 export class PositionData {
-    /* Fields of Rsvg.PositionData */
+    /* Fields of Rsvg-2.0.Rsvg.PositionData */
     x: number
     y: number
     static name: string
 }
 export class Rectangle {
-    /* Fields of Rsvg.Rectangle */
+    /* Fields of Rsvg-2.0.Rsvg.Rectangle */
     x: number
     y: number
     width: number

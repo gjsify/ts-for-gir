@@ -1,6 +1,7 @@
 /* eslint-disable @typescript-eslint/triple-slash-reference */
 import type { Accounts as Accounts10 } from './Accounts-1.0'
 import type { AccountsService as AccountsService10 } from './AccountsService-1.0'
+import type { Adw as Adw1 } from './Adw-1'
 import type { Amtk as Amtk4 } from './Amtk-4'
 import type { Amtk as Amtk5 } from './Amtk-5'
 import type { Anjuta as Anjuta30 } from './Anjuta-3.0'
@@ -347,6 +348,7 @@ declare module 'node-gtk' {
     export function require(ns: string, ver?: string): any
     export function require(ns: 'Accounts10', ver?: '1.0'): typeof Accounts10
     export function require(ns: 'AccountsService10', ver?: '1.0'): typeof AccountsService10
+    export function require(ns: 'Adw1', ver?: '1'): typeof Adw1
     export function require(ns: 'Amtk4', ver?: '4'): typeof Amtk4
     export function require(ns: 'Amtk5', ver?: '5'): typeof Amtk5
     export function require(ns: 'Anjuta30', ver?: '3.0'): typeof Anjuta30

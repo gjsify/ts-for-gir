@@ -70,16 +70,16 @@ export function sparql_get_uuid_urn(): string
 export interface NamespaceManager_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class NamespaceManager {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Tracker.NamespaceManager */
+    /* Methods of Tracker-2.0.Tracker.NamespaceManager */
     add_prefix(prefix: string, ns: string): void
     expand_uri(compact_uri: string): string
     foreach(func: GLib.HFunc): void
     has_prefix(prefix: string): boolean
     lookup_prefix(prefix: string): string
     print_turtle(): string
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -101,7 +101,7 @@ export class NamespaceManager {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -109,7 +109,7 @@ export class NamespaceManager {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: NamespaceManager, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: NamespaceManager, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -129,11 +129,11 @@ export interface Notifier_ConstructProps extends GObject.Object_ConstructProps {
     classes?: string[]
 }
 export class Notifier {
-    /* Fields of Tracker.Notifier */
+    /* Fields of Tracker-2.0.Tracker.Notifier */
     parent_instance: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -155,11 +155,11 @@ export class Notifier {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of Gio.Initable */
+    /* Methods of Gio-2.0.Gio.Initable */
     init(cancellable?: Gio.Cancellable | null): boolean
-    /* Virtual methods of Tracker.Notifier */
+    /* Virtual methods of Tracker-2.0.Tracker.Notifier */
     vfunc_init(cancellable?: Gio.Cancellable | null): boolean
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -167,11 +167,11 @@ export class Notifier {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Tracker.Notifier */
+    /* Signals of Tracker-2.0.Tracker.Notifier */
     connect(sigName: "events", callback: (($obj: Notifier, events: NotifierEvent[]) => void)): number
     connect_after(sigName: "events", callback: (($obj: Notifier, events: NotifierEvent[]) => void)): number
     emit(sigName: "events", events: NotifierEvent[]): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Notifier, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Notifier, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -191,13 +191,13 @@ export interface Resource_ConstructProps extends GObject.Object_ConstructProps {
     identifier?: string
 }
 export class Resource {
-    /* Properties of Tracker.Resource */
+    /* Properties of Tracker-2.0.Tracker.Resource */
     identifier: string
-    /* Fields of Tracker.Resource */
+    /* Fields of Tracker-2.0.Tracker.Resource */
     parent_instance: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Tracker.Resource */
+    /* Methods of Tracker-2.0.Tracker.Resource */
     add_boolean(property_uri: string, value: boolean): void
     add_double(property_uri: string, value: number): void
     add_gvalue(property_uri: string, value: any): void
@@ -228,7 +228,7 @@ export class Resource {
     set_relation(property_uri: string, resource: Resource): void
     set_string(property_uri: string, value: string): void
     set_uri(property_uri: string, value: string): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -250,7 +250,7 @@ export class Resource {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -258,7 +258,7 @@ export class Resource {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Resource, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Resource, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -279,13 +279,13 @@ export interface SparqlBuilder_ConstructProps extends GObject.Object_ConstructPr
     length?: number
 }
 export class SparqlBuilder {
-    /* Properties of Tracker.SparqlBuilder */
+    /* Properties of Tracker-2.0.Tracker.SparqlBuilder */
     readonly result: string
     length: number
     readonly state: any
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Tracker.SparqlBuilder */
+    /* Methods of Tracker-2.0.Tracker.SparqlBuilder */
     insert_open(graph?: string | null): void
     insert_silent_open(graph?: string | null): void
     insert_close(): void
@@ -316,7 +316,7 @@ export class SparqlBuilder {
     get_result(): string
     get_length(): number
     get_state(): any
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -338,7 +338,7 @@ export class SparqlBuilder {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -346,7 +346,7 @@ export class SparqlBuilder {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: SparqlBuilder, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: SparqlBuilder, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -372,9 +372,9 @@ export class SparqlBuilder {
 export interface SparqlConnection_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class SparqlConnection {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Tracker.SparqlConnection */
+    /* Methods of Tracker-2.0.Tracker.SparqlConnection */
     query(sparql: string, cancellable?: Gio.Cancellable | null): any
     query_async(sparql: string, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
     query_finish(_res_: Gio.AsyncResult): any
@@ -394,7 +394,7 @@ export class SparqlConnection {
     statistics_finish(_res_: Gio.AsyncResult): any | null
     get_namespace_manager(): NamespaceManager | null
     query_statement(sparql: string, cancellable?: Gio.Cancellable | null): any | null
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -416,7 +416,7 @@ export class SparqlConnection {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Tracker.SparqlConnection */
+    /* Virtual methods of Tracker-2.0.Tracker.SparqlConnection */
     vfunc_query(sparql: string, cancellable?: Gio.Cancellable | null): any
     vfunc_query_async(sparql: string, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
     vfunc_query_finish(_res_: Gio.AsyncResult): any
@@ -436,7 +436,7 @@ export class SparqlConnection {
     vfunc_statistics_finish(_res_: Gio.AsyncResult): any | null
     vfunc_get_namespace_manager(): NamespaceManager | null
     vfunc_query_statement(sparql: string, cancellable?: Gio.Cancellable | null): any | null
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -444,7 +444,7 @@ export class SparqlConnection {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: SparqlConnection, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: SparqlConnection, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -473,12 +473,12 @@ export interface SparqlCursor_ConstructProps extends GObject.Object_ConstructPro
     connection?: any
 }
 export class SparqlCursor {
-    /* Properties of Tracker.SparqlCursor */
+    /* Properties of Tracker-2.0.Tracker.SparqlCursor */
     connection: any
     readonly n_columns: number
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Tracker.SparqlCursor */
+    /* Methods of Tracker-2.0.Tracker.SparqlCursor */
     get_value_type(column: number): any
     get_variable_name(column: number): string | null
     get_string(column: number): [ /* returnType */ string | null, /* length */ number ]
@@ -494,7 +494,7 @@ export class SparqlCursor {
     get_connection(): any
     set_connection(value: any): void
     get_n_columns(): number
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -516,7 +516,7 @@ export class SparqlCursor {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Tracker.SparqlCursor */
+    /* Virtual methods of Tracker-2.0.Tracker.SparqlCursor */
     vfunc_get_value_type(column: number): any
     vfunc_get_variable_name(column: number): string | null
     vfunc_get_string(column: number): [ /* returnType */ string | null, /* length */ number ]
@@ -530,7 +530,7 @@ export class SparqlCursor {
     vfunc_get_boolean(column: number): boolean
     vfunc_is_bound(column: number): boolean
     vfunc_get_n_columns(): number
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -538,7 +538,7 @@ export class SparqlCursor {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: SparqlCursor, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: SparqlCursor, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -560,12 +560,12 @@ export interface SparqlStatement_ConstructProps extends GObject.Object_Construct
     connection?: any
 }
 export class SparqlStatement {
-    /* Properties of Tracker.SparqlStatement */
+    /* Properties of Tracker-2.0.Tracker.SparqlStatement */
     sparql: string
     connection: any
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Tracker.SparqlStatement */
+    /* Methods of Tracker-2.0.Tracker.SparqlStatement */
     bind_int(name: string, value: number): void
     bind_boolean(name: string, value: boolean): void
     bind_string(name: string, value: string): void
@@ -577,7 +577,7 @@ export class SparqlStatement {
     set_sparql(value: string): void
     get_connection(): any
     set_connection(value: any): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -599,7 +599,7 @@ export class SparqlStatement {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Tracker.SparqlStatement */
+    /* Virtual methods of Tracker-2.0.Tracker.SparqlStatement */
     vfunc_bind_int(name: string, value: number): void
     vfunc_bind_boolean(name: string, value: boolean): void
     vfunc_bind_string(name: string, value: string): void
@@ -607,7 +607,7 @@ export class SparqlStatement {
     vfunc_execute(cancellable?: Gio.Cancellable | null): any
     vfunc_execute_async(cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
     vfunc_execute_finish(_res_: Gio.AsyncResult): any
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -615,7 +615,7 @@ export class SparqlStatement {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: SparqlStatement, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: SparqlStatement, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -633,18 +633,18 @@ export class SparqlStatement {
     static $gtype: GObject.Type
 }
 export abstract class NamespaceManagerClass {
-    /* Fields of Tracker.NamespaceManagerClass */
+    /* Fields of Tracker-2.0.Tracker.NamespaceManagerClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
 export abstract class NotifierClass {
-    /* Fields of Tracker.NotifierClass */
+    /* Fields of Tracker-2.0.Tracker.NotifierClass */
     parent_class: GObject.ObjectClass
     padding: object[]
     static name: string
 }
 export class NotifierEvent {
-    /* Methods of Tracker.NotifierEvent */
+    /* Methods of Tracker-2.0.Tracker.NotifierEvent */
     get_event_type(): NotifierEventType
     get_id(): number
     get_location(): string | null
@@ -653,7 +653,7 @@ export class NotifierEvent {
     static name: string
 }
 export abstract class ResourceClass {
-    /* Fields of Tracker.ResourceClass */
+    /* Fields of Tracker-2.0.Tracker.ResourceClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
@@ -664,7 +664,7 @@ export class SparqlBuilderPrivate {
     static name: string
 }
 export abstract class SparqlConnectionClass {
-    /* Fields of Tracker.SparqlConnectionClass */
+    /* Fields of Tracker-2.0.Tracker.SparqlConnectionClass */
     query: (sparql: string, cancellable?: Gio.Cancellable | null) => any
     query_async: (sparql: string, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null) => void
     query_finish: (_res_: Gio.AsyncResult) => any
@@ -690,7 +690,7 @@ export class SparqlConnectionPrivate {
     static name: string
 }
 export abstract class SparqlCursorClass {
-    /* Fields of Tracker.SparqlCursorClass */
+    /* Fields of Tracker-2.0.Tracker.SparqlCursorClass */
     get_value_type: (column: number) => any
     get_variable_name: (column: number) => string | null
     get_string: (column: number) => [ /* returnType */ string | null, /* length */ number ]
@@ -709,7 +709,7 @@ export class SparqlCursorPrivate {
     static name: string
 }
 export abstract class SparqlStatementClass {
-    /* Fields of Tracker.SparqlStatementClass */
+    /* Fields of Tracker-2.0.Tracker.SparqlStatementClass */
     bind_int: (name: string, value: number) => void
     bind_boolean: (name: string, value: boolean) => void
     bind_string: (name: string, value: string) => void

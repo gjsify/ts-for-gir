@@ -125,17 +125,17 @@ export interface AudioVisualizer_ConstructProps extends Gst.Element_ConstructPro
     shader?: AudioVisualizerShader
 }
 export class AudioVisualizer {
-    /* Properties of GstPbutils.AudioVisualizer */
+    /* Properties of GstPbutils-1.0.GstPbutils.AudioVisualizer */
     shade_amount: number
     shader: AudioVisualizerShader
-    /* Properties of Gst.Object */
+    /* Properties of Gst-1.0.Gst.Object */
     name: string
     parent: Gst.Object
-    /* Fields of GstPbutils.AudioVisualizer */
+    /* Fields of GstPbutils-1.0.GstPbutils.AudioVisualizer */
     req_spf: number
     vinfo: GstVideo.VideoInfo
     ainfo: GstAudio.AudioInfo
-    /* Fields of Gst.Element */
+    /* Fields of Gst-1.0.Gst.Element */
     object: Gst.Object
     state_lock: GLib.RecMutex
     state_cond: GLib.Cond
@@ -157,12 +157,12 @@ export class AudioVisualizer {
     sinkpads: Gst.Pad[]
     pads_cookie: number
     contexts: Gst.Context[]
-    /* Fields of Gst.Object */
+    /* Fields of Gst-1.0.Gst.Object */
     lock: GLib.Mutex
     flags: number
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Gst.Element */
+    /* Methods of Gst-1.0.Gst.Element */
     abort_state(): void
     add_pad(pad: Gst.Pad): boolean
     add_property_deep_notify_watch(property_name: string | null, include_value: boolean): number
@@ -228,7 +228,7 @@ export class AudioVisualizer {
     sync_state_with_parent(): boolean
     unlink(dest: Gst.Element): void
     unlink_pads(srcpadname: string, dest: Gst.Element, destpadname: string): void
-    /* Methods of Gst.Object */
+    /* Methods of Gst-1.0.Gst.Object */
     add_control_binding(binding: Gst.ControlBinding): boolean
     default_error(error: GLib.Error, debug?: string | null): void
     get_control_binding(property_name: string): Gst.ControlBinding | null
@@ -253,7 +253,7 @@ export class AudioVisualizer {
     sync_values(timestamp: Gst.ClockTime): boolean
     unparent(): void
     unref(): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -274,11 +274,11 @@ export class AudioVisualizer {
     steal_qdata(quark: GLib.Quark): object | null
     thaw_notify(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GstPbutils.AudioVisualizer */
+    /* Virtual methods of GstPbutils-1.0.GstPbutils.AudioVisualizer */
     vfunc_decide_allocation(query: Gst.Query): boolean
     vfunc_render(audio: Gst.Buffer, video: GstVideo.VideoFrame): boolean
     vfunc_setup(): boolean
-    /* Virtual methods of Gst.Element */
+    /* Virtual methods of Gst-1.0.Gst.Element */
     vfunc_change_state(transition: Gst.StateChange): Gst.StateChangeReturn
     vfunc_get_state(timeout: Gst.ClockTime): [ /* returnType */ Gst.StateChangeReturn, /* state */ Gst.State | null, /* pending */ Gst.State | null ]
     vfunc_no_more_pads(): void
@@ -295,9 +295,9 @@ export class AudioVisualizer {
     vfunc_set_context(context: Gst.Context): void
     vfunc_set_state(state: Gst.State): Gst.StateChangeReturn
     vfunc_state_changed(oldstate: Gst.State, newstate: Gst.State, pending: Gst.State): void
-    /* Virtual methods of Gst.Object */
+    /* Virtual methods of Gst-1.0.Gst.Object */
     vfunc_deep_notify(orig: Gst.Object, pspec: GObject.ParamSpec): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -305,7 +305,7 @@ export class AudioVisualizer {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gst.Element */
+    /* Signals of Gst-1.0.Gst.Element */
     connect(sigName: "no-more-pads", callback: (($obj: AudioVisualizer) => void)): number
     connect_after(sigName: "no-more-pads", callback: (($obj: AudioVisualizer) => void)): number
     emit(sigName: "no-more-pads"): void
@@ -315,11 +315,11 @@ export class AudioVisualizer {
     connect(sigName: "pad-removed", callback: (($obj: AudioVisualizer, old_pad: Gst.Pad) => void)): number
     connect_after(sigName: "pad-removed", callback: (($obj: AudioVisualizer, old_pad: Gst.Pad) => void)): number
     emit(sigName: "pad-removed", old_pad: Gst.Pad): void
-    /* Signals of Gst.Object */
+    /* Signals of Gst-1.0.Gst.Object */
     connect(sigName: "deep-notify", callback: (($obj: AudioVisualizer, prop_object: Gst.Object, prop: GObject.ParamSpec) => void)): number
     connect_after(sigName: "deep-notify", callback: (($obj: AudioVisualizer, prop_object: Gst.Object, prop: GObject.ParamSpec) => void)): number
     emit(sigName: "deep-notify", prop_object: Gst.Object, prop: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: AudioVisualizer, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: AudioVisualizer, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -345,19 +345,19 @@ export interface Discoverer_ConstructProps extends GObject.Object_ConstructProps
     use_cache?: boolean
 }
 export class Discoverer {
-    /* Properties of GstPbutils.Discoverer */
+    /* Properties of GstPbutils-1.0.GstPbutils.Discoverer */
     timeout: number
     use_cache: boolean
-    /* Fields of GstPbutils.Discoverer */
+    /* Fields of GstPbutils-1.0.GstPbutils.Discoverer */
     parent: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GstPbutils.Discoverer */
+    /* Methods of GstPbutils-1.0.GstPbutils.Discoverer */
     discover_uri(uri: string): DiscovererInfo
     discover_uri_async(uri: string): boolean
     start(): void
     stop(): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -379,12 +379,12 @@ export class Discoverer {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GstPbutils.Discoverer */
+    /* Virtual methods of GstPbutils-1.0.GstPbutils.Discoverer */
     vfunc_discovered(info: DiscovererInfo, err: GLib.Error): void
     vfunc_finished(): void
     vfunc_source_setup(source: Gst.Element): void
     vfunc_starting(): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -392,7 +392,7 @@ export class Discoverer {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GstPbutils.Discoverer */
+    /* Signals of GstPbutils-1.0.GstPbutils.Discoverer */
     connect(sigName: "discovered", callback: (($obj: Discoverer, info: DiscovererInfo, error?: GLib.Error | null) => void)): number
     connect_after(sigName: "discovered", callback: (($obj: Discoverer, info: DiscovererInfo, error?: GLib.Error | null) => void)): number
     emit(sigName: "discovered", info: DiscovererInfo, error?: GLib.Error | null): void
@@ -405,7 +405,7 @@ export class Discoverer {
     connect(sigName: "starting", callback: (($obj: Discoverer) => void)): number
     connect_after(sigName: "starting", callback: (($obj: Discoverer) => void)): number
     emit(sigName: "starting"): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Discoverer, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Discoverer, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -427,9 +427,9 @@ export class Discoverer {
 export interface DiscovererAudioInfo_ConstructProps extends DiscovererStreamInfo_ConstructProps {
 }
 export class DiscovererAudioInfo {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GstPbutils.DiscovererAudioInfo */
+    /* Methods of GstPbutils-1.0.GstPbutils.DiscovererAudioInfo */
     get_bitrate(): number
     get_channel_mask(): number
     get_channels(): number
@@ -437,7 +437,7 @@ export class DiscovererAudioInfo {
     get_language(): string
     get_max_bitrate(): number
     get_sample_rate(): number
-    /* Methods of GstPbutils.DiscovererStreamInfo */
+    /* Methods of GstPbutils-1.0.GstPbutils.DiscovererStreamInfo */
     get_caps(): Gst.Caps
     get_misc(): Gst.Structure
     get_next(): DiscovererStreamInfo
@@ -446,7 +446,7 @@ export class DiscovererAudioInfo {
     get_stream_type_nick(): string
     get_tags(): Gst.TagList
     get_toc(): Gst.Toc
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -468,7 +468,7 @@ export class DiscovererAudioInfo {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -476,7 +476,7 @@ export class DiscovererAudioInfo {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: DiscovererAudioInfo, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: DiscovererAudioInfo, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -492,11 +492,11 @@ export class DiscovererAudioInfo {
 export interface DiscovererContainerInfo_ConstructProps extends DiscovererStreamInfo_ConstructProps {
 }
 export class DiscovererContainerInfo {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GstPbutils.DiscovererContainerInfo */
+    /* Methods of GstPbutils-1.0.GstPbutils.DiscovererContainerInfo */
     get_streams(): DiscovererStreamInfo[]
-    /* Methods of GstPbutils.DiscovererStreamInfo */
+    /* Methods of GstPbutils-1.0.GstPbutils.DiscovererStreamInfo */
     get_caps(): Gst.Caps
     get_misc(): Gst.Structure
     get_next(): DiscovererStreamInfo
@@ -505,7 +505,7 @@ export class DiscovererContainerInfo {
     get_stream_type_nick(): string
     get_tags(): Gst.TagList
     get_toc(): Gst.Toc
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -527,7 +527,7 @@ export class DiscovererContainerInfo {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -535,7 +535,7 @@ export class DiscovererContainerInfo {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: DiscovererContainerInfo, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: DiscovererContainerInfo, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -551,9 +551,9 @@ export class DiscovererContainerInfo {
 export interface DiscovererInfo_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class DiscovererInfo {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GstPbutils.DiscovererInfo */
+    /* Methods of GstPbutils-1.0.GstPbutils.DiscovererInfo */
     copy(): DiscovererInfo
     get_audio_streams(): DiscovererStreamInfo[]
     get_container_streams(): DiscovererStreamInfo[]
@@ -572,7 +572,7 @@ export class DiscovererInfo {
     get_uri(): string
     get_video_streams(): DiscovererStreamInfo[]
     to_variant(flags: DiscovererSerializeFlags): GLib.Variant
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -594,7 +594,7 @@ export class DiscovererInfo {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -602,7 +602,7 @@ export class DiscovererInfo {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: DiscovererInfo, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: DiscovererInfo, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -620,9 +620,9 @@ export class DiscovererInfo {
 export interface DiscovererStreamInfo_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class DiscovererStreamInfo {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GstPbutils.DiscovererStreamInfo */
+    /* Methods of GstPbutils-1.0.GstPbutils.DiscovererStreamInfo */
     get_caps(): Gst.Caps
     get_misc(): Gst.Structure
     get_next(): DiscovererStreamInfo
@@ -631,7 +631,7 @@ export class DiscovererStreamInfo {
     get_stream_type_nick(): string
     get_tags(): Gst.TagList
     get_toc(): Gst.Toc
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -653,7 +653,7 @@ export class DiscovererStreamInfo {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -661,7 +661,7 @@ export class DiscovererStreamInfo {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: DiscovererStreamInfo, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: DiscovererStreamInfo, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -679,11 +679,11 @@ export class DiscovererStreamInfo {
 export interface DiscovererSubtitleInfo_ConstructProps extends DiscovererStreamInfo_ConstructProps {
 }
 export class DiscovererSubtitleInfo {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GstPbutils.DiscovererSubtitleInfo */
+    /* Methods of GstPbutils-1.0.GstPbutils.DiscovererSubtitleInfo */
     get_language(): string
-    /* Methods of GstPbutils.DiscovererStreamInfo */
+    /* Methods of GstPbutils-1.0.GstPbutils.DiscovererStreamInfo */
     get_caps(): Gst.Caps
     get_misc(): Gst.Structure
     get_next(): DiscovererStreamInfo
@@ -692,7 +692,7 @@ export class DiscovererSubtitleInfo {
     get_stream_type_nick(): string
     get_tags(): Gst.TagList
     get_toc(): Gst.Toc
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -714,7 +714,7 @@ export class DiscovererSubtitleInfo {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -722,7 +722,7 @@ export class DiscovererSubtitleInfo {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: DiscovererSubtitleInfo, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: DiscovererSubtitleInfo, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -738,9 +738,9 @@ export class DiscovererSubtitleInfo {
 export interface DiscovererVideoInfo_ConstructProps extends DiscovererStreamInfo_ConstructProps {
 }
 export class DiscovererVideoInfo {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GstPbutils.DiscovererVideoInfo */
+    /* Methods of GstPbutils-1.0.GstPbutils.DiscovererVideoInfo */
     get_bitrate(): number
     get_depth(): number
     get_framerate_denom(): number
@@ -752,7 +752,7 @@ export class DiscovererVideoInfo {
     get_width(): number
     is_image(): boolean
     is_interlaced(): boolean
-    /* Methods of GstPbutils.DiscovererStreamInfo */
+    /* Methods of GstPbutils-1.0.GstPbutils.DiscovererStreamInfo */
     get_caps(): Gst.Caps
     get_misc(): Gst.Structure
     get_next(): DiscovererStreamInfo
@@ -761,7 +761,7 @@ export class DiscovererVideoInfo {
     get_stream_type_nick(): string
     get_tags(): Gst.TagList
     get_toc(): Gst.Toc
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -783,7 +783,7 @@ export class DiscovererVideoInfo {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -791,7 +791,7 @@ export class DiscovererVideoInfo {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: DiscovererVideoInfo, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: DiscovererVideoInfo, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -807,12 +807,12 @@ export class DiscovererVideoInfo {
 export interface EncodingAudioProfile_ConstructProps extends EncodingProfile_ConstructProps {
 }
 export class EncodingAudioProfile {
-    /* Properties of GstPbutils.EncodingProfile */
+    /* Properties of GstPbutils-1.0.GstPbutils.EncodingProfile */
     element_properties: Gst.Structure
     restriction_caps: Gst.Caps
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GstPbutils.EncodingProfile */
+    /* Methods of GstPbutils-1.0.GstPbutils.EncodingProfile */
     copy(): EncodingProfile
     get_allow_dynamic_output(): boolean
     get_description(): string
@@ -840,7 +840,7 @@ export class EncodingAudioProfile {
     set_preset_name(preset_name?: string | null): void
     set_restriction(restriction?: Gst.Caps | null): void
     set_single_segment(single_segment: boolean): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -862,7 +862,7 @@ export class EncodingAudioProfile {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -870,7 +870,7 @@ export class EncodingAudioProfile {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: EncodingAudioProfile, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: EncodingAudioProfile, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -892,16 +892,16 @@ export class EncodingAudioProfile {
 export interface EncodingContainerProfile_ConstructProps extends EncodingProfile_ConstructProps {
 }
 export class EncodingContainerProfile {
-    /* Properties of GstPbutils.EncodingProfile */
+    /* Properties of GstPbutils-1.0.GstPbutils.EncodingProfile */
     element_properties: Gst.Structure
     restriction_caps: Gst.Caps
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GstPbutils.EncodingContainerProfile */
+    /* Methods of GstPbutils-1.0.GstPbutils.EncodingContainerProfile */
     add_profile(profile: EncodingProfile): boolean
     contains_profile(profile: EncodingProfile): boolean
     get_profiles(): EncodingProfile[]
-    /* Methods of GstPbutils.EncodingProfile */
+    /* Methods of GstPbutils-1.0.GstPbutils.EncodingProfile */
     copy(): EncodingProfile
     get_allow_dynamic_output(): boolean
     get_description(): string
@@ -929,7 +929,7 @@ export class EncodingContainerProfile {
     set_preset_name(preset_name?: string | null): void
     set_restriction(restriction?: Gst.Caps | null): void
     set_single_segment(single_segment: boolean): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -951,7 +951,7 @@ export class EncodingContainerProfile {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -959,7 +959,7 @@ export class EncodingContainerProfile {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: EncodingContainerProfile, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: EncodingContainerProfile, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -983,12 +983,12 @@ export interface EncodingProfile_ConstructProps extends GObject.Object_Construct
     restriction_caps?: Gst.Caps
 }
 export class EncodingProfile {
-    /* Properties of GstPbutils.EncodingProfile */
+    /* Properties of GstPbutils-1.0.GstPbutils.EncodingProfile */
     element_properties: Gst.Structure
     restriction_caps: Gst.Caps
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GstPbutils.EncodingProfile */
+    /* Methods of GstPbutils-1.0.GstPbutils.EncodingProfile */
     copy(): EncodingProfile
     get_allow_dynamic_output(): boolean
     get_description(): string
@@ -1016,7 +1016,7 @@ export class EncodingProfile {
     set_preset_name(preset_name?: string | null): void
     set_restriction(restriction?: Gst.Caps | null): void
     set_single_segment(single_segment: boolean): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -1038,7 +1038,7 @@ export class EncodingProfile {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -1046,7 +1046,7 @@ export class EncodingProfile {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: EncodingProfile, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: EncodingProfile, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -1069,9 +1069,9 @@ export class EncodingProfile {
 export interface EncodingTarget_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class EncodingTarget {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GstPbutils.EncodingTarget */
+    /* Methods of GstPbutils-1.0.GstPbutils.EncodingTarget */
     add_profile(profile: EncodingProfile): boolean
     get_category(): string
     get_description(): string
@@ -1081,7 +1081,7 @@ export class EncodingTarget {
     get_profiles(): EncodingProfile[]
     save(): boolean
     save_to_file(filepath: string): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -1103,7 +1103,7 @@ export class EncodingTarget {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -1111,7 +1111,7 @@ export class EncodingTarget {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: EncodingTarget, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: EncodingTarget, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -1131,17 +1131,17 @@ export class EncodingTarget {
 export interface EncodingVideoProfile_ConstructProps extends EncodingProfile_ConstructProps {
 }
 export class EncodingVideoProfile {
-    /* Properties of GstPbutils.EncodingProfile */
+    /* Properties of GstPbutils-1.0.GstPbutils.EncodingProfile */
     element_properties: Gst.Structure
     restriction_caps: Gst.Caps
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GstPbutils.EncodingVideoProfile */
+    /* Methods of GstPbutils-1.0.GstPbutils.EncodingVideoProfile */
     get_pass(): number
     get_variableframerate(): boolean
     set_pass(pass: number): void
     set_variableframerate(variableframerate: boolean): void
-    /* Methods of GstPbutils.EncodingProfile */
+    /* Methods of GstPbutils-1.0.GstPbutils.EncodingProfile */
     copy(): EncodingProfile
     get_allow_dynamic_output(): boolean
     get_description(): string
@@ -1169,7 +1169,7 @@ export class EncodingVideoProfile {
     set_preset_name(preset_name?: string | null): void
     set_restriction(restriction?: Gst.Caps | null): void
     set_single_segment(single_segment: boolean): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -1191,7 +1191,7 @@ export class EncodingVideoProfile {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -1199,7 +1199,7 @@ export class EncodingVideoProfile {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: EncodingVideoProfile, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: EncodingVideoProfile, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -1219,7 +1219,7 @@ export class EncodingVideoProfile {
     static $gtype: GObject.Type
 }
 export abstract class AudioVisualizerClass {
-    /* Fields of GstPbutils.AudioVisualizerClass */
+    /* Fields of GstPbutils-1.0.GstPbutils.AudioVisualizerClass */
     setup: (scope: AudioVisualizer) => boolean
     render: (scope: AudioVisualizer, audio: Gst.Buffer, video: GstVideo.VideoFrame) => boolean
     decide_allocation: (scope: AudioVisualizer, query: Gst.Query) => boolean
@@ -1229,7 +1229,7 @@ export class AudioVisualizerPrivate {
     static name: string
 }
 export abstract class DiscovererClass {
-    /* Fields of GstPbutils.DiscovererClass */
+    /* Fields of GstPbutils-1.0.GstPbutils.DiscovererClass */
     parentclass: GObject.ObjectClass
     finished: (discoverer: Discoverer) => void
     starting: (discoverer: Discoverer) => void
@@ -1254,7 +1254,7 @@ export abstract class EncodingVideoProfileClass {
     static name: string
 }
 export class InstallPluginsContext {
-    /* Methods of GstPbutils.InstallPluginsContext */
+    /* Methods of GstPbutils-1.0.GstPbutils.InstallPluginsContext */
     copy(): InstallPluginsContext
     free(): void
     set_confirm_search(confirm_search: boolean): void

@@ -27,16 +27,16 @@ export function tag_to_script(script_tag: Tag): Pango.Script
 export interface Info_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class Info {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of PangoOT.Info */
+    /* Methods of PangoOT-1.0.PangoOT.Info */
     find_feature(table_type: TableType, feature_tag: Tag, script_index: number, language_index: number): [ /* returnType */ boolean, /* feature_index */ number | null ]
     find_language(table_type: TableType, script_index: number, language_tag: Tag): [ /* returnType */ boolean, /* language_index */ number | null, /* required_feature_index */ number | null ]
     find_script(table_type: TableType, script_tag: Tag): [ /* returnType */ boolean, /* script_index */ number | null ]
     list_features(table_type: TableType, tag: Tag, script_index: number, language_index: number): Tag
     list_languages(table_type: TableType, script_index: number, language_tag: Tag): Tag
     list_scripts(table_type: TableType): Tag
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -58,7 +58,7 @@ export class Info {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -66,7 +66,7 @@ export class Info {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Info, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Info, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -84,16 +84,16 @@ export class Info {
 export interface Ruleset_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class Ruleset {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of PangoOT.Ruleset */
+    /* Methods of PangoOT-1.0.PangoOT.Ruleset */
     add_feature(table_type: TableType, feature_index: number, property_bit: number): void
     get_feature_count(): [ /* returnType */ number, /* n_gsub_features */ number | null, /* n_gpos_features */ number | null ]
     maybe_add_feature(table_type: TableType, feature_tag: Tag, property_bit: number): boolean
     maybe_add_features(table_type: TableType, features: FeatureMap, n_features: number): number
     position(buffer: Buffer): void
     substitute(buffer: Buffer): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -115,7 +115,7 @@ export class Ruleset {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -123,7 +123,7 @@ export class Ruleset {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Ruleset, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Ruleset, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -142,7 +142,7 @@ export class Ruleset {
     static $gtype: GObject.Type
 }
 export class Buffer {
-    /* Methods of PangoOT.Buffer */
+    /* Methods of PangoOT-1.0.PangoOT.Buffer */
     add_glyph(glyph: number, properties: number, cluster: number): void
     clear(): void
     destroy(): void
@@ -157,13 +157,13 @@ export class Buffer {
     static new(font: PangoFc.Font): Buffer
 }
 export class FeatureMap {
-    /* Fields of PangoOT.FeatureMap */
+    /* Fields of PangoOT-1.0.PangoOT.FeatureMap */
     feature_name: number[]
     property_bit: number
     static name: string
 }
 export class Glyph {
-    /* Fields of PangoOT.Glyph */
+    /* Fields of PangoOT-1.0.PangoOT.Glyph */
     glyph: number
     properties: number
     cluster: number
@@ -173,7 +173,7 @@ export class Glyph {
     static name: string
 }
 export class RulesetDescription {
-    /* Fields of PangoOT.RulesetDescription */
+    /* Fields of PangoOT-1.0.PangoOT.RulesetDescription */
     script: Pango.Script
     language: Pango.Language
     static_gsub_features: FeatureMap
@@ -182,7 +182,7 @@ export class RulesetDescription {
     n_static_gpos_features: number
     other_features: FeatureMap
     n_other_features: number
-    /* Methods of PangoOT.RulesetDescription */
+    /* Methods of PangoOT-1.0.PangoOT.RulesetDescription */
     copy(): RulesetDescription
     equal(desc2: RulesetDescription): boolean
     free(): void

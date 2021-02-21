@@ -364,7 +364,7 @@ export interface VcsStatusCallback {
     (file: Gio.File, status: Anjuta.VcsStatus): void
 }
 export class Buildable {
-    /* Methods of IAnjuta.Buildable */
+    /* Methods of IAnjuta-3.0.IAnjuta.Buildable */
     build(uri: string): void
     clean(uri: string): void
     configure(uri: string): void
@@ -374,145 +374,99 @@ export class Buildable {
     install(uri: string): void
     resetCommands(): void
     setCommand(commandId: BuildableCommand, command: string): void
-    /* Virtual methods of IAnjuta.Buildable */
-    vfuncBuild(uri: string): void
-    vfuncClean(uri: string): void
-    vfuncConfigure(uri: string): void
-    vfuncExecute(uri: string): void
-    vfuncGenerate(uri: string): void
-    vfuncGetCommand(commandId: BuildableCommand): string
-    vfuncInstall(uri: string): void
-    vfuncResetCommands(): void
-    vfuncSetCommand(commandId: BuildableCommand, command: string): void
     static name: string
     /* Static methods and pseudo-constructors */
     static errorQuark(): GLib.Quark
 }
 export class Builder {
-    /* Methods of IAnjuta.Builder */
+    /* Methods of IAnjuta-3.0.IAnjuta.Builder */
     cancel(handle: BuilderHandle): void
     getUriConfiguration(uri: string): string
     listConfiguration(): string[]
-    /* Virtual methods of IAnjuta.Builder */
-    vfuncCancel(handle: BuilderHandle): void
-    vfuncGetUriConfiguration(uri: string): string
-    vfuncListConfiguration(): string[]
     static name: string
 }
 export class DebugManager {
-    /* Methods of IAnjuta.DebugManager */
+    /* Methods of IAnjuta-3.0.IAnjuta.DebugManager */
     quit(): boolean
     start(uri: string): boolean
     startRemote(server: string, uri: string): boolean
-    /* Virtual methods of IAnjuta.DebugManager */
-    vfuncBreakpointChanged(breakpoint: DebuggerBreakpointItem): void
-    vfuncDebuggerStarted(): void
-    vfuncDebuggerStopped(err: GLib.Error): void
-    vfuncFrameChanged(frame: number, thread: number): void
-    vfuncLocationChanged(address: number, uri: string, line: number): void
-    vfuncProgramExited(): void
-    vfuncProgramLoaded(): void
-    vfuncProgramMoved(pid: number, tid: number, address: number, file: string, line: number): void
-    vfuncProgramRunning(): void
-    vfuncProgramStarted(): void
-    vfuncProgramStopped(): void
-    vfuncProgramUnloaded(): void
-    vfuncQuit(): boolean
-    vfuncSharedlibEvent(): void
-    vfuncSignalReceived(name: string, description: string): void
-    vfuncStart(uri: string): boolean
-    vfuncStartRemote(server: string, uri: string): boolean
-    /* Signals of IAnjuta.DebugManager */
+    /* Signals of IAnjuta-3.0.IAnjuta.DebugManager */
     connect(sigName: "breakpoint-changed", callback: (($obj: DebugManager, object?: object | null) => void)): number
-    connect_after(sigName: "breakpoint-changed", callback: (($obj: DebugManager, object?: object | null) => void)): number
+    on(sigName: "breakpoint-changed", callback: (object?: object | null) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "breakpoint-changed", callback: (object?: object | null) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "breakpoint-changed", callback: (object?: object | null) => void): NodeJS.EventEmitter
     emit(sigName: "breakpoint-changed", object?: object | null): void
-    on(sigName: "breakpoint-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "breakpoint-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "breakpoint-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "debugger-started", callback: (($obj: DebugManager) => void)): number
-    connect_after(sigName: "debugger-started", callback: (($obj: DebugManager) => void)): number
+    on(sigName: "debugger-started", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "debugger-started", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "debugger-started", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "debugger-started"): void
-    on(sigName: "debugger-started", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "debugger-started", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "debugger-started", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "debugger-stopped", callback: (($obj: DebugManager, object: GLib.Error) => void)): number
-    connect_after(sigName: "debugger-stopped", callback: (($obj: DebugManager, object: GLib.Error) => void)): number
+    on(sigName: "debugger-stopped", callback: (object: GLib.Error) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "debugger-stopped", callback: (object: GLib.Error) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "debugger-stopped", callback: (object: GLib.Error) => void): NodeJS.EventEmitter
     emit(sigName: "debugger-stopped", object: GLib.Error): void
-    on(sigName: "debugger-stopped", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "debugger-stopped", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "debugger-stopped", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "frame-changed", callback: (($obj: DebugManager, object: number, p0: number) => void)): number
-    connect_after(sigName: "frame-changed", callback: (($obj: DebugManager, object: number, p0: number) => void)): number
+    on(sigName: "frame-changed", callback: (object: number, p0: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "frame-changed", callback: (object: number, p0: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "frame-changed", callback: (object: number, p0: number) => void): NodeJS.EventEmitter
     emit(sigName: "frame-changed", object: number, p0: number): void
-    on(sigName: "frame-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "frame-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "frame-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "location-changed", callback: (($obj: DebugManager, object: number, p0: string, p1: number) => void)): number
-    connect_after(sigName: "location-changed", callback: (($obj: DebugManager, object: number, p0: string, p1: number) => void)): number
+    on(sigName: "location-changed", callback: (object: number, p0: string, p1: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "location-changed", callback: (object: number, p0: string, p1: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "location-changed", callback: (object: number, p0: string, p1: number) => void): NodeJS.EventEmitter
     emit(sigName: "location-changed", object: number, p0: string, p1: number): void
-    on(sigName: "location-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "location-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "location-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "program-exited", callback: (($obj: DebugManager) => void)): number
-    connect_after(sigName: "program-exited", callback: (($obj: DebugManager) => void)): number
+    on(sigName: "program-exited", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "program-exited", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "program-exited", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "program-exited"): void
-    on(sigName: "program-exited", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "program-exited", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "program-exited", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "program-loaded", callback: (($obj: DebugManager) => void)): number
-    connect_after(sigName: "program-loaded", callback: (($obj: DebugManager) => void)): number
+    on(sigName: "program-loaded", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "program-loaded", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "program-loaded", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "program-loaded"): void
-    on(sigName: "program-loaded", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "program-loaded", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "program-loaded", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "program-moved", callback: (($obj: DebugManager, object: number, p0: number, p1: number, p2: string, p3: number) => void)): number
-    connect_after(sigName: "program-moved", callback: (($obj: DebugManager, object: number, p0: number, p1: number, p2: string, p3: number) => void)): number
+    on(sigName: "program-moved", callback: (object: number, p0: number, p1: number, p2: string, p3: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "program-moved", callback: (object: number, p0: number, p1: number, p2: string, p3: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "program-moved", callback: (object: number, p0: number, p1: number, p2: string, p3: number) => void): NodeJS.EventEmitter
     emit(sigName: "program-moved", object: number, p0: number, p1: number, p2: string, p3: number): void
-    on(sigName: "program-moved", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "program-moved", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "program-moved", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "program-running", callback: (($obj: DebugManager) => void)): number
-    connect_after(sigName: "program-running", callback: (($obj: DebugManager) => void)): number
+    on(sigName: "program-running", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "program-running", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "program-running", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "program-running"): void
-    on(sigName: "program-running", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "program-running", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "program-running", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "program-started", callback: (($obj: DebugManager) => void)): number
-    connect_after(sigName: "program-started", callback: (($obj: DebugManager) => void)): number
+    on(sigName: "program-started", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "program-started", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "program-started", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "program-started"): void
-    on(sigName: "program-started", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "program-started", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "program-started", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "program-stopped", callback: (($obj: DebugManager) => void)): number
-    connect_after(sigName: "program-stopped", callback: (($obj: DebugManager) => void)): number
+    on(sigName: "program-stopped", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "program-stopped", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "program-stopped", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "program-stopped"): void
-    on(sigName: "program-stopped", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "program-stopped", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "program-stopped", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "program-unloaded", callback: (($obj: DebugManager) => void)): number
-    connect_after(sigName: "program-unloaded", callback: (($obj: DebugManager) => void)): number
+    on(sigName: "program-unloaded", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "program-unloaded", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "program-unloaded", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "program-unloaded"): void
-    on(sigName: "program-unloaded", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "program-unloaded", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "program-unloaded", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "sharedlib-event", callback: (($obj: DebugManager) => void)): number
-    connect_after(sigName: "sharedlib-event", callback: (($obj: DebugManager) => void)): number
+    on(sigName: "sharedlib-event", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "sharedlib-event", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "sharedlib-event", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "sharedlib-event"): void
-    on(sigName: "sharedlib-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "sharedlib-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "sharedlib-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "signal-received", callback: (($obj: DebugManager, object: string, p0: string) => void)): number
-    connect_after(sigName: "signal-received", callback: (($obj: DebugManager, object: string, p0: string) => void)): number
+    on(sigName: "signal-received", callback: (object: string, p0: string) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "signal-received", callback: (object: string, p0: string) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "signal-received", callback: (object: string, p0: string) => void): NodeJS.EventEmitter
     emit(sigName: "signal-received", object: string, p0: string): void
-    on(sigName: "signal-received", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "signal-received", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "signal-received", callback: (...args: any[]) => void): NodeJS.EventEmitter
     static name: string
     /* Static methods and pseudo-constructors */
     static errorQuark(): GLib.Quark
 }
 export class Debugger {
-    /* Methods of IAnjuta.Debugger */
+    /* Methods of IAnjuta-3.0.IAnjuta.Debugger */
     abort(): boolean
     attach(pid: number, sourceSearchDirectories: string[]): boolean
     connect(server: string, args: string, terminal: boolean, stop: boolean): boolean
@@ -537,115 +491,68 @@ export class Debugger {
     stepOut(): boolean
     stepOver(): boolean
     unload(): boolean
-    /* Virtual methods of IAnjuta.Debugger */
-    vfuncAbort(): boolean
-    vfuncAttach(pid: number, sourceSearchDirectories: string[]): boolean
-    vfuncConnect(server: string, args: string, terminal: boolean, stop: boolean): boolean
-    vfuncDebuggerReady(state: DebuggerState): void
-    vfuncDebuggerStarted(): void
-    vfuncDebuggerStopped(err: GLib.Error): void
-    vfuncDisableLog(): void
-    vfuncEnableLog(log: MessageView): void
-    vfuncExit(): boolean
-    vfuncFrameChanged(frame: number, thread: number): void
-    vfuncGetState(): DebuggerState
-    vfuncHandleSignal(name: string, stop: boolean, print: boolean, ignore: boolean): boolean
-    vfuncInterrupt(): boolean
-    vfuncLoad(file: string, mimeType: string, sourceSearchDirectories: string[]): boolean
-    vfuncProgramExited(): void
-    vfuncProgramLoaded(): void
-    vfuncProgramMoved(pid: number, tid: number, address: number, file: string, line: number): void
-    vfuncProgramRunning(): void
-    vfuncProgramStopped(): void
-    vfuncQuit(): boolean
-    vfuncRun(): boolean
-    vfuncRunFrom(file: string, line: number): boolean
-    vfuncRunTo(file: string, line: number): boolean
-    vfuncSendCommand(command: string): boolean
-    vfuncSetEnvironment(env: string): boolean
-    vfuncSetFrame(frame: number): boolean
-    vfuncSetThread(thread: number): boolean
-    vfuncSetWorkingDirectory(dir: string): boolean
-    vfuncSharedlibEvent(): void
-    vfuncSignalReceived(name: string, description: string): void
-    vfuncStart(args: string, terminal: boolean, stop: boolean): boolean
-    vfuncStepIn(): boolean
-    vfuncStepOut(): boolean
-    vfuncStepOver(): boolean
-    vfuncUnload(): boolean
-    /* Signals of IAnjuta.Debugger */
+    /* Signals of IAnjuta-3.0.IAnjuta.Debugger */
     connect(sigName: "debugger-ready", callback: (($obj: Debugger, object: DebuggerState) => void)): number
-    connect_after(sigName: "debugger-ready", callback: (($obj: Debugger, object: DebuggerState) => void)): number
+    on(sigName: "debugger-ready", callback: (object: DebuggerState) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "debugger-ready", callback: (object: DebuggerState) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "debugger-ready", callback: (object: DebuggerState) => void): NodeJS.EventEmitter
     emit(sigName: "debugger-ready", object: DebuggerState): void
-    on(sigName: "debugger-ready", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "debugger-ready", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "debugger-ready", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "debugger-started", callback: (($obj: Debugger) => void)): number
-    connect_after(sigName: "debugger-started", callback: (($obj: Debugger) => void)): number
+    on(sigName: "debugger-started", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "debugger-started", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "debugger-started", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "debugger-started"): void
-    on(sigName: "debugger-started", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "debugger-started", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "debugger-started", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "debugger-stopped", callback: (($obj: Debugger, object: GLib.Error) => void)): number
-    connect_after(sigName: "debugger-stopped", callback: (($obj: Debugger, object: GLib.Error) => void)): number
+    on(sigName: "debugger-stopped", callback: (object: GLib.Error) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "debugger-stopped", callback: (object: GLib.Error) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "debugger-stopped", callback: (object: GLib.Error) => void): NodeJS.EventEmitter
     emit(sigName: "debugger-stopped", object: GLib.Error): void
-    on(sigName: "debugger-stopped", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "debugger-stopped", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "debugger-stopped", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "frame-changed", callback: (($obj: Debugger, object: number, p0: number) => void)): number
-    connect_after(sigName: "frame-changed", callback: (($obj: Debugger, object: number, p0: number) => void)): number
+    on(sigName: "frame-changed", callback: (object: number, p0: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "frame-changed", callback: (object: number, p0: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "frame-changed", callback: (object: number, p0: number) => void): NodeJS.EventEmitter
     emit(sigName: "frame-changed", object: number, p0: number): void
-    on(sigName: "frame-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "frame-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "frame-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "program-exited", callback: (($obj: Debugger) => void)): number
-    connect_after(sigName: "program-exited", callback: (($obj: Debugger) => void)): number
+    on(sigName: "program-exited", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "program-exited", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "program-exited", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "program-exited"): void
-    on(sigName: "program-exited", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "program-exited", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "program-exited", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "program-loaded", callback: (($obj: Debugger) => void)): number
-    connect_after(sigName: "program-loaded", callback: (($obj: Debugger) => void)): number
+    on(sigName: "program-loaded", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "program-loaded", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "program-loaded", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "program-loaded"): void
-    on(sigName: "program-loaded", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "program-loaded", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "program-loaded", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "program-moved", callback: (($obj: Debugger, object: number, p0: number, p1: number, p2: string, p3: number) => void)): number
-    connect_after(sigName: "program-moved", callback: (($obj: Debugger, object: number, p0: number, p1: number, p2: string, p3: number) => void)): number
+    on(sigName: "program-moved", callback: (object: number, p0: number, p1: number, p2: string, p3: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "program-moved", callback: (object: number, p0: number, p1: number, p2: string, p3: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "program-moved", callback: (object: number, p0: number, p1: number, p2: string, p3: number) => void): NodeJS.EventEmitter
     emit(sigName: "program-moved", object: number, p0: number, p1: number, p2: string, p3: number): void
-    on(sigName: "program-moved", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "program-moved", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "program-moved", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "program-running", callback: (($obj: Debugger) => void)): number
-    connect_after(sigName: "program-running", callback: (($obj: Debugger) => void)): number
+    on(sigName: "program-running", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "program-running", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "program-running", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "program-running"): void
-    on(sigName: "program-running", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "program-running", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "program-running", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "program-stopped", callback: (($obj: Debugger) => void)): number
-    connect_after(sigName: "program-stopped", callback: (($obj: Debugger) => void)): number
+    on(sigName: "program-stopped", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "program-stopped", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "program-stopped", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "program-stopped"): void
-    on(sigName: "program-stopped", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "program-stopped", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "program-stopped", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "sharedlib-event", callback: (($obj: Debugger) => void)): number
-    connect_after(sigName: "sharedlib-event", callback: (($obj: Debugger) => void)): number
+    on(sigName: "sharedlib-event", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "sharedlib-event", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "sharedlib-event", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "sharedlib-event"): void
-    on(sigName: "sharedlib-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "sharedlib-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "sharedlib-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "signal-received", callback: (($obj: Debugger, object: string, p0: string) => void)): number
-    connect_after(sigName: "signal-received", callback: (($obj: Debugger, object: string, p0: string) => void)): number
+    on(sigName: "signal-received", callback: (object: string, p0: string) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "signal-received", callback: (object: string, p0: string) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "signal-received", callback: (object: string, p0: string) => void): NodeJS.EventEmitter
     emit(sigName: "signal-received", object: string, p0: string): void
-    on(sigName: "signal-received", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "signal-received", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "signal-received", callback: (...args: any[]) => void): NodeJS.EventEmitter
     static name: string
 }
 export class DebuggerBreakpoint {
-    /* Methods of IAnjuta.DebuggerBreakpoint */
+    /* Methods of IAnjuta-3.0.IAnjuta.DebuggerBreakpoint */
     implementBreakpoint(): number
-    /* Methods of IAnjuta.Debugger */
+    /* Methods of IAnjuta-3.0.IAnjuta.Debugger */
     abort(): boolean
     attach(pid: number, sourceSearchDirectories: string[]): boolean
     connect(server: string, args: string, terminal: boolean, stop: boolean): boolean
@@ -670,122 +577,73 @@ export class DebuggerBreakpoint {
     stepOut(): boolean
     stepOver(): boolean
     unload(): boolean
-    /* Virtual methods of IAnjuta.DebuggerBreakpoint */
-    vfuncImplementBreakpoint(): number
-    /* Virtual methods of IAnjuta.Debugger */
-    vfuncAbort(): boolean
-    vfuncAttach(pid: number, sourceSearchDirectories: string[]): boolean
-    vfuncConnect(server: string, args: string, terminal: boolean, stop: boolean): boolean
-    vfuncDebuggerReady(state: DebuggerState): void
-    vfuncDebuggerStarted(): void
-    vfuncDebuggerStopped(err: GLib.Error): void
-    vfuncDisableLog(): void
-    vfuncEnableLog(log: MessageView): void
-    vfuncExit(): boolean
-    vfuncFrameChanged(frame: number, thread: number): void
-    vfuncGetState(): DebuggerState
-    vfuncHandleSignal(name: string, stop: boolean, print: boolean, ignore: boolean): boolean
-    vfuncInterrupt(): boolean
-    vfuncLoad(file: string, mimeType: string, sourceSearchDirectories: string[]): boolean
-    vfuncProgramExited(): void
-    vfuncProgramLoaded(): void
-    vfuncProgramMoved(pid: number, tid: number, address: number, file: string, line: number): void
-    vfuncProgramRunning(): void
-    vfuncProgramStopped(): void
-    vfuncQuit(): boolean
-    vfuncRun(): boolean
-    vfuncRunFrom(file: string, line: number): boolean
-    vfuncRunTo(file: string, line: number): boolean
-    vfuncSendCommand(command: string): boolean
-    vfuncSetEnvironment(env: string): boolean
-    vfuncSetFrame(frame: number): boolean
-    vfuncSetThread(thread: number): boolean
-    vfuncSetWorkingDirectory(dir: string): boolean
-    vfuncSharedlibEvent(): void
-    vfuncSignalReceived(name: string, description: string): void
-    vfuncStart(args: string, terminal: boolean, stop: boolean): boolean
-    vfuncStepIn(): boolean
-    vfuncStepOut(): boolean
-    vfuncStepOver(): boolean
-    vfuncUnload(): boolean
-    /* Signals of IAnjuta.Debugger */
+    /* Signals of IAnjuta-3.0.IAnjuta.Debugger */
     connect(sigName: "debugger-ready", callback: (($obj: DebuggerBreakpoint, object: DebuggerState) => void)): number
-    connect_after(sigName: "debugger-ready", callback: (($obj: DebuggerBreakpoint, object: DebuggerState) => void)): number
+    on(sigName: "debugger-ready", callback: (object: DebuggerState) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "debugger-ready", callback: (object: DebuggerState) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "debugger-ready", callback: (object: DebuggerState) => void): NodeJS.EventEmitter
     emit(sigName: "debugger-ready", object: DebuggerState): void
-    on(sigName: "debugger-ready", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "debugger-ready", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "debugger-ready", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "debugger-started", callback: (($obj: DebuggerBreakpoint) => void)): number
-    connect_after(sigName: "debugger-started", callback: (($obj: DebuggerBreakpoint) => void)): number
+    on(sigName: "debugger-started", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "debugger-started", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "debugger-started", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "debugger-started"): void
-    on(sigName: "debugger-started", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "debugger-started", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "debugger-started", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "debugger-stopped", callback: (($obj: DebuggerBreakpoint, object: GLib.Error) => void)): number
-    connect_after(sigName: "debugger-stopped", callback: (($obj: DebuggerBreakpoint, object: GLib.Error) => void)): number
+    on(sigName: "debugger-stopped", callback: (object: GLib.Error) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "debugger-stopped", callback: (object: GLib.Error) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "debugger-stopped", callback: (object: GLib.Error) => void): NodeJS.EventEmitter
     emit(sigName: "debugger-stopped", object: GLib.Error): void
-    on(sigName: "debugger-stopped", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "debugger-stopped", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "debugger-stopped", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "frame-changed", callback: (($obj: DebuggerBreakpoint, object: number, p0: number) => void)): number
-    connect_after(sigName: "frame-changed", callback: (($obj: DebuggerBreakpoint, object: number, p0: number) => void)): number
+    on(sigName: "frame-changed", callback: (object: number, p0: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "frame-changed", callback: (object: number, p0: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "frame-changed", callback: (object: number, p0: number) => void): NodeJS.EventEmitter
     emit(sigName: "frame-changed", object: number, p0: number): void
-    on(sigName: "frame-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "frame-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "frame-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "program-exited", callback: (($obj: DebuggerBreakpoint) => void)): number
-    connect_after(sigName: "program-exited", callback: (($obj: DebuggerBreakpoint) => void)): number
+    on(sigName: "program-exited", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "program-exited", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "program-exited", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "program-exited"): void
-    on(sigName: "program-exited", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "program-exited", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "program-exited", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "program-loaded", callback: (($obj: DebuggerBreakpoint) => void)): number
-    connect_after(sigName: "program-loaded", callback: (($obj: DebuggerBreakpoint) => void)): number
+    on(sigName: "program-loaded", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "program-loaded", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "program-loaded", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "program-loaded"): void
-    on(sigName: "program-loaded", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "program-loaded", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "program-loaded", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "program-moved", callback: (($obj: DebuggerBreakpoint, object: number, p0: number, p1: number, p2: string, p3: number) => void)): number
-    connect_after(sigName: "program-moved", callback: (($obj: DebuggerBreakpoint, object: number, p0: number, p1: number, p2: string, p3: number) => void)): number
+    on(sigName: "program-moved", callback: (object: number, p0: number, p1: number, p2: string, p3: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "program-moved", callback: (object: number, p0: number, p1: number, p2: string, p3: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "program-moved", callback: (object: number, p0: number, p1: number, p2: string, p3: number) => void): NodeJS.EventEmitter
     emit(sigName: "program-moved", object: number, p0: number, p1: number, p2: string, p3: number): void
-    on(sigName: "program-moved", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "program-moved", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "program-moved", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "program-running", callback: (($obj: DebuggerBreakpoint) => void)): number
-    connect_after(sigName: "program-running", callback: (($obj: DebuggerBreakpoint) => void)): number
+    on(sigName: "program-running", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "program-running", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "program-running", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "program-running"): void
-    on(sigName: "program-running", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "program-running", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "program-running", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "program-stopped", callback: (($obj: DebuggerBreakpoint) => void)): number
-    connect_after(sigName: "program-stopped", callback: (($obj: DebuggerBreakpoint) => void)): number
+    on(sigName: "program-stopped", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "program-stopped", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "program-stopped", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "program-stopped"): void
-    on(sigName: "program-stopped", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "program-stopped", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "program-stopped", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "sharedlib-event", callback: (($obj: DebuggerBreakpoint) => void)): number
-    connect_after(sigName: "sharedlib-event", callback: (($obj: DebuggerBreakpoint) => void)): number
+    on(sigName: "sharedlib-event", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "sharedlib-event", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "sharedlib-event", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "sharedlib-event"): void
-    on(sigName: "sharedlib-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "sharedlib-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "sharedlib-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "signal-received", callback: (($obj: DebuggerBreakpoint, object: string, p0: string) => void)): number
-    connect_after(sigName: "signal-received", callback: (($obj: DebuggerBreakpoint, object: string, p0: string) => void)): number
+    on(sigName: "signal-received", callback: (object: string, p0: string) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "signal-received", callback: (object: string, p0: string) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "signal-received", callback: (object: string, p0: string) => void): NodeJS.EventEmitter
     emit(sigName: "signal-received", object: string, p0: string): void
-    on(sigName: "signal-received", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "signal-received", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "signal-received", callback: (...args: any[]) => void): NodeJS.EventEmitter
     static name: string
     /* Static methods and pseudo-constructors */
     static errorQuark(): GLib.Quark
 }
 export class DebuggerInstruction {
-    /* Methods of IAnjuta.DebuggerInstruction */
+    /* Methods of IAnjuta-3.0.IAnjuta.DebuggerInstruction */
     runFromAddress(address: number): boolean
     runToAddress(address: number): boolean
     stepInInstruction(): boolean
     stepOverInstruction(): boolean
-    /* Methods of IAnjuta.Debugger */
+    /* Methods of IAnjuta-3.0.IAnjuta.Debugger */
     abort(): boolean
     attach(pid: number, sourceSearchDirectories: string[]): boolean
     connect(server: string, args: string, terminal: boolean, stop: boolean): boolean
@@ -810,120 +668,68 @@ export class DebuggerInstruction {
     stepOut(): boolean
     stepOver(): boolean
     unload(): boolean
-    /* Virtual methods of IAnjuta.DebuggerInstruction */
-    vfuncRunFromAddress(address: number): boolean
-    vfuncRunToAddress(address: number): boolean
-    vfuncStepInInstruction(): boolean
-    vfuncStepOverInstruction(): boolean
-    /* Virtual methods of IAnjuta.Debugger */
-    vfuncAbort(): boolean
-    vfuncAttach(pid: number, sourceSearchDirectories: string[]): boolean
-    vfuncConnect(server: string, args: string, terminal: boolean, stop: boolean): boolean
-    vfuncDebuggerReady(state: DebuggerState): void
-    vfuncDebuggerStarted(): void
-    vfuncDebuggerStopped(err: GLib.Error): void
-    vfuncDisableLog(): void
-    vfuncEnableLog(log: MessageView): void
-    vfuncExit(): boolean
-    vfuncFrameChanged(frame: number, thread: number): void
-    vfuncGetState(): DebuggerState
-    vfuncHandleSignal(name: string, stop: boolean, print: boolean, ignore: boolean): boolean
-    vfuncInterrupt(): boolean
-    vfuncLoad(file: string, mimeType: string, sourceSearchDirectories: string[]): boolean
-    vfuncProgramExited(): void
-    vfuncProgramLoaded(): void
-    vfuncProgramMoved(pid: number, tid: number, address: number, file: string, line: number): void
-    vfuncProgramRunning(): void
-    vfuncProgramStopped(): void
-    vfuncQuit(): boolean
-    vfuncRun(): boolean
-    vfuncRunFrom(file: string, line: number): boolean
-    vfuncRunTo(file: string, line: number): boolean
-    vfuncSendCommand(command: string): boolean
-    vfuncSetEnvironment(env: string): boolean
-    vfuncSetFrame(frame: number): boolean
-    vfuncSetThread(thread: number): boolean
-    vfuncSetWorkingDirectory(dir: string): boolean
-    vfuncSharedlibEvent(): void
-    vfuncSignalReceived(name: string, description: string): void
-    vfuncStart(args: string, terminal: boolean, stop: boolean): boolean
-    vfuncStepIn(): boolean
-    vfuncStepOut(): boolean
-    vfuncStepOver(): boolean
-    vfuncUnload(): boolean
-    /* Signals of IAnjuta.Debugger */
+    /* Signals of IAnjuta-3.0.IAnjuta.Debugger */
     connect(sigName: "debugger-ready", callback: (($obj: DebuggerInstruction, object: DebuggerState) => void)): number
-    connect_after(sigName: "debugger-ready", callback: (($obj: DebuggerInstruction, object: DebuggerState) => void)): number
+    on(sigName: "debugger-ready", callback: (object: DebuggerState) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "debugger-ready", callback: (object: DebuggerState) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "debugger-ready", callback: (object: DebuggerState) => void): NodeJS.EventEmitter
     emit(sigName: "debugger-ready", object: DebuggerState): void
-    on(sigName: "debugger-ready", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "debugger-ready", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "debugger-ready", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "debugger-started", callback: (($obj: DebuggerInstruction) => void)): number
-    connect_after(sigName: "debugger-started", callback: (($obj: DebuggerInstruction) => void)): number
+    on(sigName: "debugger-started", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "debugger-started", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "debugger-started", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "debugger-started"): void
-    on(sigName: "debugger-started", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "debugger-started", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "debugger-started", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "debugger-stopped", callback: (($obj: DebuggerInstruction, object: GLib.Error) => void)): number
-    connect_after(sigName: "debugger-stopped", callback: (($obj: DebuggerInstruction, object: GLib.Error) => void)): number
+    on(sigName: "debugger-stopped", callback: (object: GLib.Error) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "debugger-stopped", callback: (object: GLib.Error) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "debugger-stopped", callback: (object: GLib.Error) => void): NodeJS.EventEmitter
     emit(sigName: "debugger-stopped", object: GLib.Error): void
-    on(sigName: "debugger-stopped", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "debugger-stopped", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "debugger-stopped", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "frame-changed", callback: (($obj: DebuggerInstruction, object: number, p0: number) => void)): number
-    connect_after(sigName: "frame-changed", callback: (($obj: DebuggerInstruction, object: number, p0: number) => void)): number
+    on(sigName: "frame-changed", callback: (object: number, p0: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "frame-changed", callback: (object: number, p0: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "frame-changed", callback: (object: number, p0: number) => void): NodeJS.EventEmitter
     emit(sigName: "frame-changed", object: number, p0: number): void
-    on(sigName: "frame-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "frame-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "frame-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "program-exited", callback: (($obj: DebuggerInstruction) => void)): number
-    connect_after(sigName: "program-exited", callback: (($obj: DebuggerInstruction) => void)): number
+    on(sigName: "program-exited", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "program-exited", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "program-exited", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "program-exited"): void
-    on(sigName: "program-exited", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "program-exited", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "program-exited", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "program-loaded", callback: (($obj: DebuggerInstruction) => void)): number
-    connect_after(sigName: "program-loaded", callback: (($obj: DebuggerInstruction) => void)): number
+    on(sigName: "program-loaded", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "program-loaded", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "program-loaded", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "program-loaded"): void
-    on(sigName: "program-loaded", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "program-loaded", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "program-loaded", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "program-moved", callback: (($obj: DebuggerInstruction, object: number, p0: number, p1: number, p2: string, p3: number) => void)): number
-    connect_after(sigName: "program-moved", callback: (($obj: DebuggerInstruction, object: number, p0: number, p1: number, p2: string, p3: number) => void)): number
+    on(sigName: "program-moved", callback: (object: number, p0: number, p1: number, p2: string, p3: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "program-moved", callback: (object: number, p0: number, p1: number, p2: string, p3: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "program-moved", callback: (object: number, p0: number, p1: number, p2: string, p3: number) => void): NodeJS.EventEmitter
     emit(sigName: "program-moved", object: number, p0: number, p1: number, p2: string, p3: number): void
-    on(sigName: "program-moved", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "program-moved", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "program-moved", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "program-running", callback: (($obj: DebuggerInstruction) => void)): number
-    connect_after(sigName: "program-running", callback: (($obj: DebuggerInstruction) => void)): number
+    on(sigName: "program-running", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "program-running", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "program-running", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "program-running"): void
-    on(sigName: "program-running", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "program-running", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "program-running", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "program-stopped", callback: (($obj: DebuggerInstruction) => void)): number
-    connect_after(sigName: "program-stopped", callback: (($obj: DebuggerInstruction) => void)): number
+    on(sigName: "program-stopped", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "program-stopped", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "program-stopped", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "program-stopped"): void
-    on(sigName: "program-stopped", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "program-stopped", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "program-stopped", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "sharedlib-event", callback: (($obj: DebuggerInstruction) => void)): number
-    connect_after(sigName: "sharedlib-event", callback: (($obj: DebuggerInstruction) => void)): number
+    on(sigName: "sharedlib-event", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "sharedlib-event", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "sharedlib-event", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "sharedlib-event"): void
-    on(sigName: "sharedlib-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "sharedlib-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "sharedlib-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "signal-received", callback: (($obj: DebuggerInstruction, object: string, p0: string) => void)): number
-    connect_after(sigName: "signal-received", callback: (($obj: DebuggerInstruction, object: string, p0: string) => void)): number
+    on(sigName: "signal-received", callback: (object: string, p0: string) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "signal-received", callback: (object: string, p0: string) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "signal-received", callback: (object: string, p0: string) => void): NodeJS.EventEmitter
     emit(sigName: "signal-received", object: string, p0: string): void
-    on(sigName: "signal-received", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "signal-received", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "signal-received", callback: (...args: any[]) => void): NodeJS.EventEmitter
     static name: string
     /* Static methods and pseudo-constructors */
     static errorQuark(): GLib.Quark
 }
 export class DebuggerMemory {
-    /* Methods of IAnjuta.Debugger */
+    /* Methods of IAnjuta-3.0.IAnjuta.Debugger */
     abort(): boolean
     attach(pid: number, sourceSearchDirectories: string[]): boolean
     connect(server: string, args: string, terminal: boolean, stop: boolean): boolean
@@ -948,117 +754,70 @@ export class DebuggerMemory {
     stepOut(): boolean
     stepOver(): boolean
     unload(): boolean
-    /* Virtual methods of IAnjuta.Debugger */
-    vfuncAbort(): boolean
-    vfuncAttach(pid: number, sourceSearchDirectories: string[]): boolean
-    vfuncConnect(server: string, args: string, terminal: boolean, stop: boolean): boolean
-    vfuncDebuggerReady(state: DebuggerState): void
-    vfuncDebuggerStarted(): void
-    vfuncDebuggerStopped(err: GLib.Error): void
-    vfuncDisableLog(): void
-    vfuncEnableLog(log: MessageView): void
-    vfuncExit(): boolean
-    vfuncFrameChanged(frame: number, thread: number): void
-    vfuncGetState(): DebuggerState
-    vfuncHandleSignal(name: string, stop: boolean, print: boolean, ignore: boolean): boolean
-    vfuncInterrupt(): boolean
-    vfuncLoad(file: string, mimeType: string, sourceSearchDirectories: string[]): boolean
-    vfuncProgramExited(): void
-    vfuncProgramLoaded(): void
-    vfuncProgramMoved(pid: number, tid: number, address: number, file: string, line: number): void
-    vfuncProgramRunning(): void
-    vfuncProgramStopped(): void
-    vfuncQuit(): boolean
-    vfuncRun(): boolean
-    vfuncRunFrom(file: string, line: number): boolean
-    vfuncRunTo(file: string, line: number): boolean
-    vfuncSendCommand(command: string): boolean
-    vfuncSetEnvironment(env: string): boolean
-    vfuncSetFrame(frame: number): boolean
-    vfuncSetThread(thread: number): boolean
-    vfuncSetWorkingDirectory(dir: string): boolean
-    vfuncSharedlibEvent(): void
-    vfuncSignalReceived(name: string, description: string): void
-    vfuncStart(args: string, terminal: boolean, stop: boolean): boolean
-    vfuncStepIn(): boolean
-    vfuncStepOut(): boolean
-    vfuncStepOver(): boolean
-    vfuncUnload(): boolean
-    /* Signals of IAnjuta.Debugger */
+    /* Signals of IAnjuta-3.0.IAnjuta.Debugger */
     connect(sigName: "debugger-ready", callback: (($obj: DebuggerMemory, object: DebuggerState) => void)): number
-    connect_after(sigName: "debugger-ready", callback: (($obj: DebuggerMemory, object: DebuggerState) => void)): number
+    on(sigName: "debugger-ready", callback: (object: DebuggerState) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "debugger-ready", callback: (object: DebuggerState) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "debugger-ready", callback: (object: DebuggerState) => void): NodeJS.EventEmitter
     emit(sigName: "debugger-ready", object: DebuggerState): void
-    on(sigName: "debugger-ready", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "debugger-ready", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "debugger-ready", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "debugger-started", callback: (($obj: DebuggerMemory) => void)): number
-    connect_after(sigName: "debugger-started", callback: (($obj: DebuggerMemory) => void)): number
+    on(sigName: "debugger-started", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "debugger-started", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "debugger-started", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "debugger-started"): void
-    on(sigName: "debugger-started", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "debugger-started", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "debugger-started", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "debugger-stopped", callback: (($obj: DebuggerMemory, object: GLib.Error) => void)): number
-    connect_after(sigName: "debugger-stopped", callback: (($obj: DebuggerMemory, object: GLib.Error) => void)): number
+    on(sigName: "debugger-stopped", callback: (object: GLib.Error) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "debugger-stopped", callback: (object: GLib.Error) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "debugger-stopped", callback: (object: GLib.Error) => void): NodeJS.EventEmitter
     emit(sigName: "debugger-stopped", object: GLib.Error): void
-    on(sigName: "debugger-stopped", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "debugger-stopped", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "debugger-stopped", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "frame-changed", callback: (($obj: DebuggerMemory, object: number, p0: number) => void)): number
-    connect_after(sigName: "frame-changed", callback: (($obj: DebuggerMemory, object: number, p0: number) => void)): number
+    on(sigName: "frame-changed", callback: (object: number, p0: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "frame-changed", callback: (object: number, p0: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "frame-changed", callback: (object: number, p0: number) => void): NodeJS.EventEmitter
     emit(sigName: "frame-changed", object: number, p0: number): void
-    on(sigName: "frame-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "frame-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "frame-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "program-exited", callback: (($obj: DebuggerMemory) => void)): number
-    connect_after(sigName: "program-exited", callback: (($obj: DebuggerMemory) => void)): number
+    on(sigName: "program-exited", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "program-exited", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "program-exited", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "program-exited"): void
-    on(sigName: "program-exited", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "program-exited", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "program-exited", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "program-loaded", callback: (($obj: DebuggerMemory) => void)): number
-    connect_after(sigName: "program-loaded", callback: (($obj: DebuggerMemory) => void)): number
+    on(sigName: "program-loaded", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "program-loaded", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "program-loaded", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "program-loaded"): void
-    on(sigName: "program-loaded", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "program-loaded", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "program-loaded", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "program-moved", callback: (($obj: DebuggerMemory, object: number, p0: number, p1: number, p2: string, p3: number) => void)): number
-    connect_after(sigName: "program-moved", callback: (($obj: DebuggerMemory, object: number, p0: number, p1: number, p2: string, p3: number) => void)): number
+    on(sigName: "program-moved", callback: (object: number, p0: number, p1: number, p2: string, p3: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "program-moved", callback: (object: number, p0: number, p1: number, p2: string, p3: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "program-moved", callback: (object: number, p0: number, p1: number, p2: string, p3: number) => void): NodeJS.EventEmitter
     emit(sigName: "program-moved", object: number, p0: number, p1: number, p2: string, p3: number): void
-    on(sigName: "program-moved", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "program-moved", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "program-moved", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "program-running", callback: (($obj: DebuggerMemory) => void)): number
-    connect_after(sigName: "program-running", callback: (($obj: DebuggerMemory) => void)): number
+    on(sigName: "program-running", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "program-running", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "program-running", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "program-running"): void
-    on(sigName: "program-running", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "program-running", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "program-running", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "program-stopped", callback: (($obj: DebuggerMemory) => void)): number
-    connect_after(sigName: "program-stopped", callback: (($obj: DebuggerMemory) => void)): number
+    on(sigName: "program-stopped", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "program-stopped", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "program-stopped", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "program-stopped"): void
-    on(sigName: "program-stopped", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "program-stopped", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "program-stopped", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "sharedlib-event", callback: (($obj: DebuggerMemory) => void)): number
-    connect_after(sigName: "sharedlib-event", callback: (($obj: DebuggerMemory) => void)): number
+    on(sigName: "sharedlib-event", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "sharedlib-event", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "sharedlib-event", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "sharedlib-event"): void
-    on(sigName: "sharedlib-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "sharedlib-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "sharedlib-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "signal-received", callback: (($obj: DebuggerMemory, object: string, p0: string) => void)): number
-    connect_after(sigName: "signal-received", callback: (($obj: DebuggerMemory, object: string, p0: string) => void)): number
+    on(sigName: "signal-received", callback: (object: string, p0: string) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "signal-received", callback: (object: string, p0: string) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "signal-received", callback: (object: string, p0: string) => void): NodeJS.EventEmitter
     emit(sigName: "signal-received", object: string, p0: string): void
-    on(sigName: "signal-received", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "signal-received", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "signal-received", callback: (...args: any[]) => void): NodeJS.EventEmitter
     static name: string
     /* Static methods and pseudo-constructors */
     static errorQuark(): GLib.Quark
 }
 export class DebuggerRegister {
-    /* Methods of IAnjuta.DebuggerRegister */
+    /* Methods of IAnjuta-3.0.IAnjuta.DebuggerRegister */
     writeRegister(value: DebuggerRegisterData): boolean
-    /* Methods of IAnjuta.Debugger */
+    /* Methods of IAnjuta-3.0.IAnjuta.Debugger */
     abort(): boolean
     attach(pid: number, sourceSearchDirectories: string[]): boolean
     connect(server: string, args: string, terminal: boolean, stop: boolean): boolean
@@ -1083,120 +842,71 @@ export class DebuggerRegister {
     stepOut(): boolean
     stepOver(): boolean
     unload(): boolean
-    /* Virtual methods of IAnjuta.DebuggerRegister */
-    vfuncWriteRegister(value: DebuggerRegisterData): boolean
-    /* Virtual methods of IAnjuta.Debugger */
-    vfuncAbort(): boolean
-    vfuncAttach(pid: number, sourceSearchDirectories: string[]): boolean
-    vfuncConnect(server: string, args: string, terminal: boolean, stop: boolean): boolean
-    vfuncDebuggerReady(state: DebuggerState): void
-    vfuncDebuggerStarted(): void
-    vfuncDebuggerStopped(err: GLib.Error): void
-    vfuncDisableLog(): void
-    vfuncEnableLog(log: MessageView): void
-    vfuncExit(): boolean
-    vfuncFrameChanged(frame: number, thread: number): void
-    vfuncGetState(): DebuggerState
-    vfuncHandleSignal(name: string, stop: boolean, print: boolean, ignore: boolean): boolean
-    vfuncInterrupt(): boolean
-    vfuncLoad(file: string, mimeType: string, sourceSearchDirectories: string[]): boolean
-    vfuncProgramExited(): void
-    vfuncProgramLoaded(): void
-    vfuncProgramMoved(pid: number, tid: number, address: number, file: string, line: number): void
-    vfuncProgramRunning(): void
-    vfuncProgramStopped(): void
-    vfuncQuit(): boolean
-    vfuncRun(): boolean
-    vfuncRunFrom(file: string, line: number): boolean
-    vfuncRunTo(file: string, line: number): boolean
-    vfuncSendCommand(command: string): boolean
-    vfuncSetEnvironment(env: string): boolean
-    vfuncSetFrame(frame: number): boolean
-    vfuncSetThread(thread: number): boolean
-    vfuncSetWorkingDirectory(dir: string): boolean
-    vfuncSharedlibEvent(): void
-    vfuncSignalReceived(name: string, description: string): void
-    vfuncStart(args: string, terminal: boolean, stop: boolean): boolean
-    vfuncStepIn(): boolean
-    vfuncStepOut(): boolean
-    vfuncStepOver(): boolean
-    vfuncUnload(): boolean
-    /* Signals of IAnjuta.Debugger */
+    /* Signals of IAnjuta-3.0.IAnjuta.Debugger */
     connect(sigName: "debugger-ready", callback: (($obj: DebuggerRegister, object: DebuggerState) => void)): number
-    connect_after(sigName: "debugger-ready", callback: (($obj: DebuggerRegister, object: DebuggerState) => void)): number
+    on(sigName: "debugger-ready", callback: (object: DebuggerState) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "debugger-ready", callback: (object: DebuggerState) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "debugger-ready", callback: (object: DebuggerState) => void): NodeJS.EventEmitter
     emit(sigName: "debugger-ready", object: DebuggerState): void
-    on(sigName: "debugger-ready", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "debugger-ready", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "debugger-ready", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "debugger-started", callback: (($obj: DebuggerRegister) => void)): number
-    connect_after(sigName: "debugger-started", callback: (($obj: DebuggerRegister) => void)): number
+    on(sigName: "debugger-started", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "debugger-started", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "debugger-started", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "debugger-started"): void
-    on(sigName: "debugger-started", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "debugger-started", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "debugger-started", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "debugger-stopped", callback: (($obj: DebuggerRegister, object: GLib.Error) => void)): number
-    connect_after(sigName: "debugger-stopped", callback: (($obj: DebuggerRegister, object: GLib.Error) => void)): number
+    on(sigName: "debugger-stopped", callback: (object: GLib.Error) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "debugger-stopped", callback: (object: GLib.Error) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "debugger-stopped", callback: (object: GLib.Error) => void): NodeJS.EventEmitter
     emit(sigName: "debugger-stopped", object: GLib.Error): void
-    on(sigName: "debugger-stopped", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "debugger-stopped", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "debugger-stopped", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "frame-changed", callback: (($obj: DebuggerRegister, object: number, p0: number) => void)): number
-    connect_after(sigName: "frame-changed", callback: (($obj: DebuggerRegister, object: number, p0: number) => void)): number
+    on(sigName: "frame-changed", callback: (object: number, p0: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "frame-changed", callback: (object: number, p0: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "frame-changed", callback: (object: number, p0: number) => void): NodeJS.EventEmitter
     emit(sigName: "frame-changed", object: number, p0: number): void
-    on(sigName: "frame-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "frame-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "frame-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "program-exited", callback: (($obj: DebuggerRegister) => void)): number
-    connect_after(sigName: "program-exited", callback: (($obj: DebuggerRegister) => void)): number
+    on(sigName: "program-exited", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "program-exited", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "program-exited", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "program-exited"): void
-    on(sigName: "program-exited", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "program-exited", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "program-exited", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "program-loaded", callback: (($obj: DebuggerRegister) => void)): number
-    connect_after(sigName: "program-loaded", callback: (($obj: DebuggerRegister) => void)): number
+    on(sigName: "program-loaded", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "program-loaded", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "program-loaded", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "program-loaded"): void
-    on(sigName: "program-loaded", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "program-loaded", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "program-loaded", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "program-moved", callback: (($obj: DebuggerRegister, object: number, p0: number, p1: number, p2: string, p3: number) => void)): number
-    connect_after(sigName: "program-moved", callback: (($obj: DebuggerRegister, object: number, p0: number, p1: number, p2: string, p3: number) => void)): number
+    on(sigName: "program-moved", callback: (object: number, p0: number, p1: number, p2: string, p3: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "program-moved", callback: (object: number, p0: number, p1: number, p2: string, p3: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "program-moved", callback: (object: number, p0: number, p1: number, p2: string, p3: number) => void): NodeJS.EventEmitter
     emit(sigName: "program-moved", object: number, p0: number, p1: number, p2: string, p3: number): void
-    on(sigName: "program-moved", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "program-moved", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "program-moved", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "program-running", callback: (($obj: DebuggerRegister) => void)): number
-    connect_after(sigName: "program-running", callback: (($obj: DebuggerRegister) => void)): number
+    on(sigName: "program-running", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "program-running", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "program-running", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "program-running"): void
-    on(sigName: "program-running", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "program-running", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "program-running", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "program-stopped", callback: (($obj: DebuggerRegister) => void)): number
-    connect_after(sigName: "program-stopped", callback: (($obj: DebuggerRegister) => void)): number
+    on(sigName: "program-stopped", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "program-stopped", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "program-stopped", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "program-stopped"): void
-    on(sigName: "program-stopped", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "program-stopped", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "program-stopped", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "sharedlib-event", callback: (($obj: DebuggerRegister) => void)): number
-    connect_after(sigName: "sharedlib-event", callback: (($obj: DebuggerRegister) => void)): number
+    on(sigName: "sharedlib-event", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "sharedlib-event", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "sharedlib-event", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "sharedlib-event"): void
-    on(sigName: "sharedlib-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "sharedlib-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "sharedlib-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "signal-received", callback: (($obj: DebuggerRegister, object: string, p0: string) => void)): number
-    connect_after(sigName: "signal-received", callback: (($obj: DebuggerRegister, object: string, p0: string) => void)): number
+    on(sigName: "signal-received", callback: (object: string, p0: string) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "signal-received", callback: (object: string, p0: string) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "signal-received", callback: (object: string, p0: string) => void): NodeJS.EventEmitter
     emit(sigName: "signal-received", object: string, p0: string): void
-    on(sigName: "signal-received", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "signal-received", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "signal-received", callback: (...args: any[]) => void): NodeJS.EventEmitter
     static name: string
     /* Static methods and pseudo-constructors */
     static errorQuark(): GLib.Quark
 }
 export class DebuggerVariable {
-    /* Methods of IAnjuta.DebuggerVariable */
+    /* Methods of IAnjuta-3.0.IAnjuta.DebuggerVariable */
     assign(name: string, value: string): boolean
     destroy(name: string): boolean
-    /* Methods of IAnjuta.Debugger */
+    /* Methods of IAnjuta-3.0.IAnjuta.Debugger */
     abort(): boolean
     attach(pid: number, sourceSearchDirectories: string[]): boolean
     connect(server: string, args: string, terminal: boolean, stop: boolean): boolean
@@ -1221,118 +931,68 @@ export class DebuggerVariable {
     stepOut(): boolean
     stepOver(): boolean
     unload(): boolean
-    /* Virtual methods of IAnjuta.DebuggerVariable */
-    vfuncAssign(name: string, value: string): boolean
-    vfuncDestroy(name: string): boolean
-    /* Virtual methods of IAnjuta.Debugger */
-    vfuncAbort(): boolean
-    vfuncAttach(pid: number, sourceSearchDirectories: string[]): boolean
-    vfuncConnect(server: string, args: string, terminal: boolean, stop: boolean): boolean
-    vfuncDebuggerReady(state: DebuggerState): void
-    vfuncDebuggerStarted(): void
-    vfuncDebuggerStopped(err: GLib.Error): void
-    vfuncDisableLog(): void
-    vfuncEnableLog(log: MessageView): void
-    vfuncExit(): boolean
-    vfuncFrameChanged(frame: number, thread: number): void
-    vfuncGetState(): DebuggerState
-    vfuncHandleSignal(name: string, stop: boolean, print: boolean, ignore: boolean): boolean
-    vfuncInterrupt(): boolean
-    vfuncLoad(file: string, mimeType: string, sourceSearchDirectories: string[]): boolean
-    vfuncProgramExited(): void
-    vfuncProgramLoaded(): void
-    vfuncProgramMoved(pid: number, tid: number, address: number, file: string, line: number): void
-    vfuncProgramRunning(): void
-    vfuncProgramStopped(): void
-    vfuncQuit(): boolean
-    vfuncRun(): boolean
-    vfuncRunFrom(file: string, line: number): boolean
-    vfuncRunTo(file: string, line: number): boolean
-    vfuncSendCommand(command: string): boolean
-    vfuncSetEnvironment(env: string): boolean
-    vfuncSetFrame(frame: number): boolean
-    vfuncSetThread(thread: number): boolean
-    vfuncSetWorkingDirectory(dir: string): boolean
-    vfuncSharedlibEvent(): void
-    vfuncSignalReceived(name: string, description: string): void
-    vfuncStart(args: string, terminal: boolean, stop: boolean): boolean
-    vfuncStepIn(): boolean
-    vfuncStepOut(): boolean
-    vfuncStepOver(): boolean
-    vfuncUnload(): boolean
-    /* Signals of IAnjuta.Debugger */
+    /* Signals of IAnjuta-3.0.IAnjuta.Debugger */
     connect(sigName: "debugger-ready", callback: (($obj: DebuggerVariable, object: DebuggerState) => void)): number
-    connect_after(sigName: "debugger-ready", callback: (($obj: DebuggerVariable, object: DebuggerState) => void)): number
+    on(sigName: "debugger-ready", callback: (object: DebuggerState) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "debugger-ready", callback: (object: DebuggerState) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "debugger-ready", callback: (object: DebuggerState) => void): NodeJS.EventEmitter
     emit(sigName: "debugger-ready", object: DebuggerState): void
-    on(sigName: "debugger-ready", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "debugger-ready", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "debugger-ready", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "debugger-started", callback: (($obj: DebuggerVariable) => void)): number
-    connect_after(sigName: "debugger-started", callback: (($obj: DebuggerVariable) => void)): number
+    on(sigName: "debugger-started", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "debugger-started", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "debugger-started", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "debugger-started"): void
-    on(sigName: "debugger-started", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "debugger-started", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "debugger-started", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "debugger-stopped", callback: (($obj: DebuggerVariable, object: GLib.Error) => void)): number
-    connect_after(sigName: "debugger-stopped", callback: (($obj: DebuggerVariable, object: GLib.Error) => void)): number
+    on(sigName: "debugger-stopped", callback: (object: GLib.Error) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "debugger-stopped", callback: (object: GLib.Error) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "debugger-stopped", callback: (object: GLib.Error) => void): NodeJS.EventEmitter
     emit(sigName: "debugger-stopped", object: GLib.Error): void
-    on(sigName: "debugger-stopped", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "debugger-stopped", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "debugger-stopped", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "frame-changed", callback: (($obj: DebuggerVariable, object: number, p0: number) => void)): number
-    connect_after(sigName: "frame-changed", callback: (($obj: DebuggerVariable, object: number, p0: number) => void)): number
+    on(sigName: "frame-changed", callback: (object: number, p0: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "frame-changed", callback: (object: number, p0: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "frame-changed", callback: (object: number, p0: number) => void): NodeJS.EventEmitter
     emit(sigName: "frame-changed", object: number, p0: number): void
-    on(sigName: "frame-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "frame-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "frame-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "program-exited", callback: (($obj: DebuggerVariable) => void)): number
-    connect_after(sigName: "program-exited", callback: (($obj: DebuggerVariable) => void)): number
+    on(sigName: "program-exited", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "program-exited", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "program-exited", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "program-exited"): void
-    on(sigName: "program-exited", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "program-exited", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "program-exited", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "program-loaded", callback: (($obj: DebuggerVariable) => void)): number
-    connect_after(sigName: "program-loaded", callback: (($obj: DebuggerVariable) => void)): number
+    on(sigName: "program-loaded", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "program-loaded", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "program-loaded", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "program-loaded"): void
-    on(sigName: "program-loaded", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "program-loaded", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "program-loaded", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "program-moved", callback: (($obj: DebuggerVariable, object: number, p0: number, p1: number, p2: string, p3: number) => void)): number
-    connect_after(sigName: "program-moved", callback: (($obj: DebuggerVariable, object: number, p0: number, p1: number, p2: string, p3: number) => void)): number
+    on(sigName: "program-moved", callback: (object: number, p0: number, p1: number, p2: string, p3: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "program-moved", callback: (object: number, p0: number, p1: number, p2: string, p3: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "program-moved", callback: (object: number, p0: number, p1: number, p2: string, p3: number) => void): NodeJS.EventEmitter
     emit(sigName: "program-moved", object: number, p0: number, p1: number, p2: string, p3: number): void
-    on(sigName: "program-moved", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "program-moved", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "program-moved", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "program-running", callback: (($obj: DebuggerVariable) => void)): number
-    connect_after(sigName: "program-running", callback: (($obj: DebuggerVariable) => void)): number
+    on(sigName: "program-running", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "program-running", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "program-running", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "program-running"): void
-    on(sigName: "program-running", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "program-running", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "program-running", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "program-stopped", callback: (($obj: DebuggerVariable) => void)): number
-    connect_after(sigName: "program-stopped", callback: (($obj: DebuggerVariable) => void)): number
+    on(sigName: "program-stopped", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "program-stopped", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "program-stopped", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "program-stopped"): void
-    on(sigName: "program-stopped", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "program-stopped", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "program-stopped", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "sharedlib-event", callback: (($obj: DebuggerVariable) => void)): number
-    connect_after(sigName: "sharedlib-event", callback: (($obj: DebuggerVariable) => void)): number
+    on(sigName: "sharedlib-event", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "sharedlib-event", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "sharedlib-event", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "sharedlib-event"): void
-    on(sigName: "sharedlib-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "sharedlib-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "sharedlib-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "signal-received", callback: (($obj: DebuggerVariable, object: string, p0: string) => void)): number
-    connect_after(sigName: "signal-received", callback: (($obj: DebuggerVariable, object: string, p0: string) => void)): number
+    on(sigName: "signal-received", callback: (object: string, p0: string) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "signal-received", callback: (object: string, p0: string) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "signal-received", callback: (object: string, p0: string) => void): NodeJS.EventEmitter
     emit(sigName: "signal-received", object: string, p0: string): void
-    on(sigName: "signal-received", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "signal-received", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "signal-received", callback: (...args: any[]) => void): NodeJS.EventEmitter
     static name: string
     /* Static methods and pseudo-constructors */
     static errorQuark(): GLib.Quark
 }
 export class Document {
-    /* Methods of IAnjuta.Document */
+    /* Methods of IAnjuta-3.0.IAnjuta.Document */
     beginUndoAction(): void
     canRedo(): boolean
     canUndo(): boolean
@@ -1345,33 +1005,18 @@ export class Document {
     paste(): void
     redo(): void
     undo(): void
-    /* Virtual methods of IAnjuta.Document */
-    vfuncBeginUndoAction(): void
-    vfuncCanRedo(): boolean
-    vfuncCanUndo(): boolean
-    vfuncClear(): void
-    vfuncCopy(): void
-    vfuncCut(): void
-    vfuncEndUndoAction(): void
-    vfuncGetFilename(): string
-    vfuncGrabFocus(): void
-    vfuncPaste(): void
-    vfuncRedo(): void
-    vfuncUndo(): void
-    vfuncUpdateUi(): void
-    /* Signals of IAnjuta.Document */
+    /* Signals of IAnjuta-3.0.IAnjuta.Document */
     connect(sigName: "update-ui", callback: (($obj: Document) => void)): number
-    connect_after(sigName: "update-ui", callback: (($obj: Document) => void)): number
+    on(sigName: "update-ui", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "update-ui", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "update-ui", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "update-ui"): void
-    on(sigName: "update-ui", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "update-ui", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "update-ui", callback: (...args: any[]) => void): NodeJS.EventEmitter
     static name: string
     /* Static methods and pseudo-constructors */
     static errorQuark(): GLib.Quark
 }
 export class DocumentManager {
-    /* Methods of IAnjuta.DocumentManager */
+    /* Methods of IAnjuta-3.0.IAnjuta.DocumentManager */
     addBookmark(file: Gio.File, line: number): void
     addBuffer(name: string, content: string): Editor
     addDocument(document: Document): void
@@ -1383,37 +1028,21 @@ export class DocumentManager {
     gotoFileLineMark(file: Gio.File, lineno: number, mark: boolean): Editor
     removeDocument(document: Document, saveBefore: boolean): boolean
     setCurrentDocument(document: Document): void
-    /* Virtual methods of IAnjuta.DocumentManager */
-    vfuncAddBookmark(file: Gio.File, line: number): void
-    vfuncAddBuffer(name: string, content: string): Editor
-    vfuncAddDocument(document: Document): void
-    vfuncDocumentAdded(doc: Document): void
-    vfuncDocumentRemoved(doc: Document): void
-    vfuncFindDocumentWithFile(file: Gio.File): Document
-    vfuncGetCurrentDocument(): Document
-    vfuncGetDocWidgets(): Gtk.Widget[]
-    vfuncGetFile(filename: string): Gio.File
-    vfuncGotoFileLine(file: Gio.File, lineno: number): Editor
-    vfuncGotoFileLineMark(file: Gio.File, lineno: number, mark: boolean): Editor
-    vfuncRemoveDocument(document: Document, saveBefore: boolean): boolean
-    vfuncSetCurrentDocument(document: Document): void
-    /* Signals of IAnjuta.DocumentManager */
+    /* Signals of IAnjuta-3.0.IAnjuta.DocumentManager */
     connect(sigName: "document-added", callback: (($obj: DocumentManager, doc: Document) => void)): number
-    connect_after(sigName: "document-added", callback: (($obj: DocumentManager, doc: Document) => void)): number
+    on(sigName: "document-added", callback: (doc: Document) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "document-added", callback: (doc: Document) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "document-added", callback: (doc: Document) => void): NodeJS.EventEmitter
     emit(sigName: "document-added", doc: Document): void
-    on(sigName: "document-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "document-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "document-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "document-removed", callback: (($obj: DocumentManager, doc: Document) => void)): number
-    connect_after(sigName: "document-removed", callback: (($obj: DocumentManager, doc: Document) => void)): number
+    on(sigName: "document-removed", callback: (doc: Document) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "document-removed", callback: (doc: Document) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "document-removed", callback: (doc: Document) => void): NodeJS.EventEmitter
     emit(sigName: "document-removed", doc: Document): void
-    on(sigName: "document-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "document-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "document-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     static name: string
 }
 export class Editor {
-    /* Methods of IAnjuta.Editor */
+    /* Methods of IAnjuta-3.0.IAnjuta.Editor */
     append(text: string, length: number): void
     erase(positionStart: Iterable, positionEnd: Iterable): void
     eraseAll(): void
@@ -1444,103 +1073,56 @@ export class Editor {
     setPopupMenu(menu: Gtk.Widget): void
     setTabsize(tabsize: number): void
     setUseSpaces(useSpaces: boolean): void
-    /* Virtual methods of IAnjuta.Editor */
-    vfuncAppend(text: string, length: number): void
-    vfuncBackspace(): void
-    vfuncChanged(position: Iterable, added: boolean, length: number, lines: number, text: string): void
-    vfuncCharAdded(position: Iterable, ch: number): void
-    vfuncCodeChanged(position: Iterable, code: string): void
-    vfuncCursorMoved(): void
-    vfuncErase(positionStart: Iterable, positionEnd: Iterable): void
-    vfuncEraseAll(): void
-    vfuncGetColumn(): number
-    vfuncGetCurrentWord(): string
-    vfuncGetEndPosition(): Iterable
-    vfuncGetIndentsize(): number
-    vfuncGetLength(): number
-    vfuncGetLineBeginPosition(line: number): Iterable
-    vfuncGetLineEndPosition(line: number): Iterable
-    vfuncGetLineFromPosition(position: Iterable): number
-    vfuncGetLineno(): number
-    vfuncGetOffset(): number
-    vfuncGetOverwrite(): boolean
-    vfuncGetPosition(): Iterable
-    vfuncGetStartPosition(): Iterable
-    vfuncGetTabsize(): number
-    vfuncGetText(begin: Iterable, end: Iterable): string
-    vfuncGetTextAll(): string
-    vfuncGetUseSpaces(): boolean
-    vfuncGladeCallbackAdd(widgetTypename: string, signalName: string, handlerName: string, object: string, swap: boolean, after: boolean, filename: string): void
-    vfuncGladeMemberAdd(widgetTypename: string, widgetName: string, filename: string): void
-    vfuncGotoEnd(): void
-    vfuncGotoLine(lineno: number): void
-    vfuncGotoPosition(position: Iterable): void
-    vfuncGotoStart(): void
-    vfuncInsert(position: Iterable, text: string, length: number): void
-    vfuncLineMarksGutterClicked(location: number): void
-    vfuncSetAutoIndent(autoIndent: boolean): void
-    vfuncSetIndentsize(indentsize: number): void
-    vfuncSetPopupMenu(menu: Gtk.Widget): void
-    vfuncSetTabsize(tabsize: number): void
-    vfuncSetUseSpaces(useSpaces: boolean): void
-    /* Signals of IAnjuta.Editor */
+    /* Signals of IAnjuta-3.0.IAnjuta.Editor */
     connect(sigName: "backspace", callback: (($obj: Editor) => void)): number
-    connect_after(sigName: "backspace", callback: (($obj: Editor) => void)): number
+    on(sigName: "backspace", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "backspace", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "backspace", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "backspace"): void
-    on(sigName: "backspace", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "backspace", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "backspace", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "changed", callback: (($obj: Editor, added: Iterable, length: boolean, lines: number, text: number, obj: string) => void)): number
-    connect_after(sigName: "changed", callback: (($obj: Editor, added: Iterable, length: boolean, lines: number, text: number, obj: string) => void)): number
+    on(sigName: "changed", callback: (added: Iterable, length: boolean, lines: number, text: number, obj: string) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "changed", callback: (added: Iterable, length: boolean, lines: number, text: number, obj: string) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "changed", callback: (added: Iterable, length: boolean, lines: number, text: number, obj: string) => void): NodeJS.EventEmitter
     emit(sigName: "changed", added: Iterable, length: boolean, lines: number, text: number, obj: string): void
-    on(sigName: "changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "char-added", callback: (($obj: Editor, ch: Iterable, obj: number) => void)): number
-    connect_after(sigName: "char-added", callback: (($obj: Editor, ch: Iterable, obj: number) => void)): number
+    on(sigName: "char-added", callback: (ch: Iterable, obj: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "char-added", callback: (ch: Iterable, obj: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "char-added", callback: (ch: Iterable, obj: number) => void): NodeJS.EventEmitter
     emit(sigName: "char-added", ch: Iterable, obj: number): void
-    on(sigName: "char-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "char-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "char-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "code-changed", callback: (($obj: Editor, code: Iterable, obj: string) => void)): number
-    connect_after(sigName: "code-changed", callback: (($obj: Editor, code: Iterable, obj: string) => void)): number
+    on(sigName: "code-changed", callback: (code: Iterable, obj: string) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "code-changed", callback: (code: Iterable, obj: string) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "code-changed", callback: (code: Iterable, obj: string) => void): NodeJS.EventEmitter
     emit(sigName: "code-changed", code: Iterable, obj: string): void
-    on(sigName: "code-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "code-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "code-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "cursor-moved", callback: (($obj: Editor) => void)): number
-    connect_after(sigName: "cursor-moved", callback: (($obj: Editor) => void)): number
+    on(sigName: "cursor-moved", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "cursor-moved", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "cursor-moved", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "cursor-moved"): void
-    on(sigName: "cursor-moved", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "cursor-moved", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "cursor-moved", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "glade-callback-add", callback: (($obj: Editor, signalName: string, handlerName: string, object: string, swap: string, after: boolean, filename: boolean, obj: string) => void)): number
-    connect_after(sigName: "glade-callback-add", callback: (($obj: Editor, signalName: string, handlerName: string, object: string, swap: string, after: boolean, filename: boolean, obj: string) => void)): number
+    on(sigName: "glade-callback-add", callback: (signalName: string, handlerName: string, object: string, swap: string, after: boolean, filename: boolean, obj: string) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "glade-callback-add", callback: (signalName: string, handlerName: string, object: string, swap: string, after: boolean, filename: boolean, obj: string) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "glade-callback-add", callback: (signalName: string, handlerName: string, object: string, swap: string, after: boolean, filename: boolean, obj: string) => void): NodeJS.EventEmitter
     emit(sigName: "glade-callback-add", signalName: string, handlerName: string, object: string, swap: string, after: boolean, filename: boolean, obj: string): void
-    on(sigName: "glade-callback-add", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "glade-callback-add", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "glade-callback-add", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "glade-member-add", callback: (($obj: Editor, widgetName: string, filename: string, obj: string) => void)): number
-    connect_after(sigName: "glade-member-add", callback: (($obj: Editor, widgetName: string, filename: string, obj: string) => void)): number
+    on(sigName: "glade-member-add", callback: (widgetName: string, filename: string, obj: string) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "glade-member-add", callback: (widgetName: string, filename: string, obj: string) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "glade-member-add", callback: (widgetName: string, filename: string, obj: string) => void): NodeJS.EventEmitter
     emit(sigName: "glade-member-add", widgetName: string, filename: string, obj: string): void
-    on(sigName: "glade-member-add", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "glade-member-add", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "glade-member-add", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "line-marks-gutter-clicked", callback: (($obj: Editor, doubleClick: number) => void)): number
-    connect_after(sigName: "line-marks-gutter-clicked", callback: (($obj: Editor, doubleClick: number) => void)): number
+    on(sigName: "line-marks-gutter-clicked", callback: (doubleClick: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "line-marks-gutter-clicked", callback: (doubleClick: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "line-marks-gutter-clicked", callback: (doubleClick: number) => void): NodeJS.EventEmitter
     emit(sigName: "line-marks-gutter-clicked", doubleClick: number): void
-    on(sigName: "line-marks-gutter-clicked", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "line-marks-gutter-clicked", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "line-marks-gutter-clicked", callback: (...args: any[]) => void): NodeJS.EventEmitter
     static name: string
 }
 export class EditorAssist {
-    /* Methods of IAnjuta.EditorAssist */
+    /* Methods of IAnjuta-3.0.IAnjuta.EditorAssist */
     add(provider: Provider): void
     invoke(provider: Provider): void
     proposals(provider: Provider, proposals: EditorAssistProposal[], preWord: string, finished: boolean): void
     remove(provider: Provider): void
-    /* Methods of IAnjuta.Editor */
+    /* Methods of IAnjuta-3.0.IAnjuta.Editor */
     append(text: string, length: number): void
     erase(positionStart: Iterable, positionEnd: Iterable): void
     eraseAll(): void
@@ -1571,155 +1153,87 @@ export class EditorAssist {
     setPopupMenu(menu: Gtk.Widget): void
     setTabsize(tabsize: number): void
     setUseSpaces(useSpaces: boolean): void
-    /* Virtual methods of IAnjuta.EditorAssist */
-    vfuncAdd(provider: Provider): void
-    vfuncCancelled(): void
-    vfuncInvoke(provider: Provider): void
-    vfuncProposals(provider: Provider, proposals: EditorAssistProposal[], preWord: string, finished: boolean): void
-    vfuncRemove(provider: Provider): void
-    /* Virtual methods of IAnjuta.Editor */
-    vfuncAppend(text: string, length: number): void
-    vfuncBackspace(): void
-    vfuncChanged(position: Iterable, added: boolean, length: number, lines: number, text: string): void
-    vfuncCharAdded(position: Iterable, ch: number): void
-    vfuncCodeChanged(position: Iterable, code: string): void
-    vfuncCursorMoved(): void
-    vfuncErase(positionStart: Iterable, positionEnd: Iterable): void
-    vfuncEraseAll(): void
-    vfuncGetColumn(): number
-    vfuncGetCurrentWord(): string
-    vfuncGetEndPosition(): Iterable
-    vfuncGetIndentsize(): number
-    vfuncGetLength(): number
-    vfuncGetLineBeginPosition(line: number): Iterable
-    vfuncGetLineEndPosition(line: number): Iterable
-    vfuncGetLineFromPosition(position: Iterable): number
-    vfuncGetLineno(): number
-    vfuncGetOffset(): number
-    vfuncGetOverwrite(): boolean
-    vfuncGetPosition(): Iterable
-    vfuncGetStartPosition(): Iterable
-    vfuncGetTabsize(): number
-    vfuncGetText(begin: Iterable, end: Iterable): string
-    vfuncGetTextAll(): string
-    vfuncGetUseSpaces(): boolean
-    vfuncGladeCallbackAdd(widgetTypename: string, signalName: string, handlerName: string, object: string, swap: boolean, after: boolean, filename: string): void
-    vfuncGladeMemberAdd(widgetTypename: string, widgetName: string, filename: string): void
-    vfuncGotoEnd(): void
-    vfuncGotoLine(lineno: number): void
-    vfuncGotoPosition(position: Iterable): void
-    vfuncGotoStart(): void
-    vfuncInsert(position: Iterable, text: string, length: number): void
-    vfuncLineMarksGutterClicked(location: number): void
-    vfuncSetAutoIndent(autoIndent: boolean): void
-    vfuncSetIndentsize(indentsize: number): void
-    vfuncSetPopupMenu(menu: Gtk.Widget): void
-    vfuncSetTabsize(tabsize: number): void
-    vfuncSetUseSpaces(useSpaces: boolean): void
-    /* Signals of IAnjuta.EditorAssist */
+    /* Signals of IAnjuta-3.0.IAnjuta.EditorAssist */
     connect(sigName: "cancelled", callback: (($obj: EditorAssist) => void)): number
-    connect_after(sigName: "cancelled", callback: (($obj: EditorAssist) => void)): number
+    on(sigName: "cancelled", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "cancelled", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "cancelled", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "cancelled"): void
-    on(sigName: "cancelled", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "cancelled", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "cancelled", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of IAnjuta.Editor */
+    /* Signals of IAnjuta-3.0.IAnjuta.Editor */
     connect(sigName: "backspace", callback: (($obj: EditorAssist) => void)): number
-    connect_after(sigName: "backspace", callback: (($obj: EditorAssist) => void)): number
+    on(sigName: "backspace", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "backspace", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "backspace", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "backspace"): void
-    on(sigName: "backspace", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "backspace", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "backspace", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "changed", callback: (($obj: EditorAssist, added: Iterable, length: boolean, lines: number, text: number, obj: string) => void)): number
-    connect_after(sigName: "changed", callback: (($obj: EditorAssist, added: Iterable, length: boolean, lines: number, text: number, obj: string) => void)): number
+    on(sigName: "changed", callback: (added: Iterable, length: boolean, lines: number, text: number, obj: string) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "changed", callback: (added: Iterable, length: boolean, lines: number, text: number, obj: string) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "changed", callback: (added: Iterable, length: boolean, lines: number, text: number, obj: string) => void): NodeJS.EventEmitter
     emit(sigName: "changed", added: Iterable, length: boolean, lines: number, text: number, obj: string): void
-    on(sigName: "changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "char-added", callback: (($obj: EditorAssist, ch: Iterable, obj: number) => void)): number
-    connect_after(sigName: "char-added", callback: (($obj: EditorAssist, ch: Iterable, obj: number) => void)): number
+    on(sigName: "char-added", callback: (ch: Iterable, obj: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "char-added", callback: (ch: Iterable, obj: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "char-added", callback: (ch: Iterable, obj: number) => void): NodeJS.EventEmitter
     emit(sigName: "char-added", ch: Iterable, obj: number): void
-    on(sigName: "char-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "char-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "char-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "code-changed", callback: (($obj: EditorAssist, code: Iterable, obj: string) => void)): number
-    connect_after(sigName: "code-changed", callback: (($obj: EditorAssist, code: Iterable, obj: string) => void)): number
+    on(sigName: "code-changed", callback: (code: Iterable, obj: string) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "code-changed", callback: (code: Iterable, obj: string) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "code-changed", callback: (code: Iterable, obj: string) => void): NodeJS.EventEmitter
     emit(sigName: "code-changed", code: Iterable, obj: string): void
-    on(sigName: "code-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "code-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "code-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "cursor-moved", callback: (($obj: EditorAssist) => void)): number
-    connect_after(sigName: "cursor-moved", callback: (($obj: EditorAssist) => void)): number
+    on(sigName: "cursor-moved", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "cursor-moved", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "cursor-moved", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "cursor-moved"): void
-    on(sigName: "cursor-moved", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "cursor-moved", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "cursor-moved", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "glade-callback-add", callback: (($obj: EditorAssist, signalName: string, handlerName: string, object: string, swap: string, after: boolean, filename: boolean, obj: string) => void)): number
-    connect_after(sigName: "glade-callback-add", callback: (($obj: EditorAssist, signalName: string, handlerName: string, object: string, swap: string, after: boolean, filename: boolean, obj: string) => void)): number
+    on(sigName: "glade-callback-add", callback: (signalName: string, handlerName: string, object: string, swap: string, after: boolean, filename: boolean, obj: string) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "glade-callback-add", callback: (signalName: string, handlerName: string, object: string, swap: string, after: boolean, filename: boolean, obj: string) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "glade-callback-add", callback: (signalName: string, handlerName: string, object: string, swap: string, after: boolean, filename: boolean, obj: string) => void): NodeJS.EventEmitter
     emit(sigName: "glade-callback-add", signalName: string, handlerName: string, object: string, swap: string, after: boolean, filename: boolean, obj: string): void
-    on(sigName: "glade-callback-add", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "glade-callback-add", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "glade-callback-add", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "glade-member-add", callback: (($obj: EditorAssist, widgetName: string, filename: string, obj: string) => void)): number
-    connect_after(sigName: "glade-member-add", callback: (($obj: EditorAssist, widgetName: string, filename: string, obj: string) => void)): number
+    on(sigName: "glade-member-add", callback: (widgetName: string, filename: string, obj: string) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "glade-member-add", callback: (widgetName: string, filename: string, obj: string) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "glade-member-add", callback: (widgetName: string, filename: string, obj: string) => void): NodeJS.EventEmitter
     emit(sigName: "glade-member-add", widgetName: string, filename: string, obj: string): void
-    on(sigName: "glade-member-add", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "glade-member-add", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "glade-member-add", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "line-marks-gutter-clicked", callback: (($obj: EditorAssist, doubleClick: number) => void)): number
-    connect_after(sigName: "line-marks-gutter-clicked", callback: (($obj: EditorAssist, doubleClick: number) => void)): number
+    on(sigName: "line-marks-gutter-clicked", callback: (doubleClick: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "line-marks-gutter-clicked", callback: (doubleClick: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "line-marks-gutter-clicked", callback: (doubleClick: number) => void): NodeJS.EventEmitter
     emit(sigName: "line-marks-gutter-clicked", doubleClick: number): void
-    on(sigName: "line-marks-gutter-clicked", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "line-marks-gutter-clicked", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "line-marks-gutter-clicked", callback: (...args: any[]) => void): NodeJS.EventEmitter
     static name: string
     /* Static methods and pseudo-constructors */
     static errorQuark(): GLib.Quark
 }
 export class EditorCell {
-    /* Methods of IAnjuta.EditorCell */
+    /* Methods of IAnjuta-3.0.IAnjuta.EditorCell */
     getAttribute(): EditorAttribute
     getChar(charIndex: number): number
     getCharacter(): string
     getLength(): number
-    /* Virtual methods of IAnjuta.EditorCell */
-    vfuncGetAttribute(): EditorAttribute
-    vfuncGetChar(charIndex: number): number
-    vfuncGetCharacter(): string
-    vfuncGetLength(): number
     static name: string
     /* Static methods and pseudo-constructors */
     static errorQuark(): GLib.Quark
 }
 export class EditorCellStyle {
-    /* Methods of IAnjuta.EditorCellStyle */
+    /* Methods of IAnjuta-3.0.IAnjuta.EditorCellStyle */
     getBackgroundColor(): string
     getColor(): string
     getFontDescription(): string
-    /* Methods of IAnjuta.EditorCell */
+    /* Methods of IAnjuta-3.0.IAnjuta.EditorCell */
     getAttribute(): EditorAttribute
     getChar(charIndex: number): number
     getCharacter(): string
     getLength(): number
-    /* Virtual methods of IAnjuta.EditorCellStyle */
-    vfuncGetBackgroundColor(): string
-    vfuncGetColor(): string
-    vfuncGetFontDescription(): string
-    /* Virtual methods of IAnjuta.EditorCell */
-    vfuncGetAttribute(): EditorAttribute
-    vfuncGetChar(charIndex: number): number
-    vfuncGetCharacter(): string
-    vfuncGetLength(): number
     static name: string
     /* Static methods and pseudo-constructors */
     static errorQuark(): GLib.Quark
 }
 export class EditorComment {
-    /* Methods of IAnjuta.EditorComment */
+    /* Methods of IAnjuta-3.0.IAnjuta.EditorComment */
     block(): void
     box(): void
     stream(): void
-    /* Methods of IAnjuta.Editor */
+    /* Methods of IAnjuta-3.0.IAnjuta.Editor */
     append(text: string, length: number): void
     erase(positionStart: Iterable, positionEnd: Iterable): void
     eraseAll(): void
@@ -1750,107 +1264,56 @@ export class EditorComment {
     setPopupMenu(menu: Gtk.Widget): void
     setTabsize(tabsize: number): void
     setUseSpaces(useSpaces: boolean): void
-    /* Virtual methods of IAnjuta.EditorComment */
-    vfuncBlock(): void
-    vfuncBox(): void
-    vfuncStream(): void
-    /* Virtual methods of IAnjuta.Editor */
-    vfuncAppend(text: string, length: number): void
-    vfuncBackspace(): void
-    vfuncChanged(position: Iterable, added: boolean, length: number, lines: number, text: string): void
-    vfuncCharAdded(position: Iterable, ch: number): void
-    vfuncCodeChanged(position: Iterable, code: string): void
-    vfuncCursorMoved(): void
-    vfuncErase(positionStart: Iterable, positionEnd: Iterable): void
-    vfuncEraseAll(): void
-    vfuncGetColumn(): number
-    vfuncGetCurrentWord(): string
-    vfuncGetEndPosition(): Iterable
-    vfuncGetIndentsize(): number
-    vfuncGetLength(): number
-    vfuncGetLineBeginPosition(line: number): Iterable
-    vfuncGetLineEndPosition(line: number): Iterable
-    vfuncGetLineFromPosition(position: Iterable): number
-    vfuncGetLineno(): number
-    vfuncGetOffset(): number
-    vfuncGetOverwrite(): boolean
-    vfuncGetPosition(): Iterable
-    vfuncGetStartPosition(): Iterable
-    vfuncGetTabsize(): number
-    vfuncGetText(begin: Iterable, end: Iterable): string
-    vfuncGetTextAll(): string
-    vfuncGetUseSpaces(): boolean
-    vfuncGladeCallbackAdd(widgetTypename: string, signalName: string, handlerName: string, object: string, swap: boolean, after: boolean, filename: string): void
-    vfuncGladeMemberAdd(widgetTypename: string, widgetName: string, filename: string): void
-    vfuncGotoEnd(): void
-    vfuncGotoLine(lineno: number): void
-    vfuncGotoPosition(position: Iterable): void
-    vfuncGotoStart(): void
-    vfuncInsert(position: Iterable, text: string, length: number): void
-    vfuncLineMarksGutterClicked(location: number): void
-    vfuncSetAutoIndent(autoIndent: boolean): void
-    vfuncSetIndentsize(indentsize: number): void
-    vfuncSetPopupMenu(menu: Gtk.Widget): void
-    vfuncSetTabsize(tabsize: number): void
-    vfuncSetUseSpaces(useSpaces: boolean): void
-    /* Signals of IAnjuta.Editor */
+    /* Signals of IAnjuta-3.0.IAnjuta.Editor */
     connect(sigName: "backspace", callback: (($obj: EditorComment) => void)): number
-    connect_after(sigName: "backspace", callback: (($obj: EditorComment) => void)): number
+    on(sigName: "backspace", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "backspace", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "backspace", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "backspace"): void
-    on(sigName: "backspace", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "backspace", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "backspace", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "changed", callback: (($obj: EditorComment, added: Iterable, length: boolean, lines: number, text: number, obj: string) => void)): number
-    connect_after(sigName: "changed", callback: (($obj: EditorComment, added: Iterable, length: boolean, lines: number, text: number, obj: string) => void)): number
+    on(sigName: "changed", callback: (added: Iterable, length: boolean, lines: number, text: number, obj: string) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "changed", callback: (added: Iterable, length: boolean, lines: number, text: number, obj: string) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "changed", callback: (added: Iterable, length: boolean, lines: number, text: number, obj: string) => void): NodeJS.EventEmitter
     emit(sigName: "changed", added: Iterable, length: boolean, lines: number, text: number, obj: string): void
-    on(sigName: "changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "char-added", callback: (($obj: EditorComment, ch: Iterable, obj: number) => void)): number
-    connect_after(sigName: "char-added", callback: (($obj: EditorComment, ch: Iterable, obj: number) => void)): number
+    on(sigName: "char-added", callback: (ch: Iterable, obj: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "char-added", callback: (ch: Iterable, obj: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "char-added", callback: (ch: Iterable, obj: number) => void): NodeJS.EventEmitter
     emit(sigName: "char-added", ch: Iterable, obj: number): void
-    on(sigName: "char-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "char-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "char-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "code-changed", callback: (($obj: EditorComment, code: Iterable, obj: string) => void)): number
-    connect_after(sigName: "code-changed", callback: (($obj: EditorComment, code: Iterable, obj: string) => void)): number
+    on(sigName: "code-changed", callback: (code: Iterable, obj: string) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "code-changed", callback: (code: Iterable, obj: string) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "code-changed", callback: (code: Iterable, obj: string) => void): NodeJS.EventEmitter
     emit(sigName: "code-changed", code: Iterable, obj: string): void
-    on(sigName: "code-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "code-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "code-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "cursor-moved", callback: (($obj: EditorComment) => void)): number
-    connect_after(sigName: "cursor-moved", callback: (($obj: EditorComment) => void)): number
+    on(sigName: "cursor-moved", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "cursor-moved", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "cursor-moved", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "cursor-moved"): void
-    on(sigName: "cursor-moved", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "cursor-moved", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "cursor-moved", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "glade-callback-add", callback: (($obj: EditorComment, signalName: string, handlerName: string, object: string, swap: string, after: boolean, filename: boolean, obj: string) => void)): number
-    connect_after(sigName: "glade-callback-add", callback: (($obj: EditorComment, signalName: string, handlerName: string, object: string, swap: string, after: boolean, filename: boolean, obj: string) => void)): number
+    on(sigName: "glade-callback-add", callback: (signalName: string, handlerName: string, object: string, swap: string, after: boolean, filename: boolean, obj: string) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "glade-callback-add", callback: (signalName: string, handlerName: string, object: string, swap: string, after: boolean, filename: boolean, obj: string) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "glade-callback-add", callback: (signalName: string, handlerName: string, object: string, swap: string, after: boolean, filename: boolean, obj: string) => void): NodeJS.EventEmitter
     emit(sigName: "glade-callback-add", signalName: string, handlerName: string, object: string, swap: string, after: boolean, filename: boolean, obj: string): void
-    on(sigName: "glade-callback-add", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "glade-callback-add", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "glade-callback-add", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "glade-member-add", callback: (($obj: EditorComment, widgetName: string, filename: string, obj: string) => void)): number
-    connect_after(sigName: "glade-member-add", callback: (($obj: EditorComment, widgetName: string, filename: string, obj: string) => void)): number
+    on(sigName: "glade-member-add", callback: (widgetName: string, filename: string, obj: string) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "glade-member-add", callback: (widgetName: string, filename: string, obj: string) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "glade-member-add", callback: (widgetName: string, filename: string, obj: string) => void): NodeJS.EventEmitter
     emit(sigName: "glade-member-add", widgetName: string, filename: string, obj: string): void
-    on(sigName: "glade-member-add", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "glade-member-add", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "glade-member-add", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "line-marks-gutter-clicked", callback: (($obj: EditorComment, doubleClick: number) => void)): number
-    connect_after(sigName: "line-marks-gutter-clicked", callback: (($obj: EditorComment, doubleClick: number) => void)): number
+    on(sigName: "line-marks-gutter-clicked", callback: (doubleClick: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "line-marks-gutter-clicked", callback: (doubleClick: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "line-marks-gutter-clicked", callback: (doubleClick: number) => void): NodeJS.EventEmitter
     emit(sigName: "line-marks-gutter-clicked", doubleClick: number): void
-    on(sigName: "line-marks-gutter-clicked", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "line-marks-gutter-clicked", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "line-marks-gutter-clicked", callback: (...args: any[]) => void): NodeJS.EventEmitter
     static name: string
     /* Static methods and pseudo-constructors */
     static errorQuark(): GLib.Quark
 }
 export class EditorConvert {
-    /* Methods of IAnjuta.EditorConvert */
+    /* Methods of IAnjuta-3.0.IAnjuta.EditorConvert */
     toLower(startPosition: Iterable, endPosition: Iterable): void
     toUpper(startPosition: Iterable, endPosition: Iterable): void
-    /* Methods of IAnjuta.Editor */
+    /* Methods of IAnjuta-3.0.IAnjuta.Editor */
     append(text: string, length: number): void
     erase(positionStart: Iterable, positionEnd: Iterable): void
     eraseAll(): void
@@ -1881,97 +1344,47 @@ export class EditorConvert {
     setPopupMenu(menu: Gtk.Widget): void
     setTabsize(tabsize: number): void
     setUseSpaces(useSpaces: boolean): void
-    /* Virtual methods of IAnjuta.EditorConvert */
-    vfuncToLower(startPosition: Iterable, endPosition: Iterable): void
-    vfuncToUpper(startPosition: Iterable, endPosition: Iterable): void
-    /* Virtual methods of IAnjuta.Editor */
-    vfuncAppend(text: string, length: number): void
-    vfuncBackspace(): void
-    vfuncChanged(position: Iterable, added: boolean, length: number, lines: number, text: string): void
-    vfuncCharAdded(position: Iterable, ch: number): void
-    vfuncCodeChanged(position: Iterable, code: string): void
-    vfuncCursorMoved(): void
-    vfuncErase(positionStart: Iterable, positionEnd: Iterable): void
-    vfuncEraseAll(): void
-    vfuncGetColumn(): number
-    vfuncGetCurrentWord(): string
-    vfuncGetEndPosition(): Iterable
-    vfuncGetIndentsize(): number
-    vfuncGetLength(): number
-    vfuncGetLineBeginPosition(line: number): Iterable
-    vfuncGetLineEndPosition(line: number): Iterable
-    vfuncGetLineFromPosition(position: Iterable): number
-    vfuncGetLineno(): number
-    vfuncGetOffset(): number
-    vfuncGetOverwrite(): boolean
-    vfuncGetPosition(): Iterable
-    vfuncGetStartPosition(): Iterable
-    vfuncGetTabsize(): number
-    vfuncGetText(begin: Iterable, end: Iterable): string
-    vfuncGetTextAll(): string
-    vfuncGetUseSpaces(): boolean
-    vfuncGladeCallbackAdd(widgetTypename: string, signalName: string, handlerName: string, object: string, swap: boolean, after: boolean, filename: string): void
-    vfuncGladeMemberAdd(widgetTypename: string, widgetName: string, filename: string): void
-    vfuncGotoEnd(): void
-    vfuncGotoLine(lineno: number): void
-    vfuncGotoPosition(position: Iterable): void
-    vfuncGotoStart(): void
-    vfuncInsert(position: Iterable, text: string, length: number): void
-    vfuncLineMarksGutterClicked(location: number): void
-    vfuncSetAutoIndent(autoIndent: boolean): void
-    vfuncSetIndentsize(indentsize: number): void
-    vfuncSetPopupMenu(menu: Gtk.Widget): void
-    vfuncSetTabsize(tabsize: number): void
-    vfuncSetUseSpaces(useSpaces: boolean): void
-    /* Signals of IAnjuta.Editor */
+    /* Signals of IAnjuta-3.0.IAnjuta.Editor */
     connect(sigName: "backspace", callback: (($obj: EditorConvert) => void)): number
-    connect_after(sigName: "backspace", callback: (($obj: EditorConvert) => void)): number
+    on(sigName: "backspace", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "backspace", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "backspace", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "backspace"): void
-    on(sigName: "backspace", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "backspace", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "backspace", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "changed", callback: (($obj: EditorConvert, added: Iterable, length: boolean, lines: number, text: number, obj: string) => void)): number
-    connect_after(sigName: "changed", callback: (($obj: EditorConvert, added: Iterable, length: boolean, lines: number, text: number, obj: string) => void)): number
+    on(sigName: "changed", callback: (added: Iterable, length: boolean, lines: number, text: number, obj: string) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "changed", callback: (added: Iterable, length: boolean, lines: number, text: number, obj: string) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "changed", callback: (added: Iterable, length: boolean, lines: number, text: number, obj: string) => void): NodeJS.EventEmitter
     emit(sigName: "changed", added: Iterable, length: boolean, lines: number, text: number, obj: string): void
-    on(sigName: "changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "char-added", callback: (($obj: EditorConvert, ch: Iterable, obj: number) => void)): number
-    connect_after(sigName: "char-added", callback: (($obj: EditorConvert, ch: Iterable, obj: number) => void)): number
+    on(sigName: "char-added", callback: (ch: Iterable, obj: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "char-added", callback: (ch: Iterable, obj: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "char-added", callback: (ch: Iterable, obj: number) => void): NodeJS.EventEmitter
     emit(sigName: "char-added", ch: Iterable, obj: number): void
-    on(sigName: "char-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "char-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "char-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "code-changed", callback: (($obj: EditorConvert, code: Iterable, obj: string) => void)): number
-    connect_after(sigName: "code-changed", callback: (($obj: EditorConvert, code: Iterable, obj: string) => void)): number
+    on(sigName: "code-changed", callback: (code: Iterable, obj: string) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "code-changed", callback: (code: Iterable, obj: string) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "code-changed", callback: (code: Iterable, obj: string) => void): NodeJS.EventEmitter
     emit(sigName: "code-changed", code: Iterable, obj: string): void
-    on(sigName: "code-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "code-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "code-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "cursor-moved", callback: (($obj: EditorConvert) => void)): number
-    connect_after(sigName: "cursor-moved", callback: (($obj: EditorConvert) => void)): number
+    on(sigName: "cursor-moved", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "cursor-moved", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "cursor-moved", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "cursor-moved"): void
-    on(sigName: "cursor-moved", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "cursor-moved", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "cursor-moved", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "glade-callback-add", callback: (($obj: EditorConvert, signalName: string, handlerName: string, object: string, swap: string, after: boolean, filename: boolean, obj: string) => void)): number
-    connect_after(sigName: "glade-callback-add", callback: (($obj: EditorConvert, signalName: string, handlerName: string, object: string, swap: string, after: boolean, filename: boolean, obj: string) => void)): number
+    on(sigName: "glade-callback-add", callback: (signalName: string, handlerName: string, object: string, swap: string, after: boolean, filename: boolean, obj: string) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "glade-callback-add", callback: (signalName: string, handlerName: string, object: string, swap: string, after: boolean, filename: boolean, obj: string) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "glade-callback-add", callback: (signalName: string, handlerName: string, object: string, swap: string, after: boolean, filename: boolean, obj: string) => void): NodeJS.EventEmitter
     emit(sigName: "glade-callback-add", signalName: string, handlerName: string, object: string, swap: string, after: boolean, filename: boolean, obj: string): void
-    on(sigName: "glade-callback-add", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "glade-callback-add", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "glade-callback-add", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "glade-member-add", callback: (($obj: EditorConvert, widgetName: string, filename: string, obj: string) => void)): number
-    connect_after(sigName: "glade-member-add", callback: (($obj: EditorConvert, widgetName: string, filename: string, obj: string) => void)): number
+    on(sigName: "glade-member-add", callback: (widgetName: string, filename: string, obj: string) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "glade-member-add", callback: (widgetName: string, filename: string, obj: string) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "glade-member-add", callback: (widgetName: string, filename: string, obj: string) => void): NodeJS.EventEmitter
     emit(sigName: "glade-member-add", widgetName: string, filename: string, obj: string): void
-    on(sigName: "glade-member-add", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "glade-member-add", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "glade-member-add", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "line-marks-gutter-clicked", callback: (($obj: EditorConvert, doubleClick: number) => void)): number
-    connect_after(sigName: "line-marks-gutter-clicked", callback: (($obj: EditorConvert, doubleClick: number) => void)): number
+    on(sigName: "line-marks-gutter-clicked", callback: (doubleClick: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "line-marks-gutter-clicked", callback: (doubleClick: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "line-marks-gutter-clicked", callback: (doubleClick: number) => void): NodeJS.EventEmitter
     emit(sigName: "line-marks-gutter-clicked", doubleClick: number): void
-    on(sigName: "line-marks-gutter-clicked", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "line-marks-gutter-clicked", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "line-marks-gutter-clicked", callback: (...args: any[]) => void): NodeJS.EventEmitter
     static name: string
     /* Static methods and pseudo-constructors */
     static errorQuark(): GLib.Quark
@@ -1982,11 +1395,11 @@ export class EditorFactory {
     static errorQuark(): GLib.Quark
 }
 export class EditorFolds {
-    /* Methods of IAnjuta.EditorFolds */
+    /* Methods of IAnjuta-3.0.IAnjuta.EditorFolds */
     closeAll(): void
     openAll(): void
     toggleCurrent(): void
-    /* Methods of IAnjuta.Editor */
+    /* Methods of IAnjuta-3.0.IAnjuta.Editor */
     append(text: string, length: number): void
     erase(positionStart: Iterable, positionEnd: Iterable): void
     eraseAll(): void
@@ -2017,104 +1430,53 @@ export class EditorFolds {
     setPopupMenu(menu: Gtk.Widget): void
     setTabsize(tabsize: number): void
     setUseSpaces(useSpaces: boolean): void
-    /* Virtual methods of IAnjuta.EditorFolds */
-    vfuncCloseAll(): void
-    vfuncOpenAll(): void
-    vfuncToggleCurrent(): void
-    /* Virtual methods of IAnjuta.Editor */
-    vfuncAppend(text: string, length: number): void
-    vfuncBackspace(): void
-    vfuncChanged(position: Iterable, added: boolean, length: number, lines: number, text: string): void
-    vfuncCharAdded(position: Iterable, ch: number): void
-    vfuncCodeChanged(position: Iterable, code: string): void
-    vfuncCursorMoved(): void
-    vfuncErase(positionStart: Iterable, positionEnd: Iterable): void
-    vfuncEraseAll(): void
-    vfuncGetColumn(): number
-    vfuncGetCurrentWord(): string
-    vfuncGetEndPosition(): Iterable
-    vfuncGetIndentsize(): number
-    vfuncGetLength(): number
-    vfuncGetLineBeginPosition(line: number): Iterable
-    vfuncGetLineEndPosition(line: number): Iterable
-    vfuncGetLineFromPosition(position: Iterable): number
-    vfuncGetLineno(): number
-    vfuncGetOffset(): number
-    vfuncGetOverwrite(): boolean
-    vfuncGetPosition(): Iterable
-    vfuncGetStartPosition(): Iterable
-    vfuncGetTabsize(): number
-    vfuncGetText(begin: Iterable, end: Iterable): string
-    vfuncGetTextAll(): string
-    vfuncGetUseSpaces(): boolean
-    vfuncGladeCallbackAdd(widgetTypename: string, signalName: string, handlerName: string, object: string, swap: boolean, after: boolean, filename: string): void
-    vfuncGladeMemberAdd(widgetTypename: string, widgetName: string, filename: string): void
-    vfuncGotoEnd(): void
-    vfuncGotoLine(lineno: number): void
-    vfuncGotoPosition(position: Iterable): void
-    vfuncGotoStart(): void
-    vfuncInsert(position: Iterable, text: string, length: number): void
-    vfuncLineMarksGutterClicked(location: number): void
-    vfuncSetAutoIndent(autoIndent: boolean): void
-    vfuncSetIndentsize(indentsize: number): void
-    vfuncSetPopupMenu(menu: Gtk.Widget): void
-    vfuncSetTabsize(tabsize: number): void
-    vfuncSetUseSpaces(useSpaces: boolean): void
-    /* Signals of IAnjuta.Editor */
+    /* Signals of IAnjuta-3.0.IAnjuta.Editor */
     connect(sigName: "backspace", callback: (($obj: EditorFolds) => void)): number
-    connect_after(sigName: "backspace", callback: (($obj: EditorFolds) => void)): number
+    on(sigName: "backspace", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "backspace", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "backspace", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "backspace"): void
-    on(sigName: "backspace", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "backspace", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "backspace", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "changed", callback: (($obj: EditorFolds, added: Iterable, length: boolean, lines: number, text: number, obj: string) => void)): number
-    connect_after(sigName: "changed", callback: (($obj: EditorFolds, added: Iterable, length: boolean, lines: number, text: number, obj: string) => void)): number
+    on(sigName: "changed", callback: (added: Iterable, length: boolean, lines: number, text: number, obj: string) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "changed", callback: (added: Iterable, length: boolean, lines: number, text: number, obj: string) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "changed", callback: (added: Iterable, length: boolean, lines: number, text: number, obj: string) => void): NodeJS.EventEmitter
     emit(sigName: "changed", added: Iterable, length: boolean, lines: number, text: number, obj: string): void
-    on(sigName: "changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "char-added", callback: (($obj: EditorFolds, ch: Iterable, obj: number) => void)): number
-    connect_after(sigName: "char-added", callback: (($obj: EditorFolds, ch: Iterable, obj: number) => void)): number
+    on(sigName: "char-added", callback: (ch: Iterable, obj: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "char-added", callback: (ch: Iterable, obj: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "char-added", callback: (ch: Iterable, obj: number) => void): NodeJS.EventEmitter
     emit(sigName: "char-added", ch: Iterable, obj: number): void
-    on(sigName: "char-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "char-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "char-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "code-changed", callback: (($obj: EditorFolds, code: Iterable, obj: string) => void)): number
-    connect_after(sigName: "code-changed", callback: (($obj: EditorFolds, code: Iterable, obj: string) => void)): number
+    on(sigName: "code-changed", callback: (code: Iterable, obj: string) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "code-changed", callback: (code: Iterable, obj: string) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "code-changed", callback: (code: Iterable, obj: string) => void): NodeJS.EventEmitter
     emit(sigName: "code-changed", code: Iterable, obj: string): void
-    on(sigName: "code-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "code-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "code-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "cursor-moved", callback: (($obj: EditorFolds) => void)): number
-    connect_after(sigName: "cursor-moved", callback: (($obj: EditorFolds) => void)): number
+    on(sigName: "cursor-moved", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "cursor-moved", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "cursor-moved", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "cursor-moved"): void
-    on(sigName: "cursor-moved", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "cursor-moved", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "cursor-moved", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "glade-callback-add", callback: (($obj: EditorFolds, signalName: string, handlerName: string, object: string, swap: string, after: boolean, filename: boolean, obj: string) => void)): number
-    connect_after(sigName: "glade-callback-add", callback: (($obj: EditorFolds, signalName: string, handlerName: string, object: string, swap: string, after: boolean, filename: boolean, obj: string) => void)): number
+    on(sigName: "glade-callback-add", callback: (signalName: string, handlerName: string, object: string, swap: string, after: boolean, filename: boolean, obj: string) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "glade-callback-add", callback: (signalName: string, handlerName: string, object: string, swap: string, after: boolean, filename: boolean, obj: string) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "glade-callback-add", callback: (signalName: string, handlerName: string, object: string, swap: string, after: boolean, filename: boolean, obj: string) => void): NodeJS.EventEmitter
     emit(sigName: "glade-callback-add", signalName: string, handlerName: string, object: string, swap: string, after: boolean, filename: boolean, obj: string): void
-    on(sigName: "glade-callback-add", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "glade-callback-add", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "glade-callback-add", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "glade-member-add", callback: (($obj: EditorFolds, widgetName: string, filename: string, obj: string) => void)): number
-    connect_after(sigName: "glade-member-add", callback: (($obj: EditorFolds, widgetName: string, filename: string, obj: string) => void)): number
+    on(sigName: "glade-member-add", callback: (widgetName: string, filename: string, obj: string) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "glade-member-add", callback: (widgetName: string, filename: string, obj: string) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "glade-member-add", callback: (widgetName: string, filename: string, obj: string) => void): NodeJS.EventEmitter
     emit(sigName: "glade-member-add", widgetName: string, filename: string, obj: string): void
-    on(sigName: "glade-member-add", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "glade-member-add", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "glade-member-add", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "line-marks-gutter-clicked", callback: (($obj: EditorFolds, doubleClick: number) => void)): number
-    connect_after(sigName: "line-marks-gutter-clicked", callback: (($obj: EditorFolds, doubleClick: number) => void)): number
+    on(sigName: "line-marks-gutter-clicked", callback: (doubleClick: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "line-marks-gutter-clicked", callback: (doubleClick: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "line-marks-gutter-clicked", callback: (doubleClick: number) => void): NodeJS.EventEmitter
     emit(sigName: "line-marks-gutter-clicked", doubleClick: number): void
-    on(sigName: "line-marks-gutter-clicked", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "line-marks-gutter-clicked", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "line-marks-gutter-clicked", callback: (...args: any[]) => void): NodeJS.EventEmitter
     static name: string
     /* Static methods and pseudo-constructors */
     static errorQuark(): GLib.Quark
 }
 export class EditorGladeSignal {
-    /* Methods of IAnjuta.Editor */
+    /* Methods of IAnjuta-3.0.IAnjuta.Editor */
     append(text: string, length: number): void
     erase(positionStart: Iterable, positionEnd: Iterable): void
     eraseAll(): void
@@ -2145,120 +1507,68 @@ export class EditorGladeSignal {
     setPopupMenu(menu: Gtk.Widget): void
     setTabsize(tabsize: number): void
     setUseSpaces(useSpaces: boolean): void
-    /* Virtual methods of IAnjuta.EditorGladeSignal */
-    vfuncDrop(iterator: Iterable, signalData: string): void
-    vfuncDropPossible(iterator: Iterable): boolean
-    /* Virtual methods of IAnjuta.Editor */
-    vfuncAppend(text: string, length: number): void
-    vfuncBackspace(): void
-    vfuncChanged(position: Iterable, added: boolean, length: number, lines: number, text: string): void
-    vfuncCharAdded(position: Iterable, ch: number): void
-    vfuncCodeChanged(position: Iterable, code: string): void
-    vfuncCursorMoved(): void
-    vfuncErase(positionStart: Iterable, positionEnd: Iterable): void
-    vfuncEraseAll(): void
-    vfuncGetColumn(): number
-    vfuncGetCurrentWord(): string
-    vfuncGetEndPosition(): Iterable
-    vfuncGetIndentsize(): number
-    vfuncGetLength(): number
-    vfuncGetLineBeginPosition(line: number): Iterable
-    vfuncGetLineEndPosition(line: number): Iterable
-    vfuncGetLineFromPosition(position: Iterable): number
-    vfuncGetLineno(): number
-    vfuncGetOffset(): number
-    vfuncGetOverwrite(): boolean
-    vfuncGetPosition(): Iterable
-    vfuncGetStartPosition(): Iterable
-    vfuncGetTabsize(): number
-    vfuncGetText(begin: Iterable, end: Iterable): string
-    vfuncGetTextAll(): string
-    vfuncGetUseSpaces(): boolean
-    vfuncGladeCallbackAdd(widgetTypename: string, signalName: string, handlerName: string, object: string, swap: boolean, after: boolean, filename: string): void
-    vfuncGladeMemberAdd(widgetTypename: string, widgetName: string, filename: string): void
-    vfuncGotoEnd(): void
-    vfuncGotoLine(lineno: number): void
-    vfuncGotoPosition(position: Iterable): void
-    vfuncGotoStart(): void
-    vfuncInsert(position: Iterable, text: string, length: number): void
-    vfuncLineMarksGutterClicked(location: number): void
-    vfuncSetAutoIndent(autoIndent: boolean): void
-    vfuncSetIndentsize(indentsize: number): void
-    vfuncSetPopupMenu(menu: Gtk.Widget): void
-    vfuncSetTabsize(tabsize: number): void
-    vfuncSetUseSpaces(useSpaces: boolean): void
-    /* Signals of IAnjuta.EditorGladeSignal */
+    /* Signals of IAnjuta-3.0.IAnjuta.EditorGladeSignal */
     connect(sigName: "drop", callback: (($obj: EditorGladeSignal, iter: Iterable, signalData: string) => void)): number
-    connect_after(sigName: "drop", callback: (($obj: EditorGladeSignal, iter: Iterable, signalData: string) => void)): number
+    on(sigName: "drop", callback: (iter: Iterable, signalData: string) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "drop", callback: (iter: Iterable, signalData: string) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "drop", callback: (iter: Iterable, signalData: string) => void): NodeJS.EventEmitter
     emit(sigName: "drop", iter: Iterable, signalData: string): void
-    on(sigName: "drop", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "drop", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "drop", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "drop-possible", callback: (($obj: EditorGladeSignal, iter: Iterable) => boolean)): number
-    connect_after(sigName: "drop-possible", callback: (($obj: EditorGladeSignal, iter: Iterable) => boolean)): number
+    on(sigName: "drop-possible", callback: (iter: Iterable) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "drop-possible", callback: (iter: Iterable) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "drop-possible", callback: (iter: Iterable) => void): NodeJS.EventEmitter
     emit(sigName: "drop-possible", iter: Iterable): void
-    on(sigName: "drop-possible", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "drop-possible", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "drop-possible", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of IAnjuta.Editor */
+    /* Signals of IAnjuta-3.0.IAnjuta.Editor */
     connect(sigName: "backspace", callback: (($obj: EditorGladeSignal) => void)): number
-    connect_after(sigName: "backspace", callback: (($obj: EditorGladeSignal) => void)): number
+    on(sigName: "backspace", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "backspace", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "backspace", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "backspace"): void
-    on(sigName: "backspace", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "backspace", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "backspace", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "changed", callback: (($obj: EditorGladeSignal, added: Iterable, length: boolean, lines: number, text: number, obj: string) => void)): number
-    connect_after(sigName: "changed", callback: (($obj: EditorGladeSignal, added: Iterable, length: boolean, lines: number, text: number, obj: string) => void)): number
+    on(sigName: "changed", callback: (added: Iterable, length: boolean, lines: number, text: number, obj: string) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "changed", callback: (added: Iterable, length: boolean, lines: number, text: number, obj: string) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "changed", callback: (added: Iterable, length: boolean, lines: number, text: number, obj: string) => void): NodeJS.EventEmitter
     emit(sigName: "changed", added: Iterable, length: boolean, lines: number, text: number, obj: string): void
-    on(sigName: "changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "char-added", callback: (($obj: EditorGladeSignal, ch: Iterable, obj: number) => void)): number
-    connect_after(sigName: "char-added", callback: (($obj: EditorGladeSignal, ch: Iterable, obj: number) => void)): number
+    on(sigName: "char-added", callback: (ch: Iterable, obj: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "char-added", callback: (ch: Iterable, obj: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "char-added", callback: (ch: Iterable, obj: number) => void): NodeJS.EventEmitter
     emit(sigName: "char-added", ch: Iterable, obj: number): void
-    on(sigName: "char-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "char-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "char-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "code-changed", callback: (($obj: EditorGladeSignal, code: Iterable, obj: string) => void)): number
-    connect_after(sigName: "code-changed", callback: (($obj: EditorGladeSignal, code: Iterable, obj: string) => void)): number
+    on(sigName: "code-changed", callback: (code: Iterable, obj: string) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "code-changed", callback: (code: Iterable, obj: string) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "code-changed", callback: (code: Iterable, obj: string) => void): NodeJS.EventEmitter
     emit(sigName: "code-changed", code: Iterable, obj: string): void
-    on(sigName: "code-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "code-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "code-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "cursor-moved", callback: (($obj: EditorGladeSignal) => void)): number
-    connect_after(sigName: "cursor-moved", callback: (($obj: EditorGladeSignal) => void)): number
+    on(sigName: "cursor-moved", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "cursor-moved", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "cursor-moved", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "cursor-moved"): void
-    on(sigName: "cursor-moved", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "cursor-moved", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "cursor-moved", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "glade-callback-add", callback: (($obj: EditorGladeSignal, signalName: string, handlerName: string, object: string, swap: string, after: boolean, filename: boolean, obj: string) => void)): number
-    connect_after(sigName: "glade-callback-add", callback: (($obj: EditorGladeSignal, signalName: string, handlerName: string, object: string, swap: string, after: boolean, filename: boolean, obj: string) => void)): number
+    on(sigName: "glade-callback-add", callback: (signalName: string, handlerName: string, object: string, swap: string, after: boolean, filename: boolean, obj: string) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "glade-callback-add", callback: (signalName: string, handlerName: string, object: string, swap: string, after: boolean, filename: boolean, obj: string) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "glade-callback-add", callback: (signalName: string, handlerName: string, object: string, swap: string, after: boolean, filename: boolean, obj: string) => void): NodeJS.EventEmitter
     emit(sigName: "glade-callback-add", signalName: string, handlerName: string, object: string, swap: string, after: boolean, filename: boolean, obj: string): void
-    on(sigName: "glade-callback-add", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "glade-callback-add", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "glade-callback-add", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "glade-member-add", callback: (($obj: EditorGladeSignal, widgetName: string, filename: string, obj: string) => void)): number
-    connect_after(sigName: "glade-member-add", callback: (($obj: EditorGladeSignal, widgetName: string, filename: string, obj: string) => void)): number
+    on(sigName: "glade-member-add", callback: (widgetName: string, filename: string, obj: string) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "glade-member-add", callback: (widgetName: string, filename: string, obj: string) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "glade-member-add", callback: (widgetName: string, filename: string, obj: string) => void): NodeJS.EventEmitter
     emit(sigName: "glade-member-add", widgetName: string, filename: string, obj: string): void
-    on(sigName: "glade-member-add", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "glade-member-add", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "glade-member-add", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "line-marks-gutter-clicked", callback: (($obj: EditorGladeSignal, doubleClick: number) => void)): number
-    connect_after(sigName: "line-marks-gutter-clicked", callback: (($obj: EditorGladeSignal, doubleClick: number) => void)): number
+    on(sigName: "line-marks-gutter-clicked", callback: (doubleClick: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "line-marks-gutter-clicked", callback: (doubleClick: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "line-marks-gutter-clicked", callback: (doubleClick: number) => void): NodeJS.EventEmitter
     emit(sigName: "line-marks-gutter-clicked", doubleClick: number): void
-    on(sigName: "line-marks-gutter-clicked", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "line-marks-gutter-clicked", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "line-marks-gutter-clicked", callback: (...args: any[]) => void): NodeJS.EventEmitter
     static name: string
     /* Static methods and pseudo-constructors */
     static errorQuark(): GLib.Quark
 }
 export class EditorGoto {
-    /* Methods of IAnjuta.EditorGoto */
+    /* Methods of IAnjuta-3.0.IAnjuta.EditorGoto */
     endBlock(): void
     matchingBrace(): void
     startBlock(): void
-    /* Methods of IAnjuta.Editor */
+    /* Methods of IAnjuta-3.0.IAnjuta.Editor */
     append(text: string, length: number): void
     erase(positionStart: Iterable, positionEnd: Iterable): void
     eraseAll(): void
@@ -2289,106 +1599,55 @@ export class EditorGoto {
     setPopupMenu(menu: Gtk.Widget): void
     setTabsize(tabsize: number): void
     setUseSpaces(useSpaces: boolean): void
-    /* Virtual methods of IAnjuta.EditorGoto */
-    vfuncEndBlock(): void
-    vfuncMatchingBrace(): void
-    vfuncStartBlock(): void
-    /* Virtual methods of IAnjuta.Editor */
-    vfuncAppend(text: string, length: number): void
-    vfuncBackspace(): void
-    vfuncChanged(position: Iterable, added: boolean, length: number, lines: number, text: string): void
-    vfuncCharAdded(position: Iterable, ch: number): void
-    vfuncCodeChanged(position: Iterable, code: string): void
-    vfuncCursorMoved(): void
-    vfuncErase(positionStart: Iterable, positionEnd: Iterable): void
-    vfuncEraseAll(): void
-    vfuncGetColumn(): number
-    vfuncGetCurrentWord(): string
-    vfuncGetEndPosition(): Iterable
-    vfuncGetIndentsize(): number
-    vfuncGetLength(): number
-    vfuncGetLineBeginPosition(line: number): Iterable
-    vfuncGetLineEndPosition(line: number): Iterable
-    vfuncGetLineFromPosition(position: Iterable): number
-    vfuncGetLineno(): number
-    vfuncGetOffset(): number
-    vfuncGetOverwrite(): boolean
-    vfuncGetPosition(): Iterable
-    vfuncGetStartPosition(): Iterable
-    vfuncGetTabsize(): number
-    vfuncGetText(begin: Iterable, end: Iterable): string
-    vfuncGetTextAll(): string
-    vfuncGetUseSpaces(): boolean
-    vfuncGladeCallbackAdd(widgetTypename: string, signalName: string, handlerName: string, object: string, swap: boolean, after: boolean, filename: string): void
-    vfuncGladeMemberAdd(widgetTypename: string, widgetName: string, filename: string): void
-    vfuncGotoEnd(): void
-    vfuncGotoLine(lineno: number): void
-    vfuncGotoPosition(position: Iterable): void
-    vfuncGotoStart(): void
-    vfuncInsert(position: Iterable, text: string, length: number): void
-    vfuncLineMarksGutterClicked(location: number): void
-    vfuncSetAutoIndent(autoIndent: boolean): void
-    vfuncSetIndentsize(indentsize: number): void
-    vfuncSetPopupMenu(menu: Gtk.Widget): void
-    vfuncSetTabsize(tabsize: number): void
-    vfuncSetUseSpaces(useSpaces: boolean): void
-    /* Signals of IAnjuta.Editor */
+    /* Signals of IAnjuta-3.0.IAnjuta.Editor */
     connect(sigName: "backspace", callback: (($obj: EditorGoto) => void)): number
-    connect_after(sigName: "backspace", callback: (($obj: EditorGoto) => void)): number
+    on(sigName: "backspace", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "backspace", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "backspace", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "backspace"): void
-    on(sigName: "backspace", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "backspace", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "backspace", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "changed", callback: (($obj: EditorGoto, added: Iterable, length: boolean, lines: number, text: number, obj: string) => void)): number
-    connect_after(sigName: "changed", callback: (($obj: EditorGoto, added: Iterable, length: boolean, lines: number, text: number, obj: string) => void)): number
+    on(sigName: "changed", callback: (added: Iterable, length: boolean, lines: number, text: number, obj: string) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "changed", callback: (added: Iterable, length: boolean, lines: number, text: number, obj: string) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "changed", callback: (added: Iterable, length: boolean, lines: number, text: number, obj: string) => void): NodeJS.EventEmitter
     emit(sigName: "changed", added: Iterable, length: boolean, lines: number, text: number, obj: string): void
-    on(sigName: "changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "char-added", callback: (($obj: EditorGoto, ch: Iterable, obj: number) => void)): number
-    connect_after(sigName: "char-added", callback: (($obj: EditorGoto, ch: Iterable, obj: number) => void)): number
+    on(sigName: "char-added", callback: (ch: Iterable, obj: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "char-added", callback: (ch: Iterable, obj: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "char-added", callback: (ch: Iterable, obj: number) => void): NodeJS.EventEmitter
     emit(sigName: "char-added", ch: Iterable, obj: number): void
-    on(sigName: "char-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "char-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "char-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "code-changed", callback: (($obj: EditorGoto, code: Iterable, obj: string) => void)): number
-    connect_after(sigName: "code-changed", callback: (($obj: EditorGoto, code: Iterable, obj: string) => void)): number
+    on(sigName: "code-changed", callback: (code: Iterable, obj: string) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "code-changed", callback: (code: Iterable, obj: string) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "code-changed", callback: (code: Iterable, obj: string) => void): NodeJS.EventEmitter
     emit(sigName: "code-changed", code: Iterable, obj: string): void
-    on(sigName: "code-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "code-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "code-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "cursor-moved", callback: (($obj: EditorGoto) => void)): number
-    connect_after(sigName: "cursor-moved", callback: (($obj: EditorGoto) => void)): number
+    on(sigName: "cursor-moved", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "cursor-moved", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "cursor-moved", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "cursor-moved"): void
-    on(sigName: "cursor-moved", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "cursor-moved", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "cursor-moved", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "glade-callback-add", callback: (($obj: EditorGoto, signalName: string, handlerName: string, object: string, swap: string, after: boolean, filename: boolean, obj: string) => void)): number
-    connect_after(sigName: "glade-callback-add", callback: (($obj: EditorGoto, signalName: string, handlerName: string, object: string, swap: string, after: boolean, filename: boolean, obj: string) => void)): number
+    on(sigName: "glade-callback-add", callback: (signalName: string, handlerName: string, object: string, swap: string, after: boolean, filename: boolean, obj: string) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "glade-callback-add", callback: (signalName: string, handlerName: string, object: string, swap: string, after: boolean, filename: boolean, obj: string) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "glade-callback-add", callback: (signalName: string, handlerName: string, object: string, swap: string, after: boolean, filename: boolean, obj: string) => void): NodeJS.EventEmitter
     emit(sigName: "glade-callback-add", signalName: string, handlerName: string, object: string, swap: string, after: boolean, filename: boolean, obj: string): void
-    on(sigName: "glade-callback-add", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "glade-callback-add", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "glade-callback-add", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "glade-member-add", callback: (($obj: EditorGoto, widgetName: string, filename: string, obj: string) => void)): number
-    connect_after(sigName: "glade-member-add", callback: (($obj: EditorGoto, widgetName: string, filename: string, obj: string) => void)): number
+    on(sigName: "glade-member-add", callback: (widgetName: string, filename: string, obj: string) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "glade-member-add", callback: (widgetName: string, filename: string, obj: string) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "glade-member-add", callback: (widgetName: string, filename: string, obj: string) => void): NodeJS.EventEmitter
     emit(sigName: "glade-member-add", widgetName: string, filename: string, obj: string): void
-    on(sigName: "glade-member-add", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "glade-member-add", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "glade-member-add", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "line-marks-gutter-clicked", callback: (($obj: EditorGoto, doubleClick: number) => void)): number
-    connect_after(sigName: "line-marks-gutter-clicked", callback: (($obj: EditorGoto, doubleClick: number) => void)): number
+    on(sigName: "line-marks-gutter-clicked", callback: (doubleClick: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "line-marks-gutter-clicked", callback: (doubleClick: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "line-marks-gutter-clicked", callback: (doubleClick: number) => void): NodeJS.EventEmitter
     emit(sigName: "line-marks-gutter-clicked", doubleClick: number): void
-    on(sigName: "line-marks-gutter-clicked", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "line-marks-gutter-clicked", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "line-marks-gutter-clicked", callback: (...args: any[]) => void): NodeJS.EventEmitter
     static name: string
     /* Static methods and pseudo-constructors */
     static errorQuark(): GLib.Quark
 }
 export class EditorHover {
-    /* Methods of IAnjuta.EditorHover */
+    /* Methods of IAnjuta-3.0.IAnjuta.EditorHover */
     display(position: Iterable, info: string): void
-    /* Methods of IAnjuta.Editor */
+    /* Methods of IAnjuta-3.0.IAnjuta.Editor */
     append(text: string, length: number): void
     erase(positionStart: Iterable, positionEnd: Iterable): void
     eraseAll(): void
@@ -2419,122 +1678,69 @@ export class EditorHover {
     setPopupMenu(menu: Gtk.Widget): void
     setTabsize(tabsize: number): void
     setUseSpaces(useSpaces: boolean): void
-    /* Virtual methods of IAnjuta.EditorHover */
-    vfuncDisplay(position: Iterable, info: string): void
-    vfuncHoverLeave(position: Iterable): void
-    vfuncHoverOver(position: Iterable): void
-    /* Virtual methods of IAnjuta.Editor */
-    vfuncAppend(text: string, length: number): void
-    vfuncBackspace(): void
-    vfuncChanged(position: Iterable, added: boolean, length: number, lines: number, text: string): void
-    vfuncCharAdded(position: Iterable, ch: number): void
-    vfuncCodeChanged(position: Iterable, code: string): void
-    vfuncCursorMoved(): void
-    vfuncErase(positionStart: Iterable, positionEnd: Iterable): void
-    vfuncEraseAll(): void
-    vfuncGetColumn(): number
-    vfuncGetCurrentWord(): string
-    vfuncGetEndPosition(): Iterable
-    vfuncGetIndentsize(): number
-    vfuncGetLength(): number
-    vfuncGetLineBeginPosition(line: number): Iterable
-    vfuncGetLineEndPosition(line: number): Iterable
-    vfuncGetLineFromPosition(position: Iterable): number
-    vfuncGetLineno(): number
-    vfuncGetOffset(): number
-    vfuncGetOverwrite(): boolean
-    vfuncGetPosition(): Iterable
-    vfuncGetStartPosition(): Iterable
-    vfuncGetTabsize(): number
-    vfuncGetText(begin: Iterable, end: Iterable): string
-    vfuncGetTextAll(): string
-    vfuncGetUseSpaces(): boolean
-    vfuncGladeCallbackAdd(widgetTypename: string, signalName: string, handlerName: string, object: string, swap: boolean, after: boolean, filename: string): void
-    vfuncGladeMemberAdd(widgetTypename: string, widgetName: string, filename: string): void
-    vfuncGotoEnd(): void
-    vfuncGotoLine(lineno: number): void
-    vfuncGotoPosition(position: Iterable): void
-    vfuncGotoStart(): void
-    vfuncInsert(position: Iterable, text: string, length: number): void
-    vfuncLineMarksGutterClicked(location: number): void
-    vfuncSetAutoIndent(autoIndent: boolean): void
-    vfuncSetIndentsize(indentsize: number): void
-    vfuncSetPopupMenu(menu: Gtk.Widget): void
-    vfuncSetTabsize(tabsize: number): void
-    vfuncSetUseSpaces(useSpaces: boolean): void
-    /* Signals of IAnjuta.EditorHover */
+    /* Signals of IAnjuta-3.0.IAnjuta.EditorHover */
     connect(sigName: "hover-leave", callback: (($obj: EditorHover, position: Iterable) => void)): number
-    connect_after(sigName: "hover-leave", callback: (($obj: EditorHover, position: Iterable) => void)): number
+    on(sigName: "hover-leave", callback: (position: Iterable) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "hover-leave", callback: (position: Iterable) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "hover-leave", callback: (position: Iterable) => void): NodeJS.EventEmitter
     emit(sigName: "hover-leave", position: Iterable): void
-    on(sigName: "hover-leave", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "hover-leave", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "hover-leave", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "hover-over", callback: (($obj: EditorHover, position: Iterable) => void)): number
-    connect_after(sigName: "hover-over", callback: (($obj: EditorHover, position: Iterable) => void)): number
+    on(sigName: "hover-over", callback: (position: Iterable) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "hover-over", callback: (position: Iterable) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "hover-over", callback: (position: Iterable) => void): NodeJS.EventEmitter
     emit(sigName: "hover-over", position: Iterable): void
-    on(sigName: "hover-over", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "hover-over", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "hover-over", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of IAnjuta.Editor */
+    /* Signals of IAnjuta-3.0.IAnjuta.Editor */
     connect(sigName: "backspace", callback: (($obj: EditorHover) => void)): number
-    connect_after(sigName: "backspace", callback: (($obj: EditorHover) => void)): number
+    on(sigName: "backspace", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "backspace", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "backspace", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "backspace"): void
-    on(sigName: "backspace", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "backspace", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "backspace", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "changed", callback: (($obj: EditorHover, added: Iterable, length: boolean, lines: number, text: number, obj: string) => void)): number
-    connect_after(sigName: "changed", callback: (($obj: EditorHover, added: Iterable, length: boolean, lines: number, text: number, obj: string) => void)): number
+    on(sigName: "changed", callback: (added: Iterable, length: boolean, lines: number, text: number, obj: string) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "changed", callback: (added: Iterable, length: boolean, lines: number, text: number, obj: string) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "changed", callback: (added: Iterable, length: boolean, lines: number, text: number, obj: string) => void): NodeJS.EventEmitter
     emit(sigName: "changed", added: Iterable, length: boolean, lines: number, text: number, obj: string): void
-    on(sigName: "changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "char-added", callback: (($obj: EditorHover, ch: Iterable, obj: number) => void)): number
-    connect_after(sigName: "char-added", callback: (($obj: EditorHover, ch: Iterable, obj: number) => void)): number
+    on(sigName: "char-added", callback: (ch: Iterable, obj: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "char-added", callback: (ch: Iterable, obj: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "char-added", callback: (ch: Iterable, obj: number) => void): NodeJS.EventEmitter
     emit(sigName: "char-added", ch: Iterable, obj: number): void
-    on(sigName: "char-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "char-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "char-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "code-changed", callback: (($obj: EditorHover, code: Iterable, obj: string) => void)): number
-    connect_after(sigName: "code-changed", callback: (($obj: EditorHover, code: Iterable, obj: string) => void)): number
+    on(sigName: "code-changed", callback: (code: Iterable, obj: string) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "code-changed", callback: (code: Iterable, obj: string) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "code-changed", callback: (code: Iterable, obj: string) => void): NodeJS.EventEmitter
     emit(sigName: "code-changed", code: Iterable, obj: string): void
-    on(sigName: "code-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "code-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "code-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "cursor-moved", callback: (($obj: EditorHover) => void)): number
-    connect_after(sigName: "cursor-moved", callback: (($obj: EditorHover) => void)): number
+    on(sigName: "cursor-moved", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "cursor-moved", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "cursor-moved", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "cursor-moved"): void
-    on(sigName: "cursor-moved", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "cursor-moved", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "cursor-moved", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "glade-callback-add", callback: (($obj: EditorHover, signalName: string, handlerName: string, object: string, swap: string, after: boolean, filename: boolean, obj: string) => void)): number
-    connect_after(sigName: "glade-callback-add", callback: (($obj: EditorHover, signalName: string, handlerName: string, object: string, swap: string, after: boolean, filename: boolean, obj: string) => void)): number
+    on(sigName: "glade-callback-add", callback: (signalName: string, handlerName: string, object: string, swap: string, after: boolean, filename: boolean, obj: string) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "glade-callback-add", callback: (signalName: string, handlerName: string, object: string, swap: string, after: boolean, filename: boolean, obj: string) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "glade-callback-add", callback: (signalName: string, handlerName: string, object: string, swap: string, after: boolean, filename: boolean, obj: string) => void): NodeJS.EventEmitter
     emit(sigName: "glade-callback-add", signalName: string, handlerName: string, object: string, swap: string, after: boolean, filename: boolean, obj: string): void
-    on(sigName: "glade-callback-add", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "glade-callback-add", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "glade-callback-add", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "glade-member-add", callback: (($obj: EditorHover, widgetName: string, filename: string, obj: string) => void)): number
-    connect_after(sigName: "glade-member-add", callback: (($obj: EditorHover, widgetName: string, filename: string, obj: string) => void)): number
+    on(sigName: "glade-member-add", callback: (widgetName: string, filename: string, obj: string) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "glade-member-add", callback: (widgetName: string, filename: string, obj: string) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "glade-member-add", callback: (widgetName: string, filename: string, obj: string) => void): NodeJS.EventEmitter
     emit(sigName: "glade-member-add", widgetName: string, filename: string, obj: string): void
-    on(sigName: "glade-member-add", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "glade-member-add", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "glade-member-add", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "line-marks-gutter-clicked", callback: (($obj: EditorHover, doubleClick: number) => void)): number
-    connect_after(sigName: "line-marks-gutter-clicked", callback: (($obj: EditorHover, doubleClick: number) => void)): number
+    on(sigName: "line-marks-gutter-clicked", callback: (doubleClick: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "line-marks-gutter-clicked", callback: (doubleClick: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "line-marks-gutter-clicked", callback: (doubleClick: number) => void): NodeJS.EventEmitter
     emit(sigName: "line-marks-gutter-clicked", doubleClick: number): void
-    on(sigName: "line-marks-gutter-clicked", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "line-marks-gutter-clicked", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "line-marks-gutter-clicked", callback: (...args: any[]) => void): NodeJS.EventEmitter
     static name: string
     /* Static methods and pseudo-constructors */
     static errorQuark(): GLib.Quark
 }
 export class EditorLanguage {
-    /* Methods of IAnjuta.EditorLanguage */
+    /* Methods of IAnjuta-3.0.IAnjuta.EditorLanguage */
     getLanguage(): string
     getLanguageName(language: string): string
     getSupportedLanguages(): string[]
     setLanguage(language: string): void
-    /* Methods of IAnjuta.Editor */
+    /* Methods of IAnjuta-3.0.IAnjuta.Editor */
     append(text: string, length: number): void
     erase(positionStart: Iterable, positionEnd: Iterable): void
     eraseAll(): void
@@ -2565,118 +1771,64 @@ export class EditorLanguage {
     setPopupMenu(menu: Gtk.Widget): void
     setTabsize(tabsize: number): void
     setUseSpaces(useSpaces: boolean): void
-    /* Virtual methods of IAnjuta.EditorLanguage */
-    vfuncGetLanguage(): string
-    vfuncGetLanguageName(language: string): string
-    vfuncGetSupportedLanguages(): string[]
-    vfuncLanguageChanged(language: string): void
-    vfuncSetLanguage(language: string): void
-    /* Virtual methods of IAnjuta.Editor */
-    vfuncAppend(text: string, length: number): void
-    vfuncBackspace(): void
-    vfuncChanged(position: Iterable, added: boolean, length: number, lines: number, text: string): void
-    vfuncCharAdded(position: Iterable, ch: number): void
-    vfuncCodeChanged(position: Iterable, code: string): void
-    vfuncCursorMoved(): void
-    vfuncErase(positionStart: Iterable, positionEnd: Iterable): void
-    vfuncEraseAll(): void
-    vfuncGetColumn(): number
-    vfuncGetCurrentWord(): string
-    vfuncGetEndPosition(): Iterable
-    vfuncGetIndentsize(): number
-    vfuncGetLength(): number
-    vfuncGetLineBeginPosition(line: number): Iterable
-    vfuncGetLineEndPosition(line: number): Iterable
-    vfuncGetLineFromPosition(position: Iterable): number
-    vfuncGetLineno(): number
-    vfuncGetOffset(): number
-    vfuncGetOverwrite(): boolean
-    vfuncGetPosition(): Iterable
-    vfuncGetStartPosition(): Iterable
-    vfuncGetTabsize(): number
-    vfuncGetText(begin: Iterable, end: Iterable): string
-    vfuncGetTextAll(): string
-    vfuncGetUseSpaces(): boolean
-    vfuncGladeCallbackAdd(widgetTypename: string, signalName: string, handlerName: string, object: string, swap: boolean, after: boolean, filename: string): void
-    vfuncGladeMemberAdd(widgetTypename: string, widgetName: string, filename: string): void
-    vfuncGotoEnd(): void
-    vfuncGotoLine(lineno: number): void
-    vfuncGotoPosition(position: Iterable): void
-    vfuncGotoStart(): void
-    vfuncInsert(position: Iterable, text: string, length: number): void
-    vfuncLineMarksGutterClicked(location: number): void
-    vfuncSetAutoIndent(autoIndent: boolean): void
-    vfuncSetIndentsize(indentsize: number): void
-    vfuncSetPopupMenu(menu: Gtk.Widget): void
-    vfuncSetTabsize(tabsize: number): void
-    vfuncSetUseSpaces(useSpaces: boolean): void
-    /* Signals of IAnjuta.EditorLanguage */
+    /* Signals of IAnjuta-3.0.IAnjuta.EditorLanguage */
     connect(sigName: "language-changed", callback: (($obj: EditorLanguage, language: string) => void)): number
-    connect_after(sigName: "language-changed", callback: (($obj: EditorLanguage, language: string) => void)): number
+    on(sigName: "language-changed", callback: (language: string) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "language-changed", callback: (language: string) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "language-changed", callback: (language: string) => void): NodeJS.EventEmitter
     emit(sigName: "language-changed", language: string): void
-    on(sigName: "language-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "language-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "language-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of IAnjuta.Editor */
+    /* Signals of IAnjuta-3.0.IAnjuta.Editor */
     connect(sigName: "backspace", callback: (($obj: EditorLanguage) => void)): number
-    connect_after(sigName: "backspace", callback: (($obj: EditorLanguage) => void)): number
+    on(sigName: "backspace", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "backspace", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "backspace", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "backspace"): void
-    on(sigName: "backspace", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "backspace", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "backspace", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "changed", callback: (($obj: EditorLanguage, added: Iterable, length: boolean, lines: number, text: number, obj: string) => void)): number
-    connect_after(sigName: "changed", callback: (($obj: EditorLanguage, added: Iterable, length: boolean, lines: number, text: number, obj: string) => void)): number
+    on(sigName: "changed", callback: (added: Iterable, length: boolean, lines: number, text: number, obj: string) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "changed", callback: (added: Iterable, length: boolean, lines: number, text: number, obj: string) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "changed", callback: (added: Iterable, length: boolean, lines: number, text: number, obj: string) => void): NodeJS.EventEmitter
     emit(sigName: "changed", added: Iterable, length: boolean, lines: number, text: number, obj: string): void
-    on(sigName: "changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "char-added", callback: (($obj: EditorLanguage, ch: Iterable, obj: number) => void)): number
-    connect_after(sigName: "char-added", callback: (($obj: EditorLanguage, ch: Iterable, obj: number) => void)): number
+    on(sigName: "char-added", callback: (ch: Iterable, obj: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "char-added", callback: (ch: Iterable, obj: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "char-added", callback: (ch: Iterable, obj: number) => void): NodeJS.EventEmitter
     emit(sigName: "char-added", ch: Iterable, obj: number): void
-    on(sigName: "char-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "char-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "char-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "code-changed", callback: (($obj: EditorLanguage, code: Iterable, obj: string) => void)): number
-    connect_after(sigName: "code-changed", callback: (($obj: EditorLanguage, code: Iterable, obj: string) => void)): number
+    on(sigName: "code-changed", callback: (code: Iterable, obj: string) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "code-changed", callback: (code: Iterable, obj: string) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "code-changed", callback: (code: Iterable, obj: string) => void): NodeJS.EventEmitter
     emit(sigName: "code-changed", code: Iterable, obj: string): void
-    on(sigName: "code-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "code-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "code-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "cursor-moved", callback: (($obj: EditorLanguage) => void)): number
-    connect_after(sigName: "cursor-moved", callback: (($obj: EditorLanguage) => void)): number
+    on(sigName: "cursor-moved", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "cursor-moved", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "cursor-moved", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "cursor-moved"): void
-    on(sigName: "cursor-moved", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "cursor-moved", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "cursor-moved", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "glade-callback-add", callback: (($obj: EditorLanguage, signalName: string, handlerName: string, object: string, swap: string, after: boolean, filename: boolean, obj: string) => void)): number
-    connect_after(sigName: "glade-callback-add", callback: (($obj: EditorLanguage, signalName: string, handlerName: string, object: string, swap: string, after: boolean, filename: boolean, obj: string) => void)): number
+    on(sigName: "glade-callback-add", callback: (signalName: string, handlerName: string, object: string, swap: string, after: boolean, filename: boolean, obj: string) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "glade-callback-add", callback: (signalName: string, handlerName: string, object: string, swap: string, after: boolean, filename: boolean, obj: string) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "glade-callback-add", callback: (signalName: string, handlerName: string, object: string, swap: string, after: boolean, filename: boolean, obj: string) => void): NodeJS.EventEmitter
     emit(sigName: "glade-callback-add", signalName: string, handlerName: string, object: string, swap: string, after: boolean, filename: boolean, obj: string): void
-    on(sigName: "glade-callback-add", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "glade-callback-add", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "glade-callback-add", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "glade-member-add", callback: (($obj: EditorLanguage, widgetName: string, filename: string, obj: string) => void)): number
-    connect_after(sigName: "glade-member-add", callback: (($obj: EditorLanguage, widgetName: string, filename: string, obj: string) => void)): number
+    on(sigName: "glade-member-add", callback: (widgetName: string, filename: string, obj: string) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "glade-member-add", callback: (widgetName: string, filename: string, obj: string) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "glade-member-add", callback: (widgetName: string, filename: string, obj: string) => void): NodeJS.EventEmitter
     emit(sigName: "glade-member-add", widgetName: string, filename: string, obj: string): void
-    on(sigName: "glade-member-add", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "glade-member-add", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "glade-member-add", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "line-marks-gutter-clicked", callback: (($obj: EditorLanguage, doubleClick: number) => void)): number
-    connect_after(sigName: "line-marks-gutter-clicked", callback: (($obj: EditorLanguage, doubleClick: number) => void)): number
+    on(sigName: "line-marks-gutter-clicked", callback: (doubleClick: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "line-marks-gutter-clicked", callback: (doubleClick: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "line-marks-gutter-clicked", callback: (doubleClick: number) => void): NodeJS.EventEmitter
     emit(sigName: "line-marks-gutter-clicked", doubleClick: number): void
-    on(sigName: "line-marks-gutter-clicked", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "line-marks-gutter-clicked", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "line-marks-gutter-clicked", callback: (...args: any[]) => void): NodeJS.EventEmitter
     static name: string
     /* Static methods and pseudo-constructors */
     static errorQuark(): GLib.Quark
 }
 export class EditorLineMode {
-    /* Methods of IAnjuta.EditorLineMode */
+    /* Methods of IAnjuta-3.0.IAnjuta.EditorLineMode */
     convert(mode: EditorLineModeType): void
     fix(): void
     get(): EditorLineModeType
     set(mode: EditorLineModeType): void
-    /* Methods of IAnjuta.Editor */
+    /* Methods of IAnjuta-3.0.IAnjuta.Editor */
     append(text: string, length: number): void
     erase(positionStart: Iterable, positionEnd: Iterable): void
     eraseAll(): void
@@ -2707,108 +1859,56 @@ export class EditorLineMode {
     setPopupMenu(menu: Gtk.Widget): void
     setTabsize(tabsize: number): void
     setUseSpaces(useSpaces: boolean): void
-    /* Virtual methods of IAnjuta.EditorLineMode */
-    vfuncConvert(mode: EditorLineModeType): void
-    vfuncFix(): void
-    vfuncGet(): EditorLineModeType
-    vfuncSet(mode: EditorLineModeType): void
-    /* Virtual methods of IAnjuta.Editor */
-    vfuncAppend(text: string, length: number): void
-    vfuncBackspace(): void
-    vfuncChanged(position: Iterable, added: boolean, length: number, lines: number, text: string): void
-    vfuncCharAdded(position: Iterable, ch: number): void
-    vfuncCodeChanged(position: Iterable, code: string): void
-    vfuncCursorMoved(): void
-    vfuncErase(positionStart: Iterable, positionEnd: Iterable): void
-    vfuncEraseAll(): void
-    vfuncGetColumn(): number
-    vfuncGetCurrentWord(): string
-    vfuncGetEndPosition(): Iterable
-    vfuncGetIndentsize(): number
-    vfuncGetLength(): number
-    vfuncGetLineBeginPosition(line: number): Iterable
-    vfuncGetLineEndPosition(line: number): Iterable
-    vfuncGetLineFromPosition(position: Iterable): number
-    vfuncGetLineno(): number
-    vfuncGetOffset(): number
-    vfuncGetOverwrite(): boolean
-    vfuncGetPosition(): Iterable
-    vfuncGetStartPosition(): Iterable
-    vfuncGetTabsize(): number
-    vfuncGetText(begin: Iterable, end: Iterable): string
-    vfuncGetTextAll(): string
-    vfuncGetUseSpaces(): boolean
-    vfuncGladeCallbackAdd(widgetTypename: string, signalName: string, handlerName: string, object: string, swap: boolean, after: boolean, filename: string): void
-    vfuncGladeMemberAdd(widgetTypename: string, widgetName: string, filename: string): void
-    vfuncGotoEnd(): void
-    vfuncGotoLine(lineno: number): void
-    vfuncGotoPosition(position: Iterable): void
-    vfuncGotoStart(): void
-    vfuncInsert(position: Iterable, text: string, length: number): void
-    vfuncLineMarksGutterClicked(location: number): void
-    vfuncSetAutoIndent(autoIndent: boolean): void
-    vfuncSetIndentsize(indentsize: number): void
-    vfuncSetPopupMenu(menu: Gtk.Widget): void
-    vfuncSetTabsize(tabsize: number): void
-    vfuncSetUseSpaces(useSpaces: boolean): void
-    /* Signals of IAnjuta.Editor */
+    /* Signals of IAnjuta-3.0.IAnjuta.Editor */
     connect(sigName: "backspace", callback: (($obj: EditorLineMode) => void)): number
-    connect_after(sigName: "backspace", callback: (($obj: EditorLineMode) => void)): number
+    on(sigName: "backspace", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "backspace", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "backspace", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "backspace"): void
-    on(sigName: "backspace", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "backspace", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "backspace", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "changed", callback: (($obj: EditorLineMode, added: Iterable, length: boolean, lines: number, text: number, obj: string) => void)): number
-    connect_after(sigName: "changed", callback: (($obj: EditorLineMode, added: Iterable, length: boolean, lines: number, text: number, obj: string) => void)): number
+    on(sigName: "changed", callback: (added: Iterable, length: boolean, lines: number, text: number, obj: string) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "changed", callback: (added: Iterable, length: boolean, lines: number, text: number, obj: string) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "changed", callback: (added: Iterable, length: boolean, lines: number, text: number, obj: string) => void): NodeJS.EventEmitter
     emit(sigName: "changed", added: Iterable, length: boolean, lines: number, text: number, obj: string): void
-    on(sigName: "changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "char-added", callback: (($obj: EditorLineMode, ch: Iterable, obj: number) => void)): number
-    connect_after(sigName: "char-added", callback: (($obj: EditorLineMode, ch: Iterable, obj: number) => void)): number
+    on(sigName: "char-added", callback: (ch: Iterable, obj: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "char-added", callback: (ch: Iterable, obj: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "char-added", callback: (ch: Iterable, obj: number) => void): NodeJS.EventEmitter
     emit(sigName: "char-added", ch: Iterable, obj: number): void
-    on(sigName: "char-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "char-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "char-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "code-changed", callback: (($obj: EditorLineMode, code: Iterable, obj: string) => void)): number
-    connect_after(sigName: "code-changed", callback: (($obj: EditorLineMode, code: Iterable, obj: string) => void)): number
+    on(sigName: "code-changed", callback: (code: Iterable, obj: string) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "code-changed", callback: (code: Iterable, obj: string) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "code-changed", callback: (code: Iterable, obj: string) => void): NodeJS.EventEmitter
     emit(sigName: "code-changed", code: Iterable, obj: string): void
-    on(sigName: "code-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "code-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "code-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "cursor-moved", callback: (($obj: EditorLineMode) => void)): number
-    connect_after(sigName: "cursor-moved", callback: (($obj: EditorLineMode) => void)): number
+    on(sigName: "cursor-moved", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "cursor-moved", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "cursor-moved", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "cursor-moved"): void
-    on(sigName: "cursor-moved", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "cursor-moved", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "cursor-moved", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "glade-callback-add", callback: (($obj: EditorLineMode, signalName: string, handlerName: string, object: string, swap: string, after: boolean, filename: boolean, obj: string) => void)): number
-    connect_after(sigName: "glade-callback-add", callback: (($obj: EditorLineMode, signalName: string, handlerName: string, object: string, swap: string, after: boolean, filename: boolean, obj: string) => void)): number
+    on(sigName: "glade-callback-add", callback: (signalName: string, handlerName: string, object: string, swap: string, after: boolean, filename: boolean, obj: string) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "glade-callback-add", callback: (signalName: string, handlerName: string, object: string, swap: string, after: boolean, filename: boolean, obj: string) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "glade-callback-add", callback: (signalName: string, handlerName: string, object: string, swap: string, after: boolean, filename: boolean, obj: string) => void): NodeJS.EventEmitter
     emit(sigName: "glade-callback-add", signalName: string, handlerName: string, object: string, swap: string, after: boolean, filename: boolean, obj: string): void
-    on(sigName: "glade-callback-add", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "glade-callback-add", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "glade-callback-add", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "glade-member-add", callback: (($obj: EditorLineMode, widgetName: string, filename: string, obj: string) => void)): number
-    connect_after(sigName: "glade-member-add", callback: (($obj: EditorLineMode, widgetName: string, filename: string, obj: string) => void)): number
+    on(sigName: "glade-member-add", callback: (widgetName: string, filename: string, obj: string) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "glade-member-add", callback: (widgetName: string, filename: string, obj: string) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "glade-member-add", callback: (widgetName: string, filename: string, obj: string) => void): NodeJS.EventEmitter
     emit(sigName: "glade-member-add", widgetName: string, filename: string, obj: string): void
-    on(sigName: "glade-member-add", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "glade-member-add", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "glade-member-add", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "line-marks-gutter-clicked", callback: (($obj: EditorLineMode, doubleClick: number) => void)): number
-    connect_after(sigName: "line-marks-gutter-clicked", callback: (($obj: EditorLineMode, doubleClick: number) => void)): number
+    on(sigName: "line-marks-gutter-clicked", callback: (doubleClick: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "line-marks-gutter-clicked", callback: (doubleClick: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "line-marks-gutter-clicked", callback: (doubleClick: number) => void): NodeJS.EventEmitter
     emit(sigName: "line-marks-gutter-clicked", doubleClick: number): void
-    on(sigName: "line-marks-gutter-clicked", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "line-marks-gutter-clicked", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "line-marks-gutter-clicked", callback: (...args: any[]) => void): NodeJS.EventEmitter
     static name: string
     /* Static methods and pseudo-constructors */
     static errorQuark(): GLib.Quark
 }
 export class EditorSearch {
-    /* Methods of IAnjuta.EditorSearch */
-    backward(search: string, caseSensitive: boolean, start: EditorCell, end: EditorCell): [ /* returnType */ boolean, /* resultStart */ EditorCell, /* resultEnd */ EditorCell ]
-    forward(search: string, caseSensitive: boolean, start: EditorCell, end: EditorCell): [ /* returnType */ boolean, /* resultStart */ EditorCell, /* resultEnd */ EditorCell ]
-    /* Methods of IAnjuta.Editor */
+    /* Methods of IAnjuta-3.0.IAnjuta.EditorSearch */
+    backward(search: string, caseSensitive: boolean, start: EditorCell, end: EditorCell): { returnType: boolean, resultStart: EditorCell, resultEnd: EditorCell }
+    forward(search: string, caseSensitive: boolean, start: EditorCell, end: EditorCell): { returnType: boolean, resultStart: EditorCell, resultEnd: EditorCell }
+    /* Methods of IAnjuta-3.0.IAnjuta.Editor */
     append(text: string, length: number): void
     erase(positionStart: Iterable, positionEnd: Iterable): void
     eraseAll(): void
@@ -2839,103 +1939,53 @@ export class EditorSearch {
     setPopupMenu(menu: Gtk.Widget): void
     setTabsize(tabsize: number): void
     setUseSpaces(useSpaces: boolean): void
-    /* Virtual methods of IAnjuta.EditorSearch */
-    vfuncBackward(search: string, caseSensitive: boolean, start: EditorCell, end: EditorCell): [ /* returnType */ boolean, /* resultStart */ EditorCell, /* resultEnd */ EditorCell ]
-    vfuncForward(search: string, caseSensitive: boolean, start: EditorCell, end: EditorCell): [ /* returnType */ boolean, /* resultStart */ EditorCell, /* resultEnd */ EditorCell ]
-    /* Virtual methods of IAnjuta.Editor */
-    vfuncAppend(text: string, length: number): void
-    vfuncBackspace(): void
-    vfuncChanged(position: Iterable, added: boolean, length: number, lines: number, text: string): void
-    vfuncCharAdded(position: Iterable, ch: number): void
-    vfuncCodeChanged(position: Iterable, code: string): void
-    vfuncCursorMoved(): void
-    vfuncErase(positionStart: Iterable, positionEnd: Iterable): void
-    vfuncEraseAll(): void
-    vfuncGetColumn(): number
-    vfuncGetCurrentWord(): string
-    vfuncGetEndPosition(): Iterable
-    vfuncGetIndentsize(): number
-    vfuncGetLength(): number
-    vfuncGetLineBeginPosition(line: number): Iterable
-    vfuncGetLineEndPosition(line: number): Iterable
-    vfuncGetLineFromPosition(position: Iterable): number
-    vfuncGetLineno(): number
-    vfuncGetOffset(): number
-    vfuncGetOverwrite(): boolean
-    vfuncGetPosition(): Iterable
-    vfuncGetStartPosition(): Iterable
-    vfuncGetTabsize(): number
-    vfuncGetText(begin: Iterable, end: Iterable): string
-    vfuncGetTextAll(): string
-    vfuncGetUseSpaces(): boolean
-    vfuncGladeCallbackAdd(widgetTypename: string, signalName: string, handlerName: string, object: string, swap: boolean, after: boolean, filename: string): void
-    vfuncGladeMemberAdd(widgetTypename: string, widgetName: string, filename: string): void
-    vfuncGotoEnd(): void
-    vfuncGotoLine(lineno: number): void
-    vfuncGotoPosition(position: Iterable): void
-    vfuncGotoStart(): void
-    vfuncInsert(position: Iterable, text: string, length: number): void
-    vfuncLineMarksGutterClicked(location: number): void
-    vfuncSetAutoIndent(autoIndent: boolean): void
-    vfuncSetIndentsize(indentsize: number): void
-    vfuncSetPopupMenu(menu: Gtk.Widget): void
-    vfuncSetTabsize(tabsize: number): void
-    vfuncSetUseSpaces(useSpaces: boolean): void
-    /* Signals of IAnjuta.Editor */
+    /* Signals of IAnjuta-3.0.IAnjuta.Editor */
     connect(sigName: "backspace", callback: (($obj: EditorSearch) => void)): number
-    connect_after(sigName: "backspace", callback: (($obj: EditorSearch) => void)): number
+    on(sigName: "backspace", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "backspace", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "backspace", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "backspace"): void
-    on(sigName: "backspace", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "backspace", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "backspace", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "changed", callback: (($obj: EditorSearch, added: Iterable, length: boolean, lines: number, text: number, obj: string) => void)): number
-    connect_after(sigName: "changed", callback: (($obj: EditorSearch, added: Iterable, length: boolean, lines: number, text: number, obj: string) => void)): number
+    on(sigName: "changed", callback: (added: Iterable, length: boolean, lines: number, text: number, obj: string) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "changed", callback: (added: Iterable, length: boolean, lines: number, text: number, obj: string) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "changed", callback: (added: Iterable, length: boolean, lines: number, text: number, obj: string) => void): NodeJS.EventEmitter
     emit(sigName: "changed", added: Iterable, length: boolean, lines: number, text: number, obj: string): void
-    on(sigName: "changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "char-added", callback: (($obj: EditorSearch, ch: Iterable, obj: number) => void)): number
-    connect_after(sigName: "char-added", callback: (($obj: EditorSearch, ch: Iterable, obj: number) => void)): number
+    on(sigName: "char-added", callback: (ch: Iterable, obj: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "char-added", callback: (ch: Iterable, obj: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "char-added", callback: (ch: Iterable, obj: number) => void): NodeJS.EventEmitter
     emit(sigName: "char-added", ch: Iterable, obj: number): void
-    on(sigName: "char-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "char-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "char-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "code-changed", callback: (($obj: EditorSearch, code: Iterable, obj: string) => void)): number
-    connect_after(sigName: "code-changed", callback: (($obj: EditorSearch, code: Iterable, obj: string) => void)): number
+    on(sigName: "code-changed", callback: (code: Iterable, obj: string) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "code-changed", callback: (code: Iterable, obj: string) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "code-changed", callback: (code: Iterable, obj: string) => void): NodeJS.EventEmitter
     emit(sigName: "code-changed", code: Iterable, obj: string): void
-    on(sigName: "code-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "code-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "code-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "cursor-moved", callback: (($obj: EditorSearch) => void)): number
-    connect_after(sigName: "cursor-moved", callback: (($obj: EditorSearch) => void)): number
+    on(sigName: "cursor-moved", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "cursor-moved", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "cursor-moved", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "cursor-moved"): void
-    on(sigName: "cursor-moved", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "cursor-moved", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "cursor-moved", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "glade-callback-add", callback: (($obj: EditorSearch, signalName: string, handlerName: string, object: string, swap: string, after: boolean, filename: boolean, obj: string) => void)): number
-    connect_after(sigName: "glade-callback-add", callback: (($obj: EditorSearch, signalName: string, handlerName: string, object: string, swap: string, after: boolean, filename: boolean, obj: string) => void)): number
+    on(sigName: "glade-callback-add", callback: (signalName: string, handlerName: string, object: string, swap: string, after: boolean, filename: boolean, obj: string) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "glade-callback-add", callback: (signalName: string, handlerName: string, object: string, swap: string, after: boolean, filename: boolean, obj: string) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "glade-callback-add", callback: (signalName: string, handlerName: string, object: string, swap: string, after: boolean, filename: boolean, obj: string) => void): NodeJS.EventEmitter
     emit(sigName: "glade-callback-add", signalName: string, handlerName: string, object: string, swap: string, after: boolean, filename: boolean, obj: string): void
-    on(sigName: "glade-callback-add", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "glade-callback-add", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "glade-callback-add", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "glade-member-add", callback: (($obj: EditorSearch, widgetName: string, filename: string, obj: string) => void)): number
-    connect_after(sigName: "glade-member-add", callback: (($obj: EditorSearch, widgetName: string, filename: string, obj: string) => void)): number
+    on(sigName: "glade-member-add", callback: (widgetName: string, filename: string, obj: string) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "glade-member-add", callback: (widgetName: string, filename: string, obj: string) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "glade-member-add", callback: (widgetName: string, filename: string, obj: string) => void): NodeJS.EventEmitter
     emit(sigName: "glade-member-add", widgetName: string, filename: string, obj: string): void
-    on(sigName: "glade-member-add", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "glade-member-add", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "glade-member-add", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "line-marks-gutter-clicked", callback: (($obj: EditorSearch, doubleClick: number) => void)): number
-    connect_after(sigName: "line-marks-gutter-clicked", callback: (($obj: EditorSearch, doubleClick: number) => void)): number
+    on(sigName: "line-marks-gutter-clicked", callback: (doubleClick: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "line-marks-gutter-clicked", callback: (doubleClick: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "line-marks-gutter-clicked", callback: (doubleClick: number) => void): NodeJS.EventEmitter
     emit(sigName: "line-marks-gutter-clicked", doubleClick: number): void
-    on(sigName: "line-marks-gutter-clicked", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "line-marks-gutter-clicked", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "line-marks-gutter-clicked", callback: (...args: any[]) => void): NodeJS.EventEmitter
     static name: string
     /* Static methods and pseudo-constructors */
     static errorQuark(): GLib.Quark
 }
 export class EditorSelection {
-    /* Methods of IAnjuta.EditorSelection */
+    /* Methods of IAnjuta-3.0.IAnjuta.EditorSelection */
     get(): string
     hasSelection(): boolean
     replace(text: string, length: number): void
@@ -2943,7 +1993,7 @@ export class EditorSelection {
     selectBlock(): void
     selectFunction(): void
     set(start: Iterable, end: Iterable, scroll: boolean): void
-    /* Methods of IAnjuta.Editor */
+    /* Methods of IAnjuta-3.0.IAnjuta.Editor */
     append(text: string, length: number): void
     erase(positionStart: Iterable, positionEnd: Iterable): void
     eraseAll(): void
@@ -2974,112 +2024,57 @@ export class EditorSelection {
     setPopupMenu(menu: Gtk.Widget): void
     setTabsize(tabsize: number): void
     setUseSpaces(useSpaces: boolean): void
-    /* Virtual methods of IAnjuta.EditorSelection */
-    vfuncGet(): string
-    vfuncHasSelection(): boolean
-    vfuncReplace(text: string, length: number): void
-    vfuncSelectAll(): void
-    vfuncSelectBlock(): void
-    vfuncSelectFunction(): void
-    vfuncSet(start: Iterable, end: Iterable, scroll: boolean): void
-    /* Virtual methods of IAnjuta.Editor */
-    vfuncAppend(text: string, length: number): void
-    vfuncBackspace(): void
-    vfuncChanged(position: Iterable, added: boolean, length: number, lines: number, text: string): void
-    vfuncCharAdded(position: Iterable, ch: number): void
-    vfuncCodeChanged(position: Iterable, code: string): void
-    vfuncCursorMoved(): void
-    vfuncErase(positionStart: Iterable, positionEnd: Iterable): void
-    vfuncEraseAll(): void
-    vfuncGetColumn(): number
-    vfuncGetCurrentWord(): string
-    vfuncGetEndPosition(): Iterable
-    vfuncGetIndentsize(): number
-    vfuncGetLength(): number
-    vfuncGetLineBeginPosition(line: number): Iterable
-    vfuncGetLineEndPosition(line: number): Iterable
-    vfuncGetLineFromPosition(position: Iterable): number
-    vfuncGetLineno(): number
-    vfuncGetOffset(): number
-    vfuncGetOverwrite(): boolean
-    vfuncGetPosition(): Iterable
-    vfuncGetStartPosition(): Iterable
-    vfuncGetTabsize(): number
-    vfuncGetText(begin: Iterable, end: Iterable): string
-    vfuncGetTextAll(): string
-    vfuncGetUseSpaces(): boolean
-    vfuncGladeCallbackAdd(widgetTypename: string, signalName: string, handlerName: string, object: string, swap: boolean, after: boolean, filename: string): void
-    vfuncGladeMemberAdd(widgetTypename: string, widgetName: string, filename: string): void
-    vfuncGotoEnd(): void
-    vfuncGotoLine(lineno: number): void
-    vfuncGotoPosition(position: Iterable): void
-    vfuncGotoStart(): void
-    vfuncInsert(position: Iterable, text: string, length: number): void
-    vfuncLineMarksGutterClicked(location: number): void
-    vfuncSetAutoIndent(autoIndent: boolean): void
-    vfuncSetIndentsize(indentsize: number): void
-    vfuncSetPopupMenu(menu: Gtk.Widget): void
-    vfuncSetTabsize(tabsize: number): void
-    vfuncSetUseSpaces(useSpaces: boolean): void
-    /* Signals of IAnjuta.Editor */
+    /* Signals of IAnjuta-3.0.IAnjuta.Editor */
     connect(sigName: "backspace", callback: (($obj: EditorSelection) => void)): number
-    connect_after(sigName: "backspace", callback: (($obj: EditorSelection) => void)): number
+    on(sigName: "backspace", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "backspace", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "backspace", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "backspace"): void
-    on(sigName: "backspace", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "backspace", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "backspace", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "changed", callback: (($obj: EditorSelection, added: Iterable, length: boolean, lines: number, text: number, obj: string) => void)): number
-    connect_after(sigName: "changed", callback: (($obj: EditorSelection, added: Iterable, length: boolean, lines: number, text: number, obj: string) => void)): number
+    on(sigName: "changed", callback: (added: Iterable, length: boolean, lines: number, text: number, obj: string) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "changed", callback: (added: Iterable, length: boolean, lines: number, text: number, obj: string) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "changed", callback: (added: Iterable, length: boolean, lines: number, text: number, obj: string) => void): NodeJS.EventEmitter
     emit(sigName: "changed", added: Iterable, length: boolean, lines: number, text: number, obj: string): void
-    on(sigName: "changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "char-added", callback: (($obj: EditorSelection, ch: Iterable, obj: number) => void)): number
-    connect_after(sigName: "char-added", callback: (($obj: EditorSelection, ch: Iterable, obj: number) => void)): number
+    on(sigName: "char-added", callback: (ch: Iterable, obj: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "char-added", callback: (ch: Iterable, obj: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "char-added", callback: (ch: Iterable, obj: number) => void): NodeJS.EventEmitter
     emit(sigName: "char-added", ch: Iterable, obj: number): void
-    on(sigName: "char-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "char-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "char-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "code-changed", callback: (($obj: EditorSelection, code: Iterable, obj: string) => void)): number
-    connect_after(sigName: "code-changed", callback: (($obj: EditorSelection, code: Iterable, obj: string) => void)): number
+    on(sigName: "code-changed", callback: (code: Iterable, obj: string) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "code-changed", callback: (code: Iterable, obj: string) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "code-changed", callback: (code: Iterable, obj: string) => void): NodeJS.EventEmitter
     emit(sigName: "code-changed", code: Iterable, obj: string): void
-    on(sigName: "code-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "code-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "code-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "cursor-moved", callback: (($obj: EditorSelection) => void)): number
-    connect_after(sigName: "cursor-moved", callback: (($obj: EditorSelection) => void)): number
+    on(sigName: "cursor-moved", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "cursor-moved", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "cursor-moved", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "cursor-moved"): void
-    on(sigName: "cursor-moved", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "cursor-moved", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "cursor-moved", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "glade-callback-add", callback: (($obj: EditorSelection, signalName: string, handlerName: string, object: string, swap: string, after: boolean, filename: boolean, obj: string) => void)): number
-    connect_after(sigName: "glade-callback-add", callback: (($obj: EditorSelection, signalName: string, handlerName: string, object: string, swap: string, after: boolean, filename: boolean, obj: string) => void)): number
+    on(sigName: "glade-callback-add", callback: (signalName: string, handlerName: string, object: string, swap: string, after: boolean, filename: boolean, obj: string) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "glade-callback-add", callback: (signalName: string, handlerName: string, object: string, swap: string, after: boolean, filename: boolean, obj: string) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "glade-callback-add", callback: (signalName: string, handlerName: string, object: string, swap: string, after: boolean, filename: boolean, obj: string) => void): NodeJS.EventEmitter
     emit(sigName: "glade-callback-add", signalName: string, handlerName: string, object: string, swap: string, after: boolean, filename: boolean, obj: string): void
-    on(sigName: "glade-callback-add", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "glade-callback-add", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "glade-callback-add", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "glade-member-add", callback: (($obj: EditorSelection, widgetName: string, filename: string, obj: string) => void)): number
-    connect_after(sigName: "glade-member-add", callback: (($obj: EditorSelection, widgetName: string, filename: string, obj: string) => void)): number
+    on(sigName: "glade-member-add", callback: (widgetName: string, filename: string, obj: string) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "glade-member-add", callback: (widgetName: string, filename: string, obj: string) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "glade-member-add", callback: (widgetName: string, filename: string, obj: string) => void): NodeJS.EventEmitter
     emit(sigName: "glade-member-add", widgetName: string, filename: string, obj: string): void
-    on(sigName: "glade-member-add", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "glade-member-add", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "glade-member-add", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "line-marks-gutter-clicked", callback: (($obj: EditorSelection, doubleClick: number) => void)): number
-    connect_after(sigName: "line-marks-gutter-clicked", callback: (($obj: EditorSelection, doubleClick: number) => void)): number
+    on(sigName: "line-marks-gutter-clicked", callback: (doubleClick: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "line-marks-gutter-clicked", callback: (doubleClick: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "line-marks-gutter-clicked", callback: (doubleClick: number) => void): NodeJS.EventEmitter
     emit(sigName: "line-marks-gutter-clicked", doubleClick: number): void
-    on(sigName: "line-marks-gutter-clicked", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "line-marks-gutter-clicked", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "line-marks-gutter-clicked", callback: (...args: any[]) => void): NodeJS.EventEmitter
     static name: string
     /* Static methods and pseudo-constructors */
     static errorQuark(): GLib.Quark
 }
 export class EditorTip {
-    /* Methods of IAnjuta.EditorTip */
+    /* Methods of IAnjuta-3.0.IAnjuta.EditorTip */
     cancel(): void
     show(tips: string[], position: Iterable): void
     visible(): boolean
-    /* Methods of IAnjuta.Editor */
+    /* Methods of IAnjuta-3.0.IAnjuta.Editor */
     append(text: string, length: number): void
     erase(positionStart: Iterable, positionEnd: Iterable): void
     eraseAll(): void
@@ -3110,108 +2105,57 @@ export class EditorTip {
     setPopupMenu(menu: Gtk.Widget): void
     setTabsize(tabsize: number): void
     setUseSpaces(useSpaces: boolean): void
-    /* Virtual methods of IAnjuta.EditorTip */
-    vfuncCancel(): void
-    vfuncShow(tips: string[], position: Iterable): void
-    vfuncVisible(): boolean
-    /* Virtual methods of IAnjuta.Editor */
-    vfuncAppend(text: string, length: number): void
-    vfuncBackspace(): void
-    vfuncChanged(position: Iterable, added: boolean, length: number, lines: number, text: string): void
-    vfuncCharAdded(position: Iterable, ch: number): void
-    vfuncCodeChanged(position: Iterable, code: string): void
-    vfuncCursorMoved(): void
-    vfuncErase(positionStart: Iterable, positionEnd: Iterable): void
-    vfuncEraseAll(): void
-    vfuncGetColumn(): number
-    vfuncGetCurrentWord(): string
-    vfuncGetEndPosition(): Iterable
-    vfuncGetIndentsize(): number
-    vfuncGetLength(): number
-    vfuncGetLineBeginPosition(line: number): Iterable
-    vfuncGetLineEndPosition(line: number): Iterable
-    vfuncGetLineFromPosition(position: Iterable): number
-    vfuncGetLineno(): number
-    vfuncGetOffset(): number
-    vfuncGetOverwrite(): boolean
-    vfuncGetPosition(): Iterable
-    vfuncGetStartPosition(): Iterable
-    vfuncGetTabsize(): number
-    vfuncGetText(begin: Iterable, end: Iterable): string
-    vfuncGetTextAll(): string
-    vfuncGetUseSpaces(): boolean
-    vfuncGladeCallbackAdd(widgetTypename: string, signalName: string, handlerName: string, object: string, swap: boolean, after: boolean, filename: string): void
-    vfuncGladeMemberAdd(widgetTypename: string, widgetName: string, filename: string): void
-    vfuncGotoEnd(): void
-    vfuncGotoLine(lineno: number): void
-    vfuncGotoPosition(position: Iterable): void
-    vfuncGotoStart(): void
-    vfuncInsert(position: Iterable, text: string, length: number): void
-    vfuncLineMarksGutterClicked(location: number): void
-    vfuncSetAutoIndent(autoIndent: boolean): void
-    vfuncSetIndentsize(indentsize: number): void
-    vfuncSetPopupMenu(menu: Gtk.Widget): void
-    vfuncSetTabsize(tabsize: number): void
-    vfuncSetUseSpaces(useSpaces: boolean): void
-    /* Signals of IAnjuta.Editor */
+    /* Signals of IAnjuta-3.0.IAnjuta.Editor */
     connect(sigName: "backspace", callback: (($obj: EditorTip) => void)): number
-    connect_after(sigName: "backspace", callback: (($obj: EditorTip) => void)): number
+    on(sigName: "backspace", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "backspace", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "backspace", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "backspace"): void
-    on(sigName: "backspace", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "backspace", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "backspace", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "changed", callback: (($obj: EditorTip, added: Iterable, length: boolean, lines: number, text: number, obj: string) => void)): number
-    connect_after(sigName: "changed", callback: (($obj: EditorTip, added: Iterable, length: boolean, lines: number, text: number, obj: string) => void)): number
+    on(sigName: "changed", callback: (added: Iterable, length: boolean, lines: number, text: number, obj: string) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "changed", callback: (added: Iterable, length: boolean, lines: number, text: number, obj: string) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "changed", callback: (added: Iterable, length: boolean, lines: number, text: number, obj: string) => void): NodeJS.EventEmitter
     emit(sigName: "changed", added: Iterable, length: boolean, lines: number, text: number, obj: string): void
-    on(sigName: "changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "char-added", callback: (($obj: EditorTip, ch: Iterable, obj: number) => void)): number
-    connect_after(sigName: "char-added", callback: (($obj: EditorTip, ch: Iterable, obj: number) => void)): number
+    on(sigName: "char-added", callback: (ch: Iterable, obj: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "char-added", callback: (ch: Iterable, obj: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "char-added", callback: (ch: Iterable, obj: number) => void): NodeJS.EventEmitter
     emit(sigName: "char-added", ch: Iterable, obj: number): void
-    on(sigName: "char-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "char-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "char-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "code-changed", callback: (($obj: EditorTip, code: Iterable, obj: string) => void)): number
-    connect_after(sigName: "code-changed", callback: (($obj: EditorTip, code: Iterable, obj: string) => void)): number
+    on(sigName: "code-changed", callback: (code: Iterable, obj: string) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "code-changed", callback: (code: Iterable, obj: string) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "code-changed", callback: (code: Iterable, obj: string) => void): NodeJS.EventEmitter
     emit(sigName: "code-changed", code: Iterable, obj: string): void
-    on(sigName: "code-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "code-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "code-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "cursor-moved", callback: (($obj: EditorTip) => void)): number
-    connect_after(sigName: "cursor-moved", callback: (($obj: EditorTip) => void)): number
+    on(sigName: "cursor-moved", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "cursor-moved", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "cursor-moved", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "cursor-moved"): void
-    on(sigName: "cursor-moved", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "cursor-moved", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "cursor-moved", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "glade-callback-add", callback: (($obj: EditorTip, signalName: string, handlerName: string, object: string, swap: string, after: boolean, filename: boolean, obj: string) => void)): number
-    connect_after(sigName: "glade-callback-add", callback: (($obj: EditorTip, signalName: string, handlerName: string, object: string, swap: string, after: boolean, filename: boolean, obj: string) => void)): number
+    on(sigName: "glade-callback-add", callback: (signalName: string, handlerName: string, object: string, swap: string, after: boolean, filename: boolean, obj: string) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "glade-callback-add", callback: (signalName: string, handlerName: string, object: string, swap: string, after: boolean, filename: boolean, obj: string) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "glade-callback-add", callback: (signalName: string, handlerName: string, object: string, swap: string, after: boolean, filename: boolean, obj: string) => void): NodeJS.EventEmitter
     emit(sigName: "glade-callback-add", signalName: string, handlerName: string, object: string, swap: string, after: boolean, filename: boolean, obj: string): void
-    on(sigName: "glade-callback-add", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "glade-callback-add", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "glade-callback-add", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "glade-member-add", callback: (($obj: EditorTip, widgetName: string, filename: string, obj: string) => void)): number
-    connect_after(sigName: "glade-member-add", callback: (($obj: EditorTip, widgetName: string, filename: string, obj: string) => void)): number
+    on(sigName: "glade-member-add", callback: (widgetName: string, filename: string, obj: string) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "glade-member-add", callback: (widgetName: string, filename: string, obj: string) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "glade-member-add", callback: (widgetName: string, filename: string, obj: string) => void): NodeJS.EventEmitter
     emit(sigName: "glade-member-add", widgetName: string, filename: string, obj: string): void
-    on(sigName: "glade-member-add", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "glade-member-add", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "glade-member-add", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "line-marks-gutter-clicked", callback: (($obj: EditorTip, doubleClick: number) => void)): number
-    connect_after(sigName: "line-marks-gutter-clicked", callback: (($obj: EditorTip, doubleClick: number) => void)): number
+    on(sigName: "line-marks-gutter-clicked", callback: (doubleClick: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "line-marks-gutter-clicked", callback: (doubleClick: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "line-marks-gutter-clicked", callback: (doubleClick: number) => void): NodeJS.EventEmitter
     emit(sigName: "line-marks-gutter-clicked", doubleClick: number): void
-    on(sigName: "line-marks-gutter-clicked", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "line-marks-gutter-clicked", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "line-marks-gutter-clicked", callback: (...args: any[]) => void): NodeJS.EventEmitter
     static name: string
     /* Static methods and pseudo-constructors */
     static errorQuark(): GLib.Quark
 }
 export class EditorView {
-    /* Methods of IAnjuta.EditorView */
+    /* Methods of IAnjuta-3.0.IAnjuta.EditorView */
     create(): void
     getCount(): number
     removeCurrent(): void
-    /* Methods of IAnjuta.Editor */
+    /* Methods of IAnjuta-3.0.IAnjuta.Editor */
     append(text: string, length: number): void
     erase(positionStart: Iterable, positionEnd: Iterable): void
     eraseAll(): void
@@ -3242,107 +2186,56 @@ export class EditorView {
     setPopupMenu(menu: Gtk.Widget): void
     setTabsize(tabsize: number): void
     setUseSpaces(useSpaces: boolean): void
-    /* Virtual methods of IAnjuta.EditorView */
-    vfuncCreate(): void
-    vfuncGetCount(): number
-    vfuncRemoveCurrent(): void
-    /* Virtual methods of IAnjuta.Editor */
-    vfuncAppend(text: string, length: number): void
-    vfuncBackspace(): void
-    vfuncChanged(position: Iterable, added: boolean, length: number, lines: number, text: string): void
-    vfuncCharAdded(position: Iterable, ch: number): void
-    vfuncCodeChanged(position: Iterable, code: string): void
-    vfuncCursorMoved(): void
-    vfuncErase(positionStart: Iterable, positionEnd: Iterable): void
-    vfuncEraseAll(): void
-    vfuncGetColumn(): number
-    vfuncGetCurrentWord(): string
-    vfuncGetEndPosition(): Iterable
-    vfuncGetIndentsize(): number
-    vfuncGetLength(): number
-    vfuncGetLineBeginPosition(line: number): Iterable
-    vfuncGetLineEndPosition(line: number): Iterable
-    vfuncGetLineFromPosition(position: Iterable): number
-    vfuncGetLineno(): number
-    vfuncGetOffset(): number
-    vfuncGetOverwrite(): boolean
-    vfuncGetPosition(): Iterable
-    vfuncGetStartPosition(): Iterable
-    vfuncGetTabsize(): number
-    vfuncGetText(begin: Iterable, end: Iterable): string
-    vfuncGetTextAll(): string
-    vfuncGetUseSpaces(): boolean
-    vfuncGladeCallbackAdd(widgetTypename: string, signalName: string, handlerName: string, object: string, swap: boolean, after: boolean, filename: string): void
-    vfuncGladeMemberAdd(widgetTypename: string, widgetName: string, filename: string): void
-    vfuncGotoEnd(): void
-    vfuncGotoLine(lineno: number): void
-    vfuncGotoPosition(position: Iterable): void
-    vfuncGotoStart(): void
-    vfuncInsert(position: Iterable, text: string, length: number): void
-    vfuncLineMarksGutterClicked(location: number): void
-    vfuncSetAutoIndent(autoIndent: boolean): void
-    vfuncSetIndentsize(indentsize: number): void
-    vfuncSetPopupMenu(menu: Gtk.Widget): void
-    vfuncSetTabsize(tabsize: number): void
-    vfuncSetUseSpaces(useSpaces: boolean): void
-    /* Signals of IAnjuta.Editor */
+    /* Signals of IAnjuta-3.0.IAnjuta.Editor */
     connect(sigName: "backspace", callback: (($obj: EditorView) => void)): number
-    connect_after(sigName: "backspace", callback: (($obj: EditorView) => void)): number
+    on(sigName: "backspace", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "backspace", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "backspace", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "backspace"): void
-    on(sigName: "backspace", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "backspace", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "backspace", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "changed", callback: (($obj: EditorView, added: Iterable, length: boolean, lines: number, text: number, obj: string) => void)): number
-    connect_after(sigName: "changed", callback: (($obj: EditorView, added: Iterable, length: boolean, lines: number, text: number, obj: string) => void)): number
+    on(sigName: "changed", callback: (added: Iterable, length: boolean, lines: number, text: number, obj: string) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "changed", callback: (added: Iterable, length: boolean, lines: number, text: number, obj: string) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "changed", callback: (added: Iterable, length: boolean, lines: number, text: number, obj: string) => void): NodeJS.EventEmitter
     emit(sigName: "changed", added: Iterable, length: boolean, lines: number, text: number, obj: string): void
-    on(sigName: "changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "char-added", callback: (($obj: EditorView, ch: Iterable, obj: number) => void)): number
-    connect_after(sigName: "char-added", callback: (($obj: EditorView, ch: Iterable, obj: number) => void)): number
+    on(sigName: "char-added", callback: (ch: Iterable, obj: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "char-added", callback: (ch: Iterable, obj: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "char-added", callback: (ch: Iterable, obj: number) => void): NodeJS.EventEmitter
     emit(sigName: "char-added", ch: Iterable, obj: number): void
-    on(sigName: "char-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "char-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "char-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "code-changed", callback: (($obj: EditorView, code: Iterable, obj: string) => void)): number
-    connect_after(sigName: "code-changed", callback: (($obj: EditorView, code: Iterable, obj: string) => void)): number
+    on(sigName: "code-changed", callback: (code: Iterable, obj: string) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "code-changed", callback: (code: Iterable, obj: string) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "code-changed", callback: (code: Iterable, obj: string) => void): NodeJS.EventEmitter
     emit(sigName: "code-changed", code: Iterable, obj: string): void
-    on(sigName: "code-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "code-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "code-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "cursor-moved", callback: (($obj: EditorView) => void)): number
-    connect_after(sigName: "cursor-moved", callback: (($obj: EditorView) => void)): number
+    on(sigName: "cursor-moved", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "cursor-moved", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "cursor-moved", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "cursor-moved"): void
-    on(sigName: "cursor-moved", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "cursor-moved", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "cursor-moved", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "glade-callback-add", callback: (($obj: EditorView, signalName: string, handlerName: string, object: string, swap: string, after: boolean, filename: boolean, obj: string) => void)): number
-    connect_after(sigName: "glade-callback-add", callback: (($obj: EditorView, signalName: string, handlerName: string, object: string, swap: string, after: boolean, filename: boolean, obj: string) => void)): number
+    on(sigName: "glade-callback-add", callback: (signalName: string, handlerName: string, object: string, swap: string, after: boolean, filename: boolean, obj: string) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "glade-callback-add", callback: (signalName: string, handlerName: string, object: string, swap: string, after: boolean, filename: boolean, obj: string) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "glade-callback-add", callback: (signalName: string, handlerName: string, object: string, swap: string, after: boolean, filename: boolean, obj: string) => void): NodeJS.EventEmitter
     emit(sigName: "glade-callback-add", signalName: string, handlerName: string, object: string, swap: string, after: boolean, filename: boolean, obj: string): void
-    on(sigName: "glade-callback-add", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "glade-callback-add", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "glade-callback-add", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "glade-member-add", callback: (($obj: EditorView, widgetName: string, filename: string, obj: string) => void)): number
-    connect_after(sigName: "glade-member-add", callback: (($obj: EditorView, widgetName: string, filename: string, obj: string) => void)): number
+    on(sigName: "glade-member-add", callback: (widgetName: string, filename: string, obj: string) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "glade-member-add", callback: (widgetName: string, filename: string, obj: string) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "glade-member-add", callback: (widgetName: string, filename: string, obj: string) => void): NodeJS.EventEmitter
     emit(sigName: "glade-member-add", widgetName: string, filename: string, obj: string): void
-    on(sigName: "glade-member-add", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "glade-member-add", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "glade-member-add", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "line-marks-gutter-clicked", callback: (($obj: EditorView, doubleClick: number) => void)): number
-    connect_after(sigName: "line-marks-gutter-clicked", callback: (($obj: EditorView, doubleClick: number) => void)): number
+    on(sigName: "line-marks-gutter-clicked", callback: (doubleClick: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "line-marks-gutter-clicked", callback: (doubleClick: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "line-marks-gutter-clicked", callback: (doubleClick: number) => void): NodeJS.EventEmitter
     emit(sigName: "line-marks-gutter-clicked", doubleClick: number): void
-    on(sigName: "line-marks-gutter-clicked", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "line-marks-gutter-clicked", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "line-marks-gutter-clicked", callback: (...args: any[]) => void): NodeJS.EventEmitter
     static name: string
     /* Static methods and pseudo-constructors */
     static errorQuark(): GLib.Quark
 }
 export class EditorZoom {
-    /* Methods of IAnjuta.EditorZoom */
+    /* Methods of IAnjuta-3.0.IAnjuta.EditorZoom */
     in(): void
     out(): void
-    /* Methods of IAnjuta.Editor */
+    /* Methods of IAnjuta-3.0.IAnjuta.Editor */
     append(text: string, length: number): void
     erase(positionStart: Iterable, positionEnd: Iterable): void
     eraseAll(): void
@@ -3373,245 +2266,155 @@ export class EditorZoom {
     setPopupMenu(menu: Gtk.Widget): void
     setTabsize(tabsize: number): void
     setUseSpaces(useSpaces: boolean): void
-    /* Virtual methods of IAnjuta.EditorZoom */
-    vfuncIn(): void
-    vfuncOut(): void
-    /* Virtual methods of IAnjuta.Editor */
-    vfuncAppend(text: string, length: number): void
-    vfuncBackspace(): void
-    vfuncChanged(position: Iterable, added: boolean, length: number, lines: number, text: string): void
-    vfuncCharAdded(position: Iterable, ch: number): void
-    vfuncCodeChanged(position: Iterable, code: string): void
-    vfuncCursorMoved(): void
-    vfuncErase(positionStart: Iterable, positionEnd: Iterable): void
-    vfuncEraseAll(): void
-    vfuncGetColumn(): number
-    vfuncGetCurrentWord(): string
-    vfuncGetEndPosition(): Iterable
-    vfuncGetIndentsize(): number
-    vfuncGetLength(): number
-    vfuncGetLineBeginPosition(line: number): Iterable
-    vfuncGetLineEndPosition(line: number): Iterable
-    vfuncGetLineFromPosition(position: Iterable): number
-    vfuncGetLineno(): number
-    vfuncGetOffset(): number
-    vfuncGetOverwrite(): boolean
-    vfuncGetPosition(): Iterable
-    vfuncGetStartPosition(): Iterable
-    vfuncGetTabsize(): number
-    vfuncGetText(begin: Iterable, end: Iterable): string
-    vfuncGetTextAll(): string
-    vfuncGetUseSpaces(): boolean
-    vfuncGladeCallbackAdd(widgetTypename: string, signalName: string, handlerName: string, object: string, swap: boolean, after: boolean, filename: string): void
-    vfuncGladeMemberAdd(widgetTypename: string, widgetName: string, filename: string): void
-    vfuncGotoEnd(): void
-    vfuncGotoLine(lineno: number): void
-    vfuncGotoPosition(position: Iterable): void
-    vfuncGotoStart(): void
-    vfuncInsert(position: Iterable, text: string, length: number): void
-    vfuncLineMarksGutterClicked(location: number): void
-    vfuncSetAutoIndent(autoIndent: boolean): void
-    vfuncSetIndentsize(indentsize: number): void
-    vfuncSetPopupMenu(menu: Gtk.Widget): void
-    vfuncSetTabsize(tabsize: number): void
-    vfuncSetUseSpaces(useSpaces: boolean): void
-    /* Signals of IAnjuta.Editor */
+    /* Signals of IAnjuta-3.0.IAnjuta.Editor */
     connect(sigName: "backspace", callback: (($obj: EditorZoom) => void)): number
-    connect_after(sigName: "backspace", callback: (($obj: EditorZoom) => void)): number
+    on(sigName: "backspace", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "backspace", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "backspace", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "backspace"): void
-    on(sigName: "backspace", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "backspace", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "backspace", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "changed", callback: (($obj: EditorZoom, added: Iterable, length: boolean, lines: number, text: number, obj: string) => void)): number
-    connect_after(sigName: "changed", callback: (($obj: EditorZoom, added: Iterable, length: boolean, lines: number, text: number, obj: string) => void)): number
+    on(sigName: "changed", callback: (added: Iterable, length: boolean, lines: number, text: number, obj: string) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "changed", callback: (added: Iterable, length: boolean, lines: number, text: number, obj: string) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "changed", callback: (added: Iterable, length: boolean, lines: number, text: number, obj: string) => void): NodeJS.EventEmitter
     emit(sigName: "changed", added: Iterable, length: boolean, lines: number, text: number, obj: string): void
-    on(sigName: "changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "char-added", callback: (($obj: EditorZoom, ch: Iterable, obj: number) => void)): number
-    connect_after(sigName: "char-added", callback: (($obj: EditorZoom, ch: Iterable, obj: number) => void)): number
+    on(sigName: "char-added", callback: (ch: Iterable, obj: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "char-added", callback: (ch: Iterable, obj: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "char-added", callback: (ch: Iterable, obj: number) => void): NodeJS.EventEmitter
     emit(sigName: "char-added", ch: Iterable, obj: number): void
-    on(sigName: "char-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "char-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "char-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "code-changed", callback: (($obj: EditorZoom, code: Iterable, obj: string) => void)): number
-    connect_after(sigName: "code-changed", callback: (($obj: EditorZoom, code: Iterable, obj: string) => void)): number
+    on(sigName: "code-changed", callback: (code: Iterable, obj: string) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "code-changed", callback: (code: Iterable, obj: string) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "code-changed", callback: (code: Iterable, obj: string) => void): NodeJS.EventEmitter
     emit(sigName: "code-changed", code: Iterable, obj: string): void
-    on(sigName: "code-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "code-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "code-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "cursor-moved", callback: (($obj: EditorZoom) => void)): number
-    connect_after(sigName: "cursor-moved", callback: (($obj: EditorZoom) => void)): number
+    on(sigName: "cursor-moved", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "cursor-moved", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "cursor-moved", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "cursor-moved"): void
-    on(sigName: "cursor-moved", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "cursor-moved", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "cursor-moved", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "glade-callback-add", callback: (($obj: EditorZoom, signalName: string, handlerName: string, object: string, swap: string, after: boolean, filename: boolean, obj: string) => void)): number
-    connect_after(sigName: "glade-callback-add", callback: (($obj: EditorZoom, signalName: string, handlerName: string, object: string, swap: string, after: boolean, filename: boolean, obj: string) => void)): number
+    on(sigName: "glade-callback-add", callback: (signalName: string, handlerName: string, object: string, swap: string, after: boolean, filename: boolean, obj: string) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "glade-callback-add", callback: (signalName: string, handlerName: string, object: string, swap: string, after: boolean, filename: boolean, obj: string) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "glade-callback-add", callback: (signalName: string, handlerName: string, object: string, swap: string, after: boolean, filename: boolean, obj: string) => void): NodeJS.EventEmitter
     emit(sigName: "glade-callback-add", signalName: string, handlerName: string, object: string, swap: string, after: boolean, filename: boolean, obj: string): void
-    on(sigName: "glade-callback-add", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "glade-callback-add", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "glade-callback-add", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "glade-member-add", callback: (($obj: EditorZoom, widgetName: string, filename: string, obj: string) => void)): number
-    connect_after(sigName: "glade-member-add", callback: (($obj: EditorZoom, widgetName: string, filename: string, obj: string) => void)): number
+    on(sigName: "glade-member-add", callback: (widgetName: string, filename: string, obj: string) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "glade-member-add", callback: (widgetName: string, filename: string, obj: string) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "glade-member-add", callback: (widgetName: string, filename: string, obj: string) => void): NodeJS.EventEmitter
     emit(sigName: "glade-member-add", widgetName: string, filename: string, obj: string): void
-    on(sigName: "glade-member-add", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "glade-member-add", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "glade-member-add", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "line-marks-gutter-clicked", callback: (($obj: EditorZoom, doubleClick: number) => void)): number
-    connect_after(sigName: "line-marks-gutter-clicked", callback: (($obj: EditorZoom, doubleClick: number) => void)): number
+    on(sigName: "line-marks-gutter-clicked", callback: (doubleClick: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "line-marks-gutter-clicked", callback: (doubleClick: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "line-marks-gutter-clicked", callback: (doubleClick: number) => void): NodeJS.EventEmitter
     emit(sigName: "line-marks-gutter-clicked", doubleClick: number): void
-    on(sigName: "line-marks-gutter-clicked", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "line-marks-gutter-clicked", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "line-marks-gutter-clicked", callback: (...args: any[]) => void): NodeJS.EventEmitter
     static name: string
     /* Static methods and pseudo-constructors */
     static errorQuark(): GLib.Quark
 }
 export class Environment {
-    /* Methods of IAnjuta.Environment */
+    /* Methods of IAnjuta-3.0.IAnjuta.Environment */
     getRealDirectory(dir: string): string
     override(dirp: string, argvp: string, envp: string): boolean
-    /* Virtual methods of IAnjuta.Environment */
-    vfuncGetRealDirectory(dir: string): string
-    vfuncOverride(dirp: string, argvp: string, envp: string): boolean
     static name: string
 }
 export class File {
-    /* Methods of IAnjuta.File */
+    /* Methods of IAnjuta-3.0.IAnjuta.File */
     getFile(): Gio.File
     open(file: Gio.File): void
-    /* Virtual methods of IAnjuta.File */
-    vfuncGetFile(): Gio.File
-    vfuncOpen(file: Gio.File): void
-    vfuncOpened(): void
-    /* Signals of IAnjuta.File */
+    /* Signals of IAnjuta-3.0.IAnjuta.File */
     connect(sigName: "opened", callback: (($obj: File) => void)): number
-    connect_after(sigName: "opened", callback: (($obj: File) => void)): number
+    on(sigName: "opened", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "opened", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "opened", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "opened"): void
-    on(sigName: "opened", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "opened", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "opened", callback: (...args: any[]) => void): NodeJS.EventEmitter
     static name: string
     /* Static methods and pseudo-constructors */
     static errorQuark(): GLib.Quark
 }
 export class FileLoader {
-    /* Methods of IAnjuta.FileLoader */
+    /* Methods of IAnjuta-3.0.IAnjuta.FileLoader */
     peekInterface(file: Gio.File): string
-    /* Virtual methods of IAnjuta.FileLoader */
-    vfuncPeekInterface(file: Gio.File): string
     static name: string
     /* Static methods and pseudo-constructors */
     static errorQuark(): GLib.Quark
 }
 export class FileManager {
-    /* Methods of IAnjuta.FileManager */
+    /* Methods of IAnjuta-3.0.IAnjuta.FileManager */
     setRoot(rootUri: string): void
     setSelected(file: Gio.File): void
-    /* Virtual methods of IAnjuta.FileManager */
-    vfuncSectionChanged(file: Gio.File): void
-    vfuncSetRoot(rootUri: string): void
-    vfuncSetSelected(file: Gio.File): void
-    /* Signals of IAnjuta.FileManager */
+    /* Signals of IAnjuta-3.0.IAnjuta.FileManager */
     connect(sigName: "section-changed", callback: (($obj: FileManager, err: Gio.File) => void)): number
-    connect_after(sigName: "section-changed", callback: (($obj: FileManager, err: Gio.File) => void)): number
+    on(sigName: "section-changed", callback: (err: Gio.File) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "section-changed", callback: (err: Gio.File) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "section-changed", callback: (err: Gio.File) => void): NodeJS.EventEmitter
     emit(sigName: "section-changed", err: Gio.File): void
-    on(sigName: "section-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "section-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "section-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     static name: string
     /* Static methods and pseudo-constructors */
     static errorQuark(): GLib.Quark
 }
 export class FileSavable {
-    /* Methods of IAnjuta.FileSavable */
+    /* Methods of IAnjuta-3.0.IAnjuta.FileSavable */
     isConflict(): boolean
     isDirty(): boolean
     isReadOnly(): boolean
     save(): void
     saveAs(file: Gio.File): void
     setDirty(dirty: boolean): void
-    /* Methods of IAnjuta.File */
+    /* Methods of IAnjuta-3.0.IAnjuta.File */
     getFile(): Gio.File
     open(file: Gio.File): void
-    /* Virtual methods of IAnjuta.FileSavable */
-    vfuncIsConflict(): boolean
-    vfuncIsDirty(): boolean
-    vfuncIsReadOnly(): boolean
-    vfuncSave(): void
-    vfuncSaveAs(file: Gio.File): void
-    vfuncSaved(file: Gio.File): void
-    vfuncSetDirty(dirty: boolean): void
-    vfuncUpdateSaveUi(): void
-    /* Virtual methods of IAnjuta.File */
-    vfuncGetFile(): Gio.File
-    vfuncOpen(file: Gio.File): void
-    vfuncOpened(): void
-    /* Signals of IAnjuta.FileSavable */
+    /* Signals of IAnjuta-3.0.IAnjuta.FileSavable */
     connect(sigName: "saved", callback: (($obj: FileSavable, file: Gio.File) => void)): number
-    connect_after(sigName: "saved", callback: (($obj: FileSavable, file: Gio.File) => void)): number
+    on(sigName: "saved", callback: (file: Gio.File) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "saved", callback: (file: Gio.File) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "saved", callback: (file: Gio.File) => void): NodeJS.EventEmitter
     emit(sigName: "saved", file: Gio.File): void
-    on(sigName: "saved", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "saved", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "saved", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "update-save-ui", callback: (($obj: FileSavable) => void)): number
-    connect_after(sigName: "update-save-ui", callback: (($obj: FileSavable) => void)): number
+    on(sigName: "update-save-ui", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "update-save-ui", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "update-save-ui", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "update-save-ui"): void
-    on(sigName: "update-save-ui", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "update-save-ui", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "update-save-ui", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of IAnjuta.File */
+    /* Signals of IAnjuta-3.0.IAnjuta.File */
     connect(sigName: "opened", callback: (($obj: FileSavable) => void)): number
-    connect_after(sigName: "opened", callback: (($obj: FileSavable) => void)): number
+    on(sigName: "opened", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "opened", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "opened", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "opened"): void
-    on(sigName: "opened", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "opened", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "opened", callback: (...args: any[]) => void): NodeJS.EventEmitter
     static name: string
     /* Static methods and pseudo-constructors */
     static errorQuark(): GLib.Quark
 }
 export class Glade {
-    /* Methods of IAnjuta.Glade */
+    /* Methods of IAnjuta-3.0.IAnjuta.Glade */
     addAssociation(master: string, slave: string): void
-    /* Virtual methods of IAnjuta.Glade */
-    vfuncAddAssociation(master: string, slave: string): void
     static name: string
     /* Static methods and pseudo-constructors */
     static errorQuark(): GLib.Quark
 }
 export class Help {
-    /* Methods of IAnjuta.Help */
+    /* Methods of IAnjuta-3.0.IAnjuta.Help */
     search(query: string): void
-    /* Virtual methods of IAnjuta.Help */
-    vfuncSearch(query: string): void
     static name: string
     /* Static methods and pseudo-constructors */
     static errorQuark(): GLib.Quark
 }
 export class Indenter {
-    /* Methods of IAnjuta.Indenter */
+    /* Methods of IAnjuta-3.0.IAnjuta.Indenter */
     indent(start: Iterable, end: Iterable): void
-    /* Virtual methods of IAnjuta.Indenter */
-    vfuncIndent(start: Iterable, end: Iterable): void
     static name: string
     /* Static methods and pseudo-constructors */
     static errorQuark(): GLib.Quark
 }
 export class Indicable {
-    /* Methods of IAnjuta.Indicable */
+    /* Methods of IAnjuta-3.0.IAnjuta.Indicable */
     clear(): void
     set(beginLocation: Iterable, endLocation: Iterable, indicator: IndicableIndicator): void
-    /* Virtual methods of IAnjuta.Indicable */
-    vfuncClear(): void
-    vfuncSet(beginLocation: Iterable, endLocation: Iterable, indicator: IndicableIndicator): void
     static name: string
     /* Static methods and pseudo-constructors */
     static errorQuark(): GLib.Quark
 }
 export class Iterable {
-    /* Methods of IAnjuta.Iterable */
+    /* Methods of IAnjuta-3.0.IAnjuta.Iterable */
     assign(srcIter: Iterable): void
     clone(): Iterable
     compare(iter2: Iterable): number
@@ -3623,28 +2426,16 @@ export class Iterable {
     next(): boolean
     previous(): boolean
     setPosition(position: number): boolean
-    /* Virtual methods of IAnjuta.Iterable */
-    vfuncAssign(srcIter: Iterable): void
-    vfuncClone(): Iterable
-    vfuncCompare(iter2: Iterable): number
-    vfuncDiff(iter2: Iterable): number
-    vfuncFirst(): boolean
-    vfuncGetLength(): number
-    vfuncGetPosition(): number
-    vfuncLast(): boolean
-    vfuncNext(): boolean
-    vfuncPrevious(): boolean
-    vfuncSetPosition(position: number): boolean
     static name: string
     /* Static methods and pseudo-constructors */
     static errorQuark(): GLib.Quark
 }
 export class IterableTree {
-    /* Methods of IAnjuta.IterableTree */
+    /* Methods of IAnjuta-3.0.IAnjuta.IterableTree */
     children(): boolean
     hasChildren(): boolean
     parent(): boolean
-    /* Methods of IAnjuta.Iterable */
+    /* Methods of IAnjuta-3.0.IAnjuta.Iterable */
     assign(srcIter: Iterable): void
     clone(): Iterable
     compare(iter2: Iterable): number
@@ -3656,28 +2447,12 @@ export class IterableTree {
     next(): boolean
     previous(): boolean
     setPosition(position: number): boolean
-    /* Virtual methods of IAnjuta.IterableTree */
-    vfuncChildren(): boolean
-    vfuncHasChildren(): boolean
-    vfuncParent(): boolean
-    /* Virtual methods of IAnjuta.Iterable */
-    vfuncAssign(srcIter: Iterable): void
-    vfuncClone(): Iterable
-    vfuncCompare(iter2: Iterable): number
-    vfuncDiff(iter2: Iterable): number
-    vfuncFirst(): boolean
-    vfuncGetLength(): number
-    vfuncGetPosition(): number
-    vfuncLast(): boolean
-    vfuncNext(): boolean
-    vfuncPrevious(): boolean
-    vfuncSetPosition(position: number): boolean
     static name: string
     /* Static methods and pseudo-constructors */
     static errorQuark(): GLib.Quark
 }
 export class Language {
-    /* Methods of IAnjuta.Language */
+    /* Methods of IAnjuta-3.0.IAnjuta.Language */
     getFromEditor(editor: EditorLanguage): LanguageId
     getFromMimeType(mimeType: string): LanguageId
     getFromString(string: string): LanguageId
@@ -3685,39 +2460,21 @@ export class Language {
     getMakeTarget(id: LanguageId): string
     getName(id: LanguageId): string
     getNameFromEditor(editor: EditorLanguage): string
-    /* Virtual methods of IAnjuta.Language */
-    vfuncGetFromEditor(editor: EditorLanguage): LanguageId
-    vfuncGetFromMimeType(mimeType: string): LanguageId
-    vfuncGetFromString(string: string): LanguageId
-    vfuncGetLanguages(): number[]
-    vfuncGetMakeTarget(id: LanguageId): string
-    vfuncGetName(id: LanguageId): string
-    vfuncGetNameFromEditor(editor: EditorLanguage): string
     static name: string
     /* Static methods and pseudo-constructors */
     static errorQuark(): GLib.Quark
 }
 export class LanguageProvider {
-    /* Methods of IAnjuta.LanguageProvider */
+    /* Methods of IAnjuta-3.0.IAnjuta.LanguageProvider */
     getCalltipCache(callContext: string): string[]
     getCalltipContext(iter: Iterable): string
     newCalltip(callContext: string, iter: Iterable): void
     populateCompletions(iter: Iterable): Iterable | null
-    /* Methods of IAnjuta.Provider */
+    /* Methods of IAnjuta-3.0.IAnjuta.Provider */
     activate(iter: Iterable, data?: object | null): void
     getName(): string
     getStartIter(): Iterable
     populate(iter: Iterable): void
-    /* Virtual methods of IAnjuta.LanguageProvider */
-    vfuncGetCalltipCache(callContext: string): string[]
-    vfuncGetCalltipContext(iter: Iterable): string
-    vfuncNewCalltip(callContext: string, iter: Iterable): void
-    vfuncPopulateCompletions(iter: Iterable): Iterable | null
-    /* Virtual methods of IAnjuta.Provider */
-    vfuncActivate(iter: Iterable, data?: object | null): void
-    vfuncGetName(): string
-    vfuncGetStartIter(): Iterable
-    vfuncPopulate(iter: Iterable): void
     static name: string
     /* Static methods and pseudo-constructors */
     static errorQuark(): GLib.Quark
@@ -3728,73 +2485,48 @@ export class Loader {
     static errorQuark(): GLib.Quark
 }
 export class Markable {
-    /* Methods of IAnjuta.Markable */
+    /* Methods of IAnjuta-3.0.IAnjuta.Markable */
     deleteAllMarkers(marker: MarkableMarker): void
     isMarkerSet(location: number, marker: MarkableMarker): boolean
     locationFromHandle(handle: number): number
     mark(location: number, marker: MarkableMarker, tooltip?: string | null): number
     unmark(location: number, marker: MarkableMarker): void
-    /* Virtual methods of IAnjuta.Markable */
-    vfuncDeleteAllMarkers(marker: MarkableMarker): void
-    vfuncIsMarkerSet(location: number, marker: MarkableMarker): boolean
-    vfuncLocationFromHandle(handle: number): number
-    vfuncMark(location: number, marker: MarkableMarker, tooltip?: string | null): number
-    vfuncMarkerClicked(doubleClick: boolean, location: number): void
-    vfuncUnmark(location: number, marker: MarkableMarker): void
-    /* Signals of IAnjuta.Markable */
+    /* Signals of IAnjuta-3.0.IAnjuta.Markable */
     connect(sigName: "marker-clicked", callback: (($obj: Markable, doubleClick: boolean, location: number) => void)): number
-    connect_after(sigName: "marker-clicked", callback: (($obj: Markable, doubleClick: boolean, location: number) => void)): number
+    on(sigName: "marker-clicked", callback: (doubleClick: boolean, location: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "marker-clicked", callback: (doubleClick: boolean, location: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "marker-clicked", callback: (doubleClick: boolean, location: number) => void): NodeJS.EventEmitter
     emit(sigName: "marker-clicked", doubleClick: boolean, location: number): void
-    on(sigName: "marker-clicked", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "marker-clicked", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "marker-clicked", callback: (...args: any[]) => void): NodeJS.EventEmitter
     static name: string
 }
 export class MessageManager {
-    /* Methods of IAnjuta.MessageManager */
+    /* Methods of IAnjuta-3.0.IAnjuta.MessageManager */
     removeView(view: MessageView): void
     setCurrentView(view: MessageView): void
     setViewIcon(view: MessageView, icon: GdkPixbuf.PixbufAnimation): void
     setViewIconFromStock(view: MessageView, icon: string): void
     setViewTitle(view: MessageView, title: string): void
-    /* Virtual methods of IAnjuta.MessageManager */
-    vfuncRemoveView(view: MessageView): void
-    vfuncSetCurrentView(view: MessageView): void
-    vfuncSetViewIcon(view: MessageView, icon: GdkPixbuf.PixbufAnimation): void
-    vfuncSetViewIconFromStock(view: MessageView, icon: string): void
-    vfuncSetViewTitle(view: MessageView, title: string): void
     static name: string
 }
 export class MessageView {
-    /* Methods of IAnjuta.MessageView */
+    /* Methods of IAnjuta-3.0.IAnjuta.MessageView */
     append(type: MessageViewType, summary: string, details: string): void
     bufferAppend(text: string): void
     clear(): void
     getCurrentMessage(): string
     selectNext(): void
     selectPrevious(): void
-    /* Virtual methods of IAnjuta.MessageView */
-    vfuncAppend(type: MessageViewType, summary: string, details: string): void
-    vfuncBufferAppend(text: string): void
-    vfuncBufferFlushed(line: string): void
-    vfuncClear(): void
-    vfuncGetCurrentMessage(): string
-    vfuncMessageClicked(message: string): void
-    vfuncSelectNext(): void
-    vfuncSelectPrevious(): void
-    /* Signals of IAnjuta.MessageView */
+    /* Signals of IAnjuta-3.0.IAnjuta.MessageView */
     connect(sigName: "buffer-flushed", callback: (($obj: MessageView, line: string) => void)): number
-    connect_after(sigName: "buffer-flushed", callback: (($obj: MessageView, line: string) => void)): number
+    on(sigName: "buffer-flushed", callback: (line: string) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "buffer-flushed", callback: (line: string) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "buffer-flushed", callback: (line: string) => void): NodeJS.EventEmitter
     emit(sigName: "buffer-flushed", line: string): void
-    on(sigName: "buffer-flushed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "buffer-flushed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "buffer-flushed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "message-clicked", callback: (($obj: MessageView, message: string) => void)): number
-    connect_after(sigName: "message-clicked", callback: (($obj: MessageView, message: string) => void)): number
+    on(sigName: "message-clicked", callback: (message: string) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "message-clicked", callback: (message: string) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "message-clicked", callback: (message: string) => void): NodeJS.EventEmitter
     emit(sigName: "message-clicked", message: string): void
-    on(sigName: "message-clicked", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "message-clicked", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "message-clicked", callback: (...args: any[]) => void): NodeJS.EventEmitter
     static name: string
     /* Static methods and pseudo-constructors */
     static errorQuark(): GLib.Quark
@@ -3803,29 +2535,23 @@ export class PluginFactory {
     static name: string
 }
 export class Preferences {
-    /* Methods of IAnjuta.Preferences */
+    /* Methods of IAnjuta-3.0.IAnjuta.Preferences */
     merge(prefs: Anjuta.Preferences): void
     unmerge(prefs: Anjuta.Preferences): void
-    /* Virtual methods of IAnjuta.Preferences */
-    vfuncMerge(prefs: Anjuta.Preferences): void
-    vfuncUnmerge(prefs: Anjuta.Preferences): void
     static name: string
     /* Static methods and pseudo-constructors */
     static errorQuark(): GLib.Quark
 }
 export class Print {
-    /* Methods of IAnjuta.Print */
+    /* Methods of IAnjuta-3.0.IAnjuta.Print */
     print(): void
     printPreview(): void
-    /* Virtual methods of IAnjuta.Print */
-    vfuncPrint(): void
-    vfuncPrintPreview(): void
     static name: string
     /* Static methods and pseudo-constructors */
     static errorQuark(): GLib.Quark
 }
 export class Project {
-    /* Methods of IAnjuta.Project */
+    /* Methods of IAnjuta-3.0.IAnjuta.Project */
     addNodeAfter(parent: Anjuta.ProjectNode, sibling: Anjuta.ProjectNode | null, type: Anjuta.ProjectNodeType, file?: Gio.File | null, name?: string | null): Anjuta.ProjectNode
     addNodeBefore(parent: Anjuta.ProjectNode, sibling: Anjuta.ProjectNode | null, type: Anjuta.ProjectNodeType, file?: Gio.File | null, name?: string | null): Anjuta.ProjectNode
     getNodeInfo(): Anjuta.ProjectNodeInfo[]
@@ -3836,80 +2562,53 @@ export class Project {
     removeProperty(node: Anjuta.ProjectNode, id: string, name?: string | null): boolean
     saveNode(node: Anjuta.ProjectNode): boolean
     setProperty(node: Anjuta.ProjectNode, id: string, name: string | null, value: string): Anjuta.ProjectProperty | null
-    /* Virtual methods of IAnjuta.Project */
-    vfuncAddNodeAfter(parent: Anjuta.ProjectNode, sibling: Anjuta.ProjectNode | null, type: Anjuta.ProjectNodeType, file?: Gio.File | null, name?: string | null): Anjuta.ProjectNode
-    vfuncAddNodeBefore(parent: Anjuta.ProjectNode, sibling: Anjuta.ProjectNode | null, type: Anjuta.ProjectNodeType, file?: Gio.File | null, name?: string | null): Anjuta.ProjectNode
-    vfuncFileChanged(node?: object | null): void
-    vfuncGetNodeInfo(): Anjuta.ProjectNodeInfo[]
-    vfuncGetRoot(): Anjuta.ProjectNode
-    vfuncIsLoaded(): boolean
-    vfuncLoadNode(node: Anjuta.ProjectNode): boolean
-    vfuncNodeChanged(node: object | null, error: GLib.Error): void
-    vfuncNodeLoaded(node: object | null, error: GLib.Error): void
-    vfuncNodeSaved(node: object | null, error: GLib.Error): void
-    vfuncRemoveNode(node: Anjuta.ProjectNode): boolean
-    vfuncRemoveProperty(node: Anjuta.ProjectNode, id: string, name?: string | null): boolean
-    vfuncSaveNode(node: Anjuta.ProjectNode): boolean
-    vfuncSetProperty(node: Anjuta.ProjectNode, id: string, name: string | null, value: string): Anjuta.ProjectProperty | null
-    /* Signals of IAnjuta.Project */
+    /* Signals of IAnjuta-3.0.IAnjuta.Project */
     connect(sigName: "file-changed", callback: (($obj: Project, node?: object | null) => void)): number
-    connect_after(sigName: "file-changed", callback: (($obj: Project, node?: object | null) => void)): number
+    on(sigName: "file-changed", callback: (node?: object | null) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "file-changed", callback: (node?: object | null) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "file-changed", callback: (node?: object | null) => void): NodeJS.EventEmitter
     emit(sigName: "file-changed", node?: object | null): void
-    on(sigName: "file-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "file-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "file-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "node-changed", callback: (($obj: Project, node: object | null, error: GLib.Error) => void)): number
-    connect_after(sigName: "node-changed", callback: (($obj: Project, node: object | null, error: GLib.Error) => void)): number
+    on(sigName: "node-changed", callback: (node: object | null, error: GLib.Error) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "node-changed", callback: (node: object | null, error: GLib.Error) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "node-changed", callback: (node: object | null, error: GLib.Error) => void): NodeJS.EventEmitter
     emit(sigName: "node-changed", node: object | null, error: GLib.Error): void
-    on(sigName: "node-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "node-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "node-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "node-loaded", callback: (($obj: Project, node: object | null, error: GLib.Error) => void)): number
-    connect_after(sigName: "node-loaded", callback: (($obj: Project, node: object | null, error: GLib.Error) => void)): number
+    on(sigName: "node-loaded", callback: (node: object | null, error: GLib.Error) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "node-loaded", callback: (node: object | null, error: GLib.Error) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "node-loaded", callback: (node: object | null, error: GLib.Error) => void): NodeJS.EventEmitter
     emit(sigName: "node-loaded", node: object | null, error: GLib.Error): void
-    on(sigName: "node-loaded", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "node-loaded", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "node-loaded", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "node-saved", callback: (($obj: Project, node: object | null, error: GLib.Error) => void)): number
-    connect_after(sigName: "node-saved", callback: (($obj: Project, node: object | null, error: GLib.Error) => void)): number
+    on(sigName: "node-saved", callback: (node: object | null, error: GLib.Error) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "node-saved", callback: (node: object | null, error: GLib.Error) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "node-saved", callback: (node: object | null, error: GLib.Error) => void): NodeJS.EventEmitter
     emit(sigName: "node-saved", node: object | null, error: GLib.Error): void
-    on(sigName: "node-saved", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "node-saved", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "node-saved", callback: (...args: any[]) => void): NodeJS.EventEmitter
     static name: string
 }
 export class ProjectBackend {
-    /* Methods of IAnjuta.ProjectBackend */
+    /* Methods of IAnjuta-3.0.IAnjuta.ProjectBackend */
     newProject(file: Gio.File): Project
     probe(directory: Gio.File): number
-    /* Virtual methods of IAnjuta.ProjectBackend */
-    vfuncNewProject(file: Gio.File): Project
-    vfuncProbe(directory: Gio.File): number
     static name: string
     /* Static methods and pseudo-constructors */
     static errorQuark(): GLib.Quark
 }
 export class ProjectChooser {
-    /* Methods of IAnjuta.ProjectChooser */
+    /* Methods of IAnjuta-3.0.IAnjuta.ProjectChooser */
     getSelected(): Gio.File
     setProjectModel(manager: ProjectManager, childType: Anjuta.ProjectNodeType): boolean
-    /* Virtual methods of IAnjuta.ProjectChooser */
-    vfuncChanged(): void
-    vfuncGetSelected(): Gio.File
-    vfuncSetProjectModel(manager: ProjectManager, childType: Anjuta.ProjectNodeType): boolean
-    /* Signals of IAnjuta.ProjectChooser */
+    /* Signals of IAnjuta-3.0.IAnjuta.ProjectChooser */
     connect(sigName: "changed", callback: (($obj: ProjectChooser) => void)): number
-    connect_after(sigName: "changed", callback: (($obj: ProjectChooser) => void)): number
+    on(sigName: "changed", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "changed", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "changed", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "changed"): void
-    on(sigName: "changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     static name: string
     /* Static methods and pseudo-constructors */
     static errorQuark(): GLib.Quark
 }
 export class ProjectManager {
-    /* Methods of IAnjuta.ProjectManager */
+    /* Methods of IAnjuta-3.0.IAnjuta.ProjectManager */
     addGroup(name: string, defaultGroup?: Gio.File | null): Gio.File
     addSource(name: string, defaultTarget?: Gio.File | null): Gio.File
     addSourceQuiet(name: string, target: Gio.File): Gio.File
@@ -3925,157 +2624,104 @@ export class ProjectManager {
     getTargets(targetType: Anjuta.ProjectNodeType): Gio.File[]
     isOpen(): boolean
     removeFile(file: Gio.File): boolean
-    /* Virtual methods of IAnjuta.ProjectManager */
-    vfuncAddGroup(name: string, defaultGroup?: Gio.File | null): Gio.File
-    vfuncAddSource(name: string, defaultTarget?: Gio.File | null): Gio.File
-    vfuncAddSourceQuiet(name: string, target: Gio.File): Gio.File
-    vfuncAddSources(names: string[], defaultTarget?: Gio.File | null): Gio.File[]
-    vfuncAddTarget(name: string, defaultGroup?: Gio.File | null): Gio.File
-    vfuncElementAdded(element: Gio.File): void
-    vfuncElementRemoved(element: Gio.File): void
-    vfuncElementSelected(element: Gio.File): void
-    vfuncGetCapabilities(): number
-    vfuncGetChildren(parent: Gio.File, childrenType: number): Gio.File[]
-    vfuncGetCurrentProject(): Project
-    vfuncGetElements(elementType: Anjuta.ProjectNodeType): Gio.File[]
-    vfuncGetPackages(): string[]
-    vfuncGetSelected(): Gio.File
-    vfuncGetTargetType(target: Gio.File): Anjuta.ProjectNodeType
-    vfuncGetTargets(targetType: Anjuta.ProjectNodeType): Gio.File[]
-    vfuncIsOpen(): boolean
-    vfuncProjectLoaded(error: GLib.Error): void
-    vfuncRemoveFile(file: Gio.File): boolean
-    /* Signals of IAnjuta.ProjectManager */
+    /* Signals of IAnjuta-3.0.IAnjuta.ProjectManager */
     connect(sigName: "element-added", callback: (($obj: ProjectManager, object: Gio.File) => void)): number
-    connect_after(sigName: "element-added", callback: (($obj: ProjectManager, object: Gio.File) => void)): number
+    on(sigName: "element-added", callback: (object: Gio.File) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "element-added", callback: (object: Gio.File) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "element-added", callback: (object: Gio.File) => void): NodeJS.EventEmitter
     emit(sigName: "element-added", object: Gio.File): void
-    on(sigName: "element-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "element-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "element-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "element-removed", callback: (($obj: ProjectManager, object: Gio.File) => void)): number
-    connect_after(sigName: "element-removed", callback: (($obj: ProjectManager, object: Gio.File) => void)): number
+    on(sigName: "element-removed", callback: (object: Gio.File) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "element-removed", callback: (object: Gio.File) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "element-removed", callback: (object: Gio.File) => void): NodeJS.EventEmitter
     emit(sigName: "element-removed", object: Gio.File): void
-    on(sigName: "element-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "element-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "element-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "element-selected", callback: (($obj: ProjectManager, object: Gio.File) => void)): number
-    connect_after(sigName: "element-selected", callback: (($obj: ProjectManager, object: Gio.File) => void)): number
+    on(sigName: "element-selected", callback: (object: Gio.File) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "element-selected", callback: (object: Gio.File) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "element-selected", callback: (object: Gio.File) => void): NodeJS.EventEmitter
     emit(sigName: "element-selected", object: Gio.File): void
-    on(sigName: "element-selected", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "element-selected", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "element-selected", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "project-loaded", callback: (($obj: ProjectManager, object: GLib.Error) => void)): number
-    connect_after(sigName: "project-loaded", callback: (($obj: ProjectManager, object: GLib.Error) => void)): number
+    on(sigName: "project-loaded", callback: (object: GLib.Error) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "project-loaded", callback: (object: GLib.Error) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "project-loaded", callback: (object: GLib.Error) => void): NodeJS.EventEmitter
     emit(sigName: "project-loaded", object: GLib.Error): void
-    on(sigName: "project-loaded", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "project-loaded", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "project-loaded", callback: (...args: any[]) => void): NodeJS.EventEmitter
     static name: string
     /* Static methods and pseudo-constructors */
     static errorQuark(): GLib.Quark
 }
 export class Provider {
-    /* Methods of IAnjuta.Provider */
+    /* Methods of IAnjuta-3.0.IAnjuta.Provider */
     activate(iter: Iterable, data?: object | null): void
     getName(): string
     getStartIter(): Iterable
     populate(iter: Iterable): void
-    /* Virtual methods of IAnjuta.Provider */
-    vfuncActivate(iter: Iterable, data?: object | null): void
-    vfuncGetName(): string
-    vfuncGetStartIter(): Iterable
-    vfuncPopulate(iter: Iterable): void
     static name: string
     /* Static methods and pseudo-constructors */
     static errorQuark(): GLib.Quark
 }
 export class SnippetsManager {
-    /* Methods of IAnjuta.SnippetsManager */
+    /* Methods of IAnjuta-3.0.IAnjuta.SnippetsManager */
     insert(key: string, editingSession: boolean): boolean
-    /* Virtual methods of IAnjuta.SnippetsManager */
-    vfuncInsert(key: string, editingSession: boolean): boolean
     static name: string
     /* Static methods and pseudo-constructors */
     static errorQuark(): GLib.Quark
 }
 export class Stream {
-    /* Methods of IAnjuta.Stream */
+    /* Methods of IAnjuta-3.0.IAnjuta.Stream */
     open(stream?: object | null): void
-    /* Virtual methods of IAnjuta.Stream */
-    vfuncOpen(stream?: object | null): void
     static name: string
     /* Static methods and pseudo-constructors */
     static errorQuark(): GLib.Quark
 }
 export class StreamLoader {
-    /* Methods of IAnjuta.StreamLoader */
+    /* Methods of IAnjuta-3.0.IAnjuta.StreamLoader */
     peekInterface(stream?: object | null): string
-    /* Virtual methods of IAnjuta.StreamLoader */
-    vfuncPeekInterface(stream?: object | null): string
     static name: string
     /* Static methods and pseudo-constructors */
     static errorQuark(): GLib.Quark
 }
 export class StreamSavable {
-    /* Methods of IAnjuta.StreamSavable */
+    /* Methods of IAnjuta-3.0.IAnjuta.StreamSavable */
     save(stream?: object | null): void
-    /* Methods of IAnjuta.Stream */
+    /* Methods of IAnjuta-3.0.IAnjuta.Stream */
     open(stream?: object | null): void
-    /* Virtual methods of IAnjuta.StreamSavable */
-    vfuncSave(stream?: object | null): void
-    /* Virtual methods of IAnjuta.Stream */
-    vfuncOpen(stream?: object | null): void
     static name: string
     /* Static methods and pseudo-constructors */
     static errorQuark(): GLib.Quark
 }
 export class Symbol {
-    /* Methods of IAnjuta.Symbol */
+    /* Methods of IAnjuta-3.0.IAnjuta.Symbol */
     getBoolean(field: SymbolField): boolean
     getIcon(): GdkPixbuf.Pixbuf
     getInt(field: SymbolField): number
     getString(field: SymbolField): string
     getSymType(): SymbolType
-    /* Virtual methods of IAnjuta.Symbol */
-    vfuncGetBoolean(field: SymbolField): boolean
-    vfuncGetIcon(): GdkPixbuf.Pixbuf
-    vfuncGetInt(field: SymbolField): number
-    vfuncGetString(field: SymbolField): string
-    vfuncGetSymType(): SymbolType
     static name: string
     /* Static methods and pseudo-constructors */
     static errorQuark(): GLib.Quark
 }
 export class SymbolManager {
-    /* Methods of IAnjuta.SymbolManager */
+    /* Methods of IAnjuta-3.0.IAnjuta.SymbolManager */
     activatePackage(pkgName: string, pkgVersion: string): boolean
     deactivateAll(): void
     deactivatePackage(pkgName: string, pkgVersion: string): void
-    /* Virtual methods of IAnjuta.SymbolManager */
-    vfuncActivatePackage(pkgName: string, pkgVersion: string): boolean
-    vfuncDeactivateAll(): void
-    vfuncDeactivatePackage(pkgName: string, pkgVersion: string): void
-    vfuncPrjScanEnd(processId: number): void
-    vfuncSysScanEnd(processId: number): void
-    /* Signals of IAnjuta.SymbolManager */
+    /* Signals of IAnjuta-3.0.IAnjuta.SymbolManager */
     connect(sigName: "prj-scan-end", callback: (($obj: SymbolManager, object: number) => void)): number
-    connect_after(sigName: "prj-scan-end", callback: (($obj: SymbolManager, object: number) => void)): number
+    on(sigName: "prj-scan-end", callback: (object: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "prj-scan-end", callback: (object: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "prj-scan-end", callback: (object: number) => void): NodeJS.EventEmitter
     emit(sigName: "prj-scan-end", object: number): void
-    on(sigName: "prj-scan-end", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "prj-scan-end", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "prj-scan-end", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "sys-scan-end", callback: (($obj: SymbolManager, object: number) => void)): number
-    connect_after(sigName: "sys-scan-end", callback: (($obj: SymbolManager, object: number) => void)): number
+    on(sigName: "sys-scan-end", callback: (object: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "sys-scan-end", callback: (object: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "sys-scan-end", callback: (object: number) => void): NodeJS.EventEmitter
     emit(sigName: "sys-scan-end", object: number): void
-    on(sigName: "sys-scan-end", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "sys-scan-end", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "sys-scan-end", callback: (...args: any[]) => void): NodeJS.EventEmitter
     static name: string
     /* Static methods and pseudo-constructors */
     static errorQuark(): GLib.Quark
 }
 export class SymbolQuery {
-    /* Methods of IAnjuta.SymbolQuery */
+    /* Methods of IAnjuta-3.0.IAnjuta.SymbolQuery */
     cancel(): void
     setFields(nFields: number, fields: SymbolField): void
     setFileScope(filescopeSearch: SymbolQueryFileScope): void
@@ -4085,84 +2731,58 @@ export class SymbolQuery {
     setMode(mode: SymbolQueryMode): void
     setOffset(offset: number): void
     setOrderBy(field: SymbolField): void
-    /* Virtual methods of IAnjuta.SymbolQuery */
-    vfuncAsyncResult(result: GObject.Object): void
-    vfuncCancel(): void
-    vfuncSetFields(nFields: number, fields: SymbolField): void
-    vfuncSetFileScope(filescopeSearch: SymbolQueryFileScope): void
-    vfuncSetFilters(filters: SymbolType, includeTypes: boolean): void
-    vfuncSetGroupBy(field: SymbolField): void
-    vfuncSetLimit(limit: number): void
-    vfuncSetMode(mode: SymbolQueryMode): void
-    vfuncSetOffset(offset: number): void
-    vfuncSetOrderBy(field: SymbolField): void
-    /* Signals of IAnjuta.SymbolQuery */
+    /* Signals of IAnjuta-3.0.IAnjuta.SymbolQuery */
     connect(sigName: "async-result", callback: (($obj: SymbolQuery, object: GObject.Object) => void)): number
-    connect_after(sigName: "async-result", callback: (($obj: SymbolQuery, object: GObject.Object) => void)): number
+    on(sigName: "async-result", callback: (object: GObject.Object) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "async-result", callback: (object: GObject.Object) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "async-result", callback: (object: GObject.Object) => void): NodeJS.EventEmitter
     emit(sigName: "async-result", object: GObject.Object): void
-    on(sigName: "async-result", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "async-result", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "async-result", callback: (...args: any[]) => void): NodeJS.EventEmitter
     static name: string
     /* Static methods and pseudo-constructors */
     static errorQuark(): GLib.Quark
 }
 export class Terminal {
-    /* Methods of IAnjuta.Terminal */
+    /* Methods of IAnjuta-3.0.IAnjuta.Terminal */
     executeCommand(directory: string, command: string, environment: string[]): number
-    /* Virtual methods of IAnjuta.Terminal */
-    vfuncChildExited(pid: number, status: number): void
-    vfuncExecuteCommand(directory: string, command: string, environment: string[]): number
-    /* Signals of IAnjuta.Terminal */
+    /* Signals of IAnjuta-3.0.IAnjuta.Terminal */
     connect(sigName: "child-exited", callback: (($obj: Terminal, object: number, p0: number) => void)): number
-    connect_after(sigName: "child-exited", callback: (($obj: Terminal, object: number, p0: number) => void)): number
+    on(sigName: "child-exited", callback: (object: number, p0: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "child-exited", callback: (object: number, p0: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "child-exited", callback: (object: number, p0: number) => void): NodeJS.EventEmitter
     emit(sigName: "child-exited", object: number, p0: number): void
-    on(sigName: "child-exited", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "child-exited", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "child-exited", callback: (...args: any[]) => void): NodeJS.EventEmitter
     static name: string
     /* Static methods and pseudo-constructors */
     static errorQuark(): GLib.Quark
 }
 export class Todo {
-    /* Methods of IAnjuta.Todo */
+    /* Methods of IAnjuta-3.0.IAnjuta.Todo */
     load(file: Gio.File): void
-    /* Virtual methods of IAnjuta.Todo */
-    vfuncLoad(file: Gio.File): void
     static name: string
     /* Static methods and pseudo-constructors */
     static errorQuark(): GLib.Quark
 }
 export class Vcs {
-    /* Methods of IAnjuta.Vcs */
+    /* Methods of IAnjuta-3.0.IAnjuta.Vcs */
     add(files: Gio.File[], notify: Anjuta.AsyncNotify): void
     checkout(repositoryLocation: string, dest: Gio.File, cancel: Gio.Cancellable | null, notify: Anjuta.AsyncNotify): void
     remove(files: Gio.File[], notify: Anjuta.AsyncNotify): void
-    /* Virtual methods of IAnjuta.Vcs */
-    vfuncAdd(files: Gio.File[], notify: Anjuta.AsyncNotify): void
-    vfuncCheckout(repositoryLocation: string, dest: Gio.File, cancel: Gio.Cancellable | null, notify: Anjuta.AsyncNotify): void
-    vfuncRemove(files: Gio.File[], notify: Anjuta.AsyncNotify): void
-    vfuncStatusChanged(): void
-    /* Signals of IAnjuta.Vcs */
+    /* Signals of IAnjuta-3.0.IAnjuta.Vcs */
     connect(sigName: "status-changed", callback: (($obj: Vcs) => void)): number
-    connect_after(sigName: "status-changed", callback: (($obj: Vcs) => void)): number
+    on(sigName: "status-changed", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "status-changed", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "status-changed", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "status-changed"): void
-    on(sigName: "status-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "status-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "status-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     static name: string
 }
 export class Wizard {
-    /* Methods of IAnjuta.Wizard */
+    /* Methods of IAnjuta-3.0.IAnjuta.Wizard */
     activate(): void
-    /* Virtual methods of IAnjuta.Wizard */
-    vfuncActivate(): void
     static name: string
     /* Static methods and pseudo-constructors */
     static errorQuark(): GLib.Quark
 }
 export abstract class BuildableIface {
-    /* Fields of IAnjuta.BuildableIface */
+    /* Fields of IAnjuta-3.0.IAnjuta.BuildableIface */
     gIface: GObject.TypeInterface
     build: (obj: Buildable, uri: string) => void
     clean: (obj: Buildable, uri: string) => void
@@ -4176,7 +2796,7 @@ export abstract class BuildableIface {
     static name: string
 }
 export abstract class BuilderIface {
-    /* Fields of IAnjuta.BuilderIface */
+    /* Fields of IAnjuta-3.0.IAnjuta.BuilderIface */
     gIface: GObject.TypeInterface
     cancel: (obj: Builder, handle: BuilderHandle) => void
     getUriConfiguration: (obj: Builder, uri: string) => string
@@ -4184,7 +2804,7 @@ export abstract class BuilderIface {
     static name: string
 }
 export abstract class DebugManagerIface {
-    /* Fields of IAnjuta.DebugManagerIface */
+    /* Fields of IAnjuta-3.0.IAnjuta.DebugManagerIface */
     gIface: GObject.TypeInterface
     breakpointChanged: (obj: DebugManager, breakpoint: DebuggerBreakpointItem) => void
     debuggerStarted: (obj: DebugManager) => void
@@ -4206,13 +2826,13 @@ export abstract class DebugManagerIface {
     static name: string
 }
 export abstract class DebuggerBreakpointIface {
-    /* Fields of IAnjuta.DebuggerBreakpointIface */
+    /* Fields of IAnjuta-3.0.IAnjuta.DebuggerBreakpointIface */
     gIface: DebuggerIface
     implementBreakpoint: (obj: DebuggerBreakpoint) => number
     static name: string
 }
 export class DebuggerBreakpointItem {
-    /* Fields of IAnjuta.DebuggerBreakpointItem */
+    /* Fields of IAnjuta-3.0.IAnjuta.DebuggerBreakpointItem */
     type: number
     id: number
     file: string
@@ -4228,7 +2848,7 @@ export class DebuggerBreakpointItem {
     static name: string
 }
 export class DebuggerFrame {
-    /* Fields of IAnjuta.DebuggerFrame */
+    /* Fields of IAnjuta-3.0.IAnjuta.DebuggerFrame */
     thread: number
     level: number
     args: string
@@ -4240,7 +2860,7 @@ export class DebuggerFrame {
     static name: string
 }
 export abstract class DebuggerIface {
-    /* Fields of IAnjuta.DebuggerIface */
+    /* Fields of IAnjuta-3.0.IAnjuta.DebuggerIface */
     gIface: GObject.TypeInterface
     debuggerReady: (obj: Debugger, state: DebuggerState) => void
     debuggerStarted: (obj: Debugger) => void
@@ -4280,20 +2900,20 @@ export abstract class DebuggerIface {
     static name: string
 }
 export class DebuggerInstructionALine {
-    /* Fields of IAnjuta.DebuggerInstructionALine */
+    /* Fields of IAnjuta-3.0.IAnjuta.DebuggerInstructionALine */
     address: number
     label: string
     text: string
     static name: string
 }
 export class DebuggerInstructionDisassembly {
-    /* Fields of IAnjuta.DebuggerInstructionDisassembly */
+    /* Fields of IAnjuta-3.0.IAnjuta.DebuggerInstructionDisassembly */
     size: number
     data: DebuggerInstructionALine[]
     static name: string
 }
 export abstract class DebuggerInstructionIface {
-    /* Fields of IAnjuta.DebuggerInstructionIface */
+    /* Fields of IAnjuta-3.0.IAnjuta.DebuggerInstructionIface */
     gIface: DebuggerIface
     runFromAddress: (obj: DebuggerInstruction, address: number) => boolean
     runToAddress: (obj: DebuggerInstruction, address: number) => boolean
@@ -4302,39 +2922,39 @@ export abstract class DebuggerInstructionIface {
     static name: string
 }
 export class DebuggerMemoryBlock {
-    /* Fields of IAnjuta.DebuggerMemoryBlock */
+    /* Fields of IAnjuta-3.0.IAnjuta.DebuggerMemoryBlock */
     address: number
     length: number
     data: string
     static name: string
 }
 export abstract class DebuggerMemoryIface {
-    /* Fields of IAnjuta.DebuggerMemoryIface */
+    /* Fields of IAnjuta-3.0.IAnjuta.DebuggerMemoryIface */
     gIface: DebuggerIface
     static name: string
 }
 export class DebuggerRegisterData {
-    /* Fields of IAnjuta.DebuggerRegisterData */
+    /* Fields of IAnjuta-3.0.IAnjuta.DebuggerRegisterData */
     num: number
     name: string
     value: string
     static name: string
 }
 export abstract class DebuggerRegisterIface {
-    /* Fields of IAnjuta.DebuggerRegisterIface */
+    /* Fields of IAnjuta-3.0.IAnjuta.DebuggerRegisterIface */
     gIface: DebuggerIface
     writeRegister: (obj: DebuggerRegister, value: DebuggerRegisterData) => boolean
     static name: string
 }
 export abstract class DebuggerVariableIface {
-    /* Fields of IAnjuta.DebuggerVariableIface */
+    /* Fields of IAnjuta-3.0.IAnjuta.DebuggerVariableIface */
     gIface: DebuggerIface
     assign: (obj: DebuggerVariable, name: string, value: string) => boolean
     destroy: (obj: DebuggerVariable, name: string) => boolean
     static name: string
 }
 export class DebuggerVariableObject {
-    /* Fields of IAnjuta.DebuggerVariableObject */
+    /* Fields of IAnjuta-3.0.IAnjuta.DebuggerVariableObject */
     name: string
     expression: string
     type: string
@@ -4347,7 +2967,7 @@ export class DebuggerVariableObject {
     static name: string
 }
 export abstract class DocumentIface {
-    /* Fields of IAnjuta.DocumentIface */
+    /* Fields of IAnjuta-3.0.IAnjuta.DocumentIface */
     gIface: GObject.TypeInterface
     updateUi: (obj: Document) => void
     beginUndoAction: (obj: Document) => void
@@ -4365,7 +2985,7 @@ export abstract class DocumentIface {
     static name: string
 }
 export abstract class DocumentManagerIface {
-    /* Fields of IAnjuta.DocumentManagerIface */
+    /* Fields of IAnjuta-3.0.IAnjuta.DocumentManagerIface */
     gIface: GObject.TypeInterface
     documentAdded: (obj: DocumentManager, doc: Document) => void
     documentRemoved: (obj: DocumentManager, doc: Document) => void
@@ -4383,7 +3003,7 @@ export abstract class DocumentManagerIface {
     static name: string
 }
 export abstract class EditorAssistIface {
-    /* Fields of IAnjuta.EditorAssistIface */
+    /* Fields of IAnjuta-3.0.IAnjuta.EditorAssistIface */
     gIface: EditorIface
     cancelled: (obj: EditorAssist) => void
     add: (obj: EditorAssist, provider: Provider) => void
@@ -4393,7 +3013,7 @@ export abstract class EditorAssistIface {
     static name: string
 }
 export class EditorAssistProposal {
-    /* Fields of IAnjuta.EditorAssistProposal */
+    /* Fields of IAnjuta-3.0.IAnjuta.EditorAssistProposal */
     label: string
     markup: string
     info: string
@@ -4403,7 +3023,7 @@ export class EditorAssistProposal {
     static name: string
 }
 export abstract class EditorCellIface {
-    /* Fields of IAnjuta.EditorCellIface */
+    /* Fields of IAnjuta-3.0.IAnjuta.EditorCellIface */
     gIface: GObject.TypeInterface
     getAttribute: (obj: EditorCell) => EditorAttribute
     getChar: (obj: EditorCell, charIndex: number) => number
@@ -4412,7 +3032,7 @@ export abstract class EditorCellIface {
     static name: string
 }
 export abstract class EditorCellStyleIface {
-    /* Fields of IAnjuta.EditorCellStyleIface */
+    /* Fields of IAnjuta-3.0.IAnjuta.EditorCellStyleIface */
     gIface: EditorCellIface
     getBackgroundColor: (obj: EditorCellStyle) => string
     getColor: (obj: EditorCellStyle) => string
@@ -4420,7 +3040,7 @@ export abstract class EditorCellStyleIface {
     static name: string
 }
 export abstract class EditorCommentIface {
-    /* Fields of IAnjuta.EditorCommentIface */
+    /* Fields of IAnjuta-3.0.IAnjuta.EditorCommentIface */
     gIface: EditorIface
     block: (obj: EditorComment) => void
     box: (obj: EditorComment) => void
@@ -4428,19 +3048,19 @@ export abstract class EditorCommentIface {
     static name: string
 }
 export abstract class EditorConvertIface {
-    /* Fields of IAnjuta.EditorConvertIface */
+    /* Fields of IAnjuta-3.0.IAnjuta.EditorConvertIface */
     gIface: EditorIface
     toLower: (obj: EditorConvert, startPosition: Iterable, endPosition: Iterable) => void
     toUpper: (obj: EditorConvert, startPosition: Iterable, endPosition: Iterable) => void
     static name: string
 }
 export abstract class EditorFactoryIface {
-    /* Fields of IAnjuta.EditorFactoryIface */
+    /* Fields of IAnjuta-3.0.IAnjuta.EditorFactoryIface */
     gIface: GObject.TypeInterface
     static name: string
 }
 export abstract class EditorFoldsIface {
-    /* Fields of IAnjuta.EditorFoldsIface */
+    /* Fields of IAnjuta-3.0.IAnjuta.EditorFoldsIface */
     gIface: EditorIface
     closeAll: (obj: EditorFolds) => void
     openAll: (obj: EditorFolds) => void
@@ -4448,14 +3068,14 @@ export abstract class EditorFoldsIface {
     static name: string
 }
 export abstract class EditorGladeSignalIface {
-    /* Fields of IAnjuta.EditorGladeSignalIface */
+    /* Fields of IAnjuta-3.0.IAnjuta.EditorGladeSignalIface */
     gIface: EditorIface
     drop: (obj: EditorGladeSignal, iterator: Iterable, signalData: string) => void
     dropPossible: (obj: EditorGladeSignal, iterator: Iterable) => boolean
     static name: string
 }
 export abstract class EditorGotoIface {
-    /* Fields of IAnjuta.EditorGotoIface */
+    /* Fields of IAnjuta-3.0.IAnjuta.EditorGotoIface */
     gIface: EditorIface
     endBlock: (obj: EditorGoto) => void
     matchingBrace: (obj: EditorGoto) => void
@@ -4463,7 +3083,7 @@ export abstract class EditorGotoIface {
     static name: string
 }
 export abstract class EditorHoverIface {
-    /* Fields of IAnjuta.EditorHoverIface */
+    /* Fields of IAnjuta-3.0.IAnjuta.EditorHoverIface */
     gIface: EditorIface
     hoverLeave: (obj: EditorHover, position: Iterable) => void
     hoverOver: (obj: EditorHover, position: Iterable) => void
@@ -4471,7 +3091,7 @@ export abstract class EditorHoverIface {
     static name: string
 }
 export abstract class EditorIface {
-    /* Fields of IAnjuta.EditorIface */
+    /* Fields of IAnjuta-3.0.IAnjuta.EditorIface */
     gIface: GObject.TypeInterface
     backspace: (obj: Editor) => void
     changed: (obj: Editor, position: Iterable, added: boolean, length: number, lines: number, text: string) => void
@@ -4514,7 +3134,7 @@ export abstract class EditorIface {
     static name: string
 }
 export abstract class EditorLanguageIface {
-    /* Fields of IAnjuta.EditorLanguageIface */
+    /* Fields of IAnjuta-3.0.IAnjuta.EditorLanguageIface */
     gIface: EditorIface
     languageChanged: (obj: EditorLanguage, language: string) => void
     getLanguage: (obj: EditorLanguage) => string
@@ -4524,7 +3144,7 @@ export abstract class EditorLanguageIface {
     static name: string
 }
 export abstract class EditorLineModeIface {
-    /* Fields of IAnjuta.EditorLineModeIface */
+    /* Fields of IAnjuta-3.0.IAnjuta.EditorLineModeIface */
     gIface: EditorIface
     convert: (obj: EditorLineMode, mode: EditorLineModeType) => void
     fix: (obj: EditorLineMode) => void
@@ -4533,14 +3153,14 @@ export abstract class EditorLineModeIface {
     static name: string
 }
 export abstract class EditorSearchIface {
-    /* Fields of IAnjuta.EditorSearchIface */
+    /* Fields of IAnjuta-3.0.IAnjuta.EditorSearchIface */
     gIface: EditorIface
-    backward: (obj: EditorSearch, search: string, caseSensitive: boolean, start: EditorCell, end: EditorCell) => [ /* returnType */ boolean, /* resultStart */ EditorCell, /* resultEnd */ EditorCell ]
-    forward: (obj: EditorSearch, search: string, caseSensitive: boolean, start: EditorCell, end: EditorCell) => [ /* returnType */ boolean, /* resultStart */ EditorCell, /* resultEnd */ EditorCell ]
+    backward: (obj: EditorSearch, search: string, caseSensitive: boolean, start: EditorCell, end: EditorCell) => { returnType: boolean, resultStart: EditorCell, resultEnd: EditorCell }
+    forward: (obj: EditorSearch, search: string, caseSensitive: boolean, start: EditorCell, end: EditorCell) => { returnType: boolean, resultStart: EditorCell, resultEnd: EditorCell }
     static name: string
 }
 export abstract class EditorSelectionIface {
-    /* Fields of IAnjuta.EditorSelectionIface */
+    /* Fields of IAnjuta-3.0.IAnjuta.EditorSelectionIface */
     gIface: EditorIface
     get: (obj: EditorSelection) => string
     hasSelection: (obj: EditorSelection) => boolean
@@ -4552,7 +3172,7 @@ export abstract class EditorSelectionIface {
     static name: string
 }
 export abstract class EditorTipIface {
-    /* Fields of IAnjuta.EditorTipIface */
+    /* Fields of IAnjuta-3.0.IAnjuta.EditorTipIface */
     gIface: EditorIface
     cancel: (obj: EditorTip) => void
     show: (obj: EditorTip, tips: string[], position: Iterable) => void
@@ -4560,7 +3180,7 @@ export abstract class EditorTipIface {
     static name: string
 }
 export abstract class EditorViewIface {
-    /* Fields of IAnjuta.EditorViewIface */
+    /* Fields of IAnjuta-3.0.IAnjuta.EditorViewIface */
     gIface: EditorIface
     create: (obj: EditorView) => void
     getCount: (obj: EditorView) => number
@@ -4568,21 +3188,21 @@ export abstract class EditorViewIface {
     static name: string
 }
 export abstract class EditorZoomIface {
-    /* Fields of IAnjuta.EditorZoomIface */
+    /* Fields of IAnjuta-3.0.IAnjuta.EditorZoomIface */
     gIface: EditorIface
     in_: (obj: EditorZoom) => void
     out: (obj: EditorZoom) => void
     static name: string
 }
 export abstract class EnvironmentIface {
-    /* Fields of IAnjuta.EnvironmentIface */
+    /* Fields of IAnjuta-3.0.IAnjuta.EnvironmentIface */
     gIface: GObject.TypeInterface
     getRealDirectory: (obj: Environment, dir: string) => string
     override: (obj: Environment, dirp: string, argvp: string, envp: string) => boolean
     static name: string
 }
 export abstract class FileIface {
-    /* Fields of IAnjuta.FileIface */
+    /* Fields of IAnjuta-3.0.IAnjuta.FileIface */
     gIface: GObject.TypeInterface
     opened: (obj: File) => void
     getFile: (obj: File) => Gio.File
@@ -4590,13 +3210,13 @@ export abstract class FileIface {
     static name: string
 }
 export abstract class FileLoaderIface {
-    /* Fields of IAnjuta.FileLoaderIface */
+    /* Fields of IAnjuta-3.0.IAnjuta.FileLoaderIface */
     gIface: LoaderIface
     peekInterface: (obj: FileLoader, file: Gio.File) => string
     static name: string
 }
 export abstract class FileManagerIface {
-    /* Fields of IAnjuta.FileManagerIface */
+    /* Fields of IAnjuta-3.0.IAnjuta.FileManagerIface */
     gIface: GObject.TypeInterface
     sectionChanged: (obj: FileManager, file: Gio.File) => void
     setRoot: (obj: FileManager, rootUri: string) => void
@@ -4604,7 +3224,7 @@ export abstract class FileManagerIface {
     static name: string
 }
 export abstract class FileSavableIface {
-    /* Fields of IAnjuta.FileSavableIface */
+    /* Fields of IAnjuta-3.0.IAnjuta.FileSavableIface */
     gIface: FileIface
     saved: (obj: FileSavable, file: Gio.File) => void
     updateSaveUi: (obj: FileSavable) => void
@@ -4617,32 +3237,32 @@ export abstract class FileSavableIface {
     static name: string
 }
 export abstract class GladeIface {
-    /* Fields of IAnjuta.GladeIface */
+    /* Fields of IAnjuta-3.0.IAnjuta.GladeIface */
     gIface: GObject.TypeInterface
     addAssociation: (obj: Glade, master: string, slave: string) => void
     static name: string
 }
 export abstract class HelpIface {
-    /* Fields of IAnjuta.HelpIface */
+    /* Fields of IAnjuta-3.0.IAnjuta.HelpIface */
     gIface: GObject.TypeInterface
     search: (obj: Help, query: string) => void
     static name: string
 }
 export abstract class IndenterIface {
-    /* Fields of IAnjuta.IndenterIface */
+    /* Fields of IAnjuta-3.0.IAnjuta.IndenterIface */
     gIface: GObject.TypeInterface
     indent: (obj: Indenter, start: Iterable, end: Iterable) => void
     static name: string
 }
 export abstract class IndicableIface {
-    /* Fields of IAnjuta.IndicableIface */
+    /* Fields of IAnjuta-3.0.IAnjuta.IndicableIface */
     gIface: GObject.TypeInterface
     clear: (obj: Indicable) => void
     set: (obj: Indicable, beginLocation: Iterable, endLocation: Iterable, indicator: IndicableIndicator) => void
     static name: string
 }
 export abstract class IterableIface {
-    /* Fields of IAnjuta.IterableIface */
+    /* Fields of IAnjuta-3.0.IAnjuta.IterableIface */
     gIface: GObject.TypeInterface
     assign: (obj: Iterable, srcIter: Iterable) => void
     clone: (obj: Iterable) => Iterable
@@ -4658,7 +3278,7 @@ export abstract class IterableIface {
     static name: string
 }
 export abstract class IterableTreeIface {
-    /* Fields of IAnjuta.IterableTreeIface */
+    /* Fields of IAnjuta-3.0.IAnjuta.IterableTreeIface */
     gIface: IterableIface
     children: (obj: IterableTree) => boolean
     hasChildren: (obj: IterableTree) => boolean
@@ -4666,7 +3286,7 @@ export abstract class IterableTreeIface {
     static name: string
 }
 export abstract class LanguageIface {
-    /* Fields of IAnjuta.LanguageIface */
+    /* Fields of IAnjuta-3.0.IAnjuta.LanguageIface */
     gIface: GObject.TypeInterface
     getFromEditor: (obj: Language, editor: EditorLanguage) => LanguageId
     getFromMimeType: (obj: Language, mimeType: string) => LanguageId
@@ -4678,7 +3298,7 @@ export abstract class LanguageIface {
     static name: string
 }
 export abstract class LanguageProviderIface {
-    /* Fields of IAnjuta.LanguageProviderIface */
+    /* Fields of IAnjuta-3.0.IAnjuta.LanguageProviderIface */
     gIface: ProviderIface
     getCalltipCache: (obj: LanguageProvider, callContext: string) => string[]
     getCalltipContext: (obj: LanguageProvider, iter: Iterable) => string
@@ -4687,12 +3307,12 @@ export abstract class LanguageProviderIface {
     static name: string
 }
 export abstract class LoaderIface {
-    /* Fields of IAnjuta.LoaderIface */
+    /* Fields of IAnjuta-3.0.IAnjuta.LoaderIface */
     gIface: GObject.TypeInterface
     static name: string
 }
 export abstract class MarkableIface {
-    /* Fields of IAnjuta.MarkableIface */
+    /* Fields of IAnjuta-3.0.IAnjuta.MarkableIface */
     gIface: GObject.TypeInterface
     markerClicked: (obj: Markable, doubleClick: boolean, location: number) => void
     deleteAllMarkers: (obj: Markable, marker: MarkableMarker) => void
@@ -4703,7 +3323,7 @@ export abstract class MarkableIface {
     static name: string
 }
 export abstract class MessageManagerIface {
-    /* Fields of IAnjuta.MessageManagerIface */
+    /* Fields of IAnjuta-3.0.IAnjuta.MessageManagerIface */
     gIface: GObject.TypeInterface
     removeView: (obj: MessageManager, view: MessageView) => void
     setCurrentView: (obj: MessageManager, view: MessageView) => void
@@ -4713,7 +3333,7 @@ export abstract class MessageManagerIface {
     static name: string
 }
 export abstract class MessageViewIface {
-    /* Fields of IAnjuta.MessageViewIface */
+    /* Fields of IAnjuta-3.0.IAnjuta.MessageViewIface */
     gIface: GObject.TypeInterface
     bufferFlushed: (obj: MessageView, line: string) => void
     messageClicked: (obj: MessageView, message: string) => void
@@ -4726,33 +3346,33 @@ export abstract class MessageViewIface {
     static name: string
 }
 export abstract class PluginFactoryIface {
-    /* Fields of IAnjuta.PluginFactoryIface */
+    /* Fields of IAnjuta-3.0.IAnjuta.PluginFactoryIface */
     gIface: GObject.TypeInterface
     static name: string
 }
 export abstract class PreferencesIface {
-    /* Fields of IAnjuta.PreferencesIface */
+    /* Fields of IAnjuta-3.0.IAnjuta.PreferencesIface */
     gIface: GObject.TypeInterface
     merge: (obj: Preferences, prefs: Anjuta.Preferences) => void
     unmerge: (obj: Preferences, prefs: Anjuta.Preferences) => void
     static name: string
 }
 export abstract class PrintIface {
-    /* Fields of IAnjuta.PrintIface */
+    /* Fields of IAnjuta-3.0.IAnjuta.PrintIface */
     gIface: GObject.TypeInterface
     print: (obj: Print) => void
     printPreview: (obj: Print) => void
     static name: string
 }
 export abstract class ProjectBackendIface {
-    /* Fields of IAnjuta.ProjectBackendIface */
+    /* Fields of IAnjuta-3.0.IAnjuta.ProjectBackendIface */
     gIface: GObject.TypeInterface
     newProject: (obj: ProjectBackend, file: Gio.File) => Project
     probe: (obj: ProjectBackend, directory: Gio.File) => number
     static name: string
 }
 export abstract class ProjectChooserIface {
-    /* Fields of IAnjuta.ProjectChooserIface */
+    /* Fields of IAnjuta-3.0.IAnjuta.ProjectChooserIface */
     gIface: GObject.TypeInterface
     changed: (obj: ProjectChooser) => void
     getSelected: (obj: ProjectChooser) => Gio.File
@@ -4760,7 +3380,7 @@ export abstract class ProjectChooserIface {
     static name: string
 }
 export abstract class ProjectIface {
-    /* Fields of IAnjuta.ProjectIface */
+    /* Fields of IAnjuta-3.0.IAnjuta.ProjectIface */
     gIface: GObject.TypeInterface
     fileChanged: (obj: Project, node?: object | null) => void
     nodeChanged: (obj: Project, node: object | null, error: GLib.Error) => void
@@ -4779,7 +3399,7 @@ export abstract class ProjectIface {
     static name: string
 }
 export abstract class ProjectManagerIface {
-    /* Fields of IAnjuta.ProjectManagerIface */
+    /* Fields of IAnjuta-3.0.IAnjuta.ProjectManagerIface */
     gIface: GObject.TypeInterface
     elementAdded: (obj: ProjectManager, element: Gio.File) => void
     elementRemoved: (obj: ProjectManager, element: Gio.File) => void
@@ -4803,7 +3423,7 @@ export abstract class ProjectManagerIface {
     static name: string
 }
 export abstract class ProviderIface {
-    /* Fields of IAnjuta.ProviderIface */
+    /* Fields of IAnjuta-3.0.IAnjuta.ProviderIface */
     gIface: GObject.TypeInterface
     activate: (obj: Provider, iter: Iterable, data?: object | null) => void
     getName: (obj: Provider) => string
@@ -4812,31 +3432,31 @@ export abstract class ProviderIface {
     static name: string
 }
 export abstract class SnippetsManagerIface {
-    /* Fields of IAnjuta.SnippetsManagerIface */
+    /* Fields of IAnjuta-3.0.IAnjuta.SnippetsManagerIface */
     gIface: GObject.TypeInterface
     insert: (obj: SnippetsManager, key: string, editingSession: boolean) => boolean
     static name: string
 }
 export abstract class StreamIface {
-    /* Fields of IAnjuta.StreamIface */
+    /* Fields of IAnjuta-3.0.IAnjuta.StreamIface */
     gIface: GObject.TypeInterface
     open: (obj: Stream, stream?: object | null) => void
     static name: string
 }
 export abstract class StreamLoaderIface {
-    /* Fields of IAnjuta.StreamLoaderIface */
+    /* Fields of IAnjuta-3.0.IAnjuta.StreamLoaderIface */
     gIface: LoaderIface
     peekInterface: (obj: StreamLoader, stream?: object | null) => string
     static name: string
 }
 export abstract class StreamSavableIface {
-    /* Fields of IAnjuta.StreamSavableIface */
+    /* Fields of IAnjuta-3.0.IAnjuta.StreamSavableIface */
     gIface: StreamIface
     save: (obj: StreamSavable, stream?: object | null) => void
     static name: string
 }
 export abstract class SymbolIface {
-    /* Fields of IAnjuta.SymbolIface */
+    /* Fields of IAnjuta-3.0.IAnjuta.SymbolIface */
     gIface: GObject.TypeInterface
     getBoolean: (obj: Symbol, field: SymbolField) => boolean
     getIcon: (obj: Symbol) => GdkPixbuf.Pixbuf
@@ -4846,7 +3466,7 @@ export abstract class SymbolIface {
     static name: string
 }
 export abstract class SymbolManagerIface {
-    /* Fields of IAnjuta.SymbolManagerIface */
+    /* Fields of IAnjuta-3.0.IAnjuta.SymbolManagerIface */
     gIface: GObject.TypeInterface
     prjScanEnd: (obj: SymbolManager, processId: number) => void
     sysScanEnd: (obj: SymbolManager, processId: number) => void
@@ -4856,7 +3476,7 @@ export abstract class SymbolManagerIface {
     static name: string
 }
 export abstract class SymbolQueryIface {
-    /* Fields of IAnjuta.SymbolQueryIface */
+    /* Fields of IAnjuta-3.0.IAnjuta.SymbolQueryIface */
     gIface: GObject.TypeInterface
     asyncResult: (obj: SymbolQuery, result: GObject.Object) => void
     cancel: (obj: SymbolQuery) => void
@@ -4871,20 +3491,20 @@ export abstract class SymbolQueryIface {
     static name: string
 }
 export abstract class TerminalIface {
-    /* Fields of IAnjuta.TerminalIface */
+    /* Fields of IAnjuta-3.0.IAnjuta.TerminalIface */
     gIface: GObject.TypeInterface
     childExited: (obj: Terminal, pid: number, status: number) => void
     executeCommand: (obj: Terminal, directory: string, command: string, environment: string[]) => number
     static name: string
 }
 export abstract class TodoIface {
-    /* Fields of IAnjuta.TodoIface */
+    /* Fields of IAnjuta-3.0.IAnjuta.TodoIface */
     gIface: GObject.TypeInterface
     load: (obj: Todo, file: Gio.File) => void
     static name: string
 }
 export abstract class VcsIface {
-    /* Fields of IAnjuta.VcsIface */
+    /* Fields of IAnjuta-3.0.IAnjuta.VcsIface */
     gIface: GObject.TypeInterface
     statusChanged: (obj: Vcs) => void
     add: (obj: Vcs, files: Gio.File[], notify: Anjuta.AsyncNotify) => void
@@ -4893,7 +3513,7 @@ export abstract class VcsIface {
     static name: string
 }
 export abstract class WizardIface {
-    /* Fields of IAnjuta.WizardIface */
+    /* Fields of IAnjuta-3.0.IAnjuta.WizardIface */
     gIface: GObject.TypeInterface
     activate: (obj: Wizard) => void
     static name: string

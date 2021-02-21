@@ -98,10 +98,10 @@ export function sequenceToArray(seq: GLib.Sequence): string[]
 export function wipeDirectory(dirname: string): boolean
 export function wipeFile(filename: string): boolean
 export class Plugin {
-    /* Properties of GSignond.Plugin */
+    /* Properties of GSignond-1.0.GSignond.Plugin */
     readonly mechanisms: string[]
     readonly type: string
-    /* Methods of GSignond.Plugin */
+    /* Methods of GSignond-1.0.GSignond.Plugin */
     cancel(): void
     error(error: GLib.Error): void
     refresh(uiData: SignonuiData): void
@@ -114,74 +114,61 @@ export class Plugin {
     store(identityMethodCache: Dictionary): void
     userActionFinished(uiData: SignonuiData): void
     userActionRequired(uiData: SignonuiData): void
-    /* Virtual methods of GSignond.Plugin */
-    vfuncCancel(): void
-    vfuncRefresh(uiData: SignonuiData): void
-    vfuncRequest(sessionData: SessionData): void
-    vfuncRequestInitial(sessionData: SessionData, identityMethodCache: Dictionary, mechanism: string): void
-    vfuncUserActionFinished(uiData: SignonuiData): void
-    /* Signals of GSignond.Plugin */
+    /* Signals of GSignond-1.0.GSignond.Plugin */
     connect(sigName: "error", callback: (($obj: Plugin, error: GLib.Error) => void)): number
-    connect_after(sigName: "error", callback: (($obj: Plugin, error: GLib.Error) => void)): number
+    on(sigName: "error", callback: (error: GLib.Error) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "error", callback: (error: GLib.Error) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "error", callback: (error: GLib.Error) => void): NodeJS.EventEmitter
     emit(sigName: "error", error: GLib.Error): void
-    on(sigName: "error", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "error", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "error", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "refreshed", callback: (($obj: Plugin, uiData: SignonuiData) => void)): number
-    connect_after(sigName: "refreshed", callback: (($obj: Plugin, uiData: SignonuiData) => void)): number
+    on(sigName: "refreshed", callback: (uiData: SignonuiData) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "refreshed", callback: (uiData: SignonuiData) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "refreshed", callback: (uiData: SignonuiData) => void): NodeJS.EventEmitter
     emit(sigName: "refreshed", uiData: SignonuiData): void
-    on(sigName: "refreshed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "refreshed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "refreshed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "response", callback: (($obj: Plugin, sessionData: SessionData) => void)): number
-    connect_after(sigName: "response", callback: (($obj: Plugin, sessionData: SessionData) => void)): number
+    on(sigName: "response", callback: (sessionData: SessionData) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "response", callback: (sessionData: SessionData) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "response", callback: (sessionData: SessionData) => void): NodeJS.EventEmitter
     emit(sigName: "response", sessionData: SessionData): void
-    on(sigName: "response", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "response", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "response", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "response-final", callback: (($obj: Plugin, sessionData: SessionData) => void)): number
-    connect_after(sigName: "response-final", callback: (($obj: Plugin, sessionData: SessionData) => void)): number
+    on(sigName: "response-final", callback: (sessionData: SessionData) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "response-final", callback: (sessionData: SessionData) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "response-final", callback: (sessionData: SessionData) => void): NodeJS.EventEmitter
     emit(sigName: "response-final", sessionData: SessionData): void
-    on(sigName: "response-final", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "response-final", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "response-final", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "status-changed", callback: (($obj: Plugin, state: PluginState, message: string) => void)): number
-    connect_after(sigName: "status-changed", callback: (($obj: Plugin, state: PluginState, message: string) => void)): number
+    on(sigName: "status-changed", callback: (state: PluginState, message: string) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "status-changed", callback: (state: PluginState, message: string) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "status-changed", callback: (state: PluginState, message: string) => void): NodeJS.EventEmitter
     emit(sigName: "status-changed", state: PluginState, message: string): void
-    on(sigName: "status-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "status-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "status-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "store", callback: (($obj: Plugin, data: Dictionary) => void)): number
-    connect_after(sigName: "store", callback: (($obj: Plugin, data: Dictionary) => void)): number
+    on(sigName: "store", callback: (data: Dictionary) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "store", callback: (data: Dictionary) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "store", callback: (data: Dictionary) => void): NodeJS.EventEmitter
     emit(sigName: "store", data: Dictionary): void
-    on(sigName: "store", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "store", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "store", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "user-action-required", callback: (($obj: Plugin, uiData: SignonuiData) => void)): number
-    connect_after(sigName: "user-action-required", callback: (($obj: Plugin, uiData: SignonuiData) => void)): number
+    on(sigName: "user-action-required", callback: (uiData: SignonuiData) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "user-action-required", callback: (uiData: SignonuiData) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "user-action-required", callback: (uiData: SignonuiData) => void): NodeJS.EventEmitter
     emit(sigName: "user-action-required", uiData: SignonuiData): void
-    on(sigName: "user-action-required", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "user-action-required", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "user-action-required", callback: (...args: any[]) => void): NodeJS.EventEmitter
     static name: string
 }
 export interface AccessControlManager_ConstructProps extends GObject.Object_ConstructProps {
     config?: Config
 }
 export class AccessControlManager {
-    /* Fields of GSignond.AccessControlManager */
+    /* Fields of GSignond-1.0.GSignond.AccessControlManager */
     parentInstance: GObject.Object
     config: Config
     priv: AccessControlManagerPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GSignond.AccessControlManager */
+    /* Methods of GSignond-1.0.GSignond.AccessControlManager */
     aclIsValid(peerCtx: SecurityContext, identityAcl: SecurityContext[]): boolean
     peerIsAllowedToUseIdentity(peerCtx: SecurityContext, ownerCtx: SecurityContext, identityAcl: SecurityContext[]): boolean
     peerIsOwnerOfIdentity(peerCtx: SecurityContext, ownerCtx: SecurityContext): boolean
     securityContextOfKeychain(): SecurityContext
     securityContextOfPeer(peerCtx: SecurityContext, peerFd: number, peerService: string, peerAppCtx: string): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -203,27 +190,12 @@ export class AccessControlManager {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GSignond.AccessControlManager */
-    vfuncAclIsValid(peerCtx: SecurityContext, identityAcl: SecurityContext[]): boolean
-    vfuncPeerIsAllowedToUseIdentity(peerCtx: SecurityContext, ownerCtx: SecurityContext, identityAcl: SecurityContext[]): boolean
-    vfuncPeerIsOwnerOfIdentity(peerCtx: SecurityContext, ownerCtx: SecurityContext): boolean
-    vfuncSecurityContextOfKeychain(): SecurityContext
-    vfuncSecurityContextOfPeer(peerCtx: SecurityContext, peerFd: number, peerService: string, peerAppCtx: string): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: AccessControlManager, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: AccessControlManager, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -239,14 +211,14 @@ export class AccessControlManager {
 export interface Config_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class Config {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GSignond.Config */
+    /* Methods of GSignond-1.0.GSignond.Config */
     getInteger(key: string): number
     getString(key: string): string | null
     setInteger(key: string, value: number): void
     setString(key: string, value: string): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -268,21 +240,12 @@ export class Config {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Config, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Config, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -300,11 +263,11 @@ export class Config {
 export interface Credentials_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class Credentials {
-    /* Fields of GSignond.Credentials */
+    /* Fields of GSignond-1.0.GSignond.Credentials */
     parentInstance: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GSignond.Credentials */
+    /* Methods of GSignond-1.0.GSignond.Credentials */
     equal(two: Credentials): boolean
     getId(): number
     getPassword(): string | null
@@ -313,7 +276,7 @@ export class Credentials {
     setId(id: number): boolean
     setPassword(password?: string | null): boolean
     setUsername(username?: string | null): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -335,21 +298,12 @@ export class Credentials {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Credentials, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Credentials, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -367,21 +321,21 @@ export class Credentials {
 export interface Dictionary_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class Dictionary {
-    /* Fields of GSignond.Dictionary */
+    /* Fields of GSignond-1.0.GSignond.Dictionary */
     parentInstance: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GSignond.Dictionary */
+    /* Methods of GSignond-1.0.GSignond.Dictionary */
     contains(key: string): boolean
     copy(): Dictionary
     get(key: string): GLib.Variant | null
-    getBoolean(key: string): [ /* returnType */ boolean, /* value */ boolean ]
-    getInt32(key: string): [ /* returnType */ boolean, /* value */ number ]
-    getInt64(key: string): [ /* returnType */ boolean, /* value */ number ]
+    getBoolean(key: string): { returnType: boolean, value: boolean }
+    getInt32(key: string): { returnType: boolean, value: number }
+    getInt64(key: string): { returnType: boolean, value: number }
     getString(key: string): string | null
     getTable(): GLib.HashTable
-    getUint32(key: string): [ /* returnType */ boolean, /* value */ number ]
-    getUint64(key: string): [ /* returnType */ boolean, /* value */ number ]
+    getUint32(key: string): { returnType: boolean, value: number }
+    getUint64(key: string): { returnType: boolean, value: number }
     remove(key: string): boolean
     set(key: string, value: GLib.Variant): boolean
     setBoolean(key: string, value: boolean): boolean
@@ -392,7 +346,7 @@ export class Dictionary {
     setUint64(key: string, value: number): boolean
     toVariant(): GLib.Variant | null
     toVariantBuilder(): GLib.VariantBuilder | null
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -414,21 +368,12 @@ export class Dictionary {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Dictionary, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Dictionary, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -447,17 +392,17 @@ export class Dictionary {
 export interface Extension_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class Extension {
-    /* Fields of GSignond.Extension */
+    /* Fields of GSignond-1.0.GSignond.Extension */
     parentInstance: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GSignond.Extension */
+    /* Methods of GSignond-1.0.GSignond.Extension */
     getAccessControlManager(config: Config): AccessControlManager
     getName(): string
     getSecretStorage(config: Config): SecretStorage
     getStorageManager(config: Config): StorageManager
     getVersion(): number
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -479,27 +424,12 @@ export class Extension {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GSignond.Extension */
-    vfuncGetAccessControlManager(config: Config): AccessControlManager
-    vfuncGetExtensionName(): string
-    vfuncGetExtensionVersion(): number
-    vfuncGetSecretStorage(config: Config): SecretStorage
-    vfuncGetStorageManager(config: Config): StorageManager
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Extension, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Extension, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -516,11 +446,11 @@ export interface SecretStorage_ConstructProps extends GObject.Object_ConstructPr
     config?: Config
 }
 export class SecretStorage {
-    /* Fields of GSignond.SecretStorage */
+    /* Fields of GSignond-1.0.GSignond.SecretStorage */
     parentInstance: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GSignond.SecretStorage */
+    /* Methods of GSignond-1.0.GSignond.SecretStorage */
     checkCredentials(creds: Credentials): boolean
     clearDb(): boolean
     closeDb(): boolean
@@ -533,7 +463,7 @@ export class SecretStorage {
     removeData(id: number, method: number): boolean
     updateCredentials(creds: Credentials): boolean
     updateData(id: number, method: number, data: Dictionary): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -555,34 +485,12 @@ export class SecretStorage {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GSignond.SecretStorage */
-    vfuncCheckCredentials(creds: Credentials): boolean
-    vfuncClearDb(): boolean
-    vfuncCloseDb(): boolean
-    vfuncGetLastError(): GLib.Error
-    vfuncIsOpenDb(): boolean
-    vfuncLoadCredentials(id: number): Credentials | null
-    vfuncLoadData(id: number, method: number): Dictionary
-    vfuncOpenDb(): boolean
-    vfuncRemoveCredentials(id: number): boolean
-    vfuncRemoveData(id: number, method: number): boolean
-    vfuncUpdateCredentials(creds: Credentials): boolean
-    vfuncUpdateData(id: number, method: number, data: Dictionary): boolean
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: SecretStorage, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: SecretStorage, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -598,21 +506,21 @@ export class SecretStorage {
 export interface SessionData_ConstructProps extends Dictionary_ConstructProps {
 }
 export class SessionData {
-    /* Fields of GSignond.SessionData */
+    /* Fields of GSignond-1.0.GSignond.SessionData */
     parentInstance: Dictionary
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GSignond.SessionData */
+    /* Methods of GSignond-1.0.GSignond.SessionData */
     copy(): SessionData
     getCaption(): string
     getNetworkProxy(): string
-    getNetworkTimeout(): [ /* returnType */ boolean, /* networkTimeout */ number ]
+    getNetworkTimeout(): { returnType: boolean, networkTimeout: number }
     getRealm(): string
-    getRenewToken(): [ /* returnType */ boolean, /* renewToken */ boolean ]
+    getRenewToken(): { returnType: boolean, renewToken: boolean }
     getSecret(): string
-    getUiPolicy(): [ /* returnType */ boolean, /* uiPolicy */ UiPolicy ]
+    getUiPolicy(): { returnType: boolean, uiPolicy: UiPolicy }
     getUsername(): string
-    getWindowId(): [ /* returnType */ boolean, /* windowId */ number ]
+    getWindowId(): { returnType: boolean, windowId: number }
     setAllowedRealms(realms: GLib.Sequence): void
     setCaption(caption: string): void
     setNetworkProxy(networkProxy: string): void
@@ -623,17 +531,17 @@ export class SessionData {
     setUiPolicy(uiPolicy: UiPolicy): void
     setUsername(username: string): void
     setWindowId(windowId: number): void
-    /* Methods of GSignond.Dictionary */
+    /* Methods of GSignond-1.0.GSignond.Dictionary */
     contains(key: string): boolean
     copy(): Dictionary
     get(key: string): GLib.Variant | null
-    getBoolean(key: string): [ /* returnType */ boolean, /* value */ boolean ]
-    getInt32(key: string): [ /* returnType */ boolean, /* value */ number ]
-    getInt64(key: string): [ /* returnType */ boolean, /* value */ number ]
+    getBoolean(key: string): { returnType: boolean, value: boolean }
+    getInt32(key: string): { returnType: boolean, value: number }
+    getInt64(key: string): { returnType: boolean, value: number }
     getString(key: string): string | null
     getTable(): GLib.HashTable
-    getUint32(key: string): [ /* returnType */ boolean, /* value */ number ]
-    getUint64(key: string): [ /* returnType */ boolean, /* value */ number ]
+    getUint32(key: string): { returnType: boolean, value: number }
+    getUint64(key: string): { returnType: boolean, value: number }
     remove(key: string): boolean
     set(key: string, value: GLib.Variant): boolean
     setBoolean(key: string, value: boolean): boolean
@@ -644,7 +552,7 @@ export class SessionData {
     setUint64(key: string, value: number): boolean
     toVariant(): GLib.Variant | null
     toVariantBuilder(): GLib.VariantBuilder | null
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -666,21 +574,12 @@ export class SessionData {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: SessionData, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: SessionData, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -699,26 +598,26 @@ export class SessionData {
 export interface SignonuiData_ConstructProps extends Dictionary_ConstructProps {
 }
 export class SignonuiData {
-    /* Fields of GSignond.SignonuiData */
+    /* Fields of GSignond-1.0.GSignond.SignonuiData */
     parentInstance: Dictionary
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GSignond.SignonuiData */
+    /* Methods of GSignond-1.0.GSignond.SignonuiData */
     copy(): SignonuiData
     getCaptchaResponse(): string | null
     getCaptchaUrl(): string | null
     getCaption(): string | null
-    getConfirm(): [ /* returnType */ boolean, /* confirm */ boolean ]
+    getConfirm(): { returnType: boolean, confirm: boolean }
     getFinalUrl(): string | null
     getForgotPassword(): string | null
     getForgotPasswordUrl(): string | null
     getMessage(): string | null
     getOpenUrl(): string | null
     getPassword(): string | null
-    getQueryError(): [ /* returnType */ boolean, /* error */ SignonuiError ]
-    getQueryPassword(): [ /* returnType */ boolean, /* queryPassword */ boolean ]
-    getQueryUsername(): [ /* returnType */ boolean, /* queryUsername */ boolean ]
-    getRememberPassword(): [ /* returnType */ boolean, /* rememberPassword */ boolean ]
+    getQueryError(): { returnType: boolean, error: SignonuiError }
+    getQueryPassword(): { returnType: boolean, queryPassword: boolean }
+    getQueryUsername(): { returnType: boolean, queryUsername: boolean }
+    getRememberPassword(): { returnType: boolean, rememberPassword: boolean }
     getRequestId(): string | null
     getTestReply(): string | null
     getTitle(): string | null
@@ -743,17 +642,17 @@ export class SignonuiData {
     setTitle(title: string): void
     setUrlResponse(response: string): void
     setUsername(username: string): void
-    /* Methods of GSignond.Dictionary */
+    /* Methods of GSignond-1.0.GSignond.Dictionary */
     contains(key: string): boolean
     copy(): Dictionary
     get(key: string): GLib.Variant | null
-    getBoolean(key: string): [ /* returnType */ boolean, /* value */ boolean ]
-    getInt32(key: string): [ /* returnType */ boolean, /* value */ number ]
-    getInt64(key: string): [ /* returnType */ boolean, /* value */ number ]
+    getBoolean(key: string): { returnType: boolean, value: boolean }
+    getInt32(key: string): { returnType: boolean, value: number }
+    getInt64(key: string): { returnType: boolean, value: number }
     getString(key: string): string | null
     getTable(): GLib.HashTable
-    getUint32(key: string): [ /* returnType */ boolean, /* value */ number ]
-    getUint64(key: string): [ /* returnType */ boolean, /* value */ number ]
+    getUint32(key: string): { returnType: boolean, value: number }
+    getUint64(key: string): { returnType: boolean, value: number }
     remove(key: string): boolean
     set(key: string, value: GLib.Variant): boolean
     setBoolean(key: string, value: boolean): boolean
@@ -764,7 +663,7 @@ export class SignonuiData {
     setUint64(key: string, value: number): boolean
     toVariant(): GLib.Variant | null
     toVariantBuilder(): GLib.VariantBuilder | null
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -786,21 +685,12 @@ export class SignonuiData {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: SignonuiData, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: SignonuiData, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -820,21 +710,21 @@ export interface StorageManager_ConstructProps extends GObject.Object_ConstructP
     config?: Config
 }
 export class StorageManager {
-    /* Fields of GSignond.StorageManager */
+    /* Fields of GSignond-1.0.GSignond.StorageManager */
     parentInstance: GObject.Object
     config: Config
     location: string
     priv: StorageManagerPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GSignond.StorageManager */
+    /* Methods of GSignond-1.0.GSignond.StorageManager */
     deleteStorage(): boolean
     filesystemIsMounted(): boolean
     initializeStorage(): boolean
     mountFilesystem(): string
     storageIsInitialized(): boolean
     unmountFilesystem(): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -856,28 +746,12 @@ export class StorageManager {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GSignond.StorageManager */
-    vfuncDeleteStorage(): boolean
-    vfuncFilesystemIsMounted(): boolean
-    vfuncInitializeStorage(): boolean
-    vfuncMountFilesystem(): string
-    vfuncStorageIsInitialized(): boolean
-    vfuncUnmountFilesystem(): boolean
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: StorageManager, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: StorageManager, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -891,7 +765,7 @@ export class StorageManager {
     static $gtype: GObject.Type
 }
 export abstract class AccessControlManagerClass {
-    /* Fields of GSignond.AccessControlManagerClass */
+    /* Fields of GSignond-1.0.GSignond.AccessControlManagerClass */
     parentClass: GObject.ObjectClass
     securityContextOfPeer: (self: AccessControlManager, peerCtx: SecurityContext, peerFd: number, peerService: string, peerAppCtx: string) => void
     peerIsAllowedToUseIdentity: (self: AccessControlManager, peerCtx: SecurityContext, ownerCtx: SecurityContext, identityAcl: SecurityContext[]) => boolean
@@ -904,7 +778,7 @@ export class AccessControlManagerPrivate {
     static name: string
 }
 export abstract class ConfigClass {
-    /* Fields of GSignond.ConfigClass */
+    /* Fields of GSignond-1.0.GSignond.ConfigClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
@@ -915,7 +789,7 @@ export abstract class DictionaryClass {
     static name: string
 }
 export abstract class ExtensionClass {
-    /* Fields of GSignond.ExtensionClass */
+    /* Fields of GSignond-1.0.GSignond.ExtensionClass */
     parentClass: GObject.ObjectClass
     getExtensionName: (self: Extension) => string
     getExtensionVersion: (self: Extension) => number
@@ -925,7 +799,7 @@ export abstract class ExtensionClass {
     static name: string
 }
 export abstract class PluginInterface {
-    /* Fields of GSignond.PluginInterface */
+    /* Fields of GSignond-1.0.GSignond.PluginInterface */
     parent: GObject.TypeInterface
     cancel: (self: Plugin) => void
     requestInitial: (self: Plugin, sessionData: SessionData, identityMethodCache: Dictionary, mechanism: string) => void
@@ -935,7 +809,7 @@ export abstract class PluginInterface {
     static name: string
 }
 export abstract class SecretStorageClass {
-    /* Fields of GSignond.SecretStorageClass */
+    /* Fields of GSignond-1.0.GSignond.SecretStorageClass */
     parentClass: GObject.ObjectClass
     openDb: (self: SecretStorage) => boolean
     closeDb: (self: SecretStorage) => boolean
@@ -955,10 +829,10 @@ export class SecretStoragePrivate {
     static name: string
 }
 export class SecurityContext {
-    /* Fields of GSignond.SecurityContext */
+    /* Fields of GSignond-1.0.GSignond.SecurityContext */
     sysCtx: string
     appCtx: string
-    /* Methods of GSignond.SecurityContext */
+    /* Methods of GSignond-1.0.GSignond.SecurityContext */
     check(test: SecurityContext): boolean
     compare(ctx2: SecurityContext): number
     copy(): SecurityContext
@@ -984,7 +858,7 @@ export abstract class SignonuiDataClass {
     static name: string
 }
 export abstract class StorageManagerClass {
-    /* Fields of GSignond.StorageManagerClass */
+    /* Fields of GSignond-1.0.GSignond.StorageManagerClass */
     parentClass: GObject.ObjectClass
     initializeStorage: (self: StorageManager) => boolean
     deleteStorage: (self: StorageManager) => boolean

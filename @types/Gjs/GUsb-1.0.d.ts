@@ -87,15 +87,15 @@ export interface Context_ConstructProps extends GObject.Object_ConstructProps {
     debug_level?: number
 }
 export class Context {
-    /* Properties of GUsb.Context */
+    /* Properties of GUsb-1.0.GUsb.Context */
     debug_level: number
     readonly libusb_context: object
-    /* Fields of GUsb.Context */
+    /* Fields of GUsb-1.0.GUsb.Context */
     parent: GObject.Object
     priv: ContextPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GUsb.Context */
+    /* Methods of GUsb-1.0.GUsb.Context */
     enumerate(): void
     find_by_bus_address(bus: number, address: number): Device
     find_by_platform_id(platform_id: string): Device
@@ -108,7 +108,7 @@ export class Context {
     set_flags(flags: ContextFlags): void
     set_main_context(main_ctx: GLib.MainContext): void
     wait_for_replug(device: Device, timeout_ms: number): Device
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -130,13 +130,13 @@ export class Context {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of Gio.Initable */
+    /* Methods of Gio-2.0.Gio.Initable */
     init(cancellable?: Gio.Cancellable | null): boolean
-    /* Virtual methods of GUsb.Context */
+    /* Virtual methods of GUsb-1.0.GUsb.Context */
     vfunc_device_added(device: Device): void
     vfunc_device_removed(device: Device): void
     vfunc_init(cancellable?: Gio.Cancellable | null): boolean
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -144,14 +144,14 @@ export class Context {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GUsb.Context */
+    /* Signals of GUsb-1.0.GUsb.Context */
     connect(sigName: "device-added", callback: (($obj: Context, device: Device) => void)): number
     connect_after(sigName: "device-added", callback: (($obj: Context, device: Device) => void)): number
     emit(sigName: "device-added", device: Device): void
     connect(sigName: "device-removed", callback: (($obj: Context, device: Device) => void)): number
     connect_after(sigName: "device-removed", callback: (($obj: Context, device: Device) => void)): number
     emit(sigName: "device-removed", device: Device): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Context, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Context, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -178,12 +178,12 @@ export interface Device_ConstructProps extends GObject.Object_ConstructProps {
     platform_id?: string
 }
 export class Device {
-    /* Fields of GUsb.Device */
+    /* Fields of GUsb-1.0.GUsb.Device */
     parent: GObject.Object
     priv: DevicePrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GUsb.Device */
+    /* Methods of GUsb-1.0.GUsb.Device */
     bulk_transfer(endpoint: number, data: Uint8Array[], timeout: number, cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* actual_length */ number | null ]
     bulk_transfer_async(endpoint: number, data: Uint8Array[], timeout: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     bulk_transfer_finish(res: Gio.AsyncResult): number
@@ -225,7 +225,7 @@ export class Device {
     reset(): boolean
     set_configuration(configuration: number): boolean
     set_interface_alt(interface: number, alt: number): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -247,11 +247,11 @@ export class Device {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of Gio.Initable */
+    /* Methods of Gio-2.0.Gio.Initable */
     init(cancellable?: Gio.Cancellable | null): boolean
-    /* Virtual methods of GUsb.Device */
+    /* Virtual methods of GUsb-1.0.GUsb.Device */
     vfunc_init(cancellable?: Gio.Cancellable | null): boolean
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -259,7 +259,7 @@ export class Device {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Device, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Device, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -279,17 +279,17 @@ export interface DeviceList_ConstructProps extends GObject.Object_ConstructProps
     context?: Context
 }
 export class DeviceList {
-    /* Fields of GUsb.DeviceList */
+    /* Fields of GUsb-1.0.GUsb.DeviceList */
     parent: GObject.Object
     priv: DeviceListPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GUsb.DeviceList */
+    /* Methods of GUsb-1.0.GUsb.DeviceList */
     coldplug(): void
     find_by_bus_address(bus: number, address: number): Device
     find_by_vid_pid(vid: number, pid: number): Device
     get_devices(): Device[]
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -311,10 +311,10 @@ export class DeviceList {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GUsb.DeviceList */
+    /* Virtual methods of GUsb-1.0.GUsb.DeviceList */
     vfunc_device_added(device: Device): void
     vfunc_device_removed(device: Device): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -322,14 +322,14 @@ export class DeviceList {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GUsb.DeviceList */
+    /* Signals of GUsb-1.0.GUsb.DeviceList */
     connect(sigName: "device-added", callback: (($obj: DeviceList, device: Device) => void)): number
     connect_after(sigName: "device-added", callback: (($obj: DeviceList, device: Device) => void)): number
     emit(sigName: "device-added", device: Device): void
     connect(sigName: "device-removed", callback: (($obj: DeviceList, device: Device) => void)): number
     connect_after(sigName: "device-removed", callback: (($obj: DeviceList, device: Device) => void)): number
     emit(sigName: "device-removed", device: Device): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: DeviceList, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: DeviceList, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -347,9 +347,9 @@ export class DeviceList {
 export interface Endpoint_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class Endpoint {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GUsb.Endpoint */
+    /* Methods of GUsb-1.0.GUsb.Endpoint */
     get_address(): number
     get_direction(): DeviceDirection
     get_extra(): GLib.Bytes
@@ -359,7 +359,7 @@ export class Endpoint {
     get_polling_interval(): number
     get_refresh(): number
     get_synch_address(): number
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -381,7 +381,7 @@ export class Endpoint {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -389,7 +389,7 @@ export class Endpoint {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Endpoint, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Endpoint, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -405,9 +405,9 @@ export class Endpoint {
 export interface Interface_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class Interface {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GUsb.Interface */
+    /* Methods of GUsb-1.0.GUsb.Interface */
     get_alternate(): number
     get_class(): number
     get_endpoints(): Endpoint[]
@@ -418,7 +418,7 @@ export class Interface {
     get_number(): number
     get_protocol(): number
     get_subclass(): number
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -440,7 +440,7 @@ export class Interface {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -448,7 +448,7 @@ export class Interface {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Interface, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Interface, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -462,7 +462,7 @@ export class Interface {
     static $gtype: GObject.Type
 }
 export abstract class ContextClass {
-    /* Fields of GUsb.ContextClass */
+    /* Fields of GUsb-1.0.GUsb.ContextClass */
     parent_class: GObject.ObjectClass
     device_added: (context: Context, device: Device) => void
     device_removed: (context: Context, device: Device) => void
@@ -472,12 +472,12 @@ export class ContextPrivate {
     static name: string
 }
 export abstract class DeviceClass {
-    /* Fields of GUsb.DeviceClass */
+    /* Fields of GUsb-1.0.GUsb.DeviceClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
 export abstract class DeviceListClass {
-    /* Fields of GUsb.DeviceListClass */
+    /* Fields of GUsb-1.0.GUsb.DeviceListClass */
     parent_class: GObject.ObjectClass
     device_added: (list: DeviceList, device: Device) => void
     device_removed: (list: DeviceList, device: Device) => void
@@ -490,17 +490,17 @@ export class DevicePrivate {
     static name: string
 }
 export abstract class EndpointClass {
-    /* Fields of GUsb.EndpointClass */
+    /* Fields of GUsb-1.0.GUsb.EndpointClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
 export abstract class InterfaceClass {
-    /* Fields of GUsb.InterfaceClass */
+    /* Fields of GUsb-1.0.GUsb.InterfaceClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
 export class Source {
-    /* Methods of GUsb.Source */
+    /* Methods of GUsb-1.0.GUsb.Source */
     set_callback(func: GLib.SourceFunc): void
     static name: string
     /* Static methods and pseudo-constructors */

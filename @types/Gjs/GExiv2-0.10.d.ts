@@ -59,11 +59,11 @@ export interface LogHandler {
 export interface Metadata_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class Metadata {
-    /* Fields of GExiv2.Metadata */
+    /* Fields of GExiv2-0.10.GExiv2.Metadata */
     parent_instance: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GExiv2.Metadata */
+    /* Methods of GExiv2-0.10.GExiv2.Metadata */
     clear(): void
     clear_comment(): void
     clear_exif(): void
@@ -133,7 +133,7 @@ export class Metadata {
     try_set_tag_multiple(tag: string, values: string[]): boolean
     try_set_tag_string(tag: string, value: string): boolean
     update_gps_info(longitude: number, latitude: number, altitude: number): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -155,7 +155,7 @@ export class Metadata {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -163,7 +163,7 @@ export class Metadata {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Metadata, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Metadata, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -191,11 +191,11 @@ export class Metadata {
 export interface PreviewImage_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class PreviewImage {
-    /* Fields of GExiv2.PreviewImage */
+    /* Fields of GExiv2-0.10.GExiv2.PreviewImage */
     parent_instance: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GExiv2.PreviewImage */
+    /* Methods of GExiv2-0.10.GExiv2.PreviewImage */
     free(): void
     get_data(): Uint8Array[]
     get_extension(): string
@@ -203,7 +203,7 @@ export class PreviewImage {
     get_mime_type(): string
     get_width(): number
     write_file(path: string): number
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -225,7 +225,7 @@ export class PreviewImage {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -233,7 +233,7 @@ export class PreviewImage {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: PreviewImage, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: PreviewImage, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -249,17 +249,17 @@ export class PreviewImage {
 export interface PreviewProperties_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class PreviewProperties {
-    /* Fields of GExiv2.PreviewProperties */
+    /* Fields of GExiv2-0.10.GExiv2.PreviewProperties */
     parent_instance: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GExiv2.PreviewProperties */
+    /* Methods of GExiv2-0.10.GExiv2.PreviewProperties */
     get_extension(): string
     get_height(): number
     get_mime_type(): string
     get_size(): number
     get_width(): number
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -281,7 +281,7 @@ export class PreviewProperties {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -289,7 +289,7 @@ export class PreviewProperties {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: PreviewProperties, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: PreviewProperties, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -303,7 +303,7 @@ export class PreviewProperties {
     static $gtype: GObject.Type
 }
 export abstract class MetadataClass {
-    /* Fields of GExiv2.MetadataClass */
+    /* Fields of GExiv2-0.10.GExiv2.MetadataClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
@@ -311,7 +311,7 @@ export class MetadataPrivate {
     static name: string
 }
 export abstract class PreviewImageClass {
-    /* Fields of GExiv2.PreviewImageClass */
+    /* Fields of GExiv2-0.10.GExiv2.PreviewImageClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
@@ -319,7 +319,7 @@ export class PreviewImagePrivate {
     static name: string
 }
 export abstract class PreviewPropertiesClass {
-    /* Fields of GExiv2.PreviewPropertiesClass */
+    /* Fields of GExiv2-0.10.GExiv2.PreviewPropertiesClass */
     parent_class: GObject.ObjectClass
     static name: string
 }

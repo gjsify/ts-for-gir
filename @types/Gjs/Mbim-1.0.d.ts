@@ -761,12 +761,12 @@ export interface Device_ConstructProps extends GObject.Object_ConstructProps {
     device_transaction_id?: number
 }
 export class Device {
-    /* Properties of Mbim.Device */
+    /* Properties of Mbim-1.0.Mbim.Device */
     device_in_session: boolean
     device_transaction_id: number
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Mbim.Device */
+    /* Methods of Mbim-1.0.Mbim.Device */
     close(timeout: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     close_finish(res: Gio.AsyncResult): boolean
     close_force(): boolean
@@ -781,7 +781,7 @@ export class Device {
     open_finish(res: Gio.AsyncResult): boolean
     open_full(flags: DeviceOpenFlags, timeout: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     open_full_finish(res: Gio.AsyncResult): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -803,14 +803,14 @@ export class Device {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of Gio.AsyncInitable */
+    /* Methods of Gio-2.0.Gio.AsyncInitable */
     init_async(io_priority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     init_finish(res: Gio.AsyncResult): boolean
     new_finish(res: Gio.AsyncResult): GObject.Object
-    /* Virtual methods of Mbim.Device */
+    /* Virtual methods of Mbim-1.0.Mbim.Device */
     vfunc_init_async(io_priority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     vfunc_init_finish(res: Gio.AsyncResult): boolean
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -818,7 +818,7 @@ export class Device {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Mbim.Device */
+    /* Signals of Mbim-1.0.Mbim.Device */
     connect(sigName: "device-error", callback: (($obj: Device, object: GLib.Error) => void)): number
     connect_after(sigName: "device-error", callback: (($obj: Device, object: GLib.Error) => void)): number
     emit(sigName: "device-error", object: GLib.Error): void
@@ -828,7 +828,7 @@ export class Device {
     connect(sigName: "device-removed", callback: (($obj: Device) => void)): number
     connect_after(sigName: "device-removed", callback: (($obj: Device) => void)): number
     emit(sigName: "device-removed"): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Device, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Device, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -851,15 +851,15 @@ export class Device {
 export interface Proxy_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class Proxy {
-    /* Properties of Mbim.Proxy */
+    /* Properties of Mbim-1.0.Mbim.Proxy */
     readonly mbim_proxy_n_clients: number
     readonly mbim_proxy_n_devices: number
-    /* Fields of Mbim.Proxy */
+    /* Fields of Mbim-1.0.Mbim.Proxy */
     parent: GObject.Object
     priv: ProxyPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -881,7 +881,7 @@ export class Proxy {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -889,7 +889,7 @@ export class Proxy {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Proxy, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Proxy, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -909,7 +909,7 @@ export class Proxy {
     static $gtype: GObject.Type
 }
 export class AtdsProvider {
-    /* Fields of Mbim.AtdsProvider */
+    /* Fields of Mbim-1.0.Mbim.AtdsProvider */
     provider_id: string
     provider_state: number
     provider_name: string
@@ -927,7 +927,7 @@ export class DevicePrivate {
     static name: string
 }
 export class DeviceServiceElement {
-    /* Fields of Mbim.DeviceServiceElement */
+    /* Fields of Mbim-1.0.Mbim.DeviceServiceElement */
     device_service_id: Uuid
     dss_payload: number
     max_dss_instances: number
@@ -938,7 +938,7 @@ export class DeviceServiceElement {
     static array_free(array: DeviceServiceElementArray): void
 }
 export class EventEntry {
-    /* Fields of Mbim.EventEntry */
+    /* Fields of Mbim-1.0.Mbim.EventEntry */
     device_service_id: Uuid
     cids_count: number
     cids: number
@@ -947,12 +947,12 @@ export class EventEntry {
     static array_free(array: EventEntryArray): void
 }
 export class IPv4 {
-    /* Fields of Mbim.IPv4 */
+    /* Fields of Mbim-1.0.Mbim.IPv4 */
     addr: Uint8Array[]
     static name: string
 }
 export class IPv4Element {
-    /* Fields of Mbim.IPv4Element */
+    /* Fields of Mbim-1.0.Mbim.IPv4Element */
     on_link_prefix_length: number
     ipv4_address: IPv4
     static name: string
@@ -960,12 +960,12 @@ export class IPv4Element {
     static array_free(array: IPv4ElementArray): void
 }
 export class IPv6 {
-    /* Fields of Mbim.IPv6 */
+    /* Fields of Mbim-1.0.Mbim.IPv6 */
     addr: Uint8Array[]
     static name: string
 }
 export class IPv6Element {
-    /* Fields of Mbim.IPv6Element */
+    /* Fields of Mbim-1.0.Mbim.IPv6Element */
     on_link_prefix_length: number
     ipv6_address: IPv6
     static name: string
@@ -973,7 +973,7 @@ export class IPv6Element {
     static array_free(array: IPv6ElementArray): void
 }
 export class LteAttachConfiguration {
-    /* Fields of Mbim.LteAttachConfiguration */
+    /* Fields of Mbim-1.0.Mbim.LteAttachConfiguration */
     ip_type: number
     roaming: number
     source: number
@@ -987,7 +987,7 @@ export class LteAttachConfiguration {
     static array_free(array: LteAttachConfigurationArray): void
 }
 export class LteAttachStatus {
-    /* Fields of Mbim.LteAttachStatus */
+    /* Fields of Mbim-1.0.Mbim.LteAttachStatus */
     lte_attach_state: number
     ip_type: number
     access_string: string
@@ -995,12 +995,12 @@ export class LteAttachStatus {
     password: string
     compression: number
     auth_protocol: number
-    /* Methods of Mbim.LteAttachStatus */
+    /* Methods of Mbim-1.0.Mbim.LteAttachStatus */
     free(): void
     static name: string
 }
 export class Message {
-    /* Methods of Mbim.Message */
+    /* Methods of Mbim-1.0.Mbim.Message */
     atds_location_response_parse(): [ /* returnType */ boolean, /* out_lac */ number | null, /* out_tac */ number | null, /* out_cell_id */ number | null ]
     atds_operators_response_parse(): [ /* returnType */ boolean, /* out_providers_count */ number | null, /* out_providers */ AtdsProvider[] | null ]
     atds_rat_response_parse(): [ /* returnType */ boolean, /* out_mode */ AtdsRatMode | null ]
@@ -1197,7 +1197,7 @@ export class Message {
     static visible_providers_query_new(action: VisibleProvidersAction): Message
 }
 export class PacketFilter {
-    /* Fields of Mbim.PacketFilter */
+    /* Fields of Mbim-1.0.Mbim.PacketFilter */
     filter_size: number
     packet_filter: number
     packet_mask: number
@@ -1206,17 +1206,17 @@ export class PacketFilter {
     static array_free(array: PacketFilterArray): void
 }
 export class PcoValue {
-    /* Fields of Mbim.PcoValue */
+    /* Fields of Mbim-1.0.Mbim.PcoValue */
     session_id: number
     pco_data_size: number
     pco_data_type: number
     pco_data_buffer: number
-    /* Methods of Mbim.PcoValue */
+    /* Methods of Mbim-1.0.Mbim.PcoValue */
     free(): void
     static name: string
 }
 export class PhonebookEntry {
-    /* Fields of Mbim.PhonebookEntry */
+    /* Fields of Mbim-1.0.Mbim.PhonebookEntry */
     entry_index: number
     number: string
     name: string
@@ -1225,31 +1225,31 @@ export class PhonebookEntry {
     static array_free(array: PhonebookEntryArray): void
 }
 export class PinDesc {
-    /* Fields of Mbim.PinDesc */
+    /* Fields of Mbim-1.0.Mbim.PinDesc */
     pin_mode: number
     pin_format: number
     pin_length_min: number
     pin_length_max: number
-    /* Methods of Mbim.PinDesc */
+    /* Methods of Mbim-1.0.Mbim.PinDesc */
     free(): void
     static name: string
 }
 export class Provider {
-    /* Fields of Mbim.Provider */
+    /* Fields of Mbim-1.0.Mbim.Provider */
     provider_id: string
     provider_state: number
     provider_name: string
     cellular_class: number
     rssi: number
     error_rate: number
-    /* Methods of Mbim.Provider */
+    /* Methods of Mbim-1.0.Mbim.Provider */
     free(): void
     static name: string
     /* Static methods and pseudo-constructors */
     static array_free(array: ProviderArray): void
 }
 export class ProvisionedContextElement {
-    /* Fields of Mbim.ProvisionedContextElement */
+    /* Fields of Mbim-1.0.Mbim.ProvisionedContextElement */
     context_id: number
     context_type: Uuid
     access_string: string
@@ -1262,7 +1262,7 @@ export class ProvisionedContextElement {
     static array_free(array: ProvisionedContextElementArray): void
 }
 export abstract class ProxyClass {
-    /* Fields of Mbim.ProxyClass */
+    /* Fields of Mbim-1.0.Mbim.ProxyClass */
     parent: GObject.ObjectClass
     static name: string
 }
@@ -1270,7 +1270,7 @@ export class ProxyPrivate {
     static name: string
 }
 export class SarConfigState {
-    /* Fields of Mbim.SarConfigState */
+    /* Fields of Mbim-1.0.Mbim.SarConfigState */
     antenna_index: number
     backoff_index: number
     static name: string
@@ -1278,7 +1278,7 @@ export class SarConfigState {
     static array_free(array: SarConfigStateArray): void
 }
 export class SmsCdmaReadRecord {
-    /* Fields of Mbim.SmsCdmaReadRecord */
+    /* Fields of Mbim-1.0.Mbim.SmsCdmaReadRecord */
     message_index: number
     message_status: number
     address: string
@@ -1293,19 +1293,19 @@ export class SmsCdmaReadRecord {
     static array_free(array: SmsCdmaReadRecordArray): void
 }
 export class SmsCdmaSendRecord {
-    /* Fields of Mbim.SmsCdmaSendRecord */
+    /* Fields of Mbim-1.0.Mbim.SmsCdmaSendRecord */
     encoding: number
     language: number
     address: string
     encoded_message_size: number
     encoded_message: number
     encoded_message_size_in_characters: number
-    /* Methods of Mbim.SmsCdmaSendRecord */
+    /* Methods of Mbim-1.0.Mbim.SmsCdmaSendRecord */
     free(): void
     static name: string
 }
 export class SmsPduReadRecord {
-    /* Fields of Mbim.SmsPduReadRecord */
+    /* Fields of Mbim-1.0.Mbim.SmsPduReadRecord */
     message_index: number
     message_status: number
     pdu_data_size: number
@@ -1315,21 +1315,21 @@ export class SmsPduReadRecord {
     static array_free(array: SmsPduReadRecordArray): void
 }
 export class SmsPduSendRecord {
-    /* Fields of Mbim.SmsPduSendRecord */
+    /* Fields of Mbim-1.0.Mbim.SmsPduSendRecord */
     pdu_data_size: number
     pdu_data: number
-    /* Methods of Mbim.SmsPduSendRecord */
+    /* Methods of Mbim-1.0.Mbim.SmsPduSendRecord */
     free(): void
     static name: string
 }
 export class Uuid {
-    /* Fields of Mbim.Uuid */
+    /* Fields of Mbim-1.0.Mbim.Uuid */
     a: Uint8Array[]
     b: Uint8Array[]
     c: Uint8Array[]
     d: Uint8Array[]
     e: Uint8Array[]
-    /* Methods of Mbim.Uuid */
+    /* Methods of Mbim-1.0.Mbim.Uuid */
     cmp(b: Uuid): boolean
     get_printable(): string
     to_context_type(): ContextType

@@ -20,26 +20,26 @@ export interface Discoverer_ConstructProps extends GstPbutils.Discoverer_Constru
     relaxedMode?: boolean
 }
 export class Discoverer {
-    /* Properties of GstPbutils.Discoverer */
+    /* Properties of GstPbutils-1.0.GstPbutils.Discoverer */
     timeout: number
     useCache: boolean
-    /* Fields of GUPnPDLNA.Discoverer */
+    /* Fields of GUPnPDLNA-1.0.GUPnPDLNA.Discoverer */
     parent: GstPbutils.Discoverer
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GUPnPDLNA.Discoverer */
+    /* Methods of GUPnPDLNA-1.0.GUPnPDLNA.Discoverer */
     discoverUri(uri: string): boolean
     discoverUriSync(uri: string): Information
     getExtendedMode(): boolean
     getProfile(name: string): Profile
     getRelaxedMode(): boolean
     listProfiles(): Profile[]
-    /* Methods of GstPbutils.Discoverer */
+    /* Methods of GstPbutils-1.0.GstPbutils.Discoverer */
     discoverUri(uri: string): GstPbutils.DiscovererInfo
     discoverUriAsync(uri: string): boolean
     start(): void
     stop(): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -61,60 +61,39 @@ export class Discoverer {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GUPnPDLNA.Discoverer */
-    vfuncDone(dlna: Information, err: GLib.Error): void
-    /* Virtual methods of GstPbutils.Discoverer */
-    vfuncDiscovered(info: GstPbutils.DiscovererInfo, err: GLib.Error): void
-    vfuncFinished(): void
-    vfuncSourceSetup(source: Gst.Element): void
-    vfuncStarting(): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GUPnPDLNA.Discoverer */
+    /* Signals of GUPnPDLNA-1.0.GUPnPDLNA.Discoverer */
     connect(sigName: "done", callback: (($obj: Discoverer, dlna: Information, err: GLib.Error) => void)): number
-    connect_after(sigName: "done", callback: (($obj: Discoverer, dlna: Information, err: GLib.Error) => void)): number
+    on(sigName: "done", callback: (dlna: Information, err: GLib.Error) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "done", callback: (dlna: Information, err: GLib.Error) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "done", callback: (dlna: Information, err: GLib.Error) => void): NodeJS.EventEmitter
     emit(sigName: "done", dlna: Information, err: GLib.Error): void
-    on(sigName: "done", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "done", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "done", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GstPbutils.Discoverer */
+    /* Signals of GstPbutils-1.0.GstPbutils.Discoverer */
     connect(sigName: "discovered", callback: (($obj: Discoverer, info: GstPbutils.DiscovererInfo, error?: GLib.Error | null) => void)): number
-    connect_after(sigName: "discovered", callback: (($obj: Discoverer, info: GstPbutils.DiscovererInfo, error?: GLib.Error | null) => void)): number
+    on(sigName: "discovered", callback: (info: GstPbutils.DiscovererInfo, error?: GLib.Error | null) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "discovered", callback: (info: GstPbutils.DiscovererInfo, error?: GLib.Error | null) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "discovered", callback: (info: GstPbutils.DiscovererInfo, error?: GLib.Error | null) => void): NodeJS.EventEmitter
     emit(sigName: "discovered", info: GstPbutils.DiscovererInfo, error?: GLib.Error | null): void
-    on(sigName: "discovered", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "discovered", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "discovered", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "finished", callback: (($obj: Discoverer) => void)): number
-    connect_after(sigName: "finished", callback: (($obj: Discoverer) => void)): number
+    on(sigName: "finished", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "finished", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "finished", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "finished"): void
-    on(sigName: "finished", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "finished", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "finished", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "source-setup", callback: (($obj: Discoverer, source: Gst.Element) => void)): number
-    connect_after(sigName: "source-setup", callback: (($obj: Discoverer, source: Gst.Element) => void)): number
+    on(sigName: "source-setup", callback: (source: Gst.Element) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "source-setup", callback: (source: Gst.Element) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "source-setup", callback: (source: Gst.Element) => void): NodeJS.EventEmitter
     emit(sigName: "source-setup", source: Gst.Element): void
-    on(sigName: "source-setup", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "source-setup", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "source-setup", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "starting", callback: (($obj: Discoverer) => void)): number
-    connect_after(sigName: "starting", callback: (($obj: Discoverer) => void)): number
+    on(sigName: "starting", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "starting", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "starting", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "starting"): void
-    on(sigName: "starting", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "starting", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "starting", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Discoverer, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Discoverer, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::timeout", callback: (($obj: Discoverer, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::timeout", callback: (($obj: Discoverer, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::timeout", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -146,15 +125,15 @@ export interface Information_ConstructProps extends GObject.Object_ConstructProp
     name?: string
 }
 export class Information {
-    /* Fields of GUPnPDLNA.Information */
+    /* Fields of GUPnPDLNA-1.0.GUPnPDLNA.Information */
     parent: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GUPnPDLNA.Information */
+    /* Methods of GUPnPDLNA-1.0.GUPnPDLNA.Information */
     getInfo(): GstPbutils.DiscovererInfo
     getMime(): string
     getName(): string
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -176,21 +155,12 @@ export class Information {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Information, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Information, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -211,18 +181,18 @@ export interface Profile_ConstructProps extends GObject.Object_ConstructProps {
     name?: string
 }
 export class Profile {
-    /* Properties of GUPnPDLNA.Profile */
+    /* Properties of GUPnPDLNA-1.0.GUPnPDLNA.Profile */
     readonly encodingProfile: GstPbutils.EncodingProfile
-    /* Fields of GUPnPDLNA.Profile */
+    /* Fields of GUPnPDLNA-1.0.GUPnPDLNA.Profile */
     parent: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GUPnPDLNA.Profile */
+    /* Methods of GUPnPDLNA-1.0.GUPnPDLNA.Profile */
     getEncodingProfile(): GstPbutils.EncodingProfile
     getExtended(): boolean
     getMime(): string
     getName(): string
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -244,21 +214,12 @@ export class Profile {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Profile, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Profile, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::encoding-profile", callback: (($obj: Profile, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::encoding-profile", callback: (($obj: Profile, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::encoding-profile", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -277,18 +238,18 @@ export class Profile {
     static $gtype: GObject.Type
 }
 export abstract class DiscovererClass {
-    /* Fields of GUPnPDLNA.DiscovererClass */
+    /* Fields of GUPnPDLNA-1.0.GUPnPDLNA.DiscovererClass */
     parentClass: GstPbutils.DiscovererClass
     done: (discoverer: Discoverer, dlna: Information, err: GLib.Error) => void
     static name: string
 }
 export abstract class InformationClass {
-    /* Fields of GUPnPDLNA.InformationClass */
+    /* Fields of GUPnPDLNA-1.0.GUPnPDLNA.InformationClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
 export abstract class ProfileClass {
-    /* Fields of GUPnPDLNA.ProfileClass */
+    /* Fields of GUPnPDLNA-1.0.GUPnPDLNA.ProfileClass */
     parentClass: GObject.ObjectClass
     static name: string
 }

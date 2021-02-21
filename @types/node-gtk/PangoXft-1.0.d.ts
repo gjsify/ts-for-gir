@@ -33,9 +33,9 @@ export interface SubstituteFunc {
 export interface Font_ConstructProps extends PangoFc.Font_ConstructProps {
 }
 export class Font {
-    /* Properties of PangoFc.Font */
+    /* Properties of PangoFc-1.0.PangoFc.Font */
     fontmap: PangoFc.FontMap
-    /* Fields of PangoFc.Font */
+    /* Fields of PangoFc-1.0.PangoFc.Font */
     parentInstance: Pango.Font
     fontPattern: fontconfig.Pattern
     priv: object
@@ -44,27 +44,27 @@ export class Font {
     metricsByLang: object[]
     isHinted: number
     isTransformed: number
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of PangoXft.Font */
+    /* Methods of PangoXft-1.0.PangoXft.Font */
     getGlyph(wc: number): number
     getUnknownGlyph(wc: number): Pango.Glyph
     hasChar(wc: number): boolean
-    /* Methods of PangoFc.Font */
+    /* Methods of PangoFc-1.0.PangoFc.Font */
     getLanguages(): Pango.Language | null
     kernGlyphs(glyphs: Pango.GlyphString): void
     unlockFace(): void
-    /* Methods of Pango.Font */
+    /* Methods of Pango-1.0.Pango.Font */
     describe(): Pango.FontDescription
     describeWithAbsoluteSize(): Pango.FontDescription
     findShaper(language: Pango.Language, ch: number): Pango.EngineShape
     getCoverage(language: Pango.Language): Pango.Coverage
     getFace(): Pango.FontFace
-    getFeatures(numFeatures: number): [ /* features */ HarfBuzz.feature_t[], /* numFeatures */ number ]
+    getFeatures(numFeatures: number): { features: HarfBuzz.feature_t[], numFeatures: number }
     getFontMap(): Pango.FontMap | null
-    getGlyphExtents(glyph: Pango.Glyph): [ /* inkRect */ Pango.Rectangle | null, /* logicalRect */ Pango.Rectangle | null ]
+    getGlyphExtents(glyph: Pango.Glyph): { inkRect: Pango.Rectangle | null, logicalRect: Pango.Rectangle | null }
     getMetrics(language?: Pango.Language | null): Pango.FontMetrics
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -86,30 +86,12 @@ export class Font {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of Pango.Font */
-    vfuncCreateHbFont(): HarfBuzz.font_t
-    vfuncDescribe(): Pango.FontDescription
-    vfuncDescribeAbsolute(): Pango.FontDescription
-    vfuncGetCoverage(language: Pango.Language): Pango.Coverage
-    vfuncGetFeatures(numFeatures: number): [ /* features */ HarfBuzz.feature_t[], /* numFeatures */ number ]
-    vfuncGetFontMap(): Pango.FontMap | null
-    vfuncGetGlyphExtents(glyph: Pango.Glyph): [ /* inkRect */ Pango.Rectangle | null, /* logicalRect */ Pango.Rectangle | null ]
-    vfuncGetMetrics(language?: Pango.Language | null): Pango.FontMetrics
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Font, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Font, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::fontmap", callback: (($obj: Font, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::fontmap", callback: (($obj: Font, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::fontmap", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -130,11 +112,11 @@ export class Font {
 export interface FontMap_ConstructProps extends PangoFc.FontMap_ConstructProps {
 }
 export class FontMap {
-    /* Fields of Pango.FontMap */
+    /* Fields of Pango-1.0.Pango.FontMap */
     parentInstance: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of PangoFc.FontMap */
+    /* Methods of PangoFc-1.0.PangoFc.FontMap */
     cacheClear(): void
     configChanged(): void
     createContext(): Pango.Context
@@ -142,14 +124,14 @@ export class FontMap {
     setDefaultSubstitute(func: PangoFc.SubstituteFunc): void
     shutdown(): void
     substituteChanged(): void
-    /* Methods of Pango.FontMap */
+    /* Methods of Pango-1.0.Pango.FontMap */
     changed(): void
     getFamily(name: string): Pango.FontFamily
     getSerial(): number
-    listFamilies(): /* families */ Pango.FontFamily[]
+    listFamilies(): { families: Pango.FontFamily[] }
     loadFont(context: Pango.Context, desc: Pango.FontDescription): Pango.Font | null
     loadFontset(context: Pango.Context, desc: Pango.FontDescription, language: Pango.Language): Pango.Fontset | null
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -171,28 +153,12 @@ export class FontMap {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of Pango.FontMap */
-    vfuncChanged(): void
-    vfuncGetFamily(name: string): Pango.FontFamily
-    vfuncGetSerial(): number
-    vfuncListFamilies(): /* families */ Pango.FontFamily[]
-    vfuncLoadFont(context: Pango.Context, desc: Pango.FontDescription): Pango.Font | null
-    vfuncLoadFontset(context: Pango.Context, desc: Pango.FontDescription, language: Pango.Language): Pango.Fontset | null
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: FontMap, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: FontMap, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -210,14 +176,14 @@ export interface Renderer_ConstructProps extends Pango.Renderer_ConstructProps {
     screen?: number
 }
 export class Renderer {
-    /* Fields of Pango.Renderer */
+    /* Fields of Pango-1.0.Pango.Renderer */
     matrix: Pango.Matrix
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of PangoXft.Renderer */
+    /* Methods of PangoXft-1.0.PangoXft.Renderer */
     setDefaultColor(defaultColor: Pango.Color): void
     setDraw(draw: xft.Draw): void
-    /* Methods of Pango.Renderer */
+    /* Methods of Pango-1.0.Pango.Renderer */
     activate(): void
     deactivate(): void
     drawErrorUnderline(x: number, y: number, width: number, height: number): void
@@ -237,7 +203,7 @@ export class Renderer {
     setAlpha(part: Pango.RenderPart, alpha: number): void
     setColor(part: Pango.RenderPart, color?: Pango.Color | null): void
     setMatrix(matrix?: Pango.Matrix | null): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -259,36 +225,12 @@ export class Renderer {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of PangoXft.Renderer */
-    vfuncCompositeGlyphs(xftFont: xft.Font, glyphs: xft.GlyphSpec, nGlyphs: number): void
-    vfuncCompositeTrapezoids(part: Pango.RenderPart, trapezoids: xlib.XTrapezoid, nTrapezoids: number): void
-    /* Virtual methods of Pango.Renderer */
-    vfuncBegin(): void
-    vfuncDrawErrorUnderline(x: number, y: number, width: number, height: number): void
-    vfuncDrawGlyph(font: Pango.Font, glyph: Pango.Glyph, x: number, y: number): void
-    vfuncDrawGlyphItem(text: string | null, glyphItem: Pango.GlyphItem, x: number, y: number): void
-    vfuncDrawGlyphs(font: Pango.Font, glyphs: Pango.GlyphString, x: number, y: number): void
-    vfuncDrawRectangle(part: Pango.RenderPart, x: number, y: number, width: number, height: number): void
-    vfuncDrawShape(attr: Pango.AttrShape, x: number, y: number): void
-    vfuncDrawTrapezoid(part: Pango.RenderPart, y1: number, x11: number, x21: number, y2: number, x12: number, x22: number): void
-    vfuncEnd(): void
-    vfuncPartChanged(part: Pango.RenderPart): void
-    vfuncPrepareRun(run: Pango.LayoutRun): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Renderer, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Renderer, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -304,7 +246,7 @@ export class Renderer {
     static $gtype: GObject.Type
 }
 export abstract class RendererClass {
-    /* Fields of PangoXft.RendererClass */
+    /* Fields of PangoXft-1.0.PangoXft.RendererClass */
     compositeTrapezoids: (xftrenderer: Renderer, part: Pango.RenderPart, trapezoids: xlib.XTrapezoid, nTrapezoids: number) => void
     compositeGlyphs: (xftrenderer: Renderer, xftFont: xft.Font, glyphs: xft.GlyphSpec, nGlyphs: number) => void
     static name: string

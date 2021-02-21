@@ -96,7 +96,7 @@ export enum MusicPreviewTrackState {
     PAUSED,
 }
 export function ioReadStreamAsync(input: Gio.InputStream, ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-export function ioReadStreamFinish(res: Gio.AsyncResult): [ /* data */ any[], /* size */ number ]
+export function ioReadStreamFinish(res: Gio.AsyncResult): { data: any[], size: number }
 export function ioOpenFromDirs(filename: string, dirs: string[], callback?: Gio.AsyncReadyCallback | null): void
 export function ioOpenFromDirsFinish(res: Gio.AsyncResult): Gio.FileInputStream | null
 export function ioOpenFromDataDirs(filename: string, callback?: Gio.AsyncReadyCallback | null): void
@@ -105,11 +105,11 @@ export function ioGetSystemDataDirs(): string[]
 export interface MergeStrategy_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class MergeStrategy {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Unity.MergeStrategy */
+    /* Methods of Unity-6.0.Unity.MergeStrategy */
     mergeResult(target: Dee.Model, row: GLib.Variant[]): Dee.ModelIter | null
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -131,23 +131,12 @@ export class MergeStrategy {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of Unity.MergeStrategy */
-    vfuncMergeResult(target: Dee.Model, row: GLib.Variant[]): Dee.ModelIter | null
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: MergeStrategy, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: MergeStrategy, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -163,12 +152,12 @@ export class MergeStrategy {
 export interface AppInfoManager_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class AppInfoManager {
-    /* Fields of Unity.AppInfoManager */
+    /* Fields of Unity-6.0.Unity.AppInfoManager */
     parentInstance: GObject.Object
     priv: AppInfoManagerPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Unity.AppInfoManager */
+    /* Methods of Unity-6.0.Unity.AppInfoManager */
     lookup(id: string): Gio.AppInfo | null
     getCategories(id: string): string[] | null
     getKeywords(id: string): string[] | null
@@ -176,7 +165,7 @@ export class AppInfoManager {
     lookupAsync(id: string, callback?: Gio.AsyncReadyCallback | null): void
     lookupFinish(res: Gio.AsyncResult): Gio.AppInfo | null
     clear(): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -198,28 +187,18 @@ export class AppInfoManager {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Unity.AppInfoManager */
+    /* Signals of Unity-6.0.Unity.AppInfoManager */
     connect(sigName: "changed", callback: (($obj: AppInfoManager, id: string, newAppinfo?: Gio.AppInfo | null) => void)): number
-    connect_after(sigName: "changed", callback: (($obj: AppInfoManager, id: string, newAppinfo?: Gio.AppInfo | null) => void)): number
+    on(sigName: "changed", callback: (id: string, newAppinfo?: Gio.AppInfo | null) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "changed", callback: (id: string, newAppinfo?: Gio.AppInfo | null) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "changed", callback: (id: string, newAppinfo?: Gio.AppInfo | null) => void): NodeJS.EventEmitter
     emit(sigName: "changed", id: string, newAppinfo?: Gio.AppInfo | null): void
-    on(sigName: "changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: AppInfoManager, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: AppInfoManager, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -242,19 +221,19 @@ export interface AnnotatedIcon_ConstructProps extends GObject.Object_ConstructPr
     sizeHint?: IconSizeHint
 }
 export class AnnotatedIcon {
-    /* Properties of Unity.AnnotatedIcon */
+    /* Properties of Unity-6.0.Unity.AnnotatedIcon */
     icon: Gio.Icon
     ribbon: string
     category: CategoryType
     sizeHint: IconSizeHint
-    /* Fields of Unity.AnnotatedIcon */
+    /* Fields of Unity-6.0.Unity.AnnotatedIcon */
     parentInstance: GObject.Object
     priv: AnnotatedIconPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Unity.AnnotatedIcon */
+    /* Methods of Unity-6.0.Unity.AnnotatedIcon */
     toString(): string
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -276,21 +255,12 @@ export class AnnotatedIcon {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: AnnotatedIcon, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: AnnotatedIcon, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::icon", callback: (($obj: AnnotatedIcon, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::icon", callback: (($obj: AnnotatedIcon, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::icon", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -328,15 +298,15 @@ export class AnnotatedIcon {
 export interface Inspector_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class Inspector {
-    /* Properties of Unity.Inspector */
+    /* Properties of Unity-6.0.Unity.Inspector */
     readonly unityRunning: boolean
     readonly unityBusName: string
-    /* Fields of Unity.Inspector */
+    /* Fields of Unity-6.0.Unity.Inspector */
     parentInstance: GObject.Object
     priv: InspectorPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -358,21 +328,12 @@ export class Inspector {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Inspector, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Inspector, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::unity-running", callback: (($obj: Inspector, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::unity-running", callback: (($obj: Inspector, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::unity-running", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -407,7 +368,7 @@ export interface LauncherEntry_ConstructProps extends GObject.Object_ConstructPr
     quicklist?: Dbusmenu.Menuitem
 }
 export class LauncherEntry {
-    /* Properties of Unity.LauncherEntry */
+    /* Properties of Unity-6.0.Unity.LauncherEntry */
     appUri: string
     count: number
     countVisible: boolean
@@ -415,12 +376,12 @@ export class LauncherEntry {
     progressVisible: boolean
     urgent: boolean
     quicklist: Dbusmenu.Menuitem
-    /* Fields of Unity.LauncherEntry */
+    /* Fields of Unity-6.0.Unity.LauncherEntry */
     parentInstance: GObject.Object
     priv: LauncherEntryPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -442,26 +403,15 @@ export class LauncherEntry {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of Dee.Serializable */
+    /* Methods of Dee-1.0.Dee.Serializable */
     externalize(): GLib.Variant
     serialize(): GLib.Variant
-    /* Virtual methods of Unity.LauncherEntry */
-    vfuncSerialize(): GLib.Variant
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: LauncherEntry, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: LauncherEntry, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::app-uri", callback: (($obj: LauncherEntry, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::app-uri", callback: (($obj: LauncherEntry, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::app-uri", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -518,18 +468,18 @@ export class LauncherEntry {
 export interface LauncherFavorites_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class LauncherFavorites {
-    /* Fields of Unity.LauncherFavorites */
+    /* Fields of Unity-6.0.Unity.LauncherFavorites */
     parentInstance: GObject.Object
     priv: LauncherFavoritesPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Unity.LauncherFavorites */
+    /* Methods of Unity-6.0.Unity.LauncherFavorites */
     hasAppInfo(appinfo: Gio.AppInfo): boolean
     hasAppId(appId: string): boolean
     lookup(appId: string): Gio.AppInfo | null
     enumerateIds(): string[]
     enumerateAppInfos(): Gio.AppInfo[]
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -551,28 +501,18 @@ export class LauncherFavorites {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Unity.LauncherFavorites */
+    /* Signals of Unity-6.0.Unity.LauncherFavorites */
     connect(sigName: "changed", callback: (($obj: LauncherFavorites) => void)): number
-    connect_after(sigName: "changed", callback: (($obj: LauncherFavorites) => void)): number
+    on(sigName: "changed", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "changed", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "changed", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "changed"): void
-    on(sigName: "changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: LauncherFavorites, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: LauncherFavorites, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -592,14 +532,14 @@ export interface ActivationResponse_ConstructProps extends GObject.InitiallyUnow
     gotoUri?: string
 }
 export class ActivationResponse {
-    /* Properties of Unity.ActivationResponse */
+    /* Properties of Unity-6.0.Unity.ActivationResponse */
     gotoUri: string
-    /* Fields of Unity.ActivationResponse */
+    /* Fields of Unity-6.0.Unity.ActivationResponse */
     parentInstance: GObject.InitiallyUnowned
     priv: ActivationResponsePrivate
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -621,21 +561,12 @@ export class ActivationResponse {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: ActivationResponse, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: ActivationResponse, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::goto-uri", callback: (($obj: ActivationResponse, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::goto-uri", callback: (($obj: ActivationResponse, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::goto-uri", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -662,12 +593,12 @@ export interface Category_ConstructProps extends GObject.Object_ConstructProps {
     defaultRenderer?: CategoryRenderer
 }
 export class Category {
-    /* Fields of Unity.Category */
+    /* Fields of Unity-6.0.Unity.Category */
     parentInstance: GObject.Object
     priv: CategoryPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -689,21 +620,12 @@ export class Category {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Category, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Category, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -728,16 +650,16 @@ export interface Filter_ConstructProps extends GObject.Object_ConstructProps {
     filtering?: boolean
 }
 export class Filter {
-    /* Properties of Unity.Filter */
+    /* Properties of Unity-6.0.Unity.Filter */
     displayName: string
     visible: boolean
     filtering: boolean
-    /* Fields of Unity.Filter */
+    /* Fields of Unity-6.0.Unity.Filter */
     parentInstance: GObject.Object
     priv: FilterPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -759,28 +681,18 @@ export class Filter {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Unity.Filter */
+    /* Signals of Unity-6.0.Unity.Filter */
     connect(sigName: "changed", callback: (($obj: Filter) => void)): number
-    connect_after(sigName: "changed", callback: (($obj: Filter) => void)): number
+    on(sigName: "changed", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "changed", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "changed", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "changed"): void
-    on(sigName: "changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Filter, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Filter, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::display-name", callback: (($obj: Filter, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::display-name", callback: (($obj: Filter, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::display-name", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -815,14 +727,14 @@ export interface FilterOption_ConstructProps extends GObject.Object_ConstructPro
     active?: boolean
 }
 export class FilterOption {
-    /* Properties of Unity.FilterOption */
+    /* Properties of Unity-6.0.Unity.FilterOption */
     active: boolean
-    /* Fields of Unity.FilterOption */
+    /* Fields of Unity-6.0.Unity.FilterOption */
     parentInstance: GObject.Object
     priv: FilterOptionPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -844,21 +756,12 @@ export class FilterOption {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: FilterOption, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: FilterOption, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::active", callback: (($obj: FilterOption, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::active", callback: (($obj: FilterOption, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::active", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -882,23 +785,23 @@ export interface OptionsFilter_ConstructProps extends Filter_ConstructProps {
     sortType?: OptionsFilterSortType
 }
 export class OptionsFilter {
-    /* Properties of Unity.OptionsFilter */
+    /* Properties of Unity-6.0.Unity.OptionsFilter */
     sortType: OptionsFilterSortType
-    /* Properties of Unity.Filter */
+    /* Properties of Unity-6.0.Unity.Filter */
     displayName: string
     visible: boolean
     filtering: boolean
-    /* Fields of Unity.OptionsFilter */
+    /* Fields of Unity-6.0.Unity.OptionsFilter */
     parentInstance: Filter
     priv: OptionsFilterPrivate
     options: FilterOption[]
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Unity.OptionsFilter */
+    /* Methods of Unity-6.0.Unity.OptionsFilter */
     addOption(id: string, displayName: string, iconHint?: Gio.Icon | null): FilterOption
     getOption(id: string): FilterOption | null
     removeOption(id: string): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -920,28 +823,18 @@ export class OptionsFilter {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Unity.Filter */
+    /* Signals of Unity-6.0.Unity.Filter */
     connect(sigName: "changed", callback: (($obj: OptionsFilter) => void)): number
-    connect_after(sigName: "changed", callback: (($obj: OptionsFilter) => void)): number
+    on(sigName: "changed", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "changed", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "changed", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "changed"): void
-    on(sigName: "changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: OptionsFilter, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: OptionsFilter, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::sort-type", callback: (($obj: OptionsFilter, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::sort-type", callback: (($obj: OptionsFilter, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::sort-type", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -979,26 +872,26 @@ export class OptionsFilter {
 export interface RadioOptionFilter_ConstructProps extends OptionsFilter_ConstructProps {
 }
 export class RadioOptionFilter {
-    /* Properties of Unity.OptionsFilter */
+    /* Properties of Unity-6.0.Unity.OptionsFilter */
     sortType: OptionsFilterSortType
-    /* Properties of Unity.Filter */
+    /* Properties of Unity-6.0.Unity.Filter */
     displayName: string
     visible: boolean
     filtering: boolean
-    /* Fields of Unity.RadioOptionFilter */
+    /* Fields of Unity-6.0.Unity.RadioOptionFilter */
     parentInstance: OptionsFilter
     priv: RadioOptionFilterPrivate
-    /* Fields of Unity.OptionsFilter */
+    /* Fields of Unity-6.0.Unity.OptionsFilter */
     options: FilterOption[]
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Unity.RadioOptionFilter */
+    /* Methods of Unity-6.0.Unity.RadioOptionFilter */
     getActiveOption(): FilterOption | null
-    /* Methods of Unity.OptionsFilter */
+    /* Methods of Unity-6.0.Unity.OptionsFilter */
     addOption(id: string, displayName: string, iconHint?: Gio.Icon | null): FilterOption
     getOption(id: string): FilterOption | null
     removeOption(id: string): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -1020,28 +913,18 @@ export class RadioOptionFilter {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Unity.Filter */
+    /* Signals of Unity-6.0.Unity.Filter */
     connect(sigName: "changed", callback: (($obj: RadioOptionFilter) => void)): number
-    connect_after(sigName: "changed", callback: (($obj: RadioOptionFilter) => void)): number
+    on(sigName: "changed", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "changed", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "changed", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "changed"): void
-    on(sigName: "changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: RadioOptionFilter, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: RadioOptionFilter, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::sort-type", callback: (($obj: RadioOptionFilter, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::sort-type", callback: (($obj: RadioOptionFilter, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::sort-type", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -1080,24 +963,24 @@ export class RadioOptionFilter {
 export interface CheckOptionFilter_ConstructProps extends OptionsFilter_ConstructProps {
 }
 export class CheckOptionFilter {
-    /* Properties of Unity.OptionsFilter */
+    /* Properties of Unity-6.0.Unity.OptionsFilter */
     sortType: OptionsFilterSortType
-    /* Properties of Unity.Filter */
+    /* Properties of Unity-6.0.Unity.Filter */
     displayName: string
     visible: boolean
     filtering: boolean
-    /* Fields of Unity.CheckOptionFilter */
+    /* Fields of Unity-6.0.Unity.CheckOptionFilter */
     parentInstance: OptionsFilter
     priv: CheckOptionFilterPrivate
-    /* Fields of Unity.OptionsFilter */
+    /* Fields of Unity-6.0.Unity.OptionsFilter */
     options: FilterOption[]
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Unity.OptionsFilter */
+    /* Methods of Unity-6.0.Unity.OptionsFilter */
     addOption(id: string, displayName: string, iconHint?: Gio.Icon | null): FilterOption
     getOption(id: string): FilterOption | null
     removeOption(id: string): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -1119,28 +1002,18 @@ export class CheckOptionFilter {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Unity.Filter */
+    /* Signals of Unity-6.0.Unity.Filter */
     connect(sigName: "changed", callback: (($obj: CheckOptionFilter) => void)): number
-    connect_after(sigName: "changed", callback: (($obj: CheckOptionFilter) => void)): number
+    on(sigName: "changed", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "changed", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "changed", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "changed"): void
-    on(sigName: "changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: CheckOptionFilter, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: CheckOptionFilter, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::sort-type", callback: (($obj: CheckOptionFilter, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::sort-type", callback: (($obj: CheckOptionFilter, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::sort-type", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -1179,24 +1052,24 @@ export class CheckOptionFilter {
 export interface CheckOptionFilterCompact_ConstructProps extends OptionsFilter_ConstructProps {
 }
 export class CheckOptionFilterCompact {
-    /* Properties of Unity.OptionsFilter */
+    /* Properties of Unity-6.0.Unity.OptionsFilter */
     sortType: OptionsFilterSortType
-    /* Properties of Unity.Filter */
+    /* Properties of Unity-6.0.Unity.Filter */
     displayName: string
     visible: boolean
     filtering: boolean
-    /* Fields of Unity.CheckOptionFilterCompact */
+    /* Fields of Unity-6.0.Unity.CheckOptionFilterCompact */
     parentInstance: OptionsFilter
     priv: CheckOptionFilterCompactPrivate
-    /* Fields of Unity.OptionsFilter */
+    /* Fields of Unity-6.0.Unity.OptionsFilter */
     options: FilterOption[]
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Unity.OptionsFilter */
+    /* Methods of Unity-6.0.Unity.OptionsFilter */
     addOption(id: string, displayName: string, iconHint?: Gio.Icon | null): FilterOption
     getOption(id: string): FilterOption | null
     removeOption(id: string): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -1218,28 +1091,18 @@ export class CheckOptionFilterCompact {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Unity.Filter */
+    /* Signals of Unity-6.0.Unity.Filter */
     connect(sigName: "changed", callback: (($obj: CheckOptionFilterCompact) => void)): number
-    connect_after(sigName: "changed", callback: (($obj: CheckOptionFilterCompact) => void)): number
+    on(sigName: "changed", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "changed", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "changed", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "changed"): void
-    on(sigName: "changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: CheckOptionFilterCompact, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: CheckOptionFilterCompact, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::sort-type", callback: (($obj: CheckOptionFilterCompact, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::sort-type", callback: (($obj: CheckOptionFilterCompact, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::sort-type", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -1279,18 +1142,18 @@ export interface RatingsFilter_ConstructProps extends Filter_ConstructProps {
     rating?: number
 }
 export class RatingsFilter {
-    /* Properties of Unity.RatingsFilter */
+    /* Properties of Unity-6.0.Unity.RatingsFilter */
     rating: number
-    /* Properties of Unity.Filter */
+    /* Properties of Unity-6.0.Unity.Filter */
     displayName: string
     visible: boolean
     filtering: boolean
-    /* Fields of Unity.RatingsFilter */
+    /* Fields of Unity-6.0.Unity.RatingsFilter */
     parentInstance: Filter
     priv: RatingsFilterPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -1312,28 +1175,18 @@ export class RatingsFilter {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Unity.Filter */
+    /* Signals of Unity-6.0.Unity.Filter */
     connect(sigName: "changed", callback: (($obj: RatingsFilter) => void)): number
-    connect_after(sigName: "changed", callback: (($obj: RatingsFilter) => void)): number
+    on(sigName: "changed", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "changed", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "changed", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "changed"): void
-    on(sigName: "changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: RatingsFilter, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: RatingsFilter, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::rating", callback: (($obj: RatingsFilter, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::rating", callback: (($obj: RatingsFilter, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::rating", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -1371,27 +1224,27 @@ export class RatingsFilter {
 export interface MultiRangeFilter_ConstructProps extends OptionsFilter_ConstructProps {
 }
 export class MultiRangeFilter {
-    /* Properties of Unity.OptionsFilter */
+    /* Properties of Unity-6.0.Unity.OptionsFilter */
     sortType: OptionsFilterSortType
-    /* Properties of Unity.Filter */
+    /* Properties of Unity-6.0.Unity.Filter */
     displayName: string
     visible: boolean
     filtering: boolean
-    /* Fields of Unity.MultiRangeFilter */
+    /* Fields of Unity-6.0.Unity.MultiRangeFilter */
     parentInstance: OptionsFilter
     priv: MultiRangeFilterPrivate
-    /* Fields of Unity.OptionsFilter */
+    /* Fields of Unity-6.0.Unity.OptionsFilter */
     options: FilterOption[]
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Unity.MultiRangeFilter */
+    /* Methods of Unity-6.0.Unity.MultiRangeFilter */
     getFirstActive(): FilterOption | null
     getLastActive(): FilterOption | null
-    /* Methods of Unity.OptionsFilter */
+    /* Methods of Unity-6.0.Unity.OptionsFilter */
     addOption(id: string, displayName: string, iconHint?: Gio.Icon | null): FilterOption
     getOption(id: string): FilterOption | null
     removeOption(id: string): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -1413,28 +1266,18 @@ export class MultiRangeFilter {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Unity.Filter */
+    /* Signals of Unity-6.0.Unity.Filter */
     connect(sigName: "changed", callback: (($obj: MultiRangeFilter) => void)): number
-    connect_after(sigName: "changed", callback: (($obj: MultiRangeFilter) => void)): number
+    on(sigName: "changed", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "changed", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "changed", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "changed"): void
-    on(sigName: "changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: MultiRangeFilter, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: MultiRangeFilter, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::sort-type", callback: (($obj: MultiRangeFilter, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::sort-type", callback: (($obj: MultiRangeFilter, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::sort-type", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -1474,14 +1317,14 @@ export interface PreferencesManager_ConstructProps extends GObject.Object_Constr
     remoteContentSearch?: PreferencesManagerRemoteContent
 }
 export class PreferencesManager {
-    /* Properties of Unity.PreferencesManager */
+    /* Properties of Unity-6.0.Unity.PreferencesManager */
     remoteContentSearch: PreferencesManagerRemoteContent
-    /* Fields of Unity.PreferencesManager */
+    /* Fields of Unity-6.0.Unity.PreferencesManager */
     parentInstance: GObject.Object
     priv: PreferencesManagerPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -1503,21 +1346,12 @@ export class PreferencesManager {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: PreferencesManager, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: PreferencesManager, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::remote-content-search", callback: (($obj: PreferencesManager, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::remote-content-search", callback: (($obj: PreferencesManager, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::remote-content-search", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -1543,16 +1377,16 @@ export interface LensSearch_ConstructProps extends GObject.InitiallyUnowned_Cons
     resultsModel?: Dee.SerializableModel
 }
 export class LensSearch {
-    /* Fields of Unity.LensSearch */
+    /* Fields of Unity-6.0.Unity.LensSearch */
     parentInstance: GObject.InitiallyUnowned
     priv: LensSearchPrivate
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Unity.LensSearch */
+    /* Methods of Unity-6.0.Unity.LensSearch */
     emitFinished(): void
     equals(other?: LensSearch | null): boolean
     setReplyHint(key: string, variant: GLib.Variant): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -1574,28 +1408,18 @@ export class LensSearch {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Unity.LensSearch */
+    /* Signals of Unity-6.0.Unity.LensSearch */
     connect(sigName: "finished", callback: (($obj: LensSearch) => void)): number
-    connect_after(sigName: "finished", callback: (($obj: LensSearch) => void)): number
+    on(sigName: "finished", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "finished", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "finished", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "finished"): void
-    on(sigName: "finished", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "finished", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "finished", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: LensSearch, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: LensSearch, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -1627,7 +1451,7 @@ export interface Lens_ConstructProps extends GObject.Object_ConstructProps {
     sourcesDisplayName?: string
 }
 export class Lens {
-    /* Properties of Unity.Lens */
+    /* Properties of Unity-6.0.Unity.Lens */
     active: boolean
     visible: boolean
     searching: boolean
@@ -1640,15 +1464,15 @@ export class Lens {
     mergeStrategy: MergeStrategy
     globalMergeStrategy: MergeStrategy
     sourcesDisplayName: string
-    /* Fields of Unity.Lens */
+    /* Fields of Unity-6.0.Unity.Lens */
     parentInstance: GObject.Object
     priv: LensPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Unity.Lens */
+    /* Methods of Unity-6.0.Unity.Lens */
     export(): void
     addLocalScope(scope: Scope): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -1670,21 +1494,12 @@ export class Lens {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Lens, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Lens, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::active", callback: (($obj: Lens, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::active", callback: (($obj: Lens, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::active", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -1767,21 +1582,21 @@ export interface Preview_ConstructProps extends GObject.Object_ConstructProps {
     image?: Gio.Icon
 }
 export class Preview {
-    /* Properties of Unity.Preview */
+    /* Properties of Unity-6.0.Unity.Preview */
     title: string
     subtitle: string
     descriptionMarkup: string
     imageSourceUri: string
     image: Gio.Icon
-    /* Fields of Unity.Preview */
+    /* Fields of Unity-6.0.Unity.Preview */
     parentInstance: GObject.Object
     priv: PreviewPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Unity.Preview */
+    /* Methods of Unity-6.0.Unity.Preview */
     addAction(action: PreviewAction): void
     addInfo(infoHint: InfoHint): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -1803,33 +1618,21 @@ export class Preview {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of Dee.Serializable */
+    /* Methods of Dee-1.0.Dee.Serializable */
     externalize(): GLib.Variant
     serialize(): GLib.Variant
-    /* Virtual methods of Unity.Preview */
-    vfuncSerialize(): GLib.Variant
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Unity.Preview */
+    /* Signals of Unity-6.0.Unity.Preview */
     connect(sigName: "closed", callback: (($obj: Preview) => void)): number
-    connect_after(sigName: "closed", callback: (($obj: Preview) => void)): number
+    on(sigName: "closed", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "closed", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "closed", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "closed"): void
-    on(sigName: "closed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "closed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "closed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Preview, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Preview, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::title", callback: (($obj: Preview, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::title", callback: (($obj: Preview, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::title", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -1878,15 +1681,15 @@ export interface PreviewAction_ConstructProps extends GObject.Object_ConstructPr
     layoutHint?: LayoutHint
 }
 export class PreviewAction {
-    /* Properties of Unity.PreviewAction */
+    /* Properties of Unity-6.0.Unity.PreviewAction */
     extraText: string
     readonly hints: GLib.HashTable
-    /* Fields of Unity.PreviewAction */
+    /* Fields of Unity-6.0.Unity.PreviewAction */
     parentInstance: GObject.Object
     priv: PreviewActionPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -1908,33 +1711,21 @@ export class PreviewAction {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of Dee.Serializable */
+    /* Methods of Dee-1.0.Dee.Serializable */
     externalize(): GLib.Variant
     serialize(): GLib.Variant
-    /* Virtual methods of Unity.PreviewAction */
-    vfuncSerialize(): GLib.Variant
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Unity.PreviewAction */
+    /* Signals of Unity-6.0.Unity.PreviewAction */
     connect(sigName: "activated", callback: (($obj: PreviewAction, uri: string) => ActivationResponse)): number
-    connect_after(sigName: "activated", callback: (($obj: PreviewAction, uri: string) => ActivationResponse)): number
+    on(sigName: "activated", callback: (uri: string) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "activated", callback: (uri: string) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "activated", callback: (uri: string) => void): NodeJS.EventEmitter
     emit(sigName: "activated", uri: string): void
-    on(sigName: "activated", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "activated", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "activated", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: PreviewAction, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: PreviewAction, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::extra-text", callback: (($obj: PreviewAction, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::extra-text", callback: (($obj: PreviewAction, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::extra-text", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -1969,12 +1760,12 @@ export interface InfoHint_ConstructProps extends GObject.InitiallyUnowned_Constr
     data?: GLib.Variant
 }
 export class InfoHint {
-    /* Fields of Unity.InfoHint */
+    /* Fields of Unity-6.0.Unity.InfoHint */
     parentInstance: GObject.InitiallyUnowned
     priv: InfoHintPrivate
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -1996,21 +1787,12 @@ export class InfoHint {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: InfoHint, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: InfoHint, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -2029,21 +1811,21 @@ export class InfoHint {
 export interface GenericPreview_ConstructProps extends Preview_ConstructProps {
 }
 export class GenericPreview {
-    /* Properties of Unity.Preview */
+    /* Properties of Unity-6.0.Unity.Preview */
     title: string
     subtitle: string
     descriptionMarkup: string
     imageSourceUri: string
     image: Gio.Icon
-    /* Fields of Unity.GenericPreview */
+    /* Fields of Unity-6.0.Unity.GenericPreview */
     parentInstance: Preview
     priv: GenericPreviewPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Unity.Preview */
+    /* Methods of Unity-6.0.Unity.Preview */
     addAction(action: PreviewAction): void
     addInfo(infoHint: InfoHint): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -2065,30 +1847,18 @@ export class GenericPreview {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of Unity.Preview */
-    vfuncSerialize(): GLib.Variant
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Unity.Preview */
+    /* Signals of Unity-6.0.Unity.Preview */
     connect(sigName: "closed", callback: (($obj: GenericPreview) => void)): number
-    connect_after(sigName: "closed", callback: (($obj: GenericPreview) => void)): number
+    on(sigName: "closed", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "closed", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "closed", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "closed"): void
-    on(sigName: "closed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "closed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "closed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: GenericPreview, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: GenericPreview, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::title", callback: (($obj: GenericPreview, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::title", callback: (($obj: GenericPreview, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::title", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -2135,28 +1905,28 @@ export interface ApplicationPreview_ConstructProps extends Preview_ConstructProp
     lastUpdate?: string
 }
 export class ApplicationPreview {
-    /* Properties of Unity.ApplicationPreview */
+    /* Properties of Unity-6.0.Unity.ApplicationPreview */
     appIcon: Gio.Icon
     license: string
     copyright: string
     lastUpdate: string
-    /* Properties of Unity.Preview */
+    /* Properties of Unity-6.0.Unity.Preview */
     title: string
     subtitle: string
     descriptionMarkup: string
     imageSourceUri: string
     image: Gio.Icon
-    /* Fields of Unity.ApplicationPreview */
+    /* Fields of Unity-6.0.Unity.ApplicationPreview */
     parentInstance: Preview
     priv: ApplicationPreviewPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Unity.ApplicationPreview */
+    /* Methods of Unity-6.0.Unity.ApplicationPreview */
     setRating(rating: number, numRatings: number): void
-    /* Methods of Unity.Preview */
+    /* Methods of Unity-6.0.Unity.Preview */
     addAction(action: PreviewAction): void
     addInfo(infoHint: InfoHint): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -2178,30 +1948,18 @@ export class ApplicationPreview {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of Unity.Preview */
-    vfuncSerialize(): GLib.Variant
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Unity.Preview */
+    /* Signals of Unity-6.0.Unity.Preview */
     connect(sigName: "closed", callback: (($obj: ApplicationPreview) => void)): number
-    connect_after(sigName: "closed", callback: (($obj: ApplicationPreview) => void)): number
+    on(sigName: "closed", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "closed", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "closed", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "closed"): void
-    on(sigName: "closed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "closed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "closed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: ApplicationPreview, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: ApplicationPreview, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::app-icon", callback: (($obj: ApplicationPreview, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::app-icon", callback: (($obj: ApplicationPreview, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::app-icon", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -2267,27 +2025,27 @@ export interface MusicPreview_ConstructProps extends Preview_ConstructProps {
     currentTrackState?: MusicPreviewTrackState
 }
 export class MusicPreview {
-    /* Properties of Unity.MusicPreview */
+    /* Properties of Unity-6.0.Unity.MusicPreview */
     currentTrackUri: string
     currentProgress: number
     currentTrackState: MusicPreviewTrackState
-    /* Properties of Unity.Preview */
+    /* Properties of Unity-6.0.Unity.Preview */
     title: string
     subtitle: string
     descriptionMarkup: string
     imageSourceUri: string
     image: Gio.Icon
-    /* Fields of Unity.MusicPreview */
+    /* Fields of Unity-6.0.Unity.MusicPreview */
     parentInstance: Preview
     priv: MusicPreviewPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Unity.MusicPreview */
+    /* Methods of Unity-6.0.Unity.MusicPreview */
     addTrack(track: TrackMetadata): void
-    /* Methods of Unity.Preview */
+    /* Methods of Unity-6.0.Unity.Preview */
     addAction(action: PreviewAction): void
     addInfo(infoHint: InfoHint): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -2309,43 +2067,29 @@ export class MusicPreview {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of Unity.Preview */
-    vfuncSerialize(): GLib.Variant
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Unity.MusicPreview */
+    /* Signals of Unity-6.0.Unity.MusicPreview */
     connect(sigName: "play", callback: (($obj: MusicPreview, uri: string) => void)): number
-    connect_after(sigName: "play", callback: (($obj: MusicPreview, uri: string) => void)): number
+    on(sigName: "play", callback: (uri: string) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "play", callback: (uri: string) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "play", callback: (uri: string) => void): NodeJS.EventEmitter
     emit(sigName: "play", uri: string): void
-    on(sigName: "play", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "play", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "play", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "pause", callback: (($obj: MusicPreview, uri: string) => void)): number
-    connect_after(sigName: "pause", callback: (($obj: MusicPreview, uri: string) => void)): number
+    on(sigName: "pause", callback: (uri: string) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "pause", callback: (uri: string) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "pause", callback: (uri: string) => void): NodeJS.EventEmitter
     emit(sigName: "pause", uri: string): void
-    on(sigName: "pause", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "pause", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "pause", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of Unity.Preview */
+    /* Signals of Unity-6.0.Unity.Preview */
     connect(sigName: "closed", callback: (($obj: MusicPreview) => void)): number
-    connect_after(sigName: "closed", callback: (($obj: MusicPreview) => void)): number
+    on(sigName: "closed", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "closed", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "closed", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "closed"): void
-    on(sigName: "closed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "closed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "closed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: MusicPreview, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: MusicPreview, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::current-track-uri", callback: (($obj: MusicPreview, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::current-track-uri", callback: (($obj: MusicPreview, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::current-track-uri", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -2404,25 +2148,25 @@ export interface MoviePreview_ConstructProps extends Preview_ConstructProps {
     year?: string
 }
 export class MoviePreview {
-    /* Properties of Unity.MoviePreview */
+    /* Properties of Unity-6.0.Unity.MoviePreview */
     year: string
-    /* Properties of Unity.Preview */
+    /* Properties of Unity-6.0.Unity.Preview */
     title: string
     subtitle: string
     descriptionMarkup: string
     imageSourceUri: string
     image: Gio.Icon
-    /* Fields of Unity.MoviePreview */
+    /* Fields of Unity-6.0.Unity.MoviePreview */
     parentInstance: Preview
     priv: MoviePreviewPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Unity.MoviePreview */
+    /* Methods of Unity-6.0.Unity.MoviePreview */
     setRating(rating: number, numRatings: number): void
-    /* Methods of Unity.Preview */
+    /* Methods of Unity-6.0.Unity.Preview */
     addAction(action: PreviewAction): void
     addInfo(infoHint: InfoHint): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -2444,30 +2188,18 @@ export class MoviePreview {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of Unity.Preview */
-    vfuncSerialize(): GLib.Variant
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Unity.Preview */
+    /* Signals of Unity-6.0.Unity.Preview */
     connect(sigName: "closed", callback: (($obj: MoviePreview) => void)): number
-    connect_after(sigName: "closed", callback: (($obj: MoviePreview) => void)): number
+    on(sigName: "closed", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "closed", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "closed", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "closed"): void
-    on(sigName: "closed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "closed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "closed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: MoviePreview, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: MoviePreview, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::year", callback: (($obj: MoviePreview, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::year", callback: (($obj: MoviePreview, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::year", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -2518,27 +2250,27 @@ export interface SocialPreview_ConstructProps extends Preview_ConstructProps {
     sender?: string
 }
 export class SocialPreview {
-    /* Properties of Unity.SocialPreview */
+    /* Properties of Unity-6.0.Unity.SocialPreview */
     avatar: Gio.Icon
     content: string
     sender: string
-    /* Properties of Unity.Preview */
+    /* Properties of Unity-6.0.Unity.Preview */
     title: string
     subtitle: string
     descriptionMarkup: string
     imageSourceUri: string
     image: Gio.Icon
-    /* Fields of Unity.SocialPreview */
+    /* Fields of Unity-6.0.Unity.SocialPreview */
     parentInstance: Preview
     priv: SocialPreviewPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Unity.SocialPreview */
+    /* Methods of Unity-6.0.Unity.SocialPreview */
     addComment(comment: SocialPreviewComment): void
-    /* Methods of Unity.Preview */
+    /* Methods of Unity-6.0.Unity.Preview */
     addAction(action: PreviewAction): void
     addInfo(infoHint: InfoHint): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -2560,30 +2292,18 @@ export class SocialPreview {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of Unity.Preview */
-    vfuncSerialize(): GLib.Variant
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Unity.Preview */
+    /* Signals of Unity-6.0.Unity.Preview */
     connect(sigName: "closed", callback: (($obj: SocialPreview) => void)): number
-    connect_after(sigName: "closed", callback: (($obj: SocialPreview) => void)): number
+    on(sigName: "closed", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "closed", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "closed", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "closed"): void
-    on(sigName: "closed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "closed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "closed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: SocialPreview, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: SocialPreview, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::avatar", callback: (($obj: SocialPreview, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::avatar", callback: (($obj: SocialPreview, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::avatar", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -2645,12 +2365,12 @@ export interface SocialPreviewComment_ConstructProps extends GObject.InitiallyUn
     time?: string
 }
 export class SocialPreviewComment {
-    /* Fields of Unity.SocialPreviewComment */
+    /* Fields of Unity-6.0.Unity.SocialPreviewComment */
     parentInstance: GObject.InitiallyUnowned
     priv: CommentPrivate
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -2672,21 +2392,12 @@ export class SocialPreviewComment {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: SocialPreviewComment, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: SocialPreviewComment, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -2705,25 +2416,25 @@ export interface AsyncPreview_ConstructProps extends Preview_ConstructProps {
     cancellable?: Gio.Cancellable
 }
 export class AsyncPreview {
-    /* Properties of Unity.AsyncPreview */
+    /* Properties of Unity-6.0.Unity.AsyncPreview */
     cancellable: Gio.Cancellable
-    /* Properties of Unity.Preview */
+    /* Properties of Unity-6.0.Unity.Preview */
     title: string
     subtitle: string
     descriptionMarkup: string
     imageSourceUri: string
     image: Gio.Icon
-    /* Fields of Unity.AsyncPreview */
+    /* Fields of Unity-6.0.Unity.AsyncPreview */
     parentInstance: Preview
     priv: AsyncPreviewPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Unity.AsyncPreview */
+    /* Methods of Unity-6.0.Unity.AsyncPreview */
     emitPreviewReady(preview?: Preview | null): void
-    /* Methods of Unity.Preview */
+    /* Methods of Unity-6.0.Unity.Preview */
     addAction(action: PreviewAction): void
     addInfo(infoHint: InfoHint): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -2745,37 +2456,24 @@ export class AsyncPreview {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of Unity.Preview */
-    vfuncSerialize(): GLib.Variant
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Unity.AsyncPreview */
+    /* Signals of Unity-6.0.Unity.AsyncPreview */
     connect(sigName: "preview_ready", callback: (($obj: AsyncPreview, preview: Preview) => void)): number
-    connect_after(sigName: "preview_ready", callback: (($obj: AsyncPreview, preview: Preview) => void)): number
+    on(sigName: "preview_ready", callback: (preview: Preview) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "preview_ready", callback: (preview: Preview) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "preview_ready", callback: (preview: Preview) => void): NodeJS.EventEmitter
     emit(sigName: "preview_ready", preview: Preview): void
-    on(sigName: "preview_ready", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "preview_ready", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "preview_ready", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of Unity.Preview */
+    /* Signals of Unity-6.0.Unity.Preview */
     connect(sigName: "closed", callback: (($obj: AsyncPreview) => void)): number
-    connect_after(sigName: "closed", callback: (($obj: AsyncPreview) => void)): number
+    on(sigName: "closed", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "closed", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "closed", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "closed"): void
-    on(sigName: "closed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "closed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "closed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: AsyncPreview, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: AsyncPreview, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::cancellable", callback: (($obj: AsyncPreview, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::cancellable", callback: (($obj: AsyncPreview, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::cancellable", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -2830,7 +2528,7 @@ export interface Scope_ConstructProps extends GObject.Object_ConstructProps {
     sources?: OptionsFilter
 }
 export class Scope {
-    /* Properties of Unity.Scope */
+    /* Properties of Unity-6.0.Unity.Scope */
     active: boolean
     exported: boolean
     searchInGlobal: boolean
@@ -2839,17 +2537,17 @@ export class Scope {
     readonly filters: Filter[]
     readonly resultsModel: Dee.SerializableModel
     readonly globalResultsModel: Dee.SerializableModel
-    /* Fields of Unity.Scope */
+    /* Fields of Unity-6.0.Unity.Scope */
     parentInstance: GObject.Object
     priv: ScopePrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Unity.Scope */
+    /* Methods of Unity-6.0.Unity.Scope */
     export(): void
     getFilter(id: string): Filter | null
     queueSearchChanged(searchType: SearchType): void
     invalidateSearch(searchType: SearchType): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -2871,58 +2569,43 @@ export class Scope {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Unity.Scope */
+    /* Signals of Unity-6.0.Unity.Scope */
     connect(sigName: "activate_uri", callback: (($obj: Scope, uri: string) => ActivationResponse | null)): number
-    connect_after(sigName: "activate_uri", callback: (($obj: Scope, uri: string) => ActivationResponse | null)): number
+    on(sigName: "activate_uri", callback: (uri: string) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "activate_uri", callback: (uri: string) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "activate_uri", callback: (uri: string) => void): NodeJS.EventEmitter
     emit(sigName: "activate_uri", uri: string): void
-    on(sigName: "activate_uri", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "activate_uri", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "activate_uri", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "preview_uri", callback: (($obj: Scope, uri: string) => Preview | null)): number
-    connect_after(sigName: "preview_uri", callback: (($obj: Scope, uri: string) => Preview | null)): number
+    on(sigName: "preview_uri", callback: (uri: string) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "preview_uri", callback: (uri: string) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "preview_uri", callback: (uri: string) => void): NodeJS.EventEmitter
     emit(sigName: "preview_uri", uri: string): void
-    on(sigName: "preview_uri", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "preview_uri", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "preview_uri", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "filters_changed", callback: (($obj: Scope) => void)): number
-    connect_after(sigName: "filters_changed", callback: (($obj: Scope) => void)): number
+    on(sigName: "filters_changed", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "filters_changed", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "filters_changed", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "filters_changed"): void
-    on(sigName: "filters_changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "filters_changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "filters_changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "active_sources_changed", callback: (($obj: Scope, activeIds: string[]) => void)): number
-    connect_after(sigName: "active_sources_changed", callback: (($obj: Scope, activeIds: string[]) => void)): number
+    on(sigName: "active_sources_changed", callback: (activeIds: string[]) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "active_sources_changed", callback: (activeIds: string[]) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "active_sources_changed", callback: (activeIds: string[]) => void): NodeJS.EventEmitter
     emit(sigName: "active_sources_changed", activeIds: string[]): void
-    on(sigName: "active_sources_changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "active_sources_changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "active_sources_changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "search_changed", callback: (($obj: Scope, search: LensSearch, searchType: SearchType, cancellable: Gio.Cancellable) => void)): number
-    connect_after(sigName: "search_changed", callback: (($obj: Scope, search: LensSearch, searchType: SearchType, cancellable: Gio.Cancellable) => void)): number
+    on(sigName: "search_changed", callback: (search: LensSearch, searchType: SearchType, cancellable: Gio.Cancellable) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "search_changed", callback: (search: LensSearch, searchType: SearchType, cancellable: Gio.Cancellable) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "search_changed", callback: (search: LensSearch, searchType: SearchType, cancellable: Gio.Cancellable) => void): NodeJS.EventEmitter
     emit(sigName: "search_changed", search: LensSearch, searchType: SearchType, cancellable: Gio.Cancellable): void
-    on(sigName: "search_changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "search_changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "search_changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "generate_search_key", callback: (($obj: Scope, search: LensSearch) => string)): number
-    connect_after(sigName: "generate_search_key", callback: (($obj: Scope, search: LensSearch) => string)): number
+    on(sigName: "generate_search_key", callback: (search: LensSearch) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "generate_search_key", callback: (search: LensSearch) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "generate_search_key", callback: (search: LensSearch) => void): NodeJS.EventEmitter
     emit(sigName: "generate_search_key", search: LensSearch): void
-    on(sigName: "generate_search_key", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "generate_search_key", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "generate_search_key", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Scope, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Scope, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::active", callback: (($obj: Scope, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::active", callback: (($obj: Scope, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::active", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -2988,7 +2671,7 @@ export interface TrackMetadata_ConstructProps extends GObject.Object_ConstructPr
     artIcon?: Gio.Icon
 }
 export class TrackMetadata {
-    /* Properties of Unity.TrackMetadata */
+    /* Properties of Unity-6.0.Unity.TrackMetadata */
     uri: string
     trackNo: number
     artist: string
@@ -2997,12 +2680,12 @@ export class TrackMetadata {
     length: number
     artLocation: Gio.File
     artIcon: Gio.Icon
-    /* Fields of Unity.TrackMetadata */
+    /* Fields of Unity-6.0.Unity.TrackMetadata */
     parentInstance: GObject.Object
     priv: TrackMetadataPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -3024,21 +2707,12 @@ export class TrackMetadata {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: TrackMetadata, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: TrackMetadata, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::uri", callback: (($obj: TrackMetadata, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::uri", callback: (($obj: TrackMetadata, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::uri", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -3103,18 +2777,18 @@ export interface Playlist_ConstructProps extends GObject.Object_ConstructProps {
     lastPlayDate?: GLib.DateTime
 }
 export class Playlist {
-    /* Properties of Unity.Playlist */
+    /* Properties of Unity-6.0.Unity.Playlist */
     name: string
     icon: Gio.Icon
     creationDate: GLib.DateTime
     modificationDate: GLib.DateTime
     lastPlayDate: GLib.DateTime
-    /* Fields of Unity.Playlist */
+    /* Fields of Unity-6.0.Unity.Playlist */
     parentInstance: GObject.Object
     priv: PlaylistPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -3136,21 +2810,12 @@ export class Playlist {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Playlist, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Playlist, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::name", callback: (($obj: Playlist, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::name", callback: (($obj: Playlist, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::name", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -3206,7 +2871,7 @@ export interface MusicPlayer_ConstructProps extends GObject.Object_ConstructProp
     playerMenu?: Dbusmenu.Menuitem
 }
 export class MusicPlayer {
-    /* Properties of Unity.MusicPlayer */
+    /* Properties of Unity-6.0.Unity.MusicPlayer */
     isBlacklisted: boolean
     title: string
     canGoNext: boolean
@@ -3218,19 +2883,19 @@ export class MusicPlayer {
     currentPlaylist: Playlist
     trackMenu: Dbusmenu.Menuitem
     playerMenu: Dbusmenu.Menuitem
-    /* Fields of Unity.MusicPlayer */
+    /* Fields of Unity-6.0.Unity.MusicPlayer */
     parentInstance: GObject.Object
     priv: MusicPlayerPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Unity.MusicPlayer */
+    /* Methods of Unity-6.0.Unity.MusicPlayer */
     export(): void
     unexport(): void
     addPlaylist(p: Playlist): boolean
     removePlaylist(p: Playlist): boolean
     getPlaylists(): Playlist[]
     editPlaylistName(id: string, name: string): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -3252,52 +2917,38 @@ export class MusicPlayer {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Unity.MusicPlayer */
+    /* Signals of Unity-6.0.Unity.MusicPlayer */
     connect(sigName: "raise", callback: (($obj: MusicPlayer) => void)): number
-    connect_after(sigName: "raise", callback: (($obj: MusicPlayer) => void)): number
+    on(sigName: "raise", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "raise", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "raise", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "raise"): void
-    on(sigName: "raise", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "raise", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "raise", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "play_pause", callback: (($obj: MusicPlayer) => void)): number
-    connect_after(sigName: "play_pause", callback: (($obj: MusicPlayer) => void)): number
+    on(sigName: "play_pause", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "play_pause", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "play_pause", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "play_pause"): void
-    on(sigName: "play_pause", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "play_pause", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "play_pause", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "previous", callback: (($obj: MusicPlayer) => void)): number
-    connect_after(sigName: "previous", callback: (($obj: MusicPlayer) => void)): number
+    on(sigName: "previous", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "previous", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "previous", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "previous"): void
-    on(sigName: "previous", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "previous", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "previous", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "next", callback: (($obj: MusicPlayer) => void)): number
-    connect_after(sigName: "next", callback: (($obj: MusicPlayer) => void)): number
+    on(sigName: "next", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "next", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "next", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "next"): void
-    on(sigName: "next", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "next", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "next", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "activate_playlist", callback: (($obj: MusicPlayer, playlistId: any) => void)): number
-    connect_after(sigName: "activate_playlist", callback: (($obj: MusicPlayer, playlistId: any) => void)): number
+    on(sigName: "activate_playlist", callback: (playlistId: any) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "activate_playlist", callback: (playlistId: any) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "activate_playlist", callback: (playlistId: any) => void): NodeJS.EventEmitter
     emit(sigName: "activate_playlist", playlistId: any): void
-    on(sigName: "activate_playlist", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "activate_playlist", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "activate_playlist", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: MusicPlayer, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: MusicPlayer, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::is-blacklisted", callback: (($obj: MusicPlayer, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::is-blacklisted", callback: (($obj: MusicPlayer, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::is-blacklisted", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -3368,7 +3019,7 @@ export class MusicPlayer {
     static $gtype: GObject.Type
 }
 export abstract class AppInfoManagerClass {
-    /* Fields of Unity.AppInfoManagerClass */
+    /* Fields of Unity-6.0.Unity.AppInfoManagerClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
@@ -3376,7 +3027,7 @@ export class AppInfoManagerPrivate {
     static name: string
 }
 export abstract class AnnotatedIconClass {
-    /* Fields of Unity.AnnotatedIconClass */
+    /* Fields of Unity-6.0.Unity.AnnotatedIconClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
@@ -3384,7 +3035,7 @@ export class AnnotatedIconPrivate {
     static name: string
 }
 export abstract class InspectorClass {
-    /* Fields of Unity.InspectorClass */
+    /* Fields of Unity-6.0.Unity.InspectorClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
@@ -3392,7 +3043,7 @@ export class InspectorPrivate {
     static name: string
 }
 export abstract class LauncherEntryClass {
-    /* Fields of Unity.LauncherEntryClass */
+    /* Fields of Unity-6.0.Unity.LauncherEntryClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
@@ -3400,7 +3051,7 @@ export class LauncherEntryPrivate {
     static name: string
 }
 export abstract class LauncherFavoritesClass {
-    /* Fields of Unity.LauncherFavoritesClass */
+    /* Fields of Unity-6.0.Unity.LauncherFavoritesClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
@@ -3408,7 +3059,7 @@ export class LauncherFavoritesPrivate {
     static name: string
 }
 export abstract class ActivationResponseClass {
-    /* Fields of Unity.ActivationResponseClass */
+    /* Fields of Unity-6.0.Unity.ActivationResponseClass */
     parentClass: GObject.InitiallyUnownedClass
     static name: string
 }
@@ -3416,7 +3067,7 @@ export class ActivationResponsePrivate {
     static name: string
 }
 export abstract class CategoryClass {
-    /* Fields of Unity.CategoryClass */
+    /* Fields of Unity-6.0.Unity.CategoryClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
@@ -3424,7 +3075,7 @@ export class CategoryPrivate {
     static name: string
 }
 export abstract class FilterClass {
-    /* Fields of Unity.FilterClass */
+    /* Fields of Unity-6.0.Unity.FilterClass */
     parentClass: GObject.ObjectClass
     getHints: (self: Filter) => GLib.HashTable
     update: (self: Filter, properties: GLib.Variant) => void
@@ -3434,7 +3085,7 @@ export class FilterPrivate {
     static name: string
 }
 export abstract class FilterOptionClass {
-    /* Fields of Unity.FilterOptionClass */
+    /* Fields of Unity-6.0.Unity.FilterOptionClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
@@ -3442,7 +3093,7 @@ export class FilterOptionPrivate {
     static name: string
 }
 export abstract class OptionsFilterClass {
-    /* Fields of Unity.OptionsFilterClass */
+    /* Fields of Unity-6.0.Unity.OptionsFilterClass */
     parentClass: FilterClass
     static name: string
 }
@@ -3450,7 +3101,7 @@ export class OptionsFilterPrivate {
     static name: string
 }
 export abstract class RadioOptionFilterClass {
-    /* Fields of Unity.RadioOptionFilterClass */
+    /* Fields of Unity-6.0.Unity.RadioOptionFilterClass */
     parentClass: OptionsFilterClass
     static name: string
 }
@@ -3458,7 +3109,7 @@ export class RadioOptionFilterPrivate {
     static name: string
 }
 export abstract class CheckOptionFilterClass {
-    /* Fields of Unity.CheckOptionFilterClass */
+    /* Fields of Unity-6.0.Unity.CheckOptionFilterClass */
     parentClass: OptionsFilterClass
     static name: string
 }
@@ -3466,7 +3117,7 @@ export class CheckOptionFilterPrivate {
     static name: string
 }
 export abstract class CheckOptionFilterCompactClass {
-    /* Fields of Unity.CheckOptionFilterCompactClass */
+    /* Fields of Unity-6.0.Unity.CheckOptionFilterCompactClass */
     parentClass: OptionsFilterClass
     static name: string
 }
@@ -3474,7 +3125,7 @@ export class CheckOptionFilterCompactPrivate {
     static name: string
 }
 export abstract class RatingsFilterClass {
-    /* Fields of Unity.RatingsFilterClass */
+    /* Fields of Unity-6.0.Unity.RatingsFilterClass */
     parentClass: FilterClass
     static name: string
 }
@@ -3482,7 +3133,7 @@ export class RatingsFilterPrivate {
     static name: string
 }
 export abstract class MultiRangeFilterClass {
-    /* Fields of Unity.MultiRangeFilterClass */
+    /* Fields of Unity-6.0.Unity.MultiRangeFilterClass */
     parentClass: OptionsFilterClass
     static name: string
 }
@@ -3490,7 +3141,7 @@ export class MultiRangeFilterPrivate {
     static name: string
 }
 export abstract class PreferencesManagerClass {
-    /* Fields of Unity.PreferencesManagerClass */
+    /* Fields of Unity-6.0.Unity.PreferencesManagerClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
@@ -3498,7 +3149,7 @@ export class PreferencesManagerPrivate {
     static name: string
 }
 export abstract class LensSearchClass {
-    /* Fields of Unity.LensSearchClass */
+    /* Fields of Unity-6.0.Unity.LensSearchClass */
     parentClass: GObject.InitiallyUnownedClass
     static name: string
 }
@@ -3506,7 +3157,7 @@ export class LensSearchPrivate {
     static name: string
 }
 export abstract class LensClass {
-    /* Fields of Unity.LensClass */
+    /* Fields of Unity-6.0.Unity.LensClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
@@ -3514,7 +3165,7 @@ export class LensPrivate {
     static name: string
 }
 export abstract class PreviewClass {
-    /* Fields of Unity.PreviewClass */
+    /* Fields of Unity-6.0.Unity.PreviewClass */
     parentClass: GObject.ObjectClass
     createRaw: (self: Preview) => GObject.Object
     updateProperty: (self: Preview, values: GLib.HashTable, callback?: Gio.AsyncReadyCallback | null) => void
@@ -3529,7 +3180,7 @@ export class PreviewPrivate {
     static name: string
 }
 export abstract class PreviewActionClass {
-    /* Fields of Unity.PreviewActionClass */
+    /* Fields of Unity-6.0.Unity.PreviewActionClass */
     parentClass: GObject.ObjectClass
     dummy1: (self: PreviewAction) => void
     dummy2: (self: PreviewAction) => void
@@ -3541,7 +3192,7 @@ export class PreviewActionPrivate {
     static name: string
 }
 export abstract class InfoHintClass {
-    /* Fields of Unity.InfoHintClass */
+    /* Fields of Unity-6.0.Unity.InfoHintClass */
     parentClass: GObject.InitiallyUnownedClass
     static name: string
 }
@@ -3549,7 +3200,7 @@ export class InfoHintPrivate {
     static name: string
 }
 export abstract class GenericPreviewClass {
-    /* Fields of Unity.GenericPreviewClass */
+    /* Fields of Unity-6.0.Unity.GenericPreviewClass */
     parentClass: PreviewClass
     static name: string
 }
@@ -3557,7 +3208,7 @@ export class GenericPreviewPrivate {
     static name: string
 }
 export abstract class ApplicationPreviewClass {
-    /* Fields of Unity.ApplicationPreviewClass */
+    /* Fields of Unity-6.0.Unity.ApplicationPreviewClass */
     parentClass: PreviewClass
     static name: string
 }
@@ -3565,7 +3216,7 @@ export class ApplicationPreviewPrivate {
     static name: string
 }
 export abstract class MusicPreviewClass {
-    /* Fields of Unity.MusicPreviewClass */
+    /* Fields of Unity-6.0.Unity.MusicPreviewClass */
     parentClass: PreviewClass
     static name: string
 }
@@ -3573,7 +3224,7 @@ export class MusicPreviewPrivate {
     static name: string
 }
 export abstract class MoviePreviewClass {
-    /* Fields of Unity.MoviePreviewClass */
+    /* Fields of Unity-6.0.Unity.MoviePreviewClass */
     parentClass: PreviewClass
     static name: string
 }
@@ -3581,7 +3232,7 @@ export class MoviePreviewPrivate {
     static name: string
 }
 export abstract class SocialPreviewClass {
-    /* Fields of Unity.SocialPreviewClass */
+    /* Fields of Unity-6.0.Unity.SocialPreviewClass */
     parentClass: PreviewClass
     static name: string
 }
@@ -3589,7 +3240,7 @@ export class SocialPreviewPrivate {
     static name: string
 }
 export abstract class CommentClass {
-    /* Fields of Unity.CommentClass */
+    /* Fields of Unity-6.0.Unity.CommentClass */
     parentClass: GObject.InitiallyUnownedClass
     static name: string
 }
@@ -3597,7 +3248,7 @@ export class CommentPrivate {
     static name: string
 }
 export abstract class AsyncPreviewClass {
-    /* Fields of Unity.AsyncPreviewClass */
+    /* Fields of Unity-6.0.Unity.AsyncPreviewClass */
     parentClass: PreviewClass
     static name: string
 }
@@ -3605,7 +3256,7 @@ export class AsyncPreviewPrivate {
     static name: string
 }
 export abstract class ScopeClass {
-    /* Fields of Unity.ScopeClass */
+    /* Fields of Unity-6.0.Unity.ScopeClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
@@ -3613,7 +3264,7 @@ export class ScopePrivate {
     static name: string
 }
 export abstract class TrackMetadataClass {
-    /* Fields of Unity.TrackMetadataClass */
+    /* Fields of Unity-6.0.Unity.TrackMetadataClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
@@ -3621,7 +3272,7 @@ export class TrackMetadataPrivate {
     static name: string
 }
 export abstract class PlaylistClass {
-    /* Fields of Unity.PlaylistClass */
+    /* Fields of Unity-6.0.Unity.PlaylistClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
@@ -3629,7 +3280,7 @@ export class PlaylistPrivate {
     static name: string
 }
 export abstract class MusicPlayerClass {
-    /* Fields of Unity.MusicPlayerClass */
+    /* Fields of Unity-6.0.Unity.MusicPlayerClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
@@ -3637,20 +3288,20 @@ export class MusicPlayerPrivate {
     static name: string
 }
 export abstract class MergeStrategyIface {
-    /* Fields of Unity.MergeStrategyIface */
+    /* Fields of Unity-6.0.Unity.MergeStrategyIface */
     parentIface: GObject.TypeInterface
     mergeResult: (self: MergeStrategy, target: Dee.Model, row: GLib.Variant[]) => Dee.ModelIter | null
     static name: string
 }
 export class PlaylistDetails {
-    /* Fields of Unity.PlaylistDetails */
+    /* Fields of Unity-6.0.Unity.PlaylistDetails */
     id: string
     name: string
     iconName: string
     static name: string
 }
 export class ActivePlaylistContainer {
-    /* Fields of Unity.ActivePlaylistContainer */
+    /* Fields of Unity-6.0.Unity.ActivePlaylistContainer */
     valid: boolean
     details: PlaylistDetails
     static name: string

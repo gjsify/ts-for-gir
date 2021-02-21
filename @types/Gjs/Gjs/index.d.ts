@@ -2,6 +2,7 @@ import type * as Gjs from './Gjs'
 // TODO add support for multiple versions
 //// import type * as Accounts10 from "./Accounts-1.0";
 //// import type * as AccountsService10 from "./AccountsService-1.0";
+//// import type * as Adw1 from "./Adw-1";
 //// import type * as Amtk4 from "./Amtk-4";
 //// import type * as Amtk5 from "./Amtk-5";
 //// import type * as Anjuta30 from "./Anjuta-3.0";
@@ -367,6 +368,7 @@ declare global {
     //     gi: {
     //    //       : typeof Accounts10
     //    //       : typeof AccountsService10
+    //    //       : typeof Adw1
     //    //       : typeof Amtk4
     //    //       : typeof Amtk5
     //    //       : typeof Anjuta30
@@ -710,6 +712,7 @@ declare global {
     //    //       : typeof Xrandr13
     //    //     }
     //     versions: {
+    //    //         : string
     //    //         : string
     //    //         : string
     //    //         : string

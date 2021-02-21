@@ -26,17 +26,17 @@ export interface Client_ConstructProps extends GObject.Object_ConstructProps {
     socketTtl?: number
 }
 export class Client {
-    /* Properties of GSSDP.Client */
+    /* Properties of GSSDP-1.0.GSSDP.Client */
     active: boolean
     hostIp: string
     network: string
     serverId: string
-    /* Fields of GSSDP.Client */
+    /* Fields of GSSDP-1.0.GSSDP.Client */
     parent: GObject.Object
     priv: ClientPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GSSDP.Client */
+    /* Methods of GSSDP-1.0.GSSDP.Client */
     addCacheEntry(ipAddress: string, userAgent: string): void
     appendHeader(name: string, value: string): void
     clearHeaders(): void
@@ -50,7 +50,7 @@ export class Client {
     removeHeader(name: string): void
     setNetwork(network: string): void
     setServerId(serverId: string): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -72,32 +72,20 @@ export class Client {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of Gio.Initable */
+    /* Methods of Gio-2.0.Gio.Initable */
     init(cancellable?: Gio.Cancellable | null): boolean
-    /* Virtual methods of GSSDP.Client */
-    vfuncInit(cancellable?: Gio.Cancellable | null): boolean
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GSSDP.Client */
+    /* Signals of GSSDP-1.0.GSSDP.Client */
     connect(sigName: "message-received", callback: (($obj: Client, fromIp: string, fromPort: number, type: number, headers: Soup.MessageHeaders) => void)): number
-    connect_after(sigName: "message-received", callback: (($obj: Client, fromIp: string, fromPort: number, type: number, headers: Soup.MessageHeaders) => void)): number
+    on(sigName: "message-received", callback: (fromIp: string, fromPort: number, type: number, headers: Soup.MessageHeaders) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "message-received", callback: (fromIp: string, fromPort: number, type: number, headers: Soup.MessageHeaders) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "message-received", callback: (fromIp: string, fromPort: number, type: number, headers: Soup.MessageHeaders) => void): NodeJS.EventEmitter
     emit(sigName: "message-received", fromIp: string, fromPort: number, type: number, headers: Soup.MessageHeaders): void
-    on(sigName: "message-received", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "message-received", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "message-received", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Client, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Client, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::active", callback: (($obj: Client, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::active", callback: (($obj: Client, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::active", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -141,16 +129,16 @@ export interface ResourceBrowser_ConstructProps extends GObject.Object_Construct
     target?: string
 }
 export class ResourceBrowser {
-    /* Properties of GSSDP.ResourceBrowser */
+    /* Properties of GSSDP-1.0.GSSDP.ResourceBrowser */
     active: boolean
     mx: number
     target: string
-    /* Fields of GSSDP.ResourceBrowser */
+    /* Fields of GSSDP-1.0.GSSDP.ResourceBrowser */
     parent: GObject.Object
     priv: ResourceBrowserPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GSSDP.ResourceBrowser */
+    /* Methods of GSSDP-1.0.GSSDP.ResourceBrowser */
     getActive(): boolean
     getClient(): Client
     getMx(): number
@@ -159,7 +147,7 @@ export class ResourceBrowser {
     setActive(active: boolean): void
     setMx(mx: number): void
     setTarget(target: string): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -181,36 +169,23 @@ export class ResourceBrowser {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GSSDP.ResourceBrowser */
-    vfuncResourceUnavailable(usn: string): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GSSDP.ResourceBrowser */
+    /* Signals of GSSDP-1.0.GSSDP.ResourceBrowser */
     connect(sigName: "resource-available", callback: (($obj: ResourceBrowser, usn: string, locations: string[]) => void)): number
-    connect_after(sigName: "resource-available", callback: (($obj: ResourceBrowser, usn: string, locations: string[]) => void)): number
+    on(sigName: "resource-available", callback: (usn: string, locations: string[]) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "resource-available", callback: (usn: string, locations: string[]) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "resource-available", callback: (usn: string, locations: string[]) => void): NodeJS.EventEmitter
     emit(sigName: "resource-available", usn: string, locations: string[]): void
-    on(sigName: "resource-available", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "resource-available", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "resource-available", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "resource-unavailable", callback: (($obj: ResourceBrowser, usn: string) => void)): number
-    connect_after(sigName: "resource-unavailable", callback: (($obj: ResourceBrowser, usn: string) => void)): number
+    on(sigName: "resource-unavailable", callback: (usn: string) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "resource-unavailable", callback: (usn: string) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "resource-unavailable", callback: (usn: string) => void): NodeJS.EventEmitter
     emit(sigName: "resource-unavailable", usn: string): void
-    on(sigName: "resource-unavailable", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "resource-unavailable", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "resource-unavailable", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: ResourceBrowser, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: ResourceBrowser, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::active", callback: (($obj: ResourceBrowser, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::active", callback: (($obj: ResourceBrowser, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::active", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -247,16 +222,16 @@ export interface ResourceGroup_ConstructProps extends GObject.Object_ConstructPr
     messageDelay?: number
 }
 export class ResourceGroup {
-    /* Properties of GSSDP.ResourceGroup */
+    /* Properties of GSSDP-1.0.GSSDP.ResourceGroup */
     available: boolean
     maxAge: number
     messageDelay: number
-    /* Fields of GSSDP.ResourceGroup */
+    /* Fields of GSSDP-1.0.GSSDP.ResourceGroup */
     parent: GObject.Object
     priv: ResourceGroupPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GSSDP.ResourceGroup */
+    /* Methods of GSSDP-1.0.GSSDP.ResourceGroup */
     addResource(target: string, usn: string, locations: string[]): number
     addResourceSimple(target: string, usn: string, location: string): number
     getAvailable(): boolean
@@ -267,7 +242,7 @@ export class ResourceGroup {
     setAvailable(available: boolean): void
     setMaxAge(maxAge: number): void
     setMessageDelay(messageDelay: number): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -289,21 +264,12 @@ export class ResourceGroup {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: ResourceGroup, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: ResourceGroup, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::available", callback: (($obj: ResourceGroup, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::available", callback: (($obj: ResourceGroup, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::available", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -334,7 +300,7 @@ export class ResourceGroup {
     static $gtype: GObject.Type
 }
 export abstract class ClientClass {
-    /* Fields of GSSDP.ClientClass */
+    /* Fields of GSSDP-1.0.GSSDP.ClientClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
@@ -342,7 +308,7 @@ export class ClientPrivate {
     static name: string
 }
 export abstract class ResourceBrowserClass {
-    /* Fields of GSSDP.ResourceBrowserClass */
+    /* Fields of GSSDP-1.0.GSSDP.ResourceBrowserClass */
     parentClass: GObject.ObjectClass
     resourceUnavailable: (resourceBrowser: ResourceBrowser, usn: string) => void
     static name: string
@@ -351,7 +317,7 @@ export class ResourceBrowserPrivate {
     static name: string
 }
 export abstract class ResourceGroupClass {
-    /* Fields of GSSDP.ResourceGroupClass */
+    /* Fields of GSSDP-1.0.GSSDP.ResourceGroupClass */
     parentClass: GObject.ObjectClass
     static name: string
 }

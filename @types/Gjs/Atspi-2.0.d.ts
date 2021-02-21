@@ -420,7 +420,7 @@ export interface KeyCallback {
     (device: Device, pressed: boolean, keycode: number, keysym: number, modifiers: number, keystring: string): void
 }
 export class Action {
-    /* Methods of Atspi.Action */
+    /* Methods of Atspi-2.0.Atspi.Action */
     do_action(i: number): boolean
     get_action_description(i: number): string
     get_key_binding(i: number): string
@@ -430,7 +430,7 @@ export class Action {
     static name: string
 }
 export class Collection {
-    /* Methods of Atspi.Collection */
+    /* Methods of Atspi-2.0.Atspi.Collection */
     get_active_descendant(): Accessible
     get_matches(rule: MatchRule, sortby: CollectionSortOrder, count: number, traverse: boolean): Accessible[]
     get_matches_from(current_object: Accessible, rule: MatchRule, sortby: CollectionSortOrder, tree: CollectionTreeTraversalType, count: number, traverse: boolean): Accessible[]
@@ -439,7 +439,7 @@ export class Collection {
     static name: string
 }
 export class Component {
-    /* Methods of Atspi.Component */
+    /* Methods of Atspi-2.0.Atspi.Component */
     contains(x: number, y: number, ctype: CoordType): boolean
     get_accessible_at_point(x: number, y: number, ctype: CoordType): Accessible | null
     get_alpha(): number
@@ -457,7 +457,7 @@ export class Component {
     static name: string
 }
 export class Document {
-    /* Methods of Atspi.Document */
+    /* Methods of Atspi-2.0.Atspi.Document */
     get_document_attribute_value(attribute: string): string
     get_document_attributes(): GLib.HashTable
     get_current_page_number(): number
@@ -466,7 +466,7 @@ export class Document {
     static name: string
 }
 export class EditableText {
-    /* Methods of Atspi.EditableText */
+    /* Methods of Atspi-2.0.Atspi.EditableText */
     copy_text(start_pos: number, end_pos: number): boolean
     cut_text(start_pos: number, end_pos: number): boolean
     delete_text(start_pos: number, end_pos: number): boolean
@@ -476,14 +476,14 @@ export class EditableText {
     static name: string
 }
 export class Hypertext {
-    /* Methods of Atspi.Hypertext */
+    /* Methods of Atspi-2.0.Atspi.Hypertext */
     get_link(link_index: number): Hyperlink | null
     get_link_index(character_offset: number): number
     get_n_links(): number
     static name: string
 }
 export class Image {
-    /* Methods of Atspi.Image */
+    /* Methods of Atspi-2.0.Atspi.Image */
     get_image_description(): string
     get_image_extents(ctype: CoordType): Rect
     get_image_locale(): string
@@ -492,7 +492,7 @@ export class Image {
     static name: string
 }
 export class Selection {
-    /* Methods of Atspi.Selection */
+    /* Methods of Atspi-2.0.Atspi.Selection */
     clear_selection(): boolean
     deselect_child(child_index: number): boolean
     deselect_selected_child(selected_child_index: number): boolean
@@ -504,7 +504,7 @@ export class Selection {
     static name: string
 }
 export class Table {
-    /* Methods of Atspi.Table */
+    /* Methods of Atspi-2.0.Atspi.Table */
     add_column_selection(column: number): boolean
     add_row_selection(row: number): boolean
     get_accessible_at(row: number, column: number): Accessible
@@ -534,7 +534,7 @@ export class Table {
     static name: string
 }
 export class TableCell {
-    /* Methods of Atspi.TableCell */
+    /* Methods of Atspi-2.0.Atspi.TableCell */
     get_column_header_cells(): Accessible[]
     get_column_index(): number
     get_column_span(): number
@@ -546,7 +546,7 @@ export class TableCell {
     static name: string
 }
 export class Text {
-    /* Methods of Atspi.Text */
+    /* Methods of Atspi-2.0.Atspi.Text */
     add_selection(start_offset: number, end_offset: number): boolean
     get_attribute_run(offset: number, include_defaults: boolean): [ /* returnType */ GLib.HashTable, /* start_offset */ number, /* end_offset */ number ]
     get_text_attribute_value(offset: number, attribute_name: string): string | null
@@ -574,7 +574,7 @@ export class Text {
     static name: string
 }
 export class Value {
-    /* Methods of Atspi.Value */
+    /* Methods of Atspi-2.0.Atspi.Value */
     get_current_value(): number
     get_maximum_value(): number
     get_minimum_increment(): number
@@ -585,7 +585,7 @@ export class Value {
 export interface Accessible_ConstructProps extends Object_ConstructProps {
 }
 export class Accessible {
-    /* Fields of Atspi.Accessible */
+    /* Fields of Atspi-2.0.Atspi.Accessible */
     parent: Object
     accessible_parent: Accessible
     children: object[]
@@ -597,12 +597,12 @@ export class Accessible {
     attributes: GLib.HashTable
     cached_properties: number
     priv: AccessiblePrivate
-    /* Fields of Atspi.Object */
+    /* Fields of Atspi-2.0.Atspi.Object */
     app: Application
     path: string
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Atspi.Accessible */
+    /* Methods of Atspi-2.0.Atspi.Accessible */
     clear_cache(): void
     get_accessible_id(): string
     get_action_iface(): Action
@@ -640,7 +640,7 @@ export class Accessible {
     get_toolkit_version(): string
     get_value_iface(): Value
     set_cache_mask(mask: Cache): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -662,20 +662,20 @@ export class Accessible {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of Atspi.Action */
+    /* Methods of Atspi-2.0.Atspi.Action */
     do_action(i: number): boolean
     get_action_description(i: number): string
     get_key_binding(i: number): string
     get_localized_name(i: number): string
     get_n_actions(): number
     get_action_name(i: number): string
-    /* Methods of Atspi.Collection */
+    /* Methods of Atspi-2.0.Atspi.Collection */
     get_active_descendant(): Accessible
     get_matches(rule: MatchRule, sortby: CollectionSortOrder, count: number, traverse: boolean): Accessible[]
     get_matches_from(current_object: Accessible, rule: MatchRule, sortby: CollectionSortOrder, tree: CollectionTreeTraversalType, count: number, traverse: boolean): Accessible[]
     get_matches_to(current_object: Accessible, rule: MatchRule, sortby: CollectionSortOrder, tree: CollectionTreeTraversalType, limit_scope: boolean, count: number, traverse: boolean): Accessible[]
     is_ancestor_of(test: Accessible): boolean
-    /* Methods of Atspi.Component */
+    /* Methods of Atspi-2.0.Atspi.Component */
     contains(x: number, y: number, ctype: CoordType): boolean
     get_accessible_at_point(x: number, y: number, ctype: CoordType): Accessible | null
     get_alpha(): number
@@ -690,30 +690,30 @@ export class Accessible {
     set_extents(x: number, y: number, width: number, height: number, ctype: CoordType): boolean
     set_position(x: number, y: number, ctype: CoordType): boolean
     set_size(width: number, height: number): boolean
-    /* Methods of Atspi.Document */
+    /* Methods of Atspi-2.0.Atspi.Document */
     get_document_attribute_value(attribute: string): string
     get_document_attributes(): GLib.HashTable
     get_current_page_number(): number
     get_locale(): string
     get_page_count(): number
-    /* Methods of Atspi.EditableText */
+    /* Methods of Atspi-2.0.Atspi.EditableText */
     copy_text(start_pos: number, end_pos: number): boolean
     cut_text(start_pos: number, end_pos: number): boolean
     delete_text(start_pos: number, end_pos: number): boolean
     insert_text(position: number, text: string, length: number): boolean
     paste_text(position: number): boolean
     set_text_contents(new_contents: string): boolean
-    /* Methods of Atspi.Hypertext */
+    /* Methods of Atspi-2.0.Atspi.Hypertext */
     get_link(link_index: number): Hyperlink | null
     get_link_index(character_offset: number): number
     get_n_links(): number
-    /* Methods of Atspi.Image */
+    /* Methods of Atspi-2.0.Atspi.Image */
     get_image_description(): string
     get_image_extents(ctype: CoordType): Rect
     get_image_locale(): string
     get_image_position(ctype: CoordType): Point
     get_image_size(): Point
-    /* Methods of Atspi.Selection */
+    /* Methods of Atspi-2.0.Atspi.Selection */
     clear_selection(): boolean
     deselect_child(child_index: number): boolean
     deselect_selected_child(selected_child_index: number): boolean
@@ -722,7 +722,7 @@ export class Accessible {
     is_child_selected(child_index: number): boolean
     select_all(): boolean
     select_child(child_index: number): boolean
-    /* Methods of Atspi.Table */
+    /* Methods of Atspi-2.0.Atspi.Table */
     add_column_selection(column: number): boolean
     add_row_selection(row: number): boolean
     get_accessible_at(row: number, column: number): Accessible
@@ -749,7 +749,7 @@ export class Accessible {
     is_selected(row: number, column: number): boolean
     remove_column_selection(column: number): boolean
     remove_row_selection(row: number): boolean
-    /* Methods of Atspi.TableCell */
+    /* Methods of Atspi-2.0.Atspi.TableCell */
     get_column_header_cells(): Accessible[]
     get_column_index(): number
     get_column_span(): number
@@ -758,7 +758,7 @@ export class Accessible {
     get_row_header_cells(): Accessible[]
     get_row_span(): number
     get_table(): Accessible
-    /* Methods of Atspi.Text */
+    /* Methods of Atspi-2.0.Atspi.Text */
     add_selection(start_offset: number, end_offset: number): boolean
     get_attribute_run(offset: number, include_defaults: boolean): [ /* returnType */ GLib.HashTable, /* start_offset */ number, /* end_offset */ number ]
     get_text_attribute_value(offset: number, attribute_name: string): string | null
@@ -783,16 +783,16 @@ export class Accessible {
     scroll_substring_to_point(start_offset: number, end_offset: number, coords: CoordType, x: number, y: number): boolean
     set_caret_offset(new_offset: number): boolean
     set_selection(selection_num: number, start_offset: number, end_offset: number): boolean
-    /* Methods of Atspi.Value */
+    /* Methods of Atspi-2.0.Atspi.Value */
     get_current_value(): number
     get_maximum_value(): number
     get_minimum_increment(): number
     get_minimum_value(): number
     set_current_value(new_value: number): boolean
-    /* Virtual methods of Atspi.Accessible */
+    /* Virtual methods of Atspi-2.0.Atspi.Accessible */
     vfunc_mode_changed(enabled: boolean): void
     vfunc_region_changed(current_offset: number, last_offset: number): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -800,14 +800,14 @@ export class Accessible {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Atspi.Accessible */
+    /* Signals of Atspi-2.0.Atspi.Accessible */
     connect(sigName: "mode-changed", callback: (($obj: Accessible, arg1: number, why: string) => void)): number
     connect_after(sigName: "mode-changed", callback: (($obj: Accessible, arg1: number, why: string) => void)): number
     emit(sigName: "mode-changed", arg1: number, why: string): void
     connect(sigName: "region-changed", callback: (($obj: Accessible, arg1: number, arg2: number) => void)): number
     connect_after(sigName: "region-changed", callback: (($obj: Accessible, arg1: number, arg2: number) => void)): number
     emit(sigName: "region-changed", arg1: number, arg2: number): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Accessible, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Accessible, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -823,7 +823,7 @@ export class Accessible {
 export interface Application_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class Application {
-    /* Fields of Atspi.Application */
+    /* Fields of Atspi-2.0.Atspi.Application */
     parent: GObject.Object
     hash: GLib.HashTable
     bus_name: string
@@ -834,9 +834,9 @@ export class Application {
     toolkit_version: string
     atspi_version: string
     time_added: object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -858,7 +858,7 @@ export class Application {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -866,7 +866,7 @@ export class Application {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Application, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Application, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -882,11 +882,11 @@ export class Application {
 export interface Device_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class Device {
-    /* Fields of Atspi.Device */
+    /* Fields of Atspi-2.0.Atspi.Device */
     parent: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Atspi.Device */
+    /* Methods of Atspi-2.0.Atspi.Device */
     add_key_grab(kd: KeyDefinition, callback: KeyCallback | null): number
     add_key_watcher(): void
     get_grab_by_id(id: number): KeyDefinition
@@ -898,7 +898,7 @@ export class Device {
     remove_key_grab(id: number): void
     ungrab_keyboard(): void
     unmap_modifier(keycode: number): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -920,7 +920,7 @@ export class Device {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Atspi.Device */
+    /* Virtual methods of Atspi-2.0.Atspi.Device */
     vfunc_add_key_grab(kd: KeyDefinition): void
     vfunc_get_locked_modifiers(): number
     vfunc_get_modifier(keycode: number): number
@@ -929,7 +929,7 @@ export class Device {
     vfunc_remove_key_grab(id: number): void
     vfunc_ungrab_keyboard(): void
     vfunc_unmap_modifier(keycode: number): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -937,7 +937,7 @@ export class Device {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Device, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Device, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -955,11 +955,11 @@ export class Device {
 export interface DeviceLegacy_ConstructProps extends Device_ConstructProps {
 }
 export class DeviceLegacy {
-    /* Fields of Atspi.DeviceLegacy */
+    /* Fields of Atspi-2.0.Atspi.DeviceLegacy */
     parent: Device
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Atspi.Device */
+    /* Methods of Atspi-2.0.Atspi.Device */
     add_key_grab(kd: KeyDefinition, callback: KeyCallback | null): number
     add_key_watcher(): void
     get_grab_by_id(id: number): KeyDefinition
@@ -971,7 +971,7 @@ export class DeviceLegacy {
     remove_key_grab(id: number): void
     ungrab_keyboard(): void
     unmap_modifier(keycode: number): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -993,7 +993,7 @@ export class DeviceLegacy {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Atspi.Device */
+    /* Virtual methods of Atspi-2.0.Atspi.Device */
     vfunc_add_key_grab(kd: KeyDefinition): void
     vfunc_get_locked_modifiers(): number
     vfunc_get_modifier(keycode: number): number
@@ -1002,7 +1002,7 @@ export class DeviceLegacy {
     vfunc_remove_key_grab(id: number): void
     vfunc_ungrab_keyboard(): void
     vfunc_unmap_modifier(keycode: number): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -1010,7 +1010,7 @@ export class DeviceLegacy {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: DeviceLegacy, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: DeviceLegacy, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -1028,16 +1028,16 @@ export class DeviceLegacy {
 export interface DeviceListener_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class DeviceListener {
-    /* Fields of Atspi.DeviceListener */
+    /* Fields of Atspi-2.0.Atspi.DeviceListener */
     parent: GObject.Object
     id: number
     callbacks: object[]
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Atspi.DeviceListener */
+    /* Methods of Atspi-2.0.Atspi.DeviceListener */
     add_callback(callback: DeviceListenerCB): void
     remove_callback(callback: DeviceListenerCB): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -1059,9 +1059,9 @@ export class DeviceListener {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Atspi.DeviceListener */
+    /* Virtual methods of Atspi-2.0.Atspi.DeviceListener */
     vfunc_device_event(event: DeviceEvent): boolean
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -1069,7 +1069,7 @@ export class DeviceListener {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: DeviceListener, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: DeviceListener, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -1087,11 +1087,11 @@ export class DeviceListener {
 export interface DeviceX11_ConstructProps extends Device_ConstructProps {
 }
 export class DeviceX11 {
-    /* Fields of Atspi.DeviceX11 */
+    /* Fields of Atspi-2.0.Atspi.DeviceX11 */
     parent: Device
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Atspi.Device */
+    /* Methods of Atspi-2.0.Atspi.Device */
     add_key_grab(kd: KeyDefinition, callback: KeyCallback | null): number
     add_key_watcher(): void
     get_grab_by_id(id: number): KeyDefinition
@@ -1103,7 +1103,7 @@ export class DeviceX11 {
     remove_key_grab(id: number): void
     ungrab_keyboard(): void
     unmap_modifier(keycode: number): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -1125,7 +1125,7 @@ export class DeviceX11 {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Atspi.Device */
+    /* Virtual methods of Atspi-2.0.Atspi.Device */
     vfunc_add_key_grab(kd: KeyDefinition): void
     vfunc_get_locked_modifiers(): number
     vfunc_get_modifier(keycode: number): number
@@ -1134,7 +1134,7 @@ export class DeviceX11 {
     vfunc_remove_key_grab(id: number): void
     vfunc_ungrab_keyboard(): void
     vfunc_unmap_modifier(keycode: number): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -1142,7 +1142,7 @@ export class DeviceX11 {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: DeviceX11, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: DeviceX11, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -1160,18 +1160,18 @@ export class DeviceX11 {
 export interface EventListener_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class EventListener {
-    /* Fields of Atspi.EventListener */
+    /* Fields of Atspi-2.0.Atspi.EventListener */
     parent: GObject.Object
     callback: EventListenerCB
     user_data: object
     cb_destroyed: GLib.DestroyNotify
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Atspi.EventListener */
+    /* Methods of Atspi-2.0.Atspi.EventListener */
     deregister(event_type: string): boolean
     register(event_type: string): boolean
     register_full(event_type: string, properties?: string[] | null): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -1193,7 +1193,7 @@ export class EventListener {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -1201,7 +1201,7 @@ export class EventListener {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: EventListener, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: EventListener, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -1222,14 +1222,14 @@ export class EventListener {
 export interface Hyperlink_ConstructProps extends Object_ConstructProps {
 }
 export class Hyperlink {
-    /* Fields of Atspi.Hyperlink */
+    /* Fields of Atspi-2.0.Atspi.Hyperlink */
     parent: Object
-    /* Fields of Atspi.Object */
+    /* Fields of Atspi-2.0.Atspi.Object */
     app: Application
     path: string
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Atspi.Hyperlink */
+    /* Methods of Atspi-2.0.Atspi.Hyperlink */
     get_end_index(): number
     get_index_range(): Range
     get_n_anchors(): number
@@ -1237,7 +1237,7 @@ export class Hyperlink {
     get_start_index(): number
     get_uri(i: number): string
     is_valid(): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -1259,7 +1259,7 @@ export class Hyperlink {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -1267,7 +1267,7 @@ export class Hyperlink {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Hyperlink, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Hyperlink, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -1283,7 +1283,7 @@ export class Hyperlink {
 export interface MatchRule_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class MatchRule {
-    /* Fields of Atspi.MatchRule */
+    /* Fields of Atspi-2.0.Atspi.MatchRule */
     parent: GObject.Object
     states: StateSet
     statematchtype: CollectionMatchType
@@ -1294,9 +1294,9 @@ export class MatchRule {
     roles: number[]
     rolematchtype: CollectionMatchType
     invert: boolean
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -1318,7 +1318,7 @@ export class MatchRule {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -1326,7 +1326,7 @@ export class MatchRule {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: MatchRule, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: MatchRule, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -1344,13 +1344,13 @@ export class MatchRule {
 export interface Object_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class Object {
-    /* Fields of Atspi.Object */
+    /* Fields of Atspi-2.0.Atspi.Object */
     parent: GObject.Object
     app: Application
     path: string
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -1372,7 +1372,7 @@ export class Object {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -1380,7 +1380,7 @@ export class Object {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Object, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Object, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -1396,17 +1396,17 @@ export class Object {
 export interface Relation_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class Relation {
-    /* Fields of Atspi.Relation */
+    /* Fields of Atspi-2.0.Atspi.Relation */
     parent: GObject.Object
     relation_type: RelationType
     targets: object[]
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Atspi.Relation */
+    /* Methods of Atspi-2.0.Atspi.Relation */
     get_n_targets(): number
     get_relation_type(): RelationType
     get_target(i: number): Accessible
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -1428,7 +1428,7 @@ export class Relation {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -1436,7 +1436,7 @@ export class Relation {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Relation, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Relation, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -1452,13 +1452,13 @@ export class Relation {
 export interface StateSet_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class StateSet {
-    /* Fields of Atspi.StateSet */
+    /* Fields of Atspi-2.0.Atspi.StateSet */
     parent: GObject.Object
     accessible: object
     states: number
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Atspi.StateSet */
+    /* Methods of Atspi-2.0.Atspi.StateSet */
     add(state: StateType): void
     compare(set2: StateSet): StateSet
     contains(state: StateType): boolean
@@ -1467,7 +1467,7 @@ export class StateSet {
     is_empty(): boolean
     remove(state: StateType): void
     set_by_name(name: string, enabled: boolean): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -1489,7 +1489,7 @@ export class StateSet {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -1497,7 +1497,7 @@ export class StateSet {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: StateSet, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: StateSet, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -1513,7 +1513,7 @@ export class StateSet {
     static $gtype: GObject.Type
 }
 export abstract class AccessibleClass {
-    /* Fields of Atspi.AccessibleClass */
+    /* Fields of Atspi-2.0.Atspi.AccessibleClass */
     parent_class: ObjectClass
     region_changed: (accessible: Accessible, current_offset: number, last_offset: number) => void
     mode_changed: (accessible: Accessible, enabled: boolean) => void
@@ -1523,12 +1523,12 @@ export class AccessiblePrivate {
     static name: string
 }
 export abstract class ApplicationClass {
-    /* Fields of Atspi.ApplicationClass */
+    /* Fields of Atspi-2.0.Atspi.ApplicationClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
 export abstract class DeviceClass {
-    /* Fields of Atspi.DeviceClass */
+    /* Fields of Atspi-2.0.Atspi.DeviceClass */
     parent_class: GObject.ObjectClass
     add_key_grab: (device: Device, kd: KeyDefinition) => void
     remove_key_grab: (device: Device, id: number) => void
@@ -1541,7 +1541,7 @@ export abstract class DeviceClass {
     static name: string
 }
 export class DeviceEvent {
-    /* Fields of Atspi.DeviceEvent */
+    /* Fields of Atspi-2.0.Atspi.DeviceEvent */
     type: EventType
     id: number
     hw_code: number
@@ -1552,23 +1552,23 @@ export class DeviceEvent {
     static name: string
 }
 export abstract class DeviceLegacyClass {
-    /* Fields of Atspi.DeviceLegacyClass */
+    /* Fields of Atspi-2.0.Atspi.DeviceLegacyClass */
     parent_class: DeviceClass
     static name: string
 }
 export abstract class DeviceListenerClass {
-    /* Fields of Atspi.DeviceListenerClass */
+    /* Fields of Atspi-2.0.Atspi.DeviceListenerClass */
     parent_class: GObject.ObjectClass
     device_event: (listener: DeviceListener, event: DeviceEvent) => boolean
     static name: string
 }
 export abstract class DeviceX11Class {
-    /* Fields of Atspi.DeviceX11Class */
+    /* Fields of Atspi-2.0.Atspi.DeviceX11Class */
     parent_class: DeviceClass
     static name: string
 }
 export class Event {
-    /* Fields of Atspi.Event */
+    /* Fields of Atspi-2.0.Atspi.Event */
     type: string
     source: Accessible
     detail1: number
@@ -1581,24 +1581,24 @@ export class Event {
     static quit(): void
 }
 export abstract class EventListenerClass {
-    /* Fields of Atspi.EventListenerClass */
+    /* Fields of Atspi-2.0.Atspi.EventListenerClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
 export class EventListenerMode {
-    /* Fields of Atspi.EventListenerMode */
+    /* Fields of Atspi-2.0.Atspi.EventListenerMode */
     synchronous: boolean
     preemptive: boolean
     global: boolean
     static name: string
 }
 export abstract class HyperlinkClass {
-    /* Fields of Atspi.HyperlinkClass */
+    /* Fields of Atspi-2.0.Atspi.HyperlinkClass */
     parent_class: ObjectClass
     static name: string
 }
 export class KeyDefinition {
-    /* Fields of Atspi.KeyDefinition */
+    /* Fields of Atspi-2.0.Atspi.KeyDefinition */
     keycode: number
     keysym: number
     keystring: string
@@ -1606,7 +1606,7 @@ export class KeyDefinition {
     static name: string
 }
 export class KeySet {
-    /* Fields of Atspi.KeySet */
+    /* Fields of Atspi-2.0.Atspi.KeySet */
     keysyms: number
     keycodes: number
     keystrings: string
@@ -1614,53 +1614,53 @@ export class KeySet {
     static name: string
 }
 export abstract class MatchRuleClass {
-    /* Fields of Atspi.MatchRuleClass */
+    /* Fields of Atspi-2.0.Atspi.MatchRuleClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
 export abstract class ObjectClass {
-    /* Fields of Atspi.ObjectClass */
+    /* Fields of Atspi-2.0.Atspi.ObjectClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
 export class Point {
-    /* Fields of Atspi.Point */
+    /* Fields of Atspi-2.0.Atspi.Point */
     x: number
     y: number
-    /* Methods of Atspi.Point */
+    /* Methods of Atspi-2.0.Atspi.Point */
     copy(): Point
     static name: string
 }
 export class Range {
-    /* Fields of Atspi.Range */
+    /* Fields of Atspi-2.0.Atspi.Range */
     start_offset: number
     end_offset: number
-    /* Methods of Atspi.Range */
+    /* Methods of Atspi-2.0.Atspi.Range */
     copy(): Range
     static name: string
 }
 export class Rect {
-    /* Fields of Atspi.Rect */
+    /* Fields of Atspi-2.0.Atspi.Rect */
     x: number
     y: number
     width: number
     height: number
-    /* Methods of Atspi.Rect */
+    /* Methods of Atspi-2.0.Atspi.Rect */
     copy(): Rect
     static name: string
 }
 export abstract class RelationClass {
-    /* Fields of Atspi.RelationClass */
+    /* Fields of Atspi-2.0.Atspi.RelationClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
 export abstract class StateSetClass {
-    /* Fields of Atspi.StateSetClass */
+    /* Fields of Atspi-2.0.Atspi.StateSetClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
 export class TextRange {
-    /* Fields of Atspi.TextRange */
+    /* Fields of Atspi-2.0.Atspi.TextRange */
     start_offset: number
     end_offset: number
     content: string

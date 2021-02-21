@@ -81,11 +81,11 @@ export interface ListenersPredicate {
 export interface Client_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class Client {
-    /* Fields of GConf.Client */
+    /* Fields of GConf-2.0.GConf.Client */
     object: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GConf.Client */
+    /* Methods of GConf-2.0.GConf.Client */
     add_dir(dir: string, preload: ClientPreloadType): void
     all_dirs(dir: string): string[]
     all_entries(dir: string): Entry[]
@@ -122,7 +122,7 @@ export class Client {
     unreturned_error(error: GLib.Error): void
     unset(key: string): boolean
     value_changed(key: string, value: Value): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -144,11 +144,11 @@ export class Client {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GConf.Client */
+    /* Virtual methods of GConf-2.0.GConf.Client */
     vfunc_error(error: GLib.Error): void
     vfunc_unreturned_error(error: GLib.Error): void
     vfunc_value_changed(key: string, value: Value): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -156,7 +156,7 @@ export class Client {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GConf.Client */
+    /* Signals of GConf-2.0.GConf.Client */
     connect(sigName: "error", callback: (($obj: Client, object?: object | null) => void)): number
     connect_after(sigName: "error", callback: (($obj: Client, object?: object | null) => void)): number
     emit(sigName: "error", object?: object | null): void
@@ -166,7 +166,7 @@ export class Client {
     connect(sigName: "value-changed", callback: (($obj: Client, object: string, p0?: object | null) => void)): number
     connect_after(sigName: "value-changed", callback: (($obj: Client, object: string, p0?: object | null) => void)): number
     emit(sigName: "value-changed", object: string, p0?: object | null): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Client, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Client, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -182,7 +182,7 @@ export class Client {
     static $gtype: GObject.Type
 }
 export class ChangeSet {
-    /* Methods of GConf.ChangeSet */
+    /* Methods of GConf-2.0.GConf.ChangeSet */
     check_value(key: string, value_retloc: Value): boolean
     clear(): void
     foreach(func: ChangeSetForeachFunc): void
@@ -205,7 +205,7 @@ export class ChangeSet {
     static new(): ChangeSet
 }
 export abstract class ClientClass {
-    /* Fields of GConf.ClientClass */
+    /* Fields of GConf-2.0.GConf.ClientClass */
     parent_class: GObject.ObjectClass
     value_changed: (client: Client, key: string, value: Value) => void
     unreturned_error: (client: Client, error: GLib.Error) => void
@@ -216,7 +216,7 @@ export abstract class ClientClass {
     static name: string
 }
 export class Engine {
-    /* Methods of GConf.Engine */
+    /* Methods of GConf-2.0.GConf.Engine */
     all_dirs(dir: string): string[]
     all_entries(dir: string): Entry[]
     associate_schema(key: string, schema_key: string): boolean
@@ -255,10 +255,10 @@ export class Engine {
     static name: string
 }
 export class Entry {
-    /* Fields of GConf.Entry */
+    /* Fields of GConf-2.0.GConf.Entry */
     key: string
     value: Value
-    /* Methods of GConf.Entry */
+    /* Methods of GConf-2.0.GConf.Entry */
     copy(): Entry
     equal(b: Entry): boolean
     free(): void
@@ -283,13 +283,13 @@ export class Entry {
     static new_nocopy(key: string, val: Value): Entry
 }
 export class EnumStringPair {
-    /* Fields of GConf.EnumStringPair */
+    /* Fields of GConf-2.0.GConf.EnumStringPair */
     enum_value: number
     str: string
     static name: string
 }
 export class Listeners {
-    /* Methods of GConf.Listeners */
+    /* Methods of GConf-2.0.GConf.Listeners */
     add(listen_point: string, listener_data: object | null, destroy_notify: GLib.FreeFunc): number
     count(): number
     foreach(callback: ListenersForeach): void
@@ -301,11 +301,11 @@ export class Listeners {
     static name: string
 }
 export class MetaInfo {
-    /* Fields of GConf.MetaInfo */
+    /* Fields of GConf-2.0.GConf.MetaInfo */
     schema: string
     mod_user: string
     mod_time: GLib.Time
-    /* Methods of GConf.MetaInfo */
+    /* Methods of GConf-2.0.GConf.MetaInfo */
     free(): void
     get_mod_user(): string
     get_schema(): string
@@ -315,7 +315,7 @@ export class MetaInfo {
     static name: string
 }
 export class Schema {
-    /* Methods of GConf.Schema */
+    /* Methods of GConf-2.0.GConf.Schema */
     free(): void
     get_car_type(): ValueType
     get_cdr_type(): ValueType
@@ -339,9 +339,9 @@ export class Schema {
     static name: string
 }
 export class Value {
-    /* Fields of GConf.Value */
+    /* Fields of GConf-2.0.GConf.Value */
     type: ValueType
-    /* Methods of GConf.Value */
+    /* Methods of GConf-2.0.GConf.Value */
     compare(value_b: Value): number
     copy(): Value
     encode(): string

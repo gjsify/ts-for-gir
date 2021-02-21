@@ -722,18 +722,18 @@ export interface ParserLineGenFunc {
 export interface Array_ConstructProps extends Object_ConstructProps {
 }
 export class Array {
-    /* Properties of ICalGLib.Object */
+    /* Properties of ICalGLib-3.0.ICalGLib.Object */
     native_destroy_func: object
     owner: GObject.Object
-    /* Fields of ICalGLib.Object */
+    /* Fields of ICalGLib-3.0.ICalGLib.Object */
     parent_instance: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of ICalGLib.Array */
+    /* Methods of ICalGLib-3.0.ICalGLib.Array */
     copy(): Array
     remove_element_at(position: number): void
     size(): number
-    /* Methods of ICalGLib.Object */
+    /* Methods of ICalGLib-3.0.ICalGLib.Object */
     add_depender(depender: GObject.Object): void
     get_is_global_memory(): boolean
     ref_owner(): GObject.Object | null
@@ -742,7 +742,7 @@ export class Array {
     set_native_destroy_func(native_destroy_func: GLib.DestroyNotify): void
     set_owner(owner: GObject.Object): void
     steal_native(): object | null
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -764,7 +764,7 @@ export class Array {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -772,7 +772,7 @@ export class Array {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Array, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Array, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -792,18 +792,18 @@ export class Array {
 export interface Attach_ConstructProps extends Object_ConstructProps {
 }
 export class Attach {
-    /* Properties of ICalGLib.Object */
+    /* Properties of ICalGLib-3.0.ICalGLib.Object */
     native_destroy_func: object
     owner: GObject.Object
-    /* Fields of ICalGLib.Object */
+    /* Fields of ICalGLib-3.0.ICalGLib.Object */
     parent_instance: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of ICalGLib.Attach */
+    /* Methods of ICalGLib-3.0.ICalGLib.Attach */
     get_data(): string | null
     get_is_url(): boolean
     get_url(): string | null
-    /* Methods of ICalGLib.Object */
+    /* Methods of ICalGLib-3.0.ICalGLib.Object */
     add_depender(depender: GObject.Object): void
     get_is_global_memory(): boolean
     ref_owner(): GObject.Object | null
@@ -812,7 +812,7 @@ export class Attach {
     set_native_destroy_func(native_destroy_func: GLib.DestroyNotify): void
     set_owner(owner: GObject.Object): void
     steal_native(): object | null
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -834,7 +834,7 @@ export class Attach {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -842,7 +842,7 @@ export class Attach {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Attach, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Attach, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -866,18 +866,18 @@ export class Attach {
 export interface CompIter_ConstructProps extends Object_ConstructProps {
 }
 export class CompIter {
-    /* Properties of ICalGLib.Object */
+    /* Properties of ICalGLib-3.0.ICalGLib.Object */
     native_destroy_func: object
     owner: GObject.Object
-    /* Fields of ICalGLib.Object */
+    /* Fields of ICalGLib-3.0.ICalGLib.Object */
     parent_instance: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of ICalGLib.CompIter */
+    /* Methods of ICalGLib-3.0.ICalGLib.CompIter */
     deref(): Component
     next(): Component
     prior(): Component
-    /* Methods of ICalGLib.Object */
+    /* Methods of ICalGLib-3.0.ICalGLib.Object */
     add_depender(depender: GObject.Object): void
     get_is_global_memory(): boolean
     ref_owner(): GObject.Object | null
@@ -886,7 +886,7 @@ export class CompIter {
     set_native_destroy_func(native_destroy_func: GLib.DestroyNotify): void
     set_owner(owner: GObject.Object): void
     steal_native(): object | null
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -908,7 +908,7 @@ export class CompIter {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -916,7 +916,7 @@ export class CompIter {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: CompIter, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: CompIter, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -936,14 +936,14 @@ export class CompIter {
 export interface Component_ConstructProps extends Object_ConstructProps {
 }
 export class Component {
-    /* Properties of ICalGLib.Object */
+    /* Properties of ICalGLib-3.0.ICalGLib.Object */
     native_destroy_func: object
     owner: GObject.Object
-    /* Fields of ICalGLib.Object */
+    /* Fields of ICalGLib-3.0.ICalGLib.Object */
     parent_instance: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of ICalGLib.Component */
+    /* Methods of ICalGLib-3.0.ICalGLib.Component */
     add_component(child: Component): void
     add_property(property: Property): void
     as_ical_string(): string
@@ -1006,7 +1006,7 @@ export class Component {
     set_summary(v: string): void
     set_uid(v: string): void
     strip_errors(): void
-    /* Methods of ICalGLib.Object */
+    /* Methods of ICalGLib-3.0.ICalGLib.Object */
     add_depender(depender: GObject.Object): void
     get_is_global_memory(): boolean
     ref_owner(): GObject.Object | null
@@ -1015,7 +1015,7 @@ export class Component {
     set_native_destroy_func(native_destroy_func: GLib.DestroyNotify): void
     set_owner(owner: GObject.Object): void
     steal_native(): object | null
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -1037,7 +1037,7 @@ export class Component {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -1045,7 +1045,7 @@ export class Component {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Component, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Component, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -1088,19 +1088,19 @@ export class Component {
 export interface Datetimeperiod_ConstructProps extends Object_ConstructProps {
 }
 export class Datetimeperiod {
-    /* Properties of ICalGLib.Object */
+    /* Properties of ICalGLib-3.0.ICalGLib.Object */
     native_destroy_func: object
     owner: GObject.Object
-    /* Fields of ICalGLib.Object */
+    /* Fields of ICalGLib-3.0.ICalGLib.Object */
     parent_instance: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of ICalGLib.Datetimeperiod */
+    /* Methods of ICalGLib-3.0.ICalGLib.Datetimeperiod */
     get_period(): Period
     get_time(): Time
     set_period(period: Period): void
     set_time(time: Time): void
-    /* Methods of ICalGLib.Object */
+    /* Methods of ICalGLib-3.0.ICalGLib.Object */
     add_depender(depender: GObject.Object): void
     get_is_global_memory(): boolean
     ref_owner(): GObject.Object | null
@@ -1109,7 +1109,7 @@ export class Datetimeperiod {
     set_native_destroy_func(native_destroy_func: GLib.DestroyNotify): void
     set_owner(owner: GObject.Object): void
     steal_native(): object | null
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -1131,7 +1131,7 @@ export class Datetimeperiod {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -1139,7 +1139,7 @@ export class Datetimeperiod {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Datetimeperiod, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Datetimeperiod, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -1161,14 +1161,14 @@ export class Datetimeperiod {
 export interface Duration_ConstructProps extends Object_ConstructProps {
 }
 export class Duration {
-    /* Properties of ICalGLib.Object */
+    /* Properties of ICalGLib-3.0.ICalGLib.Object */
     native_destroy_func: object
     owner: GObject.Object
-    /* Fields of ICalGLib.Object */
+    /* Fields of ICalGLib-3.0.ICalGLib.Object */
     parent_instance: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of ICalGLib.Duration */
+    /* Methods of ICalGLib-3.0.ICalGLib.Duration */
     as_ical_string(): string
     as_int(): number
     get_days(): number
@@ -1185,7 +1185,7 @@ export class Duration {
     set_minutes(minutes: number): void
     set_seconds(seconds: number): void
     set_weeks(weeks: number): void
-    /* Methods of ICalGLib.Object */
+    /* Methods of ICalGLib-3.0.ICalGLib.Object */
     add_depender(depender: GObject.Object): void
     get_is_global_memory(): boolean
     ref_owner(): GObject.Object | null
@@ -1194,7 +1194,7 @@ export class Duration {
     set_native_destroy_func(native_destroy_func: GLib.DestroyNotify): void
     set_owner(owner: GObject.Object): void
     steal_native(): object | null
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -1216,7 +1216,7 @@ export class Duration {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -1224,7 +1224,7 @@ export class Duration {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Duration, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Duration, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -1249,20 +1249,20 @@ export class Duration {
 export interface Geo_ConstructProps extends Object_ConstructProps {
 }
 export class Geo {
-    /* Properties of ICalGLib.Object */
+    /* Properties of ICalGLib-3.0.ICalGLib.Object */
     native_destroy_func: object
     owner: GObject.Object
-    /* Fields of ICalGLib.Object */
+    /* Fields of ICalGLib-3.0.ICalGLib.Object */
     parent_instance: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of ICalGLib.Geo */
+    /* Methods of ICalGLib-3.0.ICalGLib.Geo */
     clone(): Geo
     get_lat(): number
     get_lon(): number
     set_lat(lat: number): void
     set_lon(lon: number): void
-    /* Methods of ICalGLib.Object */
+    /* Methods of ICalGLib-3.0.ICalGLib.Object */
     add_depender(depender: GObject.Object): void
     get_is_global_memory(): boolean
     ref_owner(): GObject.Object | null
@@ -1271,7 +1271,7 @@ export class Geo {
     set_native_destroy_func(native_destroy_func: GLib.DestroyNotify): void
     set_owner(owner: GObject.Object): void
     steal_native(): object | null
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -1293,7 +1293,7 @@ export class Geo {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -1301,7 +1301,7 @@ export class Geo {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Geo, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Geo, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -1327,14 +1327,14 @@ export interface Object_ConstructProps extends GObject.Object_ConstructProps {
     owner?: GObject.Object
 }
 export class Object {
-    /* Properties of ICalGLib.Object */
+    /* Properties of ICalGLib-3.0.ICalGLib.Object */
     native_destroy_func: object
     owner: GObject.Object
-    /* Fields of ICalGLib.Object */
+    /* Fields of ICalGLib-3.0.ICalGLib.Object */
     parent_instance: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of ICalGLib.Object */
+    /* Methods of ICalGLib-3.0.ICalGLib.Object */
     add_depender(depender: GObject.Object): void
     get_is_global_memory(): boolean
     ref_owner(): GObject.Object | null
@@ -1343,7 +1343,7 @@ export class Object {
     set_native_destroy_func(native_destroy_func: GLib.DestroyNotify): void
     set_owner(owner: GObject.Object): void
     steal_native(): object | null
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -1365,7 +1365,7 @@ export class Object {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -1373,7 +1373,7 @@ export class Object {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Object, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Object, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -1395,14 +1395,14 @@ export class Object {
 export interface Parameter_ConstructProps extends Object_ConstructProps {
 }
 export class Parameter {
-    /* Properties of ICalGLib.Object */
+    /* Properties of ICalGLib-3.0.ICalGLib.Object */
     native_destroy_func: object
     owner: GObject.Object
-    /* Fields of ICalGLib.Object */
+    /* Fields of ICalGLib-3.0.ICalGLib.Object */
     parent_instance: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of ICalGLib.Parameter */
+    /* Methods of ICalGLib-3.0.ICalGLib.Parameter */
     as_ical_string(): string
     clone(): Parameter
     get_actionparam(): ParameterAction
@@ -1508,7 +1508,7 @@ export class Parameter {
     set_xlicerrortype(v: ParameterXlicerrortype): void
     set_xname(v: string): void
     set_xvalue(v: string): void
-    /* Methods of ICalGLib.Object */
+    /* Methods of ICalGLib-3.0.ICalGLib.Object */
     add_depender(depender: GObject.Object): void
     get_is_global_memory(): boolean
     ref_owner(): GObject.Object | null
@@ -1517,7 +1517,7 @@ export class Parameter {
     set_native_destroy_func(native_destroy_func: GLib.DestroyNotify): void
     set_owner(owner: GObject.Object): void
     steal_native(): object | null
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -1539,7 +1539,7 @@ export class Parameter {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -1547,7 +1547,7 @@ export class Parameter {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Parameter, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Parameter, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -1620,21 +1620,21 @@ export class Parameter {
 export interface Parser_ConstructProps extends Object_ConstructProps {
 }
 export class Parser {
-    /* Properties of ICalGLib.Object */
+    /* Properties of ICalGLib-3.0.ICalGLib.Object */
     native_destroy_func: object
     owner: GObject.Object
-    /* Fields of ICalGLib.Object */
+    /* Fields of ICalGLib-3.0.ICalGLib.Object */
     parent_instance: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of ICalGLib.Parser */
+    /* Methods of ICalGLib-3.0.ICalGLib.Parser */
     add_line(str?: string | null): Component | null
     clean(): Component | null
     free(): void
     get_line(func: ParserLineGenFunc): string
     get_state(): ParserState
     parse(func: ParserLineGenFunc): Component
-    /* Methods of ICalGLib.Object */
+    /* Methods of ICalGLib-3.0.ICalGLib.Object */
     add_depender(depender: GObject.Object): void
     get_is_global_memory(): boolean
     ref_owner(): GObject.Object | null
@@ -1643,7 +1643,7 @@ export class Parser {
     set_native_destroy_func(native_destroy_func: GLib.DestroyNotify): void
     set_owner(owner: GObject.Object): void
     steal_native(): object | null
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -1665,7 +1665,7 @@ export class Parser {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -1673,7 +1673,7 @@ export class Parser {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Parser, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Parser, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -1696,14 +1696,14 @@ export class Parser {
 export interface Period_ConstructProps extends Object_ConstructProps {
 }
 export class Period {
-    /* Properties of ICalGLib.Object */
+    /* Properties of ICalGLib-3.0.ICalGLib.Object */
     native_destroy_func: object
     owner: GObject.Object
-    /* Fields of ICalGLib.Object */
+    /* Fields of ICalGLib-3.0.ICalGLib.Object */
     parent_instance: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of ICalGLib.Period */
+    /* Methods of ICalGLib-3.0.ICalGLib.Period */
     as_ical_string(): string
     get_duration(): Duration
     get_end(): Time
@@ -1713,7 +1713,7 @@ export class Period {
     set_duration(duration: Duration): void
     set_end(end: Time): void
     set_start(start: Time): void
-    /* Methods of ICalGLib.Object */
+    /* Methods of ICalGLib-3.0.ICalGLib.Object */
     add_depender(depender: GObject.Object): void
     get_is_global_memory(): boolean
     ref_owner(): GObject.Object | null
@@ -1722,7 +1722,7 @@ export class Period {
     set_native_destroy_func(native_destroy_func: GLib.DestroyNotify): void
     set_owner(owner: GObject.Object): void
     steal_native(): object | null
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -1744,7 +1744,7 @@ export class Period {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -1752,7 +1752,7 @@ export class Period {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Period, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Period, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -1775,14 +1775,14 @@ export class Period {
 export interface Property_ConstructProps extends Object_ConstructProps {
 }
 export class Property {
-    /* Properties of ICalGLib.Object */
+    /* Properties of ICalGLib-3.0.ICalGLib.Object */
     native_destroy_func: object
     owner: GObject.Object
-    /* Fields of ICalGLib.Object */
+    /* Fields of ICalGLib-3.0.ICalGLib.Object */
     parent_instance: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of ICalGLib.Property */
+    /* Methods of ICalGLib-3.0.ICalGLib.Property */
     add_parameter(parameter: Parameter): void
     as_ical_string(): string
     clone(): Property
@@ -2035,7 +2035,7 @@ export class Property {
     set_xlicmimeencoding(v: string): void
     set_xlicmimefilename(v: string): void
     set_xlicmimeoptinfo(v: string): void
-    /* Methods of ICalGLib.Object */
+    /* Methods of ICalGLib-3.0.ICalGLib.Object */
     add_depender(depender: GObject.Object): void
     get_is_global_memory(): boolean
     ref_owner(): GObject.Object | null
@@ -2044,7 +2044,7 @@ export class Property {
     set_native_destroy_func(native_destroy_func: GLib.DestroyNotify): void
     set_owner(owner: GObject.Object): void
     steal_native(): object | null
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -2066,7 +2066,7 @@ export class Property {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -2074,7 +2074,7 @@ export class Property {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Property, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Property, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -2223,18 +2223,18 @@ export class Property {
 export interface RecurIterator_ConstructProps extends Object_ConstructProps {
 }
 export class RecurIterator {
-    /* Properties of ICalGLib.Object */
+    /* Properties of ICalGLib-3.0.ICalGLib.Object */
     native_destroy_func: object
     owner: GObject.Object
-    /* Fields of ICalGLib.Object */
+    /* Fields of ICalGLib-3.0.ICalGLib.Object */
     parent_instance: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of ICalGLib.RecurIterator */
+    /* Methods of ICalGLib-3.0.ICalGLib.RecurIterator */
     next(): Time
     set_end(end: Time): number
     set_start(start: Time): number
-    /* Methods of ICalGLib.Object */
+    /* Methods of ICalGLib-3.0.ICalGLib.Object */
     add_depender(depender: GObject.Object): void
     get_is_global_memory(): boolean
     ref_owner(): GObject.Object | null
@@ -2243,7 +2243,7 @@ export class RecurIterator {
     set_native_destroy_func(native_destroy_func: GLib.DestroyNotify): void
     set_owner(owner: GObject.Object): void
     steal_native(): object | null
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -2265,7 +2265,7 @@ export class RecurIterator {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -2273,7 +2273,7 @@ export class RecurIterator {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: RecurIterator, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: RecurIterator, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -2295,14 +2295,14 @@ export class RecurIterator {
 export interface Recurrence_ConstructProps extends Object_ConstructProps {
 }
 export class Recurrence {
-    /* Properties of ICalGLib.Object */
+    /* Properties of ICalGLib-3.0.ICalGLib.Object */
     native_destroy_func: object
     owner: GObject.Object
-    /* Fields of ICalGLib.Object */
+    /* Fields of ICalGLib-3.0.ICalGLib.Object */
     parent_instance: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of ICalGLib.Recurrence */
+    /* Methods of ICalGLib-3.0.ICalGLib.Recurrence */
     clear(): void
     get_by_day(index: number): number
     get_by_day_array(): number[]
@@ -2351,7 +2351,7 @@ export class Recurrence {
     set_until(until: Time): void
     set_week_start(week_start: RecurrenceWeekday): void
     to_string(): string
-    /* Methods of ICalGLib.Object */
+    /* Methods of ICalGLib-3.0.ICalGLib.Object */
     add_depender(depender: GObject.Object): void
     get_is_global_memory(): boolean
     ref_owner(): GObject.Object | null
@@ -2360,7 +2360,7 @@ export class Recurrence {
     set_native_destroy_func(native_destroy_func: GLib.DestroyNotify): void
     set_owner(owner: GObject.Object): void
     steal_native(): object | null
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -2382,7 +2382,7 @@ export class Recurrence {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -2390,7 +2390,7 @@ export class Recurrence {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Recurrence, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Recurrence, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -2427,20 +2427,20 @@ export class Recurrence {
 export interface Reqstat_ConstructProps extends Object_ConstructProps {
 }
 export class Reqstat {
-    /* Properties of ICalGLib.Object */
+    /* Properties of ICalGLib-3.0.ICalGLib.Object */
     native_destroy_func: object
     owner: GObject.Object
-    /* Fields of ICalGLib.Object */
+    /* Fields of ICalGLib-3.0.ICalGLib.Object */
     parent_instance: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of ICalGLib.Reqstat */
+    /* Methods of ICalGLib-3.0.ICalGLib.Reqstat */
     get_code(): RequestStatus
     get_debug(): string
     get_desc(): string
     set_code(code: RequestStatus): void
     to_string(): string
-    /* Methods of ICalGLib.Object */
+    /* Methods of ICalGLib-3.0.ICalGLib.Object */
     add_depender(depender: GObject.Object): void
     get_is_global_memory(): boolean
     ref_owner(): GObject.Object | null
@@ -2449,7 +2449,7 @@ export class Reqstat {
     set_native_destroy_func(native_destroy_func: GLib.DestroyNotify): void
     set_owner(owner: GObject.Object): void
     steal_native(): object | null
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -2471,7 +2471,7 @@ export class Reqstat {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -2479,7 +2479,7 @@ export class Reqstat {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Reqstat, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Reqstat, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -2501,14 +2501,14 @@ export class Reqstat {
 export interface Time_ConstructProps extends Object_ConstructProps {
 }
 export class Time {
-    /* Properties of ICalGLib.Object */
+    /* Properties of ICalGLib-3.0.ICalGLib.Object */
     native_destroy_func: object
     owner: GObject.Object
-    /* Fields of ICalGLib.Object */
+    /* Fields of ICalGLib-3.0.ICalGLib.Object */
     parent_instance: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of ICalGLib.Time */
+    /* Methods of ICalGLib-3.0.ICalGLib.Time */
     add(d: Duration): Time
     adjust(days: number, hours: number, minutes: number, seconds: number): void
     as_ical_string(): string
@@ -2554,7 +2554,7 @@ export class Time {
     start_doy_week(fdow: number): number
     subtract(t2: Time): Duration
     week_number(): number
-    /* Methods of ICalGLib.Object */
+    /* Methods of ICalGLib-3.0.ICalGLib.Object */
     add_depender(depender: GObject.Object): void
     get_is_global_memory(): boolean
     ref_owner(): GObject.Object | null
@@ -2563,7 +2563,7 @@ export class Time {
     set_native_destroy_func(native_destroy_func: GLib.DestroyNotify): void
     set_owner(owner: GObject.Object): void
     steal_native(): object | null
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -2585,7 +2585,7 @@ export class Time {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -2593,7 +2593,7 @@ export class Time {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Time, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Time, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -2626,14 +2626,14 @@ export class Time {
 export interface TimeSpan_ConstructProps extends Object_ConstructProps {
 }
 export class TimeSpan {
-    /* Properties of ICalGLib.Object */
+    /* Properties of ICalGLib-3.0.ICalGLib.Object */
     native_destroy_func: object
     owner: GObject.Object
-    /* Fields of ICalGLib.Object */
+    /* Fields of ICalGLib-3.0.ICalGLib.Object */
     parent_instance: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of ICalGLib.TimeSpan */
+    /* Methods of ICalGLib-3.0.ICalGLib.TimeSpan */
     clone(): TimeSpan
     contains(container: TimeSpan): number
     get_end(): number
@@ -2643,7 +2643,7 @@ export class TimeSpan {
     set_end(end: number): void
     set_is_busy(is_busy: boolean): void
     set_start(start: number): void
-    /* Methods of ICalGLib.Object */
+    /* Methods of ICalGLib-3.0.ICalGLib.Object */
     add_depender(depender: GObject.Object): void
     get_is_global_memory(): boolean
     ref_owner(): GObject.Object | null
@@ -2652,7 +2652,7 @@ export class TimeSpan {
     set_native_destroy_func(native_destroy_func: GLib.DestroyNotify): void
     set_owner(owner: GObject.Object): void
     steal_native(): object | null
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -2674,7 +2674,7 @@ export class TimeSpan {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -2682,7 +2682,7 @@ export class TimeSpan {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: TimeSpan, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: TimeSpan, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -2705,14 +2705,14 @@ export class TimeSpan {
 export interface Timezone_ConstructProps extends Object_ConstructProps {
 }
 export class Timezone {
-    /* Properties of ICalGLib.Object */
+    /* Properties of ICalGLib-3.0.ICalGLib.Object */
     native_destroy_func: object
     owner: GObject.Object
-    /* Fields of ICalGLib.Object */
+    /* Fields of ICalGLib-3.0.ICalGLib.Object */
     parent_instance: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of ICalGLib.Timezone */
+    /* Methods of ICalGLib-3.0.ICalGLib.Timezone */
     copy(): Timezone
     dump_changes(max_year: number, fp?: object | null): number
     get_component(): Component
@@ -2725,7 +2725,7 @@ export class Timezone {
     get_utc_offset(tt?: Time | null): [ /* returnType */ number, /* is_daylight */ number | null ]
     get_utc_offset_of_utc_time(tt: Time): [ /* returnType */ number, /* is_daylight */ number | null ]
     set_component(comp: Component): number
-    /* Methods of ICalGLib.Object */
+    /* Methods of ICalGLib-3.0.ICalGLib.Object */
     add_depender(depender: GObject.Object): void
     get_is_global_memory(): boolean
     ref_owner(): GObject.Object | null
@@ -2734,7 +2734,7 @@ export class Timezone {
     set_native_destroy_func(native_destroy_func: GLib.DestroyNotify): void
     set_owner(owner: GObject.Object): void
     steal_native(): object | null
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -2756,7 +2756,7 @@ export class Timezone {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -2764,7 +2764,7 @@ export class Timezone {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Timezone, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Timezone, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -2803,21 +2803,21 @@ export class Timezone {
 export interface Trigger_ConstructProps extends Object_ConstructProps {
 }
 export class Trigger {
-    /* Properties of ICalGLib.Object */
+    /* Properties of ICalGLib-3.0.ICalGLib.Object */
     native_destroy_func: object
     owner: GObject.Object
-    /* Fields of ICalGLib.Object */
+    /* Fields of ICalGLib-3.0.ICalGLib.Object */
     parent_instance: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of ICalGLib.Trigger */
+    /* Methods of ICalGLib-3.0.ICalGLib.Trigger */
     get_duration(): Duration
     get_time(): Time
     is_bad_trigger(): boolean
     is_null_trigger(): boolean
     set_duration(duration: Duration): void
     set_time(time: Time): void
-    /* Methods of ICalGLib.Object */
+    /* Methods of ICalGLib-3.0.ICalGLib.Object */
     add_depender(depender: GObject.Object): void
     get_is_global_memory(): boolean
     ref_owner(): GObject.Object | null
@@ -2826,7 +2826,7 @@ export class Trigger {
     set_native_destroy_func(native_destroy_func: GLib.DestroyNotify): void
     set_owner(owner: GObject.Object): void
     steal_native(): object | null
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -2848,7 +2848,7 @@ export class Trigger {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -2856,7 +2856,7 @@ export class Trigger {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Trigger, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Trigger, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -2879,14 +2879,14 @@ export class Trigger {
 export interface Value_ConstructProps extends Object_ConstructProps {
 }
 export class Value {
-    /* Properties of ICalGLib.Object */
+    /* Properties of ICalGLib-3.0.ICalGLib.Object */
     native_destroy_func: object
     owner: GObject.Object
-    /* Fields of ICalGLib.Object */
+    /* Fields of ICalGLib-3.0.ICalGLib.Object */
     parent_instance: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of ICalGLib.Value */
+    /* Methods of ICalGLib-3.0.ICalGLib.Value */
     as_ical_string(): string
     clone(): Value
     compare(b: Value): ParameterXliccomparetype
@@ -2966,7 +2966,7 @@ export class Value {
     set_utcoffset(v: number): void
     set_x(v: string): void
     set_xlicclass(v: PropertyXlicclass): void
-    /* Methods of ICalGLib.Object */
+    /* Methods of ICalGLib-3.0.ICalGLib.Object */
     add_depender(depender: GObject.Object): void
     get_is_global_memory(): boolean
     ref_owner(): GObject.Object | null
@@ -2975,7 +2975,7 @@ export class Value {
     set_native_destroy_func(native_destroy_func: GLib.DestroyNotify): void
     set_owner(owner: GObject.Object): void
     steal_native(): object | null
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -2997,7 +2997,7 @@ export class Value {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -3005,7 +3005,7 @@ export class Value {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Value, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Value, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -3127,97 +3127,97 @@ export abstract class ValueClass {
     static name: string
 }
 export class _Array {
-    /* Fields of ICalGLib._Array */
+    /* Fields of ICalGLib-3.0.ICalGLib._Array */
     parent_instance: Object
     static name: string
 }
 export class _Attach {
-    /* Fields of ICalGLib._Attach */
+    /* Fields of ICalGLib-3.0.ICalGLib._Attach */
     parent_instance: Object
     static name: string
 }
 export class _CompIter {
-    /* Fields of ICalGLib._CompIter */
+    /* Fields of ICalGLib-3.0.ICalGLib._CompIter */
     parent_instance: Object
     static name: string
 }
 export class _Component {
-    /* Fields of ICalGLib._Component */
+    /* Fields of ICalGLib-3.0.ICalGLib._Component */
     parent_instance: Object
     static name: string
 }
 export class _Datetimeperiod {
-    /* Fields of ICalGLib._Datetimeperiod */
+    /* Fields of ICalGLib-3.0.ICalGLib._Datetimeperiod */
     parent_instance: Object
     static name: string
 }
 export class _Duration {
-    /* Fields of ICalGLib._Duration */
+    /* Fields of ICalGLib-3.0.ICalGLib._Duration */
     parent_instance: Object
     static name: string
 }
 export class _Geo {
-    /* Fields of ICalGLib._Geo */
+    /* Fields of ICalGLib-3.0.ICalGLib._Geo */
     parent_instance: Object
     static name: string
 }
 export class _Parameter {
-    /* Fields of ICalGLib._Parameter */
+    /* Fields of ICalGLib-3.0.ICalGLib._Parameter */
     parent_instance: Object
     static name: string
 }
 export class _Parser {
-    /* Fields of ICalGLib._Parser */
+    /* Fields of ICalGLib-3.0.ICalGLib._Parser */
     parent_instance: Object
     static name: string
 }
 export class _Period {
-    /* Fields of ICalGLib._Period */
+    /* Fields of ICalGLib-3.0.ICalGLib._Period */
     parent_instance: Object
     static name: string
 }
 export class _Property {
-    /* Fields of ICalGLib._Property */
+    /* Fields of ICalGLib-3.0.ICalGLib._Property */
     parent_instance: Object
     static name: string
 }
 export class _RecurIterator {
-    /* Fields of ICalGLib._RecurIterator */
+    /* Fields of ICalGLib-3.0.ICalGLib._RecurIterator */
     parent_instance: Object
     static name: string
 }
 export class _Recurrence {
-    /* Fields of ICalGLib._Recurrence */
+    /* Fields of ICalGLib-3.0.ICalGLib._Recurrence */
     parent_instance: Object
     static name: string
 }
 export class _Reqstat {
-    /* Fields of ICalGLib._Reqstat */
+    /* Fields of ICalGLib-3.0.ICalGLib._Reqstat */
     parent_instance: Object
     static name: string
 }
 export class _Time {
-    /* Fields of ICalGLib._Time */
+    /* Fields of ICalGLib-3.0.ICalGLib._Time */
     parent_instance: Object
     static name: string
 }
 export class _TimeSpan {
-    /* Fields of ICalGLib._TimeSpan */
+    /* Fields of ICalGLib-3.0.ICalGLib._TimeSpan */
     parent_instance: Object
     static name: string
 }
 export class _Timezone {
-    /* Fields of ICalGLib._Timezone */
+    /* Fields of ICalGLib-3.0.ICalGLib._Timezone */
     parent_instance: Object
     static name: string
 }
 export class _Trigger {
-    /* Fields of ICalGLib._Trigger */
+    /* Fields of ICalGLib-3.0.ICalGLib._Trigger */
     parent_instance: Object
     static name: string
 }
 export class _Value {
-    /* Fields of ICalGLib._Value */
+    /* Fields of ICalGLib-3.0.ICalGLib._Value */
     parent_instance: Object
     static name: string
 }

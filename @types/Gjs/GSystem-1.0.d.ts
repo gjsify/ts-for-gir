@@ -60,13 +60,13 @@ export function stdout_is_journal(): boolean
 export interface Console_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class Console {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GSystem.Console */
+    /* Methods of GSystem-1.0.GSystem.Console */
     begin_status_line(line: string, cancellable?: Gio.Cancellable | null): boolean
     end_status_line(cancellable?: Gio.Cancellable | null): boolean
     read_password(prompt: string, cancellable?: Gio.Cancellable | null): string
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -88,7 +88,7 @@ export class Console {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -96,7 +96,7 @@ export class Console {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Console, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Console, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -118,9 +118,9 @@ export interface Subprocess_ConstructProps extends GObject.Object_ConstructProps
     context?: SubprocessContext
 }
 export class Subprocess {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GSystem.Subprocess */
+    /* Methods of GSystem-1.0.GSystem.Subprocess */
     force_exit(): void
     get_pid(): GLib.Pid
     get_stderr_pipe(): Gio.InputStream
@@ -131,7 +131,7 @@ export class Subprocess {
     wait_finish(result: Gio.AsyncResult): [ /* returnType */ boolean, /* out_exit_status */ number ]
     wait_sync(cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* out_exit_status */ number ]
     wait_sync_check(cancellable?: Gio.Cancellable | null): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -153,11 +153,11 @@ export class Subprocess {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of Gio.Initable */
+    /* Methods of Gio-2.0.Gio.Initable */
     init(cancellable?: Gio.Cancellable | null): boolean
-    /* Virtual methods of GSystem.Subprocess */
+    /* Virtual methods of GSystem-1.0.GSystem.Subprocess */
     vfunc_init(cancellable?: Gio.Cancellable | null): boolean
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -165,7 +165,7 @@ export class Subprocess {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Subprocess, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Subprocess, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -186,11 +186,11 @@ export interface SubprocessContext_ConstructProps extends GObject.Object_Constru
     argv?: string[]
 }
 export class SubprocessContext {
-    /* Properties of GSystem.SubprocessContext */
+    /* Properties of GSystem-1.0.GSystem.SubprocessContext */
     argv: string[]
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GSystem.SubprocessContext */
+    /* Methods of GSystem-1.0.GSystem.SubprocessContext */
     argv_append(arg: string): void
     open_pipe_read(): [ /* returnType */ boolean, /* out_stream */ Gio.InputStream, /* out_fdno */ number ]
     open_pipe_write(): [ /* returnType */ boolean, /* out_stream */ Gio.OutputStream, /* out_fdno */ number ]
@@ -207,7 +207,7 @@ export class SubprocessContext {
     set_stdout_disposition(disposition: SubprocessStreamDisposition): void
     set_stdout_fd(fd: number): void
     set_stdout_file_path(path: string): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -229,7 +229,7 @@ export class SubprocessContext {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -237,7 +237,7 @@ export class SubprocessContext {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: SubprocessContext, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: SubprocessContext, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -256,7 +256,7 @@ export class SubprocessContext {
     static $gtype: GObject.Type
 }
 export class DirFdIterator {
-    /* Fields of GSystem.DirFdIterator */
+    /* Fields of GSystem-1.0.GSystem.DirFdIterator */
     initialized: boolean
     fd: number
     padding_data: object[]

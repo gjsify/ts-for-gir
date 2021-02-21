@@ -137,7 +137,7 @@ export interface Agent_ConstructProps extends GObject.Object_ConstructProps {
     upnp_timeout?: number
 }
 export class Agent {
-    /* Properties of Nice.Agent */
+    /* Properties of Nice-0.1.Nice.Agent */
     readonly bytestream_tcp: boolean
     controlling_mode: boolean
     force_relay: boolean
@@ -161,9 +161,9 @@ export class Agent {
     support_renomination: boolean
     upnp: boolean
     upnp_timeout: number
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Nice.Agent */
+    /* Methods of Nice-0.1.Nice.Agent */
     add_local_address(addr: Address): boolean
     add_stream(n_components: number): number
     close_async(callback?: Gio.AsyncReadyCallback | null): void
@@ -205,7 +205,7 @@ export class Agent {
     set_software(software: string): void
     set_stream_name(stream_id: number, name: string): boolean
     set_stream_tos(stream_id: number, tos: number): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -227,7 +227,7 @@ export class Agent {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -235,7 +235,7 @@ export class Agent {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Nice.Agent */
+    /* Signals of Nice-0.1.Nice.Agent */
     connect(sigName: "candidate-gathering-done", callback: (($obj: Agent, stream_id: number) => void)): number
     connect_after(sigName: "candidate-gathering-done", callback: (($obj: Agent, stream_id: number) => void)): number
     emit(sigName: "candidate-gathering-done", stream_id: number): void
@@ -269,7 +269,7 @@ export class Agent {
     connect(sigName: "streams-removed", callback: (($obj: Agent, stream_ids: number[]) => void)): number
     connect_after(sigName: "streams-removed", callback: (($obj: Agent, stream_ids: number[]) => void)): number
     emit(sigName: "streams-removed", stream_ids: number[]): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Agent, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Agent, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -342,16 +342,16 @@ export interface PseudoTcpSocket_ConstructProps extends GObject.Object_Construct
     support_fin_ack?: boolean
 }
 export class PseudoTcpSocket {
-    /* Properties of Nice.PseudoTcpSocket */
+    /* Properties of Nice-0.1.Nice.PseudoTcpSocket */
     ack_delay: number
     callbacks: object
     no_delay: boolean
     rcv_buf: number
     snd_buf: number
     readonly state: number
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Nice.PseudoTcpSocket */
+    /* Methods of Nice-0.1.Nice.PseudoTcpSocket */
     can_send(): boolean
     close(force: boolean): void
     connect(): boolean
@@ -369,7 +369,7 @@ export class PseudoTcpSocket {
     send(buffer: string, len: number): number
     set_time(current_time: number): void
     shutdown(how: PseudoTcpShutdown): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -391,7 +391,7 @@ export class PseudoTcpSocket {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -399,7 +399,7 @@ export class PseudoTcpSocket {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: PseudoTcpSocket, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: PseudoTcpSocket, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -427,7 +427,7 @@ export class PseudoTcpSocket {
     static $gtype: GObject.Type
 }
 export class Address {
-    /* Methods of Nice.Address */
+    /* Methods of Nice-0.1.Nice.Address */
     copy_to_sockaddr(sin?: object | null): void
     equal(b: Address): boolean
     equal_no_port(b: Address): boolean
@@ -446,12 +446,12 @@ export class Address {
     static name: string
 }
 export abstract class AgentClass {
-    /* Fields of Nice.AgentClass */
+    /* Fields of Nice-0.1.Nice.AgentClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
 export class Candidate {
-    /* Fields of Nice.Candidate */
+    /* Fields of Nice-0.1.Nice.Candidate */
     type: CandidateType
     transport: CandidateTransport
     addr: Address
@@ -462,7 +462,7 @@ export class Candidate {
     foundation: number[]
     username: string
     password: string
-    /* Methods of Nice.Candidate */
+    /* Methods of Nice-0.1.Nice.Candidate */
     copy(): Candidate
     equal_target(candidate2: Candidate): boolean
     free(): void
@@ -475,7 +475,7 @@ export class Candidate {
     static type_to_string(type: CandidateType): string
 }
 export class InputMessage {
-    /* Fields of Nice.InputMessage */
+    /* Fields of Nice-0.1.Nice.InputMessage */
     buffers: Gio.InputVector[]
     n_buffers: number
     from: Address
@@ -483,13 +483,13 @@ export class InputMessage {
     static name: string
 }
 export class OutputMessage {
-    /* Fields of Nice.OutputMessage */
+    /* Fields of Nice-0.1.Nice.OutputMessage */
     buffers: Gio.OutputVector[]
     n_buffers: number
     static name: string
 }
 export class PseudoTcpCallbacks {
-    /* Fields of Nice.PseudoTcpCallbacks */
+    /* Fields of Nice-0.1.Nice.PseudoTcpCallbacks */
     user_data: object
     PseudoTcpOpened: (tcp: PseudoTcpSocket, data: object) => void
     PseudoTcpReadable: (tcp: PseudoTcpSocket, data: object) => void

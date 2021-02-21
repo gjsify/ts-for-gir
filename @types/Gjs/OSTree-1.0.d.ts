@@ -192,9 +192,9 @@ export interface RepoCommitModifierXattrCallback {
 export interface AsyncProgress_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class AsyncProgress {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of OSTree.AsyncProgress */
+    /* Methods of OSTree-1.0.OSTree.AsyncProgress */
     finish(): void
     get_status(): string
     get_uint(key: string): number
@@ -202,7 +202,7 @@ export class AsyncProgress {
     set_status(status: string): void
     set_uint(key: string, value: number): void
     set_uint64(key: string, value: number): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -224,9 +224,9 @@ export class AsyncProgress {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of OSTree.AsyncProgress */
+    /* Virtual methods of OSTree-1.0.OSTree.AsyncProgress */
     vfunc_changed(): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -234,11 +234,11 @@ export class AsyncProgress {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of OSTree.AsyncProgress */
+    /* Signals of OSTree-1.0.OSTree.AsyncProgress */
     connect(sigName: "changed", callback: (($obj: AsyncProgress) => void)): number
     connect_after(sigName: "changed", callback: (($obj: AsyncProgress) => void)): number
     emit(sigName: "changed"): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: AsyncProgress, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: AsyncProgress, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -257,9 +257,9 @@ export class AsyncProgress {
 export interface BootconfigParser_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class BootconfigParser {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of OSTree.BootconfigParser */
+    /* Methods of OSTree-1.0.OSTree.BootconfigParser */
     clone(): BootconfigParser
     get(key: string): string
     parse(path: Gio.File, cancellable?: Gio.Cancellable | null): boolean
@@ -267,7 +267,7 @@ export class BootconfigParser {
     set(key: string, value: string): void
     write(output: Gio.File, cancellable?: Gio.Cancellable | null): boolean
     write_at(dfd: number, path: string, cancellable?: Gio.Cancellable | null): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -289,7 +289,7 @@ export class BootconfigParser {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -297,7 +297,7 @@ export class BootconfigParser {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: BootconfigParser, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: BootconfigParser, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -316,19 +316,19 @@ export interface ChecksumInputStream_ConstructProps extends Gio.FilterInputStrea
     checksum?: object
 }
 export class ChecksumInputStream {
-    /* Properties of Gio.FilterInputStream */
+    /* Properties of Gio-2.0.Gio.FilterInputStream */
     close_base_stream: boolean
-    /* Fields of OSTree.ChecksumInputStream */
+    /* Fields of OSTree-1.0.OSTree.ChecksumInputStream */
     parent_instance: Gio.FilterInputStream
-    /* Fields of Gio.FilterInputStream */
+    /* Fields of Gio-2.0.Gio.FilterInputStream */
     base_stream: Gio.InputStream
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Gio.FilterInputStream */
+    /* Methods of Gio-2.0.Gio.FilterInputStream */
     get_base_stream(): Gio.InputStream
     get_close_base_stream(): boolean
     set_close_base_stream(close_base: boolean): void
-    /* Methods of Gio.InputStream */
+    /* Methods of Gio-2.0.Gio.InputStream */
     clear_pending(): void
     close(cancellable?: Gio.Cancellable | null): boolean
     close_async(io_priority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
@@ -348,7 +348,7 @@ export class ChecksumInputStream {
     skip(count: number, cancellable?: Gio.Cancellable | null): number
     skip_async(count: number, io_priority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     skip_finish(result: Gio.AsyncResult): number
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -370,7 +370,7 @@ export class ChecksumInputStream {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Gio.InputStream */
+    /* Virtual methods of Gio-2.0.Gio.InputStream */
     vfunc_close_async(io_priority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     vfunc_close_finish(result: Gio.AsyncResult): boolean
     vfunc_close_fn(cancellable?: Gio.Cancellable | null): boolean
@@ -380,7 +380,7 @@ export class ChecksumInputStream {
     vfunc_skip(count: number, cancellable?: Gio.Cancellable | null): number
     vfunc_skip_async(count: number, io_priority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     vfunc_skip_finish(result: Gio.AsyncResult): number
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -388,7 +388,7 @@ export class ChecksumInputStream {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: ChecksumInputStream, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: ChecksumInputStream, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -408,9 +408,9 @@ export class ChecksumInputStream {
 export interface Deployment_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class Deployment {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of OSTree.Deployment */
+    /* Methods of OSTree-1.0.OSTree.Deployment */
     clone(): Deployment
     equal(bp: Deployment): boolean
     get_bootconfig(): BootconfigParser
@@ -427,7 +427,7 @@ export class Deployment {
     set_bootserial(index: number): void
     set_index(index: number): void
     set_origin(origin: GLib.KeyFile): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -449,7 +449,7 @@ export class Deployment {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -457,7 +457,7 @@ export class Deployment {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Deployment, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Deployment, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -477,9 +477,9 @@ export class Deployment {
 export interface GpgVerifyResult_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class GpgVerifyResult {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of OSTree.GpgVerifyResult */
+    /* Methods of OSTree-1.0.OSTree.GpgVerifyResult */
     count_all(): number
     count_valid(): number
     describe(signature_index: number, output_buffer: GLib.String, line_prefix: string | null, flags: GpgSignatureFormatFlags): void
@@ -487,7 +487,7 @@ export class GpgVerifyResult {
     get_all(signature_index: number): GLib.Variant
     lookup(key_id: string): [ /* returnType */ boolean, /* out_signature_index */ number ]
     require_valid_signature(): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -509,11 +509,11 @@ export class GpgVerifyResult {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of Gio.Initable */
+    /* Methods of Gio-2.0.Gio.Initable */
     init(cancellable?: Gio.Cancellable | null): boolean
-    /* Virtual methods of OSTree.GpgVerifyResult */
+    /* Virtual methods of OSTree-1.0.OSTree.GpgVerifyResult */
     vfunc_init(cancellable?: Gio.Cancellable | null): boolean
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -521,7 +521,7 @@ export class GpgVerifyResult {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: GpgVerifyResult, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: GpgVerifyResult, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -540,9 +540,9 @@ export class GpgVerifyResult {
 export interface MutableTree_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class MutableTree {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of OSTree.MutableTree */
+    /* Methods of OSTree-1.0.OSTree.MutableTree */
     ensure_dir(name: string, out_subdir: MutableTree): boolean
     ensure_parent_dirs(split_path: string[], metadata_checksum: string): [ /* returnType */ boolean, /* out_parent */ MutableTree ]
     get_contents_checksum(): string
@@ -554,7 +554,7 @@ export class MutableTree {
     set_contents_checksum(checksum: string): void
     set_metadata_checksum(checksum: string): void
     walk(split_path: string[], start: number): [ /* returnType */ boolean, /* out_subdir */ MutableTree ]
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -576,7 +576,7 @@ export class MutableTree {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -584,7 +584,7 @@ export class MutableTree {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: MutableTree, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: MutableTree, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -605,9 +605,9 @@ export interface Repo_ConstructProps extends GObject.Object_ConstructProps {
     sysroot_path?: Gio.File
 }
 export class Repo {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of OSTree.Repo */
+    /* Methods of OSTree-1.0.OSTree.Repo */
     abort_transaction(cancellable?: Gio.Cancellable | null): boolean
     add_gpg_signature_summary(key_id: string[], homedir?: string | null, cancellable?: Gio.Cancellable | null): boolean
     append_gpg_signature(commit_checksum: string, signature_bytes: GLib.Bytes, cancellable?: Gio.Cancellable | null): boolean
@@ -698,7 +698,7 @@ export class Repo {
     write_metadata_stream_trusted(objtype: ObjectType, checksum: string, object_input: Gio.InputStream, length: number, cancellable?: Gio.Cancellable | null): boolean
     write_metadata_trusted(objtype: ObjectType, checksum: string, variant: GLib.Variant, cancellable?: Gio.Cancellable | null): boolean
     write_mtree(mtree: MutableTree, cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* out_file */ Gio.File ]
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -720,7 +720,7 @@ export class Repo {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -728,11 +728,11 @@ export class Repo {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of OSTree.Repo */
+    /* Signals of OSTree-1.0.OSTree.Repo */
     connect(sigName: "gpg-verify-result", callback: (($obj: Repo, checksum: string, result: GpgVerifyResult) => void)): number
     connect_after(sigName: "gpg-verify-result", callback: (($obj: Repo, checksum: string, result: GpgVerifyResult) => void)): number
     emit(sigName: "gpg-verify-result", checksum: string, result: GpgVerifyResult): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Repo, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Repo, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -755,9 +755,9 @@ export class Repo {
 export interface RepoFile_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class RepoFile {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of OSTree.RepoFile */
+    /* Methods of OSTree-1.0.OSTree.RepoFile */
     ensure_resolved(): boolean
     get_checksum(): string
     get_repo(): Repo
@@ -770,7 +770,7 @@ export class RepoFile {
     tree_get_metadata_checksum(): string
     tree_query_child(n: number, attributes: string, flags: Gio.FileQueryInfoFlags, out_info: Gio.FileInfo, cancellable?: Gio.Cancellable | null): boolean
     tree_set_metadata(checksum: string, metadata: GLib.Variant): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -792,7 +792,7 @@ export class RepoFile {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of Gio.File */
+    /* Methods of Gio-2.0.Gio.File */
     append_to(flags: Gio.FileCreateFlags, cancellable?: Gio.Cancellable | null): Gio.FileOutputStream
     append_to_async(flags: Gio.FileCreateFlags, io_priority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     append_to_finish(res: Gio.AsyncResult): Gio.FileOutputStream
@@ -915,7 +915,7 @@ export class RepoFile {
     unmount_mountable_finish(result: Gio.AsyncResult): boolean
     unmount_mountable_with_operation(flags: Gio.MountUnmountFlags, mount_operation?: Gio.MountOperation | null, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     unmount_mountable_with_operation_finish(result: Gio.AsyncResult): boolean
-    /* Virtual methods of OSTree.RepoFile */
+    /* Virtual methods of OSTree-1.0.OSTree.RepoFile */
     vfunc_append_to(flags: Gio.FileCreateFlags, cancellable?: Gio.Cancellable | null): Gio.FileOutputStream
     vfunc_append_to_async(flags: Gio.FileCreateFlags, io_priority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     vfunc_append_to_finish(res: Gio.AsyncResult): Gio.FileOutputStream
@@ -1008,7 +1008,7 @@ export class RepoFile {
     vfunc_unmount_mountable_finish(result: Gio.AsyncResult): boolean
     vfunc_unmount_mountable_with_operation(flags: Gio.MountUnmountFlags, mount_operation?: Gio.MountOperation | null, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     vfunc_unmount_mountable_with_operation_finish(result: Gio.AsyncResult): boolean
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -1016,7 +1016,7 @@ export class RepoFile {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: RepoFile, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: RepoFile, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -1040,16 +1040,16 @@ export interface SePolicy_ConstructProps extends GObject.Object_ConstructProps {
     path?: Gio.File
 }
 export class SePolicy {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of OSTree.SePolicy */
+    /* Methods of OSTree-1.0.OSTree.SePolicy */
     get_csum(): string
     get_label(relpath: string, unix_mode: number, cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* out_label */ string | null ]
     get_name(): string
     get_path(): Gio.File
     restorecon(path: string, info: Gio.FileInfo | null, target: Gio.File, flags: SePolicyRestoreconFlags, cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* out_new_label */ string | null ]
     setfscreatecon(path: string, mode: number): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -1071,11 +1071,11 @@ export class SePolicy {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of Gio.Initable */
+    /* Methods of Gio-2.0.Gio.Initable */
     init(cancellable?: Gio.Cancellable | null): boolean
-    /* Virtual methods of OSTree.SePolicy */
+    /* Virtual methods of OSTree-1.0.OSTree.SePolicy */
     vfunc_init(cancellable?: Gio.Cancellable | null): boolean
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -1083,7 +1083,7 @@ export class SePolicy {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: SePolicy, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: SePolicy, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -1104,9 +1104,9 @@ export interface Sysroot_ConstructProps extends GObject.Object_ConstructProps {
     path?: Gio.File
 }
 export class Sysroot {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of OSTree.Sysroot */
+    /* Methods of OSTree-1.0.OSTree.Sysroot */
     cleanup(cancellable?: Gio.Cancellable | null): boolean
     deploy_tree(osname: string | null, revision: string, origin?: GLib.KeyFile | null, provided_merge_deployment?: Deployment | null, override_kernel_argv?: string[] | null, cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* out_new_deployment */ Deployment ]
     deployment_set_kargs(deployment: Deployment, new_kargs: string[], cancellable?: Gio.Cancellable | null): boolean
@@ -1137,7 +1137,7 @@ export class Sysroot {
     unlock(): void
     write_deployments(new_deployments: Deployment[], cancellable?: Gio.Cancellable | null): boolean
     write_origin_file(deployment: Deployment, new_origin?: GLib.KeyFile | null, cancellable?: Gio.Cancellable | null): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -1159,7 +1159,7 @@ export class Sysroot {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -1167,7 +1167,7 @@ export class Sysroot {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Sysroot, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Sysroot, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -1190,9 +1190,9 @@ export interface SysrootUpgrader_ConstructProps extends GObject.Object_Construct
     sysroot?: Sysroot
 }
 export class SysrootUpgrader {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of OSTree.SysrootUpgrader */
+    /* Methods of OSTree-1.0.OSTree.SysrootUpgrader */
     deploy(cancellable?: Gio.Cancellable | null): boolean
     dup_origin(): GLib.KeyFile
     get_origin(): GLib.KeyFile
@@ -1200,7 +1200,7 @@ export class SysrootUpgrader {
     pull(flags: RepoPullFlags, upgrader_flags: SysrootUpgraderPullFlags, progress?: AsyncProgress | null, cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* out_changed */ boolean ]
     pull_one_dir(dir_to_pull: string, flags: RepoPullFlags, upgrader_flags: SysrootUpgraderPullFlags, progress: AsyncProgress, out_changed: boolean, cancellable?: Gio.Cancellable | null): boolean
     set_origin(origin?: GLib.KeyFile | null, cancellable?: Gio.Cancellable | null): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -1222,11 +1222,11 @@ export class SysrootUpgrader {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of Gio.Initable */
+    /* Methods of Gio-2.0.Gio.Initable */
     init(cancellable?: Gio.Cancellable | null): boolean
-    /* Virtual methods of OSTree.SysrootUpgrader */
+    /* Virtual methods of OSTree-1.0.OSTree.SysrootUpgrader */
     vfunc_init(cancellable?: Gio.Cancellable | null): boolean
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -1234,7 +1234,7 @@ export class SysrootUpgrader {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: SysrootUpgrader, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: SysrootUpgrader, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -1254,7 +1254,7 @@ export class SysrootUpgrader {
     static $gtype: GObject.Type
 }
 export abstract class AsyncProgressClass {
-    /* Fields of OSTree.AsyncProgressClass */
+    /* Fields of OSTree-1.0.OSTree.AsyncProgressClass */
     parent_class: GObject.ObjectClass
     changed: (self: AsyncProgress) => void
     static name: string
@@ -1266,7 +1266,7 @@ export class BootloaderGrub2 {
     static name: string
 }
 export class BootloaderInterface {
-    /* Fields of OSTree.BootloaderInterface */
+    /* Fields of OSTree-1.0.OSTree.BootloaderInterface */
     g_iface: GObject.TypeInterface
     query: (bootloader: Bootloader, out_is_active: boolean, cancellable: Gio.Cancellable) => boolean
     get_name: (self: Bootloader) => string
@@ -1281,7 +1281,7 @@ export class BootloaderUboot {
     static name: string
 }
 export abstract class ChecksumInputStreamClass {
-    /* Fields of OSTree.ChecksumInputStreamClass */
+    /* Fields of OSTree-1.0.OSTree.ChecksumInputStreamClass */
     parent_class: Gio.FilterInputStreamClass
     static name: string
 }
@@ -1289,7 +1289,7 @@ export class ChecksumInputStreamPrivate {
     static name: string
 }
 export class CmdPrivateVTable {
-    /* Fields of OSTree.CmdPrivateVTable */
+    /* Fields of OSTree-1.0.OSTree.CmdPrivateVTable */
     ostree_generate_grub2_config: (sysroot: Sysroot, bootversion: number, target_fd: number, cancellable: Gio.Cancellable) => boolean
     ostree_static_delta_dump: (repo: Repo, delta_id: string, cancellable: Gio.Cancellable) => boolean
     ostree_static_delta_query_exists: (repo: Repo, delta_id: string, out_exists: boolean, cancellable: Gio.Cancellable) => boolean
@@ -1297,7 +1297,7 @@ export class CmdPrivateVTable {
     static name: string
 }
 export class DiffItem {
-    /* Fields of OSTree.DiffItem */
+    /* Fields of OSTree-1.0.OSTree.DiffItem */
     refcount: number
     src: Gio.File
     target: Gio.File
@@ -1305,7 +1305,7 @@ export class DiffItem {
     target_info: Gio.FileInfo
     src_checksum: string
     target_checksum: string
-    /* Methods of OSTree.DiffItem */
+    /* Methods of OSTree-1.0.OSTree.DiffItem */
     ref(): DiffItem
     unref(): void
     static name: string
@@ -1314,12 +1314,12 @@ export class GpgVerifier {
     static name: string
 }
 export class LibarchiveInputStream {
-    /* Fields of OSTree.LibarchiveInputStream */
+    /* Fields of OSTree-1.0.OSTree.LibarchiveInputStream */
     parent_instance: Gio.InputStream
     static name: string
 }
 export class LibarchiveInputStreamClass {
-    /* Fields of OSTree.LibarchiveInputStreamClass */
+    /* Fields of OSTree-1.0.OSTree.LibarchiveInputStreamClass */
     parent_class: Gio.InputStreamClass
     static name: string
 }
@@ -1330,7 +1330,7 @@ export class LzmaCompressor {
     static name: string
 }
 export class LzmaCompressorClass {
-    /* Fields of OSTree.LzmaCompressorClass */
+    /* Fields of OSTree-1.0.OSTree.LzmaCompressorClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
@@ -1338,23 +1338,23 @@ export class LzmaDecompressor {
     static name: string
 }
 export class LzmaDecompressorClass {
-    /* Fields of OSTree.LzmaDecompressorClass */
+    /* Fields of OSTree-1.0.OSTree.LzmaDecompressorClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
 export abstract class MutableTreeClass {
-    /* Fields of OSTree.MutableTreeClass */
+    /* Fields of OSTree-1.0.OSTree.MutableTreeClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
 export class MutableTreeIter {
-    /* Fields of OSTree.MutableTreeIter */
+    /* Fields of OSTree-1.0.OSTree.MutableTreeIter */
     in_files: boolean
     iter: GLib.HashTableIter
     static name: string
 }
 export class RepoCheckoutAtOptions {
-    /* Fields of OSTree.RepoCheckoutAtOptions */
+    /* Fields of OSTree-1.0.OSTree.RepoCheckoutAtOptions */
     mode: RepoCheckoutMode
     overwrite_mode: RepoCheckoutOverwriteMode
     enable_uncompressed_cache: boolean
@@ -1369,7 +1369,7 @@ export class RepoCheckoutAtOptions {
     static name: string
 }
 export class RepoCheckoutOptions {
-    /* Fields of OSTree.RepoCheckoutOptions */
+    /* Fields of OSTree-1.0.OSTree.RepoCheckoutOptions */
     mode: RepoCheckoutMode
     overwrite_mode: RepoCheckoutOverwriteMode
     enable_uncompressed_cache: number
@@ -1384,7 +1384,7 @@ export class RepoCheckoutOptions {
     static name: string
 }
 export class RepoCommitModifier {
-    /* Methods of OSTree.RepoCommitModifier */
+    /* Methods of OSTree-1.0.OSTree.RepoCommitModifier */
     ref(): RepoCommitModifier
     set_devino_cache(cache: RepoDevInoCache): void
     set_sepolicy(sepolicy?: SePolicy | null): void
@@ -1397,11 +1397,11 @@ export class RepoCommitModifier {
     static new(flags: RepoCommitModifierFlags, commit_filter: RepoCommitFilter | null): RepoCommitModifier
 }
 export class RepoCommitTraverseIter {
-    /* Fields of OSTree.RepoCommitTraverseIter */
+    /* Fields of OSTree-1.0.OSTree.RepoCommitTraverseIter */
     initialized: boolean
     dummy: object[]
     dummy_checksum_data: number[]
-    /* Methods of OSTree.RepoCommitTraverseIter */
+    /* Methods of OSTree-1.0.OSTree.RepoCommitTraverseIter */
     clear(): void
     get_dir(): [ /* out_name */ string, /* out_content_checksum */ string, /* out_meta_checksum */ string ]
     get_file(): [ /* out_name */ string, /* out_checksum */ string ]
@@ -1413,7 +1413,7 @@ export class RepoCommitTraverseIter {
     static cleanup(p?: object | null): void
 }
 export class RepoDevInoCache {
-    /* Methods of OSTree.RepoDevInoCache */
+    /* Methods of OSTree-1.0.OSTree.RepoDevInoCache */
     ref(): RepoDevInoCache
     unref(): void
     static name: string
@@ -1423,7 +1423,7 @@ export class RepoDevInoCache {
     static new(): RepoDevInoCache
 }
 export class RepoExportArchiveOptions {
-    /* Fields of OSTree.RepoExportArchiveOptions */
+    /* Fields of OSTree-1.0.OSTree.RepoExportArchiveOptions */
     disable_xattrs: number
     reserved: number
     timestamp_secs: number
@@ -1433,7 +1433,7 @@ export class RepoExportArchiveOptions {
     static name: string
 }
 export abstract class RepoFileClass {
-    /* Fields of OSTree.RepoFileClass */
+    /* Fields of OSTree-1.0.OSTree.RepoFileClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
@@ -1441,12 +1441,12 @@ export class RepoFileEnumerator {
     static name: string
 }
 export class RepoFileEnumeratorClass {
-    /* Fields of OSTree.RepoFileEnumeratorClass */
+    /* Fields of OSTree-1.0.OSTree.RepoFileEnumeratorClass */
     parent_class: Gio.FileEnumeratorClass
     static name: string
 }
 export class RepoImportArchiveOptions {
-    /* Fields of OSTree.RepoImportArchiveOptions */
+    /* Fields of OSTree-1.0.OSTree.RepoImportArchiveOptions */
     ignore_unsupported_content: number
     autocreate_parents: number
     use_ostree_convention: number
@@ -1457,7 +1457,7 @@ export class RepoImportArchiveOptions {
     static name: string
 }
 export class RepoTransactionStats {
-    /* Fields of OSTree.RepoTransactionStats */
+    /* Fields of OSTree-1.0.OSTree.RepoTransactionStats */
     metadata_objects_total: number
     metadata_objects_written: number
     content_objects_total: number
@@ -1470,7 +1470,7 @@ export class RepoTransactionStats {
     static name: string
 }
 export class RollsumMatches {
-    /* Fields of OSTree.RollsumMatches */
+    /* Fields of OSTree-1.0.OSTree.RollsumMatches */
     from_rollsums: GLib.HashTable
     to_rollsums: GLib.HashTable
     crcmatches: number

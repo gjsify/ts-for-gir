@@ -56,7 +56,7 @@ export function formatN(type: Object, components: number): Object
 export function formatWithSpace(encoding: string, space: Object): Object
 export function getModelFlags(model: Object): ModelFlag
 export function getName(babl: Object): string
-export function getVersion(): [ /* major */ number, /* minor */ number, /* micro */ number ]
+export function getVersion(): { major: number, minor: number, micro: number }
 export function iccGetKey(iccData: string, iccLength: number, key: string, language: string, country: string): string
 export function iccMakeSpace(iccData: string, iccLength: number, intent: IccIntent, error: string): Object
 export function init(): void
@@ -73,12 +73,12 @@ export function processRows(bablFish: Object, source: object | null, sourceStrid
 export function sampling(horizontal: number, vertical: number): Object
 export function space(name: string): Object
 export function spaceFromChromaticities(name: string | null, wx: number, wy: number, rx: number, ry: number, gx: number, gy: number, bx: number, by: number, trcRed: Object, trcGreen: Object | null, trcBlue: Object | null, flags: SpaceFlags): Object
-export function spaceFromIcc(iccData: string, iccLength: number, intent: IccIntent): [ /* returnType */ Object, /* error */ string ]
+export function spaceFromIcc(iccData: string, iccLength: number, intent: IccIntent): { returnType: Object, error: string }
 export function spaceFromRgbxyzMatrix(name: string | null, wx: number, wy: number, wz: number, rx: number, gx: number, bx: number, ry: number, gy: number, by: number, rz: number, gz: number, bz: number, trcRed: Object, trcGreen?: Object | null, trcBlue?: Object | null): Object
-export function spaceGet(space: Object): [ /* xw */ number | null, /* yw */ number | null, /* xr */ number | null, /* yr */ number | null, /* xg */ number | null, /* yg */ number | null, /* xb */ number | null, /* yb */ number | null, /* redTrc */ Object | null, /* greenTrc */ Object | null, /* blueTrc */ Object | null ]
+export function spaceGet(space: Object): { xw: number | null, yw: number | null, xr: number | null, yr: number | null, xg: number | null, yg: number | null, xb: number | null, yb: number | null, redTrc: Object | null, greenTrc: Object | null, blueTrc: Object | null }
 export function spaceGetGamma(space: Object): number
-export function spaceGetIcc(babl: Object): [ /* returnType */ string, /* length */ number | null ]
-export function spaceGetRgbLuminance(space: Object): [ /* redLuminance */ number | null, /* greenLuminance */ number | null, /* blueLuminance */ number | null ]
+export function spaceGetIcc(babl: Object): { returnType: string, length: number | null }
+export function spaceGetRgbLuminance(space: Object): { redLuminance: number | null, greenLuminance: number | null, blueLuminance: number | null }
 export function spaceIsCmyk(space: Object): number
 export function spaceIsGray(space: Object): number
 export function spaceWithTrc(space: Object, trc: Object): Object
